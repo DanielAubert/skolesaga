@@ -1,0 +1,162 @@
+[
+ {
+  "question": "Menyen tester brukerens valg med `if valg == 1:`, men ingen gren treffer noen gang. Hvorfor?",
+  "options": [
+   "`input()` gir en streng, så testen må være `valg == '1'` med fnutter",
+   "`input()` gir et flyttall, så testen må være `valg == 1.0` med desimal",
+   "`if` kan ikke sammenligne med tall — menyer må bruke `elif` hele veien",
+   "Menyvalg må alltid konverteres med `str()` før de kan sammenlignes"
+  ],
+  "explanation": "`input()` returnerer alltid tekst, og strengen `'1'` er ikke lik tallet 1, så testen er alltid usann. Det er felle #1, glemt konvertering, i sin menyvariant. `input()` gir aldri flyttall, og `if` kan sammenligne med tall — det er bare typene som ikke stemmer her. Konvertering med `str()` er unødvendig, siden verdien allerede er en streng."
+ },
+ {
+  "question": "Hva er den eneste veien ut av en `while True:`-løkke i en meny?",
+  "options": [
+   "Et `break` i grenen som svarer til avslutningsvalget",
+   "At betingelsen i `while`-linja etter hvert blir usann av seg selv",
+   "At brukeren skriver noe som ingen av grenene tar imot",
+   "Et `return` i hver av grenene, ellers går løkka videre"
+  ],
+  "explanation": "`True` blir aldri usann, så løkka stopper bare når `break` kjøres — mangler det, er det felle #8, en input-løkke som ikke terminerer. Et ugyldig valg havner i `else` og fortsetter løkka. `return` avslutter riktignok også, men det avslutter hele funksjonen og hører ikke i hver gren."
+ },
+ {
+  "question": "En besvarelse lar `finn_beste`, `lag_rapport` og `tell_over` hver åpne og lese datafila selv. Hva er den viktigste innvendingen?",
+  "options": [
+   "Innlesingskoden står tre steder, og funksjonene er låst til ett filnavn",
+   "Programmet krasjer, fordi en fil bare kan åpnes én gang per kjøring",
+   "Funksjonene får ulike data, siden fila leses på tre ulike tidspunkter",
+   "Python tillater ikke at samme filnavn står i tre forskjellige funksjoner"
+  ],
+  "explanation": "Riktig struktur er at `main` leser dataene én gang og sender dem videre som parameter; ellers har du tre kopier av innlesingen og funksjoner som er låst til ett filnavn. En fil kan åpnes så mange ganger du vil, og filnavnet kan gjentas fritt. Dataene ville dessuten vært de samme alle tre gangene — problemet er strukturen, ikke innholdet."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef dobbel(x):\n    return x * 2\n\ndef firedobbel(x):\n    return dobbel(dobbel(x))\n\nprint(firedobbel(5))\n```",
+  "options": [
+   "`20`",
+   "`10`",
+   "`25`",
+   "`40`"
+  ],
+  "explanation": "Det innerste kallet gir 10, som blir argumentet til det ytre: 10 ganger 2 er 20. Svaret `10` regner bare med ett av de to kallene. `25` er `5 * 5`, og `40` dobler én gang for mye."
+ },
+ {
+  "question": "Hvilken oppgave har `main` i et program bygget på gjenbruk?",
+  "options": [
+   "Å skaffe dataene, kalle de andre funksjonene og vise resultatet",
+   "Å inneholde løkkene og regnestykkene, siden den ser hele programmet",
+   "Å definere alle de andre funksjonene inne i seg, slik at de er samlet",
+   "Å bli kalt av Python automatisk når fila kjøres, uten noe eget kall"
+  ],
+  "explanation": "`main` delegerer: den har data, kall og utskrift, men verken løkker eller regning — da kan hver deloppgave vurderes for seg. Funksjoner defineres ikke inne i `main` i dette faget. Og Python kaller ingenting av seg selv; du skriver `main()` helt til venstre nederst i fila."
+ },
+ {
+  "question": "Hvor bør menyteksten skrives ut i en menyløkke?",
+  "options": [
+   "Inne i løkka, så valgene vises på nytt hver eneste runde",
+   "Rett før løkka, så brukeren ser valgene én gang ved oppstart",
+   "I `main`, sammen med dataene, før menyfunksjonen kalles",
+   "Etter løkka, slik at valgene står igjen på skjermen til slutt"
+  ],
+  "explanation": "Menyen står inne i løkka, ellers ser brukeren valgene bare første gang og må huske dem resten av økta. Utskrift etter løkka kommer først når programmet er ferdig, og en meny som vises fra `main`, får det samme problemet som en meny før løkka. Selve valglista kan gjerne ligge i en egen liten funksjon som kalles inne i løkka."
+ },
+ {
+  "question": "Deloppgave b) skal telle forfalte bøker, og deloppgave a) er `er_forfalt(dager)`. Hva gir best uttelling i b)?",
+  "options": [
+   "En løkke som bruker `if er_forfalt(d):` som test på hvert element",
+   "En løkke som gjentar testen `if d > 28:` direkte i deloppgave b)",
+   "En kopi av hele funksjonen fra a), med nytt navn og samme innhold",
+   "En ny funksjon som teller alle bøkene og trekker fra de som ikke er forfalt"
+  ],
+  "explanation": "Sensor belønner uttrykkelig at senere deloppgaver bruker de tidligere, så kallet til `er_forfalt` er hele poenget med b). Å gjenta grensen `28` gir riktig svar, men mister gjenbruket og gir to steder å endre fristen. En kopi av funksjonen er samme feil i verre form, og omveien om totalen løser ikke problemet."
+ },
+ {
+  "question": "Linja `verdier[0] = 99` skriver en ny verdi over det første elementet i lista. Hva skriver programmet ut?\n\n```python\ndef endre(verdier):\n    verdier[0] = 99\n    return verdier\n\ntall = [1, 2, 3]\nnye = endre(tall)\nprint(tall[0], nye[0])\n```",
+  "options": [
+   "`99 99`",
+   "`1 99`",
+   "`99 1`",
+   "`1 1`"
+  ],
+  "explanation": "Funksjonen endrer elementet i lista den fikk inn og returnerer den samme lista, så `tall` og `nye` er to navn på ett objekt — det er felle #15, aliasing. Svaret `1 99` er fellen: å tro at returverdien er en ny, uavhengig liste. De to siste svarene forutsetter at endringen ikke skjedde i det hele tatt."
+ },
+ {
+  "question": "Hvorfor skrives konstanter som `GEBYR_PER_BOK = 30` med store bokstaver?",
+  "options": [
+   "Som et signal til leseren om at verdien ikke endres underveis",
+   "Fordi Python nekter å endre variabler som er skrevet med store bokstaver",
+   "Fordi bare navn med store bokstaver kan leses inne i en funksjon",
+   "Fordi navn med store bokstaver plasseres først når fila kjøres"
+  ],
+  "explanation": "Store bokstaver er en skrivemåte, ikke en regel i språket: Python lar deg gjerne endre verdien, men skrivemåten sier til leseren at du ikke gjør det. Alle globale navn kan leses inne i en funksjon, uansett skrivemåte, og rekkefølgen fila kjøres i, påvirkes ikke av hvordan navnene ser ut."
+ },
+ {
+  "question": "Hva er forskjellen på `break` og `return` inne i en menyløkke?",
+  "options": [
+   "`break` avslutter bare løkka, mens `return` avslutter hele funksjonen",
+   "`break` avslutter hele funksjonen, mens `return` bare avslutter løkka",
+   "De gjør nøyaktig det samme når de står inne i en `while True:`-løkke",
+   "`break` kan bare stå i en `for`-løkke, mens `return` kan stå i en `while`"
+  ],
+  "explanation": "`break` hopper til første linje etter løkka, og resten av funksjonen kjøres; `return` forlater funksjonen med det samme. I en meny der løkka er det siste i funksjonen, ser de like ut i praksis — men står det kode etter løkka, er forskjellen synlig. `break` virker i begge løkketyper."
+ },
+ {
+  "question": "En menyfunksjon regner ut snittet med en egen løkke i gren 2, i stedet for å kalle `snitt(priser)`. Hva er hovedinnvendingen?",
+  "options": [
+   "Menyen har overtatt jobben til funksjonen, så koden står nå to steder",
+   "En `for`-løkke er ikke lovlig inne i en `elif`-gren i en menyløkke",
+   "Snittet blir feil, fordi løkka starter på nytt for hver runde i menyen",
+   "Menyen kan da ikke lenger avsluttes med `break` i q-grenen"
+  ],
+  "explanation": "Dispatcheren skal fordele arbeid, ikke gjøre det: med regningen i grenen har du skrevet analysen to ganger, én gang i deloppgaven og én gang i menyen. En løkke er fullt lovlig inne i en gren, snittet blir riktig hver runde, og `break` virker som før — innvendingen er strukturen og gjenbruket."
+ },
+ {
+  "question": "Hvilken rolle har `else`-grenen nederst i en menyløkke?",
+  "options": [
+   "Den fanger ugyldige valg og sier fra, slik at løkka går en runde til",
+   "Den fanger avslutningsvalget, slik at `break` bare trengs én gang",
+   "Den kjøres etter hver runde, uansett hvilket valg brukeren gjorde",
+   "Den er påkrevd av Python — en `if`-kjede må avsluttes med `else`"
+  ],
+  "explanation": "`else` fanger alt som ikke passet i noen gren, altså skrivefeil og ukjente valg, og gir brukeren en beskjed før løkka fortsetter. Avslutningsvalget har sin egen `elif` med `break`. Bare én gren kjøres per runde, og `else` er valgfri i Python — men uten den tier programmet ved en skrivefeil."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef gebyr(antall, sats=30):\n    return antall * sats\n\nprint(gebyr(3))\nprint(gebyr(3, 45))\n```",
+  "options": [
+   "`90` og deretter `135`",
+   "`135` og deretter `90`",
+   "`90` og deretter `90`",
+   "`33` og deretter `48`"
+  ],
+  "explanation": "Første kall bruker standardverdien 30 og gir 90; andre kall overstyrer satsen til 45 og gir 135. Svaret der `135` kommer først, bytter om kallene. Svaret `90` to ganger antar at standardverdien ikke kan overstyres, og det siste legger sammen i stedet for å gange."
+ },
+ {
+  "question": "Hva må være oppfylt for at et ledd i en funksjonskjede skal kunne brukes av det neste leddet?",
+  "options": [
+   "At leddet returnerer resultatet i stedet for å skrive det ut",
+   "At leddet er definert lenger opp i fila enn det neste leddet",
+   "At leddet og det neste leddet har nøyaktig samme parameterliste",
+   "At leddet skriver ut resultatet, slik at det neste kan lese det"
+  ],
+  "explanation": "Et ledd som bare skriver ut, gir `None` tilbake, og da har det neste leddet ingenting å jobbe med — kjeden krever `return`. Rekkefølgen i fila er likegyldig, siden alle definisjoner kjøres før `main()` kalles. Parameterlistene kan gjerne være helt ulike, og utskrift kan ikke leses av et annet ledd."
+ },
+ {
+  "question": "En besvarelse klarer ikke deloppgave a), som skulle lese inn dataene. Hva lønner seg i deloppgave c), som skal bruke resultatet fra a)?",
+  "options": [
+   "Å skrive c) som om a) virket, og kalle funksjonen derfra",
+   "Å hoppe over c), siden den ikke kan gi poeng uten a)",
+   "Å skrive innlesingen på nytt inne i c), så den blir selvstendig",
+   "Å skrive c) uten parametere og hardkode dataene inne i funksjonen"
+  ],
+  "explanation": "Sensor gir uttelling for riktig struktur i c) selv om a) mangler eller er feil, så kallet skal stå der. Å hoppe over c) gir sikkert null. Å gjenta innlesingen bryter kjeden og gir dobbelt arbeid, og hardkodede data inne i funksjonen fjerner nettopp det deloppgaven testes på."
+ },
+ {
+  "question": "Hvorfor må tallet konverteres i `print('Trent ' + str(minutter) + ' minutter')`?",
+  "options": [
+   "Fordi `+` mellom en streng og et tall gir `TypeError` i Python",
+   "Fordi `print` bare kan ta imot ett argument når det er tekst inni",
+   "Fordi tallet ellers ville blitt lagt sammen med lengden på teksten",
+   "Fordi `str` runder av tallet, slik at utskriften ikke får desimaler"
+  ],
+  "explanation": "`+` er sammenliming for strenger og addisjon for tall, og blandingen er ikke definert — derfor `str(...)` rundt tallet. Alternativet `print('Trent', minutter, 'minutter')` med komma virker like godt og trenger ingen konvertering. `str` runder ikke av noe; den lager bare tekst av verdien."
+ }
+]

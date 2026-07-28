@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Hva er den presise begrunnelsen for å skrive `tabell[0].index('pris')` i stedet for `rad[2]`?",
+  "options": [
+   "Oppgavetekstene sier at kolonnerekkefølgen ikke kan antas kjent",
+   "Oppslaget er raskere enn en indeksering med et fast tall",
+   "Indeksering med tall gir `IndexError` på rader med få kolonner",
+   "Oppslaget konverterer kolonnen til riktig datatype samtidig"
+  ],
+  "explanation": "Kravet er uttalt i oppgavetekstene, og feilen er stum: hardkodet indeks leser feil kolonne uten å si fra. Oppslaget er tvert imot litt tregere, det konverterer ingenting, og `IndexError` er ikke poenget."
+ },
+ {
+  "question": "Hva skjer med `tabell[1]` og `tabell[1:]` når tabellen bare har en overskriftsrad?",
+  "options": [
+   "`tabell[1]` gir `IndexError`, `tabell[1:]` gir ei tom liste",
+   "Begge gir ei tom liste, uten noen feilmelding i det hele tatt",
+   "Begge gir `IndexError`, siden indeks 1 ikke finnes i tabellen",
+   "`tabell[1]` gir `None`, og `tabell[1:]` gir ei liste med `None` i"
+  ],
+  "explanation": "Utsnitt er tolerante og gir det som finnes; indekser krasjer når posisjonen ikke er der. Python gir aldri `None` for en manglende indeks — det er en feilmelding."
+ },
+ {
+  "question": "En funksjon returnerer ei liste i normaltilfellet. Hva bør den returnere når ingenting passer?",
+  "options": [
+   "Ei tom liste, slik at returtypen er den samme i begge tilfeller",
+   "`None`, slik at den som kaller kan se at ingenting ble funnet",
+   "Tallet 0, som er den vanlige verdien for ingenting i Python",
+   "`-1`, som er konvensjonen for ikke-funnet i denne boka"
+  ],
+  "explanation": "Regelen er å beholde returtypen — da kan den som kaller skrive `for x in svar:` uten å teste først. `None` er for funksjoner som returnerer én verdi, `-1` for posisjoner, og 0 bare når null er et gyldig svar."
+ },
+ {
+  "question": "Hvilket av disse mønstrene takler en tom tabell **uten** noen ekstra `if`-test?",
+  "options": [
+   "«Finn beste» med `None` som startverdi for både rad og verdi",
+   "`max(tabell[1:], key=lambda rad: rad[k])` med en nøkkelfunksjon",
+   "`sum(priser) / len(priser)` der kolonnen er trukket ut på forhånd",
+   "`sorted(tabell[1:], key=lambda rad: rad[k])[0]` for den minste raden"
+  ],
+  "explanation": "Med `None` som startverdi kjører løkka null ganger og `None` blir stående. `max` gir `ValueError`, divisjonen gir `ZeroDivisionError`, og `[0]` på ei tom liste gir `IndexError` — alle tre trenger en test."
+ },
+ {
+  "question": "Oppgaveteksten sier «listen skal ikke inneholde duplikater». Hvilken linje løser kravet?",
+  "options": [
+   "`if x not in resultat:` rett før `resultat.append(x)`",
+   "`if x not in tabell:` rett før `resultat.append(x)`",
+   "`resultat.sort()` etter at løkka er ferdig med alle radene",
+   "`if len(resultat) > 0:` rett før `resultat.append(x)`"
+  ],
+  "explanation": "Testen må se på om verdien allerede er i **resultatet**. Å teste mot tabellen svarer på noe annet, sortering endrer ikke innholdet, og lengdetesten hindrer bare den første innsettingen."
+ },
+ {
+  "question": "Hvorfor skriver boka `sorted(set(x))` og ikke `list(set(x))`?",
+  "options": [
+   "Fordi rekkefølgen i en mengde ikke er til å stole på i et svar",
+   "Fordi `list` på en mengde gir `TypeError` for tekstverdier",
+   "Fordi `sorted` også fjerner duplikater, slik at `set` blir overflødig",
+   "Fordi `list` beholder duplikatene som mengden hadde fjernet"
+  ],
+  "explanation": "Mengder har ingen pålitelig rekkefølge, så `list(set(x))` kan gi ulikt resultat fra gang til gang. `list` virker fint på mengder, `sorted` fjerner ingen duplikater alene, og duplikatene er allerede borte etter `set`."
+ },
+ {
+  "question": "Hva er forskjellen på de to testene i en gruppering med duplikatsjekk?",
+  "options": [
+   "Den ene oppretter den indre lista, den andre hindrer duplikater i den",
+   "Den ene oppretter den indre lista, den andre sorterer den til slutt",
+   "Den ene hindrer duplikater, den andre hindrer at nøkkelen gjentas",
+   "De gjør det samme, og den ene kan fjernes uten at noe endres"
+  ],
+  "explanation": "Testen på nøkkelen oppretter lista, testen på verdien hindrer duplikatet — dropper du den første får du `KeyError`, dropper du den andre får du duplikater. De erstatter ikke hverandre, og ingen av dem sorterer."
+ },
+ {
+  "question": "Hvilken telling gir feil svar når radene kommer i tilfeldig rekkefølge?",
+  "options": [
+   "En som nullstiller en teller når nøkkelen skifter fra forrige rad",
+   "En ordbok med `d[k] = d.get(k, 0) + 1` for hver rad i tabellen",
+   "En som går gjennom alle radene og teller treff på ett bestemt navn",
+   "En som bygger en ordbok av lister og teller lengden av hver liste"
+  ],
+  "explanation": "Å holde styr på «forrige rad» forutsetter at like rader står samlet — kommer de blandet, lagres bare den siste klyngen. De tre andre går gjennom alle radene uavhengig av rekkefølgen."
+ },
+ {
+  "question": "Når hører `try/except` hjemme, og når hører en `if`-test hjemme?",
+  "options": [
+   "`try` mot feil utenfra som fil-I/O, `if` mot det du kan forutse",
+   "`try` mot alt som kan gå galt, `if` bare når koden må være rask",
+   "`if` mot feil utenfra, `try` mot tomme tabeller og manglende kolonner",
+   "`try` i analysefunksjoner, `if` i innlesings- og utskriftsfunksjoner"
+  ],
+  "explanation": "Unntakshåndtering er for det uforutsigbare — manglende fil, ødelagt linje. De fire robusthetskravene kan du se komme, og de løses med `if`. En bred `try` skjuler i tillegg dine egne skrivefeil."
+ },
+ {
+  "question": "Hvorfor er 0 galt som svar på «gjennomsnittlig pris» for en tom tabell?",
+  "options": [
+   "Fordi 0 er en pris, og svaret er at det ikke finnes noen pris",
+   "Fordi 0 gir `ZeroDivisionError` når den brukes videre i regning",
+   "Fordi 0 ikke kan sammenlignes med flyttall i en senere test",
+   "Fordi Python returnerer `None` av seg selv ved divisjon på null"
+  ],
+  "explanation": "Null er en meningsfull pris, og å svare 0 er derfor en påstand om dataene som ikke stemmer. `None` sier «ingen svar». Ingen av de tre andre begrunnelsene er riktige — `ZeroDivisionError` oppstår i divisjonen, ikke av verdien 0."
+ },
+ {
+  "question": "Når er `if navn in tabell[0]:` nødvendig før `tabell[0].index(navn)`?",
+  "options": [
+   "Når kolonnenavnet kommer utenfra, for eksempel fra brukeren",
+   "Alltid, siden `.index` ellers gir `ValueError` på enhver tabell",
+   "Bare når tabellen mangler overskriftsrad helt eller delvis",
+   "Aldri, siden `.index` returnerer `-1` for navn som ikke finnes"
+  ],
+  "explanation": "Kommer navnet utenfra, er en manglende kolonne en normal situasjon funksjonen må svare på. Står navnet i din egen kode, vil du gjerne se `ValueError` — den er da din skrivefeil. `.index` gir aldri `-1`; den krasjer."
+ },
+ {
+  "question": "Hva er den beste måten å oppfylle duplikatkravet på i en funksjon som teller per person?",
+  "options": [
+   "La ordbokstrukturen gjøre duplikater umulige, med én nøkkel per person",
+   "Legge til en `if navn not in d:`-test rett før hver eneste innsetting",
+   "Sortere resultatet til slutt, slik at like verdier havner ved siden av hverandre",
+   "Gjøre resultatet om til en mengde helt til slutt, før det returneres"
+  ],
+  "explanation": "En ordbok har per definisjon én nøkkel per verdi, så duplikater kan ikke oppstå — kravet er oppfylt av strukturen, uten en eneste test. De tre andre er enten unødvendige, virkningsløse eller ekstra arbeid."
+ },
+ {
+  "question": "Hva er den raskeste kontrollen for om koden din har en skjult rekkefølgeantakelse?",
+  "options": [
+   "Stokk om radene i testdataene og se om svaret endrer seg",
+   "Sorter tabellen først, og kjør analysen på den sorterte tabellen",
+   "Legg til flere rader i testdataene og se om svaret blir større",
+   "Kjør analysen to ganger på de samme dataene og sammenlign svarene"
+  ],
+  "explanation": "Endrer svaret seg når rekkefølgen endres, har du en antakelse du ikke visste om. Å sortere først skjuler nettopp den feilen, flere rader tester noe annet, og to kjøringer på samme data gir alltid samme svar."
+ },
+ {
+  "question": "Hva sier sensorregelen om antakelser du har måttet gjøre?",
+  "options": [
+   "Skriv én kort setning om hvert valg — uklare og lange svar trekker ned",
+   "Skriv et avsnitt som forklarer alle alternativene du vurderte",
+   "Ikke nevn antakelser; koden skal tale for seg selv i besvarelsen",
+   "Legg dem som kommentarer i koden i stedet for i besvarelsen"
+  ],
+  "explanation": "Regelen er uttalt hvert år: svar kort og klart, og et svar som er lengre enn nødvendig trekker ned. En kort setning er nok, og den er forskjellen mellom «feil» og «riktig gitt en dokumentert antakelse». Om den står som kommentar eller i teksten, er mindre viktig enn at den finnes."
+ }
+]

@@ -1,0 +1,344 @@
+{
+ "id": "tdt4110-6-2",
+ "courseId": "tdt4110",
+ "chapterNumber": "6.2",
+ "title": "Søking: sekvensielt søk og binærsøk",
+ "description": "Sekvensielt søk som grunnmuren i alle analysefunksjoner, og iterativt binærsøk med forutsetningen om sortert liste.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne skrive et sekvensielt søk som gir indeksen, og `-1` når verdien ikke finnes",
+  "kunne søke etter ei rad i en tabell på en kolonne du finner fra overskriftsraden",
+  "kunne forklare hvorfor binærsøk forutsetter en sortert liste, og hva som skjer når den ikke er det",
+  "kunne fylle inn og spore de linjene som utgjør et iterativt binærsøk"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-6-2-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette kapitlet dekker to søkemetoder med svært ulik vekt på settet.\n\n**Sekvensielt søk er grunnstoff.** Det får ingen egen prosent i arkivet, av den enkle grunnen at det aldri er en oppgave for seg selv — det er løkka som ligger under hver eneste analysefunksjon i programmeringsoppgaven. Og programmeringsoppgaven er der i alle 10 sittingene i arkivet (2014–2019), med 50–60 % av vekten. Hver gang du skal «finne raden der …», skriver du et sekvensielt søk uten å tenke på navnet.\n\n**Binærsøk er belagt i 3 av de 10 sittingene** — omtrent 30 %. Det kommer i to former:\n\n- **Sjanger D — «fyll inn manglende kodelinje»**, altså et flervalg der én linje i en ferdig funksjon er byttet ut med en markør og du skal velge riktig linje. Binærsøk er favorittkandidaten, fordi de fire linjene som oppdaterer grensene, ser forvirrende like ut. Verdt 1–3 %.\n- **Som teori**, der spørsmålet nesten alltid er det samme: hva forutsetter binærsøk? Svaret er at lista må være sortert.\n\n**Prioritet:** sekvensielt søk **må sitte** (nivå 1), binærsøk **bør du kjenne til** (nivå 3, det laveste av bokas tre nivåer).\n\nÆrlig prioritering: bruk de første 20 minuttene her på sekvensielt søk, og de neste 25 på binærsøk. Skal du velge bort noe fordi eksamen nærmer seg, er det å skrive binærsøk fra bunnen — men det å vite at det krever en sortert liste, koster deg ett minutt og kan gi et helt flervalgspoeng."
+  },
+  {
+   "id": "tdt4110-6-2-t-2",
+   "type": "text",
+   "content": "**Forkunnskaper**\n\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — løkker: `for`, `while` og `range`. Binærsøk er en `while`-løkke, så du bør være trygg på når en `while` stopper.\n- [kap. 3.1](/tdt4110/tdt4110-3-1) — lister og indeksering.\n- [kap. 2.1](/tdt4110/tdt4110-2-1) — funksjoner og `return`.\n- [kap. 6.1](/tdt4110/tdt4110-6-1) — sortering. Binærsøk forutsetter en sortert liste, så de to kapitlene henger sammen.\n\nEn mykere inngang til det samme stoffet finnes i [Søke- og sorteringsalgoritmer](/it/it-1-3-4).\n\nHar du aldri programmert: en **indeks** er plassnummeret til et element i ei liste, og det første elementet har indeks 0. Å **returnere** betyr at funksjonen gir en verdi tilbake til den som kalte den, og avslutter med det samme."
+  },
+  {
+   "id": "tdt4110-6-2-t-3",
+   "type": "text",
+   "content": "## Løkke 1 — sekvensielt søk (~12 min)\n\nDu leter etter én bestemt bok i en bunke som ligger i tilfeldig rekkefølge. Da finnes det bare én framgangsmåte: ta den øverste, sjekk om det er den rette, legg den fra deg, ta den neste. Er bunken tom uten at du fant boka, finnes den ikke der.\n\nDet er **sekvensielt søk**, også kalt lineært søk. Det er ikke et triks — det er den åpenbare måten — men det er verdt å ha et navn på det, fordi resten av kapitlet handler om hva du kan gjøre bedre når bunken er sortert."
+  },
+  {
+   "id": "tdt4110-6-2-def-4",
+   "type": "definition",
+   "title": "Sekvensielt søk",
+   "content": "Et søk som går gjennom elementene ett om gangen, fra første til siste, og sammenligner hvert av dem med det du leter etter. Det stopper så snart det finner et treff.\n\nMetoden stiller **ingen krav til rekkefølgen** i lista — den virker like godt på en sortert og en usortert liste. Prisen er at du i verste fall må se på hvert eneste element. Det er formen du skriver i alle analysefunksjonene i programmeringsoppgaven."
+  },
+  {
+   "id": "tdt4110-6-2-def-5",
+   "type": "definition",
+   "title": "`-1` som «ikke funnet»-verdi",
+   "content": "Når en søkefunksjon skal gi tilbake en **indeks**, er `-1` den avtalte verdien for «fantes ikke». Grunnen er at `-1` aldri kan være en gyldig indeks i et treff: gyldige indekser er 0 og oppover.\n\nSkal funksjonen i stedet gi tilbake et **element** eller ei **rad**, bruker du `None`, og skal den gi tilbake **flere treff**, bruker du ei tom liste `[]`. Å håndtere «ikke funnet» er et av fullscore-kravene i emnet (feilkode #6) — en funksjon som bare krasjer, taper poeng."
+  },
+  {
+   "id": "tdt4110-6-2-def-6",
+   "type": "definition",
+   "title": "`return` avslutter funksjonen straks",
+   "content": "Så snart en `return` kjøres, hopper Python ut av funksjonen. Resten av løkka kjøres ikke.\n\nDet er nettopp derfor `return i` inne i løkka er riktig i et søk: du vil ha det **første** treffet, og du vil slutte å lete når du har det. Og det er derfor `return -1` må stå **etter** løkka, ikke inne i den — står den inne, avbryter den etter første sammenligning som ikke traff."
+  },
+  {
+   "id": "tdt4110-6-2-thm-7",
+   "type": "theorem",
+   "title": "Kodemønster: sekvensielt søk",
+   "content": "Mønsteret er fem linjer, og de kommer alltid i denne rekkefølgen:\n\n1. `for i in range(len(x)):` — gå gjennom alle lovlige indekser.\n2. `if x[i] == mal:` — sammenlign elementet med det du leter etter.\n3. `return i` — første treff, og ut av funksjonen med det samme.\n4. Løkka slutter.\n5. `return -1` — kom du hit, fantes ikke verdien.\n\nDen fjerde og femte linja er hele forskjellen på en funksjon som får full pott og en som krasjer på testdataene til sensor.\n\nTo faste varianter: skal du ha **elementet** i stedet for indeksen, går du gjennom `for element in x` og returnerer `None` til slutt. Skal du ha **alle** treffene, samler du dem i ei liste i stedet for å returnere ved første treff, og returnerer lista — som da er tom hvis ingen traff."
+  },
+  {
+   "id": "tdt4110-6-2-ex-8",
+   "type": "example",
+   "title": "Eksempel 1: finn plassen til et kønummer",
+   "problem": "En kølapp-liste inneholder nummerne i den rekkefølgen de ble trukket. Skriv `finn_indeks(x, mal)` som gir plassnummeret til `mal`, og `-1` hvis nummeret ikke er trukket.",
+   "solution": "```python\ndef finn_indeks(x, mal):\n    for i in range(len(x)):\n        if x[i] == mal:\n            return i\n    return -1\n\nkoer = [412, 907, 155, 660]\nprint(finn_indeks(koer, 155))\nprint(finn_indeks(koer, 300))\n```\n\n**Utskrift:**\n```\n2\n-1\n```\n\nFørste kall fant 155 på plass 2. Andre kall gikk gjennom hele lista uten treff, falt ut av løkka, og traff `return -1`.\n\nPrøv å flytte `return -1` inn i løkka, rett etter `if`-en, i hodet: da ville funksjonen returnert `-1` allerede etter å ha sett på 412, uten å se på resten. Plasseringen er hele poenget."
+  },
+  {
+   "id": "tdt4110-6-2-exr-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-6-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Funksjonen er den samme som i eksempel 1. Hva skriver programmet ut?\n\n```python\ndef finn_indeks(x, mal):\n    for i in range(len(x)):\n        if x[i] == mal:\n            return i\n    return -1\n\nprint(finn_indeks([7, 7, 3], 7))\nprint(finn_indeks([7, 7, 3], 9))\n```",
+    "solution": "| Kall | `i` | `x[i]` | Treff? | Resultat |\n|---|---|---|---|---|\n| `finn_indeks([7, 7, 3], 7)` | 0 | `7` | ja | `return 0` |\n| `finn_indeks([7, 7, 3], 9)` | 0, 1, 2 | `7`, `7`, `3` | nei | `return -1` |\n\n**Utskrift:**\n```\n0\n-1\n```\n\nMerk det første svaret: 7 finnes to steder, men funksjonen returnerer ved **første** treff og ser aldri på resten. Det er den vanlige oppførselen, og oppgaveteksten på eksamen sier normalt «den første forekomsten».",
+    "hints": [
+     "Følg løkka indeks for indeks og stopp der `return` kjøres.",
+     "Hva skjer med resten av løkka når en `return` er kjørt?",
+     "Andre kall: hvilken linje kjøres etter at løkka er ferdig?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-6-2-def-9",
+   "type": "definition",
+   "title": "`v in x`",
+   "content": "Gir `True` hvis verdien `v` finnes i lista `x`, ellers `False`. Negasjonen skrives `v not in x`.\n\nDette er sekvensielt søk pakket inn i én operator: Python går gjennom lista for deg. Bruk den når du bare trenger å vite **om** verdien finnes. Trenger du å vite **hvor** den er, må du ha `.index` eller din egen løkke. `in` virker også på strenger (`'ås' in tekst`) og på nøklene i en ordbok."
+  },
+  {
+   "id": "tdt4110-6-2-def-10",
+   "type": "definition",
+   "title": "`x.index(v)`",
+   "content": "Gir indeksen til **første** forekomst av verdien `v` i lista. Finnes ikke verdien, kaster metoden `ValueError` og programmet stopper.\n\nDet er den viktige forskjellen fra din egen søkefunksjon: `.index` har ingen «ikke funnet»-verdi. Skal du bruke den trygt, må du sjekke først — `if v in x: i = x.index(v)` — eller pakke den i `try/except`. Skriver du din egen løkke med `return -1`, slipper du hele problemet."
+  },
+  {
+   "id": "tdt4110-6-2-def-11",
+   "type": "definition",
+   "title": "`x.count(v)`",
+   "content": "Gir antall ganger verdien `v` forekommer i lista, som et heltall. Finnes den ikke, gir metoden 0 — den krasjer aldri.\n\nDen er nyttig som en trygg forgjenger til `.index`: `if x.count(v) > 0:`. Men den går gjennom hele lista uansett, så bruk `in` når du bare vil ha ja eller nei."
+  },
+  {
+   "id": "tdt4110-6-2-ex-12",
+   "type": "example",
+   "title": "Eksempel 2: snarveiene, og der de ryker",
+   "problem": "Vis hva `in`, `.index` og `.count` gir på en liste med utlånte titler — og hva som skjer når du slår opp en tittel som ikke er utlånt.",
+   "solution": "De tre snarveiene, brukt trygt:\n\n```python\nlaan = ['Nordlys', 'Algoritmer', 'Vinterdagbok']\nprint('Algoritmer' in laan)\nprint(laan.index('Algoritmer'))\nprint('Kongens fall' in laan)\nprint(laan.count('Nordlys'))\n```\n\n**Utskrift:**\n```\nTrue\n1\nFalse\n1\n```\n\nOg her er fella. `.index` på noe som ikke finnes, stopper programmet:\n\n```python\n# tilsiktet feil: tittelen er ikke i lista, så .index stopper programmet\nlaan = ['Nordlys', 'Algoritmer', 'Vinterdagbok']\nlaan.index('Kongens fall')\n```\n\nKodeblokken er merket som tilsiktet feilende. Siste linje i feilmeldingen er:\n\n```text\nValueError: 'Kongens fall' is not in list\n```\n\nOver den linja står noen linjer som viser hvor i koden det skjedde. Det er `ValueError` — den samme unntakstypen du møtte i [kap. 4.3](/tdt4110/tdt4110-4-3) — og den kan fanges med `try/except`, men det enkleste er å sjekke med `in` først.\n\n**Begge framgangsmåter gir full pott** på eksamen — men de er trygge på ulike måter. `if tittel in laan:` foran `.index` er kort og lesbar. Din egen løkke med `return -1` er like god, og den er den eneste av dem som fungerer når du søker i en 2D-tabell på én kolonne."
+  },
+  {
+   "id": "tdt4110-6-2-exr-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-6-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut? Alle tre linjene.\n\n```python\nhyller = ['A1', 'B2', 'A1', 'C3']\nprint('B2' in hyller)\nprint(hyller.index('A1'))\nprint(hyller.count('A1'))\n```",
+    "solution": "De tre operasjonene svarer på tre forskjellige spørsmål: finnes den, hvor er den første, og hvor mange er det.\n\n**Utskrift:**\n```\nTrue\n0\n2\n```\n\n`in` gir en sannhetsverdi og skrives med stor forbokstav: `True`, ikke `true`. `.index` gir indeksen til den **første** `'A1'`, altså 0 — ikke 2, som er den andre forekomsten. `.count` teller begge.",
+    "hints": [
+     "Tre linjer, tre ulike returtyper: sannhetsverdi, indeks og antall.",
+     "Hvordan skriver Python sannhetsverdier ut?",
+     "`.index` stopper ved første treff, `.count` går gjennom hele lista."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-6-2-def-13",
+   "type": "definition",
+   "title": "Søk i en 2D-tabell",
+   "content": "Sekvensielt søk i en tabell er den samme løkka, men med to tillegg: du finner kolonnen du skal sammenligne i, og du går bare gjennom dataradene.\n\nFormen er `k = tabell[0].index(kolonnenavn)`, deretter `for rad in tabell[1:]:` og `if rad[k] == verdi: return rad`. Til slutt `return None`. Dette er den vanligste enkeltoppgaven i hele programmeringsdelen — «finn raden der …» — og den kombinerer søket med fullscore-kravet om å finne kolonnen dynamisk (feilkode #4)."
+  },
+  {
+   "id": "tdt4110-6-2-ex-14",
+   "type": "example",
+   "title": "Eksempel 3: finn boka med et gitt ISBN",
+   "problem": "Bibliotekets bokliste har overskriftsraden `['tittel', 'isbn', 'hylle']`. Skriv `finn_rad(tabell, kolonnenavn, verdi)` som gir hele raden der kolonnen har den oppgitte verdien, og `None` hvis ingen rad passer.",
+   "solution": "```python\ndef finn_rad(tabell, kolonnenavn, verdi):\n    k = tabell[0].index(kolonnenavn)\n    for rad in tabell[1:]:\n        if rad[k] == verdi:\n            return rad\n    return None\n\nboker = [['tittel', 'isbn', 'hylle'],\n         ['Nordlys', 9788203, 'A3'],\n         ['Algoritmer', 9788205, 'B1'],\n         ['Vinterdagbok', 9788241, 'A1']]\nprint(finn_rad(boker, 'isbn', 9788205))\nprint(finn_rad(boker, 'isbn', 1234567))\n```\n\n**Utskrift:**\n```\n['Algoritmer', 9788205, 'B1']\nNone\n```\n\nTre grep gir uttelling her, og de er de samme hver gang:\n\n- `tabell[0].index(kolonnenavn)` i stedet for et hardkodet 1-tall. Flytter noen på kolonnene i fila, virker koden fortsatt.\n- `tabell[1:]` slik at overskriftsraden ikke kan gi et falskt treff.\n- `return None` etter løkka — «ikke funnet» besvart, ikke krasjet.\n\nFunksjonen er dessuten skrevet **generelt**: den tar kolonnenavnet inn som parameter, så den samme funksjonen finner boka på tittel like godt som på ISBN."
+  },
+  {
+   "id": "tdt4110-6-2-exr-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-6-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — analyse: søk i tabell.) Treningsloggen `okter` har overskriftsraden `['dato', 'aktivitet', 'minutter']`.\n\n**a)** Skriv `okter_med(tabell, aktivitet)` som returnerer ei liste med **alle** datoene der den oppgitte aktiviteten er logget. Returner ei tom liste hvis aktiviteten ikke finnes.\n**b)** Forklar i én setning hvorfor funksjonen ikke trenger et eget tilfelle for «aktiviteten finnes ikke».",
+    "solution": "**a)** Her skal alle treffene med, så du returnerer ikke ved første treff — du samler i ei liste:\n\n```python\ndef okter_med(tabell, aktivitet):\n    k = tabell[0].index('aktivitet')\n    d = tabell[0].index('dato')\n    resultat = []\n    for rad in tabell[1:]:\n        if rad[k] == aktivitet:\n            resultat.append(rad[d])\n    return resultat\n\nokter = [['dato', 'aktivitet', 'minutter'],\n         ['2026-03-02', 'lopning', 42],\n         ['2026-03-04', 'sykling', 75],\n         ['2026-03-07', 'lopning', 38],\n         ['2026-03-09', 'styrke', 50]]\nprint(okter_med(okter, 'lopning'))\nprint(okter_med(okter, 'svomming'))\n```\n\n**Utskrift:**\n```\n['2026-03-02', '2026-03-07']\n[]\n```\n\n**b)** Én setning: **den tomme lista kommer gratis, fordi `resultat` starter tom og bare fylles ved treff.**\n\nDet er tomtilfellet (feilkode #6) håndtert på den billigste måten som finnes — uten en eneste ekstra `if`. Legg merke til at begge kolonnenumrene hentes fra overskriftsraden; å skrive `rad[1]` og `rad[0]` ville gitt riktig svar på akkurat denne tabellen, men er nettopp det feilkode #4 advarer mot.",
+    "hints": [
+     "Skal du ha alle treffene, kan du ikke returnere inne i løkka.",
+     "Du trenger to kolonnenumre: det du sammenligner i, og det du henter ut.",
+     "Opprett resultatlista før løkka, og returner den etter."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-6-2-t-15",
+   "type": "text",
+   "content": "## Løkke 2 — binærsøk (~25 min)\n\n**Dette delkapitlet er nivå 3 — «bør kjenne til».** Det er belagt i 3 av 10 sittinger, og det du absolutt må ha med deg, er den ene setningen om forutsetningen. Resten er verdt å kunne, men ikke verdt å pugge foran Del 7.\n\nTenk på gjett-tallet-leken: en venn tenker på et tall mellom 1 og 100, og sier «høyere» eller «lavere» for hvert forsøk. Gjetter du 50 først, har du halvert mulighetene uansett hva svaret blir. Gjetter du 1 først, har du i praksis ikke lært noe.\n\n**Binærsøk** er den strategien, brukt på ei sortert liste: se på midten, og kast bort halvparten. Det som gjør den mulig, er at et sortert element forteller noe om alle de andre — er tallet i midten for lite, kan målet umulig ligge til venstre for det."
+  },
+  {
+   "id": "tdt4110-6-2-def-16",
+   "type": "definition",
+   "title": "Binærsøk",
+   "content": "Et søk som gjentatte ganger ser på det midterste elementet i det gjenstående søkeområdet, og kaster den halvparten målet umulig kan ligge i.\n\n**Forutsetningen er at lista er sortert.** Er den ikke det, gir binærsøk gale svar — uten feilmelding. Til gjengjeld er det svært raskt: hvert steg halverer området som er igjen, så ei liste med en million elementer er gjennomsøkt på 20 steg."
+  },
+  {
+   "id": "tdt4110-6-2-def-17",
+   "type": "definition",
+   "title": "Forutsetningen: lista må være sortert",
+   "content": "Binærsøk bygger på at når `x[imid]` er mindre enn målet, så er alt til venstre for `imid` også mindre. Den slutningen holder bare i ei sortert liste.\n\nDette er det oftest testede punktet om binærsøk på eksamen, og det farlige er at koden **ikke krasjer** på usortert inndata: den returnerer bare `-1` eller feil indeks. Skal du søke i noe usortert, har du to valg — sorter først (kap. [6.1](/tdt4110/tdt4110-6-1)), eller bruk sekvensielt søk."
+  },
+  {
+   "id": "tdt4110-6-2-def-18",
+   "type": "definition",
+   "title": "Søkevinduet `imin` og `imax`",
+   "content": "De to variablene holder styr på hvilken del av lista som fortsatt kan inneholde målet: fra og med indeks `imin` til og med indeks `imax`.\n\nDe starter på `0` og `len(x) - 1`, altså hele lista. For hvert steg flyttes den ene av dem innover, og vinduet krymper. Skjærer de forbi hverandre — `imin` blir større enn `imax` — er vinduet tomt, og målet finnes ikke."
+  },
+  {
+   "id": "tdt4110-6-2-def-19",
+   "type": "definition",
+   "title": "`imid = (imin + imax) // 2`",
+   "content": "Midten av søkevinduet. Dobbel skråstrek er **heltallsdeling**, som runder nedover — nødvendig fordi en indeks må være et helt tall. Vanlig deling med `/` gir et flyttall og dermed `TypeError` når du prøver å indeksere med det.\n\nMed `imin = 4` og `imax = 6` gir formelen `10 // 2`, altså 5. Med `imin = 4` og `imax = 5` gir den `9 // 2`, altså 4 — den runder ned mot venstre. Denne linja er den vanligste kandidaten for «fyll inn manglende kodelinje»."
+  },
+  {
+   "id": "tdt4110-6-2-def-20",
+   "type": "definition",
+   "title": "`while imin <= imax`",
+   "content": "Løkka kjører så lenge søkevinduet har minst ett element igjen. Likhetstegnet er nødvendig: når `imin` og `imax` er like, er det nøyaktig ett element igjen — og det kan godt være det du leter etter.\n\nSkriver du `<` i stedet for `<=`, hopper søket over det siste elementet i vinduet og returnerer `-1` for verdier som faktisk finnes. Det er en stille feil som bare rammer noen av oppslagene, og derfor lett å overse."
+  },
+  {
+   "id": "tdt4110-6-2-def-21",
+   "type": "definition",
+   "title": "`imin = imid + 1`",
+   "content": "Steget som brukes når `x[imid]` er **mindre** enn målet: hele venstre halvdel, inkludert midtelementet, kastes.\n\n`+ 1` er ikke pynt. Uten det blir `imin` stående lik `imid`, vinduet krymper ikke, og løkka går for alltid — programmet henger. Midtelementet kan trygt kastes, siden du nettopp har sjekket at det ikke er treff."
+  },
+  {
+   "id": "tdt4110-6-2-def-22",
+   "type": "definition",
+   "title": "`imax = imid - 1`",
+   "content": "Speilbildet: brukes når `x[imid]` er **større** enn målet, og kaster hele høyre halvdel inkludert midtelementet.\n\nOgså her er `- 1` det som garanterer at vinduet krymper. Merk at `imax` godt kan bli `-1`: skjer det, er `imin` (som er 0) større enn `imax`, løkka stopper, og funksjonen returnerer `-1` for «ikke funnet»."
+  },
+  {
+   "id": "tdt4110-6-2-def-23",
+   "type": "definition",
+   "title": "Halvering av søkerommet",
+   "content": "Hvert steg i binærsøk fjerner omtrent halvparten av de gjenstående elementene. Derfor er antall steg omtrent så mange ganger du kan halvere `n` før du står igjen med ett — det tallet skrives $\\log_2 n$.\n\nKonkret: 1 000 elementer er gjennomsøkt på 10 steg, 1 000 000 på 20. Sekvensielt søk måtte i verste fall se på alle. Vi kommer tilbake til hva den forskjellen heter i [kap. 6.3](/tdt4110/tdt4110-6-3)."
+  },
+  {
+   "id": "tdt4110-6-2-thm-24",
+   "type": "theorem",
+   "title": "Kodemønster: iterativt binærsøk",
+   "content": "Ordet **iterativ** betyr «med løkke», til forskjell fra rekursiv, der funksjonen kaller seg selv. Løkkeversjonen er den arkivets oppgaver bruker.\n\nSeks steg, i denne rekkefølgen:\n\n1. `imin = 0` og `imax = len(x) - 1` — vinduet er hele lista.\n2. `while imin <= imax:` — så lenge vinduet ikke er tomt.\n3. `imid = (imin + imax) // 2` — finn midten.\n4. `if x[imid] == mal: return imid` — treff, og ut.\n5. `elif x[imid] < mal: imin = imid + 1` — målet må ligge til høyre.\n6. `else: imax = imid - 1` — målet må ligge til venstre. Etter løkka: `return -1`.\n\nTre av de seks linjene er kandidater for «fyll inn manglende kodelinje». Lær deg å resonnere deg fram til dem i stedet for å pugge: **er midten for liten, må du lete til høyre, altså flytte den nedre grensen opp forbi midten.**"
+  },
+  {
+   "id": "tdt4110-6-2-ex-25",
+   "type": "example",
+   "title": "Eksempel 4: binærsøk med sporingstavle",
+   "problem": "Lista `[104, 211, 317, 428, 530, 646, 752]` er sortert. Skriv et iterativt binærsøk, og spor det for verdien 530 og for verdien 400, som ikke finnes.",
+   "solution": "```python\ndef binaersok(x, mal):\n    imin = 0\n    imax = len(x) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if x[imid] == mal:\n            return imid\n        elif x[imid] < mal:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n\nsortert = [104, 211, 317, 428, 530, 646, 752]\nprint(binaersok(sortert, 530))\nprint(binaersok(sortert, 104))\nprint(binaersok(sortert, 400))\n```\n\n**Utskrift:**\n```\n4\n0\n-1\n```\n\n**Sporing av søket etter 530** — tre steg på ei liste med sju elementer:\n\n| Steg | `imin` | `imax` | `imid` | `x[imid]` | Hva skjer |\n|---|---|---|---|---|---|\n| 1 | 0 | 6 | 3 | `428` | `428 < 530` $\\to$ søk til høyre, `imin = 4` |\n| 2 | 4 | 6 | 5 | `646` | `646 > 530` $\\to$ søk til venstre, `imax = 4` |\n| 3 | 4 | 4 | 4 | `530` | `530 == 530` $\\to$ funnet, returnerer `4` |\n\n**Sporing av søket etter 400**, som ikke finnes. Her er poenget hvordan løkka stopper:\n\n| Steg | `imin` | `imax` | `imid` | `x[imid]` | Hva skjer |\n|---|---|---|---|---|---|\n| 1 | 0 | 6 | 3 | `428` | `428 > 400` $\\to$ søk til venstre, `imax = 2` |\n| 2 | 0 | 2 | 1 | `211` | `211 < 400` $\\to$ søk til høyre, `imin = 2` |\n| 3 | 2 | 2 | 2 | `317` | `317 < 400` $\\to$ søk til høyre, `imin = 3` |\n| 4 | 3 | 2 | — | — | `imin > imax` $\\to$ vinduet er tomt, returnerer `-1` |\n\nLegg merke til den siste raden: `imin` passerte `imax`, betingelsen `imin <= imax` ble usann, og programmet falt ut av løkka til `return -1`. Det er slik binærsøk avslutter når verdien ikke finnes — ikke ved å ha sett på alle elementene, men ved at vinduet er krympet til ingenting."
+  },
+  {
+   "id": "tdt4110-6-2-warn-26",
+   "type": "warning",
+   "title": "Typiske feil: binærsøk",
+   "content": "Fire feil, og alle fire er belagt som fellene sjanger D bygger på:\n\n- **Å glemme `+ 1` eller `- 1` på grensene.** Skriver du `imin = imid`, krymper ikke vinduet når midten er den nedre grensen, og løkka går for alltid. Programmet henger — det er ikke engang en feilmelding å lete etter.\n- **`<` i stedet for `<=` i `while`-betingelsen.** Da hopper søket over det siste elementet i vinduet, og du får `-1` for verdier som finnes.\n- **Å bruke binærsøk på ei usortert liste.** Ingen feilmelding, bare feil svar. Dette er feilkode **#5** i sin farligste form: koden ser riktig ut og kjører fint.\n- **`/` i stedet for `//`.** `(imin + imax) / 2` gir et flyttall, og `x[3.0]` gir `TypeError: list indices must be integers or slices, not float`.\n\nMotgiften er den samme for alle fire: spor søket for hånd på ei liste med fem–sju elementer, både for en verdi som finnes og for en som ikke gjør det. Går den siste sporingen i evig løkke, har du en av de to første feilene."
+  },
+  {
+   "id": "tdt4110-6-2-ex-27",
+   "type": "example",
+   "title": "Eksempel 5: den stille feilen på usortert liste",
+   "problem": "Vis hva det samme binærsøket gir når lista ikke er sortert.",
+   "solution": "Lista under inneholder 211 — på plass 3. Binærsøket finner den ikke:\n\n```python\ndef binaersok(x, mal):\n    imin = 0\n    imax = len(x) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if x[imid] == mal:\n            return imid\n        elif x[imid] < mal:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n\nusortert = [530, 104, 752, 211]\nprint(usortert.index(211))\nprint(binaersok(usortert, 211))\n```\n\n**Utskrift:**\n```\n3\n-1\n```\n\nFørste linje viser sannheten: 211 står på plass 3. Andre linje er binærsøkets svar: `-1`, altså «finnes ikke».\n\nHva gikk galt? Midten var `x[1]`, altså 104. Siden 104 er mindre enn 211, konkluderte søket med at 211 må ligge til høyre — og kastet plass 0. Neste midt var 752, som er større, så nå ble alt til høyre kastet, inkludert plass 3 der 211 faktisk lå. Slutningen «alt til venstre for et for lite tall er også for lite» er sann i ei sortert liste og usann her.\n\n**Ingen feilmelding kom.** Det er derfor forutsetningen er det eneste du absolutt må huske om binærsøk."
+  },
+  {
+   "id": "tdt4110-6-2-exr-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-6-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D — «fyll inn manglende kodelinje»: du får en ferdig funksjon der én linje er byttet ut med markøren `#KODE1`, og skal velge riktig linje blant fire.)\n\nFunksjonen skal søke i ei sortert liste. Linja `#KODE1` skal oppdatere grensen når det midterste elementet er **mindre** enn det du leter etter.\n\n```text\ndef binaersok(x, mal):\n    imin = 0\n    imax = len(x) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if x[imid] == mal:\n            return imid\n        elif x[imid] < mal:\n            #KODE1\n        else:\n            imax = imid - 1\n    return -1\n```\n\nHvilken linje hører hjemme på `#KODE1`?\n\n1. `imin = imid + 1`\n2. `imin = imid`\n3. `imax = imid - 1`\n4. `imin = imid - 1`",
+    "solution": "Test hvert alternativ mot et lite, konkret eksempel: `x = [10, 20, 30]` og `mal = 30`. Første runde gir `imin = 0`, `imax = 2`, `imid = 1`, og `x[1]` er 20, som er mindre enn 30 — altså skal `#KODE1` kjøre.\n\n| Alternativ | Nytt vindu | Hva skjer |\n|---|---|---|\n| **1** `imin = imid + 1` | `imin = 2`, `imax = 2` | Neste `imid` blir 2, `x[2]` er 30 $\\to$ treff |\n| 2 `imin = imid` | `imin = 1`, `imax = 2` | Neste `imid` blir 1 igjen — vinduet krymper aldri, evig løkke |\n| 3 `imax = imid - 1` | `imin = 0`, `imax = 0` | Leter til venstre, der målet umulig kan være $\\to$ `-1` |\n| 4 `imin = imid - 1` | `imin = 0`, `imax = 2` | Vinduet er like stort som før $\\to$ evig løkke |\n\n**Riktig er alternativ 1, `imin = imid + 1`.**\n\nResonnementet du skal kunne gjenskape uten tabellen: er midten for liten, ligger målet til høyre, så den **nedre** grensen skal flyttes opp — og forbi midten, siden midten allerede er sjekket.\n\nAlternativ 2 og 4 er de farlige. De ser rimelige ut, men lar vinduet stå stille, og et program som henger, gir null poeng på hele deloppgaven.",
+    "hints": [
+     "Er det midterste elementet for lite, i hvilken halvdel må målet da ligge?",
+     "Skriv opp `imin`, `imax` og `imid` for `[10, 20, 30]` og prøv alternativene etter tur.",
+     "Sjekk for hvert alternativ om vinduet faktisk blir mindre."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-6-2-exr-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-6-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger J — spor et binærsøk.) Lista `[3, 8, 12, 19, 25, 31]` er sortert. Sett opp en sporingstavle for `binaersok(x, 25)` med kolonnene `imin`, `imax`, `imid` og `x[imid]`, og oppgi hva funksjonen returnerer. Funksjonen er den fra eksempel 4.",
+    "solution": "Vinduet starter som hele lista: `imin = 0`, `imax = 5`.\n\n| Steg | `imin` | `imax` | `imid` | `x[imid]` | Hva skjer |\n|---|---|---|---|---|---|\n| 1 | 0 | 5 | 2 | `12` | `12 < 25` $\\to$ søk til høyre, `imin = 3` |\n| 2 | 3 | 5 | 4 | `25` | `25 == 25` $\\to$ funnet, returnerer `4` |\n\n**Funksjonen returnerer `4`.**\n\n```python\ndef binaersok(x, mal):\n    imin = 0\n    imax = len(x) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if x[imid] == mal:\n            return imid\n        elif x[imid] < mal:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n\nprint(binaersok([3, 8, 12, 19, 25, 31], 25))\n```\n\n**Utskrift:**\n```\n4\n```\n\nMerk det første steget: `(0 + 5) // 2` er `5 // 2`, altså 2 — heltallsdelingen runder nedover, så midten havner til venstre for sentrum i ei liste med et partall elementer. Det er helt uproblematisk, men det er den vanligste regnefeilen i en sporing.\n\nTo steg for seks elementer. Sekvensielt søk hadde brukt fem sammenligninger på det samme, siden 25 ligger på plass 4.",
+    "hints": [
+     "Skriv opp `imin` og `imax` før første runde: 0 og `len(x) - 1`.",
+     "`//` runder nedover — regn `5 // 2` nøyaktig.",
+     "Etter hvert steg: hvilken av de to grensene flyttet seg, og hvorfor?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-6-2-exr-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-6-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — implementér.) Bibliotekets ISBN-register `numre` er ei liste med heltall.\n\n**a)** Skriv `sok_isbn(numre, isbn)` som bruker binærsøk og returnerer indeksen, eller `-1` hvis nummeret ikke finnes.\n**b)** Registeret kommer usortert fra fila. Skriv `sok_isbn_trygt(numre, isbn)` som virker uansett rekkefølge — uten å endre lista den fikk inn.\n**c)** Forklar i én setning hvorfor b) likevel kan være dårligere enn et sekvensielt søk når du bare skal slå opp ett nummer.",
+    "solution": "**a)** Standardmønsteret, uten pynt:\n\n```python\ndef sok_isbn(numre, isbn):\n    imin = 0\n    imax = len(numre) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if numre[imid] == isbn:\n            return imid\n        elif numre[imid] < isbn:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n\nregister = [9788203, 9788205, 9788241, 9788260, 9788299]\nprint(sok_isbn(register, 9788241))\nprint(sok_isbn(register, 9780000))\n```\n\n**Utskrift:**\n```\n2\n-1\n```\n\n**b)** Sorter først — og bruk `sorted`, ikke `.sort()`, for å la den innkomne lista være i fred:\n\n```python\ndef sok_isbn(numre, isbn):\n    imin = 0\n    imax = len(numre) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if numre[imid] == isbn:\n            return imid\n        elif numre[imid] < isbn:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n\ndef sok_isbn_trygt(numre, isbn):\n    ordnet = sorted(numre)\n    return sok_isbn(ordnet, isbn)\n\nrot = [9788241, 9788203, 9788299, 9788205]\nprint(sok_isbn_trygt(rot, 9788299))\nprint(rot)\n```\n\n**Utskrift:**\n```\n3\n[9788241, 9788203, 9788299, 9788205]\n```\n\nAndre utskrift viser at originalen står urørt — det var hele poenget med `sorted` framfor `.sort()`.\n\n**Merk en viktig detalj:** indeksen 3 gjelder den **sorterte** lista, ikke `rot`. Skal du bruke indeksen til noe i den opprinnelige lista, må du returnere selve verdien eller raden i stedet.\n\n**c)** Én setning: **du betaler for en full sortering av hele lista bare for å spare noen sammenligninger på ett oppslag.**\n\nSortering lønner seg først når du skal slå opp mange ganger i den samme lista. Skal du slå opp én gang, er sekvensielt søk både raskere og enklere. Vi tallfester dette i [kap. 6.3](/tdt4110/tdt4110-6-3).",
+    "hints": [
+     "Start a) med de to grensene og `while`-betingelsen; resten faller på plass.",
+     "Til b): hvilken av `sorted(x)` og `x.sort()` lar originalen stå urørt?",
+     "Til c): tell arbeidet i sorteringen, ikke bare i søket."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-6-2-def-28",
+   "type": "definition",
+   "title": "Duplikater: hvilken indeks får du?",
+   "content": "Sekvensielt søk gir alltid **første** forekomst, fordi det går fra venstre og returnerer ved første treff.\n\nBinærsøk gir en **vilkårlig** forekomst — den det tilfeldigvis lander på. I lista `[3, 5, 5, 5, 9]` gir sekvensielt søk etter 5 indeks 1, mens binærsøk gir indeks 2. Begge er «riktige» treff, men de er ikke like. Ber oppgaven om den første forekomsten, kan du ikke bruke binærsøk uten videre."
+  },
+  {
+   "id": "tdt4110-6-2-ex-29",
+   "type": "example",
+   "title": "Eksempel 6: to søk, to svar",
+   "problem": "Vis at sekvensielt søk og binærsøk gir ulik indeks når verdien finnes flere ganger.",
+   "solution": "```python\ndef finn_indeks(x, mal):\n    for i in range(len(x)):\n        if x[i] == mal:\n            return i\n    return -1\n\ndef binaersok(x, mal):\n    imin = 0\n    imax = len(x) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if x[imid] == mal:\n            return imid\n        elif x[imid] < mal:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n\ntall = [3, 5, 5, 5, 9]\nprint(finn_indeks(tall, 5))\nprint(binaersok(tall, 5))\n```\n\n**Utskrift:**\n```\n1\n2\n```\n\nBegge svarene peker på et femtall, så begge er treff. Men bare det første er «den første forekomsten».\n\nBinærsøket landet på indeks 2 fordi `(0 + 4) // 2` er 2, og der lå det tilfeldigvis et femtall — det sluttet å lete med en gang. Står det «første forekomst» i oppgaveteksten, er sekvensielt søk det trygge valget."
+  },
+  {
+   "id": "tdt4110-6-2-exr-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-6-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger C — forklar med én setning hva funksjonen gjør.) Skriv én presis setning om hva funksjonen oppnår. Setningen skal si *hva* den gir tilbake, ikke *hvordan* den regner.\n\n```python\ndef ukjent(x, mal):\n    imin = 0\n    imax = len(x) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if x[imid] == mal:\n            return imid\n        elif x[imid] < mal:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n```",
+    "solution": "**Modellsvar:** «Returnerer indeksen til `mal` i den sorterte lista `x` med binærsøk, eller `-1` hvis verdien ikke finnes.»\n\nÉn setning, starter med et verb, nevner forutsetningen om sortert liste og «ikke funnet»-verdien — begge deler er en del av *hva* funksjonen gjør.\n\n**Et for langt svar — dette trekker ned:** «Funksjonen setter først `imin` til 0 og `imax` til lengden minus én, og går så inn i en `while`-løkke som kjører så lenge `imin` er mindre enn eller lik `imax`, der den regner ut midtpunktet med heltallsdeling, sjekker om elementet der er lik målet, og hvis ikke justerer den enten `imin` eller `imax` avhengig av om midtelementet er mindre eller større, helt til løkka avsluttes og `-1` returneres.»\n\nDet svaret er teknisk korrekt, men det er en oversettelse av koden linje for linje. Sensor er uttrykkelig instruert om at uklare eller unødvendig lange svar trekker ned — og et slikt svar viser ikke at du kjente igjen algoritmen.",
+    "hints": [
+     "Les funksjonen bakfra: hva er de to mulige returverdiene?",
+     "Kjenner du igjen mønsteret? Bruk navnet på algoritmen.",
+     "Stryk alt om `imin`, `imax` og løkkebetingelsen — det er *hvordan*, ikke *hva*."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-6-2-t-30",
+   "type": "text",
+   "content": "## Når velger du hva?\n\nTre spørsmål avgjør, i denne rekkefølgen:\n\n1. **Er lista sortert?** Er den ikke det, og du ikke skal sortere den uansett: sekvensielt søk.\n2. **Skal du slå opp én gang eller mange?** Ett oppslag i ei usortert liste er alltid sekvensielt søk — å sortere først koster mer enn det sparer. Mange oppslag i den samme lista: sorter én gang, og bruk binærsøk etterpå.\n3. **Trenger du den første forekomsten, alle forekomstene, eller bare ett treff?** Bare sekvensielt søk gir deg de to første på en enkel måte.\n\nPå eksamen er svaret nesten alltid sekvensielt søk, fordi oppgavene arbeider på tabeller lest fra fil i vilkårlig rekkefølge. Binærsøk kommer når oppgaven **sier** at lista er sortert — det er signalordet du skal se etter."
+  },
+  {
+   "id": "tdt4110-6-2-col-31",
+   "type": "collapsible",
+   "title": "Bør kjenne til — rekursivt binærsøk",
+   "buttonText": "Vis rekursivt binærsøk",
+   "content": [
+    {
+     "id": "tdt4110-6-2-col-31-t1",
+     "type": "text",
+     "content": "**Nivå 3, det laveste av bokas tre nivåer.** Løkkeversjonen over er den arkivets oppgaver bruker, og den holder til eksamen. Denne varianten er med fordi rekursjon er pensum i emnet ([kap. 5.2](/tdt4110/tdt4110-5-2)), og fordi binærsøk er det klassiske eksemplet på en algoritme som er kortere rekursivt enn med løkke.\n\nMalen er den vanlige: **grunntilfelle først, deretter det rekursive steget.**\n\n- **Grunntilfellet** er det tomme vinduet, `imin > imax` — da finnes ikke verdien, og funksjonen returnerer `-1` uten flere kall.\n- **Steget** er det samme valget som i løkka, men i stedet for å endre `imin` eller `imax` og gå en runde til, kaller funksjonen seg selv med det nye vinduet.\n\n```python\ndef binaersok_rek(x, mal, imin, imax):\n    if imin > imax:\n        return -1\n    imid = (imin + imax) // 2\n    if x[imid] == mal:\n        return imid\n    elif x[imid] < mal:\n        return binaersok_rek(x, mal, imid + 1, imax)\n    else:\n        return binaersok_rek(x, mal, imin, imid - 1)\n\nsortert = [104, 211, 317, 428, 530, 646, 752]\nprint(binaersok_rek(sortert, 646, 0, len(sortert) - 1))\nprint(binaersok_rek(sortert, 99, 0, len(sortert) - 1))\n```\n\n**Utskrift:**\n```\n5\n-1\n```\n\n**Sporing av det første kallet.** Rekursive kall spores i to retninger: først bygger du kall-stakken utover, deretter folder du returverdiene innover.\n\nUtover:\n\n```text\nbinaersok_rek(x, 646, 0, 6)   imid = 3, x[3] = 428 < 646\n    binaersok_rek(x, 646, 4, 6)   imid = 5, x[5] = 646 == 646\n```\n\nInnover, nederste kall først:\n\n```text\nbinaersok_rek(x, 646, 4, 6)  ->  5\nbinaersok_rek(x, 646, 0, 6)  ->  5\n```\n\nLegg merke til at hvert kall bare sender resultatet videre uendret. Det er derfor `return` foran det rekursive kallet er nødvendig — glemmer du den, gir funksjonen `None`.\n\nTo ulemper er verdt å nevne: funksjonen trenger fire parametere i stedet for to, så den er klumpete å kalle, og hvert kall bruker plass på kall-stakken. Skal du velge én av dem på eksamen, velg løkkeversjonen."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-6-2-col-32",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-6-2-col-32-t1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `for i in range(len(x))` | Går gjennom alle lovlige indekser, 0 til `len(x) - 1` |\n| `if x[i] == mal: return i` | Første treff; `return` avslutter funksjonen straks |\n| `return -1` | «Ikke funnet» for en funksjon som gir indeks; må stå ETTER løkka |\n| `return None` | «Ikke funnet» for en funksjon som gir et element eller ei rad |\n| `return []` | «Ingen treff» for en funksjon som gir flere treff |\n| `v in x` | `True`/`False`; sier om verdien finnes, ikke hvor |\n| `v not in x` | Negasjonen; brukes for å unngå duplikater |\n| `x.index(v)` | Indeks til første forekomst; `ValueError` hvis verdien mangler |\n| `x.count(v)` | Antall forekomster; 0 hvis ingen; krasjer aldri |\n| `tabell[0].index(navn)` | Kolonnenummeret til `navn` i overskriftsraden |\n| `for rad in tabell[1:]` | Går gjennom dataradene og hopper over overskriften |\n| `imin = 0`, `imax = len(x) - 1` | Søkevinduet i binærsøk: hele lista |\n| `while imin <= imax` | Kjører så lenge vinduet har minst ett element; `<=` er nødvendig |\n| `imid = (imin + imax) // 2` | Midten; `//` er heltallsdeling og runder nedover |\n| `imin = imid + 1` | Midten var for liten $\\to$ kast venstre halvdel, midten inkludert |\n| `imax = imid - 1` | Midten var for stor $\\to$ kast høyre halvdel, midten inkludert |\n| `sorted(x)` | Ny sortert liste; brukes før binærsøk uten å endre originalen |\n\n**Formler i dette delkapitlet:** binærsøk bruker omtrent $\\log_2 n$ steg på ei liste med $n$ elementer, mens sekvensielt søk i verste fall bruker $n$ sammenligninger."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

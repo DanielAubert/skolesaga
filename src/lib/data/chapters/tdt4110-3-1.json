@@ -1,0 +1,373 @@
+{
+  "id": "tdt4110-3-1",
+  "courseId": "tdt4110",
+  "chapterNumber": "3.1",
+  "title": "Lister og listeoperasjoner",
+  "description": "Lister, indeksering, slicing og de vanligste metodene — og snarveiene max/min/sum/sorted som fasiten bruker fritt.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne hente ut ett element, et utsnitt eller hele lista baklengs, og vite når du får en verdi og når du får en ny liste",
+    "kunne bruke listemetodene til å legge til, fjerne, finne og sortere, og vite hvilke av dem som endrer lista uten å returnere noe",
+    "kunne løse en analyseoppgave både med de innebygde snarveiene og med en egen løkke, og vite når du trenger løkka",
+    "kunne skille en kopi av ei liste fra et nytt navn på den samme lista"
+  ],
+  "content": [
+    {
+      "id": "tdt4110-3-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Lista er datastrukturen alt annet i faget står på, og den er med i **alle de ti eksamenssittingene i arkivet (2014–2019)** — 100 %. Uten lister finnes verken 2D-tabellen som filene leses inn i, eller analysefunksjonene som teller og rangerer.\n\nSlik dukker kapitlet opp på settet:\n\n- **Sjanger B — kodesporing**, altså «hva skriver dette programmet ut?». Du får en kort snutt og skal skrive utskriften tegn for tegn. Utsnitt med steg (`tall[::-1]`, `tall[1::2]`) er en fast innpakning her, og gir 1–3 % per deloppgave.\n- **Sjanger G — analyse**, altså «finn den største / tell hvor mange / rangér». Dette er tyngdepunktet i programmeringsoppgaven, 5–10 % per deloppgave, og starter alltid med en liste.\n\n**Snarveiene er lov.** I dette emnet bruker de offisielle løsningsforslagene fritt `max`, `min`, `sum`, `sorted` og `.index`. Du taper ingenting på å bruke dem — men du må også kunne skrive løkka som gjør det samme, fordi noen oppgaver spør etter mer enn maksverdien. Kapitlet viser derfor begge, side om side.\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer «må sitte», «må kunne», «bør kjenne til»). Bruk 40 minutter her, og du har fjernet en hel klasse feil senere i boka."
+    },
+    {
+      "id": "tdt4110-3-1-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper**\n\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — løkker: `for`, `while` og `range`. Du bør kjenne igjen at `range(start, stopp, steg)` stopper FØR `stopp`.\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — datatyper og konvertering med `int()` og `float()`.\n\nVil du ha den samme grunnmuren i en annen innpakning først, dekker [Lister](/in1000/in1000-3-1) det samme stoffet i et parallelt emne.\n\nHar du aldri programmert før, er det bare to ord du trenger herfra: en **variabel** er et navn som peker på en verdi, og en **løkke** er en kodeblokk som gjentas én gang for hvert element. Alt annet forklares her."
+    },
+    {
+      "id": "tdt4110-3-1-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — lista som beholder (~7 min)\n\nRutetabellen for bybussen din har fire avganger på morgenen. Du kunne laget fire variabler — `avgang1`, `avgang2`, `avgang3`, `avgang4` — men da må koden skrives om hver gang det kommer en avgang til, og du kan ikke gå gjennom dem med en løkke.\n\nEn **liste** løser dette: ett navn som peker på flere verdier i en bestemt rekkefølge. Du skriver verdiene i hakeparenteser med komma mellom."
+    },
+    {
+      "id": "tdt4110-3-1-def-4",
+      "type": "definition",
+      "title": "Lista `[...]`",
+      "content": "En liste er en ordnet samling verdier under ett navn. Rekkefølgen er en del av dataene, og den samme verdien kan stå flere ganger. Verdiene kan være av forskjellig type i samme liste, men i praksis holder du dem like.\n\nDu skriver den som verdier i hakeparenteser, atskilt med komma: `avganger = [612, 627, 642, 657]`. En tom liste er `[]`, og den er ofte startpunktet: du oppretter den tom og fyller på underveis."
+    },
+    {
+      "id": "tdt4110-3-1-def-5",
+      "type": "definition",
+      "title": "`len(x)`",
+      "content": "Gir antall elementer i lista `x`, som et heltall. En tom liste har lengde 0.\n\n`len` er den vanligste kilden til løkkegrenser: `range(len(x))` gir nøyaktig indeksene 0, 1, … opp til `len(x) - 1` — altså alle lovlige indekser, og ingen flere."
+    },
+    {
+      "id": "tdt4110-3-1-ex-6",
+      "type": "example",
+      "title": "Eksempel 1: rutetabellen som liste",
+      "problem": "Legg de fire morgenavgangene 06:12, 06:27, 06:42 og 06:57 i en liste med minutter etter midnatt, skriv ut hele lista og hvor mange avganger det er.",
+      "solution": "Klokkeslettet 06:12 er `6 * 60 + 12 = 372` minutter etter midnatt. De fire tallene legges rett inn i lista.\n\n```python\navganger = [372, 387, 402, 417]\nprint(avganger)\nprint(len(avganger))\n```\n\n**Utskrift:**\n```\n[372, 387, 402, 417]\n4\n```\n\nLegg merke til hvordan Python skriver ut ei liste: med hakeparenteser og komma-mellomrom mellom elementene. På en kodesporingsoppgave må du gjengi akkurat den formen — `[372, 387, 402, 417]`, ikke `372 387 402 417`."
+    },
+    {
+      "id": "tdt4110-3-1-exr-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv begge linjene nøyaktig slik terminalen viser dem.\n\n`priser.append(18)` legger verdien 18 bakerst i lista.\n\n```python\npriser = [39, 25, 61]\npriser.append(18)\nprint(priser)\nprint(len(priser))\n```",
+        "solution": "Lista har tre elementer, og `append` legger til ett bakerst, så den ender med fire.\n\n**Utskrift:**\n```\n[39, 25, 61, 18]\n4\n```\n\nHusk hakeparentesene og mellomrommet etter hvert komma — det er slik Python skriver lister, og sensor leser utskriften bokstavelig.",
+        "hints": [
+          "Skriv ned lista etter hver linje, i stedet for å regne i hodet.",
+          "`append` endrer lista som allerede finnes; den lager ingen ny.",
+          "`len` teller elementer, ikke tegn."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-1-t-8",
+      "type": "text",
+      "content": "## Løkke 2 — indeksering: å plukke ut ett element (~8 min)\n\nHvert element i lista har et **indeksnummer**, altså plassnummeret sitt. Tellingen starter på 0, ikke på 1. Første avgang er `avganger[0]`, andre er `avganger[1]`, og siste i en firelisteliste er `avganger[3]`.\n\nDet er derfor `range(len(x))` passer så godt: den gir nettopp 0 til og med `len(x) - 1`."
+    },
+    {
+      "id": "tdt4110-3-1-def-6b",
+      "type": "definition",
+      "title": "`x[i]` — indeksering",
+      "content": "Henter ut elementet på plass `i` i lista `x`. Tellingen begynner på **0**, så `x[0]` er det første elementet og `x[len(x) - 1]` er det siste.\n\nDu kan også tilordne: `x[2] = 99` bytter ut elementet på plass 2. Er `i` større enn eller lik `len(x)`, stopper programmet med feilen `IndexError: list index out of range`."
+    },
+    {
+      "id": "tdt4110-3-1-def-7b",
+      "type": "definition",
+      "title": "`x[-k]` — negativ indeks",
+      "content": "Teller bakfra: `x[-1]` er siste element, `x[-2]` det nest siste. Det finnes ingen `x[-0]` — null er null, så `x[0]` er alltid det første.\n\nNytten er at du slipper `x[len(x) - 1]` for å nå slutten. `x[-1]` er kortere og brukes fritt i løsningsforslag."
+    },
+    {
+      "id": "tdt4110-3-1-ex-9",
+      "type": "example",
+      "title": "Eksempel 2: første, siste og en endring",
+      "problem": "Med `avganger = [372, 387, 402, 417]`: skriv ut første og siste avgang, flytt den tredje avgangen fem minutter senere, og skriv ut lista igjen.",
+      "solution": "Den tredje avgangen har indeks 2, fordi tellingen starter på 0.\n\n```python\navganger = [372, 387, 402, 417]\nprint(avganger[0], avganger[-1])\navganger[2] = avganger[2] + 5\nprint(avganger)\n```\n\n**Utskrift:**\n```\n372 417\n[372, 387, 407, 417]\n```\n\n`print` med to argumenter setter ett mellomrom mellom dem — derfor `372 417` og ikke `372417`. Den detaljen er verdt poeng på utskriftssporing."
+    },
+    {
+      "id": "tdt4110-3-1-warn-10",
+      "type": "warning",
+      "title": "Typiske feil: indeksering",
+      "content": "**Av-med-én** er den vanligste feilen i hele faget (feilkode #5 — å bomme med én på løkkegrenser eller indekser). Den kommer i tre faste former her:\n\n- Å tro at `x[1]` er det første elementet. Det er det andre.\n- Å skrive `x[len(x)]` for å nå det siste. Det er én for langt og gir `IndexError`; siste element er `x[len(x) - 1]` eller `x[-1]`.\n- Å bruke `range(1, len(x))` når du vil ha alle elementene. Da hopper du over det første.\n\nMotgiften er mekanisk: skriv indeksene 0, 1, 2, 3 over elementene på kladdearket før du svarer."
+    },
+    {
+      "id": "tdt4110-3-1-exr-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nmaling = [4, 9, 2, 7, 5]\nmaling[0] = maling[-1]\nmaling[-2] = maling[1]\nprint(maling)\n```",
+        "solution": "Skriv lista på nytt etter hver tilordning, og husk at høyresida beregnes FØR venstresida endres.\n\n| Linje | `maling` etterpå |\n|---|---|\n| start | `[4, 9, 2, 7, 5]` |\n| `maling[0] = maling[-1]` | `[5, 9, 2, 7, 5]` |\n| `maling[-2] = maling[1]` | `[5, 9, 2, 9, 5]` |\n\n**Utskrift:**\n```\n[5, 9, 2, 9, 5]\n```\n\nFellen er #5 igjen: `maling[-2]` er nest siste plass, altså indeks 3 — ikke indeks 2.",
+        "hints": [
+          "Skriv indeksene 0, 1, 2, 3, 4 over elementene først.",
+          "`maling[-1]` er siste element, `maling[-2]` det nest siste.",
+          "Den andre linja bruker den nye lista fra første linje."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-1-t-12",
+      "type": "text",
+      "content": "## Løkke 3 — utsnitt (slicing) (~10 min)\n\nOfte vil du ikke ha ett element, men en bit av lista: de tre første avgangene, annenhver måling, eller hele lista baklengs. Det kalles et **utsnitt** (på engelsk *slice*), og skrives med kolon inne i hakeparentesene.\n\nDette er den enkeltkonstruksjonen som oftest dukker opp i kodesporing på dette emnet, så den skal sitte helt presist."
+    },
+    {
+      "id": "tdt4110-3-1-def-13",
+      "type": "definition",
+      "title": "`x[a:b]` — utsnitt",
+      "content": "Gir en **ny liste** med elementene fra og med indeks `a` til men **ikke med** indeks `b`. Sluttgrensa er altså eksklusiv, akkurat som i `range`.\n\nUtelater du `a`, starter utsnittet på 0; utelater du `b`, går det til enden. `x[:2]` er de to første, `x[2:]` er resten, og `x[:]` er en kopi av hele lista. Originalen endres aldri av et utsnitt."
+    },
+    {
+      "id": "tdt4110-3-1-def-14",
+      "type": "definition",
+      "title": "`x[a:b:s]` — utsnitt med steg",
+      "content": "Samme som `x[a:b]`, men hopper `s` plasser om gangen. `x[::2]` gir elementene på indeks 0, 2, 4 …, og `x[1::2]` gir dem på indeks 1, 3, 5 … — altså «annethvert element», to forskjellige varianter av det.\n\nHvilken av de to oppgaven mener, avgjøres av om den teller fra det første eller det andre elementet. Les oppgaveteksten to ganger her."
+    },
+    {
+      "id": "tdt4110-3-1-def-15",
+      "type": "definition",
+      "title": "`x[::-1]` — snudd kopi",
+      "content": "Negativt steg går bakover. `x[::-1]` gir en ny liste med elementene i motsatt rekkefølge, og lar originalen stå urørt.\n\nDet samme trikset virker på tekst: `'stein'[::-1]` gir `'niets'`. Skal du derimot snu lista på plass, uten å lage en ny, bruker du `x.reverse()`."
+    },
+    {
+      "id": "tdt4110-3-1-ex-16",
+      "type": "example",
+      "title": "Eksempel 3: fire utsnitt av samme liste",
+      "problem": "La `tall = [8, 3, 5, 1, 9, 4]`. Skriv ut de tre første, alt fra og med indeks 3, annethvert element fra indeks 1, og hele lista baklengs — og vis at originalen er uendret etterpå.",
+      "solution": "Fire utsnitt, én utskrift hver, og lista til slutt.\n\n```python\ntall = [8, 3, 5, 1, 9, 4]\nprint(tall[:3])\nprint(tall[3:])\nprint(tall[1::2])\nprint(tall[::-1])\nprint(tall)\n```\n\n**Utskrift:**\n```\n[8, 3, 5]\n[1, 9, 4]\n[3, 1, 4]\n[4, 9, 1, 5, 3, 8]\n[8, 3, 5, 1, 9, 4]\n```\n\nGå gjennom dem én for én: `tall[:3]` stopper før indeks 3, så 1-tallet er ikke med. `tall[3:]` begynner nettopp på indeks 3, så det er 1-tallet som er første element der. `tall[1::2]` tar indeks 1, 3 og 5. Og siste linje viser poenget: originalen er den samme som før — et utsnitt lager alltid en ny liste."
+    },
+    {
+      "id": "tdt4110-3-1-exr-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle fire linjene nøyaktig, med hakeparenteser og komma-mellomrom.\n\n```python\nm = [10, 20, 30, 40, 50, 60, 70]\nprint(m[2:5])\nprint(m[::3])\nprint(m[-3:])\nprint(len(m[1:4]))\n```",
+        "solution": "Skriv indeksene over elementene først: 0 til 6.\n\n| Uttrykk | Indekser som tas med | Resultat |\n|---|---|---|\n| `m[2:5]` | 2, 3, 4 (5 er eksklusiv) | `[30, 40, 50]` |\n| `m[::3]` | 0, 3, 6 | `[10, 40, 70]` |\n| `m[-3:]` | 4, 5, 6 (de tre siste) | `[50, 60, 70]` |\n| `len(m[1:4])` | 1, 2, 3 gir tre elementer | `3` |\n\n**Utskrift:**\n```\n[30, 40, 50]\n[10, 40, 70]\n[50, 60, 70]\n3\n```\n\nFellen er #5, av-med-én: `m[2:5]` gir tre elementer, ikke fire — sluttgrensa er eksklusiv. Merk også at siste linje skriver `3` uten hakeparenteser, fordi `len` gir et tall og ikke ei liste.",
+        "hints": [
+          "Sluttgrensa i et utsnitt er eksklusiv, akkurat som i `range`.",
+          "`m[::3]` starter på indeks 0 og hopper tre plasser om gangen.",
+          "Et negativt startpunkt uten sluttpunkt betyr «de siste n»."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-1-warn-18",
+      "type": "warning",
+      "title": "Typiske feil: utsnitt gir liste, ikke element",
+      "content": "`x[2]` gir **elementet** på plass 2. `x[2:3]` gir **ei liste** med det ene elementet. De ser like ut, men `x[2] + 1` virker mens `x[2:3] + 1` stopper programmet — du kan ikke legge et tall til ei liste.\n\nDen andre halvparten av fellen er utskriften: et element skrives `30`, ei liste skrives `[30]`. På kodesporing er de to forskjellige svar, og bare det ene gir poeng."
+    },
+    {
+      "id": "tdt4110-3-1-t-19",
+      "type": "text",
+      "content": "## Løkke 4 — metodene som endrer lista (~10 min)\n\nEn **metode** er en funksjon som hører til et objekt, og som kalles med punktum: `avganger.append(432)`. De fleste listemetodene endrer lista du kaller dem på, og returnerer ingenting.\n\nDefinisjonene under er flashcard-stoff — du kan trygt bla forbi dem ved førstegangslesing og komme tilbake når du pugger. Det du må ta med deg nå, er skillet mellom «endrer lista» og «gir en ny»."
+    },
+    {
+      "id": "tdt4110-3-1-def-20",
+      "type": "definition",
+      "title": "`x.append(v)`",
+      "content": "Legger verdien `v` bakerst i lista `x`. Lista blir ett element lengre, og metoden returnerer `None` — du skriver aldri `x = x.append(v)`.\n\nDette er arbeidshesten i hele faget: du oppretter `resultat = []` og fyller på med `append` inne i en løkke."
+    },
+    {
+      "id": "tdt4110-3-1-def-21",
+      "type": "definition",
+      "title": "`x.insert(i, v)`",
+      "content": "Setter `v` inn PÅ plass `i`, og skyver resten ett hakk bakover. `x.insert(0, v)` legger altså verdien først.\n\nEr `i` større enn lengden, havner verdien bakerst i stedet for å gi feil. Lista endres på plass, og metoden returnerer `None`."
+    },
+    {
+      "id": "tdt4110-3-1-def-22",
+      "type": "definition",
+      "title": "`x.pop(i)`",
+      "content": "Fjerner elementet på plass `i` OG returnerer det. Uten argument, `x.pop()`, fjernes og returneres det siste elementet.\n\nDette er den ene fjerne-metoden som gir deg verdien tilbake, så den brukes når du både vil ta ut og bruke et element."
+    },
+    {
+      "id": "tdt4110-3-1-def-23",
+      "type": "definition",
+      "title": "`x.remove(v)`",
+      "content": "Fjerner den FØRSTE forekomsten av verdien `v` — ikke alle. Metoden tar en verdi, ikke en indeks, og returnerer `None`.\n\nFinnes ikke verdien i lista, stopper programmet med `ValueError`. Sjekk derfor med `if v in x:` først når du er usikker."
+    },
+    {
+      "id": "tdt4110-3-1-def-24",
+      "type": "definition",
+      "title": "`x.index(v)`",
+      "content": "Gir indeksen til den første forekomsten av `v`. Finnes ikke verdien, stopper programmet med `ValueError`.\n\nDette er konstruksjonen som senere lar deg finne en kolonne ved navn i stedet for å hardkode et kolonnenummer — et eksplisitt krav for full uttelling på eksamen."
+    },
+    {
+      "id": "tdt4110-3-1-def-25",
+      "type": "definition",
+      "title": "`x.count(v)`",
+      "content": "Gir antall ganger verdien `v` forekommer i lista, som et heltall. Er verdien ikke der, gir den 0 — den stopper altså aldri programmet.\n\n`x.count(v)` er den korteste måten å telle på når du bare skal telle ÉN verdi. Skal du telle alle verdiene, trenger du en ordbok."
+    },
+    {
+      "id": "tdt4110-3-1-def-26",
+      "type": "definition",
+      "title": "`x.sort()`",
+      "content": "Sorterer lista stigende PÅ PLASS og returnerer `None`. Lista du kalte den på er endret etterpå; den gamle rekkefølgen er borte.\n\n`x.sort(reverse=True)` sorterer synkende. Vil du ha en sortert kopi og beholde originalen, bruker du `sorted(x)` i stedet."
+    },
+    {
+      "id": "tdt4110-3-1-def-27",
+      "type": "definition",
+      "title": "`x.reverse()`",
+      "content": "Snur rekkefølgen i lista på plass og returnerer `None`. Ingen ny liste lages.\n\nForskjellen fra `x[::-1]` er nettopp der: utsnittet gir en ny, snudd liste og lar originalen stå, mens `reverse()` endrer originalen."
+    },
+    {
+      "id": "tdt4110-3-1-ex-28",
+      "type": "example",
+      "title": "Eksempel 4: rediger en avgangsliste",
+      "problem": "Rutetabellen `[372, 387, 402, 417]` skal endres: en ny avgang 06:02 settes inn først, avgangen 06:42 utgår, og den siste avgangen flyttes til en egen variabel og tas ut av lista. Skriv ut lista og den uttatte avgangen.",
+      "solution": "06:02 er `6 * 60 + 2 = 362` minutter, og 06:42 er 402. Merk at `pop` er den eneste av de tre som gir en verdi tilbake.\n\n```python\navganger = [372, 387, 402, 417]\navganger.insert(0, 362)\navganger.remove(402)\nsiste = avganger.pop()\nprint(avganger)\nprint(siste)\n```\n\n**Utskrift:**\n```\n[362, 372, 387]\n417\n```\n\n`remove(402)` tar verdien 402, ikke plass nummer 402. Det er et vanlig blandingspunkt: `remove` tar en verdi, `pop` tar en indeks."
+    },
+    {
+      "id": "tdt4110-3-1-warn-29",
+      "type": "warning",
+      "title": "Typiske feil: `None`-fella og navnetyveriet",
+      "content": "**Feilkode #17 — `.sort()` returnerer `None`.** Skriver du `tall = tall.sort()`, blir `tall` etterpå `None`, og neste linje stopper programmet. Metoden sorterte riktignok lista, men returnerte ingenting. Riktig er enten `tall.sort()` alene, eller `sortert = sorted(tall)`. Det samme gjelder `append`, `insert`, `remove` og `reverse`.\n\n**Feilkode #14 — å stjele et innebygd navn.** Skriver du `sum = 0` eller `list = [1, 2]`, virker linja fint, men funksjonene `sum(...)` og `list(...)` er ødelagt resten av programmet. Det samme gjelder `input`, `str`, `int`, `float`, `dict`, `set`, `max`, `min`, `len`, `type`, `range` og `format`. Bruk `total`, `verdier`, `tekst`, `tabell` i stedet.\n\nIngen av de to gir en feilmelding der feilen står — den kommer flere linjer senere, og det er det som gjør dem dyre."
+    },
+    {
+      "id": "tdt4110-3-1-exr-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — analyse: bruk listemetoder.) En resirkuleringsstasjon registrerer hvilken fraksjon hvert innlevert kolli havner i. Skriv funksjonen `rydd(logg, fjern)` som tar imot lista `logg` med fraksjonsnavn og ett navn `fjern`, og returnerer en NY liste der alle forekomster av `fjern` er borte. Originalen skal være uendret etterpå.\n\nTest den med `logg = ['glass', 'papir', 'glass', 'metall']` og `fjern = 'glass'`.",
+        "solution": "Fristelsen er `logg.remove(fjern)`, men den fjerner bare den FØRSTE forekomsten og endrer originalen. Bygg heller en ny liste og ta med alt som ikke skal bort.\n\n```python\ndef rydd(logg, fjern):\n    resultat = []\n    for element in logg:\n        if element != fjern:\n            resultat.append(element)\n    return resultat\n\nlogg = ['glass', 'papir', 'glass', 'metall']\nprint(rydd(logg, 'glass'))\nprint(logg)\n```\n\n**Utskrift:**\n```\n['papir', 'metall']\n['glass', 'papir', 'glass', 'metall']\n```\n\nAndre utskrift viser at originalen er urørt, som oppgaven krevde. Dette er bare én av flere riktige løsninger: en løkke som teller forekomster med `logg.count(fjern)` og kaller `remove` like mange ganger på en kopi, gir også full uttelling — så lenge originalen består.",
+        "hints": [
+          "Opprett en tom liste `resultat = []` før løkka.",
+          "Gå gjennom `logg` med `for element in logg:` og bruk en `if` inni.",
+          "Husk `return resultat` til slutt — uten `return` gir funksjonen `None`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-1-t-30",
+      "type": "text",
+      "content": "## Løkke 5 — snarveiene, og løkka som gjør det samme (~8 min)\n\nNå kommer den delen der dette emnet skiller seg fra mange andre programmeringskurs: du får lov til å bruke de innebygde snarveiene. Løsningsforslagene gjør det selv.\n\nMen du skal kunne begge deler, av en praktisk grunn: `max(x)` gir deg den største verdien, ikke hvem den tilhører. Skal du finne den dyreste varen OG navnet på den, må du gå gjennom lista selv."
+    },
+    {
+      "id": "tdt4110-3-1-def-31",
+      "type": "definition",
+      "title": "`max(x)` og `min(x)`",
+      "content": "Gir henholdsvis den største og den minste verdien i lista. På tekstlister sammenlignes ordene alfabetisk, med store bokstaver før små.\n\nEr lista tom, stopper programmet med `ValueError`. Derfor sjekker robust kode `if len(x) > 0:` før den bruker dem."
+    },
+    {
+      "id": "tdt4110-3-1-def-32",
+      "type": "definition",
+      "title": "`sum(x)`",
+      "content": "Legger sammen alle tallene i lista og gir summen. En tom liste gir 0, ikke feil — det er den eneste av snarveiene som tåler tom liste.\n\n`sum` virker bare på tall. Er elementene lest fra fil, er de strenger, og du må konvertere dem med `int()` eller `float()` først."
+    },
+    {
+      "id": "tdt4110-3-1-def-33",
+      "type": "definition",
+      "title": "`sorted(x)`",
+      "content": "Gir en NY liste med elementene i stigende rekkefølge, og lar `x` stå urørt. `sorted(x, reverse=True)` gir synkende.\n\nDette er forskjellen fra `x.sort()`, som endrer originalen og returnerer `None`. Trenger du den gamle rekkefølgen senere, er `sorted` det trygge valget."
+    },
+    {
+      "id": "tdt4110-3-1-def-34",
+      "type": "definition",
+      "title": "`v in x` — medlemskapstesten",
+      "content": "Gir `True` hvis verdien `v` finnes i lista `x`, ellers `False`. Den brukes både som betingelse og som vakt: `if navn not in resultat:` er standardmåten å unngå duplikater på.\n\nTesten ser på verdier, ikke indekser, og den stopper aldri programmet — den svarer bare `False` når verdien mangler."
+    },
+    {
+      "id": "tdt4110-3-1-def-35",
+      "type": "definition",
+      "title": "`+` og `*` på lister",
+      "content": "`a + b` gir en ny liste der `b` er skjøtt bakpå `a`; ingen av originalene endres. `[0] * 4` gir `[0, 0, 0, 0]` — en rask måte å lage ei liste med startverdier på.\n\n`+` legger ikke sammen tallene elementvis: `[1, 2] + [3]` blir `[1, 2, 3]`, ikke `[4, 2]`. Det er en fast felle på kodesporing."
+    },
+    {
+      "id": "tdt4110-3-1-def-36",
+      "type": "definition",
+      "title": "`list(range(a, b, s))`",
+      "content": "`range` gir en oppskrift på en tallrekke, ikke ei liste. `list(...)` gjør den om til ei ekte liste du kan skrive ut og indeksere.\n\nSkriver du `print(range(3))`, får du `range(0, 3)` og ikke `[0, 1, 2]`. Skal tallrekka vises, må den pakkes i `list(...)`."
+    },
+    {
+      "id": "tdt4110-3-1-def-37",
+      "type": "definition",
+      "title": "Kopi mot alias: `b = a[:]`",
+      "content": "`b = a` gir IKKE en kopi — det gir et nytt navn på den samme lista, og en endring gjennom det ene navnet synes gjennom det andre.\n\nVil du ha en uavhengig kopi, skriver du `b = a[:]` eller `b = list(a)`. Dette er feilkode #15, aliasing, og den er vanskelig å se fordi koden ser riktig ut."
+    },
+    {
+      "id": "tdt4110-3-1-ex-38",
+      "type": "example",
+      "title": "Eksempel 5: dyreste vare — snarvei og løkke side om side",
+      "problem": "En prisliste for en dagligvarehandel ligger som to lister: `varer` med navn og `priser` med kroner, i samme rekkefølge. Finn den høyeste prisen, og finn hvilken vare den tilhører.",
+      "solution": "Den høyeste prisen alene er en énlinjes snarvei.\n\n```python\nvarer = ['brød', 'melk', 'kaffe', 'ost']\npriser = [39, 25, 89, 61]\nprint(max(priser))\n```\n\n**Utskrift:**\n```\n89\n```\n\nSkal du også ha navnet, holder ikke `max` alene. Da går du gjennom indeksene og husker hvor det beste sto:\n\n```python\nvarer = ['brød', 'melk', 'kaffe', 'ost']\npriser = [39, 25, 89, 61]\nbeste = 0\nfor i in range(len(priser)):\n    if priser[i] > priser[beste]:\n        beste = i\nprint(varer[beste], priser[beste])\n```\n\n**Utskrift:**\n```\nkaffe 89\n```\n\nEn tredje vei er å bruke snarveien til å finne verdien og `.index` til å finne plassen:\n\n```python\nvarer = ['brød', 'melk', 'kaffe', 'ost']\npriser = [39, 25, 89, 61]\ntopp = max(priser)\nprint(varer[priser.index(topp)], topp)\n```\n\n**Utskrift:**\n```\nkaffe 89\n```\n\n**Alle tre gir full pott.** Snarveien er kortest når du bare skal ha verdien; løkka er den du trenger når svaret er «hvem», og den er også den eneste som lett kan utvides til å håndtere at lista er tom. Merk at løkkevarianten starter med `beste = 0`, ikke med en oppdiktet minsteverdi — da slipper du å gjette hvor lave prisene kan bli."
+    },
+    {
+      "id": "tdt4110-3-1-exr-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — analyse.) En værstasjon har døgnmiddeltemperaturer for en uke i lista `grader`. Skriv `over_snittet(grader)` som returnerer ei liste med de temperaturene som er høyere enn ukesgjennomsnittet.\n\n**a)** Løs oppgaven med snarveiene `sum` og `len`.\n**b)** Forklar med én setning hvorfor funksjonen må regne ut gjennomsnittet FØR løkka, ikke inne i den.\n\nTest med `grader = [4, 9, 2, 7, 5, 11, 1]`.",
+        "solution": "**a)** Gjennomsnittet er summen delt på antallet. Merk at `/` alltid gir et desimaltall, som er akkurat det vi vil ha her.\n\n```python\ndef over_snittet(grader):\n    snitt = sum(grader) / len(grader)\n    resultat = []\n    for g in grader:\n        if g > snitt:\n            resultat.append(g)\n    return resultat\n\ngrader = [4, 9, 2, 7, 5, 11, 1]\nprint(over_snittet(grader))\nprint(sum(grader) / len(grader))\n```\n\n**Utskrift:**\n```\n[9, 7, 11]\n5.571428571428571\n```\n\n**b)** Gjennomsnittet er det samme for hele lista, så å regne det om igjen for hvert element gir samme svar til en høyere pris — og gjør koden vanskeligere å lese.\n\nUten snarveiene ville du lagt sammen i en løkke først (`total = 0` og `total += g`). Begge former er godkjent; her er `sum` kortest og klarest.",
+        "hints": [
+          "Regn ut gjennomsnittet i én linje før løkka begynner.",
+          "Bruk `/` og ikke `//` — gjennomsnittet er sjelden et helt tall.",
+          "Sammenlign hvert element med gjennomsnittet og bygg opp en ny liste."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-1-ex-39",
+      "type": "example",
+      "title": "Eksempel 6: aliasing — den usynlige feilen",
+      "problem": "Hva er forskjellen på `b = a` og `b = a[:]` når du etterpå endrer `b`?",
+      "solution": "Prøv begge deler i samme program.\n\n```python\na = [1, 2, 3]\nb = a\nb.append(99)\nprint(a)\n\nc = [1, 2, 3]\nd = c[:]\nd.append(99)\nprint(c)\n```\n\n**Utskrift:**\n```\n[1, 2, 3, 99]\n[1, 2, 3]\n```\n\nFørste utskrift er poenget: `a` ble endret selv om du bare rørte `b`. `b = a` lager ikke en ny liste, bare et nytt navn på den gamle. I det andre tilfellet er `d` en ekte kopi, og `c` står urørt.\n\nRegelen å ta med seg: skal en funksjon la argumentet sitt være i fred, må den jobbe på `liste[:]` — ikke på `liste`."
+    },
+    {
+      "id": "tdt4110-3-1-exr-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle tre linjene nøyaktig.\n\n```python\na = [3, 6, 9, 12]\nb = a\nc = a[:]\nb.append(15)\nc.reverse()\nprint(a)\nprint(b)\nprint(c)\n```",
+        "solution": "Nøkkelen er at `b` og `a` er to navn på den SAMME lista, mens `c` er en uavhengig kopi laget før endringene.\n\n| Linje | `a` og `b` (samme liste) | `c` (egen liste) |\n|---|---|---|\n| start | `[3, 6, 9, 12]` | — |\n| `c = a[:]` | `[3, 6, 9, 12]` | `[3, 6, 9, 12]` |\n| `b.append(15)` | `[3, 6, 9, 12, 15]` | `[3, 6, 9, 12]` |\n| `c.reverse()` | `[3, 6, 9, 12, 15]` | `[12, 9, 6, 3]` |\n\n**Utskrift:**\n```\n[3, 6, 9, 12, 15]\n[3, 6, 9, 12, 15]\n[12, 9, 6, 3]\n```\n\nFellen er #15, aliasing: de to første linjene er identiske fordi `a` og `b` peker på samme liste. Kopien `c` ble tatt FØR `append`, så 15-tallet er ikke med der.",
+        "hints": [
+          "Tegn to bokser: én liste som både `a` og `b` peker på, og én til `c`.",
+          "`c = a[:]` lager kopien på det tidspunktet linja kjøres.",
+          "`reverse()` endrer lista på plass og returnerer ingenting."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-1-col-40",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene du bør ha med deg",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "tdt4110-3-1-col-40-t1",
+          "type": "text",
+          "content": "1. Indeks 0 er det første elementet, og `x[-1]` er det siste.\n2. Sluttgrensa i et utsnitt er eksklusiv — `x[2:5]` gir tre elementer.\n3. Et utsnitt gir alltid ei NY liste; originalen står urørt.\n4. `x.sort()`, `x.append()`, `x.remove()` og `x.reverse()` endrer lista og returnerer `None`. `sorted(x)` gir en ny, sortert liste.\n5. `max`, `min`, `sum` og `sorted` er lovlige snarveier og brukes i fasitene — men bruk løkka når du også trenger å vite HVEM som er best.\n6. `b = a` er et alias, ikke en kopi. Kopien er `a[:]`."
+        }
+      ]
+    },
+    {
+      "id": "tdt4110-3-1-col-41",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "tdt4110-3-1-col-41-t1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `[]`, `[a, b, c]` | Tom liste / liste med gitte verdier, i den rekkefølgen de står |\n| `len(x)` | Antall elementer; lovlige indekser er 0 til `len(x) - 1` |\n| `x[i]` | Elementet på plass `i`; teller fra 0; for stor `i` gir `IndexError` |\n| `x[-1]` | Siste element; `x[-2]` nest siste; `x[-0]` finnes ikke |\n| `x[a:b]` | Ny liste fra og med `a` til men IKKE med `b`; originalen uendret |\n| `x[a:b:s]` | Som over, men hopper `s` plasser; `x[::2]` gir indeks 0, 2, 4 …, `x[1::2]` gir 1, 3, 5 … |\n| `x[::-1]` | Ny liste i motsatt rekkefølge; originalen uendret |\n| `x[:]` | Kopi av hele lista — det som skiller kopi fra alias |\n| `x.append(v)` | Legger `v` bakerst; endrer lista; returnerer `None` |\n| `x.insert(i, v)` | Setter `v` inn på plass `i` og skyver resten bakover |\n| `x.pop()` / `x.pop(i)` | Fjerner OG returnerer siste / elementet på plass `i` |\n| `x.remove(v)` | Fjerner FØRSTE forekomst av verdien `v`; `ValueError` hvis den mangler |\n| `x.index(v)` | Indeksen til første forekomst; `ValueError` hvis verdien mangler |\n| `x.count(v)` | Antall forekomster av `v`; 0 hvis den ikke finnes |\n| `x.sort()` | Sorterer på plass, returnerer `None`; `x.sort(reverse=True)` synkende |\n| `x.reverse()` | Snur på plass, returnerer `None` |\n| `sorted(x)` | NY sortert liste; originalen uendret |\n| `max(x)` / `min(x)` | Største / minste verdi; `ValueError` på tom liste |\n| `sum(x)` | Summen av tallene; 0 for tom liste |\n| `v in x` | `True` hvis verdien finnes; `not in` er negasjonen |\n| `a + b` | Ny liste der `b` er skjøtt bakpå `a` (ikke elementvis addisjon) |\n| `[0] * n` | Liste med `n` kopier av verdien |\n| `list(range(a, b, s))` | Tallrekka som ekte liste; `range` alene skrives ut som `range(a, b)` |\n"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

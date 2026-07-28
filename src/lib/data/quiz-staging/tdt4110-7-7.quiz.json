@@ -1,0 +1,122 @@
+[
+ {
+  "question": "Hva gjør `'B333333333'.ljust(6)`?",
+  "options": [
+   "Gir strengen uendret, siden den allerede er lengre enn seks tegn",
+   "Kutter strengen til de seks første tegnene og gir `'B33333'`",
+   "Gir en `ValueError`, siden bredden er mindre enn lengden",
+   "Legger på seks mellomrom bak den opprinnelige strengen"
+  ],
+  "explanation": "`ljust` og `rjust` fyller ut til en minstebredde, men kutter aldri — er teksten lengre, skjer ingenting. Derfor sprenges en tabell av det lengste feltet, og bredden bør velges etter det."
+ },
+ {
+  "question": "Hva skjer med `f.write('B1;610')` uten linjeskift til slutt?",
+  "options": [
+   "Neste `write` fortsetter på samme linje i fila",
+   "Python legger på et linjeskift automatisk, som `print` gjør",
+   "Fila blir tom, siden linja aldri ble avsluttet riktig",
+   "Neste `write` overskriver linja som allerede er skrevet"
+  ],
+  "explanation": "`write` legger aldri på linjeskift — det er hele forskjellen fra `print`. Resultatet er en fil der alle radene renner sammen. Ingenting overskrives, og fila er slett ikke tom."
+ },
+ {
+  "question": "Hvorfor gir `';'.join(['B1', 610])` en `TypeError`?",
+  "options": [
+   "Fordi `join` krever at alle elementene i lista er strenger",
+   "Fordi lista må ha et partall antall elementer for å limes sammen",
+   "Fordi skilletegnet må være det samme som i inndatafila",
+   "Fordi `join` bare kan brukes på tupler, ikke på lister"
+  ],
+  "explanation": "`join` limer sammen strenger, så tall må gjennom `str(...)` først. Antall elementer, valg av skilletegn og typen sekvens spiller ingen rolle — `join` virker fint på både lister og tupler."
+ },
+ {
+  "question": "Hvilken modus skal `open` ha når `pickle.dump` skal skrive til fila?",
+  "options": [
+   "`'wb'` — binær skriving",
+   "`'w'` — vanlig tekstskriving",
+   "`'rb'` — binær lesing",
+   "`'a'` — legg til på slutten"
+  ],
+  "explanation": "`pickle` skriver byte, ikke tekst, så modusen må ha `b` i seg. Med `'w'` får du `TypeError`. `'rb'` er lesemodusen som hører til `pickle.load`, og `'a'` finnes ikke som binær tilleggsmodus i pensum her."
+ },
+ {
+  "question": "Hva er den viktigste forskjellen på å lagre en ordbok som tekstfil og som binærfil?",
+  "options": [
+   "Binærfila kommer tilbake med typene i behold, tekstfila må parses",
+   "Binærfila kan leses av et menneske, tekstfila kan bare leses av programmet",
+   "Binærfila tar mindre plass, men kan bare lagre tall og ikke tekst",
+   "Binærfila kan bare lagre flate lister, ikke ordbøker med nøkler"
+  ],
+  "explanation": "`pickle` henter strukturen tilbake som den var — 610 er fortsatt et heltall. Tekstfila må deles og konverteres. Det er tekstfila som er lesbar for mennesker, og `pickle` takler både nøstede strukturer og alle typer."
+ },
+ {
+  "question": "Hvorfor er `valg == 1` uten fnutter feil i en menyløkke?",
+  "options": [
+   "Fordi `input()` gir tekst, så sammenligningen er alltid usann",
+   "Fordi Python krever fnutter rundt alle verdier i en `if`-test",
+   "Fordi sammenligning mellom tekst og tall gir en `TypeError`",
+   "Fordi `input()` gir et heltall bare når brukeren skriver et siffer"
+  ],
+  "explanation": "`input()` gir alltid en streng, og en streng er aldri lik et tall. Sammenligningen er lovlig — den gir bare `False` hver gang, uten feilmelding, så programmet havner i `else` uansett hva brukeren taster."
+ },
+ {
+  "question": "Hva skjer hvis `break` mangler i `q`-grenen i en `while True:`-meny?",
+  "options": [
+   "Løkka går for alltid, siden betingelsen aldri kan bli usann",
+   "Løkka avslutter etter én runde, siden ingen gren traff",
+   "Programmet gir en `SyntaxError`, siden løkka mangler en utvei",
+   "Løkka avslutter når brukeren skriver noe som ikke er et valg"
+  ],
+  "explanation": "Betingelsen er `True` og kan aldri bli usann, så `break` (eller `return`) er eneste vei ut. Python krever ingen utvei syntaktisk, og ingen input avslutter løkka av seg selv."
+ },
+ {
+  "question": "Hva er forskjellen på `break` og `continue` i en menyløkke?",
+  "options": [
+   "`break` går ut av løkka, `continue` hopper til neste runde",
+   "`break` går ut av funksjonen, `continue` går ut av løkka",
+   "`break` avslutter programmet, `continue` avslutter bare løkka",
+   "`break` hopper til neste runde, `continue` går ut av løkka"
+  ],
+  "explanation": "`break` avslutter løkka, `continue` hopper over resten av kroppen og starter neste runde. `continue` i avslutningsgrenen gir derfor en meny som aldri kan avsluttes. Det er `return` som avslutter funksjonen."
+ },
+ {
+  "question": "Hvorfor skal `main` lese fila bare én gang?",
+  "options": [
+   "Så alle funksjonene kan få den samme tabellen som parameter",
+   "Så fila ikke blir låst av at flere funksjoner har den åpen",
+   "Så filpekeren ikke havner på feil sted i neste innlesing",
+   "Så programmet slipper å lukke fila mellom hver menyvalg"
+  ],
+  "explanation": "Ett sted å lese betyr at tabellen kan sendes videre, og at funksjonene blir gjenbrukbare på andre data. Låsing, filpeker og lukking er ikke problemer her — hver `open` gir sitt eget filobjekt."
+ },
+ {
+  "question": "Hvorfor bør `try`-blokken rundt innlesingen være så snever som mulig?",
+  "options": [
+   "Ellers meldes feil andre steder i programmet som en filfeil",
+   "Ellers blir programmet merkbart tregere for hver linje i fila",
+   "Ellers fanger `except` bare den første feilen som oppstår",
+   "Ellers kan `return` i `except`-grenen ikke brukes i det hele tatt"
+  ],
+  "explanation": "En bred `try` fanger feil den ikke var ment for, og brukeren får en feilmelding som lyver. Hastigheten påvirkes ikke merkbart, `except` fanger uansett den første feilen som oppstår, og `return` virker like fint."
+ },
+ {
+  "question": "Hva må stå etter feilmeldingen i `except FileNotFoundError:` i `main`?",
+  "options": [
+   "`return`, slik at funksjonen ikke fortsetter uten data",
+   "`break`, slik at programmet hopper ut av unntaksblokken",
+   "`continue`, slik at programmet prøver innlesingen på nytt",
+   "Ingenting — `except` avslutter funksjonen av seg selv"
+  ],
+  "explanation": "Uten `return` fortsetter `main` med en tabell som aldri ble tilordnet, og krasjer likevel — bare litt senere. `break` og `continue` hører til løkker, og en `except`-blokk avslutter ingenting av seg selv."
+ },
+ {
+  "question": "Hva er kjennetegnet på en god menyfunksjon slik sensor vurderer den?",
+  "options": [
+   "Hver gren er ett kall til en funksjon som allerede finnes",
+   "Hver gren inneholder hele beregningen som valget skal utføre",
+   "Menyteksten står før løkka, slik at den bare vises én gang",
+   "Valgene konverteres med `int()` før de sammenlignes i grenene"
+  ],
+  "explanation": "Delegering gir gjenbrukspoengene og gjør menyen lesbar som en innholdsfortegnelse. Beregning i grenene gir kopiert kode, menyteksten hører inne i løkka, og `int()` på valget krasjer så snart brukeren skriver `q`."
+ }
+]

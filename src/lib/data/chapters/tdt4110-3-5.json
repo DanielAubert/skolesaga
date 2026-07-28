@@ -1,0 +1,375 @@
+{
+ "id": "tdt4110-3-5",
+ "courseId": "tdt4110",
+ "chapterNumber": "3.5",
+ "title": "Ordbøker som oppslag, teller og gruppering",
+ "description": "Ordboka som oppslagstabell, forekomstteller og grupperingsstruktur — de tre mønstrene analyseoppgavene bruker.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne slå opp en verdi på et navn i stedet for å lete gjennom to lister som holdes i takt",
+  "kunne hente en verdi trygt når nøkkelen kanskje ikke finnes, og vite når oppslaget stopper programmet",
+  "kunne telle forekomster av hver verdi i ei liste med det mønsteret sensor forventer",
+  "kunne samle elementer i grupper der hver verdi selv er ei liste",
+  "kunne bygge en oppslagsstruktur av en innlest tabell uten å anta hvilken plass kolonnene har"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-3-5-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Ordbøker er belagt i **åtte av de ti eksamenssittingene i arkivet (2014–2019)** — rundt 80 %. Det er den nest viktigste datastrukturen i faget, etter 2D-tabellen, og de to opptrer nesten alltid sammen: tabellen kommer inn fra fila, ordboka er det du gjør den om til når du skal telle eller gruppere.\n\nSlik dukker kapitlet opp på settet:\n\n- **Sjanger G — analyse**, altså «tell hvor mange av hver» eller «gruppér etter». Dette er tyngdepunktet i programmeringsoppgaven, 5–10 % per deloppgave. To mønstre går igjen år etter år: **telleren** og **grupperingen**, og begge står som egne kodemønstre lenger nede.\n- **Sjanger B — kodesporing**, altså «hva skriver dette programmet ut?». En kort løkke som bygger opp en telleordbok, der du skal si hva ordboka inneholder til slutt, er en fast innpakning. Den gir 1–3 % per deloppgave.\n\n**Dette er det viktigste kapitlet i Del 3.** Telleren `d[k] = d.get(k, 0) + 1` er et mønster sensor forventer å se, og som du bør kunne skrive uten å tenke. Bruker du et kvarter ekstra på løkke 3, får du det igjen i hele Del 7.\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer «må sitte», «må kunne», «bør kjenne til»). Regn med 50 minutter, delt i fire økter — de to siste er de tunge."
+  },
+  {
+   "id": "tdt4110-3-5-t-2",
+   "type": "text",
+   "content": "**Forkunnskaper**\n\n- [kap. 3.1](/tdt4110/tdt4110-3-1) — lister, `append`, `in`-testen og snarveiene `max`, `sum` og `sorted`. Ordboka bygger på dem, og grupperingen legger lister inn i ordboka.\n- [kap. 3.2](/tdt4110/tdt4110-3-2) — 2D-tabeller, fordi ordboka som regel bygges fra en tabell som er lest inn fra fil.\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — løkker, og [kap. 1.2](/tdt4110/tdt4110-1-2) — betingelser.\n\nVil du se ordboka forklart i en annen innpakning først, dekker [Ordbøker](/in1000/in1000-3-2) det samme stoffet i et parallelt emne.\n\nTo ord du trenger fra første setning: en **nøkkel** er det du slår opp på, og en **verdi** er det du får igjen. I en telefonliste er navnet nøkkelen og nummeret verdien."
+  },
+  {
+   "id": "tdt4110-3-5-t-3",
+   "type": "text",
+   "content": "## Løkke 1 — ordboka som oppslagstabell (~12 min)\n\nEn fuglestasjon fører logg over hva som blir observert. Med lister må du lagre to ting i takt — artsnavnene i én liste og antallet i en annen — og for å finne ut hvor mange gråtroster som er sett, må du først lete opp hvor «gråtrost» står, og så hente det samme plassnummeret i den andre lista.\n\nEn **ordbok** fjerner hele letingen. Du slår opp direkte på artsnavnet og får antallet. Ordboka er altså en samling **par**: hver nøkkel peker på sin verdi.\n\nMerk at «ordbok» er det norske ordet; i koden heter typen `dict`, som er kort for det engelske *dictionary*."
+  },
+  {
+   "id": "tdt4110-3-5-def-4",
+   "type": "definition",
+   "title": "Ordboka `{nøkkel: verdi}`",
+   "content": "En ordbok er en samling par der hver **nøkkel** peker på én **verdi**. Du skriver den i krøllparenteser, med kolon mellom nøkkel og verdi og komma mellom parene: `{'gråtrost': 12, 'linerle': 5}`.\n\nDen tomme ordboka er `{}` — ikke å forveksle med den tomme lista `[]` — og er ofte startpunktet: du oppretter den tom og fyller på underveis. En ordbok har ingen plassnumre; du kommer til verdiene bare gjennom nøklene."
+  },
+  {
+   "id": "tdt4110-3-5-def-5",
+   "type": "definition",
+   "title": "`d[k]` — oppslag",
+   "content": "Henter verdien som nøkkelen `k` peker på. `antall['linerle']` gir `5` i eksempelet over.\n\nFirkantparentesene ser ut som listeindeksering, men betyr noe helt annet: i ei liste er tallet inni en **plass**, i en ordbok er det inni en **nøkkel**. Finnes ikke nøkkelen, stopper programmet."
+  },
+  {
+   "id": "tdt4110-3-5-def-6",
+   "type": "definition",
+   "title": "`d[k] = v` — innsetting og oppdatering",
+   "content": "Samme skrivemåte gjør to jobber. Finnes ikke nøkkelen fra før, blir paret lagt inn som nytt; finnes den, blir den gamle verdien **overskrevet**.\n\nDet er derfor `antall['linerle'] = 6` virker uansett om linerla var registrert fra før. Og det er også derfor du aldri får `IndexError` når du legger noe inn i en ordbok: den vokser av seg selv, i motsetning til ei liste, der du må bruke `append`."
+  },
+  {
+   "id": "tdt4110-3-5-def-7",
+   "type": "definition",
+   "title": "`k in d` — finnes nøkkelen?",
+   "content": "Gir `True` hvis `k` er en **nøkkel** i ordboka, ellers `False`. `not in` er negasjonen.\n\nMerk at testen ser på nøklene, ikke på verdiene: i `{'gråtrost': 12}` er `'gråtrost' in d` sann, mens `12 in d` er usann. Vil du lete i verdiene, må du skrive `12 in d.values()`. Testen er den vanlige måten å unngå at et oppslag krasjer."
+  },
+  {
+   "id": "tdt4110-3-5-def-8",
+   "type": "definition",
+   "title": "`len(d)`",
+   "content": "Gir antall **par** i ordboka, som et heltall. `len({'a': 1, 'b': 2})` er 2, ikke 4.\n\nEn tom ordbok har lengde 0. Fordi nøklene er unike, er `len(d)` samtidig svaret på «hvor mange forskjellige verdier har jeg sett?» — et spørsmål som dukker opp stadig vekk i analyseoppgaver."
+  },
+  {
+   "id": "tdt4110-3-5-def-9",
+   "type": "definition",
+   "title": "`KeyError` — nøkkelen som ikke fantes",
+   "content": "Slår du opp en nøkkel som ikke finnes, stopper programmet med feilmeldingen `KeyError: 'kjøttmeis'`. Ordboka gjetter ikke, og den lager ingen tom plass for deg.\n\nDette er den vanligste kjørefeilen med ordbøker, og den har to motgifter: sjekke med `in` først, eller hente med `.get`, som gir en standardverdi i stedet for å stoppe. Merk at feilen bare gjelder **lesing** — `d['kjøttmeis'] = 1` er alltid lov."
+  },
+  {
+   "id": "tdt4110-3-5-ex-10",
+   "type": "example",
+   "title": "Eksempel 1: observasjonsloggen som ordbok",
+   "problem": "Fuglestasjonen har registrert 12 gråtroster, 5 linerler og 3 kjøttmeiser. Legg tallene i en ordbok, slå opp linerla, legg til 7 bokfinker, korriger gråtrosten til 14, og skriv ut hvor mange arter som er registrert.",
+   "solution": "Ordboka opprettes med de tre parene som allerede er kjent, og fylles på etterpå.\n\n```python\nantall = {'gråtrost': 12, 'linerle': 5, 'kjøttmeis': 3}\nprint(antall['linerle'])\nantall['bokfink'] = 7\nantall['gråtrost'] = 14\nprint(antall)\nprint(len(antall))\n```\n\n**Utskrift:**\n```\n5\n{'gråtrost': 14, 'linerle': 5, 'kjøttmeis': 3, 'bokfink': 7}\n4\n```\n\nLegg merke til at de to tilordningene ser helt like ut, men gjør forskjellige ting: `'bokfink'` fantes ikke og ble lagt inn som et nytt par, mens `'gråtrost'` fantes og fikk verdien sin overskrevet. Det er derfor ordboka har fire par til slutt, ikke fem.\n\nLegg også merke til hvordan Python skriver ut en ordbok: krøllparenteser, kolon mellom nøkkel og verdi, komma-mellomrom mellom parene, og tekstnøklene i fnutter. På en kodesporingsoppgave må du gjengi nøyaktig den formen."
+  },
+  {
+   "id": "tdt4110-3-5-exr-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-5-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Skriv alle tre linjene nøyaktig, med krøllparenteser og fnutter der de hører hjemme.\n\n```python\npriser = {'kaffe': 25, 'te': 20}\npriser['kakao'] = 27\npriser['te'] = 22\nprint(priser['kakao'])\nprint(len(priser))\nprint(priser)\n```",
+    "solution": "`'kakao'` er ny og blir lagt inn; `'te'` finnes fra før og blir overskrevet. Ordboka ender derfor med tre par, ikke fire.\n\n| Linje | Ordboka etterpå |\n|---|---|\n| start | `{'kaffe': 25, 'te': 20}` |\n| `priser['kakao'] = 27` | `{'kaffe': 25, 'te': 20, 'kakao': 27}` |\n| `priser['te'] = 22` | `{'kaffe': 25, 'te': 22, 'kakao': 27}` |\n\n```python\npriser = {'kaffe': 25, 'te': 20}\npriser['kakao'] = 27\npriser['te'] = 22\nprint(priser['kakao'])\nprint(len(priser))\nprint(priser)\n```\n\n**Utskrift:**\n```\n27\n3\n{'kaffe': 25, 'te': 22, 'kakao': 27}\n```\n\nMerk at `'te'` beholder plassen sin fra da den ble lagt inn første gang, selv om verdien er ny. Ordboka husker rekkefølgen parene ble satt inn i.",
+    "hints": [
+     "Skriv ordboka på nytt etter hver linje, i stedet for å regne i hodet.",
+     "En tilordning til en nøkkel som finnes fra før, legger ikke til noe nytt par.",
+     "`len` teller par, ikke nøkler og verdier hver for seg."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-5-def-11",
+   "type": "definition",
+   "title": "`d.get(k, standardverdi)`",
+   "content": "Henter verdien til nøkkelen `k`, men gir **standardverdien** i stedet for å stoppe hvis nøkkelen mangler. `antall.get('ravn', 0)` gir `0` når ravnen aldri er observert.\n\nTre presiseringer som avgjør kodesporingsoppgaver: metoden **setter ikke nøkkelen inn** i ordboka — den bare svarer, og ordboka er like stor etterpå. Finnes nøkkelen, blir standardverdien ignorert. Og dropper du standardverdien, altså `d.get(k)`, får du `None` når nøkkelen mangler."
+  },
+  {
+   "id": "tdt4110-3-5-warn-12",
+   "type": "warning",
+   "title": "Typiske feil: nøkkel er ikke plassnummer",
+   "content": "Fire feller går igjen:\n\n- **Å indeksere ordboka med et plassnummer.** `antall[0]` betyr «verdien til nøkkelen 0», ikke «det første paret». Er det ingen nøkkel som er tallet 0, gir det `KeyError`.\n- **Å slå opp uten å sjekke.** `antall['ravn']` stopper programmet hvis ravnen mangler. Bruk `if 'ravn' in antall:` eller `antall.get('ravn', 0)`.\n- **Å tro at `.get` legger nøkkelen inn.** Den gjør ikke det. Skal nøkkelen faktisk inn, må du tilordne: `antall['ravn'] = antall.get('ravn', 0) + 1`.\n- **Å teste verdier med `in`.** `12 in antall` leter blant nøklene, ikke blant tallene. Verdisøk er `12 in antall.values()`."
+  },
+  {
+   "id": "tdt4110-3-5-t-13",
+   "type": "text",
+   "content": "## Løkke 2 — å gå gjennom en ordbok (~10 min)\n\nSå snart ordboka er bygget, skal den som regel skrives ut eller summeres. Da må du kunne gå gjennom den, og her har Python fire skrivemåter som gir hver sin ting: nøklene, verdiene, parene — eller nøklene i sortert rekkefølge.\n\nMerk én ting med én gang: en ordbok går gjennom parene i den rekkefølgen de ble **satt inn**, ikke i alfabetisk rekkefølge. Det er en fast felle i kodesporing."
+  },
+  {
+   "id": "tdt4110-3-5-def-14",
+   "type": "definition",
+   "title": "`for k in d:` — iterasjon over nøklene",
+   "content": "En `for`-løkke over en ordbok gir deg **nøklene**, én om gangen, i innsettingsrekkefølge. Verdien henter du inni løkka med `d[k]`.\n\nDet er lett å tro at løkka gir parene eller verdiene. Den gir nøklene, og det er nøyaktig det samme som `for k in d.keys()`. Vil du ha begge deler i løkkehodet, bruker du `.items()`."
+  },
+  {
+   "id": "tdt4110-3-5-def-15",
+   "type": "definition",
+   "title": "`d.keys()`",
+   "content": "Gir en visning av alle nøklene, i innsettingsrekkefølge. Den kan brukes i en `for`-løkke og i en `in`-test, og gjøres om til ei ekte liste med `list(d.keys())`.\n\nUtskrevet ser den slik ut: `dict_keys(['gråtrost', 'linerle'])` — altså ikke som ei vanlig liste. Skal utskriften bli pen, konverterer du med `list(...)` først."
+  },
+  {
+   "id": "tdt4110-3-5-def-16",
+   "type": "definition",
+   "title": "`d.values()`",
+   "content": "Gir en visning av alle verdiene, i samme rekkefølge som nøklene. Verdiene er **ikke** unike — to arter kan godt ha samme antall.\n\nNytten er at snarveiene fra [kap. 3.1](/tdt4110/tdt4110-3-1) virker rett på den: `sum(d.values())` gir totalen, og `max(d.values())` gir den største verdien. Utskrevet ser den ut som `dict_values([12, 5])`."
+  },
+  {
+   "id": "tdt4110-3-5-def-17",
+   "type": "definition",
+   "title": "`d.items()`",
+   "content": "Gir parene, ett om gangen, som **tupler** på formen `(nøkkel, verdi)`. Det vanlige er å pakke dem ut direkte i løkkehodet: `for art, tall in antall.items():`.\n\nDa har du begge deler tilgjengelig uten et ekstra oppslag inni løkka. Dette er den formen løsningsforslagene bruker når de skriver ut en hel ordbok. (Tupler er tema i [kap. 3.6](/tdt4110/tdt4110-3-6); her trenger du bare å vite at de kan pakkes ut i to variabler.)"
+  },
+  {
+   "id": "tdt4110-3-5-def-18",
+   "type": "definition",
+   "title": "`sorted(d)` — nøklene i sortert rekkefølge",
+   "content": "`sorted` brukt på en ordbok gir ei **liste med nøklene**, sortert — alfabetisk for tekst, stigende for tall. Verdiene er ikke med.\n\nDette er måten du får en rapport i fast rekkefølge: `for k in sorted(d):`. Uten den følger utskriften innsettingsrekkefølgen, som avhenger av hvilken rekkefølge fila kom i, og som sjelden er den du vil vise fram."
+  },
+  {
+   "id": "tdt4110-3-5-def-19",
+   "type": "definition",
+   "title": "Nøklene er unike",
+   "content": "En ordbok kan ikke ha to like nøkler. Setter du inn et par med en nøkkel som finnes, erstattes den gamle verdien — det blir aldri to.\n\nKonsekvensen er at en ordbok mister informasjon hvis du bruker den feil: skriver du `d[art] = tall` inne i en løkke over alle observasjoner, sitter du til slutt igjen bare med den **siste** verdien for hver art. Skal de legges sammen, må du telle (løkke 3); skal de samles, må du gruppere (løkke 4)."
+  },
+  {
+   "id": "tdt4110-3-5-def-20",
+   "type": "definition",
+   "title": "Hva kan være nøkkel",
+   "content": "Nøkler må være **uforanderlige** verdier: tekst, heltall, desimaltall og tupler. Verdiene har ingen slik begrensning — de kan være tall, tekst, lister eller nye ordbøker.\n\nI praksis er nøkkelen nesten alltid tekst (et navn, en kode, en dato) eller et heltall (et årstall, et nummer). Ei **liste** kan ikke være nøkkel, fordi den kan endres etterpå; trenger du en sammensatt nøkkel, bruker du et tuppel."
+  },
+  {
+   "id": "tdt4110-3-5-ex-21",
+   "type": "example",
+   "title": "Eksempel 2: skriv ut hele loggen, sortert",
+   "problem": "Med `antall = {'gråtrost': 14, 'linerle': 5, 'kjøttmeis': 3, 'bokfink': 7}`: skriv ut hvert par på en egen linje i alfabetisk rekkefølge, og deretter totalen og den største enkeltverdien.",
+   "solution": "Løkka går over `sorted(antall)`, som gir nøklene sortert; verdien hentes med oppslag.\n\n```python\nantall = {'gråtrost': 14, 'linerle': 5, 'kjøttmeis': 3, 'bokfink': 7}\nfor art in sorted(antall):\n    print(art.ljust(10) + str(antall[art]).rjust(4))\nprint('Totalt:', sum(antall.values()))\nprint('Flest av én art:', max(antall.values()))\n```\n\n**Utskrift:**\n```\nbokfink      7\ngråtrost    14\nkjøttmeis    3\nlinerle      5\nTotalt: 29\nFlest av én art: 14\n```\n\nDen samme utskriften uten sortering ville kommet i rekkefølgen gråtrost, linerle, kjøttmeis, bokfink — altså slik parene ble satt inn.\n\nVil du ha både nøkkel og verdi i løkkehodet, skriver du det slik i stedet:\n\n```python\nantall = {'gråtrost': 14, 'linerle': 5, 'kjøttmeis': 3, 'bokfink': 7}\nfor art, tall in antall.items():\n    print(art, tall)\n```\n\n**Utskrift:**\n```\ngråtrost 14\nlinerle 5\nkjøttmeis 3\nbokfink 7\n```\n\nDenne varianten følger innsettingsrekkefølgen. **Begge former gir full pott** — velg `.items()` når du trenger begge deler og ikke bryr deg om rekkefølgen, og `sorted(d)` når rapporten skal komme i fast orden."
+  },
+  {
+   "id": "tdt4110-3-5-exr-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-5-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle linjene nøyaktig.\n\n```python\nlager = {'skrue': 40, 'mutter': 15, 'spiker': 40}\nfor vare in lager:\n    if lager[vare] > 20:\n        print(vare, lager[vare])\nprint(len(lager))\nprint(sum(lager.values()))\nprint('mutter' in lager, 15 in lager)\n```",
+    "solution": "Løkka går over **nøklene** i innsettingsrekkefølge, og betingelsen slipper gjennom de to varene med 40 på lager.\n\n| Nøkkel | Verdi | `> 20`? | Skrives |\n|---|---|---|---|\n| `'skrue'` | 40 | ja | `skrue 40` |\n| `'mutter'` | 15 | nei | — |\n| `'spiker'` | 40 | ja | `spiker 40` |\n\nSiste linje er den lumske: `'mutter' in lager` ser blant nøklene og er sann, mens `15 in lager` også leter blant nøklene — ikke blant verdiene — og er derfor usann, selv om 15 står i ordboka som verdi.\n\n```python\nlager = {'skrue': 40, 'mutter': 15, 'spiker': 40}\nfor vare in lager:\n    if lager[vare] > 20:\n        print(vare, lager[vare])\nprint(len(lager))\nprint(sum(lager.values()))\nprint('mutter' in lager, 15 in lager)\n```\n\n**Utskrift:**\n```\nskrue 40\nspiker 40\n3\n95\nTrue False\n```\n\nMerk også at to nøkler gjerne kan ha samme verdi — det er bare nøklene som må være unike.",
+    "hints": [
+     "En `for`-løkke over en ordbok gir nøklene, ikke verdiene.",
+     "Skriv opp de tre parene i innsettingsrekkefølge før du begynner.",
+     "`in` på en ordbok leter ett bestemt sted — hvilket?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-5-t-22",
+   "type": "text",
+   "content": "## Løkke 3 — telleren (~14 min)\n\n— naturlig pausepunkt —\n\nNå kommer kapitlets viktigste mønster. Fuglestasjonen leverer ikke et ferdig antall; den leverer en **rå observasjonsliste** der hver observasjon er ett artsnavn, og samme art står der like mange ganger som den er sett. Oppgaven er å gjøre den lista om til en ordbok fra art til antall.\n\nDet høres lite ut, men det er nøyaktig denne øvelsen som kommer igjen som «tell hvor mange stemmer hver kandidat fikk», «tell hvor mange ganger hver terningverdi kom» og «tell hvor mange lån hver låntaker har». Domenet roterer, øvelsen er den samme."
+  },
+  {
+   "id": "tdt4110-3-5-thm-23",
+   "type": "theorem",
+   "title": "Kodemønster: telleren `d[k] = d.get(k, 0) + 1`",
+   "content": "**Problemet:** du har ei liste med gjentakelser og vil ha en ordbok fra verdi til antall.\n\n**Mønsteret**, i tre linjer:\n\n1. Opprett en tom ordbok: `d = {}`.\n2. Gå gjennom lista: `for k in liste:`.\n3. Legg én til det som allerede står der: `d[k] = d.get(k, 0) + 1`.\n\nHele poenget med `.get(k, 0)` er å slippe å behandle første forekomst som et spesialtilfelle: har vi ikke sett `k` før, later `.get` som om tallet var 0, og resultatet blir 1.\n\nDen eksplisitte varianten skriver spesialtilfellet ut. Blokken under er et **fragment** — de fire linjene som står inne i løkka, ikke et program som kan kjøres alene:\n\n```text\nif k in d:\n    d[k] = d[k] + 1\nelse:\n    d[k] = 1\n```\n\nDe to gjør nøyaktig det samme, og **begge gir full pott**. Ettlinjeversjonen er den løsningsforslagene bruker, og den du bør kunne skrive uten å tenke.\n\nSkal du telle noe annet enn 1 om gangen — for eksempel legge sammen beløp per kunde — bytter du bare ut ettallet: `d[k] = d.get(k, 0) + belop`."
+  },
+  {
+   "id": "tdt4110-3-5-def-24",
+   "type": "definition",
+   "title": "`d[k] = d[k] + 1` og `d[k] += 1`",
+   "content": "Begge legger én til den verdien som allerede står på nøkkelen `k`, og `+=` er bare en kortform for den første.\n\nFella er at **de forutsetter at nøkkelen finnes**. Er `k` ny, stopper begge med `KeyError`, fordi Python må lese den gamle verdien før den kan legge til. Det er nettopp derfor tellermønsteret bruker `.get(k, 0)`: det gjør første forekomst ufarlig."
+  },
+  {
+   "id": "tdt4110-3-5-ex-25",
+   "type": "example",
+   "title": "Eksempel 3: fra observasjonsliste til telleordbok",
+   "problem": "Dagens observasjoner ligger som ei liste der hvert element er ett artsnavn: `['linerle', 'gråtrost', 'linerle', 'bokfink', 'gråtrost', 'linerle']`. Lag en ordbok fra art til antall — først med `.get`-mønsteret, så med den eksplisitte varianten.",
+   "solution": "Først mønsteret slik det står i kodemønsteret over:\n\n```python\ndef tell(liste):\n    d = {}\n    for k in liste:\n        d[k] = d.get(k, 0) + 1\n    return d\n\nobs = ['linerle', 'gråtrost', 'linerle', 'bokfink', 'gråtrost', 'linerle']\nprint(tell(obs))\n```\n\n**Utskrift:**\n```\n{'linerle': 3, 'gråtrost': 2, 'bokfink': 1}\n```\n\nOg her er den samme funksjonen med spesialtilfellet skrevet ut:\n\n```python\ndef tell(liste):\n    d = {}\n    for k in liste:\n        if k in d:\n            d[k] = d[k] + 1\n        else:\n            d[k] = 1\n    return d\n\nobs = ['linerle', 'gråtrost', 'linerle', 'bokfink', 'gråtrost', 'linerle']\nprint(tell(obs))\n```\n\n**Utskrift:**\n```\n{'linerle': 3, 'gråtrost': 2, 'bokfink': 1}\n```\n\n**Identisk resultat, og begge gir full pott.** Den korte er raskere å skrive under tidspress og er formen løsningsforslagene bruker; den lange er lettere å forklare høyt.\n\nLegg merke til rekkefølgen i utskriften: linerla kommer først fordi den ble observert først, ikke fordi den er flest eller først i alfabetet."
+  },
+  {
+   "id": "tdt4110-3-5-exr-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-5-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing av en teller.) Hva skriver programmet ut? Skriv begge linjene nøyaktig, med krøllparenteser og fnutter.\n\n```python\nbokstaver = ['R', 'G', 'R', 'B', 'G', 'R']\nd = {}\nfor b in bokstaver:\n    d[b] = d.get(b, 0) + 1\nprint(d)\nprint(d.get('S', 0), len(d))\n```",
+    "solution": "Gå gjennom lista ett element om gangen og skriv opp ordboka etter hvert steg.\n\n| Element | `d.get(b, 0)` | Ordboka etterpå |\n|---|---|---|\n| `'R'` | 0 | `{'R': 1}` |\n| `'G'` | 0 | `{'R': 1, 'G': 1}` |\n| `'R'` | 1 | `{'R': 2, 'G': 1}` |\n| `'B'` | 0 | `{'R': 2, 'G': 1, 'B': 1}` |\n| `'G'` | 1 | `{'R': 2, 'G': 2, 'B': 1}` |\n| `'R'` | 2 | `{'R': 3, 'G': 2, 'B': 1}` |\n\n```python\nbokstaver = ['R', 'G', 'R', 'B', 'G', 'R']\nd = {}\nfor b in bokstaver:\n    d[b] = d.get(b, 0) + 1\nprint(d)\nprint(d.get('S', 0), len(d))\n```\n\n**Utskrift:**\n```\n{'R': 3, 'G': 2, 'B': 1}\n0 3\n```\n\nFellen på siste linje er at `d.get('S', 0)` gir 0 **uten** å legge `'S'` inn i ordboka. Derfor er `len(d)` fortsatt 3 og ikke 4. Nøklene står i den rekkefølgen de dukket opp første gang, ikke etter antall.",
+    "hints": [
+     "Skriv opp ordboka på nytt etter hver eneste iterasjon.",
+     "`.get` med standardverdi svarer på et oppslag, men endrer ikke ordboka.",
+     "Rekkefølgen på nøklene er den de ble satt inn i."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-5-exr-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-5-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — analyse: tell.) En sykkelutleie logger hver utleie som én linje i lista `utleier`, der hvert element er navnet på stasjonen sykkelen ble hentet fra.\n\n**a)** Skriv `tell_per_stasjon(utleier)` som returnerer en ordbok fra stasjonsnavn til antall utleier.\n**b)** Skriv `stasjoner_over(d, grense)` som returnerer ei **sortert liste** med de stasjonsnavnene som har flere utleier enn `grense`.\n**c)** Hva returnerer `tell_per_stasjon([])`, og hvorfor er det riktig svar?\n\nTest med `utleier = ['Torget', 'Havna', 'Torget', 'Stadion', 'Havna', 'Torget']` og grensen 1.",
+    "solution": "**a)** er tellermønsteret rett fra kodemønsteret. **b)** går gjennom ordboka og samler nøklene som holder mål.\n\n```python\ndef tell_per_stasjon(utleier):\n    d = {}\n    for navn in utleier:\n        d[navn] = d.get(navn, 0) + 1\n    return d\n\ndef stasjoner_over(d, grense):\n    resultat = []\n    for navn in d:\n        if d[navn] > grense:\n            resultat.append(navn)\n    return sorted(resultat)\n\nutleier = ['Torget', 'Havna', 'Torget', 'Stadion', 'Havna', 'Torget']\ntellinger = tell_per_stasjon(utleier)\nprint(tellinger)\nprint(stasjoner_over(tellinger, 1))\n```\n\n**Utskrift:**\n```\n{'Torget': 3, 'Havna': 2, 'Stadion': 1}\n['Havna', 'Torget']\n```\n\n**c)** Den returnerer den tomme ordboka `{}`. Det er riktig: null utleier gir null stasjoner å telle, og løkka kjører aldri. At koden håndterer tomtilfellet uten et eget `if` er en styrke — det er nettopp det som gjør tellermønsteret robust (feilkode #6 — å ikke håndtere tom liste eller «ikke funnet»).\n\n**Hva gir uttelling:** at ordboka opprettes tom FØR løkka, at `.get` brukes så første forekomst ikke krasjer, og at b) sorterer resultatet i stedet for å stole på ordbokas rekkefølge. Skriver du b) med `sorted(d)` i løkkehodet og returnerer `resultat` direkte, er det like riktig.",
+    "hints": [
+     "Opprett den tomme ordboka før løkka, ikke inni den.",
+     "I b): gå gjennom nøklene og bruk oppslag for å se på verdien.",
+     "Sorteringen kan gjøres enten på nøklene før løkka eller på resultatet etterpå."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-5-def-26",
+   "type": "definition",
+   "title": "`sum(d.values())` og `max(d.values())`",
+   "content": "Snarveiene fra [kap. 3.1](/tdt4110/tdt4110-3-1) virker rett på verdiene i en ordbok. `sum(d.values())` gir totalen, og `max(d.values())` gir den største enkeltverdien.\n\nDet de **ikke** gir, er hvilken nøkkel som har den største verdien — `max` på verdiene har mistet nøkkelen underveis. Skal du ha navnet, må du enten gå gjennom ordboka med en finn-beste-løkke, eller først finne toppverdien og så lete opp nøkkelen som har den. Vær også oppmerksom på at `max` stopper med `ValueError` på en tom ordbok."
+  },
+  {
+   "id": "tdt4110-3-5-ex-27",
+   "type": "example",
+   "title": "Eksempel 4: hvilken art er det flest av — snarvei og løkke side om side",
+   "problem": "Med telleordboka `{'linerle': 3, 'gråtrost': 2, 'bokfink': 1}`: finn den største verdien, og finn hvilken art som har den. Vis både snarveien og løkkevarianten, og få løkka til å tåle at ordboka er tom.",
+   "solution": "Den største verdien alene er en snarvei:\n\n```python\nantall = {'linerle': 3, 'gråtrost': 2, 'bokfink': 1}\nprint(max(antall.values()))\n```\n\n**Utskrift:**\n```\n3\n```\n\nSkal du også ha navnet, går du gjennom ordboka og husker den beste underveis:\n\n```python\ndef flest(antall):\n    beste = None\n    for art in antall:\n        if beste is None or antall[art] > antall[beste]:\n            beste = art\n    return beste\n\nantall = {'linerle': 3, 'gråtrost': 2, 'bokfink': 1}\nprint(flest(antall))\nprint(flest({}))\n```\n\n**Utskrift:**\n```\nlinerle\nNone\n```\n\n**Begge gir full pott** — men de svarer på hvert sitt spørsmål. Snarveien gir tallet, løkka gir navnet.\n\nLegg merke til `beste = None` og testen `beste is None or ...`. Den gjør to ting på én gang: den slipper å gjette en startverdi som er lav nok, og den gjør at funksjonen returnerer `None` i stedet for å krasje når ordboka er tom. Det er et fullscore-krav i de store programmeringsoppgavene, og mønsteret går igjen i hele Del 7."
+  },
+  {
+   "id": "tdt4110-3-5-t-28",
+   "type": "text",
+   "content": "## Løkke 4 — gruppering (~14 min)\n\n— naturlig pausepunkt —\n\nTelleren svarer på «hvor mange». Grupperingen svarer på «hvilke». Et kurssenter har ei liste over påmeldinger, der hver påmelding er et par av kursnavn og deltakernavn, og spørsmålet er hvem som går på hvert kurs.\n\nSvaret er en ordbok der **verdien selv er ei liste**: `{'Førstehjelp': ['Aas', 'Berg'], 'Klatring': ['Dahl']}`. Mønsteret er nesten som telleren, med én ekstra ting å passe på: lista må finnes før du kan legge noe i den."
+  },
+  {
+   "id": "tdt4110-3-5-thm-29",
+   "type": "theorem",
+   "title": "Kodemønster: gruppering `{nøkkel: [elementer]}`",
+   "content": "**Problemet:** du vil samle elementer i grupper — alle deltakerne per kurs, alle datoene per kunde, alle rettene per ingrediens.\n\n**Mønsteret**, i fire linjer:\n\n1. Opprett en tom ordbok: `d = {}`.\n2. Gå gjennom dataene og finn nøkkelen `k` og elementet `v`.\n3. **Opprett den tomme lista hvis nøkkelen er ny:** `if k not in d: d[k] = []`.\n4. Legg elementet i lista: `d[k].append(v)`.\n\nSteg 3 er det som skiller en riktig gruppering fra en som krasjer. Hopper du over det, prøver `d[k].append(v)` å lese en nøkkel som ikke finnes, og programmet stopper med `KeyError`.\n\nMerk hvorfor du ikke kan bruke `.get` her på samme måte som i telleren: `d.get(k, []).append(v)` ser riktig ut, men når nøkkelen mangler, legger den elementet i ei helt fersk liste som aldri havner inn i ordboka — og elementet er borte. Verdien må inn i ordboka først."
+  },
+  {
+   "id": "tdt4110-3-5-def-30",
+   "type": "definition",
+   "title": "`d.setdefault(k, [])`",
+   "content": "Gjør steg 3 og oppslaget i ett: setter `d[k]` til den tomme lista **hvis nøkkelen mangler**, og returnerer uansett den lista som ligger på nøkkelen.\n\nHele grupperingen blir da én linje: `d.setdefault(k, []).append(v)`. Forskjellen fra `.get` er avgjørende: `setdefault` **legger nøkkelen inn** i ordboka, mens `.get` bare svarer. Begge skrivemåtene av grupperingen er godkjent; velg den du husker riktig."
+  },
+  {
+   "id": "tdt4110-3-5-ex-31",
+   "type": "example",
+   "title": "Eksempel 5: hvem går på hvilket kurs",
+   "problem": "Påmeldingene ligger som to lister i takt: `kurs` med kursnavnet og `deltaker` med navnet på den påmeldte. Lag en ordbok fra kursnavn til liste over deltakere, med begge skrivemåtene av grupperingsmønsteret.",
+   "solution": "Først den eksplisitte formen, der den tomme lista opprettes i et eget steg:\n\n```python\ndef grupper(kurs, deltaker):\n    d = {}\n    for i in range(len(kurs)):\n        k = kurs[i]\n        if k not in d:\n            d[k] = []\n        d[k].append(deltaker[i])\n    return d\n\nkurs = ['Førstehjelp', 'Klatring', 'Førstehjelp', 'Padling', 'Klatring']\ndeltaker = ['Aas', 'Berg', 'Dahl', 'Eng', 'Five']\nprint(grupper(kurs, deltaker))\n```\n\n**Utskrift:**\n```\n{'Førstehjelp': ['Aas', 'Dahl'], 'Klatring': ['Berg', 'Five'], 'Padling': ['Eng']}\n```\n\nOg her er den samme funksjonen med `setdefault`, som slår de to stegene sammen:\n\n```python\ndef grupper(kurs, deltaker):\n    d = {}\n    for i in range(len(kurs)):\n        d.setdefault(kurs[i], []).append(deltaker[i])\n    return d\n\nkurs = ['Førstehjelp', 'Klatring', 'Førstehjelp', 'Padling', 'Klatring']\ndeltaker = ['Aas', 'Berg', 'Dahl', 'Eng', 'Five']\nprint(grupper(kurs, deltaker))\n```\n\n**Utskrift:**\n```\n{'Førstehjelp': ['Aas', 'Dahl'], 'Klatring': ['Berg', 'Five'], 'Padling': ['Eng']}\n```\n\n**Identisk resultat, og begge gir full pott.**\n\nLegg merke til at hver verdi er ei ekte liste, også når det bare er én deltaker: `'Padling': ['Eng']`, ikke `'Padling': 'Eng'`. Det er ikke pedanteri — koden som senere skal telle deltakere per kurs med `len(d[k])`, forutsetter at verdien alltid er ei liste.\n\nMed grupperingen på plass er oppfølgingsspørsmålene korte:\n\n```python\nd = {'Førstehjelp': ['Aas', 'Dahl'], 'Klatring': ['Berg', 'Five'], 'Padling': ['Eng']}\nfor k in sorted(d):\n    print(k.ljust(14) + str(len(d[k])).rjust(2) + '  ' + ', '.join(d[k]))\n```\n\n**Utskrift:**\n```\nFørstehjelp    2  Aas, Dahl\nKlatring       2  Berg, Five\nPadling        1  Eng\n```"
+  },
+  {
+   "id": "tdt4110-3-5-warn-32",
+   "type": "warning",
+   "title": "Typiske feil: gruppering",
+   "content": "Tre feil koster poeng i akkurat dette mønsteret:\n\n- **Glemt å opprette den tomme lista.** `d[k].append(v)` på en ny nøkkel gir `KeyError`. Enten `if k not in d: d[k] = []` foran, eller `setdefault`.\n- **Tilordning i stedet for `append`.** `d[k] = v` overskriver, så du sitter igjen med bare det siste elementet i hver gruppe — informasjonen er borte, og det ser ut som koden virker.\n- **`d.get(k, []).append(v)`.** Ser ut som telleren, men elementet havner i ei liste som aldri kommer inn i ordboka. Gruppen blir stående tom.\n\nKontrollen er enkel: kjør mønsteret i hodet på to elementer med **samme** nøkkel. Ender du med begge i lista, er koden riktig."
+  },
+  {
+   "id": "tdt4110-3-5-exr-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-5-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — analyse: gruppér.) Et gjenbruksverksted registrerer hver reparasjon som to lister i takt: `type` med hva slags gjenstand det var, og `dager` med hvor mange dager reparasjonen tok.\n\n**a)** Skriv `grupper_dager(type, dager)` som returnerer en ordbok fra gjenstandstype til **lista** over reparasjonstider for den typen.\n**b)** Skriv `snitt_per_type(gruppert)` som tar ordboka fra a) og returnerer en ny ordbok fra type til gjennomsnittlig antall dager.\n\nTest med `type = ['sykkel', 'lampe', 'sykkel', 'stol', 'lampe', 'sykkel']` og `dager = [3, 1, 5, 2, 4, 4]`.",
+    "solution": "**a)** er grupperingsmønsteret. **b)** gjenbruker resultatet og regner snittet per gruppe med `sum` og `len`.\n\n```python\ndef grupper_dager(type_liste, dager):\n    d = {}\n    for i in range(len(type_liste)):\n        k = type_liste[i]\n        if k not in d:\n            d[k] = []\n        d[k].append(dager[i])\n    return d\n\ndef snitt_per_type(gruppert):\n    snitt = {}\n    for k in gruppert:\n        snitt[k] = sum(gruppert[k]) / len(gruppert[k])\n    return snitt\n\ntype_liste = ['sykkel', 'lampe', 'sykkel', 'stol', 'lampe', 'sykkel']\ndager = [3, 1, 5, 2, 4, 4]\ngruppert = grupper_dager(type_liste, dager)\nprint(gruppert)\nprint(snitt_per_type(gruppert))\n```\n\n**Utskrift:**\n```\n{'sykkel': [3, 5, 4], 'lampe': [1, 4], 'stol': [2]}\n{'sykkel': 4.0, 'lampe': 2.5, 'stol': 2.0}\n```\n\n**Hva gir uttelling:** at den tomme lista opprettes før `append`, at b) tar ordboka som argument i stedet for å gruppere på nytt — gjenbruk av egne funksjoner er noe sensor belønner — og at snittet regnes med `/` og ikke `//`, så desimalene beholdes. `setdefault` i stedet for `if`-en er like riktig.\n\nMerk at parameteren heter `type_liste` og ikke `type`: `type` er navnet på en innebygd funksjon i Python, og å bruke det som variabelnavn ødelegger funksjonen resten av programmet (feilkode #14 — å skygge et innebygd navn).",
+    "hints": [
+     "Grupperingen trenger den tomme lista på plass før du kan legge noe i den.",
+     "I b): verdien i ordboka fra a) er ei liste, så `sum` og `len` virker rett på den.",
+     "Bruk vanlig deling til gjennomsnittet — snittet er sjelden et helt tall."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-5-thm-33",
+   "type": "theorem",
+   "title": "Kodemønster: bygg ordbok fra en 2D-tabell",
+   "content": "**Problemet:** dataene er lest inn fra fil som en 2D-tabell med overskriftsrad, og du vil ha en ordbok du kan slå opp i.\n\n**Mønsteret**, i fire steg:\n\n1. **Finn kolonnene dynamisk**, aldri med hardkodede tall: `kn = tabell[0].index('navn')` og `kv = tabell[0].index('verdi')`.\n2. Opprett en tom ordbok.\n3. Gå gjennom **radene fra og med 1** — `for rad in tabell[1:]:` — slik at overskriftsraden ikke havner i ordboka.\n4. Sett inn paret: `d[rad[kn]] = rad[kv]`, eventuelt med `int()` rundt verdien.\n\nSteg 1 er fullscore-kravet fra [kap. 3.2](/tdt4110/tdt4110-3-2): du skal ikke anta at kolonnen står på en bestemt plass (feilkode #4). Steg 3 er den vanligste utelatelsen — glemmer du `[1:]`, får du et par som heter `'navn': 'verdi'` midt i ordboka.\n\nSkal flere rader kunne ha samme nøkkel, er dette gruppering og ikke oppslag: da bruker du mønsteret over i stedet for tilordning."
+  },
+  {
+   "id": "tdt4110-3-5-ex-34",
+   "type": "example",
+   "title": "Eksempel 6: fra tabell til oppslagsordbok",
+   "problem": "En innlest tabell over pantesatser har overskriftsraden `['emballasje', 'sats', 'materiale']`. Lag en ordbok fra emballasjetype til sats i øre, uten å anta hvilken plass kolonnene har.",
+   "solution": "Kolonnene finnes med `.index` på overskriftsraden, og radene gås gjennom fra og med den andre.\n\n```python\ndef lag_satsordbok(tabell):\n    ke = tabell[0].index('emballasje')\n    ks = tabell[0].index('sats')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[ke]] = int(rad[ks])\n    return d\n\ntabell = [['emballasje', 'sats', 'materiale'],\n          ['liten flaske', '200', 'plast'],\n          ['stor flaske', '300', 'plast'],\n          ['boks', '200', 'metall']]\nsatser = lag_satsordbok(tabell)\nprint(satser)\nprint(satser['boks'])\n```\n\n**Utskrift:**\n```\n{'liten flaske': 200, 'stor flaske': 300, 'boks': 200}\n200\n```\n\nTre ting er verdt å merke seg. `tabell[0].index('sats')` gir 1 her, men koden virker like godt om kolonnene kommer i en annen rekkefølge neste gang — det er hele poenget med å slå opp dynamisk. `tabell[1:]` hopper over overskriftsraden. Og `int(rad[ks])` er nødvendig fordi verdier lest fra fil alltid er tekst; uten den ville `satser['boks'] + 100` gitt en feilmelding i stedet for 300.\n\nLegg til slutt merke til at to emballasjetyper har samme sats. Det er helt greit — det er bare nøklene som må være unike."
+  },
+  {
+   "id": "tdt4110-3-5-def-35",
+   "type": "definition",
+   "title": "Ordbok eller liste — når du velger hva",
+   "content": "Velg **ordbok** når du skal slå opp på et navn, telle forekomster eller gruppere. Nøkkelen er da det du kjenner, og verdien det du vil finne.\n\nVelg **liste** når rekkefølgen er en del av dataene, når du skal sortere eller når du bare skal gå gjennom alt. En 2D-tabell fra fil er alltid ei liste av lister først; ordboka lager du av den når analysen krever oppslag.\n\nEn tommelfingerregel som holder på eksamen: sier oppgaven «per», «for hver» eller «hvor mange av hver», skal svaret nesten alltid være en ordbok."
+  },
+  {
+   "id": "tdt4110-3-5-exr-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-5-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — analyse på en innlest tabell.) En kommune har lest inn en tabell over avfallsinnleveringer. Overskriftsraden er `['sone', 'fraksjon', 'kilo']`, og hver av de øvrige radene er én innlevering. Kolonnerekkefølgen kan være en annen neste gang fila kommer.\n\n**a)** Skriv `kilo_per_fraksjon(tabell)` som returnerer en ordbok fra fraksjon til totalt antall kilo.\n**b)** Skriv `soner_per_fraksjon(tabell)` som returnerer en ordbok fra fraksjon til ei liste over sonene som har levert den — **uten duplikater**.\n**c)** Skriv `storste_fraksjon(d)` som tar ordboka fra a) og returnerer navnet på fraksjonen med flest kilo, eller `None` hvis ordboka er tom.\n\nTest med tabellen under.\n\n```python\ntabell = [['sone', 'fraksjon', 'kilo'],\n          ['nord', 'papir', '120'],\n          ['sør', 'glass', '45'],\n          ['nord', 'papir', '80'],\n          ['øst', 'glass', '60'],\n          ['nord', 'glass', '25']]\nprint(len(tabell))\n```",
+    "solution": "Alle tre funksjonene finner kolonnene dynamisk og hopper over overskriftsraden.\n\n**a)** telleren, men med kiloene i stedet for ettallet.\n**b)** grupperingen, med en duplikatsjekk på sonenavnet.\n**c)** finn-beste-løkka fra eksempel 4.\n\n```python\ndef kilo_per_fraksjon(tabell):\n    kf = tabell[0].index('fraksjon')\n    kk = tabell[0].index('kilo')\n    d = {}\n    for rad in tabell[1:]:\n        f = rad[kf]\n        d[f] = d.get(f, 0) + int(rad[kk])\n    return d\n\ndef soner_per_fraksjon(tabell):\n    kf = tabell[0].index('fraksjon')\n    ks = tabell[0].index('sone')\n    d = {}\n    for rad in tabell[1:]:\n        f = rad[kf]\n        if f not in d:\n            d[f] = []\n        if rad[ks] not in d[f]:\n            d[f].append(rad[ks])\n    return d\n\ndef storste_fraksjon(d):\n    beste = None\n    for f in d:\n        if beste is None or d[f] > d[beste]:\n            beste = f\n    return beste\n\ntabell = [['sone', 'fraksjon', 'kilo'],\n          ['nord', 'papir', '120'],\n          ['sør', 'glass', '45'],\n          ['nord', 'papir', '80'],\n          ['øst', 'glass', '60'],\n          ['nord', 'glass', '25']]\nvekter = kilo_per_fraksjon(tabell)\nprint(vekter)\nprint(soner_per_fraksjon(tabell))\nprint(storste_fraksjon(vekter))\nprint(storste_fraksjon({}))\n```\n\n**Utskrift:**\n```\n{'papir': 200, 'glass': 130}\n{'papir': ['nord'], 'glass': ['sør', 'øst', 'nord']}\npapir\nNone\n```\n\n**Hva gir uttelling — de fire fullscore-kravene, ett for ett:**\n\n- **Dynamisk kolonne:** `tabell[0].index('fraksjon')` i stedet for tallet 1 (feilkode #4 — å anta fast kolonnerekkefølge).\n- **Konvertering:** `int(rad[kk])` — uten den ville `d.get(f, 0) + '120'` stoppet med en feilmelding, fordi tall lest fra fil er tekst (feilkode #1).\n- **Ingen duplikater:** `if rad[ks] not in d[f]` i b). Uten den ville papir stått med `['nord', 'nord']` (feilkode #7).\n- **Tomtilfelle:** `beste = None` i c) gjør at funksjonen svarer `None` i stedet for å krasje på en tom ordbok (feilkode #6).\n\nDenne oppgaven er den store programmeringsoppgavens analysedel i miniatyr. Har du de fire kravene inne her, har du dem inne i Del 7 også. Riktig overordnet struktur med en liten indeksfeil gir fortsatt god uttelling — det er de fire kravene som skiller full pott fra nesten.",
+    "hints": [
+     "Finn kolonneindeksene FØR løkka, én gang, og bruk dem inni.",
+     "I a) er det bare ettallet i tellermønsteret som byttes ut med kiloene.",
+     "I b) trenger du to sjekker: én for at lista finnes, og én for at sonen ikke alt står der.",
+     "I c): start med `beste = None`, så slipper du å gjette en lav startverdi."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-5-exr-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-5-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing av gruppering.) Hva skriver programmet ut? Skriv begge linjene nøyaktig.\n\n```python\npar = [('mat', 'ris'), ('kles', 'sokk'), ('mat', 'ost'), ('mat', 'ris')]\nd = {}\nfor k, v in par:\n    if k not in d:\n        d[k] = []\n    d[k].append(v)\nprint(d)\nprint(len(d), len(d['mat']))\n```",
+    "solution": "Løkkehodet pakker ut hvert par i to variabler. Skriv opp ordboka etter hvert steg:\n\n| Par | Ny nøkkel? | Ordboka etterpå |\n|---|---|---|\n| `('mat', 'ris')` | ja | `{'mat': ['ris']}` |\n| `('kles', 'sokk')` | ja | `{'mat': ['ris'], 'kles': ['sokk']}` |\n| `('mat', 'ost')` | nei | `{'mat': ['ris', 'ost'], 'kles': ['sokk']}` |\n| `('mat', 'ris')` | nei | `{'mat': ['ris', 'ost', 'ris'], 'kles': ['sokk']}` |\n\n```python\npar = [('mat', 'ris'), ('kles', 'sokk'), ('mat', 'ost'), ('mat', 'ris')]\nd = {}\nfor k, v in par:\n    if k not in d:\n        d[k] = []\n    d[k].append(v)\nprint(d)\nprint(len(d), len(d['mat']))\n```\n\n**Utskrift:**\n```\n{'mat': ['ris', 'ost', 'ris'], 'kles': ['sokk']}\n2 3\n```\n\nTo feller her. Den første er at `'ris'` havner i lista **to ganger** — grupperingsmønsteret fjerner ikke duplikater av seg selv; det må du be om. Den andre er at `len(d)` teller nøkler, altså 2, mens `len(d['mat'])` teller elementene i én av listene, altså 3.",
+    "hints": [
+     "Løkkehodet med to variabler pakker ut hvert par — første del er nøkkelen.",
+     "Skriv opp ordboka på nytt etter hvert par, med listene i sin helhet.",
+     "De to `len`-kallene teller to forskjellige ting."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-5-col-36",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene du bør ha med deg",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "tdt4110-3-5-col-36-t1",
+     "type": "text",
+     "content": "1. En ordbok er par av nøkkel og verdi; du kommer til verdien bare gjennom nøkkelen, aldri gjennom et plassnummer.\n2. `d[k] = v` legger inn hvis nøkkelen er ny, og **overskriver** hvis den finnes.\n3. `d.get(k, 0)` gir en standardverdi når nøkkelen mangler — og setter den IKKE inn.\n4. Telleren er `d[k] = d.get(k, 0) + 1`. Den eksplisitte `if k in d`-varianten gir like mye uttelling.\n5. Grupperingen er `if k not in d: d[k] = []` og så `d[k].append(v)`, eller `d.setdefault(k, []).append(v)`.\n6. En `for`-løkke over en ordbok gir nøklene, i innsettingsrekkefølge — ikke alfabetisk. `sorted(d)` gir fast orden.\n7. Bygger du ordbok fra en innlest tabell: finn kolonnen med `tabell[0].index(...)`, hopp over overskriftsraden med `tabell[1:]`, og konverter med `int()`."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-3-5-col-37",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-3-5-col-37-t1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `{}` | Tom ordbok — ikke tom liste; startpunktet for teller og gruppering |\n| `{'a': 1, 'b': 2}` | Ordbok med to par; nøkkel til venstre for kolonet |\n| `d[k]` | Verdien til nøkkelen `k`; `KeyError` hvis nøkkelen mangler |\n| `d[k] = v` | Setter inn hvis ny, OVERSKRIVER hvis nøkkelen finnes; aldri `IndexError` |\n| `k in d` | Leter blant NØKLENE; verdisøk krever `v in d.values()` |\n| `len(d)` | Antall par, altså antall unike nøkler |\n| `d.get(k)` | Verdien, eller `None` hvis nøkkelen mangler |\n| `d.get(k, 0)` | Verdien, eller `0` hvis nøkkelen mangler; setter IKKE nøkkelen inn |\n| `d[k] += 1` | Legger til 1; krever at nøkkelen finnes fra før, ellers `KeyError` |\n| `d.setdefault(k, [])` | Setter `d[k]` til tom liste hvis nøkkelen mangler, og returnerer lista; setter nøkkelen INN |\n| `for k in d:` | Gir nøklene, i innsettingsrekkefølge |\n| `d.keys()` | Visning av nøklene; `list(d.keys())` gir ei ekte liste |\n| `d.values()` | Visning av verdiene; ikke unike; `sum`/`max` virker rett på den |\n| `d.items()` | Parene som `(nøkkel, verdi)`; pakkes ut i løkkehodet |\n| `sorted(d)` | Ei sortert LISTE med nøklene; verdiene er ikke med |\n| `d[k] = d.get(k, 0) + 1` | Tellermønsteret; tåler første forekomst uten spesialtilfelle |\n| `d[k].append(v)` | Legger `v` i lista på nøkkelen; krever at lista finnes fra før |\n| `tabell[0].index('navn')` | Kolonneindeksen slått opp dynamisk i overskriftsraden |\n| `tabell[1:]` | Alle rader unntatt overskriftsraden |\n\n**Formler i dette delkapitlet:** gjennomsnitt av verdiene i en gruppe er $\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i$, i kode `sum(d[k]) / len(d[k])`."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

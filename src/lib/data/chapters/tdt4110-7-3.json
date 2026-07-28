@@ -1,0 +1,423 @@
+{
+ "id": "tdt4110-7-3",
+ "courseId": "tdt4110",
+ "chapterNumber": "7.3",
+ "title": "DRILL — Ledd 2: parsing og datatransformasjon",
+ "description": "Leddet mellom rådata og analyse: gjøre felt om til tall, tidsstrenger om til sekunder og tilbake, rense skitne verdier og bygge en ordbok av tabellen.",
+ "estimatedMinutes": 75,
+ "competenceGoals": [
+  "kunne gjøre en tekstlinje eller en liste av felt om til tall som kan regnes med",
+  "kunne veksle mellom en tidsstreng og et tall, begge veier, med heltallsdeling og rest",
+  "kunne rense felt som har komma som desimaltegn, en enhet bakpå eller et varierende antall mellomrom",
+  "kunne bygge en oppslagsordbok av en ferdig innlest tabell, med en nøkkelkolonne du velger selv"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-7-3-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Leddet som gjør rådata regnbare — og det leddet flest mister poeng på uten å merke det.**\n\n- Parsing står i **100 % av settene (10 av 10 sittinger i arkivet 2014–2019)** og er verdt **5–10 %**. Det er sjanger **F**, altså «gjør om dataene til noe du kan regne på».\n- De faste jobbene er de samme hvert år: gjør en liste av felt om til tall, gjør en tidsstreng som `'1:04.32'` om til sekunder, håndtér et varierende antall mellomrom, og bygg en ordbok av en tabell.\n- Feilene her er **stumme**. Glemmer du konverteringen, krasjer ingenting — programmet sammenligner tekst i stedet for tall og gir feil svar med full selvtillit.\n- Tidsregningen er den ene delen som krever litt hoderegning: `//` gir heltallsdelen, `%` gir resten, og de to brukes alltid sammen.\n\n**Prioritet: må sitte** — det høyeste av bokas tre nivåer.\n\nKapitlet tar ~75 minutter og er delt i seks løkker med tidsanslag. Naturlig pausepunkt etter løkke 3."
+  },
+  {
+   "id": "tdt4110-7-3-txt-1",
+   "type": "text",
+   "content": "**Forkunnskaper — sist du var her**\n\nLedd 2 bygger på tre ting du allerede har. Her er de, ferdig oppfrisket.\n\n**1. Del en linje og konverter et felt** ([kap. 3.3](/tdt4110/tdt4110-3-3)):\n\n```python\nfelt = '14.2;85'.split(';')\nprint(float(felt[0]) + int(felt[1]))\n```\n\n**Utskrift:**\n```\n99.2\n```\n\n**2. Heltallsdeling og rest** ([kap. 1.1](/tdt4110/tdt4110-1-1)) — de to som deler et tall i to biter:\n\n```python\nprint(197 // 60, 197 % 60)\n```\n\n**Utskrift:**\n```\n3 17\n```\n\n**3. Ordboka bygget fra en rad** ([kap. 3.5](/tdt4110/tdt4110-3-5)):\n\n```python\nd = {}\nrad = ['R1', 'Elvestien', 14.2]\nd[rad[0]] = rad[1:]\nprint(d)\n```\n\n**Utskrift:**\n```\n{'R1': ['Elvestien', 14.2]}\n```\n\nI tillegg forutsetter kapitlet [kap. 7.2](/tdt4110/tdt4110-7-2), der fila ble lest inn, og [kap. 3.4](/tdt4110/tdt4110-3-4), der formatert utskrift ble gjennomgått."
+  },
+  {
+   "id": "tdt4110-7-3-txt-2",
+   "type": "text",
+   "content": "## Løkke 1 — fra felt til tall (~12 min)\n\nLedd 1 gir deg lister av **strenger**. Ledd 2 gjør dem om til noe du kan regne med. Det er hele jobben, og den har to standardformer."
+  },
+  {
+   "id": "tdt4110-7-3-def-1",
+   "type": "definition",
+   "title": "Parsing i ledd 2 — fra felt til verdi",
+   "content": "Ledd 1 leverte deg rader som `['R1', 'Elvestien', '14.2', '85']`. Alle fire elementene er tekst, også de to som ser ut som tall.\n\n**Parsing i ledd 2** er å gjøre hvert felt om til den verdien det egentlig representerer: `'14.2'` blir flyttallet 14.2, `'85'` blir heltallet 85, `'1:04.32'` blir 64.32 sekunder.\n\nTesten på om du er ferdig med ledd 2: kan analysefunksjonen i ledd 3 sammenligne, summere og sortere dataene uten å konvertere noe selv? Da er du ferdig."
+  },
+  {
+   "id": "tdt4110-7-3-def-2",
+   "type": "definition",
+   "title": "`tekst_til_liste(s)` — del og konverter i én funksjon",
+   "content": "Den vanligste bestillingen i sjanger F: en funksjon som tar **én streng** og gir tilbake **ei liste med tall**.\n\n```text\ntekst_til_liste('4 9 2 7')  ->  [4, 9, 2, 7]\n```\n\nBlokken over viser hva funksjonen skal gjøre, ikke hvordan.\n\nOppgaveteksten kaller den ofte `list_from_string` eller `str_to_numbers` — engelske navn er like gyldige som norske, og fasitene i dette faget blander. Bruk navnet oppgaven oppgir.\n\nTo steg inni: `.split(...)` for å dele, og `int()` eller `float()` på hvert felt."
+  },
+  {
+   "id": "tdt4110-7-3-def-3",
+   "type": "definition",
+   "title": "`til_tall(felt)` — konvertér en hel liste",
+   "content": "Motstykket: funksjonen tar imot ei ferdig delt liste og gir tilbake den samme lista med tall i.\n\nDen eksplisitte formen er ei ny liste bygget med `append`:\n\n```text\nut = []\nfor x in felt:\n    ut.append(float(x))\n```\n\nBlokken over er et utdrag, ikke et program.\n\nÅ endre lista **på plass** (`felt[i] = float(felt[i])` i en `for i in range(len(felt)):`-løkke) er også riktig — men da endrer du samtidig lista til den som kalte deg, og det kan overraske. Bygg heller ei ny liste når oppgaven ikke sier noe annet."
+  },
+  {
+   "id": "tdt4110-7-3-def-4",
+   "type": "definition",
+   "title": "`[float(x) for x in felt]` — snarveien",
+   "content": "En **listekomprehensjon** bygger ei ny liste på én linje: «for hvert `x` i `felt`, gi meg `float(x)`».\n\n```text\ntall = [float(x) for x in felt]\n```\n\nDen gjør nøyaktig det samme som løkka med `append`, og de er sidestilt — **begge gir full pott**. Fasitene i dette faget bruker snarveier fritt.\n\nRådet under tidspress er likevel å skrive løkka hvis du er det minste usikker: en listekomprehensjon med en feil i er vanskeligere å rette på papir enn tre linjer med løkke."
+  },
+  {
+   "id": "tdt4110-7-3-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: rundetidene som tall",
+   "problem": "*«Skriv `tekst_til_liste(s)` som tar en streng med tall skilt av mellomrom og returnerer ei liste med flyttall. Skriv deretter `snitt(liste)` som returnerer gjennomsnittet.»*",
+   "solution": "**Del og konverter:**\n\n```python\ndef tekst_til_liste(s):\n    ut = []\n    for felt in s.split():\n        ut.append(float(felt))\n    return ut\n\nprint(tekst_til_liste('64.32 58.91 72.07'))\n```\n\n**Utskrift:**\n```\n[64.32, 58.91, 72.07]\n```\n\n**Snittet, som gjenbruker den:**\n\n```python\ndef tekst_til_liste(s):\n    return [float(felt) for felt in s.split()]\n\ndef snitt(liste):\n    return sum(liste) / len(liste)\n\nprint(snitt(tekst_til_liste('64.32 58.91 72.07')))\n```\n\n**Utskrift:**\n```\n65.1\n```\n\nLegg merke til at svaret har mange desimaler. Det er ikke en feil: `65.10000000000001` er nøyaktig det Python regner ut, fordi flyttall lagres binært og noen desimaltall ikke går opp. Trenger du et pent tall, formaterer du i utskriften:\n\n```python\nprint('{:.2f}'.format(65.10000000000001))\n```\n\n**Utskrift:**\n```\n65.10\n```\n\n**Slik ville sensor sett på det:** de to formene av `tekst_til_liste` er sidestilt. Det som gir uttelling, er at funksjonen **returnerer** lista og at `snitt` kaller den i stedet for å dele strengen på nytt.\n\n**Kantfeilen å nevne:** `snitt` krasjer med `ZeroDivisionError` på ei tom liste. Sier ikke oppgaven noe om det, skriver du én setning: «antar at lista har minst ett element». Skal den være robust, er formen `if len(liste) == 0: return None` — se [kap. 7.6](/tdt4110/tdt4110-7-6)."
+  },
+  {
+   "id": "tdt4110-7-3-opg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? Skriv begge linjene nøyaktig.\n\n```python\nfelt = '9.8;430'.split(';')\nprint(felt[0] + felt[1])\nprint(float(felt[0]) + int(felt[1]))\n```",
+    "solution": "**Sporingstavle.**\n\n| Uttrykk | Type | Verdi |\n|---|---|---|\n| `felt` | liste av strenger | `['9.8', '430']` |\n| `felt[0] + felt[1]` | streng `+` streng | **teksten** limt sammen |\n| `float(felt[0])` | flyttall | 9.8 |\n| `int(felt[1])` | heltall | 430 |\n| `9.8 + 430` | flyttall | 439.8 |\n\n**Utskrift:**\n```\n9.8430\n439.8\n```\n\n**Fellenoten:** dette er feilkode **#1** — glemt konvertering. `+` betyr «legg sammen» for tall og «lim etter hverandre» for tekst, og Python velger ut fra typene. Ingen feilmelding, bare `9.8430` der du ventet 439.8.\n\nMerk også at svaret er `439.8` og ikke `439.79999…` her. Det er tilfeldig — det avhenger av akkurat hvilke tall som er med.",
+    "hints": [
+     "Hva er typen til elementene i lista `felt` rett etter `split`?",
+     "Hva betyr `+` når begge operandene er tekst?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-opg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — parsing.) *«Skriv `til_tall(felt)` som tar ei liste av strenger og returnerer ei ny liste der hvert element er gjort om til heltall. Lista som kommer inn, skal ikke endres.»*\n\nSkriv funksjonen med en løkke, og vis deretter snarveien med listekomprehensjon.",
+    "solution": "**Løkkevarianten:**\n\n```python\ndef til_tall(felt):\n    ut = []\n    for x in felt:\n        ut.append(int(x))\n    return ut\n\ninn = ['418', '503', '477']\nprint(til_tall(inn))\nprint(inn)\n```\n\n**Utskrift:**\n```\n[418, 503, 477]\n['418', '503', '477']\n```\n\nDen opprinnelige lista står urørt — det var kravet i oppgaven.\n\n**Snarveien:**\n\n```python\ndef til_tall(felt):\n    return [int(x) for x in felt]\n\nprint(til_tall(['418', '503', '477']))\n```\n\n**Utskrift:**\n```\n[418, 503, 477]\n```\n\nBegge gir full pott.\n\n**Formen som IKKE oppfyller kravet:**\n\n```python\ndef til_tall(felt):\n    for i in range(len(felt)):\n        felt[i] = int(felt[i])\n    return felt\n\ninn = ['418', '503']\nprint(til_tall(inn))\nprint(inn)\n```\n\n**Utskrift:**\n```\n[418, 503]\n[418, 503]\n```\n\nHer er `inn` endret etterpå. Koden er ikke gal i seg selv — den endrer lista **på plass**, og det er ofte akkurat det man vil. Men oppgaven sa uttrykkelig at lista ikke skulle endres, og da er det feil svar på bestillingen.",
+    "hints": [
+     "Bygg ei ny liste med `append` i stedet for å skrive tilbake i den gamle.",
+     "Test kravet ved å skrive ut den opprinnelige lista etter kallet."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-txt-3",
+   "type": "text",
+   "content": "## Løkke 2 — tidsstrengen inn (~14 min)\n\nTider skrives som tekst i datafiler: `'1:04.32'` betyr ett minutt, fire sekunder og 32 hundredeler. Du kan ikke sammenligne slike strenger direkte — `'0:58.91'` og `'1:04.32'` sammenlignes bokstav for bokstav, og `'0'` kommer før `'1'`. Denne gangen gir det tilfeldigvis riktig svar, men bare fordi minuttallet er ett siffer.\n\nLøsningen er alltid den samme: **gjør tiden om til ett tall først.**"
+  },
+  {
+   "id": "tdt4110-7-3-def-5",
+   "type": "definition",
+   "title": "Tidsstrengen `mm:ss.hh`",
+   "content": "Formatet du møter oftest i dette faget: minutter, kolon, sekunder, punktum, hundredeler.\n\n`'1:04.32'` er ett minutt, fire sekunder og 32 hundredeler — til sammen 64.32 sekunder.\n\nTre ting å legge merke til før du koder:\n\n- Sekunddelen er **nullpadd**: 4 sekunder skrives `04`, ikke `4`.\n- Det er **ett** kolon, så `.split(':')` gir nøyaktig to biter.\n- Hundredelene henger sammen med sekundene i den andre biten, og `float('04.32')` takler dem uten videre."
+  },
+  {
+   "id": "tdt4110-7-3-thm-1",
+   "type": "theorem",
+   "title": "Kodemønster: tidsstreng til sekunder",
+   "content": "Tre linjer, og de er de samme hver gang:\n\n```text\ndeler = tekst.split(':')\nminutter = int(deler[0])\nsekunder = float(deler[1])\nreturn minutter * 60 + sekunder\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 2.\n\nHar formatet **tre** ledd (`'1:02:05'` for time, minutt, sekund), utvides det på samme måte:\n\n```text\ntimer * 3600 + minutter * 60 + sekunder\n```\n\nRegelen bak: gjør om til den **minste** enheten, altså sekunder. Da er alle sammenligninger, summeringer og sorteringer rett fram."
+  },
+  {
+   "id": "tdt4110-7-3-def-6",
+   "type": "definition",
+   "title": "`//` og `%` — de to som deler et tall i to biter",
+   "content": "`a // b` gir heltallsdelen av divisjonen, `a % b` gir resten. De brukes alltid sammen når et tall skal deles i to enheter.\n\n```python\nprint(197 // 60)\nprint(197 % 60)\n```\n\n**Utskrift:**\n```\n3\n17\n```\n\n197 sekunder er altså 3 minutter og 17 sekunder.\n\nTo feller: `/` gir alltid flyttall, så `197 / 60` er `3.2833…` og ikke 3 — det er feilkode **#9**, blandet heltalls- og flyttallsdeling. Og `//` runder **nedover**, også for negative tall: `-7 // 2` er -4, ikke -3."
+  },
+  {
+   "id": "tdt4110-7-3-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: rundetidene i svømmestevnet",
+   "problem": "*«Filen `stevne.txt` har én linje per svømmer: navn, klubb og tid, skilt med semikolon. Tiden er på formen `minutter:sekunder.hundredeler`. Skriv `tid_til_sekunder(tekst)` som gir tiden som flyttall, og `les_stevne(filnavn)` som returnerer en 2D-liste der tiden allerede er gjort om.»*",
+   "solution": "Slik ser fila ut:\n\n**Innholdet i `stevne.txt`:**\n```\nIda Nervik;Havorn;1:04.32\nJonas Lie;Delfin;0:58.91\nAmina Kaur;Havorn;1:12.07\nPetter Ruud;Storm;1:04.09\n```\n\n**Omregningen:**\n\n```python\ndef tid_til_sekunder(tekst):\n    deler = tekst.split(':')\n    minutter = int(deler[0])\n    sekunder = float(deler[1])\n    return minutter * 60 + sekunder\n\nprint(tid_til_sekunder('1:04.32'))\nprint(tid_til_sekunder('0:58.91'))\n```\n\n**Utskrift:**\n```\n64.32\n58.91\n```\n\n**Innlesingen som gjenbruker den:**\n\n```python\ndef tid_til_sekunder(tekst):\n    deler = tekst.split(':')\n    return int(deler[0]) * 60 + float(deler[1])\n\ndef les_stevne(filnavn):\n    f = open(filnavn, 'r')\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[2] = tid_til_sekunder(felt[2])\n        tabell.append(felt)\n    f.close()\n    return tabell\n\nfor rad in les_stevne('stevne.txt'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['Ida Nervik', 'Havorn', 64.32]\n['Jonas Lie', 'Delfin', 58.91]\n['Amina Kaur', 'Havorn', 72.07]\n['Petter Ruud', 'Storm', 64.09]\n```\n\n**Slik ville sensor sett på det.** Deloppgaven med `tid_til_sekunder` er typisk 5–10 %, og de tre tingene som gir uttelling er: delingen på kolon, `* 60` på minuttdelen, og at funksjonen **returnerer** et tall i stedet for å skrive det ut.\n\nAt `les_stevne` kaller `tid_til_sekunder` i stedet for å gjenta regnestykket, er det som gir gjenbrukspoengene i den neste deloppgaven.\n\n**Flere korrekte løsninger:** `minutter, sekunder = tekst.split(':')` med utpakking rett i tilordningen er like riktig, og kortere. Begge gir full pott.\n\n**Kantfeilen:** kommer en tid uten kolon (`'58.91'`), krasjer `deler[1]` med `IndexError`. Nevn det i én setning hvis fila kan være slik — her sa oppgaven at formatet er fast."
+  },
+  {
+   "id": "tdt4110-7-3-warn-1",
+   "type": "warning",
+   "title": "Typiske feil i parseleddet",
+   "content": "Fire feller, og de tre første er stumme:\n\n- **#1 — glemt `int()`/`float()`.** Tekst sammenlignes bokstav for bokstav, så `'9'` er større enn `'10'`.\n- **#3 — feil skilletegn.** `.split()` uten argument på en linje der feltene er skilt med semikolon gir ett felt tilbake.\n- **#9 — `/` der du mente `//`.** `197 / 60` er `3.2833…`, og `str(3.2833)` i en tidsutskrift ser umiddelbart rart ut — dette er den snilleste av de fire.\n- **Å sammenligne tidsstrenger direkte.** `'10:05' < '9:30'` er **sant**, fordi `'1'` kommer før `'9'` i tekstsammenligning. Gjør alltid om til tall først."
+  },
+  {
+   "id": "tdt4110-7-3-opg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — parsing.) *«Skriv `raskeste(tabell)` som tar 2D-lista fra `les_stevne` og returnerer navnet på svømmeren med lavest tid.»*\n\nTiden ligger i kolonne 2 og er allerede et flyttall.",
+    "solution": "```python\ndef raskeste(tabell):\n    beste = None\n    beste_tid = None\n    for rad in tabell:\n        if beste_tid is None or rad[2] < beste_tid:\n            beste = rad[0]\n            beste_tid = rad[2]\n    return beste\n\ntabell = [['Ida Nervik', 'Havorn', 64.32],\n          ['Jonas Lie', 'Delfin', 58.91],\n          ['Amina Kaur', 'Havorn', 72.07]]\nprint(raskeste(tabell))\n```\n\n**Utskrift:**\n```\nJonas Lie\n```\n\n**Snarveien:**\n\n```python\ntabell = [['Ida Nervik', 'Havorn', 64.32],\n          ['Jonas Lie', 'Delfin', 58.91],\n          ['Amina Kaur', 'Havorn', 72.07]]\nprint(min(tabell, key=lambda rad: rad[2])[0])\n```\n\n**Utskrift:**\n```\nJonas Lie\n```\n\nBegge gir full pott.\n\n**Det ene grepet som skiller lavest fra høyest:** `<` i stedet for `>`, og `min` i stedet for `max`. Alt annet er identisk.\n\n**Hvorfor dette krever ledd 2:** hadde tidene fortsatt vært strenger, ville `'1:04.32' < '0:58.91'` gitt **usant** — og funksjonen ville pekt ut feil svømmer i stillhet. Det er derfor parsingen er en egen deloppgave med egne poeng.",
+    "hints": [
+     "Mønsteret er «finn beste» med `None` som startverdi.",
+     "Hva er den eneste forskjellen mellom å lete etter størst og å lete etter minst?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-opg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Forklar den siste linja med én setning.\n\n```python\ntider = ['10:05', '9:30', '11:00']\nprint(sorted(tider))\nprint(min(tider))\n```",
+    "solution": "**Sporingstavle.** Strenger sammenlignes tegn for tegn fra venstre:\n\n| Sammenligning | Første tegn | Resultat |\n|---|---|---|\n| `'10:05'` mot `'9:30'` | `'1'` mot `'9'` | `'1'` er minst, så `'10:05'` kommer først |\n| `'11:00'` mot `'9:30'` | `'1'` mot `'9'` | `'11:00'` kommer først |\n| `'10:05'` mot `'11:00'` | like, så neste tegn: `'0'` mot `'1'` | `'10:05'` kommer først |\n\n**Utskrift:**\n```\n['10:05', '11:00', '9:30']\n10:05\n```\n\n**Setningen:** `min` gir `'10:05'` fordi strenger sammenlignes tegn for tegn, og sifferet `1` kommer før sifferet `9` — ikke fordi ti minutter er mindre enn ni.\n\n**Fellenoten:** dette er den fjerde fellen i advarselen over. Feilen er stum og ser riktig ut helt til tallene passerer ti. Gjør tidene om til sekunder først, så sorterer de riktig.",
+    "hints": [
+     "Hvordan sammenlignes to strenger — som tall eller tegn for tegn?",
+     "Hva er det første tegnet i hver av de tre strengene?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-txt-4",
+   "type": "text",
+   "content": "## Løkke 3 — tidsstrengen ut (~12 min)\n\nAnalysen din regner i sekunder. Brukeren vil se `00:30:42`. Veien tilbake er `//` og `%`, brukt to ganger.\n\n— naturlig pausepunkt etter denne løkka —"
+  },
+  {
+   "id": "tdt4110-7-3-thm-2",
+   "type": "theorem",
+   "title": "Kodemønster: sekunder til `hh:mm:ss`",
+   "content": "Tre uttrykk, alltid i denne rekkefølgen:\n\n```text\ntimer    = sekunder // 3600\nminutter = (sekunder % 3600) // 60\nrest     = sekunder % 60\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 3.\n\nLogikken: `// 3600` tar ut hele timer, `% 3600` gir det som er igjen etter timene, og av det tar `// 60` ut hele minutter. `% 60` gir sekundene som blir til overs helt til slutt.\n\nSkal du bare ha `mm:ss`, dropper du første linje og bruker `sekunder // 60` og `sekunder % 60`. Mønsteret er gjennomgått i [kap. 3.4](/tdt4110/tdt4110-3-4); her drilles det i kjedesammenheng."
+  },
+  {
+   "id": "tdt4110-7-3-def-7",
+   "type": "definition",
+   "title": "Nullpadding med `zfill(2)`",
+   "content": "`str(t).zfill(2)` fyller på en null foran til strengen er minst to tegn lang. `str(5).zfill(2)` gir `'05'`, `str(42).zfill(2)` gir `'42'`.\n\nUten den blir klokkeformatet `0:30:42` skrevet som `0:30:42` i beste fall og `0:3:42` i verste — og eksamensoppgavene ber uttrykkelig om `hh:mm:ss` med to sifre.\n\nDe to andre formene som gir det samme, er `'{:02d}'.format(t)` og f-strengen `f'{t:02d}'`. Alle tre er sidestilt. f-strenger er nyere enn arkivet 2014–2019 (verifiser mot gjeldende pensum — varslet inn 2019), så boka viser dem sammen med `.format`."
+  },
+  {
+   "id": "tdt4110-7-3-def-8",
+   "type": "definition",
+   "title": "Flyttall i tidsutskrift: `'{:05.2f}'`",
+   "content": "Skal sekunddelen ha desimaler *og* nullpadding, gjør `'{:05.2f}'.format(x)` begge deler: **5** er den totale bredden inkludert punktum og desimaler, `.2f` er to desimaler.\n\n`'{:05.2f}'.format(4.32)` gir `'04.32'` — fem tegn: `0`, `4`, `.`, `3`, `2`.\n\nDet er lett å telle feil her. Skriver du `{:02.2f}`, ber du om minst to tegn totalt, og siden `4.32` allerede er fire tegn, skjer det ingenting."
+  },
+  {
+   "id": "tdt4110-7-3-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: joggeloggen begge veier",
+   "problem": "*«Filen `joggeturer.txt` har dato, varighet i hele sekunder og distanse i kilometer, skilt med semikolon. Skriv `klokkeformat(sekunder)` som gir varigheten på formen `hh:mm:ss`, og skriv ut hele loggen med varigheten i klokkeformat.»*",
+   "solution": "Slik ser fila ut:\n\n**Innholdet i `joggeturer.txt`:**\n```\n2026-05-02;1842;7.1\n2026-05-05;2711;10.4\n2026-05-09;1503;5.8\n```\n\n**Omregningen:**\n\n```python\ndef klokkeformat(sekunder):\n    timer = sekunder // 3600\n    minutter = (sekunder % 3600) // 60\n    rest = sekunder % 60\n    return str(timer).zfill(2) + ':' + str(minutter).zfill(2) + ':' + str(rest).zfill(2)\n\nprint(klokkeformat(1842))\nprint(klokkeformat(2711))\nprint(klokkeformat(45))\n```\n\n**Utskrift:**\n```\n00:30:42\n00:45:11\n00:00:45\n```\n\n**Hele loggen, med innlesingen fra [kap. 7.2](/tdt4110/tdt4110-7-2) gjenbrukt:**\n\n```python\ndef klokkeformat(sekunder):\n    timer = sekunder // 3600\n    minutter = (sekunder % 3600) // 60\n    return str(timer).zfill(2) + ':' + str(minutter).zfill(2) + ':' + str(sekunder % 60).zfill(2)\n\nf = open('joggeturer.txt', 'r')\nfor linje in f:\n    felt = linje.strip().split(';')\n    print(felt[0], klokkeformat(int(felt[1])), felt[2] + ' km')\nf.close()\n```\n\n**Utskrift:**\n```\n2026-05-02 00:30:42 7.1 km\n2026-05-05 00:45:11 10.4 km\n2026-05-09 00:25:03 5.8 km\n```\n\n**Slik ville sensor sett på det:** de tre uttrykkene med `//` og `%` er selve svaret, og `zfill` er detaljen som skiller full pott fra nesten. Skriver du `str(timer) + ':' + ...` uten padding, får du `0:30:42` — riktig regnet, men ikke det formatet oppgaven ba om.\n\n**Kontrollregningen (gjør den for hånd, det tar femten sekunder):** 1842 sekunder. $1842 // 3600 = 0$. $1842 \\% 3600 = 1842$, og $1842 // 60 = 30$. $1842 \\% 60 = 42$. Altså `00:30:42`. Stemmer med utskriften.\n\n**Kantfeilen å kjenne til:** funksjonen forutsetter et **heltall**. Sender du inn `1842.5`, gir `//` et flyttall, og du får `0.0:30.0:42.5`. Konverter med `int()` først hvis varigheten kan ha desimaler."
+  },
+  {
+   "id": "tdt4110-7-3-opg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — parsing.) *«Skriv `sekunder_til_tid(total)` som gjør et flyttall med sekunder om til formen `minutter:sekunder.hundredeler`, altså den motsatte veien av `tid_til_sekunder` i eksempel 2. Sekunddelen skal alltid ha to sifre foran punktumet og to desimaler.»*\n\nTest funksjonen på 64.32 og 58.91.",
+    "solution": "```python\ndef sekunder_til_tid(total):\n    minutter = int(total // 60)\n    rest = total - minutter * 60\n    return str(minutter) + ':' + '{:05.2f}'.format(rest)\n\nprint(sekunder_til_tid(64.32))\nprint(sekunder_til_tid(58.91))\nprint(sekunder_til_tid(125.4))\n```\n\n**Utskrift:**\n```\n1:04.32\n0:58.91\n2:05.40\n```\n\n**De tre grepene:**\n\n- `int(total // 60)` — `//` på et flyttall gir et flyttall (`1.0`), så `int()` er nødvendig for at strengen skal bli `'1'` og ikke `'1.0'`.\n- `total - minutter * 60` i stedet for `total % 60`. Begge virker, men `%` på flyttall kan gi små avrundingsrester, og trekket her er lettere å kontrollere for hånd.\n- `'{:05.2f}'` gir både nullpaddingen og de to desimalene i ett.\n\n**Kontroll:** funksjonen er den omvendte av `tid_til_sekunder`, så et rundtur-kall skal gi det du startet med:\n\n```python\ndef tid_til_sekunder(tekst):\n    deler = tekst.split(':')\n    return int(deler[0]) * 60 + float(deler[1])\n\ndef sekunder_til_tid(total):\n    minutter = int(total // 60)\n    return str(minutter) + ':' + '{:05.2f}'.format(total - minutter * 60)\n\nprint(sekunder_til_tid(tid_til_sekunder('1:04.32')))\n```\n\n**Utskrift:**\n```\n1:04.32\n```\n\nDen kontrollen er verdt å gjøre på eksamen også — den avslører en feil på fem sekunder.",
+    "hints": [
+     "Minuttdelen er `total // 60`, men den må gjøres om til heltall før den blir tekst.",
+     "Sekunddelen er det som blir igjen etter at minuttene er trukket fra.",
+     "`'{:05.2f}'` gir fem tegn totalt: to sifre, punktum og to desimaler."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-opg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F og G — parsing og analyse.) Bruk `joggeturer.txt` med dato, sekunder og kilometer.\n\n**a)** Skriv `fart(sekunder, km)` som returnerer farten i minutter per kilometer, som flyttall.\n\n**b)** Skriv `beste_fart(tabell)` som returnerer datoen for turen med lavest tid per kilometer. Tabellen har rader på formen `[dato, sekunder, km]` med tallene ferdig konvertert.\n\n**c)** Skriv ut svaret på formen `minutter:sekunder` per kilometer.",
+    "solution": "**a)** Farten i minutter per kilometer er sekunder delt på kilometer, delt på 60:\n\n```python\ndef fart(sekunder, km):\n    return sekunder / km / 60\n\nprint(fart(1842, 7.1))\n```\n\n**Utskrift:**\n```\n4.323943661971831\n```\n\n**b)** «Finn beste» med `<`, og gjenbruk av `fart`:\n\n```python\ndef fart(sekunder, km):\n    return sekunder / km / 60\n\ndef beste_fart(tabell):\n    beste = None\n    beste_verdi = None\n    for rad in tabell:\n        v = fart(rad[1], rad[2])\n        if beste_verdi is None or v < beste_verdi:\n            beste = rad[0]\n            beste_verdi = v\n    return beste\n\ntabell = [['2026-05-02', 1842, 7.1], ['2026-05-05', 2711, 10.4], ['2026-05-09', 1503, 5.8]]\nprint(beste_fart(tabell))\n```\n\n**Utskrift:**\n```\n2026-05-09\n```\n\n**c)** Minuttene er heltallsdelen, sekundene er resten ganget opp igjen:\n\n```python\ndef minutt_sekund(minutter_desimal):\n    hele = int(minutter_desimal)\n    sek = int(round((minutter_desimal - hele) * 60))\n    return str(hele) + ':' + str(sek).zfill(2)\n\nprint(minutt_sekund(4.323943661971831))\nprint(minutt_sekund(4.34455))\n```\n\n**Utskrift:**\n```\n4:19\n4:21\n```\n\n**Hvorfor `round` her og ikke `int` alene:** `int()` kutter, den runder ikke. `0.9838 * 60` er 59.03, som `int()` ville gjort til 59 — riktig her — men 0.99995 ganger 60 er 59.997, som `int()` ville kuttet til 59 i stedet for å runde til 60. På en tidsangivelse er avrunding det riktige.\n\n**Antakelsen å skrive ned:** ved akkurat 60 avrundede sekunder ville denne funksjonen skrevet `4:60` i stedet for `5:00`. Nevn det i én setning, eller legg inn testen `if sek == 60:` — begge deler godtas, og den ærlige setningen er raskere.",
+    "hints": [
+     "Minutter per kilometer: del sekundene på kilometerne først, og deretter på 60.",
+     "Deloppgave b) er «finn beste» med `<`, og den skal kalle `fart` i stedet for å regne selv.",
+     "I c): trekk fra heltallsdelen og gang resten med 60 igjen."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-txt-5",
+   "type": "text",
+   "content": "## Løkke 4 — felt som ikke er rene (~12 min)\n\nIkke alle felt er klare til `float()`. Noen har komma som desimaltegn, noen har en enhet bakpå, og noen er skilt av et vilkårlig antall mellomrom. Alle tre er faste innslag på eksamen, og alle tre løses med ett grep hver."
+  },
+  {
+   "id": "tdt4110-7-3-def-9",
+   "type": "definition",
+   "title": "Varierende antall mellomrom: `.split()`",
+   "content": "`.split()` uten argument deler på blanktegn og slår sammen flere på rad. Det er det eneste riktige valget når kolonnene er justert i stedet for skilt.\n\n```python\nlinje = '2026-02-01     418   kjeller'\nprint(linje.split())\nprint(len(linje.split(' ')))\n```\n\n**Utskrift:**\n```\n['2026-02-01', '418', 'kjeller']\n9\n```\n\nMed ett mellomrom som argument blir hvert ekstra mellomrom et eget, tomt felt — ni felt der du ventet tre.\n\nBegrensningen: formen kan ikke brukes når et felt selv inneholder mellomrom, som `'Ida Nervik'`. Da må fila ha et ekte skilletegn."
+  },
+  {
+   "id": "tdt4110-7-3-def-10",
+   "type": "definition",
+   "title": "Komma som desimaltegn: `.replace(',', '.')`",
+   "content": "Norske datafiler skriver ofte `24,90` der Python krever `24.90`. `float('24,90')` gir en `ValueError`.\n\n`s.replace(gammel, ny)` gir en **ny** streng der alle forekomstene er byttet ut:\n\n```python\nprint(float('24,90'.replace(',', '.')))\n```\n\n**Utskrift:**\n```\n24.9\n```\n\nPass på rekkefølgen når fila **også** bruker komma som skilletegn — da må du dele først og erstatte etterpå, ellers renner feltene sammen. Er begge deler komma, sier oppgaveteksten alltid hvordan den skal leses."
+  },
+  {
+   "id": "tdt4110-7-3-def-11",
+   "type": "definition",
+   "title": "Enhet bakpå: del eller kutt den bort",
+   "content": "Et felt som `'24,90 kr'` har en enhet hengende ved. To rene grep, begge riktige:\n\n- **Del på mellomrom og ta første bit:** `felt.split()[0]` gir `'24,90'`.\n- **Kutt et fast antall tegn:** `felt[:-3]` fjerner de tre siste tegnene.\n\nDen første er tryggere, fordi den virker enten enheten er `kr`, `km` eller `kWh`. Den andre krasjer stille hvis enheten skifter lengde.\n\nHar feltet et prosenttegn uten mellomrom (`'85%'`), er `.replace('%', '')` det korteste grepet."
+  },
+  {
+   "id": "tdt4110-7-3-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: to skitne filer",
+   "problem": "Les `vannmaaler.txt`, der kolonnene er justert med et varierende antall mellomrom, og `kassalapp.txt`, der prisen har både komma og enhet.",
+   "solution": "**Fila med varierende mellomrom:**\n\n**Innholdet i `vannmaaler.txt`:**\n```\n2026-02-01     418   kjeller\n2026-03-01       503    kjeller\n2026-04-01   477       kjeller\n```\n\n```python\ndef les_maaler(filnavn):\n    f = open(filnavn, 'r')\n    tabell = []\n    for linje in f:\n        felt = linje.split()\n        felt[1] = int(felt[1])\n        tabell.append(felt)\n    f.close()\n    return tabell\n\nfor rad in les_maaler('vannmaaler.txt'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['2026-02-01', 418, 'kjeller']\n['2026-03-01', 503, 'kjeller']\n['2026-04-01', 477, 'kjeller']\n```\n\nMerk at `.strip()` er droppet her: `.split()` uten argument fjerner linjeskiftet på kjøpet, fordi linjeskift også er et blanktegn. Å ha `.strip()` med er ikke feil — bare unødvendig.\n\n**Fila med komma og enhet:**\n\n**Innholdet i `kassalapp.txt`:**\n```\nmelk;2;24,90 kr\nkaffe;1;89,50 kr\negg;3;41,00 kr\n```\n\n```python\ndef les_lapp(filnavn):\n    f = open(filnavn, 'r')\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[1] = int(felt[1])\n        felt[2] = float(felt[2].split()[0].replace(',', '.'))\n        tabell.append(felt)\n    f.close()\n    return tabell\n\nfor rad in les_lapp('kassalapp.txt'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['melk', 2, 24.9]\n['kaffe', 1, 89.5]\n['egg', 3, 41.0]\n```\n\nDen ene tette linja gjør tre ting i rekkefølge: `.split()[0]` kaster enheten, `.replace(',', '.')` bytter desimaltegnet, `float(...)` gjør resten om til tall.\n\n**Slik ville sensor sett på det:** kjeden av tre kall er lovlig og gir full pott, men den er vanskelig å lese. Deler du den i tre linjer med hvert sitt navn, får du den samme uttellingen og en lettere sjekk:\n\n```python\nraa = '24,90 kr'\nuten_enhet = raa.split()[0]\nmed_punktum = uten_enhet.replace(',', '.')\nprint(float(med_punktum))\n```\n\n**Utskrift:**\n```\n24.9\n```\n\n**Kantfeilen:** rekkefølgen er ikke likegyldig. `float('24,90 kr'.replace(',', '.'))` krasjer fortsatt, fordi `' kr'` står igjen. Enheten må bort først."
+  },
+  {
+   "id": "tdt4110-7-3-opg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — parsing.) *«Skriv `rens_pris(tekst)` som gjør en prisstreng som `'129,50 kr'` om til flyttallet 129.5. Funksjonen skal virke enten enheten står der eller ikke.»*\n\nTest på `'129,50 kr'`, `'89,50'` og `'7,00 kr'`.",
+    "solution": "Grepet som takler begge tilfellene er `.split()[0]` — den gir hele strengen tilbake når det ikke er noe mellomrom å dele på:\n\n```python\ndef rens_pris(tekst):\n    uten_enhet = tekst.split()[0]\n    return float(uten_enhet.replace(',', '.'))\n\nprint(rens_pris('129,50 kr'))\nprint(rens_pris('89,50'))\nprint(rens_pris('7,00 kr'))\n```\n\n**Utskrift:**\n```\n129.5\n89.5\n7.0\n```\n\n**Hvorfor `.split()[0]` er tryggere enn `[:-3]`:** utsnittet `[:-3]` fjerner alltid tre tegn. På `'89,50'` uten enhet ville det gitt `'89'` — feil svar i stillhet.\n\n```python\nprint('89,50'[:-3])\nprint('89,50'.split()[0])\n```\n\n**Utskrift:**\n```\n89\n89,50\n```\n\n**Kantfeilen som gjenstår:** en tom streng gir `IndexError` fra `[0]`, fordi `''.split()` er ei tom liste. Sier oppgaven at feltet alltid har innhold, skriver du én setning om antakelsen; skal funksjonen være robust, tester du `if tekst.strip() == '': return None` først.",
+    "hints": [
+     "Kast enheten før du bytter desimaltegn — rekkefølgen er ikke likegyldig.",
+     "`.split()[0]` gir hele strengen tilbake når det ikke finnes mellomrom i den."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-opg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Forklar forskjellen mellom de to linjene med én setning.\n\n```python\nlinje = '2026-03-01       503    kjeller'\nprint(len(linje.split()))\nprint(len(linje.split(' ')))\n```",
+    "solution": "**Sporingstavle.**\n\n| Uttrykk | Hva som skjer | Antall felt |\n|---|---|---|\n| `.split()` | deler på blanktegn og slår sammen flere på rad | 3 |\n| `.split(' ')` | deler på **hvert enkelt** mellomrom; hvert ekstra gir et tomt felt | 3 ekte felt + alle de tomme |\n\nMellom `2026-03-01` og `503` står det sju mellomrom, og mellom `503` og `kjeller` står det fire. Sju mellomrom gir seks tomme felt mellom de to ekte, fire gir tre.\n\n**Utskrift:**\n```\n3\n12\n```\n\n**Setningen:** `.split()` uten argument behandler en klynge blanktegn som **ett** skille, mens `.split(' ')` behandler hvert enkelt mellomrom som et eget skille og legger igjen en tom streng mellom hvert par.\n\n**Fellenoten:** dette er feilkode **#3** — feil skilletegn i `.split()`. Her krasjer ingenting; du får bare tolv felt der du ventet tre, og `felt[1]` er en tom streng i stedet for tallet.",
+    "hints": [
+     "Tell mellomrommene mellom kolonnene i strengen.",
+     "Hva ligger mellom to mellomrom som står rett etter hverandre?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-txt-6",
+   "type": "text",
+   "content": "## Løkke 5 — fra tabell til ordbok (~13 min)\n\nDen siste faste jobben i ledd 2: du har en ferdig 2D-liste, og en senere deloppgave vil slå opp på en nøkkel. Da bygger du ordboka av tabellen — uten å lese fila på nytt."
+  },
+  {
+   "id": "tdt4110-7-3-thm-3",
+   "type": "theorem",
+   "title": "Kodemønster: bygg ordbok fra en 2D-tabell",
+   "content": "Fire linjer, og nøkkelkolonnen er det eneste du velger:\n\n```text\nd = {}\nfor rad in tabell:\n    d[rad[k]] = rad\nreturn d\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 5.\n\nTre varianter av verdien, alle riktige, valgt ut fra hva oppgaven skal svare på:\n\n- `d[rad[k]] = rad` — hele raden, nøkkelen inkludert. Enklest å skrive, ingen forskyvning å huske.\n- `d[rad[k]] = rad[1:]` — resten av raden. Kortere verdi, men indeksene forskyves.\n- `d[rad[k]] = rad[j]` — bare én kolonne, når oppgaven bare spør om én verdi.\n\nHar tabellen en overskriftsrad, må løkka gå over `tabell[1:]`, og nøkkelkolonnen kan finnes med `tabell[0].index(navn)`."
+  },
+  {
+   "id": "tdt4110-7-3-def-12",
+   "type": "definition",
+   "title": "`lag_ordbok(tabell, k)` — nøkkelkolonnen som parameter",
+   "content": "Oppgaveteksten kaller den ofte `make_dict`. Poenget er at **nøkkelkolonnen er en parameter**, ikke skrevet inn i koden:\n\n```text\nlag_ordbok(tabell, 0)  ->  {'R1': [...], 'R2': [...]}\nlag_ordbok(tabell, 1)  ->  {'Elvestien': [...], 'Toppturen': [...]}\n```\n\nBlokken over viser to kall, ikke kode som kan kjøres.\n\nDa kan den samme funksjonen brukes to ganger i samme besvarelse med hver sin nøkkel — og det er nøyaktig den slags gjenbruk sensor belønner."
+  },
+  {
+   "id": "tdt4110-7-3-def-13",
+   "type": "definition",
+   "title": "Nøkkelen som ikke er unik",
+   "content": "Bygger du `{rad[k]: rad}` og to rader har samme verdi i kolonne `k`, forsvinner den første i stillhet.\n\nSjekken tar én linje, og den er verdt å ta med når du er usikker:\n\n```python\ntabell = [['R1', 'Elvestien'], ['R2', 'Toppturen'], ['R1', 'Elvestien nord']]\nnokler = []\nfor rad in tabell:\n    nokler.append(rad[0])\nprint(len(nokler), len(set(nokler)))\n```\n\n**Utskrift:**\n```\n3 2\n```\n\nEr de to tallene forskjellige, er nøkkelen ikke unik — og da skal du enten gruppere (`{nøkkel: [rader]}`) eller velge en annen kolonne. `set(...)` gir en samling uten duplikater, og lengden av den er antall **forskjellige** verdier."
+  },
+  {
+   "id": "tdt4110-7-3-def-14",
+   "type": "definition",
+   "title": "Tomt felt i en rad",
+   "content": "Datafiler har hull. En linje som `'R4;;12.0;30'` gir `['R4', '', '12.0', '30']` — feltet er tomt, ikke borte.\n\n`int('')` og `float('')` krasjer begge med `ValueError`. Testen står før konverteringen:\n\n```text\nif felt[2] == '':\n    felt[2] = 0\nelse:\n    felt[2] = float(felt[2])\n```\n\nBlokken over er et utdrag fra innlesingsløkka.\n\nHva du setter inn i stedet, er en **antakelse du skal skrive ned**: 0 hvis det betyr «ingen», `None` hvis det betyr «ukjent». De to er ikke det samme, og valget kan endre svaret på analysen."
+  },
+  {
+   "id": "tdt4110-7-3-ex-5",
+   "type": "example",
+   "title": "Eksempel 5: sykkelrutene som ordbok, to ganger",
+   "problem": "*«Filen `sykkelruter.txt` har overskriftsraden `rutenr;navn;lengde;stigning`. Skriv `lag_ordbok(tabell, k)` som bygger en ordbok med kolonne `k` som nøkkel og hele raden som verdi. Bruk den til å slå opp både på rutenummer og på rutenavn.»*",
+   "solution": "Slik ser fila ut:\n\n**Innholdet i `sykkelruter.txt`:**\n```\nrutenr;navn;lengde;stigning\nR1;Elvestien;14.2;85\nR2;Toppturen;9.8;430\nR3;Havnerunden;6.5;20\n```\n\n**Innlesing og ordbokbygging, med overskriftsraden hoppet over i ordboka:**\n\n```python\ndef les_ruter(filnavn):\n    f = open(filnavn, 'r')\n    tabell = [f.readline().strip().split(';')]\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[2] = float(felt[2])\n        felt[3] = int(felt[3])\n        tabell.append(felt)\n    f.close()\n    return tabell\n\ndef lag_ordbok(tabell, k):\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = rad\n    return d\n\ntabell = les_ruter('sykkelruter.txt')\npaa_nummer = lag_ordbok(tabell, 0)\npaa_navn = lag_ordbok(tabell, tabell[0].index('navn'))\nprint(paa_nummer['R2'])\nprint(paa_navn['Havnerunden'])\nprint(len(paa_navn))\n```\n\n**Utskrift:**\n```\n['R2', 'Toppturen', 9.8, 430]\n['R3', 'Havnerunden', 6.5, 20]\n3\n```\n\n**Slik ville sensor sett på det:** at `lag_ordbok` tar `k` som parameter er det som gjør at den kan kalles to ganger. En besvarelse med `lag_ordbok_paa_nummer` og `lag_ordbok_paa_navn` — to nesten like funksjoner — gjør den samme jobben, men mister gjenbrukspoengene.\n\nLegg merke til at det andre kallet finner kolonnen med `tabell[0].index('navn')` i stedet for tallet 1. Det er det samme fullscore-grepet som i [kap. 7.2](/tdt4110/tdt4110-7-2): koden overlever en omstokket kolonnerekkefølge.\n\n**Kantfeilen:** `paa_navn['Havnerunda']` — med skrivefeil — gir `KeyError`. Skal oppslaget tåle en ukjent nøkkel, bruker du `paa_navn.get('Havnerunda', None)`, som gir `None` i stedet for å krasje."
+  },
+  {
+   "id": "tdt4110-7-3-opg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — bygg ordbok.) *«Du har 2D-lista fra `stevne.txt` med rader på formen `[navn, klubb, tid]`, uten overskriftsrad. Skriv `tider_per_klubb(tabell)` som returnerer `{klubb: [tid, tid, …]}` med alle tidene til hver klubb.»*",
+    "solution": "Grupperingsmønsteret — opprett den indre lista før du legger noe i den:\n\n```python\ndef tider_per_klubb(tabell):\n    d = {}\n    for rad in tabell:\n        klubb = rad[1]\n        if klubb not in d:\n            d[klubb] = []\n        d[klubb].append(rad[2])\n    return d\n\ntabell = [['Ida Nervik', 'Havorn', 64.32], ['Jonas Lie', 'Delfin', 58.91],\n          ['Amina Kaur', 'Havorn', 72.07], ['Petter Ruud', 'Storm', 64.09]]\nprint(tider_per_klubb(tabell))\n```\n\n**Utskrift:**\n```\n{'Havorn': [64.32, 72.07], 'Delfin': [58.91], 'Storm': [64.09]}\n```\n\nHavorn har to svømmere og får to tider; de to andre klubbene får én hver.\n\n**Hvorfor ikke `d[klubb] = rad[2]`:** da ville Aminas tid overskrevet Idas, og Havorn stått igjen med én tid. Ordbøker har én verdi per nøkkel — skal alle tas vare på, må verdien være ei liste.\n\n**Neste steg, som en deloppgave gjerne ber om:** klubbens beste tid er `min(d[klubb])`, og snittet er `sum(d[klubb]) / len(d[klubb])`. Begge er ett kall når grupperingen først er på plass — det er derfor denne strukturen er verdt poengene sine.",
+    "hints": [
+     "Verdien i ordboka skal være ei liste. Hva må finnes før `.append` kan kalles på den?",
+     "Klubben ligger i kolonne 1, tiden i kolonne 2."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-opg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — parsing med hull i dataene.) En fil har rader på formen `rutenr;navn;lengde;stigning`, men noen rader mangler stigningen — feltet er tomt.\n\n**a)** Skriv `les_robust(filnavn)` som leser fila til en 2D-liste og setter stigningen til `None` når feltet er tomt.\n\n**b)** Skriv `snitt_stigning(tabell)` som regner gjennomsnittlig stigning **bare** over radene der stigningen er kjent.\n\n**c)** Skriv én setning om antakelsen du har gjort.",
+    "solution": "**a)** Testen står før konverteringen:\n\n```python\ndef les_robust(filnavn):\n    f = open(filnavn, 'r')\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[2] = float(felt[2])\n        if felt[3] == '':\n            felt[3] = None\n        else:\n            felt[3] = int(felt[3])\n        tabell.append(felt)\n    f.close()\n    return tabell\n\nf = open('ruter-hull.txt', 'w')\nf.write('R1;Elvestien;14.2;85\\n')\nf.write('R2;Toppturen;9.8;\\n')\nf.write('R3;Havnerunden;6.5;20\\n')\nf.close()\nfor rad in les_robust('ruter-hull.txt'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['R1', 'Elvestien', 14.2, 85]\n['R2', 'Toppturen', 9.8, None]\n['R3', 'Havnerunden', 6.5, 20]\n```\n\nDe fire linjene som skriver fila, er bare til for at blokken skal kunne kjøres her i boka.\n\n**b)** Løkka hopper over de ukjente:\n\n```python\ndef snitt_stigning(tabell):\n    total = 0\n    antall = 0\n    for rad in tabell:\n        if rad[3] is not None:\n            total = total + rad[3]\n            antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\ntabell = [['R1', 'Elvestien', 14.2, 85], ['R2', 'Toppturen', 9.8, None],\n          ['R3', 'Havnerunden', 6.5, 20]]\nprint(snitt_stigning(tabell))\n```\n\n**Utskrift:**\n```\n52.5\n```\n\n52.5 er snittet av 85 og 20 — den ukjente raden er ikke med i verken summen eller antallet.\n\n**c)** Antakelsen: **et tomt stigningsfelt betyr «ikke målt», ikke «null stigning», og raden holdes derfor helt utenfor snittet.**\n\nDet er det viktige valget i hele oppgaven. Hadde du satt inn 0 i stedet, ville snittet blitt 35 — et helt annet tall, og et som ser like riktig ut. Derfor er den ene setningen verdt poengene sine.\n\n**Merk også `if antall == 0: return None`.** Uten den krasjer funksjonen med `ZeroDivisionError` på en tabell der ingen stigninger er kjent. Det er tomtilfellet fra [kap. 7.6](/tdt4110/tdt4110-7-6).",
+    "hints": [
+     "Test på `felt[3] == ''` **før** du kaller `int()` på feltet.",
+     "I b): tell selv i stedet for å bruke `len(tabell)`, siden ikke alle radene skal være med.",
+     "Hva skal funksjonen returnere hvis ingen rader har kjent stigning?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-txt-7",
+   "type": "text",
+   "content": "## Løkke 6 — parseleddet i kjeden (~12 min)\n\nTil slutt: hvor hører parsefunksjonene hjemme? Svaret avgjør om du får gjenbrukspoengene eller ikke."
+  },
+  {
+   "id": "tdt4110-7-3-def-15",
+   "type": "definition",
+   "title": "Parsefunksjonen er en hjelpefunksjon",
+   "content": "`tid_til_sekunder`, `rens_pris` og `til_tall` skal stå som **egne funksjoner** og kalles fra innlesingen — ikke skrives rett inn i innlesingsløkka.\n\nTre grunner, alle poenggivende:\n\n- Oppgaven ber som regel om dem som egne deloppgaver med egne prosenter.\n- De blir testbare: du kan kalle `tid_til_sekunder('1:04.32')` alene og se at svaret er 64.32.\n- De blir gjenbrukbare: den samme funksjonen brukes i innlesingen, i utskriften og i menyen.\n\nRegelen i én setning: **én funksjon gjør én ting, og innlesingen kaller den.**"
+  },
+  {
+   "id": "tdt4110-7-3-ex-6",
+   "type": "example",
+   "title": "Eksempel 6: kjeden med parseleddet på plass",
+   "problem": "Sett sammen innlesingen fra [kap. 7.2](/tdt4110/tdt4110-7-2) og parsefunksjonen fra eksempel 2, og legg til en utskrift som viser tidene tilbake i tidsformat. Hver funksjon i sin egen blokk, som deloppgavene på et sett.",
+   "solution": "**Deloppgave a) — parsefunksjonen begge veier.** To små funksjoner, ingen filer:\n\n```python\ndef tid_til_sekunder(tekst):\n    deler = tekst.split(':')\n    return int(deler[0]) * 60 + float(deler[1])\n\ndef sekunder_til_tid(total):\n    minutter = int(total // 60)\n    return str(minutter) + ':' + '{:05.2f}'.format(total - minutter * 60)\n\nprint(tid_til_sekunder('1:12.07'))\nprint(sekunder_til_tid(72.07))\n```\n\n**Utskrift:**\n```\n72.07\n1:12.07\n```\n\n**Deloppgave b) — innlesingen som kaller a):**\n\n```python\ndef les_stevne(filnavn):\n    f = open(filnavn, 'r')\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[2] = tid_til_sekunder(felt[2])\n        tabell.append(felt)\n    f.close()\n    return tabell\n```\n\n**Deloppgave c) — utskriften som kaller a) den andre veien:**\n\n```python\ndef skriv_resultatliste(tabell):\n    for rad in tabell:\n        print(rad[0].ljust(14) + rad[1].ljust(10) + sekunder_til_tid(rad[2]))\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den skriver først noe når den blir kalt.\n\n**Deloppgave d) — `main`, som leser fila én gang:**\n\n```python\ndef main(filnavn):\n    tabell = les_stevne(filnavn)\n    skriv_resultatliste(tabell)\n```\n\nKaller du `main('stevne.txt')` etter at de fire funksjonene over er definert, skriver programmet:\n\n**Utskrift:**\n```\nIda Nervik    Havorn    1:04.32\nJonas Lie     Delfin    0:58.91\nAmina Kaur    Havorn    1:12.07\nPetter Ruud   Storm     1:04.09\n```\n\n**Slik ville sensor sett på det:** `tid_til_sekunder` kalles fra innlesingen, `sekunder_til_tid` fra utskriften, og ingen av de to regnestykkene står skrevet mer enn ett sted. Det er gjenbruk i praksis, og det er verdt poeng i hver eneste deloppgave som bruker det.\n\nLegg også merke til at tabellen inneholder **tall**, ikke tidsstrenger, hele veien fra innlesingen til utskriften. Konverteringen tilbake til tekst skjer først i det siste øyeblikket, når noe skal vises for et menneske. Det er en god regel i alle programmer: **regn med tall, vis tekst.**"
+  },
+  {
+   "id": "tdt4110-7-3-opg-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-11",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — parsing i kjeden.) *«Utvid kjeden i eksempel 6: skriv `differanse(tabell)` som returnerer differansen mellom den raskeste og den treigeste tiden, som en tidsstreng på formen `minutter:sekunder.hundredeler`.»*\n\nFunksjonen skal gjenbruke `sekunder_til_tid`.",
+    "solution": "```python\ndef sekunder_til_tid(total):\n    minutter = int(total // 60)\n    return str(minutter) + ':' + '{:05.2f}'.format(total - minutter * 60)\n\ndef differanse(tabell):\n    tider = []\n    for rad in tabell:\n        tider.append(rad[2])\n    return sekunder_til_tid(max(tider) - min(tider))\n\ntabell = [['Ida Nervik', 'Havorn', 64.32], ['Jonas Lie', 'Delfin', 58.91],\n          ['Amina Kaur', 'Havorn', 72.07], ['Petter Ruud', 'Storm', 64.09]]\nprint(differanse(tabell))\n```\n\n**Utskrift:**\n```\n0:13.16\n```\n\n72.07 minus 58.91 er 13.16 sekunder, altså `0:13.16`.\n\n**Snarveien som gir det samme:**\n\n```python\ntabell = [['Ida Nervik', 'Havorn', 64.32], ['Jonas Lie', 'Delfin', 58.91],\n          ['Amina Kaur', 'Havorn', 72.07]]\ntider = [rad[2] for rad in tabell]\nprint(round(max(tider) - min(tider), 2))\n```\n\n**Utskrift:**\n```\n13.16\n```\n\nBegge gir full pott. `max` og `min` brukes fritt i de offisielle løsningsforslagene.\n\n**Merk `round(..., 2)` i den andre blokken:** uten den ville differansen vist som `13.159999999999997`, fordi flyttall lagres binært. I hovedløsningen slipper vi problemet, fordi `'{:05.2f}'` runder av i formateringen.\n\n**Kantfeilen:** `max` og `min` på ei tom liste krasjer med `ValueError`. Skal funksjonen tåle en tom tabell, tester du `if len(tabell) == 0: return None` først.",
+    "hints": [
+     "Trekk ut tidskolonnen til ei egen liste før du bruker `max` og `min`.",
+     "Den siste linja skal kalle `sekunder_til_tid` på differansen, ikke formatere selv."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-opg-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-3-oppg-12",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E og F — hele parseleddet i et nytt domene.) *«Filen `maalinger.log` har én linje per avlesning, med feltene skilt av et varierende antall mellomrom: dato, forbruk i liter og målerplassering. Forbruket kan være tomt når avlesningen mislyktes.*\n\n*(a) Skriv `les_logg(filnavn)` som returnerer en 2D-liste der forbruket er heltall, eller `None` når feltet mangler.*\n\n*(b) Skriv `forbruk_per_maaned(tabell)` som returnerer `{maaned: sum liter}`, der måneden er de sju første tegnene i datoen (`'2026-02'`). Avlesninger uten forbruk skal ikke telle med.»*",
+    "solution": "**a)** Med varierende mellomrom er `.split()` uten argument det eneste riktige. Men da forsvinner det tomme feltet helt — en linje uten forbruk gir bare to felt, ikke tre. Det må testes på:\n\n```python\ndef les_logg(filnavn):\n    f = open(filnavn, 'r')\n    tabell = []\n    for linje in f:\n        felt = linje.split()\n        if len(felt) == 3:\n            tabell.append([felt[0], int(felt[1]), felt[2]])\n        else:\n            tabell.append([felt[0], None, felt[1]])\n    f.close()\n    return tabell\n\nf = open('maalinger.log', 'w')\nf.write('2026-02-01     418   kjeller\\n')\nf.write('2026-02-14        kjeller\\n')\nf.write('2026-03-01       503    kjeller\\n')\nf.close()\nfor rad in les_logg('maalinger.log'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['2026-02-01', 418, 'kjeller']\n['2026-02-14', None, 'kjeller']\n['2026-03-01', 503, 'kjeller']\n```\n\n**Dette er innsikten oppgaven tester:** `.split()` uten argument slår sammen blanktegn, så et tomt felt mellom to mellomromsklynger etterlater **ingenting**. Du kan ikke teste på `felt[1] == ''` — feltet finnes ikke. Du må telle feltene.\n\nHadde fila brukt semikolon, ville det tomme feltet vært synlig som `''`, og testen vært den fra oppgave 10. Formatet bestemmer grepet.\n\n**b)** Utsnittet `dato[:7]` gir `'2026-02'`, og summeringen hopper over de ukjente:\n\n```python\ndef forbruk_per_maaned(tabell):\n    d = {}\n    for rad in tabell:\n        if rad[1] is None:\n            continue\n        maaned = rad[0][:7]\n        d[maaned] = d.get(maaned, 0) + rad[1]\n    return d\n\ntabell = [['2026-02-01', 418, 'kjeller'], ['2026-02-14', None, 'kjeller'],\n          ['2026-03-01', 503, 'kjeller'], ['2026-02-20', 61, 'kjeller']]\nprint(forbruk_per_maaned(tabell))\n```\n\n**Utskrift:**\n```\n{'2026-02': 479, '2026-03': 503}\n```\n\n**Antakelsen å skrive ned:** en mislykket avlesning telles verken i sum eller i antall — den behandles som om linja ikke fantes. Alternativet, å telle den som 0, gir samme sum men et annet svar hvis en senere deloppgave spør etter snittet.\n\n**Slik ville sensor sett på det:** feltantallstesten i (a) er det som skiller full pott fra et krasj på linje 2. Ser du den ikke under eksamen, er det verdt å skrive én setning om at du antar at alle linjer har tre felt — da er du ærlig om begrensningen i stedet for å levere kode som stopper.",
+    "hints": [
+     "I a): hva skjer med et tomt felt når du deler med `.split()` uten argument?",
+     "Tell elementene i `felt` for å se om forbruket var med på linja.",
+     "I b): `dato[:7]` gir de sju første tegnene, altså år og måned."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-3-col-1",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-7-3-ctxt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `s.split(sep)` | deler på hvert `sep`; to `sep` etter hverandre gir et tomt felt mellom seg |\n| `s.split()` | deler på blanktegn og slår sammen flere på rad; tomme felt forsvinner helt |\n| `s.replace(gammel, ny)` | ny streng der **alle** forekomster er byttet ut; originalen er urørt |\n| `s[:-3]` | strengen uten de tre siste tegnene; krever at lengden på halen er fast |\n| `s[:7]` | de sju første tegnene, som ei ny streng |\n| `int(s)` | tekst om til heltall; `int('12.5')` og `int('')` krasjer med `ValueError` |\n| `float(s)` | tekst om til flyttall; takler både `'12'` og `'12.5'`, men ikke `'12,5'` |\n| `a // b` | heltallsdelen av divisjonen; runder **nedover**, også for negative tall |\n| `a % b` | resten etter heltallsdelingen; `197 % 60` er 17 |\n| `a / b` | gir **alltid** flyttall, også når det går opp: `4 / 2` er `2.0` |\n| `str(t).zfill(2)` | fyller på nuller foran til minst to tegn: `'5'` blir `'05'` |\n| `'{:05.2f}'.format(x)` | fem tegn totalt, to desimaler: `4.32` blir `'04.32'` |\n| `'{:.2f}'.format(x)` | to desimaler uten fast bredde; runder av |\n| `f'{t:02d}'` | samme som `zfill(2)` for heltall (verifiser mot gjeldende pensum — varslet inn 2019) |\n| `[float(x) for x in felt]` | listekomprehensjon: ei ny liste med hvert element konvertert |\n| `sum(liste) / len(liste)` | gjennomsnittet; krasjer med `ZeroDivisionError` på tom liste |\n| `min(x)` / `max(x)` | minste og største element; krasjer med `ValueError` på tom liste |\n| `min(tabell, key=lambda rad: rad[k])` | raden med minst verdi i kolonne `k` |\n| `set(liste)` | samling uten duplikater; `len(set(x))` er antall forskjellige verdier |\n| `d.get(k, standard)` | verdien, eller standarden hvis nøkkelen mangler — nøkkelen settes ikke inn |\n| `round(x, n)` | avrunder til `n` desimaler; `int(x)` kutter i stedet for å runde |\n\n**Formler i dette delkapitlet:**\n\nTidsstreng til sekunder: $t = 60 \\cdot m + s$\n\nSekunder til klokkeformat: $h = t \\,//\\, 3600$, $m = (t \\bmod 3600) \\,//\\, 60$, $s = t \\bmod 60$\n\nFart i minutter per kilometer: $v = \\frac{t}{60 \\cdot d}$ der $t$ er sekunder og $d$ er kilometer"
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

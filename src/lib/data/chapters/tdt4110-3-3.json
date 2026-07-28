@@ -1,0 +1,326 @@
+{
+  "id": "tdt4110-3-3",
+  "courseId": "tdt4110",
+  "chapterNumber": "3.3",
+  "title": "Strenger: split, strip, join, slicing og bygging",
+  "description": "Strengmetodene som parser hver fillinje og bygger utdata — split, strip, join, slicing og test-metodene.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne gjøre en tekstlinje om til de feltene den inneholder, med trimming før deling og konvertering etterpå",
+    "kunne velge riktig skilletegn og se hva som skjer når det mangler eller står to ganger på rad",
+    "kunne bygge tekst igjen med skjøting og med sammenføyning av ei liste",
+    "kunne spore et strengutsnitt med steg og skrive resultatet tegn for tegn",
+    "kunne sjekke innholdet i en streng før du konverterer den til tall"
+  ],
+  "content": [
+    {
+      "id": "tdt4110-3-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Strenger er med i alle de ti eksamenssittingene i arkivet (2014–2019)** — 100 %. Det er to helt forskjellige grunner til det, og begge gir poeng:\n\n- **Sjanger F — parsing**, altså å gjøre en tekstlinje om til de verdiene den inneholder. Hver eneste programmeringsoppgave begynner med at en fillinje deles opp i felt. Ledd for ledd er det 5–10 % av settet, og det er den delen resten av oppgaven står på.\n- **Sjanger B — kodesporing**, altså «hva skriver dette programmet ut?». Strengutsnitt med steg (`tekst[::2]`, `tekst[::-1]`) er en fast innpakning, verdt 1–3 % per deloppgave.\n\nTo feil går igjen så ofte at de har egne numre i bokas feilkatalog: **#2**, å glemme `.strip()` slik at linjeskiftet henger med i det siste feltet, og **#3**, å dele på feil skilletegn. Begge gir kode som *nesten* virker — og det er verre enn kode som stopper.\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer «må sitte», «må kunne», «bør kjenne til»). Kapitlet tar ca. 50 minutter og er delt i fire løkker med tidsanslag; det er et naturlig pausepunkt etter parsingdelen."
+    },
+    {
+      "id": "tdt4110-3-3-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper**\n\n- [kap. 3.1](/tdt4110/tdt4110-3-1) — lister, indeksering og utsnitt. Strenger indekseres og deles opp på nøyaktig samme måte, så alt du kan der, kan du her.\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — konvertering med `int()` og `float()`.\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — løkker, for å gå gjennom tegn eller felt.\n\nVil du se det samme stoffet i en annen innpakning, dekker [Strenger](/in1000/in1000-3-3) strengmetodene og utsnitt i et parallelt emne."
+    },
+    {
+      "id": "tdt4110-3-3-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — strengen er en sekvens av tegn (~10 min)\n\nEn **streng** er tekst: et navn, en linje fra en fil, et tall som ennå ikke er konvertert. Du skriver den mellom fnutter, enkle eller doble — Python skiller ikke på dem, og boka bruker enkle.\n\nDet viktigste å ta med seg er at en streng oppfører seg som ei liste med tegn. Den har lengde, den har indekser fra 0, og du kan ta utsnitt av den. Én forskjell finnes, og den er stor: en streng kan ikke endres."
+    },
+    {
+      "id": "tdt4110-3-3-def-4",
+      "type": "definition",
+      "title": "Strengen",
+      "content": "En sekvens av tegn, skrevet mellom fnutter: `'Hamsun'`. Tegnene har indekser fra 0 og oppover, akkurat som elementene i ei liste.\n\nStrenger er **uforanderlige**: `s[0] = 'X'` er ikke lov og stopper programmet. Alle strengmetodene lager derfor en NY streng i stedet for å endre den gamle — det er den enkeltregelen som forklarer mest av oppførselen deres."
+    },
+    {
+      "id": "tdt4110-3-3-def-5",
+      "type": "definition",
+      "title": "`len(s)`",
+      "content": "Antall tegn i strengen, mellomrom og skilletegn medregnet. Den tomme strengen `''` har lengde 0.\n\nMerk at `len` teller TEGN på en streng, men ELEMENTER på ei liste. `len('12 7')` er 4, mens `len('12 7'.split())` er 2. Den forskjellen er en fast sporingsfelle."
+    },
+    {
+      "id": "tdt4110-3-3-def-6",
+      "type": "definition",
+      "title": "`s[i]` og `s[-1]`",
+      "content": "Gir tegnet på plass `i`, som en streng av lengde 1 — Python har ingen egen tegntype. Negative indekser teller bakfra, så `s[-1]` er siste tegn.\n\nEr indeksen for stor, stopper programmet med `IndexError: string index out of range`. Å tilordne, `s[0] = 'X'`, gir derimot `TypeError`, fordi strenger ikke kan endres."
+    },
+    {
+      "id": "tdt4110-3-3-def-7",
+      "type": "definition",
+      "title": "`s[a:b]` — utsnitt av en streng",
+      "content": "Gir en ny streng med tegnene fra og med `a` til men IKKE med `b`. Sluttgrensa er eksklusiv, som i lister og i `range`.\n\nUtelates `a` eller `b`, går utsnittet fra begynnelsen eller til enden. Et utsnitt utenfor strengen gir ikke feil, bare en kortere streng — `'abc'[1:99]` er `'bc'`."
+    },
+    {
+      "id": "tdt4110-3-3-def-8",
+      "type": "definition",
+      "title": "`s[a:b:steg]` og `s[::-1]`",
+      "content": "Tredje tallet er steget: `s[::2]` gir annethvert tegn fra begynnelsen, `s[1::2]` annethvert fra det andre tegnet.\n\nNegativt steg går bakover, så `s[::-1]` er strengen snudd. Dette er den vanligste innpakningen av strengsporing på eksamen, og du må kunne skrive svaret tegn for tegn."
+    },
+    {
+      "id": "tdt4110-3-3-ex-9",
+      "type": "example",
+      "title": "Eksempel 1: seks utsnitt av samme ord",
+      "problem": "La `ord = 'BIBLIOTEK'`. Skriv ut lengden, første og siste tegn, de fire første tegnene, annethvert tegn, og ordet baklengs.",
+      "solution": "Skriv indeksene over bokstavene på kladdearket først: B er 0, I er 1, B er 2, og så videre til K som er 8.\n\n```python\nord = 'BIBLIOTEK'\nprint(len(ord))\nprint(ord[0], ord[-1])\nprint(ord[:4])\nprint(ord[::2])\nprint(ord[::-1])\n```\n\n**Utskrift:**\n```\n9\nB K\nBIBL\nBBITK\nKETOILBIB\n```\n\nTo detaljer å legge merke til. `ord[:4]` gir fire tegn, ikke fem — sluttgrensa er eksklusiv. Og `ord[::2]` plukker indeks 0, 2, 4, 6 og 8, altså fem tegn av ni.\n\nLegg også merke til at utskriften ikke har fnutter rundt seg. `print` skriver strengens innhold, ikke måten den ble skrevet i koden."
+    },
+    {
+      "id": "tdt4110-3-3-exr-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle fire linjene nøyaktig.\n\n```python\ns = 'PROGRAM'\nprint(s[1:5])\nprint(s[::3])\nprint(s[-3:])\nprint(len(s[2:]))\n```",
+        "solution": "Sett indeksene over bokstavene: P er 0, R er 1, O er 2, G er 3, R er 4, A er 5, M er 6.\n\n| Uttrykk | Tegn som tas med | Resultat |\n|---|---|---|\n| `s[1:5]` | indeks 1, 2, 3, 4 | `ROGR` |\n| `s[::3]` | indeks 0, 3, 6 | `PGM` |\n| `s[-3:]` | de tre siste | `RAM` |\n| `len(s[2:])` | fem tegn igjen fra indeks 2 | `5` |\n\n**Utskrift:**\n```\nROGR\nPGM\nRAM\n5\n```\n\nFellen er #5 — å bomme med én på en grense: `s[1:5]` gir fire tegn, ikke fem. Siste linje skriver et tall, ikke tekst.",
+        "hints": [
+          "Skriv bokstavene med indeks under på kladdearket.",
+          "Sluttgrensa i et utsnitt er alltid eksklusiv.",
+          "`s[-3:]` betyr «de tre siste», uten sluttgrense."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-3-warn-11",
+      "type": "warning",
+      "title": "Typiske feil: strengen kan ikke endres",
+      "content": "`navn[0] = 'K'` ser fornuftig ut, men stopper programmet med `TypeError: 'str' object does not support item assignment`. Strenger er uforanderlige.\n\nVil du ha en endret versjon, bygger du en ny: `navn = 'K' + navn[1:]`, eller du bruker `.replace()`. Det samme gjelder alle strengmetodene — `tekst.upper()` endrer ikke `tekst`, den gir deg en ny streng du må ta vare på:\n\n`tekst.upper()` alene gjør ingenting. `tekst = tekst.upper()` gjør jobben."
+    },
+    {
+      "id": "tdt4110-3-3-t-12",
+      "type": "text",
+      "content": "## Løkke 2 — å dele en linje i felt (~14 min)\n\nNå kommer den viktigste halvsiden i kapitlet. Hver programmeringsoppgave på eksamen begynner med en fil der hver linje er en post: `Kristin Lavransdatter;Undset;14`. Jobben din er å gjøre den linja om til de tre verdiene den inneholder.\n\nTo metoder gjør nesten hele arbeidet: `.strip()`, som fjerner skrot i endene, og `.split()`, som deler på et skilletegn. Rekkefølgen mellom dem er ikke likegyldig."
+    },
+    {
+      "id": "tdt4110-3-3-def-13",
+      "type": "definition",
+      "title": "`s.split(sep)`",
+      "content": "Deler strengen der `sep` står, og gir ei LISTE med bitene. Skilletegnet selv blir ikke med. `'a;b;c'.split(';')` gir `['a', 'b', 'c']`.\n\nStår skilletegnet to ganger på rad, kommer det en tom streng imellom. Finnes det ikke i det hele tatt, får du ei liste med ett element — hele strengen — og ikke en feilmelding. Det er derfor feil skilletegn gir gal kode som kjører videre."
+    },
+    {
+      "id": "tdt4110-3-3-def-14",
+      "type": "definition",
+      "title": "`s.split()` uten argument",
+      "content": "Deler på blanktegn — ett eller flere mellomrom, tabulatorer eller linjeskift — og hopper over tomme biter. `'12   7  33'.split()` gir `['12', '7', '33']` uansett hvor mange mellomrom det er mellom tallene.\n\nDette er formen du bruker når feltene er atskilt med mellomrom i ukjent antall. Merk at `.split(' ')` med ett mellomrom som argument IKKE gjør det samme: den lager tomme strenger mellom to mellomrom på rad."
+    },
+    {
+      "id": "tdt4110-3-3-def-15",
+      "type": "definition",
+      "title": "`s.strip()`",
+      "content": "Gir en ny streng uten blanktegn i BEGGE ender — mellomrom, tabulator og linjeskift. Tegn inne i strengen røres ikke.\n\nDette er den faste medisinen mot linjeskiftet som følger med hver linje du leser fra en fil. Uten `.strip()` blir siste felt `'14\\n'` i stedet for `'14'`, og sammenligninger med `'14'` slår feil selv om verdien ser riktig ut."
+    },
+    {
+      "id": "tdt4110-3-3-def-16",
+      "type": "definition",
+      "title": "`s.strip(tegn)`, `s.lstrip()` og `s.rstrip()`",
+      "content": "Med argument fjernes de oppgitte tegnene fra endene i stedet for blanktegn: `'##sum##'.strip('#')` gir `'sum'`. Argumentet er en samling enkelttegn, ikke en delstreng som skal matche i sin helhet.\n\n`lstrip()` og `rstrip()` gjør det samme, men bare fra venstre eller høyre side. `rstrip()` er nok mot linjeskift alene, men `strip()` er tryggere og brukes gjennomgående i boka."
+    },
+    {
+      "id": "tdt4110-3-3-thm-17",
+      "type": "theorem",
+      "title": "Kodemønster: linje til felt",
+      "content": "Dette er bokas mest brukte mønster. Det består av tre steg, og rekkefølgen er bindende:\n\n1. **`linje.strip()`** først — fjern linjeskiftet mens det ennå står ytterst.\n2. **`.split(sep)`** deretter — del på det skilletegnet fila faktisk bruker.\n3. **`int()` eller `float()`** til slutt, på de feltene som skal regnes med.\n\nSamlet: `felt = linje.strip().split(';')`, og deretter for eksempel `dager = int(felt[2])`.\n\nBytter du om på steg 1 og 2, havner linjeskiftet inni det siste feltet, og `int(felt[2])` er da avhengig av at Python tilfeldigvis tåler mellomrom rundt tall. Det gjør den — men `felt[2] == '14'` blir usant, og en sammenligning som det er akkurat det oppgavene ber om."
+    },
+    {
+      "id": "tdt4110-3-3-ex-18",
+      "type": "example",
+      "title": "Eksempel 2: parse tre lånelinjer",
+      "problem": "Bibliotekets utlånsfil har linjer på formen `tittel;etternavn;dager`, hver med et linjeskift på slutten. Gjør de tre linjene om til en tabell, og skriv ut tittel og lånedager for hver.",
+      "solution": "Linjene er skrevet med `\\n` bakerst her, akkurat slik de ville sett ut lest fra fil. Legg merke til at `.strip()` kommer før `.split()`.\n\n```python\nlinjer = ['Kristin Lavransdatter;Undset;14\\n',\n          'Sult;Hamsun;7\\n',\n          'Naiv. Super;Loe;21\\n']\n\ntabell = []\nfor linje in linjer:\n    felt = linje.strip().split(';')\n    tabell.append(felt)\n\nfor rad in tabell:\n    print(rad[0], int(rad[2]))\nprint(tabell[1])\n```\n\n**Utskrift:**\n```\nKristin Lavransdatter 14\nSult 7\nNaiv. Super 21\n['Sult', 'Hamsun', '7']\n```\n\nSiste linje viser hva som faktisk ligger i tabellen: tre TEKSTfelt, også det som ser ut som et tall. `'7'` er ikke 7 før du har konvertert.\n\nSløyfer du `.strip()`, blir siste felt `'7\\n'`. `int('7\\n')` virker fortsatt — Python tåler blanktegn rundt tall — men `rad[2] == '7'` blir usant, og en utskrift av feltet får et ekstra linjeskift. Det er feilkode #2, og den koster poeng hvert år."
+    },
+    {
+      "id": "tdt4110-3-3-warn-19",
+      "type": "warning",
+      "title": "Typiske feil: skilletegn, strip og konvertering",
+      "content": "**Feilkode #3 — feil skilletegn.** Deler du på komma når fila bruker semikolon, får du ei liste med ETT element: hele linja. Ingen feilmelding. Neste linje, `felt[1]`, stopper da programmet med `IndexError`, langt fra der feilen er. Les eksempelfila i oppgaveteksten før du skriver skilletegnet.\n\n**Tabulator som skilletegn.** Noen filer bruker tabulator. I koden skriver du det som `linje.split('\\t')` — bakstrek og t, ikke et ekte tabulatortegn du limer inn.\n\n**Feilkode #2 — glemt `.strip()`.** Rammer alltid det SISTE feltet, fordi det er der linjeskiftet henger. Feilen dukker opp som en sammenligning som burde vært sann, men ikke er det.\n\n**Feilkode #1 — glemt konvertering.** Alt som kommer fra `.split()` er tekst. `'7' + '14'` gir `'714'`, og `'96' > '120'` er sant fordi tekst sammenlignes bokstav for bokstav. Konvertér med `int()` eller `float()` med det samme."
+    },
+    {
+      "id": "tdt4110-3-3-exr-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — parsing: gjør en tekstlinje om til verdier.) En treningslogg har linjer på formen `dato mengde tid`, atskilt med et ukjent antall mellomrom, for eksempel `'12.03   5.2    31'`.\n\n**a)** Skriv `parse_okt(linje)` som returnerer ei liste med de tre feltene, der mengden er et desimaltall og tiden et heltall.\n**b)** Forklar med én setning hvorfor `.split()` uten argument er riktigere her enn `.split(' ')`.",
+        "solution": "**a)** Del uten argument, så tåler koden vilkårlig mange mellomrom.\n\n```python\ndef parse_okt(linje):\n    felt = linje.strip().split()\n    return [felt[0], float(felt[1]), int(felt[2])]\n\nprint(parse_okt('12.03   5.2    31\\n'))\nprint(parse_okt('13.03 8.0 47'))\n```\n\n**Utskrift:**\n```\n['12.03', 5.2, 31]\n['13.03', 8.0, 47]\n```\n\n**b)** `.split()` uten argument deler på ett eller flere blanktegn under ett, mens `.split(' ')` lager en tom streng for hvert ekstra mellomrom.\n\nLegg merke til at `5.2` må bli `float` og ikke `int` — `int('5.2')` stopper programmet. Datoen forblir tekst, fordi den ikke skal regnes med.",
+        "hints": [
+          "Bruk `.strip()` først, så `.split()` uten argument.",
+          "Mengden er et desimaltall og trenger `float`, ikke `int`.",
+          "Returnér ei liste med de tre verdiene, i samme rekkefølge som i linja."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-3-t-20",
+      "type": "text",
+      "content": "## Løkke 3 — å bygge tekst (~12 min)\n\n— naturlig pausepunkt —\n\nMotsatt vei er like vanlig: du har verdier og skal lage en linje av dem, enten for å skrive den ut eller for å lagre den i en fil.\n\nDu kan skjøte sammen med `+`, men da må alt være tekst, og du må selv passe på skilletegnene. Har du ei liste, er `join` både kortere og tryggere."
+    },
+    {
+      "id": "tdt4110-3-3-def-21",
+      "type": "definition",
+      "title": "`+` og `*` på strenger",
+      "content": "`'a' + 'b'` gir `'ab'` — en ny streng der den andre er skjøtt på den første. `'-' * 20` gir en strek av tjue bindestreker, nyttig som skillelinje i utskrifter.\n\nBegge sider av `+` må være strenger. `'sum: ' + 42` stopper programmet med `TypeError`; du må skrive `'sum: ' + str(42)`. Dette er den eneste plassen `str` er obligatorisk i dette kapitlet."
+    },
+    {
+      "id": "tdt4110-3-3-def-22",
+      "type": "definition",
+      "title": "`sep.join(liste)`",
+      "content": "Setter sammen elementene i lista til én streng, med `sep` mellom hvert. `';'.join(['a', 'b', 'c'])` gir `'a;b;c'`, og `', '.join(...)` gir den kommaseparerte formen som ser pen ut i en utskrift.\n\nMerk formen: det er skilletegnet du kaller metoden PÅ, og lista er argumentet — omvendt av det de fleste gjetter. Alle elementene må være strenger; tall må konverteres med `str()` først. `join` er den eksakte motsatsen til `split`."
+    },
+    {
+      "id": "tdt4110-3-3-def-23",
+      "type": "definition",
+      "title": "`s.replace(gammel, ny)`",
+      "content": "Gir en ny streng der ALLE forekomster av delstrengen `gammel` er byttet ut med `ny`. Originalen står urørt, siden strenger ikke kan endres.\n\nFinnes ikke `gammel`, returneres strengen uendret — metoden stopper aldri programmet. `s.replace(' ', '')` er en rask måte å fjerne ALLE mellomrom på, også de inne i strengen, i motsetning til `strip()` som bare tar endene."
+    },
+    {
+      "id": "tdt4110-3-3-ex-24",
+      "type": "example",
+      "title": "Eksempel 3: fra tabell tilbake til linjer",
+      "problem": "Gjør de tre parsete bokradene om til utskriftslinjer igjen: først en semikolonlinje slik den ville sett ut i fila, så en pen linje på formen «Sult av Hamsun (7 dager)».",
+      "solution": "`join` krever at alt er tekst, så tallet må gjennom `str()` på vei tilbake.\n\n```python\nrad = ['Sult', 'Hamsun', 7]\ntekst = [rad[0], rad[1], str(rad[2])]\nprint(';'.join(tekst))\nprint(rad[0] + ' av ' + rad[1] + ' (' + str(rad[2]) + ' dager)')\n```\n\n**Utskrift:**\n```\nSult;Hamsun;7\nSult av Hamsun (7 dager)\n```\n\nDen andre linja viser hvorfor `+` blir tungvint: fire skjøter og fire `str`-kall for én setning. I [kap. 3.4](/tdt4110/tdt4110-3-4) møter du formatert utskrift, som gjør nøyaktig det samme med langt mindre skriving.\n\nLegg merke til at `';'.join(...)` er den eksakte motsatsen til `.split(';')`: den ene setter sammen, den andre deler opp."
+    },
+    {
+      "id": "tdt4110-3-3-exr-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut? Vær nøye med mellomrom.\n\n```python\nnavn = '  Nord-Odal  '\nprint(len(navn))\nprint(len(navn.strip()))\nprint(navn.strip().replace('-', ' '))\nprint(navn.upper().strip())\n```",
+        "solution": "Strengen har to mellomrom foran og to bak, og `Nord-Odal` er ni tegn.\n\n| Linje | Hva skjer | Resultat |\n|---|---|---|\n| `len(navn)` | 2 + 9 + 2 tegn | `13` |\n| `len(navn.strip())` | mellomrommene i endene borte | `9` |\n| `.strip().replace('-', ' ')` | bindestreken byttes med mellomrom | `Nord Odal` |\n| `.upper().strip()` | store bokstaver, så trimming | `NORD-ODAL` |\n\n**Utskrift:**\n```\n13\n9\nNord Odal\nNORD-ODAL\n```\n\nMerk at siste linje virker uansett rekkefølge: `.upper()` rører ikke mellomrom. Metodene lenkes fra venstre mot høyre, og hver av dem får resultatet av den forrige.",
+        "hints": [
+          "Tell mellomrommene i endene — de er tegn de også.",
+          "Metoder som lenkes utføres fra venstre mot høyre.",
+          "`replace` bytter ut alle forekomster, ikke bare den første."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-3-t-25",
+      "type": "text",
+      "content": "## Løkke 4 — å lete og å teste (~12 min)\n\nTil slutt et lag med metoder du bruker når du skal finne noe i teksten, eller sjekke hva slags tegn den består av.\n\nTestmetodene er særlig nyttige før en konvertering: `int('abc')` stopper programmet, mens `'abc'.isdigit()` bare svarer `False`. Å spørre først er forskjellen på en robust løsning og en som krasjer på første rare linje."
+    },
+    {
+      "id": "tdt4110-3-3-def-26",
+      "type": "definition",
+      "title": "`delstreng in s`",
+      "content": "Gir `True` hvis delstrengen finnes et sted i `s`, ellers `False`. Den ser etter en sammenhengende bit, så `'gram' in 'PROGRAM'` er usant — store og små bokstaver er forskjellige tegn.\n\nDette er den enkleste og vanligste sjekken, og den stopper aldri programmet. Vil du se bort fra store og små bokstaver, sammenligner du `'gram' in 'PROGRAM'.lower()`."
+    },
+    {
+      "id": "tdt4110-3-3-def-27",
+      "type": "definition",
+      "title": "`s.find(delstreng)`",
+      "content": "Gir indeksen der delstrengen begynner første gang, eller `-1` hvis den ikke finnes. Den stopper aldri programmet, og det er hele poenget med den.\n\n`-1` som «ikke funnet» er en gjenganger i faget — den samme svarformen brukes i sekvensielt søk senere i boka. Test alltid `if s.find(x) != -1:` og ikke `if s.find(x):`, for indeks 0 er også et gyldig treff."
+    },
+    {
+      "id": "tdt4110-3-3-def-28",
+      "type": "definition",
+      "title": "`s.index(delstreng)`",
+      "content": "Gir samme indeks som `find`, men stopper programmet med `ValueError` hvis delstrengen mangler i stedet for å gi `-1`.\n\nBruk `find` når du er usikker på om teksten er der, og `index` når den må være der og en manglende verdi er en ekte feil. På lister finnes bare `index`, ikke `find`."
+    },
+    {
+      "id": "tdt4110-3-3-def-29",
+      "type": "definition",
+      "title": "`s.upper()`",
+      "content": "Gir en NY streng med alle bokstavene som store. Originalen står urørt, så du må ta vare på resultatet: `navn = navn.upper()`.\n\nTegn som ikke er bokstaver — sifre, mellomrom, bindestrek — går uendret gjennom. Metoden brukes når utdata skal se ensartet ut, for eksempel i en kolonneutskrift."
+    },
+    {
+      "id": "tdt4110-3-3-def-29b",
+      "type": "definition",
+      "title": "`s.lower()`",
+      "content": "Gir en ny streng med alle bokstavene som små, og lar originalen stå.\n\nDen vanligste bruken er å sammenligne uten å bry seg om store og små bokstaver: `if svar.lower() == 'ja':` godtar både `Ja`, `JA` og `ja`. Uten den ville et svar med stor forbokstav blitt regnet som noe annet."
+    },
+    {
+      "id": "tdt4110-3-3-def-30",
+      "type": "definition",
+      "title": "`s.isdigit()`",
+      "content": "Gir `True` bare hvis strengen er minst ett tegn langt og BARE består av sifre. Den tomme strengen gir `False`.\n\nMerk at minustegn og punktum ikke er sifre: `'-4'.isdigit()` og `'5.2'.isdigit()` er begge `False`. Metoden er derfor en trygg vakt foran `int()`, men ikke foran `float()`."
+    },
+    {
+      "id": "tdt4110-3-3-def-31",
+      "type": "definition",
+      "title": "`s.isalpha()`",
+      "content": "Gir `True` bare hvis strengen er minst ett tegn lang og BARE består av bokstaver. Den tomme strengen gir `False`.\n\nMellomrom er ikke en bokstav, så `'Nord Odal'.isalpha()` er `False`. Det overrasker mange, og er en yndet distraktor i flervalgsoppgaver."
+    },
+    {
+      "id": "tdt4110-3-3-def-31b",
+      "type": "definition",
+      "title": "`s.isalnum()`",
+      "content": "Gir `True` når strengen bare består av bokstaver og sifre, i hvilken som helst blanding. Den tomme strengen gir `False`.\n\nBindestrek, punktum og mellomrom er ingen av delene, så `'LN-2481'.isalnum()` er `False` mens `'LN2481'.isalnum()` er `True`. Metoden brukes til å luke ut felt med skilletegn i seg."
+    },
+    {
+      "id": "tdt4110-3-3-ex-32",
+      "type": "example",
+      "title": "Eksempel 4: sjekk før du konverterer",
+      "problem": "Ei liste med lånedager kommer fra en fil og kan inneholde skrot. Summér bare de verdiene som faktisk er hele tall, og tell hvor mange som ble forkastet.",
+      "solution": "`isdigit()` svarer i stedet for å stoppe, og det er nettopp derfor den brukes her.\n\n```python\nfelt = ['14', '7', 'ukjent', '21', '']\ntotal = 0\nforkastet = 0\nfor f in felt:\n    if f.isdigit():\n        total = total + int(f)\n    else:\n        forkastet = forkastet + 1\nprint(total)\nprint(forkastet)\n```\n\n**Utskrift:**\n```\n42\n2\n```\n\nBåde `'ukjent'` og den tomme strengen ble forkastet, uten at programmet stoppet. Uten sjekken ville `int('ukjent')` gitt `ValueError: invalid literal for int() with base 10: 'ukjent'`, og resultatene fra de gyldige linjene hadde gått tapt.\n\nLegg merke til at variabelen heter `total` og ikke `sum`: `sum` er navnet på en innebygd funksjon, og å bruke det som variabel ødelegger funksjonen resten av programmet (feilkode #14)."
+    },
+    {
+      "id": "tdt4110-3-3-exr-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — parsing med sjekk.) En strekkodeleser på biblioteket leverer linjer på formen `LN-2481` der tallet etter bindestreken er løpenummeret.\n\n**a)** Skriv `lopenummer(kode)` som returnerer løpenummeret som heltall.\n**b)** Returnér `-1` hvis strengen ikke inneholder en bindestrek, eller hvis det som står etter den ikke er et tall.",
+        "solution": "**a)** og **b)** løses sammen: del på bindestreken, og sjekk begge tingene før du konverterer.\n\n```python\ndef lopenummer(kode):\n    felt = kode.strip().split('-')\n    if len(felt) != 2:\n        return -1\n    if not felt[1].isdigit():\n        return -1\n    return int(felt[1])\n\nprint(lopenummer('LN-2481'))\nprint(lopenummer('LN2481'))\nprint(lopenummer('LN-abcd'))\n```\n\n**Utskrift:**\n```\n2481\n-1\n-1\n```\n\nSjekken `len(felt) != 2` fanger både at bindestreken mangler (da gir `split` ei liste med ett element) og at det er flere bindestreker enn én. Deretter er `isdigit()` vakten foran `int()`.\n\nEn løsning som bruker `kode.find('-')` og et utsnitt i stedet for `split`, gir nøyaktig samme uttelling. Svarformen `-1` for «ikke funnet» er den samme som `find` selv bruker.",
+        "hints": [
+          "Del på bindestreken og se hvor mange biter du får.",
+          "Sjekk med `.isdigit()` FØR du kaller `int()`.",
+          "Alle feilveiene skal returnere `-1`, ikke stoppe programmet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-3-exr-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle fire linjene nøyaktig, med hakeparenteser der de hører hjemme.\n\n```python\nlinje = 'NO1;78;410;\\n'\nfelt = linje.strip().split(';')\nprint(felt)\nprint(len(felt))\nprint(felt[0][::-1])\nprint('-'.join(felt))\n```",
+        "solution": "Linja slutter med et semikolon FØR linjeskiftet. `.strip()` fjerner linjeskiftet, men ikke semikolonet — og da lager `split` en tom streng etter det siste skilletegnet.\n\n| Steg | Verdi |\n|---|---|\n| etter `.strip()` | `'NO1;78;410;'` |\n| etter `.split(';')` | `['NO1', '78', '410', '']` |\n| `len(felt)` | `4`, ikke 3 |\n| `felt[0][::-1]` | `'NO1'` snudd, altså `1ON` |\n| `'-'.join(felt)` | de fire feltene med bindestrek mellom |\n\n**Utskrift:**\n```\n['NO1', '78', '410', '']\n4\n1ON\nNO1-78-410-\n```\n\nDette er en variant av feilkode #3 — feil eller uventet skilletegn: et etterhengende semikolon gir ett felt mer enn du forventer, og siste felt er tomt. Merk også bindestreken helt til slutt i siste linje: `join` setter et skilletegn foran det tomme feltet også.\n\nSkal koden tåle dette, kan du bruke `linje.strip().strip(';')` før delingen, eller hoppe over tomme felt når du løkker.",
+        "hints": [
+          "Skriv opp strengen etter `.strip()` før du deler den.",
+          "Hva skjer med `split` når skilletegnet står helt til slutt?",
+          "`join` setter skilletegnet mellom ALLE elementene, også et tomt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-3-col-33",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene du bør ha med deg",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "tdt4110-3-3-col-33-t1",
+          "type": "text",
+          "content": "1. En streng er en sekvens av tegn med indeks fra 0, men den kan ikke endres. Alle metodene gir en NY streng.\n2. Mønsteret er `linje.strip().split(sep)` — trimming FØR deling — og deretter `int()` eller `float()` på de feltene du skal regne med.\n3. `.split()` uten argument deler på ett eller flere blanktegn. `.split(' ')` gjør ikke det samme.\n4. `sep.join(liste)` er motsatsen til `split`, og krever at alle elementene er strenger.\n5. `find` gir `-1` når noe mangler; `index` stopper programmet. Velg etter om verdien MÅ være der.\n6. `.isdigit()` er vakten foran `int()`. Minustegn og punktum er ikke sifre."
+        }
+      ]
+    },
+    {
+      "id": "tdt4110-3-3-col-34",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "tdt4110-3-3-col-34-t1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `'tekst'` | Streng; uforanderlig, så `s[0] = 'X'` gir `TypeError` |\n| `len(s)` | Antall TEGN, mellomrom medregnet |\n| `s[i]`, `s[-1]` | Tegnet på plass `i` / siste tegn, som streng av lengde 1 |\n| `s[a:b]` | Ny streng fra og med `a` til men IKKE med `b` |\n| `s[::2]`, `s[1::2]` | Annethvert tegn fra begynnelsen / fra det andre tegnet |\n| `s[::-1]` | Strengen snudd; originalen uendret |\n| `s.split(sep)` | LISTE av bitene mellom `sep`; skilletegnet forsvinner; ingen treff gir ett element |\n| `s.split()` | Deler på ett eller flere blanktegn og hopper over tomme biter |\n| `s.split('\\t')` | Deler på tabulator — skrives som bakstrek og t i kilden |\n| `s.strip()` | Ny streng uten blanktegn i begge ender; brukes FØR `split` |\n| `s.strip(tegn)` | Fjerner de oppgitte tegnene fra endene i stedet for blanktegn |\n| `s.rstrip()` / `s.lstrip()` | Bare høyre / bare venstre ende |\n| `sep.join(liste)` | Setter sammen med `sep` mellom; alle elementene må være strenger |\n| `a + b`, `'-' * 20` | Skjøting / gjentakelse; tall må gjennom `str()` først |\n| `s.replace(g, n)` | Bytter ut ALLE forekomster; uendret hvis `g` mangler |\n| `del in s` | `True` hvis delstrengen finnes; skiller store og små bokstaver |\n| `s.find(del)` | Indeks til første treff, ellers `-1`; stopper aldri |\n| `s.index(del)` | Som `find`, men `ValueError` hvis delstrengen mangler |\n| `s.upper()` / `s.lower()` | Ny streng med store / små bokstaver |\n| `s.isdigit()` | `True` bare for ett eller flere sifre; `'-4'` og `'5.2'` gir `False` |\n| `s.isalpha()` / `s.isalnum()` | Bare bokstaver / bokstaver og sifre; mellomrom gir `False` |\n| `int(s)` / `float(s)` | Nødvendig etter `split`; `ValueError` på tekst som ikke er tall |\n"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

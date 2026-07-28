@@ -1,0 +1,290 @@
+{
+ "id": "tdt4110-7-1",
+ "courseId": "tdt4110",
+ "chapterNumber": "7.1",
+ "title": "Løsningsoppskriften — hele programmeringskjeden",
+ "description": "Den faste fem-ledds-kjeden som over halve eksamen består av, og en fullt gjennomarbeidet case som binder leddene sammen med gjenbruk av egne funksjoner.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne kjenne igjen at en programmeringsoppgave i et nytt domene er den samme øvelsen i ny innpakning",
+  "kunne dele en programmeringsoppgave i fem ledd og si hvilken funksjon hvert ledd trenger",
+  "kunne bygge løsningen som en kjede av små funksjoner som kaller hverandre, i stedet for ett langt program",
+  "kunne disponere tiden etter prosentvektingen og skrive ned antakelsene sine"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-7-1-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet er inngangen til over halve eksamen.**\n\n- Programmeringsoppgaven står i **100 % av settene (10 av 10 sittinger i arkivet 2014–2019)** og er verdt **50–60 % av karakteren**. Ingen annen del av faget er i nærheten.\n- Oppgaven ser ny ut hvert år, fordi *innpakningen* er ny: ett år handler den om reisetid, neste år om stemmetelling, året etter om terningspill. **Øvelsen under er identisk hver eneste gang.**\n- Den øvelsen er en **kjede i fem ledd**: les fila, tolk dataene, analysér dem, ta imot brukervalg, og skriv ut eller lagre svaret. Leddene kalles i denne boka **sjanger E til I**: E er filinnlesing, F er parsing (altså å tolke tekstlinjene og hente ut feltene), G er analysen, H er input og meny, og I er utskrift og lagring.\n- Dette kapitlet gir deg oppskriften og én gjennomarbeidet case. Resten av Del 7 driller ett ledd om gangen, og [kap. 7.7](/tdt4110/tdt4110-7-7) setter kjeden sammen igjen.\n\n**Prioritet: må sitte** — det høyeste av bokas tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til».\n\nKapitlet tar ~45 minutter og er delt i fire løkker med tidsanslag. Løkke 3 er den tunge — der går hele applikasjonen gjennom, funksjon for funksjon."
+  },
+  {
+   "id": "tdt4110-7-1-txt-1",
+   "type": "text",
+   "content": "**Forkunnskaper — sist du var her**\n\nDel 7 bruker alt du har bygget opp så langt, så her er de tre grepene kjeden hviler på, ferdig oppfrisket. Kjenner du dem igjen, er du klar.\n\n**1. Fra fil til tabell** ([kap. 4.1](/tdt4110/tdt4110-4-1)) — rens linja, del den, legg raden i tabellen:\n\n```python\nlinje = 'Nordlysjegerne;1;96;120\\n'\nrad = linje.strip().split(';')\nprint(rad)\n```\n\n**Utskrift:**\n```\n['Nordlysjegerne', '1', '96', '120']\n```\n\n**2. Fra tabell til teller** ([kap. 3.5](/tdt4110/tdt4110-3-5)) — ordboka som legger sammen per nøkkel:\n\n```python\nsolgt = {}\nfor navn in ['Under isen', 'Nordlysjegerne', 'Under isen']:\n    solgt[navn] = solgt.get(navn, 0) + 1\nprint(solgt)\n```\n\n**Utskrift:**\n```\n{'Under isen': 2, 'Nordlysjegerne': 1}\n```\n\n**3. Kolonnen funnet ved navn** ([kap. 3.2](/tdt4110/tdt4110-3-2)) — aldri et hardkodet tall:\n\n```python\noverskrift = ['film', 'sal', 'solgt', 'plasser']\nk = overskrift.index('solgt')\nprint(k)\n```\n\n**Utskrift:**\n```\n2\n```\n\nI tillegg bygger kapitlet direkte på [kap. 2.2](/tdt4110/tdt4110-2-2) — gjenbruk, hjelpefunksjoner og `main` som dispatcher."
+  },
+  {
+   "id": "tdt4110-7-1-txt-2",
+   "type": "text",
+   "content": "## Løkke 1 — den samme oppgaven i ny innpakning (~10 min)\n\nHer er tre oppgavetekster. De er hentet fra tre forskjellige verdener, og på papiret ser de ut som tre forskjellige oppgaver:\n\n- *«Filen `reisetider.txt` inneholder én linje per busstur. Skriv et program som finner den treigeste ruta.»*\n- *«Filen `stemmer.txt` inneholder én linje per valgkrets. Skriv et program som finner partiet i ledelse.»*\n- *«Filen `kast.txt` inneholder én linje per terningkast. Skriv et program som finner spilleren med flest seksere.»*\n\nLes dem én gang til, og se bort fra substantivene. Alle tre sier: *åpne en fil, gjør hver linje om til tall, gå gjennom radene, finn den største verdien, skriv den ut.* Det er én oppgave, ikke tre.\n\nDette er den viktigste enkeltinnsikten i hele faget. Den som leser oppgaven som «en oppgave om terningkast» må finne på noe nytt hvert år. Den som leser den som «kjeden, denne gangen med terninger» har løst den før."
+  },
+  {
+   "id": "tdt4110-7-1-def-1",
+   "type": "definition",
+   "title": "Innpakning og øvelse",
+   "content": "**Innpakningen** er domenet oppgaven er kledd i: bussruter, stemmesedler, terningkast, matoppskrifter. **Øvelsen** er det programmet faktisk gjør.\n\nI dette faget er innpakningen ny hvert år og øvelsen den samme. Innpakningen bestemmer bare tre ting: hva fila heter, hva feltene heter, og hva svaret skal kalles i utskriften.\n\nPraktisk grep når du får settet: stryk under de tre–fire substantivene i oppgaveteksten og erstatt dem i hodet med «rad», «kolonne» og «verdi». Det som blir igjen, er oppskriften i løkke 2."
+  },
+  {
+   "id": "tdt4110-7-1-def-2",
+   "type": "definition",
+   "title": "Deloppgavene a) til f)",
+   "content": "Programmeringsoppgaven er nesten aldri én stor bestilling. Den er delt i **deloppgaver a), b), c) …**, og hver deloppgave ber om **én funksjon**.\n\nRekkefølgen på deloppgavene følger kjeden: a) leser fila, b) tolker eller omformer dataene, c) og d) analyserer, e) skriver ut eller lagrer, f) binder det hele sammen.\n\nHver deloppgave har sin egen prosentvekting, og hver av dem rettes for seg. Det betyr at deloppgave d) kan gi full pott selv om c) er tom."
+  },
+  {
+   "id": "tdt4110-7-1-def-3",
+   "type": "definition",
+   "title": "Datastrukturvalget: tabell eller ordbok",
+   "content": "Ledd 1 ender alltid i én av to strukturer, og valget styres av spørsmålet du skal svare på:\n\n- **2D-liste (tabell)** — når du skal gå gjennom *alle* radene og sammenligne dem: finn den beste, sortér, regn snitt. En 2D-liste er en liste der hvert element selv er en liste, altså en tabell med rader og kolonner.\n- **Ordbok** — når du skal slå opp *én bestemt* nøkkel raskt, eller telle og gruppere per nøkkel: `{filmnavn: antall}`.\n\nSier oppgaven «finn ruta med lengst reisetid», er svaret tabell. Sier den «hvor mange billetter solgte hver film», er svaret ordbok. Sier den begge deler, leser du inn i en tabell og bygger ordboka av tabellen etterpå — som i casen i løkke 3."
+  },
+  {
+   "id": "tdt4110-7-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: tre oppgavetekster, én øvelse",
+   "problem": "Sett de tre oppgavetekstene over ved siden av hverandre, og skriv opp hva hvert ledd i kjeden må gjøre i hver av dem. Hva er likt, og hva er forskjellig?",
+   "solution": "| Ledd | Bussruter | Valgkretser | Terningkast |\n|---|---|---|---|\n| Les fila | én rad per tur | én rad per krets | én rad per kast |\n| Tolk | reisetid til `int` | stemmetall til `int` | øyne til `int` |\n| Analysér | størst reisetid | størst stemmesum | flest seksere per spiller |\n| Skriv ut | rutenavnet | partinavnet | spillernavnet |\n\nDet eneste som skifter, er ordene i venstre kolonne av datafila og ordet i utskriften. Selve arbeidet — `open`, `strip`, `split`, `int`, én løkke, én sammenligning — er tegn for tegn det samme.\n\nTo av de tre trenger i tillegg en ordbok, fordi de spør «per krets» og «per spiller». Det er ikke en ny øvelse; det er telleren fra [kap. 3.5](/tdt4110/tdt4110-3-5) satt inn i ledd 3.\n\n**Slik ville sensor sett på det:** ingen får poeng for å ha skjønt at oppgavene ligner. Poengene ligger i at gjenkjennelsen sparer deg for femten minutters panikk, slik at du bruker tiden på koden i stedet."
+  },
+  {
+   "id": "tdt4110-7-1-opg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-1-oppg-1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — les oppgaveteksten som en kjede.) Her er en oppgavetekst du ikke har sett før:\n\n*«Filen `soppturer.txt` har én linje per tur: navn på plukkeren, sopptype og antall kilo. Skriv (a) en funksjon som leser fila til en 2D-liste, (b) en funksjon som finner den største enkeltfangsten, og (c) en funksjon som skriver ut hvor mange kilo hver plukker har til sammen.»*\n\n**a)** Hvilket ledd i kjeden hører hver deloppgave til?\n\n**b)** Hvilken datastruktur bør deloppgave c) bygge, og hvorfor?",
+    "solution": "**a)** Deloppgave (a) er **ledd 1 og 2** — innlesing med parsing, altså sjanger E og F samlet, slik de oftest kommer. Deloppgave (b) er **ledd 3**, analysen: finn den beste raden. Deloppgave (c) er **ledd 3 og 5** sammen: en gruppering per plukker, og deretter utskriften av den.\n\n**b)** En **ordbok** med plukkernavnet som nøkkel og kilosummen som verdi: `{navn: kilo}`. Grunnen står i spørsmålsformuleringen — «hvor mange kilo **hver** plukker» betyr *per nøkkel*, og det er nøyaktig det ordbøker er til for. Bygg den med telleren `d[k] = d.get(k, 0) + kilo`.\n\nEn 2D-liste ville også ha gått an, men da måtte du selv holde styr på hvilke navn du alt har sett — og det er akkurat den bokføringen ordboka gjør for deg.",
+    "hints": [
+     "Tell leddene i kjeden: innlesing, parsing, analyse, input/meny, utskrift. Hvilke av dem nevnes i oppgaveteksten?",
+     "Ordet «hver» i en oppgavetekst peker nesten alltid på en ordbok."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-1-txt-3",
+   "type": "text",
+   "content": "## Løkke 2 — løsningsoppskriften i fem ledd (~12 min)\n\nNå skal oppskriften stå fast. Den er lik hvert år, og du skal kunne skrive den ned på kladdearket før du skriver en eneste kodelinje."
+  },
+  {
+   "id": "tdt4110-7-1-thm-1",
+   "type": "theorem",
+   "title": "Løsningsoppskriften — de fem leddene",
+   "content": "Dette er mønsteret hele programmeringsdelen følger. Lær det som en oppskrift, ikke som en tekst.\n\n1. **Les fila** — åpne, gå gjennom linje for linje, bygg en 2D-liste eller en ordbok, lukk. Én funksjon: `les_inn(filnavn)`.\n2. **Tolk dataene** — `strip()` før `split()`, `int()` eller `float()` på tallfeltene, tidsstrenger om til tall. Ofte samme funksjon som ledd 1, ellers en egen.\n3. **Analysér** — gå gjennom strukturen og finn det oppgaven spør om: den beste raden, en telling, en gruppering, en sortert rangering. Her ligger tyngdepunktet av poengene, og som regel to–tre deloppgaver.\n4. **Ta imot brukervalg** — `input()` med validering, eller en menyløkke som lar brukeren velge hvilken analyse som skal kjøres.\n5. **Skriv ut eller lagre** — pen kolonneutskrift, en rapportfil, eller lagring til binærfil.\n\nOg limet: **`main` leser fila én gang** og sender strukturen videre til de andre funksjonene.\n\n```text\nmain(filnavn)\n    tabell = les_inn(filnavn)          <- ledd 1 og 2\n    valg   = input(...)                <- ledd 4\n    svar   = analyser(tabell)          <- ledd 3\n    skriv_ut(svar)                     <- ledd 5\n```\n\nBlokken over er en skisse, ikke kjørbar kode. Alle deloppgavene løses hver for seg, i den rekkefølgen som passer deg — men skriv dem i denne rekkefølgen første gang, for da får du dataene å teste med underveis."
+  },
+  {
+   "id": "tdt4110-7-1-def-4",
+   "type": "definition",
+   "title": "Ledd 1 — innlesing",
+   "content": "**Sjanger E**, altså «les fila og bygg datastrukturen». Én funksjon som tar imot et filnavn og returnerer en 2D-liste eller en ordbok.\n\nFast form: `open`, deretter `readline()` hvis fila har overskriftsrad, deretter `for linje in f:` med `linje.strip().split(sep)` og `append`, og til slutt `close` og `return`.\n\nLeddet er verdt **5–10 %** og står i hvert eneste sett. Det er også det leddet du kan øve deg til full uttelling på, fordi det ikke varierer. Drilles i [kap. 7.2](/tdt4110/tdt4110-7-2)."
+  },
+  {
+   "id": "tdt4110-7-1-def-5",
+   "type": "definition",
+   "title": "Ledd 2 — parsing",
+   "content": "**Sjanger F**, altså å tolke rådataene og gjøre dem om til noe regnbart. Å **parse** betyr nettopp det: å tolke en tekst og hente ut verdiene den representerer.\n\nTypiske jobber: `int()`/`float()` på tallfeltene, en tidsstreng som `'2:01.65'` om til sekunder, en tabell om til en oppslagsordbok, eller en linje med varierende antall mellomrom delt riktig.\n\nLeddet er verdt **5–10 %**, og glemmes det, virker ingenting etterpå: sammenligner du strenger i stedet for tall, får du feil svar uten at programmet krasjer. Drilles i [kap. 7.3](/tdt4110/tdt4110-7-3)."
+  },
+  {
+   "id": "tdt4110-7-1-def-6",
+   "type": "definition",
+   "title": "Ledd 3 — analysen",
+   "content": "**Sjanger G** — tyngdepunktet. Her ligger som regel to–tre deloppgaver à **5–10 %**, altså mer enn de fire andre leddene til sammen.\n\nFire analysetyper dekker nesten alt: **finn den beste** raden, **tell** forekomster, **gruppér** i en ordbok av lister, og **rangér** hele tabellen etter en kolonne.\n\nAnalysefunksjonene tar tabellen som parameter — de åpner aldri fila selv. Drilles i [kap. 7.4](/tdt4110/tdt4110-7-4) og [kap. 7.5](/tdt4110/tdt4110-7-5), og gjøres robust i [kap. 7.6](/tdt4110/tdt4110-7-6)."
+  },
+  {
+   "id": "tdt4110-7-1-def-7",
+   "type": "definition",
+   "title": "Ledd 4 — input og meny",
+   "content": "**Sjanger H**. Enten en enkelt validert `input()` («hvilken film vil du se tall for?»), eller en hel menyløkke som lar brukeren velge analyse etter analyse til han skriver `q`.\n\nFast form: `while True:`, vis valgene, les `valg = input(...)`, la `if`/`elif` fordele jobben, og avslutt med `break` i den siste grenen.\n\nLeddet er med i omtrent halvparten av settene og er verdt **5–10 %** når det er der. Drilles i [kap. 7.7](/tdt4110/tdt4110-7-7)."
+  },
+  {
+   "id": "tdt4110-7-1-def-8",
+   "type": "definition",
+   "title": "Ledd 5 — utskrift og lagring",
+   "content": "**Sjanger I**. Svaret skal ut av programmet: som pen kolonneutskrift på skjermen, som en rapportfil, eller lagret på binærfil.\n\nFast form for utskrift: `ljust`/`rjust` for kolonnebredde, `'{:.2f}'.format(x)` eller en f-streng for desimaler, `', '.join(liste)` for en oppramsing.\n\nLeddet er verdt **5–10 %** og glemmes ofte fordi tiden er ute. Legg merke til at det som regel er den *enkleste* deloppgaven i settet — den bør du ta før du polerer analysen. Drilles i [kap. 7.7](/tdt4110/tdt4110-7-7)."
+  },
+  {
+   "id": "tdt4110-7-1-def-9",
+   "type": "definition",
+   "title": "Signaturen oppgaven gir deg",
+   "content": "Oppgaveteksten oppgir nesten alltid funksjonsnavnet og parameterne selv: «skriv funksjonen `finn_beste(tabell, kolonne)` som returnerer …».\n\nBruk den **ordrett**. Endrer du navnet eller rekkefølgen på parameterne, virker ikke de senere deloppgavene som skal kalle den, og du mister poeng du allerede hadde.\n\nSier oppgaven ingenting, velger du selv — norske og engelske navn er like gyldige. Fasitene i dette faget blander fritt, og denne boka bruker overveiende norske navn."
+  },
+  {
+   "id": "tdt4110-7-1-def-10",
+   "type": "definition",
+   "title": "Gjenbruk mellom leddene",
+   "content": "Senere funksjoner skal **kalle** de tidligere, ikke kopiere koden deres.\n\nSkal deloppgave d) regne fyllingsgrad for den beste raden, og deloppgave b) allerede har en `fyllingsgrad`-funksjon, kaller d) den. Sensor belønner det eksplisitt: gjenbruk teller som riktig løsning, kopiert kode gjør ikke.\n\nDet er også en forsikring. Har du en liten feil i `fyllingsgrad`, står den ett sted og trekker én gang — ikke fire steder og fire ganger."
+  },
+  {
+   "id": "tdt4110-7-1-def-11",
+   "type": "definition",
+   "title": "`main` leser fila én gang",
+   "content": "`main` åpner fila, får tabellen, og sender **den samme tabellen** videre til alle de andre funksjonene.\n\nMotstykket — at hver analysefunksjon åpner fila på nytt selv — er et av de vanligste trekkene i dette faget. Det gjør funksjonene umulige å gjenbruke på andre data, og det gjør at et filnavn må hardkodes fem steder.\n\nRegelen i én setning: **fila leses ett sted, dataene sendes videre som parameter.**"
+  },
+  {
+   "id": "tdt4110-7-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: skissér kjeden før du koder",
+   "problem": "En oppgave lyder: *«Filen `forestillinger.txt` har en overskriftsrad og deretter én linje per kinoforestilling: filmtittel, sal, antall solgte billetter og antall plasser i salen, skilt med semikolon. Skriv et program som finner den best fylte forestillingen og viser hvor mange billetter hver film har solgt til sammen.»*\n\nSkissér kjeden — hvilke funksjoner trenger du, hva tar de imot, og hva returnerer de? Ikke skriv kode ennå.",
+   "solution": "Slik ser fila ut:\n\n**Innholdet i `forestillinger.txt`:**\n```\nfilm;sal;solgt;plasser\nNordlysjegerne;1;96;120\nSommeren på Stord;2;41;60\nNordlysjegerne;2;58;60\nUnder isen;1;77;120\nSommeren på Stord;1;110;120\n```\n\nSkissen på kladdearket, ett ledd per linje:\n\n| Funksjon | Tar imot | Returnerer | Ledd |\n|---|---|---|---|\n| `les_forestillinger(filnavn)` | filnavnet | 2D-liste med overskriftsrad, tallene konvertert | 1 og 2 |\n| `fyllingsgrad(rad, k_solgt, k_plasser)` | én rad og to kolonneindekser | prosenten som flyttall | 3 |\n| `best_fylte(tabell)` | tabellen | den beste raden og verdien dens | 3 |\n| `solgt_per_film(tabell)` | tabellen | ordbok `{film: sum}` | 3 |\n| `skriv_rapport(tabell)` | tabellen | ingenting — den skriver ut | 5 |\n| `main(filnavn)` | filnavnet | ingenting — den binder sammen | limet |\n\nTre ting er verdt å legge merke til i skissen, og alle tre gir uttelling:\n\n- `fyllingsgrad` er skilt ut som **egen hjelpefunksjon** selv om den bare er én linje. Da kan `best_fylte` kalle den i stedet for å gjenta regnestykket.\n- `best_fylte` og `solgt_per_film` tar **tabellen** som parameter, ikke filnavnet. De leser aldri fila selv.\n- Ingen av funksjonene får kolonnenummeret oppgitt utenfra. De finner det selv fra overskriftsraden, og da spiller det ingen rolle om kolonnene kommer i en annen rekkefølge neste år.\n\nDenne skissen tar tre minutter og gjør resten av oppgaven til utfylling."
+  },
+  {
+   "id": "tdt4110-7-1-opg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-1-oppg-2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå — skissér kjeden.) *«Filen `panteautomat.txt` har én linje per innlevering: butikknavn, dato og antall flasker, skilt med semikolon. Skriv et program som viser hvilken butikk som har tatt imot flest flasker til sammen, og hvor mange innleveringer hver butikk har hatt.»*\n\nSett opp skissen som en tabell med kolonnene funksjon, parameter, returverdi og ledd. Skriv ingen kode — men skriv hvilken datastruktur hver analysefunksjon bygger.",
+    "solution": "| Funksjon | Tar imot | Returnerer | Ledd |\n|---|---|---|---|\n| `les_innleveringer(filnavn)` | filnavnet | 2D-liste, flasketallet konvertert med `int()` | 1 og 2 |\n| `flasker_per_butikk(tabell)` | tabellen | ordbok `{butikk: sum flasker}` | 3 |\n| `antall_innleveringer(tabell)` | tabellen | ordbok `{butikk: antall linjer}` | 3 |\n| `beste_butikk(per_butikk)` | ordboka fra forrige ledd | butikknavnet med høyest sum | 3 |\n| `skriv_oversikt(tabell)` | tabellen | ingenting — den skriver ut | 5 |\n| `main(filnavn)` | filnavnet | ingenting | limet |\n\n**Datastrukturene:** begge analysefunksjonene bygger en **ordbok** med butikknavnet som nøkkel — den ene summerer flasker (`d[k] = d.get(k, 0) + antall`), den andre teller linjer (`d[k] = d.get(k, 0) + 1`). Det er den samme telleren med to forskjellige tillegg.\n\n**Gjenbruket:** `beste_butikk` tar imot **ordboka**, ikke tabellen. Da kan den brukes på begge ordbøkene — både til «flest flasker» og til «flest innleveringer» — uten at du skriver den to ganger.\n\nLegg merke til at det finnes flere riktige skisser her. Slår du de to tellingene sammen til én funksjon som returnerer to ordbøker, er det like riktig. Det som ikke er riktig, er å la `flasker_per_butikk` åpne fila selv.",
+    "hints": [
+     "Sett opp én rad per deloppgave først, og legg til hjelpefunksjonene etterpå.",
+     "Ordene «flest» og «hver» i oppgaveteksten peker på hver sin analysefunksjon.",
+     "Kan den samme funksjonen finne det største tallet i begge ordbøkene? Da skal den ta imot en ordbok, ikke en tabell."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-1-txt-4",
+   "type": "text",
+   "content": "## Løkke 3 — hele casen, funksjon for funksjon (~15 min)\n\nNå fyller vi ut skissen fra eksempel 2. Hver funksjon står i sin egen blokk, akkurat som deloppgavene på et eksamenssett — og hver av dem kunne vært levert alene og fått sine poeng.\n\n— naturlig pausepunkt før denne løkka —"
+  },
+  {
+   "id": "tdt4110-7-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: kinorapporten, hele kjeden (eksamensnivå)",
+   "problem": "Skriv programmet fra skissen i eksempel 2. Fila `forestillinger.txt` er den samme. Programmet skal skrive ut den best fylte forestillingen med fyllingsgraden i prosent, og deretter en oversikt over solgte billetter per film.",
+   "solution": "**Deloppgave a) — innlesing (ledd 1 og 2).** Overskriftsraden leses med `readline()` **før** løkka, og blir rad 0 i tabellen slik at kolonnene kan finnes ved navn senere.\n\n```python\ndef les_forestillinger(filnavn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    tabell = [overskrift]\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[2] = int(felt[2])\n        felt[3] = int(felt[3])\n        tabell.append(felt)\n    f.close()\n    return tabell\n```\n\nKolonne 2 og 3 konverteres med `int()` under innlesingen. Gjør du det her, slipper du å huske på det i hver eneste analysefunksjon etterpå.\n\n**Deloppgave b) — hjelpefunksjonen (ledd 3).** Én linje, men den er verdt å skille ut:\n\n```python\ndef fyllingsgrad(rad, k_solgt, k_plasser):\n    return 100 * rad[k_solgt] / rad[k_plasser]\n```\n\nLegg merke til `100 *` foran: skriver du `rad[k_solgt] / rad[k_plasser] * 100`, får du det samme, men skriver du `rad[k_solgt] // rad[k_plasser] * 100`, får du 0 for alt annet enn en helt full sal. Heltallsdelingen `//` runder nedover.\n\n**Deloppgave c) — finn den beste (ledd 3).** Mønsteret med `None` som startverdi:\n\n```python\ndef best_fylte(tabell):\n    k_solgt = tabell[0].index('solgt')\n    k_plasser = tabell[0].index('plasser')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        v = fyllingsgrad(rad, k_solgt, k_plasser)\n        if beste_verdi is None or v > beste_verdi:\n            beste = rad\n            beste_verdi = v\n    return beste, beste_verdi\n```\n\nFire ting gir uttelling her, hver for seg: kolonnene funnet med `.index(...)`, `beste_verdi` startet på `None` og ikke på 0, `tabell[1:]` som hopper over overskriftsraden, og gjenbruket av `fyllingsgrad`.\n\n**Deloppgave d) — tell per film (ledd 3).** Telleren fra [kap. 3.5](/tdt4110/tdt4110-3-5), med flasketallet lagt til i stedet for 1:\n\n```python\ndef solgt_per_film(tabell):\n    k_film = tabell[0].index('film')\n    k_solgt = tabell[0].index('solgt')\n    per_film = {}\n    for rad in tabell[1:]:\n        navn = rad[k_film]\n        per_film[navn] = per_film.get(navn, 0) + rad[k_solgt]\n    return per_film\n```\n\n**Deloppgave e) — utskriften (ledd 5).** Den kaller de to analysefunksjonene i stedet for å regne selv:\n\n```python\ndef skriv_rapport(tabell):\n    beste, grad = best_fylte(tabell)\n    print('Best fylte forestilling:', beste[0], '- sal', beste[1])\n    print('Fyllingsgrad:', '{:.1f}'.format(grad), 'prosent')\n    print()\n    print('Solgte billetter per film:')\n    per_film = solgt_per_film(tabell)\n    for navn in sorted(per_film):\n        print(navn.ljust(20) + str(per_film[navn]).rjust(4))\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den skriver først når `main` kaller den.\n\n**Deloppgave f) — `main` (limet).** Tre linjer, og fila leses ett eneste sted:\n\n```python\ndef main(filnavn):\n    tabell = les_forestillinger(filnavn)\n    skriv_rapport(tabell)\n```\n\nKaller du `main('forestillinger.txt')` etter at de seks funksjonene over er definert, skriver programmet dette:\n\n**Utskrift:**\n```\nBest fylte forestilling: Nordlysjegerne - sal 2\nFyllingsgrad: 96.7 prosent\n\nSolgte billetter per film:\nNordlysjegerne       154\nSommeren på Stord    151\nUnder isen            77\n```\n\n**Slik ville sensor sett på det, deloppgave for deloppgave:**\n\n| Deloppgave | Vekt | Hva som gir uttelling |\n|---|---|---|\n| a) innlesing | 20 % | `open`/`close`, `strip().split(';')`, `int()`, header hoppet over |\n| b) hjelpefunksjon | 10 % | riktig regnestykke, `/` og ikke `//` |\n| c) finn beste | 25 % | `None` som start, kolonne funnet ved navn, gjenbruk av b) |\n| d) tell per film | 25 % | ordbok med `get`-default, summering og ikke telling |\n| e) utskrift | 10 % | leselig format, kaller c) og d) i stedet for å regne selv |\n| f) `main` | 10 % | leser fila én gang, sender tabellen videre |\n\n**Flere korrekte løsninger.** Deloppgave c) kunne vært løst med `max(tabell[1:], key=lambda rad: fyllingsgrad(rad, k_solgt, k_plasser))`, deloppgave d) med `.count`. Begge gir full pott — sensor er ute etter riktig idé, ikke én bestemt formulering.\n\n**Og en trøst:** hadde `best_fylte` returnert bare raden og ikke verdien, ville `skriv_rapport` krasjet. Det ville kostet noen få poeng på e), ikke på c). Deloppgavene rettes hver for seg."
+  },
+  {
+   "id": "tdt4110-7-1-opg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-1-oppg-3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — analyse.) Bygg videre på kjeden i eksempel 3. Skriv funksjonen `tomme_plasser(tabell)` som returnerer det totale antallet usolgte plasser i alle forestillingene til sammen.\n\nFunksjonen skal finne kolonnene ved navn, og den skal **ikke** åpne fila selv.",
+    "solution": "Én løkke, én akkumulator, og kolonnene funnet på samme måte som i `best_fylte`:\n\n```python\ndef tomme_plasser(tabell):\n    k_solgt = tabell[0].index('solgt')\n    k_plasser = tabell[0].index('plasser')\n    total = 0\n    for rad in tabell[1:]:\n        total = total + rad[k_plasser] - rad[k_solgt]\n    return total\n\ntabell = [['film', 'sal', 'solgt', 'plasser'],\n          ['Nordlysjegerne', '1', 96, 120],\n          ['Under isen', '1', 77, 120]]\nprint(tomme_plasser(tabell))\n```\n\n**Utskrift:**\n```\n67\n```\n\n67 usolgte plasser i de to radene: 24 på den første og 43 på den andre.\n\n**Snarveien gir det samme:**\n\n```python\ntabell = [['film', 'sal', 'solgt', 'plasser'],\n          ['Nordlysjegerne', '1', 96, 120],\n          ['Under isen', '1', 77, 120]]\nk_solgt = tabell[0].index('solgt')\nk_plasser = tabell[0].index('plasser')\nprint(sum(rad[k_plasser] - rad[k_solgt] for rad in tabell[1:]))\n```\n\n**Utskrift:**\n```\n67\n```\n\nBegge gir full pott. Løkkevarianten er lettere å skrive riktig for hånd under tidspress, og lettere for sensor å følge — men snarveien er ikke «juks» i dette faget, den brukes fritt i de offisielle løsningsforslagene.\n\n**Fellen å unngå:** `total = total + rad[k_solgt] - rad[k_plasser]` gir svaret med feil fortegn. Les rekkefølgen én gang til før du går videre.",
+    "hints": [
+     "Kolonnene finner du på samme måte som `best_fylte` gjør det — med `.index(...)` på overskriftsraden.",
+     "Start `total` på 0 og legg til differansen for hver rad.",
+     "Husk `tabell[1:]`, ellers prøver du å regne på overskriftsraden."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-1-opg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-1-oppg-4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — analyse med gjenbruk.) Fortsatt samme kjede. Skriv `dårligst_fylte(tabell)` som returnerer raden med **lavest** fyllingsgrad.\n\nLøs den ved å gjenbruke `fyllingsgrad` fra eksempel 3, og forklar med én setning hva du måtte endre fra `best_fylte`.",
+    "solution": "Bare sammenligningen snus — alt annet er identisk:\n\n```python\ndef fyllingsgrad(rad, k_solgt, k_plasser):\n    return 100 * rad[k_solgt] / rad[k_plasser]\n\ndef daarligst_fylte(tabell):\n    k_solgt = tabell[0].index('solgt')\n    k_plasser = tabell[0].index('plasser')\n    verst = None\n    verst_verdi = None\n    for rad in tabell[1:]:\n        v = fyllingsgrad(rad, k_solgt, k_plasser)\n        if verst_verdi is None or v < verst_verdi:\n            verst = rad\n            verst_verdi = v\n    return verst\n\ntabell = [['film', 'sal', 'solgt', 'plasser'],\n          ['Nordlysjegerne', '1', 96, 120],\n          ['Sommeren på Stord', '2', 41, 60],\n          ['Under isen', '1', 77, 120]]\nprint(daarligst_fylte(tabell))\n```\n\n**Utskrift:**\n```\n['Under isen', '1', 77, 120]\n```\n\nDen ene setningen: **`>` er byttet ut med `<`.**\n\nLegg merke til at funksjonsnavnet er skrevet `daarligst_fylte` i koden. Python tillater æ, ø og å i navn, men det er lett å skrive feil under tidspress, og boka holder seg til a–z i kode.\n\n**Hvorfor `None` og ikke et stort tall:** startet du `verst_verdi` på 100 fordi «prosent kan ikke være mer enn 100», ville en overbooket forestilling med 110 solgte av 120 plasser fortsatt fungert — men en tabell der alt er over 100 ville gitt `None` tilbake. `None` som startverdi virker uansett hvilke tall dataene inneholder.",
+    "hints": [
+     "Hva er den eneste forskjellen mellom «finn størst» og «finn minst»?",
+     "La `fyllingsgrad` stå urørt og kall den — ikke skriv regnestykket på nytt."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-1-txt-5",
+   "type": "text",
+   "content": "## Løkke 4 — poengene: vekting, uavhengighet og antakelser (~8 min)\n\nDe siste poengene i programmeringsdelen hentes ikke i koden, men i hvordan du disponerer de fire timene."
+  },
+  {
+   "id": "tdt4110-7-1-def-12",
+   "type": "definition",
+   "title": "Tidsbudsjett fra prosentvektingen",
+   "content": "Prosentvektingen står trykt på settet, deloppgave for deloppgave. Den er ikke pynt — den er tidsplanen din.\n\nRegnestykket: eksamen er 240 minutter. Er programmeringsdelen 55 %, er den verdt omtrent 130 minutter. Er én deloppgave 10 % av settet, er den verdt omtrent 24 minutter — og har du brukt 40, skal du videre uansett hvor nær du føler deg.\n\nSkriv de tre tallene øverst på kladdearket før du begynner: klokkeslettet du skal være ferdig med teoridelen, med kodeforståelsen, og med hver programmeringsdeloppgave."
+  },
+  {
+   "id": "tdt4110-7-1-def-13",
+   "type": "definition",
+   "title": "Uavhengige deloppgaver",
+   "content": "Deloppgavene rettes **hver for seg**. Får du ikke til b), kan du fortsatt få full pott på c), d) og e).\n\nPraktisk betyr det: står du fast på en deloppgave, skriv én setning om hva funksjonen skulle ha gjort, anta at den finnes, kall den i de neste deloppgavene, og gå videre. Du får poengene for de neste.\n\nDet motsatte — å bli sittende på deloppgave b) til tiden er ute — er den dyreste enkeltfeilen i dette faget, fordi analysedeloppgavene som står igjen er de tyngste av alle."
+  },
+  {
+   "id": "tdt4110-7-1-def-14",
+   "type": "definition",
+   "title": "Antakelse skrevet ned",
+   "content": "Er oppgaveteksten uklar — kan to forestillinger ha samme fyllingsgrad? kan fila være tom? — velger du selv, og **skriver én setning om valget**.\n\n«Antar at det bare finnes én best fylte forestilling; ved lik grad returneres den første» er nok. Det tar femten sekunder, og det er forskjellen mellom «feil» og «riktig gitt en dokumentert antakelse».\n\nSensorregelen som gjelder her, er den samme som for teorisvarene: **svar kort og klart**. Er svaret uklart eller lengre enn nødvendig, trekker det ned."
+  },
+  {
+   "id": "tdt4110-7-1-def-15",
+   "type": "definition",
+   "title": "Delpoeng for riktig struktur",
+   "content": "En løsning med riktig overordnet struktur og en indeksfeil gir god uttelling. En løsning uten struktur, men uten syntaksfeil, gir lite.\n\nDet betyr at rekkefølgen du jobber i, bør være: få kjeden på plass først — funksjonene, parameterne, returverdiene — og finpuss kantene etterpå hvis det er tid.\n\nDet betyr også at du aldri skal levere blankt på en deloppgave. Skriver du bare `def best_fylte(tabell):` med en løkke som går gjennom radene, har du allerede noe å få poeng for."
+  },
+  {
+   "id": "tdt4110-7-1-warn-1",
+   "type": "warning",
+   "title": "Typiske feil i programmeringsdelen",
+   "content": "Fire trekk koster mer enn all koden til sammen:\n\n- **Ett langt program i stedet for en kjede av små funksjoner.** Du mister gjenbrukspoengene, og du mister delpoengene, fordi sensor ikke kan se hvilken deloppgave som er besvart hvor.\n- **Å lese fila på nytt i hver funksjon.** Det gjør funksjonene ubrukelige for de neste deloppgavene, som skal kalle dem med data.\n- **Å hoppe over parse-leddet** og analysere rå strenger. `'96' > '120'` er sant i Python, fordi tekst sammenlignes bokstav for bokstav — dette er felle **#1**, glemt konvertering, og den krasjer ikke. Den bare svarer feil.\n- **Å ikke disponere tiden etter prosentvektingen.** En perfekt deloppgave a) til 5 % er ikke verdt 40 minutter når analysen til 25 % står urørt."
+  },
+  {
+   "id": "tdt4110-7-1-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: to besvarelser på samme deloppgave",
+   "problem": "To studenter har levert deloppgave c) fra eksempel 3 — «finn den best fylte forestillingen». Hvilken uttelling får hver av dem, og hva skiller dem?",
+   "solution": "**Besvarelse 1 — solid midtnivå (ville fått en god C, kanskje B):**\n\n```python\ndef best_fylte(tabell):\n    beste = tabell[1]\n    beste_verdi = 100 * tabell[1][2] / tabell[1][3]\n    for rad in tabell[1:]:\n        v = 100 * rad[2] / rad[3]\n        if v > beste_verdi:\n            beste = rad\n            beste_verdi = v\n    return beste\n\ntabell = [['film', 'sal', 'solgt', 'plasser'],\n          ['Nordlysjegerne', '1', 96, 120],\n          ['Sommeren på Stord', '1', 110, 120]]\nprint(best_fylte(tabell))\n```\n\n**Utskrift:**\n```\n['Sommeren på Stord', '1', 110, 120]\n```\n\nDenne koden **virker** på dataene i oppgaven, og den har riktig struktur: én løkke, én sammenligning, riktig returverdi. Det gir god uttelling.\n\nTo ting skiller den likevel fra toppen. Kolonnene 2 og 3 er **hardkodet** — kommer kolonnene i en annen rekkefølge, svarer funksjonen feil uten å si fra (felle **#4**). Og `tabell[1]` som startverdi krasjer på en tom tabell, altså en tabell som bare har overskriftsraden. Regnestykket er dessuten skrevet to ganger, så en feil i det må rettes to steder.\n\n**Besvarelse 2 — toppnivå:** koden i eksempel 3. Forskjellen er tre grep, ikke tre sider: kolonnene funnet med `.index(...)`, `None` som startverdi, og regnestykket i en egen funksjon som kalles begge steder.\n\n**Poenget for deg:** avstanden fra midt til topp er liten og helt konkret. Det er de tre grepene i [kap. 7.6](/tdt4110/tdt4110-7-6) — dynamisk kolonne, tomtilfelle og ingen duplikater — og du kan lære dem på en kveld."
+  },
+  {
+   "id": "tdt4110-7-1-opg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-1-oppg-5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå — disponering.) Et sett har denne programmeringsoppgaven, og du har 130 minutter igjen når du begynner på den:\n\n**a)** `les_data(filnavn)` — 10 %\n**b)** `tid_til_sekunder(tekst)` — 10 %\n**c)** `raskeste(tabell)` — 20 %\n**d)** `antall_per_klubb(tabell)` — 20 %\n**e)** `skriv_resultatliste(tabell)` — 15 %\n\nDu står bom fast på b) etter 25 minutter. Hva gjør du, og hvor mange minutter har du igjen til hver av de tre siste?\n\nSvar kort — dette er ikke et kodespørsmål.",
+    "solution": "**Hva du gjør med b):** skriv én setning i besvarelsen om hva funksjonen skulle gjort («`tid_til_sekunder` skal gjøre `'2:01.65'` om til flyttallet 121.65»), anta at den finnes, og kall den i c) hvis c) trenger den. Gå videre umiddelbart.\n\n**Regnestykket for resten:** deloppgavene a) til e) er 75 % til sammen. De tre som står igjen — c), d) og e) — er 55 %. Med 105 minutter igjen etter de 25 du brukte, blir det omtrent\n\n- c) 20 %: omtrent 38 minutter\n- d) 20 %: omtrent 38 minutter\n- e) 15 %: omtrent 29 minutter\n\nRund ned og hold av ti minutter på slutten til å lese gjennom.\n\n**Hvorfor dette er riktig svar:** de to analysedeloppgavene er 40 % til sammen, altså fire ganger så mye som b). Å bruke ett minutt til på b) koster deg direkte fra dem. Deloppgavene rettes hver for seg, så en tom b) tar ikke med seg c) i fallet.\n\nLegg merke til at e) — utskriften — ofte er den enkleste deloppgaven i hele settet. Sitter du med ti minutter igjen og to ubesvarte deloppgaver, tar du den.",
+    "hints": [
+     "Legg sammen prosentene som står igjen, og fordel den gjenstående tiden i samme forhold.",
+     "Hva sier regelen om at deloppgaver rettes hver for seg?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-1-opg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-1-oppg-6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E til I — hele kjeden.) *«Filen `soppturer.txt` har én linje per tur uten overskriftsrad: plukkerens navn, sopptype og antall kilo, skilt med semikolon. Skriv (a) `les_turer(filnavn)` som returnerer en 2D-liste med kiloene som flyttall, (b) `kilo_per_plukker(tabell)` som returnerer en ordbok, og (c) `beste_plukker(tabell)` som returnerer navnet på den som har plukket mest til sammen. Deloppgave c) skal gjenbruke b).»*\n\nSkriv alle tre funksjonene. Du trenger ikke skrive `main`.",
+    "solution": "**a)** Ingen overskriftsrad denne gangen, så ingen `readline()` — og bare én kolonne skal konverteres:\n\n```python\ndef les_turer(filnavn):\n    f = open(filnavn, 'r')\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[2] = float(felt[2])\n        tabell.append(felt)\n    f.close()\n    return tabell\n\nf = open('soppturer.txt', 'w')\nf.write('Ingrid;kantarell;1.4\\n')\nf.write('Ola;steinsopp;0.9\\n')\nf.write('Ingrid;steinsopp;2.2\\n')\nf.close()\nprint(les_turer('soppturer.txt'))\n```\n\n**Utskrift:**\n```\n[['Ingrid', 'kantarell', 1.4], ['Ola', 'steinsopp', 0.9], ['Ingrid', 'steinsopp', 2.2]]\n```\n\nDe fire siste linjene er bare til for at blokken skal kunne kjøres her i boka — på eksamen får du fila utlevert.\n\n**b)** Telleren, med kiloene lagt til i stedet for 1:\n\n```python\ndef kilo_per_plukker(tabell):\n    per_plukker = {}\n    for rad in tabell:\n        navn = rad[0]\n        per_plukker[navn] = per_plukker.get(navn, 0) + rad[2]\n    return per_plukker\n\ntabell = [['Ingrid', 'kantarell', 1.4], ['Ola', 'steinsopp', 0.9],\n          ['Ingrid', 'steinsopp', 2.2]]\nprint(kilo_per_plukker(tabell))\n```\n\n**Utskrift:**\n```\n{'Ingrid': 3.6, 'Ola': 0.9}\n```\n\n**c)** Gjenbruket er hele poenget — `beste_plukker` bygger ingen ordbok selv:\n\n```python\ndef kilo_per_plukker(tabell):\n    per_plukker = {}\n    for rad in tabell:\n        navn = rad[0]\n        per_plukker[navn] = per_plukker.get(navn, 0) + rad[2]\n    return per_plukker\n\ndef beste_plukker(tabell):\n    per_plukker = kilo_per_plukker(tabell)\n    beste = None\n    beste_verdi = None\n    for navn in per_plukker:\n        if beste_verdi is None or per_plukker[navn] > beste_verdi:\n            beste = navn\n            beste_verdi = per_plukker[navn]\n    return beste\n\ntabell = [['Ingrid', 'kantarell', 1.4], ['Ola', 'steinsopp', 0.9],\n          ['Ingrid', 'steinsopp', 2.2]]\nprint(beste_plukker(tabell))\n```\n\n**Utskrift:**\n```\nIngrid\n```\n\nIngrid har 3.6 kilo mot Olas 0.9.\n\n**Snarveien for c)** er `max(per_plukker, key=per_plukker.get)`, som gir nøkkelen med størst verdi. Den gir full pott på lik linje med løkka — men løkka er tryggere å skrive for hånd, og den viser sensor at du kan mønsteret.\n\n**Antakelsen å skrive ned:** ved likt antall kilo returnerer denne løsningen den plukkeren som ble sett først. Én setning om det i besvarelsen, så er det dokumentert i stedet for tilfeldig.",
+    "hints": [
+     "Deloppgave a) er innlesingsmønsteret uten `readline()`, siden fila ikke har overskriftsrad.",
+     "I b) er det bare tallet du legger til som er nytt — ellers er det telleren fra kap. 3.5.",
+     "I c): la den første linja i funksjonen være kallet på b). Da har du gjenbruket på plass før du har skrevet løkka."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-1-col-1",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-7-1-ctxt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `open(filnavn, 'r')` | åpner fila for lesing og gir et filobjekt; krasjer med `FileNotFoundError` hvis fila ikke finnes |\n| `f.readline()` | leser og **forbruker** én linje; brukt før løkka hopper den over overskriftsraden |\n| `for linje in f:` | går gjennom resten av fila én linje av gangen; `linje` har linjeskiftet med seg |\n| `f.close()` | lukker fila; står etter løkka, aldri inne i den |\n| `linje.strip().split(';')` | `strip()` fjerner linjeskiftet **før** delingen; `split(';')` gir ei liste av felt |\n| `int(s)` og `float(s)` | tekst om til tall; uten dem sammenlignes strenger bokstav for bokstav |\n| `tabell[0].index('solgt')` | kolonnenummeret funnet ved navn i overskriftsraden; krasjer med `ValueError` hvis navnet ikke finnes |\n| `tabell[1:]` | ny liste med alle radene unntatt overskriftsraden; originalen er urørt |\n| `beste_verdi is None` | testen som lar første rad alltid vinne; virker også når alle verdiene er negative |\n| `d.get(k, 0) + v` | henter verdien eller 0 hvis nøkkelen mangler, og setter den **ikke** inn selv |\n| `sorted(d)` | nøklene i ordboka i sortert rekkefølge, som ei ny liste |\n| `s.ljust(n)` og `s.rjust(n)` | fyller strengen ut til bredden `n` med mellomrom, til venstre eller høyre |\n| `'{:.1f}'.format(x)` | flyttallet med én desimal som tekst |\n| `100 * a / b` | `/` gir alltid flyttall; `//` ville rundet ned til 0 for alt under full sal |\n| `main(filnavn)` | binder kjeden sammen; leser fila **én** gang og sender tabellen videre |\n\n**Formler i dette delkapitlet:**\n\nFyllingsgrad i prosent: $g = \\frac{100 \\cdot \\text{solgt}}{\\text{plasser}}$\n\nTidsbudsjett for en deloppgave: $t = \\frac{\\text{vekt i prosent}}{100} \\cdot 240 \\text{ min}$"
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

@@ -1,0 +1,465 @@
+{
+ "id": "tdt4110-2-prove",
+ "courseId": "tdt4110",
+ "chapterNumber": "2.P",
+ "title": "Prøver til del 2: Funksjoner",
+ "description": "Fire nyskrevne temaprøver i eksamensformat med fullstendige løsningsforslag: skriv småfunksjoner, spor funksjonskall og lokale navn, gjenbruk gitte hjelpefunksjoner, og bygg menyen med main. Fire prøver à 25–30 min — kan tas som separate økter.",
+ "estimatedMinutes": 110,
+ "competenceGoals": [
+  "kunne skrive små funksjoner fra en kravbeskrivelse, med riktig retur og standardverdier, under tidspress",
+  "kunne spore et funksjonskall og avgjøre hva det returnerer, også når lokale og globale navn er stavet likt",
+  "kunne bygge videre på ferdige hjelpefunksjoner uten å gjenta koden deres",
+  "kunne skrive en menyløkke og en startfunksjon som binder de øvrige funksjonene sammen"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-2-prove-tip",
+   "type": "tip",
+   "title": "Om prøvene til del 2",
+   "content": "**Fire prøver à 25–30 minutter**, til sammen 110 minutter. De dekker hele Del 2: funksjonshåndverket fra [kap. 2.1](/tdt4110/tdt4110-2-1) og gjenbruk, hjelpefunksjoner og meny fra [kap. 2.2](/tdt4110/tdt4110-2-2).\n\n- **Prøve 2.A (25 min, 20 poeng):** `def`, `return`, standardverdier og flere returverdier — skriv fem småfunksjoner (sjangrene E–I, altså kodeskriving fra en kravbeskrivelse).\n- **Prøve 2.B (25 min, 16 poeng):** kodesporing av funksjonskall og lokale navn — åtte «hva skrives ut / hva returneres» (sjanger B).\n- **Prøve 2.C (30 min, 20 poeng):** gjenbruk — du får to ferdige hjelpefunksjoner og skal bygge videre på dem uten å kopiere kode.\n- **Prøve 2.D (30 min, 20 poeng):** meny og `main` — skriv menyløkka som dispatcher på brukerens valg (sjanger H).\n\n**Hvor flervalget bor:** de fire rene flervalgsspørsmålene ligger inline i prøvene her, med alternativene skrevet ut og fasitbokstaven i løsningen. Den store flervalgsbanken for Del 2 ligger i den interaktive quizen til [kap. 2.1](/tdt4110/tdt4110-2-1) og [kap. 2.2](/tdt4110/tdt4110-2-2) — bruk den til hurtigrepetisjon, og prøvene her til å øve på å skrive og spore selv.\n\n**Anbefalt bruk:** ta hver prøve på tid, **uten fasit og uten maskin**. Eksamen har hjelpemiddelkode D — bare en bestemt, enkel kalkulator — så du må trene på å skrive kode for hånd og spore den i hodet. Åpne løsningsforslaget først etterpå, og gå gjennom selvdiagnose-listen under hver fasit.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Det er ingen fordel i å ta alle fire etter hverandre; poenget er at du kommer tilbake til stoffet flere ganger.\n\n**Om poengene:** de er bokas egne og bare et hjelpemiddel til å fordele tiden, på samme måte som prosentvektingen som står på det virkelige settet. Under 60 prosent på en prøve er et signal om å lese kapitlet på nytt, ikke noe mer."
+  },
+  {
+   "id": "tdt4110-2-prove-forkunn",
+   "type": "text",
+   "content": "**Forkunnskaper.** Prøvene forutsetter hele Del 2:\n\n- [kap. 2.1](/tdt4110/tdt4110-2-1) — `def`, parametere, posisjons- og nøkkelargumenter, standardverdier, `return`, `None`, flere returverdier og utpakking, og skillet mellom lokale og globale navn.\n- [kap. 2.2](/tdt4110/tdt4110-2-2) — gjenbruk av egne funksjoner, hjelpefunksjoner, kjeden fra data til svar, konstanter, menyløkka med `while True:` og `break`, og `main`.\n\nFra Del 1 trenger du `if/elif/else` ([kap. 1.2](/tdt4110/tdt4110-1-2)), `for`- og `while`-løkker med akkumulator- og tellermønsteret ([kap. 1.3](/tdt4110/tdt4110-1-3)) og `input()` ([kap. 1.4](/tdt4110/tdt4110-1-4)).\n\nIngen av prøvene bruker filer, ordbøker eller strengmetoder — det kommer i Del 3 og Del 4. Dataene er lister med tall du får ferdig."
+  },
+  {
+   "id": "tdt4110-2-prove-A",
+   "type": "collapsible",
+   "title": "Prøve 2.A — Funksjonshåndverket (25 min)",
+   "buttonText": "Vis prøve 2.A",
+   "content": [
+    {
+     "id": "tdt4110-2-prove-a-intro",
+     "type": "text",
+     "content": "**Prøve 2.A — Funksjonshåndverket (25 minutter, 20 poeng).**\n\nFem småfunksjoner skrevet fra en kravbeskrivelse, slik programmeringsoppgaven på eksamen ber om det. Skriv koden for hånd. Bruk fire mellomrom som innrykk, og les kravsetningen nøye: står det «returnerer», skal funksjonen ha `return`.\n\nNorske og engelske navn er like gyldige; her brukes de navnene oppgaven oppgir."
+    },
+    {
+     "id": "tdt4110-2-prove-a1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-a1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(3 poeng. Sjanger E–I — kodeskriving.) Skriv `snitt_av_tre(a, b, c)` som returnerer gjennomsnittet av de tre tallene.",
+      "solution": "```python\ndef snitt_av_tre(a, b, c):\n    return (a + b + c) / 3\n\nprint(snitt_av_tre(4, 5, 9))\nprint(snitt_av_tre(2, 2, 2))\n```\n\n**Utskrift:**\n```\n6.0\n2.0\n```\n\n**Vekting:** 2 poeng for riktig `return` med parentesene på plass, 1 poeng for riktig signatur med tre parametere.\n\nTo ting sensor ser etter: at parentesen rundt summen er med — uten den deles bare `c` på 3 — og at funksjonen returnerer i stedet for å skrive ut. Merk at `/` gir flyttall, så `snitt_av_tre(2, 2, 2)` blir `2.0` og ikke `2`. Det er riktig for et gjennomsnitt.",
+      "hints": [
+       "Del summen på 3 — husk parentesen rundt summen.",
+       "Kravet sier «returnerer», ikke «skriver ut»."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-a2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-a2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(4 poeng. Sjanger E–I — kodeskriving.) En værstasjon regner en måling som gyldig hvis den ligger mellom −60 og 60 grader, begge grenser regnet med.\n\n**a)** Skriv `er_gyldig(t)` som returnerer `True` eller `False`. Bruk én linje i kroppen.\n\n**b)** Hva returnerer `er_gyldig(60)` og `er_gyldig(60.5)`?",
+      "solution": "**a)** Sammenligningen kan kjedes, akkurat som i matematikk:\n\n```python\ndef er_gyldig(t):\n    return -60 <= t <= 60\n\nprint(er_gyldig(-12.4))\nprint(er_gyldig(60))\nprint(er_gyldig(60.5))\n```\n\n**Utskrift:**\n```\nTrue\nTrue\nFalse\n```\n\n**b)** `er_gyldig(60)` gir `True`, fordi grensen er regnet med (`<=`). `er_gyldig(60.5)` gir `False`.\n\n**Vekting:** 3 poeng for a) med riktige grenser, 1 poeng for b).\n\nFormen `if -60 <= t <= 60: return True` med et `else: return False` gir også full pott, men er fire linjer der én holder — og konsishet vurderes. Den vanligste feilen er å bruke `<` i stedet for `<=`, slik at nøyaktig 60 grader avvises. Står det «begge grenser regnet med», er det `<=`.",
+      "hints": [
+       "En sammenligning er allerede `True` eller `False` — du trenger ingen `if`.",
+       "«Begge grenser regnet med» avgjør om det skal være `<` eller `<=`.",
+       "Python tillater kjedet sammenligning: `a <= x <= b`."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-a3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-a3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(4 poeng. Sjanger E–I — kodeskriving.) En nettbutikk gir normalt 15 prosent avslag på salgsvarer, men satsen varierer i kampanjer.\n\n**a)** Skriv `pris_med_rabatt(pris, prosent=15)` som returnerer prisen etter avslag.\n\n**b)** Skriv to kall: ett som bruker standardsatsen på en vare til 800 kroner, og ett som bruker 30 prosent på den samme varen.",
+      "solution": "**a)** og **b)** samlet:\n\n```python\ndef pris_med_rabatt(pris, prosent=15):\n    return pris - pris * prosent / 100\n\nprint(pris_med_rabatt(800))\nprint(pris_med_rabatt(800, 30))\n```\n\n**Utskrift:**\n```\n680.0\n560.0\n```\n\n**Vekting:** 2 poeng for riktig regnestykke, 1 poeng for standardverdien i `def`-linja, 1 poeng for de to kallene.\n\n**Sensorblikk:** standardverdien skal stå i `def`-linja. En løsning som i stedet skriver `if prosent == 0: prosent = 15` inne i kroppen, gir riktig svar for de fleste kall, men feil for et kall som faktisk ber om 0 prosent — og den viser ikke at du kan konstruksjonen oppgaven spør etter.\n\nFormen `return pris * (1 - prosent / 100)` er like riktig. Flere korrekte løsninger sidestilles.",
+      "hints": [
+       "Standardverdien skrives i `def`-linja, ikke inne i kroppen.",
+       "Regn ut selve avslaget først: `pris * prosent / 100`.",
+       "Det andre kallet må sende med satsen som argument."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-a4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-a4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(5 poeng. Sjanger G — analyse.) En treningslogg har lengden på hver økt i minutter, i lista `oekter`.\n\n**a)** Skriv `korteste_og_lengste(oekter)` som returnerer både den korteste og den lengste økta.\n\n**b)** Funksjonen skal ikke krasje på en tom logg. Hva returnerer den da?\n\n**c)** Skriv linja som pakker ut begge verdiene fra et kall.",
+      "solution": "**a)**, **b)** og **c)** samlet:\n\n```python\ndef korteste_og_lengste(oekter):\n    if len(oekter) == 0:\n        return None, None\n    korteste = oekter[0]\n    lengste = oekter[0]\n    for m in oekter:\n        if m < korteste:\n            korteste = m\n        if m > lengste:\n            lengste = m\n    return korteste, lengste\n\nkort, lang = korteste_og_lengste([45, 30, 90, 60])\nprint(kort, lang)\nprint(korteste_og_lengste([]))\n```\n\n**Utskrift:**\n```\n30 90\n(None, None)\n```\n\n**b)** Med tom liste returnerer funksjonen `None, None`, altså tuppelet `(None, None)`.\n\n**c)** `kort, lang = korteste_og_lengste(logg)`\n\n**Vekting:** 3 poeng for a) med riktige startverdier, 1 poeng for tomtilfellet, 1 poeng for utpakkingen.\n\n**Sensorblikk:** startverdiene skal være `oekter[0]`, ikke 0. Med `korteste = 0` blir svaret alltid 0, siden ingen økt er kortere enn null minutter — en feil som gir riktig utseende kode og feil svar. Tomtesten må stå **først**, ellers krasjer `oekter[0]` med `IndexError`.\n\nEn besvarelse som løser a) og c) riktig, men hopper over tomtilfellet, har riktig struktur og er en god besvarelse; det er tomtilfellet som skiller den fra toppen.",
+      "hints": [
+       "Sett begge startverdiene til det første elementet, ikke til 0.",
+       "Hva skjer med `oekter[0]` hvis lista er tom? Test på det aller først.",
+       "Utpakking krever like mange navn som verdier."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-a5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-a5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(4 poeng. Sjanger G — analyse: tell og summer.) Skriv `antall_og_sum_over(verdier, grense)` som returnerer **to** ting: hvor mange av tallene som er strengt større enn grensen, og summen av dem. Har ingen tall passert grensen, skal funksjonen returnere `0, 0`.",
+      "solution": "```python\ndef antall_og_sum_over(verdier, grense):\n    antall = 0\n    total = 0\n    for v in verdier:\n        if v > grense:\n            antall = antall + 1\n            total = total + v\n    return antall, total\n\nprint(antall_og_sum_over([12, 45, 7, 33, 60], 30))\nprint(antall_og_sum_over([1, 2], 30))\n```\n\n**Utskrift:**\n```\n(3, 138)\n(0, 0)\n```\n\n**Vekting:** 2 poeng for de to tellerne oppdatert i samme `if`, 1 poeng for `return` med begge verdiene, 1 poeng for at tomtilfellet faller ut riktig.\n\n**Sensorblikk:** her trengs ingen egen test for «ingen tall over grensen». Startverdiene er allerede 0 og 0, så funksjonen returnerer `0, 0` av seg selv når `if`-en aldri slår til. Det er et poeng verdt å legge merke til: gode startverdier fjerner ofte behovet for et spesialtilfelle.\n\nBegge tellerne må oppdateres i **samme** `if`. Står de i hver sin, kan du ende med å telle noen tall og summere andre.",
+      "hints": [
+       "Du trenger to variabler før løkka, begge satt til 0.",
+       "Begge oppdateres inne i den samme `if`-blokken.",
+       "Trenger du egentlig en egen test for tilfellet der ingen tall er over grensen?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-a-diag",
+     "type": "text",
+     "content": "**Selvdiagnose — Prøve 2.A**\n\n- ☐ Skrev du `return` overalt der kravteksten sa «returnerer»?\n- ☐ Står standardverdien i `def`-linja, og ikke som en test inne i kroppen?\n- ☐ Er startverdiene i «finn beste»-oppgavene satt til det **første elementet**, ikke til 0?\n- ☐ Står tomtesten `if len(...) == 0:` aller først i funksjonen?\n- ☐ Står `return` **etter** løkka, med samme innrykk som `for`?\n- ☐ Har du like mange navn som verdier når du pakker ut flere returverdier?\n\n**Poengsum:** 20 mulige. Under 12: les [kap. 2.1](/tdt4110/tdt4110-2-1) på nytt, med vekt på definisjonsblokkene om `return` og flere returverdier."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-2-prove-B",
+   "type": "collapsible",
+   "title": "Prøve 2.B — Sporing av funksjonskall og lokale navn (25 min)",
+   "buttonText": "Vis prøve 2.B",
+   "content": [
+    {
+     "id": "tdt4110-2-prove-b-intro",
+     "type": "text",
+     "content": "**Prøve 2.B — Sporing av funksjonskall og lokale navn (25 minutter, 16 poeng).**\n\nÅtte spørsmål i sjanger B: kodesporing, altså «hva skriver programmet ut?» eller «hva returnerer kallet?». Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den — og husk at strenger skrives **uten** fnutter når de skrives ut.\n\nTo av spørsmålene er flervalg. Kryss alltid av, også ved gjetting: det gis ingen minuspoeng for feil svar på flervalg fra og med 2015."
+    },
+    {
+     "id": "tdt4110-2-prove-b1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-b1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(2 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\ndef tredobbel(x):\n    return x * 3\n\nsvar = tredobbel(tredobbel(2))\nprint(svar)\n```",
+      "solution": "**Sporingstavle**\n\n| Steg | Uttrykk | Verdi |\n|---|---|---|\n| 1 | indre `tredobbel(2)` | 6 |\n| 2 | ytre `tredobbel(6)` | 18 |\n| 3 | `print(svar)` | skriver `18` |\n\n**Utskrift:**\n```\n18\n```\n\n**Fellenote:** regn innenfra og ut. Svarer du `6`, har du bare regnet med det ene kallet.",
+      "hints": [
+       "Gjør det innerste kallet ferdig først.",
+       "Skriv verdien over det innerste kallet før du regner videre."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-b2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-b2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\ndef sjekk(a, b):\n    if a > b:\n        return 'a'\n    elif a < b:\n        return 'b'\n\nprint(sjekk(3, 9))\nprint(sjekk(9, 3))\nprint(sjekk(4, 4))\n```",
+      "solution": "**Sporingstavle**\n\n| Kall | Hvilken gren | Returverdi |\n|---|---|---|\n| `sjekk(3, 9)` | `a < b` er sann | `'b'` |\n| `sjekk(9, 3)` | `a > b` er sann | `'a'` |\n| `sjekk(4, 4)` | ingen gren er sann | `None` |\n\n**Utskrift:**\n```\nb\na\nNone\n```\n\n**Fellenote:** det tredje kallet er poenget. Ingen `else`-gren betyr at kjøringen faller ut nederst i funksjonen, og da returneres `None`. Legg også merke til at strengene skrives uten fnutter — `b`, ikke `'b'`.",
+      "hints": [
+       "Følg hver gren for seg, og skriv opp hva som returneres.",
+       "Hva skjer når ingen av grenene er sanne?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-b3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-b3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nantall = 3\n\ndef oek(antall):\n    antall = antall + 10\n    return antall\n\nprint(oek(antall))\nprint(antall)\nprint(oek(5) + antall)\n```",
+      "solution": "**Sporingstavle**\n\n| Linje | Global `antall` | Lokal `antall` | Skriver |\n|---|---|---|---|\n| `print(oek(antall))` | 3 | 3, blir 13 | `13` |\n| `print(antall)` | 3 (urørt) | — | `3` |\n| `print(oek(5) + antall)` | 3 | 5, blir 15 | `18` |\n\n**Utskrift:**\n```\n13\n3\n18\n```\n\n**Fellenote:** parameteren heter det samme som den globale variabelen, men er et eget, lokalt navn. Tilordningen inne i funksjonen rører ikke den globale. Tror du den følger med, svarer du 13, 13, 28.",
+      "hints": [
+       "Hold den globale og den lokale variabelen i hver sin kolonne.",
+       "Regn kallet ferdig før du legger til den globale verdien i siste linje."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-b4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-b4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\ndef del_opp(sekunder):\n    return sekunder // 60, sekunder % 60\n\nprint(del_opp(125))\nminutt, sek = del_opp(125)\nprint(minutt, sek)\n```",
+      "solution": "**Sporingstavle**\n\n| Uttrykk | Utregning | Verdi |\n|---|---|---|\n| `125 // 60` | heltallsdeling, runder nedover | 2 |\n| `125 % 60` | resten etter delingen | 5 |\n| `print(del_opp(125))` | tuppelet skrives direkte | `(2, 5)` |\n| `print(minutt, sek)` | verdiene er pakket ut | `2 5` |\n\n**Utskrift:**\n```\n(2, 5)\n2 5\n```\n\n**Fellenote:** de to linjene inneholder de samme tallene, men ser forskjellige ut. Et tuppel skrives med parenteser og komma; to utpakkede verdier skilles bare av mellomrommet `print` setter inn. Blander du formene, er utskriften feil selv om tallene stemmer.",
+      "hints": [
+       "`//` gir hele minutter, `%` gir sekundene som blir til overs.",
+       "Se nøye på om verdiene pakkes ut eller ikke i hver av de to linjene."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-b5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-b5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Flervalg.) En funksjon er skrevet slik:\n\n```text\ndef teller(verdier):\n    antall = 0\n    for v in verdier:\n        antall = antall + 1\n        return antall\n```\n\nHva returnerer `teller([4, 8, 15])`?\n\n**a)** `3`, altså antall elementer i lista\n**b)** `0`, siden `return` står inne i løkka\n**c)** `1`, fordi `return` avslutter funksjonen i første runde\n**d)** `None`, fordi løkka aldri blir ferdig",
+      "solution": "**Riktig svar: c)**\n\n`return` avslutter funksjonen umiddelbart, også når det står inne i en løkke. Løkka rekker altså bare én runde: telleren økes til 1, og funksjonen returnerer 1.\n\n**a)** er svaret man får hvis `return antall` flyttes ut av løkka, med samme innrykk som `for`. Det er den rettede versjonen.\n\n**b)** ville krevd at `return` sto før økningen.\n\n**d)** blander sammen to ting: løkka blir ikke «uferdig» på en måte som gir `None` — funksjonen returnerer en verdi, og den verdien er 1.\n\nBlokken i oppgaveteksten er merket som ikke-kjørbar fordi den er skrevet med en feil i.\n\n**Vekting:** 2 poeng, ingen delpoeng.",
+      "hints": [
+       "Hva gjør `return` med resten av funksjonen — også med resten av løkka?",
+       "Se nøye på innrykket: står `return` inne i løkka eller etter den?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-b6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-b6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger B.) Tre funksjoner som kaller hverandre. Hva skriver programmet ut?\n\n```python\ndef a_del(x):\n    return x + 1\n\ndef b_del(x):\n    return a_del(x) * 2\n\ndef c_del(x):\n    return b_del(x) + a_del(x)\n\nprint(c_del(3))\n```",
+      "solution": "**Sporingstavle**\n\n| Kall | Utregning | Verdi |\n|---|---|---|\n| `a_del(3)` | `3 + 1` | 4 |\n| `b_del(3)` | `a_del(3) * 2` er `4 * 2` | 8 |\n| `c_del(3)` | `b_del(3) + a_del(3)` er `8 + 4` | 12 |\n\n**Utskrift:**\n```\n12\n```\n\n**Fellenote:** `a_del(3)` regnes ut to ganger, én gang inne i `b_del` og én gang i `c_del`. Det er ikke en feil — funksjonen gir samme svar hver gang. Fellen er å tro at det andre kallet fortsetter fra det første og gir 5.",
+      "hints": [
+       "Regn ut `a_del(3)` først og skriv verdien opp — du får bruk for den to ganger.",
+       "Ta `b_del` før `c_del`."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-b7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-b7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\ndef bygg(n):\n    total = 0\n    for i in range(1, n):\n        total = total + i\n    return total\n\nprint(bygg(4))\nprint(bygg(1))\n```",
+      "solution": "**Sporingstavle** for `bygg(4)`:\n\n| `i` | `total` etterpå |\n|---|---|\n| 1 | 1 |\n| 2 | 3 |\n| 3 | 6 |\n\nFor `bygg(1)` er `range(1, 1)` tom, så løkka kjører **null** ganger og `total` står igjen på startverdien.\n\n**Utskrift:**\n```\n6\n0\n```\n\n**Fellenote:** `range(1, n)` stopper **før** `n`, så `bygg(4)` summerer 1, 2 og 3 — ikke 4. Det er felle **#5**, av-med-én i løkkegrensene. Og `bygg(1)` viser hvorfor startverdien før løkka er viktig: uten `total = 0` ville funksjonen krasjet på en tom rekke.",
+      "hints": [
+       "Skriv opp nøyaktig hvilke verdier `range(1, 4)` gir.",
+       "Hva inneholder `range(1, 1)`?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-b8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-b8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Flervalg.) En funksjon skal returnere `True` hvis alle tallene i lista er positive. Hvilken av disse gjør det riktig?\n\n**a)** En løkke som returnerer `True` med det samme et positivt tall er funnet\n**b)** En løkke som returnerer `False` med det samme et tall som ikke er positivt er funnet, og `True` etter løkka\n**c)** En løkke som returnerer `True` etter hvert tall som er positivt, og `False` etter løkka\n**d)** En løkke uten `return` i det hele tatt, som bare teller hvor mange som er positive",
+      "solution": "**Riktig svar: b)**\n\nMønsteret for «gjelder dette for **alle**?» er å lete etter et moteksempel: så snart du finner ett tall som ikke er positivt, er svaret `False`, og du kan avslutte. Kommer løkka helt gjennom uten å finne noe, er svaret `True` — og det `return`-et står **etter** løkka.\n\n```python\ndef alle_positive(verdier):\n    for v in verdier:\n        if v <= 0:\n            return False\n    return True\n\nprint(alle_positive([3, 8, 1]))\nprint(alle_positive([3, -8, 1]))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\n**a)** svarer `True` så snart det finnes **ett** positivt tall — det er mønsteret for «finnes det minst én?», et helt annet spørsmål.\n\n**c)** returnerer i første runde uansett, og sier dermed bare noe om det første tallet.\n\n**d)** returnerer aldri noe, så funksjonen gir `None`.\n\n**Vekting:** 2 poeng, ingen delpoeng.",
+      "hints": [
+       "Hva skal til for at påstanden «alle er positive» er **usann**?",
+       "Hvor må `return True` stå for at hele lista skal ha blitt sjekket?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-b-diag",
+     "type": "text",
+     "content": "**Selvdiagnose — Prøve 2.B**\n\n- ☐ Regnet du innenfra og ut når et kall sto inne i et annet kall?\n- ☐ Holdt du den globale og den lokale variabelen fra hverandre da de het det samme?\n- ☐ Husket du at en funksjon uten `return` i den grenen som kjøres, gir `None`?\n- ☐ Skilte du et tuppel `(2, 5)` fra to utpakkede verdier `2 5` i utskriften?\n- ☐ Telte du `range`-rundene nøyaktig, med stoppverdien **eksklusiv**?\n- ☐ Krysset du av på begge flervalgene, også der du var usikker?\n\n**Poengsum:** 16 mulige. Under 10: gjør sporingene på nytt med en tavle på papir, én rad per runde. Sporing er ren teknikk, og teknikk blir bedre av gjentakelse."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-2-prove-C",
+   "type": "collapsible",
+   "title": "Prøve 2.C — Gjenbruk og hjelpefunksjoner (30 min)",
+   "buttonText": "Vis prøve 2.C",
+   "content": [
+    {
+     "id": "tdt4110-2-prove-c-intro",
+     "type": "text",
+     "content": "**Prøve 2.C — Gjenbruk og hjelpefunksjoner (30 minutter, 20 poeng).**\n\nEt kollektivselskap logger hvor mange minutter for sent hver avgang var. Tallene ligger i lista `avvik`, ett tall per avgang. En avgang regnes som forsinket når den er mer enn 5 minutter for sen.\n\nDu får to ferdige hjelpefunksjoner. **Bruk dem** i resten av oppgavene — ikke skriv testene på nytt. Det er nettopp gjenbruket denne prøven vurderer, og det er det sensor uttrykkelig belønner på eksamen.\n\n```python\ndef er_forsinket(minutter):\n    return minutter > 5\n\ndef forsinkelsesgrad(minutter):\n    if minutter <= 5:\n        return 'i rute'\n    elif minutter <= 15:\n        return 'litt forsinket'\n    else:\n        return 'sterkt forsinket'\n```"
+    },
+    {
+     "id": "tdt4110-2-prove-c1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-c1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(3 poeng. Sjanger G — analyse: tell.) Skriv `antall_forsinkede(avvik)` som returnerer hvor mange av avgangene som var forsinket. Bruk `er_forsinket`.",
+      "solution": "```python\ndef er_forsinket(minutter):\n    return minutter > 5\n\ndef antall_forsinkede(avvik):\n    antall = 0\n    for m in avvik:\n        if er_forsinket(m):\n            antall = antall + 1\n    return antall\n\nprint(antall_forsinkede([2, 9, 0, 17, 5, 6]))\n```\n\n**Utskrift:**\n```\n3\n```\n\n**Vekting:** 2 poeng for tellermønsteret, 1 poeng for at `er_forsinket` faktisk kalles.\n\n**Sensorblikk:** løsningen `if m > 5:` gir riktig svar, men mister poenget for gjenbruk — og hvis selskapet senere endrer grensen til 3 minutter, må den endres to steder. Legg også merke til at 5 minutter **ikke** er forsinket: grensen er «mer enn 5».",
+      "hints": [
+       "Bruk `if er_forsinket(m):` som test i løkka.",
+       "Telleren settes til 0 før løkka og returneres etter den."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-c2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-c2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(4 poeng. Sjanger G — analyse.) Skriv `snitt_forsinkelse(avvik)` som returnerer gjennomsnittlig forsinkelse **for de avgangene som var forsinket**. Var ingen avganger forsinket, skal funksjonen returnere `None`.",
+      "solution": "```python\ndef er_forsinket(minutter):\n    return minutter > 5\n\ndef snitt_forsinkelse(avvik):\n    total = 0\n    antall = 0\n    for m in avvik:\n        if er_forsinket(m):\n            total = total + m\n            antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\nprint(snitt_forsinkelse([2, 9, 0, 17, 5, 6]))\nprint(snitt_forsinkelse([1, 2, 3]))\n```\n\n**Utskrift:**\n```\n10.666666666666666\nNone\n```\n\n**Vekting:** 2 poeng for at bare de forsinkede telles med i **begge** akkumulatorene, 1 poeng for gjenbruket av `er_forsinket`, 1 poeng for `None`-tilfellet.\n\n**Sensorblikk:** her må tomtesten stå **etter** løkka, ikke før — det er ikke en tom liste som er problemet, men at ingen av avgangene var forsinket. Deler du på `antall` uten testen, krasjer funksjonen med `ZeroDivisionError` på en dag der alt gikk i rute.\n\nEn variant som teller med `antall_forsinkede(avvik)` fra oppgave 1 og summerer i en egen løkke, er også riktig og gir full pott.",
+      "hints": [
+       "Du trenger to akkumulatorer: summen og antallet, begge bare for de forsinkede.",
+       "Hva blir divisoren hvis ingen avganger var forsinket?",
+       "Tomtesten hører etter løkka her, ikke før."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-c3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-c3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(4 poeng. Sjanger G — analyse: tell per kategori.) Skriv `tell_grader(avvik)` som returnerer **tre** tall: hvor mange avganger som var i rute, hvor mange som var litt forsinket, og hvor mange som var sterkt forsinket. Bruk `forsinkelsesgrad`.",
+      "solution": "```python\ndef forsinkelsesgrad(minutter):\n    if minutter <= 5:\n        return 'i rute'\n    elif minutter <= 15:\n        return 'litt forsinket'\n    else:\n        return 'sterkt forsinket'\n\ndef tell_grader(avvik):\n    i_rute = 0\n    litt = 0\n    sterkt = 0\n    for m in avvik:\n        grad = forsinkelsesgrad(m)\n        if grad == 'i rute':\n            i_rute = i_rute + 1\n        elif grad == 'litt forsinket':\n            litt = litt + 1\n        else:\n            sterkt = sterkt + 1\n    return i_rute, litt, sterkt\n\nprint(tell_grader([2, 9, 0, 17, 5, 6, 40]))\n```\n\n**Utskrift:**\n```\n(3, 2, 2)\n```\n\n**Vekting:** 2 poeng for de tre tellerne, 1 poeng for gjenbruket av `forsinkelsesgrad`, 1 poeng for `return` med alle tre.\n\n**Sensorblikk:** kallet til `forsinkelsesgrad` gjøres **én gang** per avgang, og svaret lagres i `grad`. Kaller du funksjonen på nytt i hver `if`-test, virker koden, men du gjør tre ganger så mye arbeid — og teksten `'litt forsinket'` må da stemme på tegnet tre steder i stedet for ett.\n\nDen vanligste feilen er å skrive grensene (`<= 5`, `<= 15`) på nytt i tellefunksjonen. Da har du to steder å endre hvis selskapet justerer definisjonen, og gjenbrukspoenget er borte.\n\nMerk at tre returverdier pakkes ut på samme måte som to: `a, b, c = tell_grader(avvik)`.",
+      "hints": [
+       "Kall `forsinkelsesgrad(m)` én gang per avgang og lagre svaret i en variabel.",
+       "Du trenger tre tellere, alle satt til 0 før løkka.",
+       "Sammenlign mot de samme tekstene som `forsinkelsesgrad` returnerer."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-c4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-c4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(5 poeng. Sjanger G og I — analyse og utskrift.) Skriv `rapport(avvik)` som **returnerer** en tekst på formen `'6 avganger, 3 forsinket, snitt 10.666666666666666 min'`, og som bruker funksjonene fra oppgave 1 og 2.\n\nVar ingen avganger forsinket, skal teksten i stedet slutte med `'snitt -'`.",
+      "solution": "```python\ndef er_forsinket(minutter):\n    return minutter > 5\n\ndef antall_forsinkede(avvik):\n    antall = 0\n    for m in avvik:\n        if er_forsinket(m):\n            antall = antall + 1\n    return antall\n\ndef snitt_forsinkelse(avvik):\n    total = 0\n    antall = 0\n    for m in avvik:\n        if er_forsinket(m):\n            total = total + m\n            antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\ndef rapport(avvik):\n    snitt = snitt_forsinkelse(avvik)\n    if snitt is None:\n        snitt_tekst = '-'\n    else:\n        snitt_tekst = str(snitt)\n    return (str(len(avvik)) + ' avganger, '\n            + str(antall_forsinkede(avvik)) + ' forsinket, snitt '\n            + snitt_tekst + ' min')\n\nprint(rapport([2, 9, 0, 17, 5, 6]))\nprint(rapport([1, 2, 3]))\n```\n\n**Utskrift:**\n```\n6 avganger, 3 forsinket, snitt 10.666666666666666 min\n3 avganger, 0 forsinket, snitt - min\n```\n\n**Vekting:** 2 poeng for gjenbruket av begge funksjonene, 1 poeng for `str(...)` rundt tallene, 1 poeng for `None`-tilfellet, 1 poeng for at funksjonen **returnerer** teksten i stedet for å skrive den ut.\n\n**Sensorblikk:** tre ting er verdt å merke seg.\n\n- **`rapport` har ingen løkke.** All telling skjer i funksjonene den kaller. Det er tegnet på at kjeden er riktig satt sammen.\n- **`str(...)` rundt tallene** er nødvendig, ellers gir `+` mellom tekst og tall en `TypeError`.\n- **Funksjonen returnerer.** Da kan `main` bestemme om teksten skal skrives ut, lagres eller sendes videre — og neste deloppgave kan bruke den.\n\nSnittet skrives med alle desimalene. Å runde det av pent hører til [kap. 3.4](/tdt4110/tdt4110-3-4), og var ikke en del av kravet her.\n\nDette er én av flere korrekte løsninger; en variant som bygger teksten i flere steg med `+=`, er like riktig.",
+      "hints": [
+       "Kall funksjonene fra oppgave 1 og 2 — `rapport` skal ikke ha noen egen løkke.",
+       "Lagre svaret fra `snitt_forsinkelse` i en variabel og test det mot `None`.",
+       "Tall må gjøres om til tekst med `str(...)` før de limes sammen med `+`.",
+       "Kravet sier «returnerer», ikke «skriver ut»."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-c5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-c5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(4 poeng. Flervalg og kort forklaring.)\n\n**a)** En besvarelse løser oppgave 1 slik:\n\n```text\ndef antall_forsinkede(avvik):\n    antall = 0\n    for m in avvik:\n        if m > 5:\n            antall = antall + 1\n    return antall\n```\n\nHva er den viktigste innvendingen?\n\n**1)** Koden gir feil svar for avganger som er nøyaktig 5 minutter forsinket\n**2)** Koden krasjer hvis lista er tom, siden telleren ikke er initialisert\n**3)** Koden gjentar grensen fra `er_forsinket` i stedet for å kalle den\n**4)** Koden må returnere `None` når ingen avganger er forsinket\n\n**b)** Forklar med **én setning** hva `forsinkelsesgrad` gjør (sjanger C — «forklar med én setning hva funksjonen gjør»).",
+      "solution": "**a)** Riktig svar: **3)**.\n\nKoden gir riktig svar, men gjentar grensen. Det koster gjenbrukspoenget, og gir to steder å endre hvis definisjonen justeres.\n\n**1)** er galt: `5 > 5` er usant i begge versjonene, så de behandler grensetilfellet likt.\n\n**2)** er galt: telleren *er* initialisert med `antall = 0`, og en tom liste gir helt korrekt svaret 0.\n\n**4)** er galt: null forsinkede avganger er et gyldig svar, og det svaret er 0 — ikke `None`. (`None` var riktig i oppgave 2, der et gjennomsnitt av ingenting ikke finnes.)\n\n**b)** «Returnerer en tekst som sier om avgangen var i rute, litt forsinket eller sterkt forsinket.»\n\nSetningen starter med et verb, sier hva som kommer ut, og nevner de tre utfallene. En besvarelse som i stedet beskriver `if`-kjeden linje for linje, er felle **#13** — ordrik og upresis forklaring — og trekker ned, selv om alt som står der er sant.\n\n**Vekting:** 2 poeng for a), 2 poeng for en presis ett-setnings forklaring i b).",
+      "hints": [
+       "Til a): gir koden feil svar, eller er det noe annet som er problemet?",
+       "Til b): begynn med et verb, og få med hva som kommer ut av funksjonen.",
+       "Til b): én setning — ikke beskriv `if`-kjeden."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-c-diag",
+     "type": "text",
+     "content": "**Selvdiagnose — Prøve 2.C**\n\n- ☐ Kalte du de gitte hjelpefunksjonene i stedet for å gjenta testene deres?\n- ☐ Har `rapport` ingen egen løkke — bare kall til de andre funksjonene?\n- ☐ Kalte du `forsinkelsesgrad` én gang per element og lagret svaret?\n- ☐ Sto tomtesten på riktig side av løkka i hver oppgave (før i «finn beste», etter i «snitt av de forsinkede»)?\n- ☐ Brukte du `str(...)` rundt tallene før de ble limt sammen med tekst?\n- ☐ Returnerte funksjonene svaret i stedet for å skrive det ut?\n\n**Poengsum:** 20 mulige. Under 12: les [kap. 2.2](/tdt4110/tdt4110-2-2) på nytt, særlig Løkke 1 og 2 om gjenbruk og kjeden."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-2-prove-D",
+   "type": "collapsible",
+   "title": "Prøve 2.D — Meny og `main` (30 min)",
+   "buttonText": "Vis prøve 2.D",
+   "content": [
+    {
+     "id": "tdt4110-2-prove-d-intro",
+     "type": "text",
+     "content": "**Prøve 2.D — Meny og `main` (30 minutter, 20 poeng).**\n\nEt bibliotek fører hvor mange dager hver utlånt bok har vært ute, i lista `utlaan`. Du skal bygge det siste leddet i programmet: menyen brukeren styrer det med, og `main` som binder alt sammen.\n\nDu kan gå ut fra at disse to funksjonene allerede er skrevet, og bruke dem uten å skrive dem på nytt:\n\n```python\ndef antall_forfalte(utlaan):\n    antall = 0\n    for d in utlaan:\n        if d > 28:\n            antall = antall + 1\n    return antall\n\ndef lengste_laan(utlaan):\n    if len(utlaan) == 0:\n        return None\n    lengste = utlaan[0]\n    for d in utlaan:\n        if d > lengste:\n            lengste = d\n    return lengste\n```\n\nDenne prøven er sjanger H: input og meny/`main`-løkke."
+    },
+    {
+     "id": "tdt4110-2-prove-d1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-d1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(3 poeng. Flervalg.) Hvilken linje mangler for at menyløkka under skal kunne avsluttes?\n\n```text\ndef meny(utlaan):\n    while True:\n        print('1 - antall forfalte')\n        print('q - avslutt')\n        valg = input('Valg: ')\n        if valg == '1':\n            print(antall_forfalte(utlaan))\n        elif valg == 'q':\n            #KODE1\n```\n\n**a)** `continue`\n**b)** `return None`\n**c)** `exit`\n**d)** `break`",
+      "solution": "**Riktig svar: d)**\n\n`break` avslutter `while`-løkka og hopper til første linje etter den — det er den eneste veien ut av en `while True:`.\n\nLa oss prøve de tre andre mot et lite tilfelle der brukeren skriver `q`:\n\n**a)** `continue` hopper til neste runde i løkka. Menyen ville vist valgene på nytt, i det uendelige — nettopp den feilen `q` skulle hindre.\n\n**b)** `return None` ville faktisk avsluttet — men det avslutter hele funksjonen, ikke bare løkka. Her ligger løkka sist i funksjonen, så resultatet blir det samme; men står det opprydding etter løkka, hoppes den over. `break` er den formen fasitene bruker.\n\n**c)** `exit` er ikke en konstruksjon boka bruker, og som bar linje uten parentes gjør den ingenting.\n\nBlokken i oppgaveteksten er merket som ikke-kjørbar, fordi den mangler en linje med vilje.\n\n**Vekting:** 3 poeng, ingen delpoeng.",
+      "hints": [
+       "Hvilken konstruksjon avslutter en løkke, og bare løkka?",
+       "Prøv hvert alternativ mot tilfellet der brukeren skriver `q`."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-d2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-d2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(7 poeng. Sjanger H — meny.) Skriv `hovedmeny(utlaan)` som gjentatt viser tre valg og gjør riktig ting:\n\n**a)** valget `1` skal skrive ut hvor mange bøker som er forfalt,\n**b)** valget `2` skal skrive ut det lengste lånet i dager,\n**c)** valget `q` skal avslutte menyen,\n**d)** alt annet skal gi beskjeden `Ugyldig valg, prøv igjen.` og la menyen fortsette.\n\nBruk de to gitte funksjonene.",
+      "solution": "```python\ndef hovedmeny(utlaan):\n    while True:\n        print('1 - antall forfalte')\n        print('2 - lengste lån')\n        print('q - avslutt')\n        valg = input('Valg: ')\n        if valg == '1':\n            print('Forfalte:', antall_forfalte(utlaan))\n        elif valg == '2':\n            print('Lengste lån:', lengste_laan(utlaan), 'dager')\n        elif valg == 'q':\n            print('Ha det.')\n            break\n        else:\n            print('Ugyldig valg, prøv igjen.')\n```\n\n**Utskrift:** ingen når blokken bare defineres. Under ser du en kjøring med de to gitte funksjonene, der brukeren velger 1, så 3 (en skrivefeil), så 2, og til slutt q.\n\n**Kjøring:**\n```\n1 - antall forfalte\n2 - lengste lån\nq - avslutt\nValg: 1        <- skrevet av brukeren\nForfalte: 2\n1 - antall forfalte\n2 - lengste lån\nq - avslutt\nValg: 3        <- skrevet av brukeren\nUgyldig valg, prøv igjen.\n1 - antall forfalte\n2 - lengste lån\nq - avslutt\nValg: 2        <- skrevet av brukeren\nLengste lån: 45 dager\n1 - antall forfalte\n2 - lengste lån\nq - avslutt\nValg: q        <- skrevet av brukeren\nHa det.\n```\n\nPilene i kjøringen markerer hva brukeren tastet inn; de står ikke på skjermen.\n\n**Vekting:** 2 poeng for `while True:` med menyteksten inne i løkka, 2 poeng for at valgene testes mot **strenger**, 2 poeng for `break` i q-grenen, 1 poeng for `else`-grenen.\n\n**Sensorblikk:** har du fått med løkka, fnuttene rundt `'1'` og `break`, er hovedstrukturen på plass — og strukturen veier tyngst. De to hyppigste feilene er `if valg == 1:` uten fnutter (felle **#1** — glemt konvertering; da treffer ingen gren) og manglende `break` (felle **#8** — input-løkka terminerer ikke).\n\nFlere korrekte løsninger sidestilles: å legge de tre menylinjene i en egen liten funksjon `vis_valg()` og kalle den inne i løkka, er like riktig og gjør menyen kortere.",
+      "hints": [
+       "Menyteksten skal stå **inne** i løkka, så den vises på nytt hver runde.",
+       "`input()` gir en streng — test mot `'1'` med fnutter.",
+       "Hver gren skal inneholde ett kall, ingen egen løkke.",
+       "Husk `else`-grenen for ugyldige valg."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-d3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-d3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(4 poeng. Sjanger H — `main`.) Skriv `main` som har lånedataene `[12, 31, 45, 28, 3]`, skriver én linje om hvor mange lån som er registrert, og starter menyen. Skriv også linja som faktisk starter programmet.",
+      "solution": "```python\ndef main():\n    utlaan = [12, 31, 45, 28, 3]\n    print('Bibliotekets utlån:', len(utlaan), 'registrert.')\n    hovedmeny(utlaan)\n```\n\n**Utskrift:** ingen når blokken bare defineres. Under ser du en kjøring der menyen er en forkortet utgave med bare valg 1 og q.\n\n**Kjøring:**\n```\nBibliotekets utlån: 5 registrert.\n1 - antall forfalte\nq - avslutt\nValg: 1        <- skrevet av brukeren\nForfalte: 2\n1 - antall forfalte\nq - avslutt\nValg: q        <- skrevet av brukeren\nHa det.\n```\n\nLinja som starter programmet, er `main()` helt til venstre nederst i fila, uten innrykk.\n\n**Vekting:** 2 poeng for at `main` eier dataene og sender dem videre, 1 poeng for utskriftslinja, 1 poeng for kallet `main()` uten innrykk.\n\n**Sensorblikk:** `main` har ingen løkke og ingen regning — den skaffer dataene, sier fra hva programmet er, og gir stafettpinnen videre. Er kallet `main()` rykket inn ved et uhell, blir det en del av funksjonen over, og programmet gjør ingenting når du kjører det. Boka bruker aldri vaktsetningen `if __name__`; den gir ingen uttelling på eksamen.",
+      "hints": [
+       "`main` skal ha dataene, én utskrift og ett kall — ingenting mer.",
+       "`len(...)` gir antall elementer i lista.",
+       "Kallet som starter programmet, står helt til venstre, uten innrykk."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-d4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-2-prove-d4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(6 poeng. Sjanger H — finn feilene.) En medstudent har levert menyen under. Den kjører, men oppfører seg galt på tre punkter.\n\n```text\ndef meny(utlaan):\n    print('1 - antall forfalte')\n    print('2 - lengste lån')\n    while True:\n        valg = input('Valg: ')\n        if valg == 1:\n            print(antall_forfalte(utlaan))\n        if valg == '2':\n            print(lengste_laan(utlaan))\n```\n\n**a)** Beskriv de tre feilene, og si hva hver av dem fører til for brukeren.\n\n**b)** Skriv den rettede versjonen.",
+      "solution": "**a)** De tre feilene:\n\n1. **Menyteksten står før løkka.** Brukeren ser valgene bare én gang, ved oppstart, og må huske dem resten av økta. Teksten skal inn i løkka.\n2. **`valg == 1` sammenligner mot et tall.** `input()` gir alltid en streng, så den grenen er aldri sann, og valget `1` gjør ingenting i det hele tatt. Det er felle **#1** — glemt konvertering. Testen skal være `valg == '1'`.\n3. **Ingen vei ut.** Det finnes verken et avslutningsvalg eller et `break`, så løkka går for alltid og programmet må avbrytes utenfra. Det er felle **#8** — input-løkka terminerer ikke riktig.\n\nEn fjerde, mindre innvending: de to `if`-ene burde vært `if`/`elif`, og det mangler en `else` som sier fra ved ugyldig valg. Brukeren som skriver feil, får ingen tilbakemelding.\n\n**b)** Den rettede versjonen:\n\n```python\ndef meny(utlaan):\n    while True:\n        print('1 - antall forfalte')\n        print('2 - lengste lån')\n        print('q - avslutt')\n        valg = input('Valg: ')\n        if valg == '1':\n            print('Forfalte:', antall_forfalte(utlaan))\n        elif valg == '2':\n            print('Lengste lån:', lengste_laan(utlaan), 'dager')\n        elif valg == 'q':\n            break\n        else:\n            print('Ugyldig valg, prøv igjen.')\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen.\n\n**Vekting:** 3 poeng for a) med ett poeng per feil, 3 poeng for b).\n\n**Sensorblikk:** feilene er ulikt alvorlige, og det er verdt å si i besvarelsen. Manglende `break` gjør programmet ubrukelig. Sammenligningen mot tall gjør at halve menyen er død. Menyteksten før løkka er en brukervennlighetsfeil, ikke en logisk feil. Kan du bare rette én ting, retter du `break`.\n\nBlokken i oppgaveteksten er merket som ikke-kjørbar, fordi den inneholder plantede feil.",
+      "hints": [
+       "Sammenlign programmet med meny-mønsteret punkt for punkt: løkke, menytekst, strengtest, `break`, `else`.",
+       "Hvilken type gir `input()` alltid?",
+       "Hvordan kommer brukeren seg ut av løkka slik den står nå?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-2-prove-d-diag",
+     "type": "text",
+     "content": "**Selvdiagnose — Prøve 2.D**\n\n- ☐ Står menyteksten **inne** i `while`-løkka, så valgene vises hver runde?\n- ☐ Testet du valget mot en **streng** med fnutter, `valg == '1'`?\n- ☐ Har løkka et `break` i avslutningsgrenen?\n- ☐ Har du en `else`-gren som sier fra ved ugyldig valg?\n- ☐ Kaller hver gren en funksjon, i stedet for å gjøre regningen selv?\n- ☐ Eier `main` dataene og sender dem videre som parameter?\n- ☐ Står kallet `main()` helt til venstre, uten innrykk?\n\n**Poengsum:** 20 mulige. Under 12: les Løkke 5 og 6 i [kap. 2.2](/tdt4110/tdt4110-2-2) på nytt, og skriv meny-mønsteret én gang for hånd uten å se på boka. Det er den beste enkeltinvesteringen i denne delen — menyoppgaven kommer i omtrent halvparten av settene og er nesten identisk hver gang."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

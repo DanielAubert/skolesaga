@@ -1,0 +1,299 @@
+{
+ "id": "tdt4110-4-2",
+ "courseId": "tdt4110",
+ "chapterNumber": "4.2",
+ "title": "Filskriving og lagring (tekst og `pickle`)",
+ "description": "Skrive resultater til tekstfil, og lagre en hel datastruktur til binærfil med pickle — det vanlige siste leddet i kjeden.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "skrive en tabell eller en rapport til tekstfil med riktig separator og linjeskift",
+  "velge bevisst mellom å overskrive og å legge til, og forklare hva som går tapt ved feil valg",
+  "formatere tall og kolonner ved skriving med både `.format()` og f-streng",
+  "lagre og hente en hel datastruktur med `pickle` i binærmodus"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-4-2-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette er det siste leddet i programmeringskjeden — og det billigste å sikre.**\n\n- **Sjanger I — utskrift og lagring**, altså «skriv resultatet pent ut eller lagre det i en fil», står i **~70 %** av settene og er verdt **5–10 %**. Den kommer som siste deloppgave, når analysen allerede er gjort.\n- **Tekstskriving** (skriv en rapport eller et resultat til fil) er den vanlige formen. **Prioritet: må kunne** — bokas midterste av tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til».\n- **`pickle`** — å lagre en hel datastruktur til en binærfil i én operasjon — dukker opp i **~30 % (3 av 10 sittinger)**, og står i funksjonsoversikten som deles ut på eksamen hvert år. **Prioritet: bør kjenne til.** Den ligger derfor sist i kapitlet, og du kan trygt lese den etter at resten sitter.\n\nFeilene her er få, men dyre, og alle er stumme:\n\n- Glemt `'\\n'` i `write` — hele rapporten havner på én linje.\n- `'w'` der du mente `'a'` — de gamle dataene er borte, uten spørsmål.\n- Glemt `close()` — de siste linjene kan mangle i fila.\n- Glemt `'wb'`/`'rb'` for `pickle` — programmet stopper.\n\nKapitlet tar ~45 minutter i fire løkker."
+  },
+  {
+   "id": "tdt4110-4-2-forkunnskaper",
+   "type": "text",
+   "content": "**Forkunnskaper**\n\n- [kap. 4.1](/tdt4110/tdt4110-4-1) — filinnlesing: `open`, `close` og løkka som går gjennom linjene. Skriving er den samme mekanikken speilvendt.\n- [kap. 3.3](/tdt4110/tdt4110-3-3) — strenger, særlig `.join(liste)` som setter feltene sammen igjen.\n- [kap. 3.4](/tdt4110/tdt4110-3-4) — formatert utskrift: `.rjust()`, `.format()` og f-strenger. Det du skriver til fil, formateres på nøyaktig samme måte som det du skriver til skjerm.\n- [kap. 3.5](/tdt4110/tdt4110-3-5) — ordbøker, som er strukturen `pickle` oftest lagrer."
+  },
+  {
+   "id": "tdt4110-4-2-l1-intro",
+   "type": "text",
+   "content": "## Løkke 1 — Å skrive én linje om gangen (~10 min)\n\nEn resirkuleringsstasjon har telt innleverte glass per by, og skal levere fra seg en rapport. Analysen er gjort; det som gjenstår, er å få tallene ut av programmet og inn i en fil noen andre kan åpne.\n\nÅ skrive til fil er den samme mekanikken som å lese, med to forskjeller: du åpner med `'w'` i stedet for `'r'`, og du må **selv** sette på linjeskiftet."
+  },
+  {
+   "id": "tdt4110-4-2-def-open-w",
+   "type": "definition",
+   "title": "`open(filnavn, 'w')`",
+   "content": "Åpner en fil for **skriving**. `'w'` står for *write*.\n\nTo ting skjer med én gang, før du har skrevet et eneste tegn:\n\n1. Finnes ikke fila, blir den **opprettet**.\n2. Finnes den, blir den **tømt**. Alt som lå der, er borte.\n\nDet er ingen advarsel og ingen angremulighet. Skal du beholde det som lå der fra før, er `'a'` modusen du vil ha (neste løkke)."
+  },
+  {
+   "id": "tdt4110-4-2-def-write",
+   "type": "definition",
+   "title": "`f.write(tekst)`",
+   "content": "Skriver en streng til fila på gjeldende posisjon. Den skriver **nøyaktig** det du gir den — ikke noe mer.\n\nSærlig: `write` legger **ikke** på et linjeskift, slik `print` gjør. Vil du ha linjeskift, må du skrive det selv.\n\n`write` tar bare **strenger**. Gir du den et tall, stopper programmet med `TypeError` — tallet må gjennom `str()` først."
+  },
+  {
+   "id": "tdt4110-4-2-def-linjeskift-write",
+   "type": "definition",
+   "title": "Linjeskiftet `'\\n'` i `write`",
+   "content": "Regelen som skiller en lesbar fil fra en ubrukelig: hver linje du skriver, må avsluttes med `'\\n'`.\n\nFormen boka bruker er `f.write(tekst + '\\n')` — linjeskiftet skjøtes på i samme kall, så du ikke kan glemme det.\n\nUten linjeskiftet havner alt du skriver etter hverandre på én eneste lang linje. Fila er ikke ødelagt, men den er umulig å lese tilbake med `for linje in f:`, fordi det bare finnes én linje."
+  },
+  {
+   "id": "tdt4110-4-2-def-close-w",
+   "type": "definition",
+   "title": "`f.close()` ved skriving",
+   "content": "Lukker fila — og det er **viktigere når du skriver enn når du leser**.\n\nDet du skriver, samles opp i en buffer i minnet og flyttes over til disken i porsjoner. `close()` tømmer bufferet. Glemmer du den, kan de siste linjene mangle i fila, selv om programmet ditt ikke gjorde noe galt.\n\nRegelen er den samme som ved lesing: hver `open` har en `close`, og den står **etter** løkka som skriver."
+  },
+  {
+   "id": "tdt4110-4-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Skriv tre linjer og les dem tilbake",
+   "problem": "Skriv de tre byene og glasstallene til `rapport.txt`, én linje per by. Les deretter fila tilbake og skriv den ut, som en kontroll på at det faktisk ble tre linjer.",
+   "solution": "Kontrollen er hele poenget: den eneste måten å vite at skrivingen ble riktig, er å lese resultatet tilbake.\n\n```python\ntall = [['Bergen', 120], ['Tromsø', 45], ['Stavanger', 88]]\n\nf = open('rapport.txt', 'w')\nfor rad in tall:\n    f.write(rad[0] + ';' + str(rad[1]) + '\\n')\nf.close()\n\nf = open('rapport.txt', 'r')\nfor linje in f:\n    print(linje.strip())\nf.close()\n```\n\n**Utskrift:**\n```\nBergen;120\nTromsø;45\nStavanger;88\n```\n\n**Tre detaljer gir uttelling hver for seg.** `str(rad[1])` fordi `write` ikke tar imot tall. `+ '\\n'` fordi `write` ikke legger på linjeskift. Og `close()` etter løkka, som tømmer bufferet til disk.\n\n**Legg merke til at fila åpnes to ganger.** Skriving og lesing er to helt adskilte operasjoner, med hver sin modus. Du kan ikke lese fra en fil du åpnet med `'w'`.\n\n**Slik ville sensor sett på det:** løkka som skriver én linje per rad er kjernen. En løsning som bygger hele teksten i en streng først og skriver den med ett `write`-kall, gir like full pott — det er én av flere korrekte veier."
+  },
+  {
+   "id": "tdt4110-4-2-warn-write",
+   "type": "warning",
+   "title": "Typiske feil — glemt `'\\n'` og `'w'` som sletter",
+   "content": "**Glemt linjeskift.** Her er de to variantene side om side, kjørt:\n\n```python\nf = open('uten.txt', 'w')\nfor by in ['Bergen', 'Tromsø', 'Stavanger']:\n    f.write(by)\nf.close()\n\nf = open('uten.txt', 'r')\nlinjer = f.readlines()\nf.close()\nprint(len(linjer))\nprint(linjer)\n```\n\n**Utskrift:**\n```\n1\n['BergenTromsøStavanger']\n```\n\nFila har **én** linje, ikke tre. Leser du den tilbake med `for linje in f:`, får du én runde med hele teksten i, og alt du bygger videre blir feil.\n\n**`'w'` tømmer fila.** Denne kjører to ganger på rad mot samme fil:\n\n```python\nf = open('logg.txt', 'w')\nf.write('runde 1\\n')\nf.close()\n\nf = open('logg.txt', 'w')\nf.write('runde 2\\n')\nf.close()\n\nf = open('logg.txt', 'r')\nprint(f.read().strip())\nf.close()\n```\n\n**Utskrift:**\n```\nrunde 2\n```\n\n`runde 1` er borte. Det er riktig oppførsel for `'w'`, og det er grunnen til at en «logg» aldri skal åpnes i den modusen.\n\n**Motgiften mot begge:** skriv `f.write(tekst + '\\n')` som én fast form, og spør deg selv hver gang du skriver `'w'`: skal fila starte tom, eller skal jeg legge til?"
+  },
+  {
+   "id": "tdt4110-4-2-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — sjanger I, utskrift og lagring.) Se på denne kodesnutten:\n\n```python\nf = open('resultat.txt', 'w')\nf.write('Bergen')\nf.write(120)\nf.close()\n```\n\n**a)** Hvilken av de to `write`-linjene stopper programmet, og hvorfor?\n\n**b)** Skriv om begge linjene slik at fila får linja `Bergen;120` etterfulgt av et linjeskift.",
+    "solution": "**a)** Den andre. `f.write(120)` gir `TypeError`, fordi `write` bare tar imot strenger og 120 er et heltall. Den første linja er lovlig — den skriver teksten `Bergen` uten linjeskift.\n\n**b)** Ett `write`-kall med hele linja bygget ferdig:\n\n```python\nf = open('resultat.txt', 'w')\nf.write('Bergen' + ';' + str(120) + '\\n')\nf.close()\n\nf = open('resultat.txt', 'r')\nprint(f.read())\nf.close()\n```\n\n**Utskrift:**\n```\nBergen;120\n\n```\n\nLegg merke til den blanke linja i utskriften: `f.read()` gir teksten med linjeskiftet, og `print` legger på ett til — akkurat som ved lesing i [kap. 4.1](/tdt4110/tdt4110-4-1).",
+    "hints": [
+     "Hvilken type krever `write`, og hvilken type er 120?",
+     "Bygg hele linja med `+` før du skriver den, og husk hva som må stå aller sist."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-2-l2-intro",
+   "type": "text",
+   "content": "## Løkke 2 — Skriv en hel tabell tilbake til fil (~12 min)\n\nDen vanlige bestillingen på eksamen er: «lagre den bearbeidede tabellen i en ny fil, på samme format som den du leste».\n\nDa skal hver rad bli én linje, med separatoren mellom feltene. Det er nøyaktig motsatt av parsingen i [kap. 4.1](/tdt4110/tdt4110-4-1): der delte du en linje i felt, her setter du felt sammen til en linje."
+  },
+  {
+   "id": "tdt4110-4-2-def-str",
+   "type": "definition",
+   "title": "`str(x)`",
+   "content": "Gjør et tall (eller hva som helst annet) om til den strengen `print` ville vist.\n\n```python\nprint(str(120) + ' glass')\nprint(str(12.4))\nprint(str(['a', 'b']))\n```\n\n**Utskrift:**\n```\n120 glass\n12.4\n['a', 'b']\n```\n\nDu trenger `str` hver gang et tall skal skjøtes sammen med tekst med `+`, og hver gang et tall skal inn i `write`. Det er den motsatte veien av `int()` og `float()` fra [kap. 4.1](/tdt4110/tdt4110-4-1)."
+  },
+  {
+   "id": "tdt4110-4-2-def-join",
+   "type": "definition",
+   "title": "`';'.join(liste)`",
+   "content": "Setter elementene i en liste sammen til **én** streng, med separatoren imellom. Den er det nøyaktige speilbildet av `.split(';')`.\n\n```python\nrad = ['Bergen', '120']\nprint(';'.join(rad))\nprint(', '.join(['ost', 'brød', 'melk']))\nprint(';'.join(rad).split(';'))\n```\n\n**Utskrift:**\n```\nBergen;120\nost, brød, melk\n['Bergen', '120']\n```\n\n**Alle elementene må være strenger.** Er ett av dem et tall, stopper programmet med `TypeError` — konverter med `str()` i en løkke først.\n\nSiste linje viser rundturen: `join` og `split` opphever hverandre. Det er derfor formatet du skriver, kan leses tilbake av den samme funksjonen som leste originalfila."
+  },
+  {
+   "id": "tdt4110-4-2-thm-tabell-til-fil",
+   "type": "theorem",
+   "title": "Kodemønster: skriv 2D-tabell til fil",
+   "content": "```text\ndef lagre_tabell(tabell, filnavn):\n    f = open(filnavn, 'w')\n    for rad in tabell:\n        felt = []\n        for verdi in rad:\n            felt.append(str(verdi))\n        f.write(';'.join(felt) + '\\n')\n    f.close()\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\nFem faste deler:\n\n1. **`open` med `'w'`** før løkka.\n2. **En løkke per rad**, ikke per felt.\n3. **`str()` på hvert felt** — tabellen inneholder tall etter konverteringen ved innlesing.\n4. **`';'.join(felt) + '\\n'`** — separator mellom feltene, linjeskift etter linja.\n5. **`close`** etter løkka.\n\nFunksjonen returnerer ingenting. Det er riktig: den har en **virkning** (fila blir til), ikke en verdi."
+  },
+  {
+   "id": "tdt4110-4-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Lagre en bearbeidet tabell",
+   "problem": "Glasstallene skal doblesjekkes mot pant: hver by får en ny kolonne med pantbeløpet, 3 kroner per glass. Skriv den utvidede tabellen til `pant.txt` på formen `by;antall;beløp`, og les fila tilbake for å kontrollere.",
+   "solution": "```python\ntall = [['Bergen', 120], ['Tromsø', 45], ['Stavanger', 88]]\n\nutvidet = []\nfor rad in tall:\n    utvidet.append([rad[0], rad[1], rad[1] * 3])\n\nf = open('pant.txt', 'w')\nfor rad in utvidet:\n    felt = []\n    for verdi in rad:\n        felt.append(str(verdi))\n    f.write(';'.join(felt) + '\\n')\nf.close()\n\nf = open('pant.txt', 'r')\nprint(f.read().strip())\nf.close()\n```\n\n**Utskrift:**\n```\nBergen;120;360\nTromsø;45;135\nStavanger;88;264\n```\n\n**Den indre løkka som gjør `str()` på hvert felt er ikke pynt.** Uten den stopper `join` med `TypeError`, fordi to av tre felt er heltall.\n\n**Fila kan nå leses tilbake av `les_tabell` fra [kap. 4.1](/tdt4110/tdt4110-4-1)** uten en eneste endring — samme separator, samme linjeskift, samme antall felt. Det er hele poenget med å skrive på det formatet du leste.\n\n**Slik ville sensor sett på det:** en løsning som bruker en listekomprehensjon (`[str(v) for v in rad]`) eller som skriver `f.write(rad[0] + ';' + str(rad[1]) + ';' + str(rad[2]) + '\\n')` direkte, gir like full pott. Den siste er bare mindre robust, fordi den låser antall kolonner."
+  },
+  {
+   "id": "tdt4110-4-2-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — lagring.) En treningslogg ligger som 2D-tabell i programmet:\n\n```python\nlogg = [['mandag', 'løpetur', 42], ['tirsdag', 'styrke', 55], ['onsdag', 'svømming', 30]]\n```\n\n**a)** Skriv `lagre_logg(tabell, filnavn)` som skriver hver rad som en semikolonseparert linje.\n\n**b)** Utvid funksjonen slik at den **først** skriver overskriftsraden `dag;økt;minutter`.\n\n**c)** Hvorfor returnerer funksjonen ingenting?",
+    "solution": "**a)** og **b)** i samme funksjon — overskriften skrives før løkka, med sitt eget linjeskift:\n\n```python\nlogg = [['mandag', 'løpetur', 42], ['tirsdag', 'styrke', 55], ['onsdag', 'svømming', 30]]\n\ndef lagre_logg(tabell, filnavn):\n    f = open(filnavn, 'w')\n    f.write('dag;økt;minutter\\n')\n    for rad in tabell:\n        felt = []\n        for verdi in rad:\n            felt.append(str(verdi))\n        f.write(';'.join(felt) + '\\n')\n    f.close()\n\nlagre_logg(logg, 'trening.txt')\n\nf = open('trening.txt', 'r')\nprint(f.read().strip())\nf.close()\n```\n\n**Utskrift:**\n```\ndag;økt;minutter\nmandag;løpetur;42\ntirsdag;styrke;55\nonsdag;svømming;30\n```\n\n**c)** Fordi den har en **virkning**, ikke et resultat: jobben er at fila blir til. En funksjon uten `return` gir automatisk `None`, og det er riktig her. Skriver du `return f` i stedet, gir du kalleren et lukket filobjekt som ikke kan brukes til noe.\n\nMerk at overskriftsraden gjør fila selvforklarende — og at den som leser den tilbake, må huske `readline()`-hoppet fra [kap. 4.1](/tdt4110/tdt4110-4-1).",
+    "hints": [
+     "Bygg linja med `';'.join(...)` og husk hva som må stå aller sist i hver linje.",
+     "I b): overskriften er en helt vanlig `write`, plassert før løkka."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-2-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nf = open('kort.txt', 'w')\nf.write('a')\nf.write('b\\n')\nf.write('c')\nf.close()\n\nf = open('kort.txt', 'r')\nlinjer = f.readlines()\nf.close()\nprint(len(linjer))\nprint(linjer)\n```",
+    "solution": "**Sporingstavle.** Hold styr på hva fila inneholder etter hvert kall:\n\n| Kall | Innholdet i fila etterpå |\n|---|---|\n| `f.write('a')` | `a` |\n| `f.write('b\\n')` | `ab` og et linjeskift |\n| `f.write('c')` | `ab`, linjeskift, `c` |\n\nFila har altså to linjer: `'ab\\n'` og `'c'` — den siste uten linjeskift, fordi ingen skrev noe.\n\n```python\nf = open('kort.txt', 'w')\nf.write('a')\nf.write('b\\n')\nf.write('c')\nf.close()\n\nf = open('kort.txt', 'r')\nlinjer = f.readlines()\nf.close()\nprint(len(linjer))\nprint(linjer)\n```\n\n**Utskrift:**\n```\n2\n['ab\\n', 'c']\n```\n\n**Fellenoten:** `write` skriver nøyaktig det den får, og ingenting mer. Tre kall ble til to linjer, fordi det er **linjeskiftene**, ikke antall kall, som avgjør linjedelingen. Den siste linja mangler linjeskift — helt lovlig, og `readlines` tar den likevel med.",
+    "hints": [
+     "Tegn fila som én lang tegnrekke først, og let etter linjeskiftene etterpå.",
+     "Hva er det som avgjør hvor en linje slutter — antall `write`-kall eller noe annet?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-2-l3-intro",
+   "type": "text",
+   "content": "## Løkke 3 — Legg til i stedet for å overskrive, og skriv en pen rapport (~10 min)\n\nTo ting gjenstår på tekstsiden: modusen som **legger til** i stedet for å tømme, og formateringen som gjør en rapport lesbar for et menneske."
+  },
+  {
+   "id": "tdt4110-4-2-def-open-a",
+   "type": "definition",
+   "title": "`open(filnavn, 'a')`",
+   "content": "Åpner fila for **tilføying** (*append*). Alt du skriver, havner bakerst; det som lå der fra før, blir stående. Finnes ikke fila, opprettes den.\n\n```python\nf = open('logg2.txt', 'w')\nf.write('første økt\\n')\nf.close()\n\nf = open('logg2.txt', 'a')\nf.write('andre økt\\n')\nf.close()\n\nf = open('logg2.txt', 'r')\nprint(f.read().strip())\nf.close()\n```\n\n**Utskrift:**\n```\nførste økt\nandre økt\n```\n\nValget mellom `'w'` og `'a'` er et **innholdsvalg**, ikke et teknisk et: skal fila være en fasit som lages på nytt hver gang (`'w'`), eller en logg som vokser (`'a'`)? Les oppgaveteksten, den sier det alltid."
+  },
+  {
+   "id": "tdt4110-4-2-def-with-w",
+   "type": "definition",
+   "title": "`with open(filnavn, 'w') as f:`",
+   "content": "Samme automatiske lukking som ved lesing, og her betyr den mer: bufferet tømmes selv om programmet stopper med en feil midt i skrivingen.\n\n```python\nwith open('kvittering.txt', 'w') as f:\n    f.write('Sum: 253\\n')\n\nwith open('kvittering.txt', 'r') as f:\n    print(f.read().strip())\n```\n\n**Utskrift:**\n```\nSum: 253\n```\n\nBoka bruker likevel `open` … `close` som hovedform, fordi det er den arkivets løsningsforslag bruker. `with` er fullt gyldig og gir full pott."
+  },
+  {
+   "id": "tdt4110-4-2-def-format",
+   "type": "definition",
+   "title": "`'{:.2f}'.format(x)`",
+   "content": "Formaterer et tall som en streng med et bestemt antall desimaler eller en bestemt bredde. Formen er den arkivets løsningsforslag bruker.\n\n```python\nprint('{:.2f}'.format(12.43333))\nprint('{:6.2f}|'.format(12.4))\nprint('{} har {} glass'.format('Bergen', 120))\n```\n\n**Utskrift:**\n```\n12.43\n 12.40|\nBergen har 120 glass\n```\n\n`.2f` er to desimaler, `6.2f` er to desimaler i et felt som er seks tegn bredt (høyrejustert). Tallet **avrundes**, det klippes ikke.\n\nFormatering hører hjemme ved **utskrift og lagring**, ikke ved beregning: regn med full presisjon, og rund av først når mennesket skal lese tallet."
+  },
+  {
+   "id": "tdt4110-4-2-def-fstreng",
+   "type": "definition",
+   "title": "f-streng: `f'{x:.2f}'`",
+   "content": "Den nyere skrivemåten for det samme. Prefikset `f` foran fnutten gjør at det som står i klammene, regnes ut og settes inn.\n\n```python\nx = 12.43333\nnavn = 'Bergen'\nprint(f'{x:.2f}')\nprint(f'{navn} har {120} glass')\nprint(f'{navn:<12}|{x:6.2f}|')\n```\n\n**Utskrift:**\n```\n12.43\nBergen har 120 glass\nBergen      | 12.43|\n```\n\nFormatspråket etter kolonet er **identisk** med det i `.format()` — `.2f`, `6.2f`, `<12` betyr det samme begge steder.\n\nf-strenger er varslet inn i pensum i det nyeste løsningsforslaget i arkivet `(verifiser mot gjeldende pensum — varslet inn 2019)`. Den eldre `.format()`-formen er alltid gyldig, og begge gir full pott. Bruk den du husker best."
+  },
+  {
+   "id": "tdt4110-4-2-def-rjust",
+   "type": "definition",
+   "title": "`.rjust(n)` og `.ljust(n)`",
+   "content": "Fyller ut en streng med mellomrom til den er `n` tegn bred — `rjust` mot høyre (tall), `ljust` mot venstre (tekst).\n\n```python\nprint('Bergen'.ljust(12) + str(120).rjust(5))\nprint('Tromsø'.ljust(12) + str(45).rjust(5))\nprint('Stavanger'.ljust(12) + str(88).rjust(5))\n```\n\n**Utskrift:**\n```\nBergen        120\nTromsø         45\nStavanger      88\n```\n\nEr strengen allerede bredere enn `n`, skjer ingenting — den blir aldri klippet.\n\nDette er den enkleste veien til en rapport med rette kolonner, og den virker like godt mot fil som mot skjerm: `f.write(linje + '\\n')` i stedet for `print(linje)`."
+  },
+  {
+   "id": "tdt4110-4-2-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: En formatert rapport til fil",
+   "problem": "Skriv en rapport til `pantrapport.txt` med en overskriftslinje, én linje per by med byen venstrejustert og beløpet høyrejustert med to desimaler, og en sumlinje til slutt. Les fila tilbake og skriv den ut.",
+   "solution": "```python\ntall = [['Bergen', 120], ['Tromsø', 45], ['Stavanger', 88]]\n\nf = open('pantrapport.txt', 'w')\nf.write('By'.ljust(12) + 'Pant'.rjust(9) + '\\n')\nsum_pant = 0\nfor rad in tall:\n    pant = rad[1] * 2.5\n    sum_pant = sum_pant + pant\n    f.write(rad[0].ljust(12) + '{:9.2f}'.format(pant) + '\\n')\nf.write('Sum'.ljust(12) + '{:9.2f}'.format(sum_pant) + '\\n')\nf.close()\n\nf = open('pantrapport.txt', 'r')\nprint(f.read().strip())\nf.close()\n```\n\n**Utskrift:**\n```\nBy               Pant\nBergen         300.00\nTromsø         112.50\nStavanger      220.00\nSum            632.50\n```\n\n**Kolonnene står rett fordi bredden er den samme på alle linjene** — 12 tegn til navnet, 9 til beløpet. Det er hele trikset; det finnes ingen usynlig tabellmotor.\n\nDen samme rapporten med f-strenger, som gir nøyaktig samme fil:\n\n```python\ntall = [['Bergen', 120], ['Tromsø', 45], ['Stavanger', 88]]\nfor rad in tall:\n    pant = rad[1] * 2.5\n    print(f'{rad[0]:<12}{pant:9.2f}')\n```\n\n**Utskrift:**\n```\nBergen         300.00\nTromsø         112.50\nStavanger      220.00\n```\n\n**Begge former gir full pott.** `(verifiser mot gjeldende pensum — f-strenger ble varslet inn 2019)`; arkivets egne løsningsforslag bruker `.format()` og `.rjust()`.\n\n**Slik ville sensor sett på det:** poengene ligger på at hver rad blir én linje, at tallene er formatert, og at sumlinja er regnet ut i samme løkke. Nøyaktig kolonnebredde er ikke poenggivende — «pen utskrift» er kravet, ikke bestemte tall."
+  },
+  {
+   "id": "tdt4110-4-2-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — lagring med formatering.) Du har tabellen\n\n```python\nmaalinger = [['Blindern', 12.4], ['Kjevik', 15.1], ['Værnes', 9.8]]\n```\n\n**a)** Skriv `lagre_snitt(tabell, filnavn)` som legger til én linje bakerst i fila på formen `Snitt: 12.43`, med to desimaler, uten å slette det som ligger der fra før.\n\n**b)** Hvorfor er `'a'` riktig modus her, og hva ville skjedd med `'w'`?\n\n**c)** Skriv den samme formateringen med f-streng.",
+    "solution": "**a)** Snittet regnes med full presisjon og formateres først ved skriving. Fila lages med en linje i på forhånd, slik at du ser at den blir stående:\n\n```python\nmaalinger = [['Blindern', 12.4], ['Kjevik', 15.1], ['Værnes', 9.8]]\n\nf = open('temp.txt', 'w')\nf.write('Målinger lagret\\n')\nf.close()\n\ndef lagre_snitt(tabell, filnavn):\n    total = 0\n    for rad in tabell:\n        total = total + rad[1]\n    snitt = total / len(tabell)\n    f = open(filnavn, 'a')\n    f.write('Snitt: ' + '{:.2f}'.format(snitt) + '\\n')\n    f.close()\n\nlagre_snitt(maalinger, 'temp.txt')\nlagre_snitt(maalinger, 'temp.txt')\n\nf = open('temp.txt', 'r')\nprint(f.read().strip())\nf.close()\n```\n\n**Utskrift:**\n```\nMålinger lagret\nSnitt: 12.43\nSnitt: 12.43\n```\n\nFunksjonen kalles to ganger med vilje: fila får tre linjer i alt, og den første står der fortsatt. Det er beviset på at `'a'` legger til i stedet for å tømme.\n\n**b)** Oppgaven sier «bakerst i fila, uten å slette». Med `'w'` ville fila blitt tømt ved åpningen, og resultatet ville vært en fil med bare snittlinja — den vanligste stumme datatapfeilen i dette kapitlet.\n\n**c)** `f.write(f'Snitt: {snitt:.2f}\\n')` — samme formatspråk etter kolonet, samme resultat i fila.",
+    "hints": [
+     "Regn snittet ferdig først; formatering hører hjemme i selve `write`-kallet.",
+     "Hvilken modus lar det som allerede står i fila, bli stående?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-2-l4-intro",
+   "type": "text",
+   "content": "## Løkke 4 — `pickle`: lagre en hel datastruktur (~8 min)\n\n**Bør kjenne til — nivå 3 av bokas tre prioritetsnivåer.** `pickle` står i ~30 % av settene (3 av 10 sittinger) og i funksjonsoversikten som deles ut på eksamen hvert år, men den er aldri hovedsaken i en oppgave. Har du kort tid, les denne løkka sist — og les den, for den er kort og gir billige poeng når den først kommer.\n\nProblemet den løser: du har en **ordbok** med hundre nøkler, og du vil lagre den og få den tilbake **slik den var** neste gang programmet kjører. Med tekstfil må du skrive den ut i et format og parse den tilbake selv — og da må du bestemme hva som skal skje med tallene, med lister inni verdiene, med nøkler som inneholder semikolon. Med `pickle` slipper du alt det."
+  },
+  {
+   "id": "tdt4110-4-2-def-binaerfil",
+   "type": "definition",
+   "title": "Tekstfil og binærfil",
+   "content": "En **tekstfil** inneholder tegn som mennesker kan lese, delt i linjer. Alle filene så langt i boka har vært tekstfiler.\n\nEn **binærfil** inneholder rå byte som er ment for programmer, ikke for øyne. Åpner du den i en teksteditor, ser du søppel. Bildefiler, lydfiler og `pickle`-filer er binærfiler.\n\nSkillet får to praktiske konsekvenser: binærfiler åpnes med `'b'` i modusen (`'wb'`, `'rb'`), og innholdet i dem vises aldri i denne boka — det ville ikke betydd noe."
+  },
+  {
+   "id": "tdt4110-4-2-def-serialisering",
+   "type": "definition",
+   "title": "Serialisering",
+   "content": "**Serialisering** er å gjøre en datastruktur i minnet om til en byterekke som kan lagres eller sendes, og **deserialisering** er å bygge strukturen opp igjen fra byterekka.\n\nPoenget er at strukturen kommer tilbake **identisk**: en ordbok med lister inni, med tall som fortsatt er tall, forblir nøyaktig det. Ingen parsing, ingen konvertering, ingen tapte typer.\n\nI Python heter verktøyet `pickle`, og de to operasjonene heter `dump` (lagre) og `load` (hente)."
+  },
+  {
+   "id": "tdt4110-4-2-def-import-pickle",
+   "type": "definition",
+   "title": "`import pickle`",
+   "content": "Henter inn standardmodulen `pickle`. Linja står øverst i programmet, og uten den finnes ikke navnet `pickle`.\n\n`pickle` er en del av Python og trenger ingen installasjon. Det er en av de svært få modulene denne boka bruker i det hele tatt — resten av faget klarer seg med språket selv."
+  },
+  {
+   "id": "tdt4110-4-2-def-open-wb",
+   "type": "definition",
+   "title": "`open(filnavn, 'wb')` og `open(filnavn, 'rb')`",
+   "content": "Åpner en fil i **binærmodus** for henholdsvis skriving og lesing. `b`-en er det eneste som skiller dem fra `'w'` og `'r'`.\n\nBruker du `'w'` der `'wb'` skal stå, stopper programmet med `TypeError: write() argument must be str, not bytes` — en feilmelding som er lett å kjenne igjen når du først har sett den.\n\nRegelen er enkel: **`pickle` krever alltid `b` i modusen**, begge veier."
+  },
+  {
+   "id": "tdt4110-4-2-def-pickle-dump",
+   "type": "definition",
+   "title": "`pickle.dump(objekt, fil)`",
+   "content": "Skriver hele objektet — ordbok, liste, 2D-tabell, tuppel — til en åpen binærfil, i én operasjon.\n\nRekkefølgen på argumentene er **objektet først, fila etterpå**. Bytter du om, stopper programmet.\n\nDu kan lagre nøstede strukturer (en ordbok av lister av tall) uten å tenke på formatet i det hele tatt. Det er hele salgsargumentet."
+  },
+  {
+   "id": "tdt4110-4-2-def-pickle-load",
+   "type": "definition",
+   "title": "`pickle.load(fil)`",
+   "content": "Leser objektet tilbake fra en åpen binærfil og **returnerer** det. Strukturen er identisk med den som ble lagret: samme nøkler, samme typer, samme nesting.\n\nEtt argument, fila. Husk å ta imot returverdien — `pickle.load(f)` uten tilordning kaster resultatet.\n\nEr fila skrevet av `dump`, virker `load`. Er den ikke det, stopper programmet — `pickle` leser bare sitt eget format."
+  },
+  {
+   "id": "tdt4110-4-2-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Lagre en ordbok og hente den tilbake",
+   "problem": "Lagre ordboka `{'Bergen': [120, 300.0], 'Tromsø': [45, 112.5]}` til binærfila `beholdning.pkl`, hent den tilbake i et nytt oppslag, og vis at den kom tilbake identisk — med tallene fortsatt som tall.",
+   "solution": "```python\nimport pickle\n\nbeholdning = {'Bergen': [120, 300.0], 'Tromsø': [45, 112.5]}\n\nf = open('beholdning.pkl', 'wb')\npickle.dump(beholdning, f)\nf.close()\n\nf = open('beholdning.pkl', 'rb')\nhentet = pickle.load(f)\nf.close()\n\nprint(hentet)\nprint(hentet == beholdning)\nprint(hentet['Bergen'][0] + 1)\n```\n\n**Utskrift:**\n```\n{'Bergen': [120, 300.0], 'Tromsø': [45, 112.5]}\nTrue\n121\n```\n\n**Den midterste linja i utskriften er beviset:** strukturen som kom ut, er lik den som gikk inn.\n\n**Den siste er den viktige.** `hentet['Bergen'][0] + 1` gir 121, ikke `1201`. Tallet er fortsatt et tall — ingen `int()` var nødvendig. Det er den ene tingen `pickle` gir deg som en tekstfil ikke gjør.\n\n**Innholdet i `beholdning.pkl` vises ikke** noe sted i denne boka. Det er en binærfil: åpner du den i en teksteditor, ser du uleselige tegn, og det er meningen.\n\n**Slik ville sensor sett på det:** de fire poenggivende punktene er `import pickle`, `'wb'`/`'rb'`, argumentrekkefølgen i `dump`, og at `load` sin returverdi tas imot. Dette er nivå 3-stoff — kommer det, er det verdt få prosent, og det er den enkleste deloppgaven i settet."
+  },
+  {
+   "id": "tdt4110-4-2-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger I — lagring, nivå «bør kjenne til».) Denne koden er ment å lagre en liste og hente den tilbake, men har to feil:\n\n```text\nimport pickle\n\ndata = [3, 1, 4]\nf = open('tall.pkl', 'w')\npickle.dump(f, data)\nf.close()\n```\n\n**a)** Hvilke to feil er det?\n\n**b)** Skriv koden riktig, og hent lista tilbake for å vise at den kom uendret ut.",
+    "solution": "**a)** To feil, begge i de faste detaljene:\n\n1. Modusen er `'w'` der den skal være `'wb'` — `pickle` skriver byte, ikke tekst.\n2. Argumentene i `dump` står i motsatt rekkefølge. Det er **objektet først, fila etterpå**.\n\n**b)** Rettet, og med rundturen som kontroll:\n\n```python\nimport pickle\n\ndata = [3, 1, 4]\nf = open('tall.pkl', 'wb')\npickle.dump(data, f)\nf.close()\n\nf = open('tall.pkl', 'rb')\nhentet = pickle.load(f)\nf.close()\n\nprint(hentet)\nprint(hentet == data)\n```\n\n**Utskrift:**\n```\n[3, 1, 4]\nTrue\n```\n\nKodeblokken i oppgaven er merket som ikke-kjørbar, siden den stopper med `TypeError` slik den står.",
+    "hints": [
+     "Se på modusbokstaven først: hva skiller en binærfil fra en tekstfil?",
+     "Slå opp rekkefølgen i `dump` — hva er det første argumentet?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-2-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — hele lagringsleddet.) Et resirkuleringsprogram har talt opp glass per by i ordboka `antall` og skal levere fra seg to filer.\n\n**a)** Skriv `lagre_rapport(antall, filnavn)` som skriver én linje per by på formen `by;antall`, sortert alfabetisk på by.\n\n**b)** Skriv `lagre_binaert(antall, filnavn)` som lagrer hele ordboka med `pickle`.\n\n**c)** Skriv `hent_binaert(filnavn)` som henter ordboka tilbake, og forklar med én setning hvorfor rapporten i a) **ikke** kan brukes til det samme uten videre.",
+    "solution": "**a)**, **b)** og **c)** i én kjørt kjede, der `hent_binaert` brukes til å kontrollere resultatet:\n\n```python\nimport pickle\n\nantall = {'Tromsø': 45, 'Bergen': 120, 'Stavanger': 88}\n\ndef lagre_rapport(d, filnavn):\n    f = open(filnavn, 'w')\n    for by in sorted(d):\n        f.write(by + ';' + str(d[by]) + '\\n')\n    f.close()\n\ndef lagre_binaert(d, filnavn):\n    f = open(filnavn, 'wb')\n    pickle.dump(d, f)\n    f.close()\n\ndef hent_binaert(filnavn):\n    f = open(filnavn, 'rb')\n    d = pickle.load(f)\n    f.close()\n    return d\n\nlagre_rapport(antall, 'glassrapport.txt')\nlagre_binaert(antall, 'glass.pkl')\n\nf = open('glassrapport.txt', 'r')\nprint(f.read().strip())\nf.close()\n\ntilbake = hent_binaert('glass.pkl')\nprint(tilbake == antall)\nprint(tilbake['Bergen'] + 1)\n```\n\n**Utskrift:**\n```\nBergen;120\nStavanger;88\nTromsø;45\nTrue\n121\n```\n\n**Merk `sorted(d)`** — den gir nøklene i sortert rekkefølge og er grunnen til at rapporten kommer alfabetisk. En ordbok har ingen garantert alfabetisk rekkefølge av seg selv.\n\n**Merk `return d` i `hent_binaert`**, og at de to lagringsfunksjonene ikke returnerer noe. Det er skillet mellom en funksjon som **henter** og en som **gjør**.\n\n**c)** Rapporten er tekst, så alt i den kommer tilbake som strenger — tallene må parses og konverteres på nytt med `.strip().split(';')` og `int()`, mens `pickle` gir deg ordboka ferdig, med tallene som tall.\n\n**Alternativ løsning:** i a) kan du bruke `';'.join([by, str(d[by])])` i stedet for `+`-skjøtingen. Begge gir full pott.",
+    "hints": [
+     "I a): `sorted(d)` gir deg nøklene i sortert rekkefølge — løkk over dem.",
+     "I c): hvilken type har feltene når du leser en tekstfil tilbake?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-2-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-4-2-api-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `open(filnavn, 'w')` | åpner for skriving; oppretter fila, eller TØMMER den hvis den finnes — uten advarsel |\n| `open(filnavn, 'a')` | åpner for tilføying; alt skrives bakerst, det gamle blir stående |\n| `open(filnavn, 'wb')` / `'rb'` | binærmodus, kreves av `pickle` begge veier |\n| `f.write(tekst)` | skriver NØYAKTIG strengen; legger IKKE på linjeskift; tar bare strenger (`TypeError` på tall) |\n| `f.write(tekst + '\\n')` | bokas faste form — linjeskiftet skjøtes på i samme kall |\n| `f.close()` | tømmer skrivebufferet til disk; uten den kan de siste linjene mangle |\n| `with open(filnavn, 'w') as f:` | lukker automatisk, også hvis programmet stopper med feil midt i |\n| `str(x)` | tall til streng; kreves før `+`-skjøting og før `write` |\n| `';'.join(liste)` | setter feltene sammen med separator imellom; speilbildet av `.split(';')`; alle elementer MÅ være strenger |\n| `'{:.2f}'.format(x)` | to desimaler; `'{:9.2f}'` gir også feltbredde 9, høyrejustert; tallet avrundes |\n| `f'{x:.2f}'` | samme formatspråk som `.format()`; `(verifiser mot gjeldende pensum — varslet inn 2019)` |\n| `.ljust(n)` / `.rjust(n)` | fyller til bredde `n` med mellomrom; klipper aldri en for lang streng |\n| `import pickle` | standardmodul, ingen installasjon; eneste modul dette kapitlet bruker |\n| `pickle.dump(objekt, fil)` | skriver hele strukturen til en åpen binærfil; OBJEKTET FØRST, fila etterpå |\n| `pickle.load(fil)` | leser strukturen tilbake og RETURNERER den — identisk, med tall som tall |\n| `sorted(d)` | nøklene i en ordbok, sortert; en ordbok har ingen alfabetisk rekkefølge av seg selv |\n\n**Formler i dette delkapitlet:** ingen. Formatstrengen `'{:b.df}'` leses som feltbredde $b$ og $d$ desimaler."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

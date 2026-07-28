@@ -1,0 +1,283 @@
+{
+ "id": "tdt4110-3-6",
+ "courseId": "tdt4110",
+ "chapterNumber": "3.6",
+ "title": "Tupler",
+ "description": "Uforanderlige tupler, parallelle tupler og pakking/utpakking — måten karaktergrenser og faste tabeller lagres på.",
+ "estimatedMinutes": 35,
+ "competenceGoals": [
+  "kunne skille en låst samling fra en som kan endres, og vite hvilke operasjoner som forsvinner med låsen",
+  "kunne la en funksjon gi tilbake to verdier på én gang, og ta imot dem i hver sin variabel",
+  "kunne holde to samlinger i takt slik at samme plassnummer hører sammen",
+  "kunne oversette en poengsum til riktig kategori ved å gå gjennom grensene fra høyest til lavest"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-3-6-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Tupler er belagt i **fem av de ti eksamenssittingene i arkivet (2014–2019)** — rundt 50 %. De dukker ikke opp som et tema i seg selv, men som verktøyet oppgaven bruker for faste tabeller: karaktergrenser, øvelsesnavn med vekter, og funksjoner som gir tilbake to verdier på én gang.\n\nSlik dukker kapitlet opp på settet:\n\n- **Sjanger G — analyse**, altså «finn riktig kategori» eller «regn ut en vektet sum». Karaktersetting fra poeng er den vanligste innpakningen, 5–10 % per deloppgave.\n- **Sjanger B — kodesporing**, altså «hva skriver dette programmet ut?». Her testes utpakking og at et tuppel skrives ut med runde parenteser. Sjangeren gir 1–3 % per deloppgave.\n\n**Prioritet: dette må du kunne** (nivå 2 av bokas tre — «må sitte», «må kunne», «bør kjenne til»). Tupler er ikke like tungtveiende som lister og ordbøker, men de er billige å lære: har du lister inne, er halve kapitlet repetisjon. Regn med 35 minutter.\n\nÉn ting bør du merke deg med én gang: du har allerede brukt tupler. Hver gang du skriver `for k, v in d.items():` i [kap. 3.5](/tdt4110/tdt4110-3-5), er det et tuppel som pakkes ut."
+  },
+  {
+   "id": "tdt4110-3-6-t-2",
+   "type": "text",
+   "content": "**Forkunnskaper**\n\n- [kap. 3.1](/tdt4110/tdt4110-3-1) — lister, indeksering, utsnitt og `in`-testen. Et tuppel oppfører seg som ei liste på alle disse punktene.\n- [kap. 2.1](/tdt4110/tdt4110-2-1) — funksjoner med `return`, fordi flere returverdier er tupler.\n- [kap. 3.5](/tdt4110/tdt4110-3-5) — ordbøker, for `.items()` og for tuppelet som nøkkel.\n\nEtt ord før vi begynner: **uforanderlig** betyr at verdien ikke kan endres etter at den er laget. Strenger er uforanderlige — det så du i [kap. 3.3](/tdt4110/tdt4110-3-3) — og tupler er det samme for samlinger."
+  },
+  {
+   "id": "tdt4110-3-6-t-3",
+   "type": "text",
+   "content": "## Løkke 1 — tuppelet og uforanderligheten (~8 min)\n\nKaraktergrensene i et emne er 90, 80, 70 og 60 poeng. De er bestemt før eksamen og skal ikke røres av programmet. Legger du dem i ei liste, kan hvilken som helst linje senere i koden gjøre `grenser[0] = 50` ved et uhell, og da er hele karaktersettingen feil uten at noe krasjer.\n\nEt **tuppel** er den samme samlingen, men låst. Du skriver det med runde parenteser i stedet for hakeparenteser, og Python nekter enhver endring. Det er den eneste virkelige forskjellen fra ei liste — alt annet, indeksering, utsnitt, `len` og `in`, er likt."
+  },
+  {
+   "id": "tdt4110-3-6-def-4",
+   "type": "definition",
+   "title": "Tuppelet `(a, b, c)`",
+   "content": "En ordnet samling verdier under ett navn, akkurat som ei liste, men skrevet med **runde** parenteser: `grenser = (90, 80, 70, 60)`.\n\nRekkefølgen er en del av dataene, og den samme verdien kan stå flere ganger. Verdiene kan være av forskjellig type i samme tuppel — `('Ås', 4, 12.5)` er helt vanlig, og er nettopp slik en rad fra et register ser ut. Det tomme tuppelet er `()`."
+  },
+  {
+   "id": "tdt4110-3-6-def-5",
+   "type": "definition",
+   "title": "Uforanderlighet",
+   "content": "Et tuppel kan ikke endres etter at det er laget. `grenser[0] = 50` stopper programmet med `TypeError: 'tuple' object does not support item assignment`, og det finnes verken `append`, `remove`, `sort` eller `reverse` på et tuppel.\n\nDet du kan gjøre, er å lage et **nytt** tuppel: `grenser + (50,)` gir et nytt tuppel med fem verdier, og det gamle står urørt. Uforanderligheten er ikke en begrensning, men en garanti: leser du at noe er et tuppel, vet du at ingen linje lenger nede har endret det."
+  },
+  {
+   "id": "tdt4110-3-6-def-6",
+   "type": "definition",
+   "title": "Ettelementstuppelet `(5,)`",
+   "content": "Det er **kommaet** som lager tuppelet, ikke parentesene. `(5)` er bare tallet 5 med en parentes rundt, mens `(5,)` er et tuppel med ett element.\n\nDerfor er `len((5))` en feilmelding, mens `len((5,))` er 1. Det samme kommaet gjør at `par = 3, 7` er et fullgyldig tuppel uten parenteser i det hele tatt. Parentesene er bare til for lesbarheten — bortsett fra når du trenger dem for å avgrense, for eksempel inne i en liste av tupler."
+  },
+  {
+   "id": "tdt4110-3-6-def-7",
+   "type": "definition",
+   "title": "`len(t)`, `t[i]`, `t[a:b]` og `in` på tupler",
+   "content": "Alt som bare **leser** fra ei liste, virker likt på et tuppel. `len(t)` gir antall elementer, `t[0]` det første, `t[-1]` det siste, og `'Ås' in t` tester medlemskap.\n\nUtsnitt virker også, og gir et **nytt tuppel**: `grenser[:2]` gir `(90, 80)`. Merk at et utsnitt av et tuppel aldri gir ei liste — typen følger med. Det er bare de endrende operasjonene som mangler."
+  },
+  {
+   "id": "tdt4110-3-6-def-8",
+   "type": "definition",
+   "title": "`tuple(liste)` og `list(tuppel)`",
+   "content": "Konverterer begge veier. `tuple([1, 2, 3])` gir `(1, 2, 3)`, og `list((1, 2, 3))` gir `[1, 2, 3]`.\n\nDen vanligste bruken er å låse et resultat før det returneres, eller motsatt: å låse opp et tuppel du trenger å sortere. `sorted(t)` gir forresten alltid ei **liste**, uansett hva du gir den — så skal svaret være et tuppel, må du pakke det inn igjen med `tuple(...)`."
+  },
+  {
+   "id": "tdt4110-3-6-ex-9",
+   "type": "example",
+   "title": "Eksempel 1: karaktergrensene som tuppel",
+   "problem": "Legg karaktergrensene 90, 80, 70 og 60 i et tuppel. Skriv ut hele tuppelet, den første og den siste grensen, de to øverste, og sjekk om 75 er en av grensene. Vis også hva som skjer når du prøver å endre en av dem.",
+   "solution": "Alt som leser, ser ut akkurat som på ei liste:\n\n```python\ngrenser = (90, 80, 70, 60)\nprint(grenser)\nprint(grenser[0], grenser[-1])\nprint(grenser[:2])\nprint(75 in grenser)\nprint(len(grenser))\n```\n\n**Utskrift:**\n```\n(90, 80, 70, 60)\n90 60\n(90, 80)\nFalse\n4\n```\n\nLegg merke til at tuppelet skrives ut med **runde** parenteser, og at utsnittet `grenser[:2]` også er et tuppel. På en kodesporingsoppgave er dette forskjellen som gir poenget: `[90, 80]` er feil svar når `(90, 80)` er riktig.\n\nForsøk på endring stopper programmet. Under er siste linje av feilmeldingen du får:\n\n```text\nTypeError: 'tuple' object does not support item assignment\n```\n\nVil du ha andre grenser, lager du et nytt tuppel i stedet:\n\n```python\ngrenser = (90, 80, 70, 60)\nnye = (95,) + grenser[1:]\nprint(nye)\nprint(grenser)\n```\n\n**Utskrift:**\n```\n(95, 80, 70, 60)\n(90, 80, 70, 60)\n```\n\nDet gamle tuppelet står urørt. Merk kommaet i `(95,)` — uten det er `(95)` bare tallet 95, og `95 + grenser[1:]` ville stoppet med en feilmelding."
+  },
+  {
+   "id": "tdt4110-3-6-exr-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-6-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Skriv alle fire linjene nøyaktig. Vær nøye med hvilke parenteser som brukes hvor.\n\n```python\nt = (4, 9, 2, 9)\nprint(t[1])\nprint(t[1:3])\nprint(len(t))\nprint(9 in t, 5 in t)\n```",
+    "solution": "Indeksering gir ett element, altså et tall. Utsnittet gir et nytt **tuppel** — med runde parenteser, ikke hakeparenteser.\n\n| Uttrykk | Resultat | Type |\n|---|---|---|\n| `t[1]` | `9` | ett tall |\n| `t[1:3]` | `(9, 2)` | tuppel med to elementer |\n| `len(t)` | `4` | tall |\n| `9 in t, 5 in t` | `True False` | to sannhetsverdier |\n\n```python\nt = (4, 9, 2, 9)\nprint(t[1])\nprint(t[1:3])\nprint(len(t))\nprint(9 in t, 5 in t)\n```\n\n**Utskrift:**\n```\n9\n(9, 2)\n4\nTrue False\n```\n\nMerk at sluttgrensa i utsnittet er eksklusiv, akkurat som for lister: `t[1:3]` gir elementene på plass 1 og 2, ikke 1 til 3.",
+    "hints": [
+     "Skriv ut plassnumrene 0, 1, 2, 3 over elementene før du svarer.",
+     "Et utsnitt av et tuppel er et tuppel — hvilke parenteser skriver Python da?",
+     "`print` med to argumenter setter ett mellomrom mellom dem."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-6-warn-10",
+   "type": "warning",
+   "title": "Typiske feil: kommaet og låsen",
+   "content": "Tre feller går igjen:\n\n- **Å prøve å endre et tuppel.** `t[0] = 5`, `t.append(9)` og `t.sort()` finnes ikke. Vil du endre, må du bygge et nytt tuppel eller konvertere til liste med `list(t)`.\n- **Det glemte kommaet.** `(5)` er tallet 5, ikke et tuppel. Ettelementstuppelet er `(5,)`.\n- **Hakeparenteser i svaret.** Skriver Python ut et tuppel, kommer det med runde parenteser. Å gjengi `(9, 2)` som `[9, 2]` i en kodesporing er feil svar."
+  },
+  {
+   "id": "tdt4110-3-6-t-11",
+   "type": "text",
+   "content": "## Løkke 2 — pakking, utpakking og flere returverdier (~10 min)\n\nEn funksjon som skal gi tilbake både den laveste og den høyeste temperaturen i en måling, har et problem: `return` gir bare én verdi. Løsningen er å pakke de to verdiene sammen i ett tuppel, og la mottakeren pakke dem ut igjen.\n\nDette er den vanligste bruken av tupler i faget, og den er så innebygd i Python at du knapt ser tuppelet."
+  },
+  {
+   "id": "tdt4110-3-6-def-12",
+   "type": "definition",
+   "title": "Pakking: `par = a, b`",
+   "content": "Skriver du flere verdier med komma mellom, samler Python dem i ett tuppel. Parentesene er valgfrie: `par = 3, 7` gir det samme som `par = (3, 7)`.\n\nDet er dette som gjør at `return laveste, hoyeste` virker: verdiene pakkes til ett tuppel på veien ut av funksjonen. Skriver du `print(par)` etterpå, ser du parentesene igjen."
+  },
+  {
+   "id": "tdt4110-3-6-def-13",
+   "type": "definition",
+   "title": "Utpakking: `x, y = par`",
+   "content": "Fordeler elementene i et tuppel på flere variabler på én linje. `x, y = (3, 7)` setter `x` til 3 og `y` til 7.\n\nAntallet må stemme **eksakt**. Er tuppelet lengre eller kortere enn antall variabler, stopper programmet med `ValueError: too many values to unpack` eller `not enough values to unpack`. Utpakking virker også i et løkkehode — `for k, v in d.items():` er nøyaktig denne mekanismen."
+  },
+  {
+   "id": "tdt4110-3-6-def-14",
+   "type": "definition",
+   "title": "Bytte to verdier: `a, b = b, a`",
+   "content": "Høyresiden pakkes til et tuppel **først**, og deretter pakkes det ut på venstresiden. Derfor bytter denne ene linja innholdet i to variabler, uten en hjelpevariabel.\n\nDet samme skjer i boblesorteringen senere i boka: `x[j], x[j+1] = x[j+1], x[j]`. Poenget er at begge de gamle verdiene er lest inn i tuppelet før noen av dem overskrives — skriver du det i to linjer uten hjelpevariabel, mister du den ene."
+  },
+  {
+   "id": "tdt4110-3-6-def-15",
+   "type": "definition",
+   "title": "`return a, b` — flere returverdier",
+   "content": "En funksjon kan bare returnere én verdi, men den verdien kan være et tuppel. `return laveste, hoyeste` pakker de to sammen.\n\nMottakeren kan velge: `lav, hoy = maal(...)` pakker ut i to variabler, mens `svar = maal(...)` beholder tuppelet samlet og bruker `svar[0]` og `svar[1]`. Begge er gyldige. Merk at du ikke kan skrive `return a; return b` — den andre linja kjøres aldri, fordi `return` avslutter funksjonen."
+  },
+  {
+   "id": "tdt4110-3-6-ex-16",
+   "type": "example",
+   "title": "Eksempel 2: en funksjon som gir to svar",
+   "problem": "Skriv `ytterpunkter(maalinger)` som returnerer både den laveste og den høyeste verdien i ei liste. Vis begge måtene å ta imot svaret på.",
+   "solution": "De to verdiene pakkes i ett tuppel på veien ut.\n\n```python\ndef ytterpunkter(maalinger):\n    return min(maalinger), max(maalinger)\n\ngrader = [4, -2, 9, 3, 7]\nlav, hoy = ytterpunkter(grader)\nprint(lav, hoy)\nsvar = ytterpunkter(grader)\nprint(svar)\nprint(svar[1])\n```\n\n**Utskrift:**\n```\n-2 9\n(-2, 9)\n9\n```\n\nDe to måtene gir samme informasjon. Utpakkingen `lav, hoy = ...` er den lesbare, og den løsningsforslagene bruker; å beholde tuppelet samlet er nyttig når du skal sende svaret rett videre til en annen funksjon.\n\nLegg merke til at `print(svar)` viser tuppelet med parenteser og komma: `(-2, 9)`. Det er akkurat den forskjellen en kodesporingsoppgave tester.\n\nSamme mekanisme brukes til å bytte om to variabler:\n\n```python\na = 'først'\nb = 'sist'\na, b = b, a\nprint(a, b)\n```\n\n**Utskrift:**\n```\nsist først\n```"
+  },
+  {
+   "id": "tdt4110-3-6-exr-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-6-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing med utpakking.) Hva skriver programmet ut? Skriv alle tre linjene nøyaktig.\n\n```python\ndef del_opp(sek):\n    return sek // 60, sek % 60\n\nm, s = del_opp(143)\nprint(m, s)\nprint(del_opp(143))\nx = 1\ny = 2\nx, y = y, x + y\nprint(x, y)\n```",
+    "solution": "Funksjonen returnerer to verdier pakket i ett tuppel. `143 // 60` er 2, og `143 % 60` er 23.\n\nSiste del er den lumske: hele høyresiden `y, x + y` regnes ut FØR noe tilordnes, med de gamle verdiene `x = 1` og `y = 2`. Tuppelet blir altså `(2, 3)`, og deretter settes `x` til 2 og `y` til 3.\n\n| Steg | `x` | `y` |\n|---|---|---|\n| start | 1 | 2 |\n| høyresiden regnes ut | — | tuppelet `(2, 3)` |\n| tilordning | 2 | 3 |\n\n```python\ndef del_opp(sek):\n    return sek // 60, sek % 60\n\nm, s = del_opp(143)\nprint(m, s)\nprint(del_opp(143))\nx = 1\ny = 2\nx, y = y, x + y\nprint(x, y)\n```\n\n**Utskrift:**\n```\n2 23\n(2, 23)\n2 3\n```\n\nMerk forskjellen på de to første utskriftene: utpakket blir det `2 23` med mellomrom, mens tuppelet skrives `(2, 23)` med parenteser og komma. Hadde tilordningen på slutten stått i to linjer, ville `y` blitt 4 i stedet for 3 — fordi `x` da allerede var endret.",
+    "hints": [
+     "Regn ut heltallsdelingen og resten hver for seg.",
+     "Et utpakket par og et helt tuppel skrives ut på to forskjellige måter.",
+     "På siste tilordning: regn ut HELE høyresiden med de gamle verdiene først."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-6-t-17",
+   "type": "text",
+   "content": "## Løkke 3 — parallelle tupler (~12 min)\n\nNå kommer den formen tupler faktisk har på eksamen. Karaktersettingen trenger to opplysninger per karakter: grensen og bokstaven. De legges i **to tupler av samme lengde**, der samme plassnummer hører sammen:\n\n```text\ngrenser   = (90, 80, 70, 60)\nbokstaver = ('A', 'B', 'C', 'D')\n```\n\nGrense 90 hører til bokstav `'A'` fordi begge står på plass 0. Dette kalles **parallelle tupler**, og den samme teknikken brukes til øvelser med vekter, varer med priser og soner med satser. Du kunne brukt en ordbok, men parallelle tupler bevarer **rekkefølgen**, og karaktersetting handler nettopp om å gå gjennom grensene fra høyest til lavest."
+  },
+  {
+   "id": "tdt4110-3-6-def-18",
+   "type": "definition",
+   "title": "Parallelle tupler",
+   "content": "To eller flere samlinger av **samme lengde**, der samme plassnummer hører sammen. `grenser[2]` og `bokstaver[2]` er to opplysninger om den samme karakteren.\n\nDu går gjennom dem med én felles indeks: `for i in range(len(grenser)):` og bruker `grenser[i]` og `bokstaver[i]` inni. Forutsetningen er at de er like lange og i samme rekkefølge — går de ut av takt, blir alt feil uten at noe krasjer, og det er den farligste feilen i mønsteret."
+  },
+  {
+   "id": "tdt4110-3-6-def-19",
+   "type": "definition",
+   "title": "`zip(a, b)`",
+   "content": "Kobler to samlinger element for element og gir parene som tupler: `zip((90, 80), ('A', 'B'))` gir parene `(90, 'A')` og `(80, 'B')`.\n\nDen brukes i løkkehodet med utpakking: `for grense, bokstav in zip(grenser, bokstaver):` — da slipper du indeksen helt. Er samlingene ulikt lange, stopper `zip` ved den korteste, uten feilmelding. Skal du se resultatet direkte, må du konvertere: `list(zip(a, b))`."
+  },
+  {
+   "id": "tdt4110-3-6-thm-20",
+   "type": "theorem",
+   "title": "Kodemønster: karaktersetting med parallelle tupler",
+   "content": "**Problemet:** en poengsum skal oversettes til en kategori — karakter, prisklasse, sone, aldersgruppe.\n\n**Mønsteret**, i fire steg:\n\n1. Legg grensene i ett tuppel, **sortert fra høyest til lavest**, og kategoriene i et parallelt tuppel.\n2. Gå gjennom dem med felles indeks eller med `zip`.\n3. Returnér den **første** kategorien der poengsummen er stor nok — fordi grensene er sortert synkende, er den første treffen alltid den riktige.\n4. **Etter løkka:** returnér bunnkategorien, den som gjelder når ingen grense ble nådd.\n\nSteg 4 er det som glipper oftest. Uten det returnerer funksjonen `None` for alle poengsummer under den laveste grensen, og da er både `'F'` og feilmeldingen borte.\n\nMerk at `return` inne i løkka avslutter funksjonen med én gang — du trenger ingen `break` og ingen hjelpevariabel."
+  },
+  {
+   "id": "tdt4110-3-6-ex-21",
+   "type": "example",
+   "title": "Eksempel 3: fra poengsum til karakter",
+   "problem": "Med `grenser = (90, 80, 70, 60)` og `bokstaver = ('A', 'B', 'C', 'D')`: skriv `karakter(poeng)` som gir riktig bokstav, og `'F'` når ingen grense er nådd. Test med 95, 82, 60 og 41.",
+   "solution": "Først med felles indeks:\n\n```python\ngrenser = (90, 80, 70, 60)\nbokstaver = ('A', 'B', 'C', 'D')\n\ndef karakter(poeng):\n    for i in range(len(grenser)):\n        if poeng >= grenser[i]:\n            return bokstaver[i]\n    return 'F'\n\nfor p in [95, 82, 60, 41]:\n    print(p, karakter(p))\n```\n\n**Utskrift:**\n```\n95 A\n82 B\n60 D\n41 F\n```\n\nOg her er den samme funksjonen med `zip`, som fjerner indeksen:\n\n```python\ngrenser = (90, 80, 70, 60)\nbokstaver = ('A', 'B', 'C', 'D')\n\ndef karakter(poeng):\n    for grense, bokstav in zip(grenser, bokstaver):\n        if poeng >= grense:\n            return bokstav\n    return 'F'\n\nfor p in [95, 82, 60, 41]:\n    print(p, karakter(p))\n```\n\n**Utskrift:**\n```\n95 A\n82 B\n60 D\n41 F\n```\n\n**Begge gir full pott.** Indeksvarianten er den du trenger når du skal se på nabogrensen også; `zip`-varianten er kortere og vanskeligere å bomme på.\n\nTre detaljer avgjør om funksjonen er riktig. Grensene må stå **synkende** — står de stigende, får alle over 60 poeng en `'D'`, fordi den første treffen da er feil. Sammenligningen må være `>=` og ikke `>`, ellers får den som har akkurat 60 poeng en `'F'`. Og `return 'F'` må stå **etter** løkka, på funksjonens innrykksnivå — legger du den inne i løkka, avsluttes funksjonen allerede på første grense som ikke er nådd.\n\nMerk til slutt at 60 poeng gir `'D'` og ikke `'F'`: grensen er «minst 60», og det er akkurat kanttilfellet en oppgave liker å teste."
+  },
+  {
+   "id": "tdt4110-3-6-exr-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-6-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger G — analyse: kategorisering med parallelle tupler.) En kommune deler vannforbruk i prisklasser. Grensene i kubikkmeter er `(300, 200, 120, 60)` og de tilhørende klassene er `('rød', 'oransje', 'gul', 'grønn')`. Alt under den laveste grensen er klasse `'blå'`.\n\n**a)** Skriv `klasse(forbruk)` som returnerer riktig klassenavn.\n**b)** Skriv `klassefordeling(forbrukstall)` som tar ei liste med forbrukstall og returnerer en ordbok fra klassenavn til antall husstander i den klassen. Funksjonen skal gjenbruke `klasse`.\n\nTest med `forbrukstall = [340, 55, 210, 120, 61, 299, 15]`.",
+    "solution": "**a)** er karaktersettingsmønsteret med andre navn. **b)** er tellermønsteret fra [kap. 3.5](/tdt4110/tdt4110-3-5), der nøkkelen kommer fra a).\n\n```python\ngrenser = (300, 200, 120, 60)\nklasser = ('rød', 'oransje', 'gul', 'grønn')\n\ndef klasse(forbruk):\n    for grense, navn in zip(grenser, klasser):\n        if forbruk >= grense:\n            return navn\n    return 'blå'\n\ndef klassefordeling(forbrukstall):\n    d = {}\n    for f in forbrukstall:\n        k = klasse(f)\n        d[k] = d.get(k, 0) + 1\n    return d\n\nforbrukstall = [340, 55, 210, 120, 61, 299, 15]\nfor f in forbrukstall:\n    print(f, klasse(f))\nprint(klassefordeling(forbrukstall))\n```\n\n**Utskrift:**\n```\n340 rød\n55 blå\n210 oransje\n120 gul\n61 grønn\n299 oransje\n15 blå\n{'rød': 1, 'blå': 2, 'oransje': 2, 'gul': 1, 'grønn': 1}\n```\n\n**Hva gir uttelling:** at grensene står synkende, at sammenligningen er `>=` slik at 120 havner i `'gul'` og ikke i `'grønn'`, at bunnklassen returneres etter løkka, og at b) **kaller** a) i stedet for å gjenta grensene — gjenbruk av egne funksjoner er noe sensor belønner. Løser du a) med felles indeks i stedet for `zip`, er det like riktig.",
+    "hints": [
+     "Grensene må gås gjennom fra høyest til lavest — den første treffen er den riktige.",
+     "Test kanttilfellet: hva skal skje med et forbruk som er nøyaktig 120?",
+     "I b) er nøkkelen i telleordboka klassenavnet du får fra funksjonen i a)."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-6-warn-22",
+   "type": "warning",
+   "title": "Typiske feil: parallelle tupler",
+   "content": "Fire feil koster poeng i akkurat dette mønsteret:\n\n- **Grensene i feil rekkefølge.** Står de stigende, treffer løkka den laveste grensen først, og alle får den dårligste kategorien som de kvalifiserer til.\n- **Glemt bunnkategori.** Uten `return 'F'` etter løkka gir funksjonen `None` for alle poengsummer under laveste grense — og `None` skrives ut som `None`, ikke som ingenting.\n- **Forskjøvne indekser.** `bokstaver[i + 1]` eller to tupler av ulik lengde gir feil kategori uten at noe krasjer. Kontroller at de er like lange.\n- **`>` i stedet for `>=`.** Da faller den som har akkurat grenseverdien ned et hakk. Kanttilfellet er nesten alltid med i testdataene."
+  },
+  {
+   "id": "tdt4110-3-6-exr-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-6-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing med `zip`.) Hva skriver programmet ut? Skriv alle tre linjene nøyaktig.\n\n```python\nnavn = ('nord', 'sør', 'øst', 'vest')\ntall = (12, 7, 9)\nfor n, x in zip(navn, tall):\n    print(n, x)\nprint(len(list(zip(navn, tall))))\n```",
+    "solution": "`zip` stopper ved den **korteste** av de to samlingene. `tall` har tre elementer, så `'vest'` blir aldri med — og det gir ingen feilmelding.\n\n| Runde | `n` | `x` | Skrives |\n|---|---|---|---|\n| 1 | `'nord'` | 12 | `nord 12` |\n| 2 | `'sør'` | 7 | `sør 7` |\n| 3 | `'øst'` | 9 | `øst 9` |\n| — | `'vest'` | mangler | ingenting |\n\n```python\nnavn = ('nord', 'sør', 'øst', 'vest')\ntall = (12, 7, 9)\nfor n, x in zip(navn, tall):\n    print(n, x)\nprint(len(list(zip(navn, tall))))\n```\n\n**Utskrift:**\n```\nnord 12\nsør 7\nøst 9\n3\n```\n\nFellen er at ulik lengde er **stille**: koden kjører helt fint og gir bare færre rader enn du ventet. Det er derfor parallelle samlinger alltid skal kontrolleres for lik lengde før de brukes.",
+    "hints": [
+     "Skriv de to samlingene under hverandre og par dem opp plass for plass.",
+     "Hva gjør `zip` når det ikke finnes noen partner til det siste elementet?",
+     "Siste linje teller hvor mange par som faktisk ble laget."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-6-def-23",
+   "type": "definition",
+   "title": "Tuppel som ordboknøkkel",
+   "content": "Fordi tupler er uforanderlige, kan de brukes som **nøkler** i en ordbok — noe ei liste ikke kan. Det gir deg en sammensatt nøkkel: `d[('nord', 'papir')] = 200` slår opp på sone og fraksjon samtidig.\n\nBruken er sjelden på eksamen, men verdt å kjenne igjen: ser du firkantparenteser med et tuppel inni, er det ett oppslag på to opplysninger, ikke to oppslag etter hverandre. Alternativet er en ordbok inne i en ordbok."
+  },
+  {
+   "id": "tdt4110-3-6-exr-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-6-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — vektet sum med parallelle tupler.) En femkamp har fem øvelser med hver sin vekt. Øvelsesnavnene ligger i `ovelser`, vektene i `vekter`, og hver deltakers poeng ligger som ei liste i samme rekkefølge som øvelsene.\n\n**a)** Skriv `totalpoeng(poeng, vekter)` som returnerer den vektede summen, altså hvert poengtall ganget med sin vekt og lagt sammen.\n**b)** Skriv `beste_ovelse(poeng, ovelser)` som returnerer et **tuppel** med navnet på øvelsen deltakeren fikk flest poeng i, og selve poengsummen. Returnér `None` hvis poenglista er tom.\n**c)** Skriv `rangering(navn, alle_poeng, vekter)` som returnerer en ordbok fra deltakernavn til totalpoeng.\n\nTest med `ovelser = ('sprint', 'lengde', 'kule', 'høyde', 'løp')`, `vekter = (1.0, 1.2, 0.8, 1.1, 1.5)`, `navn = ['Rein', 'Sand']` og `alle_poeng = [[8, 6, 9, 5, 7], [7, 9, 4, 8, 6]]`.",
+    "solution": "**a)** går gjennom de to parallelle samlingene med `zip`. **b)** er finn-beste-løkka som returnerer to verdier pakket i ett tuppel. **c)** gjenbruker a).\n\n```python\ndef totalpoeng(poeng, vekter):\n    total = 0\n    for p, v in zip(poeng, vekter):\n        total = total + p * v\n    return total\n\ndef beste_ovelse(poeng, ovelser):\n    if len(poeng) == 0:\n        return None\n    beste = 0\n    for i in range(len(poeng)):\n        if poeng[i] > poeng[beste]:\n            beste = i\n    return ovelser[beste], poeng[beste]\n\ndef rangering(navn, alle_poeng, vekter):\n    d = {}\n    for i in range(len(navn)):\n        d[navn[i]] = totalpoeng(alle_poeng[i], vekter)\n    return d\n\novelser = ('sprint', 'lengde', 'kule', 'høyde', 'løp')\nvekter = (1.0, 1.2, 0.8, 1.1, 1.5)\nnavn = ['Rein', 'Sand']\nalle_poeng = [[8, 6, 9, 5, 7], [7, 9, 4, 8, 6]]\nprint(totalpoeng(alle_poeng[0], vekter))\nprint(beste_ovelse(alle_poeng[0], ovelser))\nprint(beste_ovelse([], ovelser))\nprint(rangering(navn, alle_poeng, vekter))\n```\n\n**Utskrift:**\n```\n38.4\n('kule', 9)\nNone\n{'Rein': 38.4, 'Sand': 38.8}\n```\n\n**Hva gir uttelling:** at a) holder de tre samlingene i takt uten å hardkode antall øvelser, at b) returnerer to verdier som ett tuppel og håndterer den tomme lista i stedet for å krasje (feilkode #6 — å ikke håndtere tomtilfeller), og at c) kaller a) i stedet for å gjenta regnestykket.\n\nLegg merke til at totalene her kommer ut som runde tall med én desimal fordi tallene her går opp; i andre datasett kan du få en lang haledesimal, og da formaterer du utskriften med `'{:.1f}'` fra [kap. 3.4](/tdt4110/tdt4110-3-4) i stedet for å runde av i regnestykket. Løser du b) med `max` og `.index` i stedet for løkka, er det like riktig — men da må tomtilfellet fortsatt håndteres først, siden `max` stopper med feilmelding på ei tom liste.",
+    "hints": [
+     "I a): `zip` gir deg poengtallet og vekten samtidig, uten indeks.",
+     "I b): husk at oppgaven ber om to opplysninger — pakk dem med komma i `return`.",
+     "I b): sjekk den tomme lista FØR løkka, ellers har du ingen startverdi.",
+     "I c): la funksjonen kalle den fra a) i stedet for å regne på nytt."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-6-exr-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-6-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle fire linjene nøyaktig, med de parentesene Python faktisk bruker.\n\n```python\npar = ('sone', 4)\na, b = par\nprint(a, b)\nprint(par[0][1:])\nny = par + ('rest',)\nprint(ny)\nprint(len(ny), type(ny) == tuple)\n```",
+    "solution": "Fire ting testes her: utpakking, utsnitt av et element inne i tuppelet, skjøting med et ettelementstuppel, og typen.\n\n| Uttrykk | Resultat | Hvorfor |\n|---|---|---|\n| `a, b = par` | `a` er `'sone'`, `b` er 4 | utpakking i to variabler |\n| `par[0][1:]` | `one` | `par[0]` er strengen `'sone'`, og utsnittet dropper første tegn |\n| `par + ('rest',)` | `('sone', 4, 'rest')` | skjøting gir et NYTT tuppel med tre elementer |\n| `len(ny)` | 3 | tre elementer |\n\n```python\npar = ('sone', 4)\na, b = par\nprint(a, b)\nprint(par[0][1:])\nny = par + ('rest',)\nprint(ny)\nprint(len(ny), type(ny) == tuple)\n```\n\n**Utskrift:**\n```\nsone 4\none\n('sone', 4, 'rest')\n3 True\n```\n\nTo feller. Den første er `par[0][1:]`: det er to oppslag etter hverandre — først elementet på plass 0, som er en streng, så et utsnitt av den strengen. Den andre er kommaet i `('rest',)`; uten det ville `par + ('rest')` prøvd å skjøte et tuppel og en streng, og stoppet med en feilmelding.",
+    "hints": [
+     "Ta ett uttrykk om gangen, og skriv opp hva hver del gir.",
+     "`par[0]` er en streng — hva gjør et utsnitt på en streng?",
+     "Merk kommaet inne i den siste parentesen."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-6-col-24",
+   "type": "collapsible",
+   "title": "Repetisjon — de seks setningene du bør ha med deg",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "tdt4110-3-6-col-24-t1",
+     "type": "text",
+     "content": "1. Et tuppel er ei liste som ikke kan endres — runde parenteser, ingen `append`, ingen `sort`, ingen tilordning til en plass.\n2. Alt som bare leser, virker likt som på lister: `len`, indeks, utsnitt og `in`. Et utsnitt av et tuppel er et tuppel.\n3. Det er kommaet som lager tuppelet: `(5)` er tallet 5, `(5,)` er et tuppel.\n4. `return a, b` pakker to verdier i ett tuppel; `x, y = par` pakker dem ut igjen, og antallet må stemme eksakt.\n5. Parallelle tupler har samme lengde og samme rekkefølge — samme plassnummer hører sammen. `zip` parer dem opp og stopper ved den korteste.\n6. Karaktersetting: grenser synkende, `>=` i sammenligningen, og bunnkategorien returneres ETTER løkka."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-3-6-col-25",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-3-6-col-25-t1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `(a, b, c)` | Tuppel med tre elementer; rekkefølgen er en del av dataene |\n| `()` | Tomt tuppel |\n| `(5,)` | Tuppel med ETT element; kommaet er det som lager tuppelet |\n| `t[i]` | Elementet på plass `i`; teller fra 0; `t[-1]` er det siste |\n| `t[a:b]` | Nytt TUPPEL fra og med `a` til men ikke med `b`; aldri ei liste |\n| `len(t)` | Antall elementer |\n| `v in t` | `True` hvis verdien finnes i tuppelet |\n| `t1 + t2` | Nytt tuppel med begge etter hverandre; originalene urørt |\n| `t[0] = v` | FEILER — `TypeError`; tupler kan ikke endres |\n| `tuple(liste)` | Gjør ei liste om til et tuppel |\n| `list(t)` | Gjør et tuppel om til ei liste, slik at det kan endres |\n| `sorted(t)` | Ei sortert LISTE; pakk inn med `tuple(...)` hvis svaret skal være et tuppel |\n| `par = a, b` | Pakking — verdiene samles i ett tuppel; parentesene er valgfrie |\n| `x, y = par` | Utpakking; antall variabler må stemme eksakt, ellers `ValueError` |\n| `a, b = b, a` | Bytter innholdet i to variabler; høyresiden regnes ut først |\n| `return a, b` | Returnerer ett tuppel med to verdier |\n| `zip(a, b)` | Parer opp element for element; stopper ved den KORTESTE, uten feilmelding |\n| `d[(k1, k2)]` | Oppslag på en sammensatt nøkkel; lovlig fordi tupler er uforanderlige |\n\n**Formler i dette delkapitlet:** vektet totalsum av $n$ øvelser er $T = \\sum_{i=1}^{n} p_i \\cdot v_i$, der $p_i$ er poeng og $v_i$ er vekt for øvelse $i$; i kode `total = total + p * v` inne i en `zip`-løkke."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

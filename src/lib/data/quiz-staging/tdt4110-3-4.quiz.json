@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Hva skriver `print('Sum:', 250)` ut?",
+  "options": [
+   "`Sum: 250`",
+   "`Sum:250`",
+   "`Sum: , 250`",
+   "`Sum:  250`"
+  ],
+  "explanation": "`print` setter ETT mellomrom mellom argumentene sine. Svaret `Sum:250` er det du får med skjøting, `print('Sum:' + str(250))`; `Sum:  250` har to mellomrom, som ingen av delene gir; og kommaet i koden er argumentskillet, ikke noe som skrives ut."
+ },
+ {
+  "question": "Hva gjør `end=''` i et `print`-kall?",
+  "options": [
+   "Fjerner linjeskiftet, så neste utskrift fortsetter på samme linje",
+   "Fjerner mellomrommet som ellers står mellom argumentene",
+   "Avslutter programmet etter at linja er skrevet ferdig",
+   "Setter et tomt tegn mellom hvert av argumentene i kallet"
+  ],
+  "explanation": "`end` styrer det som kommer ETTER siste argument, altså normalt linjeskiftet. Å fjerne mellomrommet mellom argumentene er `sep=''` sin jobb, og `end` avslutter ingenting annet enn linja."
+ },
+ {
+  "question": "Hva skriver `print('a', 'b', 'c', sep='-')` ut?",
+  "options": [
+   "`a-b-c`",
+   "`a - b - c`",
+   "`-a-b-c-`",
+   "`abc-`"
+  ],
+  "explanation": "`sep` er tegnet MELLOM argumentene, så det står to steder og ikke i endene. Svaret `a - b - c` beholder mellomrommene i tillegg, `-a-b-c-` legger skilletegnet i endene også, og `abc-` blander `sep` med `end`."
+ },
+ {
+  "question": "Hvor mange linjer skriver dette programmet ut?\n\n```python\nprint('en', end=' ')\nprint('to')\nprint()\nprint('tre')\n```",
+  "options": [
+   "3, hvorav én er tom",
+   "4, hvorav én er tom",
+   "3, ingen av dem tom",
+   "2, hvorav én er tom"
+  ],
+  "explanation": "`end=' '` gjør at «en» og «to» havner på samme linje, det bare `print()` gir en tom linje, og «tre» er den siste — altså tre linjer i alt. Svaret 4 teller `print`-kallene i stedet for linjeskiftene, og alternativene uten tom linje overser at `print()` faktisk skriver et linjeskift."
+ },
+ {
+  "question": "Hva gir `'42'.rjust(5)`?",
+  "options": [
+   "`'   42'`",
+   "`'42   '`",
+   "`'42'`",
+   "`'00042'`"
+  ],
+  "explanation": "`rjust` legger mellomrom FORAN til lengden er 5, så tallet står til høyre i feltet. `'42   '` er `ljust`, `'42'` er det du får hvis bredden er mindre enn strengen, og `'00042'` er `zfill(5)`, som fyller med nuller i stedet."
+ },
+ {
+  "question": "Hva gir `'vaffel'.ljust(4)`?",
+  "options": [
+   "`'vaffel'`",
+   "`'vaff'`",
+   "`'vaffel    '`",
+   "`'  vaffel'`"
+  ],
+  "explanation": "Er strengen allerede minst så lang som bredden, gjør `ljust` ingenting — den klipper aldri. Svaret `'vaff'` antar klipping, `'vaffel    '` fyller ut til en bredde som ikke er bedt om, og `'  vaffel'` er høyrejustering."
+ },
+ {
+  "question": "Hvorfor stopper `print(antall.rjust(4))` med feil når `antall` er tallet 42?",
+  "options": [
+   "Fordi `rjust` er en strengmetode og ikke finnes på et heltall",
+   "Fordi `rjust` krever to argumenter når verdien er et heltall",
+   "Fordi bredden 4 er for liten til å romme et tosifret tall",
+   "Fordi `print` ikke kan ta et metodekall som argument direkte"
+  ],
+  "explanation": "Justeringsmetodene hører til strenger, så tallet må konverteres først: `str(antall).rjust(4)`. Bredden er ikke problemet — `rjust` klipper aldri — og `print` tar gjerne metodekall som argument."
+ },
+ {
+  "question": "Hva gir `'{:8.2f}'.format(4.567)`?",
+  "options": [
+   "`'    4.57'`",
+   "`'    4.56'`",
+   "`'4.57    '`",
+   "`'    4.567'`"
+  ],
+  "explanation": "Oppskriften betyr bredde 8 og to desimaler, og verdien AVRUNDES, så `4.567` blir `4.57` med fire mellomrom foran. Svaret `'    4.56'` klipper i stedet for å runde av, `'4.57    '` venstrejusterer uten at noen har bedt om det, og `'    4.567'` beholder tre desimaler."
+ },
+ {
+  "question": "Hva betyr tegnet `<` i oppskriften `'{:<10}'`?",
+  "options": [
+   "At verdien skal stå venstrejustert i et felt på ti tegn",
+   "At verdien skal være mindre enn ti tegn, ellers oppstår feil",
+   "At verdien skal stå høyrejustert i et felt på ti tegn",
+   "At verdien skal midtstilles i et felt på ti tegn med luft"
+  ],
+  "explanation": "`<` er venstrejustering, `>` er høyrejustering og `^` er midtstilling; tallet etter er bredden. Oppskriften er ingen begrensning på lengden — er verdien lengre enn bredden, skrives den ut i sin helhet."
+ },
+ {
+  "question": "Hvilken av disse gir nøyaktig samme resultat som `'{:6.1f}'.format(pris)`?",
+  "options": [
+   "`f'{pris:6.1f}'`",
+   "`f'{pris}:6.1f'`",
+   "`f'{6.1f:pris}'`",
+   "`f'pris:6.1f'`"
+  ],
+  "explanation": "I en f-streng står uttrykket først og oppskriften etter kolonet, inne i krøllparentesene: `f'{pris:6.1f}'`. De andre plasserer enten oppskriften utenfor parentesen, bytter om rekkefølgen, eller mangler krøllparentesene helt, slik at teksten skrives bokstavelig."
+ },
+ {
+  "question": "Hva gir `str(7).zfill(3)`?",
+  "options": [
+   "`'007'`",
+   "`'  7'`",
+   "`'700'`",
+   "`'7'`"
+  ],
+  "explanation": "`zfill` fyller med NULLER foran til lengden er 3. Svaret `'  7'` er `rjust(3)`, som fyller med mellomrom i stedet; `'700'` fyller bakfra, som `zfill` aldri gjør; og `'7'` overser at det fylles ut i det hele tatt."
+ },
+ {
+  "question": "Hva gir `f'{9:02d}'`?",
+  "options": [
+   "`'09'`",
+   "`'9'`",
+   "`'9.0'`",
+   "`'  9'`"
+  ],
+  "explanation": "Nullen i oppskriften betyr fyll med nuller, 2 er bredden, og `d` betyr heltall — altså `'09'`. Svaret `'  9'` er det du får uten nullen (`{:2d}`), og `'9.0'` ville krevd `f` i stedet for `d`."
+ },
+ {
+  "question": "En løpstid er 3 725 sekunder. Hvor mange hele minutter viser `hh:mm:ss`-formatet?",
+  "options": [
+   "2",
+   "62",
+   "1",
+   "5"
+  ],
+  "explanation": "Timene trekkes fra først: `3725 % 3600` er 125 sekunder, og `125 // 60` er 2 minutter. Svaret 62 kommer av `3725 // 60`, altså å glemme å trekke fra timen; 1 er antall timer, og 5 er sekundene som blir til overs."
+ },
+ {
+  "question": "Hvorfor skal tidsformatering bruke `//` og ikke `/`?",
+  "options": [
+   "Fordi `/` gir desimaltall, så timetallet blir `1.03` i stedet for `1`",
+   "Fordi `/` ikke er definert for heltall og gir en feilmelding",
+   "Fordi `//` runder oppover og gir riktig antall hele timer",
+   "Fordi `/` bare kan brukes når begge tallene er desimaltall"
+  ],
+  "explanation": "`/` gir alltid et desimaltall, og et tidsfelt skal være et helt tall (feilkode #9 — å blande heltalls- og flyttallsdeling). `//` runder NEDOVER, ikke oppover, og `/` er fullt lovlig på heltall — den gir bare feil type svar her."
+ }
+]

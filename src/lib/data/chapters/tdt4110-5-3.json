@@ -1,0 +1,405 @@
+{
+ "id": "tdt4110-5-3",
+ "courseId": "tdt4110",
+ "chapterNumber": "5.3",
+ "title": "DRILL — «Forklar med én setning» og «fyll inn manglende kodelinje»",
+ "description": "De to distinktive NTNU-sjangrene: beskrive en funksjons formål presist i én setning, og velge kodelinjen som får funksjonen til å virke.",
+ "estimatedMinutes": 75,
+ "competenceGoals": [
+  "kunne lese en ferdig funksjon og si hva den oppnår i én presis setning som starter med et verb",
+  "kunne skille formålet med en funksjon fra beskrivelsen av hvordan den er skrevet",
+  "kunne velge riktig manglende kodelinje ved å prøve hvert alternativ mot et minimalt eksempel",
+  "kunne kjenne igjen de faste hulltypene: løkkegrense, betingelse, oppdatering og indeksberegning"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-5-3-tip",
+   "title": "Eksamensvinkel",
+   "content": "**To sjangre som nesten ingen andre programmeringsemner har.** De er billige poeng hvis du har trent på dem, og de koster overraskende mye hvis du ikke har det.\n\n- **Sjanger C — «forklar med én setning hva funksjonen gjør».** Du får en ferdig funksjon og skal si hva den oppnår, i én setning. Den står i **~60 % av settene, altså 6 av de 10 sittingene i arkivet 2014–2019**, og er verdt **~2 %**.\n- **Sjanger D — «fyll inn manglende kodelinje».** Én linje i en ellers ferdig funksjon er byttet ut med en markør, og du skal velge hvilken av fire linjer som hører hjemme der. Den står i **~50 % av settene**, og er verdt **1–3 %**.\n\n**Konsishet vurderes eksplisitt i sjanger C.** Sensor gjentar det hvert år: svar kort og klart — er svaret uklart eller lengre enn nødvendig, trekker det ned. Det er den eneste sjangeren i faget der et **riktig** svar kan gi trekk fordi det er for langt.\n\n**Prioritet: må kunne** — det midterste av bokas tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til».\n\nKapitlet tar **~75 minutter** og er delt i to halvdeler med hver sin løsningsoppskrift: sjanger C først (~35 min), deretter sjanger D (~40 min). Halvdelene er uavhengige — ta dem gjerne på hver sin kveld.",
+   "type": "tip"
+  },
+  {
+   "id": "tdt4110-5-3-forkunnskaper",
+   "content": "**Sist du var her — Forkunnskaper, ferdig oppfrisket**\n\nBegge sjangrene består i å LESE kode, ikke skrive den. Du trenger derfor ingen nye konstruksjoner, men du må kjenne igjen de tre mønstrene under på et blunk. Her er de, kjørt og ferdig oppfrisket.\n\n**1. Telleren med ordbok** ([kap. 3.5](/tdt4110/tdt4110-3-5)) — «hvor mange av hver?»:\n\n```python\nlinjer = ['tog', 'buss', 'tog']\nd = {}\nfor t in linjer:\n    d[t] = d.get(t, 0) + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'tog': 2, 'buss': 1}\n```\n\n**2. Finn beste** ([kap. 3.1](/tdt4110/tdt4110-3-1)) — løkka som holder på den beste verdien sett så langt:\n\n```python\npriser = [42, 19, 87, 31]\nbeste = priser[0]\nfor p in priser:\n    if p > beste:\n        beste = p\nprint(beste)\n```\n\n**Utskrift:**\n```\n87\n```\n\n**3. Bygg ei ny liste** ([kap. 3.2](/tdt4110/tdt4110-3-2)) — den tomme lista som fylles i løkka:\n\n```python\ntall = [4, 7, 2, 9]\nresultat = []\nfor t in tall:\n    if t % 2 == 1:\n        resultat.append(t)\nprint(resultat)\n```\n\n**Utskrift:**\n```\n[7, 9]\n```\n\nDu trenger dessuten løkkegrensene fra [kap. 1.3](/tdt4110/tdt4110-1-3), utsnitt fra [kap. 3.3](/tdt4110/tdt4110-3-3), sporingstavla fra [kap. 5.1](/tdt4110/tdt4110-5-1) og rekursjonsmalen fra [kap. 5.2](/tdt4110/tdt4110-5-2).",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-3-t-c-intro",
+   "content": "## Første halvdel — «forklar med én setning» (~35 min)\n\nSjangeren ser lett ut og er det ikke. Nesten alle klarer å forstå hva koden gjør; det som skiller besvarelsene, er om de klarer å si det **kort**.\n\nTenk på det slik: du skal skrive den ene setningen som ville stått over funksjonen som en kommentar. Ikke en bruksanvisning, ikke en gjennomgang — en overskrift.\n\nEtter løsningsoppskrifta følger seks korte oppslag. De er **flashcard-stoff — hopp trygt over ved førstegangslesing**; det du trenger for å komme i gang, står i oppskrifta og i eksempel 1.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-3-thm-c",
+   "title": "Løsningsoppskrift for sjanger C",
+   "content": "Fire steg. De tar under et minutt til sammen når du har trent litt.\n\n1. **Les hele funksjonen, og se på `return` først.** Returverdien forteller deg nesten alltid hva funksjonen er til for. Returnerer den et tall, ei liste, en ordbok eller en sannhetsverdi?\n2. **Spør: hva OPPNÅS?** Ikke hvordan. «Går gjennom lista og sammenligner hvert element» er *hvordan*. «Finner det største tallet» er *hva*.\n3. **Skriv én setning som starter med et verb.** «Returnerer …», «Teller …», «Sorterer …», «Sjekker om …». Ingen innledning, ingen «denne funksjonen».\n4. **Stryk alt om enkeltlinjer, løkkevariabler og innrykk.** Er setningen fortsatt sann og entydig? Da er du ferdig.\n\n**Tommelfingerregel for lengden:** én setning, som regel 6–15 ord. Blir den lengre enn to linjer på arket, har du begynt å beskrive *hvordan*.",
+   "type": "theorem"
+  },
+  {
+   "id": "tdt4110-5-3-def-sjanger-c",
+   "title": "Sjanger C — «forklar med én setning»",
+   "content": "Oppgaveformen der du får en ferdig funksjon og skal beskrive **formålet** i én setning. Den kommer ofte som en deloppgave rett etter en sporingsoppgave på den samme koden: først «hva returnerer `myst(48, 18)`?», så «forklar med én setning hva `myst` gjør».\n\nPoengsummen er lav — rundt 2 % — men den er så godt som gratis når du først har sporet funksjonen, fordi du allerede har lest den.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-hva-hvordan",
+   "title": "*Hva* mot *hvordan*",
+   "content": "Skillet hele sjangeren står på.\n\n| *Hvordan* (feil svar) | *Hva* (riktig svar) |\n|---|---|\n| «Løkka går gjennom lista og sammenligner hvert element med det største så langt» | «Returnerer det største tallet i lista» |\n| «Den tar `n % 10` og legger til resultatet av kallet med `n // 10`» | «Returnerer tverrsummen av et positivt heltall» |\n| «For hver rad legger den inn en verdi i en ordbok med `get`» | «Teller hvor mange ganger hver verdi forekommer» |\n\nEt *hvordan*-svar er ikke galt — det er bare svar på et annet spørsmål, og det trekker ned fordi det er lengre enn nødvendig.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-verb",
+   "title": "Verbstarten",
+   "content": "Begynn setningen med verbet, i presens, uten subjekt: «Returnerer …», «Teller …», «Sjekker om …», «Sorterer …», «Fjerner …», «Bygger …».\n\nGrunnen er ikke stil, men presisjon: verbet tvinger deg til å si hva funksjonen **gjør** med en gang, og du slipper innledninger som «Denne funksjonen tar inn en liste og …», som koster plass uten å si noe.\n\nDe seks verbene over dekker nesten alle funksjoner du møter i faget.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-retur",
+   "title": "Returverdien er nøkkelen",
+   "content": "Se på `return`-linja først. Typen på det som returneres, avgrenser svaret ditt før du har lest resten:\n\n| Returnerer | Da er funksjonen som regel |\n|---|---|\n| ett tall | en teller, en sum eller et «finn beste» |\n| `True`/`False` | en sjekk — «Sjekker om …» |\n| ei liste | et filter, en omforming eller et uttrekk |\n| ei liste av lister | en tabelloperasjon, ofte transponering |\n| en ordbok | en teller eller en gruppering |\n| `-1` i tillegg til et tall | et søk, der `-1` betyr «ikke funnet» |\n\nEr det flere `return`-linjer, ser du på dem alle: en funksjon som returnerer både `True` og `False` er alltid en sjekk.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-konsishet",
+   "title": "Konsishetsregelen",
+   "content": "Sensors formulering, som gjentas hvert år: **svar kort og klart. Er svaret uklart eller lengre enn nødvendig, trekker dette ned.**\n\nRegelen gjelder alle fritekstsvar i faget, men den er skarpest her, fordi oppgaven uttrykkelig ber om **én** setning. To riktige setninger er dårligere enn én riktig setning.\n\nPraktisk konsekvens: skriv svaret, les det, og stryk alt som ikke trengs for at det skal være sant og entydig. Det du stryker, er poengene du ellers ville tapt.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-feil-13",
+   "title": "Feilkode #13 — den ordrike forklaringen",
+   "content": "Bokas feilkatalog nummererer den vanligste feilen i sjangeren: å beskrive *hvordan* koden virker linje for linje i stedet for *hva* funksjonen oppnår.\n\nFeilen har tre kjennetegn, og har du ett av dem, har du som regel alle tre: svaret nevner løkkevariabler ved navn, det er lengre enn to setninger, og det kunne vært skrevet uten å skjønne hva funksjonen er til for.\n\nMotgiften er steg 4 i løsningsoppskriften: stryk alt om enkeltlinjer, og se om setningen fortsatt er sann.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-warn-konsishet",
+   "title": "Typiske feil: ordrike og upresise forklaringer",
+   "content": "Her er den samme funksjonen forklart tre ganger. Bare den ene gir full uttelling.\n\nFunksjonen: `def f(x): return sorted(set(x))`\n\n**For langt (#13 — trekker ned):** «Funksjonen tar inn en liste som heter `x`. Først lager den et sett av lista, noe som fjerner alle duplikatene fordi et sett bare kan inneholde hver verdi én gang. Deretter sorterer den settet med `sorted`, som gir ei ny liste i stigende rekkefølge, og denne lista returneres.» — Alt er sant. Det er en beskrivelse av *hvordan*, den er seks ganger for lang, og den trekker ned.\n\n**For upresist (trekker ned):** «Rydder opp i lista.» — Kort nok, men sier ikke hva som skjer. Sensor kan ikke se om du har forstått koden.\n\n**Riktig:** «Returnerer de unike verdiene i lista, sortert stigende.» — Ett verb, ett objekt, én presisering. Ferdig.\n\nLegg merke til at det korte svaret nevner **begge** effektene: duplikatene forsvinner, OG rekkefølgen blir sortert. Nevner du bare den ene, er svaret ufullstendig.",
+   "type": "warning"
+  },
+  {
+   "id": "tdt4110-5-3-ex-c",
+   "title": "Eksempel 1: en gjennomarbeidet C-oppgave med margnotater",
+   "problem": "Forklar med én setning hva funksjonen gjør.\n\n```python\ndef beh(tabell):\n    ny = []\n    for j in range(len(tabell[0])):\n        rad = []\n        for i in range(len(tabell)):\n            rad.append(tabell[i][j])\n        ny.append(rad)\n    return ny\n```",
+   "solution": "**Steg 1 — se på `return`.** Den returnerer `ny`, som er ei liste der hvert element selv er ei liste. Altså en tabell. Det utelukker med én gang at funksjonen er en teller eller en sjekk.\n\n*Margnotat:* dette steget alene halverer mulighetene, og det tar fem sekunder.\n\n**Steg 2 — hva oppnås?** Den ytre løkka går over kolonnene, den indre over radene, og `tabell[i][j]` plukkes ut i den rekkefølgen. Rader blir kolonner. La oss bekrefte med et minimalt eksempel:\n\n```python\ndef beh(tabell):\n    ny = []\n    for j in range(len(tabell[0])):\n        rad = []\n        for i in range(len(tabell)):\n            rad.append(tabell[i][j])\n        ny.append(rad)\n    return ny\n\nprint(beh([[1, 2], [3, 4], [5, 6]]))\n```\n\n**Utskrift:**\n```\n[[1, 3, 5], [2, 4, 6]]\n```\n\nTre rader og to kolonner inn; to rader og tre kolonner ut. Det er transponering.\n\n**Steg 3 — én setning med verbstart:**\n\n> Returnerer den transponerte tabellen, altså den samme tabellen med rader og kolonner byttet om.\n\n**Steg 4 — stryk resten.** Ingenting om `i`, `j`, `append` eller løkkene. De er *hvordan*.\n\n**Kontrast — slik ser et svar som trekker ned ut:**\n\n> «Funksjonen lager først ei tom liste `ny`. Så går den gjennom alle kolonnene med `j`, og for hver av dem lager den ei ny tom liste `rad`. Inne i den løkka går den gjennom alle radene med `i` og legger `tabell[i][j]` inn i `rad`. Til slutt legges `rad` inn i `ny`, og `ny` returneres.»\n\nAlt er riktig, og likevel gir det trekk: det er en oversettelse av koden til norsk, ikke en forklaring. Sensor leter etter ordet «transponerer» eller «bytter om rader og kolonner» — og finner det ikke.\n\n*Margnotat:* har du sporet funksjonen først, som i [kap. 5.1](/tdt4110/tdt4110-5-1), har du allerede sett formen på svaret. Det er derfor de to sjangrene henger sammen på settet.",
+   "type": "example"
+  },
+  {
+   "id": "tdt4110-5-3-c1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-c1-o",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger C — «forklar med én setning hva funksjonen gjør».) Skriv én setning som starter med et verb.\n\n```python\ndef f(x):\n    total = 0\n    for v in x:\n        if v < 0:\n            total = total + 1\n    return total\n```",
+    "solution": "**Returverdien** er ett tall, og det økes med 1 hver gang en betingelse er sann. Det er tellermønsteret.\n\n**Svar:**\n\n> Teller hvor mange av tallene i lista som er negative.\n\n*Margnotat:* «Returnerer antall negative tall i lista» er like riktig. Begge gir full uttelling — det finnes ikke ett fasitsvar, bare krav om at setningen er sann, kort og entydig.\n\n**Kontrast:** «Går gjennom lista, og for hvert tall sjekker den om det er mindre enn null, og hvis det er det, øker den en variabel som heter `total`.» Sant, men det er *hvordan*, og det trekker ned.",
+    "hints": [
+     "Se på `return`-linja først: hva slags verdi kommer ut?",
+     "Variabelen starter på 0 og økes med 1 — hvilket mønster er det?",
+     "Start setningen med et verb, uten «denne funksjonen»."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-c2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-c2-o",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C.) Forklar med én setning hva funksjonen gjør.\n\n```python\ndef g(tekst):\n    d = {}\n    for bokstav in tekst:\n        d[bokstav] = d.get(bokstav, 0) + 1\n    beste = ''\n    for k in d:\n        if beste == '' or d[k] > d[beste]:\n            beste = k\n    return beste\n```",
+    "solution": "**Returverdien** er én bokstav, ikke ordboka. Ordboka er et mellomsteg.\n\nFunksjonen gjør to ting etter hverandre: teller forekomstene av hver bokstav, og finner deretter den med høyest antall. Bare det siste er formålet.\n\n**Svar:**\n\n> Returnerer bokstaven som forekommer flest ganger i teksten.\n\n*Margnotat:* svarer du «Teller hvor mange ganger hver bokstav forekommer», har du beskrevet mellomsteget og ikke resultatet. Det gir delvis uttelling, ikke full — funksjonen returnerer ikke ordboka.\n\n**Presiseringen som løfter svaret:** ved likt antall returneres den som kommer først i ordboka, altså den som dukket opp først i teksten. Du trenger ikke ta det med, men det er riktig, og et par ord er billig her.",
+    "hints": [
+     "Hva er typen på det som returneres — en ordbok eller én verdi?",
+     "Den første løkka bygger noe; den andre plukker ut noe fra det.",
+     "Formålet er det siste steget, ikke det første."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-c3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-c3-o",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C.) Forklar med én setning hva funksjonen gjør.\n\n```python\ndef h(x):\n    resultat = []\n    for v in x:\n        if v not in resultat:\n            resultat.append(v)\n    return resultat\n```",
+    "solution": "**Returverdien** er ei liste, og betingelsen `v not in resultat` slipper bare inn verdier som ikke allerede er der.\n\n**Svar:**\n\n> Returnerer verdiene i lista uten duplikater, i den rekkefølgen de kom.\n\n*Margnotat:* «uten duplikater» alene er nesten nok, men «i den rekkefølgen de kom» er den ene presiseringen som skiller denne funksjonen fra `sorted(set(x))`. To ekstra ord som gir full uttelling i stedet for nesten full.\n\n**Kontrast:** «Fjerner alle tallene som er like.» Upresist på to måter: den fjerner ikke alle forekomstene, bare gjentakelsene, og verdiene trenger ikke være tall.",
+    "hints": [
+     "Hva slipper `if v not in resultat` gjennom, og hva stopper den?",
+     "Endres rekkefølgen underveis?",
+     "Sammenlign med hva et sett ville gjort med den samme lista."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-c4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-c4-o",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C.) Funksjonen er rekursiv. Forklar med én setning hva den gjør.\n\n```python\ndef m(a, b):\n    if b == 0:\n        return a\n    return m(b, a % b)\n```",
+    "solution": "**Returverdien** er ett tall, og grunntilfellet er at `b` er 0.\n\nKjenner du igjen mønsteret fra [kap. 5.2](/tdt4110/tdt4110-5-2), er dette Euklids algoritme. Kjenner du det ikke igjen, sporer du `m(48, 18)` og ser at svaret blir 6 — det største tallet som deler begge.\n\n**Svar:**\n\n> Returnerer største felles divisor av `a` og `b`.\n\n*Margnotat:* «beregner største felles divisor rekursivt» er også riktig, og ordet «rekursivt» er et lite pluss når oppgaven handler om en rekursiv funksjon. Men det er formålet — ikke rekursjonen — som gir poenget.\n\n**Kontrast:** «Kaller seg selv med `b` og resten av `a` delt på `b` helt til `b` blir null, og returnerer da `a`.» Det er en helt korrekt beskrivelse av *hvordan*, og den sier ingenting om hva svaret betyr.",
+    "hints": [
+     "Spor funksjonen med to konkrete tall før du forklarer den.",
+     "Grunntilfellet returnerer `a` — hva er `a` blitt da?",
+     "Prøv med 48 og 18, og se om svaret er et tall du kjenner igjen."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-c5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-c5-o",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger C.) Forklar med én setning hva funksjonen gjør. Vær nøye med kanttilfellet.\n\n```python\ndef s(tabell, kolonne):\n    k = tabell[0].index(kolonne)\n    beste = None\n    for rad in tabell[1:]:\n        if beste is None or float(rad[k]) > float(beste[k]):\n            beste = rad\n    return beste\n```",
+    "solution": "**Returverdien** er én rad — ei liste — eller `None`.\n\nFunksjonen finner kolonnenummeret dynamisk med `.index`, hopper over overskriftsraden med `tabell[1:]`, og holder på raden med høyest verdi i den kolonnen.\n\n**Svar:**\n\n> Returnerer raden med den høyeste verdien i den navngitte kolonnen, eller `None` hvis tabellen bare har en overskriftsrad.\n\n*Margnotat:* kanttilfellet er verdt å ta med her, fordi `beste = None` og testen `beste is None` er skrevet nettopp for å håndtere det. Nevner du det, viser du at du har lest hele funksjonen. Uten det er svaret fortsatt riktig, men litt tynnere.\n\n**Kontrast:** «Finner den beste raden.» For upresist — «beste» etter hvilken kolonne, og hva er «best»?",
+    "hints": [
+     "Hva returneres — en verdi fra tabellen, eller en hel rad?",
+     "Hvorfor starter løkka på `tabell[1:]` og ikke på `tabell`?",
+     "Hva skjer hvis løkka aldri kjører en eneste runde?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-c6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-c6-o",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C.) Forklar med én setning hva funksjonen gjør.\n\n```python\ndef p(s):\n    ren = ''\n    for tegn in s:\n        if tegn != ' ':\n            ren = ren + tegn\n    return ren == ren[::-1]\n```",
+    "solution": "**Returverdien** er en sammenligning, altså `True` eller `False`. Det gjør funksjonen til en sjekk, og svaret skal begynne med «Sjekker om …».\n\nLøkka bygger en ny streng uten mellomrom, og `ren[::-1]` er den samme strengen baklengs.\n\n**Svar:**\n\n> Sjekker om teksten er et palindrom når mellomrom ses bort fra.\n\n*Margnotat:* «når mellomrom ses bort fra» er ikke pynt — det er halve funksjonen. Uten den delen ville hele den første løkka vært unødvendig, og et svar som ikke nevner den, har oversett noe.\n\n**Kontrast:** «Returnerer `True` hvis strengen er lik seg selv baklengs.» Nesten riktig, men den overser mellomromsrensen — og det er nettopp den forskjellen oppgaven tester.",
+    "hints": [
+     "Hva slags verdi er `ren == ren[::-1]`?",
+     "Hva er det den første løkka fjerner, og hvorfor betyr det noe?",
+     "Start svaret med «Sjekker om …»."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-c7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-c7-o",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger C.) Forklar med én setning hva funksjonen gjør. Vær nøye med hva som returneres når verdien ikke finnes.\n\n```python\ndef q(x, maal):\n    for i in range(len(x)):\n        if x[i] == maal:\n            return i\n    return -1\n```",
+    "solution": "**Returverdiene** er to: en indeks, eller −1. Det er det klassiske signalet på et søk, der −1 betyr «ikke funnet».\n\nLøkka returnerer med det samme den finner treffet, så det er den FØRSTE forekomsten som rapporteres.\n\n**Svar:**\n\n> Returnerer indeksen til den første forekomsten av verdien i lista, eller −1 hvis den ikke finnes.\n\n*Margnotat:* to presiseringer gjør svaret fullt: «den første» (fordi `return` avslutter løkka) og «eller −1» (fordi det er ikke-funnet-signalet). Utelater du en av dem, er svaret ufullstendig — og begge koster tre ord.\n\n**Kontrast:** «Leter etter et element i lista.» Sant, men sier verken hva som returneres eller hva som skjer når leteaksjonen mislykkes.",
+    "hints": [
+     "Funksjonen har to `return`-linjer. Hva returnerer hver av dem?",
+     "Hva skjer med løkka når den første `return` treffes?",
+     "Hva betyr returverdien −1 i denne sammenhengen?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-t-d-intro",
+   "content": "## Andre halvdel — «fyll inn manglende kodelinje» (~40 min)\n\n— naturlig pausepunkt —\n\nI sjanger D får du en nesten ferdig funksjon der én linje er byttet ut med markøren `#KODE1`, og fire alternativer å velge mellom. Dette er et flervalg, og det er en av de få oppgavene i faget der du kan kontrollere svaret ditt helt mekanisk før du krysser av.\n\n**Det er ingen minuspoeng på flervalg fra 2015.** Blankt teller som feil, så kryss alltid av — også når du bare har eliminert to alternativer.\n\nOgså her følger seks korte oppslag etter løsningsoppskrifta. De er **flashcard-stoff — hopp trygt over ved førstegangslesing**; eksempel 2 viser metoden i arbeid.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-3-thm-d",
+   "title": "Løsningsoppskrift for sjanger D",
+   "content": "Fire steg. Steg 3 er det som skiller full pott fra gjetting.\n\n1. **Les spesifikasjonen først.** Hva SKAL funksjonen gjøre? Står det ikke i oppgaveteksten, står det i funksjonsnavnet og i `return`-linja. Uten spesifikasjonen kan fire linjer se like riktige ut.\n2. **Les koden rundt hullet nøyaktig.** Hvilke variabler finnes på det punktet? Hva er løkkegrensene? Hva slags verdi ligger allerede i variabelen linja skal oppdatere?\n3. **Prøv HVERT alternativ mot et minimalt eksempel.** To eller tre elementer holder. Regn ut hva funksjonen ville returnert med hver av de fire linjene. Dette er ikke sløsing med tid — det er hele metoden.\n4. **Velg linja som gir riktig oppførsel også i kanttilfellet.** Ofte gir to alternativer riktig svar for det enkle eksemplet, og bare det ene gir riktig svar for tom liste, for første runde, eller for siste element.\n\n**Tidsbruk:** to–tre minutter. Er du usikker etter det, kryss av på det beste alternativet og gå videre — det koster ingenting å ta feil.",
+   "type": "theorem"
+  },
+  {
+   "id": "tdt4110-5-3-def-sjanger-d",
+   "title": "Sjanger D — «fyll inn manglende kodelinje»",
+   "content": "Oppgaveformen der én linje i en ellers komplett funksjon er erstattet med markøren `#KODE1`, og du velger mellom fire kandidatlinjer.\n\nLinja som mangler, er nesten alltid en av fire typer: en løkkegrense, en betingelse, en oppdatering av en variabel, eller en indeksberegning. Kjenner du de fire typene, vet du hva du skal se etter.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-kode1",
+   "title": "`#KODE1`-markøren",
+   "content": "Markøren er en vanlig Python-kommentar, og den står nøyaktig der linja skulle vært — med det innrykket linja skal ha.\n\nInnrykket er informasjon: står markøren inne i løkka, skal linja kjøres hver runde; står den etter løkka, skal den kjøres én gang. Det alene eliminerer av og til to alternativer.\n\nMerk at kode med `#KODE1` i seg ikke er kjørbar som den står. I denne boka er slike blokker derfor merket som ikke-kjørbare.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-minimal",
+   "title": "Minimaleksempel-testen",
+   "content": "Metoden som gjør sjanger D mekanisk: velg det minste mulige inndataeksempelet — to eller tre elementer — og regn ut hva funksjonen returnerer med hvert av de fire alternativene.\n\nEt godt minimaleksempel har tre egenskaper: det er lite nok til å regnes i hodet, det gir forskjellig svar for de forskjellige alternativene, og det inneholder det som skiller alternativene — for eksempel både et partall og et oddetall, eller både første og siste element.\n\nVær alltid ferdig med ett alternativ før du begynner på det neste. Blander du dem, ender du med å gjette.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-grense",
+   "title": "Grensealternativet",
+   "content": "Den vanligste D-oppgaven handler om en løkkegrense, og de fire alternativene skiller seg med nøyaktig én: `range(len(x))` mot `range(len(x) - 1)` mot `range(1, len(x))` mot `range(0, len(x), 2)`.\n\nSpørsmålene som avgjør:\n\n- Skal det FØRSTE elementet være med? Da kan ikke rekka starte på 1.\n- Sammenlignes elementet med naboen sin, `x[i + 1]`? Da må rekka stoppe én tidligere, ellers går indeksen ut over lista.\n- Skal annethvert element behandles? Da må steget være 2 — og startverdien avgjør om det er de like eller de ulike indeksene.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-oppdatering",
+   "title": "Oppdateringslinja",
+   "content": "Den nest vanligste D-oppgaven er linja som oppdaterer en variabel inne i en løkke: en akkumulator (`total = total + v`), en teller (`antall = antall + 1`), en beste-verdi (`beste = v`) eller en grense i et søk (`imin = midt + 1`).\n\nTesten er alltid den samme: hva står i variabelen FØR linja, og hva må stå der ETTER? Alternativene skiller seg gjerne på om de bruker elementet `v` eller indeksen `i`, og på om de legger til eller tilordner på nytt.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-def-naer-distraktor",
+   "title": "Den nære distraktoren",
+   "content": "I en godt laget D-oppgave er ett av de gale alternativene **nesten** riktig: det gir riktig svar for det enkleste eksempelet, og feil svar for ett bestemt tilfelle.\n\nDe tre vanligste formene:\n\n- Linja gir riktig svar for ett element, men feil for to.\n- Linja gir riktig svar når treffet ligger først, men feil når det ligger sist.\n- Linja gir riktig svar for en ikke-tom liste, men avbryter programmet for den tomme.\n\nDerfor holder det aldri med ett testeksempel. Finner du to alternativer som begge ser riktige ut, er det et signal om at du har funnet den nære distraktoren — og at du trenger et eksempel til som skiller dem.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-3-ex-d",
+   "title": "Eksempel 2: en gjennomarbeidet D-oppgave, alle fire alternativer prøvd",
+   "problem": "Funksjonen skal returnere `True` hvis `tall` er et primtall, altså et heltall større enn 1 som ikke er delelig med noe annet enn 1 og seg selv. Én linje mangler. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef er_primtall(tall):\n    if tall < 2:\n        return False\n    for i in range(2, tall):\n        #KODE1\n            return False\n    return True\n```\n\n**a)** `if tall % i != 0:`\n**b)** `if tall % i == 0:`\n**c)** `if i % tall == 0:`\n**d)** `if tall // i == 0:`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+   "solution": "**Steg 1 — spesifikasjonen.** Funksjonen skal gi `False` så snart den finner en divisor, og `True` hvis den kommer gjennom hele løkka uten å finne noen.\n\n**Steg 2 — koden rundt hullet.** Linja etter markøren er `return False`, med ett ekstra innrykk. Det betyr at `#KODE1` er en `if`-linje, og at betingelsen må være sann når `i` ER en divisor.\n\n**Steg 3 — prøv hvert alternativ mot minimaleksemplet `tall = 9`.** Løkka går over `i` lik 2, 3, 4, 5, 6, 7 og 8. Riktig svar er `False`, siden 3 deler 9.\n\n| Alternativ | Hva skjer for `tall = 9` | Resultat |\n|---|---|---|\n| **a)** `tall % i != 0` | sann allerede for `i` lik 2, siden 9 delt på 2 gir rest | `False` — men av feil grunn |\n| **b)** `tall % i == 0` | usann for 2, sann for 3 | `False` — riktig |\n| **c)** `i % tall == 0` | 2 % 9 er 2, aldri 0 for `i` mindre enn `tall` | `True` — feil |\n| **d)** `tall // i == 0` | 9 // 2 er 4, aldri 0 her | `True` — feil |\n\n**Steg 4 — kanttilfellet skiller a) fra b).** Begge gir `False` for 9, men prøv `tall = 7`, som ER et primtall og skal gi `True`:\n\n- Med **a)** er `7 % 2 != 0` sann med én gang, og funksjonen returnerer `False`. Feil.\n- Med **b)** er ingen av testene sanne, løkka går til ende, og funksjonen returnerer `True`. Riktig.\n\n**Riktig svar: b)**\n\nDen ferdige funksjonen, kjørt:\n\n```python\ndef er_primtall(tall):\n    if tall < 2:\n        return False\n    for i in range(2, tall):\n        if tall % i == 0:\n            return False\n    return True\n\nprint(er_primtall(7), er_primtall(9), er_primtall(2), er_primtall(1))\n```\n\n**Utskrift:**\n```\nTrue False True False\n```\n\n*Margnotat:* legg merke til at alternativ a) var «riktig nok» for det første eksemplet. Det er nettopp derfor steg 4 finnes — et eneste testeksempel er ikke nok når to alternativer er nære hverandre.",
+   "type": "example"
+  },
+  {
+   "id": "tdt4110-5-3-d1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-d1-o",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal summere alle tallene i lista. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef summer(x):\n    total = 0\n    for v in x:\n        #KODE1\n    return total\n```\n\n**a)** `total = v`\n**b)** `total = total + v`\n**c)** `total = total + 1`\n**d)** `total = v + 1`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+    "solution": "**Minimaleksempel:** `[4, 6]`. Riktig svar er 10.\n\n| Alternativ | Etter runde 1 | Etter runde 2 | Returnerer |\n|---|---|---|---|\n| **a)** | 4 | 6 | `6` — beholder bare det siste |\n| **b)** | 4 | 10 | `10` — riktig |\n| **c)** | 1 | 2 | `2` — teller elementer i stedet |\n| **d)** | 5 | 7 | `7` — meningsløst |\n\n**Riktig svar: b)**\n\n```python\ndef summer(x):\n    total = 0\n    for v in x:\n        total = total + v\n    return total\n\nprint(summer([4, 6]))\nprint(summer([]))\n```\n\n**Utskrift:**\n```\n10\n0\n```\n\n**Fellenote:** alternativ c) er akkumulatorens tvilling, telleren. De to ser nesten like ut og gjør helt forskjellige ting: den ene legger til **verdien**, den andre legger til **én**.",
+    "hints": [
+     "Hva må stå i `total` etter hver runde for at svaret skal bli riktig til slutt?",
+     "Prøv `[4, 6]` og regn ut hva hvert alternativ gir.",
+     "Ett av alternativene teller elementer i stedet for å summere dem."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-d2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-d2-o",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D.) Funksjonen skal kvadrere annethvert tall i lista, med start på det ANDRE tallet, og endre lista der den står. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef kvadrer_annethvert(x):\n    #KODE1\n        x[i] = x[i] ** 2\n    return x\n```\n\n**a)** `for i in range(0, len(x), 2):`\n**b)** `for i in range(1, len(x)):`\n**c)** `for i in range(1, len(x), 2):`\n**d)** `for i in range(2, len(x), 2):`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+    "solution": "**Minimaleksempel:** `[2, 3, 4, 5]`. Det andre tallet er 3, og annethvert derfra er 3 og 5. Riktig svar er `[2, 9, 4, 25]`.\n\n| Alternativ | Indekser som treffes | Resultat |\n|---|---|---|\n| **a)** | 0 og 2 | `[4, 3, 16, 5]` — starter på det første |\n| **b)** | 1, 2 og 3 | `[2, 9, 16, 25]` — hopper ikke over noen |\n| **c)** | 1 og 3 | `[2, 9, 4, 25]` — riktig |\n| **d)** | 2 | `[2, 3, 16, 5]` — starter for langt inne |\n\n**Riktig svar: c)**\n\n```python\ndef kvadrer_annethvert(x):\n    for i in range(1, len(x), 2):\n        x[i] = x[i] ** 2\n    return x\n\nprint(kvadrer_annethvert([2, 3, 4, 5]))\nprint(kvadrer_annethvert([7]))\n```\n\n**Utskrift:**\n```\n[2, 9, 4, 25]\n[7]\n```\n\n**Fellenote:** dette er felle **#5** — av-med-én — satt i system. Alle fire alternativene er syntaktisk riktige og kjører uten feil; det er bare indeksene som skiller dem. Legg også merke til at lista med ett element er upåvirket, fordi `range(1, 1, 2)` er tom.",
+    "hints": [
+     "Skriv indeksene 0, 1, 2, 3 over tallene i minimaleksemplet.",
+     "Hvilken indeks har det ANDRE tallet i lista?",
+     "Steget avgjør om annethvert eller alle treffes."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-d3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-d3-o",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D.) Funksjonen skal returnere det største tallet i lista. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef storst(x):\n    beste = x[0]\n    for v in x:\n        if v > beste:\n            #KODE1\n    return beste\n```\n\n**a)** `beste = v`\n**b)** `beste = beste + v`\n**c)** `v = beste`\n**d)** `return v`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+    "solution": "**Minimaleksempel:** `[3, 9, 5]`. Riktig svar er 9.\n\n| Alternativ | Hva skjer | Returnerer |\n|---|---|---|\n| **a)** | `beste` settes til 9 i runde 2 | `9` — riktig |\n| **b)** | `beste` blir 3, så 12, så 17 | `17` — summerer i stedet |\n| **c)** | tilordner motsatt vei; `beste` endres aldri | `3` |\n| **d)** | avslutter ved første tall som er større | `9` her, men `5` for `[3, 5, 9]` |\n\n**Riktig svar: a)**\n\nAlternativ d) er den nære distraktoren: den gir riktig svar for minimaleksemplet, men feil så snart det finnes to tall større enn det første. Det er grunnen til å teste med minst to slike.\n\n```python\ndef storst(x):\n    beste = x[0]\n    for v in x:\n        if v > beste:\n            beste = v\n    return beste\n\nprint(storst([3, 9, 5]))\nprint(storst([3, 5, 9]))\nprint(storst([7]))\n```\n\n**Utskrift:**\n```\n9\n9\n7\n```\n\n**Fellenote:** `c)` er den klassiske omvendte tilordningen. `v = beste` endrer bare løkkevariabelen, som overskrives ved neste runde uansett — en helt stum feil.",
+    "hints": [
+     "Hvilken variabel er det som skal huske svaret til slutt?",
+     "Test med to lister der de store tallene står forskjellige steder.",
+     "Hva skjer med løkkevariabelen ved neste runde?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-d4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-d4-o",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D.) Funksjonen skal telle hvor mange ganger hver verdi forekommer, og returnere en ordbok. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef tell(x):\n    d = {}\n    for v in x:\n        #KODE1\n    return d\n```\n\n**a)** `d[v] = d[v] + 1`\n**b)** `d[v] = 1`\n**c)** `d[v] = d.get(v, 0) + 1`\n**d)** `d.get(v, 0) + 1`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+    "solution": "**Minimaleksempel:** `['a', 'b', 'a']`. Riktig svar er `{'a': 2, 'b': 1}`.\n\n| Alternativ | Hva skjer | Resultat |\n|---|---|---|\n| **a)** | oppslaget skjer før nøkkelen finnes | avbrytes med `KeyError` |\n| **b)** | setter alltid 1, uansett hvor mange | `{'a': 1, 'b': 1}` |\n| **c)** | henter 0 for nye nøkler, øker med 1 | `{'a': 2, 'b': 1}` — riktig |\n| **d)** | regner ut verdien, men lagrer den ikke | `{}` |\n\n**Riktig svar: c)**\n\n```python\ndef tell(x):\n    d = {}\n    for v in x:\n        d[v] = d.get(v, 0) + 1\n    return d\n\nprint(tell(['a', 'b', 'a']))\nprint(tell([]))\n```\n\n**Utskrift:**\n```\n{'a': 2, 'b': 1}\n{}\n```\n\n**Fellenote:** alternativ d) er den snikeste. Uttrykket er helt gyldig Python og gir riktig tall — men uten tilordning kastes svaret, og ordboka forblir tom. Se alltid etter likhetstegnet.",
+    "hints": [
+     "Hva skjer med `d[v]` første gang nøkkelen `v` dukker opp?",
+     "Ett av alternativene regner riktig, men lagrer ikke resultatet noe sted.",
+     "Prøv med ei liste der den samme verdien kommer to ganger."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-d5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-d5-o",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger D.) Funksjonen skal sjekke om lista er sortert stigende ved å sammenligne hvert element med det neste. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef er_sortert(x):\n    #KODE1\n        if x[i] > x[i + 1]:\n            return False\n    return True\n```\n\n**a)** `for i in range(len(x)):`\n**b)** `for i in range(1, len(x)):`\n**c)** `for i in range(len(x) + 1):`\n**d)** `for i in range(len(x) - 1):`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+    "solution": "**Minimaleksempel:** `[1, 2, 3]`, som ER sortert. Riktig svar er `True`.\n\nNøkkelen er at kroppen bruker `x[i + 1]`. Den største lovlige verdien for `i` er derfor `len(x) - 2`, og rekka må stoppe der.\n\n| Alternativ | Største `i` | Hva skjer |\n|---|---|---|\n| **a)** | 2 | `x[3]` finnes ikke — avbrytes med `IndexError` |\n| **b)** | 2 | samme problem, og hopper i tillegg over første par |\n| **c)** | 3 | enda verre — to indekser utenfor lista |\n| **d)** | 1 | sammenligner parene (0,1) og (1,2) — riktig |\n\n**Riktig svar: d)**\n\n```python\ndef er_sortert(x):\n    for i in range(len(x) - 1):\n        if x[i] > x[i + 1]:\n            return False\n    return True\n\nprint(er_sortert([1, 2, 3]))\nprint(er_sortert([1, 3, 2]))\nprint(er_sortert([]))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\n```\n\n**Fellenote:** hver gang kroppen bruker `x[i + 1]`, skal rekka stoppe én tidligere. Det er den mest forutsigbare varianten av felle **#5**, og den kommer igjen i sorteringsalgoritmene senere i boka. Legg også merke til at den tomme lista gir `True` — `range(-1)` er tom, så løkka kjører aldri.",
+    "hints": [
+     "Se på indeksene kroppen bruker, ikke bare på løkkelinja.",
+     "Hva er den største verdien `i` kan ha uten at `x[i + 1]` går ut over lista?",
+     "Prøv en liste med tre elementer og skriv opp hvilke par som sammenlignes."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-d6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-d6-o",
+    "number": "13",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger D.) Funksjonen leser en tekstfil der hver linje har tre felt skilt med semikolon, og skal returnere en 2D-tabell der hver rad er ei liste av de tre feltene, uten linjeskift. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef les_tabell(filnavn):\n    tabell = []\n    f = open(filnavn, 'r')\n    for linje in f:\n        #KODE1\n    f.close()\n    return tabell\n```\n\n**a)** `tabell.append(linje.split(';').strip())`\n**b)** `tabell.append(linje.strip().split(';'))`\n**c)** `tabell.append(linje.split(';'))`\n**d)** `tabell.append(linje.strip())`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+    "solution": "**Minimaleksempel:** en fil med linja `Blindern;12.4;61` etterfulgt av et linjeskift. Riktig svar er `[['Blindern', '12.4', '61']]`.\n\n| Alternativ | Hva skjer |\n|---|---|\n| **a)** | `.split()` gir ei liste, og lister har ingen `.strip()` — avbrytes med `AttributeError` |\n| **b)** | renser linja FØR den deles — riktig |\n| **c)** | deler uten å rense, så siste felt blir `'61\\n'` |\n| **d)** | renser, men deler aldri — hver rad blir én streng |\n\n**Riktig svar: b)**\n\nVi lager fila og kjører det riktige alternativet:\n\n```python\nf = open('vaer.txt', 'w')\nf.write('Blindern;12.4;61\\n')\nf.write('Kjevik;15.1;54\\n')\nf.close()\n\ndef les_tabell(filnavn):\n    tabell = []\n    f = open(filnavn, 'r')\n    for linje in f:\n        tabell.append(linje.strip().split(';'))\n    f.close()\n    return tabell\n\nprint(les_tabell('vaer.txt'))\n```\n\n**Utskrift:**\n```\n[['Blindern', '12.4', '61'], ['Kjevik', '15.1', '54']]\n```\n\n**Fellenote:** rekkefølgen `strip()` FØR `split()` er felle **#2** — glemt rensing, så linjeskiftet henger med i det siste feltet. Feilen er stum: programmet kjører, tabellen ser riktig ut i en rask kikk, og først når du konverterer det siste feltet med `int()`, kommer krasjet.",
+    "hints": [
+     "Hvilken av de to metodene må komme først for at den skal ha noe å jobbe på?",
+     "Hva slags verdi gir `.split(';')` — en streng eller ei liste?",
+     "Hva henger igjen i det siste feltet hvis du ikke renser linja?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-d7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-3-d7-o",
+    "number": "14",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger D.) Funksjonen leter etter en verdi i ei **sortert** liste ved å halvere søkeområdet for hvert steg. Den returnerer indeksen til treffet, eller −1. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef finn(x, maal):\n    imin = 0\n    imax = len(x) - 1\n    while imin <= imax:\n        #KODE1\n        if x[imid] == maal:\n            return imid\n        elif x[imid] < maal:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n```\n\n**a)** `imid = (imin + imax) / 2`\n**b)** `imid = (imin - imax) // 2`\n**c)** `imid = (imin + imax) // 2`\n**d)** `imid = len(x) // 2`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje. Algoritmen bak — halveringssøket — hører til algoritmedelen senere i boka; her trenger du bare å lese koden som står der.",
+    "solution": "**Minimaleksempel:** `[2, 5, 8, 11]` og målet 11. Riktig svar er indeks 3.\n\n| Alternativ | Hva skjer |\n|---|---|\n| **a)** | `/` gir et flyttall, og `x[1.5]` avbrytes med `TypeError` |\n| **b)** | differansen gir negative eller nulls midtpunkter — leter feil sted |\n| **c)** | midtpunktet mellom grensene, som heltall — riktig |\n| **d)** | fast midtpunkt som aldri flytter seg — løkka blir uendelig |\n\n**Riktig svar: c)**\n\n```python\ndef finn(x, maal):\n    imin = 0\n    imax = len(x) - 1\n    while imin <= imax:\n        imid = (imin + imax) // 2\n        if x[imid] == maal:\n            return imid\n        elif x[imid] < maal:\n            imin = imid + 1\n        else:\n            imax = imid - 1\n    return -1\n\nprint(finn([2, 5, 8, 11], 11))\nprint(finn([2, 5, 8, 11], 2))\nprint(finn([2, 5, 8, 11], 7))\n```\n\n**Utskrift:**\n```\n3\n0\n-1\n```\n\n**Fellenote:** to feller i én oppgave. Den ene er felle **#9** — `/` mot `//`: en indeks må være et heltall. Den andre er at midtpunktet må regnes på nytt for hver runde, av de grensene som faktisk endrer seg. Alternativ d) ser uskyldig ut og gir en løkke som aldri terminerer.",
+    "hints": [
+     "En indeks må være et heltall. Hvilke av alternativene gir det?",
+     "Midtpunktet skal ligge mellom de to grensene som endrer seg underveis.",
+     "Prøv alternativ d) og se om `imid` noen gang endrer seg."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-3-tip-signal",
+   "title": "Signalene: hvilken linje mangler?",
+   "content": "Etter de sju D-oppgavene over kjenner du igjen hulltypen på innrykket og på koden rundt. Bruk denne tabellen som sjekkliste:\n\n| Ser du dette rundt hullet | Da mangler |\n|---|---|\n| Markøren står alene på en linje som avsluttes med kolon i alternativene | en løkke- eller `if`-linje |\n| Linja under har ekstra innrykk | en `if`- eller `for`-linje |\n| Kroppen bruker `x[i + 1]` | en løkkegrense som stopper én tidligere |\n| En variabel er satt før løkka og returneres etter den | oppdateringslinja for den variabelen |\n| En tom ordbok er opprettet over løkka | telleren eller grupperingslinja |\n| To grenser oppdateres i grenene under | en midtpunktberegning med `//` |\n| Fila åpnes rett over | parsingen `linje.strip().split(sep)` |\n\nOg husk: **kryss alltid av.** Det er ingen minuspoeng på flervalg fra og med 2015, så et gjettet svar er strengt bedre enn et blankt.",
+   "type": "tip"
+  },
+  {
+   "id": "tdt4110-5-3-warn-d",
+   "title": "Typiske feil: de to sjangrene",
+   "content": "**I sjanger C:**\n\n- **#13 — ordrik forklaring.** Å beskrive *hvordan* linje for linje i stedet for *hva* funksjonen oppnår. Den dyreste og vanligste.\n- **For upresist svar.** «Rydder i lista» sier ingenting sensor kan vurdere.\n- **Mellomsteget forvekslet med formålet.** Bygger funksjonen en ordbok for å finne én verdi, er det verdien som er poenget.\n- **Kanttilfellet oversett.** Returnerer funksjonen `None` eller −1 i et tilfelle, hører det med i setningen.\n\n**I sjanger D:**\n\n- **Å velge uten å teste.** Det alternativet som «ser riktig ut», er ofte den nære distraktoren.\n- **Å teste med bare ett eksempel.** To alternativer gir gjerne samme svar for det enkle tilfellet.\n- **#5 — av-med-én** i grensealternativene, særlig når kroppen bruker `x[i + 1]`.\n- **#9 — `/` der `//` skal stå.** En indeks må være et heltall.\n- **Å overse manglende tilordning.** `d.get(v, 0) + 1` uten likhetstegn regner riktig og lagrer ingenting.\n- **Å la et flervalg stå blankt.** Blankt teller som feil.",
+   "type": "warning"
+  },
+  {
+   "id": "tdt4110-5-3-col-api",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-5-3-col-api-t1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `#KODE1` | Markør for den manglende linja; en vanlig kommentar, plassert med det innrykket linja skal ha |\n| `total = total + v` | Akkumulator: legger til VERDIEN i hver runde |\n| `antall = antall + 1` | Teller: legger til ÉN i hver runde, uansett verdi |\n| `beste = v` | Oppdatering i «finn beste» — tilordner elementet, ikke indeksen |\n| `d[v] = d.get(v, 0) + 1` | Telleren med ordbok; uten tilordningen lagres ingenting |\n| `if v not in resultat:` | Duplikatvakten; slipper bare inn verdier som ikke alt er der |\n| `range(len(x) - 1)` | Grensa når kroppen bruker `x[i + 1]` |\n| `range(1, len(x), 2)` | Annethvert element, med start på det andre |\n| `(imin + imax) // 2` | Midtpunkt som HELTALL; `/` ville gitt et flyttall og en ulovlig indeks |\n| `linje.strip().split(';')` | Renser linjeskiftet FØR delingen; motsatt rekkefølge avbryter programmet |\n| `tabell[0].index(navn)` | Kolonnenummeret hentet dynamisk fra overskriftsraden |\n| `s[::-1]` | Strengen baklengs; `s == s[::-1]` er palindromtesten |\n| `sorted(set(x))` | De unike verdiene, sortert stigende — rekkefølgen fra originalen går tapt |\n| `return -1` etter løkka | «Ikke funnet»-signalet i et søk |\n| `beste is None` | Tomtest i «finn beste» uten startverdi |\n\n**Setningsmalen i sjanger C:**\n\n«**Verb** + **hva** + (eventuell **presisering**).» Eksempler: «Returnerer den transponerte tabellen.» · «Teller hvor mange av tallene som er negative.» · «Sjekker om teksten er et palindrom når mellomrom ses bort fra.» · «Returnerer indeksen til første forekomst, eller −1 hvis verdien ikke finnes.»"
+    }
+   ],
+   "type": "collapsible"
+  }
+ ],
+ "exercises": []
+}

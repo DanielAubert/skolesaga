@@ -1,0 +1,301 @@
+{
+  "id": "tdt4110-3-2",
+  "courseId": "tdt4110",
+  "chapterNumber": "3.2",
+  "title": "2D-lister (tabeller)",
+  "description": "Liste av lister som en tabell med rader og kolonner — den sentrale datastrukturen i programmeringsoppgaven, inkludert dynamisk kolonneoppslag.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne bygge en tabell rad for rad og hente ut både en enkelt celle, en hel rad og en hel kolonne",
+    "kunne velge mellom å løkke over radene og over radnumrene, og hoppe over overskriftsraden uten å bomme med én",
+    "kunne finne en kolonne ved navn i overskriftsraden i stedet for å anta hvilken plass den har",
+    "kunne spore en nøstet løkke over en tabell og angi utskriften nøyaktig"
+  ],
+  "content": [
+    {
+      "id": "tdt4110-3-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet som bærer programmeringsoppgaven.** I alle de ti eksamenssittingene i arkivet (2014–2019) leses en datafil inn i en «liste av lister» — en tabell med rader og kolonner — og alle analysedeloppgavene jobber på den tabellen. 100 %, uten unntak.\n\nTo sjangre møter deg her:\n\n- **Sjanger B — kodesporing**, altså «hva skriver dette programmet ut?». Matrisesporing er en fast innpakning: transponér tabellen, legg en ramme av nuller rundt, eller snu alle 0-er til 1-ere. 1–3 % per deloppgave.\n- **Sjanger G — analyse**, altså «finn den beste raden / hent ut en kolonne / tell noe per rad». Dette er tyngdepunktet: 5–10 % per deloppgave, og programmeringsoppgaven som helhet er 50–60 % av settet.\n\n**Ett grep gir uttelling hvert eneste år:** å finne kolonnen ved NAVN i overskriftsraden, `tabell[0].index('pris')`, i stedet for å skrive et fast kolonnenummer. Løsningsforslagene nevner det eksplisitt som et krav for full score. Lær det her, og du har det med deg gjennom hele Del 7.\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer «må sitte», «må kunne», «bør kjenne til»). Kapitlet tar ca. 50 minutter og har fire løkker med tidsanslag — det tåler godt å deles på to økter, med et naturlig skille etter kolonnedelen."
+    },
+    {
+      "id": "tdt4110-3-2-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper**\n\n- [kap. 3.1](/tdt4110/tdt4110-3-1) — lister, indeksering, utsnitt, `append` og `.index`. Alt i dette kapitlet er de samme operasjonene, brukt to ganger.\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — løkker og `range`, særlig nøstede løkker.\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — konvertering med `int()` og `float()`. Tabeller lest fra fil inneholder tekst, også der det ser ut som tall.\n\nVil du se nøstede strukturer i en annen innpakning, dekker [Dictionaries og nøstede dictionaries](/in1900/in1900-1-5) beslektet stoff i et parallelt emne."
+    },
+    {
+      "id": "tdt4110-3-2-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — tabellen er ei liste med lister inni (~10 min)\n\nVærstasjonene rapporterer tre ting hver: navn, døgntemperatur og nedbør. Én stasjon er ei liste med tre verdier. Fire stasjoner blir da ei liste med fire slike lister — og det er hele ideen.\n\nEn **2D-liste** er en liste der hvert element selv er ei liste. Den ytre lista er radene; den indre lista er cellene i én rad. Ordet «2D» betyr bare at du trenger to tall for å peke på én verdi: hvilken rad, og hvilken kolonne.\n\nNesten alle tabeller i dette emnet har en **overskriftsrad** øverst — rad 0 — med kolonnenavnene. Den er ikke data, men den er nøkkelen til robust kode, som du ser om litt."
+    },
+    {
+      "id": "tdt4110-3-2-def-4",
+      "type": "definition",
+      "title": "2D-liste (tabell)",
+      "content": "Ei liste der hvert element selv er ei liste. Den ytre lista er radene, den indre er cellene i raden. På norsk sier vi 2D-liste eller tabell, ikke «matrise» — det ordet reserveres for de tilfellene der oppgaven faktisk handler om matematiske matriser.\n\nRadene trenger ikke være like lange, men i praksis er de det, fordi tabellen kommer fra en fil med samme antall felt på hver linje."
+    },
+    {
+      "id": "tdt4110-3-2-def-5",
+      "type": "definition",
+      "title": "`tabell[i][j]`",
+      "content": "Verdien i rad `i`, kolonne `j`. Rekkefølgen er alltid rad først, kolonne etterpå — `tabell[i]` gir hele raden som ei liste, og `[j]` plukker deretter ut én celle av den raden.\n\nDu kan også tilordne: `tabell[2][1] = '5'` endrer én celle. Bytter du om på de to tallene, får du enten feil verdi eller `IndexError`, og det er den vanligste feilen i kapitlet."
+    },
+    {
+      "id": "tdt4110-3-2-def-6",
+      "type": "definition",
+      "title": "`tabell.append(rad)`",
+      "content": "Legger ei hel liste inn som en ny rad bakerst i tabellen. Dette er måten tabeller bygges på: `tabell = []` først, så én `append` per linje du leser.\n\nArgumentet må være ei liste. `tabell.append('Voll')` legger inn en tekststreng som rad, og da vil `rad[1]` gi bokstaven `o` i stedet for en kolonneverdi."
+    },
+    {
+      "id": "tdt4110-3-2-def-7",
+      "type": "definition",
+      "title": "`len(tabell)` — antall rader",
+      "content": "Gir antall RADER, fordi den ytre lista har én plass per rad. Cellene telles ikke.\n\nHar tabellen en overskriftsrad, er antall DATArader `len(tabell) - 1`. Det er verdt å skrive ned, for det er en av de faste av-med-én-fellene."
+    },
+    {
+      "id": "tdt4110-3-2-def-7b",
+      "type": "definition",
+      "title": "`len(tabell[0])` — antall kolonner",
+      "content": "Gir hvor mange verdier den FØRSTE raden inneholder, altså antall kolonner når alle radene er like lange.\n\nEr radene ulikt lange, sier dette tallet bare noe om rad 0. Da bruker du `len(rad)` eller `len(tabell[i])` inne i løkka i stedet."
+    },
+    {
+      "id": "tdt4110-3-2-ex-8",
+      "type": "example",
+      "title": "Eksempel 1: fire værstasjoner som tabell",
+      "problem": "Legg målingene fra Blindern (4 grader, 12 mm), Voll (2 grader, 31 mm) og Tromsø (−3 grader, 7 mm) i en tabell med overskriftsrad. Skriv ut hele tabellen, én enkelt celle, hele rad 2, og størrelsen på tabellen.",
+      "solution": "Verdiene skrives som tekst her, akkurat slik de ville kommet fra en fil. Det er med vilje: da må du huske konverteringen når du skal regne.\n\n```python\nvaer = [['stasjon', 'temp', 'nedbor'],\n        ['Blindern', '4', '12'],\n        ['Voll', '2', '31'],\n        ['Tromso', '-3', '7']]\nprint(vaer)\nprint(vaer[1][0])\nprint(vaer[2])\nprint(len(vaer), len(vaer[0]))\n```\n\n**Utskrift:**\n```\n[['stasjon', 'temp', 'nedbor'], ['Blindern', '4', '12'], ['Voll', '2', '31'], ['Tromso', '-3', '7']]\nBlindern\n['Voll', '2', '31']\n4 3\n```\n\nLegg merke til hvordan hele tabellen skrives ut: som ei liste med lister inni, hakeparentes i hakeparentes. `vaer[1][0]` er `'Blindern'` — rad 1 er første datarad, fordi rad 0 er overskriftene. Og `vaer[2]` gir HELE raden som liste, ikke én verdi.\n\nTabellen har fire rader og tre kolonner, men bare TRE datarader: `len(vaer) - 1`."
+    },
+    {
+      "id": "tdt4110-3-2-warn-9",
+      "type": "warning",
+      "title": "Fire navn som betyr to ting",
+      "content": "Fra nå av bruker boka noen korte navn i to betydninger. Blir de blandet, blir koden feil på en måte som er vanskelig å se.\n\n- **`i`** er radindeksen i dette kapitlet. I [kap. 1.3](/tdt4110/tdt4110-1-3) var den bare «løkkevariabelen». Når begge finnes i samme kode, skriver boka `i` for rad og `j` for kolonne.\n- **`rad`** er HELE lista for én rad — ikke én verdi i raden. Skriver du `for rad in tabell:` og deretter `print(rad)`, får du en liste med hakeparenteser.\n- **`k`** brukes her for en kolonneindeks. I [kap. 3.5](/tdt4110/tdt4110-3-5) betyr `k` en nøkkel i en ordbok. Boka sier alltid hvilken betydning som gjelder.\n- **«tabell»** er 2D-lista i koden. Senere, i utskriftskapitlene, betyr «tabell» også den pene kolonneutskriften på skjermen. De to henger sammen, men er ikke det samme."
+    },
+    {
+      "id": "tdt4110-3-2-exr-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle tre linjene nøyaktig.\n\n```python\nt = [[1, 2, 3], [4, 5, 6]]\nprint(t[0][2])\nprint(t[1])\nprint(len(t))\n```",
+        "solution": "Første tall er raden, andre er kolonnen.\n\n| Uttrykk | Betydning | Verdi |\n|---|---|---|\n| `t[0][2]` | rad 0, kolonne 2 | `3` |\n| `t[1]` | hele rad 1 som liste | `[4, 5, 6]` |\n| `len(t)` | antall rader | `2` |\n\n**Utskrift:**\n```\n3\n[4, 5, 6]\n2\n```\n\nMerk forskjellen mellom første og andre linje: den ene gir et tall, den andre ei liste med hakeparenteser. På en sporingsoppgave er det to helt ulike svar.",
+        "hints": [
+          "Rad først, kolonne etterpå.",
+          "`t[1]` uten en indeks til gir hele raden.",
+          "`len` på den ytre lista teller rader, ikke celler."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-2-t-11",
+      "type": "text",
+      "content": "## Løkke 2 — å gå gjennom tabellen (~12 min)\n\nDet finnes to måter å løpe gjennom en tabell på, og de brukes til hver sitt.\n\nDen første er `for rad in tabell:`. Den gir deg én hel rad om gangen og er den du velger når du bare skal lese. Den andre er `for i in range(len(tabell)):`, som gir deg radNUMMERET. Den trenger du når du skal hoppe over overskriftsraden, sammenligne nabo­rader, eller endre celler."
+    },
+    {
+      "id": "tdt4110-3-2-def-12",
+      "type": "definition",
+      "title": "`for rad in tabell:`",
+      "content": "Går gjennom tabellen rad for rad. Inne i løkka er `rad` ei liste med verdiene i den ene raden, og du henter kolonneverdier med `rad[j]`.\n\nDenne formen gir deg ikke radnummeret. Trenger du det — for eksempel for å hoppe over overskriftsraden — bruker du indeksformen i stedet, eller du starter på `tabell[1:]`."
+    },
+    {
+      "id": "tdt4110-3-2-def-13",
+      "type": "definition",
+      "title": "`for i in range(len(tabell)):`",
+      "content": "Går gjennom radNUMRENE 0, 1, … opp til siste rad. Inne i løkka henter du raden med `tabell[i]` og en celle med `tabell[i][j]`.\n\nVil du hoppe over overskriftsraden, starter du på 1: `for i in range(1, len(tabell)):`. Vil du sammenligne hver rad med den neste, stopper du én tidligere: `range(len(tabell) - 1)`."
+    },
+    {
+      "id": "tdt4110-3-2-def-14",
+      "type": "definition",
+      "title": "Nøstet løkke over alle cellene",
+      "content": "To løkker inni hverandre: den ytre går over radene, den indre over kolonnene i den raden. Kroppen kjøres én gang per celle, altså rader ganger kolonner ganger.\n\nStandardformen er `for i in range(len(tabell)):` og inni den `for j in range(len(tabell[i])):`. Å bruke `len(tabell[i])` og ikke `len(tabell[0])` gjør koden riktig også når radene er ulikt lange."
+    },
+    {
+      "id": "tdt4110-3-2-def-15",
+      "type": "definition",
+      "title": "Overskriftsraden",
+      "content": "Den første raden i tabellen, `tabell[0]`, når den inneholder kolonnenavn i stedet for data. Dataene starter da på rad 1.\n\nOverskriftsraden er ikke i veien — den er verktøyet. Den lar deg slå opp hvilken kolonne et navn har, og dermed skrive kode som virker selv om kolonnene kommer i en annen rekkefølge neste gang."
+    },
+    {
+      "id": "tdt4110-3-2-ex-16",
+      "type": "example",
+      "title": "Eksempel 2: skriv ut hver stasjon med nedbøren sin",
+      "problem": "Med værtabellen fra eksempel 1: skriv ut én linje per stasjon på formen «Blindern: 12 mm», uten å ta med overskriftsraden. Regn deretter ut samlet nedbør.",
+      "solution": "Utskriften trenger ikke radnummeret, så `for rad in vaer[1:]:` er nok — utsnittet hopper over rad 0. Summen krever konvertering, fordi tallene ligger som tekst.\n\n```python\nvaer = [['stasjon', 'temp', 'nedbor'],\n        ['Blindern', '4', '12'],\n        ['Voll', '2', '31'],\n        ['Tromso', '-3', '7']]\nfor rad in vaer[1:]:\n    print(rad[0] + ': ' + rad[2] + ' mm')\n\ntotal = 0\nfor rad in vaer[1:]:\n    total = total + int(rad[2])\nprint('Samlet nedbør:', total, 'mm')\n```\n\n**Utskrift:**\n```\nBlindern: 12 mm\nVoll: 31 mm\nTromso: 7 mm\nSamlet nedbør: 50 mm\n```\n\nTo detaljer avgjør poeng her. For det første `vaer[1:]` — uten utsnittet ville overskriftsraden blitt skrevet ut som om den var en stasjon, og `int('nedbor')` ville stoppet programmet. For det andre `int(rad[2])`: verdiene er tekst, og `'12' + '31'` ville gitt `'1231'` i stedet for 43 (feilkode #1 — glemt konvertering).\n\nDu kunne like gjerne skrevet `for i in range(1, len(vaer)):` og brukt `vaer[i]`. Begge gir full uttelling."
+    },
+    {
+      "id": "tdt4110-3-2-warn-17",
+      "type": "warning",
+      "title": "Typiske feil: rad mot kolonne, og den hardkodede kolonnen",
+      "content": "**Feilkode #4 — å anta fast kolonnerekkefølge.** Skriver du `rad[1]` fordi temperaturen «pleier» å stå der, virker koden på akkurat den fila, og bare den. Løsningsforslagene krever eksplisitt at kolonnen finnes ved navn. Det er neste løkke i dette kapitlet.\n\n**Ombyttede indekser.** `tabell[j][i]` i stedet for `tabell[i][j]` gir enten feil celle eller `IndexError` — og i en kvadratisk tabell får du ingen feilmelding i det hele tatt, bare gale tall. Si «rad, kolonne» høyt hver gang du skriver to hakeparenteser.\n\n**Overskriftsraden som datarad.** `for rad in tabell:` tar med rad 0. Konverteringen `int(rad[1])` stopper da programmet med `ValueError: invalid literal for int()`. Bruk `tabell[1:]` eller `range(1, len(tabell))`.\n\n**Av-med-én ved naborader** (feilkode #5 — bomme med én på en løkkegrense): skal du sammenligne rad `i` med rad `i + 1`, må løkka stoppe på `range(len(tabell) - 1)`, ellers peker den siste sammenligningen utenfor tabellen."
+    },
+    {
+      "id": "tdt4110-3-2-exr-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Husk at `end=' '` bytter ut linjeskiftet med et mellomrom, og at `print()` uten argumenter skriver et linjeskift.\n\n```python\nt = [[1, 2], [3, 4], [5, 6]]\nsum_diag = 0\nfor i in range(len(t)):\n    for j in range(len(t[i])):\n        if i == j:\n            sum_diag = sum_diag + t[i][j]\n        print(t[i][j], end=' ')\nprint()\nprint(sum_diag)\n```",
+        "solution": "Den nøstede løkka besøker cellene i rekkefølgen (0,0), (0,1), (1,0), (1,1), (2,0), (2,1). Betingelsen `i == j` er sann bare i (0,0) og (1,1).\n\n| `i` | `j` | Cellen | `i == j`? | `sum_diag` etterpå |\n|---|---|---|---|---|\n| 0 | 0 | `1` | ja | 1 |\n| 0 | 1 | `2` | nei | 1 |\n| 1 | 0 | `3` | nei | 1 |\n| 1 | 1 | `4` | ja | 5 |\n| 2 | 0 | `5` | nei | 5 |\n| 2 | 1 | `6` | nei | 5 |\n\n**Utskrift:**\n```\n1 2 3 4 5 6 \n5\n```\n\nLegg merke til mellomrommet etter 6-tallet: `end=' '` skriver det også etter siste celle. Slike detaljer er nettopp det sporingsoppgaver tester.",
+        "hints": [
+          "Sett opp en tabell med kolonnene `i`, `j` og cellen, og fyll ut rad for rad.",
+          "Den indre løkka går helt ferdig før den ytre går videre ett hakk.",
+          "`print(t[i][j], end=' ')` står UTENFOR `if`-en — den kjører hver gang."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-2-t-19",
+      "type": "text",
+      "content": "## Løkke 3 — kolonner, og kolonnen du finner ved navn (~12 min)\n\n— naturlig pausepunkt —\n\nEn 2D-liste er lagret radvis. Vil du ha en hel kolonne, må du plukke ut samme plass fra hver rad. Det er tre linjer med løkke, eller én med den korte formen Python kaller en listekomprehensjon.\n\nOg så kommer grepet som gir uttelling hvert år: i stedet for å skrive kolonnenummeret rett inn, slår du det opp i overskriftsraden."
+    },
+    {
+      "id": "tdt4110-3-2-def-20",
+      "type": "definition",
+      "title": "Kolonneuttrekk med løkke",
+      "content": "Å hente ut alle verdiene i én kolonne: opprett en tom liste, gå gjennom radene, og legg til `rad[k]` for hver rad.\n\nFormen er `kolonne = []` og deretter `for rad in tabell[1:]: kolonne.append(rad[k])`. Utsnittet `[1:]` er der fordi overskriftsraden ikke er data."
+    },
+    {
+      "id": "tdt4110-3-2-def-21",
+      "type": "definition",
+      "title": "`[rad[k] for rad in tabell]` — listekomprehensjon",
+      "content": "En kortform for «bygg ei liste ved å gjøre det samme med hvert element». Den leses baklengs: ta `for rad in tabell`, og samle opp `rad[k]` for hver av dem.\n\nDen gjør nøyaktig det samme som løkka med `append`, på én linje, og brukes fritt i løsningsforslagene. Begge former gir full pott — velg den du selv leser lettest under tidspress."
+    },
+    {
+      "id": "tdt4110-3-2-def-22",
+      "type": "definition",
+      "title": "`tabell[0].index(navn)` — dynamisk kolonneindeks",
+      "content": "Slår opp hvilken plass kolonnenavnet `navn` har i overskriftsraden, og gir indeksen tilbake. Deretter bruker du den indeksen mot alle dataradene.\n\nDette er selve robusthetsgrepet: koden virker uansett hvilken rekkefølge kolonnene står i, og den slutter å virke med en tydelig `ValueError` hvis kolonnen mangler — i stedet for å regne videre på feil tall. Finnes ikke navnet, sjekker du med `if navn in tabell[0]:` først."
+    },
+    {
+      "id": "tdt4110-3-2-ex-23",
+      "type": "example",
+      "title": "Eksempel 3: hent en kolonne — tre veier, én av dem robust",
+      "problem": "Hent ut alle temperaturene fra værtabellen. Gjør det først med en løkke, så med kortformen, og så robust — slik at koden virker selv om kolonnene skulle bytte plass.",
+      "solution": "Først den eksplisitte løkka, med kolonnenummeret skrevet rett inn:\n\n```python\nvaer = [['stasjon', 'temp', 'nedbor'],\n        ['Blindern', '4', '12'],\n        ['Voll', '2', '31'],\n        ['Tromso', '-3', '7']]\ntemp = []\nfor rad in vaer[1:]:\n    temp.append(rad[1])\nprint(temp)\n```\n\n**Utskrift:**\n```\n['4', '2', '-3']\n```\n\nSamme sak på én linje:\n\n```python\nvaer = [['stasjon', 'temp', 'nedbor'],\n        ['Blindern', '4', '12'],\n        ['Voll', '2', '31'],\n        ['Tromso', '-3', '7']]\ntemp = [rad[1] for rad in vaer[1:]]\nprint(temp)\n```\n\n**Utskrift:**\n```\n['4', '2', '-3']\n```\n\nBegge har den samme svakheten: tallet 1. Kommer fila neste gang med nedbør før temperatur, gir koden feil svar uten å si fra. Den robuste varianten spør overskriftsraden:\n\n```python\nvaer = [['stasjon', 'temp', 'nedbor'],\n        ['Blindern', '4', '12'],\n        ['Voll', '2', '31'],\n        ['Tromso', '-3', '7']]\nk = vaer[0].index('temp')\ntemp = [int(rad[k]) for rad in vaer[1:]]\nprint(k)\nprint(temp)\n```\n\n**Utskrift:**\n```\n1\n[4, 2, -3]\n```\n\nHer er `k` regnet ut, ikke gjettet — og verdiene er konvertert til tall med det samme, så de kan brukes i regning. **Alle tre løsningene gir poeng, men bare den siste gir full score på robusthetsdeloppgavene.** Vane deg til den nå; hele Del 7 bygger på den."
+    },
+    {
+      "id": "tdt4110-3-2-exr-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — analyse: hent ut en kolonne robust.) En strømprisoversikt ligger som en tabell med overskriftsrad, for eksempel `[['sone', 'pris', 'forbruk'], ['NO1', '78', '410'], ['NO3', '31', '520']]`.\n\n**a)** Skriv `hent_kolonne(tabell, navn)` som finner kolonneindeksen ved hjelp av overskriftsraden og returnerer ei liste med verdiene i den kolonnen — uten overskriften, og uten å anta hvilken plass kolonnen har.\n**b)** Gjør funksjonen robust mot at kolonnen ikke finnes: returnér ei tom liste i stedet for å stoppe programmet.",
+        "solution": "**a)** og **b)** løses i samme funksjon: sjekk først at navnet finnes i overskriftsraden.\n\n```python\ndef hent_kolonne(tabell, navn):\n    if navn not in tabell[0]:\n        return []\n    k = tabell[0].index(navn)\n    verdier = []\n    for rad in tabell[1:]:\n        verdier.append(rad[k])\n    return verdier\n\nstrom = [['sone', 'pris', 'forbruk'],\n         ['NO1', '78', '410'],\n         ['NO3', '31', '520']]\nprint(hent_kolonne(strom, 'pris'))\nprint(hent_kolonne(strom, 'nettleie'))\n```\n\n**Utskrift:**\n```\n['78', '31']\n[]\n```\n\nAndre utskrift er poenget med deloppgave b: funksjonen svarer med ei tom liste i stedet for å stoppe med `ValueError`. En variant som returnerer `None` er også godkjent — men da må den som kaller, håndtere det, og ei tom liste er lettere å løkke over.\n\nKortformen `verdier = [rad[k] for rad in tabell[1:]]` gir nøyaktig samme uttelling som løkka.",
+        "hints": [
+          "Bruk `tabell[0].index(navn)` for å finne kolonneindeksen.",
+          "Sjekk `if navn not in tabell[0]:` FØR du slår opp indeksen.",
+          "Hopp over overskriftsraden med `tabell[1:]` eller `range(1, len(tabell))`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-2-t-24",
+      "type": "text",
+      "content": "## Løkke 4 — transponering og cellevis endring (~10 min)\n\nÅ **transponere** en tabell er å bytte om rader og kolonner: det som sto i rad `i`, kolonne `j`, står etterpå i rad `j`, kolonne `i`. En tabell med 3 rader og 2 kolonner blir til en med 2 rader og 3 kolonner.\n\nDette er en yndet sporingsoppgave, fordi den tvinger deg til å holde styr på begge indekser samtidig. Den er også nyttig i praksis: etter en transponering er hver kolonne blitt en rad, og da kan du bruke `max` og `sum` rett på den."
+    },
+    {
+      "id": "tdt4110-3-2-def-25",
+      "type": "definition",
+      "title": "Transponering",
+      "content": "Å bygge en ny tabell der `ny[j][i]` er den gamle `gammel[i][j]`. Antall rader og kolonner bytter plass.\n\nStandardoppskriften er å løkke over kolonneindeksene ytterst og radindeksene innerst, og bygge én ny rad per gammel kolonne. Den nye tabellen er uavhengig av den gamle."
+    },
+    {
+      "id": "tdt4110-3-2-def-26",
+      "type": "definition",
+      "title": "`tabell[i][j] = v` — endre én celle",
+      "content": "Skriver verdien `v` inn i rad `i`, kolonne `j`. Tabellen endres på plass, og ingen ny tabell lages.\n\nMerk at `tabell[i] = ny_rad` bytter ut HELE raden. Det er en annen operasjon, og en vanlig kilde til forvirring når begge står i samme løkke."
+    },
+    {
+      "id": "tdt4110-3-2-def-27",
+      "type": "definition",
+      "title": "Ujevn tabell",
+      "content": "En tabell der radene har ulikt antall kolonner. Den er fullt lovlig i Python, men gjør `len(tabell[0])` upålitelig som kolonnetall.\n\nTrygg kode bruker `len(rad)` eller `len(tabell[i])` inne i løkka i stedet. Fildata er som regel jevne — men en tom siste linje i fila gir en tom rad, og da stopper `rad[1]` programmet."
+    },
+    {
+      "id": "tdt4110-3-2-def-27b",
+      "type": "definition",
+      "title": "Kopi av en tabell",
+      "content": "`ny = tabell[:]` gir en ny ytre liste, men radene inni er fortsatt de SAMME listene. Endrer du en celle i `ny`, endres den i `tabell` også.\n\nEn ekte, uavhengig kopi bygges rad for rad: opprett `ny = []` og legg til `rad[:]` for hver rad. Dette er feilkode #15, aliasing, i den formen som er vanskeligst å oppdage."
+    },
+    {
+      "id": "tdt4110-3-2-ex-28",
+      "type": "example",
+      "title": "Eksempel 4: transponer en tabell",
+      "problem": "Gjør tabellen `[[1, 2], [3, 4], [5, 6]]` — tre rader, to kolonner — om til en tabell med to rader og tre kolonner.",
+      "solution": "Den nye tabellen får én rad per gammel KOLONNE. Derfor går den ytre løkka over kolonneindeksene.\n\n```python\nt = [[1, 2], [3, 4], [5, 6]]\nny = []\nfor j in range(len(t[0])):\n    rad = []\n    for i in range(len(t)):\n        rad.append(t[i][j])\n    ny.append(rad)\nprint(ny)\nprint(len(t), len(t[0]))\nprint(len(ny), len(ny[0]))\n```\n\n**Utskrift:**\n```\n[[1, 3, 5], [2, 4, 6]]\n3 2\n2 3\n```\n\nTre ting er verdt å merke seg. `rad = []` står INNE i den ytre løkka — flyttes den ut, samles alt i én lang rad. Indeksene i `t[i][j]` står i vanlig rekkefølge selv om løkkene er byttet om; det er nettopp løkkenes rekkefølge som gjør transponeringen. Og størrelsene bytter plass: 3 ganger 2 blir 2 ganger 3."
+    },
+    {
+      "id": "tdt4110-3-2-warn-29",
+      "type": "warning",
+      "title": "Fella med `[[0] * 3] * 2`",
+      "content": "Skal du lage en tom tabell fylt med nuller, er det fristende å skrive `[[0] * 3] * 2`. Den ytre gjentakelsen kopierer ikke raden — den lager to PEKERE til den samme raden, og en endring i den ene synes i den andre. Det er feilkode #15, aliasing, i 2D-form.\n\n```python\nt = [[0] * 3] * 2\nt[0][0] = 9\nprint(t)\n```\n\n**Utskrift:**\n```\n[[9, 0, 0], [9, 0, 0]]\n```\n\nBygg tabellen med en løkke i stedet, så hver rad er sin egen liste:\n\n```python\nt = []\nfor i in range(2):\n    t.append([0] * 3)\nt[0][0] = 9\nprint(t)\n```\n\n**Utskrift:**\n```\n[[9, 0, 0], [0, 0, 0]]\n```\n\nDen indre `[0] * 3` er trygg, fordi tallene ikke kan endres innenfra. Det er bare gjentakelse av LISTER som gir aliaser."
+    },
+    {
+      "id": "tdt4110-3-2-exr-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — kodesporing på tabell.) Hva skriver programmet ut?\n\n```python\nt = [[0, 1], [1, 0], [1, 1]]\nfor i in range(len(t)):\n    for j in range(len(t[i])):\n        t[i][j] = 1 - t[i][j]\nprint(t)\nprint(t[2])\n```",
+        "solution": "`1 - 0` er 1 og `1 - 1` er 0, så løkka snur hver celle fra 0 til 1 og omvendt.\n\n| Rad | Før | Etter |\n|---|---|---|\n| 0 | `[0, 1]` | `[1, 0]` |\n| 1 | `[1, 0]` | `[0, 1]` |\n| 2 | `[1, 1]` | `[0, 0]` |\n\n**Utskrift:**\n```\n[[1, 0], [0, 1], [0, 0]]\n[0, 0]\n```\n\nMerk at tabellen endres PÅ PLASS: det finnes ingen ny tabell her, og `t` er en annen tabell etter løkka enn før. Skulle originalen bevares, måtte du bygget en ny med `append`.",
+        "hints": [
+          "Snuoperasjonen er `1 - verdien`; regn den ut for hver celle.",
+          "Gå rad for rad, og skriv den nye raden under den gamle.",
+          "Siste linje skriver bare én rad, med hakeparenteser."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-2-exr-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-3-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — analyse: finn den beste raden.) En resirkuleringsstasjon fører statistikk per måned i en tabell med overskriftsrad, for eksempel `[['maned', 'glass', 'metall'], ['jan', '120', '45'], ['feb', '96', '61'], ['mar', '120', '38']]`.\n\n**a)** Skriv `beste_maned(tabell, kolonne)` som returnerer navnet på måneden med høyest verdi i den oppgitte kolonnen. Kolonnen skal finnes ved navn, og månedsnavnet skal hentes fra den første kolonnen.\n**b)** Håndtér at tabellen bare inneholder overskriftsraden: returnér `None`.\n**c)** Forklar med én setning hva funksjonen din gjør når to måneder har samme høyeste verdi.",
+        "solution": "**a)** og **b)**: sjekk tomtilfellet først, finn kolonnen ved navn, og hold styr på beste rad underveis.\n\n```python\ndef beste_maned(tabell, kolonne):\n    if len(tabell) < 2:\n        return None\n    k = tabell[0].index(kolonne)\n    beste = tabell[1]\n    for rad in tabell[2:]:\n        if int(rad[k]) > int(beste[k]):\n            beste = rad\n    return beste[0]\n\navfall = [['maned', 'glass', 'metall'],\n          ['jan', '120', '45'],\n          ['feb', '96', '61'],\n          ['mar', '120', '38']]\nprint(beste_maned(avfall, 'glass'))\nprint(beste_maned(avfall, 'metall'))\nprint(beste_maned([['maned', 'glass']], 'glass'))\n```\n\n**Utskrift:**\n```\njan\nfeb\nNone\n```\n\n**c)** Ved likhet returnerer funksjonen den FØRSTE av dem, fordi sammenligningen er `>` og ikke `>=`.\n\nMerk `int(rad[k])`: uten konverteringen ville `'96' > '120'` blitt sammenlignet som tekst, og `'9'` kommer etter `'1'` alfabetisk — da hadde februar vunnet (feilkode #1, glemt konvertering). Det er den dyreste feilen i denne oppgavetypen, fordi programmet kjører videre og gir et galt svar uten å si fra.\n\nSnarveien `max` kan også brukes her, men bare til å finne selve verdien; skal du ha månedsNAVNET, trenger du løkka eller et oppslag med `.index` etterpå. Begge veier gir full pott.",
+        "hints": [
+          "Start med å sjekke `if len(tabell) < 2:` — da finnes ingen datarader.",
+          "Finn kolonneindeksen med `tabell[0].index(kolonne)`.",
+          "Sett `beste` til den første dataraden før løkka, og sammenlign de øvrige mot den — husk `int()` rundt begge verdiene."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-3-2-col-31",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene du bør ha med deg",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "tdt4110-3-2-col-31-t1",
+          "type": "text",
+          "content": "1. `tabell[i][j]` er rad først, kolonne etterpå. `tabell[i]` alene gir hele raden som liste.\n2. `len(tabell)` er antall rader, `len(tabell[0])` antall kolonner. Med overskriftsrad er antall datarader `len(tabell) - 1`.\n3. `for rad in tabell:` når du bare leser, `for i in range(len(tabell)):` når du trenger radnummeret eller skal endre.\n4. Hopp over overskriftsraden med `tabell[1:]` eller `range(1, len(tabell))`.\n5. Finn kolonnen ved navn: `k = tabell[0].index('pris')`. Dette er fullscore-grepet — aldri et hardkodet kolonnenummer.\n6. Verdier fra fil er tekst. Konvertér med `int()` eller `float()` før du sammenligner eller regner."
+        }
+      ]
+    },
+    {
+      "id": "tdt4110-3-2-col-32",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "tdt4110-3-2-col-32-t1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `[[a, b], [c, d]]` | 2D-liste: ytre liste er rader, indre er celler |\n| `tabell[i]` | Hele rad `i` som ei liste — skrives ut med hakeparenteser |\n| `tabell[i][j]` | Cellen i rad `i`, kolonne `j`; rad ALLTID først |\n| `tabell[i][j] = v` | Endrer én celle på plass; `tabell[i] = rad` bytter hele raden |\n| `tabell.append(rad)` | Legger ei liste til som ny rad bakerst |\n| `len(tabell)` | Antall rader |\n| `len(tabell[0])` | Antall kolonner i første rad; bruk `len(rad)` ved ujevne rader |\n| `tabell[1:]` | Alle radene unntatt overskriftsraden |\n| `for rad in tabell:` | Én hel rad om gangen; gir ikke radnummeret |\n| `for i in range(len(tabell)):` | Radnumrene 0 … `len(tabell) - 1` |\n| `for i in range(1, len(tabell)):` | Radnumrene fra første datarad |\n| `range(len(tabell) - 1)` | Når hver rad skal sammenlignes med den neste |\n| `tabell[0].index(navn)` | Kolonneindeksen til et kolonnenavn; `ValueError` hvis navnet mangler |\n| `navn in tabell[0]` | Sjekk før oppslaget, så koden ikke stopper |\n| `[rad[k] for rad in tabell[1:]]` | Hele kolonne `k` som liste, uten overskriften |\n| `int(rad[k])` / `float(rad[k])` | Nødvendig før sammenligning og regning på fildata |\n| `[[0] * n for i in range(m)]` | `m` uavhengige rader; `[[0] * n] * m` gir aliaser |\n"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

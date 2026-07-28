@@ -1,0 +1,408 @@
+{
+ "id": "tdt4110-1-1",
+ "courseId": "tdt4110",
+ "chapterNumber": "1.1",
+ "title": "Variabler, datatyper og konvertering",
+ "description": "Tall, tekst og boolske verdier; heltalls- vs. flyttallsdeling; og `int()`/`float()`/`str()`-konvertering — som er første fallgruve ved fil- og input-data.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne skille tall, tekst og sannhetsverdier fra hverandre, og forklare hvorfor samme plusstegn betyr to forskjellige ting",
+  "kunne regne ut hva heltallsdeling og resten gir, også når tallet er negativt",
+  "kunne gjøre om mellom tekst og tall, og vite nøyaktig når omgjøringen er nødvendig",
+  "kunne lese et uttrykk med flere regneoperatorer i riktig rekkefølge"
+ ],
+ "content": [
+  {
+   "title": "Eksamensvinkel",
+   "content": "Dette kapitlet er grunnmuren. Ingenting av det du gjør senere i faget virker uten det.\n\n- **Variabler, datatyper og konvertering** står i **10 av 10** eksamenssett i arkivet 2014–2019, altså **100 %**. Det er ikke fordi det finnes en egen «datatype-oppgave» — det er fordi hver eneste programmeringsoppgave leser data utenfra, og data utenfra kommer alltid inn som **tekst** som må gjøres om til tall.\n- Regneoperatorene `//` (heltallsdeling) og `%` (rest) er faste innslag i **sjanger B — kodesporing**, altså oppgavetypen «hva skriver dette programmet ut?». Den sjangeren er i alle settene og gir 1–3 % per deloppgave.\n- De samme to operatorene bærer tidsregningen (sekunder om til timer, minutter og sekunder) som går igjen i programmeringsoppgavene.\n\n**Dette må sitte.** Boka bruker tre nivåer: *må sitte* (høyeste prioritet), *må kunne* og *bør kjenne til*. Kapittel 1.1 ligger på det høyeste — ikke fordi stoffet er vanskelig, men fordi en glemt `int()` ødelegger resten av en ellers riktig besvarelse.",
+   "type": "tip",
+   "id": "tdt4110-1-1-tip-1"
+  },
+  {
+   "content": "**Forkunnskaper:** ingen. Dette er bokas første fagkapittel, og du trenger ikke ha programmert før.\n\nHar du aldri sett et program i det hele tatt, kan du gjerne bruke en time på en mykere inngang først:\n\n- [Programmering med Python](/1p/1p-9-2) — de aller første stegene, skrevet for videregående.\n- [Programmering med Python](/10/10-11-2) — samme stoff, enda roligere tempo.\n- [Variabler, datatyper og uttrykk](/in1000/in1000-1-1) — samme grunnstoff i et parallelt universitetsemne, hvis du vil ha en ekstra forklaring ved siden av denne.\n\nIngen av dem er nødvendige. Kapitlet her forklarer alt fra bunnen.",
+   "type": "text",
+   "id": "tdt4110-1-1-t-2"
+  },
+  {
+   "content": "## Løkke 1 — Å gi noe et navn (~8 min)\n\nPå en strømregning står det tre tall: forbruket i kilowattimer, prisen per kilowattime og fastbeløpet. Skal du regne ut hva regningen blir, må du holde de tre tallene fra hverandre mens du regner. Du gir dem navn — «forbruk», «pris», «fastbeløp» — og regner med navnene.\n\nDet er nøyaktig det et program gjør. Et navn som holder på en verdi, kalles en **variabel**, og å sette en verdi inn i den kalles en **tilordning**.",
+   "type": "text",
+   "id": "tdt4110-1-1-t-3"
+  },
+  {
+   "title": "Variabel",
+   "content": "Et navn som peker på en verdi maskinen husker mens programmet kjører.\n\nNavnet velger du selv. Det må begynne med en bokstav eller understrek, kan inneholde bokstaver, tall og understrek, og skiller mellom store og små bokstaver: `pris` og `Pris` er to forskjellige variabler. Norske bokstaver er lov i Python 3, men boka holder seg til `aa`, `oe` og `aa`-frie navn der det er naturlig, fordi eksamensfasitene gjør det.\n\nEn variabel har ingen fast type. Den peker på det du sist la i den, og kan senere peke på noe helt annet.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-4"
+  },
+  {
+   "title": "Tilordning med `=`",
+   "content": "Setter verdien på **høyre** side inn i navnet på **venstre** side. Likhetstegnet i Python betyr altså «gjør slik at», ikke «er lik».\n\n`forbruk = 1250` leser du som «la `forbruk` være 1250». Høyre side regnes ut først, deretter settes resultatet inn i navnet. Derfor gir `n = n + 1` mening: den gamle verdien av `n` brukes til å regne ut den nye.\n\nSammenligning skrives med to likhetstegn, `==`. Det kommer i [kap. 1.2](/tdt4110/tdt4110-1-2).",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-5"
+  },
+  {
+   "title": "Augmentert tilordning (`+=`, `-=`, `*=`)",
+   "content": "Kortform for «regn på verdien som allerede står der, og legg resultatet tilbake i samme navn».\n\n`total += 50` betyr nøyaktig det samme som `total = total + 50`. Tilsvarende finnes `-=`, `*=`, `/=`, `//=` og `%=`.\n\nVariabelen må ha en verdi fra før — `total += 50` på et navn som ikke finnes, gir feilmeldingen `NameError`. Derfor settes startverdien alltid **før** løkka i tellemønstrene du møter i [kap. 1.3](/tdt4110/tdt4110-1-3).",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-6"
+  },
+  {
+   "title": "Eksempel 1: Strømregningen",
+   "problem": "Forbruket er 1250 kilowattimer, prisen er 1,15 kroner per kilowattime og fastbeløpet er 39 kroner. Hva blir regningen, og hva skjer hvis forbruket senere korrigeres til 1310?",
+   "solution": "Vi gir de tre tallene navn og regner med navnene:\n\n```python\nforbruk = 1250\npris = 1.15\nfastbelop = 39\nregning = forbruk * pris + fastbelop\nprint(regning)\n```\n\n**Utskrift:**\n```\n1476.5\n```\n\nMerk at desimaltall skrives med **punktum**, ikke komma: `1.15`. Komma betyr noe annet i Python.\n\nKorrigeres forbruket, tilordner vi på nytt — og må regne ut regningen på nytt. Den gamle utregningen henger ikke igjen:\n\n```python\nforbruk = 1250\npris = 1.15\nfastbelop = 39\nregning = forbruk * pris + fastbelop\nforbruk = 1310\nprint(regning)\nregning = forbruk * pris + fastbelop\nprint(regning)\n```\n\n**Utskrift:**\n```\n1476.5\n1545.4999999999998\n```\n\nFørste `print` gir fortsatt den gamle summen. `regning` husker **tallet** som ble regnet ut, ikke oppskriften. Dette er den vanligste misforståelsen om tilordning, og den lønner seg å ha sett én gang.",
+   "type": "example",
+   "id": "tdt4110-1-1-ex-7"
+  },
+  {
+   "id": "tdt4110-1-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — minimal sporing. Sjanger B — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\nantall = 4\nantall = antall + 3\nantall += 2\nprint(antall)\n```",
+    "solution": "**Sporingstavle**\n\n| Linje | Regnestykke | `antall` etterpå |\n|---|---|---|\n| `antall = 4` | — | 4 |\n| `antall = antall + 3` | 4 + 3 | 7 |\n| `antall += 2` | 7 + 2 | 9 |\n\n**Utskrift:**\n```\n9\n```\n\n**Fellenote:** høyre side regnes alltid ut ferdig før tilordningen skjer. `antall += 2` er bare en kortform for den samme operasjonen.",
+    "hints": [
+     "Regn ut høyre side av likhetstegnet først, og sett så resultatet inn i navnet.",
+     "`x += 2` betyr det samme som `x = x + 2`."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 2 — De fire typene (~10 min)\n\nTallet 7 og teksten «7» ser like ut på skjermen, men maskinen behandler dem helt forskjellig. Det ene kan du regne med; det andre kan du bare sette sammen med annen tekst. Hvilken av delene en verdi hører til, kalles verdiens **datatype**.\n\nFire typer dekker nesten alt du trenger i dette faget.",
+   "type": "text",
+   "id": "tdt4110-1-1-t-9"
+  },
+  {
+   "title": "`int` — heltall",
+   "content": "Hele tall uten desimaler: `0`, `7`, `-42`, `1250`. Ingen øvre grense i Python 3 — heltall kan bli vilkårlig store.\n\nSkrives uten fnutter og uten mellomrom som tusenskille: `1250`, aldri `1 250`.\n\nRegning mellom to heltall gir heltall, med ett unntak: `/` gir alltid desimaltall.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-10"
+  },
+  {
+   "title": "`float` — flyttall (desimaltall)",
+   "content": "Tall med desimaler: `1.15`, `3.0`, `-0.5`. **Desimalskilletegnet er punktum**, ikke komma.\n\n«Flyttall» betyr at komma «flyter» — maskinen lagrer tallet omtrent slik `1.15` ganger en tierpotens, med et begrenset antall siffer. Derfor er flyttall **tilnærminger**: `0.1 + 0.2` blir `0.30000000000000004`, ikke `0.3`. Det er ikke en feil i Python, det er avrundingen i et endelig antall bit.\n\n`3.0` er et flyttall selv om verdien er hel. Utskriften viser `.0`-en.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-11"
+  },
+  {
+   "title": "`str` — streng (tekst)",
+   "content": "En tekst, skrevet mellom enkle eller doble fnutter: `'Trondheim'`, `\"1250\"`. «Streng» er fagordet for tekst i programmering — en streng av tegn.\n\nFnuttene er ikke en del av teksten. `print('sol')` skriver `sol`, uten fnutter.\n\n`+` mellom to strenger **limer dem sammen**: `'12' + '7'` gir `'127'`, ikke 19. Dette er felle #1 i bokas feilregister, og den vanligste enkeltfeilen i faget.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-12"
+  },
+  {
+   "title": "`bool` — sannhetsverdi",
+   "content": "Har nøyaktig to mulige verdier: `True` (sann) og `False` (usann). Stor forbokstav, uten fnutter — `'True'` med fnutter er en **streng**, ikke en sannhetsverdi.\n\nSannhetsverdier oppstår av sammenligninger (`5 > 3` gir `True`) og styrer alle valg i programmet. Hele apparatet rundt dem står i [kap. 1.2](/tdt4110/tdt4110-1-2).\n\nInternt er `True` tallet 1 og `False` tallet 0, så `True + True` gir 2. Det er sjelden nyttig, men det forklarer at man kan telle sanne tilfeller ved å summere dem.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-13"
+  },
+  {
+   "title": "`type(x)`",
+   "content": "Forteller hvilken datatype verdien `x` har akkurat nå. Svaret skrives som `<class 'int'>`, `<class 'float'>`, `<class 'str'>` eller `<class 'bool'>`.\n\n`type` regner ikke om noe og endrer ingenting — den bare rapporterer. På eksamen bruker du den aldri i en besvarelse, men når du sporer kode i hodet, er «hvilken type er dette nå?» ofte det spørsmålet som avgjør svaret.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-14"
+  },
+  {
+   "title": "Eksempel 2: Fire verdier, fire typer",
+   "problem": "Hva er typen til `1250`, `1.15`, `'1250'` og `1250 > 1000` — og hva skjer når du plusser to strenger mot to tall?",
+   "solution": "```python\nprint(type(1250))\nprint(type(1.15))\nprint(type('1250'))\nprint(type(1250 > 1000))\n```\n\n**Utskrift:**\n```\n<class 'int'>\n<class 'float'>\n<class 'str'>\n<class 'bool'>\n```\n\nLegg merke til den tredje linja: `'1250'` med fnutter er en **tekst som ser ut som et tall**. Det er nøyaktig slik tall kommer inn fra en fil eller fra brukeren, og derfor det viktigste tilfellet i hele kapitlet.\n\nForskjellen viser seg med én gang du regner:\n\n```python\nprint(12 + 7)\nprint('12' + '7')\n```\n\n**Utskrift:**\n```\n19\n127\n```\n\nSamme operator, to helt ulike resultater. `+` betyr «legg sammen» for tall og «lim sammen» for tekst.",
+   "type": "example",
+   "id": "tdt4110-1-1-ex-15"
+  },
+  {
+   "id": "tdt4110-1-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut? Skriv de tre linjene nøyaktig som terminalen viser dem.\n\n```python\na = '5'\nb = 5\nprint(a + a)\nprint(b + b)\nprint(a * 2)\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Typer | Hva operatoren gjør | Resultat |\n|---|---|---|---|\n| `a + a` | tekst + tekst | limer sammen | `55` |\n| `b + b` | tall + tall | legger sammen | `10` |\n| `a * 2` | tekst ganger tall | gjentar teksten to ganger | `55` |\n\n**Utskrift:**\n```\n55\n10\n55\n```\n\n**Fellenote:** de to `55`-linjene ser like ut, men er ikke det samme. Den første er sammenliming, den andre er gjentakelse. Ingen av dem er tallet 55 — begge er tekst.",
+    "hints": [
+     "Spør deg for hver linje: er dette to tekster eller to tall?",
+     "`+` limer sammen tekst; `*` med et tall gjentar teksten."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 3 — Regneoperatorene, og de to som overrasker (~12 min)\n\nFire av regneoperatorene oppfører seg som på kalkulatoren: `+`, `-`, `*` og potens. To gjør det ikke, og nettopp de to er faste innslag i kodesporingsoppgavene: heltallsdelingen `//` og resten `%`.\n\nEt konkret bilde først. En treningsøkt varte 3725 sekunder. Hvor mange hele minutter er det, og hvor mange sekunder blir til overs? Du deler på 60 og ser på heltallsdelen — det er `//` — og resten er `%`.",
+   "type": "text",
+   "id": "tdt4110-1-1-t-17"
+  },
+  {
+   "title": "`/` — divisjon",
+   "content": "Vanlig divisjon. Gir **alltid** et flyttall, også når det går opp: `10 / 2` gir `5.0`, ikke `5`.\n\nDette er en av de vanligste kildene til rar utskrift. Skriver programmet `5.0` der du ventet `5`, har du sannsynligvis delt med `/` der du mente `//`.\n\nDeling på null gir feilmeldingen `ZeroDivisionError` og stopper programmet.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-18"
+  },
+  {
+   "title": "`//` — heltallsdeling",
+   "content": "Deler og kaster desimalene, slik at svaret blir et heltall når begge operandene er heltall: `17 // 5` gir `3`.\n\nPresist: `//` runder **nedover**, mot minus uendelig — ikke mot null. Det betyr at `-17 // 5` gir `-4`, ikke `-3`. Dette er nøyaktig den detaljen sporingsoppgavene tester, og den eneste måten å huske den på er å lese «nedover på tallinja».\n\nEr én av operandene et flyttall, blir svaret et flyttall uten desimaler: `17.0 // 5` gir `3.0`.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-19"
+  },
+  {
+   "title": "`%` — modulo (resten)",
+   "content": "Gir resten etter heltallsdeling: `17 % 5` gir `2`, fordi 17 er 3 femmere og 2 til overs.\n\nTo bruksmåter går igjen på eksamen: **sifre** (`n % 10` gir siste siffer) og **partall** (`n % 2 == 0` er sant når `n` er et partall).\n\nFor negative tall følger `%` samme regel som `//`, så resten får samme fortegn som det du deler på: `-17 % 5` gir `3`. Sammenhengen som alltid gjelder, er at `(a // b) * b + (a % b)` er `a`.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-20"
+  },
+  {
+   "title": "Potens",
+   "content": "Skrives med to stjerner: `2 ** 10` gir 1024. To heltall gir heltall.\n\nNegativ eksponent gir flyttall: `2 ** -1` gir `0.5`. Kvadratrot skrives som `x ** 0.5`, som er grunnen til at boka nesten aldri trenger `math`-modulen.\n\nPotens binder sterkere enn alt annet, og sterkere enn minustegnet foran et tall: `-2 ** 2` er $-4$, ikke $4$.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-21"
+  },
+  {
+   "title": "Tidsformelen: sekunder om til timer, minutter og sekunder",
+   "content": "Det kanoniske mønsteret for tidsregning i dette faget, og en fast innpakning i programmeringsoppgavene. Tre linjer, i denne rekkefølgen:\n\n```python\nsekunder = 3725\ntimer = sekunder // 3600\nminutter = (sekunder % 3600) // 60\nrest = sekunder % 60\nprint(timer, minutter, rest)\n```\n\n**Utskrift:**\n```\n1 2 5\n```\n\n1. **Timene** er hele antall 3600-sekunders bolker: `// 3600`.\n2. **Minuttene** finnes i det som er igjen etter timene: først `% 3600`, deretter `// 60`.\n3. **Sekundene** er resten etter hele minutter: `% 60`.\n\nBruker du `/` i stedet for `//` på noen av linjene, får du desimaltall og hele regnestykket sprekker. Motsatt vei: bytter du `%` og `//`, får du timer der du skulle hatt sekunder.\n\nSelve utskriftsformen `01:02:05`, med nuller foran, hører til formatert utskrift og kommer i Del 3.",
+   "type": "theorem",
+   "id": "tdt4110-1-1-th-22"
+  },
+  {
+   "title": "Eksempel 3: `//`, `%` og `/` side om side",
+   "problem": "Hva gir `17 // 5`, `17 % 5` og `17 / 5` — og hva skjer med de samme uttrykkene når tallet er negativt?",
+   "solution": "```python\nprint(17 // 5, 17 % 5, 17 / 5)\nprint(-17 // 5, -17 % 5, -17 / 5)\n```\n\n**Utskrift:**\n```\n3 2 3.4\n-4 3 -3.4\n```\n\nFørste linje er som ventet: 3 hele femmere, 2 til overs, og 3,4 som desimaltall.\n\nAndre linje er den som koster poeng. `-17 // 5` er **ikke** $-3$. Heltallsdelingen runder nedover på tallinja, og nedover fra $-3{,}4$ er $-4$. Resten blir da 3, fordi $-4 \\cdot 5 + 3 = -17$.\n\nKontrollen du kan gjøre på papir: gang svaret fra `//` med det du delte på, og legg til resten. Får du tilbake det opprinnelige tallet, har du regnet riktig.",
+   "type": "example",
+   "id": "tdt4110-1-1-ex-23"
+  },
+  {
+   "title": "Typisk feil #9 — å blande `/` og `//`",
+   "content": "Feilkode **#9** i bokas feilregister (samlet i [kap. 0.1](/tdt4110/tdt4110-0-1)): å bruke vanlig divisjon der heltallsdeling var meningen, eller omvendt.\n\nSymptomet er lett å kjenne igjen: utskriften får et `.0` eller en lang desimalhale den ikke skulle hatt, eller en indeks blir et flyttall og programmet stopper med `TypeError`.\n\n**Regel du kan bruke uten å tenke:** skal resultatet brukes som et *antall* — antall timer, antall hele bolker, en plass i en liste — skal du ha `//`. Skal det brukes som en *måling* — pris, gjennomsnitt, andel — skal du ha `/`.",
+   "type": "warning",
+   "id": "tdt4110-1-1-adv-24"
+  },
+  {
+   "id": "tdt4110-1-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut? Pass på fortegnene.\n\n```python\nprint(29 // 4)\nprint(29 % 4)\nprint(29 / 4)\nprint(-29 // 4)\nprint(-29 % 4)\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Resonnement | Verdi |\n|---|---|---|\n| `29 // 4` | 7 hele firere i 29 | `7` |\n| `29 % 4` | $29 - 7 \\cdot 4 = 1$ | `1` |\n| `29 / 4` | vanlig divisjon, alltid flyttall | `7.25` |\n| `-29 // 4` | nedover fra $-7{,}25$ er $-8$ | `-8` |\n| `-29 % 4` | $-8 \\cdot 4 + 3 = -29$ | `3` |\n\n**Utskrift:**\n```\n7\n1\n7.25\n-8\n3\n```\n\n**Fellenote:** fellen er #9 sammen med nedrundingsregelen. Den som svarer `-7` og `-1` på de to siste, har rundet mot null i stedet for nedover.",
+    "hints": [
+     "Bruk sammenhengen at heltallsdelingen ganget med divisoren, pluss resten, gir tilbake det opprinnelige tallet.",
+     "`//` runder nedover på tallinja — også når tallet er negativt."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) En treningsøkt er logget som 7384 sekunder. Hva skriver programmet ut?\n\n```python\nsek = 7384\nt = sek // 3600\nm = (sek % 3600) // 60\ns = sek % 60\nprint(t, m, s)\nprint(t + m + s)\n```",
+    "solution": "**Sporingstavle**\n\n| Variabel | Regnestykke | Verdi |\n|---|---|---|\n| `t` | $7384 // 3600$ | 2 |\n| `sek % 3600` | $7384 - 2 \\cdot 3600$ | 184 |\n| `m` | $184 // 60$ | 3 |\n| `s` | $7384 \\% 60$ | 4 |\n\n**Utskrift:**\n```\n2 3 4\n9\n```\n\nFørste linje er tre tall skilt med mellomrom, fordi `print` med flere argumenter setter ett mellomrom mellom dem. Andre linje er summen $2 + 3 + 4$, som er et meningsløst tall faglig, men helt riktig som sporing.\n\n**Fellenote:** den vanligste feilen her er å regne `m` som `sek // 60` og få 123 — da har man glemt å trekke fra timene først.",
+    "hints": [
+     "Følg tidsformelen: timene først, deretter resten etter timene, til slutt resten etter minuttene.",
+     "`print(a, b, c)` skiller verdiene med ett mellomrom."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 4 — Rekkefølgen uttrykkene regnes i (~5 min)\n\nNår flere operatorer står i samme uttrykk, må maskinen bestemme hvilken som gjelder først. Reglene er de samme du lærte i matematikken, med potens på toppen.",
+   "type": "text",
+   "id": "tdt4110-1-1-t-27"
+  },
+  {
+   "title": "Presedens (regnerekkefølge)",
+   "content": "Rekkefølgen operatorene regnes i, fra sterkest til svakest:\n\n1. **Potens** — regnes fra høyre mot venstre: `2 ** 3 ** 2` er `2 ** 9`, altså 512.\n2. **Unært minus** — minustegnet foran ett tall.\n3. **`*`, `/`, `//`, `%`** — like sterke, regnes fra venstre mot høyre.\n4. **`+` og `-`** — svakest, også fra venstre mot høyre.\n\nParenteser slår alt. Er du i tvil på eksamen, sett parenteser — de koster ingenting og fjerner hele spørsmålet.\n\nDen ene fella som faktisk brukes i oppgaver: potens binder sterkere enn minustegnet, så `-3 ** 2` er $-9$.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-28"
+  },
+  {
+   "title": "Eksempel 4: Fire uttrykk, samme tall",
+   "problem": "Hva blir `2 + 3 * 4`, `(2 + 3) * 4`, `-3 ** 2` og `20 - 6 // 4 * 2`?",
+   "solution": "```python\nprint(2 + 3 * 4)\nprint((2 + 3) * 4)\nprint(-3 ** 2)\nprint(20 - 6 // 4 * 2)\n```\n\n**Utskrift:**\n```\n14\n20\n-9\n18\n```\n\nDen siste er verdt en gjennomgang. `//` og `*` er like sterke og regnes fra venstre:\n\n1. `6 // 4` gir 1.\n2. `1 * 2` gir 2.\n3. `20 - 2` gir 18.\n\nDen som regner `4 * 2` først og deretter `6 // 8`, får 20 — og har brutt regelen om venstre mot høyre.",
+   "type": "example",
+   "id": "tdt4110-1-1-ex-29"
+  },
+  {
+   "id": "tdt4110-1-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nprint(10 - 2 ** 3)\nprint(-2 ** 2)\nprint(18 % 5 * 2)\nprint(18 % (5 * 2))\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Rekkefølge | Verdi |\n|---|---|---|\n| `10 - 2 ** 3` | potens først: $10 - 8$ | `2` |\n| `-2 ** 2` | potens før minustegnet: $-(2^2)$ | `-4` |\n| `18 % 5 * 2` | like sterke, venstre mot høyre: $3 \\cdot 2$ | `6` |\n| `18 % (5 * 2)` | parentes først: $18 \\% 10$ | `8` |\n\n**Utskrift:**\n```\n2\n-4\n6\n8\n```\n\n**Fellenote:** de to siste linjene har nøyaktig de samme tegnene bortsett fra parentesen, og gir ulikt svar. Det er hele poenget med presedens.",
+    "hints": [
+     "Sett inn parenteser slik du tror uttrykket leses, og regn deretter innenfra og ut.",
+     "`%` og `*` er like sterke og regnes fra venstre mot høyre."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 5 — Konvertering: fra tekst til tall og tilbake (~10 min)\n\nNå kommer kapitlets viktigste avsnitt. Alle data som kommer inn i programmet utenfra — fra en fil, fra tastaturet — kommer inn som **tekst**. Ingen unntak. Skal du regne med dem, må du gjøre dem om til tall først. Å gjøre om en verdi fra én datatype til en annen kalles **konvertering**.\n\nEn prisliste på fil ser slik ut for maskinen:\n\n```text\nRimi;melk;21.90\n```\n\nPrisen `21.90` er tekst, ikke et tall, helt til du selv gjør noe med den.",
+   "type": "text",
+   "id": "tdt4110-1-1-t-31"
+  },
+  {
+   "title": "`int(s)` — tekst om til heltall",
+   "content": "Tar en tekst som ser ut som et helt tall, og gir tallet: `int('42')` gir `42`.\n\nTeksten må inneholde **bare** et helt tall, eventuelt med fortegn og omkringliggende mellomrom. `int(' 42 ')` virker; `int('42 kr')`, `int('')` og `int('3.9')` gir alle feilmeldingen `ValueError` og stopper programmet.\n\nMerk det siste: en tekst med desimalpunktum kan **ikke** sendes rett til `int`. Da må du gå veien om `float`.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-32"
+  },
+  {
+   "title": "`float(s)` — tekst om til desimaltall",
+   "content": "Tar en tekst som ser ut som et tall, og gir et flyttall: `float('3.14')` gir `3.14`, og `float('7')` gir `7.0`.\n\nDesimalskilletegnet må være **punktum**. `float('3,14')` gir `ValueError` — en felle når data kommer fra norske regneark.\n\nTommelfingerregel for fildata: felt som er penger, målinger eller tider konverteres med `float`, felt som er antall eller årstall med `int`.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-33"
+  },
+  {
+   "title": "`str(x)` — verdi om til tekst",
+   "content": "Motsatt vei: `str(7)` gir `'7'`, og `str(3.5)` gir `'3.5'`.\n\nNødvendig når du vil lime et tall sammen med tekst med `+`: `'Pris: ' + str(pris)`. Uten `str` får du feilmeldingen `TypeError: can only concatenate str`.\n\n`print` gjør denne konverteringen selv for hvert argument, så `print('Pris:', pris)` virker uten `str`. Behovet oppstår først når du **bygger** en tekst.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-34"
+  },
+  {
+   "title": "`int(3.9)` kutter, den runder ikke",
+   "content": "Brukt på et flyttall kaster `int` desimalene og beholder heltallsdelen — **mot null**, ikke nedover.\n\n`int(3.9)` gir `3`, og `int(-3.9)` gir `-3`. Legg merke til at dette er en annen regel enn `//`, som runder nedover og ville gitt $-4$. To operasjoner som ser like ut, med ulik oppførsel for negative tall.\n\nVil du runde av på vanlig måte, bruker du `round`.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-35"
+  },
+  {
+   "title": "`round(x)` og `round(x, n)`",
+   "content": "`round(2.7)` gir `3`, og `round(3.14159, 2)` gir `3.14`. Med ett argument er svaret et heltall, med to er det et flyttall.\n\nPython 3 bruker **bankers avrunding** ved eksakt halv: den runder til nærmeste **partall**. Derfor gir `round(0.5)` verdien `0` og `round(1.5)` verdien `2`. Det overrasker de fleste, og er verdt å kjenne til, men det er sjelden avgjørende i en besvarelse.\n\nVil du bare vise et pent tall på skjermen, er formatert utskrift (Del 3) et bedre valg enn `round`.",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-36"
+  },
+  {
+   "title": "`.isdigit()` — er teksten bare sifre?",
+   "content": "Spørres på en streng og gir `True` eller `False`: `'42'.isdigit()` gir `True`, mens `'42.5'.isdigit()`, `'-42'.isdigit()` og `''.isdigit()` alle gir `False`.\n\nPunktumet, minustegnet og den tomme teksten er alle tre «ikke bare sifre». Metoden er altså en test for **positive hele tall skrevet uten fortegn**, ikke en generell tall-test.\n\nNytten er å kunne sjekke **før** du konverterer, slik at programmet slipper å krasje på `ValueError`. Det er selve grunnmuren i input-valideringen i [kap. 1.4](/tdt4110/tdt4110-1-4).",
+   "type": "definition",
+   "id": "tdt4110-1-1-def-37"
+  },
+  {
+   "title": "Konverteringsregelen",
+   "content": "Bokas mest brukte enkeltregel, og den som forebygger den hyppigste feilen på eksamen:\n\n> **Alt som kommer utenfra, er tekst. Skal du regne med det, konverterer du først.**\n\nI praksis to steg, i denne rekkefølgen:\n\n1. **Del opp teksten** i felt (kommer i Del 3).\n2. **Konvertér hvert felt som skal regnes med**, med `int` eller `float` — på stedet, med én gang, ikke «senere».\n\nHer er hele forskjellen i to linjer:\n\n```python\npris_tekst = '21.90'\nprint(pris_tekst + pris_tekst)\nprint(float(pris_tekst) + float(pris_tekst))\n```\n\n**Utskrift:**\n```\n21.9021.90\n43.8\n```\n\nDen øverste linja er ikke en feilmelding. Den er verre: den er et **galt svar som ser riktig ut**. Programmet fortsetter, og feilen dukker først opp lenger ned i besvarelsen.",
+   "type": "theorem",
+   "id": "tdt4110-1-1-th-38"
+  },
+  {
+   "title": "Typisk feil #1 — glemt `int()`/`float()`",
+   "content": "Feilkode **#1** i bokas feilregister: å regne, sammenligne eller sortere på verdier som fortsatt er tekst.\n\nTre symptomer å kjenne igjen når du kontrollerer din egen besvarelse:\n\n- Summen blir en lang sammenlimt tekst i stedet for et tall.\n- Sammenligningen blir feil: `'9' > '10'` er `True`, fordi tekst sammenlignes tegn for tegn, og tegnet `9` kommer etter tegnet `1`.\n- Programmet stopper med `TypeError` når teksten møter et tall.\n\nSensor gir eksplisitt poeng for at tallkolonner er konvertert. Det er én av de billigste poengene på hele settet, og en av de mest tapte.",
+   "type": "warning",
+   "id": "tdt4110-1-1-adv-39"
+  },
+  {
+   "title": "Navn som betyr to ting — og navn du aldri skal bruke",
+   "content": "**Aldri `l`, `I` eller `O` som variabelnavn.** Liten `l` og stor `I` ser ut som tallet 1, og stor `O` ser ut som tallet 0. På et håndskrevet eksamenssvar blir det umulig for sensor å avgjøre hva du mente. Bruk `i`, `k`, `n`, `antall`, `total`.\n\n**Aldri et innebygd navn som variabel.** Skriver du `sum = 0`, virker den innebygde funksjonen `sum(...)` ikke lenger i resten av programmet — navnet er opptatt. Det samme gjelder `list`, `str`, `int`, `float`, `dict`, `set`, `max`, `min`, `abs`, `round`, `len`, `type`, `id`, `range`, `input`, `format`, `bytes` og `next`. Denne fella heter **#14** i feilregisteret.\n\nTrygge alternativer: `s`, `total`, `verdier`, `tekst`, `ordbok`, `tabell`, `antall`.",
+   "type": "warning",
+   "id": "tdt4110-1-1-adv-40"
+  },
+  {
+   "title": "Eksempel 5: Fra fillinje til regnestykke (eksamensnivå)",
+   "problem": "En linje fra en prisliste ser slik ut, som ren tekst:\n\n```text\n21.90\n```\n\nButikken setter opp prisen med 12 prosent. Hva blir den nye prisen — og hva går galt hvis du hopper over konverteringen?",
+   "solution": "Først den gale veien, slik den faktisk ser ut i en besvarelse:\n\n```python\npris = '21.90'\nprint(pris * 2)\n```\n\n**Utskrift:**\n```\n21.9021.90\n```\n\nIngen feilmelding, bare tull: teksten ble gjentatt to ganger. Hadde vi skrevet `pris * 1.12`, ville programmet stoppet med `TypeError`, fordi tekst ikke kan gjentas et desimalt antall ganger.\n\nSå den riktige veien. Konvertér på stedet, regn, og gjør om til tekst igjen bare når du skal bygge en utskriftslinje:\n\n```python\npris = '21.90'\nny_pris = float(pris) * 1.12\nprint(ny_pris)\nprint(round(ny_pris, 2))\nprint('Ny pris: ' + str(round(ny_pris, 2)) + ' kr')\n```\n\n**Utskrift:**\n```\n24.528000000000002\n24.53\nNy pris: 24.53 kr\n```\n\nDen første utskriften viser hele flyttallshalen — det er slik flyttall faktisk er, og noe du bør vente å se. `round(..., 2)` gir det tallet du vil vise. Den siste linja bygger en tekst, og der er `str` nødvendig.\n\n**Uttelling:** sensor er ute etter at prisen *representeres som flyttall*. Å konvertere ved innlesing, én gang, er både det korteste og det som gir poeng.",
+   "type": "example",
+   "id": "tdt4110-1-1-ex-41"
+  },
+  {
+   "id": "tdt4110-1-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut? Én av linjene ser riktig ut, men er det ikke.\n\n```python\na = '8'\nb = '10'\nprint(a + b)\nprint(int(a) + int(b))\nprint(a > b)\nprint(int(a) > int(b))\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Hva som faktisk sammenlignes/regnes | Verdi |\n|---|---|---|\n| `a + b` | tekst limes sammen | `810` |\n| `int(a) + int(b)` | $8 + 10$ | `18` |\n| `a > b` | tekst, tegn for tegn: `8` mot `1` | `True` |\n| `int(a) > int(b)` | $8 > 10$ | `False` |\n\n**Utskrift:**\n```\n810\n18\nTrue\nFalse\n```\n\n**Fellenote:** dette er felle #1 i sin farligste form. Tredje linje gir ingen feilmelding — den gir bare feil svar. Tekst sammenlignes tegn for tegn, og tegnet `8` kommer etter tegnet `1` i tegnrekkefølgen, så «8» regnes som større enn «10».",
+    "hints": [
+     "Se på fnuttene: står de der, er verdien tekst, uansett hva den ser ut som.",
+     "Tekst sammenlignes tegn for tegn fra venstre, ikke etter tallverdi."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nx = 7.8\nprint(int(x))\nprint(round(x))\nprint(int(-x))\nprint(-x // 1)\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Regel | Verdi |\n|---|---|---|\n| `int(7.8)` | kutter mot null | `7` |\n| `round(7.8)` | avrunding til nærmeste | `8` |\n| `int(-7.8)` | kutter mot null | `-7` |\n| `-7.8 // 1` | runder **nedover**, og begge er flyttall | `-8.0` |\n\n**Utskrift:**\n```\n7\n8\n-7\n-8.0\n```\n\n**Fellenote:** de to siste linjene er hele poenget. `int` kutter mot null, `//` runder nedover — og for negative tall er ikke det det samme. Legg dessuten merke til `.0`-en: `//` mellom to flyttall gir et flyttall.",
+    "hints": [
+     "Skriv de to negative tallene på en tallinje og marker hvor «mot null» og «nedover» havner.",
+     "Er én av operandene et flyttall, blir svaret et flyttall — også fra `//`."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) En vaktliste oppgir hvor mange minutter en person har stått på post. Hva skriver programmet ut?\n\n```python\nminutter = '415'\nt = int(minutter) // 60\nm = int(minutter) % 60\nprint(t, m)\nprint(str(t) + ':' + str(m))\nprint(minutter + str(t))\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Regnestykke | Verdi |\n|---|---|---|\n| `int(minutter)` | tekst om til tall | 415 |\n| `t` | $415 // 60$ | 6 |\n| `m` | $415 \\% 60$ | 55 |\n| `str(t) + ':' + str(m)` | tre tekster limes sammen | `6:55` |\n| `minutter + str(t)` | `'415'` og `'6'` limes sammen | `4156` |\n\n**Utskrift:**\n```\n6 55\n6:55\n4156\n```\n\n**Fellenote:** siste linje er fella. `minutter` ble aldri konvertert — bare *lest* med `int(...)` inne i to andre uttrykk. Variabelen selv er fortsatt tekst, så `+` limer sammen. Konvertering endrer ikke variabelen; den lager en ny verdi.",
+    "hints": [
+     "Hold styr på hvilken type hver variabel har til enhver tid — `minutter` blir aldri tilordnet på nytt.",
+     "`int(x)` returnerer et nytt tall; det endrer ikke `x` selv."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-1-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-1-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Se nøye på både typer og fortegn.\n\n```python\nn = -13\nprint(n // 4, n % 4)\nprint(int(n / 4))\nprint(abs(n) % 10)\nprint(type(n / 1))\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Resonnement | Verdi |\n|---|---|---|\n| `n // 4` | nedover fra $-3{,}25$ | `-4` |\n| `n % 4` | $-4 \\cdot 4 + 3 = -13$ | `3` |\n| `n / 4` | $-3{,}25$, deretter kuttet mot null | `-3` |\n| `abs(n) % 10` | $13 \\% 10$, siste siffer | `3` |\n| `type(n / 1)` | `/` gir alltid flyttall | `<class 'float'>` |\n\n**Utskrift:**\n```\n-4 3\n-3\n3\n<class 'float'>\n```\n\n**Fellenote:** to feller i samme oppgave. `n // 4` og `int(n / 4)` gir ulikt svar for negative tall — nedover mot mot null. Og `n / 1` gir `-13.0`, ikke `-13`: divisjon gir flyttall selv når det går opp.\n\n`abs(x)` gir tallverdien uten fortegn. Den er ikke innført tidligere i kapitlet, men brukes her fordi navnet sier hva den gjør — og fordi mønsteret `tall % 10` for siste siffer er et fast innslag på eksamen.",
+    "hints": [
+     "Regn `n // 4` og `int(n / 4)` hver for seg — de er ikke det samme når `n` er negativ.",
+     "`/` gir alltid et flyttall, uansett om divisjonen går opp."
+    ]
+   }
+  },
+  {
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fire feller, og de tre første er blant de dyreste i hele faget:\n\n- **#1 — glemt `int()`/`float()`** etter innlesing. Gir sammenliming i stedet for addisjon, og sammenligning tegn for tegn i stedet for etter tallverdi. Ingen feilmelding, bare galt svar.\n- **#9 — `/` mot `//`.** Feil operator gir et `.0` eller en desimalhale som ødelegger tids- og indeksregning.\n- **Nedrundingen i `//`.** For negative tall runder `//` nedover, mens `int(...)` kutter mot null. `-17 // 5` er $-4$; `int(-17 / 5)` er $-3$.\n- **#14 — skygge et innebygd navn.** `sum = 0` ødelegger `sum(...)` resten av programmet.\n\nAlle fire kan kontrolleres på under et minutt når du leser gjennom besvarelsen til slutt.",
+   "type": "warning",
+   "id": "tdt4110-1-1-adv-46"
+  },
+  {
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-1-1-c-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `x = verdi` | Høyre side regnes ut FØRST, deretter settes resultatet inn i navnet. |\n| `x += 1` | Samme som `x = x + 1`. Krever at `x` finnes fra før. |\n| `int` | Heltall, ubegrenset størrelse. Skrives uten fnutter og uten tusenskille. |\n| `float` | Desimaltall med **punktum**. En tilnærming: `0.1 + 0.2` gir `0.30000000000000004`. |\n| `str` | Tekst mellom fnutter. `+` limer sammen, `*` med et tall gjentar. |\n| `bool` | Bare `True` og `False`, uten fnutter. `True` teller som 1 i regning. |\n| `type(x)` | Rapporterer typen som `<class 'int'>` osv. Endrer ingenting. |\n| `/` | Divisjon. Gir **alltid** `float`, også når det går opp (`10 / 2` gir `5.0`). |\n| `//` | Heltallsdeling. Runder **NEDOVER**, også for negative: `-17 // 5` gir `-4`. |\n| `%` | Rest etter heltallsdeling. `(a // b) * b + (a % b)` gir alltid `a`. |\n| Potens | To stjerner. Sterkere enn unært minus: `-3 ** 2` er $-9$. |\n| Presedens | Potens, så unært minus, så `*` `/` `//` `%`, så `+` `-`. Venstre mot høyre. |\n| `int('42')` | Tekst om til heltall. `ValueError` på `'42 kr'`, `''` og `'3.9'`. |\n| `float('3.14')` | Tekst om til flyttall. Krever **punktum**; `'3,14'` gir `ValueError`. |\n| `str(7)` | Tall om til tekst. Nødvendig for å lime tall inn i en tekst med `+`. |\n| `int(3.9)` | Kutter desimalene **mot null**: `int(-3.9)` gir `-3` (ulikt `//`). |\n| `round(x)` / `round(x, n)` | Avrunding; ved eksakt halv til nærmeste **partall**. |\n| `'42'.isdigit()` | `True` bare hvis teksten er sifre alene — `'-42'` og `'4.2'` gir `False`. |\n| `abs(x)` | Tallverdien uten fortegn. |\n| `print(a, b)` | Skriver argumentene med **ett mellomrom** mellom, og linjeskift til slutt. |\n\n**Formler i dette delkapitlet:**\n\nSammenhengen mellom heltallsdeling og rest, som lar deg kontrollere begge på papir:\n\n$$a = \\left(a \\;//\\; b\\right) \\cdot b + \\left(a \\;\\%\\; b\\right)$$\n\nOg tidsformelen, der $S$ er antall sekunder:\n\n$$\\text{timer} = S \\;//\\; 3600, \\qquad \\text{minutter} = (S \\;\\%\\; 3600) \\;//\\; 60, \\qquad \\text{sekunder} = S \\;\\%\\; 60$$"
+    }
+   ],
+   "type": "collapsible",
+   "id": "tdt4110-1-1-coll-47"
+  },
+  {
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "tdt4110-1-1-c-2",
+     "type": "text",
+     "content": "1. Tilordning regner ut høyre side først, og lagrer **verdien** — ikke oppskriften.\n2. Alt som kommer inn utenfra, er tekst. Konvertér med `int` eller `float` med én gang.\n3. `+` legger sammen tall og limer sammen tekst. Det er samme tegn, to helt ulike ting.\n4. `/` gir alltid flyttall. `//` gir heltall og runder **nedover**, også for negative tall.\n5. `int(...)` på et flyttall kutter **mot null** — det er ikke det samme som `//`.\n6. `%` gir resten; `n % 10` er siste siffer, og `n % 2 == 0` betyr partall.\n7. Aldri `l`, `I`, `O` som navn, og aldri et innebygd navn som `sum` eller `list`.\n\nSitter de, er du klar for sannhetsverdiene og betingelsene i [kap. 1.2](/tdt4110/tdt4110-1-2)."
+    }
+   ],
+   "type": "collapsible",
+   "id": "tdt4110-1-1-coll-48"
+  }
+ ],
+ "exercises": []
+}

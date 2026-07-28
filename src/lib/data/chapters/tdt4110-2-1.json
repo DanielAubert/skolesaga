@@ -1,0 +1,418 @@
+{
+ "id": "tdt4110-2-1",
+ "courseId": "tdt4110",
+ "chapterNumber": "2.1",
+ "title": "Funksjoner: def, parametere og return",
+ "description": "Definere funksjoner, sende parametere, returnere én eller flere verdier — grunnhåndverket alle programmeringsoppgaver hviler på.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne definere en funksjon med parametere og kalle den med egne verdier",
+  "kunne skille mellom å skrive ut en verdi og å returnere den, og se når en funksjon gir «ingen verdi» tilbake",
+  "kunne returnere flere verdier fra én funksjon og pakke dem ut i kallet",
+  "kunne avgjøre hvilke variabler som bare finnes inne i en funksjon, og spore hva et kall gir tilbake"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-2-1-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Funksjoner er ryggraden i programmeringsdelen — og programmeringsdelen er over halve eksamen.**\n\n- **100 % (10 av 10 sett)**: hvert eneste sett i arkivet 2014–2019 ber deg skrive funksjoner ut fra en kravbeskrivelse. Programmeringsoppgavene alene teller **~50–60 %** av settet.\n- De fem oppgavesjangrene **E–I** er leddene i den *samme* store oppgaven: E — lese inn data, F — omforme dem, G — analysere dem, H — spørre brukeren eller vise en meny, I — skrive ut eller lagre resultatet. Hvert ledd besvares ved å skrive én funksjon. Uten dette kapitlet har du ingenting å bygge de leddene av.\n- **Sjanger B — kodesporing**, altså «hva skriver dette programmet ut?», har også 100 % frekvens, og et funksjonskall er en av de faste innpakningene: du får en `def` og et kall, og skal si nøyaktig hva som kommer ut.\n- To detaljer går igjen som faste innslag i fasitene: **flere returverdier** (`return a, b`) og **default-argumenter** (`def f(pris, prosent=10)`).\n\n**Prioritet: høyeste — dette må sitte.** Vurderingen er én skriftlig skoleeksamen på fire timer som teller 100 %, med **hjelpemiddelkode D**: bare en bestemt, enkel kalkulator, ingen bøker, ingen notater, ingen annen elektronikk. Du skriver altså funksjonene for hånd, på papir, uten å kunne kjøre dem.\n\nOg en beroligelse før du begynner: karakterskalaen er A–F, og **C er en god og vanlig karakter**. Sensor gir uttelling for riktig overordnet struktur selv når det står en indeksfeil i koden, og flere korrekte løsninger sidestilles.\n\n**Lesetid:** kapitlet er seks små løkker på til sammen ~45 minutter. Anslaget er *lesetid* — skriver du koden selv underveis, som du bør, regn ×1,5."
+  },
+  {
+   "id": "tdt4110-2-1-t-2",
+   "type": "text",
+   "content": "**Forkunnskaper.** Kapitlet bygger på Del 1:\n\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — variabler, datatyper og konvertering med `int()`, `float()` og `str()`.\n- [kap. 1.2](/tdt4110/tdt4110-1-2) — sammenligninger, `and`/`or`/`not` og `if/elif/else`.\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — `for`- og `while`-løkker, `range` og akkumulatormønsteret: startverdien settes **før** løkka, og oppdateres inne i den.\n\nHar du ikke lest dem, er dette det du må ta med deg: `range(a, b)` gir tallene fra og med `a` til men **ikke med** `b`, og en løkke som skal summere noe, må ha `total = 0` stående før løkka.\n\nLister brukes her bare slik Del 1 bruker dem: som noe du går gjennom med en `for`-løkke, teller med `len(...)` og henter ut av med `verdier[i]`. Selve listeapparatet — `append`, utsnitt og snarveiene `max`/`sum` — kommer i [kap. 3.1](/tdt4110/tdt4110-3-1)."
+  },
+  {
+   "id": "tdt4110-2-1-t-3",
+   "type": "text",
+   "content": "## Løkke 1 — Hva en funksjon er (~7 min)\n\nPanteautomaten på butikken gjør én ting: du putter inn flasker, den gir deg en kvittering med et beløp. Du trenger ikke vite hvordan den teller, og du bygger ikke en ny automat for hver handletur. Du bruker den samme automaten om igjen, med nye flasker hver gang.\n\nEn funksjon er akkurat det, i kode: en bit arbeid du gir et navn, slik at du kan be om den igjen og igjen med nye verdier. Alt du skriver på eksamen, er funksjoner — kravbeskrivelsen sier hva de skal hete, hva de skal få inn, og hva de skal gi tilbake."
+  },
+  {
+   "id": "tdt4110-2-1-def-1",
+   "type": "definition",
+   "title": "`def navn(parametere):` — å definere en funksjon",
+   "content": "Nøkkelordet `def` innfører en ny funksjon. Etter `def` står navnet, så parameterne i parentes, så et kolon. Alt som hører til funksjonen, står **rykket inn fire mellomrom** under. Den første linja uten innrykk er utenfor funksjonen igjen.\n\nÅ definere en funksjon **utfører den ikke**. Definisjonen sier bare hva som skal skje hvis noen kaller den senere.\n\n```python\ndef pant(flasker):\n    return flasker * 2\n\nprint(pant(6))\n```\n\n**Utskrift:**\n```\n12\n```"
+  },
+  {
+   "id": "tdt4110-2-1-def-2",
+   "type": "definition",
+   "title": "Å kalle en funksjon: `navn(argumenter)`",
+   "content": "Et kall er navnet etterfulgt av parentes med verdiene funksjonen skal jobbe på: `pant(6)`. Parentesen er obligatorisk. Skriver du bare `pant`, refererer du til funksjonen selv og ikke til resultatet av å kjøre den.\n\nKallet er et **uttrykk**: det har en verdi, og den verdien kan du lagre i en variabel, regne videre med eller sende rett inn i `print`.\n\n```python\ndef pant(flasker):\n    return flasker * 2\n\nkvittering = pant(6)\nprint(kvittering)\nprint(type(pant))\n```\n\n**Utskrift:**\n```\n12\n<class 'function'>\n```\n\nDen siste linja viser forskjellen: `pant` uten parentes er selve funksjonen, `pant(6)` er tallet den gir tilbake."
+  },
+  {
+   "id": "tdt4110-2-1-eks-1",
+   "type": "example",
+   "title": "Eksempel 1: Én definisjon, flere kall",
+   "problem": "Et bibliotek skriver ut en hilsen til hver låner som henter en reservert bok. Skriv funksjonen én gang, bruk den to ganger.",
+   "solution": "Poenget med en funksjon er at definisjonen står ett sted, mens kallene kan stå hvor som helst og hvor mange ganger som helst.\n\n```python\ndef hils(navn):\n    print('Hei,', navn, '- boka di ligger klar i skranken.')\n\nhils('Amina')\nhils('Jonas')\n```\n\n**Utskrift:**\n```\nHei, Amina - boka di ligger klar i skranken.\nHei, Jonas - boka di ligger klar i skranken.\n```\n\nLegg merke til at `print(a, b, c)` skiller argumentene med **ett mellomrom** — det er derfor det ikke står noe mellomrom foran bindestreken i koden, men likevel i utskriften.\n\nFunksjonen har ingen `return`. Den *gjør* noe (skriver ut) i stedet for å *gi tilbake* noe. Forskjellen er tema for Løkke 3, og den er en av de sikreste fellene på eksamen."
+  },
+  {
+   "id": "tdt4110-2-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-1-o",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — minimal sporing. Sjanger B — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\ndef dobbel(x):\n    return x * 2\n\nprint(dobbel(3))\nprint(dobbel(dobbel(3)))\n```",
+    "solution": "**Sporingstavle**\n\n| Steg | Uttrykk | Verdi | Skriver |\n|---|---|---|---|\n| 1 | `dobbel(3)` | `3 * 2` er 6 | `6` |\n| 2 | indre `dobbel(3)` | 6 | — |\n| 3 | ytre `dobbel(6)` | `6 * 2` er 12 | `12` |\n\n**Utskrift:**\n```\n6\n12\n```\n\n**Fellenote:** i det andre kallet må du regne innenfra og ut. Det indre kallet gjøres ferdig **først**, og resultatet blir argumentet til det ytre. Svarer du `6` og `6`, har du glemt at det ytre kallet får 6 inn, ikke 3.",
+    "hints": [
+     "Regn ut det innerste kallet først, og skriv verdien over det.",
+     "Hvert `print` skriver én linje."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-t-4",
+   "type": "text",
+   "content": "## Løkke 2 — Parametere og argumenter (~7 min)\n\nEn panteautomat som bare kan telle nøyaktig seks flasker, er ubrukelig. Det som gjør en funksjon verdt å skrive, er at den tar imot verdier utenfra og gjør det samme arbeidet på hvilke som helst av dem.\n\nDe verdiene har to navn, og eksamensoppgavene bruker begge. Det lønner seg å holde dem fra hverandre."
+  },
+  {
+   "id": "tdt4110-2-1-def-3",
+   "type": "definition",
+   "title": "Parameter og argument",
+   "content": "**Parameteren** er navnet i `def`-linja: den lokale variabelen funksjonen bruker på verdien den får. **Argumentet** er den faktiske verdien du sender inn i kallet.\n\nI `def pant(flasker):` er `flasker` en parameter. I kallet `pant(6)` er `6` argumentet. Ordene forveksles ofte, men på eksamen står de i oppgaveteksten: «funksjonen skal ta én parameter» betyr at `def`-linja skal ha nøyaktig ett navn i parentesen.\n\nEn funksjon kan ha flere parametere, skilt med komma, og den kan ha null: `def meny():` er en helt lovlig definisjon."
+  },
+  {
+   "id": "tdt4110-2-1-def-4",
+   "type": "definition",
+   "title": "Posisjonsargumenter",
+   "content": "Sender du argumentene rett fram, kobles de til parameterne **etter rekkefølge**: første argument til første parameter, andre til andre. Rekkefølgen er alt — Python kan ikke vite hva du mente.\n\n```python\ndef differanse(a, b):\n    return a - b\n\nprint(differanse(10, 3))\nprint(differanse(3, 10))\n```\n\n**Utskrift:**\n```\n7\n-7\n```\n\nSamme funksjon, samme to tall, to helt forskjellige svar. Bytter du om argumentene i en oppgave om for eksempel prisendring, får du fortegnsfeil i hele resten av besvarelsen."
+  },
+  {
+   "id": "tdt4110-2-1-def-5",
+   "type": "definition",
+   "title": "Nøkkelargumenter",
+   "content": "Du kan også navngi argumentene i kallet: `differanse(b=3, a=10)`. Da spiller rekkefølgen ingen rolle, fordi hvert argument sier selv hvilken parameter det hører til.\n\nNavngitte argumenter må stå **etter** eventuelle posisjonsargumenter i kallet. Bokas kode bruker dem mest når en funksjon har mange parametere og kallet ellers blir uleselig.\n\n```python\ndef differanse(a, b):\n    return a - b\n\nprint(differanse(b=3, a=10))\nprint(differanse(10, b=3))\n```\n\n**Utskrift:**\n```\n7\n7\n```"
+  },
+  {
+   "id": "tdt4110-2-1-def-6",
+   "type": "definition",
+   "title": "Default-argument: `def f(pris, prosent=10)`",
+   "content": "En parameter kan få en **standardverdi** i `def`-linja. Da er argumentet valgfritt i kallet: utelater du det, brukes standardverdien; oppgir du det, overstyres den.\n\nParametere med standardverdi må stå **sist** i parameterlista. `def f(prosent=10, pris)` er en syntaksfeil.\n\n```python\ndef rabattpris(pris, prosent=10):\n    return pris - pris * prosent / 100\n\nprint(rabattpris(200))\nprint(rabattpris(200, 25))\n```\n\n**Utskrift:**\n```\n180.0\n150.0\n```\n\nMerk at svarene er `180.0` og `150.0`, ikke `180` og `150`: `/` gir **alltid** et flyttall, også når regnestykket går opp."
+  },
+  {
+   "id": "tdt4110-2-1-eks-2",
+   "type": "example",
+   "title": "Eksempel 2: Bussforsinkelse med standardverdi",
+   "problem": "En rutetabell oppgir planlagt reisetid i minutter. Skriv `reisetid(planlagt, forsinkelse=0)` som gir den faktiske reisetiden, og vis tre kall: uten forsinkelse, med forsinkelse, og med navngitt argument.",
+   "solution": "```python\ndef reisetid(planlagt, forsinkelse=0):\n    return planlagt + forsinkelse\n\nprint(reisetid(24))\nprint(reisetid(24, 7))\nprint(reisetid(forsinkelse=7, planlagt=24))\n```\n\n**Utskrift:**\n```\n24\n31\n31\n```\n\nDe to siste kallene gir samme svar, men er skrevet ulikt. Begge former er like riktige på eksamen.\n\nStandardverdien `0` er valgt fordi den er det **nøytrale** tilfellet: ingen forsinkelse skal ikke endre reisetiden. Det er den vanligste grunnen til å sette en standardverdi i det hele tatt — den skal svare til «det normale»."
+  },
+  {
+   "id": "tdt4110-2-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-2-o",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger B — kodesporing.) En kantine selger boller. Hva skriver programmet ut?\n\n```python\ndef pris(antall, stykkpris=15):\n    return antall * stykkpris\n\nprint(pris(4))\nprint(pris(4, 20))\nprint(pris(stykkpris=20, antall=4))\n```",
+    "solution": "**Sporingstavle**\n\n| Kall | `antall` | `stykkpris` | Returnerer |\n|---|---|---|---|\n| `pris(4)` | 4 | 15 (standardverdien) | 60 |\n| `pris(4, 20)` | 4 | 20 (overstyrt) | 80 |\n| `pris(stykkpris=20, antall=4)` | 4 | 20 | 80 |\n\n**Utskrift:**\n```\n60\n80\n80\n```\n\n**Fellenote:** det siste kallet ser om-byttet ut, men navngitte argumenter kobles på navn, ikke på rekkefølge. Leser du det som `pris(20, 4)`, svarer du 80, 80, 80 og mister det siste poenget.",
+    "hints": [
+     "Skriv opp verdien av begge parameterne før hvert kall.",
+     "Standardverdien gjelder bare når argumentet mangler i kallet."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-t-5",
+   "type": "text",
+   "content": "## Løkke 3 — `return` mot `print` (~9 min)\n\nNå kommer skillet som avgjør flest poeng i hele Del 2. En funksjon kan **vise** noe på skjermen, og den kan **gi tilbake** en verdi til den som kalte den. Det er to helt forskjellige ting, og en oppgave som ber om det ene, gir null uttelling for det andre.\n\nTenk på panteautomaten igjen: den kan lyse opp beløpet i displayet (det er `print`), eller den kan skrive ut en kvittering du tar med til kassa og bruker videre (det er `return`). Bare kvitteringen kan brukes til noe etterpå."
+  },
+  {
+   "id": "tdt4110-2-1-def-7",
+   "type": "definition",
+   "title": "`return verdi`",
+   "content": "`return` avslutter funksjonen og sender verdien tilbake til stedet der funksjonen ble kalt. Der erstattes hele kallet av den verdien.\n\nVerdien kan være av hvilken som helst type: et tall, en streng, en boolsk verdi, en liste. Er det en liste eller et tall du har regnet ut i en løkke, er det den ferdige verdien etter løkka du returnerer.\n\n```python\ndef sum_av(verdier):\n    total = 0\n    for v in verdier:\n        total = total + v\n    return total\n\nresultat = sum_av([12, 7, 31])\nprint(resultat + 100)\n```\n\n**Utskrift:**\n```\n150\n```\n\nFordi `sum_av([12, 7, 31])` *er* tallet 50, kan du regne videre med kallet på samme måte som med et hvilket som helst annet tall."
+  },
+  {
+   "id": "tdt4110-2-1-def-8",
+   "type": "definition",
+   "title": "`None` — verdien som betyr «ingen verdi»",
+   "content": "`None` er en egen verdi i Python, og den betyr «her er det ingenting». Den skrives med stor forbokstav og er verken 0, tom streng eller `False` — men den er **usann** i en `if`-test.\n\n`None` dukker opp av seg selv i to situasjoner du må kjenne igjen: når en funksjon mangler `return`, og når et søk ikke fant noe (`return None` er bokas standardsvar på «ikke funnet»).\n\n```python\nverdi = None\nprint(verdi)\nprint(verdi is None)\n```\n\n**Utskrift:**\n```\nNone\nTrue\n```\n\nBruk `is None` og ikke `== None` når du tester. Begge virker, men `is None` er formen fasitene bruker."
+  },
+  {
+   "id": "tdt4110-2-1-def-9",
+   "type": "definition",
+   "title": "Funksjon uten `return` gir `None`",
+   "content": "Faller kjøringen ut nederst i funksjonen uten å møte et `return`, returnerer funksjonen `None` automatisk. Det gjelder også funksjoner som bare skriver ut noe.\n\nDette er den vanligste enkeltfeilen i besvarelser: oppgaven ber om en funksjon som *returnerer* et resultat, kandidaten skriver `print` i stedet, og alt som skal bruke resultatet videre, får `None`.\n\n```python\ndef vis_sum(a, b):\n    print(a + b)\n\nsvar = vis_sum(3, 4)\nprint(svar)\n```\n\n**Utskrift:**\n```\n7\nNone\n```\n\nDen første linja i utskriften kommer fra `print` inne i funksjonen. Den andre viser hva funksjonen faktisk ga tilbake: `None`."
+  },
+  {
+   "id": "tdt4110-2-1-def-10",
+   "type": "definition",
+   "title": "`return` avslutter funksjonen umiddelbart",
+   "content": "Så snart `return` kjøres, hopper Python ut av funksjonen. Kode som står etter, kjøres aldri — heller ikke resten av en løkke `return` står inne i.\n\nDet er en egenskap du bruker med vilje: står `return` inne i en `if` inne i en løkke, stopper funksjonen i det øyeblikket den har funnet svaret sitt.\n\n```python\ndef finn_forste_negative(verdier):\n    for v in verdier:\n        if v < 0:\n            return v\n    return None\n\nprint(finn_forste_negative([4, 9, -2, -7]))\nprint(finn_forste_negative([4, 9]))\n```\n\n**Utskrift:**\n```\n-2\nNone\n```\n\nDet siste `return None` står **utenfor** løkka og nås bare hvis løkka gikk helt gjennom uten å finne noe. Nettopp den linja er «ikke funnet»-tilfellet sensor ser etter."
+  },
+  {
+   "id": "tdt4110-2-1-def-11",
+   "type": "definition",
+   "title": "`print` mot `return`",
+   "content": "`print` skriver tegn på skjermen og gir ingen verdi tilbake. `return` gir en verdi tilbake og skriver ingenting.\n\nRegelen i bokas kode, og i fasitene: **funksjoner som regner ut noe, returnerer; utskriften skjer der resultatet brukes.** Da kan den samme funksjonen gjenbrukes i en senere deloppgave som skal regne videre — og gjenbruk er noe sensor belønner.\n\nBer oppgaveteksten uttrykkelig om at funksjonen skal *skrive ut* noe, gjør du selvsagt det. Nøkkelordene i teksten er «returnerer» mot «skriver ut»."
+  },
+  {
+   "id": "tdt4110-2-1-eks-3",
+   "type": "example",
+   "title": "Eksempel 3: Samme oppgave, to funksjoner",
+   "problem": "En treningslogg har lengden på hver joggetur i kilometer. Vis forskjellen mellom en funksjon som skriver ut totalen, og en som returnerer den — og hva som skjer når du prøver å regne videre.",
+   "solution": "Først varianten som skriver ut:\n\n```python\ndef vis_total(turer):\n    total = 0\n    for km in turer:\n        total = total + km\n    print('Til sammen', total, 'km')\n\nvis_total([5.5, 3.0, 8.2])\n```\n\n**Utskrift:**\n```\nTil sammen 16.7 km\n```\n\nDen ser riktig ut, og for øyet er den det. Men prøver du å bruke resultatet, kollapser det:\n\n```python\ndef vis_total(turer):\n    total = 0\n    for km in turer:\n        total = total + km\n    print('Til sammen', total, 'km')\n\nsvar = vis_total([5.5, 3.0, 8.2])\nprint(svar)\n```\n\n**Utskrift:**\n```\nTil sammen 16.7 km\nNone\n```\n\nMed `return` i stedet er funksjonen brukbar videre:\n\n```python\ndef total_km(turer):\n    total = 0\n    for km in turer:\n        total = total + km\n    return total\n\nsum_km = total_km([5.5, 3.0, 8.2])\nprint('Til sammen', sum_km, 'km')\nprint('Snitt:', sum_km / 3, 'km')\n```\n\n**Utskrift:**\n```\nTil sammen 16.7 km\nSnitt: 5.566666666666666 km\n```\n\nLegg merke til `16.7` og ikke `16.700000000000003`: her går addisjonen opp. Flyttall gjør ikke alltid det, og skal utskriften være pen, formaterer du den — det kommer i [kap. 3.4](/tdt4110/tdt4110-3-4).\n\n**Sensorblikk:** de to funksjonene er like lange og like «riktige» som kode. Den andre gir full uttelling på en oppgave som sier «returnerer», den første gir det ikke."
+  },
+  {
+   "id": "tdt4110-2-1-warn-1",
+   "type": "warning",
+   "title": "Glemt `return` — den dyreste feilen i Del 2",
+   "content": "Les kravsetningen i oppgaveteksten én gang til før du skriver `def`-linja:\n\n- står det «**returnerer** antall dager over grensen», skal funksjonen ende med `return antall` — ikke med `print(antall)`;\n- står det «**skriver ut** en tabell», skal den skrive ut.\n\nSkriver du `print` der oppgaven ber om `return`, virker programmet ditt tilsynelatende. Men neste deloppgave — som nesten alltid bygger på denne — får `None` inn og faller sammen. Da mister du poeng to steder for én feil.\n\nTesten du kan gjøre på papir: skriv `x = funksjonen(...)` under koden din, og spør deg selv hva `x` er. Er svaret `None`, har oppgaven fått feil svar."
+  },
+  {
+   "id": "tdt4110-2-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-3-o",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) En nettbutikk gir 10 prosent avslag på kjøp over 500 kroner. Hva skriver programmet ut?\n\n```python\ndef rabatt(pris):\n    if pris > 500:\n        return pris * 0.9\n    print('Ingen rabatt')\n\na = rabatt(800)\nb = rabatt(300)\nprint(a)\nprint(b)\n```",
+    "solution": "**Sporingstavle**\n\n| Steg | `pris` | Hva skjer i funksjonen | Returverdi |\n|---|---|---|---|\n| `rabatt(800)` | 800 | `800 > 500` er sann, `return 800 * 0.9` | `720.0` |\n| `rabatt(300)` | 300 | testen er usann, `print('Ingen rabatt')` kjøres | `None` (faller ut nederst) |\n| `print(a)` | — | — | skriver `720.0` |\n| `print(b)` | — | — | skriver `None` |\n\n**Utskrift:**\n```\nIngen rabatt\n720.0\nNone\n```\n\nMerk rekkefølgen: `Ingen rabatt` skrives ut **før** de to siste linjene, fordi kallet `rabatt(300)` skjer før `print(a)`.\n\n**Fellenote:** funksjonen har `return` i den ene grenen og ikke i den andre. Da gir den `None` når testen er usann — og `720.0` med desimalpunktum, fordi `* 0.9` gir et flyttall.",
+    "hints": [
+     "Skriv opp hva hvert kall returnerer, ikke bare hva det skriver ut.",
+     "Hva skjer når kjøringen faller ut nederst i en funksjon uten å møte `return`?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-4-o",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E–I — kodeskriving, altså «skriv funksjonen som beskrevet».) En resirkuleringsstasjon veier avfall i kilo.\n\n**a)** Skriv `antall_over(vekter, grense)` som returnerer hvor mange av tallene i `vekter` som er strengt større enn `grense`.\n\n**b)** Skriv én linje som skriver ut hvor mange av vektene `[4.2, 11.0, 7.5, 2.1]` som er over 5.",
+    "solution": "**a)** Tellermønsteret fra [kap. 1.3](/tdt4110/tdt4110-1-3), pakket inn i en funksjon: telleren settes til 0 **før** løkka, økes inne i den, og returneres etter den.\n\n```python\ndef antall_over(vekter, grense):\n    antall = 0\n    for v in vekter:\n        if v > grense:\n            antall = antall + 1\n    return antall\n\nprint(antall_over([4.2, 11.0, 7.5, 2.1], 5))\n```\n\n**Utskrift:**\n```\n2\n```\n\n**b)** Kallet settes rett inn i `print`, siden kallet *er* verdien:\n\n`print(antall_over([4.2, 11.0, 7.5, 2.1], 5))`\n\nTo vekter er over 5: 11,0 og 7,5.\n\n**Sensorblikk:** `antall = antall + 1` og `antall += 1` er likestilt. Det som må være på plass, er at telleren står utenfor løkka og `return` også — legger du `return antall` inne i løkka, returnerer funksjonen etter første element og svarer 0 eller 1.\n\nDette er én av flere korrekte løsninger; enhver variant med riktig idé gir full uttelling.",
+    "hints": [
+     "Sett telleren til 0 før løkka — mønsteret er det samme som i kap. 1.3.",
+     "«Strengt større enn» betyr `>`, ikke `>=`.",
+     "Pass på at `return` står utenfor løkka."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-t-6",
+   "type": "text",
+   "content": "## Løkke 4 — Flere returverdier (~8 min)\n\nOfte hører to svar sammen: den høyeste temperaturen *og* hvilken time den ble målt, minste *og* største verdi, antall treff *og* selve treffet. Å skrive to nesten like funksjoner som går gjennom de samme dataene to ganger, er både mer arbeid og dårligere uttelling.\n\nPython lar deg returnere flere verdier fra ett `return`, og fasitene i dette faget bruker det fast."
+  },
+  {
+   "id": "tdt4110-2-1-def-12",
+   "type": "definition",
+   "title": "`return a, b` — flere returverdier",
+   "content": "Skriver du flere verdier etter `return`, skilt med komma, pakkes de sammen til ett **tuppel** — en fast, uforanderlig gruppe verdier — og det er tuppelet som returneres.\n\nDu trenger ikke kunne tuppel-apparatet ennå (det kommer i [kap. 3.6](/tdt4110/tdt4110-3-6)); du trenger bare å vite at det du får tilbake, inneholder verdiene i den rekkefølgen du skrev dem.\n\n```python\ndef del_og_rest(teller, nevner):\n    return teller // nevner, teller % nevner\n\nprint(del_og_rest(17, 5))\n```\n\n**Utskrift:**\n```\n(3, 2)\n```\n\nUtskriften viser parentesene og komma mellom verdiene — slik skriver Python et tuppel. Skulle du hatt tallene hver for seg, pakker du dem ut."
+  },
+  {
+   "id": "tdt4110-2-1-def-13",
+   "type": "definition",
+   "title": "Utpakking: `x, y = funksjon(...)`",
+   "content": "Står det like mange navn på venstre side av likhetstegnet som det er verdier på høyre, får hvert navn sin verdi. Det er dette som gjør flere returverdier praktisk.\n\nAntallet må stemme nøyaktig. To navn og tre verdier gir feilmeldingen `ValueError: too many values to unpack`, som avbryter programmet.\n\n```python\ndef del_og_rest(teller, nevner):\n    return teller // nevner, teller % nevner\n\nhele, rest = del_og_rest(17, 5)\nprint('Hele:', hele)\nprint('Rest:', rest)\n```\n\n**Utskrift:**\n```\nHele: 3\nRest: 2\n```\n\nRekkefølgen er den samme som i `return`-linja. Bytter du om navnene på venstre side, bytter du om betydningen — og det er ingen feilmelding som redder deg."
+  },
+  {
+   "id": "tdt4110-2-1-thm-1",
+   "type": "theorem",
+   "title": "Funksjonsmalen — oppskriften du skriver hver eneste gang",
+   "content": "Alle kodeoppgavene i dette faget besvares med den samme malen. Lær den som en bevegelse, så slipper du å finne på strukturen under tidspress:\n\n1. **Signaturen fra kravteksten.** Navnet står i oppgaven; parameterne er alt funksjonen trenger utenfra. Ingenting annet.\n2. **Startverdi før løkka.** `total = 0`, `antall = 0`, `beste = None` — det du skal bygge opp.\n3. **Løkka som går gjennom dataene** én gang, og oppdaterer startverdien.\n4. **`return` etter løkka**, med den ferdige verdien. Skal funksjonen kunne svare «fant ingenting», returnerer den `None` (eller `-1` for en indeks).\n\n```text\ndef <navn fra oppgaven>(<det den trenger>):\n    <startverdi>\n    for <element> in <data>:\n        <oppdater startverdien>\n    return <resultatet>\n```\n\nBlokken over er en mal, ikke kjørbar kode — den viser formen, ikke et program.\n\nSkal funksjonen svare på to ting, blir siste linje `return a, b`. Skal den stoppe så snart den har funnet svaret, flyttes `return` inn i løkka, med et `return None` etter løkka for «ikke funnet»."
+  },
+  {
+   "id": "tdt4110-2-1-eks-4",
+   "type": "example",
+   "title": "Eksempel 4: Minste og største i én gjennomgang",
+   "problem": "Værstasjonen på taket har målt lufttemperaturen hver time gjennom et døgn. Skriv `min_og_maks(verdier)` som returnerer både den laveste og den høyeste målingen, og vis hvordan du pakker ut begge i kallet.",
+   "solution": "Malen fra teoremet, med to startverdier i stedet for én. Begge settes til det **første** elementet, ikke til 0 — 0 ville vært galt for temperaturer under null.\n\n```python\ndef min_og_maks(verdier):\n    minste = verdier[0]\n    storste = verdier[0]\n    for v in verdier:\n        if v < minste:\n            minste = v\n        if v > storste:\n            storste = v\n    return minste, storste\n\nlav, hoy = min_og_maks([-3.5, 1.0, -7.2, 4.8, 0.0])\nprint('Laveste:', lav)\nprint('Høyeste:', hoy)\nprint('Spenn:', hoy - lav)\n```\n\n**Utskrift:**\n```\nLaveste: -7.2\nHøyeste: 4.8\nSpenn: 12.0\n```\n\nTre ting sensor ser etter, og som er verdt å ha i fingrene:\n\n- **Startverdiene er `verdier[0]`.** Setter du `minste = 0`, får du 0 som svar for et døgn der alle målinger er positive, og feil svar for et døgn med bare kuldegrader.\n- **Én gjennomgang, to svar.** Løkka går gjennom lista én gang. To separate funksjoner ville gått gjennom den to ganger — det er ikke galt, men det er mer kode.\n- **Utpakkingen i kallet** viser at du vet hva funksjonen gir tilbake.\n\nOm du heller vil skrive to `if/elif` eller bruke snarveiene `min` og `max` (som kommer i [kap. 3.1](/tdt4110/tdt4110-3-1)): begge gir full pott. Fasiten her er bare én av måtene."
+  },
+  {
+   "id": "tdt4110-2-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-5-o",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef tell_og_summer(tall):\n    antall = 0\n    total = 0\n    for t in tall:\n        if t % 2 == 0:\n            antall = antall + 1\n            total = total + t\n    return antall, total\n\na, b = tell_og_summer([3, 8, 5, 12, 7, 2])\nprint(a, b)\nprint(tell_og_summer([1, 3]))\n```",
+    "solution": "**Sporingstavle** for det første kallet:\n\n| `t` | Partall? | `antall` | `total` |\n|---|---|---|---|\n| 3 | nei | 0 | 0 |\n| 8 | ja | 1 | 8 |\n| 5 | nei | 1 | 8 |\n| 12 | ja | 2 | 20 |\n| 7 | nei | 2 | 20 |\n| 2 | ja | 3 | 22 |\n\nDet andre kallet finner ingen partall, så begge tellerne står igjen på 0 — og siden verdiene ikke pakkes ut, skrives selve tuppelet.\n\n**Utskrift:**\n```\n3 22\n(0, 0)\n```\n\n**Fellenote:** de to linjene ser ulike ut fordi den første er pakket ut (`a, b` gir to tall skilt med mellomrom fra `print`), mens den andre skriver tuppelet direkte, med parenteser og komma. Blander du de to formene i et svar, er utskriften feil selv om tallene stemmer.",
+    "hints": [
+     "Før én rad per element, med begge tellerne i hver rad.",
+     "`t % 2 == 0` er testen på partall.",
+     "Se nøye på om det siste kallet pakkes ut eller skrives direkte."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-6-o",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — analyse: finn beste.) En turnering har lagret poengsummen til hver spiller i lista `poeng`, og navnene i lista `navn`, slik at `navn[i]` hører til `poeng[i]`.\n\n**a)** Skriv `beste_spiller(navn, poeng)` som returnerer både navnet på spilleren med høyest poengsum og selve poengsummen.\n\n**b)** Hva skal funksjonen returnere hvis listene er tomme? Skriv løsningen slik at den håndterer det.",
+    "solution": "**a)** To lister som hører sammen på indeks, betyr at du må gå over **indeksene** og ikke over elementene — ellers har du ikke tak i begge listene samtidig.\n\n```python\ndef beste_spiller(navn, poeng):\n    if len(poeng) == 0:\n        return None, None\n    beste_navn = navn[0]\n    beste_poeng = poeng[0]\n    for i in range(1, len(poeng)):\n        if poeng[i] > beste_poeng:\n            beste_poeng = poeng[i]\n            beste_navn = navn[i]\n    return beste_navn, beste_poeng\n\nvinner, sum_poeng = beste_spiller(['Ida', 'Omar', 'Siv'], [17, 24, 21])\nprint(vinner, sum_poeng)\nprint(beste_spiller([], []))\n```\n\n**Utskrift:**\n```\nOmar 24\n(None, None)\n```\n\n**b)** Tomtilfellet håndteres med testen `if len(poeng) == 0:` **først** i funksjonen, som returnerer `None, None`. Uten den krasjer `poeng[0]` med `IndexError` og hele deloppgaven faller.\n\nTre detaljer som gir uttelling:\n\n- Løkka starter på `range(1, len(poeng))`, fordi element 0 allerede er brukt som startverdi. Starter du på 0, blir svaret det samme her — men sammenligningen mot seg selv er unødvendig, og på en «finn siste beste»-variant blir den feil.\n- `beste_navn` oppdateres i **samme** `if` som `beste_poeng`. Står de i hver sin `if`, kan navnet og poengsummen komme fra to forskjellige spillere.\n- Ved poenglikhet beholder koden den *første* spilleren, fordi testen er `>` og ikke `>=`. Sier ikke oppgaven noe om likhet, er begge valg riktige — men skriv én setning om hva du antok. Sensor ber uttrykkelig om at antagelser skrives ned.\n\n**Sensorblikk (midtnivå, B):** en besvarelse som løser a) korrekt, men hopper over tomtilfellet, er en helt god besvarelse — strukturen er riktig, og strukturen er det som teller mest. Det er nettopp tomtilfellet som skiller den fra toppen.",
+    "hints": [
+     "To lister som hører sammen på indeks: løkk over `range(len(poeng))`, ikke over elementene.",
+     "Sett begge startverdiene til element 0 før løkka.",
+     "Hva skjer med `poeng[0]` hvis lista er tom? Test på det aller først."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-t-7",
+   "type": "text",
+   "content": "## Løkke 5 — Lokalt og globalt (~7 min)\n\nEt navn som lages inne i en funksjon, finnes bare der. Det er ikke en teknikalitet — det er hele grunnen til at funksjoner er trygge å gjenbruke: du kan bruke `total` som navn i ti forskjellige funksjoner uten at de ødelegger for hverandre.\n\nSporingsoppgavene tester dette direkte, med to variabler som heter det samme inne og ute."
+  },
+  {
+   "id": "tdt4110-2-1-def-14",
+   "type": "definition",
+   "title": "Lokal variabel",
+   "content": "En variabel som får verdi inne i en funksjon — enten som parameter eller ved tilordning — er **lokal**. Den opprettes når funksjonen kalles og forsvinner når den returnerer.\n\nPrøver du å bruke den utenfor, får du `NameError`, og programmet stopper.\n\n```python\ndef regn_ut():\n    svar = 42\n    print('Inne i funksjonen:', svar)\n\nregn_ut()\nprint('Etter kallet finnes ikke svar lenger.')\n```\n\n**Utskrift:**\n```\nInne i funksjonen: 42\nEtter kallet finnes ikke svar lenger.\n```"
+  },
+  {
+   "id": "tdt4110-2-1-def-15",
+   "type": "definition",
+   "title": "Global variabel",
+   "content": "En variabel som lages på **modulnivå** — helt til venstre i fila, utenfor alle funksjoner — kan **leses** inne i en funksjon uten videre.\n\nBokas kode bruker dette bare til **konstanter**: verdier som ikke endrer seg, skrevet med store bokstaver (`MVA_SATS`, `MAKS_LAAN`). Alt annet sendes inn som parameter, fordi en funksjon som henter data fra det store rommet rundt seg, ikke lenger kan gjenbrukes uten det rommet.\n\n```python\nMVA_SATS = 0.25\n\ndef med_mva(pris):\n    return pris * (1 + MVA_SATS)\n\nprint(med_mva(400))\n```\n\n**Utskrift:**\n```\n500.0\n```"
+  },
+  {
+   "id": "tdt4110-2-1-def-16",
+   "type": "definition",
+   "title": "Tilordning inne i en funksjon lager en lokal variabel",
+   "content": "Dette er selve fellen. Tilordner du et navn inne i en funksjon, lager Python en **ny, lokal** variabel — også når det finnes en global variabel med akkurat samme navn. Den globale er urørt etterpå.\n\n```python\nantall = 10\n\ndef endre():\n    antall = 99\n    print('Inne:', antall)\n\nendre()\nprint('Ute:', antall)\n```\n\n**Utskrift:**\n```\nInne: 99\nUte: 10\n```\n\nVil du at den nye verdien skal ut av funksjonen, **returnerer** du den og tilordner utenfor: `antall = endre()`. Det er formen fasitene bruker; nøkkelordet `global` er teknisk mulig, men gir uoversiktlig kode og brukes ikke i denne boka."
+  },
+  {
+   "id": "tdt4110-2-1-eks-5",
+   "type": "example",
+   "title": "Eksempel 5: Samme navn, to variabler",
+   "problem": "Et program holder styr på et lagerbeholdning. Hva skjer med den globale variabelen når funksjonen «endrer» den, og hvordan får du endringen ut?",
+   "solution": "Først den varianten som ikke virker:\n\n```python\nbeholdning = 50\n\ndef selg(antall):\n    beholdning = beholdning - antall\n    return beholdning\n\nprint('Prøver å selge 10 ...')\n```\n\n**Utskrift:**\n```\nPrøver å selge 10 ...\n```\n\nDenne blokken skriver bare ledeteksten, for kallet er ikke gjort ennå. Kaller du `selg(10)`, stopper programmet med `UnboundLocalError: local variable 'beholdning' referenced before assignment`: fordi `beholdning` **tilordnes** inne i funksjonen, regnes navnet som lokalt i hele funksjonen — også på høyre side av likhetstegnet, der det ennå ikke har noen verdi.\n\nSlik løser fasiten det — send inn, regn ut, returnér:\n\n```python\ndef selg(beholdning, antall):\n    return beholdning - antall\n\nbeholdning = 50\nbeholdning = selg(beholdning, 10)\nprint(beholdning)\nbeholdning = selg(beholdning, 15)\nprint(beholdning)\n```\n\n**Utskrift:**\n```\n40\n25\n```\n\nFunksjonen vet nå ingenting om resten av programmet: den får to tall og gir ett tilbake. Det er nettopp det som gjør at du kan kalle den igjen og igjen — og at neste deloppgave kan gjenbruke den."
+  },
+  {
+   "id": "tdt4110-2-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-7-o",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nverdi = 5\n\ndef dobbelt(verdi):\n    verdi = verdi * 2\n    return verdi\n\nprint(dobbelt(verdi))\nprint(verdi)\nprint(dobbelt(dobbelt(verdi)))\nprint(verdi)\n```",
+    "solution": "**Sporingstavle**\n\n| Linje | Global `verdi` | Lokal `verdi` i kallet | Skriver |\n|---|---|---|---|\n| `print(dobbelt(verdi))` | 5 | 5, blir 10 | `10` |\n| `print(verdi)` | 5 (urørt) | — | `5` |\n| `print(dobbelt(dobbelt(verdi)))` | 5 | indre gir 10, ytre gir 20 | `20` |\n| `print(verdi)` | 5 (fremdeles urørt) | — | `5` |\n\n**Utskrift:**\n```\n10\n5\n20\n5\n```\n\n**Fellenote:** parameteren heter det samme som den globale variabelen, men er en egen, lokal variabel. `verdi = verdi * 2` endrer bare den lokale. Tror du den globale følger med, svarer du 10, 10, 40, 40.",
+    "hints": [
+     "Skriv opp den globale variabelen i én kolonne og den lokale i en annen.",
+     "Hva skjer med en global variabel når en funksjon tilordner et navn med samme stavemåte?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-t-8",
+   "type": "text",
+   "content": "## Løkke 6 — Én funksjon, én oppgave (~7 min)\n\nDet siste håndverkskravet er også det som er lettest å overse under tidspress: hver funksjon skal gjøre **én** ting, og navnet skal si hvilken.\n\nGrunnen er praktisk, ikke estetisk. Eksamensoppgavene er kjeder der deloppgave d) skal bruke funksjonen fra b). Er b) en diger funksjon som både leser, regner og skriver ut, kan du ikke gjenbruke den — og gjenbruk er noe sensor uttrykkelig belønner."
+  },
+  {
+   "id": "tdt4110-2-1-def-17",
+   "type": "definition",
+   "title": "Funksjonens kontrakt — én setning",
+   "content": "Før du skriver kroppen, skal du kunne si hva funksjonen gjør i **én setning som begynner med et verb**: «Returnerer antall målinger over grensen.» Klarer du ikke det, gjør funksjonen mer enn én ting, og bør deles.\n\nDet er ikke bare god skikk — det er en egen eksamenssjanger. **Sjanger C** («forklar med én setning hva funksjonen gjør») går igjen i **60 % (6 av 10 sett)**, og svaret skal si *hva* funksjonen oppnår, ikke *hvordan* koden virker linje for linje.\n\nGod: «Returnerer den høyeste verdien i lista og indeksen dens.»\nDårlig: «Den lager først en variabel som heter beste, så går den gjennom lista med en for-løkke, og hvis tallet er større enn beste, så ...»"
+  },
+  {
+   "id": "tdt4110-2-1-def-18",
+   "type": "definition",
+   "title": "Predikatfunksjon: `return a > b`",
+   "content": "En funksjon som svarer ja eller nei, returnerer den boolske verdien **direkte**. Sammenligningen er allerede `True` eller `False` — den trenger ingen `if` rundt seg.\n\n```python\ndef er_myndig(alder):\n    return alder >= 18\n\nprint(er_myndig(20))\nprint(er_myndig(17))\nprint(er_myndig(18))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\n```\n\nFormen `if alder >= 18: return True else: return False` gir det samme svaret og full uttelling, men er fire linjer der én holder — og konsishet vurderes.\n\nNavnet på en slik funksjon bør leses som et spørsmål: `er_myndig`, `er_ledig`, `har_plass`."
+  },
+  {
+   "id": "tdt4110-2-1-def-19",
+   "type": "definition",
+   "title": "Funksjonsnavn: små bokstaver og understrek",
+   "content": "Bokas navn skrives med små bokstaver og understrek mellom ordene: `finn_beste`, `antall_per_type`, `les_gyldig_alder`. Navnet er et **verb** eller et spørsmål, aldri bare et substantiv.\n\nNorske og engelske navn er like gyldige på eksamen; fasitene i arkivet blander (`les_inn_data` og `item_winner` i samme sett). Boka bruker overveiende norske navn.\n\nEtt navn du **aldri** skal bruke, verken på en funksjon eller en variabel, er navnet på noe innebygd: `sum`, `list`, `max`, `input`, `str`, `type`. Skriver du `sum = 0`, virker ikke `sum(...)` i resten av programmet (felle **#14** — å skygge et innebygd navn). Bruk `total`, `verdier`, `tekst` i stedet."
+  },
+  {
+   "id": "tdt4110-2-1-warn-2",
+   "type": "warning",
+   "title": "Ordrike forklaringer trekker ned",
+   "content": "Sensor gjentar det samme hvert år: **svar kort og klart — er svaret uklart eller lengre enn nødvendig, trekker det ned.**\n\nDet rammer særlig sjanger C, der oppgaven ber om én setning om hva en funksjon gjør. Sammenlign:\n\n- **Kort og riktig (full uttelling):** «Returnerer summen av de positive tallene i lista.»\n- **Lang og svakere (trekk):** «Funksjonen lager først en variabel `total` som settes til null, deretter går den gjennom hele lista med en for-løkke, og for hvert tall sjekker den om tallet er større enn null, og hvis det er det, legger den tallet til `total`, og til slutt returnerer den `total`.»\n\nDen lange varianten er ikke *feil*. Den forteller bare *hvordan* koden virker, når spørsmålet var *hva* den oppnår — og den bruker to minutter du trengte på programmeringsoppgaven. Feilen har nummer **#13** i bokas feilregister: ordrik, upresis forklaring."
+  },
+  {
+   "id": "tdt4110-2-1-eks-6",
+   "type": "example",
+   "title": "Eksempel 6: Forklar med én setning",
+   "problem": "Her er en funksjon fra et bibliotekssystem. Forklar med én setning hva den gjør — slik sjanger C krever.",
+   "solution": "```python\ndef finn_indeks(verdier, mal):\n    for i in range(len(verdier)):\n        if verdier[i] == mal:\n            return i\n    return -1\n```\n\nBlokken over definerer bare funksjonen og skriver ingenting ut.\n\n**Svar (én setning):** «Returnerer indeksen til det første elementet i lista som er lik `mal`, eller `-1` hvis verdien ikke finnes.»\n\nSetningen er god fordi den sier hva funksjonen *oppnår*, tar med begge utfallene (funnet og ikke funnet), og er ferdig på én linje. Den nevner ikke løkka, fordi løkka er *hvordan*, ikke *hva*.\n\nEn vanlig, svakere besvarelse: «Den går gjennom lista med en for-løkke og sammenligner hvert element med `mal`, og hvis de er like, returnerer den `i`.» Alt er sant, men spørsmålet var hva funksjonen gjør — og svaret er dobbelt så langt.\n\nLegg også merke til `-1` som «ikke funnet». Det er bokas standardsvar når funksjonen skal returnere en **indeks**; skal den returnere en verdi eller en rad, er standardsvaret `None`."
+  },
+  {
+   "id": "tdt4110-2-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-8-o",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger C — «forklar med én setning hva funksjonen gjør».) Forklar hver av de to funksjonene med én setning som begynner med et verb.\n\n```python\ndef a_funksjon(verdier, grense):\n    resultat = 0\n    for v in verdier:\n        if v > grense:\n            resultat = resultat + v\n    return resultat\n```\n\n```python\ndef b_funksjon(tekst, tegn):\n    antall = 0\n    for t in tekst:\n        if t == tegn:\n            antall = antall + 1\n    return antall\n```\n\n**a)** Forklar den første funksjonen.\n**b)** Forklar den andre funksjonen.",
+    "solution": "**a)** «Returnerer summen av de verdiene i lista som er større enn grensen.»\n\n**b)** «Returnerer hvor mange ganger tegnet forekommer i teksten.»\n\nBegge setningene starter med et verb, sier hva som kommer *ut*, og nevner betingelsen som avgjør hva som telles med. Ingen av dem nevner løkka eller variabelnavnene — det er `hvordan`, ikke `hva`.\n\nMerk at den andre funksjonen går gjennom en **streng**. En `for`-løkke over en streng gir ett tegn av gangen; strengapparatet ellers kommer i [kap. 3.3](/tdt4110/tdt4110-3-3).\n\n**Sensorblikk:** svarer du «Den summerer tall» på a), er det for upresist — grensen er hele poenget med funksjonen. Svarer du med fem linjer om løkka, trekker det ned (felle **#13** — ordrik, upresis forklaring).",
+    "hints": [
+     "Begynn setningen med et verb: «Returnerer …».",
+     "Si hva som kommer ut av funksjonen, ikke hvordan løkka går.",
+     "Få med betingelsen som avgjør hvilke elementer som teller med."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-9-o",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E–I — kodeskriving.) En kommune fører logg over hvor mange millimeter regn som falt hvert døgn i en måned.\n\n**a)** Skriv `er_regnvaersdag(mm)` som returnerer `True` hvis det falt mer enn 0,2 millimeter, og `False` ellers. Bruk én linje i kroppen.\n\n**b)** Skriv `nedbor_snitt(maalinger)` som returnerer gjennomsnittet av tallene i lista. Er lista tom, skal funksjonen returnere `None` i stedet for å krasje.",
+    "solution": "**a)** Sammenligningen er allerede en boolsk verdi, så den returneres direkte:\n\n```python\ndef er_regnvaersdag(mm):\n    return mm > 0.2\n\nprint(er_regnvaersdag(0.0))\nprint(er_regnvaersdag(3.4))\n```\n\n**Utskrift:**\n```\nFalse\nTrue\n```\n\n**b)** Tomtesten står først, deretter akkumulatormønsteret:\n\n```python\ndef nedbor_snitt(maalinger):\n    if len(maalinger) == 0:\n        return None\n    total = 0\n    for mm in maalinger:\n        total = total + mm\n    return total / len(maalinger)\n\nprint(nedbor_snitt([0.0, 3.4, 12.1, 0.5]))\nprint(nedbor_snitt([]))\n```\n\n**Utskrift:**\n```\n4.0\nNone\n```\n\n**Sensorblikk:** delingen på `len(maalinger)` skjer **etter** tomtesten. Snur du rekkefølgen, krasjer funksjonen med `ZeroDivisionError` på en tom liste, og du mister robusthetspoenget. Legg også merke til at `/` gir flyttall — det er riktig for et gjennomsnitt, mens `//` (felle **#9** — å blande `/` og `//`) ville kuttet desimalene.\n\nDette er én av flere korrekte løsninger.",
+    "hints": [
+     "Til a): en sammenligning som `mm > 0.2` er allerede `True` eller `False`.",
+     "Til b): hva blir `len(maalinger)` for en tom liste, og hva skjer da i divisjonen?",
+     "Sett tomtesten aller først i funksjonen."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-1-oppg-10-o",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — analyse: finn beste og tell.) En værstasjon har målt lufttemperaturen hver time gjennom ett døgn. Målingene ligger i lista `temperaturer` med 24 tall, der `temperaturer[0]` er målingen klokka 00, `temperaturer[1]` klokka 01 og så videre.\n\n**a)** Skriv `varmeste_time(temperaturer)` som returnerer både den høyeste temperaturen og timen den ble målt.\n\n**b)** Skriv `antall_over(temperaturer, grense=20)` som returnerer hvor mange målinger som er strengt over grensen. Grensen skal være 20 hvis den som kaller funksjonen ikke oppgir noen.\n\n**c)** Skriv de to linjene som skriver ut den varmeste timen og antall timer over 25 grader, når målingene ligger i variabelen `doegn`.",
+    "solution": "**a)** og **b)** følger funksjonsmalen. Legg merke til at a) må holde styr på **to** ting samtidig: verdien og indeksen.\n\n```python\ndef varmeste_time(temperaturer):\n    if len(temperaturer) == 0:\n        return None, None\n    beste = temperaturer[0]\n    time = 0\n    for i in range(1, len(temperaturer)):\n        if temperaturer[i] > beste:\n            beste = temperaturer[i]\n            time = i\n    return beste, time\n\ndef antall_over(temperaturer, grense=20):\n    antall = 0\n    for t in temperaturer:\n        if t > grense:\n            antall = antall + 1\n    return antall\n```\n\n**Utskrift:** ingen — blokken definerer bare de to funksjonene. Under ser du dem i bruk.\n\n**c)** Kallene, med utpakking av de to returverdiene:\n\n```python\ndef varmeste_time(temperaturer):\n    if len(temperaturer) == 0:\n        return None, None\n    beste = temperaturer[0]\n    time = 0\n    for i in range(1, len(temperaturer)):\n        if temperaturer[i] > beste:\n            beste = temperaturer[i]\n            time = i\n    return beste, time\n\ndef antall_over(temperaturer, grense=20):\n    antall = 0\n    for t in temperaturer:\n        if t > grense:\n            antall = antall + 1\n    return antall\n\ndoegn = [11.2, 10.8, 10.1, 9.7, 9.4, 10.0, 12.3, 14.9,\n         17.1, 19.6, 21.8, 23.4, 25.1, 26.7, 27.2, 26.4,\n         24.9, 22.7, 20.3, 18.1, 16.4, 14.8, 13.2, 12.0]\n\ngrad, klokke = varmeste_time(doegn)\nprint('Varmest klokka', klokke, 'med', grad, 'grader')\nprint('Timer over 25 grader:', antall_over(doegn, 25))\n```\n\n**Utskrift:**\n```\nVarmest klokka 14 med 27.2 grader\nTimer over 25 grader: 4\n```\n\n**Sensorblikk (midtnivå, B):** en besvarelse som løser a) uten tomtesten, og som skriver `antall_over(doegn, 25)` riktig, er en god besvarelse med riktig struktur. Det som skiller den fra toppen, er tre ting:\n\n- **tomtilfellet** i a) (`len(...) == 0` først),\n- at **indeksen oppdateres i samme `if`** som verdien — ellers kan timen komme fra en annen måling enn temperaturen,\n- at **standardverdien 20** faktisk står i `def`-linja, ikke som en `if grense == 0`-konstruksjon inne i funksjonen.\n\nMerk også at `antall_over(doegn)` uten andre argument ville brukt 20 som grense. Oppgaven ba om 25, så argumentet må med i kallet.\n\nFlere korrekte løsninger sidestilles: bruker du `enumerate` fra [kap. 1.3](/tdt4110/tdt4110-1-3) i stedet for `range(len(...))`, er det like riktig.",
+    "hints": [
+     "Til a): du trenger to variabler før løkka — én for verdien og én for indeksen.",
+     "Til a): løkk over indeksene, ikke over elementene, når du også skal returnere plassnummeret.",
+     "Til b): standardverdien skrives i `def`-linja, ikke inne i kroppen.",
+     "Til c): kallet i a) gir to verdier — pakk dem ut med to navn."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-1-warn-3",
+   "type": "warning",
+   "title": "Typiske feil i funksjonsoppgaver",
+   "content": "Fem feller som koster poeng hvert år. Feilnumrene er bokas felles register, som du finner samlet i [kap. 0.1](/tdt4110/tdt4110-0-1):\n\n1. **`print` der oppgaven ba om `return`.** Funksjonen gir `None`, og neste deloppgave — som skal bruke resultatet — faller sammen. Test med `x = funksjonen(...)` på papir.\n2. **`return` inne i løkka når det skulle stått etter.** Funksjonen stopper etter første element. Sjekk innrykket: `return` skal ha samme innrykk som `for`, ikke som kroppen.\n3. **Glemt `int()` eller `float()` (felle #1 — glemt konvertering).** Alt som kommer fra `input()` eller fra en fil, er tekst. `'12' > '9'` er *usant*, fordi tekst sammenlignes tegn for tegn.\n4. **Startverdien satt til 0 der den skulle vært første element.** `minste = 0` gir feil svar for temperaturer under null eller for en liste med bare store tall.\n5. **Å skygge et innebygd navn (felle #14).** `sum = 0` ødelegger `sum(...)` i resten av programmet. Bruk `total`.\n\nTo feller til, som er lette å unngå når du vet om dem: å blande `/` og `//` (felle **#9** — `/` gir alltid flyttall, `//` runder nedover), og å skrive en ordrik forklaring der én setning kreves (felle **#13**)."
+  },
+  {
+   "id": "tdt4110-2-1-coll-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-2-1-coll-api-t",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `def navn(par1, par2):` | Definerer en funksjon. Kolon obligatorisk, kroppen rykket inn fire mellomrom. Definisjonen **kjører ikke** funksjonen. |\n| `navn(arg1, arg2)` | Kaller funksjonen. Parentesen er obligatorisk; uten den får du funksjonen selv, ikke resultatet. Kallet er et uttrykk med en verdi. |\n| Posisjonsargument | Kobles til parameterne etter rekkefølge: første argument til første parameter. |\n| Nøkkelargument `f(b=3, a=10)` | Kobles på navn; rekkefølgen er da likegyldig. Må stå etter eventuelle posisjonsargumenter. |\n| Default-argument `def f(x, p=10)` | Parameteren er valgfri i kallet. Parametere med standardverdi må stå **sist** i parameterlista. |\n| `return verdi` | Avslutter funksjonen og sender verdien tilbake. Kode etter `return` i samme gren kjøres aldri. |\n| Funksjon uten `return` | Returnerer `None` automatisk når kjøringen faller ut nederst. |\n| `None` | Egen verdi som betyr «ingen verdi». Usann i en `if`-test. Testes med `is None`. Bokas svar på «ikke funnet» for en verdi; `-1` for en indeks. |\n| `return a, b` | Returnerer et tuppel med verdiene i den rekkefølgen. Skrives ut med parenteser og komma. |\n| `x, y = f(...)` | Utpakking. Antall navn må stemme nøyaktig med antall verdier, ellers `ValueError`. |\n| Lokal variabel | Navn som får verdi inne i funksjonen (parameter eller tilordning). Finnes bare under kallet; utenfor gir det `NameError`. |\n| Global konstant `MVA_SATS` | Modulnivå-navn med store bokstaver. Kan **leses** i en funksjon. Bokas kode bruker det bare til konstanter. |\n| Tilordning inne i funksjonen | Lager en **ny, lokal** variabel selv om et globalt navn er stavet likt. Den globale er urørt etterpå. Vil du ha verdien ut, `return` den. |\n| `return a > b` | Predikatform: sammenligningen er allerede `True`/`False` og trenger ingen `if` rundt seg. |\n| `verdier[i]` og `len(verdier)` | Element nummer `i` (første er 0), og antall elementer. `range(len(verdier))` gir alle lovlige indekser. |\n| `for v in verdier:` | Én runde per element. `for i in range(1, len(v)):` når du også trenger plassnummeret. |\n| `total = 0` før løkka | Akkumulatormønsteret fra kap. 1.3, som er kroppen i nesten hver funksjon du skriver. |\n| `//` og `/` | `//` er heltallsdeling og runder **nedover**; `/` gir alltid flyttall. `t % 2 == 0` tester partall. |\n\n**Navneregler i dette delkapitlet:** små bokstaver med understrek (`finn_beste`), verb eller spørsmål (`er_myndig`), aldri et innebygd navn (`sum`, `list`, `max`, `input`, `str`, `type`)."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

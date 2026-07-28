@@ -1,0 +1,306 @@
+{
+ "id": "tdt4110-3-4",
+ "courseId": "tdt4110",
+ "chapterNumber": "3.4",
+ "title": "Formatert utskrift",
+ "description": "Pen kolonneutskrift og tidsformat — rjust/ljust/center, nullpadding, format og f-strenger, med print-detaljene sensor krever nøyaktig.",
+ "estimatedMinutes": 40,
+ "competenceGoals": [
+  "kunne forutsi nøyaktig hva et program skriver ut, med mellomrommene og linjeskiftene det lager av seg selv",
+  "kunne stille opp tekst og tall i kolonner med fast bredde, slik at radene står under hverandre",
+  "kunne bestemme antall desimaler i et tall som skal skrives ut, både med den eldre og den nyere skrivemåten",
+  "kunne gjøre et antall sekunder om til et tidsformat med to sifre i hvert felt"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-3-4-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Pen utskrift er siste ledd i nesten hver programmeringsoppgave, og formatert utskrift er belagt i **sju av de ti eksamenssittingene i arkivet (2014–2019)** — rundt 70 %. Det er tabellen som skal stå i rette kolonner, prisen som skal ha to desimaler, og tiden som skal se ut som `01:02:05` og ikke som `1:2:5`.\n\nSlik dukker kapitlet opp på settet:\n\n- **Sjanger B — kodesporing**, altså «hva skriver dette programmet ut?». Her er den ekstra nådeløs: du skal gjengi utskriften tegn for tegn, med mellomrommene og linjeskiftene programmet faktisk lager. En glemt `end=''` er et tapt poeng. Sjangeren gir 1–3 % per deloppgave.\n- **Sjanger I — utskrift og lagring**, altså siste deloppgave i den store programmeringsoppgaven: «skriv ut resultatet pent» eller «gjør sekunder om til tidsformat». Den gir 5–10 %.\n\n**To skrivemåter, begge gyldige.** Løsningsforslagene i arkivet bruker `.rjust()` og `.format()`. Fra og med 2019 varsles **f-strenger** inn i pensum (verifiser mot gjeldende pensum — varslet inn 2019). Kapitlet viser derfor begge former side om side, og begge gir full pott. Velg den du husker under press.\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer «må sitte», «må kunne», «bør kjenne til»). Regn med 40 minutter, delt i fire korte økter."
+  },
+  {
+   "id": "tdt4110-3-4-t-2",
+   "type": "text",
+   "content": "**Forkunnskaper**\n\n- [kap. 3.3](/tdt4110/tdt4110-3-3) — strenger: skjøting med `+`, `len` og at en streng ikke kan endres. Justeringsmetodene i dette kapitlet er strengmetoder.\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — datatyper og konvertering med `str()`, `int()` og `float()`, og forskjellen på `/` og `//`.\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — løkker, fordi en tabell skrives ut én rad om gangen.\n\nVil du se den samme formateringen behandlet i dybden i et parallelt emne, dekker [Strenger, f-strenger og formatert utskrift](/in1900/in1900-1-4) stoffet der.\n\nEtt ord før vi begynner: å **formatere** betyr her bare å bestemme hvordan en verdi skal se ut når den skrives — hvor bred kolonnen er, hvor mange desimaler tallet får, og om det fylles med nuller foran. Verdien selv endres ikke."
+  },
+  {
+   "id": "tdt4110-3-4-t-3",
+   "type": "text",
+   "content": "## Løkke 1 — det `print` gjør uten at du ber om det (~10 min)\n\nKiosken på en fotballkamp fører salget sitt i to lister: hva som ble solgt, og hvor mange. Skal tallene på skjermen bli lesbare, må du først vite nøyaktig hva `print` gjør med det du gir den — for den gjør to ting av seg selv.\n\nDen setter **ett mellomrom** mellom argumentene, og den avslutter med **ett linjeskift**. Begge kan du overstyre, og begge er faste feller i kodesporing."
+  },
+  {
+   "id": "tdt4110-3-4-def-4",
+   "type": "definition",
+   "title": "`print(a, b, c)`",
+   "content": "Skriver ut argumentene etter hverandre på én linje, med **ett mellomrom mellom hvert av dem**, og avslutter med linjeskift. Argumentene kan være av hvilken som helst type — `print` gjør dem om til tekst selv, så `print(42)` virker uten `str()`.\n\nMellomrommet er ikke noe du har bedt om, og det er ikke det samme som å skjøte med `+`: `print('kr', 42)` gir `kr 42`, mens `print('kr' + str(42))` gir `kr42`."
+  },
+  {
+   "id": "tdt4110-3-4-def-5",
+   "type": "definition",
+   "title": "`print(..., sep=teksten)`",
+   "content": "Bytter ut mellomrommet mellom argumentene med den teksten du oppgir. `sep` er kort for *separator*, altså skilletegnet.\n\n`print('a', 'b', sep=';')` gir `a;b`, og `print('a', 'b', sep='')` gir `ab` uten noe imellom. `sep` har ingen virkning når `print` bare får ett argument."
+  },
+  {
+   "id": "tdt4110-3-4-def-6",
+   "type": "definition",
+   "title": "`print(..., end=teksten)`",
+   "content": "Bytter ut linjeskiftet på slutten med den teksten du oppgir. `end` er ordet for *slutt*.\n\n`print('a', end='')` skriver `a` og blir stående på samme linje, så neste `print` fortsetter der. `print('a', end=' ')` gir ett mellomrom i stedet for linjeskiftet. Dette er måten du skriver ei hel rad med tall på én linje inne i en løkke."
+  },
+  {
+   "id": "tdt4110-3-4-def-7",
+   "type": "definition",
+   "title": "`print()` uten argumenter",
+   "content": "Skriver ingen tegn, bare linjeskiftet. Resultatet er en **tom linje** i utskriften.\n\nDen brukes til luft mellom avsnitt i en rapport, og den er lett å overse når du sporer kode: en tom linje i fasiten er like mye et poeng som en linje med tekst i."
+  },
+  {
+   "id": "tdt4110-3-4-ex-8",
+   "type": "example",
+   "title": "Eksempel 1: fire måter å skrive den samme salgslinja på",
+   "problem": "Kiosken har solgt 42 pølser. Skriv ut vare og antall på fire måter: vanlig, med kolon imellom, delt over to `print`-kall som havner på samme linje, og med en tom linje etter.",
+   "solution": "De tre første linjene bruker `print` på hver sin måte; den fjerde viser hva et bart `print()` gjør.\n\n```python\nvare = 'pølse'\nsolgt = 42\nprint(vare, solgt)\nprint(vare, solgt, sep=': ')\nprint(vare, end=' ')\nprint(solgt)\nprint()\nprint('ferdig')\n```\n\n**Utskrift:**\n```\npølse 42\npølse: 42\npølse 42\n\nferdig\n```\n\nLegg merke til at linje 3 og 4 i koden gir **én** linje i utskriften: `end=' '` fjernet linjeskiftet og satte et mellomrom i stedet, så neste `print` fortsatte på samme linje. Og det er en ekte tom linje mellom `pølse 42` og `ferdig` — den kommer fra `print()`."
+  },
+  {
+   "id": "tdt4110-3-4-exr-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-4-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Skriv utskriften nøyaktig, linje for linje. Husk at `sep` styrer det som står mellom argumentene, og `end` det som står etter det siste.\n\n```python\nprint('A', 'B', 'C')\nprint('A', 'B', 'C', sep='')\nprint('A', end='')\nprint('B')\n```",
+    "solution": "Første linje er `print` slik den er av seg selv: mellomrom mellom hvert argument. Andre linje fjerner mellomrommet. Tredje og fjerde linje i koden blir **én** linje i utskriften, fordi `end=''` tok bort linjeskiftet.\n\n```python\nprint('A', 'B', 'C')\nprint('A', 'B', 'C', sep='')\nprint('A', end='')\nprint('B')\n```\n\n**Utskrift:**\n```\nA B C\nABC\nAB\n```\n\nTre linjer ut fra fire `print`-kall. Det er nettopp det sensor ser etter i denne sjangeren.",
+    "hints": [
+     "Tell hvor mange linjeskift programmet lager — det er antallet linjer i svaret.",
+     "`sep` gjelder MELLOM argumentene, `end` etter det siste.",
+     "Et `print` med `end=''` avslutter ikke linja si."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-4-warn-9",
+   "type": "warning",
+   "title": "Typiske feil: mellomrommet du ikke ba om",
+   "content": "Tre feller går igjen når utskriften skal gjengis nøyaktig:\n\n- **Det gratis mellomrommet.** `print('Sum:', 250)` gir `Sum: 250` med ett mellomrom. Skriver du `Sum:250` i fasiten, er svaret feil selv om koden er riktig lest.\n- **Den glemte `end=''`.** Når en løkke skriver med `end=' '`, blir alt stående på én linje. Mange gjengir da én linje per gjennomløp — som er ett linjeskift per iterasjon for mye.\n- **Den usynlige tomme linja.** `print()` gir en linje du ikke ser i koden, men som er der i utskriften.\n\nMotgiften er å skrive utskriften på kladdearket med en loddrett strek etter hver linje, slik at du ser hvor linjeskiftene faktisk faller."
+  },
+  {
+   "id": "tdt4110-3-4-t-10",
+   "type": "text",
+   "content": "## Løkke 2 — kolonner med fast bredde (~10 min)\n\nKioskrapporten er lesbar først når tallene står under hverandre. Trikset er å gi hvert felt en **fast bredde**: teksten fylles ut med mellomrom til den er akkurat så bred, og da havner neste felt på samme sted i hver rad.\n\nTre strengmetoder gjør dette. De virker bare på tekst, så tall må gjennom `str()` først."
+  },
+  {
+   "id": "tdt4110-3-4-def-11",
+   "type": "definition",
+   "title": "`s.ljust(n)`",
+   "content": "Gir en ny streng der `s` står **til venstre** og fylles ut med mellomrom til lengden er `n`. *Left justify* betyr venstrejuster.\n\n`'kakao'.ljust(8)` gir `'kakao   '` — fem tegn pluss tre mellomrom. Er `s` allerede minst `n` tegn lang, gjøres ingenting: strengen blir aldri klippet. Originalen er uendret."
+  },
+  {
+   "id": "tdt4110-3-4-def-12",
+   "type": "definition",
+   "title": "`s.rjust(n)`",
+   "content": "Gir en ny streng der `s` står **til høyre** og fylles ut med mellomrom foran til lengden er `n`. *Right justify* betyr høyrejuster.\n\n`'42'.rjust(5)` gir `'   42'`. Tall skal alltid høyrejusteres i en tabell, slik at enerne står under enerne og tierne under tierne."
+  },
+  {
+   "id": "tdt4110-3-4-def-13",
+   "type": "definition",
+   "title": "`s.center(n)`",
+   "content": "Gir en ny streng der `s` står midt i et felt på `n` tegn, med mellomrom fordelt på begge sider. Går det ikke opp, får høyresiden det ekstra mellomrommet.\n\n`'Antall'.center(10)` gir `'  Antall  '`. Metoden brukes nesten bare på overskriftsraden."
+  },
+  {
+   "id": "tdt4110-3-4-def-14",
+   "type": "definition",
+   "title": "`str(x)` før justering",
+   "content": "Justeringsmetodene er **strengmetoder**, så de finnes ikke på et tall. `42.rjust(5)` er en syntaksfeil, og `antall.rjust(5)` gir `AttributeError` når `antall` er et heltall.\n\nLøsningen er å konvertere først: `str(antall).rjust(5)`. Dette er den motsatte veien av `int()` etter innlesing — inn i programmet konverterer du til tall, ut av programmet konverterer du til tekst."
+  },
+  {
+   "id": "tdt4110-3-4-ex-15",
+   "type": "example",
+   "title": "Eksempel 2: kioskrapporten i rette kolonner",
+   "problem": "Kiosken har solgt 42 pølser, 17 kakao og 8 vafler. Skriv rapporten med varenavnet i et felt på 8 tegn til venstre og antallet i et felt på 4 tegn til høyre, med en overskriftsrad over.",
+   "solution": "Overskriften bygges med de samme breddene, ellers står den ikke over kolonnene sine.\n\n```python\nvarer = ['pølse', 'kakao', 'vaffel']\nantall = [42, 17, 8]\nprint('Vare'.ljust(8) + 'Ant'.rjust(4))\nfor i in range(len(varer)):\n    print(varer[i].ljust(8) + str(antall[i]).rjust(4))\n```\n\n**Utskrift:**\n```\nVare     Ant\npølse     42\nkakao     17\nvaffel     8\n```\n\nTallene står under hverandre fordi hvert av dem fyller nøyaktig fire tegn: `  42`, `  17` og `   8`. Hadde du skrevet `print(varer[i], antall[i])` i stedet, ville kolonnen sprikt, fordi varenavnene er ulikt lange.\n\nLegg merke til `str(antall[i])`. Uten den stopper programmet, fordi `.rjust` ikke finnes på et heltall."
+  },
+  {
+   "id": "tdt4110-3-4-exr-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-4-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger I — utskrift: still opp en tabell.) En fergeavgang har solgt billetter i tre klasser. Navnene ligger i `klasser` og antallet i `solgte`, i samme rekkefølge.\n\n**a)** Skriv funksjonen `skriv_billettliste(klasser, solgte)` som skriver en overskriftsrad og deretter én linje per klasse. Klassenavnet skal stå venstrejustert i et felt på 10 tegn, antallet høyrejustert i et felt på 5.\n**b)** Legg til en sluttlinje som skriver totalen i det samme oppsettet, med teksten `SUM` i navnefeltet.\n\nTest med `klasser = ['voksen', 'barn', 'kjøretøy']` og `solgte = [128, 47, 63]`.",
+    "solution": "**a)** og **b)** i én funksjon. Totalen er `sum` fra [kap. 3.1](/tdt4110/tdt4110-3-1); den kunne like gjerne vært lagt sammen i en løkke, og begge gir full pott.\n\n```python\ndef skriv_billettliste(klasser, solgte):\n    print('Klasse'.ljust(10) + 'Antall'.rjust(5))\n    for i in range(len(klasser)):\n        print(klasser[i].ljust(10) + str(solgte[i]).rjust(5))\n    print('SUM'.ljust(10) + str(sum(solgte)).rjust(5))\n\nklasser = ['voksen', 'barn', 'kjøretøy']\nsolgte = [128, 47, 63]\nskriv_billettliste(klasser, solgte)\n```\n\n**Utskrift:**\n```\nKlasse    Antall\nvoksen      128\nbarn         47\nkjøretøy     63\nSUM         238\n```\n\n**Hva gir uttelling:** at overskriften bruker de samme breddene som radene, at tallene konverteres med `str()` før justering, og at funksjonen går gjennom indeksene slik at de to listene holdes i takt. Skriver du sluttlinja med en egen løkke som legger sammen i stedet for `sum`, er det like riktig.",
+    "hints": [
+     "Bygg én streng per rad, og skriv den ut med ett `print`.",
+     "Overskriftsraden må ha nøyaktig samme feltbredder som dataradene.",
+     "Antallet er et tall — `.rjust` finnes bare på tekst."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-4-exr-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-4-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut? Skriv begge linjene nøyaktig, med bindestrekene og mellomrommene der de faktisk står.\n\n```python\ntall = [3, 8, 12, 7]\nfor x in tall:\n    print(x, end='-')\nprint()\nfor i in range(0, len(tall), 2):\n    print(tall[i], end=' ')\nprint('slutt')\n```",
+    "solution": "Første løkke skriver alle fire tallene på samme linje, hver etterfulgt av en bindestrek — også det siste, så linja slutter med en bindestrek. Det bare `print()` etterpå avslutter linja.\n\nAndre løkke går over indeksene 0 og 2, altså verdiene 3 og 12, og skiller dem med mellomrom. Siden også det siste får `end=' '`, står det et mellomrom før `slutt`.\n\n| Steg | Skrives | Linja så langt |\n|---|---|---|\n| `x = 3` | `3-` | `3-` |\n| `x = 8` | `8-` | `3-8-` |\n| `x = 12` | `12-` | `3-8-12-` |\n| `x = 7` | `7-` | `3-8-12-7-` |\n| `print()` | linjeskift | linja er ferdig |\n| `i = 0` | `3 ` | `3 ` |\n| `i = 2` | `12 ` | `3 12 ` |\n| `print('slutt')` | `slutt` | `3 12 slutt` |\n\n```python\ntall = [3, 8, 12, 7]\nfor x in tall:\n    print(x, end='-')\nprint()\nfor i in range(0, len(tall), 2):\n    print(tall[i], end=' ')\nprint('slutt')\n```\n\n**Utskrift:**\n```\n3-8-12-7-\n3 12 slutt\n```\n\nFellen er at `end` gjelder **hver** gang løkka skriver, også siste gang — derfor den hengende bindestreken. Den andre fellen er `range(0, len(tall), 2)`, som treffer indeks 0 og 2, ikke 0 og 1 (feilkode #5 — å bomme med én på løkkegrenser og steg).",
+    "hints": [
+     "Skriv linja tegn for tegn på kladdearket, uten å tenke på hvor løkka slutter.",
+     "`end` legges på etter HVER utskrift løkka gjør, også den siste.",
+     "Tell nøyaktig hvilke indekser `range` med steg 2 gir."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-4-t-16",
+   "type": "text",
+   "content": "## Løkke 3 — desimaler og feltbredde i ett grep (~12 min)\n\nSå snart kroner kommer inn i rapporten, holder det ikke å justere. `print(467.5)` gir `467.5`, ikke `467.50`, og en utregnet pris kan komme ut som `31.166666666666668`. Du må kunne bestemme **antall desimaler**.\n\nTil det finnes en egen liten formatoppskrift som både setter bredden og antall desimaler. Den skrives på to måter: den eldre med `.format()`, som arkivet bruker, og den nyere med f-streng. Oppskriften inni er den samme."
+  },
+  {
+   "id": "tdt4110-3-4-def-17",
+   "type": "definition",
+   "title": "`'{} og {}'.format(a, b)`",
+   "content": "Krøllparentesene `{}` i strengen er **plassholdere**: `.format()` setter argumentene sine inn i dem, i rekkefølge, og gjør dem om til tekst underveis.\n\n`'{} kr for {}'.format(27, 'kakao')` gir `'27 kr for kakao'`. Antall plassholdere skal stemme med antall argumenter. Resultatet er en vanlig streng, så den kan lagres i en variabel og skrives ut senere."
+  },
+  {
+   "id": "tdt4110-3-4-def-18",
+   "type": "definition",
+   "title": "Formatoppskriften `{:8.2f}`",
+   "content": "Alt etter kolonet inne i krøllparentesen er en oppskrift for hvordan verdien skal se ut. `{:8.2f}` betyr: bredde **8** tegn, **2** desimaler, og `f` for *fixed point*, altså vanlig desimaltall.\n\n`'{:8.2f}'.format(467.5)` gir `'  467.50'` — åtte tegn i alt, med to desimaler og mellomrom foran. Desimaltall høyrejusteres av seg selv. Vil du bare ha desimalene og ingen fast bredde, skriver du `{:.2f}`. Merk at verdien **avrundes**, den klippes ikke: 2,675 blir `2.68`, og desimalskilletegnet er punktum, ikke komma."
+  },
+  {
+   "id": "tdt4110-3-4-def-19",
+   "type": "definition",
+   "title": "Justering i oppskriften: `{:<10}` og `{:>6}`",
+   "content": "`<` betyr venstrejustert, `>` høyrejustert og `^` midtstilt, etterfulgt av bredden. `'{:<10}'.format('kakao')` gir det samme som `'kakao'.ljust(10)`.\n\nFordelen er at du slipper `str()`: oppskriften konverterer selv, så `'{:>6}'.format(42)` virker direkte på et heltall. Tekst venstrejusteres av seg selv, tall høyrejusteres av seg selv — pilene trengs bare når du vil ha det motsatte."
+  },
+  {
+   "id": "tdt4110-3-4-def-20",
+   "type": "definition",
+   "title": "f-strengen `f'{verdi:8.2f}'`",
+   "content": "Setter du bokstaven `f` rett foran anførselstegnet, kan du skrive uttrykk direkte inne i krøllparentesene, med den samme oppskriften etter kolonet.\n\n`f'{pris:8.2f}'` gir nøyaktig det samme som `'{:8.2f}'.format(pris)`, bare kortere, og du ser hvilken variabel som havner hvor. Uttrykk er lov: `f'{a + b:.1f}'`.\n\n**Merk:** f-strenger er (verifiser mot gjeldende pensum — varslet inn 2019); arkivet 2014–2019 bruker `.format()` og `.rjust()`. Begge former er gyldige på eksamen, og boka viser dem side om side. Bokstaven `f` foran fnutten har ingenting å gjøre med `f`-en inne i oppskriften — den første betyr *format*, den andre betyr desimaltall."
+  },
+  {
+   "id": "tdt4110-3-4-ex-21",
+   "type": "example",
+   "title": "Eksempel 3: samme rad skrevet på tre måter",
+   "problem": "Kiosken solgte 17 kakao til 27,50 kroner stykket. Skriv raden «kakao, antall, sum i kroner» med varenavnet i et felt på 8 tegn, antallet i 3 og summen i 9 med to desimaler — først med justeringsmetodene, så med `.format()`, så med f-streng.",
+   "solution": "De tre variantene skal gi tre helt like linjer. Det er poenget.\n\n```python\nvare = 'kakao'\nantall = 17\nsum_kr = antall * 27.5\nprint(vare.ljust(8) + str(antall).rjust(3) + '{:.2f}'.format(sum_kr).rjust(9))\nprint('{:<8}{:>3}{:>9.2f}'.format(vare, antall, sum_kr))\nprint(f'{vare:<8}{antall:>3}{sum_kr:>9.2f}')\n```\n\n**Utskrift:**\n```\nkakao    17   467.50\nkakao    17   467.50\nkakao    17   467.50\n```\n\nTre identiske linjer, tre skrivemåter. **Alle tre gir full pott.** Den første er den mest omstendelige, fordi den må konvertere med `str()` og formatere desimalene i et eget steg. Den andre og tredje gjør begge deler i ett.\n\nLegg merke til at `17 * 27.5` blir `467.5` og ikke `467.50` — nullen kommer først når du ber om to desimaler. Uten formatering hadde en pris som `31.166666666666668` gått rett ut i rapporten."
+  },
+  {
+   "id": "tdt4110-3-4-exr-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-4-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle fire linjene nøyaktig, med mellomrommene. Den loddrette streken er med for at du skal se hvor hvert felt slutter.\n\n```python\nsted = 'Ås'\npris = 4.567\nprint(sted.rjust(6) + '|')\nprint('{:8.2f}'.format(pris) + '|')\nprint(f'{sted:<6}|')\nprint(f'{pris:.1f}' + '|')\n```",
+    "solution": "Gå felt for felt. `'Ås'` er to tegn, så `rjust(6)` legger fire mellomrom foran. `{:8.2f}` gir `4.57` — avrundet til to desimaler — i et felt på åtte tegn, altså fire mellomrom foran. `{:<6}` venstrejusterer, så mellomrommene havner etter. `{:.1f}` setter ingen bredde, bare én desimal.\n\n| Uttrykk | Resultat | Hvorfor |\n|---|---|---|\n| `sted.rjust(6)` | `    Ås` | 2 tegn + 4 mellomrom foran |\n| `'{:8.2f}'.format(4.567)` | `    4.57` | avrundet til `4.57`, 4 tegn + 4 foran |\n| `f'{sted:<6}'` | `Ås    ` | 2 tegn + 4 mellomrom etter |\n| `f'{pris:.1f}'` | `4.6` | avrundet til én desimal, ingen bredde |\n\n```python\nsted = 'Ås'\npris = 4.567\nprint(sted.rjust(6) + '|')\nprint('{:8.2f}'.format(pris) + '|')\nprint(f'{sted:<6}|')\nprint(f'{pris:.1f}' + '|')\n```\n\n**Utskrift:**\n```\n    Ås|\n    4.57|\nÅs    |\n4.6|\n```\n\nFellen her er avrundingen: mange skriver `4.56` fordi de klipper i stedet for å runde av. Oppskriften runder alltid.",
+    "hints": [
+     "Regn ut hvor mange tegn verdien er FØR du fyller ut til bredden.",
+     "Tallet med `<` får mellomrommene etter seg, ikke foran.",
+     "En oppskrift uten breddetall setter ingen bredde — bare desimalene."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-4-t-22",
+   "type": "text",
+   "content": "## Løkke 4 — nullpadding og tidsformat (~8 min)\n\nEt svømmestevne måler tiden i sekunder, men resultatlista skal vise `01:02:05`. Her holder det ikke å høyrejustere: feltene skal fylles med **nuller**, ikke mellomrom, og de skal alltid være to sifre.\n\nDet kalles nullpadding, og det finnes to skrivemåter — som vanlig én eldre og én nyere."
+  },
+  {
+   "id": "tdt4110-3-4-def-23",
+   "type": "definition",
+   "title": "`str(t).zfill(n)`",
+   "content": "Fyller strengen med **nuller foran** til lengden er `n`. Navnet er kort for *zero fill*.\n\n`str(5).zfill(2)` gir `'05'`, og `str(42).zfill(2)` gir `'42'` — er strengen allerede lang nok, gjøres ingenting. Metoden er en strengmetode, så tallet må gjennom `str()` først. Dette er formen arkivets løsningsforslag bruker."
+  },
+  {
+   "id": "tdt4110-3-4-def-24",
+   "type": "definition",
+   "title": "`f'{t:02d}'` og `'{:02d}'.format(t)`",
+   "content": "Den samme nullpaddingen skrevet som en formatoppskrift: `0` betyr fyll med nuller, `2` er bredden, og `d` betyr heltall (*decimal*).\n\n`f'{5:02d}'` gir `'05'`. Fordelen er at den tar heltallet direkte, uten `str()`. For desimaltall er den tilsvarende `f'{x:06.2f}'`, som gir `'004.57'` — nuller foran, to desimaler, seks tegn i alt."
+  },
+  {
+   "id": "tdt4110-3-4-thm-25",
+   "type": "theorem",
+   "title": "Kodemønster: sekunder til `hh:mm:ss`",
+   "content": "Fra et antall sekunder til tidsformat er det tre utregninger og én sammensetting. Mønsteret er alltid det samme, og det er verdt å kunne utenat:\n\n1. **Timer:** `sek // 3600` — heltallsdeling, fordi 3 600 sekunder er én time.\n2. **Minutter:** `(sek % 3600) // 60` — først resten etter hele timer, så hele minutter av den.\n3. **Sekunder:** `sek % 60` — resten etter hele minutter.\n4. **Sett sammen** med kolon, og nullpadd hvert felt til to sifre.\n\nMerk at alle tre stegene bruker `//` og `%`, aldri `/`. Vanlig deling gir desimaltall, og da kommer det ut `1.0343055555555556` i stedet for `1`.\n\nSkal formatet være `mm:ss` i stedet, faller første steg bort: minutter er `sek // 60` og sekunder er `sek % 60`."
+  },
+  {
+   "id": "tdt4110-3-4-ex-26",
+   "type": "example",
+   "title": "Eksempel 4: fra sekunder til klokkeformat",
+   "problem": "Skriv `formater_tid(sek)` som gjør et antall sekunder om til en streng på formen `hh:mm:ss`. Test med 3 725 sekunder, 59 sekunder og 36 000 sekunder.",
+   "solution": "Først med `zfill`, slik arkivets løsningsforslag skriver det:\n\n```python\ndef formater_tid(sek):\n    timer = sek // 3600\n    minutter = (sek % 3600) // 60\n    sekunder = sek % 60\n    return str(timer).zfill(2) + ':' + str(minutter).zfill(2) + ':' + str(sekunder).zfill(2)\n\nprint(formater_tid(3725))\nprint(formater_tid(59))\nprint(formater_tid(36000))\n```\n\n**Utskrift:**\n```\n01:02:05\n00:00:59\n10:00:00\n```\n\nRegnestykket for 3 725: `3725 // 3600` er 1 time, resten er 125 sekunder, `125 // 60` er 2 minutter, og `125 % 60` er 5 sekunder — altså 1 time, 2 minutter og 5 sekunder.\n\nDen samme funksjonen med f-streng blir tre linjer kortere:\n\n```python\ndef formater_tid(sek):\n    return f'{sek // 3600:02d}:{sek % 3600 // 60:02d}:{sek % 60:02d}'\n\nprint(formater_tid(3725))\nprint(formater_tid(59))\nprint(formater_tid(36000))\n```\n\n**Utskrift:**\n```\n01:02:05\n00:00:59\n10:00:00\n```\n\n**Begge gir full pott.** Den første er lettere å feilsøke, fordi hvert mellomsteg har et navn; den andre er kortere å skrive for hånd. Velg den du husker uten å nøle."
+  },
+  {
+   "id": "tdt4110-3-4-warn-27",
+   "type": "warning",
+   "title": "Typiske feil: tidsregning og manglende nuller",
+   "content": "Fire feil koster poeng i akkurat denne oppgavetypen:\n\n- **Vanlig deling i stedet for heltallsdeling** (feilkode #9 — å blande `/` og `//`). `3725 / 3600` gir `1.0347222222222223`, og da blir hele resten feil. Bruk `//`.\n- **Glemt nullpadding.** `1:2:5` i stedet for `01:02:05`. Oppgaven ber nesten alltid eksplisitt om to sifre, og sensor leser bokstavelig.\n- **Minuttene regnet fra hele sekundtallet.** `sek // 60` gir 62 minutter for 3 725 sekunder, ikke 2. Du må trekke fra timene først, altså `(sek % 3600) // 60`.\n- **Kolonene skjøtt på et tall.** `str(timer) + ':' + minutter` stopper med `TypeError`, fordi du ikke kan skjøte tekst og tall. Alle leddene må være tekst."
+  },
+  {
+   "id": "tdt4110-3-4-exr-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-4-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger I — utskrift: tidsformat.) Et svømmestevne måler heat-tider i hele sekunder.\n\n**a)** Skriv `formater_mmss(sek)` som gir tiden på formen `mm:ss` med to sifre i hvert felt, for eksempel 143 sekunder til `02:23`.\n**b)** Skriv `skriv_resultater(navn, tider)` som skriver én linje per svømmer med navnet venstrejustert i et felt på 12 tegn og tiden etter. Funksjonen skal gjenbruke `formater_mmss`.\n\nTest med `navn = ['Iversen', 'Lund', 'Bakkehaug']` og `tider = [143, 97, 205]`.",
+    "solution": "**a)** og **b)**. Merk at `skriv_resultater` **kaller** `formater_mmss` i stedet for å gjenta regnestykket — gjenbruk av egne funksjoner er noe sensor belønner.\n\n```python\ndef formater_mmss(sek):\n    minutter = sek // 60\n    sekunder = sek % 60\n    return str(minutter).zfill(2) + ':' + str(sekunder).zfill(2)\n\ndef skriv_resultater(navn, tider):\n    for i in range(len(navn)):\n        print(navn[i].ljust(12) + formater_mmss(tider[i]))\n\nnavn = ['Iversen', 'Lund', 'Bakkehaug']\ntider = [143, 97, 205]\nskriv_resultater(navn, tider)\n```\n\n**Utskrift:**\n```\nIversen     02:23\nLund        01:37\nBakkehaug   03:25\n```\n\n**Hva gir uttelling:** heltallsdeling begge steder, nullpadding i begge felt, og at den andre funksjonen kaller den første. Løser du a) med `f'{sek // 60:02d}:{sek % 60:02d}'` er det like riktig. Skriver du hele regnestykket på nytt inne i `skriv_resultater`, virker koden, men du taper poenget for gjenbruk.",
+    "hints": [
+     "Minutter er hele sekunder delt på 60 med heltallsdeling.",
+     "Resten etter hele minutter er `%`-operatoren.",
+     "La utskriftsfunksjonen kalle formateringsfunksjonen i stedet for å regne selv."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-4-exr-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-3-4-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — formatert rapport.) En sykkelklubb har logget siste treningsrunde. Navnene ligger i `ryttere`, tiden i hele sekunder i `tider` og distansen i kilometer i `km`, alle i samme rekkefølge.\n\n**a)** Skriv `snittfart(km, sek)` som returnerer farten i kilometer i timen.\n**b)** Skriv `skriv_runderapport(ryttere, tider, km)` som skriver en overskriftsrad og deretter én linje per rytter: navnet venstrejustert i 12 tegn, tiden som `hh:mm:ss`, og farten høyrejustert i et felt på 8 tegn med én desimal.\n**c)** Forklar med én setning hvorfor farten må formateres, og ikke bare skrives rett ut.\n\nTest med `ryttere = ['Aarnes', 'Sivertsen', 'Holt']`, `tider = [4520, 3980, 5310]` og `km = [42.5, 38.0, 47.2]`.",
+    "solution": "**a)** Farten er distanse delt på tid i timer. Tiden i timer er sekunder delt på 3 600 — her med vanlig deling, fordi svaret skal ha desimaler.\n\n**b)** Rapporten gjenbruker både `snittfart` og tidsformateringen fra eksempel 4.\n\n```python\ndef formater_tid(sek):\n    return f'{sek // 3600:02d}:{sek % 3600 // 60:02d}:{sek % 60:02d}'\n\ndef snittfart(km, sek):\n    return km / (sek / 3600)\n\ndef skriv_runderapport(ryttere, tider, km):\n    print('Rytter'.ljust(12) + 'Tid'.ljust(10) + 'km/t'.rjust(8))\n    for i in range(len(ryttere)):\n        fart = snittfart(km[i], tider[i])\n        print(f'{ryttere[i]:<12}{formater_tid(tider[i]):<10}{fart:>8.1f}')\n\nryttere = ['Aarnes', 'Sivertsen', 'Holt']\ntider = [4520, 3980, 5310]\nkm = [42.5, 38.0, 47.2]\nskriv_runderapport(ryttere, tider, km)\n```\n\n**Utskrift:**\n```\nRytter      Tid           km/t\nAarnes      01:15:20      33.8\nSivertsen   01:06:20      34.4\nHolt        01:28:30      32.0\n```\n\n**c)** Uformatert ville farten kommet ut som `33.849557522123895`, som er uleselig i en tabell og gjør at kolonnen sprikere for hver rad.\n\n**Hva gir uttelling:** at tiden i b) brukes to ganger — én gang formatert og én gang som råtall inn i fartsutregningen — og at farten regnes med vanlig deling mens tidsformatet bruker heltallsdeling. Skriver du hele rapporten med `.ljust()`/`.rjust()` og `'{:.1f}'.format(...)` i stedet for f-strenger, er det like riktig. Bommer du på én feltbredde, men har riktig struktur, gir det fortsatt god uttelling.",
+    "hints": [
+     "Tid i timer er sekunder delt på 3 600 — her med vanlig deling, ikke heltallsdeling.",
+     "Regn farten inn i en variabel før du skriver linja, så blir linja lesbar.",
+     "La rapportfunksjonen kalle de to andre funksjonene i stedet for å regne selv."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-3-4-col-28",
+   "type": "collapsible",
+   "title": "Repetisjon — de seks setningene du bør ha med deg",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "tdt4110-3-4-col-28-t1",
+     "type": "text",
+     "content": "1. `print` setter ett mellomrom mellom argumentene og ett linjeskift til slutt — `sep` endrer det første, `end` det andre.\n2. `ljust`, `rjust` og `center` er strengmetoder: tall må gjennom `str()` først.\n3. Tall høyrejusteres i en tabell, tekst venstrejusteres, overskrifter midtstilles.\n4. `{:8.2f}` betyr bredde 8 og to desimaler, og verdien **avrundes**.\n5. `f'{x:8.2f}'` og `'{:8.2f}'.format(x)` gir nøyaktig det samme; begge er gyldige.\n6. Tidsformat er `//` og `%`, aldri `/`, og hvert felt nullpaddes til to sifre."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-3-4-col-29",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-3-4-col-29-t1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `print(a, b)` | Skriver argumentene med ETT mellomrom mellom og linjeskift til slutt |\n| `print(..., sep=t)` | Bytter ut mellomrommet mellom argumentene med `t` |\n| `print(..., end=t)` | Bytter ut linjeskiftet til slutt med `t`; `end=''` gir ingen ny linje |\n| `print()` | Skriver en tom linje |\n| `s.ljust(n)` | Ny streng, `s` til venstre, fylt med mellomrom til lengde `n`; klipper aldri |\n| `s.rjust(n)` | Ny streng, `s` til høyre, mellomrom foran til lengde `n` |\n| `s.center(n)` | Ny streng, `s` midtstilt i `n` tegn; ekstra mellomrom havner til høyre |\n| `str(x)` | Gjør tallet om til tekst — kreves før `ljust`/`rjust`/`center`/`zfill` |\n| `'{}'.format(a)` | Setter `a` inn i plassholderen `{}` og gir en ny streng |\n| `'{:8.2f}'.format(x)` | Bredde 8, to desimaler, avrundet; punktum som desimalskilletegn |\n| `'{:<10}'` / `'{:>6}'` / `'{:^6}'` | Venstre / høyre / midtstilt i oppgitt bredde; konverterer selv |\n| `f'{x:8.2f}'` | Samme oppskrift, skrevet direkte i strengen; uttrykk er lov |\n| `str(t).zfill(2)` | Nuller foran til lengde 2; `'05'` av `5`; gjør ingenting hvis lang nok |\n| `f'{t:02d}'` | Nullpadding for heltall, uten `str()`; `d` betyr heltall |\n| `sek // 3600` | Hele timer; heltallsdeling avrunder nedover |\n| `sek % 3600` | Sekunder som blir til overs etter hele timer |\n\n**Formler i dette delkapitlet:**\n\nFra sekunder til tidsformat: $\\text{timer} = \\lfloor s / 3600 \\rfloor$, $\\text{minutter} = \\lfloor (s \\bmod 3600) / 60 \\rfloor$, $\\text{sekunder} = s \\bmod 60$.\n\nSnittfart: $v = \\frac{d}{s / 3600}$ der $d$ er distanse i kilometer og $s$ er tid i sekunder."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

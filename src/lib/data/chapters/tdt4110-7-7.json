@@ -1,0 +1,358 @@
+{
+ "id": "tdt4110-7-7",
+ "courseId": "tdt4110",
+ "chapterNumber": "7.7",
+ "title": "DRILL — Ledd 4–5: utskrift og lagring",
+ "description": "Det siste leddet og limet: pen formatert utskrift, rapport til tekstfil eller binærfil, og en meny- og hovedfunksjon som kaller hele kjeden til brukeren avslutter.",
+ "estimatedMinutes": 60,
+ "competenceGoals": [
+  "kunne skrive en pen kolonneutskrift med fast bredde og riktig antall desimaler",
+  "kunne lagre et resultat til tekstfil eller binærfil, og lese det tilbake",
+  "kunne skrive en menyløkke som terminerer riktig og fordeler jobben til de andre funksjonene",
+  "kunne binde hele kjeden sammen i en hovedfunksjon som leser fila én gang"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-7-7-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Det siste leddet — og som regel den enkleste deloppgaven i hele settet.**\n\n- Utskrift og lagring er sjanger **I**, og står i **~70 % av settene (7 av 10 sittinger i arkivet 2014–2019)**. Meny- og hovedfunksjonen er sjanger **H**, og står i omtrent **halvparten**. Begge er verdt **5–10 %** når de er der.\n- Bestillingene er faste: en pen kolonneutskrift, en rapport skrevet til tekstfil, en ordbok lagret på binærfil, eller en menyløkke som lar brukeren velge analyse til han skriver `q`.\n- **Dette er deloppgavene som oftest blir stående tomme fordi tiden er ute** — og det er synd, for de er de billigste poengene i settet. Ta dem før du finpusser analysen.\n- Hovedfunksjonen er også der gjenbruket blir synlig: den leser fila **én** gang og sender tabellen videre til alle de andre funksjonene.\n\n**Prioritet: må kunne** — det midterste av bokas tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til». For helheten i kjeden er den likevel avgjørende.\n\nKapitlet tar ~60 minutter og er delt i fem løkker med tidsanslag."
+  },
+  {
+   "id": "tdt4110-7-7-txt-1",
+   "type": "text",
+   "content": "**Forkunnskaper — sist du var her**\n\nVerktøyet er gjennomgått i [kap. 3.4](/tdt4110/tdt4110-3-4) (formatert utskrift), [kap. 4.2](/tdt4110/tdt4110-4-2) (filskriving og binærlagring) og [kap. 2.2](/tdt4110/tdt4110-2-2) (meny og hovedfunksjon). Her er de tre grepene, ferdig oppfrisket.\n\n**1. Fast kolonnebredde med `ljust` og `rjust`:**\n\n```python\nprint('sykkel'.ljust(14) + '450'.rjust(6))\nprint('kjokkenbord'.ljust(14) + '900'.rjust(6))\n```\n\n**Utskrift:**\n```\nsykkel           450\nkjokkenbord      900\n```\n\n**2. Skriv til fil — husk linjeskiftet:**\n\n```python\nf = open('test.txt', 'w')\nf.write('B1;530\\n')\nf.close()\nf = open('test.txt', 'r')\nprint(f.read())\nf.close()\n```\n\n**Utskrift:**\n```\nB1;530\n\n```\n\n**3. Menyløkka som terminerer** ([kap. 2.2](/tdt4110/tdt4110-2-2)):\n\n```text\nwhile True:\n    valg = input('Valg: ')\n    if valg == 'q':\n        break\n```\n\nBlokken over er mønsteret. Den kan ikke kjøres her, fordi den venter på tastatur.\n\nI tillegg forutsetter kapitlet [kap. 7.6](/tdt4110/tdt4110-7-6), som ga oss de robuste analysefunksjonene menyen skal kalle."
+  },
+  {
+   "id": "tdt4110-7-7-txt-2",
+   "type": "text",
+   "content": "## Løkke 1 — pen utskrift i kolonner (~13 min)\n\nFørste halvdel av ledd 5: å få tallene til å stå under hverandre. Det er ren håndverkskunnskap, og det er raskt lært."
+  },
+  {
+   "id": "tdt4110-7-7-def-1",
+   "type": "definition",
+   "title": "Utskriften er en egen deloppgave",
+   "content": "Utskriftsfunksjonen tar **ferdige data** inn og skriver dem ut. Den regner ikke selv, og den leser ikke fil.\n\n```text\ndef skriv_oversikt(tabell):\n    d = omsetning_per_bod(tabell)\n    ...\n```\n\nBlokken over er et utdrag av en funksjon som står ferdig i eksempel 1.\n\nKaller den en analysefunksjon for å få tak i dataene, er det gjenbruk og gir uttelling. Gjentar den analysen med en egen løkke, er det kopiert kode og gir mindre.\n\nUtskriftsfunksjonen returnerer som regel **ingenting** — den skriver. Det er det motsatte av analysefunksjonene, som returnerer og aldri skriver. Å blande de to rollene er en av de vanligste strukturfeilene i faget."
+  },
+  {
+   "id": "tdt4110-7-7-def-2",
+   "type": "definition",
+   "title": "`ljust(n)`, `rjust(n)` og `center(n)`",
+   "content": "Fyller en streng ut til bredden `n` med mellomrom: til venstre, til høyre eller på begge sider.\n\n```python\nprint('bod'.ljust(8) + '|')\nprint('bod'.rjust(8) + '|')\nprint('bod'.center(8) + '|')\n```\n\n**Utskrift:**\n```\nbod     |\n     bod|\n  bod   |\n```\n\nTommelfingerregelen for en tabell: **tekst venstrejusteres, tall høyrejusteres.** Da står sifrene under hverandre, og tallene er lette å sammenligne med øyet.\n\nTo ting å huske: metodene virker bare på **strenger**, så tall må gjennom `str(...)` først. Og er teksten lengre enn `n`, gjør de ingenting — de kutter aldri."
+  },
+  {
+   "id": "tdt4110-7-7-def-3",
+   "type": "definition",
+   "title": "`'{:10.2f}'.format(x)` og f-strengen",
+   "content": "Formatoppskriften gjør tre ting i ett: setter bredden, setter antall desimaler, og høyrejusterer tallet.\n\n```python\nprint('{:10.2f}'.format(530.0) + '|')\nprint('{:10.2f}'.format(1250.5) + '|')\nprint(f'{530.0:10.2f}' + '|')\n```\n\n**Utskrift:**\n```\n    530.00|\n   1250.50|\n    530.00|\n```\n\n`10` er den totale bredden, `.2f` er to desimaler. Tallet høyrejusteres automatisk, så du trenger ikke `rjust` i tillegg.\n\nDe to formene er sidestilt. `.format` er den arkivet 2014–2019 bruker; **f-strengen** er nyere (verifiser mot gjeldende pensum — varslet inn 2019). Denne boka viser begge, og **begge gir full pott**.\n\nFor heltall bruker du `{:6d}` eller `str(x).rjust(6)` — begge deler virker."
+  },
+  {
+   "id": "tdt4110-7-7-def-4",
+   "type": "definition",
+   "title": "Overskriftslinje og skillelinje",
+   "content": "To linjer som gjør en utskrift til en tabell, og som koster nesten ingenting:\n\n```python\nprint('Bod'.ljust(6) + 'Omsetning'.rjust(10))\nprint('-' * 16)\nprint('B1'.ljust(6) + '{:10.2f}'.format(530.0))\n```\n\n**Utskrift:**\n```\nBod    Omsetning\n----------------\nB1        530.00\n```\n\n`'-' * 16` gjentar bindestreken 16 ganger — det er `*` på strenger fra [kap. 3.3](/tdt4110/tdt4110-3-3). Bredden skal være summen av kolonnebreddene, her `6 + 10`.\n\nOverskriftslinja skal bruke **de samme breddene** som datalinjene, ellers står den skjevt. Det er lett å sjekke: skriv ut begge og se om `Omsetning` slutter der tallene slutter.\n\nEr dette verdt poeng? Ja — oppgavetekstene ber ofte om «en oversiktlig utskrift», og en tabell med overskrift er nettopp det."
+  },
+  {
+   "id": "tdt4110-7-7-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: omsetningen per bod på loppemarkedet",
+   "problem": "*«Filen `lopper.txt` har overskriftsraden `bod;vare;pris;solgt`. Skriv `omsetning_per_bod(tabell)` som returnerer `{bod: samlet omsetning}`, og `skriv_oversikt(tabell)` som skriver ut en pen tabell med bod og omsetning.»*",
+   "solution": "Slik ser fila ut:\n\n**Innholdet i `lopper.txt`:**\n```\nbod;vare;pris;solgt\nB1;sykkel;450;1\nB2;bokkasse;120;3\nB1;lampe;80;2\nB3;kjokkenbord;900;1\nB2;platesamling;250;1\n```\n\n**Innlesingen fra [kap. 7.2](/tdt4110/tdt4110-7-2):**\n\n```python\ndef les_salg(filnavn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    k_pris = overskrift.index('pris')\n    k_solgt = overskrift.index('solgt')\n    tabell = [overskrift]\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[k_pris] = int(felt[k_pris])\n        felt[k_solgt] = int(felt[k_solgt])\n        tabell.append(felt)\n    f.close()\n    return tabell\n```\n\n**Analysen fra [kap. 7.4](/tdt4110/tdt4110-7-4)** — omsetningen er pris ganger antall solgte:\n\n```python\ndef omsetning_per_bod(tabell):\n    k_bod = tabell[0].index('bod')\n    k_pris = tabell[0].index('pris')\n    k_solgt = tabell[0].index('solgt')\n    d = {}\n    for rad in tabell[1:]:\n        belop = rad[k_pris] * rad[k_solgt]\n        d[rad[k_bod]] = d.get(rad[k_bod], 0) + belop\n    return d\n```\n\n**Utskriften, som kaller analysen:**\n\n```python\ndef skriv_oversikt(tabell):\n    d = omsetning_per_bod(tabell)\n    print('Bod'.ljust(6) + 'Omsetning'.rjust(10))\n    print('-' * 16)\n    for bod in sorted(d):\n        print(bod.ljust(6) + '{:10.2f}'.format(d[bod]))\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den skriver først når den blir kalt med en ferdig tabell.\n\nKjører du `skriv_oversikt(les_salg('lopper.txt'))` etter at de tre funksjonene over er definert, skriver programmet:\n\n**Utskrift:**\n```\nBod    Omsetning\n----------------\nB1        610.00\nB2        610.00\nB3        900.00\n```\n\nB1 har solgt sykkel for 450 og to lamper for 80, altså 610 kroner.\n\n**Slik ville sensor sett på det.** Utskriftsdeloppgaven er typisk 10 %, og fire ting gir uttelling hver for seg: at funksjonen **kaller** analysen i stedet for å regne selv, overskriftslinja, fast kolonnebredde, og `sorted(d)` som gir en forutsigbar rekkefølge.\n\n**Flere korrekte løsninger.** `print(bod.ljust(6), '{:10.2f}'.format(d[bod]))` med komma i stedet for `+` gir nesten det samme — bare med ett ekstra mellomrom mellom kolonnene, fordi `print` selv skiller argumentene med mellomrom. Begge gir full pott; du må bare være konsekvent, ellers står overskriften skjevt.\n\n**Kantfeilen:** `'{:10.2f}'.format(...)` på en **streng** gir `ValueError: Unknown format code 'f' for object of type 'str'`. Er du usikker på om kolonnen er tall, konverter først — eller bruk `str(x).rjust(10)`, som virker på alt."
+  },
+  {
+   "id": "tdt4110-7-7-opg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? Tegn opp linjene nøyaktig, med mellomrommene.\n\n```python\nprint('B1'.ljust(6) + '610'.rjust(8) + '|')\nprint('B22'.ljust(6) + '9000'.rjust(8) + '|')\nprint('B333333333'.ljust(6) + '5'.rjust(8) + '|')\n```",
+    "solution": "**Sporingstavle.**\n\n| Uttrykk | Lengde inn | Lengde ut | Hva som skjer |\n|---|---|---|---|\n| `'B1'.ljust(6)` | 2 | 6 | fire mellomrom bak |\n| `'610'.rjust(8)` | 3 | 8 | fem mellomrom foran |\n| `'B22'.ljust(6)` | 3 | 6 | tre mellomrom bak |\n| `'B333333333'.ljust(6)` | 10 | **10** | lengre enn 6, så ingenting skjer |\n\n**Utskrift:**\n```\nB1         610|\nB22       9000|\nB333333333       5|\n```\n\nDe to første strekene står under hverandre; den tredje er dyttet fire tegn til høyre.\n\n**Fellenoten:** `ljust` og `rjust` **kutter aldri**. Er innholdet bredere enn kolonnen, sprenges tabellen — og det ser du bare hvis du tester med den lengste verdien i dataene. Velg bredden etter det lengste feltet, ikke etter det første.",
+    "hints": [
+     "Tell tegnene i hver streng før justeringen.",
+     "Hva gjør `ljust(6)` med en streng som allerede er ti tegn lang?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-opg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — formatert utskrift.) *«Skriv `skriv_varelinjer(tabell)` som skriver ut én linje per vare med varenavn venstrejustert i 14 tegn, prisen høyrejustert i 6, antall solgte høyrejustert i 4, og samlet beløp med to desimaler i 10 tegn. Legg på en overskriftslinje og en skillelinje.»*",
+    "solution": "```python\ndef skriv_varelinjer(tabell):\n    k_vare = tabell[0].index('vare')\n    k_pris = tabell[0].index('pris')\n    k_solgt = tabell[0].index('solgt')\n    print('Vare'.ljust(14) + 'Pris'.rjust(6) + 'Ant'.rjust(4) + 'Belop'.rjust(10))\n    print('-' * 34)\n    for rad in tabell[1:]:\n        belop = rad[k_pris] * rad[k_solgt]\n        print(rad[k_vare].ljust(14) + str(rad[k_pris]).rjust(6)\n              + str(rad[k_solgt]).rjust(4) + '{:10.2f}'.format(belop))\n\ntabell = [['bod', 'vare', 'pris', 'solgt'],\n          ['B1', 'sykkel', 450, 1],\n          ['B2', 'bokkasse', 120, 3],\n          ['B1', 'lampe', 80, 2],\n          ['B3', 'kjokkenbord', 900, 1],\n          ['B2', 'platesamling', 250, 1]]\nskriv_varelinjer(tabell)\n```\n\n**Utskrift:**\n```\nVare            Pris Ant     Belop\n----------------------------------\nsykkel           450   1    450.00\nbokkasse         120   3    360.00\nlampe             80   2    160.00\nkjokkenbord      900   1    900.00\nplatesamling     250   1    250.00\n```\n\n**Tre detaljer verdt å merke seg:**\n\n- **Skillelinja er 34 tegn**, som er `14 + 6 + 4 + 10`. Regn den ut, ikke gjett — en skillelinje som er for kort eller for lang, ser slurvete ut.\n- **`str(...)` rundt tallene** før `rjust`. Uten den får du `AttributeError: 'int' object has no attribute 'rjust'`, fordi metodene bare finnes på strenger.\n- **Linjeskiftet i koden.** Den siste `print`-setningen er delt over to linjer inne i parentesen. Det er lovlig i Python så lenge parentesen ikke er lukket, og det er den vanlige måten å holde en lang linje lesbar.\n\n**Alternativet med bare formatoppskrifter:**\n\n```python\nprint('{:<14}{:>6}{:>4}{:>10.2f}'.format('sykkel', 450, 1, 450.0))\n```\n\n**Utskrift:**\n```\nsykkel           450   1    450.00\n```\n\n`{:<14}` er venstrejustert i 14 tegn, `{:>6}` er høyrejustert i 6. Formen er kortere, men vanskeligere å telle riktig for hånd. **Begge gir full pott.**",
+    "hints": [
+     "Finn alle tre kolonnene ved navn før løkka.",
+     "Tallene må gjennom `str(...)` før du kan bruke `rjust` på dem.",
+     "Skillelinja skal være like bred som summen av kolonnebreddene."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-txt-3",
+   "type": "text",
+   "content": "## Løkke 2 — oppramsing og rapport til fil (~11 min)\n\nAndre halvdel av ledd 5: å få resultatet ut av programmet og inn i en fil noen andre kan lese."
+  },
+  {
+   "id": "tdt4110-7-7-def-5",
+   "type": "definition",
+   "title": "`', '.join(liste)` — oppramsingen",
+   "content": "Limer sammen elementene i ei liste med en skilletekst mellom. Skilleteksten står **foran** punktumet, lista i parentesen.\n\n```python\nvarer = ['sykkel', 'lampe', 'bokkasse']\nprint(', '.join(varer))\nprint(' | '.join(varer))\nprint(';'.join(varer))\n```\n\n**Utskrift:**\n```\nsykkel, lampe, bokkasse\nsykkel | lampe | bokkasse\nsykkel;lampe;bokkasse\n```\n\nDen er den naturlige partneren til `split` fra [kap. 3.3](/tdt4110/tdt4110-3-3): `split` deler en linje i felt, `join` setter feltene sammen til en linje igjen. Det er nettopp det du trenger når du skal **skrive** en rad til fil.\n\n**Kravet:** alle elementene må være strenger. Har du tall i lista, får du `TypeError: sequence item 0: expected str instance, int found`. Konverter først:\n\n```python\nrad = ['B1', 610]\nprint(';'.join([str(x) for x in rad]))\n```\n\n**Utskrift:**\n```\nB1;610\n```"
+  },
+  {
+   "id": "tdt4110-7-7-def-6",
+   "type": "definition",
+   "title": "Skriv til fil: `write` og linjeskiftet",
+   "content": "`f.write(tekst)` skriver teksten **uten** å legge på linjeskift. Det må du gjøre selv.\n\n```python\nf = open('demo.txt', 'w')\nf.write('B1;610')\nf.write('B2;610\\n')\nf.write('B3;900\\n')\nf.close()\nf = open('demo.txt', 'r')\nprint(f.read())\nf.close()\n```\n\n**Utskrift:**\n```\nB1;610B2;610\nB3;900\n\n```\n\nDen første og den andre linja rant sammen, fordi den første manglet `'\\n'`. Det er den vanligste feilen i sjanger I, og den er stum — programmet skriver fint, fila blir bare ubrukelig for den som skal lese den etterpå.\n\nModusen `'w'` **tømmer** fila før den skriver. Skal du legge til på slutten i stedet, bruker du `'a'` — se [kap. 4.2](/tdt4110/tdt4110-4-2).\n\nOg: hver `open` skal ha en `close`. Ved skriving er det viktigere enn ved lesing, fordi data kan bli liggende i minnet og aldri nå fila."
+  },
+  {
+   "id": "tdt4110-7-7-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: rapporten skrevet til fil",
+   "problem": "*«Skriv `lagre_rapport(tabell, filnavn)` som skriver omsetningen per bod til en tekstfil med overskriftsrad og semikolon som skilletegn. Funksjonen skal si fra til brukeren når rapporten er lagret.»*",
+   "solution": "```python\ndef lagre_rapport(tabell, filnavn):\n    d = omsetning_per_bod(tabell)\n    f = open(filnavn, 'w')\n    f.write('bod;omsetning\\n')\n    for bod in sorted(d):\n        f.write(bod + ';' + str(d[bod]) + '\\n')\n    f.close()\n    print('Rapport lagret i', filnavn)\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den skriver først når den blir kalt.\n\nKjører du `lagre_rapport(les_salg('lopper.txt'), 'rapport.txt')` etter at `les_salg` og `omsetning_per_bod` er definert, skriver programmet:\n\n**Utskrift:**\n```\nRapport lagret i rapport.txt\n```\n\n**Og fila som ble laget:**\n\n**Utskrift:**\n```\nRapport lagret i rapport.txt\n\nbod;omsetning\nB1;610\nB2;610\nB3;900\n\n```\n\n**Legg merke til at rapporten har samme format som inndatafila:** overskriftsrad, semikolon, én rad per linje. Det er ikke tilfeldig — da kan rapporten leses inn igjen med den samme innlesingsfunksjonen, og det er nettopp den slags gjenbruk oppgavetekstene noen ganger ber om i den siste deloppgaven.\n\n**Slik ville sensor sett på det:** fire ting gir uttelling — filnavnet som **parameter**, `'\\n'` på hver linje, `close()` etter løkka, og beskjeden til brukeren. Den siste glemmes ofte, og den er nevnt eksplisitt i oppgavetekstene: brukeren skal få vite at det gikk bra.\n\n**Kantfeilen:** `f.write(d[bod])` uten `str(...)` gir `TypeError: write() argument must be str, not int`. Denne krasjer, og er derfor snillere enn det glemte linjeskiftet."
+  },
+  {
+   "id": "tdt4110-7-7-opg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — lagring til fil.) *«Skriv `lagre_varer(tabell, filnavn)` som skriver hele varetabellen til fil, med overskriftsraden først og semikolon mellom feltene. Bruk `join`, ikke en lang `+`-kjede.»*",
+    "solution": "```python\ndef lagre_varer(tabell, filnavn):\n    f = open(filnavn, 'w')\n    for rad in tabell:\n        f.write(';'.join([str(felt) for felt in rad]) + '\\n')\n    f.close()\n    print('Skrev', len(tabell), 'linjer til', filnavn)\n\ntabell = [['bod', 'vare', 'pris', 'solgt'],\n          ['B1', 'sykkel', 450, 1],\n          ['B2', 'bokkasse', 120, 3],\n          ['B1', 'lampe', 80, 2],\n          ['B3', 'kjokkenbord', 900, 1],\n          ['B2', 'platesamling', 250, 1]]\nlagre_varer(tabell, 'kopi.txt')\nf = open('kopi.txt', 'r')\nprint(f.read())\nf.close()\n```\n\n**Utskrift:**\n```\nSkrev 6 linjer til kopi.txt\nbod;vare;pris;solgt\nB1;sykkel;450;1\nB2;bokkasse;120;3\nB1;lampe;80;2\nB3;kjokkenbord;900;1\nB2;platesamling;250;1\n\n```\n\n**Tre ting som gjør denne løsningen kort:**\n\n- **`for rad in tabell`** uten `[1:]` — overskriftsraden skal jo være med, siden vi skriver en komplett fil.\n- **`[str(felt) for felt in rad]`** konverterer alle feltene, også de som allerede er tekst. `str('B1')` gir `'B1'`, så det er trygt.\n- **`+ '\\n'`** utenfor `join`. `join` legger ingenting til på slutten — den setter bare skilletegn **mellom** elementene.\n\n**Kontrollen som viser at fila er riktig:** les den inn igjen med innlesingsfunksjonen din. Får du den samme tabellen tilbake, er formatet i orden. Det er den samme rundtur-kontrollen som i [kap. 7.3](/tdt4110/tdt4110-7-3).\n\n**Kantfeilen:** hadde du skrevet `';'.join(rad)` uten konverteringen, ville du fått `TypeError` på første rad med tall i. Feilen krasjer, så du oppdager den — men bare hvis du faktisk kjører koden, og på eksamen gjør du ikke det.",
+    "hints": [
+     "`join` krever at alle elementene er strenger.",
+     "Legg linjeskiftet på **etter** `join`, ikke inni den.",
+     "Skal overskriftsraden være med i fila?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-opg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva står i fila `ut.txt` når programmet er ferdig? Skriv innholdet nøyaktig, med linjeskift der de er.\n\n```python\nf = open('ut.txt', 'w')\nf.write('a')\nf.write('b\\n')\nf.write('c')\nf.close()\nf = open('ut.txt', 'r')\nprint(f.read())\nf.close()\n```",
+    "solution": "**Sporingstavle.**\n\n| Setning | Hva som legges til | Fila så langt |\n|---|---|---|\n| `write('a')` | `a`, uten linjeskift | `a` |\n| `write('b\\n')` | `b` og et linjeskift | `ab` + linjeskift |\n| `write('c')` | `c`, uten linjeskift | `ab` + linjeskift + `c` |\n\nFila inneholder altså **to** linjer: `ab` og `c` — og den siste linja mangler linjeskift på slutten.\n\n**Utskrift:**\n```\nab\nc\n```\n\n`print` legger på sitt eget linjeskift til slutt, så utskriften har en tom linje etter `c` som ikke står i fila.\n\n**Fellenoten:** `write` legger **aldri** på linjeskift av seg selv, i motsetning til `print`. Det er det som gjør at `a` og `b` havnet på samme linje. På eksamen ser feilen ut som en rapportfil med alt på én eneste lang linje.",
+    "hints": [
+     "Legger `write` på linjeskift av seg selv?",
+     "Tell hvor mange linjeskift som faktisk skrives til fila."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-txt-4",
+   "type": "text",
+   "content": "## Løkke 3 — lagring på binærfil (~11 min)\n\nNoen sett ber om at en ordbok eller en tabell lagres slik at den kan hentes tilbake **som den var**, med tall som tall. Da er tekstfil upraktisk, og `pickle` er svaret."
+  },
+  {
+   "id": "tdt4110-7-7-def-7",
+   "type": "definition",
+   "title": "`pickle` — lagre en struktur som den er",
+   "content": "`pickle` lagrer en hel Python-struktur — ordbok, liste, 2D-tabell — til en **binærfil**, og henter den tilbake med typene i behold.\n\nFire ting du må ha på plass:\n\n- `import pickle` øverst i fila.\n- `open(filnavn, 'wb')` for skriving og `open(filnavn, 'rb')` for lesing. `b` står for binær; `'w'` og `'r'` alene gir `TypeError`.\n- `pickle.dump(objekt, f)` skriver, `pickle.load(f)` leser.\n- Fila er **ikke lesbar tekst**. Åpner du den i en teksteditor, ser du bare rot — og den skal derfor aldri vises i en oppgave.\n\nForskjellen fra en tekstfil i én setning: **tekstfila må parses tilbake, binærfila kommer ferdig.**"
+  },
+  {
+   "id": "tdt4110-7-7-def-8",
+   "type": "definition",
+   "title": "Når tekstfil, og når binærfil",
+   "content": "Oppgaveteksten sier det som regel. Er den taus, avgjør formålet:\n\n| Formålet | Format |\n|---|---|\n| et menneske skal lese resultatet | tekstfil |\n| et annet program skal lese det | tekstfil, som regel |\n| **ditt eget** program skal hente det tilbake senere | binærfil med `pickle` |\n| strukturen er nøstet (ordbok av lister) | binærfil — den slipper parsingen |\n\n`pickle` er merket «bør kjenne til» i denne boka: den står i omtrent **30 %** av settene, og alltid som en liten deloppgave. Lær de fire linjene, ikke mer."
+  },
+  {
+   "id": "tdt4110-7-7-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: omsetningsordboka lagret og hentet tilbake",
+   "problem": "*«Skriv `lagre_binaer(d, filnavn)` som lagrer omsetningsordboka på binærfil, og `hent_binaer(filnavn)` som henter den tilbake. Vis at det som kommer ut, er identisk med det som gikk inn.»*",
+   "solution": "```python\nimport pickle\n\ndef lagre_binaer(d, filnavn):\n    f = open(filnavn, 'wb')\n    pickle.dump(d, f)\n    f.close()\n\ndef hent_binaer(filnavn):\n    f = open(filnavn, 'rb')\n    d = pickle.load(f)\n    f.close()\n    return d\n\ninn = {'B1': 610, 'B2': 610, 'B3': 900}\nlagre_binaer(inn, 'omsetning.pkl')\nut = hent_binaer('omsetning.pkl')\nprint(ut)\nprint(ut == inn)\nprint(type(ut['B1']))\n```\n\n**Utskrift:**\n```\n{'B1': 610, 'B2': 610, 'B3': 900}\nTrue\n<class 'int'>\n```\n\n**`True` er hele poenget.** Ordboka kom tilbake med de samme nøklene, de samme verdiene og de samme **typene** — 610 er fortsatt et heltall, ikke strengen `'610'`.\n\nInnholdet i `omsetning.pkl` vises ikke her, og skal ikke vises: fila er binær og ikke lesbar tekst.\n\n**Sammenlign med tekstfil-varianten:**\n\n```python\ninn = {'B1': 610, 'B2': 610}\nf = open('omsetning.txt', 'w')\nfor bod in sorted(inn):\n    f.write(bod + ';' + str(inn[bod]) + '\\n')\nf.close()\n\nut = {}\nf = open('omsetning.txt', 'r')\nfor linje in f:\n    felt = linje.strip().split(';')\n    ut[felt[0]] = int(felt[1])\nf.close()\nprint(ut == inn)\n```\n\n**Utskrift:**\n```\nTrue\n```\n\nSamme resultat — men veien tilbake krevde fem linjer med parsing, og du måtte huske `int()`. Det er nettopp den jobben `pickle` fjerner.\n\n**Slik ville sensor sett på det:** deloppgaven er som regel liten, og de fire tingene som gir uttelling er `import pickle`, `'wb'`/`'rb'`, `dump`/`load` i riktig retning, og `close()`. Bytter du om `'w'` og `'wb'`, krasjer det med `TypeError: write() argument must be str, not bytes` — så feilen er i det minste synlig.\n\n**Kantfeilen:** `pickle.load` på en fil som ikke finnes gir `FileNotFoundError`, akkurat som vanlig lesing. Skal programmet takle at rapporten ikke er lagret ennå, hører den i `try/except` — se løkke 5."
+  },
+  {
+   "id": "tdt4110-7-7-opg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — binærlagring.) *«Skriv `lagre_tabell(tabell, filnavn)` og `hent_tabell(filnavn)` som lagrer og henter hele 2D-tabellen på binærfil. Vis med én utskrift at tallkolonnene fortsatt er tall etter at tabellen er hentet tilbake.»*",
+    "solution": "```python\nimport pickle\n\ndef lagre_tabell(tabell, filnavn):\n    f = open(filnavn, 'wb')\n    pickle.dump(tabell, f)\n    f.close()\n\ndef hent_tabell(filnavn):\n    f = open(filnavn, 'rb')\n    tabell = pickle.load(f)\n    f.close()\n    return tabell\n\ntabell = [['bod', 'vare', 'pris', 'solgt'],\n          ['B1', 'sykkel', 450, 1],\n          ['B2', 'bokkasse', 120, 3],\n          ['B1', 'lampe', 80, 2],\n          ['B3', 'kjokkenbord', 900, 1],\n          ['B2', 'platesamling', 250, 1]]\nlagre_tabell(tabell, 'lopper.pkl')\ntilbake = hent_tabell('lopper.pkl')\nprint(tilbake[1])\nprint(type(tilbake[1][2]))\nprint(tilbake == tabell)\n```\n\n**Utskrift:**\n```\n['B1', 'sykkel', 450, 1]\n<class 'int'>\nTrue\n```\n\n**Utskriften som svarer på spørsmålet:** `<class 'int'>`. Prisen er fortsatt et heltall, og du kan regne med den uten å konvertere noe som helst.\n\nHadde tabellen vært lagret som tekstfil og lest tilbake uten `int()`, ville typen vært `<class 'str'>` — og hele analysen etterpå ville gitt feil svar i stillhet.\n\n**Merk at innholdet i `lopper.pkl` ikke vises.** Fila er binær; å åpne den som tekst gir enten rot på skjermen eller en `UnicodeDecodeError`. Det er en helt normal egenskap ved formatet, ikke en feil.\n\n**Hva `pickle` ikke er:** den er ikke et utvekslingsformat. En binærfil fra ditt program leses av ditt program. Skal et regneark eller et menneske se tallene, skriver du tekstfil.",
+    "hints": [
+     "Fire linjer per funksjon: `open` med `b` i modusen, `dump`/`load`, `close`, og `return` for lesingen.",
+     "Bruk `type(...)` på et av tallene for å vise at typen er beholdt."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-opg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå — velg format.) For hver av disse fire bestillingene: skal resultatet lagres som tekstfil eller som binærfil? Svar med én setning hver.\n\n**a)** «Lagre en rapport som styret i borettslaget skal skrive ut.»\n\n**b)** «Lagre den nøstede ordboka `{bod: {vare: antall}}` slik at programmet kan hente den fram neste gang det kjøres.»\n\n**c)** «Lagre resultatene slik at de kan leses inn igjen av innlesingsfunksjonen fra deloppgave a).»\n\n**d)** «Lagre en logg der hver ny kjøring legger til linjer på slutten.»",
+    "solution": "**a) Tekstfil.** Et menneske skal lese den, og en binærfil er ikke lesbar tekst. Formatér gjerne med `ljust`/`rjust` slik at den kan skrives rett ut.\n\n**b) Binærfil med `pickle`.** Strukturen er nøstet, og å skrive en ordbok av ordbøker til tekst krever et eget format — og deretter en parser som bygger den opp igjen. `pickle` gjør begge deler på fire linjer.\n\n**c) Tekstfil**, med det **samme formatet** som inndatafila. Det er hele poenget med bestillingen: den samme innlesingsfunksjonen skal kunne brukes, og den forventer semikolon og linjeskift.\n\n**d) Tekstfil**, åpnet med modus `'a'` for å legge til på slutten:\n\n```python\nf = open('logg.txt', 'w')\nf.write('kjoring 1\\n')\nf.close()\nf = open('logg.txt', 'a')\nf.write('kjoring 2\\n')\nf.close()\nf = open('logg.txt', 'r')\nprint(f.read())\nf.close()\n```\n\n**Utskrift:**\n```\nkjoring 1\nkjoring 2\n\n```\n\nHadde den andre `open` brukt `'w'` i stedet for `'a'`, ville fila blitt tømt, og bare den siste linja stått igjen. `pickle` har ingen tilsvarende «legg til»-modus — der må du lese hele strukturen inn, utvide den, og skrive den ut på nytt.\n\n**Regelen i én setning:** tekstfil når noen andre skal lese, binærfil når bare programmet ditt skal.",
+    "hints": [
+     "Spør deg hvem som skal lese fila etterpå — et menneske, et annet program, eller ditt eget.",
+     "Hvilken av de fire krever at formatet er identisk med inndatafila?",
+     "Hvilken modus legger til på slutten i stedet for å tømme fila?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-txt-5",
+   "type": "text",
+   "content": "## Løkke 4 — menyen (~13 min)\n\nLedd 4: å la brukeren velge hva som skal skje. Mønsteret er kort, men det har fem detaljer som hver for seg er testet på eksamen."
+  },
+  {
+   "id": "tdt4110-7-7-def-9",
+   "type": "definition",
+   "title": "Menyløkka `while True:` med `break`",
+   "content": "Løkka skal gå til brukeren selv sier stopp, ikke et fast antall ganger. Derfor `while True:`, og derfor må det finnes **nøyaktig én vei ut**: `break` i avslutningsgrenen.\n\n```text\nwhile True:\n    valg = input('Valg: ')\n    if valg == 'q':\n        break\n```\n\nBlokken over er mønsteret. Den kan ikke kjøres her, fordi den venter på tastatur.\n\nGlemmer du `break`, går programmet for alltid, og brukeren må avbryte det. Det er felle **#8** — en input-løkke som ikke terminerer riktig, og den er verdt hele deloppgaven.\n\nMenyteksten skal stå **inne** i løkka, så brukeren ser valgene på nytt hver runde. Står den utenfor, vises den én gang, og resten av økta må brukeren huske hva tallene betydde."
+  },
+  {
+   "id": "tdt4110-7-7-def-10",
+   "type": "definition",
+   "title": "Menyvalget er en streng",
+   "content": "`input()` gir **alltid** tekst, også når brukeren skriver et tall. Testen er derfor `valg == '1'` med fnutter.\n\nSkriver du `valg == 1`, sammenligner du tekst med tall. Det gir ingen feilmelding — det gir bare `False`, hver eneste gang, og programmet havner rett i `else`-grenen uansett hva brukeren taster.\n\n```python\nvalg = '1'\nprint(valg == '1')\nprint(valg == 1)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nDet er felle **#1**, glemt konvertering, i sin mest stillegående form. Alternativet er å konvertere med `int(valg)` — men da krasjer programmet hvis brukeren skriver `q`. Hold valget som tekst."
+  },
+  {
+   "id": "tdt4110-7-7-def-11",
+   "type": "definition",
+   "title": "Dispatcher: `if`/`elif`/`else`",
+   "content": "Kjeden som fordeler jobben videre til de andre funksjonene. Hver gren gjør **ett kall**, ingen regning.\n\n```text\nif valg == '1':\n    skriv_oversikt(tabell)\nelif valg == '2':\n    lagre_rapport(tabell, 'rapport.txt')\nelif valg == 'q':\n    break\nelse:\n    print('Ugyldig valg, prøv igjen.')\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 4.\n\nTo grunner til at grenene skal være ettlinjes kall: du får gjenbrukspoengene, og menyen blir lesbar som en innholdsfortegnelse over programmet.\n\n**`else`-grenen er ikke pynt.** Uten den tier programmet ved en skrivefeil, og brukeren tror valget ble utført. Den er nevnt i oppgavetekster, og den koster to linjer."
+  },
+  {
+   "id": "tdt4110-7-7-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: menyen på loppemarkedet",
+   "problem": "*«Skriv `meny(tabell)` som viser tre valg — vis omsetning per bod, lagre rapport til fil, og avslutt — og kaller de tidligere funksjonene til brukeren skriver `q`.»*",
+   "solution": "Funksjonen selv inneholder `input()`, så blokken under **definerer** bare. Den kan ikke kjøres uten en bruker ved tastaturet:\n\n```python\ndef meny(tabell):\n    while True:\n        print()\n        print('1 - vis omsetning per bod')\n        print('2 - lagre rapport til fil')\n        print('q - avslutt')\n        valg = input('Valg: ')\n        if valg == '1':\n            skriv_oversikt(tabell)\n        elif valg == '2':\n            lagre_rapport(tabell, 'rapport.txt')\n        elif valg == 'q':\n            print('Ha det.')\n            break\n        else:\n            print('Ugyldig valg, prøv igjen.')\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den venter på tastatur når den blir kalt.\n\n**Kjøringen under er ekte.** Brukeren valgte 1, deretter 2, deretter en skrivefeil, og til slutt `q`. Pilene står **ikke** på skjermen — de er lagt til her for å vise hva brukeren tastet inn.\n\n**Kjøring:**\n```\n\n1 - vis omsetning per bod\n2 - lagre rapport til fil\nq - avslutt\nValg: 1        <- skrevet av brukeren\nBod    Omsetning\n----------------\nB1        610.00\nB2        610.00\nB3        900.00\n\n1 - vis omsetning per bod\n2 - lagre rapport til fil\nq - avslutt\nValg: 2        <- skrevet av brukeren\nRapport lagret i rapport.txt\n\n1 - vis omsetning per bod\n2 - lagre rapport til fil\nq - avslutt\nValg: 5        <- skrevet av brukeren\nUgyldig valg, prøv igjen.\n\n1 - vis omsetning per bod\n2 - lagre rapport til fil\nq - avslutt\nValg: q        <- skrevet av brukeren\nHa det.\n```\n\n**Slik ville sensor sett på det.** Fem ting gir uttelling hver for seg:\n\n| Grep | Hva som skjer uten det |\n|---|---|\n| `while True:` | menyen kjøres én gang og programmet slutter |\n| `break` i `q`-grenen | programmet går for alltid (felle **#8**) |\n| `valg == '1'` med fnutter | ingen gren treffer noen gang (felle **#1**) |\n| menyteksten inne i løkka | valgene vises bare første runde |\n| `else`-grenen | skrivefeil får ingen tilbakemelding |\n\n**Legg merke til at hver gren er ett kall.** `meny` regner ingenting selv — den fordeler. Det er den samme delegeringsregelen som for `main` i [kap. 2.2](/tdt4110/tdt4110-2-2), og det er nettopp den som gjør gjenbruket synlig for sensor.\n\n**Kantfeilen:** hadde `q`-grenen stått **etter** `else`, ville den aldri blitt nådd — `else` fanger alt som ikke traff en tidligere gren. Rekkefølgen i en `if`/`elif`-kjede er en del av logikken."
+  },
+  {
+   "id": "tdt4110-7-7-warn-1",
+   "type": "warning",
+   "title": "Typiske feil i ledd 4 og 5",
+   "content": "Fem feller, og de to første er de dyreste:\n\n- **#8 — menyløkka terminerer ikke.** Glemt `break`, eller `break` i feil gren. Programmet går for alltid.\n- **#1 — `valg == 1` uten fnutter.** `input()` gir tekst, så ingen gren treffer. Ingen feilmelding, bare en meny som ikke gjør noe.\n- **Glemt `'\\n'` i `write`.** Alle radene renner sammen til én linje i rapportfila. Stum feil.\n- **Å lese fila på nytt i hver menygren.** Da må filnavnet hardkodes flere steder, og funksjonene kan ikke gjenbrukes. `main` skal lese én gang og sende tabellen videre.\n- **Ingen tilbakemelding til brukeren.** Rapporten lagres, og skjermen er taus — brukeren vet ikke om det gikk bra. Én `print` er nok."
+  },
+  {
+   "id": "tdt4110-7-7-opg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H — menyløkke.) *«Skriv `enkel_meny(tabell)` med to valg: `1` skriver ut antall varer i tabellen, og `q` avslutter. Alt annet skal gi en beskjed om at valget er ugyldig.»*\n\nVis funksjonen, og forklar med én setning hvorfor den ikke kan kjøres i en kodeblokk her i boka.",
+    "solution": "```python\ndef enkel_meny(tabell):\n    while True:\n        print('1 - antall varer')\n        print('q - avslutt')\n        valg = input('Valg: ')\n        if valg == '1':\n            print('Antall varer:', len(tabell) - 1)\n        elif valg == 'q':\n            print('Ha det.')\n            break\n        else:\n            print('Ugyldig valg.')\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den venter på tastatur når den blir kalt.\n\n**Setningen:** funksjonen kaller `input()`, som venter på at noen skriver på tastaturet — og en kodeblokk i en bok har ingen bruker. Blokken over **definerer** derfor bare funksjonen, og den skriver ingenting.\n\n**Kjøringen, med matet inn tastetrykk:**\n\n**Kjøring:**\n```\n1 - antall varer\nq - avslutt\nValg: 1        <- skrevet av brukeren\nAntall varer: 5\n1 - antall varer\nq - avslutt\nValg: x        <- skrevet av brukeren\nUgyldig valg.\n1 - antall varer\nq - avslutt\nValg: q        <- skrevet av brukeren\nHa det.\n```\n\nPilene står ikke på skjermen; de viser hva brukeren tastet.\n\n**Merk `len(tabell) - 1`.** Overskriftsraden er ikke en vare, så den skal trekkes fra. Det er den samme detaljen som i alle analysefunksjonene — og det er lett å glemme akkurat i utskriften, der du ikke tenker på den som en analyse.",
+    "hints": [
+     "Menyteksten skal stå inne i løkka, ikke foran den.",
+     "Testen er `valg == '1'` med fnutter, siden `input()` gir tekst.",
+     "Er overskriftsraden en vare?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-opg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D — fyll inn manglende kodelinje.) I denne menyen mangler én linje, markert `#KODE1`:\n\n```text\ndef meny(tabell):\n    while True:\n        valg = input('Velg 1 eller q: ')\n        if valg == '1':\n            print(len(tabell))\n        elif valg == 'q':\n            #KODE1\n        else:\n            print('Ugyldig.')\n```\n\nBlokken over er et fragment med en manglende linje, ikke et kjørbart program.\n\nHvilket alternativ hører hjemme på `#KODE1`?\n\n**a)** `return tabell`\n**b)** `break`\n**c)** `continue`\n**d)** `valg = 'q'`",
+    "solution": "**Riktig er b) `break`.**\n\nLa oss prøve hvert alternativ mot et lite konkret eksempel — en bruker som skriver `q` med én gang:\n\n**a) `return tabell`** — avslutter faktisk løkka, siden `return` avslutter hele funksjonen. Den **virker**, men den er feil svar på bestillingen: menyen skal avslutte, ikke levere tabellen tilbake. Den som kalte `meny(tabell)`, får plutselig en returverdi den ikke ba om. På eksamen ville dette gitt delvis uttelling — riktig effekt, feil form.\n\n**b) `break`** — hopper ut av `while`-løkka og lar funksjonen avslutte normalt. Det er formen mønsteret bruker, og den som lar deg legge til en avskjedshilsen etterpå.\n\n**c) `continue`** — hopper til **neste runde** i løkka i stedet for ut av den. Brukeren som skriver `q`, får menyen på nytt, og på nytt, og på nytt. Dette er felle **#8** i sin reneste form: løkka terminerer aldri.\n\n**d) `valg = 'q'`** — setter variabelen til den verdien den allerede har. Løkkebetingelsen er `True`, ikke `valg != 'q'`, så tilordningen har ingen virkning i det hele tatt. Løkka går for alltid.\n\n**Den avgjørende innsikten:** `while True:` betyr at betingelsen aldri kan bli usann. Den eneste veien ut er `break` eller `return` — å endre en variabel hjelper ikke, fordi ingen ser på den.\n\n**Slik ville sensor sett på det:** dette er sjanger D, «fyll inn manglende kodelinje», som står i omtrent halvparten av settene og er verdt 1–3 % per deloppgave. Sjekk alltid alternativene mot et konkret gjennomløp — det tar tretti sekunder og avslører `continue`-fellen med en gang.",
+    "hints": [
+     "Hva er betingelsen i løkka, og kan den noen gang bli usann?",
+     "Hva er forskjellen på å hoppe til neste runde og å hoppe ut av løkka?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-txt-6",
+   "type": "text",
+   "content": "## Løkke 5 — `main` binder kjeden (~12 min)\n\nSiste ledd: funksjonen som eier programmet. Den leser fila én gang, sier fra hvis noe gikk galt, og gir stafettpinnen videre."
+  },
+  {
+   "id": "tdt4110-7-7-def-12",
+   "type": "definition",
+   "title": "`main` leser fila én gang",
+   "content": "Hovedfunksjonen skaffer dataene og sender **den samme tabellen** videre til alle de andre funksjonene.\n\n```text\ndef main(filnavn):\n    tabell = les_salg(filnavn)\n    meny(tabell)\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 5.\n\nMotstykket — at hver menygren leser fila på nytt — koster deg tre ting: filnavnet må hardkodes flere steder, funksjonene blir ubrukelige på andre data, og programmet gjør den samme jobben om og om igjen.\n\n`main` gjør ingen regning selv. Kjennetegnet på en god `main` er at den er så kort at du ser hele programmets gang samtidig på skjermen.\n\nOg: kall den direkte med `main('lopper.txt')`. Boka bruker aldri vaktsetningen med `__name__`, fordi den ikke gir uttelling på eksamen."
+  },
+  {
+   "id": "tdt4110-7-7-def-13",
+   "type": "definition",
+   "title": "Tilbakemelding om suksess og feil",
+   "content": "Brukeren skal vite hva som skjedde. Tre steder er det verdt en `print`:\n\n- **Etter innlesingen:** «Leste 5 salgslinjer.» Da ser brukeren at fila ble funnet og hvor mye som kom inn.\n- **Etter lagring:** «Rapport lagret i rapport.txt.» Uten den er skjermen taus, og brukeren vet ikke om det gikk bra.\n- **Ved feil:** «Fant ikke fila lopper.txt.» Bedre enn en `Traceback` brukeren ikke forstår.\n\nDette er nevnt i oppgavetekster, og det koster én linje hver. Det er også god programmering utenfor eksamen — et program som gjør noe uten å si fra, er et program ingen stoler på."
+  },
+  {
+   "id": "tdt4110-7-7-def-14",
+   "type": "definition",
+   "title": "`try/except` rundt fil-I/O i hovedfunksjonen",
+   "content": "Manglende fil er en feil som kommer **utenfra**, og den hører derfor i `try/except` — ikke i en `if`-test.\n\n```text\ntry:\n    tabell = les_salg(filnavn)\nexcept FileNotFoundError:\n    print('Fant ikke fila', filnavn)\n    return\n```\n\nBlokken over er et utdrag av `main`; hele funksjonen står i eksempel 5.\n\nTre valg som er verdt poeng:\n\n- **Snever `try`:** bare `open`-kallet, ikke hele programmet. Da fanger du det du mente å fange.\n- **Spesifikk `except`:** `FileNotFoundError`, ikke naken `except:`. En naken `except` fanger også dine egne skrivefeil.\n- **`return` etter feilmeldingen:** uten den fortsetter `main` med en tabell som ikke finnes, og krasjer likevel — bare litt senere.\n\nSe [kap. 4.3](/tdt4110/tdt4110-4-3) for hele unntaksapparatet."
+  },
+  {
+   "id": "tdt4110-7-7-ex-5",
+   "type": "example",
+   "title": "Eksempel 5: hele loppemarkedsappen",
+   "problem": "Sett sammen alle fem leddene til én applikasjon: les fila, regn ut omsetningen, vis den, lagre den, og la brukeren styre med en meny. Hver funksjon i sin egen blokk, som deloppgavene på et sett.",
+   "solution": "**Deloppgave a) — innlesing (ledd 1 og 2):**\n\n```python\ndef les_salg(filnavn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    k_pris = overskrift.index('pris')\n    k_solgt = overskrift.index('solgt')\n    tabell = [overskrift]\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[k_pris] = int(felt[k_pris])\n        felt[k_solgt] = int(felt[k_solgt])\n        tabell.append(felt)\n    f.close()\n    return tabell\n```\n\n**Deloppgave b) — analysen (ledd 3).** Den tar tabellen som parameter og leser aldri fil:\n\n```python\ndef omsetning_per_bod(tabell):\n    k_bod = tabell[0].index('bod')\n    k_pris = tabell[0].index('pris')\n    k_solgt = tabell[0].index('solgt')\n    d = {}\n    for rad in tabell[1:]:\n        belop = rad[k_pris] * rad[k_solgt]\n        d[rad[k_bod]] = d.get(rad[k_bod], 0) + belop\n    return d\n```\n\n**Deloppgave c) — utskriften (ledd 5).** Den kaller b):\n\n```python\ndef skriv_oversikt(tabell):\n    d = omsetning_per_bod(tabell)\n    print('Bod'.ljust(6) + 'Omsetning'.rjust(10))\n    print('-' * 16)\n    for bod in sorted(d):\n        print(bod.ljust(6) + '{:10.2f}'.format(d[bod]))\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den skriver når `meny` kaller den.\n\n**Deloppgave d) — lagringen (ledd 5).** Den kaller også b):\n\n```python\ndef lagre_rapport(tabell, filnavn):\n    d = omsetning_per_bod(tabell)\n    f = open(filnavn, 'w')\n    f.write('bod;omsetning\\n')\n    for bod in sorted(d):\n        f.write(bod + ';' + str(d[bod]) + '\\n')\n    f.close()\n    print('Rapport lagret i', filnavn)\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den skriver når `meny` kaller den.\n\n**Deloppgave e) — menyen (ledd 4).** Hver gren er ett kall:\n\n```python\ndef meny(tabell):\n    while True:\n        print()\n        print('1 - vis omsetning per bod')\n        print('2 - lagre rapport til fil')\n        print('q - avslutt')\n        valg = input('Valg: ')\n        if valg == '1':\n            skriv_oversikt(tabell)\n        elif valg == '2':\n            lagre_rapport(tabell, 'rapport.txt')\n        elif valg == 'q':\n            print('Ha det.')\n            break\n        else:\n            print('Ugyldig valg, prøv igjen.')\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den venter på tastatur når den blir kalt.\n\n**Deloppgave f) — `main` (limet).** Fem linjer, og fila leses ett eneste sted:\n\n```python\ndef main(filnavn):\n    try:\n        tabell = les_salg(filnavn)\n    except FileNotFoundError:\n        print('Fant ikke fila', filnavn)\n        return\n    print('Leste', len(tabell) - 1, 'salgslinjer.')\n    meny(tabell)\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den kjører når du kaller `main(...)`.\n\n**Hele appen kjørt.** Brukeren ser omsetningen, lagrer rapporten og avslutter:\n\n**Kjøring:**\n```\nLeste 5 salgslinjer.\n\n1 - vis omsetning per bod\n2 - lagre rapport til fil\nq - avslutt\nValg: 1        <- skrevet av brukeren\nBod    Omsetning\n----------------\nB1        610.00\nB2        610.00\nB3        900.00\n\n1 - vis omsetning per bod\n2 - lagre rapport til fil\nq - avslutt\nValg: 2        <- skrevet av brukeren\nRapport lagret i rapport.txt\n\n1 - vis omsetning per bod\n2 - lagre rapport til fil\nq - avslutt\nValg: q        <- skrevet av brukeren\nHa det.\n```\n\nPilene står ikke på skjermen; de viser hva brukeren tastet.\n\n**Og hva som skjer når fila mangler:**\n\n```python\ndef les_salg(filnavn):\n    f = open(filnavn, 'r')\n    f.close()\n    return []\n\ndef main(filnavn):\n    try:\n        tabell = les_salg(filnavn)\n    except FileNotFoundError:\n        print('Fant ikke fila', filnavn)\n        return\n    print('Leste', len(tabell), 'linjer.')\n\nmain('finnes-ikke.txt')\n```\n\n**Utskrift:**\n```\nFant ikke fila finnes-ikke.txt\n```\n\nEn setning brukeren forstår, i stedet for fem linjer `Traceback`.\n\n**Slik ville sensor sett på det, deloppgave for deloppgave:**\n\n| Deloppgave | Vekt | Hva som gir uttelling |\n|---|---|---|\n| a) innlesing | 15 % | `strip().split(';')`, konvertering, kolonner ved navn |\n| b) analysen | 20 % | telleordboka, `pris * solgt`, tabellen som parameter |\n| c) utskrift | 15 % | kaller b), fast kolonnebredde, overskriftslinje |\n| d) lagring | 15 % | filnavn som parameter, `'\\n'`, `close`, beskjed til brukeren |\n| e) meny | 20 % | `while True:`, `break`, valg som tekst, `else`-gren |\n| f) `main` | 15 % | leser fila **én** gang, `try/except`, `return` etter feil |\n\n**Gjenbruket, sagt rett ut:** `skriv_oversikt` og `lagre_rapport` kaller begge `omsetning_per_bod`. `meny` kaller begge to. `main` kaller `les_salg` og `meny`. Ingen funksjon gjentar en annens arbeid, og fila åpnes ett sted. Det er den strukturen sensor leter etter, og den er verdt mer enn perfeksjon i noen enkelt deloppgave."
+  },
+  {
+   "id": "tdt4110-7-7-opg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H — hovedfunksjon.) *«Skriv `hovedprogram(filnavn)` som leser tabellen, skriver ut hvor mange varer som ble lest, og deretter viser menyen. Hvis fila ikke finnes, skal programmet si fra og avslutte pent i stedet for å krasje.»*\n\nDu kan anta at `les_salg` og `meny` allerede finnes.",
+    "solution": "```python\ndef hovedprogram(filnavn):\n    try:\n        tabell = les_salg(filnavn)\n    except FileNotFoundError:\n        print('Fant ikke fila', filnavn)\n        return\n    print('Leste', len(tabell) - 1, 'varer.')\n    meny(tabell)\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den kjører når du kaller `hovedprogram(...)`.\n\n**De fire grepene, og hva hvert av dem koster:**\n\n- **`try` bare rundt innlesingen.** Hadde hele funksjonen ligget i `try`-blokken, ville en feil inne i `meny` også blitt fanget og meldt som «fant ikke fila» — en feilmelding som lyver.\n- **`FileNotFoundError` og ikke naken `except:`.** En naken `except` fanger også en skrivefeil i ditt eget funksjonsnavn, og da får brukeren feil beskjed mens du selv aldri ser problemet.\n- **`return` etter feilmeldingen.** Uten den fortsetter funksjonen til `print('Leste', ...)` med en `tabell` som aldri ble tilordnet, og krasjer med `UnboundLocalError`.\n- **`len(tabell) - 1`.** Overskriftsraden er ikke en vare.\n\n**Kontrollen på tomtilfellet:** en fil som bare inneholder overskriftsraden gir «Leste 0 varer.» og en meny som virker, men ikke har noe å vise. Det er riktig oppførsel — og det er verdt én setning i besvarelsen at du har tenkt på det.",
+    "hints": [
+     "`try`-blokken skal omslutte bare innlesingen, ikke resten av funksjonen.",
+     "Hva må stå etter feilmeldingen for at funksjonen ikke skal fortsette?",
+     "Er overskriftsraden en vare?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-opg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-7-7-oppg-10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H og I — hele kjeden bundet sammen.) Utvid loppemarkedsappen.\n\n**a)** Skriv `beste_bod(tabell)` som returnerer bodnummeret med høyest omsetning, ved å gjenbruke `omsetning_per_bod`.\n\n**b)** Skriv `lagre_binaer(tabell, filnavn)` som lagrer omsetningsordboka på binærfil.\n\n**c)** Utvid menyen med to nye valg, `3` for beste bod og `4` for binærlagring, uten å skrive om de gamle grenene.\n\n**d)** Forklar med én setning hvorfor `meny` ikke trengte noen endring utover de to nye grenene.",
+    "solution": "**a)** «Finn beste nøkkel» på ordboka fra analysen:\n\n```python\ndef omsetning_per_bod(tabell):\n    k_bod = tabell[0].index('bod')\n    k_pris = tabell[0].index('pris')\n    k_solgt = tabell[0].index('solgt')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_bod]] = d.get(rad[k_bod], 0) + rad[k_pris] * rad[k_solgt]\n    return d\n\ndef beste_bod(tabell):\n    d = omsetning_per_bod(tabell)\n    beste = None\n    for bod in d:\n        if beste is None or d[bod] > d[beste]:\n            beste = bod\n    return beste\n\ntabell = [['bod', 'vare', 'pris', 'solgt'],\n          ['B1', 'sykkel', 450, 1],\n          ['B2', 'bokkasse', 120, 3],\n          ['B1', 'lampe', 80, 2],\n          ['B3', 'kjokkenbord', 900, 1],\n          ['B2', 'platesamling', 250, 1]]\nprint(beste_bod(tabell))\nprint(beste_bod([['bod', 'vare', 'pris', 'solgt']]))\n```\n\n**Utskrift:**\n```\nB3\nNone\n```\n\nB3 solgte kjøkkenbordet til 900 kroner. Tom tabell gir `None`, uten en eneste ekstra linje.\n\n**b)** Fire linjer, med gjenbruk av analysen:\n\n```python\nimport pickle\n\ndef lagre_binaer(tabell, filnavn):\n    d = omsetning_per_bod(tabell)\n    f = open(filnavn, 'wb')\n    pickle.dump(d, f)\n    f.close()\n    print('Omsetningen lagret i', filnavn)\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den skriver når `meny` kaller den.\n\n**c)** To nye grener, satt inn **før** `q`-grenen:\n\n```python\ndef meny(tabell):\n    while True:\n        print()\n        print('1 - vis omsetning per bod')\n        print('2 - lagre rapport til fil')\n        print('3 - beste bod')\n        print('4 - lagre omsetning binart')\n        print('q - avslutt')\n        valg = input('Valg: ')\n        if valg == '1':\n            skriv_oversikt(tabell)\n        elif valg == '2':\n            lagre_rapport(tabell, 'rapport.txt')\n        elif valg == '3':\n            print('Beste bod:', beste_bod(tabell))\n        elif valg == '4':\n            lagre_binaer(tabell, 'omsetning.pkl')\n        elif valg == 'q':\n            print('Ha det.')\n            break\n        else:\n            print('Ugyldig valg, prøv igjen.')\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen. Den venter på tastatur når den blir kalt.\n\n**Kjøringen med de to nye valgene:**\n\n**Kjøring:**\n```\n\n3 - beste bod\n4 - lagre omsetning binart\nq - avslutt\nValg: 3        <- skrevet av brukeren\nBeste bod: B3\n\n3 - beste bod\n4 - lagre omsetning binart\nq - avslutt\nValg: 4        <- skrevet av brukeren\nOmsetningen lagret i omsetning.pkl\n\n3 - beste bod\n4 - lagre omsetning binart\nq - avslutt\nValg: q        <- skrevet av brukeren\nHa det.\n```\n\n**d)** Setningen: **menyen kaller bare funksjoner og regner ingenting selv, så en ny analyse krever bare én ny gren med ett kall.**\n\nDet er hele gevinsten ved delegering. Hadde `meny` regnet omsetningen selv i gren 1, måtte den regnet den på nytt i gren 3 og gren 4 — tre kopier av det samme, og tre steder å rette hvis formelen var feil.\n\n**Merk også at `q`-grenen fortsatt står sist blant `elif`-ene**, rett før `else`. Rekkefølgen i kjeden er en del av logikken: `else` fanger alt som ikke traff, så alt som **skal** treffe, må stå foran den.",
+    "hints": [
+     "I a): bygg ordboka med den eksisterende funksjonen, og finn den beste nøkkelen i den.",
+     "I b): analysen først, deretter de fire `pickle`-linjene.",
+     "I c): de nye grenene skal stå før `q`-grenen og `else`-grenen.",
+     "I d): hva gjør menyen, og hva gjør den ikke?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-7-7-col-1",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-7-7-ctxt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `s.ljust(n)` / `s.rjust(n)` / `s.center(n)` | fyller ut til bredden `n` med mellomrom; **kutter aldri** hvis teksten er lengre |\n| `str(x)` | nødvendig før `ljust`/`rjust`, som bare finnes på strenger |\n| `'{:10.2f}'.format(x)` | bredde 10, to desimaler, høyrejustert; `ValueError` hvis `x` er tekst |\n| `'{:<14}{:>6}'.format(a, b)` | `<` venstrejustert, `>` høyrejustert, i én oppskrift |\n| `f'{x:10.2f}'` | samme som `.format` (verifiser mot gjeldende pensum — varslet inn 2019) |\n| `'-' * 16` | gjentar tegnet 16 ganger — skillelinja under overskriften |\n| `', '.join(liste)` | limer sammen med skilletekst **mellom**; krever at alle elementer er strenger |\n| `open(filnavn, 'w')` | åpner for skriving og **tømmer** fila |\n| `open(filnavn, 'a')` | åpner for å legge til på slutten; tømmer ikke |\n| `f.write(tekst)` | skriver uten å legge på linjeskift — `'\\n'` må du skrive selv |\n| `f.close()` | lukker; ved skriving kan data ellers bli liggende i minnet |\n| `import pickle` | modulen for binærlagring; kun `dump` og `load` er pensum |\n| `open(filnavn, 'wb')` / `'rb'` | binær skriving og lesing; `'w'`/`'r'` gir `TypeError` med `pickle` |\n| `pickle.dump(objekt, f)` | lagrer strukturen som den er, med typene i behold |\n| `pickle.load(f)` | henter den tilbake; `FileNotFoundError` hvis fila mangler |\n| `while True:` | menyløkka; eneste vei ut er `break` (eller `return`) |\n| `input(ledetekst)` | gir **alltid** tekst — testen er `valg == '1'` med fnutter |\n| `break` | hopper ut av løkka; `continue` hopper bare til neste runde |\n| `if`/`elif`/`else` | dispatcheren; `else` må stå sist, ellers fanger den alt |\n| `try:` … `except FileNotFoundError:` | rundt fil-I/O; hold `try`-blokken snever og `except` spesifikk |\n| `return` i `except`-grenen | avslutter funksjonen; uten den fortsetter den med data som ikke finnes |\n\n**Formler i dette delkapitlet:**\n\nBredden på skillelinja er summen av kolonnebreddene: $b = \\sum_{i} n_i$\n\nOmsetning per rad: $o = \\text{pris} \\times \\text{antall solgt}$"
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

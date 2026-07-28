@@ -1,0 +1,222 @@
+[
+ {
+  "question": "Hvor mange runder går `for i in range(5):`, og hva er den siste verdien `i` får?",
+  "options": [
+   "Fem runder, og den siste verdien er 4",
+   "Fem runder, og den siste verdien er 5",
+   "Fire runder, og den siste verdien er 4",
+   "Seks runder, og den siste verdien er 5"
+  ],
+  "explanation": "`range(5)` gir verdiene 0 til 4, altså fem runder med 4 som siste verdi. Å tro at 5 er med, er selve av-én-feilen. Fire runder ville krevd `range(4)`, og seks runder ville krevd `range(6)`."
+ },
+ {
+  "question": "Hvilke plassnummer treffer `range(1, len(x), 2)` når `x` har fem elementer?",
+  "options": [
+   "1 og 3",
+   "0, 2 og 4",
+   "1, 2, 3 og 4",
+   "2 og 4"
+  ],
+  "explanation": "Rekka starter på 1 og hopper to av gangen, og stopper før 5, så den treffer 1 og 3. Plassene 0, 2 og 4 ville krevd start på 0. Alle plassene fra 1 ville krevd at steget manglet. Plassene 2 og 4 ville krevd start på 2."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ntall = [4, 7, 2, 9]\nfor i in range(1, len(tall), 2):\n    tall[i] = 0\nprint(tall)\n```",
+  "options": [
+   "`[4, 0, 2, 0]`",
+   "`[0, 7, 0, 9]`",
+   "`[0, 0, 0, 0]`",
+   "`[4, 0, 0, 9]`"
+  ],
+  "explanation": "Rekka treffer plass 1 og 3, så det andre og det fjerde elementet nullstilles. Å nullstille plass 0 og 2 ville krevd start på 0. Alle fire ville krevd at steget manglet. De to midterste ville krevd rekka fra 1 til 3."
+ },
+ {
+  "question": "Hva gir `range(10, 0, -2)`?",
+  "options": [
+   "10, 8, 6, 4, 2",
+   "10, 8, 6, 4, 2, 0",
+   "0, 2, 4, 6, 8, 10",
+   "En tom rekke"
+  ],
+  "explanation": "Rekka teller nedover fra 10 og stopper før 0, så nullen faller utenfor. Å ha 0 med ville krevd stoppverdien −1. Rekka teller nedover, ikke oppover. Og den er ikke tom, siden startverdien ligger over stoppverdien."
+ },
+ {
+  "question": "Hvor mange innerste runder gir dette?\n\n```python\nfor i in range(3):\n    for j in range(4):\n        pass\n```",
+  "options": [
+   "12, fordi grensene er uavhengige og ganges sammen",
+   "7, fordi de to løkkene kjøres etter hverandre",
+   "4, fordi den indre løkka avgjør antallet alene",
+   "3, fordi den ytre løkka avgjør antallet alene"
+  ],
+  "explanation": "Den indre løkka kjøres helt ferdig for hver ytre runde, så det blir tre ganger fire. Å legge sammen ville forutsatt at løkkene sto etter hverandre, ikke nøstet. Ingen av løkkene avgjør antallet alene."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ns = 0\nfor i in range(4):\n    for j in range(i):\n        s += 1\nprint(s)\n```",
+  "options": [
+   "`6`",
+   "`16`",
+   "`10`",
+   "`4`"
+  ],
+  "explanation": "Den indre løkka går 0, 1, 2 og 3 runder for de fire ytre rundene, og summen er 6. Svaret 16 forutsetter fire indre runder hver gang. Svaret 10 ville krevd at den indre gikk 1 til 4 runder. Svaret 4 teller bare de ytre rundene."
+ },
+ {
+  "question": "Hvorfor stopper ikke `n = 0` fulgt av `while n != 10: n += 3`?",
+  "options": [
+   "Fordi `n` hopper fra 9 til 12 og aldri treffer 10 eksakt",
+   "Fordi `!=` alltid er sann når venstre side er et tall",
+   "Fordi `n += 3` ikke endrer `n`, bare leser verdien",
+   "Fordi betingelsen sjekkes etter runden i stedet for før"
+  ],
+  "explanation": "Betingelsen krever et eksakt treff, og verdiene blir 0, 3, 6, 9, 12 — 10 er aldri blant dem. `!=` er ikke alltid sann; den er usann ved treff. `+=` endrer faktisk variabelen. Og en `while` sjekker alltid før runden."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nn = 12\nwhile n % 2 == 0:\n    n = n // 2\nprint(n)\n```",
+  "options": [
+   "`3`",
+   "`1`",
+   "`6`",
+   "`3.0`"
+  ],
+  "explanation": "12 halveres til 6, som halveres til 3, og der stopper løkka fordi 3 er et oddetall. Svaret 1 ville krevd at også oddetall ble halvert. Svaret 6 stopper én runde for tidlig. Og desimalformen ville krevd `/` i stedet for `//`."
+ },
+ {
+  "question": "Hvor står startverdien til en akkumulator?",
+  "options": [
+   "Før løkka, slik at den ikke nullstilles for hver runde",
+   "Inne i løkka, slik at den settes på nytt hver runde",
+   "Etter løkka, slik at resultatet er klart når den brukes",
+   "I selve `range`-uttrykket, som første argument"
+  ],
+  "explanation": "Settes startverdien før løkka, får den bygget seg opp gjennom alle rundene. Settes den inne i løkka, nullstilles den hver gang, og resultatet blir bare det siste leddet. Etter løkka ville den slettet resultatet, og `range` styrer bare tellevariabelen."
+ },
+ {
+  "question": "Hva gir `enumerate(['a', 'b'])` i en `for`-løkke med to variabler?",
+  "options": [
+   "Parene `(0, 'a')` og `(1, 'b')`",
+   "Parene `(1, 'a')` og `(2, 'b')`",
+   "Parene `('a', 0)` og `('b', 1)`",
+   "Bare verdiene `'a'` og `'b'`"
+  ],
+  "explanation": "`enumerate` gir plassnummeret først og verdien etterpå, og nummereringen starter på 0. Å starte på 1 ville krevd et ekstra argument. Rekkefølgen er ikke omvendt. Og bare verdiene får du med en vanlig `for`-løkke."
+ },
+ {
+  "question": "Hva gjør `break` i en nøstet løkke?",
+  "options": [
+   "Avbryter bare den innerste løkka den står i",
+   "Avbryter alle løkkene og går ut av begge",
+   "Hopper til neste runde i den innerste løkka",
+   "Avbryter den ytre løkka og fortsetter i den indre"
+  ],
+  "explanation": "`break` gjelder bare den løkka den står direkte i, så den ytre fortsetter. Å bryte ut av begge krever en ekstra mekanisme, for eksempel en `return`. Å hoppe til neste runde er `continue`. Og den ytre løkka kan ikke avbrytes fra innsiden alene."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nfor i in range(2):\n    for j in range(2):\n        print(i, j)\n```",
+  "options": [
+   "Fire linjer: `0 0`, `0 1`, `1 0`, `1 1`",
+   "Fire linjer: `0 0`, `1 0`, `0 1`, `1 1`",
+   "To linjer: `0 0` og `1 1`",
+   "Fire linjer: `00`, `01`, `10`, `11`"
+  ],
+  "explanation": "Den indre løkka går helt ferdig for hver ytre runde, så rekkefølgen er `0 0`, `0 1`, `1 0`, `1 1`. Den andre rekkefølgen ville krevd at løkkene byttet plass. To linjer ville krevd én felles løkke. Og `print` med komma setter et mellomrom mellom verdiene."
+ },
+ {
+  "question": "Hvor mange ganger kjører kroppen i `for i in range(5, 5):`?",
+  "options": [
+   "Null ganger, uten feilmelding",
+   "Én gang, med `i` lik 5",
+   "Fem ganger, som `range(5)`",
+   "Programmet stopper med `ValueError`"
+  ],
+  "explanation": "Start og stopp er like, så rekka er tom og kroppen kjøres aldri — helt uten feilmelding. Én runde ville krevd `range(5, 6)`. Fem runder ville krevd bare ett argument. Og en tom rekke er fullt lovlig."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nfor c in 'sol':\n    print(c, end='-')\nprint()\n```",
+  "options": [
+   "`s-o-l-`",
+   "`s-o-l`",
+   "`sol-`",
+   "`-s-o-l`"
+  ],
+  "explanation": "Løkka går over tegnene i teksten, og `end='-'` legger en bindestrek etter hvert tegn, også det siste. Å utelate den siste streken ville krevd egen håndtering av siste runde. `sol-` ville krevd at hele teksten ble skrevet i én runde. Og streken kommer etter, ikke før."
+ },
+ {
+  "question": "Hva er verdien av `s` etter denne koden?\n\n```python\ns = 0\nfor i in range(1, 6):\n    s += i\n```",
+  "options": [
+   "`15`",
+   "`10`",
+   "`21`",
+   "`5`"
+  ],
+  "explanation": "Rekka gir 1 til 5, og summen er 15. Svaret 10 ville krevd rekka 1 til 4. Svaret 21 ville tatt med 6, som ligger utenfor. Svaret 5 teller bare antall runder."
+ },
+ {
+  "question": "En `while`-løkke kjører for alltid. Hva er den vanligste årsaken?",
+  "options": [
+   "Ingenting i kroppen endrer variabelen betingelsen bygger på",
+   "Betingelsen sjekkes bare én gang, ved oppstart",
+   "`while` mangler et innebygd tak på antall runder",
+   "Kroppen inneholder for mange linjer til å kjøre ferdig"
+  ],
+  "explanation": "Løkka stopper bare når betingelsen blir usann, og da må noe i kroppen endre den mot grensen. Betingelsen sjekkes faktisk før hver runde. Noe innebygd tak finnes ikke i noen løkke, og antall linjer i kroppen har ingenting med saken å gjøre."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nfor i in range(6):\n    if i % 3 == 0:\n        continue\n    print(i, end=' ')\nprint()\n```",
+  "options": [
+   "`1 2 4 5 `",
+   "`0 3 `",
+   "`1 2 4 5`",
+   "`0 1 2 4 5 `"
+  ],
+  "explanation": "`continue` hopper over resten av runden når tallet er delelig med 3, så 0 og 3 skrives ikke. De to tallene som er delelige, ville blitt skrevet hvis testen var snudd. Hver utskrift følges av et mellomrom, også den siste, så linja slutter med mellomrom. Og 0 er delelig med 3, siden resten er null."
+ },
+ {
+  "question": "Hva er forskjellen på `for e in x:` og `for i in range(len(x)):`?",
+  "options": [
+   "Den første gir verdien, den andre gir plassnummeret",
+   "Den første gir plassnummeret, den andre gir verdien",
+   "Den første går bare over lister, den andre bare over tekst",
+   "Den første kjører én runde mindre enn den andre"
+  ],
+  "explanation": "Den korte formen setter variabelen til selve elementet, mens `range(len(x))` gir plassene 0 til én mindre enn lengden. Rollene er ikke omvendt. Begge virker på både lister og tekst. Og begge går like mange runder."
+ },
+ {
+  "question": "Hva blir `antall` etter denne koden?\n\n```python\nmalinger = [12, 15, 9, 11, 4]\nantall = 0\nfor t in malinger:\n    if t >= 10:\n        antall += 1\n```",
+  "options": [
+   "`3`",
+   "`2`",
+   "`5`",
+   "`4`"
+  ],
+  "explanation": "Tre av verdiene er minst 10: 12, 15 og 11. Svaret 2 utelater en av dem. Svaret 5 teller alle elementene uten å bry seg om testen. Og svaret 4 ville krevd at også 9 kvalifiserte."
+ },
+ {
+  "question": "Hva skjer med `n = n / 2` i stedet for `n = n // 2` i en halveringsløkke?",
+  "options": [
+   "`n` blir et flyttall, og utskriften får en `.0` til slutt",
+   "`n` blir et heltall, men avrundet oppover i stedet for nedover",
+   "Løkka stopper med `TypeError` fordi resten ikke kan regnes ut",
+   "Ingenting endrer seg, siden begge operatorene gir samme verdi"
+  ],
+  "explanation": "Vanlig divisjon gir alltid flyttall, så verdien blir for eksempel `3.0` i stedet for `3` — dette er felle nummer ni i bokas register. Avrunding oppover skjer ikke i noen av tilfellene. Modulo virker fint på flyttall også. Og de to operatorene gir ulik type."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nn = 1\nwhile n < 20:\n    n = n * 3\nprint(n)\n```",
+  "options": [
+   "`27`",
+   "`9`",
+   "`20`",
+   "`81`"
+  ],
+  "explanation": "Verdiene blir 3, 9 og 27, og løkka stopper først etter at 27 har passert 20. Svaret 9 stopper én runde for tidlig. Svaret 20 er grensen, ikke en verdi `n` kan få. Og 81 er én runde for mye."
+ },
+ {
+  "question": "Hvilken kontroll avslører raskest en av-én-feil i en løkkegrense på eksamen?",
+  "options": [
+   "Sett grensen til et lite tall som 2, og tell rundene på papir",
+   "Se etter om løkkevariabelen brukes etter løkka er ferdig",
+   "Kontroller at kroppen har fire mellomrom som innrykk",
+   "Bytt `for` med `while` og se om resultatet blir det samme"
+  ],
+  "explanation": "Med en liten grense ser du med én gang om det blir to eller tre runder, og det avgjør hvilken variant oppgaven trenger. Bruk av løkkevariabelen etterpå sier ingenting om antall runder. Innrykket er en annen slags feil. Og å skrive om løkka koster tid uten å svare på spørsmålet."
+ }
+]

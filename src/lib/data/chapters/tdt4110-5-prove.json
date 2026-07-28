@@ -1,0 +1,708 @@
+{
+ "id": "tdt4110-5-prove",
+ "courseId": "tdt4110",
+ "chapterNumber": "5.P",
+ "title": "Prøver til del 5: Kodesporing og rekursjon",
+ "description": "Fire nyskrevne temaprøver i eksamensformat med fullstendige løsningsforslag: spor blandet kode, spor og skriv rekursive funksjoner, forklar funksjoner i én setning, og velg den manglende kodelinja. Fire prøver à 25–30 min — kan tas som separate økter.",
+ "estimatedMinutes": 110,
+ "competenceGoals": [
+  "kunne spore en ukjent kodesnutt under tidspress og gjengi utskriften nøyaktig, tegn for tegn",
+  "kunne spore et rekursivt kall i begge retninger og skrive en rekursiv funksjon fra en kravbeskrivelse",
+  "kunne beskrive en ferdig funksjons formål i én presis setning",
+  "kunne velge riktig manglende kodelinje ved å prøve hvert alternativ mot et minimalt eksempel"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-5-prove-tip",
+   "type": "tip",
+   "title": "Om prøvene til del 5",
+   "content": "**Fire prøver à 25–30 minutter**, til sammen **110 minutter**. De dekker hele Del 5: kodesporing fra [kap. 5.1](/tdt4110/tdt4110-5-1), rekursjon fra [kap. 5.2](/tdt4110/tdt4110-5-2), og de to NTNU-sjangrene fra [kap. 5.3](/tdt4110/tdt4110-5-3).\n\n- **Prøve 5.A (30 min, 24 poeng):** kodesporing blandet — tolv «hva skrives ut / hva returneres» (sjanger B, altså kodesporing).\n- **Prøve 5.B (30 min, 20 poeng):** rekursjon — spor de klassiske funksjonene, og skriv to selv (sjanger J).\n- **Prøve 5.C (25 min, 16 poeng):** «forklar med én setning hva funksjonen gjør» — åtte funksjoner (sjanger C).\n- **Prøve 5.D (25 min, 16 poeng):** «fyll inn manglende kodelinje» — åtte flervalg (sjanger D).\n\n**Hvor flervalget bor:** de åtte flervalgsspørsmålene ligger inline i prøve 5.D, med alternativene skrevet ut og fasitbokstaven i løsningen. Den store flervalgsbanken for Del 5 ligger i den interaktive quizen til de tre kapitlene — bruk den til hurtigrepetisjon, og prøvene her til å trene på å spore og forklare selv.\n\n**Anbefalt bruk:** ta hver prøve på tid, **uten fasit og uten maskin**. Eksamen har hjelpemiddelkode D — bare en bestemt, enkel kalkulator, ingen bøker og ingen annen elektronikk — så all sporing skjer på papir. Åpne løsningsforslaget først etterpå, og gå gjennom selvdiagnose-listen under hver fasit.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Det er ingen fordel i å ta alle fire etter hverandre.\n\n**Om poengene:** de er bokas egne og bare et hjelpemiddel til å fordele tiden, på samme måte som prosentvektingen som står på det virkelige settet. Under 60 prosent på en prøve er et signal om å lese kapitlet på nytt, ikke noe mer. **C er en god og vanlig karakter** i dette emnet — prøvene er laget for å løfte deg dit og videre, ikke for å være plettfrie."
+  },
+  {
+   "id": "tdt4110-5-prove-forkunnskaper",
+   "type": "text",
+   "content": "**Forkunnskaper.** Prøvene forutsetter hele Del 5:\n\n- [kap. 5.1](/tdt4110/tdt4110-5-1) — sporingsmetoden: tavla, løkkegrensene, element mot struktur, utskriftsformen og returverdien `None`.\n- [kap. 5.2](/tdt4110/tdt4110-5-2) — rekursjon: grunntilfelle og steg, kall-stakken utover og foldingen innover, og de fem klassikerne.\n- [kap. 5.3](/tdt4110/tdt4110-5-3) — å forklare en funksjon i én setning, og å velge den manglende kodelinja ved å prøve hvert alternativ mot et minimalt eksempel.\n\nFra tidligere deler trenger du løkker og `range` ([kap. 1.3](/tdt4110/tdt4110-1-3)), boolsk logikk ([kap. 1.2](/tdt4110/tdt4110-1-2)), funksjoner og returverdier ([kap. 2.1](/tdt4110/tdt4110-2-1)), lister og utsnitt ([kap. 3.1](/tdt4110/tdt4110-3-1)), tabeller ([kap. 3.2](/tdt4110/tdt4110-3-2)), strenger ([kap. 3.3](/tdt4110/tdt4110-3-3)) og ordbøker ([kap. 3.5](/tdt4110/tdt4110-3-5)).\n\nIngen av prøvene krever at du skriver filbehandling. Dataene får du ferdig som lister og tabeller i koden."
+  },
+  {
+   "id": "tdt4110-5-prove-prove-a",
+   "type": "collapsible",
+   "title": "Prøve 5.A — Kodesporing blandet (30 min)",
+   "buttonText": "Vis prøve 5.A",
+   "content": [
+    {
+     "id": "tdt4110-5-prove-a-intro",
+     "type": "text",
+     "content": "**Prøve 5.A — Kodesporing blandet (30 minutter, 24 poeng).**\n\nTolv oppgaver i sjanger B — kodesporing, altså «hva skriver dette programmet ut?». To poeng hver. Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den, og husk at strenger skrives **uten** fnutter når de skrives ut alene, men **med** fnutter inne i ei liste eller en ordbok.\n\nFør en sporingstavle på kladdearket for hver oppgave. Delvis riktig sporing gir delvis uttelling."
+    },
+    {
+     "id": "tdt4110-5-prove-a1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Et bibliotek registrerer antall utlån per dag.\n\n```python\nutlaan = [12, 7, 19]\nfor u in utlaan:\n    print(u * 2)\n```",
+      "solution": "**Sporingstavle**\n\n| Runde | `u` | Skriver |\n|---|---|---|\n| 1 | 12 | `24` |\n| 2 | 7 | `14` |\n| 3 | 19 | `38` |\n\n**Utskrift:**\n```\n24\n14\n38\n```\n\n**Fellenote:** løkka går over VERDIENE, ikke indeksene, så du får tre linjer — én per element.",
+      "hints": [
+       "Løkka går over elementene direkte, ikke over indekser.",
+       "Hvert `print` inne i løkka gir én ny linje."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Et returpunkt teller innleverte flasker.\n\n```python\nflasker = [4, 9, 15, 22, 30]\nfor i in range(0, len(flasker), 2):\n    flasker[i] = flasker[i] + 1\nprint(flasker)\n```",
+      "solution": "**Sporingstavle**\n\n`range(0, 5, 2)` gir 0, 2 og 4.\n\n| Runde | `i` | Verdi før | Lista etterpå |\n|---|---|---|---|\n| 1 | 0 | 4 | `[5, 9, 15, 22, 30]` |\n| 2 | 2 | 15 | `[5, 9, 16, 22, 30]` |\n| 3 | 4 | 30 | `[5, 9, 16, 22, 31]` |\n\n**Utskrift:**\n```\n[5, 9, 16, 22, 31]\n```\n\n**Fellenote:** felle **#5** — av-med-én. Steget er 2 og starten er 0, så det er det første, tredje og femte tallet som endres.",
+      "hints": [
+       "Skriv indeksene 0 til 4 over tallene.",
+       "Hvilke av dem gir `range(0, 5, 2)`?",
+       "Lista endres underveis — før den på nytt etter hver runde."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Vær nøye med formen på hvert av de tre svarene.\n\n```python\npriser = [39, 25, 61, 18]\nprint(priser[1:3])\nprint(priser[1])\nprint(priser[::-1])\n```",
+      "solution": "**Sporingstavle**\n\n| Uttrykk | Hvilke indekser | Form |\n|---|---|---|\n| `priser[1:3]` | 1 og 2 | liste |\n| `priser[1]` | bare 1 | ett element |\n| `priser[::-1]` | alle, baklengs | liste |\n\n**Utskrift:**\n```\n[25, 61]\n25\n[18, 61, 25, 39]\n```\n\n**Fellenote:** den midterste linja er den eneste uten hakeparenteser. Et utsnitt gir alltid ei liste, også når det bare inneholder ett element.",
+      "hints": [
+       "Spør for hver linje: ett element eller en samling?",
+       "Utsnittet stopper FØR den andre indeksen.",
+       "`[::-1]` snur uten å endre originalen."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) En værstasjon har en målekode.\n\n```python\nkode = 'VAER-2026-BLINDERN'\nprint(kode[:4])\nprint(len(kode.split('-')))\nprint(kode[-4:])\n```",
+      "solution": "**Sporingstavle**\n\n| Uttrykk | Utregning | Verdi |\n|---|---|---|\n| `kode[:4]` | de fire første tegnene | `VAER` |\n| `kode.split('-')` | deler på bindestrek i tre felt | tre elementer |\n| `kode[-4:]` | de fire siste tegnene | `ERN` pluss ett til |\n\n**Utskrift:**\n```\nVAER\n3\nDERN\n```\n\n**Fellenote:** `kode[-4:]` teller fire tegn bakfra, ikke fra siste bindestrek. Det er lett å svare `BLINDERN` her.",
+      "hints": [
+       "Tell tegnene bakfra én for én.",
+       "`split` gir ei liste; `len` teller elementene i den.",
+       "Utsnitt fra begynnelsen skrives `[:n]`."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) En turneringstabell har tre lag og to kamper hver.\n\n```python\ntabell = [[3, 1], [0, 2], [4, 4]]\ntotal = 0\nfor rad in tabell:\n    for v in rad:\n        total = total + v\nprint(total, len(tabell), len(tabell[0]))\n```",
+      "solution": "**Sporingstavle**\n\n| Rad | Verdier | `total` etterpå |\n|---|---|---|\n| `[3, 1]` | 3, 1 | 4 |\n| `[0, 2]` | 0, 2 | 6 |\n| `[4, 4]` | 4, 4 | 14 |\n\nTabellen har tre rader og to kolonner.\n\n**Utskrift:**\n```\n14 3 2\n```\n\n**Fellenote:** den nøstede løkka kjører $3 \\times 2 = 6$ ganger, ikke fem. Og `len(tabell)` er antall RADER, ikke antall tall.",
+      "hints": [
+       "Summer én rad om gangen og noter delsummen.",
+       "Hvor mange ganger kjører den indre løkka til sammen?",
+       "`len(tabell)` teller rader; `len(tabell[0])` teller kolonner i første rad."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) En resirkuleringsstasjon logger hva som leveres.\n\n```python\nlevert = ['glass', 'papir', 'glass', 'metall', 'glass']\nd = {}\nfor v in levert:\n    d[v] = d.get(v, 0) + 1\nprint(d)\nprint(d.get('plast', 0), len(d))\n```",
+      "solution": "**Sporingstavle**\n\n| `v` | `get` gir | Ordboka etterpå |\n|---|---|---|\n| `glass` | 0 | `{'glass': 1}` |\n| `papir` | 0 | `{'glass': 1, 'papir': 1}` |\n| `glass` | 1 | `{'glass': 2, 'papir': 1}` |\n| `metall` | 0 | `{'glass': 2, 'papir': 1, 'metall': 1}` |\n| `glass` | 2 | `{'glass': 3, 'papir': 1, 'metall': 1}` |\n\n**Utskrift:**\n```\n{'glass': 3, 'papir': 1, 'metall': 1}\n0 3\n```\n\n**Fellenote:** nøklene står i den rekkefølgen de dukket opp, ikke alfabetisk. Og `d.get('plast', 0)` gir 0 uten å legge til nøkkelen, så `len(d)` er fortsatt 3.",
+      "hints": [
+       "Før ordboka på nytt etter hver runde.",
+       "Hva gjør `get` når nøkkelen mangler — og hva gjør den ikke?",
+       "Rekkefølgen i utskriften er innsettingsrekkefølgen."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Funksjonen avgjør om en vare kan selges.\n\n```python\ndef kan_selges(antall, pris):\n    return antall > 0 and pris > 0 or antall == pris\n\nprint(kan_selges(5, 20))\nprint(kan_selges(0, 0))\nprint(kan_selges(5, 0))\n```",
+      "solution": "**Sporingstavle**\n\nSett parentesene inn først: `(antall > 0 and pris > 0) or (antall == pris)`.\n\n| Kall | Venstre side | Høyre side | Resultat |\n|---|---|---|---|\n| `kan_selges(5, 20)` | sann | usann | `True` |\n| `kan_selges(0, 0)` | usann | sann | `True` |\n| `kan_selges(5, 0)` | usann | usann | `False` |\n\n**Utskrift:**\n```\nTrue\nTrue\nFalse\n```\n\n**Fellenote:** `and` binder sterkere enn `or`. Det andre kallet er poenget: begge verdiene er null, så venstresiden faller — men de er like, og `or` redder uttrykket.",
+      "hints": [
+       "Sett parenteser rundt `and`-delen før du regner.",
+       "`or` er sann så snart én side er sann.",
+       "Er 0 større enn 0?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) En strømpris klassifiseres etter øre per kilowattime.\n\n```python\ndef sone(pris):\n    if pris >= 150:\n        return 'dyr'\n    elif pris >= 80:\n        return 'normal'\n\nprint(sone(200))\nprint(sone(80))\nprint(sone(30))\n```",
+      "solution": "**Sporingstavle**\n\n| Kall | Første sanne gren | Returverdi |\n|---|---|---|\n| `sone(200)` | `pris >= 150` | `'dyr'` |\n| `sone(80)` | `pris >= 80` | `'normal'` |\n| `sone(30)` | ingen | `None` |\n\n**Utskrift:**\n```\ndyr\nnormal\nNone\n```\n\n**Fellenote:** kjeden mangler `else`, så et tall under 80 faller helt gjennom, og funksjonen returnerer `None`. Grensa 80 er med, fordi testen er `>=`.",
+      "hints": [
+       "Test hver grense for seg — er grenseverdien med eller ikke?",
+       "Hva skjer når ingen av grenene slår til?",
+       "Strenger skrives uten fnutter når de skrives ut alene."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a9",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a9-o",
+      "number": "9",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger B — kodesporing.) En sensor logger et tidsavvik i sekunder, og det kan være negativt.\n\n```python\navvik = -95\nprint(avvik // 60, avvik % 60)\nprint(5400 // 3600, (5400 % 3600) // 60)\n```",
+      "solution": "**Sporingstavle**\n\n| Uttrykk | Utregning | Verdi |\n|---|---|---|\n| `-95 // 60` | avrundes NEDOVER fra −1,58 | −2 |\n| `-95 % 60` | `-2 * 60 + 25` er `-95` | 25 |\n| `5400 // 3600` | hele timer | 1 |\n| `(5400 % 3600) // 60` | 1800 sekunder igjen, delt på 60 | 30 |\n\n**Utskrift:**\n```\n-2 25\n1 30\n```\n\n**Fellenote:** felle **#9** — `//` avrunder nedover, ikke mot null. Svarer du `-1 -35`, har du regnet som en kalkulator i stedet for som Python.",
+      "hints": [
+       "Bruk at `(a // b) * b + (a % b)` er lik `a` som fasitsjekk.",
+       "Hvilken vei avrunder `//` når svaret er negativt?",
+       "Siste linje er tidsformelen: timer og minutter."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a10",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a10-o",
+      "number": "10",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Fire linjer, fire forskjellige utskriftsformer.\n\n```python\nfelt = ['bok', '2026', 'utlaant']\nprint(felt[0], felt[2], sep='/')\nprint('sum', 3 + 4, end='; ')\nprint('slutt')\nprint(', '.join(felt))\n```",
+      "solution": "**Sporingstavle** — ført som liste, fordi to av linjene henger sammen:\n\n- **Linje 1** bytter mellomrommet mellom argumentene med skråstrek og avslutter med linjeskift.\n- **Linje 2** skriver `sum 7` og deretter semikolon og mellomrom, men **ikke** linjeskift.\n- **Linje 3** fortsetter derfor på samme linje.\n- **Linje 4** limer alle tre feltene sammen med komma og mellomrom.\n\n**Utskrift:**\n```\nbok/utlaant\nsum 7; slutt\nbok, 2026, utlaant\n```\n\n**Fellenote:** de to midterste `print`-kallene gir **én** linje til sammen. `sep` gjelder bare mellom argumentene i sitt eget kall og påvirker ikke `join`.",
+      "hints": [
+       "Tell hvor mange linjeskift som faktisk skrives.",
+       "`sep` står mellom argumentene; `end` står etter det siste.",
+       "`', '.join(felt)` limer uten hakeparenteser."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a11",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a11-o",
+      "number": "11",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Løkka leter etter det minste tallet som deler begge utlånstallene.\n\n```python\na = 90\nb = 24\nrunder = 0\nwhile b != 0:\n    a, b = b, a % b\n    runder = runder + 1\nprint(a, runder)\n```",
+      "solution": "**Sporingstavle**\n\n| Runde | `a` før | `b` før | `a % b` | `a` etter | `b` etter |\n|---|---|---|---|---|---|\n| 1 | 90 | 24 | 18 | 24 | 18 |\n| 2 | 24 | 18 | 6 | 18 | 6 |\n| 3 | 18 | 6 | 0 | 6 | 0 |\n\n**Utskrift:**\n```\n6 3\n```\n\n**Fellenote:** linja `a, b = b, a % b` regner ut HELE høyresiden før den tilordner. Bruker du den nye `a`-verdien når du regner `a % b`, sporer du feil fra runde 2.",
+      "hints": [
+       "Skriv `a` og `b` i hver sin kolonne, og les hele høyresiden før du tilordner.",
+       "Løkka stopper når `b` blir 0 — hva står i `a` da?",
+       "Telleren økes én gang per runde."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a12",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-a12-o",
+      "number": "12",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Løkka leter etter den første varen over en prisgrense.\n\n```python\npriser = [45, 120, 89, 210]\nfunnet = -1\nfor i in range(len(priser)):\n    if priser[i] > 100:\n        funnet = i\n        break\nprint(funnet, priser[funnet])\nfor i, p in enumerate(priser):\n    if p > 200:\n        print(i, p)\n```",
+      "solution": "**Sporingstavle**\n\n| `i` | `priser[i]` | Over 100? | Handling |\n|---|---|---|---|\n| 0 | 45 | nei | fortsetter |\n| 1 | 120 | ja | `funnet` blir 1, `break` |\n\nDen andre løkka går gjennom alle fire, og bare 210 på indeks 3 er over 200.\n\n**Utskrift:**\n```\n1 120\n3 210\n```\n\n**Fellenote:** `break` avslutter løkka med det samme, så `funnet` blir 1 og ikke 3. `enumerate` gir indeks og verdi samtidig, i den rekkefølgen.",
+      "hints": [
+       "Hva gjør `break` med resten av løkka?",
+       "`enumerate` gir to verdier per runde: først indeksen, så elementet.",
+       "Skriv opp hvilke tall som faktisk er over hver grense."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-a-selvdiagnose",
+     "type": "text",
+     "content": "**Selvdiagnose etter prøve 5.A — kryss av:**\n\n- ☐ Førte du en sporingstavle på papir for hver oppgave, eller regnet du i hodet?\n- ☐ Skrev du ned hvilke tall hver `range` faktisk gir, før du sporet?\n- ☐ Fikk du med hakeparentesene og komma-mellomrommet der Python skriver ei liste?\n- ☐ Skilte du mellom ett element og et utsnitt med ett element?\n- ☐ Husket du at `end=` og `sep=` endrer formen, ikke innholdet?\n- ☐ Svarte du `None` der en `if`-kjede uten `else` falt gjennom?\n- ☐ Avrundet du `//` nedover også for negative tall?\n\nBommet du på tre eller flere, er det ett kapittel som løser det: [kap. 5.1](/tdt4110/tdt4110-5-1). Ta økt 2 til 7 der på nytt før du går videre."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-5-prove-prove-b",
+   "type": "collapsible",
+   "title": "Prøve 5.B — Rekursjon (30 min)",
+   "buttonText": "Vis prøve 5.B",
+   "content": [
+    {
+     "id": "tdt4110-5-prove-b-intro",
+     "type": "text",
+     "content": "**Prøve 5.B — Rekursjon (30 minutter, 20 poeng).**\n\nSeks sporingsoppgaver à 2 poeng og to skriveoppgaver à 4 poeng, alle i sjanger J — rekursjon. På sporingsoppgavene skal du vise **både** kall-stakken utover og foldingen innover; det er sporingen, ikke bare sluttsvaret, som gir uttelling.\n\nIngen av oppgavene krever mer enn seks nivåer med kall. Blir kjeden lengre enn det, har du lest steget feil."
+    },
+    {
+     "id": "tdt4110-5-prove-b1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-b1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n\nprint(fakultet(4))\n```",
+      "solution": "**Kall-stakken utover:**\n\n```text\nfakultet(4) -> 4 * fakultet(3)\nfakultet(3) -> 3 * fakultet(2)\nfakultet(2) -> 2 * fakultet(1)\nfakultet(1) -> grunntilfellet: 1\n```\n\n**Foldingen innover:**\n\n```text\nfakultet(1) = 1\nfakultet(2) = 2 * 1 = 2\nfakultet(3) = 3 * 2 = 6\nfakultet(4) = 4 * 6 = 24\n```\n\n**Utskrift:**\n```\n24\n```\n\n**Fellenote:** fire kall og tre multiplikasjoner. Svaret bygges nedenfra og opp, aldri ovenfra og ned.",
+      "hints": [
+       "Skriv ett kall per linje til du treffer grunntilfellet.",
+       "Fold svarene tilbake nedenfra."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-b2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-b2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef sfd(a, b):\n    if b == 0:\n        return a\n    return sfd(b, a % b)\n\nprint(sfd(72, 30))\n```",
+      "solution": "**Kall-stakken utover:**\n\n```text\nsfd(72, 30) -> 72 % 30 er 12 -> sfd(30, 12)\nsfd(30, 12) -> 30 % 12 er 6  -> sfd(12, 6)\nsfd(12, 6)  -> 12 % 6 er 0   -> sfd(6, 0)\nsfd(6, 0)   -> grunntilfellet: 6\n```\n\n**Foldingen innover:** ingen av stegene endrer svaret, så 6 bobler rett opp gjennom alle nivåene.\n\n**Utskrift:**\n```\n6\n```\n\n**Fellenote:** den gamle `b` blir den nye `a`. Skriver du `sfd(a % b, b)` i stedet, får du en helt annen — som regel uendelig — kjede.",
+      "hints": [
+       "Regn ut `a % b` før du skriver ned neste kall.",
+       "Hvilken verdi blir det nye førsteargumentet?",
+       "Løkka stopper når andre argument er 0."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-b3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-b3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef tverrsum(n):\n    if n == 0:\n        return 0\n    return n % 10 + tverrsum(n // 10)\n\nprint(tverrsum(6083))\nprint(tverrsum(5))\n```",
+      "solution": "**Kall-stakken utover** for `tverrsum(6083)`:\n\n```text\ntverrsum(6083) -> 3 + tverrsum(608)\ntverrsum(608)  -> 8 + tverrsum(60)\ntverrsum(60)   -> 0 + tverrsum(6)\ntverrsum(6)    -> 6 + tverrsum(0)\ntverrsum(0)    -> grunntilfellet: 0\n```\n\n**Foldingen innover:**\n\n```text\ntverrsum(0)    = 0\ntverrsum(6)    = 6 + 0  = 6\ntverrsum(60)   = 0 + 6  = 6\ntverrsum(608)  = 8 + 6  = 14\ntverrsum(6083) = 3 + 14 = 17\n```\n\n**Utskrift:**\n```\n17\n5\n```\n\n**Fellenote:** nullen er ikke noe spesialtilfelle — den legger til 0 og kjeden fortsetter. Det andre kallet, `tverrsum(5)`, gjør ett steg og treffer så grunntilfellet.",
+      "hints": [
+       "`n % 10` gir siste siffer, `n // 10` fjerner det.",
+       "Fem sifre gir hvor mange kall?",
+       "Hva gir funksjonen for et ensifret tall?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-b4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-b4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(7), fib(2), fib(0))\n```",
+      "solution": "**Bygg nedenfra og opp** — raskere og sikrere enn å tegne treet:\n\n```text\nfib(0) = 0\nfib(1) = 1\nfib(2) = 1 + 0 = 1\nfib(3) = 1 + 1 = 2\nfib(4) = 2 + 1 = 3\nfib(5) = 3 + 2 = 5\nfib(6) = 5 + 3 = 8\nfib(7) = 8 + 5 = 13\n```\n\n**Utskrift:**\n```\n13 1 0\n```\n\n**Fellenote:** grunntilfellet returnerer `n`, ikke 1 — derfor er `fib(0)` lik 0. Med `return 1` i grunntilfellet forskyves hele rekka.",
+      "hints": [
+       "Skriv opp `fib(0)` og `fib(1)` først.",
+       "Bygg oppover én verdi om gangen i stedet for å tegne treet.",
+       "Returnerer grunntilfellet tallet `n` eller tallet 1?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-b5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-b5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Funksjonen har fått et intetsigende navn, som på et virkelig sett. Hva skriver programmet ut?\n\n```python\ndef myst(g, e):\n    if e == 0:\n        return 1\n    return g * myst(g, e - 1)\n\nprint(myst(2, 6))\nprint(myst(9, 1))\n```",
+      "solution": "**Kall-stakken utover** for `myst(2, 6)`: eksponenten telles ned med 1 for hvert kall, mens grunntallet står stille.\n\n```text\nmyst(2, 6) -> 2 * myst(2, 5)\nmyst(2, 5) -> 2 * myst(2, 4)\n…\nmyst(2, 0) -> grunntilfellet: 1\n```\n\n**Foldingen innover:** seks multiplikasjoner med 2, altså $2^6$.\n\n**Utskrift:**\n```\n64\n9\n```\n\n**Fellenote:** det er EKSPONENTEN som telles ned, ikke grunntallet. Funksjonen regner ut potens, ikke fakultet — forvekslingen er den vanligste feilen på denne oppgavetypen.",
+      "hints": [
+       "Hvilket av de to argumentene blir mindre for hvert kall?",
+       "Hva er et hvilket som helst tall opphøyd i 0?",
+       "Tell hvor mange multiplikasjoner som faktisk skjer."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-b6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-b6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger B — kodesporing.) Funksjonen skriver ut både før og etter det rekursive kallet. Hva skriver programmet ut?\n\n```python\ndef vis(n):\n    if n == 0:\n        return\n    print('ned', n)\n    vis(n - 1)\n    print('opp', n)\n\nvis(3)\n```",
+      "solution": "**Kall-stakken utover** — alt som står FØR kallet, skjer på vei ned:\n\n```text\nvis(3): skriver «ned 3», kaller vis(2)\nvis(2): skriver «ned 2», kaller vis(1)\nvis(1): skriver «ned 1», kaller vis(0)\nvis(0): grunntilfellet, returnerer uten å skrive\n```\n\n**Foldingen innover** — alt som står ETTER kallet, skjer nå, nederste kall først: «opp 1», «opp 2», «opp 3».\n\n**Utskrift:**\n```\nned 3\nned 2\nned 1\nopp 1\nopp 2\nopp 3\n```\n\n**Fellenote:** koden etter det rekursive kallet kjører når kallet er ferdig, ikke med det samme. Derfor kommer «opp»-linjene i motsatt rekkefølge av «ned»-linjene.",
+      "hints": [
+       "Del funksjonen i to: før kallet og etter kallet.",
+       "Alt før kallet skjer på vei nedover i stakken.",
+       "Alt etter kallet skjer på vei oppover — i motsatt rekkefølge."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-b7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-b7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(4 poeng. Sjanger J — rekursjon, skrive.) En treningslogg er ei liste med antall minutter per økt. Skriv en **rekursiv** funksjon `lengste(x)` som returnerer den lengste økta i lista. Du skal ikke bruke `max` og ingen løkke. Funksjonen kan anta at lista har minst ett element.\n\nVis hva funksjonen gir for `[30, 75, 45]` og for `[20]`.",
+      "solution": "- **Når er svaret opplagt?** Når lista har nøyaktig ett element — da er det elementet svaret.\n- **Hvordan blir problemet mindre?** `x[1:]` er alt unntatt det første.\n- **Hva gjør vi med svaret?** Sammenligner det med det første elementet og returnerer den største.\n\n```python\ndef lengste(x):\n    if len(x) == 1:\n        return x[0]\n    resten = lengste(x[1:])\n    if x[0] > resten:\n        return x[0]\n    return resten\n\nprint(lengste([30, 75, 45]))\nprint(lengste([20]))\nprint(lengste([5, 4, 3, 2]))\n```\n\n**Utskrift:**\n```\n75\n20\n5\n```\n\n**Kall-stakken utover** for `[30, 75, 45]`:\n\n```text\nlengste([30, 75, 45]) -> sammenlign 30 med lengste([75, 45])\nlengste([75, 45])     -> sammenlign 75 med lengste([45])\nlengste([45])         -> grunntilfellet: 45\n```\n\n**Foldingen innover:** 45, så `max(75, 45)` som er 75, så `max(30, 75)` som er 75.\n\n*Margnotat:* full uttelling. `return max(x[0], lengste(x[1:]))` er like riktig og kortere — snarveier er tillatt i dette emnet, og begge gir full pott. Løser du oppgaven med en løkke, gir det derimot lite uttelling, fordi teksten uttrykkelig ber om en rekursiv funksjon.\n\n**Vekting:** 2 poeng for riktig grunntilfelle, 2 poeng for et steg som faktisk sammenligner og returnerer den største. Har du riktig struktur men bommer på ett sammenligningstegn, gir det fortsatt god uttelling.",
+      "hints": [
+       "Hva er svaret når det bare er ett element igjen?",
+       "Lagre svaret fra det rekursive kallet i en variabel før du sammenligner.",
+       "Utsnittet `x[1:]` er alt unntatt det første elementet."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-b8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-b8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(4 poeng. Sjanger J — rekursjon, skrive.) Skriv en **rekursiv** funksjon `tell_tegn(s, t)` som teller hvor mange ganger tegnet `t` forekommer i strengen `s`. Ingen løkke og ingen `.count()`.\n\nVis hva funksjonen gir for `tell_tegn('bussrute', 'u')` og for `tell_tegn('', 'u')`.",
+      "solution": "- **Når er svaret opplagt?** Når strengen er tom — da er svaret 0.\n- **Hvordan blir problemet mindre?** `s[1:]` er alt unntatt første tegn.\n- **Hva gjør vi med svaret?** Legger til 1 hvis det første tegnet er treffet, ellers 0.\n\n```python\ndef tell_tegn(s, t):\n    if s == '':\n        return 0\n    if s[0] == t:\n        return 1 + tell_tegn(s[1:], t)\n    return tell_tegn(s[1:], t)\n\nprint(tell_tegn('bussrute', 'u'))\nprint(tell_tegn('', 'u'))\nprint(tell_tegn('bussrute', 's'))\n```\n\n**Utskrift:**\n```\n2\n0\n2\n```\n\n**Kall-stakken utover** for `'bussrute'` og `'u'`: åtte kall nedover, ett per tegn, pluss det niende som treffer den tomme strengen. På vei opp legges 1 til i de to nivåene der tegnet var `u`.\n\n*Margnotat:* det andre argumentet `t` sendes uendret videre i hvert kall. Glemmer du det, og skriver `tell_tegn(s[1:])`, avbrytes programmet fordi funksjonen krever to argumenter — en feil som er lett å se når du leser koden på nytt.\n\n**Alternativ løsning med samme uttelling:**\n\n```python\ndef tell_tegn(s, t):\n    if s == '':\n        return 0\n    return (s[0] == t) + tell_tegn(s[1:], t)\n\nprint(tell_tegn('bussrute', 'u'))\n```\n\n**Utskrift:**\n```\n2\n```\n\nDen bruker at `True` regnes som 1 og `False` som 0. Den er kortere, men den første varianten er lettere å lese — og lesbarhet teller når sensor skal finne strukturen din.\n\n**Vekting:** 2 poeng for grunntilfellet (den tomme strengen gir 0), 2 poeng for et steg som både teller treffet og sender begge argumentene videre.",
+      "hints": [
+       "Grunntilfellet er den tomme strengen.",
+       "Første tegn er `s[0]`; resten er `s[1:]`.",
+       "Husk å sende tegnet `t` videre i det rekursive kallet."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-b-selvdiagnose",
+     "type": "text",
+     "content": "**Selvdiagnose etter prøve 5.B — kryss av:**\n\n- ☐ Skrev du kall-stakken utover FØR du regnet noe som helst?\n- ☐ Foldet du returverdiene innover nedenfra, ikke ovenfra?\n- ☐ Stemte antall kall med antall ledd i svaret ditt?\n- ☐ Så du forskjellen på fakultet (telles ned) og potens (står stille)?\n- ☐ Skrev du grunntilfellet FØRST i begge skriveoppgavene?\n- ☐ Sendte du alle argumentene videre i det rekursive kallet?\n- ☐ Håndterte funksjonene dine kanttilfellet — tom streng, ett element?\n\nBommet du på grunntilfellet i en av skriveoppgavene, er det felle **#10**, og [kap. 5.2](/tdt4110/tdt4110-5-2) har en egen advarselsboks om nettopp den."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-5-prove-prove-c",
+   "type": "collapsible",
+   "title": "Prøve 5.C — «Forklar med én setning» (25 min)",
+   "buttonText": "Vis prøve 5.C",
+   "content": [
+    {
+     "id": "tdt4110-5-prove-c-intro",
+     "type": "text",
+     "content": "**Prøve 5.C — «Forklar med én setning» (25 minutter, 16 poeng).**\n\nÅtte funksjoner à 2 poeng. Skriv **én** setning per funksjon, som starter med et verb og sier *hva* funksjonen oppnår — ikke *hvordan* den er skrevet.\n\n**Husk konsishetsregelen:** sensor sier hvert år at et svar som er uklart eller lengre enn nødvendig, trekker ned. Det gjelder også når innholdet er riktig. Skriv setningen, les den, og stryk alt som ikke trengs.\n\nFasitsetningene under er eksempler, ikke de eneste riktige. Enhver setning som er sann, kort og entydig, gir full uttelling."
+    },
+    {
+     "id": "tdt4110-5-prove-c1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-c1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(2 poeng. Sjanger C — «forklar med én setning hva funksjonen gjør».) En strømleverandør regner på døgnprisene.\n\n```python\ndef f(priser):\n    total = 0\n    for p in priser:\n        total = total + p\n    return total / len(priser)\n```",
+      "solution": "**Returverdien** er ett tall: summen delt på antall. Det er gjennomsnittsmønsteret.\n\n**Svar:**\n\n> Returnerer gjennomsnittet av tallene i lista.\n\n**Kontrast — dette trekker ned:** «Går gjennom lista, legger hvert tall til en variabel som heter `total`, og deler til slutt på hvor mange tall det var.» Alt er sant, men det er en oversettelse av koden, ikke en forklaring.",
+      "hints": [
+       "Se på `return`-linja først.",
+       "Hva heter det når du summerer og deler på antallet?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-c2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-c2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger C — «forklar med én setning hva funksjonen gjør».) En turnering registrerer resultater.\n\n```python\ndef f(kamper):\n    n = 0\n    for k in kamper:\n        if k[0] > k[1]:\n            n = n + 1\n    return n\n```",
+      "solution": "**Returverdien** er ett tall som økes med 1, altså en teller. Hver rad `k` har to verdier, og betingelsen sammenligner dem.\n\n**Svar:**\n\n> Teller hvor mange kamper der det første laget har flest mål.\n\n**Kontrast — dette trekker ned:** «Sjekker for hver rad om det første tallet er større enn det andre, og øker en teller hvis det er sant.» Det er *hvordan*, og det sier ingenting om hva tallene betyr.",
+      "hints": [
+       "Hva slags verdi returneres — en liste eller ett tall?",
+       "Hva sammenlignes i betingelsen?",
+       "Start setningen med et verb."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-c3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-c3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger C — «forklar med én setning hva funksjonen gjør».) En værtabell har en overskriftsrad øverst.\n\n```python\ndef f(tabell, navn):\n    k = tabell[0].index(navn)\n    ut = []\n    for rad in tabell[1:]:\n        ut.append(rad[k])\n    return ut\n```",
+      "solution": "**Returverdien** er ei liste med én verdi per rad. Kolonnenummeret hentes dynamisk fra overskriftsraden, og `tabell[1:]` hopper over overskriften.\n\n**Svar:**\n\n> Returnerer alle verdiene i den navngitte kolonnen, uten overskriftsraden.\n\n**Kontrast — dette trekker ned:** «Finner først indeksen til kolonnen med `.index`, går så gjennom alle radene bortsett fra den første og legger `rad[k]` inn i en liste.» Ordrikt, og ordet «kolonne» mangler.",
+      "hints": [
+       "Hva gjør `tabell[0].index(navn)`?",
+       "Hvorfor starter løkka på `tabell[1:]`?",
+       "Hva er typen på det som returneres?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-c4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-c4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger C — «forklar med én setning hva funksjonen gjør».) En bibliotekbase leter etter en tittel.\n\n```python\ndef f(titler, maal):\n    for i in range(len(titler)):\n        if titler[i] == maal:\n            return i\n    return -1\n```",
+      "solution": "**To returverdier:** en indeks, eller −1. Det er signaturen på et søk, og `return` inne i løkka gjør at det er den FØRSTE treffet som rapporteres.\n\n**Svar:**\n\n> Returnerer indeksen til første forekomst av tittelen, eller −1 hvis den ikke finnes.\n\n**Kontrast — dette trekker ned:** «Leter etter tittelen i lista.» For upresist — den sier verken hva som returneres eller hva som skjer når tittelen ikke finnes.",
+      "hints": [
+       "Funksjonen har to `return`-linjer.",
+       "Hva betyr returverdien −1 her?",
+       "Hva skjer med løkka når den første `return` treffes?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-c5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-c5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger C — «forklar med én setning hva funksjonen gjør».) En resirkuleringsstasjon grupperer leveranser.\n\n```python\ndef f(rader):\n    d = {}\n    for rad in rader:\n        if rad[0] not in d:\n            d[rad[0]] = []\n        d[rad[0]].append(rad[1])\n    return d\n```",
+      "solution": "**Returverdien** er en ordbok der hver verdi er ei liste. Den indre lista opprettes før noe legges i den — det er grupperingsmønsteret, ikke telleren.\n\n**Svar:**\n\n> Grupperer verdiene fra andre kolonne under nøkkelen fra første kolonne.\n\n**Kontrast — dette trekker ned:** «Lager en tom ordbok, og for hver rad sjekker den om nøkkelen finnes, oppretter ei tom liste hvis ikke, og legger så til verdien.» Korrekt *hvordan*, og ordet «grupperer» mangler.",
+      "hints": [
+       "Hva slags verdi har hver nøkkel i ordboka?",
+       "Er dette en teller eller noe annet?",
+       "Hva skjer med rader som har samme første verdi?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-c6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-c6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger C — «forklar med én setning hva funksjonen gjør».) Funksjonen er rekursiv.\n\n```python\ndef f(n):\n    if n < 10:\n        return 1\n    return 1 + f(n // 10)\n```",
+      "solution": "**Returverdien** er ett tall, og steget legger til 1 — ikke sifferverdien — for hvert siffer som fjernes med `n // 10`.\n\n**Svar:**\n\n> Returnerer antall sifre i et positivt heltall.\n\n**Kontrast — dette trekker ned:** «Kaller seg selv med tallet uten siste siffer og legger til 1 hver gang, helt til tallet er mindre enn 10.» Det er en presis beskrivelse av *hvordan*, og den sier ikke hva svaret betyr.",
+      "hints": [
+       "Sammenlign med tverrsummen: hva legges til i hvert steg?",
+       "Hva er svaret for et ensifret tall?",
+       "Spor `f(4072)` og se hvilket tall som kommer ut."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-c7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-c7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger C — «forklar med én setning hva funksjonen gjør».) En matvarekjede sammenligner priser i to butikker.\n\n```python\ndef f(a, b):\n    ut = []\n    for i in range(len(a)):\n        if a[i] < b[i]:\n            ut.append(i)\n    return ut\n```",
+      "solution": "**Returverdien** er ei liste med INDEKSER, ikke med priser. Løkka går over indeksene og sammenligner samme posisjon i de to listene.\n\n**Svar:**\n\n> Returnerer indeksene til varene som er billigst i den første butikken.\n\n**Kontrast — dette trekker ned:** «Går gjennom alle indeksene og legger indeksen inn i en ny liste hvis verdien i den første lista er mindre enn verdien i den andre.» Ordrikt, og det står ikke at det er indekser svaret består av.",
+      "hints": [
+       "Hva legges inn i resultatlista — verdien eller indeksen?",
+       "Hva sammenlignes, og på hvilken plass?",
+       "Hva forutsetter funksjonen om lengden på de to listene?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-c8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-c8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger C — «forklar med én setning hva funksjonen gjør».) Vær nøye med kanttilfellet i denne.\n\n```python\ndef f(x):\n    beste = None\n    for v in x:\n        if beste is None or v < beste:\n            beste = v\n    return beste\n```",
+      "solution": "**Returverdien** er ett element, eller `None`. Testen `beste is None` gjør at funksjonen ikke trenger en startverdi fra lista, og det er nettopp den som håndterer den tomme lista.\n\n**Svar:**\n\n> Returnerer det minste tallet i lista, eller `None` hvis lista er tom.\n\n**Kontrast — dette trekker ned:** «Setter en variabel til `None`, går gjennom lista og bytter verdien hver gang den finner noe mindre.» Sant, men tomtilfellet — som er hele poenget med `None`-testen — er ikke nevnt.",
+      "hints": [
+       "Hvorfor starter `beste` på `None` i stedet for på `x[0]`?",
+       "Hva returneres hvis løkka aldri kjører en runde?",
+       "Er sammenligningen `<` eller `>`?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-c-selvdiagnose",
+     "type": "text",
+     "content": "**Selvdiagnose etter prøve 5.C — kryss av:**\n\n- ☐ Er hvert av svarene dine ÉN setning?\n- ☐ Starter hver setning med et verb, uten «denne funksjonen …»?\n- ☐ Sier setningen *hva* funksjonen oppnår, ikke *hvordan* koden virker?\n- ☐ Nevnte du kanttilfellet der funksjonen har ett — `None`, −1, tom liste?\n- ☐ Er noen av svarene dine lengre enn to linjer på arket?\n- ☐ Nevnte du løkkevariabler eller metodenavn i svaret? Det er signalet på feil **#13**.\n- ☐ Beskrev du mellomsteget i stedet for formålet noe sted?\n\nKryss i de to siste er det vanligste mønsteret, og [kap. 5.3](/tdt4110/tdt4110-5-3) har en kontrastboks som viser forskjellen på det gode og det ordrike svaret."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-5-prove-prove-d",
+   "type": "collapsible",
+   "title": "Prøve 5.D — «Fyll inn manglende kodelinje» (25 min)",
+   "buttonText": "Vis prøve 5.D",
+   "content": [
+    {
+     "id": "tdt4110-5-prove-d-intro",
+     "type": "text",
+     "content": "**Prøve 5.D — «Fyll inn manglende kodelinje» (25 minutter, 16 poeng).**\n\nÅtte flervalg à 2 poeng i sjanger D. I hver oppgave er én linje byttet ut med markøren `#KODE1`, og du velger blant fire kandidatlinjer.\n\n**Bruk metoden:** les spesifikasjonen, les koden rundt hullet, og prøv **hvert** alternativ mot et minimalt eksempel med to eller tre elementer. To alternativer gir ofte samme svar for det enkleste tilfellet — da trenger du ett eksempel til.\n\n**Kryss alltid av.** Det gis ingen minuspoeng for feil svar på flervalg fra og med 2015, så et blankt svar teller likt med et galt."
+    },
+    {
+     "id": "tdt4110-5-prove-d1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-d1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(2 poeng. Flervalg, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal telle hvor mange av avgangene som er forsinket, altså har et avvik større enn null. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef antall_forsinket(avvik):\n    n = 0\n    for a in avvik:\n        if a > 0:\n            #KODE1\n    return n\n```\n\n**a)** `n = a`\n**b)** `n = n + 1`\n**c)** `n = n + a`\n**d)** `return n + 1`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+      "solution": "**Minimaleksempel:** `[3, 0, 8]`. To av avvikene er over null, så riktig svar er 2.\n\n| Alternativ | Hva skjer | Returnerer |\n|---|---|---|\n| **a)** | beholder siste avvik | `8` |\n| **b)** | øker med én per treff | `2` — riktig |\n| **c)** | summerer avvikene | `11` |\n| **d)** | avslutter ved første treff | `1` |\n\n**Riktig svar: b)**\n\n```python\ndef antall_forsinket(avvik):\n    n = 0\n    for a in avvik:\n        if a > 0:\n            n = n + 1\n    return n\n\nprint(antall_forsinket([3, 0, 8]))\nprint(antall_forsinket([]))\n```\n\n**Utskrift:**\n```\n2\n0\n```\n\n**Fellenote:** telleren og akkumulatoren er tvillinger som gjør helt forskjellige ting: den ene legger til **én**, den andre legger til **verdien**. Alternativ c) er den nære distraktoren.",
+      "hints": [
+       "Skal svaret være et antall eller en sum?",
+       "Prøv `[3, 0, 8]` og regn ut hva hvert alternativ gir."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-d2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-d2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Flervalg, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal returnere `True` hvis prisene i lista stiger hele veien, altså at hver pris er større enn den forrige. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef stiger(priser):\n    #KODE1\n        if priser[i] >= priser[i + 1]:\n            return False\n    return True\n```\n\n**a)** `for i in range(len(priser)):`\n**b)** `for i in range(1, len(priser)):`\n**c)** `for i in range(len(priser) + 1):`\n**d)** `for i in range(len(priser) - 1):`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+      "solution": "**Minimaleksempel:** `[10, 20, 30]`, som stiger. Riktig svar er `True`.\n\nKroppen bruker `priser[i + 1]`, så den største lovlige verdien for `i` er `len(priser) - 2`.\n\n| Alternativ | Største `i` | Hva skjer |\n|---|---|---|\n| **a)** | 2 | `priser[3]` finnes ikke — `IndexError` |\n| **b)** | 2 | samme problem, og hopper over første par |\n| **c)** | 3 | to indekser utenfor lista |\n| **d)** | 1 | sammenligner parene (0,1) og (1,2) — riktig |\n\n**Riktig svar: d)**\n\n```python\ndef stiger(priser):\n    for i in range(len(priser) - 1):\n        if priser[i] >= priser[i + 1]:\n            return False\n    return True\n\nprint(stiger([10, 20, 30]))\nprint(stiger([10, 20, 20]))\nprint(stiger([]))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\n```\n\n**Fellenote:** hver gang kroppen bruker `x[i + 1]`, skal rekka stoppe én tidligere. Det er felle **#5** i sin mest forutsigbare form. Legg merke til at den tomme lista gir `True`, fordi `range(-1)` er tom.",
+      "hints": [
+       "Se på indeksene kroppen bruker, ikke bare på løkkelinja.",
+       "Hva er den største `i` som gjør `priser[i + 1]` lovlig?",
+       "Prøv med tre elementer og skriv opp hvilke par som sammenlignes."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-d3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-d3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Flervalg, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal bygge en ordbok som teller hvor mange ganger hvert avfallsslag er levert. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef tell(levert):\n    d = {}\n    for v in levert:\n        #KODE1\n    return d\n```\n\n**a)** `d[v] = d.get(v, 0) + 1`\n**b)** `d[v] = d[v] + 1`\n**c)** `d.get(v, 0) + 1`\n**d)** `d[v] = len(levert)`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+      "solution": "**Minimaleksempel:** `['glass', 'papir', 'glass']`. Riktig svar er `{'glass': 2, 'papir': 1}`.\n\n| Alternativ | Hva skjer |\n|---|---|\n| **a)** | henter 0 for nye nøkler og øker med 1 — riktig |\n| **b)** | oppslaget skjer før nøkkelen finnes — `KeyError` |\n| **c)** | regner riktig, men lagrer ingenting |\n| **d)** | gir alle nøkler samme verdi, nemlig antall leveranser |\n\n**Riktig svar: a)**\n\n```python\ndef tell(levert):\n    d = {}\n    for v in levert:\n        d[v] = d.get(v, 0) + 1\n    return d\n\nprint(tell(['glass', 'papir', 'glass']))\nprint(tell([]))\n```\n\n**Utskrift:**\n```\n{'glass': 2, 'papir': 1}\n{}\n```\n\n**Fellenote:** alternativ c) er den snikeste: uttrykket er gyldig Python og gir riktig tall, men uten tilordning kastes svaret og ordboka forblir tom. Se alltid etter likhetstegnet.",
+      "hints": [
+       "Hva skjer med `d[v]` første gang nøkkelen dukker opp?",
+       "Ett alternativ regner riktig, men lagrer ikke resultatet.",
+       "Prøv med en verdi som kommer to ganger."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-d4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-d4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Flervalg, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal returnere raden med den høyeste verdien i kolonne 1, og `None` hvis tabellen er tom. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef beste_rad(tabell):\n    beste = None\n    for rad in tabell:\n        if beste is None or rad[1] > beste[1]:\n            #KODE1\n    return beste\n```\n\n**a)** `beste = rad[1]`\n**b)** `rad = beste`\n**c)** `beste = rad`\n**d)** `return rad`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+      "solution": "**Minimaleksempel:** `[['a', 3], ['b', 9], ['c', 5]]`. Riktig svar er raden `['b', 9]`.\n\n| Alternativ | Hva skjer | Returnerer |\n|---|---|---|\n| **a)** | lagrer tallet, så `beste[1]` blir feil neste runde | avbrytes |\n| **b)** | tilordner motsatt vei; `beste` endres aldri | `None` |\n| **c)** | lagrer hele raden — riktig | `['b', 9]` |\n| **d)** | avslutter ved første forbedring | `['a', 3]` |\n\n**Riktig svar: c)**\n\n```python\ndef beste_rad(tabell):\n    beste = None\n    for rad in tabell:\n        if beste is None or rad[1] > beste[1]:\n            beste = rad\n    return beste\n\nprint(beste_rad([['a', 3], ['b', 9], ['c', 5]]))\nprint(beste_rad([]))\n```\n\n**Utskrift:**\n```\n['b', 9]\nNone\n```\n\n**Fellenote:** spesifikasjonen sier at funksjonen skal returnere en RAD, og betingelsen bruker `beste[1]`. Begge deler krever at hele raden lagres, ikke bare tallet — alternativ a) ville brutt sammenligningen ved neste runde.",
+      "hints": [
+       "Hva returnerer funksjonen ifølge spesifikasjonen — et tall eller en rad?",
+       "Se på hva betingelsen gjør med `beste` i neste runde.",
+       "Prøv med tre rader der den beste ikke står først."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-d5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-d5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Flervalg, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal returnere ei ny liste med hver tredje værmåling, med start på den første. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef hver_tredje(maalinger):\n    ut = []\n    #KODE1\n        ut.append(maalinger[i])\n    return ut\n```\n\n**a)** `for i in range(3, len(maalinger)):`\n**b)** `for i in range(1, len(maalinger), 3):`\n**c)** `for i in range(0, len(maalinger), 2):`\n**d)** `for i in range(0, len(maalinger), 3):`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+      "solution": "**Minimaleksempel:** `[10, 11, 12, 13, 14, 15, 16]`. Hver tredje fra den første er indeks 0, 3 og 6, altså 10, 13 og 16.\n\n| Alternativ | Indekser som treffes | Resultat |\n|---|---|---|\n| **a)** | 3, 4, 5, 6 | `[13, 14, 15, 16]` — steget mangler |\n| **b)** | 1 og 4 | `[11, 14]` — starter på den andre |\n| **c)** | 0, 2, 4, 6 | `[10, 12, 14, 16]` — feil steg |\n| **d)** | 0, 3 og 6 | `[10, 13, 16]` — riktig |\n\n**Riktig svar: d)**\n\n```python\ndef hver_tredje(maalinger):\n    ut = []\n    for i in range(0, len(maalinger), 3):\n        ut.append(maalinger[i])\n    return ut\n\nprint(hver_tredje([10, 11, 12, 13, 14, 15, 16]))\nprint(hver_tredje([10]))\n```\n\n**Utskrift:**\n```\n[10, 13, 16]\n[10]\n```\n\n**Fellenote:** alternativ a) er den klassiske forvekslingen mellom START og STEG. Tredjeargumentet er steget; førsteargumentet er startindeksen.",
+      "hints": [
+       "Hvilket av de tre argumentene i `range` er steget?",
+       "Hvilken indeks har den FØRSTE målingen?",
+       "Skriv opp indeksene som treffes for hvert alternativ."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-d6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-d6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Flervalg, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal returnere ei liste med de unike lånerne, i den rekkefølgen de dukker opp første gang. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef unike(laanere):\n    ut = []\n    for navn in laanere:\n        #KODE1\n            ut.append(navn)\n    return ut\n```\n\n**a)** `if navn not in ut:`\n**b)** `if navn in ut:`\n**c)** `if navn not in laanere:`\n**d)** `if ut.count(navn) > 0:`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+      "solution": "**Minimaleksempel:** `['Ida', 'Tor', 'Ida']`. Riktig svar er `['Ida', 'Tor']`.\n\n| Alternativ | Hva skjer | Resultat |\n|---|---|---|\n| **a)** | slipper inn bare det som ikke alt er der — riktig | `['Ida', 'Tor']` |\n| **b)** | slipper inn nettopp duplikatene | `['Ida']` |\n| **c)** | aldri sann, siden navnet kommer derfra | `[]` |\n| **d)** | betyr det samme som **b)** | `['Ida']` |\n\n**Riktig svar: a)**\n\n```python\ndef unike(laanere):\n    ut = []\n    for navn in laanere:\n        if navn not in ut:\n            ut.append(navn)\n    return ut\n\nprint(unike(['Ida', 'Tor', 'Ida']))\nprint(unike([]))\n```\n\n**Utskrift:**\n```\n['Ida', 'Tor']\n[]\n```\n\n**Fellenote:** alternativ c) ser nesten riktig ut, men tester mot feil liste. Navnet kommer fra `laanere`, så betingelsen er aldri sann, og resultatet blir tomt uten at noe krasjer — en helt stum feil.",
+      "hints": [
+       "Hvilken liste skal du sjekke mot: den du leser fra, eller den du bygger?",
+       "Prøv med en verdi som kommer to ganger.",
+       "`ut.count(navn) > 0` betyr det samme som ett av de andre alternativene."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-d7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-d7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Flervalg, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal regne om et antall sekunder til formatet `hh:mm:ss` med nullpadding, for eksempel `01:02:05`. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef tidsformat(sek):\n    t = sek // 3600\n    #KODE1\n    s = sek % 60\n    return str(t).zfill(2) + ':' + str(m).zfill(2) + ':' + str(s).zfill(2)\n```\n\n**a)** `m = sek // 60`\n**b)** `m = (sek % 3600) // 60`\n**c)** `m = sek % 60`\n**d)** `m = (sek // 3600) % 60`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+      "solution": "**Minimaleksempel:** 3725 sekunder, som er 1 time, 2 minutter og 5 sekunder. Riktig svar er `01:02:05`.\n\n| Alternativ | Utregning for 3725 | Minutter |\n|---|---|---|\n| **a)** | `3725 // 60` | 62 — timene er ikke trukket fra |\n| **b)** | `(3725 % 3600) // 60` er `125 // 60` | 2 — riktig |\n| **c)** | `3725 % 60` | 5 — det er sekundene |\n| **d)** | `(3725 // 3600) % 60` | 1 — det er timene |\n\n**Riktig svar: b)**\n\n```python\ndef tidsformat(sek):\n    t = sek // 3600\n    m = (sek % 3600) // 60\n    s = sek % 60\n    return str(t).zfill(2) + ':' + str(m).zfill(2) + ':' + str(s).zfill(2)\n\nprint(tidsformat(3725))\nprint(tidsformat(45))\nprint(tidsformat(86399))\n```\n\n**Utskrift:**\n```\n01:02:05\n00:00:45\n23:59:59\n```\n\n**Fellenote:** rekkefølgen er alltid den samme: trekk fra det du allerede har brukt, før du deler videre. `sek % 3600` er «det som er igjen etter at timene er tatt ut», og først da gir divisjonen på 60 riktige minutter. `zfill(2)` sørger for nullpaddingen, så `1:2:5` blir `01:02:05`.",
+      "hints": [
+       "Trekk fra timene før du regner minuttene.",
+       "Hva står igjen etter `sek % 3600`?",
+       "Prøv med 3725 sekunder og regn ut hvert alternativ."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-d8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-5-prove-d8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Flervalg, sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal regne ut potens rekursivt: `g` opphøyd i `e` for et ikke-negativt heltall `e`. Hvilket alternativ hører hjemme i `#KODE1`?\n\n```text\ndef potens(g, e):\n    if e == 0:\n        return 1\n    #KODE1\n```\n\n**a)** `return g * potens(g, e + 1)`\n**b)** `return g * potens(g, e - 1)`\n**c)** `return e * potens(g - 1, e)`\n**d)** `return g * potens(g - 1, e - 1)`\n\nBlokken er merket som ikke-kjørbar fordi den mangler en linje.",
+      "solution": "**Minimaleksempel:** `potens(2, 3)`, som skal gi 8.\n\n| Alternativ | Hva skjer |\n|---|---|\n| **a)** | eksponenten vokser bort fra grunntilfellet — `RecursionError` |\n| **b)** | eksponenten telles ned, grunntallet står stille — riktig |\n| **c)** | grunntallet telles ned og eksponenten står stille — når aldri utgangen |\n| **d)** | begge telles ned; grunntallet blir 0 og svaret også |\n\n**Riktig svar: b)**\n\n```python\ndef potens(g, e):\n    if e == 0:\n        return 1\n    return g * potens(g, e - 1)\n\nprint(potens(2, 3))\nprint(potens(7, 0))\nprint(potens(5, 2))\n```\n\n**Utskrift:**\n```\n8\n1\n25\n```\n\n**Fellenote:** dette er felle **#10** i tre varianter. Alternativ a) er den reneste formen — argumentet går feil vei, og funksjonen når aldri grunntilfellet. Sjekk alltid to ting i et rekursivt steg: finnes det en utgang, og beveger argumentet seg mot den?",
+      "hints": [
+       "Hvilket av de to argumentene må bli mindre for hvert kall?",
+       "Grunntilfellet tester på `e`. Kommer `e` noen gang dit?",
+       "Prøv `potens(2, 3)` og skriv ned de tre første kallene."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-5-prove-d-selvdiagnose",
+     "type": "text",
+     "content": "**Selvdiagnose etter prøve 5.D — kryss av:**\n\n- ☐ Leste du spesifikasjonen FØR du så på alternativene?\n- ☐ Prøvde du **hvert** av de fire alternativene mot et minimalt eksempel?\n- ☐ Brukte du et eksempel til der to alternativer ga samme svar?\n- ☐ Sjekket du indeksene kroppen bruker, ikke bare løkkelinja?\n- ☐ Så du etter likhetstegnet der en verdi skulle lagres?\n- ☐ Testet du kanttilfellet — tom liste, ett element, treff først eller sist?\n- ☐ Krysset du av på alle åtte, også der du var usikker?\n\nDet siste punktet er gratis poeng: det gis ingen minuspoeng for feil svar på flervalg fra 2015, så et blankt svar er strengt dårligere enn et gjett — kryss alltid av.\n\n**Fasitbokstavene i denne prøven er b, d, a, c, d, a, b og b** — de fordeler seg med vilje, så du ikke kan gjette et mønster."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

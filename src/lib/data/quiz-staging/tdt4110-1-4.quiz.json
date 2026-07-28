@@ -1,0 +1,152 @@
+[
+ {
+  "question": "Hvilken datatype har verdien `input('Alder: ')` gir, når brukeren skriver `42`?",
+  "options": [
+   "Tekst, altså `str`, uansett svar",
+   "Heltall, altså `int`",
+   "Flyttall, altså `float`",
+   "Sannhetsverdi, altså `bool`"
+  ],
+  "explanation": "`input` gir alltid en streng, uansett hvordan svaret ser ut. Heltall får du først etter `int(...)`. Flyttall krever `float(...)`. Og en sannhetsverdi oppstår aldri av `input`."
+ },
+ {
+  "question": "Hva skjer med `int(input('Tall: '))` når brukeren skriver `to`?",
+  "options": [
+   "Programmet stopper med `ValueError`",
+   "Variabelen får standardverdien `0`",
+   "Variabelen får teksten `'to'` uendret",
+   "Programmet spør på nytt av seg selv"
+  ],
+  "explanation": "`int` klarer ikke å tolke `to` som et tall og avbryter programmet med `ValueError`. Noen standardverdi settes ikke. Teksten kommer ikke gjennom, siden `int` ble kalt. Og Python spør aldri på nytt av seg selv."
+ },
+ {
+  "question": "Hva er `'-5'.isdigit()`?",
+  "options": [
+   "`False`, fordi minustegnet ikke er et siffer",
+   "`True`, fordi resten av tegnene er sifre",
+   "`True`, fordi teksten beskriver et helt tall",
+   "Programmet stopper, fordi tallet er negativt"
+  ],
+  "explanation": "Metoden krever at hvert eneste tegn er et siffer, og minustegnet er ikke det. At resten er sifre hjelper ikke. Betydningen av teksten spiller ingen rolle. Og metoden stopper aldri programmet; den gir bare `False`."
+ },
+ {
+  "question": "Gyldighetstesten er `0 <= t and t <= 23`. Hva blir den negerte formen?",
+  "options": [
+   "`t < 0 or t > 23`",
+   "`t < 0 and t > 23`",
+   "`t <= 0 or t >= 23`",
+   "`0 > t or t > 24`"
+  ],
+  "explanation": "Når et og-uttrykk negeres, blir det et eller-uttrykk, og hver sammenligning snus, så svaret er at verdien er under null eller over 23. Formen med `and` kan aldri bli sann, siden et tall ikke kan være både under 0 og over 23. Formen `t <= 0 or t >= 23` flytter likhetstegnene og avviser de lovlige grenseverdiene 0 og 23. Og `0 > t or t > 24` slipper gjennom verdien 24, som er utenfor intervallet."
+ },
+ {
+  "question": "Hvorfor må `.isdigit()` stå før `int(...)` i en `and`-betingelse?",
+  "options": [
+   "Fordi `and` kortslutter, så konverteringen kjøres bare på ren sifertekst",
+   "Fordi `int` virker bare på tekst som allerede er testet én gang før",
+   "Fordi Python krever at metodekall står før funksjonskall i et uttrykk",
+   "Fordi `.isdigit()` gjør teksten om til et tall som `int` kan ta imot"
+  ],
+  "explanation": "Er venstre side usann, regnes høyre side aldri ut, og `int` slipper å møte ugyldig tekst. `int` har ingen hukommelse om tidligere tester. Python har ingen regel om rekkefølgen på metoder og funksjoner. Og `.isdigit()` gjør ingenting med teksten; den bare svarer sant eller usant."
+ },
+ {
+  "question": "En valideringsløkke bruker `if` i stedet for `while`. Hva blir konsekvensen?",
+  "options": [
+   "Brukeren får bare én ny sjanse, og programmet går videre",
+   "Programmet spør i det uendelige og kommer aldri videre i koden",
+   "Programmet stopper med `SyntaxError`, fordi `if` ikke kan spørre",
+   "Ingen forskjell, siden begge to tester nøyaktig samme betingelse"
+  ],
+  "explanation": "En `if` kjører kroppen høyst én gang, så etter én ny sjanse fortsetter programmet med et svar som fortsatt kan være ugyldig. Uendelig spørring krever en `while` uten oppdatering. Koden er syntaktisk lovlig. Og forskjellen er nettopp at `while` gjentar."
+ },
+ {
+  "question": "Hva mangler i denne løkka?\n\n```text\nsvar = input('Alder: ')\nwhile not svar.isdigit():\n    print('Skriv et helt tall.')\n```",
+  "options": [
+   "Et nytt `input`-kall inne i løkka, ellers stopper den aldri",
+   "En `else`-gren som håndterer de gyldige svarene til slutt",
+   "En konvertering med `int` på linja rett før `while`-linja",
+   "Et `break` rett etter feilmeldingen, som avslutter løkka"
+  ],
+  "explanation": "Ingenting endrer `svar` inne i løkka, så betingelsen forblir sann for alltid — spørsmålet må stilles på nytt der. En `else` ville ikke gjort betingelsen usann. Konvertering før testen ville tvert imot fått programmet til å krasje. Og et `break` ville sluppet gjennom det ugyldige svaret."
+ },
+ {
+  "question": "Hva er en sentinel?",
+  "options": [
+   "En avtalt verdi som betyr at brukeren er ferdig med å legge inn",
+   "En variabel som teller hvor mange ganger løkka har kjørt rundt",
+   "En feilmelding som vises når svaret er utenfor lovlig intervall",
+   "En funksjon som sjekker om en tekst kan gjøres om til et heltall"
+  ],
+  "explanation": "Sentinelen er stoppsignalet, typisk en blank linje, som skiller ekte data fra «nå er det slutt». En rundeteller er noe helt annet. Feilmeldingen hører til valideringen. Og testfunksjonen er gyldighetstesten, ikke sentinelen."
+ },
+ {
+  "question": "Brukeren trykker bare enter. Hva gir `input('Navn: ')` da?",
+  "options": [
+   "Den tomme teksten `''`",
+   "Verdien `None`",
+   "Et mellomrom, altså `' '`",
+   "Programmet venter til noe faktisk skrives"
+  ],
+  "explanation": "En blank linje gir en streng uten tegn, og den teller som usann i en betingelse. `None` returneres aldri av `input`. Et mellomrom ville krevd at brukeren trykket mellomromstasten. Og enter avslutter innlesingen selv om linja er tom."
+ },
+ {
+  "question": "Hvorfor er `0` en dårlig sentinel for «antall enheter»?",
+  "options": [
+   "Fordi null kan være et ekte svar, så løkka avsluttes for tidlig",
+   "Fordi `input` ikke er i stand til å gi tallet null som svar",
+   "Fordi en sentinel må være en tekst og kan aldri være et tall",
+   "Fordi tallet null alltid teller som sant i en betingelse"
+  ],
+  "explanation": "En sentinel må være en verdi som aldri opptrer som ekte data, og null enheter er et fullt tenkelig svar. `input` kan selvsagt gi teksten `'0'`. Sentinelen kan godt være et tall, så lenge den er umulig som data. Og tallet null teller nettopp som usant, ikke sant."
+ },
+ {
+  "question": "Hva returnerer `les_time()` når brukeren skriver `abc`, så `30`, så `14`?\n\n```text\ndef les_time():\n    svar = input('Time: ')\n    while not svar.isdigit() or int(svar) > 23:\n        svar = input('Time: ')\n    return int(svar)\n```",
+  "options": [
+   "Tallet `14`, etter tre spørsmål",
+   "Teksten `'14'`, etter tre spørsmål",
+   "Tallet `30`, etter to spørsmål",
+   "Programmet stopper på `abc` med `ValueError`"
+  ],
+  "explanation": "De to første svarene avvises, og det tredje godtas og returneres som et tall fordi `return` konverterer. Teksten kommer ikke ut, siden `int` står i `return`. Verdien 30 er over grensen og avvises. Og `abc` krasjer ikke, fordi `or` kortslutter på `.isdigit()`."
+ },
+ {
+  "question": "Hva er forskjellen på `while navn != '':` og `while navn:`?",
+  "options": [
+   "Ingen — tom tekst teller som usann, så betingelsene er like",
+   "Den første stopper på tom tekst, mens den andre aldri stopper",
+   "Den andre virker bare på tall og ikke på tekst av noe slag",
+   "Den første krever at `navn` først er konvertert med `str`"
+  ],
+  "explanation": "Den tomme teksten er blant de faste usanne verdiene, så begge betingelsene blir usanne på nøyaktig samme svar. Den korte formen stopper altså like godt. Den virker på alle typer, ikke bare tall. Og noen konvertering trengs ikke, siden `input` allerede gir tekst."
+ },
+ {
+  "question": "Hvilken ledetekst er best for en verdi som må ligge mellom 1 og 500?",
+  "options": [
+   "`'Antall kilo (1-500): '`",
+   "`'Antall kilo mellom en og fem hundre: '`",
+   "`'Skriv inn en verdi og trykk enter: '`",
+   "`'Kilo, husk grensene: '`"
+  ],
+  "explanation": "Den beste ledeteksten sier både hva som spørres om og hva som er lovlig, og slutter med et mellomrom så svaret ikke klistrer seg inntil. De øvrige mangler intervallet, og to av dem sier heller ikke hva verdien gjelder."
+ },
+ {
+  "question": "Hvor skal konverteringen stå i en valideringsfunksjon?",
+  "options": [
+   "Etter at svaret er godkjent, typisk inne i `return`-linja",
+   "I selve `input`-kallet, så verdien er et tall med én gang",
+   "I `while`-betingelsen, før `.isdigit()` sjekkes",
+   "Etter løkka, men bare hvis brukeren svarte riktig første gang"
+  ],
+  "explanation": "Testen må gjøres mens verdien fortsatt er tekst, og konverteringen hører derfor til når svaret er godkjent. Konvertering i `input`-kallet krasjer på ugyldig tekst. Konvertering før `.isdigit()` fjerner nettopp beskyttelsen kortslutningen gir. Og et vilkår om første forsøk gir ingen mening — alle godkjente svar skal konverteres likt."
+ },
+ {
+  "question": "En valideringsfunksjon skriver ut den godkjente verdien i stedet for å returnere den. Hva er problemet?",
+  "options": [
+   "Verdien kan ikke brukes videre, så funksjonen kan ikke gjenbrukes",
+   "Utskrift er tregere enn retur og gir merkbart dårligere kjøretid",
+   "Python tillater ikke `print` inne i en funksjon som leser inn data",
+   "Verdien blir liggende som tekst og kan ikke konverteres i ettertid"
+  ],
+  "explanation": "En funksjon som bare skriver ut, gir ingenting tilbake til kalleren, og faget krever nettopp at senere deloppgaver kan bygge på de tidligere. Kjøretid er ikke poenget her. `print` er fullt lovlig inne i en funksjon. Og typen på verdien har ingenting med utskriften å gjøre."
+ }
+]

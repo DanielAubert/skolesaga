@@ -1,0 +1,337 @@
+{
+ "id": "tdt4110-2-2",
+ "courseId": "tdt4110",
+ "chapterNumber": "2.2",
+ "title": "Gjenbruk, hjelpefunksjoner og meny/`main`-dispatcher",
+ "description": "Bygge kjeder der funksjoner kaller hverandre, bruke hjelpefunksjoner, og skrive en `main`/meny som binder alt sammen — slik sensor forventer det på de store oppgavene.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne la en funksjon kalle en annen funksjon du selv har skrevet, i stedet for å kopiere koden",
+  "kunne bygge en kjede der hvert ledd tar imot resultatet fra det forrige som parameter",
+  "kunne skrive en menyløkke som spør brukeren og kaller riktig funksjon til brukeren avslutter",
+  "kunne skrive en kort startfunksjon som eier dataene og lar de andre funksjonene gjøre jobben"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-2-2-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet handler om det sensor uttrykkelig gir uttelling for: at funksjonene dine bruker hverandre.**\n\n- Programmeringsoppgaven er hvert år **én kjede av deloppgaver a) til f)**, der senere ledd skal bygge på de tidligere. Løsningsforslagene i arkivet gjør det konsekvent: analysefunksjonen kaller parse-funksjonen, og `main` kaller alt. Kopierer du koden fra a) inn i c) i stedet for å kalle den, får du ikke uttelling for gjenbruk.\n- **Meny- eller `main`-oppgaven** — «lag et program som viser valgene 1, 2 og q og gjør riktig ting» — står i **~50 % (5 av 10 sett)**. Den er en del av **sjanger H**, som er «input-validering og meny/`main`-løkke»; selve input-valideringen er i [kap. 1.4](/tdt4110/tdt4110-1-4).\n- Programmeringsdelen teller **~50–60 %** av settet, og menyoppgaven er ofte det siste leddet i den — den som binder de andre sammen.\n\n**Prioritet: høyeste — dette må sitte.** Det gode med kapitlet er at det ikke krever ny Python. Du kan alt du trenger fra [kap. 2.1](/tdt4110/tdt4110-2-1); det som er nytt, er hvordan bitene settes sammen, og det er nettopp det som skiller en besvarelse på C fra en på A. Og C er en god og vanlig karakter.\n\n**Lesetid:** seks løkker på til sammen ~45 minutter lesetid. Skriver du koden selv underveis, regn ×1,5."
+  },
+  {
+   "id": "tdt4110-2-2-t-2",
+   "type": "text",
+   "content": "**Forkunnskaper.** Kapitlet bygger rett på det forrige:\n\n- [kap. 2.1](/tdt4110/tdt4110-2-1) — `def`, parametere, `return`, flere returverdier og skillet mellom lokale og globale navn. Dette er det viktigste.\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — `while`-løkka og `break`, som er hele mekanikken i en meny.\n- [kap. 1.4](/tdt4110/tdt4110-1-4) — `input()`, som alltid gir en **streng**, og løkka som spør på nytt til svaret er gyldig.\n- [kap. 1.2](/tdt4110/tdt4110-1-2) — `if/elif/else`, som er det menyen dispatcher med.\n\nDataene i dette kapitlet er lister med tall, brukt slik Del 1 bruker dem: gjennomløp med `for`, oppslag med `priser[i]` og lengde med `len(...)`. Å lese dem inn fra en fil kommer i [kap. 4.1](/tdt4110/tdt4110-4-1), og hele kjeden settes sammen på eksamensnivå i [kap. 7.7](/tdt4110/tdt4110-7-7)."
+  },
+  {
+   "id": "tdt4110-2-2-t-3",
+   "type": "text",
+   "content": "## Løkke 1 — Hvorfor gjenbruk gir poeng (~7 min)\n\nTenk deg at du skal lage en liten strømprisapp. Den skal kunne vise den høyeste prisen i døgnet, den skal kunne vise snittprisen, og den skal kunne si om det er dyrt akkurat nå. Alle tre trenger å gå gjennom den samme lista med 24 priser.\n\nDen utsatte løsningen er å skrive den samme løkka tre ganger, én i hver funksjon. Den virker. Men den er tre ganger så lang å skrive under tidspress, den har tre steder å gjøre den samme feilen, og den gir ikke uttelling for det sensor faktisk ser etter.\n\nAlternativet er å skrive løkka **én** gang, i en funksjon med et navn — og la de andre funksjonene kalle den."
+  },
+  {
+   "id": "tdt4110-2-2-def-1",
+   "type": "definition",
+   "title": "Gjenbruk: å kalle sin egen funksjon fra en annen",
+   "content": "En funksjon du har definert, kan kalles hvor som helst senere i fila — også inne i kroppen til en annen funksjon. Det er ingen ny konstruksjon: det er akkurat det samme kallet som fra toppnivå.\n\nKravet er bare at funksjonen er **definert før kallet kjøres**. Siden alle `def`-ene i et program kjøres før `main()` kalles, kan funksjonene fritt kalle hverandre uansett rekkefølge i fila.\n\n```python\ndef snitt(priser):\n    total = 0\n    for p in priser:\n        total = total + p\n    return total / len(priser)\n\ndef er_dyrt_naa(priser, naa):\n    return naa > snitt(priser)\n\ndoegn = [0.42, 0.55, 1.20, 0.98]\nprint(snitt(doegn))\nprint(er_dyrt_naa(doegn, 1.05))\n```\n\n**Utskrift:**\n```\n0.7875\nTrue\n```\n\n`er_dyrt_naa` inneholder ingen løkke. Den låner løkka fra `snitt` — og blir én linje lang."
+  },
+  {
+   "id": "tdt4110-2-2-def-2",
+   "type": "definition",
+   "title": "Hjelpefunksjon",
+   "content": "En **hjelpefunksjon** er en liten funksjon som ikke svarer på selve oppgaven, men som gjør en bit av arbeidet flere andre funksjoner trenger: `snitt`, `finn_indeks`, `beregn_verdi`.\n\nKjennetegnet er at den er kort, har et beskrivende navn og ikke skriver ut noe. Den *returnerer*, slik at den som kaller, bestemmer hva som skal skje med svaret.\n\nÅ innføre en hjelpefunksjon som oppgaven ikke ba om, er alltid tillatt og trekker aldri ned. Sensor sidestiller flere korrekte løsninger, og en oppdeling som gjør besvarelsen lettere å lese, er en fordel."
+  },
+  {
+   "id": "tdt4110-2-2-def-3",
+   "type": "definition",
+   "title": "Kopiert kode mot kall",
+   "content": "Står den samme kodesnutten to steder, er det en **kopi**. Kopier er dyre av tre grunner: de tar tid å skrive for hånd, de gir to steder å gjøre feil, og de gir ikke uttelling for gjenbruk.\n\nKjenn igjen kopien ved at du kan gi de to snuttene det samme navnet. Da er navnet funksjonen din, og de to stedene blir to kall.\n\nRegelen i praksis: skriver du en løkke du har skrevet før i samme besvarelse, stopp og gi den et navn i stedet."
+  },
+  {
+   "id": "tdt4110-2-2-eks-1",
+   "type": "example",
+   "title": "Eksempel 1: Tre funksjoner, én løkke",
+   "problem": "Strømprisappen skal vise snittprisen, si om prisen akkurat nå er over snittet, og telle hvor mange timer i døgnet som lå over snittet. Skriv de tre funksjonene slik at løkka som regner snittet, bare står ett sted.",
+   "solution": "```python\ndef snitt(priser):\n    if len(priser) == 0:\n        return None\n    total = 0\n    for p in priser:\n        total = total + p\n    return total / len(priser)\n\ndef er_over_snitt(priser, pris):\n    return pris > snitt(priser)\n\ndef timer_over_snitt(priser):\n    grense = snitt(priser)\n    antall = 0\n    for p in priser:\n        if p > grense:\n            antall = antall + 1\n    return antall\n\ndoegn = [0.42, 0.55, 1.20, 0.98, 1.35, 0.61]\nprint(snitt(doegn))\nprint(er_over_snitt(doegn, 1.05))\nprint(timer_over_snitt(doegn))\n```\n\n**Utskrift:**\n```\n0.8516666666666667\nTrue\n3\n```\n\nTre poenger å ta med seg:\n\n- **`snitt` står én gang.** Endrer du senere hvordan snittet regnes, endrer du ett sted.\n- **`timer_over_snitt` kaller `snitt` én gang, før løkka**, og lagrer svaret i `grense`. Hadde kallet stått inne i `if`-testen, ville snittet blitt regnet ut på nytt for hver eneste pris. Det gir riktig svar, men er unødvendig arbeid — og på en stor datamengde merkes det.\n- **Ingen av de tre skriver ut noe.** Utskriften skjer nederst, der resultatene brukes. Det er den formen som lar neste deloppgave gjenbruke funksjonene.\n\nLegg merke til at snittet skrives som `0.8516666666666667`. Flyttall er sjelden pene av seg selv; å runde av til to desimaler i utskriften kommer i [kap. 3.4](/tdt4110/tdt4110-3-4)."
+  },
+  {
+   "id": "tdt4110-2-2-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-2-oppg-1-o",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — minimal sporing. Sjanger B — kodesporing, altså «hva skriver programmet ut?».) Tre funksjoner som bygger på hverandre. Hva skriver programmet ut?\n\n```python\ndef dobbel(x):\n    return x * 2\n\ndef firedobbel(x):\n    return dobbel(dobbel(x))\n\ndef sum_firedobler(verdier):\n    total = 0\n    for v in verdier:\n        total = total + firedobbel(v)\n    return total\n\nprint(firedobbel(3))\nprint(sum_firedobler([1, 2, 3]))\n```",
+    "solution": "**Sporingstavle** for `sum_firedobler([1, 2, 3])`:\n\n| `v` | `firedobbel(v)` | `total` etterpå |\n|---|---|---|\n| 1 | 4 | 4 |\n| 2 | 8 | 12 |\n| 3 | 12 | 24 |\n\n**Utskrift:**\n```\n12\n24\n```\n\n**Fellenote:** `firedobbel` har ingen egen regning — den kaller `dobbel` to ganger. Sporer du innenfra og ut, er det aldri mer enn én multiplikasjon å holde styr på om gangen. Det er hele poenget med gjenbruk: hver funksjon er liten nok til å sjekkes for seg.",
+    "hints": [
+     "Regn ut `firedobbel(1)` først, og bruk svaret i tabellen.",
+     "Telleren `total` starter på 0 og oppdateres én gang per element."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-2-t-4",
+   "type": "text",
+   "content": "## Løkke 2 — Kjeden: fra rådata til svar (~8 min)\n\nProgrammeringsoppgaven på eksamen har alltid den samme formen, uansett om domenet er bussruter, bibliotekutlån eller strømpriser:\n\n**les inn data → omform dem → analysér → vis eller lagre svaret.**\n\nDeloppgavene a) til f) er nettopp disse leddene, én funksjon per ledd. Og de er en *kjede*: leddet i c) tar imot det leddet i b) ga fra seg."
+  },
+  {
+   "id": "tdt4110-2-2-thm-1",
+   "type": "theorem",
+   "title": "Gjenbrukskjeden — mønsteret hele programmeringsoppgaven følger",
+   "content": "```text\nles_inn(...)      ->  rådataene som en liste eller tabell\nomform(data)      ->  tallene konvertert, radene delt opp\nanalyser(data)    ->  det oppgaven spør etter\nskriv_ut(svar)    ->  utskriften brukeren ser\nmain()            ->  kaller de fire, i den rekkefølgen\n```\n\nBlokken over er en mal, ikke kjørbar kode.\n\nTre regler gjør kjeden til en kjede, og alle tre er poenggivende:\n\n1. **Hvert ledd tar imot resultatet fra det forrige som parameter.** Ingen funksjon henter data på egen hånd.\n2. **`main` gjør ingen regning selv.** Den henter dataene én gang, sender dem videre og viser resultatet.\n3. **Ingen kopiert kode mellom leddene.** Trenger to ledd det samme, blir det en hjelpefunksjon.\n\nI denne boka lærer du leddene ett om gangen: innlesing fra fil i [kap. 4.1](/tdt4110/tdt4110-4-1), omforming i [kap. 3.3](/tdt4110/tdt4110-3-3), analysen i [kap. 7.4](/tdt4110/tdt4110-7-4) og hele kjeden på eksamensnivå i [kap. 7.7](/tdt4110/tdt4110-7-7). Her øver du på selve koblingen, med lister du får ferdig."
+  },
+  {
+   "id": "tdt4110-2-2-def-4",
+   "type": "definition",
+   "title": "Kjede: senere funksjoner bygger på tidligere",
+   "content": "En kjede er en rekke funksjoner der utverdien fra den ene er innverdien til den neste. Kravet er at hvert ledd **returnerer** noe — et ledd som bare skriver ut, kan ikke ha et neste ledd.\n\nPå eksamen ser du kjeden i selve oppgaveteksten: «**c)** Skriv funksjonen `finn_beste(tabell)` som bruker `les_inn_data` fra deloppgave a)». Der er kjeden ikke et forslag, men et krav.\n\nKlarte du ikke a)? Skriv likevel c) som om a) virket, og kall funksjonen. Sensor gir uttelling for riktig struktur i c) selv om a) mangler eller er feil."
+  },
+  {
+   "id": "tdt4110-2-2-def-5",
+   "type": "definition",
+   "title": "Å sende data videre som parameter",
+   "content": "Data som flere funksjoner trenger, sendes inn som **parameter** — ikke hentes på nytt inne i hver funksjon.\n\nDet høres selvsagt ut, men den vanligste strukturfeilen i besvarelser er nettopp at hver funksjon åpner og leser fila på nytt. Da blir programmet tregt, og du har skrevet den samme innlesingskoden fire ganger.\n\nRegelen, som du skal ha med deg til Del 7: **`main` leser dataene én gang og sender dem videre.** Alle analysefunksjonene tar dataene som parameter og returnerer et svar."
+  },
+  {
+   "id": "tdt4110-2-2-eks-2",
+   "type": "example",
+   "title": "Eksempel 2: Fire ledd som kaller hverandre",
+   "problem": "En treningslogg har lengden på hver økt i minutter. Skriv en liten kjede: en funksjon som gjør minutter om til timer, en som regner totalen, en som lager en rapportlinje, og en `main` som binder dem sammen.",
+   "solution": "```python\ndef til_timer(minutter):\n    return minutter / 60\n\ndef total_minutter(oekter):\n    total = 0\n    for m in oekter:\n        total = total + m\n    return total\n\ndef rapport(oekter):\n    minutter = total_minutter(oekter)\n    timer = til_timer(minutter)\n    return 'Trent ' + str(minutter) + ' minutter, altså ' + str(timer) + ' timer'\n\ndef main():\n    logg = [45, 30, 90, 60]\n    print(rapport(logg))\n\nmain()\n```\n\n**Utskrift:**\n```\nTrent 225 minutter, altså 3.75 timer\n```\n\nSe hvordan hvert ledd bare gjør sitt:\n\n- `til_timer` kan ingenting om treningslogger. Den gjør ett tall om til et annet, og kunne like gjerne vært brukt på reisetid.\n- `total_minutter` er den eneste som har en løkke.\n- `rapport` regner ingenting selv. Den kaller de to andre og setter sammen teksten.\n- `main` har dataene, kaller `rapport` og skriver ut. Ingen regning.\n\n**Sensorblikk:** legg merke til `str(...)` rundt tallene i tekstsammensetningen. Uten den stopper programmet med `TypeError`, fordi `+` mellom en streng og et tall ikke er definert. Penere utskrift enn dette kommer i [kap. 3.4](/tdt4110/tdt4110-3-4) — her er poenget koblingen mellom funksjonene.\n\nMerk også at kallet er `main()` helt til slutt, uten noen vaktsetning rundt. Sensor gir ingen uttelling for `if __name__`-konstruksjonen, og boka bruker den ikke."
+  },
+  {
+   "id": "tdt4110-2-2-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-2-oppg-2-o",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E–I — kodeskriving, altså «skriv funksjonene som beskrevet».) Et bibliotek fører hvor mange dager hver utlånt bok har vært ute. Boka er forfalt når den har vært ute i mer enn 28 dager.\n\n**a)** Skriv `er_forfalt(dager)` som returnerer `True` eller `False`.\n\n**b)** Skriv `antall_forfalte(utlaan)` som teller hvor mange av tallene i lista som er forfalte — og som **bruker** funksjonen fra a).\n\n**c)** Skriv `gebyr(utlaan)` som returnerer 30 kroner per forfalt bok, og som bruker funksjonen fra b).",
+    "solution": "```python\ndef er_forfalt(dager):\n    return dager > 28\n\ndef antall_forfalte(utlaan):\n    antall = 0\n    for d in utlaan:\n        if er_forfalt(d):\n            antall = antall + 1\n    return antall\n\ndef gebyr(utlaan):\n    return antall_forfalte(utlaan) * 30\n\nlister = [12, 31, 45, 28, 3, 29]\nprint(antall_forfalte(lister))\nprint(gebyr(lister))\n```\n\n**Utskrift:**\n```\n3\n90\n```\n\nTre ting sensor ser etter, og som er hele poenget med oppgaven:\n\n- **b) kaller a)** i stedet for å gjenta testen `d > 28`. Skriver du testen på nytt, er svaret riktig, men gjenbruket borte.\n- **c) kaller b)** og har ingen løkke i det hele tatt. Én linje er nok.\n- **Grensen 28 står ett sted.** Skulle biblioteket endre fristen til 21 dager, er det én linje å rette.\n\nLegg merke til at 28 dager **ikke** er forfalt: teksten sier «mer enn 28», altså `>` og ikke `>=`. Er du i tvil om en grense, skriv én setning om hva du antok — sensor ber uttrykkelig om det.\n\nDette er én av flere korrekte løsninger.",
+    "hints": [
+     "Til a): en sammenligning er allerede `True` eller `False`.",
+     "Til b): bruk `if er_forfalt(d):` som test i løkka i stedet for å gjenta grensen.",
+     "Til c): trenger denne funksjonen noen løkke i det hele tatt?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-2-t-5",
+   "type": "text",
+   "content": "## Løkke 3 — Hvem eier dataene? (~7 min)\n\nNå kommer det strukturvalget som skiller en besvarelse som henger sammen, fra en som bare nesten gjør det: hvor dataene bor.\n\nSvaret er kort. Dataene bor i `main`, og sendes ned til funksjonene som parameter. Funksjonene sender svar opp igjen med `return`. Ingenting går sidelengs."
+  },
+  {
+   "id": "tdt4110-2-2-def-6",
+   "type": "definition",
+   "title": "`main()` — programmets startfunksjon",
+   "content": "`main` er navnet på funksjonen som styrer programmet: den skaffer dataene, kaller de andre funksjonene i riktig rekkefølge og viser resultatet.\n\nDen er ikke noe spesielt for Python — det er bare et navn, og du kaller den selv med `main()` nederst i fila. Boka bruker aldri vaktsetningen `if __name__`, fordi den ikke gir uttelling på eksamen.\n\nKjennetegnet på en god `main` er at den er kort og lesbar: hvert kall er ett ledd i kjeden, og du ser hele programmets gang på skjermen samtidig."
+  },
+  {
+   "id": "tdt4110-2-2-def-7",
+   "type": "definition",
+   "title": "Delegering — `main` regner ikke selv",
+   "content": "En `main` som inneholder løkker og regnestykker, har overtatt jobben til funksjonene under. Da er den vanskelig å lese, og deloppgavene kan ikke vurderes hver for seg.\n\nRegelen: `main` **delegerer**. Den har data, kall og utskrift — ingen `for`-løkke som regner ut noe, ingen betingelse som avgjør et faglig spørsmål.\n\n```python\ndef main():\n    priser = [0.42, 0.55, 1.20, 0.98]\n    print('Høyeste:', hoyeste(priser))\n    print('Snitt:', snitt(priser))\n```\n\n**Utskrift:** ingen — blokken definerer bare `main`. Kalles den, skriver den to linjer.\n\nFire linjer, og du ser hele programmet. Det er malen."
+  },
+  {
+   "id": "tdt4110-2-2-warn-1",
+   "type": "warning",
+   "title": "Ikke hent dataene på nytt i hver funksjon",
+   "content": "Den vanligste strukturfeilen i besvarelser er at hver funksjon skaffer dataene selv. På eksamen ser det slik ut: `finn_beste()` åpner fila, leser den og analyserer; så åpner `lag_rapport()` den samme fila på nytt.\n\nDet gir tre problemer, og de koster poeng hver for seg:\n\n- **Innlesingskoden står fire steder** i stedet for ett, og hver kopi kan ha sin egen feil.\n- **Funksjonene kan ikke gjenbrukes** på andre data — de er låst til det ene filnavnet.\n- **Sensor ser ikke kjeden**, som er nettopp det som gir uttelling for gjenbruk.\n\nRiktig form er alltid den samme: `main` skaffer dataene **én gang** og sender dem videre som parameter. Fillesingen kommer i [kap. 4.1](/tdt4110/tdt4110-4-1), men vanen legger du deg til nå, mens dataene fremdeles er en ferdig liste."
+  },
+  {
+   "id": "tdt4110-2-2-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-2-oppg-3-o",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger B — kodesporing.) Her endrer den første funksjonen lista den får inn: linja `verdier[i] = verdier[i] + 10` skriver en ny verdi over element nummer `i` i lista. Resten av listeapparatet kommer i [kap. 3.1](/tdt4110/tdt4110-3-1) — her trenger du bare å vite at elementet blir overskrevet. Hva skriver programmet ut?\n\n```python\ndef legg_til_ti(verdier):\n    for i in range(len(verdier)):\n        verdier[i] = verdier[i] + 10\n    return verdier\n\ndef tell_over(verdier, grense):\n    antall = 0\n    for v in verdier:\n        if v > grense:\n            antall = antall + 1\n    return antall\n\ntall = [5, 20, 15]\nnye = legg_til_ti(tall)\nprint(tell_over(nye, 20))\nprint(tell_over(tall, 20))\n```",
+    "solution": "**Sporingstavle**\n\n| Steg | `tall` | `nye` |\n|---|---|---|\n| før kallet | `[5, 20, 15]` | — |\n| etter `legg_til_ti(tall)` | `[15, 30, 25]` | peker på **den samme** lista |\n| `tell_over(nye, 20)` | teller 30 og 25 | 2 |\n| `tell_over(tall, 20)` | samme liste, samme svar | 2 |\n\n**Utskrift:**\n```\n2\n2\n```\n\n**Fellenote:** dette er felle **#15** — aliasing. `nye = legg_til_ti(tall)` gir ikke en ny liste; funksjonen endret elementene i lista den fikk inn, og returnerte den samme lista. Etterpå er `tall` og `nye` to navn på ett og samme objekt. Tror du `tall` er urørt, svarer du 2 og deretter 0.\n\nDet er nettopp derfor bokas funksjoner helst **returnerer et nytt svar** i stedet for å endre det de får inn: da kan den som kaller, stole på sine egne data. Trenger du likevel en kopi før du endrer, kommer verktøyet for det i [kap. 3.1](/tdt4110/tdt4110-3-1).",
+    "hints": [
+     "Endrer funksjonen elementene i lista den får inn, eller lager den en ny liste?",
+     "Hva peker `nye` og `tall` på etter kallet?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-2-t-6",
+   "type": "text",
+   "content": "## Løkke 4 — Konstanter (~5 min)\n\nNoen verdier hører til hele programmet, ikke til én funksjon: prisen per forfalte dag, listen over gyldige distrikter, mva-satsen. De kalles **konstanter**, og fasitene i arkivet håndterer dem på to måter — begge godkjent."
+  },
+  {
+   "id": "tdt4110-2-2-def-8",
+   "type": "definition",
+   "title": "Modulnivå-konstant",
+   "content": "En konstant defineres helt til venstre i fila, utenfor alle funksjoner, og skrives med **store bokstaver**: `GEBYR_PER_BOK = 30`, `MAKS_LAAN = 28`.\n\nStore bokstaver er ikke et krav fra Python — det er et signal til leseren om at verdien ikke endres underveis. Konstanten kan **leses** fritt inne i funksjonene, akkurat som beskrevet i [kap. 2.1](/tdt4110/tdt4110-2-1).\n\n```python\nGEBYR_PER_BOK = 30\n\ndef gebyr(antall_forfalte):\n    return antall_forfalte * GEBYR_PER_BOK\n\nprint(gebyr(3))\n```\n\n**Utskrift:**\n```\n90\n```"
+  },
+  {
+   "id": "tdt4110-2-2-def-9",
+   "type": "definition",
+   "title": "Konstant som parameter",
+   "content": "Den andre formen er å sende konstanten inn som en parameter med **standardverdi**: `def gebyr(antall, sats=30)`.\n\nFordelen er at funksjonen blir uavhengig av resten av fila og kan gjenbrukes med en annen sats. Ulempen er én parameter til å holde styr på.\n\n```python\ndef gebyr(antall_forfalte, sats=30):\n    return antall_forfalte * sats\n\nprint(gebyr(3))\nprint(gebyr(3, 45))\n```\n\n**Utskrift:**\n```\n90\n135\n```\n\n**Begge former gir full pott.** Arkivets løsningsforslag bruker begge — noen ganger en global liste over distrikter, andre ganger den samme lista sendt inn som argument. Velg én og vær konsekvent i besvarelsen."
+  },
+  {
+   "id": "tdt4110-2-2-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-2-oppg-4-o",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger E–I — kodeskriving.) En kommune tar 240 kroner i årsgebyr per resirkuleringsdunk, men satsen kan bli endret.\n\n**a)** Skriv funksjonen `arsgebyr(antall_dunker)` med satsen som en konstant på modulnivå.\n\n**b)** Skriv den samme funksjonen på nytt, denne gangen med satsen som en parameter med standardverdi, og vis et kall som overstyrer satsen til 260.",
+    "solution": "**a)** Konstanten står øverst i fila, med store bokstaver:\n\n```python\nSATS_PER_DUNK = 240\n\ndef arsgebyr(antall_dunker):\n    return antall_dunker * SATS_PER_DUNK\n\nprint(arsgebyr(2))\n```\n\n**Utskrift:**\n```\n480\n```\n\n**b)** Samme funksjon, med satsen som valgfri parameter:\n\n```python\ndef arsgebyr(antall_dunker, sats=240):\n    return antall_dunker * sats\n\nprint(arsgebyr(2))\nprint(arsgebyr(2, 260))\n```\n\n**Utskrift:**\n```\n480\n520\n```\n\nBegge løsningene er riktige, og begge gir full uttelling. Formen i b) er den mest fleksible, fordi funksjonen da kan brukes uendret neste år; formen i a) gir det korteste kallet.\n\n**Sensorblikk:** det som ville trukket ned, er å skrive tallet 240 rett inn i regnestykket flere steder i besvarelsen. Da må satsen endres på flere linjer, og en av dem blir glemt.",
+    "hints": [
+     "I a): definer konstanten over `def`-linja, helt til venstre.",
+     "I b): standardverdien skrives i `def`-linja, ikke inne i kroppen.",
+     "Konstanter skrives med store bokstaver — det er et signal til leseren."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-2-t-7",
+   "type": "text",
+   "content": "## Løkke 5 — Menyløkka (~12 min)\n\nNå setter vi det siste leddet på plass: programmet som *spør brukeren* hva det skal gjøre, og fortsetter å spørre til brukeren vil avslutte.\n\nMenyoppgaven står i omtrent **halvparten av settene (5 av 10)**, alltid som siste deloppgave, og den er lett å score på — for den er nesten identisk hver gang. Lær mønsteret én gang, og skriv det ned nesten uten å tenke."
+  },
+  {
+   "id": "tdt4110-2-2-thm-2",
+   "type": "theorem",
+   "title": "Meny-/`main`-mønsteret",
+   "content": "```text\nwhile True:\n    vis valgene\n    valg = input('Valg: ')\n    if valg == '1':\n        kall funksjon 1\n    elif valg == '2':\n        kall funksjon 2\n    elif valg == 'q':\n        break\n    else:\n        si fra at valget er ugyldig\n```\n\nBlokken over er en mal, ikke kjørbar kode.\n\nFem detaljer avgjør om mønsteret virker, og hver av dem er en felle som er testet på eksamen:\n\n1. **`while True:`** — løkka skal gå til brukeren selv sier stopp, ikke et fast antall ganger.\n2. **`break` i avslutningsgrenen** — det er den eneste veien ut. Uten den går programmet for alltid (felle **#8** — en input-løkke som ikke terminerer riktig).\n3. **Valget er en streng.** `input()` gir alltid tekst, så testen er `valg == '1'` med fnutter — ikke `valg == 1` (felle **#1** — glemt konvertering). Sammenligner du mot tallet 1, er ingen gren noen gang sann.\n4. **`else`-grenen** fanger alt annet, så programmet ikke bare tier ved en skrivefeil.\n5. **Menyen vises på nytt hver runde**, fordi den står inne i løkka."
+  },
+  {
+   "id": "tdt4110-2-2-def-10",
+   "type": "definition",
+   "title": "Menyløkka `while True:` med `break`",
+   "content": "`while True:` er en løkke der betingelsen alltid er sann. Den stopper bare når kroppen kjører et `break` — og det er nettopp det du vil ha i en meny, der antall runder bestemmes av brukeren.\n\n`break` avslutter løkka umiddelbart og hopper til første linje etter den. Står `break` inne i en funksjon, fortsetter funksjonen etter løkka; det er `return` som avslutter selve funksjonen.\n\n```python\nrunde = 0\nwhile True:\n    runde = runde + 1\n    print('Runde', runde)\n    if runde == 3:\n        break\nprint('Ferdig etter', runde, 'runder')\n```\n\n**Utskrift:**\n```\nRunde 1\nRunde 2\nRunde 3\nFerdig etter 3 runder\n```\n\nHer er tellevariabelen der bare for å vise mekanikken. I en ekte meny er det brukerens svar som avgjør når `break` kjøres."
+  },
+  {
+   "id": "tdt4110-2-2-def-11",
+   "type": "definition",
+   "title": "Menyvalget er en streng",
+   "content": "`input()` returnerer **alltid** en streng, uansett hva brukeren skriver. Skriver brukeren `1`, får du tegnet `'1'`, ikke tallet 1.\n\nDerfor testes menyvalg mot strenger: `if valg == '1':`. Testen `if valg == 1:` er ikke en feilmelding — den er noe verre, nemlig en test som alltid er usann, slik at menyen bare svarer «ugyldig valg» uansett hva brukeren gjør.\n\nVil du likevel ha et tall, konverterer du selv med `int(valg)` — men da må du først være sikker på at teksten faktisk er et tall, ellers krasjer programmet. Det er tema i [kap. 1.4](/tdt4110/tdt4110-1-4)."
+  },
+  {
+   "id": "tdt4110-2-2-def-12",
+   "type": "definition",
+   "title": "Dispatcher: `if/elif` som fordeler jobben",
+   "content": "En **dispatcher** er koden som ser på valget og sender arbeidet videre til riktig funksjon. Det er en helt vanlig `if/elif/else`, men rollen er verdt et eget navn: dispatcheren skal *bare* fordele.\n\nHver gren består derfor av ett kall, eventuelt med en utskrift rundt. Regner grenene selv, har dispatcheren overtatt jobben til funksjonene — samme feil som en `main` som regner.\n\nGrenene testes ovenfra og ned, og bare den første sanne kjøres. Rekkefølgen spiller derfor ingen rolle så lenge valgene er ulike."
+  },
+  {
+   "id": "tdt4110-2-2-def-13",
+   "type": "definition",
+   "title": "Avslutningsvalget",
+   "content": "Menyen trenger ett valg som betyr «ferdig». I dette faget skrives det som `'q'` (for *quit*) eller `'0'`, og det **skal stå i menyteksten** — brukeren kan ikke gjette.\n\nVerdien som betyr «stopp», kalles en **sentinel**: en avtalt verdi som ikke er data, men et signal. Den samme ideen brukes når en løkke leser verdier til brukeren skriver tom tekst.\n\nAvslutningsgrenen inneholder `break`, og gjerne en kort avskjedslinje før den."
+  },
+  {
+   "id": "tdt4110-2-2-def-14",
+   "type": "definition",
+   "title": "`else`-grenen: ugyldig valg",
+   "content": "Alt brukeren kan finne på å skrive, som ikke er et av valgene, havner i `else`. Der skriver du en kort beskjed og lar løkka gå en runde til — du skal ikke avslutte programmet fordi noen bommet på tasten.\n\nUten `else` skjer det ingenting synlig ved en skrivefeil: menyen dukker bare opp igjen, og brukeren tror programmet hang seg. Det er en av de tingene sensor ser etter i menyoppgaven, og den koster deg én linje."
+  },
+  {
+   "id": "tdt4110-2-2-eks-3",
+   "type": "example",
+   "title": "Eksempel 3: Menyen for strømprisappen",
+   "problem": "Sett sammen alt: to analysefunksjoner, en funksjon som viser valgene, og menyløkka som dispatcher. Brukeren skal kunne velge 1 for høyeste pris, 2 for snittpris, og q for å avslutte.",
+   "solution": "Analysefunksjonene er de samme som før — `hoyeste` og `snitt`, begge med tomtest og `return`. Menyen legges i sin egen funksjon, og selve valglista i en til:\n\n```python\ndef vis_valg():\n    print('1 - høyeste pris i døgnet')\n    print('2 - snittpris i døgnet')\n    print('q - avslutt')\n\ndef hovedmeny(priser):\n    while True:\n        vis_valg()\n        valg = input('Valg: ')\n        if valg == '1':\n            print('Høyeste:', hoyeste(priser))\n        elif valg == '2':\n            print('Snitt:', snitt(priser))\n        elif valg == 'q':\n            print('Ha det.')\n            break\n        else:\n            print('Ugyldig valg, prøv igjen.')\n```\n\n**Utskrift:** ingen når blokken bare defineres. Under ser du en kjøring, der `hoyeste` og `snitt` er de samme funksjonene som tidligere i kapitlet.\n\n**Kjøring:**\n```\n1 - høyeste pris i døgnet\n2 - snittpris i døgnet\nq - avslutt\nValg: 1        <- skrevet av brukeren\nHøyeste: 1.2\n1 - høyeste pris i døgnet\n2 - snittpris i døgnet\nq - avslutt\nValg: x        <- skrevet av brukeren\nUgyldig valg, prøv igjen.\n1 - høyeste pris i døgnet\n2 - snittpris i døgnet\nq - avslutt\nValg: 2        <- skrevet av brukeren\nSnitt: 0.7875\n1 - høyeste pris i døgnet\n2 - snittpris i døgnet\nq - avslutt\nValg: q        <- skrevet av brukeren\nHa det.\n```\n\nI kjøringen over skrev brukeren `1`, deretter `x` (en skrivefeil), deretter `2` og til slutt `q`. Linjene som er merket med en pil, er det brukeren tastet inn; pilen er lagt til her for lesbarhet og står selvsagt ikke på skjermen. Alt annet er programmets egen utskrift.\n\nFire ting å legge merke til:\n\n- **`vis_valg` er en egen funksjon.** Menyløkka blir kortere og lettere å lese, og valglista står ett sted.\n- **`hovedmeny` regner ingenting.** Den kaller `hoyeste` og `snitt` — den er en dispatcher.\n- **Skrivefeilen `x` fanges av `else`** og koster ingenting: løkka går en runde til.\n- **Prisene sendes inn som parameter.** `hovedmeny` vet ikke hvor de kommer fra, og kan derfor brukes uendret når dataene i Del 4 kommer fra en fil.\n\n**Sensorblikk:** har du fått med `while True`, `break` i q-grenen og fnuttene rundt `'1'`, er hovedstrukturen på plass — og strukturen er det som veier tyngst. Mangler `else`-grenen, er det et lite trekk, ikke et sammenbrudd."
+  },
+  {
+   "id": "tdt4110-2-2-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-2-oppg-5-o",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H — input og meny/`main`-løkke.) Se på menyløkka under.\n\n```text\ndef meny(verdier):\n    vis_valg()\n    valg = input('Valg: ')\n    if valg == 1:\n        print(hoyeste(verdier))\n    if valg == 2:\n        print(snitt(verdier))\n```\n\n**a)** Nevn de tre feilene som gjør at menyen ikke virker som en meny.\n\n**b)** Skriv den rettede versjonen.",
+    "solution": "**a)** De tre feilene:\n\n1. **Ingen løkke.** Menyen spør én gang og avslutter. Den skal stå i en `while True:`.\n2. **Sammenligning mot tall.** `input()` gir en streng, så `valg == 1` er aldri sann (felle **#1** — glemt konvertering). Testen skal være `valg == '1'`.\n3. **Ingen vei ut og ingen `else`.** Det mangler et avslutningsvalg med `break`, og et `else` som sier fra ved ugyldig valg.\n\nBlokken i oppgaveteksten er merket som ikke-kjørbar nettopp fordi den er skrevet med feil i.\n\n**b)** Den rettede versjonen:\n\n```python\ndef meny(verdier):\n    while True:\n        vis_valg()\n        valg = input('Valg: ')\n        if valg == '1':\n            print(hoyeste(verdier))\n        elif valg == '2':\n            print(snitt(verdier))\n        elif valg == 'q':\n            break\n        else:\n            print('Ugyldig valg, prøv igjen.')\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen.\n\n**Sensorblikk:** de tre feilene rammer ulikt. Manglende `break` gjør at programmet ikke kan avsluttes — det er alvorlig. Sammenligningen mot tall gjør at ingenting virker. Manglende `else` er derimot en liten mangel som koster lite. Prioriter i den rekkefølgen hvis du har dårlig tid.",
+    "hints": [
+     "Hvor mange ganger kjører koden slik den står, og hvor mange ganger skal en meny kjøre?",
+     "Hvilken type gir `input()` alltid tilbake?",
+     "Hvordan kommer brukeren seg ut av en `while True:`-løkke?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-2-warn-2",
+   "type": "warning",
+   "title": "Typiske feil i menyoppgaven",
+   "content": "Fire feil går igjen, og alle fire er lette å unngå når du kjenner dem:\n\n1. **Ingen `break` (felle #8 — input-løkka terminerer ikke riktig).** Menyen kjører for alltid, og programmet må avbrytes utenfra. Sjekk alltid at det finnes minst én vei ut av `while True:`.\n2. **Sammenligning mot tall (felle #1 — glemt konvertering).** `if valg == 1:` er aldri sann, fordi `input()` gir strengen `'1'`. Alle grenene bommer, og menyen svarer «ugyldig valg» på alt.\n3. **`if` i stedet for `elif`.** Med flere selvstendige `if`-er testes alle grenene hver runde. Det gir sjelden feil svar her, men det er unødvendig arbeid, og hvis en gren endrer `valg`, kan to grener kjøre.\n4. **Menyteksten står utenfor løkka.** Da vises valgene bare første gang, og brukeren må huske dem resten av økta.\n\nEn femte, som ikke koster poeng, men tid: å legge selve regningen inn i menygrenene i stedet for å kalle funksjonene. Da har du skrevet analysen to ganger — én gang i deloppgaven og én gang i menyen."
+  },
+  {
+   "id": "tdt4110-2-2-t-8",
+   "type": "text",
+   "content": "## Løkke 6 — `main` binder alt sammen (~6 min)\n\nTil slutt trenger programmet et startpunkt: én funksjon som skaffer dataene og setter menyen i gang. Det er `main`, og den er kort.\n\nDette er også formen den siste deloppgaven på eksamen ber om: «Skriv `main` som leser inn dataene og lar brukeren velge blant funksjonene du har laget.»"
+  },
+  {
+   "id": "tdt4110-2-2-def-15",
+   "type": "definition",
+   "title": "`main` som startpunkt",
+   "content": "`main` har tre linjer i ånden, uansett hvor stor oppgaven er:\n\n1. **skaff dataene** — i Del 4 ved å lese en fil, her ved å ha en ferdig liste,\n2. **kall menyen eller kjeden**, med dataene som argument,\n3. **la funksjonene gjøre resten.**\n\nNederst i fila står `main()` alene, uten innrykk. Det er den ene linja som faktisk starter programmet — alt over er definisjoner som venter."
+  },
+  {
+   "id": "tdt4110-2-2-eks-4",
+   "type": "example",
+   "title": "Eksempel 4: Hele appen på plass",
+   "problem": "Bind sammen alt fra kapitlet: analysefunksjonene, menyen, og en `main` som eier dataene. Vis også hva som skjer når brukeren avslutter med det samme.",
+   "solution": "Selve `main` er nesten pinlig kort — og det er meningen:\n\n```python\ndef main():\n    doegnpriser = [0.42, 0.55, 1.20, 0.98, 1.35, 0.61]\n    print('Strømpriser for døgnet, 6 timer registrert.')\n    hovedmeny(doegnpriser)\n```\n\n**Utskrift:** ingen når blokken bare defineres. Under ser du en kjøring der brukeren avslutter med det samme, med `hovedmeny`, `hoyeste` og `snitt` som tidligere i kapitlet.\n\n**Kjøring:**\n```\nStrømpriser for døgnet, 6 timer registrert.\n1 - høyeste pris i døgnet\n2 - snittpris i døgnet\nq - avslutt\nValg: q        <- skrevet av brukeren\nHa det.\n```\n\nLegg merke til hva `main` **ikke** gjør: den har ingen løkke, ingen `if`, ingen regning. Den eier dataene, sier fra hva programmet er, og gir stafettpinnen videre.\n\n**Sensorblikk:** rekkefølgen i fila er likegyldig for Python — alle `def`-ene kjøres før `main()` kalles, så `main` kan godt stå øverst. Det som ikke er likegyldig, er at kallet `main()` står helt til venstre, uten innrykk. Er det rykket inn ved et uhell, er det en del av funksjonen over, og programmet gjør ingenting."
+  },
+  {
+   "id": "tdt4110-2-2-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-2-oppg-6-o",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Programmet under kjøres, og brukeren skriver `2`, deretter `q`.\n\n```text\ndef vis():\n    print('1 - dobbel')\n    print('2 - trippel')\n    print('q - slutt')\n\ndef dobbel(x):\n    return x * 2\n\ndef trippel(x):\n    return x * 3\n\ndef meny(tall):\n    while True:\n        vis()\n        valg = input('Valg: ')\n        if valg == '1':\n            print(dobbel(tall))\n        elif valg == '2':\n            print(trippel(tall))\n        elif valg == 'q':\n            break\n\nmeny(7)\n```\n\n**a)** Hvor mange ganger skrives menyteksten ut?\n\n**b)** Hvilke andre linjer skrives ut, og i hvilken rekkefølge?",
+    "solution": "**Sporingstavle**\n\n| Runde | Utskrift før spørsmålet | Brukerens svar | Hva skjer |\n|---|---|---|---|\n| 1 | de tre menylinjene | `2` | `print(trippel(7))` skriver `21` |\n| 2 | de tre menylinjene | `q` | `break` — løkka avsluttes |\n\n**a)** Menyteksten skrives **to** ganger, én gang per runde i løkka. Menyen står inne i `while`-løkka, så den vises på nytt hver runde — også den runden brukeren avslutter i.\n\n**b)** Etter menyteksten i runde 1 skrives `21`, som er `trippel(7)`. Så kommer menyteksten en gang til, og programmet stopper uten flere utskrifter. Avslutningsgrenen har ingen `print`, bare `break`.\n\nBlokken i oppgaveteksten er merket som ikke-kjørbar, fordi en meny venter på tastetrykk og derfor ikke kan kjøres videre her.\n\n**Fellenote:** den vanligste feilen er å svare «én gang» på a). Menyteksten står inne i løkka, ikke før den — og det er nettopp poenget: brukeren skal se valgene på nytt hver runde.",
+    "hints": [
+     "Står menyteksten inne i løkka eller før den?",
+     "Tell én runde per svar brukeren gir — også det siste svaret.",
+     "Skriver avslutningsgrenen ut noe før `break`?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-2-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-2-2-oppg-7-o",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E–I og H — hele kjeden i miniatyr.) En turnering har lagret poengsummen til hver spiller i lista `poeng`, og navnene i lista `navn`, slik at `navn[i]` hører til `poeng[i]`.\n\n**a)** Skriv `beste(navn, poeng)` som returnerer navnet på spilleren med flest poeng.\n\n**b)** Skriv `antall_over(poeng, grense)` som returnerer hvor mange spillere som har mer enn `grense` poeng.\n\n**c)** Skriv `hovedmeny(navn, poeng)` som gjentatt viser valgene 1 (vis beste spiller), 2 (vis hvor mange som har over 20 poeng) og q (avslutt), og som **kaller** funksjonene fra a) og b).\n\n**d)** Skriv `main` som har dataene og starter menyen.",
+    "solution": "**a)** og **b)** er kjente mønstre fra [kap. 2.1](/tdt4110/tdt4110-2-1) — finn beste over to parallelle lister, og tellermønsteret:\n\n```python\ndef beste(navn, poeng):\n    if len(poeng) == 0:\n        return None\n    beste_navn = navn[0]\n    beste_poeng = poeng[0]\n    for i in range(1, len(poeng)):\n        if poeng[i] > beste_poeng:\n            beste_poeng = poeng[i]\n            beste_navn = navn[i]\n    return beste_navn\n\ndef antall_over(poeng, grense):\n    antall = 0\n    for p in poeng:\n        if p > grense:\n            antall = antall + 1\n    return antall\n\nprint(beste(['Ida', 'Omar', 'Siv'], [17, 24, 21]))\nprint(antall_over([17, 24, 21], 20))\n```\n\n**Utskrift:**\n```\nOmar\n2\n```\n\n**c)** og **d)** er meny-mønsteret, med kall til a) og b) i grenene:\n\n```python\ndef hovedmeny(navn, poeng):\n    while True:\n        print('1 - beste spiller')\n        print('2 - antall over 20 poeng')\n        print('q - avslutt')\n        valg = input('Valg: ')\n        if valg == '1':\n            print('Beste:', beste(navn, poeng))\n        elif valg == '2':\n            print('Over 20:', antall_over(poeng, 20))\n        elif valg == 'q':\n            break\n        else:\n            print('Ugyldig valg, prøv igjen.')\n\ndef main():\n    spillere = ['Ida', 'Omar', 'Siv', 'Ask']\n    resultater = [17, 24, 21, 9]\n    hovedmeny(spillere, resultater)\n```\n\n**Utskrift:** ingen når blokken bare defineres. Under ser du en kjøring der brukeren velger 1, så 2, så q, med `beste` og `antall_over` fra a) og b).\n\n**Kjøring:**\n```\n1 - beste spiller\n2 - antall over 20 poeng\nq - avslutt\nValg: 1        <- skrevet av brukeren\nBeste: Omar\n1 - beste spiller\n2 - antall over 20 poeng\nq - avslutt\nValg: 2        <- skrevet av brukeren\nOver 20: 2\n1 - beste spiller\n2 - antall over 20 poeng\nq - avslutt\nValg: q        <- skrevet av brukeren\n```\n\n**Sensorblikk:** fire ting gir uttelling, i denne rekkefølgen:\n\n- **Menyen kaller funksjonene fra a) og b)** i stedet for å gjenta løkkene. Det er dette deloppgaven egentlig tester.\n- **`main` eier dataene** og sender dem videre. Ingen av de andre funksjonene vet hvor tallene kommer fra.\n- **Grensen 20 står i menygrenen**, ikke inne i `antall_over` — da kan den samme funksjonen brukes med en annen grense senere.\n- **Tomtilfellet** i a) gjør besvarelsen robust.\n\n**Midtnivåbesvarelse (B):** en løsning som gjør a), b) og c) riktig, men lar `main` mangle og i stedet skriver `hovedmeny(spillere, resultater)` rett i fila, er en god besvarelse. Strukturen er der, kjeden er der, gjenbruket er der. Det som skiller den fra toppen, er at siste deloppgave ba om en `main` — og at tomtilfellet mangler. Riktig struktur belønnes selv med slike hull.",
+    "hints": [
+     "Til a): du trenger to variabler før løkka, og begge oppdateres i samme `if`.",
+     "Til c): hver menygren skal inneholde ett kall — ingen løkke.",
+     "Til c): husk fnuttene rundt `'1'`, og at `break` er den eneste veien ut.",
+     "Til d): `main` skal ha dataene og ett kall, ingenting mer."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-2-2-warn-3",
+   "type": "warning",
+   "title": "Typiske feil i gjenbruk og struktur",
+   "content": "De fem som koster mest på programmeringsoppgaven:\n\n1. **Kopiert kode i stedet for kall.** Den samme løkka i to deloppgaver gir riktig svar, men ikke uttelling for gjenbruk — og sensor ser uttrykkelig etter at senere deloppgaver bruker de tidligere.\n2. **Hver funksjon skaffer dataene selv.** Innlesingskoden havner fire steder, funksjonene kan ikke brukes på andre data, og kjeden forsvinner. `main` skaffer dataene **én gang**.\n3. **`main` som gjør jobben selv.** Løkker og regnestykker i `main` betyr at deloppgavene ikke kan vurderes hver for seg. `main` delegerer.\n4. **Menyløkke uten `break` (felle #8 — input-løkka terminerer ikke riktig)**, eller med sammenligning mot tall i stedet for streng (felle **#1** — glemt konvertering, `valg == 1` er aldri sann).\n5. **Funksjoner som skriver ut i stedet for å returnere.** Da kan ikke neste ledd bruke svaret, og hele kjeden stopper. Utskriften hører i menyen eller i `main`.\n\nÉn ting til, som ikke er en feil, men et valg som lønner seg: skriv én kort setning om det du antar (hva som skjer ved poenglikhet, om grensen er `>` eller `>=`). Sensor ber uttrykkelig om at antagelser skrives ned, og det koster deg ti sekunder."
+  },
+  {
+   "id": "tdt4110-2-2-coll-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-2-2-coll-api-t",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| Kall til egen funksjon | Skrives likt inne i en annen funksjon som på toppnivå. Funksjonen må være **definert før kallet kjøres**, ikke før det står i fila. |\n| Hjelpefunksjon | Kort funksjon som gjør en bit av arbeidet flere andre trenger. Returnerer alltid; skriver aldri ut. |\n| Kjede | Utverdien fra ett ledd er innverdien til det neste. Krever at hvert ledd har `return`. |\n| `main()` | Programmets startfunksjon: skaffer dataene, kaller de andre, viser resultatet. Kalles med `main()` helt til venstre nederst i fila. |\n| Delegering | `main` og menyen har kall og utskrift, aldri løkker eller regnestykker. |\n| Data som parameter | Dataene skaffes **én gang** og sendes videre. Ingen funksjon henter dem på egen hånd. |\n| Modulnivå-konstant `SATS = 240` | Defineres utenfor alle funksjoner, med store bokstaver. Kan **leses** inne i funksjonene. |\n| Konstant som parameter `def f(x, sats=240)` | Alternativ form med standardverdi. Begge former gir full pott; vær konsekvent. |\n| `while True:` | Løkke uten teller. Stopper bare på `break`; uten `break` går den for alltid. |\n| `break` | Avslutter løkka umiddelbart og hopper til første linje etter den. Avslutter ikke funksjonen — det gjør `return`. |\n| `valg = input('Valg: ')` | Returnerer **alltid** en streng. Ledeteksten skrives uten linjeskift etter seg. |\n| `if valg == '1':` | Menyvalg testes mot **streng med fnutter**. `valg == 1` er aldri sann og gir en meny der ingen gren treffer. |\n| `elif` | Testes bare hvis alle foregående grener var usanne. Bare én gren kjøres per runde. |\n| `else` i menyen | Fanger ugyldige valg og skriver en kort beskjed. Løkka går videre. |\n| Sentinel (`'q'`, `'0'`) | Avtalt verdi som betyr «stopp». Skal stå i menyteksten, og grenen inneholder `break`. |\n| Menytekst inne i løkka | Vises på nytt hver runde. Står den før løkka, ser brukeren valgene bare én gang. |\n| `str(tall)` | Nødvendig når et tall skal limes sammen med en streng med `+`; uten den gir `+` en `TypeError`. |\n| Aliasing | `nye = f(gammel)` gir ikke en ny liste hvis `f` endret elementene i lista den fikk inn — begge navn peker på samme liste (felle #15). |\n\n**Formen som gjentar seg:** `main` skaffer data, sender dem til menyen, menyen dispatcher til analysefunksjonene, analysefunksjonene returnerer, og utskriften skjer i menyen. Det er hele Del 7 i miniatyr."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

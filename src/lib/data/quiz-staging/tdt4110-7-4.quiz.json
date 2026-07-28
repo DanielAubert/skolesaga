@@ -1,0 +1,162 @@
+[
+ {
+  "question": "Hvorfor startes `beste_verdi` på `None` og ikke på 0 i mønsteret «finn beste»?",
+  "options": [
+   "Fordi ingen rad slår 0 når alle verdiene i tabellen er negative",
+   "Fordi `None` gjør at løkka avslutter av seg selv på tom tabell",
+   "Fordi 0 gir `TypeError` når det sammenlignes med et flyttall",
+   "Fordi `None` gjør at den siste raden alltid vinner sammenligningen"
+  ],
+  "explanation": "Med 0 som startverdi vinner ingen negativ verdi, og funksjonen svarer 0 — et tall som ikke finnes i dataene. `None` lar første rad vinne. Løkkas lengde påvirkes ikke, `int` mot `float` er lovlig, og det er den **beste** raden som vinner, ikke den siste."
+ },
+ {
+  "question": "Hva gir `max(tabell)` når `tabell` er en 2D-liste med rader `[navn, pris]`?",
+  "options": [
+   "Raden med det alfabetisk siste navnet, siden lister veies elementvis",
+   "Raden med den høyeste prisen, siden tall veier tyngre enn tekst",
+   "Ei liste med det største elementet fra hver kolonne satt sammen",
+   "En `TypeError`, siden tekst og tall ikke kan sammenlignes med hverandre"
+  ],
+  "explanation": "To lister sammenlignes element for element fra venstre, så første kolonne avgjør. Prisen ser Python aldri på med mindre du gir en `key`. Ingen kolonner blandes, og feilen oppstår ikke fordi det er navn mot navn som sammenlignes."
+ },
+ {
+  "question": "Hva gjør `key`-parameteren i `max(tabell, key=lambda rad: rad[2])`?",
+  "options": [
+   "Bestemmer hva som sammenlignes, men gir hele raden som vant",
+   "Bestemmer hva som returneres, altså verdien i kolonne 2 selv",
+   "Filtrerer bort radene der kolonne 2 mangler en verdi",
+   "Sorterer tabellen på kolonne 2 før den største velges"
+  ],
+  "explanation": "`key` styrer rangeringen; elementet returneres helt. Vil du ha selve verdien, henter du `rad[2]` etterpå. Ingen rader filtreres bort, og tabellen sorteres ikke — `max` går gjennom den én gang."
+ },
+ {
+  "question": "Hva er forskjellen på `d[k] = d.get(k, 0) + 1` og `d[k] = d.get(k, 0) + rad[j]`?",
+  "options": [
+   "Den første teller forekomster, den andre summerer en verdi per nøkkel",
+   "Den første virker på lister, den andre virker på 2D-tabeller",
+   "Den første krever at nøkkelen finnes fra før, den andre gjør ikke",
+   "Den første gir alltid heltall, den andre gir alltid flyttall som svar"
+  ],
+  "explanation": "Forskjellen er hva som legges til: 1 gir et antall, radens verdi gir en sum. Begge bruker `get` og krever ingen eksisterende nøkkel, begge virker på det samme, og resultattypen følger av dataene."
+ },
+ {
+  "question": "Hvorfor krasjer `d[k] += 1` uten `get` første gang nøkkelen dukker opp?",
+  "options": [
+   "Fordi uttrykket først slår opp `d[k]`, og oppslaget gir `KeyError`",
+   "Fordi `+=` ikke er tillatt på verdier som ligger i en ordbok",
+   "Fordi ordbøker krever at alle nøkler opprettes før løkka starter",
+   "Fordi `+=` bare virker på tall, og verdien er ennå ikke et tall"
+  ],
+  "explanation": "`d[k] += 1` betyr `d[k] = d[k] + 1`, og høyre side leses først — et oppslag på en ukjent nøkkel gir `KeyError`. `+=` er fullt lovlig på ordbokverdier, og nøkler kan opprettes underveis."
+ },
+ {
+  "question": "Hva er den avgjørende linja i grupperingsmønsteret `{nøkkel: [rader]}`?",
+  "options": [
+   "`if rad[k] not in d: d[rad[k]] = []` — den indre lista må finnes først",
+   "`d[rad[k]] = rad` — verdien må settes inn før den kan utvides",
+   "`return d` — ordboka må returneres, ellers går grupperingen tapt",
+   "`for rad in tabell[1:]` — overskriftsraden må holdes helt utenfor gruppene"
+  ],
+  "explanation": "Uten opprettelsen krasjer `.append` med `KeyError`, fordi oppslaget skjer før metoden kalles. Tilordningen `d[rad[k]] = rad` ville tvert imot ødelagt grupperingen, og de to andre linjene er riktige, men ikke det som skiller mønsteret fra en teller."
+ },
+ {
+  "question": "Hva er forskjellen på `d.get(k, [])` og `d.setdefault(k, [])`?",
+  "options": [
+   "`setdefault` setter nøkkelen inn i ordboka, `get` gjør det ikke",
+   "`get` setter nøkkelen inn i ordboka, `setdefault` gjør det ikke",
+   "`setdefault` virker bare på lister, `get` virker på alle verdityper",
+   "`get` gir en kopi av verdien, `setdefault` gir den originale verdien"
+  ],
+  "explanation": "Nettopp innsettingen er forskjellen, og den er grunnen til at `setdefault` kan brukes til gruppering: lista som returneres, ligger allerede i ordboka, så `.append` på den virker. Begge takler alle verdityper og gir den samme verdien, ikke en kopi."
+ },
+ {
+  "question": "Hva returnerer `max(d, key=d.get)` for en ordbok `d`?",
+  "options": [
+   "Nøkkelen som har den største verdien i ordboka",
+   "Den største verdien i ordboka, uten nøkkelen",
+   "Et par med både nøkkelen og verdien som vant",
+   "Den alfabetisk siste nøkkelen, siden `max` går over nøkler"
+  ],
+  "explanation": "`max` går over nøklene og bruker `d.get` til å rangere dem, så det er nøkkelen som returneres. Verdien henter du med `d[svar]` etterpå. Uten `key` ville du fått den alfabetisk siste nøkkelen."
+ },
+ {
+  "question": "En analysefunksjon skal svare på «hvor mye har hver mekaniker omsatt for». Hvilken struktur bygger den?",
+  "options": [
+   "En ordbok med mekanikeren som nøkkel og en sum som verdi",
+   "En ordbok med mekanikeren som nøkkel og ei liste priser som verdi",
+   "En 2D-liste med én rad per mekaniker og prisene i kolonnene",
+   "En flat liste med alle prisene, sortert etter mekanikernavn"
+  ],
+  "explanation": "Ordene «hver» og «hvor mye» peker på summeringen med ett tall per nøkkel. Ei liste per nøkkel svarer på «hvilke priser», og de to listeformene krever en runde til før spørsmålet er besvart."
+ },
+ {
+  "question": "Hva skjer hvis du glemmer `tabell[1:]` og går over hele tabellen i en analysefunksjon?",
+  "options": [
+   "Overskriftsraden behandles som data, og svaret blir feil eller krasjer",
+   "Python hopper automatisk over overskriftsraden i en `for`-løkke",
+   "Funksjonen gir riktig svar, men bruker litt lengre tid på store tabeller",
+   "Overskriftsraden gir `KeyError`, siden den ikke har tallverdier i seg"
+  ],
+  "explanation": "For løkka er overskriftsraden en rad som alle andre, så teksten `'pris'` blir sammenlignet eller talt. Python hopper ikke over noe av seg selv, og feilen er `TypeError` eller et feil antall, ikke `KeyError`."
+ },
+ {
+  "question": "Hva gir `sum(d)` når `d` er ordboka `{'Rune': 1080, 'Selma': 2390}`?",
+  "options": [
+   "En `TypeError`, siden `sum` summerer nøklene, som er tekst",
+   "3470, siden `sum` legger sammen verdiene i ordboka",
+   "2, siden `sum` teller antall nøkkelpar i ordboka",
+   "En tom sum lik 0, siden en ordbok ikke kan summeres direkte"
+  ],
+  "explanation": "Å gå gjennom en ordbok gir nøklene, så `sum` prøver å legge sammen tekst og gir `TypeError`. Vil du ha 3470, skriver du `sum(d.values())`; antall par får du med `len(d)`."
+ },
+ {
+  "question": "Hvorfor bør `tabell[0].index('pris')` stå utenfor analyseløkka?",
+  "options": [
+   "Fordi oppslaget ellers gjentas én gang per rad i tabellen",
+   "Fordi oppslaget ellers gir et nytt kolonnenummer for hver rad",
+   "Fordi variabelen ellers blir lokal og ikke synlig etter løkka",
+   "Fordi overskriftsraden ellers blir forbrukt av det første oppslaget"
+  ],
+  "explanation": "`.index` går gjennom overskriftsraden på nytt hver gang, så inne i løkka gjøres den samme jobben én gang per rad. Svaret er det samme hver gang, ingenting forbrukes, og variabler i en løkkekropp er synlige etterpå."
+ },
+ {
+  "question": "Hva returnerer mønsteret «finn beste» med `None` som startverdi når tabellen bare har en overskriftsrad?",
+  "options": [
+   "`None`, siden løkka aldri kjører og startverdien blir stående",
+   "En `IndexError`, siden `tabell[1]` ikke finnes i tabellen",
+   "Overskriftsraden, siden den er den eneste raden som finnes",
+   "En `ValueError`, på samme måte som `max` på en tom liste"
+  ],
+  "explanation": "`tabell[1:]` er ei tom liste, så løkkekroppen kjører null ganger og `beste` er fortsatt `None`. Det er en av grunnene til at mønsteret skrives slik — snarveien `max` ville derimot gitt `ValueError`."
+ },
+ {
+  "question": "En oppgave sier «alle bydelene som har meldt inn denne avvikstypen, uten gjentakelser». Hva må du legge til i grupperingen?",
+  "options": [
+   "En test på `if verdi not in d[nøkkel]:` rett før `append`",
+   "En test på `if nøkkel not in d:` rett før `append`",
+   "En sortering av den indre lista etter at løkka er ferdig",
+   "En teller som holder styr på hvor mange ganger hver verdi kom"
+  ],
+  "explanation": "Duplikatsjekken gjelder innholdet i den indre lista, så testen må se på verdien. Testen på nøkkelen oppretter bare lista og er allerede med. Sortering og telling endrer ikke om verdien står der flere ganger."
+ },
+ {
+  "question": "Hvilken av disse formene gir riktig svar på «gjennomsnittlig pris» også når tabellen ikke har datarader?",
+  "options": [
+   "En løkke som teller selv, med `if antall == 0: return None` først",
+   "`sum(priser) / len(priser)` der `priser` er kolonnen trukket ut",
+   "`sum(priser) / len(tabell)` der `tabell` inkluderer overskriftsraden",
+   "`max(priser) / min(priser)` som forholdstall mellom ytterpunktene"
+  ],
+  "explanation": "Bare den eksplisitte tomtesten hindrer divisjonen på null. Uttrykket med `len(priser)` krasjer med `ZeroDivisionError`, `len(tabell)` gir feil nevner også på ikke-tomme tabeller, og forholdstallet svarer på et helt annet spørsmål."
+ },
+ {
+  "question": "Hva er sensors syn på å bruke `max` og `sum` i stedet for å skrive løkkene selv i dette faget?",
+  "options": [
+   "Begge former er sidestilt og gir full pott, og fasitene bruker snarveiene",
+   "Løkkene gir full pott, mens snarveiene trekker litt fordi de skjuler arbeidet",
+   "Snarveiene gir full pott, mens løkkene trekker litt fordi de er lengre",
+   "Snarveiene godtas bare når oppgaveteksten nevner dem uttrykkelig"
+  ],
+  "explanation": "Emnet er pragmatisk: de offisielle løsningsforslagene bruker `max`, `min`, `sum` og `sorted` fritt, og flere korrekte løsninger sidestilles. Verken form trekker, og ingen av dem må være nevnt i oppgaveteksten for å være lov."
+ }
+]
