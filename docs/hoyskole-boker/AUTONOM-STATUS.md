@@ -14,8 +14,8 @@ og undervises til høsten — belegg i valgnotatet nederst.
 |---|---|---|
 | Steg 0 — skjelettport | ✅ OK (39 kap) | ✅ OK (50 kap) |
 | Steg 0 — BOKCONFIG.json | ✅ | ✅ |
-| Steg 0 — BYGGEKONTRAKT.md | ⏳ | ⏳ |
-| Steg 1 — byggebølge | — | — |
+| Steg 0 — BYGGEKONTRAKT.md | ✅ 1 409 linjer | ✅ 1 515 linjer |
+| Steg 1 — byggebølge | ⏳ 4 av 9 agenter ute | ⏳ 3 av 15 agenter ute |
 | Steg 2 — wiring | — | — |
 | Steg 3 — verifisering | — | — |
 | Steg 4 — sluttport + deploy | — | — |
@@ -39,6 +39,16 @@ Tegnforklaring: ✅ ferdig · ⏳ pågår · ⛔ blokkert · — ikke startet
 ---
 
 ## Logg
+
+**28. juli, byggebølge startet** — 7 agenter samtidig (under taket på ~8 der
+API-et stallet 16. juni). tdt4110: Del 0+1, 2, 3, 4. med1100: Del 0, 1, 2+3.
+
+**28. juli, portfiks før start** — `sjekk-kode.py` avviste ALL rekursjon med
+begrunnelsen «utenfor pensum». Sant for in1900, men rekursjon er pensum i
+TDT4110: ~60 % av settene, eget teorikapittel 5.2. Porten ville avvist en
+korrekt bok. Gjort emnebevisst via `REKURSJON_ER_PENSUM` framfor å svekkes;
+in1900 regresjonstestet og avviser fortsatt rekursjon over 850 kodeblokker.
+Funnet av kontrakt-agenten FØR byggingen, ikke ved sluttporten. Commit `2aeb05a42`.
 
 **28. juli** — Steg 0 startet. Skjelettportene grønne for begge.
 BOKCONFIG skrevet. Byggekontrakter under arbeid.
