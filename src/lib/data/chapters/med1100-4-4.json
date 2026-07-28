@@ -1,0 +1,326 @@
+{
+  "id": "med1100-4-4",
+  "courseId": "med1100",
+  "chapterNumber": "4.4",
+  "title": "Utvalgsstørrelse, styrke og binomisk fordeling",
+  "description": "Beregne nødvendig utvalgsstørrelse for gitt styrke, og bruke binomisk fordeling med normaltilnærming.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne regne ut nødvendig utvalgsstørrelse per gruppe for en gitt styrke, med riktig styrkekonstant, opprunding og frafallsjustering",
+    "kunne forklare hva styrken til en studie er, og skille den fra signifikansnivået",
+    "kunne begrunne hvordan utvalgsstørrelsen endrer seg når den minste relevante forskjellen eller styrken endres",
+    "kunne regne forventning og standardavvik i en binomisk fordeling, og avgjøre om normaltilnærmingen kan brukes"
+  ],
+  "content": [
+    {
+      "id": "med1100-4-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hvilken eksamen trener du her?** **Blokk 1** — den digitale eksamenen (i **Inspera**, UiOs digitale eksamenssystem) på rundt fem timer, der **statistikkseksjonen teller 40 prosent**. MED1100 har tre **blokkeksamener**: tre separate eksamensdager med ulikt format, som alle må bestås hver for seg.\n\n**Hvor ofte kommer det?** **Utvalgsstørrelse og styrke er observert i rundt 10 av de 16 lesbare sittingene** av blokk 1 fra 2021 til 2026 (én «sitting» = én gjennomføring, ordinær eller utsatt), og **binomisk fordeling med normaltilnærming i rundt 7 av 16**. Det er lavere enn konfidensintervall og hypotesetest, men høyt nok til at temaet må sitte — og oppgavene er blant de mest mekaniske i hele statistikkdelen når prosedyren først er innøvd.\n\n**I hvilken form?** **B1-STAT** — statistikkoppgaven i blokk 1, besvart i fritekst med vist utregning. Den klassiske formen er: *hvor mange må inkluderes i hver gruppe for å ha 90 prosent styrke til å påvise en forskjell på Δ, og hvor mange må rekrutteres når man regner med frafall?* I tillegg kommer **B1-MC** — flervalgsspørsmålet: *hvilken konstant hører til 80 prosent styrke?* og *hva skjer med n når Δ halveres?*\n\n**Hva sensor ser etter, konkret.** Fire ting: at du bruker **riktig styrkekonstant**, at du **runder opp til hele personer**, at du legger på **frafall etter opprundingen**, og at du sier **hvor mange per gruppe** kontra **totalt**. Å levere «n = 131,25» er ikke et svar — man kan ikke inkludere en kvart person.\n\n**Hjelpemidler.** **Enkel kalkulator** (Citizen SR-270X eller Casio FX-82EX), **statistiske tabeller** og **utdelt formelsamling**. Formelen for utvalgsstørrelse og styrkekonstantene ligger foran deg på pulten. Det du trenes på her, er å vite **hvilke tall som skal inn hvor** — særlig hva den minste klinisk relevante forskjellen Δ er, og hvorfor den er noe helt annet enn den forskjellen man håper å finne.\n\n**Hvordan rettes det?** **Ingen minuspoeng i blokk 1 — svar alltid.** Riktig framgangsmåte premieres over eksakt tallsvar. Vurderingen er **bestått / ikke bestått**.\n\n**Tid:** kapitlet er delt i tre løkker på omtrent 14, 16 og 14 minutter. Resten går til begrepsbank og repetisjon. Regner du eksemplene selv med kalkulator, legg på rundt halvparten."
+    },
+    {
+      "id": "med1100-4-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet snur spørsmålet fra de forrige: i stedet for å analysere data man har, planlegger man hvor mye data man trenger. Tre ting derfra brukes direkte.\n\n**Fra [kap. 4.2](/med1100/med1100-4-2): type II-feil og «behold $H_0$».** En **type II-feil** er å beholde en nullhypotese som faktisk er falsk — altså å overse en effekt som virkelig finnes. Sannsynligheten for det kalles $\\beta$. Hele dette kapitlet handler om å holde $\\beta$ nede, og om at «ikke påvist» ofte betyr «for lite utvalg» (**felle E4**).\n\n**Fra [kap. 4.1](/med1100/med1100-4-1): standardfeilen og kvadratrotloven.** $\\text{SE} = s/\\sqrt n$, og derfor krymper usikkerheten som $1/\\sqrt n$. Vil du halvere den, må du firedoble utvalget. Den samme kvadratrotloven ligger under hele utvalgsstørrelsesformelen — det er derfor $n$ vokser med kvadratet når Δ halveres.\n\n**Fra [kap. 4.1](/med1100/med1100-4-1): normaltilnærmingsbetingelsen.** Både $n\\hat p \\ge 5$ og $n(1-\\hat p) \\ge 5$. Den kommer tilbake her, nå som betingelsen for at en binomisk fordeling kan behandles som en normalfordeling.\n\n**Har du hatt dette før?** [Feiltyper og teststyrke (Matematikk S2 5.3)](/s2/s2-5-3), [Feilmargin og utvalgsstørrelse (Matematikk S2 5.4)](/s2/s2-5-4) og [Binomisk fordeling (Matematikk S1 6.2)](/s1/s1-6-2) er de nærmeste parallellene. Har du det ikke, trenger du det ikke — alt innføres under.\n\nDe nye begrepene — *styrke*, *minste klinisk relevante forskjell*, *styrkekonstant*, *frafallsjustering* og *binomisk fordeling* — forklares fra grunnen av."
+    },
+    {
+      "id": "med1100-4-4-nokkelfakta",
+      "type": "collapsible",
+      "title": "Nøkkelfakta- og formelliste",
+      "buttonText": "Vis nøkkelfakta og formler",
+      "content": [
+        {
+          "id": "med1100-4-4-nokkelfakta-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $n$ | nødvendig antall **per gruppe** | personer |\n| $\\sigma$ | standardavviket til målingen i befolkningen | målingens enhet |\n| $\\Delta$ | minste klinisk relevante forskjell man vil kunne påvise | målingens enhet |\n| $k$ | styrkekonstanten, avhengig av ønsket styrke | ingen |\n| $\\alpha$ | signifikansnivået, som regel 0,05 | andel |\n| $\\beta$ | sannsynligheten for type II-feil | andel |\n| $1-\\beta$ | **styrken** | andel |\n| $p$ | sannsynligheten for utfallet i ett enkelt forsøk | andel (0–1) |\n| $\\mu$ | forventet antall i en binomisk fordeling | antall |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Utvalgsstørrelse per gruppe:}\\qquad n = 2\\left(\\frac{\\sigma}{\\Delta}\\right)^2 \\cdot k$$\n\n*Bruksbetingelse:* gjelder sammenligning av **to like store grupper** med en kontinuerlig måling, ved tosidig 5 prosent signifikansnivå. Svaret er antall **per gruppe** — totalt trengs $2n$. **Rund alltid opp**, og legg frafall på **etter** opprundingen.\n\n$$\\text{Styrkekonstanten } k: \\qquad k \\approx 10{,}5 \\text{ ved } 90 \\text{ prosent styrke}, \\qquad k \\approx 7{,}9 \\text{ ved } 80 \\text{ prosent styrke}$$\n\nBegge ved tosidig 5 prosent nivå. Høyere styrke krever større $k$ og dermed flere deltakere.\n\n$$\\text{Frafallsjustering:}\\qquad n_{\\text{rekruttert}} = \\frac{n}{1 - \\text{frafallsandel}}$$\n\n*Bruksbetingelse:* regnes **etter** at $n$ er rundet opp, og resultatet rundes opp igjen. Å gange med $1 + \\text{frafallsandel}$ i stedet for å dele er en vanlig feil som gir for få deltakere.\n\n$$\\text{Binomisk fordeling:}\\qquad \\mu = np, \\qquad \\sigma = \\sqrt{np(1-p)}$$\n\n*Bruksbetingelse:* $n$ uavhengige forsøk med samme sannsynlighet $p$ i hvert.\n\n$$\\text{Normaltilnærming til binomisk:}\\qquad \\text{krever } np \\ge 5 \\text{ og } n(1-p) \\ge 5$$\n\nEr betingelsen oppfylt, kan sannsynligheter regnes med $z = (x - \\mu)/\\sigma$ mot normalfordelingstabellen.\n\n**Kritiske verdier og konstanter**\n\n| Størrelse | Verdi |\n|---|---|\n| Styrkekonstant $k$, 90 prosent styrke | 10,5 |\n| Styrkekonstant $k$, 80 prosent styrke | 7,9 |\n| Kritisk $z$-verdi, tosidig 5 prosent | 1,96 |\n| Grense for normaltilnærming | $np \\ge 5$ og $n(1-p) \\ge 5$ |\n\n**Merk om hjelpemidlene:** i blokk 1 ligger **formelsamlingen og de statistiske tabellene på pulten**. Verken formelen eller konstantene er pugg. Det du trenes på, er å identifisere hva $\\sigma$ og $\\Delta$ er i den oppgaven du sitter med, og å behandle opprunding og frafall riktig.\n\n**Faste kontraster som skiller riktig fra nesten riktig**\n\n- **$\\Delta$ er den minste forskjellen som ville betydd noe**, ikke den man håper å finne og ikke den man observerte i en pilotstudie.\n- **Styrke ($1-\\beta$) og signifikansnivå ($\\alpha$) er to forskjellige tall** som styrer to forskjellige feiltyper.\n- **Svaret er per gruppe.** Totalt trengs det dobbelte.\n- **Runder man ned, mister man styrken man nettopp regnet ut.** Rund alltid opp."
+        }
+      ]
+    },
+    {
+      "id": "med1100-4-4-oversikt",
+      "type": "text",
+      "content": "En studie er ferdig, resultatet er «ingen signifikant forskjell», og alle trekker på skuldrene. Men var studien i det hele tatt stor nok til å kunne finne en forskjell om den fantes?\n\nOverraskende ofte er svaret nei. En studie med for få deltakere er som å lete etter noe i mørket: at du ikke fant det, er ikke et funn. Denne innsikten har et navn — **styrke** — og den er grunnen til at antall deltakere planlegges **før** studien starter, ikke etter.\n\nKapitlet gir deg to ting:\n\n- **Utvalgsstørrelsesregningen:** hvor mange trengs i hver gruppe for å ha rimelig sjanse til å påvise en forskjell av en gitt størrelse? Det er én formel, tre tall inn, og noen regler om opprunding og frafall som er akkurat der de fleste poengene glipper.\n- **Binomisk fordeling:** hvordan man regner forventning og spredning når man teller hvor mange av $n$ som får et utfall — og når man kan bytte den ut med normalfordelingen.\n\nOg den ene sammenhengen som gjør flest oppgaver mulige å svare på uten å regne: **halverer du forskjellen du vil kunne påvise, firedobles antallet du trenger.** Det er kvadratrotloven fra [kap. 4.1](/med1100/med1100-4-1), snudd på hodet."
+    },
+    {
+      "id": "med1100-4-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Styrke, feiltyper og den minste forskjellen som betyr noe (~14 min)\n\nFør formelen kommer de tre tallene som skal inn i den. To av dem er tekniske. Det tredje — Δ — er et faglig valg, og det er der oppgavene har sin tyngde."
+    },
+    {
+      "id": "med1100-4-4-def-styrke",
+      "type": "definition",
+      "title": "Styrke ($1-\\beta$)",
+      "content": "Sannsynligheten for at studien **påviser** en effekt som faktisk finnes.\n\nEr styrken 90 prosent, vil studien i ni av ti tilfeller ende med å forkaste nullhypotesen, gitt at forskjellen virkelig er minst så stor som den man dimensjonerte for. I det tiende tilfellet begår den en **type II-feil** og overser effekten.\n\n**Standardnivåene:** 80 prosent er vanlig minimum, 90 prosent er det man sikter mot når det er mulig. Under 80 prosent regnes en studie som **underpowered**.\n\n**Det som skiller styrke fra signifikansnivå:** $\\alpha$ styrer hvor ofte man slår falsk alarm (type I), $1-\\beta$ styrer hvor ofte man treffer når det faktisk er noe der (type II). Å blande dem — for eksempel å si «5 prosent styrke» — er en av de sikreste måtene å vise at forskjellen ikke sitter."
+    },
+    {
+      "id": "med1100-4-4-def-delta",
+      "type": "definition",
+      "title": "Minste klinisk relevante forskjell ($\\Delta$)",
+      "content": "Den **minste** forskjellen som ville hatt praktisk betydning — den man ikke vil risikere å overse.\n\n**Dette er et faglig valg, ikke et statistisk.** Det er ikke:\n\n- forskjellen man **håper** å finne,\n- forskjellen en pilotstudie **tilfeldigvis viste**,\n- eller den forskjellen som gjør at $n$ blir behagelig liten.\n\n**Hvorfor valget er så avgjørende:** $\\Delta$ står i nevneren og er **kvadrert**. Halverer du $\\Delta$, firedobles $n$. Det er derfor et urealistisk lite $\\Delta$ gjør studien umulig å gjennomføre, mens et for stort $\\Delta$ gir en studie som bare kan oppdage forskjeller så store at ingen tvilte på dem.\n\n**Enheten:** samme som målingen selv. Er $\\sigma$ oppgitt i millimol per liter, skal $\\Delta$ være det også — og forholdet $\\sigma/\\Delta$ blir enhetsløst, som det skal."
+    },
+    {
+      "id": "med1100-4-4-def-k",
+      "type": "definition",
+      "title": "Styrkekonstanten ($k$)",
+      "content": "Tallet i utvalgsstørrelsesformelen som bærer både ønsket styrke og signifikansnivået:\n\n$$k \\approx 10{,}5 \\text{ ved } 90 \\text{ prosent styrke}, \\qquad k \\approx 7{,}9 \\text{ ved } 80 \\text{ prosent styrke}$$\n\nBegge ved tosidig 5 prosent nivå. Verdiene står i formelsamlingen og skal ikke pugges — men du må vite **hvilken av dem som hører til hvilken styrke**, for det er nettopp det flervalgsspørsmålene tester.\n\n**Retningen å huske:** høyere styrke krever **større** $k$ og dermed flere deltakere. Å gå fra 80 til 90 prosent styrke koster $10{,}5/7{,}9 = 1{,}33$, altså **33 prosent flere deltakere**. Det er en billig oppgradering sammenlignet med å halvere $\\Delta$, som koster fire ganger så mange.\n\n**Hvor tallene kommer fra:** $k = (z_{\\alpha/2} + z_\\beta)^2$, altså kvadratet av summen av to kritiske verdier. Det er stoff du bør **kjenne til**, ikke noe du forventes å utlede."
+    },
+    {
+      "id": "med1100-4-4-def-underpowered",
+      "type": "definition",
+      "title": "Underpowered studie",
+      "content": "En studie med for lav styrke til å påvise den forskjellen den skulle undersøke — i praksis under 80 prosent.\n\n**Konsekvensen, og hele koblingen til feilkoderegisteret:** en underpowered studie som konkluderer «ingen signifikant forskjell» har ikke vist at det ikke er noen forskjell. Den har vist at den ikke var stor nok til å avgjøre saken. Å lese resultatet som bevis for fravær er **felle E4**.\n\n**Kjennetegnet du ser etter i en oppgave:** et bredt konfidensintervall som dekker nullverdien og samtidig strekker seg langt ut på den ene siden. Det er signaturen til en studie som ikke har avgjort noe som helst.\n\n**Formuleringen som er riktig:** «forskjellen er ikke påvist, og med denne utvalgsstørrelsen kunne studien uansett ikke ha påvist en forskjell mindre enn Δ»."
+    },
+    {
+      "id": "med1100-4-4-th-n",
+      "type": "theorem",
+      "title": "Regneprosedyre: nødvendig utvalgsstørrelse",
+      "content": "Fem trinn. Trinn 3 og 4 er der de fleste poengene glipper.\n\n1. **Hent de tre tallene.** $\\sigma$ (spredningen i målingen), $\\Delta$ (minste forskjell som betyr noe) og $k$ (10,5 for 90 prosent styrke, 7,9 for 80 prosent). Skriv dem opp med enhet.\n2. **Sett inn i formelen.**\n   $$n = 2\\left(\\frac{\\sigma}{\\Delta}\\right)^2 \\cdot k$$\n   Regn brøken $\\sigma/\\Delta$ først, kvadrer den, gang med 2 og deretter med $k$.\n3. **Rund opp til nærmeste hele person.** $131{,}25$ blir $132$, ikke $131$. Runder du ned, har du en studie med litt lavere styrke enn den du nettopp regnet ut — og da var hele regnestykket forgjeves.\n4. **Legg på forventet frafall, etter opprundingen.**\n   $$n_{\\text{rekruttert}} = \\frac{n}{1 - \\text{frafallsandel}}$$\n   og rund opp igjen. Merk at man **deler**, ikke ganger. Med 20 prosent frafall og $n = 84$: $84/0{,}80 = 105$, ikke $84 \\cdot 1{,}20 = 100{,}8$. Forskjellen er reell — av 105 rekrutterte faller 21 fra, og 84 står igjen.\n5. **Oppgi svaret presist: per gruppe OG totalt.** «132 personer per gruppe, altså 264 til sammen.» Formelen gir per gruppe, og å oppgi bare det ene tallet uten å si hvilket er en tvetydighet som koster.\n\n**Merk enheten:** $\\sigma$ og $\\Delta$ må ha **samme enhet**, ellers er brøken meningsløs. Er $\\sigma$ oppgitt i millimol per liter og $\\Delta$ i mikromol per liter, må du regne om først."
+    },
+    {
+      "id": "med1100-4-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Utvalgsstørrelse med to styrkenivåer og frafall (B1-STAT)",
+      "problem": "En tenkt studie skal sammenligne en kontinuerlig måling i to like store grupper. Standardavviket i befolkningen er anslått til $\\sigma = 15$ enheter, og den minste forskjellen som ville hatt praktisk betydning, er $\\Delta = 5$ enheter. Signifikansnivået er 5 prosent, tosidig.\n\n**a)** Hvor mange trengs per gruppe ved 90 prosent styrke?\n\n**b)** Hvor mange ved 80 prosent styrke?\n\n**c)** Man regner med 15 prosent frafall. Hvor mange må rekrutteres ved 90 prosent styrke?\n\n*Alle tall er konstruerte.*",
+      "solution": "**Full-pott-besvarelse. Vist utregning, med opprunding og enhet.**\n\n**a) 90 prosent styrke.**\n\nTallene inn: $\\sigma = 15$ enheter, $\\Delta = 5$ enheter, $k = 10{,}5$ (90 prosent styrke, tosidig 5 prosent nivå).\n\n$$n = 2\\left(\\frac{15}{5}\\right)^2 \\cdot 10{,}5 = 2 \\cdot 3^2 \\cdot 10{,}5 = 2 \\cdot 9 \\cdot 10{,}5 = 189$$\n\n**Svar:** **189 personer per gruppe**, altså **378 til sammen**. (Tallet er allerede helt; hadde det ikke vært det, skulle det vært rundet opp.)\n\n**b) 80 prosent styrke.**\n\nSamme regnestykke med $k = 7{,}9$:\n\n$$n = 2 \\cdot 9 \\cdot 7{,}9 = 142{,}2 \\quad \\Longrightarrow \\quad n = 143$$\n\n**Svar:** **143 personer per gruppe**, altså **286 til sammen**. Merk opprundingen: $142{,}2$ blir $143$, ikke $142$.\n\n**Kontrasten som er verdt å kommentere:** å gå fra 80 til 90 prosent styrke koster $189 - 143 = 46$ flere per gruppe, altså rundt 33 prosent flere. Det stemmer med forholdet mellom konstantene: $10{,}5/7{,}9 = 1{,}33$.\n\n— naturlig pausepunkt —\n\n**c) Frafallsjustering ved 90 prosent styrke.**\n\nVi trenger 189 personer som **fullfører** i hver gruppe. Med 15 prosent frafall fullfører 85 prosent av de rekrutterte:\n\n$$n_{\\text{rekruttert}} = \\frac{189}{1 - 0{,}15} = \\frac{189}{0{,}85} = 222{,}35 \\quad \\Longrightarrow \\quad 223$$\n\n**Svar:** **223 personer må rekrutteres per gruppe**, altså **446 til sammen**.\n\n**Kontrollen som viser at det stemmer:** $223 \\cdot 0{,}85 = 189{,}55$, som avrundet nedover gir 189 fullførere. ✓\n\n**Feilen som ligger på lur her:** å gange med $1{,}15$ i stedet for å dele på $0{,}85$. Det gir $189 \\cdot 1{,}15 = 217{,}35 \\rightarrow 218$, altså seks personer for lite per gruppe. Grunnen er at frafallet skjer blant de **rekrutterte**, ikke blant de fullførte — 15 prosent av 218 er 33, og da står bare 185 igjen. Prosenten regnes alltid av det store tallet.\n\n**Det sensor ser etter i dette svaret:** riktig konstant for riktig styrke · opprunding til hel person · deling og ikke ganging i frafallsjusteringen · og at det står **per gruppe** ved siden av totaltallet."
+    },
+    {
+      "id": "med1100-4-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-4-oppg-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, B1-KORT — kortsvarsoppgaven i blokk 1.) Forklar med dine egne ord, i to til tre setninger hver:\n\n**a)** Hva styrken til en studie er.\n\n**b)** Hvorfor den minste klinisk relevante forskjellen ikke er det samme som den forskjellen forskeren håper å finne.",
+        "solution": "**a) Styrken.** Styrken er sannsynligheten for at studien faktisk påviser en effekt som er der. Er styrken 90 prosent, vil studien i ni av ti gjennomføringer ende med å forkaste nullhypotesen, forutsatt at forskjellen er minst så stor som den man planla for. I det siste tilfellet overses effekten, og det kalles en type II-feil.\n\n**b) Δ er ikke håpet.** Den minste klinisk relevante forskjellen er den **minste** forskjellen som ville betydd noe i praksis — altså den man ikke vil risikere å gå glipp av. Håpet om et stort funn hører ikke hjemme i regnestykket: setter man Δ større enn det som faktisk er relevant, får man en liten og billig studie som bare kan oppdage forskjeller så store at ingen tvilte på dem i utgangspunktet.\n\n**Merk hvorfor det betyr så mye:** Δ står kvadrert i nevneren. Å doble Δ deler antallet på fire, og det er en fristelse man må være klar over når man leser andres studieplaner.",
+        "hints": [
+          "Del a): tenk på hvilken av de to feiltypene styrken handler om.",
+          "Del b): hva skjer med antallet deltakere hvis man setter Δ litt for stort?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-4-oppg-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving, B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) En tenkt studie skal sammenligne to like store grupper. Standardavviket er $\\sigma = 12$ enheter, og den minste klinisk relevante forskjellen er $\\Delta = 6$ enheter. Tosidig 5 prosent nivå.\n\n**a)** Hvor mange trengs per gruppe ved 90 prosent styrke?\n\n**b)** Hvor mange ved 80 prosent styrke?",
+        "solution": "**a) 90 prosent styrke** ($k = 10{,}5$):\n$$n = 2\\left(\\frac{12}{6}\\right)^2 \\cdot 10{,}5 = 2 \\cdot 2^2 \\cdot 10{,}5 = 2 \\cdot 4 \\cdot 10{,}5 = 84$$\n\n**Svar:** **84 personer per gruppe**, altså 168 til sammen.\n\n**b) 80 prosent styrke** ($k = 7{,}9$):\n$$n = 2 \\cdot 4 \\cdot 7{,}9 = 63{,}2 \\quad \\Longrightarrow \\quad n = 64$$\n\n**Svar:** **64 personer per gruppe**, altså 128 til sammen.\n\n**Merk opprundingen:** $63{,}2$ blir $64$. Runder man ned til 63, har studien litt lavere styrke enn de 80 prosentene man ba om — og da er hele beregningen uten mening.\n\n**Kontroll av forholdet:** $84/64 = 1{,}31$, som stemmer med $10{,}5/7{,}9 = 1{,}33$ (avviket skyldes opprundingen).",
+        "hints": [
+          "Regn brøkken $\\sigma/\\Delta$ først og kvadrer den, før du ganger med 2 og med $k$.",
+          "Styrkekonstanten er 10,5 for 90 prosent og 7,9 for 80 prosent — sjekk hvilken oppgaven ber om."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-4-oppg-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) Bruk resultatet fra forrige oppgave: 84 personer per gruppe ved 90 prosent styrke.\n\n**a)** Studien regner med 20 prosent frafall. Hvor mange må rekrutteres per gruppe?\n\n**b)** En kandidat regner $84 \\cdot 1{,}20 = 100{,}8 \\rightarrow 101$ og mener det holder. Vis med tall hvorfor det ikke gjør det.",
+        "solution": "**a) Frafallsjusteringen.**\n\nVi trenger 84 fullførere per gruppe. Med 20 prosent frafall fullfører 80 prosent av de rekrutterte:\n$$n_{\\text{rekruttert}} = \\frac{84}{1 - 0{,}20} = \\frac{84}{0{,}80} = 105$$\n\n**Svar:** **105 personer må rekrutteres per gruppe**, altså 210 til sammen.\n\n**Kontroll:** $105 \\cdot 0{,}80 = 84$ fullførere. ✓ (Tallet går akkurat opp her.)\n\n**b) Hvorfor kandidatens metode svikter.**\n\nMed 101 rekrutterte og 20 prosent frafall:\n$$101 \\cdot 0{,}20 = 20{,}2 \\text{ faller fra} \\quad \\Longrightarrow \\quad 101 - 20{,}2 = 80{,}8 \\text{ fullførere}$$\n\nDet er **under de 84** som kreves. Studien ville dermed hatt lavere styrke enn de 90 prosentene den ble dimensjonert for.\n\n**Grunnen til feilen:** frafallsprosenten regnes av **de rekrutterte**, ikke av dem som fullfører. Å gange med $1 + $ frafallsandel behandler prosenten som om den gjaldt sluttallet, og det gir systematisk for få deltakere. Feilen vokser med frafallsandelen: ved 50 prosent frafall gir gangemetoden 126 mot riktig 168 — en underdekning på 25 prosent.\n\n**Regelen:** **del** på det som blir igjen, ikke gang med det som forsvinner.",
+        "hints": [
+          "Hvem er det frafallsprosenten regnes av — de som rekrutteres eller de som fullfører?",
+          "Del b): regn ut hvor mange som faktisk står igjen av kandidatens 101, og sammenlign med kravet."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Hvordan tallene henger sammen (~16 min)\n\nFormelen er enkel. Det som skiller et godt svar fra et middels, er å kunne si **hvorfor** antallet endrer seg som det gjør når forutsetningene endres — uten å regne alt på nytt."
+    },
+    {
+      "id": "med1100-4-4-def-kvadratloven",
+      "type": "definition",
+      "title": "Kvadratloven for utvalgsstørrelse",
+      "content": "$\\Delta$ står **kvadrert i nevneren**, og derfor:\n\n- **Halverer du $\\Delta$, firedobles $n$.**\n- **Tredeler du $\\Delta$, nidobles $n$.**\n- Dobler du $\\sigma$, firedobles $n$ (den står kvadrert i telleren).\n\n**Sammenhengen med [kap. 4.1](/med1100/med1100-4-1):** det er nøyaktig samme kvadratrotlov, snudd. Der krympet feilmarginen som $1/\\sqrt n$; her vokser $n$ som $1/\\Delta^2$. Samme sak, sett fra to sider.\n\n**Hvorfor det er verdt å kunne utenat:** flervalgsspørsmål av typen «hva skjer med $n$ når Δ halveres?» kan besvares på tre sekunder uten kalkulator. Og i en fritekstoppgave er det en kontroll: regner du $n$ på nytt med halvert Δ og ikke får omtrent fire ganger så mye, har du gjort en feil.\n\n**Den praktiske konsekvensen:** det er billigere å øke styrken fra 80 til 90 prosent (33 prosent flere) enn å redusere Δ med en tredel (mer enn en dobling)."
+    },
+    {
+      "id": "med1100-4-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hva som skjer når kravene skjerpes (B1-STAT)",
+      "problem": "Ta utgangspunkt i studien fra Eksempel 1: $\\sigma = 15$ enheter, $\\Delta = 5$ enheter, 90 prosent styrke, som ga 189 per gruppe.\n\n**a)** Forskergruppen vil kunne påvise en forskjell helt ned til $\\Delta = 2{,}5$ enheter. Hvor mange trengs da?\n\n**b)** Forklar uten å regne på nytt hvorfor svaret ble som det ble.\n\n**c)** Hva er billigst hvis studien må styrkes: å halvere Δ, eller å gå fra 80 til 90 prosent styrke?",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Regningen med halvert Δ.**\n$$n = 2\\left(\\frac{15}{2{,}5}\\right)^2 \\cdot 10{,}5 = 2 \\cdot 6^2 \\cdot 10{,}5 = 2 \\cdot 36 \\cdot 10{,}5 = 756$$\n\n**Svar:** **756 personer per gruppe**, altså 1 512 til sammen.\n\n**b) Hvorfor.**\n\n$\\Delta$ står kvadrert i nevneren. Halverer man $\\Delta$, dobles brøken $\\sigma/\\Delta$ fra 3 til 6, og kvadratet firedobles fra 9 til 36. Derfor firedobles $n$: $189 \\cdot 4 = 756$. ✓\n\n**Den generelle regelen:** $n \\propto 1/\\Delta^2$. Halvert Δ gir fire ganger så mange, en tredel av Δ gir ni ganger så mange.\n\n— naturlig pausepunkt —\n\n**c) Hva som er billigst.**\n\n| Endring | $n$ per gruppe | Økning |\n|---|---|---|\n| Utgangspunkt: 90 prosent styrke, $\\Delta = 5$ | 189 | — |\n| 80 → 90 prosent styrke ved $\\Delta = 5$ | fra 143 til 189 | +46 personer (+32 prosent) |\n| Halvere $\\Delta$ ved 90 prosent styrke | fra 189 til 756 | +567 personer (+300 prosent) |\n\n**Konklusjonen, veid og skarp:** å oppgradere styrken fra 80 til 90 prosent koster rundt en tredel flere deltakere. Å halvere den forskjellen man vil kunne påvise, koster fire ganger så mange. **Styrkeoppgraderingen er den klart billigste**, og den bør derfor prioriteres når budsjettet er stramt.\n\n**Men den viktigere lærdommen ligger i Δ:** valget av Δ er det som avgjør om studien i det hele tatt lar seg gjennomføre. Et Δ som er satt urealistisk lavt, gir et deltakerantall ingen kan skaffe. Og et Δ som er satt for høyt for å få tallene til å gå opp, gir en studie som ikke kan svare på det den påstår å undersøke. **Det er derfor Δ skal begrunnes faglig og ikke velges ut fra hva regnestykket tåler** — og det er nettopp den begrunnelsen sensor ser etter når en oppgave ber om en vurdering."
+    },
+    {
+      "id": "med1100-4-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-4-oppg-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) En studie er dimensjonert for å påvise en forskjell på 8 enheter med 90 prosent styrke, og trenger 132 personer per gruppe.\n\nForskergruppen vil i stedet kunne påvise en forskjell på 4 enheter, med samme styrke og samme standardavvik. Omtrent hvor mange trengs da per gruppe?\n\nA. 264\nB. 396\nC. 528\nD. 1 056\n\nVelg ett, og begrunn uten å regne ut formelen på nytt.",
+        "solution": "**Riktig svar: C — 528 personer per gruppe.**\n\n**Begrunnelsen.** $\\Delta$ står kvadrert i nevneren, så $n$ er proporsjonal med $1/\\Delta^2$. Halveres $\\Delta$ fra 8 til 4, firedobles $n$:\n$$132 \\cdot 4 = 528$$\n\n**Kontroll med formelen:** utgangspunktet $132 = 2(\\sigma/8)^2 \\cdot 10{,}5$ gir $(\\sigma/8)^2 = 6{,}286$, altså $\\sigma \\approx 20{,}1$. Med $\\Delta = 4$: $2 \\cdot (20{,}1/4)^2 \\cdot 10{,}5 = 2 \\cdot 25{,}25 \\cdot 10{,}5 = 530$, som stemmer med 528 innenfor avrundingen.\n\n**Hvorfor de andre er feil, og hvilken tankefeil de svarer til:**\n\n- **A (264)** er en dobling — svarer til å tro at $n$ er proporsjonal med $1/\\Delta$ og ikke med $1/\\Delta^2$.\n- **B (396)** er en tredobling, som ikke svarer til noen sammenheng i formelen.\n- **D (1 056)** er en åttedobling — svarer til å kvadrere feil sted, eller å firedoble to ganger.\n\n**Regelen å ta med seg:** halvert Δ gir fire ganger så mange. Det er den vanligste varianten av dette spørsmålet, og den kan besvares på tre sekunder.\n\n**Og husk:** blokk 1 har ingen minuspoeng. Er du usikker mellom A og C, kryss likevel av.",
+        "hints": [
+          "Hvor i formelen står Δ, og med hvilken potens?",
+          "Hva skjer med brøken $\\sigma/\\Delta$ når nevneren halveres — og hva skjer så med kvadratet?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Binomisk fordeling og normaltilnærming (~14 min)\n\nSiste del av kapitlet skifter tema: fra å planlegge en studie til å regne på antall. Når man teller hvor mange av $n$ personer som får et utfall, er svaret **binomisk fordelt** — og det er en fordeling man ofte kan bytte ut med normalfordelingen."
+    },
+    {
+      "id": "med1100-4-4-def-binomisk",
+      "type": "definition",
+      "title": "Binomisk fordeling",
+      "content": "Fordelingen til **antallet** som får et utfall når man gjør $n$ uavhengige forsøk, hver med samme sannsynlighet $p$ for utfallet.\n\n**De to forutsetningene:**\n\n1. **Uavhengighet** — det ene forsøkets utfall påvirker ikke det neste.\n2. **Konstant $p$** — sannsynligheten er den samme i alle forsøk.\n\n**Forventning og standardavvik:**\n$$\\mu = np, \\qquad \\sigma = \\sqrt{np(1-p)}$$\n\n**Merk enheten:** både $\\mu$ og $\\sigma$ er **antall personer**, ikke andeler. Med $n = 200$ og $p = 0{,}15$ er $\\mu = 30$ personer — ikke $0{,}15$.\n\n**Det som skiller den fra en andel:** deler du det binomiske antallet på $n$, får du andelen $\\hat p$, og standardfeilen til den er $\\sqrt{p(1-p)/n}$ — nøyaktig $\\sigma/n$. De to beskrivelsene er samme sak i ulik skala, og det er derfor formlene i [kap. 4.1](/med1100/med1100-4-1) ser ut som de gjør."
+    },
+    {
+      "id": "med1100-4-4-def-normaltilnaerming",
+      "type": "definition",
+      "title": "Normaltilnærming til binomisk fordeling",
+      "content": "Er $n$ stor nok, ligner den binomiske fordelingen så mye på en normalfordeling at man kan regne sannsynligheter med normalfordelingstabellen.\n\n**Betingelsen:** både $np \\ge 5$ og $n(1-p) \\ge 5$ — altså minst fem forventede i hver kategori. Det er samme betingelse som for konfidensintervallet for en andel i [kap. 4.1](/med1100/med1100-4-1).\n\n**Framgangsmåten:** regn $\\mu = np$ og $\\sigma = \\sqrt{np(1-p)}$, og bruk\n$$z = \\frac{x - \\mu}{\\sigma}$$\nmot normalfordelingstabellen.\n\n**Når betingelsen ikke holder:** ved $n = 60$ og $p = 0{,}04$ er $np = 2{,}4$, altså under 5. Da er fordelingen for skjev, og tilnærmingen gir feil svar — man må regne binomisk direkte, eller si i besvarelsen at tilnærmingen ikke kan brukes. Å bruke den likevel er en forutsetningsfeil, og forutsetninger er poenggivende å nevne.\n\n**En finesse verdt å kjenne til:** noen lærebøker legger til en halvkorreksjon (regner fra $x - 0{,}5$ i stedet for $x$) fordi man tilnærmer en heltallsfordeling med en kontinuerlig. Det gir litt mer presise svar. Det er **kjenne-til-stoff**, ikke et krav — begge former godtas."
+    },
+    {
+      "id": "med1100-4-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Binomisk forventning, spredning og en sannsynlighet (B1-STAT)",
+      "problem": "I en tenkt undersøkelse testes 200 personer uavhengig av hverandre, og sannsynligheten for et gitt utfall er 0,15 for hver av dem.\n\n**a)** Regn ut forventet antall og standardavviket.\n\n**b)** Sjekk om normaltilnærmingen kan brukes.\n\n**c)** Anslå sannsynligheten for at minst 40 personer får utfallet.\n\n*Alle tall er konstruerte.*",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Forventning og standardavvik.**\n$$\\mu = np = 200 \\cdot 0{,}15 = 30{,}0 \\text{ personer}$$\n$$\\sigma = \\sqrt{np(1-p)} = \\sqrt{200 \\cdot 0{,}15 \\cdot 0{,}85} = \\sqrt{25{,}5} = 5{,}05 \\text{ personer}$$\n\n**Tolkning:** vi venter rundt 30 tilfeller, og typiske utfall ligger innenfor omtrent 5 personer fra dette — altså grovt sett mellom 20 og 40 om vi går to standardavvik ut til hver side.\n\n**b) Kan normaltilnærmingen brukes?**\n$$np = 30 \\ge 5 \\qquad \\text{og} \\qquad n(1-p) = 200 \\cdot 0{,}85 = 170 \\ge 5$$\nBegge betingelsene er godt oppfylt, så tilnærmingen kan brukes.\n\n**c) Sannsynligheten for minst 40.**\n$$z = \\frac{x - \\mu}{\\sigma} = \\frac{40 - 30}{5{,}05} = \\frac{10}{5{,}05} = 1{,}98$$\n\nFra normalfordelingstabellen: $P(Z \\ge 1{,}98) \\approx 0{,}024$.\n\n**Svar:** sannsynligheten for at minst 40 av de 200 får utfallet, er **omtrent 2,4 prosent**.\n\n**Tolkning i klartekst:** det ville altså vært et uvanlig, men ikke oppsiktsvekkende resultat — noe som ville skjedd i rundt ett av førti tilfeller om sannsynligheten virkelig er 0,15.\n\n— naturlig pausepunkt —\n\n**En merknad om presisjon.** Regner man eksakt med den binomiske fordelingen, blir svaret 3,4 prosent. Bruker man halvkorreksjonen (regner fra 39,5 i stedet for 40), gir tilnærmingen 3,0 prosent. Avvikene er små, og alle tre svarene fører til samme konklusjon om at utfallet er uvanlig.\n\n**Hva det betyr for eksamen:** normaltilnærmingen er en tilnærming, og det er helt greit — men si det. Formuleringen «sannsynligheten er omtrent 2 til 3 prosent, regnet med normaltilnærming» er mer presis, og dermed bedre, enn «sannsynligheten er 2,4 prosent» oppgitt som om det var et eksakt tall.\n\n**Kontroll av størrelsesorden:** 40 er ti mer enn forventet, og ti er omtrent to standardavvik. Det skulle gi en sannsynlighet et sted rundt to til tre prosent — som stemmer. Får du 30 prosent, har du sannsynligvis delt på $\\mu$ i stedet for $\\sigma$."
+    },
+    {
+      "id": "med1100-4-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-4-oppg-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Innøving, B1-STAT.) I et tenkt utvalg på 400 personer er sannsynligheten for et utfall 0,05 for hver, uavhengig av hverandre.\n\n**a)** Regn ut forventet antall og standardavvik.\n\n**b)** Kan normaltilnærmingen brukes? Begrunn.",
+        "solution": "**a) Forventning og standardavvik.**\n$$\\mu = np = 400 \\cdot 0{,}05 = 20{,}0 \\text{ personer}$$\n$$\\sigma = \\sqrt{400 \\cdot 0{,}05 \\cdot 0{,}95} = \\sqrt{19{,}0} = 4{,}36 \\text{ personer}$$\n\n**b) Normaltilnærmingen.**\n$$np = 20 \\ge 5 \\qquad \\text{og} \\qquad n(1-p) = 380 \\ge 5$$\n\nBegge betingelsene er oppfylt, så tilnærmingen kan brukes.\n\n**Merk:** det er $np$ som er den kritiske av de to når $p$ er liten. Her er den 20, altså fire ganger grensen — god margin. Hadde $n$ vært 60 i stedet for 400, ville $np = 3$, og da måtte man ha regnet binomisk direkte.",
+        "hints": [
+          "Forventningen er $np$, og standardavviket er kvadratroten av $np(1-p)$ — begge oppgis i antall personer.",
+          "Sjekk begge betingelsene, ikke bare den ene."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-4-oppg-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) En tenkt undersøkelse omfatter 60 personer, og sannsynligheten for et utfall er 0,04 for hver.\n\n**a)** Regn ut $\\mu$ og $\\sigma$.\n\n**b)** En kandidat vil bruke normaltilnærmingen til å anslå sannsynligheten for minst 6 tilfeller. Er det forsvarlig? Begrunn, og si hva som bør gjøres i stedet.",
+        "solution": "**a) Forventning og standardavvik.**\n$$\\mu = 60 \\cdot 0{,}04 = 2{,}40 \\text{ personer}$$\n$$\\sigma = \\sqrt{60 \\cdot 0{,}04 \\cdot 0{,}96} = \\sqrt{2{,}304} = 1{,}52 \\text{ personer}$$\n\n**b) Er normaltilnærmingen forsvarlig?**\n\n**Nei.** Betingelsen krever $np \\ge 5$, og her er $np = 2{,}40$, altså under halvparten av grensen. ($n(1-p) = 57{,}6$ er derimot godt oppfylt — det er den ene betingelsen som svikter, og det er nok.)\n\n**Hvorfor det betyr noe.** Når $np$ er så lite, er den binomiske fordelingen sterkt **høyreskjev**: den kan ikke gå under null, men har en lang hale oppover. Normalfordelingen er symmetrisk og har ingen slik grense, så den bommer i begge ender — den tilordner sannsynlighet til negative antall, som er umulig, og den treffer feil i den høyre halen der spørsmålet vårt ligger.\n\n**Hva som bør gjøres i stedet:** regne direkte med den binomiske fordelingen, altså summere sannsynlighetene for 6, 7, 8 og så videre — eller ta komplementet og regne $1 - P(X \\le 5)$.\n\n**Det som gir uttelling i besvarelsen:** å **si at betingelsen ikke er oppfylt**, og å oppgi tallet som viser det ($np = 2{,}40 < 5$). Å sjekke en forutsetning og finne at den svikter, er et fullverdig svar — det er ikke en blindvei, men nettopp det oppgaven spør etter.",
+        "hints": [
+          "Regn $np$ først og sammenlign med grensen på 5.",
+          "Del b): tenk på hvilken form fordelingen har når forventningen er så lav — kan antallet bli negativt?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-4-advarsel",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "**1. Å ikke runde opp.** $142{,}2$ blir $143$, ikke $142$. Runder du ned, har studien lavere styrke enn den du nettopp regnet ut, og hele regnestykket er forgjeves. Regelen er absolutt: **utvalgsstørrelse rundes alltid opp**.\n\n**2. Å glemme frafallet — eller å regne det feil vei.** Frafallsprosenten gjelder de **rekrutterte**. Del på $1 - \\text{frafallsandel}$; ikke gang med $1 + \\text{frafallsandel}$. Ved 20 prosent frafall er riktig svar $n/0{,}80$, ikke $n \\cdot 1{,}20$, og forskjellen vokser med frafallsandelen.\n\n**3. Å blande styrke og signifikansnivå.** $\\alpha$ (som regel 5 prosent) styrer falske alarmer; styrken $1-\\beta$ (80 eller 90 prosent) styrer hvor ofte man treffer. To ulike tall, to ulike feiltyper. «5 prosent styrke» er en formulering som umiddelbart avslører at forskjellen ikke sitter.\n\n**4. Å bruke feil styrkekonstant.** $k = 10{,}5$ hører til 90 prosent styrke, $k = 7{,}9$ til 80 prosent. Bytter du dem om, blir svaret rundt 33 prosent galt i den ene eller andre retningen.\n\n**5. Å glemme at svaret er per gruppe.** Formelen gir antall i **hver** gruppe. Totalt trengs det dobbelte, og et svar som ikke sier hvilket av tallene som er oppgitt, er tvetydig.\n\n**6. Å bruke Δ fra en pilotstudie i stedet for en faglig vurdering.** Δ er den minste forskjellen som ville betydd noe — ikke den man håper på, og ikke den en liten forstudie tilfeldigvis viste.\n\n**7. Felle E4 — å lese et negativt resultat fra en underpowered studie som «ingen effekt».** Har studien lav styrke, har den ikke avgjort noe. Skriv «ikke påvist», og nevn styrken hvis den er oppgitt.\n\n**8. Å bruke normaltilnærmingen uten å sjekke betingelsen.** Både $np \\ge 5$ og $n(1-p) \\ge 5$. Er $np$ under 5, er fordelingen for skjev, og tilnærmingen gir feil svar.\n\n**9. Å forveksle antall og andel i den binomiske fordelingen.** $\\mu = np$ er et **antall personer**. Får du $\\mu = 0{,}15$, har du glemt å gange med $n$.\n\n**10. Å ikke svare.** Blokk 1 har ingen minuspoeng. Rekker du bare å skrive formelen og sette inn tallene, gjør det."
+    },
+    {
+      "id": "med1100-4-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-4-oppg-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT — full oppgave med tolkningsledd.) En tenkt studie skal sammenligne to like store grupper på en kontinuerlig måling. Standardavviket er anslått til $\\sigma = 20$ enheter, og den minste klinisk relevante forskjellen er satt til $\\Delta = 8$ enheter. Tosidig 5 prosent nivå.\n\n**a)** Regn ut nødvendig antall per gruppe ved 90 prosent styrke, og ved 80 prosent styrke.\n\n**b)** Med 10 prosent forventet frafall: hvor mange må rekrutteres totalt ved 90 prosent styrke?\n\n**c)** Prosjektet får bare midler til 200 personer totalt. Gjør rede for hva det betyr for studien, og hva forskergruppen bør gjøre.",
+        "solution": "**a) Utvalgsstørrelsene.**\n\n**90 prosent styrke** ($k = 10{,}5$):\n$$n = 2\\left(\\frac{20}{8}\\right)^2 \\cdot 10{,}5 = 2 \\cdot 2{,}5^2 \\cdot 10{,}5 = 2 \\cdot 6{,}25 \\cdot 10{,}5 = 131{,}25 \\quad \\Longrightarrow \\quad 132$$\n\n**Svar:** **132 per gruppe**, altså 264 til sammen.\n\n**80 prosent styrke** ($k = 7{,}9$):\n$$n = 2 \\cdot 6{,}25 \\cdot 7{,}9 = 98{,}75 \\quad \\Longrightarrow \\quad 99$$\n\n**Svar:** **99 per gruppe**, altså 198 til sammen.\n\n**b) Frafallsjustering ved 90 prosent styrke.**\n$$n_{\\text{rekruttert}} = \\frac{132}{1 - 0{,}10} = \\frac{132}{0{,}90} = 146{,}67 \\quad \\Longrightarrow \\quad 147 \\text{ per gruppe}$$\n\n**Svar:** **294 personer må rekrutteres totalt.**\n\nKontroll: $147 \\cdot 0{,}90 = 132{,}3$ fullførere per gruppe. ✓\n\n— naturlig pausepunkt —\n\n**c) Hva 200-personersgrensen betyr.** Merk spørreordet: «gjør rede for» = beskriv, forklar og sett i sammenheng.\n\n**Beskrivelsen.** 200 totalt gir 100 per gruppe før frafall, altså 90 fullførere per gruppe med 10 prosent frafall. Kravet for 90 prosent styrke er 132, og for 80 prosent styrke 99. Studien kommer altså **så vidt under selv 80 prosent styrke**, og godt under 90.\n\n**Forklaringen.** Med 90 fullførere per gruppe kan man snu regnestykket og finne hvilken forskjell studien faktisk kan påvise med 80 prosent styrke:\n$$90 = 2\\left(\\frac{20}{\\Delta}\\right)^2 \\cdot 7{,}9 \\quad \\Longrightarrow \\quad \\left(\\frac{20}{\\Delta}\\right)^2 = \\frac{90}{15{,}8} = 5{,}70 \\quad \\Longrightarrow \\quad \\frac{20}{\\Delta} = 2{,}39 \\quad \\Longrightarrow \\quad \\Delta = 8{,}4$$\n\nStudien kan altså påvise en forskjell på rundt 8,4 enheter med 80 prosent styrke — bare marginalt dårligere enn de 8 man ønsket.\n\n**Sammenhengen.** Dette er kvadratloven i praksis: 90 mot 99 deltakere er 9 prosent færre, og siden $\\Delta \\propto 1/\\sqrt n$, koster det bare rundt 5 prosent på Δ. **Utvalgsstørrelsen er lite følsom for små budsjettkutt** — det er de store endringene i Δ som velter regnestykket.\n\n**Konklusjonen, veid og skarp.** Forskergruppen har tre reelle alternativer:\n\n1. **Gjennomføre med 80 prosent styrke og et Δ på 8,4 enheter.** Det er faglig forsvarlig hvis 8,4 fortsatt er innenfor det man vil kunne oppdage — og det er den anbefalte veien her, siden avviket fra ønsket Δ er under 5 prosent.\n2. **Søke om midler til 294 personer** og beholde 90 prosent styrke. Best, men avhenger av noe man ikke kontrollerer.\n3. **Gjennomføre og rapportere som om studien hadde 90 prosent styrke.** Dette er det eneste alternativet som ikke er forsvarlig. Med 90 fullførere per gruppe er den faktiske styrken for et $\\Delta$ på 8 enheter i underkant av 80 prosent, altså rundt én av fire sjanser for å ende med «ingen signifikant forskjell» selv om forskjellen er reell — og et slikt resultat kan ikke tolkes som fravær av effekt (**felle E4**).\n\n**Det som må stå i protokollen uansett:** hvilken styrke studien faktisk har, og hvilken forskjell den er dimensjonert for å påvise. En studie som ikke oppgir dette, gir et negativt resultat som ingen kan tolke.",
+        "hints": [
+          "Del a): regn $\\sigma/\\Delta$ først, kvadrer, og husk å runde opp begge svarene.",
+          "Del b): del på det som blir igjen etter frafall, og rund opp igjen.",
+          "Del c): snu formelen og løs for Δ når $n$ er gitt — det er den regningen som gjør svaret konkret."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-4-oppg-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT.) En publisert studie rapporterer: «Det ble ikke funnet noen signifikant forskjell mellom gruppene (p = 0,31). Vi konkluderer med at behandlingsformene er likeverdige.» Studien hadde 22 personer i hver gruppe.\n\n**a)** Regn ut hvilken forskjell studien kunne påvist med 80 prosent styrke, gitt at standardavviket var $\\sigma = 12$ enheter.\n\n**b)** Vurder konklusjonen studien trekker, og oppgi feilkoden.\n\n**c)** Skriv om konklusjonssetningen slik den burde stått.",
+        "solution": "**a) Hvilken forskjell studien kunne påvist.**\n\nSnu formelen og løs for $\\Delta$ med $n = 22$, $k = 7{,}9$ (80 prosent styrke) og $\\sigma = 12$:\n$$22 = 2\\left(\\frac{12}{\\Delta}\\right)^2 \\cdot 7{,}9 \\quad \\Longrightarrow \\quad \\left(\\frac{12}{\\Delta}\\right)^2 = \\frac{22}{15{,}8} = 1{,}392$$\n$$\\frac{12}{\\Delta} = \\sqrt{1{,}392} = 1{,}180 \\quad \\Longrightarrow \\quad \\Delta = \\frac{12}{1{,}180} = 10{,}2 \\text{ enheter}$$\n\n**Svar:** studien hadde 80 prosent styrke bare for å påvise en forskjell på **rundt 10 enheter** — altså nesten et helt standardavvik. Mindre forskjeller ville den i stor grad ha oversett.\n\n— naturlig pausepunkt —\n\n**b) Vurdering av konklusjonen. Felle E4.**\n\nKonklusjonen «behandlingsformene er likeverdige» følger ikke av dataene. Studien har vist at den **ikke påviste** en forskjell — ikke at ingen finnes. Med den styrken den faktisk hadde, ville den oversett en forskjell på for eksempel 5 enheter i det store flertallet av gjennomføringer.\n\n**Det som gjør denne konklusjonen særlig problematisk:** å hevde likeverdighet er en **positiv påstand**, og den krever en helt annen studiedesign enn en vanlig test av forskjell. En studie som skal vise at to ting er omtrent like, må dimensjoneres for å utelukke forskjeller over en fastsatt grense — det er et strengere krav, ikke et svakere, og det krever som regel flere deltakere enn en ordinær forskjellsstudie.\n\n**Det som mangler i rapporteringen:** et konfidensintervall. Med 22 per gruppe og $\\sigma = 12$ ville intervallet for differansen vært svært bredt, og det ville synliggjort umiddelbart at studien er forenlig med både ingen forskjell og en betydelig forskjell. En p-verdi alene skjuler dette fullstendig.\n\n**c) Konklusjonssetningen skrevet om.**\n\n> «Det ble ikke funnet noen statistisk signifikant forskjell mellom gruppene ($p = 0{,}31$). Studien hadde 22 deltakere per gruppe og dermed 80 prosent styrke bare for å påvise forskjeller på rundt 10 enheter. Resultatet kan derfor ikke tolkes som at behandlingsformene er likeverdige — mindre, men klinisk relevante forskjeller ville i stor grad ha blitt oversett. Konfidensintervallet for differansen bør oppgis, og spørsmålet må anses som uavklart inntil en tilstrekkelig stor studie foreligger.»\n\n**Legg merke til at konklusjonen fortsatt er skarp:** den slår fast at spørsmålet er uavklart, og den sier hvorfor, med tall. Den er ikke vag — den er presis om hva som faktisk er vist og hva som ikke er det.\n\n*Merk at dette handler om hvordan et statistisk resultat skal leses, ikke om hva noen bør velge i en konkret situasjon. Den vurderingen ligger utenfor regnestykket.*",
+        "hints": [
+          "Del a): sett $n = 22$ inn i formelen og løs for Δ i stedet for for $n$.",
+          "Del b): sammenlign den forskjellen studien kunne påvise, med forskjeller som ville vært interessante.",
+          "Del c): en god omskriving oppgir tall, ikke bare forbehold."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-4-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "med1100-4-4-bb-alfa-beta",
+      "type": "definition",
+      "title": "Signifikansnivå og styrke side om side",
+      "content": "De to tallene styrer hver sin feiltype, og de blandes stadig sammen.\n\n| | Signifikansnivå $\\alpha$ | Styrke $1-\\beta$ |\n|---|---|---|\n| Vanlig verdi | 0,05 | 0,80 eller 0,90 |\n| Hvilken feil den styrer | type I — falsk alarm | type II — oversett effekt |\n| Når den velges | før studien | før studien |\n| Hva som endrer den | valgt terskel | utvalgsstørrelsen |\n\n**Den avgjørende forskjellen:** $\\alpha$ er noe du bestemmer med et pennestrøk. Styrken er noe du må **kjøpe** med deltakere. Det er derfor $\\alpha$ nesten alltid er 0,05, mens styrken varierer fra studie til studie.\n\n**Formuleringen som avslører at forskjellen ikke sitter:** «5 prosent styrke». Styrke er alltid et høyt tall — 80 eller 90 prosent."
+    },
+    {
+      "id": "med1100-4-4-bb-post-hoc",
+      "type": "definition",
+      "title": "Styrke regnet i etterkant",
+      "content": "Å regne ut styrken **etter** at studien er ferdig, ut fra den forskjellen man faktisk observerte.\n\n**Hvorfor det er lite opplysende:** en slik regning er bare en omskriving av p-verdien og gir ingen ny informasjon. Ble resultatet ikke signifikant, vil den etterregnede styrken alltid være lav — det følger av regnestykket, ikke av noe man har lært om studien.\n\n**Det som derimot er nyttig, og som oppgavene faktisk ber om:** å regne ut hvilken forskjell studien **kunne** ha påvist med rimelig styrke, gitt utvalget den hadde. Snu formelen og løs for $\\Delta$ i stedet for for $n$. Da får du et konkret tall å sette konklusjonen opp mot — som i oppgave 8.\n\n**Dette er kjenne-til-stoff**, ikke et regnekrav — men skillet mellom de to regnestykkene er verdt å ha med seg."
+    },
+    {
+      "id": "med1100-4-4-bb-type2",
+      "type": "definition",
+      "title": "Type II-feil ($\\beta$)",
+      "content": "Å beholde en nullhypotese som faktisk er falsk — altså å overse en effekt som virkelig finnes.\n\n$\\beta$ er sannsynligheten for dette, og styrken er $1-\\beta$. Ved 80 prosent styrke er $\\beta = 0{,}20$: én av fem reelle effekter av den planlagte størrelsen vil bli oversett.\n\n**Det som skiller den fra type I-feil:** type I er en falsk alarm og styres av $\\alpha$; type II er en oversett effekt og styres av utvalgsstørrelsen. Man kan senke begge samtidig — men bare ved å skaffe flere deltakere.\n\n**Sammenhengen med hele kapitlet:** utvalgsstørrelsesregning er ganske enkelt kunsten å holde $\\beta$ under kontroll før studien starter."
+    },
+    {
+      "id": "med1100-4-4-bb-opprunding",
+      "type": "definition",
+      "title": "Opprundingsregelen",
+      "content": "Utvalgsstørrelser rundes **alltid opp** til nærmeste hele person, og opprundingen skjer **før** frafallsjusteringen.\n\n**Rekkefølgen som er riktig:** regn $n$ → rund opp → juster for frafall → rund opp igjen.\n\n**Hvorfor rekkefølgen betyr noe:** rundes det ned i første ledd, har studien lavere styrke enn den ble dimensjonert for. Og legges frafallet på før opprundingen, blir totalen litt lavere enn den skal — feilen er liten, men den er unødvendig.\n\n**Formuleringen i svaret:** «$142{,}2$ rundes opp til 143 personer per gruppe». At opprundingen står synlig, er et poenggivende ledd — det viser at du vet hvorfor den er der."
+    },
+    {
+      "id": "med1100-4-4-bb-frafall",
+      "type": "definition",
+      "title": "Frafallsjustering",
+      "content": "$n_{\\text{rekruttert}} = n / (1 - \\text{frafallsandel})$, rundet opp.\n\n**Regelen i ord:** del på **andelen som blir igjen**, ikke gang med andelen som forsvinner.\n\n**Hvorfor:** frafallsprosenten gjelder de rekrutterte. Skal 84 stå igjen etter 20 prosent frafall, trengs $84/0{,}80 = 105$ — ikke $84 \\cdot 1{,}20 = 101$, som bare gir 81 fullførere.\n\n**Hvor stor feilen blir:** ved 10 prosent frafall er avviket rundt 1 prosent, ved 30 prosent frafall rundt 9 prosent, og ved 50 prosent frafall 25 prosent. Feilen vokser altså raskt, og den går alltid i retning av for få deltakere."
+    },
+    {
+      "id": "med1100-4-4-bb-per-gruppe",
+      "type": "definition",
+      "title": "Per gruppe eller totalt",
+      "content": "Formelen $n = 2(\\sigma/\\Delta)^2 k$ gir antallet i **hver** gruppe. Totalt trengs $2n$.\n\n**Hvorfor faktoren 2 allerede står i formelen, uten at svaret er totalen:** de to gruppene bidrar hver med sin varians til usikkerheten i differansen — det er den 2-tallet dekker. Antallet det gir, er likevel per gruppe.\n\n**Formuleringen som fjerner all tvil:** «132 personer per gruppe, altså 264 til sammen». Oppgi begge tall, hver gang. Et svar som bare sier «132» er tvetydig, og tvetydighet koster i en sjanger der presisjon er det som rettes."
+    },
+    {
+      "id": "med1100-4-4-bb-uavhengige-forsok",
+      "type": "definition",
+      "title": "Uavhengige forsøk (binomisk forutsetning)",
+      "content": "Den binomiske fordelingen forutsetter at hvert forsøk er uavhengig av de andre, og at sannsynligheten $p$ er den samme hver gang.\n\n**Når forutsetningen svikter:** hvis personene i utvalget påvirker hverandre, eller hvis $p$ varierer mellom dem, er antallet ikke binomisk fordelt. Spredningen blir da typisk **større** enn $\\sqrt{np(1-p)}$, og alle sannsynligheter regnet fra formelen blir for optimistiske.\n\n**Koblingen til felle E5** ([kap. 4.2](/med1100/med1100-4-2)): det er samme grunnproblem som når parrede data behandles som uavhengige. Uavhengighetsforutsetningen er den som brytes oftest i hele statistikkfaget, og den er alltid verdt en setning i besvarelsen."
+    },
+    {
+      "id": "med1100-4-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis kontrollpunkter",
+      "content": [
+        {
+          "id": "med1100-4-4-repetisjon-tekst",
+          "type": "text",
+          "content": "Seks kontrollpunkter. Klarer du dem uten å bla opp, er kapitlet i boks.\n\n1. **Hva er styrken til en studie, og hva er standardnivåene?** (Sannsynligheten for å påvise en effekt som finnes. 80 prosent er minimum, 90 prosent er målet. Styrken er $1-\\beta$.)\n2. **Hva er formelen for utvalgsstørrelse, og hva betyr hvert symbol?** ($n = 2(\\sigma/\\Delta)^2 k$ per gruppe, der $\\sigma$ er spredningen, $\\Delta$ er minste relevante forskjell og $k$ er 10,5 eller 7,9.)\n3. **Hva skjer med $n$ når Δ halveres?** (Firedobles — Δ står kvadrert i nevneren.)\n4. **Hvordan legges frafall på, og i hvilken rekkefølge?** (Rund opp $n$ først, deretter del på $1 -$ frafallsandel, og rund opp igjen. Del, ikke gang.)\n5. **Hva er $\\mu$ og $\\sigma$ i en binomisk fordeling, og hvilken enhet har de?** ($\\mu = np$ og $\\sigma = \\sqrt{np(1-p)}$, begge i antall personer.)\n6. **Når kan normaltilnærmingen brukes?** (Når både $np \\ge 5$ og $n(1-p) \\ge 5$.)\n\n**Og de tre fellene som koster mest her:** å ikke runde opp, å gange i stedet for å dele i frafallsjusteringen, og å lese et negativt resultat fra en for liten studie som «ingen effekt» (E4). Blokk 1 har ingen minuspoeng — svar alltid, og oppgi alltid om tallet er per gruppe eller totalt.\n\n**Fra de forrige kapitlene, som dette bygger på:** kvadratrotloven fra [kap. 4.1](/med1100/med1100-4-1) er den samme som kvadratloven her, sett fra en annen side. Type II-feilen fra [kap. 4.2](/med1100/med1100-4-2) er det denne regningen skal holde nede. I [kap. 4.5](/med1100/med1100-4-5) møter du de anvendte metodene — flokkimmunitet, overlevelsesanalyse og regresjon — som er det siste statistikktemaet før eksamenstreningen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

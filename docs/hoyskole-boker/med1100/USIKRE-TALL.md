@@ -32,3 +32,38 @@ usikkert tall skal ALDRI være fasit i quiz, flashcard eller prøve.
 | med1100-3-3 | Forvaltningsnivåene: kommune = fastlege/allment, fylkeskommune = tannhelse, stat/helseforetak = spesialisthelsetjeneste | Standard fagstoff, ikke merket usikkert i analysen |
 | med1100-3-1, 3-2, 3-3 | Alle tallverdier i regneeksempler, oppgaver og prøver | NYSKREVNE, fiktive kalibreringer. Hver enkelt etterregnet med python3 før den ble skrevet inn. Ingen av dem er normalverdier eller prevalenser fra virkeligheten. |
 | med1100-2-1, 2-2 | Ingen tallverdier utover frekvenstall fra skjelettet | Frekvenstallene (14/16, 12/16, 11/16, 10/16, 6/16, 5/16) er tatt ORDRETT fra SKJELETT.md og er ikke omregnet |
+
+---
+
+## Del 4 (medisinsk statistikk med regning)
+
+**Ingen usikre tall i Del 4.** Ingen av de ti verdiene på §M4-lista hører til denne
+delen, og kapitlene 4.1–4.5 og 4.P inneholder **ingen prevalens, insidens eller
+normalverdi fra virkeligheten**. Ingen kapittelfil i Del 4 bruker
+standardforbeholdet, fordi det ikke er noe å ta forbehold om.
+
+### Belagte konstanter i Del 4 (brukt UTEN forbehold)
+
+| Kapittel | Verdi | Belegg |
+|---|---|---|
+| 4.1, 4.2, 4.3 | Kritisk verdi **1,96** (tosidig 5 %), 1,645 (90 %), 2,576 (99 %) | Standard kvantiler i standardnormalfordelingen. Ligger i den utdelte formelsamlingen/tabellsamlingen i blokk 1 (§B1). Etterregnet med `scipy.stats.norm`. |
+| 4.1, 4.2 | $t$-tabellen, tosidig 5 %: 2,262 (df 9) · 2,201 (11) · 2,145 (14) · 2,131 (15) · 2,093 (19) · 2,064 (24) · 2,045 (29) · 2,021 (40) · 2,000 (60) · 1,980 (120) | Standard $t$-kvantiler. Hver verdi etterregnet med `scipy.stats.t.ppf(0.975, df)` før den ble skrevet inn. |
+| 4.3 | Kritisk $\chi^2$ = **3,84** (1 fg, 5 %) og 6,63 (1 %); sammenhengen $\chi^2 = z^2$ og $1{,}96^2 = 3{,}8416$ | Standard kji-kvadratkvantiler; etterregnet med `scipy.stats.chi2`. |
+| 4.4 | Styrkekonstant $k \approx 10{,}5$ (90 % styrke) og $k \approx 7{,}9$ (80 %) ved tosidig 5 % | Standardformel $k = (z_{\alpha/2}+z_\beta)^2$. Etterregnet: $(1{,}96+1{,}2816)^2 = 10{,}51$ og $(1{,}96+0{,}8416)^2 = 7{,}85$. Verdiene er også oppgitt i skjelettets faktakontrakt for 4.4. |
+| 4.4 | Normaltilnærmingsbetingelsen $np \ge 5$ og $n(1-p) \ge 5$ | Standard lærebokkriterium, samme som i 4.1. |
+| 4.5 | $V_c = 1 - 1/R_0$ og $R_{\text{eff}} = R_0 \cdot S$; $P(\text{minst én falsk positiv}) = 1-(1-\alpha)^m$; Bonferroni $\alpha/m$ | Standard epidemiologiske og statistiske formler. Alle utregnede verdier (75 %, 80 %, 91,7 %, 44,4 %, 66,7 %; 23/40/54/64/87 %) etterregnet med python3. |
+| 4.1–4.5, 4.P | **Alle** tallverdier i regneeksempler, oppgaver og prøver | NYSKREVNE, fiktive kalibreringer, valgt for at regnestykkene skal gå opp. Hvert eneste tall — konfidensgrenser, teststatistikker, χ², OR, RR, PR, RD, utvalgsstørrelser, binomiske forventninger, Kaplan-Meier-produkter og flokkimmunitetsterskler — er etterregnet med python3/scipy før det ble skrevet inn. Ingen av dem er en prevalens, insidens, normalverdi eller dose fra virkeligheten. |
+| 4.5 | Reproduksjonstallene $R_0 = 12$, 5, 4, 3 og 1,8 | **Konstruerte, ikke hentet fra litteratur.** Merket i teksten som «et tenkt smittsomt agens» og «alle reproduksjonstall er konstruerte for regningens skyld», nettopp for å unngå å knytte et tall til et virkelig smittestoff. Brukt kun som regnegrunnlag. |
+
+### Frekvenstall i Del 4
+
+Alle frekvenspåstander i Eksamensvinkel-tipene er tatt **ORDRETT** fra SKJELETT.md
+med blokk 1s nevner 16, og er ikke omregnet til prosent (§B5): KI ~15/16 (4.1) ·
+hypotesetest ~15/16, t-test ~11/16, p-verdi ~9/16 (4.2) · 2×2 med kji-kvadrat
+~12/16 og effektmål med tolkning ~12/16 (4.3) · utvalgsstørrelse/styrke ~10/16 og
+binomisk fordeling ~7/16 (4.4) · R₀/flokkimmunitet ~6/16, Kaplan-Meier ~6/16,
+regresjon/korrelasjon ~6/16, statistisk mot klinisk signifikans ~5/16, multippel
+testing ~3/16 (4.5).
+
+Én kildepåstand i 4.3 er blokk-scopet etter kildereglene: «sensorveiledningen i
+blokk 1-settene H25 og V26 godtar begge veier» (om kji-kvadrat mot z-test).

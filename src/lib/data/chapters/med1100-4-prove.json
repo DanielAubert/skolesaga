@@ -1,0 +1,327 @@
+{
+  "id": "med1100-4-prove",
+  "courseId": "med1100",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Medisinsk statistikk med regning",
+  "description": "Fire prøver som dekker hele Del 4 — konfidensintervall og hypotesetest, 2×2-tabeller med kji-kvadrat og effektmål, utvalgsstørrelse og styrke, og de anvendte metodene. Fire prøver à ~25–35 min — kan trygt deles over flere kvelder.",
+  "estimatedMinutes": 115,
+  "competenceGoals": [
+    "kunne føre en fullstendig statistikkoppgave i blokk 1-format med definert parameter, eksplisitte hypoteser, vist utregning og tolkning i klartekst",
+    "kunne velge riktig metode og riktig effektmål ut fra hva slags data og hvilket studiedesign oppgaven beskriver",
+    "kunne kjenne igjen og unngå de fem hyppigste tolkningsfellene i medisinsk statistikk: signifikans mot relevans, ikke-påvist mot fraværende, parrede mot uavhengige data, feil kritisk verdi, og tall uten tolkning"
+  ],
+  "content": [
+    {
+      "id": "med1100-4-prove-tip-om-provene",
+      "type": "tip",
+      "title": "Om prøvene til Del 4",
+      "content": "**Hva du tester her.** Fire prøver som dekker hele Del 4 — medisinsk statistikk med regning: konfidensintervall ([kap. 4.1](/med1100/med1100-4-1)), hypotesetesting med z- og t-test ([kap. 4.2](/med1100/med1100-4-2)), 2×2-tabeller med kji-kvadrat og effektmål ([kap. 4.3](/med1100/med1100-4-3)), utvalgsstørrelse og styrke ([kap. 4.4](/med1100/med1100-4-4)) og de anvendte metodene ([kap. 4.5](/med1100/med1100-4-5)).\n\n**Hvilken eksamen speiler prøvene?** Del 4 tilhører **blokk 1** — den digitale eksamenen (i **Inspera**, UiOs digitale eksamenssystem) på rundt fem timer, der **statistikkseksjonen alene teller 40 prosent**. MED1100 har tre **blokkeksamener**: tre separate eksamensdager med ulikt format, som alle må bestås hver for seg.\n\nPrøvene er bygd som blokk 1 i miniatyr: en blanding av **B1-STAT** (statistikkoppgaven i fritekst, der vist utregning kreves), **B1-MC** (flervalgsspørsmålet med fire alternativer, «velg ett», rettet automatisk) og **B1-KORT** (kortsvar på noen setninger).\n\n**Hvor bor flervalget?** Flervalgsspørsmålene ligger **inline i prøvene**, med fasit i løsningen rett under. Vil du ha flervalgstrening med automatisk retting, finner du den i den interaktive quizen til hvert av kapitlene i Del 4.\n\n**Tid og deling.** **Fire prøver à omtrent 25 til 35 minutter.** Prøvene kan **trygt deles over flere kvelder — én prøve per økt** er en helt fornuftig arbeidsmåte, og det er slik de er laget for å brukes. Regner du for hånd med kalkulator og tabeller ved siden av — og det bør du, siden det er slik eksamen faktisk er — vil du bruke litt lenger tid enn anslaget.\n\n**Hvordan de rettes.** **Blokk 1 har ingen dokumenterte minuspoeng — svar alltid**, også når du bare rekker halve regnestykket. Riktig framgangsmåte premieres over eksakt tallsvar, og en regnefeil som forplanter seg trekkes ikke to ganger. Vurderingen er **bestått / ikke bestått**; emnet har ingen karakterskala.\n\n**Det som avgjør uttellingen i denne sjangeren**, og som du skal sjekke i hver eneste fasit: at **parameteren er definert i ord**, at **hypotesene står skrevet**, at **utregningen er synlig**, og at det står en **tolkningssetning i klartekst** til slutt. Et bart tall er et halvferdig svar.\n\n**Hjelpemidler:** løs prøvene slik eksamen faktisk er — med **enkel kalkulator** (Citizen SR-270X eller Casio FX-82EX), **statistiske tabeller** og **formelsamlingen** ved siden av deg. Nøkkelfakta- og formellisten i hvert kapittel i Del 4 fungerer som en erstatning for formelsamlingen mens du trener."
+    },
+    {
+      "id": "med1100-4-prove-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nPrøvene forutsetter hele Del 4. Her er de fem tingene du bør ha i hodet før du begynner — ferdig oppfrisket, så du slipper å bla.\n\n**Konfidensintervall** ([kap. 4.1](/med1100/med1100-4-1)): $\\text{estimat} \\pm 1{,}96 \\cdot \\text{SE}$, der $\\text{SE} = \\sqrt{\\hat p(1-\\hat p)/n}$ for en andel og $s/\\sqrt n$ for et gjennomsnitt. Ved gjennomsnitt med lite utvalg brukes en $t$-verdi med $\\text{df} = n-1$ i stedet for 1,96.\n\n**Hypotesetest i seks trinn** ([kap. 4.2](/med1100/med1100-4-2)): definer parameteren → skriv $H_0$ og $H_a$ → velg test og sjekk forutsetningene → regn teststatistikken → sammenlign med kritisk verdi → **konkluder i klartekst**. Kritiske verdier: **1,96** for tosidig $z$ på 5 prosent nivå, $t$ fra tabellen ved lav df, **3,84** for kji-kvadrat med 1 frihetsgrad.\n\n**Effektmål fra en 2×2** ([kap. 4.3](/med1100/med1100-4-3)): $\\text{RR} = \\dfrac{a/(a+b)}{c/(c+d)}$, $\\text{OR} = \\dfrac{ad}{bc}$, $\\text{RD} = R_1 - R_0$. Nullverdien er **1** for forholdstall og **0** for differanser. $\\text{OR} \\approx \\text{RR}$ bare når utfallet er sjeldent.\n\n**Utvalgsstørrelse** ([kap. 4.4](/med1100/med1100-4-4)): $n = 2(\\sigma/\\Delta)^2 k$ **per gruppe**, med $k = 10{,}5$ ved 90 prosent styrke og $7{,}9$ ved 80 prosent. **Rund alltid opp**, og legg frafall på etterpå ved å **dele** på $1 - \\text{frafallsandel}$.\n\n**Anvendte metoder** ([kap. 4.5](/med1100/med1100-4-5)): $V_c = 1 - 1/R_0$ og $R_{\\text{eff}} = R_0 \\cdot S$, sammenlignet med **1**. Kaplan-Meier er produktet av $(1 - d_i/r_i)$ ved hvert hendelsestidspunkt. Regresjonskoeffisienten måler bratthet, korrelasjonen måler tetthet.\n\n**Og de fem feilkodene som går igjen i Del 4:** **E3** (signifikans lest som relevans) · **E4** (ikke-signifikant lest som «ingen effekt») · **E5** (parrede data behandlet som uavhengige) · **E6** (1,96 brukt der en $t$-verdi kreves) · **E12** (tall levert uten tolkningssetning)."
+    },
+    {
+      "id": "med1100-4-prove-prove-1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Konfidensintervall og hypotesetest (~30 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "med1100-4-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 1 — Konfidensintervall og hypotesetest.** Omtrent 30 minutter. Fire oppgaver: to i sjangeren **B1-STAT** (statistikkoppgaven i blokk 1, besvart i fritekst med vist utregning), én **B1-MC** (flervalg, «velg ett») og én **B1-KORT** (kortsvar).\n\nLøs alle fire før du åpner fasitene. Bruk kalkulator og $t$-tabellen — det er slik eksamen faktisk er. **Ingen minuspoeng i blokk 1: svar på alt.**"
+        },
+        {
+          "id": "med1100-4-prove-p1-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p1-o1-e",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) I en tenkt undersøkelse blant 480 personer rapporterer 132 en gitt egenskap.\n\n**a)** Regn ut et 95 prosent konfidensintervall for andelen i befolkningen.\n\n**b)** Tolk intervallet i klartekst.\n\n*Alle tall i prøven er konstruerte.*",
+            "solution": "**a) Konfidensintervallet.**\n\n**Punktestimat:**\n$$\\hat p = \\frac{132}{480} = 0{,}275$$\n\n**Forutsetning:** $n\\hat p = 132$ og $n(1-\\hat p) = 348$; begge langt over 5, så normaltilnærmingen holder.\n\n**Standardfeil:**\n$$\\text{SE} = \\sqrt{\\frac{0{,}275 \\cdot 0{,}725}{480}} = \\sqrt{\\frac{0{,}199375}{480}} = \\sqrt{0{,}00041536} = 0{,}02038$$\n\n**Margin og grenser:**\n$$\\text{margin} = 1{,}96 \\cdot 0{,}02038 = 0{,}0399$$\n$$\\text{KI}_{95} = 0{,}275 \\pm 0{,}040 = [\\,0{,}235,\\ 0{,}315\\,]$$\n\n**b) Tolkning.** Andelen i utvalget er 27,5 prosent, og vi er 95 prosent sikre på at den sanne andelen i befolkningen ligger mellom **23,5 og 31,5 prosent**.\n\n**Kontroll:** grensene ligger symmetrisk om 0,275, og begge er lovlige andeler mellom 0 og 1. ✓",
+            "hints": [
+              "Regn andelen først, og sjekk normaltilnærmingsbetingelsen før du går videre.",
+              "Kvadratroten går over hele brøkken $\\hat p(1-\\hat p)/n$."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p1-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p1-o2-e",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-STAT.) Fortsatt samme undersøkelse som i oppgave 1: 132 av 480 personer har egenskapen. En tidligere undersøkelse i samme befolkning fant en andel på 30 prosent.\n\nTest på 5 prosent nivå om andelen har endret seg. Før svaret i seks trinn.",
+            "solution": "**Trinn 1 — parameteren.** La $p$ være den sanne andelen med egenskapen i befolkningen i dag.\n\n**Trinn 2 — hypotesene.**\n$$H_0: p = 0{,}30 \\qquad \\text{mot} \\qquad H_a: p \\ne 0{,}30$$\nTosidig, siden oppgaven spør om andelen «har endret seg» uten å oppgi retning.\n\n**Trinn 3 — test og forutsetninger.** Data er et antall av $n$: ett-proporsjons $Z$-test. $np_0 = 480 \\cdot 0{,}30 = 144$ og $n(1-p_0) = 336$; begge langt over 5.\n\n**Trinn 4 — teststatistikken.**\n$$Z = \\frac{X - np_0}{\\sqrt{np_0(1-p_0)}} = \\frac{132 - 144}{\\sqrt{480 \\cdot 0{,}30 \\cdot 0{,}70}} = \\frac{-12}{\\sqrt{100{,}8}} = \\frac{-12}{10{,}04} = -1{,}20$$\n\n**Trinn 5 — sammenligning.** Kritisk verdi ved tosidig 5 prosent er 1,96. Siden $|-1{,}20| < 1{,}96$, beholdes $H_0$. (Tosidig p-verdi er omtrent 0,23.)\n\n**Trinn 6 — konklusjon i klartekst.** Andelen i utvalget er 27,5 prosent, og avviket fra de 30 prosentene som var forventet, er **ikke statistisk signifikant** på 5 prosent nivå. Vi kan ikke utelukke at andelen er uendret.\n\n**Presiseringen som kreves:** dette betyr ikke at andelen er uendret (**felle E4** — å lese et ikke-signifikant funn som bevis for fravær). Undersøkelsen kan ikke skille 27,5 fra 30 prosent.\n\n**Kontroll mot oppgave 1:** intervallet der var $[0{,}235;\\ 0{,}315]$, og det **dekker 0,30**. Test og intervall gir samme konklusjon, som de alltid gjør. Bruk gjerne det ene som kontroll på det andre.",
+            "hints": [
+              "Regn forventet antall under $H_0$ først: det er $n$ ganget med $p_0$.",
+              "I nevneren brukes hypotesens andel $p_0$, ikke den observerte andelen.",
+              "Sammenlign svaret med konfidensintervallet fra oppgave 1 — de skal stemme overens."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p1-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p1-o3-e",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(B1-STAT.) I et annet tenkt datasett er en kontinuerlig måling gjort hos 20 personer. Gjennomsnittet er $\\bar x = 6{,}85$ enheter og standardavviket $s = 0{,}90$ enheter. Referanseverdien er 6,40 enheter.\n\n**a)** Test på 5 prosent nivå om gjennomsnittet avviker fra referanseverdien. Oppgi frihetsgradene eksplisitt.\n\n**b)** En kandidat bruker 1,96 som kritisk verdi og konkluderer likt. Hvilken feil er det, og hvorfor gikk det likevel bra her?",
+            "solution": "**a) Testen.**\n\n**Trinn 1 — parameteren.** La $\\mu$ være den sanne forventningen i befolkningen.\n\n**Trinn 2 — hypotesene.**\n$$H_0: \\mu = 6{,}40 \\qquad \\text{mot} \\qquad H_a: \\mu \\ne 6{,}40$$\n\n**Trinn 3 — test og forutsetninger.** Kontinuerlige målinger på én gruppe, $s$ estimert fra utvalget, uavhengige personer: **ett-utvalgs $t$-test**. $n = 20$ er lite, så $t$-tabellen skal brukes.\n\n**Trinn 4 — teststatistikken.**\n$$\\text{SE} = \\frac{0{,}90}{\\sqrt{20}} = \\frac{0{,}90}{4{,}472} = 0{,}2012\\ \\text{enheter}$$\n$$t = \\frac{6{,}85 - 6{,}40}{0{,}2012} = \\frac{0{,}45}{0{,}2012} = 2{,}24$$\n\n**Trinn 5 — sammenligning.** $\\text{df} = 20 - 1 = 19$. Kritisk $t$-verdi ved tosidig 5 prosent og 19 frihetsgrader er **2,093**. Siden $2{,}24 > 2{,}093$, forkastes $H_0$. (Tosidig p-verdi omtrent 0,038.)\n\n**Trinn 6 — konklusjon i klartekst.** Gjennomsnittet på 6,85 enheter er signifikant høyere enn referanseverdien 6,40, på 5 prosent nivå.\n\n**b) Kandidatens feil — felle E6.**\n\nÅ bruke 1,96 der tabellen krever $t = 2{,}093$ er felle E6: normalfordelingens kritiske verdi brukt på et lite utvalg. Her gikk det bra fordi teststatistikken på $2{,}24$ ligger **over begge** terskler, så konklusjonen blir den samme.\n\n**Men det er flaks, ikke metode.** Hadde teststatistikken vært for eksempel $2{,}00$, ville kandidaten forkastet ($2{,}00 > 1{,}96$) mens riktig svar er å beholde ($2{,}00 < 2{,}093$). Feilen går alltid samme vei: den gjør testen **for liberal** og øker sjansen for falske funn. Og den vokser når utvalget krymper — ved 9 frihetsgrader er terskelen 2,262, altså 15 prosent høyere enn 1,96.\n\n**Regelen:** ved gjennomsnitt der $s$ er estimert fra utvalget, bruk alltid $t$-tabellen og oppgi df. $t$ er aldri feil; 1,96 er feil på små utvalg.",
+            "hints": [
+              "Regn standardfeilen først, og finn frihetsgradene før du slår opp i tabellen.",
+              "Del b): tenk på hva som ville skjedd om teststatistikken hadde ligget mellom de to terskelverdiene."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p1-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p1-o4-e",
+            "number": 4,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) Svar på begge spørsmålene.\n\n**a)** Et 95 prosent konfidensintervall for en risikodifferanse går fra $-1$ til $9$ prosentpoeng. Hva følger av det?\n\na) Forskjellen er statistisk signifikant, siden estimatet er positivt.\nb) Intervallet må være regnet feil, siden en risiko ikke kan være negativ.\nc) Forskjellen er ikke statistisk signifikant på 5 prosent nivå.\nd) Det er vist at de to gruppene har helt lik risiko for utfallet.\n\n**b)** En forskergruppe vil halvere bredden på et konfidensintervall. Hva må til, gitt uendret spredning?\n\na) Firedoble utvalget.\nb) Doble utvalget.\nc) Heve konfidensnivået fra 95 til 99 prosent.\nd) Senke konfidensnivået fra 95 til 90 prosent.",
+            "solution": "**a) Riktig svar: c).**\n\nNullverdien for en differanse er 0, og intervallet $[-1;\\ 9]$ dekker 0. Forskjellen er derfor ikke påvist på 5 prosent nivå.\n\n- **a)** er feil: at punktestimatet er positivt sier ingenting så lenge intervallet krysser null.\n- **b)** er feil: en **differanse** kan godt være negativ — det betyr bare at forskjellen kan gå den andre veien. Det er de to risikoene hver for seg som ikke kan være negative.\n- **d)** er **felle E4**: intervallet strekker seg opp til 9 prosentpoeng, så data er fullt forenlige med en betydelig forskjell. «Ikke påvist» er ikke «vist at det ikke finnes».\n\n**b) Riktig svar: a).**\n\nBredden er proporsjonal med $1/\\sqrt n$, så å halvere den krever at $\\sqrt n$ dobles — altså at $n$ **firedobles**.\n\n- **b)** dobler $n$, som bare deler bredden på $\\sqrt 2 \\approx 1{,}41$, en reduksjon på rundt 29 prosent.\n- **c)** virker motsatt vei: kritisk verdi går fra 1,96 til 2,576, og intervallet blir **bredere**.\n- **d)** gjør intervallet smalere (1,645 i stedet for 1,96), men bare med rundt 16 prosent — og gevinsten er kjøpt ved å senke sikkerheten, ikke ved å skaffe mer informasjon.\n\n**Og husk:** blokk 1 har ingen minuspoeng. Er du usikker, kryss likevel av.",
+            "hints": [
+              "Del a): hvilken verdi er nullverdien for en differanse?",
+              "Del b): skriv opp bredden som et uttrykk i $n$ og se hvor $n$ står."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p1-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1\n\nSett kryss ved det du faktisk gjorde. Punktene er de samme sensor ser etter i en B1-STAT-oppgave.\n\n- ☐ Definerte du parameteren i ord før du skrev hypotesene?\n- ☐ Skrev du $H_0$ og $H_a$ eksplisitt, både symbolsk og med parameteren forklart?\n- ☐ Sjekket og skrev du ned forutsetningen (normaltilnærming, uavhengighet)?\n- ☐ Står utregningen der, med innsetting og mellomregning — ikke bare sluttsvaret?\n- ☐ Oppga du frihetsgradene i $t$-testen, og hentet du kritisk verdi fra riktig rad?\n- ☐ Konkluderte du i **ord**, knyttet til problemstillingen, og ikke bare med «$H_0$ forkastes»?\n- ☐ Unngikk du å skrive «ingen forskjell» om et ikke-signifikant funn?\n- ☐ Svarte du på **alle** oppgavene, også dem du var usikker på?\n\n**Bommet du på ett av de fire første punktene**, er det føringen og ikke regningen som trenger trening — gå tilbake til regneprosedyren i [kap. 4.2](/med1100/med1100-4-2). **Bommet du på $t$ mot 1,96**, les avsnittet om felle E6 i [kap. 4.1](/med1100/med1100-4-1) på nytt."
+        }
+      ]
+    },
+    {
+      "id": "med1100-4-prove-prove-2",
+      "type": "collapsible",
+      "title": "Prøve 2 — 2×2-tabeller, kji-kvadrat og effektmål (~30 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "med1100-4-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 2 — 2×2-tabeller, kji-kvadrat og effektmål.** Omtrent 30 minutter. Tre oppgaver: én stor **B1-STAT** (statistikkoppgaven i fritekst), én **B1-KORT** (kortsvar) og én **B1-MC** (flervalg).\n\nTegn tabellen på kladdearket før du regner — det er det ene grepet som fanger flest feil i denne sjangeren."
+        },
+        {
+          "id": "med1100-4-prove-p2-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p2-o1-e",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) I en tenkt oppfølgingsstudie følges 200 eksponerte og 200 ikke-eksponerte personer. Utfallet inntreffer hos 72 av de eksponerte og 45 av de ikke-eksponerte.\n\n**a)** Sett opp 2×2-tabellen og regn ut risiko i hver gruppe.\n\n**b)** Regn ut relativ risiko, risikodifferanse og odds ratio, og tolk hvert mål i ord.\n\n**c)** Test på 5 prosent nivå om det er en sammenheng mellom eksponering og utfall.\n\n*Alle tall er konstruerte.*",
+            "solution": "**a) Tabellen og risikoene.**\n\n|  | Utfall til stede | Utfall fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | 72 | 128 | 200 |\n| **Ikke eksponert** | 45 | 155 | 200 |\n| **Sum kolonne** | 117 | 283 | 400 |\n\nKontroll: $72+128+45+155 = 400$. ✓ Radsummene er de to gruppene som ble fulgt, så tabellen står riktig vei.\n\n$$R_1 = \\frac{72}{200} = 0{,}360 \\quad (36{,}0 \\text{ prosent}), \\qquad R_0 = \\frac{45}{200} = 0{,}225 \\quad (22{,}5 \\text{ prosent})$$\n\n**b) Effektmålene.**\n\n$$\\text{RR} = \\frac{0{,}360}{0{,}225} = 1{,}60$$\n*Tolkning:* risikoen er **1,6 ganger så høy** blant de eksponerte som blant de ikke-eksponerte.\n\n$$\\text{RD} = 0{,}360 - 0{,}225 = 0{,}135 \\quad (13{,}5 \\text{ prosentpoeng})$$\n*Tolkning:* det er **13,5 flere tilfeller per hundre** blant de eksponerte.\n\n$$\\text{OR} = \\frac{72 \\cdot 155}{128 \\cdot 45} = \\frac{11\\,160}{5\\,760} = 1{,}94$$\n*Tolkning:* **oddsen** for utfallet er **1,94 ganger så høy** blant de eksponerte.\n\n**Merk avviket mellom OR og RR:** $1{,}94$ mot $1{,}60$, altså over 20 prosent. Utfallet er ikke sjeldent — risikoen i referansegruppen er 22,5 prosent — så tilnærmingen $\\text{OR} \\approx \\text{RR}$ holder **ikke** her, og OR må omtales som en odds ratio (**felle E1** og **E2** hvis man gjør noe annet).\n\n— naturlig pausepunkt —\n\n**c) Kji-kvadrattesten.**\n\n$$H_0: \\text{ingen sammenheng mellom eksponering og utfall} \\qquad \\text{mot} \\qquad H_a: \\text{det er en sammenheng}$$\n\nForventede celletall: $200 \\cdot 117/400 = 58{,}5$ og $200 \\cdot 283/400 = 141{,}5$ i begge rader — alle godt over 5, så forutsetningen holder.\n\n$$ad - bc = 72 \\cdot 155 - 128 \\cdot 45 = 11\\,160 - 5\\,760 = 5\\,400$$\n$$\\chi^2 = \\frac{400 \\cdot 5\\,400^2}{200 \\cdot 200 \\cdot 117 \\cdot 283} = \\frac{400 \\cdot 29\\,160\\,000}{1\\,324\\,440\\,000} = 8{,}81$$\n\nKritisk verdi ved 1 frihetsgrad og 5 prosent nivå er **3,84**. Siden $8{,}81 > 3{,}84$, forkastes $H_0$.\n\n**Kontroll med z-test:** $z = \\sqrt{8{,}81} = 2{,}97 > 1{,}96$. Samme konklusjon, som alltid siden $\\chi^2 = z^2$ ved 1 frihetsgrad.\n\n**Konklusjon i klartekst:** det er en **statistisk signifikant sammenheng** mellom eksponering og utfall på 5 prosent nivå. Risikoen er 1,6 ganger så høy blant de eksponerte, og det er 13,5 flere tilfeller per hundre.\n\n**Forbeholdet som hører til:** testen sier at sammenhengen trolig er reell, ikke at eksponeringen er årsaken. Gruppene kan skille seg på andre kjennetegn som selv påvirker utfallet.",
+            "hints": [
+              "Fyll tabellen først og kontroller at radsummene er de to gruppene som ble fulgt.",
+              "Regn $ad-bc$ før du kvadrerer, og bruk alle fire marginalsummene i nevneren.",
+              "Se på hvor stor risikoen i referansegruppen er før du uttaler deg om forholdet mellom OR og RR."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p2-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p2-o2-e",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-KORT — kortsvarsoppgaven i blokk 1.) En artikkel rapporterer en odds ratio på 2,25 fra en tverrsnittsundersøkelse der forekomsten i referansegruppen er 10 prosent. En kandidat skriver: «Risikoen for å få tilstanden er 125 prosent høyere blant de eksponerte.»\n\nFinn de tre feilene i setningen, oppgi feilkoden der den finnes, og skriv setningen om.",
+            "solution": "**Feil 1 — feil verb. Felle E1.** Tallet er en **odds ratio**, og da er verbet «oddsen», ikke «risikoen». De to er ikke samme størrelse.\n\n**Feil 2 — risikospråk i et tverrsnitt. Felle E1, variant.** «Risikoen for å **få**» påstår noe om utvikling over tid. Et tverrsnitt måler hvem som **har** tilstanden på ett tidspunkt og kan ikke si noe om hvem som fikk den når. I dette designet heter forholdstallet **prevalensratio**, og tolkningen handler om forekomst.\n\n**Feil 3 — tilnærmingen brukt uten å sjekke betingelsen. Felle E2.** Forekomsten i referansegruppen er 10 prosent, altså over grensen på rundt 5 prosent. Odds ratio ligger da merkbart lenger fra 1 enn den tilsvarende prevalensratioen, og å lese 2,25 som et mål på forekomsten overdriver sammenhengen.\n\n**Setningen skrevet om:**\n\n> «Oddsen for tilstanden er 2,25 ganger så høy blant de eksponerte. Siden forekomsten i referansegruppen er 10 prosent, er tilstanden ikke sjelden, og odds ratio kan derfor ikke leses som en prevalensratio. Ønsker man et mål på forekomsten, må prevalensratioen regnes direkte fra tabellen.»\n\n**Merk at omskrivingen ikke svekker konklusjonen** — den slår fortsatt fast at oddsen er over dobbelt så høy. Det som falt bort, var påstander tallet ikke bærer.\n\n*Regelen om «125 prosent høyere» er for øvrig regnet riktig av kandidaten: et forholdstall gjøres om til prosent ved å trekke fra 1 og gange med 100. Feilen ligger i hvilken størrelse tallet gjelder, ikke i omregningen.*",
+            "hints": [
+              "To av feilene handler om ord, én om en betingelse som ikke er sjekket.",
+              "Hvilket effektmål hører til et tverrsnitt, og hva heter det da?"
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p2-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p2-o3-e",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) Svar på begge spørsmålene.\n\n**a)** En tenkt studie starter med 150 personer som har en tilstand og 150 som ikke har den, og kartlegger i etterkant hvem som var eksponert. Hvilket effektmål kan regnes ut?\n\na) Relativ risiko.\nb) Risikodifferanse.\nc) Prevalensratio.\nd) Odds ratio.\n\n**b)** En kji-kvadrattest på en 2×2-tabell gir verdien 3,69. Hva er konklusjonen på 5 prosent nivå?\n\na) Sammenhengen er ikke påvist, siden verdien er under 3,84.\nb) Sammenhengen er påvist, siden verdien er over 1,96.\nc) Det er vist at variablene er uavhengige av hverandre.\nd) Testen kan ikke brukes når verdien ligger så nær grensen.",
+            "solution": "**a) Riktig svar: d).**\n\nHer er **kolonnesummene** fastsatt av forskeren — 150 med og 150 uten tilstanden. Da er $a/(a+b)$ ikke en risiko, men et tall som avhenger av hvordan utvalget ble trukket. **Odds ratio** er upåvirket av dette, fordi kryssproduktet $ad/bc$ gir samme svar uansett hvordan man har valgt ut deltakerne. Det er nettopp den egenskapen som gjør OR uunnværlig i denne studieformen.\n\n- **a)** krever at man kan regne risiko, altså at radsummene er grupper som ble fulgt.\n- **b)** er en differanse mellom to risikoer, og kan ikke regnes når ingen av dem kan.\n- **c)** krever at tallene gjenspeiler den faktiske forekomsten i befolkningen, noe de ikke gjør når man har valgt 150 av hver.\n\n**b) Riktig svar: a).**\n\nKritisk verdi ved 1 frihetsgrad og 5 prosent nivå er 3,84, og $3{,}69$ er under. $H_0$ beholdes, og sammenhengen er ikke påvist.\n\n- **b)** sammenligner med 1,96, som er terskelen for en $z$-verdi og ikke for en kji-kvadratverdi. (Kontrollen: $\\sqrt{3{,}69} = 1{,}92$, som ligger like under 1,96 — konsistent.)\n- **c)** er **felle E4**. En verdi på 3,69 mot terskelen 3,84 betyr **uavklart**, ikke at det ikke er noen sammenheng. Med noen få flere tilfeller ville konklusjonen snudd.\n- **d)** er feil: testen er like gyldig uansett hvor teststatistikken lander. At resultatet er nær grensen er en grunn til å omtale det som usikkert, ikke til å forkaste testen.\n\n**Og husk:** blokk 1 har ingen minuspoeng. Svar på begge.",
+            "hints": [
+              "Del a): hva bestemte forskeren på forhånd — radsummene eller kolonnesummene?",
+              "Del b): hvilken terskel hører til kji-kvadrat med én frihetsgrad?"
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p2-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 2\n\n- ☐ Tegnet du tabellen og kontrollerte at radsummene er de gruppene som ble fulgt?\n- ☐ Regnet du risikoene **bortover** i radene, ikke nedover i kolonnene?\n- ☐ Oppga du både et forholdstall (RR eller OR) **og** den absolutte forskjellen (RD)?\n- ☐ Brukte du riktig verb — «oddsen» for OR, «risikoen» for RR, «prevalensen» for PR?\n- ☐ Sjekket du om utfallet var sjeldent før du sammenlignet OR og RR?\n- ☐ Sammenlignet du kji-kvadratverdien med **3,84**, ikke med 1,96?\n- ☐ Skrev du en tolkningssetning i klartekst med referansegruppen nevnt?\n- ☐ Tok du med forbeholdet om at sammenheng ikke er det samme som årsak?\n\n**Bommet du på celleplasseringen**, er det verdt å gå tilbake til regneprosedyren i [kap. 4.3](/med1100/med1100-4-3) — den feilen gjør alle fire effektmålene gale samtidig. **Bommet du på verbet**, les tolkningstabellen i samme kapittel: det er den billigste feilen å fjerne i hele Del 4."
+        }
+      ]
+    },
+    {
+      "id": "med1100-4-prove-prove-3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Utvalgsstørrelse, styrke og binomisk fordeling (~25 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "med1100-4-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 3 — Utvalgsstørrelse, styrke og binomisk fordeling.** Omtrent 25 minutter. Tre oppgaver: to **B1-STAT** (statistikkoppgaven i fritekst) og én **B1-MC** (flervalg).\n\nDenne prøven er den mest mekaniske i Del 4 — og den der flest poeng forsvinner i opprunding og frafall. Les svaret ditt en ekstra gang og sjekk at det står **per gruppe**."
+        },
+        {
+          "id": "med1100-4-prove-p3-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p3-o1-e",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) En tenkt studie skal sammenligne en kontinuerlig måling i to like store grupper. Standardavviket er anslått til $\\sigma = 20$ enheter, og den minste klinisk relevante forskjellen er satt til $\\Delta = 8$ enheter. Tosidig 5 prosent nivå.\n\n**a)** Hvor mange trengs per gruppe ved 90 prosent styrke? Og ved 80 prosent?\n\n**b)** Med 10 prosent forventet frafall: hvor mange må rekrutteres totalt ved 90 prosent styrke?\n\n**c)** Hva ville skjedd med tallet i a) dersom man ville kunne påvise en forskjell på 4 enheter i stedet? Svar uten å regne formelen på nytt.",
+            "solution": "**a) Utvalgsstørrelsene.**\n\n**90 prosent styrke** ($k = 10{,}5$):\n$$n = 2\\left(\\frac{20}{8}\\right)^2 \\cdot 10{,}5 = 2 \\cdot 2{,}5^2 \\cdot 10{,}5 = 2 \\cdot 6{,}25 \\cdot 10{,}5 = 131{,}25 \\quad \\Longrightarrow \\quad 132$$\n\n**Svar:** **132 personer per gruppe**, altså 264 til sammen.\n\n**80 prosent styrke** ($k = 7{,}9$):\n$$n = 2 \\cdot 6{,}25 \\cdot 7{,}9 = 98{,}75 \\quad \\Longrightarrow \\quad 99$$\n\n**Svar:** **99 personer per gruppe**, altså 198 til sammen.\n\n**Merk opprundingen begge steder:** $131{,}25 \\rightarrow 132$ og $98{,}75 \\rightarrow 99$. Rundes det ned, har studien lavere styrke enn den ble dimensjonert for.\n\n**b) Frafallsjusteringen.**\n$$n_{\\text{rekruttert}} = \\frac{132}{1 - 0{,}10} = \\frac{132}{0{,}90} = 146{,}67 \\quad \\Longrightarrow \\quad 147 \\text{ per gruppe}$$\n\n**Svar:** **294 personer må rekrutteres totalt.**\n\n**Kontroll:** $147 \\cdot 0{,}90 = 132{,}3$ fullførere per gruppe. ✓\n\n**Merk at man deler, ikke ganger.** Å regne $132 \\cdot 1{,}10 = 145{,}2 \\rightarrow 146$ gir for få: av 146 rekrutterte faller 14,6 fra, og bare 131 står igjen.\n\n**c) Halvert Δ.**\n\n$\\Delta$ står **kvadrert i nevneren**, så $n$ er proporsjonal med $1/\\Delta^2$. Halveres $\\Delta$ fra 8 til 4, **firedobles** antallet:\n$$132 \\cdot 4 = 528 \\text{ per gruppe}$$\n\naltså 1 056 til sammen — mot 264 i utgangspunktet.\n\n**Perspektivet som hører med:** å gå fra 80 til 90 prosent styrke koster rundt en tredel flere deltakere ($10{,}5/7{,}9 = 1{,}33$). Å halvere Δ koster fire ganger så mange. Skal en studie styrkes, er styrkeoppgraderingen klart billigst — men valget av Δ er samtidig det som avgjør om studien i det hele tatt kan svare på spørsmålet den stiller.",
+            "hints": [
+              "Regn $\\sigma/\\Delta$ først og kvadrer, før du ganger med 2 og med $k$.",
+              "Del b): del på andelen som blir igjen etter frafall, og rund opp igjen.",
+              "Del c): se hvilken potens Δ har i nevneren."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p3-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p3-o2-e",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-STAT.) I en tenkt undersøkelse testes 150 personer uavhengig av hverandre, og sannsynligheten for et gitt utfall er 0,12 for hver av dem.\n\n**a)** Regn ut forventet antall og standardavviket.\n\n**b)** Kan normaltilnærmingen brukes? Begrunn med tall.\n\n**c)** En annen undersøkelse har 60 personer og sannsynlighet 0,04. Kan normaltilnærmingen brukes der?",
+            "solution": "**a) Forventning og standardavvik.**\n$$\\mu = np = 150 \\cdot 0{,}12 = 18{,}0 \\text{ personer}$$\n$$\\sigma = \\sqrt{np(1-p)} = \\sqrt{150 \\cdot 0{,}12 \\cdot 0{,}88} = \\sqrt{15{,}84} = 3{,}98 \\text{ personer}$$\n\n**Merk enheten:** begge er **antall personer**, ikke andeler.\n\n**b) Normaltilnærmingen her.**\n$$np = 18 \\ge 5 \\qquad \\text{og} \\qquad n(1-p) = 150 \\cdot 0{,}88 = 132 \\ge 5$$\nBegge betingelsene er godt oppfylt, så tilnærmingen kan brukes.\n\n**c) Den andre undersøkelsen.**\n$$np = 60 \\cdot 0{,}04 = 2{,}40 < 5$$\n\n**Nei.** Betingelsen svikter, og det holder at **én** av de to gjør det ($n(1-p) = 57{,}6$ er greit nok). Fordelingen er sterkt høyreskjev når forventningen bare er 2,4 personer, og en symmetrisk normalfordeling bommer i begge ender.\n\n**Hva som bør gjøres i stedet:** regne direkte med den binomiske fordelingen.\n\n**Det som gir uttelling her:** å sjekke betingelsen og **si** at den ikke holder, med tallet som viser det. Å finne ut at en forutsetning svikter er et fullverdig svar, ikke en blindvei.",
+            "hints": [
+              "Forventningen er $np$, og standardavviket er kvadratroten av $np(1-p)$.",
+              "Begge betingelsene må være oppfylt — sjekk den minste av de to først."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p3-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p3-o3-e",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) Svar på begge spørsmålene.\n\n**a)** En utvalgsberegning gir 98,75 personer per gruppe. Hva føres som svar?\n\na) 98 personer per gruppe.\nb) 99 personer per gruppe.\nc) 98,75 personer per gruppe.\nd) 198 personer per gruppe.\n\n**b)** En studie med lav styrke finner ingen signifikant forskjell. Hva kan konkluderes?\n\na) At de to gruppene med rimelig sikkerhet er likeverdige.\nb) At studien bør gjentas med et strengere signifikansnivå.\nc) At forskjellen finnes, men er mindre enn den planlagte.\nd) At forskjellen ikke er påvist, ikke at den ikke finnes.",
+            "solution": "**a) Riktig svar: b).**\n\nUtvalgsstørrelser rundes **alltid opp** til hele personer.\n\n- **a)** runder ned, og gir en studie med litt lavere styrke enn den man nettopp regnet ut — da var beregningen forgjeves.\n- **c)** er ikke et svar: man kan ikke inkludere tre firedels person.\n- **d)** er totalen for begge gruppene, og besvarer ikke spørsmålet om antall **per gruppe**. Oppgi gjerne begge tallene, men si hvilket som er hvilket.\n\n**b) Riktig svar: d).**\n\nEn underpowered studie kan ikke skille mellom at effekten ikke finnes og at studien ikke var i stand til å oppdage den.\n\n- **a)** er **felle E4**. Å hevde likeverdighet er dessuten en positiv påstand som krever et helt annet studiedesign — man må dimensjonere for å utelukke forskjeller over en fastsatt grense, og det krever som regel **flere** deltakere, ikke færre.\n- **b)** går feil vei: et strengere signifikansnivå gjør det enda vanskeligere å påvise noe.\n- **c)** påstår at forskjellen finnes, noe studien ikke har grunnlag for å si.\n\n**Og husk:** blokk 1 har ingen minuspoeng. Kryss av på begge.",
+            "hints": [
+              "Del a): hva er regelen for avrunding av utvalgsstørrelser, og hvorfor er den slik?",
+              "Del b): hvilken av de fire påstandene sier minst mer enn dataene tillater?"
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p3-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 3\n\n- ☐ Brukte du riktig styrkekonstant — 10,5 for 90 prosent, 7,9 for 80 prosent?\n- ☐ Rundet du **opp** til hel person, og gjorde du det **før** frafallsjusteringen?\n- ☐ **Delte** du på $1 - \\text{frafallsandel}$, i stedet for å gange med $1 + \\text{frafallsandel}$?\n- ☐ Oppga du både antall **per gruppe** og **totalt**?\n- ☐ Regnet du binomisk forventning og standardavvik i **antall personer**, ikke i andeler?\n- ☐ Sjekket du **begge** betingelsene for normaltilnærmingen?\n- ☐ Sa du eksplisitt hva som ville skjedd med $n$ hvis Δ ble halvert?\n- ☐ Svarte du på alle deloppgavene, også dem du var usikker på?\n\n**Bommet du på opprunding eller frafall**, er det ren prosedyre — les regneprosedyren i [kap. 4.4](/med1100/med1100-4-4) på nytt og gjør oppgave 3 der. Det er de to leddene som koster flest poeng i hele denne sjangeren, og de er de enkleste å fikse."
+        }
+      ]
+    },
+    {
+      "id": "med1100-4-prove-prove-4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Anvendte metoder: flokkimmunitet, Kaplan-Meier og regresjon (~30 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "med1100-4-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 4 — Anvendte metoder: flokkimmunitet, Kaplan-Meier og regresjon.** Omtrent 30 minutter. Fire oppgaver: to **B1-STAT** (statistikkoppgaven i fritekst), én **B1-KORT** (kortsvar) og én **B1-MC** (flervalg).\n\nDette er det anvendte temaet som rullerer på eksamen — ett av dem kommer nesten helt sikkert, men ikke alltid det samme. Derfor dekker prøven alle fire."
+        },
+        {
+          "id": "med1100-4-prove-p4-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p4-o1-e",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) Et tenkt smittsomt agens har $R_0 = 5$ i en gitt befolkning.\n\n**a)** Regn ut flokkimmunitetsterskelen.\n\n**b)** I befolkningen er 65 prosent immune. Regn ut $R_{\\text{eff}}$ og tolk resultatet.\n\n**c)** Nevn én forenkling modellen bygger på, og hva den betyr for hvordan terskelen skal tolkes.\n\n*Alle reproduksjonstall er konstruerte for regningens skyld.*",
+            "solution": "**a) Terskelen.**\n$$V_c = 1 - \\frac{1}{R_0} = 1 - \\frac{1}{5} = 0{,}80 \\quad (80{,}0 \\text{ prosent})$$\n\nMinst 80 prosent må være immune for at $R_{\\text{eff}}$ skal falle under 1.\n\n**b) Effektivt reproduksjonstall.**\n\nMottakelig andel: $S = 1 - 0{,}65 = 0{,}35$.\n$$R_{\\text{eff}} = R_0 \\cdot S = 5 \\cdot 0{,}35 = 1{,}75$$\n\n**Tolkning:** hvert tilfelle gir i gjennomsnitt 1,75 nye tilfeller. Siden $1{,}75 > 1$, kan antallet tilfeller fortsatt vokse. En immunandel på 65 prosent ligger under terskelen på 80 prosent, og de to regnestykkene stemmer overens.\n\n**Merk hva sammenligningen skal gjøres mot:** terskelen er **1**, ikke $R_0$. At $R_{\\text{eff}}$ er lavere enn $R_0$, er den alltid så lenge noen er immune, og sier ingenting i seg selv.\n\n**c) En forenkling.**\n\nModellen forutsetter at befolkningen blander seg **jevnt**, og at de immune er spredt utover. I virkeligheten er kontaktmønstre klumpete. Er de immune ujevnt fordelt, kan den mottakelige andelen være høy i enkelte grupper selv når gjennomsnittet ligger over terskelen — og der kan utbrudd fortsatt løpe.\n\n**Hva det betyr for tolkningen:** terskelen på 80 prosent er en **modellstørrelse** — presis innenfor modellen, en forenkling utenfor den. Et fullstendig svar oppgir tallet **og** forbeholdet.\n\n*Dette er en regnemodell for hvordan smittetall utvikler seg, ikke en anbefaling om noe som helst.*",
+            "hints": [
+              "Formelen for terskelen er 1 minus én delt på reproduksjonstallet.",
+              "Del b): finn den mottakelige andelen først, og sammenlign svaret med 1."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p4-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p4-o2-e",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(B1-STAT.) Ti personer følges i en tenkt studie. Utfallet inntreffer ved 3, 6, 11 og 16 måneder. Én person sensureres ved 8 måneder. De fem siste er hendelsesfrie når studien avsluttes etter 20 måneder.\n\n**a)** Sett opp levetidstabellen og regn ut kumulativ overlevelse ved 16 måneder.\n\n**b)** Sammenlign med den naive andelen «hendelser delt på inkluderte», og forklar avviket.\n\n**c)** Er medianoverlevelsen nådd i denne studien? Begrunn.",
+            "solution": "**a) Levetidstabellen.**\n\n| Tid (mnd) | Under risiko $r$ | Hendelser $d$ | Sensurert | Faktor $1 - d/r$ | Kumulativ $S(t)$ |\n|---|---|---|---|---|---|\n| 3 | 10 | 1 | 0 | $1 - 1/10 = 0{,}900$ | $0{,}900$ |\n| 6 | 9 | 1 | 0 | $1 - 1/9 = 0{,}8889$ | $0{,}900 \\cdot 0{,}8889 = 0{,}800$ |\n| 8 | 8 | 0 | 1 | — | $0{,}800$ |\n| 11 | 7 | 1 | 0 | $1 - 1/7 = 0{,}8571$ | $0{,}800 \\cdot 0{,}8571 = 0{,}6857$ |\n| 16 | 6 | 1 | 0 | $1 - 1/6 = 0{,}8333$ | $0{,}6857 \\cdot 0{,}8333 = 0{,}5714$ |\n| 20 | 5 | 0 | 5 | — | $0{,}5714$ |\n\n**Kontroll:** 4 hendelser + 1 sensurert underveis + 5 hendelsesfrie ved slutt $= 10$ personer. ✓ $S$ faller monotont. ✓\n\n**Svar:** $S(16) = 0{,}571$, altså **57,1 prosent** estimert overlevelse ved 16 måneder.\n\n— naturlig pausepunkt —\n\n**b) Sammenligning med den naive andelen.**\n\nNaiv regning: $1 - 4/10 = 0{,}600$, altså **60,0 prosent** — nesten 3 prosentpoeng høyere enn Kaplan-Meier-estimatet.\n\n**Forklaringen.** Den naive metoden behandler personen som ble sensurert ved 8 måneder som om vedkommende var fulgt hele veien uten hendelse. Vi vet bare at ingenting hadde skjedd fram til 8 måneder. Kaplan-Meier lar personen telle så lenge han eller hun faktisk ble fulgt — vedkommende inngår i risikomengden ved hendelsene på 3 og 6 måneder, men ikke ved dem på 11 og 16 — og gir dermed et estimat som bruker akkurat den informasjonen som finnes.\n\n**Avviket er lite her** fordi bare én av ti er sensurert. Er mange sensurert tidlig, blir forskjellen vesentlig større.\n\n**c) Er medianoverlevelsen nådd?**\n\nMedianoverlevelsen er tidspunktet der kurven krysser $0{,}50$. Her er $S = 0{,}686$ ved 11 måneder og $S = 0{,}571$ ved 16 måneder, og kurven ender på $0{,}571$ ved studieslutt — altså **over** halvparten hele veien.\n\n**Svar:** **nei, medianoverlevelsen er ikke nådd** innen 20 måneders oppfølging, fordi kurven aldri kommer ned til 0,50 i observasjonsperioden.\n\n**Det riktige å skrive i besvarelsen:** «medianoverlevelsen er ikke nådd innen 20 måneders oppfølging». Det er et fullverdig svar, og det er langt bedre enn å ekstrapolere kurven videre — en trappekurve sier ingenting om hva som skjer etter siste observasjon.",
+            "hints": [
+              "Sorter alle fem tidspunktene i rekkefølge, og marker hvilket som er sensurering.",
+              "Regn hver faktor med risikomengden som gjaldt rett før hendelsen, og trekk fra etterpå.",
+              "Del c): finn ut om kurven noen gang kommer ned til 0,50 innenfor observasjonstiden."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p4-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p4-o3-e",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-KORT — kortsvarsoppgaven i blokk 1.) En tenkt studie undersøker 15 utfall i samme datasett, hvert med en test på 5 prosent nivå, og rapporterer det ene som fikk $p = 0{,}03$ som et signifikant funn.\n\n**a)** Regn ut sannsynligheten for minst én falsk positiv blant 15 tester når ingen av nullhypotesene er falske.\n\n**b)** Skriv en kort, presis kommentar til rapporteringen.",
+            "solution": "**a) Sannsynligheten.**\n$$P = 1 - 0{,}95^{15} = 1 - 0{,}463 = 0{,}537 \\quad (53{,}7 \\text{ prosent})$$\n\nMed 15 uavhengige tester på 5 prosent nivå er det altså **over 50 prosent sjanse** for minst ett «signifikant» funn selv når ingenting i det hele tatt er sant.\n\n**Bonferroni-korrigert terskel:** $0{,}05/15 = 0{,}0033$. Funnets p-verdi på $0{,}03$ er langt over, og holder derfor ikke.\n\n**b) Kommentaren.**\n\n> Studien har utført 15 tester i samme materiale, og sannsynligheten for å få minst ett resultat under 0,05 ved ren tilfeldighet er da 54 prosent. Funnet med $p = 0{,}03$ holder ikke mot en Bonferroni-korrigert terskel på 0,0033 og kan ikke rapporteres som et etablert funn. Det bør omtales som en **hypotesegenererende observasjon** som må bekreftes i en ny studie der nettopp denne hypotesen er bestemt på forhånd.\n\n**Det som gjør kommentaren presis og ikke bare avvisende:** den sier hva funnet **kan** brukes til, i stedet for bare å slå fast at det ikke holder. Dette er **felle E9** — å glemme korreksjon for multippel testing — og den er en av de mest siterte grunnene til at enkeltfunn ikke lar seg gjenta.",
+            "hints": [
+              "Del a): sannsynligheten for ingen falske positive er 0,95 opphøyd i antall tester.",
+              "Del b): si både hva funnet ikke viser og hva det kan brukes til."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p4-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "med1100-4-prove-p4-o4-e",
+            "number": 4,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) Svar på begge spørsmålene.\n\n**a)** Et datasett har regresjonskoeffisient 3,0 enheter per enhet $X$ og korrelasjonskoeffisient 0,25. Hva betyr det?\n\na) Tallene er uforenlige, så det må foreligge en regnefeil.\nb) Sammenhengen er bratt, men punktene ligger spredt rundt linja.\nc) Sammenhengen er flat, siden korrelasjonen er nær null.\nd) Sammenhengen er både bratt og tett rundt den tilpassede linja.\n\n**b)** En studie med 80 000 deltakere finner en forskjell på 0,3 prosentpoeng med $p < 0{,}001$. Hva er den mest presise tolkningen?\n\na) Den lave p-verdien viser at forskjellen er viktig.\nb) Studien er så stor at resultatet må skyldes en systematisk feil.\nc) Forskjellen er trolig reell, men størrelsen er svært liten.\nd) Forskjellen er både reell og av betydelig praktisk omfang.",
+            "solution": "**a) Riktig svar: b).**\n\nRegresjonskoeffisienten måler **bratthet** — hvor mye $Y$ endrer seg per enhet $X$ — og har enhet. Korrelasjonskoeffisienten måler **tetthet** — hvor nær punktene ligger linja — og er enhetsløs. De to er **uavhengige** av hverandre.\n\n- **a)** er den klassiske utgaven av **felle E7**: å tro at en høy koeffisient og en lav korrelasjon er selvmotsigende. En bratt linje gjennom en vid punktsky er en helt vanlig situasjon.\n- **c)** forveksler de to målene helt: korrelasjonen sier ingenting om hvor bratt linja er.\n- **d)** ville krevd at begge tallene var høye.\n\n**b) Riktig svar: c).**\n\nMed 80 000 deltakere blir standardfeilen bitteliten, og selv en forskjell på 0,3 prosentpoeng — tre tilfeller per tusen — passerer terskelen med god margin.\n\n- **a)** og **d)** er begge **felle E3**: signifikans lest som relevans. p-verdien sier om forskjellen trolig er reell, ikke hvor stor den er.\n- **b)** er feil: store utvalg gir mer presise estimater, ikke systematiske feil. (Er utvalget derimot **skjevt**, gir et stort utvalg et presist mål på feil størrelse — men det er en annen sak enn størrelsen i seg selv.)\n\n**Og husk:** blokk 1 har ingen minuspoeng. Kryss av på begge.",
+            "hints": [
+              "Del a): hvilket av de to tallene har enhet, og hva måler det?",
+              "Del b): se på utvalgsstørrelsen ved siden av p-verdien og effektstørrelsen."
+            ]
+          }
+        },
+        {
+          "id": "med1100-4-prove-p4-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 4\n\n- ☐ Sammenlignet du $R_{\\text{eff}}$ med **1**, og ikke med $R_0$?\n- ☐ Nevnte du modellforenklingen når du tolket flokkimmunitetsterskelen?\n- ☐ Førte du levetidstabellen med kolonnene tid, risikomengde, hendelser, faktor og kumulativ overlevelse?\n- ☐ Ga sensureringen **ingen** faktor i tabellen, men reduserte den risikomengden til neste rad?\n- ☐ Kontrollerte du at hendelser, sensureringer og gjenværende summerer til antall inkluderte?\n- ☐ Skrev du «medianoverlevelsen er ikke nådd» der kurven ikke krysser 0,50, i stedet for å gjette?\n- ☐ Holdt du bratthet (regresjonskoeffisient) og tetthet (korrelasjon) fra hverandre?\n- ☐ Regnet du ut sannsynligheten for falsk positiv **før** du uttalte deg om multippel testing?\n- ☐ Skrev du en tolkningssetning i klartekst til hver eneste oppgave?\n\n**Bommet du på Kaplan-Meier-tabellen**, er det som regel én av to ting: at faktoren ble regnet med feil risikomengde, eller at de sensurerte ikke ble trukket fra. Gå tilbake til regneprosedyren i [kap. 4.5](/med1100/med1100-4-5) og gjør oppgave 7 der.\n\n**Er alle fire prøvene gjennomført?** Da har du dekket hele Del 4 — det tyngste enkelttemaet i blokk 1, med 40 prosent av eksamenen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
