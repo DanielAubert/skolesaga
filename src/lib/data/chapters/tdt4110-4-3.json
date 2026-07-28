@@ -1,0 +1,309 @@
+{
+ "id": "tdt4110-4-3",
+ "courseId": "tdt4110",
+ "chapterNumber": "4.3",
+ "title": "Unntakshåndtering rundt fil-I/O",
+ "description": "try/except rundt filoperasjoner: håndtere «fil finnes ikke», gi en feilmelding og returnere None i stedet for å krasje.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "lese siste linje i en feilmelding og avgjøre hvilken feiltype som skal fanges",
+  "skrive en filleser som gir melding og returnerer en feilverdi i stedet for å stoppe",
+  "hoppe over ødelagte linjer i en datafil uten å avbryte hele innlesingen",
+  "avgrense `try`-blokken til de linjene som faktisk kan utløse feilen"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-4-3-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette er kapitlet som skiller en besvarelse som virker fra en som virker uansett.**\n\n- **`try/except` rundt filoperasjoner står i ~60 % av settene (6 av 10 sittinger)**, oftest som et krav i deloppgaven som leser fila: «skriv en feilmelding og returner `None` hvis fila ikke finnes, i stedet for at programmet krasjer».\n- Sjangeren er **E — filinnlesing** og **I — lagring**, med robusthet som tillegg. **Robust fil-I/O er et toppscore-signal**: sensor ser etter det, og det er billig å levere.\n- **Prioritet: må kunne** — bokas midterste nivå, av «må sitte», «må kunne» og «bør kjenne til».\n\nFeilene som koster poeng her er ikke feil i koden din — de er feil i **håndteringen**:\n\n- **#6** — glemme å returnere noe fornuftig i feilgrenen, så kalleren krasjer litt senere i stedet.\n- Fange feil type, så unntaket slipper forbi likevel.\n- Legge `try` for bredt, slik at ekte programmeringsfeil svelges stille og du aldri får vite om dem.\n\nKapitlet tar ~45 minutter i fire løkker. Du trenger ikke kunne alle feiltypene utenat — du trenger å kjenne igjen de fire som oppstår rundt filer og data."
+  },
+  {
+   "id": "tdt4110-4-3-forkunnskaper",
+   "type": "text",
+   "content": "**Forkunnskaper**\n\n- [kap. 4.1](/tdt4110/tdt4110-4-1) — filinnlesing: `open`, `for linje in f:`, `.strip().split()` og konvertering. Det er nettopp disse fire stegene som kan gå galt.\n- [kap. 4.2](/tdt4110/tdt4110-4-2) — filskriving, som har sine egne feilkilder.\n- [kap. 2.1](/tdt4110/tdt4110-2-1) — funksjoner og `return`, siden hele poenget er hva funksjonen skal returnere når det går galt.\n- [kap. 1.2](/tdt4110/tdt4110-1-2) — betingelser, som er alternativet til `try/except` når feilen kan **forutses**."
+  },
+  {
+   "id": "tdt4110-4-3-l1-intro",
+   "type": "text",
+   "content": "## Løkke 1 — Hva skjer når det går galt (~10 min)\n\nDu har skrevet en perfekt filleser. Så skriver brukeren filnavnet feil, eller fila er ikke lastet ned ennå, eller den ligger i en annen mappe. Programmet ditt stopper midt i, med en feilmelding på seks linjer som brukeren ikke skjønner noe av.\n\nDet er ikke en feil i koden din. Det er en situasjon koden din ikke har tatt stilling til — og det er nøyaktig det unntakshåndtering handler om."
+  },
+  {
+   "id": "tdt4110-4-3-def-exception",
+   "type": "definition",
+   "title": "Exception (unntak — en feil som avbryter programmet)",
+   "content": "Et **unntak** er en feilsituasjon som oppstår mens programmet kjører, og som stopper det der og da hvis ingen tar imot den.\n\nDet engelske ordet er *exception*, og du ser det i feilmeldingene. Boka bruker «unntak» i prosa og de engelske typenavnene i kode, siden det er dem Python skriver ut.\n\nMerk skillet mot en **syntaksfeil**: den oppdages før programmet i det hele tatt starter, og kan ikke fanges. Et unntak oppstår først under kjøring, og kan fanges."
+  },
+  {
+   "id": "tdt4110-4-3-def-traceback",
+   "type": "definition",
+   "title": "Traceback (feilmeldingen)",
+   "content": "Utskriften Python gir når et unntak ikke blir fanget. Den leses **nedenfra og opp**: siste linje sier hva som gikk galt, linjene over sier hvor.\n\nSiste linje har alltid formen `FeilType: forklaring`. Det er den ene linja du trenger — typen står først, og den er navnet du skriver i `except`.\n\nÅ lese den siste linja er en eksamensferdighet i seg selv: den forteller deg både hvilken feiltype du skal fange, og hva som utløste den."
+  },
+  {
+   "id": "tdt4110-4-3-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Programmet som stopper",
+   "problem": "Hva skjer når et program prøver å lese en fil som ikke finnes? Kjør innlesingen fra [kap. 4.1](/tdt4110/tdt4110-4-1) mot filnavnet `salgstall.txt`, som ikke er opprettet.",
+   "solution": "Koden er helt riktig skrevet. Det er situasjonen som er gal:\n\n```python\n# tilsiktet feil: fila finnes ikke, så programmet stopper her\nf = open('salgstall.txt', 'r')\ntabell = []\nfor linje in f:\n    tabell.append(linje.strip().split(';'))\nf.close()\n```\n\nKodeblokken er merket som tilsiktet feilende. Programmet stopper på `open`-linja, og siste linje i feilmeldingen er:\n\n```text\nFileNotFoundError: [Errno 2] No such file or directory: 'salgstall.txt'\n```\n\n**Les den linja nøye.** `FileNotFoundError` er **typen**, og resten er forklaringen med filnavnet i. Ingenting av det som står etter `open` ble utført: `tabell` ble aldri opprettet, og `close` ble aldri kjørt.\n\n**Dette er problemet i et nøtteskall.** Programmet ditt er ikke feil — det mangler bare en plan for hva som skal skje når fila ikke er der."
+  },
+  {
+   "id": "tdt4110-4-3-def-try-except",
+   "type": "definition",
+   "title": "`try:` … `except FeilType:`",
+   "content": "Grunnformen. Koden som **kan** gå galt, legges i `try`-blokken. Går det galt, hopper Python rett til den `except`-grenen som passer til feiltypen, og fortsetter der.\n\n```python\ntry:\n    f = open('salgstall.txt', 'r')\n    print('Fila ble åpnet')\nexcept FileNotFoundError:\n    print('Fant ikke filen: salgstall.txt')\nprint('Programmet fortsetter')\n```\n\n**Utskrift:**\n```\nFant ikke filen: salgstall.txt\nProgrammet fortsetter\n```\n\nTre ting å legge merke til: `print('Fila ble åpnet')` ble **aldri** kjørt, siden feilen oppsto på linja over. Programmet stoppet ikke. Og den siste linja kjørte som normalt — feilen er håndtert, ikke skjult.\n\nGår alt bra, hoppes hele `except`-grenen over."
+  },
+  {
+   "id": "tdt4110-4-3-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Den samme innlesingen, gjort robust",
+   "problem": "Skriv `les_tabell(filnavn)` som leser fila til en 2D-tabell, men som skriver «Fant ikke filen: `<navn>`» og returnerer `None` i stedet for å stoppe når fila mangler. Vis begge utfallene.",
+   "solution": "**Innholdet i `maalinger.txt`:**\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\n```python\ndef les_tabell(filnavn):\n    try:\n        f = open(filnavn, 'r')\n    except FileNotFoundError:\n        print('Fant ikke filen:', filnavn)\n        return None\n    tabell = []\n    for linje in f:\n        tabell.append(linje.strip().split(';'))\n    f.close()\n    return tabell\n\nprint(les_tabell('maalinger.txt'))\nresultat = les_tabell('salgstall.txt')\nprint(resultat)\n```\n\n**Utskrift:**\n```\n[['Blindern', '12.4', '61'], ['Kjevik', '15.1', '54'], ['Værnes', '9.8', '73']]\nFant ikke filen: salgstall.txt\nNone\n```\n\n**Begge utfallene er med i utskriften.** Første kall gir tabellen, andre gir feilmeldingen og deretter `None`.\n\n**`return None` er ikke pynt.** Uten den ville funksjonen falt igjennom og returnert `None` uansett — men da hadde den også prøvd å lese fra en fil som aldri ble åpnet, og stoppet med `NameError` i stedet. Feilgrenen må avsluttes.\n\n**Merk at bare `open` ligger i `try`-blokken.** Det er den eneste linja som kan utløse `FileNotFoundError`. Legger du hele løkka inni også, fanger du feil du ikke mente å fange — mer om det i løkke 4.\n\n**Slik ville sensor sett på det:** de tre poenggivende punktene er `try` rundt åpningen, riktig feiltype i `except`, og at funksjonen returnerer noe kalleren kan sjekke. En løsning som returnerer en tom liste `[]` i stedet for `None`, gir like full pott — så lenge oppgaveteksten ikke sier noe annet, og så lenge du er konsekvent."
+  },
+  {
+   "id": "tdt4110-4-3-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-3-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — sjanger E, filinnlesing med robusthet.) Se på denne koden:\n\n```python\ntry:\n    tall = int('femtifem')\n    print('Konvertert:', tall)\nexcept ValueError:\n    print('Ikke et tall')\nprint('Ferdig')\n```\n\n**a)** Hvilke av de tre `print`-setningene kjører?\n\n**b)** Hva ville skjedd uten `try/except`?",
+    "solution": "**a)** To av dem, i denne rekkefølgen:\n\n```python\ntry:\n    tall = int('femtifem')\n    print('Konvertert:', tall)\nexcept ValueError:\n    print('Ikke et tall')\nprint('Ferdig')\n```\n\n**Utskrift:**\n```\nIkke et tall\nFerdig\n```\n\n`print('Konvertert:', tall)` kjører **aldri**, fordi feilen oppsto på linja over den. Alt som står etter feilstedet inne i `try`-blokken, hoppes over.\n\n**b)** Programmet ville stoppet på `int('femtifem')`, og siste linje i feilmeldingen ville vært `ValueError: invalid literal for int() with base 10: 'femtifem'`. Verken `Konvertert:` eller `Ferdig` ville kommet på skjermen.\n\nDet er hele forskjellen: uten håndtering stopper alt, med håndtering fortsetter programmet.",
+    "hints": [
+     "Hvor i `try`-blokken oppstår feilen, og hva skjer med linjene under den?",
+     "Kjøres den siste `print`-setningen i det hele tatt, når den står utenfor `try`?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-3-l2-intro",
+   "type": "text",
+   "content": "## Løkke 2 — De fem feiltypene du møter rundt filer og data (~12 min)\n\nDu trenger ikke kunne alle Pythons feiltyper. Du trenger de fem som oppstår i kjeden *les fil, del linja, konverter feltet, slå opp verdien, regn*. De kommer i den rekkefølgen, én per steg."
+  },
+  {
+   "id": "tdt4110-4-3-def-filenotfound",
+   "type": "definition",
+   "title": "`FileNotFoundError`",
+   "content": "Fila finnes ikke, eller navnet er skrevet feil. Oppstår i `open`, og bare der.\n\n```python\ntry:\n    f = open('salgstall.txt', 'r')\nexcept FileNotFoundError as e:\n    print('Feilmeldingen sier:', e)\n```\n\n**Utskrift:**\n```\nFeilmeldingen sier: [Errno 2] No such file or directory: 'salgstall.txt'\n```\n\nMerk at feilen kommer med filnavnet i teksten. Det er verdt å ta med i din egen melding også — «Fant ikke filen: salgstall.txt» hjelper brukeren, «Noe gikk galt» gjør det ikke.\n\nVed skriving (`'w'`) er denne feilen sjelden: mangler fila, blir den opprettet."
+  },
+  {
+   "id": "tdt4110-4-3-def-valueerror",
+   "type": "definition",
+   "title": "`ValueError`",
+   "content": "Verdien har riktig type, men gal form. Den vanligste kilden i dette faget er `int()` eller `float()` på et felt som ikke er et tall — for eksempel en overskriftsrad som ble med i løkka, eller et ødelagt felt i fila.\n\n```python\nfor tekst in ['42', 'femtifem', '12.4']:\n    try:\n        print(tekst, 'gir', int(tekst))\n    except ValueError:\n        print(tekst, 'kan ikke bli et heltall')\n```\n\n**Utskrift:**\n```\n42 gir 42\nfemtifem kan ikke bli et heltall\n12.4 kan ikke bli et heltall\n```\n\nLegg merke til at `'12.4'` også feiler: `int()` godtar ikke desimaltall som tekst. Der må du bruke `float()`.\n\n`ValueError` kastes også av `.index(navn)` når navnet ikke finnes i lista ([kap. 4.1](/tdt4110/tdt4110-4-1))."
+  },
+  {
+   "id": "tdt4110-4-3-def-indexerror",
+   "type": "definition",
+   "title": "`IndexError`",
+   "content": "Du ber om en plass som ikke finnes i lista. Rundt filer er kilden nesten alltid en linje med **for få felt** — en blank linje til slutt, eller en rad som mangler en verdi.\n\n```python\nlinjer = ['mandag;løpetur;42', 'onsdag;svømming']\nfor linje in linjer:\n    felt = linje.strip().split(';')\n    try:\n        print(felt[0], felt[2])\n    except IndexError:\n        print(felt[0], 'mangler et felt (fikk', len(felt), 'felt)')\n```\n\n**Utskrift:**\n```\nmandag 42\nonsdag mangler et felt (fikk 2 felt)\n```\n\nFeilmeldingen er `list index out of range`. Motgiften er enten `try/except`, eller en forutseende test: `if len(felt) == 3:`.\n\nEr feilen forventet og lett å teste for, er `if`-varianten ofte den ryddigste."
+  },
+  {
+   "id": "tdt4110-4-3-def-keyerror",
+   "type": "definition",
+   "title": "`KeyError`",
+   "content": "Du slår opp en nøkkel som ikke finnes i ordboka.\n\n```python\nd = {'Bergen': 120, 'Tromsø': 45}\ntry:\n    print(d['Stavanger'])\nexcept KeyError:\n    print('Byen står ikke i ordboka')\nprint(d.get('Stavanger', 0))\nprint('Stavanger' in d)\n```\n\n**Utskrift:**\n```\nByen står ikke i ordboka\n0\nFalse\n```\n\nDe to siste linjene viser alternativene som **unngår** feilen helt: `d.get(nøkkel, standardverdi)` gir standardverdien i stedet for å kaste feil, og `in`-testen spør på forhånd.\n\nRegelen boka følger: kan feilen forutses billig, forutse den. Kan den ikke det, fang den."
+  },
+  {
+   "id": "tdt4110-4-3-def-zerodivision",
+   "type": "definition",
+   "title": "`ZeroDivisionError`",
+   "content": "Deling på null. I filoppgaver oppstår den nesten alltid ett bestemt sted: et gjennomsnitt regnet ut over en **tom** tabell.\n\n```python\ndef snitt(tall):\n    try:\n        return sum(tall) / len(tall)\n    except ZeroDivisionError:\n        return None\n\nprint(snitt([12.4, 15.1, 9.8]))\nprint(snitt([]))\n```\n\n**Utskrift:**\n```\n12.433333333333332\nNone\n```\n\nHer er `if len(tall) == 0: return None` like god, og litt tydeligere. Poenget er at **tomtilfellet må være håndtert** — det er feilkode **#6**, og et av de fire fullscore-kravene sensor ser etter."
+  },
+  {
+   "id": "tdt4110-4-3-def-typeerror",
+   "type": "definition",
+   "title": "`TypeError`",
+   "content": "Feil **type** i en operasjon: å legge sammen tekst og tall, eller å gi `write` et heltall ([kap. 4.2](/tdt4110/tdt4110-4-2)).\n\n```python\ntry:\n    print('54' + 54)\nexcept TypeError as e:\n    print('TypeError:', e)\nprint('54' + str(54))\nprint(int('54') + 54)\n```\n\n**Utskrift:**\n```\nTypeError: can only concatenate str (not \"int\") to str\n5454\n108\n```\n\n`TypeError` er som regel et symptom på feilkode **#1** — glemt konvertering. Den fanges sjelden med `try/except` i dette faget; den fikses ved å konvertere riktig, som de to siste linjene viser."
+  },
+  {
+   "id": "tdt4110-4-3-def-except-as",
+   "type": "definition",
+   "title": "`except FeilType as e:`",
+   "content": "Gir deg selve feilobjektet i variabelen `e`, slik at du kan skrive ut Pythons egen forklaring ved siden av din egen.\n\n```python\ntry:\n    tall = int('femtifem')\nexcept ValueError as e:\n    print('Klarte ikke å konvertere feltet.')\n    print('Python sier:', e)\n```\n\n**Utskrift:**\n```\nKlarte ikke å konvertere feltet.\nPython sier: invalid literal for int() with base 10: 'femtifem'\n```\n\nNavnet `e` er en konvensjon, ikke en regel. Formen er nyttig når du skriver en feilmelding til en bruker, og under feilsøking — men den er aldri påkrevd."
+  },
+  {
+   "id": "tdt4110-4-3-warn-except",
+   "type": "warning",
+   "title": "Typiske feil — naken `except` og for bred `try`",
+   "content": "**Naken `except:` fanger alt.** Også skrivefeil i din egen kode:\n\n```python\ntry:\n    f = open('maalinger.txt', 'r')\n    antall = 0\n    for linje in f:\n        antall = antal + 1\n    f.close()\nexcept:\n    print('Kunne ikke lese fila')\n```\n\n**Utskrift:**\n```\nKunne ikke lese fila\n```\n\nMeldingen er **usann**. Fila ble lest helt fint; det som gikk galt, var skrivefeilen `antal` i stedet for `antall`, som gir `NameError`. Den nakne `except`-grenen svelget den, og du sitter igjen med en feilmelding som peker på helt feil sted.\n\nArkivets løsningsforslag trekker minimalt for en naken `except`, men **spesifikk er alltid bedre** — og på en oppgave som eksplisitt ber om håndtering av manglende fil, er `except FileNotFoundError:` det som svarer på bestillingen.\n\n**For bred `try`** er den samme feilen i en annen form: legger du hele analysen inn i `try`-blokken sammen med `open`, fanger du også feil i analysen. Hold `try`-blokken så kort som mulig — helst den ene linja som faktisk kan gå galt."
+  },
+  {
+   "id": "tdt4110-4-3-def-naken-except",
+   "type": "definition",
+   "title": "Naken `except:`",
+   "content": "`except:` uten feiltype fanger **alle** unntak, inkludert dem som skyldes feil i din egen kode.\n\nDen er lovlig Python og gir bare et lite trekk i arkivets løsningsforslag, men den har to reelle kostnader: den skjuler ekte programmeringsfeil, og den gjør feilmeldingen din upresis.\n\nBokas regel: skriv alltid typen. Vet du ikke hvilken, kjør koden én gang og les siste linje i feilmeldingen — der står den."
+  },
+  {
+   "id": "tdt4110-4-3-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-3-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nverdier = ['12', 'ni', '7']\ntotal = 0\nfor v in verdier:\n    try:\n        total = total + int(v)\n        print('la til', v)\n    except ValueError:\n        print('hoppet over', v)\nprint('Total:', total)\n```",
+    "solution": "**Sporingstavle.** Én rad per runde i løkka:\n\n| `v` | Hva `int(v)` gjør | `total` etter | Utskrift |\n|---|---|---|---|\n| `'12'` | gir 12 | 12 | `la til 12` |\n| `'ni'` | kaster `ValueError` | uendret, 12 | `hoppet over ni` |\n| `'7'` | gir 7 | 19 | `la til 7` |\n\n```python\nverdier = ['12', 'ni', '7']\ntotal = 0\nfor v in verdier:\n    try:\n        total = total + int(v)\n        print('la til', v)\n    except ValueError:\n        print('hoppet over', v)\nprint('Total:', total)\n```\n\n**Utskrift:**\n```\nla til 12\nhoppet over ni\nla til 7\nTotal: 19\n```\n\n**Fellenoten:** legg merke til at `print('la til', v)` ikke kjørte for `'ni'`. Feilen oppsto på linja **over**, og resten av `try`-blokken hoppes over. Løkka fortsetter derimot med neste element — `try/except` inne i en løkke avbryter bare den runden, ikke hele løkka.\n\nDet er nettopp dette mønsteret som lar deg hoppe over ødelagte linjer i en datafil.",
+    "hints": [
+     "Hvilken av de tre verdiene klarer ikke `int()` å konvertere?",
+     "Hva skjer med resten av `try`-blokken når feilen oppstår midt i den?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-3-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-3-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — robusthet.) For hver situasjon: hvilken feiltype oppstår, og hvor?\n\n**a)** `f = open('finnes_ikke.txt', 'r')`\n\n**b)** `int('dager')` på overskriftsraden, fordi `readline()`-hoppet mangler\n\n**c)** `felt[2]` på linja `onsdag;svømming`\n\n**d)** `d['Stavanger']` når ordboka bare har Bergen og Tromsø\n\n**e)** `sum(tall) / len(tall)` når `tall` er tom",
+    "solution": "**a)** `FileNotFoundError` — i `open`, og bare der.\n\n**b)** `ValueError` — `int()` klarer ikke å tolke `'dager'` som et tall. Meldingen er `invalid literal for int() with base 10: 'dager'`.\n\n**c)** `IndexError` — linja har to felt, så plass 2 finnes ikke. Meldingen er `list index out of range`.\n\n**d)** `KeyError` — nøkkelen finnes ikke. Unngås med `d.get('Stavanger', 0)` eller en `in`-test.\n\n**e)** `ZeroDivisionError` — `len(tall)` er 0. Unngås med en test på tom liste før divisjonen.\n\nAlle fem, fanget og skrevet ut i én kjøring:\n\n```python\ndef prov(hva):\n    try:\n        hva()\n    except Exception as e:\n        print(type(e).__name__, '-', e)\n\nprov(lambda: open('finnes_ikke.txt', 'r'))\nprov(lambda: int('dager'))\nprov(lambda: 'onsdag;svømming'.split(';')[2])\nprov(lambda: {'Bergen': 120, 'Tromsø': 45}['Stavanger'])\nprov(lambda: sum([]) / len([]))\n```\n\n**Utskrift:**\n```\nFileNotFoundError - [Errno 2] No such file or directory: 'finnes_ikke.txt'\nValueError - invalid literal for int() with base 10: 'dager'\nIndexError - list index out of range\nKeyError - 'Stavanger'\nZeroDivisionError - division by zero\n```\n\nDen siste kodeblokken er en **demonstrasjon**, ikke en mal — den bruker `except Exception` for å kunne vise alle fem i samme kjøring. I en besvarelse skriver du den spesifikke typen.\n\n**Fellenoten:** rekkefølgen er ikke tilfeldig. De fem feilene følger kjeden *åpne, dele, konvertere, slå opp, regne* — ett steg, én feiltype.",
+    "hints": [
+     "Gå gjennom kjeden steg for steg: åpne, dele, konvertere, slå opp, regne.",
+     "To av dem handler om at noe ikke finnes — men i to ulike strukturer."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-3-l3-intro",
+   "type": "text",
+   "content": "## Løkke 3 — Den robuste filleseren (~12 min)\n\nNå setter vi det sammen til mønsteret eksamen faktisk ber om: en funksjon som leser fila hvis den kan, og som svarer pent hvis den ikke kan.\n\n*— naturlig pausepunkt: har du lest hit, har du det som trengs for deloppgaven om robusthet. Løkke 4 er finpussen. —*"
+  },
+  {
+   "id": "tdt4110-4-3-def-feilverdi",
+   "type": "definition",
+   "title": "Feilverdi-retur (`None`, `[]`, `-1`)",
+   "content": "Når en funksjon ikke kan gjøre jobben sin, må den **returnere noe kalleren kan kjenne igjen**. Ellers flytter du bare krasjet ett hakk unna.\n\nDe tre formene boka bruker:\n\n- **`None`** — «det finnes ikke noe svar». Brukes når fila mangler, eller når «beste rad» skal finnes i en tom tabell.\n- **`[]`** eller **`{}`** — «tomt resultat». Brukes når kalleren skal kunne løkke videre uten å teste først.\n- **`-1`** — «ikke funnet», og bare i søkefunksjoner som ellers returnerer en indeks.\n\nVelg én, og si i oppgaveteksten eller i en kommentar hvilken. Det viktigste er at kalleren kan teste: `if tabell is None:`."
+  },
+  {
+   "id": "tdt4110-4-3-thm-robust-leser",
+   "type": "theorem",
+   "title": "Kodemønster: robust filinnlesing",
+   "content": "```text\ndef les_tabell(filnavn):\n    try:\n        f = open(filnavn, 'r')\n    except FileNotFoundError:\n        print('Fant ikke filen:', filnavn)\n        return None\n    tabell = []\n    for linje in f:\n        tabell.append(linje.strip().split(';'))\n    f.close()\n    return tabell\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\nFire faste deler:\n\n1. **`try` rundt `open` alene** — den ene linja som kan utløse feilen.\n2. **`except FileNotFoundError:`** — den spesifikke typen, ikke en naken `except`.\n3. **En melding som nevner filnavnet.**\n4. **`return None`** i feilgrenen, så kalleren kan teste `if tabell is None:`.\n\nResten av funksjonen er uendret fra [kap. 4.1](/tdt4110/tdt4110-4-1). Robusthet legges **utenpå** mønsteret du allerede kan — det er ikke en ny måte å lese filer på."
+  },
+  {
+   "id": "tdt4110-4-3-def-flere-except",
+   "type": "definition",
+   "title": "Flere `except`-grener",
+   "content": "En `try` kan ha flere `except`-grener etter hverandre. Python velger den **første** som passer til feiltypen, og hopper over resten.\n\n```python\nfor tekst in ['maalinger.txt', 'salgstall.txt']:\n    try:\n        f = open(tekst, 'r')\n        tall = int(f.readline().strip())\n        f.close()\n        print('Første linje som tall:', tall)\n    except FileNotFoundError:\n        print('Fant ikke filen:', tekst)\n    except ValueError:\n        print('Første linje i', tekst, 'er ikke et tall')\n```\n\n**Utskrift:**\n```\nFørste linje i maalinger.txt er ikke et tall\nFant ikke filen: salgstall.txt\n```\n\nBegge grenene ble brukt: den første fila finnes, men første linje er ikke et tall; den andre fila finnes ikke.\n\nRekkefølgen på grenene spiller bare rolle når typene overlapper. De fire du bruker i dette faget, overlapper ikke, så du kan skrive dem i den rekkefølgen som leser best."
+  },
+  {
+   "id": "tdt4110-4-3-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Leser som takler både manglende fil og ødelagte linjer",
+   "problem": "Skriv `les_logg(filnavn)` som leser en treningslogg til en 2D-tabell med minutter som heltall. Fila kan mangle, og enkeltlinjer kan være ødelagte — de skal hoppes over med en melding, ikke stoppe innlesingen.",
+   "solution": "**Innholdet i `treningslogg-skadet.txt`:**\n```\nmandag;løpetur;42\ntirsdag;styrke;femtifem\nonsdag;svømming\n```\n\nDen andre linja har `femtifem` i minuttfeltet, og den tredje mangler et felt. Fasiten fanger begge, hver med sin type:\n\n```python\ndef les_logg(filnavn):\n    try:\n        f = open(filnavn, 'r')\n    except FileNotFoundError:\n        print('Fant ikke filen:', filnavn)\n        return None\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        try:\n            tabell.append([felt[0], felt[1], int(felt[2])])\n        except ValueError:\n            print('Hopper over linje med ugyldig tall:', linje.strip())\n        except IndexError:\n            print('Hopper over linje med for få felt:', linje.strip())\n    f.close()\n    return tabell\n\nprint(les_logg('treningslogg-skadet.txt'))\nprint(les_logg('finnes_ikke.txt'))\n```\n\n**Utskrift:**\n```\nHopper over linje med ugyldig tall: tirsdag;styrke;femtifem\nHopper over linje med for få felt: onsdag;svømming\n[['mandag', 'løpetur', 42]]\nFant ikke filen: finnes_ikke.txt\nNone\n```\n\n**To `try`-blokker med hvert sitt ansvar.** Den ytre håndterer at *fila* mangler og avbryter alt. Den indre håndterer at *en linje* er ødelagt og hopper bare over den runden.\n\n**Resultatet er en tabell med de radene som lot seg lese** — én av tre her — og en melding per rad som ble forkastet. Det er langt bedre enn både å krasje og å late som ingenting.\n\n**Slik ville sensor sett på det:** den ytre håndteringen er det oppgaven vanligvis ber om. Den indre er et **pluss** som viser robusthet, og den koster fire linjer. En løsning som i stedet tester `if len(felt) == 3:` før konverteringen, er like riktig — flere korrekte veier sidestilles."
+  },
+  {
+   "id": "tdt4110-4-3-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — robusthet.) Denne funksjonen er ment å være robust, men har to feil:\n\n```python\ndef les_tall(filnavn):\n    try:\n        f = open(filnavn, 'r')\n        tall = []\n        for linje in f:\n            tall.append(int(linje.strip()))\n        f.close()\n        return tall\n    except:\n        print('Noe gikk galt')\n```\n\n**a)** Hvilke to svakheter har den?\n\n**b)** Skriv den om slik at manglende fil og ugyldige linjer håndteres hver for seg, og slik at kalleren alltid får noe den kan teste på.",
+    "solution": "**a)** To svakheter:\n\n1. **Naken `except:`** fanger alt — også skrivefeil i din egen kode — og meldingen «Noe gikk galt» sier verken hva eller hvor.\n2. **Feilgrenen returnerer ingenting**, så funksjonen gir `None` uten at det er et bevisst valg. Verre: `try`-blokken dekker hele funksjonen, så én ugyldig linje kaster bort alle linjene som allerede var lest.\n\n**b)** Rettet, med `try` rundt `open` alene og en egen indre håndtering per linje:\n\n```python\ndef les_tall(filnavn):\n    try:\n        f = open(filnavn, 'r')\n    except FileNotFoundError:\n        print('Fant ikke filen:', filnavn)\n        return None\n    tall = []\n    for linje in f:\n        try:\n            tall.append(int(linje.strip()))\n        except ValueError:\n            print('Hopper over:', linje.strip())\n    f.close()\n    return tall\n\nf = open('blandet.txt', 'w')\nf.write('12\\nni\\n7\\n')\nf.close()\n\nprint(les_tall('blandet.txt'))\nprint(les_tall('finnes_ikke.txt'))\n```\n\n**Utskrift:**\n```\nHopper over: ni\n[12, 7]\nFant ikke filen: finnes_ikke.txt\nNone\n```\n\nTestfila lages i koden her, slik at eksempelet kan kjøres. På eksamen får du fila oppgitt.\n\n**Merk hva som ble bedre:** den ugyldige linja koster nå bare seg selv, og kalleren kan skille «fila manglet» (`None`) fra «fila var tom» (`[]`).",
+    "hints": [
+     "Hvor mange linjer i `try`-blokken kan faktisk utløse `FileNotFoundError`?",
+     "Hva returnerer funksjonen slik den står, når feilen oppstår — og er det et bevisst valg?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-3-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-3-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — robusthet med ordbok.) Skriv `hent_antall(d, by)` som returnerer antallet for en by i ordboka, og som svarer 0 hvis byen ikke står der.\n\n**a)** Skriv løsningen med `try/except`.\n\n**b)** Skriv løsningen uten `try/except`.\n\n**c)** Hvilken av dem passer best her, og hvorfor?",
+    "solution": "**a)** og **b)** side om side, kjørt mot samme ordbok:\n\n```python\nantall = {'Bergen': 120, 'Tromsø': 45}\n\ndef hent_antall_a(d, by):\n    try:\n        return d[by]\n    except KeyError:\n        return 0\n\ndef hent_antall_b(d, by):\n    return d.get(by, 0)\n\nprint(hent_antall_a(antall, 'Bergen'), hent_antall_a(antall, 'Stavanger'))\nprint(hent_antall_b(antall, 'Bergen'), hent_antall_b(antall, 'Stavanger'))\n```\n\n**Utskrift:**\n```\n120 0\n120 0\n```\n\n**c)** Varianten uten `try/except` er best her. Feilen er **forutsigbar og billig å teste for** — `d.get(by, 0)` sier på én linje nøyaktig hva som skal skje — og `try/except` er tyngre maskineri enn situasjonen krever.\n\nRegelen boka følger: **kan feilen forutses billig, forutse den. Ellers fang den.** Manglende fil kan du ikke forutse uten å prøve å åpne den, og der er `try/except` riktig verktøy.\n\nBegge løsningene gir full pott på eksamen.",
+    "hints": [
+     "I b): ordbøker har en metode som tar en standardverdi som andre argument.",
+     "I c): tenk på hvor mye kode hver variant koster, og om feilen kan sjekkes på forhånd."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-3-l4-intro",
+   "type": "text",
+   "content": "## Løkke 4 — `else`, `finally`, og hvor `try` skal slutte (~10 min)\n\nTo grener til, og én regel som er viktigere enn begge."
+  },
+  {
+   "id": "tdt4110-4-3-def-else",
+   "type": "definition",
+   "title": "`else:` i en `try`",
+   "content": "Kjøres **bare hvis ingen feil oppsto**. Den brukes til å skille «det som kan gå galt» fra «det som skal skje når alt gikk bra».\n\n```python\nfor navn in ['maalinger.txt', 'salgstall.txt']:\n    try:\n        f = open(navn, 'r')\n    except FileNotFoundError:\n        print('Fant ikke filen:', navn)\n    else:\n        print('Åpnet', navn, 'med', len(f.readlines()), 'linjer')\n        f.close()\n```\n\n**Utskrift:**\n```\nÅpnet maalinger.txt med 3 linjer\nFant ikke filen: salgstall.txt\n```\n\nFordelen framfor å legge lesingen inn i `try`-blokken: du er sikker på at en feil i **lesingen** ikke blir forvekslet med en feil i **åpningen**.\n\n`else` er nyttig, men aldri påkrevd — det samme kan skrives med koden etter `try/except`, slik mønsteret i løkke 3 gjør."
+  },
+  {
+   "id": "tdt4110-4-3-def-finally",
+   "type": "definition",
+   "title": "`finally:`",
+   "content": "Kjøres **alltid** — enten det gikk bra eller galt. Den vanlige jobben er opprydding, og i dette faget betyr det å lukke fila.\n\n```python\nf = open('maalinger.txt', 'r')\ntry:\n    tall = int(f.readline().strip())\n    print('Tall:', tall)\nexcept ValueError:\n    print('Første linje er ikke et tall')\nfinally:\n    f.close()\n    print('Fila er lukket:', f.closed)\n```\n\n**Utskrift:**\n```\nFørste linje er ikke et tall\nFila er lukket: True\n```\n\nLegg merke til at `f.close()` kjørte selv om `int()` feilet. Uten `finally` ville `close()` blitt hoppet over når feilen oppsto.\n\n`with open(...)` ([kap. 4.1](/tdt4110/tdt4110-4-1)) gjør det samme automatisk, og er den korteste veien til samme garanti."
+  },
+  {
+   "id": "tdt4110-4-3-def-snever-try",
+   "type": "definition",
+   "title": "Snevrest mulig `try`-blokk",
+   "content": "Regelen som er viktigere enn både `else` og `finally`: **`try`-blokken skal inneholde så få linjer som mulig** — helst bare den ene som kan utløse feilen du vil fange.\n\nGrunnen er at `except` fanger feilen uansett hvor i blokken den oppsto. Er blokken lang, fanger du feil du ikke mente å fange, og du får en feilmelding som peker på feil sted.\n\nTo praktiske utslag:\n\n- `try` rundt `open`, ikke rundt hele innlesingen.\n- `try` rundt konverteringen inne i løkka, ikke rundt hele løkka — da mister du bare den ene raden."
+  },
+  {
+   "id": "tdt4110-4-3-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Hva bred og snever `try` gjør med samme feil",
+   "problem": "Den samme skrivefeilen — `antal` i stedet for `antall` — legges inn i to varianter av samme funksjon. Hva rapporterer hver av dem?",
+   "solution": "**Bred `try`, naken `except`:** feilen svelges og meldingen er usann.\n\n```python\ndef les_bred(filnavn):\n    try:\n        f = open(filnavn, 'r')\n        antall = 0\n        for linje in f:\n            antall = antal + 1\n        f.close()\n        return antall\n    except:\n        print('Kunne ikke lese fila')\n        return None\n\nprint(les_bred('maalinger.txt'))\n```\n\n**Utskrift:**\n```\nKunne ikke lese fila\nNone\n```\n\nFila ble lest helt fint. Det som gikk galt, var skrivefeilen — men meldingen sier noe helt annet, og du kan lete lenge etter en filfeil som ikke finnes.\n\n**Snever `try`, spesifikk `except`:** den samme skrivefeilen slipper igjennom til overflaten, der den hører hjemme.\n\n```python\n# tilsiktet feil: skrivefeilen «antal» er med vilje\ndef les_snever(filnavn):\n    try:\n        f = open(filnavn, 'r')\n    except FileNotFoundError:\n        return None\n    antall = 0\n    for linje in f:\n        antall = antal + 1\n    f.close()\n    return antall\n\nles_snever('maalinger.txt')\n```\n\nKodeblokken er merket som tilsiktet feilende. Siste linje i feilmeldingen er:\n\n```text\nNameError: name 'antal' is not defined\n```\n\n**Det ser ut som et tilbakeskritt, men det er en forbedring.** Programmet stopper på riktig linje, med riktig navn på feilen, og du finner den på ti sekunder.\n\n**Regelen i én setning:** `try` skal fange det du ikke kan kontrollere — filer, brukerinput, ødelagte data. Den skal aldri fange dine egne skrivefeil.\n\n**Slik ville sensor sett på det:** en besvarelse med bred, naken `except` får et lite trekk; en med snever, spesifikk håndtering får full uttelling og signaliserer at du vet hvorfor."
+  },
+  {
+   "id": "tdt4110-4-3-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-3-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef les(navn):\n    try:\n        f = open(navn, 'r')\n    except FileNotFoundError:\n        print('mangler')\n        return None\n    else:\n        print('åpnet')\n    finally:\n        print('ferdig med', navn)\n    f.close()\n    return 1\n\nprint(les('maalinger.txt'))\nprint(les('finnes_ikke.txt'))\n```\n\nFila `maalinger.txt` finnes; `finnes_ikke.txt` finnes ikke.",
+    "solution": "**Sporingstavle.** To kall, og `finally` kjører i begge:\n\n| Kall | `try` | `except` | `else` | `finally` | Returverdi |\n|---|---|---|---|---|---|\n| `les('maalinger.txt')` | åpner fila | hoppes over | `åpnet` | `ferdig med maalinger.txt` | 1 |\n| `les('finnes_ikke.txt')` | feiler | `mangler`, `return None` | hoppes over | `ferdig med finnes_ikke.txt` | `None` |\n\n```python\ndef les(navn):\n    try:\n        f = open(navn, 'r')\n    except FileNotFoundError:\n        print('mangler')\n        return None\n    else:\n        print('åpnet')\n    finally:\n        print('ferdig med', navn)\n    f.close()\n    return 1\n\nprint(les('maalinger.txt'))\nprint(les('finnes_ikke.txt'))\n```\n\n**Utskrift:**\n```\nåpnet\nferdig med maalinger.txt\n1\nmangler\nferdig med finnes_ikke.txt\nNone\n```\n\n**Fellenoten:** den overraskende linja er `ferdig med finnes_ikke.txt`. Den kommer **etter** at `return None` er utført, men **før** verdien når fram til kalleren — `finally` kjører alltid, også når du returnerer ut av `try`-setningen. Det er nettopp derfor den egner seg til opprydding.",
+    "hints": [
+     "Hvilke av de tre grenene kjører når ingen feil oppstår, og hvilke når det gjør det?",
+     "Rekker `finally` å kjøre når `except`-grenen inneholder `return`?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-3-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-3-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E og I — robust kjede.) En værstasjon leverer `maalinger.txt` med linjer på formen `sted;temperatur;fuktighet`:\n\n**Innholdet i `maalinger.txt`:**\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\n**a)** Skriv `les_maalinger(filnavn)` som returnerer en 2D-tabell med temperaturen som flyttall og fuktigheten som heltall. Manglende fil skal gi melding og `None`; ødelagte linjer skal hoppes over med melding.\n\n**b)** Skriv `snitt_temperatur(tabell)` som returnerer gjennomsnittstemperaturen, og `None` for en tom tabell.\n\n**c)** Skriv `lagre_snitt(tabell, filnavn)` som skriver snittet til fil med to desimaler — men som ikke skriver noen fil i det hele tatt hvis tabellen er tom.\n\n**d)** Skriv `main()` som binder de tre sammen og som takler at fila mangler.",
+    "solution": "Hele kjeden, kjørt både med og uten fil:\n\n```python\ndef les_maalinger(filnavn):\n    try:\n        f = open(filnavn, 'r')\n    except FileNotFoundError:\n        print('Fant ikke filen:', filnavn)\n        return None\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        try:\n            tabell.append([felt[0], float(felt[1]), int(felt[2])])\n        except (ValueError, IndexError):\n            print('Hopper over ugyldig linje:', linje.strip())\n    f.close()\n    return tabell\n\ndef snitt_temperatur(tabell):\n    if len(tabell) == 0:\n        return None\n    total = 0\n    for rad in tabell:\n        total = total + rad[1]\n    return total / len(tabell)\n\ndef lagre_snitt(tabell, filnavn):\n    snitt = snitt_temperatur(tabell)\n    if snitt is None:\n        print('Tom tabell — ingen fil skrevet')\n        return\n    f = open(filnavn, 'w')\n    f.write('Snitt: ' + '{:.2f}'.format(snitt) + '\\n')\n    f.close()\n\ndef main():\n    tabell = les_maalinger('maalinger.txt')\n    if tabell is None:\n        return\n    print('Snitt:', '{:.2f}'.format(snitt_temperatur(tabell)))\n    lagre_snitt(tabell, 'snitt.txt')\n    f = open('snitt.txt', 'r')\n    print(f.read().strip())\n    f.close()\n\nmain()\nlagre_snitt([], 'snitt.txt')\nprint(les_maalinger('finnes_ikke.txt'))\n```\n\n**Utskrift:**\n```\nSnitt: 12.43\nSnitt: 12.43\nTom tabell — ingen fil skrevet\nFant ikke filen: finnes_ikke.txt\nNone\n```\n\n**Fire ting gjør denne kjeden robust, og alle fire er poenggivende hver for seg.**\n\n`main` leser fila **én gang** og sender tabellen videre — ingen av de andre funksjonene åpner den på nytt. Det er kravet om gjenbruk, og det er sensors uttalte forventning.\n\n`if tabell is None: return` i `main` er testen som gjør feilverdien nyttig. Uten den ville `snitt_temperatur(None)` krasjet, og all robustheten i leseren vært bortkastet.\n\n`except (ValueError, IndexError):` fanger to typer i én gren. Det er kortere enn to grener når håndteringen er den samme.\n\nTomtilfellet er håndtert **tre** steder på riktig måte: `snitt_temperatur` returnerer `None`, `lagre_snitt` skriver ingen fil, og `main` avbryter tidlig. Det er feilkode **#6** lukket i hele kjeden.\n\n**Alternativ løsning:** `snitt_temperatur` kan skrives med `try: return sum(...) / len(tabell)` og `except ZeroDivisionError: return None`. Begge gir full pott — `if`-varianten er bare tydeligere om hva som er tomtilfellet.",
+    "hints": [
+     "Bygg leseren fra mønsteret i løkke 3, og legg den indre `try`-blokken rundt konverteringen alene.",
+     "I d): hva må `main` gjøre med returverdien fra leseren før den bruker den videre?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-3-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-4-3-api-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `try:` … `except FeilType:` | koden i `try` kjøres; oppstår feilen, hoppes RESTEN av blokken over og `except`-grenen kjøres |\n| `except FeilType as e:` | gir feilobjektet i `e`, så Pythons egen forklaring kan skrives ut |\n| naken `except:` | fanger ALT, også egne skrivefeil; lovlig, men gir upresis melding — skriv alltid typen |\n| flere `except`-grener | første gren som passer til typen brukes; resten hoppes over |\n| `except (A, B):` | fanger to typer i samme gren, når håndteringen er den samme |\n| `else:` | kjøres BARE hvis ingen feil oppsto i `try`-blokken |\n| `finally:` | kjøres ALLTID, også når `try` eller `except` inneholder `return` — brukes til opprydding |\n| `FileNotFoundError` | fila finnes ikke; oppstår i `open`, og bare der |\n| `ValueError` | riktig type, gal form: `int('dager')`, `float('to')`, `.index(navn)` uten treff |\n| `IndexError` | plassen finnes ikke i lista; rundt filer nesten alltid en linje med for få felt |\n| `KeyError` | nøkkelen finnes ikke i ordboka; unngås med `d.get(k, standard)` eller `k in d` |\n| `ZeroDivisionError` | deling på null; i filoppgaver nesten alltid et snitt over en TOM tabell |\n| `TypeError` | feil type i operasjonen (`'54' + 54`, `write(120)`); symptom på glemt konvertering |\n| `return None` i feilgrenen | gjør feilen synlig for kalleren, som kan teste `if tabell is None:` |\n| snever `try` | så få linjer som mulig i blokken — `try` rundt `open`, ikke rundt hele innlesingen |\n| `with open(...) as f:` | lukker automatisk også ved feil; samme garanti som `finally: f.close()` |\n\n**Formler i dette delkapitlet:** ingen."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
