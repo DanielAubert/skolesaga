@@ -1,0 +1,202 @@
+[
+ {
+  "question": "Hva skjer når du skriver `d['ravn']` og `'ravn'` ikke er en nøkkel i `d`?",
+  "options": [
+   "Programmet stopper med `KeyError`",
+   "Uttrykket gir `None` og koden går videre",
+   "Uttrykket gir `0` og koden går videre",
+   "Nøkkelen legges inn med verdien `None`"
+  ],
+  "explanation": "Et oppslag på en nøkkel som mangler, stopper programmet med `KeyError` — ordboka gjetter ikke og lager ingen plass. Å få `None` er det `d.get('ravn')` gjør, og `0` krever `d.get('ravn', 0)`; ingen av dem legger nøkkelen inn."
+ },
+ {
+  "question": "Hva er `len(d)` etter `d = {'a': 1}` og `d.get('b', 0)`?",
+  "options": [
+   "1",
+   "2",
+   "0",
+   "3"
+  ],
+  "explanation": "`.get` svarer på et oppslag, men setter ikke nøkkelen inn, så ordboka er like stor etterpå. Svaret 2 forutsetter at `.get` legger til `'b'`, og 0 forutsetter at ordboka tømmes."
+ },
+ {
+  "question": "Hva inneholder `d` etter `d = {'te': 20}` og `d['te'] = 22`?",
+  "options": [
+   "`{'te': 22}`",
+   "`{'te': 20, 'te': 22}`",
+   "`{'te': [20, 22]}`",
+   "`{'te': 42}`"
+  ],
+  "explanation": "En tilordning til en nøkkel som finnes fra før, OVERSKRIVER verdien. Nøkler er unike, så to `'te'`-par kan ikke oppstå; verdien blir verken ei liste eller en sum uten at du ber om det."
+ },
+ {
+  "question": "Hva er `len({'a': 1, 'b': 2, 'c': 3})`?",
+  "options": [
+   "3",
+   "6",
+   "2",
+   "1"
+  ],
+  "explanation": "`len` på en ordbok teller PAR, altså antall unike nøkler. Svaret 6 teller nøkler og verdier hver for seg, som er en vanlig feiltolkning av hva ordboka inneholder."
+ },
+ {
+  "question": "Hva gir `12 in {'gråtrost': 12, 'linerle': 5}`?",
+  "options": [
+   "`False`, fordi `in` leter blant nøklene",
+   "`True`, fordi 12 står som verdi i ordboka",
+   "`True`, fordi `in` leter begge steder samtidig",
+   "`False`, fordi tall aldri kan stå i en ordbok"
+  ],
+  "explanation": "`in` på en ordbok tester om verdien er en NØKKEL, og nøklene her er de to artsnavnene. Vil du lete blant verdiene, må du skrive `12 in d.values()`. Tall er selvsagt tillatt både som nøkkel og som verdi."
+ },
+ {
+  "question": "Hva gir `for x in d:` deg i hver runde, når `d` er en ordbok?",
+  "options": [
+   "Nøkkelen",
+   "Verdien",
+   "Paret som et tuppel",
+   "Plassnummeret i ordboka"
+  ],
+  "explanation": "En `for`-løkke over en ordbok gir nøklene, akkurat som `d.keys()`. Verdien henter du med `d[x]` inni løkka, og vil du ha paret i løkkehodet, må du bruke `d.items()`."
+ },
+ {
+  "question": "Hvilken form gir deg både nøkkel og verdi direkte i løkkehodet?",
+  "options": [
+   "`for k, v in d.items():`",
+   "`for k, v in d.keys():`",
+   "`for k, v in d.values():`",
+   "`for k, v in sorted(d):`"
+  ],
+  "explanation": "`.items()` gir parene som `(nøkkel, verdi)`, og de kan pakkes ut i to variabler. `.keys()` og `sorted(d)` gir bare nøklene, og `.values()` bare verdiene — å pakke ut to variabler fra dem gir en feilmelding."
+ },
+ {
+  "question": "Hva gir `sum(d.values())` når `d = {'a': 3, 'b': 2, 'c': 3}`?",
+  "options": [
+   "8",
+   "3",
+   "2",
+   "6"
+  ],
+  "explanation": "`.values()` gir alle verdiene, også de like, og `sum` legger dem sammen: 3 + 2 + 3 = 8. Svaret 6 forutsetter at like verdier slås sammen til én, men det er bare NØKLENE som er unike i en ordbok."
+ },
+ {
+  "question": "Hva returnerer `sorted(d)` når `d` er en ordbok?",
+  "options": [
+   "Ei sortert liste med nøklene",
+   "Ei sortert liste med verdiene",
+   "En ny ordbok sortert på nøkkel",
+   "Ei sortert liste med parene"
+  ],
+  "explanation": "`sorted` på en ordbok går over nøklene, akkurat som en `for`-løkke gjør, og gir dem tilbake som ei sortert liste. Verdiene er ikke med, og resultatet er en liste — ingen ny ordbok."
+ },
+ {
+  "question": "Hva inneholder `d` etter denne løkka?\n\n```python\nd = {}\nfor x in ['p', 'q', 'p']:\n    d[x] = d.get(x, 0) + 1\n```",
+  "options": [
+   "`{'p': 2, 'q': 1}`",
+   "`{'p': 1, 'q': 1}`",
+   "`{'p': 3, 'q': 1}`",
+   "`{'p': 2, 'q': 2}`"
+  ],
+  "explanation": "Telleren legger én til for hver forekomst: `'p'` kommer to ganger og `'q'` én gang. Svaret `{'p': 1, 'q': 1}` er det du får hvis du skriver `d[x] = 1` i stedet, og de andre teller feil antall forekomster."
+ },
+ {
+  "question": "Hvorfor stopper `d[k] += 1` med feil når `k` er en ny nøkkel?",
+  "options": [
+   "Fordi Python må lese den gamle verdien før den kan legge til",
+   "Fordi `+=` bare er definert for lister og ikke for ordbøker",
+   "Fordi nye nøkler alltid må settes inn med `setdefault` først",
+   "Fordi `+=` krever at verdien er tekst og ikke et heltall"
+  ],
+  "explanation": "`d[k] += 1` er kortform for `d[k] = d[k] + 1`, og oppslaget på høyresiden gir `KeyError` når nøkkelen er ny. Det er nettopp derfor telleren bruker `d.get(k, 0)`; `setdefault` er ett av flere mulige grep, ikke et krav, og `+=` virker fint på tall."
+ },
+ {
+  "question": "Hva mangler i denne grupperingen?\n\n```python\nd = {}\nfor k, v in par:\n    d[k].append(v)\n```",
+  "options": [
+   "Å opprette den tomme lista når nøkkelen er ny",
+   "Å konvertere verdien til tekst før den legges inn",
+   "Å sortere nøklene før elementene legges inn",
+   "Å sjekke at verdien ikke allerede står i lista"
+  ],
+  "explanation": "`d[k].append(v)` leser `d[k]` først, og det gir `KeyError` på en ny nøkkel — derfor må `if k not in d: d[k] = []` stå foran. Duplikatsjekk er noe oppgaven eventuelt ber om i tillegg, og sortering og konvertering har ingenting med krasjet å gjøre."
+ },
+ {
+  "question": "Hva gjør `d.setdefault(k, [])` som `d.get(k, [])` IKKE gjør?",
+  "options": [
+   "Den legger nøkkelen inn i ordboka når den mangler",
+   "Den returnerer den tomme lista når nøkkelen mangler",
+   "Den gir en feilmelding når nøkkelen allerede finnes",
+   "Den sorterer lista som ligger på nøkkelen fra før"
+  ],
+  "explanation": "Begge returnerer lista, men bare `setdefault` skriver den inn i ordboka — og det er hele forskjellen når du grupperer. `.get` gir aldri feilmelding, og ingen av dem sorterer noe."
+ },
+ {
+  "question": "Hvorfor er `d.get(k, []).append(v)` feil i en gruppering?",
+  "options": [
+   "Elementet havner i ei liste som aldri kommer inn i ordboka",
+   "Elementet legges inn to ganger fordi `.get` også setter inn",
+   "Uttrykket stopper med `KeyError` når nøkkelen ikke finnes",
+   "Elementet overskriver den lista som allerede lå på nøkkelen"
+  ],
+  "explanation": "Når nøkkelen mangler, gir `.get` en helt fersk tom liste som ingen har lagret, så elementet blir borte og gruppen står tom. Uttrykket krasjer ikke — det er nettopp det som gjør fella farlig — og det overskriver ingenting."
+ },
+ {
+  "question": "I hvilken rekkefølge kommer nøklene når du går gjennom en ordbok med `for`?",
+  "options": [
+   "I den rekkefølgen de ble satt inn",
+   "I alfabetisk rekkefølge",
+   "I rekkefølge etter størrelsen på verdien",
+   "I tilfeldig rekkefølge hver kjøring"
+  ],
+  "explanation": "Ordboka husker innsettingsrekkefølgen, og det er den `for` følger. Skal utskriften være alfabetisk, må du be om det med `sorted(d)`; verdiene styrer ingenting, og rekkefølgen er ikke tilfeldig."
+ },
+ {
+  "question": "Hvilken av disse kan IKKE brukes som nøkkel i en ordbok?",
+  "options": [
+   "Ei liste",
+   "Et tuppel",
+   "En streng",
+   "Et heltall"
+  ],
+  "explanation": "Nøkler må være uforanderlige, og ei liste kan endres etter at den er laget. Tupler er uforanderlige og er derfor lovlige nøkler; tekst og heltall er de to vanligste."
+ },
+ {
+  "question": "Hvorfor skriver du `for rad in tabell[1:]:` når du bygger en ordbok fra en innlest tabell?",
+  "options": [
+   "For å hoppe over overskriftsraden",
+   "For å hoppe over den siste raden",
+   "For å hoppe over den første kolonnen",
+   "For å gå gjennom radene baklengs"
+  ],
+  "explanation": "Et utsnitt fra og med indeks 1 utelater rad 0, altså overskriftsraden — ellers får du et par som heter `'navn': 'verdi'` midt i ordboka. Utsnittet rører ingen kolonner og snur ingenting."
+ },
+ {
+  "question": "Hvorfor trengs `int()` rundt verdien når ordboka bygges fra en fil-tabell?",
+  "options": [
+   "Fordi verdier lest fra fil er tekst, og tekst kan ikke summeres som tall",
+   "Fordi ordbøker bare kan ha heltall som verdier og ikke tekst",
+   "Fordi `int()` fjerner linjeskiftet som henger igjen etter innlesing",
+   "Fordi nøkkelen ellers blir lagt inn to ganger i ordboka"
+  ],
+  "explanation": "Alt som leses fra fil kommer inn som tekst, og `'120' + 80` gir en feilmelding (feilkode #1 — glemt konvertering). Ordbokverdier kan være hva som helst, linjeskiftet er `.strip()` sin jobb, og nøkkelen berøres ikke."
+ },
+ {
+  "question": "Hva gir `max(d.values())` når `d = {'papir': 200, 'glass': 130}`?",
+  "options": [
+   "`200`",
+   "`'papir'`",
+   "`('papir', 200)`",
+   "`330`"
+  ],
+  "explanation": "`.values()` har mistet nøklene underveis, så `max` gir bare det største tallet. Skal du ha navnet, må du gå gjennom ordboka med en finn-beste-løkke; `330` er `sum` og ikke `max`."
+ },
+ {
+  "question": "En analyse skal svare på «hvor mange kilo er levert per fraksjon». Hvilken struktur er riktig?",
+  "options": [
+   "En ordbok fra fraksjon til totalt antall kilo",
+   "Ei liste med alle kilotallene i innlesingsrekkefølge",
+   "En ordbok fra antall kilo til navnet på fraksjonen",
+   "Ei liste med alle fraksjonsnavnene, uten duplikater"
+  ],
+  "explanation": "«Per» og «for hver» peker mot en ordbok der det du grupperer på, er nøkkelen. Snur du det og bruker kilotallet som nøkkel, mister du fraksjoner som tilfeldigvis har likt antall kilo, og de to listealternativene svarer ikke på spørsmålet i det hele tatt."
+ }
+]

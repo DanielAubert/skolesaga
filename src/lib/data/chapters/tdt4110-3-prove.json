@@ -1,0 +1,287 @@
+{
+ "id": "tdt4110-3-prove",
+ "courseId": "tdt4110",
+ "chapterNumber": "3.P",
+ "title": "Prøver til del 3: Lister, 2D-lister, ordbøker, tupler og strenger",
+ "description": "Fire prøver med full fasit: lister og utsnitt, 2D-lister med dynamisk kolonneoppslag, strenger og formatert utskrift, og ordbøker med tupler.",
+ "estimatedMinutes": 120,
+ "competenceGoals": [
+  "kunne spore et program som arbeider på lister og tabeller, og skrive utskriften tegn for tegn",
+  "kunne hente ut og analysere en kolonne i en innlest tabell uten å anta hvilken plass den har",
+  "kunne gjøre tekstlinjer om til verdier og tilbake til en rapport i rette kolonner",
+  "kunne telle, gruppere og kategorisere under tidspress, med tomtilfeller og duplikater håndtert"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-3-prove-tip",
+   "type": "tip",
+   "title": "Om prøvene til del 3",
+   "content": "**4 prøver à ~30 min** (25 + 35 + 30 + 30 minutter, 120 minutter i alt). Prøvene dekker hele Del 3 — lister, 2D-lister, strenger, formatert utskrift, ordbøker og tupler — og alle oppgaver er nyskrevne og satt i eksamens sjangre. Løsningsforslagene viser den korte, idiomatiske koden sensor forventer, med margnotater om hva som gir uttelling.\n\n- **Prøve 3.A (25 min):** Lister og utsnitt — ti kodesporinger, altså «hva skriver programmet ut?» (sjanger B). Dekker [kap. 3.1](/tdt4110/tdt4110-3-1).\n- **Prøve 3.B (35 min):** 2D-lister — bygg og transponér en tabell, og hent en kolonne uten å anta hvilken plass den har (sjanger B og G — analyse). Dekker [kap. 3.2](/tdt4110/tdt4110-3-2).\n- **Prøve 3.C (30 min):** Strenger, parsing og utskrift — del opp linjer, bygg dem sammen igjen og still opp en rapport i kolonner (sjanger F — parsing, og sjanger I — utskrift). Dekker [kap. 3.3](/tdt4110/tdt4110-3-3) og [kap. 3.4](/tdt4110/tdt4110-3-4).\n- **Prøve 3.D (30 min):** Ordbøker og tupler — telleren, grupperingen og karaktersetting med parallelle tupler (sjanger G). Dekker [kap. 3.5](/tdt4110/tdt4110-3-5) og [kap. 3.6](/tdt4110/tdt4110-3-6).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Eksamen i dette emnet er en fire timers skoleeksamen med hjelpemiddelkode D — bare en bestemt, enkel kalkulator, ingen bøker og ingen maskin. Du skriver all kode for hånd og får aldri se om den virker. Å skrive kode du ikke kan teste er en ferdighet i seg selv, og den øves bare på én måte.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Prøve 3.A har fem flervalgsspørsmål som står **inline i prøven**, med bokstavsvar i fasiten; den interaktive quizen til kapitlene 3.1–3.6 er den store flervalgsbanken, og den tas separat.\n\nÅpne fasiten først når du er ferdig, og bruk selvdiagnose-listen nederst i hver prøve. Husk at C er en god og vanlig karakter — målet med prøvene er ikke plettfri kode, men å kjenne igjen sjangeren og komme raskt i gang."
+  },
+  {
+   "id": "tdt4110-3-prove-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 3: [kap. 3.1](/tdt4110/tdt4110-3-1) om lister og utsnitt, [kap. 3.2](/tdt4110/tdt4110-3-2) om 2D-lister og dynamisk kolonneoppslag, [kap. 3.3](/tdt4110/tdt4110-3-3) om strengmetodene, [kap. 3.4](/tdt4110/tdt4110-3-4) om formatert utskrift, [kap. 3.5](/tdt4110/tdt4110-3-5) om ordbøker og [kap. 3.6](/tdt4110/tdt4110-3-6) om tupler.\n\nFra tidligere deler trengs løkker og `range` ([kap. 1.3](/tdt4110/tdt4110-1-3)), betingelser ([kap. 1.2](/tdt4110/tdt4110-1-2)), datatyper og konvertering ([kap. 1.1](/tdt4110/tdt4110-1-1)) og funksjoner med `return` ([kap. 2.1](/tdt4110/tdt4110-2-1))."
+  },
+  {
+   "id": "tdt4110-3-prove-A",
+   "type": "collapsible",
+   "title": "Prøve 3.A — Lister og utsnitt (25 min)",
+   "buttonText": "Vis prøve 1",
+   "content": [
+    {
+     "id": "tdt4110-3-prove-A-intro",
+     "type": "text",
+     "content": "**Prøve 3.A — lister og utsnitt (25 minutter).** Ti kodesporinger fordelt på to oppgaver, og til slutt én kort analyseoppgave. Ingen hjelpemidler, og ikke kjør koden.\n\nProsentvekting: oppgave 1 teller 40 %, oppgave 2 teller 40 %, oppgave 3 teller 20 %."
+    },
+    {
+     "id": "tdt4110-3-prove-A-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-A-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Et drivhus logger temperaturen hver time. Skriv utskriften for hver av deloppgavene, nøyaktig slik terminalen viser den — med hakeparenteser og komma-mellomrom der Python bruker dem.\n\nAlle fem deloppgavene bruker den samme lista:\n\n```python\nmaalinger = [12, 15, 19, 22, 18, 14]\nprint(len(maalinger))\n```\n\n**a)** `print(maalinger[2])` og `print(maalinger[-2])`\n**b)** `print(maalinger[1:4])`\n**c)** `print(maalinger[::2])`\n**d)** `print(maalinger[::-1])`\n**e)** `print(sum(maalinger[:3]), max(maalinger), maalinger.index(22))`",
+      "solution": "Skriv plassnumrene 0, 1, 2, 3, 4, 5 over elementene før du begynner. Da blir alle fem deloppgavene mekaniske.\n\n**a)** Plass 2 er den tredje verdien, og `-2` er den nest siste.\n\n```python\nmaalinger = [12, 15, 19, 22, 18, 14]\nprint(maalinger[2])\nprint(maalinger[-2])\n```\n\n**Utskrift:**\n```\n19\n18\n```\n\n**b)** Sluttgrensa er eksklusiv, så plass 1, 2 og 3 blir med — og et utsnitt gir ei **liste**, ikke en verdi.\n\n```python\nmaalinger = [12, 15, 19, 22, 18, 14]\nprint(maalinger[1:4])\n```\n\n**Utskrift:**\n```\n[15, 19, 22]\n```\n\n**c)** Steg 2 fra begynnelsen gir plass 0, 2 og 4.\n\n```python\nmaalinger = [12, 15, 19, 22, 18, 14]\nprint(maalinger[::2])\n```\n\n**Utskrift:**\n```\n[12, 19, 18]\n```\n\n**d)** Negativt steg snur lista; originalen står urørt.\n\n```python\nmaalinger = [12, 15, 19, 22, 18, 14]\nprint(maalinger[::-1])\n```\n\n**Utskrift:**\n```\n[14, 18, 22, 19, 15, 12]\n```\n\n**e)** `maalinger[:3]` er `[12, 15, 19]`, som summerer til 46. `max` gir 22, og `.index` gir plassen til første forekomst av 22, altså 3.\n\n```python\nmaalinger = [12, 15, 19, 22, 18, 14]\nprint(sum(maalinger[:3]), max(maalinger), maalinger.index(22))\n```\n\n**Utskrift:**\n```\n46 22 3\n```\n\n**Poengfordeling (40 %):** 8 % per deloppgave. Fellene som testes er #5 — å bomme med én på grenser og steg — i b) og c), og at et utsnitt gir ei liste og ikke en verdi i b), c) og d). Delvis riktig sporing gir delvis uttelling.",
+      "hints": [
+       "Skriv plassnumrene over elementene før du svarer på noe.",
+       "Sluttgrensa i et utsnitt er eksklusiv.",
+       "Husk at Python skriver lister med hakeparenteser og komma-mellomrom."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-3-prove-A-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-A-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Sjanger B — kodesporing som flervalg.) Velg **ett** svar per spørsmål. Ingen minuspoeng: blankt teller likt med feil, så kryss alltid av.\n\n**1)** Hva gir `[4, 8, 12][1]`?\n\na) `[8]` b) `4` c) `12` d) `8`\n\n**2)** Hva gir `'abc'[::-1]`?\n\na) `'abc'` b) `'acb'` c) `'cba'` d) `['c', 'b', 'a']`\n\n**3)** Hva returnerer `x.sort()` når `x = [3, 1, 2]`?\n\na) `[1, 2, 3]` b) `None` c) `3` d) `[3, 1, 2]`\n\n**4)** Hva blir `a` etter `a = [1, 2]`, `b = a`, `b.append(3)`?\n\na) `[1, 2]` b) `[3]` c) `[1, 2, 3]` d) `[1, 2, [3]]`\n\n**5)** Hva gir `[1, 2] + [3]`?\n\na) `[1, 2, 3]` b) `[4, 2]` c) `[1, 2, [3]]` d) `6`",
+      "solution": "**1) d)** `8`. Indeksering gir ett element, ikke ei liste med ett element i — det er forskjellen fra `[4, 8, 12][1:2]`, som ville gitt `[8]`.\n\n**2) c)** `'cba'`. Et utsnitt av en streng er en streng, ikke ei liste med tegn. Alternativet `['c', 'b', 'a']` er det du får av `list('abc'[::-1])`.\n\n**3) b)** `None`. `.sort()` sorterer lista på plass og returnerer ingenting (felle #17). Etterpå ER `x` lik `[1, 2, 3]`, men det er ikke det metoden returnerer.\n\n**4) c)** `[1, 2, 3]`. `b = a` er et alias, ikke en kopi — de to navnene peker på samme liste (felle #15). En ekte kopi ville krevd `b = a[:]`.\n\n**5) a)** `[1, 2, 3]`. `+` på lister skjøter dem sammen; det er ikke elementvis addisjon. Alternativet `[1, 2, [3]]` er det `append` av ei liste ville gitt.\n\n**Poengfordeling (40 %):** 8 % per spørsmål. Fasitrekka er 1d · 2c · 3b · 4c · 5a — uten mønster, som på et ekte sett.",
+      "hints": [
+       "Skille mellom indeksering og utsnitt: hvilken av dem gir ei liste?",
+       "Tenk gjennom hva metoden RETURNERER, ikke bare hva den gjør med lista.",
+       "På spørsmål 4: hvor mange lister finnes det egentlig i minnet?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-3-prove-A-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-A-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Sjanger G — analyse.) Drivhusloggen fra oppgave 1 skal analyseres.\n\n**a)** Skriv `over_grense(maalinger, grense)` som returnerer ei liste med de målingene som er høyere enn `grense`.\n**b)** Skriv `snitt(maalinger)` som returnerer gjennomsnittet, og som returnerer `None` hvis lista er tom.\n\nTest med `maalinger = [12, 15, 19, 22, 18, 14]` og grensen 15.",
+      "solution": "**a)** bygger opp en ny liste med `append`. **b)** bruker snarveiene `sum` og `len`, men må sjekke tomtilfellet først — `sum([]) / len([])` gir en divisjon på null.\n\n```python\ndef over_grense(maalinger, grense):\n    resultat = []\n    for m in maalinger:\n        if m > grense:\n            resultat.append(m)\n    return resultat\n\ndef snitt(maalinger):\n    if len(maalinger) == 0:\n        return None\n    return sum(maalinger) / len(maalinger)\n\nmaalinger = [12, 15, 19, 22, 18, 14]\nprint(over_grense(maalinger, 15))\nprint(snitt(maalinger))\nprint(snitt([]))\n```\n\n**Utskrift:**\n```\n[19, 22, 18]\n16.666666666666668\nNone\n```\n\n**Hva gir uttelling (20 %):** 10 % for a) med tom liste opprettet før løkka og strengt større enn i sammenligningen, 10 % for b) med tomtilfellet håndtert (felle #6 — å glemme kant- og tomtilfeller) og vanlig deling, ikke heltallsdeling. Legger du sammen i en egen løkke i stedet for å bruke `sum`, gir det like mye uttelling — begge er godkjent i dette emnet.\n\n**Selvdiagnose etter prøve 3.A**\n\n☐ Skrev du plassnumrene over elementene før du sporet utsnittene?\n\n☐ Husket du at sluttgrensa i et utsnitt er eksklusiv?\n\n☐ Gjenga du lister med hakeparenteser og komma-mellomrom, slik Python skriver dem?\n\n☐ Skilte du mellom det en metode gjør med lista og det den returnerer?\n\n☐ Håndterte du den tomme lista i b) i stedet for å la den krasje?",
+      "hints": [
+       "Opprett den tomme resultatlista FØR løkka.",
+       "«Høyere enn» betyr strengt større, ikke større eller lik.",
+       "Sjekk lengden før du deler, ellers deler du på null."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-3-prove-B",
+   "type": "collapsible",
+   "title": "Prøve 3.B — 2D-lister (35 min)",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "tdt4110-3-prove-B-intro",
+     "type": "text",
+     "content": "**Prøve 3.B — 2D-lister (35 minutter).** Tre oppgaver: én sporing, én transponering og én full analyseoppgave med dynamisk kolonneoppslag. Ingen hjelpemidler, og ikke kjør koden.\n\nProsentvekting: oppgave 1 teller 20 %, oppgave 2 teller 30 %, oppgave 3 teller 50 %."
+    },
+    {
+     "id": "tdt4110-3-prove-B-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-B-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Sjanger B — kodesporing på en tabell.) Hva skriver programmet ut? Skriv alle linjene nøyaktig.\n\n```python\nt = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\nprint(t[1])\nprint(t[1][2])\nprint(len(t), len(t[0]))\nfor rad in t:\n    print(rad[0], end=' ')\nprint()\nprint([rad[1] for rad in t])\n```",
+      "solution": "Tabellen har tre rader og tre kolonner. `t[1]` er hele den andre **raden**, altså ei liste; `t[1][2]` er elementet i den raden på plass 2.\n\n| Uttrykk | Resultat | Hva det er |\n|---|---|---|\n| `t[1]` | `[4, 5, 6]` | hele rad 1, ei liste |\n| `t[1][2]` | `6` | rad 1, kolonne 2 — ett tall |\n| `len(t)` | 3 | antall rader |\n| `len(t[0])` | 3 | antall kolonner i første rad |\n| løkka | `1 4 7 ` | første kolonne, på én linje |\n| kortformen | `[2, 5, 8]` | andre kolonne, som liste |\n\n```python\nt = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\nprint(t[1])\nprint(t[1][2])\nprint(len(t), len(t[0]))\nfor rad in t:\n    print(rad[0], end=' ')\nprint()\nprint([rad[1] for rad in t])\n```\n\n**Utskrift:**\n```\n[4, 5, 6]\n6\n3 3\n1 4 7 \n[2, 5, 8]\n```\n\n**Poengfordeling (20 %):** 4 % per utskriftslinje. Fella er å blande rad- og kolonneindeks: `t[1][2]` er 6, mens `t[2][1]` er 8. Merk også mellomrommet etter `7` på linje fire — `end=' '` legges på hver gang, også siste.",
+      "hints": [
+       "Tegn tabellen som tre rader under hverandre og nummerer både rader og kolonner.",
+       "`t[i]` er hele raden; du trenger to par klammer for å nå ett tall.",
+       "Løkka med `end=' '` gir én linje, ikke tre."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-3-prove-B-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-B-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Sjanger G — analyse: transponér.) En turneringstabell er lagret radvis, men skal vises kolonnevis.\n\n**a)** Skriv `transponer(tabell)` som returnerer en ny tabell der rad og kolonne har byttet plass — den første raden i resultatet skal være den første kolonnen i originalen.\n**b)** Forklar med én setning hvorfor funksjonen må lage en helt ny tabell i stedet for å endre den gamle.\n\nTest med `tabell = [[3, 1], [0, 2], [1, 1]]`, som har tre rader og to kolonner.",
+      "solution": "**a)** Resultatet har like mange rader som originalen har kolonner. Du bygger én ny rad per kolonne i originalen.\n\n```python\ndef transponer(tabell):\n    ny = []\n    for j in range(len(tabell[0])):\n        rad = []\n        for i in range(len(tabell)):\n            rad.append(tabell[i][j])\n        ny.append(rad)\n    return ny\n\ntabell = [[3, 1], [0, 2], [1, 1]]\nprint(transponer(tabell))\nprint(tabell)\n```\n\n**Utskrift:**\n```\n[[3, 0, 1], [1, 2, 1]]\n[[3, 1], [0, 2], [1, 1]]\n```\n\n**b)** Fordi den nye tabellen har en annen form — tre rader og to kolonner blir til to rader og tre kolonner — og en tabell kan ikke skifte form mens du leser fra den.\n\n**Hva gir uttelling (30 %):** 20 % for at den ytre løkka går over **kolonnene** og den indre over radene, 5 % for at den indre lista opprettes på nytt for hver ny rad, og 5 % for forklaringen i b). Den vanligste feilen er å bytte om `i` og `j` i `tabell[i][j]`, og den gir bare uttelling når resten er riktig — som her gir god delvis uttelling, fordi strukturen er riktig.\n\nEn kortere variant med kortformen fra [kap. 3.2](/tdt4110/tdt4110-3-2) er like riktig:\n\n```python\ndef transponer(tabell):\n    ny = []\n    for j in range(len(tabell[0])):\n        ny.append([rad[j] for rad in tabell])\n    return ny\n\nprint(transponer([[3, 1], [0, 2], [1, 1]]))\n```\n\n**Utskrift:**\n```\n[[3, 0, 1], [1, 2, 1]]\n```",
+      "hints": [
+       "Hvor mange rader har resultatet? Det er antall KOLONNER i originalen.",
+       "Den ytre løkka teller kolonner, den indre teller rader.",
+       "Opprett den nye raden inne i den ytre løkka, ellers får du alt i én rad."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-3-prove-B-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-B-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger G — analyse med dynamisk kolonneoppslag.) En fjellstue har lest inn en tabell over overnattinger. Første rad er overskriftsraden, og kolonnene kan komme i en annen rekkefølge neste gang fila kommer.\n\n```python\ntabell = [['hytte', 'maaned', 'gjester'],\n          ['Storhaugen', 'juli', '48'],\n          ['Nystugu', 'juli', '31'],\n          ['Storhaugen', 'august', '52'],\n          ['Fjellro', 'august', '19']]\nprint(len(tabell))\n```\n\n**a)** Skriv `hent_kolonne(tabell, navn)` som returnerer verdiene i kolonnen `navn` som ei liste, uten overskriften og uten å anta hvilken plass kolonnen har.\n**b)** Skriv `flest_gjester(tabell)` som returnerer navnet på hytta i den raden som har flest gjester. Returnér `None` hvis tabellen bare har overskriftsraden.\n**c)** Skriv `hytter(tabell)` som returnerer ei sortert liste over hyttenavnene, **uten duplikater**.",
+      "solution": "Alle tre funksjonene slår opp kolonnen med `.index` på overskriftsraden og hopper over rad 0 med `tabell[1:]`.\n\n```python\ndef hent_kolonne(tabell, navn):\n    k = tabell[0].index(navn)\n    resultat = []\n    for rad in tabell[1:]:\n        resultat.append(rad[k])\n    return resultat\n\ndef flest_gjester(tabell):\n    kh = tabell[0].index('hytte')\n    kg = tabell[0].index('gjester')\n    beste = None\n    for rad in tabell[1:]:\n        if beste is None or int(rad[kg]) > int(beste[kg]):\n            beste = rad\n    if beste is None:\n        return None\n    return beste[kh]\n\ndef hytter(tabell):\n    kh = tabell[0].index('hytte')\n    resultat = []\n    for rad in tabell[1:]:\n        if rad[kh] not in resultat:\n            resultat.append(rad[kh])\n    return sorted(resultat)\n\ntabell = [['hytte', 'maaned', 'gjester'],\n          ['Storhaugen', 'juli', '48'],\n          ['Nystugu', 'juli', '31'],\n          ['Storhaugen', 'august', '52'],\n          ['Fjellro', 'august', '19']]\nprint(hent_kolonne(tabell, 'gjester'))\nprint(flest_gjester(tabell))\nprint(hytter(tabell))\nprint(flest_gjester([tabell[0]]))\n```\n\n**Utskrift:**\n```\n['48', '31', '52', '19']\nStorhaugen\n['Fjellro', 'Nystugu', 'Storhaugen']\nNone\n```\n\n**Hva gir uttelling (50 %) — de fire fullscore-kravene, ett for ett:**\n\n- **Dynamisk kolonne (15 %):** `tabell[0].index('gjester')` i stedet for tallet 2 (felle #4 — å anta fast kolonnerekkefølge). Uten dette taper du poeng i alle tre deloppgavene.\n- **Konvertering (10 %):** `int(rad[kg])` i b). Uten den sammenlignes tekst med tekst, og `'9' > '48'` er sant — verdiene er lest fra fil og er strenger (felle #1).\n- **Tomtilfelle (10 %):** `beste = None` og returen etterpå, så funksjonen svarer `None` i stedet for å krasje på en tabell uten datarader (felle #6).\n- **Ingen duplikater (15 %):** `if rad[kh] not in resultat` i c). Uten den ville Storhaugen stått to ganger (felle #7).\n\nMerk at `hent_kolonne` returnerer strenger, ikke tall — det er riktig, fordi funksjonen ikke vet hva slags kolonne den henter. Konverteringen hører hjemme der tallene faktisk brukes. En løsning som i stedet konverterer i `hent_kolonne` og tar et ekstra argument for det, er også riktig; sensor godtar flere veier så lenge ideen er den samme.\n\n**Selvdiagnose etter prøve 3.B**\n\n☐ Fant du kolonnen med `tabell[0].index(...)` i stedet for et hardkodet tall?\n\n☐ Hoppet du over overskriftsraden med `tabell[1:]`?\n\n☐ Konverterte du med `int()` før du sammenlignet tall som var lest fra fil?\n\n☐ Håndterte du tabellen uten datarader i stedet for å la den krasje?\n\n☐ Ble det duplikater i resultatet i c)?\n\n☐ Blandet du rad- og kolonneindeks noe sted?",
+      "hints": [
+       "Slå opp kolonneindeksen ÉN gang, før løkka.",
+       "`tabell[1:]` gir alle radene unntatt overskriften.",
+       "I b): husk at verdiene fra fil er tekst — sammenlign tall, ikke strenger.",
+       "I c): sjekk at navnet ikke allerede står i resultatlista før du legger det til."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-3-prove-C",
+   "type": "collapsible",
+   "title": "Prøve 3.C — Strenger, parsing og utskrift (30 min)",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "tdt4110-3-prove-C-intro",
+     "type": "text",
+     "content": "**Prøve 3.C — strenger, parsing og utskrift (30 minutter).** Tre oppgaver: én sporing av strengutsnitt, én parsing av fillinjer, og én formatert rapport. Ingen hjelpemidler, og ikke kjør koden.\n\nProsentvekting: oppgave 1 teller 25 %, oppgave 2 teller 40 %, oppgave 3 teller 35 %."
+    },
+    {
+     "id": "tdt4110-3-prove-C-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-C-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Sjanger B — kodesporing av strenger.) Hva skriver programmet ut? Skriv alle fem linjene nøyaktig. Den loddrette streken er med for at du skal se hvor teksten slutter.\n\n```python\ns = '  Brøytelogg  '\nprint(len(s))\nprint(len(s.strip()))\nprint(s.strip()[0:5] + '|')\nprint(s.strip()[::-1] + '|')\nprint('-'.join(['12', '07', '2026']))\n```",
+      "solution": "Strengen har to mellomrom foran og to bak, altså 14 tegn i alt, og 10 tegn etter trimming.\n\n| Uttrykk | Resultat | Hvorfor |\n|---|---|---|\n| `len(s)` | 14 | 10 bokstaver pluss fire mellomrom |\n| `len(s.strip())` | 10 | mellomrommene ytterst er borte |\n| `s.strip()[0:5]` | `Brøyt` | plass 0 til og med 4 |\n| `s.strip()[::-1]` | `ggolteyørB` | hele ordet baklengs |\n| `'-'.join([...])` | `12-07-2026` | skilletegnet settes MELLOM elementene |\n\n```python\ns = '  Brøytelogg  '\nprint(len(s))\nprint(len(s.strip()))\nprint(s.strip()[0:5] + '|')\nprint(s.strip()[::-1] + '|')\nprint('-'.join(['12', '07', '2026']))\n```\n\n**Utskrift:**\n```\n14\n10\nBrøyt|\nggoletyørB|\n12-07-2026\n```\n\n**Poengfordeling (25 %):** 5 % per linje. To feller: `.strip()` fjerner bare mellomrom **ytterst**, ikke inni, og `join` setter skilletegnet mellom elementene — ikke foran og bak.",
+      "hints": [
+       "Tell tegnene i strengen, mellomrommene inkludert.",
+       "`strip` rører bare det som står ytterst.",
+       "`join` kalles på skilletegnet og får lista som argument."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-3-prove-C-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-C-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Sjanger F — parsing: gjør tekstlinjer om til verdier.) En brøytebil logger hver runde som én linje på formen `dato;sone;minutter`, med et linjeskift på slutten. Linjene ligger i lista `linjer`.\n\n```python\nlinjer = ['12.01;nord;95\\n', '12.01;sør;120\\n', '13.01;nord;80\\n']\nprint(len(linjer))\n```\n\n**a)** Skriv `parse(linjer)` som returnerer en 2D-tabell der hver rad er `[dato, sone, minutter]`, og der minuttene er **heltall**.\n**b)** Skriv `til_linjer(tabell)` som gjør tabellen tilbake til linjer på samme form, uten linjeskift.\n**c)** Én av de to funksjonene ville fortsatt virket om du droppet `.strip()`. Hvilken, og hvorfor er det likevel feil å droppe den?",
+      "solution": "**a)** trimmer FØR delingen, ellers henger linjeskiftet med i det siste feltet.\n\n```python\ndef parse(linjer):\n    tabell = []\n    for linje in linjer:\n        felt = linje.strip().split(';')\n        tabell.append([felt[0], felt[1], int(felt[2])])\n    return tabell\n\ndef til_linjer(tabell):\n    ut = []\n    for rad in tabell:\n        ut.append(rad[0] + ';' + rad[1] + ';' + str(rad[2]))\n    return ut\n\nlinjer = ['12.01;nord;95\\n', '12.01;sør;120\\n', '13.01;nord;80\\n']\ntabell = parse(linjer)\nprint(tabell)\nprint(til_linjer(tabell))\n```\n\n**Utskrift:**\n```\n[['12.01', 'nord', 95], ['12.01', 'sør', 120], ['13.01', 'nord', 80]]\n['12.01;nord;95', '12.01;sør;120', '13.01;nord;80']\n```\n\n**c)** `til_linjer` ville virket uansett, fordi den aldri ser på de originale linjene. Men å droppe `.strip()` i `parse` ville gitt `int('95\\n')` — som riktignok går bra i Python, fordi `int` tåler blanktegn rundt tallet — mens `felt[1]` på siste felt i en fil med annen kolonnerekkefølge ville fått linjeskiftet med seg og aldri matchet `'nord'`. Regelen er derfor absolutt: **trim alltid før du deler** (felle #2 — glemt `.strip()`, så linjeskiftet henger med i siste felt).\n\n**Hva gir uttelling (40 %):** 15 % for `.strip()` før `.split(';')`, 10 % for riktig skilletegn (felle #3 — å dele på feil tegn), 10 % for `int()` på minuttene (felle #1), og 5 % for at b) konverterer tilbake med `str()`. Bruker du `';'.join(...)` i b) i stedet for å skjøte med `+`, er det like riktig — men da må alle tre feltene være tekst først.",
+      "hints": [
+       "Trim linja før du deler den, ikke etterpå.",
+       "Skilletegnet står i oppgaveteksten — les det nøye.",
+       "I b): `join` og `+` krever begge at alle leddene er tekst."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-3-prove-C-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-C-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger I — formatert utskrift.) Brøyteloggen fra oppgave 2 skal skrives ut som rapport. Tabellen har rader på formen `[dato, sone, minutter]`.\n\n**a)** Skriv `formater_tid(minutter)` som gir tiden på formen `hh:mm` med to sifre i hvert felt — 95 minutter skal bli `01:35`.\n**b)** Skriv `skriv_rapport(tabell)` som skriver en overskriftsrad og deretter én linje per runde: datoen venstrejustert i 8 tegn, sonen venstrejustert i 8 tegn og tiden høyrejustert i 6 tegn. Funksjonen skal gjenbruke `formater_tid`.\n**c)** Legg til en sluttlinje som viser totaltiden i det samme oppsettet, med teksten `SUM` i den første kolonnen og et bindestrek-felt i den andre.\n\nTest med tabellen `[['12.01', 'nord', 95], ['12.01', 'sør', 120], ['13.01', 'nord', 80]]`.",
+      "solution": "**a)** er tidsmønsteret fra [kap. 3.4](/tdt4110/tdt4110-3-4) uten sekundfeltet. **b)** og **c)** hører til samme funksjon.\n\n```python\ndef formater_tid(minutter):\n    return str(minutter // 60).zfill(2) + ':' + str(minutter % 60).zfill(2)\n\ndef skriv_rapport(tabell):\n    print('Dato'.ljust(8) + 'Sone'.ljust(8) + 'Tid'.rjust(6))\n    total = 0\n    for rad in tabell:\n        total = total + rad[2]\n        print(rad[0].ljust(8) + rad[1].ljust(8) + formater_tid(rad[2]).rjust(6))\n    print('SUM'.ljust(8) + '-'.ljust(8) + formater_tid(total).rjust(6))\n\ntabell = [['12.01', 'nord', 95], ['12.01', 'sør', 120], ['13.01', 'nord', 80]]\nskriv_rapport(tabell)\n```\n\n**Utskrift:**\n```\nDato    Sone       Tid\n12.01   nord     01:35\n12.01   sør      02:00\n13.01   nord     01:20\nSUM     -        04:55\n```\n\nTotalen er 295 minutter, altså 4 timer og 55 minutter.\n\nDen samme rapporten med f-strenger er like riktig — begge former gir full pott, og f-strenger er (verifiser mot gjeldende pensum — varslet inn 2019):\n\n```python\ndef formater_tid(minutter):\n    return f'{minutter // 60:02d}:{minutter % 60:02d}'\n\ntabell = [['12.01', 'nord', 95], ['12.01', 'sør', 120], ['13.01', 'nord', 80]]\nfor rad in tabell:\n    print(f'{rad[0]:<8}{rad[1]:<8}{formater_tid(rad[2]):>6}')\n```\n\n**Utskrift:**\n```\n12.01   nord     01:35\n12.01   sør      02:00\n13.01   nord     01:20\n```\n\n**Hva gir uttelling (35 %):** 10 % for heltallsdeling og rest i a) (felle #9 — å blande `/` og `//`), 5 % for nullpadding i begge felt, 10 % for at overskriftsraden har samme feltbredder som dataradene, 5 % for at b) kaller a) i stedet for å regne på nytt, og 5 % for at totalen summeres underveis i den løkka som allerede går. Bommer du på én feltbredde, men har riktig struktur, gir det fortsatt god uttelling.\n\n**Selvdiagnose etter prøve 3.C**\n\n☐ Trimmet du linja FØR du delte den?\n\n☐ Brukte du riktig skilletegn i `.split()`?\n\n☐ Konverterte du tallfeltene med `int()` etter delingen?\n\n☐ Konverterte du tilbake med `str()` før du skjøtte tekst sammen?\n\n☐ Brukte du `//` og `%` i tidsregningen, aldri `/`?\n\n☐ Nullpaddet du begge tidsfeltene til to sifre?\n\n☐ Har overskriftsraden nøyaktig samme feltbredder som dataradene?",
+      "hints": [
+       "Timer er hele minutter delt på 60 med heltallsdeling; resten er `%`.",
+       "La rapportfunksjonen kalle tidsfunksjonen i stedet for å regne selv.",
+       "Summer totalen i den løkka du allerede har, så slipper du en ekstra gjennomgang.",
+       "Tall må gjennom `str()` før `.rjust()` — men `formater_tid` returnerer allerede tekst."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-3-prove-D",
+   "type": "collapsible",
+   "title": "Prøve 3.D — Ordbøker og tupler (30 min)",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "tdt4110-3-prove-D-intro",
+     "type": "text",
+     "content": "**Prøve 3.D — ordbøker og tupler (30 minutter).** Tre oppgaver: én sporing av en telleordbok, én med teller og gruppering, og én med parallelle tupler. Ingen hjelpemidler, og ikke kjør koden.\n\nProsentvekting: oppgave 1 teller 20 %, oppgave 2 teller 45 %, oppgave 3 teller 35 %."
+    },
+    {
+     "id": "tdt4110-3-prove-D-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-D-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Sjanger B — kodesporing av en telleordbok.) Hva skriver programmet ut? Skriv alle tre linjene nøyaktig, med krøllparenteser og fnutter der de hører hjemme.\n\n```python\nvalg = ['suppe', 'salat', 'suppe', 'grøt', 'suppe', 'salat']\nd = {}\nfor v in valg:\n    d[v] = d.get(v, 0) + 1\nprint(d)\nprint(len(d), sum(d.values()))\nprint(d.get('pizza', 0), 'pizza' in d)\n```",
+      "solution": "Gå gjennom lista ett element om gangen og skriv opp ordboka etter hvert steg.\n\n| Element | `d.get(v, 0)` | Ordboka etterpå |\n|---|---|---|\n| `'suppe'` | 0 | `{'suppe': 1}` |\n| `'salat'` | 0 | `{'suppe': 1, 'salat': 1}` |\n| `'suppe'` | 1 | `{'suppe': 2, 'salat': 1}` |\n| `'grøt'` | 0 | `{'suppe': 2, 'salat': 1, 'grøt': 1}` |\n| `'suppe'` | 2 | `{'suppe': 3, 'salat': 1, 'grøt': 1}` |\n| `'salat'` | 1 | `{'suppe': 3, 'salat': 2, 'grøt': 1}` |\n\n```python\nvalg = ['suppe', 'salat', 'suppe', 'grøt', 'suppe', 'salat']\nd = {}\nfor v in valg:\n    d[v] = d.get(v, 0) + 1\nprint(d)\nprint(len(d), sum(d.values()))\nprint(d.get('pizza', 0), 'pizza' in d)\n```\n\n**Utskrift:**\n```\n{'suppe': 3, 'salat': 2, 'grøt': 1}\n3 6\n0 False\n```\n\n**Poengfordeling (20 %):** 7 % for ordboka, 7 % for de to tallene og 6 % for siste linje. To feller: nøklene står i den rekkefølgen de dukket opp FØRSTE gang, ikke etter antall, og `d.get('pizza', 0)` gir 0 uten å legge nøkkelen inn — derfor er `'pizza' in d` fortsatt usant. Delvis riktig sporing gir delvis uttelling.",
+      "hints": [
+       "Skriv opp ordboka på nytt etter hver eneste iterasjon.",
+       "`len(d)` og `sum(d.values())` teller to helt forskjellige ting.",
+       "Endrer `.get` ordboka, eller svarer den bare?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-3-prove-D-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-D-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger G — analyse: tell og gruppér.) En studentkantine registrerer hvert salg som to lister i takt: `rett` med hva som ble solgt, og `kunde` med hvem som kjøpte.\n\n**a)** Skriv `antall_per_rett(rett)` som returnerer en ordbok fra rett til antall salg.\n**b)** Skriv `kunder_per_rett(rett, kunde)` som returnerer en ordbok fra rett til ei liste over kundene som har kjøpt den — **uten duplikater**.\n**c)** Skriv `mest_solgt(d)` som tar ordboka fra a) og returnerer navnet på retten med flest salg, eller `None` hvis ordboka er tom.\n\nTest med `rett = ['suppe', 'salat', 'suppe', 'grøt', 'suppe', 'salat']` og `kunde = ['Aas', 'Berg', 'Dahl', 'Aas', 'Aas', 'Berg']`.",
+      "solution": "**a)** er telleren, **b)** er grupperingen med en duplikatsjekk, og **c)** er finn-beste-løkka.\n\n```python\ndef antall_per_rett(rett):\n    d = {}\n    for r in rett:\n        d[r] = d.get(r, 0) + 1\n    return d\n\ndef kunder_per_rett(rett, kunde):\n    d = {}\n    for i in range(len(rett)):\n        r = rett[i]\n        if r not in d:\n            d[r] = []\n        if kunde[i] not in d[r]:\n            d[r].append(kunde[i])\n    return d\n\ndef mest_solgt(d):\n    beste = None\n    for r in d:\n        if beste is None or d[r] > d[beste]:\n            beste = r\n    return beste\n\nrett = ['suppe', 'salat', 'suppe', 'grøt', 'suppe', 'salat']\nkunde = ['Aas', 'Berg', 'Dahl', 'Aas', 'Aas', 'Berg']\ntall = antall_per_rett(rett)\nprint(tall)\nprint(kunder_per_rett(rett, kunde))\nprint(mest_solgt(tall))\nprint(mest_solgt({}))\n```\n\n**Utskrift:**\n```\n{'suppe': 3, 'salat': 2, 'grøt': 1}\n{'suppe': ['Aas', 'Dahl'], 'salat': ['Berg'], 'grøt': ['Aas']}\nsuppe\nNone\n```\n\n**Hva gir uttelling (45 %):** 10 % for telleren i a) med `.get` så første forekomst ikke krasjer, 20 % for grupperingen i b) — 10 % for at den tomme lista opprettes før `append` (uten den gir koden `KeyError`) og 10 % for duplikatsjekken (felle #7 — å returnere duplikater) — og 15 % for c) med `beste = None`, som gjør at funksjonen svarer `None` i stedet for å krasje på tom ordbok (felle #6).\n\nMerk at suppe har tre salg, men bare to unike kunder: Aas kjøpte suppe to ganger. Det er nettopp forskjellen mellom a) og b), og den er lett å overse. Bruker du `d.setdefault(r, []).append(...)` i b), er det like riktig — men duplikatsjekken må fortsatt være der.",
+      "hints": [
+       "Telleren og grupperingen er to forskjellige mønstre — ikke bland dem.",
+       "I b) trenger du to sjekker: én for at lista finnes, og én for at kunden ikke alt står der.",
+       "I c): start med `beste = None`, så slipper du å gjette en lav startverdi."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-3-prove-D-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-3-prove-D-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger G — parallelle tupler.) Et svømmemerke tildeles etter antall meter svømt. Grensene er `(1500, 1000, 600, 200)` og de tilhørende merkene `('gull', 'sølv', 'bronse', 'delta')`. Under laveste grense er merket `'ingen'`.\n\n**a)** Skriv `merke(meter)` som returnerer riktig merkenavn.\n**b)** Skriv `beste_og_svakeste(meter_liste)` som returnerer et **tuppel** med den høyeste og den laveste distansen i lista, og `None` hvis lista er tom.\n**c)** Skriv `merkefordeling(meter_liste)` som returnerer en ordbok fra merkenavn til antall svømmere. Funksjonen skal gjenbruke `merke`.\n\nTest med `meter_liste = [1750, 210, 950, 600, 1000, 150]`.",
+      "solution": "**a)** er karaktersettingsmønsteret, **b)** returnerer to verdier pakket i ett tuppel, og **c)** er telleren med merkenavnet som nøkkel.\n\n```python\ngrenser = (1500, 1000, 600, 200)\nmerker = ('gull', 'sølv', 'bronse', 'delta')\n\ndef merke(meter):\n    for grense, navn in zip(grenser, merker):\n        if meter >= grense:\n            return navn\n    return 'ingen'\n\ndef beste_og_svakeste(meter_liste):\n    if len(meter_liste) == 0:\n        return None\n    return max(meter_liste), min(meter_liste)\n\ndef merkefordeling(meter_liste):\n    d = {}\n    for m in meter_liste:\n        k = merke(m)\n        d[k] = d.get(k, 0) + 1\n    return d\n\nmeter_liste = [1750, 210, 950, 600, 1000, 150]\nfor m in meter_liste:\n    print(m, merke(m))\nprint(beste_og_svakeste(meter_liste))\nprint(beste_og_svakeste([]))\nprint(merkefordeling(meter_liste))\n```\n\n**Utskrift:**\n```\n1750 gull\n210 delta\n950 bronse\n600 bronse\n1000 sølv\n150 ingen\n(1750, 150)\nNone\n{'gull': 1, 'delta': 1, 'bronse': 2, 'sølv': 1, 'ingen': 1}\n```\n\n**Hva gir uttelling (35 %):** 15 % for a) — 5 % for at grensene gås gjennom fra høyest til lavest, 5 % for `>=` slik at nøyaktig 600 meter gir bronse og ikke delta, og 5 % for at `'ingen'` returneres ETTER løkka (uten den gir funksjonen `None` for 150 meter). 10 % for at b) returnerer to verdier som ett tuppel og håndterer den tomme lista. 10 % for at c) kaller a) i stedet for å gjenta grensene — gjenbruk av egne funksjoner er noe sensor belønner.\n\nLøser du a) med felles indeks i stedet for `zip`, eller b) med en egen løkke i stedet for `max` og `min`, er begge deler like riktig. Snarveiene er tillatt i dette emnet og brukes i løsningsforslagene.\n\n**Selvdiagnose etter prøve 3.D**\n\n☐ Brukte du `.get(k, 0)` i telleren, så første forekomst ikke krasjet?\n\n☐ Opprettet du den tomme lista før `append` i grupperingen?\n\n☐ Ble det duplikater i gruppene?\n\n☐ Håndterte du den tomme ordboka og den tomme lista i stedet for å la dem krasje?\n\n☐ Sto grensene fra høyest til lavest, og brukte du `>=` og ikke `>`?\n\n☐ Returnerte du bunnkategorien ETTER løkka, ikke inne i den?\n\n☐ Kalte funksjonene i c) den fra a), i stedet for å gjenta grensene?",
+      "hints": [
+       "Grensene må gås gjennom fra høyest til lavest.",
+       "Test kanttilfellet: hva skal skje med nøyaktig 600 meter?",
+       "I b): pakk de to verdiene med komma i `return`, og sjekk tomtilfellet først.",
+       "I c) er nøkkelen i telleordboka merkenavnet du får fra funksjonen i a)."
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
