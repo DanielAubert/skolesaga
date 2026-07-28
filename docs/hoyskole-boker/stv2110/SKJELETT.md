@@ -181,7 +181,7 @@ kunnskap. Samme kunnskapsgrunnlag kan gi A- og C-besvarelse.
 - **STV1100 Politisk teori (UiO):** foreløpig kun `EKSAMENSANALYSE.md` (ingen
   skjelett/bok ennå), men **stor kanonoverlapp** (Hobbes, Locke, Rousseau, Mill,
   Nietzsche, Kant, kontraktsteori, ytringsfrihet). STV2110-boka skrives
-  selvstendig, men **kryssbok-lenker (`[tittel](/bok/stv1100/<id>)`) legges KUN inn
+  selvstendig, men **kryssbok-lenker (`[tittel](/stv1100/<id>)`) legges KUN inn
   når STV1100-boka finnes** (Leserkravet: lenk aldri til ikke-eksisterende
   kapitler). Til da: ingen STV1100-lenker. Forskjellen boka skal fremheve: STV2110
   vekter **argumentrekonstruksjon og epistemologisk/metafysisk begrunnelsesanalyse**
@@ -1024,8 +1024,8 @@ options[0] = riktig i staging (runtime stokker).
   «sitat» er nyskrevne — endre formuleringer, parter og fakta. Primærtekster refereres
   (forfatter/verk/begrep); «sitat-treningsbokser» inneholder NYSKREVNE parafraser, ikke
   ordrette gjengivelser.
-- **Kryssbok-lenker:** legg KUN inn `[tittel](/bok/exphil03/<id>)`- eller
-  `[tittel](/bok/stv1100/<id>)`-lenker der mål-kapitlet faktisk finnes (Leserkravet).
+- **Kryssbok-lenker:** legg KUN inn `[tittel](/exphil03/<id>)`- eller
+  `[tittel](/stv1100/<id>)`-lenker der mål-kapitlet faktisk finnes (Leserkravet).
   STV1100-boka finnes ikke ennå (kun analyse) → ingen STV1100-lenker før den bygges.
   exphil03-lenker (Kant/Mill/Locke) merkes `(verifiser at mål-id finnes)` i
   byggekontrakten.

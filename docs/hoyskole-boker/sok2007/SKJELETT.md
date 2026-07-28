@@ -699,7 +699,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    etter mønster `COURSE_BI_OKONOMI` i
    `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra
    makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SOK2007 Utviklingsøkonomi».
 2. **Del 0** (kap. 0.1) — etablerer de tre eksamensformatene, sjangernavnene A–P,
    frekvenstallene og avgrensningen (hva som hører hjemme et annet sted) som
@@ -795,7 +795,7 @@ vs. hva den forutsetter/kryssrefererer.
 **Kryssreferanser (lenkes, ikke gjentas):** der en enkel etterspørsels-/
 kostnadssammenheng eller elastisitetsdefinisjon trengs (handelskapitlet 3.2/3.3,
 humankapital 4.5), kan Forkunnskaper-blokkene lenke til **SOK1002** når/hvis den
-bygges (`[tittel](/bok/sok1002/<chapterId>)`) — **men lenk kun til kapitler som
+bygges (`[tittel](/sok1002/<chapterId>)`) — **men lenk kun til kapitler som
 finnes** (SOK1002 er per nå kun skjelett, så SOK2007 skal i praksis forklare det
 kvalitative minimumet selv og ikke lenke til uframstilte kapitler). Dette speiler
 NTNU-arbeidsdelingen (SOK1002 mikro-teori · SØK1011 marked/markedssvikt · SOK2007

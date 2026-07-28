@@ -426,8 +426,8 @@ satser), `tip` **Sensorblikket** (bestått-terskel + momentliste). Minst én
   notasjon (SVG-figurer for økonomi; tekstbeskrivelse av funn for klinikk).
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 1, 2, 5, 6 på tvers av alle
   sjangre). Prioritet: perfekt (meta).
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Slik leser du en lovhenvisning](/bok/jus1111/jus1111-0-2)
-  `(verifiser lenke)`, [Marked og likevekt](/bok/econ1310/econ1310-1-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Slik leser du en lovhenvisning](/jus1111/jus1111-0-2)
+  `(verifiser lenke)`, [Marked og likevekt](/econ1310/econ1310-1-1) `(verifiser lenke)`.
   `collapsible` **Oppslag:** «jf.» = jamfør; «§ 1-3 (2)» = annet ledd; figur­
   konvensjonene (fallende etterspørsel, stigende tilbud, likevekt der de krysser);
   funnbeskrivelses-notasjonen (tann-FDI, funn, symptom).
@@ -466,7 +466,7 @@ satser), `tip` **Sensorblikket** (bestått-terskel + momentliste). Minst én
 - **Eksamensbelegg:** **3/3 sittinger** (samfunn). Sjanger A. Full oppramsing av
   unntakene forventes; forveksling opplysningsrett/-plikt/meldeplikt straffes.
   Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Taushetsplikt i helseretten](/bok/jus1111/jus1111-1-1)
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Taushetsplikt i helseretten](/jus1111/jus1111-1-1)
   `(verifiser lenke)`. `collapsible` **Paragraf- og takstregister:** helsepersonell­
   loven § 21 flg. → taushetsplikt + unntakene `(verifiser)`.
 - **Faktakontrakt (flashcard-kilde):** **taushetsplikt** (hovedregel, hvem/hva);
@@ -511,7 +511,7 @@ satser), `tip` **Sensorblikket** (bestått-terskel + momentliste). Minst én
   samtykkealder i helselovgivningen (hovedregel 16 år, foreldreinformasjon 16–18).
 - **Eksamensbelegg:** Journalføring **2/3**, samtykke **2/3**. Sjanger A. Prioritet:
   perfekt (journal) / kunne (samtykkedetaljer).
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Pasient- og brukerrettigheter](/bok/jus1111/jus1111-1-2)
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Pasient- og brukerrettigheter](/jus1111/jus1111-1-2)
   `(verifiser lenke)`. `collapsible` **Paragraf- og takstregister:** journalens
   innhold + innsyn (pasient- og brukerrettighetsloven vs. helsepersonelloven);
   samtykkealder § 3-4 tredje ledd `(verifiser)`.
@@ -617,7 +617,7 @@ eksamensnivå). Riktig/galt-fasitene VARIERER (aldri «alle felle»).
   bygger på.
 - **Eksamensbelegg:** Frikonkurransemarkedet **2/3** med figurdrøfting. Sjanger C.
   Sensor forventer egen skisse med korrekt kurveretning. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Tilbud og etterspørsel](/bok/econ1310/econ1310-1-1)
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Tilbud og etterspørsel](/econ1310/econ1310-1-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** `p` pris/honorar,
   `q` mengde, etterspørsel (fallende), tilbud (stigende), MK marginalkostnad,
   likevekt. SVG: `marked-likevekt.svg`.
@@ -716,7 +716,7 @@ på eksamensnivå). Kald bank (uten hint) plasseres i Del 12.
 - **Eksamensbelegg:** Dødsårsaker + trend **1/3** (samfunn, Del B). Sjanger E.
   Prioritet: kjenne. **`(verifiser rekkefølge/tall)`** mot gjeldende SSB/FHI-
   statistikk.
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Epidemiologi og folkehelse](/bok/med1100/med1100-1-1)
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Epidemiologi og folkehelse](/med1100/med1100-1-1)
   `(verifiser lenke)`. `collapsible` **Faktakontrakt-oppslag:** dødsårsaker rangert
   `(verifiser)`; trendretning per årsak.
 - **Faktakontrakt (flashcard-kilde):** **de viktigste dødsårsakene** rangert
@@ -857,7 +857,7 @@ samlet traume-kasusprøve på eksamensnivå).
   pulpotomi ved vital pulpa (2 mm kasse, kalsiumhydroksid, stanse frisk blødning)
   og ekstraksjon ved nekrose — behandlingsvalgene i primære tenner.
 - **Eksamensbelegg:** Karies primære tenner **høy**. Sjanger G/H. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 6.1; [Kariologi](/bok/od4200/od4200-1-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 6.1; [Kariologi](/od4200/od4200-1-1) `(verifiser lenke)`.
   `collapsible` **Faktakontrakt-oppslag:** kariesgradering 1–5; ekskaveringsvalg;
   pulpotomi-prosedyre; nasjonal faglig retningslinje 0–20 år.
 - **Faktakontrakt (flashcard-kilde):** **kariesgradering 1–5**; **selektiv/trinnvis
@@ -977,7 +977,7 @@ diagnostikk-kasusprøve på eksamensnivå).
 - **Eksamensbelegg:** Etisk refleksjon **1/3**, men **eksplisitt vektet oppgave i
   2023**. Sjanger I. Å blande etisk og faglig problem straffes (sensorkrav 7, F11).
   Prioritet: perfekt (for etikkoppgaven).
-- **Forkunnskaper/kryssbok:** kap. 8.2; [Etikk og profesjonsansvar](/bok/med1100/med1100-2-1)
+- **Forkunnskaper/kryssbok:** kap. 8.2; [Etikk og profesjonsansvar](/med1100/med1100-2-1)
   `(verifiser lenke)`. `collapsible` **Faktakontrakt-oppslag:** SME-trinnene;
   skillet etisk vs. faglig problem.
 - **Faktakontrakt (flashcard-kilde):** **SME-modellen** (identifiser etisk problem
@@ -1005,7 +1005,7 @@ etikkprøve). 8.C-fasiten refererer selvrettingsrubrikken.
 - **Eksamensbelegg:** Diagnose fra anamnese + panorama **kjerne** (oppgave 1 i
   kasuset). Sjanger J. Senere svar bygger på disse diagnosene (sensorkrav 8).
   Prioritet: kunne. `warning` bildeavhengighet (panorama tekstbeskrevet).
-- **Forkunnskaper/kryssbok:** kap. 0.2 (funnbeskrivelse); [Periodonti](/bok/od4200/od4200-2-1)
+- **Forkunnskaper/kryssbok:** kap. 0.2 (funnbeskrivelse); [Periodonti](/od4200/od4200-2-1)
   `(verifiser lenke)`. `collapsible` **Faktakontrakt-oppslag:** panorama-funn ↔
   protetisk relevans; diagnoseliste-oppsett.
 - **Faktakontrakt (flashcard-kilde):** **systematisk oral diagnoseliste** (karies,

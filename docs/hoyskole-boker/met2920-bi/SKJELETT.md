@@ -262,7 +262,7 @@ regresjon/korrelasjon aldri i seg selv beviser årsak.
 **Kryssbok-lenker (forkunnskaper):** grunnleggende sannsynlighet, gjennomsnitt/
 standardavvik og lineære funksjoner forutsettes fra VGS — lenk der det er naturlig
 til eksisterende kapitler i S1/S2/R1-bøkene (sannsynlighet, statistikk, rette
-linjer) med `[tittel](/bok/<courseId>/<chapterId>)`, og til BI-matte
+linjer) med `[tittel](/<courseId>/<chapterId>)`, og til BI-matte
 (`met2910-bi`) for algebra/lineære funksjoner der den finnes. **Verifiser at
 kapittel-id-en finnes før lenking** (BYGGEKONTRAKT-fasen slår opp id-ene mot
 `textbook-courses-matte.ts`); lenk aldri til kapitler du ikke har verifisert.

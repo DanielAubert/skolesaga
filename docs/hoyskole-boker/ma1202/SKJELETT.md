@@ -133,7 +133,7 @@ kalkulator uten matriseregning — alt gjøres for hånd).
     som bok — lenk normalt til eksisterende MA1201-kapitler for konkret system-/determinant-/
     vektorgeometri-repetisjon. Bygde VGS-bøker (R1, R2, 1T, S2) lenkes for elementære forkunnskaper
     (vektorer, komplekse tall R2, derivasjon/diff-likninger S2). **Ubygde** emner skrives som klartekst
-    med markøren *(NTNU-emne, ikke bygget som bok ennå; aktiver `/bok/<kode>/<id>`-lenke når den finnes)*.
+    med markøren *(NTNU-emne, ikke bygget som bok ennå; aktiver `/<kode>/<id>`-lenke når den finnes)*.
     Lenk kun til kapitler som finnes.
 
 13. **Ærlighet om format og arkiv.** (a) Malen 2023–2025 er **svært stabil** (6–7 korte, skarpt
@@ -271,7 +271,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Løftet fra ℝⁿ til abstrakte vektorrom over vilkårlig kropp: de åtte aksiomene, unikhet av 0 og additiv invers, og de eksamensviktige familiene — polynomrommet Pₙ, matriserommet Mₘₓₙ og funksjonsrom. Grunnmuren under hele emnet.
-- **Forkunnskaper (kryssbok):** Ingen i boka. Konkret vektorrom fra MA1201 og [Vektorer i tre dimensjoner](/bok/r2/r2-5-1); polynomer fra [Polynomer og polynomdivisjon](/bok/r1/r1-1-1). Den abstrakte teorien over vilkårlig kropp bygges fra grunnen her.
+- **Forkunnskaper (kryssbok):** Ingen i boka. Konkret vektorrom fra MA1201 og [Vektorer i tre dimensjoner](/r2/r2-5-1); polynomer fra [Polynomer og polynomdivisjon](/r1/r1-1-1). Den abstrakte teorien over vilkårlig kropp bygges fra grunnen her.
 - **Eksamensbelegg:** Grunnlag for sjanger C/D — **VS-aksiomer/unikhet ~29 %** som egen oppgave, men fundamentet under alt (~100 %). Fasitens grep: unikhet av $\mathbf 0$/invers vises fra aksiomene (VS3/VS4-bevisene). Prioritet: **perfekt** (bærer resten).
 - **Innholdskontrakt:** **Vektorromsaksiomene (VS1–VS8)** over en **vilkårlig kropp** $\mathbb F$ ($\mathbb R$, $\mathbb C$, evt. $\mathbb Z_p$ — kort); **unikhet av $\mathbf 0$ og av additiv invers**, $0\cdot\mathbf v=\mathbf 0$, $(-1)\mathbf v=-\mathbf v$ (ført fra aksiomene); **polynomrommet** $\operatorname{P}_n$ (grad $\le n$) med standardbasis $\{1,t,\dots,t^n\}$ og $\dim\operatorname{P}_n=n+1$; **matriserommet** $M_{m\times n}(\mathbb F)$ med $\dim=mn$; **funksjonsrom** $\mathcal F(S,\mathbb F)$ / $C(\mathbb R)$; hvorfor kroppen betyr noe (komplekse skalarer trengs for unitær diagonalisering senere). Alt til aktiv bruk.
 - **Oppgavesjangre:** C/D. Mønstereksempel: «Vis fra aksiomene at additiv invers i et vektorrom er entydig, og at $0\cdot\mathbf v=\mathbf 0$ for alle $\mathbf v$.»
@@ -295,7 +295,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-1-3` · **number:** 1.3 · **estimatedMinutes:** 60 · **prerequisites:** `ma1202-1-2`
 - **kapitteltype:** teori
 - **description:** Lineær uavhengighet og span i abstrakte rom, basis og dimensjon, koordinatvektoren [v]_β relativt en basis, og de eksamensklassiske utregningene: dim V fra antall koordinater, dim span(S) via rangen til koordinatmatrisen.
-- **Forkunnskaper (kryssbok):** Kap. 1.2, 1.1. Rang/radreduksjon fra MA1201 og [Lineære likningssystem](/bok/ma1201/ma1201-1-1) *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.2, 1.1. Rang/radreduksjon fra MA1201 og [Lineære likningssystem](/ma1201/ma1201-1-1) *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger D, **~100 % byggekloss**; koordinatvektor-varianten egen oppgave i flere nyere sett. Fasitens grep: $\dim V=$ antall koordinater; $\dim\operatorname{span}(S)=$ rangen til matrisen med koordinatvektorene som kolonner (radreduksjon). Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Lineærkombinasjon** og **span**; **lineær uavhengighet** (i $\mathbb R^n$ via radreduksjon; for polynomer via **koeffisientsammenligning**; for matriser via oppstilling); **basis** = uavhengig + utspenner; **dimensjon** og dimensjonsargumentet; **koordinatvektor** $[\mathbf v]_\beta$ relativt en ordnet basis; **$\dim V$** fra antall koordinater og **$\dim\operatorname{span}(S)$** via rang av koordinatmatrisen; basisskifte (kort, bro til $[T]_\beta$ i Del 2). Alt til aktiv bruk.
 - **Oppgavesjangre:** D. Mønstereksempel: «$V$ har basis $\beta$. Fire vektorer er gitt ved sine koordinatvektorer i $\mathbb R^5$. Hva er $\dim V$, og hva er $\dim\operatorname{span}$ av de fire vektorene?»
@@ -365,7 +365,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-3-1` · **number:** 3.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma1202-2-2`
 - **kapitteltype:** teori
 - **description:** Egenverdimaskineriets grunnlag: det(A−λI)=0 gir karakteristisk polynom og egenverdiene, egenrommene som nullrom til (A−λI), og algebraisk vs. geometrisk multiplisitet — grunnlaget for hele emnets nav.
-- **Forkunnskaper (kryssbok):** Kap. 2.1. Determinant og karakteristisk polynom på matriseform fra MA1201 og [Egenverdier og egenvektorer](/bok/ma1201/ma1201-5-1) *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.1. Determinant og karakteristisk polynom på matriseform fra MA1201 og [Egenverdier og egenvektorer](/ma1201/ma1201-5-1) *(verifiser id)*.
 - **Eksamensbelegg:** Grunnlag for sjanger A/I/K/L (~83 % diagonalisering + alt anvendt). Fasitens grep: charpol → egenverdier → egenrom-basis (nullrom til $A-\lambda I$). Prioritet: **perfekt** (bærer halve settet).
 - **Innholdskontrakt:** **Karakteristisk polynom** $\det(A-\lambda I)$ (også for operator via $[T]_\beta$); **egenverdier** (røttene) og **egenrom** $E_\lambda=\ker(A-\lambda I)$; **algebraisk multiplisitet** (multiplisitet i charpol) og **geometrisk multiplisitet** ($\dim E_\lambda$); at geometrisk $\le$ algebraisk; egenverdier er basisuavhengige; $\operatorname{spor}A=\sum\lambda_i$, $\det A=\prod\lambda_i$. Egenverdibevis føres fra $A\mathbf x=\lambda\mathbf x$. Alt til aktiv bruk (kode D — for hånd).
 - **Oppgavesjangre:** A-grunnlag. Mønstereksempel: «Finn egenverdiene og en basis for hvert egenrom til $A=\begin{bmatrix}1&1\\4&-2\end{bmatrix}$.»
@@ -430,7 +430,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-4-2` · **number:** 4.2 · **estimatedMinutes:** 60 · **prerequisites:** `ma1202-3-2`
 - **kapitteltype:** teori
 - **description:** Emnets faste oppgave 1 i 2023–2025: løs y′=Ay ved å diagonalisere, innføre avkoblingen z=P⁻¹y (zᵢ′=λᵢzᵢ ⇒ zᵢ=cᵢe^{λᵢt}), transformere tilbake y=Pz, og bestemme konstantene fra initialverdiene.
-- **Forkunnskaper (kryssbok):** Kap. 3.2. Diff-likninger på VGS-nivå fra [Differensiallikninger](/bok/s2/s2-4-1) *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 3.2. Diff-likninger på VGS-nivå fra [Differensiallikninger](/s2/s2-4-1) *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger A, **~50 %, voksende — fast oppgave 1 i 2023–2025**. Fasitens grep: charpol → egenrom-basis → $P$ → avkobling $\mathbf z=P^{-1}\mathbf y$ → $z_i=c_ie^{\lambda_i t}$ → tilbake $\mathbf y=P\mathbf z$ → konstanter fra initialverdier. Prioritet: **perfekt**.
 - **Innholdskontrakt:** System $\mathbf y'=A\mathbf y$; **avkoblingen** $\mathbf z=P^{-1}\mathbf y$ gir $z_i'=\lambda_i z_i$ med løsning $z_i=c_ie^{\lambda_i t}$; **tilbaketransformasjon** $\mathbf y=P\mathbf z$; **initialverdier** bestemmer $c_i$; komplekse egenverdier gir oscillerende løsning (Eulers formel, kort); at generell løsning = lineærkombinasjon av $e^{\lambda_i t}\mathbf v_i$. Alt til aktiv bruk (hver ledd ført: charpol → basis → $P$ → $\mathbf z$-løsning → $\mathbf y$-løsning → konstanter).
 - **Oppgavesjangre:** A. Mønstereksempel: «Løs systemet $y_1'=y_1+y_2,\ y_2'=4y_1-2y_2$ med $y_1(0)=1,\ y_2(0)=6$ ved diagonalisering.»
@@ -471,7 +471,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-5-1` · **number:** 5.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma1202-1-3`
 - **kapitteltype:** teori
 - **description:** Indreprodukt-aksiomene (lineær i første variabel, konjugatsymmetrisk, positivt definit) og verifikasjonen sensor krever — på integral-indreproduktet ⟨f,g⟩=∫f·g (polynomrom) og spor-indreproduktet ⟨A,B⟩=tr(AᵀB) (matriserom).
-- **Forkunnskaper (kryssbok):** Kap. 1.3. Skalarprodukt fra MA1201 og [Skalarprodukt](/bok/r2/r2-5-3) *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.3. Skalarprodukt fra MA1201 og [Skalarprodukt](/r2/r2-5-3) *(verifiser id)*.
 - **Eksamensbelegg:** Grunnlag for sjanger E, **~75 %**. Fasitens grep: verifiser alle tre/fire aksiomene, særlig **positiv definitthet** ($\langle f,f\rangle=0\Rightarrow f=0$) — der kandidat-«indreprodukter» ofte feiler. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Indreprodukt-aksiomene**: (i) lineær i første variabel, (ii) **(konjugat)symmetrisk** ($\langle\mathbf u,\mathbf v\rangle=\overline{\langle\mathbf v,\mathbf u\rangle}$ over $\mathbb C$), (iii) **positivt definit** ($\langle\mathbf v,\mathbf v\rangle\ge0$, likhet ⇔ $\mathbf v=\mathbf 0$); **norm** $\|\mathbf v\|=\sqrt{\langle\mathbf v,\mathbf v\rangle}$ og **ortogonalitet**; standard indreprodukter: $\langle f,g\rangle=\int_a^b f g\,dt$ (polynomrom), $\langle A,B\rangle=\operatorname{tr}(A^TB)$ (matriserom), sum av produktverdier i punkter; hvorfor evaluering i for få punkter på et for stort polynomrom IKKE gir positiv definitthet (moteksempel). Alt til aktiv bruk.
 - **Oppgavesjangre:** E-grunnlag. Mønstereksempel: «Vis at $\langle f,g\rangle=\int_{-1}^1 f(t)g(t)\,dt$ er et indreprodukt på $\operatorname{P}_2$.»
@@ -565,7 +565,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-7-1` · **number:** 7.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1202-2-1`
 - **kapitteltype:** teori
 - **description:** Derivasjonsoperatoren D(p)=p′ på ℝ[x]≤n: matrisen [D]_β (superdiagonal 1,2,…,n), dim(Im D)=n, dim(ker D)=1, at D er nilpotent (eneste egenverdi 0 ⇒ ikke diagonaliserbar), og at ingen basis gir [D] inverterbar.
-- **Forkunnskaper (kryssbok):** Kap. 2.1, 2.2. Derivasjon fra [Derivasjon](/bok/r1/r1-6-1) *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.1, 2.2. Derivasjon fra [Derivasjon](/r1/r1-6-1) *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger J, **~38 %**. Fasitens grep: $[D]_\beta$ i $\{1,x,\dots,x^n\}$ (superdiagonal); $\dim\operatorname{Im}D=n$, $\dim\ker D=1$; $D$ nilpotent ⇒ ikke diagonaliserbar. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Derivasjonsoperator** $D(p)=p'$ på $\operatorname{P}_n=\mathbb R[x]_{\le n}$; **matrisen** $[D]_\beta$ i standardbasis (superdiagonal med $1,2,\dots,n$); $\operatorname{Im}D=\operatorname{P}_{n-1}$ ($\dim=n$), $\ker D=$ konstantene ($\dim=1$); $D$ **nilpotent** ($D^{n+1}=0$) ⇒ eneste egenverdi 0 ⇒ **ikke diagonaliserbar** (og ingen basis gir $[D]$ inverterbar); varianten: er $D$ selvadjungert mht. et gitt indreprodukt? (Nei — moteksempel $\langle D(x),1\rangle\ne\langle x,D(1)\rangle$). Alt til aktiv bruk.
 - **Oppgavesjangre:** J. Mønstereksempel: «På $\mathbb R[x]_{\le3}$ med basis $\{1,x,x^2,x^3\}$: finn $[D]$, bestem $\dim\operatorname{Im}D$ og $\dim\ker D$, og avgjør om det finnes en basis der $[D]$ er inverterbar.»
@@ -595,7 +595,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-8-1` · **number:** 8.1 · **estimatedMinutes:** 70 · **prerequisites:** `ma1202-5-3`
 - **kapitteltype:** drill
 - **description:** Minste kvadraters metode: sett opp designmatrisen A, løs normallikningene AᵀAx=Aᵀy (eller x=(AᵀA)⁻¹Aᵀy) for koeffisientene i lineær (Y=aX+b) eller kvadratisk (Y=aX²+bX+c) kurvetilpasning — koblet til ortogonal projeksjon.
-- **Forkunnskaper (kryssbok):** Kap. 5.3 (projeksjon), 2.2. Regresjon på VGS-nivå fra [Regresjon](/bok/s1/s1-3-1) *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 5.3 (projeksjon), 2.2. Regresjon på VGS-nivå fra [Regresjon](/s1/s1-3-1) *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger M, **~25 % (fast i Gjøsteen-æraen 2019–2020)**. Fasitens grep: sett opp $A$ og $\mathbf y$, regn $A^TA$, $A^T\mathbf y$, løs $A^TA\hat{\mathbf x}=A^T\mathbf y$ eksplisitt. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Designmatrise** $A$ fra datapunkter; **normallikningene** $A^TA\hat{\mathbf x}=A^T\mathbf y$ (evt. $\hat{\mathbf x}=(A^TA)^{-1}A^T\mathbf y$); **lineær** ($Y=aX+b$) og **kvadratisk** ($Y=aX^2+bX+c$) tilpasning; kobling til **ortogonal projeksjon** ($A\hat{\mathbf x}=\operatorname{proj}_{\operatorname{Col}A}\mathbf y$ — minste kvadraters løsning minimerer $\|A\mathbf x-\mathbf y\|$); fasiten fører $A^TA$, invers og $A^T\mathbf y$ eksplisitt. Løsningsoppskrift + gjennomregnet sensor-kommentert case + 10–14 oppgaver på eksamensnivå (lineær og kvadratisk). Alt til aktiv bruk.
 - **Oppgavesjangre:** M. Mønstereksempel: «Bruk minste kvadraters metode til å finne linjen $Y=aX+b$ som passer best til $(1,2.1),(2,4.3),(3,4.4),(5,8.1)$.»
@@ -613,7 +613,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-9-1` · **number:** 9.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1202-1-3`
 - **kapitteltype:** teori
 - **description:** Kompakt repetisjon av determinant (kofaktor/radreduksjon), rang og nullitet, og inverterbarhetssetningen som knytter det sammen — mekanikken forutsettes kjent fra MA1201, men testes fortsatt som egen oppgave (~46 %).
-- **Forkunnskaper (kryssbok):** Kap. 1.3. **Bygger direkte på MA1201**: [Determinanter](/bok/ma1201/ma1201-2-1) og [Rang og nullitet](/bok/ma1201/ma1201-4-1) *(verifiser id-ene før lenking)*. Determinant på VGS-nivå fra [Areal og volum med vektorer](/bok/r2/r2-5-5).
+- **Forkunnskaper (kryssbok):** Kap. 1.3. **Bygger direkte på MA1201**: [Determinanter](/ma1201/ma1201-2-1) og [Rang og nullitet](/ma1201/ma1201-4-1) *(verifiser id-ene før lenking)*. Determinant på VGS-nivå fra [Areal og volum med vektorer](/r2/r2-5-5).
 - **Eksamensbelegg:** Sjanger (determinant/rang), **~46 % (fallende som egen oppgave)**. Fasitens grep: kofaktorutvikling langs rad/kolonne med flest nuller, eller radreduksjon; $\det\ne0$ ⇔ inverterbar ⇔ rang $=n$ ⇔ nullitet $=0$. Prioritet: **kunne** (repetisjon; brukes i charpol Del 3). **Dette er hovedskillet mot ma1201-boka** — der ble dette drillet som egen perfekt-del; her er det ett kompakt repetisjonskapittel.
 - **Innholdskontrakt:** **Determinant** (2×2, 3×3, kofaktorutvikling, radreduksjon; egenskaper $\det(AB)=\det A\det B$, $\det A^T=\det A$, triangulær ⇒ produkt av diagonalen); **rang** (antall pivoter) og **nullitet** ($\dim\ker=\dim\operatorname{Nul}A$); **rang–nullitet** $\operatorname{rang}A+\dim\operatorname{Nul}A=$ antall kolonner; **inverterbarhetssetningen** ($\det\ne0$ ⇔ inverterbar ⇔ rang $=n$ ⇔ nullitet $=0$ ⇔ kolonnene er basis); $\det A=\prod\lambda_i$ (bro til Del 3). Kompakt — forutsetter MA1201-mekanikk. Alt til aktiv bruk.
 - **Oppgavesjangre:** determinant/rang. Mønstereksempel: «Regn ut $\det A$ for en gitt $3\times3$-matrise og avgjør rang, nullitet og inverterbarhet.»
@@ -661,7 +661,7 @@ klartekst med aktiveringsmarkør (§1.5 punkt 12).
 - **id:** `ma1202-11-2` · **number:** 11.2 · **estimatedMinutes:** 90 · **prerequisites:** `ma1202-3-3`
 - **kapitteltype:** drill
 - **description:** Settets sluttoppgaver (6–7, ~54 %) drillet: de abstrakte egenverdi-/inverterbarhetsbevisene ført komplett med forutsetningssjekk og navngitt teorem — nilpotent, idempotent, Aⁿ=0⇒I−A inverterbar, similartransformasjon, sum-av-egenvektorer, nilpotent+normal⇒0.
-- **Forkunnskaper (kryssbok):** Kap. 3.3, 2.2, 6.2. Bevisteknikker fra [Direkte bevis og moteksempler](/bok/r1/r1-9-1) *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 3.3, 2.2, 6.2. Bevisteknikker fra [Direkte bevis og moteksempler](/r1/r1-9-1) *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger L, **~54 %; fast oppgave 6–7 i 2023–2025 (topp-karakterskiller)**. Fasitens mal: anta egenverdi $\lambda$ med egenvektor $\mathbf x\ne\mathbf 0$, bruk $A\mathbf x=\lambda\mathbf x$, manipuler, konkluder. Prioritet: **perfekt** (bevisferdigheten er selvstendig karakterskiller).
 - **Innholdskontrakt:** **Modellbevis ført komplett** for hver dokumentert arketype: (i) $A^n=0$ ⇒ $A$ ikke inverterbar ($\det A^n=(\det A)^n=0$) OG $I-A$ inverterbar (geometrisk sum $(I-A)(I+A+\dots+A^{n-1})=I$); (ii) nilpotent ⇒ eneste egenverdi 0; idempotent ($f^2=f$) ⇒ egenverdi $\in\{0,1\}$; $A^4=A$ + diagonaliserbar ⇒ $A^2=A$-typen; (iii) egenverdiene til $A$ og $g^{-1}fg$ er like (similartransformasjon); (iv) sum av to egenvektorer er egenvektor ⇒ samme egenverdi; (v) nilpotent + normal ⇒ operatoren er null (normal ⇒ diagonaliserbar; alle egenverdier 0 ⇒ null); (vi) egenverdier til $A^k$ er $\lambda^k$. Hvert bevis med **forutsetningssjekk**, navngitt teorem, skille «⇒»/«⇔». 10–14 bevisoppgaver på eksamensnivå.
 - **Oppgavesjangre:** L. Mønstereksempel: «La $A$ være kvadratisk med $A^n=0$ for en $n\ge1$. Vis at $A$ ikke er inverterbar, og at $I-A$ er inverterbar.»
@@ -868,7 +868,7 @@ til `ma1201`-kapitler *(verifiser id-ene finnes)*.
 - [ ] **Opphavsrett**: ALLE oppgaver nyskrevne — egne tall, matriser og kontekster; ingen
       formuleringer fra reelle sett eller fasiter (skjelettets mønstereksempler er selv omskrivninger
       og skal varieres videre, ikke kopieres ordrett inn).
-- [ ] **Navigasjon**: `ma1202` inn i `src/app/bok/trinn/hoyere/institusjoner.ts` under **Norges
+- [ ] **Navigasjon**: `ma1202` inn i `src/app/trinn/hoyere/institusjoner.ts` under **Norges
       teknisk-naturvitenskapelige universitet (NTNU)**, navn = «MA1202 Lineær algebra med anvendelser».
 - [ ] **Verifiser rendering**: prod-server + curl mot institusjonsside, bokforside og minst 3
       kapittel-/narrativ-ruter (teori/drill/prøve) + quiz- og flashcard-rute (200 + innholdssjekk),

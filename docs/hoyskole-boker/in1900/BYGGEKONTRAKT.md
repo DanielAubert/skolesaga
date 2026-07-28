@@ -169,7 +169,7 @@ Alltid, i denne rekkefølgen først i kapitlet:
    tall). Skriv sjangerkoden ut i klarspråk ved første bruk: «sjanger A —
    kodesporing, altså «hva skriver dette programmet ut?»».
 2. `text` **Forkunnskaper** — kapitler i boka (markdown-lenker
-   `[kap. X.Y](/bok/in1900/in1900-X-Y)`) + kryssbok-lenker der forkunnskapen
+   `[kap. X.Y](/in1900/in1900-X-Y)`) + kryssbok-lenker der forkunnskapen
    ikke dekkes i boka (tabellen under, KUN filer som finnes). «Kan leses uten
    forkunnskaper» hvis ingen. I tunge, sene kapitler (Del 5, 6, 7, 8) skal
    blokken være en **«Sist du var her»**-blokk som VISER de 2–3
@@ -308,7 +308,7 @@ kap. 9.1 som en egen `collapsible` «Kald bank — uten hint».
   `__call__`, `__add__`/`__str__` — hver med én ordlinje og markering «skriv
   fra bunnen» vs. «bruk det utleverte».
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/in1900/in1900-X-Y)`; død «se kapittel»-tekst
+  markdown-lenke `[kap. X.Y](/in1900/in1900-X-Y)`; død «se kapittel»-tekst
   er FORBUDT (aldri lenker i `title`-felt).
 - **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
   grep «Prioritet: perfekt» skal gi 0 treff. NB: «PERFEKT» i skjelettets
@@ -870,7 +870,7 @@ ren tekst (CSV-modul, JSON, pickle).
 
 ## Kryssbok-lenker (verifisert 25. juli 2026 — alle filene finnes i `src/lib/data/chapters/`)
 
-Lenkeform `[tittel](/bok/<courseId>/<id>)`. Titlene under er de faktiske
+Lenkeform `[tittel](/<courseId>/<id>)`. Titlene under er de faktiske
 kapitteltitlene og skal brukes ordrett. Lenk ALDRI til en fil som ikke finnes
 (`sjekk-bok.py` fanger døde lenker).
 
@@ -888,7 +888,7 @@ kapitteltitlene og skal brukes ordrett. Lenk ALDRI til en fil som ikke finnes
 | 6.1 | `fys1` | `fys1-1-3` | Numeriske metoder og programmering | Numerisk tilnærming i en fysikk-kontekst |
 | 6.1 | `r2` | `r2-3-5` | Programmering av integrasjon | Trapes/rektangel i Python (VGS-nivå) |
 
-Interne lenker: `[kap. X.Y](/bok/in1900/in1900-X-Y)`. Lenker til kapitler som
+Interne lenker: `[kap. X.Y](/in1900/in1900-X-Y)`. Lenker til kapitler som
 ennå ikke er skrevet, legges inn først når fila finnes på disk — koordineres av
 byggeleder ved wiring.
 

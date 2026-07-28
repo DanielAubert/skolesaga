@@ -126,7 +126,7 @@ system (Del 4), og til slutt den tverrgående tre-fags-treningen og de komplette
 - **id:** `jus2111-0-1` · **number:** 0.1 · **estimatedMinutes:** 35 · **prerequisites:** ingen
 - **Kapitteltype:** eksamenskart
 - **description:** Hva eksamen faktisk er: 6 timers flerdelt digital praktikum som prøver alle tre fag i ett faktum, hvilke fag som vektes hvor mye, rotasjonsmønstrene, og hva som skiller A fra C fra E.
-- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/bok/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2).
+- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/jus1111/jus1111-0-2).
 - **Eksamensbelegg:** Hele empirien 2012–2025 (28 gjennomføringer). Presenter: (a) formhistorikken — 6 t skoleeksamen gjennom det meste av perioden, covid-hjemmeeksamen 2020–2021 (V2020 bestått/ikke bestått, ellers A–F), digital Inspera fra V2022, Lovdata Pro i eksamensmodus, fritekstmerknader avviklet fra H2024; A–F er normalformen; (b) den store innholdsendringen: **EØS-rett ut (2018), menneskerettigheter inn** — dagens bok nedprioriterer EØS til historikk; (c) fag-frekvens: statsrett i tilnærmet hver eksamen (tyngst), folkerett og MR nesten alltid med; (d) **vekting** oppgis omtrentlig (statsrett ~50/folkerett ~25/MR ~25, men varierer — H2022 var MR ~40); der oppgaven angir tidsbruk per del er det retningsgivende; (e) **normalformen: tre-fags-oppgaven** — ett sammenhengende faktum genererer separate spørsmål i alle tre fag.
 - **Regelkontrakt:** Ingen materielle regler — men frekvenstabellene (statsrett: § 82 ~8, § 89/Kløfta ~8, §§ 25/26/28 ~6–7, myndighetsoverføring ~7, § 15 ~6, § 100 ~6, § 97 ~5–7, § 86 ~5; folkerett: traktattolkning ~12, statsansvar ~6, VCDR-immunitet ~5, forholdet folkerett–norsk rett ~5, FN-pakten ~3, havrett ~3; MR: Maria-formelen ~8, positive plikter ~7, ytring ~6, privatliv ~5, diskriminering ~4, eiendom TP1-1 ~3) gjengis som studentens prioriteringskart.
 - **Metodepoenger:** Emnet prøver TRE rettssystemer som må holdes fra hverandre — dette er hele kalibreringen. Konklusjonene er underordnede. «Ingen forventes å se alt» — veiledningene angir summen av mulige poeng, ikke en sjekkliste. Kandidaten er andreårsstudent uten prosess/forvaltnings-/strafferett; metodisk umodenhet tolereres, fravær av juridisk arbeidsmåte gjør ikke det. En besvarelse som bare dekker ett av tre fag, bør normalt stryke (V2025).
@@ -139,7 +139,7 @@ system (Del 4), og til slutt den tverrgående tre-fags-treningen og de komplette
 - **id:** `jus2111-0-2` · **number:** 0.2 · **estimatedMinutes:** 55 · **prerequisites:** `jus2111-0-1`
 - **Kapitteltype:** metode
 - **description:** Slik bygges en JUS2111-praktikumsbesvarelse: sorter spørsmålene per fag, og for hvert spørsmål gjør **normklarlegging FØR subsumsjon** (to-trinns-metoden) — problemstilling → rettsgrunnlag → normens innhold → subsumsjon på faktum → konklusjon.
-- **Forkunnskaper (kryssbok):** Firetrinnsmetoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2) og [Lovdata Pro og rettskildebruk under eksamen](/bok/jus1111/jus1111-0-3). Dette kapitlet legger til det som er særegent for et tre-fags-emne.
+- **Forkunnskaper (kryssbok):** Firetrinnsmetoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/jus1111/jus1111-0-2) og [Lovdata Pro og rettskildebruk under eksamen](/jus1111/jus1111-0-3). Dette kapitlet legger til det som er særegent for et tre-fags-emne.
 - **Eksamensbelegg:** Samtlige veiledninger. Praktikum er eneste hovedsjanger fra 2020, ofte flerdelt (del I/II/III etter fag eller kronologi). Partsanførslene peker ut både tvistepunktene OG rettsgrunnlagene — de er kompass, men skal ikke gjengis som egne bolker. Nyere sett legger inn kvasi-teoretiske deloppdrag («skriv et kort notat om relevansen og vekten av …», H2021) — behandles som praktikum.
 - **Regelkontrakt (metoderegler, fra samtlige veiledninger):**
   1. **Sorteringen:** for hvert spørsmål — er dette et statsretts-, folkeretts- eller MR-spørsmål? Angi riktig rettsgrunnlag (Grl.-paragraf / traktatartikkel / EMK-artikkel).
@@ -1018,7 +1018,7 @@ Studieguiden bygges som ett sammenhengende dokument med disse seksjonene:
       mal-skissene i dette skjelettet.
 - [ ] **Avgrensning**: EØS-rett kun som kort historikk (ikke bygget ut); ingen forvaltnings-/straffe-
       /prosessrett som fagstoff; kryssbok-lenker til jus1111 peker på EKSISTERENDE kapitler
-      ([jus1111-0-1](/bok/jus1111/jus1111-0-1), -0-2, -0-3).
+      ([jus1111-0-1](/jus1111/jus1111-0-1), -0-2, -0-3).
 - [ ] **DNA-blokkene på plass**: hvert kapittel har «Eksamensvinkel» (`tip`), «Typiske feil»
       (`warning`), «Paragraf- og begrepsliste» (`collapsible`, per delkapittel), og regel-/
       typetilfellekapitlene har «Paragraf-, traktat- og domsregister» (`collapsible`);

@@ -199,7 +199,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Normalform-aritmetikk og polarform begge veier med kvadrantdisiplin — ferdigheten som åpner nesten hvert eneste MAT111-sett.
-- **Forkunnskaper (kryssbok):** [ABC-formelen](/bok/1t/1t-2-3) (andregradslikninger), [Radianer og vinkelmål](/bok/r2/r2-4-1) og [Enhetssirkelen og trigonometriske definisjoner](/bok/r2/r2-4-2) (vinkler og eksakte verdier), [Trigonometriske funksjoner og enhetssirkelen](/bok/r1/r1-7-1).
+- **Forkunnskaper (kryssbok):** [ABC-formelen](/1t/1t-2-3) (andregradslikninger), [Radianer og vinkelmål](/r2/r2-4-1) og [Enhetssirkelen og trigonometriske definisjoner](/r2/r2-4-2) (vinkler og eksakte verdier), [Trigonometriske funksjoner og enhetssirkelen](/r1/r1-7-1).
 - **Eksamensbelegg:** Sjanger C — komplekse tall er oppgave 1 i så godt som alle moderne sett (28/34, 8/9 siste periode; unntak H2018). Normalform-tempo og polarform begge veier er de faste billige poengene. Prioritet: **perfekt**.
 - **Innholdskontrakt:** $\mathbb{C}$ med $i^2 = -1$; realdel/imaginærdel; addisjon/multiplikasjon; **divisjon via konjugering** (multipliser med $\bar z$); konjugat $\bar z$ og regnereglene; modulus $|z| = \sqrt{a^2+b^2}$ og $z\bar z = |z|^2$; polarform $z = re^{i\theta} = r(\cos\theta + i\sin\theta)$ **begge veier** — normalform → polar (tegn punktet i planet FØR argumentet fastsettes; kvadrantbevissthet er fasitpraksis) og polar → normalform (skriv helt ut når det spørres); argumentkonvensjon og reduksjon mod $2\pi$; Eulers formel (bruk); geometriske mengder i planet: $|z-a| = r$ (sirkel), $|z-a| = |z-b|$ (midtnormal), $|z| = r$, samt likninger der både $z$ og $\bar z$ inngår. Alt til aktiv bruk i tempo.
 - **Oppgavesjangre:** C. Mønstereksempel: «Skriv $z = -\sqrt{3} + i$ på polarform, og regn ut $z/\bar z$ på normalform.» Mønstereksempel (mengde): «Beskriv og skisser mengden av $z$ med $|z - 2i| = |z + 2|$.»
@@ -211,7 +211,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-1-2` · **number:** 1.2 · **estimatedMinutes:** 50 · **prerequisites:** `mat111-uib-1-1`
 - **kapitteltype:** teori
 - **description:** Høye potenser med vinkelreduksjon og alle n-te røtter av $z^n = c$ — den faste andre og tredje deloppgaven i åpningen.
-- **Forkunnskaper (kryssbok):** Kap. 1.1; [Trigonometriske formler](/bok/r2/r2-4-6) (eksakte verdier for standardvinkler).
+- **Forkunnskaper (kryssbok):** Kap. 1.1; [Trigonometriske formler](/r2/r2-4-6) (eksakte verdier for standardvinkler).
 - **Eksamensbelegg:** Sjanger C. de Moivre-potens (typen $z^n$ med vinkelreduksjon mod $2\pi$) og alle n-te røtter av $z^n = c$ er faste gjengangere i åpningsblokken. Prioritet: **perfekt**.
 - **Innholdskontrakt:** de Moivre: $(re^{i\theta})^n = r^n e^{in\theta}$ — oppskrift for høye potenser: polarform først, multipliser vinkelen, **reduser mod $2\pi$**, tilbake til normalform hvis spurt; $n$-te røtter: $z^n = w$ har nøyaktig $n$ løsninger $|z| = |w|^{1/n}$, $\arg z = (\arg w + 2k\pi)/n$, $k = 0,\dots,n-1$ — jevnt fordelt på en sirkel, start i prinsipalroten (skal kunne tegnes/beskrives); enhetsrøtter som spesialtilfelle; bikvadratiske likninger ($z^4 + \dots$) via substitusjon. Alt aktiv bruk.
 - **Oppgavesjangre:** C. Mønstereksempel: «Regn ut $(1 - i)^{10}$ på normalform.» Mønstereksempel (røtter): «Finn alle løsninger av $z^3 = -8i$, skriv dem på normalform, og marker dem i planet.»
@@ -223,7 +223,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-1-3` · **number:** 1.3 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-1-2`
 - **kapitteltype:** teori
 - **description:** Andregradslikninger med negativ diskriminant, konjugatrotsetningen og veien fra kjent rot til full faktorisering over både $\mathbb{C}$ og $\mathbb{R}$.
-- **Forkunnskaper (kryssbok):** Kap. 1.1–1.2; [Polynomer og polynomdivisjon](/bok/r1/r1-1-1) (divisjonsalgoritmen), [ABC-formelen](/bok/1t/1t-2-3).
+- **Forkunnskaper (kryssbok):** Kap. 1.1–1.2; [Polynomer og polynomdivisjon](/r1/r1-1-1) (divisjonsalgoritmen), [ABC-formelen](/1t/1t-2-3).
 - **Eksamensbelegg:** Sjanger C (del av åpningen): andregradslikning med negativ diskriminant, og faktorisering av reelle polynomer over $\mathbb{C}$ (lineære faktorer) og over $\mathbb{R}$ (lineære + irreduserbare kvadratiske). Full pott krever **begge** faktoriseringer når begge kreves. Prioritet: **perfekt**.
 - **Innholdskontrakt:** Andregradsformelen med negativ diskriminant → røtter på både $a + ib$- og polarform; **konjugatrotsetningen**: for reelle koeffisienter er $\bar z_0$ rot når $z_0$ er det (med bevisidé) — konjugatpar multipliseres til reell kvadratisk faktor $(z - z_0)(z - \bar z_0) = z^2 - 2\,\mathrm{Re}(z_0)z + |z_0|^2$; polynomdivisjon for restfaktoren (verifiser med innsetting); **algebraens fundamentalteorem** (kun bruk: gradtall = antall røtter med multiplisitet, eksplisitt pensum); **både kompleks og reell faktorisering skrives ut**; typemønster «vis at $z_0$ er rot → finn begge faktoriseringene». Kobling til kap. 1.2: faktorisering av $z^n + c$ via $n$-te røttene.
 - **Oppgavesjangre:** C. Mønstereksempel: «Løs $z^3 = -1$, skriv løsningene på normalform, og faktoriser $z^3 + 1$ både over $\mathbb{C}$ og over $\mathbb{R}$.» Mønstereksempel: «Vis at $1 - 2i$ er rot i $p(z) = z^3 - 3z^2 + 7z - 5$, og finn begge faktoriseringene.»
@@ -252,7 +252,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-2-1` · **number:** 2.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Den formelle grensedefinisjonen brukt kvantitativt — UiBs faste «gratisoppgave med føringskrav», som skiller kandidater på ren føring.
-- **Forkunnskaper (kryssbok):** [Grenseverdi](/bok/r1/r1-3-1) (intuitiv grenseforståelse), [Rasjonale uttrykk](/bok/1t/1t-1-6) (algebraisk faktorisering).
+- **Forkunnskaper (kryssbok):** [Grenseverdi](/r1/r1-3-1) (intuitiv grenseforståelse), [Rasjonale uttrykk](/1t/1t-1-6) (algebraisk faktorisering).
 - **Eksamensbelegg:** Sjanger D — 15/34 totalt, men **7/9 siste ni sett** (fast innslag nå). Polynomer av grad 2–3 er standard; $e^{-1/x^2}$ (H2012) og $\sqrt{|x|}$ (V2016) er de vanskeligste variantene. R-ε-varianten (mot uendelig) forekommer i vårsett. Sensor vurderer *føringen*: minstekravet er å eksplisitt vise at definisjonens betingelser er oppfylt. Prioritet: **kunne** (tempo: perfekt).
 - **Innholdskontrakt:** ε-δ-definisjonen av $\lim_{x\to a} f(x) = L$ i full kvantorform, med R-ε-varianten mot uendelig ($x\to\infty$: finn $R = R(\varepsilon)$); **bevismalen (aktiv)**: (1) skriv definisjonen, (2) faktoriser $|f(x)-L| = |x-a|\cdot|\text{rest}|$, (3) avgrens restfaktoren på et kontrollintervall (typisk $|x-a| < 1$ gir en skranke $K$), (4) **velg $\delta = \min\{1,\ \varepsilon/K\}$**, (5) verifiser implikasjonen. Fasit påpeker at flere ulike gyldige $\delta$ finnes og godtas. Beslektet teorivariant (H2019): utled 0/0-kvotientgrensen direkte fra derivertdefinisjonen og grensesetningene — definisjonsbruk under kontrollerte forhold.
 - **Oppgavesjangre:** D. Mønstereksempel: «Bruk den formelle definisjonen av grenseverdi til å vise at $x^2 + x + 1 \to 3$ når $x \to 1$.» Mønstereksempel (uendelig): «Vis med definisjonen at $\frac{2x+1}{x} \to 2$ når $x\to\infty$.»
@@ -264,7 +264,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-2-2` · **number:** 2.2 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-2-1`
 - **kapitteltype:** teori
 - **description:** Regneverktøyet for grenseoppgavene (68 %): alle ubestemte former, med formsjekk-disiplinen sensor krever før L'Hôpital.
-- **Forkunnskaper (kryssbok):** Kap. 2.1; [Derivasjonsregler](/bok/r1/r1-4-1) (L'Hôpital krever derivasjon), [Potenser og logaritmer](/bok/r1/r1-1-2) (logaritmetriks for $1^\infty$).
+- **Forkunnskaper (kryssbok):** Kap. 2.1; [Derivasjonsregler](/r1/r1-4-1) (L'Hôpital krever derivasjon), [Potenser og logaritmer](/r1/r1-1-2) (logaritmetriks for $1^\infty$).
 - **Eksamensbelegg:** Sjanger M (grensedelen) — egne grenseoppgaver 23/34; L'Hôpital dukker dessuten opp kjedet i kontinuitets- og FTC-oppgaver. Prioritet: **kunne** (tempo: perfekt).
 - **Innholdskontrakt:** Standardgrensene (aktiv bruk): $\sin x/x \to 1$, veksthierarkiet $\ln x \ll x^p \ll e^x$, $x\ln x \to 0$; **L'Hôpital med disiplin**: ubestemt form markeres eksplisitt ($[0/0]$ eller $[\infty/\infty]$) FØR hver anvendelse, og forutsetningene sjekkes — gjentatt bruk krever ny markering; alle ubestemte former og omskrivingene: $0/0$, $\infty/\infty$ (direkte), $0\cdot\infty$ (flytt til nevner), $\infty-\infty$ (fellesnevner eller **konjugattriks**), $1^\infty$, $0^0$, $\infty^0$ (via $\lim\ln$ + eksponentiering); når L'Hôpital IKKE hjelper (bruk standardgrense/skvis); **skviseteoremet** med uttalt begrensethet ($|\cos|\le 1$).
 - **Oppgavesjangre:** M. Mønstereksempel: «Beregn $\lim_{x\to\infty}\left(\sqrt{x^2+4x} - x\right)$ med full føring.» Mønstereksempel: «$\lim_{x\to 0^+}(1+3x)^{1/x}$» (logaritmetriks; identifiser $1^\infty$ først).
@@ -276,7 +276,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-2-3` · **number:** 2.3 · **estimatedMinutes:** 50 · **prerequisites:** `mat111-uib-2-1`
 - **kapitteltype:** teori
 - **description:** Kontinuitet på intervaller og de to eksistenssetningene — grunnlaget for eksistens+entydighet-kjeden i Del 4 og for kontinuerlig utvidelse.
-- **Forkunnskaper (kryssbok):** Kap. 2.1; [Kontinuitet](/bok/r1/r1-3-2) (intuitivt kontinuitetsbegrep).
+- **Forkunnskaper (kryssbok):** Kap. 2.1; [Kontinuitet](/r1/r1-3-2) (intuitivt kontinuitetsbegrep).
 - **Eksamensbelegg:** Kontinuitetsteori bærer eksistensbevis-sjangeren F (17/34, 7/9 siste). Skjæringssetningen med navngiving er fast bevisdelpunkt; ekstremalverdisetningen brukes «uten regning» i drøfting (kap. 3.5). Kontinuerlig utvidelse (bestem $c$ som fyller hullet — regn grensen og **koble til $f(a)$**) inngår i sjanger E. Prioritet: **kunne**.
 - **Innholdskontrakt:** Kontinuitet i punkt og på intervall; kontinuitet av sammensetninger/kombinasjoner (bruk); ensidig kontinuitet i skjøtepunkter (regnes hver for seg — forberedelse til kap. 3.1–3.2); **skjæringssetningen** (mellomverdisetningen) med bevismal (aktiv): fortegnsskifte i to punkter (grove overslag godtas) → pek på kontinuitet → **navngi setningen** → konkluder; varianten «minst én løsning» og finpuss «nøyaktig én» (skjæring + monotoni, foregriper Del 4); **ekstremalverdisetningen** (Max-Min): kontinuerlig på lukket, begrenset intervall ⇒ globale ekstremalverdier antas — formulering + bruk, ikke bevis; **kontinuerlig utvidelse**: regn grensen (L'Hôpital/skvis) og koble eksplisitt til $f(a)$ (å bare regne grensen gir trekk — sensormerknad H2016).
 - **Oppgavesjangre:** F-forberedelse + E-forberedelse. Mønstereksempel: «Vis at $x^5 = 3 - 2x$ har minst én løsning i $[0,2]$.» Mønstereksempel: «Bestem $c$ slik at $f(x) = \frac{\sin 2x}{x}$ for $x\neq 0$, $f(0)=c$ blir kontinuerlig.»
@@ -305,7 +305,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-3-1` · **number:** 3.1 · **estimatedMinutes:** 50 · **prerequisites:** `mat111-uib-2-2`, `mat111-uib-2-3`
 - **kapitteltype:** teori
 - **description:** Den deriverte som grense av differansekvotienten — det eneste gyldige beviset i deriverbarhetsspørsmål, og fundamentet for signaturoppgaven.
-- **Forkunnskaper (kryssbok):** Kap. 2.2–2.3; [Derivasjonens definisjon](/bok/r1/r1-3-3) og [Gjennomsnittlig og momentan vekstfart](/bok/r1/r1-2-5).
+- **Forkunnskaper (kryssbok):** Kap. 2.2–2.3; [Derivasjonens definisjon](/r1/r1-3-3) og [Gjennomsnittlig og momentan vekstfart](/r1/r1-2-5).
 - **Eksamensbelegg:** Sjanger E — differansekvotienten er obligatorisk verktøy (drilles i kap. 3.2). Grense-av-derivert-setningen (H2017-bevis) og deriverbar ⇒ kontinuerlig hører hit. Prioritet: **perfekt** (som verktøy).
 - **Innholdskontrakt:** $f'(a) = \lim_{h\to 0}\frac{f(a+h)-f(a)}{h}$ (og sekantvarianten $\lim_{x\to a}\frac{f(x)-f(a)}{x-a}$) — begge former, geometrisk tolkning; deriverbar ⇒ kontinuerlig (kort bevis, eksamensaktuelt) og at implikasjonen ikke snus ($|x|$-moteksemplet); ensidige deriverte i skjøtepunkter; direkte definisjonsberegninger for $\sqrt{x}$, $1/x$; **grense-av-derivert-setningen** (motsatt retning, lovlig verktøy): er $f$ kontinuerlig i $a$ og $\lim_{x\to a} f'(x) = b$ finnes, så er $f'(a) = b$ — bevisskisse via sekantsetningen/L'Hôpital, med eksplisitt regel for når hvert kriterium gjelder; når differansekvotienten MÅ brukes (stykkevis, oscillasjonsfamilien) vs. når derivasjonsregler er lov.
 - **Oppgavesjangre:** E (fundament). Mønstereksempel: «Bruk definisjonen av den deriverte til å finne $f'(4)$ når $f(x)=\sqrt{x}$.»
@@ -328,7 +328,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-3-3` · **number:** 3.3 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-3-1`
 - **kapitteltype:** teori
 - **description:** Implisitt derivasjon med punktverifikasjon, andrederiverte fra relasjonen og relaterte rater med fortegnstolket konklusjon.
-- **Forkunnskaper (kryssbok):** Kap. 3.1; [Kjerneregelen](/bok/r1/r1-4-3), [Produktregelen og kvotientregelen](/bok/r1/r1-4-4), [Relaterte rater](/bok/r1/r1-4-7), [Derivasjon av trigonometriske funksjoner](/bok/r2/r2-4-9).
+- **Forkunnskaper (kryssbok):** Kap. 3.1; [Kjerneregelen](/r1/r1-4-3), [Produktregelen og kvotientregelen](/r1/r1-4-4), [Relaterte rater](/r1/r1-4-7), [Derivasjon av trigonometriske funksjoner](/r2/r2-4-9).
 - **Eksamensbelegg:** Sjanger K — 15/34, **7/9 siste ni sett** (stigende). Tre former: (i) tangent ved implisitt derivasjon (verifiser at punktet ligger på kurven — glemmes ofte); (ii) $y''$ i et punkt uten å løse likningen; (iii) relaterte rater med geometrisk modell. Prioritet: **kunne**.
 - **Innholdskontrakt:** (i) Implisitt derivasjon: **verifiser at punktet ligger på kurven** (settes inn), deriver implisitt, løs for $y'$, skriv tangentlikning; (ii) andrederivert av relasjonen: derivér relasjonen to ganger, sett inn kjente $x,y,y'$; (iii) **relaterte rater-oppskrift (aktiv)**: figur + navngi variabler → modeller sammenhengen (Pytagoras-snor, $\tan\theta$-synsvinkel, veinettkurve) → deriver implisitt mhp. $t$ → sett inn øyeblikkstall → **tolk fortegn og enhet i konklusjonssetningen**. Fasit viser gjerne 3–4 likeverdige veier (implisitt derivasjon, kjerneregel-oppsett, startverdiproblem).
 - **Oppgavesjangre:** K. Mønstereksempel: «Kurven $x^3 + y^3 = 4x + 4y$ beskriver et veinett. En bil passerer $(0,2)$ med $y'(0)=6$ — finn $x'(0)$.» Mønstereksempel: «En ballong stiger rett opp 4 m/s; en observatør står 80 m unna. Hvor fort øker synsvinkelen når ballongen er 60 m over bakken?»
@@ -340,7 +340,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-3-4` · **number:** 3.4 · **estimatedMinutes:** 50 · **prerequisites:** `mat111-uib-3-1`
 - **kapitteltype:** teori
 - **description:** Monotoni-begrunnet eksistens, uttrykk med riktig definisjonsmengde og derivert-av-invers-formelen for tangenter til den inverse.
-- **Forkunnskaper (kryssbok):** Kap. 3.1; [Omvendte funksjoner](/bok/r1/r1-2-2), [Derivasjon av omvendte funksjoner](/bok/r1/r1-4-5), [Potenser og logaritmer](/bok/r1/r1-1-2).
+- **Forkunnskaper (kryssbok):** Kap. 3.1; [Omvendte funksjoner](/r1/r1-2-2), [Derivasjon av omvendte funksjoner](/r1/r1-4-5), [Potenser og logaritmer](/r1/r1-1-2).
 - **Eksamensbelegg:** Sjanger L — 12/34. Eksistens via strengt monotoni ($f'$ med fast fortegn, evt. via Rolle/sekantsetningen); uttrykk for $f^{-1}$ **med riktig definisjonsmengde** (fasit gir «pluss i margen»); derivert-av-invers-formelen for tangenter. Subtile varianter: største intervall der $f$ er inverterbar (V2020); moteksempel når definisjonsmengden er usammenhengende (V2010). Prioritet: **kunne**.
 - **Innholdskontrakt:** Eksistens: strengt monotoni via fortegn på $f'$ — begrunnelsen kan også gå via sekantsetningen/Rolle (to like verdier ville gitt $f'=0$); finn uttrykk for $f^{-1}$ (løs $y=f(x)$ for $x$, **med definisjonsmengde/verdimengde**); **derivert av invers**: $(f^{-1})'(b) = 1/f'(a)$ der $f(a)=b$ — oppskriften «finn $a$ først»; tangent til den inverse; største inverterbarhets­intervall via fortegnsskjema for $f'$; hvorfor $f'>0$ ikke er nok på usammenhengende definisjonsmengde.
 - **Oppgavesjangre:** L. Mønstereksempel: «Vis at $f(x)=\ln(x^2-2x+2)$ er én-til-én på $[1,\infty)$, og finn en formel for $f^{-1}$.» Mønstereksempel: «$f(x)=x^5+2x+1$; finn $(f^{-1})'(4)$.»
@@ -352,7 +352,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-3-5` · **number:** 3.5 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-2-2`, `mat111-uib-3-1`
 - **kapitteltype:** teori
 - **description:** Komplett drøfting med dokumentert fortegnsskjema og begrunnet eksistens av globale ekstremalverdier — den hyppig påpekte svakheten hos kandidatene.
-- **Forkunnskaper (kryssbok):** Kap. 2.2, 3.1; [Funksjonsdrøfting](/bok/r1/r1-4-6), [Globale ekstremalpunkter](/bok/r1/r1-4-8), [Optimering i praksis](/bok/r1/r1-4-9), [Fortegnslinjer](/bok/1t/1t-4-3).
+- **Forkunnskaper (kryssbok):** Kap. 2.2, 3.1; [Funksjonsdrøfting](/r1/r1-4-6), [Globale ekstremalpunkter](/r1/r1-4-8), [Optimering i praksis](/r1/r1-4-9), [Fortegnslinjer](/1t/1t-4-3).
 - **Eksamensbelegg:** Sjanger M (drøfting/optimering) — 17/34. Full drøfting med fortegnsskjema for $f'$ og $f''$; **eksistensen av globale ekstremalverdier skal begrunnes** (Max-Min på lukket intervall; grenser mot $\pm\infty$ ellers) — mangelfulle begrunnelser er hyppig påpekt (H2016). Grafgjenkjenning (koble $f,f',f''$) går igjen. Optimering fra geometri krever modellering + kandidatsjekk. Prioritet: **kunne**.
 - **Innholdskontrakt:** $f'$ og $f''$ med **fortegnsskjema som dokumentasjon**; lokale/globale ekstremalpunkter (randpunkter!); konveksitet/vendepunkter via $f''$ (fortegnsskifte kreves); asymptoter; skisse; **eksistensbegrunnelse for globale ekstremalverdier** (ekstremalverdisetningen på lukket, begrenset intervall — fra kap. 2.3; ellers grenser mot $\pm\infty$); grafgjenkjenning; optimering fra geometri (innskrevet rektangel, kraftlinje land/sjø, korteste bro): målfunksjon fra bibetingelse → deriver → kandidater → **globalt-argument**.
 - **Oppgavesjangre:** M. Mønstereksempel: «Drøft $f(x)=x^3 e^{-x}+2$: monotoni, globale ekstremalverdier (finnes de?), krumning og skisse.» Mønstereksempel: «Finn det innskrevne rektanglet med størst areal under $y = 4 - x^2$.»
@@ -370,7 +370,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-4-1` · **number:** 4.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-2-3`, `mat111-uib-3-1`
 - **kapitteltype:** teori
 - **description:** Skjæringssetningen gir eksistens, monotoni eller Rolle-motsigelse gir entydighet — de to leveransene sensor krever hver for seg.
-- **Forkunnskaper (kryssbok):** Kap. 2.3, 3.1; [Funksjonsdrøfting](/bok/r1/r1-4-6) (monotoni).
+- **Forkunnskaper (kryssbok):** Kap. 2.3, 3.1; [Funksjonsdrøfting](/r1/r1-4-6) (monotoni).
 - **Eksamensbelegg:** Sjanger F (eksistens/entydighet-delen) — 17/34, **7/9 siste ni sett** (stigende). Hyppigste sensoranmerkning: kandidaten leverer eksistens og tror entydighet er levert. Sekantsetningen/Rolle brukes også til ulikhetsbevis ($\arctan x < x$) og Lipschitz-estimat. Prioritet: **perfekt** (som kjede-fundament).
 - **Innholdskontrakt:** Rolles teorem og sekantsetningen (MVT) — presise formuleringer, geometrisk tolkning, bevisidé (Rolle via ekstremalverdisetningen; MVT via hjelpefunksjon fra Rolle); **eksistens–entydighet-malen (aktiv)**: (i) *eksistens* — skjæringssetningen (fortegnsskifte + kontinuitet + navn); (ii) *entydighet* — monotoni ($f'$ med fast fortegn) ELLER Rolle-motsigelse (to nullpunkter ⇒ $f'(c)=0$, motsigelse). Fasit viser ofte begge som likeverdige; **hjelpefunksjonsteknikk** for «vis at det finnes $c$ med [likning i $f,f',f'']$»: konstruer $g$, sjekk forutsetningene, navngi Rolle; MVT som ulikhetsmaskin.
 - **Oppgavesjangre:** F. Mønstereksempel: «Vis at $x^3 e^x = 1$ har nøyaktig én løsning på $\mathbb{R}$, og at den ligger i $(0,1)$.» Mønstereksempel: «Bruk sekantsetningen til å vise at $\arctan x < x$ for $x>0$.»
@@ -382,7 +382,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-4-2` · **number:** 4.2 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-4-1`
 - **kapitteltype:** teori
 - **description:** Iterasjonen, krumningsargumentet for over-/underestimat på hele intervallet, og fikspunkt-kontraksjonen — det numeriske leddet i UiBs signaturkjede.
-- **Forkunnskaper (kryssbok):** Kap. 4.1; [Newtons metode](/bok/r1/r1-3-5).
+- **Forkunnskaper (kryssbok):** Kap. 4.1; [Newtons metode](/r1/r1-3-5).
 - **Eksamensbelegg:** Sjanger F (Newton/fikspunkt-delen) — Newton 14/34, fikspunkt 3/34 (men eksplisitt i emnebeskrivelsen). Karakterskilleren: **avgjør om tilnærmingen er for stor eller for liten** med krumningsargument på *hele* intervallet mellom startpunkt og rot (å sjekke $f''$ i ett punkt er utilstrekkelig — sensormerknad H2016). H2019 krevde fullt monotont konvergensbevis (induksjon + krumning). Prioritet: **perfekt** (kjede) / fikspunkt **kjenne**.
 - **Innholdskontrakt:** Newtons iterasjonsformel $x_{n+1} = x_n - f(x_n)/f'(x_n)$, geometrisk tolkning (tangentens nullpunkt); regn 1–4 steg; **krumningsargument for over-/underestimat**: konveksitet/konkavitet på hele intervallet mellom $x_0$ og rot avgjør fortegnet på feilen (tabell over de fire kombinasjonene $f''$-fortegn × side); Newton-konvergensbevis (induksjon + krumning, H2006/H2019-nivå — merk «kunne»); **fikspunktiterasjon**: vis at løsningen er fikspunkt for $g$, iterér, forklar konvergens via kontraksjonsvilkåret $|g'|<1$ (via sekantsetningen), spiral-/trappeskisse; sammenhengen $P_1 = $ tangent $=$ én Newton-iterasjon (kobling til kap. 4.3).
 - **Oppgavesjangre:** F. Mønstereksempel: «Vis at $x^3 e^x = 1$ har én løsning i $(0,1)$; utfør to Newton-steg fra $x_0=1$, og avgjør med et krumningsargument om $x_2$ er for stor eller for liten.» Mønstereksempel: «Forklar hvorfor løsningen er fikspunkt for $g(x)=e^{-x/3}$, iterér to ganger fra $x_0=0$, og skisser om tilnærmingen er for stor eller for liten.»
@@ -394,7 +394,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-4-3` · **number:** 4.3 · **estimatedMinutes:** 65 · **prerequisites:** `mat111-uib-4-1`
 - **kapitteltype:** teori
 - **description:** Taylorpolynom til tallnærming pluss aktiv restleddsanalyse: skranker → intervall → fortegn på feilen. En hovedsjanger ved UiB.
-- **Forkunnskaper (kryssbok):** Kap. 3.1; [Derivasjonsregler](/bok/r1/r1-4-1), [Kjerneregelen](/bok/r1/r1-4-3).
+- **Forkunnskaper (kryssbok):** Kap. 3.1; [Derivasjonsregler](/r1/r1-4-1), [Kjerneregelen](/r1/r1-4-3).
 - **Eksamensbelegg:** Sjanger G — 25/34 (hovedsjanger ved UiB; marginal ved UiO). Skriv $P_n$ om et «pent» punkt, bruk til tallnærming ($\sqrt[3]{11}$, $\sqrt{10}$, $\ln 2$), og **bruk Lagrange-restleddet aktivt**: skranker $K \le f^{(n+1)}(c) \le L$ → lever et *intervall* som fanger sann verdi, eller avgjør fortegnet på feilen. Optimal (skarpest) skranke gir full pott; grovere gir delvis. Skjerpede varianter: rekursivt definerte koeffisienter (H2013), innkapsling $P_3 + Gx^4 < f < P_3 + Hx^4$ (V2018), minste intervall for $f(3)$ gitt skranker på $f''$ (H2018). Prioritet: **perfekt**.
 - **Innholdskontrakt:** Taylorpolynom $P_n(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k$ om «pent» punkt (typisk $a\in\{1,4,8,9\}$, grad 1–3); **Lagrange-restleddet** $R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$ for en $c$ mellom $a$ og $x$; **aktiv skrankeanalyse**: finn $\min$/$\max$ av $f^{(n+1)}$ på intervallet → **intervall** $[P_n + \text{nedre skranke},\ P_n + \text{øvre skranke}]$ som fanger sann verdi, eller fortegnsbestemmelse (for stor/for liten); rekursivt definerte koeffisienter fra en likning ($f'' = x f$-typen); sammenhengen $P_1 = $ tangent $=$ én Newton-iterasjon. Skarpest mulig skranke er poenget — grov skranke får delvis.
 - **Oppgavesjangre:** G. Mønstereksempel: «Finn Taylorpolynomet av grad 2 til $\sqrt[3]{x}$ om $x=8$, bruk det til å tilnærme $\sqrt[3]{11}$, og bruk restleddet til å angi et minst mulig intervall som inneholder den sanne verdien.»
@@ -406,7 +406,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-4-4` · **number:** 4.4 · **estimatedMinutes:** 45 · **prerequisites:** `mat111-uib-4-3`
 - **kapitteltype:** teori
 - **description:** Full induksjonsstruktur på formelen for den n-te deriverte av en logaritme- eller potensfunksjon — lavfrekvent, men billig å drille og gjenoppstått H2018.
-- **Forkunnskaper (kryssbok):** Kap. 3.1; [Induksjon](/bok/r1/r1-9-2) og [Induksjonsbevis](/bok/r2/r2-1-6).
+- **Forkunnskaper (kryssbok):** Kap. 3.1; [Induksjon](/r1/r1-9-2) og [Induksjonsbevis](/r2/r2-1-6).
 - **Eksamensbelegg:** Sjanger N — 6/34 (lav, men H2018 viser at sjangeren gjenoppstår). Nesten alltid formelen for $f^{(n)}$ av $\ln(2x+1)$, $1/(1+x)^2$, $\ln x$: basissteg + induksjonstrinn med eksplisitt derivasjon + full struktur. Prioritet: **kjenne**.
 - **Innholdskontrakt:** Induksjonsprinsippet (basissteg, induksjonshypotese, induksjonstrinn, konklusjon); mønsteret for $f^{(n)}$: gjett formelen fra $f',f'',f'''$, verifiser basissteget mot direkte regning, gjennomfør induksjonstrinnet ved å derivere den antatte formelen én gang til og kjenne igjen strukturen for $n+1$; typiske funksjoner $\ln(2x+1)$, $1/(1+x)^2$, $\ln x$ (fakultet + fortegnsveksling + potens av nevner). Kobling: eldre sett hadde også delsum-formler og monotoni/skranke-induksjon for rekursive følger (foregriper Del 7).
 - **Oppgavesjangre:** N. Mønstereksempel: «Vis ved induksjon at $\frac{d^n}{dx^n}\ln(1+2x) = \frac{(-1)^{n-1}\,2^n\,(n-1)!}{(1+2x)^n}$ for $n\ge 1$.»
@@ -424,7 +424,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-5-1` · **number:** 5.1 · **estimatedMinutes:** 50 · **prerequisites:** `mat111-uib-3-1`
 - **kapitteltype:** teori
 - **description:** Analysens fundamentalteorem begge veier, og derivasjon av integraler med variable grenser via kjerneregelen — med veldefinerthetsargument for integranden.
-- **Forkunnskaper (kryssbok):** Kap. 3.1; [Analysens fundamentalsetning](/bok/r2/r2-2-5), [Bestemt integral som grenseverdi](/bok/r2/r2-2-4), [Kjerneregelen](/bok/r1/r1-4-3).
+- **Forkunnskaper (kryssbok):** Kap. 3.1; [Analysens fundamentalsetning](/r2/r2-2-5), [Bestemt integral som grenseverdi](/r2/r2-2-4), [Kjerneregelen](/r1/r1-4-3).
 - **Eksamensbelegg:** FTC-oppgaven (derivere integral med variable grenser) — 10/34. Inkluderer veldefinerthetsargument for integranden (H2018). Prioritet: **kunne**.
 - **Innholdskontrakt:** Analysens fundamentalteorem begge veier (del 1: $\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$; del 2: $\int_a^b f = F(b)-F(a)$); **derivasjon av integral med variable grenser**: $\frac{d}{dx}\int_{a}^{g(x)} f(t)\,dt = f(g(x))\,g'(x)$ (kjerneregel-faktoren) og tovariant med to variable grenser; veldefinerthetsargument (integranden kontinuerlig på integrasjonsområdet); bruk av FTC til ekstremal-/monotoni-analyse av integralfunksjoner.
 - **Oppgavesjangre:** J-slektning (FTC). Mønstereksempel: «La $F(x) = \int_{1}^{x^2} \frac{\sin t}{t}\,dt$. Finn $F'(x)$, og avgjør hvor $F$ er voksende.»
@@ -436,7 +436,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-5-2` · **number:** 5.2 · **estimatedMinutes:** 60 · **prerequisites:** `mat111-uib-5-1`
 - **kapitteltype:** teori
 - **description:** De to grunnteknikkene med UiBs føringsstandard: substitusjonsboks med nye grenser, og dokumentert u/v'-valg — inkludert de «ensomme» funksjonene arctan og ln.
-- **Forkunnskaper (kryssbok):** Kap. 5.1; [Variabelskifte (substitusjon)](/bok/r2/r2-3-1), [Delvis integrasjon](/bok/r2/r2-3-2), [Integrasjon av 1/x og eksponentialfunksjoner](/bok/r2/r2-2-3).
+- **Forkunnskaper (kryssbok):** Kap. 5.1; [Variabelskifte (substitusjon)](/r2/r2-3-1), [Delvis integrasjon](/r2/r2-3-2), [Integrasjon av 1/x og eksponentialfunksjoner](/r2/r2-2-3).
 - **Eksamensbelegg:** Sjanger B — integrasjonsteknikk 33/34 (97 %), typisk 2–4 deloppgaver per sett. Åpen bok-regelen: oppgaven sier eksplisitt at integralet skal løses «med grunnleggende teknikker, ikke ved oppslag». Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Substitusjon**: bokfør $u$, $du$ og **nye grenser** i egen boks; klassiske substitusjoner; **delvis integrasjon** $\int u\,dv = uv - \int v\,du$: dokumentér valget av $u/v'$ (LIATE-heuristikk); «ensomme» funksjoner ($\arctan x$, $\ln x$) integreres delvis mot 1; sykliske tilfeller ($\int e^x\sin x$ — løs for integralet); kombinasjon substitusjon → delvis. Åpen bok-føringskravet internaliseres: hele utledningen vises.
 - **Oppgavesjangre:** B. Mønstereksempel: «Beregn $\int x\arctan x\,dx$ (delvis, $u=\arctan x$).» Mønstereksempel: «Beregn $\int_0^1 x\,e^{-x^2}\,dx$ med substitusjon, med grenser bokført.»
@@ -448,7 +448,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-5-3` · **number:** 5.3 · **estimatedMinutes:** 60 · **prerequisites:** `mat111-uib-5-2`
 - **kapitteltype:** teori
 - **description:** Rasjonale integrander med delbrøk (også irreduserbar kvadratisk faktor → arctan-ledd) og trigonometrisk substitusjon for rotuttrykk.
-- **Forkunnskaper (kryssbok):** Kap. 5.2; [Delbrøkoppspalting](/bok/r2/r2-3-3), [Polynomer og polynomdivisjon](/bok/r1/r1-1-1), [Fullstendig kvadrat](/bok/1t/1t-2-4).
+- **Forkunnskaper (kryssbok):** Kap. 5.2; [Delbrøkoppspalting](/r2/r2-3-3), [Polynomer og polynomdivisjon](/r1/r1-1-1), [Fullstendig kvadrat](/1t/1t-2-4).
 - **Eksamensbelegg:** Sjanger B (fortsettelse) — delbrøk med irreduserbar kvadratisk faktor og trig-substitusjon er midtsjikt-/toppmarkører. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Delbrøkoppspalting**: alle nevnertyper (distinkte lineære, gjentatte lineære, irreduserbar kvadratisk); **polynomdivisjon først** når tellergrad $\ge$ nevnergrad; irreduserbar kvadratisk faktor → **fullført kvadrat** → arctan-ledd (og $\ln$-ledd for tellerens deriverte-del); **trigonometrisk substitusjon** ($x = a\sin\theta$ for $\sqrt{a^2-x^2}$, $x=a\tan\theta$ for $\sqrt{a^2+x^2}$) med verdimengdekrav for tilbaketransformasjonen; kjeding av to teknikker (substitusjon → delbrøk).
 - **Oppgavesjangre:** B. Mønstereksempel: «Beregn $\int \frac{1}{e^x+1}\,dx$ (substitusjon $u=e^x$, deretter delbrøk).» Mønstereksempel: «Beregn $\int \frac{2x+3}{x^2+2x+5}\,dx$ (splitt i $\ln$-del + arctan-del via fullført kvadrat).»
@@ -471,7 +471,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-5-5` · **number:** 5.5 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-5-3`
 - **kapitteltype:** teori
 - **description:** Grenseføring med eksplisitt lim, direkte beregning, og konvergens via sammenligningskriteriet med begge premisser uttalt.
-- **Forkunnskaper (kryssbok):** Kap. 5.3; [Analysens fundamentalsetning](/bok/r2/r2-2-5).
+- **Forkunnskaper (kryssbok):** Kap. 5.3; [Analysens fundamentalsetning](/r2/r2-2-5).
 - **Eksamensbelegg:** Sjanger I — 18/34. Full uttelling krever **både** at integranden er ikke-negativ **og** at majoranten har endelig integral (fasitkrav H2014). Singulariteter inne i intervallet må splittes ($\int_{-4}^4 1/x^2$ deles i 0 — klassisk felle H2011). Prioritet: **kunne**.
 - **Innholdskontrakt:** Identifiser singularitet/uendelighetsgrense; **før med eksplisitt $\lim$-notasjon** ($\int_1^\infty = \lim_{b\to\infty}\int_1^b$ — «sett inn $\infty$» underkjennes); direkte beregning (substitusjon → arctan-form vanlig); **sammenligningskriteriet**: klem integranden mot navngitt $p$-integral eller $e^{-x}$-hale — uttrykk **både** ikke-negativitet **og** endelig majorant; $p$-integralenes status ($\int_1^\infty x^{-p}$: konvergerer $\Leftrightarrow p>1$; $\int_0^1 x^{-p}$: konvergerer $\Leftrightarrow p<1$); **splitt i alle singulariteter** (inne i intervallet); uegentlige varianter kombinert med omdreiningsvolum (kap. 5.6).
 - **Oppgavesjangre:** I. Mønstereksempel: «Beregn $\int_1^\infty \frac{1}{\sqrt{x}\,(x+1)}\,dx$ (substitusjon $u=\sqrt{x}$ → arctan; grense gir $\pi/2$).» Mønstereksempel: «Avgjør om $\int_1^\infty \frac{2+\sin x}{x^2}\,dx$ konvergerer.»
@@ -483,7 +483,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-5-6` · **number:** 5.6 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-5-3`
 - **kapitteltype:** teori
 - **description:** Riktig metodevalg etter rotasjonsakse — skiver eller sylinderskall — med integralet løst ved dokumentert teknikk, og uegentlige varianter.
-- **Forkunnskaper (kryssbok):** Kap. 5.2–5.3; [Volum av omdreiningslegemer](/bok/r2/r2-3-6), [Areal mellom kurver](/bok/r2/r2-2-7).
+- **Forkunnskaper (kryssbok):** Kap. 5.2–5.3; [Volum av omdreiningslegemer](/r2/r2-3-6), [Areal mellom kurver](/r2/r2-2-7).
 - **Eksamensbelegg:** Sjanger H — 23/34. Typisk felle (H2016): rotasjon om feil akse, eller levere *arealet* i stedet for *volumet*, eller skrive av et lærebokeksempel uten å svare på spørsmålet. Fasit viser regelmessig begge metoder som likeverdige. Utlednings-varianten $V(h)$ for en beholder er første ledd i Torricelli-kjeden (kap. 6.3). Prioritet: **perfekt**.
 - **Innholdskontrakt:** Tegn/forstå området; **velg metode etter akse**: skiver/ringer $V = \pi\int [R(x)^2 - r(x)^2]\,dx$ når tverrsnittet vinkelrett på aksen er kjent; **sylinderskall** $V = 2\pi\int x\,h(x)\,dx$ når man integrerer langs den andre aksen; sett opp integralet og løs med dokumentert teknikk (ofte delvis: $\int x\ln x$, $\int x e^x$); areal mellom kurver som kontrast (ikke volum); uegentlige varianter (rotasjon av $e^{-x}$ over $[0,\infty)$ — kombinér med kap. 5.5); utled $V(h)$ for en beholder med gitt profil. Fasit fører gjerne begge metoder («Alternativt:»).
 - **Oppgavesjangre:** H. Mønstereksempel: «Området avgrenset av $y=0$, $y=1$, $x=0$ og $y=\ln x$ dreies om $y$-aksen. Finn volumet med grunnleggende teknikker.» Mønstereksempel: «Finn volumet når området under $y=e^{-x}$ over $[0,\infty)$ dreies om $x$-aksen.»
@@ -495,7 +495,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-5-7` · **number:** 5.7 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-5-1`
 - **kapitteltype:** teori
 - **description:** Trapes- og Simpson-tilnærming fra formel og fra måletabell, med feilformlene brukt aktivt til å dimensjonere n — en UiB-signatur som ikke finnes i UiO-arkivet.
-- **Forkunnskaper (kryssbok):** Kap. 5.1; [Numerisk integrasjon](/bok/r2/r2-3-4).
+- **Forkunnskaper (kryssbok):** Kap. 5.1; [Numerisk integrasjon](/r2/r2-3-4).
 - **Eksamensbelegg:** Sjanger J — 13/34, jevnt siden 2007. Feilformlene skal brukes *kvantitativt* (finn $n$ for gitt presisjon), også fra måletabeller (CO₂, fart). Teorivarianter: beskriv metodene, vis at Simpson er eksakt for tredjegradspolynomer ($f^{(4)}=0$), konstruer moteksempel der trapes slår Simpson (V2020). Prioritet: **kunne**.
 - **Innholdskontrakt:** Trapesmetoden og Simpsons metode (formlene, $n$ delintervaller, $n$ jevn for Simpson); tilnærming fra formel og fra måletabell; **feilformlene brukt aktivt**: $|E_T| \le \frac{K(b-a)^3}{12n^2}$ med $K = \max|f''|$, $|E_S| \le \frac{K(b-a)^5}{180n^4}$ med $K=\max|f^{(4)}|$ — skaff $K$ på intervallet og **dimensjonér $n$** for gitt feilgrense; teori: Simpsons eksakthet for kubiske polynomer; moteksempel trapes vs. Simpson.
 - **Oppgavesjangre:** J. Mønstereksempel: «Bruk trapesmetoden med fire delintervaller på $\int_0^1 (1+t^4)^{3/2}\,dt$, og avgjør hvor mange delintervaller som trengs for feil høyst $0{,}04$.» Mønstereksempel: «Estimer $\int_0^6 v(t)\,dt$ fra en fartstabell med Simpson.»
@@ -513,7 +513,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-5-3`
 - **kapitteltype:** teori
 - **description:** Full føringsmal for separable likninger — inkludert konstante løsninger som alltid nevnes og avvises mot initialbetingelsen, og logistisk likning via delbrøk.
-- **Forkunnskaper (kryssbok):** Kap. 5.3; [Introduksjon til differensiallikninger](/bok/s2/s2-2-1), [Separable differensiallikninger](/bok/s2/s2-2-2), [Logistisk vekst](/bok/r1/r1-5-2).
+- **Forkunnskaper (kryssbok):** Kap. 5.3; [Introduksjon til differensiallikninger](/s2/s2-2-1), [Separable differensiallikninger](/s2/s2-2-2), [Logistisk vekst](/r1/r1-5-2).
 - **Eksamensbelegg:** Sjanger A — differensiallikninger 33/34 (97 %), settets faste avslutning. **Konstante løsninger skal nevnes og avvises** (fasit sjekker alltid $y\equiv 0$ før det deles på $y$). Logistisk likning løses via delbrøk (hint gis ofte). Prioritet: **perfekt**.
 - **Innholdskontrakt:** Separabel form $y' = g(x)h(y)$; **føringsmal (aktiv)**: (1) identifiser og **noter konstante løsninger** $h(y)=0$ (sjekk mot initialbetingelse før de forkastes), (2) separér $\frac{dy}{h(y)} = g(x)\,dx$, (3) integrer begge sider (delbrøk for logistisk), (4) løs for $y$ og bestem konstanten fra initialbetingelse/datapunkt, (5) tolk; logistisk likning $y' = ky(M-y)$ via delbrøk; eksistens/entydighet av initialverdiproblem (kort, kunne).
 - **Oppgavesjangre:** A. Mønstereksempel: «Løs $y' = y(1-y)$, $y(0)=\tfrac12$ (logistisk, delbrøk).» Mønstereksempel: «Løs $y' = x e^{-y}$, $y(0)=0$.»
@@ -525,7 +525,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-6-2` · **number:** 6.2 · **estimatedMinutes:** 50 · **prerequisites:** `mat111-uib-6-1`
 - **kapitteltype:** teori
 - **description:** Integrerende faktor som standardmetode, med variasjon av parameter som alternativ — det andre beinet i avslutningsoppgaven.
-- **Forkunnskaper (kryssbok):** Kap. 6.1; [Lineære differensiallikninger](/bok/s2/s2-2-3).
+- **Forkunnskaper (kryssbok):** Kap. 6.1; [Lineære differensiallikninger](/s2/s2-2-3).
 - **Eksamensbelegg:** Sjanger A (lineær variant) — del av 97 %-blokken. Fasit fører gjerne både integrerende faktor og variasjon av parameter («Alternativt:»). Prioritet: **perfekt**.
 - **Innholdskontrakt:** Lineær form $y' + p(x)y = q(x)$; **integrerende faktor** $\mu(x) = e^{\int p\,dx}$: gang gjennom, kjenn igjen $(\mu y)' = \mu q$, integrer, løs for $y$; variasjon av parameter som alternativ; bestem konstanten fra initialbetingelse; når en likning kan angripes både separabelt og lineært; kobling til modellering (kap. 6.3).
 - **Oppgavesjangre:** A. Mønstereksempel: «Løs $y' + 2y = e^{-x}$, $y(0)=1$, med integrerende faktor.»
@@ -561,7 +561,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-7-1` · **number:** 7.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat111-uib-5-5`
 - **kapitteltype:** teori
 - **description:** Standard konvergenstester med formsjekk-disiplin — pensumpliktig kunne-stoff uten arkivbelegg etter 2005.
-- **Forkunnskaper (kryssbok):** Kap. 5.5 (parallellen integral/rekke); [Uendelige rekker og konvergens](/bok/r2/r2-1-5), [Rekker og summasjon](/bok/r2/r2-1-4).
+- **Forkunnskaper (kryssbok):** Kap. 5.5 (parallellen integral/rekke); [Uendelige rekker og konvergens](/r2/r2-1-5), [Rekker og summasjon](/r2/r2-1-4).
 - **Eksamensbelegg:** Sjanger «rekker» — **0 forekomster etter 2005** (var eksamensstoff 2003–2005: $p$-rekker, forholdstest, grensesammenligning, integraltest, alternerende rekker). Dekkes som pensumpliktig. Prioritet: **kjenne**. (Se ærlighetsnotatet over.)
 - **Innholdskontrakt:** Rekke som følge av delsummer; geometrisk rekke (sum og konvergensområde); $n$-te ledd-testen (divergens); $p$-rekker ($\sum 1/n^p$ konvergerer $\Leftrightarrow p>1$); **forholdstesten**; **integraltesten** (kobling til uegentlige integraler i kap. 5.5); **grensesammenligningstesten** med navngitt sammenligningsrekke; alternerende rekker (Leibniz) og absolutt vs. betinget konvergens; formsjekk-disiplin: velg test etter form. Kort, med de gamle 2003–2005-sjangrene som mal.
 - **Oppgavesjangre:** rekke-test. Mønstereksempel: «Avgjør om $\sum_{n=1}^\infty \frac{n}{2^n}$ konvergerer (forholdstesten).» Mønstereksempel: «Avgjør konvergens av $\sum \frac{1}{n\sqrt{n}}$ og $\sum \frac{1}{n\ln n}$.»
@@ -573,7 +573,7 @@ Prosareferanser i innholdet bruker del-basert form («kap. 5.2», «se kap. 4.3�
 - **id:** `mat111-uib-7-2` · **number:** 7.2 · **estimatedMinutes:** 50 · **prerequisites:** `mat111-uib-7-1`, `mat111-uib-4-3`
 - **kapitteltype:** teori
 - **description:** Konvergensradius og Taylorrekker — knytter rekkestoffet til Taylorpolynom fra kap. 4.3; pensumpliktig kunne-stoff.
-- **Forkunnskaper (kryssbok):** Kap. 7.1, 4.3; [Uendelige rekker og konvergens](/bok/r2/r2-1-5).
+- **Forkunnskaper (kryssbok):** Kap. 7.1, 4.3; [Uendelige rekker og konvergens](/r2/r2-1-5).
 - **Eksamensbelegg:** **0 arkivforekomster etter 2005**; dekkes som pensumpliktig og knyttes til Taylor-restleddet (kap. 4.3), som *er* hovedsjanger. Prioritet: **kjenne**. (Se ærlighetsnotatet.)
 - **Innholdskontrakt:** Potensrekke $\sum a_n(x-a)^n$; **konvergensradius** via forholdstesten; konvergensintervall (endepunkter sjekkes separat); Taylorrekke som grensen av Taylorpolynomene, sammenhengen med Lagrange-restleddet ($R_n\to 0$ ⇒ rekken konvergerer mot $f$); standardrekker ($e^x$, $\sin x$, $\cos x$, $\ln(1+x)$, geometrisk); bruk til tallnærming (kobling til kap. 4.3).
 - **Oppgavesjangre:** rekke/Taylor. Mønstereksempel: «Finn konvergensradius og -intervall for $\sum_{n=1}^\infty \frac{(x-2)^n}{n\,3^n}$.» Mønstereksempel: «Vis at Taylorrekken til $e^x$ konvergerer mot $e^x$ for alle $x$ (restleddet).»

@@ -94,7 +94,7 @@ KVALITETSPORT OK, alt committet:
 Klyngen bygget med søsken-kryssreferanser (forkunnskaps-lenker, ikke dybdegjentakelse).
 
 MERKNADER for fase 3–7 (bokbygging/wiring):
-- Sjekk at NTNU/HVL/NIH finnes i src/app/bok/trinn/hoyere/institusjoner.ts.
+- Sjekk at NTNU/HVL/NIH finnes i src/app/trinn/hoyere/institusjoner.ts.
 - mat2410: gate rapporterte 0 prøve-kvote-linjer (prøver finnes, format-avvik) — verifiser prøvekvoter ved bokbygging.
 - Alle skjeletter har *(verifiser)*-flagg på usikre tall/paragrafer/pensumankere — Opus må sjekke ved bygging.
 

@@ -796,7 +796,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 1. **Metadata først:** `TextbookCourse`-oppføring for `ttt4120` med alle 33 kapitler
    (id/number/title/description/estimatedMinutes/topics/prerequisites) etter mønster
    `COURSE_BI_OKONOMI`; `sectionNames` fra §2-tabellen (obligatorisk — ellers viser
-   bokforsiden «Seksjon N»). Legg emnet i `src/app/bok/trinn/hoyere/institusjoner.ts`
+   bokforsiden «Seksjon N»). Legg emnet i `src/app/trinn/hoyere/institusjoner.ts`
    under NTNU, navn «TTT4120 Digital signalbehandling».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–N, 4-oppgavers-malen, det
    gjennomgående eksempelfilteret, de to sensorreglene og formelark-prinsippet som

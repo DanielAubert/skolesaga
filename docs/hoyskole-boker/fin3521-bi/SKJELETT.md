@@ -255,7 +255,7 @@ studentens sjekkliste):
 Kryssbok-lenker peker på **bi-okonomi** (Matematikk for økonomer — verifisert
 bygget: `bi-okonomi-4-1` Renter og renteberegning, `-4-2` Nåverdi og
 fremtidsverdi, `-4-3` Annuiteter, `-4-5` Investeringsanalyse). Lenkeform:
-`[tittel](/bok/bi-okonomi/bi-okonomi-4-2)`. **Lenk kun til disse verifiserte
+`[tittel](/bi-okonomi/bi-okonomi-4-2)`. **Lenk kun til disse verifiserte
 id-ene.** BØK 3423-boka (`bok3423-bi`) er komplementær «kurs 1», men er ennå
 **ikke bygget** — den skal **omtales i tekst** som forkunnskapskilde (NPV/IRR,
 WACC, CAPM-mekanikk, kontantstrøm-konstruksjon), men det skal **ikke lenkes** til
@@ -311,7 +311,7 @@ memorér disse formlene»), Typiske feil-`warning`, 6–12 øvinger med `solutio
 - **id:** `fin3521-bi-1-1` · **number:** 1.1 · **estimatedMinutes:** 40 · **prerequisites:** `fin3521-bi-0-2` · **kapitteltype:** teori (repetisjon)
 - **description:** Rask oppfriskning av verktøyene FIN 3521 forutsetter: nåverdi, evig strøm $C/r$ (grunnlaget for $V_U$), annuitet og effektiv vs. nominell rente — fordi formelarket forsvinner.
 - **Eksamensbelegg:** Ikke testet isolert, men fundament under alt: evig strøm bak $V_U = \text{EBIT}(1-t_c)/r_U$ og bak state-prising; effektiv rente bak binomisk/put-call-diskontering. Formlene **må pugges**. Prioritet: **KUNNE** (fundament).
-- **Forkunnskaper:** Forutsetter grunnkurset (BØK 3423: NPV/IRR/diskontering — omtales i tekst). Bygger på [Renter og renteberegning](/bok/bi-okonomi/bi-okonomi-4-1), [Nåverdi og fremtidsverdi](/bok/bi-okonomi/bi-okonomi-4-2) og [Annuiteter](/bok/bi-okonomi/bi-okonomi-4-3). **Symbol- og formelliste:** $C_t$, $r$, $t$, $n$, evig strøm, annuitet, $r_{nom}$, $r_{eff}$, $m$ — alle **(må pugges)**.
+- **Forkunnskaper:** Forutsetter grunnkurset (BØK 3423: NPV/IRR/diskontering — omtales i tekst). Bygger på [Renter og renteberegning](/bi-okonomi/bi-okonomi-4-1), [Nåverdi og fremtidsverdi](/bi-okonomi/bi-okonomi-4-2) og [Annuiteter](/bi-okonomi/bi-okonomi-4-3). **Symbol- og formelliste:** $C_t$, $r$, $t$, $n$, evig strøm, annuitet, $r_{nom}$, $r_{eff}$, $m$ — alle **(må pugges)**.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES: nåverdi $\sum C_t/(1+r)^t$; **evig strøm** $\text{NV}=C/r$ (og hvorfor uendelig mange ledd gir endelig sum — kritisk for $V_U$); voksende evig $C_1/(r-g)$; annuitet $\frac{C}{r}(1-(1+r)^{-n})$; effektiv rente $r_{eff}=(1+r_{nom}/m)^m-1$; kontinuerlig forrentning $e^{rT}$ (grunnlag for put-call). **Regnekjede (nyskrevet):** et selskap har evig EBIT-basert kontantstrøm på 84 mill./år, $r_U = 12\,\%$: ugiret verdi $= 84/0{,}12 = 700$ mill. kr. Effektiv rente av 8 % nominell med kvartalsvis tilskriving: $(1{,}02)^4 - 1 = 8{,}24\,\%$.
 - **Oppgavesjangre:** J. Mønstereksempel: «Et selskap gir en evigvarende kontantstrøm på 60 mill. kr per år etter skatt. Avkastningskravet er 10 %. Regn ut selskapsverdien, og forklar hvorfor den evige strømmen har en endelig nåverdi.»
 - **Typiske feil:** Bruke $C/r$ på en endelig strøm; bruke nominell rente der effektiv kreves; glemme $r>g$ i voksende evig; oppgi svar uten enhet.
@@ -809,7 +809,7 @@ Eksamensvinkel-blokker:
 - [ ] **Quiz-sum ≥ 536 og flashcard-sum ≥ 586** per kvotetabellen (§4).
 - [ ] **Prøver**: 4 per temadel 1–6 (24 stk) + 3 øvingseksamener (3–4 oppgaver,
   kalkulator, **intet formelark**) som sammen dekker sjangrene A–J.
-- [ ] **Kryssbok-lenker**: alle `/bok/bi-okonomi/...`-lenker peker på eksisterende
+- [ ] **Kryssbok-lenker**: alle `/bi-okonomi/...`-lenker peker på eksisterende
   kapitler (`bi-okonomi-4-1`, `-4-2`, `-4-3` er verifisert). **Ikke** lenk til
   `bok3423-bi` (ikke bygget ennå) — omtal den kun i tekst.
 - [ ] **Arbeidsdeling mot BØK 3423 respektert**: FIN 3521-boka gjentar ikke

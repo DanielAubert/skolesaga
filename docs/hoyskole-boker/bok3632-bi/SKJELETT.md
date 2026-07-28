@@ -154,7 +154,7 @@ avviksanalyse) — 0 forekomster i arkivet.
 
 > NB: FIN 3521-kolonnen bygger på fin3521-skjelettet/-analysen, ikke på BØK 3632-arkivet — *(verifiser mot fin3521-boka ved bygging)*.
 
-BØK 3632 og [FIN 3521](/bok/fin3521-bi) overlapper delvis (begge er videregående
+BØK 3632 og [FIN 3521](/fin3521-bi) overlapper delvis (begge er videregående
 bedriftsfinansiering), men har **egne oppgavebanker og ulik kalibrering**.
 Forskjellene bøkene må respektere:
 
@@ -171,7 +171,7 @@ Forskjellene bøkene må respektere:
 **Kryssbok-lenk som aktiveringsmarkør:** i Del 0, i kapitalstruktur-delen (2.4
 toledd-skatt) og i opsjons-/utbyttedelene skal boken **nevne FIN 3521 ved navn**
 og peke på at M&A og Miller-personskatt hører hjemme der, mens obligasjoner/APV
-er BØK 3632s særpreg. **Live markdown-lenke `[FIN 3521](/bok/fin3521-bi/...)`
+er BØK 3632s særpreg. **Live markdown-lenke `[FIN 3521](/fin3521-bi/...)`
 brukes KUN dersom `fin3521-bi` faktisk er bygget** (leserkravet: lenk kun til
 kapitler som finnes); er den ikke bygget, refereres FIN 3521 med navn uten lenke.
 Samme regel for BØK 3423 og BØK 3532: refereres med navn; **live lenker går
@@ -243,7 +243,7 @@ studentens sjekkliste, ordnet etter oppgaveposisjon O1–O5):
 økonomer — verifisert bygget: `bi-okonomi-4-1` Renter og renteberegning, `-4-2`
 Nåverdi og fremtidsverdi, `-4-3` Annuiteter, `-4-5` Investeringsanalyse; `-2-2`/
 `-2-3` andregrads-/likningssett — brukes til simultanligning i M&A-fri emisjon og
-aksjeoppgjør). Lenkeform: `[tittel](/bok/bi-okonomi/bi-okonomi-4-2)`. **Lenk kun
+aksjeoppgjør). Lenkeform: `[tittel](/bi-okonomi/bi-okonomi-4-2)`. **Lenk kun
 til disse verifiserte id-ene.** BØK 3423, BØK 3532 og FIN 3521 refereres med navn;
 live lenker dit legges inn først når de respektive bøkene er bygget.
 
@@ -306,7 +306,7 @@ av minst én **fullt gjennomregnet regnekjede med mellomsteg** og nyskrevne tall
 - **id:** `bok3632-bi-1-1` · **number:** 1.1 · **estimatedMinutes:** 40 · **prerequisites:** `bok3632-bi-0-2` · **kapitteltype:** teori (repetisjon)
 - **description:** Kompakt repetisjon av diskonteringsverktøyet som alle fem blokkene hviler på: nåverdi av en strøm, evig strøm $C/r$, evig strøm med vekst, og annuitet — grunnlaget for obligasjonspris, Vu, enterprise value og skjold.
 - **Eksamensbelegg:** Ikke en egen oppgaveposisjon, men **fundament** under O2 (obligasjonspris), O3 (Vu = OFRS(1−s)/kU), O4 (enterprise value, NV av skjold) og O1 (Gordon). Nåverdi/evig strøm forekommer indirekte i hvert eneste sett. Prioritet: **FUNDAMENT**.
-- **Forkunnskaper:** Bygger på [Renter og renteberegning](/bok/bi-okonomi/bi-okonomi-4-1), [Nåverdi og fremtidsverdi](/bok/bi-okonomi/bi-okonomi-4-2) og [Annuiteter](/bok/bi-okonomi/bi-okonomi-4-3) (Matematikk for økonomer), og forutsettes fra BØK 3423 Finans. **Symbol- og formelliste:** $C_t$, $r$, $t$, $n$, $g$; nåverdi, evig strøm, evig strøm med vekst, annuitet — alle **(må pugges — IKKE på arket)** (unntatt Gordon $P_0=D_1/(r-v)$ som er **formelark nr. 16**).
+- **Forkunnskaper:** Bygger på [Renter og renteberegning](/bi-okonomi/bi-okonomi-4-1), [Nåverdi og fremtidsverdi](/bi-okonomi/bi-okonomi-4-2) og [Annuiteter](/bi-okonomi/bi-okonomi-4-3) (Matematikk for økonomer), og forutsettes fra BØK 3423 Finans. **Symbol- og formelliste:** $C_t$, $r$, $t$, $n$, $g$; nåverdi, evig strøm, evig strøm med vekst, annuitet — alle **(må pugges — IKKE på arket)** (unntatt Gordon $P_0=D_1/(r-v)$ som er **formelark nr. 16**).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES OG SETTES OPP: flerperiodisk nåverdi $\sum_t C_t/(1+r)^t$; **evig strøm** $NV=C/r$; **evig strøm med vekst** $NV=C_1/(r-g)$; annuitet $NV=\frac{C}{r}\left(1-(1+r)^{-n}\right)$. Intuisjon per formel, kort. **Regnekjede (nyskrevet, Bjørkli Kraft AS):** en strøm på 30, 45 og 70 mill. kr i år 1–3, krav 9 %: $NV=30/1{,}09+45/1{,}09^2+70/1{,}09^3=27{,}52+37{,}88+54{,}05=119{,}45$ mill. kr. Evig strøm: 8 mill./år, krav 8 % → $8/0{,}08=100$ mill. Med vekst 2 %: $8/(0{,}08-0{,}02)=133{,}3$ mill.
 - **Oppgavesjangre:** Fundament (forbereder O, K, F, A, U). Mønstereksempel: «Saltström Marin forventer 20, 35 og 50 mill. kr i årene 1–3, krav 10 %. Sett opp formelen eksplisitt og regn nåverdien.»
 - **Typiske feil:** Feil eksponent (glemme at år 3 diskonteres med $(1+r)^3$); bruke $C/r$ på en endelig strøm; blande evig strøm med og uten vekst; svar uten enhet.
@@ -317,7 +317,7 @@ av minst én **fullt gjennomregnet regnekjede med mellomsteg** og nyskrevne tall
 - **id:** `bok3632-bi-1-2` · **number:** 1.2 · **estimatedMinutes:** 45 · **prerequisites:** `bok3632-bi-1-1` · **kapitteltype:** teori (repetisjon)
 - **description:** Repetisjon av CAPM med og uten skatt fra formelarket — verktøyet som gir kU, kE og kG i kapitalstruktur- og verdsettelsesoppgavene.
 - **Eksamensbelegg:** Direkte inndata til O3 (Vu via kU, gjeldsbeta βG fra kG) og O4 (WACC-komponenter). CAPM er på arket, men **anvendelsen** testes tungt (5/5). Prioritet: **FUNDAMENT/PERFEKT**.
-- **Forkunnskaper:** Bygger på kap. 1.1 og [Investeringsanalyse](/bok/bi-okonomi/bi-okonomi-4-5); forutsettes fra BØK 3423. **Symbol- og formelliste:** $r_f$, $E(r_M)$, $\beta_E$, $\beta_G$, $\beta_I$; CAPM $k_E=r_f+\beta_E\,(E(r_M)-r_f)$ **(formelark nr. 1)**, skattejustert CAPM **(nr. 2)**, gjeldskostnad $k_G$ tilsvarende **(nr. 1b)**.
+- **Forkunnskaper:** Bygger på kap. 1.1 og [Investeringsanalyse](/bi-okonomi/bi-okonomi-4-5); forutsettes fra BØK 3423. **Symbol- og formelliste:** $r_f$, $E(r_M)$, $\beta_E$, $\beta_G$, $\beta_I$; CAPM $k_E=r_f+\beta_E\,(E(r_M)-r_f)$ **(formelark nr. 1)**, skattejustert CAPM **(nr. 2)**, gjeldskostnad $k_G$ tilsvarende **(nr. 1b)**.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES: CAPM forlengs (finn $k_E$/$k_G$ fra beta) og **baklengs** (finn $\beta_G$ fra oppgitt $k_G$: $\beta_G=(k_G-r_f)/(E(r_M)-r_f)$ — brukes i O3). Systematisk vs. usystematisk risiko i én setning (bakgrunn for gjeldsbeta ≈ 0-drøftingen i Del 2). **Regnekjede (nyskrevet):** $r_f=3\,\%$, markedspremie $E(r_M)-r_f=5\,\%$, $\beta_E=1{,}1$ → $k_E=3\%+1{,}1\cdot5\%=8{,}5\,\%$. Baklengs: gjeldskostnad $k_G=4\,\%$ → $\beta_G=(4\%-3\%)/5\%=0{,}2$.
 - **Oppgavesjangre:** Fundament (forbereder K, F, A). Mønstereksempel: «Granli Teknologi har $\beta_E=0{,}95$, $r_f=3\,\%$, markedspremie 4,5 %. Finn egenkapitalkostnaden, og finn gjeldsbetaen dersom lånerenten er 3,8 %.»
 - **Typiske feil:** Bruke markedsavkastning $E(r_M)$ der markedspremien $E(r_M)-r_f$ kreves; glemme å løse baklengs for $\beta_G$; forveksle $\beta_E$ (giret) med $\beta_I$ (ugiret) — det skillet hører til Del 2.
@@ -556,7 +556,7 @@ av minst én **fullt gjennomregnet regnekjede med mellomsteg** og nyskrevne tall
 - **id:** `bok3632-bi-6-2` · **number:** 6.2 · **estimatedMinutes:** 50 · **prerequisites:** `bok3632-bi-6-1` · **kapitteltype:** teori
 - **description:** Emisjonens virkning på en aksjonær: hva man må skyte inn for å beholde eierandelen, og hvordan andelen utvannes hvis man ikke deltar — og hvorfor tegningsretten kompenserer for tapet.
 - **Eksamensbelegg:** Eierandel/innskudd ved emisjon 4/5 (S1/S2/S4/S5); emisjonseffekt på kurs og eierstruktur er også et kvalitativt drøftetema (S5). Prioritet: **PERFEKT**.
-- **Forkunnskaper:** Bygger på kap. 6.1. **Symbol- og formelliste:** eierandel, antall retter, innskudd; ingen ny arkformel — bygger på $P_X$, $P_e$, $T_n$ fra kap. 6.1. Kan trenge simultanligning (se [Likningssett](/bok/bi-okonomi/bi-okonomi-2-3)).
+- **Forkunnskaper:** Bygger på kap. 6.1. **Symbol- og formelliste:** eierandel, antall retter, innskudd; ingen ny arkformel — bygger på $P_X$, $P_e$, $T_n$ fra kap. 6.1. Kan trenge simultanligning (se [Likningssett](/bi-okonomi/bi-okonomi-2-3)).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES: for å **beholde** eierandelen må aksjonæren tegne sin forholdsmessige andel av de nye aksjene (innskudd = antall nye aksjer $\times P_e$); **deltar man ikke**, utvannes andelen, men salget av tegningsrettene kompenserer for kurstapet i et perfekt marked (netto formue uendret). **Parametrisk mal (O1, ledd d):** gitt eierandel, $m$, $P_e$, $n/m$ → nødvendig innskudd / utvanning / kompensasjon. **Regnekjede (nyskrevet, videreført Myrland):** en aksjonær eier 40 000 aksjer (4 %). For å beholde 4 % må hun tegne $4\,\% \cdot 250\,000=10\,000$ nye aksjer → innskudd $=10\,000\cdot60=600\,000$ kr. Deltar hun ikke, faller kursen fra 80 til 76 (tap $4\cdot40\,000=160\,000$), men 40 000 tegningsretter à 4 kr = 160 000 kr dekker tapet.
 - **Oppgavesjangre:** E (O1, ledd d) + T. Mønstereksempel: «En aksjonær eier 5 % av Storhaug Industri før emisjonen i forrige oppgave. Hvor mye må hun skyte inn for å beholde eierandelen? Hva skjer med formuen hennes hvis hun i stedet selger tegningsrettene?»
 - **Typiske feil:** Forveksle «beholde andel» (må investere) med «ikke delta» (utvannes); glemme at tegningsretten kompenserer i perfekt marked; feil forholdsmessig andel; bruke $P_X$ i stedet for $P_e$ i innskuddet.
@@ -795,7 +795,7 @@ Eksamensvinkel-blokker:
 - [ ] **Prøver**: 4 per temadel 1–6 (24 stk) + 3 øvingseksamener (fast 5-blokk,
   3 t, formelark + rentetabeller) som sammen dekker sjangrene E–T og begge
   O1-/O4-variantene.
-- [ ] **Kryssbok-lenker**: alle `/bok/bi-okonomi/...`-lenker peker på eksisterende
+- [ ] **Kryssbok-lenker**: alle `/bi-okonomi/...`-lenker peker på eksisterende
   kapitler (`bi-okonomi-4-1`, `-4-2`, `-4-3`, `-4-5`, `-2-2`, `-2-3` er verifisert).
   BØK 3423/BØK 3532/FIN 3521 refereres med navn; live lenker dit kun hvis bygget.
 - [ ] **Opphavsrett**: ALLE oppgaver nyskrevne — egne selskapsnavn (Bjørkli Kraft

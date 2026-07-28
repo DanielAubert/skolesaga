@@ -32,7 +32,7 @@
 > `compareTo()` og `@Override`. IN1900 er foreløpig **skjelett, ikke bygget** — så
 > alle forkunnskaps-kryssreferanser til IN1900 skrives som **klartekst med
 > aktiveringsmarkør**, ikke som live markdown-lenker (se stilregel §1). Når IN1900
-> bygges, konverteres markørene til `[tittel](/bok/in1900/<id>)`.
+> bygges, konverteres markørene til `[tittel](/in1900/<id>)`.
 
 ---
 
@@ -250,7 +250,7 @@ lære, med presis oppførsel). Prioritetsklasser: **perfekt** (nivå 1) / **kunn
 - **id:** `in1010-1-1` · **number:** 1.1 · **estimatedMinutes:** 45 · **prerequisites:** ingen · **kapitteltype:** teori
 - **description:** Broa fra IN1900-Python til Java: klassedeklarasjon, instansvariabler (felt), konstruktør (`__init__` → konstruktør), `this` (`self` → `this`), typing, og `toString()` (`__str__` → `toString`).
 - **Eksamensbelegg:** Grunnlag for ALT (O1–O5) og bærer midtveis. Java-syntaks er terskelen fra IN1900. Prioritet: **perfekt** (midtveisrelevant).
-- **Kodekontrakt (API- og konstruksjonsliste):** `class Navn { … }`; **felt/instansvariabler** deklarert med type (`int alder; String navn; Bok neste;`), gjerne uten aksessmodifikator (package-private, som i UiOs fasit); **konstruktør** `Navn(int a, String n) { this.alder = a; this.navn = n; }`; `this` (mottakerobjektet — motsvarer Pythons `self`, men er implisitt der det ikke trengs); **`final`-konstanter** (`final int MAKS = 100;`) gir stilpluss; instansiering `new Navn(...)`; primitiver (`int`/`double`/`boolean`/`char`) vs. referansetyper (`String`, egne klasser) og `null`; `==` (referanselikhet) vs. `.equals(...)` (verdilikhet); `toString()` som redefineres og kalles implisitt av `System.out.println(obj)` og strengkonkatenering; `String.format("%s: %d", a, b)`. Til bruk. **Kryssbok-forkunnskap (IN1900, klartekst m/aktiveringsmarkør):** IN1900 kap. 5.1 «Klasser, `__init__` og `__call__`» og kap. 5.2 «`__str__`, `__add__`, `__mul__»` — `[aktiver lenke /bok/in1900/in1900-5-1 og /bok/in1900/in1900-5-2 når IN1900 er bygget]`. Vis eksplisitt oversettelsestabellen `__init__`→konstruktør, `self`→`this`, `__str__`→`toString`, attributt→felt.
+- **Kodekontrakt (API- og konstruksjonsliste):** `class Navn { … }`; **felt/instansvariabler** deklarert med type (`int alder; String navn; Bok neste;`), gjerne uten aksessmodifikator (package-private, som i UiOs fasit); **konstruktør** `Navn(int a, String n) { this.alder = a; this.navn = n; }`; `this` (mottakerobjektet — motsvarer Pythons `self`, men er implisitt der det ikke trengs); **`final`-konstanter** (`final int MAKS = 100;`) gir stilpluss; instansiering `new Navn(...)`; primitiver (`int`/`double`/`boolean`/`char`) vs. referansetyper (`String`, egne klasser) og `null`; `==` (referanselikhet) vs. `.equals(...)` (verdilikhet); `toString()` som redefineres og kalles implisitt av `System.out.println(obj)` og strengkonkatenering; `String.format("%s: %d", a, b)`. Til bruk. **Kryssbok-forkunnskap (IN1900, klartekst m/aktiveringsmarkør):** IN1900 kap. 5.1 «Klasser, `__init__` og `__call__`» og kap. 5.2 «`__str__`, `__add__`, `__mul__»` — `[aktiver lenke /in1900/in1900-5-1 og /bok/in1900/in1900-5-2 når IN1900 er bygget]`. Vis eksplisitt oversettelsestabellen `__init__`→konstruktør, `self`→`this`, `__str__`→`toString`, attributt→felt.
 - **Oppgavesjangre:** Forkunnskap til B. Mønstereksempel (nyskrevet): «Oversett en Python-klasse `Bok` med `__init__(self, tittel, sider)` og `__str__` til en Java-klasse med konstruktør, felt og `toString()`.»
 - **Typiske feil:** Glemme `this.` når parameternavn = feltnavn (feltet blir ikke satt); bruke `==` på `String`/objekter i stedet for `.equals`; glemme type på felt/parametre; tro at Java har Pythons dynamiske typing.
 - **Quiz: 24 · Flashcards: 26**
@@ -260,7 +260,7 @@ lære, med presis oppførsel). Prioritetsklasser: **perfekt** (nivå 1) / **kunn
 - **id:** `in1010-1-2` · **number:** 1.2 · **estimatedMinutes:** 50 · **prerequisites:** `in1010-1-1` · **kapitteltype:** teori
 - **description:** Arv med `extends`, konstruktørkjeding med `super(...)`, overstyring med `@Override`, og dynamisk metodeoppslag (polymorfi) — kjernen i O2.
 - **Eksamensbelegg:** O2 (~100 %): konstruktører som kaller `super(...)` er typisk 8 av 15 p; polymorfi bærer hele hierarkitanken. Prioritet: **perfekt** (midtveisrelevant).
-- **Kodekontrakt:** `class Sub extends Super { … }`; arv av felt og metoder; **`super(...)` i konstruktøren — må stå FØRST**, sender parametrene oppover; utvide (legge til egne felt etter `super`-kallet); **overstyre** en metode + `@Override`-annotasjon (fanger signaturfeil); **polymorfi** — kall via supertype-referanse (`Kjoretoy k = new Bil(); k.beskriv();`) gir dynamisk oppslag til den faktiske klassens metode; `super.metode()` for å kalle superklassens versjon (f.eks. `toString()` polymorft med `super.toString()` — stilpluss, se 1.4). `theorem`-idiom: **konstruktørmalen** (`super(...)` først, deretter subklassens egne felt). **Kryssbok (IN1900):** IN1900 kap. 5.3 «Arv og `super()`» — `[aktiver lenke /bok/in1900/in1900-5-3 når IN1900 er bygget]`; `super().__init__(...)` → `super(...)`.
+- **Kodekontrakt:** `class Sub extends Super { … }`; arv av felt og metoder; **`super(...)` i konstruktøren — må stå FØRST**, sender parametrene oppover; utvide (legge til egne felt etter `super`-kallet); **overstyre** en metode + `@Override`-annotasjon (fanger signaturfeil); **polymorfi** — kall via supertype-referanse (`Kjoretoy k = new Bil(); k.beskriv();`) gir dynamisk oppslag til den faktiske klassens metode; `super.metode()` for å kalle superklassens versjon (f.eks. `toString()` polymorft med `super.toString()` — stilpluss, se 1.4). `theorem`-idiom: **konstruktørmalen** (`super(...)` først, deretter subklassens egne felt). **Kryssbok (IN1900):** IN1900 kap. 5.3 «Arv og `super()`» — `[aktiver lenke /in1900/in1900-5-3 når IN1900 er bygget]`; `super().__init__(...)` → `super(...)`.
 - **Oppgavesjangre:** B. Mønstereksempel: «`Kjoretoy` har felt `merke` og konstruktør. Skriv `Elbil extends Kjoretoy` med et ekstra felt `rekkevidde`, en konstruktør som kaller `super(merke)` og setter `rekkevidde`, og en overstyrt `toString()` som bruker `super.toString()`.»
 - **Typiske feil:** **Glemme `super(...)`** i konstruktøren, eller feil rekkefølge på parametrene (§5.7); sette egne felt før `super`-kallet (kompilerer ikke — `super` må stå først); duplisere superklassens felt i subklassen; glemme `@Override` (mister kompilatorens signatursjekk).
 - **Quiz: 22 · Flashcards: 24**
@@ -741,8 +741,8 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 - [ ] **Kryssbok-lenker til IN1900**: forkunnskaps-referanser til IN1900 er
   skrevet som **klartekst med aktiveringsmarkør** (IN1900 er skjelett, ikke
   bygget) — IKKE live markdown-lenker; markørformat `[aktiver lenke
-  /bok/in1900/<id> når IN1900 er bygget]`. Interne IN1010-lenker
-  (`[tittel](/bok/in1010/<id>)`) peker kun på kapitler som finnes.
+  /in1900/<id> når IN1900 er bygget]`. Interne IN1010-lenker
+  (`[tittel](/in1010/<id>)`) peker kun på kapitler som finnes.
 - [ ] **De to liste-idiomene**: boka lærer BÅDE domeneobjekt-lenking (moderne
   skoleeksamen, kap. 3.2–3.4/3.6) OG Node-idiomet + generics/hashtabell (konte/
   eldre, kap. 3.5/2.1), og er eksplisitt på når hvert kreves.

@@ -639,7 +639,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    etter mønster `COURSE_BI_OKONOMI` i
    `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra
    makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SØK1001 Matematikk for økonomer».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–J, frekvenstallene og
    avgrensningen (rent matematikkfag, ikke økonomisk teori) som resten refererer til.

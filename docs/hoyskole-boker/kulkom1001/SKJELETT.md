@@ -112,8 +112,8 @@ og ett tematisk overlapp: **den antropologiske forbruk-/gave-/ritualdelen**
   guru/magiker). Der sosant1000 driller Mauss' tre plikter og kula/potlatch som
   ren gaveteori, driller KULKOM koblingen forbruk↔identitet↔materialitet↔medier.
   **Byggekontrakten skal krysslenke** til de relevante sosant1000-kapitlene som
-  forkunnskap (`[Mauss og gaveteorien](/bok/sosant1000/sosant1000-2-1)`,
-  `[Overgangsritualer](/bok/sosant1000/sosant1000-4-1)`) i stedet for å duplisere
+  forkunnskap (`[Mauss og gaveteorien](/sosant1000/sosant1000-2-1)`,
+  `[Overgangsritualer](/sosant1000/sosant1000-4-1)`) i stedet for å duplisere
   gaveteoriens grunnmekanikk — KULKOM bygger videre på den mot forbruk/identitet.
 - **Nye eksempler i Del 6**, ikke gjenbruk av sosant1000s etnografifortellinger
   ordrett (opphavsrett + differensiering): Meyer-Ghana, Nielsen & Wilhite «New

@@ -76,7 +76,7 @@ hele kostnadskurvefamilien MK/TGK/VGK/FGK, nedleggingsbetingelsen med sunk cost)
 det er SOK1002s domene. SØK1011 **tar tilbudssiden som gitt** (konstant enhetskostnad
 `c` eller en enkel kostnadsfunksjon) og analyserer **markedsutfallet**. Der de to
 møtes (marginalkostnad, profittmaksimering, en enkel etterspørselsfunksjon), **kryssrefererer**
-boka til SOK1002 med markdown-lenker (`[tittel](/bok/sok1002/<chapterId>)`) i stedet
+boka til SOK1002 med markdown-lenker (`[tittel](/sok1002/<chapterId>)`) i stedet
 for å gjenta utledningene. Se §7 for den fullstendige arbeidsdelingstabellen.
 
 **Avgrensning nedad mot ECON1210 (UiO):** ECON1210 deler nesten hele temakatalogen,
@@ -650,7 +650,7 @@ Del 0 (kap. 0.1) er studieguidens kjerne. I tillegg skal boka samle:
    (id/number/title/description/estimatedMinutes/topics/prerequisites) etter mønster
    `COURSE_BI_OKONOMI` i `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra
    makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SØK1011 Markeder og markedssvikt».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–N, frekvenstallene, de to regimene
    og avgrensningen (arbeidsdelingen mot SOK1002/ECON1210) som resten refererer til.
@@ -745,7 +745,7 @@ SØK1011 bygger ut vs. hva den forutsetter/kryssrefererer.
 **Møtepunkter (kryssrefereres, ikke gjentas):** marginalkostnad ($C'(y)$),
 profittmaksimering, pristakerbedriftens $p = $ MC, en enkel etterspørselsfunksjon og
 elastisitetsdefinisjonen forutsettes fra SOK1002 og lenkes dit med markdown-lenker
-(`[tittel](/bok/sok1002/<chapterId>)`) i Forkunnskaper-blokkene — SOK1002 utleder dem,
+(`[tittel](/sok1002/<chapterId>)`) i Forkunnskaper-blokkene — SOK1002 utleder dem,
 SØK1011 bruker dem på markedsutfallet. Overlappet er *smalt*: begge bruker MC og
 profittmaks, men SOK1002 utleder tilbudskurven fra kostnadsfunksjonen, mens SØK1011 tar
 den som gitt og analyserer markedsutfallet (marked, markedsmakt, spill, markedssvikt).

@@ -391,8 +391,8 @@ Eksamenstrenings- og øvingseksamenskapitlene (Del 10) har egne oppsett — se �
   **stabilitetsresonnement**. Kapitlet etablerer notasjonen resten av boka bruker.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 1, 2, 5 på tvers av alle sjangre A–K).
   Prioritet: perfekt (meta).
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Kovalent binding](/bok/kjemi1/kjemi1-3-2),
-  [Introduksjon til organisk kjemi](/bok/kjemi1/kjemi1-10-1) (Lewis-strukturer,
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Kovalent binding](/kjemi1/kjemi1-3-2),
+  [Introduksjon til organisk kjemi](/kjemi1/kjemi1-10-1) (Lewis-strukturer,
   strekformler). `collapsible` **Reaksjons- og signalliste:** notasjonssymbolene (krum pil =
   2 e⁻, fiskekrok = 1 e⁻; δ+/δ−; formelle ladninger; kile/strek).
 - **Faktakontrakt (flashcard-kilde):** **SMILES-grunnregler** (kjeder, forgrening med
@@ -430,8 +430,8 @@ Eksamenstrenings- og øvingseksamenskapitlene (Del 10) har egne oppsett — se �
 - **Eksamensbelegg:** Ikke egen oppgave, men forutsetning for aromatisitet (planaritet,
   sp²-p-system), stereokjemi (sp³ = tetraedrisk stereosenter) og syre-base (s-karakter).
   Inngår i G, E, H. Prioritet: grunnlag.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Atomets oppbygging](/bok/kjemi1/kjemi1-1-1),
-  [Elektronkonfigurasjon](/bok/kjemi1/kjemi1-1-2), [Kovalent binding](/bok/kjemi1/kjemi1-3-2).
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Atomets oppbygging](/kjemi1/kjemi1-1-1),
+  [Elektronkonfigurasjon](/kjemi1/kjemi1-1-2), [Kovalent binding](/kjemi1/kjemi1-3-2).
   `collapsible` **Reaksjons- og signalliste:** hybridiseringsapparatet (sp³ 109,5°, sp² 120°,
   sp 180°; σ vs. π; s-karakter ↔ elektronegativitet/surhet).
 - **Faktakontrakt (flashcard-kilde):** **sp³** (4 σ, tetraedrisk, 109,5°), **sp²** (3 σ + 1 π,
@@ -457,8 +457,8 @@ Eksamenstrenings- og øvingseksamenskapitlene (Del 10) har egne oppsett — se �
 - **Eksamensbelegg:** DoU er *kritisk førstesteg* i strukturoppklaring (sjanger A, opg 1,
   14/14). Manglende DoU er typisk feil F3. Prioritet: grunnlag → men konseptuelt **perfekt**
   (bærer Del 5). Sjangre: A.
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Isomeri](/bok/kjemi1/kjemi1-10-3),
-  [Mol og molmasse](/bok/kjemi1/kjemi1-5-1). `collapsible` **Reaksjons- og signalliste:**
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Isomeri](/kjemi1/kjemi1-10-3),
+  [Mol og molmasse](/kjemi1/kjemi1-5-1). `collapsible` **Reaksjons- og signalliste:**
   DoU-formelen, konverteringsregler mellom representasjonene.
 - **Faktakontrakt (flashcard-kilde):** **DoU** $= \dfrac{2C+2+N-H-X}{2}$ (X = halogen; O og
   S teller ikke); tolkning: 1 DoU = én ring **eller** én π-binding; **4 DoU er sterkt
@@ -487,11 +487,11 @@ Eksamenstrenings- og øvingseksamenskapitlene (Del 10) har egne oppsett — se �
 - **Eksamensbelegg:** Forutsetning for de fire bærebjelkene (B, A, C) — man må kjenne igjen
   gruppene for å navngi, tolke spektre og planlegge syntese. Prioritet: perfekt (grunnlag for
   100 %-temaene). Sjangre: B, A, C, I.
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Funksjonelle grupper](/bok/kjemi1/kjemi1-10-2),
-  [Organiske forbindelser og nomenklatur](/bok/kjemi2/kjemi2-8-1),
-  [Alkoholer, aldehyder og ketoner](/bok/kjemi2/kjemi2-8-2),
-  [Karboksylsyrer og estere](/bok/kjemi2/kjemi2-8-3),
-  [Aminer og amider](/bok/kjemi2/kjemi2-8-4). `collapsible` **Reaksjons- og signalliste:**
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Funksjonelle grupper](/kjemi1/kjemi1-10-2),
+  [Organiske forbindelser og nomenklatur](/kjemi2/kjemi2-8-1),
+  [Alkoholer, aldehyder og ketoner](/kjemi2/kjemi2-8-2),
+  [Karboksylsyrer og estere](/kjemi2/kjemi2-8-3),
+  [Aminer og amider](/kjemi2/kjemi2-8-4). `collapsible` **Reaksjons- og signalliste:**
   gruppe → SMILES-mønster → typisk IR-bånd → typisk NMR-skift (fra vedleggstabellene).
 - **Faktakontrakt (flashcard-kilde — stor):** alle sentrale grupper med struktur, SMILES og
   karakteristisk signal: **alkan/alken/alkyn** (C=C ~1650 cm⁻¹, vinylisk H δ 4,5–6,5),
@@ -531,8 +531,8 @@ grunnlagsprøve på eksamensnivå).
   høyest-prioritets-gruppe, nummerer for lavest lokantsett, alfabetiser og multipliser
   substituenter, sett riktig suffiks.
 - **Eksamensbelegg:** Én av fire bærebjelker (sjanger B, 14/14). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.3; [Organiske forbindelser og nomenklatur](/bok/kjemi2/kjemi2-8-1),
-  [Navnsetting av uorganiske forbindelser](/bok/kjemi1/kjemi1-1-4) (grunnprinsipp).
+- **Forkunnskaper/kryssbok:** kap. 1.3; [Organiske forbindelser og nomenklatur](/kjemi2/kjemi2-8-1),
+  [Navnsetting av uorganiske forbindelser](/kjemi1/kjemi1-1-4) (grunnprinsipp).
   `collapsible` **Reaksjons- og signalliste:** navnsettingsalgoritmen som nummererte regler +
   stamnavn C1–C10 + vanlige substituentnavn.
 - **Faktakontrakt (flashcard-kilde):** stamnavn met/et/prop/but/pent/heks/hept/okt/non/dek;
@@ -610,7 +610,7 @@ samlet navnsettingsprøve på eksamensnivå, med framoverlenke til stereo-navn i
 - **Eksamensbelegg:** Sjanger E (13/14); R/S-tildeling er fast delkrav. Molekylbyggesett
   brukes til å se speilbilder. Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 1.1 (sp³ tetraeder), kap. 2.1 (navn);
-  [Isomeri](/bok/kjemi1/kjemi1-10-3). `collapsible` **Reaksjons- og signalliste:**
+  [Isomeri](/kjemi1/kjemi1-10-3). `collapsible` **Reaksjons- og signalliste:**
   CIP-prioritetsreglene + stereobegrepene.
 - **Faktakontrakt (flashcard-kilde):** **kiral** (ikke-superponerbar på speilbildet) vs.
   **akiral**; **stereosenter** (sp³-C med fire ulike grupper); **enantiomerer** (speilbilder,
@@ -722,7 +722,7 @@ på eksamensnivå).
   gi formelle ladninger, forklar stabilisering». Underbygger de fleste begrunnelser (sensorkrav 2).
   Prioritet: kunne → konseptuelt perfekt.
 - **Forkunnskaper/kryssbok:** kap. 1.3, kap. 0.2 (krum pil, formell ladning);
-  [Kovalent binding](/bok/kjemi1/kjemi1-3-2). `collapsible` **Reaksjons- og signalliste:**
+  [Kovalent binding](/kjemi1/kjemi1-3-2). `collapsible` **Reaksjons- og signalliste:**
   resonanspil (dobbelthodet ↔), regler for gyldige resonansstrukturer, bidragsrangering.
 - **Faktakontrakt (flashcard-kilde):** **resonans** (én forbindelse, flere Lewis-bilder som
   deler elektrondelokalisering; ikke likevekt); regler: kun elektroner flyttes (π/ensomme par),
@@ -752,8 +752,8 @@ på eksamensnivå).
   Svar uten begrunnelse er typisk feil F4. Syklopentadien (aromatisk anion) og
   substituenteffekter (NO₂ vs. OCH₃) er faste. Prioritet: kunne.
 - **Forkunnskaper/kryssbok:** kap. 4.1 (resonans), kap. 1.1 (s-karakter);
-  [Syrer og baser - definisjoner](/bok/kjemi1/kjemi1-9-1),
-  [Svake syrer og baser](/bok/kjemi1/kjemi1-9-3). `collapsible` **Reaksjons- og signalliste:**
+  [Syrer og baser - definisjoner](/kjemi1/kjemi1-9-1),
+  [Svake syrer og baser](/kjemi1/kjemi1-9-3). `collapsible` **Reaksjons- og signalliste:**
   pKa-begrepet, de fire stabiliseringsfaktorene, konjugert syre/base.
 - **Faktakontrakt (flashcard-kilde):** **surhet ↔ stabilitet av konjugert base** (mer stabil
   base = sterkere syre = lavere pKa); fire faktorer: (1) **resonans** (karboksylat >> alkoksid);
@@ -788,7 +788,7 @@ NO₂ vs. OCH₃) · 4.D samlet «stabilitet som begrunnelse»-prøve på eksame
   ved hjelp av vedleggstabellen — særlig karbonyl, O–H og C=C/aromat.
 - **Eksamensbelegg:** Del av sjanger A (opg 1, 14/14): IR gir funksjonelle grupper. Sensorkrav 4.
   Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.3; [Spektroskopi](/bok/kjemi1/kjemi1-2-2) (generelt
+- **Forkunnskaper/kryssbok:** kap. 1.3; [Spektroskopi](/kjemi1/kjemi1-2-2) (generelt
   prinsipp: lys ↔ energinivåer — NB dekker atomspektre, ikke IR-detaljene).
   `collapsible` **Reaksjons- og signalliste — IR-tabellen (fast vedlegg, gjengis her i
   fulltekst):** sp³ C–H 2850–2960 · sp C–H ~3300 · C=C 1640–1680 · C≡C 2100–2260 · alkohol
@@ -852,7 +852,7 @@ NO₂ vs. OCH₃) · 4.D samlet «stabilitet som begrunnelse»-prøve på eksame
   grunnstoffdata) molekylformel og DoU — det nyere førstesteget i strukturoppklaring.
 - **Eksamensbelegg:** MS i strukturoppgaven fra 2014 (3/14, stigende); gir molekylformel før
   struktur. Del av sjanger A. Prioritet: kunne (men integreres i 100 %-oppgaven).
-- **Forkunnskaper/kryssbok:** kap. 1.2 (DoU, molekylformel), [Mol og molmasse](/bok/kjemi1/kjemi1-5-1).
+- **Forkunnskaper/kryssbok:** kap. 1.2 (DoU, molekylformel), [Mol og molmasse](/kjemi1/kjemi1-5-1).
   `collapsible` **Reaksjons- og signalliste:** M⁺-ion, m/z, isotopmønster (M+2 for Cl/Br),
   DoU fra formel.
 - **Faktakontrakt (flashcard-kilde):** **molekylion M⁺** (m/z = molekylmasse); jevn/odde masse
@@ -1050,7 +1050,7 @@ aromatisitets- og reaksjonsprediksjonsprøve på eksamensnivå).
 - **Eksamensbelegg:** Sjanger D/I (SN1/SN2 ≈36–50 %); mekanisme + reaktivitetsrangering.
   Sensorkrav 5. Prioritet: kunne.
 - **Forkunnskaper/kryssbok:** kap. 7.1 (karbokation), kap. 3.1 (R/S — inversjon);
-  [Organiske reaksjonstyper](/bok/kjemi2/kjemi2-8-5). `collapsible` **Reaksjons- og
+  [Organiske reaksjonstyper](/kjemi2/kjemi2-8-5). `collapsible` **Reaksjons- og
   signalliste:** SN1/SN2-stegene, faktortabellen (substrat/Nu/UG/løsemiddel).
 - **Faktakontrakt (flashcard-kilde):** **SN2** (ett trinn, ryggangrep, **inversjon** av
   konfigurasjon, favoriseres av 1°-substrat + sterk nukleofil + aprotisk løsemiddel; hastighet
@@ -1106,7 +1106,7 @@ aromatisitets- og reaksjonsprediksjonsprøve på eksamensnivå).
 - **Eksamensbelegg:** Sjanger I/A (addisjon 3–5/14, ozonolyse 4/14). Ozonolyse brukes til
   strukturbakslutning. Prioritet: kjenne → kunne (syntese-input).
 - **Forkunnskaper/kryssbok:** kap. 7.1 (karbokation → Markovnikov);
-  [Alkoholer, aldehyder og ketoner](/bok/kjemi2/kjemi2-8-2). `collapsible` **Reaksjons- og
+  [Alkoholer, aldehyder og ketoner](/kjemi2/kjemi2-8-2). `collapsible` **Reaksjons- og
   signalliste:** Markovnikov, anti-addisjon, ozonolyse-spalting.
 - **Faktakontrakt (flashcard-kilde):** **Markovnikov** (H til det C med flest H → mest stabilt
   karbokation styrer); **anti-addisjon** av $\text{Br}_2$ (via bromoniumion → trans-vicinal
@@ -1133,8 +1133,8 @@ aromatisitets- og reaksjonsprediksjonsprøve på eksamensnivå).
   trinn er hastighetsbestemmende, og markere ΔG‡, ΔG°, intermediat og overgangstilstander.
 - **Eksamensbelegg:** Sjanger K (energidiagram 5/14, 36 %); kobles til SN1/E1/EAS. Prioritet: kunne.
 - **Forkunnskaper/kryssbok:** kap. 7.2 (SN1 to trinn), kap. 6.3 (EAS to trinn);
-  [Energi og entalpi](/bok/kjemi1/kjemi1-6-1) (ΔG/ΔH-begrep, generelt),
-  [Reaksjonsmekanismer](/bok/kjemi2/kjemi2-7-4) (elementærtrinn, hastighetsbestemmende).
+  [Energi og entalpi](/kjemi1/kjemi1-6-1) (ΔG/ΔH-begrep, generelt),
+  [Reaksjonsmekanismer](/kjemi2/kjemi2-7-4) (elementærtrinn, hastighetsbestemmende).
   `collapsible` **Symbol- og formelliste:** G, ΔG‡, ΔG°, overgangstilstand (‡), intermediat.
 - **Faktakontrakt (flashcard-kilde):** **overgangstilstand** (energitopp, kan ikke isoleres,
   ‡) vs. **intermediat** (lokal energidal, f.eks. karbokation); **ΔG‡** (aktiveringsbarriere,
@@ -1167,7 +1167,7 @@ energidiagram på eksamensnivå).
   optisk aktivitet av produktet. Typisk feil F10 (racemisk produkt). Prioritet: perfekt (for
   Grignard-delen).
 - **Forkunnskaper/kryssbok:** kap. 7.2 (nukleofil addisjon), kap. 3.1 (nytt stereosenter →
-  racemat); [Alkoholer, aldehyder og ketoner](/bok/kjemi2/kjemi2-8-2). `collapsible`
+  racemat); [Alkoholer, aldehyder og ketoner](/kjemi2/kjemi2-8-2). `collapsible`
   **Reaksjons- og signalliste:** karbonyl-polaritet, Grignard-stegene, tørr-eter/opparbeiding.
 - **Faktakontrakt (flashcard-kilde):** **karbonyl** C=O (C er δ+, elektrofilt; O er δ−);
   **Grignard-reagens** RMgX (nukleofilt/basisk C, lages i **tørr eter** — reagerer voldsomt
@@ -1196,7 +1196,7 @@ energidiagram på eksamensnivå).
 - **Eksamensbelegg:** Sjanger D (ester/acetal 11/14, 79 %); «tegn full mekanisme, forklar hvert
   trinn». Sensorkrav 5 (piler + katalysator gjendannes). Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 8.1 (karbonyl-addisjon), kap. 0.2 (piler);
-  [Karboksylsyrer og estere](/bok/kjemi2/kjemi2-8-3). `collapsible` **Reaksjons- og
+  [Karboksylsyrer og estere](/kjemi2/kjemi2-8-3). `collapsible` **Reaksjons- og
   signalliste:** ester-/acetalmekanismenes steg, tetraedrisk intermediat, sur vs. basisk vei.
 - **Faktakontrakt (flashcard-kilde):** **syrekatalysert esterdanning** (Fischer): protonering
   av karbonyl → nukleofilt angrep av alkohol → tetraedrisk intermediat →
@@ -1228,9 +1228,9 @@ energidiagram på eksamensnivå).
 - **Eksamensbelegg:** Sjanger J (utbytte 8/14, 57 %); «gratis poeng» for den som kan mol-regning,
   men krever riktig begrensende reaktant og molmasse. Sensorkrav 7. Typisk feil F8. Prioritet:
   perfekt (den faste regnepotten).
-- **Forkunnskaper/kryssbok:** [Mol og molmasse](/bok/kjemi1/kjemi1-5-1),
-  [Støkiometriske beregninger](/bok/kjemi1/kjemi1-5-3),
-  [Syntese og utbytte](/bok/kjemi2/kjemi2-8-6). `collapsible` **Symbol- og formelliste:**
+- **Forkunnskaper/kryssbok:** [Mol og molmasse](/kjemi1/kjemi1-5-1),
+  [Støkiometriske beregninger](/kjemi1/kjemi1-5-3),
+  [Syntese og utbytte](/kjemi2/kjemi2-8-6). `collapsible` **Symbol- og formelliste:**
   $n=m/M$, begrensende reaktant, $\%\text{utbytte} = 100\%\cdot n_\text{produkt}/n_\text{teoretisk}$
   (molmasser fra periodesystemet — gis i vedlegget).
 - **Løsningsoppskrift:** (1) balanser reaksjonen; (2) regn mol av hver reaktant ($n=m/M$);
@@ -1258,7 +1258,7 @@ ester-/acetalmekanisme (sur + basisk, regenerert katalysator) · 8.C utbyttebere
   → produkt), fordi syntese premieres på å kjenne repertoaret — bokas «reaksjonsbank».
 - **Eksamensbelegg:** Sjanger C (13/14); man må ha reaksjonene «i hodet». Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** Del 6–8 (EAS, addisjon/eliminasjon/substitusjon, karbonyl);
-  [Organiske reaksjonstyper](/bok/kjemi2/kjemi2-8-5). `collapsible` **Reaksjons- og
+  [Organiske reaksjonstyper](/kjemi2/kjemi2-8-5). `collapsible` **Reaksjons- og
   signalliste:** hele reaksjonsbanken (fram- og bakside: transformasjon ↔ reagens).
 - **Faktakontrakt (flashcard-kilde — stor):** for hver: reagens + betingelser + produkt +
   funksjonell-gruppe-endring: **halogenering** (alken + HX/X₂; radikal på alkan nevnes),
@@ -1285,7 +1285,7 @@ ester-/acetalmekanisme (sur + basisk, regenerert katalysator) · 8.C utbyttebere
 - **Eksamensbelegg:** Sjanger C (13/14); «angi reagenser og strukturer for mellomprodukter».
   Delvis uttelling per korrekt trinn (sensorkrav 8). Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 9.1 (repertoaret), Del 6–8.
-  [Syntese og utbytte](/bok/kjemi2/kjemi2-8-6). `collapsible` **Reaksjons- og signalliste:**
+  [Syntese og utbytte](/kjemi2/kjemi2-8-6). `collapsible` **Reaksjons- og signalliste:**
   retrosyntese-symbolikk (⇒), disконnektering, byggekloss-tenkning.
 - **Faktakontrakt (flashcard-kilde):** **retrosyntese** (analyse baklengs, ⇒ = «lages fra»);
   **disconnection** (bryt en C–C/C–X-binding til synton/byggekloss); C–C-bindingsdannende

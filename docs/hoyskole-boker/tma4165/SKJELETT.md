@@ -411,8 +411,8 @@ Eksamenstreningskapitlene (Del 9) har egne oppsett — se §3 og §4.
   notasjonen resten av boka bruker.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 1–5 på tvers av alle sjangre). ~93 % av
   settene ber om minst én skisse. Prioritet: perfekt (meta).
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Derivasjon og funksjonsanalyse](/bok/r2/r2-1-1)
-  `(verifiser lenke)`, [Vektorer og lineær algebra](/bok/tma4110/tma4110-1-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Derivasjon og funksjonsanalyse](/r2/r2-1-1)
+  `(verifiser lenke)`, [Vektorer og lineær algebra](/tma4110/tma4110-1-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** $\dot x,\dot y$; nullkliner; $\mathbf v$
   (egenvektor); orienteringspil; $\dot\theta$.
 - **Faktakontrakt (flashcard-kilde):** **fasplan-elementene** — likevektspunkt (der
@@ -450,8 +450,8 @@ Eksamenstreningskapitlene (Del 9) har egne oppsett — se §3 og §4.
   høyere-ordens ODE skrives om til et system. Fundamentet for alt videre.
 - **Eksamensbelegg:** Ikke egen oppgave, men forutsetning for alle sjangre. Innramming for A,
   B, E. Prioritet: grunnlag.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Differensiallikninger](/bok/tma4110/tma4110-8-1)
-  `(verifiser lenke)`, [Derivasjon](/bok/r2/r2-1-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Differensiallikninger](/tma4110/tma4110-8-1)
+  `(verifiser lenke)`, [Derivasjon](/r2/r2-1-1) `(verifiser lenke)`.
 - **Faktakontrakt (flashcard-kilde):** **autonomt system** ($f$ uavhengig av $t$),
   **fasrom/fasplan**, **bane (trajektorie)** vs. løsningskurve i $(t,\mathbf x)$-rom, **flyt**
   $\varphi_t$, **likevektspunkt** ($f(\mathbf x^\*)=0$); omskriving $x^{(n)}=g$ →
@@ -475,7 +475,7 @@ Eksamenstreningskapitlene (Del 9) har egne oppsett — se §3 og §4.
 - **Eksamensbelegg:** Sjanger H (~60 % i moderne æra): «vis med et Grönwall-estimat at IVP-et
   ikke kan ha mer enn én løsning» (V17 O7), kontinuerlig avhengighet med perturbasjonsledd.
   2021-fasiten krever eksistens OG entydighet (F3). Prioritet: kunne (fundament).
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Integrasjon](/bok/r2/r2-3-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Integrasjon](/r2/r2-3-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** Lipschitz-konstant $L$; $\sigma(t)=|x_1-x_2|^2$;
   integrerende faktor $e^{-Lt}$.
 - **Faktakontrakt (flashcard-kilde):** **Lipschitz-betingelse** ($\|f(\mathbf x)-f(\mathbf y)\|\le L\|\mathbf x-\mathbf y\|$);
@@ -531,8 +531,8 @@ grunnlagsprøve på eksamensnivå).
 - **Eksamensbelegg:** Sjanger A/O. Løsningsbasisen er forutsetning for klassifikasjon (2.2) og
   brukes direkte når O1 ber om «finn generell løsning / $e^{tA}$» (~20 %, O). Prioritet:
   grunnlag for søylen (perfekt).
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Egenverdier og egenvektorer](/bok/tma4110/tma4110-6-1)
-  `(verifiser lenke)`, [Komplekse tall](/bok/tma4110/tma4110-2-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Egenverdier og egenvektorer](/tma4110/tma4110-6-1)
+  `(verifiser lenke)`, [Komplekse tall](/tma4110/tma4110-2-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** $A,\lambda,\mathbf v$; $\Phi(t)$; $e^{tA}$;
   $\alpha\pm i\beta$.
 - **Faktakontrakt (flashcard-kilde):** **reelle distinkte egenverdier** → basis
@@ -611,7 +611,7 @@ samlet lineær-fasplan-prøve på eksamensnivå).
   og teoremets grenser (sentre/ikke-hyperbolske punkt).
 - **Eksamensbelegg:** Sjanger B (~87 %): «finn og klassifisér alle likevektspunkt for
   $\dot x=x+y-2,\ \dot y=x^2+2x-y-2$, og avgjør stabilitet» (V18 O4). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 2.2; [Partiellderivasjon](/bok/tma4101/tma4101-2-1)
+- **Forkunnskaper/kryssbok:** kap. 2.2; [Partiellderivasjon](/tma4101/tma4101-2-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $J=(\partial f_i/\partial x_j)$;
   hyperbolsk; realdel $\operatorname{Re}\lambda$.
 - **Faktakontrakt (flashcard-kilde):** **Jacobimatrise** $J=\partial(f)/\partial(x)$;
@@ -713,7 +713,7 @@ eksamensnivå).
 - **Eksamensbelegg:** Sjanger D (~80 %): «regn ut indeksen til origo for $\dot x=x^2-y^2,\
   \dot y=-2xy$» (V13 O4 — svar $-2$ via $f=\bar z^2$-argument `(verifiser fortegn/orientering)`).
   Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 2.2; [Komplekse tall](/bok/tma4110/tma4110-2-1)
+- **Forkunnskaper/kryssbok:** kap. 2.2; [Komplekse tall](/tma4110/tma4110-2-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $I$; $I_\infty$;
   $\tan\theta=\dot y/\dot x$; sum-regelen.
 - **Faktakontrakt (flashcard-kilde):** **indeks** $I=\tfrac{1}{2\pi}\oint d\theta$ med
@@ -868,7 +868,7 @@ periodisk-løsning-prøve på eksamensnivå).
 - **Eksamensbelegg:** Sjanger I (~53 %): «vis at $\dot x=x^2y+2y^3,\ \dot y=-2x^3-xy^2$ er
   Hamiltonsk og finn $H$» (K19/V19 O4 — $H=\tfrac12(x^4+x^2y^2+y^4)$, verifisert
   divergensfri). Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 3.1; [Gradient og partiellderivasjon](/bok/tma4101/tma4101-2-1)
+- **Forkunnskaper/kryssbok:** kap. 3.1; [Gradient og partiellderivasjon](/tma4101/tma4101-2-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $H$; $\dot x=H_y,\dot y=-H_x$;
   Hessematrise; nivåkurve.
 - **Faktakontrakt (flashcard-kilde):** **Hamilton-system** $\dot x=H_y,\ \dot y=-H_x$ ⇔

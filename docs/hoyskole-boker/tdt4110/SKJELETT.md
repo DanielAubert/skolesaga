@@ -877,7 +877,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 7. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert som
    kapitlene ferdigstilles; prøvene (§6) legges i respektive delers prøvekapittel/
    exercise-seksjoner.
-8. **Navigasjon**: legg emnet inn i `src/app/bok/trinn/hoyere/institusjoner.ts` under
+8. **Navigasjon**: legg emnet inn i `src/app/trinn/hoyere/institusjoner.ts` under
    **NTNU**, navn = «TDT4110 Informasjonsteknologi grunnkurs».
 
 ### Sjekkliste før «ferdig»

@@ -40,10 +40,10 @@ I denne rekkefølgen (læringsløkker styrer det MELLOM 1b og siste):
 1. `tip` **Eksamensvinkel** — frekvens/vekt/sjangre + regimemerke, fra
    skjelettets Eksamensbelegg. Bruk de EKSAKTE tallene fra skjelettet.
 2. `text` **Forkunnskaper** — kapitler i denne boka (nevn kap.nr som
-   markdown-lenke `[kap. X.Y](/bok/mat1110/mat1110-X-Y)`) + kryssbok-lenker.
+   markdown-lenke `[kap. X.Y](/mat1110/mat1110-X-Y)`) + kryssbok-lenker.
    MAT1100-referanser skrives som KLARTEKST med aktiveringsmarkør *(MAT1100
    kap. X.Y — forgjengerbok, ikke bygget ennå; aktiver lenke når den finnes)* —
-   ALDRI som `/bok/mat1100/...`-lenke (mat1100 bygges parallelt; lenken ville
+   ALDRI som `/mat1100/...`-lenke (mat1100 bygges parallelt; lenken ville
    vært død nå). R1/R2/S2/1T-lenker brukes normalt KUN til kapitler som finnes
    (se «Verifiserte kryssbok-lenker» nederst). Tunge kapitler langt fra
    forkunnskapen: VIS de 2–3 nøkkelformlene oppfrisket («Sist du var her»).
@@ -190,7 +190,7 @@ Kvote per kapittel = skjelettets §3 kvotesammendrag (AUTORITATIVT). Distraktore
 = reelle feller fra skjelettets «Typiske feil». Se lengde-regelen over.
 
 ## Verifiserte kryssbok-lenker (KUN disse er bekreftet å finnes)
-Bruk skjelettets Forkunnskaper-lenker. Før du wirer en `/bok/<annet>/...`-lenke:
+Bruk skjelettets Forkunnskaper-lenker. Før du wirer en `/<annet>/...`-lenke:
 sjekk at `src/lib/data/chapters/<id>.json` finnes. MAT1100 = ALLTID klartekst
 med aktiveringsmarkør (ikke lenke). Byggeleder verifiserer alle kryssbok-lenker
 mot disk før wiring; en død lenke feiler BOKPORT.

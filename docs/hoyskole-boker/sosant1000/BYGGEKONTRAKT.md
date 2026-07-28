@@ -179,7 +179,7 @@ unike i kapitlet. Duplikate blokk-id-er felles av kvalitetsporten.
    kapittel («Slektskap i 8 av 11 sett»). **Forfatteren skal ALDRI finne på
    frekvenstall**, og nevneren er alltid **11 sett** (§6.1).
 2. `text` **Forkunnskaper** — kapitler i boka som markdown-lenker
-   (`[kap. 1.1](/bok/sosant1000/sosant1000-1-1)`) + eventuelle kryssbok-lenker
+   (`[kap. 1.1](/sosant1000/sosant1000-1-1)`) + eventuelle kryssbok-lenker
    fra tabellen i §13. «Dette kapitlet kan leses uten forkunnskaper» der
    skjelettet sier `prerequisites: ingen`. **«Sist du var her»:** i kapitler med
    stor avstand til forkunnskapen (6.1 bygger på 1.2; 8.1 på 7.1; hele Del 9 på
@@ -867,7 +867,7 @@ og langsvarene er ifølge veiledningene «med vilje laget relativt åpne».
   settes på egne linjer. Gjelder særlig de tre pliktene og de tre rituelle
   fasene — de skal uansett stå som egne linjer, i rekkefølge.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/sosant1000/sosant1000-X-Y)`. Død «se kapittel
+  markdown-lenke `[kap. X.Y](/sosant1000/sosant1000-X-Y)`. Død «se kapittel
   X.Y»-tekst er FORBUDT. Aldri lenker i `title`-felt.
 - **Karakter-realisme:** Del 0 sier eksplisitt at **C er en god og vanlig
   karakter**, særlig i et innføringsemne der mange er i sitt første semester og
@@ -1172,15 +1172,15 @@ stiene:
 
 | Kapittel | Lenke |
 |---|---|
-| 1.1 | `[Hva er sosialantropologi?](/bok/sosiologi/sosiologi-1-2)` |
-| 1.2 | `[Kultur – begreper og perspektiver](/bok/sosiologi/sosiologi-2-3)`, `[Etnosentrisme og kulturrelativisme](/bok/sosiologi/sosiologi-2-4)` |
-| 1.4 | `[Kvalitative metoder](/bok/sosiologi/sosiologi-6-1)` |
-| 3.1 | `[Familie og familieformer](/bok/sosiologi/sosiologi-3-1)` |
-| 3.2 | `[Kjønn og kjønnsroller](/bok/sosiologi/sosiologi-4-1)` |
-| 3.3 | `[Sosial ulikhet – begreper og perspektiver](/bok/sosiologi/sosiologi-3-3)`, `[Rasisme og diskriminering](/bok/sosiologi/sosiologi-5-6)` |
-| 5.1 / 5.2 | `[Globalisering – prosesser og perspektiver](/bok/sosiologi/sosiologi-5-3)` |
-| 7.1 | `[Makt – teorier og perspektiver](/bok/sosiologi/sosiologi-4-3)` |
-| 0.3 | `[Drøftingshåndverket og sensorens fem krav](/bok/exphil03/exphil03-0-2)` (valgfri — beslektet drøftingshåndverk i et annet fag; presiser at kravene der er exphil-krav, ikke SOSANT1000s fire vurderingsakser) |
+| 1.1 | `[Hva er sosialantropologi?](/sosiologi/sosiologi-1-2)` |
+| 1.2 | `[Kultur – begreper og perspektiver](/sosiologi/sosiologi-2-3)`, `[Etnosentrisme og kulturrelativisme](/sosiologi/sosiologi-2-4)` |
+| 1.4 | `[Kvalitative metoder](/sosiologi/sosiologi-6-1)` |
+| 3.1 | `[Familie og familieformer](/sosiologi/sosiologi-3-1)` |
+| 3.2 | `[Kjønn og kjønnsroller](/sosiologi/sosiologi-4-1)` |
+| 3.3 | `[Sosial ulikhet – begreper og perspektiver](/sosiologi/sosiologi-3-3)`, `[Rasisme og diskriminering](/sosiologi/sosiologi-5-6)` |
+| 5.1 / 5.2 | `[Globalisering – prosesser og perspektiver](/sosiologi/sosiologi-5-3)` |
+| 7.1 | `[Makt – teorier og perspektiver](/sosiologi/sosiologi-4-3)` |
+| 0.3 | `[Drøftingshåndverket og sensorens fem krav](/exphil03/exphil03-0-2)` (valgfri — beslektet drøftingshåndverk i et annet fag; presiser at kravene der er exphil-krav, ikke SOSANT1000s fire vurderingsakser) |
 
 Kryssbok-lenkene rammes ALLTID inn som «repetisjon fra videregående — dekker
 grunnideen, men SOSANT1000 krever pensumforankring og etnografisk belegg i
@@ -1192,7 +1192,7 @@ avviser døde lenker, og en død lenke i en live bok er en synlig feil for
 leseren.
 
 Interne lenker (innad i sosant1000) skrives som
-`[kap. 2.1](/bok/sosant1000/sosant1000-2-1)` og skal kun peke på kapitler som
+`[kap. 2.1](/sosant1000/sosant1000-2-1)` og skal kun peke på kapitler som
 allerede er bygget når boka gates. Bygg i skjelettets rekkefølge (§6 i
 skjelettet): Del 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → prøver. Merk at 1.2 må
 stå ferdig FØR 6.1, og 7.1 FØR 8.1.

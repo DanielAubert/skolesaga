@@ -181,7 +181,7 @@ frekvensen styrer i stedet *omfanget*.
 **Kryssbok-lenker (forkunnskaper):** Grunnleggende sannsynlighetsregning, diskrete/
 kontinuerlige fordelinger, forventning/varians og ett-utvalgs-inferens forutsettes
 fra ECON2130 Statistikk 1 (og ekvivalent STK1100/STK1110). Lenk der det er
-naturlig med `[tittel](/bok/econ2130/<chapterId>)` — men **verifiser at
+naturlig med `[tittel](/econ2130/<chapterId>)` — men **verifiser at
 kapittel-id-en finnes og er live før lenking** *(verifiser: econ2130/stk1110 har
 status «skjelett», ikke nødvendigvis bygget ennå)*. Derivasjon, integrasjon og
 kjerneregelen forutsettes fra R1/R2/kalkulus — lenk til S2/R2-bøkene der det er

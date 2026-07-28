@@ -239,14 +239,14 @@ konstruksjon med linjal (tverrgående). Prioritetsklasser: **perfekt** (nivå 1)
 (MAT1120)** og **kalkulus/analytisk geometri (MAT1100/MAT1110)**. Disse er ikke
 bygget som bøker ennå; referanser dit skrives som **klartekst** med markøren
 *(MAT1120 Lineær algebra / MAT1100–1110 Kalkulus — forkunnskapsemne, ikke bygget
-som bok ennå; aktiver `/bok/<emne>/<id>`-lenke når den finnes)*. Referanser til
+som bok ennå; aktiver `/<emne>/<id>`-lenke når den finnes)*. Referanser til
 **bygde** bøker lenkes normalt (kun til kapitler som finnes — verifiseres i fase
 6): **R2** dekker vektorer i rommet, skalar-/vektorprodukt og komplekse tall fra
-VGS ([Vektorer i tre dimensjoner](/bok/r2/r2-5-1), [Bevis og matematisk
-argumentasjon](/bok/r2/r2-6-6)); **R1** dekker plangeometri og bevisføring;
+VGS ([Vektorer i tre dimensjoner](/r2/r2-5-1), [Bevis og matematisk
+argumentasjon](/r2/r2-6-6)); **R1** dekker plangeometri og bevisføring;
 **Matematikk for økonomer** (`bi-okonomi`, Høyskole) dekker matriser og
-determinanter ([Matriser og matriseregning](/bok/bi-okonomi/bi-okonomi-9-1),
-[Determinanter og invers matrise](/bok/bi-okonomi/bi-okonomi-9-2)). Alle
+determinanter ([Matriser og matriseregning](/bi-okonomi/bi-okonomi-9-1),
+[Determinanter og invers matrise](/bi-okonomi/bi-okonomi-9-2)). Alle
 kryssbok-lenker verifiseres i fase 6; usikre id-er merkes `(verifiser)`.
 
 ---
@@ -272,7 +272,7 @@ kryssbok-lenker verifiseres i fase 6; usikre id-er merkes `(verifiser)`.
 - **id:** `mat2500-0-2` · **number:** 0.2 · **estimatedMinutes:** 50 · **prerequisites:** `mat2500-0-1`
 - **kapitteltype:** teori (metode)
 - **description:** Den bærende tverrferdigheten i et blandingsemne: hvordan du leser oppgaveverbet og fører svaret i riktig modus — et konkret eksakt uttrykk (finn), et navngitt-teorem-bevis (vis at), en korrekt merket figur (tegn) eller en linjal-prosedyre (konstruer) — pluss hva sensor (utledet) ser etter i hver modus.
-- **Forkunnskaper (kryssbok):** Kap. 0.1. Generell bevisføring fra VGS: [Bevis og matematisk argumentasjon](/bok/r2/r2-6-6) (direkte bevis, kontrapositiv, moteksempel). *(MAT1100–1110 — analytisk geometri; ikke bygget; aktiver lenke når den finnes)*.
+- **Forkunnskaper (kryssbok):** Kap. 0.1. Generell bevisføring fra VGS: [Bevis og matematisk argumentasjon](/r2/r2-6-6) (direkte bevis, kontrapositiv, moteksempel). *(MAT1100–1110 — analytisk geometri; ikke bygget; aktiver lenke når den finnes)*.
 - **Symbol- og formelliste (collapsible):** oppgaveverbene finn/vis/begrunn/tegn/konstruer; modus-symbolene $\Rightarrow$, $\Leftrightarrow$; «eksakt svar» (brøk, $\sqrt{}$, $\pi$) vs. desimal.
 - **Eksamensbelegg:** Metaregel-kapittel bygget på oppgaveverbene i alle 6 sett: formuleringene veksler bevisst mellom «Finn …», «Vis at …/Begrunn/Forklar hvorfor …», «Tegn …» og «Konstruer …». `(verifiser)` — at hver modus teller separat er utledet av verbene, ikke av fasit. Prioritet: **perfekt** (ferdigheten bærer uttelling i alle deler).
 - **Innholdskontrakt:** **Modus 1 — Regne (finn):** produser et eksakt, entydig svar (likning, koordinatsett, vinkel, forhold); vis nok mellomregning til at svaret kan følges; svar eksakt, aldri desimal. **Modus 2 — Bevise (vis at/begrunn):** direkte bevis / kontrapositiv / moteksempel; **navngi teoremet** som bærer hvert steg (Ceva, Menelaos, Euler, speilingssammensetning, gjensidighetsprinsippet), sjekk forutsetningene, trekk konklusjonen eksplisitt; skill $\Rightarrow$ og $\Leftrightarrow$. **Modus 3 — Tegne (figur som svar):** en korrekt, forklarende figur — merk akser, punkter, linjer, vinkler, symmetriakser; figuren skal stemme med konfigurasjonen (regel 1.5.3). **Modus 4 — Konstruere (passer/linjal):** oppgi prosedyren steg for steg (trekk linje, marker skjæring), oppgavetypen er som regel «finn punkt ved å trekke linjer og markere skjæring» (detaljert i kap. 0.3). Én fullstendig gjennomgang av samme lille konfigurasjon i alle fire modi (f.eks. en rotasjon om origo: finn bildet av et punkt / vis at den bevarer avstand / tegn et symmetrisk mønster / konstruer et fikspunkt), annotert med hva sensor (utledet) ser etter i hver modus.
@@ -306,7 +306,7 @@ kryssbok-lenker verifiseres i fase 6; usikre id-er merkes `(verifiser)`.
 - **id:** `mat2500-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat2500-0-2`
 - **kapitteltype:** teori
 - **description:** De fire plane isometriene — translasjon, rotasjon, speiling, glidespeiling — hver med de dataene sensor krever navngitt (vektor; sentrum + vinkel; linje; linje + vektor), skrevet som affine avbildninger og gjenkjent på fikspunktmengde og orientering.
-- **Forkunnskaper (kryssbok):** Kap. 0.2. Vektorer og koordinater: [Vektorer i tre dimensjoner](/bok/r2/r2-5-1) (vektor, lengde — todimensjonal analog). *(MAT1120 — lineære avbildninger/matriser; ikke bygget; aktiver lenke)*.
+- **Forkunnskaper (kryssbok):** Kap. 0.2. Vektorer og koordinater: [Vektorer i tre dimensjoner](/r2/r2-5-1) (vektor, lengde — todimensjonal analog). *(MAT1120 — lineære avbildninger/matriser; ikke bygget; aktiver lenke)*.
 - **Symbol- og formelliste (collapsible):** $E^2$; $t_a$ (translasjon, vektor $a$); $\rho$, $\rho_\theta$ (rotasjon, sentrum + vinkel $\theta$); $s_\ell$ (speiling om linje $\ell$); glidespeiling (linje + vektor langs linja); fikspunkt $P$ med $f(P)=P$; orientering (bevart/reversert); affin form $x\mapsto Ax+b$.
 - **Eksamensbelegg:** Grunnlaget for sjanger A (~100 %, Oppgave 1), konstant begge epoker. `(verifiser)`: at typen skal navngis med alle data er lest av verbene «Vis at … er en rotasjon» + «finn fikspunkt og vinkel». Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Isometri** (avstandsbevarende avbildning $E^2\to E^2$); de fire typene og klassifikasjonssetningen (enhver plan isometri er en av de fire, og er sammensetning av høyst tre speilinger). **Definerende data per type:** translasjon → vektor $a$, ingen fikspunkt (unntatt identiteten); rotasjon $\rho_\theta$ → sentrum + vinkel, ett fikspunkt; speiling $s_\ell$ → akse $\ell$, en hel linje fikspunkter, reverserer orientering; glidespeiling → akse + translasjonsvektor langs aksen, ingen fikspunkt, reverserer orientering. **Diagnose:** orientering (bevart = translasjon/rotasjon; reversert = speiling/glidespeiling) kombinert med fikspunktmengde skiller de fire. Skriv hver isometri som affin avbildning $x\mapsto Ax+b$ ($A$ ortogonal). Figurforpliktelse: tegn et punkt og bildet under hver av de fire typene, med akse/sentrum/vektor merket.
@@ -389,7 +389,7 @@ kryssbok-lenker verifiseres i fase 6; usikre id-er merkes `(verifiser)`.
 - **id:** `mat2500-2-2` · **number:** 2.2 · **estimatedMinutes:** 55 · **prerequisites:** `mat2500-2-1`
 - **kapitteltype:** teori (regnemaskin ii)
 - **description:** Den andre garanterte maskinen, ren mekanikk: skjæringspunktet av to linjer er kryssproduktet av koeffisientvektorene, og linja gjennom to punkter er kryssproduktet av punktvektorene — samme operasjon, dualt anvendt, med insidens-sjekk.
-- **Forkunnskaper (kryssbok):** Kap. 2.1. Kryssprodukt (vektorprodukt) av 3-vektorer: [Vektorer i tre dimensjoner](/bok/r2/r2-5-1) (R2, vektorprodukt) `(verifiser id)`.
+- **Forkunnskaper (kryssbok):** Kap. 2.1. Kryssprodukt (vektorprodukt) av 3-vektorer: [Vektorer i tre dimensjoner](/r2/r2-5-1) (R2, vektorprodukt) `(verifiser id)`.
 - **Symbol- og formelliste (collapsible):** kryssprodukt $a\times b$; skjæringspunkt $P=a\times b$ (av linjer $a,b$); forbindelseslinje $\ell=P\times Q$ (av punkter $P,Q$); insidens $a\cdot P=0$; determinant-formel for $\times$.
 - **Eksamensbelegg:** **Kjernen i den projektive oppgaven** (~100 %), konstant. `(verifiser)`. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Kryssprodukt-maskinen (regnemaskin ii):** **skjæringspunktet** av to projektive linjer $a$ og $b$ er $P=a\times b$ (kryssproduktet av koeffisientvektorene); **linja gjennom to punkter** $P$ og $Q$ er $\ell=P\times Q$ (kryssproduktet av punktvektorene). Det er **samme operasjon**, dualt anvendt — dette er dualitetsprinsippet i regneform. Bekreft alltid resultatet ved **insidens** ($a\cdot P=0$, $b\cdot P=0$). Tolk et resultat med $x_0=0$ som et uendelig punkt (parallelle linjer). Theorem-blokk med kort utledning (hvorfor kryssproduktet gir insidens: $a\cdot(a\times b)=0$ identisk). Håndter normalisering (svaret er en klasse opp til skalering — «pen» representant velges). Figurforpliktelse: tegn to linjer og skjæringspunktet, eller to punkter og forbindelseslinja.
@@ -402,7 +402,7 @@ kryssbok-lenker verifiseres i fase 6; usikre id-er merkes `(verifiser)`.
 - **id:** `mat2500-2-3` · **number:** 2.3 · **estimatedMinutes:** 50 · **prerequisites:** `mat2500-2-2`
 - **kapitteltype:** teori
 - **description:** Dualitetsprinsippet gjort operativt: tre punkter er kollineære når determinanten av punktvektorene er null (dualt: tre linjer er konkurrente når determinanten av koeffisientvektorene er null), og hvordan hvert projektivt utsagn har et dualt motstykke.
-- **Forkunnskaper (kryssbok):** Kap. 2.2. Determinant av 3×3: [Determinanter og invers matrise](/bok/bi-okonomi/bi-okonomi-9-2).
+- **Forkunnskaper (kryssbok):** Kap. 2.2. Determinant av 3×3: [Determinanter og invers matrise](/bi-okonomi/bi-okonomi-9-2).
 - **Symbol- og formelliste (collapsible):** kollinearitet $\det[P\,Q\,R]=0$; konkurrens $\det[a\,b\,c]=0$; dualitetsprinsippet (punkt↔linje, ligge på↔gå gjennom, kollineær↔konkurrent).
 - **Eksamensbelegg:** Del av sjanger C (~100 %), og bro til projektiv dualitet i Del 3 (kryssforhold/pol–polar, sen epoke). `(verifiser)`. Prioritet: **kunne** (høy).
 - **Innholdskontrakt:** **Kollinearitet:** tre punkter $P,Q,R$ er kollineære ⇔ $\det[P\;Q\;R]=0$ (punktvektorene lineært avhengige) ⇔ $R$ ligger på linja $P\times Q$. **Konkurrens (dualt):** tre linjer $a,b,c$ møtes i ett punkt ⇔ $\det[a\;b\;c]=0$. **Dualitetsprinsippet:** bytt «punkt» ↔ «linje», «ligger på» ↔ «går gjennom», «kollineær» ↔ «konkurrent» — hvert sant projektivt utsagn gir et sant dualt utsagn (grunnlaget for at tre linjers poler er kollineære, kap. 3.3). Bruk determinanten til å avgjøre kollinearitet/konkurrens uten å regne ut skjæringspunkter. Figurforpliktelse: tegn tre kollineære punkter og deres duale (tre konkurrente linjer).
@@ -579,7 +579,7 @@ kryssbok-lenker verifiseres i fase 6; usikre id-er merkes `(verifiser)`.
 - **id:** `mat2500-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat2500-0-2`
 - **kapitteltype:** teori (regnemaskin iv, del A)
 - **description:** Cevas setning: cevianene AD, BE, CF i en trekant er konkurrente ⇔ produktet av de tre delforholdene er 1 — verktøyet for å bevise at tre linjer møtes i ett punkt, ofte via delforhold fra tangentlengder eller innskrevet sirkel.
-- **Forkunnskaper (kryssbok):** Kap. 0.2. Trekantgeometri og delforhold fra VGS: R1-geometri `(verifiser id)`; bevisføring: [Bevis og matematisk argumentasjon](/bok/r2/r2-6-6).
+- **Forkunnskaper (kryssbok):** Kap. 0.2. Trekantgeometri og delforhold fra VGS: R1-geometri `(verifiser id)`; bevisføring: [Bevis og matematisk argumentasjon](/r2/r2-6-6).
 - **Symbol- og formelliste (collapsible):** $\triangle ABC$; cevianer $AD,BE,CF$; delforhold $\tfrac{BD}{DC}$; Cevas betingelse $\tfrac{BD}{DC}\cdot\tfrac{CE}{EA}\cdot\tfrac{AF}{FB}=1$; konkurrens.
 - **Eksamensbelegg:** Grunnlaget for sjanger F (~65 %, bærer tidlig epoke). `(verifiser)`. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Cevas setning:** cevianene $AD, BE, CF$ i $\triangle ABC$ er **konkurrente** ⇔ $\dfrac{BD}{DC}\cdot\dfrac{CE}{EA}\cdot\dfrac{AF}{FB}=1$ (produkt av delforhold, syklisk rekkefølge, positive forhold for indre punkter). Bruk: bevis konkurrens ved å regne ut de tre delforholdene og vise at produktet er $1$; delforholdene kommer ofte fra **tangentlengder** (innskrevet sirkel tangerer i $D,E,F$: like tangentlengder fra hvert hjørne gir delforholdene) eller fra en radiusrelasjon. Bevis-sjanger: sett opp delforholdene korrekt, navngi Ceva, trekk konklusjonen. Theorem-blokk (regnemaskin iv, del A) med bevisskisse. Figurforpliktelse: tegn trekanten med de tre cevianene og fellespunktet.
@@ -636,7 +636,7 @@ kryssbok-lenker verifiseres i fase 6; usikre id-er merkes `(verifiser)`.
 - **id:** `mat2500-7-1` · **number:** 7.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat2500-1-1`
 - **kapitteltype:** teori
 - **description:** Geometri i rommet: isometrier og rotasjoner om en akse i E³, konvekse polyedre, og kriteriet for regulære (Platonske) legemer — kongruente likesidede sideflater OG samme antall flater i hvert hjørne (den kritiske «hjørnebetingelsen»).
-- **Forkunnskaper (kryssbok):** Kap. 1.1 (isometrier i planet), kap. 1.4 (symmetrigrupper). Vektorer i rommet: [Vektorer i tre dimensjoner](/bok/r2/r2-5-1).
+- **Forkunnskaper (kryssbok):** Kap. 1.1 (isometrier i planet), kap. 1.4 (symmetrigrupper). Vektorer i rommet: [Vektorer i tre dimensjoner](/r2/r2-5-1).
 - **Symbol- og formelliste (collapsible):** $E^3$; rotasjon om akse; konvekst polyeder; regulært (Platonsk) legeme; sideflate, kant, hjørne; kongruente likesidede trekanter; hjørnebetingelse (samme antall flater i hvert hjørne).
 - **Eksamensbelegg:** Grunnlaget for sjanger H (~50 %, **kun sen epoke 2018–20**), polyeder i H2018/H2020. `(verifiser)`. Prioritet: **kunne** (epokeavhengig).
 - **Innholdskontrakt:** **Isometrier i $E^3$:** rotasjoner om en akse, speilinger i plan, kongruens. **Konvekse polyedre:** hjørner, kanter, flater. **Regulært (Platonsk) legeme:** sideflatene er **kongruente regulære mangekanter** OG det møtes **samme antall flater i hvert hjørne** — begge betingelser kreves. Den kritiske fella (analysen §5.10, H2018): kongruente likesidede sideflater er **ikke nok** — også hjørnene må være like. De fem Platonske legemene som konsekvens (kort — telles via Euler i 7.2). Konstruksjon: dobbeltpyramide / konveks innhylling, finn parameteren som gjør sideflatene til kongruente likesidede trekanter. Bevis-sjanger: forklar hvorfor et gitt legeme *ikke* er regulært (hjørnebetingelsen brutt). Figurforpliktelse: tegn/skisser en dobbeltpyramide og marker hjørner der ulikt antall flater møtes.
@@ -991,7 +991,7 @@ HELE skjelettet (de gjenbruker alle sjangre og begge epoker).
       mønstereksempler er selv omskrivninger og skal varieres videre, ikke kopieres
       ordrett inn). Ingen løsningsforslag fantes i arkivet — alle løsninger er
       nyskrevne i fagets standardmetode.
-- [ ] **Navigasjon**: `mat2500` inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+- [ ] **Navigasjon**: `mat2500` inn i `src/app/trinn/hoyere/institusjoner.ts`
       under **Universitetet i Oslo (UiO)**, navn = «MAT2500 Geometri».
 - [ ] **Verifiser rendering**: prod-server + curl mot institusjonsside, bokforside og
       minst 3 kapittel-/narrativ-ruter (teori/drill/prøve) + quiz- og flashcard-rute

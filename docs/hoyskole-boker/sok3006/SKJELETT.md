@@ -84,7 +84,7 @@ SØK2009s bachelor-oppbygging av AA-DD-mekanikken fra bunnen (Krugman-Obstfeld-
 AA-kurve-utledning steg for steg, valutaregime-innføring uten optimering); der en
 student trenger den grafiske intuisjonen bak Mundell–Fleming eller renteparitet
 som *forkunnskap*, **kryssrefererer** boka til SØK2009 med markdown-lenker
-(`[tittel](/bok/sok2009/<chapterId>)`) i Forkunnskaper-blokkene — SØK2009 bygger
+(`[tittel](/sok2009/<chapterId>)`) i Forkunnskaper-blokkene — SØK2009 bygger
 grunnintuisjonen, SØK3006 hever den til master-utledning og -analyse. Se §7 for
 den fullstendige arbeidsdelingstabellen. **Videre avgrensning:** SØK3006 skal
 IKKE bygge ut ren matematikk-drill (integrasjon/matriser/diff.likninger for egen
@@ -619,7 +619,7 @@ Del 0 (kap. 0.1) er studieguidens kjerne. I tillegg skal boka som helhet levere
    kapitler (id/number/title/description/estimatedMinutes/topics/prerequisites)
    etter mønster `COURSE_BI_OKONOMI` i `src/lib/data/textbook-courses-matte.ts`;
    `sectionNames` fra makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SØK3006 Valuta, olje og makroøkonomisk politikk».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–L, frekvenstallene, de ni
    modellene, formatskiftet og avgrensningen (arbeidsdelingen mot SØK2009) som
@@ -720,7 +720,7 @@ styrer hva SØK3006 bygger ut vs. hva den forutsetter/kryssrefererer.
 
 **Møtepunkter (kryssrefereres, ikke gjentas):** valutakursbegrepet, udekket
 renteparitet og den grafiske Mundell–Fleming-grunnintuisjonen forutsettes fra
-SØK2009 og lenkes dit med markdown-lenker (`[tittel](/bok/sok2009/<chapterId>)`) i
+SØK2009 og lenkes dit med markdown-lenker (`[tittel](/sok2009/<chapterId>)`) i
 Forkunnskaper-blokkene — SØK2009 bygger dem grafisk, SØK3006 hever dem til
 master-utledning (eksplisitt tapsfunksjon/optimering, porteføljefundering,
 olje/to-sektor). **Andre SOK-bøker:** SOK1002 (mikro) og SØK1011 (marked/

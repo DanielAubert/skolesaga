@@ -1091,7 +1091,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    **`number` SKAL være del-basert («5.2»), ALDRI lineær** — bokforsiden grupperer på
    `number.split('.')[0]`. Prosareferanser bruker samme form («kap. 5.2»). `sectionNames` fra
    §2-tabellen (obligatorisk — ellers viser bokforsiden «Seksjon N»). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under Norges idrettshøgskole, visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under Norges idrettshøgskole, visningsnavn
    «SPM102 Lederskap i idrett».
 2. **Del 0** (kap. 0.1–0.3) — etablerer sjangernavnene (CASE/BEGR/NIVÅ/GOV/RISK),
    firepunktsmalen, redegjør→drøft-skillet, formkravene (APA 7 m/sidetall, KI-deklarasjon),

@@ -40,7 +40,7 @@ Blokk-id: `<kapittel-id>-<løpenavn>`, unike i kapitlet.
 1. `tip` **Eksamensvinkel** — frekvens/vekt/sjangre fra skjelettet (tallene
    EKSAKT fra skjelettets Eksamensbelegg; ikke rund opp/ned egne tall).
 2. `text` **Forkunnskaper** — kapitler i boka som markdown-lenker
-   `[kap. X.Y](/bok/tma4245/tma4245-X-Y)` + kryssbok-lenker KUN til filer som
+   `[kap. X.Y](/tma4245/tma4245-X-Y)` + kryssbok-lenker KUN til filer som
    finnes. For matematiske forkunnskaper (derivasjon/integrasjon): lenk til
    R2-bøkene bare hvis du har verifisert id-en; ellers skriv «du trenger å
    kunne derivere og integrere polynomer og eksponensialfunksjoner» uten

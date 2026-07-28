@@ -249,16 +249,16 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
 
 **Kryssbok-forkunnskaper (verifiserte, bygde VGS-kapitler):** vektorer, skalarprodukt
 og kryssprodukt/areal/volum er dekket på VGS-nivå og er de sterkeste ankrene — **R2**:
-[Vektorer i tre dimensjoner](/bok/r2/r2-5-1), [Skalarprodukt og vektorprodukt](/bok/r2/r2-5-3),
-[Areal og volum med vektorer](/bok/r2/r2-5-5), [Komplekse tall](/bok/r2/r2-4-1);
-**R1**: [Polynomer og polynomdivisjon](/bok/r1/r1-1-1),
-[Direkte bevis og moteksempler](/bok/r1/r1-9-1),
-[Kontrapositiv og kontradiksjon](/bok/r1/r1-9-3);
-**1T**: [Mengdelære](/bok/1t/1t-1-7), [Matematisk argumentasjon](/bok/1t/1t-6-1).
+[Vektorer i tre dimensjoner](/r2/r2-5-1), [Skalarprodukt og vektorprodukt](/r2/r2-5-3),
+[Areal og volum med vektorer](/r2/r2-5-5), [Komplekse tall](/r2/r2-4-1);
+**R1**: [Polynomer og polynomdivisjon](/r1/r1-1-1),
+[Direkte bevis og moteksempler](/r1/r1-9-1),
+[Kontrapositiv og kontradiksjon](/r1/r1-9-3);
+**1T**: [Mengdelære](/1t/1t-1-7), [Matematisk argumentasjon](/1t/1t-6-1).
 **Aktiveringsmarkør:** matriser, egenverdier, vektorrom, diagonalisering, ortogonal
 diagonalisering, kjeglesnitt og formelt oppsatt logikk bygges fra grunnen i boka
 (ingen VGS-forgjenger). Ubygde NTNU-forkunnskapsemner skrives som **klartekst** med
-markøren *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver `/bok/<kode>/<id>`-lenke
+markøren *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver `/<kode>/<id>`-lenke
 når den finnes)*. Lenk kun til de verifiserte VGS-id-ene over, kun til kapitler som
 finnes.
 
@@ -341,7 +341,7 @@ finnes.
 - **id:** `ma1201-2-2` · **number:** 2.2 · **estimatedMinutes:** 60 · **prerequisites:** `ma1201-2-1`
 - **kapitteltype:** teori
 - **description:** Determinanten ved kofaktorutvikling og radreduksjon, egenskapene (produktregel, det(cA) = cⁿdet A, transponert), sentralregelen det A ≠ 0 ⇔ invertibel, invertibilitetssetningen, og parameterdrøfting (for hvilke t er A invertibel?).
-- **Forkunnskaper (kryssbok):** Kap. 2.1. Determinant på VGS-nivå fra [Areal og volum med vektorer](/bok/r2/r2-5-5).
+- **Forkunnskaper (kryssbok):** Kap. 2.1. Determinant på VGS-nivå fra [Areal og volum med vektorer](/r2/r2-5-5).
 - **Eksamensbelegg:** Sjanger H (~84 %, ofte flettet inn i A/B/C) + T/F-felle $\det(cA)$ (2024). Fasitens grep: velg rad/kolonne med flest nuller; reduser store determinanter i stedet for blind kofaktorutvikling; $\det A\ne0$ ⇔ invertibel. Prioritet: **perfekt** (brukes overalt, karakteristisk likning i Del 5).
 - **Innholdskontrakt:** **Determinant** for 2×2 og 3×3; **kofaktorutvikling** langs rad/kolonne (velg med flest nuller); **radoperasjoners virkning** (bytte ⇒ fortegn, skalering ⇒ faktor, adder multiplum ⇒ uendret); **egenskaper**: $\det(AB)=\det A\det B$, $\det A^{T}=\det A$, $\det A^{-1}=1/\det A$, **$\det(cA)=c^n\det A$** (fast T/F-felle, $n$ = størrelse), $\det(A^n)=(\det A)^n$, triangulær ⇒ produkt av diagonalen; **$\det A\ne0$ ⇔ invertibel**; **invertibilitetssetningen** (ekvivalenskjeden: invertibel ⇔ $\det\ne0$ ⇔ redusert trappeform $=I$ ⇔ kolonnene lineært uavhengige ⇔ rang $=n$ ⇔ $A\mathbf x=\mathbf b$ entydig for alle $\mathbf b$ ⇔ $0$ ikke egenverdi); **parameterdrøfting** («for hvilke $t$ er $A(t)$ invertibel?» = løs $\det A(t)\ne0$). Alt til aktiv bruk; navngi invertibilitetssetningen.
 - **Oppgavesjangre:** H. Mønstereksempel: «For hvilke reelle $t$ er $A(t)$ invertibel? Regn $\det A(t)$ ved kofaktorutvikling og avgjør.»
@@ -371,7 +371,7 @@ finnes.
 - **id:** `ma1201-3-1` · **number:** 3.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1201-2-2`
 - **kapitteltype:** teori
 - **description:** Kryssprodukt komponentvis, areal av parallellogram/trekant (‖u×v‖ og ½‖u×v‖), volum av parallellepiped og tetraeder (|det[u v w]| og 1/6 av det) — med ½- og 1/6-faktorene som glemmes lett, sikret.
-- **Forkunnskaper (kryssbok):** Kap. 2.2 (determinant). [Skalarprodukt og vektorprodukt](/bok/r2/r2-5-3), [Areal og volum med vektorer](/bok/r2/r2-5-5) (VGS-grunnlaget reaktiveres og formaliseres).
+- **Forkunnskaper (kryssbok):** Kap. 2.2 (determinant). [Skalarprodukt og vektorprodukt](/r2/r2-5-3), [Areal og volum med vektorer](/r2/r2-5-5) (VGS-grunnlaget reaktiveres og formaliseres).
 - **Eksamensbelegg:** Sjanger E (~58 %). Fasitens grep: kryssprodukt via kofaktor-oppskrift; areal = $\lVert\mathbf u\times\mathbf v\rVert$ (trekant ½); volum = $\lvert\det[\mathbf u\ \mathbf v\ \mathbf w]\rvert=\lvert\mathbf u\cdot(\mathbf v\times\mathbf w)\rvert$ (tetraeder 1/6). Parametervariant (2023H): velg $t$ så $\det=1$ / så volumet blir gitt. Prioritet: **kunne** (men perfekt på faktorene).
 - **Innholdskontrakt:** **Skalarprodukt**, norm, vinkel; **kryssprodukt** $\mathbf u\times\mathbf v$ komponentvis (kofaktor-oppskrift), egenskaper ($\perp$ begge, høyrehåndsregel, $\mathbf u\times\mathbf v=-\mathbf v\times\mathbf u$); **skalartrippelprodukt** $\mathbf u\cdot(\mathbf v\times\mathbf w)=\det[\mathbf u\ \mathbf v\ \mathbf w]$; **areal** parallellogram $=\lVert\mathbf u\times\mathbf v\rVert$, **trekant $=\tfrac12\lVert\mathbf u\times\mathbf v\rVert$**; **volum** parallellepiped $=\lvert\det[\mathbf u\ \mathbf v\ \mathbf w]\rvert$, **tetraeder/pyramide $=\tfrac16$** av parallellepiped-volumet; parametervariant (velg $t$ så $\det$/volum blir gitt). Alt til aktiv bruk; faktorene ½ og 1/6 er egen warning.
 - **Oppgavesjangre:** E. Mønstereksempel: «La $\mathbf u,\mathbf v,\mathbf w\in\mathbb R^3$. Finn arealet av parallellogrammet utspent av $\mathbf u,\mathbf v$ via kryssproduktet, og volumet av tetraederet utspent av alle tre.»
@@ -383,7 +383,7 @@ finnes.
 - **id:** `ma1201-3-2` · **number:** 3.2 · **estimatedMinutes:** 45 · **prerequisites:** `ma1201-3-1`
 - **kapitteltype:** teori
 - **description:** Plan gjennom punkt med gitt normalvektor, plan gjennom tre punkter, og avstand fra punkt til plan — sentralt 2005–2011, nesten borte etter, dekket kompakt for fullstendighet.
-- **Forkunnskaper (kryssbok):** Kap. 3.1. [Vektorer i tre dimensjoner](/bok/r2/r2-5-1).
+- **Forkunnskaper (kryssbok):** Kap. 3.1. [Vektorer i tre dimensjoner](/r2/r2-5-1).
 - **Eksamensbelegg:** Sjanger E-variant, **~32 % (fallende — levde 2005–2011, ~1 forekomst 2020–2024)**. Ærlig eksamensvinkel: lav nyere frekvens; dekkes kompakt fordi det står i emnebeskrivelsen og kan returnere. Prioritet: **kjenne**.
 - **Innholdskontrakt:** **Planligning** $\mathbf n\cdot(\mathbf x-\mathbf x_0)=0$ (punkt + normalvektor); **plan gjennom tre punkter** (normalvektor via kryssprodukt av to retningsvektorer); **avstand punkt–plan** $d=\dfrac{\lvert\mathbf n\cdot(\mathbf p-\mathbf x_0)\rvert}{\lVert\mathbf n\rVert}$; parametrisk vs. normalform; høyrehåndssystem (kjennskap). Kompakt; Eksamensvinkel-blokk sier eksplisitt at nyere frekvens er lav.
 - **Oppgavesjangre:** E. Mønstereksempel: «Finn ligningen til planet gjennom de tre punktene $P,Q,R$, og bestem avstanden fra origo til planet.»
@@ -401,7 +401,7 @@ finnes.
 - **id:** `ma1201-4-1` · **number:** 4.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1201-1-2`
 - **kapitteltype:** teori
 - **description:** Underrom via de tre betingelsene (inneholder 0, lukket under addisjon og skalarmultiplikasjon), eller ved identifikasjon som null-/kolonnerom — «vis at M er et underrom» ført fra definisjonen, ikke med ett eksempel.
-- **Forkunnskaper (kryssbok):** Kap. 1.2. [Vektorer i tre dimensjoner](/bok/r2/r2-5-1).
+- **Forkunnskaper (kryssbok):** Kap. 1.2. [Vektorer i tre dimensjoner](/r2/r2-5-1).
 - **Eksamensbelegg:** Sjanger F (~63 %, voksende) + bevissjanger J. Fasitens grep: sjekk de tre betingelsene, eller vis $M=\operatorname{Null}A$/$\operatorname{Kol}A$. Prioritet: **kunne** (og bevis fra definisjonen).
 - **Innholdskontrakt:** **Vektorrom $\mathbb R^n$** (kort — aksiomene som «regler du kjenner»); **underrom** via de **tre betingelsene** ($\mathbf 0\in M$, lukket under $+$, lukket under skalar) og sjekkprosedyren; **span** $\operatorname{Span}\{\mathbf v_1,\dots\}$ er alltid et underrom; typiske underrom å verifisere ($M=\{\mathbf x:x_1=x_2+2x_3\}$, løsningsrommet til homogent system, $\operatorname{Kol}A$/$\operatorname{Null}A$); hvorfor delmengder uten $\mathbf 0$ (f.eks. $\{\mathbf x:x_1=1\}$) IKKE er underrom; å **arbeide fra definisjonen** (et eksempel er ikke et bevis). Alt til aktiv bruk (underrom-bevis er fast, sjanger J).
 - **Oppgavesjangre:** F/J. Mønstereksempel: «La $M=\{\mathbf x\in\mathbb R^3\mid x_1=x_2+2x_3\}$. Vis at $M$ er et underrom av $\mathbb R^3$.»
@@ -443,7 +443,7 @@ finnes.
 - **id:** `ma1201-5-1` · **number:** 5.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma1201-4-3`
 - **kapitteltype:** teori
 - **description:** Det karakteristiske polynomet det(A − λI) = 0, egenrom = Null(A − λI) med basis for hver λ, verifisering av egenvektorer (Av = λv), og det sentrale bevistemaet: egenvektorer til ulike egenverdier er lineært uavhengige.
-- **Forkunnskaper (kryssbok):** Kap. 4.3 (nullrom/basis), 2.2 (determinant). [Polynomer og polynomdivisjon](/bok/r1/r1-1-1).
+- **Forkunnskaper (kryssbok):** Kap. 4.3 (nullrom/basis), 2.2 (determinant). [Polynomer og polynomdivisjon](/r1/r1-1-1).
 - **Eksamensbelegg:** Sjanger B (~89 %) + bevissjanger J (lineær uavhengighet av egenvektorer, 2022/2023H/2024). Fasitens grep: for 3×3 gis ofte én egenverdi som hint; egenrom = $\operatorname{Null}(A-\lambda I)$; angi basis. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Karakteristisk polynom** $\det(A-\lambda I)$ og karakteristisk likning; **egenverdi/egenvektor** ($A\mathbf v=\lambda\mathbf v$, $\mathbf v\ne\mathbf 0$); **egenrom** $E_\lambda=\operatorname{Null}(A-\lambda I)$ med **basis** per $\lambda$; algebraisk vs. geometrisk multiplisitet; verifisering («vis at $\mathbf v$ er egenvektor» = sett inn $A\mathbf v=\lambda\mathbf v$); $\det A=\prod\lambda_i$, $\operatorname{spor}A=\sum\lambda_i$ (kontroll); **egenvektorer til ulike egenverdier er lineært uavhengige** (bevistema, forankres her — motsigelses-/kombinasjonsargument, sjanger J). Alt til aktiv bruk.
 - **Oppgavesjangre:** B/J. Mønstereksempel: «Gitt en $3\times3$-matrise $A$ der én egenverdi er $1$. Finn alle egenverdiene og en basis for hvert egenrom» og «Vis at egenvektorer til to ulike egenverdier er lineært uavhengige.»
@@ -496,7 +496,7 @@ finnes.
 - **id:** `ma1201-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1201-4-2`
 - **kapitteltype:** teori
 - **description:** Skalarprodukt og norm, projeksjon av v på u (= (v·u/‖u‖²)u) og på et underrom, og Cauchy–Schwarz-ulikheten anvendt i bevis — inkludert (Σaᵢ)(Σ1/aⱼ) ≥ n².
-- **Forkunnskaper (kryssbok):** Kap. 4.2. [Skalarprodukt og vektorprodukt](/bok/r2/r2-5-3).
+- **Forkunnskaper (kryssbok):** Kap. 4.2. [Skalarprodukt og vektorprodukt](/r2/r2-5-3).
 - **Eksamensbelegg:** Sjanger G (~53 %, voksende) + bevissjanger J (Cauchy–Schwarz-anvendelse, 2023H). Fasitens grep: projeksjonsformelen; Cauchy–Schwarz $\lvert\mathbf u\cdot\mathbf v\rvert\le\lVert\mathbf u\rVert\lVert\mathbf v\rVert$. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Skalarprodukt** $\mathbf u\cdot\mathbf v$, **norm** $\lVert\mathbf v\rVert=\sqrt{\mathbf v\cdot\mathbf v}$, vinkel, ortogonalitet ($\mathbf u\cdot\mathbf v=0$); **projeksjon** av $\mathbf v$ på $\mathbf u$: $\operatorname{proj}_{\mathbf u}\mathbf v=\dfrac{\mathbf v\cdot\mathbf u}{\lVert\mathbf u\rVert^2}\mathbf u$; **projeksjon på underrom** $W$ = sum av projeksjoner på en **ortogonal** basis for $W$; ortogonal dekomposisjon $\mathbf v=\operatorname{proj}_W\mathbf v+\mathbf v^\perp$; **Cauchy–Schwarz** $\lvert\mathbf u\cdot\mathbf v\rvert\le\lVert\mathbf u\rVert\lVert\mathbf v\rVert$ og anvendelse ($(\sum a_i)(\sum 1/a_j)\ge n^2$, sjanger J); trekantulikheten (kjennskap). Alt til aktiv bruk.
 - **Oppgavesjangre:** G/J. Mønstereksempel: «Finn projeksjonen av $\mathbf v$ på $\mathbf u$ og komponenten av $\mathbf v$ ortogonal på $\mathbf u$» og «Bruk Cauchy–Schwarz til å vise $(\sum_{i=1}^n a_i)(\sum_{j=1}^n 1/a_j)\ge n^2$ for positive $a_i$.»
@@ -567,7 +567,7 @@ finnes.
 - **id:** `ma1201-8-1` · **number:** 8.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1201-4-3`
 - **kapitteltype:** teori
 - **description:** Standardmatrisen fra bildene av basisvektorene (kolonnene = T(eₖ)), utregning av T(x) = Ax, surjektivitet/injektivitet via rang, kjerne/bilde som underrom, og den geometriske varianten (finn matrisen som avbilder en figur på en annen).
-- **Forkunnskaper (kryssbok):** Kap. 4.3 (rang, kolonnerom/nullrom). [Vektorer i tre dimensjoner](/bok/r2/r2-5-1).
+- **Forkunnskaper (kryssbok):** Kap. 4.3 (rang, kolonnerom/nullrom). [Vektorer i tre dimensjoner](/r2/r2-5-1).
 - **Eksamensbelegg:** Sjanger I (~47 %). Fasitens grep: kolonnene i $A$ = bildene av standardbasisvektorene; surjektiv/injektiv via rang; geometrisk variant (2020): finn matrisen som avbilder én trekant på en annen. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Lineær transformasjon** $T$ (linearitet: $T(a\mathbf u+b\mathbf v)=aT(\mathbf u)+bT(\mathbf v)$); **standardmatrise** $A=[T(\mathbf e_1)\ \cdots\ T(\mathbf e_n)]$ (kolonnene = bildene av basisvektorene); $T_A(\mathbf x)=A\mathbf x$; **kjerne** $\ker T=\operatorname{Null}A$ og **bilde** $\operatorname{Im}T=\operatorname{Kol}A$ (begge underrom); **injektiv** ⇔ $\ker T=\{\mathbf 0\}$, **surjektiv** ⇔ rang = dim kodomene, via rang; **geometrisk avbildning** (rotasjon/refleksjon/skalering; finn matrisen som avbilder en figur på en annen). Alt til aktiv bruk.
 - **Oppgavesjangre:** I. Mønstereksempel: «En lineær transformasjon $T_A:\mathbb R^3\to\mathbb R^3$ er gitt ved bildene av de tre standardbasisvektorene. Finn $A$, beregn $T_A(\mathbf v)$ for en gitt $\mathbf v$, og avgjør om $T_A$ er surjektiv.»
@@ -585,7 +585,7 @@ finnes.
 - **id:** `ma1201-9-1` · **number:** 9.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1201-2-1`
 - **kapitteltype:** teori
 - **description:** Kartesisk og polarform r(cos θ + i sin θ), aritmetikk, konjugat og modulus, de Moivres formel for potenser, og geometri i det komplekse planet — solid belagt 2004–2011, gjenoppsto 2024 som T/F.
-- **Forkunnskaper (kryssbok):** Kap. 2.1. [Komplekse tall](/bok/r2/r2-4-1) (VGS-grunnlaget reaktiveres og utvides).
+- **Forkunnskaper (kryssbok):** Kap. 2.1. [Komplekse tall](/r2/r2-4-1) (VGS-grunnlaget reaktiveres og utvides).
 - **Eksamensbelegg:** Sjanger K (~42 %, **konsentrert 2005–2012**, nesten borte, T/F-gjenkomst 2024). **Ærlig eksamensvinkel:** høy frekvens i eldre epoke, lav nylig, men emnerevisjon H2024 kan ha løftet temaet tilbake (verifiser mot H2025). Prioritet: **kjenne** (dekkes fullt, kompakt).
 - **Innholdskontrakt:** **Kartesisk form** $z=x+iy$, aritmetikk; **konjugat** $\bar z=x-iy$, **modulus** $\lvert z\rvert=\sqrt{x^2+y^2}$, argument $\arg z$; **polarform** $z=r(\cos\theta+i\sin\theta)$; **de Moivres formel** $(\cos\theta+i\sin\theta)^n=\cos n\theta+i\sin n\theta$ (potenser); geometri i det komplekse planet; komplekse inverser ($z^{-1}=\bar z/\lvert z\rvert^2$) og eksistens ($z^2=i$ har løsning) — T/F-punktene fra 2024. Aktiv bruk.
 - **Oppgavesjangre:** K/L. Mønstereksempel: «Skriv $z=1+i\sqrt3$ på polarform og bruk de Moivre til å finne $z^6$.»
@@ -597,7 +597,7 @@ finnes.
 - **id:** `ma1201-9-2` · **number:** 9.2 · **estimatedMinutes:** 55 · **prerequisites:** `ma1201-9-1`
 - **kapitteltype:** teori
 - **description:** Alle n-te røtter av zⁿ = w via de Moivre (n røtter jevnt fordelt på en sirkel med radius r^(1/n)), skisse i planet, og faktorisering av reelle polynomer via konjugerte røttepar.
-- **Forkunnskaper (kryssbok):** Kap. 9.1. [Polynomer og polynomdivisjon](/bok/r1/r1-1-1).
+- **Forkunnskaper (kryssbok):** Kap. 9.1. [Polynomer og polynomdivisjon](/r1/r1-1-1).
 - **Eksamensbelegg:** Sjanger K (~42 %, eldre epoke). Fasitens grep: $n$ røtter jevnt fordelt, radius $\lvert w\rvert^{1/n}$, argument $(\arg w+2\pi k)/n$; skisse; reell faktorisering via $(x-z_0)(x-\bar z_0)$. Prioritet: **kjenne**.
 - **Innholdskontrakt:** **$n$-te røtter** av $z^n=w$: $n$ røtter jevnt fordelt på en sirkel med radius $\lvert w\rvert^{1/n}$, argumenter $\dfrac{\arg w+2\pi k}{n}$, $k=0,\dots,n-1$; **skisse** i det komplekse planet; **reell faktorisering** av polynom via konjugerte røttepar $(x-z_0)(x-\bar z_0)=$ reell kvadratisk faktor; koblingen til reelle koeffisienter (komplekse røtter i par). Aktiv bruk.
 - **Oppgavesjangre:** K. Mønstereksempel: «Finn alle komplekse røtter av $z^4+16=0$ og bruk dem til å faktorisere $x^4+16$ i to reelle annengradsfaktorer.»
@@ -615,7 +615,7 @@ finnes.
 - **id:** `ma1201-10-1` · **number:** 10.1 · **estimatedMinutes:** 50 · **prerequisites:** `ma1201-2-2`
 - **kapitteltype:** teori
 - **description:** Grunnleggende logikk og mengdelære + den presise definisjonskjennskapen sant-usant-blokken tester (det(cA)-regelen, diagonaliserbar vs. invertibel, «AB = 0 ⇒ A = 0 eller B = 0» er usant) — 2024 åpnet med en 10-punkts blokk.
-- **Forkunnskaper (kryssbok):** Kap. 2.2 (determinant-regler), 5.2 (diagonaliserbar), 4.2 (lineær uavhengighet). [Mengdelære](/bok/1t/1t-1-7), [Matematisk argumentasjon](/bok/1t/1t-6-1).
+- **Forkunnskaper (kryssbok):** Kap. 2.2 (determinant-regler), 5.2 (diagonaliserbar), 4.2 (lineær uavhengighet). [Mengdelære](/1t/1t-1-7), [Matematisk argumentasjon](/1t/1t-6-1).
 - **Eksamensbelegg:** Sjanger L (~26 %; **2024-settet åpnet med en 10-punkts sant/usant-blokk**). **Ærlig eksamensvinkel:** variabel frekvens; testet som presis definisjonskjennskap, ikke egne store oppgaver — men gir billige poeng når den kommer. Prioritet: **kjenne** (men fellene drilles fordi de er belagt).
 - **Innholdskontrakt:** **Grunnleggende logikk** (implikasjon, kvantorer $\forall,\exists$, sant/usant); **mengdelære** (union, snitt, delmengde — kort); **de klassiske sant/usant-utsagnene og fellene**: $\det(cA)=c^n\det A$ (ikke $c\det A$); **«diagonaliserbar ⇒ invertibel» er usant**; **«$AB=0\Rightarrow A=0$ eller $B=0$» er usant**; «lineær uavhengighet ⇒ invertibel» (for kvadratisk, sant); elementærmatriser; underrom-kriteriet; komplekse eksistensutsagn ($z^2=i$ har løsning). Distraktorene bygger på vanlige misforståelser. Aktiv bruk; hver felle med kort begrunnelse/moteksempel.
 - **Oppgavesjangre:** L. Mønstereksempel: «Avgjør sant/usant med kort begrunnelse: (a) for enhver $4\times4$-matrise er $\det(3A)=3\det A$; (b) en diagonaliserbar matrise er alltid invertibel; (c) hvis $AB=0$ så er $A=0$ eller $B=0$.»
@@ -944,7 +944,7 @@ $A=PDP^{-1}$-konvensjonen, symmetrisk-$B$-regelen, spektralteorem-henvisningen).
       ligninger, vektorer og kontekster; ingen formuleringer fra reelle sett eller
       fasiter (skjelettets mønstereksempler er selv omskrivninger og skal varieres
       videre, ikke kopieres ordrett inn); pensum refereres, aldri siteres i lengde.
-- [ ] **Navigasjon**: `ma1201` inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+- [ ] **Navigasjon**: `ma1201` inn i `src/app/trinn/hoyere/institusjoner.ts`
       under **Norges teknisk-naturvitenskapelige universitet (NTNU)**, navn =
       «MA1201 Lineær algebra og geometri».
 - [ ] **Verifiser rendering**: prod-server + curl mot institusjonsside, bokforside og

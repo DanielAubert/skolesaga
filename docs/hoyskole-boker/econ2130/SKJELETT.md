@@ -133,7 +133,7 @@ Rekkefølgen følger faglig avhengighet (DNA-regelen); frekvensen styrer *omfang
 **Kryssbok-lenker (forkunnskaper):** Grunnleggende sannsynlighetsregning og
 derivasjon forutsettes fra VGS — lenk der det er naturlig til eksisterende
 kapitler i S1/S2/R1-bøkene (sannsynlighet, derivasjon) med
-`[tittel](/bok/<courseId>/<chapterId>)`; **verifiser at kapittel-id-en finnes
+`[tittel](/<courseId>/<chapterId>)`; **verifiser at kapittel-id-en finnes
 før lenking**. Økonomiske kontekster (BNP, inntekt) kan lenke til
 `econ1310-1-1` (finnes). Lenk aldri til kapitler du ikke har verifisert.
 

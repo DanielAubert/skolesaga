@@ -40,13 +40,13 @@ Blokk-id: `<kapittel-id>-<løpenavn>`, unike i kapitlet.
 1. `tip` **Eksamensvinkel** — frekvens/vekt/sjangre fra skjelettet (tallene
    EKSAKT fra skjelettets Eksamensbelegg; ikke rund opp/ned egne tall).
 2. `text` **Forkunnskaper** — kapitler i boka som markdown-lenker
-   `[kap. X.Y](/bok/stk1100/stk1100-X-Y)` + kryssbok-lenker KUN til filer som
+   `[kap. X.Y](/stk1100/stk1100-X-Y)` + kryssbok-lenker KUN til filer som
    finnes. **Verifiserte kryssbok-id-er** (fra skjelettets §6): sannsynlighet
-   [r1-8-4](/bok/r1/r1-8-4), [r1-8-3](/bok/r1/r1-8-3), [s1-5-2](/bok/s1/s1-5-2);
-   fordelinger [s1-6-1](/bok/s1/s1-6-1), [s2-4-1](/bok/s2/s2-4-1),
-   [s2-4-6](/bok/s2/s2-4-6); integrasjon [r2-2-2](/bok/r2/r2-2-2),
-   [r2-2-4](/bok/r2/r2-2-4), [r2-3-2](/bok/r2/r2-3-2), [s2-1-1](/bok/s2/s2-1-1);
-   derivasjon [r1-4-1](/bok/r1/r1-4-1). Lenk KUN til disse — ikke gjett nye id-er.
+   [r1-8-4](/r1/r1-8-4), [r1-8-3](/r1/r1-8-3), [s1-5-2](/s1/s1-5-2);
+   fordelinger [s1-6-1](/s1/s1-6-1), [s2-4-1](/s2/s2-4-1),
+   [s2-4-6](/s2/s2-4-6); integrasjon [r2-2-2](/r2/r2-2-2),
+   [r2-2-4](/r2/r2-2-4), [r2-3-2](/r2/r2-3-2), [s2-1-1](/s2/s2-1-1);
+   derivasjon [r1-4-1](/r1/r1-4-1). Lenk KUN til disse — ikke gjett nye id-er.
    Tunge kapitler (Del 5–6, drill 6.3): VIS de 2–3 nøkkelformlene ferdig
    oppfrisket («Sist du var her») — ikke bare lenke.
 3. Læringsløkker: teori (`text`/`definition`/`theorem` + evt. utledning med

@@ -143,7 +143,7 @@ Feltene følger DNA-ens «Skjelett-krav». Prioritetsklasser: **perfekt** (nivå
 (Matematikk for økonomer — verifisert bygget: `bi-okonomi-4-1` … `-4-5` dekker
 renter, nåverdi/fremtidsverdi, annuiteter, lån og investeringsanalyse;
 `bi-okonomi-2-2`/`-2-3` dekker andregrads- og likningssett). Lenkeform:
-`[tittel](/bok/bi-okonomi/bi-okonomi-4-2)`.
+`[tittel](/bi-okonomi/bi-okonomi-4-2)`.
 
 ---
 
@@ -168,7 +168,7 @@ renter, nåverdi/fremtidsverdi, annuiteter, lån og investeringsanalyse;
 - **id:** `econ2500-1-1` · **number:** 1.1 · **estimatedMinutes:** 45 · **prerequisites:** ingen · **kapitteltype:** teori
 - **description:** Å flytte kroner i tid: diskontering av enkeltbeløp og flerperiodiske kontantstrømmer med ulike beløp.
 - **Eksamensbelegg:** Fundamentet under sjanger A (NNV/IRR, 100 % — oppgave 1 i hvert sett). Flerperiodisk med ulike beløp forekommer direkte (V2025-utsatt O1a; V2024-utsatt O1a). Prioritet: **perfekt** (fundament).
-- **Forkunnskaper:** Bygger på [Renter og renteberegning](/bok/bi-okonomi/bi-okonomi-4-1) og [Nåverdi og fremtidsverdi](/bok/bi-okonomi/bi-okonomi-4-2) i Matematikk for økonomer. Symbol- og formelliste (collapsible) skal forklare $C_t$, $r$, $t$, $n$, nåverdi (NV), fremtidsverdi.
+- **Forkunnskaper:** Bygger på [Renter og renteberegning](/bi-okonomi/bi-okonomi-4-1) og [Nåverdi og fremtidsverdi](/bi-okonomi/bi-okonomi-4-2) i Matematikk for økonomer. Symbol- og formelliste (collapsible) skal forklare $C_t$, $r$, $t$, $n$, nåverdi (NV), fremtidsverdi.
 - **Innholdskontrakt:** Diskontering av enkeltbeløp $t$ år fram: $\text{NV} = \dfrac{C_t}{(1+r)^t}$. Flerperiodisk nåverdi: $\text{NV} = \sum_{t=1}^{n} \dfrac{C_t}{(1+r)^t}$. Netto nåverdi som utlegg pluss diskonterte strømmer: $\text{NNV} = -I + \sum_{t=1}^{n}\dfrac{C_t}{(1+r)^t}$. Begrepene: avkastningskrav = alternativkostnaden for kapital; høyere $r$ ⇒ lavere nåverdi; hvorfor en krone i dag er verdt mer enn en krone om ett år. **Regnekjede (nyskrevet):** et prosjekt gir 40, 60 og 90 mill. i år 1–3, avkastningskrav 8 %. $\text{NV} = 40/1{,}08 + 60/1{,}08^2 + 90/1{,}08^3 = 37{,}04 + 51{,}44 + 71{,}44 = 159{,}9$ mill. kr. Skal kunne *brukes* og *settes opp eksplisitt*.
 - **Oppgavesjangre:** A. Mønstereksempel: «Et prosjekt gir kontantstrømmene 50, 50 og 120 mill. kr i årene 1–3. Avkastningskravet er 9 %. Regn ut nåverdien av kontantstrømmene, sett opp formelen eksplisitt, og oppgi svaret i mill. kr.»
 - **Typiske feil:** Diskontere med feil eksponent (glemme at år 3 diskonteres med $(1+r)^3$); blande nominell og reell rente; oppgi svar uten enhet.
@@ -194,7 +194,7 @@ renter, nåverdi/fremtidsverdi, annuiteter, lån og investeringsanalyse;
 - **id:** `econ2500-1-3` · **number:** 1.3 · **estimatedMinutes:** 45 · **prerequisites:** econ2500-1-2 · **kapitteltype:** teori
 - **description:** Nåverdien av en endelig, konstant kontantstrøm (annuitet) — og hvordan den utledes fra den evige strømmen.
 - **Eksamensbelegg:** Endelig annuitet i sjanger A (V2024 O1b 14 år; V2023-utsatt O1c 15 år; V2025-utsatt O1b 20 år). Prioritet: **perfekt**.
-- **Forkunnskaper:** Bygger på kap. 1.2 og [Annuiteter](/bok/bi-okonomi/bi-okonomi-4-3) i Matematikk for økonomer. Symbol- og formelliste: $C$, $r$, $n$, annuitetsfaktor.
+- **Forkunnskaper:** Bygger på kap. 1.2 og [Annuiteter](/bi-okonomi/bi-okonomi-4-3) i Matematikk for økonomer. Symbol- og formelliste: $C$, $r$, $n$, annuitetsfaktor.
 - **Innholdskontrakt:** Annuitetsformelen som differansen mellom to evige strømmer: $\text{NV} = \dfrac{C}{r}\left(1 - \dfrac{1}{(1+r)^n}\right)$. Utledning (intuisjon: en $n$-årig strøm = evig strøm fra i dag minus evig strøm som starter i år $n{+}1$). **Regnekjede (nyskrevet):** 18 mill. kr årlig i 14 år, avkastningskrav 9 %: $\text{NV} = (18/0{,}09)(1 - 1{,}09^{-14}) = 200 \cdot (1 - 0{,}2992) = 200 \cdot 0{,}7008 = 140{,}2$ mill. kr. Kobling til lån/nedbetaling (annuitetslån). Skal kunne *brukes*; utledningen vises fordi den binder sammen 1.2 og 1.3.
 - **Oppgavesjangre:** A. Mønstereksempel: «En maskin gir en besparelse på 25 mill. kr per år i 10 år. Avkastningskravet er 7 %. Regn ut nåverdien av besparelsene med annuitetsformelen, og sammenlign med en investeringskostnad på 160 mill. kr.»
 - **Typiske feil:** Bruke $n$ feil (glemme at strømmen løper $n$ *hele* perioder); bruke evig-formelen $C/r$ på en endelig strøm (overvurderer verdien); regnefeil i $(1+r)^{-n}$-leddet.
@@ -211,7 +211,7 @@ renter, nåverdi/fremtidsverdi, annuiteter, lån og investeringsanalyse;
 - **id:** `econ2500-2-1` · **number:** 2.1 · **estimatedMinutes:** 50 · **prerequisites:** econ2500-1-3 · **kapitteltype:** teori
 - **description:** NNV-regelen: invester når NNV > 0, og hvorfor NNV er det teoretisk overlegne kriteriet.
 - **Eksamensbelegg:** Sjanger A i **samtlige sett** (100 %), oppgave 1, 10–25 % (opp mot 80 % når hele settet er ett NNV-case, V2023). Prioritet: **perfekt**.
-- **Forkunnskaper:** Bygger på kap. 1.1–1.3 og [Investeringsanalyse](/bok/bi-okonomi/bi-okonomi-4-5) i Matematikk for økonomer. Symbol- og formelliste: NNV, $I$, $C_t$, $r$, $n$.
+- **Forkunnskaper:** Bygger på kap. 1.1–1.3 og [Investeringsanalyse](/bi-okonomi/bi-okonomi-4-5) i Matematikk for økonomer. Symbol- og formelliste: NNV, $I$, $C_t$, $r$, $n$.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES OG BEGRUNNES: $\text{NNV} = -I + \sum_{t=1}^{n}\dfrac{C_t}{(1+r)^t}$; beslutningsregelen (NNV > 0 ⇒ gjennomfør; NNV < 0 ⇒ forkast; ved uavhengige prosjekter: gjennomfør alle med positiv NNV). NNV måler verdiskaping i dagens kroner. Avkastningskravet $r$ = alternativkostnad/risikojustert krav (bro til WACC i Del 7). **Konklusjonskravet:** hver NNV-oppgave skal ende i en lønnsomhetskonklusjon, ikke bare et tall. **Regnekjede (nyskrevet, «Nordvik Solar»):** utlegg 220 mill., strømmer 80, 90, 100 mill. i år 1–3, krav 12 %: $\text{NNV} = -220 + 80/1{,}12 + 90/1{,}12^2 + 100/1{,}12^3 = -220 + 71{,}4 + 71{,}7 + 71{,}2 = -5{,}7$ mill. kr $<0$ ⇒ lønner seg ikke.
 - **Oppgavesjangre:** A. Mønstereksempel: «Nordvik Solar vurderer et anlegg som koster 200 mill. kr og gir 45 mill. kr i evig årlig kontantstrøm fra og med neste år. Avkastningskravet er 10 %. Regn ut netto nåverdi og konkludér om anlegget bør bygges.»
 - **Typiske feil:** Diskontere investeringsutlegget (det er allerede i dag); glemme lønnsomhetskonklusjonen; blande uavhengige og gjensidig utelukkende prosjekter (kap. 2.3).
@@ -222,7 +222,7 @@ renter, nåverdi/fremtidsverdi, annuiteter, lån og investeringsanalyse;
 - **id:** `econ2500-2-2` · **number:** 2.2 · **estimatedMinutes:** 55 · **prerequisites:** econ2500-2-1 · **kapitteltype:** teori
 - **description:** Internrenten som renta der NNV = 0 — og hvordan man leser lønnsomhet ut av IRR uten alltid å regne den ut.
 - **Eksamensbelegg:** IRR i sjanger A hvert sett. Analytisk IRR for evig strøm (V2023 O1a: $20/100 = 20\,\%$). NNV↔IRR-koblingen spurt eksplisitt (V2025 O1b). Prioritet: **perfekt**.
-- **Forkunnskaper:** Bygger på kap. 2.1 og [Andregradslikninger](/bok/bi-okonomi/bi-okonomi-2-2) (for enperiode-IRR og senere fortegnsskift). Symbol- og formelliste: IRR, $C$, $I$, $C_1$, $r$, NNV.
+- **Forkunnskaper:** Bygger på kap. 2.1 og [Andregradslikninger](/bi-okonomi/bi-okonomi-2-2) (for enperiode-IRR og senere fortegnsskift). Symbol- og formelliste: IRR, $C$, $I$, $C_1$, $r$, NNV.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES OG UTLEDES: IRR = renta som gir $\text{NNV} = 0$. Evig strøm: $-I + \dfrac{C}{\text{IRR}} = 0 \Rightarrow \text{IRR} = \dfrac{C}{I}$. Enperiode: $\text{IRR} = \dfrac{C_1}{I} - 1$. **Kjernekoblingen:** NNV $> 0$ med gitt avkastningskrav $\Leftrightarrow$ IRR $>$ kravet — så man kan konkludere om lønnsomhet fra NNV-fortegnet *uten* å regne ut IRR. **Regnekjede (nyskrevet):** prosjekt koster 150 mill., gir 27 mill. i evig strøm: $\text{IRR} = 27/150 = 18\,\%$. Er kravet 12 %, er IRR $>$ krav ⇒ NNV $>0$ ⇒ lønnsomt. NNV-profilen (NNV som fallende funksjon av $r$; IRR = skjæring med null-aksen) beskrives (figur i A-besvarelse).
 - **Oppgavesjangre:** A. Mønstereksempel: «Et prosjekt koster 250 mill. kr og gir 30 mill. kr i evig årlig kontantstrøm. (a) Regn ut internrenten. (b) Avkastningskravet er 9 %. Uten å regne ut NNV: er prosjektet lønnsomt? Begrunn koblingen mellom internrente og netto nåverdi.»
 - **Typiske feil:** Tro IRR alltid må regnes ut for å konkludere om lønnsomhet; snu IRR↔NNV-koblingen (påstå NNV < 0 når IRR > krav); regne IRR = $C/I$ på en endelig strøm (formelen gjelder evig strøm).
@@ -428,7 +428,7 @@ renter, nåverdi/fremtidsverdi, annuiteter, lån og investeringsanalyse;
 - **id:** `econ2500-7-1` · **number:** 7.1 · **estimatedMinutes:** 55 · **prerequisites:** econ2500-6-2 · **kapitteltype:** teori
 - **description:** Den unlevered kapitalkostnaden (= WACC uten skatt) som et markedsvektet snitt av egenkapital- og gjeldskostnad — og hvordan man løser den for en ukjent.
 - **Eksamensbelegg:** Sjanger F i **samtlige sett** (100 %), 20–40 %. $r_U$ som vektet snitt (V2022 O3d, V2023 O1e, V2024 O4c); løst for én ukjent (V2022 O3f løs for $r_D$; V2025-utsatt O4d løs for gjeldsgrad). Prioritet: **perfekt**.
-- **Forkunnskaper:** Bygger på kap. 6.2 ($r_E$ fra CAPM) og [Likningssett](/bok/bi-okonomi/bi-okonomi-2-3) (for å løse en ukjent). Symbol- og formelliste: $r_U$, $r_E$, $r_D$, $E$, $D$, $E/(E+D)$, WACC.
+- **Forkunnskaper:** Bygger på kap. 6.2 ($r_E$ fra CAPM) og [Likningssett](/bi-okonomi/bi-okonomi-2-3) (for å løse en ukjent). Symbol- og formelliste: $r_U$, $r_E$, $r_D$, $E$, $D$, $E/(E+D)$, WACC.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES OG LØSES FOR ÉN UKJENT: $r_U = r_E\cdot\dfrac{E}{E+D} + r_D\cdot\dfrac{D}{E+D}$ (unlevered kapitalkostnad = WACC uten skatt = selskapets samlede avkastningskrav). $E$, $D$ = **markedsverdier**. Rangeringen $r_E > r_U > r_D$ **alltid** (egenkapital har prioritet *etter* gjeld ved konkurs og bærer mer risiko). Samme formel løses for $r_E$, $r_D$ eller gjeldsgraden når de andre er kjent. WACC som avkastningskrav i investeringsbeslutninger (kap. 7.2). **Regnekjede (nyskrevet):** $r_E = 12\,\%$, $r_D = 5\,\%$, $E = 600$, $D = 400$: $r_U = 12\cdot0{,}6 + 5\cdot0{,}4 = 7{,}2 + 2{,}0 = 9{,}2\,\%$. Baklengs (løs for $r_D$): gitt $r_U = 9\,\%$, $r_E = 12\,\%$, $E/(E+D)=0{,}6$: $9 = 12\cdot0{,}6 + r_D\cdot0{,}4 \Rightarrow r_D = (9-7{,}2)/0{,}4 = 4{,}5\,\%$.
 - **Oppgavesjangre:** F. Mønstereksempel: «Et selskap har egenkapitalkostnad 14 %, gjeldskostnad 6 %, og gjeldsgrad $D/(E+D) = 0{,}3$. (a) Regn ut selskapets kapitalkostnad. (b) Anta i stedet at $r_U = 10\,\%$ er kjent, men $r_D$ er ukjent — løs for $r_D$.»
 - **Typiske feil:** Bruke bokførte i stedet for markedsverdier for $E$ og $D$; blande vektene ($E/(E+D)$ på feil ledd); bryte rangeringen $r_E > r_U > r_D$.
@@ -708,6 +708,6 @@ Eksamensvinkel-blokker:
 - [ ] **Kapittel-DNA**: hvert teorikapittel har Eksamensvinkel-`tip` (med tallene herfra), Typiske feil-`warning`, Forkunnskaper-`text` + Symbol- og formelliste-`collapsible`, 2–4 eksempler (siste på eksamensnivå), 6–12 øvinger med `solution` + `hints`, repetisjons-`collapsible`; drillkapitler har løsningsoppskrift + sensor-kommentert case + 10–15 oppgaver.
 - [ ] **Quiz-sum ≥ 582 og flashcard-sum ≥ 538** per kvotetabellen (kontrollsummér mot §3).
 - [ ] **Prøver**: 4 per temadel 1–9 (36 stk) + 3 øvingseksamener som sammen dekker sjangrene A–J.
-- [ ] **Kryssbok-lenker**: alle `/bok/bi-okonomi/...`-lenker peker på eksisterende kapitler (`bi-okonomi-1-1` … `-4-5`, `-2-2`, `-2-3` er verifisert).
+- [ ] **Kryssbok-lenker**: alle `/bi-okonomi/...`-lenker peker på eksisterende kapitler (`bi-okonomi-1-1` … `-4-5`, `-2-2`, `-2-3` er verifisert).
 - [ ] **Opphavsrett**: ALLE oppgaver nyskrevne — egne selskapsnavn (Nordvik Solar, Bygdeposten Media, Havbruk Nord, Fjordkraft Marine, …), egne tall, egne scenarioer; **ikke Hexagon Composites**; ingen formuleringer fra reelle sett eller sensorveiledninger; pensumlitteratur (Berk & DeMarzo) refereres, aldri siteres i lengde.
 - [ ] **Verifiser rendering**: prod-server + curl mot kapittel- og narrativ-ruter (200 + innhold), jf. lærdommen om `getChapterMeta`.

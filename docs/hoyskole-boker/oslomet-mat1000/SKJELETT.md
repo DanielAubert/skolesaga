@@ -251,7 +251,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Sum, differanse, produkt og transponert av matriser — med dimensjonssjekken som selv er poenggivende, og som åpner nesten hvert eneste sett.
-- **Forkunnskaper (kryssbok):** [Matriser og matriseregning](/bok/matte/bi-okonomi-9-1) (grunnleggende matrisebegrep og produkt).
+- **Forkunnskaper (kryssbok):** [Matriser og matriseregning](/matte/bi-okonomi-9-1) (grunnleggende matrisebegrep og produkt).
 - **Eksamensbelegg:** Sjanger A — matriseregning er oppgave 1 i så godt som alle sett (23/23). Den faste billige åpningen: regn ut oppgitte operasjoner OG **avgjør først om hver operasjon er definert** — fasit belønner at man forklarer *hvorfor* f.eks. `BA` ikke finnes (dimensjonskonflikt). Prioritet: **perfekt**.
 - **Innholdskontrakt:** Matrise, dimensjon `m×n`, element `aᵢⱼ`; sum/differanse (krever lik dimensjon); **skalarmultiplikasjon**; **matriseprodukt** `AB` (definert kun når kolonner(A) = rader(B); dimensjonen til `AB`); at `AB ≠ BA` generelt og at én kan være definert mens den andre ikke er; **transponert** `Aᵀ` og reglene `(AB)ᵀ = BᵀAᵀ`, `(Aᵀ)ᵀ = A`; identitetsmatrisen `I` og `AI = IA = A`; **definert-sjekk som eget føringssteg** (skriv dimensjonene, avgjør, begrunn udefinert). Alt til aktiv bruk i tempo.
 - **Oppgavesjangre:** A. Mønstereksempel: «Gitt `A` (2×2), `B` (2×3) og `C` (2×2): regn ut `A + C`, `AB`, `BA` og `2A − Cᵀ`, og forklar kort hvis noe ikke er definert.»
@@ -263,7 +263,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-1-2` · **number:** 1.2 · **estimatedMinutes:** 60 · **prerequisites:** `oslomet-mat1000-1-1`
 - **kapitteltype:** teori
 - **description:** Determinant (2×2 og 3×3), invers matrise og løsning av matriselikninger — med de effektive snarveiene fasit belønner.
-- **Forkunnskaper (kryssbok):** Kap. 1.1; [Determinanter og invers matrise](/bok/matte/bi-okonomi-9-2).
+- **Forkunnskaper (kryssbok):** Kap. 1.1; [Determinanter og invers matrise](/matte/bi-okonomi-9-2).
 - **Eksamensbelegg:** Sjanger A (fortsettelse) — determinant/invers/matriselikning er faste ledd i oppgave 1 (23/23). Fasit belønner **effektiv metode**: `det(A⁻¹) = 1/det(A)` og `det(Aⁿ) = (det A)ⁿ` framfor å invertere/multiplisere først; isolér `X` symbolsk i `AX = B` før innsetting. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Determinant** 2×2 (`ad − bc`) direkte, 3×3 ved kofaktorutvikling (Sarrus nevnes, kofaktor føres); egenskapene `det(AB) = det(A)det(B)`, `det(Aᵀ) = det(A)`, `det(Aⁿ) = (det A)ⁿ`, `det(A⁻¹) = 1/det(A)`, `det(kA) = kⁿ det(A)`; **invers**: 2×2-formel `A⁻¹ = (1/det A)·[[d,−b],[−c,a]]`, 3×3 ved Gauss-Jordan `[A | I] → [I | A⁻¹]`; invertibilitet ⇔ `det(A) ≠ 0`; **matriselikning**: isolér `X` symbolsk (`AX = B ⇒ X = A⁻¹B`; `AX + 2B = C ⇒ X = A⁻¹(C − 2B)`; `XA = B ⇒ X = BA⁻¹` — **gang fra riktig side**) FØR innsetting. Understrek at høyre-/venstremultiplikasjon ikke er utbyttbar.
 - **Oppgavesjangre:** A. Mønstereksempel: «Gitt `A` og `B` (begge 2×2 med `det A ≠ 0`): løs `AX + 2B = C` for `X`, og finn `det(A⁻¹)` uten å regne ut `A⁻¹`.» Mønstereksempel: «Regn ut `A⁻¹` (3×3) med Gauss-Jordan og verifiser `AA⁻¹ = I`.»
@@ -275,7 +275,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-1-3` · **number:** 1.3 · **estimatedMinutes:** 60 · **prerequisites:** `oslomet-mat1000-1-2`
 - **kapitteltype:** teori
 - **description:** Full tilfellesanalyse av parametersystem (entydig / uendelig mange / ingen), løsning på parametrisk vektorform, og lineær uavhengighet / redusert trappeform.
-- **Forkunnskaper (kryssbok):** Kap. 1.2; [Lineære likningssystem og Gauss-eliminasjon](/bok/matte/bi-okonomi-9-3).
+- **Forkunnskaper (kryssbok):** Kap. 1.2; [Lineære likningssystem og Gauss-eliminasjon](/matte/bi-okonomi-9-3).
 - **Eksamensbelegg:** Sjanger I (parametersystem, 17/23) + basis/uavhengighet/nullrom (8/23). Metode: `det(koeffisientmatrise) = 0` gir kandidatverdiene for parameteren; hvert tilfelle undersøkes med Gauss-eliminasjon på totalmatrisen; **uendelig mange skrives på parametrisk vektorform**. Prioritet: **kunne** (tempo: perfekt, del av oppgave 1-blokken).
 - **Innholdskontrakt:** Gauss-eliminasjon til (redusert) trappeform; totalmatrise vs. koeffisientmatrise; **tilfellesanalyse for parameter `a`**: sett `det(A) = 0` → kandidatverdier; for `det(A) ≠ 0` entydig løsning (Cramer nevnes som alternativ); for hver kandidatverdi radreduser totalmatrisen og skill **uendelig mange** (fri variabel, rad `0 = 0`) fra **ingen** (inkonsistent rad `0 = tall`); **parametrisk vektorform** `x = x_p + t·v`; **lineær uavhengighet** (kolonnene uavhengige ⇔ `det ≠ 0` for kvadratisk, ellers pivot i hver kolonne); begrepene **nullrom, rang og pivot** (kort, kjenne-nivå); homogent system `Ax = 0` har alltid triviell løsning, ikke-triviell ⇔ `det = 0`.
 - **Oppgavesjangre:** I. Mønstereksempel: «For hvilke verdier av `a` har systemet {`x + az = 3`, `−ay + z = 2`, `ax + ay = 1`} ingen, én eller uendelig mange løsninger? Skriv løsningen på parametrisk vektorform der den ikke er entydig.»
@@ -304,7 +304,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-2-1` · **number:** 2.1 · **estimatedMinutes:** 50 · **prerequisites:** `oslomet-mat1000-1-2`
 - **kapitteltype:** teori
 - **description:** Bygg standardmatrisen til en lineær transformasjon fra kjente bilder — med lineærkombinasjons-snarveien fasit foretrekker.
-- **Forkunnskaper (kryssbok):** Kap. 1.1–1.2; [Vektorer i planet](/bok/matte/r1-6-1), [Vektorregning](/bok/matte/r1-6-2).
+- **Forkunnskaper (kryssbok):** Kap. 1.1–1.2; [Vektorer i planet](/matte/r1-6-1), [Vektorregning](/matte/r1-6-2).
 - **Eksamensbelegg:** Sjanger H (del 1) — lineær transformasjon 15/23, 6/10 i epoke 2. To standardvarianter: bygg standardmatrisen fra bilder av basisvektorer, eller skriv en målvektor som lineærkombinasjon av kjente vektorer og bruk lineariteten (fasit foretrekker den korte veien). Prioritet: **kunne**.
 - **Innholdskontrakt:** Definisjon av lineær transformasjon `T(x)`: `T(u+v) = T(u)+T(v)`, `T(cu) = cT(u)`; **standardmatrisen** `A` med kolonner `T(e₁), T(e₂)` (eller `T(e₁), T(e₂), T(e₃)` i R³) slik at `T(x) = Ax`; **lineærkombinasjons-snarveien**: er `w = c₁u + c₂v` med kjente `T(u), T(v)`, så er `T(w) = c₁T(u) + c₂T(v)` — raskere enn å bygge hele `A` når bare ett bilde søkes; bygg `A` fra bilder når det ikke er basisvektorer (løs for kolonnene via et lineært system); finn **alle vektorer som sendes til en gitt vektor** (løs `Ax = b`, koble til Del 1.3).
 - **Oppgavesjangre:** H. Mønstereksempel: «`T` er lineær med `T(1,1) = (3,0)` og `T(1,−1) = (1,2)`. Finn `T(2,4)` (lineærkombinasjon) og standardmatrisen til `T`.»
@@ -316,7 +316,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-2-2` · **number:** 2.2 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-2-1`
 - **kapitteltype:** teori
 - **description:** Rotasjon, speiling, projeksjon og forlengelse som standardmatriser — og komposisjoner satt sammen som matriseprodukt i riktig rekkefølge.
-- **Forkunnskaper (kryssbok):** Kap. 2.1; [Enhetssirkelen og trigonometriske definisjoner](/bok/matte/r2-4-2), [Trigonometriske formler](/bok/matte/r2-4-6).
+- **Forkunnskaper (kryssbok):** Kap. 2.1; [Enhetssirkelen og trigonometriske definisjoner](/matte/r2-4-2), [Trigonometriske formler](/matte/r2-4-6).
 - **Eksamensbelegg:** Sjanger H (del 2) — geometriske transformasjoner og komposisjoner. Fasit krever riktig produktrekkefølge (den siste transformasjonen står lengst til venstre). Prioritet: **kunne**.
 - **Innholdskontrakt:** Standardmatrisene: **rotasjon** `R(θ) = [[cos θ, −sin θ], [sin θ, cos θ]]`; **speiling** om x-aksen, y-aksen, linja `y = x` og generell linje gjennom origo med vinkel `α`; **ortogonal projeksjon** på en akse/linje; **forlengelse/skalering** `[[k,0],[0,k]]`; **komposisjon**: «gjør `S` etter `T`» = `S∘T` med matrise `A_S · A_T` (**rekkefølge!** siste operasjon lengst til venstre); at rotasjoner kommuterer, men rotasjon og speiling ikke gjør det; determinanten som areal-/orienteringsfaktor (`det = ±1` for rotasjon/speiling).
 - **Oppgavesjangre:** H. Mønstereksempel: «`T` roterer først `π/2` mot klokka og speiler så om x-aksen. Finn standardmatrisen til `T` og finn `T(2,1)`.»
@@ -340,7 +340,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-3-1` · **number:** 3.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Regning på normalform, konjugat og modulus, og polarform begge veier med kvadrantdisiplin — grunnlaget for epokens årvisse signaturoppgave.
-- **Forkunnskaper (kryssbok):** [ABC-formelen](/bok/matte/1t-2-3) (andregradslikninger over ℝ), [Enhetssirkelen og trigonometriske definisjoner](/bok/matte/r2-4-2), [Radianer og vinkelmål](/bok/matte/r2-4-1). (Selve komplekstall-teorien introduseres i dette kapitlet.)
+- **Forkunnskaper (kryssbok):** [ABC-formelen](/matte/1t-2-3) (andregradslikninger over ℝ), [Enhetssirkelen og trigonometriske definisjoner](/matte/r2-4-2), [Radianer og vinkelmål](/matte/r2-4-1). (Selve komplekstall-teorien introduseres i dette kapitlet.)
 - **Eksamensbelegg:** Sjanger G — komplekse tall 13/23 totalt, men **10/10 i epoke 2** (årviss signatur). Polarform begge veier og riktig kvadrant for argumentet er de faste billige poengene. Prioritet: **perfekt**.
 - **Innholdskontrakt:** `ℂ` med `i² = −1`; realdel/imaginærdel; addisjon/subtraksjon/multiplikasjon; **divisjon via konjugering** (forleng med konjugert nevner); konjugat `z̄` og reglene `\overline{z+w} = z̄ + w̄`, `\overline{zw} = z̄·w̄`; **modulus** `|z| = √(a²+b²)` og `z·z̄ = |z|²`; **polarform** `z = r(cos φ + i sin φ) = reⁱᶠ` **begge veier** — normalform → polar (**tegn punktet i planet FØR argumentet fastsettes**; `tan φ = b/a` men kvadranten avgjør), og polar → normalform (skriv helt ut når det spørres); argumentkonvensjon og reduksjon mod `2π`; **Eulers formel** (bruk); multiplikasjon/divisjon på polarform (multipliser moduli, adder argumenter). Alt til aktiv bruk i tempo.
 - **Oppgavesjangre:** G. Mønstereksempel: «Skriv `z = −√3 + i` på polarform, og regn ut `z/z̄` på normalform.»
@@ -352,7 +352,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-3-2` · **number:** 3.2 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-3-1`
 - **kapitteltype:** teori
 - **description:** Den lineære komplekse likningen (epokens faste billige oppgave) og andregradslikning med negativ diskriminant, med svar på både kartesisk og polar form.
-- **Forkunnskaper (kryssbok):** Kap. 3.1; [ABC-formelen](/bok/matte/1t-2-3).
+- **Forkunnskaper (kryssbok):** Kap. 3.1; [ABC-formelen](/matte/1t-2-3).
 - **Eksamensbelegg:** Sjanger G (kjerne-varianten i epoke 2): løs en **lineær kompleks likning** `az + b = cz + d` og oppgi svaret på både kartesisk og polar form. Kompleks andregradslikning via abc-formel med negativ diskriminant. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Lineær kompleks likning** `az + b = cz + d`: samle `z`-leddene, isolér `z = (d − b)/(a − c)`, forleng med konjugert nevner → normalform → **også polarform** når det bes om (riktig kvadrant); likninger der `z̄` inngår (skriv `z = x + iy`, skill real- og imaginærdel, løs det reelle 2×2-systemet); **kompleks andregradslikning** `az² + bz + c = 0` via abc-formelen med negativ diskriminant → `√(negativt tall)` = `i·√|·|` → konjugerte røtter; **konjugatrotsetningen** for reelle koeffisienter (`z̄₀` er rot når `z₀` er det) og faktorisering `(z − z₀)(z − z̄₀) = z² − 2Re(z₀)z + |z₀|²`.
 - **Oppgavesjangre:** G. Mønstereksempel: «Løs `(1 + √3 i)z = √3 z + 2` og oppgi svaret eksakt på både kartesisk og polar form.» Mønstereksempel: «Løs `z² − 4z + 13 = 0` og skriv røttene på polarform.»
@@ -364,7 +364,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-3-3` · **number:** 3.3 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-3-2`
 - **kapitteltype:** teori
 - **description:** Alle n røtter av zⁿ = w jevnt fordelt på en sirkel, og de Moivres formel for høye potenser med vinkelreduksjon.
-- **Forkunnskaper (kryssbok):** Kap. 3.1–3.2; [Trigonometriske formler](/bok/matte/r2-4-6).
+- **Forkunnskaper (kryssbok):** Kap. 3.1–3.2; [Trigonometriske formler](/matte/r2-4-6).
 - **Eksamensbelegg:** Sjanger G (fortsettelse) — `zⁿ`-røtter følger ofte rett etter den lineære likningen i epoke 2. de Moivre-potens (`zⁿ` med vinkelreduksjon) er beslektet. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **de Moivre**: `(reⁱᶿ)ⁿ = rⁿeⁱⁿᶿ` — oppskrift for høye potenser: polarform → multipliser vinkelen → **reduser mod `2π`** → normalform hvis spurt; **n-te røtter**: `zⁿ = w` har nøyaktig `n` løsninger med `|z| = |w|^{1/n}` og `arg z = (arg w + 2kπ)/n`, `k = 0,…,n−1` — **jevnt fordelt på en sirkel** med radius `|w|^{1/n}`, skal kunne tegnes/beskrives; enhetsrøtter som spesialtilfelle; kobling til faktorisering av `zⁿ − w` via røttene.
 - **Oppgavesjangre:** G. Mønstereksempel: «Finn alle løsninger av `z³ = −8i`, skriv dem på normalform og marker dem i planet.» Mønstereksempel: «Regn ut `(1 − i)¹⁰` på normalform.»
@@ -393,7 +393,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-4-1` · **number:** 4.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Alle derivasjonsreglene i tempo, logaritmisk derivasjon, og implisitt derivasjon til tangentlinje — fundamentet for Newton, DE og relaterte rater.
-- **Forkunnskaper (kryssbok):** [Derivasjonsregler](/bok/matte/r1-4-1), [Kjerneregelen](/bok/matte/r1-4-3), [Produktregelen og kvotientregelen](/bok/matte/r1-4-4), [Derivasjon av trigonometriske funksjoner](/bok/matte/r2-4-9).
+- **Forkunnskaper (kryssbok):** [Derivasjonsregler](/matte/r1-4-1), [Kjerneregelen](/matte/r1-4-3), [Produktregelen og kvotientregelen](/matte/r1-4-4), [Derivasjon av trigonometriske funksjoner](/matte/r2-4-9).
 - **Eksamensbelegg:** Sjanger M — derivasjon 18/23 som egen del; implisitt derivasjon/tangent i ~10/23. Verktøy-fundamentet for Newton (Del 7), DE (Del 6) og relaterte rater (kap. 4.2). Prioritet: **kunne** (tempo: perfekt).
 - **Innholdskontrakt:** Kjerne-, produkt- og kvotientregel i tempo; standardderiverte (inkl. `eˣ`, `ln x`, `sin/cos/tan`, `arcsin`, `arctan` — på formelarket); **logaritmisk derivasjon** (for `f(x)^{g(x)}` og produkter av mange faktorer); **implisitt derivasjon**: deriver relasjonen mhp. `x` (husk `y′`-faktoren via kjerneregelen), løs for `y′`; **tangentlinje**: vis først at punktet ligger på kurven (sett inn), finn `y′` i punktet, skriv `y − y₀ = y′₀(x − x₀)`; høyere deriverte og andrederiverttest (forberedelse til optimering).
 - **Oppgavesjangre:** M. Mønstereksempel: «Vis at `(1,2)` ligger på kurven `x²y³ = y·ln x + x³`, og finn tangentens likning der.» Mønstereksempel: «Deriver `f(x) = x^{sin x}` med logaritmisk derivasjon.»
@@ -405,7 +405,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-4-2` · **number:** 4.2 · **estimatedMinutes:** 50 · **prerequisites:** `oslomet-mat1000-4-1`
 - **kapitteltype:** teori
 - **description:** Modeller en geometrisk sammenheng, deriver implisitt mhp. tid, sett inn øyeblikksverdiene og tolk fortegnet — ofte koblet til en beholder som fylles eller tømmes.
-- **Forkunnskaper (kryssbok):** Kap. 4.1; [Relaterte rater](/bok/matte/r1-4-7).
+- **Forkunnskaper (kryssbok):** Kap. 4.1; [Relaterte rater](/matte/r1-4-7).
 - **Eksamensbelegg:** Sjanger K — 9/23. Svært ofte koblet til en beholder (kjegle, vase, kar) som fylles/tømmes, og dermed til volumformel (kap. 5.4) og/eller Torricelli-DE (kap. 6.4). Prioritet: **kunne**.
 - **Innholdskontrakt:** **Relaterte rater-oppskrift (aktiv)**: (1) figur + navngi variabler og deres tidsderiverte; (2) modeller sammenhengen (kjeglevolum `V = πr²h/3`, Pytagoras, `tan θ`-synsvinkel, sylinder/vase-profil); (3) **deriver implisitt mhp. `t`** (ikke sett inn tall før derivasjon); (4) sett inn øyeblikksverdiene; (5) **tolk fortegn og enhet** i konklusjonssetningen; likedannethet for å eliminere en variabel (kjegle: `r/h` konstant).
 - **Oppgavesjangre:** K. Mønstereksempel: «En ballong blåses opp så volumet vokser med 300 cm³/s. Hvor fort vokser radien når `r = 10 cm`?» Mønstereksempel: «Vann renner ut av en kjegleformet tank; hvor fort synker overflaten når dybden er 2 m?»
@@ -417,7 +417,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-4-3` · **number:** 4.3 · **estimatedMinutes:** 50 · **prerequisites:** `oslomet-mat1000-4-1`
 - **kapitteltype:** teori
 - **description:** Modeller målfunksjonen, finn og klassifiser stasjonære punkter, og begrunn globalt ekstremum med endepunktssjekk — inkludert nærmeste-punkt og parameteroptimering.
-- **Forkunnskaper (kryssbok):** Kap. 4.1; [Funksjonsdrøfting](/bok/matte/r1-4-6), [Globale ekstremalpunkter](/bok/matte/r1-4-8), [Optimering i praksis](/bok/matte/r1-4-9), [Fortegnslinjer](/bok/matte/1t-4-3).
+- **Forkunnskaper (kryssbok):** Kap. 4.1; [Funksjonsdrøfting](/matte/r1-4-6), [Globale ekstremalpunkter](/matte/r1-4-8), [Optimering i praksis](/matte/r1-4-9), [Fortegnslinjer](/matte/1t-4-3).
 - **Eksamensbelegg:** Sjanger N — 7/23, stigende i epoke 2. Egne varianter: **korteste avstand** fra punkt til graf, og **min-av-maks** (parameteroptimering). Fasit krever begrunnet globalt ekstremum. Prioritet: **kunne**.
 - **Innholdskontrakt:** Modeller målfunksjonen fra tekst/geometri med bibetingelse; deriver, finn stasjonære punkter (`f′ = 0`), **klassifiser** (fortegnsskjema for `f′` eller andrederiverttest); **begrunn globalt ekstremum** (endepunktssjekk på lukket intervall, eller grenser mot `±∞`); **nærmeste punkt**: minimér kvadrert avstand `D(x) = (x − x₀)² + (f(x) − y₀)²`; **parameteroptimering (min-av-maks)**. Bruk fortegnslinjer som dokumentasjon.
 - **Oppgavesjangre:** N. Mønstereksempel: «Finn punktet på grafen til `y = x²` som ligger nærmest `(0,3)`.» Mønstereksempel: «Finn det innskrevne rektanglet med størst areal under `y = 4 − x²`.»
@@ -429,7 +429,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-4-4` · **number:** 4.4 · **estimatedMinutes:** 50 · **prerequisites:** `oslomet-mat1000-4-1`
 - **kapitteltype:** teori
 - **description:** Alle ubestemte former løst med L'Hôpital og standardgrenser — med formsjekk-disiplinen som markerer [0/0] eller [∞/∞] før hver bruk.
-- **Forkunnskaper (kryssbok):** Kap. 4.1; [Grenseverdi](/bok/matte/r1-3-1), [Kontinuitet](/bok/matte/r1-3-2), [Potenser og logaritmer](/bok/matte/r1-1-2).
+- **Forkunnskaper (kryssbok):** Kap. 4.1; [Grenseverdi](/matte/r1-3-1), [Kontinuitet](/matte/r1-3-2), [Potenser og logaritmer](/matte/r1-1-2).
 - **Eksamensbelegg:** Sjanger O — 10/23, fallende (E1-tungt), men fortsatt pensum og på formelarket. Prioritet: **kunne**.
 - **Innholdskontrakt:** Standardgrensene (`sin x/x → 1`, veksthierarkiet `ln x ≪ xᵖ ≪ eˣ`); **L'Hôpital med disiplin**: markér ubestemt form **eksplisitt** (`[0/0]` eller `[∞/∞]`) FØR hver anvendelse, sjekk forutsetningene, gjentatt bruk krever ny markering; de andre ubestemte formene og omskrivingene: `0·∞` (flytt til nevner), `∞−∞` (fellesnevner eller konjugattriks), `1^∞`, `0⁰`, `∞⁰` (via `lim ln` + eksponentiering); når L'Hôpital IKKE hjelper (bruk standardgrense); ensidige grenser i skjøtepunkter.
 - **Oppgavesjangre:** O. Mønstereksempel: «Beregn `lim_{x→∞}(√(x²+4x) − x)` med full føring.» Mønstereksempel: «`lim_{x→0⁺}(1 + 3x)^{1/x}`» (logaritmetriks; identifiser `1^∞` først).
@@ -441,7 +441,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-4-5` · **number:** 4.5 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-4-1`, `oslomet-mat1000-4-4`
 - **kapitteltype:** teori
 - **description:** Tre lavfrekvente, men billige epoke 2-sjangre samlet: Taylorpolynom om x = a (ikke rekker), deriverbarhet av stykkevis funksjon, og graf-/retningsfelt-tolking.
-- **Forkunnskaper (kryssbok):** Kap. 4.1, 4.4; [Kontinuitet](/bok/matte/r1-3-2), [Derivasjonens definisjon](/bok/matte/r1-3-3).
+- **Forkunnskaper (kryssbok):** Kap. 4.1, 4.4; [Kontinuitet](/matte/r1-3-2), [Derivasjonens definisjon](/matte/r1-3-3).
 - **Eksamensbelegg:** Sjanger P (Taylorpolynom 4/23), Q (stykkevis 2/23, kun epoke 2) og R (graf/retningsfelt 4/23, stigende i epoke 2) — alle lavfrekvente, men billige når de kommer. **NB: kun polynomer — uendelige Taylor-/potensrekker hører til Matematikk 2000 og skal IKKE med.** Prioritet: **kjenne**.
 - **Innholdskontrakt:** **Taylorpolynom** `Pₙ(x) = Σ_{k=0}^n f⁽ᵏ⁾(a)/k! · (x−a)ᵏ` om `x = a` til gitt grad (formel på formelarket); bruk til å **estimere** en funksjonsverdi eller et integral, og vurdér **restleddet** `Rₙ` (lineær tilnærming `f(x) ≈ f(a) + f′(a)(x−a)` som spesialtilfelle); **stykkevis funksjon** med ukjente `a, b`: sett opp **kontinuitetsbetingelse** (verdier like i skjøtet) **og derivert-betingelse** (ensidige deriverte like) og løs 2×2-systemet; **grafanalyse**: identifiser hvilken graf som er `f`, `f′` og `F` (antiderivert) ut fra fortegn/monotoni-sammenhenger; **retningsfelt**: avgjør hvilken kurve som er (eller ikke er) løsning av en gitt DE (forbinder til Del 6). Fundamentalteorem med variabel grense nevnes kort: `d/dx ∫_a^{g(x)} f(t) dt = f(g(x))g′(x)`.
 - **Oppgavesjangre:** P + Q + R. Mønstereksempel (P): «Finn Taylorpolynomet av grad 2 til `√x` om `x = 4` og bruk det til å tilnærme `√4.2`.» Mønstereksempel (Q): «Bestem `a, b` slik at den delte funksjonen blir deriverbar i skjøtepunktet.»
@@ -459,7 +459,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-5-1` · **number:** 5.1 · **estimatedMinutes:** 60 · **prerequisites:** `oslomet-mat1000-4-1`
 - **kapitteltype:** teori
 - **description:** De to grunnteknikkene med føringsstandard — substitusjonsboks med nye grenser og dokumentert u/v'-valg — og fundamentalteoremet som binder derivasjon og integrasjon sammen.
-- **Forkunnskaper (kryssbok):** [Variabelskifte (substitusjon)](/bok/matte/r2-3-1), [Delvis integrasjon](/bok/matte/r2-3-2), [Integrasjon av 1/x og eksponentialfunksjoner](/bok/matte/r2-2-3), [Analysens fundamentalsetning](/bok/matte/r2-2-5), [Bestemt integral som grenseverdi](/bok/matte/r2-2-4).
+- **Forkunnskaper (kryssbok):** [Variabelskifte (substitusjon)](/matte/r2-3-1), [Delvis integrasjon](/matte/r2-3-2), [Integrasjon av 1/x og eksponentialfunksjoner](/matte/r2-2-3), [Analysens fundamentalsetning](/matte/r2-2-5), [Bestemt integral som grenseverdi](/matte/r2-2-4).
 - **Eksamensbelegg:** Sjanger D — integrasjonsteknikk 22/23 (96 %), typisk 2–4 deloppgaver per sett. Substitusjon og delvis integrasjon er de mest brukte teknikkene. Prioritet: **perfekt**.
 - **Innholdskontrakt:** Ubestemt/bestemt integral, fundamentalteoremet (`∫_a^b f = F(b) − F(a)`, og `d/dx ∫_a^x f = f(x)`); **substitusjon**: bokfør `u`, `du` og **nye grenser** i egen boks (ved bestemt integral); den indre deriverte; standardsubstitusjoner (`∫f(ax+b)dx`); **delvis integrasjon** `∫u dv = uv − ∫v du`: **dokumentér `u/v′`-valget** (LIATE-heuristikk); klassikerne `∫x²eˣ`, `∫x ln x`, `∫x sin x`; «ensomme» funksjoner (`∫ln x`, `∫arctan x`) integreres delvis mot 1; sykliske tilfeller (`∫eˣ sin x` — løs for integralet); kombinasjon substitusjon → delvis.
 - **Oppgavesjangre:** D. Mønstereksempel: «Beregn `∫₀¹ x·e^{−x²} dx` med substitusjon (grenser bokført).» Mønstereksempel: «Beregn `∫x²·ln x dx` med delvis integrasjon.»
@@ -471,7 +471,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-5-2` · **number:** 5.2 · **estimatedMinutes:** 60 · **prerequisites:** `oslomet-mat1000-5-1`
 - **kapitteltype:** teori
 - **description:** Rasjonale integrander med delbrøk (også irreduserbar kvadratisk faktor → ln-del + arctan-del), fullføre kvadrat, og trigonometriske integraler.
-- **Forkunnskaper (kryssbok):** Kap. 5.1; [Delbrøkoppspalting](/bok/matte/r2-3-3), [Fullstendig kvadrat](/bok/matte/1t-2-4), [Rasjonale uttrykk](/bok/matte/1t-1-6).
+- **Forkunnskaper (kryssbok):** Kap. 5.1; [Delbrøkoppspalting](/matte/r2-3-3), [Fullstendig kvadrat](/matte/1t-2-4), [Rasjonale uttrykk](/matte/1t-1-6).
 - **Eksamensbelegg:** Sjanger D (fortsettelse) — delbrøk med irreduserbar kvadratisk faktor og fullføre-kvadrat → arctan-form er midtsjikt-markører. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Delbrøkoppspalting**: alle nevnertyper (distinkte lineære, gjentatte lineære, irreduserbar kvadratisk); **polynomdivisjon først** når tellergrad ≥ nevnergrad; **irreduserbar kvadratisk faktor** `(ax+b)/(x²+c)` → splitt i **ln-del** (tellerens deriverte-del) + **arctan-del** (via fullført kvadrat); **trigonometriske integraler** (`sin²`/`cos²` via halvvinkel, `sin·cos`, produkter); kjeding substitusjon → delbrøk (`∫dx/(eˣ+1)` via `u = eˣ`).
 - **Oppgavesjangre:** D. Mønstereksempel: «Beregn `∫ (2x+3)/(x²+2x+5) dx` (splitt i ln-del + arctan-del via fullført kvadrat).» Mønstereksempel: «Beregn `∫ dx/(eˣ+1)` (substitusjon `u = eˣ`, deretter delbrøk).»
@@ -483,7 +483,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-5-3` · **number:** 5.3 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-5-2`
 - **kapitteltype:** teori
 - **description:** Integraler med absoluttverdi (del opp intervallet) og uegentlige integraler med eksplisitt grenseføring — inkludert de faste [xⁿe^(−xᵏ)]-typene over [0,∞).
-- **Forkunnskaper (kryssbok):** Kap. 5.2; [Analysens fundamentalsetning](/bok/matte/r2-2-5).
+- **Forkunnskaper (kryssbok):** Kap. 5.2; [Analysens fundamentalsetning](/matte/r2-2-5).
 - **Eksamensbelegg:** Sjanger D — absoluttverdi og uegentlige integraler er faste teknikk-varianter. Fasit krever **eksplisitt grense**; «sett inn ∞» underkjennes. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Absoluttverdi**: finn nullpunktene til uttrykket inni, **del opp intervallet** der fortegnet skifter, integrer hvert stykke med riktig fortegn; **uegentlige integraler**: identifiser uendelighetsgrense eller singularitet; **før med eksplisitt `lim`** (`∫₁^∞ = lim_{b→∞} ∫₁^b`; `∫₀¹ 1/√x = lim_{a→0⁺} ∫_a^1`); direkte beregning (ofte substitusjon → gammalignende `∫₀^∞ xⁿe^{−xᵏ}`); splitt i alle singulariteter inne i intervallet (`∫_{−1}^1 1/x²` deles i 0); kort om når integralet divergerer.
 - **Oppgavesjangre:** D. Mønstereksempel: «Regn ut `∫₀² |x − 1| dx`.» Mønstereksempel: «Regn ut det uegentlige integralet `∫₀^∞ x⁵ e^{−x³} dx` (substitusjon + grenseføring).»
@@ -495,7 +495,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-5-4` · **number:** 5.4 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-5-2`
 - **kapitteltype:** teori
 - **description:** Riktig metodevalg etter rotasjonsakse — skiver om x-aksen, sylinderskall om y-aksen (hovedtilfellet) — med integralet løst ved dokumentert teknikk, pluss buelengde.
-- **Forkunnskaper (kryssbok):** Kap. 5.2; [Volum av omdreiningslegemer](/bok/matte/r2-3-6), [Areal mellom kurver](/bok/matte/r2-2-7).
+- **Forkunnskaper (kryssbok):** Kap. 5.2; [Volum av omdreiningslegemer](/matte/r2-3-6), [Areal mellom kurver](/matte/r2-2-7).
 - **Eksamensbelegg:** Sjanger J — omdreiningsvolum 12/23, stigende i epoke 2 der **y-aksen er hovedtilfellet** (vaser, beholdere, dreide trestykker), ofte koblet til et fyll-/tømme-scenario (relaterte rater kap. 4.2, Torricelli kap. 6.4). Buelengde 1/23 (sjelden; formel på arket). Prioritet: **perfekt** (volum) / **kjenne** (buelengde).
 - **Innholdskontrakt:** Tegn/forstå området; **velg metode etter akse** (begge formler på formelarket): om **x-aksen** → skiver `V = π∫f² dx`; om **y-aksen** → **sylinderskall** `V = 2π∫x|f| dx` (hovedtilfellet); sett opp integralet og løs med relevant teknikk (ofte delvis: `∫x ln x`, `∫x eˣ`); areal mellom kurver som kontrast (ikke volum); enhet (ofte omregnet til liter = dm³); utled `V(h)` for en beholder med gitt profil (første ledd i Torricelli-kjeden); **buelengde** `L = ∫√(1 + (f′)²) dx` (eget oppsett; formel på arket).
 - **Oppgavesjangre:** J. Mønstereksempel: «Grafen til `y = sin x` for `0 ≤ x ≤ π/2` roteres om y-aksen og danner en vase. Finn volumet.» Mønstereksempel: «Området under `y = e^{−x}` over `[0,∞)` dreies om x-aksen — finn volumet.»
@@ -524,7 +524,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-5-2`
 - **kapitteltype:** teori
 - **description:** Full føringsmal for separable likninger — skill variablene, integrer begge sider, løs for y og bestem konstanten fra initialkravet, med konstante løsninger notert.
-- **Forkunnskaper (kryssbok):** Kap. 5.2; [Introduksjon til differensiallikninger](/bok/matte/s2-2-1), [Separable differensiallikninger](/bok/matte/s2-2-2).
+- **Forkunnskaper (kryssbok):** Kap. 5.2; [Introduksjon til differensiallikninger](/matte/s2-2-1), [Separable differensiallikninger](/matte/s2-2-2).
 - **Eksamensbelegg:** Sjanger B (separabel variant) — differensiallikninger 23/23 (100 %), typisk 2–3 delpunkter per sett. Prioritet: **perfekt**.
 - **Innholdskontrakt:** Separabel form `y′ = g(x)h(y)`; **føringsmal (aktiv)**: (1) noter konstante løsninger `h(y) = 0` (sjekk mot initialbetingelsen før de forkastes); (2) separér `dy/h(y) = g(x)dx`; (3) integrer begge sider (delbrøk for logistisk); (4) løs for `y` og bestem konstanten fra initialkravet `y(0)`; (5) tolk; **initialverdiproblem (IVP)**; logistisk likning `y′ = ky(M − y)` via delbrøk.
 - **Oppgavesjangre:** B. Mønstereksempel: «Løs `y′ = x·e^{−y}`, `y(0) = 0`.» Mønstereksempel: «Løs den logistiske likningen `y′ = y(1 − y)`, `y(0) = 1/2` (delbrøk).»
@@ -536,7 +536,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-6-2` · **number:** 6.2 · **estimatedMinutes:** 50 · **prerequisites:** `oslomet-mat1000-6-1`
 - **kapitteltype:** teori
 - **description:** Integrerende faktor som standardmetode for y' + f(x)y = g(x) — det andre beinet i den analytiske DE-blokken.
-- **Forkunnskaper (kryssbok):** Kap. 6.1; [Lineære differensiallikninger](/bok/matte/s2-2-3).
+- **Forkunnskaper (kryssbok):** Kap. 6.1; [Lineære differensiallikninger](/matte/s2-2-3).
 - **Eksamensbelegg:** Sjanger B (lineær variant) — del av 100 %-blokken. Prioritet: **perfekt**.
 - **Innholdskontrakt:** Lineær form `y′ + f(x)y = g(x)`; **integrerende faktor** `μ(x) = e^{∫f dx}`: gang gjennom, kjenn igjen `(μy)′ = μg`, integrer, løs for `y`; bestem konstanten fra initialkravet; når en likning kan angripes både separabelt og lineært (vis begge, marker «Alternativt:»); kobling til modellering (kap. 6.4).
 - **Oppgavesjangre:** B. Mønstereksempel: «Løs `y′ + 2y = e^{−x}`, `y(0) = 1`, med integrerende faktor.»
@@ -548,7 +548,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-6-3` · **number:** 6.3 · **estimatedMinutes:** 65 · **prerequisites:** `oslomet-mat1000-6-2`, `oslomet-mat1000-3-2`
 - **kapitteltype:** teori
 - **description:** Karakteristisk likning med alle tre rot-tilfellene, partikulærløsning ved ubestemte koeffisienter, og de kritiske randtilfellene resonans og dempet svingning.
-- **Forkunnskaper (kryssbok):** Kap. 6.2, 3.2 (komplekse røtter); [Lineære differensiallikninger](/bok/matte/s2-2-3).
+- **Forkunnskaper (kryssbok):** Kap. 6.2, 3.2 (komplekse røtter); [Lineære differensiallikninger](/matte/s2-2-3).
 - **Eksamensbelegg:** Sjanger B (2. orden) — fast innslag i 100 %-blokken. **Alle tre rot-tilfellene** og **resonans** er de hyppigste feilkildene (fasit trekker for feil ansatz). Prioritet: **perfekt**.
 - **Innholdskontrakt:** Homogen likning `y″ + py′ + qy = 0`: **karakteristisk likning** `r² + pr + q = 0` → **tre tilfeller** (to reelle røtter `Ae^{r₁x} + Be^{r₂x}` / dobbeltrot `(A + Bx)e^{rx}` / komplekst par `e^{ax}(A cos bx + B sin bx)` = dempet svingning); **partikulærløsning** ved ubestemte koeffisienter for polynom-/eksponential-/sinus-høyresider `r(x)`; **resonanstilfellet**: når høyresiden løser den homogene likningen, gang ansatzen med `x` (eller `x²` ved dobbeltrot); generell løsning `y = y_h + y_p`; bestem konstantene fra `y(0)`, `y′(0)` til slutt. Alle rot-tilfeller står på formelarket — trening i bruk, ikke memorering.
 - **Oppgavesjangre:** B. Mønstereksempel: «Løs `y″ − 6y′ + 9y = 0`, og finn deretter den generelle løsningen av `y″ − 6y′ + 9y = 13 cos 2x`.» Mønstereksempel (resonans): «Finn partikulærløsningen av `y″ + 4y = sin 2x`.»
@@ -560,7 +560,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-6-4` · **number:** 6.4 · **estimatedMinutes:** 60 · **prerequisites:** `oslomet-mat1000-6-2`
 - **kapitteltype:** teori
 - **description:** Oversett en verbal situasjon til en differensiallikning — utled hvert ledd fra premissene — og enten løs, eller finn likevekt/langtidsverdi ved å sette y' = 0 uten å løse.
-- **Forkunnskaper (kryssbok):** Kap. 6.1–6.2; [Logistisk vekst](/bok/matte/r1-5-2).
+- **Forkunnskaper (kryssbok):** Kap. 6.1–6.2; [Logistisk vekst](/matte/r1-5-2).
 - **Eksamensbelegg:** Sjanger C — anvendt DE-modellering 13/23, **8/10 i epoke 2 (sterkt stigende)** og retningen faget beveger seg. Studenten skal ofte (i) utlede DE-en fra tekst, (ii) løse, eller (iii) tolke likevekt/langtidsoppførsel uten å løse. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Modelleringsoppskrift (aktiv)**: (1) oversett rate-beskrivelsen til en DE — **utled hvert ledd** (vekst-/tap-/tilførsels-ledd) fra premissene og begrunn; (2) klassifiser (separabel/lineær/2. orden); (3) noter konstante/likevektsløsninger; (4) enten løs med full føring, ELLER (5) finn **likevekt/langtidsverdi** ved å sette `y′ = 0` og resonnere (uten å løse), eller matche løsningskurve mot figur; (6) svar på det anvendte spørsmålet med tolkning og enhet. Kontekstfamilier: **Newtons avkjøling**, **logistisk vekst** (bakterier/smitte), **befolkning med migrasjon**, **tank-/blandingsproblem**, **Torricellis lov**, **RLC-krets**, **dempet harmonisk svingning**.
 - **Oppgavesjangre:** C. Mønstereksempel: «Et lands folketall taper 6 % i året, men får 300 000 innvandrere årlig, slik at `F′ = 0.3 − 0.06F` (i millioner). Hva stabiliserer folketallet seg på, og hva blir `F(t)` når `F(0) = 12`?» Mønstereksempel: «Sett opp Newtons avkjølingslov for en kaffekopp og finn temperaturen etter 10 minutter.»
@@ -594,7 +594,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-7-1` · **number:** 7.1 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-4-1`
 - **kapitteltype:** teori
 - **description:** De to faste stegene: vis at funksjonen har nøyaktig ett nullpunkt i et intervall (skjæringssetning + monotoni), og utfør oppgitt antall iterasjoner for hånd.
-- **Forkunnskaper (kryssbok):** Kap. 4.1; [Newtons metode](/bok/matte/r1-3-5), [Kontinuitet](/bok/matte/r1-3-2).
+- **Forkunnskaper (kryssbok):** Kap. 4.1; [Newtons metode](/matte/r1-3-5), [Kontinuitet](/matte/r1-3-2).
 - **Eksamensbelegg:** Sjanger F — Newton/halvering manuell 9/23, **7/10 i epoke 2 (ny signatur)**. Fast to-stegsstruktur: (i) vis nøyaktig ett nullpunkt, (ii) iterér. Sensor krever eksistens/entydighet-argumentet FØR iterasjonen. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Steg 1 — vis nøyaktig ett nullpunkt i `[a,b]`**: eksistens via **skjæringssetningen** (kontinuitet + fortegnsskifte `f(a)·f(b) < 0`, navngi setningen); entydighet via **monotoni** (`f′` har fast fortegn på hele intervallet); **Steg 2 — iterér**: Newtons formel `xₙ₊₁ = xₙ − f(xₙ)/f′(xₙ)` fra gitt `x₀` (utfør oppgitt antall steg, vis hver iterasjon), eller **halveringsmetoden** (fortegnstest på midtpunkt, halvér intervallet, feil `< (b−a)/2ᴺ` etter `N` steg); geometrisk tolkning (tangentens nullpunkt); når iterasjonen konvergerer og når den kan svikte.
 - **Oppgavesjangre:** F. Mønstereksempel: «Vis at `g(x) = ln x − 1/x` har nøyaktig ett nullpunkt i `[1,2]`, og utfør to Newton-iterasjoner fra `x₀ = 1`.» Mønstereksempel: «Bruk halveringsmetoden på `[1,2]` til feilen er mindre enn `0.1`.»
@@ -606,7 +606,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-7-2` · **number:** 7.2 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-5-1`
 - **kapitteltype:** teori
 - **description:** Estimér total mengde/strekning med trapesmetoden og endringsrate med differansekvotient fra en måletabell — pluss Riemann-, Simpson- og polynominterpolasjons-varianter.
-- **Forkunnskaper (kryssbok):** Kap. 5.1; [Numerisk integrasjon](/bok/matte/r2-3-4), [Bestemt integral som grenseverdi](/bok/matte/r2-2-4).
+- **Forkunnskaper (kryssbok):** Kap. 5.1; [Numerisk integrasjon](/matte/r2-3-4), [Bestemt integral som grenseverdi](/matte/r2-2-4).
 - **Eksamensbelegg:** Sjanger L — numerisk integrasjon fra tabell 11/23 (48 %), numerisk derivasjon 6/23, **0 før 2013 → årviss i epoke 2**. Tabellen er typisk fart mot tid, effekt mot klokkeslett, strømningshastighet. Polynominterpolasjon 1/23 (sjelden). Prioritet: **perfekt** (tabellmetode) / **kjenne** (interpolasjon).
 - **Innholdskontrakt:** **Numerisk integrasjon fra tabell/graf**: **trapesmetoden** `T = h/2·(y₀ + 2y₁ + … + 2y_{n−1} + yₙ)`, **Riemann-/rektangelsum** (venstre/høyre/midtpunkt), **Simpsons metode** (ett dobbeltintervall, vektene `1,4,1`); areal under fartskurve = strekning; sammenlign med eksakt verdi og angi feilen når mulig; **numerisk derivasjon**: midtpunkts-/differansekvotient `f′(x) ≈ (f(x+h) − f(x−h))/(2h)`; **polynominterpolasjon** (finn polynom gjennom gitte punkter — lineært system eller Lagrange, kjenne-nivå). Enhet i konklusjonen.
 - **Oppgavesjangre:** L. Mønstereksempel: «Farten er logget hvert 2. sekund (tabell gitt). Estimér tilbakelagt strekning på 10 sekunder med trapesmetoden.» Mønstereksempel: «Estimér `f′(4)` fra tabellen med midtpunktsformelen.»
@@ -663,7 +663,7 @@ lenke-id-er i §3 er verifisert mot `textbook-courses-matte.ts`.
 - **id:** `oslomet-mat1000-8-1` · **number:** 8.1 · **estimatedMinutes:** 55 · **prerequisites:** `oslomet-mat1000-1-3`
 - **kapitteltype:** teori (utvidelse)
 - **description:** Egenverdier fra den karakteristiske likningen, egenvektorer, diagonalisering og bruk til matrisepotenser — kjenne-stoff uten arkivbelegg etter 2012.
-- **Forkunnskaper (kryssbok):** Kap. 1.2–1.3 (determinant, nullrom); [Determinanter og invers matrise](/bok/matte/bi-okonomi-9-2).
+- **Forkunnskaper (kryssbok):** Kap. 1.2–1.3 (determinant, nullrom); [Determinanter og invers matrise](/matte/bi-okonomi-9-2).
 - **Eksamensbelegg:** Egenverdier/diagonalisering 8/23 totalt, **0 etter 2012**. Dekkes som utvidelse/kjenne (se ærlighetsnotatet). Prioritet: **kjenne**.
 - **Innholdskontrakt:** **Egenverdier** som røtter i den karakteristiske likningen `det(A − λI) = 0`; **egenvektorer** som nullrommet til `A − λI` (løs `(A − λI)v = 0`); **diagonalisering** `A = PDP⁻¹` (kolonner i `P` = egenvektorer, `D` = diagonal av egenverdier), betingelsen (nok lineært uavhengige egenvektorer); bruk til **matrisepotenser** `Aⁿ = PDⁿP⁻¹`; kort om kobling til lineære ODE-system `y′ = Ay` (E1-bruken). Hold kompakt — dette er kjenne-stoff.
 - **Oppgavesjangre:** utvidelse. Mønstereksempel: «Finn egenverdiene og egenvektorene til `A = [[2,1],[1,2]]`, og diagonaliser `A`.» Mønstereksempel: «Bruk diagonalisering til å regne ut `A⁵`.»

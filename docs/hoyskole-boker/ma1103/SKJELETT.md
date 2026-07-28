@@ -241,7 +241,7 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
 
 **Aktiveringsmarkør:** ubygde NTNU-forkunnskapsemner (Grunnkurs analyse 1, Lineær
 algebra og geometri) skrives som klartekst med *(NTNU-forkunnskapsemne, ikke bygget
-ennå; aktiver `/bok/<kode>/<id>`-lenke når den finnes)*. Bygde VGS-bøker (R1, R2, S2)
+ennå; aktiver `/<kode>/<id>`-lenke når den finnes)*. Bygde VGS-bøker (R1, R2, S2)
 lenkes normalt, kun til kapitler som finnes: R2 dekker vektorer/skalarprodukt, S2
 dekker derivasjon/integrasjon/differensiallikninger, R1 dekker
 funksjonsdrøfting/derivasjon.
@@ -272,7 +272,7 @@ funksjonsdrøfting/derivasjon.
 - **id:** `ma1103-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Inngangen til faget: funksjoner $f(x,y)$ og $f(x,y,z)$, nivåkurver/-flater, og grenseverdi mot et punkt — polarmetoden for å vise at grensen eksisterer, og veimetoden for å vise at den ikke gjør det (det klassiske $x^2y/(x^4+y^2)$-eksemplet).
-- **Forkunnskaper (kryssbok):** Grenseverdi og funksjonsbegrep i én variabel fra [Grenseverdier og kontinuitet](/bok/r1/r1-3-1) *(verifiser lenke)*; funksjoner av én variabel fra R1/S2. Grunnkurs analyse 1 *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*.
+- **Forkunnskaper (kryssbok):** Grenseverdi og funksjonsbegrep i én variabel fra [Grenseverdier og kontinuitet](/r1/r1-3-1) *(verifiser lenke)*; funksjoner av én variabel fra R1/S2. Grunnkurs analyse 1 *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*.
 - **Eksamensbelegg:** Sjanger I (~28 %, ofte innledningsoppgave), grunnlag for sjanger H. Fasitens grep: polarkoordinater der $r\to0$ og resten er begrenset (uttal begrensethet), eller to veier med ulik verdi. Prioritet: **kunne** (grunnlag for perfekt-kapitlet 1.2).
 - **Innholdskontrakt:** **Funksjon av flere variable** $f:\mathbb R^n\to\mathbb R$; **definisjonsmengde**; **nivåkurve/nivåflate** (kort, «bør kjenne til» — ~11 %); **grenseverdi** $\lim_{(x,y)\to(a,b)}f$; **polarmetoden** ($x=r\cos\theta$, $y=r\sin\theta$, $r\to0$; uttal at trig-faktorer er begrenset); **veimetoden for ikke-eksistens** (to veier $y=0$, $y=x$, $y=x^2$ med ulik verdi); det klassiske skillet $x^2y/(x^4+y^2)$ (grense 0 langs rette linjer, $\ne0$ langs $y=x^2$); **skviselemmaet** i flere variable. Alt til aktiv bruk.
 - **Oppgavesjangre:** I. Mønstereksempel: «Avgjør om grensen $\lim_{(x,y)\to(0,0)}\dfrac{4x^2y}{x^4+y^2}$ eksisterer.»
@@ -284,7 +284,7 @@ funksjonsdrøfting/derivasjon.
 - **id:** `ma1103-1-2` · **number:** 1.2 · **estimatedMinutes:** 65 · **prerequisites:** `ma1103-1-1`
 - **kapitteltype:** teori
 - **description:** Emnets tydeligste karakterskiller: en stykkevis definert funksjon med egen forskrift i origo. Kontinuitet (polar/skvis eller to-veier-avkreftelse), partiellderiverte fra grensedefinisjonen, deriverbarhet via lineariseringsrestleddet, og satsen «deriverbar ⇒ kontinuerlig».
-- **Forkunnskaper (kryssbok):** Kap. 1.1. Derivasjon i én variabel fra [Derivasjon](/bok/r1/r1-4-1) *(verifiser lenke)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.1. Derivasjon i én variabel fra [Derivasjon](/r1/r1-4-1) *(verifiser lenke)*.
 - **Eksamensbelegg:** Sjanger H, **~72 %** — emnets tydeligste teori-/karakterskiller. Fasitens grep: (a) kontinuitet via polar/skvis eller ulik verdi langs to veier; (b) partiellderiverte **fra grensedefinisjonen** i origo; (c) deriverbarhet via restleddet. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Kontinuitet i et punkt** (grense = funksjonsverdi); **partiellderiverte** $f_x,f_y$ generelt OG **fra grensedefinisjonen** i skjøtepunkt $f_x(0,0)=\lim_{h\to0}\frac{f(h,0)-f(0,0)}{h}$ (§1.5 punkt 3 — ikke derivertformel); **deriverbarhet (differensierbarhet)** via lineariseringen $f(\mathbf a+\mathbf h)\approx f(\mathbf a)+\nabla f\cdot\mathbf h$ og restleddet $\frac{f(\mathbf a+\mathbf h)-f(\mathbf a)-\nabla f\cdot\mathbf h}{|\mathbf h|}\to0$; **satsen «deriverbar ⇒ kontinuerlig»** (utledes aktivt — var eget bevis H2009); **satsen «kontinuerlige partiellderiverte ⇒ deriverbar»** (brukes); variant: finn konstanter $A,B$ slik at partiellderiverte får gitte verdier, og avgjør kontinuitet. Skillet «utled aktivt» (deriverbar ⇒ kontinuerlig) vs. «kun bruk» (kontinuerlige partiellderiverte ⇒ deriverbar).
 - **Oppgavesjangre:** H. Mønstereksempel: «La $f(x,y)=\dfrac{x^2y}{x^2+y^2}+|x|$ for $(x,y)\ne(0,0)$ og $f(0,0)=0$. Avgjør om $f$ er kontinuerlig i origo, og om de partiellderiverte eksisterer der.»
@@ -325,7 +325,7 @@ funksjonsdrøfting/derivasjon.
 - **id:** `ma1103-2-1` · **number:** 2.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1103-1-2`
 - **kapitteltype:** teori
 - **description:** Gradienten ∇f: komponentvis beregning, geometrisk tolkning (peker mot raskest vekst, står normalt på nivåkurve/-flate, rate |∇f|), og retningsderiverten D_û f = ∇f · û med û normalisert.
-- **Forkunnskaper (kryssbok):** Kap. 1.2. Partiellderiverte fra kap. 1.2; vektorer og skalarprodukt fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1).
+- **Forkunnskaper (kryssbok):** Kap. 1.2. Partiellderiverte fra kap. 1.2; vektorer og skalarprodukt fra [Vektorer i tre dimensjoner](/r2/r2-5-1).
 - **Eksamensbelegg:** Sjanger E, **~56 %+** (OCR-undertelt, reelt høyere). Fasitens grep: $\nabla f$ komponentvis, evaluer i punktet; retning for raskest vekst er $\nabla f$ med rate $|\nabla f|$; $D_{\hat{\mathbf u}}f=\nabla f\cdot\hat{\mathbf u}$ der $\hat{\mathbf u}$ **normaliseres**. Prioritet: **perfekt** (kombinert med 2.2).
 - **Innholdskontrakt:** **Gradient** $\nabla f=[f_x,f_y,f_z]$; **geometrisk tolkning** (raskest vekst i retning $\nabla f$, rate $|\nabla f|$; $\nabla f\perp$ nivåkurve/-flate); **retningsderivert** $D_{\hat{\mathbf u}}f=\nabla f\cdot\hat{\mathbf u}$ (**normaliser** $\hat{\mathbf u}=\mathbf v/|\mathbf v|$); retning for raskest avtakelse ($-\nabla f$); ingen endring på tvers av $\nabla f$ (tangent til nivåkurve). Alt til aktiv bruk.
 - **Oppgavesjangre:** E. Mønstereksempel: «For $f(x,y,z)=xy^2+z$, finn $\nabla f$ i $(1,2,-1)$, retningen for raskest vekst der og den maksimale vekstraten. Finn så $D_{\hat{\mathbf u}}f$ i retning $\mathbf v=[2,-1,2]$.»
@@ -361,7 +361,7 @@ funksjonsdrøfting/derivasjon.
 - **id:** `ma1103-2-4` · **number:** 2.4 · **estimatedMinutes:** 50 · **prerequisites:** `ma1103-2-2`
 - **kapitteltype:** teori
 - **description:** Parametrisering av romkurver og skjæringskurver, tangentvektor og fart, planet normalt på kurven, og buelengde av en parametrisert romkurve (fallende arkivsjanger — «bør kjenne til», men grunnlag for linjeintegral).
-- **Forkunnskaper (kryssbok):** Kap. 2.2, 2.1. Vektorfunksjoner/parameterframstilling fra [Parameterframstilling](/bok/r2/r2-5-3) *(verifiser lenke)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.2, 2.1. Vektorfunksjoner/parameterframstilling fra [Parameterframstilling](/r2/r2-5-3) *(verifiser lenke)*.
 - **Eksamensbelegg:** Sjanger J — parametrisering/tangent ~33 %, buelengde ~11 % (fallende). Fasitens grep: parametriser (ofte $x$ som parameter), deriver → tangent; buelengde $\int|\mathbf r'(t)|\,dt$. Prioritet: **kunne** (parametrisering) / **kjenne** (buelengde); grunnlag for Del 5 (linjeintegral).
 - **Innholdskontrakt:** **Parametrisering** $\mathbf r(t)=[x(t),y(t),z(t)]$; **tangentvektor** $\mathbf r'(t)$, **fart** $|\mathbf r'(t)|$; **skjæringskurve** mellom to flater; **planet normalt på kurven** i et punkt; **buelengde** $L=\int_a^b|\mathbf r'(t)|\,dt$ (kort, «bør kjenne til» — fallende ~11 %). Alt til aktiv bruk; buelengde markert lavprioritet.
 - **Oppgavesjangre:** J. Mønstereksempel: «Parametriser skjæringskurven mellom $z=x^2+y^2$ og $y=x$, finn tangentvektoren i $(1,1,2)$ og likningen for planet som står normalt på kurven der.»
@@ -379,7 +379,7 @@ funksjonsdrøfting/derivasjon.
 - **id:** `ma1103-3-1` · **number:** 3.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma1103-2-1`
 - **kapitteltype:** teori
 - **description:** Fri optimering: sett ∇f = 0 og løs systemet fullstendig, klassifiser med annenderiverttesten (diskriminant Δ = f_xx·f_yy − f_xy²), og håndter det snublende tilfellet Δ = 0 der testen ikke konkluderer.
-- **Forkunnskaper (kryssbok):** Kap. 2.1. Kritiske punkt/annenderiverttest i én variabel fra [Funksjonsdrøfting](/bok/r1/r1-5-1) *(verifiser lenke)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.1. Kritiske punkt/annenderiverttest i én variabel fra [Funksjonsdrøfting](/r1/r1-5-1) *(verifiser lenke)*.
 - **Eksamensbelegg:** Sjanger B, **~72 %**. Fasitens grep: løs $\nabla f=0$ **fullstendig** (vis at ingen løsninger er oversett), klassifiser med $\Delta$; ved $\Delta=0$ undersøk oppførsel vilkårlig nær. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Kritisk punkt** ($\nabla f=\mathbf 0$); **fullstendig løsning** av likningssystemet (sensor krever at ingen løsning oversees); **Hessianmatrise** $H=\begin{bmatrix}f_{xx}&f_{xy}\\f_{xy}&f_{yy}\end{bmatrix}$; **annenderiverttesten** (diskriminant $\Delta=f_{xx}f_{yy}-f_{xy}^2$: $\Delta>0,f_{xx}>0$ lokalt min; $\Delta>0,f_{xx}<0$ lokalt maks; $\Delta<0$ sadelpunkt); **$\Delta=0$**: testen konkluderer IKKE — undersøk langs veier, vis oppførsel *vilkårlig nær* (ikke fjerne punkter, §1.5 punkt 4); global maks/min-drøfting (indre kritiske punkt + oppførsel i det uendelige). Alt til aktiv bruk.
 - **Oppgavesjangre:** B. Mønstereksempel: «Finn og klassifiser alle kritiske punkt for $f(x,y)=x^4+3x^2y-y^3$ som lokalt maksimum, lokalt minimum eller sadelpunkt, og avgjør om $f$ har et globalt maksimum.»
@@ -420,7 +420,7 @@ funksjonsdrøfting/derivasjon.
 - **id:** `ma1103-4-1` · **number:** 4.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1103-1-1`
 - **kapitteltype:** teori
 - **description:** Dobbeltintegral over et plant område, oppsett av grenser fra en skisse, Fubini og byttet integrasjonsrekkefølge — pluss en kort note om nivåkurve-skisse (fallende arkivsjanger).
-- **Forkunnskaper (kryssbok):** Kap. 1.1. Integrasjon i én variabel fra [Integralregning](/bok/s2/s2-3-1) *(verifiser lenke)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.1. Integrasjon i én variabel fra [Integralregning](/s2/s2-3-1) *(verifiser lenke)*.
 - **Eksamensbelegg:** Sjanger (del av F og dobbeltintegral ~39 %). Fasitens grep: skisser området, sett grensene, bytt rekkefølge når den ene veien er lettere. Prioritet: **kunne** (grunnlag for trippelintegral).
 - **Innholdskontrakt:** **Dobbeltintegral** $\iint_D f\,dA$; **integrasjonsområde** (type I/II, skisse → grenser); **Fubini** (itererte integraler); **byttet integrasjonsrekkefølge** (tegn området, bytt $dx\,dy\leftrightarrow dy\,dx$, nye grenser); areal/gjennomsnitt via dobbeltintegral; kort **nivåkurve-skisse** («bør kjenne til» ~11 %). Alt til aktiv bruk.
 - **Oppgavesjangre:** F-forberedende. Mønstereksempel: «Bytt integrasjonsrekkefølge i $\int_0^1\int_{\sqrt y}^1 e^{x^3}\,dx\,dy$ og regn ut integralet.»
@@ -473,7 +473,7 @@ funksjonsdrøfting/derivasjon.
 - **id:** `ma1103-5-1` · **number:** 5.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1103-2-1`
 - **kapitteltype:** teori
 - **description:** Vektorfelt F, divergens ∇·F (kildetetthet) og curl ∇×F (virvling), med de sentrale identitetene curl ∇f = 0 og div curl F = 0 — og bevisene deres for C²-felt (voksende verifikasjonssjanger).
-- **Forkunnskaper (kryssbok):** Kap. 2.1. Vektorer og kryssprodukt fra [Vektorprodukt](/bok/r2/r2-5-4) *(verifiser lenke)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.1. Vektorer og kryssprodukt fra [Vektorprodukt](/r2/r2-5-4) *(verifiser lenke)*.
 - **Eksamensbelegg:** Sjanger (curl-beregning ~39 %, div i divergensteoremet ~39 %). Fasitens grep: $\nabla\cdot\mathbf F$ og $\nabla\times\mathbf F$ komponentvis; bevis curl $\nabla f=0$ via likhet av blandede annenderiverte ($C^2$). Prioritet: **perfekt** (fundament for hele delen).
 - **Innholdskontrakt:** **Vektorfelt** $\mathbf F=[P,Q,R]$; **divergens** $\nabla\cdot\mathbf F=P_x+Q_y+R_z$ (kildetetthet); **curl/virvling** $\nabla\times\mathbf F$ (determinantformel med $\hat{\mathbf i},\hat{\mathbf j},\hat{\mathbf k}$); **identitetene** curl $\nabla f=\mathbf 0$ (for $C^2$-$f$) og div curl $\mathbf F=0$ (for $C^2$-$\mathbf F$) med **bevis** via likhet av blandede annenderiverte (si hvor $C^2$ brukes); **vektorpotensial** (finn $\mathbf F$ med $\mathbf G=\nabla\times\mathbf F$, «bør kjenne til» — H2006, legges i 7.2). Skillet: identitetene «utled aktivt» (bevis-sjanger), curl/div-beregning «anvend». Alt til aktiv bruk.
 - **Oppgavesjangre:** curl/div, N (bevis). Mønstereksempel: «For $\mathbf F=[xz,\,y^2,\,-xy]$, regn ut $\nabla\cdot\mathbf F$ og $\nabla\times\mathbf F$. Vis deretter at $\nabla\times(\nabla f)=\mathbf 0$ for enhver $C^2$-funksjon $f$.»

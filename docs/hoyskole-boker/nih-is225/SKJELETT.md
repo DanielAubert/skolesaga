@@ -1139,7 +1139,7 @@ aldri sitert i lengde. Refererte synspunkter tilskrives riktig.
 
 ## 6. Juridiske/plattform-krav ved bygging
 
-- Registrer emnet i `src/app/bok/trinn/hoyere/institusjoner.ts` under Norges
+- Registrer emnet i `src/app/trinn/hoyere/institusjoner.ts` under Norges
   idrettshøgskole (NIH) med visningsnavn «IS225 Helse, kultur, idrett og samfunn».
 - **Helse-heuristikk i `hoyskole-disclaimer.tsx`:** IS225 er et helse-/folkehelseemne
   — sjekk at helse-linjen («ikke helseråd») treffer emnet; utvid heuristikken om ikke.

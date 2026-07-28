@@ -240,14 +240,14 @@ tripler, irrasjonalitet). Prioritetsklasser: **perfekt** (nivå 1) / **kunne**
 
 **Kryssbok-forkunnskaper (verifiserte, bygde VGS-kapitler):** tallmønstre, bevis og
 induksjon er dekket på VGS-nivå og er de sterkeste ankrene — **R2**:
-[Induksjonsbevis](/bok/r2/r2-1-6), [Følger og tallmønstre](/bok/r2/r2-1-1),
-[Rekker og summasjon](/bok/r2/r2-1-4); **R1**: [Induksjon](/bok/r1/r1-9-2),
-[Direkte bevis og moteksempler](/bok/r1/r1-9-1),
-[Kontrapositiv og kontradiksjon](/bok/r1/r1-9-3),
-[Polynomer og polynomdivisjon](/bok/r1/r1-1-1),
-[Bevis i algebra](/bok/r1/r1-1-5); **1T**:
-[Matematisk argumentasjon](/bok/1t/1t-6-1), [Lese og forstå bevis](/bok/1t/1t-6-2),
-[Mengdelære](/bok/1t/1t-1-7). Kongruensregning, Euklids algoritme, de fire
+[Induksjonsbevis](/r2/r2-1-6), [Følger og tallmønstre](/r2/r2-1-1),
+[Rekker og summasjon](/r2/r2-1-4); **R1**: [Induksjon](/r1/r1-9-2),
+[Direkte bevis og moteksempler](/r1/r1-9-1),
+[Kontrapositiv og kontradiksjon](/r1/r1-9-3),
+[Polynomer og polynomdivisjon](/r1/r1-1-1),
+[Bevis i algebra](/r1/r1-1-5); **1T**:
+[Matematisk argumentasjon](/1t/1t-6-1), [Lese og forstå bevis](/1t/1t-6-2),
+[Mengdelære](/1t/1t-1-7). Kongruensregning, Euklids algoritme, de fire
 teoremene, RSA, Legendre-symbol, orden/primitive røtter og de tallteoretiske
 funksjonene bygges fra grunnen i boka (ingen VGS-forgjenger). Lenk kun til disse
 verifiserte id-ene.
@@ -278,7 +278,7 @@ verifiserte id-ene.
 - **id:** `ma1301-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Grunnbegrepene faget hviler på: delelighet a|b, primtall, entydig primtallsfaktorisering (aritmetikkens fundamentalteorem), Euklids lemma og gcd/lcm via faktorisering — arbeidshestene i alt som kommer.
-- **Forkunnskaper (kryssbok):** Ingen i boka. [Polynomer og polynomdivisjon](/bok/r1/r1-1-1) (divisjon med rest som analogi), [Mengdelære](/bok/1t/1t-1-7). Selve talldelbarheten bygges fra grunnen her.
+- **Forkunnskaper (kryssbok):** Ingen i boka. [Polynomer og polynomdivisjon](/r1/r1-1-1) (divisjon med rest som analogi), [Mengdelære](/1t/1t-1-7). Selve talldelbarheten bygges fra grunnen her.
 - **Eksamensbelegg:** Grunnlag for sjanger A/B/C/I. Fasitens grep: faktoriser i primtall, bruk aritmetikkens fundamentalteorem og Euklids lemma i delelighetsargumenter. Prioritet: **perfekt** (fundamentet under alt).
 - **Innholdskontrakt:** **Delelighet** $a\mid b$ (det finnes $t$ med $b=at$) og regnereglene ($a\mid b, a\mid c\Rightarrow a\mid(bx+cy)$); **divisjonsalgoritmen** $a=qb+r$, $0\le r<b$; **primtall** og sammensatte tall; **aritmetikkens fundamentalteorem** (entydig primtallsfaktorisering); **Euklids lemma** ($p\mid ab\Rightarrow p\mid a$ eller $p\mid b$); **gcd og lcm** via primtallsfaktorisering og relasjonen $\gcd(a,b)\cdot\operatorname{lcm}(a,b)=ab$; **relativt primiske** tall; at det finnes uendelig mange primtall (Euklids klassiske bevis, som forvarsel til Del 6). Alt til aktiv bruk (Euklids lemma og fundamentalteoremet er bevisverktøy i Del 6).
 - **Oppgavesjangre:** I-forberedelse. Mønstereksempel: «Faktoriser $360$ i primtall, og bruk faktoriseringen til å finne $\gcd(360,84)$ og $\operatorname{lcm}(360,84)$.»
@@ -545,7 +545,7 @@ verifiserte id-ene.
 - **id:** `ma1301-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1301-1-1`
 - **kapitteltype:** teori
 - **description:** Den generelle bevisverktøykassen for tallteori — direkte, kontrapositivt, ved motsigelse, og uttømmende case-analyse modulo m — som bæres inn i alle delelighets- og primtallsbevisene.
-- **Forkunnskaper (kryssbok):** Kap. 1.1 (delelighet, Euklids lemma). [Direkte bevis og moteksempler](/bok/r1/r1-9-1), [Kontrapositiv og kontradiksjon](/bok/r1/r1-9-3), [Bevis i algebra](/bok/r1/r1-1-5).
+- **Forkunnskaper (kryssbok):** Kap. 1.1 (delelighet, Euklids lemma). [Direkte bevis og moteksempler](/r1/r1-9-1), [Kontrapositiv og kontradiksjon](/r1/r1-9-3), [Bevis i algebra](/r1/r1-1-5).
 - **Eksamensbelegg:** Underliggende ferdighet i sjanger I/J — **bevisstruktur teller for seg selv** (sensorregel §1.5.8). Case-analyse modulo $m$ er standard i primtallsbevis (p mod 3-typen); motsigelse i «uendelig mange primtall»-argumenter. Prioritet: **perfekt** (metaferdigheten bak alle bevis).
 - **Innholdskontrakt:** **Direkte bevis** (anta hypotesen, utled konklusjonen fra definisjonen av delelighet); **kontrapositivt bevis** ($p\Rightarrow q$ via $\neg q\Rightarrow\neg p$); **bevis ved motsigelse** (anta $\neg$konklusjon, utled umulighet — malen for «uendelig mange primtall»); **uttømmende case-analyse modulo $m$** (dekk ALLE rester $0,1,\dots,m-1$ — stilregel 7); skillet «⇒» vs. «⇔»; å arbeide **fra definisjonen** ($a\mid b$ betyr $b=at$) og navngi teoremet (Euklids lemma, aritmetikkens fundamentalteorem). Anvendt på enkle delelighetsutsagn som oppvarming. Merk: avhengighetsnav for resten av delen.
 - **Oppgavesjangre:** I-forberedelse. Mønstereksempel: «Vis ved case-analyse modulo $3$ at $n^3\equiv n\pmod 3$ for alle heltall $n$.»
@@ -557,7 +557,7 @@ verifiserte id-ene.
 - **id:** `ma1301-6-2` · **number:** 6.2 · **estimatedMinutes:** 60 · **prerequisites:** `ma1301-6-1`
 - **kapitteltype:** teori
 - **description:** Induksjonsprinsippet og den obligatoriske tredelte strukturen (basissteg, hypotese, steg — fasiten markerer hvor hypotesen brukes) anvendt på fagets fire undertyper: summeformler, delelighet, ulikheter og aᵖ≡a.
-- **Forkunnskaper (kryssbok):** Kap. 6.1 (bevisstruktur). [Induksjonsbevis](/bok/r2/r2-1-6), [Følger og tallmønstre](/bok/r2/r2-1-1), [Rekker og summasjon](/bok/r2/r2-1-4), [Induksjon](/bok/r1/r1-9-2).
+- **Forkunnskaper (kryssbok):** Kap. 6.1 (bevisstruktur). [Induksjonsbevis](/r2/r2-1-6), [Følger og tallmønstre](/r2/r2-1-1), [Rekker og summasjon](/r2/r2-1-4), [Induksjon](/r1/r1-9-2).
 - **Eksamensbelegg:** Sjanger J, **~53 %**, den vanligste bevisformen. Fasiten viser HELE strukturen hver gang og markerer stedet der hypotesen brukes. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Induksjonsprinsippet**: for å vise $P(n)$ for $n\ge n_0$, vis **(1) basissteget** $P(n_0)$ eksplisitt, **(2) induksjonshypotesen** (anta $P(k)$), **(3) induksjonssteget** (utled $P(k+1)$ med hypotesen); den obligatoriske føringsmalen (gjentas i drill); riktig $n_0$ (ikke alltid 1); **de fire undertypene** ført komplett: **summeformler** ($\sum k^2=\frac{n(n+1)(2n+1)}6$), **delelighet** ($3\mid n^3-n$-typen, skriv $f(k+1)$ via $f(k)$ + åpenbart delelig ledd), **ulikheter** (finn riktig $n_0$, bruk tidligere ulikhet i steget), **kongruensmønstre / $a^p\equiv a\pmod p$**; **sterk induksjon** (flere ledd i hypotesen — bro til Fibonacci i Del 7). Alt til aktiv bruk; alle tre stegene hver gang.
 - **Oppgavesjangre:** J. Mønstereksempel: «Vis ved induksjon at $1^2+2^2+\cdots+n^2=\frac{n(n+1)(2n+1)}6$ for alle $n\ge 1$. Skriv basissteg, hypotese og steg eksplisitt.»
@@ -622,7 +622,7 @@ verifiserte id-ene.
 - **id:** `ma1301-7-3` · **number:** 7.3 · **estimatedMinutes:** 45 · **prerequisites:** `ma1301-6-1`
 - **kapitteltype:** teori
 - **description:** Motsigelsesbevis for irrasjonalitet (√2, ∛7) via delelighet og uendelig nedstigning, og rasjonale approksimasjoner via konvergenter — eldre stoff (2007), dekket med standardmetoder og merket lav arkivfrekvens.
-- **Forkunnskaper (kryssbok):** Kap. 6.1 (motsigelse), 1.1 (delelighet, aritmetikkens fundamentalteorem). [Kontrapositiv og kontradiksjon](/bok/r1/r1-9-3).
+- **Forkunnskaper (kryssbok):** Kap. 6.1 (motsigelse), 1.1 (delelighet, aritmetikkens fundamentalteorem). [Kontrapositiv og kontradiksjon](/r1/r1-9-3).
 - **Eksamensbelegg:** Sjanger K, **spesialtema** (2007 i arkivet; nevnt i emnebeskrivelsen). **Ærlig eksamensvinkel:** lav arkivfrekvens — dekkes med standardmetoder for fullstendighet og beredskap *(verifiser mot nyeste sett)*. Prioritet: **kjenne**.
 - **Innholdskontrakt:** **Irrasjonalitetsbevis ved motsigelse**: anta $\sqrt D=a/b$ i laveste ledd, utled at $D\mid a$ og $D\mid b$ (eller paritetsmotsigelse), kontradiksjon; generalisering til $\sqrt[k]{m}$ via aritmetikkens fundamentalteorem (eksponent-argument); **uendelig nedstigning** som variant; **rasjonale approksimasjoner** via kjedebrøk-konvergenter (kobling til 7.1 — konvergentene er de beste approksimasjonene). Merket lav frekvens; standardmetoder.
 - **Oppgavesjangre:** K/I. Mønstereksempel: «Vis at $\sqrt{3}$ er irrasjonal ved et motsigelsesbevis.»
@@ -905,7 +905,7 @@ agent som leser HELE skjelettet (de gjenbruker alle sjangre A–K).
       kontekster; ingen formuleringer fra reelle sett eller fasiter (skjelettets
       mønstereksempler er selv omskrivninger og skal varieres videre, ikke kopieres
       ordrett inn); pensum refereres, aldri siteres i lengde.
-- [ ] **Navigasjon**: `ma1301` inn i `src/app/bok/trinn/hoyere/institusjoner.ts` under
+- [ ] **Navigasjon**: `ma1301` inn i `src/app/trinn/hoyere/institusjoner.ts` under
       **Norges teknisk-naturvitenskapelige universitet (NTNU)** (ny institusjon —
       opprett den om den ikke finnes), navn = «MA1301 Tallteori».
 - [ ] **Verifiser rendering**: prod-server + curl mot institusjonsside, bokforside og

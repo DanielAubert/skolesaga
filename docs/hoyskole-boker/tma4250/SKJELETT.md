@@ -383,8 +383,8 @@ inn som beskrevet i §2 «Arketypetilpasning».
   betinget normal; posterior felt) og søyle 3 (GMRF-uttrykk). Inngår i B, D, J.
   Prioritet: grunnlag. **«Ligger i formelsamlingen»:** normalfordelingens tetthet;
   **«må kunne aktivt»:** betinget-normal-formlene (Schur), lineærkombinasjoner.
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Multivariat normalfordeling](/bok/tma4245/tma4245-3-4)
-  `(verifiser lenke)`, [Maksimum likelihood-estimering](/bok/tma4245/tma4245-5-2)
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Multivariat normalfordeling](/tma4245/tma4245-3-4)
+  `(verifiser lenke)`, [Maksimum likelihood-estimering](/tma4245/tma4245-5-2)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $\mu,\Sigma$;
   betinget $E[X_1|X_2=x_2]=\mu_1+\Sigma_{12}\Sigma_{22}^{-1}(x_2-\mu_2)$;
   $\text{Var}[X_1|X_2]=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$; 2×2-
@@ -622,7 +622,7 @@ ordinær/universell system-oppsett + Lagrange · 3.C posterior gaussisk med mål
 - **Eksamensbelegg:** Sjanger E (~100 %). Prioritet: perfekt. **«Ligger i
   formelsamlingen»:** Poisson-fordelingens $P(N=k)$; **«må kunne aktivt»:** at
   $E=\text{Var}=\lambda|W|$ og forutsetningene.
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Poisson-fordelingen](/bok/tma4245/tma4245-2-5)
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Poisson-fordelingen](/tma4245/tma4245-2-5)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $\lambda$
   (intensitet), $N(B)$, $|B|$ (areal), $E=\text{Var}=\lambda|W|$.
 - **Innholdskontrakt (angis/regnes aktivt):** definisjonen (tre aksiomer);
@@ -646,7 +646,7 @@ ordinær/universell system-oppsett + Lagrange · 3.C posterior gaussisk med mål
   antall $=\int\lambda(s)\,ds$).
 - **Eksamensbelegg:** Sjanger E (betinging ~73 %) + F-forberedelse (ikke-homogen
   ~53 %). Prioritet: perfekt (betinging) / kunne (ikke-homogen).
-- **Forkunnskaper/kryssbok:** kap. 4.1; [Binomisk/multinomisk](/bok/tma4245/tma4245-2-4)
+- **Forkunnskaper/kryssbok:** kap. 4.1; [Binomisk/multinomisk](/tma4245/tma4245-2-4)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $\lambda(s)$;
   $\int_W\lambda(s)\,ds$; betinget binomisk $(n,|B|/|W|)$.
 - **Innholdskontrakt (utledes aktivt):** vis at gitt $N(W)=n$ er $N(B)\sim
@@ -693,7 +693,7 @@ ordinær/universell system-oppsett + Lagrange · 3.C posterior gaussisk med mål
   (~20 %, økende).
 - **Eksamensbelegg:** Sjanger E/F/G (drill) + avstand/CSR (kjenne, topper A).
   Prioritet: perfekt (drill).
-- **Forkunnskaper/kryssbok:** kap. 4.1–4.3; [Kjikvadrat-test](/bok/tma4245/tma4245-7-4)
+- **Forkunnskaper/kryssbok:** kap. 4.1–4.3; [Kjikvadrat-test](/tma4245/tma4245-7-4)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** avstands-CDF/PDF;
   CSR-teststatistikk $\approx\chi^2_{C-2}$ (estimert $\lambda$).
 - **Innholdskontrakt:** **Løsningsoppskrift** for oppgave 2 (identifiser prosess →
@@ -859,7 +859,7 @@ prøve per økt.»
 - **Eksamensbelegg:** Parameterestimering (~40 %) + hierarkisk/Laplace/INLA (~33 %,
   moderne). Prioritet: kunne. **«Kun bruk»:** ML-prinsippet (fra tma4245); **«må
   kunne»:** oppsett av GRF-likelihood + variogram-momentmetode.
-- **Forkunnskaper/kryssbok:** kap. 2.3, 3.1; [Maksimum likelihood](/bok/tma4245/tma4245-5-2)
+- **Forkunnskaper/kryssbok:** kap. 2.3, 3.1; [Maksimum likelihood](/tma4245/tma4245-5-2)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** GRF-likelihood
   $L(\theta)=N(r;\mu,\Sigma(\theta))$; momentestimator for variogram; Laplace-
   approksimasjon (kort).
@@ -1008,7 +1008,7 @@ kjernestoff (eksklusiv mappelagets R-øvinger og de fulle 4-timers øvingseksame
   `COURSE_BI_OKONOMI`), `level: 'Høyskole'`, `sectionNames` fra §2, 23 chapters med
   id/number/title/description/estimatedMinutes/topics/competenceGoals/prerequisites/
   linkedChapterId.
-- Navigasjon: registrer i `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU**
+- Navigasjon: registrer i `src/app/trinn/hoyere/institusjoner.ts` under **NTNU**
   med visningsnavn **«TMA4250 Romlig statistikk»**.
 - `competenceGoals` = Skolesagas EGNE formuleringer (destillert fra analysen),
   ALDRI kopi av NTNUs offisielle læringsutbytte.

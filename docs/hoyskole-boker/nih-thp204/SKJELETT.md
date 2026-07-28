@@ -101,7 +101,7 @@ uttrykkes slik i boka:
   mot THP100s endokrinologi. **Lenkeregel:** THP100 er per nå et *søsterskjelett* i
   klyngen (ikke live-bok). Forfatteren skal referere THP100 med navn i Forkunnskaper-
   blokkene («bygger på organ-/endokrinkonteksten fra THP100 Humanfysiologi»), men
-  **kun sette markdown-lenke `[…](/bok/nih-thp100/<id>)` hvis THP100 er bygd og wiret i
+  **kun sette markdown-lenke `[…](/nih-thp100/<id>)` hvis THP100 er bygd og wiret i
   plattformen på byggetidspunktet** (README: lenk kun til kapitler som finnes). Hvis
   ikke: navnereferanse uten lenke. `(verifiser live-status ved bygging)`.
 - **THP202 – Treningsfysiologi** (nabo som ARVER herfra): energiomsetning under trening
@@ -1061,7 +1061,7 @@ Eksamensvinkel- og Typiske feil-blokkene fylles med belegget (score X/5) og feil
       fysiologi som kjernestoff (det er THP100); detaljer merket «ikke forventet»
       (f.eks. glykogenforgrening) kun som «bør kjenne til».
 - [ ] **Klyngelenking:** THP100/THP202-referanser er navnereferanser med mindre emnene er
-      LIVE-bygd; markdown-`/bok/`-lenker kun til eksisterende kapitler (README-leserkrav).
+      LIVE-bygd; markdown-`/`-lenker kun til eksisterende kapitler (README-leserkrav).
       Ingen gjentakelse av THP100/THP202-stoff utover lenker.
 - [ ] **Kvotesum:** quiz ≥540 og flashcards ≥594 fordelt per kapittel som angitt (hardt
       minimum ≥500/≥500); 4 prøver per temadel Del 1–5 (20) + 3 øvingseksamener; fasit-

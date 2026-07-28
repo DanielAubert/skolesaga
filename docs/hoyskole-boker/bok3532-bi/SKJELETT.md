@@ -230,7 +230,7 @@ Virksomhetstyper og selskapsformer, `okonomi-ledelse-6-1` Inntekter og kostnader
 likviditet, `okonomi-ledelse-8-2` Samfunnsansvar (CSR), `okonomi-ledelse-8-3`
 Bærekraft og grønn omstilling; og på **bi-okonomi** (`bi-okonomi-4-1` Renter og
 renteberegning) for prosent-/renteregning. Lenkeform:
-`[tittel](/bok/okonomi-ledelse/okonomi-ledelse-6-4)`. **Lenk kun til disse
+`[tittel](/okonomi-ledelse/okonomi-ledelse-6-4)`. **Lenk kun til disse
 verifiserte id-ene.**
 
 **Det gjennomgående foretaket — «Nordvik Handel AS».** Et fiktivt norsk
@@ -302,7 +302,7 @@ skal varieres videre.
 
 - **id:** `bok3532-bi-1-1` · **number:** 1.1 · **estimatedMinutes:** 40 · **prerequisites:** `bok3532-bi-0-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Resultatregnskap](/bok/okonomi-ledelse/okonomi-ledelse-6-4) og [Balanse og likviditet](/bok/okonomi-ledelse/okonomi-ledelse-6-5) fra Økonomi og ledelse (VGS) og [Virksomhetstyper og selskapsformer](/bok/okonomi-ledelse/okonomi-ledelse-1-2). **Symbol- og formelliste:** balanselikningen **(må kunnes utenat)**; kontoklassene **(på utdelt kontoplan)**.
+- **Forkunnskaper/kryssbok:** Bygger på [Resultatregnskap](/okonomi-ledelse/okonomi-ledelse-6-4) og [Balanse og likviditet](/okonomi-ledelse/okonomi-ledelse-6-5) fra Økonomi og ledelse (VGS) og [Virksomhetstyper og selskapsformer](/okonomi-ledelse/okonomi-ledelse-1-2). **Symbol- og formelliste:** balanselikningen **(må kunnes utenat)**; kontoklassene **(på utdelt kontoplan)**.
 - **description:** Hvorfor finansregnskapet finnes, hvem som bruker det, balanselikningen (Eiendeler = Egenkapital + Gjeld) og de fem konto-/regnskapsstørrelsene som all bokføring beveger.
 - **Eksamensbelegg:** Fundament under all kontering (100 %). Regnskapets brukergrupper og funksjon dukker opp som kort teori (2018 O5-familien, 3/5). Balanselikningen er ryggraden i effektanalyse (endring i eiendel/EK/gjeld). Prioritet: **PERFEKT** (fundament).
 - **Innholdskontrakt:** Regnskapet som «næringslivets språk»; **brukergrupper** (eiere, långivere, ansatte, myndigheter, kunder/leverandører) og deres informasjonsbehov; **balanselikningen** $\text{Eiendeler} = \text{Egenkapital} + \text{Gjeld}$ og hvordan hver transaksjon holder den i balanse; de fem størrelsene **eiendel, gjeld, egenkapital, inntekt, kostnad** og hvordan resultat (inntekt − kostnad) føres til egenkapitalen. Kort om selskapsformer (AS) og lovkrav (regnskapsplikt). Ren forståelse som muliggjør effekt-på-resultat/balanse-oppgaver (Del 6/9).
@@ -344,7 +344,7 @@ skal varieres videre.
 
 - **id:** `bok3532-bi-2-1` · **number:** 2.1 · **estimatedMinutes:** 55 · **prerequisites:** `bok3532-bi-1-3`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på kap. 1.2–1.3 og [Renter og renteberegning](/bok/bi-okonomi/bi-okonomi-4-1) (prosentregning). **Symbol- og formelliste:** mva-formelen $\text{mva} = \text{sats} \times G$, satsene 25/15/12 % **(må kunnes utenat)**; kontoene 2700/2710/2740 **(på utdelt kontoplan)**.
+- **Forkunnskaper/kryssbok:** Bygger på kap. 1.2–1.3 og [Renter og renteberegning](/bi-okonomi/bi-okonomi-4-1) (prosentregning). **Symbol- og formelliste:** mva-formelen $\text{mva} = \text{sats} \times G$, satsene 25/15/12 % **(må kunnes utenat)**; kontoene 2700/2710/2740 **(på utdelt kontoplan)**.
 - **description:** Merverdiavgiftens mekanikk: utgående mva ved salg (2700), inngående mva ved kjøp (2710), at mva regnes av **netto** grunnlag, og oppgjøret mot staten (2740).
 - **Eksamensbelegg:** Bokføring med mva forekommer i **alle fem dokumentene (100 %)**, 18 % i 2018 O1. **Feil mva-grunnlag (brutto vs. netto) er den klassiske halvpoeng-fella** (2021 Varekjøp: 6 p riktig, brutto-splitt 2 p). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** **Parametrisk mal** (theorem-blokk): salg eks. mva $G$ til sats gir `3000 −G, 2700 −(sats·G), 1500/1920 +(G+sats·G)`; kjøp eks. mva $G$ gir `4300 +G, 2710 +(sats·G), 2400/1920 −(G+sats·G)`. Understrek at **mva regnes av netto grunnlag $G$**, aldri av brutto $G(1+\text{sats})$. Satsene (25 % ordinær, 15 % næringsmidler, 12 % enkelte tjenester). **Oppgjøret**: utgående (2700) − inngående (2710) føres mot oppgjørskonto (2740); nettoposisjon = betalbar eller til gode mva. Regn ut mva-grunnlag fra brutto når bare bruttobeløp er oppgitt ($G = \text{brutto}/1{,}25$). **Numerisk variant (Nordvik Handel):** salg 12 000 eks. mva → `3000 −12000, 2700 −3000, 1500 +15000`.
@@ -503,7 +503,7 @@ skal varieres videre.
 
 - **id:** `bok3532-bi-5-1` · **number:** 5.1 · **estimatedMinutes:** 50 · **prerequisites:** `bok3532-bi-1-3`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på kap. 1.3 og [Inntekter og kostnader](/bok/okonomi-ledelse/okonomi-ledelse-6-1). **Symbol- og formelliste:** de fire tidsavgrensningspostene + garantiavsetning **(må kunnes utenat)**; kontoene 1700/2900-serie **(på utdelt kontoplan)**.
+- **Forkunnskaper/kryssbok:** Bygger på kap. 1.3 og [Inntekter og kostnader](/okonomi-ledelse/okonomi-ledelse-6-1). **Symbol- og formelliste:** de fire tidsavgrensningspostene + garantiavsetning **(må kunnes utenat)**; kontoene 1700/2900-serie **(på utdelt kontoplan)**.
 - **description:** Å henføre inntekter og kostnader til riktig periode: forskuddsbetalt/påløpt kostnad, uopptjent/opptjent-ikke-fakturert inntekt, og avsetninger (garanti).
 - **Eksamensbelegg:** Periodisering forekommer i **4–5 av 5 dokumenter (80–100 %)**, egne seksjoner (2021 «Leie» 10 p; 2025V uopptjent inntekt). Sensor gir eksplisitt effektfasit (eiendel/EK/gjeld øker med x/y/z). Prioritet: **KUNNE** (nær perfekt i frekvens).
 - **Innholdskontrakt:** De fire postene (theorem-blokk): **forskuddsbetalt kostnad** (eiendel — leie/forsikring betalt på forskudd), **påløpt kostnad** (gjeld — lønn/rente opptjent men ikke betalt), **uopptjent inntekt** (gjeld — forskudd fra kunder), **opptjent-ikke-fakturert inntekt** (eiendel — levert men ikke fakturert). **Garantiavsetning** og andre avsetninger (beste estimat). Motpost og fortegn for hver. Effekt på balanselikningen (bro til effektanalyse, Del 6/9). **Numerisk variant:** leie 120 000 betalt 1.10 for 12 mnd → 30 000 kostnad i år, 90 000 forskuddsbetalt (eiendel).
@@ -556,7 +556,7 @@ skal varieres videre.
 
 - **id:** `bok3532-bi-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `bok3532-bi-5-3`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på kap. 1.3, 5.1–5.3 og [Resultatregnskap](/bok/okonomi-ledelse/okonomi-ledelse-6-4). **Symbol- og formelliste:** resultatoppstillingens poster, driftsresultat/ordinært resultat **(må kunnes utenat)**; kontoklasser 3–8 **(på utdelt kontoplan)**.
+- **Forkunnskaper/kryssbok:** Bygger på kap. 1.3, 5.1–5.3 og [Resultatregnskap](/okonomi-ledelse/okonomi-ledelse-6-4). **Symbol- og formelliste:** resultatoppstillingens poster, driftsresultat/ordinært resultat **(må kunnes utenat)**; kontoklasser 3–8 **(på utdelt kontoplan)**.
 - **description:** Å gå fra en foreløpig saldobalanse via årsoppgjørsposteringer (varelager, avskrivning, periodisering, tap, skatt) til en endelig saldobalanse og et offisielt, artsinndelt resultatregnskap.
 - **Eksamensbelegg:** Årsavslutning forekommer i **3/5 dokumenter (60 %)**, 12 % + 18 % i 2018 O2/O3, 20 p i 2021 «Avslutning». Samler alle nivå-1/2-temaene. Prioritet: **KUNNE**.
 - **Innholdskontrakt:** Årsoppgjørsposteringene som bringer foreløpig → endelig saldobalanse (varelagerendring/varekostnad, avskrivning, periodisering, tap, skatt — trekker på Del 2–5). **Offisielt resultatregnskap** (artsinndelt): salgsinntekt − varekostnad − lønn − avskrivning − andre driftskostnader = **driftsresultat**; ± finansposter = ordinært resultat før skatt; − skattekostnad = **årsresultat**. Fortegnskonto-føring gjennomført. **Numerisk variant:** oppsett fra saldobalanse med 6–8 poster til driftsresultat og årsresultat.
@@ -568,7 +568,7 @@ skal varieres videre.
 
 - **id:** `bok3532-bi-6-2` · **number:** 6.2 · **estimatedMinutes:** 50 · **prerequisites:** `bok3532-bi-6-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på kap. 6.1 og [Balanse og likviditet](/bok/okonomi-ledelse/okonomi-ledelse-6-5). **Symbol- og formelliste:** balanseoppstillingens hovedgrupper, disponering (overføring til/fra annen EK) **(må kunnes utenat)**; 2000/2050 **(på utdelt kontoplan)**.
+- **Forkunnskaper/kryssbok:** Bygger på kap. 6.1 og [Balanse og likviditet](/okonomi-ledelse/okonomi-ledelse-6-5). **Symbol- og formelliste:** balanseoppstillingens hovedgrupper, disponering (overføring til/fra annen EK) **(må kunnes utenat)**; 2000/2050 **(på utdelt kontoplan)**.
 - **description:** Å sette opp balansen fra endelig saldobalanse (anleggsmidler/omløpsmidler vs. egenkapital/gjeld) og disponere årsresultatet til egenkapitalen.
 - **Eksamensbelegg:** Del av årsavslutningen (60 %). Disponering (overføring til annen EK; underskudd dekkes av annen EK) er en fast avslutning. Prioritet: **KUNNE**.
 - **Innholdskontrakt:** **Balanseoppstillingen** (theorem-blokk): eiendeler (anleggsmidler + omløpsmidler) = egenkapital + gjeld (langsiktig + kortsiktig); at balansen balanserer er sluttkontrollen. **Disponering av årsresultat**: overskudd overføres til annen egenkapital (evt. utbytte/fond); **underskudd dekkes av annen egenkapital**. Kobling til balanselikningen fra kap. 1.1. **Numerisk variant:** årsresultat 340 overført til annen EK; balanse med anleggsmidler 1 150, omløpsmidler 900, EK 1 050, gjeld 1 000.
@@ -651,7 +651,7 @@ skal varieres videre.
 
 - **id:** `bok3532-bi-8-2` · **number:** 8.2 · **estimatedMinutes:** 45 · **prerequisites:** `bok3532-bi-8-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på kap. 8.1 og [Samfunnsansvar (CSR)](/bok/okonomi-ledelse/okonomi-ledelse-8-2) og [Bærekraft og grønn omstilling](/bok/okonomi-ledelse/okonomi-ledelse-8-3). **Symbol- og formelliste:** ingen formler; **begrepsliste** GRS/IFRS/forordning **(må kunnes utenat)**.
+- **Forkunnskaper/kryssbok:** Bygger på kap. 8.1 og [Samfunnsansvar (CSR)](/okonomi-ledelse/okonomi-ledelse-8-2) og [Bærekraft og grønn omstilling](/okonomi-ledelse/okonomi-ledelse-8-3). **Symbol- og formelliste:** ingen formler; **begrepsliste** GRS/IFRS/forordning **(må kunnes utenat)**.
 - **description:** Forskjellen på norsk god regnskapsskikk (GRS) og IFRS, IFRS-forordningen (EU 1606/2002) som gjør IFRS obligatorisk for børsnoterte konsern, og en kort orientering om bærekraftsrapportering.
 - **Eksamensbelegg:** IFRS-forordningen/GRS vs. IFRS forekommer i **2–3/5 dokumenter (40–60 %)** som kort teori (2018 O5, 2025H #14). **Bærekraft er IKKE observert som oppgave (0/5)** — dekkes kort. Prioritet: **KJENNE**.
 - **Innholdskontrakt:** **GRS vs. IFRS** (definition-blokk): GRS = norsk lovregulert god regnskapsskikk (rammelovgivning, forsiktighet, historisk kost); IFRS = internasjonale standarder (mer virkelig verdi, mer noteopplysning). **IFRS-forordningen** (EU 1606/2002): børsnoterte konsern i EØS *skal* utarbeide konsernregnskap etter IFRS — hvorfor (sammenlignbarhet, internasjonale kapitalmarkeder). Hvilke foretak kan/skal bruke hva. **Kort om bærekraftsrapportering** (én kort seksjon, «bør kjenne til»): at ESG-/bærekraftsrapportering er et voksende krav (CSRD), men **ikke testet som regneøvelse** i arkivet — merk `(verifiser)` for konkrete detaljer. Kort, ordbegrenset svarform.

@@ -67,12 +67,12 @@ STANDALONE (alt eksamensrelevant stoff er dekket internt på det nivået oppgave
 krever), men den **gjentar ikke bachelor-mekanismene i dybde** — den **lenker** til
 klyngens bachelorbøker for grunnlaget og legger sin egen tyngde på **masternivået:
 mekanismekjede + måling + forskningsmetodisk kritikk**. Forkunnskaps-lenker:
-- **Oksygentransport-søylen** (Del 5) bygger på [THP202 Treningsfysiologi](/bok/nih-thp202) (Ficks
+- **Oksygentransport-søylen** (Del 5) bygger på [THP202 Treningsfysiologi](/nih-thp202) (Ficks
   ligning, VO₂maks sentralt/perifert, slagvolum, blodvolum) og THP100 Humanfysiologi
   (oksygenkaskaden, minuttvolum, Frank-Starling). *Nærmeste faglige nabo — MA460
   fordyper med forskningskritikk og kjønnsforskjeller.*
 - **Biomekanikk-søylene** (running economy Del 1, muscle mechanics/FV-profil Del 7,
-  overuse Del 2) bygger på [THP203 Basal biomekanikk](/bok/nih-thp203) (kraft-lengde/kraft-hastighet,
+  overuse Del 2) bygger på [THP203 Basal biomekanikk](/nih-thp203) (kraft-lengde/kraft-hastighet,
   moment/vektarm, senestivhet, GRF, spenning–tøyning) og THP101 Funksjonell anatomi
   (fascikkelarkitektur, PCSA, pennasjon). *Forkunnskapsankere for all biomekanikk.*
 - **Styrke-søylen** (Del 6) bygger på THP202 (hypertrofi, nevral adaptasjon,
@@ -308,7 +308,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 ### Del 1 — Running economy (løpsøkonomi)  *(prioritet: PERFEKT — 6/6 gjenganger)*
 
 > Fagsøyle 1 (10 p, absolutt gjenganger). Fysiologisk + biomekanisk. Forkunnskap
-> lenkes til [THP203 Basal biomekanikk](/bok/nih-thp203) (GRF, stivhet, kraft-lengde) og THP202/THP100
+> lenkes til [THP203 Basal biomekanikk](/nih-thp203) (GRF, stivhet, kraft-lengde) og THP202/THP100
 > (VO₂, steady-state) — ikke gjentatt i dybde. Sensor krever definisjon + mekanisme +
 > måling. Alle tall NYSKREVNE.
 
@@ -317,7 +317,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-1-1` · **number:** 1.1 · **estimatedMinutes:** 60 · **prerequisites:** `nih-ma460-0-2` · **kapitteltype:** teori
 - **description:** Løpsøkonomi (running economy) presist definert — oksygen-/energikrav per distanse ved gitt submaksimal fart, normalisert til kroppsmasse — hvordan den måles (steady-state VO₂ på tredemølle ved flere farter, interpolert), og hvorfor den er en selvstendig prestasjonsdeterminant ved siden av VO₂maks.
 - **Eksamensbelegg:** Running economy **6/6** — hver sitting; definisjonen etterspørres nesten alltid. Sjangre: S-MEK, S-KVANT (energikost per distanse). Prioritet: **perfekt**. Sensor: definer FØR du drøfter (F2); koble til måling (F3).
-- **D-M-M-K-kontrakt:** MÅ KUNNE DEFINERE + MÅLE. **Løpsøkonomi (running economy):** O₂-/energikrav per distanse ved gitt submaksimal fart, normalisert til kroppsmasse (mL O₂/kg/km eller J/kg/m). **Måling:** steady-state VO₂ på tredemølle ved flere submaksimale farter, interpolert; forutsetter aerob steady-state. **Kobling til prestasjon:** to utøvere med lik VO₂maks kan ha ulik prestasjon fordi RE skiller — RE + VO₂maks + utnyttingsgrad bestemmer utholdenhetsprestasjon (bro til [THP202](/bok/nih-thp202)). Norsk/engelsk begrepspar. `(verifiser enhetskonvensjon/normalintervall mot pensum)`.
+- **D-M-M-K-kontrakt:** MÅ KUNNE DEFINERE + MÅLE. **Løpsøkonomi (running economy):** O₂-/energikrav per distanse ved gitt submaksimal fart, normalisert til kroppsmasse (mL O₂/kg/km eller J/kg/m). **Måling:** steady-state VO₂ på tredemølle ved flere submaksimale farter, interpolert; forutsetter aerob steady-state. **Kobling til prestasjon:** to utøvere med lik VO₂maks kan ha ulik prestasjon fordi RE skiller — RE + VO₂maks + utnyttingsgrad bestemmer utholdenhetsprestasjon (bro til [THP202](/nih-thp202)). Norsk/engelsk begrepspar. `(verifiser enhetskonvensjon/normalintervall mot pensum)`.
 - **Mekanismekjede(r):** (1) hvorfor RE varierer: gitt O₂-behov per distanse settes av metabolsk kost av kraftgenerering + elastisk energigjenvinning + bevegelseseffektivitet → lavere kost = bedre RE. (Detaljerte biomekaniske determinanter i 1.2–1.3.)
 - **Måling og forskningskritikk:** tredemølle-protokoll (flere farter, steady-state, RER < 1,0); begrensninger (labmiljø vs. bane, drift, ventilasjonsmaske); at RE er hastighets-/individspesifikk.
 - **Case-forslag:** «Definer løpsøkonomi og forklar hvordan den måles i lab; hvorfor kan to løpere med lik VO₂maks ha ulik 10 km-tid?» (S-MEK/S-KVANT).
@@ -329,7 +329,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-1-2` · **number:** 1.2 · **estimatedMinutes:** 60 · **prerequisites:** `nih-ma460-1-1` · **kapitteltype:** teori
 - **description:** De biomekaniske variablene bak løpsøkonomi: bakkekontakttid (GCT), skrittfrekvens og skrittlengde, horisontal vs. vertikal grunnreaksjonskraft, og hvorfor økt skrittfrekvens (kortere skritt) kan senke de propulsive horisontalkreftene og bedre økonomien.
 - **Eksamensbelegg:** Running economy **6/6** — spatiotemporale variabler + GRF er kjernen i den biomekaniske delen. Sjangre: S-MEK, S-KVANT. Prioritet: **perfekt**. Sensor: mekanismekjede (F1) + hvordan variablene *måles* (F3).
-- **D-M-M-K-kontrakt:** MÅ KUNNE. **Spatiotemporale variabler:** bakkekontakttid (ground contact time, GCT), skrittfrekvens (step frequency), skrittlengde (step length). **GRF:** vertikal (støttekraft) vs. horisontal (bremsende + propulsiv). **Sammenheng:** høyere skrittfrekvens → kortere skritt → lavere horisontale (propulsive/bremsende) krefter → lavere metabolsk kost → bedre RE (individuelt optimum finnes). **Måling:** kraftplate/kontaktmatte (kinetikk/GCT), kinematikk (bevegelsesfangst), harness for kroppsvektavlastning i lab-oppdeling (vektstøtte/propulsjon/beinsving). Forkunnskap: GRF fra [THP203 kap. 4.3](/bok/nih-thp203/nih-thp203-4-3).
+- **D-M-M-K-kontrakt:** MÅ KUNNE. **Spatiotemporale variabler:** bakkekontakttid (ground contact time, GCT), skrittfrekvens (step frequency), skrittlengde (step length). **GRF:** vertikal (støttekraft) vs. horisontal (bremsende + propulsiv). **Sammenheng:** høyere skrittfrekvens → kortere skritt → lavere horisontale (propulsive/bremsende) krefter → lavere metabolsk kost → bedre RE (individuelt optimum finnes). **Måling:** kraftplate/kontaktmatte (kinetikk/GCT), kinematikk (bevegelsesfangst), harness for kroppsvektavlastning i lab-oppdeling (vektstøtte/propulsjon/beinsving). Forkunnskap: GRF fra [THP203 kap. 4.3](/nih-thp203/nih-thp203-4-3).
 - **Mekanismekjede(r):** (1) skrittfrekvens↑ → skrittlengde↓ → lavere horisontal bremse-/propulsjonskraft + lavere vertikal svingning → lavere mekanisk (og metabolsk) arbeid → RE↑. (2) hvorfor et *optimum* finnes (for høy frekvens → økt indre arbeid/beinsvingkost).
 - **Måling og forskningskritikk:** kraftplate (GRF-komponenter), motion capture (spatiotemporale variabler), lab-oppdeling av O₂-kost i vektstøtte/propulsjon/beinsving; begrensning: overføring lab→bane.
 - **Case-forslag:** «Forklar hvordan økt skrittfrekvens kan bedre løpsøkonomi, og hvordan du ville målt de relevante variablene» (S-MEK).
@@ -341,9 +341,9 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-1-3` · **number:** 1.3 · **estimatedMinutes:** 60 · **prerequisites:** `nih-ma460-1-2` · **kapitteltype:** teori
 - **description:** Vertikal/legg-stivhet og senens elastiske energigjenvinning som determinanter for løpsøkonomi, fascikelarkitekturens rolle (kvasi-isometrisk fiberarbeid mens senen forlenges/forkortes), og hvordan stivhet måles — toppkarakter-nyansene i søylen.
 - **Eksamensbelegg:** Running economy **6/6** — stivhet + elastisk energi er A-nivå-nyansene. Sjangre: S-MEK. Prioritet: **perfekt** (nyanse for topp). Sensor: definer stivhet (F2); koble til senemekanikk/måling (F3); mekanisme (F1).
-- **D-M-M-K-kontrakt:** MÅ KUNNE. **Stivhet (stiffness):** vertikal stivhet og leddstivhet (kraft/deformasjon; bro til [THP203 kap. 3.1](/bok/nih-thp203/nih-thp203-3-1)); **elastisk energilagring** i akilles/patellarsene (strekk-forkortings-syklus) reduserer metabolsk kost; **fascikelarkitektur** — fibre kan arbeide kvasi-isometrisk (lav shortening-hastighet → gunstig FV-punkt, bro til Del 7) mens senen tar forlengelsen. **Måling:** stivhet fra kraftplate + kinematikk (masse-fjær-modell), ultralyd for fascikel-/senedynamikk. Norsk/engelsk begrepspar.
+- **D-M-M-K-kontrakt:** MÅ KUNNE. **Stivhet (stiffness):** vertikal stivhet og leddstivhet (kraft/deformasjon; bro til [THP203 kap. 3.1](/nih-thp203/nih-thp203-3-1)); **elastisk energilagring** i akilles/patellarsene (strekk-forkortings-syklus) reduserer metabolsk kost; **fascikelarkitektur** — fibre kan arbeide kvasi-isometrisk (lav shortening-hastighet → gunstig FV-punkt, bro til Del 7) mens senen tar forlengelsen. **Måling:** stivhet fra kraftplate + kinematikk (masse-fjær-modell), ultralyd for fascikel-/senedynamikk. Norsk/engelsk begrepspar.
 - **Mekanismekjede(r):** (1) senestrekk i støttefasen lagrer elastisk energi → frigjøres i frastøt → mindre aktivt muskelarbeid → lavere O₂-kost → RE↑. (2) optimal stivhet: for lav → energitap/lang GCT; for høy → dårlig støtdemping/høy last (individoptimum).
-- **Måling og forskningskritikk:** masse-fjær-modell (bro til [THP203 kap. 4.2](/bok/nih-thp203/nih-thp203-4-2)), ultralyd (fascikel/sene), kraftplate; begrensning: stivhet er en modell-abstraksjon, ikke direkte målt.
+- **Måling og forskningskritikk:** masse-fjær-modell (bro til [THP203 kap. 4.2](/nih-thp203/nih-thp203-4-2)), ultralyd (fascikel/sene), kraftplate; begrensning: stivhet er en modell-abstraksjon, ikke direkte målt.
 - **Case-forslag:** «Forklar hvordan senestivhet og elastisk energigjenvinning påvirker løpsøkonomi, og hvordan fascikelarkitektur bidrar» (S-MEK, A-nivå).
 - **Typiske feil:** `F2` (udefinert «stivhet»); `F1` (påstå elastisk energi hjelper uten kjeden); glemme fascikel-vs.-sene-skillet; `F3` (ingen målemetode).
 - **Quiz: 22 · Flashcards: 24**
@@ -355,8 +355,8 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 ### Del 2 — Biomekanikk ved belastningsskader (forskningskritikk)  *(prioritet: PERFEKT — 6/6, signatursjanger)*
 
 > Fagsøyle 2 (10 p, absolutt gjenganger). **MA460s signatursjanger: forskningskritikk
-> (S-KRIT).** Forkunnskap: beinmekanikk/belastning fra [THP203 kap. 3.3](/bok/nih-thp203/nih-thp203-3-3), GRF fra
-> [THP203 kap. 4.3](/bok/nih-thp203/nih-thp203-4-3). Sensor krever REELL metodekritikk (design/utvalg/definisjon/
+> (S-KRIT).** Forkunnskap: beinmekanikk/belastning fra [THP203 kap. 3.3](/nih-thp203/nih-thp203-3-3), GRF fra
+> [THP203 kap. 4.3](/nih-thp203/nih-thp203-4-3). Sensor krever REELL metodekritikk (design/utvalg/definisjon/
 > konfunder), ikke «trengs mer forskning». Alle case NYSKREVNE.
 
 #### Kapittel 2.1: Studiedesign og forskningskritikk i skadeforskning
@@ -388,7 +388,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-2-3` · **number:** 2.3 · **estimatedMinutes:** 60 · **prerequisites:** `nih-ma460-2-1` · **kapitteltype:** teori
 - **description:** Beinvevets belastningsmekanikk under løp (aksial belastning + bøying → kompresjon/strekk; intern belastning fra muskelkrefter), remodelleringssyklusen (resorpsjon + nydannelse) og hvorfor tilstrekkelig restitusjon gir sterkere bein mens for rask progresjon gir stressfraktur.
 - **Eksamensbelegg:** Overuse injuries **6/6** — beinbelastning/remodellering er den fysiologiske mekanismedelen. Sjangre: S-MEK. Prioritet: **perfekt**. Sensor: full mekanismekjede (F1); koble til belastning/måling.
-- **D-M-M-K-kontrakt:** MÅ KUNNE. **Belastningstyper på bein:** aksial belastning + bøying → kompresjon på én side, strekk på motsatt (bein tåler kompresjon best; bro til [THP203 kap. 3.3](/bok/nih-thp203/nih-thp203-3-3)); **intern belastning** fra muskelkrefter kan endre spenningsfordelingen; **remodellering:** resorpsjon (osteoklaster) + nydannelse (osteoblaster) → mekanisk adaptasjon; **stressfraktur** = mikroskade akkumulert raskere enn remodellering rekker → strukturell svikt. Norsk/engelsk begrepspar (remodelling, stress fracture, loading rate).
+- **D-M-M-K-kontrakt:** MÅ KUNNE. **Belastningstyper på bein:** aksial belastning + bøying → kompresjon på én side, strekk på motsatt (bein tåler kompresjon best; bro til [THP203 kap. 3.3](/nih-thp203/nih-thp203-3-3)); **intern belastning** fra muskelkrefter kan endre spenningsfordelingen; **remodellering:** resorpsjon (osteoklaster) + nydannelse (osteoblaster) → mekanisk adaptasjon; **stressfraktur** = mikroskade akkumulert raskere enn remodellering rekker → strukturell svikt. Norsk/engelsk begrepspar (remodelling, stress fracture, loading rate).
 - **Mekanismekjede(r):** (1) løpsbelastning → mikroskade + mekanisk signal → remodellering (resorpsjon FØR nydannelse → forbigående svekkelse) → ved tilstrekkelig restitusjon: netto sterkere bein; ved for rask volumøkning: mikroskade > nydannelse → stressfraktur. (2) hvorfor aktive muskler kan redusere strekkspenning (og dermed bruddrisiko) i visse beinsegmenter.
 - **Måling og forskningskritikk:** modellert intern beinbelastning (musculoskeletal modeling), belastningsrate fra kraftplate; begrensning: intern beinlast er modellert, ikke direkte målt in vivo.
 - **Case-forslag:** «Forklar hvordan beinvev remodelleres ved løpsbelastning, og hvorfor en for rask økning i treningsvolum kan gi stressfraktur» (S-MEK).
@@ -449,7 +449,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 
 > Fagsøyle 4 (10 p, absolutt gjenganger). Signatursjanger: sammenlignende
 > idrettsanalyse (S-SAMLIGN). Forkunnskap: energiomsetning (THP204, beskrives kort),
-> VO₂ fra [THP202](/bok/nih-thp202). Sensor krever definisjon av O₂-underskudd/MAOD + struktur langs
+> VO₂ fra [THP202](/nih-thp202). Sensor krever definisjon av O₂-underskudd/MAOD + struktur langs
 > faste akser. Alle tall/case NYSKREVNE.
 
 #### Kapittel 4.1: Oksygenkrav, oksygenopptak, oksygenunderskudd og MAOD
@@ -457,7 +457,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-4-1` · **number:** 4.1 · **estimatedMinutes:** 65 · **prerequisites:** `nih-ma460-0-2` · **kapitteltype:** teori
 - **description:** De grunnleggende begrepene i integrert prestasjonsanalyse: oksygenkrav (VO₂dem), oksygenopptak (VO₂), oksygenunderskudd (VO₂dem − VO₂) og maksimalt akkumulert oksygenunderskudd (MAOD) som mål på anaerob kapasitet — presist definert og målemessig forankret.
 - **Eksamensbelegg:** Integrated/racing **6/6** — begrepsapparatet (O₂-underskudd/MAOD) er fundamentet, etterspørres definert. Sjangre: S-MEK, S-KVANT. Prioritet: **perfekt**. Sensor: definer FØR drøfting (F2); mekanisme (F1).
-- **D-M-M-K-kontrakt:** MÅ KUNNE DEFINERE. **Oksygenkrav (VO₂dem):** O₂ som trengs for en intensitet gitt rent aerob dekning. **Oksygenopptak (VO₂):** faktisk opptak. **Oksygenunderskudd (oxygen deficit):** VO₂dem − VO₂. **MAOD (maximal accumulated oxygen deficit):** maksimalt akkumulert underskudd = mål på anaerob kapasitet. **Måling:** VO₂dem ekstrapoleres fra submaksimal VO₂-intensitet-relasjon; MAOD = arealet mellom VO₂dem og målt VO₂ over supramaksimalt arbeid. Bro til metabolisme (THP204) og VO₂ ([THP202](/bok/nih-thp202)). Norsk/engelsk begrepspar. `(verifiser MAOD-protokolldetaljer mot pensum)`.
+- **D-M-M-K-kontrakt:** MÅ KUNNE DEFINERE. **Oksygenkrav (VO₂dem):** O₂ som trengs for en intensitet gitt rent aerob dekning. **Oksygenopptak (VO₂):** faktisk opptak. **Oksygenunderskudd (oxygen deficit):** VO₂dem − VO₂. **MAOD (maximal accumulated oxygen deficit):** maksimalt akkumulert underskudd = mål på anaerob kapasitet. **Måling:** VO₂dem ekstrapoleres fra submaksimal VO₂-intensitet-relasjon; MAOD = arealet mellom VO₂dem og målt VO₂ over supramaksimalt arbeid. Bro til metabolisme (THP204) og VO₂ ([THP202](/nih-thp202)). Norsk/engelsk begrepspar. `(verifiser MAOD-protokolldetaljer mot pensum)`.
 - **Mekanismekjede(r):** (1) ved arbeidsstart/høy intensitet: VO₂ henger etter VO₂dem → underskudd dekkes anaerobt (PCr + glykolyse) → akkumulert underskudd = anaerobt bidrag; MAOD er taket. (2) hvorfor MAOD måler anaerob kapasitet, ikke aerob.
 - **Måling og forskningskritikk:** ekstrapolering av VO₂dem (antakelse om lineær VO₂-intensitet); MAOD-metodens forutsetninger og feilkilder (ekstrapolering, effektivitetsantakelse).
 - **Case-forslag:** «Definer oksygenunderskudd og MAOD, og forklar hvordan MAOD måles og hva det forteller om utøverens kapasitet» (S-MEK/S-KVANT).
@@ -495,7 +495,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 ### Del 5 — Oksygentransport, VO₂maks og kjønnsforskjeller  *(prioritet: PERFEKT — 5–6/6)*
 
 > Fagsøyle 5 (10 p; i 2526 splittet i O₂-transport + kjønnsforskjeller → tungt hvert
-> år). Forkunnskap: Ficks ligning + VO₂maks-mekanismer fra [THP202](/bok/nih-thp202) (kap. 1.1–1.5) og
+> år). Forkunnskap: Ficks ligning + VO₂maks-mekanismer fra [THP202](/nih-thp202) (kap. 1.1–1.5) og
 > oksygenkaskaden/Frank-Starling fra THP100 (beskrives kort). **MA460 gjentar ikke
 > bachelor-mekanismene i dybde — den fordyper begrensning, høyde og kjønn med
 > forskningskritikk.** Alle tall NYSKREVNE.
@@ -504,8 +504,8 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 
 - **id:** `nih-ma460-5-1` · **number:** 5.1 · **estimatedMinutes:** 65 · **prerequisites:** `nih-ma460-0-2` · **kapitteltype:** teori
 - **description:** Oksygenkaskadens seks steg (ventilasjon → diffusjon → hemoglobintransport → levering → muskeldiffusjon → mitokondriell respirasjon), hvorfor minuttvolum (cardiac output) er hovedbegrensningen for VO₂maks, og hvordan man drøfter «hva begrenser VO₂maks» som mekanismekjede — ikke oppramsing.
-- **Eksamensbelegg:** O₂-transport **5–6/6** — «hva begrenser VO₂maks» er nesten fast. Sjangre: S-MEK. Prioritet: **perfekt**. Sensor: mekanismekjede per ledd (F1), ikke liste; koble til [THP202](/bok/nih-thp202) uten å gjenta i dybde.
-- **D-M-M-K-kontrakt:** MÅ KUNNE. **Oksygenkaskaden (oxygen cascade), seks steg:** ventilasjon/alveolær gassutveksling → diffusjon over alveolo-kapillærmembranen → transport med hemoglobin → levering (minuttvolum × kapillær perfusjon) → diffusjon inn i muskelfiber → mitokondriell respirasjon. **Hovedbegrensning: minuttvolum (cardiac output).** Ficks ligning som ramme (bro til [THP202 kap. 1.1](/bok/nih-thp202/nih-thp202-1-1)) — MA460 fordyper *hvorfor* MV begrenser, ikke ligningens grunnutledning. Norsk/engelsk begrepspar.
+- **Eksamensbelegg:** O₂-transport **5–6/6** — «hva begrenser VO₂maks» er nesten fast. Sjangre: S-MEK. Prioritet: **perfekt**. Sensor: mekanismekjede per ledd (F1), ikke liste; koble til [THP202](/nih-thp202) uten å gjenta i dybde.
+- **D-M-M-K-kontrakt:** MÅ KUNNE. **Oksygenkaskaden (oxygen cascade), seks steg:** ventilasjon/alveolær gassutveksling → diffusjon over alveolo-kapillærmembranen → transport med hemoglobin → levering (minuttvolum × kapillær perfusjon) → diffusjon inn i muskelfiber → mitokondriell respirasjon. **Hovedbegrensning: minuttvolum (cardiac output).** Ficks ligning som ramme (bro til [THP202 kap. 1.1](/nih-thp202/nih-thp202-1-1)) — MA460 fordyper *hvorfor* MV begrenser, ikke ligningens grunnutledning. Norsk/engelsk begrepspar.
 - **Mekanismekjede(r):** (1) hvorfor MV er hovedbegrensning: sentral O₂-leveringskapasitet (SV × HF) setter taket; perifer ekstraksjon er nær maks ved VO₂maks → økt MV hever taket mest. (2) hvert kaskade-ledd som *potensiell* begrensning og hvorfor de fleste ikke er begrensende hos utrente.
 - **Måling og forskningskritikk:** VO₂maks-kriterier (platå, RER, HFmaks); debatten om sentral vs. perifer begrensning; begrensning: platå-kriteriet ikke alltid oppfylt.
 - **Case-forslag:** «Gjør rede for hvilke ledd i oksygentransporten som kan begrense VO₂maks, og begrunn hvorfor minuttvolum regnes som hovedbegrensningen» (S-MEK, eksamensnivå).
@@ -529,8 +529,8 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-5-3` · **number:** 5.3 · **estimatedMinutes:** 55 · **prerequisites:** `nih-ma460-5-1` · **kapitteltype:** teori
 - **description:** De sentrale determinantene for VO₂maks fra et masterperspektiv — hvorfor slagvolumet er høyere hos utholdenhetsutøvere (blodvolum → venøs retur → EDV → Frank-Starling; hjertehypertrofi; compliance) — med vekt på *hvorfor* framfor gjentakelse av bachelor-utledningen, og hvordan determinantene måles.
 - **Eksamensbelegg:** O₂-transport **5–6/6** — slagvolum-determinanter etterspørres. Sjangre: S-MEK. Prioritet: **perfekt**. Sensor: mekanismekjede (F1). **Forfatteren gjentar IKKE THP202s SV-utledning i dybde — lenker dit og fordyper på masternivå (måling, forskningsgrunnlag).**
-- **D-M-M-K-kontrakt:** MÅ KUNNE (på masternivå — kort, lenkende). **Slagvolum (stroke volume):** høyere hos utholdenhetsutøvere pga. (1) større blodvolum → økt venøs retur → økt ende-diastolisk volum (EDV) → Frank-Starling, (2) større hjerte/venstre ventrikkelmasse (eksentrisk hypertrofi), (3) høyere compliance; ejeksjonsfraksjon lite endret; HFmaks lik/litt lavere. **Blodvolum:** plasmavolum raskt, rødt cellevolum senere. Detaljert kjede + tidsaksering: se [THP202 kap. 1.2–1.3](/bok/nih-thp202/nih-thp202-1-2). **Måling:** ekkokardiografi (EDV/ESV/masse), CO-teknikker, Hb-masse (CO-rebreathing). Norsk/engelsk begrepspar.
-- **Mekanismekjede(r):** (1) kort, lenkende: blodvolum↑ → EDV↑ → Frank-Starling → SV↑ → MV↑ → VO₂maks↑ (full tidsaksert kjede i [THP202](/bok/nih-thp202/nih-thp202-1-2)). Fokus her: hvordan dette *måles* og *dokumenteres* i forskning.
+- **D-M-M-K-kontrakt:** MÅ KUNNE (på masternivå — kort, lenkende). **Slagvolum (stroke volume):** høyere hos utholdenhetsutøvere pga. (1) større blodvolum → økt venøs retur → økt ende-diastolisk volum (EDV) → Frank-Starling, (2) større hjerte/venstre ventrikkelmasse (eksentrisk hypertrofi), (3) høyere compliance; ejeksjonsfraksjon lite endret; HFmaks lik/litt lavere. **Blodvolum:** plasmavolum raskt, rødt cellevolum senere. Detaljert kjede + tidsaksering: se [THP202 kap. 1.2–1.3](/nih-thp202/nih-thp202-1-2). **Måling:** ekkokardiografi (EDV/ESV/masse), CO-teknikker, Hb-masse (CO-rebreathing). Norsk/engelsk begrepspar.
+- **Mekanismekjede(r):** (1) kort, lenkende: blodvolum↑ → EDV↑ → Frank-Starling → SV↑ → MV↑ → VO₂maks↑ (full tidsaksert kjede i [THP202](/nih-thp202/nih-thp202-1-2)). Fokus her: hvordan dette *måles* og *dokumenteres* i forskning.
 - **Måling og forskningskritikk:** ekkokardiografi (EDV/masse), CO-rebreathing (Hb-masse/blodvolum); begrensning: tverrsnitt (utøver vs. utrent) vs. longitudinell trening — kausal vs. seleksjon.
 - **Case-forslag:** «Forklar de sentrale determinantene for et høyt slagvolum hos en utholdenhetsutøver, og hvordan de kan måles» (S-MEK).
 - **Typiske feil:** `F1`; gjenta bachelor-utledningen uten masternivå (måling/forskning); blande EDV-/ESV-determinanter; `F3`.
@@ -542,7 +542,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **description:** Den nye 2526-blokken: hvorfor VO₂maks per fettfri masse er ~10 % høyere hos menn (primært ~10 % lavere hemoglobinkonsentrasjon hos kvinner), at kapillærtetthet og O₂-ekstraksjon er like, og hvordan man drøfter kjønnsforskjeller mekanistisk uten å overforenkle.
 - **Eksamensbelegg:** Sex differences **2/6 (nytt 2526, antatt fast)** — introdusert på både ordinær og utsatt 2526. Sjangre: S-MEK. Prioritet: **kunne** (men bygg som fullverdig kapittel — antatt fast framover). Sensor: mekanisme (F1) + presis lokalisering av forskjellen (Hb-konsentrasjon).
 - **D-M-M-K-kontrakt:** MÅ KUNNE. **Kjønnsforskjell i VO₂maks:** VO₂maks per fettfri masse ~10 % høyere hos menn **(verifiser)**, primært pga. ~10 % lavere hemoglobinkonsentrasjon hos kvinner (→ lavere CaO₂ → lavere O₂-bærekapasitet); **kapillærtetthet og O₂-ekstraksjon er ~like**; kroppssammensetning (fettfri masse) forklarer en del av rå VO₂maks-forskjellen. Norsk/engelsk begrepspar (haemoglobin concentration, fat-free mass).
-- **Mekanismekjede(r):** (1) ↓[Hb] hos kvinner → ↓CaO₂ (per Ficks ligning, bro til [THP202](/bok/nih-thp202/nih-thp202-1-1)) → ↓O₂-levering ved gitt MV → ↓VO₂maks per FFM; ekstraksjon uendret → forskjellen er en *leverings*-, ikke *ekstraksjons*-forskjell.
+- **Mekanismekjede(r):** (1) ↓[Hb] hos kvinner → ↓CaO₂ (per Ficks ligning, bro til [THP202](/nih-thp202/nih-thp202-1-1)) → ↓O₂-levering ved gitt MV → ↓VO₂maks per FFM; ekstraksjon uendret → forskjellen er en *leverings*-, ikke *ekstraksjons*-forskjell.
 - **Måling og forskningskritikk:** normalisering (per kg vs. per FFM endrer bildet); Hb-konsentrasjon (blodprøve); begrensning: normaliseringsvalg og konfundering med kroppssammensetning/treningsstatus.
 - **Case-forslag:** «Forklar de fysiologiske årsakene til kjønnsforskjellen i VO₂maks, og hvorfor normalisering til fettfri masse er viktig i tolkningen» (S-MEK).
 - **Typiske feil:** tilskrive forskjellen ekstraksjon/kapillærer (feil — det er leveringen/[Hb]); glemme normaliseringspoenget; `F2` (udefinert Hb-konsentrasjon vs. Hb-masse).
@@ -556,7 +556,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 
 > Fagsøyle 6 (10 p, gjenganger med skiftende fokus: eldre/spesifikk styrke →
 > satellittceller/mekanotransduksjon). **Dekk begge vinkler.** Forkunnskap:
-> hypertrofi/nevral adaptasjon/sarkopeni fra [THP202](/bok/nih-thp202/nih-thp202-2-1) — MA460 fordyper
+> hypertrofi/nevral adaptasjon/sarkopeni fra [THP202](/nih-thp202/nih-thp202-2-1) — MA460 fordyper
 > celle-/signalmekanismene. Alle tall NYSKREVNE.
 
 #### Kapittel 6.1: Mekanotransduksjon — fra mekanisk stress til proteinsyntese
@@ -564,7 +564,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-6-1` · **number:** 6.1 · **estimatedMinutes:** 65 · **prerequisites:** `nih-ma460-0-2` · **kapitteltype:** teori
 - **description:** Hvordan muskelfiberen sanser mekanisk spenning og oversetter den til vekstsignal: integriner (FAK), titin (titinkinase) og Z-skiven → mTORC1 (via fosfatidinsyre, PI3K/Akt), MAPK/ERK og Ca²⁺/ROS → økt proteinsyntese og ribosombiogenese — masternivå-fordypningen av THP202s hypertrofisignalvei.
 - **Eksamensbelegg:** Strength **6/6** (2526-fokus: mekanotransduksjon). Sjangre: S-MEK. Prioritet: **perfekt**. Sensor: full signalveikjede navngitt (F1) — pluss for signalveinavn.
-- **D-M-M-K-kontrakt:** MÅ KUNNE (signalveinavn utenat — 3 t, kun ordbok). **Mekanotransduksjon (mechanotransduction):** integriner/FAK, titin/titinkinase, Z-skive → **mTORC1** (via fosfatidinsyre, PI3K/Akt), **MAPK/ERK**, **Ca²⁺/ROS** → ↑proteinsyntese + ribosombiogenese. **Treningsvariabler:** last (~30–90 % 1RM nær utmattelse), volum (10–20 harde sett/muskel/uke **(verifiser)**), effort (nær failure), tid under spenning/eksentrikk. Bro: hypertrofidefinisjonen fra [THP202 kap. 2.1](/bok/nih-thp202/nih-thp202-2-1). Norsk/engelsk begrepspar.
+- **D-M-M-K-kontrakt:** MÅ KUNNE (signalveinavn utenat — 3 t, kun ordbok). **Mekanotransduksjon (mechanotransduction):** integriner/FAK, titin/titinkinase, Z-skive → **mTORC1** (via fosfatidinsyre, PI3K/Akt), **MAPK/ERK**, **Ca²⁺/ROS** → ↑proteinsyntese + ribosombiogenese. **Treningsvariabler:** last (~30–90 % 1RM nær utmattelse), volum (10–20 harde sett/muskel/uke **(verifiser)**), effort (nær failure), tid under spenning/eksentrikk. Bro: hypertrofidefinisjonen fra [THP202 kap. 2.1](/nih-thp202/nih-thp202-2-1). Norsk/engelsk begrepspar.
 - **Mekanismekjede(r):** (1) mekanisk stress → deformasjon av integriner/titin/Z-skive → aktivering av mTORC1 (+ MAPK, Ca²⁺/ROS) → ↑translasjon + ribosombiogenese → ↑myofibrillær proteinsyntese → hypertrofi over tid. (2) hvorfor både mekanisk drag og metabolsk stress bidrar.
 - **Måling og forskningskritikk:** muskelbiopsi (signalveiaktivering/proteinsyntese via stabil isotop), CSA via MR/ultralyd; begrensning: akutt signalrespons predikerer ikke alltid langtidshypertrofi.
 - **Case-forslag:** «Forklar hvordan muskelfiberen sanser mekanisk spenning og hvilke signalveier som fører til økt proteinsyntese» (S-MEK, eksamensnivå).
@@ -588,7 +588,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-6-3` · **number:** 6.3 · **estimatedMinutes:** 60 · **prerequisites:** `nih-ma460-6-1` · **kapitteltype:** teori
 - **description:** Den eldre 2223–2324-vinkelen som fortsatt kan gjenoppstå: spesifikk styrke (kraft normalisert til tverrsnitt/masse), aldringstapet (styrke, masse og spesifikk kraft) med mekanismer (IMAT, redusert proteinkvalitet/mitokondriefunksjon, svekket aktivering), og skillet nevral vs. strukturell adaptasjon.
 - **Eksamensbelegg:** Strength **6/6** (2223–2324-fokus: eldre/spesifikk styrke). Sjangre: S-MEK, S-KVANT (normalisering). Prioritet: **perfekt** (dekk begge vinkler i søylen). Sensor: definer spesifikk styrke (F2); mekanisme for aldringstap (F1).
-- **D-M-M-K-kontrakt:** MÅ KUNNE. **Spesifikk styrke (specific strength):** kraft normalisert til tverrsnitt/masse (N/cm² eller N/kg). **Aldring:** ~15 % styrketap + ~10 % massetap per tiår etter 50 år; spesifikk kraft 20–40 % lavere hos ~70-åringer **(verifiser)**; mekanismer: intramuskulært fett (IMAT), redusert proteinkvalitet/mitokondriefunksjon, svekket muskelaktivering. **Styrketrening (~12 uker):** ~20–30 % styrkeøkning (1RM), ~5–10 % CSA-økning → bedret spesifikk styrke **(verifiser)**. **Nevral vs. strukturell adaptasjon** (bro til [THP202](/bok/nih-thp202/nih-thp202-2-1)). Norsk/engelsk begrepspar.
+- **D-M-M-K-kontrakt:** MÅ KUNNE. **Spesifikk styrke (specific strength):** kraft normalisert til tverrsnitt/masse (N/cm² eller N/kg). **Aldring:** ~15 % styrketap + ~10 % massetap per tiår etter 50 år; spesifikk kraft 20–40 % lavere hos ~70-åringer **(verifiser)**; mekanismer: intramuskulært fett (IMAT), redusert proteinkvalitet/mitokondriefunksjon, svekket muskelaktivering. **Styrketrening (~12 uker):** ~20–30 % styrkeøkning (1RM), ~5–10 % CSA-økning → bedret spesifikk styrke **(verifiser)**. **Nevral vs. strukturell adaptasjon** (bro til [THP202](/nih-thp202/nih-thp202-2-1)). Norsk/engelsk begrepspar.
 - **Mekanismekjede(r):** (1) aldringstap: ↓type-II-fibre + fiberatrofi + IMAT + svekket aktivering → ↓kraft mer enn ↓masse → ↓spesifikk styrke. (2) hvorfor tidlig styrkeøkning er mest nevral, senere strukturell (bro til THP202).
 - **Måling og forskningskritikk:** CSA (MR/ultralyd), aktivering (interpolert twitch — EMG er dårlig for aktiveringssvikt), 1RM; begrensning: tverrsnitt (alder) vs. longitudinell.
 - **Case-forslag:** «Definer spesifikk styrke og forklar hvorfor den faller med alder, med mekanismer» (S-MEK/S-KVANT).
@@ -603,7 +603,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 
 > Fagsøyle 7 (10 p; dominerte 2223–2425, falt ut av 2526, men faglig tyngdepunkt og
 > kan gjenoppstå — dekk fullt). Forkunnskap: kraft-lengde/kraft-hastighet, moment/
-> vektarm fra [THP203](/bok/nih-thp203) (kap. 1.2, 2.1), fascikelarkitektur fra THP101 (beskrives kort).
+> vektarm fra [THP203](/nih-thp203) (kap. 1.2, 2.1), fascikelarkitektur fra THP101 (beskrives kort).
 > Signatursjanger: S-KVANT (beregningslogikk) + S-KRIT (FV-metodekritikk). Alle tall
 > NYSKREVNE.
 
@@ -612,7 +612,7 @@ mekanisme- og måleliste** (per kapittel), `text` **Temaet i fagets landskap**,
 - **id:** `nih-ma460-7-1` · **number:** 7.1 · **estimatedMinutes:** 65 · **prerequisites:** `nih-ma460-0-2` · **kapitteltype:** teori
 - **description:** Muskelkraftens teoretiske maksimum ved gitt lengde og hastighet (kraftpotensial fra FL- og FV-relasjonene), øyeblikkelig kraft (kraftpotensial × EMGᵢ/EMG_max), fysiologisk tverrsnitt (PCSA) og synergist-kraftdeling — beregningslogikken (S-KVANT) sensor tester uten kalkulator.
 - **Eksamensbelegg:** Muscle mechanics **4/6** — kraftpotensial/PCSA/synergist er kjernen. Sjangre: S-KVANT, S-MEK. Prioritet: **kunne** (signaturstoff). Sensor: sette opp beregningssammenhengen i ord/formel (F2 hvis udefinert).
-- **D-M-M-K-kontrakt:** MÅ KUNNE SETTE OPP. **Kraftpotensial (force potential):** teoretisk maks kraft ved gitt øyeblikkelig lengde + kontraksjonshastighet, gitt av kraft-lengde- (FL) og kraft-hastighet- (FV) relasjonene (bro til [THP203 kap. 2.x/FL-FV](/bok/nih-thp203)); lavere enn maksimalt kraftpotensial; kobles til **PCSA** (fysiologisk tverrsnittsareal) og spesifikk spenning. **Øyeblikkelig kraft** = kraftpotensial × (EMGᵢ/EMG_max). **Synergist-kraftdeling:** F_muskel ≈ (leddmoment/vektarm) × (PCSA_muskel/PCSA_synergister). **Effektiv fiberkraft** = muskelkraft × cos(pennasjonsvinkel). Norsk/engelsk begrepspar (physiological cross-sectional area, pennation angle).
+- **D-M-M-K-kontrakt:** MÅ KUNNE SETTE OPP. **Kraftpotensial (force potential):** teoretisk maks kraft ved gitt øyeblikkelig lengde + kontraksjonshastighet, gitt av kraft-lengde- (FL) og kraft-hastighet- (FV) relasjonene (bro til [THP203 kap. 2.x/FL-FV](/nih-thp203)); lavere enn maksimalt kraftpotensial; kobles til **PCSA** (fysiologisk tverrsnittsareal) og spesifikk spenning. **Øyeblikkelig kraft** = kraftpotensial × (EMGᵢ/EMG_max). **Synergist-kraftdeling:** F_muskel ≈ (leddmoment/vektarm) × (PCSA_muskel/PCSA_synergister). **Effektiv fiberkraft** = muskelkraft × cos(pennasjonsvinkel). Norsk/engelsk begrepspar (physiological cross-sectional area, pennation angle).
 - **Mekanismekjede(r):** (1) fra leddmoment til enkeltmuskelkraft: leddmoment / vektarm → total synergist-kraft → fordel etter PCSA → korriger for pennasjon → effektiv fiberkraft. (S-KVANT som ordbeskrevet beregning.)
 - **Måling og forskningskritikk:** ultralyd (PCSA/pennasjon/fascikellengde), EMG (aktivering), dynamometer (leddmoment); begrensning: synergist-deling antar PCSA-proporsjonalitet — inter-individuell variasjon.
 - **Case-forslag:** «Sett opp beregningssammenhengen for å estimere soleus-kraften under løp fra ankelmoment, akillessenens vektarm og PCSA-forhold, og forklar hver størrelses rolle» (S-KVANT, eksamensnivå).
@@ -798,7 +798,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 3. **Kjernesøylene** (Del 1–4 + Del 6, én agent per del jf. batching-regelen) —
    running economy, overuse (forskningskritikk-signaturen), match analysis,
    integrert/racing, strength.
-4. **O₂-komplekset** (Del 5, 4 kap — én agent) med lenker til [THP202](/bok/nih-thp202); **gjenta ikke**
+4. **O₂-komplekset** (Del 5, 4 kap — én agent) med lenker til [THP202](/nih-thp202); **gjenta ikke**
    bachelor-mekanismene i dybde.
 5. **Biomekanikk-fordypning** (Del 7, 3 kap) og **ergogenic aids** (Del 8, 2 kap) —
    én agent hver.
@@ -827,11 +827,11 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 - [ ] **Norsk/engelsk begrepspar**: sentrale begreper gis engelsk term i parentes ved
   første forekomst (running economy, oxygen deficit, MAOD, force-velocity profile,
   match analysis, satellite cells, mechanotransduction, pennation angle).
-- [ ] **Kryssbok-lenker**: [THP202](/bok/nih-thp202)- og [THP203](/bok/nih-thp203)-lenker peker kun på kapitler som
+- [ ] **Kryssbok-lenker**: [THP202](/nih-thp202)- og [THP203](/nih-thp203)-lenker peker kun på kapitler som
   finnes; THP100/THP101/THP204/IDR109 beskrives kort i teksten til bøkene finnes
   (ingen døde lenker).
 - [ ] **Ikke gjenta bachelor i dybde**: O₂-søylen (Del 5) og styrke (Del 6) lenker til
-  [THP202](/bok/nih-thp202) for grunnmekanismene og fordyper på masternivå (måling/forskning/kritikk).
+  [THP202](/nih-thp202) for grunnmekanismene og fordyper på masternivå (måling/forskning/kritikk).
 - [ ] **Kapittel-DNA**: hvert teorikapittel har Eksamensvinkel-`tip`, Forkunnskaper +
   D-M-M-K-liste-`collapsible`, Kjernebegreper-`definition` (m/title), Mekanismekjede-
   `text`, Måling-og-forskningskritikk-`text`, Typiske feil-`warning`, 2–3 eksempler

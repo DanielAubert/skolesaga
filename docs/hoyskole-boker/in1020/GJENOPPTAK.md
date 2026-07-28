@@ -231,7 +231,7 @@ Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
    ikke representativ; hjelpemiddel-avviket mellom arkivet og gjeldende
    emnebeskrivelse).
 3. `in1020` er allerede dekket av institusjonen `uio` i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` — wire-bok.py patcher inn
+   `src/app/trinn/hoyere/institusjoner.ts` — wire-bok.py patcher inn
    emnet; kontroller at oppføringen kom med.
 4. Verifikatorbølge (steg 3) — særlig: etterregn ALLE talleksempler på nytt,
    spor alle LMC-programmer, og les hver oppgave for usett forkunnskap.

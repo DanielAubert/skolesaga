@@ -299,8 +299,8 @@ steg, og modellsvaret vises som en ren, korrekt A-besvarelse (ingen meta-fasit).
   algoritmen for å finne og klassifisere alle kritiske punkter til $f:\mathbb{R}^n\to\mathbb{R}$.
 - **Eksamensbelegg:** Sjanger A, 100 % (21/21), alltid P1a. Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 0.1; flervariabel kalkulus (gradient, Hessian) —
-  [Flervariabel kalkulus](/bok/tma4101/tma4101-1-1) `(verifiser lenke)`, lineær algebra
-  (egenverdier, definitthet) [Lineær algebra](/bok/tma4110/tma4110-1-1) `(verifiser lenke)`.
+  [Flervariabel kalkulus](/tma4101/tma4101-1-1) `(verifiser lenke)`, lineær algebra
+  (egenverdier, definitthet) [Lineær algebra](/tma4110/tma4110-1-1) `(verifiser lenke)`.
 - **Innholdskontrakt:** `definition` kritisk/stasjonært punkt, lokalt/globalt min; `theorem`
   førsteordens nødvendig betingelse ($\nabla f=0$ i indre min); `theorem` andreordens
   nødvendig ($H_f$ PSD) og tilstrekkelig ($H_f$ PD → strengt lokalt min). Definitthet av 2×2/
@@ -480,7 +480,7 @@ intervall · 2.C konvergens + $\nabla f\to 0$-bevis · 2.D samlet linjesøk-prø
   lineært uavhengige) og hvor den svikter.
 - **Eksamensbelegg:** Sjanger F, 90 % (19/21), fast P2a. Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 1.1 (gradient), lineær algebra (lineær uavhengighet)
-  [Lineær algebra](/bok/tma4110/tma4110-1-1) `(verifiser lenke)`. `collapsible` Symbol- og
+  [Lineær algebra](/tma4110/tma4110-1-1) `(verifiser lenke)`. `collapsible` Symbol- og
   formelliste SIST.
 - **Innholdskontrakt:** `definition` tillatt mengde $\Omega$, aktiv/inaktiv beskrankning,
   aktiv-sett $\mathcal{A}(x)$; `definition` LICQ (linear independence constraint

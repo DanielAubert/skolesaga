@@ -704,7 +704,7 @@ nevne «annotert korpus».
 
 - **Kapitteltype:** teori (klassifiserende — fasit-nær, nedskalert).
 - **Description:** De leksikale relasjonene med den skarpe forskjellen mellom homonymi og polysemi, samt WSD og zeugma-testen — en gjenganger i alle 7 sett.
-- **Forkunnskaper (kryssbok):** kap. 6.1. `collapsible` **Notasjons- og termliste** (norsk↔engelsk). *Gjenbrukes nedskalert fra ling1100-boka* [Meningsrelasjoner](/bok/ling1100/ling1100-2-1) og [Antonymi](/bok/ling1100/ling1100-2-2) — men uten ling1100s fem antonymityper i dybden.
+- **Forkunnskaper (kryssbok):** kap. 6.1. `collapsible` **Notasjons- og termliste** (norsk↔engelsk). *Gjenbrukes nedskalert fra ling1100-boka* [Meningsrelasjoner](/ling1100/ling1100-2-1) og [Antonymi](/ling1100/ling1100-2-2) — men uten ling1100s fem antonymityper i dybden.
 - **Eksamensbelegg:** Leksikale relasjoner 7/7 (alle sett), ordparene delvis resirkulert; WSD/zeugma 2/7 (H2017-konte, H2022). Sensorkrav: egne eksempler når det bes om. Sjangre: M2, E1. Prioritet: **perfekt**.
 - **Innholdskontrakt (definition-blokker):** **homonymi (‘homonymy’)** (samme form, **urelaterte** betydninger) vs. **polysemi (‘polysemy’)** (samme form, **relaterte** betydninger) — skilletesten; **hyponymi/hyperonymi (‘hyponymy/hyperonymy’)** (er-en-type); **meronymi (‘meronymy’)** (del-av); **synonymi (‘synonymy’)**; **antonymi (‘antonymy’)** (kort — komplementær/graderbar/konvers nevnt, ikke drillet i dybden som ling1100); **word sense disambiguation (WSD)** — skille betydninger i kontekst; **zeugma** som flertydighetstest. `theorem`-idiom: **klassifiser-relasjon-prosedyren** (oppgi relasjon → begrunn med test → eget eksempel).
 - **Oppgavesjangre:** M2, E1. Mønstereksempel: «For hvert ordpar, oppgi den leksikale relasjonen og begrunn: (‘bank’₁ pengeinstitusjon / ‘bank’₂ elvebredd), (‘hjul’/‘bil’), (‘rose’/‘blomst’). Forklar deretter forskjellen homonymi vs. polysemi med ETT eget eksempel på hver.»
@@ -732,7 +732,7 @@ nevne «annotert korpus».
 
 - **Kapitteltype:** teori (klassifiserende — fasit-nær, nedskalert).
 - **Description:** De semantiske rollene (agent, patient, theme, experiencer, instrument, goal, source, beneficiary) og hvordan man tildeler dem — en 6/7-gjenganger, ofte som minuspoengfri flervalg.
-- **Forkunnskaper (kryssbok):** kap. 6.1. `collapsible` **Notasjons- og termliste** (norsk↔engelsk). *Gjenbrukes nedskalert fra ling1100* [Tematiske roller](/bok/ling1100/ling1100-6-1) — men UTEN Dowty proto-roller/argumentseleksjon (ling1100 går dypere; IN1140 krever det ikke).
+- **Forkunnskaper (kryssbok):** kap. 6.1. `collapsible` **Notasjons- og termliste** (norsk↔engelsk). *Gjenbrukes nedskalert fra ling1100* [Tematiske roller](/ling1100/ling1100-6-1) — men UTEN Dowty proto-roller/argumentseleksjon (ling1100 går dypere; IN1140 krever det ikke).
 - **Eksamensbelegg:** Semantiske roller 6/7 (H2017, H2017-konte, H2019-prøve, H2019, H2021, H2022; ×6 i H2022 som flervalg). **Ingen minuspoeng** på flervalg-varianten → gjett alltid. Sjangre: M1. Prioritet: **perfekt**.
 - **Innholdskontrakt (definition-blokker):** **agent** (medviten igangsetter), **patient** (påvirket/endret), **theme** (beveget/lokalisert), **experiencer** (opplever uten kontroll), **instrument** (middel), **goal** (mål/mottaker), **source** (utgangspunkt), **beneficiary** (til fordel for). `theorem`-idiom: **tildel-rolle-prosedyren** (definer rollen kort → tilordne uthevet ledd med begrunnelse).
 - **Oppgavesjangre:** M1. Mønstereksempel: «I ‘Anna sendte pakken til Bergen med bud’, tildel semantisk rolle til hvert uthevet ledd (Anna, pakken, til Bergen, med bud).»
@@ -744,7 +744,7 @@ nevne «annotert korpus».
 
 - **Kapitteltype:** teori (forklar-begrep + halvformell — «bør kjenne til»-hale).
 - **Description:** Komposisjonalitetsprinsippet og setningssemantisk entailment (medføring) — kompakt behandlet, nedskalert fra ling1100.
-- **Forkunnskaper (kryssbok):** kap. 10.1. Term-liste. *Nedskalert fra ling1100* [Kompositsjonalitet](/bok/ling1100/ling1100-7-1) og entailment — IN1140 nøyer seg med definisjon + eksempel + kort logisk def., IKKE ling1100s sannhetstabeller/negasjonstest.
+- **Forkunnskaper (kryssbok):** kap. 10.1. Term-liste. *Nedskalert fra ling1100* [Kompositsjonalitet](/ling1100/ling1100-7-1) og entailment — IN1140 nøyer seg med definisjon + eksempel + kort logisk def., IKKE ling1100s sannhetstabeller/negasjonstest.
 - **Eksamensbelegg:** Komposisjonalitet 2/7 (H2017, H2022); entailment 1/7 (H2019-prøve). Sensorkrav (entailment, H2019-prøve): (a) relasjon der den ene medfører den andre, (b) at det er lingvistisk gitt, (c) et eksempel, (d) den logiske definisjonen — hvert ledd har egne poeng; −3 om eksempel mangler/er feil. Sjangre: E1. Prioritet: komposisjonalitet kunne; entailment **kjenne** (plasseres sist, merkes «bør kjenne til»).
 - **Innholdskontrakt:** **komposisjonalitet (‘compositionality’)** — betydningen til et komplekst uttrykk bestemmes av delene + kombinasjonsreglene; **entailment (‘entailment’, medføring)** — $p$ medfører $q$ hviss $q$ er sann i alle situasjoner der $p$ er sann; leksikal vs. syntaktisk entailment; kort logisk definisjon. `warning`-krav: entailment-svar må ha alle fire ledd (def + lingvistisk gitt + eksempel + logisk def).
 - **Oppgavesjangre:** E1. Mønstereksempel: «Forklar komposisjonalitetsprinsippet med ett eget eksempel. Forklar deretter entailment: gi definisjon, si at det er lingvistisk gitt, gi et eget eksempelpar og den logiske definisjonen.»
@@ -1067,7 +1067,7 @@ sjekklistene) ordrett. Del 13-agenten leser HELE skjelettet.
       modellbesvarelser nyskrevne (arkivets gjengangere — postadresse-regex,
       minikorpus, film-sentiment, Ibsen-BIO, «opp bakken» — gjenskapt med endrede
       fakta/ord); Jurafsky & Martin refereres, aldri sitert i lengde.
-- [ ] **Navigasjon:** `in1140` inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+- [ ] **Navigasjon:** `in1140` inn i `src/app/trinn/hoyere/institusjoner.ts`
       under **Universitetet i Oslo (UiO)**, navn = «IN1140 Introduksjon til
       språkteknologi».
 - [ ] **Verifiser rendering:** prod-server + curl mot institusjonsside, bokforside og

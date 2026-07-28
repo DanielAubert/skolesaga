@@ -640,7 +640,7 @@ Alle nyskrevne, funn gitt tekstlig (bildekontrakt).
   oral patologi-oppgaven.
 - **Eksamensbelegg:** Oral patologi. **Diff-diagnose radiolucent kjevelesjon 5/5.** Form: P-DIAG,
   P-DEF. Prioritet: perfekt (den mest sentrale i Del 3). **Bildeavhengig** (bildekontrakt-boks;
-  boka gir funnbeskrivelse). Kryssref radiologi kap. [2.3](/bok/od5100/od5100-2-3).
+  boka gir funnbeskrivelse). Kryssref radiologi kap. [2.3](/od5100/od5100-2-3).
 - **Faktakontrakt (diff-liste + diskriminerende trekk):** **ameloblastom** (unicystisk vs.
   multicystisk, «såpebobler», ekspansivt, molar-ramus underkjeve, resorberer røtter);
   **odontogen keratocyste** (langstrakt, benmargsvekst, lite ekspansiv, residivtendens);
@@ -746,7 +746,7 @@ radiolucent kjevelesjon (full begrunnet liste) · 3.C keratocyste + cyster + P-H
   om infiltrerende vekst.
 - **Eksamensbelegg:** Oral patologi. **OPMT/leukoplaki 3/5.** Form: P-DIAG, P-DEF. Prioritet:
   perfekt. Delvis bildeavhengig (bildekontrakt-boks). Kryssref oral kirurgi kap.
-  [5.2](/bok/od5100/od5100-5-2) (klinisk malignitetsutredning).
+  [5.2](/od5100/od5100-5-2) (klinisk malignitetsutredning).
 - **Faktakontrakt:** **leukoplaki** (hvit, kan ikke tørkes bort, eksklusjonsdiagnose),
   **erytroplaki** (rød, høy dysplasirisiko), **proliferativ verrukøs leukoplaki**, **submukøs
   fibrose**, **oral lichen planus** (retikulær/atrofisk/plakk/bulløs/erosiv); **dysplasi**
@@ -851,7 +851,7 @@ leukoplaki/OSCC (dysplasi + infiltrasjon) · 4.C pigmentering + spyttkjertel (ek
   normalverdier), og oral lichen planus klinisk.
 - **Eksamensbelegg:** Oral kirurgi/medisin. **Malignitetsutredning høy; munntørrhet/candidose +
   oral lichen planus observert.** Form: K-STRUK, K-KASUS. Prioritet: perfekt. Middels bildeavhengig
-  (kliniske foto, men mye tekst). Kryssref oral patologi kap. [4.2](/bok/od5100/od5100-4-2).
+  (kliniske foto, men mye tekst). Kryssref oral patologi kap. [4.2](/od5100/od5100-4-2).
 - **Faktakontrakt:** **alarmsymptomer** (sår/utvekst > 2–3 uker, indurasjon, ikke-homogen rød-hvit
   lesjon, parestesi, mobile tenner, blødning), **OPMT-definisjon**, henvisning ØNH ved sterk
   mistanke, **biopsi** (incisjon/eksisjon); **munntørrhet** — salivaprøver: ustimulert normal
@@ -938,7 +938,7 @@ munntørrhet/candidose + oral lichen planus · 5.C medikamentvurdering + folketr
   DS-stadium, frilegging med sleper).
 - **Eksamensbelegg:** Kjeveortopedi. **Tannforflyttingens biologi 3/4; retinert hjørnetann 3/4.**
   Form: O-BEGR, O-DEL, O-KASUS. Prioritet: perfekt. Delvis bildeavhengig (foto/OPG). Kryssref
-  radiologi kap. [2.4](/bok/od5100/od5100-2-4) (peiling/SLOB).
+  radiologi kap. [2.4](/od5100/od5100-2-4) (peiling/SLOB).
 - **Faktakontrakt:** **tannforflytting** — **trykkside** (osteoklast, benresorpsjon) vs.
   **strekkside** (osteoblast, benapposisjon), lette kontinuerlige krefter, periodontalligamentets
   celler; hyalinisering ved for store krefter; **retinert/ektopisk hjørnetann** — palpasjon bukkalt,

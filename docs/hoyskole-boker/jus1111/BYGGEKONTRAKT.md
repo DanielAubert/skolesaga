@@ -72,7 +72,7 @@ Blokk-id-er: `<kapittel-id>-<løpenavn>` (unik i kapitlet).
 - **Forkunnskaper-blokk** rett etter Eksamensvinkel: (i) kapitler i denne boka
   kapitlet bygger på (kapittelnummer), (ii) forkunnskaper utenfor boka med
   markdown-lenke til eksisterende kapittel i annen bok, format
-  `[tittel](/bok/<courseId>/<chapterId>)` — sjekk at målfilen finnes i
+  `[tittel](/<courseId>/<chapterId>)` — sjekk at målfilen finnes i
   `src/lib/data/chapters/`. Jus har få kryssbok-behov; «Dette kapitlet kan
   leses uten forkunnskaper» er ofte riktig for Del 0–1.
 - **Kun eksamensrelevant**: hvert avsnitt eksamensrelevant eller oppbyggende;

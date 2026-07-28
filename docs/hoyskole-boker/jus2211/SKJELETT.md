@@ -179,7 +179,7 @@ bokas tyngdepunkt (Del 9), og til slutt den samlede eksamenstreningen med komple
 - **id:** `jus2211-0-1` · **number:** 0.1 · **estimatedMinutes:** 35 · **prerequisites:** ingen
 - **Kapitteltype:** eksamenskart
 - **description:** Hva eksamen faktisk er: ett stort, flerdelt 6-timers digitalt praktikum som fletter forvaltningsrett, velferds-/miljørett og EØS i ett faktum; hvilke felt som vektes hvor mye; det faste Del I/II/(III)-mønsteret; og hva som skiller A fra C fra E.
-- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/bok/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2).
+- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/jus1111/jus1111-0-2).
 - **Eksamensbelegg:** Hele empirien 2015–2025 (19 leste sett). Presenter: (a) **formhistorikken** — 6 t papireksamen med teori+praktikum 2015–2017, nedkortet til 4 t og renere praktikum 2018–2019, hjemmeeksamen (covid) 2020–2021, **digital skoleeksamen (Inspera) 6 t fra V2022**; A–F normalform; Lovdata Pro i eksamensmodus; (b) den store innholdsendringen: **EØS-rett vokser INN** (motsatt av JUS2111) og ligger nå i så godt som hvert sett; (c) fire delfelt med sp-vekt (forvaltning 13 / velferd 7 / miljø 5 / EØS 5) — men eksamen fletter og bedømmer helhetlig; (d) **normalformen: koblingsoppgaven** — ett faktum genererer ett forvaltningsspor og ett EØS-spor.
 - **Regelkontrakt:** Ingen materielle regler — men frekvenstabellene gjengis som studentens **prioriteringskart**: ugyldighet+§ 41 ~16, skjønnsprøving ~10, saksbehandlingsfeil ~10, legalitet/hjemmel ~8, inhabilitet § 6 ~8, myndighetsmisbruk ~8, klagerett § 28 ~7, utredning § 17 ~6; EØS fire friheter ~8, rettferdiggjøring/forholdsmessighet ~6, forrang/presumsjon ~4; velferd (forsvarlighet ~5, tvang ~4, trygd ~4); miljø (pbl. ~4, KU ~3, naturmangfoldlov ~3).
 - **Metodepoenger:** Emnet prøver TO rettssystemer som må holdes fra hverandre — og A-ferdigheten er overgangen mellom dem. Konklusjonene er underordnede. «Ingen forventes å se alt.» Kandidaten er andreårsstudent; «ukjent lovtekst» (spesiallovers mindre kjente bestemmelser) testes som metode, ikke paratkunnskap. En besvarelse som dekker bare ett delfelt eller mangler juridisk arbeidsmåte er stryk-risiko.
@@ -192,7 +192,7 @@ bokas tyngdepunkt (Del 9), og til slutt den samlede eksamenstreningen med komple
 - **id:** `jus2211-0-2` · **number:** 0.2 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-0-1`
 - **Kapitteltype:** metode
 - **description:** Slik bygges en JUS2211-praktikumsbesvarelse: identifiser vedtaket/tiltaket, sorter spørsmålene per delfelt, gjør **normklarlegging FØR subsumsjon** for hvert tvistepunkt, konkluder klart — og drøft deretter de **subsidiære** sporene der hovedstandpunktet kan falle.
-- **Forkunnskaper (kryssbok):** Firetrinnsmetoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2) og [Lovdata Pro og rettskildebruk under eksamen](/bok/jus1111/jus1111-0-3).
+- **Forkunnskaper (kryssbok):** Firetrinnsmetoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/jus1111/jus1111-0-2) og [Lovdata Pro og rettskildebruk under eksamen](/jus1111/jus1111-0-3).
 - **Eksamensbelegg:** Samtlige sett fra 2018. Standard ordlyd: *«Drøft og ta stilling til de prinsipale og subsidiære rettsspørsmålene oppgaven reiser»* / *«Drøft og avgjør de rettslige spørsmålene …»*. Partsanførslene peker ut BÅDE tvistepunktene OG rettsgrunnlagene — de er kompass, men skal subsumeres, ikke refereres. Prioritetsklasse: **perfekt**.
 - **Regelkontrakt (metoderegler, utledet fra oppgavemønster + fagtradisjon):**
   1. **Identifiser og sorter:** hva er vedtaket/tiltaket, hva angripes, hvilket delfelt (forvaltning / velferd / miljø / EØS) hører spørsmålet til?
@@ -256,7 +256,7 @@ bokas tyngdepunkt (Del 9), og til slutt den samlede eksamenstreningen med komple
 - **id:** `jus2211-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-0-2`
 - **Kapitteltype:** regel
 - **description:** Kravet om lovhjemmel for inngrep i borgernes rettssfære: legalitetsprinsippet (Grl. § 113), det relative hjemmelskravet («jo mer inngripende, desto klarere hjemmel») og forholdet til andre kompetansegrunnlag (organisasjons- og eierrådighet, privat autonomi).
-- **Forkunnskaper (kryssbok):** Bygger på lovtolkning fra JUS1111 — lenk til [Lovdata Pro og rettskildebruk under eksamen](/bok/jus1111/jus1111-0-3).
+- **Forkunnskaper (kryssbok):** Bygger på lovtolkning fra JUS1111 — lenk til [Lovdata Pro og rettskildebruk under eksamen](/jus1111/jus1111-0-3).
 - **Eksamensbelegg:** Legalitetsprinsippet/hjemmelsspørsmålet ~8 (H2015, H2018 analogisk hundelov, V2019 klarhet forurl. § 7, V2023 akvakultur, V2024 petroleumslov). Prioritetsklasse: **perfekt**.
 - **Regelkontrakt:** **Grl. § 113** — «Myndighetenes inngrep overfor den enkelte må ha grunnlag i lov.» Vilkår/momenter: (a) hva regnes som «inngrep» i rettssfæren; (b) hjemmelskravets **relativitet** — inngrepets art og styrke skjerper klarhetskravet (H2018: analogisk anvendelse av en straffe-/forbudshjemmel på et beslektet forhold rekker ikke ved inngripende tiltak); (c) forholdet til **kompetansegrunnlag utenfor legalitetsprinsippet** (privatautonomi, eierrådighet, organisasjons- og bevilgningsmyndighet); (d) delegasjon av lovgivningsmyndighet og forskriftshjemmel. Domskanon: Rt. 1995 s. 530 (Fjordlaks) / Rt. 2014 s. 1281 om legalitetsprinsippets grunnlovsfesting *(verifiser konkret dom i fase 6)*.
 - **EØS-bro:** Legalitetsprinsippet er inngangen til koblingen — selv en tilsynelatende klar hjemmel kan være avskåret av EØS (Del 9). Nevn broen, drøft den ikke her.
@@ -689,7 +689,7 @@ bokas tyngdepunkt (Del 9), og til slutt den samlede eksamenstreningen med komple
 - **id:** `jus2211-7-1` · **number:** 7.1 · **estimatedMinutes:** 60 · **prerequisites:** `jus2211-0-3`
 - **Kapitteltype:** regel (EØS-sporets fundament)
 - **description:** Hvordan EØS-retten kommer inn i og virker i norsk rett: inkorporasjon av hoveddelen (EØS-loven § 1), forrangsregelen ved motstrid (§ 2), presumsjonsprinsippet, EØS-konform tolkning — og hvorfor EØS-retten ikke er et «direkte hinder» men virker gjennom disse mekanismene.
-- **Forkunnskaper (kryssbok):** Bygger på forholdet folkerett–norsk rett (dualisme/presumsjon) fra JUS2111 — lenk til [De tre rettssystemene fra hverandre — dualisme, presumsjon, § 92 og Maria-formelen](/bok/jus2111/jus2111-0-3).
+- **Forkunnskaper (kryssbok):** Bygger på forholdet folkerett–norsk rett (dualisme/presumsjon) fra JUS2111 — lenk til [De tre rettssystemene fra hverandre — dualisme, presumsjon, § 92 og Maria-formelen](/jus2111/jus2111-0-3).
 - **Eksamensbelegg:** Direkte virkning/forrang/presumsjon (EØS-loven § 2) ~4 (V2024 hjemmel gjennomskåret av EØS, V2023). Prioritetsklasse: **perfekt** (fundamentet for hele EØS-sporet).
 - **Regelkontrakt:** **EØS-loven § 1** inkorporerer EØS-avtalens hoveddel som norsk lov. **EØS-loven § 2** — ved motstrid går en gjennomført EØS-regel foran annen (senere) norsk lovbestemmelse (**forrang** for gjennomførte EØS-regler). **Presumsjonsprinsippet** — norsk rett tolkes «så vidt mulig» i samsvar med EØS-retten. **EØS-konform tolkning.** **Homogenitetsmålet** (EØS art. 6 — EØS-reglene tolkes i samsvar med relevant EU-domstolspraksis). Skille: en gjennomført EØS-regel (forrang via § 2) fra en ikke-gjennomført forpliktelse (bare tolkningsmoment/statsansvar). **Statsstøtte (art. 61)** — kort «bør kjenne til»-omtale her (avgrenset, se §1.2). Kobling: forrangen er selve mekanismen bak «hjemmel gjennomskåret av EØS» (Del 9).
 - **Typetilfeller:** Minipraktikum: en norsk lovbestemmelse strider mot en gjennomført EØS-regel (§ 2 forrang); en ikke-gjennomført forpliktelse påberopes (presumsjon/statsansvar, ikke direkte forrang).
@@ -1225,8 +1225,8 @@ Studieguiden bygges som ett sammenhengende dokument med disse seksjonene:
       gjenkjennbare eksamensfakta.
 - [ ] **Avgrensning:** statsstøtte (art. 61), tjenestedirektivet og trygdeforordningen kun som kort «bør
       kjenne til» (ikke bygget ut); avgrensnings-drillen (kap. 0.3/10.1) trener å la det avskårne ligge;
-      kryssbok-lenker til jus1111/jus2111 peker på EKSISTERENDE kapitler ([jus1111-0-1](/bok/jus1111/jus1111-0-1),
-      -0-2, -0-3; [jus2111-0-3](/bok/jus2111/jus2111-0-3)).
+      kryssbok-lenker til jus1111/jus2111 peker på EKSISTERENDE kapitler ([jus1111-0-1](/jus1111/jus1111-0-1),
+      -0-2, -0-3; [jus2111-0-3](/jus2111/jus2111-0-3)).
 - [ ] **DNA-blokkene på plass:** hvert kapittel har «Eksamensvinkel» (`tip`), «Typiske feil» (`warning`),
       «Paragraf- og begrepsliste» (`collapsible`, per delkapittel), «Ny lov 2027»-boks i berørte
       saksbehandlings-/ugyldighetskapitler, og regel-/typetilfellekapitlene har «Paragraf- og

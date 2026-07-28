@@ -541,7 +541,7 @@ Del 0 (kap. 0.1) er studieguidens kjerne. I tillegg skal boka samle:
    (id/number/title/description/estimatedMinutes/topics/prerequisites) etter mønster
    `COURSE_BI_OKONOMI` i `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra
    makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SØK2009 Internasjonal makroøkonomi».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–N, frekvenstallene, to-søyle-malen
    og avgrensningen (mot mikroemnene og masternivået) som resten refererer til.

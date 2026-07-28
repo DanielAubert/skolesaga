@@ -140,7 +140,7 @@ om de 16 settene:
 1. **Wiring:** `python3 scripts/hoyskolebok/wire-bok.py econ1100` → «WIRING OK»,
    deretter slett `src/lib/data/quiz-staging/econ1100-*`.
 2. **Institusjonsregistrering:** emnet inn i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under UiO som «ECON1100
+   `src/app/trinn/hoyere/institusjoner.ts` under UiO som «ECON1100
    Matematikk I». (UiO finnes allerede — `econ1210`, `mat1100` m.fl. ligger
    der.) Sjekk at jus-/helse-heuristikken i
    `src/components/textbook/hoyskole-disclaimer.tsx` IKKE treffer econ1100
@@ -156,8 +156,8 @@ om de 16 settene:
    `sjekk-bok.py econ1100 "<forbudt-regex fra kontrakten>"` ·
    `quiz-lengdesjekk.mjs` · `npx tsc --noEmit` · `npm run build` · prod-curl
    (`PORT=3111 npm run start`, deretter 200 + innholds-grep på
-   `/bok/trinn/hoyere/uio`, `/bok/econ1100`, tre kapittelruter,
-   `/quiz/econ1100-1-2`, `/bok/econ1100/flashcards`, `/bok/econ1100/kildegrunnlag`).
+   `/trinn/hoyere/uio`, `/econ1100`, tre kapittelruter,
+   `/quiz/econ1100-1-2`, `/econ1100/flashcards`, `/econ1100/kildegrunnlag`).
 7. Oppdater statustavlen i `docs/hoyskole-boker/README.md` og kryss av i
    `docs/hoyskole-boker/TODO-OPUS.md`.
 

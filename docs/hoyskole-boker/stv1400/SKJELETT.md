@@ -1374,7 +1374,7 @@ i kap. 9.6 dekker sluttfasen (todelt essay-form med tre-nivå-fasit).
   krysslenking nå.
 
 **Kryssbok-lenker (kun til eksisterende kapitler):** ved bygging skal forkunnskaps-blokkene lenke
-til STV1400s egne kapitler (del-basert, `[tittel](/bok/stv1400/stv1400-1-2)`). Velferds-kapitlene
+til STV1400s egne kapitler (del-basert, `[tittel](/stv1400/stv1400-1-2)`). Velferds-kapitlene
 (Del 5) KAN lenke til SOS1004s velferdskapittel når SOS1004 er bygget («bok»-status) — merk i
 byggekontrakten at lenken kun legges inn hvis mål-kapitlet finnes ved byggetidspunkt.
 

@@ -242,7 +242,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-1-1` · **number:** 1.1 · **estimatedMinutes:** 45 · **prerequisites:** `met2910-bi-0-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Potenser med heltallseksponenter](/bok/1t/1t-1-2) og [Algebra](/bok/1t/1t-1-3) fra 1T og [Potenser og logaritmer](/bok/r1/r1-1-2) fra R1.
+- **Forkunnskaper/kryssbok:** Bygger på [Potenser med heltallseksponenter](/1t/1t-1-2) og [Algebra](/1t/1t-1-3) fra 1T og [Potenser og logaritmer](/r1/r1-1-2) fra R1.
 - **description:** Potens-, rot- og logaritmereglene fra formelarket, drillet til å forenkle uttrykk til én potens og trekke ut felles rot i tempo.
 - **Eksamensbelegg:** Grunnleggende del: potens-/rotforenkling ~83 %, brukes dessuten i hver derivasjon og hvert finansuttrykk. Reglene står på formelarket — poenget er rask, korrekt bruk. Prioritet: **PERFEKT** (fundament).
 - **Innholdskontrakt:** Potensregler ($a^m a^n = a^{m+n}$, $(a^m)^n = a^{mn}$, $a^{-n} = 1/a^n$, $a^{1/n} = \sqrt[n]{a}$) — alle på formelarket; forenkle sammensatte uttrykk til **én potens**; rasjonalisere og trekke ut felles rot; **logaritmeregler** ($\ln(ab) = \ln a + \ln b$, $\ln(a/b) = \ln a - \ln b$, $\ln a^n = n \ln a$, $\ln e = 1$) til bruk i eksponentiallikninger og kontinuerlig rente. Ren regneteknikk til aktiv bruk i fart.
@@ -254,7 +254,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-1-2` · **number:** 1.2 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-1-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Faktorisering og kvadratsetningene](/bok/1t/1t-1-5), [Brøkregning](/bok/1t/1t-1-4) og [Rasjonale uttrykk](/bok/1t/1t-1-6) fra 1T.
+- **Forkunnskaper/kryssbok:** Bygger på [Faktorisering og kvadratsetningene](/1t/1t-1-5), [Brøkregning](/1t/1t-1-4) og [Rasjonale uttrykk](/1t/1t-1-6) fra 1T.
 - **description:** Fellesfaktor, konjugat, kvadratsetningene og brøksammentrekning med minste felles nevner — fundamentet under likninger, ulikheter og forenkling av svar.
 - **Eksamensbelegg:** Grunnleggende del: faktorisering & forenkling **100 %** (6/6). Kreves også for å «forenkle svaret» (sensorkrav) i hele hovedeksamen. Prioritet: **PERFEKT** (fundament).
 - **Innholdskontrakt:** Fellesfaktor; **konjugatsetningen** $a^2 - b^2 = (a-b)(a+b)$; **kvadratsetningene**; faktorisering av andregradsuttrykk via abc til $a(x - x_1)(x - x_2)$; **brøksammentrekning** med minste felles nevner (MFN); forkorting av rasjonale uttrykk (faktoriser først, forkort felles faktorer); polynomdivisjon nevnes kort som faktoriseringsverktøy for 3.-gradspolynom (~33 % i grunndel). Betydningen av «forenklet svar» som sensorkrav.
@@ -266,7 +266,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-1-3` · **number:** 1.3 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-1-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [ABC-formelen](/bok/1t/1t-2-3) og [Rasjonale likninger](/bok/1t/1t-2-5) fra 1T og [Eksponential- og logaritmeligninger](/bok/r1/r1-1-3) fra R1.
+- **Forkunnskaper/kryssbok:** Bygger på [ABC-formelen](/1t/1t-2-3) og [Rasjonale likninger](/1t/1t-2-5) fra 1T og [Eksponential- og logaritmeligninger](/r1/r1-1-3) fra R1.
 - **description:** Andregradslikninger med abc og utskrevet diskriminant, brøklikninger med røttesjekk, og eksponential-/logaritmelikninger via ln — del av teknikksekken (Oppgave 1).
 - **Eksamensbelegg:** «Løs likninger» **100 %** i både grunn- og hovedeksamen (fast del av Oppg. 1). Sensor er streng: **abc skal skrives ut med diskriminanten**, ikke bare sluttsvaret; brøkrøtter som nuller nevner **forkastes**. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** **Andregrad** med abc-formelen (skriv diskriminanten $b^2 - 4ac$ eksplisitt ut — theorem-/prosedyre-blokk); **brøklikning** (noter multiplikatoren, f.eks. $|\cdot x^2(x-1)$, multipliser opp, løs, **forkast røtter som nuller nevner**); **eksponentiallikning** ($a^x = b \Rightarrow x = \ln b / \ln a$; $e^{kx} = c$); **logaritmisk likning** ($\ln(\ldots) = 0 \Rightarrow \ldots = 1$). Alle med utskrevet mellomregning etter føringsstandarden i kap. 0.2.
@@ -278,7 +278,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-1-4` · **number:** 1.4 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-1-3`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Fortegnslinjer](/bok/1t/1t-4-3), [Andregradsulikheter](/bok/1t/1t-4-4) og [Rasjonale ulikheter](/bok/1t/1t-4-5) fra 1T; bruker fortegnsskjema-malen fra kap. 0.2.
+- **Forkunnskaper/kryssbok:** Bygger på [Fortegnslinjer](/1t/1t-4-3), [Andregradsulikheter](/1t/1t-4-4) og [Rasjonale ulikheter](/1t/1t-4-5) fra 1T; bruker fortegnsskjema-malen fra kap. 0.2.
 - **description:** Polynom- og brøkulikheter løst med den faste fortegnsskjema-malen — alt over på én side, faktoriser, fortegnslinje, les av.
 - **Eksamensbelegg:** «Løs ulikheter» **100 %** (fast del av Oppg. 1). **Fortegnsskjema er obligatorisk**; nevner behandles korrekt (aldri null i løsningsmengden); ulikhetstegnet snus ved multiplikasjon med negativt tall. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Fortegnsskjema-malen (fra kap. 0.2) anvendt på **polynomulikheter** (faktoriser via abc) og **brøkulikheter** (alt over på én side → felles brøkstrek → faktoriser teller og nevner → fortegnslinje per faktor → les av). Nevner-faktorer som $x^2$: «alltid positiv / udefinert i null». Løsning oppgis på intervallform. Understrek at fortegnsgjetting uten skjema ikke gir uttelling.
@@ -290,7 +290,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-1-5` · **number:** 1.5 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-1-3`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Lineære funksjoner](/bok/1t/1t-3-2) og [Likningssett](/bok/1t/1t-4-1) fra 1T og [Kostnad, inntekt og overskudd](/bok/s1/s1-4-1) fra S1.
+- **Forkunnskaper/kryssbok:** Bygger på [Lineære funksjoner](/1t/1t-3-2) og [Likningssett](/1t/1t-4-1) fra 1T og [Kostnad, inntekt og overskudd](/s1/s1-4-1) fra S1.
 - **description:** Rette linjer via topunktsformel og skjæring, lineære likningssystem (2×2/3×3) med innsettings- og addisjonsmetode, og lineær kostnad/overskudd som bedriftsøkonomisk innramming.
 - **Eksamensbelegg:** Grunnleggende del: rette linjer ~67 %, lineære systemer ~50 %, én-variabel kostnad/overskudd ~67 %. Broen til lineær algebra (Del 7) og to-variabel-optimering (Del 4). Prioritet: **PERFEKT** (fundament).
 - **Innholdskontrakt:** Rett linje $y - y_1 = a(x - x_1)$ og **topunktsformelen** $y - y_1 = \frac{y_2 - y_1}{x_2 - x_1}(x - x_1)$; «skjærer x-aksen» $\Rightarrow y = 0$; skjæring mellom to linjer ved å sette like. **Lineære likningssystem** (2×2 og 3×3) med innsettings- OG addisjonsmetode (begge godtas; addisjon gir mindre regnearbeid i 3×3). **Lineær kostnad** $K(x) = ax + b$ fra to punkter; **overskudd** $O = I - K$; grunnleggende marginalbetraktning som forberedelse til kap. 3.5. Alt på formelarket der det gjelder.
@@ -308,7 +308,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-2-1` · **number:** 2.1 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-1-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Derivasjonsregler](/bok/r1/r1-4-1) og [Produktregelen og kvotientregelen](/bok/r1/r1-4-4) fra R1.
+- **Forkunnskaper/kryssbok:** Bygger på [Derivasjonsregler](/r1/r1-4-1) og [Produktregelen og kvotientregelen](/r1/r1-4-4) fra R1.
 - **description:** Potens-, sum-, produkt- og kvotientregelen med emnets typiske funksjoner, drillet på fart og fortegnssikkerhet — fundamentet under Oppgave 1.
 - **Eksamensbelegg:** Derivasjon = Oppg. 1 i **100 %** av settene, alltid åpningen og høyest vektet (billige poeng). Alle reglene står på formelarket. Der flest poeng tapes: fortegn i kvotienter. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Potensregelen (inkl. negative og reelle eksponenter, $\sqrt{x} \to \frac{1}{2\sqrt{x}}$); sum-, **produkt-** ($(uv)' = u'v + uv'$) og **kvotientregelen** ($(u/v)' = (u'v - uv')/v^2$) — theorem-blokker, alle på formelarket; anvendt på økonomitypiske polynomer og brøker. Fokus på rask, fortegnssikker regning (ren teknikk som bare skal *brukes*), med hvert steg vist.
@@ -320,7 +320,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-2-2` · **number:** 2.2 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-2-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Kjerneregelen](/bok/r1/r1-4-3) og [Derivasjon av eksponential- og logaritmefunksjoner](/bok/r1/r1-4-2) fra R1.
+- **Forkunnskaper/kryssbok:** Bygger på [Kjerneregelen](/r1/r1-4-3) og [Derivasjon av eksponential- og logaritmefunksjoner](/r1/r1-4-2) fra R1.
 - **description:** Kjerneregelen på sammensatte uttrykk og de spesielle derivertene $(\ln u)' = u'/u$, $(e^u)' = u' e^u$, $(a^x)' = a^x \ln a$ — resten av teknikkrepertoaret i Oppgave 1.
 - **Eksamensbelegg:** Fast del av Oppg. 1 (100 %): $\ln$, $e^x$, $a^x$, sammensatte funksjoner som $x e^x$, $(2x-1)e^{-2x}$. Alle reglene på formelarket. Forberedelse til funksjonsdrøfting (Del 3) og integrasjon (Del 5). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** **Kjerneregelen** $\frac{d}{dx} f(g(x)) = f'(g(x)) g'(x)$ (theorem-blokk, på formelarket); de spesielle derivertene $(\ln u)' = u'/u$, $(e^u)' = u' e^u$, $(a^x)' = a^x \ln a$; kombinasjon av produkt-/kvotient- og kjerneregel på emnets funksjonstyper ($x e^{-x}$, $\ln(x^2 + 1)$, $(3x - 2)^4$). Skille: dette er teknikk som skal *brukes* raskt — utledning kreves ikke.
@@ -349,7 +349,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-3-1` · **number:** 3.1 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-2-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Nullpunkter og fortegn](/bok/1t/1t-3-5) fra 1T og [Funksjonsdrøfting](/bok/r1/r1-4-6) fra R1; bruker fortegnsskjema-malen fra kap. 0.2.
+- **Forkunnskaper/kryssbok:** Bygger på [Nullpunkter og fortegn](/1t/1t-3-5) fra 1T og [Funksjonsdrøfting](/r1/r1-4-6) fra R1; bruker fortegnsskjema-malen fra kap. 0.2.
 - **description:** Finn nullpunkter og bestem hvor $f$ er positiv/negativ med fortegnsskjema — første steg i drøftingsoppskriften.
 - **Eksamensbelegg:** Kjernen i den 100 %-tilbakevendende drøftingsoppgaven (Oppg. 2). Fortegnsintervaller **skal begrunnes** med fortegnsskjema, ikke bare oppgis. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Nullpunkt $f(x) = 0$ (via faktorisering/abc); **fortegnsanalyse av $f$** med fortegnsskjema-malen (fra kap. 0.2); definisjonsmengde (særlig når $\ln$/$\sqrt{}$/nevner inngår). Funksjonstyper: 3.-/4.-gradspolynom, $x e^x$, $(2x - 1)e^{-2x}$, rasjonale. Understrek at «positiv for $x > 2$» må *begrunnes* med fortegnsskjema, ikke påstås.
@@ -361,7 +361,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-3-2` · **number:** 3.2 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-3-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Globale ekstremalpunkter](/bok/r1/r1-4-8) fra R1 og [Optimering](/bok/s2/s2-3-3) fra S2.
+- **Forkunnskaper/kryssbok:** Bygger på [Globale ekstremalpunkter](/r1/r1-4-8) fra R1 og [Optimering](/s2/s2-3-3) fra S2.
 - **description:** Voksende/avtakende via fortegnet på $f'$, klassifisering av maks/min, skillet lokal vs. global på begrenset $Df$, og tangentlinjen.
 - **Eksamensbelegg:** Fast i drøftingsoppgaven (100 %). Sensor krever at man **skiller lokale og globale ekstremal** når $Df$ er begrenset (f.eks. $[0, 4]$) ved å sammenligne endepunktsverdier. Tangent $y - f(a) = f'(a)(x - a)$ er fast delpunkt. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** $f' > 0$ voksende / $f' < 0$ avtakende (fortegnsskjema på $f'$); ekstremalpunkt der $f'$ skifter fortegn (maks $+\to-$, min $-\to+$); **lokal vs. global**: på begrenset $Df = [a, b]$ må endepunktsverdiene $f(a)$, $f(b)$ sammenlignes med indre stasjonærverdier for å avgjøre globalt maks/min (warning-blokk); **tangentlinjen** $y - f(a) = f'(a)(x - a)$. Alt begrunnet med fortegn, ikke påstått.
@@ -373,7 +373,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-3-3` · **number:** 3.3 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-3-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Andrederiverte og vendepunkter](/bok/s2/s2-3-2) og [Fullstendig funksjonsdrøfting](/bok/s2/s2-3-1) fra S2.
+- **Forkunnskaper/kryssbok:** Bygger på [Andrederiverte og vendepunkter](/s2/s2-3-2) og [Fullstendig funksjonsdrøfting](/s2/s2-3-1) fra S2.
 - **description:** Konkav/konveks via fortegnet på $f''$, vendepunkt med fortegnsskifte, og en skisse konsistent med alle funnene.
 - **Eksamensbelegg:** Fullfører drøftingsoppgaven (midtsjikt-skille). **Vendepunkt krever at $f''$ skifter fortegn**, ikke bare at $f'' = 0$. Skissen vektlegger konsistens med egne funn, ikke presisjon. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** $f'' > 0$ konveks / $f'' < 0$ konkav (fortegnsskjema på $f''$); **vendepunkt** der $f''$ skifter fortegn; **skisse** som syntese av nullpunkter + vekst-/krumningsintervaller + ekstremal-/vendepunkter (figur beskrives i ord: akser, kurveform, markerte punkter — plattformen er tekstbasert). Presiser at en voksende funksjon godt kan være konkav ($f' > 0$, $f'' < 0$ samtidig).
@@ -385,7 +385,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-3-4` · **number:** 3.4 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-3-3`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Rasjonale funksjoner](/bok/1t/1t-3-7) fra 1T og [Drøfting av rasjonale funksjoner](/bok/s2/s2-3-4) og [Asymptotisk analyse](/bok/s2/s2-3-6) fra S2.
+- **Forkunnskaper/kryssbok:** Bygger på [Rasjonale funksjoner](/1t/1t-3-7) fra 1T og [Drøfting av rasjonale funksjoner](/s2/s2-3-4) og [Asymptotisk analyse](/s2/s2-3-6) fra S2.
 - **description:** Vertikale og horisontale asymptoter for rasjonale funksjoner, og graflesning — å lese fortegn til $f'$ og $f''$ fra grafen til $f'$ (og fra grafen til $f$ selv, ny H2025-variant).
 - **Eksamensbelegg:** Rasjonale/asymptoter ~27 %; **graflesning 67 %** (fast Oppg. 4). Klassisk: gitt grafen til $f'$, finn ekstrem-/vendepunkt/konveksitet. **Ny H2025-variant:** gitt grafen til $f$ selv, avgjør fortegn til $f'$ og $f''$. Vektlegger tolkning, ikke presisjon — men **skal begrunnes** med fortegnsskifte. Prioritet: **PERFEKT** (graflesning) / KUNNE (asymptoter).
 - **Innholdskontrakt:** **Rasjonale funksjoner**: vertikal asymptote der nevner = 0 (og teller ≠ 0); horisontal asymptote fra gradforhold; skisse. **Graflesning**: fra grafen til $f'$ — ekstrempunkt til $f$ der $f'$ skifter fortegn (maks $+\to-$, min $-\to+$), $f$ konveks der $f'$ er voksende, vendepunkt der $f'$ har ekstremalpunkt; fra grafen til $f$ — les av hvor $f'$ er positiv/negativ (stigning) og hvor $f''$ er positiv/negativ (krumning). Alltid begrunn med fortegnsskifte, ikke bare oppgi punktet.
@@ -397,7 +397,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-3-5` · **number:** 3.5 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-3-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Derivasjon i økonomiske modeller](/bok/s1/s1-4-2) og [Etterspørsel og elastisitet](/bok/s1/s1-4-3) fra S1.
+- **Forkunnskaper/kryssbok:** Bygger på [Derivasjon i økonomiske modeller](/s1/s1-4-2) og [Etterspørsel og elastisitet](/s1/s1-4-3) fra S1.
 - **description:** Grensekostnad $K'(x)$, gjennomsnittskostnad $g(x) = K(x)/x$ minimert ved $g'(x) = 0$, og priselastisitet med inntektsmaksimering ved $\mathrm{El} = -1$ — anvendt derivasjon i bedriftsøkonomisk innramming.
 - **Eksamensbelegg:** Marginalanalyse ~33 % (ofte innvevd i produsentoppgaver; H2025 brukte marginal kostnadssammenligning for å motivere hvorfor begge varer produseres); elastisitet 20 % (stigende, fast Oppg. 4 fra 2023). Prioritet: KUNNE / KJENNE (karakterdifferensiator).
 - **Innholdskontrakt:** **Marginalanalyse**: grensekostnad $K'(x)$, grenseinntekt $I'(x)$; profittmaks $O'(x) = 0$ ($\Leftrightarrow$ grenseinntekt = grensekostnad); **gjennomsnittskostnad** $g(x) = K(x)/x$ minimeres ved $g'(x) = 0$ (og der er $g = K'$). **Elastisitet**: $\mathrm{El}_p\, x = \frac{p}{x} x'(p)$; tolk tallet (elastisk $|\mathrm{El}| > 1$ / uelastisk $< 1$); prisstrategi for å øke salgsinntekt; prisen der $\mathrm{El} = -1$ maksimerer inntekt. Alt med økonomisk tolkning av svaret.
@@ -432,7 +432,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-4-1` · **number:** 4.1 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-2-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Derivasjonsregler](/bok/r1/r1-4-1) og [Kjerneregelen](/bok/r1/r1-4-3) fra R1. (Selve partiellderivasjon-begrepet introduseres her — det finnes ikke i R1/R2/S1/S2.)
+- **Forkunnskaper/kryssbok:** Bygger på [Derivasjonsregler](/r1/r1-4-1) og [Kjerneregelen](/r1/r1-4-3) fra R1. (Selve partiellderivasjon-begrepet introduseres her — det finnes ikke i R1/R2/S1/S2.)
 - **description:** Å derivere med hensyn på én variabel om gangen (behandle de andre som konstanter), pluss andreordens $f_{xx}$, $f_{yy}$ og krysspartiell $f_{xy}$ — verktøyet under signaturoppgaven.
 - **Eksamensbelegg:** Selve inngangen til den 100 %-tilbakevendende to-variabel-optimeringen. Andreordens $f_{xx}$, $f_{yy}$, $f_{xy}$ trengs i AC−B²-klassifiseringen (kap. 4.3). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** **Partiell derivert** $f_x$, $f_y$: behandl de andre variablene som konstanter (definisjon + prosedyre-blokk). Systematisk på emnets funksjonsformer: polynomer i to variabler ($x^2 y + 2x^2 + 3y^2$), krysspris-uttrykk ($x(a - bx - cy)$), enkle $\ln$-/$e$-uttrykk. **Andreordens** $f_{xx}$, $f_{yy}$ og **krysspartiell** $f_{xy}$; at $f_{xy} = f_{yx}$ for pene funksjoner (kort). Tolkning: $f_x$ = grenseendring i $f$ når $x$ øker litt.
@@ -444,7 +444,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-4-2` · **number:** 4.2 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-4-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Kap. 4.1; bygger på [Likningssett](/bok/1t/1t-4-1) fra 1T.
+- **Forkunnskaper/kryssbok:** Kap. 4.1; bygger på [Likningssett](/1t/1t-4-1) fra 1T.
 - **description:** Å finne stasjonærpunktet ved å sette begge partielle deriverte lik null og løse 2×2-systemet — steget før klassifiseringen.
 - **Eksamensbelegg:** Fast steg i signaturoppgaven (100 %). 2×2-systemet løses med innsetting eller addisjon (fra kap. 1.5). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** **Stasjonærpunkt**: løs systemet $f_x = 0$, $f_y = 0$ (som regel lineært i $x$ og $y$ for profittfunksjoner) med innsettings-/addisjonsmetode; oppgi punktet som tuppel $(x_0, y_0)$. Vis alle stegene. Kobling: dette gir *kandidaten*, klassifiseringen (kap. 4.3) avgjør typen.
@@ -468,7 +468,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-4-4` · **number:** 4.4 · **estimatedMinutes:** 60 · **prerequisites:** `met2910-bi-4-3`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Kap. 4.1–4.3; bygger på [Kostnad, inntekt og overskudd](/bok/s1/s1-4-1) fra S1.
+- **Forkunnskaper/kryssbok:** Kap. 4.1–4.3; bygger på [Kostnad, inntekt og overskudd](/s1/s1-4-1) fra S1.
 - **description:** Å bygge profittfunksjonen $f(x, y) = I(x, y) - C(x, y)$ fra prisfunksjoner og kostnad, finne stasjonærpunktet, klassifisere og regne ut maksimalt overskudd — den store bedriftsøkonomiske oppgaven fra ende til annen.
 - **Eksamensbelegg:** **Signaturoppgaven (100 %)** — «en bedrift produserer/selger to varer / i to fabrikker». Alltid: vis profittfunksjonen → partielle → stasjonærpunkt → AC−B² → maks overskudd. Der flest poeng tapes (fortegn i krysspris-deriverte). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Bygg **inntekt** fra prisfunksjoner $p = a - bx - cy$, $q = d - ex - gy$ (ofte krysspriseffekt): $I(x, y) = p x + q y$; trekk fra **kostnad** $C(x, y)$; få **profittfunksjonen** $f(x, y) = I - C$. Deretter hele kjeden: $f_x = f_y = 0$ → stasjonærpunkt → AC−B²-klassifisering → sett inn for å finne **maksimalt overskudd** $f(x_0, y_0)$ med enhet. **Marginal kostnadssammenligning** (H2025-vri) som motivasjon for hvorfor begge varer produseres. Gjennomregnet bedriftsøkonomisk eksempel med full føring.
@@ -480,7 +480,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-4-5` · **number:** 4.5 · **estimatedMinutes:** 60 · **prerequisites:** `met2910-bi-4-4`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Kap. 4.4; [Optimering](/bok/s2/s2-3-3) fra S2 (én-variabel-optimeringen bibetingelsen reduseres til).
+- **Forkunnskaper/kryssbok:** Kap. 4.4; [Optimering](/s2/s2-3-3) fra S2 (én-variabel-optimeringen bibetingelsen reduseres til).
 - **description:** Kapasitets- eller eksportbibetingelse ($x + y = k$, $y = 2x$, $x = y$) løst ved innsetting i profittfunksjonen, og tolkningsspørsmålene om betalingsvillighet og kompensasjon — toppsjikt-differensiatoren. IKKE Lagrange.
 - **Eksamensbelegg:** Bibetingelse ~93 %; **metoden er innsetting, ikke Lagrange** (som har 0 forekomster). Tolkningsspørsmålene (betalingsvillighet/kompensasjon) skiller toppsjiktet. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** **Innsettingsmetoden** (prosedyre-blokk): sett bibetingelsen ($x + y = k$ / $y = 2x$ / $x = y$) inn i $f(x, y)$, reduser til én variabel, deriver, sett lik null, løs — deretter klassifiser med $f''$ (én variabel nå). **Kontrast-note**: dette er IKKE Lagrange; Lagrange-multiplikator er ikke pensum. **Tolkningsspørsmål**: «hvor mye er bedriften villig til å betale for å slippe kapasitetsbegrensningen?» = differansen mellom fri og bunden maksimalprofitt; «minste kompensasjon» ved eksportkrav på samme vis. Gjennomregnet eksempel med økonomisk tolkning.
@@ -509,7 +509,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-5-1` · **number:** 5.1 · **estimatedMinutes:** 45 · **prerequisites:** `met2910-bi-2-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Ubestemt integral](/bok/r2/r2-2-2) og [Integrasjon av 1/x og eksponentialfunksjoner](/bok/r2/r2-2-3) fra R2.
+- **Forkunnskaper/kryssbok:** Bygger på [Ubestemt integral](/r2/r2-2-2) og [Integrasjon av 1/x og eksponentialfunksjoner](/r2/r2-2-3) fra R2.
 - **description:** Antideriverte av potenser, $e^x$ og $1/x$ — potensregelen baklengs, med derivasjon som kontroll.
 - **Eksamensbelegg:** Grunnlaget under integralene i Oppg. 1 (100 %). Reglene står på formelarket. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** $\int x^n\, dx = \frac{x^{n+1}}{n+1} + C$ ($n \ne -1$); $\int \frac{1}{x}\, dx = \ln|x| + C$; $\int e^{kx}\, dx = \frac{1}{k}e^{kx} + C$ (theorem-blokker, på formelarket); linearitet; **verifikasjon ved derivasjon** (deriver antiderivert → få tilbake integranden). Ubestemt vs. bestemt.
@@ -521,7 +521,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-5-2` · **number:** 5.2 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-5-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Kap. 5.1; bygger på [Variabelskifte (substitusjon)](/bok/r2/r2-3-1) fra R2 og [Integrasjon ved substitusjon](/bok/s2/s2-1-5) fra S2.
+- **Forkunnskaper/kryssbok:** Kap. 5.1; bygger på [Variabelskifte (substitusjon)](/r2/r2-3-1) fra R2 og [Integrasjon ved substitusjon](/s2/s2-1-5) fra S2.
 - **description:** Integrasjon ved substitusjon $\int f(g(x)) g'(x)\, dx = \int f(u)\, du$ — velg $u$, bytt $du$, integrer, bytt tilbake (eller bytt grensene).
 - **Eksamensbelegg:** Substitusjon er nå ordinært pensum (var bonus i eldre sett); fast del av integralene. Formelarket har regelen. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** **Substitusjon** (prosedyre-blokk): velg $u = g(x)$, regn $du = g'(x)\, dx$, bytt om, integrer i $u$, **bytt tilbake til $x$** (ubestemt) eller **bytt grensene** (bestemt). Typiske former: $\int x e^{x^2} dx$, $\int \frac{g'(x)}{g(x)} dx = \ln|g(x)|$, $\int (2x - 1)^5 dx$. Vis substitusjonsboksen ($u$, $du$, evt. nye grenser) som eget føringssteg.
@@ -533,7 +533,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-5-3` · **number:** 5.3 · **estimatedMinutes:** 50 · **prerequisites:** `met2910-bi-5-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Kap. 5.1; bygger på [Delvis integrasjon](/bok/r2/r2-3-2) og [Delvis integrasjon](/bok/s2/s2-1-6) fra R2/S2.
+- **Forkunnskaper/kryssbok:** Kap. 5.1; bygger på [Delvis integrasjon](/r2/r2-3-2) og [Delvis integrasjon](/s2/s2-1-6) fra R2/S2.
 - **description:** Delvis integrasjon $\int u' v = uv - \int u v'$ på produkter som $x e^x$ og $x \ln x$ — med riktig valg av $u$ og $v'$.
 - **Eksamensbelegg:** Delvis integrasjon er nå ordinært pensum; typiske $\int x e^x\, dx$, $\int x \ln x\, dx$. Formelarket har regelen. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** **Delvis integrasjon** (theorem-blokk, på formelarket): $\int u' v\, dx = uv - \int u v'\, dx$; **valgregel** (velg $v$ som blir enklere ved derivasjon — for $x \ln x$ er $v = \ln x$; for $x e^x$ er $v = x$); vis $u$/$v$/$u'$/$v'$-boksen som føringssteg. Anvendt på $\int x e^{-x} dx$, $\int x \ln x\, dx$, $\int \ln x\, dx$ (med $v' = 1$).
@@ -545,7 +545,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-5-4` · **number:** 5.4 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-5-2`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Kap. 5.1–5.3; bygger på [Areal under grafer](/bok/r2/r2-2-6) og [Areal mellom kurver](/bok/r2/r2-2-7) fra R2.
+- **Forkunnskaper/kryssbok:** Kap. 5.1–5.3; bygger på [Areal under grafer](/r2/r2-2-6) og [Areal mellom kurver](/r2/r2-2-7) fra R2.
 - **description:** Bestemt integral, arealtolkning og areal mellom kurver mellom nullpunkter/skjæringspunkter — pluss kvalitativ integral-sammenligning (H2025-vri).
 - **Eksamensbelegg:** Areal 60 % (bestemt integral mellom nullpunkter/skjæringspunkter). **Ny H2025-vri**: kvalitativ sammenligning av to bestemte integraler ut fra at integranden er voksende, uten å regne dem ut. Prioritet: **PERFEKT** (areal) / KUNNE (kvalitativ).
 - **Innholdskontrakt:** Bestemt integral $\int_a^b f\, dx = F(b) - F(a)$; arealtolkning; **areal mellom to kurver** $\int_a^b (f - g)\, dx$ (øverste minus nederste) mellom skjæringspunkter (finn dem først ved $f = g$); areal under kurve mellom nullpunkter. **Kvalitativ integral-sammenligning**: at et bestemt integral er større når integranden er større på hele intervallet (H2025), argumentert uten utregning. Vis grensebytte etter substitusjon der det brukes.
@@ -574,7 +574,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-1-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Geometriske følger](/bok/r2/r2-1-3) og [Rekker og summasjon](/bok/r2/r2-1-4) fra R2 og [Eksponentialfunksjoner](/bok/1t/1t-3-8) fra 1T.
+- **Forkunnskaper/kryssbok:** Bygger på [Geometriske følger](/r2/r2-1-3) og [Rekker og summasjon](/r2/r2-1-4) fra R2 og [Eksponentialfunksjoner](/1t/1t-3-8) fra 1T.
 - **description:** Vekstfaktor, geometriske rekker (formelarket) og sluttverdi av sparing $A_n = K \cdot \frac{(1+r)^n - 1}{r}$ — grunnlaget for all finansregning.
 - **Eksamensbelegg:** Del av det 100 %-tilbakevendende finanstemaet. Geometriske rekker står på formelarket. Skill **sluttverdi (sparing)** fra nåverdi (lån). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Vekstfaktor $1 + r$; **geometrisk rekke** $\sum_{k=0}^{n-1} a r^k = a\frac{r^n - 1}{r - 1}$ (på formelarket); **sluttverdi av sparing** $A_n = K \cdot \frac{(1+r)^n - 1}{r}$ (theorem-blokk, på formelarket) — og $\cdot(1+r)$ for verdi ett år etter siste innskudd; kombinert spare-/uttaksplan. Sett opp formelen med tall før den regnes (føringsstandard). Enhet (kr) og eksakt/avrundet svar etter oppgavens krav.
@@ -610,7 +610,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-6-4` · **number:** 6.4 · **estimatedMinutes:** 45 · **prerequisites:** `met2910-bi-6-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Kap. 6.1; bygger på [Eksponential- og logaritmeligninger](/bok/r1/r1-1-3) fra R1.
+- **Forkunnskaper/kryssbok:** Kap. 6.1; bygger på [Eksponential- og logaritmeligninger](/r1/r1-1-3) fra R1.
 - **description:** Kontinuerlig forrentning $A = P e^{rt}$ og doblingstid ved å løse $e^{rt} = 2$ — den konseptuelle finansvrien som er stigende i frekvens.
 - **Eksamensbelegg:** Kontinuerlig rente/doblingstid ~27 % (stigende: 2019V, 2022H, 2023H, H2025). Toppsjikt-differensiator; kobler finans og eksponentiallikninger. Prioritet: KUNNE (stigende mot PERFEKT).
 - **Innholdskontrakt:** **Kontinuerlig rente** $A = P e^{rt}$ (theorem-blokk); **doblingstid** ved å løse $e^{rt} = 2 \Rightarrow t = \frac{\ln 2}{r}$ (også for forbrukslån-dobling); sammenligning årlig rentesrente vs. kontinuerlig vs. uten rentesrente. Vis $\ln$-steget eksplisitt.
@@ -639,7 +639,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-7-1` · **number:** 7.1 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-1-5`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Determinanter og invers matrise](/bok/matte/bi-okonomi-9-2) og [Cramers regel og økonomiske anvendelser](/bok/matte/bi-okonomi-9-4) fra BI-matte.
+- **Forkunnskaper/kryssbok:** Bygger på [Determinanter og invers matrise](/matte/bi-okonomi-9-2) og [Cramers regel og økonomiske anvendelser](/matte/bi-okonomi-9-4) fra BI-matte.
 - **description:** Determinant 2×2 ($ad - bc$) og 3×3 (Sarrus/kofaktor), og Cramers regel for å løse lineære systemer ved å bytte kolonne med konstantvektoren.
 - **Eksamensbelegg:** Determinant + Cramer dominerte t.o.m. 2019 og beholdes (kan komme igjen). Prioritet: KUNNE (tempo: perfekt — del av lineær-algebra-oppgaven).
 - **Innholdskontrakt:** **Determinant** 2×2 $\det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$; 3×3 ved Sarrus og kofaktorutvikling (theorem-blokker). **Cramers regel**: for $A\mathbf{x} = \mathbf{b}$ er $x_i = \det(A_i)/\det(A)$, der $A_i$ er $A$ med $i$-te kolonne byttet med $\mathbf{b}$. Vis utregningen av hver determinant. $\det(A) = 0 \Rightarrow$ ingen entydig løsning (bro til kap. 7.3).
@@ -651,7 +651,7 @@ spesifiseres i BYGGEKONTRAKT — her angis innholdet de skal dekke.
 
 - **id:** `met2910-bi-7-2` · **number:** 7.2 · **estimatedMinutes:** 55 · **prerequisites:** `met2910-bi-7-1`
 - **kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Kap. 7.1; bygger på [Lineære likningssystem og Gauss-eliminasjon](/bok/matte/bi-okonomi-9-3) fra BI-matte.
+- **Forkunnskaper/kryssbok:** Kap. 7.1; bygger på [Lineære likningssystem og Gauss-eliminasjon](/matte/bi-okonomi-9-3) fra BI-matte.
 - **description:** Gauss-eliminasjon på den utvidede matrisen til trappeform, med tilbakesubstitusjon — teknikken som dominerer fra 2022 og bør vektes høyest.
 - **Eksamensbelegg:** **Gauss dominerer fra 2022** og bør vektes høyest for fremtidige sett. Både innsettings- og addisjonsmetode godtas; addisjon gir mindre regnearbeid i 3×3. Prioritet: KUNNE (tempo: perfekt — mest sannsynlige lineær-algebra-variant).
 - **Innholdskontrakt:** **Gauss-eliminasjon** (prosedyre-blokk): sett opp utvidet matrise $[A \mid \mathbf{b}]$, radreduser til trappeform med radoperasjoner (bytt rader, gang rad med skalar, legg til multiplum av rad), **tilbakesubstituer**. Oppgi løsningen som tuppel. Vis hver radoperasjon. For 3×3: systematisk eliminering nedover.

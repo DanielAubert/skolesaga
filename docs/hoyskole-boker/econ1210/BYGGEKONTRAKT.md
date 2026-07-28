@@ -83,7 +83,7 @@ Blokk-id-er: `<kapittel-id>-<løpenavn>`, f.eks. `econ1210-3-1-def-1`,
 Alltid, i denne rekkefølgen først i kapitlet:
 1. `tip` **Eksamensvinkel** (frekvens, vekt, sjangre — tallene fra skjelettet).
 2. `text` **Forkunnskaper** (kapitler i boka med kryssbok-lenker
-   `[tittel](/bok/econ1210/<chapterId>)` — KUN til kapitler som finnes i
+   `[tittel](/econ1210/<chapterId>)` — KUN til kapitler som finnes i
    `src/lib/data/chapters/`; «kan leses uten forkunnskaper» hvis ingen).
 
 Deretter DNA-regnefag-løpet, i læringsløkker: `text` motivasjon/hverdagsanker →
@@ -140,7 +140,7 @@ løsningsoppskrift (algoritme) → gjennomregnet eksamenscase med sensor-margnot
   prosedyre-/sjangerkort på ÉN side (kortet selv, ikke lenkeliste) + deltidsrute
   (10–12 uker) + «lese mye, skrive lite»-boks.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/econ1210/econ1210-X-Y)`; død «se kapittel»-tekst
+  markdown-lenke `[kap. X.Y](/econ1210/econ1210-X-Y)`; død «se kapittel»-tekst
   er FORBUDT (aldri lenker i title-felt).
 - **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
   «Prioritet: perfekt» FORBUDT (skriv «høyeste prioritet»). Modellbesvarelser

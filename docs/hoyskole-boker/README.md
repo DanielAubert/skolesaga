@@ -49,7 +49,7 @@ docs/hoyskole-boker/
   quizer) — se `/narrativ`-skillen og eksisterende `*-narrativ.json`.
 - **Navigasjon**: høyskolebøker ligger under hierarkiet Høyskole/universitet →
   institusjon → fagkode + fagnavn. Nye emner registreres i
-  `src/app/bok/trinn/hoyere/institusjoner.ts` under riktig institusjon, med
+  `src/app/trinn/hoyere/institusjoner.ts` under riktig institusjon, med
   visningsnavn «FAGKODE Fagnavn» (f.eks. «ECON1310 Makroøkonomi I»).
 - **Juridiske deklarasjoner (plattformnivå — automatisk)**: komponenten
   `hoyskole-disclaimer.tsx` viser uavhengighets-deklarasjon (Skolesaga ≠
@@ -60,7 +60,7 @@ docs/hoyskole-boker/
   KRAV ved nytt emne: (0) legg til kildegrunnlag-oppføring i
   `src/lib/data/kildegrunnlag.ts` (destillert fra EKSAMENSANALYSE §8 —
   eksamenssett, sensorveiledninger kun der de finnes, andre kilder, ærlige
-  forbehold; vises på `/bok/<emne>/kildegrunnlag`); (a) registrer emnet i `institusjoner.ts` (driver
+  forbehold; vises på `/<emne>/kildegrunnlag`); (a) registrer emnet i `institusjoner.ts` (driver
   institusjonsnavnet i deklarasjonen); (b) sjekk at jus-/helse-heuristikken i
   `hoyskole-disclaimer.tsx` treffer emnet — utvid den om ikke; (c) bokINNHOLD
   skal aldri fremstille seg som offisielt, godkjent eller institusjons-
@@ -74,7 +74,7 @@ docs/hoyskole-boker/
   sortert etter viktighet, og merkes («bør kjenne til»).
 - **Forkunnskaper eksplisitt**: hvert kapittel sier tidlig hvilke kapitler det
   bygger på og hvilke forkunnskaper som kreves — med markdown-lenker
-  (`[tittel](/bok/<courseId>/<chapterId>)`) til kapitler i ANDRE bøker i
+  (`[tittel](/<courseId>/<chapterId>)`) til kapitler i ANDRE bøker i
   systemet når forkunnskapen ikke dekkes i boka selv. Lenk kun til kapitler
   som finnes. **«Sist du var her» (fra studentpanel bølge 5):** i tunge
   kapitler med stor tidsavstand til forkunnskapen (typisk sene deler) skal
@@ -225,7 +225,7 @@ docs/hoyskole-boker/
   hånd på tid — fire timer håndskrift er en fysisk ferdighet.
 - **Klikkbare kapittelreferanser (fra studentpanel):** «kap. X.Y»-referanser i
   forkunnskaps-blokker og prøve-/oppgavefasiter skrives som markdown-lenker
-  `[kap. X.Y](/bok/<emne>/<emne>-X-Y)` til kapitler som finnes — «se kapittel
+  `[kap. X.Y](/<emne>/<emne>-X-Y)` til kapitler som finnes — «se kapittel
   2.5» som død tekst er FORBUDT. (Kun i prosa-/fasittekst, aldri i
   title-felt.)
 - **Begrepsbank = oppslagsverk (fra studentpanel):** hver stor begrepsbank/

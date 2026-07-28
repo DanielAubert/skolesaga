@@ -1382,7 +1382,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra §2-tabellen (obligatorisk).
    **`number` er del-basert** («5.2», ALDRI lineær «22» — jf. JUS1111-lærdommen;
    prosareferanser i innholdet bruker samme form, «kap. 5.2»). NTNU legges inn i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` (visningsnavn «TDT4237 Programvaresikkerhet
+   `src/app/trinn/hoyere/institusjoner.ts` (visningsnavn «TDT4237 Programvaresikkerhet
    og personvern»).
 2. **Del 0** (kap. 0.1–0.3) — etablerer sjangernavnene RMF/KODE/KORT/DRØFT/PENTEST/MCQ,
    frekvenstallene, sensorens metaregler og de tre svarhåndverkene resten refererer til.

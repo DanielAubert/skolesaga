@@ -428,8 +428,8 @@ Eksamenstreningskapitlene (Del 12) har egne oppsett — se §3 og §4.
   **stabilitetsresonnement**. Kapitlet etablerer notasjonen resten av boka bruker.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 1, 2, 5 på tvers av alle sjangre A–K).
   Prioritet: perfekt (meta).
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Kovalent binding](/bok/kjemi1/kjemi1-3-2)
-  `(verifiser lenke)`, [Introduksjon til organisk kjemi](/bok/kjemi1/kjemi1-10-1)
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Kovalent binding](/kjemi1/kjemi1-3-2)
+  `(verifiser lenke)`, [Introduksjon til organisk kjemi](/kjemi1/kjemi1-10-1)
   `(verifiser lenke)`. `collapsible` **Reaksjons- og mekanismeliste:** notasjonssymbolene
   (krum pil = 2 e⁻, fiskekrok = 1 e⁻; δ+/δ−; formelle ladninger; kile/strek).
 - **Faktakontrakt (flashcard-kilde):** **SMILES-grunnregler** (kjeder, forgrening med
@@ -470,8 +470,8 @@ Eksamenstreningskapitlene (Del 12) har egne oppsett — se §3 og §4.
 - **Eksamensbelegg:** Ikke egen oppgave, men forutsetning for aromatisitet (planaritet,
   sp²-p-system), stereokjemi (sp³ = tetraedrisk stereosenter) og syre-base (s-karakter).
   Inngår i A, B, J. Prioritet: grunnlag.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Atomets oppbygging](/bok/kjemi1/kjemi1-1-1)
-  `(verifiser lenke)`, [Kovalent binding](/bok/kjemi1/kjemi1-3-2) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Atomets oppbygging](/kjemi1/kjemi1-1-1)
+  `(verifiser lenke)`, [Kovalent binding](/kjemi1/kjemi1-3-2) `(verifiser lenke)`.
   `collapsible` **Reaksjons- og mekanismeliste:** hybridiseringsapparatet (sp³ 109,5°, sp²
   120°, sp 180°; σ vs. π; s-karakter ↔ surhet).
 - **Faktakontrakt (flashcard-kilde):** **sp³** (4 σ, tetraedrisk, 109,5°), **sp²** (3 σ + 1 π,
@@ -497,8 +497,8 @@ Eksamenstreningskapitlene (Del 12) har egne oppsett — se §3 og §4.
 - **Eksamensbelegg:** Forutsetning for IUPAC (C), syre-base (J) og syntese (K) — man må
   kjenne gruppene for å navngi og planlegge. Prioritet: perfekt (grunnlag for topptemaene).
   Sjangre: C, J, K.
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Funksjonelle grupper](/bok/kjemi1/kjemi1-10-2)
-  `(verifiser lenke)`, [Organiske forbindelser og nomenklatur](/bok/kjemi2/kjemi2-8-1)
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Funksjonelle grupper](/kjemi1/kjemi1-10-2)
+  `(verifiser lenke)`, [Organiske forbindelser og nomenklatur](/kjemi2/kjemi2-8-1)
   `(verifiser lenke)`. `collapsible` **Reaksjons- og mekanismeliste:** gruppe → SMILES-mønster
   → prioritet; representasjonskonverteringen.
 - **Faktakontrakt (flashcard-kilde — stor):** alle sentrale grupper med struktur og SMILES:
@@ -527,7 +527,7 @@ Eksamenstreningskapitlene (Del 12) har egne oppsett — se §3 og §4.
   cis/trans) legges til etter Del 3 for et **entydig** navn.
 - **Eksamensbelegg:** Sjanger C (6/9, 67 %): «gi entydig navn» eller «tegn fra navn (f.eks.
   (E)-2-penten)». Manglende stereodeskriptor/feil lokant trekker (F10). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Organiske forbindelser og nomenklatur](/bok/kjemi2/kjemi2-8-1)
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Organiske forbindelser og nomenklatur](/kjemi2/kjemi2-8-1)
   `(verifiser lenke)`. `collapsible` **Reaksjons- og mekanismeliste:** navnsettingsalgoritmen
   som nummererte regler + stamnavn C1–C10 + vanlige substituentnavn.
 - **Faktakontrakt (flashcard-kilde):** stamnavn met/et/prop/but/pent/heks/hept/okt/non/dek;
@@ -566,7 +566,7 @@ grunnlagsprøve på eksamensnivå).
   4/9. «Tegn resonansstrukturer for anionet» er fast delkrav i J. Prioritet: kunne →
   konseptuelt perfekt.
 - **Forkunnskaper/kryssbok:** kap. 1.2, kap. 0.2 (krum pil, formell ladning);
-  [Kovalent binding](/bok/kjemi1/kjemi1-3-2) `(verifiser lenke)`. `collapsible` **Reaksjons-
+  [Kovalent binding](/kjemi1/kjemi1-3-2) `(verifiser lenke)`. `collapsible` **Reaksjons-
   og mekanismeliste:** resonanspil (dobbelthodet ↔), regler for gyldige strukturer,
   bidragsrangering.
 - **Faktakontrakt (flashcard-kilde):** **resonans** (én forbindelse, flere Lewis-bilder;
@@ -599,8 +599,8 @@ grunnlagsprøve på eksamensnivå).
   pKa ≈ 16) og substituenteffekter (fenol vs. sykloheksanol; anilin vs. sykloheksylamin) er
   faste. Prioritet: kunne.
 - **Forkunnskaper/kryssbok:** kap. 2.1 (resonans), kap. 1.1 (s-karakter);
-  [Syrer og baser - definisjoner](/bok/kjemi1/kjemi1-9-1) `(verifiser lenke)`,
-  [Svake syrer og baser](/bok/kjemi1/kjemi1-9-3) `(verifiser lenke)`. `collapsible`
+  [Syrer og baser - definisjoner](/kjemi1/kjemi1-9-1) `(verifiser lenke)`,
+  [Svake syrer og baser](/kjemi1/kjemi1-9-3) `(verifiser lenke)`. `collapsible`
   **Reaksjons- og mekanismeliste:** pKa-begrepet, de fire stabiliseringsfaktorene, konjugert
   syre/base.
 - **Faktakontrakt (flashcard-kilde):** **surhet ↔ stabilitet av konjugert base** (mer stabil
@@ -638,7 +638,7 @@ aromatisering) · 2.D samlet «stabilitet som begrunnelse»-prøve på eksamensn
   tildel R/S, hvor mange stereoisomerer finnes». Molekylbyggesett brukes til å se speilbilder.
   Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 1.1 (sp³ tetraeder), kap. 1.3 (navn);
-  [Isomeri](/bok/kjemi1/kjemi1-10-3) `(verifiser lenke)`. `collapsible` **Reaksjons- og
+  [Isomeri](/kjemi1/kjemi1-10-3) `(verifiser lenke)`. `collapsible` **Reaksjons- og
   mekanismeliste:** CIP-prioritetsreglene + stereobegrepene.
 - **Faktakontrakt (flashcard-kilde):** **kiral** (ikke-superponerbar på speilbildet) vs.
   **akiral**; **stereosenter** (sp³-C med fire ulike grupper); **enantiomerer** (speilbilder;
@@ -784,7 +784,7 @@ entydige stereonavn» på eksamensnivå).
   + stereokjemi. 3-bromsykloheksen + benzylbromid er gjengangere. Sensorkrav 5. Prioritet:
   perfekt.
 - **Forkunnskaper/kryssbok:** kap. 4.1 (karbokation), kap. 3.1 (R/S — inversjon);
-  [Organiske reaksjonstyper](/bok/kjemi2/kjemi2-8-5) `(verifiser lenke)`. `collapsible`
+  [Organiske reaksjonstyper](/kjemi2/kjemi2-8-5) `(verifiser lenke)`. `collapsible`
   **Reaksjons- og mekanismeliste:** SN1/SN2-stegene, faktortabellen (substrat/Nu/UG/løsemiddel).
 - **Faktakontrakt (flashcard-kilde):** **SN2** (ett trinn, ryggangrep, **inversjon**;
   favoriseres av 1°-substrat + sterk nukleofil + aprotisk løsemiddel); **SN1** (to trinn via
@@ -948,7 +948,7 @@ syklopentadien-anion · 5.B EAS-mekanisme + arenium-resonans · 5.C dirigering (
   Markovnikov, anti-Br₂, hydratisering; NBS allylisk bromering (3/9) nevnes. Sensorkrav 5.
   Prioritet: kunne (høyfrekvent).
 - **Forkunnskaper/kryssbok:** kap. 4.1 (karbokation → Markovnikov);
-  [Alkoholer, aldehyder og ketoner](/bok/kjemi2/kjemi2-8-2) `(verifiser lenke)`. `collapsible`
+  [Alkoholer, aldehyder og ketoner](/kjemi2/kjemi2-8-2) `(verifiser lenke)`. `collapsible`
   **Reaksjons- og mekanismeliste:** Markovnikov, anti-addisjon, hydratisering, NBS (fiskekrok).
 - **Faktakontrakt (flashcard-kilde):** **Markovnikov** (H til det C med flest H → mest stabilt
   karbokation styrer regioselektivitet); **anti-addisjon** av $\text{Br}_2$ (via bromoniumion →
@@ -977,8 +977,8 @@ syklopentadien-anion · 5.B EAS-mekanisme + arenium-resonans · 5.C dirigering (
 - **Eksamensbelegg:** Hemiacetal/acetal + eterdanning 4/9 (44 %); reduksjon/oksidasjon 5/9
   (56 %); THF fra 4-klor-1-butanol er gjenganger. Sensorkrav 5. Prioritet: kunne.
 - **Forkunnskaper/kryssbok:** kap. 4.2 (SN2 for Williamson), kap. 6.1;
-  [Alkoholer, aldehyder og ketoner](/bok/kjemi2/kjemi2-8-2) `(verifiser lenke)`,
-  [Karboksylsyrer og estere](/bok/kjemi2/kjemi2-8-3) `(verifiser lenke)`. `collapsible`
+  [Alkoholer, aldehyder og ketoner](/kjemi2/kjemi2-8-2) `(verifiser lenke)`,
+  [Karboksylsyrer og estere](/kjemi2/kjemi2-8-3) `(verifiser lenke)`. `collapsible`
   **Reaksjons- og mekanismeliste:** Williamson (SN2), hemiacetal/acetal-steg, ox/red-reagenser.
 - **Faktakontrakt (flashcard-kilde):** **Williamson** (alkoksid + primært halogenid → eter,
   SN2; intramolekylært → syklisk eter, f.eks. THF); **hemiacetal** (aldehyd + 1 alkohol,
@@ -1009,7 +1009,7 @@ syklopentadien-anion · 5.B EAS-mekanisme + arenium-resonans · 5.C dirigering (
   racemisering»; etylacetoacetat er gjenganger. Forutsetning for enolatkjemi (Del 8). Prioritet:
   kunne.
 - **Forkunnskaper/kryssbok:** kap. 6.2, kap. 2.1 (resonansstabilisert enol/enolat);
-  [Alkoholer, aldehyder og ketoner](/bok/kjemi2/kjemi2-8-2) `(verifiser lenke)`. `collapsible`
+  [Alkoholer, aldehyder og ketoner](/kjemi2/kjemi2-8-2) `(verifiser lenke)`. `collapsible`
   **Reaksjons- og mekanismeliste:** karbonyl-polaritet, keto↔enol-tautomeri, FeCl₃-test.
 - **Faktakontrakt (flashcard-kilde):** **karbonyl** C=O (C er δ+, elektrofilt; O er δ−);
   nukleofil addisjon på C (bro til Grignard/kondensasjon); **tautomeri** (keto ↔ enol, en
@@ -1044,7 +1044,7 @@ enol/keto-tautomeri · 6.D samlet addisjons-/karbonyl-grunnprøve på eksamensni
   skriv mekanismen; forklar tørr eter og opparbeiding». 1-fenyl-1-propanol er gjenganger. F10
   (racemat + kombinasjonsvalg). Sensorkrav 5. Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 6.3 (nukleofil addisjon på karbonyl), kap. 3.1 (nytt
-  stereosenter → racemat); [Alkoholer, aldehyder og ketoner](/bok/kjemi2/kjemi2-8-2)
+  stereosenter → racemat); [Alkoholer, aldehyder og ketoner](/kjemi2/kjemi2-8-2)
   `(verifiser lenke)`. `collapsible` **Reaksjons- og mekanismeliste:** Grignard-stegene, tørr
   eter/opparbeiding, karbonyl → alkoholklasse.
 - **Faktakontrakt (flashcard-kilde):** **Grignard-reagens** RMgX (nukleofilt/basisk C, lages i
@@ -1261,7 +1261,7 @@ prøve på eksamensnivå).
 - **Eksamensbelegg:** ¹H NMR-splitting/spektergjenkjenning 7/9 (78 %, men lavt vektet); MS 1/9
   (11 %, kun 2003). NEDTONET kraftig (NTNU/UiO-forskjell §9). Prioritet: kjenne.
 - **Forkunnskaper/kryssbok:** kap. 1.2 (struktur), kap. 3.1 (ekvivalens ↔ symmetri);
-  [Spektroskopi](/bok/kjemi1/kjemi1-2-2) `(verifiser lenke)` (generelt prinsipp). `collapsible`
+  [Spektroskopi](/kjemi1/kjemi1-2-2) `(verifiser lenke)` (generelt prinsipp). `collapsible`
   **Reaksjons- og mekanismeliste:** n+1-regelen, integral ↔ H-forhold, m/z-molekylion.
 - **Faktakontrakt (flashcard-kilde):** **antall signaler** = antall kjemisk uekvivalente
   protontyper (symmetri reduserer); **integral** ∝ antall protoner (forhold); **multiplisitet**
@@ -1295,8 +1295,8 @@ spektergjenkjenning (tre bromalkaner) · 10.C integral/ekvivalens + enkel MS-ide
 - **Eksamensbelegg:** Sjanger K (flertrinns-syntese 6/9, 67 %): «angi reagenser og strukturer
   for mellomprodukter A–D». Delvis uttelling per trinn (sensorkrav 7). Prioritet: kunne.
 - **Forkunnskaper/kryssbok:** Del 4–9 (SN/E, EAS, addisjon, karbonyl, Grignard, kondensasjon,
-  dien); [Organiske reaksjonstyper](/bok/kjemi2/kjemi2-8-5) `(verifiser lenke)`,
-  [Syntese og utbytte](/bok/kjemi2/kjemi2-8-6) `(verifiser lenke)`. `collapsible` **Reaksjons-
+  dien); [Organiske reaksjonstyper](/kjemi2/kjemi2-8-5) `(verifiser lenke)`,
+  [Syntese og utbytte](/kjemi2/kjemi2-8-6) `(verifiser lenke)`. `collapsible` **Reaksjons-
   og mekanismeliste:** hele reaksjonsbanken (transformasjon ↔ reagens) i kortform.
 - **Faktakontrakt (flashcard-kilde — stor):** for hver: reagens + betingelser + produkt +
   gruppeendring: **halogenering** (alken + HX/X₂; NBS allylisk), **hydratisering/dehydrering**

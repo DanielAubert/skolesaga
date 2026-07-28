@@ -485,7 +485,7 @@ Drill- og øvingseksamenskapitlene (Del 6) har egne oppsett — se §3/§4.
   saliva som remineraliserer.
 - **Eksamensbelegg:** Kariologi, KA-DEF. Fluoriders virkningsmekanisme **3/3**. Saliva/
   remineralisering **3/3**. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Syrer og baser / pH](/bok/kjemi1/kjemi1-6-1)
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Syrer og baser / pH](/kjemi1/kjemi1-6-1)
   `(verifiser lenke)`. `collapsible` **Nøkkelfakta- og terminologiliste:** fluorkonsentrasjoner;
   kritisk pH; fluorapatitt vs. CaF₂; saliva-funksjoner.
 - **Faktakontrakt (flashcard-kilde):** lokal hovedeffekt; fluorapatitt (fastbundet) vs.
@@ -832,7 +832,7 @@ innslagspunkt + endo-perio.
   konsentrasjonsavhengig drap, betalaktamresistens/klavulansyre, selektiv toksisitet.
 - **Eksamensbelegg:** Farmakologi, FA-MEK + FA-KORT. Antibiotika virkemekanismer **3/3**.
   Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Antibiotika og resistens](/bok/med1100/med1100-...)
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Antibiotika og resistens](/med1100/med1100-...)
   `(verifiser lenke)`. `collapsible` **Nøkkelfakta- og terminologiliste:** angrepspunkter;
   baktericid/statisk; betalaktamresistens.
 - **Faktakontrakt (flashcard-kilde):** angrepspunkter (celleveggsyntese/transpeptidase,

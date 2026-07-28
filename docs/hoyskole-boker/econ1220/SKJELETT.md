@@ -180,7 +180,7 @@ til kapitler som finnes». Derfor: forkunnskaps-referanser til ECON1210 skrives
 **som KLARTEKST** med kapittel-id oppgitt for senere aktivering — **ikke** som
 live markdown-lenke. Format i teksten: *«Dette bygger på markedslikevekten fra
 ECON1210 Mikroøkonomi 1 (kap. 1.3, `econ1210-1-3` — aktiveres som lenke når den
-boka er publisert).»* Fase 6 gjør klartekst → `[tittel](/bok/econ1210/<id>)` når
+boka er publisert).»* Fase 6 gjør klartekst → `[tittel](/econ1210/<id>)` når
 ECON1210 er live. Relevante ECON1210-mål med id:
 
 | Forkunnskap | ECON1210-kapittel | id (for aktivering) |

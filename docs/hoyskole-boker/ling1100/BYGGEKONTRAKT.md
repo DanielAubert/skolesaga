@@ -247,7 +247,7 @@ Blokk-id-er: `<kapittel-id>-<løpenavn>`, f.eks. `ling1100-6-2-def-protoagent`,
    roller står i 9 av de 12 settene»). **Forfatteren skal ALDRI finne på
    frekvenstall**, og nevneren er **alltid 12** (§S1).
 2. `text` **Forkunnskaper** — kapitler i boka som markdown-lenker
-   (`[kap. 3.2](/bok/ling1100/ling1100-3-2)`) + eventuelle kryssbok-lenker fra
+   (`[kap. 3.2](/ling1100/ling1100-3-2)`) + eventuelle kryssbok-lenker fra
    tabellen i §X. «Dette kapitlet kan leses uten forkunnskaper» der skjelettet
    sier `prerequisites: ingen`. Ordet **«Forkunnskaper» må stå i teksten** —
    porten leter etter strengen.
@@ -1312,7 +1312,7 @@ ALDRI inn i `task`** — den ligger i `difficulty`.
   oppregninger i prosa i kapitler som også har nummererte eksempelsett, så
   `(1)`, `(2)` alltid betyr «eksempel».
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/ling1100/ling1100-X-Y)`. Død «se kapittel
+  markdown-lenke `[kap. X.Y](/ling1100/ling1100-X-Y)`. Død «se kapittel
   X.Y»-tekst er FORBUDT. Aldri lenker i `title`-felt.
 - **Selvdiagnose:** avkryssbar sjekkliste (☐) etter HVER prøvefasit (§F5/§A5).
   I hvert teori-/temakapittel: minst én **lett innstegsoppgave** tidlig
@@ -1502,20 +1502,20 @@ de eneste tillatte:
 
 | Kapittel | Lenke | Hva leseren henter der |
 |---|---|---|
-| 3.1 | `[Formell og uformell logikk](/bok/filosofi-etikk/fil-7-2)` | proposisjonslogikk og logiske former, som mykt tilløp før sannhetstabellene |
-| 3.2 | `[Argumentasjon og gyldighet](/bok/filosofi-etikk/fil-7-1)` | premiss, konklusjon og gyldighet — bakgrunn for entailment |
-| 3.4, 4.3 | `[Mengdelære](/bok/1t/1t-1-7)` | mengdenotasjon, $\in$, snitt og union |
-| 1.2 | `[Språkfilosofi](/bok/filosofi-etikk/fil-8-3)` | forholdet mellom språk, mening og virkelighet — kontekst for mening-teoriene |
-| 0.2, 11.2 | `[Sjanger — drøftingsdelen (c/d)](/bok/exphil03/exphil03-4-3)` | beslektet redegjørelses-/drøftingshåndverk (presiser at kravene der er exphil-krav, ikke LING1100s) |
+| 3.1 | `[Formell og uformell logikk](/filosofi-etikk/fil-7-2)` | proposisjonslogikk og logiske former, som mykt tilløp før sannhetstabellene |
+| 3.2 | `[Argumentasjon og gyldighet](/filosofi-etikk/fil-7-1)` | premiss, konklusjon og gyldighet — bakgrunn for entailment |
+| 3.4, 4.3 | `[Mengdelære](/1t/1t-1-7)` | mengdenotasjon, $\in$, snitt og union |
+| 1.2 | `[Språkfilosofi](/filosofi-etikk/fil-8-3)` | forholdet mellom språk, mening og virkelighet — kontekst for mening-teoriene |
+| 0.2, 11.2 | `[Sjanger — drøftingsdelen (c/d)](/exphil03/exphil03-4-3)` | beslektet redegjørelses-/drøftingshåndverk (presiser at kravene der er exphil-krav, ikke LING1100s) |
 
 **Ingen andre kryssbok-lenker.** LING1100 forutsetter ingen matematikk ut over
 elementær mengdelære, ingen programmering og ingen metode. Vil du legge til en
 lenke som ikke står i tabellen, kjør `ls src/lib/data/chapters/<id>.json` først —
 `sjekk-bok.py` avviser døde lenker, og en død lenke i en live bok er en synlig
 feil for leseren. **Merk at `fil-*`-kapitlene har `courseId: filosofi-etikk`** —
-URL-en er `/bok/filosofi-etikk/fil-7-2`, ikke `/bok/fil/…`.
+URL-en er `/filosofi-etikk/fil-7-2`, ikke `/fil/…`.
 
-Interne lenker skrives `[kap. 3.2](/bok/ling1100/ling1100-3-2)` og skal kun peke
+Interne lenker skrives `[kap. 3.2](/ling1100/ling1100-3-2)` og skal kun peke
 på kapitler som er bygget når boka gates. Bygg i skjelettets rekkefølge (§6 i
 skjelettet): Del 0 → 1 → 2 → 3 → **4** → 5 → 6 → 7 → 8 → 9 → 10 → 11 → prøver.
 Merk at 3.1 må stå ferdig FØR 4.1, og at 3.4 (mengdelære) må stå ferdig FØR 4.3.

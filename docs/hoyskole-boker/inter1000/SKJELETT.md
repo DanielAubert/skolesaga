@@ -190,8 +190,8 @@ førsteårs-nivå per disiplin.
     tverrfaglig verktøy anvendt på handel/verdensorden/konflikt — men KORTERE enn STV1200s kap. 1.1,
     og med INTER1000-pensumbok (Grieco m.fl.) og INTER1000-eksamensbelegg.
   - **Kryssbok-lenker:** Del 1 lenker til STV1200s dybdekapitler for studenter som vil fordype seg
-    (`[STV1200: Teori-triaden](/bok/stv1200/stv1200-1-1)`, `[STV1200: Krigsårsaker](/bok/stv1200/stv1200-3-1)`,
-    `[STV1200: Handelsregimet](/bok/stv1200/stv1200-6-1)` osv.). **Lenk KUN til kapitler som finnes i
+    (`[STV1200: Teori-triaden](/stv1200/stv1200-1-1)`, `[STV1200: Krigsårsaker](/stv1200/stv1200-3-1)`,
+    `[STV1200: Handelsregimet](/stv1200/stv1200-6-1)` osv.). **Lenk KUN til kapitler som finnes i
     den bygde STV1200-boka** — forfatteren skal verifisere id-ene mot STV1200-course-oppføringen før
     lenker settes; sett ikke lenke om id-en ikke finnes.
   - **Handel/komparative fortrinn:** STV1200 behandler det POLITISK (handelsregimet som institusjon).
@@ -365,7 +365,7 @@ førsteårs-nivå per disiplin.
   samarbeid?» (relative vs. absolutte gevinster).
 - **Case-forslag:** analyser SAMME case (f.eks. en stormakts inntreden i en internasjonal avtale) fra to
   tradisjoner, og vis at valget styrer hvilke fakta som blir «viktige» — som en A-besvarelse ville
-  kontrastert dem. Forkunnskaper-blokk lenker til `[STV1200: Teori-triaden](/bok/stv1200/stv1200-1-1)` for
+  kontrastert dem. Forkunnskaper-blokk lenker til `[STV1200: Teori-triaden](/stv1200/stv1200-1-1)` for
   dybde (verifiser id).
 - **Typiske feil:** #4 teori nevnt, ikke anvendt; #4-variant: beskrive to side om side uten å kontrastere;
   #3 flat definisjon av en tradisjon; #5 ensidig når oppgaven ber om balansert vurdering.
@@ -392,8 +392,8 @@ førsteårs-nivå per disiplin.
   demper) ser konflikt ulikt. Mekanisme-drill: «hvorfor kan to stater som ingen vil krig ende opp med å
   ruste opp mot hverandre?» (sikkerhetsdilemmaets intensjonsusikkerhet).
 - **Case-forslag:** analyser en (nyskrevet/historisk) konflikt som sikkerhetsdilemma eller «new war», og
-  drøft typologien. Forkunnskaper-blokk lenker til `[STV1200: Krigsårsaker på tre nivåer](/bok/stv1200/stv1200-3-1)`
-  og `[STV1200: Sikkerhetsdilemmaet](/bok/stv1200/stv1200-2-2)` (verifiser id-er).
+  drøft typologien. Forkunnskaper-blokk lenker til `[STV1200: Krigsårsaker på tre nivåer](/stv1200/stv1200-3-1)`
+  og `[STV1200: Sikkerhetsdilemmaet](/stv1200/stv1200-2-2)` (verifiser id-er).
 - **Typiske feil:** #3 sikkerhetsdilemma som «bare våpenkappløp» uten intensjonsusikkerheten; #3 terrorisme
   uten de tre kjennetegnene; #1 typologi uten anvendelse; #7 ingen eksempel.
 - **Kvote:** 24 quiz / 26 flashcards (konflikttypologi, «new wars»/Kaldor, terrorisme-kjennetegn, RMA,
@@ -637,7 +637,7 @@ førsteårs-nivå per disiplin.
   alternativkostnad → gevinst ved spesialisering).
 - **Case-forslag:** vis med et enkelt talleksempel at to land tjener på handel selv når det ene har absolutt
   fortrinn i begge varer, og drøft frihandel vs. proteksjonisme — ØF/IPD-mal. Forkunnskaper-blokk lenker til
-  `[STV1200: Handelsregimet](/bok/stv1200/stv1200-6-1)` for den politiske vinkelen (verifiser id).
+  `[STV1200: Handelsregimet](/stv1200/stv1200-6-1)` for den politiske vinkelen (verifiser id).
 - **Typiske feil:** #3 komparativt forvekslet med absolutt fortrinn; #5 frihandel ensidig (kun for eller kun
   mot); #4 nevne merkantilisme uten å anvende; #9 regne feil i alternativkostnaden.
 - **Kvote:** 22 quiz / 24 flashcards (komparativt vs. absolutt fortrinn, alternativkostnad, spesialiserings-

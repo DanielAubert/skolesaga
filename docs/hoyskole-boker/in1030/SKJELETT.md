@@ -1418,7 +1418,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra §2-tabellen (obligatorisk).
    **`number` er del-basert** («2.5», ALDRI lineær «14» — jf. JUS1111-lærdommen;
    prosareferanser i innholdet bruker samme form, «kap. 2.5»). UiO legges inn i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` (visningsnavn «IN1030 Systemer, krav og
+   `src/app/trinn/hoyere/institusjoner.ts` (visningsnavn «IN1030 Systemer, krav og
    konsekvenser») dersom institusjonen ikke allerede finnes.
 2. **Del 0** (kap. 0.1–0.3) — etablerer sjangernavnene MODELL/USECASE/RIKTBILDE/KRAV/DRØFT/
    KORT/SKJEMA/RISIKO/MCQ, frekvenstallene, de to make-or-break-reglene (strykkritisk

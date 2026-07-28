@@ -148,7 +148,7 @@ i kapitlet. Duplikate blokk-id-er felles av kvalitetsporten.
    med de EKSAKTE tallene fra skjelettets «Eksamensbelegg»-linje («Dualisme i 13
    av 21 sett»). **Forfatteren skal ALDRI finne på frekvenstall.**
 2. `text` **Forkunnskaper** — kapitler i boka som markdown-lenker
-   (`[kap. 3.2](/bok/fil1001/fil1001-3-2)`) + eventuelle kryssbok-lenker fra
+   (`[kap. 3.2](/fil1001/fil1001-3-2)`) + eventuelle kryssbok-lenker fra
    tabellen i §12. «Dette kapitlet kan leses uten forkunnskaper» der skjelettet
    sier `prerequisites: ingen`. **«Sist du var her»:** i kapitler med stor
    avstand til forkunnskapen (4.2 bygger på 3.2; 4.4 på 4.3; 7.6–7.8 på
@@ -578,7 +578,7 @@ omtale ikke er nok når oppgaven navngir teksten.
   settes på egne linjer. Gjelder særlig premissoppstillinger — som uansett bør
   settes som egne linjer: «P1: … P2: … K: …».
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/fil1001/fil1001-X-Y)`. Død «se kapittel
+  markdown-lenke `[kap. X.Y](/fil1001/fil1001-X-Y)`. Død «se kapittel
   X.Y»-tekst er FORBUDT. Aldri lenker i `title`-felt.
 - **Karakter-realisme:** Del 0 sier eksplisitt at **C er en god og vanlig
   karakter**, særlig i et innføringsemne i første studieår. Formuleringen
@@ -863,17 +863,17 @@ stiene:
 
 | Kapittel | Lenke |
 |---|---|
-| 1.1 | `[Aristoteles — substans, de fire årsakene og teleologien](/bok/exphil03/exphil03-2-2)` |
-| 1.2 | `[Platon — Menon, Faidon og idélæren](/bok/exphil03/exphil03-2-1)` |
-| 4.1 | `[Sinn og kropp — Descartes' dualisme og Elisabeths innvending](/bok/exphil03/exphil03-2-4)`, `[Descartes — metodisk tvil, skeptisk argument og cogito](/bok/exphil03/exphil03-1-1)` |
-| 0.2 | `[Sjanger — drøftingsdelen (c/d)](/bok/exphil03/exphil03-4-3)` (valgfri — beslektet drøftingshåndverk i et annet fag; presiser at kravene der er IFIKKs exphil-krav, ikke FIL1001s fem kjennetegn) |
+| 1.1 | `[Aristoteles — substans, de fire årsakene og teleologien](/exphil03/exphil03-2-2)` |
+| 1.2 | `[Platon — Menon, Faidon og idélæren](/exphil03/exphil03-2-1)` |
+| 4.1 | `[Sinn og kropp — Descartes' dualisme og Elisabeths innvending](/exphil03/exphil03-2-4)`, `[Descartes — metodisk tvil, skeptisk argument og cogito](/exphil03/exphil03-1-1)` |
+| 0.2 | `[Sjanger — drøftingsdelen (c/d)](/exphil03/exphil03-4-3)` (valgfri — beslektet drøftingshåndverk i et annet fag; presiser at kravene der er IFIKKs exphil-krav, ikke FIL1001s fem kjennetegn) |
 
 **Ingen andre kryssbok-lenker.** FIL1001 forutsetter ingen matematikk og ingen
 metode. Vil du legge til en lenke som ikke står i tabellen, kjør
 `ls src/lib/data/chapters/<id>.json` først — `sjekk-bok.py` avviser døde lenker,
 og en død lenke i en live bok er en synlig feil for leseren.
 
-Interne lenker (innad i fil1001) skrives som `[kap. 3.2](/bok/fil1001/fil1001-3-2)`
+Interne lenker (innad i fil1001) skrives som `[kap. 3.2](/fil1001/fil1001-3-2)`
 og skal kun peke på kapitler som allerede er bygget når boka gates. Bygg i
 skjelettets rekkefølge (§6 i skjelettet): Del 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 →
 prøver, og merk at 3.2 (modalitet) må stå ferdig FØR 4.2 (Kripke).

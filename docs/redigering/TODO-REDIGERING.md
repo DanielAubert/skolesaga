@@ -11,7 +11,7 @@ en fremtidig økt kan utføre den UTEN å se originalbildet.
 2. Skjermbilder som er visuelt viktige (figurer som skal tegnes om o.l.) lagres av Daniel
    i `docs/redigering/skjermbilder/` — referer da til filnavnet.
 3. Ny oppgave legges ØVERST under «Åpne oppgaver». Fullførte flyttes til «Fullført» med dato.
-4. Finn alltid den faktiske kildefila (`src/app/bok/...`) før oppgaven skrives, og oppgi den.
+4. Finn alltid den faktiske kildefila (`src/app/...`) før oppgaven skrives, og oppgi den.
 
 ---
 
@@ -24,7 +24,7 @@ _(ingen ennå — lim inn første funn!)_
 ### [ ] KORT TITTEL (bok-id, kapittel X.Y)
 - **Registrert:** DATO
 - **Bok/kapittel:** f.eks. econ1310 kap 4.2 «Lønnsdannelse»
-- **Kildefil:** src/app/bok/... (verifisert at den finnes)
+- **Kildefil:** src/app/... (verifisert at den finnes)
 - **Slik står det nå (sitat):** «...»
 - **Problem:** hva som er galt og hvorfor
 - **Skal endres til:** konkret ønsket resultat

@@ -209,7 +209,7 @@ studentens sjekkliste):
 Kryssbok-lenker peker på **bi-okonomi** (Matematikk for økonomer — verifisert
 bygget: `bi-okonomi-4-1` Renter og renteberegning, `-4-2` Nåverdi og
 fremtidsverdi, `-4-3` Annuiteter, `-4-5` Investeringsanalyse; `-2-2`/`-2-3`
-andregrads-/likningssett). Lenkeform: `[tittel](/bok/bi-okonomi/bi-okonomi-4-2)`.
+andregrads-/likningssett). Lenkeform: `[tittel](/bi-okonomi/bi-okonomi-4-2)`.
 **Lenk kun til disse verifiserte id-ene.**
 
 **Den gjennomgående DCF-tråden — «Fjordvind Kraft AS».** Et fiktivt norsk
@@ -279,7 +279,7 @@ innholdet de skal dekke.
 - **id:** `bok3423-bi-1-1` · **number:** 1.1 · **estimatedMinutes:** 45 · **prerequisites:** `bok3423-bi-0-2` · **kapitteltype:** teori
 - **description:** Å flytte kroner i tid: sluttverdi og nåverdi av enkeltbeløp og flerperiodiske strømmer, og nåverdien av en evig strøm — grunnlaget for all diskontering i faget.
 - **Eksamensbelegg:** Fundament under NPV (100 %), WACC og Gordon. Flerperiodisk nåverdi og evig strøm $C/r$ forekommer direkte (uendelig levetid i VROOM/case). Formlene **må pugges** (ikke på arket). Prioritet: **PERFEKT** (fundament).
-- **Forkunnskaper:** Bygger på [Renter og renteberegning](/bok/bi-okonomi/bi-okonomi-4-1) og [Nåverdi og fremtidsverdi](/bok/bi-okonomi/bi-okonomi-4-2) i Matematikk for økonomer. **Symbol- og formelliste:** $C_t$, $r$, $t$, $n$, nåverdi, sluttverdi — alle **(må pugges)**; diskonteringsfaktor $1/(1+r)^t$ finnes også som **rentetabell**.
+- **Forkunnskaper:** Bygger på [Renter og renteberegning](/bi-okonomi/bi-okonomi-4-1) og [Nåverdi og fremtidsverdi](/bi-okonomi/bi-okonomi-4-2) i Matematikk for økonomer. **Symbol- og formelliste:** $C_t$, $r$, $t$, $n$, nåverdi, sluttverdi — alle **(må pugges)**; diskonteringsfaktor $1/(1+r)^t$ finnes også som **rentetabell**.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES OG SETTES OPP: sluttverdi $C(1+r)^t$; nåverdi av enkeltbeløp $\dfrac{C_t}{(1+r)^t}$; flerperiodisk nåverdi $\sum_{t=1}^{n}\dfrac{C_t}{(1+r)^t}$; **evig strøm** $\text{NV}=\dfrac{C}{r}$ (og intuisjon: hvorfor uendelig mange ledd gir en endelig sum). Diskonteringsfaktor kan slås opp i rentetabell. **Regnekjede (nyskrevet, «Fjordvind Kraft AS»):** et delprosjekt gir 30, 45 og 70 mill. kr i år 1–3, avkastningskrav 9 %. $\text{NV}=30/1{,}09+45/1{,}09^2+70/1{,}09^3=27{,}5+37{,}9+54{,}0=119{,}4$ mill. kr. Evig-eksempel: en tomteleie på 4 mill. kr per år i det uendelige, krav 8 %: $\text{NV}=4/0{,}08=50$ mill. kr.
 - **Oppgavesjangre:** D. Mønstereksempel: «Fjordvind Kraft mottar 20, 35 og 50 mill. kr i årene 1–3. Avkastningskravet er 10 %. Sett opp formelen eksplisitt og regn ut nåverdien i mill. kr.»
 - **Typiske feil:** Diskontere med feil eksponent (glemme at år 3 diskonteres med $(1+r)^3$); bruke $C/r$ på en endelig strøm; oppgi svar uten enhet.
@@ -290,7 +290,7 @@ innholdet de skal dekke.
 - **id:** `bok3423-bi-1-2` · **number:** 1.2 · **estimatedMinutes:** 50 · **prerequisites:** `bok3423-bi-1-1` · **kapitteltype:** teori
 - **description:** Nåverdien av en endelig, konstant strøm (annuitet), serie- og annuitetslån, og hvordan man bruker nåverdi-annuitetsfaktoren og annuitetsfaktoren fra rentetabellene.
 - **Eksamensbelegg:** Annuitet/sparekonto i tidsverdi-sjangeren (83 %). Serielån/annuitetslån er innbakt i kontantstrømoppgavene (renter + avdrag i KS$_{EK}$, Del 2). Formlene **må pugges** (men annuitetsfaktorene finnes i tabell). Prioritet: **PERFEKT**.
-- **Forkunnskaper:** Bygger på kap. 1.1 og [Annuiteter](/bok/bi-okonomi/bi-okonomi-4-3). **Symbol- og formelliste:** $C$, $r$, $n$, annuitetsfaktor, restgjeld — **(må pugges)**; nåverdi-annuitetsfaktor og annuitetsfaktor finnes som **rentetabell**.
+- **Forkunnskaper:** Bygger på kap. 1.1 og [Annuiteter](/bi-okonomi/bi-okonomi-4-3). **Symbol- og formelliste:** $C$, $r$, $n$, annuitetsfaktor, restgjeld — **(må pugges)**; nåverdi-annuitetsfaktor og annuitetsfaktor finnes som **rentetabell**.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES: nåverdien av en annuitet $\text{NV}=\dfrac{C}{r}\left(1-\dfrac{1}{(1+r)^n}\right)$ (utledet som differansen mellom to evige strømmer); terminbeløp (annuitetslån) $C=\dfrac{K_0 \cdot r}{1-(1+r)^{-n}}$; **serielån vs. annuitetslån** (serielån: like avdrag, fallende renter → fallende termin; annuitetslån: lik termin, stigende avdrag); renter i én termin $=$ restgjeld $\cdot r$, avdrag $=$ termin $-$ renter. Lesning av nåverdi-annuitetsfaktoren i rentetabell. **Regnekjede (nyskrevet):** en maskin gir 12 mill. kr i besparelse årlig i 8 år, krav 7 %: $\text{NV}=(12/0{,}07)(1-1{,}07^{-8})=171{,}43\cdot(1-0{,}5820)=171{,}43\cdot0{,}4180=71{,}7$ mill. kr.
 - **Oppgavesjangre:** D. Mønstereksempel: «Et lån på 5 mill. kr skal betales som annuitetslån over 5 år med 6 % rente. Regn ut det årlige terminbeløpet, og vis rente og avdrag i første termin.»
 - **Typiske feil:** Bruke feil $n$; forveksle serie- og annuitetslån; regne renter av opprinnelig lån hvert år i stedet for av restgjeld; regnefeil i $(1+r)^{-n}$-leddet.
@@ -401,7 +401,7 @@ innholdet de skal dekke.
 - **id:** `bok3423-bi-3-1` · **number:** 3.1 · **estimatedMinutes:** 50 · **prerequisites:** `bok3423-bi-2-5` · **kapitteltype:** teori
 - **description:** NPV-regelen: diskontér kontantstrømmen med riktig avkastningskrav, invester når NPV > 0, og avslutt alltid med en lønnsomhetskonklusjon.
 - **Eksamensbelegg:** NPV i **samtlige sett** (100 %), 10–35 % skoleeksamen / 15 % case (oppgave 3). Formelen **må pugges**. Prioritet: **PERFEKT**.
-- **Forkunnskaper:** Bygger på kap. 1.1 og hele Del 2 og [Investeringsanalyse](/bok/bi-okonomi/bi-okonomi-4-5). **Symbol- og formelliste:** NPV, $I$, $C_t$, $r$, $n$ — **(må pugges)**.
+- **Forkunnskaper:** Bygger på kap. 1.1 og hele Del 2 og [Investeringsanalyse](/bi-okonomi/bi-okonomi-4-5). **Symbol- og formelliste:** NPV, $I$, $C_t$, $r$, $n$ — **(må pugges)**.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES OG BEGRUNNES: $\text{NPV}=-I+\sum_{t=1}^{n}\dfrac{C_t}{(1+r)^t}$; beslutningsregelen (NPV > 0 ⇒ gjennomfør; < 0 ⇒ forkast). NPV måler verdiskaping i dagens kroner. **Riktig $r$:** KS$_{TK}$ diskonteres med WACC, KS$_{EK}$ med $r_E$ (bro til Del 8). Ved uendelig levetid: $-I+C/r$. **Konklusjonskravet:** hver NPV-oppgave ender i en lønnsomhetskonklusjon. Hvorfor kontantstrøm — ikke regnskapsresultat — diskonteres (fast teorispørsmål). **Regnekjede (nyskrevet, Fjordvind Kraft):** utlegg 1 500, KS$_{TK}$ 600, 700, 800 i år 1–3, WACC 11 %: $\text{NPV}=-1500+600/1{,}11+700/1{,}11^2+800/1{,}11^3=-1500+540{,}5+568{,}1+584{,}9=193{,}5$ mill. kr $>0$ ⇒ lønnsomt.
 - **Oppgavesjangre:** B. Mønstereksempel: «Fjordvind Kraft vurderer et anlegg som koster 1 000 mill. og gir kontantstrømmer til totalkapitalen på 350, 400 og 500 mill. i år 1–3. WACC er 10 %. Regn ut NPV og konkludér.»
 - **Typiske feil:** Diskontere investeringsutlegget (det er allerede i dag); bruke $r_E$ på KS$_{TK}$ (skal være WACC); glemme lønnsomhetskonklusjonen; diskontere regnskapsresultat i stedet for kontantstrøm.
@@ -440,7 +440,7 @@ innholdet de skal dekke.
 - **id:** `bok3423-bi-4-1` · **number:** 4.1 · **estimatedMinutes:** 50 · **prerequisites:** `bok3423-bi-3-1` · **kapitteltype:** teori
 - **description:** Internrenten som renta der NPV = 0 — hvordan den regnes analytisk for enkle strømmer og ved prøving/interpolasjon ellers.
 - **Eksamensbelegg:** IRR i sjanger C hvert skoleeksamenssett (83 %). Analytisk IRR for evig strøm og enperiode. Definisjonen **må pugges**. Prioritet: **PERFEKT**.
-- **Forkunnskaper:** Bygger på kap. 3.1 og [Andregradslikninger](/bok/bi-okonomi/bi-okonomi-2-2). **Symbol- og formelliste:** IRR, NPV, $C$, $I$ — **(må pugges)**.
+- **Forkunnskaper:** Bygger på kap. 3.1 og [Andregradslikninger](/bi-okonomi/bi-okonomi-2-2). **Symbol- og formelliste:** IRR, NPV, $C$, $I$ — **(må pugges)**.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES OG UTLEDES: IRR $=$ renta som gir $\text{NPV}=0$. **Evig strøm:** $-I+\dfrac{C}{\text{IRR}}=0\Rightarrow\text{IRR}=\dfrac{C}{I}$. **Enperiode:** $\text{IRR}=\dfrac{C_1}{I}-1$. Flerperiodisk: finnes ved prøving/interpolasjon (og kalkulator — men vis oppsettet). **NPV-profilen:** NPV som fallende funksjon av $r$; IRR er skjæringen med null-aksen (figur i A-besvarelse). **Regnekjede (nyskrevet):** utlegg 900, evig strøm 135: $\text{IRR}=135/900=15\,\%$. Enperiode: utlegg 500, innbetaling 560 om ett år: $\text{IRR}=560/500-1=12\,\%$.
 - **Oppgavesjangre:** C. Mønstereksempel: «Et prosjekt koster 1 200 mill. og gir 180 mill. i evig årlig kontantstrøm. Regn ut internrenten, og forklar hva den betyr.»
 - **Typiske feil:** Bruke $C/I$ på en endelig strøm (gjelder bare evig strøm); forveksle IRR og avkastningskrav; glemme at IRR er en renteforutsetning, ikke en kroneverdi.
@@ -870,7 +870,7 @@ Eksamensvinkel-blokker:
 - [ ] **Quiz-sum ≥ 598 og flashcard-sum ≥ 552** per kvotetabellen (§4).
 - [ ] **Prøver**: 4 per temadel 1–9 (36 stk) + DCF-case-mal + 3 øvingseksamener
   (regning + flervalg, 3 t, rentetabeller) som sammen dekker sjangrene A–K.
-- [ ] **Kryssbok-lenker**: alle `/bok/bi-okonomi/...`-lenker peker på eksisterende
+- [ ] **Kryssbok-lenker**: alle `/bi-okonomi/...`-lenker peker på eksisterende
   kapitler (`bi-okonomi-4-1`, `-4-2`, `-4-3`, `-4-5`, `-2-2`, `-2-3` er verifisert).
 - [ ] **DCF-tråden**: Fjordvind Kraft AS gjenbrukt konsistent (nye, konsistente
   tall) fra Del 1 til DCF-case-malen (kap. 10.2).

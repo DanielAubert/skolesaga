@@ -1046,7 +1046,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra §2-tabellen (obligatorisk).
    **`number` er del-basert** («3.2», ALDRI lineær «18» — jf. JUS1111-lærdommen;
    prosareferanser i innholdet bruker samme form, «kap. 3.2»). Institusjon = **NTNU** i
-   `src/app/bok/trinn/hoyere/institusjoner.ts`, navn «TDT4260 Datamaskinarkitektur».
+   `src/app/trinn/hoyere/institusjoner.ts`, navn «TDT4260 Datamaskinarkitektur».
 2. **Del 0** (kap. 0.1–0.3) — etablerer svarformene M1–E3/D, temablokkene T1–T9,
    frekvenstallene, negativ-scoring-strategien, konsist-essay-håndverket og TDT4160-
    repetisjonsbroen som resten refererer til.

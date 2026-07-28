@@ -99,7 +99,7 @@ Først i kapitlet, i denne rekkefølgen:
    fra skjelettets per-kapittel-DNA («Oppgave 1 i 16 av 16 sett»,
    «Lagrange i 13 av 16 sett — 81 %»). Tell beleggene; ingen oppdiktede tall.
 2. `text` **Forkunnskaper** — kapitler i boka (markdown-lenker
-   `[kap. X.Y](/bok/econ1100/econ1100-X-Y)`) + kryssbok-lenker fra listen under
+   `[kap. X.Y](/econ1100/econ1100-X-Y)`) + kryssbok-lenker fra listen under
    «Kryssbok-lenker». KUN til kapitler som finnes. «Kan leses uten
    forkunnskaper» der skjelettet sier `prerequisites: ingen`.
    **«Sist du var her»:** i tunge kapitler med stor avstand til forkunnskapen
@@ -265,7 +265,7 @@ beskjed om at resten kan slås opp. Dette ER regnefagets samlede oppslagskort
   minimumsrådet om å regne minst ÉN øvingseksamen for hånd på tid.
   (f) **Formel-minimum-siden** (se egen seksjon over).
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/econ1100/econ1100-X-Y)`. Død «se kapittel
+  markdown-lenke `[kap. X.Y](/econ1100/econ1100-X-Y)`. Død «se kapittel
   X.Y»-tekst er FORBUDT. Aldri lenker i `title`-felt.
 - **Karakter-realisme:** Del 0 sier eksplisitt at **C er en god og vanlig
   karakter**, særlig i første semester. Formuleringen **«Prioritet: perfekt» er
@@ -598,19 +598,19 @@ Bruk NØYAKTIG disse titlene og stiene i Forkunnskaper-blokkene:
 
 | Kapittel | Lenke |
 |---|---|
-| 1.1 | `[Derivasjonsregler](/bok/r1/r1-4-1)`, `[Produktregelen og kvotientregelen](/bok/r1/r1-4-4)`, `[Kjerneregelen](/bok/r1/r1-4-3)`, `[Derivasjon av eksponential- og logaritmefunksjoner](/bok/r1/r1-4-2)` |
-| 1.3 | `[Sammensatte funksjoner](/bok/r1/r1-2-3)`, `[Kjerneregelen](/bok/r1/r1-4-3)` |
-| 1.4 | `[Potenser og logaritmer](/bok/r1/r1-1-2)`, `[Eksponential- og logaritmeligninger](/bok/r1/r1-1-3)` |
-| 4.1 | `[Funksjonsdrøfting](/bok/r1/r1-4-6)`, `[Fullstendig funksjonsdrøfting](/bok/s2/s2-3-1)` |
-| 4.2 | `[Andrederiverte og vendepunkter](/bok/s2/s2-3-2)`, `[Optimering](/bok/s2/s2-3-3)` |
-| 4.3 | `[Globale ekstremalpunkter](/bok/r1/r1-4-8)` |
-| 8.1 | `[Optimering](/bok/s2/s2-3-3)`, `[Profittoptimering](/bok/s2/s2-8-2)` |
-| 10.1 | `[Omvendte funksjoner](/bok/r1/r1-2-2)`, `[Derivasjon av omvendte funksjoner](/bok/r1/r1-4-5)` |
-| 10.2 | `[Ubestemt integral](/bok/r2/r2-2-2)`, `[Bestemt integral som grenseverdi](/bok/r2/r2-2-4)`, `[Areal mellom kurver](/bok/r2/r2-2-7)` |
-| 10.3 | `[Geometriske følger](/bok/r2/r2-1-3)`, `[Rekker og summasjon](/bok/r2/r2-1-4)`, `[Uendelige rekker og konvergens](/bok/r2/r2-1-5)` |
+| 1.1 | `[Derivasjonsregler](/r1/r1-4-1)`, `[Produktregelen og kvotientregelen](/r1/r1-4-4)`, `[Kjerneregelen](/r1/r1-4-3)`, `[Derivasjon av eksponential- og logaritmefunksjoner](/r1/r1-4-2)` |
+| 1.3 | `[Sammensatte funksjoner](/r1/r1-2-3)`, `[Kjerneregelen](/r1/r1-4-3)` |
+| 1.4 | `[Potenser og logaritmer](/r1/r1-1-2)`, `[Eksponential- og logaritmeligninger](/r1/r1-1-3)` |
+| 4.1 | `[Funksjonsdrøfting](/r1/r1-4-6)`, `[Fullstendig funksjonsdrøfting](/s2/s2-3-1)` |
+| 4.2 | `[Andrederiverte og vendepunkter](/s2/s2-3-2)`, `[Optimering](/s2/s2-3-3)` |
+| 4.3 | `[Globale ekstremalpunkter](/r1/r1-4-8)` |
+| 8.1 | `[Optimering](/s2/s2-3-3)`, `[Profittoptimering](/s2/s2-8-2)` |
+| 10.1 | `[Omvendte funksjoner](/r1/r1-2-2)`, `[Derivasjon av omvendte funksjoner](/r1/r1-4-5)` |
+| 10.2 | `[Ubestemt integral](/r2/r2-2-2)`, `[Bestemt integral som grenseverdi](/r2/r2-2-4)`, `[Areal mellom kurver](/r2/r2-2-7)` |
+| 10.3 | `[Geometriske følger](/r2/r2-1-3)`, `[Rekker og summasjon](/r2/r2-1-4)`, `[Uendelige rekker og konvergens](/r2/r2-1-5)` |
 
 **Rettelse mot skjelettet (verifisert):** skjelettets kap. 8.1 oppgir
-`[Optimering med bibetingelser](/bok/s2/s2-8-5)`. Fila `s2-8-5.json` finnes,
+`[Optimering med bibetingelser](/s2/s2-8-5)`. Fila `s2-8-5.json` finnes,
 men heter **«Vekstmodeller i økonomi»** — det finnes ingen S2-/R2-bok om
 optimering under bibetingelse i systemet. Bruk derfor lenkene i tabellen over
 for kap. 8.1, og la Lagrange-metoden være genuint ny i boka (den er det).

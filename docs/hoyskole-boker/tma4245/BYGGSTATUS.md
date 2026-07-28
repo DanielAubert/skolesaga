@@ -11,6 +11,6 @@
   - SVG-opplasting: 10 SVG-er (9 refererte + residual-qq) lastet opp til Supabase Storage `media`-bøtta med upsert; alle 9 refererte verifisert **200 image/svg+xml** via public-URL. Kjent avvik (d) LØST.
   - `npx tsc --noEmit`: ren (exit 0).
   - `npm run build`: **✓ Compiled successfully** (17.1s), «Kombinerte 10745 kapitler», 275/275 statiske sider, exit 0.
-  - Prod-curl (`PORT=3062 npm run start`): `/bok/trinn/hoyere/ntnu` 200 (viser TMA4245/Statistikk), `/bok/tma4245` 200, teori `/bok/tma4245/tma4245-1-1` 200 (Forkunnskaper + Symbol- og formelliste + inline Oppgave/Fasit/Løsning = læringsløkke bekreftet), `/tma4245-1-prove` 200, oppgave/trening-exerciseruter 200, `/quiz/tma4245-1-1` 200, `/bok/tma4245/flashcards` 200. Server stoppet.
+  - Prod-curl (`PORT=3062 npm run start`): `/trinn/hoyere/ntnu` 200 (viser TMA4245/Statistikk), `/tma4245` 200, teori `/tma4245/tma4245-1-1` 200 (Forkunnskaper + Symbol- og formelliste + inline Oppgave/Fasit/Løsning = læringsløkke bekreftet), `/tma4245-1-prove` 200, oppgave/trening-exerciseruter 200, `/quiz/tma4245-1-1` 200, `/tma4245/flashcards` 200. Server stoppet.
 - GJENSTÅR: kun brukers vurdering av push/merge (byggeleder pusher/merger IKKE).
 - KJENTE AKSEPTERTE AVVIK: (a) «en medstudent påstår»-ramme i kritikk-/felleoppgaver Del 0–2 — akseptert (kontraktens forbud gjelder teorianker-eksempler); (b) 5-prove bruker (1)(2)(3)(4)-flervalg vs (a)(b)(c)(d) ellers — kosmetisk, står; (c) 9.D delta-vs-simulering ~6 %-avvik er bevisst fagpoeng, dokumentert i fasit.

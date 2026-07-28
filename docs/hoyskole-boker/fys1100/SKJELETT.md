@@ -125,37 +125,37 @@ stabile):**
 **Forhold til søsterbøkene (kryssbok-lenker — KUN til kapitler som finnes):**
 FYS1100 forutsetter matematikk fra R1/R2 og bygger videre på mekanikken i
 Fysikk 2. Verifiserte lenkemål (per 7. juli 2026):
-- **Vektorregning:** [Vektorer i tre dimensjoner](/bok/r2/r2-5-1),
-  [Vektorkoordinater og regning](/bok/r2/r2-5-2),
-  [Skalarproduktet](/bok/r2/r2-5-3), [Kryssproduktet](/bok/r2/r2-5-4)
+- **Vektorregning:** [Vektorer i tre dimensjoner](/r2/r2-5-1),
+  [Vektorkoordinater og regning](/r2/r2-5-2),
+  [Skalarproduktet](/r2/r2-5-3), [Kryssproduktet](/r2/r2-5-4)
   (kraftmoment $\boldsymbol{\tau}=\mathbf{r}\times\mathbf{F}$); grunnlag i
-  [Vektorer i planet](/bok/r1/r1-6-1) og [Vektorregning](/bok/r1/r1-6-2).
-- **Derivasjon/kinematikk:** [Derivasjon av vektorfunksjoner](/bok/r2/r2-6-2),
-  [Hastighet og akselerasjon](/bok/r2/r2-6-3),
-  [Parameterframstilling av kurver](/bok/r2/r2-6-1);
-  [Derivasjonens definisjon](/bok/r1/r1-3-3),
-  [Kjerneregelen](/bok/r1/r1-4-3),
-  [Derivasjon av trigonometriske funksjoner](/bok/r1/r1-7-5).
-- **Integrasjon:** [Bestemt integral som grenseverdi](/bok/r2/r2-2-4),
-  [Analysens fundamentalsetning](/bok/r2/r2-2-5),
-  [Variabelskifte (substitusjon)](/bok/r2/r2-3-1),
-  [Numerisk integrasjon](/bok/r2/r2-3-4),
-  [Programmering av integrasjon](/bok/r2/r2-3-5).
-- **Rekker (Taylor):** [Rekker og summasjon](/bok/r2/r2-1-4),
-  [Uendelige rekker og konvergens](/bok/r2/r2-1-5).
-- **Trigonometri:** [Trigonometriske funksjoner og enhetssirkelen](/bok/r1/r1-7-1),
-  [Trigonometriske identiteter](/bok/r1/r1-7-4).
-- **Fysikk 2-mekanikk:** [Vektorer og komponenter](/bok/fysikk2/fysikk2-1-1),
-  [Bevegelse i to dimensjoner](/bok/fysikk2/fysikk2-1-2),
-  [Kastering – horisontal og skrå](/bok/fysikk2/fysikk2-1-3),
-  [Sirkelbevegelse og sentripetalkraft](/bok/fysikk2/fysikk2-1-4),
-  [Numerisk modellering av bevegelse](/bok/fysikk2/fysikk2-1-5),
-  [Newtons gravitasjonslov](/bok/fysikk2/fysikk2-2-1),
-  [Unnslippningsfart og satellittbaner](/bok/fysikk2/fysikk2-2-4),
-  [Spesiell relativitetsteori – postulater](/bok/fysikk2/fysikk2-6-1),
-  [Tidsdilatasjon](/bok/fysikk2/fysikk2-6-2),
-  [Lengdekontraksjon](/bok/fysikk2/fysikk2-6-3),
-  [Relativistisk energi og masse](/bok/fysikk2/fysikk2-6-4).
+  [Vektorer i planet](/r1/r1-6-1) og [Vektorregning](/r1/r1-6-2).
+- **Derivasjon/kinematikk:** [Derivasjon av vektorfunksjoner](/r2/r2-6-2),
+  [Hastighet og akselerasjon](/r2/r2-6-3),
+  [Parameterframstilling av kurver](/r2/r2-6-1);
+  [Derivasjonens definisjon](/r1/r1-3-3),
+  [Kjerneregelen](/r1/r1-4-3),
+  [Derivasjon av trigonometriske funksjoner](/r1/r1-7-5).
+- **Integrasjon:** [Bestemt integral som grenseverdi](/r2/r2-2-4),
+  [Analysens fundamentalsetning](/r2/r2-2-5),
+  [Variabelskifte (substitusjon)](/r2/r2-3-1),
+  [Numerisk integrasjon](/r2/r2-3-4),
+  [Programmering av integrasjon](/r2/r2-3-5).
+- **Rekker (Taylor):** [Rekker og summasjon](/r2/r2-1-4),
+  [Uendelige rekker og konvergens](/r2/r2-1-5).
+- **Trigonometri:** [Trigonometriske funksjoner og enhetssirkelen](/r1/r1-7-1),
+  [Trigonometriske identiteter](/r1/r1-7-4).
+- **Fysikk 2-mekanikk:** [Vektorer og komponenter](/fysikk2/fysikk2-1-1),
+  [Bevegelse i to dimensjoner](/fysikk2/fysikk2-1-2),
+  [Kastering – horisontal og skrå](/fysikk2/fysikk2-1-3),
+  [Sirkelbevegelse og sentripetalkraft](/fysikk2/fysikk2-1-4),
+  [Numerisk modellering av bevegelse](/fysikk2/fysikk2-1-5),
+  [Newtons gravitasjonslov](/fysikk2/fysikk2-2-1),
+  [Unnslippningsfart og satellittbaner](/fysikk2/fysikk2-2-4),
+  [Spesiell relativitetsteori – postulater](/fysikk2/fysikk2-6-1),
+  [Tidsdilatasjon](/fysikk2/fysikk2-6-2),
+  [Lengdekontraksjon](/fysikk2/fysikk2-6-3),
+  [Relativistisk energi og masse](/fysikk2/fysikk2-6-4).
 - **Python-grunnlag:** grunnleggende NumPy/lister/`for`-løkker forutsettes og
   repeteres i Del 8; der emnet **IN1900** (i kø, ikke bygget) er naturlig
   forkunnskap, refereres det i **klartekst uten lenke**. Klassisk mekanikk fra
@@ -297,7 +297,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Å utlede formens skjelett fra enheter alene, sjekke uttrykk med benevningskontroll, og tenke i tierpotenser.
 - **Eksamensbelegg:** Nyere MCQ- og deloppgavesjanger; på midtveis som flervalg, på avsluttende som verktøy (H2025: utlede $v \sim \sqrt{GM/r_0}$ ved dimensjonsanalyse). Benevningskontroll er en gjennomgående «gratis» kvalitetssjekk sensor forventer. Prioritet: **kunne**.
-- **Forkunnskaper/kryssbok:** ingen tunge; [Potenser og logaritmer](/bok/r1/r1-1-2) (tierpotens-regning). Bruker SI-grunnenheter (m, kg, s).
+- **Forkunnskaper/kryssbok:** ingen tunge; [Potenser og logaritmer](/r1/r1-1-2) (tierpotens-regning). Bruker SI-grunnenheter (m, kg, s).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: SI-grunnstørrelser lengde $[L]$, masse $[M]$, tid $[T]$; utlede *formen* på et uttrykk ved å kreve dimensjonsbalanse (f.eks. pendelperiode $T \sim \sqrt{L/g}$, sirkelfart $v \sim \sqrt{GM/r}$); **benevningskontroll** som sluttsjekk på ethvert svar (venstre og høyre side må ha samme enhet); tierpotens-/størrelsesorden-tenkning som forberedelse til Fermi (kap. 1.3). Begrensning: dimensjonsanalyse gir ikke dimensjonsløse faktorer ($2\pi$, $\tfrac12$) — dette skal sies eksplisitt. **Utledning som kreves aktivt:** sett opp $[X] = [M]^a[L]^b[T]^c$, løs for eksponentene. **Figurkrav:** ingen (symbolfattig kapittel — men Symbol- og formelliste kreves likevel for $[L],[M],[T]$-notasjonen).
 - **Oppgavesjangre:** Dimensjonsanalyse (+ J). Mønstereksempel: «En kule med radius $r$ faller i en væske og når terminalfart. Anta at terminalfarten avhenger av $r$, tyngdeakselerasjonen $g$ og en materialkonstant med enhet $\mathrm{s}^{-1}$. Bruk dimensjonsanalyse til å bestemme hvordan terminalfarten skalerer med disse, og forklar hvorfor metoden ikke kan gi den tallmessige forfaktoren.»
 - **Typiske feil:** Tro at dimensjonsanalyse gir eksakt svar (glemme dimensjonsløse faktorer); blande enheter (bruke gram og kg om hverandre); ikke sjekke benevning på sluttsvaret; forveksle dimensjon med tallverdi.
@@ -309,7 +309,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Rekkeutvikling om et punkt, `sin θ ≈ θ` for små vinkler, og relativistisk `E` for små farter — verktøyet bak lineariseringen i svingnings- og SR-oppgaver.
 - **Eksamensbelegg:** Sjanger-verktøy i **57 %** av settene: linearisere $\sin\theta \approx \theta$ (pendel, kap. 7.2), rekkeutvikle relativistisk energi for lav fart (H2022), linearisere en ikke-lineær kraft om likevekt (kap. 7.2). På midtveis som flervalg (finn 1. eller 2. ordens ledd). Prioritet: **kunne**.
-- **Forkunnskaper/kryssbok:** [Derivasjonens definisjon](/bok/r1/r1-3-3), [Derivasjonsregler](/bok/r1/r1-4-1), [Derivasjon av trigonometriske funksjoner](/bok/r1/r1-7-5); [Rekker og summasjon](/bok/r2/r2-1-4), [Uendelige rekker og konvergens](/bok/r2/r2-1-5).
+- **Forkunnskaper/kryssbok:** [Derivasjonens definisjon](/r1/r1-3-3), [Derivasjonsregler](/r1/r1-4-1), [Derivasjon av trigonometriske funksjoner](/r1/r1-7-5); [Rekker og summasjon](/r2/r2-1-4), [Uendelige rekker og konvergens](/r2/r2-1-5).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: Taylor-polynom om $x=a$: $f(x) \approx f(a) + f'(a)(x-a) + \tfrac12 f''(a)(x-a)^2 + \dots$ (formelarket/Rottmann gir generell form med restledd — **markeres «står på arket»**); standardutviklinger som skal kunne brukes raskt: $\sin\theta \approx \theta - \theta^3/6$, $\cos\theta \approx 1 - \theta^2/2$, $(1+x)^n \approx 1 + nx$, $e^x \approx 1 + x + x^2/2$; **linearisering** = beholde 1. ordens ledd; **små-svingnings-linearisering** = utvikle en kraft/potensial om en likevekt og beholde det lineære leddet (peker mot kap. 7.2). Relativistisk anvendelse: $\gamma = (1-\beta^2)^{-1/2} \approx 1 + \tfrac12\beta^2$ ⇒ $E = \gamma mc^2 \approx mc^2 + \tfrac12 mv^2$ (klassisk kinetisk energi gjenfinnes). **Utledning som kreves aktivt:** utvikle et gitt uttrykk til ønsket orden ved å regne deriverte i punktet. **Figurkrav:** graf av $\sin\theta$ mot linja $\theta$ som viser hvor tilnærmingen holder.
 - **Oppgavesjangre:** Taylor/linearisering (+ G, I, J). Mønstereksempel: «Vis ved Taylor-utvikling at den relativistiske kinetiske energien $K = (\gamma-1)mc^2$ går over i det klassiske uttrykket $\tfrac12 mv^2$ når $v \ll c$, og finn det neste (fjerdeordens) korreksjonsleddet.»
 - **Typiske feil:** Utvikle om feil punkt; blande grader og radianer i $\sin\theta \approx \theta$ (tilnærmingen krever radianer); ta med feil antall ledd; glemme at $\sin\theta \approx \theta$ bare gjelder små $\theta$; regnefeil i de deriverte.
@@ -339,7 +339,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Sammenhengen posisjon–fart–akselerasjon som derivasjon/integrasjon, bevegelsesgrafer, og standardformlene for konstant akselerasjon.
 - **Eksamensbelegg:** Grunnlaget under all mekanikk; **midtveis-favoritt** som graftolkning («hvilken situasjon er umulig for rettlinjet bevegelse?», posisjon/fart/akselerasjon-grafer) og som konseptrangering. På avsluttende inngår kinematikk i nesten hver oppgave. Prioritet: **kunne** (men grafspørsmål er hyppige midtveis-poeng).
-- **Forkunnskaper/kryssbok:** [Derivasjon av vektorfunksjoner](/bok/r2/r2-6-2), [Hastighet og akselerasjon](/bok/r2/r2-6-3); [Bestemt integral som grenseverdi](/bok/r2/r2-2-4), [Analysens fundamentalsetning](/bok/r2/r2-2-5); Fysikk 2-innsteg: [Vektorer og komponenter](/bok/fysikk2/fysikk2-1-1).
+- **Forkunnskaper/kryssbok:** [Derivasjon av vektorfunksjoner](/r2/r2-6-2), [Hastighet og akselerasjon](/r2/r2-6-3); [Bestemt integral som grenseverdi](/r2/r2-2-4), [Analysens fundamentalsetning](/r2/r2-2-5); Fysikk 2-innsteg: [Vektorer og komponenter](/fysikk2/fysikk2-1-1).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: $\mathbf{v} = d\mathbf{r}/dt$, $\mathbf{a} = d\mathbf{v}/dt = d^2\mathbf{r}/dt^2$ (og omvendt ved integrasjon — **arealet under $v(t)$ er forflytning**); tolke og skissere bevegelsesgrafer (fortegn på fart/akselerasjon, når står legemet stille, når snur det); standardformler for **konstant $a$** (fra formelarket, markeres): $v = v_0 + at$, $r = r_0 + v_0 t + \tfrac12 at^2$, $v^2 - v_0^2 = 2a(r-r_0)$ — og **når de IKKE gjelder** (variabel akselerasjon ⇒ integrasjon eller numerikk, peker mot Del 7–8); baneakselerasjon $\mathbf{a} = \dot v\,\hat{\mathbf{u}}_T + (v^2/\rho)\hat{\mathbf{u}}_N$ (tangential + normal — nevnes, står på arket, brukes i Del 4). **Utledning som kreves aktivt:** utlede konstant-$a$-formlene fra integrasjon av $a$ = konstant. **Figurkrav:** koblet sett av $x(t)$-, $v(t)$- og $a(t)$-grafer for samme bevegelse.
 - **Oppgavesjangre:** A-forløper (+ J-graftolkning). Mønstereksempel: «Farten til en bil er gitt ved grafen $v(t)$ [beskrevet]. (a) Når er akselerasjonen størst? (b) Hvor langt kjører bilen i de første 10 sekundene? (c) Forklar hvorfor bevegelsen ikke kan beskrives med formelen $s=\tfrac12 at^2$ på hele intervallet.»
 - **Typiske feil:** Bruke konstant-$a$-formlene der akselerasjonen varierer; forveksle stigningstall (akselerasjon) med areal (forflytning) i graftolkning; glemme fortegn/retning; blande fart og akselerasjon konseptuelt («fart null ⇒ akselerasjon null»).
@@ -351,7 +351,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori + drill (foldet, nivå 2)
 - **description:** Dekomponér i uavhengige `x`- og `y`-bevegelser, bruk symmetri om toppunktet, finn `g`, `v₀` og `θ` — settets faste kast-oppgave.
 - **Eksamensbelegg:** Sjanger A i **~50 %** av settene (Dagobah, pakkelevering, golf; + spiral/konstant-$\alpha$ i H2024). Poeng splittes ofte i «fart» (flest) og «vinkel». Prioritet: **kunne** — men når den kommer, er den en trygg poenghøster hvis metoden sitter.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Bevegelse i to dimensjoner](/bok/fysikk2/fysikk2-1-2) og [Kastering – horisontal og skrå](/bok/fysikk2/fysikk2-1-3) (Fysikk 2-fundament); [Trigonometriske funksjoner og enhetssirkelen](/bok/r1/r1-7-1) (komponentoppdeling).
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Bevegelse i to dimensjoner](/fysikk2/fysikk2-1-2) og [Kastering – horisontal og skrå](/fysikk2/fysikk2-1-3) (Fysikk 2-fundament); [Trigonometriske funksjoner og enhetssirkelen](/r1/r1-7-1) (komponentoppdeling).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: **dekomponér i $x$ og $y$ som uavhengige bevegelser** — uten luftmotstand er $v_x$ konstant og $v_y$ styrt av $g$; **symmetri om toppunktet** ($v_y=0$ i toppen; $v_y$ like stor og motsatt ved symmetriske tider); finn $g$ fra $\Delta v_y/\Delta t$, deretter $v_0 = \sqrt{v_{0x}^2 + v_{0y}^2}$ og $\theta = \arctan(v_{0y}/v_{0x})$; standardresultater som skal kunne utledes: flytid $t_1 = (2v_0/g)\sin\theta$, rekkevidde $x_1 = (v_0^2/g)\sin 2\theta$; **angi alltid retning** på hastigheter (−2p ellers). Kobling framover: **med** luftmotstand er bevegelsen ikke lenger analytisk ⇒ numerikk (kap. 8.2). **Utledning som kreves aktivt:** flytid og rekkevidde fra komponentbevegelsene. **Figurkrav:** banekurve med hastighetsvektoren dekomponert i $v_x$/$v_y$ ved utskyting, topp og nedslag.
 - **Oppgavesjangre:** A (+ J). Mønstereksempel: «En drone slipper en pakke i horisontal flukt i høyde $h$ med fart $v_0$. Finn hvor langt fra utslippspunktet pakken lander, farten idet den treffer bakken (med retning), og forklar hvorfor den horisontale farten er uendret hele veien ned.»
 - **Typiske feil (analysen §3.A):** Finne bare én hastighetskomponent (−2p); ikke angi retning (−2p); la en følgefeil gi $v_x \neq 0$ uten å kommentere det (−1p); blande $\sin$ og $\cos$ i dekomponeringen; bruke konstant-$a$-formler på $x$-retningen (der $a_x=0$).
@@ -369,7 +369,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Newtons lover i vektorform og frilegemediagrammet som en selvstendig, poenggivende ferdighet — navngi hver kraft, riktig retning, riktig angrepspunkt.
 - **Eksamensbelegg:** N2L brukt i **100 %** av settene; **frilegemediagram eksplisitt etterspurt i 6/7**. FBD er ifølge sensor en *selvstendig ferdighet* med egen poenggiving (−2p for udefinerte symboler). Prioritet: **perfekt** — grunnmuren under Del 3–6.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Vektorer og komponenter](/bok/fysikk2/fysikk2-1-1), [Vektorregning](/bok/r1/r1-6-2). Klassisk mekanikk fra Fysikk 1 (VGS, ikke bygget) refereres i klartekst.
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Vektorer og komponenter](/fysikk2/fysikk2-1-1), [Vektorregning](/r1/r1-6-2). Klassisk mekanikk fra Fysikk 1 (VGS, ikke bygget) refereres i klartekst.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: N1 (treghet), **N2 $\sum\mathbf{F} = m\mathbf{a} = d\mathbf{p}/dt$** (fra formelarket, markeres), N3 (kraft–motkraft, ulike legemer); **frilegemediagrammet steg for steg** — (1) isoler ETT legeme, (2) tegn *alle* krefter som virker PÅ det (tyngde, normalkraft, friksjon, snordrag, kontaktkraft) med **navngitte symboler**, (3) riktig retning og angrepspunkt, (4) velg koordinatsystem, (5) skriv N2 komponentvis; **indre vs. ytre krefter** (Münchhausen kan ikke løfte seg selv i egne hår — N3, indre krefter kansellerer); rimelig lengde på vektorene. **Utledning som kreves aktivt:** oppsett av komponentlikningene fra et FBD. **Figurkrav (sentralt):** minst to fullstendige, navngitte frilegemediagram (kloss på horisontalt underlag med og uten trekkraft) — dette er kapitlets kjerneferdighet og eksemplene skal *modellere* sensorstandarden.
 - **Oppgavesjangre:** C-forløper (+ J). Mønstereksempel: «En kloss henger i to snorer med ulik vinkel mot taket. Tegn et fullstendig frilegemediagram med alle krefter navngitt, og finn snordragene. Forklar hvorfor tyngden ikke skal tegnes to ganger selv om klossen henger i to snorer.»
 - **Typiske feil (analysen §5.8):** Udefinerte symboler / uforklarte krefter (−2p); tegne inn krefter som ikke virker på legemet (f.eks. kraften legemet utøver på noe annet — N3-forveksling); glemme en kontaktkraft; fiktiv «sentripetalkraft» eller «bevegelseskraft» tegnet inn (−1p); feil angrepspunkt.
@@ -381,7 +381,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Tyngde, normalkraft, friksjon, snordrag og fjærkraft som konkrete modeller — og dekomponeringen av tyngden på et skråplan.
 - **Eksamensbelegg:** Skråplan-dekomponering inngår i sjanger C og E i de fleste sett (H2023 kloss på kile, V2024 Daytona, V2025 golf/fjær, H2025 kloss+kule). $N = mg\cos\theta$, $f = \mu N$ er standardverktøy. Prioritet: **perfekt**.
-- **Forkunnskaper/kryssbok:** kap. 3.1; [Trigonometriske funksjoner og enhetssirkelen](/bok/r1/r1-7-1) (dekomponering med $\sin/\cos$).
+- **Forkunnskaper/kryssbok:** kap. 3.1; [Trigonometriske funksjoner og enhetssirkelen](/r1/r1-7-1) (dekomponering med $\sin/\cos$).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT (kraftmodellene, fra formelarket der markert): tyngde $\mathbf{G} = m\mathbf{g}$; **dekomponering på skråplan** $mg\sin\theta$ (langs planet) og $mg\cos\theta$ (normalt) — **utled hvilken vinkel som havner hvor** (ikke pugg); normalkraft $N = mg\cos\theta$ (på skråplan, når ingen andre normale krefter); **friksjon:** statisk $|\mathbf{f}_s| \le \mu_s N$, dynamisk $|\mathbf{f}_d| = \mu_d N$ (friksjon motvirker *relativ* bevegelse — retningen må drøftes); fjærkraft $\mathbf{F} = -k(x-x_0)$ (Hookes lov, står på arket); snordrag (masseløs, strekk-kraft langs snora, lik i begge ender over en masseløs trinse); grensetilfellet $\mu = 0 \Rightarrow a = g\sin\theta$. **Utledning som kreves aktivt:** dekomponeringen av tyngden og betingelsen $\mu_s \ge \tan\theta$ for at en kloss ligger i ro på skråplan. **Figurkrav:** skråplan-FBD med tyngden dekomponert i $mg\sin\theta$ og $mg\cos\theta$, normalkraft og friksjon inntegnet.
 - **Oppgavesjangre:** C (+ J). Mønstereksempel: «En kloss ligger på et skråplan med helningsvinkel $\theta$. (a) Tegn frilegemediagram og finn det minste statiske friksjonstallet som holder klossen i ro. (b) Vis at svaret er uavhengig av massen, og forklar fysisk hvorfor.»
 - **Typiske feil:** Bytte om $\sin$ og $\cos$ i dekomponeringen; sette $N = mg$ på skråplan (glemme $\cos\theta$); behandle statisk friksjon som en fast verdi $\mu_s N$ i stedet for en øvre grense; feil friksjonsretning; anta $N$ urimelig stor/liten vs. tyngdekomponenten (−1p).
@@ -422,7 +422,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Kreftene inn mot sentrum gir `ΣF = mv²/r` — riktig fortegnsoppsett i topp og bunn av en loop, og kontakttap ved `N = 0`.
 - **Eksamensbelegg:** Sjanger E i **71 %** av settene (loop, vertikal sirkel V2023; ofte koblet til energibevaring). Fortegnsoppsettet topp/bunn og $N=0$-betingelsen er faste poeng. Prioritet: **kunne**.
-- **Forkunnskaper/kryssbok:** kap. 3.1–3.2; [Sirkelbevegelse og sentripetalkraft](/bok/fysikk2/fysikk2-1-4) (Fysikk 2-fundament); baneakselerasjon fra kap. 2.1.
+- **Forkunnskaper/kryssbok:** kap. 3.1–3.2; [Sirkelbevegelse og sentripetalkraft](/fysikk2/fysikk2-1-4) (Fysikk 2-fundament); baneakselerasjon fra kap. 2.1.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: sentripetalakselerasjon $a_r = v^2/r = \omega^2 r$ (retning inn mot sentrum); **$\sum F_{\text{radiell}} = mv^2/r$** som N2 i radiell retning — **sentripetalkraft er ikke en egen kraft, men resultanten** av de virkelige kreftene (drilles: ikke tegn den inn i FBD, −1p); fortegnsoppsett i vertikal sirkel: bunn $N - mg = mv^2/R$, topp $mg + N = mv^2/R$; **kontakttap ved $N=0$** ⇒ minste toppfart $v_{\text{topp}} > \sqrt{Rg}$; kobling til energibevaring (fart i topp fra fart i bunn via $mgh$). **Utledning som kreves aktivt:** minstefart-betingelsen $v_{\text{topp}} = \sqrt{Rg}$ fra $N=0$, og $h > \tfrac52 R$ for at en kule skal fullføre en loop fra hvile. **Figurkrav:** FBD i topp og bunn av loopen med tyngde og normalkraft, og sentripetalretningen markert.
 - **Oppgavesjangre:** E (+ D, J). Mønstereksempel: «En liten kule sendes gjennom en vertikal loop med radius $R$. (a) Sett opp N2 radielt i toppen og finn minste fart for at kula holder kontakt. (b) Bruk energibevaring til å finne minste starthøyde uten friksjon, og forklar hvorfor betingelsen er en ulikhet, ikke en likhet.»
 - **Typiske feil (analysen §5.12):** Tegne inn en fiktiv sentripetalkraft i FBD (−1p); feil fortegn topp/bunn; sette $v=\sqrt{gR}$ (likhet) uten å forklare at grensen er $N=0$ (−1p); glemme tyngdens bidrag i topp/bunn-oppsettet.
@@ -452,7 +452,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Arbeid som integral av kraft, kinetisk og potensiell energi, energibevaring med begrunnelse, og friksjonsarbeid som lekkasje.
 - **Eksamensbelegg:** Sjanger D (energi-delen) i **100 %** av settene — bærebjelke, ofte kombinert med støt eller rotasjon. **Bevaring må begrunnes** («bare konservative krefter gjør arbeid»). Prioritet: **perfekt**.
-- **Forkunnskaper/kryssbok:** kap. 3.2; [Bestemt integral som grenseverdi](/bok/r2/r2-2-4), [Analysens fundamentalsetning](/bok/r2/r2-2-5) (arbeidsintegralet); [Skalarproduktet](/bok/r2/r2-5-3) ($\mathbf{F}\cdot d\mathbf{r}$).
+- **Forkunnskaper/kryssbok:** kap. 3.2; [Bestemt integral som grenseverdi](/r2/r2-2-4), [Analysens fundamentalsetning](/r2/r2-2-5) (arbeidsintegralet); [Skalarproduktet](/r2/r2-5-3) ($\mathbf{F}\cdot d\mathbf{r}$).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT (fra formelarket, markeres): arbeid $W = \int\mathbf{F}\cdot d\mathbf{r} = \int\mathbf{F}\cdot\mathbf{v}\,dt = K_B - K_A$ (arbeids–energi-teoremet); kinetisk energi $K = \tfrac12 mv^2$; potensiell energi tyngde $U = mgy$, fjær $U = \tfrac12 k(x-x_0)^2$; **effekt** $P = \mathbf{F}\cdot\mathbf{v}$; konservativ kraft $\mathbf{F} = -dU/dx$ (1D); **energibevaring** $K + U = \text{konstant}$ **når bare konservative krefter gjør arbeid** — begrunnelsen skrives ut hver gang; **friksjonsarbeid som lekkasje** $W_f = -\mu N s$ (mekanisk energi tapt til varme); kobling til sirkel (kap. 4) og rotasjon (kap. 6, der $\tfrac12 I\omega^2$ legges til). **Utledning som kreves aktivt:** utlede sluttfart via energibevaring, og vise at friksjon reduserer den. **Figurkrav:** energibalanse-skisse (start/slutt) med $K$, $U$ og eventuelt friksjonstap.
 - **Oppgavesjangre:** D (+ J). Mønstereksempel: «En kloss slippes fra hvile på et skråplan med friksjon og glir en strekning $s$. (a) Finn farten nederst med energiregnskap. (b) Begrunn *både* med energi og med Newtons 2. lov hvorfor klossen kommer kortere med friksjon enn uten.»
 - **Typiske feil (analysen §5.7):** Bruke energibevaring uten å begrunne hvorfor den gjelder (−1p); glemme friksjonsleddet i energiregnskapet; blande arbeid (skalar) og kraft (vektor); feil fortegn på potensiell energi; feil referansenivå for $U$.
@@ -493,7 +493,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Kraftmoment `τ = r × F`, treghetsmoment `I`, rotasjonens Newtons 2. lov `τ = Iα`, og parallellakseteoremet.
 - **Eksamensbelegg:** Sjanger F i **100 %** av settene — rotasjon står mye sterkere enn i et vanlig fysikk 1/2-løp. $\boldsymbol{\tau}=\mathbf{r}\times\mathbf{F}$, $\tau=I\alpha$, treghetsmoment-rangering (H2022) er kjernestoff. Prioritet: **perfekt**.
-- **Forkunnskaper/kryssbok:** kap. 3.1; [Kryssproduktet](/bok/r2/r2-5-4) (kraftmoment); [Vektorer i tre dimensjoner](/bok/r2/r2-5-1).
+- **Forkunnskaper/kryssbok:** kap. 3.1; [Kryssproduktet](/r2/r2-5-4) (kraftmoment); [Vektorer i tre dimensjoner](/r2/r2-5-1).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT (fra formelarket, markeres): **kraftmoment $\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F}$** (kraft gjennom aksen gir null moment — sentralt); treghetsmoment $I = \sum m_i\rho_i^2 = \int\rho^2\,dm$ (Rottmann/formelark gir tabell for stav, sylinder, kule, ring — **slås opp, ikke pugges**); **rotasjonens N2L $\tau_{\text{net}} = I\alpha$** ⇒ $\alpha = \tau/I$; **parallellakseteoremet** $I = I_{cm} + Md^2$ (ved sammensatte legemer / akse utenfor massesenter); rotasjonsenergi $K_{\text{rot}} = \tfrac12 I\omega^2$; analogien translasjon ↔ rotasjon ($m\leftrightarrow I$, $F\leftrightarrow\tau$, $v\leftrightarrow\omega$, $a\leftrightarrow\alpha$); **treghetsmoment-rangering** (samme masse, ulik fordeling ⇒ ulik $I$ — konseptuell midtveis-favoritt). **Utledning som kreves aktivt:** $\alpha$ for en fallende stav i hengsel via $\tau=I\alpha$ om hengselaksen. **Figurkrav:** stav/skive med kraft, momentarm $\mathbf{r}$ og rotasjonsakse markert; illustrasjon av parallellakse.
 - **Oppgavesjangre:** F (+ J). Mønstereksempel: «En homogen stav med masse $M$ og lengde $L$ er hengslet i den ene enden og slippes fra horisontal stilling. (a) Finn vinkelakselerasjonen i det den slippes. (b) Forklar hvorfor tyngden kan behandles som om den angriper i massesenteret når du regner kraftmomentet.»
 - **Typiske feil (analysen §5.15):** Regne kraftmoment om massesenteret og la tyngden bidra (tyngden angriper i massesenteret ⇒ null moment, −2p); bruke $I$ om feil akse (glemme parallellakse); forveksle $\alpha$ (vinkelakselerasjon) og $a$ (baneakselerasjon); glemme at kraft gjennom aksen gir null moment.
@@ -546,7 +546,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Hvordan `m d²y/dt² = ΣF` blir en differensialligning, hvilke typer som forekommer, og hvorfor «å integrere som om `y` er konstant» er meningsløst.
 - **Eksamensbelegg:** ODE-utledning inngår i **86 %** av settene, nesten alltid som forspill til den analytiske løsningen og Python-halen. **Metodefelle:** «å integrere en diff.ligning som om $y$ er konstant» gir **0p** (viser manglende forståelse av hva en ODE er). Prioritet: **perfekt**.
-- **Forkunnskaper/kryssbok:** kap. 2.1, 3.1; [Derivasjon av vektorfunksjoner](/bok/r2/r2-6-2), [Variabelskifte (substitusjon)](/bok/r2/r2-3-1). (R2 dekker ikke differensiallikninger — typologien introduseres her.)
+- **Forkunnskaper/kryssbok:** kap. 2.1, 3.1; [Derivasjon av vektorfunksjoner](/r2/r2-6-2), [Variabelskifte (substitusjon)](/r2/r2-3-1). (R2 dekker ikke differensiallikninger — typologien introduseres her.)
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: **sett opp ODE-en fra N2** ($m\,d^2y/dt^2 = \sum F$) — akselerasjonen er 2. deriverte av posisjon; **klassifiser** ODE-en: 1. ordens vs. 2. ordens, lineær vs. ikke-lineær, homogen vs. inhomogen; hva en løsning ER (en *funksjon* $y(t)$, ikke et tall); rollen til **initialbetingelser** ($y(0)$, $v(0)$) for å bestemme konstantene; hvorfor analytisk løsning bare finnes i spesielle tilfeller (lineær; separabel) og at resten krever numerikk (peker mot Del 8). **Metodefellen forklares eksplisitt:** man kan ikke «integrere opp» en likning der høyresiden avhenger av den ukjente funksjonen som om den var konstant. **Utledning som kreves aktivt:** oppstilling av ODE-en for tre systemer (fritt fall, fjær, fjær + drag). **Figurkrav:** ingen tung figur, men en tabell type → løsningsstrategi.
 - **Oppgavesjangre:** G-forløper (+ H, J). Mønstereksempel: «En kloss henger i en fjær og påvirkes i tillegg av en dempende kraft $-bv$. (a) Sett opp differensialligningen for utslaget $y(t)$ fra Newtons 2. lov. (b) Klassifiser ligningen (orden, lineær/ikke-lineær, homogen/inhomogen) og forklar hvorfor du ikke kan finne $y(t)$ ved å bare integrere begge sider.»
 - **Typiske feil (analysen §5.3):** «Integrere» ODE-en som om $y$/$v$ er konstant (0p); forveksle en ODE med en vanlig likning; feil orden; glemme at det trengs like mange initialbetingelser som ordenen; blande $t$-derivasjon og $x$-derivasjon.
@@ -558,7 +558,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Fjær og pendel som SHM — substitusjon `u = y − y_L`, karakteristisk likning, initialbetingelser, og linearisering av ikke-lineær kraft og pendel via Taylor.
 - **Eksamensbelegg:** Sjanger G (SHM) i **71 %** (V2023 pendel, V2024/V2025 fjær, H2024 ikke-lineær fjær). Sensor fordeler poeng: karakteristisk likning (2p) + generell løsning (1p) + korrekt bruk av initialbetingelser (2p). Siden svaret ofte er oppgitt, kreves **sporbar utledning**. Prioritet: **perfekt**.
-- **Forkunnskaper/kryssbok:** kap. 7.1, 1.2 (Taylor); [Derivasjon av trigonometriske funksjoner](/bok/r1/r1-7-5).
+- **Forkunnskaper/kryssbok:** kap. 7.1, 1.2 (Taylor); [Derivasjon av trigonometriske funksjoner](/r1/r1-7-5).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: **lineær fjær** $m\,d^2y/dt^2 = -k(y-y_L)$ ⇒ substituer $u = y - y_L$ ⇒ $d^2u/dt^2 = -(k/m)u$ ⇒ **karakteristisk likning** $\lambda^2 + \omega_0^2 = 0$ (formelarket/Rottmann gir oppskriften for reelle/like/komplekse røtter — **markeres «står på arket»**); generell løsning $u(t) = A\cos\omega_0 t + B\sin\omega_0 t$ med $\omega_0 = \sqrt{k/m}$; **bruk initialbetingelser** til å bestemme $A,B$; **ikke-lineær kraft** ($F = -kx - cx^2$): finn potensial $U = -\int F\,dx$, finn likevekt $F=0$, **lineariser om likevekt** ($x = x_0 + \xi$, $\xi$ liten, Taylor) ⇒ frekvens for små svingninger $\omega = \sqrt{(k+2cx_0)/m}$; **pendel:** Taylor-utvikle $\sin\theta \approx \theta$ ⇒ SHM med $\omega = \sqrt{g/L}$. **Utledning som kreves aktivt:** hele kjeden N2 → ODE → karakteristisk likning → løsning → initialbetingelser for fjær; og lineariseringen for pendel/ikke-lineær kraft. **Figurkrav:** $y(t)$-graf for SHM med amplitude og periode markert; potensialkurve $U(x)$ med likevekt for den ikke-lineære kraften.
 - **Oppgavesjangre:** G (+ Taylor, J). Mønstereksempel: «En kule på en fjær har likevekt i $y_L$ og fjærkonstant $k$. (a) Utled bevegelsesligningen og løs den analytisk med initialbetingelsene $y(0)=y_0$, $v(0)=0$. (b) En liten kvadratisk korreksjon $-cx^2$ legges til kraften — finn frekvensen for små svingninger om den nye likevekten.»
 - **Typiske feil (analysen §5.3, §3.G):** Bare integrere ligningen (0p); glemme substitusjonen $u=y-y_L$ (feil likevekt); ikke bruke initialbetingelser (ubestemte konstanter); linearisere om feil punkt; blande grader/radianer i $\sin\theta\approx\theta$; feil $\omega_0$.
@@ -570,7 +570,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Drag-modeller, terminalfart, og den separable førsteordens ligningen `v(t) = v_T(1 − e^{−gt/v_T})` — med det som kobler rett videre til Python-sporet.
 - **Eksamensbelegg:** Luftmotstand/drag i **86 %** av settene, **nesten alltid koblet til numerikk-deloppgaven** (Del 8). 1. ordens separabel (H2023 fallende fjær med $-k_v v$) løses analytisk når mulig. Prioritet: **perfekt**.
-- **Forkunnskaper/kryssbok:** kap. 7.1; [Variabelskifte (substitusjon)](/bok/r2/r2-3-1), [Integrasjon av 1/x og eksponentialfunksjoner](/bok/r2/r2-2-3).
+- **Forkunnskaper/kryssbok:** kap. 7.1; [Variabelskifte (substitusjon)](/r2/r2-3-1), [Integrasjon av 1/x og eksponentialfunksjoner](/r2/r2-2-3).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: **drag-modeller** (fra formelarket, markeres) — lineær $F_D = -k_v v$, kvadratisk $F_D = -D|v|v$ (**absoluttverdien avgjørende for riktig fortegn uansett retning** — knyttes til kodedisiplinen i Del 8); **terminalfart** $v_T$ fra $\sum F = 0$ (f.eks. $v_T = mg/k_v$ lineært, $v_T = \sqrt{mg/D}$ kvadratisk); **1. ordens separabel:** $m\,dv/dt = mg - k_v v$ ⇒ separer variabler ⇒ integrer ⇒ $v(t) = v_T(1 - e^{-gt/v_T})$; tolk grensen $t\to\infty$ ($v\to v_T$) og $t\to 0$ (fritt fall); når drag er kvadratisk eller banen 2D, finnes **ingen enkel analytisk løsning** ⇒ numerikk (Del 8). **Utledning som kreves aktivt:** hele den separable løsningen for lineær drag, og terminalfart for begge modeller. **Figurkrav:** $v(t)$-kurve som stiger mot $v_T$-asymptoten.
 - **Oppgavesjangre:** G (+ H, J). Mønstereksempel: «Et lodd faller i en væske med lineær luftmotstand $-k_v v$. (a) Sett opp og løs bevegelsesligningen analytisk med $v(0)=0$. (b) Finn terminalfarten og forklar fysisk hva som skjer når den er nådd. (c) Hvorfor må du gå over til numerikk hvis motstanden i stedet er $-D|v|v$?»
 - **Typiske feil (analysen §5.4):** Glemme absoluttverdi i kvadratisk drag ($v^2$ i stedet for $|v|v$, feil fortegn når legemet snur); feil fortegn i separasjonen; glemme integrasjonskonstanten / initialbetingelsen; tro at kvadratisk 1D-drag har like enkel lukket løsning som lineær; feil terminalfart.
@@ -612,7 +612,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori (Python, med kodekontrakt)
 - **description:** Diskretiser tiden, skriv akselerasjonen fra ODE-en, oppdater fart så posisjon — og begrunn hvorfor Euler–Cromer er sensorens foretrukne metode.
 - **Eksamensbelegg:** Sjanger H i **100 %** av settene, nesten alltid som **siste deloppgave i en ODE-oppgave**: «skisser en kode / integrasjonsløkke». **Euler–Cromer er sensorens klart foretrukne metode og skal kunne begrunnes.** Prioritet: **perfekt** (den viktigste ferdigheten som skiller FYS1100).
-- **Forkunnskaper/kryssbok:** kap. 7.1; [Numerisk integrasjon](/bok/r2/r2-3-4), [Programmering av integrasjon](/bok/r2/r2-3-5), [Numerisk modellering av bevegelse](/bok/fysikk2/fysikk2-1-5). Python-grunnlag (lister, `for`-løkker, NumPy) repeteres kort; IN1900 refereres i klartekst (ikke bygget).
+- **Forkunnskaper/kryssbok:** kap. 7.1; [Numerisk integrasjon](/r2/r2-3-4), [Programmering av integrasjon](/r2/r2-3-5), [Numerisk modellering av bevegelse](/fysikk2/fysikk2-1-5). Python-grunnlag (lister, `for`-løkker, NumPy) repeteres kort; IN1900 refereres i klartekst (ikke bygget).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: **diskretisering** — velg $N$ punkter, steglengde $dt$, forhåndsallokér arrays `t`, `x`/`theta`, `v`/`omega`; sett **initialbetingelser** i indeks 0; skriv **akselerasjonen fra ODE-en** inne i løkka; **Euler–Cromer-løkka** (kodekontrakt):
   ```
   for i in range(N-1):
@@ -643,7 +643,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori (Python, med kodekontrakt)
 - **description:** Kjenne igjen at Forward Euler «lekker energi», rette det, utvide koden med et nytt kraftledd, og integrere måledata med trapesmetoden.
 - **Eksamensbelegg:** Sjanger H, de nyere undertypene: **feilvurdering av numerisk metode** (H2024 kometbane — Forward Euler gir spiral utover i stedet for lukket ellipse; rett ved Euler–Cromer / mindre $dt$); **kodemodifikasjon** (utvide med solvind $F_s = s/r^2$ radielt utover — og huske at massen $m$ må med når kraften ikke er masseuavhengig); **trapesmetode på datafil** (H2022, arbeid $W = \int F\,dx$ fra ujevne data). Prioritet: **perfekt**.
-- **Forkunnskaper/kryssbok:** kap. 8.2; [Numerisk integrasjon](/bok/r2/r2-3-4) (trapesmetoden); kap. 5.1 (arbeidsintegralet).
+- **Forkunnskaper/kryssbok:** kap. 8.2; [Numerisk integrasjon](/r2/r2-3-4) (trapesmetoden); kap. 5.1 (arbeidsintegralet).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: **feildiagnose** — Forward Euler «lekker energi» (amplitude/bane vokser urealistisk: oscillator sprer seg ut, planetbane spiraler utover); **rettemetoder:** bytt til Euler–Cromer, reduser $dt$, eller bruk høyere ordens metode (Runge–Kutta nevnes som beredskap, ikke satsingsområde); **kodemodifikasjon:** legg til et nytt kraftledd i akselerasjonslinja (f.eks. solvind $F_s = s/r^2$ radielt utover) — **og huske massen** når den nye kraften ikke er masseuavhengig ($a = F/m$); **trapesmetode på måledata** med ujevne intervaller: `W += (F[i+1]+F[i])*(x[i+1]-x[i])/2`; kvalitetssjekk av numerisk svar (benevning, størrelsesorden, grensetilfeller). **Utledning som kreves aktivt:** forklare *hvorfor* Forward Euler lekker energi og hvordan Euler–Cromer retter det. **Figurkrav:** to baner (Forward Euler spiral vs. Euler–Cromer lukket ellipse); trapes-skjema over ujevne datapunkter.
 - **Oppgavesjangre:** H (+ J). Mønstereksempel: «En student modellerer en planet rundt sola med Forward Euler og får en bane som sakte spiraler utover. (a) Forklar hva som er galt fysisk. (b) Angi to måter å rette det på. (c) Sola begynner å sende ut en radiell solvind $F_s = s/r^2$ — vis hvordan du endrer akselerasjonslinja, og forklar hvorfor massen nå må stå i uttrykket.»
 - **Typiske feil (analysen §3.H-undertyper):** Ikke gjenkjenne energilekkasjen som en *metodefeil* (tror det er fysikk); glemme massen når et masseavhengig kraftledd legges til; feil trapesformel ved ujevne intervaller; endre for lite i en kodemodifikasjon (0p for uendret eksempelkode); ikke kvalitetssjekke svaret.
@@ -661,7 +661,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori (kompakt kjenne-kapittel)
 - **description:** `F = GMm/r²` som sentripetalkraft, unnslipningsfart fra energibevaring, dimensjonsanalyse for banefart, og komet-/satellitt-ODE på komponentform.
 - **Eksamensbelegg:** Sjanger K i **~35 %**, men **klart økende** (H2024 kometbane, H2025 satellittbane med dimensjonsanalyse, prøve: unnslipningsfart). Bevaringsargumentene må begrunnes (spinn «fordi kraften er radiell», energi «fordi bare tyngden gjør arbeid»). Prioritet: **kjenne** (kompakt, men reelt — og kobler flere søyler).
-- **Forkunnskaper/kryssbok:** kap. 4.1, 5.1; [Newtons gravitasjonslov](/bok/fysikk2/fysikk2-2-1), [Unnslippningsfart og satellittbaner](/bok/fysikk2/fysikk2-2-4); dimensjonsanalyse fra kap. 1.1; komponentvis ODE fra kap. 8.2.
+- **Forkunnskaper/kryssbok:** kap. 4.1, 5.1; [Newtons gravitasjonslov](/fysikk2/fysikk2-2-1), [Unnslippningsfart og satellittbaner](/fysikk2/fysikk2-2-4); dimensjonsanalyse fra kap. 1.1; komponentvis ODE fra kap. 8.2.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT (fra formelarket, markeres): gravitasjonskraft $\mathbf{F} = -\dfrac{GMm}{r^2}\hat{\mathbf{r}}$, potensiell energi $U = -\dfrac{GMm}{r}$; **sirkelbane:** gravitasjon som sentripetalkraft ⇒ $v = \sqrt{GM/r}$; **dimensjonsanalyse** for å utlede $v \sim \sqrt{GM/r_0}$ (kobler kap. 1.1); **unnslipningsfart** $v_u = \sqrt{2GM/R}$ fra energibevaring ($\tfrac12 mv^2 = GMm/R$); **sentralkraftbevegelse:** bevaring av mekanisk energi og spinn (aphel/perihel via $mv_1 r_1 = mv_2 r_2$); **komet-/satellitt-ODE på komponentform** $d^2x/dt^2 = -GM\,x/(x^2+y^2)^{3/2}$ (og tilsvarende $y$) — løses numerisk (kobler kap. 8.2). **Utledning som kreves aktivt:** $v=\sqrt{GM/r}$ og $v_u=\sqrt{2GM/R}$, samt oppsett av komponent-ODE-en. **Figurkrav:** ellipsebane med aphel/perihel og fartsvektorer; sirkelbane med gravitasjon inn mot sentrum.
 - **Oppgavesjangre:** K (+ H, J). Mønstereksempel: «En satellitt går i sirkelbane i høyde $h$ over en planet med masse $M$ og radius $R$. (a) Finn banefarten. (b) Bruk dimensjonsanalyse til å bekrefte hvordan farten skalerer med $GM$ og baneradien. (c) Skriv med ord hvordan du ville satt opp en numerisk løsning hvis banen i stedet var elliptisk.»
 - **Typiske feil:** Glemme fortegnet/formen på $U = -GMm/r$ (potensiell energi negativ); bruke bevaring uten begrunnelse; blande unnslipningsfart og banefart (faktor $\sqrt2$); feil potens i komponent-ODE-en ($r^3$ i nevneren); ikke koble spinnbevaring til at kraften er radiell.
@@ -679,7 +679,7 @@ sensor-kommentert gjennomregnet case + 8–15 oppgaver på eksamensnivå.
 - **kapitteltype:** teori
 - **description:** Regneoppgaven i SR — `γ`, `Δt = γΔt₀`, `l = l₀/γ`, hastighetsaddisjon — med disiplin på egentid/egenlengde og romtidsdiagram.
 - **Eksamensbelegg:** Sjanger I (regnevarianten) i **86 %** av settene, nesten alltid siste oppgave. Nyere oppgaver kombinerer tidsdilatasjon med strekning ($d = v\gamma\tau$) og løser for $v$, og krever **romtidsdiagram** (H2025). Prioritet: **kunne** (avgjør B mot C).
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Spesiell relativitetsteori – postulater](/bok/fysikk2/fysikk2-6-1), [Tidsdilatasjon](/bok/fysikk2/fysikk2-6-2), [Lengdekontraksjon](/bok/fysikk2/fysikk2-6-3); Taylor fra kap. 1.2 (rekkeutvikling av $E$).
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Spesiell relativitetsteori – postulater](/fysikk2/fysikk2-6-1), [Tidsdilatasjon](/fysikk2/fysikk2-6-2), [Lengdekontraksjon](/fysikk2/fysikk2-6-3); Taylor fra kap. 1.2 (rekkeutvikling av $E$).
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT (fra formelarket, markeres): Lorentz-faktor $\gamma = 1/\sqrt{1-v^2/c^2}$; **tidsdilatasjon** $\Delta t = \gamma\Delta t_0$ (egentid $\Delta t_0$ måles der de to hendelsene skjer på **samme sted**); **lengdekontraksjon** $l = l_0/\gamma$ (egenlengde $l_0$ måles i legemets hvilesystem); **hastighetsaddisjon** $v' = (v-u)/(1-uv/c^2)$; kombinasjoner ($d = v\gamma\tau$, løs for $v$); **relativistisk energi** $E = \gamma mc^2$, hvileenergi $mc^2$, og Taylor-grensen $\to \tfrac12 mv^2$ (kap. 1.2); **romtidsdiagram** (verdenslinjer, samtidighetslinjer — tegneferdighet). **Utledning som kreves aktivt:** identifisere egentid/egenlengde i et konkret oppsett og løse for ukjent fart/tid/lengde. **Figurkrav:** romtidsdiagram med to verdenslinjer og en samtidighetslinje.
 - **Oppgavesjangre:** I (+ Taylor). Mønstereksempel: «Et romskip flyr forbi en stasjon med fart $v = 0{,}8c$. (a) En prosess tar $\tau$ målt om bord — hvor lenge varer den sett fra stasjonen? Angi hvilket system som måler egentid. (b) Skipet er $l_0$ langt i sitt hvilesystem — hvor langt er det sett fra stasjonen? (c) Tegn et romtidsdiagram som viser situasjonen.»
 - **Typiske feil (analysen §5.10):** Bytte om egentid/egenlengde eller $l$ og $l_0$ (−2p); bruke bevegelsesligninger uten Lorentz-faktor (0p); feil retning i hastighetsaddisjonen; bruke $\gamma$ på feil størrelse; radianer/grader-uavhengig, men fortegn i romtidsdiagram feil.
@@ -871,7 +871,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    kapitler (id/number/title/description/estimatedMinutes/topics/prerequisites)
    etter mønster `COURSE_BI_OKONOMI`; `sectionNames` fra §2-tabellen (obligatorisk
    — ellers viser bokforsiden «Seksjon N»). Legg emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under Universitetet i Oslo, navn
+   `src/app/trinn/hoyere/institusjoner.ts` under Universitetet i Oslo, navn
    «FYS1100 Mekanikk og modellering».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–K, grunnmalen O1–O5 og
    frekvenstallene som resten av boka refererer til (inkl. Lagrange-avgrensningen).

@@ -794,7 +794,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    leser HELE skjelettet).
 5. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert som kapitlene
    ferdigstilles; prøvene (§6) legges i respektive delers prøvekapittel/exercise-seksjoner.
-6. **Navigasjon/wiring**: NTNU legges inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+6. **Navigasjon/wiring**: NTNU legges inn i `src/app/trinn/hoyere/institusjoner.ts`
    (`slug: 'ntnu'`, `fullName: 'Norges teknisk-naturvitenskapelige universitet'`) hvis den
    ikke finnes fra tdt4145/tdt4171; `tdt4300` legges under NTNU med visningsnavn
    «TDT4300 Datavarehus og datagruvedrift». **Kryssbok-lenker til TDT4145** legges KUN inn

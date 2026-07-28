@@ -52,7 +52,7 @@
 > programmering). TDT4110 er ikke i systemet — forkunnskaps-referanser til
 > grunnleggende programmering skrives som **klartekst med aktiveringsmarkør**, ikke
 > som live markdown-lenker (se stilregel §1.7). Interne TDT4100-lenker
-> (`[tittel](/bok/tdt4100/<id>)`) peker kun på kapitler som finnes.
+> (`[tittel](/tdt4100/<id>)`) peker kun på kapitler som finnes.
 
 ---
 
@@ -121,10 +121,10 @@ ved siden av koden.
    trekke om det vitner om misforståelse (§5.14 i analysen). Manglende `import`/`;`/`}` og
    norske bokstaver (æ, ø, å) i kode vektlegges ikke.
 7. **Forkunnskaper og kryssbok-lenker.** Interne forkunnskaper lenkes med live markdown
-   (`[tittel](/bok/tdt4100/<id>)`) — kun til kapitler som finnes. Forgjengeren **ITGK/
+   (`[tittel](/tdt4100/<id>)`) — kun til kapitler som finnes. Forgjengeren **ITGK/
    TDT4110** (Python-grunnleggende) er ikke i systemet: referer til grunnleggende
    programmering (variabler, løkker, metoder, betingelser) som **klartekst med
-   aktiveringsmarkør** `[aktiver lenke /bok/tdt4110/<id> når TDT4110 er bygget]`, aldri
+   aktiveringsmarkør** `[aktiver lenke /tdt4110/<id> når TDT4110 er bygget]`, aldri
    som live lenke.
 8. **Diagrammer i strukturert tekst/ASCII.** Plattformen tegner ikke grafisk. Objekt-,
    objekttilstands- og UML-klassediagram beskrives i **strukturert tekst/ASCII** slik en
@@ -295,7 +295,7 @@ oppførsel OG begrunnelse). Prioritetsklasser: **perfekt** (nivå 1) / **kunne**
 - **id:** `tdt4100-1-1` · **number:** 1.1 · **estimatedMinutes:** 45 · **prerequisites:** ingen · **kapitteltype:** teori
 - **description:** Fundamentet: klassedeklarasjon, instansvariabler (felt) med type, konstruktør, `this`, instansiering med `new`, primitiver vs. referansetyper, `null`, og `toString()` — broa fra ITGK/Python-programmering til Java.
 - **Eksamensbelegg:** Grunnlag for ALT (Del 1–5). Java-syntaks og objektmodellen er terskelen fra ITGK. Prioritet: **perfekt**.
-- **Kodekontrakt (API- og konstruksjonsliste):** `class Navn { … }`; **felt** deklarert med type (`int alder; String navn; double pris;`); **konstruktør** `Navn(int a, String n) { this.alder = a; this.navn = n; }`; `this` (mottakerobjektet — motsvarer Pythons `self`, men implisitt der det ikke trengs); instansiering `new Navn(...)`; **primitiver** (`int`/`double`/`boolean`/`char`/`long`) vs. **referansetyper** (`String`, egne klasser) og `null`; `==` (referanselikhet) vs. `.equals(...)` (verdilikhet, utdypes 2.2); `toString()` redefinert med `@Override`, kalt implisitt av `System.out.println(obj)` og streng­konkatenering; `String.format("%s: %d kr", navn, pris)`. **Kryssbok-forkunnskap (ITGK/TDT4110, klartekst m/aktiveringsmarkør):** grunnleggende programmering — variabler, typer, løkker, betingelser, funksjoner/metoder — `[aktiver lenke /bok/tdt4110/<id> når TDT4110 er bygget]`. Vis oversettelsestabellen `__init__`→konstruktør, `self`→`this`, `__str__`→`toString`, attributt→felt, dynamisk→statisk typing.
+- **Kodekontrakt (API- og konstruksjonsliste):** `class Navn { … }`; **felt** deklarert med type (`int alder; String navn; double pris;`); **konstruktør** `Navn(int a, String n) { this.alder = a; this.navn = n; }`; `this` (mottakerobjektet — motsvarer Pythons `self`, men implisitt der det ikke trengs); instansiering `new Navn(...)`; **primitiver** (`int`/`double`/`boolean`/`char`/`long`) vs. **referansetyper** (`String`, egne klasser) og `null`; `==` (referanselikhet) vs. `.equals(...)` (verdilikhet, utdypes 2.2); `toString()` redefinert med `@Override`, kalt implisitt av `System.out.println(obj)` og streng­konkatenering; `String.format("%s: %d kr", navn, pris)`. **Kryssbok-forkunnskap (ITGK/TDT4110, klartekst m/aktiveringsmarkør):** grunnleggende programmering — variabler, typer, løkker, betingelser, funksjoner/metoder — `[aktiver lenke /tdt4110/<id> når TDT4110 er bygget]`. Vis oversettelsestabellen `__init__`→konstruktør, `self`→`this`, `__str__`→`toString`, attributt→felt, dynamisk→statisk typing.
 - **Oppgavesjangre:** Forkunnskap til A. Mønstereksempel (nyskrevet): «Lag klassen `Vare` med felt `navn` og `pris`, en konstruktør som setter begge, og en `toString()` som gir `"Kaffe: 39 kr"`.»
 - **Typiske feil:** Glemme `this.` når parameternavn = feltnavn (feltet blir ikke satt); bruke `==` på `String`/objekter i stedet for `.equals`; glemme type på felt/parametre; tro at Java har Pythons dynamiske typing; la `toString()` returnere noe annet enn en `String`.
 - **Quiz: 22 · Flashcards: 28**
@@ -772,9 +772,9 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
   konstruksjoner har `collapsible` «API- og konstruksjonsliste» rett etter Forkunnskaper, som
   forklarer ALLE konstruksjoner brukt i delkapitlet med **når/hvorfor**, ikke signaturpugg
   (hjelpemiddel C — «tren bruk»); per delkapittel, ikke arv fra tidligere.
-- [ ] **Kryssbok-lenker**: interne TDT4100-lenker (`[tittel](/bok/tdt4100/<id>)`) peker kun på
+- [ ] **Kryssbok-lenker**: interne TDT4100-lenker (`[tittel](/tdt4100/<id>)`) peker kun på
   kapitler som finnes; forgjenger ITGK/TDT4110 refereres som **klartekst med aktiveringsmarkør**
-  (`[aktiver lenke /bok/tdt4110/<id> når TDT4110 er bygget]`), aldri som live lenke.
+  (`[aktiver lenke /tdt4110/<id> når TDT4110 er bygget]`), aldri som live lenke.
 - [ ] **Idiomkatalogen (§3b)**: de 15 kode-/mønstermalene finnes som `theorem`-blokker i angitte
   kapitler og gjentas i drill/studieguide.
 - [ ] **Begrunnelse i løsningsforslag**: alle løsningsforslag (drill + øvingseksamener) markerer

@@ -407,7 +407,7 @@ Eksamenstreningskapitlene (Del 12) har egne oppsett — se §3.
   + en reduksjon i forelesningsstil med et definisjons-ark** (moderne). Etablerer
   malene resten av boka bruker.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 1–8 på tvers). Prioritet: perfekt (meta).
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Modulær aritmetikk og Euklid](/bok/ma1301/ma1301-1-2)
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Modulær aritmetikk og Euklid](/ma1301/ma1301-1-2)
   `(verifiser lenke)`. `collapsible` **Definisjons- og formelliste:** notasjonskanon
   (§1 stilregel 7) + de to arkene i kortform.
 - **Innholdskontrakt (flashcard-kilde):** **Algoritme-arket** (klassisk):
@@ -464,7 +464,7 @@ Eksamenstreningskapitlene (Del 12) har egne oppsett — se §3.
   (frekvensanalyse), Hill blokk 2 (matriseinvers mod 26) — knekk for hånd.
 - **Eksamensbelegg:** 33 % (7/21), K-favoritt, som flervalg i 2024. Sjanger A.
   Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Modulær invers](/bok/ma1301/ma1301-1-2)
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Modulær invers](/ma1301/ma1301-1-2)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** mod-26-aritmetikk,
   invertible rester mod 26, matriseinvers mod $n$.
 - **Innholdskontrakt:** de fire chiffertypene med angrepsmetode; **$a$ må være
@@ -514,8 +514,8 @@ grunnlagsprøve på eksamensnivå).
   er anvendelsen og kostnadstellingen.
 - **Eksamensbelegg:** CRT 43 % (9/21, verktøy sjelden egen oppgave); Euklid/rask
   eksponentiasjon gjennomgående. Sjangre B, C, D, E (verktøy). Prioritet: grunnlag.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Euklids algoritme og CRT](/bok/ma1301/ma1301-1-3)
-  `(verifiser lenke)`, [Fermat/Euler](/bok/ma1301/ma1301-2-2) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Euklids algoritme og CRT](/ma1301/ma1301-1-3)
+  `(verifiser lenke)`, [Fermat/Euler](/ma1301/ma1301-2-2) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** $\gcd$, $a^{-1}\bmod n$, $\varphi(N)$,
   Fermat/Euler, CRT-formelen.
 - **Innholdskontrakt:** utvidet Euklid → invers; **rask eksponentiasjon** med
@@ -539,7 +539,7 @@ grunnlagsprøve på eksamensnivå).
   reduksjonspolynomet ikke er irreducibelt.
 - **Eksamensbelegg:** 33 % (7/21). Sjanger M. Grunnbegrepene i TMA4150; her
   anvendelsen. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Ringer og kropper](/bok/tma4150/tma4150-4-1)
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Ringer og kropper](/tma4150/tma4150-4-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $\mathbb{F}_q$,
   $\mathbb{F}_2[x]/(p(x))$, irreducibelt polynom, multiplikativgruppe.
 - **Innholdskontrakt:** konstruer $\mathbb{F}_{16}=\mathbb{F}_2[x]/(x^4+x+1)$, vis
@@ -567,7 +567,7 @@ verktøykasse-prøve på eksamensnivå).
   primtallspotens, CRT sammen) — med den innebygde konsistenssjekken.
 - **Eksamensbelegg:** DL-algoritmer 62 % (13/21), nesten alltid i K. Sjanger B.
   Ofte «bruk metode X *og* Y og sjekk at svarene stemmer». Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Orden og sykliske grupper](/bok/tma4150/tma4150-2-1)
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Orden og sykliske grupper](/tma4150/tma4150-2-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $\log_g x$,
   gruppeorden, BSGS-parametere, Pohlig–Hellman-CRT.
 - **Innholdskontrakt:** **BSGS** (algoritme + $O(\sqrt p)$-kostnad, utledes med
@@ -692,7 +692,7 @@ Pollard ρ + relasjoner (#1) · 3.D samlet DL-prøve med to-metode-kryssjekk).
   $|\#E-(p+1)|\le 2\sqrt p$, punkttelling (kombiner Hasse-intervallet med kjent
   punktorden via Lagrange, evt. CRT), og syklisitet.
 - **Eksamensbelegg:** Del av ECC-62 %. Sjanger D. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 5.1; [Lagranges teorem](/bok/tma4150/tma4150-2-1)
+- **Forkunnskaper/kryssbok:** kap. 5.1; [Lagranges teorem](/tma4150/tma4150-2-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $\#E$, punktorden,
   Hasse-grensen, Lagrange.
 - **Innholdskontrakt:** **punktorden** (minste $k$ med $kP=\mathcal{O}$);
@@ -741,7 +741,7 @@ delpunkt-kjeding).
   $d=e^{-1}\bmod\varphi(n)$, evt. mod $\mathrm{lcm}(p-1,q-1)$), nøkkelgenerering,
   og å faktorisere $n$ gitt $\varphi(N)$.
 - **Eksamensbelegg:** RSA 67 % (14/21), begge epoker. Sjanger E. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [RSA-grunnlaget](/bok/ma1301/ma1301-3-1)
+- **Forkunnskaper/kryssbok:** kap. 2.1; [RSA-grunnlaget](/ma1301/ma1301-3-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $n=pq$, $e$, $d$,
   $\varphi(n)$, $\mathrm{lcm}(p-1,q-1)$.
 - **Innholdskontrakt:** RSA-oppsett + korrekthet (via Euler); **$e$ må være
@@ -783,7 +783,7 @@ delpunkt-kjeding).
   (kvadratrøtter mod $n$ med $p,q\equiv3\pmod4$), og at kvadratrot ⇒ faktorisering.
 - **Eksamensbelegg:** Jacobi/kvadratiske rester 33 % (7/21, rent K); Rabin del av
   signatur-blokken. Sjangre L, G. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 6.1; [Kvadratiske rester](/bok/ma1301/ma1301-4-2)
+- **Forkunnskaper/kryssbok:** kap. 6.1; [Kvadratiske rester](/ma1301/ma1301-4-2)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $(a/n)$,
   Legendre vs. Jacobi, kvadratisk resiprositet.
 - **Innholdskontrakt:** beregn Jacobi-symbol via resiprositet; **Jacobi $=1$ er
@@ -1034,7 +1034,7 @@ IND-CPA/DDH) med orakel-telling).
   (offentlig «stygg» basis $B'=UB$, dekrypter med «pen» basis + rund av).
 - **Eksamensbelegg:** Gitter 10 % (2015 GGH-lignende + 2024). Sjanger K. Prioritet:
   kjenne (men obligatorisk framtidsmål).
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Matriser og determinant](/bok/tma4110/tma4110-3-1)
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Matriser og determinant](/tma4110/tma4110-3-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** gitter $\Lambda$,
   basis $B$, unimodulær $U$, closest-vector.
 - **Innholdskontrakt:** gitter/basis; **unimodulær $U$** knytter to baser til samme

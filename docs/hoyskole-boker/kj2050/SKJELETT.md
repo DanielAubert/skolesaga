@@ -371,9 +371,9 @@ se §3 og §4.
 - **Eksamensbelegg:** Fundament for alle titreringsoppgavene; **primær-/sekundærstandard**
   og **ekvivalens vs. endepunkt** er faste avkrysningspåstander (K) og definisjonsspørsmål.
   Sensorkrav 4 og 7. Sjangre: K, definisjonsdeler i A/B/C/H. Prioritet: grunnlag/kunne.
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Konsentrasjon](/bok/kjemi1/kjemi1-5-2) og
-  [Støkiometriske beregninger](/bok/kjemi1/kjemi1-5-3); [Titrering](/bok/kjemi1/kjemi1-9-4)
-  (grunnleggende titreringsprinsipp); [Usikkerhet og feilkilder](/bok/kjemi1/kjemi1-12-2).
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Konsentrasjon](/kjemi1/kjemi1-5-2) og
+  [Støkiometriske beregninger](/kjemi1/kjemi1-5-3); [Titrering](/kjemi1/kjemi1-9-4)
+  (grunnleggende titreringsprinsipp); [Usikkerhet og feilkilder](/kjemi1/kjemi1-12-2).
 - **Faktakontrakt:** **ekvivalenspunkt** (støkiometrisk endepunkt) vs. **endepunkt**
   (der indikatoren faktisk slår om) og titrerfeilen som differansen; **primærstandard**
   (høy renhet, kjent/stabil støkiometri, ikke-hygroskopisk, høy formelvekt — f.eks. KIO₃,
@@ -405,9 +405,9 @@ se §3 og §4.
 - **Eksamensbelegg:** Ikke egen oppgave, men forutsetning for titrerfeil (Del 3),
   løselighetsprodukt (4.4), syre-base (2.1–2.2) og redoks (5.1). Sensorkrav 5. Prioritet:
   grunnlag/kunne.
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Likevektsbegrepet](/bok/kjemi2/kjemi2-3-1),
-  [Massevirkningsloven](/bok/kjemi2/kjemi2-3-2), [Likevektsberegninger](/bok/kjemi2/kjemi2-3-4);
-  [Løselighetsproduktet Ksp](/bok/kjemi2/kjemi2-5-2).
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Likevektsbegrepet](/kjemi2/kjemi2-3-1),
+  [Massevirkningsloven](/kjemi2/kjemi2-3-2), [Likevektsberegninger](/kjemi2/kjemi2-3-4);
+  [Løselighetsproduktet Ksp](/kjemi2/kjemi2-5-2).
 - **Faktakontrakt:** massevirkningsloven $K = \prod[\text{produkt}]/\prod[\text{reaktant}]$
   (aktivitet ≈ konsentrasjon i fortynnet løsning — se 1.3); $K_w = [\text{H}^+][\text{OH}^-] = 10^{-14}$
   (25 °C); $K_a$, $K_b$, sammenhengen $K_a K_b = K_w$; $\text{p}K = -\log K$; løselighetsprodukt
@@ -437,8 +437,8 @@ se §3 og §4.
 - **Eksamensbelegg:** Selve **betinget-konstant-konseptet** er toppoeng-nøkkelen i
   titrerfeiloppgaven (sjanger A, 71 %) og bakgrunnen for maskering/selektivitet (sjanger B).
   Sensorkrav 5; typisk feil F1. Prioritet: grunnlag → men konseptuelt **perfekt** (bærer Del 3).
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Le Chateliers prinsipp](/bok/kjemi2/kjemi2-3-3)
-  (forskyvning ved pH-endring); [Bufferløsninger](/bok/kjemi2/kjemi2-4-4).
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Le Chateliers prinsipp](/kjemi2/kjemi2-3-3)
+  (forskyvning ved pH-endring); [Bufferløsninger](/kjemi2/kjemi2-4-4).
 - **Faktakontrakt:** aktivitet $a = \gamma c$ og aktivitetskoeffisient $\gamma$;
   **ionestyrke** $I = \tfrac{1}{2}\sum c_i z_i^2$ (kvalitativt: høyere $I$ → lavere $\gamma$
   for ioner); at analytisk praksis oftest bruker konsentrasjon som tilnærming, men at avvik
@@ -478,8 +478,8 @@ $\alpha$/$K'$-mekanikken · 1.D samlet grunnlagsprøve på eksamensnivå).
 - **Eksamensbelegg:** Syre-base i 9/17 sett (53 %, sjanger H); indikatorvalg og innstilling
   er faste deloppgaver, ofte som ENTEN/ELLER-alternativ til en EDTA-beregning. Sensorkrav
   1, 4, 7. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 1.1–1.2; [Syre-base-teori](/bok/kjemi2/kjemi2-4-1),
-  [pH og pOH](/bok/kjemi2/kjemi2-4-2), [Titrering og ekvivalenspunkt](/bok/kjemi2/kjemi2-4-3).
+- **Forkunnskaper/kryssbok:** kap. 1.1–1.2; [Syre-base-teori](/kjemi2/kjemi2-4-1),
+  [pH og pOH](/kjemi2/kjemi2-4-2), [Titrering og ekvivalenspunkt](/kjemi2/kjemi2-4-3).
 - **Faktakontrakt:** indikatoromslag ≈ $\text{p}K_a(\text{ind}) \pm 1$; regel om at
   indikatorens omslagsintervall skal ligge rundt ekvivalens-pH (±1 pH-enhet); pH ved
   ekvivalens for sterk/sterk, sterk/svak; innstilling av HCl mot Na₂CO₃ og NaOH mot
@@ -508,7 +508,7 @@ $\alpha$/$K'$-mekanikken · 1.D samlet grunnlagsprøve på eksamensnivå).
   syre-base.
 - **Eksamensbelegg:** CO₂-/karbonatfeilen er syre-base-sjangerens signaturvariant (del av
   de 53 %). Sensorkrav 1, 4. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Flerprotiske syrer](/bok/kjemi2/kjemi2-4-5).
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Flerprotiske syrer](/kjemi2/kjemi2-4-5).
 - **Faktakontrakt:** karbonsyresystemet $K_{a1}$, $K_{a2}$; de to ekvivalenspunktene ved
   titrering av karbonat/hydrogenkarbonat; hvorfor CO₂-forurenset lut gir feil ved titrering
   til pH 7 (bikarbonat-buffring); tiltak: titrer til 2. ekvivalenspunkt, kok ut CO₂ før
@@ -697,8 +697,8 @@ medtitrering og maskeringsforslag). Alle med DATA-boks; svar i prosent + tolknin
   for Fe, klorid og sulfat.
 - **Eksamensbelegg:** Gravimetri i 13/17 sett (76 %, sjanger D); prosedyren og gravimetrisk
   faktor er faste. Sensorkrav 1, 2. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.2 ($K_{sp}$); [Fellingsreaksjoner](/bok/kjemi2/kjemi2-5-3);
-  [Støkiometriske beregninger](/bok/kjemi1/kjemi1-5-3).
+- **Forkunnskaper/kryssbok:** kap. 1.2 ($K_{sp}$); [Fellingsreaksjoner](/kjemi2/kjemi2-5-3);
+  [Støkiometriske beregninger](/kjemi1/kjemi1-5-3).
 - **Faktakontrakt:** ønskede egenskaper for fellingsproduktet — **lav løselighet**, **stor/
   filtrerbar krystall**, **ren**, **kjent/definert støkiometri**, og at det kan tørkes/glødes
   til en **veiedefinert** form; klassiske systemer: **Fe** felles som $\text{Fe(OH)}_3$ og
@@ -750,7 +750,7 @@ medtitrering og maskeringsforslag). Alle med DATA-boks; svar i prosent + tolknin
   celleoppsett og urea/depolarisator — og sammenligningen mot iodometrisk Cu.
 - **Eksamensbelegg:** Elektrogravimetri i 9/17 sett (53 %, sjanger E). Sensorkrav 1, 2, 6.
   Prioritet: perfekt (kjerne i gravimetriblokken).
-- **Forkunnskaper/kryssbok:** kap. 4.1; [Elektrolyse](/bok/kjemi2/kjemi2-6-5).
+- **Forkunnskaper/kryssbok:** kap. 4.1; [Elektrolyse](/kjemi2/kjemi2-6-5).
 - **Faktakontrakt:** Cu²⁺ reduseres elektrolytisk til metallisk Cu på **veid Pt-nettkatode**;
   massen bestemmes ved veiing før/etter; **urea/depolarisator** hindrer at elektrogenerert
   $\text{NO}_2^-$/gassutvikling stopper fullstendig utfelling; lav strømtetthet (< 0,1 A/cm²)
@@ -777,7 +777,7 @@ medtitrering og maskeringsforslag). Alle med DATA-boks; svar i prosent + tolknin
   ved hvilken pH et hydroksid feller fullstendig — den lille beregningsgenren i gravimetri.
 - **Eksamensbelegg:** Løselighetsprodukt-beregning i 2/17 (12 %) som egen oppgave, men
   innbakt i gravimetri. Sensorkrav 4. Prioritet: kjenne.
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Løselighetsproduktet Ksp](/bok/kjemi2/kjemi2-5-2).
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Løselighetsproduktet Ksp](/kjemi2/kjemi2-5-2).
 - **Faktakontrakt:** $K_{sp}$-uttrykk; **kvantitativ fellingsbetingelse** (rest-analytt under
   en gitt terskel, typisk 0,01 %); pH for fullstendig hydroksidfelling fra
   $[\text{M}^{n+}][\text{OH}^-]^n = K_{sp}$; felles-ion-effekt.
@@ -807,9 +807,9 @@ elektrodereaksjoner + urea · 4.D løselighetsprodukt og kvantitativ fellingsbet
 - **Eksamensbelegg:** Forutsetning for iod-titrering (76 %) og ikke-iod-redoks (24 %);
   **balanserte redoksligninger er selve valutaen** (sensorkrav 1). Prioritet: grunnlag →
   konseptuelt perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Oksidasjonstall og redoks](/bok/kjemi1/kjemi1-4-3),
-  [Balansering av reaksjonslikninger](/bok/kjemi1/kjemi1-4-2);
-  [Redoksreaksjoner](/bok/kjemi2/kjemi2-6-1), [Nernst-likningen og cellepotensial](/bok/kjemi2/kjemi2-6-3).
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Oksidasjonstall og redoks](/kjemi1/kjemi1-4-3),
+  [Balansering av reaksjonslikninger](/kjemi1/kjemi1-4-2);
+  [Redoksreaksjoner](/kjemi2/kjemi2-6-1), [Nernst-likningen og cellepotensial](/kjemi2/kjemi2-6-3).
 - **Faktakontrakt:** halvreaksjonsmetoden (balanser masse, så ladning med elektroner, kombiner);
   **Nernst** $E = E° - \frac{0{,}059}{n}\log Q$ (25 °C); **ekvivalenspotensial** for
   symmetriske systemer $E_\text{ekv} = (n_1 E_1° + n_2 E_2°)/(n_1 + n_2)$; sammenhengen
@@ -950,7 +950,7 @@ Mohr/Volhard + ikke-iod-redoks).
 - **Eksamensbelegg:** Potensiometri/ISE i 9/17 sett (53 %, sjanger G + tung i sjanger K);
   de resirkulerte påstandene (ISE-deteksjonsgrense, pH-glasselektrode, indre løsning) er
   faste. Sensorkrav 7, 8. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 5.1 (Nernst); [Galvaniske celler](/bok/kjemi2/kjemi2-6-2).
+- **Forkunnskaper/kryssbok:** kap. 5.1 (Nernst); [Galvaniske celler](/kjemi2/kjemi2-6-2).
 - **Faktakontrakt:** potensiometri **måler cellepotensial ved ~null strøm (likevekt)** —
   kontrast til voltammetri (6.2); **Nernst-respons** (potensial ∝ $\log$ aktivitet);
   **pH-glasselektroden** (glassmembran, indre referanse; **alkali-feil**: gir for **lav** pH
@@ -1040,7 +1040,7 @@ eksamensnivå med deteksjonsgrense-sammenligning).
   tiocyanat — det ene benet i jern-trekanten som testes med Beer–Lambert.
 - **Eksamensbelegg:** Spektrofotometri/Beer–Lambert i 9/17 sett (53 %, sjanger F/G), nesten
   alltid koblet til Fe–tiocyanat. Sensorkrav 4. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Spektroskopi - introduksjon](/bok/kjemi2/kjemi2-9-3).
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Spektroskopi - introduksjon](/kjemi2/kjemi2-9-3).
 - **Faktakontrakt:** **Beer–Lambert** $A = \varepsilon b c = -\log T$, $T = P/P_0$; lineær
   kalibreringskurve (absorbans mot konsentrasjon); molar absorptivitet $\varepsilon$;
   spektrofotometrisk Fe: **Fe³⁺ + tiocyanat → rødt $[\text{Fe(SCN)}_n]^{3-n}$-kompleks**,
@@ -1120,7 +1120,7 @@ deteksjonsgrense-tabellen · 7.D samlet instrumentell oversikt + metodevalg med 
   $R_s \propto \sqrt{N}$ — de faste kromatografi-formlene og avkrysningspåstandene.
 - **Eksamensbelegg:** Kromatografi i 7/17 sett (41 %, sjanger J), «kort»; platetall og
   $R_s \propto \sqrt{N}$ er faste K-påstander. Sensorkrav 4. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Kromatografi - prinsipper](/bok/kjemi2/kjemi2-9-1).
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Kromatografi - prinsipper](/kjemi2/kjemi2-9-1).
 - **Faktakontrakt:** kromatografi = separasjon ved **fordeling mellom stasjonær og mobil
   fase**; retensjonstid $t_R$; **platetall** $N = 16(t_R/w)^2 = 5{,}54(t_R/w_{1/2})^2$ (mål på
   effektivitet); **oppløsning** $R_s$ og at $R_s \propto \sqrt{N}$ (dobling av $R_s$ krever
@@ -1143,7 +1143,7 @@ deteksjonsgrense-tabellen · 7.D samlet instrumentell oversikt + metodevalg med 
   som separasjons- og opprensingsverktøy.
 - **Eksamensbelegg:** Del av kromatografi-sjangeren (J); ekstern standard og ionebytte er
   faste innslag. Sensorkrav 4, 6. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 8.1; [Kromatografiske metoder](/bok/kjemi2/kjemi2-9-2).
+- **Forkunnskaper/kryssbok:** kap. 8.1; [Kromatografiske metoder](/kjemi2/kjemi2-9-2).
 - **Faktakontrakt:** **ekstern standard** (kalibreringskurve av toppareal mot konsentrasjon)
   vs. intern standard (kort); **ionebyttere** — kationbytter (sur, bytter kationer),
   anionbytter (basisk, bytter anioner) — til separasjon, opprensing og avsalting; et konkret
@@ -1173,7 +1173,7 @@ kromatografiprøve på eksamensnivå).
 - **Eksamensbelegg:** Statistikk/feilanalyse i 1/17 (6 %, ny 2012, sjanger L), men **klart
   voksende** (NTNUs HSE-dreining + prosjektkomponenten). Sensorkrav 4. Prioritet: kjenne
   (men dekkes solid — se ærlighetsforbeholdet).
-- **Forkunnskaper/kryssbok:** kap. 1.1 (signifikante siffer); [Usikkerhet og feilkilder](/bok/kjemi1/kjemi1-12-2).
+- **Forkunnskaper/kryssbok:** kap. 1.1 (signifikante siffer); [Usikkerhet og feilkilder](/kjemi1/kjemi1-12-2).
 - **Faktakontrakt:** **gjennomsnitt** $\bar{x}$, **median**, **standardavvik** $s$, relativt
   standardavvik; **t-test** for om et gjennomsnitt avviker signifikant fra en sann verdi
   (kritisk $|t|$ fra DATA-boks/tabell — gis); **uteligger-vurdering** (Q-test eller t-basert:
@@ -1196,7 +1196,7 @@ kromatografiprøve på eksamensnivå).
   HMS-innslaget som NTNUs profil og prosjektkomponenten løfter.
 - **Eksamensbelegg:** HMS/risikovurdering i 1/17 (6 %, ny 2012, sjanger L); forventet økende.
   Prioritet: kjenne.
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Laboratoriesikkerhet og metoder](/bok/kjemi1/kjemi1-12-1).
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Laboratoriesikkerhet og metoder](/kjemi1/kjemi1-12-1).
 - **Faktakontrakt:** **H-setninger** (faresetninger, f.eks. H302 «farlig ved svelging», H314/
   H315 «etsende/irriterer hud») og **P-setninger** (sikkerhetssetninger) — avløste de eldre
   **R-/S-setningene**; faresymboler/GHS-piktogrammer; sikkerhetsdatablad; risikovurdering =

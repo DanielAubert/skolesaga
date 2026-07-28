@@ -140,8 +140,8 @@ et eksplisitt **Skissekrav**, og kap. 0.2 samler skissehåndverket som eget spor
 **Forhold til søsterbøkene:** TTK4240 bygger på matematisk og fysisk fundament
 som dekkes i NTNUs realfagsbøker. Der forkunnskapskapitler finnes i systemet,
 lenkes de i Forkunnskaper-blokkene (komplekse tall og differensiallikninger:
-[TMA4110](/bok/tma4110/tma4110-1-1)-familien; Laplace: [TMA4135](/bok/tma4135/tma4135-1-1);
-elektromagnetisk grunnlag i [fysikk 2](/bok/fysikk2/fysikk2-3-1)). **Lenk kun til
+[TMA4110](/tma4110/tma4110-1-1)-familien; Laplace: [TMA4135](/tma4135/tma4135-1-1);
+elektromagnetisk grunnlag i [fysikk 2](/fysikk2/fysikk2-3-1)). **Lenk kun til
 kapitler som faktisk finnes** — verifiser mot metadataene før lenking; ellers
 referer forkunnskapen i klartekst.
 
@@ -266,7 +266,7 @@ og «vis metoden/følgefeil»-note.
 - **kapitteltype:** teori
 - **description:** KCL/KVL, node- og maskeanalyse og serie/parallell-reduksjon — verktøyene alt annet bygger på.
 - **Eksamensbelegg:** Grunnlag, ikke egen oppgave, men brukt i **alle** kretsoppgaver (AC, transient, kraftelektronikk). Kirchhoffs lover nevnes ved navn i A-besvarelser. Prioritet: **grunnlag**.
-- **Forkunnskaper/kryssbok:** kap. 0.2. Grunnleggende kretsforståelse fra [fysikk 2](/bok/fysikk2/fysikk2-3-4) *(lenk kun hvis kapitlet finnes; ellers klartekst)*.
+- **Forkunnskaper/kryssbok:** kap. 0.2. Grunnleggende kretsforståelse fra [fysikk 2](/fysikk2/fysikk2-3-4) *(lenk kun hvis kapitlet finnes; ellers klartekst)*.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: Ohms lov $V=RI$; **Kirchhoffs strømlov (KCL)** $\sum i=0$ i node og **spenningslov (KVL)** $\sum v=0$ i maske — nevnes ved navn; serie $R_s=\sum R_i$, parallell $1/R_p=\sum 1/R_i$; spennings- og strømdeler; nodeanalyse (sett opp likningssett) og maskeanalyse; effekt $P=VI=I^2R=V^2/R$. **Utledning som kreves aktivt:** sette opp KCL/KVL-likningssett fra et gitt kretsdiagram. **Skissekrav:** annotert kretsdiagram med definerte strøm-/spenningsretninger.
 - **Oppgavesjangre:** (grunnlag, brukes i A/E/G). Mønstereksempel: «Finn strømmen gjennom $R_3$ i en bro-krets med tre masker ved node- eller maskeanalyse; nevn hvilken lov du bruker i hvert steg.»
 - **Typiske feil:** Fortegnsfeil i KVL-omløp; feil ved serie/parallell-blanding; regne effekt med feil verdi (klemme vs. intern); ikke navngi loven.
@@ -296,7 +296,7 @@ og «vis metoden/følgefeil»-note.
 - **kapitteltype:** teori
 - **description:** Fra $x(t)=X\cos(\omega t+\theta)$ til fasor og impedans — og trygt tilbake til tidsdomenet uten $j$.
 - **Eksamensbelegg:** Sjanger A i **alle fem sett** (nesten alltid oppgave 1). Kjernen: les faseforskjell fra bølgeform ($\Delta t/T\cdot360°$), skriv $v(t),i(t)$, transformer til fasorer, finn $Z_{eq}=\mathbf{V}/\mathbf{I}$. Prioritet: **perfekt**.
-- **Forkunnskaper/kryssbok:** kap. 1.1; komplekse tall (polar↔rektangulær, $e^{j\theta}$, arctan, konjugat) fra [TMA4110](/bok/tma4110/tma4110-1-1) *(lenk kun hvis kapitlet finnes)*.
+- **Forkunnskaper/kryssbok:** kap. 1.1; komplekse tall (polar↔rektangulær, $e^{j\theta}$, arctan, konjugat) fra [TMA4110](/tma4110/tma4110-1-1) *(lenk kun hvis kapitlet finnes)*.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: fasortransform $X\cos(\omega t+\theta)\leftrightarrow X\angle\theta = Xe^{j\theta}$ (RMS som standard); impedanser $Z_R=R$, $Z_L=j\omega L$, $Z_C=1/(j\omega C)=-j/(\omega C)$; impedanser i serie/parallell som komplekse tall; $Z=|Z|\angle\varphi$, $\varphi>0$ induktiv, $\varphi<0$ kapasitiv; **tilbaketransform til $x(t)$ uten $j$** (riktig amplitude, riktig fortegn på vinkel, radianer); faseforskjell avlest fra bølgeform. **Utledning som kreves aktivt:** hele kjeden bølgeform → $v(t),i(t)$ → fasor → $Z_{eq}$ → tilbake til $i(t)$. **Skissekrav (S):** fasordiagram (spennings- og strømfasor med vinkelen mellom) og/eller bølgeform med avlest $\Delta t$.
 - **Oppgavesjangre:** A (+ kvalitativ). Mønstereksempel: «Spenningen over en last er $v(t)=170\cos(2\pi\cdot50\,t)$ V og strømmen $i(t)=8\cos(2\pi\cdot50\,t-25°)$ A. Skriv fasorene (RMS), finn $Z_{eq}$, avgjør kapasitiv/induktiv, og skriv $i(t)$ tilbake i tidsdomenet.»
 - **Typiske feil:** La $j$ bli stående i tidsdomenesvaret (stort trekk); bruke $\omega$ der $2\pi f$ skulle stått; blande grader inn i rad/s-argument; feil fortegn på impedansvinkel; blande peak og RMS.
@@ -378,7 +378,7 @@ og «vis metoden/følgefeil»-note.
 - **kapitteltype:** teori
 - **description:** Den magnetiske kretsen som analog til den elektriske — reluktans i serie/parallell, luftspalte-dominans, flukstetthet og induktans.
 - **Eksamensbelegg:** Sjanger I i **3/5** (Kont 2016, Dec 2017, Kont 2017). Reluktans, luftspalte, $B=\phi/A$, strøm fra $NI=\mathcal{R}\phi$, $L=N^2/\mathcal{R}$. Prioritet: **kunne**.
-- **Forkunnskaper/kryssbok:** kap. 1.1 (elektrisk↔magnetisk analogi); magnetisk grunnlag fra [fysikk 2](/bok/fysikk2/fysikk2-4-1) *(lenk kun hvis kapitlet finnes)*.
+- **Forkunnskaper/kryssbok:** kap. 1.1 (elektrisk↔magnetisk analogi); magnetisk grunnlag fra [fysikk 2](/fysikk2/fysikk2-4-1) *(lenk kun hvis kapitlet finnes)*.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: **magnetomotorisk spenning** $\mathcal{F}=NI$; **reluktans** $\mathcal{R}=l/(\mu A)$, $\mu=\mu_r\mu_0$; **Hopkinsons lov** $NI=\mathcal{R}\phi$ (analog til $V=RI$); reluktans i **serie** $\mathcal{R}_{serie}=\sum\mathcal{R}_i$ og **parallell** $1/\mathcal{R}_{par}=\sum 1/\mathcal{R}_i$; **luftspalte** dominerer ofte total-$\mathcal{R}$ (lav $\mu$); flukstetthet $B=\phi/A$; **induktans** $L=N^2/\mathcal{R}=\lambda/i$, $\lambda=N\phi$; Faraday $e=N\,d\phi/dt$. **Utledning som kreves aktivt:** sett opp reluktansnettverket fra kjernegeometrien og finn $\phi$, $B$, $L$. **Skissekrav (S):** magnetisk kretsdiagram (kjerne, vikling, luftspalte) og dets reluktans-ekvivalent.
 - **Oppgavesjangre:** I. Mønstereksempel: «En jernkjerne med middelveilengde $l=0{,}4$ m, tverrsnitt $A=4\,\mathrm{cm}^2$ og $\mu_r=2000$ har en luftspalte på 1 mm og $N=250$ vindinger. Finn total reluktans, strømmen som gir $B=1{,}0$ T, og induktansen.»
 - **Typiske feil:** Glemme luftspaltens dominans; feil $\mu=\mu_r\mu_0$; blande serie/parallell-reluktans; feil areal for $B$; glemme $N^2$ i $L$.
@@ -462,7 +462,7 @@ og «vis metoden/følgefeil»-note.
 - **kapitteltype:** teori
 - **description:** Fra moment-turtallskurve til 1.-ordens ODE for turtallet ved en lastendring — bindeleddet til Laplace (Del 8).
 - **Eksamensbelegg:** Sjanger C/G-hybrid i Dec 2016-2 (skiheis-transient). Lineariser moment-turtallskurven rundt driftspunktet → 1.-ordens ODE for $\omega(t)$ ved lastendring; tidskonstant. Prioritet: **perfekt** (bindeledd til Del 8).
-- **Forkunnskaper/kryssbok:** kap. 6.2; Newtons rotasjonslov $T_{mot}-T_{last}=J\,d\omega/dt$; 1.-ordens ODE fra [TMA4110](/bok/tma4110/tma4110-1-1) *(lenk kun hvis kapitlet finnes)*.
+- **Forkunnskaper/kryssbok:** kap. 6.2; Newtons rotasjonslov $T_{mot}-T_{last}=J\,d\omega/dt$; 1.-ordens ODE fra [TMA4110](/tma4110/tma4110-1-1) *(lenk kun hvis kapitlet finnes)*.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: rotasjonslikningen $J\,d\omega/dt=T_{mot}(\omega)-T_{last}$; **linearisér** maskin- og lastmoment rundt driftspunktet ($T_{mot}\approx T_0-b(\omega-\omega_0)$) → **1.-ordens ODE** $J\,d\omega/dt=-b\,\Delta\omega+\Delta T$; løsning $\omega(t)=\omega_\infty+(\omega_0-\omega_\infty)e^{-t/\tau}$, **tidskonstant** $\tau=J/b$; nytt driftspunkt etter lastendring. **Utledning som kreves aktivt:** hele kjeden fra kurve → linearisering → ODE → $\omega(t)$. **Skissekrav (S):** $\omega(t)$-forløp (eksponentiell overgang mellom to driftspunkt) med $\tau$ markert.
 - **Oppgavesjangre:** C/G. Mønstereksempel: «En asynkronmotor med treghetsmoment $J=5\,\mathrm{kg\,m^2}$ driver en heis. Lasten øker brått. Lineariser moment-turtallskurven rundt driftspunktet, sett opp differensiallikningen for $\omega(t)$, finn tidskonstanten og skisser turtallsforløpet.»
 - **Typiske feil:** Feil fortegn i lineariseringen (ustabilt); glemme treghetsmomentet $J$; blande tidskonstant og sluttverdi; ikke identifisere nytt driftspunkt.
@@ -556,7 +556,7 @@ og «vis metoden/følgefeil»-note.
 - **kapitteltype:** teori
 - **description:** Fra krets til overføringsfunksjon $H(s)$ via impedans i $s$-planet — grunnlaget for spranganalyse.
 - **Eksamensbelegg:** Sjanger G i **4/5** (Dec 2015-2, Dec 2015-4d, Dec 2016-2c, Kont 2017-2d, Dec 2017-4). Utled $H(s)=V(s)/I(s)$ fra krets. Prioritet: **kunne** (avgjør B mot C).
-- **Forkunnskaper/kryssbok:** kap. 2.1; Laplace-transform fra [TMA4135](/bok/tma4135/tma4135-1-1) *(lenk kun hvis kapitlet finnes)*.
+- **Forkunnskaper/kryssbok:** kap. 2.1; Laplace-transform fra [TMA4135](/tma4135/tma4135-1-1) *(lenk kun hvis kapitlet finnes)*.
 - **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: impedans i $s$-planet $Z_R=R$, $Z_L=sL$, $Z_C=1/(sC)$; **overføringsfunksjon** $H(s)=\dfrac{\text{ut}(s)}{\text{inn}(s)}$ satt opp med spennings-/strømdeler i $s$; poler og nullpunkter (fysisk tolkning: poler = tidskonstanter); Laplace-par fra formelarket ($u(t)\leftrightarrow1/s$, $e^{-at}\leftrightarrow1/(s+a)$, $\sin/\cos$, s-shift). **Utledning som kreves aktivt:** utled $H(s)$ for en RC/RLC-krets fra kretsen. **Skissebruk:** pol-nullpunkt-diagram (kvalitativt).
 - **Oppgavesjangre:** G. Mønstereksempel: «Utled overføringsfunksjonen $H(s)=V_{ut}(s)/V_{inn}(s)$ for en serie-RC-krets der utgangen tas over kondensatoren, og identifiser polen og tidskonstanten.»
 - **Typiske feil:** Feil impedans i $s$ ($sL$ vs $1/(sC)$); glemme initialbetingelser der de trengs; forveksle $H(s)$-teller/nevner; ikke tolke polen fysisk.
@@ -787,7 +787,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    kapitler (id/number/title/description/estimatedMinutes/topics/prerequisites)
    etter mønster `COURSE_BI_OKONOMI`; `sectionNames` fra §2-tabellen (obligatorisk
    — ellers viser bokforsiden «Seksjon N»). Legg emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under NTNU, navn
+   `src/app/trinn/hoyere/institusjoner.ts` under NTNU, navn
    «TTK4240 Industriell elektroteknikk».
 2. **Del 0** (0.1 + 0.2) — etablerer sjangernavnene A–M, 4-oppgavers-malen,
    formelarket, skissesporet og fallgruvekatalogen som resten av boka refererer.

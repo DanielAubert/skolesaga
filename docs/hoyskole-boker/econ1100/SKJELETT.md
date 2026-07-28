@@ -165,7 +165,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-1-1` · **number:** 1.1 · **estimatedMinutes:** 45 · **prerequisites:** ingen
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Derivasjonsregler](/bok/r1/r1-4-1), [Produktregelen og kvotientregelen](/bok/r1/r1-4-4), [Kjerneregelen](/bok/r1/r1-4-3) og [Derivasjon av eksponential- og logaritmefunksjoner](/bok/r1/r1-4-2) fra R1. Dette kapitlet er en rask, eksamensrettet oppfriskning — ingen R1-forkunnskap forutsettes uforklart.
+- **Forkunnskaper/kryssbok:** Bygger på [Derivasjonsregler](/r1/r1-4-1), [Produktregelen og kvotientregelen](/r1/r1-4-4), [Kjerneregelen](/r1/r1-4-3) og [Derivasjon av eksponential- og logaritmefunksjoner](/r1/r1-4-2) fra R1. Dette kapitlet er en rask, eksamensrettet oppfriskning — ingen R1-forkunnskap forutsettes uforklart.
 - **description:** Hele det endimensjonale derivasjonsapparatet eksamen forutsetter, samlet og drillet på fart og fortegnssikkerhet.
 - **Eksamensbelegg:** Fundamentet under Oppg. 1 (100 %). Sensor gir lite trekk for små regnefeil, men de algebra-tunge oppgavene (kvotienter, CES-uttrykk) er der flest poeng tapes på fortegn (typisk feil #12). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Potens-, sum-, produkt-, kvotient- og kjerneregel med emnets typiske funksjoner: rot ($\sqrt{x}\to \frac{1}{2\sqrt{x}}$), negative eksponenter ($x^{-2}\to -2x^{-3}$), reelle eksponenter; derivasjon av $\ln x$, $e^x$, $a^x = a^x\ln a$; kjerneregelen på $e^{g(x)}$, $\ln(g(x))$, $(g(x))^n$. Kvotientregelen på økonomitypiske brøker som $x^2/(x+y)$ (som forberedelse til partiellderivasjon). Fokus på **fart og fortegnssikkerhet**, ikke bevis. Merk skillet: dette er ren regneteknikk som bare skal *brukes* raskt.
@@ -188,7 +188,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-1-3` · **number:** 1.3 · **estimatedMinutes:** 45 · **prerequisites:** `econ1100-1-2`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Sammensatte funksjoner](/bok/r1/r1-2-3) og [Kjerneregelen](/bok/r1/r1-4-3) fra R1.
+- **Forkunnskaper/kryssbok:** Bygger på [Sammensatte funksjoner](/r1/r1-2-3) og [Kjerneregelen](/r1/r1-4-3) fra R1.
 - **description:** Når de indre variablene selv er funksjoner: kjerneregelen som sum av bidrag, og totalderiverten.
 - **Eksamensbelegg:** Fast innslag i Oppg. 1 (f.eks. $G(s,t)=2xy$ med $x=t-s$, $y=t+s$; H2020 O1f). **Sensor-signal:** man må **sette tilbake for de indre variablene** i sluttsvaret — ellers lite trekk (typisk feil #5). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Kjerneregelen for flere kjerner: for $G(x,y)$ med $x=x(s,t)$, $y=y(s,t)$ er $\partial G/\partial s = (\partial G/\partial x)(\partial x/\partial s)+(\partial G/\partial y)(\partial y/\partial s)$. Totalderiverten $df/dx = f'_x + f'_y\,y'(x)$ når $y=y(x)$ (broen til implisitt derivasjon, Del 5). Vis steg for steg med intuisjon: hver vei fra ytre til indre variabel gir ett bidrag; summer bidragene. **Alltid substituere tilbake** til de opprinnelige variablene i sluttsvaret.
@@ -200,7 +200,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-1-4` · **number:** 1.4 · **estimatedMinutes:** 40 · **prerequisites:** `econ1100-1-2`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Potenser og logaritmer](/bok/r1/r1-1-2) og [Eksponential- og logaritmeligninger](/bok/r1/r1-1-3) fra R1.
+- **Forkunnskaper/kryssbok:** Bygger på [Potenser og logaritmer](/r1/r1-1-2) og [Eksponential- og logaritmeligninger](/r1/r1-1-3) fra R1.
 - **description:** Sensors forventede metode for $x^x$-typer: ta $\ln$, deriver, gang opp igjen.
 - **Eksamensbelegg:** Tilbakevendende «signal» i Oppg. 1 (H2019, H2021 O4, H2022 O4b): $x^x$, $(xy)^{xy}$, $x^{a(x)}$. Logaritmisk derivasjon er **sensors forventede vei** — andre metoder gir mindre uttelling. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Oppskriften: for $y=f(x)^{g(x)}$, ta $\ln$ på begge sider ($\ln y = g(x)\ln f(x)$), deriver implisitt ($y'/y = \dots$), gang opp med $y=f(x)^{g(x)}$. Gjennomgått på $x^x$ ($y'=x^x(\ln x + 1)$), $x^{a(x)}$ (med generell $a(x)$), og todimensjonal variant $(xy)^{xy}$ (partiell). Vis hvorfor vanlig potensregel *ikke* virker (eksponenten er ikke konstant) og hvorfor eksponentialregelen alene heller ikke (grunntallet er ikke konstant).
@@ -296,7 +296,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-4-1` · **number:** 4.1 · **estimatedMinutes:** 50 · **prerequisites:** `econ1100-1-1`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Funksjonsdrøfting](/bok/r1/r1-4-6) fra R1; sammenlign gjerne med [Fullstendig funksjonsdrøfting](/bok/s2/s2-3-1) fra S2.
+- **Forkunnskaper/kryssbok:** Bygger på [Funksjonsdrøfting](/r1/r1-4-6) fra R1; sammenlign gjerne med [Fullstendig funksjonsdrøfting](/s2/s2-3-1) fra S2.
 - **description:** Voksende/avtakende via fortegnet på $f'$ og konveks/konkav via fortegnet på $f''$ — med ABC-formelen som faktoriseringsverktøy.
 - **Eksamensbelegg:** Kjernen i FD-oppgaven (6/6 ordinære sett 2020–2025). Sensor er streng på at fortegnsintervaller **begrunnes** med fortegnsanalyse, ikke bare oppgis (typisk feil #10). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Voksende ($f'>0$) / avtakende ($f'<0$); konveks ($f''>0$) / konkav ($f''<0$). **Fortegnsanalyse**: finn nullpunktene til $f'$ (og $f''$), sett opp fortegnslinje, les av intervallene. **ABC-formelen** brukes til å faktorisere $f'$ når den er kvadratisk (sensor gir hint om dette). Kobling: en voksende funksjon kan godt være konkav ($f'\ge 0$ og $f''\le 0$ samtidig) — forbered sant/usant-fellen i kap. 4.2. Presiser at «voksende for $x>2$» må *begrunnes* med fortegnet på $f'$, ikke påstås.
@@ -308,7 +308,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-4-2` · **number:** 4.2 · **estimatedMinutes:** 55 · **prerequisites:** `econ1100-4-1`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Andrederiverte og vendepunkter](/bok/s2/s2-3-2) og [Optimering](/bok/s2/s2-3-3) fra S2.
+- **Forkunnskaper/kryssbok:** Bygger på [Andrederiverte og vendepunkter](/s2/s2-3-2) og [Optimering](/s2/s2-3-3) fra S2.
 - **description:** Klassifisering av stasjonærpunkter — og de to fellene sensor gir null for: $x^4$-minimum via $f''(0)=0$, og vendepunkt uten fortegnsskifte.
 - **Eksamensbelegg:** Klassifisering i FD-oppgaven (6/6 ordinære) og som sant/usant-punkt. **To strenge fallgruver med eget behandlingsrom:** (a) «et stasjonærpunkt er ikke automatisk et ekstrempunkt» (H2023 O2d); (b) **minimum av $x^4$ kan IKKE vises ved $f''(0)=0$** — sensor gir eksplisitt *null uttelling* for innsetting i andrederiverte når den er null; man må bruke global konveksitet ($f''\ge0$ overalt) eller førstederiverttesten (H2021 O2c). Et vendepunkt krever at $f''$ **skifter fortegn**, ikke bare at $f''=0$ (H2025-utsatt O2b). Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Stasjonærpunkt ($f'=0$) vs. ekstrempunkt (maks/min) vs. vendepunkt ($f''$ skifter fortegn). Andrederiverttest: $f''>0$ → lokalt min, $f''<0$ → lokalt maks. **Fallgruve-warning 1 ($x^4$-fellen):** når $f''=0$ i det stasjonære punktet er testen *inkonklusiv* — man må argumentere via global krumning eller fortegnsskifte i $f'$. Gjennomgå $f(x)=x^4$ eksplisitt: $f'(0)=0$, $f''(0)=0$, men $f''(x)=12x^2\ge0$ overalt → global konveksitet → $x=0$ er globalt minimum. **Fallgruve-warning 2 (stasjonær ≠ ekstrem):** $f(x)=x^3$ har $f'(0)=0$ men ingen ekstremverdi (vendepunkt). Vendepunkt: krev fortegnsskifte i $f''$.
@@ -321,7 +321,7 @@ innholdet de skal dekke.
 - **id:** `econ1100-4-3` · **number:** 4.3 · **estimatedMinutes:** 50 · **prerequisites:** `econ1100-4-1`
 - **Kapitteltype:** teori
 - **description:** Fagets tyngste fallgruve: globale ekstrempunkter på randen av definisjonsområdet må argumenteres, ikke tallsjekkes.
-- **Forkunnskaper/kryssbok:** Bygger på [Globale ekstremalpunkter](/bok/r1/r1-4-8) fra R1 — men her er poenget nettopp det R1 ikke vektlegger: randen og definisjonsområdet.
+- **Forkunnskaper/kryssbok:** Bygger på [Globale ekstremalpunkter](/r1/r1-4-8) fra R1 — men her er poenget nettopp det R1 ikke vektlegger: randen og definisjonsområdet.
 - **Eksamensbelegg:** Hjørne-/randløsning i 5/16 sett (31 %), men **høyt vektlagt som feilkilde** (typisk feil #1, eksplisitt H2021 O2d, H2023 O2f, H2025 O5c). **Sensor er streng:** det er *ikke tilstrekkelig å sette inn ulike $x$-verdier* for å «vise» et globalt ekstrempunkt — man må argumentere via definisjonsområdets endepunkt + fortegn på den deriverte. Prioritet: **PERFEKT** (karakterskille).
 - **Innholdskontrakt:** **Sjekk definisjonsområdet først** — særlig når $\ln$ eller $\sqrt{}$ inngår. Det korrekte argumentet, vist på $f(x)=\sqrt{x}$: $x=0$ er første punkt i definisjonsmengden $[0,\infty)$, og $f'(x)>0$ for $x>0$ → $f$ vokser fra $x=0$ → $x=0$ er et **randminimum** (hjørneløsning). Generell oppskrift: (1) finn definisjonsområdet; (2) sjekk endepunktene; (3) bruk fortegnet på $f'$ til å argumentere for retningen inn i området; (4) sammenlign med eventuelle indre stasjonærpunkter. **Warning:** innsetting av tallverdier «beviser» ingenting — det gir bare delvis uttelling. Kobling fremover: samme tenkning brukes når Lagrange-røtter kastes utenfor definisjonsområdet (Del 8) og ved klassifisering under bibetingelse.
 - **Oppgavesjangre:** HR (ofte som SU- eller storoppgave-punkt). Mønstereksempel: «Har $f(x)=x-\ln x$ et globalt minimum på $(0,\infty)$? Argumenter via definisjonsområdet og fortegnet på $f'$ — ikke ved å prøve tallverdier.»
@@ -444,7 +444,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-8-1` · **number:** 8.1 · **estimatedMinutes:** 55 · **prerequisites:** `econ1100-1-2`, `econ1100-5-1`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på partiellderivasjon (kap. 1.2), nivåkurver/MRS (kap. 5.1) og [Optimering med bibetingelser](/bok/s2/s2-8-5) fra S2.
+- **Forkunnskaper/kryssbok:** Bygger på partiellderivasjon (kap. 1.2), nivåkurver/MRS (kap. 5.1) og [Optimering med bibetingelser](/s2/s2-8-5) fra S2.
 - **description:** Å optimere en funksjon under en bibetingelse: sett opp $L$, skriv FOB.
 - **Eksamensbelegg:** LG i 13/16 sett (81 %) — den tyngste tilbakevendende storoppgaven (20–36 p). Nesten alltid nyttemaksimering (`max U(x,y)` under budsjett) eller kostnadsminimering. Sensor godtar at man dropper $\partial L/\partial\lambda$ så lenge bibetingelsen brukes. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Problemet: maksimer/minimer $F(x,y)$ under $g(x,y)=m$. **Lagrange-funksjonen** $L=F(x,y)-\lambda(g(x,y)-m)$ (fortegn på $\lambda$-leddet valgfritt så lenge bibetingelsen er med). **FOB:** $L'_x=0$, $L'_y=0$, samt bibetingelsen $g(x,y)=m$ — nummerert. Økonomisk innramming (klima, energimiks, konsum) varierer, men matematikken er identisk. $\lambda$ tolkes som skyggepris (utdypes i 8.3). Vis oppsettet på nyttemaks $\max \ln x+\ln y$ under $p_1x+p_2y=m$.
@@ -545,7 +545,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-10-1` · **number:** 10.1 · **estimatedMinutes:** 40 · **prerequisites:** `econ1100-4-1`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Omvendte funksjoner](/bok/r1/r1-2-2) og [Derivasjon av omvendte funksjoner](/bok/r1/r1-4-5) fra R1.
+- **Forkunnskaper/kryssbok:** Bygger på [Omvendte funksjoner](/r1/r1-2-2) og [Derivasjon av omvendte funksjoner](/r1/r1-4-5) fra R1.
 - **description:** Eksistens via streng monotoni, og den deriverte $g'(y)=1/f'(x)$.
 - **Eksamensbelegg:** IN i 5/16 sett (31 %), typisk sant/usant-punkt (H2018 O2d, H2023 O2b, H2025 O2d): vis at funksjonen er strengt monoton → invers finnes; deriver. Prioritet: **KJENNE**.
 - **Innholdskontrakt:** Eksistens av invers: **streng monotoni** (fortegn på $f'$ i hele definisjonsområdet — konstant fortegn → strengt voksende/avtakende → invers finnes). Den deriverte: $g'(y)=1/f'(x)$ der $y=f(x)$, **og** eksplisitt løsning (løs $y=f(x)$ for $x$) som likeverdige veier. Fremgangsmåte for sant/usant: sjekk fortegn på $f'$, konkluder om invers, deriver ved valgfri metode.
@@ -557,7 +557,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-10-2` · **number:** 10.2 · **estimatedMinutes:** 45 · **prerequisites:** `econ1100-1-1`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Ubestemt integral](/bok/r2/r2-2-2), [Bestemt integral som grenseverdi](/bok/r2/r2-2-4) og [Areal mellom kurver](/bok/r2/r2-2-7) fra R2. **Merk:** integrasjonsteknikker (substitusjon, delvis integrasjon) er IKKE pensum i ECON1100 — kun elementære antideriverte.
+- **Forkunnskaper/kryssbok:** Bygger på [Ubestemt integral](/r2/r2-2-2), [Bestemt integral som grenseverdi](/r2/r2-2-4) og [Areal mellom kurver](/r2/r2-2-7) fra R2. **Merk:** integrasjonsteknikker (substitusjon, delvis integrasjon) er IKKE pensum i ECON1100 — kun elementære antideriverte.
 - **description:** Antideriverte av potenser, $1/x$ og $e^{kx}$; bestemte integraler og areal mellom kurver.
 - **Eksamensbelegg:** IT i 5/16 sett (31 %). Storoppgave kun i gammelt format (V2018); i moderne sett som sant/usant-punkt ($\int_1^4 \frac{1}{\sqrt{x}}\,dx$, H2025 O2b; $\int_0^2(3x^2-\tfrac12 x+1)\,dx$, H2025-utsatt O2c). Prioritet: **KJENNE** (grunnleggende — dekk, men ikke bygg tungt).
 - **Innholdskontrakt:** Antideriverte av potenser ($\int x^n\,dx=\frac{x^{n+1}}{n+1}$, $n\ne-1$), $\int \frac{1}{x}\,dx=\ln|x|$, $\int e^{kx}\,dx=\frac{1}{k}e^{kx}$. Bestemt integral og arealtolkning; areal mellom kurver; **verifikasjon ved derivasjon** (deriver antiderivert → få tilbake integranden — sensors kontroll). Enkel polynomdivisjon før integrasjon (kun gammelt format — nevn kort). **Ingen** substitusjon/delvis integrasjon (ikke pensum). Fremgangsmåte for sant/usant: regn ut det bestemte integralet, sammenlign med påstått verdi.
@@ -569,7 +569,7 @@ innholdet de skal dekke.
 
 - **id:** `econ1100-10-3` · **number:** 10.3 · **estimatedMinutes:** 40 · **prerequisites:** ingen
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Geometriske følger](/bok/r2/r2-1-3), [Rekker og summasjon](/bok/r2/r2-1-4) og [Uendelige rekker og konvergens](/bok/r2/r2-1-5) fra R2.
+- **Forkunnskaper/kryssbok:** Bygger på [Geometriske følger](/r2/r2-1-3), [Rekker og summasjon](/r2/r2-1-4) og [Uendelige rekker og konvergens](/r2/r2-1-5) fra R2.
 - **description:** Endelige summer skrevet ut, og geometriske rekker med konvergens/divergens.
 - **Eksamensbelegg:** SR i 5/16 sett (31 %), nesten alltid som sant/usant-punkt: endelige summer ($\sum(n^2-2n)$, H2018 O2a) og geometriske rekker ($\sum z\beta^t$, H2021-utsatt O2e; divergerende $\sum 2^i$, H2024-utsatt O2c). Prioritet: **KJENNE**.
 - **Innholdskontrakt:** Endelige summer: skriv ut leddene, bruk kjente formler ($\sum_{k=1}^{n}k=\frac{n(n+1)}{2}$). **Geometrisk rekke:** endelig sum $\sum_{t=0}^{n}a r^t=a\frac{1-r^{n+1}}{1-r}$; uendelig sum $\sum_{t=0}^{\infty}ar^t=\frac{a}{1-r}$ **konvergerer bare når $|r|<1$**, ellers divergerer. Fremgangsmåte for sant/usant: identifiser om rekken er geometrisk, sjekk $|r|$, regn ut eller konkluder divergens.

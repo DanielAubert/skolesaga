@@ -78,7 +78,7 @@ for det felles laget. Arbeidsdelingen (full tabell i §7) er:
   gjør ECON2130 aldri.** Disse får egne deler her (Del 6, Del 7).
 - **Der kjernepensumet er felles** (sannsynlighet, fordelinger, KI, hypotesetest,
   p-verdi), kryssrefererer boka til ECON2130 med markdown-lenker
-  (`[tittel](/bok/econ2130/<chapterId>)`) i Forkunnskaper-blokkene der det er
+  (`[tittel](/econ2130/<chapterId>)`) i Forkunnskaper-blokkene der det er
   naturlig — men SØK1004 skriver ut sin **egen** versjon i **håndregnings-/
   tabelloppslags-form** (business-statistikk à la Anderson–Sweeney–Williams),
   ikke ECON2130s R-tolkningsform. SØK1004 er den selvstendige verten for
@@ -693,7 +693,7 @@ dem i relevante kapitler / Del 8):
    (id/number/title/description/estimatedMinutes/topics/prerequisites) etter mønster
    `COURSE_BI_OKONOMI` i `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra
    makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SØK1004 Statistikk for økonomer».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–L, frekvenstallene, kode-D-
    regimet og avgrensningen mot ECON2130 som resten refererer til.
@@ -797,7 +797,7 @@ kjernepensum, motsatt verktøy/stil (§1, §0 i analysen):
 
 **Kryssreferansepraksis:** For det **felles kjernepensumet** (Del 2–5) kan
 Forkunnskaper-blokkene lenke til de tilsvarende ECON2130-kapitlene som *valgfri
-utdypning* (`[tittel](/bok/econ2130/<chapterId>)`) — men **SØK1004 er den
+utdypning* (`[tittel](/econ2130/<chapterId>)`) — men **SØK1004 er den
 selvstendige verten**: den skriver ut sin egen håndregnings-/tabelloppslags-versjon
 og forutsetter ikke at studenten har lest ECON2130. Lenkene er komplement, ikke
 forkunnskaper boka mangler. Der ECON2130 bygger noe SØK1004 IKKE skal ha (R,

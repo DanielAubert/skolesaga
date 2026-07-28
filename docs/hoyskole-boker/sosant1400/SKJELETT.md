@@ -303,7 +303,7 @@ aksene og A/C/E-nivåbeskrivelsene er malen for alle modellsvar i Del 9.
   (fire steg) med et fullt gjennomarbeidet eksempel; (b) **minifeltarbeidsguiden** —
   hva et lite feltprosjekt om tro/religiøs praksis kan se ut som, og hvordan det trekkes
   inn som selvstendighetsmarkør (aldri i stedet for pensum). Metodestoffet (deltagende
-  observasjon) forutsettes fra [SOSANT1000 kap. 1.4](/bok/sosant1000/sosant1000-1-4) —
+  observasjon) forutsettes fra [SOSANT1000 kap. 1.4](/sosant1000/sosant1000-1-4) —
   lenk dit, ikke dupliser.
 - **Begrepskontrakt:** ingen nye fagbegreper — men fire-stegs-malen for åpne oppgaver
   + prinsippet «minifeltarbeid = TILLEGG». Mantra: «feltnotater løfter, men bærer aldri
@@ -400,7 +400,7 @@ aksene og A/C/E-nivåbeskrivelsene er malen for alle modellsvar i Del 9.
   andre samfunnsforhold — makt, motstand, politikk og økonomi — et fast langsvarstema.
 - **Eksamensbelegg:** Religion innvevd ~3 ⭐⭐⭐; H2022o-1 (religion ikke løsrevet fra kultur/
   politikk/økonomi), H2022u-1, H2024-2. Sjangre: ÅT, PÅ. Prioritet: **perfekt** (§7 pkt. 1
-  + §7 «må kunne»). Bygger på holismen fra [SOSANT1000 kap. 1.1](/bok/sosant1000/sosant1000-1-1).
+  + §7 «må kunne»). Bygger på holismen fra [SOSANT1000 kap. 1.1](/sosant1000/sosant1000-1-1).
 - **Begrepskontrakt:** **Alfred Ramzy** & **Daromir Rudnyckyj**: **makt og motstand** i
   religion (religion som middel til å forme og utfordre sosiale forhold); **Tom Bratrud**:
   religion som griper inn i sosiale relasjoner (Vanuatu — kobling til Del 8); religion og
@@ -445,7 +445,7 @@ aksene og A/C/E-nivåbeskrivelsene er malen for alle modellsvar i Del 9.
   (ritualers sosiale betydning + dedikert veiledning), H2025-innvevd. Sjangre: PS
   (representasjon vs. performativitet), ÅT, PÅ. Prioritet: **perfekt** (§7 pkt. 3).
   Overgangsritualer/liminalitet (van Gennep/Turner) forutsettes fra
-  [SOSANT1000 kap. 4](/bok/sosant1000/sosant1000-4-1) — 1400 bygger videre, gjentar ikke.
+  [SOSANT1000 kap. 4](/sosant1000/sosant1000-4-1) — 1400 bygger videre, gjentar ikke.
 - **Begrepskontrakt:** **representasjon vs. performativitet** (kjernedistinksjonen):
   **Clifford Geertz** & **Joel Robbins** — ritualet som *representerer/uttrykker* et
   meningssystem og verdier; **Victor Turner** & **Bruce Kapferer** (anbefalt pensum) —
@@ -506,12 +506,12 @@ aksene og A/C/E-nivåbeskrivelsene er malen for alle modellsvar i Del 9.
 - **Eksamensbelegg:** Innvevd bakteppe (anbefalt pensum: Durkheim, Weber, Turner, Kapferer
   teller *hvis brukt*). Sjangre: koblingsstoff i alle ritual- og mening-sjangre. Prioritet:
   **kunne/kjenne** (§7 pkt. 15 — teller hvis brukt, kan ikke kreves). Faghistorien
-  forutsettes fra [SOSANT1090](/bok/sosant1090/sosant1090-1-1) — 1400 bruker den kun som
+  forutsettes fra [SOSANT1090](/sosant1090/sosant1090-1-1) — 1400 bruker den kun som
   anker for religionsantropologiske poeng, gjentar den ikke.
 - **Begrepskontrakt:** **Émile Durkheim** (anbefalt): skillet **hellig/profant**; religion
   som **kollektiv representasjon**; ritualets rolle i å skape sosial solidaritet
   («kollektiv brusing»); **Marcel Mauss**: gaven/offeret som ritual (kobling til
-  [SOSANT1000 kap. 2.1](/bok/sosant1000/sosant1000-2-1)); **evolusjonismekritikk** (mot
+  [SOSANT1000 kap. 2.1](/sosant1000/sosant1000-2-1)); **evolusjonismekritikk** (mot
   den lineære magi → religion → vitenskap-modellen — kobling til Del 6 hekseri). Markeres:
   disse er «anbefalt pensum» — løfter et svar hvis brukt, kan aldri kreves.
 - **Drøftingsakser:** er Durkheims «kollektive» fortsatt fruktbart, eller reduserer det
@@ -656,13 +656,13 @@ aksene og A/C/E-nivåbeskrivelsene er malen for alle modellsvar i Del 9.
   religionsdefinisjon som eget spørsmål), H2025-2 (mening vs. historisk betinget), H2023u-2.
   Sjangre: PS (Geertz ↔ Asad; Geertz vs. andre definisjoner), BP («mening»), ÅT.
   Prioritet: **perfekt** (§7 pkt. 2, 5). Geertz' meningssystem introduseres i
-  [SOSANT1000 kap. 1.2](/bok/sosant1000/sosant1000-1-2); 1400 fordyper og setter det opp
+  [SOSANT1000 kap. 1.2](/sosant1000/sosant1000-1-2); 1400 fordyper og setter det opp
   mot Asad.
 - **Begrepskontrakt:** **Clifford Geertz**: religion som **symbolsystem** / **meningssystem**
   som skaper varige stemninger og motivasjoner; **«modell av og modell for»** (religionen
   både speiler virkeligheten og gir en mal for hvordan man skal leve i den); religion som
   svar på **meningsproblemet** (kaos, lidelse, urettferdighet — hvilke *spørsmål* religion
-  gir svar på); «tett beskrivelse» (kobling til [SOSANT1000 kap. 1.2](/bok/sosant1000/sosant1000-1-2)).
+  gir svar på); «tett beskrivelse» (kobling til [SOSANT1000 kap. 1.2](/sosant1000/sosant1000-1-2)).
 - **Drøftingsakser:** hva slags spørsmål gir religion svar på (Geertz' meningsproblem)?;
   Geertz vs. andre religionsdefinisjoner (H2021-1); hva meningsperspektivet fanger — og
   hva det *mangler* (maktdimensjonen, jf. Asad, 4.2).
@@ -928,7 +928,7 @@ aksene og A/C/E-nivåbeskrivelsene er malen for alle modellsvar i Del 9.
 - **Eksamensbelegg:** Metode/refleksivitet ~2–3 ⭐⭐; H2025-1 (refleksivitet/forskerens
   holdning + eget felt). Sjangre: MET (metode-/refleksivitetsoppgave — obligatorisk eget
   felt), ÅT. Prioritet: **kunne** (§7 pkt. 9). Bygger på deltagende observasjon fra
-  [SOSANT1000 kap. 1.4](/bok/sosant1000/sosant1000-1-4) — 1400 spisser mot studiet av tro.
+  [SOSANT1000 kap. 1.4](/sosant1000/sosant1000-1-4) — 1400 spisser mot studiet av tro.
 - **Begrepskontrakt:** **deltagende observasjon i studiet av tro** (den særlige spenningen
   når objektet er andres overbevisninger); **utenfra- vs. innenfra-blikk** (emisk/etisk
   anvendt på tro); **forskerens holdning** som formende for data (kan man forstå tro uten
@@ -1296,7 +1296,7 @@ chapterNumber `<del>.P`.
   eksisterende kapitler.
 - **⚠ Kryssbok-lenke-status:** SOSANT1000 og SOSANT1090 er per nå på **skjelett**-status,
   IKKE bygget — chapter-JSON-ene finnes derfor ikke ennå. Lenkene i dette skjelettet
-  (`/bok/sosant1000/sosant1000-1-4` osv.) bruker forgjengerskjelettenes planlagte id-er.
+  (`/sosant1000/sosant1000-1-4` osv.) bruker forgjengerskjelettenes planlagte id-er.
   **Byggekontrakten skal kreve at forfatteren verifiserer at hver kryssbok-lenke peker på
   et EKSISTERENDE kapittel før den skrives** (Leserkrav-regelen «Lenk kun til kapitler som
   finnes»). Er målboka ikke bygget, skal forkunnskapen i stedet forklares kort in-line

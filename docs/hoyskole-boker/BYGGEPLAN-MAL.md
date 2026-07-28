@@ -61,7 +61,7 @@ av én agent som leser hele skjelettet.
 > summerte estimatedMinutes), kildenote for frekvens-empirien (fra
 > EKSAMENSANALYSE.md, aldri oppdiktet) og prosedyre-/sjangerkort på ÉN side;
 > «kap. X.Y» i forkunnskaper/fasiter skrives som markdown-lenker
-> [kap. X.Y](/bok/<emne>/<emne>-X-Y); hver stor begrepsbank åpner med
+> [kap. X.Y](/<emne>/<emne>-X-Y); hver stor begrepsbank åpner med
 > «flashcard-stoff — hopp trygt over ved førstegangslesing»-notisen (og
 > definition-blokker slettes ALDRI for å «rydde»); karakter-realisme: «C er
 > en god og vanlig karakter» i Del 0, ALDRI «Prioritet: perfekt» (skriv
@@ -121,7 +121,7 @@ på disk; gap-fill manglende med samme prompt-mal (én fil per agent).
 ## Steg 2 — Wiring
 - [ ] `python3 scripts/hoyskolebok/wire-bok.py <emne>` → «WIRING OK»
 - [ ] Slett `src/lib/data/quiz-staging/` (mellomprodukt)
-- [ ] Ny institusjon? Legg den i `src/app/bok/trinn/hoyere/institusjoner.ts` først.
+- [ ] Ny institusjon? Legg den i `src/app/trinn/hoyere/institusjoner.ts` først.
 - [ ] Juridiske deklarasjoner: emnet registrert i institusjoner.ts (driver
       uavhengighets-deklarasjonen) OG jus-/helse-heuristikken i
       `src/components/textbook/hoyskole-disclaimer.tsx` treffer emnet der den
@@ -135,7 +135,7 @@ på disk; gap-fill manglende med samme prompt-mal (én fil per agent).
       KUN der de finnes, andre kilder (emnebeskrivelse, pensumreferanser,
       Lovdata for jus), og ærlige forbehold/hull (årganger uten veiledning,
       manglende sett, regimeskifter). Siden rendres på
-      `/bok/<emne>/kildegrunnlag` og lenkes automatisk fra kurssiden.
+      `/<emne>/kildegrunnlag` og lenkes automatisk fra kurssiden.
 
 ## Steg 3 — Verifiseringsbølge (2 om gangen; IKKE hopp over)
 Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
@@ -258,9 +258,9 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       ~X min» og at et kapittel > 45 min har løkke-tidsanslag/pausepunkt.
 - [ ] `npm run build` → «✓ Compiled successfully» + «Kombinerte NNNN kapitler»
 - [ ] Prod-curl: `PORT=3111 npm run start` i bakgrunn, deretter 200 +
-      innholds-grep på: `/bok/trinn/hoyere/<inst>`, `/bok/<emne>`,
+      innholds-grep på: `/trinn/hoyere/<inst>`, `/<emne>`,
       3 kapittelruter (teori/drill/prøve), `/quiz/<et-kapittel>`,
-      `/bok/<emne>/flashcards`. Sjekk at «Forkunnskaper» og «Symbol- og
+      `/<emne>/flashcards`. Sjekk at «Forkunnskaper» og «Symbol- og
       formelliste» finnes i servert HTML, og at minst ett teorikapittel viser
       en `exercise` INLINE mellom teoriblokker (læringsløkke — ikke alle
       oppgaver samlet nederst). Stopp serveren.

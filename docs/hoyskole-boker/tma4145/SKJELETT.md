@@ -250,7 +250,7 @@ Jordan/`exp(tA)` som sensoravhengige (kontraksjon fallende, Jordan stigende). Bo
 holder BEGGE som fulle deler (Del 2 og Del 8) fordi vektingen kan svinge med
 faglærer, jf. usikkerhetsmomentet i analysen §7. SVD/pseudoinvers (Young-boks-arv,
 avtakende) legges i Del 9 som beredskap, ikke egen søyle. Elementær radreduksjon/RREF
-dubleres bevisst ikke (kryssbok-lenke til [mat1120](/bok/mat1120/mat1120-1-1) og
+dubleres bevisst ikke (kryssbok-lenke til [mat1120](/mat1120/mat1120-1-1) og
 TMA4110 for den som trenger oppfrisking).
 
 ### Kapittel-DNA A — teori-/beviskapittel (flertallet av kapitlene)
@@ -417,7 +417,7 @@ Eksamenstreningskapitlene (Del 10) har egne oppsett — se §3 og §4.
   `ℝ²`).
 - **Eksamensbelegg:** Sjanger E (13/16, 81 %). «Vis at `d` er en metrikk» åpner de
   fleste metriske-rom-oppgavene. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Metriske rom og metrikk-aksiomene](/bok/mat2400/mat2400-1-1)
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Metriske rom og metrikk-aksiomene](/mat2400/mat2400-1-1)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste:** metrikk-
   aksiomene + bevismal M1.
 - **Definisjonskontrakt (flashcard-kilde):** **metrikk** `d:M×M→[0,∞)` med (i)
@@ -445,7 +445,7 @@ Eksamenstreningskapitlene (Del 10) har egne oppsett — se §3 og §4.
   som også er lukket / hele rommet under en avgrenset metrikk).
 - **Eksamensbelegg:** Sjanger E (13/16). «Vis at den åpne enhetskula om 0 også er
   lukket» (H2013 O3-typen). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Topologi i metriske rom](/bok/mat2400/mat2400-1-2)
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Topologi i metriske rom](/mat2400/mat2400-1-2)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste.**
 - **Definisjonskontrakt (flashcard-kilde):** **åpen kule** `B_r(x)={y:d(x,y)<r}`;
   **åpen/lukket mengde**; **konvergent følge** (`d(xₙ,x)→0`); **Cauchy-følge**
@@ -468,7 +468,7 @@ Eksamenstreningskapitlene (Del 10) har egne oppsett — se §3 og §4.
   identitetsavbildningen mellom to metrikker (én vei kontinuerlig, den andre ikke).
 - **Eksamensbelegg:** Sjanger E + Lipschitz (13/16 + 5/16). «Vis at `(ℝ,d)` ikke er
   fullstendig» (arctan-metrikken; `xₙ=n` er Cauchy uten grense). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Kompletthet og Cauchy-følger](/bok/mat2400/mat2400-1-3)
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Kompletthet og Cauchy-følger](/mat2400/mat2400-1-3)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste:** bevismal M4.
 - **Definisjonskontrakt (flashcard-kilde):** **fullstendig rom** (enhver Cauchy-følge
   konvergerer *i rommet*); **kontinuerlig avbildning** (ε–δ og følgekarakterisering);
@@ -513,7 +513,7 @@ Eksamenstreningskapitlene (Del 10) har egne oppsett — se §3 og §4.
 - **Eksamensbelegg:** Sjanger F (11/16, 69 %; 5/5 i Periode A, fallende i Ehrnström).
   «Vis at `T` er en kontraksjon → entydig fikspunkt; bestem antall iterasjoner for gitt
   nøyaktighet.» Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.3; [Kontraksjoner og Banachs fikspunktteorem](/bok/mat2400/mat2400-5-1)
+- **Forkunnskaper/kryssbok:** kap. 1.3; [Kontraksjoner og Banachs fikspunktteorem](/mat2400/mat2400-5-1)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste:** bevismal M2.
 - **Definisjonskontrakt (flashcard-kilde):** **kontraksjon** `d(Tx,Ty)≤α d(x,y)` med
   fast `α∈[0,1)`; **fikspunkt** `Tx*=x*`; skillet mellom kontraksjon og «`d(Tx,Ty)<
@@ -585,8 +585,8 @@ eksamensnivå).
   og absolutt-konvergens-kriteriet for fullstendighet.
 - **Eksamensbelegg:** Sjanger K + del av C (44–56 %). Prioritet: kunne (grunnlag for
   indreprodukt i Del 4).
-- **Forkunnskaper/kryssbok:** kap. 1.3; [Normerte rom og norm-aksiomene](/bok/mat2400/mat2400-4-1)
-  `(verifiser lenke)`, [Normerte rom](/bok/mat1120/mat1120-4-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 1.3; [Normerte rom og norm-aksiomene](/mat2400/mat2400-4-1)
+  `(verifiser lenke)`, [Normerte rom](/mat1120/mat1120-4-1) `(verifiser lenke)`.
   `collapsible` **Definisjons-/teorem-/bevismalliste:** norm-aksiomer + bevismal M1/M4.
 - **Definisjonskontrakt (flashcard-kilde):** **norm** (positivitet + null-iff,
   homogenitet `‖αx‖=|α|‖x‖`, trekantulikhet); **Banach-rom**; **absolutt konvergent
@@ -609,7 +609,7 @@ eksamensnivå).
   likhetseksempel).
 - **Eksamensbelegg:** Sjanger I (del av 62 %). «Regn ut `‖T‖` og finn et element som
   oppnår den.» Prioritet: kunne (kjernen kommer igjen i Del 6). Sensorkrav #7.
-- **Forkunnskaper/kryssbok:** kap. 3.1; [Begrensede lineære operatorer og operatornorm](/bok/mat2400/mat2400-4-2)
+- **Forkunnskaper/kryssbok:** kap. 3.1; [Begrensede lineære operatorer og operatornorm](/mat2400/mat2400-4-2)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste.**
 - **Definisjonskontrakt (flashcard-kilde):** **begrenset operator** (`‖Tx‖≤C‖x‖`);
   **operatornorm** som minste slik `C`; ekvivalensen **begrenset ⟺ kontinuerlig** for
@@ -676,8 +676,8 @@ operatornorm oppnådd · 3.C følgerom + fullstendighet · 3.D completion + saml
 - **Eksamensbelegg:** Sjanger C (16/16, 100 %). «Verifiser indreprodukt / vis at
   `‖·‖∞` ikke kommer fra et indreprodukt / bruk Cauchy–Schwarz for optimal konstant.»
   Prioritet: perfekt. Sensorkrav #5.
-- **Forkunnskaper/kryssbok:** kap. 3.1; [Indreproduktrom og Hilbertrom](/bok/mat2400/mat2400-4-4)
-  `(verifiser lenke)`, [Indreprodukt](/bok/mat1120/mat1120-4-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 3.1; [Indreproduktrom og Hilbertrom](/mat2400/mat2400-4-4)
+  `(verifiser lenke)`, [Indreprodukt](/mat1120/mat1120-4-1) `(verifiser lenke)`.
   `collapsible` **Definisjons-/teorem-/bevismalliste:** indreproduktaksiomer +
   parallellogramloven.
 - **Definisjonskontrakt (flashcard-kilde):** **indreprodukt** `⟨·,·⟩` — linearitet i
@@ -726,7 +726,7 @@ operatornorm oppnådd · 3.C følgerom + fullstendighet · 3.D completion + saml
   polynombasis `{1,t,t²}` under et gitt integral-indreprodukt.
 - **Eksamensbelegg:** Sjanger D (~9/16, del av 100 %-blokken). Prioritet: perfekt
   (verktøyet for beste approksimasjon i Del 5).
-- **Forkunnskaper/kryssbok:** kap. 4.2; [Ortogonale mengder og Gram–Schmidt](/bok/mat1120/mat1120-4-2)
+- **Forkunnskaper/kryssbok:** kap. 4.2; [Ortogonale mengder og Gram–Schmidt](/mat1120/mat1120-4-2)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste:**
   Gram–Schmidt-formelen + QR.
 - **Definisjonskontrakt (flashcard-kilde):** **Gram–Schmidt** (`vₖ` minus projeksjoner
@@ -770,7 +770,7 @@ Cauchy–Schwarz + optimal konstant · 4.C Bessel/Parseval/Fourier · 4.D Gram�
   inkludert moteksemplene der nærmeste punkt ikke finnes.
 - **Eksamensbelegg:** Sjanger B (16/16, 100 %). «Finn korteste avstand fra `x₀` til
   `M=span{…}` og punktet som realiserer den.» Prioritet: perfekt. Sensorkrav #4.
-- **Forkunnskaper/kryssbok:** kap. 4.3; [Ortogonal projeksjon, W⊥ og avstand](/bok/mat1120/mat1120-5-1)
+- **Forkunnskaper/kryssbok:** kap. 4.3; [Ortogonal projeksjon, W⊥ og avstand](/mat1120/mat1120-5-1)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste:** bevismal M3.
 - **Definisjonskontrakt (flashcard-kilde):** **ortogonalt komplement** `M⊥`;
   **ortogonal projeksjon** `P_M x=Σ⟨x,eₖ⟩eₖ` (ONB for `M`); **konveks/lukket mengde**
@@ -794,7 +794,7 @@ Cauchy–Schwarz + optimal konstant · 4.C Bessel/Parseval/Fourier · 4.D Gram�
   `ker A`).
 - **Eksamensbelegg:** Sjanger B/L (100 % / 56 %). Den andre løypa til beste
   approksimasjon (sensor honorerer begge, #5). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 5.1; [Minste kvadrater: normallikninger](/bok/mat1120/mat1120-5-2)
+- **Forkunnskaper/kryssbok:** kap. 5.1; [Minste kvadrater: normallikninger](/mat1120/mat1120-5-2)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste:**
   normallikningene + minimum-norm.
 - **Definisjonskontrakt (flashcard-kilde):** **minste kvadraters løsning** (minimerer
@@ -840,7 +840,7 @@ approksimasjonsprøve på eksamensnivå).
 - **Eksamensbelegg:** Sjanger I (10/16, 62 %). «Vis selvadjungerthet for en konkret
   operator; egenskaper ved normale/unitære.» Prioritet: kunne. Sensorkrav #4 (spektral-
   kobling).
-- **Forkunnskaper/kryssbok:** kap. 4.1; [Begrensede lineære operatorer](/bok/mat2400/mat2400-4-2)
+- **Forkunnskaper/kryssbok:** kap. 4.1; [Begrensede lineære operatorer](/mat2400/mat2400-4-2)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste.**
 - **Definisjonskontrakt (flashcard-kilde):** **adjungert** `T*` via
   `⟨Tx,y⟩=⟨x,T*y⟩`; **selvadjungert** `T=T*`; **normal** `TT*=T*T`; **unitær**
@@ -928,8 +928,8 @@ operatorprøve på eksamensnivå).
   med parametere), karakteristisk polynom, algebraisk vs. geometrisk multiplisitet og
   diagonaliserbarhet.
 - **Eksamensbelegg:** Sjanger G (10/16, 62 %; 4/4 nyest). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** matte 1–3 (radreduksjon); [Egenverdier, egenvektorer og egenrom](/bok/mat1120/mat1120-3-1)
-  `(verifiser lenke)`, [Diagonalisering A=PDP⁻¹](/bok/mat1120/mat1120-3-2) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** matte 1–3 (radreduksjon); [Egenverdier, egenvektorer og egenrom](/mat1120/mat1120-3-1)
+  `(verifiser lenke)`, [Diagonalisering A=PDP⁻¹](/mat1120/mat1120-3-2) `(verifiser lenke)`.
   `collapsible` **Definisjons-/teorem-/bevismalliste.**
 - **Definisjonskontrakt (flashcard-kilde):** **egenverdi/egenvektor** (`Av=λv`, `v≠0`);
   **karakteristisk polynom** `det(A−λI)`; **algebraisk** vs. **geometrisk
@@ -952,7 +952,7 @@ operatorprøve på eksamensnivå).
   rekonstruksjon av en symmetrisk matrise fra egendata.
 - **Eksamensbelegg:** Sjanger G (10/16; 4/4 nyest). «Avgjør når `ℝⁿ` har ortonormal
   egenbasis; rekonstruer `A` fra egendata.» Prioritet: perfekt. Sensorkrav #4.
-- **Forkunnskaper/kryssbok:** kap. 7.1 (+ 4.3); [Symmetriske matriser og spektralteoremet](/bok/mat1120/mat1120-6-1)
+- **Forkunnskaper/kryssbok:** kap. 7.1 (+ 4.3); [Symmetriske matriser og spektralteoremet](/mat1120/mat1120-6-1)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste:** bevismal M5.
 - **Definisjonskontrakt (flashcard-kilde):** **ortogonal/unitær diagonalisering**
   `A=QDQᵀ` (`Q` ortogonal); **spektraldekomponering**; koblingen til selvadjungert/
@@ -998,7 +998,7 @@ spektralprøve på eksamensnivå).
 - **Eksamensbelegg:** Sjanger H (Jordan 5/16, `exp(tA)` 6/16; Ehrnström-signatur
   H2012/H2013/S2013). Prioritet: perfekt. **«Sist du var her»:** vis egenverdi-/
   egenvektor-kjernereglene ferdig oppfrisket (fra 7.1) da tidsavstanden er stor.
-- **Forkunnskaper/kryssbok:** kap. 7.1; [Differensiallikningssystem x′=Ax](/bok/mat1120/mat1120-7-2)
+- **Forkunnskaper/kryssbok:** kap. 7.1; [Differensiallikningssystem x′=Ax](/mat1120/mat1120-7-2)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste:**
   Jordan-kjede-oppskriften + `exp(tJ)`.
 - **Definisjonskontrakt (flashcard-kilde):** **generalisert egenvektor**
@@ -1044,7 +1044,7 @@ eksamensnivå).
 - **Eksamensbelegg:** Sjanger M (9/16 samlet, konsentrert i Periode A 4/5, avtakende
   etter læreverkskiftet). Prioritet: kjenne (solid beredskap; en Young-orientert
   sensor kan hente den tilbake — analysen §7).
-- **Forkunnskaper/kryssbok:** kap. 7.1 (+ 4.3, 5.2); [Singulærverdidekomposisjon](/bok/mat1120/mat1120-7-1)
+- **Forkunnskaper/kryssbok:** kap. 7.1 (+ 4.3, 5.2); [Singulærverdidekomposisjon](/mat1120/mat1120-7-1)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste.**
 - **Definisjonskontrakt (flashcard-kilde):** **singulærverdi** (`√` av egenverdi til
   `AᵀA`); **SVD** `A=UΣVᵀ`; **pseudoinvers** `A⁺=VΣ⁺Uᵀ`; koblingen `AᵀA=RᵀR` fra QR.
@@ -1065,7 +1065,7 @@ eksamensnivå).
   SVD/pseudoinvers/kjerne-bilde.
 - **Eksamensbelegg:** Sjanger L/M (LU 4/16, 25 %; fire underrom del av L 56 %).
   Prioritet: kjenne.
-- **Forkunnskaper/kryssbok:** kap. 9.1 (+ 5.2); [Col A, Nul A, rang og dimensjonsteoremet](/bok/mat1120/mat1120-1-2)
+- **Forkunnskaper/kryssbok:** kap. 9.1 (+ 5.2); [Col A, Nul A, rang og dimensjonsteoremet](/mat1120/mat1120-1-2)
   `(verifiser lenke)`. `collapsible` **Definisjons-/teorem-/bevismalliste.**
 - **Definisjonskontrakt (flashcard-kilde):** **QR** `A=QR`; **LU/PA=LU**; **fire
   fundamentale underrom** + ortogonalitetsrelasjonene (`Row A⊥Nul A`,

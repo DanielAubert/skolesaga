@@ -147,7 +147,7 @@ kausalitet/OVB + IV (kausalitetsoppgaven) som klimaks, øvrige design til slutt.
 
 **Kryssbok-lenker (forkunnskaper):** ECON2130 Statistikk 1 er den naturlige
 forkunnskapen — sannsynlighet, estimatorer, SE, KI, hypotesetest og R kommer
-derfra. Bruk `[tittel](/bok/econ2130/<chapterId>)` til disse kapitlene når
+derfra. Bruk `[tittel](/econ2130/<chapterId>)` til disse kapitlene når
 forkunnskapen ikke dekkes i denne boka selv:
 `econ2130-1-2` (betinget sannsynlighet/Bayes), `econ2130-2-2` (regnereglene
 E/Var — grunnlaget for OVB- og delta-metode-algebraen), `econ2130-2-5`

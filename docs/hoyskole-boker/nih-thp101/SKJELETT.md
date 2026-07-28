@@ -76,11 +76,11 @@ plan/akse-paring, som er de klassiske minuspoeng-fellene).
 
 **Kalibreringsregel (ufravikelig):** THP101 er IKKE fysiologi eller trening. Muskel-
 fysiologi (kontraksjonsmekanisme, energiomsetning, fibertyper) forutsettes fra søster-
-emnet [THP100 Humanfysiologi](/bok/nih-thp100) og skal IKKE gjentas her utover korte
+emnet [THP100 Humanfysiologi](/nih-thp100) og skal IKKE gjentas her utover korte
 forkunnskaps-lenker. THP101 dekker bevegelsesapparatets **struktur og mekanikk**:
 knokler, ledd, leddbånd, muskler (utspring/feste/funksjon), perifere nerver, og statisk
 bevegelsesanalyse. Vektorbiomekanikk, arbeid/energi og materialmekanikk ligger i
-[THP203 Basal biomekanikk](/bok/nih-thp203), som bygger direkte videre på momentdelen
+[THP203 Basal biomekanikk](/nih-thp203), som bygger direkte videre på momentdelen
 (Del 7) her.
 
 ---
@@ -832,7 +832,7 @@ vignetter* — droppfot/impingement/bursitt↔struktur (D1-VIGN).
 > har `theorem` **Regneprosedyre**, gjennomregnet eksamenscase som A-besvarelse, og drill med
 > stigende vanskegrad som ender på 2025–26-nivå. Sensor krever **vist utregning i symbolform +
 > riktig enhet (N, Nm) + mekanisk tolkning**; delpoeng for riktig oppsett ved følgefeil. Alle
-> tall NYSKREVNE. Denne delen er direkte forkunnskap for [THP203 Basal biomekanikk](/bok/nih-thp203).
+> tall NYSKREVNE. Denne delen er direkte forkunnskap for [THP203 Basal biomekanikk](/nih-thp203).
 
 #### Kapittel 7.1: Masse, tyngde og Newtons lover
 **id:** `nih-thp101-7-1` · **number:** 7.1 · **estimatedMinutes:** 60 · **prerequisites:** `nih-thp101-0-2`

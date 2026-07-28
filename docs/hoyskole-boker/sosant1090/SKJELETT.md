@@ -1740,7 +1740,7 @@ V2025/V2026-malen (teoretiker-navngitte).
    `level: 'Høyskole'`, alle 36 kapitler + prøvekapitler med id/number/title/
    description/estimatedMinutes/topics/prerequisites fra dette skjelettet,
    `sectionNames` fra del 2-tabellen. Registrer i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under UiO som
+   `src/app/trinn/hoyere/institusjoner.ts` under UiO som
    «SOSANT1090 Antropologiens historie».
 2. **Del 0** (etablerer mantraene alle senere kapitler refererer: «sett retninger
    i relasjon», «plasser alltid faghistorisk», C–D-taket, tre-nivå-graderingen,

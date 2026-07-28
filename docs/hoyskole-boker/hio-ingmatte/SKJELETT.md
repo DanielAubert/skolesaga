@@ -341,8 +341,8 @@ utledning fra tekst — boka vektlegger derfor *løsning* av gitte DE-er.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 2, 3, 5 på tvers av alle sjangre).
   Prioritet: perfekt (meta).
 - **Forkunnskaper/kryssbok:** kap. 0.1; forutsetter R1/R2-derivasjon og
-  integrasjon-grunnlag: [Derivasjon](/bok/r1/r1-3-1) `(verifiser lenke)`,
-  [Integrasjon](/bok/r2/r2-4-1) `(verifiser lenke)`. `collapsible` **Symbol- og
+  integrasjon-grunnlag: [Derivasjon](/r1/r1-3-1) `(verifiser lenke)`,
+  [Integrasjon](/r2/r2-4-1) `(verifiser lenke)`. `collapsible` **Symbol- og
   formelliste:** hva formelheftet gir (trig-verdier for standardvinkler; DE-
   oppsummeringsarket) vs. hva du selv må ta med på notatarket (delbrøk-maler,
   integraltabell, Taylor-formel, vektorformler).
@@ -382,7 +382,7 @@ utledning fra tekst — boka vektlegger derfor *løsning* av gitte DE-er.
 - **Eksamensbelegg:** Ikke egen søyle, men forutsetning for l'Hôpital (Del 1),
   kurvedrøfting (M, 17 %) og invers funksjon (17 %). Inngår indirekte i D, E, M.
   Prioritet: grunnlag.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Funksjoner](/bok/1t/1t-4-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Funksjoner](/1t/1t-4-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** $D_f$ (definisjonsmengde), $V_f$
   (verdimengde), $f\circ g$ (sammensetning), $f^{-1}$ (invers).
 - **Innholdskontrakt (flashcard-kilde):** definisjonsmengde (hvor uttrykket er
@@ -468,7 +468,7 @@ omskriving) · 1.D samlet grense-/funksjonsprøve på eksamensnivå).
 - **Eksamensbelegg:** Grunnlag for D (implisitt + tangent, 83 %), K (logaritmisk
   derivasjon, 25 %), E (l'Hôpital), H (Taylor). Inngår i D, E, H, K. Prioritet:
   grunnlag → perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.2; [Derivasjon](/bok/r1/r1-3-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 1.2; [Derivasjon](/r1/r1-3-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** $f'(x)$, $\tfrac{dy}{dx}$, kjerneregel
   $\tfrac{d}{dx}f(g(x))=f'(g(x))g'(x)$, produkt-/kvotientregel.
 - **Innholdskontrakt (flashcard-kilde):** **derivasjonsregler** (potens, sum, produkt
@@ -545,7 +545,7 @@ på eksamensnivå).
   grenser ved bestemt integral, indre derivert) — med konsekvent «+ C».
 - **Eksamensbelegg:** Sjanger C (12/12, 100 %): 2–4 integraler per sett. «+ C» er
   poenggivende (#1); grensebytte ved substitusjon (#2). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Integrasjon](/bok/r2/r2-4-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Integrasjon](/r2/r2-4-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** ubestemt vs. bestemt integral, «+ C»,
   standardintegraler, substitusjon $u=g(x)$, $du=g'(x)\,dx$.
 - **Innholdskontrakt (flashcard-kilde):** **standardintegraler** ($\int x^n\,dx$,
@@ -835,7 +835,7 @@ uten resonans (polynom/eksp/trig-høyreside) · 6.C inhomogen MED resonans · 6.
   determinant-oppsett.
 - **Eksamensbelegg:** Sjanger I (5/12, 42 %): fast oppskrift skalarprodukt→vinkel
   (grader+radianer), så $\mathbf{u}\times\mathbf{v}$. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Vektorer](/bok/r1/r1-5-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Vektorer](/r1/r1-5-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** skalarprodukt
   $\mathbf{u}\cdot\mathbf{v}=u_1v_1+u_2v_2+u_3v_3$; lengde
   $|\mathbf{u}|=\sqrt{u_1^2+u_2^2+u_3^2}$; vinkel
@@ -962,7 +962,7 @@ Taylor-prøve på eksamensnivå).
   **trigonometrisk likning** (løs for $x$ i $[0,2\pi\rangle$, ofte andregrad i
   $\cos x$).
 - **Eksamensbelegg:** Sjanger L (3/12, 25 %) og M-trig (2/12, 17 %). Prioritet: kjenne.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Trigonometri](/bok/r2/r2-2-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Trigonometri](/r2/r2-2-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** translasjon $f(x\mp a)$ (høyre/venstre),
   $f(x)\pm b$ (opp/ned); trig-grunnverdier fra formelheftet.
 - **Innholdskontrakt (flashcard-kilde):** **funksjonstransformasjon** — høyre/venstre

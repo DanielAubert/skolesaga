@@ -1091,7 +1091,7 @@ eksamensnivå. Krav «≥4 prøver per tema» ✓ (hver temadel har eksakt 4).
 
 ## 5. Byggenotater (for Opus-fasen)
 
-1. **Registrer emnet i `src/app/bok/trinn/hoyere/institusjoner.ts`** under NTNU med
+1. **Registrer emnet i `src/app/trinn/hoyere/institusjoner.ts`** under NTNU med
    visningsnavn «TMA4150 Algebra» (driver institusjonsnavnet i
    `hoyskole-disclaimer.tsx`-deklarasjonen). Ikke jus/helse — standard-deklarasjonen
    er tilstrekkelig.

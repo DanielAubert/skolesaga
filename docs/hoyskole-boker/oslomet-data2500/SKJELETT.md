@@ -1467,7 +1467,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
   oppgavetekster/fasiter/sensorformuleringer fra reelle sett; ingen UDIR/OsloMet-bilder.
 - [ ] **Verifiser rendering**: prod-server + curl mot kapittel- og narrativ-ruter
   (200 + innhold), jf. lærdommen om `getChapterMeta`.
-- [ ] **Institusjon OsloMet**: legges inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+- [ ] **Institusjon OsloMet**: legges inn i `src/app/trinn/hoyere/institusjoner.ts`
   med visningsnavn «DATA2500 Operativsystemer» (fase 5); del institusjonsblokk med
   Matematikk 1000 / DAFE1000 (OsloMet) hvis den allerede er lagt inn.
 - [ ] **Hoyskole-disclaimer**: `oslomet-data2500` er verken jus eller helse →

@@ -48,7 +48,7 @@ rekkefølgen først i kapitlet:
    kapitlets «Eksamensbelegg»-punkt i SKJELETT §3; frekvenstallene er telte
    belegg og skal ikke rundes eller pyntes)
 2. `text` **Forkunnskaper** (kapitler i boka + kryssbok-lenker
-   `[tittel](/bok/<courseId>/<chapterId>)` — KUN til kapitler som finnes i
+   `[tittel](/<courseId>/<chapterId>)` — KUN til kapitler som finnes i
    `src/lib/data/chapters/`; «kan leses uten forkunnskaper» hvis ingen. Kap.
    4.1, 6.1 og 7.2 er merket «kan leses uavhengig» i skjelettet)
 Og SIST i kapitlet: `collapsible` **Symbol- og formelliste** (title «Symbol-
@@ -114,7 +114,7 @@ repetisjon (teorikapitler).
   regnefagets **formel-minimum-side** (collapsible «Formlene du må kunne
   brukes aktivt — resten står på formelarket»).
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/fys1001/fys1001-X-Y)`; død «se kapittel»-
+  markdown-lenke `[kap. X.Y](/fys1001/fys1001-X-Y)`; død «se kapittel»-
   tekst er FORBUDT (aldri lenker i title-felt).
 - **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
   «Prioritet: perfekt» FORBUDT (skriv «høyeste prioritet»); «Gapet til A» =
@@ -337,9 +337,9 @@ sier hva som IKKE er dekket og hvorfor — der er termene tillatt**):
   Q kvalitative hverdagsforklaringer.
 - **Kryssbok-lenker:** kun 1T, R1, R2 og Fysikk 2 lenkes, med de eksakte
   id-ene som står i SKJELETT §3 (f.eks.
-  `[Trigonometri i rettvinklede trekanter](/bok/1t/1t-5-4)`,
-  `[Sirkelbevegelse og sentripetalkraft](/bok/fysikk2/fysikk2-1-4)`).
-  Internlenker: `/bok/fys1001/fys1001-X-Y`.
+  `[Trigonometri i rettvinklede trekanter](/1t/1t-5-4)`,
+  `[Sirkelbevegelse og sentripetalkraft](/fysikk2/fysikk2-1-4)`).
+  Internlenker: `/fys1001/fys1001-X-Y`.
 
 ## Kvalitetskrav før ferdigmelding (per agent)
 1. `python3 json.load` på hver fil; 2. kvotetelling mot tabellen over

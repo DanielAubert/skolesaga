@@ -174,7 +174,7 @@ Alltid, i denne rekkefølgen først i kapitlet:
    kodeforståelse, altså «hva skriver dette programmet ut?»».
 2. `text` **Forkunnskaper** — overskriften skal ORDRETT være
    `## Forkunnskaper — sist du var her`, og blokken lenker til kapitler i boka
-   (markdown-lenker `[kap. X.Y](/bok/in1000/in1000-X-Y)`) + kryssbok-lenker der
+   (markdown-lenker `[kap. X.Y](/in1000/in1000-X-Y)`) + kryssbok-lenker der
    forkunnskapen ikke dekkes i boka (tabellen under, KUN filer som finnes).
    Har kapitlet ingen forkunnskaper, skriver blokken det eksplisitt («Kan leses
    uten forkunnskaper …») under samme overskrift. I tunge, sene kapitler
@@ -313,7 +313,7 @@ som en egen `collapsible` «Kald bank — uten hint».
   gruppering, finn beste, konstruktør med `self._x`, aksessor/mutator,
   delegering, filinnlesing-løkka, input-løkka, `__str__` — hver med én ordlinje.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/in1000/in1000-X-Y)`; død «se kapittel»-tekst
+  markdown-lenke `[kap. X.Y](/in1000/in1000-X-Y)`; død «se kapittel»-tekst
   er FORBUDT (aldri lenker i `title`-felt).
 - **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
   grep «Prioritet: perfekt» skal gi 0 treff. NB: «PERFEKT» i skjelettets
@@ -878,7 +878,7 @@ I tillegg de to prosa-kontrollerte avgrensningene i §K5 (rekursjon og arv).
 
 ## Kryssbok-lenker (verifisert 25. juli 2026 — alle filene finnes i `src/lib/data/chapters/`)
 
-Lenkeform `[tittel](/bok/<courseId>/<id>)`. Titlene under er de faktiske
+Lenkeform `[tittel](/<courseId>/<id>)`. Titlene under er de faktiske
 kapitteltitlene og skal brukes ordrett. Lenk ALDRI til en fil som ikke finnes
 (`sjekk-bok.py` fanger døde lenker).
 
@@ -892,7 +892,7 @@ kapitteltitlene og skal brukes ordrett. Lenk ALDRI til en fil som ikke finnes
 
 Kontrollér med `ls src/lib/data/chapters/<id>.json` før du lenker; tabellen
 utvides av byggeleder, ikke av kapittelforfatteren. Interne lenker:
-`[kap. X.Y](/bok/in1000/in1000-X-Y)`. Lenker til kapitler som ennå ikke finnes,
+`[kap. X.Y](/in1000/in1000-X-Y)`. Lenker til kapitler som ennå ikke finnes,
 legges inn først når fila finnes på disk — koordineres av byggeleder ved wiring.
 
 ---

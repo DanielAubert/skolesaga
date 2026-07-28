@@ -261,7 +261,7 @@ upresist** (utvalg må være representativt, tilstrekkelig stort, med høy delta
    README). Relevante søsken: **nih-thp202** (Treningsfysiologi) og **nih-idr109**
    (Treningslære) for VO₂maks-/MVPA-/treningsfysiologisk kontekst i eksempler; **nih-ma460**
    (Exercise Biology and Sport Performance Analysis I, master) som beslektet
-   analyse-/metodeemne. Lenkeform: `[tittel](/bok/nih-thp202/nih-thp202-X-Y)` — kun til
+   analyse-/metodeemne. Lenkeform: `[tittel](/nih-thp202/nih-thp202-X-Y)` — kun til
    kapitler som finnes; merk `(verifiser lenke)` der usikkert. Boka gjentar IKKE
    fysiologisk dybde fra thp202/idr109; den bruker treningsfysiologien som *kontekst* for
    metode-/statistikkeksempler.
@@ -553,8 +553,8 @@ eksamensnivå (inkl. én design-drøfting, F-sjanger). Hver med selvdiagnose-sje
   Prioritet: **perfekt**. Fast delspørsmål: koble spørsmål → design (størrelse/risikogruppe →
   tverrsnitt; kausal sammenheng over tid → kohort; effekt av intervensjon → RCT).
 - **Forkunnskaper/kryssbok:** kap. 0.2. `collapsible` **Pensumkart:** Thrane — evidenspyramiden,
-  designtyper. Idrettskontekst hentes fra [nih-thp202](/bok/nih-thp202/nih-thp202-1-1)
-  `(verifiser lenke)` / [nih-idr109](/bok/nih-idr109/nih-idr109-1-1) `(verifiser lenke)` — uten
+  designtyper. Idrettskontekst hentes fra [nih-thp202](/nih-thp202/nih-thp202-1-1)
+  `(verifiser lenke)` / [nih-idr109](/nih-idr109/nih-idr109-1-1) `(verifiser lenke)` — uten
   fysiologisk dybdegjentakelse.
 - **Begrepskontrakt (flashcard-kilde):** **evidenspyramiden** nedenfra: kasusrapport/
   ekspertvurdering → **tverrsnitt** (måler på ett tidspunkt; assosiasjon/utbredelse) →
@@ -988,6 +988,6 @@ er metadeler dekket av øvingseksamenene).
   `(verifiser)` — behold merkingen til fase 6-verifikasjon.
 - **competenceGoals** skrives som Skolesagas egne, eksamensforankrede mål (destillert fra analysen)
   — ALDRI kopi av NIHs offisielle læringsutbytte; sjangerkoder/feilkoder aldri kald i læringsmål.
-- **Registrer emnet** i `src/app/bok/trinn/hoyere/institusjoner.ts` under Norges idrettshøgskole
+- **Registrer emnet** i `src/app/trinn/hoyere/institusjoner.ts` under Norges idrettshøgskole
   med visningsnavn «MET200 Forskningsmetode»; sjekk at `hoyskole-disclaimer.tsx`-heuristikken
   treffer (metode-/statistikkfag — ikke jus/helse, men verifiser).

@@ -570,7 +570,7 @@ bygget på nivåbeskrivelsene — ingen ekte A-svar finnes).
   V2024 O1 krever minst to modeller. Sjanger: DIM. Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 1.1–1.3, 0.2. NB: full modellforklaring ligger i Del 2 —
   dette kapitlet bruker bryllupskakemodellen som *smakebit* og henviser eksplisitt framover
-  til [kap. 2.1](/bok/nih-spm103/nih-spm103-2-1). `collapsible` **Begrep↔forfatter-lager:**
+  til [kap. 2.1](/nih-spm103/nih-spm103-2-1). `collapsible` **Begrep↔forfatter-lager:**
   dimensjonsdrøftingens fire trinn; bryllupskakemodellen som forventet inngang.
 - **Begrepskontrakt (flashcard-kilde):** **dimensjonsdrøfting** (DIM-sjangerens indre logikk);
   **modell som obligatorisk komponent** (#2); **syntese** (hvordan dimensjonene veves sammen);
@@ -1192,7 +1192,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    være del-basert («4.2»), ALDRI lineær** — bokforsiden grupperer på `number.split('.')[0]`.
    Prosareferanser bruker samme form («kap. 4.2»). `sectionNames` fra §2-tabellen (obligatorisk
    — ellers viser bokforsiden «Seksjon N»). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under Norges idrettshøgskole, visningsnavn «SPM103
+   `src/app/trinn/hoyere/institusjoner.ts` under Norges idrettshøgskole, visningsnavn «SPM103
    Idrett og bærekraft».
 2. **Del 0** (kap. 0.1–0.3) — etablerer sjangernavnene (DIM/PROS/ARR/KLIMA/INT/STRAT),
    firetrinnsmalen med obligatorisk modell, oppramsing→drøft-skillet, formkravene (APA 7 m/

@@ -195,13 +195,13 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
 
 **Kryssbok-forkunnskaper (verifiserte, bygde VGS-kapitler):** matematisk induksjon
 og bevis er dekket på VGS-nivå og er de sterkeste ankrene — **R2**:
-[Induksjonsbevis](/bok/r2/r2-1-6), [Følger og tallmønstre](/bok/r2/r2-1-1),
-[Bevis og matematisk argumentasjon](/bok/r2/r2-6-6); **R1**:
-[Induksjon](/bok/r1/r1-9-2), [Direkte bevis og moteksempler](/bok/r1/r1-9-1),
-[Kontrapositiv og kontradiksjon](/bok/r1/r1-9-3), [Bevis i algebra](/bok/r1/r1-1-5);
-**S1**: [Kombinatorikk](/bok/s1/s1-5-1), [Avansert kombinatorikk](/bok/s1/s1-5-4);
-**1T**: [Mengdelære](/bok/1t/1t-1-7), [Matematisk argumentasjon](/bok/1t/1t-6-1),
-[Lese og forstå bevis](/bok/1t/1t-6-2). Utsagnslogikk (formelt), grafteori,
+[Induksjonsbevis](/r2/r2-1-6), [Følger og tallmønstre](/r2/r2-1-1),
+[Bevis og matematisk argumentasjon](/r2/r2-6-6); **R1**:
+[Induksjon](/r1/r1-9-2), [Direkte bevis og moteksempler](/r1/r1-9-1),
+[Kontrapositiv og kontradiksjon](/r1/r1-9-3), [Bevis i algebra](/r1/r1-1-5);
+**S1**: [Kombinatorikk](/s1/s1-5-1), [Avansert kombinatorikk](/s1/s1-5-4);
+**1T**: [Mengdelære](/1t/1t-1-7), [Matematisk argumentasjon](/1t/1t-6-1),
+[Lese og forstå bevis](/1t/1t-6-2). Utsagnslogikk (formelt), grafteori,
 automater og boolsk algebra bygges fra grunnen i boka (ingen VGS-forgjenger). Lenk
 kun til disse verifiserte id-ene.
 
@@ -231,7 +231,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-1-1` · **number:** 1.1 · **estimatedMinutes:** 50 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Primitive utsagn, konnektivene ¬, ∧, ∨, ⇒, ⇔ og sannhetstabellen som verktøy for tautologi, kontradiksjon og logisk ekvivalens — grunnspråket for all bevisføring i faget.
-- **Forkunnskaper (kryssbok):** Ingen i boka. [Matematisk argumentasjon](/bok/1t/1t-6-1) og [Lese og forstå bevis](/bok/1t/1t-6-2) (uformell argumentasjon fra VGS som utgangspunkt). Den formelle utsagnslogikken bygges fra grunnen her.
+- **Forkunnskaper (kryssbok):** Ingen i boka. [Matematisk argumentasjon](/1t/1t-6-1) og [Lese og forstå bevis](/1t/1t-6-2) (uformell argumentasjon fra VGS som utgangspunkt). Den formelle utsagnslogikken bygges fra grunnen her.
 - **Eksamensbelegg:** Sjanger E-grunnlag, **~69 %** (logikk samlet). Fasitens grep: sett opp full sannhetstabell, sammenlign sluttkolonnene for å avgjøre ekvivalens/tautologi/kontradiksjon. Prioritet: **kunne**.
 - **Innholdskontrakt:** Primitive (atomære) utsagn; konnektivene **negasjon** $\neg p$, **konjunksjon** $p\land q$, **disjunksjon** $p\lor q$, **implikasjon** $p\Rightarrow q$, **biimplikasjon** $p\Leftrightarrow q$; sannhetstabeller for hver; **tautologi** (alltid sann), **kontradiksjon** (alltid usann), **kontingens**; **logisk ekvivalens** $p\equiv q$ (identiske sluttkolonner); den sentrale ekvivalensen $p\Rightarrow q\equiv\neg p\lor q$ (utledes med tabell); kontrapositiv $\neg q\Rightarrow\neg p\equiv p\Rightarrow q$, omvending og invers (og at omvending IKKE er ekvivalent); nødvendig/tilstrekkelig betingelse. Alt til aktiv bruk.
 - **Oppgavesjangre:** E. Mønstereksempel: «Sett opp sannhetstabellen for $(p\Rightarrow q)\land(q\Rightarrow r)$ og avgjør om utsagnet er ekvivalent med $p\Rightarrow r$.»
@@ -243,7 +243,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-1-2` · **number:** 1.2 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-1-1`
 - **kapitteltype:** teori
 - **description:** Logikkens lover (De Morgan, distributiv, absorpsjon, komplement, dobbel negasjon) brukt til å forenkle sammensatte utsagn steg for steg — med hver lov navngitt, slik sensor krever.
-- **Forkunnskaper (kryssbok):** Kap. 1.1. [Bevis i algebra](/bok/r1/r1-1-5) (algebraisk omforming med navngitte regler som analogi).
+- **Forkunnskaper (kryssbok):** Kap. 1.1. [Bevis i algebra](/r1/r1-1-5) (algebraisk omforming med navngitte regler som analogi).
 - **Eksamensbelegg:** Sjanger E, **~69 %**. To ansikter: (i) **forenkle** et sammensatt utsagn *kun* med lovene, hvert steg navngitt; (ii) vise ekvivalens uten tabell. Prioritet: **kunne** (og en presisjonstest i flervalgsåpningen).
 - **Innholdskontrakt:** **Logikkens lover** med navn: kommutativ, assosiativ, **distributiv**, identitet, **komplement** ($p\lor\neg p\equiv T$, $p\land\neg p\equiv F$), **dobbel negasjon**, idempotens, **De Morgan** ($\neg(p\land q)\equiv\neg p\lor\neg q$), **absorpsjon** ($p\lor(p\land q)\equiv p$), dominans; omskriving av implikasjon $p\Rightarrow q\equiv\neg p\lor q$ og negasjon av implikasjon $\neg(p\Rightarrow q)\equiv p\land\neg q$; **forenkling** til minimal form der **hvert steg refererer en navngitt lov** (sensorkrav); logisk ekvivalens vist ved lovkjede i stedet for tabell. Aktiv føring gjennomgående.
 - **Oppgavesjangre:** E. Mønstereksempel: «Forenkl $\neg(\neg p\lor q)\lor(p\land\neg q)$ til minimal form. Navngi loven i hvert steg.»
@@ -255,7 +255,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-1-3` · **number:** 1.3 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-1-2`
 - **kapitteltype:** teori
 - **description:** Gyldige argumenter linje for linje (modus ponens/tollens, disjunktiv syllogisme), og kvantorene ∀, ∃ med den kritiske ferdigheten å negere et kvantifisert utsagn korrekt.
-- **Forkunnskaper (kryssbok):** Kap. 1.1–1.2. [Direkte bevis og moteksempler](/bok/r1/r1-9-1) (argumentkjede fra premiss til konklusjon).
+- **Forkunnskaper (kryssbok):** Kap. 1.1–1.2. [Direkte bevis og moteksempler](/r1/r1-9-1) (argumentkjede fra premiss til konklusjon).
 - **Eksamensbelegg:** Sjanger E, **~69 %** (slutningsregler); **predikatlogikk ~23 %** (ofte som flervalg — kvantornegering). Fasitens grep: etabler gyldighet linje for linje med navngitt slutningsregel; neger kvantifisert utsagn ved å bytte kvantor OG negere det indre. Prioritet: **kunne** (slutning), **kjenne** (kvantorer, men kvantornegering er en klassisk flervalgsfelle → drilles).
 - **Innholdskontrakt:** **Slutningsregler**: modus ponens, **modus tollens**, disjunktiv syllogisme, hypotetisk syllogisme, konjunksjon/forenkling; **gyldig argument** = konklusjonen følger av premissene (etabler linje for linje med regelnavn); gyldighet vs. sannhet. **Predikatlogikk**: predikat $P(x)$, **kvantorer** $\forall$ (universell), $\exists$ (eksistensiell), sammensatte $\forall x\exists y$; **negering av kvantifiserte utsagn** — $\neg\forall x\,P(x)\equiv\exists x\,\neg P(x)$, $\neg\exists x\,P(x)\equiv\forall x\,\neg P(x)$, og for sammensatte: $\neg\exists x\forall y\,P\equiv\forall x\exists y\,\neg P$ (bytt hver kvantor OG neger det innerste, med De Morgan innerst). Aktiv bruk.
 - **Oppgavesjangre:** E. Mønstereksempel: «Neger utsagnet $\exists x\,\forall y\,(x\le y)$ og forenkl det innerste. Er det opprinnelige eller det negerte utsagnet sant over de naturlige tallene?»
@@ -267,7 +267,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-1-4` · **number:** 1.4 · **estimatedMinutes:** 50 · **prerequisites:** `ma0301-1-1`
 - **kapitteltype:** teori
 - **description:** Mengdeoperasjonene, potensmengden P(A) med |P(A)| = 2^|A|, det kartesiske produktet A×B og symmetrisk differens — mengdespråket som relasjoner og funksjoner bygges på.
-- **Forkunnskaper (kryssbok):** Kap. 1.1 (utsagnslogikk — mengdeoperasjoner speiler konnektivene). [Mengdelære](/bok/1t/1t-1-7) (tallmengder, union, snitt, Venn-diagram fra VGS).
+- **Forkunnskaper (kryssbok):** Kap. 1.1 (utsagnslogikk — mengdeoperasjoner speiler konnektivene). [Mengdelære](/1t/1t-1-7) (tallmengder, union, snitt, Venn-diagram fra VGS).
 - **Eksamensbelegg:** Sjanger F-grunnlag, **~62 %**. Fasitens grep: regn potensmengde og kartesisk produkt eksplisitt for små mengder; bruk $|\mathcal P(A)|=2^{|A|}$. Prioritet: **kunne**.
 - **Innholdskontrakt:** Mengde, element, delmengde $\subseteq$, ekte delmengde; operasjonene union $\cup$, snitt $\cap$, differens $-$, **komplement** $\overline A$, **symmetrisk differens** $A\triangle B$; tomme mengden $\varnothing$; **potensmengde** $\mathcal P(A)$ og **$|\mathcal P(A)|=2^{|A|}$** (motivert ved delmengde ↔ binær valgvektor); **kartesisk produkt** $A\times B$ og $|A\times B|=|A|\cdot|B|$; Venn-diagram som heuristikk (men ikke bevis); parallellen mengdeoperasjon ↔ logisk konnektiv ($\cap\leftrightarrow\land$, $\cup\leftrightarrow\lor$, $\overline{\phantom{A}}\leftrightarrow\neg$). Aktiv bruk; klargjør at Venn-diagram *illustrerer* men ikke *beviser*.
 - **Oppgavesjangre:** F. Mønstereksempel: «La $A=\{1,2\}$, $B=\{a,b,c\}$. Skriv opp $\mathcal P(A)$, og bekreft $|\mathcal P(A)|=2^{|A|}$. Hvor mange elementer har $A\times B$, og hva er $|\mathcal P(A\times B)|$?»
@@ -279,7 +279,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-1-5` · **number:** 1.5 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-1-4`, `ma0301-1-2`
 - **kapitteltype:** teori
 - **description:** Tre godkjente metoder for å bevise en mengdeidentitet — element-argument (dobbel inklusjon), medlemskapstabell og mengdelærens lover med navngitte steg — anvendt på De Morgan, distributivitet og kartesiske identiteter.
-- **Forkunnskaper (kryssbok):** Kap. 1.4 (mengdeoperasjoner), 1.2 (lovforenkling som mønster). [Lese og forstå bevis](/bok/1t/1t-6-2) (bevisføring generelt).
+- **Forkunnskaper (kryssbok):** Kap. 1.4 (mengdeoperasjoner), 1.2 (lovforenkling som mønster). [Lese og forstå bevis](/1t/1t-6-2) (bevisføring generelt).
 - **Eksamensbelegg:** Sjanger F, **~62 %**. Fasiten godtar ofte fritt metodevalg. Gjengangere: $\overline{X\cap Y\cap Z}=\overline X\cup\overline Y\cup\overline Z$; $A\times(B-C)=(A\times B)-(A\times C)$; $(A\times A)=(B\times B)\Rightarrow A=B$. Prioritet: **kunne** (midtsjikt-karakterskiller).
 - **Innholdskontrakt:** **Tre bevismetoder for mengdeidentiteter**: (1) **element-argument / dobbel inklusjon** — vis $x\in$ venstre $\Leftrightarrow x\in$ høyre via en kjede av logiske ekvivalenser (bruker konnektiv ↔ operasjon-parallellen fra 1.4), evt. $A\subseteq B$ og $B\subseteq A$ hver for seg; (2) **medlemskaps-/sannhetstabell** — én kolonne per delmengde, sammenlign sluttkolonnene; (3) **mengdelærens lover** — De Morgan, distributiv, dobbelt komplement, idempotens, absorpsjon, med **navngitte steg**. Standardidentitetene over føres i minst to metoder. Element-argumentet er broen til relasjons- og funksjonsbevis (arbeid fra definisjonen). Aktiv føring.
 - **Oppgavesjangre:** F. Mønstereksempel: «Bevis at $\overline{A\cup B}=\overline A\cap\overline B$ (a) med element-argument og (b) med lovene, navngitt steg for steg.»
@@ -309,7 +309,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-2-1` · **number:** 2.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-1-3`
 - **kapitteltype:** teori
 - **description:** Den generelle bevisverktøykassen — direkte bevis, kontrapositivt bevis, bevis ved motsigelse og avkreftelse ved moteksempel — som bæres inn i relasjons-, funksjons- og grafbevisene senere.
-- **Forkunnskaper (kryssbok):** Kap. 1.1–1.3 (implikasjon, kontrapositiv, kvantorer). [Direkte bevis og moteksempler](/bok/r1/r1-9-1), [Kontrapositiv og kontradiksjon](/bok/r1/r1-9-3), [Bevis og matematisk argumentasjon](/bok/r2/r2-6-6) (bevisteknikkene på VGS-nivå).
+- **Forkunnskaper (kryssbok):** Kap. 1.1–1.3 (implikasjon, kontrapositiv, kvantorer). [Direkte bevis og moteksempler](/r1/r1-9-1), [Kontrapositiv og kontradiksjon](/r1/r1-9-3), [Bevis og matematisk argumentasjon](/r2/r2-6-6) (bevisteknikkene på VGS-nivå).
 - **Eksamensbelegg:** Underliggende ferdighet i sjanger B/C/D/H — **bevisstruktur teller for seg selv** (sensorregel 2). «Bevis eller avkreft» krever ett moteksempel (regel 4). Kontrapositivt bevis er standard i komposisjonssetninger (sjanger D); bevis ved motsigelse i grafgradskranker (sjanger H). Prioritet: **perfekt** (metaferdigheten bak nesten alle bevis).
 - **Innholdskontrakt:** **Direkte bevis** (anta hypotesen, utled konklusjonen); **kontrapositivt bevis** ($p\Rightarrow q$ via $\neg q\Rightarrow\neg p$ — når det er lettere); **bevis ved motsigelse** (anta $\neg$konklusjon, utled en umulighet); **avkreftelse ved moteksempel** (ett konkret eksempel som bryter en allkvantifisert påstand — og at ett eksempel aldri *beviser* en allpåstand); skillet «⇒» vs. «⇔» (en biimplikasjon krever begge veier); å arbeide **fra definisjonen** og navngi det som bæres. Anvendes på enkle tallteoretiske utsagn (partall/oddetall, delelighet) som oppvarming før induksjon. Merk: dette kapitlet er avhengighetsnavet for Del 3, 4 og 6.
 - **Oppgavesjangre:** B/C/D-forberedelse. Mønstereksempel: «Bevis eller avkreft: for alle heltall $n$ er $n^2+n$ et partall» (direkte) og «Bevis kontrapositivt: hvis $n^2$ er odde, så er $n$ odde».
@@ -321,7 +321,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-2-2` · **number:** 2.2 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-2-1`
 - **kapitteltype:** teori
 - **description:** Induksjonsprinsippet og den obligatoriske tredelte strukturen — basissteg, induksjonshypotese, induksjonssteg — som ALLE senere induksjonsbevis følger, med en egen advarsel: manglende basissteg gir trekk selv med riktig algebra.
-- **Forkunnskaper (kryssbok):** Kap. 2.1 (bevisstruktur). [Induksjonsbevis](/bok/r2/r2-1-6), [Induksjon](/bok/r1/r1-9-2) (svak induksjon på VGS-nivå — reaktiveres og formaliseres her).
+- **Forkunnskaper (kryssbok):** Kap. 2.1 (bevisstruktur). [Induksjonsbevis](/r2/r2-1-6), [Induksjon](/r1/r1-9-2) (svak induksjon på VGS-nivå — reaktiveres og formaliseres her).
 - **Eksamensbelegg:** Sjanger B, **~92 % og den tyngste bolken** (opptil 30 p). Fasiten viser HELE strukturen hver gang. Sensorregel: **å hoppe over basissteget gir trekk selv om steget er riktig**. Prioritet: **perfekt** (kjernen i bokas tyngdepunkt).
 - **Innholdskontrakt:** **Induksjonsprinsippet** (svak/ordinær induksjon): for å vise $P(n)$ for alle $n\ge n_0$, vis **(1) basissteget** $P(n_0)$ eksplisitt, **(2) induksjonshypotesen** (anta $P(k)$ for et vilkårlig $k\ge n_0$), **(3) induksjonssteget** (utled $P(k+1)$ ved å bruke hypotesen); intuisjonen (dominobrikker); den **obligatoriske føringsmalen** som gjentas i 2.3–2.6; hvorfor alle tre delene trengs (moteksempel: en «induksjon» uten gyldig basissteg kan «bevise» noe usant); valg av riktig $n_0$ (ikke alltid 1 — bro til 2.5). Standard oppvarming: $\sum_{k=1}^n k=\tfrac{n(n+1)}2$ ført komplett som mal.
 - **Oppgavesjangre:** B. Mønstereksempel: «Bevis ved induksjon at $\sum_{k=1}^n k=\tfrac{n(n+1)}2$ for alle $n\ge 1$. Skriv basissteg, induksjonshypotese og induksjonssteg eksplisitt.»
@@ -333,7 +333,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-2-3` · **number:** 2.3 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-2-2`
 - **kapitteltype:** teori
 - **description:** Lukkede formler for summer bevist ved induksjon — ∑k³, ∑(3k−2), geometriske summer — der induksjonssteget alltid splitter av det siste leddet og setter inn hypotesen.
-- **Forkunnskaper (kryssbok):** Kap. 2.2. [Rekker og summasjon](/bok/r2/r2-1-4), [Følger og tallmønstre](/bok/r2/r2-1-1) (sumnotasjon $\sum$).
+- **Forkunnskaper (kryssbok):** Kap. 2.2. [Rekker og summasjon](/r2/r2-1-4), [Følger og tallmønstre](/r2/r2-1-1) (sumnotasjon $\sum$).
 - **Eksamensbelegg:** Sjanger B (sumtype), **kjerne i de 92 %**. Fasitens grep: i steget, skriv $\sum_{k=1}^{n+1}=\left(\sum_{k=1}^{n}\right)+a_{n+1}$, sett inn hypotesen for den første summen, og forenkl algebraisk til høyresidens formel for $n+1$. Prioritet: **perfekt**.
 - **Innholdskontrakt:** Sumnotasjon og teleskopering (kjennskap); **induksjonssteg-teknikken for summer**: splitt av siste ledd, sett inn hypotesen, faktoriser mot målformelen; gjengangere ført komplett: $\sum_{k=1}^n k^3=\left(\tfrac{n(n+1)}2\right)^2$, $\sum_{k=1}^n(3k-2)=\tfrac{n(3n-1)}2$, **geometrisk sum** $\sum_{i=0}^n r^i=\tfrac{1-r^{n+1}}{1-r}$ ($r\ne 1$); den algebraiske forenklingen vist ledd for ledd (der karakteren sitter). Aktiv føring; alle tre stegene hver gang.
 - **Oppgavesjangre:** B. Mønstereksempel: «Bevis ved induksjon at $\sum_{k=1}^n k^3=\left(\tfrac{n(n+1)}2\right)^2$ for alle $n\ge 1$.»
@@ -345,7 +345,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-2-4` · **number:** 2.4 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-2-2`
 - **kapitteltype:** teori
 - **description:** Delelighetsbevis ved induksjon — n³−n delelig med 3, 8^m−14m+27 delelig med 7 — der steget viser at differansen mellom to påfølgende ledd er et multiplum av tallet, gitt hypotesen.
-- **Forkunnskaper (kryssbok):** Kap. 2.2, 2.1 (delelighet, direkte bevis). [Bevis i algebra](/bok/r1/r1-1-5) (algebraisk omforming).
+- **Forkunnskaper (kryssbok):** Kap. 2.2, 2.1 (delelighet, direkte bevis). [Bevis i algebra](/r1/r1-1-5) (algebraisk omforming).
 - **Eksamensbelegg:** Sjanger B (delelighetstype), **kjerne i de 92 %; midtsjikt-karakterskiller**. Fasitens grep: skriv $f(k+1)-f(k)$ (eller $f(k+1)$ omskrevet) slik at hypotesen «$m\mid f(k)$» kan brukes, og vis at resten også er delelig. Her opptrer modulær aritmetikk **forkledd**. Prioritet: **perfekt**.
 - **Innholdskontrakt:** Delelighet $m\mid a$ (det finnes heltall $t$ med $a=mt$); **induksjonssteg-teknikken for delelighet**: uttrykk $f(k+1)$ ved $f(k)$ pluss et ledd som åpenbart er delelig med $m$, bruk hypotesen; gjengangere ført komplett: $3\mid(n^3-n)$, $7\mid(8^m-14m+27)$, $6\mid(n^3-n)$, $9\mid(4^n+6n-1)$-typen; kongruens som forkledd tema (nevnes: «delelig med $n$» = «kongruent 0 mod $n$», men uten egen kongruensregning — stilregel 8). Aktiv føring; alle tre stegene.
 - **Oppgavesjangre:** B. Mønstereksempel: «Bevis ved induksjon at $n^3-n$ er delelig med 3 for alle $n\ge 1$.»
@@ -357,7 +357,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-2-5` · **number:** 2.5 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-2-2`
 - **kapitteltype:** teori
 - **description:** Ulikhetsinduksjon der basissteget ofte IKKE er n=1 — for 2^n ≥ n² er det n=4 — og der steget bruker en tidligere etablert ulikhet. Den vanligste induksjonsfellen bor her.
-- **Forkunnskaper (kryssbok):** Kap. 2.2. [Induksjonsbevis](/bok/r2/r2-1-6) (ulikhetsvariant fra VGS).
+- **Forkunnskaper (kryssbok):** Kap. 2.2. [Induksjonsbevis](/r2/r2-1-6) (ulikhetsvariant fra VGS).
 - **Eksamensbelegg:** Sjanger B (ulikhetstype), **kjerne i de 92 %; midtsjikt-karakterskiller**. Fasitens grep: finn det minste $n_0$ der påstanden faktisk holder (sjekk små $n$!), og bruk i steget en tidligere bevist ulikhet (f.eks. $2^k\ge k^2\Rightarrow 2^{k+1}=2\cdot 2^k\ge 2k^2\ge(k+1)^2$ for $k\ge 3$). Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Valg av riktig basissteg**: sjekk små $n$ — for $2^n\ge n^2$ feiler $n=3$, basissteg er $n=4$; for $n^2\ge 2n+1$ er det $n=3$; å starte på $n=1$ av vane gir et feil bevis; **induksjonssteg-teknikken for ulikheter**: fra hypotesen, forsterk med en tidligere bevist hjelpeulikhet til målet for $k+1$; monotoni og transitivitet av $\ge$. Gjengangere ført komplett: $2^n\ge n^2$ ($n\ge 4$), $n^2\ge 2n+1$ ($n\ge 3$), $2^n>n$, $n!\ge 2^{n-1}$. Aktiv føring; alle tre stegene.
 - **Oppgavesjangre:** B. Mønstereksempel: «Bevis ved induksjon at $2^n\ge n^2$ for alle $n\ge 4$. Forklar hvorfor basissteget ikke er $n=1$.»
@@ -369,7 +369,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-2-6` · **number:** 2.6 · **estimatedMinutes:** 60 · **prerequisites:** `ma0301-2-5`
 - **kapitteltype:** teori
 - **description:** Fibonacci, Lucas og Narayana: identiteter for rekursivt definerte følger bevist med sterk induksjon (flere foregående ledd) — den voksende gjengangeren og en topp-karakterskiller. Rekurrenser løses ALDRI via karakteristisk likning.
-- **Forkunnskaper (kryssbok):** Kap. 2.2–2.5 (svak induksjon), 2.1 (bevisstruktur). [Følger og tallmønstre](/bok/r2/r2-1-1), [Geometriske følger](/bok/r2/r2-1-3) (rekursiv definisjon).
+- **Forkunnskaper (kryssbok):** Kap. 2.2–2.5 (svak induksjon), 2.1 (bevisstruktur). [Følger og tallmønstre](/r2/r2-1-1), [Geometriske følger](/r2/r2-1-3) (rekursiv definisjon).
 - **Eksamensbelegg:** Sjanger B (rekursiv følge), **~38 % og voksende — i alle sett 2018–2020**, ofte som tung deloppgave (8–12 p) og **topp-karakterskiller**. Fasitens grep: bruk følgens rekursjon ($F_n=F_{n-1}+F_{n-2}$) og en oppgitt hjelpeidentitet; **sterk induksjon** når steget krever flere foregående ledd (f.eks. $c_{n+2}=3c_{n+1}-3c_n+c_{n-1}$). **⚠️ Rekurrenser løses her KUN som induksjonsverifisering — aldri karakteristisk likning/genererende funksjoner** (stilregel 7). Prioritet: **perfekt** (topp-differensierer).
 - **Innholdskontrakt:** **Rekursivt definert følge** (grunnledd + rekursjon): **Fibonacci** $F_n=F_{n-1}+F_{n-2}$, **Lucas** $L_n=L_{n-1}+L_{n-2}$, Narayana-følgen; **sterk (fullstendig) induksjon** — anta $P(j)$ for ALLE $j$ opp til $k$ (ikke bare $j=k$), nødvendig når rekursjonen bruker flere foregående ledd; **flere basissteg** (én per ledd rekursjonen trekker på); gjengangere ført komplett: $F_1+F_2+\cdots+F_n=F_{n+2}-1$, $L_n=F_{n-1}+F_{n+1}$, en Narayana-identitet med tredje-ordens rekursjon; når sterk vs. svak induksjon trengs. **Eksplisitt: karakteristisk likning og genererende funksjoner brukes IKKE** — følgene verifiseres, ikke løses. Aktiv føring; komplett struktur.
 - **Oppgavesjangre:** B. Mønstereksempel: «La $L_n$ være Lucas-følgen ($L_1=1$, $L_2=3$, $L_n=L_{n-1}+L_{n-2}$). Bevis ved sterk induksjon at $L_n=F_{n-1}+F_{n+1}$ for alle $n\ge 2$.»
@@ -481,7 +481,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-5-1` · **number:** 5.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-1-4`
 - **kapitteltype:** teori
 - **description:** Produkt- og sumregelen, permutasjoner og kombinasjoner, og den sentrale eksamensvarianten: permutasjoner med gjentatte elementer (bokstavene i et ord), inkludert «ved siden av»- og «ikke ved siden av»-tilleggene.
-- **Forkunnskaper (kryssbok):** Kap. 1.4 (mengder). [Kombinatorikk](/bok/s1/s1-5-1), [Avansert kombinatorikk](/bok/s1/s1-5-4) (telleprinsippene på VGS-nivå).
+- **Forkunnskaper (kryssbok):** Kap. 1.4 (mengder). [Kombinatorikk](/s1/s1-5-1), [Avansert kombinatorikk](/s1/s1-5-4) (telleprinsippene på VGS-nivå).
 - **Eksamensbelegg:** Sjanger G, **~69 %**. Fasitens grep: **permutasjon med gjentakelse** $\tfrac{n!}{n_1!\,n_2!\cdots n_r!}$ (antall omstokkinger av et ord); «X-ene ved siden av hverandre» = slå sammen til ett tegn; «ingen X ved siden av hverandre» = komplement eller mellomrom-metoden. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Produktregelen** og **sumregelen**; **permutasjon** $P(n,r)=\tfrac{n!}{(n-r)!}$ (ordnet uttak); **kombinasjon** $\binom nr=\tfrac{n!}{r!(n-r)!}$ (uordnet uttak); **permutasjon med gjentatte elementer** $\tfrac{n!}{n_1!\cdots n_r!}$ (multinomial) — bokstavene i et ord (f.eks. et ord med gjentatte bokstaver); tilleggsteknikkene: **«ved siden av»** (slå de bundne elementene sammen til én blokk, tell blokkene, multipliser med interne omstokkinger), **«ikke ved siden av»** (komplement, eller plasser i mellomrommene mellom de andre); inklusjon–eksklusjon (grunnform, kjennskap). Aktiv føring; hver telling begrunnet.
 - **Oppgavesjangre:** G. Mønstereksempel: «Hvor mange omstokkinger har bokstavene i et ord med to like par? Hvor mange av disse har de to like A-ene ved siden av hverandre? Hvor mange har dem IKKE ved siden av hverandre?»
@@ -493,7 +493,7 @@ kun til disse verifiserte id-ene.
 - **id:** `ma0301-5-2` · **number:** 5.2 · **estimatedMinutes:** 55 · **prerequisites:** `ma0301-5-1`, `ma0301-2-2`
 - **kapitteltype:** teori
 - **description:** Binomialteoremet, Pascals trekant, og bevis av kombinatoriske identiteter (Vandermonde, symmetri) ved koeffisientsammenligning eller kombinatorisk argument — en topp-differensierende teknikk.
-- **Forkunnskaper (kryssbok):** Kap. 5.1 (kombinasjoner), 2.2 (induksjon — noen identiteter bevises induktivt). [Polynomer og polynomdivisjon](/bok/r1/r1-1-1) (polynomkoeffisienter).
+- **Forkunnskaper (kryssbok):** Kap. 5.1 (kombinasjoner), 2.2 (induksjon — noen identiteter bevises induktivt). [Polynomer og polynomdivisjon](/r1/r1-1-1) (polynomkoeffisienter).
 - **Eksamensbelegg:** Sjanger G, **del av de ~69 %; topp-karakterskiller** på identitetene. Fasitens grep: **finn en bestemt koeffisient** i $(a+b)^n$; **bevis identiteter** (Vandermonde, Narayana-symmetri) ved å sammenligne koeffisienter i to uttrykk for samme størrelse, eller ved kombinatorisk dobbelttelling. Prioritet: **kunne** (identitetene differensierer).
 - **Innholdskontrakt:** **Binomialteoremet** $(a+b)^n=\sum_{k=0}^n\binom nk a^{n-k}b^k$; **Pascals identitet** $\binom nk=\binom{n-1}{k-1}+\binom{n-1}{k}$ og Pascals trekant; **symmetri** $\binom nk=\binom n{n-k}$; **finn en spesifikk koeffisient** (velg riktig $k$); **Vandermondes identitet** $\sum_k\binom mk\binom{n}{r-k}=\binom{m+n}{r}$; bevismetodene: **koeffisientsammenligning** (to uttrykk for $(1+x)^{m+n}$) og **kombinatorisk argument / dobbelttelling** (tell samme mengde på to måter); enkel identitet ved induksjon. Aktiv føring; identitetsbevis komplett.
 - **Oppgavesjangre:** G. Mønstereksempel: «Finn koeffisienten til $x^5$ i $(2x-3)^8$» og «bevis Vandermondes identitet $\sum_{k=0}^r\binom mk\binom n{r-k}=\binom{m+n}r$ ved koeffisientsammenligning».
@@ -919,7 +919,7 @@ av 1.2/1.5/1.6, planaritetsargumentet i Del 6). Øvingseksamenene (8.3–8.5) by
       kontekster; ingen formuleringer fra reelle sett eller fasiter (skjelettets
       mønstereksempler er selv omskrivninger og skal varieres videre, ikke kopieres
       ordrett inn); Grimaldi og pensum refereres, aldri siteres i lengde.
-- [ ] **Navigasjon**: `ma0301` inn i `src/app/bok/trinn/hoyere/institusjoner.ts` under
+- [ ] **Navigasjon**: `ma0301` inn i `src/app/trinn/hoyere/institusjoner.ts` under
       **Norges teknisk-naturvitenskapelige universitet (NTNU)** (ny institusjon —
       opprett den om den ikke finnes), navn = «MA0301 Elementær diskret matematikk».
 - [ ] **Verifiser rendering**: prod-server + curl mot institusjonsside, bokforside og

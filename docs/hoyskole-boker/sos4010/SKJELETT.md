@@ -260,10 +260,10 @@ ikke egen del.
   (datastyrt) vs. teorinær (teoristyrt) tilnærming; **abduksjon** og **Tjoras** stegvis-
   deduktiv-induktive logikk som brobygger ⚠; analysen i dialog med annen litteratur
   (Tjora); tolkningsnivåer (fra deltakernes selvforståelse til teoretisk tolkning —
-  forbindelse til Fangens fortolkningsgrader, kryssbok til [SVMET1010 analysetradisjoner](/bok/svmet1010/svmet1010-7-2)
+  forbindelse til Fangens fortolkningsgrader, kryssbok til [SVMET1010 analysetradisjoner](/svmet1010/svmet1010-7-2)
   *(verifiser lenke-id)*); analytisk overførbarhet vs. statistisk generalisering; hva
   «funn» er i kvalitativ forskning. Forkunnskap fra bachelor forutsettes: hva kvalitative
-  data er, se [SVMET1010 kap. 1.1](/bok/svmet1010/svmet1010-1-1) *(verifiser lenke-id)*.
+  data er, se [SVMET1010 kap. 1.1](/svmet1010/svmet1010-1-1) *(verifiser lenke-id)*.
 - **Drøftingsakse:** induktivt vs. deduktivt utgangspunkt — hva hver tilnærming ser og
   overser; når skal koding stanse (metning på master-nivå); analysen som håndverk vs. som
   mekanisk prosedyre.
@@ -292,7 +292,7 @@ ikke egen del.
   fra rådata via koder til konsepter); kategorisering og kategoriutvikling; koder som
   tekstnære merkelapper vs. kategorier som analytiske samlinger; kodenes forankring i data
   (in vivo-lignende, tekstnære koder); memoskriving som analysestart. Kryssbok til
-  bachelor-fasemodellen: [SVMET1010 kap. 7.1](/bok/svmet1010/svmet1010-7-1) *(verifiser
+  bachelor-fasemodellen: [SVMET1010 kap. 7.1](/svmet1010/svmet1010-7-1) *(verifiser
   lenke-id)* — her løftes den til Tjoras eksplisitte SDI-trinn.
 - **Drøftingsakse:** empirinær vs. teorinær koding — når styrer teorien og når styrer data;
   faren for at kodene bare bekrefter forhåndsantakelser; hvor tett kodene skal ligge på
@@ -347,7 +347,7 @@ ikke egen del.
   analysen i dialog med annen litteratur (Tjora — funnene løftes mot teori/tidligere
   forskning); sammenligning av datadeler; abduksjon som pendling data↔teori; «interessante
   funn» — hva sensor mener (noe som ikke var åpenbart før analysen). Forkunnskap:
-  fasemodellen fra [SVMET1010 kap. 7.1](/bok/svmet1010/svmet1010-7-1) *(verifiser lenke-id)*.
+  fasemodellen fra [SVMET1010 kap. 7.1](/svmet1010/svmet1010-7-1) *(verifiser lenke-id)*.
 - **Drøftingsakse:** hvor mye teori skal inn i tolkningen (gevinst vs. overkjøring av
   informantenes selvforståelse); når er et funn «interessant» vs. banalt; datastyrt funn
   vs. teoribekreftelse.
@@ -551,7 +551,7 @@ ikke egen del.
   hverdagsliv som analytisk inngang; institusjonelle diskurser; problematikk (den
   utforskbare spenningen mellom levd erfaring og institusjonell styring). Kontrast til
   tradisjonell etnografi: forkunnskap om feltarbeid/tykk beskrivelse fra
-  [SVMET1010/SOSANT1000](/bok/svmet1010/svmet1010-3-2) *(verifiser lenke-id)*.
+  [SVMET1010/SOSANT1000](/svmet1010/svmet1010-3-2) *(verifiser lenke-id)*.
 - **Drøftingsakse:** ståstedet som analytisk styrke (fanger det institusjonen skjuler) vs.
   begrensning (kan man se helheten fra ett ståsted?); tekstenes koordinerende makt vs.
   aktørenes handlingsrom; institusjonell etnografi vs. diskursanalyse (begge om tekst/makt,
@@ -611,7 +611,7 @@ ikke egen del.
   (⭐⭐); Kvale & Brinkmann-validitet eksplisitt i 2014H (⭐⭐⭐, §7 pkt. 5); «aktivt intervju»,
   «aktiv intervjuing» gitt som begrepsoppgaver (S4) 2014H-uts, 2015H. Sjangre: S1, S2, S4.
   Prioritet: kunne (differensierer). Forkunnskap: intervjuet som datainnsamling fra bachelor,
-  [SVMET1010 kap. 4.1](/bok/svmet1010/svmet1010-4-1) *(verifiser lenke-id)* — her løftes det
+  [SVMET1010 kap. 4.1](/svmet1010/svmet1010-4-1) *(verifiser lenke-id)* — her løftes det
   til analyse og validitet.
 - **Begrepskontrakt:** intervjuet som samproduksjon av kunnskap (**Steinar Kvale & Svend
   Brinkmann** ⚠); aktivt/aktiv intervjuing (S4-begreper — intervjuet som meningsproduserende
@@ -648,7 +648,7 @@ ikke egen del.
   et godt S5-langsvar); validitet som prosess (2008V); overførbarhet/analytisk
   generalisering vs. statistisk generalisering (kontrast til kvantitativ logikk);
   transparens som holdbarhetsgrep; negative tilfeller (Weiss ⚠). Forkunnskap: bachelor-
-  behandlingen, [SVMET1010 kap. 1.2](/bok/svmet1010/svmet1010-1-2) *(verifiser lenke-id)*.
+  behandlingen, [SVMET1010 kap. 1.2](/svmet1010/svmet1010-1-2) *(verifiser lenke-id)*.
 - **Drøftingsakse:** kan/bør reliabilitetsbegrepet overhodet brukes kvalitativt?; er
   overføringsvurderingen forskerens eller leserens ansvar?; transparens som erstatning for
   etterprøvbarhet; kvalitativ kvalitet som håndverk vs. som prosedyre.
@@ -691,7 +691,7 @@ ikke egen del.
   velger bort); designkomponentene for et mini-prosjekt (problemstilling, teoriforankring,
   metodevalg, datainnsamlingsplan, analysestrategi, etikk); rammedisiplin (mini-omfang).
   Forkunnskap om utvalg/rekruttering/designkomponenter fra bachelor,
-  [SVMET1010 kap. 2.3](/bok/svmet1010/svmet1010-2-3) *(verifiser lenke-id)* — her rettet mot
+  [SVMET1010 kap. 2.3](/svmet1010/svmet1010-2-3) *(verifiser lenke-id)* — her rettet mot
   det *gjennomførte* master-prosjektet.
 - **Drøftingsakse:** åpen/eksplorerende vs. avgrenset problemstilling; å la spørsmålet
   justeres underveis (kvalitativ fleksibilitet) vs. behov for retning; design for det man
@@ -721,7 +721,7 @@ ikke egen del.
   informant vs. forskningskvalitet (den klassiske avveiningen); sårbare grupper og sensitive
   tema; prosessuelt/løpende samtykke i observasjon; meldeplikt for personopplysninger
   (dagens institusjonsnavn Sikt med forbehold ⚠). Forkunnskap fra bachelor,
-  [SVMET1010 kap. 6.1](/bok/svmet1010/svmet1010-6-1) *(verifiser lenke-id)* — her rettet mot
+  [SVMET1010 kap. 6.1](/svmet1010/svmet1010-6-1) *(verifiser lenke-id)* — her rettet mot
   emneoppgavens case-spesifikke etikk.
 - **Drøftingsakse:** informantvern vs. forskningens kunnskapsverdi; anonymisering vs.
   datakvalitet (hva går tapt); regeletterlevelse vs. situert dømmekraft; forskning på
@@ -1076,7 +1076,7 @@ skjelettet — forfatteren skal IKKE finne på frekvenstall.
 - [ ] **Metadata-konsistens:** alle 24 kapittel-id-er + 6 prøve-id-er har eksisterende
       content-fil; prerequisites peker på eksisterende id-er; narrativ-id-er registrert slik
       at toggle rendrer (verifiser med prod-server + curl at narrativ-ruter gir 200).
-- [ ] **Kryssbok-lenker:** alle `/bok/svmet1010/...`-lenker peker på kapitler som FINNES
+- [ ] **Kryssbok-lenker:** alle `/svmet1010/...`-lenker peker på kapitler som FINNES
       (svmet1010 må være bygget/wiret først; hvis ikke, erstatt lenkene med prosahenvisning
       «se bachelor-metodefaget» og fjern markdown-lenken). Alle `*(verifiser lenke-id)*`-
       markeringer sjekkes mot svmet1010s faktiske kapittel-id-er.

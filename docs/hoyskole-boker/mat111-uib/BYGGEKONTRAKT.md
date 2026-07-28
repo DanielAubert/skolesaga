@@ -38,7 +38,7 @@ Blokk-id-er: `<kapittel-id>-<løpenavn>`, unike i kapitlet.
 1. `tip` **Eksamensvinkel** (frekvens/vekt/sjangre — tallene fra SKJELETT, inkl.
    ærlighetsnotatene for Del 7).
 2. `text` **Forkunnskaper** (kapitler i boka + kryssbok-lenker
-   `[tittel](/bok/<emne>/<id>)` — de eksakte lenkene står i skjelettets
+   `[tittel](/<emne>/<id>)` — de eksakte lenkene står i skjelettets
    per-kapittel-DNA og peker på EKSISTERENDE r1/r2/s2/1t-kapitler; ikke dikt opp
    nye). Tunge kapitler med stor avstand til forkunnskapen: VIS de 2–3
    nøkkelformlene («Sist du var her»).
@@ -79,7 +79,7 @@ competenceGoals/første boks); Del 0 «Slik leser du denne boka»-orienteringsbo
 summerte estimatedMinutes) + kildenote for frekvens-empirien + prosedyre-/
 sjangerkort på én side + deltidsrute + «lese mye, skrive lite»-boks + formel-
 minimum-collapsible (regnefagets samlede oppslagskort); stokket flervalg i
-prøver (aldri «alle a»); klikkbare `[kap. X.Y](/bok/mat111-uib/mat111-uib-X-Y)`;
+prøver (aldri «alle a»); klikkbare `[kap. X.Y](/mat111-uib/mat111-uib-X-Y)`;
 karakter-realisme («C er en god og vanlig karakter», ALDRI «Prioritet: perfekt» →
 «høyeste prioritet»); modellbesvarelser ærlig merket + minst én autentisk
 B-/midtnivå-besvarelse; avkryssbar selvdiagnose (☐); lett innstegsoppgave tidlig;

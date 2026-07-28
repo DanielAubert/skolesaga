@@ -101,7 +101,7 @@ STK1100-referanser skrives derfor som **KLARTEKST** med kapittelnummer + tittel
 (f.eks. «STK1100 kap. 5.2 *Maximum likelihood og momentmetoden*»), **ikke** som
 markdown-lenke. Den tiltenkte lenkedestinasjonen føres i parentes som `(→ stk1100-5-2)`,
 slik at verifikatoren (fase 6) enkelt bytter til
-`[STK1100 kap. 5.2 …](/bok/stk1100/stk1100-5-2)` **når STK1100 er live**. Byggeren
+`[STK1100 kap. 5.2 …](/stk1100/stk1100-5-2)` **når STK1100 er live**. Byggeren
 SKAL sjekke `_registry.json` for `stk1100-*` før eventuell lenking. **R1/R2/S1/S2 ER
 bygget** → kryssbok-lenker dit skrives som vanlige markdown-lenker.
 
@@ -258,8 +258,8 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
   *Transformasjonsteknikkene* (→ stk1100-4-2), kap. 5.2 *Maximum likelihood og
   momentmetoden* (→ stk1100-5-2). *(Klartekst inntil STK1100 er bygget — se
   KRYSSBOK-REGEL.)* For integrasjon/derivasjon:
-  [R2 2.4 Bestemt integral](/bok/r2/r2-2-4),
-  [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1).
+  [R2 2.4 Bestemt integral](/r2/r2-2-4),
+  [R1 4.1 Derivasjonsregler](/r1/r1-4-1).
 - **Innholdskontrakt:** KOMPAKT — hvert punkt maks noen linjer + kryssbok-referanse,
   ingen fulle utledninger (de ligger i STK1100). (1) **Regnereglene for E og Var**
   (aktivt): $E(aX+bY)=aE(X)+bE(Y)$; $\text{Var}(aX+bY)=a^2\text{Var}(X)+b^2\text{Var}(Y)

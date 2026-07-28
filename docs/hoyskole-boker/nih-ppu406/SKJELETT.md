@@ -102,7 +102,7 @@ idrettspsykologi-emner; det kroppslige lærings- og bevegelsesgrunnlaget berøre
 **LKI235/THP-serien** (`nih-lki235`). Ved bygging: skriv «(dette bygger på grunnleggende
 lærings- og øvingsteori — se en innføring i treningslære/ferdighetslæring)» i prosa, uten
 lenke, til bøkene finnes. Innad i PPU406-boka lenkes normalt med
-`[kap. X.Y](/bok/nih-ppu406/nih-ppu406-X-Y)`.
+`[kap. X.Y](/nih-ppu406/nih-ppu406-X-Y)`.
 
 ---
 
@@ -336,7 +336,7 @@ Minst én modellbesvarelse konkluderer SKARPT og er likevel toppnivå (jf. READM
   tidsbudsjettet for 4 t / 2/3-vektingen.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav på tvers av alle sjangre). Kjernesjangeren
   RED-DRØFT-EKS er den klart vanligste. Prioritet: perfekt (meta).
-- **Forkunnskaper:** [kap. 0.1](/bok/nih-ppu406/nih-ppu406-0-1).
+- **Forkunnskaper:** [kap. 0.1](/nih-ppu406/nih-ppu406-0-1).
 - **Begrepskontrakt (flashcard-kilde):** **redegjørelse vs. drøfting** (gjengi presist vs. veie
   posisjoner mot hverandre); **forankring** (koble påstand til navngitt pensum/LK20 — skiller C
   fra A); **analysert vs. illustrerende praksiseksempel** (#4); **motargument/innvending** som
@@ -373,7 +373,7 @@ prøves gjennom modellbesvarelsene).
   Regime 2-rubrikk: lav/C = korrekt men generell forklaring, eksempler illustrerer men
   analyseres ikke; høy/A = fagpresis, forskningsforankret, analyserer dimensjonene og kobler
   lærerens undervisning til god ledelse. Prioritet: perfekt.
-- **Forkunnskaper:** [kap. 0.2](/bok/nih-ppu406/nih-ppu406-0-2). Pedagogisk grunnlag om
+- **Forkunnskaper:** [kap. 0.2](/nih-ppu406/nih-ppu406-0-2). Pedagogisk grunnlag om
   relasjon/læringsmiljø overlapper med allmenn pedagogikk (PPU401) — nevnes i prosa, ingen
   lenke (boka finnes ikke).
 - **Begrepskontrakt (flashcard-kilde):** **klasseledelse** (generisk def.); **dimensjonene**
@@ -400,7 +400,7 @@ prøves gjennom modellbesvarelsene).
 - **Eksamensbelegg:** Del av klasseledelsesoppgaven (6/6). Sjangre: RED-DRØFT-EKS, RÅDGIV,
   SELVREFLEKS. A-markør: kobler lærerens undervisning til ledelse og bruker praksiserfaringer
   analytisk. Prioritet: perfekt.
-- **Forkunnskaper:** [kap. 1.1](/bok/nih-ppu406/nih-ppu406-1-1).
+- **Forkunnskaper:** [kap. 1.1](/nih-ppu406/nih-ppu406-1-1).
 - **Begrepskontrakt (flashcard-kilde):** **relasjonskompetanse**; **struktur/rammer**
   (regler, rutiner, overganger); **trygt læringsmiljø** (mestring, inkludering, mobbeforebygging);
   **aktivitetsflyt/tid i aktivitet**; **proaktiv vs. reaktiv ledelse**. Forankring: Aasland &
@@ -422,8 +422,8 @@ prøves gjennom modellbesvarelsene).
   balansen mellom personlig stemme og faglig grunngiving.
 - **Eksamensbelegg:** «Beskriv hva slags klasseleder du ønsker å være …» er en tilbakevendende
   regime 1-oppgave og kan gjenoppstå. Sjanger: SELVREFLEKS. Prioritet: perfekt (sjangertrening).
-- **Forkunnskaper:** [kap. 1.1](/bok/nih-ppu406/nih-ppu406-1-1),
-  [kap. 1.2](/bok/nih-ppu406/nih-ppu406-1-2).
+- **Forkunnskaper:** [kap. 1.1](/nih-ppu406/nih-ppu406-1-1),
+  [kap. 1.2](/nih-ppu406/nih-ppu406-1-2).
 - **Begrepskontrakt (flashcard-kilde):** **profesjonell posisjon/lærerplattform**; **verdier og
   danning** i lærerrollen; **profesjonsetisk ansvar**; skillet **begrunnet posisjon vs.
   synsing** (#2). Forankring: antologiens profesjons-/lærerrolle-kapitler (kap. 12, 13, 21)
@@ -455,7 +455,7 @@ Prøve-id: `nih-ppu406-1-prove` (chapterNumber `1.P`).
   Regime 2-rubrikk: lav = forklarer øving ut fra læreplan/litteratur men gir lite relevant
   tilrettelegging; høy = bruker selvstendige, relevante eksempler og faguttrykk til å vise
   hvordan øving kan tilrettelegges. Prioritet: perfekt.
-- **Forkunnskaper:** [kap. 0.2](/bok/nih-ppu406/nih-ppu406-0-2). Grunnleggende ferdighets-/
+- **Forkunnskaper:** [kap. 0.2](/nih-ppu406/nih-ppu406-0-2). Grunnleggende ferdighets-/
   motorisk læring overlapper med treningslære (IDR109/LKI235) — nevnes i prosa, ingen lenke.
 - **Begrepskontrakt (flashcard-kilde):** **øving/å øve** som kompetanse; **øvingsmodellen**
   (the practising model); **movement capability/bevegelseskompetanse**; **kjerneelementet
@@ -481,7 +481,7 @@ Prøve-id: `nih-ppu406-1-prove` (chapterNumber `1.P`).
   fagets egenart.
 - **Eksamensbelegg:** Del av øvingsoppgaven og forutsetning for fagets-egenart-refleksjonen
   (~95 % via øving; danning gjennomgående). Sjangre: RED-DRØFT-EKS. Prioritet: perfekt.
-- **Forkunnskaper:** [kap. 2.1](/bok/nih-ppu406/nih-ppu406-2-1).
+- **Forkunnskaper:** [kap. 2.1](/nih-ppu406/nih-ppu406-2-1).
 - **Begrepskontrakt (flashcard-kilde):** **kroppslig læring**; **motorisk læring** (allsidig,
   variert); **kroppsbevissthet**; **bevegelsesglede**; **danning** i kroppsøving; forholdet
   **læring vs. prestasjon**. Forankring: Ommundsen (2016), *Danning i kroppsøving* `(verifiser)`;
@@ -504,8 +504,8 @@ Prøve-id: `nih-ppu406-1-prove` (chapterNumber `1.P`).
 - **Eksamensbelegg:** Tilrettelegging er selve A-skillet i øvingsoppgaven (~95 %); RÅDGIV-
   scenarioet («en kollega spør om øving») forekommer. Sjangre: RED-DRØFT-EKS, RÅDGIV.
   Prioritet: perfekt.
-- **Forkunnskaper:** [kap. 2.1](/bok/nih-ppu406/nih-ppu406-2-1),
-  [kap. 2.2](/bok/nih-ppu406/nih-ppu406-2-2).
+- **Forkunnskaper:** [kap. 2.1](/nih-ppu406/nih-ppu406-2-1),
+  [kap. 2.2](/nih-ppu406/nih-ppu406-2-2).
 - **Begrepskontrakt (flashcard-kilde):** **tilpasset opplæring** i kroppsøving; **differensiering**
   (nivå, tempo, oppgavevariasjon); **stillasbygging/støtte**; **inkluderende tilrettelegging**;
   **digitale verktøy i øving** (berøres — muligheter/begrensninger, koble til kap. 4.2/6.3).
@@ -536,7 +536,7 @@ læring/motorisk læring/danning · 2.C tilrettelegging + RÅDGIV-scenario · 2.
   henvisning til lovverk/teori + eksempler; høy = skiller lovverkets og faglitteraturens
   begreper og analyserer hva «vise, praktisere, øve» betyr for vurdering. Sjangre: RED-DRØFT-EKS,
   PLAN. Prioritet: perfekt (dagens form).
-- **Forkunnskaper:** [kap. 0.2](/bok/nih-ppu406/nih-ppu406-0-2).
+- **Forkunnskaper:** [kap. 0.2](/nih-ppu406/nih-ppu406-0-2).
 - **Begrepskontrakt (flashcard-kilde):** **formativ vurdering / vurdering FOR læring**;
   **summativ vurdering / vurdering AV læring**; **halvårsvurdering** (med/uten karakter);
   **sluttvurdering**; **lovverkets vurderingsbegreper** (forskrift til opplæringsloven)
@@ -560,7 +560,7 @@ læring/motorisk læring/danning · 2.C tilrettelegging + RÅDGIV-scenario · 2.
 - **Eksamensbelegg:** Kjernen i V2026-vurderingsoppgaven og H2025-casen (~55 %). Høy = analyserer
   hva verbene betyr for læringsprosessen og får fram at profesjonsfellesskapet er viktig når
   vurdering krever skjønn. Sjangre: RED-DRØFT-EKS, CASE. Prioritet: perfekt.
-- **Forkunnskaper:** [kap. 3.1](/bok/nih-ppu406/nih-ppu406-3-1).
+- **Forkunnskaper:** [kap. 3.1](/nih-ppu406/nih-ppu406-3-1).
 - **Begrepskontrakt (flashcard-kilde):** **vurdering i ikke-lineær bevegelseslæring**;
   **kompetansemålsverbene** «vise, praktisere, øve, trene på, utvikle» `(verifiser mot UDIR)`;
   **faglig skjønn**; **profesjonsfellesskap**; **validitet/rettferdighet** i kroppslig vurdering.
@@ -584,8 +584,8 @@ læring/motorisk læring/danning · 2.C tilrettelegging + RÅDGIV-scenario · 2.
 - **Eksamensbelegg:** H2025 oppgave 1 (2/3-vektet) bygde på fire avis-leserinnlegg om
   karakter/vurdering. CASE-sjangeren er ny og lite belagt (kildeforbehold), men høyt vektet der
   den forekommer. Sjangre: CASE. Prioritet: perfekt (dagens topp-vektede sjanger).
-- **Forkunnskaper:** [kap. 3.1](/bok/nih-ppu406/nih-ppu406-3-1),
-  [kap. 3.2](/bok/nih-ppu406/nih-ppu406-3-2).
+- **Forkunnskaper:** [kap. 3.1](/nih-ppu406/nih-ppu406-3-1),
+  [kap. 3.2](/nih-ppu406/nih-ppu406-3-2).
 - **Begrepskontrakt (flashcard-kilde):** **karaktersetting** som én av flere vurderingsformer
   (#6-felle: karakter som eneste vurdering); **argumentanalyse** av et debattinnlegg;
   **fagdidaktisk motsvar**; **kildekritisk lesing**. Sitatlager-bro: bokas case-materialer er
@@ -619,7 +619,7 @@ Prøve-id: `nih-ppu406-3-prove` (chapterNumber `3.P`).
   (lesing), V2026 (alle fem). Høy = forklarer alle fem presist, viser integrering gjennom
   relevante eksempler, med profesjonsforståelse og kritisk praksisrefleksjon. Sjangre:
   RED-DRØFT-EKS. Prioritet: perfekt.
-- **Forkunnskaper:** [kap. 0.2](/bok/nih-ppu406/nih-ppu406-0-2).
+- **Forkunnskaper:** [kap. 0.2](/nih-ppu406/nih-ppu406-0-2).
 - **Begrepskontrakt (flashcard-kilde):** **grunnleggende ferdighet** (LK20-begrepet, ikke
   «basisferdighet»); de fem: **muntlige ferdigheter**, **å kunne lese**, **å kunne skrive**,
   **å kunne regne**, **digitale ferdigheter** — hver med et kroppsøvingseksempel; **tydeliggjøring**
@@ -642,8 +642,8 @@ Prøve-id: `nih-ppu406-3-prove` (chapterNumber `3.P`).
 - **Eksamensbelegg:** 2/6 sett (~30 %): V2024 (digital ferdighet), H2024 (digitale verktøy i
   øving); pluss del av «alle fem» (V2026). Sjangre: RED-DRØFT-EKS. Prioritet: kunne (deltema av
   perfekt-del).
-- **Forkunnskaper:** [kap. 4.1](/bok/nih-ppu406/nih-ppu406-4-1),
-  [kap. 2.3](/bok/nih-ppu406/nih-ppu406-2-3).
+- **Forkunnskaper:** [kap. 4.1](/nih-ppu406/nih-ppu406-4-1),
+  [kap. 2.3](/nih-ppu406/nih-ppu406-2-3).
 - **Begrepskontrakt (flashcard-kilde):** **digital ferdighet** (LK20); **digitale verktøy** i
   kroppsøving (videoanalyse, pulsklokke, aktivitetsapper); **muligheter** (tilbakemelding,
   motivasjon, differensiering) vs. **begrensninger** (skjermtid, personvern, avsporing fra
@@ -674,7 +674,7 @@ Prøve-id: `nih-ppu406-3-prove` (chapterNumber `3.P`).
   alle sett. Kjerneelementene eksplisitt i V2025 (~25 %). Sjangre: RED-DRØFT-EKS, PLAN.
   Prioritet: kunne (men høy A-bredde-verdi). Utfordringene ved å anvende kompetansebegrepet i
   kroppsøving er en typisk feilkilde (#7).
-- **Forkunnskaper:** [kap. 0.2](/bok/nih-ppu406/nih-ppu406-0-2).
+- **Forkunnskaper:** [kap. 0.2](/nih-ppu406/nih-ppu406-0-2).
 - **Begrepskontrakt (flashcard-kilde):** **kompetanse** i LK20 (å tilegne seg og anvende
   kunnskaper og ferdigheter); **kompetansemål**; **de tre kjerneelementene** — «Bevegelse og
   kroppslig læring», «Deltakelse og samspill i bevegelsesaktiviteter», «Uteaktiviteter og
@@ -698,9 +698,9 @@ Prøve-id: `nih-ppu406-3-prove` (chapterNumber `3.P`).
 - **Eksamensbelegg:** Tydeligst i V2026 (1b: «viktigere å beskrive hvordan du tenker enn
   innholdet», ~30 %); berøres av øvings-/tilretteleggingsoppgaver. Sjanger: PLAN. Prioritet:
   kunne (sjangertrening). Hovedfellen er #9 (beskriver aktiviteter, ikke fremgangsmåte).
-- **Forkunnskaper:** [kap. 5.1](/bok/nih-ppu406/nih-ppu406-5-1),
-  [kap. 3.1](/bok/nih-ppu406/nih-ppu406-3-1) (vurdering inngår i planen),
-  [kap. 2.3](/bok/nih-ppu406/nih-ppu406-2-3).
+- **Forkunnskaper:** [kap. 5.1](/nih-ppu406/nih-ppu406-5-1),
+  [kap. 3.1](/nih-ppu406/nih-ppu406-3-1) (vurdering inngår i planen),
+  [kap. 2.3](/nih-ppu406/nih-ppu406-2-3).
 - **Begrepskontrakt (flashcard-kilde):** **den didaktiske relasjonsmodellen** (mål, innhold,
   elev-/lærerforutsetninger, rammefaktorer, vurdering — komponentene henger sammen);
   **læringsmål avledet av kompetansemål**; **valg av formativ og summativ vurdering** i planen;
@@ -730,8 +730,8 @@ Prøve-id: `nih-ppu406-5-prove` (chapterNumber `5.P`).
 - **Eksamensbelegg:** Sjelden egen oppgave, men forventet avrundingsrefleksjon i de fleste
   (gjennomgående støtte-tema). Sjangre: inngår i RED-DRØFT-EKS-avrundingen. Prioritet: kunne
   (A-bredde/egenart).
-- **Forkunnskaper:** [kap. 2.2](/bok/nih-ppu406/nih-ppu406-2-2),
-  [kap. 1.1](/bok/nih-ppu406/nih-ppu406-1-1).
+- **Forkunnskaper:** [kap. 2.2](/nih-ppu406/nih-ppu406-2-2),
+  [kap. 1.1](/nih-ppu406/nih-ppu406-1-1).
 - **Begrepskontrakt (flashcard-kilde):** **fagets egenart** (praktisk-kroppslig, elevene viser/
   praktiserer/øver); **fagets diskurser** (helse, prestasjon, danning, bevegelsesglede);
   **ideologi vs. virkelighet** (fagets dobbelthet); **kritisk fagforståelse**. Forankring: Sæle
@@ -753,8 +753,8 @@ Prøve-id: `nih-ppu406-5-prove` (chapterNumber `5.P`).
   troverdighet, på tvers av kjerneelementene.
 - **Eksamensbelegg:** 2/6 sett (~30 %): V2025 (betydningen av egne ferdigheter på tvers av
   kjerneelementene). Sjangre: RED-DRØFT-EKS, SELVREFLEKS. Prioritet: kjenne/kunne (A-bredde).
-- **Forkunnskaper:** [kap. 2.1](/bok/nih-ppu406/nih-ppu406-2-1),
-  [kap. 5.1](/bok/nih-ppu406/nih-ppu406-5-1).
+- **Forkunnskaper:** [kap. 2.1](/nih-ppu406/nih-ppu406-2-1),
+  [kap. 5.1](/nih-ppu406/nih-ppu406-5-1).
 - **Begrepskontrakt (flashcard-kilde):** **lærerens egne bevegelsesferdigheter**; **demonstrasjon/
   modellering** som didaktisk verktøy; **kroppslig troverdighet/autoritet**; forholdet **egen
   ferdighet vs. didaktisk kompetanse** (ikke det samme). Forankring: antologiens profesjons-
@@ -774,8 +774,8 @@ Prøve-id: `nih-ppu406-5-prove` (chapterNumber `5.P`).
   «laget rundt eleven» — løftet inn i emnets læringsutbytter fra 2025, testet i H2024.
 - **Eksamensbelegg:** 1/6 sett (~20 %): H2024 (foreldresamarbeid og inkluderende opplæring); løftet
   inn i læringsutbyttene fra 2025. Sjangre: RED-DRØFT-EKS, RÅDGIV. Prioritet: kjenne (A-bredde).
-- **Forkunnskaper:** [kap. 1.2](/bok/nih-ppu406/nih-ppu406-1-2),
-  [kap. 2.3](/bok/nih-ppu406/nih-ppu406-2-3).
+- **Forkunnskaper:** [kap. 1.2](/nih-ppu406/nih-ppu406-1-2),
+  [kap. 2.3](/nih-ppu406/nih-ppu406-2-3).
 - **Begrepskontrakt (flashcard-kilde):** **skole–hjem-samarbeid**; **inkluderende opplæring**;
   **likeverdig tilbud**; **laget rundt eleven** (tverrfaglig lag); **tilpasset opplæring** i
   samarbeidsperspektiv. Forankring: Berg (2021), *Kroppsøving — med rom for alle* `(verifiser)`;
@@ -803,7 +803,7 @@ Prøve-id: `nih-ppu406-6-prove` (chapterNumber `6.P`).
   drøfting og «hvem eier hva»-kortet.
 - **Eksamensbelegg:** Metakapittel som samler sjangerhåndverket fra alle temadelene. Prioritet:
   perfekt (meta).
-- **Forkunnskaper:** [kap. 0.2](/bok/nih-ppu406/nih-ppu406-0-2) og temadelene 1–6.
+- **Forkunnskaper:** [kap. 0.2](/nih-ppu406/nih-ppu406-0-2) og temadelene 1–6.
 - **Innholdskontrakt:** én `text`-oppskrift per sjanger (disponering + tidsbudsjett + vanligste
   feil); **binær selvrettingsrubrikk** (0/1, jf. DNA-drøfting): ☐ standpunkt tidlig? ☐ minst én
   eksplisitt kobling («som vist i (a)»)? ☐ innvending fra navngitt pensumtenker? ☐ svart på
@@ -826,8 +826,8 @@ Prøve-id: `nih-ppu406-6-prove` (chapterNumber `6.P`).
   praksisanalytisk drøfting.
 - **Eksamensbelegg:** Klasseledelse er ~100 %-gjengangeren. Sjangre: RED-DRØFT-EKS, SELVREFLEKS.
   Prioritet: perfekt (modell).
-- **Forkunnskaper:** [kap. 1.1](/bok/nih-ppu406/nih-ppu406-1-1)–[kap. 1.3](/bok/nih-ppu406/nih-ppu406-1-3),
-  [kap. 7.1](/bok/nih-ppu406/nih-ppu406-7-1).
+- **Forkunnskaper:** [kap. 1.1](/nih-ppu406/nih-ppu406-1-1)–[kap. 1.3](/nih-ppu406/nih-ppu406-1-3),
+  [kap. 7.1](/nih-ppu406/nih-ppu406-7-1).
 - **Innholdskontrakt:** nyskrevet oppgave (regime 1 essayvariant); `collapsible` **A-besvarelse**
   (full tekst med margnotater om forankring/motargument/egenart-refleksjon, pausepunkt-markører)
   — denne konkluderer SKARPT (jf. README «A-konklusjonsvariasjon»); `collapsible`
@@ -847,8 +847,8 @@ Prøve-id: `nih-ppu406-6-prove` (chapterNumber `6.P`).
   vektede sjangeren i dagens eksamensform.
 - **Eksamensbelegg:** Vurdering ~55 % stigende; CASE = den 2/3-vektede oppgave 1 i regime 2.
   Sjanger: CASE. Prioritet: perfekt (dagens topp-vektede sjanger).
-- **Forkunnskaper:** [kap. 3.1](/bok/nih-ppu406/nih-ppu406-3-1)–[kap. 3.3](/bok/nih-ppu406/nih-ppu406-3-3),
-  [kap. 7.1](/bok/nih-ppu406/nih-ppu406-7-1).
+- **Forkunnskaper:** [kap. 3.1](/nih-ppu406/nih-ppu406-3-1)–[kap. 3.3](/nih-ppu406/nih-ppu406-3-3),
+  [kap. 7.1](/nih-ppu406/nih-ppu406-7-1).
 - **Innholdskontrakt:** nyskrevet vedlegg (to–fire korte, motstridende debattinnlegg,
   parafraserte, med sitatlager-bro-forklaring) + flerpunkts oppgave 1 (a/b/c); `collapsible`
   **A-besvarelse** (identifiserer posisjonene, anvender vurderingsbegreper, foreslår alternativ,
@@ -868,8 +868,8 @@ Prøve-id: `nih-ppu406-6-prove` (chapterNumber `6.P`).
   kombinasjon slik regime 2-oppgaver ofte gjør.
 - **Eksamensbelegg:** Øving ~95 %, grunnleggende ferdigheter ~75 %. Sjangre: RED-DRØFT-EKS,
   RÅDGIV. Prioritet: perfekt (modell).
-- **Forkunnskaper:** [kap. 2.1](/bok/nih-ppu406/nih-ppu406-2-1)–[kap. 2.3](/bok/nih-ppu406/nih-ppu406-2-3),
-  [kap. 4.1](/bok/nih-ppu406/nih-ppu406-4-1), [kap. 7.1](/bok/nih-ppu406/nih-ppu406-7-1).
+- **Forkunnskaper:** [kap. 2.1](/nih-ppu406/nih-ppu406-2-1)–[kap. 2.3](/nih-ppu406/nih-ppu406-2-3),
+  [kap. 4.1](/nih-ppu406/nih-ppu406-4-1), [kap. 7.1](/nih-ppu406/nih-ppu406-7-1).
 - **Innholdskontrakt:** nyskrevet oppgave; `collapsible` **A-besvarelse** (selvstendige
   tilretteleggingseksempler + faguttrykk + egenart-refleksjon, margnotater); `collapsible`
   **C-besvarelse**; `collapsible` **B-besvarelse**; `tip` **Sensorblikket** (lav/høy-rubrikken
@@ -886,7 +886,7 @@ Prøve-id: `nih-ppu406-6-prove` (chapterNumber `6.P`).
   nivå), med momentliste-fasit og «kald bank» av uvante vinklinger.
 - **Eksamensbelegg:** Metakapittel som simulerer hele eksamen i begge former. Prioritet: perfekt
   (meta). Sier eksplisitt at kildeforbeholdet gjelder (regime 2 bare 2 sett).
-- **Forkunnskaper:** hele boka; særlig [kap. 7.1](/bok/nih-ppu406/nih-ppu406-7-1).
+- **Forkunnskaper:** hele boka; særlig [kap. 7.1](/nih-ppu406/nih-ppu406-7-1).
 - **Innholdskontrakt:** to fulle sett (regime 1: tre oppgaver, velg to; regime 2: oppgave 1
   (2/3, case) + oppgave 2 + oppgave 3), hver med momentliste-fasit (IKKE fullt essay) og
   rubrikkhenvisning; **kald bank** (8–10 oppgaver med uvante vinklinger/kombinasjoner UTEN hint,

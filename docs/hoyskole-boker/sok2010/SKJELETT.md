@@ -81,7 +81,7 @@ den **kvantitative rente- og obligasjonsverktøykassen** med NTNUs **SØK2005
 Finansmarkeder** (neddiskontering, obligasjonsprising, yield to maturity,
 forward-renter/terminstruktur, pris–rente-inversen). Der de to møtes, gjør SØK2010
 verktøyet **kompakt** og **kryssrefererer til SØK2005** med markdown-lenker
-(`[tittel](/bok/sok2005/<chapterId>)`) for den fullstendige utledningen, og bruker
+(`[tittel](/sok2005/<chapterId>)`) for den fullstendige utledningen, og bruker
 plassen på **bank-vinkelen** som gjør SØK2010 unikt: banken som institusjon,
 asymmetrisk informasjon med formelle modeller, regulering, sentralbank og
 finansiell stabilitet. Boka skal **ikke bygge ut** porteføljeteori/CAPM,
@@ -632,7 +632,7 @@ Del 0 (kap. 0.1) er studieguidens kjerne. I tillegg skal boka samle:
    kapitler (id/number/title/description/estimatedMinutes/topics/prerequisites)
    etter mønster `COURSE_BI_OKONOMI` i `src/lib/data/textbook-courses-matte.ts`;
    `sectionNames` fra makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SØK2010 Banking».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–O, frekvenstallene, de to
    epokene/malene og avgrensningen mot SØK2005 som resten refererer til.
@@ -742,7 +742,7 @@ kryssrefererer.
 
 **Møtepunkter (kryssrefereres, ikke gjentas):** neddiskontering, kupong-/
 nullkupongprising, yield to maturity og forward-renter forutsettes fra SØK2005 og
-lenkes dit med markdown-lenker (`[tittel](/bok/sok2005/<chapterId>)`) i
+lenkes dit med markdown-lenker (`[tittel](/sok2005/<chapterId>)`) i
 Forkunnskaper-blokkene der studenten trenger den fulle utledningen — SØK2005 utleder
 dem grundig som del av verdipapir-verktøykassen, SØK2010 bruker dem kompakt på
 bank-/kredittanvendelser (en bank som utsteder/holder obligasjoner, kredittspread).

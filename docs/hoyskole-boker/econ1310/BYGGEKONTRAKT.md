@@ -101,7 +101,7 @@ skattelekkasje) — ikke tullesvar.
   kapitlet bygger på (nevn kapittelnummer — metadata-prerequisites gir i
   tillegg klikkbare piller automatisk), og (ii) nødvendige forkunnskaper
   UTENFOR boka med markdown-lenke til kapittel i annen bok i systemet, format
-  `[Derivasjon (Matematikk for økonomer 4.1)](/bok/bi-okonomi/bi-okonomi-4-1)`.
+  `[Derivasjon (Matematikk for økonomer 4.1)](/bi-okonomi/bi-okonomi-4-1)`.
   Lenk kun til kapitler som faktisk finnes (verifiser id i
   `src/lib/data/chapters/`). Har kapitlet ingen forkunnskaper: si det («Dette
   kapitlet kan leses uten forkunnskaper»).

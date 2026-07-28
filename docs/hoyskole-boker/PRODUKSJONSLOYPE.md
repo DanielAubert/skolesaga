@@ -128,7 +128,7 @@ Parameterisert skript (mønster: `wire-econ1310.py`, tilpasset skjelettformatet)
 4. `_registry.json`: append alle nye id-er.
 5. Slå sammen quiz-staging → `quiz-data-<emne>.ts`, wire i `quiz-data.ts`.
    Slett quiz-staging etter merge (mellomprodukt, skal ikke committes).
-6. **Navigasjon**: legg emnet inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+6. **Navigasjon**: legg emnet inn i `src/app/trinn/hoyere/institusjoner.ts`
    under riktig institusjon, navn = «FAGKODE Fagnavn».
 7. **Seksjonstitler**: `sectionNames` i TextbookCourse-oppføringen
    (del-nummer → beskrivende tittel fra skjelettet) — obligatorisk; uten den
@@ -198,5 +198,5 @@ Redaktører per del-gruppe. IKKE omskriving — verifisering med kirurgiske fiks
   når agentene genererte via `json.dump`; anbefal det i kontrakten.
 - `_all.json` er gitignored (genereres i prebuild); `_registry.json` committes.
 - Statisk rute vinner over `[grade]` — nye statiske sider under
-  `/bok/trinn/hoyere` krasjer ikke med dynamikken, men fjern duplikat fra
+  `/trinn/hoyere` krasjer ikke med dynamikken, men fjern duplikat fra
   `GRADE_CONFIG`/`generateStaticParams`.

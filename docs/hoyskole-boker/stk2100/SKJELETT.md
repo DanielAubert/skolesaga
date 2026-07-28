@@ -119,7 +119,7 @@ juli 2026 — verifisert: ingen `stk1110-*`-filer i `_registry.json`). Alle STK1
 referanser skrives derfor som **KLARTEKST** med kapittelnummer + tittel (f.eks. «STK1110
 kap. 1.2 *Momentmetoden og maximum likelihood*»), **ikke** som markdown-lenke. Den
 tiltenkte lenkedestinasjonen føres i parentes som `(→ stk1110-1-2)`, slik at verifikatoren
-(fase 6) enkelt bytter til `[STK1110 kap. 1.2 …](/bok/stk1110/stk1110-1-2)` **når STK1110
+(fase 6) enkelt bytter til `[STK1110 kap. 1.2 …](/stk1110/stk1110-1-2)` **når STK1110
 er live**. Byggeren SKAL sjekke `_registry.json` for `stk1110-*` før eventuell lenking.
 **R1/R2/S1/S2 ER bygget** → kryssbok-lenker dit (derivasjon, integrasjon, matriser,
 eksponentialfunksjonen) skrives som vanlige markdown-lenker.
@@ -283,8 +283,8 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
   (→ stk1110-1-1), kap. 1.3 *Fisher-informasjon og Wald-KI* (→ stk1110-1-3), kap. 3.1
   *Enkel lineær regresjon* og kap. 3.4/3.5 *Multippel regresjon på matriseform*
   (→ stk1110-3-x). *(Klartekst inntil STK1110 er bygget — se KRYSSBOK-REGEL.)* For
-  derivasjon/eksponentialfunksjonen: [R2 1.4 Den naturlige logaritmen](/bok/r2/r2-1-4),
-  [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1).
+  derivasjon/eksponentialfunksjonen: [R2 1.4 Den naturlige logaritmen](/r2/r2-1-4),
+  [R1 4.1 Derivasjonsregler](/r1/r1-4-1).
 - **Innholdskontrakt:** KOMPAKT — hvert punkt maks noen linjer + kryssbok-referanse, ingen
   fulle utledninger (de ligger i STK1110). (1) **Log-likelihood** $\ell(\theta)=\sum_i \log
   f(x_i;\theta)$ og at ML maksimerer den — **inngangen til AIC/BIC** (kap. 1.4) og til å
@@ -354,7 +354,7 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
   er utgangspunktet ridge/lasso, GAM og trær utvider. Prioritet: **kunne** (nivå 2), hatmatrise
   **kjenne** (nivå 3 punkt 15; A-differensiator).
 - **Forkunnskaper:** kap. 0.2 (matriseform); STK1110 kap. 3.4 *Multippel regresjon på
-  matriseform* (→ stk1110-3-4) *(klartekst)*. For derivasjon: [R1 4.1](/bok/r1/r1-4-1).
+  matriseform* (→ stk1110-3-4) *(klartekst)*. For derivasjon: [R1 4.1](/r1/r1-4-1).
 - **Innholdskontrakt (aktivt — utledning):** **MKM:** minimer $\text{RSS}=(Y-X\beta)^\top
   (Y-X\beta)$; deriver mht. $\beta$, sett lik null (normallikningene $X^\top X\hat\beta=X^\top
   Y$), løs $\hat\beta=(X^\top X)^{-1}X^\top Y$. **Hatmatrise** $H=X(X^\top X)^{-1}X^\top$:
@@ -559,7 +559,7 @@ ridge/lasso-utledning (deriver normallikningene) + hatmatrise/GAM-df på eksamen
   fysisk mening → sentrer), og hvorfor en koeffisient blir (ikke-)signifikant avhengig av de
   andre. Prioritet: **perfekt** (nivå 1 punkt 3).
 - **Forkunnskaper:** kap. 1.1 (R-utskrift), 0.2 (log-likelihood/GLM); [R2 1.4 Den naturlige
-  logaritmen](/bok/r2/r2-1-4).
+  logaritmen](/r2/r2-1-4).
 - **Innholdskontrakt (aktivt + tolkning):** **Modellen:** $\Pr(Y=1\mid x)=
   \dfrac{e^{\eta}}{1+e^{\eta}}$, $\eta=\beta_0+\sum_j\beta_j x_j$. **Regn ut en sannsynlighet**
   for gitte kovariatverdier. **Oddsratio:** $e^{\beta_j}$ = multiplikativ endring i odds per

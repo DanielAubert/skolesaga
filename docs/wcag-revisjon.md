@@ -109,7 +109,7 @@ den som ekte `<h1>` uten å miste kortstilene: `/profil`, `/endre-passord`, `/jo
   eksplisitt `text-2xl md:text-3xl` slik at typografien er uendret (målt: 30 px før og etter).
 - **`/poengkalkulator`**: h1→h3 → seksjons-`<h3>` senket til `<h2>` (alle har eksplisitte
   `text-*`-klasser, så uendret utseende).
-- **`/bok/[courseId]/eksamen`** og **`/bok/[courseId]/flashcards`**: samme mønster, samme fiks.
+- **`/[courseId]/eksamen`** og **`/[courseId]/flashcards`**: samme mønster, samme fiks.
 
 ### `aria-pressed` på svaralternativ (WCAG 4.1.2)
 
@@ -163,7 +163,7 @@ se under.
   `content-block-renderer` → `LatexRenderer`. Merk at ren tag-endring er visuelt gratis:
   `@tailwindcss/typography` er ikke installert, `prose`-klassene er inerte, og alle
   størrelser/vekter settes med eksplisitte utility-klasser (målt før/etter: kun `tagName` endret seg).
-- ⬜ **Flashcards** (`/bok/[courseId]/flashcards`), 4 axe-brudd:
+- ⬜ **Flashcards** (`/[courseId]/flashcards`), 4 axe-brudd:
   `aria-valid-attr-value` (kritisk) — modusvelgeren bruker Radix `Tabs` med `TabsTrigger` uten
   tilhørende `TabsContent`, så `aria-controls` peker på en id som ikke finnes (samme feilklasse som
   login-fanene i runde 1); `nested-interactive` (alvorlig) — kortet er en `role="button"`-`<div>`

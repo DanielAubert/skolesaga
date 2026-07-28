@@ -147,7 +147,7 @@ Del 0 og trenes så gjennom hele boka.
 - **id:** `jus5511-0-1` · **number:** 0.1 · **estimatedMinutes:** 30 · **prerequisites:** ingen
 - **Kapitteltype:** eksamenskart
 - **description:** Hva eksamen faktisk er: 4 timers digital praktikumseksamen langs arbeidsforholdets livssyklus, hvilke temaer som testes hvor ofte, og hva som skiller A fra C fra E på masternivå.
-- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/bok/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2).
+- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/jus1111/jus1111-0-2).
 - **Eksamensbelegg:** Hele empirien 2016–2025 (7 sett). Presenter: (a) formhistorikken — 4 t skoleeksamen, digital Inspera fra 2021, Lovdata Pro i eksamensmodus, A–F; **skiftet fra teori til praktikum** (H2016/H2017/H2021 teori; H2022–H2025 alle praktikum → praktikum er normalformen); praktikumene vokser (H2024 tre deler; H2025 Del 1 åpen «drøft og løs tvisten»); fast instruks «fordel tiden noenlunde likt mellom delene»; (b) temafrekvens: stillingsvern § 15-7 ~4, styringsrett ~3, midlertidig/fast § 14-9 ~2, diskriminering ~2–3, arbeidsavtale/prøvetid ~2, + ett tungt sett hver på § 1-8, kap. 16, kap. 2 A, § 15-14, § 10-6, arbeidsmiljø; (c) **livssyklusaksen** som prognosegrunnlag (inngåelse → innhold → opphør).
 - **Regelkontrakt:** Ingen materielle regler — men frekvenstabellen (§2.2 i analysen) gjengis som studentens prioriteringskart, og livssyklusaksen etableres som bokas ryggrad.
 - **Metodepoenger:** Praktikum er normalformen, men teoristoffet må sitte (det bærer subsumsjonen og teorioppgaven kan returnere, sist H2021). Masterkalibrering: sikker subsumsjon og selvstendig dombruk forventes — «paratkunnskap om lovteksten» premieres ikke. Fordel tiden likt: hver del må avgjøres.
@@ -160,7 +160,7 @@ Del 0 og trenes så gjennom hele boka.
 - **id:** `jus5511-0-2` · **number:** 0.2 · **estimatedMinutes:** 55 · **prerequisites:** `jus5511-0-1`
 - **Kapitteltype:** metode
 - **description:** Slik bygges en arbeidsrettspraktikum: identifiser tvistepunktene (særlig i den åpne varianten), disponer spørsmål → hjemmel → vilkårets innhold → subsumsjon → konklusjon, drøft hvert kumulative vilkår for seg, og legg inn subsidiær drøftelse der hovedstandpunktet kan falle.
-- **Forkunnskaper (kryssbok):** Firetrinnsmetoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2). Dette kapitlet legger til det arbeidsrettslige.
+- **Forkunnskaper (kryssbok):** Firetrinnsmetoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/jus1111/jus1111-0-2). Dette kapitlet legger til det arbeidsrettslige.
 - **Eksamensbelegg:** Praktikum har to undersjangre: **nummererte delspørsmål** (H2022, H2023, H2024 — struktur gitt, svar i rekkefølge) og **åpent «drøft og løs tvisten»** (H2025 Del 1 — kandidaten identifiserer selv spørsmålene fra faktum og anførsler). «Både … og …»-delspørsmål (H2022, H2024) må besvares eksplisitt for begge ledd.
 - **Regelkontrakt (metoderegler, utledet av oppgavenes form + alminnelig metode):**
   1. **Tvistepunkt-analysen:** hvem krever/anfører hva mot hvem, på hvilket rettslig grunnlag — utledes av delspørsmålene/anførslene FØR skrivingen. I den åpne varianten sorteres spørsmålene systematisk.
@@ -240,7 +240,7 @@ Del 0 og trenes så gjennom hele boka.
 - **Kapitteltype:** regel
 - **description:** Når er en arbeidsavtale bindende inngått (også muntlig/konkludent), og hva krever loven av form og innhold: skriftlig arbeidsavtale (§ 14-5) og minstekravene (§ 14-6). Formkravets betydning — og manglende betydning — for gyldigheten.
 - **Eksamensbelegg:** H2022 Del I (bindende arbeidsavtale — «ble avtale inngått under intervjuet, og hva betyr det at han startet å arbeide?» — «både … og …»-spørsmål). Berøres i H2023/H2025 (kontraktens ordlyd som tolkningsmoment). Score ~2/7. Prioritetsklasse: **perfekt** (fast inngangs-tema i inngåelsesfaktum).
-- **Forkunnskaper (kryssbok):** Avtalebinding (tilbud/aksept, konkludent atferd) er avtalerett fra JUS1111 — lenk til [Avtaleinngåelse — tilbud, aksept og binding](/bok/jus1111/jus1111-1-1) *(verifiser at kapitlet finnes; ellers lenk til nærmeste JUS1111-avtalekapittel)*.
+- **Forkunnskaper (kryssbok):** Avtalebinding (tilbud/aksept, konkludent atferd) er avtalerett fra JUS1111 — lenk til [Avtaleinngåelse — tilbud, aksept og binding](/jus1111/jus1111-1-1) *(verifiser at kapitlet finnes; ellers lenk til nærmeste JUS1111-avtalekapittel)*.
 - **Regelkontrakt (gjeldende rett):** avtalerettslig **tilbud/aksept** kan skje **muntlig eller ved konkludent atferd** (at arbeidstaker begynner å arbeide og arbeidsgiver mottar arbeidet, kan i seg selv etablere binding); **§ 14-5** krav om **skriftlig arbeidsavtale** (skal foreligge, arbeidsgivers plikt); **§ 14-6** minstekrav til innhold (partene, arbeidssted, stillingsbeskrivelse, tiltredelse, lengde ved midlertidighet, prøvetid, lønn mv.). **Sentralt:** manglende skriftlighet gjør **ikke** avtalen ugyldig — § 14-5 er en ordensregel/bevisregel; en muntlig avtale er bindende. Prøvetid krever imidlertid avtale (kap. 1.4).
 - **Typetilfeller:** Minipraktikum: muntlig jobbtilbud akseptert i intervju + oppstart uten skriftlig kontrakt (binding ved konkludent atferd; § 14-5 ikke gyldighetsvilkår); uenighet om avtalens innhold der skriftlig avtale mangler (§ 14-6 som tolkningsstøtte).
 - **Metodepoenger:** Skill avtalebinding (er avtale inngått?) fra formkravet (er den skriftlig?). «Både … og …»: drøft både om avtale ble inngått i intervjuet OG betydningen av at arbeidet startet. Konkludent atferd kan etablere binding.
@@ -836,7 +836,7 @@ Studieguiden bygges som ett sammenhengende dokument med disse seksjonene:
       omsorgskonsern-innrammingene).
 - [ ] **Pensumavgrensning**: null egne kapitler/oppgaver om kollektiv arbeidsrett (tariff/
       arbeidstvist/streik) som hovedstoff; kryssbok-lenker til jus1111 peker på EKSISTERENDE kapitler
-      ([jus1111-0-1](/bok/jus1111/jus1111-0-1), -0-2 — verifiser avtalerettskapittel-id før lenking).
+      ([jus1111-0-1](/jus1111/jus1111-0-1), -0-2 — verifiser avtalerettskapittel-id før lenking).
 - [ ] **DNA-blokkene på plass**: hvert kapittel har «Eksamensvinkel» (`tip`), «Typiske feil»
       (`warning`), «Paragraf- og begrepsliste» (`collapsible`, per delkapittel), og regel-/
       typetilfellekapitlene har «Paragraf- og domsregister» (`collapsible`); praktikumskapitlene har

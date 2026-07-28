@@ -90,7 +90,7 @@ Alltid, i denne rekkefølgen først i kapitlet:
 1. `tip` **Eksamensvinkel** (frekvens, vekt, sjangre — tallene fra skjelettets
    «Eksamensbelegg»-felt for nettopp ditt kapittel, ikke oppdiktede tall).
 2. `text` **Forkunnskaper** (kapitler i boka + kryssbok-lenker
-   `[tittel](/bok/econ1210/<chapterId>)` — KUN til kapitler som finnes i
+   `[tittel](/econ1210/<chapterId>)` — KUN til kapitler som finnes i
    `src/lib/data/chapters/`; «kan leses uten forkunnskaper» hvis ingen). I tunge
    kapitler (Del 3–6) skal blokken **vise** de 2–3 nøkkelformlene på nytt («Sist
    du var her»), ikke bare lenke.
@@ -160,7 +160,7 @@ sensor-margnotater → 8–15 oppgaver som roterer sjangeren. Øvingseksamenene
   og V2024-settet oppgir ikke prosentvekter. Ingen andre kildetyper skal påstås.
   Modellbesvarelser er **nyskrevne**, aldri ekte studentbesvarelser.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/econ2220/econ2220-X-Y)`; død «se kapittel»-tekst
+  markdown-lenke `[kap. X.Y](/econ2220/econ2220-X-Y)`; død «se kapittel»-tekst
   er FORBUDT (aldri lenker i title-felt).
 - **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
   «Prioritet: perfekt» FORBUDT i prosaen (skriv «høyeste prioritet» / «dette må
@@ -213,7 +213,7 @@ $p = c'(y)$, skalautbytte og stigende marginalkostnad. Reglene:
 
 1. **Kap. 1.1 (`econ2220-1-1`) er bokas ENESTE bro- og anleggskapittel.** Der —
    og bare der — omtales anleggsmodellen, med lenke til
-   [Tilbudskurven: anleggsmodellen](/bok/econ1210/econ1210-1-2).
+   [Tilbudskurven: anleggsmodellen](/econ1210/econ1210-1-2).
 2. **Formuleringen som skal stå der:** de to er **ulike modellvalg for samme
    fenomen, ikke motstridende fakta**. Anleggsmodellen aggregerer diskrete
    enheter med konstant enhetskostnad; den klassiske modellen glatter dette til
@@ -227,12 +227,12 @@ $p = c'(y)$, skalautbytte og stigende marginalkostnad. Reglene:
    nøyaktig anleggsmodellens bilde når anleggene er identiske. Stigende
    marginalkostnad i 2220 svarer til at anleggene har ulik enhetskostnad.
 4. **Etterspørselssiden i samme kapittel:** 1210 postulerte etterspørselskurven
-   ([Etterspørselskurven](/bok/econ1210/econ1210-1-1)) og konsumenttilpasningen
-   ([Konsumentteori: budsjettlinje, indifferenskurver og tilpasning](/bok/econ1210/econ1210-7-1));
+   ([Etterspørselskurven](/econ1210/econ1210-1-1)) og konsumenttilpasningen
+   ([Konsumentteori: budsjettlinje, indifferenskurver og tilpasning](/econ1210/econ1210-7-1));
    2220 *utleder* dem fra nyttemaksimering. 1210s verbale substitusjons- og
-   inntektseffekt ([Arbeidstilbudet: substitusjons- og inntektseffekt](/bok/econ1210/econ1210-6-2))
-   blir 2220s Slutsky-likning. [Markedslikevekt](/bok/econ1210/econ1210-1-3) og
-   [KO, PO og SO](/bok/econ1210/econ1210-2-1) generaliseres til likevekt i *alle*
+   inntektseffekt ([Arbeidstilbudet: substitusjons- og inntektseffekt](/econ1210/econ1210-6-2))
+   blir 2220s Slutsky-likning. [Markedslikevekt](/econ1210/econ1210-1-3) og
+   [KO, PO og SO](/econ1210/econ1210-2-1) generaliseres til likevekt i *alle*
    markeder og Pareto-effektivitet.
 5. **Notasjonsbroen tas samme sted:** 1210 skriver konsumgodene $x_1, x_2$; denne
    boka skriver $c_1, c_2$. Sies én gang i kap. 0.1 (eldre sett varierer) og én
@@ -241,7 +241,7 @@ $p = c'(y)$, skalautbytte og stigende marginalkostnad. Reglene:
    og klimapolitikk BOR i 1210-boka; 2220 eier Lagrange, generell likevekt,
    velferdsteoremene og beredskapsspillteorien. Ingen MI = MK-analyse noe sted i
    econ2220 — lenk i stedet til
-   [Monopolets tilpasning](/bok/econ1210/econ1210-5-1).
+   [Monopolets tilpasning](/econ1210/econ1210-5-1).
 7. **Grep-kontroll (steg 3/4):** `anlegg`, `anleggsmodell`, `kapasitet`,
    `E-kurven`, `T-kurven`, `KO/PO/SO` skal gi **null treff utenfor kap. 1.1**.
    Ordet «enhetskostnad» er tillatt i kap. 1.1 og i kap. 5.3–5.4 (der $k$ i

@@ -94,7 +94,7 @@ Alltid, i denne rekkefølgen først i kapitlet:
 1. `tip` **Eksamensvinkel** — frekvens, vekt og sjangre, med tallene fra
    skjelettets Eksamensbelegg-felt (og ingen andre tall).
 2. `text` **Forkunnskaper** — kapitler i boka + kryssbok-lenker til econ1310
-   (`[tittel](/bok/econ1310/<chapterId>)`), KUN til kapitler som finnes i
+   (`[tittel](/econ1310/<chapterId>)`), KUN til kapitler som finnes i
    `src/lib/data/chapters/`; «kan leses uten forkunnskaper» hvis ingen. I tunge,
    sene kapitler (Del 4–7) skal blokken være en **«Sist du var her»**-blokk som
    VISER de 2–3 nøkkelrelasjonene ferdig oppfrisket, ikke bare lenker.
@@ -166,7 +166,7 @@ modellbesvarelser har «— naturlig pausepunkt —»-markører.
   bokstandard, UIP og hovedkursens fem relasjoner inkl. den supplerte
   π-definisjonen — hver med én ordlinje.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/econ2310/econ2310-X-Y)`; død «se kapittel»-tekst
+  markdown-lenke `[kap. X.Y](/econ2310/econ2310-X-Y)`; død «se kapittel»-tekst
   er FORBUDT (aldri lenker i title-felt).
 - **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
   grep «Prioritet: perfekt» skal gi 0 treff. NB: «PERFEKT» i skjelettets
@@ -435,7 +435,7 @@ $s$ og $\delta$. Grep «Prioritet: perfekt» = 0; grep «en A-besvarelse ville»
 
 ## Kryssbok-lenker til econ1310 (verifisert — alle filene finnes)
 
-Lenkeform `[tittel](/bok/econ1310/<id>)`. Titlene under er de faktiske
+Lenkeform `[tittel](/econ1310/<id>)`. Titlene under er de faktiske
 kapitteltitlene i econ1310-boka og skal brukes ordrett:
 
 | Brukes i | econ1310-id | Tittel |
@@ -459,7 +459,7 @@ kapitteltitlene i econ1310-boka og skal brukes ordrett:
 | 6.1 | `econ1310-6-3` | Fra nyhetsbilde til modell: aktualitetstrening |
 
 Intern lenke i kap. 5.3: `[Skiftanalyse med panser-åpning: sjokkene gjennom
-systemet](/bok/econ2310/econ2310-4-4)` — skrives først når 4.4 er på disk.
+systemet](/econ2310/econ2310-4-4)` — skrives først når 4.4 er på disk.
 **Regel:** lenk aldri til en fil som ikke finnes; kontroller mot
 `src/lib/data/chapters/` før ferdigmelding.
 

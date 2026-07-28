@@ -333,7 +333,7 @@ collapsibles). Se DNA-regnefag for full blokk-spesifikasjon; gjentas ikke her.
 - **Eksamensbelegg:** Gjennomgående (kode 30 % + sjanger S/T på skriftlig del,
   V2025 O4, V2026 O2e). Prioritet: perfekt (meta).
 - **Forkunnskaper/kryssbok:** kap. 0.1; grunnleggende Python-syntaks
-  (variabler, løkker, funksjoner) — lenk til [IN1900 Python-programmering](/bok/in1900/in1900-1-1)
+  (variabler, løkker, funksjoner) — lenk til [IN1900 Python-programmering](/in1900/in1900-1-1)
   `(verifiser lenke)` for lesere uten programmeringsbakgrunn. `collapsible`
   **Symbol- og formelliste:** API-oversikt (funksjon → hva den gjør → typisk kall).
 - **Innholdskontrakt (`definition`/`text` — flashcard-kilde):** **`numpy`-kjerne:**
@@ -366,7 +366,7 @@ collapsibles). Se DNA-regnefag for full blokk-spesifikasjon; gjentas ikke her.
   feilforplantning `‖δx‖/‖x‖ ≤ κ(A)·‖δb‖/‖b‖` (K2022: gitt `‖A⁻¹‖∞=14`, finn
   `κ∞` + øvre grense). Prioritet: kunne (karakterskiller). Sjanger J.
 - **Forkunnskaper/kryssbok:** kap. 0.2; lineær algebra-grunnlag (matrise-vektor-
-  produkt) — lenk til [TMA4110 Lineær algebra](/bok/tma4110/tma4110-1-1)
+  produkt) — lenk til [TMA4110 Lineær algebra](/tma4110/tma4110-1-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** normsymbolene,
   `κ(A)`, `δx`/`δb`.
 - **Innholdskontrakt (`definition`/`theorem`):** vektornorm-aksiomer; `‖x‖₁,₂,∞`;
@@ -622,7 +622,7 @@ samlet kvadraturprøve på eksamensnivå inkl. sammensatt-feil-bevis).
   `J(x_k)(x_{k+1}−x_k)=−F(x_k)` (2×2-Jacobi — brukes til implisitte ODE-skritt);
   biseksjon `(b−a)/2^k<Tol`. Prioritet: kunne. Sjanger Q.
 - **Forkunnskaper/kryssbok:** kap. 4.1; Jacobi-matrise (partiell derivasjon) — lenk
-  til [TMA4135](/bok/tma4135/tma4135-1-1) `(verifiser lenke)` ved behov.
+  til [TMA4135](/tma4135/tma4135-1-1) `(verifiser lenke)` ved behov.
   `collapsible` **Symbol- og formelliste:** Newton-oppdatering, Jacobi `J`,
   biseksjons-feilgrense.
 - **Innholdskontrakt (`definition`/`theorem`):** Newton skalar + kvadratisk
@@ -723,7 +723,7 @@ fikspunktteoremet (bevis) + intervallvalg · 4.C Newton skalar + system (Jacobi)
   krav `|R(hλ)|≤1` for alle egenverdier gir maks `h` (V2023: `λ=−1±4i` →
   `h∈(0,2/17)`). Prioritet: perfekt. Sjangre D, E.
 - **Forkunnskaper/kryssbok:** kap. 5.3; komplekse tall + egenverdier — lenk til
-  [TMA4110](/bok/tma4110/tma4110-1-1) `(verifiser lenke)`. `collapsible`
+  [TMA4110](/tma4110/tma4110-1-1) `(verifiser lenke)`. `collapsible`
   **Symbol- og formelliste:** `R(z)`, `z=λh`, `S`, A-stabilitet, stivhet.
 - **Innholdskontrakt (`definition`/`theorem`):** `R(z)` for de tre standardmetodene
   (utled via testligningen); stabilitetsområde; A-stabilitet (definisjon + bevis

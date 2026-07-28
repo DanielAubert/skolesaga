@@ -737,7 +737,7 @@ Del 0 (kap. 0.1) er studieguidens kjerne. I tillegg skal boka samle:
    (id/number/title/description/estimatedMinutes/topics/prerequisites) etter mønster
    `COURSE_BI_OKONOMI` i `src/lib/data/textbook-courses-matte.ts`; `sectionNames`
    fra makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SØK1012 Makroøkonomisk analyse».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–L, de to epokene, sjokk-
    katalogen, frekvenstallene og avgrensningen (mot ECON1310/SOK1000) som resten
@@ -841,7 +841,7 @@ ut selv vs. hva den forutsetter/kryssrefererer.
 **Møtepunkter (kryssrefereres, ikke gjentas):** makro-grunnlaget (BNP,
 nasjonalregnskap, enkel Keynes-modell) forutsettes fra innføringen (SOK1000) og
 lenkes til **ECON1310**s tilsvarende kapitler med markdown-lenker
-(`[tittel](/bok/econ1310/<chapterId>)`) der de deler apparat — SØK1012 bygger
+(`[tittel](/econ1310/<chapterId>)`) der de deler apparat — SØK1012 bygger
 videre til full IS-RR-PK, åpen økonomi, vekst og gjeld. Overlappet med ECON1310 er
 på **kjernemodellen** (IS-RR-PK, Phillips, renteregel, lønnsdannelse); der SØK1012
 er unik (åpen økonomi, Solow, konvergens, statsgjeld) skrives alt fra grunnen. Dette

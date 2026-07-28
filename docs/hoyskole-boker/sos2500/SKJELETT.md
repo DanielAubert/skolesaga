@@ -165,19 +165,19 @@ SOS2500 **overlapper delvis, men er IKKE dekket** av de bygde bøkene — den ti
 semiotiske og diskursanalytiske søylene ingen av dem har. Boka skal **krysshenvise** der
 begreper deles, men eie sin egen vinkling:
 
-- **[SOSANT1000](/bok/sosant1000)** (sterkest overlapp): deler kulturbegrepet (Geertz, tykk
+- **[SOSANT1000](/sosant1000)** (sterkest overlapp): deler kulturbegrepet (Geertz, tykk
   beskrivelse), symbol-/ritualteori (Turner, liminalitet; Ortner) og klassifikasjon/grenser
   (Douglas, rent/urent). SOS2500 gjenbruker den fortolkende drøftingstreningen, men legger
   til semiotikk + diskursanalyse. Lenk fra Del 3/4/5 til relevante SOSANT1000-kapitler for
   forkunnskap, men SKRIV stoffet på nytt med SOS2500s semiotisk-analytiske vinkel (tegn,
   koder, betydningsproduksjon), ikke den etnografisk-holistiske.
-- **[SOS2200](/bok/sos2200)** (Bourdieu): deler habitus/kapitalformer/felt. SOS2200 bruker
+- **[SOS2200](/sos2200)** (Bourdieu): deler habitus/kapitalformer/felt. SOS2200 bruker
   Bourdieu på arbeidsliv/klasse; SOS2500 bruker ham på **smak, distinksjon og mote**. Samme
   teoretiker, ulikt anvendelsesfelt — krysshenvis fra Del 6.
-- **[SOS1004](/bok/sos1004)** (grunnfjell): Goffmans interaksjonisme, sosial konstruksjon,
+- **[SOS1004](/sos1004)** (grunnfjell): Goffmans interaksjonisme, sosial konstruksjon,
   Bourdieus kultursosiologi. SOS2500 spesialiserer dette mot **meningsdimensjonen** (tegn,
   symboler, diskurs). Krysshenvis fra Del 5 (Goffman) der SOS1004 dekker forkunnskapen.
-- **[SOSANT1090](/bok/sosant1090)**: deler kultur-/symbol-/ritualstoffet som SOSANT1000.
+- **[SOSANT1090](/sosant1090)**: deler kultur-/symbol-/ritualstoffet som SOSANT1000.
 
 Krysshenvisninger legges som markdown-lenker i Forkunnskaper-blokka der forkunnskapen
 faktisk dekkes i en annen bok. Alt SOS2500-EGET stoff (de tre søylene) skrives i boka selv.
@@ -539,7 +539,7 @@ faktisk dekkes i en annen bok. Alt SOS2500-EGET stoff (de tre søylene) skrives 
   **perfekt/kunne** (§7 pkt. 1 kulturanalyse-søyle; §7 pkt. 7).
 - **Begrepskontrakt:** **Clifford Geertz: tykk beskrivelse** — kultur som **betydningsvev**/
   system av mening nedfelt i symboler; kulturanalyse = å «utrede betydningsstrukturer»
-  (hermeneutisk-fortolkende, kobler semiotikk og kultur; jf. [SOSANT1000 1.2](/bok/sosant1000/sosant1000-1-2));
+  (hermeneutisk-fortolkende, kobler semiotikk og kultur; jf. [SOSANT1000 1.2](/sosant1000/sosant1000-1-2));
   **Wendy Griswold: den kulturelle diamant** — et **kulturelt objekt** (delt betydning
   nedfelt i form) forstås gjennom fire hjørner: objektet, **skaperen/produsenten**,
   **mottakeren** og **den sosiale verden**; **Stuart Hall: representasjon** (mening skapes i
@@ -595,7 +595,7 @@ faktisk dekkes i en annen bok. Alt SOS2500-EGET stoff (de tre søylene) skrives 
   samhandlingsform — fast kortsvarskilde, og bindeledd til «være sammen»-oppgaven i Del 5.
 - **Eksamensbelegg:** ritual/liminalitet 7 (2004H, 2007K ritual, 2011K, 2014K liminal periode,
   2015K liminal periode, 2017K ritual, 2018L). Sjangre: K, koblingsstoff i BRE. Prioritet:
-  **kunne** (§7 pkt. 9). Overlapper [SOSANT1000 4.1](/bok/sosant1000/sosant1000-4-1) —
+  **kunne** (§7 pkt. 9). Overlapper [SOSANT1000 4.1](/sosant1000/sosant1000-4-1) —
   krysshenvis for forkunnskap, skriv med kultursemiotisk vinkel.
 - **Begrepskontrakt:** **Victor Turner** (etter van Gennep): **overgangsritualet** i tre faser
   — separasjon, **liminal fase** (terskelfasen: den rituelle personen er «betwixt and between»,
@@ -628,7 +628,7 @@ faktisk dekkes i en annen bok. Alt SOS2500-EGET stoff (de tre søylene) skrives 
 ### Del 4 — Rent/urent, grenser og mat
 
 > Signaturtema for kulturanalyse-delen (rent/urent ⭐⭐⭐ 10; mat ⭐⭐ 5). Bygger på Del 1+3.
-> Overlapper [SOSANT1000 4.x](/bok/sosant1000) (Douglas) — krysshenvis, egen semiotisk vinkel.
+> Overlapper [SOSANT1000 4.x](/sosant1000) (Douglas) — krysshenvis, egen semiotisk vinkel.
 
 #### Kapittel 4.1: Rent, urent og symbolske grenser — Douglas, Lamont og Kristeva
 **id:** `sos2500-4-1` · **number:** 4.1 · **estimatedMinutes:** 60 · **prerequisites:** `sos2500-3-1`
@@ -703,7 +703,7 @@ faktisk dekkes i en annen bok. Alt SOS2500-EGET stoff (de tre søylene) skrives 
 
 > Goffman ⭐⭐⭐ 10 (politikerbilder + Krogstad) + rus/subkultur ⭐⭐ + «være sammen»-oppgaven
 > (BRE). Bygger på Del 3 (ritual). Goffman-forkunnskap dekkes delvis i
-> [SOS1004](/bok/sos1004) — krysshenvis; selvpresentasjon i politikk er SOS2500-eget.
+> [SOS1004](/sos1004) — krysshenvis; selvpresentasjon i politikk er SOS2500-eget.
 
 #### Kapittel 5.1: Selvpresentasjon og rolleteori — Goffman
 **id:** `sos2500-5-1` · **number:** 5.1 · **estimatedMinutes:** 60 · **prerequisites:** `sos2500-3-3`
@@ -721,7 +721,7 @@ faktisk dekkes i en annen bok. Alt SOS2500-EGET stoff (de tre søylene) skrives 
   uttrykket, delt i **kulisser** (settingen), **fremtoning** (status/roller vist) og
   **manerer** (hvordan rollen spilles); **inntrykkshåndtering** (impression management) = å
   styre inntrykket andre får; **situasjonsdefinisjon** = den felles forståelsen av hva som
-  foregår; **rolle** som statusens dynamiske aspekt (jf. [SOS1004](/bok/sos1004)).
+  foregår; **rolle** som statusens dynamiske aspekt (jf. [SOS1004](/sos1004)).
 - **Drøftingsakser:** er all sosial interaksjon «skuespill» (kritikk: kynisk menneskesyn)?;
   hva front-/backstage-skillet fanger; inntrykkshåndtering på sosiale medier og i politikk.
 - **Eksempellager:** (1) en **kelner/servitør** som veksler mellom front- og backstage; (2) en
@@ -803,7 +803,7 @@ faktisk dekkes i en annen bok. Alt SOS2500-EGET stoff (de tre søylene) skrives 
 ### Del 6 — Smak, distinksjon, kjønn og mote
 
 > Bourdieu ⭐⭐⭐ 9 + mote/kjønn ⭐⭐ (nyere kjernefelt fra 2018→). Bygger på Del 3.
-> Bourdieu-forkunnskap deles med [SOS2200](/bok/sos2200) (arbeidsliv/klasse) — krysshenvis;
+> Bourdieu-forkunnskap deles med [SOS2200](/sos2200) (arbeidsliv/klasse) — krysshenvis;
 > her anvendes han på smak/mote. ⚠ mote/kjønn-empiri er utskiftbar (Mears/Schiermer/Hjelseth).
 
 #### Kapittel 6.1: Bourdieu — habitus, kapital og distinksjon
@@ -819,7 +819,7 @@ faktisk dekkes i en annen bok. Alt SOS2500-EGET stoff (de tre søylene) skrives 
   kroppsliggjorte, varige disposisjoner formet av sosial posisjon (smak, holdning, «sans for
   spillet»); **kapitalformer** — økonomisk, **kulturell** (dannelse, utdanning, smak), sosial,
   **symbolsk** (anerkjennelse/prestisje); **felt** = et strukturert rom av posisjoner og kamper
-  (jf. [SOS2200](/bok/sos2200)); **distinksjon** = smak som klassemarkør (avstand oppover/
+  (jf. [SOS2200](/sos2200)); **distinksjon** = smak som klassemarkør (avstand oppover/
   nedover); **gavebytte** og de **symbolske goders økonomi** (æresøkonomi der egeninteressen
   skjules); **altetenhet/omnivorousness** (den nye eliten som konsumerer bredt, høyt og lavt —
   Pedersen/Jarness/Flemmen «Revenge of the nerds»).

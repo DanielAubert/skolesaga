@@ -653,7 +653,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    etter mønster `COURSE_BI_OKONOMI` i
    `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra
    makrostruktur-tabellen (§2). Registrer emnet i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
+   `src/app/trinn/hoyere/institusjoner.ts` under **NTNU** med visningsnavn
    «SOK1002 Mikroøkonomi».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–L, frekvenstallene og
    avgrensningen (hva som IKKE er pensum) som resten refererer til.

@@ -14,7 +14,7 @@ Landet på main (`66b95d97`, rein fast-forward) og verifisert på www.skolesaga.
 alle tre bokforsider 200 med riktig tittel, kapittelruter + quiz + flashcards 200
 uten LaTeX-feil, figurer 200 `image/svg+xml` fra Storage.
 
-**Felle ved prod-verifisering:** `/bok/<emne>` svarer **200 også når boka ikke finnes**
+**Felle ved prod-verifisering:** `/<emne>` svarer **200 også når boka ikke finnes**
 (siden rendrer «Kurs ikke funnet» med statuskode 200). Sjekk alltid på INNHOLD
 (`grep` etter boktittelen), ikke statuskode. Deploy tar ~5 min fra push.
 
@@ -145,7 +145,7 @@ bildene serveres fra Storage og 196 av 596 referanser er Storage-bare.
   HEAD-versjonen av fila og føy hele `export const COURSE_<B>`-blokka på
   verbatim fra bokbranchen. `_registry.json` løses som union av BEGGE nøkler.
 - **Flashcards ligger på KURSNIVÅ**, ikke kapittelnivå: prod-curl skal treffe
-  `/bok/<emne>/flashcards`, ikke `/bok/<emne>/<kap>/flashcards` (404). Rutene
+  `/<emne>/flashcards`, ikke `/<emne>/<kap>/flashcards` (404). Rutene
   `<kap>/trening` og `<kap>/oppgave` gir 404 også i live bøker — ikke et avvik.
 - **Posisjonsreferanser i quizforklaringer er alltid feil:** rendereren stokker
   alternativene (`quiz-client.tsx`: «Shuffle options»), så «alternativ 2» eller

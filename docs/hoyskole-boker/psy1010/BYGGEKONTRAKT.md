@@ -82,7 +82,7 @@ Blokk-id-er: `<kapittel-id>-<løpenavn>` (unik i kapitlet).
 Alltid, i denne rekkefølgen først i kapitlet:
 1. `tip` **Eksamensvinkel** (frekvens, vekt, sjangre — fra skjelettet).
 2. `text` **Forkunnskaper** (se Leserkrav): kapitler i boka + kryssbok-lenker
-   `[tittel](/bok/psy1010/<chapterId>)` — KUN til kapitler som finnes i
+   `[tittel](/psy1010/<chapterId>)` — KUN til kapitler som finnes i
    `src/lib/data/chapters/`; «kan leses uten forkunnskaper» der ingen.
 
 Og SIST i kapitlet (alle kapitler som bruker symboler — også drøftingskapitler som
@@ -134,7 +134,7 @@ tidsanslaget gjelder kjernestoffet») + `collapsible` repetisjon (teorikapitler)
 
 - **Forkunnskaper-blokk** rett etter Eksamensvinkel: (i) kapitler i denne boka
   kapitlet bygger på, (ii) forkunnskaper utenfor boka med markdown-lenke til
-  eksisterende kapittel, format `[tittel](/bok/psy1010/<chapterId>)` — sjekk at
+  eksisterende kapittel, format `[tittel](/psy1010/<chapterId>)` — sjekk at
   målfilen finnes i `src/lib/data/chapters/`. «Dette kapitlet kan leses uten
   forkunnskaper» der ingen.
 - **Kun eksamensrelevant** stoff; «kjenne til» sist og merket.
@@ -160,7 +160,7 @@ tidsanslaget gjelder kjernestoffet») + `collapsible` repetisjon (teorikapitler)
   10 sensorveiledninger V2018–V2025 — fra EKSAMENSANALYSE.md, aldri oppdiktet) +
   prosedyre-/sjangerkort på ÉN side.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper/fasiter = markdown-lenke
-  `[kap. X.Y](/bok/psy1010/psy1010-X-Y)`; død «se kapittel»-tekst er FORBUDT.
+  `[kap. X.Y](/psy1010/psy1010-X-Y)`; død «se kapittel»-tekst er FORBUDT.
 - **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
   «Prioritet: perfekt» FORBUDT (skriv «høyeste prioritet»); modellbesvarelser ærlig
   merket (en «C-besvarelse» ER C) + minst én autentisk B-/midtnivå-besvarelse.

@@ -2,7 +2,7 @@
 
 Bøkene forteller studenten hva de bygger på — «16 eksamenssett med offisielle
 sensorveiledninger», «49 sett med løsningsforslag». Påstandene vises på
-`/bok/<emne>/kildegrunnlag` og gjentas i metakapitlet. **Ingen hadde kontrollert
+`/<emne>/kildegrunnlag` og gjentas i metakapitlet. **Ingen hadde kontrollert
 dem mot arkivet før 25. juli 2026.** Da viste tre av nitten seg å være feil.
 
 Kjør kontrollen slik:

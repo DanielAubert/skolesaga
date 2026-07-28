@@ -475,7 +475,7 @@ på eksamensnivå.
   Driller den 40 %-oppgaven som avgjør mest.
 - **Eksamensbelegg:** Hele O1-oppgaven (samme 3 ordinære sett). Sjanger
   RED-DRØFT. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 2.1, 2.2, [drøftings-håndverket](/bok/nih-is205/nih-is205-0-3).
+- **Forkunnskaper/kryssbok:** kap. 2.1, 2.2, [drøftings-håndverket](/nih-is205/nih-is205-0-3).
 - **Begrepskontrakt:** O1-disposisjonen (innledning → redegjørelse per perspektiv
   → drøfting tilgang/valg/holdninger → konklusjon) + tidsbudsjett for hjemme- vs.
   skoleeksamen.
@@ -899,8 +899,8 @@ eksamensnivå.
   skoleeksamen og en gjennomskrevet modellbesvarelse med margkommentarer.
 - **Eksamensbelegg:** Destillat av sjangeren (analysen §3 Type 1, §4). Sjanger
   RED-DRØFT. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** [redegjørelses-håndverket](/bok/nih-is205/nih-is205-0-2),
-  [drøftings-håndverket](/bok/nih-is205/nih-is205-0-3).
+- **Forkunnskaper/kryssbok:** [redegjørelses-håndverket](/nih-is205/nih-is205-0-2),
+  [drøftings-håndverket](/nih-is205/nih-is205-0-3).
 - **Begrepskontrakt:** O1-/valgoppgave-disposisjonen samlet (innledning → RED per
   moment → DRØFT anvendt på idrett + sammenligning + empiri → konklusjon) +
   tidsbudsjett + den binære selvrettingsrubrikken (0/1-sjekkliste).

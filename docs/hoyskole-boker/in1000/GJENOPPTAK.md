@@ -258,7 +258,7 @@ Commit etter HVERT ferdig kapittel — ikke til slutt.
    EKSAMENSANALYSE §8 — 8 avsluttende sett, 3 fulle løsningsforslag, 4
    prøveeksamener med fasit, 27 filer; fire av dem er skannede uten uttrekkbar
    tekst; **ingen «sensorveiledninger»** som dokumenttype).
-3. Registrer emnet i `src/app/bok/trinn/hoyere/institusjoner.ts` under UiO som
+3. Registrer emnet i `src/app/trinn/hoyere/institusjoner.ts` under UiO som
    «IN1000 Introduksjon til objektorientert programmering».
 4. Verifikatorbølge (steg 3) — inkludert å løse ALLE `(verifiser)`.
 5. Sluttport (steg 4): `sjekk-kode.py` · `sjekk-latex.py` ·

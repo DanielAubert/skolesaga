@@ -246,7 +246,7 @@ rekkesum, **L** delvis summasjon (Abel) / Abels teorem. Prioritetsklasser:
 
 **Aktiveringsmarkør:** MA1101 er NTNUs forkunnskapsemne og er ikke bygget som bok.
 Referanser til MA1101 skrives som **klartekst** med markøren *(NTNU-forkunnskapsemne,
-ikke bygget ennå; aktiver `/bok/<kode>/<id>`-lenke når den finnes)*. Bygde bøker
+ikke bygget ennå; aktiver `/<kode>/<id>`-lenke når den finnes)*. Bygde bøker
 (R2, S2, R1) lenkes normalt, kun til kapitler som finnes: **R2** dekker rekker,
 komplekse tall, følger; **S2** dekker derivasjon/integrasjon og differensiallikninger;
 **R1** dekker grenser og funksjonsanalyse — de er primær-ankrene for forkunnskaper.
@@ -330,7 +330,7 @@ komplekse tall, følger; **S2** dekker derivasjon/integrasjon og differensiallik
 - **id:** `ma1102-2-1` · **number:** 2.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1102-1-1`
 - **kapitteltype:** teori
 - **description:** Følgekonvergens fra grunnen: ε–N-definisjonen av grense, regneregler, og de faste konvergenskriteriene (monoton + begrenset ⇒ konvergent) som bærer både Cauchy-bevis og Newton-konvergens.
-- **Forkunnskaper (kryssbok):** Kap. 1.1. Følger fra [Rekker](/bok/r2/r2-3-1) (R2) og grenser fra MA1101 *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.1. Følger fra [Rekker](/r2/r2-3-1) (R2) og grenser fra MA1101 *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*.
 - **Eksamensbelegg:** Sjanger J (grunnlag), sjanger I (Newton-konvergens via monoton+begrenset), følger 54 %. Fasitens grep: skriv ε–N presist; bruk monoton+begrenset. Prioritet: **kunne**.
 - **Innholdskontrakt:** **ε–N-definisjonen** ($x_n\to L$: $\forall\varepsilon>0\,\exists N:\,n>N\Rightarrow|x_n-L|<\varepsilon$); **regneregler** for grenser (sum, produkt, kvotient); **monotone følger**; **skviseteoremet**; **monoton + begrenset ⇒ konvergent** (kompletthetens følgeform); delfølger og opphopningspunkter (kjennskap); divergens mot $\pm\infty$. Alt til aktiv bruk.
 - **Oppgavesjangre:** J. Mønstereksempel: «Vis fra ε–N-definisjonen at $x_n=(2n+1)/(n+3)\to2$.»
@@ -371,7 +371,7 @@ komplekse tall, følger; **S2** dekker derivasjon/integrasjon og differensiallik
 - **id:** `ma1102-3-1` · **number:** 3.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma1102-2-1`
 - **kapitteltype:** teori
 - **description:** Rekker via delsummer, leddtesten, geometriske rekker og p-rekker, og verktøykassen som bærer oppgave 2: forholdstest, rottest, sammenligningstest og grensesammenligning — alle navngitt slik sensor krever.
-- **Forkunnskaper (kryssbok):** Kap. 2.1. Rekker fra [Rekker](/bok/r2/r2-3-1) og [Uendelige geometriske rekker](/bok/r2/r2-3-3) (R2).
+- **Forkunnskaper (kryssbok):** Kap. 2.1. Rekker fra [Rekker](/r2/r2-3-1) og [Uendelige geometriske rekker](/r2/r2-3-3) (R2).
 - **Eksamensbelegg:** Sjanger B, del av **92 %**-oppgaven. Fasitens grep: velg riktig navngitt test; sjekk leddtesten først. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Rekke** $\sum a_n$ og **delsummer** $s_N$; **konvergens** ($s_N\to s$); **leddtesten** ($a_n\not\to0\Rightarrow$ divergens); **geometrisk rekke** ($\sum r^n$, $|r|<1$); **p-rekker** ($\sum1/n^p$, konvergerer $\iff p>1$); **teleskopsummer**; **sammenligningstest** og **grensesammenligning**; **forholdstest** ($\lim|a_{n+1}/a_n|$); **rottest** ($\lim|a_n|^{1/n}$); **integraltest** (kjennskap). Alt til aktiv bruk (navngi testen).
 - **Oppgavesjangre:** B. Mønstereksempel: «Avgjør om $\sum n^2/2^n$ konvergerer, og navngi testen du bruker.»
@@ -424,7 +424,7 @@ komplekse tall, følger; **S2** dekker derivasjon/integrasjon og differensiallik
 - **id:** `ma1102-4-1` · **number:** 4.1 · **estimatedMinutes:** 50 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Komplekse tall på kartesisk og polar form, modulus og argument, Eulers formel e^{iθ}=cos θ + i sin θ, og regning i polarform (produkt/kvotient/potens) — grunnlaget for røtter og for komplekse ODE-røtter.
-- **Forkunnskaper (kryssbok):** Komplekse tall fra [Komplekse tall](/bok/r2/r2-6-1) (R2, hvis kapitlet finnes — ellers bygg fra grunnen).
+- **Forkunnskaper (kryssbok):** Komplekse tall fra [Komplekse tall](/r2/r2-6-1) (R2, hvis kapitlet finnes — ellers bygg fra grunnen).
 - **Eksamensbelegg:** Sjanger C (grunnlag), forkunnskap for de Moivre-røtter og komplekse ODE-røtter (7.1). Fasitens grep: kartesisk↔polar sikkert; Eulers formel. Prioritet: **perfekt** (bærer oppgave 3).
 - **Innholdskontrakt:** **Kartesisk form** $z=x+iy$, **konjugat** $\bar z$, **modulus** $|z|=\sqrt{x^2+y^2}$, **argument** $\arg z$; **polarform** $z=r(\cos\theta+i\sin\theta)=re^{i\theta}$; **Eulers formel** $e^{i\theta}=\cos\theta+i\sin\theta$; produkt/kvotient i polarform (modulus multipliseres, argument adderes); kompleks eksponential. Alt til aktiv bruk. *(Verifiser R2-kapittel-id før lenking.)*
 - **Oppgavesjangre:** C (grunnlag). Mønstereksempel: «Skriv $z=-1+i\sqrt3$ på polarform og regn ut $z^4$.»
@@ -465,7 +465,7 @@ komplekse tall, følger; **S2** dekker derivasjon/integrasjon og differensiallik
 - **id:** `ma1102-5-1` · **number:** 5.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma1102-2-1`
 - **kapitteltype:** teori
 - **description:** Skillet som bærer oppgave 4: punktvis grense (ta lim f_n(x) for hver fast x) vs. uniform konvergens (sup|f_n−f|→0), sup-metoden via derivasjon/toppunkt, og teoremet at uniform grense av kontinuerlige er kontinuerlig.
-- **Forkunnskaper (kryssbok):** Kap. 2.1. Derivasjon og toppunkt fra [Funksjonsdrøfting](/bok/r1/r1-4-1) (R1) og MA1101 *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.1. Derivasjon og toppunkt fra [Funksjonsdrøfting](/r1/r1-4-1) (R1) og MA1101 *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*.
 - **Eksamensbelegg:** Sjanger D, **92 %** (emnets tydeligste faste oppgave). Fasitens grep: finn punktvis $f$, regn $d_n=\sup|f_n-f|$ via toppunkt, konkluder. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Punktvis konvergens** ($f_n(x)\to f(x)$ for hver fast $x$; pass på skjøtepunkter som $x=0$); **uniform konvergens** via **sup-metrikken** $d(f_n,f)=\sup_x|f_n(x)-f(x)|$, uniform $\iff d(f_n,f)\to0$; **sup finnes via derivasjon/toppunkt** (deriver $f_n-f$, finn maks); **uniform grense av kontinuerlige er kontinuerlig** (kontrapositiv motfelle: $f$ diskontinuerlig ⇒ ikke uniform); familier: $nx^ae^{-nx}$, $xe^{-nx^2}$, $xe^{-nx}$, $x^{2n}/(n+1)$. Alt til aktiv bruk.
 - **Oppgavesjangre:** D. Mønstereksempel: «La $f_n(x)=x^{2n}/(n+1)$ på $[0,1]$. Finn punktvis grense $f$ og avgjør om $f_n\to f$ uniformt.»
@@ -559,7 +559,7 @@ komplekse tall, følger; **S2** dekker derivasjon/integrasjon og differensiallik
 - **id:** `ma1102-7-1` · **number:** 7.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma1102-4-1`
 - **kapitteltype:** teori
 - **description:** Den mest stabile oppgaven i hele arkivet (100 %): løs den homogene lineære ODE-en via karakteristisk polynom, med korrekt behandling av enkle, doble og komplekse røtter (dobbeltrot gir xe^{rx}; a±bi gir e^{ax}(A cos bx + B sin bx)).
-- **Forkunnskaper (kryssbok):** Kap. 4.1 (komplekse røtter). Differensiallikninger fra [Differensiallikninger](/bok/s2/s2-5-1) (S2, hvis kapitlet finnes) og MA1101 *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*.
+- **Forkunnskaper (kryssbok):** Kap. 4.1 (komplekse røtter). Differensiallikninger fra [Differensiallikninger](/s2/s2-5-1) (S2, hvis kapitlet finnes) og MA1101 *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*.
 - **Eksamensbelegg:** Sjanger F, **100 %** (homogen-delen). Fasitens grep: karakteristisk polynom, klassifiser røttene, skriv $y_h$. Prioritet: **perfekt** (bærebjelke). *(Verifiser S2-kapittel-id før lenking.)*
 - **Innholdskontrakt:** **Lineær homogen ODE** $y''+py'+qy=0$ (og høyere orden); **karakteristisk polynom** $r^2+pr+q=0$; **tre tilfeller**: reelle ulike røtter ($Ae^{r_1x}+Be^{r_2x}$), **dobbeltrot** $r$ ($Ae^{rx}+Bxe^{rx}$), **komplekst par** $a\pm bi$ ($e^{ax}(A\cos bx+B\sin bx)$); høyere ordens (3.–4.) via samme karakteristiske likning (kobling til komplekse røtter, kap. 4.2); superposisjonsprinsippet. Alt til aktiv bruk.
 - **Oppgavesjangre:** F (homogen). Mønstereksempel: «Løs den homogene likningen $y''-4y'+13y=0$.» (Røtter $2\pm3i$; $y=e^{2x}(A\cos3x+B\sin3x)$.)
@@ -594,7 +594,7 @@ komplekse tall, følger; **S2** dekker derivasjon/integrasjon og differensiallik
 - **id:** `ma1102-7-4` · **number:** 7.4 · **estimatedMinutes:** 55 · **prerequisites:** `ma1102-2-1`
 - **kapitteltype:** teori
 - **description:** 1. ordens ODE (separable og lineære med integrerende faktor) som grunnlag for numerikk og rekkeløsning, og Picard–Lindelöf — teoremet som garanterer at initialverdiproblemet har entydig løsning (pensum, teoretisk ryggrad, ikke arkivbelagt som egen oppgave).
-- **Forkunnskaper (kryssbok):** Kap. 2.1. Separable/lineære ODE fra [Differensiallikninger](/bok/s2/s2-5-1) (S2, hvis kapitlet finnes).
+- **Forkunnskaper (kryssbok):** Kap. 2.1. Separable/lineære ODE fra [Differensiallikninger](/s2/s2-5-1) (S2, hvis kapitlet finnes).
 - **Eksamensbelegg:** Grunnlag for sjanger H (numerisk ODE) og G (rekkeløsning). **Picard–Lindelöf 0 %** i arkivet (pensum, dekk teoretisk, «ikke arkivbelagt»). Prioritet: **kjenne/kunne** (grunnlag + differensierende teori). *(Verifiser S2-kapittel-id før lenking.)*
 - **Innholdskontrakt:** **1. ordens separabel** $y'=f(x)g(y)$ (skill variable, integrer); **1. ordens lineær** $y'+p(x)y=q(x)$ med **integrerende faktor** $\mu=e^{\int p\,dx}$; **initialverdiproblem**; **Picard–Lindelöf** (hvis $f(x,y)$ er kontinuerlig og Lipschitz i $y$, har IVP-et en entydig løsning lokalt — dekk som teori, «teoretisk ryggrad bak at initialverdiproblemene har entydig løsning; ingen arkivforekomst»). 1. orden til aktiv bruk; Picard–Lindelöf som teori.
 - **Oppgavesjangre:** (grunnlag). Mønstereksempel: «Løs $y'+2y=e^{-x}$ med $y(0)=1$ via integrerende faktor.»
@@ -636,7 +636,7 @@ komplekse tall, følger; **S2** dekker derivasjon/integrasjon og differensiallik
 - **id:** `ma1102-8-2` · **number:** 8.2 · **estimatedMinutes:** 60 · **prerequisites:** `ma1102-2-1`
 - **kapitteltype:** teori
 - **description:** Newtons metode x_{n+1}=x_n−f(x_n)/f'(x_n) (formelark) i to nivåer: den mekaniske iterasjonen (3 ganger, 4 desimaler) og den karakterhevende konvergensbeviset — vis via konveksitet at følgen er monoton og begrenset, altså konvergent mot roten.
-- **Forkunnskaper (kryssbok):** Kap. 2.1 (monoton+begrenset). Derivasjon fra [Derivasjon](/bok/r1/r1-3-1) (R1).
+- **Forkunnskaper (kryssbok):** Kap. 2.1 (monoton+begrenset). Derivasjon fra [Derivasjon](/r1/r1-3-1) (R1).
 - **Eksamensbelegg:** Sjanger I, **62 %** (Newton-konvergensbeviset er den karakterhevende delen; v2023 hadde iterasjonen, kont2023 ikke). Ofte kjedet til eksistens/entydighet (skjæring + monotoni). Fasitens grep: iterér; ved bevis, vis monoton+begrenset. Prioritet: **kunne**, bevis differensierende.
 - **Innholdskontrakt:** **Newtons metode** $x_{n+1}=x_n-f(x_n)/f'(x_n)$ (formelark), iterér typisk 3 ganger, 4 desimaler; **eksistens/entydighet av rot** (skjæringssetningen for eksistens + strengt monotoni for entydighet); **konvergensbevis** (via konveksitet/sekantsetning: følgen monoton og begrenset ⇒ konvergent, grensen tilfredsstiller $f(y)=0$). Formelen oppgis; iterasjon + bevis til aktiv bruk.
 - **Oppgavesjangre:** I. Mønstereksempel: «Vis at $f(x)=2x-\cos x$ har nøyaktig én rot, og utfør tre Newton-iterasjoner fra $x_0=0$.»

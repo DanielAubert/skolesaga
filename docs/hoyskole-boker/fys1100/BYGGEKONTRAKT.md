@@ -199,7 +199,7 @@ Alltid, i denne rekkefølgen først i kapitlet:
 2. `text` **Forkunnskaper — sist du var her** (overskriften skal stå ordrett slik,
    som `## Forkunnskaper — sist du var her` først i blokken). Blokken skal
    (i) lenke kapitlene i boka som dette bygger på — markdown-lenker
-   `[kap. X.Y](/bok/fys1100/fys1100-X-Y)`, (ii) **VISE de 2–3 nøkkelformlene
+   `[kap. X.Y](/fys1100/fys1100-X-Y)`, (ii) **VISE de 2–3 nøkkelformlene
    ferdig oppfrisket** (selve formelen med symbolforklaring, ikke bare navnet) —
    dette er ufravikelig i Del 6–11, der tidsavstanden til forkunnskapen er stor,
    og (iii) lenke kryssbok der forkunnskapen ikke dekkes i boka (tabellen under
@@ -923,7 +923,7 @@ drag-leddet)». Kap. 0.1 lister dem alle og sier at de har et samlet register.
     sjekklisten: arrays, initialbetingelser, akselerasjonslinje, fart før
     posisjon, `abs(v)*v`, begge komponenter, metodebegrunnelse.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/fys1100/fys1100-X-Y)`; død «se kapittel»-tekst
+  markdown-lenke `[kap. X.Y](/fys1100/fys1100-X-Y)`; død «se kapittel»-tekst
   er FORBUDT (aldri lenker i `title`-felt). Lenk kun til filer som finnes på disk
   når du skriver — byggeleder legger inn resten ved wiring.
 - **Selvdiagnose:** avkryssbar sjekkliste (☐) etter hver prøvefasit og etter hver
@@ -1124,7 +1124,7 @@ PY
 
 ## Kryssbok-lenker (verifisert mot disk 26. juli 2026 — alle filene finnes)
 
-Lenkeform `[tittel](/bok/<courseId>/<id>)`. **Titlene under er de faktiske
+Lenkeform `[tittel](/<courseId>/<id>)`. **Titlene under er de faktiske
 kapitteltitlene og skal brukes ordrett.** Lenk ALDRI til en fil som ikke finnes
 (`sjekk-bok.py` fanger døde lenker).
 
@@ -1183,7 +1183,7 @@ her):**
 **IN1900** (Python-grunnlag: lister, `for`-løkker, NumPy) og **Fysikk 1** (VGS).
 Skriv «du kan ha møtt dette i Fysikk 1 på videregående» — aldri en markdown-lenke.
 
-Interne lenker: `[kap. X.Y](/bok/fys1100/fys1100-X-Y)`. Lenker til kapitler som
+Interne lenker: `[kap. X.Y](/fys1100/fys1100-X-Y)`. Lenker til kapitler som
 ennå ikke er skrevet, legges inn først når fila finnes på disk — koordineres av
 byggeleder ved wiring.
 

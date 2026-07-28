@@ -195,7 +195,7 @@ firepunkts-sjekkliste, ikke en regnefasit. For **Del 9 og kap. 0.3** lånes derf
 dekkes internt i boka (Del 1 er fundamentet). Bygger-agenten kan legge til en
 **verifisert** kryssbok-lenke til en grafisk Solow- eller optimerings-intro i en
 **live** bok (per nå kun `econ1310` og `jus1111`) KUN hvis kapittel-id-en faktisk
-finnes — ellers holdes Forkunnskaper interne (`/bok/econ4310/econ4310-X-Y`).
+finnes — ellers holdes Forkunnskaper interne (`/econ4310/econ4310-X-Y`).
 Aldri lenk til en bok med status «skjelett».
 
 ---
@@ -822,7 +822,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    uten den viser bokforsiden «Seksjon N»), etter mønsteret i
    `src/lib/data/textbook-courses-hoyskole.ts` (econ1310-oppføringen).
    Navigasjon: «ECON4310 Macroeconomic Theory» under UiO i
-   `src/app/bok/trinn/hoyere/institusjoner.ts`.
+   `src/app/trinn/hoyere/institusjoner.ts`.
 2. **Del 0** (kap. 0.1–0.3) — etablerer sjangernavnene A–O, frekvenstallene,
    7-stegsmalen og firepunkts-sjekklista som resten refererer til.
 3. **Del 1** (matematisk verktøy) — fundamentet 100 % av modelloppgavene bruker.

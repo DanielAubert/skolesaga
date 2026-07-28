@@ -179,8 +179,8 @@ utviklingsstudier-profil** og bygges med differensiering:
   vekstmodeller, Gini-utregning, komparative fortrinn som modell, jordleie-matte — det
   hører til sok2007. Der temaet berøres (HDI i kap. 5.1, handel i kap. 6.2, bistand i
   Del 3), holdes det på **konseptuelt innføringsnivå** og lenkes til sok2007 for det
-  kvantitative. Kryssbok-lenke: `[SOK2007 Utviklingsøkonomi](/bok/sok2007/sok2007-1-2)`
-  (HDI) og `(/bok/sok2007/sok2007-3-1)` (bistand og vekst) — **kun hvis kapitlene
+  kvantitative. Kryssbok-lenke: `[SOK2007 Utviklingsøkonomi](/sok2007/sok2007-1-2)`
+  (HDI) og `(/sok2007/sok2007-3-1)` (bistand og vekst) — **kun hvis kapitlene
   finnes; ellers utelat lenken** (verifiser ved bygging).
 - **vs. sosant1000 Sosialantropologi (drøfting):** overlappet er **kun** post-utvikling/
   antropologisk kritikk (**Ferguson**, nyliberalismens lokale manifestasjoner,
@@ -358,7 +358,7 @@ utviklingsstudier-profil** og bygges med differensiering:
   **grunnbehovstilnærmingen** (basic needs — 1970-tallets skifte mot mat/helse/utdanning);
   skiftet mot **menneskelig utvikling** (peker frem til 5.1); *bør kjenne til:* selve
   HDI-utregningen hører til sok2007 — her behandles HDI kun konseptuelt (tre dimensjoner:
-  helse, utdanning, inntekt). Lenk til `[SOK2007 HDI](/bok/sok2007/sok2007-1-2)` **kun
+  helse, utdanning, inntekt). Lenk til `[SOK2007 HDI](/sok2007/sok2007-1-2)` **kun
   hvis kapitlet finnes**.
 - **Drøftingsakser:** hva BNP fanger og ikke fanger; kan noe så mangfoldig som
   «utvikling» tallfestes i det hele tatt?; målevalg som politisk valg.
@@ -548,7 +548,7 @@ utviklingsstudier-profil** og bygges med differensiering:
   antropologiske kritikk** (utviklingsapparatet som «anti-politikk-maskin»;
   nyliberalismens lokale manifestasjoner; uformelle økonomier i det globale Sør).
   ⚠ Kort merknad: sosialantropologien behandler denne kritikken parallelt
-  (`[SOSANT1000](/bok/sosant1000/sosant1000-1-2)` **kun hvis kapitlet finnes**) — her
+  (`[SOSANT1000](/sosant1000/sosant1000-1-2)` **kun hvis kapitlet finnes**) — her
   holdes utviklingsstudie-vinkelen (utvikling som diskurs i teorirekka).
 - **Drøftingsakser:** er post-utvikling en fruktbar kritikk eller en blindgate (hvis all
   utvikling avvises, hva da med reell fattigdomsbekjempelse?); kobler tilbake til kap. 1.1
@@ -1125,7 +1125,7 @@ sjanger-miniprøve. Prøvekapittel-id: `utv1000-<del>-prove`, chapterNumber `<de
    id `utv1000`, title, `level: 'Høyskole'`, alle 27 kapitler + prøvekapitler med
    id/number/title/description/estimatedMinutes/topics/prerequisites fra dette skjelettet,
    `sectionNames` fra del 2-tabellen. Navigasjon: registrer under UiO i
-   `src/app/bok/trinn/hoyere/institusjoner.ts`, navn «UTV1000 Innføring i
+   `src/app/trinn/hoyere/institusjoner.ts`, navn «UTV1000 Innføring i
    utviklingsstudier og bærekraft».
 2. **Del 0** (etablerer mantraene alle senere kapitler refererer: «drøft — ikke referer»,
    «definer kjernebegrepene», A/C/E-nivådelingen, todelt-bestått-kravet).

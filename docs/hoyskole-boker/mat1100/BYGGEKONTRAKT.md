@@ -37,7 +37,7 @@ Blokk-id-er: `<kapittel-id>-<løpenavn>`, unike i kapitlet.
 1. `tip` **Eksamensvinkel** — frekvens, vekt, sjangre (fra skjelettets
    per-kapittel-DNA, med de eksakte tallene). Merk ærlighetsnotatene i Del 6.
 2. `text` **Forkunnskaper** — kapitler i boka + kryssbok-lenker
-   `[tittel](/bok/mat1100/mat1100-X-Y)` og VGS-kryssbok `[tittel](/bok/<kurs>/<id>)`
+   `[tittel](/mat1100/mat1100-X-Y)` og VGS-kryssbok `[tittel](/<kurs>/<id>)`
    fra skjelettets «Forkunnskaper (kryssbok)». KUN til kapitler som finnes.
    Tunge kapitler (siste deler / lang avstand til forkunnskap) VISER 2–3
    nøkkelformler oppfrisket («Sist du var her»).
@@ -95,7 +95,7 @@ løsningsforslag i `collapsible` per oppgave/delpunkt som A-besvarelse med
   formel-minimum-side (collapsible, ~6–10 uunngåelige formler, hver med én
   ordlinje) som også er bokas «lese mye, skrive lite»-boks / samlede oppslagskort.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/mat1100/mat1100-X-Y)`. Aldri lenker i title.
+  markdown-lenke `[kap. X.Y](/mat1100/mat1100-X-Y)`. Aldri lenker i title.
 - **Karakter-realisme:** «C er en god og vanlig karakter» i Del 0; **«Prioritet:
   perfekt» FORBUDT** (skriv «høyeste prioritet» — se forbudt-termer);
   modellbesvarelser ærlig merket (en «C-besvarelse» ER C) + minst én autentisk

@@ -34,7 +34,7 @@ Per arketypens kapittel-DNA (DNA-regnefag/DNA-jus/DNA-drofting) og skjelettets
 per-kapittel-kontrakt. Alltid, i denne rekkefølgen først i kapitlet:
 1. `tip` **Eksamensvinkel** (frekvens, vekt, sjangre — fra skjelettet)
 2. `text` **Forkunnskaper** (kapitler i boka + kryssbok-lenker
-   `[tittel](/bok/<courseId>/<chapterId>)` — KUN til kapitler som finnes i
+   `[tittel](/<courseId>/<chapterId>)` — KUN til kapitler som finnes i
    `src/lib/data/chapters/`; «kan leses uten forkunnskaper» hvis ingen)
 Og SIST i kapitlet: `collapsible` **Symbol- og formelliste** (title «Symbol-
 og formelliste», buttonText «Vis symboler og formler»): første linje
@@ -87,7 +87,7 @@ repetisjon (teorikapitler).
   sett/veiledninger, årstall, forbehold — fra EKSAMENSANALYSE.md, aldri
   oppdiktet) + prosedyre-/sjangerkort på ÉN side (kortet selv, ikke lenkeliste).
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/<emne>/<emne>-X-Y)`; død «se kapittel»-tekst
+  markdown-lenke `[kap. X.Y](/<emne>/<emne>-X-Y)`; død «se kapittel»-tekst
   er FORBUDT (aldri lenker i title-felt).
 - **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
   «Prioritet: perfekt» FORBUDT (skriv «høyeste prioritet»); «Gapet til A» =

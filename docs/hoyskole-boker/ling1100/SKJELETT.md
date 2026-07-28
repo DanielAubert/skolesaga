@@ -1063,7 +1063,7 @@ sjangre og trenger symbollisten + begge svarmodusene).
       nyskrevne (arkivets gjengangere — bil/vase, presupposisjonstriggere, «Har du
       sluttet å slå …?» — gjenskapt med endrede fakta/ord); Saeed/Huang/Elbourne/Z&S
       refereres, aldri sitert i lengde.
-- [ ] **Navigasjon:** `ling1100` inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+- [ ] **Navigasjon:** `ling1100` inn i `src/app/trinn/hoyere/institusjoner.ts`
       under **Universitetet i Oslo (UiO)**, navn = «LING1100 Innføring i semantikk og
       pragmatikk».
 - [ ] **Verifiser rendering:** prod-server + curl mot institusjonsside, bokforside og

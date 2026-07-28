@@ -548,7 +548,7 @@ feil-blokkene fylles med belegget og feilnumrene fra dette skjelettet — forfat
 skal IKKE finne på frekvenstall.
 
 **Leserkrav (DNA + produkteier):** hvert kapittel starter med forkunnskaper-blokk
-(kryssbok-lenker med `[tittel](/bok/<courseId>/<chapterId>)` KUN til kapitler som
+(kryssbok-lenker med `[tittel](/<courseId>/<chapterId>)` KUN til kapitler som
 finnes — internt i psy2013, eller til psy1010 når det er bygget, ellers utelates
 lenken); kun eksamensrelevant stoff, mindre viktig merket «bør kjenne til» og plassert
 etter det viktige; engasjerende «du»-form, konkrete eksempler før formalisme.

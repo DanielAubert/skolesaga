@@ -163,7 +163,7 @@ Alltid, i denne rekkefølgen først i kapitlet:
 2. `text` **Forkunnskaper — sist du var her** (overskriften skal stå ordrett
    slik, som `## Forkunnskaper — sist du var her` først i blokken). Blokken
    skal (i) lenke kapitlene i boka som dette bygger på — markdown-lenker
-   `[kap. X.Y](/bok/in1020/in1020-X-Y)`, (ii) **VISE de 2–3 nøkkelreglene
+   `[kap. X.Y](/in1020/in1020-X-Y)`, (ii) **VISE de 2–3 nøkkelreglene
    ferdig oppfrisket** (selve formelen/instruksjonen/tabellraden, ikke bare
    navnet), og (iii) lenke kryssbok der forkunnskapen ikke dekkes i boka
    (tabellen under — KUN filer som finnes). Har kapitlet ingen forkunnskaper,
@@ -425,7 +425,7 @@ som «1→B, 2→A, 3→C». **Skriv F2-oppgaver som en markdown-tabell** med ko
     portsymbolene, cache-formelen, `2^n − 2`, AND/OR-regelen, overføringstid,
     sikkerhetsmålene, de to nøkkelretningene.
 - **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
-  markdown-lenke `[kap. X.Y](/bok/in1020/in1020-X-Y)`; død «se kapittel»-tekst
+  markdown-lenke `[kap. X.Y](/in1020/in1020-X-Y)`; død «se kapittel»-tekst
   er FORBUDT (aldri lenker i `title`-felt). Lenk kun til filer som finnes på
   disk når du skriver — byggeleder legger inn resten ved wiring.
 - **Karakter-realisme, tilpasset et bestått/ikke bestått-fag:** faget har
@@ -702,7 +702,7 @@ JSON-filene er forbudt — se advarselen i §N2.
 
 ## Kryssbok-lenker (verifisert 25. juli 2026 — alle filene finnes i `src/lib/data/chapters/`)
 
-Lenkeform `[tittel](/bok/<courseId>/<id>)`. Titlene under er de faktiske
+Lenkeform `[tittel](/<courseId>/<id>)`. Titlene under er de faktiske
 kapitteltitlene og skal brukes ordrett. Lenk ALDRI til en fil som ikke finnes
 (`sjekk-bok.py` fanger døde lenker).
 
@@ -725,7 +725,7 @@ kapitteltitlene og skal brukes ordrett. Lenk ALDRI til en fil som ikke finnes
 utenfor eller nedtonet i IN1020s pensum, og en lenke dit motvirker
 avgrensningen.
 
-Interne lenker: `[kap. X.Y](/bok/in1020/in1020-X-Y)`. Lenker til kapitler som
+Interne lenker: `[kap. X.Y](/in1020/in1020-X-Y)`. Lenker til kapitler som
 ennå ikke er skrevet, legges inn først når fila finnes på disk — koordineres av
 byggeleder ved wiring.
 

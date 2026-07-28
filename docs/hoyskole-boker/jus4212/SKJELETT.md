@@ -159,7 +159,7 @@ bærende avvik fra DNA-jus (§6), og speiler analysens strukturanbefaling (§8.1
 - **id:** `jus4212-0-1` · **number:** 0.1 · **estimatedMinutes:** 35 · **prerequisites:** ingen
 - **Kapitteltype:** eksamenskart
 - **description:** Hva eksamen faktisk er: en 6-timers digital praktikum i sivilprosess (ofte flerdelt), hvordan JUS4212 sprang ut av det nedlagte JUS4211, hvilke temaer som vektes hvor mye, og hva som skiller A fra C fra E.
-- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/bok/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2).
+- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/jus1111/jus1111-0-2).
 - **Eksamensbelegg:** Hele Spor A-empirien (sivilprosess-delen av 15 lesbare JUS4211-sett 2015–2024). Presenter: (a) **emnehistorikken** — JUS4211 var 30 sp av tre disipliner à 10 sp; sivilprosess ≈ ⅓; emnet nedlagt H2024 og splittet i JUS4212 (sivilprosess) + JUS4213 (strafferett/straffeprosess); (b) **at ingen sensorveiledning finnes** — alle sensorkrav er utledet, vis flere gyldige metodeveier; (c) **temafrekvenser (Spor A, score av 15)** som prioriteringskart: prosessforutsetninger/avvisning ~6 (størst), rettslig interesse § 1-3 ~4, partsevne/partshjelp ~3, litispendens/rettskraft ~3, kumulasjon ~3, bevisavskjæring/preklusjon ~3, saksstyring/forlik ~3, endring av krav/påstand ~3, anke ~3, internasjonalt verneting/voldgift ~2, sakskostnader ~2, stevning/retting ~1, tvangsfullbyrdelse/sikring ~0 (men pensum); (d) **settformene** — praktikum som hovedsjanger, av og til to atskilte oppgaver med oppgitt vekting eller en teori-/sammenligningsdel; (e) **overføringsforbeholdene** — de nye emnenes egen form/vekting/hjelpemidler er ikke verifisert **(verifiser)**.
 - **Regelkontrakt:** Ingen materielle regler — men frekvenstabellen over gjengis som studentens prioriteringskart, koblet til prioritetsklassene (perfekt/kunne/kjenne).
 - **Metodepoenger:** Faget prøver PROSESSEN, ikke det materielle kravet. Den samlende ferdigheten er å kjenne igjen hvilken prosessuell disiplin et delspørsmål tilhører (kap. 0.3) og hvor i sakens gang det oppstår (kap. 0.4). Ingen sensorveiledning finnes — konklusjonene er ofte underordnet, drøftelsen bærer.
@@ -173,7 +173,7 @@ bærende avvik fra DNA-jus (§6), og speiler analysens strukturanbefaling (§8.1
 - **id:** `jus4212-0-2` · **number:** 0.2 · **estimatedMinutes:** 55 · **prerequisites:** `jus4212-0-1`
 - **Kapitteltype:** metode
 - **description:** Slik bygges en JUS4212-praktikumsbesvarelse: for hvert delspørsmål problemstilling → hjemmel (riktig tvl.-paragraf) → rettsregel → subsumsjon på faktums konkrete momenter → konklusjon, med subsidiær drøftelse der hovedstandpunktet kan falle.
-- **Forkunnskaper (kryssbok):** Firetrinns-/IRAC-metoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2) og [Lovdata Pro og rettskildebruk under eksamen](/bok/jus1111/jus1111-0-3). Dette kapitlet legger til det som er særegent for et prosessfag.
+- **Forkunnskaper (kryssbok):** Firetrinns-/IRAC-metoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/jus1111/jus1111-0-2) og [Lovdata Pro og rettskildebruk under eksamen](/jus1111/jus1111-0-3). Dette kapitlet legger til det som er særegent for et prosessfag.
 - **Eksamensbelegg:** Samtlige lesbare Spor A-sett. Praktikum er hovedsjangeren, ofte flerdelt (Del I/II/III). Partsanførslene peker ut både tvistepunktene OG rettsgrunnlagene — de er kompass, ikke bolker som skal gjengis. Nyere sett bruker «dommerrolle»-varianter («Du er saksforberedende dommer … ta stilling til anførslene») — behandles som praktikum, rollen skal ikke trekke.
 - **Regelkontrakt (metoderegler, utledet fra oppgavetekstene og alminnelig metode):**
   1. **Presis problemstilling** knyttet til delspørsmålet (én prosessuell tvist om gangen).
@@ -1039,7 +1039,7 @@ Studieguiden bygges som ett sammenhengende dokument med disse seksjonene:
       nyskrevne — ingen gjenkjennbare eksamensfakta og ingen ordrett bruk av de faste JUS-navnene.
 - [ ] **Avgrensning**: strafferett/straffeprosess kun som kontrast i kap. 5.4 (ikke bygget ut som
       fagstoff); det materielle kravet drøftes aldri i realiteten; kryssbok-lenker til jus1111 peker på
-      EKSISTERENDE kapitler ([jus1111-0-1](/bok/jus1111/jus1111-0-1), -0-2, -0-3).
+      EKSISTERENDE kapitler ([jus1111-0-1](/jus1111/jus1111-0-1), -0-2, -0-3).
 - [ ] **DNA-blokkene på plass**: hvert kapittel har «Eksamensvinkel» (`tip`), «Typiske feil»
       (`warning`), «Riktig prosessform/disiplin» (`warning`), prosesskart-referanse (`text`), og
       «Paragraf- og begrepsliste» (`collapsible`, per delkapittel); regel-/typetilfellekapitlene har

@@ -377,8 +377,8 @@ bank, feilkode-gloss per kapittel, klikkbare kapittelreferanser). Kort:
   notasjonskonvensjonene (S/F, $re^{i\varphi}$, $[A\,|\,I]$) resten av boka bruker.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 3 og 5 på tvers av alle sjangre;
   lov-referanse per steg i E/F/G). Prioritet: perfekt (meta).
-- **Forkunnskaper/kryssbok:** kap. 0.1; [abc-formelen](/bok/r1/r1-2-3)
-  `(verifiser lenke)`, [brøkregning](/bok/1t/1t-1-2) `(verifiser lenke)` (R1/S1+S2 er
+- **Forkunnskaper/kryssbok:** kap. 0.1; [abc-formelen](/r1/r1-2-3)
+  `(verifiser lenke)`, [brøkregning](/1t/1t-1-2) `(verifiser lenke)` (R1/S1+S2 er
   forkunnskapskrav for emnet). `collapsible` **Symbol- og formelliste:** notasjons­tabellen
   (logikk-/mengde-symboler, S/F, kvantorer, komplekst-tall-/matrise-/differens­likning-notasjon).
 - **Innholdskontrakt:**
@@ -704,7 +704,7 @@ ordninger på eksamensnivå).
 - **Eksamensbelegg:** Sjanger J (13/13, 100 %), 5–10 p. Divisjon er alltid med.
   Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 0.2 (abc-formelen, brøkregning R1);
-  [komplekse tall R2](/bok/r2/r2-5-1) `(verifiser lenke)`. `collapsible` **Symbol- og
+  [komplekse tall R2](/r2/r2-5-1) `(verifiser lenke)`. `collapsible` **Symbol- og
   formelliste:** $z=a+bi$, $i^2=-1$, konjugert $\bar z=a-bi$, $|z|=\sqrt{a^2+b^2}$,
   realdel/imaginærdel.
 - **Innholdskontrakt:** $i^2=-1$; addisjon/multiplikasjon; **konjugert** $\bar z=a-bi$;
@@ -826,7 +826,7 @@ oppgave med initialbetingelser på eksamensnivå).
 - **Description:** Matriseprodukt (med dimensjonssjekk), transponering og determinant
   (kofaktorutvikling for 2×2/3×3), inkludert når en operasjon *ikke* er definert.
 - **Eksamensbelegg:** Sjanger L (13/13, 100 %), 10 p. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [matriser R2](/bok/r2/r2-6-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.2; [matriser R2](/r2/r2-6-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** $A=(a_{ij})$, dimensjon $m\times n$,
   produkt $AB$, transponert $A^T$, determinant $\det A$, kofaktor.
 - **Innholdskontrakt:** **matriseprodukt** $AB$ — krever antall kolonner i $A$ = antall

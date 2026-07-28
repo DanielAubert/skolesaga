@@ -283,7 +283,7 @@ markøren.
 - **id:** `ma1101-1-1` · **number:** 1.1 · **estimatedMinutes:** 45 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Grunnlaget: de reelle tallenes egenskaper, ulikheter og absoluttverdi som verktøy — spesielt trekantulikheten og |x−a|<δ-oversettelsen som all ε-δ-teori hviler på.
-- **Forkunnskaper (kryssbok):** Ulikheter og tallregning fra VGS; [Funksjoner](/bok/r2/r2-1-1) fra R2 modner funksjonsspråket.
+- **Forkunnskaper (kryssbok):** Ulikheter og tallregning fra VGS; [Funksjoner](/r2/r2-1-1) fra R2 modner funksjonsspråket.
 - **Eksamensbelegg:** Fundament for sjanger P (ε-δ) og O (sup/inf); ikke egen oppgave, men absoluttverdi-manipulasjon er inngangen til hvert ε-δ-bevis. Prioritet: **kunne** (bærer teoriblokken).
 - **Innholdskontrakt:** **Reelle tall** og tallinja; **ordningsaksiomene** (regneregler for ulikheter, fortegn ved multiplikasjon med negativt tall); **absoluttverdi** $|x|$ og egenskapene $|xy|=|x||y|$, **trekantulikheten** $|x+y|\le|x|+|y|$ og den omvendte $\big||x|-|y|\big|\le|x-y|$; **intervaller** (åpne/lukkede/uendelige); oversettelsen $|x-a|<\delta\Leftrightarrow a-\delta<x<a+\delta$ (grunnlaget for ε-δ); løsning av ulikheter med absoluttverdi og brøk (fortegnsskjema). Alt til aktiv bruk.
 - **Oppgavesjangre:** Innøving mot P. Mønstereksempel: «Løs ulikheten $|2x-1|<|x+3|$, og skriv løsningsmengden som et intervall.»
@@ -307,7 +307,7 @@ markøren.
 - **id:** `ma1101-1-3` · **number:** 1.3 · **estimatedMinutes:** 55 · **prerequisites:** `ma1101-1-2`
 - **kapitteltype:** teori
 - **description:** Tallfølger og deres grenser, «begrenset + monoton ⇒ konvergent» (kompletthetens arbeidsform), og konstruksjonsoppgaven fra de ferske settene: lag en følge med gitt oppførsel (begrenset men divergent, eller gitt asymptotikk).
-- **Forkunnskaper (kryssbok):** Kap. 1.2; [Følger og rekker](/bok/r2/r2-3-1) fra R2 gir det konkrete følgebegrepet.
+- **Forkunnskaper (kryssbok):** Kap. 1.2; [Følger og rekker](/r2/r2-3-1) fra R2 gir det konkrete følgebegrepet.
 - **Eksamensbelegg:** Sjanger O (følger), **~39 %**, voksende. Fasitens grep: bruk «monoton + begrenset ⇒ konvergent», eller konstruer et eksempel med verifikasjon. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Følge** $(a_n)$, **grense** $\lim_{n\to\infty}a_n=L$ (ε-N-definisjon, kjennskap); **begrenset** følge; **monoton** (voksende/avtakende) følge; **monotonisetningen** «begrenset + monoton ⇒ konvergent» (kompletthetsaksiomets arbeidsform — bevisidé); standardgrenser for følger ($r^n\to0$ for $|r|<1$, $n^{1/n}\to1$, $(1+a/n)^n\to e^a$); **konstruksjonsoppgaven**: begrenset men divergent ($(-1)^n$), eller to følger med gitt asymptotisk oppførsel, alltid **med verifikasjon** av kravene. Skviseteoremet for følger (bro til kap. 2.1). Alt til aktiv bruk.
 - **Oppgavesjangre:** O. Mønstereksempel: «Gi et eksempel på en begrenset følge som ikke konvergerer, og en avtakende følge begrenset nedad — og forklar hvorfor den siste konvergerer.»
@@ -336,7 +336,7 @@ markøren.
 - **id:** `ma1101-2-1` · **number:** 2.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1101-1-3`
 - **kapitteltype:** teori
 - **description:** Grensebegrepet regneteknisk: grenselovene, ensidige grenser, standardgrensen sin x/x → 1, og skviseteoremet — arbeidshesten i alt fra oscillasjonsoppgaver til Riemann-summer.
-- **Forkunnskaper (kryssbok):** Kap. 1.1, 1.3; [Grenseverdier](/bok/r2/r2-2-1) fra R2 gir det intuitive grensebegrepet.
+- **Forkunnskaper (kryssbok):** Kap. 1.1, 1.3; [Grenseverdier](/r2/r2-2-1) fra R2 gir det intuitive grensebegrepet.
 - **Eksamensbelegg:** Grunnlag for sjanger E, D, G. Fasitens grep: navngi **skviseteoremet** og uttal begrensetheten ($|\sin|\le1$). Prioritet: **perfekt** (skvis brukes i signaturoppgaven).
 - **Innholdskontrakt:** **Grense** $\lim_{x\to a}f(x)=L$ (intuitivt + ensidig $\lim_{x\to a^\pm}$); **grenselovene** (sum/produkt/kvotient); grenser i $\pm\infty$; **standardgrenser**: $\lim_{x\to0}\frac{\sin x}{x}=1$, $\lim_{x\to0}\frac{1-\cos x}{x^2}=\frac12$, **veksthierarki** ($\ln x\ll x^p\ll e^x$), $(1+a/x)^x\to e^a$ (via logaritme); **skviseteoremet** (klem $f$ mellom $g\le f\le h$ med felles grense); konjugattriks for rot-uttrykk. Alt til aktiv bruk (formelark dekker ikke standardgrensene — pugges).
 - **Oppgavesjangre:** E, forberedelse D. Mønstereksempel: «Vis med skviseteoremet at $\lim_{x\to0}x^2\sin(1/x)=0$.»
@@ -348,7 +348,7 @@ markøren.
 - **id:** `ma1101-2-2` · **number:** 2.2 · **estimatedMinutes:** 55 · **prerequisites:** `ma1101-2-1`
 - **kapitteltype:** teori
 - **description:** Alle ubestemte former (0/0, ∞/∞, 1^∞, ∞−∞, 0·∞) løst med føringsstandarden sensor krever: marker [0/0] før hver L'Hôpital-anvendelse, ta logaritmen for 1^∞, fellesnevner for ∞−∞.
-- **Forkunnskaper (kryssbok):** Kap. 2.1; [Derivasjon](/bok/r2/r2-2-3) fra R2 (L'Hôpital bruker deriverte).
+- **Forkunnskaper (kryssbok):** Kap. 2.1; [Derivasjon](/r2/r2-2-3) fra R2 (L'Hôpital bruker deriverte).
 - **Eksamensbelegg:** Sjanger E, **~72 %** som egen oppgave; teknikken inngår i mange flere (ofte koblet med fundamentalteoremet, grense av $\int_0^x$). Fasitens grep: **[0/0]-markering før hver bruk** (sensor trekker uten). Prioritet: **perfekt**.
 - **Innholdskontrakt:** **L'Hôpitals regel** for $[0/0]$ og $[\infty/\infty]$ (forutsetningene: begge → 0 eller ±∞, deriverbarhet, $g'\ne0$); **omforming til standardform**: $0\cdot\infty$ → brøk; $\infty-\infty$ → fellesnevner; $1^\infty$, $0^0$, $\infty^0$ → **ta logaritmen** $L=e^{\lim\ln(\cdot)}$; **[0/0]-/[∞/∞]-markering** før hver anvendelse; kombinasjon med standardgrensene og veksthierarkiet; alternativet **Taylor** (bro til kap. 7.3, honoreres likestilt). Alt til aktiv bruk.
 - **Oppgavesjangre:** E. Mønstereksempel: «Beregn $\lim_{x\to\infty}\left(1+\frac3x\right)^x$ og $\lim_{x\to0^+}x\ln x$.»
@@ -390,7 +390,7 @@ markøren.
 - **id:** `ma1101-3-1` · **number:** 3.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1101-2-1`
 - **kapitteltype:** teori
 - **description:** Den deriverte fra differansekvotienten (definisjonen sensor krever), derivasjonsreglene, kjerneregelen, og implisitt derivasjon med tangentlikning — pluss «deriverbar ⇒ kontinuerlig» (ikke omvendt).
-- **Forkunnskaper (kryssbok):** Kap. 2.1; [Derivasjon](/bok/r2/r2-2-3) og [Kjerneregelen](/bok/r2/r2-2-4) fra R2.
+- **Forkunnskaper (kryssbok):** Kap. 2.1; [Derivasjon](/r2/r2-2-3) og [Kjerneregelen](/r2/r2-2-4) fra R2.
 - **Eksamensbelegg:** Sjanger L (implisitt/tangent **~44 %**), fundament for C, D, M. Fasitens grep: definisjonen $f'(a)=\lim\frac{f(a+h)-f(a)}{h}$; implisitt derivasjon med kjerneregel på $y=y(x)$. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Deriverbarhetsdefinisjonen** (differansekvotienten) — presenteres som *den gyldige* metoden når definisjonen etterspørres; **derivasjonsregler** (sum/produkt/kvotient/kjerne); standardderiverte (på formelark, men pugges); **deriverbar ⇒ kontinuerlig** (og at det motsatte er galt, $|x|$-moteksempel); **implisitt derivasjon** (deriver relasjonen mhp. $x$, kjerneregel på $y$, løs for $y'$); **tangentlikning** $y-y_0=f'(x_0)(x-x_0)$ (sjekk at punktet ligger på kurven); høyere deriverte. Alt til aktiv bruk.
 - **Oppgavesjangre:** L. Mønstereksempel: «Finn tangenten til kurven $x^3y^2-x^2y^3=4$ i punktet $(2,1)$.»
@@ -468,7 +468,7 @@ markøren.
 - **id:** `ma1101-4-1` · **number:** 4.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1101-2-3`
 - **kapitteltype:** teori
 - **description:** Integralet fra Riemann-summer, fundamentalteoremet i begge former, og — det som faktisk testes — d/dx ∫ med variable grenser der kjerneregelfaktoren g′(x) er poenget.
-- **Forkunnskaper (kryssbok):** Kap. 2.3, 3.1; [Integrasjon](/bok/r2/r2-4-1) fra R2.
+- **Forkunnskaper (kryssbok):** Kap. 2.3, 3.1; [Integrasjon](/r2/r2-4-1) fra R2.
 - **Eksamensbelegg:** Sjanger K (**~50 %**), grunnlag for all integrasjon. Fasitens grep: $\frac{d}{dx}\int_a^{g(x)}h=h(g(x))g'(x)$ — **kjerneregelfaktoren er poenget**; variable grenser i begge ender ⇒ differanse. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Bestemt integral** som grense av Riemann-summer (definisjon, kjennskap); **fundamentalteoremet del 1**: $F(x)=\int_a^x f$ er deriverbar med $F'=f$ ($f$ kontinuerlig); **del 2**: $\int_a^b f=F(b)-F(a)$; **fundamentalteoremet + kjerneregel (Leibniz)**: $\frac{d}{dx}\int_a^{g(x)}h(t)\,dt=h(g(x))g'(x)$; **variable grenser i begge ender**: $\frac{d}{dx}\int_{u(x)}^{v(x)}h=h(v)v'-h(u)u'$; integralfunksjonens kontinuitet/deriverbarhet i 0 (bro til D og J). Alt til aktiv bruk.
 - **Oppgavesjangre:** K. Mønstereksempel: «Finn $\frac{d}{dx}\int_{x^2}^{1}e^{-t^2}\,dt$.»
@@ -480,7 +480,7 @@ markøren.
 - **id:** `ma1101-4-2` · **number:** 4.2 · **estimatedMinutes:** 60 · **prerequisites:** `ma1101-4-1`
 - **kapitteltype:** teori
 - **description:** De to arbeidsteknikkene med føringsstandarden sensor krever: substitusjon (bokfør u, du, nye grenser), inkludert trig- og sinh-substitusjon, og delvis integrasjon (dokumenter u/v′-valget), inkludert «ensomme» ln/arcsin/arctan.
-- **Forkunnskaper (kryssbok):** Kap. 4.1; [Integrasjonsteknikk](/bok/r2/r2-4-2) fra R2.
+- **Forkunnskaper (kryssbok):** Kap. 4.1; [Integrasjonsteknikk](/r2/r2-4-2) fra R2.
 - **Eksamensbelegg:** Sjanger B (del av 100 %). Fasitens grep: **bokfør $u$, $du$, nye grenser** ved substitusjon; **dokumenter $u/v'$-valget** ved delvis. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Substitusjon**: bokfør $u$, $du$, **nye grenser** ved bestemt integral; klassikere $u=x^2$, $u=\ln x$, $u=\arctan x$, $u=\sin x$; **trig-substitusjon** $x=a\sin u$ / $x=a\tan u$ / $x=a\sinh u$ for $\sqrt{a^2\mp x^2}$-uttrykk; **delvis integrasjon** $\int uv'=uv-\int u'v$ (dokumenter valget, LIATE-heuristikk); «ensomme» funksjoner ($\int\ln x$, $\int\arcsin x$, $\int\arctan x$ med $v'=1$); **to runder** ($\int x^2\cos x$); sirkulær delvis ($\int e^x\sin x$). Alt til aktiv bruk.
 - **Oppgavesjangre:** B. Mønstereksempel: «Beregn $\int_0^{1}x\arctan x\,dx$ (delvis) og $\int\frac{dx}{\sqrt{4-x^2}}$ (trig-substitusjon).»
@@ -492,7 +492,7 @@ markøren.
 - **id:** `ma1101-4-3` · **number:** 4.3 · **estimatedMinutes:** 60 · **prerequisites:** `ma1101-4-2`
 - **kapitteltype:** teori
 - **description:** Rasjonale funksjoner integrert: polynomdivisjon når tellergrad ≥ nevnergrad, delbrøkoppspalting (også med Bx+C-teller over irreduserbar kvadratisk faktor og gjentatt lineær faktor), og fullføring av kvadratet til arctan-form.
-- **Forkunnskaper (kryssbok):** Kap. 4.2; [Polynomdivisjon](/bok/r1/r1-1-1) fra R1.
+- **Forkunnskaper (kryssbok):** Kap. 4.2; [Polynomdivisjon](/r1/r1-1-1) fra R1.
 - **Eksamensbelegg:** Sjanger B (del av 100 %). Fasitens grep: **polynomdivisjon først** når tellergrad ≥ nevnergrad; **Bx+C-teller** over irreduserbar kvadratisk; kombinasjonsformen splittes i ln-del + arctan-del. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Polynomdivisjon** (når $\deg$ teller $\ge\deg$ nevner); **delbrøkoppspalting**: enkle lineære faktorer, **gjentatt lineær faktor** ($\frac{A}{x-1}+\frac{B}{(x-1)^2}$), **irreduserbar kvadratisk faktor** ($\frac{Bx+C}{x^2+px+q}$, IKKE bare konstant teller); bestem koeffisientene (innsetting eller koeffisientsammenligning); **kombinasjonsformen** $\frac{ax+b}{x^2+px+q}$ splittes i ln-del + **arctan-del**; **fullføre kvadratet** $x^2+px+q=(x+p/2)^2+k$ → arctan-form. Alt til aktiv bruk.
 - **Oppgavesjangre:** B. Mønstereksempel: «Beregn $\int\frac{2x^2}{(x^2+4)(x+2)}\,dx$.»
@@ -504,7 +504,7 @@ markøren.
 - **id:** `ma1101-4-4` · **number:** 4.4 · **estimatedMinutes:** 45 · **prerequisites:** `ma1101-4-1`
 - **kapitteltype:** teori
 - **description:** Pensumets sentrale funksjoner samlet: eksponential/logaritme og trigonometriske/arcus-funksjoner med deres deriverte, integraler og identiteter — apparatet på formelarket, presentert til aktiv bruk i teknikk- og drøftingsoppgavene.
-- **Forkunnskaper (kryssbok):** Kap. 3.1, 4.2; [Eksponential- og logaritmefunksjoner](/bok/r2/r2-1-1) og [Trigonometri](/bok/r2/r2-6-1) fra R2.
+- **Forkunnskaper (kryssbok):** Kap. 3.1, 4.2; [Eksponential- og logaritmefunksjoner](/r2/r2-1-1) og [Trigonometri](/r2/r2-6-1) fra R2.
 - **Eksamensbelegg:** Ikke egen oppgave, men **verktøykassen** i B/C/E/A. Fasitens grep: kjenn deriverte/integraler av $e^x$, $\ln x$, trig, arcus; bruk trig-identiteter i integraler. Prioritet: **kunne** (formelark-forankret, men må brukes flytende).
 - **Innholdskontrakt:** **Eksponential/logaritme**: $\frac{d}{dx}e^x=e^x$, $\frac{d}{dx}\ln x=1/x$, $a^x=e^{x\ln a}$, logaritmelover; **trigonometri**: deriverte/integraler av $\sin,\cos,\tan$, identitetene $\sin^2+\cos^2=1$, dobbel-/halvvinkel (for $\int\sin^2$, $\int\cos^2$); **arcus-funksjoner**: $\arcsin,\arccos,\arctan$ med deriverte $\frac{1}{\sqrt{1-x^2}}$, $\frac{1}{1+x^2}$ (kobling til delbrøk-arctan); **hyperbolske** ($\sinh,\cosh$, kjennskap, for trig-substitusjon). Merk «(formelark)» der resultatet står der. Alt til aktiv bruk.
 - **Oppgavesjangre:** Verktøy for B/C/E. Mønstereksempel: «Beregn $\int\cos^2x\,dx$ ved halvvinkelidentiteten.»
@@ -575,7 +575,7 @@ markøren.
 - **id:** `ma1101-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1101-4-2`
 - **kapitteltype:** teori
 - **description:** Separable difflikninger: skill variablene, integrer begge sider, sett inn initialbetingelsen — og den nyere varianten: oppgi det største intervallet om startpunktet der løsningen er definert.
-- **Forkunnskaper (kryssbok):** Kap. 4.2; [Differensiallikninger](/bok/r2/r2-7-1) fra R2.
+- **Forkunnskaper (kryssbok):** Kap. 4.2; [Differensiallikninger](/r2/r2-7-1) fra R2.
 - **Eksamensbelegg:** Sjanger A (del av **94 %**). Fasitens grep: skill variablene, integrer, sett inn IVP, løs for $y$; oppgi eksistensintervall. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Separabel** $y'=f(x)g(y)$: skill $\frac{dy}{g(y)}=f(x)\,dx$, integrer begge sider, løs for $y$, sett inn **initialbetingelsen**; **konstantløsningene** $y\equiv c$ der $g(c)=0$ (der man delte på null — ikke glem dem); **eksistensintervall**: finn det største åpne intervallet om startpunktet der uttrykket (f.eks. $\tan$) er definert; **klassifisering** (orden, lineær?, homogen?). Alt til aktiv bruk.
 - **Oppgavesjangre:** A. Mønstereksempel: «Løs $y'=x(1+y^2)$ med $y(0)=1$, og oppgi det største åpne intervallet om 0 der løsningen er definert.»
@@ -628,7 +628,7 @@ markøren.
 - **id:** `ma1101-7-1` · **number:** 7.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma1101-1-3`
 - **kapitteltype:** teori
 - **description:** Rekker fra grunnen: geometrisk sum, teleskopering via delbrøk, eksponentialrekken, og det sentrale teori-utsagnet «lim aₙ=0 er nødvendig, ikke tilstrekkelig» (harmonisk moteksempel) — ny blokk fra 2020.
-- **Forkunnskaper (kryssbok):** Kap. 1.3, 4.3 (delbrøk for teleskopering); [Følger og rekker](/bok/r2/r2-3-1) fra R2.
+- **Forkunnskaper (kryssbok):** Kap. 1.3, 4.3 (delbrøk for teleskopering); [Følger og rekker](/r2/r2-3-1) fra R2.
 - **Eksamensbelegg:** Sjanger O (rekker), **~22 %** (fra 2020, fast siden). Fasitens grep: geometrisk $\sum r^k=\frac1{1-r}$; teleskoper via delbrøk; harmonisk divergerer. Prioritet: **kunne** (stigende).
 - **Innholdskontrakt:** **Rekke** $\sum_{n=1}^\infty a_n$ og delsummer; **geometrisk rekke** $\sum_{n=0}^\infty r^n=\frac1{1-r}$ for $|r|<1$; **teleskoperende rekke** via delbrøk ($\sum\frac1{n(n+1)}$); **eksponentialrekken** $\sum\frac{x^n}{n!}=e^x$ (så $\sum\frac{2^n}{n!}=e^2-1$-type); **nødvendig betingelse** $\lim a_n=0$ (og at det IKKE er tilstrekkelig — **harmonisk rekke** $\sum\frac1n$ divergerer); kjennskap til sammenligning/integraltest. Alt til aktiv bruk.
 - **Oppgavesjangre:** O. Mønstereksempel: «Beregn $\sum_{n=2}^\infty\frac1{n^2-1}$ ved teleskopering (delbrøk), og avgjør om $\sum\frac1n$ konvergerer.»
@@ -906,5 +906,5 @@ chapterNumber `<del>.P`, én per temadel 1–7 (28 prøver, 4 per del).
   NTNU-emner skrives som klartekst med aktiveringsmarkør.
 - `npx tsc --noEmit` + `npm run build`; prod-server + curl på institusjonsside,
   bokforside, minst 3 kapitler (teori/drill/prøve), quiz- og flashcard-rute.
-- Navigasjon: legg MA1101 inn i `src/app/bok/trinn/hoyere/institusjoner.ts` under NTNU,
+- Navigasjon: legg MA1101 inn i `src/app/trinn/hoyere/institusjoner.ts` under NTNU,
   navn «MA1101 Grunnkurs i analyse 1». `sectionNames` fra §2-tabellen (obligatorisk).

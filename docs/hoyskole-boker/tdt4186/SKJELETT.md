@@ -863,6 +863,6 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
   (begrep/verk), aldri siteres i lengde.
 - [ ] **Verifiser rendering**: prod-server + curl mot kapittel- og narrativ-ruter (200 +
   innhold), jf. lærdommen om `getChapterMeta`.
-- [ ] **Institusjon NTNU**: legges inn i `src/app/bok/trinn/hoyere/institusjoner.ts` med
+- [ ] **Institusjon NTNU**: legges inn i `src/app/trinn/hoyere/institusjoner.ts` med
   visningsnavn «TDT4186 Operativsystemer» (fase 5); del institusjonsblokk med TDT4120 hvis
   den allerede er lagt inn.

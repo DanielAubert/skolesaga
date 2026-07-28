@@ -61,7 +61,7 @@
 > (NTNU intro-programmering). TDT4110 er foreløpig **skjelett, ikke bygget**, og
 > søsteremnet **TDT4100** likeså. Forkunnskaps-kryssreferanser til begge skrives derfor
 > som **klartekst med aktiveringsmarkør**, ikke som live markdown-lenker (stilregel §1.8).
-> Interne TDT4102-lenker (`[tittel](/bok/tdt4102/<id>)`) peker kun på kapitler som finnes.
+> Interne TDT4102-lenker (`[tittel](/tdt4102/<id>)`) peker kun på kapitler som finnes.
 
 ---
 
@@ -137,11 +137,11 @@ av koden.
    *«vis/forklar»* = kort kode og/eller tekst. Oppgaveformuleringene i boka SKAL speile disse
    tre svarnivåene. **Skriv ALDRI `main`/full I/O/oppstart når bare klassen etterspørres.**
 8. **Forkunnskaper og kryssbok-lenker.** Interne forkunnskaper lenkes med live markdown
-   (`[tittel](/bok/tdt4102/<id>)`) — kun til kapitler som finnes. Forgjengeren **TDT4110**
+   (`[tittel](/tdt4102/<id>)`) — kun til kapitler som finnes. Forgjengeren **TDT4110**
    (NTNU intro-programmering) og søsteremnet **TDT4100** (Java-OO) er foreløpig ikke bygget:
    referer til dem som **klartekst med aktiveringsmarkør**
-   `[aktiver lenke /bok/tdt4110/<id> når TDT4110 er bygget]` /
-   `[aktiver lenke /bok/tdt4100/<id> når TDT4100 er bygget]`, aldri som live lenke.
+   `[aktiver lenke /tdt4110/<id> når TDT4110 er bygget]` /
+   `[aktiver lenke /tdt4100/<id> når TDT4100 er bygget]`, aldri som live lenke.
 9. **Ingen diagramtegning som hovedsjanger.** Til forskjell fra TDT4100 har TDT4102 ingen
    UML-/objektdiagram-oppgaver i arkivet. Der en minne-skisse hjelper pedagogisk (peker →
    heap-boks, referansetelling), tegnes den i **strukturert tekst/ASCII** (bokser, `→`-piler),
@@ -324,7 +324,7 @@ oppførsel OG begrunnelse). Prioritetsklasser: **perfekt** (nivå 1) / **kunne**
 - **id:** `tdt4102-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen · **kapitteltype:** teori
 - **description:** C++-fundamentet: statiske typer (`int`/`double`/`bool`/`char`), kontrollflyt (`if`/`else`/`switch`/løkker), `cout`/`cin`, `bool`/`boolalpha`, og fremfor alt **heltallsdivisjon vs. flyttallsdivisjon med `static_cast`** — fagets klassiske felle nummer én.
 - **Eksamensbelegg:** Grunnlag for ALT. Kontrollflyt/syntaks forutsettes kunnet (testes i kodesporing). Casting 2/3, heltallsdivisjon er *den* klassiske fellen (eksplisitt vektlagt i sensorkommentar). Prioritet: **perfekt** (casting/heltallsdivisjon), **kunne** (øvrig syntaks).
-- **Kodekontrakt (API- og konstruksjonsliste):** **Typer** `int`/`double`/`bool`/`char`/`long` (statisk typing — deklarér med type, motsatt Pythons dynamiske); **kontrollflyt** `if/else`, `switch`/`case`/`break`, `for`, `while`, `do-while`; **I/O** `cout << x << endl`, `cin >> x`, `boolalpha` (skriv `true`/`false` i stedet for `1`/`0`); **operatorer** `+ - * / %`, `== != < > <= >=`, `&& || !`; **heltallsdivisjon:** `int/int` avrundes mot null (`7/2 == 3`, `4/9 == 0`) — for flyttall må **én operand være `double`** eller bruk **`static_cast<double>(n)/d`**; `%` gir rest (kun heltall); **`static_cast<T>(uttrykk)`** (typekonvertering, foretrukket over C-stil `(T)uttrykk`). **Kryssbok-forkunnskap (TDT4110/Python, klartekst m/aktiveringsmarkør):** variabler, løkker, betingelser, funksjoner — `[aktiver lenke /bok/tdt4110/<id> når TDT4110 er bygget]`. Vis oversettelsestabellen Python→C++ (dynamisk→statisk type, `print`→`cout`, `input`→`cin`, ingen innrykk-blokker → `{ }`). `theorem`-idiom: **`static_cast`-for-flyttall**. `warning` (**sentral felle**): `sum/antall` uten cast gir heltallsdivisjon.
+- **Kodekontrakt (API- og konstruksjonsliste):** **Typer** `int`/`double`/`bool`/`char`/`long` (statisk typing — deklarér med type, motsatt Pythons dynamiske); **kontrollflyt** `if/else`, `switch`/`case`/`break`, `for`, `while`, `do-while`; **I/O** `cout << x << endl`, `cin >> x`, `boolalpha` (skriv `true`/`false` i stedet for `1`/`0`); **operatorer** `+ - * / %`, `== != < > <= >=`, `&& || !`; **heltallsdivisjon:** `int/int` avrundes mot null (`7/2 == 3`, `4/9 == 0`) — for flyttall må **én operand være `double`** eller bruk **`static_cast<double>(n)/d`**; `%` gir rest (kun heltall); **`static_cast<T>(uttrykk)`** (typekonvertering, foretrukket over C-stil `(T)uttrykk`). **Kryssbok-forkunnskap (TDT4110/Python, klartekst m/aktiveringsmarkør):** variabler, løkker, betingelser, funksjoner — `[aktiver lenke /tdt4110/<id> når TDT4110 er bygget]`. Vis oversettelsestabellen Python→C++ (dynamisk→statisk type, `print`→`cout`, `input`→`cin`, ingen innrykk-blokker → `{ }`). `theorem`-idiom: **`static_cast`-for-flyttall**. `warning` (**sentral felle**): `sum/antall` uten cast gir heltallsdivisjon.
 - **Oppgavesjangre:** Forkunnskap til B + C. Mønstereksempel (nyskrevet): «Skriv en funksjon `double gjennomsnitt(int sum, int antall)` som returnerer korrekt flyttallssnitt — pass på heltallsdivisjon» og en kodesporing «hva skrives ut av `cout << 9/4 << ' ' << 9%4 << ' ' << 9.0/4;`?».
 - **Typiske feil:** Heltallsdivisjon der man vil ha flyttall (§5.1); glemme type på variabel; forveksle `=` og `==`; tro at Java/Python-vaner (dynamisk typing, søppelsamler) gjelder; glemme `break` i `switch` (gjennomfall).
 - **Quiz: 20 · Flashcards: 24**
@@ -934,10 +934,10 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
   konstruksjonsliste» rett etter Forkunnskaper, som forklarer ALLE C++-konstruksjoner brukt i
   delkapitlet med **når/hvorfor**, ikke signaturpugg (lærebok tillatt — «tren bruk»); per
   delkapittel, ikke arv fra tidligere.
-- [ ] **Kryssbok-lenker**: interne TDT4102-lenker (`[tittel](/bok/tdt4102/<id>)`) peker kun på
+- [ ] **Kryssbok-lenker**: interne TDT4102-lenker (`[tittel](/tdt4102/<id>)`) peker kun på
   kapitler som finnes; forgjenger TDT4110 og søster TDT4100 refereres som **klartekst med
-  aktiveringsmarkør** (`[aktiver lenke /bok/tdt4110/<id> når TDT4110 er bygget]` /
-  `[aktiver lenke /bok/tdt4100/<id> når TDT4100 er bygget]`), aldri som live lenke.
+  aktiveringsmarkør** (`[aktiver lenke /tdt4110/<id> når TDT4110 er bygget]` /
+  `[aktiver lenke /tdt4100/<id> når TDT4100 er bygget]`), aldri som live lenke.
 - [ ] **Idiomkatalogen (§3b)**: de 17 kode-/minnemålene finnes som `theorem`-blokker i angitte
   kapitler og gjentas i drill/studieguide.
 - [ ] **Begrunnelse i løsningsforslag**: alle løsningsforslag (drill + øvingseksamener) markerer hva

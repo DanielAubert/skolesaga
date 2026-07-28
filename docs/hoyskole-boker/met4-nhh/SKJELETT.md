@@ -179,7 +179,7 @@ Rekkefølgen følger faglig avhengighet (DNA-regelen); frekvensen styrer *omfang
 | A-/modellbesvarelse med margnotater om hva som gir uttelling | delvis (drill) | ✓ (tolkning) | Del 3.1/3.2, 4.1/4.3/4.5, Del 6, Del 7 |
 | «Konklusjon i kontekst» som eksplisitt sensorbelønnet håndverk | | ✓ | Alle løsningsforslag |
 
-**Kryssbok-lenker (forkunnskaper — `[tittel](/bok/<courseId>/<chapterId>)`, lenk
+**Kryssbok-lenker (forkunnskaper — `[tittel](/<courseId>/<chapterId>)`, lenk
 KUN til verifiserte kapitler):** Grunnleggende sannsynlighet, normalfordeling og
 derivasjon forutsettes fra VGS/tidligere emner. Naturlige lenkemål (verifiser
 id-en før lenking):
@@ -763,7 +763,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 1. **Metadata først**: `TextbookCourse`-oppføring for `met4-nhh` med alle 35
    kapitler (id/number/title/description/estimatedMinutes/topics/prerequisites)
    etter mønster `COURSE_BI_OKONOMI`; `sectionNames` fra §2-tabellen. Institusjon
-   NHH i `src/app/bok/trinn/hoyere/institusjoner.ts`, visningsnavn «MET4 Empiriske
+   NHH i `src/app/trinn/hoyere/institusjoner.ts`, visningsnavn «MET4 Empiriske
    metoder».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–S og frekvenstallene resten
    refererer til.

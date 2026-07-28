@@ -119,12 +119,12 @@ treffe ~25 %). Sjekk med `scripts/hoyskolebok/quiz-lengdesjekk.mjs`.
 
 - **Kun eksamensrelevant stoff**; «kjenne til» sist og merket.
 - **Forkunnskaper eksplisitt** rett etter Eksamensvinkel: (i) kapitler i DENNE
-  boka (markdown-lenke `[kap. X.Y](/bok/stk1110/stk1110-X-Y)`), (ii)
+  boka (markdown-lenke `[kap. X.Y](/stk1110/stk1110-X-Y)`), (ii)
   kryssbok-lenker. **STK1100 er IKKE bygget** → alle STK1100-referanser er
   KLARTEKST med `(→ stk1100-x-y)`, ALDRI markdown-lenke (verifikator aktiverer
   ved live STK1100). **R1/R2/S1/S2 ER bygget** → vanlige markdown-lenker
   (verifiser id finnes i `src/lib/data/chapters/`, f.eks.
-  `[R2 2.4 Bestemt integral](/bok/r2/r2-2-4)`, `[R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1)`).
+  `[R2 2.4 Bestemt integral](/r2/r2-2-4)`, `[R1 4.1 Derivasjonsregler](/r1/r1-4-1)`).
 - **Lett å lese**: korte avsnitt (2–4 setninger), «du»-form, konkret norsk
   anker før formalisme. Presisjon vinner ved tvil.
 - **Symbol- og formelliste**: `collapsible` (title «Symbol- og formelliste»,
@@ -223,7 +223,7 @@ del-prøvene for eksamenstreningen (egne kapitler, ikke `-prove`).
 3. **Forbudt-term-grep = 0** (ingen kjørbar kode): `import `, `def `, `np.`,
    ` <- `, `lm(`, `for _ in`, ` ```python `, ` ```r `. R-utskrift = ren tekst-tabell.
 4. **Kryssbok-lenker**: STK1100 = klartekst `(→ stk1100-x-y)`; R1/R2/S1/S2 =
-   markdown-lenker til eksisterende filer; interne `[kap. X.Y](/bok/stk1110/stk1110-X-Y)`.
+   markdown-lenker til eksisterende filer; interne `[kap. X.Y](/stk1110/stk1110-X-Y)`.
 5. **Læringsløkke**: `content[]` veksler teori→eksempel→oppgave i løkker (oppgaver
    inline), ikke all teori topp / alle oppgaver bunn.
 6. **Forkunnskapsdekning**: ingen oppgave krever usett begrep/regel/formel/metode.

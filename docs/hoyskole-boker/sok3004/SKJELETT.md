@@ -712,7 +712,7 @@ Del 0 (kap. 0.1) er studieguidens kjerne. I tillegg skal boka samle:
 1. **Metadata først**: `TextbookCourse`-oppføring for `sok3004` med alle 33 kapitler
    (+ 6 prøvekapitler) etter mønster `COURSE_BI_OKONOMI` i
    `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra makrostruktur-tabellen
-   (§2). Registrer emnet i `src/app/bok/trinn/hoyere/institusjoner.ts` under **NTNU**
+   (§2). Registrer emnet i `src/app/trinn/hoyere/institusjoner.ts` under **NTNU**
    med visningsnavn «SØK3004 Videregående matematisk analyse».
 2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–N, frekvenstallene, de tre
    regimene, hjelpemiddelkodene og avgrensningen (mot SØK1001) som resten refererer til.
@@ -806,7 +806,7 @@ Denne tabellen styrer hva SØK3004 bygger ut selv vs. hva den forutsetter/lenker
 i Del 0), er **matematisk tvilling** til econ3120/4120 (samme tema, ulik vektlegging
 — koordiner, ikke kopier), og leverer det matematiske apparatet SOK1002/SOK1011/andre
 mikro-/makrofag *bruker*. Der forkunnskap trengs og ikke dekkes, brukes markdown-
-kryssbok-lenker (`[tittel](/bok/<courseId>/<chapterId>)`) **kun til kapitler som
+kryssbok-lenker (`[tittel](/<courseId>/<chapterId>)`) **kun til kapitler som
 faktisk finnes** ved byggetidspunktet — verifiser før innsetting.
 
 ---

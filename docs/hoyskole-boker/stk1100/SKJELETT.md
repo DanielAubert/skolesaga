@@ -258,9 +258,9 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
   eneggede vs. toeggede tvillinger (V2018), jukseterning valgt tilfeldig (V2022),
   bakterier med mutasjon (V2023). Ofte flere runder på samme oppsett (oppdatere
   sannsynligheter over generasjoner/tester). Prioritet: **perfekt** (nivå 1 punkt 5).
-- **Forkunnskaper (kryssbok):** [R1 8.4 Betinget sannsynlighet](/bok/r1/r1-8-4)
-  og [R1 8.3 Grunnleggende sannsynlighet](/bok/r1/r1-8-3), evt.
-  [S1 5.2 Betinget sannsynlighet](/bok/s1/s1-5-2).
+- **Forkunnskaper (kryssbok):** [R1 8.4 Betinget sannsynlighet](/r1/r1-8-4)
+  og [R1 8.3 Grunnleggende sannsynlighet](/r1/r1-8-3), evt.
+  [S1 5.2 Betinget sannsynlighet](/s1/s1-5-2).
 - **Innholdskontrakt:** $P(A \mid B) = \frac{P(A \cap B)}{P(B)}$;
   multiplikasjonsregelen; loven om total sannsynlighet
   $P(B) = \sum_i P(B \mid A_i)P(A_i)$ over en partisjon; Bayes' formel
@@ -294,9 +294,9 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
   arkivet, verktøyet i praktisk talt hver oppgave. Kovarians/korrelasjon
   eksplisitt i 2/10 (V2015, V2022). Prioritet: **perfekt** (nivå 1 punkt 3).
 - **Forkunnskaper (kryssbok):**
-  [S1 6.1 Diskrete sannsynlighetsfordelinger](/bok/s1/s1-6-1),
-  [S2 4.1 Sannsynlighetsfordelinger](/bok/s2/s2-4-1) og
-  [S2 4.6 Kontinuerlige sannsynlighetsfordelinger](/bok/s2/s2-4-6).
+  [S1 6.1 Diskrete sannsynlighetsfordelinger](/s1/s1-6-1),
+  [S2 4.1 Sannsynlighetsfordelinger](/s2/s2-4-1) og
+  [S2 4.6 Kontinuerlige sannsynlighetsfordelinger](/s2/s2-4-6).
 - **Innholdskontrakt:** Diskret vs. kontinuerlig stokastisk variabel;
   punktsannsynlighet $p(x)$, tetthet $f(x)$, fordelingsfunksjon
   $F(x) = P(X \le x)$ og sammenhengene ($F' = f$; $P(a < X \le b) = F(b) - F(a)$);
@@ -332,7 +332,7 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
   (V2021). Ofte kombinert med en estimator og standardfeil, eller med E/V utledet
   via MGF (kobling kap. 4.1). Prioritet: **kunne** (modellvalget: perfekt).
 - **Forkunnskaper:** kap. 1.2; kryssbok [S1 6.1 Diskrete
-  sannsynlighetsfordelinger](/bok/s1/s1-6-1).
+  sannsynlighetsfordelinger](/s1/s1-6-1).
 - **Innholdskontrakt:** Modellvalgs-tabellen er kjernen — situasjon → fordeling:
   fast antall uavhengige forsøk med konstant suksess-sannsynlighet →
   binomisk$(n,p)$; hendelser i tid/rom → Poisson$(\lambda t)$ **med
@@ -376,8 +376,8 @@ sannsynlighetsoppgave (oppgave-1-format, eksamensnivå) 40 min).
   under hele estimerings-kjeden. Prioritet: **perfekt** (nivå 1 punkt 7 +
   fordelingskatalog).
 - **Forkunnskaper:** kap. 1.2; kryssbok [R2 2.4 Bestemt
-  integral](/bok/r2/r2-2-4), [R2 2.2 Ubestemt integral](/bok/r2/r2-2-2),
-  [S2 4.6 Kontinuerlige sannsynlighetsfordelinger](/bok/s2/s2-4-6).
+  integral](/r2/r2-2-4), [R2 2.2 Ubestemt integral](/r2/r2-2-2),
+  [S2 4.6 Kontinuerlige sannsynlighetsfordelinger](/s2/s2-4-6).
 - **Innholdskontrakt:** Tetthet, normeringskonstant ($\int f = 1$),
   fordelingsfunksjon $F(x) = \int_{-\infty}^x f$ (stykkevis definisjon; verdiene
   0 og 1 utenfor støtten); **median og kvantiler ved å løse $F(m) = p$ (aktivt)**;
@@ -408,8 +408,8 @@ sannsynlighetsoppgave (oppgave-1-format, eksamensnivå) 40 min).
   i **7/10 sett (70 %)** (V2015, V2017, V2018, V2019, V2021, V2022, V2023) —
   byggeklossen for både pivotaler og forventningsretthet. Prioritet: **perfekt**
   (nivå 1 punkt 4).
-- **Forkunnskaper:** kap. 2.1; kryssbok [R2 2.4 Bestemt integral](/bok/r2/r2-2-4),
-  [R2 3.2 Delvis integrasjon](/bok/r2/r2-3-2).
+- **Forkunnskaper:** kap. 2.1; kryssbok [R2 2.4 Bestemt integral](/r2/r2-2-4),
+  [R2 3.2 Delvis integrasjon](/r2/r2-3-2).
 - **Innholdskontrakt:** **Gamma$(\alpha, \beta)$ med $\beta$ = skalaparameter:**
   $f(x) = \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha-1} e^{-x/\beta}$,
   $x > 0$, $E(X) = \alpha\beta$, $\text{Var}(X) = \alpha\beta^2$.
@@ -488,7 +488,7 @@ egendefinert/eksotisk-tetthet-oppgave (sjanger C, eksamensnivå) 45 min).
 - **Eksamensbelegg:** Sjanger D: simultanfordeling (marginaler, uavhengighetssjekk,
   betinget tetthet) i **8/10 sett (80 %)**, nesten alltid en egen stor oppgave
   (2015–2020, 2022, 2023, 2024). Prioritet: **perfekt** (nivå 1 punkt 2).
-- **Forkunnskaper:** kap. 2.1; kryssbok [R2 2.4 Bestemt integral](/bok/r2/r2-2-4)
+- **Forkunnskaper:** kap. 2.1; kryssbok [R2 2.4 Bestemt integral](/r2/r2-2-4)
   (dobbeltintegral bygger på enkelt bestemt integral).
 - **Innholdskontrakt:** Simultantetthet $f(x,y)$; normeringskonstant ($\iint f = 1$);
   **marginaltettheter ved å integrere ut den andre variabelen**
@@ -556,7 +556,7 @@ simultantetthet-oppgave (sjanger D, eksamensnivå) 45 min).
 - **Eksamensbelegg:** Sjanger F: MGF (utlede E/V; identifisere sum-fordeling) i
   **6–7/10 sett (~65 %)** (V2015, V2016, V2018, V2021, V2022, V2023 + normal-MGF
   V2020). Prioritet: **kunne** (kjedeledd — grenser til perfekt).
-- **Forkunnskaper:** kap. 2.1–2.2; kryssbok [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1).
+- **Forkunnskaper:** kap. 2.1–2.2; kryssbok [R1 4.1 Derivasjonsregler](/r1/r1-4-1).
 - **Innholdskontrakt:** Definisjonen $M_X(t) = E(e^{tX})$; **utled MGF ved
   integrasjon/summasjon med konvergenskravet på $t$ (sensorkrav 4)** — Gamma:
   $M(t) = (1 - \beta t)^{-\alpha}$, $t < 1/\beta$; Poisson:
@@ -588,7 +588,7 @@ simultantetthet-oppgave (sjanger D, eksamensnivå) 45 min).
   teknikken overhodet og «broen til pivotalen». Jacobi-transformasjon av $(X,Y)$
   som ren oppgave i ~3/10 (sjanger J): $U = X+Y$ & $V = X$ (V2020), $U = X+Y$ &
   $V = X/(X+Y)$ (V2019). Prioritet: **perfekt** (nivå 1 punkt 3).
-- **Forkunnskaper:** kap. 2.2, 3.1; kryssbok [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1).
+- **Forkunnskaper:** kap. 2.2, 3.1; kryssbok [R1 4.1 Derivasjonsregler](/r1/r1-4-1).
 - **Innholdskontrakt:** **CDF-metoden (aktivt):**
   $F_Y(y) = P(g(X) \le y) = P(X \le g^{-1}(y))$ for monoton $g$ — løs ulikheten
   (snu ved avtakende $g$), sett inn $F_X$, deriver til tetthet. **Jacobi-metoden
@@ -702,7 +702,7 @@ $(X,Y)\to(U,V)$ 35 min · 4.D transformasjon til gamma/χ² full utledning
   ML på eksotisk fordeling (Pareto V2017, Rayleigh V2019, Weibull V2021, Laplace
   V2024), momentestimator som alternativ, «annen foreslått estimator» som skal
   vurderes. Prioritet: **perfekt** (nivå 1 punkt 1).
-- **Forkunnskaper:** kap. 5.1, 2.1; kryssbok [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1).
+- **Forkunnskaper:** kap. 5.1, 2.1; kryssbok [R1 4.1 Derivasjonsregler](/r1/r1-4-1).
 - **Innholdskontrakt:** **ML-ritualet MÅ UTLEDES AKTIVT med alle trinn
   (sensorkrav 5):** 1) $L(\theta) = \prod_{i=1}^n f(x_i; \theta)$ for uavhengige
   observasjoner; 2) $\ell(\theta) = \ln L(\theta)$ — og HVORFOR logaritmen
@@ -1297,11 +1297,11 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 - [ ] **Forkunnskaper-blokk** i hvert kapittel med lenker til kapitler i boka +
       kryssbok-lenker for eksterne forkunnskaper. **Verifiserte kryssbok-id-er
       (finnes i `src/lib/data/chapters/`):** sannsynlighet
-      [r1-8-4](/bok/r1/r1-8-4), [r1-8-3](/bok/r1/r1-8-3), [s1-5-2](/bok/s1/s1-5-2);
-      diskrete/kontinuerlige fordelinger [s1-6-1](/bok/s1/s1-6-1),
-      [s2-4-1](/bok/s2/s2-4-1), [s2-4-6](/bok/s2/s2-4-6); integrasjon
-      [r2-2-2](/bok/r2/r2-2-2), [r2-2-4](/bok/r2/r2-2-4), [r2-3-2](/bok/r2/r2-3-2),
-      [s2-1-1](/bok/s2/s2-1-1); derivasjon [r1-4-1](/bok/r1/r1-4-1). Lenk kun til
+      [r1-8-4](/r1/r1-8-4), [r1-8-3](/r1/r1-8-3), [s1-5-2](/s1/s1-5-2);
+      diskrete/kontinuerlige fordelinger [s1-6-1](/s1/s1-6-1),
+      [s2-4-1](/s2/s2-4-1), [s2-4-6](/s2/s2-4-6); integrasjon
+      [r2-2-2](/r2/r2-2-2), [r2-2-4](/r2/r2-2-4), [r2-3-2](/r2/r2-3-2),
+      [s2-1-1](/s2/s2-1-1); derivasjon [r1-4-1](/r1/r1-4-1). Lenk kun til
       disse (verifiserte); ikke gjett nye id-er.
 - [ ] **Kapittel-DNA**: hvert teorikapittel har Eksamensvinkel-`tip` (med
       frekvens-/vekttallene fra dette skjelettet), Typiske feil-`warning`, 2–4

@@ -28,8 +28,8 @@ rendringen lokalt, må treet ha fiksen først:
 
 ```bash
 # skal finne <pre og IKKE finne <em>init</em>
-curl -s localhost:3111/bok/in1900/in1900-5-1 | grep -c "<pre"
-curl -s localhost:3111/bok/in1900/in1900-5-1 | grep -c "<em>init</em>"
+curl -s localhost:3111/in1900/in1900-5-1 | grep -c "<pre"
+curl -s localhost:3111/in1900/in1900-5-1 | grep -c "<em>init</em>"
 ```
 
 ## Sjekk status
@@ -104,7 +104,7 @@ wiring (`sjekk-bok.py` avviser døde lenker).
 2. Kildegrunnlag-oppføring i `src/lib/data/kildegrunnlag.ts` (destillert fra
    EKSAMENSANALYSE §8 — 38 sett + offisielle løsningsforslag, 76 filer;
    **ikke** «sensorveiledninger» som egen dokumenttype).
-3. Registrer emnet i `src/app/bok/trinn/hoyere/institusjoner.ts` under UiO som
+3. Registrer emnet i `src/app/trinn/hoyere/institusjoner.ts` under UiO som
    «IN1900 Introduksjon til programmering med vitenskapelige anvendelser».
 4. Verifikatorbølge (steg 3) — inkludert oppgaven å løse ALLE `(verifiser)`,
    særlig ODESolver-referansemodulens kropp (§K5).

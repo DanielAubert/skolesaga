@@ -74,20 +74,20 @@ og hvor føringspoengene sitter. Miks per sett: se skjelettets §4-tabell.
 - **MAT1110** (forkunnskapsemnet) ER NÅ BYGGET og live på treet (40 kapitler,
   registrert i `textbook-courses-hoyskole.ts`) → lenk NORMALT, kun til reelle
   kapitler. Aktiveringsmarkør-placeholderen er utfaset (rettet 22. juli). Mål:
-  radreduksjon/trappeform → `/bok/mat1110/mat1110-1-1`; nullrom/søylerom/rang →
+  radreduksjon/trappeform → `/mat1110/mat1110-1-1`; nullrom/søylerom/rang →
   `mat1110-1-2`; invers matrise → `mat1110-1-3`; lineæravbildninger →
   `mat1110-1-4`; egenverdier → `mat1110-6-1`; diagonalisering → `mat1110-6-2`.
   For emner MAT1110 IKKE dekker (indreproduktrom/Cauchy–Schwarz): skriv «MAT1110»
   som ren tekst UTEN lenke — ALDRI fabrikker en lenke til et kapittel som ikke
   dekker emnet.
 - Bygde bøker lenkes normalt (verifiserte mål på dette treet):
-  `[…](/bok/bi-okonomi/bi-okonomi-9-3)` (Gauss/likningssystem),
-  `[…](/bok/bi-okonomi/bi-okonomi-2-1)` (lineære likninger),
-  `[…](/bok/r2/r2-5-1)` (vektorer i 3D), `[…](/bok/r2/r2-3-1)` (derivasjon),
-  `[…](/bok/r2/r2-2-1)` (komplekse tall), `[…](/bok/r2/r2-4-1)` (integral),
-  `[…](/bok/r2/r2-5-6)` (kjeglesnitt), `[…](/bok/r2/r2-6-6)` (bevis),
-  `[…](/bok/r1/r1-6-3)` (skalarprodukt).
-- «kap. X.Y» internt = markdown-lenke `[kap. X.Y](/bok/mat1120/mat1120-X-Y)`.
+  `[…](/bi-okonomi/bi-okonomi-9-3)` (Gauss/likningssystem),
+  `[…](/bi-okonomi/bi-okonomi-2-1)` (lineære likninger),
+  `[…](/r2/r2-5-1)` (vektorer i 3D), `[…](/r2/r2-3-1)` (derivasjon),
+  `[…](/r2/r2-2-1)` (komplekse tall), `[…](/r2/r2-4-1)` (integral),
+  `[…](/r2/r2-5-6)` (kjeglesnitt), `[…](/r2/r2-6-6)` (bevis),
+  `[…](/r1/r1-6-3)` (skalarprodukt).
+- «kap. X.Y» internt = markdown-lenke `[kap. X.Y](/mat1120/mat1120-X-Y)`.
 
 ## Leserkrav (ufravikelig — full ordlyd i README «Leserkrav» + DNA-regnefag)
 - **Læringsløkke Teori → Eksempel → Oppgave:** `content[]` veksler

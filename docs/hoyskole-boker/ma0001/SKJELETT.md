@@ -240,14 +240,14 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
 
 **Kryssbok-forkunnskaper (verifiserte, bygde VGS-kapitler):** MA0001 har forkunnskapskrav
 R1/2MX, og VGS-kalkulus er de sterkeste ankrene — **R1**:
-[Derivasjon](/bok/r1/r1-4-1), [Grenseverdier](/bok/r1/r1-3-1),
-[Funksjoner og definisjonsmengde](/bok/r1/r1-2-1) *(verifiser eksakte R1-id-er mot bygd
+[Derivasjon](/r1/r1-4-1), [Grenseverdier](/r1/r1-3-1),
+[Funksjoner og definisjonsmengde](/r1/r1-2-1) *(verifiser eksakte R1-id-er mot bygd
 R1-bok før lenking — lenk kun til kapitler som finnes)*; **R2**:
-[Integrasjon](/bok/r2/r2-3-1), [Rekker og summasjon](/bok/r2/r2-1-4),
-[Trigonometri](/bok/r2/r2-2-1) *(verifiser id-er)*; **S2**:
-[Derivasjon og integrasjon](/bok/s2/s2-3-1) *(verifiser id-er)*. **Aktiveringsmarkør:**
+[Integrasjon](/r2/r2-3-1), [Rekker og summasjon](/r2/r2-1-4),
+[Trigonometri](/r2/r2-2-1) *(verifiser id-er)*; **S2**:
+[Derivasjon og integrasjon](/s2/s2-3-1) *(verifiser id-er)*. **Aktiveringsmarkør:**
 der en VGS-id ikke lar seg verifisere, skrives forkunnskapen som **klartekst** med markøren
-*(VGS-forkunnskap; aktiver `/bok/<kode>/<id>`-lenke når riktig kapittel er bekreftet)*.
+*(VGS-forkunnskap; aktiver `/<kode>/<id>`-lenke når riktig kapittel er bekreftet)*.
 Lenk ALDRI til en id du ikke har bekreftet finnes.
 
 ---
@@ -276,7 +276,7 @@ Lenk ALDRI til en id du ikke har bekreftet finnes.
 - **id:** `ma0001-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Funksjonsgrunnlaget flervalgsblokken tester: største definisjonsmengde og verdimengde, injektiv/surjektiv/bijektiv, og invers funksjon funnet algebraisk — med de vanligste distraktorene (√ krever ≥0, ln krever >0).
-- **Forkunnskaper (kryssbok):** Ingen i boka. [Funksjoner og definisjonsmengde](/bok/r1/r1-2-1) fra R1 *(verifiser id)* — begrepet definisjonsmengde og invers fra VGS.
+- **Forkunnskaper (kryssbok):** Ingen i boka. [Funksjoner og definisjonsmengde](/r1/r1-2-1) fra R1 *(verifiser id)* — begrepet definisjonsmengde og invers fra VGS.
 - **Eksamensbelegg:** Sjanger Q, **~55 %** (dominerte flervalgsblokken 2022–24, delvis videreført i 2025). Fasitens grep: for definisjonsmengde krev at √-argument $\ge0$ og ln-argument $>0$; for invers bytt $x\leftrightarrow y$ og løs. Prioritet: **kunne** (grunnlag for alt annet + flervalgspoeng).
 - **Innholdskontrakt:** **Funksjon**, definisjonsmengde $D_f$, verdimengde $V_f$; **største definisjonsmengde** (krav fra √, ln, brøk, sammensetning som $\sqrt{\ln(x^3)}$); **injektiv** (én-til-én), **surjektiv**, **bijektiv**; **invers funksjon** $f^{-1}$ funnet algebraisk (bytt $x\leftrightarrow y$, løs); at $f$ har invers ⇔ $f$ er injektiv (på sitt område); graf-speiling om $y=x$; sammensetning $g\circ f$. Alt til aktiv bruk; flervalgsdistraktorene forklares.
 - **Oppgavesjangre:** Q. Mønstereksempel: «Finn den største definisjonsmengden til $f(x)=\sqrt{\ln(x^3)}$, og avgjør om $f$ er injektiv på denne mengden.»
@@ -288,7 +288,7 @@ Lenk ALDRI til en id du ikke har bekreftet finnes.
 - **id:** `ma0001-1-2` · **number:** 1.2 · **estimatedMinutes:** 55 · **prerequisites:** `ma0001-1-1`
 - **kapitteltype:** teori
 - **description:** Grensebegrepet, ensidige grenser, grenser mot uendelig via «del på høyeste potens», standardgrensene (sin x/x → 1, veksthierarkiet ln ≪ potens ≪ eksp) — grunnlaget før L'Hôpital.
-- **Forkunnskaper (kryssbok):** Kap. 1.1. [Grenseverdier](/bok/r1/r1-3-1) fra R1 *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.1. [Grenseverdier](/r1/r1-3-1) fra R1 *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger B-grunnlag, **~95 %** (grenser samlet). Fasitens grep: for rasjonale grenser mot ∞, del på høyeste potens i nevner; bruk standardgrenser direkte. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Grenseverdi** $\lim_{x\to a}f(x)$; **ensidige grenser** (venstre/høyre) og at grensen finnes ⇔ de er like; **grenser mot $\pm\infty$** («del på høyeste potens» for rasjonale uttrykk); **standardgrenser** fra formelarket: $\lim_{x\to0}\frac{\sin x}{x}=1$, $\lim_{x\to0}\frac{1-\cos x}{x^2}=\frac12$, **veksthierarkiet** ($\ln x\ll x^p\ll e^x$ når $x\to\infty$); grenser som gir $\pm\infty$ (vertikal asymptote) og horisontale asymptoter. «Fra formelarket»-note for standardgrensene. Alt til aktiv bruk.
 - **Oppgavesjangre:** B. Mønstereksempel: «Regn ut $\lim_{x\to\infty}\frac{3x^2-2x+1}{5x^2+x}$ og $\lim_{x\to0}\frac{\sin(3x)}{x}$.»
@@ -330,7 +330,7 @@ Lenk ALDRI til en id du ikke har bekreftet finnes.
 - **id:** `ma0001-2-1` · **number:** 2.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma0001-1-2`
 - **kapitteltype:** teori
 - **description:** Bærebjelken: produkt-, brøk- og kjerneregel med riktig regelvalg, kjeding av flere regler, deriverte av eˣ/aˣ/ln x/trig/inverse trig, og derivert i ett punkt — alltid eksamenens åpningsoppgave.
-- **Forkunnskaper (kryssbok):** Kap. 1.2 (grenser — derivasjon er grensen av differansekvotienten). [Derivasjon](/bok/r1/r1-4-1) fra R1 *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.2 (grenser — derivasjon er grensen av differansekvotienten). [Derivasjon](/r1/r1-4-1) fra R1 *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger A, **~100 %** — alltid åpningsoppgave, 2–3 delpunkter. Fasitens grep: velg riktig regel, før den, kjed kjerneregel der nødvendig; for «derivert i punkt» regn generelt og sett inn til slutt. Prioritet: **perfekt** (den viktigste enkeltferdigheten i faget).
 - **Innholdskontrakt:** **Derivasjonsreglene**: produkt $(uv)'=u'v+uv'$, brøk $\left(\frac uv\right)'=\frac{u'v-uv'}{v^2}$, **kjerne** $(f(g(x)))'=f'(g(x))g'(x)$; **kjeding** (flere regler i ett uttrykk, f.eks. $\ln(\cos(x^3))$); **standardderiverte** fra formelarket: $e^x$, $a^x=e^{x\ln a}$, $\ln x$, $\sin/\cos/\tan$, **inverse trig** ($\arctan'=\frac{1}{1+x^2}$, $\arcsin'=\frac{1}{\sqrt{1-x^2}}$); **logaritmisk derivasjon** (ved $u^v$ og lange produkter); **derivert i ett punkt** (regn generelt, sett inn $f'(0)$, $f'(\pi/4)$). «Fra formelarket»-note for standardderivertene. Alt til aktiv bruk.
 - **Oppgavesjangre:** A. Mønstereksempel: «Finn $g'(x)$ når $g(x)=\ln(\cos(x^3))$, og regn ut $g'(0)$.»
@@ -366,7 +366,7 @@ Lenk ALDRI til en id du ikke har bekreftet finnes.
 - **id:** `ma0001-2-4` · **number:** 2.4 · **estimatedMinutes:** 55 · **prerequisites:** `ma0001-2-3`
 - **kapitteltype:** teori
 - **description:** Sett opp målfunksjonen fra en bibetingelse (omkrets, volum, kostnad), reduser til én variabel, deriver, finn ekstremum og begrunn at det er et minimum/maksimum — den klassiske anvendte optimeringsoppgaven med figur.
-- **Forkunnskaper (kryssbok):** Kap. 2.3 (ekstrema). [Derivasjon](/bok/r1/r1-4-1) *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.3 (ekstrema). [Derivasjon](/r1/r1-4-1) *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger J, **~55 %**. Fasitens grep: skriv målfunksjon fra bibetingelsen, reduser til én variabel, deriver, løs $f'=0$, begrunn min/maks, gi svar med benevning. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Optimeringsoppskrift**: (1) tegn/les figuren, navngi variabler; (2) skriv **målfunksjonen** (areal/volum/kostnad); (3) bruk **bibetingelsen** til å redusere til én variabel; (4) deriver og løs $f'=0$; (5) **begrunn** at det er min/maks (andrederiverttest eller fortegn/endepunkter); (6) svar med benevning + konklusjon. Kontekster: største rektangelareal ved gitt omkrets, minste overflate på boks ved gitt volum, billigste trasé. Aktiv føring; rad-for-rad-oppsett belønnes.
 - **Oppgavesjangre:** J. Mønstereksempel: «En lukket boks med kvadratisk grunnflate skal ha volum 12 m³. Vis at overflaten er $O(x)=2x^2+\tfrac{48}{x}$, og finn den minste mulige overflaten.»
@@ -408,7 +408,7 @@ Lenk ALDRI til en id du ikke har bekreftet finnes.
 - **id:** `ma0001-3-1` · **number:** 3.1 · **estimatedMinutes:** 60 · **prerequisites:** `ma0001-2-1`
 - **kapitteltype:** teori
 - **description:** Standardantideriverte fra formelarket, lineæritet, og enkel substitusjon (u = kjerne, bytt dx) — den andre store søylen, alltid 2 delpunkter på eksamen.
-- **Forkunnskaper (kryssbok):** Kap. 2.1 (derivasjon — integrasjon er omvendt). [Integrasjon](/bok/r2/r2-3-1) fra R2 *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.1 (derivasjon — integrasjon er omvendt). [Integrasjon](/r2/r2-3-1) fra R2 *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger C-grunnlag, **~95 %**. Fasitens grep: kjenn igjen standardform fra arket; ved substitusjon velg $u=$ indre funksjon, regn $du$, bytt. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Ubestemt integral** $\int f\,dx=F+C$; **lineæritet**; **standardantideriverte** fra formelarket ($\int x^n$, $\int e^x$, $\int\frac1x$, $\int\sin/\cos$, $\int\frac{1}{1+x^2}=\arctan x$); **enkel substitusjon** ($u=g(x)$, $du=g'(x)dx$, integrer i $u$, sett tilbake); gjenkjenning av «indre derivert-faktor»; absoluttverdi-integral splittes etter fortegn. «Fra formelarket»-note for standardantiderivertene. Aktiv føring.
 - **Oppgavesjangre:** C. Mønstereksempel: «Regn ut $\int \frac{2x}{x^2+1}\,dx$ og $\int (3x-1)^5\,dx$ ved substitusjon.»
@@ -528,7 +528,7 @@ Lenk ALDRI til en id du ikke har bekreftet finnes.
 - **id:** `ma0001-5-1` · **number:** 5.1 · **estimatedMinutes:** 55 · **prerequisites:** `ma0001-1-2`
 - **kapitteltype:** teori
 - **description:** Geometrisk rekke med kvotient k: endelig sum sₙ = a₁(1−kⁿ)/(1−k) og uendelig sum s = a₁/(1−k) når |k|<1 (formler på arket) — nytt pensum fra des-2024, i alle tre nyeste settene.
-- **Forkunnskaper (kryssbok):** Kap. 1.2 (grenser — uendelig sum er en grense). [Rekker og summasjon](/bok/r2/r2-1-4) fra R2 *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.2 (grenser — uendelig sum er en grense). [Rekker og summasjon](/r2/r2-1-4) fra R2 *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger N, **NY — 3/3 nyeste sett** (0 % før des-2024). Behandles som **nivå 1 for kommende eksamener** *(verifiser mot siste sett)*. Fasitens grep: identifiser $a_1$ og $k$, velg endelig eller uendelig formel, sjekk $|k|<1$ for uendelig. Prioritet: **perfekt** (nytt).
 - **Innholdskontrakt:** **Geometrisk rekke** (konstant kvotient $k=\frac{a_{n+1}}{a_n}$); **endelig sum** $s_n=a_1\frac{1-k^n}{1-k}$ ($k\ne1$); **uendelig sum** $s=\frac{a_1}{1-k}$ **når $|k|<1$** (konvergenskrav — divergerer ellers); identifisering av $a_1$ og $k$ fra kontekst (avtagende ressursuttak $-8\%$/år → $k=0{,}92$; rekke med oppgitt annet-ledd og $k$). «Fra formelarket»-note. Aktiv føring; konvergenskravet $|k|<1$ understrekes.
 - **Oppgavesjangre:** N. Mønstereksempel: «Første året tas det ut 200 000 tonn grus, og uttaket reduseres 8 % hvert år. Hvor mye tas ut de 25 første årene, og hvor mye totalt om driften fortsetter uendelig?»
@@ -552,7 +552,7 @@ Lenk ALDRI til en id du ikke har bekreftet finnes.
 - **id:** `ma0001-5-3` · **number:** 5.3 · **estimatedMinutes:** 55 · **prerequisites:** `ma0001-2-1`
 - **kapitteltype:** teori
 - **description:** Trig-identiteter fra arket, og harmoniske svingninger: les av middelverdi/amplitude/periode/akrofase fra en graf, og skriv om a cos(ωt)+b sin(ωt) til fasformen C·cos(ω(t−t₀)) med C=√(a²+b²) — ny egen oppgave 2023→.
-- **Forkunnskaper (kryssbok):** Kap. 2.1 (derivasjon av trig). [Trigonometri](/bok/r2/r2-2-1) fra R2 *(verifiser id)*.
+- **Forkunnskaper (kryssbok):** Kap. 2.1 (derivasjon av trig). [Trigonometri](/r2/r2-2-1) fra R2 *(verifiser id)*.
 - **Eksamensbelegg:** Sjanger P, **NY egen oppgave 2023→, 2/3 nyeste sett** + trig-identiteter generelt (~50 %). **Nivå 1 for kommende eksamener** *(verifiser)*. Fasitens grep: $C=\sqrt{a^2+b^2}$, finn $t_0$ fra fasevinkelen. Prioritet: **kunne→perfekt** (nytt).
 - **Innholdskontrakt:** **Trig-identiteter** fra arket (Pythagoras $\sin^2+\cos^2=1$, dobbel vinkel, sum-til-produkt — til bruk, ikke pugg); **harmonisk svingning**: middelverdi $C_0$, **amplitude** $C$, **periode** $T=\frac{2\pi}{\omega}$, **akrofase** $t_0$; **avlesning fra graf**; **fasomskriving** $a\cos(\omega t)+b\sin(\omega t)=C\cos(\omega(t-t_0))$ med $C=\sqrt{a^2+b^2}$ og $t_0$ fra $\tan(\omega t_0)=b/a$ (riktig kvadrant); arctan/arcsin (kjennskap). «Fra formelarket»-note for identitetene. Aktiv føring; kvadrant-sjekk for $t_0$.
 - **Oppgavesjangre:** P. Mønstereksempel: «Skriv om $f(t)=\cos(2t)+\sqrt3\sin(2t)$ på formen $C\cos(\omega(t-t_0))$, og oppgi amplitude og periode.»
@@ -824,7 +824,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 - **Kryssbok-lenker:** verifiser hver VGS-id (R1/R2/S2) mot bygd bok FØR lenking; der id ikke
   bekreftes, bruk klartekst-markøren *(VGS-forkunnskap; aktiver lenke når bekreftet)*. Lenk
   aldri til en id du ikke har sett finnes.
-- **Navigasjon:** registrer emnet i `src/app/bok/trinn/hoyere/institusjoner.ts` under NTNU
+- **Navigasjon:** registrer emnet i `src/app/trinn/hoyere/institusjoner.ts` under NTNU
   med navn «MA0001 Brukerkurs i matematikk A».
 - **Sluttsjekk (fase 7):** json.load alle filer, kvotesum ≥ 500/500, tsc + build, prod-server
   + curl på institusjonsside/bokforside/3 kapitler/quiz+flashcard-rute.

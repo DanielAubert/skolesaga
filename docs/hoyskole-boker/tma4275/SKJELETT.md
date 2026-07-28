@@ -403,7 +403,7 @@ A-besvarelse). Disse gjentas ikke per kapittel under.
   obligatoriske poeng; forutsetning for *alt* annet. Spor: begge. Prioritet:
   perfekt.
 - **Forkunnskaper/kryssbok:** ingen interne; [Kontinuerlige fordelinger og
-  tetthet](/bok/tma4245/tma4245-2-1) `(verifiser lenke)`. `collapsible`
+  tetthet](/tma4245/tma4245-2-1) `(verifiser lenke)`. `collapsible`
   **Symbol- og formelliste:** $T,R,f,z,Z$, sammenhengene, median $m$.
 - **Innholdskontrakt (SKAL med):** definisjonene $R(t)=P(T>t)=1-F(t)$;
   $z(t)=f(t)/R(t)=\lim_{\Delta\to0}\frac1\Delta P(t\le T<t+\Delta\mid T\ge t)$ (hasard
@@ -510,7 +510,7 @@ sjanger-A-prøve på eksamensnivå).
   analytisk MLE er umulig.
 - **Eksamensbelegg:** Sjanger G, ≈78 %; grunnferdighet på tvers av alle modeller
   (både anvendt og teoretisk spor). Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 2.1, 1.1; [Maximum likelihood-estimering](/bok/tma4245/tma4245-5-1)
+- **Forkunnskaper/kryssbok:** kap. 2.1, 1.1; [Maximum likelihood-estimering](/tma4245/tma4245-5-1)
   `(verifiser lenke)` (grunnteorien forutsettes derfra). `collapsible`
   **Symbol- og formelliste:** $L,\ell,\delta_i$, score, profil-likelihood.
 - **Innholdskontrakt (SKAL med):** likelihood-bidraget $f(y_i)$ for feil ($\delta=1$)
@@ -718,7 +718,7 @@ parametrisk-prøve).
   og diskutere «neste steg» (kovariatseleksjon + modellsjekk, Schoenfeld).
 - **Eksamensbelegg:** Sjanger D, ≈67 %; standard i alle moderne sett. Spor:
   anvendt. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 5.1; [Konfidensintervall](/bok/tma4245/tma4245-6-1)
+- **Forkunnskaper/kryssbok:** kap. 5.1; [Konfidensintervall](/tma4245/tma4245-6-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** coef, exp(coef),
   se(coef), $\hat\Sigma=$`cox$var`, delta-metode.
 - **Innholdskontrakt (SKAL med):** relativ risiko $r(x)=\exp(\beta^\top x)$
@@ -885,7 +885,7 @@ ALT/Arrhenius-ekstrapolasjon + designkrav).
   forventning null under $H_0$, forventningsrett varians, og forkastningsregel.
 - **Eksamensbelegg:** Sjanger I (≈33 %) + log-rank (≈28 %). Spor: teoretisk.
   Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 7.2; [Hypotesetesting](/bok/tma4245/tma4245-7-1)
+- **Forkunnskaper/kryssbok:** kap. 7.2; [Hypotesetesting](/tma4245/tma4245-7-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $Z(t_0)$,
   test-observator, log-rank.
 - **Innholdskontrakt (SKAL med):** ett-utvalgs test-observator $Z(t_0)$ (differanse

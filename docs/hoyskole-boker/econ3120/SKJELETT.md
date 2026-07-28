@@ -324,7 +324,7 @@ klartekst (forgjengerboka er ikke bygget).
 
 - **id:** `econ3120-2-1` · **number:** 2.1 · **estimatedMinutes:** 45 · **prerequisites:** ingen
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på ECON1100 (partiellderivasjon) — skrevet som klartekst her (forgjengerboka ikke bygget). Elementær derivasjon: [Derivasjonsregler](/bok/r1/r1-4-1), [Kjerneregelen](/bok/r1/r1-4-3), [Produktregelen og kvotientregelen](/bok/r1/r1-4-4) fra R1.
+- **Forkunnskaper/kryssbok:** Bygger på ECON1100 (partiellderivasjon) — skrevet som klartekst her (forgjengerboka ikke bygget). Elementær derivasjon: [Derivasjonsregler](/r1/r1-4-1), [Kjerneregelen](/r1/r1-4-3), [Produktregelen og kvotientregelen](/r1/r1-4-4) fra R1.
 - **description:** Det flervariable derivasjonsapparatet resten av boka forutsetter: partiellderiverte, andreordens og kryssderivert, differensial og gradient — i emnets notasjon.
 - **Eksamensbelegg:** Fundamentet under komparativ statikk (Del 3), konveksitet (2.2) og optimering (Del 5). Selv ikke direkte testet som egen oppgave, men **kjerneregel-feil på ledd som $3(KL)^{1/3}$** er en gjenganger. Prioritet: **KUNNE** (verktøykapittel).
 - **Innholdskontrakt:** Partiellderivert (partial derivative) $f'_x$, $f'_y$ — deriver mht. én variabel, hold resten konstant; $\partial/\partial x$ likestilt. Andreordens $f''_{xx}$, $f''_{yy}$ og **kryssderivert** $f''_{xy}$; Youngs teorem ($f''_{xy}=f''_{yx}$). Kjerneregelen på $e^{g}$, $\ln(g)$, $(g)^n$ og sammensatte ledd. **Differensial (differential/total differential)** $df = f'_x\,dx + f'_y\,dy$ — **begge ledd med**. Gradient som vektor av partiellderiverte. Lineær approksimasjon $f(x)\approx f(x_0) + \sum f'_i\,\Delta x_i$ (utdypes i 3.3). Notasjonen speiler eksamenssettene og vedlegget.
@@ -347,7 +347,7 @@ klartekst (forgjengerboka er ikke bygget).
 
 - **id:** `econ3120-2-3` · **number:** 2.3 · **estimatedMinutes:** 50 · **prerequisites:** `econ3120-2-2`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Andrederiverte og vendepunkter](/bok/s2/s2-3-2) og [Optimering](/bok/s2/s2-3-3) fra S2 (endimensjonalt).
+- **Forkunnskaper/kryssbok:** Bygger på [Andrederiverte og vendepunkter](/s2/s2-3-2) og [Optimering](/s2/s2-3-3) fra S2 (endimensjonalt).
 - **description:** Fri optimering i to variabler: verifiser stasjonaritet FØRST, klassifiser med Hessian, og gjenkjenn sadelpunkt via $f''_{xx}f''_{yy} - (f''_{xy})^2 < 0$.
 - **Eksamensbelegg:** Sadelpunkt/andrederiverttest i ~33 % av settene (roterer inn som femte oppgave eller delpunkt). **Fast «did you remember»-felle:** verifiser at punktet er stasjonært ($f'_x = f'_y = 0$) FØR andrederiverttesten. Prioritet: **KUNNE**.
 - **Innholdskontrakt:** Stasjonærpunkt (stationary point): $f'_x = f'_y = 0$ — **finn dem først**. Andrederiverttest (second-derivative test) via Hessian-determinanten fra 2.2: $D>0, f''_{xx}<0$ → lokalt maks; $D>0, f''_{xx}>0$ → lokalt min; **$D<0$ → sadelpunkt (saddle point)** uansett fortegnet på $f''_{xy}$; $D=0$ → inkonklusiv. Globalt vs. lokalt: negativ-/positiv-definitt Hessian *overalt* gir globalt ekstremum. **Warning:** en andrederiverttest på et punkt som *ikke* er stasjonært er meningsløs — verifiser $f'_x=f'_y=0$ først.
@@ -537,7 +537,7 @@ klartekst (forgjengerboka er ikke bygget).
 
 - **id:** `econ3120-6-1` · **number:** 6.1 · **estimatedMinutes:** 50 · **prerequisites:** ingen
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Delvis integrasjon](/bok/r2/r2-3-2) fra R2 (elementær teknikk).
+- **Forkunnskaper/kryssbok:** Bygger på [Delvis integrasjon](/r2/r2-3-2) fra R2 (elementær teknikk).
 - **description:** $\int u v' = uv - \int u'v$ med fornuftig valg av $u$/$v'$ — og at $\int \ln y\,dy = y\ln y - y + C$ forventes kjent.
 - **Eksamensbelegg:** Fast gjenganger i integrasjonsoppgaven (~100 %). Flere sett **påbyr delvis integrasjon og forbyr substitusjon**. Prioritet: **PERFEKT**. **Inneholder «Sensor krever denne metoden»-boks.**
 - **Innholdskontrakt:** Delvis integrasjon (integration by parts): $\int u v'\,dx = uv - \int u'v\,dx$. Valg av $u$/$v'$: typisk $\ln$-ledd som $u$ (deriveres bort), polynom/eksponential som $v'$. Standardresultat forventet kjent: **$\int \ln y\,dy = y\ln y - y + C$**. Gjentatt delvis integrasjon for $x^2 e^x$-typer. **«Sensor krever denne metoden»-boks:** når oppgaven ber om delvis integrasjon (eller forbyr substitusjon), gir substitusjon null poeng. Antiderivasjon som verifikasjon: når oppgaven ber om å vise en antiderivert **«ved antiderivasjon»**, gis **null poeng for å derivere høyresiden**.
@@ -560,7 +560,7 @@ klartekst (forgjengerboka er ikke bygget).
 
 - **id:** `econ3120-6-3` · **number:** 6.3 · **estimatedMinutes:** 45 · **prerequisites:** `econ3120-6-1`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Substitusjon bygger på [Variabelskifte (substitusjon)](/bok/r2/r2-3-1) fra R2 (bakgrunnsteknikk).
+- **Forkunnskaper/kryssbok:** Substitusjon bygger på [Variabelskifte (substitusjon)](/r2/r2-3-1) fra R2 (bakgrunnsteknikk).
 - **description:** Etter 2024 løses integraler uten substitusjon (ekspander polynom); Leibniz' regel (derivasjon under integraltegnet) er et nyere tillegg; substitusjon vises som bakgrunn.
 - **Eksamensbelegg:** **Substitusjon er utfaset fra pensum H2024** — nyere sett ber om å **ekspandere polynom** i stedet. **Leibniz' regel** er et nyere tillegg (H2025). Prioritet: **PERFEKT** for ekspandering/Leibniz, **BAKGRUNN** for substitusjon. **Eksamensvinkel-blokken merker substitusjon utgått.**
 - **Innholdskontrakt:** **Ekspandering:** når integranden er et produkt/potens av polynomer, multipliser ut og integrer ledd for ledd — den påbudte veien fra 2024 (i stedet for substitusjon). **Leibniz' regel / derivasjon under integraltegnet (differentiation under the integral sign):** $\frac{d}{dt}\int f(t,x)\,dx = \int \frac{\partial}{\partial t}f(t,x)\,dx$ (f.eks. $\frac{d}{dt}\int e^{tx}\,dx = \int x e^{tx}\,dx$). **Bakgrunn (utgått) — substitusjon (change of variable):** $\int f(u(t))u'(t)\,dt = \int f(u)\,du$; ved bestemte integraler gjør det ubestemte først og sett inn grensene til slutt. Merk eksplisitt at substitusjon er utgått fra pensum 2024 og kun tas med for eldre sett.
@@ -578,7 +578,7 @@ klartekst (forgjengerboka er ikke bygget).
 
 - **id:** `econ3120-7-1` · **number:** 7.1 · **estimatedMinutes:** 50 · **prerequisites:** `econ3120-6-1`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Lineære differensiallikninger](/bok/s2/s2-2-3) fra S2 (elementær innføring).
+- **Forkunnskaper/kryssbok:** Bygger på [Lineære differensiallikninger](/s2/s2-2-3) fra S2 (elementær innføring).
 - **description:** $\dot x + a(t)x = b(t)$ løst med integrerende faktor, den kjente partikulærformen for konstante koeffisienter, og ubestemte koeffisienter.
 - **Eksamensbelegg:** Differensiallikning 1. orden i ~93 %, oftest sammen med integrasjon i samme oppgave. Prioritet: **PERFEKT**.
 - **Innholdskontrakt:** Lineær 1.-ordens differensiallikning (linear first-order ODE): $\dot x + a(t)x = b(t)$. **Integrerende faktor (integrating factor)** $e^{A(t)}$ med $A(t)=\int a\,dt$: $\frac{d}{dt}(x e^{A}) = e^{A}b$; generell løsning = partikulær + $Ce^{-A}$. For **konstante $a, b$**: kjent partikulærform $x(t) = (x_0 - b/a)e^{-a(t-t_0)} + b/a$. **Ubestemte koeffisienter (undetermined coefficients):** gjett partikulærløsning på kildeleddets form (f.eks. $q\cdot 2^{-t} + h$) og bestem konstantene ved innsetting. Initialbetingelse bestemmer $C$.
@@ -590,7 +590,7 @@ klartekst (forgjengerboka er ikke bygget).
 
 - **id:** `econ3120-7-2` · **number:** 7.2 · **estimatedMinutes:** 55 · **prerequisites:** `econ3120-7-1`
 - **Kapitteltype:** teori
-- **Forkunnskaper/kryssbok:** Bygger på [Separable differensiallikninger](/bok/s2/s2-2-2) fra S2.
+- **Forkunnskaper/kryssbok:** Bygger på [Separable differensiallikninger](/s2/s2-2-2) fra S2.
 - **description:** $\dot x = f(t)g(x)$ løst ved separasjon — der du ALLTID må sjekke for konstantløsning før du deler, ellers begår du «a grave sin in this course».
 - **Eksamensbelegg:** Separabel ODE er fast alternativ. **Det kritiske metodesignalet: sjekk ALLTID for konstantløsning(er) før du deler.** Å dele uten å sjekke nullpunkter kalles eksplisitt **«a grave sin in this course».** Prioritet: **PERFEKT**. **Inneholder felle-warning.**
 - **Innholdskontrakt:** Separabel differensiallikning (separable ODE): $\dot x = f(t)g(x)$. **Metode: 1) sjekk konstantløsning(er) FØRST** — nullstill $g(x)=0$; hver rot gir en konstantløsning $x\equiv c$. 2) Deretter (for $g(x)\ne 0$) separer: $\int \frac{dx}{g(x)} = \int f(t)\,dt$. 3) Løs **algebraisk for $x$ uttrykt kun ved $t$** (ikke la stå implisitt). Fortegnet inne i $|\dots|$ avgjøres ut fra hvilken side av konstantløsningen initialpunktet ligger. **Felle-warning:** å dele på $g(x)$ uten å sjekke nullpunkter er «a grave sin in this course» — divisjon med noe som kan være null. Begge metoder (lineær/separabel) godtas for en likning som kan skrives på begge former.

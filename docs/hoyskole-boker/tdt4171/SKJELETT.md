@@ -879,7 +879,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
    kapitlene ferdigstilles; prøvene (§6) legges i respektive delers prøvekapittel/
    exercise-seksjoner.
 6. **Navigasjon/wiring**: NTNU finnes ennå ikke i
-   `src/app/bok/trinn/hoyere/institusjoner.ts` (kun UiO + BI er live). Legg til en NTNU-
+   `src/app/trinn/hoyere/institusjoner.ts` (kun UiO + BI er live). Legg til en NTNU-
    institusjon (`slug: 'ntnu'`, `fullName: 'Norges teknisk-naturvitenskapelige
    universitet'`) med `tdt4171` som første fag («TDT4171 Metoder i kunstig intelligens»);
    tdt4120/tdt4136 legges under samme institusjon når de bygges.

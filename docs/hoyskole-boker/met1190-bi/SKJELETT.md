@@ -301,7 +301,7 @@ vektlegging):**
 standardavvik og lineære funksjoner forutsettes fra VGS — lenk der det er naturlig
 til eksisterende kapitler i S1/S2/R1-bøkene og til BI-matte (`met2910-bi`) for
 algebra/lineære funksjoner, og til søsterfaget `met2920-bi` der inferenskjernen
-overlapper, med `[tittel](/bok/<courseId>/<chapterId>)`. **Verifiser at kapittel-
+overlapper, med `[tittel](/<courseId>/<chapterId>)`. **Verifiser at kapittel-
 id-en finnes før lenking** (BYGGEKONTRAKT-fasen slår opp id-ene mot
 `textbook-courses-matte.ts`/`-hoyskole.ts`); lenk aldri til kapitler du ikke har
 verifisert.

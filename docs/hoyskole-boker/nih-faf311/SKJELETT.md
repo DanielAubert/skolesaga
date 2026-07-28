@@ -364,7 +364,7 @@ studentspråk, litt rotete men god) → `tip` Sensorblikket (momentliste + vekti
   sjargong). Etablerer drøftingsstrukturen resten av boka bruker.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 1, 2, 4, 5, 8 på tvers av alle sjangre).
   Prioritet: perfekt (meta).
-- **Forkunnskaper:** kap. [0.1](/bok/nih-faf311/nih-faf311-0-1).
+- **Forkunnskaper:** kap. [0.1](/nih-faf311/nih-faf311-0-1).
 - **Begrepskontrakt (flashcard-kilde):** **redegjørelse** (presis, pensumforankret
   gjengivelse — C-nivået) vs. **drøfting** (å veie styrker MOT svakheter, sette posisjoner
   opp mot hverandre, konkludere begrunnet — A/B-nivået); **balansekravet** (tre
@@ -403,7 +403,7 @@ studentspråk, litt rotete men god) → `tip` Sensorblikket (momentliste + vekti
 - **Eksamensbelegg:** De tre perspektivene i 5/5 sett (2022, 2024 ord., 2025 utsatt, 2025
   ord., 2026 utsatt); begrepsskillet testes implisitt i hver oppgave (#7). Sjangre: PDR,
   byggekloss i NORM/CASE/POS/KONTR. Prioritet: **perfekt** (§7 pkt. 1).
-- **Forkunnskaper:** kap. [0.2](/bok/nih-faf311/nih-faf311-0-2). (Kroppslig grunnlag for
+- **Forkunnskaper:** kap. [0.2](/nih-faf311/nih-faf311-0-2). (Kroppslig grunnlag for
   case senere nevnes i prosa — ingen lenke, søskenbøker ikke bygget.)
 - **Begrepskontrakt (flashcard-kilde):** **Tøssebro** *Hva er funksjonshemming?*
   (2010/2021 `(verifiser)`): **funksjonsnedsettelse/impairment** (tap/skade i kroppslig
@@ -434,7 +434,7 @@ studentspråk, litt rotete men god) → `tip` Sensorblikket (momentliste + vekti
 - **Eksamensbelegg:** Ett av de tre perspektivene (5/5, PDR); «det medisinske som (nesten)
   enerådende — kritikk av» i 2025 utsatt + implisitt i alle drøftinger (2 eksplisitt).
   Sjangre: PDR, NORM (opererer med norm), KONTR, POS (medisinsk valg). Prioritet: **perfekt**.
-- **Forkunnskaper:** kap. [1.1](/bok/nih-faf311/nih-faf311-1-1).
+- **Forkunnskaper:** kap. [1.1](/nih-faf311/nih-faf311-1-1).
 - **Begrepskontrakt (flashcard-kilde):** **Tøssebro**; **Grue** (2004 `(verifiser)`):
   funksjonshemming som **egenskap ved individet**; **diagnose** og **funksjonsnedsettelse**
   som utgangspunkt; **avvik fra en biologisk/medisinsk norm**; **behandling, habilitering/
@@ -464,7 +464,7 @@ studentspråk, litt rotete men god) → `tip` Sensorblikket (momentliste + vekti
 - **Eksamensbelegg:** Ett av de tre (5/5, PDR); kjernen i KONTR (Oliver+Shakespeare, 2025
   utsatt); fallgruven («underkjenner smerte/sorg») eksplisitt i 2025 utsatt (1) men en
   viktig nyanse. Sjangre: PDR, NORM (opererer med norm), KONTR, POS. Prioritet: **perfekt**.
-- **Forkunnskaper:** kap. [1.2](/bok/nih-faf311/nih-faf311-1-2).
+- **Forkunnskaper:** kap. [1.2](/nih-faf311/nih-faf311-1-2).
 - **Begrepskontrakt (flashcard-kilde):** **Oliver** (1993 `(verifiser)`, *What's so
   wonderful about walking?*): skillet **impairment (funksjonsnedsettelse) vs. disability
   (funksjonshemming)**; funksjonshemming som **skapt av barrierer** (fysiske, holdnings-
@@ -495,7 +495,7 @@ studentspråk, litt rotete men god) → `tip` Sensorblikket (momentliste + vekti
 - **Eksamensbelegg:** Ett av de tre (5/5, PDR); fenomenologisk kroppserfaring i 2022,
   2024 ord., 2025 ord. + alle sett med fenomenologisk innslag (4 nedslag). Sjangre: PDR,
   NORM (oppløser normen — nøkkelinnsikten), POS. Prioritet: **perfekt**.
-- **Forkunnskaper:** kap. [1.3](/bok/nih-faf311/nih-faf311-1-3).
+- **Forkunnskaper:** kap. [1.3](/nih-faf311/nih-faf311-1-3).
 - **Begrepskontrakt (flashcard-kilde):** **Toombs** (2001 `(verifiser)`, *Reflections on
   bodily change*): **den levde kroppen** (den erfarte kroppen, ikke den medisinsk
   objektiverte); **kroppslig endring og tap** som erfaring; **funksjonshemming innenfra**
@@ -537,7 +537,7 @@ Flervalg med stokkede fasit-bokstaver; hver prøve har selvdiagnose-sjekkliste.
   ord. oppg.1b-relatert, 2026 utsatt oppg.1); ordrett gjenganger i 3 av dem. Sensorkrav 6
   (Grue obligatorisk). Sjangre: NORM (kjernen), byggekloss i PDR/CASE. Prioritet:
   **perfekt** (§7 pkt. 2 — mest resirkulerte enkeltoppgave).
-- **Forkunnskaper:** kap. [1.1](/bok/nih-faf311/nih-faf311-1-1)–[1.4](/bok/nih-faf311/nih-faf311-1-4)
+- **Forkunnskaper:** kap. [1.1](/nih-faf311/nih-faf311-1-1)–[1.4](/nih-faf311/nih-faf311-1-4)
   (de tre perspektivene må sitte før normalitet kan settes i lys av dem).
 - **Begrepskontrakt (flashcard-kilde):** **Grue** *Normalitet* (2016 `(verifiser)`):
   **normalitet som konstruksjon** (kulturelt/historisk satt, ikke naturgitt); det
@@ -571,7 +571,7 @@ Flervalg med stokkede fasit-bokstaver; hver prøve har selvdiagnose-sjekkliste.
   normalitetsoppgavene. Sjangre: FORM (interseksjonalitet forklart enkelt), byggekloss i
   NORM/CASE. Prioritet: **kunne→kjenne** (§7 pkt. 10 — «bør kjenne til, nytt/nyansert»),
   men interseksjonalitet får solid dekning fordi den kan komme igjen.
-- **Forkunnskaper:** kap. [2.1](/bok/nih-faf311/nih-faf311-2-1).
+- **Forkunnskaper:** kap. [2.1](/nih-faf311/nih-faf311-2-1).
 - **Begrepskontrakt (flashcard-kilde):** **annerledeshet** (relasjonell — man er
   annerledes i forhold til en norm); **stigma** (sosialt nedvurderende merkelapp);
   **interseksjonalitet** (Grue m.fl. / kritisk funksjonshemmingsteori `(verifiser)`):
@@ -610,8 +610,8 @@ variant). Stokkede fasit-bokstaver; selvdiagnose-sjekkliste per prøve.
   utsatt oppg.3). Sensorkrav 2 (balanse) — direkte karakterskillende. Sjangre: PDR
   (drøftingsledd), CASE (balansert analyse), KONTR (avslutningsrefleksjon). Prioritet:
   **perfekt** (§7 pkt. 4).
-- **Forkunnskaper:** kap. [1.1](/bok/nih-faf311/nih-faf311-1-1)–[1.4](/bok/nih-faf311/nih-faf311-1-4)
-  (alle tre perspektiver), [2.1](/bok/nih-faf311/nih-faf311-2-1).
+- **Forkunnskaper:** kap. [1.1](/nih-faf311/nih-faf311-1-1)–[1.4](/nih-faf311/nih-faf311-1-4)
+  (alle tre perspektiver), [2.1](/nih-faf311/nih-faf311-2-1).
 - **Begrepskontrakt (flashcard-kilde):** **tverrfaglighet** (at TPA krever flere linser og
   faggrupper i samhandling); **komplementaritet** (perspektivene utfyller hverandre, ingen
   er komplett alene); **balanse** (behandle de tre som likeverdige — å favorisere ett
@@ -641,8 +641,8 @@ variant). Stokkede fasit-bokstaver; selvdiagnose-sjekkliste per prøve.
   medisinske «enerådende» + den sosiale fallgruven implisitt i flere sett (2 eksplisitt).
   Sensorkrav 5. Sjangre: KONTR (kjernen), byggekloss i PDR/CASE. Prioritet: **kunne**
   (§7 pkt. 8).
-- **Forkunnskaper:** kap. [1.2](/bok/nih-faf311/nih-faf311-1-2),
-  [1.3](/bok/nih-faf311/nih-faf311-1-3), [3.1](/bok/nih-faf311/nih-faf311-3-1).
+- **Forkunnskaper:** kap. [1.2](/nih-faf311/nih-faf311-1-2),
+  [1.3](/nih-faf311/nih-faf311-1-3), [3.1](/nih-faf311/nih-faf311-3-1).
 - **Begrepskontrakt (flashcard-kilde):** **Oliver** (1993), **Shakespeare** (2014):
   funksjonshemming som **individuelt medisinsk problem** (det de kritiserer); den
   medisinske modellens **nesten enerådende posisjon**; den **sosiale modellens fallgruve**
@@ -680,8 +680,8 @@ sosial fallgruve + tverrfaglighet). Stokkede fasit-bokstaver; selvdiagnose-sjekk
 - **Eksamensbelegg:** Anvendelse mot TPA i 5/5 sett (2022, 2024 ord. oppg.2–3, 2025 ord.
   oppg.2, 2026 utsatt). Sensorkrav 4. Sjangre: PDR (anvendelsesledd), CASE. Prioritet:
   **perfekt** (§7 pkt. 3).
-- **Forkunnskaper:** kap. [1.1](/bok/nih-faf311/nih-faf311-1-1)–[1.4](/bok/nih-faf311/nih-faf311-1-4),
-  [3.1](/bok/nih-faf311/nih-faf311-3-1). (Aktivitetsemnet FAF310 og kroppslig grunnlag
+- **Forkunnskaper:** kap. [1.1](/nih-faf311/nih-faf311-1-1)–[1.4](/nih-faf311/nih-faf311-1-4),
+  [3.1](/nih-faf311/nih-faf311-3-1). (Aktivitetsemnet FAF310 og kroppslig grunnlag
   nevnes i PROSA — ingen lenke, søskenbøker ikke bygget.)
 - **Begrepskontrakt (flashcard-kilde):** **tilpasset/tilrettelagt fysisk aktivitet (TPA)**
   (aktivitet tilpasset personens forutsetninger); **tilrettelegging** vs. **tilpasning**;
@@ -711,8 +711,8 @@ sosial fallgruve + tverrfaglighet). Stokkede fasit-bokstaver; selvdiagnose-sjekk
 - **Eksamensbelegg:** CASE i 3 sett (2024 ord. oppg.3, 2025 ord. oppg.2 [70 %], 2026 utsatt
   oppg.3) — dagens tunge langsvar. Sensorkrav 7 (drøfting > beskrivelse; anonymiser).
   Sjangre: CASE (kjernen). Prioritet: **perfekt** (§7 pkt. 6).
-- **Forkunnskaper:** kap. [4.1](/bok/nih-faf311/nih-faf311-4-1), [3.1](/bok/nih-faf311/nih-faf311-3-1),
-  [1.1](/bok/nih-faf311/nih-faf311-1-1)–[1.4](/bok/nih-faf311/nih-faf311-1-4).
+- **Forkunnskaper:** kap. [4.1](/nih-faf311/nih-faf311-4-1), [3.1](/nih-faf311/nih-faf311-3-1),
+  [1.1](/nih-faf311/nih-faf311-1-1)–[1.4](/nih-faf311/nih-faf311-1-4).
 - **Begrepskontrakt (flashcard-kilde):** **CASE-malen** (begrunn valg → tre-perspektiv-
   analyse balansert → aktivitetsplanlegging → drøft); **diagnosegruppe** som analyseenhet
   (nøktern: en gruppe med felles trekk, ikke en klinisk kategori man forskriver for);
@@ -742,7 +742,7 @@ sosial fallgruve + tverrfaglighet). Stokkede fasit-bokstaver; selvdiagnose-sjekk
 - **Eksamensbelegg:** Aktivitetsplanleggingsleddet i CASE og PDR (2025 ord. oppg.2, 2026
   utsatt); der FAF310-pensum etterspørres (#10). Sjangre: CASE (planleggingsledd), PDR.
   Prioritet: **kunne** (§7 pkt. 6 — planleggingsdelen).
-- **Forkunnskaper:** kap. [4.2](/bok/nih-faf311/nih-faf311-4-2), [4.1](/bok/nih-faf311/nih-faf311-4-1).
+- **Forkunnskaper:** kap. [4.2](/nih-faf311/nih-faf311-4-2), [4.1](/nih-faf311/nih-faf311-4-1).
   (FAF310-planleggingslitteratur nevnes i PROSA — ingen lenke.)
 - **Begrepskontrakt (flashcard-kilde):** **aktivitetsanalyse** (bryte ned aktivitetens krav
   for å tilpasse den); **tilpasningsgrep** (regler, utstyr, miljø, rolle); **deltakelse på
@@ -777,8 +777,8 @@ drøfting dominerer). Stokkede fasit-bokstaver; selvdiagnose-sjekkliste per prø
   tolv sensordokumenterte feilene (#1–#12) — særlig «rams opp vs. kontraster» (#1) og
   «favoriser ett perspektiv vs. balanse» (#2).
 - **Eksamensbelegg:** Metakapittel (alle sjangre, alle 5 sett). Prioritet: perfekt (meta).
-- **Forkunnskaper:** kap. [0.2](/bok/nih-faf311/nih-faf311-0-2) og alle temadeler
-  ([Del 1](/bok/nih-faf311/nih-faf311-1-1)–[Del 4](/bok/nih-faf311/nih-faf311-4-3)).
+- **Forkunnskaper:** kap. [0.2](/nih-faf311/nih-faf311-0-2) og alle temadeler
+  ([Del 1](/nih-faf311/nih-faf311-1-1)–[Del 4](/nih-faf311/nih-faf311-4-3)).
 - **Innholdskontrakt:** **Samlet oppslagskort per bok** (collapsible, ren tabell): sjanger
   → én-linjes oppskrift → tidsbudsjett → vanligste feil (det printbare «hvem eier hva»-/
   sjangerkortet). **Feilvaksinen:** 12 korte «finn fellen»-øvelser (én per feilkode) med
@@ -801,8 +801,8 @@ drøfting dominerer). Stokkede fasit-bokstaver; selvdiagnose-sjekkliste per prø
 - **Eksamensbelegg:** FORM i 2025 ord. (oppg. 1, 30 %). Sensorkrav 8 (enkelt/forståelig
   språk; to akser: uttømmende + forståelig). Sjangre: FORM. Prioritet: **perfekt** for
   sjangeren (ny, vektet 30 %; §7 pkt. 9).
-- **Forkunnskaper:** kap. [1.1](/bok/nih-faf311/nih-faf311-1-1) (funksjonshemming),
-  [2.2](/bok/nih-faf311/nih-faf311-2-2) (interseksjonalitet), [5.1](/bok/nih-faf311/nih-faf311-5-1).
+- **Forkunnskaper:** kap. [1.1](/nih-faf311/nih-faf311-1-1) (funksjonshemming),
+  [2.2](/nih-faf311/nih-faf311-2-2) (interseksjonalitet), [5.1](/nih-faf311/nih-faf311-5-1).
 - **Innholdskontrakt:** **Oppskrift** — velg få, klare begreper; gjør tydelig hvilket
   perspektiv du legger til grunn (uten å si «perspektiv»); bruk hverdagsbilder; hold deg
   under 250 ord; INGEN kilder. **To gjennomskrevne 250-ords maler** (én for «hva er en
@@ -827,8 +827,8 @@ drøfting dominerer). Stokkede fasit-bokstaver; selvdiagnose-sjekkliste per prø
   kontrasterende drøfting.
 - **Eksamensbelegg:** NORM (4 sett, ordrett gjenganger i 3). Sensorkrav 1, 2, 6.
   Prioritet: perfekt (meta).
-- **Forkunnskaper:** kap. [2.1](/bok/nih-faf311/nih-faf311-2-1),
-  [5.1](/bok/nih-faf311/nih-faf311-5-1).
+- **Forkunnskaper:** kap. [2.1](/nih-faf311/nih-faf311-2-1),
+  [5.1](/nih-faf311/nih-faf311-5-1).
 - **Innholdskontrakt:** Nyskrevet oppgave (endre formulering fra arkivet); A-besvarelse med
   margnotater («her: Grue-forankring», «her: setter medisinsk MOT fenomenologisk — løfter
   til A», «her: TPA-kobling») og pausepunkt-markører; C-besvarelse ÆRLIG merket (korrekt,
@@ -850,8 +850,8 @@ drøfting dominerer). Stokkede fasit-bokstaver; selvdiagnose-sjekkliste per prø
   konklusjon i minst én modell (konklusjonsvariasjon).
 - **Eksamensbelegg:** CASE (3 sett; 70 % i 2025 ord.). Sensorkrav 2, 4, 7. Prioritet:
   perfekt (meta).
-- **Forkunnskaper:** kap. [4.2](/bok/nih-faf311/nih-faf311-4-2),
-  [4.3](/bok/nih-faf311/nih-faf311-4-3), [3.1](/bok/nih-faf311/nih-faf311-3-1).
+- **Forkunnskaper:** kap. [4.2](/nih-faf311/nih-faf311-4-2),
+  [4.3](/nih-faf311/nih-faf311-4-3), [3.1](/nih-faf311/nih-faf311-3-1).
 - **Innholdskontrakt:** Nyskrevet, anonymisert CASE-oppgave; A-besvarelse med margnotater
   («her: balanse mellom tre linser», «her: drøfting > beskrivelse», «her: FAF310-forankret
   tilpasning», «her: skarp veid konklusjon») + pausepunkt-markører; C-besvarelse ÆRLIG
@@ -878,8 +878,8 @@ drøfting dominerer). Stokkede fasit-bokstaver; selvdiagnose-sjekkliste per prø
 - **Eksamensbelegg:** POS i 3 sett (2022 refleksjon, 2024 ord. oppg.2, 2026 utsatt oppg.2);
   KONTR i 2025 utsatt. Sensorkrav 3, 5, 6 (Tøssebro i POS; Oliver+Shakespeare i KONTR).
   Prioritet: kunne (meta).
-- **Forkunnskaper:** kap. [1.2](/bok/nih-faf311/nih-faf311-1-2)–[1.4](/bok/nih-faf311/nih-faf311-1-4),
-  [3.2](/bok/nih-faf311/nih-faf311-3-2), [5.1](/bok/nih-faf311/nih-faf311-5-1).
+- **Forkunnskaper:** kap. [1.2](/nih-faf311/nih-faf311-1-2)–[1.4](/nih-faf311/nih-faf311-1-4),
+  [3.2](/nih-faf311/nih-faf311-3-2), [5.1](/nih-faf311/nih-faf311-5-1).
 - **Innholdskontrakt:** To nyskrevne oppgaver med A + kommentert C + Sensorblikket +
   rubrikk. POS-modellen viser Tøssebro-forankring og dybde (#11); KONTR-modellen viser at
   begge tenkere er kritiske til medisinsk enerådighet + Shakespeares smerte/sorg-nyanse

@@ -238,7 +238,7 @@ til kapitler som finnes»):
   fra ECON1210 Mikroøkonomi 1 (kap. 1.3, `econ1210-1-3` — aktiveres som lenke når
   boka er publisert).»* Fase 6 gjør klartekst → live lenke når ECON1210 er live.
 - **ECON1310 Makroøkonomi I er BYGGET (live).** Driftsbalanse-/handelsbalanse-
-  referansen i Del 4.4 kan lenkes: `[ECON1310 Makroøkonomi I](/bok/econ1310/econ1310-0-1)`
+  referansen i Del 4.4 kan lenkes: `[ECON1310 Makroøkonomi I](/econ1310/econ1310-0-1)`
   (eksamenskart-kapitlet er verifisert eksisterende anker); den *spesifikke*
   driftsbalanse-kapittel-id-en markeres `(verifiser id)` til fase 6.
 - **ECON2610 (mikro/handel) finnes IKKE som bok i systemet.** Refereres kun som
@@ -567,7 +567,7 @@ krisepolitikk, **H** prising av knapp kapasitet/nest-best. Prioritetsklasser:
 - **Kapitteltype:** teori (drøfting)
 - **description:** Utrednings-vrien: er økt eksport i seg selv et godt mål? Optimal allokering mellom skjermet og konkurranseutsatt sektor, og hvorfor Norge tåler negativ driftsbalanse fra fastlandet.
 - **Eksamensbelegg:** V2023A (eksport som mål) + V2020uA. Sensor belønner at kandidaten *først* drøfter formålet før virkemiddelet. Berører makro (driftsbalanse) *lett* — her er det tillatt. Prioritet: **kunne** (bærer eksportoppgaven).
-- **Begrepskontrakt (m/pensumforankring):** **Skjermet vs. konkurranseutsatt sektor**, **full ressursutnyttelse + optimal allokering** (poenget er riktig fordeling mellom sektorer, ikke mest mulig eksport), **driftsbalanse/handelsbalanse** (Norge tåler negativ driftsbalanse fra fastlands-Norge fordi oljeformuen finansierer import), **aldrende befolkning** (øker etterspørselen etter skjermede omsorgstjenester). Forkunnskap: makro-koblingen lenkes til [ECON1310 Makroøkonomi I](/bok/econ1310/econ1310-0-1) (driftsbalanse-kapittel `(verifiser id)`).
+- **Begrepskontrakt (m/pensumforankring):** **Skjermet vs. konkurranseutsatt sektor**, **full ressursutnyttelse + optimal allokering** (poenget er riktig fordeling mellom sektorer, ikke mest mulig eksport), **driftsbalanse/handelsbalanse** (Norge tåler negativ driftsbalanse fra fastlands-Norge fordi oljeformuen finansierer import), **aldrende befolkning** (øker etterspørselen etter skjermede omsorgstjenester). Forkunnskap: makro-koblingen lenkes til [ECON1310 Makroøkonomi I](/econ1310/econ1310-0-1) (driftsbalanse-kapittel `(verifiser id)`).
 - **Drøftingsakser:** (i) **drøft formålet først:** økt eksport er ikke et mål i seg selv — målet er høyest mulig velferd fra full og riktig ressursbruk; (ii) allokering skjermet/konkurranseutsatt (badekarsdiagram-logikk fra kap. 0.3/5.2): ressurser dit de kaster mest av seg; (iii) **avgrensning (mikro vs. makro):** driftsbalanse brukes lett her, men trekk *ikke* full makromodell inn — hold analysen mikro.
 - **Case-forslag:** «En politiker vil ‘doble eksporten innen 2035’. Drøft først om økt eksport i seg selv er et godt mål, deretter hva som avgjør riktig fordeling mellom skjermet og konkurranseutsatt sektor.»
 - **Typiske feil:** Behandle økt eksport som et selvstendig mål (ikke drøfte formålet); trekke full makromodell inn i en mikrooppgave (#2); glemme oljeformuens rolle for driftsbalansen; overse aldrende befolknings press på skjermet sektor.
@@ -897,7 +897,7 @@ hver, tunge) kan deles, men gi begge agentene HELE delens kontrakter. Del 7
   markert (`tip` «Svarnøkkelen») i kap. 1.3 og gjenbrukt i 1.4, 2.4, 3.1, 4.2, 5.3.
 - [ ] **Forkunnskaper/kryssbok**: hvert kapittel har Forkunnskaper-blokk;
   **ECON1210-referanser som KLARTEKST** med id (ikke live lenke — ikke bygget);
-  ECON1310-lenke (`/bok/econ1310/econ1310-0-1`) i kap. 4.4, spesifikk driftsbalanse-
+  ECON1310-lenke (`/econ1310/econ1310-0-1`) i kap. 4.4, spesifikk driftsbalanse-
   id `(verifiser id)`; ECON2610 kun som pensumkilde (Krugman/Obstfeld/Melitz), ingen
   lenke; interne prerequisites peker på eksisterende econ3010-kapitler. Symbol-/
   formelliste-`collapsible` i delkapitler som bruker MK/SMK/MSK/MAC/KO/PO/SO/a-b-c-d.

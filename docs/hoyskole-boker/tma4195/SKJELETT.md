@@ -360,8 +360,8 @@ Eksamenstreningskapitlene (Del 8) har egne oppsett — se §3 og §4.
   bruker, med **formel-minimum-siden** (samlet oppslagskort).
 - **Eksamensbelegg:** Gjennomgående (sjanger A og D på tvers av alle oppgaver; sensorkrav 2 og 5).
   Prioritet: perfekt (meta).
-- **Forkunnskaper/kryssbok:** kap. 0.1; [Derivasjon](/bok/r2/r2-1-1) `(verifiser lenke)`,
-  [Separable differensiallikninger](/bok/r2/r2-6-1) `(verifiser lenke)`. `collapsible`
+- **Forkunnskaper/kryssbok:** kap. 0.1; [Derivasjon](/r2/r2-1-1) `(verifiser lenke)`,
+  [Separable differensiallikninger](/r2/r2-6-1) `(verifiser lenke)`. `collapsible`
   **Symbol- og formelliste:** grunnenheter $[m],[s],[kg],[K]$; dimensjonsparentes $[\cdot]$;
   skalasubstitusjon $x=Lx^*$, $t=Tt^*$.
 - **Faktakontrakt (flashcard-kilde):** **dimensjonell homogenitet** (hvert ledd samme dimensjon);
@@ -417,8 +417,8 @@ Eksamenstreningskapitlene (Del 8) har egne oppsett — se §3 og §4.
   uavhengige dimensjonsløse $\pi$-grupper (Buckinghams $\pi$-teorem).
 - **Eksamensbelegg:** Kjernen i sjanger A (≈100 %, O1). Sensorkrav 2: matrisen og rang-argumentet
   skal vises eksplisitt. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 1.1; [Matriser og determinanter](/bok/tma4110/tma4110-2-1)
-  `(verifiser lenke)`, [Rang og lineære likningssystemer](/bok/tma4110/tma4110-2-2)
+- **Forkunnskaper/kryssbok:** kap. 1.1; [Matriser og determinanter](/tma4110/tma4110-2-1)
+  `(verifiser lenke)`, [Rang og lineære likningssystemer](/tma4110/tma4110-2-2)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** dimensjonsmatrise $D$; rang $r$;
   antall variabler $n$; antall $\pi$-grupper $n-r$.
 - **Faktakontrakt (flashcard-kilde):** **dimensjonsmatrise** (kolonne $j$ = eksponentvektoren til
@@ -496,7 +496,7 @@ eksamensnivå (full O1)).
   dimensjonsløs form.
 - **Eksamensbelegg:** Sjanger D (≈100 %, gjennomgripende). Sensorkrav 5: skalaer skal begrunnes ved
   balansering, ikke postuleres. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 0.2, 1.3; [Kjerneregelen](/bok/r2/r2-1-2) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 0.2, 1.3; [Kjerneregelen](/r2/r2-1-2) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** skalaer $L,T,U$; dimensjonsløse variabler $x^*,t^*,u^*$;
   kjerneregel $\frac{d}{dt}=\frac{1}{T}\frac{d}{dt^*}$.
 - **Faktakontrakt (flashcard-kilde):** **skalasubstitusjon** fysisk = skala × dimensjonsløs;
@@ -565,7 +565,7 @@ fysisk tolkning · 2.C skalering av koblet 2×2-system · 2.D samlet skaleringsp
   ved $f=g=0$, ofte ved eliminasjon/innsetting — og å unngå falske likevektspunkter.
 - **Eksamensbelegg:** Første steg i sjanger B (≈95 %, O2). Feilkode #2 (falske likevektspunkter).
   Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Likningssystemer](/bok/r2/r2-3-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Likningssystemer](/r2/r2-3-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** autonomt system; likevektspunkt $(u^*,v^*)$; høyreside
   $f,g$.
 - **Faktakontrakt (flashcard-kilde):** **autonomt system** (høyresiden avhenger ikke eksplisitt av
@@ -586,8 +586,8 @@ fysisk tolkning · 2.C skalering av koblet 2×2-system · 2.D samlet skaleringsp
   den «gratis» O2-oppskriften. Inkluderer et $(\operatorname{tr}J,\det J)$-klassifikasjonskart (SVG).
 - **Eksamensbelegg:** Kjernen i sjanger B (≈95 %, O2). Sensorkrav 3: klassifiser via spor og
   determinant, ikke full egenverdiutregning. Prioritet: perfekt.
-- **Forkunnskaper/kryssbok:** kap. 3.1; [Partiellderivasjon](/bok/tma4101/tma4101-3-1)
-  `(verifiser lenke)`, [Egenverdier](/bok/tma4110/tma4110-5-1) `(verifiser lenke)`. `collapsible`
+- **Forkunnskaper/kryssbok:** kap. 3.1; [Partiellderivasjon](/tma4101/tma4101-3-1)
+  `(verifiser lenke)`, [Egenverdier](/tma4110/tma4110-5-1) `(verifiser lenke)`. `collapsible`
   **Symbol- og formelliste:** Jacobi $J=\begin{pmatrix}f_u&f_v\\ g_u&g_v\end{pmatrix}$;
   $\det J=\lambda_1\lambda_2$; $\operatorname{tr}J=\lambda_1+\lambda_2$.
 - **Faktakontrakt (flashcard-kilde):** **Jacobi-matrise** = matrisen av partiellderiverte av $(f,g)$
@@ -689,7 +689,7 @@ fysisk tolkning).
   ganget med $\varepsilon$).
 - **Eksamensbelegg:** Sjanger I (≈47 %). Bygger intuisjonen for orden-for-orden-utvikling som
   singulær perturbasjon (4.2) forutsetter. Prioritet: kunne. Feilkode #9 (stoppe for tidlig).
-- **Forkunnskaper/kryssbok:** kap. 2.2; [Taylor-rekker](/bok/tma4100/tma4100-8-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 2.2; [Taylor-rekker](/tma4100/tma4100-8-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** liten parameter $\varepsilon$; potensrekke
   $y=\sum_n\varepsilon^n y_n$.
 - **Faktakontrakt (flashcard-kilde):** **regulær perturbasjon** = løsningen er en glatt potensrekke i
@@ -712,7 +712,7 @@ fysisk tolkning).
   grenselagsprofil (ytre + indre + uniform).
 - **Eksamensbelegg:** Kjernen i sjanger C (≈89 %, O3). Sensorkrav 4: full koreografi, eksplisitt
   $\delta$-valg og matching. Prioritet: perfekt. Feilkodene #3, #4.
-- **Forkunnskaper/kryssbok:** kap. 4.1, 2.2; [Andreordens lineære ODE](/bok/tma4110/tma4110-6-1)
+- **Forkunnskaper/kryssbok:** kap. 4.1, 2.2; [Andreordens lineære ODE](/tma4110/tma4110-6-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** ytre $y_\text{ytre}$; indre
   $Y(\xi)$; grenselagsvariabel $\xi=x/\delta$; uniform $y_u$.
 - **Faktakontrakt (flashcard-kilde) — koreografien i fire steg:** (1) **ytre løsning:** sett
@@ -786,7 +786,7 @@ eksamensnivå (full O3)).
   krever integralformen, ikke bare differensialformen.
 - **Eksamensbelegg:** Første steg i sjanger E (≈84 %) og F (≈79 %). Sensorkrav 6: utled fra
   integralform. Prioritet: perfekt. Feilkode #6.
-- **Forkunnskaper/kryssbok:** kap. 2.1; [Bestemt integral](/bok/tma4100/tma4100-6-1) `(verifiser lenke)`.
+- **Forkunnskaper/kryssbok:** kap. 2.1; [Bestemt integral](/tma4100/tma4100-6-1) `(verifiser lenke)`.
   `collapsible` **Symbol- og formelliste:** tetthet $u$; fluks $J(u)$; kontrollvolum $[a,b]$.
 - **Faktakontrakt (flashcard-kilde):** **integral bevaringslov** $\frac{d}{dt}\int_a^b u\,dx=
   J(u(a,t))-J(u(b,t))$ (+ evt. kilder); **fluks** $J(u)$ = mengde per tid gjennom et punkt; **overgang
@@ -833,7 +833,7 @@ eksamensnivå (full O3)).
   integrerende faktor) — inkl. å behandle tidlige vs. sene tider hver for seg.
 - **Eksamensbelegg:** Sluttsteget i sjanger E (≈84 %). Sensorkrav 7. Prioritet: perfekt. Feilkodene
   #7, #8.
-- **Forkunnskaper/kryssbok:** kap. 5.2; [Førsteordens lineær ODE / integrerende faktor](/bok/r2/r2-6-2)
+- **Forkunnskaper/kryssbok:** kap. 5.2; [Førsteordens lineær ODE / integrerende faktor](/r2/r2-6-2)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** Rankine–Hugoniot $U=[J]/[u]$;
   sjokkbane $s(t)$; fortynningsvifte $(J')^{-1}(x/t)$.
 - **Faktakontrakt (flashcard-kilde):** **Rankine–Hugoniot** sjokkfart $U=\dfrac{J(u_+)-J(u_-)}
@@ -883,8 +883,8 @@ på eksamensnivå).
   i den tunge PDE-sluttoppgaven.
 - **Eksamensbelegg:** Fundamentet i sjanger F (≈79 %, sluttoppgaven). Sensorkrav 6. Prioritet:
   kunne→perfekt.
-- **Forkunnskaper/kryssbok:** kap. 5.1; [Divergens og divergensteoremet](/bok/tma4105/tma4105-4-1)
-  `(verifiser lenke)`, [Gradient](/bok/tma4105/tma4105-2-1) `(verifiser lenke)`. `collapsible`
+- **Forkunnskaper/kryssbok:** kap. 5.1; [Divergens og divergensteoremet](/tma4105/tma4105-4-1)
+  `(verifiser lenke)`, [Gradient](/tma4105/tma4105-2-1) `(verifiser lenke)`. `collapsible`
   **Symbol- og formelliste:** tetthet $\rho$; fluks $q$; Darcy $q=-(k/\mu)\nabla p$; Fick
   $j=-\varphi D\nabla C$. **«Sist du var her»:** vis bevaringslov-integralformen og
   divergensteoremet ferdig oppfrisket (stor tidsavstand fra Del 5).

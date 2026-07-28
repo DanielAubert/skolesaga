@@ -430,8 +430,8 @@ Eksamenstreningskapitlene (Del 12) har egne oppsett — se §3 og §4.
 - **Eksamensbelegg:** Gjennomgående (sensorkrav 1–4, 6 på tvers av alle sjangre).
   Prioritet: perfekt (meta).
 - **Forkunnskaper/kryssbok:** kap. 0.1; grunnleggende sannsynlighet og derivasjon
-  fra videregående — [Sannsynlighet](/bok/s1/s1-4-1) `(verifiser lenke)`,
-  [Derivasjon](/bok/r1/r1-3-1) `(verifiser lenke)`. `collapsible` **Symbol- og
+  fra videregående — [Sannsynlighet](/s1/s1-4-1) `(verifiser lenke)`,
+  [Derivasjon](/r1/r1-3-1) `(verifiser lenke)`. `collapsible` **Symbol- og
   formelliste:** notasjonssymbolene ($\mu$, $\sigma$, $\sigma^2$, $\bar X$, $s$,
   $n$, $\lambda$, $z_\alpha$, $t_{\alpha,n-1}$, $G(z)$; DB, DG, NV, IR).
 - **Innholdskontrakt (flashcard-kilde):** **$N(\mu,\sigma)$-konvensjonen** (andre
@@ -469,7 +469,7 @@ Eksamenstreningskapitlene (Del 12) har egne oppsett — se §3 og §4.
 - **Eksamensbelegg:** Sjanger A (4/5, 80 %). Union med overlapp (avislesing),
   total sannsynlighet $P(A)=\sum P(A\mid B_i)P(B_i)$ og Bayes (defekte motorer;
   fransk turist ved Eiffeltårnet), «bare X»/«verken» via Venn. Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Sannsynlighet](/bok/s1/s1-4-1)
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Sannsynlighet](/s1/s1-4-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $P(A\cup B)$,
   $P(A\cap B)$, $P(A\mid B)$, komplement $A^c$, $\sum P(A\mid B_i)P(B_i)$.
 - **Innholdskontrakt (flashcard-kilde):** **addisjonssetningen**
@@ -1096,7 +1096,7 @@ full investeringsanalyse, eksamensnivå).
   **kostnadsoptimum** via enhetskostnad — sjanger M.
 - **Eksamensbelegg:** Sjanger M (2/5, 40 %). Prioritet: kunne. Forutsetter
   derivasjon (deles med spillteori-delen).
-- **Forkunnskaper/kryssbok:** kap. 0.2; [Derivasjon](/bok/r1/r1-3-1)
+- **Forkunnskaper/kryssbok:** kap. 0.2; [Derivasjon](/r1/r1-3-1)
   `(verifiser lenke)`. `collapsible` **Symbol- og formelliste:** $K(x)$, $E(x)$,
   $\Pi(x)$, $p(x)$, $\Pi'(x)=0$.
 - **Innholdskontrakt (flashcard-kilde):** **profittfunksjon** $\Pi(x)=

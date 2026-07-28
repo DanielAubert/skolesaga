@@ -113,7 +113,7 @@ flashcard-kvoten + `collapsible` pensumkart/repetisjon.
 - **Forkunnskaper-blokk** rett etter Eksamensvinkel: (i) kapitler i denne boka
   kapitlet bygger på (kapittelnummer), (ii) forkunnskaper utenfor boka med
   markdown-lenke til eksisterende kapittel i annen bok, format
-  `[tittel](/bok/<courseId>/<chapterId>)` — sjekk at målfilen finnes i
+  `[tittel](/<courseId>/<chapterId>)` — sjekk at målfilen finnes i
   `src/lib/data/chapters/`. Mulige lenker til exphil03-kapitler om
   Locke/Mill/Rawls KUN dersom de finnes som byggede ruter (skjelett ≠ bygget bok);
   ellers dekk i egen bok. «Dette kapitlet kan leses uten forkunnskaper» der ingen.

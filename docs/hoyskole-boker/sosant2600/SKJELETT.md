@@ -60,7 +60,7 @@ felt, hver med ferdig «inngangsproblemstilling», typiske teorier og en
 komparasjonsmulighet; en **praksis-til-teori-mal** for Del 1 → Del 2; en
 **formalia-sjekkliste** som pass/fail; og modellbesvarelser i tre nivåer der
 forskjellen ligger nøyaktig i **komparasjon, selvstendighet og kildebredde**. Boka
-**krysslenker gjennomgående til [SOSANT1000](/bok/sosant1000)** for grunnbegrepene
+**krysslenker gjennomgående til [SOSANT1000](/sosant1000)** for grunnbegrepene
 2600 *anvender* (holisme, komparasjon, kulturrelativisme, deltakende observasjon,
 gaveøkonomi, makt, slektskap) i stedet for å gjenta dem.
 
@@ -83,13 +83,13 @@ gaveøkonomi, makt, slektskap) i stedet for å gjenta dem.
 
 ### Arbeidsdeling i SOSANT-klyngen (viktig — unngå dublering)
 
-- **[SOSANT1000](/bok/sosant1000) (bygd):** leverer **grunnbegrepene og metoden 2600
+- **[SOSANT1000](/sosant1000) (bygd):** leverer **grunnbegrepene og metoden 2600
   *anvender***. 2600-boka **definerer ikke** holisme, kulturrelativisme, deltakende
   observasjon, gaveøkonomi, makt/motstand, slektskap på nytt — den **lenker dit** og
   bruker dem *som verktøy* i en anvendt kontekst. Der 1000 spør «hva er deltakende
   observasjon?», spør 2600 «hva skjer med deltakende observasjon når antropologen er
   leid konsulent med tidspress?».
-- **[SOSANT1090](/bok/sosant1090) (skjelett):** antropologiens historie — 2600 låner
+- **[SOSANT1090](/sosant1090) (skjelett):** antropologiens historie — 2600 låner
   det faghistoriske bakteppet for «anvendt vs. akademisk»-debatten (kolonialarven,
   fagets bruk utenfor akademia), men fokuserer på *nåtidens* anvendte praksis.
 - **SOSANT1400 Antropologi og religion (analyse foreligger, bok ikke bygd):** deler
@@ -385,9 +385,9 @@ drøfting, manglende sentral pensumlitteratur, svak operasjonalisering.
   informere beslutninger utenfor akademia) vs. **akademisk antropologi** (kunnskap for
   fagets egen skyld); **spenningen** mellom de to (hvem tjener kunnskapen? hva skjer med
   kritisk distanse når kunnskapen skal *brukes*?); antropologiens historiske bruk utenfor
-  akademia (kort faghistorisk bakteppe — krysslenk [SOSANT1090](/bok/sosant1090)); anvendt
+  akademia (kort faghistorisk bakteppe — krysslenk [SOSANT1090](/sosant1090)); anvendt
   antropologi som eget felt med egne debatter. **NB:** grunnbegrepene (holisme, feltarbeid)
-  *forutsettes* fra [SOSANT1000](/bok/sosant1000) — defineres ikke på nytt her.
+  *forutsettes* fra [SOSANT1000](/sosant1000) — defineres ikke på nytt her.
 - **Drøftingsakser:** taper antropologien kritisk distanse når den blir «nyttig»?; er
   skillet anvendt/akademisk skarpt eller glidende (mye akademisk antropologi har praktiske
   konsekvenser)?; hva emnets navn «i praksis» egentlig krever.
@@ -475,7 +475,7 @@ drøfting, manglende sentral pensumlitteratur, svak operasjonalisering.
   som verktøy, presist brukt»). Sjangre: FS, PF, koblingsstoff overalt.
 - **Begrepskontrakt:** **antropologisk metode i praksis** (deltakende observasjon,
   kvalitative intervjuer, «rapid ethnographic assessment» tilpasset anvendte settinger —
-  utdypes i kap. 3.2); grunnbegrepene fra [SOSANT1000](/bok/sosant1000) *som verktøy*:
+  utdypes i kap. 3.2); grunnbegrepene fra [SOSANT1000](/sosant1000) *som verktøy*:
   **holisme** (se helheten i et anvendt felt), **komparasjon** (fagets metode — også
   A-markøren på eksamen), **kulturrelativisme** (metodologisk, ikke etisk),
   **emisk/etisk**, **tykk beskrivelse** — alle **forutsatt kjent**, her vist *anvendt*.
@@ -558,7 +558,7 @@ drøfting, manglende sentral pensumlitteratur, svak operasjonalisering.
   praktiske helseintervensjoner); **global helse / folkehelse** (helseantropologi i
   internasjonale/offentlige programmer — **Paul Farmer**, strukturell vold og global
   helse `(verifiser)`); **helsekommunikasjon** (kulturell oversettelse i helsebudskap);
-  sykdomsforståelser (emisk/etisk, krysslenk [SOSANT1000](/bok/sosant1000)).
+  sykdomsforståelser (emisk/etisk, krysslenk [SOSANT1000](/sosant1000)).
 - **Drøftingsakser:** hvorfor feiler helseintervensjoner uten kulturell forståelse?;
   strukturelle årsaker vs. individuell atferd i folkehelse (Farmer); antropologen som
   brobygger mellom biomedisin og lokale forståelser.
@@ -586,7 +586,7 @@ drøfting, manglende sentral pensumlitteratur, svak operasjonalisering.
   kunnskap i forvaltning** (tradisjonell økologisk kunnskap vs. teknokratisk styring —
   kobling til kunnskapshierarkier, kap. 1.3); **interessekonflikter** (ulike aktørers
   krav på samme ressurs). Krysslenk natur/kultur-dikotomien i
-  [SOSANT1000](/bok/sosant1000).
+  [SOSANT1000](/sosant1000).
 - **Drøftingsakser:** integreres urfolkskunnskap reelt eller symbolsk i forvaltning?;
   antropologen mellom forvaltning, lokalsamfunn og næringsinteresser; klima som anvendt
   felt (kobling til aktualitet).
@@ -641,7 +641,7 @@ drøfting, manglende sentral pensumlitteratur, svak operasjonalisering.
   ladet — feil #12-risiko understrekes.**
 - **Begrepskontrakt:** **universalisme vs. kulturrelativisme i praksis** (menneskerettigheters
   universelle krav møter lokale praksiser — anvendt versjon av relativisme-debatten,
-  krysslenk [SOSANT1000](/bok/sosant1000)); **rettighetsapparat / humanitært arbeid**
+  krysslenk [SOSANT1000](/sosant1000)); **rettighetsapparat / humanitært arbeid**
   (antropologi i NGO-/rettighetssektoren); **integreringsarbeid / mangfold / inkludering**
   (antropologi i integreringspolitikk); **lokalsamfunnsutvikling**.
 - **Drøftingsakser:** kan menneskerettigheter være både universelle og kultursensitive?;
@@ -772,7 +772,7 @@ drøfting, manglende sentral pensumlitteratur, svak operasjonalisering.
   kvalitativ metode i anvendte rammer); **praksisuken som empirikilde** («om mulig» —
   ressurs, ikke krav); **empiri vs. dagbok** (praksiserfaring løftet til analyse, ikke
   gjengitt kronologisk — feil #2-vaksine); triangulering og avgrensning under tidspress.
-  Bygger på deltakende observasjon fra [SOSANT1000](/bok/sosant1000) (kap. 1.4).
+  Bygger på deltakende observasjon fra [SOSANT1000](/sosant1000) (kap. 1.4).
 - **Drøftingsakser:** hva ofres når feltarbeidet komprimeres — og hva bevares?; kan en
   praksisuke gi holistisk innsikt?; praksis som *inngang* til en generell problemstilling.
 - **Eksempellager:** (1) en praksisuke-erfaring omgjort fra dagbok til empiri for en
@@ -1028,7 +1028,7 @@ kap. 4.6 (full modelloppgave) fyller den rollen, og prøvene trener delferdighet
 5. **Sjangerformlene** — FS, PF, MA, KO som huskelister; Del 1→Del 2-malen; komparasjons-
    grepet.
 6. **Grunnbegrepene fra 1000 som verktøy** — kort krysslenk-oversikt til
-   [SOSANT1000](/bok/sosant1000) (holisme, komparasjon, kulturrelativisme, deltakende
+   [SOSANT1000](/sosant1000) (holisme, komparasjon, kulturrelativisme, deltakende
    observasjon) *anvendt*, ikke gjentatt.
 7. **Feilvaksine-kortversjonen** — de tolv feilene som énlinjers varsellamper (særlig
    #1 referat, #3 manglende komparasjon, #9 formkravbrudd, #12 aktivisme).
@@ -1090,7 +1090,7 @@ finne på krav eller kriterier.
       narrativ-ruter gir 200).
 - [ ] **Arbeidsdeling mot SOSANT1000:** grunnbegrepene (holisme, komparasjon,
       kulturrelativisme, deltakende observasjon, gaveøkonomi, makt, slektskap) defineres
-      IKKE på nytt — de krysslenkes til [SOSANT1000](/bok/sosant1000) og vises kun
+      IKKE på nytt — de krysslenkes til [SOSANT1000](/sosant1000) og vises kun
       *anvendt*. Sjekk at lenkene peker på eksisterende sosant1000-kapitler.
 - [ ] **Referanser som EKSEMPLER, ikke pensum:** navngitte anvendt-antropologiske verk
       (Escobar, Ferguson, Cooke & Kothari, Farmer m.fl.) presenteres som *eksempler på

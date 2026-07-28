@@ -680,7 +680,7 @@ lønnskostnad vs. utbetalt + terminfrister · **Prøve 4.C** bilagskontering med
 - **Eksamensbelegg:** Sjanger S4 (5/8, ⭐⭐⭐). Konseptspørsmålet om TKR vs. EKR ved mer/mindre
   gjeld er gjenganger. Prioritet: perfekt.
 - **Forkunnskaper/kryssbok:** kap. 0.2. For finansmatematisk sammenheng (rente): [Nåverdi og
-  rente](/bok/nih-spm245/nih-spm245-8-1). `collapsible` **Symbol- og formelliste:** TKR =
+  rente](/nih-spm245/nih-spm245-8-1). `collapsible` **Symbol- og formelliste:** TKR =
   (driftsresultat + finansinntekt) / gj.snitt totalkapital · 100; EKR (før skatt) =
   (ordinært resultat før skatt) / gj.snitt egenkapital · 100; gj.snitt = (IB + UB)/2.
 - **Innholdskontrakt (flashcard-kilde):** **totalkapitalrentabilitet** (avkastning på ALL
@@ -751,7 +751,7 @@ likviditet/soliditet/arbeidskapital · **Prøve 5.C** full nøkkeltallsanalyse m
   (aksepter alt som gir positivt bidrag), DB per knapphetsenhet ved flaskehals (prioriter
   produktet med høyest DB per knapp enhet), og aksepter/avvis spesialordre.
 - **Eksamensbelegg:** Sjanger S12 (4/8, ⭐⭐). Bygger direkte på CVP (Del 2). Prioritet: kunne.
-- **Forkunnskaper/kryssbok:** [Dekningsbidrag og CVP](/bok/nih-spm245/nih-spm245-2-1). «Sist
+- **Forkunnskaper/kryssbok:** [Dekningsbidrag og CVP](/nih-spm245/nih-spm245-2-1). «Sist
   du var her»: DB = pris − VEK. `collapsible` **Symbol- og formelliste:** DB per
   knapphetsenhet = DB per produkt / forbruk av knapp faktor per produkt; beslutningsregel
   ved ledig kapasitet (aksepter hvis DB > 0); spesialordre-regel.
@@ -900,7 +900,7 @@ nåverdi/diskontering · **Prøve 8.C** likviditetsbudsjett (avskrivning som fel
 - **Eksamensbelegg:** Selskapsformer S (5/8, ⭐⭐⭐), avskrivning (3/8, ⭐⭐). To rene teori-/
   regne-deloppgaver samlet. Prioritet: kunne.
 - **Forkunnskaper/kryssbok:** kap. 0.2; for avskrivning som kalkulatorisk kostnad: [Kostnads-
-  begreper](/bok/nih-spm245/nih-spm245-1-1). `collapsible` **Symbol- og formelliste:**
+  begreper](/nih-spm245/nih-spm245-1-1). `collapsible` **Symbol- og formelliste:**
   lineær avskrivning = (kostpris − restverdi)/levetid; saldoavskrivning = saldo · sats;
   årssiffermetoden (synkende brøk); variabel (per produsert enhet).
 - **Innholdskontrakt (flashcard-kilde):** **enkeltpersonforetak** (ubegrenset personlig
@@ -933,8 +933,8 @@ selskapsvalg med risiko/skatt + styringsnivåer · **Prøve 9.C** avskrivningsme
   skatteeffekt av rentekostnad.
 - **Eksamensbelegg:** Sjanger S10 (1/8, ny på hjemme 2526 — teller 20 % der). Prioritet:
   kjenne (men høy avkastning når den kommer). `(verifiser)` om den blir fast.
-- **Forkunnskaper/kryssbok:** [Bilagskontering med mva.](/bok/nih-spm245/nih-spm245-4-3),
-  [Kostnadsbegreper](/bok/nih-spm245/nih-spm245-1-1). `collapsible` **Symbol- og formelliste:**
+- **Forkunnskaper/kryssbok:** [Bilagskontering med mva.](/nih-spm245/nih-spm245-4-3),
+  [Kostnadsbegreper](/nih-spm245/nih-spm245-1-1). `collapsible` **Symbol- og formelliste:**
   periodiseringsprinsippet, mva.-satsen (25 %), balanseskillet OM/AM.
 - **Innholdskontrakt (flashcard-kilde):** **periodisering** (kostnad = periodisert utgift;
   inntekt føres ved levering), **mva-effekt** (utgående − inngående = betalbar mva.),
