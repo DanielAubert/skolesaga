@@ -1,0 +1,102 @@
+[
+ {
+  "question": "Hva returnerer `myst(4907)`?\n\n```python\ndef myst(n):\n    if n < 10:\n        return n\n    return n % 10 + myst(n // 10)\n```",
+  "options": [
+   "20",
+   "16",
+   "13",
+   "4907"
+  ],
+  "explanation": "Funksjonen plukker av siste siffer med `% 10` og sender resten videre, altså tverrsummen: $4 + 9 + 0 + 7 = 20$. Svaret 16 har glemt ett av sifrene, 13 er summen av de to første, og 4907 er tallet selv."
+ },
+ {
+  "question": "Hva returnerer `p(3, 4)`?\n\n```python\ndef p(x, n):\n    if n == 0:\n        return 1\n    return x * p(x, n - 1)\n```",
+  "options": [
+   "81",
+   "64",
+   "12",
+   "27"
+  ],
+  "explanation": "Funksjonen regner $x^{n}$, altså $3^{4} = 81$. Svaret 64 er $4^{3}$ med grunntall og eksponent byttet om, 12 er produktet av argumentene, og 27 er $3^{3}$, altså ett kall for lite."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ntekst = 'PADLEKLUBBEN'\nprint(tekst[3:8])\n```",
+  "options": [
+   "`LEKLU`",
+   "`LEKLUB`",
+   "`DLEKL`",
+   "`LEKL`"
+  ],
+  "explanation": "Utsnittet starter på indeks 3 og stopper FØR indeks 8, altså fem tegn. Svaret `LEKLUB` tar med stoppindeksen, `DLEKL` starter ett tegn for tidlig, og `LEKL` mister det siste."
+ },
+ {
+  "question": "Hva returnerer binærsøket for målet 30 i lista `[3, 8, 12, 17, 21, 30, 44]`, og hvor mange runder bruker det?",
+  "options": [
+   "Indeks 5 etter 2 runder",
+   "Indeks 5 etter 3 runder",
+   "Indeks 6 etter 2 runder",
+   "Indeks 4 etter 3 runder"
+  ],
+  "explanation": "Første runde ser på indeks 3 med verdien 17, som er for liten, så nedre grense flyttes til 4. Andre runde ser på indeks 5 og finner 30. Alternativene med tre runder legger til en runde som aldri kjøres, og de med annen indeks peker på 44 eller 21."
+ },
+ {
+  "question": "Hva er en algoritme?",
+  "options": [
+   "En entydig, endelig oppskrift som løser et problem",
+   "Et program skrevet i et bestemt programmeringsspråk",
+   "En matematisk formel som gir svaret i ett regnesteg",
+   "En beskrivelse av hvordan programmet ser ut på skjermen"
+  ],
+  "explanation": "Både entydigheten og endeligheten er en del av definisjonen. Programmet er én mulig realisering av algoritmen og ikke det samme som den, og de to siste beskriver en formel og et grensesnitt."
+ },
+ {
+  "question": "Omtrent hvor mange runder bruker binærsøk i verste fall på en sortert liste med 1 000 elementer?",
+  "options": [
+   "Rundt 10",
+   "Rundt 500",
+   "Rundt 32",
+   "Rundt 3"
+  ],
+  "explanation": "Hver runde halverer, og $\\log_{2} 1\\,000 \\approx 10$. Verdien 500 er halve lista, som er gjennomsnittet for sekvensielt søk, 32 er kvadratroten, og 3 er altfor lavt til å halvere seg ned fra tusen."
+ },
+ {
+  "question": "Hva er resultatet av binæraddisjonen $1011_{2} + 0110_{2}$?",
+  "options": [
+   "$10001_{2}$",
+   "$1101_{2}$",
+   "$10101_{2}$",
+   "$1111_{2}$"
+  ],
+  "explanation": "Regn om for kontroll: $11 + 6 = 17$, som er `10001` binært. De tre andre svarer til 13, 21 og 15, og oppstår når mente over to plasser blir borte eller kommer på feil sted."
+ },
+ {
+  "question": "Et ukomprimert bilde er $1024 \\times 768$ piksler med 24 bit per piksel. Hvor mange byte trengs?",
+  "options": [
+   "2 359 296 byte",
+   "786 432 byte",
+   "3 145 728 byte",
+   "18 874 368 byte"
+  ],
+  "explanation": "$1\\,024 \\times 768 = 786\\,432$ piksler, og 24 bit er 3 byte per piksel. Verdien 786 432 er bare antall piksler, 3 145 728 er regnet med 4 byte per piksel, og 18 874 368 er svaret i bit."
+ },
+ {
+  "question": "Et lydsignal inneholder frekvenser opp til 15 kHz. Hva er laveste samplingsfrekvens som holder?",
+  "options": [
+   "30 kHz",
+   "15 kHz",
+   "22,5 kHz",
+   "7,5 kHz"
+  ],
+  "explanation": "Nyquist-regelen krever minst dobbelt så høy samplingsfrekvens som høyeste frekvens i signalet. De tre andre svarene er samme frekvens, halvannen gang og halvparten — de tre nære fellene i denne sjangeren."
+ },
+ {
+  "question": "Hva skiller en MAC-adresse fra en IP-adresse?",
+  "options": [
+   "MAC-adressen hører til nettverkskortet, IP-adressen til plasseringen i nettet",
+   "MAC-adressen tildeles av leverandøren, IP-adressen av produsenten av kortet",
+   "MAC-adressen brukes bare trådløst, mens IP-adressen bare brukes i kabel",
+   "MAC-adressen er 32 bit lang, mens IP-adressen alltid er 128 bit lang"
+  ],
+  "explanation": "MAC-adressen følger maskinvaren og endrer seg ikke når maskinen flyttes, mens IP-adressen sier hvor i nettet maskinen er nå. Tildelingen går motsatt vei av det ene alternativet, begge brukes i trådløse og kablede nett, og bitbreddene stemmer ikke."
+ }
+]

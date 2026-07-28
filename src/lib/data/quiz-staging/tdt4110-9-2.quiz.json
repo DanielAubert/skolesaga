@@ -1,0 +1,102 @@
+[
+ {
+  "question": "Hva returnerer `myst(84, 36)`?\n\n```python\ndef myst(a, b):\n    if b == 0:\n        return a\n    return myst(b, a % b)\n```",
+  "options": [
+   "12",
+   "36",
+   "6",
+   "24"
+  ],
+  "explanation": "Dette er Euklids algoritme for største felles divisor: kallene går 84 og 36, så 36 og 12, så 12 og 0, som treffer grunntilfellet. Svaret 36 er det andre argumentet, 6 er en divisor som ikke er den største, og 24 er ingen felles divisor i det hele tatt."
+ },
+ {
+  "question": "Hva returnerer `f(0, 1, 7)`?\n\n```python\ndef f(a, b, n):\n    if n == 0:\n        return a\n    return f(b, a + b, n - 1)\n```",
+  "options": [
+   "13",
+   "21",
+   "8",
+   "7"
+  ],
+  "explanation": "De to tallene flyttes framover som i Fibonacci-rekka, og etter sju kall står `a` på 13. Svaret 21 er verdien `b` har på samme tidspunkt, 8 er ett kall for lite, og 7 er antallet kall og ikke resultatet."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nt1 = 6\nt2 = 8\nn = 1\nwhile n % t1 != 0 or n % t2 != 0:\n    n = n + 1\nprint(n)\n```",
+  "options": [
+   "24",
+   "48",
+   "6",
+   "14"
+  ],
+  "explanation": "Løkka fortsetter så lenge minst én av restene er ulik null, og stopper på det minste tallet som er delelig med både 6 og 8. Svaret 48 er produktet av tallene, 6 er det første tallet som bare deler den ene, og 14 er summen av dem."
+ },
+ {
+  "question": "Hvilken linje hører hjemme der `#KODE1` står, når funksjonen skal utføre binærsøk?\n\n```python\nwhile imin <= imax:\n    imid = #KODE1\n```",
+  "options": [
+   "`(imin + imax) // 2`",
+   "`(imin + imax) / 2`",
+   "`len(sortert) // 2`",
+   "`(imax - imin) // 2`"
+  ],
+  "explanation": "Midtpunktet må være et heltall, siden det brukes som indeks — derfor heltallsdeling. Formen med `/` gir et flyttall som ikke kan brukes som indeks, `len(sortert) // 2` flytter seg aldri og gir uendelig løkke, og `(imax - imin) // 2` regner halve avstanden i stedet for midtpunktet."
+ },
+ {
+  "question": "Hvordan skrives $-5$ som 8 bits toer-komplement?",
+  "options": [
+   "`11111011`",
+   "`11111010`",
+   "`10000101`",
+   "`01111011`"
+  ],
+  "explanation": "Skriv 5 som `00000101`, inverter alle bit til `11111010`, og legg til 1. Svaret `11111010` har hoppet over det siste steget, `10000101` er den eldre formen med eget fortegnsbit, og `01111011` har fortegnsbitet på null og er dermed positivt."
+ },
+ {
+  "question": "Hvor mange bit trengs som et minimum for å gi 1 000 ulike verdier hver sin kode?",
+  "options": [
+   "10 bit",
+   "9 bit",
+   "11 bit",
+   "8 bit"
+  ],
+  "explanation": "$2^{9} = 512$ er for lite og $2^{10} = 1\\,024$ holder. Svaret 9 bit rekker ikke, 11 bit er én mer enn nødvendig når spørsmålet ber om minimum, og 8 bit gir bare 256 verdier."
+ },
+ {
+  "question": "Hva er $C7_{16}$ skrevet binært?",
+  "options": [
+   "`11000111`",
+   "`10100111`",
+   "`11001110`",
+   "`10110111`"
+  ],
+  "explanation": "Hvert heksadesimalt siffer er nøyaktig fire bit: C er 12 og gir `1100`, og 7 gir `0111`. De tre andre bommer på det ene eller det andre nibblet, og kan avsløres ved å regne tilbake til desimal."
+ },
+ {
+  "question": "Hva kjennetegner vannfallsmodellen?",
+  "options": [
+   "Fasene følger etter hverandre, og man går ikke tilbake",
+   "Utviklingen går i sykluser med risikovurdering hver runde",
+   "Systemet leveres i deler som settes i drift hver for seg",
+   "Kravene skrives om for hver iterasjon sammen med kunden"
+  ],
+  "explanation": "Vannfallet renner én vei, med avsluttede faser. Sykluser med risikovurdering beskriver spiralmodellen, levering i deler beskriver inkrementell utvikling, og stadig omskriving av krav hører til de smidige metodene."
+ },
+ {
+  "question": "Hvilken kjøretidskompleksitet har binærsøk i en sortert liste med $n$ elementer?",
+  "options": [
+   "$O(\\log n)$",
+   "$O(n)$",
+   "$O(1)$",
+   "$O(n^{2})$"
+  ],
+  "explanation": "Binærsøk halverer søkeområdet hver runde, så antall runder vokser logaritmisk. $O(n)$ er sekvensielt søk, $O(1)$ ville betydd like raskt uansett størrelse, og $O(n^{2})$ er klassen til boblesortering."
+ },
+ {
+  "question": "Hva er forutsetningen for at binærsøk skal virke?",
+  "options": [
+   "At lista er sortert",
+   "At lista inneholder tall og ikke tekst",
+   "At elementet man leter etter, finnes i lista",
+   "At lista er kortere enn noen tusen elementer"
+  ],
+  "explanation": "Uten sortering vet ikke søket hvilken halvdel det skal fortsette i. Datatypen spiller ingen rolle så lenge elementene kan sammenlignes, lengden spiller ingen rolle, og at elementet mangler er tvert imot et tilfelle søket skal håndtere ved å svare $-1$."
+ }
+]
