@@ -1,0 +1,360 @@
+{
+ "id": "tdt4110-4-1",
+ "courseId": "tdt4110",
+ "chapterNumber": "4.1",
+ "title": "Filinnlesing: les fil → 2D-tabell eller streng",
+ "description": "Lese en tekstfil linje for linje og bygge en 2D-tabell (liste av lister) eller én streng — det kanoniske første leddet i hver programmeringsoppgave.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "lese en tekstfil linje for linje og bygge en 2D-liste med én rad per linje",
+  "rense og dele en linje i riktig rekkefølge og konvertere tallfeltene med `int()` eller `float()`",
+  "hoppe over en overskriftsrad og finne kolonnen ved navn i stedet for å anta posisjonen",
+  "velge bevisst mellom å lese fila som tabell, som ordbok eller som én streng"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-4-1-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette er kapitlet med flest sikre poeng per leste side i hele boka.**\n\n- **Filinnlesing står i 100 % av settene (10 av 10 sittinger i arkivet 2014–2019)**, og er nesten alltid **deloppgave a** i den store programmeringsoppgaven. Klarer du ikke å lese fila, stopper resten av kjeden.\n- Sjangeren heter **E — filinnlesing**, altså «les fila og bygg datastrukturen». Den er verdt **5–10 %** av settet alene, og den er den ene deloppgaven du kan øve deg til full uttelling på.\n- Mønsteret er helt fast: åpne fila, gå gjennom den linje for linje, rens linja, del den i felt, konverter tallene, legg raden i tabellen, lukk fila. Sju steg som er de samme uansett om oppgaven handler om bussruter, bibliotekutlån eller strømpriser.\n- Du møter også **sjanger B — kodesporing**, altså «hva skriver dette programmet ut?», med fillesing som innpakning.\n\n**Prioritet: må sitte** (høyeste av bokas tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til»).\n\nTre feil tar nesten alle poengene som mistes her, og alle tre er stumme — programmet krasjer ikke, det svarer bare feil:\n\n- **#1** — glemt `int()` eller `float()`, så tallene fortsatt er tekst.\n- **#2** — glemt `.strip()`, så linjeskiftet henger igjen i siste felt.\n- **#3** — feil skilletegn i `.split()`, så linja ikke deles slik du tror.\n\nKapitlet tar ~55 minutter og er delt i seks løkker med tidsanslag. Det er helt greit å ta det over to økter — det naturlige skillet er etter løkke 3."
+  },
+  {
+   "id": "tdt4110-4-1-forkunnskaper",
+   "type": "text",
+   "content": "**Forkunnskaper**\n\n- [kap. 3.2](/tdt4110/tdt4110-3-2) — 2D-lister: en liste der hvert element selv er en liste, altså en tabell med rader og kolonner. Det er strukturen vi bygger her.\n- [kap. 3.3](/tdt4110/tdt4110-3-3) — strenger: `.strip()`, `.split()` og indeksering. Det er verktøyene som gjør én tekstlinje om til én rad.\n- [kap. 3.5](/tdt4110/tdt4110-3-5) — ordbøker: brukes i løkke 5, der vi leser fila inn i en ordbok i stedet for en tabell.\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — konvertering med `int()` og `float()`.\n\nVil du se det samme stoffet i en annen innpakning, går det an å lese [Filinnlesing linje for linje](/in1000/in1000-7-1) i IN1000-boka ved siden av. Den bruker en litt annen løkkeform, men jobben er den samme."
+  },
+  {
+   "id": "tdt4110-4-1-l1-intro",
+   "type": "text",
+   "content": "## Løkke 1 — Å åpne en fil og lese den linje for linje (~10 min)\n\nEn værstasjon lagrer døgnmålingene sine i en helt vanlig tekstfil. Den ser slik ut:\n\n**Innholdet i `maalinger.txt`:**\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\nTre linjer. Hver linje har et stedsnavn, en temperatur og en luftfuktighet, skilt med semikolon. Det er alt en «datafil» er i dette faget: tekst, én rad per linje, med et skilletegn mellom feltene.\n\nEn tekstfil leses **ovenfra og ned, én linje om gangen**. Du kan ikke hoppe fram og tilbake i den, og du kan ikke lese den samme linja to ganger uten å åpne fila på nytt."
+  },
+  {
+   "id": "tdt4110-4-1-def-tekstfil",
+   "type": "definition",
+   "title": "Tekstfil, linje og linjeskift",
+   "content": "En **tekstfil** er en sammenhengende tekst der linjene skilles av et usynlig **linjeskifttegn**, som i Python skrives `'\\n'`. Tegnet er én bokstav på lik linje med `a` og `;` — det ser du bare ikke.\n\nDerfor gjelder to ting som forvirrer alle første gang:\n\n- Hver linje du leser fra en fil ender på `'\\n'` (den aller siste kan mangle det).\n- `print` legger på sitt eget linjeskift i tillegg. Skriver du ut en ulest-renset linje, får du en blank linje under.\n\nLøsningen på begge er `.strip()`, som du møter i løkke 2."
+  },
+  {
+   "id": "tdt4110-4-1-def-open",
+   "type": "definition",
+   "title": "`open(filnavn, 'r')`",
+   "content": "Åpner en tekstfil for **lesing** og gir deg et **filobjekt** — en peker som husker hvor langt du har lest.\n\n`'r'` står for *read*. Det er standardverdien, så `open('maalinger.txt')` betyr det samme, men boka skriver modusen ut fordi du snart skal skrive `'w'`, `'a'`, `'wb'` og `'rb'` i samme posisjon.\n\n```python\nf = open('maalinger.txt', 'r')\nforste = f.readline()\nprint(forste)\nf.close()\n```\n\n**Utskrift:**\n```\nBlindern;12.4;61\n\n```\n\nLegg merke til den **blanke linja** i utskriften: linja fra fila har med seg sitt eget `'\\n'`, og `print` legger på ett til.\n\nFilnavnet er en helt vanlig streng, så du kan bygge det: `navn + '.txt'`. Finnes ikke fila, stopper programmet med en feil som heter `FileNotFoundError` — den håndterer vi i [kap. 4.3](/tdt4110/tdt4110-4-3)."
+  },
+  {
+   "id": "tdt4110-4-1-def-close",
+   "type": "definition",
+   "title": "`f.close()`",
+   "content": "Lukker fila og frigjør den. Når du **leser**, er trekket for en glemt `close()` lite; når du **skriver**, kan det koste selve dataene ([kap. 4.2](/tdt4110/tdt4110-4-2)).\n\nRegelen i denne boka: hver `open` har en `close`, og `close` står **etter** løkka — ikke inne i den. Lukker du fila inne i løkka, krasjer neste runde."
+  },
+  {
+   "id": "tdt4110-4-1-def-forloop-fil",
+   "type": "definition",
+   "title": "`for linje in f:`",
+   "content": "Går gjennom fila **én linje av gangen**, uten at du trenger en teller eller en stoppbetingelse. Løkka avslutter av seg selv når fila er slutt.\n\nVariabelen `linje` er en streng med hele linja, inkludert linjeskiftet på slutten.\n\n```python\nf = open('maalinger.txt', 'r')\nfor linje in f:\n    print(linje.strip())\nf.close()\n```\n\n**Utskrift:**\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\nDette er formen boka bruker overalt. Den er kortere og tryggere enn `while`-varianten med `readline()`, fordi du ikke kan glemme å lese neste linje.\n\n**Navnekollisjon å være klar over:** `f` er filobjektet her. `f` brukes også som prefikset i en f-streng (`f'{x:.2f}'`, se [kap. 3.4](/tdt4110/tdt4110-3-4)). De to har ingenting med hverandre å gjøre, og du ser forskjellen på at f-strengen har en fnutt rett etter `f`."
+  },
+  {
+   "id": "tdt4110-4-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Les fila og tell linjene",
+   "problem": "Skriv et program som leser `maalinger.txt`, skriver ut hver linje med linjenummer foran, og til slutt sier hvor mange linjer fila hadde.",
+   "solution": "**Innholdet i `maalinger.txt`:**\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\nSelve løkka er hele oppskriften; telleren er en vanlig teller fra [kap. 1.3](/tdt4110/tdt4110-1-3).\n\n```python\nf = open('maalinger.txt', 'r')\nantall = 0\nfor linje in f:\n    antall = antall + 1\n    print(antall, linje.strip())\nf.close()\nprint('Antall linjer:', antall)\n```\n\n**Utskrift:**\n```\n1 Blindern;12.4;61\n2 Kjevik;15.1;54\n3 Værnes;9.8;73\nAntall linjer: 3\n```\n\n**Slik ville sensor sett på det:** fire ting gir uttelling hver for seg — `open` før løkka, `for linje in f:`, det du gjør med linja, og `close` etter løkka. Glemmer du `close()`, er trekket lite. Setter du `close()` **inne** i løkka, stopper programmet på andre runde, og det koster mer.\n\nDette er også én av flere korrekte løsninger: du kunne telt med `len(f.readlines())` i stedet. Begge gir full pott — sensor er ute etter riktig struktur, ikke én bestemt formulering."
+  },
+  {
+   "id": "tdt4110-4-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — sjanger B, kodesporing: «hva skriver dette programmet ut?».) Hva skriver dette programmet ut? Skriv utskriften nøyaktig, med linjeskift slik terminalen viser den.\n\n```python\nlinje = 'Kjevik;15.1;54\\n'\nprint(linje)\nprint(linje.strip())\nprint('ferdig')\n```",
+    "solution": "**Sporingstavle.** Tre `print`-setninger, i rekkefølge:\n\n| Setning | Hva verdien er | Hva som havner på skjermen |\n|---|---|---|\n| `print(linje)` | `'Kjevik;15.1;54\\n'` | teksten, og så **to** linjeskift (ett fra strengen, ett fra `print`) |\n| `print(linje.strip())` | `'Kjevik;15.1;54'` | teksten, og så ett linjeskift |\n| `print('ferdig')` | `'ferdig'` | `ferdig` og ett linjeskift |\n\n```python\nlinje = 'Kjevik;15.1;54\\n'\nprint(linje)\nprint(linje.strip())\nprint('ferdig')\n```\n\n**Utskrift:**\n```\nKjevik;15.1;54\n\nKjevik;15.1;54\nferdig\n```\n\nDen blanke linja mellom de to første er hele poenget: den er det ekstra linjeskiftet som fulgte med fra fila.\n\n**Fellenoten:** dette er feilkode **#2** i miniatyr — glemt `.strip()`, så linjeskiftet henger med. På eksamen ser du feilen som en utskrift full av blanke linjer, eller som en sammenligning mot `'54'` som svarer usant.",
+    "hints": [
+     "Hvor mange linjeskift er det til sammen i `print(linje)` — ett eller to?",
+     "`.strip()` gir en **ny** streng; den endrer ikke `linje`."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-1-l2-intro",
+   "type": "text",
+   "content": "## Løkke 2 — Rens først, del så (~12 min)\n\nEn linje fra fila er sjelden interessant som én tekst. Du vil ha tak i **feltene**: stedet, temperaturen, fuktigheten.\n\nÅ **parse** en linje betyr nettopp det: å tolke en tekstlinje og hente ut feltene den består av. Det gjøres i to steg, og rekkefølgen er fast: **rens først med `.strip()`, del så med `.split()`.**"
+  },
+  {
+   "id": "tdt4110-4-1-def-parsing",
+   "type": "definition",
+   "title": "Parsing (å tolke en linje og hente ut feltene)",
+   "content": "**Parsing** er å gjøre om en tekstlinje til de enkeltverdiene den representerer.\n\nLinja `'Kjevik;15.1;54'` er for datamaskinen bare 14 tegn. At det er et sted, en temperatur og en luftfuktighet, er noe *du* vet — og parsingen er der du forteller programmet det.\n\nI dette faget er parsingen alltid den samme lenken: `linje.strip().split(separator)`, etterfulgt av `int()` eller `float()` på tallfeltene."
+  },
+  {
+   "id": "tdt4110-4-1-def-separator",
+   "type": "definition",
+   "title": "Separator (skilletegn)",
+   "content": "**Separatoren** er tegnet som skiller feltene i en linje. Den er en del av **dataformatet**, ikke noe du kan velge.\n\nDe tre du møter på eksamen er semikolon (`';'`), komma (`','`) og tabulator (`'\\t'`, ett tabulatortegn). Mellomrom er den fjerde, og den har en egen form: `.split()` uten argument.\n\nSkriv aldri separatoren på slump. Se på fila først — det tar to sekunder og redder hele oppgaven."
+  },
+  {
+   "id": "tdt4110-4-1-def-strip",
+   "type": "definition",
+   "title": "`.strip()`",
+   "content": "Gir en **ny** streng uten blanktegn i begge ender — mellomrom, tabulator og linjeskift.\n\n```python\nraa = 'Kjevik;15.1;54\\n'\nprint(len(raa))\nren = raa.strip()\nprint(len(ren))\nprint(ren)\n```\n\n**Utskrift:**\n```\n15\n14\nKjevik;15.1;54\n```\n\nLengden går fra 15 til 14: linjeskiftet er **ett** tegn, og det var det eneste som forsvant. Semikolonene inni linja blir aldri rørt, fordi `.strip()` bare tar fra endene.\n\nOriginalen `raa` er uendret — strenger kan ikke endres, du får alltid en ny."
+  },
+  {
+   "id": "tdt4110-4-1-def-strip-tegn",
+   "type": "definition",
+   "title": "`.strip(tegn)`",
+   "content": "Med et argument fjerner `.strip()` de tegnene du oppgir, fra begge ender, i stedet for blanktegn:\n\n```python\nprint('***Blindern***'.strip('*'))\nprint('  Kjevik  '.strip())\nprint('..12.4..'.strip('.'))\n```\n\n**Utskrift:**\n```\nBlindern\nKjevik\n12.4\n```\n\nMerk at argumentet er en **mengde tegn**, ikke en tekst som må stå samlet: `.strip('.*')` fjerner både punktum og stjerner. Varianten uten argument er den du bruker i 99 % av filoppgavene."
+  },
+  {
+   "id": "tdt4110-4-1-def-split",
+   "type": "definition",
+   "title": "`.split(separator)`",
+   "content": "Deler en streng i en **liste** av felt, med separatoren som skille. Separatoren selv blir borte.\n\n```python\nfelt = 'Kjevik;15.1;54'.split(';')\nprint(felt)\nprint(len(felt))\nprint(felt[0], felt[2])\n```\n\n**Utskrift:**\n```\n['Kjevik', '15.1', '54']\n3\nKjevik 54\n```\n\nAntall felt er alltid antall separatorer pluss én. Har en linje tre felt og du ber om `felt[3]`, stopper programmet med `IndexError`.\n\nEr separatoren fraværende i strengen, får du en liste med **ett** element — hele strengen. Det er det du ser når du har brukt feil skilletegn."
+  },
+  {
+   "id": "tdt4110-4-1-def-split-blank",
+   "type": "definition",
+   "title": "`.split()` uten argument",
+   "content": "Uten argument deler `.split()` på **vilkårlig mange blanktegn** — ett mellomrom eller ti, og tabulator også. Tomme felt oppstår ikke.\n\n```python\nprint('Blindern   12.4      61'.split())\nprint('Blindern 12.4 61'.split(' '))\nprint('Blindern   12.4      61'.split(' '))\n```\n\n**Utskrift:**\n```\n['Blindern', '12.4', '61']\n['Blindern', '12.4', '61']\n['Blindern', '', '', '12.4', '', '', '', '', '', '61']\n```\n\nSe på den siste: med `' '` som eksplisitt separator blir hvert ekstra mellomrom til et **tomt** felt. Derfor er `.split()` uten argument den riktige når fila er kolonnejustert med varierende mellomrom."
+  },
+  {
+   "id": "tdt4110-4-1-def-strip-split",
+   "type": "definition",
+   "title": "`linje.strip().split(sep)`",
+   "content": "Bokas parselenke, lest fra venstre: `.strip()` gir en ny streng uten linjeskiftet, og `.split(sep)` deler **den** i felt.\n\n```python\nlinje = 'Værnes;9.8;73\\n'\nfelt = linje.strip().split(';')\nprint(felt)\nprint(felt[-1] == '73')\n```\n\n**Utskrift:**\n```\n['Værnes', '9.8', '73']\nTrue\n```\n\nRekkefølgen er fast. Gjør du det motsatt — `linje.split(';')` og så `.strip()` på hele lista — får du ikke engang lov: en liste har ingen `.strip()`."
+  },
+  {
+   "id": "tdt4110-4-1-thm-fil-til-tabell",
+   "type": "theorem",
+   "title": "Kodemønster: les fil → 2D-tabell",
+   "content": "Bokas viktigste mønster. Det skal sitte så godt at du kan skrive det på papir uten å tenke, for det er deloppgave a i hver eneste programmeringsoppgave.\n\n```text\ndef les_tabell(filnavn):\n    tabell = []\n    f = open(filnavn, 'r')\n    for linje in f:\n        tabell.append(linje.strip().split(separator))\n    f.close()\n    return tabell\n```\n\nBlokken er en mal med en plassholder (`separator`) og er derfor merket som ikke-kjørbar.\n\nSeks faste deler, og hver av dem gir uttelling for seg:\n\n1. **Tom liste** før løkka — den blir tabellen.\n2. **`open`** før løkka.\n3. **`for linje in f:`**.\n4. **`.strip().split(...)`** i den rekkefølgen, med riktig separator.\n5. **`append`** av raden — én rad per linje.\n6. **`close`** etter løkka, og **`return tabell`** til slutt.\n\nGlemmer du `return`, får kalleren `None`, og resten av programmet ditt krasjer på noe som ser ut som en helt annen feil."
+  },
+  {
+   "id": "tdt4110-4-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Fra fil til 2D-tabell",
+   "problem": "Skriv `les_tabell(filnavn)` som leser `maalinger.txt` og returnerer en 2D-liste med én rad per linje og ett felt per kolonne. Skriv ut tabellen, antall rader, antall kolonner og feltet i rad 1, kolonne 0.",
+   "solution": "**Innholdet i `maalinger.txt`:**\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\n```python\ndef les_tabell(filnavn):\n    tabell = []\n    f = open(filnavn, 'r')\n    for linje in f:\n        tabell.append(linje.strip().split(';'))\n    f.close()\n    return tabell\n\ntabell = les_tabell('maalinger.txt')\nprint(tabell)\nprint(len(tabell), len(tabell[0]))\nprint(tabell[1][0])\n```\n\n**Utskrift:**\n```\n[['Blindern', '12.4', '61'], ['Kjevik', '15.1', '54'], ['Værnes', '9.8', '73']]\n3 3\nKjevik\n```\n\n**Les utskriften nøye.** Ytterlista har tre elementer — én per linje. Hvert element er selv en liste med tre strenger. `len(tabell)` er antall **rader**, `len(tabell[0])` er antall **kolonner** i første rad.\n\n**Alle feltene er strenger**, også `'15.1'` og `'54'`. Det er neste løkkes tema, og det er feilkode #1 i praksis.\n\n**Slik ville sensor sett på det:** dette er mønsterets seks deler, satt rett inn. Har du strukturen riktig, men skriver `.split(',')` fordi du leste fila for fort, får du fortsatt god uttelling på deloppgaven — riktig overordnet struktur belønnes selv med en slik feil. Men de påfølgende deloppgavene blir vanskeligere, for du drar feilen med deg."
+  },
+  {
+   "id": "tdt4110-4-1-warn-strip-sep",
+   "type": "warning",
+   "title": "Typiske feil #2 og #3 — glemt `.strip()` og feil separator",
+   "content": "Begge er **stumme**: programmet krasjer ikke, det svarer bare feil.\n\n**#2 — glemt `.strip()`, så linjeskiftet henger med i siste felt:**\n\n```python\nlinje = 'Kjevik;15.1;54\\n'\nuten = linje.split(';')\nmed = linje.strip().split(';')\nprint(uten)\nprint(med)\nprint(uten[2] == '54', med[2] == '54')\n```\n\n**Utskrift:**\n```\n['Kjevik', '15.1', '54\\n']\n['Kjevik', '15.1', '54']\nFalse True\n```\n\nSe på siste felt. Uten rensing er det `'54\\n'`, og sammenligningen med `'54'` svarer usant — selv om det «ser riktig ut» når du skriver det ut. Feilen rammer **bare siste felt**, og det gjør den ekstra lumsk.\n\n**#3 — feil separator:**\n\n```python\nlinje = 'Kjevik;15.1;54'\nprint(linje.split(','))\nprint(len(linje.split(',')))\n```\n\n**Utskrift:**\n```\n['Kjevik;15.1;54']\n1\n```\n\nDelingen på komma finner ingen komma, og du får **ett** felt med hele linja. Neste linje i programmet ditt ber om `felt[1]` og stopper med `IndexError: list index out of range`.\n\n**Motgiften mot begge:** skriv `linje.strip().split(sep)` som én lenke, og skriv ut `felt` for den første linja mens du utvikler. Da ser du med én gang om delingen ble som ventet."
+  },
+  {
+   "id": "tdt4110-4-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger E — filinnlesing.) Fila `glass.txt` har én linje per by med formen `by;antall`:\n\n**Innholdet i `glass.txt`:**\n```\nBergen;120\nTromsø;45\nStavanger;88\n```\n\n**a)** Skriv `les_linjer(filnavn)` som returnerer en liste med **rensede** linjer, altså `['Bergen;120', 'Tromsø;45', 'Stavanger;88']`.\n\n**b)** Hva må du endre i funksjonen for å få en 2D-tabell i stedet?",
+    "solution": "**a)** Samme mønster som tabellen, men uten delingen:\n\n```python\ndef les_linjer(filnavn):\n    linjer = []\n    f = open(filnavn, 'r')\n    for linje in f:\n        linjer.append(linje.strip())\n    f.close()\n    return linjer\n\nprint(les_linjer('glass.txt'))\n```\n\n**Utskrift:**\n```\n['Bergen;120', 'Tromsø;45', 'Stavanger;88']\n```\n\n**b)** Bytt `linje.strip()` med `linje.strip().split(';')` i `append`-linja. Én tilføyelse, og resultatet går fra en liste av strenger til en liste av lister.\n\nDet er verdt å legge merke til hvor lite som skiller de to: hele forskjellen mellom «fila som linjer» og «fila som tabell» er ett metodekall.",
+    "hints": [
+     "Start fra mønsteret: tom liste, `open`, `for linje in f:`, `append`, `close`, `return`.",
+     "Det eneste som skiller a) fra tabellmønsteret, står i `append`-linja."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Fila `glass.txt` inneholder:\n\n```\nBergen;120\nTromsø;45\nStavanger;88\n```\n\nHva skriver programmet ut?\n\n```python\nf = open('glass.txt', 'r')\nbyer = []\nfor linje in f:\n    felt = linje.split(';')\n    byer.append(felt[0])\nf.close()\nprint(byer)\nprint(len(byer))\n```",
+    "solution": "**Sporingstavle.** Én rad per linje i fila. Merk at `.strip()` **ikke** er med i koden:\n\n| Linje fra fila | `felt` etter delingen | `byer` etter `append` |\n|---|---|---|\n| `'Bergen;120\\n'` | `['Bergen', '120\\n']` | `['Bergen']` |\n| `'Tromsø;45\\n'` | `['Tromsø', '45\\n']` | `['Bergen', 'Tromsø']` |\n| `'Stavanger;88\\n'` | `['Stavanger', '88\\n']` | tre elementer |\n\n```python\nf = open('glass.txt', 'r')\nbyer = []\nfor linje in f:\n    felt = linje.split(';')\n    byer.append(felt[0])\nf.close()\nprint(byer)\nprint(len(byer))\n```\n\n**Utskrift:**\n```\n['Bergen', 'Tromsø', 'Stavanger']\n3\n```\n\n**Fellenoten:** her går det bra **ved et uhell**. Feilkode #2 (glemt `.strip()`) rammer bare det **siste** feltet, og programmet plukker det første. Hadde koden brukt `felt[1]`, ville lista blitt `['120\\n', '45\\n', '88\\n']` — og en sammenligning mot `'120'` ville svart usant.\n\nDelvis riktig sporing gir delvis uttelling: får du lista riktig, men bommer på `len`, mister du bare den ene linja.",
+    "hints": [
+     "Deles hver linje før eller etter rensing her — og hvilket felt plukkes ut?",
+     "Tegn tabellen med én rad per linje i fila, og skriv `felt` ordrett med anførselstegn."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-1-l3-intro",
+   "type": "text",
+   "content": "## Løkke 3 — Konverter tallene (~10 min)\n\nAlt som kommer fra en fil er **tekst**. Også `'54'`. Også `'15.1'`. Filer inneholder ikke tall — de inneholder tegn som ser ut som tall.\n\nSkal du regne, sammenligne eller sortere, må feltet gjennom `int()` eller `float()` først. Dette er feilkode **#1**, og det er den hyppigste feilen i hele faget.\n\n*— naturlig pausepunkt: har du lest hit, har du hele deloppgave a. Resten av kapitlet er varianter. —*"
+  },
+  {
+   "id": "tdt4110-4-1-def-konvertering",
+   "type": "definition",
+   "title": "`int(s)` og `float(s)` etter innlesing",
+   "content": "`int(s)` gjør en streng om til et heltall, `float(s)` til et desimaltall. Begge stopper programmet med `ValueError` hvis strengen ikke ser ut som et tall.\n\n```python\nfelt = ['Kjevik', '15.1', '54']\nprint(felt[2] + felt[2])\nprint(int(felt[2]) + int(felt[2]))\nprint(float(felt[1]) * 2)\n```\n\n**Utskrift:**\n```\n5454\n108\n30.2\n```\n\nFørste linje er feilen i ren form: `+` på to strenger **skjøter** dem sammen. Programmet krasjer ikke — det svarer `5454`.\n\nTommelfingerregel: **konverter i samme linje som du henter feltet**, mens du husker hva kolonnen betyr. Bruk `float` for alt som kan ha desimaler (pris, temperatur, tid) og `int` for antall."
+  },
+  {
+   "id": "tdt4110-4-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Konverter under innlesingen",
+   "problem": "Utvid `les_tabell` slik at temperaturen blir et flyttall og fuktigheten et heltall, mens stedsnavnet forblir tekst. Regn deretter ut gjennomsnittstemperaturen.",
+   "solution": "**Innholdet i `maalinger.txt`:**\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\n```python\ndef les_maalinger(filnavn):\n    tabell = []\n    f = open(filnavn, 'r')\n    for linje in f:\n        felt = linje.strip().split(';')\n        tabell.append([felt[0], float(felt[1]), int(felt[2])])\n    f.close()\n    return tabell\n\ndata = les_maalinger('maalinger.txt')\nprint(data)\nsum_temp = 0\nfor rad in data:\n    sum_temp = sum_temp + rad[1]\nprint('Snitt:', sum_temp / len(data))\n```\n\n**Utskrift:**\n```\n[['Blindern', 12.4, 61], ['Kjevik', 15.1, 54], ['Værnes', 9.8, 73]]\nSnitt: 12.433333333333332\n```\n\n**Nå står tallene uten anførselstegn i utskriften.** Det er den enkleste måten å se at konverteringen faktisk skjedde.\n\n**Snittet har mange desimaler.** Det er slik flyttall er — $37{,}3 / 3$ kan ikke skrives eksakt binært, og Python viser deg hele svaret. Vil du ha to desimaler i en rapport, formaterer du ved **utskrift**, ikke ved lagring: `'{:.2f}'.format(sum_temp / len(data))` eller `f'{sum_temp / len(data):.2f}'` (se [kap. 3.4](/tdt4110/tdt4110-3-4)). Begge former er gyldige; f-strengen er den nyere.\n\n**Slik ville sensor sett på det:** her ligger poengene på at hvert felt får riktig type, og på at stedsnavnet **ikke** konverteres. En løsning som konverterer i en egen løkke etterpå, gir like full pott — det finnes flere riktige veier."
+  },
+  {
+   "id": "tdt4110-4-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — filinnlesing med konvertering.) Fila `stromspris.txt` har én linje per prisområde, og feltene er skilt med **ett tabulatortegn**:\n\n**Innholdet i `stromspris.txt`:**\n```\nNO1\t0.87\nNO3\t0.42\nNO5\t0.55\n```\n\n**a)** Skriv `les_priser(filnavn)` som returnerer en 2D-liste der prisen er et flyttall.\n\n**b)** Skriv koden som regner ut den høyeste prisen i tabellen, uten å bruke `max`.\n\n**c)** Skriv den samme utregningen med `max`.",
+    "solution": "**a)** Separatoren skrives `'\\t'` — det er tabulatortegnet, skrevet med omvendt skråstrek og `t`:\n\n```python\ndef les_priser(filnavn):\n    tabell = []\n    f = open(filnavn, 'r')\n    for linje in f:\n        felt = linje.strip().split('\\t')\n        tabell.append([felt[0], float(felt[1])])\n    f.close()\n    return tabell\n\npriser = les_priser('stromspris.txt')\nprint(priser)\n```\n\n**Utskrift:**\n```\n[['NO1', 0.87], ['NO3', 0.42], ['NO5', 0.55]]\n```\n\n**b)** Den eksplisitte løkkevarianten, som starter med `None` og derfor også takler en tom tabell:\n\n```python\ndef les_priser(filnavn):\n    tabell = []\n    f = open(filnavn, 'r')\n    for linje in f:\n        felt = linje.strip().split('\\t')\n        tabell.append([felt[0], float(felt[1])])\n    f.close()\n    return tabell\n\npriser = les_priser('stromspris.txt')\nhoyest = None\nfor rad in priser:\n    if hoyest is None or rad[1] > hoyest:\n        hoyest = rad[1]\nprint(hoyest)\n```\n\n**Utskrift:**\n```\n0.87\n```\n\n**c)** Snarveien, med en løkke som plukker ut priskolonnen først:\n\n```python\npriser = [['NO1', 0.87], ['NO3', 0.42], ['NO5', 0.55]]\nkolonne = []\nfor rad in priser:\n    kolonne.append(rad[1])\nprint(max(kolonne))\n```\n\n**Utskrift:**\n```\n0.87\n```\n\n**Begge gir full pott.** NTNU-fasiten bruker `max`, `min`, `sum` og `sorted` fritt, og det gjør denne boka også. Poenget med å kunne den eksplisitte varianten er at den er den du trenger når kriteriet er sammensatt — «høyest pris blant områdene som starter på NO».\n\n**Fellenoten:** hadde du brukt `.split()` uten argument her, ville det faktisk gått bra, siden tabulator er et blanktegn. Med `.split(';')` ville hver linje blitt **ett** felt, og `float(felt[1])` ville stoppet med `IndexError` (#3).",
+    "hints": [
+     "Tabulatortegnet skrives `'\\t'` inne i fnutter — ett tegn, ikke to.",
+     "I b): start med `hoyest = None` og bruk `if hoyest is None or ...`."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-1-l4-intro",
+   "type": "text",
+   "content": "## Løkke 4 — Overskriftsrad, og hele fila på én gang (~10 min)\n\nMange datafiler har en **overskriftsrad** øverst som navngir kolonnene. Den skal ikke inn i tabellen — den er metadata, ikke data. Prøver du å konvertere den, krasjer programmet på ordet `dager`.\n\nTil gjengjeld er overskriftsraden en gave: den lar deg finne kolonnen **ved navn** i stedet for å anta hvilken posisjon den har."
+  },
+  {
+   "id": "tdt4110-4-1-def-overskriftsrad",
+   "type": "definition",
+   "title": "Overskriftsrad (header)",
+   "content": "Den første linja i en datafil, som navngir kolonnene i stedet for å inneholde data.\n\nDu kjenner den igjen på at feltene er ord der resten av fila har tall. Behandlingen er alltid den samme: **les den for seg, før løkka**, og bruk den enten til å hoppe over eller til å slå opp kolonnenavn.\n\nEksamensoppgaven sier alltid om fila har en slik rad. Står det ingenting, har den det ikke."
+  },
+  {
+   "id": "tdt4110-4-1-def-readline",
+   "type": "definition",
+   "title": "`f.readline()`",
+   "content": "Leser **én** linje og flytter posisjonen i fila ett hakk fram. Linja kommer med linjeskiftet på slutten.\n\nKalt før en `for`-løkke er dette den vanlige måten å hoppe over overskriftsraden: løkka fortsetter der `readline` slapp.\n\n```python\nf = open('utlaan.txt', 'r')\noverskrift = f.readline()\nprint(overskrift.strip())\nantall = 0\nfor linje in f:\n    antall = antall + 1\nf.close()\nprint('Datalinjer:', antall)\n```\n\n**Utskrift:**\n```\ntittel;låner;dager\nDatalinjer: 3\n```\n\nEr fila slutt, gir `readline()` den **tomme** strengen `''`. En blank linje midt i fila gir `'\\n'` — de to er ikke det samme."
+  },
+  {
+   "id": "tdt4110-4-1-def-readlines",
+   "type": "definition",
+   "title": "`f.readlines()`",
+   "content": "Leser **hele** fila og gir deg en liste med alle linjene, hver med sitt linjeskift.\n\n```python\nf = open('maalinger.txt', 'r')\nlinjer = f.readlines()\nf.close()\nprint(linjer)\nprint(len(linjer))\nprint(linjer[0].strip())\n```\n\n**Utskrift:**\n```\n['Blindern;12.4;61\\n', 'Kjevik;15.1;54\\n', 'Værnes;9.8;73\\n']\n3\nBlindern;12.4;61\n```\n\nPraktisk når du trenger tilfeldig tilgang til linjene (for eksempel den siste), eller vil vite antallet før du begynner. Ulempen er at hele fila havner i minnet på én gang — irrelevant for en eksamensfil på ti linjer."
+  },
+  {
+   "id": "tdt4110-4-1-def-read",
+   "type": "definition",
+   "title": "`f.read()`",
+   "content": "Leser hele fila som **én streng**, med alle linjeskiftene inni.\n\n```python\nf = open('maalinger.txt', 'r')\ntekst = f.read()\nf.close()\nprint(len(tekst))\nprint(tekst.count('\\n'))\nprint(tekst.strip().split('\\n'))\n```\n\n**Utskrift:**\n```\n46\n3\n['Blindern;12.4;61', 'Kjevik;15.1;54', 'Værnes;9.8;73']\n```\n\nDette er «les fil → streng»-varianten. Den brukes når oppgaven handler om teksten som helhet — telle tegn eller ord, snu teksten, lete etter et delord.\n\n`tekst.strip().split('\\n')` gir deg linjene tilbake som en liste, uten linjeskift. Det er ofte den ryddigste veien."
+  },
+  {
+   "id": "tdt4110-4-1-def-index-kolonne",
+   "type": "definition",
+   "title": "`overskrift.index(navn)`",
+   "content": "Finner **posisjonen** til et kolonnenavn i overskriftsraden, slik at du slipper å anta at «dager» er kolonne 2.\n\n```python\noverskrift = ['tittel', 'låner', 'dager']\nprint(overskrift.index('dager'))\nprint(overskrift.index('tittel'))\n```\n\n**Utskrift:**\n```\n2\n0\n```\n\nDette er et eksplisitt **fullscore-krav** på eksamen (feilkode **#4** — anta fast kolonnerekkefølge). Skriver du `felt[2]`, virker koden på akkurat den fila og ryker hvis kolonnene bytter plass. Skriver du `felt[overskrift.index('dager')]`, virker den uansett.\n\nFinnes ikke navnet, stopper programmet med `ValueError` — det er en ærlig feil, og bedre enn et stille galt svar."
+  },
+  {
+   "id": "tdt4110-4-1-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Overskriftsrad og kolonne funnet ved navn",
+   "problem": "Fila `utlaan.txt` har en overskriftsrad. Skriv `les_utlaan(filnavn)` som returnerer overskriften og en 2D-tabell der dagerkolonnen er heltall — uten å anta hvilken posisjon den kolonnen har.",
+   "solution": "**Innholdet i `utlaan.txt`:**\n```\ntittel;låner;dager\nSult;Ida;14\nMarkens grode;Omar;21\nNaiv Super;Lise;7\n```\n\n```python\ndef les_utlaan(filnavn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    k = overskrift.index('dager')\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[k] = int(felt[k])\n        tabell.append(felt)\n    f.close()\n    return overskrift, tabell\n\noverskrift, tabell = les_utlaan('utlaan.txt')\nprint(overskrift)\nprint(tabell)\nprint('Kolonnen «dager» ligger på plass', overskrift.index('dager'))\n```\n\n**Utskrift:**\n```\n['tittel', 'låner', 'dager']\n[['Sult', 'Ida', 14], ['Markens grode', 'Omar', 21], ['Naiv Super', 'Lise', 7]]\nKolonnen «dager» ligger på plass 2\n```\n\n**Tre ting skjer her, og alle tre er poenggivende.**\n\nOverskriftsraden leses med `readline()` **før** løkka, så `for linje in f:` starter på første datalinje. Kolonneindeksen `k` finnes ved navn, én gang, før løkka — ikke inni den. Og funksjonen returnerer **to** verdier som et tuppel, pakket ut i to variabler av kalleren ([kap. 3.6](/tdt4110/tdt4110-3-6)).\n\n**Legg merke til variabelnavnet `k`.** I dette kapitlet betyr `k` en **kolonneindeks**. I ordbokkapitlene betyr `k` en **nøkkel**. Samme bokstav, to helt ulike ting — se etter hva den brukes til.\n\n**Slik ville sensor sett på det:** `readline()`-hoppet er ett poeng, det dynamiske kolonneoppslaget er et eksplisitt fullscore-krav, og konverteringen er et tredje. Hardkoder du `felt[2] = int(felt[2])`, mister du bare fullscore-punktet — resten står."
+  },
+  {
+   "id": "tdt4110-4-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — filinnlesing med overskriftsrad.) Bruk `utlaan.txt` fra eksempel 4:\n\n**Innholdet i `utlaan.txt`:**\n```\ntittel;låner;dager\nSult;Ida;14\nMarkens grode;Omar;21\nNaiv Super;Lise;7\n```\n\n**a)** Hva skjer hvis du glemmer `readline()`-hoppet og prøver `int(felt[2])` på hver linje?\n\n**b)** Skriv `les_kolonne(filnavn, navn)` som returnerer verdiene i den kolonnen som heter `navn`, som en liste med strenger — uten å anta posisjonen.\n\n**c)** Hva returnerer `les_kolonne('utlaan.txt', 'sjanger')`, og hvorfor?",
+    "solution": "**a)** Programmet stopper på den aller første linja. `int('dager')` gir `ValueError: invalid literal for int() with base 10: 'dager'`. Feilen er ærlig og lett å finne — verre er varianten der overskriften **ikke** inneholder tall og glir umerkelig inn i tabellen som en datarad.\n\n**b)** Samme mønster, med kolonneoppslaget i midten:\n\n```python\ndef les_kolonne(filnavn, navn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    k = overskrift.index(navn)\n    verdier = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        verdier.append(felt[k])\n    f.close()\n    return verdier\n\nprint(les_kolonne('utlaan.txt', 'dager'))\nprint(les_kolonne('utlaan.txt', 'tittel'))\n```\n\n**Utskrift:**\n```\n['14', '21', '7']\n['Sult', 'Markens grode', 'Naiv Super']\n```\n\n**c)** Ingenting — programmet stopper med `ValueError`, fordi `'sjanger'` ikke står i overskriftsraden og `.index` da ikke har noe å returnere. Det er riktig oppførsel: en stille tom liste ville skjult at kolonnen ikke finnes. Vil du at funksjonen skal svare pent i stedet, pakker du oppslaget i `try/except` ([kap. 4.3](/tdt4110/tdt4110-4-3)).",
+    "hints": [
+     "I b): `readline()` først, `.index(navn)` deretter — begge før løkka.",
+     "I c): hva gjør `.index` når verdien ikke finnes i lista?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-1-l5-intro",
+   "type": "text",
+   "content": "## Løkke 5 — Les fil til ordbok i stedet (~8 min)\n\nEn 2D-tabell er riktig når du skal gå gjennom alle radene. Skal du **slå opp** en bestemt rad — «hva var temperaturen på Kjevik?» — er en **ordbok** ([kap. 3.5](/tdt4110/tdt4110-3-5)) bedre: da går oppslaget rett på, uten å lete.\n\nMønsteret er det samme som før helt til `append`-linja. Der bytter du ut å legge til en rad med å sette inn en nøkkel."
+  },
+  {
+   "id": "tdt4110-4-1-thm-fil-til-ordbok",
+   "type": "theorem",
+   "title": "Kodemønster: les fil → ordbok",
+   "content": "```text\ndef les_ordbok(filnavn):\n    d = {}\n    f = open(filnavn, 'r')\n    for linje in f:\n        felt = linje.strip().split(separator)\n        d[felt[0]] = felt[1:]\n    f.close()\n    return d\n```\n\nBlokken er en mal med en plassholder og er merket som ikke-kjørbar.\n\nDet eneste nye er linja i midten, og den har to valg du må ta bevisst:\n\n1. **Hvilken kolonne er nøkkelen?** Nesten alltid den første, men les oppgaven. Nøkler er **unike** — er det to linjer med samme nøkkel, overskriver den siste den første, og du mister en rad uten noen feilmelding.\n2. **Hva er verdien?** Resten av raden (`felt[1:]`), ett enkelt felt (`felt[1]`), eller et konvertert tall. Velg det oppgaven faktisk trenger."
+  },
+  {
+   "id": "tdt4110-4-1-ex-5",
+   "type": "example",
+   "title": "Eksempel 5: Fil til oppslagsordbok",
+   "problem": "Les `maalinger.txt` inn i en ordbok fra stedsnavn til `[temperatur, fuktighet]`, med tallene konvertert. Slå opp Kjevik.",
+   "solution": "**Innholdet i `maalinger.txt`:**\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\n```python\ndef les_ordbok(filnavn):\n    d = {}\n    f = open(filnavn, 'r')\n    for linje in f:\n        felt = linje.strip().split(';')\n        d[felt[0]] = [float(felt[1]), int(felt[2])]\n    f.close()\n    return d\n\nmaalinger = les_ordbok('maalinger.txt')\nprint(maalinger)\nprint(maalinger['Kjevik'])\nprint(maalinger['Kjevik'][0])\nprint('Blindern' in maalinger, 'Bergen' in maalinger)\n```\n\n**Utskrift:**\n```\n{'Blindern': [12.4, 61], 'Kjevik': [15.1, 54], 'Værnes': [9.8, 73]}\n[15.1, 54]\n15.1\nTrue False\n```\n\n**Oppslaget `maalinger['Kjevik']` går rett på**, uten å gå gjennom de andre radene. Det er hele poenget med ordboken.\n\n**Slår du opp en nøkkel som ikke finnes, stopper programmet med `KeyError`.** Derfor står `in`-testen på siste linje: den er den trygge måten å spørre «finnes denne?» på.\n\n**Slik ville sensor sett på det:** valget mellom tabell og ordbok er sjelden feil i seg selv — det er *begrunnelsen* som teller. Skal du slå opp, velg ordbok. Skal du gå gjennom alt eller sortere, velg tabell."
+  },
+  {
+   "id": "tdt4110-4-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — filinnlesing til ordbok.) Fila `glass.txt` har linjer på formen `by;antall`:\n\n**Innholdet i `glass.txt`:**\n```\nBergen;120\nTromsø;45\nStavanger;88\n```\n\n**a)** Skriv `les_glass(filnavn)` som returnerer ordboka `{by: antall}` med antallet som heltall.\n\n**b)** Skriv koden som finner samlet antall, ved å gå gjennom verdiene i ordboka.\n\n**c)** Hva skjer med ordboka hvis fila får en fjerde linje `Bergen;200`?",
+    "solution": "**a)** Mønsteret med ett konvertert felt som verdi:\n\n```python\ndef les_glass(filnavn):\n    d = {}\n    f = open(filnavn, 'r')\n    for linje in f:\n        felt = linje.strip().split(';')\n        d[felt[0]] = int(felt[1])\n    f.close()\n    return d\n\nglass = les_glass('glass.txt')\nprint(glass)\n```\n\n**Utskrift:**\n```\n{'Bergen': 120, 'Tromsø': 45, 'Stavanger': 88}\n```\n\n**b)** To likeverdige måter:\n\n```python\nglass = {'Bergen': 120, 'Tromsø': 45, 'Stavanger': 88}\ntotal = 0\nfor by in glass:\n    total = total + glass[by]\nprint(total)\nprint(sum(glass.values()))\n```\n\n**Utskrift:**\n```\n253\n253\n```\n\nLøkka og snarveien `sum(glass.values())` gir samme svar, og **begge gir full pott**.\n\n**c)** `Bergen` finnes allerede som nøkkel, så den nye linja **overskriver** den gamle: `glass['Bergen']` blir 200, og de opprinnelige 120 er borte. Ingen feilmelding, ingen advarsel. Skal begge tellinger med, må verdien akkumuleres i stedet — `d[by] = d.get(by, 0) + antall`, tellermønsteret fra [kap. 3.5](/tdt4110/tdt4110-3-5).",
+    "hints": [
+     "I a): bytt `tabell.append(...)` med en innsetting `d[nøkkel] = verdi`.",
+     "I c): hva er regelen for nøkler i en ordbok når den samme settes to ganger?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-1-l6-intro",
+   "type": "text",
+   "content": "## Løkke 6 — `with`, og valget mellom de tre formene (~5 min)\n\nDu har nå tre måter å ta imot en fil på, og de dekker alt eksamen spør om:\n\n| Du skal … | Les fila som … |\n|---|---|\n| gå gjennom radene, sortere, finne beste | **2D-tabell** |\n| slå opp en bestemt nøkkel | **ordbok** |\n| telle tegn eller ord, snu teksten | **én streng** med `.read()` |\n\nTil slutt en variant av selve åpningen, som du vil se i andre bøker og i noen løsningsforslag."
+  },
+  {
+   "id": "tdt4110-4-1-def-with",
+   "type": "definition",
+   "title": "`with open(filnavn) as f:`",
+   "content": "Åpner fila og **lukker den automatisk** når blokken er ferdig — også hvis det skjer en feil underveis.\n\n```python\nwith open('maalinger.txt', 'r') as f:\n    tabell = []\n    for linje in f:\n        tabell.append(linje.strip().split(';'))\nprint(len(tabell))\nprint(f.closed)\n```\n\n**Utskrift:**\n```\n3\nTrue\n```\n\n`f.closed` er sann etterpå: fila er lukket uten at du skrev `close()`.\n\n**Bokas hovedform er likevel `open` … `close`**, fordi det er den formen løsningsforslagene i arkivet bruker, og fordi den gjør de to stegene synlige for sensor. `with` er fullt gyldig og gir full pott — bruk den formen du husker best under press, men bland dem aldri i samme funksjon."
+  },
+  {
+   "id": "tdt4110-4-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E — filinnlesing, hele deloppgave a.) Et bibliotek lagrer utlånene sine i `utlaan.txt`, med en overskriftsrad:\n\n**Innholdet i `utlaan.txt`:**\n```\ntittel;låner;dager\nSult;Ida;14\nMarkens grode;Omar;21\nNaiv Super;Lise;7\n```\n\n**a)** Skriv `les_utlaan(filnavn)` som hopper over overskriftsraden og returnerer en 2D-tabell der `dager` er et heltall og de øvrige feltene er strenger. Kolonnerekkefølgen skal **ikke** antas kjent.\n\n**b)** Skriv `lengste_laan(tabell, overskrift)` som returnerer tittelen på boka med flest dager, uten å bruke `max`.\n\n**c)** Hva returnerer funksjonen i b) hvis tabellen er tom, og hvorfor er det et bevisst valg?",
+    "solution": "**a)** Overskriften brukes både til å hoppe over raden og til å finne kolonnen:\n\n```python\ndef les_utlaan(filnavn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    k = overskrift.index('dager')\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[k] = int(felt[k])\n        tabell.append(felt)\n    f.close()\n    return overskrift, tabell\n\noverskrift, tabell = les_utlaan('utlaan.txt')\nprint(overskrift)\nprint(tabell)\n```\n\n**Utskrift:**\n```\n['tittel', 'låner', 'dager']\n[['Sult', 'Ida', 14], ['Markens grode', 'Omar', 21], ['Naiv Super', 'Lise', 7]]\n```\n\n**b)** Finn-beste-mønsteret, med kolonnene funnet ved navn:\n\n```python\ndef les_utlaan(filnavn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    k = overskrift.index('dager')\n    tabell = []\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[k] = int(felt[k])\n        tabell.append(felt)\n    f.close()\n    return overskrift, tabell\n\ndef lengste_laan(tabell, overskrift):\n    kd = overskrift.index('dager')\n    kt = overskrift.index('tittel')\n    beste = None\n    beste_verdi = None\n    for rad in tabell:\n        if beste_verdi is None or rad[kd] > beste_verdi:\n            beste_verdi = rad[kd]\n            beste = rad[kt]\n    return beste\n\noverskrift, tabell = les_utlaan('utlaan.txt')\nprint(lengste_laan(tabell, overskrift))\nprint(lengste_laan([], overskrift))\n```\n\n**Utskrift:**\n```\nMarkens grode\nNone\n```\n\n**c)** Den returnerer `None`. Det er et bevisst valg, og det er derfor `beste` og `beste_verdi` starter på `None` i stedet for på 0 eller på første rad: mønsteret takler den tomme tabellen **uten et eget spesialtilfelle**. Hadde du startet med `beste_verdi = 0`, ville en tabell med bare negative verdier gitt feil svar; hadde du startet med `tabell[0]`, ville en tom tabell gitt `IndexError`.\n\nDette er feilkode **#6** — manglende håndtering av tomtilfellet — og det er et av de fire eksplisitte fullscore-kravene sensor ser etter.\n\n**Alternativ løsning:** `max(tabell, key=lambda rad: rad[kd])[kt]` gir samme svar på ikke-tom tabell og full pott, men krasjer på tom tabell. Begge veier er riktige; den eksplisitte er den robuste.",
+    "hints": [
+     "I a): `readline()` og `.index('dager')` skal begge stå før løkka.",
+     "I b): start med `beste = None` og `beste_verdi = None`, og sammenlign med `is None or ...`."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-4-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Fila `maalinger.txt` inneholder:\n\n```\nBlindern;12.4;61\nKjevik;15.1;54\nVærnes;9.8;73\n```\n\nHva skriver programmet ut?\n\n```python\nf = open('maalinger.txt', 'r')\ntekst = f.read()\nf.close()\nlinjer = tekst.strip().split('\\n')\nprint(len(linjer))\nd = {}\nfor linje in linjer:\n    felt = linje.split(';')\n    d[felt[0]] = int(felt[2])\nprint(d['Værnes'] - d['Kjevik'])\nprint(sorted(d))\n```",
+    "solution": "**Sporingstavle.** Først hele fila som én streng, så oppdelingen:\n\n| Steg | Verdi |\n|---|---|\n| `tekst` | `'Blindern;12.4;61\\nKjevik;15.1;54\\nVærnes;9.8;73\\n'` |\n| `tekst.strip()` | samme, men uten det siste linjeskiftet |\n| `linjer` | `['Blindern;12.4;61', 'Kjevik;15.1;54', 'Værnes;9.8;73']` |\n\nDeretter ordboka, én rad per linje:\n\n| Linje | `felt` | `d` etter innsetting |\n|---|---|---|\n| `'Blindern;12.4;61'` | tre felt | `{'Blindern': 61}` |\n| `'Kjevik;15.1;54'` | tre felt | `{'Blindern': 61, 'Kjevik': 54}` |\n| `'Værnes;9.8;73'` | tre felt | tre nøkler |\n\n```python\nf = open('maalinger.txt', 'r')\ntekst = f.read()\nf.close()\nlinjer = tekst.strip().split('\\n')\nprint(len(linjer))\nd = {}\nfor linje in linjer:\n    felt = linje.split(';')\n    d[felt[0]] = int(felt[2])\nprint(d['Værnes'] - d['Kjevik'])\nprint(sorted(d))\n```\n\n**Utskrift:**\n```\n3\n19\n['Blindern', 'Kjevik', 'Værnes']\n```\n\n**Tre detaljer som avgjør svaret.**\n\n`tekst.strip()` **før** delingen er det som gjør at du får tre linjer og ikke fire — uten den ville det siste linjeskiftet gitt et fjerde, tomt element.\n\nHer trengs ingen `.strip()` per linje, fordi linjeskiftene allerede forsvant i delingen. Det er den ene situasjonen der #2 ikke kan slå til.\n\n`sorted(d)` sorterer **nøklene**, ikke verdiene, og gir en liste. Legg merke til at `'Værnes'` havner sist: store og små bokstaver og `æøå` sorteres etter tegnenes tallverdi, ikke etter norsk alfabet.",
+    "hints": [
+     "Hva gjør `tekst.strip()` med det aller siste linjeskiftet i fila?",
+     "`sorted` på en ordbok gir deg noe bestemt — hva er det, nøklene eller verdiene?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-4-1-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-4-1-api-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `open(filnavn, 'r')` | åpner en tekstfil for lesing; `'r'` er standard; gir et filobjekt som husker leseposisjonen |\n| `f.close()` | lukker fila; står ETTER løkka, aldri inne i den |\n| `with open(filnavn) as f:` | åpner og lukker automatisk når blokken er ferdig; `f.closed` er sann etterpå |\n| `for linje in f:` | én linje per runde, inkludert linjeskiftet; stopper av seg selv ved filslutt |\n| `f.readline()` | leser ÉN linje og flytter posisjonen; gir `''` ved filslutt, `'\\n'` på en blank linje |\n| `f.readlines()` | gir hele fila som en liste av linjer, hver med sitt linjeskift |\n| `f.read()` | gir hele fila som ÉN streng med linjeskiftene inni |\n| `.strip()` | ny streng uten blanktegn i BEGGE ender, linjeskift inkludert; originalen er uendret |\n| `.strip(tegn)` | fjerner de oppgitte tegnene fra begge ender i stedet for blanktegn |\n| `.split(sep)` | deler i en liste av felt; separatoren forsvinner; antall felt = antall separatorer + 1 |\n| `.split()` | deler på vilkårlig mange blanktegn (mellomrom og tabulator); gir aldri tomme felt |\n| `linje.strip().split(sep)` | bokas parselenke: `strip()` FØR `split()`, alltid i den rekkefølgen |\n| `int(s)` / `float(s)` | gjør en streng om til tall; MÅ brukes på tallfelt fra fil; `ValueError` hvis strengen ikke er et tall |\n| `tabell.append(rad)` | legger til én rad i 2D-tabellen — én linje i fila gir én rad |\n| `d[felt[0]] = verdi` | innsetting i ordbok; nøkler er unike, så en ny linje med samme nøkkel OVERSKRIVER |\n| `overskrift.index(navn)` | posisjonen til kolonnenavnet; `ValueError` hvis navnet ikke finnes; fullscore-kravet mot #4 |\n| `'\\t'` | ett tabulatortegn, brukt som separator i noen datafiler |\n| `tekst.count('\\n')` | teller linjeskift i en streng lest med `.read()` |\n\n**Formler i dette delkapitlet:** ingen. Regnestykket i kapitlet er antall felt $=$ antall separatorer $+\\,1$."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

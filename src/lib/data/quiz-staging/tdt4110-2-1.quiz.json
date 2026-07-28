@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hva returnerer en funksjon som ikke har noen `return`-setning i kroppen?",
+  "options": [
+   "`None` — verdien Python gir automatisk når kjøringen faller ut nederst",
+   "`0`, som er den nøytrale startverdien for tallregning i Python",
+   "Verdien til den siste variabelen som fikk en verdi i funksjonen",
+   "Ingenting i det hele tatt, så kallet kan ikke stå i et uttrykk"
+  ],
+  "explanation": "Faller kjøringen ut nederst uten å møte `return`, gir funksjonen `None`. Alternativet med `0` er fellen fra funksjoner som teller eller summerer, men Python gjetter aldri en tallverdi. Alternativet om den siste variabelen er den vanligste misforståelsen — lokale variabler forsvinner ved retur. Og kallet kan godt stå i et uttrykk: det har en verdi, og verdien er `None`."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef pris(antall, stykk=15):\n    return antall * stykk\n\nprint(pris(3))\nprint(pris(3, 20))\n```",
+  "options": [
+   "`45` og deretter `60`",
+   "`60` og deretter `45`",
+   "`45` og deretter `45`",
+   "`3` og deretter `20`"
+  ],
+  "explanation": "Første kall utelater andre argument, så standardverdien 15 brukes: 3 ganger 15 er 45. Andre kall overstyrer den med 20 og gir 60. Svaret med `60` først bytter om kallene, og svaret med `45` to ganger antar at standardverdien ikke kan overstyres."
+ },
+ {
+  "question": "Hvor i parameterlista må en parameter med standardverdi stå?",
+  "options": [
+   "Sist, etter alle parametere som ikke har standardverdi",
+   "Først, foran alle parametere som ikke har standardverdi",
+   "Hvor som helst, så lenge kallet bruker navngitte argumenter",
+   "Alene — en funksjon kan ha høyst én slik parameter"
+  ],
+  "explanation": "`def f(pris, prosent=10)` er lovlig, mens `def f(prosent=10, pris)` er en syntaksfeil, fordi Python ellers ikke kunne koble posisjonsargumentene. Alternativet om at plasseringen er fri når kallet bruker navn, blander sammen definisjonen og kallet — regelen gjelder `def`-linja. En funksjon kan ha så mange standardverdier den vil, så lenge de står sist."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef differanse(a, b):\n    return a - b\n\nprint(differanse(b=3, a=10))\n```",
+  "options": [
+   "`7`, fordi navngitte argumenter kobles på navn",
+   "`-7`, fordi argumentene kobles i den rekkefølgen de står",
+   "`13`, fordi navngitte argumenter legges sammen",
+   "En feilmelding, fordi rekkefølgen i kallet er snudd"
+  ],
+  "explanation": "Navngitte argumenter kobles på parameternavn, ikke på plassering, så `a` er 10 og `b` er 3. Svaret `-7` er fellen: å lese kallet som `differanse(3, 10)`. Å snu rekkefølgen på navngitte argumenter er fullt lovlig, så det blir ingen feilmelding."
+ },
+ {
+  "question": "En global variabel heter `antall`. Inne i en funksjon står linja `antall = 99`. Hva skjer med den globale variabelen?",
+  "options": [
+   "Den er urørt — tilordningen lager en ny, lokal variabel i funksjonen",
+   "Den får verdien 99 med én gang funksjonen blir kalt",
+   "Den får verdien 99 idet funksjonen returnerer til den som kalte",
+   "Programmet stopper, fordi to variabler ikke kan hete det samme"
+  ],
+  "explanation": "Tilordning inne i en funksjon lager alltid et lokalt navn, også når et globalt navn er stavet likt; den globale verdien står igjen uendret. De to alternativene om at den globale får verdien 99, er nettopp fellen sporingsoppgavene tester. Navnekollisjon er ikke en feil i Python — det er hele poenget med lokale navn."
+ },
+ {
+  "question": "En funksjon slutter med `return minste, storste`. Hva skjer ved kallet `a = min_og_maks(tall)`?",
+  "options": [
+   "`a` blir et tuppel med begge verdiene, i den rekkefølgen `return` har",
+   "`a` blir bare den første verdien, og den andre kastes bort",
+   "`a` blir bare den siste verdien, som overskriver den første",
+   "Kallet feiler, fordi to verdier krever to navn på venstre side"
+  ],
+  "explanation": "Flere verdier etter `return` pakkes til ett tuppel, og ett navn tar imot hele tuppelet. Alternativene om at bare den første eller siste verdien beholdes, er den vanligste gjetningen. At kallet skulle feile er også galt — det er bare utpakking med feil *antall* navn (`a, b, c = ...`) som gir `ValueError`."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef del_og_rest(t, n):\n    return t // n, t % n\n\nprint(del_og_rest(17, 5))\n```",
+  "options": [
+   "`(3, 2)`",
+   "`3 2`",
+   "`[3, 2]`",
+   "`3.4 2`"
+  ],
+  "explanation": "Uten utpakking skrives selve tuppelet, og Python skriver et tuppel med parenteser og komma. Formen `3 2` er det du får hvis verdiene først pakkes ut og skrives med `print(a, b)`. Hakeparentesene hører til lister, ikke tupler, og `17 // 5` er 3 og ikke 3.4 — det er `/` som gir flyttall."
+ },
+ {
+  "question": "Hvor må `return` stå i en funksjon som skal summere alle tallene i en liste?",
+  "options": [
+   "Etter løkka, med samme innrykk som `for`-linja selv",
+   "Inne i løkka, rykket inn på samme nivå som oppdateringen",
+   "Før løkka, slik at startverdien er satt når løkka begynner",
+   "Både før og etter løkka, så begge utfallene er dekket"
+  ],
+  "explanation": "Summen er ikke ferdig før løkka er gjennomført, så `return` hører etter løkka, på samme innrykksnivå som `for`. Står den inne i løkka, avsluttes funksjonen etter første element — en av de dyreste innrykksfeilene. `return` før løkka ville returnert startverdien 0, og en funksjon kan uansett bare returnere én gang per kjøring."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef vis_sum(a, b):\n    print(a + b)\n\nsvar = vis_sum(3, 4)\nprint(svar)\n```",
+  "options": [
+   "`7` og deretter `None`",
+   "`7` og deretter `7`",
+   "`None` og deretter `7`",
+   "Bare `7`, siden `svar` er tom"
+  ],
+  "explanation": "Funksjonen skriver ut 7, men har ingen `return`, så `svar` blir `None` og skrives på neste linje. Svaret med `7` to ganger er fellen: å tro at det som skrives ut, også returneres. Rekkefølgen kan ikke snus, for utskriften inne i funksjonen skjer først, og `print(svar)` skriver `None` og ikke en tom linje."
+ },
+ {
+  "question": "Hva er den ryddigste kroppen i en funksjon som skal svare på om en alder er 18 eller mer?",
+  "options": [
+   "`return alder >= 18`, siden sammenligningen alt er en boolsk verdi",
+   "`if alder >= 18: return 'ja'` og `else: return 'nei'` som svar",
+   "`print(alder >= 18)`, slik at svaret vises for den som kaller",
+   "`return int(alder >= 18)`, så svaret blir et tall som kan summeres"
+  ],
+  "explanation": "En sammenligning er allerede `True` eller `False` og kan returneres direkte; formen med `if`/`else` gir samme svar og full uttelling, men er lengre enn nødvendig, og konsishet vurderes. Å returnere strengene `'ja'`/`'nei'` gjør at svaret ikke kan brukes i en `if`-test videre. Og `print` returnerer ingenting, så den som kaller, får `None`."
+ },
+ {
+  "question": "Hvilket variabelnavn skal du aldri bruke i en funksjon som legger sammen tall?",
+  "options": [
+   "`sum`, fordi navnet da skygger den innebygde funksjonen `sum`",
+   "`total`, fordi navnet allerede er reservert av Python selv",
+   "`s`, fordi navn på ett tegn ikke er lovlige i en funksjonskropp",
+   "`resultat`, fordi navnet er for langt til å brukes i en løkke"
+  ],
+  "explanation": "Å tilordne `sum = 0` gjør at den innebygde `sum(...)` ikke lenger virker i resten av programmet — det er felle #14 i bokas register. `total`, `s` og `resultat` er alle helt kurante navn; korte navn er lovlige, og lengden på et navn har ingen betydning for om det kan brukes."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef dobbel(x):\n    return x * 2\n\nprint(dobbel(dobbel(3)))\n```",
+  "options": [
+   "`12`",
+   "`6`",
+   "`9`",
+   "`36`"
+  ],
+  "explanation": "Det innerste kallet gjøres ferdig først og gir 6, som blir argumentet til det ytre kallet: 6 ganger 2 er 12. Svaret `6` er fellen der bare ett av kallene regnes med. Svarene `9` og `36` kommer av å lese `x * 2` som en potens eller å doble to ganger på feil verdi."
+ },
+ {
+  "question": "En funksjon skal finne den laveste temperaturen i en liste. Hvorfor er `minste = 0` en dårlig startverdi?",
+  "options": [
+   "Fordi svaret blir 0 så snart alle målingene er over null grader",
+   "Fordi 0 ikke kan sammenlignes med flyttall som `-3.5` i en test",
+   "Fordi startverdien alltid må settes inne i løkka, ikke før den",
+   "Fordi `minste` må ha samme navn som parameteren for å virke"
+  ],
+  "explanation": "Med startverdien 0 finner løkka aldri noe mindre når alle målingene er positive, og funksjonen svarer 0 — en verdi som ikke engang finnes i dataene. Riktig startverdi er første element. Heltall og flyttall sammenlignes fritt i Python, startverdien skal nettopp settes før løkka, og navnet på variabelen har ingenting med parameternavnet å gjøre."
+ },
+ {
+  "question": "Hva skjer med `verdier[0]` når funksjonen kalles med en tom liste?",
+  "options": [
+   "Programmet stopper med `IndexError`, så tomtesten må stå først",
+   "Uttrykket gir `None`, som funksjonen kan returnere videre",
+   "Uttrykket gir 0, fordi en tom liste regnes som en liste med nuller",
+   "Løkka hopper over linja, siden det ikke finnes noen elementer"
+  ],
+  "explanation": "En tom liste har ingen element 0, så oppslaget avbryter programmet med `IndexError` — derfor står `if len(verdier) == 0: return None` aller først i robuste fasiter. Python fyller ikke inn `None` eller 0 for manglende elementer. Og linja står før løkka, så løkka kan ikke redde den."
+ },
+ {
+  "question": "Hvilken av formene er en syntaksfeil i et kall?",
+  "options": [
+   "`f(a=10, 3)` — et posisjonsargument etter et navngitt argument",
+   "`f(10, b=3)` — et navngitt argument etter et posisjonsargument",
+   "`f(b=3, a=10)` — to navngitte argumenter i omvendt rekkefølge",
+   "`f(10, 3)` — to posisjonsargumenter uten navn i det hele tatt"
+  ],
+  "explanation": "Navngitte argumenter må stå etter alle posisjonsargumenter i kallet, så `f(a=10, 3)` avvises allerede før programmet kjører. Blandingsformen `f(10, b=3)` er derimot helt vanlig i fasitene. De to andre formene er også lovlige — navngitte argumenter kan stå i hvilken som helst innbyrdes rekkefølge."
+ },
+ {
+  "question": "Sjanger C ber om én setning om hva funksjonen gjør. Hvilket svar gir best uttelling for en funksjon som summerer de positive tallene i en liste?",
+  "options": [
+   "«Returnerer summen av de positive tallene i lista.»",
+   "«Den går gjennom lista med en løkke og legger sammen tall.»",
+   "«Funksjonen bruker en variabel `total` og en `if`-test inni.»",
+   "«Den regner ut noe med tallene og gir et resultat tilbake.»"
+  ],
+  "explanation": "Svaret skal si *hva* funksjonen oppnår, med begge de avgjørende detaljene: at det er en sum, og at bare de positive tallene teller med. Svaret om løkka og det om variabelen `total` beskriver *hvordan* koden virker — det er felle #13, ordrik og upresis forklaring. Det siste svaret er kort, men så vagt at det passer på nesten hvilken som helst funksjon."
+ },
+ {
+  "question": "En søkefunksjon har `return i` inne i løkka og `return -1` etter løkka. Hva betyr den siste linja?",
+  "options": [
+   "At løkka gikk helt gjennom uten treff — verdien finnes ikke",
+   "At løkka ble avbrutt av en feil før den rakk å finne noe treff",
+   "At funksjonen skal prøve søket en gang til fra siste indeks",
+   "At det siste elementet i lista alltid regnes som et treff"
+  ],
+  "explanation": "Linja etter løkka nås bare hvis `return i` aldri ble kjørt, altså når ingen elementer passet — derfor er `-1` bokas standardsvar på «ikke funnet» for en indeks. Den nås ikke ved feil, for en feil ville avbrutt hele programmet. Og den gjør verken et nytt søk eller noen antagelse om det siste elementet."
+ },
+ {
+  "question": "Hva er forskjellen på `pant` og `pant(6)` når `pant` er en funksjon?",
+  "options": [
+   "`pant` er selve funksjonen, mens `pant(6)` er verdien den gir",
+   "`pant` er verdien funksjonen ga sist, mens `pant(6)` kjører den på nytt",
+   "`pant` kjører funksjonen uten argument, mens `pant(6)` sender inn 6",
+   "De er helt likeverdige — parentesen er bare en lesehjelp for deg"
+  ],
+  "explanation": "Uten parentes refererer navnet til funksjonsobjektet selv, og `print(pant)` skriver da noe i retning av «function pant»; med parentes kjøres funksjonen, og uttrykket blir tallet den returnerer. Navnet husker ingen tidligere verdi. Og et navn uten parentes kjører aldri funksjonen — det er nettopp derfor et glemt parentespar gir så merkelige utskrifter."
+ }
+]

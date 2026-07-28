@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hva gir `linje.strip()` når `linje` er `'Kjevik;15.1;54\\n'`?",
+  "options": [
+   "Strengen `'Kjevik;15.1;54'` — linjeskiftet på slutten er fjernet",
+   "Strengen `'Kjevik;15.154'` — også semikolonene inni er fjernet",
+   "Lista `['Kjevik', '15.1', '54']` — strengen er delt i felt",
+   "Strengen `'Kjevik;15.1;54\\n'` — `.strip()` endrer ikke strengen"
+  ],
+  "explanation": "`.strip()` fjerner blanktegn i begge ENDER, og linjeskiftet er ett blanktegn. Alternativet som også fjerner semikolonene inni, blander `.strip()` med `.replace()`. Alternativet med lista blander `.strip()` med `.split()`. Alternativet som sier at strengen er uendret, glemmer at linjeskiftet er et tegn på lik linje med de andre."
+ },
+ {
+  "question": "Fila har linjer på formen `by;antall`. Hva gir `'Bergen;120'.split(',')`?",
+  "options": [
+   "Lista `['Bergen;120']` med ett element, fordi det ikke finnes komma",
+   "Lista `['Bergen', '120']` med to elementer, som med semikolon",
+   "En feilmelding, fordi separatoren ikke finnes i strengen",
+   "Lista `[]`, fordi ingen deling var mulig å gjennomføre"
+  ],
+  "explanation": "Finner `.split()` ingen separator, gir den hele strengen som ETT element — det er feilkode #3 i praksis. Alternativet med to elementer forutsetter riktig separator. `.split()` gir aldri feilmelding eller tom liste; det stille ene elementet er nettopp det som gjør feilen så vanskelig å oppdage."
+ },
+ {
+  "question": "Hvor mange elementer har `'a;b;c;d'.split(';')`?",
+  "options": [
+   "Fire — antall separatorer pluss én",
+   "Tre — én per separator i strengen",
+   "Fem — ett ekstra for slutten av strengen",
+   "Sju — både felt og separatorer telles med"
+  ],
+  "explanation": "Regelen er antall separatorer pluss én: tre semikolon gir fire felt. Alternativet som sier tre, teller separatorene i stedet for feltene. Alternativet med fem legger på et tomt felt som ikke finnes, og alternativet med sju teller separatorene med som egne elementer — de forsvinner i delingen."
+ },
+ {
+  "question": "Hva er `felt[1]` etter `felt = 'Kjevik;15.1;54'.split(';')`?",
+  "options": [
+   "Strengen `'15.1'` — alle felt fra en fil er tekst",
+   "Flyttallet `15.1` — Python konverterer tall automatisk",
+   "Strengen `'Kjevik'` — indeks 1 er det første feltet",
+   "Heltallet `15` — desimaldelen faller bort ved delingen"
+  ],
+  "explanation": "`.split()` gir alltid strenger, uansett hvordan feltet ser ut — konverteringen må du gjøre selv med `float()`. Alternativet med flyttallet er feilkode #1: Python konverterer ingenting automatisk. Alternativet med `'Kjevik'` teller fra 1 i stedet for fra 0, og alternativet med heltallet blander inn en avrunding som ikke skjer noe sted."
+ },
+ {
+  "question": "Hva skriver `print('54' + '54')` ut?",
+  "options": [
+   "`5454`, fordi `+` skjøter to strenger sammen",
+   "`108`, fordi Python ser at begge er tall",
+   "`54 54`, fordi `+` setter et mellomrom imellom",
+   "En feilmelding, fordi strenger ikke kan adderes"
+  ],
+  "explanation": "På to strenger betyr `+` sammenskjøting, og resultatet er `5454` — det stumme symptomet på feilkode #1. Alternativet som gir 108, forutsetter en automatisk konvertering som ikke finnes. `+` setter aldri inn mellomrom (det er `print` med to argumenter som gjør det), og sammenskjøting av strenger er fullt lovlig, så ingen feilmelding kommer."
+ },
+ {
+  "question": "Hva gir `f.readline()` når hele fila allerede er lest?",
+  "options": [
+   "Den tomme strengen `''`, som er signalet om filslutt",
+   "Strengen `'\\n'`, altså en linje som bare er et linjeskift",
+   "Verdien `None`, som betyr at det ikke er mer å hente",
+   "En feilmelding om at posisjonen er forbi filas slutt"
+  ],
+  "explanation": "Ved filslutt gir `readline()` den tomme strengen. Alternativet med `'\\n'` beskriver en BLANK linje midt i fila — den er ikke det samme som filslutt, og det er nettopp derfor løkka ikke stopper for tidlig på en blank linje. `readline()` gir aldri `None` og kaster ingen feil ved filslutt."
+ },
+ {
+  "question": "Hva er forskjellen på `f.read()` og `f.readlines()`?",
+  "options": [
+   "`read()` gir én streng med linjeskiftene inni, `readlines()` gir en liste av linjer",
+   "`read()` gir en liste av linjer, `readlines()` gir én streng med hele fila",
+   "`read()` leser én linje av gangen, `readlines()` leser hele fila samlet",
+   "`read()` fjerner linjeskiftene, `readlines()` beholder dem i hver linje"
+  ],
+  "explanation": "`read()` gir hele fila som ÉN streng, `readlines()` som en LISTE der hver linje har sitt linjeskift. Alternativet som bytter om på de to, snur definisjonene. Alternativet om én linje av gangen beskriver `readline()` uten s. Ingen av dem fjerner linjeskift — det må du gjøre selv med `.strip()`."
+ },
+ {
+  "question": "Hvorfor skal `f.close()` stå etter løkka og ikke inne i den?",
+  "options": [
+   "Fordi en lukket fil ikke kan leses videre, så neste runde ville krasjet",
+   "Fordi `close()` inne i løkka ville lukket fila flere ganger og brukt minne",
+   "Fordi `close()` inne i løkka gjør at siste linje leses to ganger",
+   "Fordi `close()` bare virker når den står på samme innrykk som `return`"
+  ],
+  "explanation": "Lukker du fila på første runde, finnes det ingen fil å lese fra på andre runde, og programmet stopper. Alternativet om minnebruk gjetter på en kostnad som ikke er problemet. Ingen linje leses to ganger, og innrykket til `return` har ingenting med saken å gjøre — det er posisjonen i forhold til løkka som teller."
+ },
+ {
+  "question": "Hva gir `'Blindern   12.4     61'.split()` uten argument?",
+  "options": [
+   "`['Blindern', '12.4', '61']` — vilkårlig mange blanktegn deler",
+   "`['Blindern', '', '', '12.4', '', '61']` — hvert mellomrom deler",
+   "`['Blindern   12.4     61']` — uten argument deles ingenting",
+   "`['Blindern', '12.4', '61', '']` — et tomt felt legges til slutt"
+  ],
+  "explanation": "Uten argument deler `.split()` på vilkårlig mange blanktegn og gir aldri tomme felt. Alternativet med tomme felt beskriver `.split(' ')` med ETT mellomrom som eksplisitt separator — det er nettopp den forskjellen som gjør varianten uten argument riktig for kolonnejusterte filer. De to siste beskriver oppførsel `.split()` ikke har."
+ },
+ {
+  "question": "Hvilken linje er den korrekte parselenken for en linje fra fil?",
+  "options": [
+   "`felt = linje.strip().split(';')`",
+   "`felt = linje.split(';').strip()`",
+   "`felt = strip(split(linje, ';'))`",
+   "`felt = linje.split(';').strip(';')`"
+  ],
+  "explanation": "Rens først, del så: `.strip()` gir en streng, og `.split(';')` deler den. Alternativene som kaller `.strip()` etter `.split()`, prøver å rense en LISTE — en liste har ingen `.strip()`, så programmet stopper. Formen med `strip(split(...))` finnes ikke i Python; begge er metoder på strengen, ikke frittstående funksjoner."
+ },
+ {
+  "question": "En ordbok bygges med `d[felt[0]] = int(felt[1])`. Fila har to linjer med samme verdi i første felt. Hva skjer?",
+  "options": [
+   "Den siste linja overskriver den første, uten noen feilmelding",
+   "Den første linja beholdes, og den siste blir stille ignorert",
+   "Ordboka får to oppføringer med samme nøkkel og ulik verdi",
+   "Programmet stopper med en feil om at nøkkelen finnes fra før"
+  ],
+  "explanation": "Nøkler er unike, og en ny tilordning erstatter den gamle verdien uten varsel — derfor mister du en rad hvis du velger feil nøkkelkolonne. Alternativet der den første beholdes, snur regelen. To like nøkler kan ikke finnes samtidig, og Python gir ingen feilmelding ved overskriving."
+ },
+ {
+  "question": "Hvorfor skriver fasiten `felt[overskrift.index('dager')]` i stedet for `felt[2]`?",
+  "options": [
+   "Fordi koden da virker selv om kolonnene bytter plass i fila",
+   "Fordi `felt[2]` er utenfor lista når raden har tre felt",
+   "Fordi `.index` er raskere enn å slå opp med et tall direkte",
+   "Fordi `felt[2]` gir en streng mens `.index` gir et heltall"
+  ],
+  "explanation": "Dynamisk kolonneoppslag er et eksplisitt fullscore-krav og motgiften mot feilkode #4. `felt[2]` er fullt lovlig på en rad med tre felt, så alternativet om at det er utenfor lista, er galt. Oppslag med tall er raskere, ikke tregere, og begge former gir samme feltverdi — forskjellen er robusthet, ikke type."
+ },
+ {
+  "question": "Hva returnerer `overskrift.index('sjanger')` når overskriften er `['tittel', 'låner', 'dager']`?",
+  "options": [
+   "Ingenting — programmet stopper med `ValueError`",
+   "Verdien `-1`, som betyr at navnet ikke ble funnet",
+   "Verdien `None`, som du kan teste med `is None`",
+   "Tallet `3`, altså plassen etter det siste feltet"
+  ],
+  "explanation": "`.index` kaster `ValueError` når verdien ikke finnes — en ærlig feil som er bedre enn et stille galt svar. Alternativet med `-1` beskriver mønsteret fra sekvensielt søk, som du selv skriver. Verken `None` eller en plass etter siste felt returneres; vil du håndtere tilfellet pent, pakker du oppslaget i `try/except`."
+ },
+ {
+  "question": "Fila `stromspris.txt` skiller feltene med ett tabulatortegn. Hvilken separator er riktig?",
+  "options": [
+   "`.split('\\t')`, som deler på ett tabulatortegn",
+   "`.split('\\\\t')`, som deler på skråstrek fulgt av t",
+   "`.split('tab')`, som deler på tabulatorens navn",
+   "`.split(';')`, som er standard for alle datafiler"
+  ],
+  "explanation": "Tabulatortegnet skrives `'\\t'` — én omvendt skråstrek og en t inne i fnutter, til sammen ETT tegn. Alternativet med dobbel skråstrek leter etter to helt andre tegn. Det finnes ingen `'tab'`-form, og semikolon er ikke noen standard — separatoren er en del av dataformatet og må leses av fila."
+ },
+ {
+  "question": "Hvor mange rader og kolonner har `tabell` etter at tre linjer med tre felt hver er lest inn?",
+  "options": [
+   "`len(tabell)` er 3 og `len(tabell[0])` er 3",
+   "`len(tabell)` er 9 og `len(tabell[0])` er 1",
+   "`len(tabell)` er 3 og `len(tabell[0])` er 9",
+   "`len(tabell)` er 1 og `len(tabell[0])` er 3"
+  ],
+  "explanation": "Ytterlista har én rad per linje, og hver rad har ett element per felt. Alternativet med 9 rader forutsetter at feltene ble lagt inn hver for seg med `append`. De to siste blander sammen hva ytterlista og innerlista teller — `len(tabell)` er alltid antall rader."
+ },
+ {
+  "question": "Hva er resultatet av `tekst.strip().split('\\n')` når `tekst` er hele fila lest med `read()`?",
+  "options": [
+   "En liste med én streng per linje, uten linjeskift",
+   "En liste med én streng per linje, hver med sitt linjeskift",
+   "En liste med ett ekstra tomt element til slutt",
+   "Én streng der linjeskiftene er byttet ut med mellomrom"
+  ],
+  "explanation": "Delingen fjerner linjeskiftene, og `.strip()` FØR delingen fjerner det siste, slik at det ikke blir et tomt element til slutt. Alternativet der linjeskiftene er med, beskriver `readlines()`. Det tomme elementet oppstår bare hvis du dropper `.strip()`, og ingenting byttes ut med mellomrom noe sted."
+ },
+ {
+  "question": "Hvilken struktur passer best når oppgaven er å slå opp én bestemt rad på navn?",
+  "options": [
+   "En ordbok med navnet som nøkkel og raden som verdi",
+   "En 2D-tabell som gås gjennom rad for rad hver gang",
+   "Én lang streng som det søkes i med `in`-testen",
+   "En liste av tall der plassen tilsvarer navnet i fila"
+  ],
+  "explanation": "Ordboken går rett på oppslaget uten å lete. Alternativet med 2D-tabellen virker også, men krever en gjennomgang per oppslag — riktig når du skal gå gjennom alt eller sortere, ikke når du skal slå opp. Søk i én streng finner tegn, ikke rader, og en liste av tall har ingen plass til navnet."
+ },
+ {
+  "question": "Hva er `f.closed` rett etter at en `with open(...) as f:`-blokk er ferdig?",
+  "options": [
+   "Sann — blokken lukker fila automatisk når den er ferdig",
+   "Usann — `with` åpner fila, men lukking må gjøres med `close()`",
+   "Sann bare hvis du skrev `f.close()` inne i blokken",
+   "Usann helt til programmet avslutter og rydder opp selv"
+  ],
+  "explanation": "`with` lukker fila automatisk når blokken forlates, også hvis det skjer en feil underveis — det er hele poenget med formen. De tre andre forutsetter at du selv må lukke; da ville `with` ikke gitt noe mer enn `open` alene. Boka bruker likevel `open` og `close` som hovedform, fordi arkivets løsningsforslag gjør det."
+ }
+]

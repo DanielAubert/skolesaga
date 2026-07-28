@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hva er verdien av `True and False`?",
+  "options": [
+   "`False`, fordi begge sider må være sanne",
+   "`True`, fordi minst én side er sann",
+   "`True`, fordi den venstre siden er sann",
+   "`False`, fordi begge sidene må være usanne"
+  ],
+  "explanation": "`and` krever at begge sider er sanne, og den høyre er usann. Å kreve minst én sann side er `or`. At venstre side alene holder, er heller ikke `and`. Og `and` er ikke sann når begge er usanne."
+ },
+ {
+  "question": "Hva leses uttrykket `a or b and c` som?",
+  "options": [
+   "`a or (b and c)`, fordi `and` binder sterkere enn `or`",
+   "`(a or b) and c`, fordi uttrykket regnes fra venstre mot høyre",
+   "`(a or b) and (a or c)`, fordi `or` fordeles over `and`",
+   "`a or b or c`, fordi `and` og `or` er like sterke her"
+  ],
+  "explanation": "`and` binder sterkere enn `or`, så `b and c` regnes først. Venstre-mot-høyre gjelder bare mellom like sterke operatorer. Python fordeler ingenting automatisk, og `and` og `or` er ikke like sterke."
+ },
+ {
+  "question": "Hva er `not (x > 3)` det samme som?",
+  "options": [
+   "`x <= 3`",
+   "`x < 3`",
+   "`x >= 3`",
+   "`x != 3`"
+  ],
+  "explanation": "Det motsatte av «større enn 3» er «mindre enn eller lik 3», så likhetstegnet må bli med. `x < 3` glemmer tilfellet der `x` er nøyaktig 3. `x >= 3` snur ulikheten feil vei. `x != 3` er sann for alle andre tall enn 3, også store."
+ },
+ {
+  "question": "Hvorfor krasjer ikke `'abc'.isdigit() and int('abc') > 0`?",
+  "options": [
+   "`and` kortslutter, så høyre side regnes aldri ut når venstre er usann",
+   "`int` gir `0` i stedet for feil når teksten ikke er et tall",
+   "Sammenligningen `> 0` regnes ut før konverteringen på venstre side",
+   "Feilen fanges automatisk fordi uttrykket står i en betingelse"
+  ],
+  "explanation": "Venstre side er usann, og da er svaret allerede avgjort, så `int('abc')` blir aldri kjørt. `int` gir ikke 0 på ugyldig tekst — den gir `ValueError`. Sammenligningen kan ikke regnes ut før verdien finnes. Og et uttrykk fanger ingen feil av seg selv."
+ },
+ {
+  "question": "Hvilken av disse verdiene teller som **sann** i en betingelse?",
+  "options": [
+   "Teksten `'0'`, fordi den inneholder ett tegn",
+   "Tallet `0`, fordi tallet finnes og har en verdi",
+   "Den tomme teksten `''`, fordi den er en gyldig verdi",
+   "Den tomme lista `[]`, fordi lista finnes"
+  ],
+  "explanation": "For tekst avgjør antall tegn, og `'0'` har ett tegn, så den er sann. Tallet 0, den tomme teksten og den tomme lista er alle tre blant de faste usanne verdiene, uansett at de finnes som verdier."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\np = 75\nif p >= 90:\n    print('A')\nelif p >= 70:\n    print('C')\nelif p >= 60:\n    print('D')\n```",
+  "options": [
+   "`C`",
+   "`C` og `D` på hver sin linje",
+   "`D`",
+   "Ingenting"
+  ],
+  "explanation": "Den første sanne testen i kjeden er `p >= 70`, og resten hoppes over, så bare `C` skrives. To linjer ville krevd selvstendige `if`-setninger uten `elif`. `D` ville krevd at den andre testen var usann. Og noe skrives, siden minst én test slår til."
+ },
+ {
+  "question": "Hva er forskjellen på `if` etterfulgt av `elif` og to selvstendige `if`-setninger?",
+  "options": [
+   "I en kjede kjøres høyst én blokk; to selvstendige tester prøves begge",
+   "I en kjede prøves begge testene; to selvstendige tester stopper ved den første sanne",
+   "En kjede krever `else` til slutt, mens selvstendige tester ikke gjør det",
+   "En kjede kan bare brukes når betingelsene tester samme variabel"
+  ],
+  "explanation": "`elif` prøves bare når det foregående var usant, så høyst én blokk kjøres — mens selvstendige `if`-er prøves hver for seg. Det andre svaret snur forholdet. `else` er valgfri i en kjede. Og en kjede kan gjerne teste ulike variabler."
+ },
+ {
+  "question": "Hva returnerer `test(-2, -2)` når `def test(x, y): return (x > 0 and y > 0) or (x == y)`?",
+  "options": [
+   "`True`, fordi de to tallene er like",
+   "`False`, fordi begge tallene er negative",
+   "`True`, fordi begge tallene har samme fortegn",
+   "`False`, fordi venstre side av `or` avgjør resultatet"
+  ],
+  "explanation": "Venstre del er usann fordi tallene ikke er positive, men høyre del er sann fordi de er like, og `or` krever bare én sann side. Fortegnet i seg selv er ikke testet noe sted. Og `or` avgjøres ikke av venstre side alene når den er usann."
+ },
+ {
+  "question": "Hva gir `3 == '3'`?",
+  "options": [
+   "`False`, fordi et tall aldri er lik en tekst",
+   "`True`, fordi begge representerer verdien tre",
+   "Programmet stopper med `TypeError`",
+   "`True`, fordi Python konverterer teksten før sammenligningen"
+  ],
+  "explanation": "`==` sammenligner både verdi og type, og et tall er aldri lik en tekst, så svaret er `False` uten feilmelding. Python konverterer ikke automatisk. `TypeError` kommer bare hvis du bruker `<` eller `>` mellom tall og tekst."
+ },
+ {
+  "question": "Hvilken skrivemåte er den sensor forventer for en funksjon som skal svare sant eller usant?",
+  "options": [
+   "`return a > b`",
+   "`if a > b: return True` fulgt av `else: return False`",
+   "`return bool(if a > b)`",
+   "`return (a > b) == True`"
+  ],
+  "explanation": "Sammenligningen er allerede en sannhetsverdi, så den returneres direkte — og faget vurderer konsishet eksplisitt. `if`/`else`-varianten er riktig, men unødig lang. `bool(if ...)` er ikke gyldig Python i det hele tatt. Og å sammenligne med `True` legger bare til et ledd uten virkning."
+ },
+ {
+  "question": "Hva skriver `print(0 <= 100 < 100)` ut?",
+  "options": [
+   "`False`",
+   "`True`",
+   "`0`",
+   "Programmet stopper med `SyntaxError`"
+  ],
+  "explanation": "Kjedet sammenligning krever at begge ulikhetene holder, og `100 < 100` er usann. `True` ville krevd at den øvre grensen var med. Utskriften er en sannhetsverdi, ikke et tall. Og kjedet sammenligning er fullt lovlig i Python."
+ },
+ {
+  "question": "Hva er `not b` når `b` har verdien `False`?",
+  "options": [
+   "`True`",
+   "`False`",
+   "`None`",
+   "`0`"
+  ],
+  "explanation": "`not` snur sannhetsverdien, så det motsatte av usann er sann. `False` ville betydd at `not` ikke gjorde noe. `None` er en helt annen verdi som betyr «ingen verdi». Og `0` er tallet som teller som usant, ikke resultatet av `not`."
+ },
+ {
+  "question": "En kjede tester `alder < 6`, så `alder <= 17`, så `alder <= 66`. Hva betyr den andre testen i praksis?",
+  "options": [
+   "At alderen er minst 6 og høyst 17, siden de yngre allerede er fanget",
+   "At alderen er høyst 17, uten noen nedre grense i det hele tatt",
+   "At alderen er minst 6, siden den øvre grensen håndteres senere",
+   "At alderen er nøyaktig 17, siden de andre verdiene dekkes av naboene"
+  ],
+  "explanation": "En `elif` prøves bare når alt foran var usant, så «under 6» er allerede utelukket, og testen dekker 6 til og med 17. Uten den underforståtte nedre grensen ville testen også fanget en toåring. Den øvre grensen står eksplisitt i testen selv, og den dekker mer enn ett årstall."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nt = 8\nv = 4\nif t < 5:\n    if v > 10:\n        print('a')\n    else:\n        print('b')\nelse:\n    print('c')\n```",
+  "options": [
+   "`c`",
+   "`b`",
+   "`a`",
+   "`b` og `c` på hver sin linje"
+  ],
+  "explanation": "Den ytre testen er usann fordi 8 ikke er mindre enn 5, så hele den indre blokken hoppes over og det ytre `else` kjøres. `b` ville krevd at den ytre testen var sann. `a` ville i tillegg krevd sterk vind. Og bare én av grenene kan kjøres."
+ },
+ {
+  "question": "Hva er verdien av `'Å' < 'a'`?",
+  "options": [
+   "`True`, fordi store bokstaver kommer før små i tegnrekkefølgen",
+   "`False`, fordi bokstaver sammenlignes alfabetisk etter norsk alfabet",
+   "`False`, fordi tegn med bokstavtegn alltid regnes som like store",
+   "Programmet stopper, fordi tegnene tilhører ulike alfabeter"
+  ],
+  "explanation": "Sammenligning av tekst følger tegnenes plass i tegnrekkefølgen, og store bokstaver ligger foran små, så uttrykket er sant. Norsk alfabetisk rekkefølge følges ikke automatisk. Tegn er ikke like store, og sammenligning av tekst stopper aldri programmet."
+ },
+ {
+  "question": "Hvorfor gir `if x = 3:` en feilmelding?",
+  "options": [
+   "Ett likhetstegn er tilordning, og en tilordning kan ikke stå som betingelse",
+   "Ett likhetstegn sammenligner, men bare mellom variabler av samme type",
+   "Betingelsen mangler kolon, som er obligatorisk etter `if`",
+   "Tallet 3 kan ikke brukes som betingelse fordi det ikke er en sannhetsverdi"
+  ],
+  "explanation": "`=` setter inn en verdi, og Python nekter å tolke det som en test — resultatet er `SyntaxError`. Sammenligning skrives med to likhetstegn. Kolonet står faktisk der. Og tallet 3 kunne godt vært en betingelse; det ville telt som sant."
+ },
+ {
+  "question": "Hva gir `bool('')`?",
+  "options": [
+   "`False`",
+   "`True`",
+   "`''`",
+   "`None`"
+  ],
+  "explanation": "Den tomme teksten er blant de faste usanne verdiene, siden den ikke har noen tegn. `True` ville krevd minst ett tegn. `bool` gir alltid en sannhetsverdi, aldri teksten tilbake, og aldri `None`."
+ },
+ {
+  "question": "Hva skriver `print(4 > 3 and 3 > 4 or 2 > 1)` ut?",
+  "options": [
+   "`True`",
+   "`False`",
+   "`None`",
+   "Programmet stopper med `SyntaxError`"
+  ],
+  "explanation": "`and` regnes først: `4 > 3 and 3 > 4` er usann. Deretter er `usann or 2 > 1` sann, så svaret er `True`. `False` ville krevd at `or` ble regnet først. Et boolsk uttrykk gir aldri `None`, og uttrykket er syntaktisk helt lovlig."
+ }
+]

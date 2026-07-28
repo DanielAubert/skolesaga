@@ -1,0 +1,332 @@
+{
+ "id": "tdt4110-1-2",
+ "courseId": "tdt4110",
+ "chapterNumber": "1.2",
+ "title": "Boolsk logikk og betingelser",
+ "description": "Sammenligning, `and`/`or`/`not`, nøstede uttrykk og `if/elif/else` — kjernen i både betingelseskoding og den boolske kodesporingen.",
+ "estimatedMinutes": 40,
+ "competenceGoals": [
+  "kunne avgjøre om et sammensatt vilkår er sant, med riktig rekkefølge på og-, eller- og ikke-leddene",
+  "kunne velge mellom en kjede av trinnvise tester og flere selvstendige tester, og forklare forskjellen",
+  "kunne bruke at Python slutter å regne så snart svaret er avgjort, til å teste en verdi før den konverteres",
+  "kunne skrive en funksjon som svarer sant eller usant, uten unødvendige omveier"
+ ],
+ "content": [
+  {
+   "title": "Eksamensvinkel",
+   "content": "Betingelser er den andre halvdelen av grunnmuren. Uten dem gjør programmet det samme hver gang.\n\n- **Løkker og betingelser** står i **10 av 10** sett i arkivet 2014–2019, altså **100 %**. Hver eneste programmeringsoppgave inneholder minst én `if`.\n- Nøstede boolske uttrykk sendt inn i en funksjon er en fast innpakning i **sjanger B — kodesporing**, altså oppgaven «hva skriver dette programmet ut, eller hva returnerer denne funksjonen?». Typeformen er en funksjon som får to verdier og svarer `True` eller `False` etter et sammensatt vilkår.\n- Betingelser med grenser (karaktersetting, fartsgrenser, prisintervaller) er den vanligste innpakningen i selve programmeringsdelen.\n\n**Dette må sitte** — høyeste prioritet av bokas tre nivåer (*må sitte*, *må kunne*, *bør kjenne til*).",
+   "type": "tip",
+   "id": "tdt4110-1-2-tip-1"
+  },
+  {
+   "content": "**Forkunnskaper:**\n\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — Variabler, datatyper og konvertering: tilordning med `=`, de fire datatypene, og at alt som kommer inn utenfra er tekst til du konverterer det.\n\nHar du ikke lest kapitlet, er dette du trenger å ta med deg: `=` setter en verdi inn i et navn, og en verdi som ser ut som et tall kan likevel være tekst.\n\nTrenger du en ekstra forklaring av det samme stoffet med andre ord, finnes [Variabler, datatyper og uttrykk](/in1000/in1000-1-1) i et parallelt emne.",
+   "type": "text",
+   "id": "tdt4110-1-2-t-2"
+  },
+  {
+   "content": "## Løkke 1 — Spørsmål maskinen kan svare ja eller nei på (~8 min)\n\nEn parkeringsautomat må avgjøre om betalingen holder. Det er ett spørsmål med to mulige svar: ja eller nei. I Python heter de to svarene `True` og `False`, og de oppstår når du **sammenligner** to verdier.\n\nEt uttrykk som gir `True` eller `False`, kalles et **boolsk uttrykk**. Navnet kommer fra matematikeren George Boole, som formaliserte akkurat denne regningen.",
+   "type": "text",
+   "id": "tdt4110-1-2-t-3"
+  },
+  {
+   "title": "Boolsk verdi",
+   "content": "En verdi som er enten `True` (sann) eller `False` (usann). Stor forbokstav, ingen fnutter.\n\n`'True'` med fnutter er en **tekst** og oppfører seg helt annerledes — den er blant annet alltid sann når den brukes som betingelse, uansett hva som står i den.\n\nSannhetsverdier kan lagres i variabler som alle andre verdier: `har_betalt = True`.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-4"
+  },
+  {
+   "title": "`==` og `!=` — er de like?",
+   "content": "`a == b` gir `True` når verdiene er like, `a != b` når de er ulike.\n\n**To likhetstegn.** Ett likhetstegn er tilordning og betyr noe helt annet. Skriver du `if x = 3:` stopper programmet med `SyntaxError` — det er en av de få feilene Python fanger for deg.\n\nSammenligning på tvers av typer gir `False` uten feilmelding: `3 == '3'` er `False`, fordi et tall aldri er lik en tekst. Dette er felle #1 fra [kap. 1.1](/tdt4110/tdt4110-1-1) i ny drakt — glemt konvertering gir stille galt svar.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-5"
+  },
+  {
+   "title": "`<`, `<=`, `>`, `>=`",
+   "content": "Sammenligner størrelse. `<=` leses «mindre enn eller lik» og skrives med tegnene i den rekkefølgen — `=<` finnes ikke.\n\nFor tall sammenlignes tallverdien. For tekst sammenlignes tegn for tegn fra venstre, slik at `'9' > '10'` er `True`. Store bokstaver kommer før små: `'Å' < 'a'` er `True`.\n\nSammenligning mellom et tall og en tekst med `<` gir **feilmelding** (`TypeError`), i motsetning til `==`, som bare gir `False`.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-6"
+  },
+  {
+   "title": "Kjedet sammenligning",
+   "content": "Python tillater matematikkens skrivemåte: `0 <= x < 100` betyr at `x` er minst 0 og mindre enn 100.\n\nDette er ikke bare kortere enn `x >= 0 and x < 100` — det er også lettere å lese riktig, og midtverdien regnes bare ut én gang.\n\nBruk det når du skal teste et **intervall**. Karaktergrenser, fartsgrenser og lovlige klokkeslett er alle intervalltester.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-7"
+  },
+  {
+   "title": "Eksempel 1: Parkeringsautomaten",
+   "problem": "Automaten krever 45 kroner. Kunden legger i 50. Hva svarer de ulike sammenligningene?",
+   "solution": "```python\nkrav = 45\nbetalt = 50\nprint(betalt >= krav)\nprint(betalt == krav)\nprint(betalt != krav)\nprint(0 <= betalt <= 100)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\nTrue\n```\n\nFire spørsmål, fire svar. Legg merke til at hvert av dem er et helt uttrykk med en verdi — de kan lagres, skrives ut og sendes videre akkurat som tall.\n\nDen siste er en kjedet sammenligning, og den leses akkurat slik den ser ut: er `betalt` mellom 0 og 100, endepunktene medregnet?",
+   "type": "example",
+   "id": "tdt4110-1-2-ex-8"
+  },
+  {
+   "id": "tdt4110-1-2-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — minimal sporing. Sjanger B — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\nx = 7\nprint(x > 3)\nprint(x == 7)\nprint(x != 7)\nprint(3 < x < 10)\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Spørsmål | Svar |\n|---|---|---|\n| `x > 3` | er 7 større enn 3? | `True` |\n| `x == 7` | er 7 lik 7? | `True` |\n| `x != 7` | er 7 ulik 7? | `False` |\n| `3 < x < 10` | ligger 7 mellom 3 og 10? | `True` |\n\n**Utskrift:**\n```\nTrue\nTrue\nFalse\nTrue\n```\n\n**Fellenote:** `True` og `False` skrives med stor forbokstav og uten fnutter. Skriver du `true` som svar, er det feil.",
+    "hints": [
+     "Les hvert uttrykk høyt som et ja/nei-spørsmål om verdien 7.",
+     "`!=` er det motsatte av `==`."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 2 — Å sette sammen flere krav (~10 min)\n\nSjelden holder det med ett vilkår. En rabatt kan kreve at kunden er under 26 år **og** har gyldig studentbevis. En alarm kan utløses hvis døren er åpen **eller** vinduet er knust. Og noen ganger er du ute etter det motsatte av et vilkår.\n\nTre ord dekker alle tre tilfellene: `and`, `or` og `not`.",
+   "type": "text",
+   "id": "tdt4110-1-2-t-10"
+  },
+  {
+   "title": "`and`",
+   "content": "`a and b` er `True` bare når **begge** sider er sanne. Én usann side gjør hele uttrykket usant.\n\n| `a` | `b` | `a and b` |\n|---|---|---|\n| `True` | `True` | `True` |\n| `True` | `False` | `False` |\n| `False` | `True` | `False` |\n| `False` | `False` | `False` |\n\nTommelfingerregel: `and` gjør kravet **strengere**. Legger du til en `and`-betingelse, kan færre tilfeller slippe gjennom.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-11"
+  },
+  {
+   "title": "`or`",
+   "content": "`a or b` er `True` når **minst én** side er sann. Bare når begge er usanne, blir uttrykket usant.\n\n| `a` | `b` | `a or b` |\n|---|---|---|\n| `True` | `True` | `True` |\n| `True` | `False` | `True` |\n| `False` | `True` | `True` |\n| `False` | `False` | `False` |\n\nMerk at `or` i Python er «minst én», ikke «nøyaktig én» — det siste heter «enten eller» i dagligtale og finnes ikke som eget ord her.\n\nTommelfingerregel: `or` gjør kravet **løsere**.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-12"
+  },
+  {
+   "title": "`not`",
+   "content": "Snur sannhetsverdien: `not True` er `False`, og `not False` er `True`.\n\n`not x > 3` betyr «det er ikke sant at `x` er større enn 3», altså det samme som `x <= 3`. Vær presis her: det motsatte av «større enn» er «mindre enn **eller lik**», ikke bare «mindre enn».\n\nOfte er det klarere å snu selve sammenligningen enn å bruke `not`. `if not antall == 0:` er riktig, men `if antall != 0:` leses lettere.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-13"
+  },
+  {
+   "title": "Presedens i boolske uttrykk",
+   "content": "Rekkefølgen fra sterkest til svakest:\n\n1. **Sammenligningene** (`==`, `<`, `>=` …) — de regnes alltid før de logiske ordene.\n2. **`not`**\n3. **`and`**\n4. **`or`** — svakest.\n\nDet betyr at `a or b and c` leses som `a or (b and c)`, ikke som `(a or b) and c`. De to gir forskjellig svar, og forskjellen er en fast kodesporingsfelle.\n\nAt sammenligningene kommer først, er grunnen til at `x > 0 and y > 0` virker uten parenteser. Sett likevel parenteser når uttrykket blir sammensatt — de koster ingenting og fjerner tvilen.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-14"
+  },
+  {
+   "title": "Kortslutning",
+   "content": "Python slutter å regne så snart svaret er avgjort. I `a and b` regnes `b` **ikke** ut hvis `a` allerede er usann, og i `a or b` ikke hvis `a` allerede er sann.\n\nDette er ikke bare en effektivitetsdetalj — det er et verktøy. Skriver du `if tekst.isdigit() and int(tekst) > 100:`, er du trygg: konverteringen kjøres bare når teksten faktisk er sifre, så `int` kan ikke krasje.\n\nRekkefølgen på de to sidene har altså betydning, selv om `and` ellers ser symmetrisk ut.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-15"
+  },
+  {
+   "title": "Eksempel 2: Rabatten og alarmen",
+   "problem": "Studentrabatt krever alder under 26 **og** gyldig bevis. Alarmen går hvis døra er åpen **eller** vinduet er knust. Hva blir svarene for en 24-åring uten bevis, med lukket dør og knust vindu?",
+   "solution": "```python\nalder = 24\nhar_bevis = False\ndor_apen = False\nvindu_knust = True\nprint(alder < 26 and har_bevis)\nprint(dor_apen or vindu_knust)\nprint(not har_bevis)\nprint(alder < 26 or har_bevis and False)\n```\n\n**Utskrift:**\n```\nFalse\nTrue\nTrue\nTrue\n```\n\nDe tre første er rett fram. Den fjerde er fella: `and` binder sterkere enn `or`, så uttrykket leses som `alder < 26 or (har_bevis and False)`. Den venstre siden er sann, og dermed er hele uttrykket sant — uansett hva som står til høyre.\n\nHadde vi ment `(alder < 26 or har_bevis) and False`, måtte parentesene stått der. Da hadde svaret blitt `False`.",
+   "type": "example",
+   "id": "tdt4110-1-2-ex-16"
+  },
+  {
+   "id": "tdt4110-1-2-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\na = True\nb = False\nprint(a and b)\nprint(a or b)\nprint(not b)\nprint(a and not b)\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Regel | Verdi |\n|---|---|---|\n| `a and b` | begge må være sanne | `False` |\n| `a or b` | minst én er sann | `True` |\n| `not b` | snur `False` | `True` |\n| `a and not b` | `True and True` | `True` |\n\n**Utskrift:**\n```\nFalse\nTrue\nTrue\nTrue\n```\n\n**Fellenote:** i siste linje regnes `not b` først, fordi `not` binder sterkere enn `and`.",
+    "hints": [
+     "Sett inn `True` og `False` i stedet for `a` og `b`, og les uttrykket høyt.",
+     "`not` regnes før `and`, som igjen regnes før `or`."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-2-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing av et boolsk uttrykk.) Funksjonen under får to tall og svarer `True` eller `False`.\n\n```python\ndef test(x, y):\n    return (x > 0 and y > 0) or (x == y)\n\nprint(test(4, 4))\nprint(test(4, 0))\nprint(test(0, 4))\nprint(test(-2, -2))\n```\n\nHva returnerer funksjonen for hvert av de fire kallene?",
+    "solution": "Uttrykket har to deler bundet med `or`: begge positive, **eller** like store.\n\n**Sporingstavle**\n\n| Kall | Venstre del | Høyre del | Resultat |\n|---|---|---|---|\n| `test(4, 4)` | `True and True` gir `True` | `True` | `True` |\n| `test(4, 0)` | `True and False` gir `False` | `False` | `False` |\n| `test(0, 4)` | `False and ...` gir `False` | `False` | `False` |\n| `test(-2, -2)` | `False and ...` gir `False` | `True` | `True` |\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\nTrue\n```\n\n**Fellenote:** siste rad er den som skiller. Begge tallene er negative, så venstre del faller — men de er like, så høyre del berger uttrykket. Den som bare ser på fortegnene, svarer `False`.\n\nLegg også merke til kortslutningen i tredje rad: når `x > 0` er usann, regnes `y > 0` aldri ut.",
+    "hints": [
+     "Del uttrykket i de to parentesene og regn dem hver for seg, før du kombinerer med `or`.",
+     "`or` er sann så snart minst én av delene er sann."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 3 — Verdier som teller som sanne eller usanne (~5 min)\n\nPython godtar hvilken som helst verdi der det ventes en betingelse, ikke bare `True` og `False`. Da gjelder en fast regel om hva som teller som sant.",
+   "type": "text",
+   "id": "tdt4110-1-2-t-19"
+  },
+  {
+   "title": "Sant og usant utenfor `bool`",
+   "content": "Disse verdiene teller som **usanne**: tallet `0` (og `0.0`), den tomme teksten `''`, den tomme lista `[]`, den tomme ordboka `{}` og `None`.\n\n**Alt annet teller som sant** — også teksten `'0'`, teksten `'False'` og det negative tallet `-1`. Det er innholdet som avgjør for tekst: en tekst er sann så lenge den har minst ett tegn.\n\nPraktisk konsekvens: `if navn:` betyr «hvis brukeren skrev noe i det hele tatt». Det er kortformen for `if navn != '':`, og den brukes flittig i input-behandling.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-20"
+  },
+  {
+   "title": "`bool(x)`",
+   "content": "Gjør en hvilken som helst verdi om til `True` eller `False` etter regelen over: `bool(0)` gir `False`, `bool(-1)` gir `True`, `bool('')` gir `False` og `bool('0')` gir `True`.\n\nDu trenger den sjelden i en besvarelse, men den er den raskeste måten å kontrollere at du har forstått regelen når du sitter og sporer kode.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-21"
+  },
+  {
+   "title": "Eksempel 3: Hva er egentlig sant?",
+   "problem": "Hvilke av verdiene `0`, `-1`, `''`, `'0'` og `'False'` teller som sanne?",
+   "solution": "```python\nprint(bool(0), bool(-1))\nprint(bool(''), bool('0'), bool('False'))\n```\n\n**Utskrift:**\n```\nFalse True\nFalse True True\n```\n\nBare tallet `0` og den tomme teksten er usanne. `'0'` og `'False'` er tekster med tegn i seg, og dermed sanne — noe som overrasker mange første gang.\n\nDet er også en praktisk advarsel: leser du et svar fra brukeren og skriver `if svar:` for å sjekke om han svarte «ja», tar du feil. Den testen sjekker bare at han skrev **noe**.",
+   "type": "example",
+   "id": "tdt4110-1-2-ex-22"
+  },
+  {
+   "id": "tdt4110-1-2-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nverdier = [0, -3, '', '0', 'nei']\nfor v in verdier:\n    if v:\n        print('sann')\n    else:\n        print('usann')\n```\n\nHint til den som ikke har møtt løkker ennå: `for v in verdier:` betyr bare «gjenta det innrykkede én gang for hver verdi i lista, med `v` satt til den verdien». Løkker gjennomgås grundig i neste kapittel.",
+    "solution": "**Sporingstavle**\n\n| `v` | Er verdien tom eller null? | Skriver |\n|---|---|---|\n| `0` | ja, tallet null | `usann` |\n| `-3` | nei, et tall ulik null | `sann` |\n| `''` | ja, tom tekst | `usann` |\n| `'0'` | nei, teksten har ett tegn | `sann` |\n| `'nei'` | nei, teksten har tegn | `sann` |\n\n**Utskrift:**\n```\nusann\nsann\nusann\nsann\nsann\n```\n\n**Fellenote:** de to midterste linjene er fella. `-3` er sann fordi den ikke er null, og `'0'` er sann fordi teksten inneholder et tegn. Innholdet i teksten spiller ingen rolle.",
+    "hints": [
+     "Gå gjennom verdiene én om gangen og spør: er dette null, tom tekst eller tom struktur?",
+     "For tekst er det antall tegn som avgjør, ikke hva tegnene betyr."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 4 — `if`, `elif` og `else` (~10 min)\n\nNå kan programmet velge. En veiledning for fartsbøter har flere trinn: under grensen, litt over, mye over. Trinnene skal prøves i rekkefølge, og bare **ett** av dem skal gjelde.\n\nDet er nøyaktig oppgaven til `if`, `elif` og `else`.",
+   "type": "text",
+   "id": "tdt4110-1-2-t-24"
+  },
+  {
+   "title": "`if betingelse:`",
+   "content": "Kjører den innrykkede blokken bare når betingelsen er sann. Kolonet på slutten er obligatorisk.\n\nAlt som hører til valget, står **rykket inn** under `if`-linja. Boka bruker fire mellomrom per nivå, aldri tabulator. Innrykket er ikke pynt — det er Pythons måte å avgjøre hva som hører til.\n\nEn `if` alene er lov, uten `else`. Da skjer ingenting når betingelsen er usann.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-25"
+  },
+  {
+   "title": "`elif betingelse:`",
+   "content": "«Ellers, hvis …». Sjekkes **bare** når alle foregående betingelser i samme kjede var usanne.\n\nDette er det viktigste å forstå ved trinnvise tester. I en kjede med flere `elif` kjøres høyst **én** blokk — den første som slår til. Resten hoppes over uten å bli prøvd.\n\nSkriver du flere selvstendige `if`-setninger i stedet, prøves alle, og flere kan slå til samtidig. Det gir et helt annet program.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-26"
+  },
+  {
+   "title": "`else:`",
+   "content": "Kjøres når ingen av de foregående betingelsene slo til. Har ingen betingelse selv, og skrives sist i kjeden.\n\n`else` er valgfri, men på eksamen er den ofte poenget: den fanger opp «alle andre tilfeller», som laveste karakter, «ikke funnet» eller «ingen bot».\n\nGlemmer du den, faller de tilfellene stille gjennom uten at noe skjer — en av de vanligste kildene til at et program «gjør ingenting».",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-27"
+  },
+  {
+   "title": "Nøstet `if`",
+   "content": "En `if` inne i en annen `if`, med ett innrykksnivå til. Den indre testen prøves bare når den ytre var sann.\n\nNøsting og `and` kan ofte uttrykke det samme: `if a: if b:` gjør det samme som `if a and b:`. Velg `and` når begge kravene hører sammen, og nøsting når du trenger et eget `else` på det ytre nivået.\n\nMer enn to nivåer blir raskt uleselig. Går du dypere, er det som regel et tegn på at en del av logikken hører hjemme i en egen funksjon.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-28"
+  },
+  {
+   "title": "Å returnere en sammenligning direkte",
+   "content": "Skal en funksjon svare `True` eller `False`, skriv `return a > b` — ikke `if a > b: return True else: return False`.\n\nDe to gjør nøyaktig det samme, men den korte formen er den sensor forventer, og faget vurderer konsishet eksplisitt: uklare eller unødig lange svar trekker ned.\n\nSamme regel gjelder sammensatte vilkår: `return alder < 26 and har_bevis` er hele funksjonen.",
+   "type": "definition",
+   "id": "tdt4110-1-2-def-29"
+  },
+  {
+   "title": "Eksempel 4: Fartsboten (eksamensnivå)",
+   "problem": "En kommune har en enkel regel for kontroll på en 60-vei: opp til og med 60 er greit, opptil og med 70 gir advarsel, over det gir bot. Skriv logikken som en kjede, og vis hva som skjer hvis du i stedet skriver tre selvstendige tester.",
+   "solution": "Riktig løsning er én kjede, der trinnene prøves i rekkefølge:\n\n```python\nfart = 68\nif fart <= 60:\n    print('Greit')\nelif fart <= 70:\n    print('Advarsel')\nelse:\n    print('Bot')\n```\n\n**Utskrift:**\n```\nAdvarsel\n```\n\nRekkefølgen bærer hele logikken. Når `fart <= 60` er usann, prøves `fart <= 70` — og siden vi allerede vet at farten er over 60, betyr den testen i praksis «mellom 61 og 70».\n\nSkriver du tre selvstendige `if`-setninger i stedet, prøves alle tre:\n\n```python\nfart = 55\nif fart <= 60:\n    print('Greit')\nif fart <= 70:\n    print('Advarsel')\nif fart > 70:\n    print('Bot')\n```\n\n**Utskrift:**\n```\nGreit\nAdvarsel\n```\n\nNå skrives to linjer ut for én bilist. Feilen er ikke i betingelsene — de er de samme — men i at de ikke henger sammen i en kjede.\n\n**Uttelling:** sensor er ute etter at trinnene er gjensidig utelukkende og dekker alle tilfeller. Kjeden med `elif` gjør begge deler gratis; tre løse `if`-er må du selv sikre med lange intervalltester.",
+   "type": "example",
+   "id": "tdt4110-1-2-ex-30"
+  },
+  {
+   "id": "tdt4110-1-2-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\npoeng = 82\nif poeng >= 90:\n    print('A')\nelif poeng >= 80:\n    print('B')\nelif poeng >= 70:\n    print('C')\nelse:\n    print('D eller lavere')\nprint('ferdig')\n```",
+    "solution": "**Sporingstavle**\n\n| Test | Sann? | Hva skjer |\n|---|---|---|\n| `poeng >= 90` | nei | gå videre |\n| `poeng >= 80` | ja | skriv `B`, hopp over resten av kjeden |\n| `poeng >= 70` | prøves aldri | — |\n| `else` | prøves aldri | — |\n| `print('ferdig')` | utenfor kjeden | skrives alltid |\n\n**Utskrift:**\n```\nB\nferdig\n```\n\n**Fellenote:** 82 oppfyller også `poeng >= 70`, men den testen blir aldri prøvd. I en `elif`-kjede kjøres høyst én blokk.",
+    "hints": [
+     "Gå gjennom testene ovenfra og ned, og stopp ved den første som er sann.",
+     "Linjer uten innrykk hører ikke til kjeden."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-2-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, kodeskriving.) En idrettsklubb gir kontingent etter alder: under 6 år er gratis, 6 til og med 17 år koster 800 kroner, 18 til og med 66 år koster 1600 kroner, og fra 67 år koster det 900 kroner.\n\n**a)** Skriv funksjonen `kontingent(alder)` som returnerer riktig beløp som et heltall.\n**b)** Forklar med én setning hvorfor rekkefølgen på testene betyr noe.",
+    "solution": "**a)**\n\n```python\ndef kontingent(alder):\n    if alder < 6:\n        return 0\n    elif alder <= 17:\n        return 800\n    elif alder <= 66:\n        return 1600\n    else:\n        return 900\n\nprint(kontingent(4), kontingent(6), kontingent(17), kontingent(40), kontingent(67))\n```\n\n**Utskrift:**\n```\n0 800 800 1600 900\n```\n\n**b)** Fordi hver `elif` bare prøves når alle de foregående var usanne, og derfor i praksis betyr «og alderen er ikke allerede dekket over».\n\n**Uttelling:** flere korrekte løsninger sidestilles. Skriver du i stedet fire selvstendige tester med fulle intervaller — `if 6 <= alder <= 17:` og så videre — gir det full pott. Kjeden er bare kortere, og kortere er en fordel i et fag som vurderer konsishet.\n\nLegg merke til at `return` avslutter funksjonen med én gang, så noe `else` er strengt tatt ikke nødvendig. Den står der likevel, fordi den gjør det synlig at alle tilfeller er dekket.",
+    "hints": [
+     "Sorter grensene fra lavest til høyest, og la hver `elif` bare teste den øvre grensen.",
+     "`return` avslutter funksjonen umiddelbart — resten av kjeden kjøres ikke."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-2-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing av nøstet `if`.) Hva skriver programmet ut?\n\n```python\ntemp = 3\nvind = 12\nif temp < 5:\n    if vind > 10:\n        print('kaldt og vindfullt')\n    else:\n        print('kaldt')\nelse:\n    print('mildt')\n```",
+    "solution": "**Sporingstavle**\n\n| Nivå | Test | Sann? | Neste |\n|---|---|---|---|\n| ytre | `temp < 5` | ja (3 er mindre enn 5) | gå inn i blokken |\n| indre | `vind > 10` | ja (12 er større enn 10) | skriv første linje |\n| ytre `else` | — | hoppes over | — |\n\n**Utskrift:**\n```\nkaldt og vindfullt\n```\n\n**Fellenote:** det indre `else` hører til `vind > 10`, ikke til `temp < 5`. Hvilket `if` et `else` hører til, avgjøres utelukkende av **innrykket**. Programmet kunne like gjerne vært skrevet `if temp < 5 and vind > 10:` for den øverste grenen, men da ville du trengt en egen test for «kaldt uten vind».",
+    "hints": [
+     "Tegn opp innrykksnivåene og par hvert `else` med det `if` som står på samme nivå.",
+     "Den indre testen prøves bare når den ytre var sann."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-2-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-2-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Funksjonen under sjekker om en tekst kan brukes som et positivt heltall under 100.\n\n```python\ndef lovlig(tekst):\n    return tekst.isdigit() and 0 < int(tekst) < 100\n\nprint(lovlig('42'))\nprint(lovlig('0'))\nprint(lovlig('abc'))\nprint(lovlig('100'))\n```\n\nHva returnerer de fire kallene — og hvorfor stopper ikke programmet på `lovlig('abc')`?",
+    "solution": "**Sporingstavle**\n\n| Kall | `.isdigit()` | Kjedet sammenligning | Resultat |\n|---|---|---|---|\n| `lovlig('42')` | `True` | `0 < 42 < 100` er sann | `True` |\n| `lovlig('0')` | `True` | `0 < 0` er usann | `False` |\n| `lovlig('abc')` | `False` | regnes aldri ut | `False` |\n| `lovlig('100')` | `True` | `100 < 100` er usann | `False` |\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\nFalse\n```\n\n**Fellenote:** `lovlig('abc')` stopper ikke fordi `and` **kortslutter**. Venstre side er allerede usann, så høyre side — der `int('abc')` ville gitt `ValueError` — blir aldri regnet ut. Bytter du om på rekkefølgen av de to sidene, krasjer programmet.\n\nMerk også `lovlig('0')`: kravet er strengt større enn null, så nullen faller ut. Den typen grensetilfelle er nettopp det sporingsoppgavene sikter på.",
+    "hints": [
+     "Regn ut venstre side av `and` først, og spør deretter om høyre side i det hele tatt blir regnet ut.",
+     "Kjedet sammenligning krever at begge ulikhetene holder samtidig."
+    ]
+   }
+  },
+  {
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fire feller går igjen, og alle fire har kostet poeng i sporingsoppgaver:\n\n- **Ett likhetstegn i en test.** `if x = 3:` er tilordning og gir `SyntaxError`. Denne fanges av Python, så den er den billigste av de fire.\n- **Feil presedens i blandede uttrykk.** `a or b and c` leses som `a or (b and c)`. Sett parenteser når du er i tvil.\n- **`if` der du mente `elif`.** Selvstendige tester prøves alle, og flere blokker kan kjøre. En `elif`-kjede kjører høyst én.\n- **Glemt `else`.** Tilfellene som ingen test fanger, faller stille gjennom. På eksamen er det ofte nettopp restkategorien — laveste karakter, «ikke funnet» — som gir poenget.\n\nEn femte, som hører hjemme i [kap. 1.1](/tdt4110/tdt4110-1-1): sammenligner du tekst med tall, får du `False` uten feilmelding. Det er felle **#1** i bokas feilregister — glemt konvertering — og den er like farlig i en `if` som i et regnestykke.",
+   "type": "warning",
+   "id": "tdt4110-1-2-adv-35"
+  },
+  {
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-1-2-c-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `True` / `False` | Stor forbokstav, uten fnutter. `'True'` er en tekst, ikke en sannhetsverdi. |\n| `==` | Sann når verdiene er like. `3 == '3'` er `False` — tall er aldri lik tekst. |\n| `!=` | Sann når verdiene er ulike. |\n| `<` `<=` `>` `>=` | Tall etter tallverdi, tekst tegn for tegn. Tall mot tekst gir `TypeError`. |\n| `0 <= x < 100` | Kjedet sammenligning: begge ulikhetene må holde. `x` regnes ut én gang. |\n| `and` | Sann bare når begge sider er sanne. Gjør kravet strengere. |\n| `or` | Sann når minst én side er sann. Gjør kravet løsere. |\n| `not` | Snur verdien. Det motsatte av `>` er `<=`, ikke `<`. |\n| Presedens | Sammenligninger, så `not`, så `and`, så `or`. |\n| Kortslutning | `and` hopper over høyre side når venstre er usann; `or` når venstre er sann. |\n| Usanne verdier | `0`, `0.0`, `''`, `[]`, `{}`, `None`. Alt annet er sant — også `'0'`. |\n| `bool(x)` | Gjør en hvilken som helst verdi om til `True`/`False` etter regelen over. |\n| `if betingelse:` | Kjører den innrykkede blokken når betingelsen er sann. Kolon obligatorisk. |\n| `elif betingelse:` | Prøves BARE når alle foregående i kjeden var usanne. |\n| `else:` | Kjøres når ingen av de foregående slo til. Ingen egen betingelse. |\n| Nøstet `if` | Indre test prøves bare når den ytre var sann. Innrykket avgjør hvilket `else` som hører til hva. |\n| `return a > b` | Returnerer sannhetsverdien direkte — bokas og sensors foretrukne form. |\n\n**Formler i dette delkapitlet:** ingen matematiske formler. Sannhetstabellene for `and` og `or` står i definisjonene over, og er hele apparatet du trenger."
+    }
+   ],
+   "type": "collapsible",
+   "id": "tdt4110-1-2-coll-36"
+  },
+  {
+   "title": "Repetisjon — de seks setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "tdt4110-1-2-c-2",
+     "type": "text",
+     "content": "1. `=` setter inn en verdi, `==` sammenligner. Ett likhetstegn i en test gir `SyntaxError`.\n2. `and` krever begge; `or` krever minst én; `not` snur. Det motsatte av `>` er `<=`.\n3. Rekkefølgen er: sammenligninger, `not`, `and`, `or`. Derfor er `a or b and c` det samme som `a or (b and c)`.\n4. `and` og `or` kortslutter — høyre side regnes ikke ut når svaret allerede er avgjort. Det er derfor `tekst.isdigit() and int(tekst) > 0` er trygt.\n5. Usanne verdier er `0`, `''`, `[]`, `{}` og `None`. Teksten `'0'` er **sann**.\n6. En `elif`-kjede kjører høyst én blokk; selvstendige `if`-er prøves alle.\n\nSitter de, er du klar for løkkene i [kap. 1.3](/tdt4110/tdt4110-1-3) — som er det samme apparatet, bare gjentatt."
+    }
+   ],
+   "type": "collapsible",
+   "id": "tdt4110-1-2-coll-37"
+  }
+ ],
+ "exercises": []
+}

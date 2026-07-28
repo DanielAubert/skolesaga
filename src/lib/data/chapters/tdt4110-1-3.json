@@ -1,0 +1,418 @@
+{
+ "id": "tdt4110-1-3",
+ "courseId": "tdt4110",
+ "chapterNumber": "1.3",
+ "title": "Løkker — for, while og range",
+ "description": "For- og while-løkker, `range` med tre argumenter, nøstede løkker og løkketerminering — ryggraden i all koding og i kodesporing.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne telle nøyaktig hvor mange ganger en løkke kjører, og hvilke verdier tellevariabelen får",
+  "kunne bygge opp en sum eller en teller i en løkke, med riktig startverdi og riktig plassering",
+  "kunne spore en løkke inne i en løkke der den indre grensen avhenger av den ytre",
+  "kunne avgjøre om en betingelsesstyrt løkke stopper etter et endelig antall runder, eller aldri"
+ ],
+ "content": [
+  {
+   "title": "Eksamensvinkel",
+   "content": "Dette er kapitlet som gir flest poeng per lest side i hele Del 1.\n\n- **Løkker og betingelser** står i **10 av 10** sett i arkivet 2014–2019, altså **100 %**.\n- Løkker er den klart vanligste innpakningen i **sjanger B — kodesporing**, altså oppgaven «hva skriver dette programmet ut?». Den sjangeren er i hvert eneste sett og gir 1–3 % per deloppgave. De faste variantene er: kvadrér annethvert element, bygg opp en sum eller en teller, og en `while`-løkke som leter seg fram til et tall.\n- Løkker er også **sjanger D — «fyll inn manglende kodelinje»**, der du velger mellom fire alternativer til en løkkegrense. Den sjangeren er i omtrent halvparten av settene.\n- Nøstede løkker over tabeller bærer store deler av programmeringsdelen senere i boka.\n\n**Dette må sitte** — høyeste prioritet av bokas tre nivåer (*må sitte*, *må kunne*, *bør kjenne til*).\n\nKapitlet er delt i fem løkker med tidsanslag. Det er helt greit å ta pause mellom dem — markørene står i teksten.",
+   "type": "tip",
+   "id": "tdt4110-1-3-tip-1"
+  },
+  {
+   "content": "**Forkunnskaper:**\n\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — Variabler, datatyper og konvertering: tilordning, `+=`, og operatorene `//` og `%`.\n- [kap. 1.2](/tdt4110/tdt4110-1-2) — Boolsk logikk og betingelser: sammenligninger, `and`/`or`, og at en betingelse er et uttrykk med verdien `True` eller `False`.\n\nTar du bare med deg én ting fra dem, la det være denne: en betingelse er noe som er sant eller usant akkurat nå, og verdien kan endre seg mens programmet kjører.\n\nVil du ha en parallell gjennomgang av løkkene med andre ord, finnes [Løkker: for, while og range](/in1000/in1000-1-3) i et beslektet emne.",
+   "type": "text",
+   "id": "tdt4110-1-3-t-2"
+  },
+  {
+   "content": "## Løkke 1 — Å gjenta noe én gang per verdi (~10 min)\n\nEn værstasjon har målt temperaturen fire ganger i døgnet. Skal du skrive ut alle fire, kunne du skrevet fire `print`-linjer. Men stasjonen måler 8 760 ganger i året, og da holder ikke den framgangsmåten.\n\nEn **løkke** er en kodeblokk som gjentas. Den vanligste formen gjentar blokken én gang for hver verdi i en samling.",
+   "type": "text",
+   "id": "tdt4110-1-3-t-3"
+  },
+  {
+   "title": "Løkke",
+   "content": "En kodeblokk som kjøres flere ganger. Python har to typer:\n\n- **`for`** — når du på forhånd vet hva du skal gå gjennom: hver verdi i en samling, eller hvert tall i et intervall.\n- **`while`** — når du ikke vet hvor mange runder det blir, bare når du skal stoppe.\n\nHver gjennomkjøring kalles en **runde** eller en **iterasjon**. Å iterere betyr rett og slett å gå gjennom noe, ett element av gangen.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-4"
+  },
+  {
+   "title": "Liste — så mye du trenger her",
+   "content": "En **liste** er flere verdier samlet i én, skrevet mellom hakeparenteser og skilt med komma: `[12, 15, 9, 11]`.\n\nTre ting trenger du i dette kapitlet: `len(liste)` gir antall elementer; `liste[0]` gir det **første** elementet (plassnummereringen starter på null); og du kan gå gjennom lista med en `for`-løkke.\n\nLister har mye mer i seg — indeksering bakfra, utsnitt, metoder for å legge til og fjerne. Alt det kommer i Del 3. Her brukes lista bare som noe å gå gjennom.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-5"
+  },
+  {
+   "title": "`for e in sekvens:`",
+   "content": "Kjører den innrykkede blokken én gang for hvert element i sekvensen. Variabelen `e` peker på **elementet** i hver runde — ikke på plassnummeret.\n\nEn «sekvens» er noe det går an å gå gjennom: en liste, en tekst (da er elementene tegnene), eller et tallintervall laget med `range`.\n\nNavnet på løkkevariabelen velger du selv. Velg et som sier hva elementet er: `for temp in malinger:` leser bedre enn `for x in y:`.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-6"
+  },
+  {
+   "title": "Løkkekropp og innrykk",
+   "content": "Alt som skal gjentas, står **rykket inn** under `for`-linja. Innrykket er ikke pynt — det er Pythons måte å avgjøre hva som hører til løkka.\n\nBokas standard er **fire mellomrom** per nivå, og du skal aldri blande mellomrom og tabulator i samme fil. Gjør du det, stopper Python med `IndentationError` eller `TabError`. Dette er felle **#16** i bokas feilregister.\n\nDen første linja uten innrykk etter løkka, står **utenfor** den og kjøres én gang — etter at alle rundene er ferdige.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-7"
+  },
+  {
+   "title": "Eksempel 1: Inne i eller utenfor løkka?",
+   "problem": "De samme fire linjene, med `print` plassert to steder. Hva skriver hvert program ut?",
+   "solution": "Først med `print` **inne** i løkka:\n\n```python\nmalinger = [12, 15, 9, 11]\nfor temp in malinger:\n    print(temp)\n```\n\n**Utskrift:**\n```\n12\n15\n9\n11\n```\n\nSå med `print` **utenfor**, altså uten innrykk:\n\n```python\nmalinger = [12, 15, 9, 11]\nfor temp in malinger:\n    siste = temp\nprint(siste)\n```\n\n**Utskrift:**\n```\n11\n```\n\nDet andre programmet skriver bare én linje, og den viser den siste verdien løkkevariabelen fikk. Løkka gikk fire runder, men `print` kjørte én gang.\n\nLegg merke til at både `temp` og `siste` fortsatt finnes etter at løkka er ferdig. Variabler som lages inne i en løkke, forsvinner ikke — de beholder sin siste verdi.",
+   "type": "example",
+   "id": "tdt4110-1-3-ex-8"
+  },
+  {
+   "id": "tdt4110-1-3-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — minimal sporing. Sjanger B — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\nfor by in ['Bodø', 'Voss']:\n    print(by)\nprint('ferdig')\n```",
+    "solution": "**Sporingstavle**\n\n| Runde | `by` | Skriver | Utskrift så langt |\n|---|---|---|---|\n| 1 | `'Bodø'` | `Bodø` | `Bodø` |\n| 2 | `'Voss'` | `Voss` | `Bodø`, `Voss` |\n| — | løkka ferdig | `ferdig` (utenfor løkka) | `Bodø`, `Voss`, `ferdig` |\n\n**Utskrift:**\n```\nBodø\nVoss\nferdig\n```\n\nMerk at teksten skrives **uten** fnutter. Fnuttene er en del av koden, ikke av teksten.\n\n**Fellenote:** fellen er innrykket. `print('ferdig')` står utenfor løkka og kjøres derfor én gang, ikke to.",
+    "hints": [
+     "Gå gjennom elementene i lista i rekkefølge, ett per runde.",
+     "Se nøye på hvilke linjer som er rykket inn."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 2 — `range`, og av-én-fella (~12 min)\n\nOfte skal du ikke gå gjennom en ferdig samling, men gjennom en **tallrekke**: de ti første sekundene, hver tredje rad, plassnumrene i en liste. Da bruker du `range`.\n\n`range` er den enkeltkonstruksjonen som koster flest poeng på eksamen, og alltid av samme grunn: hvor rekka slutter.",
+   "type": "text",
+   "id": "tdt4110-1-3-t-10"
+  },
+  {
+   "title": "`range(stopp)`",
+   "content": "Tallrekka fra og med `0` til, men **ikke med**, `stopp`.\n\n`range(5)` gir 0, 1, 2, 3, 4 — altså fem tall, og det største er 4. Antall runder er `stopp`, men den siste verdien er `stopp - 1`.\n\nDet er akkurat denne forskjellen mellom «antall» og «siste verdi» som utløser av-én-feilen.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-11"
+  },
+  {
+   "title": "`range(start, stopp)`",
+   "content": "Tallrekka fra og med `start` til, men ikke med, `stopp`.\n\n`range(1, 5)` gir 1, 2, 3, 4 — fire tall. Antall runder er `stopp - start`.\n\nSkal du telle fra og med 1 til og med 10, skriver du derfor `range(1, 11)`. Den ekstra én-eren i sluttverdien er ikke en feil — den er regelen.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-12"
+  },
+  {
+   "title": "`range(start, stopp, steg)`",
+   "content": "Som over, men hopper `steg` av gangen. **`stopp` er fortsatt eksklusiv.**\n\n`range(0, 10, 2)` gir 0, 2, 4, 6, 8. `range(1, 10, 2)` gir 1, 3, 5, 7, 9.\n\nDe to formene over er det faste paret i eksamensoppgaver: den første gir elementene på plass 0, 2, 4 … («annethvert fra det første»), den andre gir plass 1, 3, 5 … («annethvert fra det andre»). Blander du dem, treffer du helt andre elementer — dette er felle **#5** i bokas feilregister.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-13"
+  },
+  {
+   "title": "Negativt steg",
+   "content": "`range(10, 0, -2)` teller nedover: 10, 8, 6, 4, 2. `stopp` er fortsatt eksklusiv, så nullen er ikke med.\n\nSkal du telle nedover til og med 0, må stoppverdien være `-1`: `range(10, -1, -1)` gir 10, 9, 8 … 1, 0.\n\nMed negativt steg må `start` være større enn `stopp`. Er den ikke det, blir rekka tom.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-14"
+  },
+  {
+   "title": "Tom `range`",
+   "content": "`range(0)`, `range(5, 5)` og `range(0, 5, -1)` gir alle **ingen** tall. Løkka kjører null ganger, helt uten feilmelding.\n\nDet er en vanlig kilde til at «programmet gjør ingenting»: grensene er satt slik at rekka er tom. Når et program mot formodning ikke skriver noe, er en tom `range` det første du skal mistenke.\n\nPå eksamen er dette også et sporingssvar i seg selv: riktig svar kan være at det ikke skrives noe som helst.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-15"
+  },
+  {
+   "title": "`range(len(x))`",
+   "content": "Gir plassnumrene `0` til `len(x) - 1`, altså akkurat de lovlige plassene i sekvensen `x`. Bruk den når du trenger **plassnummeret** og ikke bare verdien.\n\nDette er den eneste formen som lar deg **endre** elementer: `x[i] = ...` krever et plassnummer. En vanlig `for e in x:` gir deg en kopi av verdien, og å tilordne til `e` endrer ingenting i lista.\n\nLegg merke til at `len(x)` regnes ut én gang, før løkka starter.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-16"
+  },
+  {
+   "title": "`enumerate(x)`",
+   "content": "Gir plassnummer og verdi samtidig, som et par: `for i, verdi in enumerate(x):` setter `i` til plassnummeret og `verdi` til elementet.\n\nNummereringen starter på 0, akkurat som plassnumrene ellers. Skal du vise et menneskevennlig nummer, legger du til én i **utskriften**, ikke i løkka.\n\n`enumerate` er en snarvei, og snarveier er tillatt og brukt i fasit i dette faget. Velg `for e in x:` når du bare trenger verdien, `enumerate` når du trenger begge, og `range(len(x))` når du skal endre elementer.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-17"
+  },
+  {
+   "title": "Løkkevariabelen etter løkka",
+   "content": "Variabelen som løkka brukte, finnes fortsatt når løkka er ferdig, og har sin **siste** verdi.\n\nEtter `for i in range(4):` er `i` lik 3 — ikke 4, og ikke borte. Etter en løkke over en tom `range` finnes variabelen derimot **ikke** i det hele tatt, og å bruke den gir `NameError`.\n\nDet samme gjelder alle variabler som lages inne i kroppen. De overlever løkka, og det er nettopp det som gjør akkumulator- og tellermønsteret mulig.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-18"
+  },
+  {
+   "title": "Akkumulatormønsteret",
+   "content": "Det kanoniske mønsteret for å bygge opp én verdi av mange. Tre faste deler, i denne rekkefølgen:\n\n```python\ns = 0\nfor i in range(1, 5):\n    s += i\nprint(s)\n```\n\n**Utskrift:**\n```\n10\n```\n\n1. **Startverdi før løkka.** `s = 0` for en sum, `p = 1` for et produkt. Står startverdien inne i løkka, nullstilles den hver runde, og resultatet blir bare det siste leddet.\n2. **Oppdatering inne i løkka**, med `+=`.\n3. **Bruk av resultatet etter løkka**, utenfor innrykket.\n\nDette mønsteret bærer alle analyseoppgavene senere i boka: summer en kolonne, tell forekomster, finn den beste raden. Lær det her, og du kan det der.",
+   "type": "theorem",
+   "id": "tdt4110-1-3-th-19"
+  },
+  {
+   "title": "Tellermønsteret",
+   "content": "Samme skjelett som akkumulatoren, men med en betingelse inni: tell hvor mange elementer som oppfyller et krav.\n\n```python\nmalinger = [12, 15, 9, 11, 4]\nantall = 0\nfor temp in malinger:\n    if temp >= 10:\n        antall += 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n3\n```\n\n1. `antall = 0` **før** løkka.\n2. `if`-testen inne i løkka avgjør om telleren skal økes.\n3. `antall` brukes etter løkka.\n\nDette er selve grunnformen for «hvor mange …»-deloppgavene i programmeringsdelen. Legg merke til at `antall += 1` står ett nivå lenger inn enn `if`-linja — den hører til betingelsen, ikke til løkka.",
+   "type": "theorem",
+   "id": "tdt4110-1-3-th-20"
+  },
+  {
+   "title": "Eksempel 2: Fire `range`-varianter",
+   "problem": "Hva skriver hver av de fire løkkene ut, og hvor mange runder går de?",
+   "solution": "```python\nfor i in range(4):\n    print(i, end=' ')\nprint()\nfor i in range(1, 5):\n    print(i, end=' ')\nprint()\nfor i in range(1, 10, 2):\n    print(i, end=' ')\nprint()\nfor i in range(10, 0, -3):\n    print(i, end=' ')\nprint()\n```\n\n**Utskrift:**\n```\n0 1 2 3 \n1 2 3 4 \n1 3 5 7 9 \n10 7 4 1 \n```\n\n`print(..., end=' ')` bytter ut linjeskiftet med et mellomrom, så tallene havner på samme linje. Den nakne `print()` etterpå avslutter linja.\n\n| Løkke | Verdier | Antall runder |\n|---|---|---|\n| `range(4)` | 0 1 2 3 | 4 |\n| `range(1, 5)` | 1 2 3 4 | 4 |\n| `range(1, 10, 2)` | 1 3 5 7 9 | 5 |\n| `range(10, 0, -3)` | 10 7 4 1 | 4 |\n\nLegg merke til den siste: neste verdi etter 1 ville vært $-2$, som er forbi stoppverdien, så løkka stopper. Stoppverdien 0 er aldri med.",
+   "type": "example",
+   "id": "tdt4110-1-3-ex-21"
+  },
+  {
+   "title": "Typisk feil #5 — av-én i `range` og i indeksering",
+   "content": "Feilkode **#5** i bokas feilregister (samlet i [kap. 0.1](/tdt4110/tdt4110-0-1)) er den hyppigste løkkefeilen i faget.\n\n- Skal løkka gå **til og med** `n`, må du skrive `range(n + 1)`. `range(n)` stopper på `n - 1`.\n- Skal noe skje **`n` ganger**, er `range(n)` riktig, og `range(n + 1)` gjør én runde for mye.\n- «Annethvert element fra det første» er `range(0, len(x), 2)`; «annethvert fra det andre» er `range(1, len(x), 2)`. De treffer helt ulike elementer.\n\nSpør deg derfor alltid: **teller jeg runder eller sluttverdier?**\n\nPraktisk kontroll på eksamen: sett grensen til et lite tall, som 2, og tell rundene på papir. Får du to eller tre? Da vet du hvilken variant oppgaven trenger.",
+   "type": "warning",
+   "id": "tdt4110-1-3-adv-22"
+  },
+  {
+   "id": "tdt4110-1-3-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger B — kodesporing.) Hvor mange runder går hver løkke, og hva skriver programmet ut?\n\n```python\ns = 0\nfor i in range(3):\n    s += i\nprint(s)\nt = 0\nfor i in range(1, 4):\n    t += i\nprint(t)\n```",
+    "solution": "**Sporingstavle**\n\n| Løkke | Verdier `i` får | Summeringen | Resultat |\n|---|---|---|---|\n| `range(3)` | 0, 1, 2 | $0 + 1 + 2$ | 3 |\n| `range(1, 4)` | 1, 2, 3 | $1 + 2 + 3$ | 6 |\n\n**Utskrift:**\n```\n3\n6\n```\n\n**Fellenote:** begge løkkene går tre runder, men over ulike tall. `range(3)` starter på null, `range(1, 4)` på én — og i begge er stoppverdien utenfor.",
+    "hints": [
+     "Skriv opp hvilke tall løkkevariabelen faktisk får, før du summerer.",
+     "Startverdien til en akkumulator står før løkka."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-3-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\ntall = [4, 7, 2, 9, 5]\nfor i in range(1, len(tall), 2):\n    tall[i] = tall[i] ** 2\nprint(tall)\n```",
+    "solution": "Lista har fem elementer, så plassnumrene er 0 til 4. `range(1, 5, 2)` gir plassene 1 og 3.\n\n**Sporingstavle**\n\n| Runde | `i` | `tall[i]` før | `tall[i]` etter | Lista nå |\n|---|---|---|---|---|\n| 1 | 1 | 7 | 49 | `[4, 49, 2, 9, 5]` |\n| 2 | 3 | 9 | 81 | `[4, 49, 2, 81, 5]` |\n\n**Utskrift:**\n```\n[4, 49, 2, 81, 5]\n```\n\n**Fellenote:** fellen er **#5**. `range(1, len(tall), 2)` treffer plass 1 og 3, ikke 0 og 2. Den som starter på null, kvadrerer 4, 2 og 5 i stedet.\n\nLegg også merke til at lista skrives ut med hakeparenteser og komma-mellomrom mellom elementene. På eksamen skal utskriften gjengis nøyaktig slik.",
+    "hints": [
+     "Skriv opp plassnumrene 0 til 4 og marker hvilke `range(1, 5, 2)` faktisk treffer.",
+     "`tall[i] = ...` endrer lista på stedet — de tidligere endringene henger med videre."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-3-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, kodeskriving.) En treningslogg er ei liste med antall minutter per økt.\n\n**a)** Skriv `total_tid(okter)` som returnerer summen av alle minuttene.\n**b)** Skriv `antall_lange(okter)` som returnerer hvor mange økter som varte minst 45 minutter.\n**c)** Vis hva de to funksjonene gir for lista `[30, 55, 45, 20, 60]`.",
+    "solution": "**a)** og **b)** er akkumulator- og tellermønsteret, hver for seg:\n\n```python\ndef total_tid(okter):\n    s = 0\n    for minutter in okter:\n        s += minutter\n    return s\n\ndef antall_lange(okter):\n    antall = 0\n    for minutter in okter:\n        if minutter >= 45:\n            antall += 1\n    return antall\n\nlogg = [30, 55, 45, 20, 60]\nprint(total_tid(logg))\nprint(antall_lange(logg))\n```\n\n**Utskrift:**\n```\n210\n3\n```\n\n**c)** Summen er 210 minutter, og tre av øktene varte minst 45 minutter — 55, 45 og 60. Legg merke til at 45 selv er med, fordi kravet er «minst».\n\n**Uttelling:** flere korrekte løsninger sidestilles. Den innebygde snarveien `sum(okter)` gir nøyaktig samme svar på **a)** og er fullt gyldig i fasit — dette faget tillater snarveier. Løkkevarianten står her fordi den er mønsteret du trenger når summeringen skal gjøres betinget, som i **b)**.",
+    "hints": [
+     "Sett startverdien før løkka, og oppdater den inne i løkka.",
+     "I b) står tellingen ett innrykksnivå lenger inn enn `if`-linja."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 3 — Løkke inne i løkke (~10 min)\n\n*— naturlig pausepunkt —*\n\nEn tabell har både rader og kolonner. Skal du gå gjennom alle cellene, trenger du én løkke for radene og én for kolonnene inne i den. Det er dette mønsteret som bærer hele programmeringsdelen senere i boka, så det lønner seg å bruke tid her.",
+   "type": "text",
+   "id": "tdt4110-1-3-t-26"
+  },
+  {
+   "title": "Nøstet løkke",
+   "content": "En løkke inne i kroppen til en annen løkke, med ett innrykksnivå til.\n\nDen **indre** løkka kjøres helt ferdig for **hver** runde i den ytre. Er grensene uavhengige, blir antall innerste runder produktet: en ytre løkke på 3 og en indre på 4 gir 12 innerste runder.\n\nRekkefølgen er alltid den samme: ytre runde 1, alle indre runder, ytre runde 2, alle indre runder, og så videre.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-27"
+  },
+  {
+   "title": "Løkkevariabel-avhengige grenser",
+   "content": "Den indre grensen kan avhenge av den ytre løkkevariabelen: `for j in range(i):`.\n\nDa varierer antall indre runder fra ytre runde til ytre runde. Med `i` lik 0 kjøres den indre løkka **null** ganger — `range(0)` er tom, uten feilmelding.\n\nDette er den vanligste sporingsfella i nøstede løkker, fordi den fristende, men gale antakelsen er at alle ytre runder gir like mange indre.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-28"
+  },
+  {
+   "title": "Eksempel 3: Trekanten som vokser",
+   "problem": "Hva skriver programmet ut, og hvor mange innerste runder blir det til sammen?",
+   "solution": "```python\nfor i in range(1, 4):\n    for j in range(i):\n        print(i * j, end=' ')\n    print()\n```\n\n**Utskrift:**\n```\n0 \n0 2 \n0 3 6 \n```\n\n**Sporing, runde for runde:**\n\n| Ytre `i` | Indre `range(i)` | `j`-verdier | Skriver |\n|---|---|---|---|\n| 1 | `range(1)` | 0 | `0` |\n| 2 | `range(2)` | 0, 1 | `0 2` |\n| 3 | `range(3)` | 0, 1, 2 | `0 3 6` |\n\nTil sammen $1 + 2 + 3 = 6$ innerste runder. Den nakne `print()` står i den **ytre** løkka, ikke i den indre — derfor blir det ett linjeskift per rad og ikke ett per tall.\n\nLegg merke til at hver linje slutter med et mellomrom, fordi `end=' '` gjelder også det siste tallet på linja. Det synes ikke på skjermen, men det er der.",
+   "type": "example",
+   "id": "tdt4110-1-3-ex-29"
+  },
+  {
+   "id": "tdt4110-1-3-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing av nøstet løkke.) Hva skriver programmet ut?\n\n```python\nfor i in range(3):\n    for j in range(2):\n        print(i, j)\n```",
+    "solution": "Grensene er uavhengige, så det blir $3 \\cdot 2 = 6$ innerste runder. Rekkefølgen er at den indre går helt ferdig for hver ytre runde.\n\n**Sporingstavle**\n\n| Ytre `i` | Indre `j` | Skriver |\n|---|---|---|\n| 0 | 0, 1 | `0 0` og `0 1` |\n| 1 | 0, 1 | `1 0` og `1 1` |\n| 2 | 0, 1 | `2 0` og `2 1` |\n\n**Utskrift:**\n```\n0 0\n0 1\n1 0\n1 1\n2 0\n2 1\n```\n\n**Fellenote:** `print(i, j)` med komma setter **ett mellomrom** mellom verdiene og avslutter med linjeskift. Skriver du `00` i stedet for `0 0`, er svaret feil.",
+    "hints": [
+     "Skriv opp den ytre verdien først, og la den stå fast mens du går gjennom hele den indre løkka.",
+     "`print(a, b)` skiller argumentene med ett mellomrom."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-3-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Vær nøye med hvor mange runder den indre løkka går.\n\n```python\ns = 0\nfor i in range(4):\n    for j in range(i, 4):\n        s += 1\nprint(s)\n```",
+    "solution": "Den indre grensen avhenger av den ytre: `range(i, 4)` gir $4 - i$ runder.\n\n**Sporingstavle**\n\n| Ytre `i` | Indre rekke | Antall indre runder | `s` etterpå |\n|---|---|---|---|\n| 0 | `range(0, 4)` | 4 | 4 |\n| 1 | `range(1, 4)` | 3 | 7 |\n| 2 | `range(2, 4)` | 2 | 9 |\n| 3 | `range(3, 4)` | 1 | 10 |\n\n**Utskrift:**\n```\n10\n```\n\n**Fellenote:** den fristende gale antakelsen er at alle fire ytre runder gir fire indre, altså 16. Grensen krymper for hver runde, og summen blir $4 + 3 + 2 + 1 = 10$.\n\nDette mønsteret er ikke tilfeldig valgt: det er nøyaktig løkkestrukturen i boblesortering, som du møter i Del 6.",
+    "hints": [
+     "Regn ut hvor mange tall `range(i, 4)` gir, for hver verdi `i` kan ha.",
+     "Antall tall i `range(a, b)` er `b - a` når steget er 1."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 4 — `while`: gjenta så lenge noe er sant (~10 min)\n\n*— naturlig pausepunkt —*\n\nNoen ganger vet du ikke på forhånd hvor mange runder det blir. Du vet bare når du skal stoppe: når brukeren skriver noe gyldig, når et tall ikke lenger er delelig, når summen har passert en grense.\n\nDa bruker du `while`.",
+   "type": "text",
+   "id": "tdt4110-1-3-t-32"
+  },
+  {
+   "title": "`while betingelse:`",
+   "content": "Sjekker betingelsen **før** hver runde, og kjører kroppen så lenge den er sann.\n\nEr betingelsen usann allerede første gang, kjøres kroppen null ganger. Det er ingen feil — det er ofte hele poenget.\n\nBetingelsen er nøyaktig det samme slags uttrykk som i en `if` fra [kap. 1.2](/tdt4110/tdt4110-1-2). Forskjellen er bare at den sjekkes på nytt for hver runde.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-33"
+  },
+  {
+   "title": "Løkketerminering",
+   "content": "En `while`-løkke stopper når betingelsen blir usann. For at det skal skje, må **noe i kroppen endre verdien** betingelsen bygger på.\n\nKontrollspørsmålet du skal stille hver eneste gang du skriver eller sporer en `while`: *hvilken variabel i betingelsen endres inne i løkka, og nærmer den seg grensen?*\n\nVær ekstra på vakt når betingelsen bruker `!=`. Den krever et **eksakt** treff: `while n != 10:` med `n += 3` fra 0 treffer 0, 3, 6, 9, 12 … og passerer 10 uten å stoppe.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-34"
+  },
+  {
+   "title": "Uendelig løkke",
+   "content": "En løkke der betingelsen aldri blir usann. Programmet henger og må stoppes utenfra.\n\nDe to vanligste årsakene er at tellevariabelen ikke oppdateres i det hele tatt, og at oppdateringen går feil vei — `n -= 1` der `n` skal vokse.\n\nPå eksamen er dette et gyldig sporingssvar: riktig svar kan være at programmet aldri stopper. Det er også en av de faste variantene i «fyll inn manglende kodelinje»-oppgavene, der tre av alternativene gir uendelig løkke.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-35"
+  },
+  {
+   "title": "`break`",
+   "content": "Avbryter løkka umiddelbart — men bare den **innerste** løkka den står i. Resten av kroppen hoppes over, og programmet fortsetter på første linje etter løkka.\n\nStår `break` inne i en nøstet løkke, fortsetter den ytre som om ingenting hadde skjedd. Skal du ut av begge, trenger du noe mer — for eksempel en `return` hvis løkkene står i en funksjon.\n\n`break` er lovlig i fasit og er den naturlige måten å si «vi er ferdige, ikke se på resten».",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-36"
+  },
+  {
+   "title": "`continue`",
+   "content": "Hopper til neste runde og over resten av kroppen. Løkka fortsetter — det er bare denne ene runden som kuttes kort.\n\nI en `while`-løkke er `continue` farlig: står oppdateringen av tellevariabelen **etter** den, blir den aldri kjørt, og løkka går for alltid. I en `for`-løkke er den trygg, fordi løkkevariabelen oppdateres av `range` og ikke av kroppen.\n\nEn løkke er ofte lettere å lese uten `continue` — det samme oppnås ved å snu `if`-testen.",
+   "type": "definition",
+   "id": "tdt4110-1-3-def-37"
+  },
+  {
+   "title": "Eksempel 4: `while` som leter seg fram",
+   "problem": "Fra `n = 12`: hvor mange ganger kan tallet halveres før det blir et oddetall, og hva sitter du igjen med?",
+   "solution": "```python\nn = 12\nantall = 0\nwhile n % 2 == 0:\n    n = n // 2\n    antall += 1\nprint(n, antall)\n```\n\n**Utskrift:**\n```\n3 2\n```\n\n**Sporing, runde for runde:**\n\n| Før runden | `n % 2 == 0`? | `n` etterpå | `antall` etterpå |\n|---|---|---|---|\n| `n = 12` | ja | 6 | 1 |\n| `n = 6` | ja | 3 | 2 |\n| `n = 3` | nei — løkka stopper | 3 | 2 |\n\nBetingelsen sjekkes før hver runde, også den siste gangen, da den er usann og kroppen ikke kjøres.\n\nLegg merke til at `n = n // 2` bruker heltallsdeling. Med `/` ville `n` blitt et flyttall, utskriften `3.0`, og hele oppgaven en annen — dette er felle **#9** fra [kap. 1.1](/tdt4110/tdt4110-1-1).",
+   "type": "example",
+   "id": "tdt4110-1-3-ex-38"
+  },
+  {
+   "id": "tdt4110-1-3-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing av `while`.) Hva skriver programmet ut?\n\n```python\nn = 1\nrunder = 0\nwhile n < 100:\n    n = n * 3\n    runder += 1\nprint(n, runder)\n```",
+    "solution": "**Sporingstavle**\n\n| Før runden | `n < 100`? | `n` etterpå | `runder` etterpå |\n|---|---|---|---|\n| 1 | ja | 3 | 1 |\n| 3 | ja | 9 | 2 |\n| 9 | ja | 27 | 3 |\n| 27 | ja | 81 | 4 |\n| 81 | ja | 243 | 5 |\n| 243 | nei — stopp | 243 | 5 |\n\n**Utskrift:**\n```\n243 5\n```\n\n**Fellenote:** løkka stopper **etter** at `n` har passert 100, ikke før. Den som svarer `81 4`, har sjekket betingelsen etter runden i stedet for før.",
+    "hints": [
+     "Sett opp en tabell med verdien før runden, svaret på betingelsen, og verdien etterpå.",
+     "Betingelsen sjekkes før hver runde — også den siste gangen, da den feiler."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-3-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Funksjonen skal finne det minste positive tallet som er delelig med både `a` og `b`.\n\n```python\ndef minste_felles(a, b):\n    n = 1\n    while n % a != 0 or n % b != 0:\n        n += 1\n    return n\n\nprint(minste_felles(4, 6))\nprint(minste_felles(3, 3))\n```\n\nHva returnerer de to kallene?",
+    "solution": "Løkka fortsetter så lenge **minst én** av restene er ulik null, altså til begge er null.\n\n**Sporingstavle for `minste_felles(4, 6)`** (bare rundene der noe endrer seg i resonnementet):\n\n| `n` | `n % 4` | `n % 6` | Fortsetter? |\n|---|---|---|---|\n| 1 | 1 | 1 | ja |\n| 4 | 0 | 4 | ja — `or` krever at begge er null for å stoppe |\n| 6 | 2 | 0 | ja |\n| 8 | 0 | 2 | ja |\n| 12 | 0 | 0 | nei — løkka stopper |\n\nFor `minste_felles(3, 3)` er begge restene null allerede ved `n = 3`.\n\n**Utskrift:**\n```\n12\n3\n```\n\n**Fellenote:** fella er `or` i betingelsen. Løkka går videre så lenge **én** rest er ulik null — altså stopper den først når **begge** er null. Hadde det stått `and`, ville løkka stoppet ved `n = 4`, og svaret blitt feil.",
+    "hints": [
+     "Skriv opp begge restene for hver verdi av `n`, og les betingelsen som «fortsett hvis minst én rest er ulik null».",
+     "Løkka stopper først når hele betingelsen er usann."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-3-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger D — «fyll inn manglende kodelinje», altså velg det alternativet som får funksjonen til å virke.) Funksjonen skal returnere summen av **annethvert** element i lista, fra og med det andre elementet (plassnummer 1, 3, 5 …).\n\n```text\ndef sum_annethvert(tall):\n    s = 0\n    for i in KODE1:\n        s += tall[i]\n    return s\n```\n\nBlokken er merket som ikke-kjørbar fordi `KODE1` ikke er gyldig Python — det er plassholderen du skal fylle.\n\nHvilket alternativ er riktig?\n\n**a)** `range(1, len(tall), 2)`\n**b)** `range(0, len(tall), 2)`\n**c)** `range(1, len(tall))`\n**d)** `range(2, len(tall), 2)`",
+    "solution": "Riktig er **a)**.\n\nPrøv hvert alternativ mot lista `[10, 20, 30, 40, 50]`, der plassnumrene er 0 til 4 og fasitsummen skal være $20 + 40 = 60$:\n\n| Alternativ | Plasser den treffer | Summen | Riktig? |\n|---|---|---|---|\n| **a)** `range(1, 5, 2)` | 1, 3 | 60 | ja |\n| **b)** `range(0, 5, 2)` | 0, 2, 4 | 90 | nei — starter på feil element |\n| **c)** `range(1, 5)` | 1, 2, 3, 4 | 140 | nei — mangler steget, tar alle |\n| **d)** `range(2, 5, 2)` | 2, 4 | 80 | nei — hopper over det andre elementet |\n\n```python\ndef sum_annethvert(tall):\n    s = 0\n    for i in range(1, len(tall), 2):\n        s += tall[i]\n    return s\n\nprint(sum_annethvert([10, 20, 30, 40, 50]))\n```\n\n**Utskrift:**\n```\n60\n```\n\n**Fellenote:** dette er felle **#5** i sin reneste form. Alle fire alternativene er syntaktisk lovlige og ser plausible ut — det er bare grensene som skiller dem. Framgangsmåten som alltid virker, er å prøve hvert alternativ mot en kort liste du kan regne i hodet.",
+    "hints": [
+     "Skriv opp plassnumrene i en kort liste og marker hvilke hvert alternativ treffer.",
+     "«Fra og med det andre elementet» betyr at rekka starter på plassnummer 1."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 5 — Når du trenger plassnummeret (~8 min)\n\nTil nå har løkkene gitt deg **verdien**. Noen ganger trenger du å vite **hvor** i sekvensen du er: for å endre elementet, for å sammenligne med naboen, eller for å skrive ut et radnummer.",
+   "type": "text",
+   "id": "tdt4110-1-3-t-42"
+  },
+  {
+   "title": "Eksempel 5: Tre måter å gå gjennom det samme på",
+   "problem": "Ei liste med ukedagsnavn skal skrives ut med nummer foran. Vis tre framgangsmåter, og si når hver av dem passer.",
+   "solution": "**Bare verdien** — kortest, men uten nummer:\n\n```python\ndager = ['mandag', 'tirsdag', 'onsdag']\nfor dag in dager:\n    print(dag)\n```\n\n**Utskrift:**\n```\nmandag\ntirsdag\nonsdag\n```\n\n**Plassnummeret**, med `range(len(...))` — den du trenger når elementene skal endres:\n\n```python\ndager = ['mandag', 'tirsdag', 'onsdag']\nfor i in range(len(dager)):\n    print(i + 1, dager[i])\n```\n\n**Utskrift:**\n```\n1 mandag\n2 tirsdag\n3 onsdag\n```\n\n**Begge deler**, med `enumerate` — den korteste når du trenger nummer og verdi samtidig:\n\n```python\ndager = ['mandag', 'tirsdag', 'onsdag']\nfor i, dag in enumerate(dager):\n    print(i + 1, dag)\n```\n\n**Utskrift:**\n```\n1 mandag\n2 tirsdag\n3 onsdag\n```\n\nDe to siste gir identisk utskrift. Begge er tillatt i fasit, og ingen av dem er «riktigere» enn den andre — dette faget tillater snarveier og sidestiller dem med den eksplisitte varianten.\n\nMerk `i + 1` i utskriften. Plassnumrene starter på 0, men mennesker teller fra 1. Den justeringen hører hjemme i utskriften, ikke i løkka.",
+   "type": "example",
+   "id": "tdt4110-1-3-ex-43"
+  },
+  {
+   "id": "tdt4110-1-3-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-3-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, kodeskriving.) Ei liste inneholder målte temperaturer time for time.\n\n**a)** Skriv `hoyeste(malinger)` som returnerer den høyeste temperaturen, uten å bruke innebygde snarveier.\n**b)** Skriv `time_for_hoyeste(malinger)` som returnerer **plassnummeret** til den høyeste temperaturen.\n**c)** Hva gir de to funksjonene for lista `[3, 9, 4, 9, 1]`?",
+    "solution": "**a)** Akkumulatormønsteret, men med en sammenligning i stedet for en sum:\n\n```python\ndef hoyeste(malinger):\n    beste = malinger[0]\n    for temp in malinger:\n        if temp > beste:\n            beste = temp\n    return beste\n\nprint(hoyeste([3, 9, 4, 9, 1]))\n```\n\n**Utskrift:**\n```\n9\n```\n\n**b)** Nå trenger du plassnummeret, så løkka må gå over plassene:\n\n```python\ndef time_for_hoyeste(malinger):\n    beste_i = 0\n    for i in range(len(malinger)):\n        if malinger[i] > malinger[beste_i]:\n            beste_i = i\n    return beste_i\n\nprint(time_for_hoyeste([3, 9, 4, 9, 1]))\n```\n\n**Utskrift:**\n```\n1\n```\n\n**c)** Høyeste temperatur er 9, og den første niern står på plassnummer 1.\n\n**Uttelling:** legg merke til at sammenligningen er `>` og ikke `>=`. Med `>=` ville funksjonen returnert plassnummeret til den **siste** nieren, altså 3. Begge deler kan være riktig — det avhenger av hva oppgaven ber om, og på eksamen skal du skrive kort hva du antar når teksten ikke sier det.\n\nSnarveien `max(malinger)` gir samme svar som **a)** og er fullt gyldig i fasit. Løkkevarianten står her fordi den er mønsteret du trenger i **b)**, der du skal ha plassnummeret og ikke verdien.",
+    "hints": [
+     "Start med å sette den beste verdien til det første elementet, og sammenlign resten mot den.",
+     "I b) må løkka gå over plassnumrene, ikke over verdiene."
+    ]
+   }
+  },
+  {
+   "title": "Navn som betyr to ting — `i` og `n`",
+   "content": "To korte navn brukes med to ulike betydninger i dette faget, og forvekslingen er en fast kilde til sporingsfeil:\n\n- **`i`** er løkkevariabelen i en vanlig `for`-løkke, men i en tabell er `i` som regel **radnummeret**, mens `j` er kolonnenummeret. Møter du `tabell[i][j]` i Del 3, er `i` altså en rad og ikke en tilfeldig teller.\n- **`n`** brukes både om **antall elementer** og om **tallet det regnes på**. I `range(n)` er det som regel et antall; i `while n % 2 == 0:` er det verdien selv.\n\nNår du sporer, skriv derfor alltid opp hva hvert navn står for **før** du begynner. Det tar ti sekunder og fjerner den vanligste kilden til at en ellers korrekt sporing gir feil svar.",
+   "type": "warning",
+   "id": "tdt4110-1-3-adv-45"
+  },
+  {
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feller, og de to første koster flest poeng på eksamen:\n\n- **#5 — av-én i `range`.** `range(n)` går til `n - 1`. «Til og med `n`» krever `range(n + 1)`.\n- **#5 igjen — feil startpunkt for annethvert.** `range(0, len(x), 2)` og `range(1, len(x), 2)` treffer helt ulike elementer.\n- **Feil grense i nøstet løkke.** Med `for j in range(i)` varierer antall indre runder, og med `i` lik 0 kjører den indre løkka ikke i det hele tatt.\n- **`while` som aldri stopper.** Ingenting i kroppen endrer betingelsen, oppdateringen går feil vei, eller `!=` bommer på det eksakte treffet.\n- **#9 — `/` der `//` var meningen.** `n = n / 2` gjør `n` til et flyttall, og utskriften blir `3.0` i stedet for `3`.\n\nAlle fem kan avsløres på papir ved å sette en liten grense — 2 eller 3 — og telle rundene.",
+   "type": "warning",
+   "id": "tdt4110-1-3-adv-46"
+  },
+  {
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-1-3-c-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `for e in sekvens:` | Én runde per **element**. Kolon obligatorisk, kroppen rykket inn fire mellomrom. |\n| `range(n)` | `n` runder, verdiene `0` til `n - 1`. |\n| `range(a, b)` | Verdiene `a` til `b - 1`. Antall runder er `b - a`. **`b` er EKSKLUSIV.** |\n| `range(a, b, s)` | Hopper `s` av gangen; `b` fortsatt eksklusiv. |\n| `range(1, len(x), 2)` | Plassnummer 1, 3, 5 … — «annethvert fra det andre». |\n| `range(0, len(x), 2)` | Plassnummer 0, 2, 4 … — «annethvert fra det første». |\n| `range(10, 0, -2)` | Teller nedover: 10, 8, 6, 4, 2. Nullen er ikke med. |\n| `range(0)`, `range(5, 5)` | Tomme rekker — løkka kjører **null** runder, uten feilmelding. |\n| `range(len(x))` | Plassnumrene `0` til `len(x) - 1`. Brukes når elementer skal endres. |\n| `enumerate(x)` | Gir `(plassnummer, verdi)` i den rekkefølgen. Nummeret starter på 0. |\n| `len(x)` | Antall elementer i lista eller antall tegn i teksten. |\n| Akkumulatormønsteret | `s = 0` **før** løkka, `s += ...` inne i den, bruk av `s` etter. |\n| Tellermønsteret | `antall = 0` før løkka, `antall += 1` inne i en `if` i kroppen. |\n| `while betingelse:` | Sjekker betingelsen **før** hver runde. Noe i kroppen må endre den. |\n| Terminering | Løkka stopper når betingelsen blir usann. `!=` krever eksakt treff. |\n| `break` | Avbryter løkka umiddelbart — bare den **innerste** løkka den står i. |\n| `continue` | Hopper til neste runde. Farlig i `while` hvis oppdateringen står etter. |\n| Nøstet løkke | Den indre kjøres helt ferdig per ytre runde. Uavhengige grenser gir produktet. |\n| `for j in range(i)` | Indre grense avhenger av ytre variabel; `i` lik 0 gir null runder. |\n| `print(a, b)` | Ett mellomrom mellom argumentene, linjeskift til slutt. |\n| `print(..., end=' ')` | Bytter linjeskiftet med et mellomrom, så neste utskrift havner på samme linje. |\n\n**Formler i dette delkapitlet:**\n\nAntall runder i en rekke med steg 1, som er tallet av-én-feilen handler om:\n\n$$\\text{antall runder i } \\texttt{range}(a, b) = b - a$$\n\nOg summen den nøstede løkka i oppgave 6 teller, som også er antall sammenligninger i boblesortering:\n\n$$\\sum_{i=0}^{n-1} (n - i) = \\frac{n(n+1)}{2}$$"
+    }
+   ],
+   "type": "collapsible",
+   "id": "tdt4110-1-3-coll-47"
+  },
+  {
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "tdt4110-1-3-c-2",
+     "type": "text",
+     "content": "1. `range(n)` gir `n` runder med verdiene `0` til `n - 1`. Stoppverdien er **aldri** med.\n2. «Annethvert fra det første» er `range(0, len(x), 2)`; «fra det andre» er `range(1, len(x), 2)`.\n3. Startverdien til en akkumulator eller teller står **før** løkka, aldri inne i den.\n4. Den indre løkka kjøres helt ferdig for hver runde i den ytre.\n5. `range(i)` gir `i` runder — og null runder når `i` er 0.\n6. En `while` stopper bare hvis noe i kroppen endrer betingelsen mot grensen.\n7. `break` avslutter bare den innerste løkka; `continue` hopper over resten av runden.\n\nSitter de, er du klar for brukerinput og valideringsløkka i [kap. 1.4](/tdt4110/tdt4110-1-4)."
+    }
+   ],
+   "type": "collapsible",
+   "id": "tdt4110-1-3-coll-48"
+  }
+ ],
+ "exercises": []
+}
