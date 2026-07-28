@@ -50,6 +50,7 @@ grønt gjennom alle sjekker.
 | `tdt4110-6-1` | **Rettet til skjelettets.** «gitt `sort_list`» er en utlevert hjelpefunksjon studenten får på eksamen — ikke det samme som Pythons `sorted()`. Tittelen min utelot en eksamensrelevant ting. |
 | `tdt4110-6-3` | **Rettet til skjelettets.** «(Big-O)» hører hjemme i tittelen; notasjonen undervises, det er den formelle asymptotiske analysen som er utenfor pensum. |
 | `med1100-0-2` | **Beholdt agentens tittel.** Skjelettet sier «minuspoeng-strategien i blokk 2», men kapitlet handler om asymmetrien MELLOM alle tre blokkene — det er nettopp poenget. Agentens tittel er den fagligere. Registrert her så avviket ikke er stille. |
+| `med1100-4-4` | **Agenten fulgte skjelettet.** Prompten min sa «binomialfordeling», skjelettet «binomisk fordeling». Riktig håndtert — skjelettet er autoritativt. Ingen handling. |
 | `tdt4110-7-2` | **Ikke avgjort.** Fila eies av en agent som fortsatt jobber. Sammenlign mot skjelettet når Del 7 er ferdig. |
 
 ---
@@ -91,6 +92,25 @@ fortsatt være ` ```text `.
 
 Gjelder også 2.1/2.2 hvis samme mønster finnes der, og alt Del 5/7/9 har
 skrevet — de bygger etter felleskravene, så de bør allerede være riktige.
+
+---
+
+### V4 — tynn margin i med1100-4-3 oppgave 2 (agentens eget flagg)
+
+**Observert 28. juli.** Oppgave 2 i kap. 4.3 ber om oddsforholdet, mens
+odds-begrepet formelt innføres i løkke 2 — altså etter oppgaven.
+
+Del 4-agenten meldte det selv og argumenterte for at det holder: regneprosedyren
+og Eksempel 1 rett foran innfører og bruker `OR = ad/bc` eksplisitt, så oppgaven
+hviler på stoff som står foran den.
+
+**Byggelederens vurdering:** argumentet holder formelt. Men agenten kalte det
+selv «den ene plassen i Del 4 der marginen er tynn», og det er verdt et blikk
+fra noen som leser kapitlet i sammenheng.
+
+**Til verifikatoren:** les løkke 1 og 2 i 4.3 som en student uten forkunnskap.
+Er odds forstått når oppgave 2 kommer? Hvis ikke, flytt oppgaven bak løkke 2
+framfor å skrive om teorien.
 
 ---
 
