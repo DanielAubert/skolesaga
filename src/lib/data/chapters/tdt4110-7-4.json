@@ -1,422 +1,422 @@
 {
- "id": "tdt4110-7-4",
- "courseId": "tdt4110",
- "chapterNumber": "7.4",
- "title": "DRILL — Ledd 3: analysér — finn maks, tell og gruppér",
- "description": "Kjernen i programmeringsdelen: gå gjennom tabellen og finn den beste raden, tell forekomster og gruppér i en ordbok — både med eksplisitt løkke og med snarvei.",
- "estimatedMinutes": 75,
- "competenceGoals": [
-  "kunne finne den beste raden i en tabell med en løkke som takler negative verdier og tom tabell",
-  "kunne løse den samme analysen med de innebygde snarveiene, og vite at begge former gir full pott",
-  "kunne telle og summere per nøkkel med en ordbok, også når tellingen har en betingelse",
-  "kunne gruppere rader i en ordbok av lister, og finne den beste nøkkelen i en ferdig ordbok"
- ],
- "content": [
-  {
-   "id": "tdt4110-7-4-tip-1",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "**Tyngdepunktet i hele faget.**\n\n- Analysen står i **100 % av settene (10 av 10 sittinger i arkivet 2014–2019)** og kommer nesten alltid som **to–tre deloppgaver à 5–10 %**. Til sammen er den mer verdt enn de fire andre leddene lagt sammen.\n- Sjangeren heter **G — analyse**, altså «gå gjennom dataene og finn det oppgaven spør om».\n- Tre former dekker nesten alt: **finn den beste** raden, **tell** forekomster per nøkkel, og **gruppér** radene i en ordbok av lister. Rangering og sortering er den fjerde, og den har sitt eget kapittel i [kap. 7.5](/tdt4110/tdt4110-7-5).\n- I dette faget er **snarveier tillatt og brukt i fasitene**: `max`, `min`, `sum`, `sorted`, `.count`. Boka viser den eksplisitte løkka først, så snarveien — og sidestiller dem. Begge gir full pott.\n\n**Prioritet: må sitte** — det høyeste av bokas tre nivåer.\n\nKapitlet tar ~75 minutter og er delt i seks løkker med tidsanslag. Naturlig pausepunkt etter løkke 3."
-  },
-  {
-   "id": "tdt4110-7-4-txt-1",
-   "type": "text",
-   "content": "**Forkunnskaper — sist du var her**\n\nAnalysen bygger på tre grep du allerede har. Her er de, ferdig oppfrisket.\n\n**1. Gå gjennom radene i en tabell** ([kap. 3.2](/tdt4110/tdt4110-3-2)) — og hopp over overskriftsraden:\n\n```python\ntabell = [['navn', 'pris'], ['girservice', 690], ['dekkskift', 250]]\nfor rad in tabell[1:]:\n    print(rad[0], rad[1])\n```\n\n**Utskrift:**\n```\ngirservice 690\ndekkskift 250\n```\n\n**2. Kolonnen funnet ved navn** ([kap. 3.2](/tdt4110/tdt4110-3-2)):\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris']]\nprint(tabell[0].index('pris'))\n```\n\n**Utskrift:**\n```\n3\n```\n\n**3. Telleren med `get`-default** ([kap. 3.5](/tdt4110/tdt4110-3-5)):\n\n```python\nd = {}\nfor navn in ['Rune', 'Selma', 'Rune']:\n    d[navn] = d.get(navn, 0) + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': 2, 'Selma': 1}\n```\n\nI tillegg forutsetter kapitlet [kap. 7.2](/tdt4110/tdt4110-7-2) og [kap. 7.3](/tdt4110/tdt4110-7-3), som leverte den ferdige tabellen analysen jobber på."
-  },
-  {
-   "id": "tdt4110-7-4-txt-2",
-   "type": "text",
-   "content": "## Løkke 1 — finn den beste raden (~14 min)\n\n«Hvem er raskest?», «hvilket produkt er dyrest?», «hvilket parti leder?» — alle tre er den samme løkka, og den er verdt å kunne skrive uten å tenke."
-  },
-  {
-   "id": "tdt4110-7-4-thm-1",
-   "type": "theorem",
-   "title": "Kodemønster: finn beste",
-   "content": "Fem linjer, og de er de samme uansett domene:\n\n```text\nbeste = None\nbeste_verdi = None\nfor rad in tabell[1:]:\n    v = rad[k]\n    if beste_verdi is None or v > beste_verdi:\n        beste = rad\n        beste_verdi = v\nreturn beste\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 1.\n\nFire ting å legge merke til:\n\n1. **To variabler**, ikke én: raden du skal returnere, og verdien du sammenligner med. Uten den andre må du hente `beste[k]` i hver runde.\n2. **`None` som startverdi** på begge. Da vinner den første raden alltid, uansett hvilke tall dataene inneholder.\n3. **`beste_verdi is None or …`** — venstre side sjekkes først, så `v > None` blir aldri forsøkt. Python stopper å regne på et `or`-uttrykk så snart en side er sann.\n4. **`tabell[1:]`** når tabellen har overskriftsrad. Glemmer du det, sammenligner du et tall med teksten `'pris'`.\n\nSkal du finne den **minste**, snur du `>` til `<`. Ingenting annet endres."
-  },
-  {
-   "id": "tdt4110-7-4-def-1",
-   "type": "definition",
-   "title": "`beste_verdi is None` som startbetingelse",
-   "content": "Testen som lar den første raden alltid vinne, uten at du må behandle den som et spesialtilfelle.\n\nAlternativene har hver sin svakhet:\n\n- `beste_verdi = 0` — ingen rad vinner hvis alle verdiene er negative, og funksjonen returnerer `None` uten å si fra.\n- `beste_verdi = tabell[1][k]` — krasjer med `IndexError` på en tabell som bare har overskriftsraden.\n- `beste_verdi = -1000000` — virker som regel, men er en gjetning om dataene, og den kan slå feil.\n\n`None` virker i alle tre tilfellene og koster ingenting. Bruk `is None` og ikke `== None` — begge fungerer, men `is` er formen Python-miljøet bruker, og den er raskere å lese."
-  },
-  {
-   "id": "tdt4110-7-4-def-2",
-   "type": "definition",
-   "title": "Returnér raden eller bare feltet",
-   "content": "Les oppgaveteksten to ganger her. «Returnerer den dyreste raden» og «returnerer navnet på den dyreste» er to forskjellige bestillinger, og forskjellen er ett tegn i koden:\n\n- `return beste` gir hele raden: `['Selma', 'ramme', 120, 1450]`\n- `return beste[0]` gir navnet: `'Selma'`\n\nSier oppgaven ingenting, er hele raden det tryggeste — den som kaller, kan alltid plukke ut feltet selv, men kan ikke få tilbake det som er kastet.\n\nSkal du gi **både** raden og verdien, returnerer du to verdier: `return beste, beste_verdi`, og den som kaller pakker ut med `rad, verdi = finn_beste(tabell)`."
-  },
-  {
-   "id": "tdt4110-7-4-ex-1",
-   "type": "example",
-   "title": "Eksempel 1: det dyreste oppdraget på sykkelverkstedet",
-   "problem": "*«Filen `oppdrag.txt` har overskriftsraden `mekaniker;type;minutter;pris`. Skriv `dyreste_oppdrag(tabell)` som returnerer hele raden for det dyreste oppdraget. Kolonnen skal finnes ved navn.»*",
-   "solution": "Slik ser fila ut:\n\n**Innholdet i `oppdrag.txt`:**\n```\nmekaniker;type;minutter;pris\nRune;girservice;45;690\nSelma;dekkskift;20;250\nRune;bremsejustering;30;390\nSelma;girservice;50;690\nTuva;dekkskift;25;250\nSelma;ramme;120;1450\n```\n\nInnlesingen er den fra [kap. 7.2](/tdt4110/tdt4110-7-2), og analysen tar tabellen som parameter:\n\n```python\ndef dyreste_oppdrag(tabell):\n    k = tabell[0].index('pris')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(dyreste_oppdrag(tabell))\n```\n\n**Utskrift:**\n```\n['Selma', 'ramme', 120, 1450]\n```\n\n**Slik ville sensor sett på det.** Deloppgaven er typisk 10 %, og fem ting gir uttelling hver for seg:\n\n| Grep | Hvorfor det teller |\n|---|---|\n| `tabell[0].index('pris')` | kolonnen ved navn — fullscore-kravet fra [kap. 7.6](/tdt4110/tdt4110-7-6) |\n| `tabell[1:]` | overskriftsraden holdt utenfor sammenligningen |\n| `beste_verdi is None` | virker også på negative verdier og på tom tabell |\n| `beste = rad` **og** `beste_verdi = rad[k]` | begge oppdateres i samme `if` |\n| `return beste` | funksjonen returnerer, den skriver ikke ut |\n\n**Flere korrekte løsninger:** `max(tabell[1:], key=lambda rad: rad[k])` gir det samme på én linje, og den kommer i løkke 2. Begge gir full pott.\n\n**Kantfeilen:** to oppdrag til 1450 kroner ville gitt den **første** av dem, fordi `>` er streng. Vil du ha den siste, bruker du `>=`. Ingen av delene er galt — men skriv én setning om valget hvis oppgaven ikke sier noe."
-  },
-  {
-   "id": "tdt4110-7-4-opg-1",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-1",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut?\n\n```python\ntall = [-8, -3, -19]\nbeste = 0\nfor t in tall:\n    if t > beste:\n        beste = t\nprint(beste)\n```",
-    "solution": "**Sporingstavle.**\n\n| Iterasjon | `t` | `t > beste`? | `beste` etterpå |\n|---|---|---|---|\n| start | — | — | 0 |\n| 1 | -8 | -8 > 0 er usant | 0 |\n| 2 | -3 | -3 > 0 er usant | 0 |\n| 3 | -19 | -19 > 0 er usant | 0 |\n\n**Utskrift:**\n```\n0\n```\n\nSvaret er **0** — et tall som ikke finnes i lista i det hele tatt.\n\n**Fellenoten:** dette er den vanligste enkeltfeilen i sjanger G: `beste = 0` som startverdi. Med `beste = None` og testen `if beste is None or t > beste:` ville svaret blitt -3, som er det riktige. På eksamen dukker feilen opp der verdiene kan være negative — temperaturer, kontobevegelser, målforskjeller.",
-    "hints": [
-     "Hvilke av tallene i lista er større enn 0?",
-     "Hva er `beste` når løkka er ferdig, og finnes den verdien i lista?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-opg-2",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-2",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — analyse.) *«Skriv `korteste_oppdrag(tabell)` som returnerer navnet på mekanikeren som har utført oppdraget med færrest minutter. Både mekanikerkolonnen og minuttkolonnen skal finnes ved navn.»*\n\nTabellen har overskriftsrad.",
-    "solution": "Samme mønster som eksempel 1, med to endringer: `<` i stedet for `>`, og `beste[k_navn]` i stedet for hele raden.\n\n```python\ndef korteste_oppdrag(tabell):\n    k_min = tabell[0].index('minutter')\n    k_navn = tabell[0].index('mekaniker')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k_min] < beste_verdi:\n            beste = rad[k_navn]\n            beste_verdi = rad[k_min]\n    return beste\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(korteste_oppdrag(tabell))\n```\n\n**Utskrift:**\n```\nSelma\n```\n\nSelma hadde dekkskiftet på 20 minutter, som er det korteste.\n\n**To feller i denne varianten:**\n\n- Å beholde `>` fra mønsteret du husker. Les alltid om oppgaven spør etter mest eller minst.\n- Å skrive `beste = rad` og deretter `return beste[0]` **utenfor** løkka. Det virker, men krasjer med `TypeError` hvis tabellen er tom, siden `None[0]` ikke går. Å plukke ut feltet inne i løkka er tryggere.\n\n**Snarveien:** `min(tabell[1:], key=lambda rad: rad[k_min])[k_navn]`. Den gir full pott på lik linje, og den kommer i neste løkke.",
-    "hints": [
-     "Hva er den eneste forskjellen mellom «finn størst» og «finn minst»?",
-     "Oppgaven ber om navnet, ikke om hele raden — hvor plukker du ut feltet?",
-     "Begge kolonnene skal finnes med `.index(...)` på rad 0."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-txt-3",
-   "type": "text",
-   "content": "## Løkke 2 — snarveien (~12 min)\n\nI dette faget er de innebygde funksjonene ikke juks. De offisielle løsningsforslagene bruker dem fritt, og en løsning med `max` gir nøyaktig samme uttelling som en med løkke.\n\nPoenget med å lære begge er praktisk: løkka er lettere å skrive riktig for hånd når du er sliten, og snarveien er lettere å skrive riktig når du er trygg."
-  },
-  {
-   "id": "tdt4110-7-4-def-3",
-   "type": "definition",
-   "title": "`max(liste)` og `min(liste)`",
-   "content": "Gir det største og minste elementet i lista. På ei liste av tall er det rett fram.\n\n```python\npriser = [690, 250, 390, 1450]\nprint(max(priser), min(priser))\n```\n\n**Utskrift:**\n```\n1450 250\n```\n\nPå en **2D-liste** sammenligner de radene som lister: første element først, deretter det andre, og så videre. `max(tabell)` gir altså raden med det alfabetisk siste navnet, ikke den dyreste. Det er nesten aldri det du vil ha — og derfor finnes `key`.\n\nBegge krasjer med `ValueError` på ei tom liste."
-  },
-  {
-   "id": "tdt4110-7-4-def-4",
-   "type": "definition",
-   "title": "`key`-parameteren i `max` og `min`",
-   "content": "`max(liste, key=f)` sammenligner ikke elementene selv, men det `f` gir for hvert element. Elementet som vinner, returneres **helt** — bare rangeringen bestemmes av nøkkelen.\n\n```python\ntabell = [['Rune', 45, 690], ['Selma', 20, 250], ['Selma', 120, 1450]]\nprint(max(tabell, key=lambda rad: rad[2]))\n```\n\n**Utskrift:**\n```\n['Selma', 120, 1450]\n```\n\n`lambda rad: rad[2]` er en navnløs funksjon: «gitt en rad, gi meg element nummer 2». Du kan skrive det samme med `def` og sende funksjonsnavnet inn — begge er riktige, lambdaen er bare kortere.\n\nMerk at kolonnenummeret må være et **tall** når lambdaen skrives, så finn det med `.index(...)` først og bruk variabelen."
-  },
-  {
-   "id": "tdt4110-7-4-def-5",
-   "type": "definition",
-   "title": "`sum(liste)` og `len(liste)`",
-   "content": "`sum` legger sammen alle tallene i lista, `len` teller elementene. Sammen gir de gjennomsnittet.\n\n```python\npriser = [690, 250, 390, 1450]\nprint(sum(priser))\nprint(sum(priser) / len(priser))\n```\n\n**Utskrift:**\n```\n2780\n695.0\n```\n\n`sum` virker bare på tall — er kolonnen fortsatt tekst, får du en `TypeError`. Det er feilkode **#1**, glemt konvertering, som viser seg her i stedet for i innlesingen.\n\nFor å bruke dem på en tabellkolonne må du trekke kolonnen ut først: `[rad[k] for rad in tabell[1:]]`."
-  },
-  {
-   "id": "tdt4110-7-4-ex-2",
-   "type": "example",
-   "title": "Eksempel 2: den samme analysen, to former",
-   "problem": "Løs tre spørsmål om `oppdrag.txt` både med eksplisitt løkke og med snarvei: dyreste oppdrag, samlet omsetning og gjennomsnittlig varighet.",
-   "solution": "**Dyreste oppdrag.** Løkka til venstre i eksempel 1; her er snarveien:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk = tabell[0].index('pris')\nprint(max(tabell[1:], key=lambda rad: rad[k]))\n```\n\n**Utskrift:**\n```\n['Selma', 'ramme', 120, 1450]\n```\n\n**Samlet omsetning — begge former:**\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk = tabell[0].index('pris')\n\ntotal = 0\nfor rad in tabell[1:]:\n    total = total + rad[k]\nprint(total)\n\nprint(sum([rad[k] for rad in tabell[1:]]))\n```\n\n**Utskrift:**\n```\n3720\n3720\n```\n\n**Gjennomsnittlig varighet — begge former:**\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk = tabell[0].index('minutter')\n\ntotal = 0\nantall = 0\nfor rad in tabell[1:]:\n    total = total + rad[k]\n    antall = antall + 1\nprint(total / antall)\n\nminutter = [rad[k] for rad in tabell[1:]]\nprint(sum(minutter) / len(minutter))\n```\n\n**Utskrift:**\n```\n48.333333333333336\n48.333333333333336\n```\n\n**Slik ville sensor sett på det:** de tre parene er sidestilt. **Begge gir full pott**, og det står uttrykkelig i de offisielle løsningsforslagene at flere korrekte løsninger godtas.\n\nDet praktiske rådet er likevel dette: skriv snarveien når du er trygg på den, og løkka når du er i tvil. En `lambda` med en indeksfeil i er vanskelig å finne på papir; en løkke på fire linjer kan du spore med fingeren.\n\n**Kantfeilen som gjelder begge:** en tom tabell gir `ValueError` fra `max` og `ZeroDivisionError` fra snittet. Løkkevarianten gir `None` og en divisjon på null — altså samme problem, bare med et annet navn. Tomtilfellet må håndteres uansett hvilken form du velger, og det gjøres i løkke 6."
-  },
-  {
-   "id": "tdt4110-7-4-opg-3",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-3",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — analyse med snarvei.) Bruk tabellen fra `oppdrag.txt`.\n\n**a)** Skriv én linje som gir raden for det **korteste** oppdraget, med `min` og en `key`.\n\n**b)** Skriv én linje som gir den samlede tiden i minutter.\n\n**c)** Forklar med én setning hvorfor `min(tabell[1:])` uten `key` gir feil svar.",
-    "solution": "**a)** og **b)**:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk_min = tabell[0].index('minutter')\nprint(min(tabell[1:], key=lambda rad: rad[k_min]))\nprint(sum([rad[k_min] for rad in tabell[1:]]))\n```\n\n**Utskrift:**\n```\n['Selma', 'dekkskift', 20, 250]\n290\n```\n\n**c)** Uten `key` sammenligner `min` radene som lister, altså **første element først** — og da vinner raden med det alfabetisk minste mekanikernavnet, ikke den med færrest minutter.\n\nSe selv:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(min(tabell[1:]))\n```\n\n**Utskrift:**\n```\n['Rune', 'bremsejustering', 30, 390]\n```\n\nRune kommer før Selma og Tuva i alfabetet, og av Runes to rader kommer `'bremsejustering'` før `'girservice'`. Minuttallet ble aldri sammenlignet i det hele tatt.\n\n**Dette er en av de mest lærerike fellene i faget:** koden gir et helt plausibelt svar, det er bare svar på et annet spørsmål.",
-    "hints": [
-     "`key=lambda rad: rad[k]` sier hvilken kolonne som skal bestemme rangeringen.",
-     "I b): trekk ut kolonnen til ei liste først, og send den til `sum`.",
-     "I c): hva sammenlignes når to lister sammenlignes med `<`?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-opg-4",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-4",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv begge linjene.\n\n```python\nrader = [['Nordre', 4], ['Sentrum', 11], ['Ostre', 2]]\nprint(max(rader))\nprint(max(rader, key=lambda rad: rad[1]))\n```",
-    "solution": "**Sporingstavle.**\n\n| Uttrykk | Hva som sammenlignes | Vinner |\n|---|---|---|\n| `max(rader)` | radene som lister: `'Nordre'` mot `'Sentrum'` mot `'Ostre'` | `'Sentrum'` er alfabetisk sist |\n| `max(rader, key=...)` | tallene 4, 11 og 2 | 11, altså Sentrum-raden |\n\n**Utskrift:**\n```\n['Sentrum', 11]\n['Sentrum', 11]\n```\n\nHer gir **begge** linjene den samme raden — men av to helt forskjellige grunner. Den første fordi `'Sentrum'` er alfabetisk sist, den andre fordi 11 er det største tallet.\n\n**Fellenoten:** at de to formene tilfeldigvis er enige på akkurat disse dataene, er nettopp det som gjør feilen farlig. Bytt `'Sentrum'` med `'Austre'`, og den første linja gir et annet svar. Bruk alltid `key` når det er en bestemt kolonne som skal avgjøre.\n\n**Delvis riktig sporing gir delvis uttelling:** har du sett at den første sammenligner tekst og den andre tall, har du vist det oppgaven tester — også om du skulle bomme på hvilket navn som er alfabetisk sist.",
-    "hints": [
-     "Hva sammenlignes først når Python sammenligner to lister?",
-     "Hvilken kolonne peker lambdaen på?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-txt-4",
-   "type": "text",
-   "content": "## Løkke 3 — tell og summér per nøkkel (~14 min)\n\n«Hvor mange oppdrag har hver mekaniker?» og «hvor mye har hver mekaniker omsatt for?» er det samme mønsteret med ett tegn til forskjell.\n\n— naturlig pausepunkt etter denne løkka —"
-  },
-  {
-   "id": "tdt4110-7-4-thm-2",
-   "type": "theorem",
-   "title": "Kodemønster: teller og summering med ordbok",
-   "content": "Fire linjer, og forskjellen mellom å telle og å summere er hva du legger til:\n\n```text\nd = {}\nfor rad in tabell[1:]:\n    d[rad[k]] = d.get(rad[k], 0) + 1\nreturn d\n```\n\nBlokken over er telleren. Bytt `+ 1` med `+ rad[j]`, og du har summeringen i stedet.\n\nHvorfor `d.get(rad[k], 0)` og ikke `d[rad[k]]`: oppslag på en nøkkel som ikke finnes gir `KeyError`. `get` gir 0 i stedet, og det er nøyaktig riktig startverdi for både en teller og en sum.\n\nMerk at `get` **ikke** setter nøkkelen inn i ordboka — det gjør tilordningen på venstre side. Det er derfor mønsteret må skrives som en tilordning, ikke som et uttrykk."
-  },
-  {
-   "id": "tdt4110-7-4-def-6",
-   "type": "definition",
-   "title": "Telleren `d[k] = d.get(k, 0) + 1`",
-   "content": "Bygger `{nøkkel: antall}` i én gjennomgang av dataene.\n\n```python\nd = {}\nfor navn in ['Rune', 'Selma', 'Rune', 'Selma', 'Tuva', 'Selma']:\n    d[navn] = d.get(navn, 0) + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': 2, 'Selma': 3, 'Tuva': 1}\n```\n\nLegg merke til rekkefølgen i utskriften: nøklene kommer i den rekkefølgen de ble satt inn første gang. Skal svaret være sortert, bruker du `sorted(d)` når du går gjennom den.\n\nFeilen å unngå er `d[navn] += 1` uten `get`: den krasjer med `KeyError` første gang navnet dukker opp, fordi det ikke finnes noen gammel verdi å legge 1 til."
-  },
-  {
-   "id": "tdt4110-7-4-def-7",
-   "type": "definition",
-   "title": "Summeringen `d[k] = d.get(k, 0) + verdi`",
-   "content": "Samme mønster, men verdien fra raden legges til i stedet for 1. Bygger `{nøkkel: sum}`.\n\n```python\nrader = [['Rune', 690], ['Selma', 250], ['Rune', 390]]\nd = {}\nfor rad in rader:\n    d[rad[0]] = d.get(rad[0], 0) + rad[1]\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': 1080, 'Selma': 250}\n```\n\nTest på oppgaveteksten: **«hvor mange»** peker på telleren, **«hvor mye til sammen»** peker på summeringen. Det er verdt å lese setningen to ganger — de to gir helt forskjellige tall, og begge ser riktige ut.\n\nSkal du ha snittet per nøkkel, trenger du **begge** ordbøkene: summen delt på antallet."
-  },
-  {
-   "id": "tdt4110-7-4-def-8",
-   "type": "definition",
-   "title": "Betinget telling",
-   "content": "Skal bare noen av radene telles, står testen inne i løkka, før tellingen:\n\n```text\nfor rad in tabell[1:]:\n    if rad[k_type] == 'girservice':\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + 1\n```\n\nBlokken over er et utdrag fra analysefunksjonen.\n\nFormuleringen i oppgaveteksten er som regel «… som har utført minst ett girservice-oppdrag» eller «… bare oppdrag som tok over en time».\n\nVær nøye med hva som skal med i ordboka når betingelsen aldri slår til: med denne formen kommer mekanikeren rett og slett ikke med i det hele tatt. Vil du ha alle med, også med 0, må du legge dem inn først med en egen løkke."
-  },
-  {
-   "id": "tdt4110-7-4-def-9",
-   "type": "definition",
-   "title": "`.count(v)` og `v in liste`",
-   "content": "To snarveier når du bare skal telle **én** bestemt verdi, ikke bygge en hel ordbok.\n\n```python\ntyper = ['girservice', 'dekkskift', 'girservice', 'ramme']\nprint(typer.count('girservice'))\nprint('ramme' in typer)\nprint(typer.count('bremser'))\n```\n\n**Utskrift:**\n```\n2\nTrue\n0\n```\n\n`.count(v)` gir 0 for noe som ikke finnes — den krasjer aldri. `in` gir `True` eller `False`.\n\nBegge virker på ei **flat** liste, ikke på en 2D-tabell. Skal du telle i en kolonne, trekker du kolonnen ut først: `[rad[k] for rad in tabell[1:]].count('girservice')`."
-  },
-  {
-   "id": "tdt4110-7-4-ex-3",
-   "type": "example",
-   "title": "Eksempel 3: tell og summér på verkstedet",
-   "problem": "*«Skriv `oppdrag_per_mekaniker(tabell)` som returnerer `{mekaniker: antall}`, og `omsetning_per_mekaniker(tabell)` som returnerer `{mekaniker: sum pris}`. Skriv i tillegg `antall_av_type(tabell, type)` som teller hvor mange oppdrag som er av en bestemt type.»*",
-   "solution": "**Telleren:**\n\n```python\ndef oppdrag_per_mekaniker(tabell):\n    k = tabell[0].index('mekaniker')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(oppdrag_per_mekaniker(tabell))\n```\n\n**Utskrift:**\n```\n{'Rune': 2, 'Selma': 3, 'Tuva': 1}\n```\n\n**Summeringen — ett tegn til forskjell:**\n\n```python\ndef omsetning_per_mekaniker(tabell):\n    k_navn = tabell[0].index('mekaniker')\n    k_pris = tabell[0].index('pris')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_pris]\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(omsetning_per_mekaniker(tabell))\n```\n\n**Utskrift:**\n```\n{'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\n```\n\nSelma har tre oppdrag og 2390 kroner; Rune har to oppdrag og 1080.\n\n**Tellingen av én type, begge former:**\n\n```python\ndef antall_av_type(tabell, type_navn):\n    k = tabell[0].index('type')\n    antall = 0\n    for rad in tabell[1:]:\n        if rad[k] == type_navn:\n            antall = antall + 1\n    return antall\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(antall_av_type(tabell, 'girservice'))\n\nk = tabell[0].index('type')\nprint([rad[k] for rad in tabell[1:]].count('girservice'))\n```\n\n**Utskrift:**\n```\n2\n2\n```\n\n**Slik ville sensor sett på det:** at `antall_av_type` tar typen som **parameter** er verdt poeng i seg selv — da kan den kalles for alle typene i en senere deloppgave, i stedet for at du skriver én funksjon per type.\n\nDe to formene er sidestilt. **Begge gir full pott.**\n\n**Kantfeilen:** `antall_av_type(tabell, 'Girservice')` med stor forbokstav gir 0. Skal søket være ufølsomt for store og små bokstaver, sammenligner du `rad[k].lower() == type_navn.lower()`. Sier ikke oppgaven noe, skriv én setning om at du antar eksakt treff."
-  },
-  {
-   "id": "tdt4110-7-4-warn-1",
-   "type": "warning",
-   "title": "Typiske feil i analysen",
-   "content": "Fem feller, og de fire første er stumme:\n\n- **Startverdi 0 i «finn beste».** Ingen rad vinner når alle verdiene er negative. Bruk `None`.\n- **#4 — hardkodet kolonneindeks.** `rad[3]` svarer feil hvis kolonnene kommer i en annen rekkefølge. Bruk `tabell[0].index(navn)`.\n- **Glemt `tabell[1:]`.** Overskriftsraden blir med i analysen, og `'pris'` sammenlignes med et tall — som gir `TypeError` hvis du er heldig, og et feil antall hvis du bare teller.\n- **`max` uten `key` på en 2D-liste.** Radene sammenlignes som lister, og den alfabetisk siste vinner.\n- **`d[k] += 1` uten `get`.** Denne krasjer med `KeyError` første gang nøkkelen dukker opp, og er derfor den snilleste av de fem."
-  },
-  {
-   "id": "tdt4110-7-4-opg-5",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-5",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — telling.) *«Filen `avviksmeldinger.txt` har overskriftsraden `bydel;type;dager`. Skriv `meldinger_per_bydel(tabell)` som returnerer `{bydel: antall}`, og `dager_per_bydel(tabell)` som returnerer `{bydel: sum dager}`.»*\n\nBegge kolonnene skal finnes ved navn.",
-    "solution": "```python\ndef meldinger_per_bydel(tabell):\n    k = tabell[0].index('bydel')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ndef dager_per_bydel(tabell):\n    k_bydel = tabell[0].index('bydel')\n    k_dager = tabell[0].index('dager')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_bydel]] = d.get(rad[k_bydel], 0) + rad[k_dager]\n    return d\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'hull i vei', 11], ['Nordre', 'hull i vei', 6],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3],\n          ['Nordre', 'veilys', 9]]\nprint(meldinger_per_bydel(tabell))\nprint(dager_per_bydel(tabell))\n```\n\n**Utskrift:**\n```\n{'Nordre': 3, 'Sentrum': 2, 'Ostre': 1}\n{'Nordre': 19, 'Sentrum': 14, 'Ostre': 2}\n```\n\nNordre har tre meldinger og 19 dager til sammen; Sentrum har to og 14; Østre har én og 2.\n\n**Neste steg, som en deloppgave gjerne ber om:** gjennomsnittlig behandlingstid per bydel er den ene ordboka delt på den andre:\n\n```python\nantall = {'Nordre': 3, 'Sentrum': 2, 'Ostre': 1}\ndager = {'Nordre': 19, 'Sentrum': 14, 'Ostre': 2}\nsnitt = {}\nfor bydel in antall:\n    snitt[bydel] = dager[bydel] / antall[bydel]\nprint(snitt)\n```\n\n**Utskrift:**\n```\n{'Nordre': 6.333333333333333, 'Sentrum': 7.0, 'Ostre': 2.0}\n```\n\nDet er derfor de to ordbøkene er verdt å bygge hver for seg: sammen svarer de på et tredje spørsmål ingen av dem svarer på alene.",
-    "hints": [
-     "Begge funksjonene er det samme mønsteret; forskjellen er hva du legger til.",
-     "Kolonnene finner du med `.index(...)` på rad 0, og oppslaget skal stå utenfor løkka."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-opg-6",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-6",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — betinget telling.) *«Skriv `lange_oppdrag_per_mekaniker(tabell, grense)` som returnerer `{mekaniker: antall}`, men teller bare oppdrag som tok flere minutter enn `grense`.»*\n\nTest med grensen 30.",
-    "solution": "Testen står inne i løkka, før tellingen:\n\n```python\ndef lange_oppdrag_per_mekaniker(tabell, grense):\n    k_navn = tabell[0].index('mekaniker')\n    k_min = tabell[0].index('minutter')\n    d = {}\n    for rad in tabell[1:]:\n        if rad[k_min] > grense:\n            d[rad[k_navn]] = d.get(rad[k_navn], 0) + 1\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(lange_oppdrag_per_mekaniker(tabell, 30))\n```\n\n**Utskrift:**\n```\n{'Rune': 1, 'Selma': 2}\n```\n\nRune har girservicen på 45 minutter; Selma har girservicen på 50 og rammejobben på 120. Tuva er **ikke med i det hele tatt**, fordi ingen av oppdragene hennes passerte grensen — og bremsejusteringen på nøyaktig 30 minutter er heller ikke med, siden `>` er streng.\n\n**De to valgene du må ta stilling til, og skrive én setning om:**\n\n- **Streng eller ikke:** `>` utelater 30 minutter, `>=` tar den med. Oppgaveteksten sier «flere minutter enn», altså `>`.\n- **Skal alle mekanikerne med, også med 0?** Med denne formen kommer bare de som har minst ett langt oppdrag. Skal alle med, legger du dem inn først:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk_navn = tabell[0].index('mekaniker')\nk_min = tabell[0].index('minutter')\nd = {}\nfor rad in tabell[1:]:\n    d[rad[k_navn]] = 0\nfor rad in tabell[1:]:\n    if rad[k_min] > 30:\n        d[rad[k_navn]] = d[rad[k_navn]] + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': 1, 'Selma': 2, 'Tuva': 0}\n```\n\nNå er Tuva med, med 0. Begge tolkningene er forsvarlige — det er valget som skal dokumenteres, ikke koden.",
-    "hints": [
-     "Testen på minuttallet står inne i løkka, rett før tellelinja.",
-     "Hva skjer med en mekaniker som ikke har noen lange oppdrag?",
-     "«Flere minutter enn» — er grensen selv med eller ikke?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-txt-5",
-   "type": "text",
-   "content": "## Løkke 4 — gruppér (~14 min)\n\nDen tredje analyseformen: i stedet for ett tall per nøkkel skal du ta vare på **alle** radene som hører til nøkkelen. Da er verdien i ordboka ei liste."
-  },
-  {
-   "id": "tdt4110-7-4-thm-3",
-   "type": "theorem",
-   "title": "Kodemønster: gruppering `{nøkkel: [elementer]}`",
-   "content": "Fem linjer, og den tredje er den som glipper oftest:\n\n```text\nd = {}\nfor rad in tabell[1:]:\n    if rad[k] not in d:\n        d[rad[k]] = []\n    d[rad[k]].append(rad)\nreturn d\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 4.\n\n**Den indre lista må finnes før du legger noe i den.** `d[rad[k]].append(...)` slår først opp `d[rad[k]]`, og et oppslag på en ukjent nøkkel gir `KeyError`. Testen `if … not in d` er derfor ikke pynt, den er nødvendig.\n\nHva du legger inn, styres av oppgaveteksten: hele raden (`rad`), ett felt (`rad[j]`), eller en kombinasjon. «Alle rettene som bruker ingrediensen» betyr rettens navn, ikke hele oppskriften."
-  },
-  {
-   "id": "tdt4110-7-4-def-10",
-   "type": "definition",
-   "title": "`d.setdefault(k, [])`",
-   "content": "Gjør de to første linjene i grupperingen på én: slår opp nøkkelen, og setter inn standardverdien først hvis den mangler. Returnerer verdien i begge tilfeller.\n\n```python\nd = {}\nd.setdefault('Rune', []).append('girservice')\nd.setdefault('Rune', []).append('bremser')\nd.setdefault('Selma', []).append('dekkskift')\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': ['girservice', 'bremser'], 'Selma': ['dekkskift']}\n```\n\nFormen er sidestilt med den eksplisitte `if … not in d`-varianten, og **begge gir full pott**.\n\nMerk forskjellen fra `get`: `setdefault` **setter nøkkelen inn** i ordboka, `get` gjør det ikke. Det er nettopp derfor `setdefault` virker for gruppering og `get` for telling."
-  },
-  {
-   "id": "tdt4110-7-4-def-11",
-   "type": "definition",
-   "title": "Hva legger du i gruppen",
-   "content": "Tre varianter, og oppgaveteksten avgjør hvilken:\n\n- `d[nøkkel].append(rad)` — hele raden. Nyttig når en senere deloppgave skal regne på gruppen.\n- `d[nøkkel].append(rad[j])` — ett felt. «Alle typene hver mekaniker har jobbet med.»\n- `d[nøkkel].append(rad[j])` **med duplikatsjekk** — når oppgaven sier «uten gjentakelser».\n\nDen siste er et eksplisitt fullscore-krav i flere sett, og den drilles i [kap. 7.6](/tdt4110/tdt4110-7-6). Formen er `if rad[j] not in d[nøkkel]:` før `append`.\n\nLes returtypen i oppgaveteksten nøye: `{mekaniker: ['girservice', 'ramme']}` og `{mekaniker: [['Selma', 'ramme', 120, 1450]]}` ser like ut i beskrivelsen, men er helt forskjellige strukturer."
-  },
-  {
-   "id": "tdt4110-7-4-ex-4",
-   "type": "example",
-   "title": "Eksempel 4: hvilke oppdragstyper har hver mekaniker",
-   "problem": "*«Skriv `typer_per_mekaniker(tabell)` som returnerer `{mekaniker: [type, type, …]}` med alle oppdragstypene mekanikeren har utført. Skriv deretter `rader_per_type(tabell)` som grupperer hele radene på oppdragstype.»*",
-   "solution": "**Gruppering av ett felt:**\n\n```python\ndef typer_per_mekaniker(tabell):\n    k_navn = tabell[0].index('mekaniker')\n    k_type = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        if rad[k_navn] not in d:\n            d[rad[k_navn]] = []\n        d[rad[k_navn]].append(rad[k_type])\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(typer_per_mekaniker(tabell))\n```\n\n**Utskrift:**\n```\n{'Rune': ['girservice', 'bremsejustering'], 'Selma': ['dekkskift', 'girservice', 'ramme'], 'Tuva': ['dekkskift']}\n```\n\n**Gruppering av hele rader, med `setdefault`:**\n\n```python\ndef rader_per_type(tabell):\n    k = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        d.setdefault(rad[k], []).append(rad)\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nd = rader_per_type(tabell)\nprint(d['girservice'])\nprint(len(d['dekkskift']))\n```\n\n**Utskrift:**\n```\n[['Rune', 'girservice', 45, 690], ['Selma', 'girservice', 50, 690]]\n2\n```\n\n**Hvorfor gruppering er verdt å kunne:** når radene først er samlet per nøkkel, er de neste spørsmålene ett kall hver.\n\n```python\ngrupper = {'girservice': [['Rune', 'girservice', 45, 690], ['Selma', 'girservice', 50, 690]],\n           'dekkskift': [['Selma', 'dekkskift', 20, 250], ['Tuva', 'dekkskift', 25, 250]]}\nfor type_navn in sorted(grupper):\n    minutter = [rad[2] for rad in grupper[type_navn]]\n    print(type_navn.ljust(14), len(minutter), sum(minutter) / len(minutter))\n```\n\n**Utskrift:**\n```\ndekkskift      2 22.5\ngirservice     2 47.5\n```\n\n**Slik ville sensor sett på det:** den ene linja `if rad[k] not in d: d[rad[k]] = []` er verdt poengene sine alene, fordi koden krasjer uten den. Sensor ser etter at du vet at den indre lista må opprettes.\n\n`setdefault` gir samme uttelling. Velg den du husker riktig — den eksplisitte formen er lettere å feilsøke, den korte er raskere å skrive.\n\n**Kantfeilen:** `d[rad[k]] = rad` i stedet for `.append(rad)` gir ingen feilmelding, men bare den **siste** raden per nøkkel. Det er den samme fellen som i [kap. 7.2](/tdt4110/tdt4110-7-2) — en ordbok har én verdi per nøkkel."
-  },
-  {
-   "id": "tdt4110-7-4-opg-7",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-7",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — gruppering.) *«Bruk tabellen fra `avviksmeldinger.txt`. Skriv `bydeler_per_type(tabell)` som returnerer `{type: [bydel, bydel, …]}` — hvilke bydeler som har meldt inn hver type avvik.»*",
-    "solution": "```python\ndef bydeler_per_type(tabell):\n    k_type = tabell[0].index('type')\n    k_bydel = tabell[0].index('bydel')\n    d = {}\n    for rad in tabell[1:]:\n        if rad[k_type] not in d:\n            d[rad[k_type]] = []\n        d[rad[k_type]].append(rad[k_bydel])\n    return d\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'hull i vei', 11], ['Nordre', 'hull i vei', 6],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3],\n          ['Nordre', 'veilys', 9]]\nprint(bydeler_per_type(tabell))\n```\n\n**Utskrift:**\n```\n{'veilys': ['Nordre', 'Sentrum', 'Nordre'], 'hull i vei': ['Sentrum', 'Nordre'], 'soppelspann': ['Ostre']}\n```\n\n**Legg merke til `'Nordre'` to ganger under `'veilys'`.** Bydelen har meldt inn to veilysavvik, og begge er med. Om det er riktig, avhenger av spørsmålet: «hvilke bydeler har meldt inn veilysavvik» ber om hver bydel **én** gang, mens «alle veilysmeldingene» ber om alle.\n\nSkal duplikatene bort, er formen denne:\n\n```python\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'veilys', 3], ['Nordre', 'veilys', 9]]\nd = {}\nfor rad in tabell[1:]:\n    if rad[1] not in d:\n        d[rad[1]] = []\n    if rad[0] not in d[rad[1]]:\n        d[rad[1]].append(rad[0])\nprint(d)\n```\n\n**Utskrift:**\n```\n{'veilys': ['Nordre', 'Sentrum']}\n```\n\nTo tester i stedet for én: den første oppretter lista, den andre hindrer duplikatet. Det er et eksplisitt fullscore-krav i flere eksamenssett, og det drilles videre i [kap. 7.6](/tdt4110/tdt4110-7-6).",
-    "hints": [
-     "Nøkkelen er typen, verdien er ei liste med bydeler.",
-     "Hva må skje med den indre lista før `.append` kan kalles på den?",
-     "Kan den samme bydelen dukke opp to ganger i lista? Les oppgaveteksten en gang til."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-opg-8",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-8",
-    "number": "8",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — gruppering og analyse i kjede.) *«Skriv `snitt_per_type(tabell)` som returnerer `{type: gjennomsnittlig varighet}` for oppdragene på verkstedet. Bruk `rader_per_type` fra eksempel 4 i stedet for å gå gjennom tabellen på nytt.»*\n\nRund av til én desimal i utskriften, ikke i ordboka.",
-    "solution": "Gjenbruket er hele poenget: funksjonen går aldri gjennom tabellen selv.\n\n```python\ndef rader_per_type(tabell):\n    k = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        d.setdefault(rad[k], []).append(rad)\n    return d\n\ndef snitt_per_type(tabell):\n    k_min = tabell[0].index('minutter')\n    grupper = rader_per_type(tabell)\n    d = {}\n    for type_navn in grupper:\n        minutter = [rad[k_min] for rad in grupper[type_navn]]\n        d[type_navn] = sum(minutter) / len(minutter)\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nsnitt = snitt_per_type(tabell)\nfor type_navn in sorted(snitt):\n    print(type_navn.ljust(16) + '{:.1f}'.format(snitt[type_navn]))\n```\n\n**Utskrift:**\n```\nbremsejustering 30.0\ndekkskift       22.5\ngirservice      47.5\nramme           120.0\n```\n\n**Hvorfor avrundingen hører til i utskriften og ikke i ordboka:** ordboka er data, og data skal være så nøyaktige som mulig så lenge de brukes til regning. Runder du av i `snitt_per_type`, og en senere deloppgave summerer verdiene, har du innført en feil du ikke kan hente tilbake. Regn med tall, vis tekst.\n\n**Slik ville sensor sett på det:** at `snitt_per_type` kaller `rader_per_type` i stedet for å skrive løkka på nytt, er gjenbruket som gir uttelling. En besvarelse med to nesten like løkker er ikke feil, men den taper poengene som ligger i kjeden.\n\n**Kantfeilen:** en tom gruppe ville gitt `ZeroDivisionError` — men den kan ikke oppstå her, siden en nøkkel bare finnes i ordboka fordi minst én rad la den inn. Det er verdt å si i én setning: **tomtilfellet er umulig ved konstruksjon.** Det er et bedre svar enn en unødvendig test.",
-    "hints": [
-     "La første linje i funksjonen være kallet på `rader_per_type`.",
-     "For hver nøkkel: trekk ut minuttkolonnen fra radene i gruppen, og bruk `sum` og `len`.",
-     "Avrundingen hører hjemme i `'{:.1f}'.format(...)` i utskriften."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-txt-6",
-   "type": "text",
-   "content": "## Løkke 5 — analysér ordboka (~12 min)\n\nDeloppgavene kommer ofte parvis: først «bygg ordboka», så «finn den beste nøkkelen i den». Den andre er «finn beste» én gang til, bare over nøkler i stedet for rader."
-  },
-  {
-   "id": "tdt4110-7-4-def-12",
-   "type": "definition",
-   "title": "Finn beste nøkkel i en ordbok",
-   "content": "Samme mønster som «finn beste rad», men løkka går over nøklene og verdien hentes med oppslag:\n\n```python\nd = {'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\nbeste = None\nbeste_verdi = None\nfor navn in d:\n    if beste_verdi is None or d[navn] > beste_verdi:\n        beste = navn\n        beste_verdi = d[navn]\nprint(beste, beste_verdi)\n```\n\n**Utskrift:**\n```\nSelma 2390\n```\n\n**Snarveien** er `max(d, key=d.get)`: gå gjennom nøklene, og bruk `d.get` som nøkkelfunksjon. Den gir nøkkelen, ikke verdien — vil du ha begge, henter du `d[beste]` etterpå.\n\n`for navn in d:` går over **nøklene**, ikke verdiene. `for verdi in d.values():` går over verdiene, men da mister du hvilken nøkkel de hørte til."
-  },
-  {
-   "id": "tdt4110-7-4-def-13",
-   "type": "definition",
-   "title": "`sorted(d)` når rekkefølgen skal være fast",
-   "content": "Nøklene i en ordbok kommer i den rekkefølgen de ble satt inn. Det er forutsigbart, men sjelden det du vil vise en bruker.\n\n```python\nd = {'Selma': 3, 'Rune': 2, 'Tuva': 1}\nprint(list(d))\nprint(sorted(d))\n```\n\n**Utskrift:**\n```\n['Selma', 'Rune', 'Tuva']\n['Rune', 'Selma', 'Tuva']\n```\n\n`sorted(d)` gir nøklene som ei sortert liste, uten å endre ordboka. Bruk den i alle utskriftsløkker — da blir svaret ditt det samme hver gang, og det er lettere for sensor å lese.\n\nSkal du sortere på **verdien** i stedet, er formen `sorted(d, key=d.get)`, og den kommer i [kap. 7.5](/tdt4110/tdt4110-7-5)."
-  },
-  {
-   "id": "tdt4110-7-4-ex-5",
-   "type": "example",
-   "title": "Eksempel 5: fra ordbok til svar",
-   "problem": "*«Bruk `omsetning_per_mekaniker` fra eksempel 3. Skriv `beste_mekaniker(tabell)` som returnerer navnet på den med høyest omsetning, og skriv ut hele oversikten sortert alfabetisk.»*",
-   "solution": "**Analysen av ordboka, med gjenbruk:**\n\n```python\ndef omsetning_per_mekaniker(tabell):\n    k_navn = tabell[0].index('mekaniker')\n    k_pris = tabell[0].index('pris')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_pris]\n    return d\n\ndef beste_mekaniker(tabell):\n    d = omsetning_per_mekaniker(tabell)\n    beste = None\n    beste_verdi = None\n    for navn in d:\n        if beste_verdi is None or d[navn] > beste_verdi:\n            beste = navn\n            beste_verdi = d[navn]\n    return beste\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(beste_mekaniker(tabell))\n```\n\n**Utskrift:**\n```\nSelma\n```\n\n**Snarveien for det samme:**\n\n```python\nd = {'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\nprint(max(d, key=d.get))\n```\n\n**Utskrift:**\n```\nSelma\n```\n\n**Oversikten, sortert:**\n\n```python\nd = {'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\nfor navn in sorted(d):\n    print(navn.ljust(8) + str(d[navn]).rjust(6))\n```\n\n**Utskrift:**\n```\nRune      1080\nSelma     2390\nTuva       250\n```\n\n**Slik ville sensor sett på det:** `beste_mekaniker` som kaller `omsetning_per_mekaniker` er nøyaktig den kjeden deloppgavene er bygget for. En besvarelse som går gjennom tabellen på nytt inne i `beste_mekaniker` gir riktig svar, men taper gjenbrukspoengene — og den er lengre å skrive.\n\n**Antakelsen å skrive ned:** ved lik omsetning returnerer denne løsningen den som ble sett først i ordboka. Én setning om det, så er valget dokumentert.\n\n**Kantfeilen:** en **tom** ordbok gir `None` fra løkkevarianten og `ValueError` fra `max`. Løkka er altså litt snillere her — men begge trenger et bevisst valg, og det er tema i neste løkke."
-  },
-  {
-   "id": "tdt4110-7-4-opg-9",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-9",
-    "number": "9",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — analysér ordboka.) *«Du har ordboka `{bydel: sum dager}` fra oppgave 5. Skriv `tregeste_bydel(ordbok)` som returnerer navnet på bydelen med flest dager til sammen, og `total_dager(ordbok)` som returnerer summen over alle bydelene.»*\n\nBegge funksjonene skal ta **ordboka** som parameter, ikke tabellen.",
-    "solution": "```python\ndef tregeste_bydel(ordbok):\n    beste = None\n    beste_verdi = None\n    for bydel in ordbok:\n        if beste_verdi is None or ordbok[bydel] > beste_verdi:\n            beste = bydel\n            beste_verdi = ordbok[bydel]\n    return beste\n\ndef total_dager(ordbok):\n    return sum(ordbok.values())\n\nd = {'Nordre': 19, 'Sentrum': 14, 'Ostre': 2}\nprint(tregeste_bydel(d))\nprint(total_dager(d))\n```\n\n**Utskrift:**\n```\nNordre\n35\n```\n\n**Hvorfor ordboka og ikke tabellen som parameter:** da kan `tregeste_bydel` brukes på **begge** ordbøkene fra oppgave 5 — både `{bydel: antall}` og `{bydel: dager}` — uten en eneste endring. Det er den slags gjenbruk som gir poeng i den neste deloppgaven.\n\n```python\ndef tregeste_bydel(ordbok):\n    beste = None\n    for bydel in ordbok:\n        if beste is None or ordbok[bydel] > ordbok[beste]:\n            beste = bydel\n    return beste\n\nprint(tregeste_bydel({'Nordre': 3, 'Sentrum': 2, 'Ostre': 1}))\nprint(tregeste_bydel({'Nordre': 19, 'Sentrum': 14, 'Ostre': 2}))\n```\n\n**Utskrift:**\n```\nNordre\nNordre\n```\n\nDenne varianten bruker bare én hjelpevariabel og slår opp `ordbok[beste]` i sammenligningen. Begge former gir full pott; den med to variabler er raskere, den med én er kortere.\n\n**`sum(ordbok.values())`** legger sammen verdiene. `sum(ordbok)` ville prøvd å legge sammen **nøklene**, som her er tekst — og det gir `TypeError`.",
-    "hints": [
-     "Mønsteret er «finn beste», men løkka går over nøklene i ordboka.",
-     "Verdien henter du med `ordbok[nøkkel]` inne i løkka.",
-     "`sum` på en ordbok legger sammen nøklene; du vil ha verdiene."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-opg-10",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-10",
-    "number": "10",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — to ordbøker kombinert.) *«Skriv `snitt_per_mekaniker(tabell)` som returnerer `{mekaniker: gjennomsnittspris}`. Bygg den av to ordbøker: én med antall oppdrag og én med samlet omsetning, begge gjenbrukt fra eksempel 3.»*\n\nLøs den uten å gå gjennom tabellen mer enn de to gangene de to hjelpefunksjonene gjør det.",
-    "solution": "```python\ndef oppdrag_per_mekaniker(tabell):\n    k = tabell[0].index('mekaniker')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ndef omsetning_per_mekaniker(tabell):\n    k_navn = tabell[0].index('mekaniker')\n    k_pris = tabell[0].index('pris')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_pris]\n    return d\n\ndef snitt_per_mekaniker(tabell):\n    antall = oppdrag_per_mekaniker(tabell)\n    omsetning = omsetning_per_mekaniker(tabell)\n    d = {}\n    for navn in antall:\n        d[navn] = omsetning[navn] / antall[navn]\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nsnitt = snitt_per_mekaniker(tabell)\nfor navn in sorted(snitt):\n    print(navn.ljust(8) + '{:.2f}'.format(snitt[navn]))\n```\n\n**Utskrift:**\n```\nRune    540.00\nSelma   796.67\nTuva    250.00\n```\n\n**Hvorfor løkka går over `antall` og ikke over `omsetning`:** her har de nøyaktig de samme nøklene, siden begge er bygget av den samme tabellen — så valget er likegyldig. Men vanen er verdt å ha: gå over den ordboka du **vet** har alle nøklene, og slå opp i den andre. Da får du `KeyError` med en gang hvis antakelsen din er feil, i stedet for et stille manglende svar.\n\n**Alternativet med én gjennomgang** er å bygge begge ordbøkene i samme løkke og returnere dem sammen:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk_navn = tabell[0].index('mekaniker')\nk_pris = tabell[0].index('pris')\nantall = {}\nomsetning = {}\nfor rad in tabell[1:]:\n    navn = rad[k_navn]\n    antall[navn] = antall.get(navn, 0) + 1\n    omsetning[navn] = omsetning.get(navn, 0) + rad[k_pris]\nprint(antall)\nprint(omsetning)\n```\n\n**Utskrift:**\n```\n{'Rune': 2, 'Selma': 3, 'Tuva': 1}\n{'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\n```\n\nDen er raskere, men taper på ett punkt: de to ordbøkene kan ikke lenger brukes hver for seg av andre deloppgaver. På et eksamenssett der deloppgave b) og c) ber om hver sin ordbok, er de to separate funksjonene det riktige svaret — og de gir uttelling to steder.",
-    "hints": [
-     "Kall de to hjelpefunksjonene først, og gå deretter gjennom den ene ordboka.",
-     "Gjennomsnittsprisen er samlet omsetning delt på antall oppdrag, per mekaniker.",
-     "Avrundingen hører hjemme i utskriften, ikke i ordboka."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-txt-7",
-   "type": "text",
-   "content": "## Løkke 6 — analysen som tåler en tom tabell (~9 min)\n\nDen siste biten før robusthetskapitlet: hva skal en analysefunksjon svare når det ikke finnes noe å analysere?"
-  },
-  {
-   "id": "tdt4110-7-4-def-14",
-   "type": "definition",
-   "title": "Tomtilfellet i en analysefunksjon",
-   "content": "Fire spørsmål, ett svar hver, og alle fire skal besvares i koden eller i én setning:\n\n| Situasjon | Rimelig returverdi |\n|---|---|\n| tom tabell i «finn beste» | `None` |\n| tom tabell i en teller | `{}` — den tomme ordboka, som kommer av seg selv |\n| «ikke funnet» i et søk | `None` eller `-1`, avhengig av om du returnerer en verdi eller en posisjon |\n| tom liste i et gjennomsnitt | `None` — en divisjon på null krasjer |\n\nMønsteret med `None` som startverdi gir de to første **gratis**: løkka kjører aldri, og funksjonen returnerer `None` og `{}` helt av seg selv. Det er en av grunnene til at mønsteret er skrevet slik.\n\nSnarveiene gjør det ikke: `max([])` og `sum([]) / len([])` krasjer begge. Bruker du dem, må tomtesten skrives eksplisitt."
-  },
-  {
-   "id": "tdt4110-7-4-ex-6",
-   "type": "example",
-   "title": "Eksempel 6: den samme funksjonen, tre datasett",
-   "problem": "Test `dyreste_oppdrag` fra eksempel 1 på tre tabeller: en vanlig, en med bare overskriftsrad, og en der alle prisene er negative (en tabell over rabatter).",
-   "solution": "**Vanlig tabell** — svaret er den dyreste raden:\n\n```python\ndef dyreste_oppdrag(tabell):\n    k = tabell[0].index('pris')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\nprint(dyreste_oppdrag([['type', 'pris'], ['ramme', 1450], ['dekk', 250]]))\n```\n\n**Utskrift:**\n```\n['ramme', 1450]\n```\n\n**Bare overskriftsrad** — løkka kjører null ganger, og `None` faller ut av seg selv:\n\n```python\ndef dyreste_oppdrag(tabell):\n    k = tabell[0].index('pris')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\nprint(dyreste_oppdrag([['type', 'pris']]))\n```\n\n**Utskrift:**\n```\nNone\n```\n\n**Bare negative verdier** — her ville `beste_verdi = 0` gitt `None`, mens `None` gir riktig svar:\n\n```python\ndef dyreste_oppdrag(tabell):\n    k = tabell[0].index('pris')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\nprint(dyreste_oppdrag([['type', 'pris'], ['rabatt A', -120], ['rabatt B', -45]]))\n```\n\n**Utskrift:**\n```\n['rabatt B', -45]\n```\n\n**Snarveien på det tomme tilfellet:**\n\n```python\ntabell = [['type', 'pris']]\nif len(tabell) <= 1:\n    print(None)\nelse:\n    print(max(tabell[1:], key=lambda rad: rad[1]))\n```\n\n**Utskrift:**\n```\nNone\n```\n\nUten testen ville `max` krasjet med `ValueError: max() arg is an empty sequence`.\n\n**Slik ville sensor sett på det:** at løkkevarianten håndterer to av de tre tilfellene uten en eneste ekstra linje, er nettopp grunnen til at mønsteret er verdt å lære slik det står. Sensor ser etter `None` som startverdi og `is None` i testen — det er to konkrete tegn på at kandidaten kan kantetilfellene."
-  },
-  {
-   "id": "tdt4110-7-4-opg-11",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-11",
-    "number": "11",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — analyse med robusthet.) *«Skriv `snitt_pris(tabell)` som returnerer gjennomsnittsprisen for oppdragene. Funksjonen skal returnere `None` hvis tabellen ikke har noen datarader, og prisen skal finnes ved navn.»*\n\nSkriv i tillegg én setning om hvorfor `None` er et bedre svar enn 0 her.",
-    "solution": "```python\ndef snitt_pris(tabell):\n    k = tabell[0].index('pris')\n    total = 0\n    antall = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n        antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(snitt_pris(tabell))\nprint(snitt_pris([['mekaniker', 'type', 'minutter', 'pris']]))\n```\n\n**Utskrift:**\n```\n620.0\nNone\n```\n\n**Setningen:** 0 er en **pris**, og en bruker som ser 0 vil tro at oppdragene var gratis. `None` betyr «det finnes ikke noe svar», som er sant — og den som kaller funksjonen kan teste på det.\n\nDet er forskjellen på en verdi og fravær av en verdi, og den er verdt poeng når oppgaven ber om tomtilfellet.\n\n**Formen med tomtesten først** er også riktig, og noen synes den er lettere å lese:\n\n```python\ndef snitt_pris(tabell):\n    if len(tabell) <= 1:\n        return None\n    k = tabell[0].index('pris')\n    priser = [rad[k] for rad in tabell[1:]]\n    return sum(priser) / len(priser)\n\nprint(snitt_pris([['type', 'pris'], ['ramme', 1450], ['dekk', 250]]))\nprint(snitt_pris([['type', 'pris']]))\n```\n\n**Utskrift:**\n```\n850.0\nNone\n```\n\n**Begge gir full pott.** Den første teller selv og trenger ingen lengdetest; den andre tester først og kan bruke snarveiene trygt etterpå.",
-    "hints": [
-     "Tell selv i løkka i stedet for å bruke `len(tabell) - 1` — da har du antallet uansett.",
-     "Testen på tomt kan stå enten før løkka eller rett før divisjonen.",
-     "Hva ville en bruker tenkt hvis funksjonen svarte 0 kroner?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-opg-12",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-4-oppg-12",
-    "number": "12",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — hele analysebolken.) Bruk tabellen fra `avviksmeldinger.txt` med kolonnene `bydel`, `type` og `dager`.\n\n**a)** Skriv `verste_type(tabell)` som returnerer den avvikstypen som har flest meldinger. Bruk telleren og «finn beste nøkkel».\n\n**b)** Skriv `raskest_behandlet(tabell)` som returnerer hele raden for meldingen med færrest dager.\n\n**c)** Skriv `typer_per_bydel(tabell)` som returnerer `{bydel: [type, …]}` **uten** duplikater.\n\nAlle tre skal finne kolonnene ved navn og tåle en tabell uten datarader.",
-    "solution": "**a)** Teller først, finn beste nøkkel etterpå — to mønstre i kjede:\n\n```python\ndef antall_per_type(tabell):\n    k = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ndef verste_type(tabell):\n    d = antall_per_type(tabell)\n    beste = None\n    for navn in d:\n        if beste is None or d[navn] > d[beste]:\n            beste = navn\n    return beste\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'hull i vei', 11], ['Nordre', 'hull i vei', 6],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3],\n          ['Nordre', 'veilys', 9]]\nprint(verste_type(tabell))\nprint(verste_type([['bydel', 'type', 'dager']]))\n```\n\n**Utskrift:**\n```\nveilys\nNone\n```\n\nTom tabell gir en tom ordbok, løkka kjører ikke, og `None` faller ut — uten en eneste ekstra linje.\n\n**b)** «Finn beste» med `<`:\n\n```python\ndef raskest_behandlet(tabell):\n    k = tabell[0].index('dager')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] < beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3]]\nprint(raskest_behandlet(tabell))\nprint(raskest_behandlet([['bydel', 'type', 'dager']]))\n```\n\n**Utskrift:**\n```\n['Ostre', 'soppelspann', 2]\nNone\n```\n\n**c)** Gruppering med duplikatsjekk — to tester, ikke én:\n\n```python\ndef typer_per_bydel(tabell):\n    k_bydel = tabell[0].index('bydel')\n    k_type = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        bydel = rad[k_bydel]\n        if bydel not in d:\n            d[bydel] = []\n        if rad[k_type] not in d[bydel]:\n            d[bydel].append(rad[k_type])\n    return d\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'hull i vei', 11], ['Nordre', 'hull i vei', 6],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3],\n          ['Nordre', 'veilys', 9]]\nprint(typer_per_bydel(tabell))\n```\n\n**Utskrift:**\n```\n{'Nordre': ['veilys', 'hull i vei'], 'Sentrum': ['hull i vei', 'veilys'], 'Ostre': ['soppelspann']}\n```\n\nNordre har meldt inn veilys **to** ganger, men står med `'veilys'` én gang i resultatet. Det er duplikatkravet.\n\n**Slik ville sensor sett på det:** de tre deloppgavene er tre forskjellige mønstre — teller pluss beste nøkkel, finn beste rad, og gruppering med duplikatsjekk. Det er nøyaktig sammensetningen en ekte programmeringsoppgave har, og de rettes hver for seg. Klarer du to av tre, har du to av tre deloppgavers poeng.\n\n**Antakelsene å skrive ned:** ved lik forekomst i (a) og lik behandlingstid i (b) returneres den som ble sett først. To setninger, femten sekunder, dokumenterte valg.",
-    "hints": [
-     "I a): bygg telleordboka først, og bruk «finn beste nøkkel» på den.",
-     "I b): samme mønster som eksempel 1, men med `<`.",
-     "I c): den første testen oppretter lista, den andre hindrer duplikatet."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-4-col-1",
-   "type": "collapsible",
-   "title": "API- og konstruksjonsliste",
-   "buttonText": "Vis API og konstruksjoner",
-   "content": [
+  "id": "tdt4110-7-4",
+  "courseId": "tdt4110",
+  "chapterNumber": "7.4",
+  "title": "DRILL — Ledd 3: analysér — finn maks/beste, tell og gruppér",
+  "description": "Kjernen i programmeringsdelen: gå gjennom tabellen og finn den beste raden, tell forekomster og gruppér i en ordbok — både med eksplisitt løkke og med snarvei.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne finne den beste raden i en tabell med en løkke som takler negative verdier og tom tabell",
+    "kunne løse den samme analysen med de innebygde snarveiene, og vite at begge former gir full pott",
+    "kunne telle og summere per nøkkel med en ordbok, også når tellingen har en betingelse",
+    "kunne gruppere rader i en ordbok av lister, og finne den beste nøkkelen i en ferdig ordbok"
+  ],
+  "content": [
     {
-     "id": "tdt4110-7-4-ctxt-1",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `tabell[0].index('pris')` | kolonnenummeret ved navn; `ValueError` hvis navnet ikke finnes |\n| `tabell[1:]` | radene uten overskriften, som ei **ny** liste |\n| `beste_verdi is None` | startbetingelsen som lar første rad vinne, også ved negative verdier |\n| `max(x)` / `min(x)` | største og minste element; `ValueError` på tom liste |\n| `max(x, key=f)` | rangerer etter `f(element)`, men returnerer elementet **helt** |\n| `lambda rad: rad[k]` | navnløs funksjon: «gitt en rad, gi meg element `k`» |\n| `sum(x)` | summen av tallene; `TypeError` hvis elementene er tekst |\n| `len(x)` | antall elementer; `sum(x) / len(x)` krasjer på tom liste |\n| `d.get(k, 0) + 1` | telleren; `get` gir 0 for ukjent nøkkel og setter den **ikke** inn |\n| `d.get(k, 0) + rad[j]` | summeringen — samme mønster, annet tillegg |\n| `if k not in d: d[k] = []` | grupperingen: opprett den indre lista **før** `append` |\n| `d.setdefault(k, []).append(v)` | de to linjene over på én; `setdefault` setter nøkkelen inn |\n| `d[k].append(v)` | legger til i gruppen; `KeyError` hvis lista ikke er opprettet |\n| `if v not in d[k]:` | duplikatsjekken før `append` — et fullscore-krav |\n| `for navn in d:` | går over **nøklene**; `d.values()` går over verdiene |\n| `max(d, key=d.get)` | nøkkelen med størst verdi; gir nøkkelen, ikke verdien |\n| `sum(d.values())` | summen av verdiene; `sum(d)` ville summert nøklene |\n| `sorted(d)` | nøklene som ei sortert liste; ordboka er urørt |\n| `liste.count(v)` | antall forekomster; gir 0 for noe som ikke finnes |\n| `v in liste` | `True` eller `False`; virker på flate lister, ikke på rader i en tabell |\n| `[rad[k] for rad in tabell[1:]]` | kolonneuttrekk som ei flat liste |\n\n**Formler i dette delkapitlet:**\n\nGjennomsnitt over $n$ rader: $\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i$\n\nGjennomsnitt per nøkkel, bygget av to ordbøker: $\\bar{x}_k = \\frac{\\text{sum}_k}{\\text{antall}_k}$"
+      "id": "tdt4110-7-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Tyngdepunktet i hele faget.**\n\n- Analysen står i **100 % av settene (10 av 10 sittinger i arkivet 2014–2019)** og kommer nesten alltid som **to–tre deloppgaver à 5–10 %**. Til sammen er den mer verdt enn de fire andre leddene lagt sammen.\n- Sjangeren heter **G — analyse**, altså «gå gjennom dataene og finn det oppgaven spør om».\n- Tre former dekker nesten alt: **finn den beste** raden, **tell** forekomster per nøkkel, og **gruppér** radene i en ordbok av lister. Rangering og sortering er den fjerde, og den har sitt eget kapittel i [kap. 7.5](/tdt4110/tdt4110-7-5).\n- I dette faget er **snarveier tillatt og brukt i fasitene**: `max`, `min`, `sum`, `sorted`, `.count`. Boka viser den eksplisitte løkka først, så snarveien — og sidestiller dem. Begge gir full pott.\n\n**Prioritet: må sitte** — det høyeste av bokas tre nivåer.\n\nKapitlet tar ~75 minutter og er delt i seks løkker med tidsanslag. Naturlig pausepunkt etter løkke 3."
+    },
+    {
+      "id": "tdt4110-7-4-txt-1",
+      "type": "text",
+      "content": "**Forkunnskaper — sist du var her**\n\nAnalysen bygger på tre grep du allerede har. Her er de, ferdig oppfrisket.\n\n**1. Gå gjennom radene i en tabell** ([kap. 3.2](/tdt4110/tdt4110-3-2)) — og hopp over overskriftsraden:\n\n```python\ntabell = [['navn', 'pris'], ['girservice', 690], ['dekkskift', 250]]\nfor rad in tabell[1:]:\n    print(rad[0], rad[1])\n```\n\n**Utskrift:**\n```\ngirservice 690\ndekkskift 250\n```\n\n**2. Kolonnen funnet ved navn** ([kap. 3.2](/tdt4110/tdt4110-3-2)):\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris']]\nprint(tabell[0].index('pris'))\n```\n\n**Utskrift:**\n```\n3\n```\n\n**3. Telleren med `get`-default** ([kap. 3.5](/tdt4110/tdt4110-3-5)):\n\n```python\nd = {}\nfor navn in ['Rune', 'Selma', 'Rune']:\n    d[navn] = d.get(navn, 0) + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': 2, 'Selma': 1}\n```\n\nI tillegg forutsetter kapitlet [kap. 7.2](/tdt4110/tdt4110-7-2) og [kap. 7.3](/tdt4110/tdt4110-7-3), som leverte den ferdige tabellen analysen jobber på."
+    },
+    {
+      "id": "tdt4110-7-4-txt-2",
+      "type": "text",
+      "content": "## Løkke 1 — finn den beste raden (~14 min)\n\n«Hvem er raskest?», «hvilket produkt er dyrest?», «hvilket parti leder?» — alle tre er den samme løkka, og den er verdt å kunne skrive uten å tenke."
+    },
+    {
+      "id": "tdt4110-7-4-thm-1",
+      "type": "theorem",
+      "title": "Kodemønster: finn beste",
+      "content": "Fem linjer, og de er de samme uansett domene:\n\n```text\nbeste = None\nbeste_verdi = None\nfor rad in tabell[1:]:\n    v = rad[k]\n    if beste_verdi is None or v > beste_verdi:\n        beste = rad\n        beste_verdi = v\nreturn beste\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 1.\n\nFire ting å legge merke til:\n\n1. **To variabler**, ikke én: raden du skal returnere, og verdien du sammenligner med. Uten den andre må du hente `beste[k]` i hver runde.\n2. **`None` som startverdi** på begge. Da vinner den første raden alltid, uansett hvilke tall dataene inneholder.\n3. **`beste_verdi is None or …`** — venstre side sjekkes først, så `v > None` blir aldri forsøkt. Python stopper å regne på et `or`-uttrykk så snart en side er sann.\n4. **`tabell[1:]`** når tabellen har overskriftsrad. Glemmer du det, sammenligner du et tall med teksten `'pris'`.\n\nSkal du finne den **minste**, snur du `>` til `<`. Ingenting annet endres."
+    },
+    {
+      "id": "tdt4110-7-4-def-1",
+      "type": "definition",
+      "title": "`beste_verdi is None` som startbetingelse",
+      "content": "Testen som lar den første raden alltid vinne, uten at du må behandle den som et spesialtilfelle.\n\nAlternativene har hver sin svakhet:\n\n- `beste_verdi = 0` — ingen rad vinner hvis alle verdiene er negative, og funksjonen returnerer `None` uten å si fra.\n- `beste_verdi = tabell[1][k]` — krasjer med `IndexError` på en tabell som bare har overskriftsraden.\n- `beste_verdi = -1000000` — virker som regel, men er en gjetning om dataene, og den kan slå feil.\n\n`None` virker i alle tre tilfellene og koster ingenting. Bruk `is None` og ikke `== None` — begge fungerer, men `is` er formen Python-miljøet bruker, og den er raskere å lese."
+    },
+    {
+      "id": "tdt4110-7-4-def-2",
+      "type": "definition",
+      "title": "Returnér raden eller bare feltet",
+      "content": "Les oppgaveteksten to ganger her. «Returnerer den dyreste raden» og «returnerer navnet på den dyreste» er to forskjellige bestillinger, og forskjellen er ett tegn i koden:\n\n- `return beste` gir hele raden: `['Selma', 'ramme', 120, 1450]`\n- `return beste[0]` gir navnet: `'Selma'`\n\nSier oppgaven ingenting, er hele raden det tryggeste — den som kaller, kan alltid plukke ut feltet selv, men kan ikke få tilbake det som er kastet.\n\nSkal du gi **både** raden og verdien, returnerer du to verdier: `return beste, beste_verdi`, og den som kaller pakker ut med `rad, verdi = finn_beste(tabell)`."
+    },
+    {
+      "id": "tdt4110-7-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: det dyreste oppdraget på sykkelverkstedet",
+      "problem": "*«Filen `oppdrag.txt` har overskriftsraden `mekaniker;type;minutter;pris`. Skriv `dyreste_oppdrag(tabell)` som returnerer hele raden for det dyreste oppdraget. Kolonnen skal finnes ved navn.»*",
+      "solution": "Slik ser fila ut:\n\n**Innholdet i `oppdrag.txt`:**\n```\nmekaniker;type;minutter;pris\nRune;girservice;45;690\nSelma;dekkskift;20;250\nRune;bremsejustering;30;390\nSelma;girservice;50;690\nTuva;dekkskift;25;250\nSelma;ramme;120;1450\n```\n\nInnlesingen er den fra [kap. 7.2](/tdt4110/tdt4110-7-2), og analysen tar tabellen som parameter:\n\n```python\ndef dyreste_oppdrag(tabell):\n    k = tabell[0].index('pris')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(dyreste_oppdrag(tabell))\n```\n\n**Utskrift:**\n```\n['Selma', 'ramme', 120, 1450]\n```\n\n**Slik ville sensor sett på det.** Deloppgaven er typisk 10 %, og fem ting gir uttelling hver for seg:\n\n| Grep | Hvorfor det teller |\n|---|---|\n| `tabell[0].index('pris')` | kolonnen ved navn — fullscore-kravet fra [kap. 7.6](/tdt4110/tdt4110-7-6) |\n| `tabell[1:]` | overskriftsraden holdt utenfor sammenligningen |\n| `beste_verdi is None` | virker også på negative verdier og på tom tabell |\n| `beste = rad` **og** `beste_verdi = rad[k]` | begge oppdateres i samme `if` |\n| `return beste` | funksjonen returnerer, den skriver ikke ut |\n\n**Flere korrekte løsninger:** `max(tabell[1:], key=lambda rad: rad[k])` gir det samme på én linje, og den kommer i løkke 2. Begge gir full pott.\n\n**Kantfeilen:** to oppdrag til 1450 kroner ville gitt den **første** av dem, fordi `>` er streng. Vil du ha den siste, bruker du `>=`. Ingen av delene er galt — men skriv én setning om valget hvis oppgaven ikke sier noe."
+    },
+    {
+      "id": "tdt4110-7-4-opg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut?\n\n```python\ntall = [-8, -3, -19]\nbeste = 0\nfor t in tall:\n    if t > beste:\n        beste = t\nprint(beste)\n```",
+        "solution": "**Sporingstavle.**\n\n| Iterasjon | `t` | `t > beste`? | `beste` etterpå |\n|---|---|---|---|\n| start | — | — | 0 |\n| 1 | -8 | -8 > 0 er usant | 0 |\n| 2 | -3 | -3 > 0 er usant | 0 |\n| 3 | -19 | -19 > 0 er usant | 0 |\n\n**Utskrift:**\n```\n0\n```\n\nSvaret er **0** — et tall som ikke finnes i lista i det hele tatt.\n\n**Fellenoten:** dette er den vanligste enkeltfeilen i sjanger G: `beste = 0` som startverdi. Med `beste = None` og testen `if beste is None or t > beste:` ville svaret blitt -3, som er det riktige. På eksamen dukker feilen opp der verdiene kan være negative — temperaturer, kontobevegelser, målforskjeller.",
+        "hints": [
+          "Hvilke av tallene i lista er større enn 0?",
+          "Hva er `beste` når løkka er ferdig, og finnes den verdien i lista?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-opg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — analyse.) *«Skriv `korteste_oppdrag(tabell)` som returnerer navnet på mekanikeren som har utført oppdraget med færrest minutter. Både mekanikerkolonnen og minuttkolonnen skal finnes ved navn.»*\n\nTabellen har overskriftsrad.",
+        "solution": "Samme mønster som eksempel 1, med to endringer: `<` i stedet for `>`, og `beste[k_navn]` i stedet for hele raden.\n\n```python\ndef korteste_oppdrag(tabell):\n    k_min = tabell[0].index('minutter')\n    k_navn = tabell[0].index('mekaniker')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k_min] < beste_verdi:\n            beste = rad[k_navn]\n            beste_verdi = rad[k_min]\n    return beste\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(korteste_oppdrag(tabell))\n```\n\n**Utskrift:**\n```\nSelma\n```\n\nSelma hadde dekkskiftet på 20 minutter, som er det korteste.\n\n**To feller i denne varianten:**\n\n- Å beholde `>` fra mønsteret du husker. Les alltid om oppgaven spør etter mest eller minst.\n- Å skrive `beste = rad` og deretter `return beste[0]` **utenfor** løkka. Det virker, men krasjer med `TypeError` hvis tabellen er tom, siden `None[0]` ikke går. Å plukke ut feltet inne i løkka er tryggere.\n\n**Snarveien:** `min(tabell[1:], key=lambda rad: rad[k_min])[k_navn]`. Den gir full pott på lik linje, og den kommer i neste løkke.",
+        "hints": [
+          "Hva er den eneste forskjellen mellom «finn størst» og «finn minst»?",
+          "Oppgaven ber om navnet, ikke om hele raden — hvor plukker du ut feltet?",
+          "Begge kolonnene skal finnes med `.index(...)` på rad 0."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-txt-3",
+      "type": "text",
+      "content": "## Løkke 2 — snarveien (~12 min)\n\nI dette faget er de innebygde funksjonene ikke juks. De offisielle løsningsforslagene bruker dem fritt, og en løsning med `max` gir nøyaktig samme uttelling som en med løkke.\n\nPoenget med å lære begge er praktisk: løkka er lettere å skrive riktig for hånd når du er sliten, og snarveien er lettere å skrive riktig når du er trygg."
+    },
+    {
+      "id": "tdt4110-7-4-def-3",
+      "type": "definition",
+      "title": "`max(liste)` og `min(liste)`",
+      "content": "Gir det største og minste elementet i lista. På ei liste av tall er det rett fram.\n\n```python\npriser = [690, 250, 390, 1450]\nprint(max(priser), min(priser))\n```\n\n**Utskrift:**\n```\n1450 250\n```\n\nPå en **2D-liste** sammenligner de radene som lister: første element først, deretter det andre, og så videre. `max(tabell)` gir altså raden med det alfabetisk siste navnet, ikke den dyreste. Det er nesten aldri det du vil ha — og derfor finnes `key`.\n\nBegge krasjer med `ValueError` på ei tom liste."
+    },
+    {
+      "id": "tdt4110-7-4-def-4",
+      "type": "definition",
+      "title": "`key`-parameteren i `max` og `min`",
+      "content": "`max(liste, key=f)` sammenligner ikke elementene selv, men det `f` gir for hvert element. Elementet som vinner, returneres **helt** — bare rangeringen bestemmes av nøkkelen.\n\n```python\ntabell = [['Rune', 45, 690], ['Selma', 20, 250], ['Selma', 120, 1450]]\nprint(max(tabell, key=lambda rad: rad[2]))\n```\n\n**Utskrift:**\n```\n['Selma', 120, 1450]\n```\n\n`lambda rad: rad[2]` er en navnløs funksjon: «gitt en rad, gi meg element nummer 2». Du kan skrive det samme med `def` og sende funksjonsnavnet inn — begge er riktige, lambdaen er bare kortere.\n\nMerk at kolonnenummeret må være et **tall** når lambdaen skrives, så finn det med `.index(...)` først og bruk variabelen."
+    },
+    {
+      "id": "tdt4110-7-4-def-5",
+      "type": "definition",
+      "title": "`sum(liste)` og `len(liste)`",
+      "content": "`sum` legger sammen alle tallene i lista, `len` teller elementene. Sammen gir de gjennomsnittet.\n\n```python\npriser = [690, 250, 390, 1450]\nprint(sum(priser))\nprint(sum(priser) / len(priser))\n```\n\n**Utskrift:**\n```\n2780\n695.0\n```\n\n`sum` virker bare på tall — er kolonnen fortsatt tekst, får du en `TypeError`. Det er feilkode **#1**, glemt konvertering, som viser seg her i stedet for i innlesingen.\n\nFor å bruke dem på en tabellkolonne må du trekke kolonnen ut først: `[rad[k] for rad in tabell[1:]]`."
+    },
+    {
+      "id": "tdt4110-7-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: den samme analysen, to former",
+      "problem": "Løs tre spørsmål om `oppdrag.txt` både med eksplisitt løkke og med snarvei: dyreste oppdrag, samlet omsetning og gjennomsnittlig varighet.",
+      "solution": "**Dyreste oppdrag.** Løkka til venstre i eksempel 1; her er snarveien:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk = tabell[0].index('pris')\nprint(max(tabell[1:], key=lambda rad: rad[k]))\n```\n\n**Utskrift:**\n```\n['Selma', 'ramme', 120, 1450]\n```\n\n**Samlet omsetning — begge former:**\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk = tabell[0].index('pris')\n\ntotal = 0\nfor rad in tabell[1:]:\n    total = total + rad[k]\nprint(total)\n\nprint(sum([rad[k] for rad in tabell[1:]]))\n```\n\n**Utskrift:**\n```\n3720\n3720\n```\n\n**Gjennomsnittlig varighet — begge former:**\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk = tabell[0].index('minutter')\n\ntotal = 0\nantall = 0\nfor rad in tabell[1:]:\n    total = total + rad[k]\n    antall = antall + 1\nprint(total / antall)\n\nminutter = [rad[k] for rad in tabell[1:]]\nprint(sum(minutter) / len(minutter))\n```\n\n**Utskrift:**\n```\n48.333333333333336\n48.333333333333336\n```\n\n**Slik ville sensor sett på det:** de tre parene er sidestilt. **Begge gir full pott**, og det står uttrykkelig i de offisielle løsningsforslagene at flere korrekte løsninger godtas.\n\nDet praktiske rådet er likevel dette: skriv snarveien når du er trygg på den, og løkka når du er i tvil. En `lambda` med en indeksfeil i er vanskelig å finne på papir; en løkke på fire linjer kan du spore med fingeren.\n\n**Kantfeilen som gjelder begge:** en tom tabell gir `ValueError` fra `max` og `ZeroDivisionError` fra snittet. Løkkevarianten gir `None` og en divisjon på null — altså samme problem, bare med et annet navn. Tomtilfellet må håndteres uansett hvilken form du velger, og det gjøres i løkke 6."
+    },
+    {
+      "id": "tdt4110-7-4-opg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — analyse med snarvei.) Bruk tabellen fra `oppdrag.txt`.\n\n**a)** Skriv én linje som gir raden for det **korteste** oppdraget, med `min` og en `key`.\n\n**b)** Skriv én linje som gir den samlede tiden i minutter.\n\n**c)** Forklar med én setning hvorfor `min(tabell[1:])` uten `key` gir feil svar.",
+        "solution": "**a)** og **b)**:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk_min = tabell[0].index('minutter')\nprint(min(tabell[1:], key=lambda rad: rad[k_min]))\nprint(sum([rad[k_min] for rad in tabell[1:]]))\n```\n\n**Utskrift:**\n```\n['Selma', 'dekkskift', 20, 250]\n290\n```\n\n**c)** Uten `key` sammenligner `min` radene som lister, altså **første element først** — og da vinner raden med det alfabetisk minste mekanikernavnet, ikke den med færrest minutter.\n\nSe selv:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(min(tabell[1:]))\n```\n\n**Utskrift:**\n```\n['Rune', 'bremsejustering', 30, 390]\n```\n\nRune kommer før Selma og Tuva i alfabetet, og av Runes to rader kommer `'bremsejustering'` før `'girservice'`. Minuttallet ble aldri sammenlignet i det hele tatt.\n\n**Dette er en av de mest lærerike fellene i faget:** koden gir et helt plausibelt svar, det er bare svar på et annet spørsmål.",
+        "hints": [
+          "`key=lambda rad: rad[k]` sier hvilken kolonne som skal bestemme rangeringen.",
+          "I b): trekk ut kolonnen til ei liste først, og send den til `sum`.",
+          "I c): hva sammenlignes når to lister sammenlignes med `<`?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-opg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv begge linjene.\n\n```python\nrader = [['Nordre', 4], ['Sentrum', 11], ['Ostre', 2]]\nprint(max(rader))\nprint(max(rader, key=lambda rad: rad[1]))\n```",
+        "solution": "**Sporingstavle.**\n\n| Uttrykk | Hva som sammenlignes | Vinner |\n|---|---|---|\n| `max(rader)` | radene som lister: `'Nordre'` mot `'Sentrum'` mot `'Ostre'` | `'Sentrum'` er alfabetisk sist |\n| `max(rader, key=...)` | tallene 4, 11 og 2 | 11, altså Sentrum-raden |\n\n**Utskrift:**\n```\n['Sentrum', 11]\n['Sentrum', 11]\n```\n\nHer gir **begge** linjene den samme raden — men av to helt forskjellige grunner. Den første fordi `'Sentrum'` er alfabetisk sist, den andre fordi 11 er det største tallet.\n\n**Fellenoten:** at de to formene tilfeldigvis er enige på akkurat disse dataene, er nettopp det som gjør feilen farlig. Bytt `'Sentrum'` med `'Austre'`, og den første linja gir et annet svar. Bruk alltid `key` når det er en bestemt kolonne som skal avgjøre.\n\n**Delvis riktig sporing gir delvis uttelling:** har du sett at den første sammenligner tekst og den andre tall, har du vist det oppgaven tester — også om du skulle bomme på hvilket navn som er alfabetisk sist.",
+        "hints": [
+          "Hva sammenlignes først når Python sammenligner to lister?",
+          "Hvilken kolonne peker lambdaen på?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-txt-4",
+      "type": "text",
+      "content": "## Løkke 3 — tell og summér per nøkkel (~14 min)\n\n«Hvor mange oppdrag har hver mekaniker?» og «hvor mye har hver mekaniker omsatt for?» er det samme mønsteret med ett tegn til forskjell.\n\n— naturlig pausepunkt etter denne løkka —"
+    },
+    {
+      "id": "tdt4110-7-4-thm-2",
+      "type": "theorem",
+      "title": "Kodemønster: teller og summering med ordbok",
+      "content": "Fire linjer, og forskjellen mellom å telle og å summere er hva du legger til:\n\n```text\nd = {}\nfor rad in tabell[1:]:\n    d[rad[k]] = d.get(rad[k], 0) + 1\nreturn d\n```\n\nBlokken over er telleren. Bytt `+ 1` med `+ rad[j]`, og du har summeringen i stedet.\n\nHvorfor `d.get(rad[k], 0)` og ikke `d[rad[k]]`: oppslag på en nøkkel som ikke finnes gir `KeyError`. `get` gir 0 i stedet, og det er nøyaktig riktig startverdi for både en teller og en sum.\n\nMerk at `get` **ikke** setter nøkkelen inn i ordboka — det gjør tilordningen på venstre side. Det er derfor mønsteret må skrives som en tilordning, ikke som et uttrykk."
+    },
+    {
+      "id": "tdt4110-7-4-def-6",
+      "type": "definition",
+      "title": "Telleren `d[k] = d.get(k, 0) + 1`",
+      "content": "Bygger `{nøkkel: antall}` i én gjennomgang av dataene.\n\n```python\nd = {}\nfor navn in ['Rune', 'Selma', 'Rune', 'Selma', 'Tuva', 'Selma']:\n    d[navn] = d.get(navn, 0) + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': 2, 'Selma': 3, 'Tuva': 1}\n```\n\nLegg merke til rekkefølgen i utskriften: nøklene kommer i den rekkefølgen de ble satt inn første gang. Skal svaret være sortert, bruker du `sorted(d)` når du går gjennom den.\n\nFeilen å unngå er `d[navn] += 1` uten `get`: den krasjer med `KeyError` første gang navnet dukker opp, fordi det ikke finnes noen gammel verdi å legge 1 til."
+    },
+    {
+      "id": "tdt4110-7-4-def-7",
+      "type": "definition",
+      "title": "Summeringen `d[k] = d.get(k, 0) + verdi`",
+      "content": "Samme mønster, men verdien fra raden legges til i stedet for 1. Bygger `{nøkkel: sum}`.\n\n```python\nrader = [['Rune', 690], ['Selma', 250], ['Rune', 390]]\nd = {}\nfor rad in rader:\n    d[rad[0]] = d.get(rad[0], 0) + rad[1]\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': 1080, 'Selma': 250}\n```\n\nTest på oppgaveteksten: **«hvor mange»** peker på telleren, **«hvor mye til sammen»** peker på summeringen. Det er verdt å lese setningen to ganger — de to gir helt forskjellige tall, og begge ser riktige ut.\n\nSkal du ha snittet per nøkkel, trenger du **begge** ordbøkene: summen delt på antallet."
+    },
+    {
+      "id": "tdt4110-7-4-def-8",
+      "type": "definition",
+      "title": "Betinget telling",
+      "content": "Skal bare noen av radene telles, står testen inne i løkka, før tellingen:\n\n```text\nfor rad in tabell[1:]:\n    if rad[k_type] == 'girservice':\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + 1\n```\n\nBlokken over er et utdrag fra analysefunksjonen.\n\nFormuleringen i oppgaveteksten er som regel «… som har utført minst ett girservice-oppdrag» eller «… bare oppdrag som tok over en time».\n\nVær nøye med hva som skal med i ordboka når betingelsen aldri slår til: med denne formen kommer mekanikeren rett og slett ikke med i det hele tatt. Vil du ha alle med, også med 0, må du legge dem inn først med en egen løkke."
+    },
+    {
+      "id": "tdt4110-7-4-def-9",
+      "type": "definition",
+      "title": "`.count(v)` og `v in liste`",
+      "content": "To snarveier når du bare skal telle **én** bestemt verdi, ikke bygge en hel ordbok.\n\n```python\ntyper = ['girservice', 'dekkskift', 'girservice', 'ramme']\nprint(typer.count('girservice'))\nprint('ramme' in typer)\nprint(typer.count('bremser'))\n```\n\n**Utskrift:**\n```\n2\nTrue\n0\n```\n\n`.count(v)` gir 0 for noe som ikke finnes — den krasjer aldri. `in` gir `True` eller `False`.\n\nBegge virker på ei **flat** liste, ikke på en 2D-tabell. Skal du telle i en kolonne, trekker du kolonnen ut først: `[rad[k] for rad in tabell[1:]].count('girservice')`."
+    },
+    {
+      "id": "tdt4110-7-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: tell og summér på verkstedet",
+      "problem": "*«Skriv `oppdrag_per_mekaniker(tabell)` som returnerer `{mekaniker: antall}`, og `omsetning_per_mekaniker(tabell)` som returnerer `{mekaniker: sum pris}`. Skriv i tillegg `antall_av_type(tabell, type)` som teller hvor mange oppdrag som er av en bestemt type.»*",
+      "solution": "**Telleren:**\n\n```python\ndef oppdrag_per_mekaniker(tabell):\n    k = tabell[0].index('mekaniker')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(oppdrag_per_mekaniker(tabell))\n```\n\n**Utskrift:**\n```\n{'Rune': 2, 'Selma': 3, 'Tuva': 1}\n```\n\n**Summeringen — ett tegn til forskjell:**\n\n```python\ndef omsetning_per_mekaniker(tabell):\n    k_navn = tabell[0].index('mekaniker')\n    k_pris = tabell[0].index('pris')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_pris]\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(omsetning_per_mekaniker(tabell))\n```\n\n**Utskrift:**\n```\n{'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\n```\n\nSelma har tre oppdrag og 2390 kroner; Rune har to oppdrag og 1080.\n\n**Tellingen av én type, begge former:**\n\n```python\ndef antall_av_type(tabell, type_navn):\n    k = tabell[0].index('type')\n    antall = 0\n    for rad in tabell[1:]:\n        if rad[k] == type_navn:\n            antall = antall + 1\n    return antall\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(antall_av_type(tabell, 'girservice'))\n\nk = tabell[0].index('type')\nprint([rad[k] for rad in tabell[1:]].count('girservice'))\n```\n\n**Utskrift:**\n```\n2\n2\n```\n\n**Slik ville sensor sett på det:** at `antall_av_type` tar typen som **parameter** er verdt poeng i seg selv — da kan den kalles for alle typene i en senere deloppgave, i stedet for at du skriver én funksjon per type.\n\nDe to formene er sidestilt. **Begge gir full pott.**\n\n**Kantfeilen:** `antall_av_type(tabell, 'Girservice')` med stor forbokstav gir 0. Skal søket være ufølsomt for store og små bokstaver, sammenligner du `rad[k].lower() == type_navn.lower()`. Sier ikke oppgaven noe, skriv én setning om at du antar eksakt treff."
+    },
+    {
+      "id": "tdt4110-7-4-warn-1",
+      "type": "warning",
+      "title": "Typiske feil i analysen",
+      "content": "Fem feller, og de fire første er stumme:\n\n- **Startverdi 0 i «finn beste».** Ingen rad vinner når alle verdiene er negative. Bruk `None`.\n- **#4 — hardkodet kolonneindeks.** `rad[3]` svarer feil hvis kolonnene kommer i en annen rekkefølge. Bruk `tabell[0].index(navn)`.\n- **Glemt `tabell[1:]`.** Overskriftsraden blir med i analysen, og `'pris'` sammenlignes med et tall — som gir `TypeError` hvis du er heldig, og et feil antall hvis du bare teller.\n- **`max` uten `key` på en 2D-liste.** Radene sammenlignes som lister, og den alfabetisk siste vinner.\n- **`d[k] += 1` uten `get`.** Denne krasjer med `KeyError` første gang nøkkelen dukker opp, og er derfor den snilleste av de fem."
+    },
+    {
+      "id": "tdt4110-7-4-opg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — telling.) *«Filen `avviksmeldinger.txt` har overskriftsraden `bydel;type;dager`. Skriv `meldinger_per_bydel(tabell)` som returnerer `{bydel: antall}`, og `dager_per_bydel(tabell)` som returnerer `{bydel: sum dager}`.»*\n\nBegge kolonnene skal finnes ved navn.",
+        "solution": "```python\ndef meldinger_per_bydel(tabell):\n    k = tabell[0].index('bydel')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ndef dager_per_bydel(tabell):\n    k_bydel = tabell[0].index('bydel')\n    k_dager = tabell[0].index('dager')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_bydel]] = d.get(rad[k_bydel], 0) + rad[k_dager]\n    return d\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'hull i vei', 11], ['Nordre', 'hull i vei', 6],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3],\n          ['Nordre', 'veilys', 9]]\nprint(meldinger_per_bydel(tabell))\nprint(dager_per_bydel(tabell))\n```\n\n**Utskrift:**\n```\n{'Nordre': 3, 'Sentrum': 2, 'Ostre': 1}\n{'Nordre': 19, 'Sentrum': 14, 'Ostre': 2}\n```\n\nNordre har tre meldinger og 19 dager til sammen; Sentrum har to og 14; Østre har én og 2.\n\n**Neste steg, som en deloppgave gjerne ber om:** gjennomsnittlig behandlingstid per bydel er den ene ordboka delt på den andre:\n\n```python\nantall = {'Nordre': 3, 'Sentrum': 2, 'Ostre': 1}\ndager = {'Nordre': 19, 'Sentrum': 14, 'Ostre': 2}\nsnitt = {}\nfor bydel in antall:\n    snitt[bydel] = dager[bydel] / antall[bydel]\nprint(snitt)\n```\n\n**Utskrift:**\n```\n{'Nordre': 6.333333333333333, 'Sentrum': 7.0, 'Ostre': 2.0}\n```\n\nDet er derfor de to ordbøkene er verdt å bygge hver for seg: sammen svarer de på et tredje spørsmål ingen av dem svarer på alene.",
+        "hints": [
+          "Begge funksjonene er det samme mønsteret; forskjellen er hva du legger til.",
+          "Kolonnene finner du med `.index(...)` på rad 0, og oppslaget skal stå utenfor løkka."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-opg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — betinget telling.) *«Skriv `lange_oppdrag_per_mekaniker(tabell, grense)` som returnerer `{mekaniker: antall}`, men teller bare oppdrag som tok flere minutter enn `grense`.»*\n\nTest med grensen 30.",
+        "solution": "Testen står inne i løkka, før tellingen:\n\n```python\ndef lange_oppdrag_per_mekaniker(tabell, grense):\n    k_navn = tabell[0].index('mekaniker')\n    k_min = tabell[0].index('minutter')\n    d = {}\n    for rad in tabell[1:]:\n        if rad[k_min] > grense:\n            d[rad[k_navn]] = d.get(rad[k_navn], 0) + 1\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(lange_oppdrag_per_mekaniker(tabell, 30))\n```\n\n**Utskrift:**\n```\n{'Rune': 1, 'Selma': 2}\n```\n\nRune har girservicen på 45 minutter; Selma har girservicen på 50 og rammejobben på 120. Tuva er **ikke med i det hele tatt**, fordi ingen av oppdragene hennes passerte grensen — og bremsejusteringen på nøyaktig 30 minutter er heller ikke med, siden `>` er streng.\n\n**De to valgene du må ta stilling til, og skrive én setning om:**\n\n- **Streng eller ikke:** `>` utelater 30 minutter, `>=` tar den med. Oppgaveteksten sier «flere minutter enn», altså `>`.\n- **Skal alle mekanikerne med, også med 0?** Med denne formen kommer bare de som har minst ett langt oppdrag. Skal alle med, legger du dem inn først:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk_navn = tabell[0].index('mekaniker')\nk_min = tabell[0].index('minutter')\nd = {}\nfor rad in tabell[1:]:\n    d[rad[k_navn]] = 0\nfor rad in tabell[1:]:\n    if rad[k_min] > 30:\n        d[rad[k_navn]] = d[rad[k_navn]] + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': 1, 'Selma': 2, 'Tuva': 0}\n```\n\nNå er Tuva med, med 0. Begge tolkningene er forsvarlige — det er valget som skal dokumenteres, ikke koden.",
+        "hints": [
+          "Testen på minuttallet står inne i løkka, rett før tellelinja.",
+          "Hva skjer med en mekaniker som ikke har noen lange oppdrag?",
+          "«Flere minutter enn» — er grensen selv med eller ikke?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-txt-5",
+      "type": "text",
+      "content": "## Løkke 4 — gruppér (~14 min)\n\nDen tredje analyseformen: i stedet for ett tall per nøkkel skal du ta vare på **alle** radene som hører til nøkkelen. Da er verdien i ordboka ei liste."
+    },
+    {
+      "id": "tdt4110-7-4-thm-3",
+      "type": "theorem",
+      "title": "Kodemønster: gruppering `{nøkkel: [elementer]}`",
+      "content": "Fem linjer, og den tredje er den som glipper oftest:\n\n```text\nd = {}\nfor rad in tabell[1:]:\n    if rad[k] not in d:\n        d[rad[k]] = []\n    d[rad[k]].append(rad)\nreturn d\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 4.\n\n**Den indre lista må finnes før du legger noe i den.** `d[rad[k]].append(...)` slår først opp `d[rad[k]]`, og et oppslag på en ukjent nøkkel gir `KeyError`. Testen `if … not in d` er derfor ikke pynt, den er nødvendig.\n\nHva du legger inn, styres av oppgaveteksten: hele raden (`rad`), ett felt (`rad[j]`), eller en kombinasjon. «Alle rettene som bruker ingrediensen» betyr rettens navn, ikke hele oppskriften."
+    },
+    {
+      "id": "tdt4110-7-4-def-10",
+      "type": "definition",
+      "title": "`d.setdefault(k, [])`",
+      "content": "Gjør de to første linjene i grupperingen på én: slår opp nøkkelen, og setter inn standardverdien først hvis den mangler. Returnerer verdien i begge tilfeller.\n\n```python\nd = {}\nd.setdefault('Rune', []).append('girservice')\nd.setdefault('Rune', []).append('bremser')\nd.setdefault('Selma', []).append('dekkskift')\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Rune': ['girservice', 'bremser'], 'Selma': ['dekkskift']}\n```\n\nFormen er sidestilt med den eksplisitte `if … not in d`-varianten, og **begge gir full pott**.\n\nMerk forskjellen fra `get`: `setdefault` **setter nøkkelen inn** i ordboka, `get` gjør det ikke. Det er nettopp derfor `setdefault` virker for gruppering og `get` for telling."
+    },
+    {
+      "id": "tdt4110-7-4-def-11",
+      "type": "definition",
+      "title": "Hva legger du i gruppen",
+      "content": "Tre varianter, og oppgaveteksten avgjør hvilken:\n\n- `d[nøkkel].append(rad)` — hele raden. Nyttig når en senere deloppgave skal regne på gruppen.\n- `d[nøkkel].append(rad[j])` — ett felt. «Alle typene hver mekaniker har jobbet med.»\n- `d[nøkkel].append(rad[j])` **med duplikatsjekk** — når oppgaven sier «uten gjentakelser».\n\nDen siste er et eksplisitt fullscore-krav i flere sett, og den drilles i [kap. 7.6](/tdt4110/tdt4110-7-6). Formen er `if rad[j] not in d[nøkkel]:` før `append`.\n\nLes returtypen i oppgaveteksten nøye: `{mekaniker: ['girservice', 'ramme']}` og `{mekaniker: [['Selma', 'ramme', 120, 1450]]}` ser like ut i beskrivelsen, men er helt forskjellige strukturer."
+    },
+    {
+      "id": "tdt4110-7-4-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: hvilke oppdragstyper har hver mekaniker",
+      "problem": "*«Skriv `typer_per_mekaniker(tabell)` som returnerer `{mekaniker: [type, type, …]}` med alle oppdragstypene mekanikeren har utført. Skriv deretter `rader_per_type(tabell)` som grupperer hele radene på oppdragstype.»*",
+      "solution": "**Gruppering av ett felt:**\n\n```python\ndef typer_per_mekaniker(tabell):\n    k_navn = tabell[0].index('mekaniker')\n    k_type = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        if rad[k_navn] not in d:\n            d[rad[k_navn]] = []\n        d[rad[k_navn]].append(rad[k_type])\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(typer_per_mekaniker(tabell))\n```\n\n**Utskrift:**\n```\n{'Rune': ['girservice', 'bremsejustering'], 'Selma': ['dekkskift', 'girservice', 'ramme'], 'Tuva': ['dekkskift']}\n```\n\n**Gruppering av hele rader, med `setdefault`:**\n\n```python\ndef rader_per_type(tabell):\n    k = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        d.setdefault(rad[k], []).append(rad)\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nd = rader_per_type(tabell)\nprint(d['girservice'])\nprint(len(d['dekkskift']))\n```\n\n**Utskrift:**\n```\n[['Rune', 'girservice', 45, 690], ['Selma', 'girservice', 50, 690]]\n2\n```\n\n**Hvorfor gruppering er verdt å kunne:** når radene først er samlet per nøkkel, er de neste spørsmålene ett kall hver.\n\n```python\ngrupper = {'girservice': [['Rune', 'girservice', 45, 690], ['Selma', 'girservice', 50, 690]],\n           'dekkskift': [['Selma', 'dekkskift', 20, 250], ['Tuva', 'dekkskift', 25, 250]]}\nfor type_navn in sorted(grupper):\n    minutter = [rad[2] for rad in grupper[type_navn]]\n    print(type_navn.ljust(14), len(minutter), sum(minutter) / len(minutter))\n```\n\n**Utskrift:**\n```\ndekkskift      2 22.5\ngirservice     2 47.5\n```\n\n**Slik ville sensor sett på det:** den ene linja `if rad[k] not in d: d[rad[k]] = []` er verdt poengene sine alene, fordi koden krasjer uten den. Sensor ser etter at du vet at den indre lista må opprettes.\n\n`setdefault` gir samme uttelling. Velg den du husker riktig — den eksplisitte formen er lettere å feilsøke, den korte er raskere å skrive.\n\n**Kantfeilen:** `d[rad[k]] = rad` i stedet for `.append(rad)` gir ingen feilmelding, men bare den **siste** raden per nøkkel. Det er den samme fellen som i [kap. 7.2](/tdt4110/tdt4110-7-2) — en ordbok har én verdi per nøkkel."
+    },
+    {
+      "id": "tdt4110-7-4-opg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — gruppering.) *«Bruk tabellen fra `avviksmeldinger.txt`. Skriv `bydeler_per_type(tabell)` som returnerer `{type: [bydel, bydel, …]}` — hvilke bydeler som har meldt inn hver type avvik.»*",
+        "solution": "```python\ndef bydeler_per_type(tabell):\n    k_type = tabell[0].index('type')\n    k_bydel = tabell[0].index('bydel')\n    d = {}\n    for rad in tabell[1:]:\n        if rad[k_type] not in d:\n            d[rad[k_type]] = []\n        d[rad[k_type]].append(rad[k_bydel])\n    return d\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'hull i vei', 11], ['Nordre', 'hull i vei', 6],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3],\n          ['Nordre', 'veilys', 9]]\nprint(bydeler_per_type(tabell))\n```\n\n**Utskrift:**\n```\n{'veilys': ['Nordre', 'Sentrum', 'Nordre'], 'hull i vei': ['Sentrum', 'Nordre'], 'soppelspann': ['Ostre']}\n```\n\n**Legg merke til `'Nordre'` to ganger under `'veilys'`.** Bydelen har meldt inn to veilysavvik, og begge er med. Om det er riktig, avhenger av spørsmålet: «hvilke bydeler har meldt inn veilysavvik» ber om hver bydel **én** gang, mens «alle veilysmeldingene» ber om alle.\n\nSkal duplikatene bort, er formen denne:\n\n```python\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'veilys', 3], ['Nordre', 'veilys', 9]]\nd = {}\nfor rad in tabell[1:]:\n    if rad[1] not in d:\n        d[rad[1]] = []\n    if rad[0] not in d[rad[1]]:\n        d[rad[1]].append(rad[0])\nprint(d)\n```\n\n**Utskrift:**\n```\n{'veilys': ['Nordre', 'Sentrum']}\n```\n\nTo tester i stedet for én: den første oppretter lista, den andre hindrer duplikatet. Det er et eksplisitt fullscore-krav i flere eksamenssett, og det drilles videre i [kap. 7.6](/tdt4110/tdt4110-7-6).",
+        "hints": [
+          "Nøkkelen er typen, verdien er ei liste med bydeler.",
+          "Hva må skje med den indre lista før `.append` kan kalles på den?",
+          "Kan den samme bydelen dukke opp to ganger i lista? Les oppgaveteksten en gang til."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-opg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — gruppering og analyse i kjede.) *«Skriv `snitt_per_type(tabell)` som returnerer `{type: gjennomsnittlig varighet}` for oppdragene på verkstedet. Bruk `rader_per_type` fra eksempel 4 i stedet for å gå gjennom tabellen på nytt.»*\n\nRund av til én desimal i utskriften, ikke i ordboka.",
+        "solution": "Gjenbruket er hele poenget: funksjonen går aldri gjennom tabellen selv.\n\n```python\ndef rader_per_type(tabell):\n    k = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        d.setdefault(rad[k], []).append(rad)\n    return d\n\ndef snitt_per_type(tabell):\n    k_min = tabell[0].index('minutter')\n    grupper = rader_per_type(tabell)\n    d = {}\n    for type_navn in grupper:\n        minutter = [rad[k_min] for rad in grupper[type_navn]]\n        d[type_navn] = sum(minutter) / len(minutter)\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nsnitt = snitt_per_type(tabell)\nfor type_navn in sorted(snitt):\n    print(type_navn.ljust(16) + '{:.1f}'.format(snitt[type_navn]))\n```\n\n**Utskrift:**\n```\nbremsejustering 30.0\ndekkskift       22.5\ngirservice      47.5\nramme           120.0\n```\n\n**Hvorfor avrundingen hører til i utskriften og ikke i ordboka:** ordboka er data, og data skal være så nøyaktige som mulig så lenge de brukes til regning. Runder du av i `snitt_per_type`, og en senere deloppgave summerer verdiene, har du innført en feil du ikke kan hente tilbake. Regn med tall, vis tekst.\n\n**Slik ville sensor sett på det:** at `snitt_per_type` kaller `rader_per_type` i stedet for å skrive løkka på nytt, er gjenbruket som gir uttelling. En besvarelse med to nesten like løkker er ikke feil, men den taper poengene som ligger i kjeden.\n\n**Kantfeilen:** en tom gruppe ville gitt `ZeroDivisionError` — men den kan ikke oppstå her, siden en nøkkel bare finnes i ordboka fordi minst én rad la den inn. Det er verdt å si i én setning: **tomtilfellet er umulig ved konstruksjon.** Det er et bedre svar enn en unødvendig test.",
+        "hints": [
+          "La første linje i funksjonen være kallet på `rader_per_type`.",
+          "For hver nøkkel: trekk ut minuttkolonnen fra radene i gruppen, og bruk `sum` og `len`.",
+          "Avrundingen hører hjemme i `'{:.1f}'.format(...)` i utskriften."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-txt-6",
+      "type": "text",
+      "content": "## Løkke 5 — analysér ordboka (~12 min)\n\nDeloppgavene kommer ofte parvis: først «bygg ordboka», så «finn den beste nøkkelen i den». Den andre er «finn beste» én gang til, bare over nøkler i stedet for rader."
+    },
+    {
+      "id": "tdt4110-7-4-def-12",
+      "type": "definition",
+      "title": "Finn beste nøkkel i en ordbok",
+      "content": "Samme mønster som «finn beste rad», men løkka går over nøklene og verdien hentes med oppslag:\n\n```python\nd = {'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\nbeste = None\nbeste_verdi = None\nfor navn in d:\n    if beste_verdi is None or d[navn] > beste_verdi:\n        beste = navn\n        beste_verdi = d[navn]\nprint(beste, beste_verdi)\n```\n\n**Utskrift:**\n```\nSelma 2390\n```\n\n**Snarveien** er `max(d, key=d.get)`: gå gjennom nøklene, og bruk `d.get` som nøkkelfunksjon. Den gir nøkkelen, ikke verdien — vil du ha begge, henter du `d[beste]` etterpå.\n\n`for navn in d:` går over **nøklene**, ikke verdiene. `for verdi in d.values():` går over verdiene, men da mister du hvilken nøkkel de hørte til."
+    },
+    {
+      "id": "tdt4110-7-4-def-13",
+      "type": "definition",
+      "title": "`sorted(d)` når rekkefølgen skal være fast",
+      "content": "Nøklene i en ordbok kommer i den rekkefølgen de ble satt inn. Det er forutsigbart, men sjelden det du vil vise en bruker.\n\n```python\nd = {'Selma': 3, 'Rune': 2, 'Tuva': 1}\nprint(list(d))\nprint(sorted(d))\n```\n\n**Utskrift:**\n```\n['Selma', 'Rune', 'Tuva']\n['Rune', 'Selma', 'Tuva']\n```\n\n`sorted(d)` gir nøklene som ei sortert liste, uten å endre ordboka. Bruk den i alle utskriftsløkker — da blir svaret ditt det samme hver gang, og det er lettere for sensor å lese.\n\nSkal du sortere på **verdien** i stedet, er formen `sorted(d, key=d.get)`, og den kommer i [kap. 7.5](/tdt4110/tdt4110-7-5)."
+    },
+    {
+      "id": "tdt4110-7-4-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: fra ordbok til svar",
+      "problem": "*«Bruk `omsetning_per_mekaniker` fra eksempel 3. Skriv `beste_mekaniker(tabell)` som returnerer navnet på den med høyest omsetning, og skriv ut hele oversikten sortert alfabetisk.»*",
+      "solution": "**Analysen av ordboka, med gjenbruk:**\n\n```python\ndef omsetning_per_mekaniker(tabell):\n    k_navn = tabell[0].index('mekaniker')\n    k_pris = tabell[0].index('pris')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_pris]\n    return d\n\ndef beste_mekaniker(tabell):\n    d = omsetning_per_mekaniker(tabell)\n    beste = None\n    beste_verdi = None\n    for navn in d:\n        if beste_verdi is None or d[navn] > beste_verdi:\n            beste = navn\n            beste_verdi = d[navn]\n    return beste\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(beste_mekaniker(tabell))\n```\n\n**Utskrift:**\n```\nSelma\n```\n\n**Snarveien for det samme:**\n\n```python\nd = {'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\nprint(max(d, key=d.get))\n```\n\n**Utskrift:**\n```\nSelma\n```\n\n**Oversikten, sortert:**\n\n```python\nd = {'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\nfor navn in sorted(d):\n    print(navn.ljust(8) + str(d[navn]).rjust(6))\n```\n\n**Utskrift:**\n```\nRune      1080\nSelma     2390\nTuva       250\n```\n\n**Slik ville sensor sett på det:** `beste_mekaniker` som kaller `omsetning_per_mekaniker` er nøyaktig den kjeden deloppgavene er bygget for. En besvarelse som går gjennom tabellen på nytt inne i `beste_mekaniker` gir riktig svar, men taper gjenbrukspoengene — og den er lengre å skrive.\n\n**Antakelsen å skrive ned:** ved lik omsetning returnerer denne løsningen den som ble sett først i ordboka. Én setning om det, så er valget dokumentert.\n\n**Kantfeilen:** en **tom** ordbok gir `None` fra løkkevarianten og `ValueError` fra `max`. Løkka er altså litt snillere her — men begge trenger et bevisst valg, og det er tema i neste løkke."
+    },
+    {
+      "id": "tdt4110-7-4-opg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — analysér ordboka.) *«Du har ordboka `{bydel: sum dager}` fra oppgave 5. Skriv `tregeste_bydel(ordbok)` som returnerer navnet på bydelen med flest dager til sammen, og `total_dager(ordbok)` som returnerer summen over alle bydelene.»*\n\nBegge funksjonene skal ta **ordboka** som parameter, ikke tabellen.",
+        "solution": "```python\ndef tregeste_bydel(ordbok):\n    beste = None\n    beste_verdi = None\n    for bydel in ordbok:\n        if beste_verdi is None or ordbok[bydel] > beste_verdi:\n            beste = bydel\n            beste_verdi = ordbok[bydel]\n    return beste\n\ndef total_dager(ordbok):\n    return sum(ordbok.values())\n\nd = {'Nordre': 19, 'Sentrum': 14, 'Ostre': 2}\nprint(tregeste_bydel(d))\nprint(total_dager(d))\n```\n\n**Utskrift:**\n```\nNordre\n35\n```\n\n**Hvorfor ordboka og ikke tabellen som parameter:** da kan `tregeste_bydel` brukes på **begge** ordbøkene fra oppgave 5 — både `{bydel: antall}` og `{bydel: dager}` — uten en eneste endring. Det er den slags gjenbruk som gir poeng i den neste deloppgaven.\n\n```python\ndef tregeste_bydel(ordbok):\n    beste = None\n    for bydel in ordbok:\n        if beste is None or ordbok[bydel] > ordbok[beste]:\n            beste = bydel\n    return beste\n\nprint(tregeste_bydel({'Nordre': 3, 'Sentrum': 2, 'Ostre': 1}))\nprint(tregeste_bydel({'Nordre': 19, 'Sentrum': 14, 'Ostre': 2}))\n```\n\n**Utskrift:**\n```\nNordre\nNordre\n```\n\nDenne varianten bruker bare én hjelpevariabel og slår opp `ordbok[beste]` i sammenligningen. Begge former gir full pott; den med to variabler er raskere, den med én er kortere.\n\n**`sum(ordbok.values())`** legger sammen verdiene. `sum(ordbok)` ville prøvd å legge sammen **nøklene**, som her er tekst — og det gir `TypeError`.",
+        "hints": [
+          "Mønsteret er «finn beste», men løkka går over nøklene i ordboka.",
+          "Verdien henter du med `ordbok[nøkkel]` inne i løkka.",
+          "`sum` på en ordbok legger sammen nøklene; du vil ha verdiene."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-opg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — to ordbøker kombinert.) *«Skriv `snitt_per_mekaniker(tabell)` som returnerer `{mekaniker: gjennomsnittspris}`. Bygg den av to ordbøker: én med antall oppdrag og én med samlet omsetning, begge gjenbrukt fra eksempel 3.»*\n\nLøs den uten å gå gjennom tabellen mer enn de to gangene de to hjelpefunksjonene gjør det.",
+        "solution": "```python\ndef oppdrag_per_mekaniker(tabell):\n    k = tabell[0].index('mekaniker')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ndef omsetning_per_mekaniker(tabell):\n    k_navn = tabell[0].index('mekaniker')\n    k_pris = tabell[0].index('pris')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_pris]\n    return d\n\ndef snitt_per_mekaniker(tabell):\n    antall = oppdrag_per_mekaniker(tabell)\n    omsetning = omsetning_per_mekaniker(tabell)\n    d = {}\n    for navn in antall:\n        d[navn] = omsetning[navn] / antall[navn]\n    return d\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nsnitt = snitt_per_mekaniker(tabell)\nfor navn in sorted(snitt):\n    print(navn.ljust(8) + '{:.2f}'.format(snitt[navn]))\n```\n\n**Utskrift:**\n```\nRune    540.00\nSelma   796.67\nTuva    250.00\n```\n\n**Hvorfor løkka går over `antall` og ikke over `omsetning`:** her har de nøyaktig de samme nøklene, siden begge er bygget av den samme tabellen — så valget er likegyldig. Men vanen er verdt å ha: gå over den ordboka du **vet** har alle nøklene, og slå opp i den andre. Da får du `KeyError` med en gang hvis antakelsen din er feil, i stedet for et stille manglende svar.\n\n**Alternativet med én gjennomgang** er å bygge begge ordbøkene i samme løkke og returnere dem sammen:\n\n```python\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nk_navn = tabell[0].index('mekaniker')\nk_pris = tabell[0].index('pris')\nantall = {}\nomsetning = {}\nfor rad in tabell[1:]:\n    navn = rad[k_navn]\n    antall[navn] = antall.get(navn, 0) + 1\n    omsetning[navn] = omsetning.get(navn, 0) + rad[k_pris]\nprint(antall)\nprint(omsetning)\n```\n\n**Utskrift:**\n```\n{'Rune': 2, 'Selma': 3, 'Tuva': 1}\n{'Rune': 1080, 'Selma': 2390, 'Tuva': 250}\n```\n\nDen er raskere, men taper på ett punkt: de to ordbøkene kan ikke lenger brukes hver for seg av andre deloppgaver. På et eksamenssett der deloppgave b) og c) ber om hver sin ordbok, er de to separate funksjonene det riktige svaret — og de gir uttelling to steder.",
+        "hints": [
+          "Kall de to hjelpefunksjonene først, og gå deretter gjennom den ene ordboka.",
+          "Gjennomsnittsprisen er samlet omsetning delt på antall oppdrag, per mekaniker.",
+          "Avrundingen hører hjemme i utskriften, ikke i ordboka."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-txt-7",
+      "type": "text",
+      "content": "## Løkke 6 — analysen som tåler en tom tabell (~9 min)\n\nDen siste biten før robusthetskapitlet: hva skal en analysefunksjon svare når det ikke finnes noe å analysere?"
+    },
+    {
+      "id": "tdt4110-7-4-def-14",
+      "type": "definition",
+      "title": "Tomtilfellet i en analysefunksjon",
+      "content": "Fire spørsmål, ett svar hver, og alle fire skal besvares i koden eller i én setning:\n\n| Situasjon | Rimelig returverdi |\n|---|---|\n| tom tabell i «finn beste» | `None` |\n| tom tabell i en teller | `{}` — den tomme ordboka, som kommer av seg selv |\n| «ikke funnet» i et søk | `None` eller `-1`, avhengig av om du returnerer en verdi eller en posisjon |\n| tom liste i et gjennomsnitt | `None` — en divisjon på null krasjer |\n\nMønsteret med `None` som startverdi gir de to første **gratis**: løkka kjører aldri, og funksjonen returnerer `None` og `{}` helt av seg selv. Det er en av grunnene til at mønsteret er skrevet slik.\n\nSnarveiene gjør det ikke: `max([])` og `sum([]) / len([])` krasjer begge. Bruker du dem, må tomtesten skrives eksplisitt."
+    },
+    {
+      "id": "tdt4110-7-4-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: den samme funksjonen, tre datasett",
+      "problem": "Test `dyreste_oppdrag` fra eksempel 1 på tre tabeller: en vanlig, en med bare overskriftsrad, og en der alle prisene er negative (en tabell over rabatter).",
+      "solution": "**Vanlig tabell** — svaret er den dyreste raden:\n\n```python\ndef dyreste_oppdrag(tabell):\n    k = tabell[0].index('pris')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\nprint(dyreste_oppdrag([['type', 'pris'], ['ramme', 1450], ['dekk', 250]]))\n```\n\n**Utskrift:**\n```\n['ramme', 1450]\n```\n\n**Bare overskriftsrad** — løkka kjører null ganger, og `None` faller ut av seg selv:\n\n```python\ndef dyreste_oppdrag(tabell):\n    k = tabell[0].index('pris')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\nprint(dyreste_oppdrag([['type', 'pris']]))\n```\n\n**Utskrift:**\n```\nNone\n```\n\n**Bare negative verdier** — her ville `beste_verdi = 0` gitt `None`, mens `None` gir riktig svar:\n\n```python\ndef dyreste_oppdrag(tabell):\n    k = tabell[0].index('pris')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\nprint(dyreste_oppdrag([['type', 'pris'], ['rabatt A', -120], ['rabatt B', -45]]))\n```\n\n**Utskrift:**\n```\n['rabatt B', -45]\n```\n\n**Snarveien på det tomme tilfellet:**\n\n```python\ntabell = [['type', 'pris']]\nif len(tabell) <= 1:\n    print(None)\nelse:\n    print(max(tabell[1:], key=lambda rad: rad[1]))\n```\n\n**Utskrift:**\n```\nNone\n```\n\nUten testen ville `max` krasjet med `ValueError: max() arg is an empty sequence`.\n\n**Slik ville sensor sett på det:** at løkkevarianten håndterer to av de tre tilfellene uten en eneste ekstra linje, er nettopp grunnen til at mønsteret er verdt å lære slik det står. Sensor ser etter `None` som startverdi og `is None` i testen — det er to konkrete tegn på at kandidaten kan kantetilfellene."
+    },
+    {
+      "id": "tdt4110-7-4-opg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — analyse med robusthet.) *«Skriv `snitt_pris(tabell)` som returnerer gjennomsnittsprisen for oppdragene. Funksjonen skal returnere `None` hvis tabellen ikke har noen datarader, og prisen skal finnes ved navn.»*\n\nSkriv i tillegg én setning om hvorfor `None` er et bedre svar enn 0 her.",
+        "solution": "```python\ndef snitt_pris(tabell):\n    k = tabell[0].index('pris')\n    total = 0\n    antall = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n        antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\ntabell = [['mekaniker', 'type', 'minutter', 'pris'],\n          ['Rune', 'girservice', 45, 690],\n          ['Selma', 'dekkskift', 20, 250],\n          ['Rune', 'bremsejustering', 30, 390],\n          ['Selma', 'girservice', 50, 690],\n          ['Tuva', 'dekkskift', 25, 250],\n          ['Selma', 'ramme', 120, 1450]]\nprint(snitt_pris(tabell))\nprint(snitt_pris([['mekaniker', 'type', 'minutter', 'pris']]))\n```\n\n**Utskrift:**\n```\n620.0\nNone\n```\n\n**Setningen:** 0 er en **pris**, og en bruker som ser 0 vil tro at oppdragene var gratis. `None` betyr «det finnes ikke noe svar», som er sant — og den som kaller funksjonen kan teste på det.\n\nDet er forskjellen på en verdi og fravær av en verdi, og den er verdt poeng når oppgaven ber om tomtilfellet.\n\n**Formen med tomtesten først** er også riktig, og noen synes den er lettere å lese:\n\n```python\ndef snitt_pris(tabell):\n    if len(tabell) <= 1:\n        return None\n    k = tabell[0].index('pris')\n    priser = [rad[k] for rad in tabell[1:]]\n    return sum(priser) / len(priser)\n\nprint(snitt_pris([['type', 'pris'], ['ramme', 1450], ['dekk', 250]]))\nprint(snitt_pris([['type', 'pris']]))\n```\n\n**Utskrift:**\n```\n850.0\nNone\n```\n\n**Begge gir full pott.** Den første teller selv og trenger ingen lengdetest; den andre tester først og kan bruke snarveiene trygt etterpå.",
+        "hints": [
+          "Tell selv i løkka i stedet for å bruke `len(tabell) - 1` — da har du antallet uansett.",
+          "Testen på tomt kan stå enten før løkka eller rett før divisjonen.",
+          "Hva ville en bruker tenkt hvis funksjonen svarte 0 kroner?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-opg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-4-oppg-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — hele analysebolken.) Bruk tabellen fra `avviksmeldinger.txt` med kolonnene `bydel`, `type` og `dager`.\n\n**a)** Skriv `verste_type(tabell)` som returnerer den avvikstypen som har flest meldinger. Bruk telleren og «finn beste nøkkel».\n\n**b)** Skriv `raskest_behandlet(tabell)` som returnerer hele raden for meldingen med færrest dager.\n\n**c)** Skriv `typer_per_bydel(tabell)` som returnerer `{bydel: [type, …]}` **uten** duplikater.\n\nAlle tre skal finne kolonnene ved navn og tåle en tabell uten datarader.",
+        "solution": "**a)** Teller først, finn beste nøkkel etterpå — to mønstre i kjede:\n\n```python\ndef antall_per_type(tabell):\n    k = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ndef verste_type(tabell):\n    d = antall_per_type(tabell)\n    beste = None\n    for navn in d:\n        if beste is None or d[navn] > d[beste]:\n            beste = navn\n    return beste\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'hull i vei', 11], ['Nordre', 'hull i vei', 6],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3],\n          ['Nordre', 'veilys', 9]]\nprint(verste_type(tabell))\nprint(verste_type([['bydel', 'type', 'dager']]))\n```\n\n**Utskrift:**\n```\nveilys\nNone\n```\n\nTom tabell gir en tom ordbok, løkka kjører ikke, og `None` faller ut — uten en eneste ekstra linje.\n\n**b)** «Finn beste» med `<`:\n\n```python\ndef raskest_behandlet(tabell):\n    k = tabell[0].index('dager')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] < beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3]]\nprint(raskest_behandlet(tabell))\nprint(raskest_behandlet([['bydel', 'type', 'dager']]))\n```\n\n**Utskrift:**\n```\n['Ostre', 'soppelspann', 2]\nNone\n```\n\n**c)** Gruppering med duplikatsjekk — to tester, ikke én:\n\n```python\ndef typer_per_bydel(tabell):\n    k_bydel = tabell[0].index('bydel')\n    k_type = tabell[0].index('type')\n    d = {}\n    for rad in tabell[1:]:\n        bydel = rad[k_bydel]\n        if bydel not in d:\n            d[bydel] = []\n        if rad[k_type] not in d[bydel]:\n            d[bydel].append(rad[k_type])\n    return d\n\ntabell = [['bydel', 'type', 'dager'], ['Nordre', 'veilys', 4],\n          ['Sentrum', 'hull i vei', 11], ['Nordre', 'hull i vei', 6],\n          ['Ostre', 'soppelspann', 2], ['Sentrum', 'veilys', 3],\n          ['Nordre', 'veilys', 9]]\nprint(typer_per_bydel(tabell))\n```\n\n**Utskrift:**\n```\n{'Nordre': ['veilys', 'hull i vei'], 'Sentrum': ['hull i vei', 'veilys'], 'Ostre': ['soppelspann']}\n```\n\nNordre har meldt inn veilys **to** ganger, men står med `'veilys'` én gang i resultatet. Det er duplikatkravet.\n\n**Slik ville sensor sett på det:** de tre deloppgavene er tre forskjellige mønstre — teller pluss beste nøkkel, finn beste rad, og gruppering med duplikatsjekk. Det er nøyaktig sammensetningen en ekte programmeringsoppgave har, og de rettes hver for seg. Klarer du to av tre, har du to av tre deloppgavers poeng.\n\n**Antakelsene å skrive ned:** ved lik forekomst i (a) og lik behandlingstid i (b) returneres den som ble sett først. To setninger, femten sekunder, dokumenterte valg.",
+        "hints": [
+          "I a): bygg telleordboka først, og bruk «finn beste nøkkel» på den.",
+          "I b): samme mønster som eksempel 1, men med `<`.",
+          "I c): den første testen oppretter lista, den andre hindrer duplikatet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-4-col-1",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "tdt4110-7-4-ctxt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `tabell[0].index('pris')` | kolonnenummeret ved navn; `ValueError` hvis navnet ikke finnes |\n| `tabell[1:]` | radene uten overskriften, som ei **ny** liste |\n| `beste_verdi is None` | startbetingelsen som lar første rad vinne, også ved negative verdier |\n| `max(x)` / `min(x)` | største og minste element; `ValueError` på tom liste |\n| `max(x, key=f)` | rangerer etter `f(element)`, men returnerer elementet **helt** |\n| `lambda rad: rad[k]` | navnløs funksjon: «gitt en rad, gi meg element `k`» |\n| `sum(x)` | summen av tallene; `TypeError` hvis elementene er tekst |\n| `len(x)` | antall elementer; `sum(x) / len(x)` krasjer på tom liste |\n| `d.get(k, 0) + 1` | telleren; `get` gir 0 for ukjent nøkkel og setter den **ikke** inn |\n| `d.get(k, 0) + rad[j]` | summeringen — samme mønster, annet tillegg |\n| `if k not in d: d[k] = []` | grupperingen: opprett den indre lista **før** `append` |\n| `d.setdefault(k, []).append(v)` | de to linjene over på én; `setdefault` setter nøkkelen inn |\n| `d[k].append(v)` | legger til i gruppen; `KeyError` hvis lista ikke er opprettet |\n| `if v not in d[k]:` | duplikatsjekken før `append` — et fullscore-krav |\n| `for navn in d:` | går over **nøklene**; `d.values()` går over verdiene |\n| `max(d, key=d.get)` | nøkkelen med størst verdi; gir nøkkelen, ikke verdien |\n| `sum(d.values())` | summen av verdiene; `sum(d)` ville summert nøklene |\n| `sorted(d)` | nøklene som ei sortert liste; ordboka er urørt |\n| `liste.count(v)` | antall forekomster; gir 0 for noe som ikke finnes |\n| `v in liste` | `True` eller `False`; virker på flate lister, ikke på rader i en tabell |\n| `[rad[k] for rad in tabell[1:]]` | kolonneuttrekk som ei flat liste |\n\n**Formler i dette delkapitlet:**\n\nGjennomsnitt over $n$ rader: $\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i$\n\nGjennomsnitt per nøkkel, bygget av to ordbøker: $\\bar{x}_k = \\frac{\\text{sum}_k}{\\text{antall}_k}$"
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

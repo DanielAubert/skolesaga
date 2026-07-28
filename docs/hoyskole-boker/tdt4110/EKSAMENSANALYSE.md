@@ -2,7 +2,7 @@
 
 > Grunnlagsdokument for en eksamensrettet lærebok. Bygger på NTNU-arkivet 2014–2019:
 > 10 eksamenssittinger (H2014, H2015, K2015, H2016, K2016, H2017, K2017, H2018 i to
-> varianter, K2019) og 7 offisielle løsningsforslag/sensorveiledninger (K2015, H2015,
+> varianter, K2019) og 7 løsningsforslag skrevet av faglærer (K2015, H2015,
 > H2016, K2016, H2017, K2017, K2019).
 > Lesestrategi som avtalt: løsningsforslagene og de siste ~8 årenes sett er gjennomgått
 > grundig; eldre sett skummet for form- og temaregistrering. Kodesnuttene i Oppgave 2 (og
@@ -261,7 +261,7 @@ hovedfamilier: **teori/flervalg**, **kodeforståelse** og **kodeskriving**.
 ## 4. Sensorens krav
 
 Destillert fra de sju offisielle løsningsforslagene (K2015, H2015, H2016, K2016, H2017,
-K2017, K2019), som fungerer som sensorveiledning.
+K2017, K2019). NB: arkivet har INGEN sensorveiledninger — disse er faglærerens egne løsningsforslag, opphavsrettslig vernet, og skal brukes som fasitkilde uten å gjengis.
 
 ### Metaregler (gjentas i innledningen hvert år)
 1. **Rimelige antakelser tillates** ved underspesifikasjon — men **skriv kort hva du
@@ -499,7 +499,7 @@ klasser (utenfor pensum), men bør trene tupler, `pickle`/binærfil og input-val
 Alle filer ligger i `/Users/danielandreasaubert/Desktop/Eksamner/NTNU/TDT4110/`.
 Arkivet dekker 2014–2019: 10 eksamenssittinger + 7 løsningsforslag, 17 PDF-filer.
 
-**Løsningsforslag/sensorveiledninger lest grundig:**
+**Løsningsforslag lest grundig** (faglærerskrevne, vernet — fasitkilde, aldri gjengitt)**:**
 - `tdt4110-19K-LF.pdf` (K2019 — full fasit for teori 1–20, kodeforståelse 2a–2f, og
   komplett kode for programmeringsdelen «Restauranthjelp»; varsler f-strenger inn i
   pensum).

@@ -80,6 +80,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🔬',
     color: 'from-blue-700 to-cyan-700',
     subjects: [
+      { courseId: 'tdt4110', name: 'TDT4110 Informasjonsteknologi grunnkurs', icon: '🐍', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tma4110', name: 'TMA4110 Lineær algebra, komplekse tall og differensiallikninger', icon: '🧮', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tma4245', name: 'TMA4245 Statistikk', icon: '📊', color: 'from-slate-500 to-slate-700' },
     ],

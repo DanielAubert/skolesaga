@@ -1,354 +1,354 @@
 {
- "id": "tdt4110-7-5",
- "courseId": "tdt4110",
- "chapterNumber": "7.5",
- "title": "DRILL — Ledd 3b: rangér og sortér resultater",
- "description": "Rangere hele tabellen på en kolonne — med boblesortering, med sortert og en nøkkelfunksjon, eller med en utlevert hjelpefunksjon — og lage topplister som holder radene samlet.",
- "estimatedMinutes": 60,
- "competenceGoals": [
-  "kunne sortere en 2D-tabell på en valgt kolonne uten å miste koblingen mellom feltene i en rad",
-  "kunne velge retning og hente ut de N beste, og vite hva som skjer når tabellen er kortere enn N",
-  "kunne skrive boblesortering for rader og bruke en utlevert sorteringsfunksjon riktig",
-  "kunne rangere nøklene i en ordbok etter verdi, og sortere på mer enn ett kriterium"
- ],
- "content": [
-  {
-   "id": "tdt4110-7-5-tip-1",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "**Den fjerde analyseformen — og den som oftest kommer som siste analysedeloppgave.**\n\n- Sortering står i **~70 % av settene (7 av 10 sittinger i arkivet 2014–2019)** og er verdt **5–10 %** når den er der. Den hører til sjanger **G — analyse**, som resten av [kap. 7.4](/tdt4110/tdt4110-7-4).\n- Bestillingen er nesten alltid den samme: «rangér butikkene etter pris», «lag en toppliste over de tre beste», «sortér tabellen på kolonnen brukeren velger».\n- **Noen sett leverer sorteringsfunksjonen ferdig** i oppgaveteksten, ofte kalt `sort_list`. Da er poenget å vise at du kaller den riktig, ikke å skrive sorteringen på nytt. Les alltid om den er der.\n- Den ene fellen som ødelegger hele deloppgaven, er å sortere **kolonnen** i stedet for **radene**. Da mister du koblingen mellom navnet og tallet, og svaret blir tilfeldig.\n\n**Prioritet: må kunne** — det midterste av bokas tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til». Sorteringen er ikke like sikker som innlesingen og analysen, men den kommer ofte nok til å være verdt en kveld.\n\nKapitlet tar ~60 minutter og er delt i fem løkker med tidsanslag."
-  },
-  {
-   "id": "tdt4110-7-5-txt-1",
-   "type": "text",
-   "content": "**Forkunnskaper — sist du var her**\n\nSorteringsverktøyet er gjennomgått i [kap. 6.1](/tdt4110/tdt4110-6-1); her brukes det på tabeller fra kjeden. Tre grep, ferdig oppfrisket:\n\n**1. `sorted` gir ei ny liste, `.sort()` endrer den gamle:**\n\n```python\ntall = [1290, 990, 1450]\nprint(sorted(tall))\nprint(tall)\n```\n\n**Utskrift:**\n```\n[990, 1290, 1450]\n[1290, 990, 1450]\n```\n\n**2. `key` bestemmer hva som sammenlignes:**\n\n```python\nrader = [['Bjornhytta', 1290], ['Steinbua', 760]]\nprint(sorted(rader, key=lambda rad: rad[1]))\n```\n\n**Utskrift:**\n```\n[['Steinbua', 760], ['Bjornhytta', 1290]]\n```\n\n**3. Boblesorteringen bytter naboer** ([kap. 6.1](/tdt4110/tdt4110-6-1)):\n\n```python\nx = [3, 1, 2]\nfor i in range(len(x) - 1):\n    for j in range(len(x) - 1 - i):\n        if x[j] > x[j + 1]:\n            x[j], x[j + 1] = x[j + 1], x[j]\nprint(x)\n```\n\n**Utskrift:**\n```\n[1, 2, 3]\n```\n\nI tillegg forutsetter kapitlet [kap. 7.4](/tdt4110/tdt4110-7-4) — analysen tabellen kommer fra — og [kap. 3.2](/tdt4110/tdt4110-3-2), som ga oss `tabell[0].index(navn)`."
-  },
-  {
-   "id": "tdt4110-7-5-txt-2",
-   "type": "text",
-   "content": "## Løkke 1 — rangér radene, ikke kolonnen (~13 min)\n\nDen viktigste innsikten i hele kapitlet kommer først: **du sorterer alltid rader.** En rad er en enhet der navnet, kommunen, prisen og sengetallet hører sammen. Trekker du ut priskolonnen og sorterer den alene, har du kastet den koblingen for godt."
-  },
-  {
-   "id": "tdt4110-7-5-def-1",
-   "type": "definition",
-   "title": "Rangering — hva oppgaven ber om",
-   "content": "Å **rangere** er å sette radene i rekkefølge etter én kolonne, og som regel vise de beste først.\n\nTre formuleringer du møter, med hver sin nyanse:\n\n- «Sortér tabellen på pris» — hele tabellen i ny rekkefølge.\n- «Lag en toppliste over de tre billigste» — sorter, og ta utsnittet `[:3]`.\n- «Returnér navnene på de tre billigste» — sorter, ta utsnittet, og plukk ut navnekolonnen til slutt.\n\nRekkefølgen på arbeidet er den samme i alle tre. Forskjellen er bare hvor langt du går før du returnerer, og det er verdt å lese oppgaveteksten to ganger for å treffe riktig."
-  },
-  {
-   "id": "tdt4110-7-5-def-2",
-   "type": "definition",
-   "title": "Sortér rader, aldri løsrevne kolonner",
-   "content": "Sammenlign de to:\n\n```python\nrader = [['Bjornhytta', 1290], ['Steinbua', 760], ['Fugleredet', 1450]]\n\npriser = [rad[1] for rad in rader]\nprint(sorted(priser))\n\nprint(sorted(rader, key=lambda rad: rad[1]))\n```\n\n**Utskrift:**\n```\n[760, 1290, 1450]\n[['Steinbua', 760], ['Bjornhytta', 1290], ['Fugleredet', 1450]]\n```\n\nDen første linja gir prisene i rekkefølge, men ingen vet lenger hvilken hytte som koster hva. Den er ubrukelig som svar på «hvilken hytte er billigst».\n\nDen andre flytter **hele rader**, så alle fire feltene følger med. Det er den formen alle sorteringsoppgaver i dette faget vil ha.\n\nUnntaket er når oppgaven uttrykkelig ber om bare tallene: «returnér prisene sortert stigende». Da er kolonneuttrekket riktig — men les setningen én gang til før du stoler på det."
-  },
-  {
-   "id": "tdt4110-7-5-thm-1",
-   "type": "theorem",
-   "title": "Kodemønster: rangér en tabell på en kolonne",
-   "content": "Fire steg, alltid i denne rekkefølgen:\n\n```text\nk = tabell[0].index('pris')\nrader = tabell[1:]\nsortert = sorted(rader, key=lambda rad: rad[k])\nreturn sortert\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 1.\n\nHvorfor hvert steg er der:\n\n1. **Kolonnen ved navn** — samme fullscore-krav som ellers i kjeden. Kommer kolonnene i en annen rekkefølge, virker koden likevel.\n2. **Skill ut overskriftsraden** — den skal ikke sorteres. `'pris'` som tekst ville havnet et vilkårlig sted blant tallene, eller gitt `TypeError`.\n3. **Sortér med `key`** — eller med boblesortering, eller med en utlevert `sort_list`. Alle tre er riktige.\n4. **Returnér** — enten bare radene, eller overskriften limt på igjen med `[tabell[0]] + sortert`. Oppgaveteksten sier hva som skal med."
-  },
-  {
-   "id": "tdt4110-7-5-def-3",
-   "type": "definition",
-   "title": "`sorted(rader, key=lambda rad: rad[k])`",
-   "content": "Gir ei **ny** liste med de samme radene i ny rekkefølge. Den opprinnelige lista er urørt, og radene selv er ikke kopiert — de er de samme listene, bare i en annen rekkefølge.\n\n```python\nrader = [['Bjornhytta', 1290], ['Steinbua', 760]]\nsortert = sorted(rader, key=lambda rad: rad[1])\nprint(sortert)\nprint(rader)\n```\n\n**Utskrift:**\n```\n[['Steinbua', 760], ['Bjornhytta', 1290]]\n[['Bjornhytta', 1290], ['Steinbua', 760]]\n```\n\n`k` må være et **tall** når lambdaen kjøres, så finn kolonnenummeret først og bruk variabelen. Skriver du `key=lambda rad: rad['pris']`, får du `TypeError` — en liste indekseres med tall, ikke med navn.\n\nFormen `rader.sort(key=lambda rad: rad[k])` gjør det samme, men endrer lista i stedet for å lage en ny. Begge er riktige; `sorted` er tryggest når den som kalte deg fortsatt trenger den gamle rekkefølgen."
-  },
-  {
-   "id": "tdt4110-7-5-def-4",
-   "type": "definition",
-   "title": "Stigende eller synkende — les bestillingen",
-   "content": "`sorted` gir **stigende** rekkefølge: minst først. Det er riktig for pris, tid og feilrate, og galt for poeng, salg og omsetning.\n\nTo ord i oppgaveteksten avgjør:\n\n- «billigste», «raskeste», «minst» betyr stigende, altså `sorted(...)` slik den er.\n- «dyreste», «beste», «flest», «mest» betyr synkende, altså `reverse=True`.\n\nDet er verdt å skrive svaret ditt ut med to–tre rader og se på det. Står 760 øverst når oppgaven ba om den dyreste, ser du feilen på ett sekund — og det er en av de billigste kontrollene på hele eksamen."
-  },
-  {
-   "id": "tdt4110-7-5-ex-1",
-   "type": "example",
-   "title": "Eksempel 1: fjellstuene rangert etter pris",
-   "problem": "*«Filen `fjellstuer.txt` har overskriftsraden `navn;kommune;pris;senger`. Skriv `rangert_etter(tabell, kolonnenavn)` som returnerer radene sortert stigende på den kolonnen, uten overskriftsraden.»*",
-   "solution": "Slik ser fila ut:\n\n**Innholdet i `fjellstuer.txt`:**\n```\nnavn;kommune;pris;senger\nBjornhytta;Vang;1290;18\nSkarvheim;Hemsedal;990;24\nFugleredet;Vang;1450;12\nSnofonna;Hemsedal;990;40\nSteinbua;Lom;760;8\n```\n\n```python\ndef rangert_etter(tabell, kolonnenavn):\n    k = tabell[0].index(kolonnenavn)\n    return sorted(tabell[1:], key=lambda rad: rad[k])\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in rangert_etter(tabell, 'pris'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['Steinbua', 'Lom', 760, 8]\n['Skarvheim', 'Hemsedal', 990, 24]\n['Snofonna', 'Hemsedal', 990, 40]\n['Bjornhytta', 'Vang', 1290, 18]\n['Fugleredet', 'Vang', 1450, 12]\n```\n\nLegg merke til Skarvheim og Snøfonna: begge koster 990, og de står i den samme innbyrdes rekkefølgen som i tabellen. Python-sortering er **stabil** — like elementer beholder rekkefølgen de hadde.\n\n**Den samme funksjonen på en annen kolonne**, uten en eneste endring:\n\n```python\ndef rangert_etter(tabell, kolonnenavn):\n    k = tabell[0].index(kolonnenavn)\n    return sorted(tabell[1:], key=lambda rad: rad[k])\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in rangert_etter(tabell, 'senger'):\n    print(rad[0], rad[3])\n```\n\n**Utskrift:**\n```\nSteinbua 8\nFugleredet 12\nBjornhytta 18\nSkarvheim 24\nSnofonna 40\n```\n\n**Slik ville sensor sett på det.** Deloppgaven er typisk 10 %, og fire ting gir uttelling hver for seg: kolonnenavnet som **parameter**, oppslaget med `.index(...)`, `tabell[1:]` som holder overskriften utenfor, og at hele rader flyttes.\n\nAt funksjonen tar kolonnenavnet som parameter er det som gjør den gjenbrukbar — og en senere deloppgave om en meny der brukeren velger sorteringskolonne, blir da nesten gratis.\n\n**Flere korrekte løsninger:** boblesortering på rader gir samme svar og full pott, og kommer i løkke 3. Er `sort_list` utlevert i oppgaveteksten, er det den du skal kalle.\n\n**Kantfeilen:** `rangert_etter(tabell, 'Pris')` med stor forbokstav gir `ValueError: 'Pris' is not in list`. Vil du være snill mot brukeren, sammenligner du med `.lower()` — men det er ikke krevd her."
-  },
-  {
-   "id": "tdt4110-7-5-opg-1",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-1",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? Skriv begge linjene.\n\n```python\npriser = [1290, 990, 1450]\nresultat = priser.sort()\nprint(resultat)\nprint(priser)\n```",
-    "solution": "**Sporingstavle.**\n\n| Setning | Hva som skjer | Verdi etterpå |\n|---|---|---|\n| `priser.sort()` | sorterer lista **på plass** og returnerer `None` | `priser` er `[990, 1290, 1450]` |\n| `resultat = ...` | fanger opp returverdien, som er `None` | `resultat` er `None` |\n\n**Utskrift:**\n```\nNone\n[990, 1290, 1450]\n```\n\n**Fellenoten:** dette er felle **#17** — `.sort()` endrer lista og returnerer `None`. Skriver du `x = x.sort()`, mister du lista og sitter igjen med ingenting.\n\nDe to riktige formene er `priser.sort()` alene (og deretter bruke `priser`), eller `resultat = sorted(priser)` når du vil ha ei ny liste. Ikke bland dem.",
-    "hints": [
-     "Hva returnerer en metode som endrer objektet sitt på plass?",
-     "Er lista `priser` sortert etterpå, eller står den urørt?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-opg-2",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-2",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — rangering.) *«Skriv `rangert_med_overskrift(tabell, kolonnenavn)` som returnerer tabellen sortert stigende på den oppgitte kolonnen, med overskriftsraden fortsatt som rad 0.»*\n\nTest på kolonnen `senger`.",
-    "solution": "Overskriften limes på igjen til slutt, med `+` mellom to lister:\n\n```python\ndef rangert_med_overskrift(tabell, kolonnenavn):\n    k = tabell[0].index(kolonnenavn)\n    sortert = sorted(tabell[1:], key=lambda rad: rad[k])\n    return [tabell[0]] + sortert\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in rangert_med_overskrift(tabell, 'senger'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['navn', 'kommune', 'pris', 'senger']\n['Steinbua', 'Lom', 760, 8]\n['Fugleredet', 'Vang', 1450, 12]\n['Bjornhytta', 'Vang', 1290, 18]\n['Skarvheim', 'Hemsedal', 990, 24]\n['Snofonna', 'Hemsedal', 990, 40]\n```\n\n**Merk de to hakeparentesene i `[tabell[0]] + sortert`.** `tabell[0]` er **ei liste** (overskriftsraden), og `+` mellom to lister limer dem sammen. Skriver du `tabell[0] + sortert`, prøver du å lime sammen fire kolonnenavn med fem rader, og resultatet er en tabell med ni rare rader.\n\nSe forskjellen:\n\n```python\noverskrift = ['navn', 'pris']\nrader = [['Steinbua', 760], ['Bjornhytta', 1290]]\nprint(len([overskrift] + rader))\nprint(len(overskrift + rader))\n```\n\n**Utskrift:**\n```\n3\n4\n```\n\n**Hvorfor dette er verdt å få riktig:** returnerer du tabellen med overskriften, kan den neste funksjonen fortsatt bruke `tabell[0].index(...)`. Returnerer du bare radene, må den neste funksjonen få kolonnenummeret på en annen måte. Begge deler er riktige — men de må henge sammen gjennom hele besvarelsen.",
-    "hints": [
-     "Sorter radene først, og legg overskriften foran til slutt.",
-     "`tabell[0]` er ei liste. Hva må du gjøre for at `+` skal legge den til som **én** rad?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-txt-3",
-   "type": "text",
-   "content": "## Løkke 2 — retning og toppliste (~12 min)\n\nNår rekkefølgen er på plass, er resten to små grep: snu retningen, og ta et utsnitt."
-  },
-  {
-   "id": "tdt4110-7-5-def-5",
-   "type": "definition",
-   "title": "`reverse=True` — synkende rekkefølge",
-   "content": "Snur rekkefølgen sorteringen gir. Virker sammen med `key`.\n\n```python\nrader = [['Bjornhytta', 1290], ['Steinbua', 760], ['Fugleredet', 1450]]\nprint(sorted(rader, key=lambda rad: rad[1], reverse=True))\n```\n\n**Utskrift:**\n```\n[['Fugleredet', 1450], ['Bjornhytta', 1290], ['Steinbua', 760]]\n```\n\nTo andre måter å få samme resultat, begge riktige:\n\n- `sorted(...)[::-1]` — sorter stigende og snu lista etterpå. Fungerer, men gir en subtil forskjell ved like verdier: stabiliteten snus også.\n- `key=lambda rad: -rad[k]` — sorter på det negative tallet. Virker bare på tall, ikke på tekst.\n\n`reverse=True` er den formen boka bruker, fordi den sier hva den gjør og virker på alt."
-  },
-  {
-   "id": "tdt4110-7-5-def-6",
-   "type": "definition",
-   "title": "Topplista `sortert[:n]`",
-   "content": "Et utsnitt av de `n` første radene i ei ferdig sortert liste. Sluttgrensen er eksklusiv, så `[:3]` gir indeks 0, 1 og 2.\n\n```python\nsortert = [['Steinbua', 760], ['Skarvheim', 990], ['Snofonna', 990], ['Bjornhytta', 1290]]\nprint(sortert[:3])\nprint(len(sortert[:10]))\n```\n\n**Utskrift:**\n```\n[['Steinbua', 760], ['Skarvheim', 990], ['Snofonna', 990]]\n4\n```\n\n**Den snille egenskapen:** er lista kortere enn `n`, får du bare det som finnes — ingen feilmelding. `[:10]` på fire rader gir fire rader. Det gjør formen trygg på tomme og korte tabeller, og det er en av få steder du **ikke** trenger en egen tomtest.\n\nRekkefølgen er hele forutsetningen: utsnittet tar de `n` **første**, uansett om de er de beste eller de verste. Sorter riktig vei først."
-  },
-  {
-   "id": "tdt4110-7-5-ex-2",
-   "type": "example",
-   "title": "Eksempel 2: de tre billigste og de tre største",
-   "problem": "*«Skriv `topp_n(tabell, kolonnenavn, n, storst)` som returnerer de `n` beste radene på den oppgitte kolonnen. Er `storst` sann, skal de største komme først; ellers de minste.»*",
-   "solution": "Én funksjon, styrt av parameterne:\n\n```python\ndef topp_n(tabell, kolonnenavn, n, storst):\n    k = tabell[0].index(kolonnenavn)\n    sortert = sorted(tabell[1:], key=lambda rad: rad[k], reverse=storst)\n    return sortert[:n]\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint('De tre billigste:')\nfor rad in topp_n(tabell, 'pris', 3, False):\n    print(rad[0].ljust(12) + str(rad[2]).rjust(6))\nprint('De tre største:')\nfor rad in topp_n(tabell, 'senger', 3, True):\n    print(rad[0].ljust(12) + str(rad[3]).rjust(6))\n```\n\n**Utskrift:**\n```\nDe tre billigste:\nSteinbua       760\nSkarvheim      990\nSnofonna       990\nDe tre største:\nSnofonna        40\nSkarvheim       24\nBjornhytta      18\n```\n\n**Legg merke til `reverse=storst`.** Parameteren sendes rett inn i `sorted` — ingen `if`-setning trengs, fordi `reverse` allerede tar imot en sannhetsverdi. Det er kortere og lettere å lese enn to nesten like grener.\n\n**En kortere kortliste enn du ba om:**\n\n```python\ndef topp_n(tabell, kolonnenavn, n, storst):\n    k = tabell[0].index(kolonnenavn)\n    return sorted(tabell[1:], key=lambda rad: rad[k], reverse=storst)[:n]\n\ntabell = [['navn', 'pris'], ['Steinbua', 760], ['Bjornhytta', 1290]]\nprint(len(topp_n(tabell, 'pris', 5, False)))\n```\n\n**Utskrift:**\n```\n2\n```\n\nTo rader inn, to rader ut, ingen feilmelding. Det er utsnittets snille egenskap.\n\n**Slik ville sensor sett på det:** at retningen er en **parameter** i stedet for to nesten like funksjoner, er gjenbruket som gir uttelling. Og at utsnittet tas **etter** sorteringen — ikke før — er det som gjør svaret riktig i det hele tatt.\n\n**Kantfeilen å nevne:** ved like verdier på plass 3 og 4 er det tilfeldig hvem som kommer med i en toppliste, i den forstand at det avhenger av rekkefølgen i fila. Sier ikke oppgaven noe, skriver du én setning: «ved lik pris tas den som står først i fila»."
-  },
-  {
-   "id": "tdt4110-7-5-opg-3",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-3",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — toppliste.) *«Skriv `dyreste_navn(tabell, n)` som returnerer ei liste med navnene på de `n` dyreste fjellstuene, dyrest først.»*\n\nReturverdien skal være ei flat liste med navn, ikke rader.",
-    "solution": "Tre steg: sorter synkende, ta utsnittet, plukk ut navnekolonnen.\n\n```python\ndef dyreste_navn(tabell, n):\n    k_pris = tabell[0].index('pris')\n    k_navn = tabell[0].index('navn')\n    sortert = sorted(tabell[1:], key=lambda rad: rad[k_pris], reverse=True)\n    navn = []\n    for rad in sortert[:n]:\n        navn.append(rad[k_navn])\n    return navn\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(dyreste_navn(tabell, 3))\nprint(dyreste_navn(tabell, 10))\n```\n\n**Utskrift:**\n```\n['Fugleredet', 'Bjornhytta', 'Skarvheim']\n['Fugleredet', 'Bjornhytta', 'Skarvheim', 'Snofonna', 'Steinbua']\n```\n\n**Snarveien for de tre siste linjene:**\n\n```python\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nk_pris = tabell[0].index('pris')\nk_navn = tabell[0].index('navn')\nsortert = sorted(tabell[1:], key=lambda rad: rad[k_pris], reverse=True)\nprint([rad[k_navn] for rad in sortert[:3]])\n```\n\n**Utskrift:**\n```\n['Fugleredet', 'Bjornhytta', 'Skarvheim']\n```\n\nBegge gir full pott.\n\n**Rekkefølgen på de tre stegene er hele oppgaven.** Plukker du ut navnekolonnen **først**, har du bare navn igjen — og da er det ingen priser å sortere på. Sorter, snitt, plukk: i den rekkefølgen, hver gang.\n\n**Merk også `dyreste_navn(tabell, 10)`:** fem rader inn, fem navn ut. Utsnittet klager ikke.",
-    "hints": [
-     "Sorter hele rader først. Navnene plukker du ut helt til slutt.",
-     "«Dyrest først» betyr `reverse=True`.",
-     "Hva skjer med `sortert[:10]` når tabellen bare har fem rader?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-opg-4",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-4",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Forklar den andre linja med én setning.\n\n```python\nrader = [['A', 3], ['B', 1], ['C', 2]]\nprint(sorted(rader, key=lambda rad: rad[1])[:2])\nprint(sorted(rader[:2], key=lambda rad: rad[1]))\n```",
-    "solution": "**Sporingstavle.**\n\n| Uttrykk | Hva som skjer først | Resultat |\n|---|---|---|\n| `sorted(rader, key=…)[:2]` | sorterer alle tre, tar deretter de to første | de to minste av alle |\n| `sorted(rader[:2], key=…)` | tar de to første radene, sorterer deretter dem | de to første i tabellen, sortert |\n\n**Utskrift:**\n```\n[['B', 1], ['C', 2]]\n[['B', 1], ['A', 3]]\n```\n\n**Setningen:** den andre linja sorterer bare de to **første** radene i tabellen og ser aldri på `['C', 2]` — derfor mangler den, selv om den har en lavere verdi enn `['A', 3]`.\n\n**Fellenoten:** utsnittet må komme **etter** sorteringen. Feilen er stum: begge linjene gir to rader, begge ser sorterte ut, og bare den ene er riktig svar på «de to minste».",
-    "hints": [
-     "Hvilken operasjon skjer først i hvert av de to uttrykkene?",
-     "Hvilke rader ser den andre sorteringen i det hele tatt?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-txt-4",
-   "type": "text",
-   "content": "## Løkke 3 — boblesortering på rader (~12 min)\n\nEnkelte sett ber uttrykkelig om at du skriver sorteringen selv. Da er boblesorteringen fra [kap. 6.1](/tdt4110/tdt4110-6-1) svaret — den skal bare sammenligne én kolonne og bytte **hele rader**."
-  },
-  {
-   "id": "tdt4110-7-5-thm-2",
-   "type": "theorem",
-   "title": "Kodemønster: boblesortering av en tabell på kolonne `k`",
-   "content": "Fire linjer, og bare sammenligningen skiller den fra den vanlige boblesorteringen:\n\n```text\nfor i in range(len(rader) - 1):\n    for j in range(len(rader) - 1 - i):\n        if rader[j][k] > rader[j + 1][k]:\n            rader[j], rader[j + 1] = rader[j + 1], rader[j]\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 3.\n\nTo detaljer avgjør om den virker:\n\n- **`rader[j][k]` i sammenligningen** — bare kolonnen `k` avgjør rekkefølgen.\n- **`rader[j], rader[j+1] = …` i byttet** — hele radene bytter plass, ikke bare tallene. Skriver du `rader[j][k], rader[j+1][k] = …`, bytter du bare prisene og lar navnene stå igjen — og da er tabellen ødelagt.\n\nLøkkegrensene er de samme som alltid: `len - 1` passeringer, og `len - 1 - i` sammenligninger i hver, fordi halen allerede er sortert. Bruk `<` for synkende rekkefølge."
-  },
-  {
-   "id": "tdt4110-7-5-def-7",
-   "type": "definition",
-   "title": "Sorteringen endrer lista på plass",
-   "content": "Boblesorteringen sorterer lista **på plass** — den returnerer ingenting av seg selv, og den som sendte lista inn, ser endringen.\n\nEr det uønsket, tar du en kopi først:\n\n```python\noriginal = [[3, 'A'], [1, 'B']]\nkopi = original[:]\nkopi[0], kopi[1] = kopi[1], kopi[0]\nprint(kopi)\nprint(original)\n```\n\n**Utskrift:**\n```\n[[1, 'B'], [3, 'A']]\n[[3, 'A'], [1, 'B']]\n```\n\n`original[:]` gir ei ny **ytre** liste med de samme radene i. Det er nok her, siden byttet bare endrer den ytre rekkefølgen. Skulle du endre innholdet i en rad, ville begge listene sett det — det er aliasing, felle **#15**.\n\nI praksis er det som regel greit å sortere på plass, siden analysefunksjonen din eier tabellen den har fått. Men si fra i en kommentar hvis du gjør det."
-  },
-  {
-   "id": "tdt4110-7-5-ex-3",
-   "type": "example",
-   "title": "Eksempel 3: den samme rangeringen, tre måter",
-   "problem": "Rangér fjellstuene etter pris med (1) boblesortering, (2) `sorted` med `key`, og (3) en utlevert `sort_list(tabell, k)` slik oppgaveteksten kan gi den. Vis at de tre gir samme svar.",
-   "solution": "**Måte 1 — boblesortering på rader:**\n\n```python\ndef bobler_paa_kolonne(rader, k):\n    for i in range(len(rader) - 1):\n        for j in range(len(rader) - 1 - i):\n            if rader[j][k] > rader[j + 1][k]:\n                rader[j], rader[j + 1] = rader[j + 1], rader[j]\n    return rader\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in bobler_paa_kolonne(tabell[1:], 2):\n    print(rad[0], rad[2])\n```\n\n**Utskrift:**\n```\nSteinbua 760\nSkarvheim 990\nSnofonna 990\nBjornhytta 1290\nFugleredet 1450\n```\n\n**Måte 2 — snarveien:**\n\n```python\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in sorted(tabell[1:], key=lambda rad: rad[2]):\n    print(rad[0], rad[2])\n```\n\n**Utskrift:**\n```\nSteinbua 760\nSkarvheim 990\nSnofonna 990\nBjornhytta 1290\nFugleredet 1450\n```\n\n**Måte 3 — den utleverte funksjonen.** Slik ser en typisk utlevering ut i oppgaveteksten, og slik bruker du den:\n\n```python\ndef sort_list(tabell, k):\n    return sorted(tabell, key=lambda rad: rad[k])\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nk = tabell[0].index('pris')\nfor rad in sort_list(tabell[1:], k):\n    print(rad[0], rad[2])\n```\n\n**Utskrift:**\n```\nSteinbua 760\nSkarvheim 990\nSnofonna 990\nBjornhytta 1290\nFugleredet 1450\n```\n\n**Alle tre gir det samme svaret, og alle tre gir full pott.** Det som skiller dem, er hva oppgaven ber om:\n\n| Oppgaveteksten sier | Du skal |\n|---|---|\n| «sortér tabellen» (uten mer) | bruke `sorted` med `key` — kortest og tryggest |\n| «skriv en sorteringsalgoritme» / «bruk boblesortering» | skrive de fire linjene selv |\n| «du kan bruke den gitte `sort_list`» | kalle den, og bruke tiden på resten |\n\n**Slik ville sensor sett på det:** å skrive boblesortering når `sort_list` er utlevert er ikke feil, men det koster deg fem–ti minutter du trengte til analysen. Å bruke `sorted` når oppgaven uttrykkelig ba om en egen algoritme, er derimot feil svar på bestillingen.\n\n**Kantfeilen i måte 1:** legg merke til at `bobler_paa_kolonne` fikk `tabell[1:]` inn, ikke `tabell`. Hadde overskriftsraden vært med, ville `'pris' > 1290` gitt `TypeError: '>' not supported between instances of 'str' and 'int'`."
-  },
-  {
-   "id": "tdt4110-7-5-warn-1",
-   "type": "warning",
-   "title": "Typiske feil i sorteringen",
-   "content": "Fem feller, og de tre første er stumme:\n\n- **Sortere kolonnen løsrevet fra radene.** Du får tallene i rekkefølge, men ingen vet lenger hvilken rad de hørte til. Sorter alltid rader.\n- **#4 — hardkodet kolonneindeks.** `rad[2]` svarer feil hvis kolonnene kommer i en annen rekkefølge. Bruk `tabell[0].index(navn)`.\n- **Feil retning.** «Dyreste» krever `reverse=True`. Skriv ut de to øverste radene og se på dem — det tar to sekunder.\n- **#17 — `x = x.sort()`.** `.sort()` returnerer `None`, så variabelen din blir `None`. Bruk `sorted(x)` når du vil ha ei ny liste.\n- **Overskriftsraden med i sorteringen.** Gir `TypeError` når tekst sammenlignes med tall, eller en overskrift midt i tabellen når kolonnen er tekst. Denne krasjer som regel, og er derfor den snilleste."
-  },
-  {
-   "id": "tdt4110-7-5-opg-5",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-5",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — skriv sorteringen selv.) *«Skriv `sorter_synkende(rader, k)` som sorterer radene synkende på kolonne `k` med boblesortering. Du skal ikke bruke `sorted` eller `.sort()`.»*\n\nTest på sengekolonnen.",
-    "solution": "Den eneste endringen fra det stigende mønsteret er `<` i sammenligningen:\n\n```python\ndef sorter_synkende(rader, k):\n    for i in range(len(rader) - 1):\n        for j in range(len(rader) - 1 - i):\n            if rader[j][k] < rader[j + 1][k]:\n                rader[j], rader[j + 1] = rader[j + 1], rader[j]\n    return rader\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in sorter_synkende(tabell[1:], 3):\n    print(rad[0].ljust(12) + str(rad[3]).rjust(4))\n```\n\n**Utskrift:**\n```\nSnofonna      40\nSkarvheim     24\nBjornhytta    18\nFugleredet    12\nSteinbua       8\n```\n\nSnøfonna har flest senger med 40, Steinbua færrest med 8.\n\n**De to grensene, forklart en gang til:**\n\n- Ytre løkke `range(len(rader) - 1)`: med fem rader trengs fire passeringer. Når bare den siste raden gjenstår, er den allerede på plass.\n- Indre løkke `range(len(rader) - 1 - i)`: `- 1` fordi du sammenligner `j` med `j + 1` og ikke vil indeksere utenfor lista, `- i` fordi de `i` siste allerede er ferdige.\n\n**Fellen som ødelegger tabellen:**\n\n```python\nrader = [['Bjornhytta', 18], ['Snofonna', 40]]\nrader[0][1], rader[1][1] = rader[1][1], rader[0][1]\nprint(rader)\n```\n\n**Utskrift:**\n```\n[['Bjornhytta', 40], ['Snofonna', 18]]\n```\n\nHer byttet bare tallene plass, og navnene ble stående. Nå har Bjørnhytta 40 senger og Snøfonna 18 — svaret er feil, og ingenting krasjet.",
-    "hints": [
-     "Hva er den eneste forskjellen mellom stigende og synkende boblesortering?",
-     "Byttet skal flytte hele radene: `rader[j], rader[j + 1] = rader[j + 1], rader[j]`."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-opg-6",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-6",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger B — kodesporing.) Tabellen har tre rader. Hvor mange ganger kjører den **indre** løkkekroppen til sammen, og hva skriver programmet ut?\n\n```python\nrader = [['A', 3], ['B', 1], ['C', 2]]\nantall = 0\nfor i in range(len(rader) - 1):\n    for j in range(len(rader) - 1 - i):\n        antall = antall + 1\n        if rader[j][1] > rader[j + 1][1]:\n            rader[j], rader[j + 1] = rader[j + 1], rader[j]\nprint(antall)\nprint(rader)\n```",
-    "solution": "**Sporingstavle.**\n\n| `i` | `j` går over | Sammenligning | Bytte? | Lista etterpå |\n|---|---|---|---|---|\n| 0 | `range(2)`: 0, 1 | 3 mot 1 | ja | `[['B',1], ['A',3], ['C',2]]` |\n| 0 | | 3 mot 2 | ja | `[['B',1], ['C',2], ['A',3]]` |\n| 1 | `range(1)`: 0 | 1 mot 2 | nei | uendret |\n\nTre gjennomkjøringer av den indre kroppen: to i første passering, én i den andre.\n\n**Utskrift:**\n```\n3\n[['B', 1], ['C', 2], ['A', 3]]\n```\n\n**Fellenoten:** dette er felle **#5** — av-med-én i løkkegrensene. Hadde ytre løkke vært `range(len(rader))`, ville den kjørt en gang for mye; hadde indre vært `range(len(rader) - i)`, ville `rader[j + 1]` gitt `IndexError` i siste runde.\n\n**Delvis riktig sporing gir delvis uttelling:** har du 3 riktig, men bommer på den endelige lista, har du fortsatt vist at du kan telle iterasjonene — som er det denne oppgavetypen tester.",
-    "hints": [
-     "Skriv opp hva `range(len(rader) - 1 - i)` gir for `i = 0` og `i = 1`.",
-     "Følg lista rad for rad gjennom hvert bytte."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-txt-5",
-   "type": "text",
-   "content": "## Løkke 4 — rangér nøklene i en ordbok (~12 min)\n\nAnalysen i [kap. 7.4](/tdt4110/tdt4110-7-4) endte ofte i en ordbok: `{kommune: antall}`, `{mekaniker: omsetning}`. Neste deloppgave er som regel «vis dem i rekkefølge» — og da sorterer du nøklene etter verdien sin."
-  },
-  {
-   "id": "tdt4110-7-5-def-8",
-   "type": "definition",
-   "title": "`sorted(d, key=d.get)`",
-   "content": "Gir **nøklene** som ei liste, sortert etter verdien de har i ordboka.\n\n```python\nd = {'Vang': 2740, 'Hemsedal': 1980, 'Lom': 760}\nprint(sorted(d))\nprint(sorted(d, key=d.get))\nprint(sorted(d, key=d.get, reverse=True))\n```\n\n**Utskrift:**\n```\n['Hemsedal', 'Lom', 'Vang']\n['Lom', 'Hemsedal', 'Vang']\n['Vang', 'Hemsedal', 'Lom']\n```\n\nDen første linja sorterer alfabetisk på nøkkelen, de to neste på verdien. Det er `key=d.get` som gjør forskjellen: for hver nøkkel slås verdien opp, og den bestemmer rekkefølgen.\n\nDu får **nøklene** tilbake, ikke verdiene. Verdien henter du med `d[nøkkel]` når du skal skrive den ut."
-  },
-  {
-   "id": "tdt4110-7-5-def-9",
-   "type": "definition",
-   "title": "`d.items()` når du vil ha begge deler",
-   "content": "`d.items()` gir par av nøkkel og verdi, som kan sorteres som rader:\n\n```python\nd = {'Vang': 2740, 'Hemsedal': 1980, 'Lom': 760}\npar = list(d.items())\nprint(sorted(par, key=lambda p: p[1], reverse=True))\n```\n\n**Utskrift:**\n```\n[('Vang', 2740), ('Hemsedal', 1980), ('Lom', 760)]\n```\n\nHvert par er et **tuppel** — en uforanderlig sekvens, se [kap. 3.6](/tdt4110/tdt4110-3-6) — men det indekseres akkurat som ei liste, så `p[0]` er nøkkelen og `p[1]` er verdien.\n\nFormen er nyttig når du skal skrive ut både nøkkel og verdi i sortert rekkefølge. `sorted(d, key=d.get)` er kortere når du bare trenger nøklene."
-  },
-  {
-   "id": "tdt4110-7-5-ex-4",
-   "type": "example",
-   "title": "Eksempel 4: kommunene rangert etter samlet sengekapasitet",
-   "problem": "*«Skriv `senger_per_kommune(tabell)` som returnerer `{kommune: sum senger}`, og `kommuner_rangert(tabell)` som returnerer kommunenavnene sortert etter kapasitet, størst først. Skriv til slutt ut oversikten.»*",
-   "solution": "**Summeringen fra [kap. 7.4](/tdt4110/tdt4110-7-4), gjenbrukt:**\n\n```python\ndef senger_per_kommune(tabell):\n    k_kom = tabell[0].index('kommune')\n    k_sng = tabell[0].index('senger')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_kom]] = d.get(rad[k_kom], 0) + rad[k_sng]\n    return d\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(senger_per_kommune(tabell))\n```\n\n**Utskrift:**\n```\n{'Vang': 30, 'Hemsedal': 64, 'Lom': 8}\n```\n\n**Rangeringen, som kaller den:**\n\n```python\ndef senger_per_kommune(tabell):\n    k_kom = tabell[0].index('kommune')\n    k_sng = tabell[0].index('senger')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_kom]] = d.get(rad[k_kom], 0) + rad[k_sng]\n    return d\n\ndef kommuner_rangert(tabell):\n    d = senger_per_kommune(tabell)\n    return sorted(d, key=d.get, reverse=True)\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(kommuner_rangert(tabell))\n```\n\n**Utskrift:**\n```\n['Hemsedal', 'Vang', 'Lom']\n```\n\n**Oversikten skrevet ut:**\n\n```python\nd = {'Vang': 30, 'Hemsedal': 64, 'Lom': 8}\nfor kommune in sorted(d, key=d.get, reverse=True):\n    print(kommune.ljust(12) + str(d[kommune]).rjust(4))\n```\n\n**Utskrift:**\n```\nHemsedal      64\nVang          30\nLom            8\n```\n\n**Slik ville sensor sett på det:** at `kommuner_rangert` kaller `senger_per_kommune` er kjeden i praksis — to deloppgaver, der den andre bygger på den første. Det er nøyaktig det mønsteret sensor belønner.\n\nLegg også merke til at rangeringen er **to linjer**. Er analysen fra forrige kapittel på plass, er sorteringsdeloppgaven som regel den billigste i hele settet.\n\n**Kantfeilen:** ved lik kapasitet er rekkefølgen den nøklene ble satt inn i ordboka i, altså den de kom i fila. Det er forutsigbart, men ikke noe oppgaven har bedt om — én setning om antakelsen dekker deg."
-  },
-  {
-   "id": "tdt4110-7-5-opg-7",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-7",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — rangér ordboka.) *«Du har ordboka `{kommune: antall hytter}`. Skriv `rangert_liste(ordbok)` som returnerer ei liste med par på formen `[kommune, antall]`, sortert med flest hytter først.»*\n\nReturverdien skal være ei liste av lister, ikke en ordbok.",
-    "solution": "```python\ndef rangert_liste(ordbok):\n    ut = []\n    for kommune in sorted(ordbok, key=ordbok.get, reverse=True):\n        ut.append([kommune, ordbok[kommune]])\n    return ut\n\nprint(rangert_liste({'Vang': 2, 'Hemsedal': 2, 'Lom': 1}))\n```\n\n**Utskrift:**\n```\n[['Vang', 2], ['Hemsedal', 2], ['Lom', 1]]\n```\n\n**Snarveien med `items()`:**\n\n```python\nd = {'Vang': 2, 'Hemsedal': 2, 'Lom': 1}\npar = sorted(d.items(), key=lambda p: p[1], reverse=True)\nprint([[navn, antall] for navn, antall in par])\n```\n\n**Utskrift:**\n```\n[['Vang', 2], ['Hemsedal', 2], ['Lom', 1]]\n```\n\nBegge gir full pott. Den andre pakker ut hvert par i løkkevariablene `navn` og `antall` — utpakking fra [kap. 3.6](/tdt4110/tdt4110-3-6).\n\n**Hvorfor oppgaven ber om lister og ikke om ordboka selv:** en ordbok har ingen «rekkefølge» du kan stole på som svar på en rangeringsoppgave, mens ei liste har det. Skal rekkefølgen være en del av svaret, må svaret være ei liste.\n\n**Merk at Vang og Hemsedal begge har 2.** Rekkefølgen mellom dem er den de hadde i ordboka, siden sorteringen er stabil. Én setning om det, så er antakelsen dokumentert.",
-    "hints": [
-     "`sorted(d, key=d.get)` gir nøklene i rekkefølge etter verdi.",
-     "Bygg lista med `append` inne i løkka, ett par om gangen."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-opg-8",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-8",
-    "number": "8",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — analyse og rangering i kjede.) Bruk fjellstuetabellen.\n\n**a)** Skriv `snitt_pris_per_kommune(tabell)` som returnerer `{kommune: gjennomsnittspris}`.\n\n**b)** Skriv `billigste_kommune(tabell)` som returnerer navnet på kommunen med lavest gjennomsnittspris, ved å gjenbruke a).\n\n**c)** Skriv ut alle kommunene sortert etter gjennomsnittspris, billigst først, med prisen avrundet til hele kroner i utskriften.",
-    "solution": "**a)** To ordbøker bygges i samme løkke, og deles til slutt:\n\n```python\ndef snitt_pris_per_kommune(tabell):\n    k_kom = tabell[0].index('kommune')\n    k_pris = tabell[0].index('pris')\n    sum_pris = {}\n    antall = {}\n    for rad in tabell[1:]:\n        kom = rad[k_kom]\n        sum_pris[kom] = sum_pris.get(kom, 0) + rad[k_pris]\n        antall[kom] = antall.get(kom, 0) + 1\n    d = {}\n    for kom in antall:\n        d[kom] = sum_pris[kom] / antall[kom]\n    return d\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(snitt_pris_per_kommune(tabell))\n```\n\n**Utskrift:**\n```\n{'Vang': 1370.0, 'Hemsedal': 990.0, 'Lom': 760.0}\n```\n\n**b)** «Finn beste nøkkel» med `<`, eller snarveien `min`:\n\n```python\ndef billigste_kommune(tabell):\n    d = snitt_pris_per_kommune(tabell)\n    return min(d, key=d.get)\n\ndef snitt_pris_per_kommune(tabell):\n    k_kom = tabell[0].index('kommune')\n    k_pris = tabell[0].index('pris')\n    sum_pris = {}\n    antall = {}\n    for rad in tabell[1:]:\n        kom = rad[k_kom]\n        sum_pris[kom] = sum_pris.get(kom, 0) + rad[k_pris]\n        antall[kom] = antall.get(kom, 0) + 1\n    d = {}\n    for kom in antall:\n        d[kom] = sum_pris[kom] / antall[kom]\n    return d\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(billigste_kommune(tabell))\n```\n\n**Utskrift:**\n```\nLom\n```\n\nLegg merke til at `billigste_kommune` er definert **før** `snitt_pris_per_kommune` her. Det er helt greit — alle `def`-ene kjøres før det første kallet, så rekkefølgen i fila spiller ingen rolle.\n\n**c)** Utskriften, med avrundingen først i formateringen:\n\n```python\nd = {'Vang': 1370.0, 'Hemsedal': 990.0, 'Lom': 760.0}\nfor kom in sorted(d, key=d.get):\n    print(kom.ljust(12) + str(round(d[kom])).rjust(6))\n```\n\n**Utskrift:**\n```\nLom            760\nHemsedal       990\nVang          1370\n```\n\n**Slik ville sensor sett på det:** at (b) kaller (a) og at (c) bruker resultatet, er kjeden som gir uttelling i alle tre deloppgavene. En besvarelse som regner gjennomsnittet på nytt i hver av dem, får poeng for koden, men taper gjenbrukspoengene tre ganger.\n\n**Antakelsen å skrive ned:** avrundingen skjer bare i utskriften, ikke i dataene — så en senere deloppgave som summerer, får de nøyaktige tallene. Det er den samme regelen som i [kap. 7.4](/tdt4110/tdt4110-7-4): regn med tall, vis tekst.",
-    "hints": [
-     "I a): bygg både summen og antallet i samme løkke, og del til slutt.",
-     "I b): `min(d, key=d.get)` gir nøkkelen med lavest verdi.",
-     "I c): `sorted(d, key=d.get)` uten `reverse` gir billigst først."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-txt-6",
-   "type": "text",
-   "content": "## Løkke 5 — flere kriterier og tabeller som ikke er ryddige (~11 min)\n\nTil slutt de to tilfellene som skiller en god sortering fra en som bare virker på testdataene."
-  },
-  {
-   "id": "tdt4110-7-5-def-10",
-   "type": "definition",
-   "title": "Sortering på mer enn ett kriterium",
-   "content": "Skal like verdier skilles av et annet felt, gir `key` tilbake **et tuppel** i stedet for én verdi:\n\n```python\nrader = [['Skarvheim', 'Hemsedal', 990], ['Snofonna', 'Hemsedal', 990],\n         ['Steinbua', 'Lom', 760]]\nprint(sorted(rader, key=lambda rad: (rad[2], rad[0])))\n```\n\n**Utskrift:**\n```\n[['Steinbua', 'Lom', 760], ['Skarvheim', 'Hemsedal', 990], ['Snofonna', 'Hemsedal', 990]]\n```\n\nTuppelet sammenlignes elementvis: først prisen, og bare når to priser er like, navnet. Skarvheim kommer før Snøfonna fordi `'Sk'` kommer før `'Sn'`.\n\nSkal det andre kriteriet gå **motsatt** vei, går ikke `reverse` — den snur alt. Løsningen er å negere det numeriske feltet: `key=lambda rad: (rad[2], -rad[3])`. Det virker bare på tall.\n\nDenne varianten kommer sjelden på eksamen, men den er den ryddige måten å svare på «sorter på pris, og ved lik pris alfabetisk»."
-  },
-  {
-   "id": "tdt4110-7-5-def-11",
-   "type": "definition",
-   "title": "Tekst sorterer ikke som tall",
-   "content": "Er kolonnen fortsatt tekst — fordi konverteringen i [kap. 7.3](/tdt4110/tdt4110-7-3) ble hoppet over — sorterer den tegn for tegn:\n\n```python\nprint(sorted(['1290', '990', '760']))\nprint(sorted([1290, 990, 760]))\n```\n\n**Utskrift:**\n```\n['1290', '760', '990']\n[760, 990, 1290]\n```\n\n`'1290'` kommer først fordi `'1'` kommer før `'7'` og `'9'`. Det er feilkode **#1**, glemt konvertering, og den er stum: du får ei sortert liste, den er bare sortert etter noe annet enn du trodde.\n\nKontrollen tar to sekunder: se på det største og det minste tallet i svaret ditt. Står et firesifret tall før et tresifret, sorterer du tekst."
-  },
-  {
-   "id": "tdt4110-7-5-def-12",
-   "type": "definition",
-   "title": "Når sorteringsfunksjonen er utlevert",
-   "content": "På noen sett står det i oppgaveteksten: *«Du kan bruke funksjonen `sort_list(tabell, k)`, som returnerer tabellen sortert stigende på kolonne `k`.»*\n\nDa skal du **ikke** skrive sorteringen selv. Poenget med deloppgaven er å vise at du\n\n1. finner riktig `k` — helst med `tabell[0].index(navn)`,\n2. sender inn radene uten overskriftsraden,\n3. bruker returverdien riktig, for eksempel med et utsnitt til slutt.\n\nÅ skrive boblesortering likevel gir samme svar, men koster deg minutter du trengte på analysen. Les alltid gjennom hele oppgaveteksten før du begynner å kode — utleveringene står ofte i innledningen, ikke i deloppgaven."
-  },
-  {
-   "id": "tdt4110-7-5-ex-5",
-   "type": "example",
-   "title": "Eksempel 5: rangeringen som tåler en tom tabell",
-   "problem": "*«Skriv `topp_tre_billigste(tabell)` som returnerer de tre billigste fjellstuene. Funksjonen skal returnere ei tom liste hvis tabellen ikke har noen datarader, og den skal ikke anta at priskolonnen ligger på en bestemt plass.»*",
-   "solution": "```python\ndef topp_tre_billigste(tabell):\n    if len(tabell) <= 1:\n        return []\n    k = tabell[0].index('pris')\n    return sorted(tabell[1:], key=lambda rad: rad[k])[:3]\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in topp_tre_billigste(tabell):\n    print(rad[0], rad[2])\nprint(topp_tre_billigste([['navn', 'kommune', 'pris', 'senger']]))\n```\n\n**Utskrift:**\n```\nSteinbua 760\nSkarvheim 990\nSnofonna 990\n[]\n```\n\n**Trengs tomtesten i det hele tatt?** Nei — og det er verdt å vite:\n\n```python\ntabell = [['navn', 'pris']]\nk = tabell[0].index('pris')\nprint(sorted(tabell[1:], key=lambda rad: rad[k])[:3])\n```\n\n**Utskrift:**\n```\n[]\n```\n\n`sorted` på ei tom liste gir ei tom liste, og utsnittet av den er tom. Sorteringen er en av de få analysene som takler tomtilfellet helt av seg selv.\n\n**Hvorfor testen likevel står der:** den gjør **antakelsen synlig**. En leser — og en sensor — ser med én gang at kandidaten har tenkt på tilfellet. Det koster to linjer og er billig forsikring når du er usikker.\n\nDer testen derimot er **nødvendig**, er når du plukker ut noe etter sorteringen:\n\n```python\ndef billigste(tabell):\n    if len(tabell) <= 1:\n        return None\n    k = tabell[0].index('pris')\n    return sorted(tabell[1:], key=lambda rad: rad[k])[0]\n\nprint(billigste([['navn', 'pris'], ['Steinbua', 760]]))\nprint(billigste([['navn', 'pris']]))\n```\n\n**Utskrift:**\n```\n['Steinbua', 760]\nNone\n```\n\nHer ville `[0]` på ei tom liste gitt `IndexError`. Regelen: **utsnitt er trygge, indekser er det ikke.**\n\n**Slik ville sensor sett på det:** det som gir de siste poengene, er kolonnen funnet ved navn og et bevisst, dokumentert svar på tomtilfellet. Robusthetskravene samlet står i [kap. 7.6](/tdt4110/tdt4110-7-6)."
-  },
-  {
-   "id": "tdt4110-7-5-opg-9",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-9",
-    "number": "9",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — sortering på to kriterier.) *«Skriv `sortert_pris_og_navn(tabell)` som returnerer radene sortert stigende på pris, og alfabetisk på navn når to priser er like.»*\n\nVis at rekkefølgen mellom de to 990-hyttene blir riktig.",
-    "solution": "Nøkkelen gir tilbake et tuppel, og tuppelet sammenlignes elementvis:\n\n```python\ndef sortert_pris_og_navn(tabell):\n    k_pris = tabell[0].index('pris')\n    k_navn = tabell[0].index('navn')\n    return sorted(tabell[1:], key=lambda rad: (rad[k_pris], rad[k_navn]))\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in sortert_pris_og_navn(tabell):\n    print(str(rad[2]).rjust(5), rad[0])\n```\n\n**Utskrift:**\n```\n  760 Steinbua\n  990 Skarvheim\n  990 Snofonna\n 1290 Bjornhytta\n 1450 Fugleredet\n```\n\nSkarvheim og Snøfonna koster begge 990, og Skarvheim kommer først fordi `'Sk'` kommer før `'Sn'`.\n\n**Kontrollen: hva ville skjedd uten det andre kriteriet?**\n\n```python\ntabell = [['navn', 'pris'], ['Snofonna', 990], ['Skarvheim', 990]]\nprint(sorted(tabell[1:], key=lambda rad: rad[1]))\n```\n\n**Utskrift:**\n```\n[['Snofonna', 990], ['Skarvheim', 990]]\n```\n\nMed bare prisen som nøkkel beholder de to den rekkefølgen de hadde i tabellen — Snøfonna først, fordi den sto først. Sortering i Python er **stabil**. Det er forutsigbart, men det er ikke alfabetisk, og det er forskjellen oppgaven spør etter.\n\n**Merk:** `reverse=True` ville snudd **begge** kriteriene. Skal prisen gå synkende og navnet fortsatt alfabetisk, må du negere prisen i stedet: `key=lambda rad: (-rad[k_pris], rad[k_navn])`.",
-    "hints": [
-     "La `key` gi tilbake et tuppel med to felt: det viktigste kriteriet først.",
-     "Hva skjer med det andre kriteriet hvis du legger til `reverse=True`?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-opg-10",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-5-oppg-10",
-    "number": "10",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — rangering med utlevert funksjon og robusthet.) Oppgaveteksten oppgir denne hjelpefunksjonen:\n\n*«`sort_list(rader, k)` returnerer radene sortert stigende på kolonne `k`.»*\n\n**a)** Skriv `dyreste_tre(tabell)` som returnerer de tre dyreste fjellstuene, dyrest først. Bruk `sort_list` — ikke `sorted` og ikke boblesortering.\n\n**b)** Funksjonen skal returnere ei tom liste for en tabell uten datarader, og den skal ikke anta hvor priskolonnen ligger.\n\n**c)** Skriv én setning om hvorfor det er riktig å bruke den utleverte funksjonen her.",
-    "solution": "**a)** og **b)** — `sort_list` sorterer stigende, så lista snus etterpå:\n\n```python\ndef sort_list(rader, k):\n    return sorted(rader, key=lambda rad: rad[k])\n\ndef dyreste_tre(tabell):\n    if len(tabell) <= 1:\n        return []\n    k = tabell[0].index('pris')\n    stigende = sort_list(tabell[1:], k)\n    return stigende[::-1][:3]\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in dyreste_tre(tabell):\n    print(rad[0].ljust(12) + str(rad[2]).rjust(6))\nprint(dyreste_tre([['navn', 'kommune', 'pris', 'senger']]))\n```\n\n**Utskrift:**\n```\nFugleredet    1450\nBjornhytta    1290\nSnofonna       990\n[]\n```\n\n`[::-1]` gir lista snudd, som ei ny liste. Deretter tar `[:3]` de tre første — som nå er de dyreste.\n\n**Rekkefølgen på de to operasjonene betyr alt.** Snur du etter utsnittet i stedet, får du de tre **billigste** i motsatt rekkefølge:\n\n```python\nstigende = [760, 990, 990, 1290, 1450]\nprint(stigende[::-1][:3])\nprint(stigende[:3][::-1])\n```\n\n**Utskrift:**\n```\n[1450, 1290, 990]\n[990, 990, 760]\n```\n\n**c)** Setningen: **oppgaveteksten oppgir funksjonen, så deloppgaven tester at jeg finner riktig kolonne og bruker resultatet riktig — ikke at jeg kan skrive en sorteringsalgoritme.**\n\nDet er også et tidsspørsmål. Fem linjer boblesortering tar fem minutter du trenger til analysedeloppgavene, som er verdt mer.\n\n**Antakelsen å skrive ned:** ved lik pris på tredje- og fjerdeplass er det tilfeldig hvem som kommer med i topplista — her tas den som `sort_list` plasserte sist blant de like, siden lista er snudd.",
-    "hints": [
-     "Kall `sort_list` med radene uten overskriftsraden, og med kolonnenummeret du fant ved navn.",
-     "`sort_list` sorterer stigende. Hvordan får du dyrest først?",
-     "Snu lista **før** du tar utsnittet — ikke etter."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-5-col-1",
-   "type": "collapsible",
-   "title": "API- og konstruksjonsliste",
-   "buttonText": "Vis API og konstruksjoner",
-   "content": [
+  "id": "tdt4110-7-5",
+  "courseId": "tdt4110",
+  "chapterNumber": "7.5",
+  "title": "DRILL — Ledd 3b: rangér og sortér tabellen",
+  "description": "Rangere hele tabellen på en kolonne — med boblesortering, med sortert og en nøkkelfunksjon, eller med en utlevert hjelpefunksjon — og lage topplister som holder radene samlet.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne sortere en 2D-tabell på en valgt kolonne uten å miste koblingen mellom feltene i en rad",
+    "kunne velge retning og hente ut de N beste, og vite hva som skjer når tabellen er kortere enn N",
+    "kunne skrive boblesortering for rader og bruke en utlevert sorteringsfunksjon riktig",
+    "kunne rangere nøklene i en ordbok etter verdi, og sortere på mer enn ett kriterium"
+  ],
+  "content": [
     {
-     "id": "tdt4110-7-5-ctxt-1",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `sorted(x)` | ei **ny** sortert liste; originalen er urørt |\n| `x.sort()` | sorterer **på plass** og returnerer `None` — `x = x.sort()` gir `None` |\n| `sorted(x, key=f)` | rangerer etter `f(element)`, men flytter elementene hele |\n| `lambda rad: rad[k]` | navnløs funksjon: «gitt en rad, gi meg element `k`» |\n| `lambda rad: (rad[a], rad[b])` | tuppel som nøkkel: `a` avgjør først, `b` bare ved likhet |\n| `reverse=True` | snur rekkefølgen; snur **alle** kriteriene i et tuppel |\n| `sortert[:n]` | de `n` første radene; gir færre uten feil hvis lista er kortere |\n| `sortert[::-1]` | lista snudd, som ei ny liste |\n| `sortert[0]` | første rad; `IndexError` på ei tom liste — i motsetning til utsnitt |\n| `[tabell[0]] + sortert` | overskriftsraden limt på igjen som **én** rad |\n| `tabell[0].index('pris')` | kolonnenummeret ved navn; `ValueError` hvis navnet mangler |\n| `rader[j], rader[j+1] = rader[j+1], rader[j]` | bytter hele rader; bytter du bare feltene, ødelegges tabellen |\n| `range(len(rader) - 1)` | antall passeringer i boblesortering |\n| `range(len(rader) - 1 - i)` | sammenligninger i passering `i`; halen er allerede sortert |\n| `sorted(d, key=d.get)` | ordbokas **nøkler**, sortert etter verdi |\n| `d.items()` | par av nøkkel og verdi, som kan sorteres som rader |\n| `sort_list(rader, k)` | den utleverte hjelpefunksjonen — kall den, ikke skriv den om |\n| `original[:]` | kopi av den ytre lista; radene selv deles fortsatt |\n\n**Formler i dette delkapitlet:**\n\nAntall sammenligninger i boblesortering av $n$ rader: $\\frac{n(n-1)}{2}$\n\nKjøretiden er derfor $O(n^2)$, mot $O(n \\log n)$ for `sorted` — se [kap. 6.3](/tdt4110/tdt4110-6-3)."
+      "id": "tdt4110-7-5-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Den fjerde analyseformen — og den som oftest kommer som siste analysedeloppgave.**\n\n- Sortering står i **~70 % av settene (7 av 10 sittinger i arkivet 2014–2019)** og er verdt **5–10 %** når den er der. Den hører til sjanger **G — analyse**, som resten av [kap. 7.4](/tdt4110/tdt4110-7-4).\n- Bestillingen er nesten alltid den samme: «rangér butikkene etter pris», «lag en toppliste over de tre beste», «sortér tabellen på kolonnen brukeren velger».\n- **Noen sett leverer sorteringsfunksjonen ferdig** i oppgaveteksten, ofte kalt `sort_list`. Da er poenget å vise at du kaller den riktig, ikke å skrive sorteringen på nytt. Les alltid om den er der.\n- Den ene fellen som ødelegger hele deloppgaven, er å sortere **kolonnen** i stedet for **radene**. Da mister du koblingen mellom navnet og tallet, og svaret blir tilfeldig.\n\n**Prioritet: må kunne** — det midterste av bokas tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til». Sorteringen er ikke like sikker som innlesingen og analysen, men den kommer ofte nok til å være verdt en kveld.\n\nKapitlet tar ~60 minutter og er delt i fem løkker med tidsanslag."
+    },
+    {
+      "id": "tdt4110-7-5-txt-1",
+      "type": "text",
+      "content": "**Forkunnskaper — sist du var her**\n\nSorteringsverktøyet er gjennomgått i [kap. 6.1](/tdt4110/tdt4110-6-1); her brukes det på tabeller fra kjeden. Tre grep, ferdig oppfrisket:\n\n**1. `sorted` gir ei ny liste, `.sort()` endrer den gamle:**\n\n```python\ntall = [1290, 990, 1450]\nprint(sorted(tall))\nprint(tall)\n```\n\n**Utskrift:**\n```\n[990, 1290, 1450]\n[1290, 990, 1450]\n```\n\n**2. `key` bestemmer hva som sammenlignes:**\n\n```python\nrader = [['Bjornhytta', 1290], ['Steinbua', 760]]\nprint(sorted(rader, key=lambda rad: rad[1]))\n```\n\n**Utskrift:**\n```\n[['Steinbua', 760], ['Bjornhytta', 1290]]\n```\n\n**3. Boblesorteringen bytter naboer** ([kap. 6.1](/tdt4110/tdt4110-6-1)):\n\n```python\nx = [3, 1, 2]\nfor i in range(len(x) - 1):\n    for j in range(len(x) - 1 - i):\n        if x[j] > x[j + 1]:\n            x[j], x[j + 1] = x[j + 1], x[j]\nprint(x)\n```\n\n**Utskrift:**\n```\n[1, 2, 3]\n```\n\nI tillegg forutsetter kapitlet [kap. 7.4](/tdt4110/tdt4110-7-4) — analysen tabellen kommer fra — og [kap. 3.2](/tdt4110/tdt4110-3-2), som ga oss `tabell[0].index(navn)`."
+    },
+    {
+      "id": "tdt4110-7-5-txt-2",
+      "type": "text",
+      "content": "## Løkke 1 — rangér radene, ikke kolonnen (~13 min)\n\nDen viktigste innsikten i hele kapitlet kommer først: **du sorterer alltid rader.** En rad er en enhet der navnet, kommunen, prisen og sengetallet hører sammen. Trekker du ut priskolonnen og sorterer den alene, har du kastet den koblingen for godt."
+    },
+    {
+      "id": "tdt4110-7-5-def-1",
+      "type": "definition",
+      "title": "Rangering — hva oppgaven ber om",
+      "content": "Å **rangere** er å sette radene i rekkefølge etter én kolonne, og som regel vise de beste først.\n\nTre formuleringer du møter, med hver sin nyanse:\n\n- «Sortér tabellen på pris» — hele tabellen i ny rekkefølge.\n- «Lag en toppliste over de tre billigste» — sorter, og ta utsnittet `[:3]`.\n- «Returnér navnene på de tre billigste» — sorter, ta utsnittet, og plukk ut navnekolonnen til slutt.\n\nRekkefølgen på arbeidet er den samme i alle tre. Forskjellen er bare hvor langt du går før du returnerer, og det er verdt å lese oppgaveteksten to ganger for å treffe riktig."
+    },
+    {
+      "id": "tdt4110-7-5-def-2",
+      "type": "definition",
+      "title": "Sortér rader, aldri løsrevne kolonner",
+      "content": "Sammenlign de to:\n\n```python\nrader = [['Bjornhytta', 1290], ['Steinbua', 760], ['Fugleredet', 1450]]\n\npriser = [rad[1] for rad in rader]\nprint(sorted(priser))\n\nprint(sorted(rader, key=lambda rad: rad[1]))\n```\n\n**Utskrift:**\n```\n[760, 1290, 1450]\n[['Steinbua', 760], ['Bjornhytta', 1290], ['Fugleredet', 1450]]\n```\n\nDen første linja gir prisene i rekkefølge, men ingen vet lenger hvilken hytte som koster hva. Den er ubrukelig som svar på «hvilken hytte er billigst».\n\nDen andre flytter **hele rader**, så alle fire feltene følger med. Det er den formen alle sorteringsoppgaver i dette faget vil ha.\n\nUnntaket er når oppgaven uttrykkelig ber om bare tallene: «returnér prisene sortert stigende». Da er kolonneuttrekket riktig — men les setningen én gang til før du stoler på det."
+    },
+    {
+      "id": "tdt4110-7-5-thm-1",
+      "type": "theorem",
+      "title": "Kodemønster: rangér en tabell på en kolonne",
+      "content": "Fire steg, alltid i denne rekkefølgen:\n\n```text\nk = tabell[0].index('pris')\nrader = tabell[1:]\nsortert = sorted(rader, key=lambda rad: rad[k])\nreturn sortert\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 1.\n\nHvorfor hvert steg er der:\n\n1. **Kolonnen ved navn** — samme fullscore-krav som ellers i kjeden. Kommer kolonnene i en annen rekkefølge, virker koden likevel.\n2. **Skill ut overskriftsraden** — den skal ikke sorteres. `'pris'` som tekst ville havnet et vilkårlig sted blant tallene, eller gitt `TypeError`.\n3. **Sortér med `key`** — eller med boblesortering, eller med en utlevert `sort_list`. Alle tre er riktige.\n4. **Returnér** — enten bare radene, eller overskriften limt på igjen med `[tabell[0]] + sortert`. Oppgaveteksten sier hva som skal med."
+    },
+    {
+      "id": "tdt4110-7-5-def-3",
+      "type": "definition",
+      "title": "`sorted(rader, key=lambda rad: rad[k])`",
+      "content": "Gir ei **ny** liste med de samme radene i ny rekkefølge. Den opprinnelige lista er urørt, og radene selv er ikke kopiert — de er de samme listene, bare i en annen rekkefølge.\n\n```python\nrader = [['Bjornhytta', 1290], ['Steinbua', 760]]\nsortert = sorted(rader, key=lambda rad: rad[1])\nprint(sortert)\nprint(rader)\n```\n\n**Utskrift:**\n```\n[['Steinbua', 760], ['Bjornhytta', 1290]]\n[['Bjornhytta', 1290], ['Steinbua', 760]]\n```\n\n`k` må være et **tall** når lambdaen kjøres, så finn kolonnenummeret først og bruk variabelen. Skriver du `key=lambda rad: rad['pris']`, får du `TypeError` — en liste indekseres med tall, ikke med navn.\n\nFormen `rader.sort(key=lambda rad: rad[k])` gjør det samme, men endrer lista i stedet for å lage en ny. Begge er riktige; `sorted` er tryggest når den som kalte deg fortsatt trenger den gamle rekkefølgen."
+    },
+    {
+      "id": "tdt4110-7-5-def-4",
+      "type": "definition",
+      "title": "Stigende eller synkende — les bestillingen",
+      "content": "`sorted` gir **stigende** rekkefølge: minst først. Det er riktig for pris, tid og feilrate, og galt for poeng, salg og omsetning.\n\nTo ord i oppgaveteksten avgjør:\n\n- «billigste», «raskeste», «minst» betyr stigende, altså `sorted(...)` slik den er.\n- «dyreste», «beste», «flest», «mest» betyr synkende, altså `reverse=True`.\n\nDet er verdt å skrive svaret ditt ut med to–tre rader og se på det. Står 760 øverst når oppgaven ba om den dyreste, ser du feilen på ett sekund — og det er en av de billigste kontrollene på hele eksamen."
+    },
+    {
+      "id": "tdt4110-7-5-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: fjellstuene rangert etter pris",
+      "problem": "*«Filen `fjellstuer.txt` har overskriftsraden `navn;kommune;pris;senger`. Skriv `rangert_etter(tabell, kolonnenavn)` som returnerer radene sortert stigende på den kolonnen, uten overskriftsraden.»*",
+      "solution": "Slik ser fila ut:\n\n**Innholdet i `fjellstuer.txt`:**\n```\nnavn;kommune;pris;senger\nBjornhytta;Vang;1290;18\nSkarvheim;Hemsedal;990;24\nFugleredet;Vang;1450;12\nSnofonna;Hemsedal;990;40\nSteinbua;Lom;760;8\n```\n\n```python\ndef rangert_etter(tabell, kolonnenavn):\n    k = tabell[0].index(kolonnenavn)\n    return sorted(tabell[1:], key=lambda rad: rad[k])\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in rangert_etter(tabell, 'pris'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['Steinbua', 'Lom', 760, 8]\n['Skarvheim', 'Hemsedal', 990, 24]\n['Snofonna', 'Hemsedal', 990, 40]\n['Bjornhytta', 'Vang', 1290, 18]\n['Fugleredet', 'Vang', 1450, 12]\n```\n\nLegg merke til Skarvheim og Snøfonna: begge koster 990, og de står i den samme innbyrdes rekkefølgen som i tabellen. Python-sortering er **stabil** — like elementer beholder rekkefølgen de hadde.\n\n**Den samme funksjonen på en annen kolonne**, uten en eneste endring:\n\n```python\ndef rangert_etter(tabell, kolonnenavn):\n    k = tabell[0].index(kolonnenavn)\n    return sorted(tabell[1:], key=lambda rad: rad[k])\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in rangert_etter(tabell, 'senger'):\n    print(rad[0], rad[3])\n```\n\n**Utskrift:**\n```\nSteinbua 8\nFugleredet 12\nBjornhytta 18\nSkarvheim 24\nSnofonna 40\n```\n\n**Slik ville sensor sett på det.** Deloppgaven er typisk 10 %, og fire ting gir uttelling hver for seg: kolonnenavnet som **parameter**, oppslaget med `.index(...)`, `tabell[1:]` som holder overskriften utenfor, og at hele rader flyttes.\n\nAt funksjonen tar kolonnenavnet som parameter er det som gjør den gjenbrukbar — og en senere deloppgave om en meny der brukeren velger sorteringskolonne, blir da nesten gratis.\n\n**Flere korrekte løsninger:** boblesortering på rader gir samme svar og full pott, og kommer i løkke 3. Er `sort_list` utlevert i oppgaveteksten, er det den du skal kalle.\n\n**Kantfeilen:** `rangert_etter(tabell, 'Pris')` med stor forbokstav gir `ValueError: 'Pris' is not in list`. Vil du være snill mot brukeren, sammenligner du med `.lower()` — men det er ikke krevd her."
+    },
+    {
+      "id": "tdt4110-7-5-opg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? Skriv begge linjene.\n\n```python\npriser = [1290, 990, 1450]\nresultat = priser.sort()\nprint(resultat)\nprint(priser)\n```",
+        "solution": "**Sporingstavle.**\n\n| Setning | Hva som skjer | Verdi etterpå |\n|---|---|---|\n| `priser.sort()` | sorterer lista **på plass** og returnerer `None` | `priser` er `[990, 1290, 1450]` |\n| `resultat = ...` | fanger opp returverdien, som er `None` | `resultat` er `None` |\n\n**Utskrift:**\n```\nNone\n[990, 1290, 1450]\n```\n\n**Fellenoten:** dette er felle **#17** — `.sort()` endrer lista og returnerer `None`. Skriver du `x = x.sort()`, mister du lista og sitter igjen med ingenting.\n\nDe to riktige formene er `priser.sort()` alene (og deretter bruke `priser`), eller `resultat = sorted(priser)` når du vil ha ei ny liste. Ikke bland dem.",
+        "hints": [
+          "Hva returnerer en metode som endrer objektet sitt på plass?",
+          "Er lista `priser` sortert etterpå, eller står den urørt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-opg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — rangering.) *«Skriv `rangert_med_overskrift(tabell, kolonnenavn)` som returnerer tabellen sortert stigende på den oppgitte kolonnen, med overskriftsraden fortsatt som rad 0.»*\n\nTest på kolonnen `senger`.",
+        "solution": "Overskriften limes på igjen til slutt, med `+` mellom to lister:\n\n```python\ndef rangert_med_overskrift(tabell, kolonnenavn):\n    k = tabell[0].index(kolonnenavn)\n    sortert = sorted(tabell[1:], key=lambda rad: rad[k])\n    return [tabell[0]] + sortert\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in rangert_med_overskrift(tabell, 'senger'):\n    print(rad)\n```\n\n**Utskrift:**\n```\n['navn', 'kommune', 'pris', 'senger']\n['Steinbua', 'Lom', 760, 8]\n['Fugleredet', 'Vang', 1450, 12]\n['Bjornhytta', 'Vang', 1290, 18]\n['Skarvheim', 'Hemsedal', 990, 24]\n['Snofonna', 'Hemsedal', 990, 40]\n```\n\n**Merk de to hakeparentesene i `[tabell[0]] + sortert`.** `tabell[0]` er **ei liste** (overskriftsraden), og `+` mellom to lister limer dem sammen. Skriver du `tabell[0] + sortert`, prøver du å lime sammen fire kolonnenavn med fem rader, og resultatet er en tabell med ni rare rader.\n\nSe forskjellen:\n\n```python\noverskrift = ['navn', 'pris']\nrader = [['Steinbua', 760], ['Bjornhytta', 1290]]\nprint(len([overskrift] + rader))\nprint(len(overskrift + rader))\n```\n\n**Utskrift:**\n```\n3\n4\n```\n\n**Hvorfor dette er verdt å få riktig:** returnerer du tabellen med overskriften, kan den neste funksjonen fortsatt bruke `tabell[0].index(...)`. Returnerer du bare radene, må den neste funksjonen få kolonnenummeret på en annen måte. Begge deler er riktige — men de må henge sammen gjennom hele besvarelsen.",
+        "hints": [
+          "Sorter radene først, og legg overskriften foran til slutt.",
+          "`tabell[0]` er ei liste. Hva må du gjøre for at `+` skal legge den til som **én** rad?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-txt-3",
+      "type": "text",
+      "content": "## Løkke 2 — retning og toppliste (~12 min)\n\nNår rekkefølgen er på plass, er resten to små grep: snu retningen, og ta et utsnitt."
+    },
+    {
+      "id": "tdt4110-7-5-def-5",
+      "type": "definition",
+      "title": "`reverse=True` — synkende rekkefølge",
+      "content": "Snur rekkefølgen sorteringen gir. Virker sammen med `key`.\n\n```python\nrader = [['Bjornhytta', 1290], ['Steinbua', 760], ['Fugleredet', 1450]]\nprint(sorted(rader, key=lambda rad: rad[1], reverse=True))\n```\n\n**Utskrift:**\n```\n[['Fugleredet', 1450], ['Bjornhytta', 1290], ['Steinbua', 760]]\n```\n\nTo andre måter å få samme resultat, begge riktige:\n\n- `sorted(...)[::-1]` — sorter stigende og snu lista etterpå. Fungerer, men gir en subtil forskjell ved like verdier: stabiliteten snus også.\n- `key=lambda rad: -rad[k]` — sorter på det negative tallet. Virker bare på tall, ikke på tekst.\n\n`reverse=True` er den formen boka bruker, fordi den sier hva den gjør og virker på alt."
+    },
+    {
+      "id": "tdt4110-7-5-def-6",
+      "type": "definition",
+      "title": "Topplista `sortert[:n]`",
+      "content": "Et utsnitt av de `n` første radene i ei ferdig sortert liste. Sluttgrensen er eksklusiv, så `[:3]` gir indeks 0, 1 og 2.\n\n```python\nsortert = [['Steinbua', 760], ['Skarvheim', 990], ['Snofonna', 990], ['Bjornhytta', 1290]]\nprint(sortert[:3])\nprint(len(sortert[:10]))\n```\n\n**Utskrift:**\n```\n[['Steinbua', 760], ['Skarvheim', 990], ['Snofonna', 990]]\n4\n```\n\n**Den snille egenskapen:** er lista kortere enn `n`, får du bare det som finnes — ingen feilmelding. `[:10]` på fire rader gir fire rader. Det gjør formen trygg på tomme og korte tabeller, og det er en av få steder du **ikke** trenger en egen tomtest.\n\nRekkefølgen er hele forutsetningen: utsnittet tar de `n` **første**, uansett om de er de beste eller de verste. Sorter riktig vei først."
+    },
+    {
+      "id": "tdt4110-7-5-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: de tre billigste og de tre største",
+      "problem": "*«Skriv `topp_n(tabell, kolonnenavn, n, storst)` som returnerer de `n` beste radene på den oppgitte kolonnen. Er `storst` sann, skal de største komme først; ellers de minste.»*",
+      "solution": "Én funksjon, styrt av parameterne:\n\n```python\ndef topp_n(tabell, kolonnenavn, n, storst):\n    k = tabell[0].index(kolonnenavn)\n    sortert = sorted(tabell[1:], key=lambda rad: rad[k], reverse=storst)\n    return sortert[:n]\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint('De tre billigste:')\nfor rad in topp_n(tabell, 'pris', 3, False):\n    print(rad[0].ljust(12) + str(rad[2]).rjust(6))\nprint('De tre største:')\nfor rad in topp_n(tabell, 'senger', 3, True):\n    print(rad[0].ljust(12) + str(rad[3]).rjust(6))\n```\n\n**Utskrift:**\n```\nDe tre billigste:\nSteinbua       760\nSkarvheim      990\nSnofonna       990\nDe tre største:\nSnofonna        40\nSkarvheim       24\nBjornhytta      18\n```\n\n**Legg merke til `reverse=storst`.** Parameteren sendes rett inn i `sorted` — ingen `if`-setning trengs, fordi `reverse` allerede tar imot en sannhetsverdi. Det er kortere og lettere å lese enn to nesten like grener.\n\n**En kortere kortliste enn du ba om:**\n\n```python\ndef topp_n(tabell, kolonnenavn, n, storst):\n    k = tabell[0].index(kolonnenavn)\n    return sorted(tabell[1:], key=lambda rad: rad[k], reverse=storst)[:n]\n\ntabell = [['navn', 'pris'], ['Steinbua', 760], ['Bjornhytta', 1290]]\nprint(len(topp_n(tabell, 'pris', 5, False)))\n```\n\n**Utskrift:**\n```\n2\n```\n\nTo rader inn, to rader ut, ingen feilmelding. Det er utsnittets snille egenskap.\n\n**Slik ville sensor sett på det:** at retningen er en **parameter** i stedet for to nesten like funksjoner, er gjenbruket som gir uttelling. Og at utsnittet tas **etter** sorteringen — ikke før — er det som gjør svaret riktig i det hele tatt.\n\n**Kantfeilen å nevne:** ved like verdier på plass 3 og 4 er det tilfeldig hvem som kommer med i en toppliste, i den forstand at det avhenger av rekkefølgen i fila. Sier ikke oppgaven noe, skriver du én setning: «ved lik pris tas den som står først i fila»."
+    },
+    {
+      "id": "tdt4110-7-5-opg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — toppliste.) *«Skriv `dyreste_navn(tabell, n)` som returnerer ei liste med navnene på de `n` dyreste fjellstuene, dyrest først.»*\n\nReturverdien skal være ei flat liste med navn, ikke rader.",
+        "solution": "Tre steg: sorter synkende, ta utsnittet, plukk ut navnekolonnen.\n\n```python\ndef dyreste_navn(tabell, n):\n    k_pris = tabell[0].index('pris')\n    k_navn = tabell[0].index('navn')\n    sortert = sorted(tabell[1:], key=lambda rad: rad[k_pris], reverse=True)\n    navn = []\n    for rad in sortert[:n]:\n        navn.append(rad[k_navn])\n    return navn\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(dyreste_navn(tabell, 3))\nprint(dyreste_navn(tabell, 10))\n```\n\n**Utskrift:**\n```\n['Fugleredet', 'Bjornhytta', 'Skarvheim']\n['Fugleredet', 'Bjornhytta', 'Skarvheim', 'Snofonna', 'Steinbua']\n```\n\n**Snarveien for de tre siste linjene:**\n\n```python\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nk_pris = tabell[0].index('pris')\nk_navn = tabell[0].index('navn')\nsortert = sorted(tabell[1:], key=lambda rad: rad[k_pris], reverse=True)\nprint([rad[k_navn] for rad in sortert[:3]])\n```\n\n**Utskrift:**\n```\n['Fugleredet', 'Bjornhytta', 'Skarvheim']\n```\n\nBegge gir full pott.\n\n**Rekkefølgen på de tre stegene er hele oppgaven.** Plukker du ut navnekolonnen **først**, har du bare navn igjen — og da er det ingen priser å sortere på. Sorter, snitt, plukk: i den rekkefølgen, hver gang.\n\n**Merk også `dyreste_navn(tabell, 10)`:** fem rader inn, fem navn ut. Utsnittet klager ikke.",
+        "hints": [
+          "Sorter hele rader først. Navnene plukker du ut helt til slutt.",
+          "«Dyrest først» betyr `reverse=True`.",
+          "Hva skjer med `sortert[:10]` når tabellen bare har fem rader?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-opg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Forklar den andre linja med én setning.\n\n```python\nrader = [['A', 3], ['B', 1], ['C', 2]]\nprint(sorted(rader, key=lambda rad: rad[1])[:2])\nprint(sorted(rader[:2], key=lambda rad: rad[1]))\n```",
+        "solution": "**Sporingstavle.**\n\n| Uttrykk | Hva som skjer først | Resultat |\n|---|---|---|\n| `sorted(rader, key=…)[:2]` | sorterer alle tre, tar deretter de to første | de to minste av alle |\n| `sorted(rader[:2], key=…)` | tar de to første radene, sorterer deretter dem | de to første i tabellen, sortert |\n\n**Utskrift:**\n```\n[['B', 1], ['C', 2]]\n[['B', 1], ['A', 3]]\n```\n\n**Setningen:** den andre linja sorterer bare de to **første** radene i tabellen og ser aldri på `['C', 2]` — derfor mangler den, selv om den har en lavere verdi enn `['A', 3]`.\n\n**Fellenoten:** utsnittet må komme **etter** sorteringen. Feilen er stum: begge linjene gir to rader, begge ser sorterte ut, og bare den ene er riktig svar på «de to minste».",
+        "hints": [
+          "Hvilken operasjon skjer først i hvert av de to uttrykkene?",
+          "Hvilke rader ser den andre sorteringen i det hele tatt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-txt-4",
+      "type": "text",
+      "content": "## Løkke 3 — boblesortering på rader (~12 min)\n\nEnkelte sett ber uttrykkelig om at du skriver sorteringen selv. Da er boblesorteringen fra [kap. 6.1](/tdt4110/tdt4110-6-1) svaret — den skal bare sammenligne én kolonne og bytte **hele rader**."
+    },
+    {
+      "id": "tdt4110-7-5-thm-2",
+      "type": "theorem",
+      "title": "Kodemønster: boblesortering av en tabell på kolonne `k`",
+      "content": "Fire linjer, og bare sammenligningen skiller den fra den vanlige boblesorteringen:\n\n```text\nfor i in range(len(rader) - 1):\n    for j in range(len(rader) - 1 - i):\n        if rader[j][k] > rader[j + 1][k]:\n            rader[j], rader[j + 1] = rader[j + 1], rader[j]\n```\n\nBlokken over er mønsteret; den ferdige funksjonen står i eksempel 3.\n\nTo detaljer avgjør om den virker:\n\n- **`rader[j][k]` i sammenligningen** — bare kolonnen `k` avgjør rekkefølgen.\n- **`rader[j], rader[j+1] = …` i byttet** — hele radene bytter plass, ikke bare tallene. Skriver du `rader[j][k], rader[j+1][k] = …`, bytter du bare prisene og lar navnene stå igjen — og da er tabellen ødelagt.\n\nLøkkegrensene er de samme som alltid: `len - 1` passeringer, og `len - 1 - i` sammenligninger i hver, fordi halen allerede er sortert. Bruk `<` for synkende rekkefølge."
+    },
+    {
+      "id": "tdt4110-7-5-def-7",
+      "type": "definition",
+      "title": "Sorteringen endrer lista på plass",
+      "content": "Boblesorteringen sorterer lista **på plass** — den returnerer ingenting av seg selv, og den som sendte lista inn, ser endringen.\n\nEr det uønsket, tar du en kopi først:\n\n```python\noriginal = [[3, 'A'], [1, 'B']]\nkopi = original[:]\nkopi[0], kopi[1] = kopi[1], kopi[0]\nprint(kopi)\nprint(original)\n```\n\n**Utskrift:**\n```\n[[1, 'B'], [3, 'A']]\n[[3, 'A'], [1, 'B']]\n```\n\n`original[:]` gir ei ny **ytre** liste med de samme radene i. Det er nok her, siden byttet bare endrer den ytre rekkefølgen. Skulle du endre innholdet i en rad, ville begge listene sett det — det er aliasing, felle **#15**.\n\nI praksis er det som regel greit å sortere på plass, siden analysefunksjonen din eier tabellen den har fått. Men si fra i en kommentar hvis du gjør det."
+    },
+    {
+      "id": "tdt4110-7-5-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: den samme rangeringen, tre måter",
+      "problem": "Rangér fjellstuene etter pris med (1) boblesortering, (2) `sorted` med `key`, og (3) en utlevert `sort_list(tabell, k)` slik oppgaveteksten kan gi den. Vis at de tre gir samme svar.",
+      "solution": "**Måte 1 — boblesortering på rader:**\n\n```python\ndef bobler_paa_kolonne(rader, k):\n    for i in range(len(rader) - 1):\n        for j in range(len(rader) - 1 - i):\n            if rader[j][k] > rader[j + 1][k]:\n                rader[j], rader[j + 1] = rader[j + 1], rader[j]\n    return rader\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in bobler_paa_kolonne(tabell[1:], 2):\n    print(rad[0], rad[2])\n```\n\n**Utskrift:**\n```\nSteinbua 760\nSkarvheim 990\nSnofonna 990\nBjornhytta 1290\nFugleredet 1450\n```\n\n**Måte 2 — snarveien:**\n\n```python\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in sorted(tabell[1:], key=lambda rad: rad[2]):\n    print(rad[0], rad[2])\n```\n\n**Utskrift:**\n```\nSteinbua 760\nSkarvheim 990\nSnofonna 990\nBjornhytta 1290\nFugleredet 1450\n```\n\n**Måte 3 — den utleverte funksjonen.** Slik ser en typisk utlevering ut i oppgaveteksten, og slik bruker du den:\n\n```python\ndef sort_list(tabell, k):\n    return sorted(tabell, key=lambda rad: rad[k])\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nk = tabell[0].index('pris')\nfor rad in sort_list(tabell[1:], k):\n    print(rad[0], rad[2])\n```\n\n**Utskrift:**\n```\nSteinbua 760\nSkarvheim 990\nSnofonna 990\nBjornhytta 1290\nFugleredet 1450\n```\n\n**Alle tre gir det samme svaret, og alle tre gir full pott.** Det som skiller dem, er hva oppgaven ber om:\n\n| Oppgaveteksten sier | Du skal |\n|---|---|\n| «sortér tabellen» (uten mer) | bruke `sorted` med `key` — kortest og tryggest |\n| «skriv en sorteringsalgoritme» / «bruk boblesortering» | skrive de fire linjene selv |\n| «du kan bruke den gitte `sort_list`» | kalle den, og bruke tiden på resten |\n\n**Slik ville sensor sett på det:** å skrive boblesortering når `sort_list` er utlevert er ikke feil, men det koster deg fem–ti minutter du trengte til analysen. Å bruke `sorted` når oppgaven uttrykkelig ba om en egen algoritme, er derimot feil svar på bestillingen.\n\n**Kantfeilen i måte 1:** legg merke til at `bobler_paa_kolonne` fikk `tabell[1:]` inn, ikke `tabell`. Hadde overskriftsraden vært med, ville `'pris' > 1290` gitt `TypeError: '>' not supported between instances of 'str' and 'int'`."
+    },
+    {
+      "id": "tdt4110-7-5-warn-1",
+      "type": "warning",
+      "title": "Typiske feil i sorteringen",
+      "content": "Fem feller, og de tre første er stumme:\n\n- **Sortere kolonnen løsrevet fra radene.** Du får tallene i rekkefølge, men ingen vet lenger hvilken rad de hørte til. Sorter alltid rader.\n- **#4 — hardkodet kolonneindeks.** `rad[2]` svarer feil hvis kolonnene kommer i en annen rekkefølge. Bruk `tabell[0].index(navn)`.\n- **Feil retning.** «Dyreste» krever `reverse=True`. Skriv ut de to øverste radene og se på dem — det tar to sekunder.\n- **#17 — `x = x.sort()`.** `.sort()` returnerer `None`, så variabelen din blir `None`. Bruk `sorted(x)` når du vil ha ei ny liste.\n- **Overskriftsraden med i sorteringen.** Gir `TypeError` når tekst sammenlignes med tall, eller en overskrift midt i tabellen når kolonnen er tekst. Denne krasjer som regel, og er derfor den snilleste."
+    },
+    {
+      "id": "tdt4110-7-5-opg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — skriv sorteringen selv.) *«Skriv `sorter_synkende(rader, k)` som sorterer radene synkende på kolonne `k` med boblesortering. Du skal ikke bruke `sorted` eller `.sort()`.»*\n\nTest på sengekolonnen.",
+        "solution": "Den eneste endringen fra det stigende mønsteret er `<` i sammenligningen:\n\n```python\ndef sorter_synkende(rader, k):\n    for i in range(len(rader) - 1):\n        for j in range(len(rader) - 1 - i):\n            if rader[j][k] < rader[j + 1][k]:\n                rader[j], rader[j + 1] = rader[j + 1], rader[j]\n    return rader\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in sorter_synkende(tabell[1:], 3):\n    print(rad[0].ljust(12) + str(rad[3]).rjust(4))\n```\n\n**Utskrift:**\n```\nSnofonna      40\nSkarvheim     24\nBjornhytta    18\nFugleredet    12\nSteinbua       8\n```\n\nSnøfonna har flest senger med 40, Steinbua færrest med 8.\n\n**De to grensene, forklart en gang til:**\n\n- Ytre løkke `range(len(rader) - 1)`: med fem rader trengs fire passeringer. Når bare den siste raden gjenstår, er den allerede på plass.\n- Indre løkke `range(len(rader) - 1 - i)`: `- 1` fordi du sammenligner `j` med `j + 1` og ikke vil indeksere utenfor lista, `- i` fordi de `i` siste allerede er ferdige.\n\n**Fellen som ødelegger tabellen:**\n\n```python\nrader = [['Bjornhytta', 18], ['Snofonna', 40]]\nrader[0][1], rader[1][1] = rader[1][1], rader[0][1]\nprint(rader)\n```\n\n**Utskrift:**\n```\n[['Bjornhytta', 40], ['Snofonna', 18]]\n```\n\nHer byttet bare tallene plass, og navnene ble stående. Nå har Bjørnhytta 40 senger og Snøfonna 18 — svaret er feil, og ingenting krasjet.",
+        "hints": [
+          "Hva er den eneste forskjellen mellom stigende og synkende boblesortering?",
+          "Byttet skal flytte hele radene: `rader[j], rader[j + 1] = rader[j + 1], rader[j]`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-opg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — kodesporing.) Tabellen har tre rader. Hvor mange ganger kjører den **indre** løkkekroppen til sammen, og hva skriver programmet ut?\n\n```python\nrader = [['A', 3], ['B', 1], ['C', 2]]\nantall = 0\nfor i in range(len(rader) - 1):\n    for j in range(len(rader) - 1 - i):\n        antall = antall + 1\n        if rader[j][1] > rader[j + 1][1]:\n            rader[j], rader[j + 1] = rader[j + 1], rader[j]\nprint(antall)\nprint(rader)\n```",
+        "solution": "**Sporingstavle.**\n\n| `i` | `j` går over | Sammenligning | Bytte? | Lista etterpå |\n|---|---|---|---|---|\n| 0 | `range(2)`: 0, 1 | 3 mot 1 | ja | `[['B',1], ['A',3], ['C',2]]` |\n| 0 | | 3 mot 2 | ja | `[['B',1], ['C',2], ['A',3]]` |\n| 1 | `range(1)`: 0 | 1 mot 2 | nei | uendret |\n\nTre gjennomkjøringer av den indre kroppen: to i første passering, én i den andre.\n\n**Utskrift:**\n```\n3\n[['B', 1], ['C', 2], ['A', 3]]\n```\n\n**Fellenoten:** dette er felle **#5** — av-med-én i løkkegrensene. Hadde ytre løkke vært `range(len(rader))`, ville den kjørt en gang for mye; hadde indre vært `range(len(rader) - i)`, ville `rader[j + 1]` gitt `IndexError` i siste runde.\n\n**Delvis riktig sporing gir delvis uttelling:** har du 3 riktig, men bommer på den endelige lista, har du fortsatt vist at du kan telle iterasjonene — som er det denne oppgavetypen tester.",
+        "hints": [
+          "Skriv opp hva `range(len(rader) - 1 - i)` gir for `i = 0` og `i = 1`.",
+          "Følg lista rad for rad gjennom hvert bytte."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-txt-5",
+      "type": "text",
+      "content": "## Løkke 4 — rangér nøklene i en ordbok (~12 min)\n\nAnalysen i [kap. 7.4](/tdt4110/tdt4110-7-4) endte ofte i en ordbok: `{kommune: antall}`, `{mekaniker: omsetning}`. Neste deloppgave er som regel «vis dem i rekkefølge» — og da sorterer du nøklene etter verdien sin."
+    },
+    {
+      "id": "tdt4110-7-5-def-8",
+      "type": "definition",
+      "title": "`sorted(d, key=d.get)`",
+      "content": "Gir **nøklene** som ei liste, sortert etter verdien de har i ordboka.\n\n```python\nd = {'Vang': 2740, 'Hemsedal': 1980, 'Lom': 760}\nprint(sorted(d))\nprint(sorted(d, key=d.get))\nprint(sorted(d, key=d.get, reverse=True))\n```\n\n**Utskrift:**\n```\n['Hemsedal', 'Lom', 'Vang']\n['Lom', 'Hemsedal', 'Vang']\n['Vang', 'Hemsedal', 'Lom']\n```\n\nDen første linja sorterer alfabetisk på nøkkelen, de to neste på verdien. Det er `key=d.get` som gjør forskjellen: for hver nøkkel slås verdien opp, og den bestemmer rekkefølgen.\n\nDu får **nøklene** tilbake, ikke verdiene. Verdien henter du med `d[nøkkel]` når du skal skrive den ut."
+    },
+    {
+      "id": "tdt4110-7-5-def-9",
+      "type": "definition",
+      "title": "`d.items()` når du vil ha begge deler",
+      "content": "`d.items()` gir par av nøkkel og verdi, som kan sorteres som rader:\n\n```python\nd = {'Vang': 2740, 'Hemsedal': 1980, 'Lom': 760}\npar = list(d.items())\nprint(sorted(par, key=lambda p: p[1], reverse=True))\n```\n\n**Utskrift:**\n```\n[('Vang', 2740), ('Hemsedal', 1980), ('Lom', 760)]\n```\n\nHvert par er et **tuppel** — en uforanderlig sekvens, se [kap. 3.6](/tdt4110/tdt4110-3-6) — men det indekseres akkurat som ei liste, så `p[0]` er nøkkelen og `p[1]` er verdien.\n\nFormen er nyttig når du skal skrive ut både nøkkel og verdi i sortert rekkefølge. `sorted(d, key=d.get)` er kortere når du bare trenger nøklene."
+    },
+    {
+      "id": "tdt4110-7-5-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: kommunene rangert etter samlet sengekapasitet",
+      "problem": "*«Skriv `senger_per_kommune(tabell)` som returnerer `{kommune: sum senger}`, og `kommuner_rangert(tabell)` som returnerer kommunenavnene sortert etter kapasitet, størst først. Skriv til slutt ut oversikten.»*",
+      "solution": "**Summeringen fra [kap. 7.4](/tdt4110/tdt4110-7-4), gjenbrukt:**\n\n```python\ndef senger_per_kommune(tabell):\n    k_kom = tabell[0].index('kommune')\n    k_sng = tabell[0].index('senger')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_kom]] = d.get(rad[k_kom], 0) + rad[k_sng]\n    return d\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(senger_per_kommune(tabell))\n```\n\n**Utskrift:**\n```\n{'Vang': 30, 'Hemsedal': 64, 'Lom': 8}\n```\n\n**Rangeringen, som kaller den:**\n\n```python\ndef senger_per_kommune(tabell):\n    k_kom = tabell[0].index('kommune')\n    k_sng = tabell[0].index('senger')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_kom]] = d.get(rad[k_kom], 0) + rad[k_sng]\n    return d\n\ndef kommuner_rangert(tabell):\n    d = senger_per_kommune(tabell)\n    return sorted(d, key=d.get, reverse=True)\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(kommuner_rangert(tabell))\n```\n\n**Utskrift:**\n```\n['Hemsedal', 'Vang', 'Lom']\n```\n\n**Oversikten skrevet ut:**\n\n```python\nd = {'Vang': 30, 'Hemsedal': 64, 'Lom': 8}\nfor kommune in sorted(d, key=d.get, reverse=True):\n    print(kommune.ljust(12) + str(d[kommune]).rjust(4))\n```\n\n**Utskrift:**\n```\nHemsedal      64\nVang          30\nLom            8\n```\n\n**Slik ville sensor sett på det:** at `kommuner_rangert` kaller `senger_per_kommune` er kjeden i praksis — to deloppgaver, der den andre bygger på den første. Det er nøyaktig det mønsteret sensor belønner.\n\nLegg også merke til at rangeringen er **to linjer**. Er analysen fra forrige kapittel på plass, er sorteringsdeloppgaven som regel den billigste i hele settet.\n\n**Kantfeilen:** ved lik kapasitet er rekkefølgen den nøklene ble satt inn i ordboka i, altså den de kom i fila. Det er forutsigbart, men ikke noe oppgaven har bedt om — én setning om antakelsen dekker deg."
+    },
+    {
+      "id": "tdt4110-7-5-opg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — rangér ordboka.) *«Du har ordboka `{kommune: antall hytter}`. Skriv `rangert_liste(ordbok)` som returnerer ei liste med par på formen `[kommune, antall]`, sortert med flest hytter først.»*\n\nReturverdien skal være ei liste av lister, ikke en ordbok.",
+        "solution": "```python\ndef rangert_liste(ordbok):\n    ut = []\n    for kommune in sorted(ordbok, key=ordbok.get, reverse=True):\n        ut.append([kommune, ordbok[kommune]])\n    return ut\n\nprint(rangert_liste({'Vang': 2, 'Hemsedal': 2, 'Lom': 1}))\n```\n\n**Utskrift:**\n```\n[['Vang', 2], ['Hemsedal', 2], ['Lom', 1]]\n```\n\n**Snarveien med `items()`:**\n\n```python\nd = {'Vang': 2, 'Hemsedal': 2, 'Lom': 1}\npar = sorted(d.items(), key=lambda p: p[1], reverse=True)\nprint([[navn, antall] for navn, antall in par])\n```\n\n**Utskrift:**\n```\n[['Vang', 2], ['Hemsedal', 2], ['Lom', 1]]\n```\n\nBegge gir full pott. Den andre pakker ut hvert par i løkkevariablene `navn` og `antall` — utpakking fra [kap. 3.6](/tdt4110/tdt4110-3-6).\n\n**Hvorfor oppgaven ber om lister og ikke om ordboka selv:** en ordbok har ingen «rekkefølge» du kan stole på som svar på en rangeringsoppgave, mens ei liste har det. Skal rekkefølgen være en del av svaret, må svaret være ei liste.\n\n**Merk at Vang og Hemsedal begge har 2.** Rekkefølgen mellom dem er den de hadde i ordboka, siden sorteringen er stabil. Én setning om det, så er antakelsen dokumentert.",
+        "hints": [
+          "`sorted(d, key=d.get)` gir nøklene i rekkefølge etter verdi.",
+          "Bygg lista med `append` inne i løkka, ett par om gangen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-opg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — analyse og rangering i kjede.) Bruk fjellstuetabellen.\n\n**a)** Skriv `snitt_pris_per_kommune(tabell)` som returnerer `{kommune: gjennomsnittspris}`.\n\n**b)** Skriv `billigste_kommune(tabell)` som returnerer navnet på kommunen med lavest gjennomsnittspris, ved å gjenbruke a).\n\n**c)** Skriv ut alle kommunene sortert etter gjennomsnittspris, billigst først, med prisen avrundet til hele kroner i utskriften.",
+        "solution": "**a)** To ordbøker bygges i samme løkke, og deles til slutt:\n\n```python\ndef snitt_pris_per_kommune(tabell):\n    k_kom = tabell[0].index('kommune')\n    k_pris = tabell[0].index('pris')\n    sum_pris = {}\n    antall = {}\n    for rad in tabell[1:]:\n        kom = rad[k_kom]\n        sum_pris[kom] = sum_pris.get(kom, 0) + rad[k_pris]\n        antall[kom] = antall.get(kom, 0) + 1\n    d = {}\n    for kom in antall:\n        d[kom] = sum_pris[kom] / antall[kom]\n    return d\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(snitt_pris_per_kommune(tabell))\n```\n\n**Utskrift:**\n```\n{'Vang': 1370.0, 'Hemsedal': 990.0, 'Lom': 760.0}\n```\n\n**b)** «Finn beste nøkkel» med `<`, eller snarveien `min`:\n\n```python\ndef billigste_kommune(tabell):\n    d = snitt_pris_per_kommune(tabell)\n    return min(d, key=d.get)\n\ndef snitt_pris_per_kommune(tabell):\n    k_kom = tabell[0].index('kommune')\n    k_pris = tabell[0].index('pris')\n    sum_pris = {}\n    antall = {}\n    for rad in tabell[1:]:\n        kom = rad[k_kom]\n        sum_pris[kom] = sum_pris.get(kom, 0) + rad[k_pris]\n        antall[kom] = antall.get(kom, 0) + 1\n    d = {}\n    for kom in antall:\n        d[kom] = sum_pris[kom] / antall[kom]\n    return d\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nprint(billigste_kommune(tabell))\n```\n\n**Utskrift:**\n```\nLom\n```\n\nLegg merke til at `billigste_kommune` er definert **før** `snitt_pris_per_kommune` her. Det er helt greit — alle `def`-ene kjøres før det første kallet, så rekkefølgen i fila spiller ingen rolle.\n\n**c)** Utskriften, med avrundingen først i formateringen:\n\n```python\nd = {'Vang': 1370.0, 'Hemsedal': 990.0, 'Lom': 760.0}\nfor kom in sorted(d, key=d.get):\n    print(kom.ljust(12) + str(round(d[kom])).rjust(6))\n```\n\n**Utskrift:**\n```\nLom            760\nHemsedal       990\nVang          1370\n```\n\n**Slik ville sensor sett på det:** at (b) kaller (a) og at (c) bruker resultatet, er kjeden som gir uttelling i alle tre deloppgavene. En besvarelse som regner gjennomsnittet på nytt i hver av dem, får poeng for koden, men taper gjenbrukspoengene tre ganger.\n\n**Antakelsen å skrive ned:** avrundingen skjer bare i utskriften, ikke i dataene — så en senere deloppgave som summerer, får de nøyaktige tallene. Det er den samme regelen som i [kap. 7.4](/tdt4110/tdt4110-7-4): regn med tall, vis tekst.",
+        "hints": [
+          "I a): bygg både summen og antallet i samme løkke, og del til slutt.",
+          "I b): `min(d, key=d.get)` gir nøkkelen med lavest verdi.",
+          "I c): `sorted(d, key=d.get)` uten `reverse` gir billigst først."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-txt-6",
+      "type": "text",
+      "content": "## Løkke 5 — flere kriterier og tabeller som ikke er ryddige (~11 min)\n\nTil slutt de to tilfellene som skiller en god sortering fra en som bare virker på testdataene."
+    },
+    {
+      "id": "tdt4110-7-5-def-10",
+      "type": "definition",
+      "title": "Sortering på mer enn ett kriterium",
+      "content": "Skal like verdier skilles av et annet felt, gir `key` tilbake **et tuppel** i stedet for én verdi:\n\n```python\nrader = [['Skarvheim', 'Hemsedal', 990], ['Snofonna', 'Hemsedal', 990],\n         ['Steinbua', 'Lom', 760]]\nprint(sorted(rader, key=lambda rad: (rad[2], rad[0])))\n```\n\n**Utskrift:**\n```\n[['Steinbua', 'Lom', 760], ['Skarvheim', 'Hemsedal', 990], ['Snofonna', 'Hemsedal', 990]]\n```\n\nTuppelet sammenlignes elementvis: først prisen, og bare når to priser er like, navnet. Skarvheim kommer før Snøfonna fordi `'Sk'` kommer før `'Sn'`.\n\nSkal det andre kriteriet gå **motsatt** vei, går ikke `reverse` — den snur alt. Løsningen er å negere det numeriske feltet: `key=lambda rad: (rad[2], -rad[3])`. Det virker bare på tall.\n\nDenne varianten kommer sjelden på eksamen, men den er den ryddige måten å svare på «sorter på pris, og ved lik pris alfabetisk»."
+    },
+    {
+      "id": "tdt4110-7-5-def-11",
+      "type": "definition",
+      "title": "Tekst sorterer ikke som tall",
+      "content": "Er kolonnen fortsatt tekst — fordi konverteringen i [kap. 7.3](/tdt4110/tdt4110-7-3) ble hoppet over — sorterer den tegn for tegn:\n\n```python\nprint(sorted(['1290', '990', '760']))\nprint(sorted([1290, 990, 760]))\n```\n\n**Utskrift:**\n```\n['1290', '760', '990']\n[760, 990, 1290]\n```\n\n`'1290'` kommer først fordi `'1'` kommer før `'7'` og `'9'`. Det er feilkode **#1**, glemt konvertering, og den er stum: du får ei sortert liste, den er bare sortert etter noe annet enn du trodde.\n\nKontrollen tar to sekunder: se på det største og det minste tallet i svaret ditt. Står et firesifret tall før et tresifret, sorterer du tekst."
+    },
+    {
+      "id": "tdt4110-7-5-def-12",
+      "type": "definition",
+      "title": "Når sorteringsfunksjonen er utlevert",
+      "content": "På noen sett står det i oppgaveteksten: *«Du kan bruke funksjonen `sort_list(tabell, k)`, som returnerer tabellen sortert stigende på kolonne `k`.»*\n\nDa skal du **ikke** skrive sorteringen selv. Poenget med deloppgaven er å vise at du\n\n1. finner riktig `k` — helst med `tabell[0].index(navn)`,\n2. sender inn radene uten overskriftsraden,\n3. bruker returverdien riktig, for eksempel med et utsnitt til slutt.\n\nÅ skrive boblesortering likevel gir samme svar, men koster deg minutter du trengte på analysen. Les alltid gjennom hele oppgaveteksten før du begynner å kode — utleveringene står ofte i innledningen, ikke i deloppgaven."
+    },
+    {
+      "id": "tdt4110-7-5-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: rangeringen som tåler en tom tabell",
+      "problem": "*«Skriv `topp_tre_billigste(tabell)` som returnerer de tre billigste fjellstuene. Funksjonen skal returnere ei tom liste hvis tabellen ikke har noen datarader, og den skal ikke anta at priskolonnen ligger på en bestemt plass.»*",
+      "solution": "```python\ndef topp_tre_billigste(tabell):\n    if len(tabell) <= 1:\n        return []\n    k = tabell[0].index('pris')\n    return sorted(tabell[1:], key=lambda rad: rad[k])[:3]\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in topp_tre_billigste(tabell):\n    print(rad[0], rad[2])\nprint(topp_tre_billigste([['navn', 'kommune', 'pris', 'senger']]))\n```\n\n**Utskrift:**\n```\nSteinbua 760\nSkarvheim 990\nSnofonna 990\n[]\n```\n\n**Trengs tomtesten i det hele tatt?** Nei — og det er verdt å vite:\n\n```python\ntabell = [['navn', 'pris']]\nk = tabell[0].index('pris')\nprint(sorted(tabell[1:], key=lambda rad: rad[k])[:3])\n```\n\n**Utskrift:**\n```\n[]\n```\n\n`sorted` på ei tom liste gir ei tom liste, og utsnittet av den er tom. Sorteringen er en av de få analysene som takler tomtilfellet helt av seg selv.\n\n**Hvorfor testen likevel står der:** den gjør **antakelsen synlig**. En leser — og en sensor — ser med én gang at kandidaten har tenkt på tilfellet. Det koster to linjer og er billig forsikring når du er usikker.\n\nDer testen derimot er **nødvendig**, er når du plukker ut noe etter sorteringen:\n\n```python\ndef billigste(tabell):\n    if len(tabell) <= 1:\n        return None\n    k = tabell[0].index('pris')\n    return sorted(tabell[1:], key=lambda rad: rad[k])[0]\n\nprint(billigste([['navn', 'pris'], ['Steinbua', 760]]))\nprint(billigste([['navn', 'pris']]))\n```\n\n**Utskrift:**\n```\n['Steinbua', 760]\nNone\n```\n\nHer ville `[0]` på ei tom liste gitt `IndexError`. Regelen: **utsnitt er trygge, indekser er det ikke.**\n\n**Slik ville sensor sett på det:** det som gir de siste poengene, er kolonnen funnet ved navn og et bevisst, dokumentert svar på tomtilfellet. Robusthetskravene samlet står i [kap. 7.6](/tdt4110/tdt4110-7-6)."
+    },
+    {
+      "id": "tdt4110-7-5-opg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — sortering på to kriterier.) *«Skriv `sortert_pris_og_navn(tabell)` som returnerer radene sortert stigende på pris, og alfabetisk på navn når to priser er like.»*\n\nVis at rekkefølgen mellom de to 990-hyttene blir riktig.",
+        "solution": "Nøkkelen gir tilbake et tuppel, og tuppelet sammenlignes elementvis:\n\n```python\ndef sortert_pris_og_navn(tabell):\n    k_pris = tabell[0].index('pris')\n    k_navn = tabell[0].index('navn')\n    return sorted(tabell[1:], key=lambda rad: (rad[k_pris], rad[k_navn]))\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in sortert_pris_og_navn(tabell):\n    print(str(rad[2]).rjust(5), rad[0])\n```\n\n**Utskrift:**\n```\n  760 Steinbua\n  990 Skarvheim\n  990 Snofonna\n 1290 Bjornhytta\n 1450 Fugleredet\n```\n\nSkarvheim og Snøfonna koster begge 990, og Skarvheim kommer først fordi `'Sk'` kommer før `'Sn'`.\n\n**Kontrollen: hva ville skjedd uten det andre kriteriet?**\n\n```python\ntabell = [['navn', 'pris'], ['Snofonna', 990], ['Skarvheim', 990]]\nprint(sorted(tabell[1:], key=lambda rad: rad[1]))\n```\n\n**Utskrift:**\n```\n[['Snofonna', 990], ['Skarvheim', 990]]\n```\n\nMed bare prisen som nøkkel beholder de to den rekkefølgen de hadde i tabellen — Snøfonna først, fordi den sto først. Sortering i Python er **stabil**. Det er forutsigbart, men det er ikke alfabetisk, og det er forskjellen oppgaven spør etter.\n\n**Merk:** `reverse=True` ville snudd **begge** kriteriene. Skal prisen gå synkende og navnet fortsatt alfabetisk, må du negere prisen i stedet: `key=lambda rad: (-rad[k_pris], rad[k_navn])`.",
+        "hints": [
+          "La `key` gi tilbake et tuppel med to felt: det viktigste kriteriet først.",
+          "Hva skjer med det andre kriteriet hvis du legger til `reverse=True`?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-opg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-5-oppg-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — rangering med utlevert funksjon og robusthet.) Oppgaveteksten oppgir denne hjelpefunksjonen:\n\n*«`sort_list(rader, k)` returnerer radene sortert stigende på kolonne `k`.»*\n\n**a)** Skriv `dyreste_tre(tabell)` som returnerer de tre dyreste fjellstuene, dyrest først. Bruk `sort_list` — ikke `sorted` og ikke boblesortering.\n\n**b)** Funksjonen skal returnere ei tom liste for en tabell uten datarader, og den skal ikke anta hvor priskolonnen ligger.\n\n**c)** Skriv én setning om hvorfor det er riktig å bruke den utleverte funksjonen her.",
+        "solution": "**a)** og **b)** — `sort_list` sorterer stigende, så lista snus etterpå:\n\n```python\ndef sort_list(rader, k):\n    return sorted(rader, key=lambda rad: rad[k])\n\ndef dyreste_tre(tabell):\n    if len(tabell) <= 1:\n        return []\n    k = tabell[0].index('pris')\n    stigende = sort_list(tabell[1:], k)\n    return stigende[::-1][:3]\n\ntabell = [['navn', 'kommune', 'pris', 'senger'],\n          ['Bjornhytta', 'Vang', 1290, 18],\n          ['Skarvheim', 'Hemsedal', 990, 24],\n          ['Fugleredet', 'Vang', 1450, 12],\n          ['Snofonna', 'Hemsedal', 990, 40],\n          ['Steinbua', 'Lom', 760, 8]]\nfor rad in dyreste_tre(tabell):\n    print(rad[0].ljust(12) + str(rad[2]).rjust(6))\nprint(dyreste_tre([['navn', 'kommune', 'pris', 'senger']]))\n```\n\n**Utskrift:**\n```\nFugleredet    1450\nBjornhytta    1290\nSnofonna       990\n[]\n```\n\n`[::-1]` gir lista snudd, som ei ny liste. Deretter tar `[:3]` de tre første — som nå er de dyreste.\n\n**Rekkefølgen på de to operasjonene betyr alt.** Snur du etter utsnittet i stedet, får du de tre **billigste** i motsatt rekkefølge:\n\n```python\nstigende = [760, 990, 990, 1290, 1450]\nprint(stigende[::-1][:3])\nprint(stigende[:3][::-1])\n```\n\n**Utskrift:**\n```\n[1450, 1290, 990]\n[990, 990, 760]\n```\n\n**c)** Setningen: **oppgaveteksten oppgir funksjonen, så deloppgaven tester at jeg finner riktig kolonne og bruker resultatet riktig — ikke at jeg kan skrive en sorteringsalgoritme.**\n\nDet er også et tidsspørsmål. Fem linjer boblesortering tar fem minutter du trenger til analysedeloppgavene, som er verdt mer.\n\n**Antakelsen å skrive ned:** ved lik pris på tredje- og fjerdeplass er det tilfeldig hvem som kommer med i topplista — her tas den som `sort_list` plasserte sist blant de like, siden lista er snudd.",
+        "hints": [
+          "Kall `sort_list` med radene uten overskriftsraden, og med kolonnenummeret du fant ved navn.",
+          "`sort_list` sorterer stigende. Hvordan får du dyrest først?",
+          "Snu lista **før** du tar utsnittet — ikke etter."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-5-col-1",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "tdt4110-7-5-ctxt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `sorted(x)` | ei **ny** sortert liste; originalen er urørt |\n| `x.sort()` | sorterer **på plass** og returnerer `None` — `x = x.sort()` gir `None` |\n| `sorted(x, key=f)` | rangerer etter `f(element)`, men flytter elementene hele |\n| `lambda rad: rad[k]` | navnløs funksjon: «gitt en rad, gi meg element `k`» |\n| `lambda rad: (rad[a], rad[b])` | tuppel som nøkkel: `a` avgjør først, `b` bare ved likhet |\n| `reverse=True` | snur rekkefølgen; snur **alle** kriteriene i et tuppel |\n| `sortert[:n]` | de `n` første radene; gir færre uten feil hvis lista er kortere |\n| `sortert[::-1]` | lista snudd, som ei ny liste |\n| `sortert[0]` | første rad; `IndexError` på ei tom liste — i motsetning til utsnitt |\n| `[tabell[0]] + sortert` | overskriftsraden limt på igjen som **én** rad |\n| `tabell[0].index('pris')` | kolonnenummeret ved navn; `ValueError` hvis navnet mangler |\n| `rader[j], rader[j+1] = rader[j+1], rader[j]` | bytter hele rader; bytter du bare feltene, ødelegges tabellen |\n| `range(len(rader) - 1)` | antall passeringer i boblesortering |\n| `range(len(rader) - 1 - i)` | sammenligninger i passering `i`; halen er allerede sortert |\n| `sorted(d, key=d.get)` | ordbokas **nøkler**, sortert etter verdi |\n| `d.items()` | par av nøkkel og verdi, som kan sorteres som rader |\n| `sort_list(rader, k)` | den utleverte hjelpefunksjonen — kall den, ikke skriv den om |\n| `original[:]` | kopi av den ytre lista; radene selv deles fortsatt |\n\n**Formler i dette delkapitlet:**\n\nAntall sammenligninger i boblesortering av $n$ rader: $\\frac{n(n-1)}{2}$\n\nKjøretiden er derfor $O(n^2)$, mot $O(n \\log n)$ for `sorted` — se [kap. 6.3](/tdt4110/tdt4110-6-3)."
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

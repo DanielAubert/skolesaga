@@ -222,6 +222,43 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  tdt4110: {
+    courseId: 'tdt4110',
+    institusjon: 'Norges teknisk-naturvitenskapelige universitet (NTNU) — Institutt for datateknologi og informatikk',
+    sammendrag:
+      'Boka er kalibrert mot TDT4110s eksamensarkiv ved NTNU: 33 filer fra 2014 til 2019 — 10 eksamenssittinger og 7 løsningsforslag, pluss varianter på begge målformer. Eksamensformen har vært påfallende stabil hele perioden: én fire timers skoleeksamen med hjelpemiddelkode D, fast tredelt i teori/flervalg, kodeforståelse og programmering. Sjangerkatalogen A–J, feilkatalogen og temafrekvensene er utledet av settene selv. Boka dekker også søsterkoden TDT4109, som har identisk innhold.',
+    eksamenssett: [
+      {
+        tittel: '10 eksamenssittinger (H2014 – K2019)',
+        detalj:
+          'H2014 (nynorsk), H2015, K2015, H2016, K2016, H2017, K2017, H2018 i to varianter samme dag, og K2019. Disse er frekvensnevneren i boka: står det «N av 10 sett», er det disse. H2018-variantene er den nyeste fullstrukturen og er lest tettest.',
+      },
+      {
+        tittel: 'Skumlest for form- og temaregistrering',
+        detalj:
+          'H2014-settet bekrefter minuspoeng-æraen som tok slutt etter 2014, og har tyngre systemutviklings- og prosessmodellteori enn senere år. Det er brukt til å datere teoriskiftet, ikke til å utlede dagens vekting.',
+      },
+    ],
+    sensorveiledninger: [],
+    andreKilder: [
+      {
+        tittel: '7 løsningsforslag fra faglærer (K2015 – K2019)',
+        detalj:
+          'K2015, H2015, K2016, H2016, K2017, H2017 og K2019. Disse er faglærerskrevne og opphavsrettslig vernet. De er brukt som fasitkilde for å fastslå hva som faktisk gir uttelling — flere korrekte løsninger sidestilles, riktig struktur belønnes selv med småfeil, gjenbruk av egne funksjoner belønnes — men ingen del av dem er gjengitt i boka. Alle oppgaver, eksempler og modellbesvarelser er nyskrevne.',
+      },
+      {
+        tittel: 'NTNUs emnebeskrivelse',
+        detalj:
+          'Brukt til å fastslå eksamensform, hjelpemiddelkode og gjeldende pensumramme.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har INGEN sensorveiledninger. De sju løsningsforslagene er skrevet av faglærer, ikke av sensorkollegiet, og boka omtaler dem aldri som sensorveiledning.',
+      'Arkivet stopper i 2019. NTNUs gjeldende emnebeskrivelse nevner f-strenger, NumPy, Matplotlib og KI som kodehjelp — ingen av delene er belagt i settene. Boka merker slike punkter eksplisitt som «verifiser mot gjeldende pensum» framfor å presentere dem som testet stoff.',
+      'Kodeblokkene i kodeforståelsesoppgavene ligger som bilder i PDF-ene og ga ingen tekst ved uttrekk. De er dekket indirekte gjennom løsningsforslagenes fasitsvar, som gjengir både resultat og funksjonens formål.',
+      'Teoriinnholdet dreide fra systemutvikling og algoritmekompleksitet (2014–2017) mot nettverk, sikkerhet og maskinvare (2018–2019). Frekvenstallene i boka er regnet over hele perioden, så et tema med lav totalprosent kan likevel være tungt i de nyeste settene.',
+    ],
+  },
   fys1100: {
     courseId: 'fys1100',
     institusjon: 'Universitetet i Oslo (UiO) — Fysisk institutt',

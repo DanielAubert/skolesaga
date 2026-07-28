@@ -1,411 +1,411 @@
 {
- "id": "tdt4110-7-6",
- "courseId": "tdt4110",
- "chapterNumber": "7.6",
- "title": "DRILL — Robusthet: ukjent rekkefølge, manglende data",
- "description": "De fire eksplisitte fullscore-kravene samlet: finn kolonnen dynamisk, håndtér tomme og ikke-funnet-tilfeller, unngå duplikater i resultatet, og ikke anta noe om rekkefølgen på radene.",
- "estimatedMinutes": 75,
- "competenceGoals": [
-  "kunne finne en kolonne ved navn og svare fornuftig når navnet ikke finnes",
-  "kunne velge riktig returverdi når det ikke finnes noe svar, og begrunne valget",
-  "kunne bygge et resultat uten duplikater, med og uten en fast rekkefølge",
-  "kunne skrive analyser som virker uansett hvilken rekkefølge radene kommer i"
- ],
- "content": [
-  {
-   "id": "tdt4110-7-6-tip-1",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "**Dette er kapitlet som skiller toppkarakter fra middels — og det er ikke et luksuskapittel.**\n\n- Robusthet er et **eksplisitt fullscore-krav** i flere av settene i arkivet 2014–2019, formulert rett ut i oppgaveteksten: «returnér ingen duplikater», «du kan ikke anta at kolonnene kommer i denne rekkefølgen», «bilene passerer i tilfeldig rekkefølge».\n- Kravene er alltid de samme fire: **finn kolonnen dynamisk**, **håndtér tomme og ikke-funnet-tilfeller**, **unngå duplikater**, og **ikke anta noe om rekkefølgen på radene**.\n- Sjangeren er den samme som i [kap. 7.4](/tdt4110/tdt4110-7-4) og [kap. 7.5](/tdt4110/tdt4110-7-5) — **sjanger G, analyse** — men med de siste poengene lagt inn.\n- Det gode med kravene er at de er **konkrete og få**. Avstanden fra en løsning som virker til en som får full pott, er som regel tre linjer, ikke tre sider.\n\n**Prioritet: må sitte for toppscore** — kravene er billige å lære og dyre å droppe.\n\nKapitlet tar ~75 minutter og er delt i seks løkker med tidsanslag. Naturlig pausepunkt etter løkke 3."
-  },
-  {
-   "id": "tdt4110-7-6-txt-1",
-   "type": "text",
-   "content": "**Forkunnskaper — sist du var her**\n\nRobusthet er ikke nytt stoff, men gamle grep brukt bevisst. Her er de tre, ferdig oppfrisket.\n\n**1. Kolonnen funnet ved navn** ([kap. 3.2](/tdt4110/tdt4110-3-2)):\n\n```python\noverskrift = ['oppgave', 'navn', 'timer']\nprint(overskrift.index('timer'))\n```\n\n**Utskrift:**\n```\n2\n```\n\n**2. `None` som startverdi i «finn beste»** ([kap. 7.4](/tdt4110/tdt4110-7-4)):\n\n```python\nbeste = None\nfor t in []:\n    beste = t\nprint(beste)\n```\n\n**Utskrift:**\n```\nNone\n```\n\n**3. Medlemskapstesten `in`** ([kap. 3.1](/tdt4110/tdt4110-3-1)):\n\n```python\nresultat = ['Hedda', 'Ivar']\nprint('Hedda' in resultat)\nprint('Nils' in resultat)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nI tillegg forutsetter kapitlet [kap. 7.4](/tdt4110/tdt4110-7-4), som ga oss analysemønstrene robustheten legges oppå."
-  },
-  {
-   "id": "tdt4110-7-6-txt-2",
-   "type": "text",
-   "content": "## Løkke 1 — de fire kravene (~13 min)\n\nRobusthet høres ut som noe stort og vagt. På eksamen er det fire helt konkrete ting, og de kommer igjen i sett etter sett."
-  },
-  {
-   "id": "tdt4110-7-6-def-1",
-   "type": "definition",
-   "title": "Robusthet — hva sensor mener med ordet",
-   "content": "Robusthet er ikke «feilfri kode». Det er at funksjonen **gir et fornuftig svar også når dataene ikke er slik du håpet**.\n\nFire situasjoner, og en robust funksjon har et bevisst svar på hver av dem:\n\n1. Kolonnene kommer i en annen rekkefølge enn i eksempelfila.\n2. Det finnes ingen rader, eller ingen rad som passer søket.\n3. Den samme verdien dukker opp flere ganger, men skal bare med én gang.\n4. Radene kommer i tilfeldig rekkefølge, ikke gruppert eller sortert.\n\nMerk formuleringen «bevisst svar». Det er ikke noe krav om at koden skal gjette hva brukeren mente — det er et krav om at den ikke krasjer og ikke lyver."
-  },
-  {
-   "id": "tdt4110-7-6-thm-1",
-   "type": "theorem",
-   "title": "Robusthetssjekklista — fire spørsmål før du leverer",
-   "content": "Bruk to minutter på denne lista når analysedeloppgavene er skrevet. Den er verdt mer per minutt enn noe annet du kan gjøre på slutten.\n\n1. **Kolonne:** står det et talltegn som `rad[2]` i koden min? Bytt det med `tabell[0].index('timer')`.\n2. **Tomt:** hva returnerer funksjonen hvis tabellen ikke har datarader, eller hvis ingen rad passer? Skal den gi `[]`, `None`, `-1` eller `{}`?\n3. **Duplikater:** kan den samme verdien komme flere ganger i resultatet mitt? Skal den det?\n4. **Rekkefølge:** antar koden min at like rader står ved siden av hverandre, eller at tabellen er sortert?\n\nOg en femte, som ikke er kode: **skriv én setning om hver antakelse** du har måttet gjøre. Sensorregelen er uttalt — kort og klart er bedre enn detaljert."
-  },
-  {
-   "id": "tdt4110-7-6-def-2",
-   "type": "definition",
-   "title": "Robusthet er ikke `try/except` overalt",
-   "content": "`try/except` fra [kap. 4.3](/tdt4110/tdt4110-4-3) hører hjemme rundt **fil-I/O og konvertering** — der feilen kommer utenfra og du ikke kan forutse den.\n\nDe fire kravene i dette kapitlet løses derimot med **vanlige `if`-tester**, fordi du vet nøyaktig hva som kan gå galt:\n\n```text\nif len(tabell) <= 1:\n    return None\n```\n\nBlokken over er et utdrag, ikke et program.\n\nEn besvarelse som pakker hele analysen i `try: … except: …` for å «være robust», skjuler feilene i stedet for å håndtere dem — og en naken `except:` fanger til og med skrivefeilene dine. Det gir dårligere uttelling enn en `if`-test som sier hva den passer på.\n\nRegelen: **`try` mot det uforutsigbare, `if` mot det du kan se komme.**"
-  },
-  {
-   "id": "tdt4110-7-6-ex-1",
-   "type": "example",
-   "title": "Eksempel 1: den samme funksjonen, før og etter",
-   "problem": "Her er en analysefunksjon som virker på dugnadslista i borettslaget, og den samme funksjonen gjort robust. Hva er forskjellen, linje for linje?",
-   "solution": "Slik ser fila ut:\n\n**Innholdet i `dugnad.txt`:**\n```\noppgave;navn;timer\nmaling;Hedda;3.5\nrydding;Ivar;2.0\nmaling;Ivar;1.5\nbeplantning;Hedda;4.0\nrydding;Nils;2.5\nmaling;Hedda;2.0\n```\n\n**Før — virker på akkurat disse dataene:**\n\n```python\ndef flest_timer(tabell):\n    beste = tabell[1]\n    for rad in tabell[1:]:\n        if rad[2] > beste[2]:\n            beste = rad\n    return beste[1]\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(flest_timer(tabell))\n```\n\n**Utskrift:**\n```\nHedda\n```\n\nKoden gir riktig svar her, og den har riktig struktur — én løkke, én sammenligning. Det gir god uttelling. Men den har tre svakheter, og alle tre er nevnt i oppgavetekstene i arkivet.\n\n**Etter — de tre grepene lagt inn:**\n\n```python\ndef flest_timer(tabell):\n    if len(tabell) <= 1:\n        return None\n    k_timer = tabell[0].index('timer')\n    k_navn = tabell[0].index('navn')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k_timer] > beste_verdi:\n            beste = rad[k_navn]\n            beste_verdi = rad[k_timer]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(flest_timer(tabell))\nprint(flest_timer([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nHedda\nNone\n```\n\n**De tre grepene, og hva hvert av dem koster:**\n\n| Grep | Linjer | Hva det redder |\n|---|---|---|\n| `tabell[0].index(...)` | 2 | riktig svar når kolonnene kommer i annen rekkefølge |\n| `if len(tabell) <= 1: return None` | 2 | et krasj på tom tabell |\n| `beste_verdi is None` | 2 | riktig svar når alle timetallene er negative eller null |\n\nSeks linjer til sammen. Det er hele avstanden fra «virker» til «full pott».\n\n**Slik ville sensor sett på det:** den første versjonen er en solid midtnivåbesvarelse — den ville fått god uttelling, kanskje 70–80 % av deloppgavens poeng, fordi strukturen er riktig. Den andre får alt.\n\nLegg merke til at forskjellen ikke er dyktighet i programmering. Den er en sjekkliste, kjørt i to minutter på slutten."
-  },
-  {
-   "id": "tdt4110-7-6-opg-1",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-1",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innstegsoppgave — les koden.) Her er en funksjon som skal returnere navnet på den som har jobbet færrest timer:\n\n```python\ndef faerrest_timer(tabell):\n    beste = tabell[1]\n    for rad in tabell[1:]:\n        if rad[2] < beste[2]:\n            beste = rad\n    return beste[1]\n```\n\n**a)** Hvilke av de fire robusthetskravene bryter den?\n\n**b)** Hva skjer hvis `tabell` bare inneholder overskriftsraden?",
-    "solution": "**a)** Den bryter to av de fire:\n\n- **Krav 1, dynamisk kolonne:** `rad[2]` og `beste[1]` er hardkodede kolonnenummer. Kommer kolonnene som `navn;timer;oppgave`, leser funksjonen oppgavenavnet som timetall.\n- **Krav 2, tomtilfellet:** `tabell[1]` finnes ikke i en tabell uten datarader.\n\nDe to andre kravene er ikke relevante her: funksjonen returnerer ett navn, så duplikater kan ikke oppstå, og «finn beste» virker uansett hvilken rekkefølge radene kommer i.\n\n**b)** Den krasjer med `IndexError: list index out of range` på linja `beste = tabell[1]`, før løkka i det hele tatt starter.\n\n```python\ntabell = [['oppgave', 'navn', 'timer']]\nprint(len(tabell))\nprint(tabell[1:])\n```\n\n**Utskrift:**\n```\n1\n[]\n```\n\n`tabell[1:]` gir ei tom liste helt uten problemer — det er utsnittet, og utsnitt er tolerante. Det er **indeksen** `tabell[1]` som krasjer. Det er den samme regelen som i [kap. 7.5](/tdt4110/tdt4110-7-5): utsnitt er trygge, indekser er det ikke.",
-    "hints": [
-     "Se etter talltegn i indekseringen — hvor mange steder står det et kolonnenummer?",
-     "Hva er `tabell[1]` når tabellen bare har én rad?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-opg-2",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-2",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå — robustgjør.) Skriv om funksjonen fra oppgave 1 slik at den oppfyller begge kravene den brøt. Den skal fortsatt returnere navnet, og den skal returnere `None` når det ikke finnes noen rader å velge mellom.",
-    "solution": "```python\ndef faerrest_timer(tabell):\n    if len(tabell) <= 1:\n        return None\n    k_timer = tabell[0].index('timer')\n    k_navn = tabell[0].index('navn')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k_timer] < beste_verdi:\n            beste = rad[k_navn]\n            beste_verdi = rad[k_timer]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(faerrest_timer(tabell))\nprint(faerrest_timer([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nIvar\nNone\n```\n\nIvar hadde det korteste enkeltoppdraget med 1.5 timer.\n\n**Trengs `if len(tabell) <= 1` i det hele tatt her?** Nei — med `None` som startverdi ville løkka kjørt null ganger og funksjonen returnert `None` av seg selv.\n\nTesten står der likevel av én grunn: den gjør **antakelsen synlig**. Sensor ser at kandidaten har tenkt på tilfellet, i stedet for å ha vært heldig. Og den koster to linjer.\n\n**Merk at oppgaven spør om det korteste enkeltoppdraget**, ikke om hvem som har færrest timer totalt. Det siste ville krevd en teller først — se oppgave 11. Les alltid bestillingen to ganger; her er forskjellen ett ord.",
-    "hints": [
-     "Begge kolonnene skal finnes med `.index(...)` på rad 0.",
-     "Mønsteret er «finn beste» med `<`, og `None` som startverdi.",
-     "Hva returnerer funksjonen når løkka aldri kjører?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-txt-3",
-   "type": "text",
-   "content": "## Løkke 2 — krav 1: finn kolonnen dynamisk (~13 min)\n\nDet første kravet er også det som nevnes oftest i oppgavetekstene: *«du kan ikke anta at kolonnene kommer i denne rekkefølgen».*"
-  },
-  {
-   "id": "tdt4110-7-6-def-3",
-   "type": "definition",
-   "title": "Fullscore-krav 1: dynamisk kolonneoppslag",
-   "content": "Kolonnenummeret skal **leses ut av overskriftsraden**, aldri skrives inn i koden.\n\nRiktig: `k = tabell[0].index('timer')`, deretter `rad[k]`.\n\nGalt: `rad[2]`.\n\nGrunnen er ikke elegant kode. Grunnen er at oppgavetekstene sier det rett ut, og at fila på det virkelige eksamenssettet kan ha kolonnene i en annen rekkefølge enn eksempelet i oppgaven.\n\nFeilen har et nummer: **#4** — anta fast kolonne- eller radrekkefølge. Den er stum. Programmet krasjer ikke; det leser bare feil kolonne og svarer med full selvtillit."
-  },
-  {
-   "id": "tdt4110-7-6-def-4",
-   "type": "definition",
-   "title": "`tabell[0].index(navn)` — og hva den krasjer på",
-   "content": "`.index(v)` gir posisjonen til den **første** forekomsten av `v` i lista, og krasjer med `ValueError` hvis `v` ikke finnes.\n\n```python\noverskrift = ['oppgave', 'navn', 'timer']\nprint(overskrift.index('navn'))\nprint(overskrift.index('timer'))\n```\n\n**Utskrift:**\n```\n1\n2\n```\n\nTo ting å vite:\n\n- Den er **følsom for store og små bokstaver**: `'Timer'` finnes ikke når overskriften sier `'timer'`.\n- Den ser bare på **eksakte** treff; `'time'` finner ikke `'timer'`.\n\nEr du usikker på om kolonnen finnes — for eksempel fordi brukeren har skrevet inn navnet — skal du teste først. Det er neste definisjon."
-  },
-  {
-   "id": "tdt4110-7-6-def-5",
-   "type": "definition",
-   "title": "`if navn in overskrift:` — sjekk før oppslag",
-   "content": "Medlemskapstesten før `.index(...)` gjør forskjellen mellom en feilmelding og et fornuftig svar.\n\n```python\ndef kolonne(tabell, navn):\n    if navn not in tabell[0]:\n        return -1\n    return tabell[0].index(navn)\n\nt = [['oppgave', 'navn', 'timer']]\nprint(kolonne(t, 'timer'))\nprint(kolonne(t, 'lonn'))\n```\n\n**Utskrift:**\n```\n2\n-1\n```\n\n`-1` er den vanlige returverdien for «ikke funnet» når svaret er en **posisjon** — det er den samme konvensjonen som i sekvensielt søk, [kap. 6.2](/tdt4110/tdt4110-6-2). Den som kaller, tester `if k == -1:` og gir brukeren beskjed.\n\nNår trenger du testen? Når kolonnenavnet kommer **utenfra** — fra brukeren, fra en meny, eller fra en annen fil. Er navnet skrevet inn i din egen kode, er `.index` alene nok: da er det din skrivefeil som gir `ValueError`, og den vil du gjerne se."
-  },
-  {
-   "id": "tdt4110-7-6-ex-2",
-   "type": "example",
-   "title": "Eksempel 2: den samme funksjonen på to filer",
-   "problem": "Vis at en funksjon med dynamisk kolonneoppslag gir riktig svar på både `dugnad.txt` og `dugnad-omstokket.txt`, som har de samme dataene i en annen kolonnerekkefølge.",
-   "solution": "De to filene:\n\n**Innholdet i `dugnad.txt`:**\n```\noppgave;navn;timer\nmaling;Hedda;3.5\nrydding;Ivar;2.0\nmaling;Ivar;1.5\nbeplantning;Hedda;4.0\nrydding;Nils;2.5\nmaling;Hedda;2.0\n```\n\n**Innholdet i `dugnad-omstokket.txt`:**\n```\nnavn;timer;oppgave\nHedda;3.5;maling\nIvar;2.0;rydding\nIvar;1.5;maling\nHedda;4.0;beplantning\n```\n\n**Innlesingen finner tallkolonnen ved navn**, så den virker på begge:\n\n```python\ndef les_dugnad(filnavn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    k_timer = overskrift.index('timer')\n    tabell = [overskrift]\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[k_timer] = float(felt[k_timer])\n        tabell.append(felt)\n    f.close()\n    return tabell\n\ndef sum_timer(tabell):\n    k = tabell[0].index('timer')\n    total = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n    return total\n\nprint(sum_timer(les_dugnad('dugnad.txt')))\nprint(sum_timer(les_dugnad('dugnad-omstokket.txt')))\n```\n\n**Utskrift:**\n```\n15.5\n11.0\n```\n\nDe to filene har ulikt antall rader, så tallene er forskjellige — men **begge er riktige**, og det er poenget: funksjonen leste riktig kolonne i begge tilfellene uten å vite noe om rekkefølgen.\n\n**Hva den hardkodede varianten ville gitt** på den omstokkede fila:\n\n```python\ntabell = [['navn', 'timer', 'oppgave'],\n          ['Hedda', 3.5, 'maling'],\n          ['Ivar', 2.0, 'rydding']]\nprint(tabell[1][2])\nprint(tabell[1][tabell[0].index('timer')])\n```\n\n**Utskrift:**\n```\nmaling\n3.5\n```\n\n`rad[2]` gir oppgavenavnet `'maling'` der koden ventet et timetall. Summeringen ville gitt `TypeError: unsupported operand type(s) for +: 'int' and 'str'` — her krasjer det, men bare fordi kolonnen tilfeldigvis er tekst. Hadde de to kolonnene begge vært tall, ville du fått et svar. Feil svar, uten et pip.\n\n**Slik ville sensor sett på det:** dette er den ene tingen oppgavetekstene i arkivet nevner mest eksplisitt. To linjer med `.index(...)` per funksjon er et av de billigste poengene i hele settet."
-  },
-  {
-   "id": "tdt4110-7-6-opg-3",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-3",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — dynamisk kolonne.) *«Skriv `timer_for(tabell, navn)` som returnerer det totale antallet timer en bestemt person har lagt ned. Både navnekolonnen og timekolonnen skal finnes ved navn, og funksjonen skal returnere 0 hvis personen ikke står i lista.»*",
-    "solution": "```python\ndef timer_for(tabell, navn):\n    k_navn = tabell[0].index('navn')\n    k_timer = tabell[0].index('timer')\n    total = 0\n    for rad in tabell[1:]:\n        if rad[k_navn] == navn:\n            total = total + rad[k_timer]\n    return total\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(timer_for(tabell, 'Hedda'))\nprint(timer_for(tabell, 'Ivar'))\nprint(timer_for(tabell, 'Kari'))\n```\n\n**Utskrift:**\n```\n9.5\n3.5\n0\n```\n\nHedda har 3.5 + 4.0 + 2.0 timer; Ivar har 2.0 + 1.5; Kari står ikke i lista og får 0.\n\n**Hvorfor 0 er riktig her, og `None` var riktig i eksempel 1:** oppgaven ba om det. Men det er også et fornuftig valg i seg selv — en person som ikke har møtt opp, **har** null timer. Det er en meningsfull verdi, ikke fravær av et svar.\n\nSammenlign med gjennomsnittet i [kap. 7.4](/tdt4110/tdt4110-7-4): der ville 0 kroner vært en løgn, fordi ingen oppdrag betyr at det ikke finnes noen snittpris. Regelen er: **0 når null er et gyldig svar, `None` når spørsmålet ikke har noe svar.**\n\n**Antakelsen å skrive ned:** navnesammenligningen er eksakt, så `'hedda'` med liten forbokstav gir 0. Vil du være snill, sammenligner du `rad[k_navn].lower() == navn.lower()` — men da må du si det, siden det endrer oppførselen.",
-    "hints": [
-     "Begge kolonnene skal finnes med `.index(...)` på rad 0.",
-     "Start `total` på 0, og legg til bare når navnet stemmer.",
-     "Hva er `total` når løkka aldri fant noen treff?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-opg-4",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-4",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — kolonne fra brukeren.) *«Skriv `sum_kolonne(tabell, kolonnenavn)` som summerer en tallkolonne brukeren har oppgitt navnet på. Finnes ikke kolonnen, skal funksjonen returnere `None` i stedet for å krasje.»*\n\nTest både med `'timer'` og med et navn som ikke finnes.",
-    "solution": "Testen med `in` kommer **før** oppslaget:\n\n```python\ndef sum_kolonne(tabell, kolonnenavn):\n    if kolonnenavn not in tabell[0]:\n        return None\n    k = tabell[0].index(kolonnenavn)\n    total = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n    return total\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(sum_kolonne(tabell, 'timer'))\nprint(sum_kolonne(tabell, 'lonn'))\n```\n\n**Utskrift:**\n```\n15.5\nNone\n```\n\n**Hvorfor testen er nødvendig her, men ikke i oppgave 3:** der sto kolonnenavnet skrevet inn i din egen kode, så en `ValueError` ville vært din egen skrivefeil — og den vil du gjerne se med en gang. Her kommer navnet **utenfra**, og da er en manglende kolonne en helt normal situasjon som funksjonen må svare på.\n\n**Den som kaller, må teste på svaret:**\n\n```python\nsvar = None\nif svar is None:\n    print('Fant ingen kolonne med det navnet.')\nelse:\n    print('Sum:', svar)\n```\n\n**Utskrift:**\n```\nFant ingen kolonne med det navnet.\n```\n\nDet er hele poenget med å returnere `None` i stedet for å krasje: kontrollen blir igjen hos den som spurte, og programmet kan gi brukeren en forståelig beskjed.\n\n**Kantfeilen som gjenstår:** funksjonen antar at kolonnen inneholder tall. Ber brukeren om summen av `'navn'`, får du `TypeError`. Én setning om antakelsen, eller en `try/except` rundt løkka — men les [kap. 4.3](/tdt4110/tdt4110-4-3) før du velger det siste.",
-    "hints": [
-     "Bruk `if kolonnenavn not in tabell[0]:` før du kaller `.index(...)`.",
-     "Hva skal den som kaller funksjonen, gjøre med `None`-svaret?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-txt-4",
-   "type": "text",
-   "content": "## Løkke 3 — krav 2: tomme og ikke-funnet-tilfeller (~13 min)\n\nDet andre kravet handler om ett spørsmål: **hva skal funksjonen svare når det ikke finnes noe svar?** Det finnes fire vanlige svar, og valget mellom dem er en del av oppgaven.\n\n— naturlig pausepunkt etter denne løkka —"
-  },
-  {
-   "id": "tdt4110-7-6-def-6",
-   "type": "definition",
-   "title": "Fullscore-krav 2: tomtilfeller og «ikke funnet»",
-   "content": "To situasjoner som ser like ut, men ikke er det:\n\n- **Tomt datagrunnlag:** tabellen har ingen datarader. Da finnes det ingenting å analysere.\n- **Ikke funnet:** tabellen har rader, men ingen som passer søket.\n\nBegge skal ha et bevisst svar, og svaret skal stå i koden eller i én setning i besvarelsen.\n\nDet som **ikke** er akseptabelt, er at funksjonen krasjer med `IndexError`, `ValueError` eller `ZeroDivisionError`. En krasjende deloppgave gir null, uansett hvor riktig resten av koden er."
-  },
-  {
-   "id": "tdt4110-7-6-def-7",
-   "type": "definition",
-   "title": "Returverdier for «ingenting»: `[]`, `None`, `-1`, `{}`",
-   "content": "Fire konvensjoner, valgt ut fra hva funksjonen ellers returnerer:\n\n| Funksjonen returnerer | Ved ingenting |\n|---|---|\n| ei liste | `[]` — den tomme lista |\n| en verdi eller en rad | `None` |\n| en **posisjon** i ei liste | `-1` |\n| en ordbok | `{}` — den tomme ordboka |\n\nRegelen bak: **behold returtypen.** Returnerer funksjonen ei liste i normaltilfellet, skal den også returnere ei liste når svaret er tomt — da kan den som kaller, skrive `for x in svar:` uten å teste først.\n\nBlander du typene — `[]` i det ene tilfellet og `None` i det andre — tvinger du den som kaller til å teste to ganger, og det er nettopp der de neste feilene oppstår.\n\n**0 er ikke i tabellen.** 0 er et tall, og det brukes bare når null faktisk er et gyldig svar, som i «antall timer for en som ikke møtte»."
-  },
-  {
-   "id": "tdt4110-7-6-def-8",
-   "type": "definition",
-   "title": "Mønstre som takler tomt av seg selv",
-   "content": "Tre av bokas mønstre er robuste helt uten ekstra linjer, og det er verdt å vite hvilke:\n\n```python\ntabell = [['navn', 'timer']]\nbeste = None\nfor rad in tabell[1:]:\n    beste = rad\nprint(beste)\n\nd = {}\nfor rad in tabell[1:]:\n    d[rad[0]] = 1\nprint(d)\n\nresultat = []\nfor rad in tabell[1:]:\n    resultat.append(rad[0])\nprint(resultat)\n```\n\n**Utskrift:**\n```\nNone\n{}\n[]\n```\n\n«Finn beste» med `None`, telleren og oppsamlingslista gir alle riktig tomsvar av seg selv, fordi løkkekroppen aldri kjører.\n\nDe som **ikke** gjør det, er snarveiene og divisjonene: `max([])` og `min([])` gir `ValueError`, `sum(x) / len(x)` gir `ZeroDivisionError`, og `sortert[0]` gir `IndexError`. Bruker du dem, må du teste."
-  },
-  {
-   "id": "tdt4110-7-6-warn-1",
-   "type": "warning",
-   "title": "Typiske feil i robusthetsarbeidet",
-   "content": "Fem feller, og de tre første er stumme:\n\n- **#4 — hardkodet kolonnenummer.** `rad[2]` leser feil kolonne når rekkefølgen skifter. Krasjer bare hvis typene tilfeldigvis kolliderer.\n- **#6 — glemt tomtilfelle.** `tabell[1]`, `max([])`, `sum(x)/len(x)` og `sortert[0]` krasjer alle på tomt datagrunnlag.\n- **#7 — duplikater i resultatet.** Oppgaveteksten sier «uten gjentakelser», og løsningen returnerer det samme navnet tre ganger.\n- **0 som «ingenting».** En pris på 0 og en snittid på 0 er løgn. Bruk `None` når det ikke finnes noe svar.\n- **Naken `except:` som robusthet.** Den fanger også dine egne skrivefeil, så programmet svarer «ingenting» på en feil du kunne rettet. Bruk `if` mot det du kan se komme."
-  },
-  {
-   "id": "tdt4110-7-6-ex-3",
-   "type": "example",
-   "title": "Eksempel 3: fire funksjoner, fire tomsvar",
-   "problem": "Skriv fire analysefunksjoner på dugnadslista, hver med sin returtype, og vis hva hver av dem svarer på en tabell uten datarader.",
-   "solution": "**1. Returnerer ei liste — tomsvaret er `[]`:**\n\n```python\ndef alle_som_deltok(tabell):\n    k = tabell[0].index('navn')\n    resultat = []\n    for rad in tabell[1:]:\n        if rad[k] not in resultat:\n            resultat.append(rad[k])\n    return resultat\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(alle_som_deltok(tabell))\nprint(alle_som_deltok([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n['Hedda', 'Ivar', 'Nils']\n[]\n```\n\n**2. Returnerer en verdi — tomsvaret er `None`:**\n\n```python\ndef snitt_timer(tabell):\n    k = tabell[0].index('timer')\n    total = 0\n    antall = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n        antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(snitt_timer(tabell))\nprint(snitt_timer([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n2.5833333333333335\nNone\n```\n\n**3. Returnerer en posisjon — tomsvaret er `-1`:**\n\n```python\ndef finn_rad(tabell, navn):\n    k = tabell[0].index('navn')\n    for i in range(1, len(tabell)):\n        if tabell[i][k] == navn:\n            return i\n    return -1\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(finn_rad(tabell, 'Nils'))\nprint(finn_rad(tabell, 'Kari'))\n```\n\n**Utskrift:**\n```\n5\n-1\n```\n\n**4. Returnerer en ordbok — tomsvaret er `{}`:**\n\n```python\ndef timer_per_person(tabell):\n    k_navn = tabell[0].index('navn')\n    k_timer = tabell[0].index('timer')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_timer]\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(timer_per_person(tabell))\nprint(timer_per_person([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n{'Hedda': 9.5, 'Ivar': 3.5, 'Nils': 2.5}\n{}\n```\n\n**Slik ville sensor sett på det:** legg merke til at bare **én** av de fire trengte en egen `if`-test. De tre andre er robuste fordi mønsteret er det — lista, ordboka og løkka som returnerer `-1` til slutt.\n\nDet er en god grunn til å lære mønstrene slik boka skriver dem: robustheten er allerede bygget inn, og du slipper å huske den.\n\n**Antakelsen å skrive ned for funksjon 3:** returnerer `-1` ved «ikke funnet», og finner **første** treff hvis navnet står flere ganger. To ting, én setning."
-  },
-  {
-   "id": "tdt4110-7-6-opg-5",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-5",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — tomtilfelle.) *«Skriv `lengste_okt(tabell)` som returnerer hele raden for den lengste enkeltøkta. Funksjonen skal returnere `None` hvis det ikke finnes noen økter, og den skal virke uansett kolonnerekkefølge.»*\n\nTest på en full tabell, på en tabell med bare overskriftsrad, og på en tabell der alle timetallene er 0.",
-    "solution": "```python\ndef lengste_okt(tabell):\n    k = tabell[0].index('timer')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(lengste_okt(tabell))\nprint(lengste_okt([['oppgave', 'navn', 'timer']]))\nprint(lengste_okt([['oppgave', 'navn', 'timer'], ['maling', 'Ivar', 0.0]]))\n```\n\n**Utskrift:**\n```\n['beplantning', 'Hedda', 4.0]\nNone\n['maling', 'Ivar', 0.0]\n```\n\nTre datasett, tre riktige svar — og ingen ekstra `if`-test. Mønsteret gjør jobben:\n\n- Full tabell: raden med 4.0 timer.\n- Bare overskrift: løkka kjører ikke, og `None` blir stående.\n- Alle timetall 0: `beste_verdi is None` er sann i første runde, så raden velges — der `beste_verdi = 0` som startverdi ville gitt `None` fordi `0 > 0` er usant.\n\n**Det siste tilfellet er verdt å dvele ved.** Det ser konstruert ut, men det er nøyaktig situasjonen i en fil der alle verdiene er null, negative eller like — og det skjer oftere enn du tror i temperaturer, kontobevegelser og målforskjeller.\n\n**Hvis oppgaven i stedet hadde bedt om `max`:**\n\n```python\ntabell = [['oppgave', 'navn', 'timer']]\nk = tabell[0].index('timer')\nif len(tabell) <= 1:\n    print(None)\nelse:\n    print(max(tabell[1:], key=lambda rad: rad[k]))\n```\n\n**Utskrift:**\n```\nNone\n```\n\nDa hadde testen vært **nødvendig**, ikke bare synliggjørende. Begge former gir full pott — men snarveien krever den ekstra linja.",
-    "hints": [
-     "Bruk «finn beste» med `None` som startverdi, og finn kolonnen ved navn.",
-     "Hva skjer med startverdien når løkkekroppen aldri kjører?",
-     "Prøv `beste_verdi = 0` på tabellen der alle timetallene er 0, og se hva som skjer."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-opg-6",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-6",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — flere tomtilfeller.) *«Skriv `snitt_per_oppgave(tabell)` som returnerer `{oppgave: gjennomsnittlig timer}`. Funksjonen skal (a) finne begge kolonnene ved navn, (b) returnere en tom ordbok hvis det ikke finnes rader, og (c) aldri dele på null.»*\n\nSkriv én setning om hvorfor deloppgave (c) er umulig å bryte i denne løsningen.",
-    "solution": "```python\ndef snitt_per_oppgave(tabell):\n    k_opp = tabell[0].index('oppgave')\n    k_timer = tabell[0].index('timer')\n    sum_timer = {}\n    antall = {}\n    for rad in tabell[1:]:\n        opp = rad[k_opp]\n        sum_timer[opp] = sum_timer.get(opp, 0) + rad[k_timer]\n        antall[opp] = antall.get(opp, 0) + 1\n    d = {}\n    for opp in antall:\n        d[opp] = sum_timer[opp] / antall[opp]\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nsnitt = snitt_per_oppgave(tabell)\nfor opp in sorted(snitt):\n    print(opp.ljust(14) + '{:.2f}'.format(snitt[opp]))\nprint(snitt_per_oppgave([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nbeplantning   4.00\nmaling        2.33\nrydding       2.25\n{}\n```\n\n**Setningen om (c):** en nøkkel havner bare i `antall` fordi minst én rad la den inn, så `antall[opp]` er alltid minst 1 — divisjonen på null er **umulig ved konstruksjon**.\n\nDet er et bedre svar enn en `if antall[opp] == 0`-test, og det er verdt å skrive ned. Sensor ser da at du har tenkt gjennom tilfellet i stedet for å ha oversett det.\n\n**(b) kommer også gratis:** går løkka null ganger, blir begge ordbøkene tomme, den siste løkka går null ganger, og `d` er `{}`. Ingen ekstra linjer.\n\n**Det ene som IKKE er gratis** er (a). Uten `.index(...)` ville funksjonen lest feil kolonner på en omstokket fil, og gitt et resultat som ser helt normalt ut. Det er den delen av oppgaven som faktisk krever at du husker den.",
-    "hints": [
-     "Bygg både summen og antallet i samme løkke, og del i en løkke etterpå.",
-     "Hvordan kan en nøkkel havne i `antall` uten at verdien er minst 1?",
-     "Hva blir de to ordbøkene hvis løkka aldri kjører?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-txt-5",
-   "type": "text",
-   "content": "## Løkke 4 — krav 3: ingen duplikater (~13 min)\n\nDet tredje kravet står ordrett i flere oppgavetekster: *«listen skal ikke inneholde duplikater»*. Det er en enkelt linje kode, og den er verdt hele forskjellen mellom riktig og galt svar."
-  },
-  {
-   "id": "tdt4110-7-6-def-9",
-   "type": "definition",
-   "title": "Fullscore-krav 3: ingen duplikater i resultatet",
-   "content": "Bygger du ei resultatliste med `append` i en løkke, kommer den samme verdien med én gang per rad som passer. Er det tre rader med Hedda, står Hedda tre ganger.\n\nFormuleringene i oppgaveteksten som utløser kravet:\n\n- «uten duplikater» / «ingen gjentakelser»\n- «alle **forskjellige** deltakere»\n- «hvilke oppgaver som er utført» (i motsetning til «alle utførte oppgaver»)\n\nEr formuleringen tvetydig, velger du selv og **skriver én setning om valget**. Men vær oppmerksom: duplikatkravet er så ofte nevnt eksplisitt at det lønner seg å lese oppgaveteksten en ekstra gang før du antar."
-  },
-  {
-   "id": "tdt4110-7-6-def-10",
-   "type": "definition",
-   "title": "`if x not in resultat:` — den eksplisitte formen",
-   "content": "Testen står rett før `append`, og den er hele grepet:\n\n```python\nnavn = ['Hedda', 'Ivar', 'Hedda', 'Nils', 'Ivar']\nresultat = []\nfor n in navn:\n    if n not in resultat:\n        resultat.append(n)\nprint(resultat)\n```\n\n**Utskrift:**\n```\n['Hedda', 'Ivar', 'Nils']\n```\n\nFordelen ved denne formen er at **rekkefølgen bevares**: navnene kommer i den rekkefølgen de dukket opp første gang. Det er ofte det oppgaven vil ha, og det er lett å forklare.\n\nFormen er også lett å lese for sensor: én linje som sier nøyaktig hva den passer på."
-  },
-  {
-   "id": "tdt4110-7-6-def-11",
-   "type": "definition",
-   "title": "`set(...)` — samlingen uten duplikater",
-   "content": "En **mengde** (`set`) er en samling der hver verdi finnes høyst én gang. `set(liste)` fjerner duplikatene i ett kall.\n\n```python\nnavn = ['Hedda', 'Ivar', 'Hedda', 'Nils', 'Ivar']\nprint(len(set(navn)))\nprint(sorted(set(navn)))\n```\n\n**Utskrift:**\n```\n3\n['Hedda', 'Ivar', 'Nils']\n```\n\nTo ting du må vite før du bruker den:\n\n- **Rekkefølgen i en mengde er ikke noe du kan stole på.** Derfor skriver boka alltid `sorted(set(...))` når resultatet skal vises eller sammenlignes — det gir ei liste i fast, alfabetisk rekkefølge.\n- Mengden er en **annen type** enn ei liste. Skal funksjonen returnere ei liste, må du konvertere: `list(set(x))` eller `sorted(set(x))`.\n\n`set` er en snarvei på lik linje med `max` og `sorted`, og **begge former gir full pott**."
-  },
-  {
-   "id": "tdt4110-7-6-def-12",
-   "type": "definition",
-   "title": "`sorted(set(...))` — når rekkefølgen skal være fast",
-   "content": "Kombinasjonen som gir både «ingen duplikater» og «forutsigbar rekkefølge» på én linje:\n\n```python\noppgaver = ['maling', 'rydding', 'maling', 'beplantning', 'rydding']\nprint(sorted(set(oppgaver)))\n```\n\n**Utskrift:**\n```\n['beplantning', 'maling', 'rydding']\n```\n\nBruk den når resultatet skal **vises for en bruker** eller sammenlignes med et fasitsvar — da er alfabetisk rekkefølge både pent og etterprøvbart.\n\nBruk den eksplisitte `if x not in resultat`-formen når **rekkefølgen fra dataene** er en del av svaret: «i den rekkefølgen de meldte seg».\n\nMerk at `sorted` på blandede typer krasjer: `sorted({1, 'a'})` gir `TypeError`. Det er sjelden et problem i dette faget, siden kolonnene er ensartede."
-  },
-  {
-   "id": "tdt4110-7-6-ex-4",
-   "type": "example",
-   "title": "Eksempel 4: hvem har gjort hva — med og uten duplikater",
-   "problem": "*«Skriv `deltakere_per_oppgave(tabell)` som returnerer `{oppgave: [navn, …]}` — hvem som har vært med på hver oppgave. Den samme personen skal bare stå én gang per oppgave.»*",
-   "solution": "**Uten duplikatsjekk — først, for å se problemet:**\n\n```python\ndef deltakere_naiv(tabell):\n    k_opp = tabell[0].index('oppgave')\n    k_navn = tabell[0].index('navn')\n    d = {}\n    for rad in tabell[1:]:\n        if rad[k_opp] not in d:\n            d[rad[k_opp]] = []\n        d[rad[k_opp]].append(rad[k_navn])\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(deltakere_naiv(tabell))\n```\n\n**Utskrift:**\n```\n{'maling': ['Hedda', 'Ivar', 'Hedda'], 'rydding': ['Ivar', 'Nils'], 'beplantning': ['Hedda']}\n```\n\nHedda står **to ganger** under maling, fordi hun har to malelinjer i fila. Det er riktig hvis spørsmålet var «alle malingsøktene», og galt hvis det var «hvem som har malt».\n\n**Med duplikatsjekk — to tester i stedet for én:**\n\n```python\ndef deltakere_per_oppgave(tabell):\n    k_opp = tabell[0].index('oppgave')\n    k_navn = tabell[0].index('navn')\n    d = {}\n    for rad in tabell[1:]:\n        opp = rad[k_opp]\n        if opp not in d:\n            d[opp] = []\n        if rad[k_navn] not in d[opp]:\n            d[opp].append(rad[k_navn])\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(deltakere_per_oppgave(tabell))\n```\n\n**Utskrift:**\n```\n{'maling': ['Hedda', 'Ivar'], 'rydding': ['Ivar', 'Nils'], 'beplantning': ['Hedda']}\n```\n\n**De to testene gjør helt forskjellige ting**, og det er verdt å si det høyt:\n\n| Test | Hva den passer på |\n|---|---|\n| `if opp not in d:` | at den indre **lista** finnes før `append` kalles |\n| `if rad[k_navn] not in d[opp]:` | at **navnet** ikke allerede står i den lista |\n\nDropper du den første, får du `KeyError`. Dropper du den andre, får du duplikater. De erstatter ikke hverandre.\n\n**Snarveien med `set`, som gir det samme:**\n\n```python\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nk_opp = tabell[0].index('oppgave')\nk_navn = tabell[0].index('navn')\nd = {}\nfor rad in tabell[1:]:\n    d.setdefault(rad[k_opp], set()).add(rad[k_navn])\nfor opp in sorted(d):\n    print(opp.ljust(14), sorted(d[opp]))\n```\n\n**Utskrift:**\n```\nbeplantning    ['Hedda']\nmaling         ['Hedda', 'Ivar']\nrydding        ['Ivar', 'Nils']\n```\n\n`set()` er den tomme mengden, og `.add(v)` legger til uten å lage duplikater. Legg merke til at utskriften bruker `sorted(...)` — mengdens egen rekkefølge er ikke noe å stole på.\n\n**Slik ville sensor sett på det:** **begge gir full pott.** Den eksplisitte formen er lettest å lese og forklare; `set`-formen er kortest. Det som ikke gir full pott, er å levere den naive versjonen når oppgaveteksten sa «uten duplikater» — og den setningen står i oppgaveteksten oftere enn noen annen robusthetsformulering."
-  },
-  {
-   "id": "tdt4110-7-6-opg-7",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-7",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger G — ingen duplikater.) *«Skriv `oppgaver_for(tabell, navn)` som returnerer ei liste med alle oppgavene en bestemt person har vært med på — hver oppgave bare én gang, i alfabetisk rekkefølge. Returnér ei tom liste hvis personen ikke finnes.»*",
-    "solution": "**Den eksplisitte formen, med sortering til slutt:**\n\n```python\ndef oppgaver_for(tabell, navn):\n    k_navn = tabell[0].index('navn')\n    k_opp = tabell[0].index('oppgave')\n    resultat = []\n    for rad in tabell[1:]:\n        if rad[k_navn] == navn and rad[k_opp] not in resultat:\n            resultat.append(rad[k_opp])\n    return sorted(resultat)\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(oppgaver_for(tabell, 'Hedda'))\nprint(oppgaver_for(tabell, 'Ivar'))\nprint(oppgaver_for(tabell, 'Kari'))\n```\n\n**Utskrift:**\n```\n['beplantning', 'maling']\n['maling', 'rydding']\n[]\n```\n\nHedda har malt to ganger, men `'maling'` står én gang i svaret.\n\n**Snarveien:**\n\n```python\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nk_navn = tabell[0].index('navn')\nk_opp = tabell[0].index('oppgave')\nprint(sorted(set([rad[k_opp] for rad in tabell[1:] if rad[k_navn] == 'Hedda'])))\n```\n\n**Utskrift:**\n```\n['beplantning', 'maling']\n```\n\nBegge gir full pott. Den eksplisitte er lettere å skrive riktig for hånd; snarveien er ett uttrykk.\n\n**Tomtilfellet kommer gratis:** finner løkka ingen treff, er `resultat` fortsatt ei tom liste, og `sorted([])` gir `[]`. Ingen ekstra test.\n\n**Merk `and` i betingelsen.** Rekkefølgen på de to testene er ikke likegyldig for lesbarheten: navnetesten først er den som filtrerer bort flest rader, og den er lettest å forstå. Python stopper å regne på et `and`-uttrykk så snart en side er usann — det er kortslutning fra [kap. 1.2](/tdt4110/tdt4110-1-2).",
-    "hints": [
-     "Kombiner navnetesten og duplikattesten med `and` i den samme `if`-en.",
-     "Sorteringen hører til slutt, ikke inne i løkka.",
-     "Hva er `resultat` hvis ingen rader passer?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-opg-8",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-8",
-    "number": "8",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle tre linjene, og forklar den tredje med én setning.\n\n```python\nnavn = ['Hedda', 'Ivar', 'Hedda', 'Nils']\na = []\nfor n in navn:\n    if n not in a:\n        a.append(n)\nprint(a)\nprint(len(set(navn)))\nprint(list(set(navn)) == a)\n```",
-    "solution": "**Sporingstavle for løkka.**\n\n| `n` | `n not in a`? | `a` etterpå |\n|---|---|---|\n| Hedda | ja | `['Hedda']` |\n| Ivar | ja | `['Hedda', 'Ivar']` |\n| Hedda | nei | uendret |\n| Nils | ja | `['Hedda', 'Ivar', 'Nils']` |\n\n**Utskrift:**\n```\n['Hedda', 'Ivar', 'Nils']\n3\nFalse\n```\n\n**Setningen om den tredje linja:** `list(set(navn))` inneholder de samme tre navnene, men rekkefølgen i en mengde er ikke noe du kan stole på — så sammenligningen med `a` er ikke pålitelig, og her gir den `False`.\n\n**Fellenoten:** dette er grunnen til at boka alltid skriver `sorted(set(...))` og ikke `list(set(...))` når resultatet skal vises eller sammenlignes. Skriver du `list(set(...))` i en fasit, kan svaret ditt se annerledes ut enn sensors, selv om innholdet er det samme.\n\n**Delvis riktig sporing gir delvis uttelling:** har du de to første linjene riktig, har du vist at du kan både duplikatsjekken og mengden. Den tredje er den ekstra innsikten.",
-    "hints": [
-     "Følg lista `a` gjennom alle fire rundene i løkka.",
-     "Hvor mange forskjellige navn er det i lista?",
-     "Kan du stole på rekkefølgen når en mengde gjøres om til ei liste?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-txt-6",
-   "type": "text",
-   "content": "## Løkke 5 — krav 4: vilkårlig rekkefølge på radene (~12 min)\n\nDet fjerde kravet er det som er lettest å bryte uten å merke det, fordi eksempelfila i oppgaven som regel er pent ordnet: *«bilene passerer i tilfeldig rekkefølge»*, *«linjene er ikke sortert»*."
-  },
-  {
-   "id": "tdt4110-7-6-def-13",
-   "type": "definition",
-   "title": "Fullscore-krav 4: ikke anta noe om rekkefølgen",
-   "content": "Koden din skal gi samme svar uansett hvilken rekkefølge radene kommer i.\n\nTo antakelser som bryter kravet, og som begge er lette å gjøre:\n\n- **«Like rader står ved siden av hverandre.»** Da kan du telle med en variabel som nullstilles når nøkkelen skifter. Kommer radene blandet, teller du feil.\n- **«Tabellen er sortert.»** Da kan du ta den første raden som den minste. Er den ikke sortert, er svaret tilfeldig.\n\nMønstrene boka bruker — ordbok-telleren, grupperingen og «finn beste» — er alle uavhengige av rekkefølgen. Det er en av grunnene til at de er valgt.\n\nTesten du kan gjøre selv på to minutter: **stokk om radene i testdataene dine og kjør på nytt.** Får du et annet svar, har du en skjult antakelse."
-  },
-  {
-   "id": "tdt4110-7-6-ex-5",
-   "type": "example",
-   "title": "Eksempel 5: telling med og uten rekkefølgeantakelse",
-   "problem": "To måter å telle hvor mange økter hver person har hatt. Den ene virker bare hvis radene er gruppert per person. Vis forskjellen.",
-   "solution": "**Den skjøre varianten** — teller opp, og skriver ut når navnet skifter:\n\n```python\ndef okter_skjor(tabell):\n    k = tabell[0].index('navn')\n    d = {}\n    forrige = None\n    antall = 0\n    for rad in tabell[1:]:\n        if rad[k] != forrige:\n            if forrige is not None:\n                d[forrige] = antall\n            forrige = rad[k]\n            antall = 0\n        antall = antall + 1\n    if forrige is not None:\n        d[forrige] = antall\n    return d\n\nsortert = [['oppgave', 'navn', 'timer'],\n           ['maling', 'Hedda', 3.5],\n           ['beplantning', 'Hedda', 4.0],\n           ['maling', 'Hedda', 2.0],\n           ['rydding', 'Ivar', 2.0],\n           ['maling', 'Ivar', 1.5]]\nprint(okter_skjor(sortert))\n```\n\n**Utskrift:**\n```\n{'Hedda': 3, 'Ivar': 2}\n```\n\nPå den grupperte tabellen ser den helt riktig ut: Hedda 3, Ivar 2.\n\n**Den samme funksjonen på de samme dataene, blandet:**\n\n```python\ndef okter_skjor(tabell):\n    k = tabell[0].index('navn')\n    d = {}\n    forrige = None\n    antall = 0\n    for rad in tabell[1:]:\n        if rad[k] != forrige:\n            if forrige is not None:\n                d[forrige] = antall\n            forrige = rad[k]\n            antall = 0\n        antall = antall + 1\n    if forrige is not None:\n        d[forrige] = antall\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(okter_skjor(tabell))\n```\n\n**Utskrift:**\n```\n{'Hedda': 1, 'Ivar': 2, 'Nils': 1}\n```\n\nNå er svaret feil: Hedda står med 1 økt i stedet for 3, fordi tellingen ble nullstilt hver gang navnet skiftet, og bare den **siste** klyngen ble lagret.\n\n**Ordbok-telleren, som ikke bryr seg om rekkefølgen:**\n\n```python\ndef okter_robust(tabell):\n    k = tabell[0].index('navn')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(okter_robust(tabell))\nsortert = [['oppgave', 'navn', 'timer'],\n           ['maling', 'Hedda', 3.5],\n           ['beplantning', 'Hedda', 4.0],\n           ['maling', 'Hedda', 2.0],\n           ['rydding', 'Ivar', 2.0],\n           ['maling', 'Ivar', 1.5],\n           ['rydding', 'Nils', 2.5]]\nprint(okter_robust(sortert))\n```\n\n**Utskrift:**\n```\n{'Hedda': 3, 'Ivar': 2, 'Nils': 1}\n{'Hedda': 3, 'Ivar': 2, 'Nils': 1}\n```\n\nSamme svar begge veier, uansett rekkefølge — og funksjonen er fem linjer i stedet for tolv.\n\n**Slik ville sensor sett på det:** den skjøre varianten er ikke bare mer utsatt, den er også lengre og vanskeligere å lese. Det er sjelden en avveining mellom robusthet og enkelhet i dette faget: det robuste mønsteret er nesten alltid også det korteste.\n\n**Regelen å ta med seg:** når du kjenner igjen at du holder styr på «den forrige raden», skal en varsellampe lyse. Ordboka gjør den bokføringen for deg."
-  },
-  {
-   "id": "tdt4110-7-6-opg-9",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-9",
-    "number": "9",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå — finn antakelsen.) Denne funksjonen skal returnere den korteste økta:\n\n```python\ndef korteste(tabell):\n    k = tabell[0].index('timer')\n    return tabell[1][k]\n```\n\n**a)** Hvilken antakelse gjør den om dataene?\n\n**b)** Skriv den om slik at den virker uansett rekkefølge, og returnerer `None` på en tom tabell.",
-    "solution": "**a)** Den antar at **tabellen allerede er sortert stigende på timer**, slik at den første dataraden er den korteste. På en usortert tabell er svaret tilfeldig — det er bare den første raden i fila.\n\nDen bryter i tillegg tomtilfellet: `tabell[1]` krasjer med `IndexError` når det ikke finnes datarader.\n\n**b)** «Finn beste» med `<`, som ikke bryr seg om rekkefølgen:\n\n```python\ndef korteste(tabell):\n    k = tabell[0].index('timer')\n    beste = None\n    for rad in tabell[1:]:\n        if beste is None or rad[k] < beste:\n            beste = rad[k]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(korteste(tabell))\nprint(korteste([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n1.5\nNone\n```\n\n**Kontrollen som avslører rekkefølgeantakelser:** kjør funksjonen på de samme radene i en annen rekkefølge og se om svaret er det samme.\n\n```python\ndef korteste(tabell):\n    k = tabell[0].index('timer')\n    beste = None\n    for rad in tabell[1:]:\n        if beste is None or rad[k] < beste:\n            beste = rad[k]\n    return beste\n\na = [['navn', 'timer'], ['Hedda', 3.5], ['Ivar', 1.5], ['Nils', 2.5]]\nb = [['navn', 'timer'], ['Nils', 2.5], ['Hedda', 3.5], ['Ivar', 1.5]]\nprint(korteste(a), korteste(b))\n```\n\n**Utskrift:**\n```\n1.5 1.5\n```\n\nSamme svar begge veier. Det tar tjue sekunder på eksamen og er den billigste robusthetstesten som finnes.",
-    "hints": [
-     "Hva står i `tabell[1]`, og hvorfor skulle det være den minste?",
-     "Bruk «finn beste» med `<` og `None` som startverdi.",
-     "Test ved å stokke om radene og kjøre på nytt."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-opg-10",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-10",
-    "number": "10",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — rekkefølgeuavhengig gruppering.) *«Radene i dugnadslista kommer i tilfeldig rekkefølge. Skriv `okter_per_person_og_oppgave(tabell)` som returnerer `{navn: {oppgave: antall}}` — en ordbok av ordbøker.»*\n\nTest at svaret er det samme når radene stokkes om.",
-    "solution": "En nøstet struktur: den ytre ordboka har navn som nøkkel, og hver verdi er selv en telleordbok.\n\n```python\ndef okter_per_person_og_oppgave(tabell):\n    k_navn = tabell[0].index('navn')\n    k_opp = tabell[0].index('oppgave')\n    d = {}\n    for rad in tabell[1:]:\n        navn = rad[k_navn]\n        if navn not in d:\n            d[navn] = {}\n        opp = rad[k_opp]\n        d[navn][opp] = d[navn].get(opp, 0) + 1\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(okter_per_person_og_oppgave(tabell))\n```\n\n**Utskrift:**\n```\n{'Hedda': {'maling': 2, 'beplantning': 1}, 'Ivar': {'rydding': 1, 'maling': 1}, 'Nils': {'rydding': 1}}\n```\n\n**Kontrollen med omstokkede rader:**\n\n```python\ndef okter_per_person_og_oppgave(tabell):\n    k_navn = tabell[0].index('navn')\n    k_opp = tabell[0].index('oppgave')\n    d = {}\n    for rad in tabell[1:]:\n        navn = rad[k_navn]\n        if navn not in d:\n            d[navn] = {}\n        d[navn][rad[k_opp]] = d[navn].get(rad[k_opp], 0) + 1\n    return d\n\na = [['oppgave', 'navn', 'timer'], ['maling', 'Hedda', 3.5],\n     ['rydding', 'Ivar', 2.0], ['maling', 'Hedda', 2.0]]\nb = [['oppgave', 'navn', 'timer'], ['maling', 'Hedda', 2.0],\n     ['maling', 'Hedda', 3.5], ['rydding', 'Ivar', 2.0]]\nprint(okter_per_person_og_oppgave(a) == okter_per_person_og_oppgave(b))\n```\n\n**Utskrift:**\n```\nTrue\n```\n\n`True` — de to gir nøyaktig samme resultat. Merk at ordbøker sammenlignes på **innhold**, ikke på rekkefølge, så `==` er en gyldig test her.\n\n**De to linjene som gjør strukturen mulig:**\n\n- `if navn not in d: d[navn] = {}` — den indre **ordboka** må finnes før du kan sette noe i den. Det er samme regel som for den indre lista i grupperingen, bare med `{}` i stedet for `[]`.\n- `d[navn].get(opp, 0) + 1` — telleren, brukt på den indre ordboka.\n\n**Slik ville sensor sett på det:** nøstede ordbøker kommer sjelden, men når de gjør det, er det nettopp disse to linjene som testes. Klarer du dem, klarer du enhver kombinasjon av gruppering og telling.\n\n**Antakelsen å skrive ned:** en person uten registrerte økter kommer ikke med i det hele tatt — det finnes ingen rad som kan legge navnet inn. Skal alle med, må du ha en navneliste å gå gjennom først.",
-    "hints": [
-     "Den ytre ordboka har navn som nøkkel og en ny, tom **ordbok** som verdi.",
-     "Den indre tellingen er `d[navn].get(oppgave, 0) + 1`.",
-     "To ordbøker med samme innhold er like med `==`, uansett innsettingsrekkefølge."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-txt-7",
-   "type": "text",
-   "content": "## Løkke 6 — alle fire kravene i én funksjon (~11 min)\n\nTil slutt setter vi de fire sammen — og legger til den femte tingen, som ikke er kode."
-  },
-  {
-   "id": "tdt4110-7-6-def-14",
-   "type": "definition",
-   "title": "Antakelsen skrevet ned",
-   "content": "Er oppgaveteksten uklar, velger du selv og skriver **én setning** om valget i besvarelsen.\n\nFire antakelser som går igjen, med ferdige formuleringer:\n\n- «Antar at det bare finnes én vinner; ved likhet returneres den som står først i tabellen.»\n- «Antar at et tomt felt betyr ikke registrert, ikke null — raden holdes utenfor snittet.»\n- «Antar at navn sammenlignes eksakt, så store og små bokstaver skiller.»\n- «Antar at kolonnenavnene i overskriftsraden er som oppgitt, men ikke at rekkefølgen er det.»\n\nSensorregelen som gjelder: **svar kort og klart. Er svaret uklart eller lengre enn nødvendig, trekker det ned.** Én setning per antakelse er nok — det er ingen premie for et avsnitt.\n\nFemten sekunder per setning er forskjellen mellom «feil» og «riktig gitt en dokumentert antakelse»."
-  },
-  {
-   "id": "tdt4110-7-6-ex-6",
-   "type": "example",
-   "title": "Eksempel 6: dugnadsrapporten som tåler alt",
-   "problem": "Skriv en analysefunksjon som oppfyller alle fire kravene samtidig: *«`aktive_deltakere(tabell, minst)` skal returnere navnene på alle som har lagt ned minst det oppgitte antallet timer til sammen, uten duplikater, i alfabetisk rekkefølge — og ei tom liste hvis ingen kvalifiserer.»*",
-   "solution": "Funksjonen bygges i to steg: først telleordboka, så filtreringen.\n\n```python\ndef timer_per_person(tabell):\n    k_navn = tabell[0].index('navn')\n    k_timer = tabell[0].index('timer')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_timer]\n    return d\n\ndef aktive_deltakere(tabell, minst):\n    d = timer_per_person(tabell)\n    resultat = []\n    for navn in d:\n        if d[navn] >= minst:\n            resultat.append(navn)\n    return sorted(resultat)\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(aktive_deltakere(tabell, 3.0))\nprint(aktive_deltakere(tabell, 100.0))\nprint(aktive_deltakere([['oppgave', 'navn', 'timer']], 1.0))\n```\n\n**Utskrift:**\n```\n['Hedda', 'Ivar']\n[]\n[]\n```\n\nHedda har 9.5 timer og Ivar 3.5; Nils har 2.5 og faller utenfor. Med grensen 100 kvalifiserer ingen, og med tom tabell finnes ingen.\n\n**De fire kravene, punkt for punkt:**\n\n| Krav | Hvor det er oppfylt |\n|---|---|\n| 1 — dynamisk kolonne | `tabell[0].index('navn')` og `.index('timer')` i `timer_per_person` |\n| 2 — tomtilfelle | tom tabell gir tom ordbok, tom løkke og `[]` — helt gratis |\n| 3 — ingen duplikater | ordboka har én nøkkel per person, så duplikater er umulige |\n| 4 — vilkårlig rekkefølge | telleren og filtreringen bryr seg ikke om rekkefølgen |\n\n**Legg merke til hvordan krav 3 løses her:** ikke med en `not in`-test, men ved at **strukturen** gjør duplikater umulig. En ordbok har én nøkkel per verdi, og løkka går over nøklene. Det er den ryddigste måten å oppfylle kravet på, og den er verdt å se etter — kan du velge en struktur som gjør feilen umulig, slipper du å teste for den.\n\n**Antakelsen å skrive ned:** «minst» tolkes som `>=`, altså at grensen selv teller med. Sier oppgaven «mer enn», er det `>`. Én setning.\n\n**Slik ville sensor sett på det:** alle fire kravene er dekket, og bare ett av dem krevde egne linjer. Det er den korteste veien til full pott — og den er tilgjengelig for alle som kjenner mønstrene."
-  },
-  {
-   "id": "tdt4110-7-6-opg-11",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-11",
-    "number": "11",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — alle fire kravene.) *«Skriv `mest_aktive(tabell)` som returnerer navnet på den som har lagt ned flest timer til sammen. Funksjonen skal finne kolonnene ved navn, virke uansett radrekkefølge, og returnere `None` hvis det ikke finnes noen deltakere.»*\n\nSkriv i tillegg én setning om hva funksjonen gjør ved likhet.",
-    "solution": "To steg: telleordboka først, «finn beste nøkkel» etterpå.\n\n```python\ndef timer_per_person(tabell):\n    k_navn = tabell[0].index('navn')\n    k_timer = tabell[0].index('timer')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_timer]\n    return d\n\ndef mest_aktive(tabell):\n    d = timer_per_person(tabell)\n    beste = None\n    for navn in d:\n        if beste is None or d[navn] > d[beste]:\n            beste = navn\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(mest_aktive(tabell))\nprint(mest_aktive([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nHedda\nNone\n```\n\n**Setningen om likhet:** ved likt timetall returneres den som **først** ble satt inn i ordboka, altså den som står øverst i tabellen — fordi `>` er streng og ikke bytter ved uavgjort.\n\n**Merk at dette faktisk er en rekkefølgeavhengighet**, og den er verdt å være ærlig om. Funksjonen gir samme svar uansett rekkefølge **så lenge det finnes én klar vinner**. Ved uavgjort avhenger svaret av rekkefølgen i fila, og da er den ene setningen din forsikring.\n\n**Snarveien:**\n\n```python\nd = {'Hedda': 9.5, 'Ivar': 3.5, 'Nils': 2.5}\nprint(max(d, key=d.get))\nprint(max({}, key={}.get, default=None))\n```\n\n**Utskrift:**\n```\nHedda\nNone\n```\n\n`max` på en tom ordbok krasjer med `ValueError` med mindre du gir `default=None`. Løkkevarianten gir `None` av seg selv — nok en gang er det eksplisitte mønsteret det som er robust uten ekstra linjer.",
-    "hints": [
-     "Bygg telleordboka først, og finn den beste nøkkelen i den etterpå.",
-     "Hva returnerer «finn beste nøkkel» når ordboka er tom?",
-     "Hva skjer ved likt timetall — hvilken nøkkel vinner, og hvorfor?"
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-opg-12",
-   "type": "exercise",
-   "exercise": {
-    "id": "tdt4110-7-6-oppg-12",
-    "number": "12",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger G — robustgjør en hel besvarelse.) Her er tre funksjoner fra en besvarelse som virker på eksempelfila:\n\n```python\ndef deltakere(tabell):\n    resultat = []\n    for rad in tabell[1:]:\n        resultat.append(rad[1])\n    return resultat\n\ndef toppdeltaker(tabell):\n    beste = tabell[1]\n    for rad in tabell[1:]:\n        if rad[2] > beste[2]:\n            beste = rad\n    return beste[1]\n\ndef snitt(tabell):\n    total = 0\n    for rad in tabell[1:]:\n        total = total + rad[2]\n    return total / (len(tabell) - 1)\n```\n\n**a)** Gå gjennom robusthetssjekklista og finn bruddene i hver funksjon.\n\n**b)** Skriv alle tre om.",
-    "solution": "**a)** Sjekklista, funksjon for funksjon:\n\n| Funksjon | Krav 1 kolonne | Krav 2 tomt | Krav 3 duplikater | Krav 4 rekkefølge |\n|---|---|---|---|---|\n| `deltakere` | brutt — `rad[1]` | i orden — gir `[]` | **brutt** — samme navn flere ganger | i orden |\n| `toppdeltaker` | brutt — `rad[2]`, `beste[2]` | **brutt** — `tabell[1]` krasjer | ikke relevant | i orden |\n| `snitt` | brutt — `rad[2]` | **brutt** — deler på 0 | ikke relevant | i orden |\n\nTre av fire krav er brutt minst ett sted. Ingen av funksjonene bryter krav 4 — mønstrene er allerede rekkefølgeuavhengige.\n\n**b)** De tre skrevet om:\n\n```python\ndef deltakere(tabell):\n    k = tabell[0].index('navn')\n    resultat = []\n    for rad in tabell[1:]:\n        if rad[k] not in resultat:\n            resultat.append(rad[k])\n    return resultat\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(deltakere(tabell))\nprint(deltakere([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n['Hedda', 'Ivar', 'Nils']\n[]\n```\n\n```python\ndef toppdeltaker(tabell):\n    k_timer = tabell[0].index('timer')\n    k_navn = tabell[0].index('navn')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k_timer] > beste_verdi:\n            beste = rad[k_navn]\n            beste_verdi = rad[k_timer]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(toppdeltaker(tabell))\nprint(toppdeltaker([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nHedda\nNone\n```\n\n```python\ndef snitt(tabell):\n    k = tabell[0].index('timer')\n    total = 0\n    antall = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n        antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(snitt(tabell))\nprint(snitt([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n2.5833333333333335\nNone\n```\n\n**Slik ville sensor sett på det:** den opprinnelige besvarelsen er en helt normal, kompetent B-besvarelse. Strukturen er riktig i alle tre, løkkene er riktige, og svarene er riktige på dataene i oppgaven. Den ville fått god uttelling.\n\nOmskrivingen kostet **ni linjer til sammen** — tre kolonneoppslag, én duplikattest, én tomtest og et bytte av startverdi. Det er hele avstanden til full pott.\n\n**Og en presisering det er verdt å ta med seg:** `snitt`-funksjonens opprinnelige nevner `len(tabell) - 1` er ikke bare skjør på tom tabell, den er også feil hvis noen rader skal hoppes over. Å telle selv i løkka er både tryggere og mer fleksibelt — og det koster én linje.",
-    "hints": [
-     "Gå gjennom de fire spørsmålene i sjekklista for hver funksjon for seg.",
-     "To av funksjonene krasjer på en tabell uten datarader. Hvilke, og på hvilken linje?",
-     "I `snitt`: tell selv i stedet for å regne nevneren ut av `len(tabell)`."
-    ]
-   }
-  },
-  {
-   "id": "tdt4110-7-6-col-1",
-   "type": "collapsible",
-   "title": "API- og konstruksjonsliste",
-   "buttonText": "Vis API og konstruksjoner",
-   "content": [
+  "id": "tdt4110-7-6",
+  "courseId": "tdt4110",
+  "chapterNumber": "7.6",
+  "title": "DRILL — Robusthet: ukjent rekkefølge, tomtilfeller og ingen duplikater (fullscore)",
+  "description": "De fire eksplisitte fullscore-kravene samlet: finn kolonnen dynamisk, håndtér tomme og ikke-funnet-tilfeller, unngå duplikater i resultatet, og ikke anta noe om rekkefølgen på radene.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne finne en kolonne ved navn og svare fornuftig når navnet ikke finnes",
+    "kunne velge riktig returverdi når det ikke finnes noe svar, og begrunne valget",
+    "kunne bygge et resultat uten duplikater, med og uten en fast rekkefølge",
+    "kunne skrive analyser som virker uansett hvilken rekkefølge radene kommer i"
+  ],
+  "content": [
     {
-     "id": "tdt4110-7-6-ctxt-1",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `tabell[0].index('timer')` | kolonnenummeret ved navn; `ValueError` hvis navnet ikke finnes; skiller store og små bokstaver |\n| `navn in tabell[0]` | `True` hvis kolonnen finnes — testen som må stå **før** `.index` når navnet kommer utenfra |\n| `tabell[1:]` | radene uten overskriften; gir ei **tom liste** når det ikke er datarader |\n| `tabell[1]` | første datarad; `IndexError` når den ikke finnes — utsnitt er trygge, indekser er det ikke |\n| `if len(tabell) <= 1:` | tomtesten; gjør antakelsen synlig selv når mønsteret takler tomt av seg selv |\n| `beste is None` | startbetingelsen som gir riktig svar på tom tabell **og** på bare negative verdier |\n| `return None` | «det finnes ikke noe svar» — for funksjoner som returnerer en verdi eller en rad |\n| `return []` / `return {}` | tomsvaret for funksjoner som returnerer ei liste eller en ordbok |\n| `return -1` | «ikke funnet» når svaret er en **posisjon** i ei liste |\n| `if x not in resultat:` | duplikatsjekken; bevarer rekkefølgen verdiene dukket opp i |\n| `set(liste)` | samling uten duplikater; rekkefølgen er **ikke** til å stole på |\n| `set()` og `.add(v)` | den tomme mengden, og innsetting som aldri gir duplikater |\n| `sorted(set(liste))` | uten duplikater **og** i fast alfabetisk rekkefølge, som ei liste |\n| `list(set(liste))` | uten duplikater, men i vilkårlig rekkefølge — unngå i fasitsvar |\n| `d.get(k, 0) + v` | telleren; rekkefølgeuavhengig, i motsetning til «husk forrige rad»-varianten |\n| `if k not in d: d[k] = {}` | nøstet ordbok: den indre ordboka må finnes før innsetting |\n| `d1 == d2` | ordbøker sammenlignes på **innhold**, ikke på innsettingsrekkefølge |\n| `max(d, key=d.get, default=None)` | snarveien med tomtilfellet dekket |\n\n**Formler i dette delkapitlet:**\n\nAntall datarader i en tabell med overskriftsrad: $r = \\text{len}(\\text{tabell}) - 1$, og analysen skal gi et svar også når $r = 0$."
+      "id": "tdt4110-7-6-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet som skiller toppkarakter fra middels — og det er ikke et luksuskapittel.**\n\n- Robusthet er et **eksplisitt fullscore-krav** i flere av settene i arkivet 2014–2019, formulert rett ut i oppgaveteksten: «returnér ingen duplikater», «du kan ikke anta at kolonnene kommer i denne rekkefølgen», «bilene passerer i tilfeldig rekkefølge».\n- Kravene er alltid de samme fire: **finn kolonnen dynamisk**, **håndtér tomme og ikke-funnet-tilfeller**, **unngå duplikater**, og **ikke anta noe om rekkefølgen på radene**.\n- Sjangeren er den samme som i [kap. 7.4](/tdt4110/tdt4110-7-4) og [kap. 7.5](/tdt4110/tdt4110-7-5) — **sjanger G, analyse** — men med de siste poengene lagt inn.\n- Det gode med kravene er at de er **konkrete og få**. Avstanden fra en løsning som virker til en som får full pott, er som regel tre linjer, ikke tre sider.\n\n**Prioritet: må sitte for toppscore** — kravene er billige å lære og dyre å droppe.\n\nKapitlet tar ~75 minutter og er delt i seks løkker med tidsanslag. Naturlig pausepunkt etter løkke 3."
+    },
+    {
+      "id": "tdt4110-7-6-txt-1",
+      "type": "text",
+      "content": "**Forkunnskaper — sist du var her**\n\nRobusthet er ikke nytt stoff, men gamle grep brukt bevisst. Her er de tre, ferdig oppfrisket.\n\n**1. Kolonnen funnet ved navn** ([kap. 3.2](/tdt4110/tdt4110-3-2)):\n\n```python\noverskrift = ['oppgave', 'navn', 'timer']\nprint(overskrift.index('timer'))\n```\n\n**Utskrift:**\n```\n2\n```\n\n**2. `None` som startverdi i «finn beste»** ([kap. 7.4](/tdt4110/tdt4110-7-4)):\n\n```python\nbeste = None\nfor t in []:\n    beste = t\nprint(beste)\n```\n\n**Utskrift:**\n```\nNone\n```\n\n**3. Medlemskapstesten `in`** ([kap. 3.1](/tdt4110/tdt4110-3-1)):\n\n```python\nresultat = ['Hedda', 'Ivar']\nprint('Hedda' in resultat)\nprint('Nils' in resultat)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nI tillegg forutsetter kapitlet [kap. 7.4](/tdt4110/tdt4110-7-4), som ga oss analysemønstrene robustheten legges oppå."
+    },
+    {
+      "id": "tdt4110-7-6-txt-2",
+      "type": "text",
+      "content": "## Løkke 1 — de fire kravene (~13 min)\n\nRobusthet høres ut som noe stort og vagt. På eksamen er det fire helt konkrete ting, og de kommer igjen i sett etter sett."
+    },
+    {
+      "id": "tdt4110-7-6-def-1",
+      "type": "definition",
+      "title": "Robusthet — hva sensor mener med ordet",
+      "content": "Robusthet er ikke «feilfri kode». Det er at funksjonen **gir et fornuftig svar også når dataene ikke er slik du håpet**.\n\nFire situasjoner, og en robust funksjon har et bevisst svar på hver av dem:\n\n1. Kolonnene kommer i en annen rekkefølge enn i eksempelfila.\n2. Det finnes ingen rader, eller ingen rad som passer søket.\n3. Den samme verdien dukker opp flere ganger, men skal bare med én gang.\n4. Radene kommer i tilfeldig rekkefølge, ikke gruppert eller sortert.\n\nMerk formuleringen «bevisst svar». Det er ikke noe krav om at koden skal gjette hva brukeren mente — det er et krav om at den ikke krasjer og ikke lyver."
+    },
+    {
+      "id": "tdt4110-7-6-thm-1",
+      "type": "theorem",
+      "title": "Robusthetssjekklista — fire spørsmål før du leverer",
+      "content": "Bruk to minutter på denne lista når analysedeloppgavene er skrevet. Den er verdt mer per minutt enn noe annet du kan gjøre på slutten.\n\n1. **Kolonne:** står det et talltegn som `rad[2]` i koden min? Bytt det med `tabell[0].index('timer')`.\n2. **Tomt:** hva returnerer funksjonen hvis tabellen ikke har datarader, eller hvis ingen rad passer? Skal den gi `[]`, `None`, `-1` eller `{}`?\n3. **Duplikater:** kan den samme verdien komme flere ganger i resultatet mitt? Skal den det?\n4. **Rekkefølge:** antar koden min at like rader står ved siden av hverandre, eller at tabellen er sortert?\n\nOg en femte, som ikke er kode: **skriv én setning om hver antakelse** du har måttet gjøre. Sensorregelen er uttalt — kort og klart er bedre enn detaljert."
+    },
+    {
+      "id": "tdt4110-7-6-def-2",
+      "type": "definition",
+      "title": "Robusthet er ikke `try/except` overalt",
+      "content": "`try/except` fra [kap. 4.3](/tdt4110/tdt4110-4-3) hører hjemme rundt **fil-I/O og konvertering** — der feilen kommer utenfra og du ikke kan forutse den.\n\nDe fire kravene i dette kapitlet løses derimot med **vanlige `if`-tester**, fordi du vet nøyaktig hva som kan gå galt:\n\n```text\nif len(tabell) <= 1:\n    return None\n```\n\nBlokken over er et utdrag, ikke et program.\n\nEn besvarelse som pakker hele analysen i `try: … except: …` for å «være robust», skjuler feilene i stedet for å håndtere dem — og en naken `except:` fanger til og med skrivefeilene dine. Det gir dårligere uttelling enn en `if`-test som sier hva den passer på.\n\nRegelen: **`try` mot det uforutsigbare, `if` mot det du kan se komme.**"
+    },
+    {
+      "id": "tdt4110-7-6-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: den samme funksjonen, før og etter",
+      "problem": "Her er en analysefunksjon som virker på dugnadslista i borettslaget, og den samme funksjonen gjort robust. Hva er forskjellen, linje for linje?",
+      "solution": "Slik ser fila ut:\n\n**Innholdet i `dugnad.txt`:**\n```\noppgave;navn;timer\nmaling;Hedda;3.5\nrydding;Ivar;2.0\nmaling;Ivar;1.5\nbeplantning;Hedda;4.0\nrydding;Nils;2.5\nmaling;Hedda;2.0\n```\n\n**Før — virker på akkurat disse dataene:**\n\n```python\ndef flest_timer(tabell):\n    beste = tabell[1]\n    for rad in tabell[1:]:\n        if rad[2] > beste[2]:\n            beste = rad\n    return beste[1]\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(flest_timer(tabell))\n```\n\n**Utskrift:**\n```\nHedda\n```\n\nKoden gir riktig svar her, og den har riktig struktur — én løkke, én sammenligning. Det gir god uttelling. Men den har tre svakheter, og alle tre er nevnt i oppgavetekstene i arkivet.\n\n**Etter — de tre grepene lagt inn:**\n\n```python\ndef flest_timer(tabell):\n    if len(tabell) <= 1:\n        return None\n    k_timer = tabell[0].index('timer')\n    k_navn = tabell[0].index('navn')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k_timer] > beste_verdi:\n            beste = rad[k_navn]\n            beste_verdi = rad[k_timer]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(flest_timer(tabell))\nprint(flest_timer([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nHedda\nNone\n```\n\n**De tre grepene, og hva hvert av dem koster:**\n\n| Grep | Linjer | Hva det redder |\n|---|---|---|\n| `tabell[0].index(...)` | 2 | riktig svar når kolonnene kommer i annen rekkefølge |\n| `if len(tabell) <= 1: return None` | 2 | et krasj på tom tabell |\n| `beste_verdi is None` | 2 | riktig svar når alle timetallene er negative eller null |\n\nSeks linjer til sammen. Det er hele avstanden fra «virker» til «full pott».\n\n**Slik ville sensor sett på det:** den første versjonen er en solid midtnivåbesvarelse — den ville fått god uttelling, kanskje 70–80 % av deloppgavens poeng, fordi strukturen er riktig. Den andre får alt.\n\nLegg merke til at forskjellen ikke er dyktighet i programmering. Den er en sjekkliste, kjørt i to minutter på slutten."
+    },
+    {
+      "id": "tdt4110-7-6-opg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — les koden.) Her er en funksjon som skal returnere navnet på den som har jobbet færrest timer:\n\n```python\ndef faerrest_timer(tabell):\n    beste = tabell[1]\n    for rad in tabell[1:]:\n        if rad[2] < beste[2]:\n            beste = rad\n    return beste[1]\n```\n\n**a)** Hvilke av de fire robusthetskravene bryter den?\n\n**b)** Hva skjer hvis `tabell` bare inneholder overskriftsraden?",
+        "solution": "**a)** Den bryter to av de fire:\n\n- **Krav 1, dynamisk kolonne:** `rad[2]` og `beste[1]` er hardkodede kolonnenummer. Kommer kolonnene som `navn;timer;oppgave`, leser funksjonen oppgavenavnet som timetall.\n- **Krav 2, tomtilfellet:** `tabell[1]` finnes ikke i en tabell uten datarader.\n\nDe to andre kravene er ikke relevante her: funksjonen returnerer ett navn, så duplikater kan ikke oppstå, og «finn beste» virker uansett hvilken rekkefølge radene kommer i.\n\n**b)** Den krasjer med `IndexError: list index out of range` på linja `beste = tabell[1]`, før løkka i det hele tatt starter.\n\n```python\ntabell = [['oppgave', 'navn', 'timer']]\nprint(len(tabell))\nprint(tabell[1:])\n```\n\n**Utskrift:**\n```\n1\n[]\n```\n\n`tabell[1:]` gir ei tom liste helt uten problemer — det er utsnittet, og utsnitt er tolerante. Det er **indeksen** `tabell[1]` som krasjer. Det er den samme regelen som i [kap. 7.5](/tdt4110/tdt4110-7-5): utsnitt er trygge, indekser er det ikke.",
+        "hints": [
+          "Se etter talltegn i indekseringen — hvor mange steder står det et kolonnenummer?",
+          "Hva er `tabell[1]` når tabellen bare har én rad?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-opg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå — robustgjør.) Skriv om funksjonen fra oppgave 1 slik at den oppfyller begge kravene den brøt. Den skal fortsatt returnere navnet, og den skal returnere `None` når det ikke finnes noen rader å velge mellom.",
+        "solution": "```python\ndef faerrest_timer(tabell):\n    if len(tabell) <= 1:\n        return None\n    k_timer = tabell[0].index('timer')\n    k_navn = tabell[0].index('navn')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k_timer] < beste_verdi:\n            beste = rad[k_navn]\n            beste_verdi = rad[k_timer]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(faerrest_timer(tabell))\nprint(faerrest_timer([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nIvar\nNone\n```\n\nIvar hadde det korteste enkeltoppdraget med 1.5 timer.\n\n**Trengs `if len(tabell) <= 1` i det hele tatt her?** Nei — med `None` som startverdi ville løkka kjørt null ganger og funksjonen returnert `None` av seg selv.\n\nTesten står der likevel av én grunn: den gjør **antakelsen synlig**. Sensor ser at kandidaten har tenkt på tilfellet, i stedet for å ha vært heldig. Og den koster to linjer.\n\n**Merk at oppgaven spør om det korteste enkeltoppdraget**, ikke om hvem som har færrest timer totalt. Det siste ville krevd en teller først — se oppgave 11. Les alltid bestillingen to ganger; her er forskjellen ett ord.",
+        "hints": [
+          "Begge kolonnene skal finnes med `.index(...)` på rad 0.",
+          "Mønsteret er «finn beste» med `<`, og `None` som startverdi.",
+          "Hva returnerer funksjonen når løkka aldri kjører?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-txt-3",
+      "type": "text",
+      "content": "## Løkke 2 — krav 1: finn kolonnen dynamisk (~13 min)\n\nDet første kravet er også det som nevnes oftest i oppgavetekstene: *«du kan ikke anta at kolonnene kommer i denne rekkefølgen».*"
+    },
+    {
+      "id": "tdt4110-7-6-def-3",
+      "type": "definition",
+      "title": "Fullscore-krav 1: dynamisk kolonneoppslag",
+      "content": "Kolonnenummeret skal **leses ut av overskriftsraden**, aldri skrives inn i koden.\n\nRiktig: `k = tabell[0].index('timer')`, deretter `rad[k]`.\n\nGalt: `rad[2]`.\n\nGrunnen er ikke elegant kode. Grunnen er at oppgavetekstene sier det rett ut, og at fila på det virkelige eksamenssettet kan ha kolonnene i en annen rekkefølge enn eksempelet i oppgaven.\n\nFeilen har et nummer: **#4** — anta fast kolonne- eller radrekkefølge. Den er stum. Programmet krasjer ikke; det leser bare feil kolonne og svarer med full selvtillit."
+    },
+    {
+      "id": "tdt4110-7-6-def-4",
+      "type": "definition",
+      "title": "`tabell[0].index(navn)` — og hva den krasjer på",
+      "content": "`.index(v)` gir posisjonen til den **første** forekomsten av `v` i lista, og krasjer med `ValueError` hvis `v` ikke finnes.\n\n```python\noverskrift = ['oppgave', 'navn', 'timer']\nprint(overskrift.index('navn'))\nprint(overskrift.index('timer'))\n```\n\n**Utskrift:**\n```\n1\n2\n```\n\nTo ting å vite:\n\n- Den er **følsom for store og små bokstaver**: `'Timer'` finnes ikke når overskriften sier `'timer'`.\n- Den ser bare på **eksakte** treff; `'time'` finner ikke `'timer'`.\n\nEr du usikker på om kolonnen finnes — for eksempel fordi brukeren har skrevet inn navnet — skal du teste først. Det er neste definisjon."
+    },
+    {
+      "id": "tdt4110-7-6-def-5",
+      "type": "definition",
+      "title": "`if navn in overskrift:` — sjekk før oppslag",
+      "content": "Medlemskapstesten før `.index(...)` gjør forskjellen mellom en feilmelding og et fornuftig svar.\n\n```python\ndef kolonne(tabell, navn):\n    if navn not in tabell[0]:\n        return -1\n    return tabell[0].index(navn)\n\nt = [['oppgave', 'navn', 'timer']]\nprint(kolonne(t, 'timer'))\nprint(kolonne(t, 'lonn'))\n```\n\n**Utskrift:**\n```\n2\n-1\n```\n\n`-1` er den vanlige returverdien for «ikke funnet» når svaret er en **posisjon** — det er den samme konvensjonen som i sekvensielt søk, [kap. 6.2](/tdt4110/tdt4110-6-2). Den som kaller, tester `if k == -1:` og gir brukeren beskjed.\n\nNår trenger du testen? Når kolonnenavnet kommer **utenfra** — fra brukeren, fra en meny, eller fra en annen fil. Er navnet skrevet inn i din egen kode, er `.index` alene nok: da er det din skrivefeil som gir `ValueError`, og den vil du gjerne se."
+    },
+    {
+      "id": "tdt4110-7-6-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: den samme funksjonen på to filer",
+      "problem": "Vis at en funksjon med dynamisk kolonneoppslag gir riktig svar på både `dugnad.txt` og `dugnad-omstokket.txt`, som har de samme dataene i en annen kolonnerekkefølge.",
+      "solution": "De to filene:\n\n**Innholdet i `dugnad.txt`:**\n```\noppgave;navn;timer\nmaling;Hedda;3.5\nrydding;Ivar;2.0\nmaling;Ivar;1.5\nbeplantning;Hedda;4.0\nrydding;Nils;2.5\nmaling;Hedda;2.0\n```\n\n**Innholdet i `dugnad-omstokket.txt`:**\n```\nnavn;timer;oppgave\nHedda;3.5;maling\nIvar;2.0;rydding\nIvar;1.5;maling\nHedda;4.0;beplantning\n```\n\n**Innlesingen finner tallkolonnen ved navn**, så den virker på begge:\n\n```python\ndef les_dugnad(filnavn):\n    f = open(filnavn, 'r')\n    overskrift = f.readline().strip().split(';')\n    k_timer = overskrift.index('timer')\n    tabell = [overskrift]\n    for linje in f:\n        felt = linje.strip().split(';')\n        felt[k_timer] = float(felt[k_timer])\n        tabell.append(felt)\n    f.close()\n    return tabell\n\ndef sum_timer(tabell):\n    k = tabell[0].index('timer')\n    total = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n    return total\n\nprint(sum_timer(les_dugnad('dugnad.txt')))\nprint(sum_timer(les_dugnad('dugnad-omstokket.txt')))\n```\n\n**Utskrift:**\n```\n15.5\n11.0\n```\n\nDe to filene har ulikt antall rader, så tallene er forskjellige — men **begge er riktige**, og det er poenget: funksjonen leste riktig kolonne i begge tilfellene uten å vite noe om rekkefølgen.\n\n**Hva den hardkodede varianten ville gitt** på den omstokkede fila:\n\n```python\ntabell = [['navn', 'timer', 'oppgave'],\n          ['Hedda', 3.5, 'maling'],\n          ['Ivar', 2.0, 'rydding']]\nprint(tabell[1][2])\nprint(tabell[1][tabell[0].index('timer')])\n```\n\n**Utskrift:**\n```\nmaling\n3.5\n```\n\n`rad[2]` gir oppgavenavnet `'maling'` der koden ventet et timetall. Summeringen ville gitt `TypeError: unsupported operand type(s) for +: 'int' and 'str'` — her krasjer det, men bare fordi kolonnen tilfeldigvis er tekst. Hadde de to kolonnene begge vært tall, ville du fått et svar. Feil svar, uten et pip.\n\n**Slik ville sensor sett på det:** dette er den ene tingen oppgavetekstene i arkivet nevner mest eksplisitt. To linjer med `.index(...)` per funksjon er et av de billigste poengene i hele settet."
+    },
+    {
+      "id": "tdt4110-7-6-opg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — dynamisk kolonne.) *«Skriv `timer_for(tabell, navn)` som returnerer det totale antallet timer en bestemt person har lagt ned. Både navnekolonnen og timekolonnen skal finnes ved navn, og funksjonen skal returnere 0 hvis personen ikke står i lista.»*",
+        "solution": "```python\ndef timer_for(tabell, navn):\n    k_navn = tabell[0].index('navn')\n    k_timer = tabell[0].index('timer')\n    total = 0\n    for rad in tabell[1:]:\n        if rad[k_navn] == navn:\n            total = total + rad[k_timer]\n    return total\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(timer_for(tabell, 'Hedda'))\nprint(timer_for(tabell, 'Ivar'))\nprint(timer_for(tabell, 'Kari'))\n```\n\n**Utskrift:**\n```\n9.5\n3.5\n0\n```\n\nHedda har 3.5 + 4.0 + 2.0 timer; Ivar har 2.0 + 1.5; Kari står ikke i lista og får 0.\n\n**Hvorfor 0 er riktig her, og `None` var riktig i eksempel 1:** oppgaven ba om det. Men det er også et fornuftig valg i seg selv — en person som ikke har møtt opp, **har** null timer. Det er en meningsfull verdi, ikke fravær av et svar.\n\nSammenlign med gjennomsnittet i [kap. 7.4](/tdt4110/tdt4110-7-4): der ville 0 kroner vært en løgn, fordi ingen oppdrag betyr at det ikke finnes noen snittpris. Regelen er: **0 når null er et gyldig svar, `None` når spørsmålet ikke har noe svar.**\n\n**Antakelsen å skrive ned:** navnesammenligningen er eksakt, så `'hedda'` med liten forbokstav gir 0. Vil du være snill, sammenligner du `rad[k_navn].lower() == navn.lower()` — men da må du si det, siden det endrer oppførselen.",
+        "hints": [
+          "Begge kolonnene skal finnes med `.index(...)` på rad 0.",
+          "Start `total` på 0, og legg til bare når navnet stemmer.",
+          "Hva er `total` når løkka aldri fant noen treff?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-opg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — kolonne fra brukeren.) *«Skriv `sum_kolonne(tabell, kolonnenavn)` som summerer en tallkolonne brukeren har oppgitt navnet på. Finnes ikke kolonnen, skal funksjonen returnere `None` i stedet for å krasje.»*\n\nTest både med `'timer'` og med et navn som ikke finnes.",
+        "solution": "Testen med `in` kommer **før** oppslaget:\n\n```python\ndef sum_kolonne(tabell, kolonnenavn):\n    if kolonnenavn not in tabell[0]:\n        return None\n    k = tabell[0].index(kolonnenavn)\n    total = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n    return total\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(sum_kolonne(tabell, 'timer'))\nprint(sum_kolonne(tabell, 'lonn'))\n```\n\n**Utskrift:**\n```\n15.5\nNone\n```\n\n**Hvorfor testen er nødvendig her, men ikke i oppgave 3:** der sto kolonnenavnet skrevet inn i din egen kode, så en `ValueError` ville vært din egen skrivefeil — og den vil du gjerne se med en gang. Her kommer navnet **utenfra**, og da er en manglende kolonne en helt normal situasjon som funksjonen må svare på.\n\n**Den som kaller, må teste på svaret:**\n\n```python\nsvar = None\nif svar is None:\n    print('Fant ingen kolonne med det navnet.')\nelse:\n    print('Sum:', svar)\n```\n\n**Utskrift:**\n```\nFant ingen kolonne med det navnet.\n```\n\nDet er hele poenget med å returnere `None` i stedet for å krasje: kontrollen blir igjen hos den som spurte, og programmet kan gi brukeren en forståelig beskjed.\n\n**Kantfeilen som gjenstår:** funksjonen antar at kolonnen inneholder tall. Ber brukeren om summen av `'navn'`, får du `TypeError`. Én setning om antakelsen, eller en `try/except` rundt løkka — men les [kap. 4.3](/tdt4110/tdt4110-4-3) før du velger det siste.",
+        "hints": [
+          "Bruk `if kolonnenavn not in tabell[0]:` før du kaller `.index(...)`.",
+          "Hva skal den som kaller funksjonen, gjøre med `None`-svaret?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-txt-4",
+      "type": "text",
+      "content": "## Løkke 3 — krav 2: tomme og ikke-funnet-tilfeller (~13 min)\n\nDet andre kravet handler om ett spørsmål: **hva skal funksjonen svare når det ikke finnes noe svar?** Det finnes fire vanlige svar, og valget mellom dem er en del av oppgaven.\n\n— naturlig pausepunkt etter denne løkka —"
+    },
+    {
+      "id": "tdt4110-7-6-def-6",
+      "type": "definition",
+      "title": "Fullscore-krav 2: tomtilfeller og «ikke funnet»",
+      "content": "To situasjoner som ser like ut, men ikke er det:\n\n- **Tomt datagrunnlag:** tabellen har ingen datarader. Da finnes det ingenting å analysere.\n- **Ikke funnet:** tabellen har rader, men ingen som passer søket.\n\nBegge skal ha et bevisst svar, og svaret skal stå i koden eller i én setning i besvarelsen.\n\nDet som **ikke** er akseptabelt, er at funksjonen krasjer med `IndexError`, `ValueError` eller `ZeroDivisionError`. En krasjende deloppgave gir null, uansett hvor riktig resten av koden er."
+    },
+    {
+      "id": "tdt4110-7-6-def-7",
+      "type": "definition",
+      "title": "Returverdier for «ingenting»: `[]`, `None`, `-1`, `{}`",
+      "content": "Fire konvensjoner, valgt ut fra hva funksjonen ellers returnerer:\n\n| Funksjonen returnerer | Ved ingenting |\n|---|---|\n| ei liste | `[]` — den tomme lista |\n| en verdi eller en rad | `None` |\n| en **posisjon** i ei liste | `-1` |\n| en ordbok | `{}` — den tomme ordboka |\n\nRegelen bak: **behold returtypen.** Returnerer funksjonen ei liste i normaltilfellet, skal den også returnere ei liste når svaret er tomt — da kan den som kaller, skrive `for x in svar:` uten å teste først.\n\nBlander du typene — `[]` i det ene tilfellet og `None` i det andre — tvinger du den som kaller til å teste to ganger, og det er nettopp der de neste feilene oppstår.\n\n**0 er ikke i tabellen.** 0 er et tall, og det brukes bare når null faktisk er et gyldig svar, som i «antall timer for en som ikke møtte»."
+    },
+    {
+      "id": "tdt4110-7-6-def-8",
+      "type": "definition",
+      "title": "Mønstre som takler tomt av seg selv",
+      "content": "Tre av bokas mønstre er robuste helt uten ekstra linjer, og det er verdt å vite hvilke:\n\n```python\ntabell = [['navn', 'timer']]\nbeste = None\nfor rad in tabell[1:]:\n    beste = rad\nprint(beste)\n\nd = {}\nfor rad in tabell[1:]:\n    d[rad[0]] = 1\nprint(d)\n\nresultat = []\nfor rad in tabell[1:]:\n    resultat.append(rad[0])\nprint(resultat)\n```\n\n**Utskrift:**\n```\nNone\n{}\n[]\n```\n\n«Finn beste» med `None`, telleren og oppsamlingslista gir alle riktig tomsvar av seg selv, fordi løkkekroppen aldri kjører.\n\nDe som **ikke** gjør det, er snarveiene og divisjonene: `max([])` og `min([])` gir `ValueError`, `sum(x) / len(x)` gir `ZeroDivisionError`, og `sortert[0]` gir `IndexError`. Bruker du dem, må du teste."
+    },
+    {
+      "id": "tdt4110-7-6-warn-1",
+      "type": "warning",
+      "title": "Typiske feil i robusthetsarbeidet",
+      "content": "Fem feller, og de tre første er stumme:\n\n- **#4 — hardkodet kolonnenummer.** `rad[2]` leser feil kolonne når rekkefølgen skifter. Krasjer bare hvis typene tilfeldigvis kolliderer.\n- **#6 — glemt tomtilfelle.** `tabell[1]`, `max([])`, `sum(x)/len(x)` og `sortert[0]` krasjer alle på tomt datagrunnlag.\n- **#7 — duplikater i resultatet.** Oppgaveteksten sier «uten gjentakelser», og løsningen returnerer det samme navnet tre ganger.\n- **0 som «ingenting».** En pris på 0 og en snittid på 0 er løgn. Bruk `None` når det ikke finnes noe svar.\n- **Naken `except:` som robusthet.** Den fanger også dine egne skrivefeil, så programmet svarer «ingenting» på en feil du kunne rettet. Bruk `if` mot det du kan se komme."
+    },
+    {
+      "id": "tdt4110-7-6-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: fire funksjoner, fire tomsvar",
+      "problem": "Skriv fire analysefunksjoner på dugnadslista, hver med sin returtype, og vis hva hver av dem svarer på en tabell uten datarader.",
+      "solution": "**1. Returnerer ei liste — tomsvaret er `[]`:**\n\n```python\ndef alle_som_deltok(tabell):\n    k = tabell[0].index('navn')\n    resultat = []\n    for rad in tabell[1:]:\n        if rad[k] not in resultat:\n            resultat.append(rad[k])\n    return resultat\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(alle_som_deltok(tabell))\nprint(alle_som_deltok([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n['Hedda', 'Ivar', 'Nils']\n[]\n```\n\n**2. Returnerer en verdi — tomsvaret er `None`:**\n\n```python\ndef snitt_timer(tabell):\n    k = tabell[0].index('timer')\n    total = 0\n    antall = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n        antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(snitt_timer(tabell))\nprint(snitt_timer([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n2.5833333333333335\nNone\n```\n\n**3. Returnerer en posisjon — tomsvaret er `-1`:**\n\n```python\ndef finn_rad(tabell, navn):\n    k = tabell[0].index('navn')\n    for i in range(1, len(tabell)):\n        if tabell[i][k] == navn:\n            return i\n    return -1\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(finn_rad(tabell, 'Nils'))\nprint(finn_rad(tabell, 'Kari'))\n```\n\n**Utskrift:**\n```\n5\n-1\n```\n\n**4. Returnerer en ordbok — tomsvaret er `{}`:**\n\n```python\ndef timer_per_person(tabell):\n    k_navn = tabell[0].index('navn')\n    k_timer = tabell[0].index('timer')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_timer]\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(timer_per_person(tabell))\nprint(timer_per_person([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n{'Hedda': 9.5, 'Ivar': 3.5, 'Nils': 2.5}\n{}\n```\n\n**Slik ville sensor sett på det:** legg merke til at bare **én** av de fire trengte en egen `if`-test. De tre andre er robuste fordi mønsteret er det — lista, ordboka og løkka som returnerer `-1` til slutt.\n\nDet er en god grunn til å lære mønstrene slik boka skriver dem: robustheten er allerede bygget inn, og du slipper å huske den.\n\n**Antakelsen å skrive ned for funksjon 3:** returnerer `-1` ved «ikke funnet», og finner **første** treff hvis navnet står flere ganger. To ting, én setning."
+    },
+    {
+      "id": "tdt4110-7-6-opg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — tomtilfelle.) *«Skriv `lengste_okt(tabell)` som returnerer hele raden for den lengste enkeltøkta. Funksjonen skal returnere `None` hvis det ikke finnes noen økter, og den skal virke uansett kolonnerekkefølge.»*\n\nTest på en full tabell, på en tabell med bare overskriftsrad, og på en tabell der alle timetallene er 0.",
+        "solution": "```python\ndef lengste_okt(tabell):\n    k = tabell[0].index('timer')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k] > beste_verdi:\n            beste = rad\n            beste_verdi = rad[k]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(lengste_okt(tabell))\nprint(lengste_okt([['oppgave', 'navn', 'timer']]))\nprint(lengste_okt([['oppgave', 'navn', 'timer'], ['maling', 'Ivar', 0.0]]))\n```\n\n**Utskrift:**\n```\n['beplantning', 'Hedda', 4.0]\nNone\n['maling', 'Ivar', 0.0]\n```\n\nTre datasett, tre riktige svar — og ingen ekstra `if`-test. Mønsteret gjør jobben:\n\n- Full tabell: raden med 4.0 timer.\n- Bare overskrift: løkka kjører ikke, og `None` blir stående.\n- Alle timetall 0: `beste_verdi is None` er sann i første runde, så raden velges — der `beste_verdi = 0` som startverdi ville gitt `None` fordi `0 > 0` er usant.\n\n**Det siste tilfellet er verdt å dvele ved.** Det ser konstruert ut, men det er nøyaktig situasjonen i en fil der alle verdiene er null, negative eller like — og det skjer oftere enn du tror i temperaturer, kontobevegelser og målforskjeller.\n\n**Hvis oppgaven i stedet hadde bedt om `max`:**\n\n```python\ntabell = [['oppgave', 'navn', 'timer']]\nk = tabell[0].index('timer')\nif len(tabell) <= 1:\n    print(None)\nelse:\n    print(max(tabell[1:], key=lambda rad: rad[k]))\n```\n\n**Utskrift:**\n```\nNone\n```\n\nDa hadde testen vært **nødvendig**, ikke bare synliggjørende. Begge former gir full pott — men snarveien krever den ekstra linja.",
+        "hints": [
+          "Bruk «finn beste» med `None` som startverdi, og finn kolonnen ved navn.",
+          "Hva skjer med startverdien når løkkekroppen aldri kjører?",
+          "Prøv `beste_verdi = 0` på tabellen der alle timetallene er 0, og se hva som skjer."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-opg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — flere tomtilfeller.) *«Skriv `snitt_per_oppgave(tabell)` som returnerer `{oppgave: gjennomsnittlig timer}`. Funksjonen skal (a) finne begge kolonnene ved navn, (b) returnere en tom ordbok hvis det ikke finnes rader, og (c) aldri dele på null.»*\n\nSkriv én setning om hvorfor deloppgave (c) er umulig å bryte i denne løsningen.",
+        "solution": "```python\ndef snitt_per_oppgave(tabell):\n    k_opp = tabell[0].index('oppgave')\n    k_timer = tabell[0].index('timer')\n    sum_timer = {}\n    antall = {}\n    for rad in tabell[1:]:\n        opp = rad[k_opp]\n        sum_timer[opp] = sum_timer.get(opp, 0) + rad[k_timer]\n        antall[opp] = antall.get(opp, 0) + 1\n    d = {}\n    for opp in antall:\n        d[opp] = sum_timer[opp] / antall[opp]\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nsnitt = snitt_per_oppgave(tabell)\nfor opp in sorted(snitt):\n    print(opp.ljust(14) + '{:.2f}'.format(snitt[opp]))\nprint(snitt_per_oppgave([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nbeplantning   4.00\nmaling        2.33\nrydding       2.25\n{}\n```\n\n**Setningen om (c):** en nøkkel havner bare i `antall` fordi minst én rad la den inn, så `antall[opp]` er alltid minst 1 — divisjonen på null er **umulig ved konstruksjon**.\n\nDet er et bedre svar enn en `if antall[opp] == 0`-test, og det er verdt å skrive ned. Sensor ser da at du har tenkt gjennom tilfellet i stedet for å ha oversett det.\n\n**(b) kommer også gratis:** går løkka null ganger, blir begge ordbøkene tomme, den siste løkka går null ganger, og `d` er `{}`. Ingen ekstra linjer.\n\n**Det ene som IKKE er gratis** er (a). Uten `.index(...)` ville funksjonen lest feil kolonner på en omstokket fil, og gitt et resultat som ser helt normalt ut. Det er den delen av oppgaven som faktisk krever at du husker den.",
+        "hints": [
+          "Bygg både summen og antallet i samme løkke, og del i en løkke etterpå.",
+          "Hvordan kan en nøkkel havne i `antall` uten at verdien er minst 1?",
+          "Hva blir de to ordbøkene hvis løkka aldri kjører?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-txt-5",
+      "type": "text",
+      "content": "## Løkke 4 — krav 3: ingen duplikater (~13 min)\n\nDet tredje kravet står ordrett i flere oppgavetekster: *«listen skal ikke inneholde duplikater»*. Det er en enkelt linje kode, og den er verdt hele forskjellen mellom riktig og galt svar."
+    },
+    {
+      "id": "tdt4110-7-6-def-9",
+      "type": "definition",
+      "title": "Fullscore-krav 3: ingen duplikater i resultatet",
+      "content": "Bygger du ei resultatliste med `append` i en løkke, kommer den samme verdien med én gang per rad som passer. Er det tre rader med Hedda, står Hedda tre ganger.\n\nFormuleringene i oppgaveteksten som utløser kravet:\n\n- «uten duplikater» / «ingen gjentakelser»\n- «alle **forskjellige** deltakere»\n- «hvilke oppgaver som er utført» (i motsetning til «alle utførte oppgaver»)\n\nEr formuleringen tvetydig, velger du selv og **skriver én setning om valget**. Men vær oppmerksom: duplikatkravet er så ofte nevnt eksplisitt at det lønner seg å lese oppgaveteksten en ekstra gang før du antar."
+    },
+    {
+      "id": "tdt4110-7-6-def-10",
+      "type": "definition",
+      "title": "`if x not in resultat:` — den eksplisitte formen",
+      "content": "Testen står rett før `append`, og den er hele grepet:\n\n```python\nnavn = ['Hedda', 'Ivar', 'Hedda', 'Nils', 'Ivar']\nresultat = []\nfor n in navn:\n    if n not in resultat:\n        resultat.append(n)\nprint(resultat)\n```\n\n**Utskrift:**\n```\n['Hedda', 'Ivar', 'Nils']\n```\n\nFordelen ved denne formen er at **rekkefølgen bevares**: navnene kommer i den rekkefølgen de dukket opp første gang. Det er ofte det oppgaven vil ha, og det er lett å forklare.\n\nFormen er også lett å lese for sensor: én linje som sier nøyaktig hva den passer på."
+    },
+    {
+      "id": "tdt4110-7-6-def-11",
+      "type": "definition",
+      "title": "`set(...)` — samlingen uten duplikater",
+      "content": "En **mengde** (`set`) er en samling der hver verdi finnes høyst én gang. `set(liste)` fjerner duplikatene i ett kall.\n\n```python\nnavn = ['Hedda', 'Ivar', 'Hedda', 'Nils', 'Ivar']\nprint(len(set(navn)))\nprint(sorted(set(navn)))\n```\n\n**Utskrift:**\n```\n3\n['Hedda', 'Ivar', 'Nils']\n```\n\nTo ting du må vite før du bruker den:\n\n- **Rekkefølgen i en mengde er ikke noe du kan stole på.** Derfor skriver boka alltid `sorted(set(...))` når resultatet skal vises eller sammenlignes — det gir ei liste i fast, alfabetisk rekkefølge.\n- Mengden er en **annen type** enn ei liste. Skal funksjonen returnere ei liste, må du konvertere: `list(set(x))` eller `sorted(set(x))`.\n\n`set` er en snarvei på lik linje med `max` og `sorted`, og **begge former gir full pott**."
+    },
+    {
+      "id": "tdt4110-7-6-def-12",
+      "type": "definition",
+      "title": "`sorted(set(...))` — når rekkefølgen skal være fast",
+      "content": "Kombinasjonen som gir både «ingen duplikater» og «forutsigbar rekkefølge» på én linje:\n\n```python\noppgaver = ['maling', 'rydding', 'maling', 'beplantning', 'rydding']\nprint(sorted(set(oppgaver)))\n```\n\n**Utskrift:**\n```\n['beplantning', 'maling', 'rydding']\n```\n\nBruk den når resultatet skal **vises for en bruker** eller sammenlignes med et fasitsvar — da er alfabetisk rekkefølge både pent og etterprøvbart.\n\nBruk den eksplisitte `if x not in resultat`-formen når **rekkefølgen fra dataene** er en del av svaret: «i den rekkefølgen de meldte seg».\n\nMerk at `sorted` på blandede typer krasjer: `sorted({1, 'a'})` gir `TypeError`. Det er sjelden et problem i dette faget, siden kolonnene er ensartede."
+    },
+    {
+      "id": "tdt4110-7-6-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: hvem har gjort hva — med og uten duplikater",
+      "problem": "*«Skriv `deltakere_per_oppgave(tabell)` som returnerer `{oppgave: [navn, …]}` — hvem som har vært med på hver oppgave. Den samme personen skal bare stå én gang per oppgave.»*",
+      "solution": "**Uten duplikatsjekk — først, for å se problemet:**\n\n```python\ndef deltakere_naiv(tabell):\n    k_opp = tabell[0].index('oppgave')\n    k_navn = tabell[0].index('navn')\n    d = {}\n    for rad in tabell[1:]:\n        if rad[k_opp] not in d:\n            d[rad[k_opp]] = []\n        d[rad[k_opp]].append(rad[k_navn])\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(deltakere_naiv(tabell))\n```\n\n**Utskrift:**\n```\n{'maling': ['Hedda', 'Ivar', 'Hedda'], 'rydding': ['Ivar', 'Nils'], 'beplantning': ['Hedda']}\n```\n\nHedda står **to ganger** under maling, fordi hun har to malelinjer i fila. Det er riktig hvis spørsmålet var «alle malingsøktene», og galt hvis det var «hvem som har malt».\n\n**Med duplikatsjekk — to tester i stedet for én:**\n\n```python\ndef deltakere_per_oppgave(tabell):\n    k_opp = tabell[0].index('oppgave')\n    k_navn = tabell[0].index('navn')\n    d = {}\n    for rad in tabell[1:]:\n        opp = rad[k_opp]\n        if opp not in d:\n            d[opp] = []\n        if rad[k_navn] not in d[opp]:\n            d[opp].append(rad[k_navn])\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(deltakere_per_oppgave(tabell))\n```\n\n**Utskrift:**\n```\n{'maling': ['Hedda', 'Ivar'], 'rydding': ['Ivar', 'Nils'], 'beplantning': ['Hedda']}\n```\n\n**De to testene gjør helt forskjellige ting**, og det er verdt å si det høyt:\n\n| Test | Hva den passer på |\n|---|---|\n| `if opp not in d:` | at den indre **lista** finnes før `append` kalles |\n| `if rad[k_navn] not in d[opp]:` | at **navnet** ikke allerede står i den lista |\n\nDropper du den første, får du `KeyError`. Dropper du den andre, får du duplikater. De erstatter ikke hverandre.\n\n**Snarveien med `set`, som gir det samme:**\n\n```python\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nk_opp = tabell[0].index('oppgave')\nk_navn = tabell[0].index('navn')\nd = {}\nfor rad in tabell[1:]:\n    d.setdefault(rad[k_opp], set()).add(rad[k_navn])\nfor opp in sorted(d):\n    print(opp.ljust(14), sorted(d[opp]))\n```\n\n**Utskrift:**\n```\nbeplantning    ['Hedda']\nmaling         ['Hedda', 'Ivar']\nrydding        ['Ivar', 'Nils']\n```\n\n`set()` er den tomme mengden, og `.add(v)` legger til uten å lage duplikater. Legg merke til at utskriften bruker `sorted(...)` — mengdens egen rekkefølge er ikke noe å stole på.\n\n**Slik ville sensor sett på det:** **begge gir full pott.** Den eksplisitte formen er lettest å lese og forklare; `set`-formen er kortest. Det som ikke gir full pott, er å levere den naive versjonen når oppgaveteksten sa «uten duplikater» — og den setningen står i oppgaveteksten oftere enn noen annen robusthetsformulering."
+    },
+    {
+      "id": "tdt4110-7-6-opg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — ingen duplikater.) *«Skriv `oppgaver_for(tabell, navn)` som returnerer ei liste med alle oppgavene en bestemt person har vært med på — hver oppgave bare én gang, i alfabetisk rekkefølge. Returnér ei tom liste hvis personen ikke finnes.»*",
+        "solution": "**Den eksplisitte formen, med sortering til slutt:**\n\n```python\ndef oppgaver_for(tabell, navn):\n    k_navn = tabell[0].index('navn')\n    k_opp = tabell[0].index('oppgave')\n    resultat = []\n    for rad in tabell[1:]:\n        if rad[k_navn] == navn and rad[k_opp] not in resultat:\n            resultat.append(rad[k_opp])\n    return sorted(resultat)\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(oppgaver_for(tabell, 'Hedda'))\nprint(oppgaver_for(tabell, 'Ivar'))\nprint(oppgaver_for(tabell, 'Kari'))\n```\n\n**Utskrift:**\n```\n['beplantning', 'maling']\n['maling', 'rydding']\n[]\n```\n\nHedda har malt to ganger, men `'maling'` står én gang i svaret.\n\n**Snarveien:**\n\n```python\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nk_navn = tabell[0].index('navn')\nk_opp = tabell[0].index('oppgave')\nprint(sorted(set([rad[k_opp] for rad in tabell[1:] if rad[k_navn] == 'Hedda'])))\n```\n\n**Utskrift:**\n```\n['beplantning', 'maling']\n```\n\nBegge gir full pott. Den eksplisitte er lettere å skrive riktig for hånd; snarveien er ett uttrykk.\n\n**Tomtilfellet kommer gratis:** finner løkka ingen treff, er `resultat` fortsatt ei tom liste, og `sorted([])` gir `[]`. Ingen ekstra test.\n\n**Merk `and` i betingelsen.** Rekkefølgen på de to testene er ikke likegyldig for lesbarheten: navnetesten først er den som filtrerer bort flest rader, og den er lettest å forstå. Python stopper å regne på et `and`-uttrykk så snart en side er usann — det er kortslutning fra [kap. 1.2](/tdt4110/tdt4110-1-2).",
+        "hints": [
+          "Kombiner navnetesten og duplikattesten med `and` i den samme `if`-en.",
+          "Sorteringen hører til slutt, ikke inne i løkka.",
+          "Hva er `resultat` hvis ingen rader passer?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-opg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Skriv alle tre linjene, og forklar den tredje med én setning.\n\n```python\nnavn = ['Hedda', 'Ivar', 'Hedda', 'Nils']\na = []\nfor n in navn:\n    if n not in a:\n        a.append(n)\nprint(a)\nprint(len(set(navn)))\nprint(list(set(navn)) == a)\n```",
+        "solution": "**Sporingstavle for løkka.**\n\n| `n` | `n not in a`? | `a` etterpå |\n|---|---|---|\n| Hedda | ja | `['Hedda']` |\n| Ivar | ja | `['Hedda', 'Ivar']` |\n| Hedda | nei | uendret |\n| Nils | ja | `['Hedda', 'Ivar', 'Nils']` |\n\n**Utskrift:**\n```\n['Hedda', 'Ivar', 'Nils']\n3\nFalse\n```\n\n**Setningen om den tredje linja:** `list(set(navn))` inneholder de samme tre navnene, men rekkefølgen i en mengde er ikke noe du kan stole på — så sammenligningen med `a` er ikke pålitelig, og her gir den `False`.\n\n**Fellenoten:** dette er grunnen til at boka alltid skriver `sorted(set(...))` og ikke `list(set(...))` når resultatet skal vises eller sammenlignes. Skriver du `list(set(...))` i en fasit, kan svaret ditt se annerledes ut enn sensors, selv om innholdet er det samme.\n\n**Delvis riktig sporing gir delvis uttelling:** har du de to første linjene riktig, har du vist at du kan både duplikatsjekken og mengden. Den tredje er den ekstra innsikten.",
+        "hints": [
+          "Følg lista `a` gjennom alle fire rundene i løkka.",
+          "Hvor mange forskjellige navn er det i lista?",
+          "Kan du stole på rekkefølgen når en mengde gjøres om til ei liste?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-txt-6",
+      "type": "text",
+      "content": "## Løkke 5 — krav 4: vilkårlig rekkefølge på radene (~12 min)\n\nDet fjerde kravet er det som er lettest å bryte uten å merke det, fordi eksempelfila i oppgaven som regel er pent ordnet: *«bilene passerer i tilfeldig rekkefølge»*, *«linjene er ikke sortert»*."
+    },
+    {
+      "id": "tdt4110-7-6-def-13",
+      "type": "definition",
+      "title": "Fullscore-krav 4: ikke anta noe om rekkefølgen",
+      "content": "Koden din skal gi samme svar uansett hvilken rekkefølge radene kommer i.\n\nTo antakelser som bryter kravet, og som begge er lette å gjøre:\n\n- **«Like rader står ved siden av hverandre.»** Da kan du telle med en variabel som nullstilles når nøkkelen skifter. Kommer radene blandet, teller du feil.\n- **«Tabellen er sortert.»** Da kan du ta den første raden som den minste. Er den ikke sortert, er svaret tilfeldig.\n\nMønstrene boka bruker — ordbok-telleren, grupperingen og «finn beste» — er alle uavhengige av rekkefølgen. Det er en av grunnene til at de er valgt.\n\nTesten du kan gjøre selv på to minutter: **stokk om radene i testdataene dine og kjør på nytt.** Får du et annet svar, har du en skjult antakelse."
+    },
+    {
+      "id": "tdt4110-7-6-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: telling med og uten rekkefølgeantakelse",
+      "problem": "To måter å telle hvor mange økter hver person har hatt. Den ene virker bare hvis radene er gruppert per person. Vis forskjellen.",
+      "solution": "**Den skjøre varianten** — teller opp, og skriver ut når navnet skifter:\n\n```python\ndef okter_skjor(tabell):\n    k = tabell[0].index('navn')\n    d = {}\n    forrige = None\n    antall = 0\n    for rad in tabell[1:]:\n        if rad[k] != forrige:\n            if forrige is not None:\n                d[forrige] = antall\n            forrige = rad[k]\n            antall = 0\n        antall = antall + 1\n    if forrige is not None:\n        d[forrige] = antall\n    return d\n\nsortert = [['oppgave', 'navn', 'timer'],\n           ['maling', 'Hedda', 3.5],\n           ['beplantning', 'Hedda', 4.0],\n           ['maling', 'Hedda', 2.0],\n           ['rydding', 'Ivar', 2.0],\n           ['maling', 'Ivar', 1.5]]\nprint(okter_skjor(sortert))\n```\n\n**Utskrift:**\n```\n{'Hedda': 3, 'Ivar': 2}\n```\n\nPå den grupperte tabellen ser den helt riktig ut: Hedda 3, Ivar 2.\n\n**Den samme funksjonen på de samme dataene, blandet:**\n\n```python\ndef okter_skjor(tabell):\n    k = tabell[0].index('navn')\n    d = {}\n    forrige = None\n    antall = 0\n    for rad in tabell[1:]:\n        if rad[k] != forrige:\n            if forrige is not None:\n                d[forrige] = antall\n            forrige = rad[k]\n            antall = 0\n        antall = antall + 1\n    if forrige is not None:\n        d[forrige] = antall\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(okter_skjor(tabell))\n```\n\n**Utskrift:**\n```\n{'Hedda': 1, 'Ivar': 2, 'Nils': 1}\n```\n\nNå er svaret feil: Hedda står med 1 økt i stedet for 3, fordi tellingen ble nullstilt hver gang navnet skiftet, og bare den **siste** klyngen ble lagret.\n\n**Ordbok-telleren, som ikke bryr seg om rekkefølgen:**\n\n```python\ndef okter_robust(tabell):\n    k = tabell[0].index('navn')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k]] = d.get(rad[k], 0) + 1\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(okter_robust(tabell))\nsortert = [['oppgave', 'navn', 'timer'],\n           ['maling', 'Hedda', 3.5],\n           ['beplantning', 'Hedda', 4.0],\n           ['maling', 'Hedda', 2.0],\n           ['rydding', 'Ivar', 2.0],\n           ['maling', 'Ivar', 1.5],\n           ['rydding', 'Nils', 2.5]]\nprint(okter_robust(sortert))\n```\n\n**Utskrift:**\n```\n{'Hedda': 3, 'Ivar': 2, 'Nils': 1}\n{'Hedda': 3, 'Ivar': 2, 'Nils': 1}\n```\n\nSamme svar begge veier, uansett rekkefølge — og funksjonen er fem linjer i stedet for tolv.\n\n**Slik ville sensor sett på det:** den skjøre varianten er ikke bare mer utsatt, den er også lengre og vanskeligere å lese. Det er sjelden en avveining mellom robusthet og enkelhet i dette faget: det robuste mønsteret er nesten alltid også det korteste.\n\n**Regelen å ta med seg:** når du kjenner igjen at du holder styr på «den forrige raden», skal en varsellampe lyse. Ordboka gjør den bokføringen for deg."
+    },
+    {
+      "id": "tdt4110-7-6-opg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå — finn antakelsen.) Denne funksjonen skal returnere den korteste økta:\n\n```python\ndef korteste(tabell):\n    k = tabell[0].index('timer')\n    return tabell[1][k]\n```\n\n**a)** Hvilken antakelse gjør den om dataene?\n\n**b)** Skriv den om slik at den virker uansett rekkefølge, og returnerer `None` på en tom tabell.",
+        "solution": "**a)** Den antar at **tabellen allerede er sortert stigende på timer**, slik at den første dataraden er den korteste. På en usortert tabell er svaret tilfeldig — det er bare den første raden i fila.\n\nDen bryter i tillegg tomtilfellet: `tabell[1]` krasjer med `IndexError` når det ikke finnes datarader.\n\n**b)** «Finn beste» med `<`, som ikke bryr seg om rekkefølgen:\n\n```python\ndef korteste(tabell):\n    k = tabell[0].index('timer')\n    beste = None\n    for rad in tabell[1:]:\n        if beste is None or rad[k] < beste:\n            beste = rad[k]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(korteste(tabell))\nprint(korteste([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n1.5\nNone\n```\n\n**Kontrollen som avslører rekkefølgeantakelser:** kjør funksjonen på de samme radene i en annen rekkefølge og se om svaret er det samme.\n\n```python\ndef korteste(tabell):\n    k = tabell[0].index('timer')\n    beste = None\n    for rad in tabell[1:]:\n        if beste is None or rad[k] < beste:\n            beste = rad[k]\n    return beste\n\na = [['navn', 'timer'], ['Hedda', 3.5], ['Ivar', 1.5], ['Nils', 2.5]]\nb = [['navn', 'timer'], ['Nils', 2.5], ['Hedda', 3.5], ['Ivar', 1.5]]\nprint(korteste(a), korteste(b))\n```\n\n**Utskrift:**\n```\n1.5 1.5\n```\n\nSamme svar begge veier. Det tar tjue sekunder på eksamen og er den billigste robusthetstesten som finnes.",
+        "hints": [
+          "Hva står i `tabell[1]`, og hvorfor skulle det være den minste?",
+          "Bruk «finn beste» med `<` og `None` som startverdi.",
+          "Test ved å stokke om radene og kjøre på nytt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-opg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — rekkefølgeuavhengig gruppering.) *«Radene i dugnadslista kommer i tilfeldig rekkefølge. Skriv `okter_per_person_og_oppgave(tabell)` som returnerer `{navn: {oppgave: antall}}` — en ordbok av ordbøker.»*\n\nTest at svaret er det samme når radene stokkes om.",
+        "solution": "En nøstet struktur: den ytre ordboka har navn som nøkkel, og hver verdi er selv en telleordbok.\n\n```python\ndef okter_per_person_og_oppgave(tabell):\n    k_navn = tabell[0].index('navn')\n    k_opp = tabell[0].index('oppgave')\n    d = {}\n    for rad in tabell[1:]:\n        navn = rad[k_navn]\n        if navn not in d:\n            d[navn] = {}\n        opp = rad[k_opp]\n        d[navn][opp] = d[navn].get(opp, 0) + 1\n    return d\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(okter_per_person_og_oppgave(tabell))\n```\n\n**Utskrift:**\n```\n{'Hedda': {'maling': 2, 'beplantning': 1}, 'Ivar': {'rydding': 1, 'maling': 1}, 'Nils': {'rydding': 1}}\n```\n\n**Kontrollen med omstokkede rader:**\n\n```python\ndef okter_per_person_og_oppgave(tabell):\n    k_navn = tabell[0].index('navn')\n    k_opp = tabell[0].index('oppgave')\n    d = {}\n    for rad in tabell[1:]:\n        navn = rad[k_navn]\n        if navn not in d:\n            d[navn] = {}\n        d[navn][rad[k_opp]] = d[navn].get(rad[k_opp], 0) + 1\n    return d\n\na = [['oppgave', 'navn', 'timer'], ['maling', 'Hedda', 3.5],\n     ['rydding', 'Ivar', 2.0], ['maling', 'Hedda', 2.0]]\nb = [['oppgave', 'navn', 'timer'], ['maling', 'Hedda', 2.0],\n     ['maling', 'Hedda', 3.5], ['rydding', 'Ivar', 2.0]]\nprint(okter_per_person_og_oppgave(a) == okter_per_person_og_oppgave(b))\n```\n\n**Utskrift:**\n```\nTrue\n```\n\n`True` — de to gir nøyaktig samme resultat. Merk at ordbøker sammenlignes på **innhold**, ikke på rekkefølge, så `==` er en gyldig test her.\n\n**De to linjene som gjør strukturen mulig:**\n\n- `if navn not in d: d[navn] = {}` — den indre **ordboka** må finnes før du kan sette noe i den. Det er samme regel som for den indre lista i grupperingen, bare med `{}` i stedet for `[]`.\n- `d[navn].get(opp, 0) + 1` — telleren, brukt på den indre ordboka.\n\n**Slik ville sensor sett på det:** nøstede ordbøker kommer sjelden, men når de gjør det, er det nettopp disse to linjene som testes. Klarer du dem, klarer du enhver kombinasjon av gruppering og telling.\n\n**Antakelsen å skrive ned:** en person uten registrerte økter kommer ikke med i det hele tatt — det finnes ingen rad som kan legge navnet inn. Skal alle med, må du ha en navneliste å gå gjennom først.",
+        "hints": [
+          "Den ytre ordboka har navn som nøkkel og en ny, tom **ordbok** som verdi.",
+          "Den indre tellingen er `d[navn].get(oppgave, 0) + 1`.",
+          "To ordbøker med samme innhold er like med `==`, uansett innsettingsrekkefølge."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-txt-7",
+      "type": "text",
+      "content": "## Løkke 6 — alle fire kravene i én funksjon (~11 min)\n\nTil slutt setter vi de fire sammen — og legger til den femte tingen, som ikke er kode."
+    },
+    {
+      "id": "tdt4110-7-6-def-14",
+      "type": "definition",
+      "title": "Antakelsen skrevet ned",
+      "content": "Er oppgaveteksten uklar, velger du selv og skriver **én setning** om valget i besvarelsen.\n\nFire antakelser som går igjen, med ferdige formuleringer:\n\n- «Antar at det bare finnes én vinner; ved likhet returneres den som står først i tabellen.»\n- «Antar at et tomt felt betyr ikke registrert, ikke null — raden holdes utenfor snittet.»\n- «Antar at navn sammenlignes eksakt, så store og små bokstaver skiller.»\n- «Antar at kolonnenavnene i overskriftsraden er som oppgitt, men ikke at rekkefølgen er det.»\n\nSensorregelen som gjelder: **svar kort og klart. Er svaret uklart eller lengre enn nødvendig, trekker det ned.** Én setning per antakelse er nok — det er ingen premie for et avsnitt.\n\nFemten sekunder per setning er forskjellen mellom «feil» og «riktig gitt en dokumentert antakelse»."
+    },
+    {
+      "id": "tdt4110-7-6-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: dugnadsrapporten som tåler alt",
+      "problem": "Skriv en analysefunksjon som oppfyller alle fire kravene samtidig: *«`aktive_deltakere(tabell, minst)` skal returnere navnene på alle som har lagt ned minst det oppgitte antallet timer til sammen, uten duplikater, i alfabetisk rekkefølge — og ei tom liste hvis ingen kvalifiserer.»*",
+      "solution": "Funksjonen bygges i to steg: først telleordboka, så filtreringen.\n\n```python\ndef timer_per_person(tabell):\n    k_navn = tabell[0].index('navn')\n    k_timer = tabell[0].index('timer')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_timer]\n    return d\n\ndef aktive_deltakere(tabell, minst):\n    d = timer_per_person(tabell)\n    resultat = []\n    for navn in d:\n        if d[navn] >= minst:\n            resultat.append(navn)\n    return sorted(resultat)\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(aktive_deltakere(tabell, 3.0))\nprint(aktive_deltakere(tabell, 100.0))\nprint(aktive_deltakere([['oppgave', 'navn', 'timer']], 1.0))\n```\n\n**Utskrift:**\n```\n['Hedda', 'Ivar']\n[]\n[]\n```\n\nHedda har 9.5 timer og Ivar 3.5; Nils har 2.5 og faller utenfor. Med grensen 100 kvalifiserer ingen, og med tom tabell finnes ingen.\n\n**De fire kravene, punkt for punkt:**\n\n| Krav | Hvor det er oppfylt |\n|---|---|\n| 1 — dynamisk kolonne | `tabell[0].index('navn')` og `.index('timer')` i `timer_per_person` |\n| 2 — tomtilfelle | tom tabell gir tom ordbok, tom løkke og `[]` — helt gratis |\n| 3 — ingen duplikater | ordboka har én nøkkel per person, så duplikater er umulige |\n| 4 — vilkårlig rekkefølge | telleren og filtreringen bryr seg ikke om rekkefølgen |\n\n**Legg merke til hvordan krav 3 løses her:** ikke med en `not in`-test, men ved at **strukturen** gjør duplikater umulig. En ordbok har én nøkkel per verdi, og løkka går over nøklene. Det er den ryddigste måten å oppfylle kravet på, og den er verdt å se etter — kan du velge en struktur som gjør feilen umulig, slipper du å teste for den.\n\n**Antakelsen å skrive ned:** «minst» tolkes som `>=`, altså at grensen selv teller med. Sier oppgaven «mer enn», er det `>`. Én setning.\n\n**Slik ville sensor sett på det:** alle fire kravene er dekket, og bare ett av dem krevde egne linjer. Det er den korteste veien til full pott — og den er tilgjengelig for alle som kjenner mønstrene."
+    },
+    {
+      "id": "tdt4110-7-6-opg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — alle fire kravene.) *«Skriv `mest_aktive(tabell)` som returnerer navnet på den som har lagt ned flest timer til sammen. Funksjonen skal finne kolonnene ved navn, virke uansett radrekkefølge, og returnere `None` hvis det ikke finnes noen deltakere.»*\n\nSkriv i tillegg én setning om hva funksjonen gjør ved likhet.",
+        "solution": "To steg: telleordboka først, «finn beste nøkkel» etterpå.\n\n```python\ndef timer_per_person(tabell):\n    k_navn = tabell[0].index('navn')\n    k_timer = tabell[0].index('timer')\n    d = {}\n    for rad in tabell[1:]:\n        d[rad[k_navn]] = d.get(rad[k_navn], 0) + rad[k_timer]\n    return d\n\ndef mest_aktive(tabell):\n    d = timer_per_person(tabell)\n    beste = None\n    for navn in d:\n        if beste is None or d[navn] > d[beste]:\n            beste = navn\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(mest_aktive(tabell))\nprint(mest_aktive([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nHedda\nNone\n```\n\n**Setningen om likhet:** ved likt timetall returneres den som **først** ble satt inn i ordboka, altså den som står øverst i tabellen — fordi `>` er streng og ikke bytter ved uavgjort.\n\n**Merk at dette faktisk er en rekkefølgeavhengighet**, og den er verdt å være ærlig om. Funksjonen gir samme svar uansett rekkefølge **så lenge det finnes én klar vinner**. Ved uavgjort avhenger svaret av rekkefølgen i fila, og da er den ene setningen din forsikring.\n\n**Snarveien:**\n\n```python\nd = {'Hedda': 9.5, 'Ivar': 3.5, 'Nils': 2.5}\nprint(max(d, key=d.get))\nprint(max({}, key={}.get, default=None))\n```\n\n**Utskrift:**\n```\nHedda\nNone\n```\n\n`max` på en tom ordbok krasjer med `ValueError` med mindre du gir `default=None`. Løkkevarianten gir `None` av seg selv — nok en gang er det eksplisitte mønsteret det som er robust uten ekstra linjer.",
+        "hints": [
+          "Bygg telleordboka først, og finn den beste nøkkelen i den etterpå.",
+          "Hva returnerer «finn beste nøkkel» når ordboka er tom?",
+          "Hva skjer ved likt timetall — hvilken nøkkel vinner, og hvorfor?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-opg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-7-6-oppg-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — robustgjør en hel besvarelse.) Her er tre funksjoner fra en besvarelse som virker på eksempelfila:\n\n```python\ndef deltakere(tabell):\n    resultat = []\n    for rad in tabell[1:]:\n        resultat.append(rad[1])\n    return resultat\n\ndef toppdeltaker(tabell):\n    beste = tabell[1]\n    for rad in tabell[1:]:\n        if rad[2] > beste[2]:\n            beste = rad\n    return beste[1]\n\ndef snitt(tabell):\n    total = 0\n    for rad in tabell[1:]:\n        total = total + rad[2]\n    return total / (len(tabell) - 1)\n```\n\n**a)** Gå gjennom robusthetssjekklista og finn bruddene i hver funksjon.\n\n**b)** Skriv alle tre om.",
+        "solution": "**a)** Sjekklista, funksjon for funksjon:\n\n| Funksjon | Krav 1 kolonne | Krav 2 tomt | Krav 3 duplikater | Krav 4 rekkefølge |\n|---|---|---|---|---|\n| `deltakere` | brutt — `rad[1]` | i orden — gir `[]` | **brutt** — samme navn flere ganger | i orden |\n| `toppdeltaker` | brutt — `rad[2]`, `beste[2]` | **brutt** — `tabell[1]` krasjer | ikke relevant | i orden |\n| `snitt` | brutt — `rad[2]` | **brutt** — deler på 0 | ikke relevant | i orden |\n\nTre av fire krav er brutt minst ett sted. Ingen av funksjonene bryter krav 4 — mønstrene er allerede rekkefølgeuavhengige.\n\n**b)** De tre skrevet om:\n\n```python\ndef deltakere(tabell):\n    k = tabell[0].index('navn')\n    resultat = []\n    for rad in tabell[1:]:\n        if rad[k] not in resultat:\n            resultat.append(rad[k])\n    return resultat\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(deltakere(tabell))\nprint(deltakere([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n['Hedda', 'Ivar', 'Nils']\n[]\n```\n\n```python\ndef toppdeltaker(tabell):\n    k_timer = tabell[0].index('timer')\n    k_navn = tabell[0].index('navn')\n    beste = None\n    beste_verdi = None\n    for rad in tabell[1:]:\n        if beste_verdi is None or rad[k_timer] > beste_verdi:\n            beste = rad[k_navn]\n            beste_verdi = rad[k_timer]\n    return beste\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(toppdeltaker(tabell))\nprint(toppdeltaker([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\nHedda\nNone\n```\n\n```python\ndef snitt(tabell):\n    k = tabell[0].index('timer')\n    total = 0\n    antall = 0\n    for rad in tabell[1:]:\n        total = total + rad[k]\n        antall = antall + 1\n    if antall == 0:\n        return None\n    return total / antall\n\ntabell = [['oppgave', 'navn', 'timer'],\n          ['maling', 'Hedda', 3.5],\n          ['rydding', 'Ivar', 2.0],\n          ['maling', 'Ivar', 1.5],\n          ['beplantning', 'Hedda', 4.0],\n          ['rydding', 'Nils', 2.5],\n          ['maling', 'Hedda', 2.0]]\nprint(snitt(tabell))\nprint(snitt([['oppgave', 'navn', 'timer']]))\n```\n\n**Utskrift:**\n```\n2.5833333333333335\nNone\n```\n\n**Slik ville sensor sett på det:** den opprinnelige besvarelsen er en helt normal, kompetent B-besvarelse. Strukturen er riktig i alle tre, løkkene er riktige, og svarene er riktige på dataene i oppgaven. Den ville fått god uttelling.\n\nOmskrivingen kostet **ni linjer til sammen** — tre kolonneoppslag, én duplikattest, én tomtest og et bytte av startverdi. Det er hele avstanden til full pott.\n\n**Og en presisering det er verdt å ta med seg:** `snitt`-funksjonens opprinnelige nevner `len(tabell) - 1` er ikke bare skjør på tom tabell, den er også feil hvis noen rader skal hoppes over. Å telle selv i løkka er både tryggere og mer fleksibelt — og det koster én linje.",
+        "hints": [
+          "Gå gjennom de fire spørsmålene i sjekklista for hver funksjon for seg.",
+          "To av funksjonene krasjer på en tabell uten datarader. Hvilke, og på hvilken linje?",
+          "I `snitt`: tell selv i stedet for å regne nevneren ut av `len(tabell)`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-7-6-col-1",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "tdt4110-7-6-ctxt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `tabell[0].index('timer')` | kolonnenummeret ved navn; `ValueError` hvis navnet ikke finnes; skiller store og små bokstaver |\n| `navn in tabell[0]` | `True` hvis kolonnen finnes — testen som må stå **før** `.index` når navnet kommer utenfra |\n| `tabell[1:]` | radene uten overskriften; gir ei **tom liste** når det ikke er datarader |\n| `tabell[1]` | første datarad; `IndexError` når den ikke finnes — utsnitt er trygge, indekser er det ikke |\n| `if len(tabell) <= 1:` | tomtesten; gjør antakelsen synlig selv når mønsteret takler tomt av seg selv |\n| `beste is None` | startbetingelsen som gir riktig svar på tom tabell **og** på bare negative verdier |\n| `return None` | «det finnes ikke noe svar» — for funksjoner som returnerer en verdi eller en rad |\n| `return []` / `return {}` | tomsvaret for funksjoner som returnerer ei liste eller en ordbok |\n| `return -1` | «ikke funnet» når svaret er en **posisjon** i ei liste |\n| `if x not in resultat:` | duplikatsjekken; bevarer rekkefølgen verdiene dukket opp i |\n| `set(liste)` | samling uten duplikater; rekkefølgen er **ikke** til å stole på |\n| `set()` og `.add(v)` | den tomme mengden, og innsetting som aldri gir duplikater |\n| `sorted(set(liste))` | uten duplikater **og** i fast alfabetisk rekkefølge, som ei liste |\n| `list(set(liste))` | uten duplikater, men i vilkårlig rekkefølge — unngå i fasitsvar |\n| `d.get(k, 0) + v` | telleren; rekkefølgeuavhengig, i motsetning til «husk forrige rad»-varianten |\n| `if k not in d: d[k] = {}` | nøstet ordbok: den indre ordboka må finnes før innsetting |\n| `d1 == d2` | ordbøker sammenlignes på **innhold**, ikke på innsettingsrekkefølge |\n| `max(d, key=d.get, default=None)` | snarveien med tomtilfellet dekket |\n\n**Formler i dette delkapitlet:**\n\nAntall datarader i en tabell med overskriftsrad: $r = \\text{len}(\\text{tabell}) - 1$, og analysen skal gi et svar også når $r = 0$."
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }
