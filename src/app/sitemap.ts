@@ -4,6 +4,7 @@ import path from 'node:path';
 import type { MetadataRoute } from 'next';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
 import { INSTITUSJONER } from '@/app/trinn/hoyere/institusjoner';
+import { BOOK_CHAPTERS } from '@/lib/data/book-chapters';
 
 /**
  * Kapittel-id-ene som finnes på nynorsk. Lest fra den kombinerte sidevogna som
@@ -28,8 +29,11 @@ function nynorskIder(): Set<string> {
 const BASE_URL = 'https://www.skolesaga.no';
 
 const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }[] = [
+  // NB: bare ÉN oppføring for '/'. Da /bok-prefikset falt bort 27. juli 2026
+  // ble den gamle '/bok'-linja her til '/', og forsiden sto oppført to ganger
+  // med ulik priority — motstridende signal om samme URL.
   { path: '/', changeFrequency: 'weekly', priority: 1.0 },
-  { path: '/', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/programmering', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/quiz', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/quiz/gigaquiz', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/test-deg-selv', changeFrequency: 'monthly', priority: 0.8 },
@@ -206,5 +210,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
   }
 
-  return [...staticEntries, ...gradeEntries, ...institusjonEntries, ...courseEntries, ...chapterEntries];
+  // Python-boka har aldri stått i sitemapet, enda den er 52 kapitler kjørbar
+  // kode koblet mot læreplanen (8.–10. klasse, 1P/1T/2P/S1/R1/S2/R2). Sidene
+  // er 'use client' og hadde derfor heller ingen egen tittel — begge deler
+  // rettet 28. juli 2026, da boka flyttet fra /book til /programmering.
+  //
+  // Lista kommer fra BOOK_CHAPTERS, ikke fra rutemappene. Det holder /4-5 ute:
+  // et etterlatt utkast som overlapper 11-1…11-4 og er satt til noindex.
+  const programmeringEntries: MetadataRoute.Sitemap = BOOK_CHAPTERS.map((kap) => ({
+    url: `${BASE_URL}${kap.url}`,
+    lastModified: buildTime,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...gradeEntries, ...institusjonEntries, ...programmeringEntries, ...courseEntries, ...chapterEntries];
 }

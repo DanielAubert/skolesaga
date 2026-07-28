@@ -773,7 +773,7 @@ export default function TeacherDashboard() {
               </Card>
 
               <Card className="hover:border-primary/50 transition-colors cursor-pointer">
-                <Link href="/book">
+                <Link href="/programmering">
                   <CardHeader className="pb-2">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-950/50">

@@ -50,7 +50,7 @@ const TOOL_ITEMS: StaticItem[] = [
   { id: "tool-poeng", label: "Poengkalkulator", hint: "Beregn opptakspoeng", href: "/poengkalkulator", icon: <Calculator className="h-4 w-4" /> },
   { id: "tool-hoderegning", label: "Hoderegning", hint: "Treningsoppgaver", href: "/hoderegning", icon: <Brain className="h-4 w-4" /> },
   { id: "tool-geogebra", label: "GeoGebra", href: "/geogebra", icon: <Calculator className="h-4 w-4" /> },
-  { id: "tool-python", label: "Python", hint: "Programmering", href: "/book", icon: <Code className="h-4 w-4" /> },
+  { id: "tool-python", label: "Python", hint: "Programmering", href: "/programmering", icon: <Code className="h-4 w-4" /> },
   { id: "tool-ressurser", label: "Ressurser", href: "/ressurser", icon: <FileText className="h-4 w-4" /> },
 ];
 

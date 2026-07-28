@@ -38,7 +38,7 @@ export function ChapterNavigation({ currentChapterId }: ChapterNavigationProps) 
             </Card>
           </Link>
         ) : (
-          <Link href="/book" className="block">
+          <Link href="/programmering" className="block">
             <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer group border-dashed active:scale-95">
               <CardContent className="pt-5 pb-5 px-4 sm:pt-6 sm:px-6">
                 <div className="flex items-start gap-3">
@@ -80,7 +80,7 @@ export function ChapterNavigation({ currentChapterId }: ChapterNavigationProps) 
             </Card>
           </Link>
         ) : (
-          <Link href="/book" className="block">
+          <Link href="/programmering" className="block">
             <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer group border-dashed active:scale-95">
               <CardContent className="pt-5 pb-5 px-4 sm:pt-6 sm:px-6">
                 <div className="flex items-start gap-3">

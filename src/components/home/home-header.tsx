@@ -19,7 +19,7 @@ export function HomeHeader() {
           <Link href="/quiz" className="text-sm font-medium hover:text-primary transition-colors hidden sm:block">
             Quiz
           </Link>
-          <Link href="/book" className="text-sm font-medium hover:text-primary transition-colors hidden sm:block">
+          <Link href="/programmering" className="text-sm font-medium hover:text-primary transition-colors hidden sm:block">
             Python
           </Link>
           <Link href="/geogebra" className="text-sm font-medium hover:text-primary transition-colors hidden sm:block">

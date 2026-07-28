@@ -108,6 +108,12 @@ const nextConfig: NextConfig = {
       // dem, men de står eksplisitt her fordi de flyttet av en annen grunn:
       // «trinn» delte slot med kurs-id-ene.
       { source: '/bok/trinn/:path*', destination: '/trinn/:path*', permanent: true },
+
+      // Python-boka lå på /book — engelsk, på en side der alt annet er norsk,
+      // og bokstavelig talt én bokstav fra /bok. Den ble /programmering
+      // 28. juli 2026, som i tillegg er et faktisk søkeord.
+      { source: '/book', destination: '/programmering', permanent: true },
+      { source: '/book/:path*', destination: '/programmering/:path*', permanent: true },
     ];
 
     const mediaBase = process.env.NEXT_PUBLIC_SUPABASE_URL

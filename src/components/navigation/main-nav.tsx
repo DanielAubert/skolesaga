@@ -41,7 +41,7 @@ export function MainNav() {
 
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/book" className={navigationMenuTriggerStyle()}>
+                <Link href="/programmering" className={navigationMenuTriggerStyle()}>
                   Python
                 </Link>
               </NavigationMenuLink>
@@ -115,7 +115,7 @@ export function MainNav() {
               Lærebøker
             </Link>
             <Link
-              href="/book"
+              href="/programmering"
               className="flex items-center text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
