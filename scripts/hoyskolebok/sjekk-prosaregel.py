@@ -64,13 +64,28 @@ def main():
         except Exception as e:
             avvik.append(f"UGYLDIG JSON i {navn}: {e}")
             continue
+        # Rammen kan stå ETABLERT tidligere i kapitlet. En leser møter kapitlet
+        # som en helhet: har åpningsblokken sagt «ingen minuspoeng fra og med
+        # 2015, kryss alltid av», er en senere henvisning til «ingen minuspoeng»
+        # helt naturlig prosa — den skal ikke gjenta årstallet hver gang.
+        #
+        # Fram til 28. juli 2026 krevde porten rammen i HVER streng, og meldte
+        # derfor avvik i tdt4110-8-3/8-5/8-7 der hvert kapittel var korrekt
+        # rammet inn i åpningsblokken. Slik støy får en port til å bli ignorert,
+        # og da fanger den ikke de ekte bruddene heller.
+        rammet_i_kapitlet = any(unntak.search(s) for _, s in strenger(d))
+
         for sti, s in strenger(d):
             for m in treff.finditer(s):
                 n_treff += 1
                 i = m.start()
                 vindu = s[max(0, i - VINDU): i + VINDU]
-                if not unntak.search(vindu):
-                    avvik.append(f"{navn}{sti}: «{m.group(0)}» uten ramme — …{vindu}…")
+                if unntak.search(vindu):
+                    continue
+                if rammet_i_kapitlet:
+                    continue  # rammen er etablert et annet sted i samme kapittel
+                avvik.append(f"{navn}{sti}: «{m.group(0)}» uten ramme NOE STED i"
+                             f" kapitlet — …{vindu}…")
 
     print(f"{emne}: {len(filer)} filer | {n_treff} treff på /{treff_rx}/")
     if avvik:
