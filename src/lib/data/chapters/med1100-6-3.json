@@ -1,0 +1,411 @@
+{
+ "id": "med1100-6-3",
+ "courseId": "med1100",
+ "chapterNumber": "6.3",
+ "title": "Enzymkinetikk",
+ "description": "Michaelis-Menten, Lineweaver-Burk, allosteri og identifikasjon av hemmertype — en fast regneoppgave (oppgave F).",
+ "estimatedMinutes": 65,
+ "competenceGoals": [
+  "kunne bruke Michaelis-Menten-likningen med riktige enheter og tolke svaret som andel av høyeste hastighet",
+  "kunne finne Km og Vmax fra en måletabell via et Lineweaver-Burk-oppsett, med kontrollregning",
+  "kunne avgjøre hemmertype fra endringer i Km og Vmax, og si når dataene ikke lar seg klassifisere",
+  "kunne regne ut omsetningstall og katalytisk effektivitet, og forklare hvorfor det raskeste enzymet ikke alltid er det mest effektive"
+ ],
+ "content": [
+  {
+   "id": "med1100-6-3-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet trener blokk 2.** MED1100 har tre **blokkeksamener** — tre separate eksamener med hvert sitt format, som alle må bestås hver for seg. Vurderingen er **bestått / ikke bestått**.\n\n- **Form:** blokk 2 er **skriftlig, seks timer (09–15)**, med enkel kalkulator som eneste hjelpemiddel. **Ingen formelsamling** — i motsetning til blokk 1, der statistikkformlene deles ut. Formlene i dette kapitlet må du altså kunne.\n- **Hvor i settet:** enzymkinetikk er **oppgave F**, talt i **omtrent 13 av 14 leste sittinger**, med et vekttall på **opptil 18** av 100. Den er en av de mest forutsigbare oppgavene i hele settet, og den er nesten alltid en regneoppgave.\n- **Sjangrene:** **B2-REGN** — regneoppgaven, der utregningen skal vises og enhetene være riktige. **B2-NED** — nedtrekks- eller utfyllingsoppgaven, der du for eksempel skal koble hemmertype til hva som skjer med Km og Vmax.\n- **Retting:** manuell, **moment for moment**. Delpoeng gis for fornuftig resonnement selv ved feil sluttsvar — sensorveiledningene som ligger i blokk 2-settene (2022h–2025h), sier at det ikke skal trekkes for følgefeil.\n- **Husk minuspoengregelen:** kommer det et **rutenett** i blokk 2 (en avkryssingstabell), rettes det med **negativ retting** — riktig kryss gir pluss, feil kryss gir like mye minus, blankt gir null. **Blankt slår gjetting.** Motsatt av blokk 1 og 3. Regnestykket står i [kap. 0.2](/med1100/med1100-0-2).\n- **Hva sensor ser etter:** at du **leser av** riktig og **begrunner typen**. Å skrive «kompetitiv hemmer» uten å si hva som skjedde med Km og Vmax, gir omtrent halve uttellingen. Å vise at Km steg mens Vmax var uendret, og **derfor** konkludere, er hele oppgaven."
+  },
+  {
+   "id": "med1100-6-3-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 6.1](/med1100/med1100-6-1) og på retteregelen i [kap. 0.2](/med1100/med1100-0-2). De tre tingene du trenger, står ferdig oppfrisket her:\n\n1. **Fra [kap. 6.1](/med1100/med1100-6-1): et enzym er en katalysator.** Det får en reaksjon til å gå fortere uten selv å forbrukes. **PFK-1** var eksempelet: enzymet som bestemmer hvor fort glykolysen går. I dette kapitlet skal vi måle nøyaktig hvor fort et enzym arbeider, og hva som endrer det.\n2. **Fra [kap. 6.1](/med1100/med1100-6-1): enzymer kan hemmes og aktiveres.** F2,6BP aktiverte PFK-1 og hemmet FBPase-1. Her går vi fra «hemmes» som ord til **hvilken type** hemming det er — og til hvordan du avgjør det fra måledata.\n3. **Fra [kap. 0.2](/med1100/med1100-0-2): kravet om vist utregning.** I blokk 2 er utregningen ikke en forberedelse til svaret — den **er** svaret. Et sluttsvar uten utregning er felle **E22**, og det koster selv om tallet er riktig.\n\nEnzymkinetikk er nytt stoff, og alt du trenger, bygges opp her fra grunnen. Det finnes ingen forberedende versjon i de andre bøkene på Skolesaga; trenger du en bredere framstilling ved siden av, står den i pensumboka i biokjemi."
+  },
+  {
+   "id": "med1100-6-3-nokkelfakta",
+   "type": "collapsible",
+   "title": "Nøkkelfakta- og formelliste",
+   "buttonText": "Vis nøkkelfakta og formler",
+   "content": [
+    {
+     "id": "med1100-6-3-nokkelfakta-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler:**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $V_0$ | starthastighet ved en gitt substratkonsentrasjon | µmol L⁻¹ min⁻¹ (eller mol L⁻¹ s⁻¹) |\n| $V_{\\max}$ | høyeste hastighet enzymet kan nå, ved metning | samme som $V_0$ |\n| $[S]$ | substratkonsentrasjon | mM eller M |\n| $K_m$ | substratkonsentrasjonen der $V_0 = \\tfrac12 V_{\\max}$ | **samme enhet som $[S]$** |\n| $[E]_T$ | total enzymkonsentrasjon | µmol/L eller M |\n| $k_{\\text{cat}}$ | omsetningstall — reaksjoner per enzymmolekyl per tid | s⁻¹ eller min⁻¹ |\n| $k_{\\text{cat}}/K_m$ | katalytisk effektivitet | M⁻¹s⁻¹ |\n\n**Formler i dette kapitlet:**\n\n$$V_0 = \\frac{V_{\\max}\\,[S]}{K_m + [S]}$$\n\nMichaelis-Menten-likningen. **Bruksbetingelse:** gjelder enzymer med hyperbolsk kurve — altså ikke allosteriske enzymer, som gir sigmoid kurve. Gjelder starthastighet, målt før produktet rekker å hope seg opp.\n\n$$\\frac{1}{V_0} = \\frac{K_m}{V_{\\max}} \\cdot \\frac{1}{[S]} + \\frac{1}{V_{\\max}}$$\n\nLineweaver-Burk (dobbeltresiprok form). Dette er en rett linje $y = ax + b$ med $x = 1/[S]$ og $y = 1/V_0$. **Bruksbetingelse:** samme som over — plottet er bare en omskriving av Michaelis-Menten.\n\n$$\\text{y-skjæring} = \\frac{1}{V_{\\max}}, \\qquad \\text{x-skjæring} = -\\frac{1}{K_m}, \\qquad \\text{stigningstall} = \\frac{K_m}{V_{\\max}}$$\n\nDe tre avlesningene. **Merk fortegnet** på x-skjæringen — den er negativ, og det er ikke en trykkfeil.\n\n$$k_{\\text{cat}} = \\frac{V_{\\max}}{[E]_T}, \\qquad \\text{katalytisk effektivitet} = \\frac{k_{\\text{cat}}}{K_m}$$\n\n**Bruksbetingelse:** $k_{\\text{cat}}$ kan bare regnes ut når enzymkonsentrasjonen er oppgitt. Er den ikke det, kan du ikke regne den — og da skal du si det, ikke gjette.\n\n**Hemmertypene — tabellen som må sitte:**\n\n| Hemmertype | $K_m$ | $V_{\\max}$ | Hva som skjer | I Lineweaver-Burk |\n|---|---|---|---|---|\n| **kompetitiv** | **øker** | uendret | hemmeren konkurrerer om det aktive setet | **samme y-skjæring**, brattere linje |\n| **ikke-kompetitiv** | uendret | **synker** | hemmeren binder et annet sted og senker aktiviteten | **samme x-skjæring**, høyere y-skjæring |\n\n**En hemmer som endrer BEGGE, kan ikke klassifiseres i Michaelis-Menten-modellen** som en av disse to. Ser du både endret Km og endret Vmax, skal du si nettopp det — ikke velge den typen som passer best.\n\n**Mekanismekjede — slik avgjør du hemmertypen fra en tabell:**\n\n1. Regn ut $1/[S]$ og $1/V_0$ for hver rad, **med** og **uten** hemmer.\n2. Finn **y-skjæringen** for hver serie. Den gir $1/V_{\\max}$.\n3. Finn **stigningstallet** for hver serie. Det gir $K_m/V_{\\max}$, og siden du nå kjenner $V_{\\max}$, gir det $K_m$.\n4. **Sammenlign de to seriene:** endret Km alene → kompetitiv. Endret Vmax alene → ikke-kompetitiv. Begge endret → kan ikke klassifiseres i denne modellen.\n\n**Bør kjenne til, ikke pugge:** de mer sammensatte hemmertypene (ukompetitiv og blandet hemming), og den fulle utledningen av Michaelis-Menten-likningen fra hastighetskonstantene. Oppgave F spør etter **avlesning og klassifisering**, ikke etter utledning. Trenger du utledningen senere, står den i pensumboka i biokjemi."
+    }
+   ]
+  },
+  {
+   "id": "med1100-6-3-oversikt",
+   "type": "text",
+   "content": "Noen medisiner virker ved å ta plassen til det stoffet et enzym vanligvis arbeider på; andre virker ved å sette seg et helt annet sted på enzymet og sløve det. Utenfra ser begge deler likt ut: enzymet går saktere. Men **hvordan** det går saktere, kan man lese direkte ut av måledata — og de to typene oppfører seg helt forskjellig når substratmengden endres.\n\nDet er dette oppgave F handler om. Du får en tabell med substratkonsentrasjoner og hastigheter, med og uten en hemmer, og skal avgjøre hvilken type hemmingen er. Svaret ligger i to tall: **Km** og **Vmax**.\n\nKapitlet bygger det opp i tre trinn: først de to tallene og hva de betyr, så plottet som lar deg lese dem av, og til slutt selve klassifiseringen.\n\n**Om tallene i dette kapitlet:** alle Km- og Vmax-verdier i eksempler og oppgaver er **konstruerte undervisningsverdier**, valgt for at regnestykkene skal gå opp. De er ikke hentet fra målinger på et virkelig enzym, og skal ikke pugges som fakta om noe bestemt enzym."
+  },
+  {
+   "id": "med1100-6-3-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — Km og Vmax: de to tallene (~16 min)"
+  },
+  {
+   "id": "med1100-6-3-def-v0",
+   "type": "definition",
+   "title": "Starthastighet ($V_0$)",
+   "content": "Hastigheten reaksjonen har **i begynnelsen**, målt før produktet rekker å hope seg opp og bremse den.\n\nEnhet: mengde produkt per volum per tid, for eksempel $\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$.\n\n**Hvorfor bare starten måles:** etter hvert som produkt dannes, går reaksjonen delvis baklengs, og substratet blir dessuten brukt opp. Da måler man ikke lenger enzymets kapasitet, men en blanding av flere effekter. Starthastigheten er det rene målet."
+  },
+  {
+   "id": "med1100-6-3-def-vmax",
+   "type": "definition",
+   "title": "$V_{\\max}$",
+   "content": "Den **høyeste** hastigheten enzymet kan nå, uansett hvor mye substrat du tilsetter.\n\n**Hvorfor det finnes et tak:** ved høy substratkonsentrasjon er alle enzymmolekylene opptatt hele tiden — enzymet er **mettet**. Å tilsette mer substrat hjelper ikke, fordi det ikke finnes ledige enzymmolekyler å binde seg til.\n\n**Vmax avhenger av hvor mye enzym som er til stede.** Dobler du enzymmengden, dobles Vmax. Det er nettopp derfor Vmax alene ikke sier så mye om enzymet — det er $k_{\\text{cat}}$, altså Vmax delt på enzymmengden, som sier noe om enzymmolekylet selv.\n\nI praksis når kurven aldri helt fram til Vmax; den nærmer seg den som en grense. Derfor leses Vmax av fra et plott, ikke direkte fra en måling."
+  },
+  {
+   "id": "med1100-6-3-def-km",
+   "type": "definition",
+   "title": "$K_m$ (Michaelis-konstanten)",
+   "content": "**Substratkonsentrasjonen der hastigheten er halvparten av Vmax.**\n\n$$V_0 = \\tfrac12 V_{\\max} \\quad \\text{når} \\quad [S] = K_m$$\n\n**Enheten er den samme som substratkonsentrasjonens** — mM eller M. Km er altså **ikke** en hastighet, selv om den brukes til å beskrive et enzyms oppførsel. Å oppgi Km uten enhet, eller med en hastighetsenhet, er en klassisk feil.\n\n**Hva Km forteller:** hvor mye substrat som må til for at enzymet skal komme opp i halv fart.\n\n- **Lav Km** = enzymet kommer opp i fart allerede ved lite substrat = **høy affinitet** for substratet.\n- **Høy Km** = det må mye substrat til = **lav affinitet**.\n\nMerk at sammenhengen er **omvendt**: lav Km betyr *sterk* binding. Det er lett å snu, og det snur hele tolkningen din.\n\n**Km avhenger ikke av enzymmengden.** Dobler du enzymkonsentrasjonen, dobles Vmax, men Km står stille. Km er en egenskap ved forholdet mellom enzym og substrat, ikke ved hvor mye enzym du har."
+  },
+  {
+   "id": "med1100-6-3-th-mm",
+   "type": "theorem",
+   "title": "Regneprosedyre: bruk Michaelis-Menten-likningen",
+   "content": "**Likningen:**\n\n$$V_0 = \\frac{V_{\\max}\\,[S]}{K_m + [S]}$$\n\n**Fire trinn:**\n\n1. **Skriv opp hva du kjenner**, med enhet. Km og $[S]$ må ha **samme** enhet — er den ene i mM og den andre i M, konverter først. Enhetskonvertering er poenggivende i blokk 2, og skal stå som eget ledd.\n2. **Sett inn i likningen.** Skriv innsettingen ut med tall før du regner — det er et moment i seg selv.\n3. **Regn ut**, og oppgi svaret med **enhet**.\n4. **Tolk i klartekst:** hvor stor andel av Vmax er dette? Ligger vi på den bratte delen av kurven eller nær metning?\n\n**Tre spesialtilfeller det lønner seg å kunne utenat** — de sparer tid og fungerer som kontrollregning:\n\n$$[S] = K_m \\;\\Rightarrow\\; V_0 = \\tfrac12 V_{\\max}$$\n\n$$[S] = 9K_m \\;\\Rightarrow\\; V_0 = \\tfrac{9}{10} V_{\\max}$$\n\n$$[S] \\gg K_m \\;\\Rightarrow\\; V_0 \\to V_{\\max}$$\n\n**Merk hva det midterste betyr:** for å komme fra halv fart til 90 prosent av full fart, må substratkonsentrasjonen **nidobles**. Kurven flater ut raskt, og det er grunnen til at enzymer sjelden arbeider ved metning i en levende celle."
+  },
+  {
+   "id": "med1100-6-3-eks-1",
+   "type": "example",
+   "title": "Eksempel 1: Regn ut hastigheten ved en gitt substratkonsentrasjon",
+   "problem": "**Oppgave (blokk 2-format, 4 vekttall).** Et enzym har $K_m = 4{,}0\\,\\text{mM}$ og $V_{\\max} = 80\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$ (konstruerte undervisningsverdier).\n\n**a)** Regn ut $V_0$ ved $[S] = 12\\,\\text{mM}$.\n**b)** Hvilken substratkonsentrasjon gir 90 prosent av $V_{\\max}$?\n\nVis utregningen.",
+   "solution": "**Full-pott-besvarelse**\n\n**a) Hastigheten ved 12 mM.**\n\n**Oppsett:** $K_m = 4{,}0\\,\\text{mM}$, $V_{\\max} = 80\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$, $[S] = 12\\,\\text{mM}$. Km og $[S]$ har allerede samme enhet, så ingen konvertering er nødvendig.\n\n**Innsetting:**\n\n$$V_0 = \\frac{V_{\\max}\\,[S]}{K_m + [S]} = \\frac{80 \\cdot 12}{4{,}0 + 12}$$\n\n**Mellomregning:**\n\n$$V_0 = \\frac{960}{16} = 60$$\n\n**Svar med enhet:** $V_0 = 60\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$.\n\n**Tolkning i klartekst:** dette er $60/80 = 0{,}75$, altså **75 prosent av Vmax**. Ved en substratkonsentrasjon på tre ganger Km arbeider enzymet på tre firedeler av full fart — vi er godt oppe på kurven, men ikke ved metning.\n\n**b) Konsentrasjonen som gir 90 prosent av Vmax.**\n\n**Oppsett:** vi skal finne $[S]$ når $V_0 = 0{,}90\\,V_{\\max}$. Sett inn og forkort bort $V_{\\max}$:\n\n$$0{,}90 = \\frac{[S]}{K_m + [S]}$$\n\n**Mellomregning:**\n\n$$0{,}90\\,(K_m + [S]) = [S] \\;\\Longrightarrow\\; 0{,}90\\,K_m = 0{,}10\\,[S] \\;\\Longrightarrow\\; [S] = 9K_m$$\n\n$$[S] = 9 \\cdot 4{,}0\\,\\text{mM} = 36\\,\\text{mM}$$\n\n**Kontrollregning:**\n\n$$V_0 = \\frac{80 \\cdot 36}{4{,}0 + 36} = \\frac{2880}{40} = 72 = 0{,}90 \\cdot 80 \\quad \\checkmark$$\n\n**Svar med enhet:** $[S] = 36\\,\\text{mM}$.\n\n**Tolkning i klartekst:** for å gå fra halv fart (som nås ved 4,0 mM) til 90 prosent av full fart, må konsentrasjonen **nidobles**. Kurven flater altså ut raskt, og det er tungt å presse et enzym helt opp mot Vmax.\n\n---\n\n**Slik ville sensor telt momentene (4 vekttall):**\n\n- **Må-punkter:** riktig likning satt opp; riktig innsetting med tall; riktig svar **med enhet** i a).\n- **Pluss-punkter:** tolkningen som prosent av Vmax; utledningen $[S] = 9K_m$ i stedet for prøving og feiling; kontrollregningen.\n- **Feller:** å oppgi svaret uten enhet, eller med feil enhet — Km har **konsentrasjons**enhet, $V_0$ har **hastighets**enhet, og de skal ikke blandes; **felle E22** — å oppgi sluttsvaret uten vist utregning.\n- **Merk hvor billig full pott er:** to innsettinger og en tolkningssetning. Regneoppgaven i oppgave F er den mest forutsigbare poenghøstingen i settet."
+  },
+  {
+   "id": "med1100-6-3-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, B2-NED — nedtrekks- og utfyllingsoppgaven i blokk 2.) Forklar med egne ord, i én til to setninger hver, hva $K_m$ og $V_{\\max}$ er, og oppgi enheten til hver av dem.",
+    "solution": "**$V_{\\max}$** er den høyeste hastigheten enzymet kan nå, når alle enzymmolekylene er opptatt hele tiden — altså ved metning. Enheten er en hastighetsenhet, for eksempel $\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$.\n\n**$K_m$** er den substratkonsentrasjonen som gir **halvparten** av $V_{\\max}$. Enheten er en **konsentrasjons**enhet, altså mM eller M — den samme som $[S]$.\n\n**Merk forskjellen i enhet.** $V_{\\max}$ er en hastighet, $K_m$ er en konsentrasjon. Å oppgi Km med en hastighetsenhet er en av de vanligste feilene, og den avslører at man ikke har forstått hva tallet måler.",
+    "hints": [
+     "Hva står på hver av aksene i et Michaelis-Menten-plott? Km leses av på den ene, Vmax på den andre.",
+     "Enhetene er ikke de samme for de to størrelsene."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) Et enzym har $K_m = 0{,}50\\,\\text{mM}$ og $V_{\\max} = 120\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$ (konstruerte undervisningsverdier).\n\n**a)** Regn ut $V_0$ ved $[S] = 0{,}50\\,\\text{mM}$. Kommenter svaret.\n**b)** Regn ut $V_0$ ved $[S] = 1{,}5\\,\\text{mM}$.\n**c)** Substratkonsentrasjonen oppgis i en annen kilde som $1{,}5 \\cdot 10^{-3}\\,\\text{M}$. Er det den samme konsentrasjonen som i b)? Vis omregningen.",
+    "solution": "**a) Ved $[S] = 0{,}50\\,\\text{mM}$.**\n\n$$V_0 = \\frac{120 \\cdot 0{,}50}{0{,}50 + 0{,}50} = \\frac{60}{1{,}0} = 60\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$$\n\n**Kommentar:** her er $[S] = K_m$, og da er $V_0$ per definisjon nøyaktig **halvparten** av $V_{\\max}$. Og ganske riktig: $60 = \\tfrac12 \\cdot 120$. Dette er en gratis kontrollregning du kan bruke hver gang.\n\n**b) Ved $[S] = 1{,}5\\,\\text{mM}$.**\n\n$$V_0 = \\frac{120 \\cdot 1{,}5}{0{,}50 + 1{,}5} = \\frac{180}{2{,}0} = 90\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$$\n\n**Tolkning:** $90/120 = 0{,}75$, altså 75 prosent av Vmax. Substratkonsentrasjonen er tre ganger Km.\n\n**c) Omregningen.**\n\n$$1{,}5 \\cdot 10^{-3}\\,\\text{M} \\cdot \\frac{1000\\,\\text{mmol}}{1\\,\\text{mol}} = 1{,}5\\,\\text{mM}$$\n\n**Svar: ja, det er den samme konsentrasjonen.** 1 mM er per definisjon $10^{-3}$ M, så $1{,}5 \\cdot 10^{-3}$ M er 1,5 mM.\n\n**Hvorfor dette leddet er verdt å skrive ut:** enhetskonvertering er **poenggivende** i blokk 2, og det er en av de tingene sensor eksplisitt ser etter. Gjør du konverteringen i hodet og bare skriver svaret, mister du et moment du allerede hadde gjort deg fortjent til.",
+    "hints": [
+     "I a): sammenlign substratkonsentrasjonen med Km. Ser du noe kjent?",
+     "Sett inn i Michaelis-Menten-likningen og skriv ut innsettingen med tall før du regner.",
+     "I c): hvor mange millimol går det på en mol?"
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — Lineweaver-Burk: å gjøre kurven til en rett linje (~15 min)"
+  },
+  {
+   "id": "med1100-6-3-lokke2-intro",
+   "type": "text",
+   "content": "Michaelis-Menten-kurven flater ut, og en kurve som flater ut, er vanskelig å lese nøyaktig av. Hvor er egentlig taket? Løsningen er å snu begge aksene på hodet: da blir kurven en **rett linje**, og en rett linje kan man lese av presist."
+  },
+  {
+   "id": "med1100-6-3-def-lineweaver-burk",
+   "type": "definition",
+   "title": "Lineweaver-Burk-plottet (dobbeltresiprok plott)",
+   "content": "Michaelis-Menten-likningen skrevet om ved å ta den omvendte verdien på begge sider:\n\n$$\\frac{1}{V_0} = \\frac{K_m}{V_{\\max}} \\cdot \\frac{1}{[S]} + \\frac{1}{V_{\\max}}$$\n\nDette er en rett linje $y = ax + b$ med:\n\n- $y = 1/V_0$ langs den loddrette aksen,\n- $x = 1/[S]$ langs den vannrette,\n- stigningstall $a = K_m/V_{\\max}$,\n- konstantledd $b = 1/V_{\\max}$.\n\n**Plottet inneholder ingen ny informasjon.** Det er nøyaktig samme likning, bare tegnet på en måte som gjør avlesningen presis. Nettopp derfor er spørsmålet «hva skjer med linjen» det samme som «hva skjer med Km og Vmax»."
+  },
+  {
+   "id": "med1100-6-3-def-avlesninger",
+   "type": "definition",
+   "title": "De tre avlesningene",
+   "content": "$$\\text{y-skjæring} = \\frac{1}{V_{\\max}} \\qquad \\text{x-skjæring} = -\\frac{1}{K_m} \\qquad \\text{stigningstall} = \\frac{K_m}{V_{\\max}}$$\n\n**Y-skjæringen** er verdien av $1/V_0$ der $1/[S] = 0$, altså ved uendelig høy substratkonsentrasjon. Der er $V_0 = V_{\\max}$, og $1/V_0 = 1/V_{\\max}$.\n\n**X-skjæringen er negativ.** Det er ikke en trykkfeil, og det er heller ingen fysisk konsentrasjon — det er punktet der den rette linjen ville krysset x-aksen om den ble forlenget bakover. Å glemme minustegnet er en fast feil, og den gir Km med feil fortegn.\n\n**Rekkefølgen som fungerer i praksis:** les av y-skjæringen først og finn $V_{\\max}$. Finn deretter stigningstallet og bruk $K_m = \\text{stigningstall} \\cdot V_{\\max}$. Da trenger du ikke lese av x-skjæringen i det hele tatt, og du unngår fortegnsfellen."
+  },
+  {
+   "id": "med1100-6-3-th-lb-prosedyre",
+   "type": "theorem",
+   "title": "Regneprosedyre: finn Km og Vmax fra en måletabell",
+   "content": "Seks trinn. Dette er selve oppgave F, og hvert trinn er et moment i rettingen.\n\n1. **Lag en ny tabell** med to kolonner: $1/[S]$ og $1/V_0$. Regn ut begge for hver måling.\n2. **Finn y-skjæringen** $b$. Har du to punkter, regner du linjen ut algebraisk; ligger ett av punktene nær $1/[S] = 0$, kan du lese av direkte.\n3. **Regn Vmax:**\n   $$V_{\\max} = \\frac{1}{b}$$\n4. **Finn stigningstallet** $a$ fra to punkter:\n   $$a = \\frac{\\Delta(1/V_0)}{\\Delta(1/[S])}$$\n5. **Regn Km:**\n   $$K_m = a \\cdot V_{\\max}$$\n   Oppgi Km med **konsentrasjons**enhet.\n6. **Kontroller** ved å sette ett av de opprinnelige punktene inn i Michaelis-Menten-likningen. Får du målt $V_0$ tilbake, stemmer avlesningen.\n\n**Merk enhetene gjennom hele prosedyren.** Er $[S]$ i mM, er $1/[S]$ i mM⁻¹, og Km kommer ut i mM. Er $V_0$ i $\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$, er $1/V_0$ i den omvendte enheten, og Vmax kommer ut i den opprinnelige. Enhetene kontrollerer seg selv hvis du fører dem med."
+  },
+  {
+   "id": "med1100-6-3-fig-1",
+   "type": "image",
+   "src": "/images/textbook/med1100/enzymkinetikk.svg",
+   "alt": "To diagrammer side om side. Til venstre et Michaelis-Menten-plott med substratkonsentrasjon langs den vannrette aksen og starthastighet langs den loddrette. Tre kurver stiger og flater ut: en heltrukket uten hemmer, en stiplet som naermer seg samme tak men saktere, og en prikket som flater ut paa halve hoeyden. Til hoeyre et Lineweaver-Burk-plott med tre rette linjer: den heltrukne og den stiplete moetes paa den loddrette aksen, mens den prikkete skjaerer den loddrette aksen hoeyere opp og treffer den vannrette aksen i samme punkt som den heltrukne.",
+   "caption": "Samme tre datasett i to framstillinger. Den kompetitive hemmeren gir samme y-skjæring (uendret $V_{\\max}$) men brattere linje (høyere $K_m$); den ikke-kompetitive gir samme x-skjæring (uendret $K_m$) men høyere y-skjæring (lavere $V_{\\max}$). Skjematisk figur — konstruerte undervisningsverdier."
+  },
+  {
+   "id": "med1100-6-3-eks-2",
+   "type": "example",
+   "title": "Eksempel 2: Finn Km og Vmax fra en måletabell",
+   "problem": "**Oppgave (blokk 2-format, 6 vekttall).** Et enzym er målt ved fem substratkonsentrasjoner (konstruerte undervisningsverdier):\n\n| $[S]$ (mM) | $V_0$ (µmol L⁻¹ min⁻¹) |\n|---|---|\n| 1 | 33,3 |\n| 2 | 50,0 |\n| 4 | 66,7 |\n| 8 | 80,0 |\n| 16 | 88,9 |\n\nBestem $K_m$ og $V_{\\max}$ ved hjelp av et Lineweaver-Burk-plott. Vis utregningen.",
+   "solution": "**Full-pott-besvarelse**\n\n**Trinn 1 — regn om til dobbeltresiproke verdier:**\n\n| $1/[S]$ (mM⁻¹) | $1/V_0$ |\n|---|---|\n| 1,000 | 0,0300 |\n| 0,500 | 0,0200 |\n| 0,250 | 0,0150 |\n| 0,125 | 0,0125 |\n| 0,0625 | 0,01125 |\n\n**Trinn 2 — finn stigningstallet** fra to punkter, for eksempel det første og det andre:\n\n$$a = \\frac{0{,}0300 - 0{,}0200}{1{,}000 - 0{,}500} = \\frac{0{,}0100}{0{,}500} = 0{,}0200$$\n\n**Trinn 3 — finn y-skjæringen** ved å sette inn ett punkt i $y = ax + b$:\n\n$$0{,}0200 = 0{,}0200 \\cdot 0{,}500 + b \\;\\Longrightarrow\\; b = 0{,}0200 - 0{,}0100 = 0{,}0100$$\n\n**Trinn 4 — regn $V_{\\max}$:**\n\n$$V_{\\max} = \\frac{1}{b} = \\frac{1}{0{,}0100} = 100\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$$\n\n**Trinn 5 — regn $K_m$:**\n\n$$K_m = a \\cdot V_{\\max} = 0{,}0200 \\cdot 100 = 2{,}00\\,\\text{mM}$$\n\n**Trinn 6 — kontroller** med et punkt som ikke ble brukt i utregningen, for eksempel $[S] = 8\\,\\text{mM}$:\n\n$$V_0 = \\frac{100 \\cdot 8}{2{,}00 + 8} = \\frac{800}{10} = 80{,}0 \\quad \\checkmark$$\n\nDette stemmer nøyaktig med målingen i tabellen.\n\n**Svar med enhet:** $V_{\\max} = 100\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$ og $K_m = 2{,}00\\,\\text{mM}$.\n\n**Tolkning i klartekst:** enzymet når halv fart allerede ved 2,0 mM substrat. Ved den høyeste konsentrasjonen i tabellen, 16 mM, er hastigheten 88,9 — altså nærmer den seg taket på 100, men er ikke framme. Det er nettopp derfor Km og Vmax må leses av fra et plott og ikke bare gjettes fra den høyeste målingen.\n\n---\n\n**Slik ville sensor telt momentene (6 vekttall):**\n\n- **Må-punkter:** riktig omregning til $1/[S]$ og $1/V_0$; riktig stigningstall; riktig y-skjæring; riktig Vmax og Km **med enhet**. Fem momenter, verdt omtrent fem av de seks poengene.\n- **Pluss-punkter:** kontrollregningen; tolkningen av at 16 mM ikke er metning; at Km oppgis med konsentrasjonsenhet uten at det påpekes særskilt — altså at du bare gjør det riktig.\n- **Feller:** å bruke $K_m = 1/a$ i stedet for $K_m = a \\cdot V_{\\max}$; å lese den høyeste målte hastigheten som Vmax; å oppgi Km i hastighetsenhet; **felle E22** — sluttsvar uten vist utregning.\n- **Merk hvorfor kontrollregningen er verdt tiden:** den tar femten sekunder og avslører nesten enhver regnefeil. Den er dessuten et moment i seg selv."
+  },
+  {
+   "id": "med1100-6-3-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) Fra et Lineweaver-Burk-plott leser du av y-skjæring $0{,}0250$ og stigningstall $0{,}100$ (konstruerte undervisningsverdier; $[S]$ i mM, $V_0$ i µmol L⁻¹ min⁻¹).\n\n**a)** Regn ut $V_{\\max}$ og $K_m$ med enhet.\n**b)** Hva er x-skjæringen?\n**c)** Regn ut $V_0$ ved $[S] = 12\\,\\text{mM}$.",
+    "solution": "**a) $V_{\\max}$ og $K_m$.**\n\n$$V_{\\max} = \\frac{1}{\\text{y-skjæring}} = \\frac{1}{0{,}0250} = 40{,}0\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$$\n\n$$K_m = \\text{stigningstall} \\cdot V_{\\max} = 0{,}100 \\cdot 40{,}0 = 4{,}00\\,\\text{mM}$$\n\n**b) X-skjæringen.**\n\n$$\\text{x-skjæring} = -\\frac{1}{K_m} = -\\frac{1}{4{,}00} = -0{,}250\\,\\text{mM}^{-1}$$\n\n**Merk minustegnet.** X-skjæringen er alltid negativ, og den svarer ikke til noen fysisk konsentrasjon — det er punktet der linjen ville krysset x-aksen om den ble forlenget bakover.\n\n**c) Hastigheten ved 12 mM.**\n\n$$V_0 = \\frac{40{,}0 \\cdot 12}{4{,}00 + 12} = \\frac{480}{16} = 30{,}0\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$$\n\n**Tolkning:** $30{,}0/40{,}0 = 0{,}75$, altså 75 prosent av Vmax ved en konsentrasjon som er tre ganger Km. Det stemmer med regelen: ved $[S] = 3K_m$ er hastigheten alltid tre firedeler av Vmax, uansett hvilke tallverdier enzymet har.",
+    "hints": [
+     "Y-skjæringen gir Vmax direkte — men hvilken vei?",
+     "Km finner du fra stigningstallet OG Vmax, ikke fra stigningstallet alene.",
+     "I c): sammenlign [S] med Km først. Legger du merke til forholdet, kan du sjekke svaret uten å regne."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-NED — utfyllingsoppgaven i blokk 2.) Sett inn riktig uttrykk i hver rute. Velg mellom $1/V_{\\max}$, $-1/K_m$, $K_m/V_{\\max}$ og $V_{\\max}/K_m$.\n\n**a)** Y-skjæringen i et Lineweaver-Burk-plott er …\n**b)** X-skjæringen er …\n**c)** Stigningstallet er …\n\nForklar dessuten, i én setning, hvorfor et Lineweaver-Burk-plott brukes framfor et vanlig Michaelis-Menten-plott.",
+    "solution": "**a)** $1/V_{\\max}$.\n\n**b)** $-1/K_m$. Merk minustegnet.\n\n**c)** $K_m/V_{\\max}$.\n\n**Hvorfor plottet brukes:** Michaelis-Menten-kurven flater ut mot Vmax uten å nå den, så det er vanskelig å lese av taket presist — mens Lineweaver-Burk-plottet gir en **rett linje**, og en rett linje kan leses av nøyaktig.\n\n**Verdt å merke seg:** de to plottene inneholder nøyaktig samme informasjon. Lineweaver-Burk er bare Michaelis-Menten-likningen med den omvendte verdien tatt på begge sider. Derfor er spørsmålet «hva skjer med linjen» alltid det samme som «hva skjer med Km og Vmax».",
+    "hints": [
+     "Skriv opp den dobbeltresiproke likningen og sammenlign den med $y = ax + b$.",
+     "Ett av alternativene brukes ikke. Hvilket, og hvorfor er det ikke riktig noe sted?"
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — Hemmertypene (~18 min)"
+  },
+  {
+   "id": "med1100-6-3-lokke3-intro",
+   "type": "text",
+   "content": "Nå kommer selve oppgave F. Du får to måleserier — én uten hemmer og én med — og skal avgjøre hvilken type hemming det dreier seg om. Svaret ligger i **hvilket av de to tallene som endret seg**, og feilkoden for å blande dem er **E17**."
+  },
+  {
+   "id": "med1100-6-3-def-kompetitiv",
+   "type": "definition",
+   "title": "Kompetitiv hemmer",
+   "content": "En hemmer som ligner substratet og **konkurrerer om det aktive setet**. Enten sitter substratet der, eller så sitter hemmeren — de kan ikke sitte der samtidig.\n\n**Virkningen på tallene:**\n\n- **$K_m$ øker.** Det må mer substrat til for å nå halv fart, fordi substratet må konkurrere om plassen.\n- **$V_{\\max}$ er uendret.** Tilsetter du nok substrat, utkonkurreres hemmeren helt, og enzymet når full fart likevel.\n\n**I Lineweaver-Burk:** **samme y-skjæring** (fordi Vmax er uendret), men **brattere linje** (fordi stigningstallet $K_m/V_{\\max}$ har økt).\n\n**Slik husker du det:** kompetitiv hemming kan **overvinnes** med mer substrat. Derfor er taket det samme — det tar bare mer substrat å komme dit."
+  },
+  {
+   "id": "med1100-6-3-def-ikke-kompetitiv",
+   "type": "definition",
+   "title": "Ikke-kompetitiv hemmer",
+   "content": "En hemmer som binder seg **et annet sted enn det aktive setet**, og som endrer enzymets form slik at det arbeider dårligere. Hemmeren og substratet kan sitte på enzymet samtidig.\n\n**Virkningen på tallene:**\n\n- **$V_{\\max}$ synker.** En del av enzymmolekylene er satt ut av spill, og mer substrat hjelper ikke på dem.\n- **$K_m$ er uendret.** De enzymmolekylene som fortsatt virker, binder substratet like godt som før.\n\n**I Lineweaver-Burk:** **samme x-skjæring** (fordi Km er uendret), men **høyere y-skjæring** (fordi Vmax har sunket).\n\n**Slik husker du det:** ikke-kompetitiv hemming kan **ikke** overvinnes med mer substrat. Hemmeren konkurrerer ikke om plassen, så substratmengden endrer ingenting på forholdet mellom dem."
+  },
+  {
+   "id": "med1100-6-3-def-begge-endret",
+   "type": "definition",
+   "title": "Når begge parametrene endres",
+   "content": "Endrer en hemmer **både** $K_m$ og $V_{\\max}$, kan den **ikke** klassifiseres som kompetitiv eller ikke-kompetitiv i Michaelis-Menten-modellen.\n\nDa finnes det mer sammensatte hemmertyper som beskriver situasjonen bedre, men de ligger utenfor det oppgave F ber om.\n\n**Hva du skal gjøre på eksamen:** si nettopp dette — at begge parametrene er endret, og at hemmingen derfor ikke lar seg plassere i en av de to grunntypene. Å velge den typen som «passer best» er å påstå mer enn dataene gir grunnlag for, og det er nettopp den typen overtolkning sensor ser etter.\n\nDette er en av de få oppgavene der det riktige svaret er å si at spørsmålet ikke kan besvares som stilt — og der det gir full uttelling å si det."
+  },
+  {
+   "id": "med1100-6-3-th-hemmertype",
+   "type": "theorem",
+   "title": "Regneprosedyre: bestem hemmertypen fra to måleserier",
+   "content": "Seks trinn.\n\n1. **Regn ut $1/[S]$ og $1/V_0$** for begge seriene — med og uten hemmer.\n2. **Finn y-skjæringen for hver serie.** Er de **like**, er $V_{\\max}$ uendret.\n3. **Finn stigningstallet for hver serie.**\n4. **Regn $V_{\\max} = 1/b$ og $K_m = a \\cdot V_{\\max}$ for hver serie.**\n5. **Sammenlign:**\n   - $K_m$ opp, $V_{\\max}$ uendret → **kompetitiv**\n   - $V_{\\max}$ ned, $K_m$ uendret → **ikke-kompetitiv**\n   - begge endret → **kan ikke klassifiseres** i denne modellen\n6. **Begrunn konklusjonen med tallene.** Ikke bare «kompetitiv», men «kompetitiv, fordi Km steg fra 2,0 til 6,0 mM mens Vmax var uendret på 100».\n\n**Snarveien som ofte holder:** se på **y-skjæringene** først. Er de like, er Vmax uendret, og da er hemmingen kompetitiv. Er de ulike, er Vmax endret. Den ene avlesningen avgjør ofte hele oppgaven — men skriv likevel ut begge tallene, for det er tallene som gir momentene."
+  },
+  {
+   "id": "med1100-6-3-eks-3",
+   "type": "example",
+   "title": "Eksempel 3: Bestem hemmertypen — full oppgave F",
+   "problem": "**Oppgave F (blokk 2, 12 vekttall).** Det samme enzymet som i Eksempel 2 måles på nytt, denne gangen med to ulike hemmere (konstruerte undervisningsverdier):\n\n| $[S]$ (mM) | $V_0$ uten hemmer | $V_0$ med hemmer **A** | $V_0$ med hemmer **B** |\n|---|---|---|---|\n| 1 | 33,3 | 14,3 | 16,7 |\n| 2 | 50,0 | 25,0 | 25,0 |\n| 4 | 66,7 | 40,0 | 33,3 |\n| 8 | 80,0 | 57,1 | 40,0 |\n| 16 | 88,9 | 72,7 | 44,4 |\n\n(Alle hastigheter i µmol L⁻¹ min⁻¹.)\n\n**a)** Bestem hemmertypen for A og for B. Begrunn med Km og Vmax.\n**b)** Forklar mekanismen bak hver av de to typene.\n**c)** Hvilken av de to kan overvinnes ved å øke substratkonsentrasjonen? Begrunn.",
+   "solution": "**Full-pott-besvarelse**\n\n**a) Bestemmelse av hemmertypene.**\n\n**Trinn 1 — dobbeltresiproke verdier:**\n\n| $1/[S]$ | $1/V_0$ uten | $1/V_0$ med A | $1/V_0$ med B |\n|---|---|---|---|\n| 1,000 | 0,0300 | 0,0700 | 0,0600 |\n| 0,500 | 0,0200 | 0,0400 | 0,0400 |\n| 0,250 | 0,0150 | 0,0250 | 0,0300 |\n| 0,125 | 0,0125 | 0,0175 | 0,0250 |\n| 0,0625 | 0,01125 | 0,01375 | 0,0225 |\n\n**Trinn 2 — stigningstall og y-skjæring for hver serie.**\n\n*Uten hemmer* (fra de to første radene):\n\n$$a = \\frac{0{,}0300 - 0{,}0200}{1{,}000 - 0{,}500} = 0{,}0200, \\qquad b = 0{,}0200 - 0{,}0200 \\cdot 0{,}500 = 0{,}0100$$\n\n$$V_{\\max} = \\frac{1}{0{,}0100} = 100, \\qquad K_m = 0{,}0200 \\cdot 100 = 2{,}00\\,\\text{mM}$$\n\n*Med hemmer A:*\n\n$$a = \\frac{0{,}0700 - 0{,}0400}{1{,}000 - 0{,}500} = 0{,}0600, \\qquad b = 0{,}0400 - 0{,}0600 \\cdot 0{,}500 = 0{,}0100$$\n\n$$V_{\\max} = \\frac{1}{0{,}0100} = 100, \\qquad K_m = 0{,}0600 \\cdot 100 = 6{,}00\\,\\text{mM}$$\n\n*Med hemmer B:*\n\n$$a = \\frac{0{,}0600 - 0{,}0400}{1{,}000 - 0{,}500} = 0{,}0400, \\qquad b = 0{,}0400 - 0{,}0400 \\cdot 0{,}500 = 0{,}0200$$\n\n$$V_{\\max} = \\frac{1}{0{,}0200} = 50{,}0, \\qquad K_m = 0{,}0400 \\cdot 50{,}0 = 2{,}00\\,\\text{mM}$$\n\n**Trinn 3 — sammenligning:**\n\n| | $K_m$ (mM) | $V_{\\max}$ |\n|---|---|---|\n| uten hemmer | 2,00 | 100 |\n| hemmer A | **6,00** | 100 |\n| hemmer B | 2,00 | **50,0** |\n\n**Konklusjon:**\n\n- **Hemmer A er kompetitiv.** $K_m$ er tredoblet, fra 2,00 til 6,00 mM, mens $V_{\\max}$ står uendret på 100.\n- **Hemmer B er ikke-kompetitiv.** $V_{\\max}$ er halvert, fra 100 til 50,0, mens $K_m$ står uendret på 2,00 mM.\n\n— naturlig pausepunkt —\n\n**b) Mekanismene.**\n\n**Kompetitiv (A):** hemmeren ligner substratet og binder seg til **det aktive setet**. Substrat og hemmer konkurrerer om den samme plassen, og bare én av dem kan sitte der om gangen. Derfor må det mer substrat til for å nå halv fart — Km stiger. Men taket er uendret, fordi et stort nok substratoverskudd fortrenger hemmeren fullstendig.\n\n**Ikke-kompetitiv (B):** hemmeren binder seg **et annet sted enn det aktive setet** og endrer enzymets form slik at det arbeider dårligere. Hemmer og substrat kan sitte på enzymet samtidig. En del av enzymmolekylene er dermed satt ut av spill uansett hvor mye substrat som er til stede — Vmax synker. De molekylene som fortsatt virker, binder substratet like godt som før, så Km er uendret.\n\n**c) Bare den kompetitive (A) kan overvinnes med mer substrat.**\n\n**Begrunnelse:** kompetitiv hemming er en konkurranse om **den samme plassen**. Øker du substratkonsentrasjonen nok, vinner substratet konkurransen, og hastigheten nærmer seg det uhemmede Vmax. Det er nettopp derfor Vmax er uendret.\n\nIkke-kompetitiv hemming er ingen konkurranse: hemmeren sitter et annet sted, og substratmengden endrer ikke forholdet mellom dem. Uansett hvor mye substrat du tilsetter, blir en fast andel av enzymmolekylene værende hemmet, og Vmax forblir halvert.\n\n**Kontrollregning som bekrefter tolkningen** — sett inn $[S] = 16$ mM for hemmer B:\n\n$$V_0 = \\frac{50{,}0 \\cdot 16}{2{,}00 + 16} = \\frac{800}{18} = 44{,}4 \\quad \\checkmark$$\n\nSelv ved 16 mM, altså åtte ganger Km, ligger hastigheten på 44,4 og nærmer seg 50 — ikke 100. Hemmingen lar seg ikke kjøre bort.\n\n---\n\n**Slik ville sensor telt momentene (12 vekttall):**\n\n- **Må-punkter:** riktig omregning til dobbeltresiproke verdier; riktig Km og Vmax for alle tre seriene; riktig type for A og for B, **begrunnet med tallene**. Til sammen omtrent åtte av de tolv poengene.\n- **Pluss-punkter:** mekanismeforklaringene i b) med at hemmer og substrat konkurrerer eller ikke gjør det; svaret i c) med begrunnelsen knyttet tilbake til at Vmax er uendret; kontrollregningen.\n- **Feller:** **felle E17** — å bytte om de to typene. Den er den vanligste, og huskeregelen som holder, er at *kompetitiv kan overvinnes*, og at uendret tak derfor betyr kompetitiv. Videre: å konkludere med type uten å oppgi tallene (halve uttellingen); å oppgi Km uten enhet; **felle E22** — sluttsvar uten vist utregning.\n- **Tidsbruk:** 12 poeng av 100 over seks timer svarer til rundt 43 minutter. Regnearbeidet over tar femten–tjue minutter for hånd, og tabellene er det som tar tid. Resten er lesing og gjennomlesing.\n\n---\n\n**Til sammenligning: en besvarelse som er bestått på marginen**\n\n> «Hemmer A er kompetitiv fordi Vmax er den samme. Hemmer B er > ikke-kompetitiv fordi Vmax har gått ned til halvparten. Kompetitive > hemmere sitter i det aktive setet, og de kan konkurreres bort med mer > substrat.»\n\n**Hva som er bra nok her:** begge typene er riktig bestemt, kriteriet (Vmax uendret mot Vmax redusert) er riktig brukt, og mekanismen for den kompetitive er med. Det er nok til uttelling på de viktigste må-punktene, og besvarelsen er over streken.\n\n**Hva som mangler:** hele utregningen. Km-verdiene er ikke oppgitt for noen av seriene, så påstandene hviler på et blikk framfor på tall — og det er nettopp felle E22. Mekanismen for den ikke-kompetitive er ikke forklart. Denne besvarelsen lander rundt fem av tolv: bestått på marginen, men den lar mer enn halvparten av poengene ligge, og alt som mangler, var regnearbeid den hadde rukket."
+  },
+  {
+   "id": "med1100-6-3-advarsel-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "De fire dyreste i dette kapitlet:\n\n- **Felle E17 — å forveksle hemmertypene.** Kompetitiv: **Km øker, Vmax uendret**. Ikke-kompetitiv: **Vmax synker, Km uendret**. Huskeregelen som holder: *kompetitiv kan konkurreres bort med mer substrat, og derfor er taket uendret.* Går du den veien, snur du dem ikke.\n- **Felle E22 — sluttsvar uten vist utregning, eller glemt enhetskonvertering.** I blokk 2 er utregningen ikke en forberedelse til svaret; den **er** svaret. En riktig hemmertype uten tallene bak gir omtrent halve uttellingen.\n- **Å lese av skjæringene feil.** $K_m = a \\cdot V_{\\max}$, ikke $1/a$. Og x-skjæringen er $-1/K_m$ — **negativ**. Den tryggeste framgangsmåten er å ta y-skjæringen først, regne Vmax, og så bruke stigningstallet til Km. Da rører du aldri x-skjæringen.\n- **Felle E20 — å gjette på et negativt rettet rutenett.** Feil kryss koster like mye som et riktig gir, og blankt gir null.\n\nTo til, uten egen kode:\n\n- **Å oppgi $K_m$ uten enhet, eller med hastighetsenhet.** Km er en **konsentrasjon** — mM eller M, den samme enheten som $[S]$.\n- **Å lese den høyeste målte hastigheten som Vmax.** Kurven når aldri helt fram til taket; den nærmer seg det. I Eksempel 2 var den høyeste målingen 88,9 mens Vmax var 100 — og hadde man lest av 88,9, ville alle de påfølgende tallene blitt feil."
+  },
+  {
+   "id": "med1100-6-3-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-NED — utfyllingsoppgaven i blokk 2.) Fyll inn «øker», «synker» eller «uendret» i hver rute.\n\n**a)** Kompetitiv hemmer: $K_m$ …\n**b)** Kompetitiv hemmer: $V_{\\max}$ …\n**c)** Ikke-kompetitiv hemmer: $K_m$ …\n**d)** Ikke-kompetitiv hemmer: $V_{\\max}$ …\n\nForklar dessuten, i én setning, hvorfor svarene i b) og d) er forskjellige.",
+    "solution": "**a)** Øker. Substratet må konkurrere om det aktive setet, så det trengs mer substrat for å nå halv fart.\n\n**b)** Uendret. Nok substrat utkonkurrerer hemmeren fullstendig, så taket er det samme.\n\n**c)** Uendret. De enzymmolekylene som fortsatt virker, binder substratet like godt som før.\n\n**d)** Synker. En del av enzymmolekylene er satt ut av spill, og mer substrat hjelper ikke på dem.\n\n**Hvorfor b) og d) er forskjellige:** kompetitiv hemming er en **konkurranse om den samme plassen**, og en konkurranse kan vinnes med overmakt — derfor er taket uendret; ikke-kompetitiv hemming er ingen konkurranse, hemmeren sitter et annet sted, og da hjelper det ikke å tilsette mer substrat.\n\n**Merk mønsteret i tabellen:** nøyaktig én av de to parametrene endres i hvert tilfelle, og det er hvilken som avgjør typen. Endres begge, kan hemmingen ikke klassifiseres i denne modellen.",
+    "hints": [
+     "Tenk på hvor hemmeren sitter i hvert av de to tilfellene — samme sted som substratet, eller et annet sted?",
+     "Kan hemmingen konkurreres bort med mer substrat? Det avgjør hva som skjer med taket."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-RUTE — rutenettoppgaven i blokk 2, med **negativ retting**.) Avgjør for hvert utsagn om det er riktig eller galt. Riktig kryss gir pluss, feil kryss gir like mye minus, blankt gir null.\n\n**a)** $K_m$ har samme enhet som substratkonsentrasjonen.\n**b)** En kompetitiv hemmer senker $V_{\\max}$.\n**c)** Y-skjæringen i et Lineweaver-Burk-plott er $1/V_{\\max}$.\n**d)** Lav $K_m$ betyr høy affinitet for substratet.\n**e)** $K_m$ dobles hvis enzymkonsentrasjonen dobles.\n**f)** Et allosterisk enzym gir en hyperbolsk kurve.",
+    "solution": "**a) Riktig.** Km er substratkonsentrasjonen ved halv Vmax, og har derfor konsentrasjonsenhet — mM eller M.\n\n**b) Galt.** En kompetitiv hemmer øker **Km** og lar **Vmax** stå uendret. Det er den ikke-kompetitive som senker Vmax (felle E17).\n\n**c) Riktig.** Ved $1/[S] = 0$, altså uendelig høy substratkonsentrasjon, er $V_0 = V_{\\max}$.\n\n**d) Riktig.** Lav Km betyr at enzymet kommer opp i halv fart allerede ved lite substrat, altså at det binder substratet godt. Sammenhengen er **omvendt**, og det er lett å snu.\n\n**e) Galt.** Dobles enzymkonsentrasjonen, dobles **Vmax**, mens Km står stille. Km er en egenskap ved forholdet mellom enzym og substrat, ikke ved enzymmengden.\n\n**f) Galt.** Allosteriske enzymer gir en **sigmoid** (S-formet) kurve. Det er nettopp derfor Michaelis-Menten-likningen ikke gjelder for dem.\n\n**Fasitmønsteret:** tre riktige og tre gale, i uregelmessig rekkefølge.\n\n**Beslutningsregelen, konkret:** anta at du er trygg på fire av seks. Krysser du de fire og lar to stå blanke: fire pluss, null minus. Gjetter du på begge og treffer én: fire pluss, én minus — altså dårligere. Bommer du på begge: to. **Blankt slår gjetting** (felle E20).",
+    "hints": [
+     "Dette er blokk 2. Hva koster et feil kryss her sammenlignet med hva et riktig gir?",
+     "For e): hva skjer med hver av de to parametrene når du tilsetter mer enzym?",
+     "For f): hvilken kurveform har et allosterisk enzym, og hvorfor gjelder ikke standardlikningen der?"
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — Allosteri og katalytisk effektivitet (~12 min)"
+  },
+  {
+   "id": "med1100-6-3-def-allosteri",
+   "type": "definition",
+   "title": "Allosterisk enzym",
+   "content": "Et enzym med **flere bindingsseter** som påvirker hverandre. Når det første substratmolekylet binder seg, endrer enzymet form slik at de neste binder seg **lettere**.\n\n**Følgen: en sigmoid (S-formet) kurve** i stedet for den hyperbolske. Ved lav substratkonsentrasjon går reaksjonen svært langsomt; så, over et smalt konsentrasjonsområde, stiger hastigheten bratt; deretter flater den ut.\n\n**Hvorfor det er nyttig for cellen:** den bratte delen gjør enzymet til en **bryter**. En liten endring i substratkonsentrasjonen gir en stor endring i hastighet, og det er nettopp det man vil ha i et reguleringspunkt. **PFK-1** fra [kap. 6.1](/med1100/med1100-6-1) er allosterisk, og det er en del av grunnen til at glykolysen kan skrus av og på så skarpt.\n\n**Konsekvens for regning:** Michaelis-Menten-likningen gjelder **ikke** for allosteriske enzymer. Ser du en sigmoid kurve i en oppgave, er svaret at enzymet er allosterisk — og at Km i vanlig forstand ikke er definert. Det er et selvstendig moment å si det."
+  },
+  {
+   "id": "med1100-6-3-def-kcat",
+   "type": "definition",
+   "title": "$k_{\\text{cat}}$ (omsetningstall)",
+   "content": "Hvor mange substratmolekyler **ett** enzymmolekyl omsetter per tidsenhet, når enzymet er mettet.\n\n$$k_{\\text{cat}} = \\frac{V_{\\max}}{[E]_T}$$\n\nEnhet: s⁻¹ eller min⁻¹.\n\n**Hvorfor $k_{\\text{cat}}$ er nyttig ved siden av Vmax:** Vmax avhenger av hvor mye enzym som er til stede, og sier derfor lite om enzymet selv. $k_{\\text{cat}}$ deler det bort, og beskriver **enzymmolekylet**.\n\n**Bruksbetingelse:** du kan bare regne ut $k_{\\text{cat}}$ hvis enzymkonsentrasjonen er oppgitt. Er den ikke det, skal du si at den mangler — ikke gjette."
+  },
+  {
+   "id": "med1100-6-3-def-katalytisk-effektivitet",
+   "type": "definition",
+   "title": "Katalytisk effektivitet ($k_{\\text{cat}}/K_m$)",
+   "content": "Målet på hvor godt et enzym arbeider **når substratet er knapt** — altså under forhold som ligner dem i en levende celle.\n\n$$\\text{katalytisk effektivitet} = \\frac{k_{\\text{cat}}}{K_m}$$\n\nEnhet: M⁻¹s⁻¹.\n\n**Hvorfor forholdstallet, og ikke $k_{\\text{cat}}$ alene?** Fordi et enzym kan være raskt når det er mettet ($k_{\\text{cat}}$ høy) og likevel dårlig ved lave konsentrasjoner (Km høy). Ved knapt substrat er det kombinasjonen som teller: høy $k_{\\text{cat}}$ **og** lav Km.\n\n**Konsekvensen som overrasker:** et enzym med lavere $k_{\\text{cat}}$ kan være **mer** effektivt enn et raskere enzym, hvis Km er tilstrekkelig mye lavere. Det er nettopp den sammenligningen en oppgave gjerne ber deg gjøre — og den lar seg ikke gjøre uten å regne."
+  },
+  {
+   "id": "med1100-6-3-eks-4",
+   "type": "example",
+   "title": "Eksempel 4: Katalytisk effektivitet — hvilket enzym er best?",
+   "problem": "**Oppgave (blokk 2-format, 7 vekttall).** To enzymer sammenlignes (konstruerte undervisningsverdier):\n\n| | $k_{\\text{cat}}$ | $K_m$ |\n|---|---|---|\n| Enzym A | 500 s⁻¹ | 0,10 mM |\n| Enzym B | 2000 s⁻¹ | 5,0 mM |\n\n**a)** Regn ut katalytisk effektivitet for begge, i M⁻¹s⁻¹. Vis utregningen, inkludert enhetskonverteringen.\n**b)** Hvilket enzym arbeider best når substratet er knapt? Begrunn.\n**c)** Et tredje enzym har $V_{\\max} = 100\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$ og $[E]_T = 0{,}50\\,\\mu\\text{mol/L}$. Regn ut $k_{\\text{cat}}$ i s⁻¹.",
+   "solution": "**Full-pott-besvarelse**\n\n**a) Katalytisk effektivitet.**\n\n**Enhetskonvertering først** — formelen krever Km i M, og verdiene er oppgitt i mM:\n\n$$0{,}10\\,\\text{mM} = 0{,}10 \\cdot 10^{-3}\\,\\text{M} = 1{,}0 \\cdot 10^{-4}\\,\\text{M}$$\n\n$$5{,}0\\,\\text{mM} = 5{,}0 \\cdot 10^{-3}\\,\\text{M}$$\n\n**Enzym A:**\n\n$$\\frac{k_{\\text{cat}}}{K_m} = \\frac{500\\,\\text{s}^{-1}}{1{,}0 \\cdot 10^{-4}\\,\\text{M}} = 5{,}0 \\cdot 10^{6}\\,\\text{M}^{-1}\\text{s}^{-1}$$\n\n**Enzym B:**\n\n$$\\frac{k_{\\text{cat}}}{K_m} = \\frac{2000\\,\\text{s}^{-1}}{5{,}0 \\cdot 10^{-3}\\,\\text{M}} = 4{,}0 \\cdot 10^{5}\\,\\text{M}^{-1}\\text{s}^{-1}$$\n\n**b) Enzym A arbeider best når substratet er knapt.**\n\nEffektiviteten er $5{,}0 \\cdot 10^{6}$ mot $4{,}0 \\cdot 10^{5}$ — altså **mer enn ti ganger så høy**, selv om enzym B har fire ganger så høy $k_{\\text{cat}}$.\n\n**Begrunnelsen:** enzym B er raskest **når det er mettet**, men det krever 50 ganger så mye substrat for å komme opp i halv fart (Km 5,0 mot 0,10 mM). Ved lave substratkonsentrasjoner — som er situasjonen i en levende celle — teller den lave Km-en langt mer enn den høye $k_{\\text{cat}}$-en.\n\n**Poenget:** «raskest» og «mest effektivt» er ikke det samme. Hvilket som gjelder, avhenger av hvor mye substrat som er til stede.\n\n**c) $k_{\\text{cat}}$ for det tredje enzymet.**\n\n$$k_{\\text{cat}} = \\frac{V_{\\max}}{[E]_T} = \\frac{100\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}}{0{,}50\\,\\mu\\text{mol}\\,\\text{L}^{-1}} = 200\\,\\text{min}^{-1}$$\n\n**Enhetskonvertering til s⁻¹:**\n\n$$200\\,\\text{min}^{-1} \\cdot \\frac{1\\,\\text{min}}{60\\,\\text{s}} = 3{,}3\\,\\text{s}^{-1}$$\n\n**Svar:** $k_{\\text{cat}} = 3{,}3\\,\\text{s}^{-1}$ (to gjeldende siffer).\n\n**Merk at µmol/L forkortes bort** i deloppgave c), slik at det som står igjen, er en ren invers tidsenhet. Det er nettopp slik det skal være: $k_{\\text{cat}}$ er et antall omsetninger per tid, ikke en konsentrasjon.\n\n---\n\n**Slik ville sensor telt momentene (7 vekttall):**\n\n- **Må-punkter:** enhetskonverteringen fra mM til M **vist som eget ledd**; begge effektivitetene riktig regnet med enhet; riktig konklusjon i b).\n- **Pluss-punkter:** begrunnelsen i b) om at «raskest» og «mest effektivt» ikke er det samme; enhetskonverteringen fra min⁻¹ til s⁻¹ i c); at konsentrasjonsenheten forkortes bort.\n- **Feller:** å regne med Km i mM og oppgi svaret i M⁻¹s⁻¹ — det gir svar som er tusen ganger for små; å konkludere med enzym B fordi $k_{\\text{cat}}$ er høyest; **felle E22** — å gjøre enhetskonverteringen i hodet i stedet for å skrive den som eget ledd. Enhetskonvertering er **poenggivende** i blokk 2, og det er et av de få stedene der du får betalt for å skrive ut noe du allerede har gjort."
+  },
+  {
+   "id": "med1100-6-3-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) Et enzym har $V_{\\max} = 60\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$ ved en enzymkonsentrasjon på $0{,}20\\,\\mu\\text{mol/L}$, og $K_m = 0{,}25\\,\\text{mM}$ (konstruerte undervisningsverdier).\n\n**a)** Regn ut $k_{\\text{cat}}$ i min⁻¹ og i s⁻¹.\n**b)** Regn ut katalytisk effektivitet i M⁻¹s⁻¹. Vis enhetskonverteringen.\n**c)** Enzymkonsentrasjonen dobles. Hva skjer med $V_{\\max}$, med $K_m$ og med $k_{\\text{cat}}$?",
+    "solution": "**a) Omsetningstallet.**\n\n$$k_{\\text{cat}} = \\frac{V_{\\max}}{[E]_T} = \\frac{60\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}}{0{,}20\\,\\mu\\text{mol}\\,\\text{L}^{-1}} = 300\\,\\text{min}^{-1}$$\n\n$$300\\,\\text{min}^{-1} \\cdot \\frac{1\\,\\text{min}}{60\\,\\text{s}} = 5{,}0\\,\\text{s}^{-1}$$\n\n**b) Katalytisk effektivitet.**\n\nEnhetskonvertering først:\n\n$$K_m = 0{,}25\\,\\text{mM} = 0{,}25 \\cdot 10^{-3}\\,\\text{M} = 2{,}5 \\cdot 10^{-4}\\,\\text{M}$$\n\n$$\\frac{k_{\\text{cat}}}{K_m} = \\frac{5{,}0\\,\\text{s}^{-1}}{2{,}5 \\cdot 10^{-4}\\,\\text{M}} = 2{,}0 \\cdot 10^{4}\\,\\text{M}^{-1}\\text{s}^{-1}$$\n\n**c) Når enzymkonsentrasjonen dobles:**\n\n- **$V_{\\max}$ dobles**, til $120\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$. Dobbelt så mange enzymmolekyler omsetter dobbelt så mye per tid ved metning.\n- **$K_m$ er uendret**, 0,25 mM. Km beskriver forholdet mellom enzym og substrat, ikke hvor mye enzym som er til stede.\n- **$k_{\\text{cat}}$ er uendret**, 5,0 s⁻¹. Både teller og nevner i $V_{\\max}/[E]_T$ dobles, så brøken står stille.\n\n**Poenget med c):** $k_{\\text{cat}}$ og Km er egenskaper ved **enzymmolekylet**, mens Vmax er en egenskap ved **prøven**. Det er nettopp derfor $k_{\\text{cat}}$ er det tallet man sammenligner enzymer med.",
+    "hints": [
+     "I a): del Vmax på enzymkonsentrasjonen, og se hva som forkortes bort.",
+     "I b): formelen krever Km i M. Skriv konverteringen som eget ledd — den er poenggivende.",
+     "I c): hvilke av de tre størrelsene avhenger av hvor mye enzym som er i prøven?"
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, B2-REGN — regneoppgaven i blokk 2.) Et enzym måles med og uten en ukjent hemmer (konstruerte undervisningsverdier):\n\n| $[S]$ (mM) | $V_0$ uten hemmer | $V_0$ med hemmer |\n|---|---|---|\n| 2 | 50,0 | 25,0 |\n| 8 | 80,0 | 40,0 |\n\n(Hastigheter i µmol L⁻¹ min⁻¹.)\n\n**a)** Bestem $K_m$ og $V_{\\max}$ for begge seriene. Vis utregningen.\n**b)** Hvilken hemmertype er dette? Begrunn.\n**c)** Hva ville hastigheten blitt med hemmer ved $[S] = 50\\,\\text{mM}$? Hva forteller det om hvorvidt hemmingen kan overvinnes?",
+    "solution": "**a) Km og Vmax for begge seriene.**\n\n**Uten hemmer** — dobbeltresiproke verdier:\n\n$$\\frac{1}{[S]}: \\; 0{,}500 \\text{ og } 0{,}125, \\qquad \\frac{1}{V_0}: \\; 0{,}0200 \\text{ og } 0{,}0125$$\n\n$$a = \\frac{0{,}0200 - 0{,}0125}{0{,}500 - 0{,}125} = \\frac{0{,}0075}{0{,}375} = 0{,}0200$$\n\n$$b = 0{,}0200 - 0{,}0200 \\cdot 0{,}500 = 0{,}0100$$\n\n$$V_{\\max} = \\frac{1}{0{,}0100} = 100, \\qquad K_m = 0{,}0200 \\cdot 100 = 2{,}00\\,\\text{mM}$$\n\n**Med hemmer:**\n\n$$\\frac{1}{V_0}: \\; 0{,}0400 \\text{ og } 0{,}0250$$\n\n$$a = \\frac{0{,}0400 - 0{,}0250}{0{,}500 - 0{,}125} = \\frac{0{,}0150}{0{,}375} = 0{,}0400$$\n\n$$b = 0{,}0400 - 0{,}0400 \\cdot 0{,}500 = 0{,}0200$$\n\n$$V_{\\max} = \\frac{1}{0{,}0200} = 50{,}0, \\qquad K_m = 0{,}0400 \\cdot 50{,}0 = 2{,}00\\,\\text{mM}$$\n\n**Oppsummering:**\n\n| | $K_m$ (mM) | $V_{\\max}$ |\n|---|---|---|\n| uten hemmer | 2,00 | 100 |\n| med hemmer | 2,00 | **50,0** |\n\n**b) Ikke-kompetitiv hemmer.**\n\n**Begrunnelse:** $V_{\\max}$ er halvert, fra 100 til 50,0, mens $K_m$ er **uendret** på 2,00 mM. Det er nøyaktig mønsteret for ikke-kompetitiv hemming: hemmeren binder seg et annet sted enn det aktive setet og setter en andel av enzymmolekylene ut av spill, mens de som fortsatt virker, binder substratet like godt som før.\n\n(Hadde hemmingen vært kompetitiv, ville Km steget og Vmax stått stille — felle E17 er å bytte om disse to.)\n\n**c) Hastigheten ved 50 mM.**\n\n$$V_0 = \\frac{50{,}0 \\cdot 50}{2{,}00 + 50} = \\frac{2500}{52} = 48{,}1\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$$\n\n**Hva det forteller:** ved 50 mM — altså **25 ganger Km** — ligger hastigheten på 48,1, altså 96 prosent av det hemmede taket på 50,0. Men det uhemmede taket var 100. Hastigheten nærmer seg altså 50, ikke 100, uansett hvor mye substrat som tilsettes.\n\n**Konklusjon:** hemmingen **kan ikke overvinnes** med mer substrat. Det er en direkte følge av at hemmeren ikke konkurrerer om det aktive setet — substratmengden endrer ikke forholdet mellom hemmer og enzym.\n\n**Merk hvorfor deloppgave c) er verdt å regne ut og ikke bare svare på:** påstanden «kan ikke overvinnes» blir et **tall** når du regner den ut, og et tall er et moment sensor kan telle. Dette er forskjellen mellom å vite og å vise.",
+    "hints": [
+     "Regn ut dobbeltresiproke verdier for begge seriene før du sammenligner.",
+     "Hvilken av de to parametrene endret seg — og hvilken sto stille?",
+     "I c): sammenlign svaret med BEGGE Vmax-verdiene, ikke bare med den hemmede."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-3-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, B2-REGN — regneoppgaven i blokk 2.) En stipendiat måler et enzym med en ny hemmer og finner (konstruerte undervisningsverdier): uten hemmer $K_m = 3{,}0\\,\\text{mM}$ og $V_{\\max} = 90\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$; med hemmer $K_m = 9{,}0\\,\\text{mM}$ og $V_{\\max} = 45\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$.\n\n**a)** Hun konkluderer med «kompetitiv hemming, siden Km er tredoblet». Er konklusjonen holdbar? Begrunn.\n**b)** Hva er det riktige svaret på hvilken hemmertype dette er?\n**c)** Regn ut hastigheten med hemmer ved $[S] = 9{,}0\\,\\text{mM}$, og kommenter hva den forteller.",
+    "solution": "**a) Nei, konklusjonen er ikke holdbar.**\n\nStipendiaten har sett på **én** av de to parametrene og oversett den andre. Km er riktignok tredoblet, fra 3,0 til 9,0 mM — men $V_{\\max}$ er samtidig **halvert**, fra 90 til 45.\n\nFor en ren kompetitiv hemmer skal Vmax stå **uendret**. Det gjør den ikke her, og dermed er kriteriet for kompetitiv hemming ikke oppfylt.\n\n**b) Hemmingen kan ikke klassifiseres som kompetitiv eller ikke-kompetitiv i Michaelis-Menten-modellen.**\n\nBegge parametrene er endret, og de to grunntypene er nettopp definert ved at **én** av dem endres:\n\n- kompetitiv: Km opp, Vmax uendret;\n- ikke-kompetitiv: Vmax ned, Km uendret.\n\nHer er begge endret, og da beskriver ingen av de to typene dataene. Det finnes mer sammensatte hemmertyper som gjør det, men de ligger utenfor det denne modellen dekker.\n\n**Det riktige svaret på eksamen er å si nettopp dette** — at dataene ikke lar seg plassere i en av de to grunntypene, og hvorfor. Å velge den typen som «passer best», er å påstå mer enn tallene gir grunnlag for.\n\n**c) Hastigheten ved 9,0 mM.**\n\n$$V_0 = \\frac{45 \\cdot 9{,}0}{9{,}0 + 9{,}0} = \\frac{405}{18} = 22{,}5\\,\\mu\\text{mol}\\,\\text{L}^{-1}\\,\\text{min}^{-1}$$\n\n**Kommentar:** her er $[S] = K_m$, og da skal hastigheten per definisjon være **halvparten** av Vmax. Og ganske riktig: $22{,}5 = \\tfrac12 \\cdot 45$. Utregningen bekrefter seg selv.\n\nSammenlignet med det uhemmede enzymet, som ved 9,0 mM ville gitt\n\n$$V_0 = \\frac{90 \\cdot 9{,}0}{3{,}0 + 9{,}0} = \\frac{810}{12} = 67{,}5,$$\n\ner hastigheten redusert til én tredel. Hemmingen er altså kraftig — men styrken sier ingenting om **typen**, og det er nettopp det stipendiaten blandet sammen.\n\n**Hva denne oppgaven egentlig tester:** at du ikke velger en klasse fordi ett kriterium passer. Sensorveiledningene som ligger i blokk 2-settene (2022h–2025h), premierer konsekvent den som holder konklusjonen innenfor det dataene bærer.",
+    "hints": [
+     "Sjekk BEGGE parametrene før du konkluderer, ikke bare den som endret seg mest.",
+     "Hva kreves av Vmax for at en hemming skal kalles kompetitiv?",
+     "I c): sammenlign [S] med Km. Ser du noe som lar deg kontrollere svaret uten å regne?"
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-3-begrepsbank-intro",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "med1100-6-3-bb-aktivt-sete",
+   "type": "definition",
+   "title": "Aktivt sete",
+   "content": "Lommen i enzymet der substratet binder seg og reaksjonen skjer. Formen og de kjemiske gruppene i lommen bestemmer hvilket substrat enzymet virker på — det er derfor enzymer er så spesifikke.\n\nDet aktive setet er også det som gjør skillet mellom hemmertypene meningsfullt: en **kompetitiv** hemmer binder seg nettopp her og konkurrerer med substratet, mens en **ikke-kompetitiv** hemmer binder seg et helt annet sted."
+  },
+  {
+   "id": "med1100-6-3-bb-metning",
+   "type": "definition",
+   "title": "Metning",
+   "content": "Tilstanden der praktisk talt alle enzymmolekyler til enhver tid har substrat bundet, slik at mer substrat ikke øker hastigheten.\n\n**Ved metning er $V_0 = V_{\\max}$.** Det er også bare ved metning at $k_{\\text{cat}}$ er definert — omsetningstallet forteller hvor fort ett enzymmolekyl arbeider når det aldri må vente på substrat.\n\nI praksis når man aldri helt metning: kurven nærmer seg taket uten å nå det. Ved $[S] = 9K_m$ er man på 90 prosent, og det er ofte så nært man kommer."
+  },
+  {
+   "id": "med1100-6-3-bb-affinitet",
+   "type": "definition",
+   "title": "Affinitet",
+   "content": "Hvor godt enzymet binder substratet. Høy affinitet betyr sterk binding.\n\n**Km er et omvendt mål på affinitet:**\n\n- **lav Km = høy affinitet** — enzymet kommer opp i fart allerede ved lite substrat;\n- **høy Km = lav affinitet** — det må mye substrat til.\n\nDen omvendte sammenhengen er lett å snu, og snur du den, snur du hele tolkningen. Fest den til definisjonen i stedet for å pugge den: Km er *konsentrasjonen som trengs*, og trenger du lite, binder enzymet godt."
+  },
+  {
+   "id": "med1100-6-3-bb-hyperbolsk-sigmoid",
+   "type": "definition",
+   "title": "Hyperbolsk mot sigmoid kurve",
+   "content": "**Hyperbolsk** kurve: stiger bratt ved lave substratkonsentrasjoner og flater gradvis ut mot Vmax. Dette er formen Michaelis-Menten-likningen beskriver, og den gjelder for enzymer med **ett** bindingssete.\n\n**Sigmoid** (S-formet) kurve: går langsomt i starten, stiger så bratt over et smalt område, og flater deretter ut. Dette er formen **allosteriske** enzymer med flere samvirkende bindingsseter gir.\n\n**Konsekvensen for regning:** Michaelis-Menten-likningen og Lineweaver-Burk-plottet gjelder **ikke** for sigmoide kurver, og Km i vanlig forstand er ikke definert der. Ser du en sigmoid kurve i en oppgave, er det et selvstendig moment å si nettopp det."
+  },
+  {
+   "id": "med1100-6-3-bb-substrat",
+   "type": "definition",
+   "title": "Substrat",
+   "content": "Molekylet enzymet virker på — utgangsstoffet som omdannes til produkt.\n\nSubstratkonsentrasjonen skrives $[S]$, med hakeparentesene som standardnotasjon for konsentrasjon. Enheten er mM eller M, og den samme enheten gjelder for Km — det er nettopp fordi Km **er** en substratkonsentrasjon."
+  },
+  {
+   "id": "med1100-6-3-bb-katalysator",
+   "type": "definition",
+   "title": "Katalysator",
+   "content": "Et stoff som får en reaksjon til å gå fortere uten selv å forbrukes.\n\nEnzymer er biologiske katalysatorer. To presiseringer som er verdt å ha klare:\n\n1. **Et enzym endrer ikke hvor likevekten ligger.** Det gjør bare at likevekten nås raskere.\n2. **Et enzym virker begge veier.** Det samme enzymet katalyserer reaksjonen forlengs og baklengs; hvilken vei som dominerer, avgjøres av konsentrasjonene.\n\nPunkt 2 er grunnen til at cellen trenger **egne** enzymer for de irreversible trinnene i glukoneogenesen, slik du så i [kap. 6.1](/med1100/med1100-6-1)."
+  },
+  {
+   "id": "med1100-6-3-bb-omsetningstall-enhet",
+   "type": "definition",
+   "title": "Enhetene i enzymkinetikk",
+   "content": "En egen oppføring, fordi enhetsfeil er en av de dyreste feilene i oppgave F:\n\n| Størrelse | Enhet | Type |\n|---|---|---|\n| $V_0$, $V_{\\max}$ | µmol L⁻¹ min⁻¹ | **hastighet** |\n| $K_m$, $[S]$ | mM eller M | **konsentrasjon** |\n| $k_{\\text{cat}}$ | s⁻¹ eller min⁻¹ | **invers tid** |\n| $k_{\\text{cat}}/K_m$ | M⁻¹s⁻¹ | invers konsentrasjon og tid |\n\n**Den vanligste enhetsfeilen:** å regne katalytisk effektivitet med Km i **mM** og likevel oppgi svaret i M⁻¹s⁻¹. Det gir et svar som er tusen ganger for lite. Skriv konverteringen som eget ledd — den er poenggivende i seg selv."
+  },
+  {
+   "id": "med1100-6-3-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjon",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "med1100-6-3-repetisjon-tekst",
+     "type": "text",
+     "content": "Seks kontrollpunkter. Klarer du dem uten å bla opp, sitter kapitlet.\n\n1. **Hva er Km, og hvilken enhet har den?** (Substratkonsentrasjonen der hastigheten er halvparten av Vmax. Konsentrasjonsenhet — mM eller M, den samme som $[S]$.)\n2. **Hva er de tre avlesningene i et Lineweaver-Burk-plott?** (y-skjæring $1/V_{\\max}$; x-skjæring $-1/K_m$; stigningstall $K_m/V_{\\max}$. Km finnes tryggest som stigningstall ganger Vmax.)\n3. **Hva skjer med Km og Vmax ved kompetitiv og ved ikke-kompetitiv hemming?** (Kompetitiv: Km opp, Vmax uendret. Ikke-kompetitiv: Vmax ned, Km uendret. Blandes de, er det felle E17.)\n4. **Hvilken av de to kan overvinnes med mer substrat, og hvorfor?** (Den kompetitive — den er en konkurranse om samme plass, og et stort nok substratoverskudd vinner den. Derfor er taket uendret.)\n5. **Hvorfor kan et enzym med lavere $k_{\\text{cat}}$ likevel være mest effektivt?** (Fordi katalytisk effektivitet er $k_{\\text{cat}}/K_m$. Ved knapt substrat teller lav Km mer enn høy $k_{\\text{cat}}$.)\n6. **Fra [kap. 6.1](/med1100/med1100-6-1): hvilket enzym i glykolysen er allosterisk og hastighetsbestemmende, og hva aktiverer det?** (PFK-1, aktivert av fruktose-2,6-bisfosfat. Den sigmoide kurven gjør det til en skarp bryter.)"
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

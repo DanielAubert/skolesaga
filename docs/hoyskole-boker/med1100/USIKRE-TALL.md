@@ -67,3 +67,81 @@ testing ~3/16 (4.5).
 
 Én kildepåstand i 4.3 er blokk-scopet etter kildereglene: «sensorveiledningen i
 blokk 1-settene H25 og V26 godtar begge veier» (om kji-kvadrat mot z-test).
+
+---
+
+## Del 5 (histologi og vevstolkning)
+
+**Ingen usikre tall i Del 5.** Kapitlene 5.1, 5.2 og 5.P inneholder ingen
+normalverdi, ingen dose og ingen prevalens — stoffet er rent kvalitativt
+(fargelogikk, morfologiske kjennetegn, vevstyper). Ingen kapittelfil i Del 5
+bruker standardforbeholdet, fordi det ikke er noe å ta forbehold om.
+
+### Belagte påstander i Del 5 (brukt UTEN forbehold)
+
+| Kapittel | Påstand | Belegg |
+|---|---|---|
+| 5.1 | Hematoksylin er basisk og binder negativt ladde molekyler (DNA/RNA) → blått; eosin er surt og binder positivt ladde molekyler (cytoplasmaprotein, kollagen) → rosa; PAS farger karbohydrater (mucin, basalmembran, glykogen) → magentarødt | Standard histologisk fargelære, jf. skjelettets faktakontrakt for 5.1. Ikke merket usikkert i EKSAMENSANALYSE.md |
+| 5.1 | Epiteltypene og deres typiske lokalisasjoner; serøst mot mukøst endestykke (cytoplasmafarge, kjerneform, lumenvidde, PAS) | Standard histologi, jf. skjelettets faktakontrakt |
+| 5.2 | Eukromatin lyst/aktivt mot heterokromatin mørkt/inaktivt; mye ruER + stor nukleolus = høy proteinsyntese; osmiumsyre farger lipid (myelin); de tre muskeltypenes kjennetegn; ben forkalket med canaliculi mot brusk uforkalket og karløst | Standard histologi/celle­biologi, jf. skjelettets faktakontrakt for 5.2 |
+| 5.1, 5.2, 5.P | Alle bildebeskrivelser, case og modellbesvarelser | NYSKREVNE. Ingen beskrivelse er hentet fra et virkelig preparat, og de fire SVG-figurene er skjematiske tegninger merket som sådan (§G1) |
+
+### «Ikke forventet»-stoff plassert som kjenne-til (§M5)
+
+| Kapittel | Stoff | Håndtering |
+|---|---|---|
+| 5.1 | Fargekjemien bak hematoksylin (oksidasjon til hematein, metallbeis) og navnene på spesialfargingene ved siden av HE og PAS | Står som «bør kjenne til, ikke pugge» sist i Nøkkelfakta-listen, med henvisning til pensumboka. Ikke fasit noe sted |
+| 5.2 | Ribosomets subenheter og sedimentasjonstall; mtDNAs lengde og genantall | Står som «bør kjenne til, ikke pugge» sist i Nøkkelfakta-listen. Ingen tallverdi oppgitt, og det er ikke fasit noe sted. Dette er stoff sensorveiledningene i blokk 2-settene eksplisitt markerer som ikke forventet |
+
+---
+
+## Del 6 (metabolisme og biokjemi)
+
+### Verdi som er håndtert etter §M3 / §M5
+
+| Kapittel | Verdi | Hvor den kommer fra | Status |
+|---|---|---|---|
+| med1100-6-2 | Samlet ATP-utbytte ved fullstendig oksidasjon av palmitat (og av glukose) | Lærebøker oppgir ulike totaltall, fordi de bruker forskjellige omregningsfaktorer fra NADH og FADH₂ til ATP | **Utelatt som tallverdi.** Boka oppgir bevisst *intet* totaltall. Nøkkelfakta-listen sier eksplisitt at lærebøker oppgir ulike tall og hvorfor, og at oppgave G ber om **tellingen** av acetyl-CoA, FADH₂ og NADH — ikke om et totalt ATP-tall. Ingen tallverdi brukt; ikke fasit noe sted |
+
+### Belagte tall og formler i Del 6 (brukt UTEN forbehold)
+
+| Kapittel | Verdi | Belegg |
+|---|---|---|
+| 6.1 | Glykolyse netto **2 ATP + 2 NADH + 2 pyruvat** per glukose (2 investert, 4 høstet); anaerobt til laktat **2 ATP og 0 NADH** | Standard biokjemi og skjelettets faktakontrakt for 6.1. Regnskapet etterregnet ledd for ledd |
+| 6.1 | Glukoneogenesen koster **6 høyenergifosfat per glukose** (4 ATP + 2 GTP) pluss 2 NADH; **2 pyruvat → 1 glukose** | Standard biokjemi. Alle skalerte utregninger (12 mmol laktat → 6,0 mmol glukose → 36 mmol NTP) etterregnet med python3 |
+| 6.1 | F2,6BP aktiverer PFK-1 og hemmer FBPase-1; insulin hever, glukagon senker; glukose-6-fosfatase **kun i lever og nyrebark**; pentosefosfatshunten gir NADPH, ikke ATP | Standard biokjemi og skjelettets faktakontrakt |
+| 6.2 | β-oksidasjon: **1 acetyl-CoA + 1 FADH₂ + 1 NADH per runde**; runder $= n_C/2 - 1$; acetyl-CoA $= n_C/2$; aktivering koster tilsvarende **2 ATP, én gang per fettsyre** (ATP → AMP) | Standard biokjemi og skjelettets faktakontrakt for 6.2. Alle tabellrader (C12–C20) og alle oppgavesvar etterregnet med python3 |
+| 6.2 | Malonyl-CoA hemmer CPT-1; leverglykogen → blodglukose, muskelglykogen → muskelen selv; insulin/glukagon-bryteren | Standard biokjemi og skjelettets faktakontrakt |
+| 6.3 | Michaelis-Menten $V_0 = V_{\max}[S]/(K_m+[S])$; Lineweaver-Burk med y-skjæring $1/V_{\max}$, x-skjæring $-1/K_m$, stigningstall $K_m/V_{\max}$; $k_{\text{cat}} = V_{\max}/[E]_T$; kompetitiv ↑Km/=Vmax, ikke-kompetitiv ↓Vmax/=Km | Standard enzymkinetikk og skjelettets faktakontrakt for 6.3 |
+| 6.4 | Molare masser: NaCl **58,44**, KCl **74,55**, glukose **180,16** g/mol | Standard kjemiske standardverdier |
+| 6.4 | Osmotisk aktive partikler: glukose og urea 1, NaCl og KCl 2, CaCl₂ 3 | Følger direkte av formelenhetenes oppløsning i ioner |
+| 6.4 | Osmolariteten i kroppens egne væsker ligger **rundt 0,3 osmol/L** | Standard fysiologipensum. Brukt **kun som kontroll av størrelsesorden** i regneoppgaver, aldri som fasit på et spørsmål |
+
+### Konstruerte undervisningsverdier (merket i teksten)
+
+| Kapittel | Verdier | Håndtering |
+|---|---|---|
+| 6.3 | Alle Km-, Vmax-, kcat- og hemmerverdier (Km 2,0/6,0 mM, Vmax 100/50, kcat 200 min⁻¹ osv.) | **Konstruerte undervisningsverdier**, merket som det i kapitlets Oversikt, i figurteksten og i hver enkelt oppgavetekst. De er ikke målinger fra noe virkelig enzym og er aldri knyttet til et navngitt enzym. Alle avlesninger og kontrollregninger etterregnet med python3 |
+| 6.4 | Alle stoffer («stoff X», «stoff Y», «stoff Z», «stoff W», «stoff M», «stoff Q»), doser, konsentrasjoner og molare masser i regneeksemplene | **Oppdiktede stoffer og konstruerte verdier**, merket som det i den innledende forbeholdsboksen og i hver oppgavetekst. Ingen tallverdi er hentet fra et virkelig legemiddel. Alle utregninger etterregnet med python3 |
+| 6.1, 6.2, 6.P | Alle stoffmengder i regneoppgavene (mmol glukose, mmol laktat, mmol fettsyre) | NYSKREVNE kalibreringer, valgt for at regnestykkene skal gå opp. Etterregnet med python3 |
+
+### Helsefaglig forbehold (§H2)
+
+Den stående forbeholdsnotisen står ordrett i **kap. 6.4**, som egen `warning`-blokk
+rett etter Eksamensvinkel-tipen, med en tilleggsavsnitt om hvorfor akkurat det
+kapitlet trenger den ekstra tydelig: regnestykkene ligner doseringsregning, men
+tester enhetskonvertering og forholdsregning i eksamensformat.
+
+### Frekvenstall i Del 5–6
+
+Alle frekvenspåstander i Eksamensvinkel-tipene er tatt **ORDRETT** fra SKJELETT.md
+med blokk 2s nevner 14, og er ikke omregnet til prosent (§B5): histologi
+oppgave A **14/14** med vekttall 9–12 (5.1, 5.2) · metabolisme oppgave G
+**14/14** med vekttall 14–22 (6.1, 6.2) · enzymkinetikk oppgave F **~13/14** med
+opptil 18 vekttall (6.3) · konsentrasjons-/doseringsregning **14/14** med 2–3
+vekttall (6.4).
+
+Kildepåstandene om sensorveiledninger er blokk-scopet: «sensorveiledningene som
+ligger i blokk 2-settene (2022h–2025h)» — brukt i 6.1, 6.3 og 6.4 om at det ikke
+trekkes for følgefeil, at enhetskonvertering er poenggivende, og at enzymnavn i
+parentes ikke forventes.
