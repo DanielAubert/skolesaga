@@ -114,6 +114,22 @@ framfor å skrive om teorien.
 
 ---
 
+### V5 — manglende kryssreferanser fra Del 8 til kap. 6.2 og 6.3
+
+**Observert 28. juli.** Del 8-agenten introduserte `Algoritme` og `Big-O` som
+egne definisjoner i kap. 8.7, slik at ingen oppgave krever usett forkunnskap.
+Den lenket til kap. 6.1, men 6.2 og 6.3 fantes ikke på disk da den skrev.
+
+Begge finnes nå. Kompleksitet (~40 % frekvens) behandles i 6.3, og binærsøk —
+det klassiske O(log n)-eksemplet — i 6.2.
+
+**Til verifikatoren:** legg inn `[kap. 6.2](/tdt4110/tdt4110-6-2)` og
+`[kap. 6.3](/tdt4110/tdt4110-6-3)` der 8.7 omtaler kompleksitet og søking.
+Ikke skriv om definisjonene — de skal stå, siden en student kan lese Del 8
+uten å ha lest Del 6.
+
+---
+
 ## Lukkede punkter
 
 *(ingen ennå)*
