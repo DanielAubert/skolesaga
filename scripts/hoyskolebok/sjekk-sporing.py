@@ -32,12 +32,33 @@ UTBLOKK = re.compile(r"\*\*Utskrift:\*\*\s*\n```\n([\s\S]*?)```")
 emne = sys.argv[1]
 avvik, sjekket, hoppet = [], 0, 0
 
+def oppgaver(blokker):
+    """Alle exercise-blokker, OGSÅ de som ligger inne i en collapsible.
+
+    Fram til 28. juli 2026 gikk denne porten bare over toppnivå-`content`. Men
+    prøvekapitlene legger oppgavene sine inne i collapsibles («Prøve 5.A …»),
+    så INGEN sporingsfasit i noe prøvekapittel har noen gang vært kontrollert —
+    verken her eller i in1900/in1000. Nettopp prøvene er der en feil fasit gjør
+    mest skade: studenten bruker dem til å måle seg selv før eksamen.
+
+    Funnet av Del 5-agenten, som kjørte sin egen rekursive kontroll ved siden av
+    porten og oppdaget at de to talte ulikt antall.
+    """
+    for b in blokker or []:
+        if not isinstance(b, dict):
+            continue
+        if b.get("type") == "exercise" and "exercise" in b:
+            yield b
+        # collapsible og andre beholdere bærer blokkene sine i `content`
+        indre = b.get("content")
+        if isinstance(indre, list):
+            yield from oppgaver(indre)
+
+
 for p in sorted(glob.glob(os.path.join(CH, emne + "-*.json"))):
     navn = os.path.basename(p)
     d = json.load(open(p, encoding="utf-8"))
-    for b in d.get("content", []):
-        if b.get("type") != "exercise":
-            continue
+    for b in oppgaver(d.get("content", [])):
         e = b["exercise"]
         task, sol = e.get("task", ""), e.get("solution", "")
         kodeblokker = [m for m in FENCE.finditer(task) if m.group(1) == "python"]
@@ -78,6 +99,20 @@ for p in sorted(glob.glob(os.path.join(CH, emne + "-*.json"))):
         # utskrift laget med print(..., end=" ") får ett ekstra \n i fasiten.
         if forventet == r.stdout + "\n":
             continue
+
+        # Etterfølgende blanktegn per linje ignoreres. `print(x, end=' ')` i en
+        # løkke gir en avsluttende space som er USYNLIG for leseren, og som
+        # ingen fasitforfatter kan skrive inn meningsfullt. Uten denne
+        # normaliseringen meldte porten in1900-9-1-oppg-2 som avvik fordi
+        # «1 2 3 3 4 5» manglet et mellomrom til slutt — der både svaret og
+        # sporingstavla var helt riktige. En port som klager på usynlig
+        # blanktegn blir ignorert, og da fanger den ikke de ekte feilene heller.
+        def uten_hale(s):
+            return "\n".join(l.rstrip() for l in s.split("\n"))
+
+        if uten_hale(r.stdout) == uten_hale(forventet):
+            continue
+
         if r.stdout != forventet:
             avvik.append(f"{navn} {e['id']}: FASIT AVVIKER\n"
                          f"  fasit sier: {forventet!r}\n"
