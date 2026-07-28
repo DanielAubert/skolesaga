@@ -1,0 +1,692 @@
+{
+ "id": "tdt4110-1-prove",
+ "courseId": "tdt4110",
+ "chapterNumber": "1.P",
+ "title": "Prøver til del 1: Python-grunnlaget — variabler, betingelser og løkker",
+ "description": "Fire nyskrevne temaprøver i eksamensformat med fullstendige løsningsforslag: datatyper og konvertering, boolsk logikk, løkker og range, og input-validering. Fire prøver à 25–30 min — kan tas som separate økter.",
+ "estimatedMinutes": 110,
+ "competenceGoals": [
+  "kunne spore et lite Python-program under tidspress og angi utskriften nøyaktig",
+  "kunne avgjøre hva en funksjon med et sammensatt boolsk uttrykk returnerer, for flere ulike kall",
+  "kunne telle riktig antall runder i en løkke, også når grensene er nøstede eller krympende",
+  "kunne skrive en input-valideringsløkke fra bunnen, uten mal og uten maskin"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-1-prove-tip-1",
+   "type": "tip",
+   "title": "Om prøvene til del 1",
+   "content": "**Fire prøver à 25–30 minutter, til sammen 110 minutter.** De dekker hele Del 1: variabler, datatyper og konvertering fra [kap. 1.1](/tdt4110/tdt4110-1-1), boolsk logikk og betingelser fra [kap. 1.2](/tdt4110/tdt4110-1-2), løkker fra [kap. 1.3](/tdt4110/tdt4110-1-3), og brukerinput med validering fra [kap. 1.4](/tdt4110/tdt4110-1-4). Alle oppgaver er nyskrevne og i eksamens sjangre.\n\n- **Prøve 1.A (25 min, 10 poeng):** datatyper og konvertering — ti korte sporingsspørsmål (sjanger B — kodesporing, altså «hva skriver programmet ut?»).\n- **Prøve 1.B (25 min, 8 poeng):** boolsk logikk og betingelser — åtte «hva returnerer funksjonen?»-oppgaver (sjanger B).\n- **Prøve 1.C (30 min, 10 poeng):** løkker og `range` — ti sporingsspørsmål, inkludert nøstede løkker og annethvert element.\n- **Prøve 1.D (30 min, 12 poeng):** input-validering — tre oppgaver der du skriver en valideringsløkke (sjanger H — input-validering og meny), pluss seks sporingsspørsmål.\n\n**Kan trygt deles over flere kvelder — én prøve per økt.** Du trenger ikke ta dem i rekkefølge, men 1.A og 1.B er lettest, så begynn der hvis du er usikker.\n\n**Hvor flervalget bor:** de rene flervalgsspørsmålene i disse prøvene ligger **inline**, med alternativene skrevet ut under hvert spørsmål — de er merket «sjanger D» og har fire alternativer hver. Den store flervalgsbanken for Del 1 ligger i den interaktive quizen til kapitlene 1.1 til 1.4. Bruk quizen til hurtigrepetisjon, og prøvene her til å øve på å spore selv, med blyant.\n\n**Anbefalt bruk:** ta hver prøve på tid, uten fasit og uten maskin. Eksamen har hjelpemiddelkode D — bare en enkel kalkulator — så du må trene på å skrive og spore kode på papir. Kontroller gjerne etterpå ved å skrive inn koden og kjøre den; da ser du nøyaktig hvor det sprakk."
+  },
+  {
+   "id": "tdt4110-1-prove-t-2",
+   "type": "text",
+   "content": "**Forkunnskaper:** hele Del 1 — [kap. 1.1](/tdt4110/tdt4110-1-1), [kap. 1.2](/tdt4110/tdt4110-1-2), [kap. 1.3](/tdt4110/tdt4110-1-3) og [kap. 1.4](/tdt4110/tdt4110-1-4).\n\nHar du lest kapitlene, er du klar. Har du bare lest noen av dem, kan du ta prøvene enkeltvis etter hvert som du blir ferdig: 1.A hører til kap. 1.1, 1.B til kap. 1.2, 1.C til kap. 1.3 og 1.D til kap. 1.4.\n\nEtter hver prøve står en avkryssbar selvdiagnose. Bruk den — den peker rett på hvilket delkapittel du bør lese om igjen."
+  },
+  {
+   "id": "tdt4110-1-prove-coll-5",
+   "type": "collapsible",
+   "title": "Prøve 1.A — Datatyper og konvertering (25 min)",
+   "buttonText": "Vis prøve 1.A",
+   "content": [
+    {
+     "id": "tdt4110-1-prove-pa-intro-3",
+     "type": "text",
+     "content": "**Prøve 1.A — Datatyper og konvertering (25 minutter, 10 poeng).**\n\nTi korte spørsmål i sjanger B — kodesporing, altså «hva skriver programmet ut?». Skriv utskriften nøyaktig, med mellomrom slik terminalen viser den, og pass på om et tall er heltall eller desimaltall. Ett poeng per spørsmål."
+    },
+    {
+     "id": "tdt4110-1-prove-pa1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(1 poeng. Sjanger B — kodesporing, altså «hva skriver programmet ut?».) Hva skriver `print(23 // 6, 23 % 6, 23 / 6)` ut?",
+      "solution": "`23 // 6` er heltallsdeling og gir `3`. `23 % 6` er resten, altså $23 - 3 \\cdot 6 = 5$. `23 / 6` er vanlig divisjon og gir **alltid** et flyttall.\n\n**Utskrift:**\n```\n3 5 3.8333333333333335\n```\n\n`print` skiller argumentene med ett mellomrom. Fellen er **#9** — å bruke samme svar for `//` og `/`.",
+      "hints": [
+       "De tre uttrykkene bruker tre ulike operatorer på samme tallpar.",
+       "Hvilken av dem gir alltid et desimaltall?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nprint(-23 // 6, -23 % 6)\n```",
+      "solution": "Heltallsdeling runder **nedover** på tallinja, ikke mot null. $-23 / 6$ er omtrent $-3{,}83$, og nedover derfra er $-4$. Resten må da være 1, fordi $-4 \\cdot 6 + 1 = -23$.\n\n**Utskrift:**\n```\n-4 1\n```\n\nKontrollen du kan gjøre på papir: gang svaret fra `//` med det du delte på, og legg til resten. Får du tilbake det opprinnelige tallet, er svaret riktig.",
+      "hints": [
+       "Tegn tallinja og marker hvor «nedover» havner for et negativt tall.",
+       "Bruk at heltallsdelen ganget med divisoren, pluss resten, gir tilbake tallet."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\na = '15'\nb = 15\nprint(a + a)\nprint(b + b)\n```",
+      "solution": "`a` er en **tekst**, så `+` limer sammen. `b` er et tall, så `+` legger sammen.\n\n**Utskrift:**\n```\n1515\n30\n```\n\nDette er felle **#1** — glemt omgjøring fra tekst til tall — i sin enkleste form. Fnuttene avgjør alt.",
+      "hints": [
+       "Se etter fnuttene: står de der, er verdien tekst.",
+       "`+` betyr to ulike ting for tekst og for tall."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nprint(int(9.8), round(9.8), int(-9.8))\n```",
+      "solution": "`int` på et flyttall kutter desimalene **mot null**; `round` runder av til nærmeste hele.\n\n**Utskrift:**\n```\n9 10 -9\n```\n\nLegg merke til at `int(-9.8)` gir $-9$ og ikke $-10$: kutting mot null er en annen regel enn nedrundingen i `//`, som ville gitt $-10$.",
+      "hints": [
+       "`int` og `round` gjør to forskjellige ting med desimalene.",
+       "«Mot null» og «nedover» er ikke det samme for negative tall."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nprint(2 + 3 * 2 ** 2)\nprint(-4 ** 2)\nprint((2 + 3) * 2)\n```",
+      "solution": "Rekkefølgen er potens, så unært minus, så multiplikasjon, så addisjon. Parenteser slår alt.\n\n| Uttrykk | Steg | Verdi |\n|---|---|---|\n| `2 + 3 * 2 ** 2` | potens gir 4, gange gir 12, pluss 2 | 14 |\n| `-4 ** 2` | potens før minustegnet | $-16$ |\n| `(2 + 3) * 2` | parentes først | 10 |\n\n**Utskrift:**\n```\n14\n-16\n10\n```\n\nDen midterste er den som koster poeng. Potens binder sterkere enn minustegnet foran et tall.",
+      "hints": [
+       "Sett inn parenteser slik du tror uttrykket leses, og regn innenfra og ut.",
+       "Hvilken operator binder sterkest av alle?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nprint(type(7 / 1))\nprint(type('7'))\nprint(type(7 > 1))\n```",
+      "solution": "`/` gir alltid flyttall, også når divisjonen går opp. Fnutter gjør verdien til tekst. En sammenligning gir en sannhetsverdi.\n\n**Utskrift:**\n```\n<class 'float'>\n<class 'str'>\n<class 'bool'>\n```\n\nUtskriftsformen er `<class 'navn'>` — skriv den nøyaktig slik hvis oppgaven ber om utskriften.",
+      "hints": [
+       "Tre uttrykk, tre ulike typer.",
+       "Hva gir vanlig divisjon alltid, uansett om det går opp?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) En treningsøkt varte 9080 sekunder. Hva skriver programmet ut?\n\n```python\nsek = 9080\nt = sek // 3600\nm = (sek % 3600) // 60\ns = sek % 60\nprint(t, m, s)\n```",
+      "solution": "**Sporingstavle**\n\n| Variabel | Regnestykke | Verdi |\n|---|---|---|\n| `t` | $9080 // 3600$ | 2 |\n| `sek % 3600` | $9080 - 2 \\cdot 3600$ | 1880 |\n| `m` | $1880 // 60$ | 31 |\n| `s` | $9080 \\% 60$ | 20 |\n\n**Utskrift:**\n```\n2 31 20\n```\n\nDen vanligste feilen er å regne minuttene som `sek // 60` og få 151 — da er timene ikke trukket fra først.",
+      "hints": [
+       "Følg tidsformelen: timene først, deretter resten etter timene.",
+       "Minuttene finnes i det som er igjen når timene er trukket fra."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nx = '8'\ny = '11'\nprint(x < y)\nprint(int(x) < int(y))\n```",
+      "solution": "Tekst sammenlignes **tegn for tegn** fra venstre. Første tegn er `8` mot `1`, og `8` kommer etter `1` i tegnrekkefølgen, så `'8'` regnes som størst — altså er `x < y` usann.\n\n**Utskrift:**\n```\nFalse\nTrue\n```\n\nEtter konvertering sammenlignes tallverdiene, og da er 8 mindre enn 11. Dette er felle **#1** i sin farligste form: den gir ingen feilmelding, bare feil svar.",
+      "hints": [
+       "Sammenlign de to tekstene tegn for tegn fra venstre.",
+       "Konvertering endrer hva som faktisk sammenlignes."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa9",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa9-o",
+      "number": "9",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\npris = '49.50'\nny = float(pris) * 2\nprint(ny)\nprint(round(ny))\nprint(pris + '0')\n```",
+      "solution": "**Sporingstavle**\n\n| Uttrykk | Hva som skjer | Verdi |\n|---|---|---|\n| `float(pris) * 2` | tekst om til flyttall, deretter doblet | 99.0 |\n| `round(ny)` | avrunding til heltall | 99 |\n| `pris + '0'` | to tekster limes sammen | `49.500` |\n\n**Utskrift:**\n```\n99.0\n99\n49.500\n```\n\nTo detaljer: den doble verdien skrives som `99.0` fordi den er et flyttall, og `pris` er fortsatt tekst — konverteringen laget en ny verdi, den endret ikke variabelen.",
+      "hints": [
+       "Hold styr på hvilken type hver variabel har til enhver tid.",
+       "`float(x)` gir en ny verdi; den endrer ikke `x` selv."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa10",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pa10-o",
+      "number": "10",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nn = 4739\nprint(n % 10)\nprint(n // 10 % 10)\nprint(n // 1000)\nprint(str(n)[0])\n```",
+      "solution": "Sifferplukking med `//` og `%` er et fast mønster på eksamen.\n\n| Uttrykk | Hva det plukker | Verdi |\n|---|---|---|\n| `n % 10` | siste siffer | 9 |\n| `n // 10 % 10` | nest siste: fjern siste, ta ny siste | 3 |\n| `n // 1000` | tusenerne, altså første siffer | 4 |\n| `str(n)[0]` | første **tegn** i tallet skrevet som tekst | `4` |\n\n**Utskrift:**\n```\n9\n3\n4\n4\n```\n\nDe to siste gir samme siffer, men ikke samme type: den tredje er tallet 4, den fjerde er teksten `'4'`. På skjermen ser de like ut. Utsnitt og indeksering av tekst gjennomgås grundig i Del 3; her holder det å vite at `[0]` gir første tegn.",
+      "hints": [
+       "`% 10` plukker alltid det siste sifferet.",
+       "`// 10` fjerner det siste sifferet, så du kan gjenta trikset."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pa-diag-4",
+     "type": "text",
+     "content": "**Selvdiagnose — Prøve 1.A**\n\n- ☐ Skilte du `/` fra `//`, og fikk med desimalpunktet bare der det skulle være?\n- ☐ Rundet du `//` **nedover** også for negative tall, og `int(...)` mot null?\n- ☐ Regnet du potens før multiplikasjon, og potens før minustegnet foran et tall?\n- ☐ Husket du at `print` setter ett mellomrom mellom argumentene?\n- ☐ Behandlet du `'15'` som tekst og `15` som tall gjennom hele sporingen?\n- ☐ Husket du at konvertering lager en **ny** verdi og ikke endrer variabelen?\n\n**Poengsum:** 10 mulige. Under 6: les [kap. 1.1](/tdt4110/tdt4110-1-1) på nytt, med vekt på definisjonsblokkene om de tre divisjonene og om konvertering."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-1-prove-coll-8",
+   "type": "collapsible",
+   "title": "Prøve 1.B — Boolsk logikk og betingelser (25 min)",
+   "buttonText": "Vis prøve 1.B",
+   "content": [
+    {
+     "id": "tdt4110-1-prove-pb-intro-6",
+     "type": "text",
+     "content": "**Prøve 1.B — Boolsk logikk og betingelser (25 minutter, 8 poeng).**\n\nÅtte oppgaver i sjanger B — kodesporing, her i formen «hva returnerer funksjonen?». Dette er nøyaktig innpakningen som går igjen på eksamen: en liten funksjon med et sammensatt boolsk uttrykk, og tre til fire kall du skal svare på. Ett poeng per oppgave."
+    },
+    {
+     "id": "tdt4110-1-prove-pb1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pb1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(1 poeng. Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef f(x):\n    return x > 10 and x < 20\n\nprint(f(15))\nprint(f(10))\nprint(f(25))\n```",
+      "solution": "Uttrykket krever at **begge** sammenligningene holder.\n\n| Kall | `x > 10` | `x < 20` | Resultat |\n|---|---|---|---|\n| `f(15)` | sann | sann | `True` |\n| `f(10)` | usann | sann | `False` |\n| `f(25)` | sann | usann | `False` |\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\n```\n\nMerk at `f(10)` er usann: kravet er **strengt** større enn 10. Grensetilfellene er nesten alltid det oppgaven sikter på.",
+      "hints": [
+       "Regn ut hver sammenligning for seg før du kombinerer dem.",
+       "Se nøye på om grensen er med eller ikke."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pb2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pb2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva returnerer funksjonen for de fire kallene?\n\n```python\ndef g(a, b):\n    return (a > 0 and b > 0) or (a == b)\n\nprint(g(3, 5))\nprint(g(3, -5))\nprint(g(-4, -4))\nprint(g(0, 7))\n```",
+      "solution": "To deler bundet med `or`: begge positive, **eller** like store.\n\n| Kall | Venstre del | Høyre del | Resultat |\n|---|---|---|---|\n| `g(3, 5)` | sann | usann | `True` |\n| `g(3, -5)` | usann | usann | `False` |\n| `g(-4, -4)` | usann | sann | `True` |\n| `g(0, 7)` | usann | usann | `False` |\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\nFalse\n```\n\nTredje rad er den som skiller. Begge tallene er negative, så venstre del faller — men de er like, og `or` krever bare én sann side.",
+      "hints": [
+       "Del uttrykket i de to parentesene og regn dem hver for seg.",
+       "`or` er sann så snart minst én av delene er sann."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pb3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pb3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nprint(True or False and False)\nprint((True or False) and False)\nprint(not True or True)\n```",
+      "solution": "Rekkefølgen er `not`, så `and`, så `or`.\n\n| Uttrykk | Leses som | Verdi |\n|---|---|---|\n| `True or False and False` | `True or (False and False)` | `True` |\n| `(True or False) and False` | `True and False` | `False` |\n| `not True or True` | `(not True) or True` | `True` |\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\n```\n\nDe to første har nøyaktig samme tegn bortsett fra parentesen, og gir motsatt svar. Det er hele poenget med presedens.",
+      "hints": [
+       "Sett inn parenteser slik reglene sier, før du regner.",
+       "`and` binder sterkere enn `or`, og `not` sterkere enn begge."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pb4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pb4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\np = 74\nif p >= 90:\n    print('A')\nelif p >= 80:\n    print('B')\nelif p >= 70:\n    print('C')\nelse:\n    print('D')\nprint('ferdig')\n```",
+      "solution": "Kjeden prøves ovenfra og ned og stopper ved den **første** sanne testen.\n\n| Test | Sann? | Hva skjer |\n|---|---|---|\n| `p >= 90` | nei | gå videre |\n| `p >= 80` | nei | gå videre |\n| `p >= 70` | ja | skriv `C`, hopp over resten |\n| `else` | prøves aldri | — |\n\n**Utskrift:**\n```\nC\nferdig\n```\n\n`print('ferdig')` står uten innrykk og hører derfor ikke til kjeden — den kjøres alltid.",
+      "hints": [
+       "Gå gjennom testene ovenfra og ned, og stopp ved den første som er sann.",
+       "Linjer uten innrykk hører ikke til kjeden."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pb5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pb5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nverdier = [0, '', '0', -1, 'nei']\nfor v in verdier:\n    if v:\n        print('sann', end=' ')\n    else:\n        print('usann', end=' ')\nprint()\n```",
+      "solution": "Usanne verdier er blant annet tallet 0 og den tomme teksten. Alt annet er sant — også teksten `'0'` og det negative tallet.\n\n| Verdi | Sann? |\n|---|---|\n| `0` | nei |\n| `''` | nei |\n| `'0'` | ja, teksten har ett tegn |\n| `-1` | ja, tallet er ulik null |\n| `'nei'` | ja |\n\n**Utskrift:**\n```\nusann usann sann sann sann \n```\n\nLegg merke til at linja slutter med et mellomrom, fordi `end=' '` gjelder også den siste utskriften.",
+      "hints": [
+       "Gå gjennom verdiene én om gangen og spør: er dette null eller tomt?",
+       "For tekst er det antall tegn som avgjør, ikke hva tegnene betyr."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pb6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pb6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger D — «fyll inn manglende kodelinje», altså velg det alternativet som får funksjonen til å virke.) Funksjonen skal returnere `True` når `x` ligger i intervallet fra og med 1 til og med 12 — altså et lovlig månedsnummer.\n\n```text\ndef lovlig_maned(x):\n    return KODE1\n```\n\nBlokken er merket som ikke-kjørbar fordi `KODE1` er en plassholder, ikke gyldig Python.\n\n**a)** `1 < x < 12`\n**b)** `x >= 1 or x <= 12`\n**c)** `1 <= x <= 12`\n**d)** `1 <= x < 12`",
+      "solution": "**Riktig svar: c)**\n\nPrøv hvert alternativ mot grensetilfellene 1, 12 og 13:\n\n| Alternativ | `x = 1` | `x = 12` | `x = 13` | Riktig? |\n|---|---|---|---|---|\n| **a)** `1 < x < 12` | usann | usann | usann | nei — mister begge grensene |\n| **b)** `x >= 1 or x <= 12` | sann | sann | **sann** | nei — `or` gjør alt lovlig |\n| **c)** `1 <= x <= 12` | sann | sann | usann | ja |\n| **d)** `1 <= x < 12` | sann | usann | usann | nei — mister desember |\n\n**Utskrift:**\n```\nTrue True False\n```\n\nAlternativ **b)** er verdt et blikk: med `or` er uttrykket sant for **alle** tall, fordi ethvert tall enten er minst 1 eller høyst 12. Et intervall krever `and` — eller den kjedede formen, som betyr det samme.",
+      "hints": [
+       "Test hvert alternativ mot grensetallene 1, 12 og 13.",
+       "Et intervall krever at begge ulikhetene holder samtidig."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pb7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pb7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut, og hvorfor krasjer det ikke?\n\n```python\ndef kan_brukes(t):\n    return t.isdigit() and int(t) % 2 == 0\n\nprint(kan_brukes('14'))\nprint(kan_brukes('7'))\nprint(kan_brukes('to'))\nprint(kan_brukes(''))\n```",
+      "solution": "| Kall | `.isdigit()` | Høyre side | Resultat |\n|---|---|---|---|\n| `kan_brukes('14')` | `True` | $14 \\% 2 = 0$, sann | `True` |\n| `kan_brukes('7')` | `True` | $7 \\% 2 = 1$, usann | `False` |\n| `kan_brukes('to')` | `False` | regnes aldri ut | `False` |\n| `kan_brukes('')` | `False` | regnes aldri ut | `False` |\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\nFalse\n```\n\nProgrammet krasjer ikke fordi `and` **kortslutter**: når venstre side er usann, er svaret allerede avgjort, og `int('to')` blir aldri kjørt. Bytter du om rekkefølgen på de to sidene, stopper programmet med `ValueError`.\n\nMerk også at den tomme teksten gir `False` fra `.isdigit()` — den har ingen tegn i det hele tatt.",
+      "hints": [
+       "Regn ut venstre side først, og spør deretter om høyre side i det hele tatt kjøres.",
+       "Hva gir `.isdigit()` for en tekst uten tegn?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pb8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pb8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B — kodesporing av nøstet betingelse.) Hva skriver programmet ut?\n\n```python\ndef kategori(alder, medlem):\n    if alder < 18:\n        if medlem:\n            return 'ung medlem'\n        else:\n            return 'ung'\n    elif alder < 67:\n        return 'voksen'\n    else:\n        return 'senior'\n\nprint(kategori(15, True))\nprint(kategori(15, False))\nprint(kategori(40, True))\nprint(kategori(70, False))\n```",
+      "solution": "Den indre testen prøves bare når den ytre var sann. Hvilket `else` som hører til hvilket `if`, avgjøres av **innrykket**.\n\n| Kall | Ytre test | Indre test | Resultat |\n|---|---|---|---|\n| `kategori(15, True)` | `alder < 18` sann | `medlem` sann | `ung medlem` |\n| `kategori(15, False)` | sann | usann | `ung` |\n| `kategori(40, True)` | usann, går til `elif` | — | `voksen` |\n| `kategori(70, False)` | begge usanne | — | `senior` |\n\n**Utskrift:**\n```\nung medlem\nung\nvoksen\nsenior\n```\n\nLegg merke til at `medlem` brukes direkte som betingelse — den er allerede en sannhetsverdi, og trenger ingen sammenligning med `True`.\n\nMerk også at parameteren `medlem` ikke påvirker noe for de to siste kallene: når alderen er 18 eller mer, brukes den aldri.",
+      "hints": [
+       "Tegn opp innrykksnivåene og par hvert `else` med det `if` som står på samme nivå.",
+       "En sannhetsverdi kan stå alene som betingelse."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pb-diag-7",
+     "type": "text",
+     "content": "**Selvdiagnose — Prøve 1.B**\n\n- ☐ Regnet du `not` før `and`, og `and` før `or`?\n- ☐ Sjekket du grensetilfellene — er grensen med eller ikke?\n- ☐ Husket du at en `elif`-kjede kjører **høyst én** blokk?\n- ☐ Fikk du med at `'0'` og et negativt tall begge teller som sanne?\n- ☐ Brukte du kortslutningen riktig, altså at høyre side av `and` ikke kjøres når venstre er usann?\n- ☐ Parret du hvert `else` med riktig `if` ut fra innrykket?\n\n**Poengsum:** 8 mulige. Under 5: les [kap. 1.2](/tdt4110/tdt4110-1-2) på nytt, særlig definisjonsblokkene om presedens, kortslutning og nøstet betingelse."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-1-prove-coll-11",
+   "type": "collapsible",
+   "title": "Prøve 1.C — Løkker og range (30 min)",
+   "buttonText": "Vis prøve 1.C",
+   "content": [
+    {
+     "id": "tdt4110-1-prove-pc-intro-9",
+     "type": "text",
+     "content": "**Prøve 1.C — Løkker og `range` (30 minutter, 10 poeng).**\n\nTi sporingsspørsmål i sjanger B — kodesporing. Løkker er den vanligste innpakningen på hele eksamen, og halvparten av oppgavene her handler om grensene: hvor rekka starter, hvor den stopper, og hvor mange runder det blir. Skriv utskriften nøyaktig. Ett poeng per spørsmål."
+    },
+    {
+     "id": "tdt4110-1-prove-pc1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(1 poeng. Sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nfor i in range(3):\n    print(i, end=' ')\nprint()\nfor i in range(1, 4):\n    print(i, end=' ')\nprint()\n```",
+      "solution": "`range(3)` gir 0, 1, 2. `range(1, 4)` gir 1, 2, 3. Begge går tre runder, men over ulike tall.\n\n**Utskrift:**\n```\n0 1 2 \n1 2 3 \n```\n\nStoppverdien er aldri med. Hver linje slutter med et mellomrom, fordi `end=' '` gjelder også siste tall.",
+      "hints": [
+       "Skriv opp hvilke tall løkkevariabelen faktisk får.",
+       "Stoppverdien i `range` er alltid utenfor."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\ntall = [6, 1, 8, 3, 7]\nfor i in range(1, len(tall), 2):\n    tall[i] = tall[i] * 10\nprint(tall)\n```",
+      "solution": "Lista har fem elementer, altså plassnumrene 0 til 4. `range(1, 5, 2)` treffer plass 1 og 3.\n\n| Runde | `i` | Før | Etter | Lista nå |\n|---|---|---|---|---|\n| 1 | 1 | 1 | 10 | `[6, 10, 8, 3, 7]` |\n| 2 | 3 | 3 | 30 | `[6, 10, 8, 30, 7]` |\n\n**Utskrift:**\n```\n[6, 10, 8, 30, 7]\n```\n\nFellen er **#5** — av-med-én i løkkegrensen. Den som starter på 0, endrer tre helt andre elementer. Lista skrives ut med hakeparenteser og komma-mellomrom.",
+      "hints": [
+       "Skriv opp plassnumrene og marker hvilke rekka faktisk treffer.",
+       "«Annethvert fra det andre elementet» starter på plassnummer 1."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\ns = 0\nfor i in range(2, 11, 3):\n    s += i\nprint(s)\n```",
+      "solution": "Rekka starter på 2 og hopper tre av gangen, og stopper før 11: 2, 5, 8. Neste ville vært 11, som er utenfor.\n\nSummen er $2 + 5 + 8 = 15$.\n\n**Utskrift:**\n```\n15\n```\n\nDen vanligste feilen er å ta med 11.",
+      "hints": [
+       "Skriv opp tallene rekka gir, før du summerer.",
+       "Stoppverdien er eksklusiv — også når steget er større enn 1."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B — nøstet løkke.) Hva skriver programmet ut?\n\n```python\nfor i in range(1, 4):\n    for j in range(i):\n        print(i, end='')\n    print()\n```",
+      "solution": "Den indre grensen avhenger av den ytre, så antall indre runder varierer.\n\n| Ytre `i` | Indre `range(i)` | Antall runder | Linja blir |\n|---|---|---|---|\n| 1 | `range(1)` | 1 | `1` |\n| 2 | `range(2)` | 2 | `22` |\n| 3 | `range(3)` | 3 | `333` |\n\n**Utskrift:**\n```\n1\n22\n333\n```\n\n`end=''` fjerner linjeskiftet helt, så tallene klistrer seg sammen. Den nakne `print()` står i den **ytre** løkka og gir ett linjeskift per rad.",
+      "hints": [
+       "La den ytre verdien stå fast mens du går gjennom hele den indre løkka.",
+       "Hvor mange tall gir `range(i)` for hver verdi `i` kan ha?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B — `while`.) Hva skriver programmet ut?\n\n```python\nn = 100\nrunder = 0\nwhile n > 1:\n    n = n // 3\n    runder += 1\nprint(n, runder)\n```",
+      "solution": "**Sporingstavle**\n\n| Før runden | `n > 1`? | `n` etterpå | `runder` |\n|---|---|---|---|\n| 100 | ja | 33 | 1 |\n| 33 | ja | 11 | 2 |\n| 11 | ja | 3 | 3 |\n| 3 | ja | 1 | 4 |\n| 1 | nei — stopp | 1 | 4 |\n\n**Utskrift:**\n```\n1 4\n```\n\nBetingelsen sjekkes **før** hver runde, også den siste gangen, da den er usann. Heltallsdelingen kaster desimalene hver gang — med `/` ville verdien blitt et flyttall og løkka gått mange flere runder.",
+      "hints": [
+       "Sett opp en rad per runde med verdien før, svaret på betingelsen, og verdien etter.",
+       "`//` kaster desimalene, så verdien synker raskere enn med vanlig divisjon."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nantall = 0\nfor t in [14, 9, 21, 9, 3]:\n    if t > 9:\n        antall += 1\nprint(antall)\n```",
+      "solution": "Tellermønsteret: startverdi før løkka, oppdatering inne i en `if`.\n\n| Verdi | `t > 9`? | `antall` etterpå |\n|---|---|---|\n| 14 | ja | 1 |\n| 9 | nei | 1 |\n| 21 | ja | 2 |\n| 9 | nei | 2 |\n| 3 | nei | 2 |\n\n**Utskrift:**\n```\n2\n```\n\nKravet er **strengt** større enn 9, så nierne teller ikke med. Hadde det stått `>=`, ville svaret vært 4.",
+      "hints": [
+       "Gå gjennom verdiene én om gangen og hold styr på telleren.",
+       "Se nøye på om grensen er med eller ikke."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B — nøstet løkke med krympende grense.) Hva skriver programmet ut?\n\n```python\npar = 0\nfor i in range(5):\n    for j in range(i + 1, 5):\n        par += 1\nprint(par)\n```",
+      "solution": "Den indre rekka går fra `i + 1` til 4, altså $4 - i$ runder.\n\n| Ytre `i` | Indre rekke | Antall runder | `par` |\n|---|---|---|---|\n| 0 | `range(1, 5)` | 4 | 4 |\n| 1 | `range(2, 5)` | 3 | 7 |\n| 2 | `range(3, 5)` | 2 | 9 |\n| 3 | `range(4, 5)` | 1 | 10 |\n| 4 | `range(5, 5)` | 0 — tom rekke | 10 |\n\n**Utskrift:**\n```\n10\n```\n\nSiste ytre runde gir en **tom** indre rekke, uten feilmelding. Summen $4 + 3 + 2 + 1 + 0 = 10$ er nøyaktig antall par man kan lage av fem elementer — og samme løkkestruktur som i boblesortering, som kommer i Del 6.",
+      "hints": [
+       "Regn ut hvor mange tall `range(i + 1, 5)` gir, for hver verdi `i` kan ha.",
+       "Antall tall i en rekke med steg 1 er stoppverdien minus startverdien."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal returnere summen av tallene fra og med 1 til og med `n`.\n\n```text\ndef sum_til(n):\n    s = 0\n    for i in KODE1:\n        s += i\n    return s\n```\n\nBlokken er merket som ikke-kjørbar fordi `KODE1` er en plassholder.\n\n**a)** `range(n)`\n**b)** `range(1, n + 1)`\n**c)** `range(1, n)`\n**d)** `range(0, n, 1)`",
+      "solution": "**Riktig svar: b)**\n\nPrøv hvert alternativ med `n = 4`, der fasiten er $1 + 2 + 3 + 4 = 10$:\n\n| Alternativ | Tallene | Summen | Riktig? |\n|---|---|---|---|\n| **a)** `range(4)` | 0, 1, 2, 3 | 6 | nei — mister siste tall |\n| **b)** `range(1, 5)` | 1, 2, 3, 4 | 10 | ja |\n| **c)** `range(1, 4)` | 1, 2, 3 | 6 | nei — mister siste tall |\n| **d)** `range(0, 4, 1)` | 0, 1, 2, 3 | 6 | nei — samme rekke som a) |\n\n**Utskrift:**\n```\n10 55\n```\n\nAlle tre gale alternativene gir samme sum, og alle tre feiler på samme måte: de stopper ett tall for tidlig. Det er felle **#5** — «til og med `n`» krever `range(n + 1)`.\n\nKontrollformelen for summen er $\\frac{n(n+1)}{2}$, som for $n = 10$ gir 55.",
+      "hints": [
+       "Prøv alternativene med et lite tall, for eksempel `n = 4`, som du kan summere i hodet.",
+       "«Til og med» krever at stoppverdien er én høyere enn det siste tallet."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc9",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc9-o",
+      "number": "9",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B.) Hva skriver programmet ut?\n\n```python\nfor i in range(8, 1, -3):\n    print(i, end=' ')\nprint()\nfor i in range(2, 8, -1):\n    print(i, end=' ')\nprint('slutt')\n```",
+      "solution": "Den første rekka teller nedover fra 8 med steg $-3$: 8, 5, 2. Neste ville vært $-1$, som er forbi stoppverdien 1.\n\nDen andre rekka er **tom**: med negativt steg må startverdien være større enn stoppverdien, og 2 er mindre enn 8. Løkka kjører null runder, helt uten feilmelding.\n\n**Utskrift:**\n```\n8 5 2 \nslutt\n```\n\nAndre linje inneholder bare `slutt`. En tom rekke er et fullt gyldig sporingssvar — riktig svar kan være at det ikke skrives noe som helst.",
+      "hints": [
+       "Skriv opp tallene den første rekka gir, ett om gangen.",
+       "Med negativt steg: hva kreves av forholdet mellom start og stopp?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc10",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pc10-o",
+      "number": "10",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B — `break` og `continue`.) Hva skriver programmet ut?\n\n```python\nfor i in range(10):\n    if i % 3 == 0:\n        continue\n    if i > 7:\n        break\n    print(i, end=' ')\nprint()\n```",
+      "solution": "`continue` hopper over resten av runden; `break` avbryter løkka helt.\n\n| `i` | Delelig med 3? | Større enn 7? | Hva skjer |\n|---|---|---|---|\n| 0 | ja | — | hopp over |\n| 1 | nei | nei | skriv `1` |\n| 2 | nei | nei | skriv `2` |\n| 3 | ja | — | hopp over |\n| 4 | nei | nei | skriv `4` |\n| 5 | nei | nei | skriv `5` |\n| 6 | ja | — | hopp over |\n| 7 | nei | nei | skriv `7` |\n| 8 | nei | ja | **avbryt** |\n\n**Utskrift:**\n```\n1 2 4 5 7 \n```\n\nVerdien 9 nås aldri — løkka ble avbrutt på 8. Merk at 0 er delelig med 3, siden resten er null.",
+      "hints": [
+       "Gå gjennom verdiene én om gangen og avgjør hvilken av de to testene som slår til.",
+       "`continue` går til neste runde; `break` avslutter løkka helt."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pc-diag-10",
+     "type": "text",
+     "content": "**Selvdiagnose — Prøve 1.C**\n\n- ☐ Husket du at stoppverdien i `range` **aldri** er med?\n- ☐ Skilte du «annethvert fra det første» fra «annethvert fra det andre»?\n- ☐ Regnet du riktig antall indre runder når grensen avhang av den ytre løkka?\n- ☐ Fikk du med at en tom rekke gir null runder, uten feilmelding?\n- ☐ Sjekket du `while`-betingelsen **før** hver runde, ikke etter?\n- ☐ Skrev du utskriften nøyaktig, med mellomrommene `end=' '` gir?\n\n**Poengsum:** 10 mulige. Under 6: les [kap. 1.3](/tdt4110/tdt4110-1-3) på nytt, med vekt på definisjonsblokkene om `range` og på advarselen om av-med-én."
+    }
+   ]
+  },
+  {
+   "id": "tdt4110-1-prove-coll-14",
+   "type": "collapsible",
+   "title": "Prøve 1.D — Input og validering (30 min)",
+   "buttonText": "Vis prøve 1.D",
+   "content": [
+    {
+     "id": "tdt4110-1-prove-pd-intro-12",
+     "type": "text",
+     "content": "**Prøve 1.D — Input og validering (30 minutter, 12 poeng).**\n\nTre kodeskrivingsoppgaver i sjanger H — input-validering og meny — à 2 poeng, og seks sporingsspørsmål i sjanger B à 1 poeng.\n\nSkriv kodeoppgavene for hånd, uten maskin. Det er slik de kommer på eksamen. Fasitene viser én løsning; flere korrekte løsninger sidestilles, og margnotatene sier hva som gir uttelling."
+    },
+    {
+     "id": "tdt4110-1-prove-pd1",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd1-o",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger H — input-validering.) Skriv funksjonen `les_terningkast()` som spør brukeren om et terningkast, gjentar spørsmålet med feilmelding til svaret er et helt tall mellom 1 og 6, og returnerer tallet.",
+      "solution": "```python\ndef les_terningkast():\n    svar = input('Terningkast (1-6): ')\n    while not svar.isdigit() or int(svar) < 1 or int(svar) > 6:\n        print('Ugyldig. Skriv et helt tall mellom 1 og 6.')\n        svar = input('Terningkast (1-6): ')\n    return int(svar)\n```\n\nKjørt med `print(les_terningkast())`:\n\n**Kjøring:**\n```\nTerningkast (1-6): sju\nUgyldig. Skriv et helt tall mellom 1 og 6.\nTerningkast (1-6): 0\nUgyldig. Skriv et helt tall mellom 1 og 6.\nTerningkast (1-6): 4\n4\n```\n\n**Uttelling (2 poeng):**\n\n- 1 poeng for at spørsmålet faktisk **gjentas i en løkke** ved ugyldig svar. En `if` som gir én ny sjanse, gir ikke dette poenget — det er felle **#8**.\n- 1 poeng for at ugyldig tekst ikke krasjer programmet, altså at `.isdigit()` står **før** konverteringen, og at intervallet er riktig.\n\n**Like gyldig løsning:** varianten med `while True:` og `return` inne i løkka, der testen står i positiv form. Begge gir full pott.\n\n**Vanlige trekk:** å skrive `int(input(...))` på første linje — da stopper programmet med `ValueError` før valideringen får kjørt. Og å glemme feilmeldingen, som oppgaveteksten uttrykkelig ber om.",
+      "hints": [
+       "Skriv først gyldighetstesten i positiv form, og neger den — husk at `and` blir til `or`.",
+       "La `.isdigit()` stå helt til venstre, så konverteringen er beskyttet av kortslutningen."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd2",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd2-o",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(2 poeng. Sjanger H.) En resepsjon registrerer romnummer. Et lovlig romnummer er nøyaktig tre tegn langt og består bare av sifre.\n\n**a)** Skriv `gyldig_rom(tekst)` som returnerer `True` eller `False`.\n**b)** Skriv `les_rom()` som bruker `gyldig_rom` og gjentar spørsmålet til svaret er lovlig.",
+      "solution": "**a)** og **b)** — testen først, deretter løkka som gjenbruker den:\n\n```python\ndef gyldig_rom(tekst):\n    return len(tekst) == 3 and tekst.isdigit()\n\ndef les_rom():\n    svar = input('Romnummer (tre sifre): ')\n    while not gyldig_rom(svar):\n        print('Romnummeret skal ha nøyaktig tre sifre.')\n        svar = input('Romnummer (tre sifre): ')\n    return svar\n```\n\nKjørt med `print(les_rom())`:\n\n**Kjøring:**\n```\nRomnummer (tre sifre): 12\nRomnummeret skal ha nøyaktig tre sifre.\nRomnummer (tre sifre): abc\nRomnummeret skal ha nøyaktig tre sifre.\nRomnummer (tre sifre): 204\n204\n```\n\n**Uttelling (2 poeng):**\n\n- 1 poeng for at testen returnerer sammenligningen **direkte**, uten en `if`/`else` rundt en sannhetsverdi, og at begge kravene er med.\n- 1 poeng for at løkka **gjenbruker** `gyldig_rom` i stedet for å gjenta testen. Gjenbruk av egne funksjoner er et eksplisitt sensorkrav i dette faget.\n\n**Legg merke til returtypen:** `les_rom` returnerer **teksten**, ikke et tall. Et romnummer som `007` ville mistet nullene ved konvertering. Å skrive kort at du antar dette, koster ingenting og gir uttelling.\n\n**Vanlig trekk:** å skrive `if len(tekst) == 3 and tekst.isdigit(): return True` fulgt av `else: return False`. Det er ikke galt, men unødig langt — og faget vurderer konsishet eksplisitt.",
+      "hints": [
+       "Del oppgaven i to: én funksjon som svarer sant eller usant, og én som spør.",
+       "Begge kravene til romnummeret kan stå i ett uttrykk bundet med `and`."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd3",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd3-o",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(2 poeng. Sjanger H — sentinelløkke.) En bruktbutikk registrerer priser til den ansatte er ferdig.\n\n**a)** Skriv `les_priser()` som gjentatt spør om en pris i hele kroner, avslutter når brukeren trykker enter uten å skrive noe, og returnerer både antall priser og summen av dem.\n**b)** Hva skjer hvis du skriver `int(input(...))` på spørrelinja i stedet? Svar med én setning.",
+      "solution": "**a)**\n\n```python\ndef les_priser():\n    antall = 0\n    total = 0\n    svar = input('Pris i kroner (blank linje avslutter): ')\n    while svar != '':\n        if svar.isdigit():\n            antall += 1\n            total += int(svar)\n        else:\n            print('Ugyldig pris, hoppet over.')\n        svar = input('Pris i kroner (blank linje avslutter): ')\n    return antall, total\n```\n\nKjørt med `a, t = les_priser()\nprint('Antall:', a, 'Total:', t)`:\n\n**Kjøring:**\n```\nPris i kroner (blank linje avslutter): 250\nPris i kroner (blank linje avslutter): dyrt\nUgyldig pris, hoppet over.\nPris i kroner (blank linje avslutter): 120\nPris i kroner (blank linje avslutter): \nAntall: 2 Total: 370\n```\n\n**b)** Programmet ville stoppet med `ValueError` på den blanke linja, fordi konverteringen skjer før sentinelen blir testet.\n\n**Uttelling (2 poeng):**\n\n- 1 poeng for at sentinelen testes **på teksten**, før konvertering, og at ledeteksten sier hva sentinelen er.\n- 1 poeng for at begge akkumulatorene settes **før** løkka og returneres etterpå.\n\n**Like gyldig løsning:** å avvise ugyldige priser med en indre valideringsløkke i stedet for å hoppe over dem. Oppgaveteksten sier ikke hva som skal skje med ugyldige svar, så begge deler er rimelige — skriv kort hva du antar.\n\n**Vanlig trekk:** å sette `antall = 0` inne i løkka. Da nullstilles den for hver vare, og svaret blir alltid 1.",
+      "hints": [
+       "Test sentinelen i `while`-betingelsen, mens verdien fortsatt er tekst.",
+       "Begge akkumulatorene må settes før løkka, akkurat som i tellermønsteret."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd4",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd4-o",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(1 poeng. Sjanger B — kodesporing.) Brukeren skriver `9`. Hva skriver programmet ut?\n\n```text\nsvar = input('Tall: ')\nprint(svar * 3)\nprint(int(svar) * 3)\n```\n\nGjerdet er merket `text` fordi blokken venter på at noen skriver noe.",
+      "solution": "`svar` er en **tekst**. Tekst ganget med et heltall gjentar teksten.\n\n**Kjøring:**\n```\nTall: 9\n999\n27\n```\n\nFørste linje er ledeteksten med brukerens svar bak. Deretter `999`, som er teksten gjentatt tre ganger, og `27`, som er tallet ganget med tre.\n\nDette er felle **#1** — glemt omgjøring fra tekst til tall.",
+      "hints": [
+       "Hvilken datatype har `svar` rett etter `input`?",
+       "Hva betyr `*` mellom en tekst og et tall?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd5",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd5-o",
+      "number": "5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Brukeren skriver `-4`, deretter `0`, deretter `3`. Hvor mange ganger vises ledeteksten, og hva returnerer funksjonen?\n\n```text\ndef les():\n    svar = input('Antall: ')\n    while not svar.isdigit():\n        svar = input('Antall: ')\n    return int(svar)\n```\n\nGjerdet er merket `text` fordi blokken venter på input.",
+      "solution": "| Svar | `.isdigit()` | `not ...` | Hva skjer |\n|---|---|---|---|\n| `-4` | `False` — minustegnet | sann | spør på nytt |\n| `0` | `True` | usann | løkka stopper |\n| `3` | — | — | leses aldri |\n\nLedeteksten vises **to** ganger, og funksjonen returnerer `0`.\n\nNullen slipper gjennom fordi den eneste testen er `.isdigit()`. Skulle antallet vært minst 1, måtte betingelsen hatt `or int(svar) < 1` i tillegg. Det tredje svaret leses aldri — funksjonen var ferdig.",
+      "hints": [
+       "Regn ut `.isdigit()` for hvert svar etter tur.",
+       "Løkka stopper i det øyeblikk betingelsen blir usann."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd6",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd6-o",
+      "number": "6",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger D — «fyll inn manglende kodelinje».) Funksjonen skal gjenta spørsmålet til brukeren skriver en tekst på **minst** to tegn.\n\n```text\ndef les_navn():\n    svar = input('Navn: ')\n    while KODE1:\n        svar = input('Navn: ')\n    return svar\n```\n\nBlokken er merket som ikke-kjørbar fordi `KODE1` er en plassholder.\n\n**a)** `len(svar) >= 2`\n**b)** `svar < 2`\n**c)** `len(svar) != 2`\n**d)** `len(svar) < 2`",
+      "solution": "**Riktig svar: d)**\n\n`while`-betingelsen sier «spør på nytt så lenge dette er sant», altså den **negerte** gyldighetstesten. Gyldig er «minst to tegn», så ugyldig er «færre enn to tegn».\n\n| Alternativ | `''` | `A` | `Ada` | Riktig? |\n|---|---|---|---|---|\n| **a)** `len(svar) >= 2` | stopper | stopper | spør for alltid | nei — snudd |\n| **b)** `svar < 2` | `TypeError` | `TypeError` | `TypeError` | nei — tekst mot tall |\n| **c)** `len(svar) != 2` | spør igjen | spør igjen | **spør igjen** | nei — avviser lange navn |\n| **d)** `len(svar) < 2` | spør igjen | spør igjen | stopper | ja |\n\nAlternativet `len(svar) != 2` er den nære distraktoren: det virker for tomme og ettbokstavs navn, men avviser også alle navn med tre tegn eller mer. «Minst to» er ikke det samme som «nøyaktig to».\n\nAlternativet `svar < 2` sammenligner en tekst med et tall med `<`, og det gir feilmelding — til forskjell fra `==`, som bare ville gitt `False`.",
+      "hints": [
+       "Les betingelsen høyt som «spør på nytt så lenge …».",
+       "Prøv hvert alternativ mot et navn som er både kortere og lengre enn to tegn."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd7",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd7-o",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(1 poeng. Sjanger B.) Brukeren skriver `5`, `8` og deretter en blank linje. Hva skriver programmet ut?\n\n```text\ntotal = 0\nsvar = input('Tall (blank avslutter): ')\nwhile svar != '':\n    total += int(svar)\n    svar = input('Tall (blank avslutter): ')\nprint(total)\n```\n\nGjerdet er merket `text` fordi blokken venter på input.",
+      "solution": "| Svar | `svar != ''`? | `total` etterpå |\n|---|---|---|\n| `5` | ja | 5 |\n| `8` | ja | 13 |\n| blank linje | nei — stopp | 13 |\n\n**Kjøring:**\n```\nTall (blank avslutter): 5\nTall (blank avslutter): 8\nTall (blank avslutter): \n13\n```\n\nLegg merke til at konverteringen står **inne** i løkka, etter at sentinelen er utelukket. Sto `int(...)` rundt `input`, ville programmet stoppet med `ValueError` på den blanke linja.",
+      "hints": [
+       "Sett opp en rad per svar og hold styr på akkumulatoren.",
+       "Når testes sentinelen i forhold til når konverteringen skjer?"
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd8",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd8-o",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B.) Hva er galt med denne funksjonen, og hva skjer når brukeren skriver `x`?\n\n```text\ndef les_poeng():\n    svar = input('Poeng: ')\n    while not svar.isdigit():\n        print('Skriv et helt tall.')\n    return int(svar)\n```\n\nGjerdet er merket `text` fordi blokken både venter på input og har en feil som gjør at den aldri stopper.\n\nSvar med **én setning**.",
+      "solution": "Programmet skriver feilmeldingen om og om igjen uten stans, fordi ingenting inne i løkka endrer `svar`.\n\nRettelsen er én linje: `svar = input('Poeng: ')` inne i løkka, etter feilmeldingen.\n\nDette er felle **#8** i sin reneste form. Kontrollen som avslører den på to sekunder: pek på linja inne i løkka som endrer verdien betingelsen leser. Finnes den ikke, går løkka for alltid.\n\n**Merk at fasiten er én setning.** Faget vurderer konsishet eksplisitt — uklare eller unødig lange svar trekker ned. En forklaring som går linje for linje gjennom hele funksjonen, ville fått mindre uttelling selv om den var korrekt.",
+      "hints": [
+       "Let etter linja inne i løkka som endrer verdien `while`-betingelsen leser.",
+       "En `while` stopper bare når betingelsen blir usann."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd9",
+     "type": "exercise",
+     "exercise": {
+      "id": "tdt4110-1-prove-pd9-o",
+      "number": "9",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(1 poeng. Sjanger B.) Funksjonen leser et klokkeslett på formen `TT:MM`. Brukeren skriver `9:15`, deretter `09:15`. Hva returnerer funksjonen, og hvorfor ble det første svaret avvist?\n\n```text\ndef les_klokkeslett():\n    svar = input('Klokkeslett (TT:MM): ')\n    while len(svar) != 5 or svar[2] != ':':\n        print('Skriv klokkeslettet som TT:MM.')\n        svar = input('Klokkeslett (TT:MM): ')\n    return svar\n```\n\nGjerdet er merket `text` fordi blokken venter på input.",
+      "solution": "| Svar | `len(svar)` | Er tegn nummer 2 et kolon? | Godtas? |\n|---|---|---|---|\n| `9:15` | 4 | tegnet på plass 2 er `1` | nei |\n| `09:15` | 5 | ja | ja |\n\nFunksjonen returnerer teksten `09:15`.\n\nDet første svaret ble avvist fordi det manglet nullen foran timetallet: teksten har bare fire tegn, og lengdetesten slår til med én gang. Fordi `or` kortslutter, blir `svar[2]` aldri sjekket for det svaret — noe som er like greit, for indeksen ville vært lovlig her, men kunne gitt feilmelding på en enda kortere tekst.\n\n`svar[2]` betyr tegn nummer to, og plassnummereringen starter på null: `0`, `9`, `:`. Indeksering av tekst gjennomgås grundig i Del 3.",
+      "hints": [
+       "Tell tegnene i hver av de to tekstene.",
+       "Plassnummereringen starter på null, så `svar[2]` er det tredje tegnet."
+      ]
+     }
+    },
+    {
+     "id": "tdt4110-1-prove-pd-diag-13",
+     "type": "text",
+     "content": "**Selvdiagnose — Prøve 1.D**\n\n- ☐ Gjentok løkka spørsmålet, eller ga du bare én ny sjanse?\n- ☐ Sto `.isdigit()` **før** konverteringen, så ugyldig tekst ikke kunne krasje programmet?\n- ☐ Negerte du gyldighetstesten riktig — ble `and` til `or`?\n- ☐ Testet du sentinelen mens verdien fortsatt var tekst?\n- ☐ Sto akkumulatorene **før** løkka, ikke inne i den?\n- ☐ Returnerte funksjonen verdien, i stedet for bare å skrive den ut?\n- ☐ Skrev du feilmeldingen oppgaven ba om?\n\n**Poengsum:** 12 mulige. Under 7: les [kap. 1.4](/tdt4110/tdt4110-1-4) på nytt, særlig de to mønsterblokkene om valideringsløkka.\n\nHar du tatt alle fire prøvene og ligger over halvparten på hver, sitter Del 1 godt nok til at du kan gå videre til funksjonene i Del 2."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

@@ -1,0 +1,303 @@
+{
+ "id": "tdt4110-1-4",
+ "courseId": "tdt4110",
+ "chapterNumber": "1.4",
+ "title": "Input og input-valideringsløkke",
+ "description": "Lese brukerinput, konvertere til tall, og løkken som spør på nytt til verdien er lovlig — et fast ledd i programmeringsoppgavene.",
+ "estimatedMinutes": 40,
+ "competenceGoals": [
+  "kunne lese en verdi fra brukeren og gjøre den om til riktig datatype før den brukes",
+  "kunne skrive en løkke som gjentar spørsmålet med feilmelding til svaret er lovlig",
+  "kunne formulere en gyldighetstest og snu den riktig når den skal stå i en while-betingelse",
+  "kunne la brukeren avslutte selv med et avtalt stoppsignal, uten at programmet krasjer"
+ ],
+ "content": [
+  {
+   "title": "Eksamensvinkel",
+   "content": "Dette er det siste leddet i Del 1, og det første som ser ut som en ekte eksamensdeloppgave.\n\n- **Input-valideringsløkka** står i omtrent **8 av 10** sett, altså **~80 %**. Formen er alltid den samme: spør brukeren, sjekk om svaret er lovlig, og spør på nytt til det er det.\n- Den hører til **sjanger H — input-validering og meny**, som er ett av leddene i den store programmeringsoppgaven og teller 5–10 % når den er med.\n- Konverteringsfellen fra [kap. 1.1](/tdt4110/tdt4110-1-1) møter du her i sin vanligste form: `input()` gir alltid tekst, og teksten må sjekkes **før** den gjøres om til tall.\n\n**Dette må sitte** — høyeste prioritet av bokas tre nivåer (*må sitte*, *må kunne*, *bør kjenne til*). Valideringsløkka er et av mønstrene du skal kunne skrive fra bunnen, uten mal, på papir.",
+   "type": "tip",
+   "id": "tdt4110-1-4-tip-1"
+  },
+  {
+   "content": "**Forkunnskaper:**\n\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — Variabler, datatyper og konvertering: at tekst må gjøres om med `int` eller `float` før du regner, og at `.isdigit()` sjekker om en tekst er sifre alene.\n- [kap. 1.2](/tdt4110/tdt4110-1-2) — Boolsk logikk og betingelser: sammenligninger, `and`/`or`, og at `and` kortslutter.\n- [kap. 1.3](/tdt4110/tdt4110-1-3) — Løkker: `while` og løkketerminering.\n\nTar du med deg to setninger derfra, la det være disse: `int('abc')` stopper programmet med `ValueError`, og en `while`-løkke stopper bare hvis noe i kroppen endrer betingelsen.",
+   "type": "text",
+   "id": "tdt4110-1-4-t-2"
+  },
+  {
+   "content": "## Løkke 1 — Å spørre brukeren (~8 min)\n\nEn billettautomat på en ferge spør hvor mange passasjerer det er. Brukeren skriver noe, og programmet regner videre. Det er hele mekanismen, og den har én funksjon: `input`.\n\nDet som gjør den vanskeligere enn den ser ut, er at brukeren kan skrive hva som helst — `tre`, `-2`, ingenting i det hele tatt. Programmet må tåle alt sammen.",
+   "type": "text",
+   "id": "tdt4110-1-4-t-3"
+  },
+  {
+   "title": "`input(melding)`",
+   "content": "Skriver ut meldingen, venter på at brukeren skriver en linje og trykker enter, og gir linja tilbake.\n\nProgrammet **stopper helt** mens det venter. Ingenting annet skjer før brukeren har trykket enter.\n\nMeldingen er valgfri: `input()` uten argument venter uten å skrive noe. Men da vet ikke brukeren hva han skal gjøre, så på eksamen skal du alltid ha med en melding.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-4"
+  },
+  {
+   "title": "Ledetekst",
+   "content": "Meldingen `input` skriver ut, kalles en **ledetekst** (på engelsk *prompt*). Den skrives **uten** linjeskift, så brukeren skriver på samme linje.\n\nDerfor slutter en god ledetekst alltid med et mellomrom: `input('Antall passasjerer: ')`. Uten mellomrommet klistrer svaret seg inntil kolonet.\n\nLedeteksten skal si hva som forventes, ikke bare hva som spørres om. «Time (0–23): » er bedre enn «Time: », fordi den forteller brukeren hva som er lovlig før han gjetter feil.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-5"
+  },
+  {
+   "title": "`input()` gir alltid tekst",
+   "content": "Uansett hva brukeren skriver, er resultatet en **streng**. Skriver han `7`, får du teksten `'7'`, ikke tallet 7.\n\nKonsekvensen er den samme som ved filinnlesing: du kan ikke regne, sammenligne eller sortere før du har konvertert. `input('Alder: ') + 1` gir `TypeError`, og `input('Alder: ') * 2` gjentar teksten i stedet for å doble tallet.\n\nDette er felle **#1** i bokas feilregister — glemt `int()` eller `float()` — og den mest kostbare enkeltfeilen i faget.\n\nLinjeskiftet brukeren trykker, er derimot **ikke** med. `input` fjerner det selv.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-6"
+  },
+  {
+   "title": "`int(input(...))` og `float(input(...))`",
+   "content": "Den vanlige måten å lese et tall på: `antall = int(input('Antall: '))`.\n\nDen innerste funksjonen kjøres først — brukeren spørres, og teksten han skrev sendes rett videre til `int`.\n\n**Men:** skriver brukeren noe som ikke er et helt tall, stopper programmet med `ValueError` før du får sjekket noe som helst. Derfor er denne formen bare trygg når du på forhånd vet at inndata er gyldige. I alle andre tilfeller må du sjekke først — det er hele poenget med resten av kapitlet.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-7"
+  },
+  {
+   "title": "Eksempel 1: Fergebilletten",
+   "problem": "Automaten spør om antall passasjerer og skriver ut prisen, som er 95 kroner per person. Hva skjer hvis du glemmer konverteringen?",
+   "solution": "Først den gale veien:\n\n```text\nantall = input('Antall passasjerer: ')\nprint('Pris:', antall * 95)\n```\n\nGjerdet er merket `text` fordi blokken venter på at noen skriver noe, og derfor ikke kan kjøres av seg selv.\n\n**Kjøring:**\n```\nAntall passasjerer: 3\nPris: 33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333\n```\n\nIngen feilmelding — bare teksten `3` gjentatt 95 ganger. Det er felle #1 i sin mest forvirrende form.\n\nMed konvertering blir det som det skal:\n\n```text\nantall = int(input('Antall passasjerer: '))\nprint('Pris:', antall * 95)\n```\n\n**Kjøring:**\n```\nAntall passasjerer: 3\nPris: 285\n```\n\nLegg merke til at ledeteksten og brukerens svar står på samme linje. Det er slik en terminal ser ut: `3` er det brukeren skrev.",
+   "type": "example",
+   "id": "tdt4110-1-4-ex-8"
+  },
+  {
+   "id": "tdt4110-1-4-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-4-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — minimal sporing. Sjanger B — kodesporing, altså «hva skriver programmet ut?».) Brukeren skriver `12` og trykker enter. Hva skriver programmet ut?\n\n```text\nsvar = input('Tall: ')\nprint(svar + svar)\nprint(int(svar) + int(svar))\n```\n\nGjerdet er merket `text` fordi blokken venter på at noen skriver noe.",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Typen til `svar` | Hva som skjer | Resultat |\n|---|---|---|---|\n| `svar + svar` | tekst | limes sammen | `1212` |\n| `int(svar) + int(svar)` | tall etter konvertering | $12 + 12$ | `24` |\n\n**Kjøring:**\n```\nTall: 12\n1212\n24\n```\n\nFørste linje viser ledeteksten med brukerens svar bak.\n\n**Fellenote:** `input` gir alltid tekst, uansett hvor mye svaret ligner et tall.",
+    "hints": [
+     "Spør deg først: hvilken datatype har `svar` rett etter `input`?",
+     "`+` limer sammen tekst og legger sammen tall."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 2 — Løkka som spør på nytt (~14 min)\n\nBrukeren skriver feil. Ikke av vrangvilje, men fordi han ikke leste ledeteksten, eller fordi han traff feil tast. Et program som stopper med en feilmelding første gang det skjer, er ubrukelig — og på eksamen er det poengtap.\n\nLøsningen er alltid den samme: spør igjen, og igjen, til svaret er lovlig. Det mønsteret heter en **input-valideringsløkke**, og det er ett av mønstrene du skal kunne skrive fra bunnen.",
+   "type": "text",
+   "id": "tdt4110-1-4-t-10"
+  },
+  {
+   "title": "Gyldighetstest",
+   "content": "Det boolske uttrykket som avgjør om et svar kan godtas. Skriv den ut for deg selv i ord **før** du skriver koden — det er der oppgaven faktisk løses.\n\nDe tre formene som går igjen på eksamen:\n\n- **Intervall:** verdien skal ligge mellom to grenser.\n- **Lengde:** teksten skal ha et bestemt antall tegn.\n- **Format:** teksten skal bestå av bare sifre, eller begynne med bestemte tegn.\n\nTesten brukes i to former: som «godta hvis …» i en `if`, og som «spør på nytt hvis …» i `while`-betingelsen. Den siste er den **negerte** av den første, og der oppstår halvparten av feilene.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-11"
+  },
+  {
+   "title": "Intervalltest",
+   "content": "«Verdien skal ligge mellom to grenser.» Skrives som en kjedet sammenligning: `0 <= time <= 23`.\n\nDen negerte formen, altså «spør på nytt», er `time < 0 or time > 23`. Legg merke til at **`and` blir til `or`** når du negerer — dette er den vanligste tankefeilen i valideringsløkker.\n\nVær presis på om grensene er med. «Time mellom 0 og 23» betyr som regel at både 0 og 23 er lovlige, altså `<=` i begge ender. Er oppgaveteksten uklar, skriver du kort hva du antar — sensor godtar rimelige antakelser når de er skrevet ned.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-12"
+  },
+  {
+   "title": "Lengdetest",
+   "content": "«Teksten skal ha nøyaktig så mange tegn.» Skrives `len(tekst) != 7` som spør-på-nytt-betingelse, eller `len(tekst) == 7` som godkjenning.\n\n`len` teller **tegn**, og et mellomrom er også et tegn. Skriver brukeren `AB 12345`, er lengden 8 og ikke 7.\n\nKombiner gjerne lengde og format: et lovlig kjennemerke kan kreve både riktig antall tegn og at de siste er sifre.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-13"
+  },
+  {
+   "title": "`.isdigit()` som port før konvertering",
+   "content": "`tekst.isdigit()` er `True` bare når hvert eneste tegn er et siffer. Både `'-5'`, `'3.5'`, `'12 '` og den tomme teksten gir `False`.\n\nNytten er å slippe unna `ValueError`. Sjekk **først**, konvertér **etterpå**:\n\n`if svar.isdigit() and int(svar) <= 23:`\n\nFordi `and` kortslutter — se [kap. 1.2](/tdt4110/tdt4110-1-2) — kjøres `int(svar)` bare når teksten faktisk er sifre. Bytter du om rekkefølgen på de to sidene, krasjer programmet på nøyaktig den inndataen testen skulle beskytte mot.\n\nMerk begrensningen: `.isdigit()` godtar ikke negative tall. Skal negative verdier være lovlige, må du håndtere minustegnet selv.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-14"
+  },
+  {
+   "title": "Sjekk før konvertering — rekkefølgeregelen",
+   "content": "**Test teksten mens den fortsatt er tekst. Konvertér først når den er godkjent.**\n\nSnur du rekkefølgen — `int(input(...))` først og sjekk etterpå — er det for sent: programmet stopper på `ValueError` før sjekken i det hele tatt blir kjørt.\n\nDette er den ene setningen som skiller en valideringsløkke som virker fra en som ser ut som den virker. Skriv den på kladdearket før du begynner på en sjanger H-deloppgave.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-15"
+  },
+  {
+   "title": "Input-valideringsløkka",
+   "content": "Bokas kanoniske mønster for sjanger H, og et av dem du skal kunne skrive fra bunnen. Fire faste deler:\n\n1. **Spør én gang** før løkka.\n2. **`while` med den negerte gyldighetstesten** — «så lenge svaret IKKE er lovlig».\n3. **Feilmelding og nytt spørsmål** inne i løkka.\n4. **Returnér den godkjente verdien** etter løkka, konvertert til riktig type.\n\n```python\n# ingen utskrift her — funksjonen bare defineres; den kalles i kjøringen under\ndef les_time():\n    svar = input('Time (0-23): ')\n    while not svar.isdigit() or int(svar) > 23:\n        print('Ugyldig time. Skriv et helt tall mellom 0 og 23.')\n        svar = input('Time (0-23): ')\n    return int(svar)\n```\n\nKjørt med `print('Du valgte time', les_time())`.\n\n**Kjøring:**\n```\nTime (0-23): abc\nUgyldig time. Skriv et helt tall mellom 0 og 23.\nTime (0-23): 30\nUgyldig time. Skriv et helt tall mellom 0 og 23.\nTime (0-23): 14\nDu valgte time 14\n```\n\nBrukeren skrev først `abc`, deretter `30`, og til slutt `14`. Løkka spurte tre ganger og godtok først det siste svaret.\n\nLegg merke til tre ting. Spørsmålet står **to** steder — én gang før løkka og én gang inne i den; det er prisen for denne formen. `.isdigit()` står **først** i betingelsen, så `int(svar)` aldri kjøres på noe som ikke er sifre. Og konverteringen skjer i `return`, etter at svaret er godkjent.\n\nDen nedre grensen trengs ikke her: `.isdigit()` er allerede usann for `'-1'`, så negative tall kommer aldri gjennom.",
+   "type": "theorem",
+   "id": "tdt4110-1-4-th-16"
+  },
+  {
+   "title": "Valideringsløkka med `while True:` og `break`",
+   "content": "Den andre gyldige formen, som slipper å gjenta spørsmålet. Begge gir full pott — velg den du husker best under press.\n\n```python\n# ingen utskrift her — funksjonen bare defineres; den kalles i kjøringen under\ndef les_time():\n    while True:\n        svar = input('Time (0-23): ')\n        if svar.isdigit() and int(svar) <= 23:\n            return int(svar)\n        print('Ugyldig time. Skriv et helt tall mellom 0 og 23.')\n```\n\nKjørt med `print('Du valgte time', les_time())`.\n\n**Kjøring:**\n```\nTime (0-23): 40\nUgyldig time. Skriv et helt tall mellom 0 og 23.\nTime (0-23): 9\nDu valgte time 9\n```\n\nBrukeren skrev først `40`, som er utenfor intervallet, og deretter `9`.\n\nHer står gyldighetstesten i sin **positive** form — «godta hvis …» — og det er ofte lettere å tenke riktig. `return` inne i løkka avslutter både løkka og funksjonen, så noe eget `break` trengs ikke.\n\nSkal funksjonen ikke returnere, men bare sette en variabel, bruker du `break` i stedet for `return` og henter verdien etter løkka.",
+   "type": "theorem",
+   "id": "tdt4110-1-4-th-17"
+  },
+  {
+   "title": "Typisk feil #8 — løkka som ikke spør på nytt",
+   "content": "Feilkode **#8** i bokas feilregister (samlet i [kap. 0.1](/tdt4110/tdt4110-0-1)): input-løkka terminerer ikke riktig.\n\nTre varianter, alle vanlige:\n\n- **Bare `if` i stedet for `while`.** Programmet gir én ny sjanse og går videre uansett. Ser riktig ut, men er det ikke — testen må gjentas.\n- **Glemt å spørre på nytt inne i løkka.** Da testes den samme gamle verdien om og om igjen, og løkka går for alltid.\n- **Feil negering.** «Godta hvis `0 <= t and t <= 23`» blir til «spør på nytt hvis `t < 0 or t > 23`». Skriver du `and` i den negerte formen, godtas alt.\n\nKontrollen som avslører alle tre: pek på den linja inne i løkka som endrer verdien betingelsen leser. Finner du den ikke, går løkka for alltid.",
+   "type": "warning",
+   "id": "tdt4110-1-4-adv-18"
+  },
+  {
+   "id": "tdt4110-1-4-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-4-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger B — kodesporing.) Brukeren skriver `-3`, deretter `0`, deretter `5`. Hvor mange ganger vises ledeteksten, og hva returnerer funksjonen?\n\n```text\ndef les_antall():\n    svar = input('Antall: ')\n    while not svar.isdigit():\n        print('Skriv et positivt heltall.')\n        svar = input('Antall: ')\n    return int(svar)\n```\n\nGjerdet er merket `text` fordi blokken venter på at noen skriver noe.",
+    "solution": "**Sporingstavle**\n\n| Svar | `.isdigit()` | Betingelsen `not ...` | Hva skjer |\n|---|---|---|---|\n| `-3` | `False` (minustegnet) | sann | feilmelding, spør på nytt |\n| `0` | `True` | usann | løkka stopper |\n| `5` | — | — | leses aldri |\n\nLedeteksten vises **to** ganger, og funksjonen returnerer `0`.\n\n**Fellenote:** `0` slipper gjennom fordi den eneste testen er `.isdigit()`, som bare spør om tegnene er sifre. Skulle antallet vært minst 1, måtte betingelsen også hatt `or int(svar) < 1`. Det tredje svaret leses aldri — funksjonen var ferdig.",
+    "hints": [
+     "Sett opp en rad per svar og regn ut `.isdigit()` for hvert av dem.",
+     "Løkka stopper i det øyeblikk betingelsen blir usann, og resten av svarene leses ikke."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-4-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-4-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H — input-validering.) En resirkuleringsstasjon registrerer leveringer.\n\n**a)** Skriv `les_kilo()` som spør brukeren om antall kilo, og gjentar spørsmålet til svaret er et helt tall mellom 1 og 500. Funksjonen skal returnere tallet.\n**b)** Forklar med én setning hvorfor `.isdigit()` må stå før konverteringen i betingelsen.",
+    "solution": "**a)**\n\n```python\n# ingen utskrift her — funksjonen bare defineres; den kalles i kjøringen under\ndef les_kilo():\n    svar = input('Antall kilo (1-500): ')\n    while not svar.isdigit() or int(svar) < 1 or int(svar) > 500:\n        print('Ugyldig. Skriv et helt tall mellom 1 og 500.')\n        svar = input('Antall kilo (1-500): ')\n    return int(svar)\n```\n\nKjørt med `print(les_kilo())`.\n\n**Kjøring:**\n```\nAntall kilo (1-500): tolv\nUgyldig. Skriv et helt tall mellom 1 og 500.\nAntall kilo (1-500): 0\nUgyldig. Skriv et helt tall mellom 1 og 500.\nAntall kilo (1-500): 900\nUgyldig. Skriv et helt tall mellom 1 og 500.\nAntall kilo (1-500): 42\n42\n```\n\nBrukeren skrev `tolv`, `0`, `900` og til slutt `42`.\n\n**b)** Fordi `or` kortslutter fra venstre, slik at `int(svar)` bare kjøres når teksten allerede er sifre — ellers ville `int('tolv')` stoppet programmet med `ValueError`.\n\n**Uttelling:** flere korrekte løsninger sidestilles. Varianten med `while True:` og `return` inne i løkka gir full pott, og det samme gjør en løsning som samler gyldighetstesten i en egen hjelpefunksjon. Det som må være på plass, er at spørsmålet faktisk gjentas, og at ugyldig tekst ikke krasjer programmet.",
+    "hints": [
+     "Skriv først gyldighetstesten i positiv form, og neger den deretter — husk at `and` blir til `or`.",
+     "La `.isdigit()` stå helt til venstre i betingelsen, så konverteringen er beskyttet."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-4-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-4-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger D — «fyll inn manglende kodelinje», altså velg det alternativet som får funksjonen til å virke.) Funksjonen skal spørre om et kjennemerke og gjenta spørsmålet til teksten er nøyaktig sju tegn lang.\n\n```text\ndef les_kjennemerke():\n    svar = input('Kjennemerke: ')\n    while KODE1:\n        print('Kjennemerket skal ha sju tegn.')\n        svar = input('Kjennemerke: ')\n    return svar\n```\n\nBlokken er merket som ikke-kjørbar fordi `KODE1` er en plassholder, ikke gyldig Python.\n\nHvilket alternativ er riktig?\n\n**a)** `len(svar) != 7`\n**b)** `len(svar) == 7`\n**c)** `svar != 7`\n**d)** `len(svar) > 7`",
+    "solution": "**Riktig svar: a)**\n\nBetingelsen i en `while` sier «fortsett så lenge dette er sant», altså «spør på nytt så lenge svaret **ikke** er lovlig». Prøv hvert alternativ mot tre svar — `AB12345` (sju tegn, lovlig), `AB123` (fem tegn) og `AB1234567` (ni tegn):\n\n| Alternativ | `AB12345` | `AB123` | `AB1234567` | Riktig? |\n|---|---|---|---|---|\n| **a)** `len(svar) != 7` | stopper | spør igjen | spør igjen | ja |\n| **b)** `len(svar) == 7` | spør for alltid | stopper straks | stopper straks | nei — snudd |\n| **c)** `svar != 7` | alltid sant, tekst er aldri lik et tall | — | — | nei — evig løkke |\n| **d)** `len(svar) > 7` | stopper | stopper straks | spør igjen | nei — slipper korte gjennom |\n\n**Fellenote:** alternativ **b)** er den vanligste feilen, fordi `== 7` er den testen man tenker på først. Men i en `while` skal betingelsen være den **negerte** gyldighetstesten. Alternativ **c)** ser nesten riktig ut, men sammenligner en tekst med et tall, og det er aldri sant — løkka ville aldri stoppet.",
+    "hints": [
+     "Les `while`-betingelsen høyt som «spør på nytt så lenge …», og se hvilket alternativ som passer i den setningen.",
+     "Prøv hvert alternativ mot både et lovlig og et ulovlig svar."
+    ]
+   }
+  },
+  {
+   "content": "## Løkke 3 — Å la brukeren si «ferdig» (~10 min)\n\nEn annen fast form: brukeren skal legge inn så mange verdier han vil, og selv bestemme når det er nok. Da trenger du en avtalt verdi som betyr «stopp». Den kalles en **sentinel**.",
+   "type": "text",
+   "id": "tdt4110-1-4-t-22"
+  },
+  {
+   "title": "Sentinel",
+   "content": "En avtalt verdi som betyr «nå er jeg ferdig» — en vaktpost på slutten av inndataene.\n\nDen vanligste sentinelen er **tom input**: brukeren trykker bare enter. Da er svaret den tomme teksten `''`, og løkkebetingelsen blir `while navn != '':`.\n\nSentinelen må være en verdi som ikke kan forveksles med gyldige data. `0` er en dårlig sentinel for et antall, fordi null kan være et ekte svar; `-1` eller tom input er trygge.\n\n**Si alltid i ledeteksten hva sentinelen er.** «Navn (blank linje for å avslutte): » — ellers vet ikke brukeren hvordan han kommer seg ut.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-23"
+  },
+  {
+   "title": "Tom input som avslutning",
+   "content": "Trykker brukeren bare enter, gir `input` den tomme teksten `''`. Den har lengde 0 og teller som **usann** i en betingelse — se [kap. 1.2](/tdt4110/tdt4110-1-2).\n\nDerfor er `while navn != '':` og `while navn:` to skrivemåter for det samme. Begge er gyldige; den første er tydeligst for en leser.\n\nMerk forskjellen fra et mellomrom: skriver brukeren mellomrom og enter, er teksten `' '`, som har lengde 1 og er **sann**. Vil du behandle den som tom, må du fjerne mellomrommene først.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-24"
+  },
+  {
+   "title": "Feilmelding som forteller hva som er galt",
+   "content": "Når et svar avvises, skal programmet si **hva** som forventes — ikke bare at noe var galt.\n\n«Ugyldig» hjelper ingen. «Skriv et helt tall mellom 1 og 500» lar brukeren rette seg.\n\nPå eksamen er feilmeldingen ofte eksplisitt nevnt i oppgaveteksten («skriv en feilmelding og spør på nytt»), og da er den et poeng i seg selv. Den koster én linje.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-25"
+  },
+  {
+   "title": "Gyldighetstesten som egen funksjon",
+   "content": "Er testen sammensatt, skiller du den ut: `def gyldig_temp(tekst):` som returnerer `True` eller `False`, og en `while not gyldig_temp(svar):` som bruker den.\n\nDet gir tre fordeler sensor belønner: løkka blir kort og lesbar, testen kan **gjenbrukes** av senere deloppgaver, og du kan teste den for seg selv uten å måtte skrive inn noe.\n\nGjenbruk av egne funksjoner er et gjennomgående krav i dette faget — senere deloppgaver bygger på de tidligere, og kopiert kode gir dårligere uttelling enn et funksjonskall.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-26"
+  },
+  {
+   "title": "Å returnere den validerte verdien",
+   "content": "En valideringsfunksjon skal **returnere** den godkjente verdien, ikke skrive den ut. Da kan den gjenbrukes overalt i programmet.\n\nReturtypen skal være den kalleren trenger: `return int(svar)` når verdien skal regnes med, `return svar` når det er en tekst.\n\nDette er et gjennomgående sensorkrav i faget: senere deloppgaver bygger på de tidligere, og en funksjon som bare skriver ut, kan ikke gjenbrukes. En funksjon skal gjøre **én** ting.",
+   "type": "definition",
+   "id": "tdt4110-1-4-def-27"
+  },
+  {
+   "title": "Eksempel 2: Innsamlingen som stopper på blank linje (eksamensnivå)",
+   "problem": "En bruktbutikk registrerer varer til den ansatte er ferdig. For hver vare spørres det om navn (blank linje avslutter) og pris. Til slutt skrives antall varer og totalsummen ut.",
+   "solution": "```python\n# ingen utskrift her — funksjonen bare defineres; den kalles i kjøringen under\ndef registrer_varer():\n    antall = 0\n    total = 0\n    navn = input('Vare (blank linje avslutter): ')\n    while navn != '':\n        pris = input('Pris for ' + navn + ': ')\n        while not pris.isdigit():\n            print('Prisen skal være et helt antall kroner.')\n            pris = input('Pris for ' + navn + ': ')\n        antall += 1\n        total += int(pris)\n        navn = input('Vare (blank linje avslutter): ')\n    return antall, total\n```\n\nKjørt med `a, s = registrer_varer() print('Antall:', a, 'Total:', s)`.\n\n**Kjøring:**\n```\nVare (blank linje avslutter): stol\nPris for stol: 250\nVare (blank linje avslutter): lampe\nPris for lampe: billig\nPrisen skal være et helt antall kroner.\nPris for lampe: 120\nVare (blank linje avslutter): \nAntall: 2 Total: 370\n```\n\nBrukeren registrerte `stol` til 250, deretter `lampe` med et ugyldig prissvar (`billig`) før han skrev 120, og avsluttet med en blank linje.\n\nTre ting er verdt å merke seg.\n\n**Den ytre løkka** er sentinelløkka: den stopper på tom input. **Den indre** er valideringsløkka for prisen. De er to helt uavhengige mønstre, nøstet i hverandre.\n\n**Akkumulatorene** `antall` og `total` settes før den ytre løkka, akkurat som i [kap. 1.3](/tdt4110/tdt4110-1-3). Sto de inne i løkka, ville de nullstilt seg for hver vare.\n\n**Funksjonen returnerer to verdier**, skilt med komma, og kalleren pakker dem ut med `a, s = ...`. Den formen står grundig forklart i Del 2.\n\n**Uttelling:** sensor er ute etter at (1) løkka faktisk gjentar spørsmålet ved ugyldig svar, (2) sentinelen er nevnt i ledeteksten, og (3) verdiene konverteres før de summeres. Alt tre er billige poeng.",
+   "type": "example",
+   "id": "tdt4110-1-4-ex-28"
+  },
+  {
+   "id": "tdt4110-1-4-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-4-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger B — kodesporing.) Brukeren skriver `4`, deretter `7`, deretter blank linje. Hva skriver programmet ut?\n\n```text\nsum = 0\nsvar = input('Tall (blank avslutter): ')\nwhile svar != '':\n    sum = sum + int(svar)\n    svar = input('Tall (blank avslutter): ')\nprint(sum)\n```\n\nGjerdet er merket `text` fordi blokken venter på at noen skriver noe.",
+    "solution": "**Sporingstavle**\n\n| Svar | `svar != ''`? | `sum` etterpå |\n|---|---|---|\n| `4` | ja | 4 |\n| `7` | ja | 11 |\n| blank linje | nei — løkka stopper | 11 |\n\n**Kjøring:**\n```\nTall (blank avslutter): 4\nTall (blank avslutter): 7\nTall (blank avslutter): \n11\n```\n\n**Fellenote:** legg merke til at `int(svar)` kalles inne i løkka, etter at sentinelen er utelukket. Sto konverteringen i selve `input`-linja, ville programmet stoppet med `ValueError` på den blanke linja.\n\nEn annen ting koden gjør galt uten at det synes: den bruker `sum` som variabelnavn og ødelegger dermed den innebygde funksjonen `sum(...)` resten av programmet — felle **#14** i bokas feilregister. Skriv `total` i stedet.",
+    "hints": [
+     "Sett opp en rad per svar og hold styr på akkumulatoren.",
+     "Sentinelen testes før konverteringen — se hvilken rekkefølge linjene har."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-4-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-4-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H — input-validering.) En værstasjon skal registrere døgnets målinger.\n\n**a)** Skriv `les_temperatur()` som spør om en temperatur i hele grader, godtar verdier fra $-50$ til og med 50, og gjentar spørsmålet med feilmelding ellers. Negative verdier skal altså være lovlige — og da kan du ikke bruke `.isdigit()` alene.\n**b)** Forklar med én setning hvordan du løser at `.isdigit()` avviser minustegnet.",
+    "solution": "**a)** Trikset er å håndtere minustegnet selv: fjern det før du sjekker sifrene.\n\n```python\n# ingen utskrift her — funksjonen bare defineres; den kalles i kjøringen under\ndef les_temperatur():\n    svar = input('Temperatur i hele grader (-50 til 50): ')\n    while not gyldig_temp(svar):\n        print('Ugyldig. Skriv et helt tall mellom -50 og 50.')\n        svar = input('Temperatur i hele grader (-50 til 50): ')\n    return int(svar)\n\ndef gyldig_temp(tekst):\n    uten_fortegn = tekst\n    if len(tekst) > 0 and tekst[0] == '-':\n        uten_fortegn = tekst[1:]\n    if not uten_fortegn.isdigit():\n        return False\n    return -50 <= int(tekst) <= 50\n```\n\nKjørt med `print(les_temperatur())`.\n\n**Kjøring:**\n```\nTemperatur i hele grader (-50 til 50): kaldt\nUgyldig. Skriv et helt tall mellom -50 og 50.\nTemperatur i hele grader (-50 til 50): -70\nUgyldig. Skriv et helt tall mellom -50 og 50.\nTemperatur i hele grader (-50 til 50): -12\n-12\n```\n\nBrukeren skrev `kaldt`, deretter `-70`, og til slutt `-12`.\n\n**b)** Jeg fjerner et eventuelt minustegn foran og sjekker resten med `.isdigit()`, slik at bare tegnene etter fortegnet må være sifre.\n\n`tekst[1:]` er et **utsnitt** — alt fra og med plass 1 og ut. Utsnitt gjennomgås grundig i Del 3; her trenger du bare at det betyr «resten av teksten».\n\n**Uttelling:** sensor belønner at gyldighetstesten er skilt ut i en egen funksjon, fordi senere deloppgaver kan gjenbruke den. Legg også merke til at `gyldig_temp` returnerer sammenligningen direkte i siste linje — ingen `if`/`else` rundt en sannhetsverdi.\n\nEn helt annen, og like gyldig, løsning er å bruke `try/except` rundt konverteringen. Den veien hører til Del 4 og er ikke innført ennå.",
+    "hints": [
+     "Del oppgaven i to: én funksjon som svarer sant eller usant om teksten, og én som spør.",
+     "Sjekk om første tegn er et minustegn, og test bare resten med `.isdigit()`."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-1-4-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-1-4-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing av en løkke som ikke stopper.) Hva er galt med denne funksjonen, og hva skjer når brukeren skriver `abc`?\n\n```text\ndef les_alder():\n    svar = input('Alder: ')\n    while not svar.isdigit():\n        print('Skriv et helt tall.')\n    return int(svar)\n```\n\nGjerdet er merket `text` fordi blokken både venter på input og har en feil som gjør at den aldri stopper.\n\n**a)** Beskriv med én setning hva som skjer.\n**b)** Skriv den rettede funksjonen.",
+    "solution": "**a)** Programmet skriver feilmeldingen om og om igjen uten stans, fordi ingenting inne i løkka endrer `svar`.\n\n**b)** Rettelsen er én linje: still spørsmålet på nytt inne i løkka.\n\n```python\n# ingen utskrift her — funksjonen bare defineres; den kalles i kjøringen under\ndef les_alder():\n    svar = input('Alder: ')\n    while not svar.isdigit():\n        print('Skriv et helt tall.')\n        svar = input('Alder: ')\n    return int(svar)\n```\n\nKjørt med `print(les_alder())`.\n\n**Kjøring:**\n```\nAlder: abc\nSkriv et helt tall.\nAlder: 34\n34\n```\n\nBrukeren skrev `abc` og deretter `34`.\n\n**Fellenote:** dette er felle **#8** i bokas feilregister i sin reneste form. Kontrollen som avslører den på to sekunder: pek på linja inne i løkka som endrer verdien betingelsen leser. Finnes den ikke, går løkka for alltid.\n\nMerk at fasitsvaret på **a)** er **én setning**. Faget vurderer konsishet eksplisitt: uklare eller unødig lange svar trekker ned. En forklaring som går linje for linje gjennom hele funksjonen, ville fått mindre uttelling enn setningen over — selv om den var korrekt.",
+    "hints": [
+     "Let etter linja inne i løkka som endrer verdien `while`-betingelsen leser.",
+     "En `while` stopper bare når betingelsen blir usann — noe må gjøre den usann."
+    ]
+   }
+  },
+  {
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fire feller, og de to første er de som faktisk koster poeng:\n\n- **#8 — løkka spør ikke på nytt.** Enten fordi det står `if` der det skulle stått `while`, eller fordi spørsmålet mangler inne i løkka. Det siste gir uendelig løkke.\n- **#1 — glemt konvertering.** `input()` gir tekst. Regner du på den, får du sammenliming eller `TypeError`.\n- **Konvertering før sjekk.** `int(input(...))` krasjer på `ValueError` før valideringen får kjørt. Sjekk teksten først.\n- **Feil sentinel.** `0` er et dårlig stoppsignal for et antall, fordi null kan være et ekte svar. Bruk tom input, og si i ledeteksten hva sentinelen er.\n\nEn femte, arvet fra [kap. 1.2](/tdt4110/tdt4110-1-2): når du negerer en gyldighetstest, blir `and` til `or`. «Godta hvis `t >= 0 and t <= 23`» blir «spør på nytt hvis `t < 0 or t > 23`».",
+   "type": "warning",
+   "id": "tdt4110-1-4-adv-32"
+  },
+  {
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-1-4-c-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `input(melding)` | Skriver meldingen **uten** linjeskift, venter, og gir linja tilbake som **tekst**. |\n| Linjeskiftet | Er IKKE med i det du får — `input` fjerner det selv. |\n| Tom input | Brukeren trykker bare enter, og du får `''`, som teller som usann. |\n| `int(input(...))` | Innerste kjøres først. Krasjer med `ValueError` på ugyldig tekst. |\n| `svar.isdigit()` | `True` bare når hvert tegn er et siffer. `'-5'`, `'3.5'` og `''` gir `False`. |\n| `len(tekst)` | Antall tegn, mellomrom medregnet. |\n| `0 <= t <= 23` | Intervalltest i positiv form. |\n| `t < 0 or t > 23` | Samme test negert — merk at `and` blir til `or`. |\n| `while not gyldig:` | Spør-på-nytt-formen. Betingelsen er den NEGERTE gyldighetstesten. |\n| `while True:` + `return` | Godta-formen. Testen står positivt, og `return` avslutter alt. |\n| `while navn != '':` | Sentinelløkke som stopper på tom input. Samme som `while navn:`. |\n| `a and b` kortslutter | Høyre side kjøres ikke når venstre er usann — beskytter `int(...)`. |\n| `return int(svar)` | Konvertér FØRST når verdien er godkjent, og returnér den. |\n| `tekst[1:]` | Utsnitt: alt fra og med plass 1. Brukt for å fjerne et minustegn. |\n\n**Formler i dette delkapitlet:** ingen matematiske formler. Den ene regelen du trenger, er negeringen av en intervalltest, som i logisk notasjon er $\\lnot(a \\land b) = \\lnot a \\lor \\lnot b$ — «ikke begge» er det samme som «minst én ikke»."
+    }
+   ],
+   "type": "collapsible",
+   "id": "tdt4110-1-4-coll-33"
+  },
+  {
+   "title": "Repetisjon — de seks setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "tdt4110-1-4-c-2",
+     "type": "text",
+     "content": "1. `input()` gir **alltid** tekst, uansett hva brukeren skriver.\n2. Test teksten mens den er tekst; konvertér først når den er godkjent.\n3. `while`-betingelsen i en valideringsløkke er den **negerte** gyldighetstesten — og da blir `and` til `or`.\n4. Spørsmålet må stilles på nytt **inne** i løkka, ellers går den for alltid.\n5. `.isdigit()` er `False` for minustegn, punktum og tom tekst — den beskytter `int()` når den står først i et `and`- eller `or`-uttrykk.\n6. En sentinel må være en verdi som ikke kan forveksles med ekte data, og den skal stå i ledeteksten.\n\nSitter de, har du hele Del 1 på plass: variabler og typer, betingelser, løkker og brukerinput. Prøvene til delen ligger i kapittel 1.P, og neste del bygger funksjoner av disse byggeklossene."
+    }
+   ],
+   "type": "collapsible",
+   "id": "tdt4110-1-4-coll-34"
+  }
+ ],
+ "exercises": []
+}
