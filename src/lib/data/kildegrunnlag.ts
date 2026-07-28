@@ -258,6 +258,7 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
       'Kodeblokkene i kodeforståelsesoppgavene ligger som bilder i PDF-ene og ga ingen tekst ved uttrekk. De er dekket indirekte gjennom løsningsforslagenes fasitsvar, som gjengir både resultat og funksjonens formål.',
       'Teoriinnholdet dreide fra systemutvikling og algoritmekompleksitet (2014–2017) mot nettverk, sikkerhet og maskinvare (2018–2019). Frekvenstallene i boka er regnet over hele perioden, så et tema med lav totalprosent kan likevel være tungt i de nyeste settene.',
     ],
+    analysedato: 'juli 2026',
   },
   fys1100: {
     courseId: 'fys1100',
