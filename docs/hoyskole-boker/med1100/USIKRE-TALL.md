@@ -145,3 +145,28 @@ Kildepåstandene om sensorveiledninger er blokk-scopet: «sensorveiledningene so
 ligger i blokk 2-settene (2022h–2025h)» — brukt i 6.1, 6.3 og 6.4 om at det ikke
 trekkes for følgefeil, at enhetskonvertering er poenggivende, og at enzymnavn i
 parentes ikke forventes.
+
+
+---
+
+## Del 11 og Del 12 (mikrobiologi + blod og hematologi)
+
+| Kapittel | Verdi / påstand | Hvor den kommer fra | Status |
+|---|---|---|---|
+| med1100-12-1, 12-2 | Nøytrofilens halveringstid i blod, **under ett døgn** | EKSAMENSANALYSE-linja i skjelettets faktakontrakt for kap. 12.1, der verdien er merket usikker | **Usikker.** Står i prosa (definisjonen «Nøytrofil granulocytt») og i Nøkkelfakta-listen, hver gang med standardforbeholdet «Tallet er hentet fra eldre eksamenssett og er ikke kontrollert mot gjeldende pensum — sjekk pensumboka før du pugger det.» Tallet er IKKE fasit noe sted: quiz, oppgave 12.1-4 og prøve 1 spør bare etter det kvalitative — at omløpstiden er **kort**, og at margen derfor må produsere kontinuerlig. |
+| med1100-12-2 | Hvor mye **hemostase** faktisk testes i blokk 3 | Skjelettets Del 12-innledning markerer dekningen som uverifisert («virker underrepresentert i uttrekket») | **Ingen frekvenspåstand skrevet.** Eksamensvinkelen i kap. 12.2 sier eksplisitt at hemostase er sparsomt representert i det leste materialet, at flere blokk 3-filer bare inneholder deler av settet, og at dekningen derfor verken kan tallfestes eller avskrives. Ingen «N av M»-påstand brukt for hemostase. |
+| med1100-12-1 | Differensialtellingens **prosentområder** for de fem hvite celletypene | Standard hematologipensum; områdene varierer mellom laboratorier | **Bevisst utelatt som tallverdier.** Boka oppgir bare **rekkefølgen** (nøytrofile flest, så lymfocytter, monocytter, eosinofile, basofile færrest) og sier at prosentområdene varierer mellom laboratorier. Rekkefølgen er fasit i quiz og prøve; ingen prosentverdi er det. |
+| med1100-11-2 | Resistensprosenter, MIC-verdier og doser | — | **Ingen slike tall finnes i kapitlet.** Kapitlet er skrevet rent mekanistisk: angrepspunkt og resistensmekanisme, uten en eneste tallverdi. Ingen dose, ingen konsentrasjon, ingen andel resistente. |
+
+## Belagte tall i Del 11–12 (brukt UTEN forbehold)
+
+| Kapittel | Verdi | Belegg |
+|---|---|---|
+| med1100-12-1 | Erytrocyttens levetid **omtrent 120 døgn** | Veletablert normalverdi i standard fysiologi- og hematologipensum; ikke merket usikker i skjelettet |
+| med1100-12-1 | Trombocyttens levetid **omtrent en uke til ti døgn** | Standard hematologipensum. Oppgitt som et spenn, ikke som en eksakt verdi, og ikke brukt som fasit i quiz eller prøve |
+| med1100-12-1 | Hematopoiesens lokalisasjon gjennom livet (plommesekk → lever og milt → benmarg; hos den voksne aksialt skjelett + proksimale ender av lårben og overarmsben) | Standard fagstoff, oppført i skjelettets faktakontrakt uten usikkerhetsmerking. Brukt som fasit |
+| med1100-12-2 | Blod-pH **7,35–7,45** (referert fra [kap. 1.2](/med1100/med1100-1-2)) | Allerede belagt i denne loggen for kap. 1.2. Brukt kun som repetisjon i Forkunnskaper-blokken, ikke som fasit i Del 12 |
+| med1100-12-2 | Hemoglobinets **fire** bindingsseter for oksygen | Standard fagstoff. Brukt som fasit |
+| med1100-12-2 | P50 og andre tallverdier på metningskurven | **Ikke brukt.** Figuren `bohr-kurven.svg` har bevisst umerkede akser, og teksten sier det: kurvens form og forskyvningsretning er fasit, ingen tallverdi |
+| med1100-11-1, 11-2, 11-3 | Frekvenstallene «3 av 3 leste sittinger» (pneumokokk-kapsel, antibiotikamekanismer) og «2 av 2 leste sittinger» (normalflora/mikrobiom) | Tatt ORDRETT fra SKJELETT.md. Ikke omregnet til prosent og ikke slått sammen med andre nevnere (§B5) |
+| med1100-11-1, 11-2, 11-3, 12-1, 12-2 | Alle case, preparatbeskrivelser og bakterie-/virusstammer | NYSKREVNE og fiktive. Ingen ekte pasient, intet ekte prøvemateriale, ingen oppdiktede latinske navn — artsnavnene som brukes (*Streptococcus pneumoniae*, *Staphylococcus aureus*, *Neisseria meningitidis*, *Mycoplasma*, *Candida albicans*) er standard fagstoff |
