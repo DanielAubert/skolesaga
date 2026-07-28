@@ -14,7 +14,8 @@ Sjekker (alle deterministiske, exit 1 ved avvik):
    kontrolleres ikke — men da er de heller ikke eksempelkode.
 2. **Ingen rekursjon.** En funksjon som kaller seg selv inne i sin egen kropp
    (innrykk-bevisst, så «definér f, bruk f etterpå» ikke gir falsk treff).
-   Rekursjon er utenfor pensum i in1900 og markeres uønsket i fasit.
+   Rekursjon er utenfor pensum i in1900 og markeres uønsket i fasit. GJELDER
+   IKKE emner i REKURSJON_ER_PENSUM (TDT4110 m.fl.), der rekursjon er pensum.
 3. **Ingen TAB som innrykk i Python-kilde.** TAB er lovlig inne i ```-blokker
    (kolonnejustering i programutskrift), men Python-kilden skal ha 4 mellomrom.
 4. **Forbudte konstruksjoner i kode** (utenfor pensum / utenfor bokas stil):
@@ -102,6 +103,24 @@ def strenger_ctx(obj, sti="", i_oppgaveboks=False):
             yield from strenger_ctx(v, f"{sti}[{i}]", i_oppgaveboks)
 
 
+# Emner der REKURSJON ER PENSUM og altså ikke skal flagges.
+#
+# Regelen ble skrevet for in1900, der rekursjon er uttrykkelig utenfor pensum og
+# markeres uønsket i fasit. Men fila er ment gjenbrukt for alle kodefag, og for
+# TDT4110 er rekursjon det motsatte: den står i ~60 % av eksamenssettene, har et
+# eget teorikapittel (5.2) og spores i sjanger B/J. Uten dette unntaket ville
+# porten avvist en korrekt bok — og fristet til å slå av HELE punkt 2, som ville
+# tatt vekk vernet for in1900/in1000 samtidig.
+#
+# Legg til et emne her KUN med belegg i emnets EKSAMENSANALYSE.md.
+REKURSJON_ER_PENSUM = {
+    'tdt4110',  # ~60 % av settene 2014–2019; kap. 5.2 er rekursjonsteori
+    'tdt4109',  # søsterkode med identisk pensum
+    'in2010',   # algoritmer og datastrukturer — rekursjon er kjernestoff
+    'tdt4120',  # algoritmer og datastrukturer (NTNU), CLRS-standard
+}
+
+
 def fences(s):
     """(tagg, kropp, start, slutt) for hver ```-blokk."""
     for m in re.finditer(r"```([A-Za-z0-9_-]*)\n([\s\S]*?)```", s):
@@ -165,9 +184,10 @@ def sjekk_kapitler(emne, avvik, merknader):
                 except SyntaxError as e:
                     avvik.append(f"KOMPILERER IKKE i {navn}{sti}: linje {e.lineno}: {e.msg}"
                                  f" — bruk ```text hvis blokken ikke skal være kjørbar")
-                for f in selvkall(kropp):
-                    avvik.append(f"REKURSJON i {navn}{sti}: funksjonen «{f}» kaller seg selv"
-                                 f" — rekursjon er utenfor pensum, bruk løkke")
+                if emne not in REKURSJON_ER_PENSUM:
+                    for f in selvkall(kropp):
+                        avvik.append(f"REKURSJON i {navn}{sti}: funksjonen «{f}» kaller seg selv"
+                                     f" — rekursjon er utenfor pensum i {emne}, bruk løkke")
                 for linje in kropp.split("\n"):
                     if linje[: len(linje) - len(linje.lstrip())].count("\t"):
                         avvik.append(f"TAB SOM INNRYKK i {navn}{sti} — Python-kilde skal ha 4 mellomrom")
@@ -254,7 +274,9 @@ def main():
         if len(avvik) > 60:
             print(f"   … og {len(avvik)-60} flere")
         sys.exit(1)
-    print("KODEPORT OK — all kode kompilerer, ingen rekursjon, utskrift dokumentert,"
+    rek = ("rekursjon tillatt (pensum)" if emne in REKURSJON_ER_PENSUM
+           else "ingen rekursjon")
+    print(f"KODEPORT OK — all kode kompilerer, {rek}, utskrift dokumentert,"
           " quiz-lengder jevne")
 
 
