@@ -97,6 +97,15 @@ Verifiser med `node scripts/hoyskolebok/quiz-lengdesjekk.mjs` før du melder fer
 - Ingen OOP, ingen NumPy/Matplotlib/pandas/sympy, ingen `if __name__ ==
   '__main__'`, ingen dekoratorer, dataclass, walrus eller match/case.
 - 4 mellomrom som innrykk. Aldri TAB i Python-kilden.
+- **`input()`-kode vises med «Kjøring:»-blokk** (mønster utviklet av Del 2-agenten
+  28. juli, gjelder 1.4, 7.7 og Del 9). Interaktiv kode kan verken kjøres av
+  utskriftsporten eller stå som dødt `text`-fragment. Formen er:
+  1. ` ```python `-blokka viser bare definisjonen — den kjører rent, uten utskrift.
+  2. «**Utskrift:** ingen — funksjonen definerer bare» som ren tekst.
+  3. «**Kjøring:**»-blokk med den FAKTISK kjørte dialogen: stdin matet inn,
+     brukerens svar flettet der terminalen ville vist dem, markert med pil — og
+     én setning som sier at pilen ikke står på skjermen.
+  Dialogen skal være ekte kjørt, aldri skrevet fra hukommelsen.
 - Rekursjon ER pensum i TDT4110 (~60 % av settene) — men hører hjemme i Del 5 og
   Del 6, ikke i grunnlagsdelene.
 
