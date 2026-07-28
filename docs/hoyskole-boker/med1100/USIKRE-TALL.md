@@ -211,3 +211,61 @@ BYGGEKONTRAKT §B2 og §S1 regel 2. Forventningsverdiene som er regnet ut i
 kap. 7.4, 8.1 og 8.2 (0,20 ved 70 % sikkerhet; 0 ved myntkast; −0,17 ved blind
 gjetning blant tre klasser) er **egne utregninger på den oppgitte modellen**,
 etterregnet med python3. De er ikke observerte tall fra oppgavesett.
+
+
+---
+
+## Del 9 og Del 10 (membran/proteinsortering/embryologi + immunologi)
+
+### Verdier fra §M4-lista som hører til Del 9
+
+| Kapittel | Verdi / påstand | Hvor den kommer fra | Status |
+|---|---|---|---|
+| med1100-9-1 | Hyperkalemi-depolarisering **~18 mV** (kalium ute 3,5 → 7 mmol/L) | Skjelettets faktakontrakt for 9.1, merket usikker der; oppført på BYGGEKONTRAKT §M4-lista | **Delt i to, og bare den belagte halvdelen brukes.** Tallet 18,4 mV er ren utregning fra Nernst-likningen: en dobling av konsentrasjonen ute gir alltid $61\,\text{mV}\cdot\log_{10}(2) = 18{,}36\,\text{mV}$, etterregnet med python3. Boka bruker det derfor **kun om forflytningen av kaliums likevektspotensial $E_\text{K}$**, som er eksakt aritmetikk. Påstanden om at **hvilepotensialet** flytter seg like mye, er IKKE brukt: boka sier eksplisitt (Eksempel 4, pluss-punktene) at membranpotensialet i praksis flytter seg **noe mindre**, fordi hvilepotensialet ikke ligger helt på $E_\text{K}$ og fordi andre ioner bidrar. Fasit i quiz og prøve gjelder bare $E_\text{K}$-forflytningen. |
+
+### Belagte verdier i Del 9 (brukt UTEN forbehold)
+
+| Kapittel | Verdi | Belegg |
+|---|---|---|
+| 9.1 | Konstanten **61 mV** i den forenklede Nernst-likningen | Utledet og etterregnet i kapitlet: $2{,}303\,RT/F$ med $R = 8{,}314$, $T = 310\ \text{K}$, $F = 96\,485$ gir $0{,}0615\ \text{V} = 61{,}5\ \text{mV}$, som pensum runder til 61. Ved 293 K blir samme konstant 58 mV — også etterregnet. Enhetskontrollen $\text{J}\,\text{mol}^{-1}\text{K}^{-1}\cdot\text{K}/(\text{C}\,\text{mol}^{-1}) = \text{J/C} = \text{V}$ står i teksten. |
+| 9.1 | Na⁺/K⁺-ATPasens støkiometri **3 Na⁺ ut / 2 K⁺ inn per ATP** | Standard fysiologipensum, ikke merket usikkert i EKSAMENSANALYSE.md. Oppført i skjelettets faktakontrakt for 9.1. |
+| 9.1 | Størrelsesordener i Nøkkelfakta-tabellen: K⁺ inne ~140 og ute ~4 mmol/L, Na⁺ ute ~145 og inne ~12 mmol/L, hvilepotensial ~−70 mV | Standard fysiologipensum. Merket i teksten som **«lærebokens størrelsesordener»**, og brukt **kun som rimelighetssjekk** — aldri som fasit i quiz, flashcard eller prøve. |
+| 9.1, 9.P | **Alle** ionekonsentrasjoner i eksempler, oppgaver og prøver | NYSKREVNE regnetall, valgt slik at logaritmene går pent opp, og eksplisitt merket i teksten som «valgte regnetall … ikke målinger fra noen person, og de skal ikke pugges som normalverdier». Hvert eneste utregnede potensial er etterregnet med python3: $E_\text{K}$ = −85,3 (5/125 og 4/100), −79,4 (5/100, 6/120 og 7/140), −97,7 (3,5/140 og 4/160), −103,6 (2,4/120); $E_{\text{Na}}$ = +61,0 (150/15 og 145/14,5); $E_{\text{Cl}}$ = −61,0 ($z=-1$, 110/11); $E_{\text{Ca}}$ = +122 ($z=+2$, 2,0/0,00020); drivkrefter +15, −131, −40, +7,4, +14,4 mV; endringene ±18,4 mV. |
+| 9.2 | SRP-kjeden, M6P-veien, proteasomveien, kinesin/dynein-retningene, kollagenets hydroksylering med vitamin C | Standard celle- og molekylærbiologi, jf. skjelettets faktakontrakt for 9.2. Ingen tallverdier brukt i kapitlet. |
+| 9.3 | Befruktningskjeden, de tre kimlagene med derivater, nevrulering, nevrallistens derivater, Shh fra chorda dorsalis ventralt | Standard embryologi, jf. skjelettets faktakontrakt for 9.3. **Ingen tidsangivelser i uker og ingen fasetall brukt** — skjelettet gir ikke belegg for dem, og kapitlet gjør derfor kjedene kvalitative. |
+
+### Del 10 — ingen usikre tall
+
+**Ingen av verdiene på §M4-lista hører til Del 10.** Kapitlene 10.1–10.4 og 10.P
+inneholder **ingen normalverdi, ingen dose, intet celletall og ingen prevalens** —
+stoffet er rent kvalitativt (rekkefølger, lokalisasjoner, koblinger og latinsk
+nomenklatur). Ingen kapittelfil i Del 10 bruker standardforbeholdet, fordi det
+ikke er noe å ta forbehold om.
+
+To presiseringer som likevel er ført her:
+
+| Kapittel | Påstand | Håndtering |
+|---|---|---|
+| 10.1 | At den **negative** seleksjonen foregår i medulla | Skrevet som **«hovedsakelig i medulla»** overalt der det er kjernestoff. Skjelettet plasserer trinnet i medulla, og formuleringen er valgt for å være presis uten å motsi skjelettet. |
+| 10.1, 10.3 | Poenggivingen for «velg to» i blokk 3 | Samme håndtering som i kap. 0.1 og 0.2: omtalt som **antatt konvensjon**, aldri som fastslått, og aldri fasit noe sted. |
+| 10.3 | Faktor H-svikt og kliniske tilstander | Diagnosenavn er **ikke** brukt. Mekanismen står som mekanisme, og en kjenne-til-notis sier at sammenhengen finnes, men at tilstandene er klinisk stoff for senere emner. Ikke fasit noe sted. |
+
+### Frekvenstall i Del 9 og Del 10
+
+Tatt **ORDRETT** fra `SKJELETT.md` §3 og ikke omregnet (§B5). Blokk 2 har nevner
+14, blokk 3 har varierende nevner:
+
+| Kapittel | Påstand i boka | Skjelettets Eksamensbelegg |
+|---|---|---|
+| 9.1 | «rundt 14 av 14 leste sittinger» | Blokk 2, oppgave I/J **~14/14** |
+| 9.2 | «rundt 13 av 14 leste sittinger» | Blokk 2, oppgave H **~13/14** |
+| 9.3 | «rundt 13 av 14 leste sittinger» | Blokk 2, siste oppgave **~13/14** |
+| 10.1 | «4 av 4 leste sittinger» (uten tilde — skjelettet oppgir eksakt) | T-celleutvikling i thymus **4/4** |
+| 10.2 | «3 av 3» (kimsenterreaksjon) · «2 av 2» (B-celle/BCR) | Kimsenterreaksjon **3/3**; B-celle/BCR **2/2** |
+| 10.3 | «3 av 3» (NK-celler) · «2 av 2» (komplement) · «forekommer» (PRR/PAMP) | NK-celler **3/3**; komplement **2/2**; PRR/PAMP forekommer |
+| 10.4 | «forekommer» — **uten tallverdi** | Skjelettet oppgir ingen frekvens for lymfoide organers anatomi, så boka oppgir heller ingen |
+
+Blokk 3-tallene er gjengitt som «N av N leste sittinger» og er **ikke** regnet om
+til prosent eller til en felles nevner, siden flere blokk 3-filer er delvise
+seksjonsuttrekk (§B5). Boka omtaler ingen sensorveiledning for blokk 3, jf.
+kildereglene punkt 2.
