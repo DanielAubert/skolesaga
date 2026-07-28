@@ -1,0 +1,122 @@
+[
+ {
+  "question": "Hva returnerer `x.sort()`?",
+  "options": [
+   "`None` — metoden sorterer lista på plass og gir ingenting tilbake",
+   "Den sorterte lista, mens den opprinnelige lista står urørt",
+   "Den sorterte lista, og den opprinnelige lista blir også sortert",
+   "Antall bytter som ble gjort under sorteringen av lista"
+  ],
+  "explanation": "Metoden endrer lista og returnerer `None`, så `x = x.sort()` ødelegger lista di. Vil du ha ei ny sortert liste, bruker du `sorted(x)` — det er den som lar originalen stå urørt."
+ },
+ {
+  "question": "Hvorfor er `sorted(kolonne)` feil svar på «rangér butikkene etter pris»?",
+  "options": [
+   "Fordi koblingen mellom butikknavnet og prisen går tapt i kolonnen",
+   "Fordi `sorted` ikke kan sortere ei liste som bare inneholder tall",
+   "Fordi kolonnen må konverteres til en ordbok før den kan sorteres",
+   "Fordi `sorted` sorterer stigende, og en rangering skal være synkende"
+  ],
+  "explanation": "En løsrevet kolonne er bare tall — hvilken butikk de hørte til, er borte. Derfor sorteres hele rader med en `key`. `sorted` takler tall fint, ordbok er unødvendig, og retningen styres av `reverse`."
+ },
+ {
+  "question": "Hva gir `sorted(rader, key=lambda rad: rad[2])[:3]` når `rader` har fem rader?",
+  "options": [
+   "De tre radene med lavest verdi i kolonne 2",
+   "De tre radene med høyest verdi i kolonne 2",
+   "De tre første radene i tabellen, sortert på kolonne 2",
+   "De tre radene med lavest verdi i den første kolonnen"
+  ],
+  "explanation": "`sorted` gir stigende rekkefølge, så utsnittet tar de tre laveste. De høyeste ville krevd `reverse=True`, og «de tre første i tabellen» ville vært `sorted(rader[:3], …)` — der utsnittet kommer før sorteringen."
+ },
+ {
+  "question": "Hva skjer med `sortert[:5]` når `sortert` bare har tre rader?",
+  "options": [
+   "Du får de tre radene som finnes, uten feilmelding",
+   "Du får en `IndexError`, siden indeks 4 ikke finnes i lista",
+   "Du får ei liste med tre rader og to `None`-verdier bakerst",
+   "Du får ei tom liste, siden utsnittet går utenfor lista"
+  ],
+  "explanation": "Utsnitt er tolerante: de gir det som finnes. Det er indekser som `sortert[4]` som gir `IndexError`. Python fyller aldri på med `None`, og et utsnitt blir ikke tomt fordi sluttgrensen er for høy."
+ },
+ {
+  "question": "Hva er feil i `rader[j][k], rader[j+1][k] = rader[j+1][k], rader[j][k]` inne i en boblesortering?",
+  "options": [
+   "Bare verdiene i kolonne `k` bytter plass, og radene blir feilkoblet",
+   "Byttet virker ikke, siden to tilordninger ikke kan stå på samme linje",
+   "Indeksen `j+1` går utenfor lista i den siste sammenligningen",
+   "Byttet skjer på en kopi, så den opprinnelige tabellen blir uendret"
+  ],
+  "explanation": "Bare tallene flyttes, mens navnene blir liggende — resultatet er en tabell der feltene ikke hører sammen lenger. Dobbeltilordning på én linje er lovlig, grensene er de vanlige, og lister endres på plass."
+ },
+ {
+  "question": "Hva gir `sorted(['1290', '990', '760'])`?",
+  "options": [
+   "`['1290', '760', '990']` — tekst sorteres tegn for tegn fra venstre",
+   "`['760', '990', '1290']` — Python tolker sifrene som tall",
+   "`['990', '760', '1290']` — lengden avgjør før innholdet",
+   "En `TypeError`, siden tall skrevet som tekst ikke kan sorteres"
+  ],
+  "explanation": "Strenger sammenlignes tegn for tegn, så `'1'` kommer før `'7'` og `'9'`. Python konverterer aldri av seg selv, lengde er ikke et kriterium, og tekst er fullt sorterbar — bare ikke som tall."
+ },
+ {
+  "question": "Hva returnerer `sorted(d, key=d.get)` for en ordbok `d`?",
+  "options": [
+   "Nøklene som ei liste, sortert etter verdien de har i ordboka",
+   "Verdiene som ei liste, sortert stigende uten nøklene",
+   "En ny ordbok med de samme parene i sortert rekkefølge",
+   "Par av nøkkel og verdi som lister, sortert på verdien"
+  ],
+  "explanation": "Å gå gjennom en ordbok gir nøklene, og `d.get` brukes bare til å rangere dem — så du får nøklene tilbake. Verdiene henter du med `d[nøkkel]`, og par får du med `d.items()`."
+ },
+ {
+  "question": "Hvorfor skal overskriftsraden holdes utenfor sorteringen?",
+  "options": [
+   "Fordi tekst mot tall gir `TypeError` eller havner et vilkårlig sted",
+   "Fordi `sorted` alltid legger den første raden sist i resultatet",
+   "Fordi `key`-funksjonen ikke kan lese fra den første raden i tabellen",
+   "Fordi overskriftsraden mister kolonnenavnene når tabellen sorteres"
+  ],
+  "explanation": "Overskriften er tekst, og sammenligning med tall gir `TypeError` — er kolonnen tekst, havner overskriften bare et vilkårlig sted. `sorted` behandler alle rader likt, `key` leser fint fra rad 0, og innholdet i raden endres ikke."
+ },
+ {
+  "question": "Oppgaveteksten oppgir en ferdig `sort_list(rader, k)`. Hva er riktig å gjøre?",
+  "options": [
+   "Kalle den med riktig kolonnenummer og bruke tiden på analysen",
+   "Skrive boblesortering likevel, siden egen kode gir bedre uttelling",
+   "Kalle den, men bare hvis tabellen har flere enn ti rader",
+   "Skrive om den til å bruke `sorted`, slik at koden blir kortere"
+  ],
+  "explanation": "Er funksjonen utlevert, tester deloppgaven at du finner riktig `k` og bruker resultatet — ikke at du kan skrive en algoritme. Egen kode gir ikke mer uttelling, tabellstørrelsen er irrelevant, og å skrive om en gitt funksjon er bortkastet tid."
+ },
+ {
+  "question": "Hva gjør `key=lambda rad: (rad[2], rad[0])`?",
+  "options": [
+   "Sorterer på kolonne 2, og bruker kolonne 0 til å skille like verdier",
+   "Sorterer på kolonne 0, og bruker kolonne 2 til å skille like verdier",
+   "Sorterer på summen av kolonne 2 og kolonne 0 i hver rad",
+   "Sorterer først hele tabellen på kolonne 2, og deretter på kolonne 0"
+  ],
+  "explanation": "Tuppelet sammenlignes elementvis fra venstre: kolonne 2 avgjør, og kolonne 0 brukes bare ved likhet. Rekkefølgen i tuppelet er ikke tilfeldig, ingenting summeres, og det er én sortering, ikke to."
+ },
+ {
+  "question": "Hva er forskjellen på `stigende[::-1][:3]` og `stigende[:3][::-1]`?",
+  "options": [
+   "Den første gir de tre største, den andre de tre minste i motsatt rekkefølge",
+   "Den første gir de tre minste, den andre de tre største i motsatt rekkefølge",
+   "De gir det samme resultatet, siden begge operasjonene er utsnitt",
+   "Den første gir en `IndexError` når lista har færre enn tre rader"
+  ],
+  "explanation": "Operasjonene utføres fra venstre: den første snur hele lista og tar toppen, den andre tar de tre minste og snur dem. Rekkefølgen er derfor avgjørende, og begge former er trygge på korte lister siden begge er utsnitt."
+ },
+ {
+  "question": "Hva betyr det at sortering i Python er **stabil**?",
+  "options": [
+   "Rader med lik nøkkelverdi beholder rekkefølgen de hadde fra før",
+   "Sorteringen gir samme resultat uansett hvilken algoritme som brukes",
+   "Sorteringen krasjer aldri, uansett hvilke datatyper lista inneholder",
+   "Rader med lik nøkkelverdi legges alfabetisk etter det første feltet"
+  ],
+  "explanation": "Stabilitet gjelder like nøkler: de kommer ut i samme innbyrdes rekkefølge som de gikk inn. Boblesortering trenger ikke være stabil, blandede datatyper gir fortsatt `TypeError`, og alfabetisk skille krever et andre kriterium i nøkkelen."
+ }
+]
