@@ -42,21 +42,41 @@ EKSAMENSANALYSE.md.
 
 ## tdt4110
 
-### V2 — `input()`-mønsteret i kap. 1.4 mot Del 2s form
+### V2 — ⚠ Kap. 1.4 tagger kjørbar Python som ```text og mister portdekning
 
-**Observert 28. juli.** Del 2-agenten utviklet en presis form for interaktiv
-kode: definisjon i ```python-blokk → «**Utskrift:** ingen» → «**Kjøring:**»-
-blokk med faktisk kjørt dialog og pilmarkerte brukersvar. Den ble propagert til
-felleskravene samme dag, så Del 7 og Del 9 bygger etter den.
+**Observert 28. juli. Dette er mer enn kosmetikk.**
 
-Kap. 1.4 ble skrevet FØR propageringen. Målt: 1.4 har 10 «Kjøring:»-blokker og
-0 «Utskrift:», 2.2 har 3 og 17. Begge bruker altså «Kjøring:», men
-pilmarkøren og «Utskrift: ingen»-linja er ujevnt brukt (1.4: 1 pilmarkør,
-2.1: 5, 2.2: 0).
+Begge agentene løste samme problem — interaktiv kode kan verken kjøres av
+utskriftsporten eller stå som dødt fragment — men på prinsipielt ulike måter:
 
-**Til verifikatoren:** harmoniser formen i 1.4 og 2.1/2.2 mot felleskravenes
-ordlyd. Dette er kosmetisk konsistens, ikke faglig feil — ikke skriv om
-innholdet.
+| | ` ```text ` brukes til | ` ```python ` brukes til |
+|---|---|---|
+| Del 2 (2.1, 2.2) | ekte pseudokode («vis valgene», «kall funksjon 1») | all kjørbar kode |
+| Del 0+1 (1.4) | **kjørbar Python med `input()`** | resten |
+
+Del 2s bruk er prinsipiell og riktig. Del 0+1s er en omgåelse: `sjekk-kode.py`
+punkt 5 krever en «**Utskrift:**»-blokk etter enhver ` ```python `-blokk som
+inneholder `print(` i et fasit-/teorifelt, og `input()`-kode kan ikke
+produsere en slik utskrift uten stdin. Ved å tagge kilden ` ```text ` slipper
+den unna kravet — men da hopper porten også over **punkt 1, kompileringssjekken**.
+
+**Målt konsekvens:** 7 blokker i kap. 1.4 inneholder ekte Python som ingen port
+kontrollerer. En skrivefeil der ville nådd leseren.
+
+Agenten begrunnet valget med at in1000 gjør det samme. Det stemmer — in1000 har
+20 slike blokker, alle ` ```text `. Men in1900 har 6, alle ` ```python `. De to
+ferdige bøkene er altså uenige, og ingen av dem bruker «Kjøring:»-blokker i det
+hele tatt. Presedensen avgjør derfor ingenting; begge tdt4110-agentene har
+funnet på noe bedre enn den.
+
+**Til verifikatoren:** konverter de kjørbare blokkene i 1.4 til ` ```python `
+etter felleskravenes form (definisjon uten `print` på toppnivå → «**Utskrift:**
+ingen» → «**Kjøring:**»-blokk med faktisk kjørt dialog). KJØR dem etterpå og
+bekreft at `sjekk-kode.py` faktisk kompilerer alle sju. Ekte pseudokode skal
+fortsatt være ` ```text `.
+
+Gjelder også 2.1/2.2 hvis samme mønster finnes der, og alt Del 5/7/9 har
+skrevet — de bygger etter felleskravene, så de bør allerede være riktige.
 
 ---
 

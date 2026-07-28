@@ -106,6 +106,11 @@ Verifiser med `node scripts/hoyskolebok/quiz-lengdesjekk.mjs` før du melder fer
      brukerens svar flettet der terminalen ville vist dem, markert med pil — og
      én setning som sier at pilen ikke står på skjermen.
   Dialogen skal være ekte kjørt, aldri skrevet fra hukommelsen.
+
+  **```text er KUN for ekte pseudokode og terminalutskrift** — aldri for
+  kjørbar Python. Tagger du kilden ```text for å slippe unna utskriftskravet,
+  hopper porten samtidig over kompileringssjekken, og koden din blir stående
+  ukontrollert. Sju blokker i kap. 1.4 havnet der før regelen ble skjerpet.
 - Rekursjon ER pensum i TDT4110 (~60 % av settene) — men hører hjemme i Del 5 og
   Del 6, ikke i grunnlagsdelene.
 
