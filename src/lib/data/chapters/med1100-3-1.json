@@ -1,0 +1,390 @@
+{
+  "id": "med1100-3-1",
+  "courseId": "med1100",
+  "chapterNumber": "3.1",
+  "title": "Diagnostiske testegenskaper",
+  "description": "Sensitivitet, spesifisitet, PPV og NPV — og den avgjørende innsikten at PPV/NPV avhenger av prevalens mens sensitivitet/spesifisitet ikke gjør det. Bygg 2×2 og regn.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne bygge en 2×2-tabell fra oppgitt prevalens, sensitivitet og spesifisitet, og kontrollere at den går opp",
+    "kunne regne ut sensitivitet, spesifisitet, positiv og negativ prediktiv verdi med vist utregning og riktige enheter",
+    "kunne begrunne med tall hvorfor prediktive verdier endrer seg med prevalensen mens testens egne egenskaper ikke gjør det",
+    "kunne skrive tolkningssetningen som kreves etter en testregning, med riktig gruppe i nevneren",
+    "kunne skille en falsk positiv fra overdiagnostikk og forklare hvorfor de har ulike årsaker"
+  ],
+  "content": [
+    {
+      "id": "med1100-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hvilken eksamen trener du her?** **Blokk 1** — den digitale eksamenen (i **Inspera**, UiOs digitale eksamenssystem) på rundt fem timer. MED1100 har tre **blokkeksamener**: tre separate eksamensdager med helt ulikt format, som alle må bestås hver for seg. Dette kapitlet hører til seksjonen **samfunnsmedisin**, som teller **20 %** av blokk 1.\n\n**Hvor ofte kommer det?** **Testegenskaper — sensitivitet, spesifisitet, PPV og NPV — er observert i rundt 14 av de 16 lesbare sittingene** av blokk 1 fra 2021 til 2026 (én «sitting» = én gjennomføring av eksamen, ordinær eller utsatt). Det er den sikreste enkeltoppgaven i hele samfunnsmedisinseksjonen.\n\n**I hvilken form?** To sjangre:\n\n- **B1-STAT** — statistikkoppgaven i blokk 1: en regne- eller resonnementoppgave du besvarer i fritekst. Her kreves **vist utregning**, og et svar som bare oppgir sluttallet får ikke full uttelling.\n- **B1-MC** — flervalgsspørsmålet: fire alternativer, «velg ett», rettes automatisk. Typisk spørsmål: hvilke av målene endrer seg når prevalensen endrer seg?\n\nDen klassiske oppgaven i denne sjangeren er: *gitt sensitivitet, spesifisitet og prevalens — bygg en 2×2-tabell for en tenkt befolkning, regn ut PPV og NPV, og forklar hva tallene betyr.*\n\n**Hjelpemidler — og hva det betyr for hva du skal kunne.** I blokk 1 har du **enkel kalkulator, statistiske tabeller og en utdelt formelsamling**. Formlene i dette kapitlet er altså ikke noe du må kunne utenat. Det du må kunne, er å **velge riktig formel, sette inn riktige tall i riktige felter, og tolke svaret i klartekst** — det er der poengene ligger når formelsamlingen ligger på pulten.\n\n**Hvordan rettes det?** Blokk 1 har **ingen dokumentert minuspoeng** — **svar alltid**, også på et flervalg du er usikker på. På fritekstoppgavene premieres riktig framgangsmåte over eksakt tallsvar: regnefeil videre i utregningen trekkes ikke to ganger. Vurderingen er **bestått / ikke bestått**; emnet har ingen karakterskala.\n\n**Tid:** kapitlet er delt i tre løkker på omtrent 15, 22 og 15 minutter. Resten av tidsanslaget er innledning og repetisjon. Regner du eksemplene selv med kalkulator underveis — og det bør du — legg på litt."
+    },
+    {
+      "id": "med1100-3-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet krever ingen tidligere statistikk fra denne boka, men det hviler på ett begrep fra videregående. Her er det, ferdig oppfrisket:\n\n**Betinget sannsynlighet.** Skrivemåten $P(A \\mid B)$ leses «sannsynligheten for $A$ **gitt** $B$» — altså: hvis vi allerede vet at $B$ er tilfelle, hvor sannsynlig er $A$ da? Det avgjørende poenget, og hele nøkkelen til dette kapitlet: **$P(A \\mid B)$ og $P(B \\mid A)$ er som regel ikke like tall.** Sannsynligheten for at testen slår ut *gitt at du er syk* er noe helt annet enn sannsynligheten for at du er syk *gitt at testen slo ut*. Trenger du en grundigere gjennomgang, se [Betinget sannsynlighet (Matematikk S1 5.2)](/s1/s1-5-2).\n\n**Andeler og prosent.** Alle fire målene i kapitlet er andeler mellom 0 og 1, som gjerne oppgis i prosent: $0{,}90 = 90$ prosent. Du kommer langt med kalkulator og hoderegning på hele personer.\n\n**Fra [kap. 0.2](/med1100/med1100-0-2):** blokk 1 har ingen minuspoeng, så du skal alltid svare — og i fritekstoppgavene kreves **vist utregning** og en **tolkningssetning i klartekst** til slutt. Et riktig tall uten tolkning er et halvferdig svar.\n\nDe nye begrepene — *sensitivitet*, *spesifisitet*, *prevalens*, *positiv og negativ prediktiv verdi* — innføres fra grunnen av under."
+    },
+    {
+      "id": "med1100-3-1-nokkelfakta",
+      "type": "collapsible",
+      "title": "Nøkkelfakta- og formelliste",
+      "buttonText": "Vis nøkkelfakta og formler",
+      "content": [
+        {
+          "id": "med1100-3-1-nokkelfakta-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $N$ | størrelsen på den tenkte befolkningen du regner i | personer |\n| $\\text{TP}$ | sanne positive: syke med positiv test | personer |\n| $\\text{FP}$ | falske positive: friske med positiv test | personer |\n| $\\text{TN}$ | sanne negative: friske med negativ test | personer |\n| $\\text{FN}$ | falske negative: syke med negativ test | personer |\n| prev | prevalens: andelen syke i befolkningen før testing | andel (0–1) |\n| sens | sensitivitet | andel (0–1) |\n| spes | spesifisitet | andel (0–1) |\n| PPV | positiv prediktiv verdi | andel (0–1) |\n| NPV | negativ prediktiv verdi | andel (0–1) |\n\n**Formler i dette kapitlet:**\n\n$$\\text{sensitivitet} = \\frac{\\text{TP}}{\\text{TP}+\\text{FN}} = P(\\text{positiv test} \\mid \\text{syk})$$\n\nLeses nedover i syk-kolonnen. *Bruksbetingelse:* gjelder alltid, og **endrer seg ikke med prevalensen** — det er en egenskap ved testen og terskelen dens.\n\n$$\\text{spesifisitet} = \\frac{\\text{TN}}{\\text{TN}+\\text{FP}} = P(\\text{negativ test} \\mid \\text{frisk})$$\n\nLeses nedover i frisk-kolonnen. *Bruksbetingelse:* samme som over — uavhengig av prevalens.\n\n$$\\text{PPV} = \\frac{\\text{TP}}{\\text{TP}+\\text{FP}} = P(\\text{syk} \\mid \\text{positiv test})$$\n\nLeses **bortover** i rekka for positive tester. *Bruksbetingelse:* **avhenger av prevalensen** i den befolkningen du tester. Samme test gir helt ulik PPV i en frisk befolkning og i en gruppe med høy sykdomsforekomst.\n\n$$\\text{NPV} = \\frac{\\text{TN}}{\\text{TN}+\\text{FN}} = P(\\text{frisk} \\mid \\text{negativ test})$$\n\nLeses bortover i rekka for negative tester. *Bruksbetingelse:* avhenger også av prevalensen, men motsatt vei — NPV synker når prevalensen stiger.\n\nUttrykt direkte i prevalens, sensitivitet og spesifisitet:\n\n$$\\text{PPV} = \\frac{\\text{sens}\\cdot\\text{prev}}{\\text{sens}\\cdot\\text{prev} + (1-\\text{spes})(1-\\text{prev})}$$\n\n$$\\text{NPV} = \\frac{\\text{spes}\\cdot(1-\\text{prev})}{\\text{spes}\\cdot(1-\\text{prev}) + (1-\\text{sens})\\cdot\\text{prev}}$$\n\n*Bruksbetingelse for begge:* de gir nøyaktig samme svar som 2×2-tabellen, og de er raskere når prevalensen gir ubehagelige desimaltall. Tabellveien er tryggere under tidspress, fordi du ser hvor tallene kommer fra og lett oppdager en tastefeil.\n\n**Merk om hjelpemidlene:** i blokk 1 har du **formelsamling og statistiske tabeller** på pulten. Ingen av formlene over er noe du må memorere. Det du må trene på, er å **velge riktig formel og lese den riktige veien i tabellen** — og å skrive tolkningssetningen.\n\n**Faste kontraster som skiller riktig fra nesten riktig**\n\n- Sensitivitet ≠ PPV. Sensitivitet spør «hvor mange av de syke fanger testen?», PPV spør «hvor mange av dem med positiv test er faktisk syke?». Ulike nevnere, ulike spørsmål.\n- Sensitivitet og spesifisitet er **uavhengige av prevalens**; PPV og NPV er **ikke**.\n- Falsk positiv (testen tar feil) ≠ overdiagnostikk (testen har rett, men funnet ville aldri gitt plager)."
+        }
+      ]
+    },
+    {
+      "id": "med1100-3-1-oversikt",
+      "type": "text",
+      "content": "Tenk deg en test som er «99 prosent sikker»: den fanger 99 av 100 syke, og den frikjenner 99 av 100 friske. Du tar den, uten symptomer, som del av en helseundersøkelse. Den slår ut. Hvor sannsynlig er det da at du faktisk har tilstanden?\n\nDe fleste svarer «99 prosent». Er tilstanden sjelden — la oss si at én av tusen har den — er riktig svar **rundt 9 prosent**. Ni. Vi regner det ut sammen i Eksempel 4, og det er ikke et regnetriks: det er den viktigste enkeltinnsikten i hele samfunnsmedisinseksjonen.\n\nGrunnen er at det finnes så uendelig mange flere friske enn syke å ta feil av. Selv en liten feilprosent på en stor gruppe gir flere falske alarmer enn det er syke i det hele tatt.\n\nDette kapitlet gir deg de fire målene — **sensitivitet**, **spesifisitet**, **PPV** og **NPV** — og den ene 2×2-tabellen du bygger dem alle fra. Hovedpoenget som går igjen på eksamen, og som du skal kunne begrunne med tall og ikke bare påstå: **sensitivitet og spesifisitet endrer seg ikke med prevalensen, men PPV og NPV gjør det.**\n\n> Denne boka forbereder deg til eksamen i MED1100. Den handler om **det friske mennesket** og om mekanismer — ikke om å stille diagnoser, velge behandling eller gi råd. Ingen av regnestykkene, verdiene eller mekanismene her skal brukes på en virkelig pasient eller på deg selv. Klinisk vurdering læres senere i studiet, under veiledning.\n\nDet er verdt å si det tydelig for akkurat dette kapitlet: her handler alt om **hvordan et testresultat tolkes statistisk**. Ingenting her sier noe om hva en person med et positivt prøvesvar bør gjøre. Det er en helt annen vurdering, den gjøres av behandlende lege med kjennskap til hele situasjonen, og den læres senere i studiet."
+    },
+    {
+      "id": "med1100-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De fire cellene og testens egne egenskaper (~15 min)"
+    },
+    {
+      "id": "med1100-3-1-def-prevalens",
+      "type": "definition",
+      "title": "Prevalens",
+      "content": "Andelen i en befolkning som har tilstanden på et gitt tidspunkt — altså sykdomsforekomsten **før** noen er testet. Skrives som andel ($0{,}01$) eller prosent (1 prosent).\n\n**Hvorfor den er avgjørende her:** prevalensen bestemmer hvor mange syke og hvor mange friske testen slippes løs på. Den er ikke en egenskap ved testen i det hele tatt, men den avgjør hva et testsvar er verdt. To sykehusavdelinger som bruker nøyaktig samme test på grupper med ulik sykdomsforekomst, får ulik verdi ut av det samme positive svaret."
+    },
+    {
+      "id": "med1100-3-1-def-2x2",
+      "type": "definition",
+      "title": "2×2-tabellen (testtabellen)",
+      "content": "Oppstillingen som all testregning bygger på: **kolonnene** er sannheten (syk / frisk), **radene** er testsvaret (positiv / negativ).\n\n|  | Syk | Frisk |\n|---|---|---|\n| **Test positiv** | TP | FP |\n| **Test negativ** | FN | TN |\n\n**Regelen som løser halve oppgavene:** de fire målene er fire ulike måter å lese den samme tabellen på. **Nedover i en kolonne** får du sensitivitet og spesifisitet (testens egenskaper). **Bortover i en rad** får du PPV og NPV (svarets verdi). Går du feil vei, har du regnet ut et annet mål enn det oppgaven ba om — og det er den vanligste feilen i sjangeren."
+    },
+    {
+      "id": "med1100-3-1-def-tp",
+      "type": "definition",
+      "title": "Sann positiv (TP)",
+      "content": "En person som **har** tilstanden og som testen klassifiserer som positiv. Testen har rett.\n\nLigger øverst til venstre i tabellen. Antallet finner du som prevalensen ganget med befolkningen, ganget med sensitiviteten: $\\text{TP} = N \\cdot \\text{prev} \\cdot \\text{sens}$."
+    },
+    {
+      "id": "med1100-3-1-def-fn",
+      "type": "definition",
+      "title": "Falsk negativ (FN)",
+      "content": "En person som **har** tilstanden, men som testen klassifiserer som negativ. Testen bommer på en syk — den overser.\n\nLigger nederst til venstre. $\\text{FN} = N \\cdot \\text{prev} \\cdot (1-\\text{sens})$. **Skilles fra falsk positiv ved hvem som er feilklassifisert:** her er det en syk som får feil svar."
+    },
+    {
+      "id": "med1100-3-1-def-tn",
+      "type": "definition",
+      "title": "Sann negativ (TN)",
+      "content": "En person som **ikke** har tilstanden og som testen klassifiserer som negativ. Testen har rett.\n\nLigger nederst til høyre. $\\text{TN} = N \\cdot (1-\\text{prev}) \\cdot \\text{spes}$."
+    },
+    {
+      "id": "med1100-3-1-def-fp",
+      "type": "definition",
+      "title": "Falsk positiv (FP)",
+      "content": "En person som **ikke** har tilstanden, men som testen klassifiserer som positiv — en falsk alarm.\n\nLigger øverst til høyre. $\\text{FP} = N \\cdot (1-\\text{prev}) \\cdot (1-\\text{spes})$. **Dette er cellen som eksploderer når tilstanden er sjelden:** er nesten alle friske, blir selv en liten feilandel et stort antall personer, og det er hele forklaringen på 9-prosent-svaret i innledningen."
+    },
+    {
+      "id": "med1100-3-1-def-sensitivitet",
+      "type": "definition",
+      "title": "Sensitivitet",
+      "content": "Andelen av **de syke** som testen klassifiserer som positive:\n\n$$\\text{sensitivitet} = \\frac{\\text{TP}}{\\text{TP}+\\text{FN}} = P(\\text{positiv test} \\mid \\text{syk})$$\n\nLeses **nedover i syk-kolonnen**. En sensitiv test overser få syke — den har få falske negative.\n\n**Det som skiller sensitivitet fra PPV:** nevneren. Sensitivitet har alle de syke i nevneren, PPV har alle med positiv test. Sensitivitet er en **egenskap ved testen** og endrer seg ikke om du flytter testen til en befolkning med annen sykdomsforekomst."
+    },
+    {
+      "id": "med1100-3-1-def-spesifisitet",
+      "type": "definition",
+      "title": "Spesifisitet",
+      "content": "Andelen av **de friske** som testen klassifiserer som negative:\n\n$$\\text{spesifisitet} = \\frac{\\text{TN}}{\\text{TN}+\\text{FP}} = P(\\text{negativ test} \\mid \\text{frisk})$$\n\nLeses **nedover i frisk-kolonnen**. En spesifikk test gir få falske alarmer blant de friske.\n\n**Som sensitiviteten er dette en egenskap ved testen selv**, ikke ved befolkningen den brukes på. Det er nettopp denne forskjellen fra PPV og NPV som er gjengangeren på eksamen — og som flest svarer feil på."
+    },
+    {
+      "id": "med1100-3-1-th-bygg",
+      "type": "theorem",
+      "title": "Regneprosedyre: bygg 2×2-tabellen fra prevalens, sensitivitet og spesifisitet",
+      "content": "Den klassiske B1-STAT-oppgaven gir deg tre tall — prevalens, sensitivitet og spesifisitet — og ber deg regne videre. Bygg alltid tabellen først. Fem trinn:\n\n1. **Velg en befolkningsstørrelse $N$** som gjør alle cellene til hele personer. $N = 10\\,000$ passer nesten alltid; er prevalensen svært lav, ta $100\\,000$. Oppgir oppgaven en $N$, bruker du den.\n2. **Del befolkningen i syke og friske etter prevalensen.**\n   $$\\text{syke} = N \\cdot \\text{prev}, \\qquad \\text{friske} = N \\cdot (1-\\text{prev})$$\n3. **Del syke-kolonnen med sensitiviteten.**\n   $$\\text{TP} = \\text{syke} \\cdot \\text{sens}, \\qquad \\text{FN} = \\text{syke} - \\text{TP}$$\n4. **Del frisk-kolonnen med spesifisiteten.**\n   $$\\text{TN} = \\text{friske} \\cdot \\text{spes}, \\qquad \\text{FP} = \\text{friske} - \\text{TN}$$\n5. **Kontroller at tabellen går opp:** $\\text{TP}+\\text{FN}+\\text{TN}+\\text{FP} = N$. Gjør den ikke det, har du gjort en tastefeil — finn den før du regner videre.\n\n**Merk enheten:** alle fire cellene er **antall personer**, ikke andeler. Blander du de to, ryker resten av oppgaven.\n\n**Merk retningen:** trinn 3 og 4 fyller tabellen **kolonnevis**, fordi det er kolonnevis sensitivitet og spesifisitet er definert. Radene får du gratis når kolonnene er fylt."
+    },
+    {
+      "id": "med1100-3-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Bygg tabellen (B1-STAT)",
+      "problem": "En test for en tenkt tilstand har **sensitivitet 90 prosent** og **spesifisitet 95 prosent**. Den brukes i en befolkning der **prevalensen er 1 prosent**.\n\nSett opp en 2×2-tabell for 10 000 personer.",
+      "solution": "**Full-pott-besvarelse. Vist utregning, med enheter.**\n\n**Trinn 1 — velg befolkning.** $N = 10\\,000$ personer (oppgitt).\n\n**Trinn 2 — del etter prevalens.**\n$$\\text{syke} = 10\\,000 \\cdot 0{,}01 = 100 \\text{ personer}$$\n$$\\text{friske} = 10\\,000 - 100 = 9\\,900 \\text{ personer}$$\n\n**Trinn 3 — fyll syke-kolonnen med sensitiviteten.**\n$$\\text{TP} = 100 \\cdot 0{,}90 = 90 \\text{ personer}$$\n$$\\text{FN} = 100 - 90 = 10 \\text{ personer}$$\n\n**Trinn 4 — fyll frisk-kolonnen med spesifisiteten.**\n$$\\text{TN} = 9\\,900 \\cdot 0{,}95 = 9\\,405 \\text{ personer}$$\n$$\\text{FP} = 9\\,900 - 9\\,405 = 495 \\text{ personer}$$\n\n**Trinn 5 — kontroll.** $90 + 10 + 9\\,405 + 495 = 10\\,000$ personer. Tabellen går opp.\n\n|  | Syk | Frisk | Sum rad |\n|---|---|---|---|\n| **Test positiv** | 90 | 495 | 585 |\n| **Test negativ** | 10 | 9 405 | 9 415 |\n| **Sum kolonne** | 100 | 9 900 | 10 000 |\n\n**Tolkning i klartekst:** blant 10 000 testede får **585** personer et positivt svar. Bare **90** av dem har tilstanden. Med andre ord: for hver person testen finner riktig, får over fem friske en falsk alarm — og det er før vi har regnet på en eneste prediktiv verdi.\n\n**Legg merke til kontrollen:** de 495 falske positive kommer fra bare 5 prosent feil på en stor gruppe friske, mens de 90 sanne positive kommer fra 90 prosent treff på en liten gruppe syke. Det er størrelsen på gruppene, ikke kvaliteten på testen, som skaper skjevheten."
+    },
+    {
+      "id": "med1100-3-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg, B1-KORT — kortsvarsoppgaven i blokk 1.) Forklar med dine egne ord hva sensitivitet og spesifisitet betyr, og si hvilken gruppe som står i nevneren i hver av dem.",
+        "solution": "**Sensitivitet** er andelen av **de syke** som testen fanger opp, altså som får et positivt svar. Nevneren er alle som faktisk har tilstanden: $\\text{TP}+\\text{FN}$. En test med høy sensitivitet overser få syke.\n\n**Spesifisitet** er andelen av **de friske** som testen frikjenner, altså som får et negativt svar. Nevneren er alle som faktisk er friske: $\\text{TN}+\\text{FP}$. En test med høy spesifisitet gir få falske alarmer.\n\n**Kortversjonen:** begge leses **nedover i en kolonne** i 2×2-tabellen — den ene i syk-kolonnen, den andre i frisk-kolonnen. Begge er egenskaper ved testen selv.",
+        "hints": [
+          "Begynn med spørsmålet «av hvem?» — hvilken gruppe er det andelen regnes av?",
+          "Tegn 2×2-tabellen og pek på hvilken vei du leser hver av de to."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving, B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) En annen test har **sensitivitet 85 prosent** og **spesifisitet 90 prosent**, og brukes i en befolkning med **prevalens 2 prosent**.\n\nSett opp 2×2-tabellen for 10 000 personer, og kontroller at den går opp.",
+        "solution": "**Trinn 1.** $N = 10\\,000$ personer.\n\n**Trinn 2 — prevalensen.**\n$$\\text{syke} = 10\\,000 \\cdot 0{,}02 = 200 \\text{ personer}, \\qquad \\text{friske} = 10\\,000 - 200 = 9\\,800 \\text{ personer}$$\n\n**Trinn 3 — sensitiviteten på syke-kolonnen.**\n$$\\text{TP} = 200 \\cdot 0{,}85 = 170 \\text{ personer}, \\qquad \\text{FN} = 200 - 170 = 30 \\text{ personer}$$\n\n**Trinn 4 — spesifisiteten på frisk-kolonnen.**\n$$\\text{TN} = 9\\,800 \\cdot 0{,}90 = 8\\,820 \\text{ personer}, \\qquad \\text{FP} = 9\\,800 - 8\\,820 = 980 \\text{ personer}$$\n\n**Trinn 5 — kontroll.** $170 + 30 + 8\\,820 + 980 = 10\\,000$ personer. ✓\n\n|  | Syk | Frisk | Sum rad |\n|---|---|---|---|\n| **Test positiv** | 170 | 980 | 1 150 |\n| **Test negativ** | 30 | 8 820 | 8 850 |\n| **Sum kolonne** | 200 | 9 800 | 10 000 |\n\n**Tolkning:** 1 150 personer får positivt svar, og 170 av dem har tilstanden. Det er nesten seks falske alarmer per riktige treff.",
+        "hints": [
+          "Fyll tabellen kolonnevis: først syke-kolonnen med sensitiviteten, så frisk-kolonnen med spesifisiteten.",
+          "Husk kontrollen til slutt — summen av alle fire cellene skal bli N."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — PPV, NPV og prevalensavhengigheten (~22 min)\n\nNå snur vi tabellen. Sensitivitet og spesifisitet svarer på et spørsmål ingen pasient stiller: «hvis jeg vet at du er syk, hva viser testen?» Det pasienten — og oppgaven — vil vite, er det motsatte: **testen viste dette; hva vet vi da?**"
+    },
+    {
+      "id": "med1100-3-1-def-ppv",
+      "type": "definition",
+      "title": "Positiv prediktiv verdi (PPV)",
+      "content": "Andelen av dem med **positiv test** som faktisk har tilstanden:\n\n$$\\text{PPV} = \\frac{\\text{TP}}{\\text{TP}+\\text{FP}} = P(\\text{syk} \\mid \\text{positiv test})$$\n\nLeses **bortover i den øverste raden**. Dette er svaret på spørsmålet «testen slo ut — hva betyr det?».\n\n**Det avgjørende:** PPV **avhenger av prevalensen**. Den samme testen, med uendret sensitivitet og spesifisitet, gir lav PPV i en befolkning der tilstanden er sjelden, og høy PPV i en gruppe der den er vanlig. Sammenlign med sensitiviteten, som er den samme uansett hvor testen brukes — det er nettopp denne forskjellen eksamen tester."
+    },
+    {
+      "id": "med1100-3-1-def-npv",
+      "type": "definition",
+      "title": "Negativ prediktiv verdi (NPV)",
+      "content": "Andelen av dem med **negativ test** som faktisk er friske:\n\n$$\\text{NPV} = \\frac{\\text{TN}}{\\text{TN}+\\text{FN}} = P(\\text{frisk} \\mid \\text{negativ test})$$\n\nLeses **bortover i den nederste raden**. Svaret på «testen var negativ — hva betyr det?».\n\n**Prevalensavhengigheten går motsatt vei av PPVs:** når tilstanden er sjelden, er nesten alle med negativ test friske, og NPV er svært høy. Blir tilstanden vanligere, synker NPV. Merk konsekvensen: i en frisk befolkning er en negativ test svært informativ, mens en positiv test ofte ikke er det."
+    },
+    {
+      "id": "med1100-3-1-th-lespv",
+      "type": "theorem",
+      "title": "Regneprosedyre: les av PPV og NPV",
+      "content": "Når tabellen står ferdig, er resten to divisjoner. Tre trinn:\n\n1. **Summer radene.** Øverste rad gir alle med positiv test ($\\text{TP}+\\text{FP}$), nederste rad gir alle med negativ test ($\\text{TN}+\\text{FN}$).\n2. **Divider den riktige cellen på radsummen.**\n   $$\\text{PPV} = \\frac{\\text{TP}}{\\text{TP}+\\text{FP}}, \\qquad \\text{NPV} = \\frac{\\text{TN}}{\\text{TN}+\\text{FN}}$$\n3. **Skriv tolkningen i klartekst.** «Av dem som får positivt svar, har omtrent X prosent tilstanden.» Uten denne setningen er svaret ikke ferdig — og det er den sensor leter etter.\n\n**Uten tabellen** kan du sette rett inn i formlene i formelsamlingen:\n\n$$\\text{PPV} = \\frac{\\text{sens}\\cdot\\text{prev}}{\\text{sens}\\cdot\\text{prev} + (1-\\text{spes})(1-\\text{prev})}, \\qquad \\text{NPV} = \\frac{\\text{spes}(1-\\text{prev})}{\\text{spes}(1-\\text{prev}) + (1-\\text{sens})\\,\\text{prev}}$$\n\nDe to veiene gir **nøyaktig samme svar** — tabellveien er bare de samme brøkene med et felles antall ganget inn i teller og nevner. Under tidspress er tabellen tryggere, fordi du ser hvor tallene kommer fra og oppdager en tastefeil med kontrollsummen.\n\n**Avrunding:** oppgi 2–3 gjeldende siffer, og bruk «≈» når svaret ikke går opp."
+    },
+    {
+      "id": "med1100-3-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: PPV og NPV fra tabellen — og den samme regningen med formel (B1-STAT)",
+      "problem": "Bruk tabellen fra Eksempel 1 (sensitivitet 90 prosent, spesifisitet 95 prosent, prevalens 1 prosent, 10 000 personer). Regn ut PPV og NPV, og tolk svarene.",
+      "solution": "**Full-pott-besvarelse.**\n\n**Trinn 1 — radsummene.**\n- Positiv test: $\\text{TP}+\\text{FP} = 90 + 495 = 585$ personer.\n- Negativ test: $\\text{TN}+\\text{FN} = 9\\,405 + 10 = 9\\,415$ personer.\n\n**Trinn 2 — divisjonene.**\n$$\\text{PPV} = \\frac{90}{585} = 0{,}1538 \\approx 15{,}4 \\text{ prosent}$$\n$$\\text{NPV} = \\frac{9\\,405}{9\\,415} = 0{,}99894 \\approx 99{,}9 \\text{ prosent}$$\n\n**Kontroll med formelen** (samme tall, andre vei):\n$$\\text{PPV} = \\frac{0{,}90 \\cdot 0{,}01}{0{,}90 \\cdot 0{,}01 + 0{,}05 \\cdot 0{,}99} = \\frac{0{,}0090}{0{,}0090 + 0{,}0495} = \\frac{0{,}0090}{0{,}0585} = 0{,}1538$$\n\nSamme svar, som det skal være.\n\n**Trinn 3 — tolkning i klartekst.** Blant dem som får et positivt svar, har omtrent **15 prosent** tilstanden; de øvrige 85 prosentene er falske alarmer. Blant dem som får et negativt svar, er nesten **99,9 prosent** friske, altså er et negativt svar svært informativt her.\n\n**Det som er verdt å merke seg:** testen er ikke dårlig. Den fanger 9 av 10 syke og frikjenner 19 av 20 friske. Den lave PPV-en kommer nesten utelukkende av at tilstanden er sjelden — de 9 900 friske gir 495 falske positive selv med bare 5 prosent feil, og det er mange flere enn de 100 syke totalt.\n\n**Og en presisering som hører hjemme i et svar:** et positivt svar med PPV på 15 prosent betyr at sannsynligheten for tilstanden har steget fra 1 prosent til rundt 15 prosent. Det er en stor endring — testen er informativ. Den er bare ikke et svar."
+    },
+    {
+      "id": "med1100-3-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Samme test, annen befolkning — vis at PPV stiger med prevalensen (B1-STAT)",
+      "problem": "Den samme testen (sensitivitet 90 prosent, spesifisitet 95 prosent) brukes nå i en gruppe der **prevalensen er 20 prosent** i stedet for 1 prosent.\n\nRegn ut PPV og NPV på nytt for 10 000 personer, og forklar hva sammenlikningen viser.",
+      "solution": "**Full-pott-besvarelse.**\n\n**Ny tabell.**\n$$\\text{syke} = 10\\,000 \\cdot 0{,}20 = 2\\,000, \\qquad \\text{friske} = 8\\,000 \\text{ personer}$$\n$$\\text{TP} = 2\\,000 \\cdot 0{,}90 = 1\\,800, \\qquad \\text{FN} = 200$$\n$$\\text{TN} = 8\\,000 \\cdot 0{,}95 = 7\\,600, \\qquad \\text{FP} = 400$$\nKontroll: $1\\,800+200+7\\,600+400 = 10\\,000$ ✓\n\n|  | Syk | Frisk | Sum rad |\n|---|---|---|---|\n| **Test positiv** | 1 800 | 400 | 2 200 |\n| **Test negativ** | 200 | 7 600 | 7 800 |\n| **Sum kolonne** | 2 000 | 8 000 | 10 000 |\n\n**De prediktive verdiene.**\n$$\\text{PPV} = \\frac{1\\,800}{2\\,200} = 0{,}8182 \\approx 81{,}8 \\text{ prosent}$$\n$$\\text{NPV} = \\frac{7\\,600}{7\\,800} = 0{,}9744 \\approx 97{,}4 \\text{ prosent}$$\n\n**Sammenlikningen, satt opp mot hverandre:**\n\n| Prevalens | Sensitivitet | Spesifisitet | PPV | NPV |\n|---|---|---|---|---|\n| 1 prosent | 90 prosent | 95 prosent | 15,4 prosent | 99,9 prosent |\n| 20 prosent | 90 prosent | 95 prosent | 81,8 prosent | 97,4 prosent |\n\n**Tolkning i klartekst — dette er selve svaret:** sensitiviteten og spesifisiteten står helt stille, fordi de er egenskaper ved testen. PPV går fra 15 til 82 prosent, og NPV faller fra 99,9 til 97,4 prosent. **PPV stiger med prevalensen; NPV synker.** Testen er den samme; det er befolkningen som er en annen.\n\n**Hvorfor det er slik, i én setning:** når andelen syke øker, blir det flere sanne positive å ta av og færre friske å ta feil av — teller opp, nevner ned. For de negative går det motsatt vei: flere syke betyr flere falske negative å blande inn blant de sanne negative.\n\n**Konsekvensen som er verdt poeng:** det er nettopp derfor et positivt prøvesvar hos en person med symptomer betyr noe helt annet enn det samme svaret i en masseundersøkelse av folk uten plager. Ikke fordi testen er en annen, men fordi utgangspunktet er det."
+    },
+    {
+      "id": "med1100-3-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "**1. Å blande sensitivitet og PPV.** Den desidert vanligste. Sensitivitet leses **nedover** i syk-kolonnen, PPV leses **bortover** i positiv-raden. Ulike nevnere. Tegn tabellen og pek fysisk på retningen før du deler.\n\n**2. Å tro at sensitivitet eller spesifisitet endrer seg med prevalensen.** De gjør det ikke. Det er PPV og NPV som beveger seg. Kommer det et flervalg med formuleringen «hvilke mål påvirkes av forekomsten», er svaret alltid de to prediktive verdiene.\n\n**3. Å regne med andeler der oppgaven vil ha personer.** Cellene i 2×2-tabellen er **antall personer**. Blander du inn en andel i en av dem, går kontrollsummen i stykker — som er akkurat derfor kontrollsummen finnes.\n\n**4. Å hoppe over kontrolltrinnet.** $\\text{TP}+\\text{FN}+\\text{TN}+\\text{FP} = N$ tar fem sekunder og avslører en tastefeil før den forplanter seg til to prediktive verdier.\n\n**5. Felle E12 — å levere et tall uten tolkning.** «PPV $= 0{,}154$» er ikke et ferdig svar i blokk 1. Sensor ser etter setningen «av dem med positivt svar har omtrent 15 prosent tilstanden». Skriv den, hver gang.\n\n**6. Felle E10 — å blande falsk positiv og overdiagnostikk.** En **falsk positiv** er et testsvar som tar feil: personen har ikke tilstanden. **Overdiagnostikk** er et riktig funn av noe ekte som aldri ville gitt plager. De to er ikke det samme, og de løses ikke av de samme grepene.\n\n**7. Å ikke svare på et flervalg.** Blokk 1 har ingen minuspoeng. Blankt er garantert null."
+    },
+    {
+      "id": "med1100-3-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) En test flyttes fra bruk i en allmennbefolkning til bruk i en avdeling der sykdomsforekomsten er langt høyere. Terskelverdien for et positivt svar er uendret.\n\nHvilke av testens mål endrer seg?\n\n**A)** PPV og NPV endrer seg, mens sensitivitet og spesifisitet står stille.\n**B)** Alle fire målene endrer seg, siden hele befolkningen er en annen.\n**C)** Sensitivitet og spesifisitet endrer seg, mens PPV og NPV står stille.\n**D)** Bare PPV endrer seg; de tre andre målene er uavhengige av forekomst.",
+        "solution": "**Riktig: A.**\n\n**Hvorfor A:** sensitivitet og spesifisitet regnes nedover i hver sin kolonne, altså innenfor gruppen syke og innenfor gruppen friske. Endrer du hvor mange som er i hver gruppe, endrer du ikke andelene *innenfor* dem. PPV og NPV regnes derimot bortover i radene, der syke og friske blandes — og blandingsforholdet er nettopp det som er endret.\n\n**B er galt:** det er den intuitive, men feilaktige antakelsen om at alt endres når befolkningen endres. Testens egne egenskaper følger testen.\n\n**C er galt:** dette er A snudd på hodet, og er den klassiske forvekslingen mellom testens egenskaper og svarets verdi.\n\n**D er nær, men ufullstendig:** PPV endrer seg riktignok, men NPV gjør det også — den synker når forekomsten stiger. Alternativet er delvis sant, og i «velg ett»-oppgaver er delvis sant fortsatt galt når et mer presist alternativ står der.",
+        "hints": [
+          "Spør for hvert mål: leses det nedover i en kolonne eller bortover i en rad?",
+          "Kolonnene er sannheten, radene blander syke og friske. Bare det ene av de to påvirkes av hvor mange som er syke."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) En test har **sensitivitet 80 prosent** og **spesifisitet 98 prosent**. Den brukes i en gruppe med **prevalens 5 prosent**.\n\n**a)** Sett opp 2×2-tabellen for 20 000 personer.\n\n**b)** Regn ut PPV og NPV, og tolk begge i klartekst.",
+        "solution": "**a) Tabellen.**\n\n$$\\text{syke} = 20\\,000 \\cdot 0{,}05 = 1\\,000 \\text{ personer}, \\qquad \\text{friske} = 19\\,000 \\text{ personer}$$\n$$\\text{TP} = 1\\,000 \\cdot 0{,}80 = 800, \\qquad \\text{FN} = 1\\,000 - 800 = 200$$\n$$\\text{TN} = 19\\,000 \\cdot 0{,}98 = 18\\,620, \\qquad \\text{FP} = 19\\,000 - 18\\,620 = 380$$\nKontroll: $800+200+18\\,620+380 = 20\\,000$ ✓\n\n|  | Syk | Frisk | Sum rad |\n|---|---|---|---|\n| **Test positiv** | 800 | 380 | 1 180 |\n| **Test negativ** | 200 | 18 620 | 18 820 |\n| **Sum kolonne** | 1 000 | 19 000 | 20 000 |\n\n**b) De prediktive verdiene.**\n$$\\text{PPV} = \\frac{800}{1\\,180} = 0{,}678 \\approx 67{,}8 \\text{ prosent}$$\n$$\\text{NPV} = \\frac{18\\,620}{18\\,820} = 0{,}9894 \\approx 98{,}9 \\text{ prosent}$$\n\n**Tolkning:** blant dem med positivt svar har omtrent **68 prosent** tilstanden — altså er omtrent én av tre positive svar en falsk alarm. Blant dem med negativt svar er omtrent **99 prosent** friske, men merk at 200 av de 1 000 syke likevel havnet der: den lave sensitiviteten på 80 prosent gjør at testen overser hver femte syke.\n\n**Sammenlign med Eksempel 2:** her er PPV mye høyere (68 mot 15 prosent) selv om sensitiviteten er lavere. Forklaringen er den høye spesifisiteten kombinert med en høyere prevalens — færre friske å ta feil av, og flere syke å finne.",
+        "hints": [
+          "Bygg tabellen kolonnevis, og gjør kontrollsummen før du deler.",
+          "PPV leses bortover i den øverste raden, NPV bortover i den nederste.",
+          "Tolkningssetningen skal si «av dem med positivt/negativt svar …» — ikke «av de syke …»."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-KORT.) En kollega sier: «Testen vår har sensitivitet på 95 prosent, så hvis den slår ut, er det 95 prosent sannsynlig at pasienten har tilstanden.»\n\nForklar hva som er galt i resonnementet, og hvilken størrelse han egentlig beskriver.",
+        "solution": "Merk spørreordet «forklar» — det kreves en begrunnelse, ikke bare en korrigering.\n\n**Feilen** er at han bytter om på retningen i den betingede sannsynligheten. Sensitivitet er\n$$P(\\text{positiv test} \\mid \\text{syk}) = 0{,}95$$\naltså: *gitt at personen er syk*, slår testen ut i 95 prosent av tilfellene. Det han beskriver, er\n$$P(\\text{syk} \\mid \\text{positiv test})$$\naltså **PPV**. De to er forskjellige størrelser med forskjellige nevnere: den første har alle de syke i nevneren, den andre har alle med positivt svar.\n\n**Hvorfor de kan være vidt forskjellige:** PPV avhenger av hvor mange friske testen brukes på. Er tilstanden sjelden, kan det være langt flere falske positive enn sanne positive, slik at PPV blir lav selv med utmerket sensitivitet — i Eksempel 2 var PPV 15 prosent med en sensitivitet på 90 prosent.\n\n**Det han mangler for å kunne svare:** spesifisiteten og prevalensen. Uten dem er det umulig å si hva et positivt svar er verdt, uansett hvor høy sensitiviteten er.",
+        "hints": [
+          "Skriv opp begge de betingede sannsynlighetene med symboler, og se hva som står på hver side av streken.",
+          "Spør hvilke opplysninger som må til for i det hele tatt å kunne regne ut det han påstår."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — «velg TO alternativer», nøyaktig to.) Hvilke to utsagn er riktige?\n\n**A)** NPV synker når prevalensen stiger.\n**B)** Spesifisitet leses nedover i frisk-kolonnen i 2×2-tabellen.\n**C)** En høy sensitivitet garanterer en høy positiv prediktiv verdi.\n**D)** Falsk positiv og overdiagnostikk beskriver det samme fenomenet.",
+        "solution": "**Riktig: A og B.**\n\n**A** er riktig: flere syke i befolkningen gir flere falske negative blandet inn blant de sanne negative, og NPV faller. I Eksempel 3 falt den fra 99,9 til 97,4 prosent da prevalensen gikk fra 1 til 20 prosent.\n\n**B** er riktig: spesifisitet er $\\text{TN}/(\\text{TN}+\\text{FP})$, altså begge cellene i frisk-kolonnen — lest nedover.\n\n**C er galt:** sensitivitet sier ingenting alene om PPV, som også avhenger av spesifisitet og prevalens. Eksempel 2 viste sensitivitet 90 prosent sammen med PPV 15 prosent.\n\n**D er galt:** en falsk positiv er et **feil** testsvar hos en frisk person. Overdiagnostikk er et **riktig** funn av noe som er der, men som aldri ville gitt plager. De ligner bare i at begge kan føre til unødvendig videre utredning.\n\n**Merk formen:** «velg to» betyr nøyaktig to. Og blokk 1 har ingen minuspoeng — er du sikker på én og usikker på den andre, kryss av likevel.",
+        "hints": [
+          "To av alternativene er påstander om hva som følger av bare ett tall. Vær skeptisk til dem.",
+          "For alternativet om overdiagnostikk: spør om testen tar feil eller har rett."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Terskelen, avveiningen og essaysvaret (~15 min)"
+    },
+    {
+      "id": "med1100-3-1-def-terskel",
+      "type": "definition",
+      "title": "Terskelverdi (grenseverdi)",
+      "content": "Den verdien på en måling som skiller et positivt fra et negativt testsvar. Ligger måleresultatet over terskelen, kalles testen positiv.\n\n**Hvorfor begrepet trengs:** sensitivitet og spesifisitet er ikke gudegitte tall for en test — de følger av hvor terskelen settes. Flytter du terskelen, flytter du begge, og de flytter seg i **motsatt** retning."
+    },
+    {
+      "id": "med1100-3-1-def-avveining",
+      "type": "definition",
+      "title": "Avveiningen mellom sensitivitet og spesifisitet",
+      "content": "Senker du terskelen, blir flere svar positive: du fanger flere syke (**sensitiviteten stiger**), men du får også flere falske alarmer (**spesifisiteten synker**). Hever du terskelen, skjer det motsatte.\n\n**Konsekvensen som er verdt å skrive i et essaysvar:** hvilken innstilling som er ønskelig, kan ikke avgjøres av statistikken alene. Det avhenger av hva som koster mest i den aktuelle sammenhengen — å overse en syk, eller å utrede mange friske unødig. Merk at dette er en generell metodisk betraktning, ikke en anbefaling om hvordan en konkret test bør brukes."
+    },
+    {
+      "id": "med1100-3-1-def-screening",
+      "type": "definition",
+      "title": "Masseundersøkelse (screening)",
+      "content": "Systematisk testing av personer **uten symptomer**, for å finne en tilstand tidlig.\n\n**Hvorfor begrepet hører hjemme her:** i en gruppe uten symptomer er prevalensen lav, og da er PPV lav selv for en god test. Det er nettopp poenget fra innledningen: den samme testen som gir et informativt svar hos en person med plager, gir mange falske alarmer i en frisk befolkning. Legg merke til at dette er en **statistisk** observasjon om hva et testsvar er verdt — ikke en vurdering av om en konkret undersøkelse bør gjennomføres."
+    },
+    {
+      "id": "med1100-3-1-def-overdiagnostikk",
+      "type": "definition",
+      "title": "Overdiagnostikk (kontrastert mot falsk positiv)",
+      "content": "**Overdiagnostikk:** en tilstand blir riktig påvist, men den ville aldri ha gitt plager eller betydd noe for personen i løpet av livet. Funnet er ekte; relevansen er det ikke.\n\n**Falsk positiv:** testen gir positivt utslag hos en person som ikke har tilstanden i det hele tatt. Funnet er feil.\n\n**Skillet i én setning:** ved falsk positiv tar testen feil, ved overdiagnostikk tar den rett om noe som ikke betydde noe. Å blande dem er felle **E10**, og den koster poeng både i flervalg og i essay."
+    },
+    {
+      "id": "med1100-3-1-essaymal",
+      "type": "text",
+      "content": "### Malen for tolkningssvaret\n\nDe fleste B1-STAT-oppgavene i denne sjangeren avsluttes med et «forklar»- eller «gjør rede for»-ledd. Sensor leter etter fire ting, i denne rekkefølgen:\n\n1. **Hva som er regnet ut** — navnet på størrelsen, ikke bare tallet.\n2. **Tallet med riktig gruppe i nevneren** — «av dem med positivt svar», ikke «av de syke».\n3. **Hvorfor det ble slik** — som regel prevalensens virkning på blandingsforholdet i raden.\n4. **Hva det betyr praktisk** — at et positivt svar i en lavprevalent gruppe flytter sannsynligheten et godt stykke, men langt fra til sikkerhet.\n\nEtt eksempel på fire setninger som dekker alle fire:\n\n> «PPV er 15,4 prosent. Det betyr at blant dem som får et positivt svar, har omtrent 15 av 100 tilstanden. Årsaken er at prevalensen bare er 1 prosent, slik at de 9 900 friske gir 495 falske positive mot bare 90 sanne positive. Et positivt svar flytter altså sannsynligheten fra 1 til rundt 15 prosent — en betydelig endring, men ikke et svar i seg selv.»\n\n**Merk hva svaret ikke inneholder:** ingen anbefaling om hva som bør gjøres videre. Oppgaven spør om tolkning av et tall."
+    },
+    {
+      "id": "med1100-3-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Testen som er «99 prosent sikker» (B1-STAT, eksamensnivå)",
+      "problem": "En test for en tenkt tilstand har **sensitivitet 99 prosent** og **spesifisitet 99 prosent**. Tilstanden finnes hos **1 av 1 000** i befolkningen. Testen brukes i en undersøkelse av personer uten symptomer.\n\n**a)** Sett opp 2×2-tabellen for 100 000 personer.\n\n**b)** Regn ut PPV, og forklar resultatet i klartekst.\n\n**c)** Hva ville PPV blitt om den samme testen ble brukt i en gruppe der 1 av 20 har tilstanden?",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Tabellen.** Prevalensen er $1/1\\,000 = 0{,}001$.\n\n$$\\text{syke} = 100\\,000 \\cdot 0{,}001 = 100 \\text{ personer}, \\qquad \\text{friske} = 99\\,900 \\text{ personer}$$\n$$\\text{TP} = 100 \\cdot 0{,}99 = 99, \\qquad \\text{FN} = 1$$\n$$\\text{TN} = 99\\,900 \\cdot 0{,}99 = 98\\,901, \\qquad \\text{FP} = 99\\,900 - 98\\,901 = 999$$\nKontroll: $99 + 1 + 98\\,901 + 999 = 100\\,000$ ✓\n\n|  | Syk | Frisk | Sum rad |\n|---|---|---|---|\n| **Test positiv** | 99 | 999 | 1 098 |\n| **Test negativ** | 1 | 98 901 | 98 902 |\n| **Sum kolonne** | 100 | 99 900 | 100 000 |\n\n**b) PPV.**\n$$\\text{PPV} = \\frac{99}{1\\,098} = 0{,}0902 \\approx 9{,}0 \\text{ prosent}$$\n\n**Tolkning:** blant dem som får positivt svar, har omtrent **9 av 100** tilstanden. Over 90 prosent av de positive svarene er falske alarmer — med en test som tar riktig i 99 av 100 tilfeller begge veier.\n\n**Forklaringen:** det er 999 ganger flere friske enn syke i denne befolkningen. Én prosent feil på 99 900 friske gir 999 falske positive, mens 99 prosent treff på 100 syke bare gir 99 sanne positive. Det er antallet friske, ikke kvaliteten på testen, som skaper skjevheten.\n\n**Og den viktige presiseringen:** et positivt svar flytter sannsynligheten fra 0,1 prosent til 9 prosent — en nitti gangers økning. Testen er altså svært informativ. Den er bare ikke i nærheten av å være et endelig svar, og det er derfor sjeldne tilstander alltid krever mer enn én undersøkelse.\n\n— naturlig pausepunkt —\n\n**c) Samme test, prevalens 1 av 20.** Nå er $\\text{prev} = 0{,}05$. Vi bruker formelen direkte:\n\n$$\\text{PPV} = \\frac{0{,}99 \\cdot 0{,}05}{0{,}99 \\cdot 0{,}05 + 0{,}01 \\cdot 0{,}95} = \\frac{0{,}0495}{0{,}0495 + 0{,}0095} = \\frac{0{,}0495}{0{,}0590} = 0{,}839$$\n\naltså omtrent **84 prosent**.\n\n**Sammenlikningen som er selve poenget:** samme test, samme sensitivitet, samme spesifisitet — PPV går fra 9 til 84 prosent utelukkende fordi prevalensen gikk fra 1 av 1 000 til 1 av 20. Det er derfor spørsmålet «hvem ble testet, og hvorfor?» alltid må stilles før et positivt svar tolkes."
+    },
+    {
+      "id": "med1100-3-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-KORT.) Forklar hvorfor det å senke terskelverdien for et positivt testsvar øker sensitiviteten, men senker spesifisiteten. Bruk 2×2-tabellen i forklaringen.",
+        "solution": "Merk spørreordet «forklar»: her kreves mekanismen, ikke bare påstanden.\n\n**Hva som skjer rent mekanisk:** en lavere terskel gjør at flere måleresultater havner over grensen, altså at **flere personer får positivt svar**. Det gjelder både syke og friske.\n\n**I syke-kolonnen:** noen som før havnet i FN (syke med negativt svar), flyttes nå til TP. Nevneren $\\text{TP}+\\text{FN}$ er uendret — det er fortsatt alle de syke — mens telleren TP øker. **Sensitiviteten stiger.**\n\n**I frisk-kolonnen:** noen som før havnet i TN (friske med negativt svar), flyttes nå til FP. Nevneren $\\text{TN}+\\text{FP}$ er uendret — alle de friske — mens telleren TN synker. **Spesifisiteten faller.**\n\n**Sammenhengen i én setning:** terskelen flytter personer nedover i tabellen, oppover i begge kolonnene, og fordi de to målene har hver sin kolonne som nevner, beveger de seg i motsatt retning.\n\n**Og en presisering til slutt:** hvilken terskel som er ønskelig, kan ikke avgjøres av tallene alene — det avhenger av hva som veier tyngst i den aktuelle situasjonen, å overse en syk eller å gi mange friske en falsk alarm. Det er en metodisk avveining, ikke et regnestykke.",
+        "hints": [
+          "Tegn tabellen og spør hvilke celler som får flere personer og hvilke som mister, når terskelen senkes.",
+          "Se på nevnerne: hva står fast når terskelen flyttes, og hva endrer seg?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT — full oppgave med tolkningsledd.) En test har **sensitivitet 95 prosent** og **spesifisitet 90 prosent**. Den brukes i en befolkning med **prevalens 2 prosent**.\n\n**a)** Sett opp 2×2-tabellen for 50 000 personer.\n\n**b)** Regn ut PPV og NPV.\n\n**c)** En kollega foreslår at testen heller bør få høyere spesifisitet, selv om det koster litt sensitivitet. Gjør rede for hva det ville gjort med de fire målene, og hvorfor.",
+        "solution": "**a) Tabellen.**\n$$\\text{syke} = 50\\,000 \\cdot 0{,}02 = 1\\,000 \\text{ personer}, \\qquad \\text{friske} = 49\\,000 \\text{ personer}$$\n$$\\text{TP} = 1\\,000 \\cdot 0{,}95 = 950, \\qquad \\text{FN} = 50$$\n$$\\text{TN} = 49\\,000 \\cdot 0{,}90 = 44\\,100, \\qquad \\text{FP} = 49\\,000 - 44\\,100 = 4\\,900$$\nKontroll: $950+50+44\\,100+4\\,900 = 50\\,000$ ✓\n\n|  | Syk | Frisk | Sum rad |\n|---|---|---|---|\n| **Test positiv** | 950 | 4 900 | 5 850 |\n| **Test negativ** | 50 | 44 100 | 44 150 |\n| **Sum kolonne** | 1 000 | 49 000 | 50 000 |\n\n**b) De prediktive verdiene.**\n$$\\text{PPV} = \\frac{950}{5\\,850} = 0{,}1624 \\approx 16{,}2 \\text{ prosent}$$\n$$\\text{NPV} = \\frac{44\\,100}{44\\,150} = 0{,}99887 \\approx 99{,}9 \\text{ prosent}$$\n\n**Tolkning:** blant dem med positivt svar har omtrent 16 prosent tilstanden — over åtte av ti positive svar er falske alarmer. Blant dem med negativt svar er nesten alle friske.\n\n— naturlig pausepunkt —\n\n**c) Hva en høyere terskel ville gjort.** Merk spørreordet: «gjør rede for» = beskriv + forklar + sett i sammenheng.\n\n**Beskrivelsen.** Å heve terskelen gir færre positive svar totalt. Personer flyttes fra FP til TN og fra TP til FN. Dermed: **spesifisiteten stiger**, **sensitiviteten faller**.\n\n**Forklaringen på de prediktive verdiene.** Med færre falske positive faller nevneren i PPV mer enn telleren, og **PPV stiger** — det er den store gevinsten her, siden det er nettopp de 4 900 falske positive som drar PPV ned til 16 prosent. **NPV faller litt**, fordi flere syke havner blant de negative.\n\n**Et konkret regnestykke som viser størrelsesorden:** setter vi spesifisiteten til 98 prosent og lar sensitiviteten falle til 90 prosent, blir $\\text{TP} = 900$, $\\text{FP} = 49\\,000 \\cdot 0{,}02 = 980$, og\n$$\\text{PPV} = \\frac{900}{900+980} = \\frac{900}{1\\,880} = 0{,}479 \\approx 47{,}9 \\text{ prosent}$$\nPPV nesten tredobles, fra 16 til 48 prosent — mens antallet oversette syke bare øker fra 50 til 100.\n\n**Sammenhengen.** Ved lav prevalens er det spesifisiteten som styrer PPV, fordi den store gruppen friske dominerer nevneren. Et lite løft i spesifisitet er derfor verdt mye mer for PPV enn et tilsvarende løft i sensitivitet.\n\n**Konklusjonen, veid og skarp:** ved lav prevalens gir høy spesifisitet mest igjen for PPV, og kollegaens forslag ville i dette tilfellet ha gitt en klar gevinst i tolkbarhet av et positivt svar. Men avveiningen kan ikke avgjøres av tallene alene — den avhenger av hvor tungt det veier å overse en syk sammenlignet med å utrede en frisk unødig, og det er et vurderingsspørsmål utenfor regnestykket.",
+        "hints": [
+          "Del a) og b): følg de fem trinnene, og gjør kontrollsummen før du deler.",
+          "Del c): begynn med hvilke celler personene flyttes mellom når terskelen heves.",
+          "Del c) blir mye sterkere om du regner ett konkret eksempel med nye tall i stedet for bare å påstå retningen."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT.) En tenkt undersøkelse tilbys personer uten symptomer. Testen har **sensitivitet 92 prosent** og **spesifisitet 94 prosent**, og prevalensen i gruppen som testes er **2,5 prosent**.\n\n**a)** Regn ut PPV og NPV for 40 000 personer.\n\n**b)** Av dem som får positivt svar, hvor mange er falske alarmer — både i antall og som andel?\n\n**c)** Forklar forskjellen på en falsk positiv og overdiagnostikk i denne sammenhengen.",
+        "solution": "**a) Tabell og prediktive verdier.**\n$$\\text{syke} = 40\\,000 \\cdot 0{,}025 = 1\\,000 \\text{ personer}, \\qquad \\text{friske} = 39\\,000 \\text{ personer}$$\n$$\\text{TP} = 1\\,000 \\cdot 0{,}92 = 920, \\qquad \\text{FN} = 80$$\n$$\\text{TN} = 39\\,000 \\cdot 0{,}94 = 36\\,660, \\qquad \\text{FP} = 39\\,000 - 36\\,660 = 2\\,340$$\nKontroll: $920+80+36\\,660+2\\,340 = 40\\,000$ ✓\n\n$$\\text{PPV} = \\frac{920}{920+2\\,340} = \\frac{920}{3\\,260} = 0{,}2822 \\approx 28{,}2 \\text{ prosent}$$\n$$\\text{NPV} = \\frac{36\\,660}{36\\,660+80} = \\frac{36\\,660}{36\\,740} = 0{,}99782 \\approx 99{,}8 \\text{ prosent}$$\n\n**b) De falske alarmene.** Av de 3 260 med positivt svar er **2 340 falske positive**. Som andel:\n$$\\frac{2\\,340}{3\\,260} = 0{,}7178 \\approx 71{,}8 \\text{ prosent}$$\n\nAltså er nesten **72 prosent** av de positive svarene falske alarmer — som er nøyaktig $1 - \\text{PPV}$, slik det skal være.\n\n**Tolkning:** for hver person testen finner riktig, får omtrent 2,5 friske et positivt svar de må følges opp for.\n\n— naturlig pausepunkt —\n\n**c) Falsk positiv mot overdiagnostikk.**\n\nEn **falsk positiv** er en av de 2 340: personen har ikke tilstanden i det hele tatt, og testen har rett og slett tatt feil. Denne gruppen er synlig i 2×2-tabellen, og størrelsen på den følger direkte av spesifisiteten.\n\n**Overdiagnostikk** er noe annet, og den er **ikke synlig i denne tabellen**. Overdiagnostikk gjelder personer som er blant de 920 sanne positive — de *har* tilstanden, testen har rett — men der tilstanden aldri ville ha gitt plager eller betydd noe i løpet av livet deres. Funnet er ekte, men uten betydning for personen.\n\n**Hvorfor skillet betyr noe faglig:** de to har helt ulike årsaker og helt ulike konsekvenser. Falske positive skyldes testens treffsikkerhet og kan reduseres ved å heve terskelen. Overdiagnostikk skyldes at det finnes tilstander som er ekte, men som ikke utvikler seg — og det kan ikke løses med en bedre test, siden testen jo har rett. Å blande de to (felle **E10**) gjør at man foreslår feil botemiddel på feil problem.",
+        "hints": [
+          "Del b): den falske andelen er alltid 1 minus PPV — bruk det som kontroll på svaret ditt.",
+          "Del c): spør for hver av de to gruppene om testen tok feil eller hadde rett.",
+          "Del c): sjekk hvilken celle i tabellen hver av dem hører hjemme i — det avslører at bare den ene er synlig der."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-1-oppg-10-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — «velg ett».) I en befolkning med svært lav forekomst av en tilstand gir en god test et negativt svar. Hvilken tolkning er mest presis?\n\n**A)** Et negativt svar er svært informativt her, fordi NPV er høy når prevalensen er lav.\n**B)** Et negativt svar er lite informativt, fordi de fleste er friske uansett resultat.\n**C)** Et negativt svar har samme informasjonsverdi som et positivt svar i samme gruppe.\n**D)** Et negativt svar sier ingenting, siden NPV ikke lar seg beregne uten sensitivitet.",
+        "solution": "**Riktig: A.**\n\nVed lav prevalens er nesten alle med negativt svar friske, og NPV nærmer seg 100 prosent. I Eksempel 4 var NPV så høy at bare 1 av 98 902 negative svar tilhørte en syk person. Et negativt svar er altså svært informativt om at tilstanden ikke foreligger.\n\n**B er den mest fristende distraktoren**, og den bygger på et reelt poeng: når nesten alle er friske fra før, endrer et negativt svar sannsynligheten lite i absolutte tall. Men spørsmålet gjelder hvor sikker konklusjonen er, og der er en NPV nær 100 prosent nettopp høy informasjonsverdi om utfallet.\n\n**C er galt:** de to svarene er svært ulike i verdi ved lav prevalens — det er hele asymmetrien i kapitlet. PPV var 9 prosent i Eksempel 4, NPV var over 99,99 prosent.\n\n**D er galt:** NPV lar seg regne ut når sensitivitet, spesifisitet og prevalens er kjent — og «en god test» innebærer at de to første er kjente og høye.",
+        "hints": [
+          "Tenk på hvilken av de to prediktive verdiene som blir høy når nesten alle er friske.",
+          "Sammenlign med Eksempel 4: hvilket av de to svarene var nesten sikkert, og hvilket var ikke det?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-1-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "med1100-3-1-def-betinget",
+      "type": "definition",
+      "title": "Betinget sannsynlighet — og hvorfor retningen betyr alt",
+      "content": "$P(A \\mid B)$ er sannsynligheten for $A$ gitt at $B$ allerede er kjent. Nøkkelen i dette kapitlet er at **$P(A \\mid B) \\neq P(B \\mid A)$** i de aller fleste tilfeller.\n\nAlle fire målene er betingede sannsynligheter, to i hver retning:\n\n- sensitivitet $= P(\\text{positiv} \\mid \\text{syk})$ · spesifisitet $= P(\\text{negativ} \\mid \\text{frisk})$ — betinget på **sannheten**\n- PPV $= P(\\text{syk} \\mid \\text{positiv})$ · NPV $= P(\\text{frisk} \\mid \\text{negativ})$ — betinget på **testsvaret**\n\nÅ bytte om retningen er den enkeltfeilen som ligger under nesten alle bommene i sjangeren."
+    },
+    {
+      "id": "med1100-3-1-def-radsummer",
+      "type": "definition",
+      "title": "Radsummer og kolonnesummer i 2×2-tabellen",
+      "content": "**Kolonnesummene** er $\\text{TP}+\\text{FN}$ (alle syke) og $\\text{TN}+\\text{FP}$ (alle friske). De er nevnerne i sensitivitet og spesifisitet.\n\n**Radsummene** er $\\text{TP}+\\text{FP}$ (alle med positiv test) og $\\text{TN}+\\text{FN}$ (alle med negativ test). De er nevnerne i PPV og NPV.\n\n**Huskeregel:** kolonnene er sannheten, radene er testsvaret. Vil du vite noe om testen, les nedover. Vil du vite hva et svar er verdt, les bortover."
+    },
+    {
+      "id": "med1100-3-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis kontrollpunkter",
+      "content": [
+        {
+          "id": "med1100-3-1-repetisjon-tekst",
+          "type": "text",
+          "content": "Seks kontrollpunkter. Klarer du dem uten å bla opp, er kapitlet i boks.\n\n1. **Hva står i kolonnene og hva står i radene i 2×2-tabellen?** (Kolonnene = sannheten, syk/frisk. Radene = testsvaret, positiv/negativ.)\n2. **Hvilke to mål leses nedover, og hvilke to leses bortover?** (Nedover: sensitivitet og spesifisitet. Bortover: PPV og NPV.)\n3. **Hvilke mål endrer seg med prevalensen — og hvilken vei?** (PPV stiger med prevalensen, NPV synker. Sensitivitet og spesifisitet står stille.)\n4. **Hva er de fem trinnene i å bygge tabellen?** (Velg $N$ · del etter prevalens · fyll syke-kolonnen med sensitiviteten · fyll frisk-kolonnen med spesifisiteten · kontroller at summen blir $N$.)\n5. **Hvorfor blir PPV lav for en meget god test i en frisk befolkning?** (Fordi det er så mange flere friske å ta feil av — en liten feilandel på en stor gruppe gir flere falske positive enn det finnes syke.)\n6. **Hva er forskjellen på falsk positiv og overdiagnostikk?** (Falsk positiv: testen tar feil. Overdiagnostikk: testen har rett om noe ekte som aldri ville gitt plager.)\n\n**Og de to tingene som gjelder alle B1-STAT-svar:** vis utregningen, og avslutt med tolkningen i klartekst. Et tall uten setning er et halvferdig svar — og blokk 1 har ingen minuspoeng, så du skal alltid svare."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
