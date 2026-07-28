@@ -15,7 +15,7 @@ og undervises til høsten — belegg i valgnotatet nederst.
 | Steg 0 — skjelettport | ✅ OK (39 kap) | ✅ OK (50 kap) |
 | Steg 0 — BOKCONFIG.json | ✅ | ✅ |
 | Steg 0 — BYGGEKONTRAKT.md | ✅ 1 409 linjer | ✅ 1 515 linjer |
-| Steg 1 — byggebølge | ⏳ 4 av 9 agenter ute | ⏳ 3 av 15 agenter ute |
+| Steg 1 — byggebølge | ⏳ 27/47 filer · Del 0–4 ✅ | ⏳ 16/63 filer · Del 0–1 ✅ |
 | Steg 2 — wiring | — | — |
 | Steg 3 — verifisering | — | — |
 | Steg 4 — sluttport + deploy | — | — |
@@ -39,6 +39,21 @@ Tegnforklaring: ✅ ferdig · ⏳ pågår · ⛔ blokkert · — ikke startet
 ---
 
 ## Logg
+
+**28. juli, andre bølge** — tdt4110 Del 0, 1, 2, 3, 4 ferdige (27 av 47 filer).
+med1100 Del 0, 1 ferdige (16 av 63). Sju agenter ute på Del 5–8 og med1100 Del 2–6.
+
+**28. juli, portsmutthull lukket** — to agenter løste `input()`-problemet ulikt.
+Del 2 bruker gjerdetaggene prinsipielt (```text = pseudokode, ```python =
+kjørbar kode); Del 0+1 tagget kjørbar Python som ```text for å slippe
+utskriftskravet. Da hopper porten også over KOMPILERINGSSJEKKEN: 7 blokker i
+kap. 1.4 sto ukontrollert. De ferdige bøkene avgjorde ingenting — in1000 gjør
+det ene, in1900 det andre, ingen bruker «Kjøring:»-blokker. Regelen er skjerpet
+i felleskravene (commit `b538df27f`); de 7 blokkene er oppdrag V2 til steg 3.
+
+**28. juli, ett agentkrasj uten tap** — Del 3-agenten døde på API-feil midt i
+kap. 3.4. 3-1..3-3 lå ferdige på disk; gap-fylling skrev bare de fire som
+manglet. Del 3 er nå komplett med 102/102 quiz og 265 min, eksakt tidsbudsjett.
 
 **28. juli, byggebølge startet** — 7 agenter samtidig (under taket på ~8 der
 API-et stallet 16. juni). tdt4110: Del 0+1, 2, 3, 4. med1100: Del 0, 1, 2+3.
