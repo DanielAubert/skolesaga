@@ -170,3 +170,44 @@ parentes ikke forventes.
 | med1100-12-2 | P50 og andre tallverdier på metningskurven | **Ikke brukt.** Figuren `bohr-kurven.svg` har bevisst umerkede akser, og teksten sier det: kurvens form og forskyvningsretning er fasit, ingen tallverdi |
 | med1100-11-1, 11-2, 11-3 | Frekvenstallene «3 av 3 leste sittinger» (pneumokokk-kapsel, antibiotikamekanismer) og «2 av 2 leste sittinger» (normalflora/mikrobiom) | Tatt ORDRETT fra SKJELETT.md. Ikke omregnet til prosent og ikke slått sammen med andre nevnere (§B5) |
 | med1100-11-1, 11-2, 11-3, 12-1, 12-2 | Alle case, preparatbeskrivelser og bakterie-/virusstammer | NYSKREVNE og fiktive. Ingen ekte pasient, intet ekte prøvemateriale, ingen oppdiktede latinske navn — artsnavnene som brukes (*Streptococcus pneumoniae*, *Staphylococcus aureus*, *Neisseria meningitidis*, *Mycoplasma*, *Candida albicans*) er standard fagstoff |
+
+---
+
+## Del 7 og Del 8 (molekylærbiologi/genetikk + signalering/cellesyklus/celledød)
+
+Ingen verdi i disse to delene er hentet fra en kilde som er merket usikker i
+`EKSAMENSANALYSE.md`, og ingen av dem er en normalverdi, prevalens eller
+mutasjonsrate fra virkeligheten. Alle tallverdier i regneeksempler, oppgaver og
+prøver er **nyskrevne, fiktive kalibreringer**, valgt for at regnestykkene skal
+gå opp, og hver enkelt etterregnet med `python3` før den ble skrevet inn.
+
+| Kapittel | Verdi / påstand | Hvor den kommer fra | Status |
+|---|---|---|---|
+| med1100-7-1 | Alle lengder i genstruktur-regningen (mRNA 2 148 nt, startposisjon 212, 573 aminosyrer, gen 24 600 bp, 19 eksoner osv.) | NYSKREVNE, fiktive kalibreringer | **Ikke usikre tall** — de er konstruerte oppgavedata, ikke måleverdier. Hver utregning etterregnet med python3. Ingen av dem framstilles som et virkelig gen. |
+| med1100-7-2 | Alle slektstrær, personer og bærerfrekvenser (1 av 50, 1 av 25) | NYSKREVNE, fiktive | **Ikke usikre tall.** Bærerfrekvensene er **oppgitt i oppgaveteksten** og eksplisitt merket som oppdiktede. Kapitlet slår fast at alle slektstrær og personer er oppdiktet, og at innholdet ikke er genetisk veiledning (§H7). |
+| med1100-7-3 | Hardy-Weinberg-eksemplene (prevalens 1/10 000 → q = 0,01, 2pq = 0,0198; 1/2 500; 1/1 600; 160 av 250 000) | Det faste regneeksempelet i SKJELETT.md §3 (kap. 7.3) pluss egne varianter | **Ikke usikre tall.** Dette er illustrasjonstall for en matematisk sammenheng, ikke forekomsttall for noen virkelig tilstand — og kapitlet sier det eksplisitt («alle tallverdiene i dette kapitlet er oppdiktede»). Alle utregninger etterregnet med python3, inkludert seleksjonsformelen q′ = q/(1+q) over fem generasjoner. |
+| med1100-8-1 | Forsterkningseksempelet 20 · 500 · 100 = 1 000 000 | NYSKREVET | **Eksplisitt merket i teksten** som «et regneeksempel med fiktive, tydelig merkede tall … tallene er oppdiktede og skal ikke pugges». Poenget er at leddene ganges, ikke tallverdiene. Er IKKE fasit i quiz, flashcard eller prøve. |
+| med1100-8-3 | Nukleosomavstanden **~200 basepar**, som gir DNA-stigemønsteret | SKJELETT.md §3 (kap. 8.3) faktakontrakt: «DNA-stigemønster = fragmenter i n × ~200 bp (nukleosomavstand)». Ikke merket usikker der. | **Belagt** som veletablert standard i pensumlitteraturen i cellebiologi. Skrevet UTEN forbehold, jf. §M3 siste kulepunkt, og alltid med tilde («rundt 200 basepar») og med det den er avstanden mellom. Brukt i quiz kun i spørsmål om **mekanismen** (at CAD kutter mellom nukleosomene), ikke som et tall som skal gjengis. |
+
+## Frekvenspåstander i Del 7 og Del 8 (blokk 2, nevner 14)
+
+Tatt **ORDRETT** fra `SKJELETT.md` §3 og ikke omregnet. Blokk 2 har nevner 14
+(14 sittinger 2022h–2025h), jf. BYGGEKONTRAKT §B5.
+
+| Kapittel | Påstand i boka | Skjelettets Eksamensbelegg |
+|---|---|---|
+| 7.1 | «rundt 11 av de 14 leste sittingene» (molekylærmetoder) · «rundt 8 av de 14» (genstruktur-regning) | Molekylærmetoder ~11/14; genstruktur-regning ~8/14 |
+| 7.2 | «14 av de 14 leste sittingene» | Oppgave E genetikk **14/14** |
+| 7.3 | «rundt 7 av de 14 leste sittingene» | Hardy-Weinberg-beregning (2pq) ~7/14 |
+| 7.4 | «rundt 11 av de 14» (meiose/kromosomavvik) · «rundt 7 av de 14» (epigenetikk) | Meiose/kromosomavvik ~11/14; epigenetikk ~7/14 |
+| 8.1 | «14 av de 14 leste sittingene» · «rundt 4 av de 14» (kjernereseptorklasser) | Oppgave C signalering **14/14**; kjernereseptor klasse 1/2 + domener ~4/14 |
+| 8.2 | «rundt 14 av de 14 leste sittingene» | Oppgave B **~14/14** |
+| 8.3 | «rundt 13 av de 14 leste sittingene» | Del av oppgave B **~13/14** |
+
+## Poengmodellen for negativ retting (Del 7 og Del 8)
+
+Modellen $+0{,}5$ / $-0{,}5$ / $0$ med laveste oppgavesum 0 er tatt fra
+BYGGEKONTRAKT §B2 og §S1 regel 2. Forventningsverdiene som er regnet ut i
+kap. 7.4, 8.1 og 8.2 (0,20 ved 70 % sikkerhet; 0 ved myntkast; −0,17 ved blind
+gjetning blant tre klasser) er **egne utregninger på den oppgitte modellen**,
+etterregnet med python3. De er ikke observerte tall fra oppgavesett.
