@@ -1,0 +1,488 @@
+{
+ "id": "tdt4110-5-1",
+ "courseId": "tdt4110",
+ "chapterNumber": "5.1",
+ "title": "DRILL — Kodesporing: «hva skrives ut / returneres?»",
+ "description": "Systematisk drill i å kjøre kode mekanisk i hodet og angi resultatet nøyaktig — kjernen i kodeforståelsesoppgaven.",
+ "estimatedMinutes": 90,
+ "competenceGoals": [
+  "kunne føre en sporingstavle som gjør en kodesnutt til et mekanisk regnestykke i stedet for en gjetning",
+  "kunne telle løkkerunder nøyaktig og lese grensene i `range` uten å bomme med én",
+  "kunne skille et enkelt element fra en liste, en streng eller en ordbok, og gjengi hver av dem i riktig utskriftsform",
+  "kunne avgjøre hva et funksjonskall returnerer, også når svaret er `None`"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-5-1-tip",
+   "title": "Eksamensvinkel",
+   "content": "**Kodesporing er den ene sjangeren du vet kommer.** Den står i **alle de ti eksamenssittingene i arkivet 2014–2019 — 100 %**, og den bærer hele kodeforståelsesoppgaven, som er verdt **15–20 %** av settet.\n\nSjangeren heter **B — kodesporing**, altså «hva skriver dette programmet ut?» eller «hva returnerer dette kallet?». Du får en kort kodesnutt på papir, uten maskin, og skal skrive svaret nøyaktig — tegn for tegn, med hakeparenteser, komma og linjeskift der Python setter dem.\n\n- **4–6 deloppgaver** per sett, **1–3 % hver**. Til sammen er det mer enn en hel karakter.\n- Hver deloppgave er liten nok til å løses på to–tre minutter — hvis du har en metode. Uten metode gjetter du, og gjetting treffer sjelden på utskriftsformat.\n- Sensor gir **delvis uttelling for delvis riktig sporing**: har du ført løkka riktig, men bommet på ett tegn i utskriften, mister du ikke alt.\n\n**Prioritet: må sitte** — det høyeste av bokas tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til».\n\nDette er et rent drillkapittel. Du møter ingen ny Python her; du lærer å kjøre den du allerede kan, i hodet, uten å ta feil. Kapitlet tar **~90 minutter** og er delt i sju små økter med tidsanslag. Ta det gjerne over to kvelder — det naturlige skillet er etter økt 4.",
+   "type": "tip"
+  },
+  {
+   "id": "tdt4110-5-1-forkunnskaper",
+   "content": "**Sist du var her — Forkunnskaper, ferdig oppfrisket**\n\nDette kapitlet kommer sent i boka, så i stedet for en ren lenkeliste får du de tre konstruksjonene drillen faktisk hviler på, kjørt og ferdig oppfrisket. Kjenner du deg igjen i alle tre, er du klar.\n\n**1. Løkkegrensene** ([kap. 1.3](/tdt4110/tdt4110-1-3)). `range(start, stopp, steg)` stopper FØR `stopp`:\n\n```python\ntall = [4, 7, 2, 9]\nfor i in range(1, len(tall), 2):\n    tall[i] = tall[i] * 10\nprint(tall)\n```\n\n**Utskrift:**\n```\n[4, 70, 2, 90]\n```\n\nIndeks 1 og 3 ble truffet, ikke 0 og 2.\n\n**2. Utsnitt av lister og strenger** ([kap. 3.1](/tdt4110/tdt4110-3-1) og [kap. 3.3](/tdt4110/tdt4110-3-3)). Et utsnitt gir alltid en ny sekvens, aldri ett enkelt element:\n\n```python\nnavn = 'Bergen'\nprint(navn[::-1])\nprint(navn[1::2])\nprint(navn[2])\n```\n\n**Utskrift:**\n```\nnegreB\negn\nr\n```\n\n**3. Ordbok-telleren** ([kap. 3.5](/tdt4110/tdt4110-3-5)). `d.get(k, 0)` gir standardverdien når nøkkelen mangler, og setter den ikke inn:\n\n```python\ntekst = 'bananas'\nteller = {}\nfor bokstav in tekst:\n    teller[bokstav] = teller.get(bokstav, 0) + 1\nprint(teller)\n```\n\n**Utskrift:**\n```\n{'b': 1, 'a': 3, 'n': 2, 's': 1}\n```\n\nDu trenger dessuten `if/elif/else` og boolsk presedens fra [kap. 1.2](/tdt4110/tdt4110-1-2), funksjoner og returverdier fra [kap. 2.1](/tdt4110/tdt4110-2-1) og tabeller fra [kap. 3.2](/tdt4110/tdt4110-3-2).\n\nVil du ha enda mer sporingsdrill i en annen innpakning, finnes [DRILL — Kodesporing: «hva skrives ut?»](/in1000/in1000-4-1) i IN1000-boka.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-1-thm-metode",
+   "title": "Sporingsmetoden — seks steg",
+   "content": "Dette er kapitlets oppskrift, og den brukes uendret i hver eneste oppgave under. Den tar 30 sekunder å sette opp og sparer deg for feilsvaret som kommer av å regne i hodet.\n\n1. **Før en tavle.** Tegn én kolonne per variabel som endrer seg, og én kolonne til høyre som heter «Utskrift så langt». Én rad per linje eller per løkkerunde.\n2. **Tell løkkerundene nøyaktig.** Skriv opp hvilke verdier løkke­variabelen faktisk tar — `range(1, 5, 2)` gir 1 og 3, ikke 1, 2, 3, 4. Stoppverdien er alltid utenfor.\n3. **Noter hva hvert `print` faktisk skriver**, ikke hva du tror det betyr. Flere argumenter skilles av ett mellomrom; `sep` og `end` endrer det; strenger skrives uten fnutter, men inni en liste får de fnutter.\n4. **Hold styr på element mot struktur.** `x[2]` er ett element. `x[2:3]` er en liste med ett element. De skrives forskjellig, og det er det du får trekk for.\n5. **For `return`: finn både verdien og typen.** Faller kjøringen ut nederst i funksjonen uten `return`, er svaret `None` — som skrives ut som `None`.\n6. **Skriv sluttsvaret tegn for tegn** fra tavla. Ikke fra hukommelsen om hva koden «gjør».\n\n**Om tidsbruken:** en deloppgave er verdt 1–3 %. Bruker du mer enn tre–fire minutter på én, gå videre og kom tilbake. Et halvferdig, korrekt ført sporingsoppsett gir uttelling; et blankt svar gir ingen.",
+   "type": "theorem"
+  },
+  {
+   "id": "tdt4110-5-1-t-eks-intro",
+   "content": "## Økt 1 — metoden i arbeid (~10 min)\n\nFør du driller selv, se metoden brukt på en oppgave av samme type og størrelse som den du møter på settet. Margnotatene sier hva sensor ser etter i hvert steg.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-1-ex-1",
+   "title": "Eksempel 1: en gjennomsporet eksamensoppgave",
+   "problem": "En kommune registrerer prisen på fem lademaster i kroner per time. Hva skriver programmet ut?\n\n```python\npriser = [120, 85, 200, 45, 160]\nresultat = []\nfor i in range(len(priser)):\n    if i % 2 == 0:\n        resultat.append(priser[i] // 10)\nprint(resultat)\nprint(len(resultat), sum(resultat))\n```",
+   "solution": "**Steg 1 — tavla.** To ting endrer seg: løkkevariabelen `i` og lista `resultat`. Vi trenger også en kolonne for testen.\n\n| `i` | `i % 2 == 0` | `priser[i]` | `resultat` etterpå |\n|---|---|---|---|\n| 0 | sann | 120 | `[12]` |\n| 1 | usann | — | `[12]` |\n| 2 | sann | 200 | `[12, 20]` |\n| 3 | usann | — | `[12, 20]` |\n| 4 | sann | 160 | `[12, 20, 16]` |\n\n*Margnotat:* selve tavla gir uttelling. Har du ført den riktig og bare bommet på siste linje, mister du en brøkdel, ikke hele deloppgaven.\n\n**Steg 2 — tell rundene.** `range(len(priser))` er `range(5)`, altså 0, 1, 2, 3, 4. Fem runder, ikke seks. Her ryker mange: de teller «fem elementer, altså opp til 5» og får med en indeks som ikke finnes.\n\n**Steg 3 — hva skriver hvert `print`?** Første `print` skriver hele lista, med hakeparenteser og komma-mellomrom. Andre `print` har to argumenter, og de skilles av ett mellomrom.\n\n**Steg 4 — element eller struktur?** `priser[i]` er ett tall, og `// 10` er heltallsdeling: 120 blir 12, 85 ville blitt 8 (men indeks 1 hoppes over), 200 blir 20, 160 blir 16.\n\n**Steg 6 — svaret, tegn for tegn:**\n\n**Utskrift:**\n```\n[12, 20, 16]\n3 48\n```\n\n*Margnotat:* `3 48` på én linje, med ett mellomrom. Skriver du `3, 48` eller setter dem på hver sin linje, er svaret feil selv om tallene stemmer. Det er den billigste feilen i hele sjangeren.\n\n**Fellenote:** fellen her er **#5** — av-med-én i løkkegrensene og indekseringen. `i % 2 == 0` treffer indeks 0, 2 og 4, altså det første, tredje og femte elementet. Leser du det som «annethvert fra det andre», får du `[8, 4]` og null poeng.",
+   "type": "example"
+  },
+  {
+   "id": "tdt4110-5-1-t-okt2",
+   "content": "## Økt 2 — løkkegrenser og av-med-én (~12 min)\n\nDen vanligste feilkilden i hele sjangeren er `range`. Tre spørsmål avgjør hver eneste gang: hvor starter den, hvor stopper den, og hvor stort er steget? Skriv verdiene ned før du gjør noe annet.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-1-def-tavle",
+   "title": "Sporingstavle",
+   "content": "En **sporingstavle** er en tabell du fører på kladdearket mens du leser koden: én kolonne per variabel som endrer seg, én kolonne for utskriften så langt, og én rad per løkkerunde.\n\nPoenget er ikke ryddighet. Poenget er at hjernen ikke klarer å holde tre variabler og en teller samtidig, og at sensor gir uttelling for et riktig ført oppsett selv når sluttsvaret har en skrivefeil.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-range",
+   "title": "`range(start, stopp, steg)`",
+   "content": "Gir tallrekka som starter på `start`, øker med `steg`, og stopper **før** `stopp` — stoppverdien er aldri med.\n\n- `range(4)` gir 0, 1, 2, 3.\n- `range(1, 5)` gir 1, 2, 3, 4.\n- `range(1, 6, 2)` gir 1, 3, 5.\n- `range(5, 0, -1)` gir 5, 4, 3, 2, 1.\n- `range(3, 3)` er tom, og løkka kjører null ganger.\n\nI en sporing skriver du alltid ned rekka først. `range(1, len(x), 2)` over en liste med fem elementer gir 1 og 3 — to runder, ikke tre.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-avmeden",
+   "title": "Av-med-én (feilkode #5)",
+   "content": "**Feilkode #5** er å bomme med nøyaktig én på en løkkegrense eller en indeks. Den har tre faste former i denne sjangeren:\n\n- Å ta med stoppverdien i en `range` (fem elementer gir indeks 0 til 4, ikke 0 til 5).\n- Å tro at «annethvert» starter på det andre elementet når koden sier `range(0, n, 2)`, eller motsatt.\n- Å telle løkkerundene i hodet i stedet for å skrive rekka ned.\n\nFeilen gir ikke krasj. Programmet svarer bare feil, og du oppdager det aldri uten tavla.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o1-o",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger B — kodesporing, altså «hva skriver dette programmet ut?».) Skriv de tre linjene nøyaktig slik terminalen viser dem.\n\n```python\nfor i in range(3):\n    print(i * 2)\n```",
+    "solution": "**Sporingstavle**\n\n| Runde | `i` | Skriver |\n|---|---|---|\n| 1 | 0 | `0` |\n| 2 | 1 | `2` |\n| 3 | 2 | `4` |\n\n**Utskrift:**\n```\n0\n2\n4\n```\n\n**Fellenote:** `range(3)` starter på 0 og stopper før 3, så du får tre linjer — ikke fire, og ingen linje med `6`.",
+    "hints": [
+     "Skriv ned hvilke tall `range(3)` faktisk gir, før du regner noe.",
+     "Hvert `print` inne i løkka gir én ny linje.",
+     "Stoppverdien er aldri med i rekka."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o2-o",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) En treningsapp har lagret ukens løpedistanser. Hva skriver programmet ut?\n\n```python\nmeter = [5, 8, 13, 21, 34]\nfor i in range(1, len(meter), 2):\n    meter[i] = meter[i] + 100\nprint(meter)\n```",
+    "solution": "**Sporingstavle**\n\n`len(meter)` er 5, så `range(1, 5, 2)` gir 1 og 3. To runder.\n\n| Runde | `i` | `meter[i]` før | `meter` etterpå |\n|---|---|---|---|\n| 1 | 1 | 8 | `[5, 108, 13, 21, 34]` |\n| 2 | 3 | 21 | `[5, 108, 13, 121, 34]` |\n\n**Utskrift:**\n```\n[5, 108, 13, 121, 34]\n```\n\n**Fellenote:** fellen er **#5** — `range(1, 5, 2)` treffer indeks 1 og 3, altså det andre og fjerde tallet. Starter du på indeks 0, endrer du 5, 13 og 34 i stedet, og hele lista blir feil.",
+    "hints": [
+     "Skriv opp indeksene 0, 1, 2, 3, 4 over tallene før du begynner.",
+     "Hvilke av disse indeksene gir `range(1, 5, 2)`?",
+     "Lista endres underveis — før den på nytt etter hver runde."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o3-o",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Løkka teller nedover. Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(10, 0, -3):\n    total = total + i\n    print(i, total)\n```",
+    "solution": "**Sporingstavle**\n\n`range(10, 0, -3)` starter på 10 og trekker fra 3 helt til den ville nådd 0 eller lavere: 10, 7, 4, 1. Tallet 0 er stoppverdien og er **ikke** med, og −2 er forbi den.\n\n| Runde | `i` | `total` etterpå | Skriver |\n|---|---|---|---|\n| 1 | 10 | 10 | `10 10` |\n| 2 | 7 | 17 | `7 17` |\n| 3 | 4 | 21 | `4 21` |\n| 4 | 1 | 22 | `1 22` |\n\n**Utskrift:**\n```\n10 10\n7 17\n4 21\n1 22\n```\n\n**Fellenote:** to feller på én gang. Den ene er **#5** — å ta med 0 og få en femte linje. Den andre er utskriftsformen: `print(i, total)` gir to tall på samme linje med ett mellomrom mellom, ikke på hver sin linje.",
+    "hints": [
+     "Skriv ned hele rekka `range(10, 0, -3)` gir, før du summerer.",
+     "Med negativt steg stopper løkka når verdien ville passert stoppverdien.",
+     "Akkumulatoren `total` bærer verdien videre fra runde til runde."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-warn-range",
+   "title": "Typiske feil: løkkegrensene",
+   "content": "Tre feil står for de fleste tapte poengene i økt 2, og de er alle varianter av **#5** — av-med-én:\n\n- **Å ta med stoppverdien.** `range(1, 5)` gir 1, 2, 3, 4. Aldri 5.\n- **Å telle runder i stedet for å skrive rekka.** «Fem elementer, altså fem runder» er sant for `range(len(x))`, men usant for `range(1, len(x), 2)`.\n- **Å glemme at listemutasjon er varig.** Endrer løkka `x[i]`, gjelder endringen resten av programmet. Skriv lista på nytt i tavla etter hver runde.\n\nMotgiften er den samme for alle tre: skriv rekka ned først, som en eksplisitt liste med tall.",
+   "type": "warning"
+  },
+  {
+   "id": "tdt4110-5-1-t-okt3",
+   "content": "## Økt 3 — utsnitt: element eller struktur? (~12 min)\n\nNesten annenhver kodesporing på settet inneholder et utsnitt. Fellen er sjelden hvilke elementer du får — den er hvilken **form** svaret har. `x[2]` gir tallet `9`. `x[2:3]` gir lista `[9]`. Skriver du feil form, er svaret feil.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-1-def-slice",
+   "title": "`x[a:b:s]` — utsnitt",
+   "content": "Gir en **ny** sekvens av samme type som originalen: fra og med indeks `a`, til men ikke med `b`, i sprang på `s`. Originalen er uendret.\n\n- `x[2:5]` gir elementene på plass 2, 3 og 4.\n- `x[:3]` starter fra begynnelsen, `x[3:]` går til slutten.\n- `x[::2]` gir indeks 0, 2, 4 … og `x[1::2]` gir 1, 3, 5 …\n- `x[-2:]` gir de to siste.\n\nUtsnitt av ei liste er ei liste; utsnitt av en streng er en streng. Et utsnitt med ett element er fortsatt en liste: `[9]`, ikke `9`.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-revers",
+   "title": "`x[::-1]` — snudd kopi",
+   "content": "Gir en ny sekvens med elementene i motsatt rekkefølge. Originalen er uendret — det er forskjellen fra `x.reverse()`, som snur lista på plass og returnerer `None`.\n\nPå en streng er `s[::-1]` den vanligste palindromtesten: `s == s[::-1]`. På ei liste er den den raskeste måten å lese bakfra uten en løkke med negative indekser.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-elem",
+   "title": "Element eller struktur",
+   "content": "Det avgjørende spørsmålet i enhver sporing: har du fått **én verdi** eller **en samling**?\n\n| Uttrykk | Du får | Skrives som |\n|---|---|---|\n| `x[2]` | ett element | `9` |\n| `x[2:3]` | liste med ett element | `[9]` |\n| `s[0]` | en streng med ett tegn | `B` |\n| `s[0:1]` | en streng med ett tegn | `B` |\n| `x[:]` | en kopi av hele lista | `[3, 6, 9]` |\n\nMerk den ene forskjellen mellom lister og strenger: et enkelt tegn ER en streng i Python, så for strenger ser `s[0]` og `s[0:1]` like ut når de skrives ut.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o4-o",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut? Pass på formen på hvert av de fire svarene.\n\n```python\nbokstaver = ['a', 'b', 'c', 'd', 'e', 'f']\nprint(bokstaver[2:5])\nprint(bokstaver[2])\nprint(bokstaver[::2])\nprint(bokstaver[-2:])\n```",
+    "solution": "**Sporingstavle**\n\nIndeksene er 0 til 5.\n\n| Uttrykk | Hvilke indekser | Form |\n|---|---|---|\n| `bokstaver[2:5]` | 2, 3, 4 | liste |\n| `bokstaver[2]` | bare 2 | ett element |\n| `bokstaver[::2]` | 0, 2, 4 | liste |\n| `bokstaver[-2:]` | 4, 5 | liste |\n\n**Utskrift:**\n```\n['c', 'd', 'e']\nc\n['a', 'c', 'e']\n['e', 'f']\n```\n\n**Fellenote:** linje 2 er den eneste uten hakeparenteser, fordi `bokstaver[2]` er ett element. Legg også merke til at strengene får fnutter når de står inne i ei liste, men ikke når de skrives ut alene.",
+    "hints": [
+     "Skriv indeksene 0–5 over bokstavene.",
+     "Spør for hver linje: gir dette ett element eller en samling?",
+     "Negative indekser teller bakfra, der −1 er den siste."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o5-o",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) En billett har en kode med tre felt. Hva skriver programmet ut?\n\n```python\nkode = 'BUSS-2026-OSLO'\nprint(kode[:4])\nprint(kode[-4:])\nprint(kode[::-1][:4])\nprint(len(kode.split('-')))\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Utregning | Verdi |\n|---|---|---|\n| `kode[:4]` | de fire første tegnene | `BUSS` |\n| `kode[-4:]` | de fire siste tegnene | `OSLO` |\n| `kode[::-1]` | hele koden baklengs | `OLSO-6202-SSUB` |\n| `kode[::-1][:4]` | de fire første av den snudde | `OLSO` |\n| `kode.split('-')` | deler på bindestrek | tre felt |\n\n**Utskrift:**\n```\nBUSS\nOSLO\nOLSO\n3\n```\n\n**Fellenote:** `OLSO` er ikke `OSLO`. Når du snur hele strengen og deretter tar de fire første, får du de fire siste tegnene i motsatt rekkefølge. Å hoppe over det ene steget er den vanligste feilen på kjedede utsnitt.",
+    "hints": [
+     "Skriv hele strengen baklengs på kladdearket før du tar utsnittet.",
+     "To utsnitt etter hverandre gjøres i rekkefølge, venstre mot høyre.",
+     "`split` gir ei liste, og `len` teller elementene i den."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o6-o",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nverdier = [3, 6, 9, 12]\nkopi = verdier[:]\nalias = verdier\nalias.append(15)\nprint(verdier)\nprint(kopi)\nprint(len(alias))\n```",
+    "solution": "**Sporingstavle**\n\n| Linje | Hva skjer | `verdier` | `kopi` |\n|---|---|---|---|\n| `kopi = verdier[:]` | utsnittet lager en NY liste | `[3, 6, 9, 12]` | `[3, 6, 9, 12]` |\n| `alias = verdier` | nytt navn på den SAMME lista | `[3, 6, 9, 12]` | `[3, 6, 9, 12]` |\n| `alias.append(15)` | endrer lista begge navnene peker på | `[3, 6, 9, 12, 15]` | `[3, 6, 9, 12]` |\n\n**Utskrift:**\n```\n[3, 6, 9, 12, 15]\n[3, 6, 9, 12]\n5\n```\n\n**Fellenote:** dette er felle **#15** — aliasing. `alias = verdier` kopierer ingenting; det gir bare et navn til på den samme lista. `verdier[:]` derimot lager en ekte kopi, og den blir stående uendret. Fellen er å tro at `kopi` også får 15.",
+    "hints": [
+     "Tegn to piler: hvilke navn peker på den samme lista?",
+     "`[:]` lager noe nytt. Et likhetstegn alene gjør det ikke.",
+     "`append` endrer lista der den står, uansett hvilket navn du bruker."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-t-okt4",
+   "content": "## Økt 4 — nøstede løkker og tabeller (~14 min)\n\nEn 2D-liste er en tabell: ei liste der hvert element selv er ei liste, altså en rad. Sporingen av nøstede løkker har én fast felle — antall runder er produktet, ikke summen. En ytre løkke på 3 og en indre på 4 gir 12 runder.\n\n— naturlig pausepunkt —",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-1-def-nostet",
+   "title": "Nøstet løkke — antall runder",
+   "content": "En løkke inne i en annen kjører den indre kroppen én gang for hver kombinasjon: er den ytre `range(3)` og den indre `range(4)`, kjøres kroppen $3 \\times 4 = 12$ ganger.\n\nI sporingen fører du den som to kolonner, `i` og `j`, og lar `j` gå hele veien rundt før `i` øker med 1. Er den indre grensa avhengig av den ytre — for eksempel `range(len(tabell[i]))` — må du lese den på nytt for hver ytre runde.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-2d",
+   "title": "`tabell[i][j]` — celle i en tabell",
+   "content": "`tabell[i]` er hele **rad** nummer `i` — ei liste. `tabell[i][j]` er cellen i den raden, kolonne `j` — én verdi.\n\n- `len(tabell)` er antall rader.\n- `len(tabell[0])` er antall kolonner i første rad.\n\nRekkefølgen er alltid rad først, kolonne etterpå. Bytter du dem, får du enten feil verdi eller `IndexError` — og på papiret ser koden helt riktig ut.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-o7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o7-o",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Legg merke til de to `print`-kallene: det ene har `end`, det andre er tomt. Hva skriver programmet ut?\n\n```python\ntabell = [[1, 2, 3], [4, 5, 6]]\nfor rad in tabell:\n    for v in rad:\n        print(v, end=' ')\n    print()\n```",
+    "solution": "**Sporingstavle**\n\n| Ytre runde | `rad` | Indre skriver | Etter `print()` |\n|---|---|---|---|\n| 1 | `[1, 2, 3]` | `1 `, `2 `, `3 ` | linjeskift |\n| 2 | `[4, 5, 6]` | `4 `, `5 `, `6 ` | linjeskift |\n\n**Utskrift:**\n```\n1 2 3 \n4 5 6 \n```\n\n**Fellenote:** `end=' '` erstatter linjeskiftet med et mellomrom, så tallene i en rad havner på samme linje — med et mellomrom også etter det siste. Den tomme `print()` står i den ytre løkka og lager linjeskiftet mellom radene. Overser du `end`, svarer du med seks linjer i stedet for to.",
+    "hints": [
+     "Hva gjør `end=' '` med linjeskiftet `print` ellers legger på?",
+     "Hvilken løkke står den tomme `print()` i — den indre eller den ytre?",
+     "Tell hvor mange mellomrom som faktisk skrives etter det siste tallet i hver rad."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o8-o",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva returnerer og skriver programmet ut?\n\n```python\ntabell = [[1, 2], [3, 4], [5, 6]]\nny = []\nfor j in range(len(tabell[0])):\n    rad = []\n    for i in range(len(tabell)):\n        rad.append(tabell[i][j])\n    ny.append(rad)\nprint(ny)\nprint(len(ny), len(ny[0]))\n```",
+    "solution": "**Sporingstavle**\n\n`len(tabell[0])` er 2 (to kolonner), `len(tabell)` er 3 (tre rader). Den ytre løkka går over kolonnene.\n\n| `j` | `i` | `tabell[i][j]` | `rad` etterpå |\n|---|---|---|---|\n| 0 | 0 | 1 | `[1]` |\n| 0 | 1 | 3 | `[1, 3]` |\n| 0 | 2 | 5 | `[1, 3, 5]` |\n| 1 | 0 | 2 | `[2]` |\n| 1 | 1 | 4 | `[2, 4]` |\n| 1 | 2 | 6 | `[2, 4, 6]` |\n\n**Utskrift:**\n```\n[[1, 3, 5], [2, 4, 6]]\n2 3\n```\n\n**Fellenote:** koden **transponerer** tabellen — rader blir kolonner. Fellen er at `i` og `j` er byttet om i forhold til det du er vant til: den ytre løkka går over kolonner, den indre over rader. Leser du `tabell[i][j]` som «rad `j`, kolonne `i`», får du `[[1, 2, 3], [4, 5, 6]]`, som er feil.",
+    "hints": [
+     "Skriv opp hvilken av de to løkkene som går over rader, og hvilken over kolonner.",
+     "Den indre lista `rad` opprettes på nytt for hver ytre runde.",
+     "Tabellen har tre rader og to kolonner. Hva har resultatet?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o9-o",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Et rutenett viser hvilke returpunkter som er fulle (1) og tomme (0). Hva skriver programmet ut?\n\n```python\nrutenett = [[0, 1, 0], [1, 1, 0], [0, 0, 1]]\nantall = 0\nfor i in range(len(rutenett)):\n    for j in range(len(rutenett[i])):\n        if rutenett[i][j] == 1 and i != j:\n            antall = antall + 1\nprint(antall)\n```",
+    "solution": "**Sporingstavle** — bare cellene med verdien 1 er interessante:\n\n| `i` | `j` | Verdi | `i != j` | Telles? |\n|---|---|---|---|---|\n| 0 | 1 | 1 | sann | ja |\n| 1 | 0 | 1 | sann | ja |\n| 1 | 1 | 1 | usann | nei |\n| 2 | 2 | 1 | usann | nei |\n\nDe øvrige fem cellene er 0 og faller på den første betingelsen.\n\n**Utskrift:**\n```\n2\n```\n\n**Fellenote:** løkka går ni ganger — $3 \\times 3$ — men bare fire celler har verdien 1, og to av dem ligger på diagonalen der `i == j`. Glemmer du den andre betingelsen, svarer du 4.",
+    "hints": [
+     "Skriv opp koordinatene til alle cellene som har verdien 1.",
+     "`and` krever at begge betingelsene er sanne samtidig.",
+     "Hvilke celler har samme rad- og kolonnenummer?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-warn-2d",
+   "title": "Typiske feil: tabeller og nøstede løkker",
+   "content": "- **Rad og kolonne byttet om.** `tabell[i][j]` er rad `i`, kolonne `j`. Alltid. På transponeringsoppgaver er dette den eneste fellen som betyr noe.\n- **Antall runder lagt sammen i stedet for ganget.** To nøstede løkker over 3 og 4 gir 12 runder.\n- **Den indre lista gjenbrukt.** Står `rad = []` utenfor den ytre løkka, samler alle radene seg i én liste. Se nøye på innrykket.\n- **Navnet `rad` brukt om to ting.** I bokas kode er `rad` alltid hele raden (ei liste). Bruker en oppgave `rad` om ett element, må du lese ekstra nøye — det er en varslet navnekollisjon.",
+   "type": "warning"
+  },
+  {
+   "id": "tdt4110-5-1-t-okt5",
+   "content": "## Økt 5 — ordbøker: teller og gruppering (~12 min)\n\nOrdboka dukker opp i sporingssjangeren i én av to former: som teller («hvor mange av hver?») eller som gruppering («hvilke hører til hver?»). Fellen er den samme begge steder — utskriftsformen.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-1-def-get",
+   "title": "`d.get(k, standardverdi)`",
+   "content": "Slår opp nøkkelen `k` i ordboka `d`. Finnes den, returneres verdien; finnes den ikke, returneres standardverdien — **uten** at nøkkelen settes inn i ordboka.\n\nDet er nettopp derfor telleren `d[k] = d.get(k, 0) + 1` virker: første gang en nøkkel dukker opp, gir `get` verdien 0, og tilordningen setter den inn med verdien 1. Uten `get` ville oppslaget gitt `KeyError`.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-dictut",
+   "title": "Slik skriver Python ut en ordbok",
+   "content": "En ordbok skrives med krøllparenteser, kolon mellom nøkkel og verdi, og komma-mellomrom mellom parene: `{'buss': 3, 'trikk': 2}`.\n\nTo ting avgjør poenget ditt:\n\n- **Rekkefølgen er innsettingsrekkefølgen** i Python 3.7 og nyere — ikke alfabetisk. Nøkkelen som dukket opp først i dataene, står først.\n- **Strenger som nøkler og verdier får fnutter** når ordboka skrives ut, akkurat som inne i ei liste. Tall får det ikke.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-o10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o10-o",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Hva skriver programmet ut?\n\n```python\nlinjer = ['buss', 'trikk', 'buss', 'tog', 'buss', 'trikk']\nteller = {}\nfor t in linjer:\n    teller[t] = teller.get(t, 0) + 1\nprint(teller)\nprint(teller.get('ferge', 0))\nprint(len(teller))\n```",
+    "solution": "**Sporingstavle**\n\n| `t` | `get` gir | `teller` etterpå |\n|---|---|---|\n| `buss` | 0 | `{'buss': 1}` |\n| `trikk` | 0 | `{'buss': 1, 'trikk': 1}` |\n| `buss` | 1 | `{'buss': 2, 'trikk': 1}` |\n| `tog` | 0 | `{'buss': 2, 'trikk': 1, 'tog': 1}` |\n| `buss` | 2 | `{'buss': 3, 'trikk': 1, 'tog': 1}` |\n| `trikk` | 1 | `{'buss': 3, 'trikk': 2, 'tog': 1}` |\n\n**Utskrift:**\n```\n{'buss': 3, 'trikk': 2, 'tog': 1}\n0\n3\n```\n\n**Fellenote:** rekkefølgen i utskriften er den nøklene ble satt inn i, ikke alfabetisk — `buss`, `trikk`, `tog`. Og `teller.get('ferge', 0)` gir 0 uten å legge til nøkkelen, så `len(teller)` er fortsatt 3, ikke 4.",
+    "hints": [
+     "Før ordboka på nytt etter hver runde i løkka.",
+     "Hva gjør `get` når nøkkelen ikke finnes — og hva gjør den IKKE?",
+     "Nøklene står i den rekkefølgen de dukket opp første gang."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o11",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o11-o",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) En treningslogg er lagret som en tabell med dag og antall minutter. Hva skriver programmet ut?\n\n```python\nlogg = [['mandag', 40], ['tirsdag', 25], ['mandag', 70]]\ngrupper = {}\nfor rad in logg:\n    dag = rad[0]\n    if dag not in grupper:\n        grupper[dag] = []\n    grupper[dag].append(rad[1])\nprint(grupper)\nprint(sorted(grupper))\nprint(sum(grupper['mandag']))\n```",
+    "solution": "**Sporingstavle**\n\n| `rad` | Ny nøkkel? | `grupper` etterpå |\n|---|---|---|\n| `['mandag', 40]` | ja | `{'mandag': [40]}` |\n| `['tirsdag', 25]` | ja | `{'mandag': [40], 'tirsdag': [25]}` |\n| `['mandag', 70]` | nei | `{'mandag': [40, 70], 'tirsdag': [25]}` |\n\n**Utskrift:**\n```\n{'mandag': [40, 70], 'tirsdag': [25]}\n['mandag', 'tirsdag']\n110\n```\n\n**Fellenote:** `sorted(grupper)` sorterer **nøklene**, ikke verdiene, og gir ei liste med strenger. Og `grupper['mandag']` er ei liste med to tall, så `sum` av den er 110 — ikke antall registreringer.",
+    "hints": [
+     "Grupperingen oppretter den indre lista FØR den legger noe i den.",
+     "Hva itererer `sorted` over når du gir den en ordbok?",
+     "Verdien til hver nøkkel er ei liste, ikke ett tall."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-t-okt6",
+   "content": "## Økt 6 — boolske uttrykk og returverdier (~12 min)\n\nDen andre halvparten av kodeforståelsesoppgaven spør ikke «hva skrives ut», men «hva returnerer `myst(4, 4)`?». Da er det to ting som avgjør: presedensen i det boolske uttrykket, og hva som skjer når ingen `return` blir nådd.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-1-def-presedens",
+   "title": "Presedens i boolske uttrykk",
+   "content": "Rekkefølgen er fast: **sammenligninger** først, så `not`, så `and`, så `or`.\n\nDet betyr at `x > 0 and y > 0 or x == y` leses som `(x > 0 and y > 0) or (x == y)`. `and` binder sterkere enn `or`, akkurat som gange binder sterkere enn pluss.\n\nI sporingen setter du parentesene inn på kladdearket FØR du regner. Det tar fem sekunder og fjerner hele fellen.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-none",
+   "title": "`None` — funksjonen som ikke returnerte",
+   "content": "Faller kjøringen ut nederst i en funksjon uten å møte en `return`, returneres `None`. Det skjer oftere enn man tror: en `if/elif`-kjede uten `else` har alltid en vei ut som ingen har tenkt på.\n\n`print(None)` skriver `None` — med stor N og uten fnutter. Det er et helt legitimt svar på «hva returnerer kallet?», og det er det svaret sporingsoppgavene oftest er ute etter.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-o12",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o12-o",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing av returverdier.) Hva skriver programmet ut?\n\n```python\ndef test(x, y):\n    return x > 0 and y > 0 or x == y\n\nprint(test(4, 4))\nprint(test(-2, -2))\nprint(test(3, -1))\nprint(test(0, 5))\n```",
+    "solution": "**Sporingstavle**\n\nSett parentesene inn først: `(x > 0 and y > 0) or (x == y)`.\n\n| Kall | Venstre side | Høyre side | Resultat |\n|---|---|---|---|\n| `test(4, 4)` | sann | sann | `True` |\n| `test(-2, -2)` | usann | sann | `True` |\n| `test(3, -1)` | usann | usann | `False` |\n| `test(0, 5)` | usann | usann | `False` |\n\n**Utskrift:**\n```\nTrue\nTrue\nFalse\nFalse\n```\n\n**Fellenote:** `test(-2, -2)` er hele poenget. Begge tallene er negative, så venstresiden er usann — men de er like, så `or`-siden redder uttrykket. Leser du uttrykket fra venstre uten presedens, får du `False` her.",
+    "hints": [
+     "Sett parenteser rundt `and`-delen før du regner noe som helst.",
+     "`or` er sann så snart én av sidene er sann.",
+     "Er 0 større enn 0?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o13",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o13-o",
+    "number": "13",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing av returverdier.) En poengskala er kodet slik. Hva skriver programmet ut?\n\n```python\ndef nivaa(poeng):\n    if poeng >= 90:\n        return 'topp'\n    elif poeng >= 60:\n        return 'midt'\n    elif poeng >= 40:\n        return 'nede'\n\nprint(nivaa(95))\nprint(nivaa(60))\nprint(nivaa(39))\n```",
+    "solution": "**Sporingstavle**\n\n| Kall | Første sanne gren | Returverdi |\n|---|---|---|\n| `nivaa(95)` | `poeng >= 90` | `'topp'` |\n| `nivaa(60)` | `poeng >= 60` | `'midt'` |\n| `nivaa(39)` | ingen | `None` |\n\n**Utskrift:**\n```\ntopp\nmidt\nNone\n```\n\n**Fellenote:** `nivaa(60)` treffer akkurat på grensa, og `>=` tar den med. `nivaa(39)` faller gjennom alle tre grenene, og da returneres `None` — det er ingen `else`. Svarer du med en tom linje i stedet for `None`, er svaret feil.",
+    "hints": [
+     "Test hver grense for seg — er `>=` med eller uten grenseverdien?",
+     "Hva skjer når ingen av grenene slår til?",
+     "Strenger skrives uten fnutter når de skrives ut alene."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-t-okt7",
+   "content": "## Økt 7 — `while`, heltallsdeling og utskriftsform (~14 min)\n\nSiste økt samler tre feller som gjerne kommer sammen på de tyngste deloppgavene: en `while`-løkke der du må finne terminerings­betingelsen selv, heltallsdeling på negative tall, og `print` med `sep` og `end`.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-1-def-while",
+   "title": "`while`-terminering",
+   "content": "En `while`-løkke kjører så lenge betingelsen er sann, og sjekker den på nytt før hver runde. I sporingen fører du én rad per runde og skriver betingelsens verdi i en egen kolonne.\n\nTo ting må du alltid sjekke:\n\n- **Endres noe i kroppen som gjør betingelsen usann til slutt?** Gjør den ikke det, løper løkka evig, og det er et gyldig svar på en sporingsoppgave.\n- **Hva er verdiene ETTER siste runde?** Det er dem `print` etter løkka skriver ut, ikke verdiene inni.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-divisjon",
+   "title": "`//` og `%` — også for negative tall",
+   "content": "`//` er heltallsdeling og avrunder **nedover**, altså mot minus uendelig — ikke mot null. `%` gir resten, og den har alltid samme fortegn som divisoren.\n\n- `125 // 60` er 2, og `125 % 60` er 5.\n- `-125 // 60` er **−3**, ikke −2, og `-125 % 60` er **55**.\n\nSammenhengen som alltid holder, er at `(a // b) * b + (a % b)` er lik `a`. Sjekk svaret ditt med den når fortegnet er negativt: `-3 * 60 + 55` er `-125`.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-def-print",
+   "title": "`print` med `sep` og `end`",
+   "content": "`print` gjør to ting du må kunne gjengi nøyaktig:\n\n- Den skiller argumentene med **ett mellomrom**. `sep='-'` bytter det ut, så `print('a', 'b', sep='-')` skriver `a-b`.\n- Den avslutter med **ett linjeskift**. `end=' '` bytter det ut, så neste utskrift fortsetter på samme linje. `print()` uten argumenter skriver bare linjeskiftet.\n\nOverser du `end`, blir svaret ditt riktig i innhold og feil i form — og sjangeren spør etter formen.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-1-o14",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o14-o",
+    "number": "14",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) Løkka bruker den samme regnemåten som Euklids algoritme, som du møter igjen i [kap. 5.2](/tdt4110/tdt4110-5-2). Hva skriver programmet ut?\n\n```python\na = 84\nb = 36\nrunder = 0\nwhile b != 0:\n    a, b = b, a % b\n    runder = runder + 1\nprint(a, runder)\n```",
+    "solution": "**Sporingstavle**\n\n| Runde | `a` før | `b` før | `a % b` | `a` etter | `b` etter |\n|---|---|---|---|---|---|\n| 1 | 84 | 36 | 12 | 36 | 12 |\n| 2 | 36 | 12 | 0 | 12 | 0 |\n\nEtter runde 2 er `b` lik 0, betingelsen er usann, og løkka stopper.\n\n**Utskrift:**\n```\n12 2\n```\n\n**Fellenote:** linja `a, b = b, a % b` regner ut **hele høyresiden først**, og tilordner deretter. Bruker du den nye `a`-verdien når du regner `a % b`, får du feil i runde 2. Skriv derfor alltid ned begge gamle verdiene før du oppdaterer.",
+    "hints": [
+     "Skriv ned `a` og `b` i hver sin kolonne, og les hele høyresiden før du tilordner.",
+     "Løkka stopper når `b` blir 0 — hva er `a` da?",
+     "Telleren økes én gang per runde, ikke én gang per tilordning."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o15",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o15-o",
+    "number": "15",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing.) En sensor har logget en tidsavvik i sekunder, og det kan være negativt. Hva skriver programmet ut?\n\n```python\navvik = -125\nprint(avvik // 60, avvik % 60)\nprint(abs(avvik) // 60, abs(avvik) % 60)\nprint(7500 // 3600, (7500 % 3600) // 60, 7500 % 60)\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Utregning | Verdi |\n|---|---|---|\n| `-125 // 60` | avrundes NEDOVER fra −2,08 | −3 |\n| `-125 % 60` | `-3 * 60 + 55` er `-125` | 55 |\n| `125 // 60` | 2 hele minutter | 2 |\n| `125 % 60` | resten | 5 |\n| `7500 // 3600` | hele timer | 2 |\n| `(7500 % 3600) // 60` | 300 sekunder igjen, delt på 60 | 5 |\n| `7500 % 60` | resten av sekundene | 0 |\n\n**Utskrift:**\n```\n-3 55\n2 5\n2 5 0\n```\n\n**Fellenote:** dette er felle **#9** — å blande heltalls- og flyttallsdeling og å avrunde feil vei. `-125 // 60` er −3, ikke −2: `//` går nedover, ikke mot null. Svarer du `-2 -5`, har du regnet som en kalkulator, ikke som Python.",
+    "hints": [
+     "Bruk sammenhengen `(a // b) * b + (a % b)` er lik `a` som fasitsjekk.",
+     "Hvilken vei avrunder `//` når svaret er negativt?",
+     "Siste linje er tidsformelen: timer, minutter, sekunder."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-o16",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-1-o16-o",
+    "number": "16",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — kodesporing av utskriftsform.) Fire linjer, fire forskjellige utskriftsformer. Hva skriver programmet ut?\n\n```python\nfelt = ['NO', '2026', '07']\nprint(felt[0], felt[1], sep='-')\nprint('rad', 1, end=' | ')\nprint('rad', 2)\nprint('-'.join(felt))\n```",
+    "solution": "**Sporingstavle** — her fører vi den som en liste, fordi det ene skilletegnet i koden selv er en loddrett strek:\n\n- **Linje 1** bytter ut mellomrommet mellom argumentene med bindestrek, og avslutter med linjeskift: `NO-2026`.\n- **Linje 2** skriver `rad 1` og deretter mellomrom, loddrett strek, mellomrom — men **ikke** linjeskift.\n- **Linje 3** fortsetter derfor på den samme linja med `rad 2`, og avslutter den med linjeskift.\n- **Linje 4** limer alle tre feltene sammen med bindestrek: `NO-2026-07`.\n\n**Utskrift:**\n```\nNO-2026\nrad 1 | rad 2\nNO-2026-07\n```\n\n**Fellenote:** de to midterste `print`-kallene gir **én** linje til sammen, ikke to. Og `sep` gjelder bare mellom argumentene i sitt eget kall — den påvirker ikke `join`, som limer med sin egen streng.",
+    "hints": [
+     "Tell hvor mange linjeskift som faktisk skrives.",
+     "`sep` står mellom argumentene; `end` står etter det siste.",
+     "`'-'.join(felt)` limer elementene med bindestrek — uten hakeparenteser."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-1-tip-signal",
+   "title": "Signalene: hva testes egentlig?",
+   "content": "Når du har jobbet deg gjennom de seksten oppgavene over, kjenner du igjen sjangeren på tre sekunder. Se etter disse signalene i oppgaveteksten:\n\n| Ser du dette | Da testes |\n|---|---|\n| `range(` med tre argumenter | grensene og steget — felle **#5** |\n| To hakeparenteser etter hverandre, `x[i][j]` | rad mot kolonne |\n| Kolon inne i hakeparentesene, `x[a:b]` | element mot struktur |\n| `.get(` | ordbok-telleren og at nøkkelen ikke settes inn |\n| `and` og `or` i samme uttrykk | presedens |\n| En `if/elif`-kjede uten `else` | `None` som returverdi |\n| `end=` eller `sep=` | utskriftsformen, ikke innholdet |\n| `//` eller `%` med negative tall | avrundingsretningen — felle **#9** |\n| `while` uten teller | termineringen |\n\nSignalet forteller deg hva du skal føre i tavla. Det er hele forskjellen mellom to minutter og ti på en deloppgave.",
+   "type": "tip"
+  },
+  {
+   "id": "tdt4110-5-1-warn-samlet",
+   "title": "Typiske feil: hele fellekatalogen samlet",
+   "content": "De ni fellene i sjangeren, i den rekkefølgen de koster mest:\n\n1. **#5 — av-med-én** i `range` og indeksering. Skriv rekka ned.\n2. **Utsnitt lest som element.** `x[2:3]` er `[9]`, ikke `9`.\n3. **Utskriftsformen.** Hakeparenteser, komma-mellomrom, fnutter inne i lister, ingen fnutter alene.\n4. **`end=` og `sep=` oversett.** Innholdet riktig, formen feil, poenget tapt.\n5. **Presedens i `and`/`or`.** Sett parentesene inn først.\n6. **`None` glemt** når en `if/elif`-kjede mangler `else`.\n7. **#9 — `//` på negative tall** avrunder nedover, ikke mot null.\n8. **Nøstede løkkegrenser** ganges, ikke legges sammen.\n9. **#15 — aliasing.** `b = a` er ikke en kopi.\n\nAlle ni forsvinner med den samme vanen: før tavla, og skriv svaret av fra den.",
+   "type": "warning"
+  },
+  {
+   "id": "tdt4110-5-1-col-repetisjon",
+   "title": "Repetisjon — de sju setningene du bør ha med deg",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "tdt4110-5-1-col-repetisjon-t1",
+     "type": "text",
+     "content": "1. Stoppverdien i en `range` er aldri med.\n2. Et utsnitt gir en ny sekvens; en indeks gir ett element.\n3. Lister skrives med hakeparenteser og komma-mellomrom, ordbøker med krøllparenteser og kolon.\n4. `d.get(k, 0)` gir standardverdien uten å sette inn nøkkelen.\n5. `and` binder sterkere enn `or`.\n6. En funksjon uten truffet `return` gir `None`.\n7. `//` avrunder nedover — også for negative tall."
+    }
+   ],
+   "type": "collapsible"
+  },
+  {
+   "id": "tdt4110-5-1-col-api",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-5-1-col-api-t1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `range(start, stopp, steg)` | Tallrekke som stopper FØR `stopp`; `range(1, 6, 2)` gir 1, 3, 5 |\n| `range(a, b, -s)` | Teller nedover; `range(10, 0, -3)` gir 10, 7, 4, 1 |\n| `len(x)` | Antall elementer; lovlige indekser er 0 til `len(x) - 1` |\n| `x[i]` | Ett element; `x[-1]` er det siste |\n| `x[a:b]` | NY sekvens fra `a` til men ikke med `b`; originalen uendret |\n| `x[a:b:s]` | Som over, i sprang på `s`; `x[::2]` gir indeks 0, 2, 4 … |\n| `x[::-1]` | Ny sekvens i motsatt rekkefølge |\n| `x[:]` | Ekte kopi — det som skiller kopi fra alias |\n| `x.append(v)` | Legger `v` bakerst; endrer lista; returnerer `None` |\n| `tabell[i][j]` | Rad `i`, kolonne `j` — i den rekkefølgen |\n| `len(tabell)` / `len(tabell[0])` | Antall rader / antall kolonner i første rad |\n| `d.get(k, 0)` | Verdien, eller 0 hvis nøkkelen mangler; setter den IKKE inn |\n| `d[k] = v` | Setter inn eller oppdaterer |\n| `k in d` | Sann hvis nøkkelen finnes |\n| `sorted(d)` | Ny liste med de sorterte NØKLENE |\n| `sum(x)` | Summen av tallene; 0 for tom liste |\n| `abs(x)` | Tallverdien uten fortegn |\n| `//` | Heltallsdeling som avrunder NEDOVER, også for negative |\n| `%` | Resten; samme fortegn som divisoren |\n| `and` / `or` / `not` | Presedens: `not` sterkest, så `and`, så `or` |\n| `print(a, b)` | Skiller argumentene med ett mellomrom, avslutter med linjeskift |\n| `print(..., sep='-')` | Bytter ut mellomrommet mellom argumentene |\n| `print(..., end=' ')` | Bytter ut linjeskiftet til slutt |\n| `print()` | Skriver bare linjeskiftet |\n| `sep.join(liste)` | Limer strengene sammen med `sep` mellom |\n| `s.split(sep)` | Deler strengen i ei liste av felt |\n| `a, b = b, a % b` | Hele høyresiden regnes ut FØR tilordningen |\n| `None` | Verdien en funksjon gir når ingen `return` ble nådd |\n\n**Formler i dette delkapitlet:**\n\nAntall runder i en nøstet løkke med ytre grense $m$ og indre grense $n$ er $m \\times n$ — produktet, ikke summen.\n\nSammenhengen mellom heltallsdeling og rest, som holder også for negative tall, skrives som Python fordi begge operatorene er Python-operatorer: `(a // b) * b + (a % b)` er lik `a`."
+    }
+   ],
+   "type": "collapsible"
+  }
+ ],
+ "exercises": []
+}

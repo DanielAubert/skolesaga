@@ -1,0 +1,202 @@
+[
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(x):\n    total = 0\n    for v in x:\n        if v > 0:\n            total = total + v\n    return total\n```",
+  "options": [
+   "Returnerer summen av de positive tallene i lista",
+   "Returnerer antall positive tall som finnes i lista",
+   "Returnerer summen av alle tallene i lista, uansett fortegn",
+   "Returnerer det største positive tallet i lista"
+  ],
+  "explanation": "Variabelen legger til selve verdien, ikke 1, og bare når tallet er positivt. Svaret om antall beskriver telleren, svaret om alle tallene overser betingelsen, og svaret om det største beskriver et helt annet mønster."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(ord_liste):\n    n = 0\n    for o in ord_liste:\n        if len(o) > 4:\n            n = n + 1\n    return n\n```",
+  "options": [
+   "Teller hvor mange av ordene som har mer enn fire bokstaver",
+   "Teller hvor mange av ordene som har minst fire bokstaver i seg",
+   "Returnerer det lengste ordet blant ordene i lista",
+   "Returnerer samlet lengde på alle ordene i lista"
+  ],
+  "explanation": "Telleren økes med 1 for hvert ord der lengden er strengt større enn 4. Svaret med «minst fire» ville krevd `>=`, svaret om det lengste ordet returnerer en streng, og samlet lengde ville krevd at lengden ble lagt til."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(x):\n    ny = []\n    for i in range(0, len(x), 2):\n        ny.append(x[i])\n    return ny\n```",
+  "options": [
+   "Returnerer ei ny liste med annethvert element fra og med det første",
+   "Returnerer ei ny liste med annethvert element, fra og med det andre",
+   "Returnerer ei ny liste med alle elementene i motsatt rekkefølge",
+   "Returnerer ei ny liste med elementene på plassene 0 og 2"
+  ],
+  "explanation": "Rekka starter på 0 og hopper to og to, så indeks 0, 2, 4 og videre kommer med. Å starte på det andre ville krevd `range(1, len(x), 2)`, ingenting snus, og løkka stopper ikke etter indeks 2."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(x):\n    for v in x:\n        if v <= 0:\n            return False\n    return True\n```",
+  "options": [
+   "Sjekker om alle tallene i lista er positive",
+   "Sjekker om minst ett av tallene i lista er positivt",
+   "Sjekker om alle tallene i lista er negative eller null",
+   "Returnerer det første tallet i lista som ikke er positivt"
+  ],
+  "explanation": "Funksjonen gir `False` så snart den finner et tall som ikke er positivt, og `True` bare hvis den kommer gjennom hele lista. Svaret om minst ett beskriver motsatt logikk, svaret om negative snur betingelsen, og ingen verdi fra lista returneres."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(x):\n    beste = 0\n    for i in range(len(x)):\n        if x[i] < x[beste]:\n            beste = i\n    return beste\n```",
+  "options": [
+   "Returnerer indeksen til det minste tallet i lista",
+   "Returnerer selve verdien til det minste tallet i lista",
+   "Returnerer indeksen til det største tallet i lista",
+   "Returnerer antall tall i lista som er mindre enn det første"
+  ],
+  "explanation": "Variabelen holder på en INDEKS, ikke en verdi, og sammenligningen `<` gjør at den peker på det minste. Å returnere verdien ville krevd `x[beste]`, `>` ville gitt det største, og ingenting telles."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(tabell):\n    d = {}\n    for rad in tabell:\n        d[rad[0]] = rad[1]\n    return d\n```",
+  "options": [
+   "Bygger en ordbok der første kolonne blir nøkkel og andre kolonne verdi",
+   "Bygger en ordbok der andre kolonne blir nøkkel og første kolonne verdi",
+   "Bygger en ordbok som teller hvor mange ganger hver rad forekommer",
+   "Bygger en ordbok der hver nøkkel peker på hele raden den kom fra"
+  ],
+  "explanation": "Tilordningen setter `rad[0]` som nøkkel og `rad[1]` som verdi, én rad om gangen. De to første svarene snur rollene, telleren ville krevd `get`, og hele raden ville krevd `d[rad[0]] = rad`."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(n):\n    if n == 0:\n        return 0\n    return n % 10 + f(n // 10)\n```",
+  "options": [
+   "Returnerer tverrsummen, altså summen av sifrene i tallet",
+   "Returnerer antall sifre i et positivt heltall",
+   "Returnerer sifrene i et positivt heltall i motsatt rekkefølge",
+   "Returnerer det siste sifferet i et positivt heltall"
+  ],
+  "explanation": "Hvert steg legger til siste siffer og sender resten videre, så alle sifrene summeres. Antall sifre ville krevd at 1 ble lagt til, ingenting bygges som streng, og bare det siste sifferet ville krevd ett `return` uten kall."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(s):\n    ny = ''\n    for tegn in s:\n        ny = tegn + ny\n    return ny\n```",
+  "options": [
+   "Returnerer strengen med tegnene i motsatt rekkefølge",
+   "Returnerer strengen uendret, med tegnene i samme rekkefølge",
+   "Returnerer strengen med det første tegnet flyttet bakerst",
+   "Returnerer strengen med alle gjentatte tegn fjernet"
+  ],
+  "explanation": "Hvert nytt tegn settes FORAN det som er bygd så langt, så strengen snus. Å legge tegnet bakerst ville gitt originalen, bare ett tegn flyttes ikke, og ingen sammenligning fjerner noe."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(tabell, navn):\n    k = tabell[0].index(navn)\n    verdier = []\n    for rad in tabell[1:]:\n        verdier.append(float(rad[k]))\n    return sum(verdier) / len(verdier)\n```",
+  "options": [
+   "Returnerer gjennomsnittet av verdiene i den navngitte kolonnen",
+   "Returnerer summen av verdiene i den navngitte kolonnen",
+   "Returnerer antall rader som har en verdi i den navngitte kolonnen",
+   "Returnerer den høyeste verdien i den navngitte kolonnen"
+  ],
+  "explanation": "Summen deles på antall verdier, og overskriftsraden hoppes over med `tabell[1:]`. Summen alene ville manglet divisjonen, antallet ville vært `len(verdier)`, og den høyeste ville krevd en sammenligning."
+ },
+ {
+  "question": "Hvilken setning beskriver best hva funksjonen gjør?\n\n```python\ndef f(x, y):\n    felles = []\n    for v in x:\n        if v in y and v not in felles:\n            felles.append(v)\n    return felles\n```",
+  "options": [
+   "Returnerer verdiene som finnes i begge listene, uten duplikater",
+   "Returnerer verdiene som finnes i minst én av de to listene",
+   "Returnerer verdiene i den første lista som ikke finnes i den andre",
+   "Returnerer antall verdier som finnes i begge listene"
+  ],
+  "explanation": "Betingelsen krever både at verdien finnes i den andre lista og at den ikke alt er lagt til. Svaret om minst én beskriver en union, svaret om de som ikke finnes snur den første testen, og et antall ville krevd en teller."
+ },
+ {
+  "question": "Funksjonen skal returnere gjennomsnittet av tallene i lista. Hvilken linje hører hjemme i `#KODE1`?\n\n```text\ndef snitt(x):\n    total = 0\n    for v in x:\n        total = total + v\n    #KODE1\n```",
+  "options": [
+   "`return total / len(x)`",
+   "`return total // len(x)`",
+   "`return total / len(total)`",
+   "`return len(x) / total`"
+  ],
+  "explanation": "Summen skal deles på antall elementer, og `/` gir et flyttall slik et gjennomsnitt skal være. `total // len(x)` kutter desimalene, `len(total)` er meningsløst for et tall, og den siste linja snur brøken."
+ },
+ {
+  "question": "Funksjonen skal returnere `True` hvis to naboer i lista er like. Hvilken linje hører hjemme i `#KODE1`?\n\n```text\ndef har_like_naboer(x):\n    #KODE1\n        if x[i] == x[i + 1]:\n            return True\n    return False\n```",
+  "options": [
+   "`for i in range(len(x) - 1):`",
+   "`for i in range(len(x)):`",
+   "`for i in range(1, len(x)):`",
+   "`for i in range(len(x) + 1):`"
+  ],
+  "explanation": "Kroppen bruker `x[i + 1]`, så den største lovlige indeksen er `len(x) - 2`, og rekka må stoppe der. De tre andre grensene lar `i + 1` gå ut over lista og avbryter programmet med `IndexError`."
+ },
+ {
+  "question": "Funksjonen skal returnere ei liste med de unike verdiene, i den rekkefølgen de kom. Hvilken linje hører hjemme i `#KODE1`?\n\n```text\ndef unike(x):\n    ut = []\n    for v in x:\n        #KODE1\n            ut.append(v)\n    return ut\n```",
+  "options": [
+   "`if v not in ut:`",
+   "`if v in ut:`",
+   "`if v not in x:`",
+   "`if ut.count(v) > 0:`"
+  ],
+  "explanation": "Verdien skal legges til bare når den ikke alt er i resultatlista. `if v in ut` slipper gjennom nettopp duplikatene, `v not in x` er aldri sann siden `v` kommer derfra, og `ut.count(v) > 0` betyr det samme som `v in ut`."
+ },
+ {
+  "question": "Funksjonen skal telle hvor mange ganger hver verdi forekommer. Hvilken linje hører hjemme i `#KODE1`?\n\n```text\ndef tell(x):\n    d = {}\n    for v in x:\n        #KODE1\n    return d\n```",
+  "options": [
+   "`d[v] = d.get(v, 0) + 1`",
+   "`d[v] = d[v] + 1`",
+   "`d.get(v, 0) + 1`",
+   "`d[v] = x.count(v) + 1`"
+  ],
+  "explanation": "`get` gir 0 for en nøkkel som ikke finnes, og tilordningen lagrer det økte tallet. `d[v] + 1` avbrytes med `KeyError` første gang, linja uten likhetstegn regner riktig men lagrer ingenting, og `len(x)` er det samme for alle nøkler."
+ },
+ {
+  "question": "Funksjonen skal returnere indeksen til det største tallet i lista. Hvilken linje hører hjemme i `#KODE1`?\n\n```text\ndef storst_indeks(x):\n    beste = 0\n    for i in range(len(x)):\n        if x[i] > x[beste]:\n            #KODE1\n    return beste\n```",
+  "options": [
+   "`beste = i`",
+   "`beste = x[i]`",
+   "`i = beste`",
+   "`return i`"
+  ],
+  "explanation": "Variabelen skal holde på en indeks, så den settes til `i`. `x[i]` lagrer verdien og ødelegger sammenligningen i neste runde, `i = beste` tilordner motsatt vei, og `return i` avslutter ved første forbedring i stedet for ved den beste."
+ },
+ {
+  "question": "Funksjonen skal lage ei liste av feltene i linja, uten linjeskiftet til slutt. Fila bruker semikolon som skilletegn. Hvilken linje hører hjemme i `#KODE1`?\n\n```text\ndef parse(linje):\n    #KODE1\n```",
+  "options": [
+   "`return linje.strip().split(';')`",
+   "`return linje.split(';').strip()`",
+   "`return linje.split(';')`",
+   "`return linje.strip().split()`"
+  ],
+  "explanation": "Linja må renses FØR den deles, ellers henger linjeskiftet igjen i det siste feltet. `split(';').strip()` prøver å rense ei liste og avbryter programmet, `split(';')` alene lar linjeskiftet stå, og `split()` uten argument deler på mellomrom i stedet for semikolon."
+ },
+ {
+  "question": "Funksjonen skal legge 100 til annethvert tall i lista, med start på det andre tallet. Hvilken linje hører hjemme i `#KODE1`?\n\n```text\ndef juster(x):\n    #KODE1\n        x[i] = x[i] + 100\n    return x\n```",
+  "options": [
+   "`for i in range(1, len(x), 2):`",
+   "`for i in range(0, len(x), 2):`",
+   "`for i in range(1, len(x)):`",
+   "`for i in range(2, len(x), 2):`"
+  ],
+  "explanation": "Det andre tallet har indeks 1, og steget 2 gir annethvert derfra. Å starte på 0 treffer det første tallet, å droppe steget treffer alle fra og med det andre, og å starte på 2 hopper over det andre tallet helt."
+ },
+ {
+  "question": "Funksjonen skal returnere ei liste med kvadratet av hvert tall. Hvilken linje hører hjemme i `#KODE1`?\n\n```text\ndef kvadrer(x):\n    ut = []\n    for v in x:\n        #KODE1\n    return ut\n```",
+  "options": [
+   "`ut.append(v ** 2)`",
+   "`ut.append(v * 2)`",
+   "`ut = ut + [v * v * v]`",
+   "`return v ** 2`"
+  ],
+  "explanation": "`append` legger kvadratet bakerst i resultatlista for hver runde. `v * 2` dobler i stedet for å kvadrere, `ut = [v ** 2]` kaster alt som er samlet så langt, og `return` avslutter etter det første tallet."
+ },
+ {
+  "question": "Du har skrevet et helt korrekt, men fem setninger langt svar på «forklar med én setning hva funksjonen gjør». Hva skjer med uttellingen?",
+  "options": [
+   "Den trekkes ned — et svar som er lengre enn nødvendig, teller som uklart",
+   "Den blir uendret, siden innholdet i svaret er riktig",
+   "Den økes litt, fordi et fyldig svar viser at koden er forstått",
+   "Den settes til null, fordi svaret ikke har den formen oppgaven ba om"
+  ],
+  "explanation": "Sensor sier hvert år at et svar som er uklart eller lengre enn nødvendig, trekker ned — det gjelder også når innholdet er riktig. Svaret gir altså ikke full pott, men det blir heller ikke null, og lengde belønnes aldri."
+ },
+ {
+  "question": "Du klarer å eliminere to av fire alternativer i et flervalgsspørsmål, men er usikker på de to siste. Hva bør du gjøre?",
+  "options": [
+   "Krysse av for det du tror er mest riktig — det er ingen minuspoeng",
+   "La spørsmålet stå blankt, siden et blankt svar teller bedre enn et galt",
+   "Krysse av for begge de to gjenstående, så ett av kryssene er riktig",
+   "Krysse av for det alternativet som er formulert med flest detaljer"
+  ],
+  "explanation": "Fra og med 2015 gis det ingen minuspoeng, så blankt og galt teller likt — og et kvalifisert gjett gir 50 % sjanse. To kryss regnes som feil svar, og lengden på et alternativ sier ingenting om det er riktig."
+ }
+]

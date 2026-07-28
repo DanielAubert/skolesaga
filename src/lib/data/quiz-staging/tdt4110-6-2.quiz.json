@@ -1,0 +1,162 @@
+[
+ {
+  "question": "Hva forutsetter binærsøk om lista det søker i?",
+  "options": [
+   "At den er sortert",
+   "At den bare har tall",
+   "At den ikke har duplikater",
+   "At lengden er et partall"
+  ],
+  "explanation": "Hele metoden bygger på at et for lite midtelement betyr at alt til venstre også er for lite, og den slutningen holder bare i ei sortert liste. Datatypen spiller ingen rolle så lenge verdiene kan sammenlignes, og både duplikater og odde lengde håndteres helt fint."
+ },
+ {
+  "question": "En søkefunksjon skal gi tilbake en indeks. Hva returnerer den når verdien ikke finnes?",
+  "options": [
+   "`-1`, som aldri er en gyldig treffindeks",
+   "`0`, som er den laveste gyldige indeksen",
+   "`False`, fordi søket ikke lyktes",
+   "`len(x)`, fordi det er én forbi slutten"
+  ],
+  "explanation": "Gyldige indekser er 0 og oppover, så `-1` kan ikke forveksles med et treff — det er den avtalte «ikke funnet»-verdien i emnet. `0` er en helt vanlig treffindeks og ville vært tvetydig. `False` er en sannhetsverdi og passer til `in`, ikke til en indeks."
+ },
+ {
+  "question": "`imin` er 4 og `imax` er 6. Hva blir `imid = (imin + imax) // 2`?",
+  "options": [
+   "`5`",
+   "`4`",
+   "`5.0`",
+   "`6`"
+  ],
+  "explanation": "`(4 + 6) // 2` er `10 // 2`, altså 5 — og `//` gir et heltall, som er nødvendig for å kunne indeksere. `5.0` er det du får med enkel skråstrek, og et flyttall gir `TypeError` når du bruker det som indeks. De to andre er grensene selv, ikke midten."
+ },
+ {
+  "question": "Hvorfor står det `while imin <= imax` og ikke `while imin < imax`?",
+  "options": [
+   "Fordi ett gjenstående element gir `imin` lik `imax`",
+   "Fordi `imin` alltid er mindre enn `imax` i starten",
+   "Fordi løkka ellers ville kjørt én runde for mye",
+   "Fordi `imid` ellers kan bli et negativt tall"
+  ],
+  "explanation": "Når vinduet er krympet til ett element, er de to grensene like — og det elementet må sjekkes, ellers får du `-1` for verdier som finnes. Med `<` ville løkka kjørt én runde for lite, ikke for mye. `imid` ligger alltid mellom grensene og kan ikke bli negativ."
+ },
+ {
+  "question": "Det midterste elementet er mindre enn det du leter etter. Hvilken linje er riktig?",
+  "options": [
+   "`imin = imid + 1`",
+   "`imax = imid - 1`",
+   "`imin = imid`",
+   "`imax = imid`"
+  ],
+  "explanation": "Er midten for liten, må målet ligge til høyre, så den nedre grensen flyttes opp forbi midten — som allerede er sjekket. Å flytte den øvre grensen ned leter i feil halvdel og gir `-1`. Formene uten `+ 1` og `- 1` lar vinduet stå stille, og løkka går for alltid."
+ },
+ {
+  "question": "Hva skjer hvis du skriver `imin = imid` i stedet for `imin = imid + 1`?",
+  "options": [
+   "Løkka går for alltid — programmet henger",
+   "Løkka returnerer `-1` for alle verdier",
+   "Løkka hopper over det siste elementet i vinduet",
+   "Løkka gir `IndexError` på neste runde"
+  ],
+  "explanation": "Er `imid` allerede lik `imin`, blir vinduet like stort neste runde, og betingelsen `imin <= imax` slutter aldri å være sann. Å hoppe over det siste elementet er derimot symptomet på `<` i stedet for `<=`. Ingen indeks går utenfor lista, så `IndexError` kommer ikke."
+ },
+ {
+  "question": "`x.index(v)` kalles med en verdi som ikke finnes i lista. Hva skjer?",
+  "options": [
+   "Programmet stopper med `ValueError`",
+   "Metoden returnerer `-1` for «ikke funnet»",
+   "Metoden returnerer `None` uten feil",
+   "Metoden legger verdien til bakerst"
+  ],
+  "explanation": "`.index` har ingen «ikke funnet»-verdi og kaster `ValueError`, så den må sjekkes med `in` først eller pakkes i `try/except`. `-1` er konvensjonen i din egen søkefunksjon, ikke i `.index`. Metoden endrer aldri lista."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef finn(x, mal):\n    for i in range(len(x)):\n        if x[i] == mal:\n            return i\n    return -1\n\nprint(finn([7, 7, 3], 7))\n```",
+  "options": [
+   "`0`",
+   "`1`",
+   "`2`",
+   "`-1`"
+  ],
+  "explanation": "Løkka starter på indeks 0, finner et treff der med én gang, og `return` avslutter funksjonen før resten av lista ses på. Indeks 1 er den andre sjuveren, som aldri blir nådd. `-1` ville krevd at ingen av elementene traff."
+ },
+ {
+  "question": "Hva skjer når du kjører et korrekt skrevet binærsøk på ei **usortert** liste?",
+  "options": [
+   "Det kan gi feil svar, uten feilmelding",
+   "Det gir alltid `IndexError` med en gang",
+   "Det sorterer lista selv og søker etterpå",
+   "Det finner verdien, men bruker flere steg"
+  ],
+  "explanation": "Koden kjører helt fint — den bare kaster feil halvdel, og kan derfor returnere `-1` for en verdi som finnes. Ingen indeks går utenfor lista, så det blir ingen `IndexError`, og funksjonen sorterer ingenting den ikke er bedt om."
+ },
+ {
+  "question": "Omtrent hvor mange steg bruker binærsøk på ei sortert liste med 1 000 elementer?",
+  "options": [
+   "Rundt 10",
+   "Rundt 500",
+   "Rundt 100",
+   "Rundt 1 000"
+  ],
+  "explanation": "Hvert steg halverer det som er igjen, og $2^{10} = 1024$, så ti halveringer dekker tusen elementer. Rundt 1 000 er hva sekvensielt søk bruker i verste fall, og 500 er gjennomsnittet for det samme sekvensielle søket."
+ },
+ {
+  "question": "Hva gir uttrykket `'B2' in hyller`?",
+  "options": [
+   "`True` eller `False`",
+   "Indeksen til `'B2'`",
+   "Antall ganger `'B2'` finnes",
+   "Selve verdien `'B2'`"
+  ],
+  "explanation": "`in` svarer bare på om verdien finnes, og gir en sannhetsverdi. Indeksen får du av `.index`, og antallet av `.count` — trenger du å vite hvor elementet er, holder det altså ikke med `in`."
+ },
+ {
+  "question": "En funksjon skal returnere **raden** i en tabell der en kolonne har en gitt verdi. Hva returnerer den når ingen rad passer?",
+  "options": [
+   "`None`",
+   "`-1`",
+   "`0`",
+   "`False`"
+  ],
+  "explanation": "`-1` er konvensjonen når funksjonen gir en indeks; når den gir et element eller ei rad, er `None` den riktige «ikke funnet»-verdien. `0` kunne forveksles med data, og `False` hører til ja/nei-spørsmål."
+ },
+ {
+  "question": "Hvor skal `return -1` stå i et sekvensielt søk?",
+  "options": [
+   "Etter løkka, på samme innrykk som `for`-linja",
+   "Inne i løkka, rett etter hele `if`-blokka",
+   "Inne i `if`-blokka, etter `return i`",
+   "Før løkka, som en startverdi"
+  ],
+  "explanation": "Linja skal bare kjøres når hele lista er gjennomsøkt uten treff, altså etter at løkka er ferdig. Står den inne i løkka, avslutter funksjonen allerede etter første element som ikke traff. En `return` etter en annen `return` kjøres aldri."
+ },
+ {
+  "question": "Verdien du søker etter finnes flere ganger i lista. Hvilken indeks gir et sekvensielt søk?",
+  "options": [
+   "Den første forekomsten",
+   "Den siste forekomsten",
+   "En vilkårlig av forekomstene",
+   "Alle indeksene, som ei liste"
+  ],
+  "explanation": "Søket går fra venstre og returnerer ved første treff, så den første forekomsten er den du får. En vilkårlig forekomst er derimot nettopp det binærsøk gir, siden det hopper til midten. Skal du ha alle treffene, må du samle dem i ei liste i stedet for å returnere."
+ },
+ {
+  "question": "Hva blir resultatet av `imid = (imin + imax) / 2` med enkel skråstrek?",
+  "options": [
+   "`TypeError` når `imid` brukes som indeks",
+   "Nøyaktig samme heltall som med dobbel skråstrek",
+   "`ZeroDivisionError` når vinduet er tomt",
+   "Et heltall som er rundet oppover"
+  ],
+  "explanation": "Enkel skråstrek gir alltid et flyttall, og ei liste kan ikke indekseres med `3.0`. Dobbel skråstrek gir heltall og runder nedover — oppover rundes det aldri. Nevneren er 2, så det kan ikke bli deling på null."
+ },
+ {
+  "question": "Lista `[3, 8, 12, 19, 25, 31]` er sortert. Hvilken indeks gir binærsøket etter 25, og hvor mange runder i `while`-løkka bruker det?",
+  "options": [
+   "Indeks 4, etter 2 runder",
+   "Indeks 4, etter 5 runder",
+   "Indeks 5, etter 2 runder",
+   "Indeks 3, etter 3 runder"
+  ],
+  "explanation": "Første `imid` er `(0 + 5) // 2` som er 2, altså tallet 12; det er for lite, så nedre grense flyttes til 3 og neste `imid` blir 4, der 25 ligger — to runder. Fem runder er hva et sekvensielt søk ville brukt på den samme lista. Indeks 5 er tallet 31, og indeks 3 er 19."
+ }
+]

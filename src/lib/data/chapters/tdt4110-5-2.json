@@ -1,0 +1,396 @@
+{
+ "id": "tdt4110-5-2",
+ "courseId": "tdt4110",
+ "chapterNumber": "5.2",
+ "title": "Rekursjon — spore og skrive",
+ "description": "Forstå rekursjon gjennom de klassiske eksemplene — fakultet, største felles divisor, Fibonacci, tverrsum og potens — og både spore og skrive dem.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne kjenne igjen en rekursiv funksjon og peke ut grunntilfellet og det rekursive steget",
+  "kunne spore et rekursivt kall ved å bygge kall-stakken utover og folde returverdiene innover",
+  "kunne skrive de klassiske rekursive funksjonene fra en kravbeskrivelse, med et grunntilfelle som også dekker kanttilfellene",
+  "kunne kjenne igjen og rette de to feilene som gjør at en rekursiv funksjon aldri stopper"
+ ],
+ "content": [
+  {
+   "id": "tdt4110-5-2-tip",
+   "title": "Eksamensvinkel",
+   "content": "**Rekursjon er pensum i dette emnet, og det er verdt å vite** — mange andre programmeringsemner hopper over det. Her står det i **~60 % av settene, altså 6 av de 10 sittingene i arkivet 2014–2019**.\n\nSjangeren heter **J — rekursjon**, og den kommer i to former:\n\n- **Spore:** «hva returnerer denne rekursive funksjonen?» Det er den vanligste formen, og den ligger inne i kodeforståelsesoppgaven sammen med den vanlige kodesporingen. Verdt **1–5 %**.\n- **Skrive:** «skriv en rekursiv funksjon som …». Sjeldnere, men den kommer, og da er det alltid en av de fem klassikerne: fakultet, største felles divisor, Fibonacci, tverrsum eller potens.\n\n**Prioritet: må kunne** — det midterste av bokas tre nivåer, som er «må sitte», «må kunne» og «bør kjenne til». Sporingen grenser mot «må sitte», fordi den kan dukke opp midt i kodeforståelsesoppgaven som ellers er 100 % sikker.\n\nDen ene feilen som koster mest, har eget nummer i bokas feilkatalog: **#10 — feil eller manglende grunntilfelle**, altså at funksjonen aldri stopper, eller at den teller feil vei. Hele kapitlet er bygd for å fjerne den.\n\nKapitlet tar **~55 minutter** og er delt i fire økter med tidsanslag.",
+   "type": "tip"
+  },
+  {
+   "id": "tdt4110-5-2-forkunnskaper",
+   "content": "**Forkunnskaper**\n\n- [kap. 2.1](/tdt4110/tdt4110-2-1) — funksjoner: `def`, parametere, `return` og at `return` avslutter funksjonen umiddelbart. Uten dette gir rekursjon ingen mening.\n- [kap. 1.2](/tdt4110/tdt4110-1-2) — `if/else`, som er det grunntilfellet skrives med.\n- [kap. 1.1](/tdt4110/tdt4110-1-1) — `//` og `%`, som brukes i tverrsum og i Euklids algoritme.\n- [kap. 5.1](/tdt4110/tdt4110-5-1) — sporingstavla. Rekursjonssporing er den samme metoden med en ekstra kolonne.\n\nVil du ha en mykere inngang til begrepet før du leser videre, dekker [Rekursjon og algoritmekompleksitet](/it/it-1-3-5) det samme stoffet på et roligere nivå.\n\nDu trenger ingen ny Python her. Rekursjon er ikke en ny konstruksjon — det er en måte å bruke `def`, `if` og `return` på.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-2-t-okt1",
+   "content": "## Økt 1 — hva rekursjon er (~12 min)\n\nDu står bakerst i en kø på et bibliotek og vil vite hvor mange som står foran deg. Du kan ikke se hele køen. Så du gjør det eneste du kan: du spør personen foran deg om det samme spørsmålet, og legger til én på svaret hun gir.\n\nHun gjør akkurat det samme. Og hun foran henne. Helt til noen står forrest og kan svare uten å spørre videre: «null foran meg». Da folder svarene seg tilbake gjennom køen — 0, 1, 2, 3 — til det når deg.\n\nDet er hele rekursjonen. Én regel for det enkle tilfellet ingen trenger hjelp til, og én regel som løser det store problemet ved å stille det samme spørsmålet om et litt mindre problem.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-2-def-rekursjon",
+   "title": "Rekursjon",
+   "content": "En **rekursiv** funksjon er en funksjon som kaller seg selv med et mindre argument, og som har en utgang der den svarer direkte uten å kalle seg selv igjen.\n\nDen er ikke magi og ikke en ny språkkonstruksjon: hvert kall er et helt vanlig funksjonskall, med sine egne lokale variabler, som venter på at svaret fra det neste kallet skal komme tilbake.\n\nRekursjon løser problemer som kan sies slik: «svaret for `n` er noe enkelt gjort med svaret for `n - 1`».",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-thm-mal",
+   "title": "Rekursjonsmalen — grunntilfelle og steg",
+   "content": "Hver eneste rekursive funksjon i dette emnet har nøyaktig samme form. Skriv malen først, fyll inn etterpå:\n\n```text\ndef f(n):\n    if <grunntilfelle>:\n        return <enkelt svar>\n    return <noe> f(<mindre argument>)\n```\n\nBlokken over er en mal, ikke kjørbar kode — den viser formen, ikke en ferdig funksjon.\n\nTre spørsmål, i denne rekkefølgen, gir deg alltid funksjonen:\n\n1. **Når er svaret opplagt?** Det er grunntilfellet. For fakultet er det `n <= 1`; for tverrsum er det `n == 0`; for største felles divisor er det at resten er 0.\n2. **Hvordan blir problemet mindre?** Argumentet må nærme seg grunntilfellet i hvert steg: `n - 1`, `n // 10`, `a % b`, `x[1:]`.\n3. **Hva gjør du med svaret som kommer tilbake?** Gang med `n`, legg til et siffer, summer to kall. Dette står FORAN eller RUNDT det rekursive kallet.\n\nRekkefølgen er ufravikelig: **grunntilfellet skrives først**. Skriver du det rekursive steget øverst, blir det aldri noen utgang.",
+   "type": "theorem"
+  },
+  {
+   "id": "tdt4110-5-2-def-grunntilfelle",
+   "title": "Grunntilfelle",
+   "content": "Det tilfellet funksjonen kan svare på direkte, uten å kalle seg selv. På engelsk kalles det *base case*, og det ordet møter du i mye kodelitteratur.\n\nGrunntilfellet står alltid **først** i funksjonen, som en `if` med en `return`. Uten det får du en funksjon som kaller seg selv i det uendelige, og Python stopper den til slutt med en `RecursionError`.\n\nEt godt grunntilfelle dekker også de rare inndataene: `fakultet(0)` skal gi 1, ikke krasje, og derfor skrives testen `if n <= 1`, ikke `if n == 1`.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-steg",
+   "title": "Rekursivt steg",
+   "content": "Linja der funksjonen kaller seg selv med et **mindre** argument, og gjør noe med svaret som kommer tilbake.\n\n`return n * fakultet(n - 1)` er et rekursivt steg: kallet gjøres først, og multiplikasjonen skjer når svaret kommer tilbake.\n\nTo ting må være på plass, ellers virker ikke funksjonen: argumentet må faktisk bli mindre, og resultatet av kallet må brukes. Glemmer du `return` foran kallet, regner funksjonen riktig og returnerer `None` likevel.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-mindre",
+   "title": "Argumentet må nærme seg grunntilfellet",
+   "content": "Hvert rekursivt kall må flytte argumentet nærmere grunntilfellet, ellers stopper funksjonen aldri.\n\n| Funksjon | Grunntilfelle | Slik blir argumentet mindre |\n|---|---|---|\n| fakultet | `n <= 1` | `n - 1` |\n| tverrsum | `n == 0` | `n // 10` |\n| største felles divisor | `b == 0` | `a % b` |\n| potens | `n == 0` | `n - 1` |\n| sum av liste | tom liste | `x[1:]` |\n\nDette er kjernen i feilkode **#10**: skriver du `f(n + 1)` i stedet for `f(n - 1)`, går argumentet feil vei, og funksjonen når aldri grunntilfellet.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-ex-fakultet",
+   "title": "Eksempel 1: fakultet, malen fylt ut",
+   "problem": "Fakultet av `n` er produktet av alle heltallene fra 1 til `n`: $4! = 4 \\times 3 \\times 2 \\times 1 = 24$. Skriv den rekursivt, og vis hva `fakultet(4)` og `fakultet(0)` gir.",
+   "solution": "**Steg 1 — når er svaret opplagt?** For `n` lik 0 eller 1 er fakultet 1. Vi skriver testen som `n <= 1`, så begge dekkes.\n\n**Steg 2 — hvordan blir problemet mindre?** `n - 1`.\n\n**Steg 3 — hva gjør vi med svaret?** Ganger det med `n`.\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n\nprint(fakultet(4))\nprint(fakultet(0))\nprint(fakultet(1))\n```\n\n**Utskrift:**\n```\n24\n1\n1\n```\n\n*Margnotat:* på eksamen gir denne funksjonen full uttelling slik den står. Sensor krever ikke feilhåndtering for negative tall med mindre oppgaven ber om det — men `n <= 1` i stedet for `n == 1` er et lite pluss, fordi den også svarer riktig på 0.\n\n**Den samme jobben med løkke.** Begge gir full pott; oppgaveteksten avgjør hvilken du skal bruke, og ber den om «en rekursiv funksjon», er løkka feil svar selv om den regner riktig:\n\n```python\ndef fakultet_lokke(n):\n    total = 1\n    for i in range(2, n + 1):\n        total = total * i\n    return total\n\nprint(fakultet_lokke(4))\n```\n\n**Utskrift:**\n```\n24\n```",
+   "type": "example"
+  },
+  {
+   "id": "tdt4110-5-2-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o1-o",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger J — rekursjon, spore.) Funksjonen er den samme som i eksempelet over. Hva skriver programmet ut?\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n\nprint(fakultet(3))\n```",
+    "solution": "**Kall-stakken utover** — ett nivå per kall, med argumentet:\n\n```text\nfakultet(3)  ->  3 * fakultet(2)\nfakultet(2)  ->  2 * fakultet(1)\nfakultet(1)  ->  grunntilfellet: 1\n```\n\n**Foldingen innover** — nederste kall først:\n\n```text\nfakultet(1) = 1\nfakultet(2) = 2 * 1 = 2\nfakultet(3) = 3 * 2 = 6\n```\n\n**Utskrift:**\n```\n6\n```\n\n**Fellenote:** svaret bygges nedenfra. Regner du oppover fra 3 uten å vente på grunntilfellet, mister du oversikten så snart tallene blir større. Skriv alltid begge retningene.",
+    "hints": [
+     "Skriv ett kall per linje nedover til du treffer grunntilfellet.",
+     "Grunntilfellet er det eneste kallet som svarer uten å spørre videre.",
+     "Fold svarene tilbake nedenfra og opp."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-t-okt2",
+   "content": "## Økt 2 — å spore et rekursivt kall (~12 min)\n\nSporing av rekursjon er den vanligste eksamensformen, og den har sin egen faste metode. Den vanlige sporingstavla fra [kap. 5.1](/tdt4110/tdt4110-5-1) holder ikke, fordi flere kall er i gang samtidig og venter på hverandre.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-2-thm-sporing",
+   "title": "Rekursjonssporing — utover, så innover",
+   "content": "**Alltid to lister. Aldri bare én.**\n\n**1. Bygg kall-stakken utover.** Skriv ett kall per linje, med argumentet, og hva kallet venter på. Fortsett nedover til du treffer grunntilfellet. Da vet du hvor dypt det går, og hvor mange kall som venter.\n\n**2. Fold returverdiene innover.** Start på den NEDERSTE linja — den med grunntilfellet — og regn deg oppover. Hvert kall bruker svaret fra kallet under seg.\n\nDette er den ene tingen som skiller riktig fra galt svar på eksamen. Nesten alle som svarer feil, har hoppet over det ene av de to stegene og prøvd å regne alt i én retning.\n\n**Kontrollspørsmålet til slutt:** hvor mange kall ble gjort? Er svaret ditt bygd av like mange ledd? For `fakultet(5)` er det fem kall og fire multiplikasjoner.",
+   "type": "theorem"
+  },
+  {
+   "id": "tdt4110-5-2-def-stakk",
+   "title": "Kall-stakken",
+   "content": "Rekka av kall som er startet, men ikke ferdige. Hvert kall har sine egne lokale variabler, og de ligger «oppå hverandre» — det siste startede kallet blir det første som blir ferdig.\n\nPå papiret tegner du den som en trapp nedover, med argumentet på hver linje. Dybden er antall linjer, og den er ofte det oppgaven egentlig spør om.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-folding",
+   "title": "Foldingen innover",
+   "content": "Andre halvdel av sporingen: når grunntilfellet har svart, regnes hvert ventende kall ferdig, nedenfra og opp.\n\nDet er her rekkefølgen ofte går galt. `fakultet(4)` er ikke $4 \\times 3$; det er 4 ganger svaret fra `fakultet(3)`, som igjen er 3 ganger svaret fra `fakultet(2)`. Skriv hvert ledd på egen linje med tallverdien innsatt, så ser du kjeden.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-return-foran",
+   "title": "`return` foran det rekursive kallet",
+   "content": "Resultatet av et rekursivt kall forsvinner hvis du ikke gjør noe med det. `fakultet(n - 1)` alene på en linje regner ut hele kjeden og kaster svaret.\n\nDerfor har hvert rekursivt steg i denne boka `return` foran seg. Glemmer du det, returnerer funksjonen `None`, og feilen er stum: koden krasjer ikke, den svarer bare `None` — som er nøyaktig det en sporingsoppgave er ute etter å teste.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-ex-tverrsum",
+   "title": "Eksempel 2: tverrsum, sporet begge veier",
+   "problem": "**Tverrsummen** av et tall er summen av sifrene: tverrsummen av 4072 er 4 + 0 + 7 + 2 = 13. Skriv funksjonen rekursivt, og spor `tverrsum(4072)`.",
+   "solution": "Siste siffer i et tall er `n % 10`. Resten av tallet, uten det siste sifferet, er `n // 10`. Det gir både steget og grunntilfellet: når det ikke er flere sifre igjen, er `n` blitt 0.\n\n```python\ndef tverrsum(n):\n    if n == 0:\n        return 0\n    return n % 10 + tverrsum(n // 10)\n\nprint(tverrsum(4072))\n```\n\n**Utskrift:**\n```\n13\n```\n\n**Kall-stakken utover:**\n\n```text\ntverrsum(4072)  ->  2 + tverrsum(407)\ntverrsum(407)   ->  7 + tverrsum(40)\ntverrsum(40)    ->  0 + tverrsum(4)\ntverrsum(4)     ->  4 + tverrsum(0)\ntverrsum(0)     ->  grunntilfellet: 0\n```\n\n**Foldingen innover:**\n\n```text\ntverrsum(0)    = 0\ntverrsum(4)    = 4 + 0  = 4\ntverrsum(40)   = 0 + 4  = 4\ntverrsum(407)  = 7 + 4  = 11\ntverrsum(4072) = 2 + 11 = 13\n```\n\n*Margnotat:* fem kall og fire addisjoner — det stemmer med at tallet har fire sifre. Bruk den kontrollen hver gang.\n\nLegg merke til at nullen i 4072 ikke er et spesialtilfelle. Den legger til 0, og `40 // 10` er 4, så kjeden fortsetter som normalt.",
+   "type": "example"
+  },
+  {
+   "id": "tdt4110-5-2-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o2-o",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, spore.) Hva skriver programmet ut? Vis både kall-stakken og foldingen.\n\n```python\ndef tverrsum(n):\n    if n == 0:\n        return 0\n    return n % 10 + tverrsum(n // 10)\n\nprint(tverrsum(915))\nprint(tverrsum(0))\n```",
+    "solution": "**Kall-stakken utover** for `tverrsum(915)`:\n\n```text\ntverrsum(915)  ->  5 + tverrsum(91)\ntverrsum(91)   ->  1 + tverrsum(9)\ntverrsum(9)    ->  9 + tverrsum(0)\ntverrsum(0)    ->  grunntilfellet: 0\n```\n\n**Foldingen innover:**\n\n```text\ntverrsum(0)   = 0\ntverrsum(9)   = 9 + 0 = 9\ntverrsum(91)  = 1 + 9 = 10\ntverrsum(915) = 5 + 10 = 15\n```\n\nDet andre kallet, `tverrsum(0)`, treffer grunntilfellet med én gang og gir 0 uten noe rekursivt steg.\n\n**Utskrift:**\n```\n15\n0\n```\n\n**Fellenote:** `n % 10` gir SISTE siffer, ikke det første. Sporer du fra venstre i tallet, får du riktig sum her — men bare fordi addisjon er kommutativ. På oppgaver der rekkefølgen betyr noe, som å bygge en streng, gir den lesemåten feil svar.",
+    "hints": [
+     "`n % 10` plukker ut siste siffer; `n // 10` fjerner det.",
+     "Skriv hvert kall på egen linje til argumentet blir 0.",
+     "Hva gir funksjonen for argumentet 0, uten noe rekursivt kall?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-t-okt3",
+   "content": "## Økt 3 — de fem klassikerne (~18 min)\n\nRekursjonsoppgavene på settet er nesten alltid en av fem funksjoner. Kjenner du dem igjen på formen, sporer du dem på et minutt. Du har allerede sett fakultet og tverrsum; her kommer de tre siste.\n\n— naturlig pausepunkt —",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-2-def-fakultet",
+   "title": "Fakultet",
+   "content": "Produktet av alle heltallene opp til `n`: $5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120$.\n\n```text\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n```\n\nGrunntilfellet er `n <= 1` og gir 1. Vokser fort: `fakultet(10)` er over tre millioner. Blandes ofte med potens på eksamen — fakultet ganger med et **synkende** tall, potens ganger med det **samme** tallet hver gang.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-gcd",
+   "title": "Største felles divisor — Euklids algoritme",
+   "content": "Det største tallet som deler begge tallene. Euklids observasjon er at største felles divisor av `a` og `b` er den samme som av `b` og resten `a % b`.\n\n```text\ndef sfd(a, b):\n    if b == 0:\n        return a\n    return sfd(b, a % b)\n```\n\nGrunntilfellet er `b == 0`, og svaret er da `a`. På eksamen står funksjonen ofte under navnet `gcd` (engelsk for *greatest common divisor*) eller med et intetsigende navn som `myst`, og oppgaven spør hva den regner ut.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-fib",
+   "title": "Fibonacci-tallene",
+   "content": "Rekka 0, 1, 1, 2, 3, 5, 8, 13 …, der hvert tall er summen av de to foregående.\n\n```text\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n```\n\nTo grunntilfeller i ett: `fib(0)` er 0 og `fib(1)` er 1, og begge dekkes av `if n <= 1: return n`. Dette er den eneste klassikeren med **to** rekursive kall i samme uttrykk, og derfor den mest krevende å spore.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-tverrsum",
+   "title": "Tverrsum",
+   "content": "Summen av sifrene i et positivt heltall: tverrsummen av 915 er 9 + 1 + 5 = 15.\n\n```text\ndef tverrsum(n):\n    if n == 0:\n        return 0\n    return n % 10 + tverrsum(n // 10)\n```\n\nBygger på at `n % 10` er siste siffer og `n // 10` er tallet uten det. Grunntilfellet er `n == 0`, som er det du sitter igjen med når alle sifrene er brukt opp.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-potens",
+   "title": "Rekursiv potens",
+   "content": "`grunntall` opphøyd i `eksponent`, regnet ved å gange grunntallet med seg selv én gang mindre for hvert steg.\n\n```text\ndef potens(g, e):\n    if e == 0:\n        return 1\n    return g * potens(g, e - 1)\n```\n\nGrunntilfellet er `e == 0` og gir 1, fordi ethvert tall opphøyd i null er 1. Merk at det er **eksponenten** som telles ned, mens grunntallet står stille — det er forskjellen fra fakultet, der tallet som ganges selv blir mindre.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-flere-kall",
+   "title": "To rekursive kall i samme uttrykk",
+   "content": "Når et rekursivt steg inneholder to kall, som `fib(n - 1) + fib(n - 2)`, blir sporingen et **tre** i stedet for en trapp.\n\nMetoden er den samme, men du må regne den ene grenen helt ferdig før du starter på den andre, og skrive delsvarene ned underveis. På papiret lønner det seg å regne små verdier først og bygge oppover: `fib(0)`, `fib(1)`, `fib(2)` … til du er framme.\n\nDet er også grunnen til at rekursiv Fibonacci er treg: `fib(5)` gjør 15 kall, og de fleste av dem regner ut det samme om igjen.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-ex-gcd",
+   "title": "Eksempel 3: den navnløse funksjonen på eksamen",
+   "problem": "Dette er en typisk oppgaveform: en rekursiv funksjon uten sigende navn. Hva returnerer `myst(84, 36)`, og hva regner funksjonen ut?\n\n```text\ndef myst(a, b):\n    if b == 0:\n        return a\n    return myst(b, a % b)\n```",
+   "solution": "**Kall-stakken utover:**\n\n```text\nmyst(84, 36)  ->  84 % 36 er 12  ->  myst(36, 12)\nmyst(36, 12)  ->  36 % 12 er 0   ->  myst(12, 0)\nmyst(12, 0)   ->  grunntilfellet: 12\n```\n\n**Foldingen innover.** Her er den kort: ingen av kallene gjør noe med svaret som kommer tilbake — de returnerer det uendret. Svaret fra bunnen bobler rett opp:\n\n```text\nmyst(12, 0)  = 12\nmyst(36, 12) = 12\nmyst(84, 36) = 12\n```\n\n```python\ndef myst(a, b):\n    if b == 0:\n        return a\n    return myst(b, a % b)\n\nprint(myst(84, 36))\nprint(myst(36, 84))\n```\n\n**Utskrift:**\n```\n12\n12\n```\n\n**Hva regner den ut?** Største felles divisor — det største tallet som deler begge. 12 deler både 84 og 36, og ingen større gjør det.\n\n*Margnotat:* legg merke til `myst(36, 84)` i det andre kallet. Med argumentene i «feil» rekkefølge gir første steg `myst(84, 36 % 84)`, altså `myst(84, 36)` — funksjonen ordner rekkefølgen selv i én ekstra runde. Det er et yndet oppfølgingsspørsmål.\n\n*Margnotat 2:* spørres du «forklar med én setning hva funksjonen gjør», er svaret «Returnerer største felles divisor av `a` og `b`.» Den sjangeren driller du i [kap. 5.3](/tdt4110/tdt4110-5-3).",
+   "type": "example"
+  },
+  {
+   "id": "tdt4110-5-2-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o3-o",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, spore.) Hva skriver programmet ut?\n\n```python\ndef myst(a, b):\n    if b == 0:\n        return a\n    return myst(b, a % b)\n\nprint(myst(48, 18))\n```",
+    "solution": "**Kall-stakken utover:**\n\n```text\nmyst(48, 18)  ->  48 % 18 er 12  ->  myst(18, 12)\nmyst(18, 12)  ->  18 % 12 er 6   ->  myst(12, 6)\nmyst(12, 6)   ->  12 % 6 er 0    ->  myst(6, 0)\nmyst(6, 0)    ->  grunntilfellet: 6\n```\n\n**Foldingen innover:** ingen av stegene endrer svaret, så 6 bobler rett opp gjennom alle fire nivåene.\n\n**Utskrift:**\n```\n6\n```\n\n**Fellenote:** fellen er å bytte om på argumentene i steget. Det er `myst(b, a % b)` — den gamle `b` blir den nye `a`. Skriver du `myst(a % b, b)`, får du en helt annen kjede, og som regel en uendelig en.",
+    "hints": [
+     "Regn ut `a % b` før du skriver ned neste kall.",
+     "Hvilken av de to verdiene blir det nye førsteargumentet?",
+     "Løkka stopper når det andre argumentet blir 0 — hva er det første argumentet da?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-ex-fib",
+   "title": "Eksempel 4: Fibonacci, treet i stedet for trappa",
+   "problem": "Fibonacci-rekka er 0, 1, 1, 2, 3, 5, 8 … Hva returnerer `fib(5)`, og hvor mange kall gjøres?",
+   "solution": "Med to rekursive kall i samme uttrykk blir sporingen et tre. Den raskeste sikre metoden på papir er å regne nedenfra og opp, én verdi om gangen:\n\n```text\nfib(0) = 0            (grunntilfelle)\nfib(1) = 1            (grunntilfelle)\nfib(2) = fib(1) + fib(0) = 1 + 0 = 1\nfib(3) = fib(2) + fib(1) = 1 + 1 = 2\nfib(4) = fib(3) + fib(2) = 2 + 1 = 3\nfib(5) = fib(4) + fib(3) = 3 + 2 = 5\n```\n\nFor å telle kallene legger vi inn en teller. Det er ikke noe du gjør på eksamen — det er for å vise hvor mye arbeid som gjøres om igjen:\n\n```python\nantall = 0\n\ndef fib(n):\n    global antall\n    antall = antall + 1\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(5))\nprint(antall)\n```\n\n**Utskrift:**\n```\n5\n15\n```\n\n*Margnotat:* 15 kall for å regne ut det sjette tallet i rekka. `fib(2)` regnes ut tre ganger, `fib(1)` fem ganger. Det er poenget når en teorioppgave spør hvorfor rekursiv Fibonacci er treg.\n\n*Margnotat 2:* `global` brukes bare her, som et måleverktøy. Bokas vanlige funksjoner tar imot data som parametere og returnerer svar — se [kap. 2.1](/tdt4110/tdt4110-2-1).",
+   "type": "example"
+  },
+  {
+   "id": "tdt4110-5-2-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o4-o",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, spore.) Hva skriver programmet ut?\n\n```python\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(6), fib(1), fib(0))\n```",
+    "solution": "**Bygg nedenfra og opp** — det er raskere og sikrere enn å tegne hele treet:\n\n```text\nfib(0) = 0\nfib(1) = 1\nfib(2) = 1 + 0 = 1\nfib(3) = 1 + 1 = 2\nfib(4) = 2 + 1 = 3\nfib(5) = 3 + 2 = 5\nfib(6) = 5 + 3 = 8\n```\n\nDe to siste kallene treffer grunntilfellet direkte: `fib(1)` gir 1 og `fib(0)` gir 0.\n\n**Utskrift:**\n```\n8 1 0\n```\n\n**Fellenote:** grunntilfellet returnerer `n`, ikke 1. Derfor er `fib(0)` lik 0. Skriver du `return 1` i grunntilfellet, forskyves hele rekka, og `fib(6)` blir 13 i stedet for 8.",
+    "hints": [
+     "Skriv opp `fib(0)` og `fib(1)` først — de er grunntilfellene.",
+     "Bygg deg oppover én verdi om gangen i stedet for å tegne treet.",
+     "Hva returnerer grunntilfellet: tallet `n` eller tallet 1?"
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-warn-10",
+   "title": "Typiske feil: rekursjon",
+   "content": "**Feilkode #10 — feil eller manglende grunntilfelle** er den dyreste feilen i sjangeren, og den har fire former:\n\n- **Grunntilfellet mangler.** Funksjonen kaller seg selv i det uendelige, og Python stopper den til slutt med `RecursionError: maximum recursion depth exceeded`.\n- **Argumentet går feil vei.** `f(n + 1)` i stedet for `f(n - 1)`. Da vokser argumentet bort fra grunntilfellet, og resultatet er det samme som over.\n- **Grunntilfellet er for smalt.** `if n == 1` i fakultet lar `fakultet(0)` løpe forbi og videre nedover i negative tall. `if n <= 1` dekker begge.\n- **`return` glemt foran det rekursive kallet.** Funksjonen regner riktig og returnerer `None` likevel. Denne krasjer ikke og oppdages bare i sporingen.\n\nTo feil til er verdt å kjenne: å blande **fakultet og potens** (fakultet teller ned tallet som ganges, potens teller ned eksponenten), og å **folde returverdiene i feil rekkefølge** — nederste kall skal regnes først.",
+   "type": "warning"
+  },
+  {
+   "id": "tdt4110-5-2-def-recursionerror",
+   "title": "`RecursionError` — når grunntilfellet aldri nås",
+   "content": "Python setter en øvre grense for hvor dypt kall kan stables — som regel rundt tusen nivåer. Nås grensen, avbrytes programmet med meldingen `RecursionError: maximum recursion depth exceeded`.\n\nDet er et **stumt symptom**, ikke en diagnose: feilen ligger alltid enten i grunntilfellet eller i at argumentet ikke blir mindre. På en sporingsoppgave er «programmet stopper aldri / gir `RecursionError`» et fullgodt svar når koden faktisk har den feilen.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-dybde",
+   "title": "Rekursjonsdybde",
+   "content": "Antall nivåer i kall-stakken før grunntilfellet nås. For `fakultet(5)` er dybden 5; for `tverrsum(4072)` er den 5 (fire sifre pluss grunntilfellet).\n\nDybden er et vanlig oppfølgingsspørsmål på eksamen: «hvor mange ganger kalles funksjonen?». Svaret leser du rett av kall-stakken du allerede har tegnet — og husk å telle med kallet som treffer grunntilfellet.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-rek-vs-lokke",
+   "title": "Rekursjon eller løkke",
+   "content": "Alt du kan gjøre rekursivt, kan du gjøre med en løkke, og omvendt. Valget er et spørsmål om hva oppgaven ber om, og hva som blir lesbart.\n\n| Rekursjon passer når | Løkke passer når |\n|---|---|\n| Problemet deler seg naturlig i «ett steg + samme problem» | Du går gjennom en samling én gang |\n| Du følger en kjede med ukjent lengde | Du vet hvor mange runder det er |\n| Oppgaven ber eksplisitt om en rekursiv funksjon | Alt annet |\n\nPå eksamen er regelen enkel: ber oppgaveteksten om en **rekursiv** funksjon, gir en løkkeløsning lite eller ingen uttelling, selv om den regner riktig. Og motsatt — står det ingenting, velger du selv, og løkka er som regel den tryggeste.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-def-liste-rek",
+   "title": "Rekursjon over lister og strenger",
+   "content": "Det samme mønsteret virker på sekvenser: det første elementet behandles direkte, og resten sendes videre som `x[1:]`.\n\n```text\ndef total(x):\n    if len(x) == 0:\n        return 0\n    return x[0] + total(x[1:])\n```\n\nGrunntilfellet er den tomme sekvensen, og `x[1:]` er «alt unntatt det første» — et utsnitt du kjenner fra [kap. 3.1](/tdt4110/tdt4110-3-1). Merk at `x[1:]` lager en ny liste for hvert kall; det er greit på eksamensstørrelser, men er grunnen til at en løkke er raskere i praksis.",
+   "type": "definition"
+  },
+  {
+   "id": "tdt4110-5-2-t-okt4",
+   "content": "## Økt 4 — skrive rekursive funksjoner selv (~13 min)\n\nÅ skrive er lettere enn å spore, når du bruker malen. De tre spørsmålene fra rekursjonsmalen — når er svaret opplagt, hvordan blir problemet mindre, hva gjør du med svaret — gir deg funksjonen nesten mekanisk.",
+   "type": "text"
+  },
+  {
+   "id": "tdt4110-5-2-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o5-o",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, skrive.) Skriv en rekursiv funksjon `potens(g, e)` som regner ut `g` opphøyd i `e` for et ikke-negativt heltall `e`. Du skal ikke bruke `**` eller noen løkke.\n\nVis også hva `potens(2, 5)` og `potens(7, 0)` gir.",
+    "solution": "Malen fylles ut med de tre spørsmålene:\n\n- **Når er svaret opplagt?** Når eksponenten er 0 — da er svaret 1, uansett grunntall.\n- **Hvordan blir problemet mindre?** Eksponenten telles ned med 1. Grunntallet står stille.\n- **Hva gjør vi med svaret?** Ganger det med grunntallet.\n\n```python\ndef potens(g, e):\n    if e == 0:\n        return 1\n    return g * potens(g, e - 1)\n\nprint(potens(2, 5))\nprint(potens(7, 0))\nprint(potens(3, 3))\n```\n\n**Utskrift:**\n```\n32\n1\n27\n```\n\n*Margnotat:* full uttelling. Sensor godtar også `if e <= 0`, og godtar at funksjonen ikke håndterer negative eksponenter når oppgaven sier «ikke-negativt heltall» — det er ikke en mangel, det er oppgavens forutsetning. Skriv gjerne én linje om hva du forutsetter.\n\n**Fellenote:** fellen er å telle ned grunntallet i stedet for eksponenten. `return g * potens(g - 1, e)` gir `potens(2, 5)` lik 0, fordi grunntallet før eller siden blir 0 — og eksponenten når aldri sitt grunntilfelle.",
+    "hints": [
+     "Hvilket av de to argumentene skal bli mindre for hvert kall?",
+     "Hva er et hvilket som helst tall opphøyd i 0?",
+     "Skriv grunntilfellet først, og la det stå alene i en `if`."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o6-o",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, skrive.) En strømleverandør lagrer forbruket for hver time i ei liste med tall. Skriv en rekursiv funksjon `total(x)` som summerer alle tallene i lista, uten å bruke `sum` og uten løkke. Funksjonen skal gi 0 for ei tom liste.\n\nVis hva funksjonen gir for `[3, 1, 4, 1]` og for `[]`.",
+    "solution": "- **Når er svaret opplagt?** Når lista er tom — da er summen 0.\n- **Hvordan blir problemet mindre?** Vi tar det første elementet ut og sender resten videre med utsnittet `x[1:]`.\n- **Hva gjør vi med svaret?** Legger det første elementet til.\n\n```python\ndef total(x):\n    if len(x) == 0:\n        return 0\n    return x[0] + total(x[1:])\n\nprint(total([3, 1, 4, 1]))\nprint(total([]))\nprint(total([9]))\n```\n\n**Utskrift:**\n```\n9\n0\n9\n```\n\n**Kall-stakken utover** for `[3, 1, 4, 1]`:\n\n```text\ntotal([3, 1, 4, 1])  ->  3 + total([1, 4, 1])\ntotal([1, 4, 1])     ->  1 + total([4, 1])\ntotal([4, 1])        ->  4 + total([1])\ntotal([1])           ->  1 + total([])\ntotal([])            ->  grunntilfellet: 0\n```\n\n*Margnotat:* `if len(x) == 0` og `if not x` er begge riktige og gir samme uttelling. Det samme gjelder `sorted`-fri løkkeløsning hvis oppgaven ikke hadde krevd rekursjon — men her gjør den det.\n\n**Fellenote:** grunntilfellet må gi 0, ikke `x[0]`. Skriver du `if len(x) == 1: return x[0]`, virker funksjonen for alle ikke-tomme lister, men krasjer på den tomme — og tomtilfellet er nettopp det oppgaven ba om.",
+    "hints": [
+     "Utsnittet `x[1:]` er «alt unntatt det første elementet».",
+     "Hva skal funksjonen svare når det ikke er noe igjen å summere?",
+     "Legg det første elementet til svaret fra resten av lista."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-o7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o7-o",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, skrive.) Skriv en rekursiv funksjon `antall_sifre(n)` som teller hvor mange sifre et positivt heltall har. `antall_sifre(4072)` skal gi 4 og `antall_sifre(7)` skal gi 1.\n\nForklar til slutt i én setning hvorfor grunntilfellet ikke kan være `n == 0`.",
+    "solution": "Mønsteret er tverrsummens, men vi legger til 1 i stedet for sifferet:\n\n- **Når er svaret opplagt?** Når tallet bare har ett siffer, altså når det er mindre enn 10. Da er svaret 1.\n- **Hvordan blir problemet mindre?** `n // 10` fjerner siste siffer.\n- **Hva gjør vi med svaret?** Legger til 1.\n\n```python\ndef antall_sifre(n):\n    if n < 10:\n        return 1\n    return 1 + antall_sifre(n // 10)\n\nprint(antall_sifre(4072))\nprint(antall_sifre(7))\nprint(antall_sifre(100))\n```\n\n**Utskrift:**\n```\n4\n1\n3\n```\n\n**Hvorfor ikke `n == 0`?** Fordi tallet 0 selv har ett siffer, og med `n == 0` som grunntilfelle ville `antall_sifre(0)` gitt 0 og `antall_sifre(7)` gitt 2 — ett for kallet på 7 og ett for kallet på 0.\n\n*Margnotat:* svar på forklaringsspørsmålet i ÉN setning. På eksamen trekker det ned å skrive et avsnitt der en setning holder — se [kap. 5.3](/tdt4110/tdt4110-5-3).",
+    "hints": [
+     "Bruk `n // 10` for å fjerne siste siffer, akkurat som i tverrsum.",
+     "Hvor mange sifre har et tall som er mindre enn 10?",
+     "Steget legger til 1 for hvert siffer, ikke sifferverdien."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-o8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o8-o",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, feilsøking.) Funksjonen under skal regne ut fakultet, men den virker ikke. Hva skjer når du kaller `fakultet(4)`, og hva er den minste endringen som retter feilen?\n\n```text\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n + 1)\n```\n\nBlokken er merket som ikke-kjørbar fordi den med vilje inneholder en feil.",
+    "solution": "**Hva skjer.** Argumentet vokser i stedet for å synke:\n\n```text\nfakultet(4)  ->  4 * fakultet(5)\nfakultet(5)  ->  5 * fakultet(6)\nfakultet(6)  ->  6 * fakultet(7)\n…\n```\n\nTesten `n <= 1` blir aldri sann, kall-stakken vokser til Python når grensen sin, og programmet avbrytes med `RecursionError: maximum recursion depth exceeded`.\n\n**Den minste endringen** er å bytte `n + 1` med `n - 1`, så argumentet nærmer seg grunntilfellet:\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n\nprint(fakultet(4))\n```\n\n**Utskrift:**\n```\n24\n```\n\n**Fellenote:** dette er feilkode **#10** i sin reneste form. Legg merke til at grunntilfellet i den ødelagte koden er helt riktig — feilen ligger i steget. Når du feilsøker rekursjon, sjekk alltid begge deler: finnes det en utgang, og går argumentet mot den?",
+    "hints": [
+     "Skriv opp de tre første kallene med argumentene, og se hvilken vei tallet beveger seg.",
+     "Grunntilfellet er `n <= 1`. Kommer argumentet noen gang dit?",
+     "Endringen er på ett tegn."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-o9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o9-o",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, spore.) Funksjonen skriver ut underveis. Hva skriver programmet ut?\n\n```python\ndef ned(n):\n    if n == 0:\n        print('start')\n        return\n    print(n)\n    ned(n - 1)\n    print(-n)\n\nned(3)\n```",
+    "solution": "**Kall-stakken utover** — hver `print(n)` skjer på vei ned:\n\n```text\nned(3): skriver 3, kaller ned(2), venter på å skrive -3\nned(2): skriver 2, kaller ned(1), venter på å skrive -2\nned(1): skriver 1, kaller ned(0), venter på å skrive -1\nned(0): skriver start, returnerer\n```\n\n**Foldingen innover** — de ventende utskriftene skjer nå, nederste kall først: `-1`, så `-2`, så `-3`.\n\n**Utskrift:**\n```\n3\n2\n1\nstart\n-1\n-2\n-3\n```\n\n**Fellenote:** koden etter det rekursive kallet kjører **etterpå**, når kallet er ferdig — ikke med det samme. Det er derfor de negative tallene kommer i motsatt rekkefølge av de positive. En bar `return` uten verdi avslutter funksjonen og gir `None`, men her brukes returverdien ikke til noe.",
+    "hints": [
+     "Del funksjonen i to: det som skjer FØR kallet, og det som skjer ETTER.",
+     "Alt som står før kallet, skjer på vei nedover i stakken.",
+     "Alt som står etter kallet, skjer på vei oppover — i motsatt rekkefølge."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-o10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o10-o",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, spore.) To funksjoner med nesten samme kropp. Hva skriver programmet ut?\n\n```python\ndef a(n):\n    if n <= 1:\n        return 1\n    return n * a(n - 1)\n\ndef b(n):\n    if n <= 1:\n        return 1\n    return 2 * b(n - 1)\n\nprint(a(5), b(5))\n```",
+    "solution": "**Funksjon `a`** er fakultet: den ganger med `n`, som synker.\n\n```text\na(1) = 1\na(2) = 2 * 1 = 2\na(3) = 3 * 2 = 6\na(4) = 4 * 6 = 24\na(5) = 5 * 24 = 120\n```\n\n**Funksjon `b`** er potens: den ganger med 2 hver gang, uansett hva `n` er. Fire multiplikasjoner gir $2^4$.\n\n```text\nb(1) = 1\nb(2) = 2 * 1 = 2\nb(3) = 2 * 2 = 4\nb(4) = 2 * 4 = 8\nb(5) = 2 * 8 = 16\n```\n\n**Utskrift:**\n```\n120 16\n```\n\n**Fellenote:** dette er den klassiske forvekslingen mellom fakultet og potens. Forskjellen er ett tegn: ganger du med `n` eller med et fast tall? Og merk at `b(5)` er $2^4$, ikke $2^5$ — grunntilfellet stopper på 1 og bidrar ikke med noen faktor.",
+    "hints": [
+     "Skriv de to kjedene under hverandre og sammenlign hva som ganges hver gang.",
+     "I den ene funksjonen synker faktoren; i den andre står den stille.",
+     "Tell hvor mange multiplikasjoner som faktisk skjer før grunntilfellet."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-o11",
+   "type": "exercise",
+   "exercise": {
+    "id": "tdt4110-5-2-o11-o",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, skrive.) Skriv en rekursiv funksjon `snu(s)` som returnerer strengen `s` baklengs. Du skal ikke bruke `s[::-1]` og ingen løkke.\n\nVis hva `snu('bussrute')` gir, og bruk funksjonen til å teste om `'regninger'` og setningen `'agnes i senga'` er palindromer — altså like lest begge veier.",
+    "solution": "- **Når er svaret opplagt?** Når strengen er tom — da er den snudde strengen også tom.\n- **Hvordan blir problemet mindre?** `s[1:]` er alt unntatt første tegn.\n- **Hva gjør vi med svaret?** Setter det første tegnet BAKERST.\n\n```python\ndef snu(s):\n    if s == '':\n        return ''\n    return snu(s[1:]) + s[0]\n\nprint(snu('bussrute'))\nprint(snu('regninger') == 'regninger')\nprint(snu('agnes i senga') == 'agnes i senga')\n```\n\n**Utskrift:**\n```\neturssub\nTrue\nTrue\n```\n\n*Margnotat:* rekkefølgen i steget er hele oppgaven. `snu(s[1:]) + s[0]` setter første tegn bakerst; `s[0] + snu(s[1:])` bygger strengen opp igjen i original rekkefølge og gir deg strengen uendret.\n\n**Fellenote:** begge testene gir `True`. `regninger` er faktisk det samme ordet lest baklengs, og setningen `agnes i senga` er den samme begge veier, mellomrom og alt. Palindromtesten `s == snu(s)` gir det samme svaret som `s == s[::-1]`, og begge gir full pott når oppgaven ikke uttrykkelig krever rekursjon.",
+    "hints": [
+     "Grunntilfellet er den tomme strengen `''`.",
+     "Hvor må det første tegnet stå i den snudde strengen — først eller sist?",
+     "Sett sammen med `+`, og pass på rekkefølgen på de to leddene."
+    ]
+   }
+  },
+  {
+   "id": "tdt4110-5-2-col-api",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "tdt4110-5-2-col-api-t1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `def f(n):` med kall til `f` inni | Rekursjon: funksjonen kaller seg selv med et mindre argument |\n| `if <grunntilfelle>: return <svar>` | Utgangen. Står ALLTID først i funksjonen |\n| `return <noe> * f(n - 1)` | Rekursivt steg. `return` foran kallet er obligatorisk — uten det gir funksjonen `None` |\n| `n - 1` | Standardsteget når du teller ned et heltall |\n| `n // 10` | Fjerner siste siffer; brukes i tverrsum og sifferteller |\n| `n % 10` | Gir siste siffer |\n| `a % b` som nytt argument | Steget i Euklids algoritme; grunntilfellet er `b == 0` |\n| `x[1:]` | Alt unntatt første element — steget ved rekursjon over lister og strenger |\n| `len(x) == 0` eller `s == ''` | Grunntilfellet ved rekursjon over en sekvens |\n| `return` uten verdi | Avslutter funksjonen og gir `None` |\n| `RecursionError` | Meldingen Python gir når kall-stakken blir for dyp — symptom på feil grunntilfelle eller feil steg |\n| `n <= 1` mot `n == 1` | Den bredere testen dekker også argumentet 0 og hindrer at funksjonen løper forbi utgangen |\n\n**De fem klassikerne, som mal:**\n\n| Funksjon | Grunntilfelle | Rekursivt steg |\n|---|---|---|\n| fakultet | `n <= 1` gir 1 | `n * fakultet(n - 1)` |\n| største felles divisor | `b == 0` gir `a` | `sfd(b, a % b)` |\n| Fibonacci | `n <= 1` gir `n` | `fib(n - 1) + fib(n - 2)` |\n| tverrsum | `n == 0` gir 0 | `n % 10 + tverrsum(n // 10)` |\n| potens | `e == 0` gir 1 | `g * potens(g, e - 1)` |\n\n**Formler i dette delkapitlet:**\n\nFakultet: $n! = n \\times (n-1) \\times \\dots \\times 2 \\times 1$, og $0! = 1$.\n\nPotens: $g^{e} = g \\times g^{e-1}$, og $g^{0} = 1$.\n\nFibonacci: $F_n = F_{n-1} + F_{n-2}$, med $F_0 = 0$ og $F_1 = 1$."
+    }
+   ],
+   "type": "collapsible"
+  }
+ ],
+ "exercises": []
+}

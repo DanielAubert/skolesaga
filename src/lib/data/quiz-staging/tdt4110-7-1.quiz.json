@@ -1,0 +1,122 @@
+[
+ {
+  "question": "En eksamensoppgave ber deg lese en fil med terningkast og finne spilleren med flest seksere. Hva er den beste måten å lese oppgaven på?",
+  "options": [
+   "Som den faste kjeden: les fil, tolk, analysér, skriv ut — terningene er innpakning",
+   "Som en ny oppgavetype som krever et eget mønster for spill og tilfeldige tall",
+   "Som en oppgave i sannsynlighetsregning der koden er mindre viktig enn utregningen",
+   "Som en oppgave som må løses med en egen datastruktur laget for terningkast"
+  ],
+  "explanation": "Domeneinnpakningen roterer fra sett til sett, men øvelsen er den samme: les fil, parse, analysér, skriv ut. Alternativet om et eget mønster for spill tester nettopp fellen — at nye substantiver leses som en ny oppgavetype. De to siste blander inn matematikk og datastrukturer som oppgaven ikke ber om."
+ },
+ {
+  "question": "Hvor mye av eksamen er programmeringsdelen verdt, ifølge arkivet 2014–2019?",
+  "options": [
+   "50–60 % av settet, i alle 10 sittingene",
+   "25–30 % av settet, i alle 10 sittingene",
+   "15–20 % av settet, i 7 av 10 sittingene",
+   "70–80 % av settet, i 8 av 10 sittingene"
+  ],
+  "explanation": "Programmeringsdelen er 50–60 % og står i samtlige ti sittinger. 25 % er teoridelens vekt, og 15–20 % er kodeforståelsens — begge er reelle tall fra det samme settet, men for andre deler."
+ },
+ {
+  "question": "Hva er den vanligste strukturfeilen i en besvarelse på programmeringsoppgaven?",
+  "options": [
+   "Å skrive ett langt program i stedet for en kjede av små funksjoner",
+   "Å bruke norske funksjonsnavn i stedet for engelske funksjonsnavn",
+   "Å bruke de innebygde snarveiene i stedet for å skrive løkkene selv",
+   "Å legge alle funksjonene i fila før den funksjonen som kaller dem"
+  ],
+  "explanation": "Ett langt program mister både gjenbrukspoengene og delpoengene, fordi sensor ikke ser hvilken deloppgave som er besvart hvor. Navnespråket er fritt, snarveiene brukes i de offisielle løsningsforslagene, og rekkefølgen på definisjonene i fila er likegyldig for Python."
+ },
+ {
+  "question": "En analysefunksjon trenger data fra fila. Hvordan skal den få tak i dem?",
+  "options": [
+   "Den tar tabellen som parameter fra den som kaller den",
+   "Den åpner fila selv med et filnavn den får som parameter",
+   "Den åpner fila selv med filnavnet skrevet rett inn i koden",
+   "Den henter tabellen fra en variabel som er laget utenfor alle funksjonene"
+  ],
+  "explanation": "Fila leses ett sted, av `main`, og tabellen sendes videre som parameter. De to alternativene der funksjonen åpner fila selv gjør den umulig å gjenbruke på andre data. Å hente en global variabel virker, men binder funksjonen til akkurat det ene programmet."
+ },
+ {
+  "question": "Du står fast på deloppgave b) etter 25 minutter, og c), d) og e) er urørt. Hva er riktig trekk?",
+  "options": [
+   "Skriv én setning om hva b) skulle gjort, anta at den finnes, og gå til c)",
+   "Bli sittende til b) er ferdig, siden c) og d) sannsynligvis vil trenge den",
+   "Lever b) blank og hopp helt over c), som bygger direkte videre på b)",
+   "Begynn på nytt med hele oppgaven og skriv alle funksjonene i én blokk"
+  ],
+  "explanation": "Deloppgavene rettes hver for seg, så en tom b) tar ikke med seg c) i fallet — du kan anta at funksjonen finnes og kalle den. Å bli sittende er den dyreste enkeltfeilen i faget. Å hoppe over c) kaster bort poeng, og å samle alt i én blokk fjerner delpoengene."
+ },
+ {
+  "question": "Hva er den presise forskjellen på ledd 1 og ledd 2 i løsningsoppskriften?",
+  "options": [
+   "Ledd 1 henter linjene fra fila, ledd 2 gjør feltene om til tall og strukturer",
+   "Ledd 1 åpner og lukker fila, ledd 2 går gjennom alle linjene i den med en løkke",
+   "Ledd 1 leser hele fila som én streng, ledd 2 deler den strengen i linjer",
+   "Ledd 1 leser overskriftsraden, ledd 2 leser resten av radene under den"
+  ],
+  "explanation": "Ledd 1 er filinnlesingen, ledd 2 er parsingen — å tolke feltene og konvertere dem. De to andre beskrivelsene deler ledd 1 i to halvdeler i stedet, og overskriftsraden hører til ledd 1 uansett hvordan den håndteres."
+ },
+ {
+  "question": "Hva betyr det at prosentvektingen står oppgitt på settet?",
+  "options": [
+   "Den er tidsplanen din: 10 % av settet er omtrent 24 av de 240 minuttene",
+   "Den viser hvilke deloppgaver sensor retter først, og som derfor må være penest",
+   "Den viser hvor mange kodelinjer hver deloppgave forventes å bestå av",
+   "Den viser hvilke deloppgaver som må være riktige for at settet skal bli bestått"
+  ],
+  "explanation": "Vektingen er et tidsbudsjett: 10 % av en firetimers eksamen er omtrent 24 minutter. Den sier ingenting om retterekkefølge, kodemengde eller ståkrav — deloppgavene rettes hver for seg og summeres."
+ },
+ {
+  "question": "Oppgaveteksten oppgir signaturen `finn_beste(tabell, kolonne)`. Hva bør du gjøre med den?",
+  "options": [
+   "Bruke navnet og parameterne ordrett, så senere deloppgaver kan kalle den",
+   "Velge et mer beskrivende navn, siden sensor uansett leser hele koden",
+   "Bytte om parameterne så kolonnen kommer først, som er vanlig i biblioteker",
+   "Legge til et ekstra parameter for filnavnet, så funksjonen kan lese fila selv"
+  ],
+  "explanation": "Den oppgitte signaturen brukes ordrett — senere deloppgaver kaller funksjonen, og et endret navn eller en endret parameterrekkefølge bryter kjeden. Å legge til et filnavn-parameter bryter i tillegg regelen om at fila leses ett sted."
+ },
+ {
+  "question": "Hvorfor startes `beste_verdi` på `None` i stedet for på 0 når du leter etter den største verdien?",
+  "options": [
+   "Fordi 0 aldri blir slått hvis alle verdiene i tabellen er negative",
+   "Fordi `None` er raskere å sammenligne med enn tallet 0 er",
+   "Fordi 0 gir en `TypeError` når det sammenlignes med et flyttall",
+   "Fordi `None` gjør at løkka stopper av seg selv når tabellen er tom"
+  ],
+  "explanation": "Med 0 som startverdi vinner ingen rad når alle verdiene er negative, og funksjonen returnerer ingenting. `None` gjør at første rad alltid tas. Sammenligning mellom `int` og `float` er helt lovlig, og `None` påvirker ikke hvor løkka stopper."
+ },
+ {
+  "question": "Hva er den riktigste beskrivelsen av gjenbruk slik sensor belønner det?",
+  "options": [
+   "Senere funksjoner kaller de tidligere i stedet for å gjenta koden deres",
+   "Den samme funksjonen kalles flere ganger fra forskjellige steder i programmet",
+   "Koden fra deloppgave b) kopieres inn i c) og tilpasses det nye formålet",
+   "De samme variabelnavnene brukes gjennom hele besvarelsen for lesbarhet"
+  ],
+  "explanation": "Gjenbruk betyr at kjeden bygges av funksjoner som kaller hverandre. Å kalle den samme funksjonen flere ganger er en følge av det, ikke definisjonen. Kopiert kode er nettopp det gjenbruk skal erstatte, og konsekvente variabelnavn er stil, ikke gjenbruk."
+ },
+ {
+  "question": "To studenter leverer den samme analysefunksjonen. Den ene finner kolonnen med `tabell[0].index(\"pris\")`, den andre med `rad[2]`. Hva skiller dem?",
+  "options": [
+   "Bare den første svarer riktig hvis kolonnene kommer i en annen rekkefølge",
+   "Bare den første virker hvis tabellen har en overskriftsrad å slå opp i",
+   "Bare den andre virker hvis prisene er lagret som tekst i stedet for som tall",
+   "Bare den andre gir riktig svar når tabellen har flere enn tre kolonner"
+  ],
+  "explanation": "Det dynamiske oppslaget er et uttalt fullscore-krav nettopp fordi kolonnerekkefølgen kan variere. At `.index` trenger en overskriftsrad er sant, men det er en forutsetning, ikke forskjellen i uttelling — og datatypen og antall kolonner spiller ingen rolle for noen av formene."
+ },
+ {
+  "question": "Oppgaven sier ikke hva som skal skje ved uavgjort. Hva gjør du?",
+  "options": [
+   "Velger én oppførsel og skriver én setning i besvarelsen om antakelsen",
+   "Lar programmet krasje, siden oppgaven ikke har definert tilfellet",
+   "Returnerer alle radene som er like, siden det dekker begge tolkningene",
+   "Hopper over deloppgaven og forklarer at oppgaveteksten er ufullstendig"
+  ],
+  "explanation": "Ved underspesifikasjon velger du selv og dokumenterer valget kort — det er en uttalt sensorregel. Å la programmet krasje koster poeng, å returnere alle like rader endrer returtypen oppgaven ba om, og å hoppe over deloppgaven gir null."
+ }
+]

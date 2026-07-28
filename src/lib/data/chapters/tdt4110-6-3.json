@@ -1,0 +1,346 @@
+{
+  "id": "tdt4110-6-3",
+  "courseId": "tdt4110",
+  "chapterNumber": "6.3",
+  "title": "Algoritmedefinisjon, pseudokode og kompleksitet (Big-O)",
+  "description": "Hva som gjør en oppskrift til en algoritme, hva pseudokode er, og hvordan arbeidsmengden vokser — binærsøk mot sekvensielt søk mot boblesortering.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne si hva som skiller en algoritme fra en løs beskrivelse, og lese og skrive pseudokode",
+    "kunne plassere sekvensielt søk, binærsøk og boblesortering i riktig vekstklasse, og begrunne plasseringen",
+    "kunne begrunne hvorfor binærsøk krever sortert liste, og regne på hva sorteringen koster",
+    "kunne kjenne igjen brute force og hvorfor metoden blir uhåndterlig når problemet vokser"
+  ],
+  "content": [
+    {
+      "id": "tdt4110-6-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Algoritmeteori er belagt i **4 av de 10 eksamenssittingene i arkivet (2014–2019)** — omtrent 40 %, og tyngst i settene fra 2016 og 2017.\n\nDet kommer alltid som **sjanger A — teori/flervalg**, altså spørsmål med fire alternativer der ett er riktig. Slike spørsmål er samlet i Oppgave 1, som er ~25 % av hele settet, og algoritmespørsmålene utgjør et par av de rundt tjue. Typiske formuleringer: «Hvilken kjøretidskompleksitet har binærsøk?», «Hva forutsetter binærsøk?», «Hva menes med brute force?».\n\n**Prioritet: dette bør du kjenne til** — nivå 3, det laveste av bokas tre nivåer «må sitte», «må kunne» og «bør kjenne til».\n\nOg her er den ærlige avveiningen: stoffet er **billig**, ikke viktig. Det tar 45 minutter å lære, det kan ikke løses ved å tenke seg om i eksamenslokalet, og det er verdt et par flervalgspoeng. Det er en god handel — men det er også alt. Er du usikker på programmeringskjeden i Del 7, som alene er 50–60 % av settet, skal du dit først.\n\nEt siste poeng verdt et minutt: **det finnes ingen minuspoeng på flervalg i dette emnet** fra 2015. Blankt teller nøyaktig like mye som feil, altså null, så kryss alltid av — også når du bare gjetter."
+    },
+    {
+      "id": "tdt4110-6-3-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper**\n\n- [kap. 6.2](/tdt4110/tdt4110-6-2) — sekvensielt søk og binærsøk. Hele kompleksitetsdelen sammenligner nettopp de to.\n- [kap. 6.1](/tdt4110/tdt4110-6-1) — boblesortering, som er kapitlets tredje eksempel.\n\nKapitlet krever ingen ny Python. Det er rent teoristoff, og du kan lese det uten å skrive en eneste linje kode.\n\nTo mykere innganger til det samme: [Algoritmer og pseudokode](/10/10-11-1) forklarer algoritmebegrepet fra bunnen, og [Rekursjon og algoritmekompleksitet](/it/it-1-3-5) tar kompleksitet på videregående-nivå.\n\nHar du aldri hatt informatikk: en **algoritme** er ganske enkelt en oppskrift på hvordan et problem løses, og det er den vi nå skal gi et presist innhold."
+    },
+    {
+      "id": "tdt4110-6-3-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — hva er egentlig en algoritme? (~10 min)\n\nTenk på framgangsmåten for å bytte en punktert sykkelslange. «Fiks dekket» er ikke en framgangsmåte — det er en ønskeliste. «Løsne begge bremseklossene, skru av hjulmutrene, ta av hjulet, lirk dekket av felgen på den ene siden …» er en framgangsmåte: hvert steg er utvetydig, og det er et bestemt antall av dem.\n\nDen forskjellen er nøyaktig forskjellen mellom en løs beskrivelse og en **algoritme**. Eksamensspørsmålene om algoritmebegrepet handler alltid om et av de tre kravene under, så det lønner seg å kunne dem som en liste."
+    },
+    {
+      "id": "tdt4110-6-3-def-4",
+      "type": "definition",
+      "title": "Algoritme",
+      "content": "En **entydig** og **endelig** oppskrift som løser et bestemt problem: en ordnet rekke steg som tar en gitt inndata og gir en bestemt utdata.\n\nDe tre kravene er alle nødvendige. Er stegene tvetydige, kan to personer få ulikt svar. Er de uendelig mange, blir du aldri ferdig. Og løser oppskriften ikke et bestemt problem, er den ikke en algoritme, men bare en liste med instruksjoner. En algoritme er uavhengig av programmeringsspråk — den samme algoritmen kan skrives i Python, på papir eller i pseudokode."
+    },
+    {
+      "id": "tdt4110-6-3-def-5",
+      "type": "definition",
+      "title": "Entydighet",
+      "content": "Hvert steg i en algoritme har nøyaktig én mulig tolkning. «Legg til litt salt» er ikke entydig; «legg til 5 gram salt» er det.\n\nI kode er entydigheten gratis — maskinen kan ikke gjette — men i pseudokode og i en muntlig beskrivelse må du passe på den selv. Dette er kravet flervalgsoppgaver oftest tester, ved å tilby et alternativ som er en vag beskrivelse i stedet for en oppskrift."
+    },
+    {
+      "id": "tdt4110-6-3-def-6",
+      "type": "definition",
+      "title": "Endelighet (terminering)",
+      "content": "En algoritme må stoppe etter et endelig antall steg, uansett hvilken lovlig inndata den får.\n\nDette er ikke en formalitet: en `while`-løkke med feil oppdatering av grensene — som binærsøket uten `+ 1` i [kap. 6.2](/tdt4110/tdt4110-6-2) — bryter kravet og henger for alltid. Merk at antall steg gjerne avhenger av inndataene; kravet er bare at det er endelig for hver enkelt inndata."
+    },
+    {
+      "id": "tdt4110-6-3-def-7",
+      "type": "definition",
+      "title": "Inndata og utdata",
+      "content": "En algoritme tar imot null eller flere **inndata** og gir én eller flere **utdata**. Sammenhengen mellom dem er problemet algoritmen løser.\n\nFor binærsøk er inndataene ei sortert liste og en verdi, og utdataen er en indeks eller `-1`. Å kunne beskrive en algoritme ved inndata og utdata — uten å nevne en eneste kodelinje — er nettopp det sjanger C spør etter: «forklar med én setning hva funksjonen gjør»."
+    },
+    {
+      "id": "tdt4110-6-3-ex-8",
+      "type": "example",
+      "title": "Eksempel 1: et gjennomgått flervalg om algoritmebegrepet",
+      "problem": "Hvilken av disse beskrivelsene er en algoritme?\n\n**a)** «Finn den billigste leverandøren i lista.»\n**b)** «Sett `beste` til første rad. Gå gjennom de øvrige radene én for én, og erstatt `beste` hver gang du finner en rad med lavere pris. Returner `beste` til slutt.»\n**c)** «Bruk en effektiv metode for å gå gjennom lista til du er fornøyd med resultatet.»\n**d)** «Lista skal sorteres slik at den billigste leverandøren kommer først.»",
+      "solution": "**Riktig svar: b)**\n\nBare b) oppfyller alle tre kravene: hvert steg er entydig, antallet steg er endelig (én runde per rad), og oppskriften løser et bestemt problem.\n\nSlik faller de tre andre:\n\n- **a)** er en **problembeskrivelse**, ikke en løsning. Den sier hva som skal oppnås, ikke hvordan. Dette er den nære distraktoren som fanger flest, fordi setningen er helt presis — den er bare presis om feil ting.\n- **c)** bryter entydigheten to ganger: «en effektiv metode» sier ikke hvilken, og «til du er fornøyd» er ikke et stoppkriterium en maskin kan sjekke.\n- **d)** beskriver et ønsket **resultat**, altså en tilstand etterpå. Det er heller ikke steg.\n\nLegg merke til hva som **ikke** avgjorde: ingen av alternativene måtte være skrevet i Python. En algoritme er språkuavhengig, og b) er skrevet på norsk."
+    },
+    {
+      "id": "tdt4110-6-3-exr-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-6-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger A — teori/flervalg, altså et spørsmål med fire alternativer der ett er riktig.) Hvilket av kravene til en algoritme brytes av oppskriften «Trekk fra 1 så lenge tallet er positivt, og skriv ut resultatet» når den kjøres på tallet $-5$?\n\n**a)** Entydighet\n**b)** Kravet om inndata\n**c)** Endelighet\n**d)** Ingen av dem — oppskriften er en gyldig algoritme",
+        "solution": "**Riktig svar: d)**\n\nSjekk kravene ett for ett med $-5$ som inndata: betingelsen «så lenge tallet er positivt» er usann med det samme, så det trekkes aldri fra noe, og $-5$ skrives ut. Oppskriften stopper altså umiddelbart, og hvert steg har én tolkning.\n\nDe tre andre:\n\n- **a)** Entydigheten holder: «trekk fra 1» og «positivt» har begge nøyaktig én tolkning.\n- **b)** Inndataen er tallet selv, så kravet er oppfylt.\n- **c)** Endeligheten er den du kanskje mistenkte, men den brytes ikke her. Prøv i stedet inndataen $5$: 5, 4, 3, 2, 1, 0 — og der stopper det også. Skulle oppskriften bryte endeligheten, måtte betingelsen vært formulert slik at den aldri ble usann.\n\nPoenget med oppgaven er at kravene skal **sjekkes**, ikke gjettes på.",
+        "hints": [
+          "Gå gjennom oppskriften steg for steg med tallet $-5$ i hånden.",
+          "Hvor mange ganger kjøres «trekk fra 1» når betingelsen er usann fra start?",
+          "Endelighet handler om at den stopper, ikke om at den gjør noe nyttig."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-6-3-t-9",
+      "type": "text",
+      "content": "## Løkke 2 — pseudokode (~8 min)\n\nNår du skal beskrive en algoritme for et menneske, er Python både for detaljert og for spesifikt: kolon, innrykk og `len()` er Python-vaner, ikke deler av ideen. **Pseudokode** er mellomformen — kode-lignende steg skrevet i klarspråk, uten et bestemt språks regler.\n\nDu møter pseudokode i to sammenhenger på eksamen: i teorispørsmål om hva pseudokode er, og av og til som formen en algoritme presenteres i før du skal oversette den til Python."
+    },
+    {
+      "id": "tdt4110-6-3-def-10",
+      "type": "definition",
+      "title": "Pseudokode",
+      "content": "En beskrivelse av en algoritme i en form som ligner kode, men som er skrevet for mennesker og ikke følger noe programmeringsspråks syntaks.\n\nDen **skal ikke kunne kjøres**, og den trenger verken riktige kolon, importer eller variabeldeklarasjoner. Til gjengjeld må den fortsatt være entydig: hvert steg skal kunne oversettes til kode på nøyaktig én måte. Pseudokode brukes for å planlegge en løsning, for å sammenligne algoritmer, og for å beskrive dem i en lærebok uten å binde seg til ett språk."
+    },
+    {
+      "id": "tdt4110-6-3-ex-11",
+      "type": "example",
+      "title": "Eksempel 2: fra pseudokode til Python",
+      "problem": "Under står sekvensielt søk i pseudokode. Oversett den til Python, og pek på hva som er lagt til i oversettelsen.",
+      "solution": "Pseudokoden — legg merke til at den ikke er kjørbar, og ikke prøver å være det:\n\n```text\nsøk(liste, mål):\n    for hver plass i lista, fra første til siste:\n        hvis elementet på denne plassen er lik mål:\n            gi tilbake plassnummeret, og stopp\n    gi tilbake -1\n```\n\nOversettelsen:\n\n```python\ndef sok(liste, mal):\n    for i in range(len(liste)):\n        if liste[i] == mal:\n            return i\n    return -1\n\nprint(sok([14, 29, 8, 51], 8))\nprint(sok([14, 29, 8, 51], 30))\n```\n\n**Utskrift:**\n```\n2\n-1\n```\n\nHva ble lagt til? `range(len(liste))` i stedet for «fra første til siste», kolon og innrykk i stedet for norske ord, og `return` i stedet for «gi tilbake». Ingen av delene endret **algoritmen** — de er Python-vaner.\n\nHva ble ikke lagt til? Ingenting. Det er testen på god pseudokode: oversettelsen skal ikke kreve at du tar en eneste ny beslutning."
+    },
+    {
+      "id": "tdt4110-6-3-warn-12",
+      "type": "warning",
+      "title": "Typiske feil: algoritmer og pseudokode",
+      "content": "Fire misforståelser går igjen, og alle fire er testet som flervalg:\n\n- **«Pseudokode må kunne kjøres.»** Nei — da hadde det vært kode. Kravet er at den er entydig, ikke at den er syntaktisk riktig.\n- **«En algoritme er det samme som et program.»** Nei. Algoritmen er ideen; programmet er én bestemt nedskriving av den i ett bestemt språk. Den samme algoritmen kan skrives i Python og i pseudokode, og er den samme algoritmen begge steder.\n- **«Alt som er en oppskrift, er en algoritme.»** Nei — den må også være entydig og endelig. «Rør til det ser bra ut» er en oppskrift, men ikke en algoritme.\n- **«En algoritme må ha inndata.»** Ikke nødvendigvis; kravet er null eller flere. En algoritme som skriver ut de hundre første primtallene, tar ingen inndata."
+    },
+    {
+      "id": "tdt4110-6-3-exr-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-6-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — forklar med én setning hva algoritmen gjør.) Under står en algoritme i pseudokode.\n\n```text\nukjent(tabell):\n    sett teller til 0\n    for hver rad i tabellen:\n        hvis raden har flere enn 3 felt:\n            øk teller med 1\n    gi tilbake teller\n```\n\n**a)** Skriv én presis setning om hva algoritmen gir tilbake.\n**b)** Oversett pseudokoden til Python.",
+        "solution": "**a) Modellsvar:** «Returnerer antall rader i tabellen som har flere enn tre felt.»\n\nÉn setning, starter med et verb, sier *hva* — ikke *hvordan*.\n\n**Et for langt svar — dette trekker ned:** «Algoritmen begynner med å sette en tellervariabel til null, og går deretter gjennom hver eneste rad i tabellen med en løkke, der den for hver rad sjekker om lengden er større enn tre, og i så fall øker telleren med én, før den til slutt returnerer telleren.» Det er en oversettelse av stegene, ikke en forklaring av formålet.\n\n**b)** Oversettelsen krever bare Python-vanene:\n\n```python\ndef ukjent(tabell):\n    teller = 0\n    for rad in tabell:\n        if len(rad) > 3:\n            teller = teller + 1\n    return teller\n\ndata = [['a', 'b'], ['c', 'd', 'e', 'f'], ['g'], ['h', 'i', 'j', 'k', 'l']]\nprint(ukjent(data))\n```\n\n**Utskrift:**\n```\n2\n```\n\nTo av radene har flere enn tre felt, så svaret er 2. Merk at `teller = teller + 1` og `teller += 1` er like riktige — begge gir full pott.",
+        "hints": [
+          "Til a): hva er det siste algoritmen gjør, og hva er det den har talt?",
+          "Stryk alt om variabler og løkker fra setningen din.",
+          "Til b): «for hver rad» blir `for rad in tabell`, og «har flere enn 3 felt» blir `len(rad) > 3`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-6-3-t-13",
+      "type": "text",
+      "content": "## Løkke 3 — kjøretidskompleksitet (~17 min)\n\nDu har to funksjoner som gjør den samme jobben, og begge kjører på et blunk når du tester dem på ti elementer. Hvilken skal du velge?\n\nSpørsmålet gir ikke mening før du spør videre: **hva skjer når lista blir stor?** Det er hele poenget med kjøretidskompleksitet. Vi teller ikke sekunder — de avhenger av maskinen, av språket og av hvor mye annet som kjører — vi ser på **hvordan arbeidet vokser** når mengden data vokser.\n\nTa binærsøk mot sekvensielt søk. På ti elementer er forskjellen usynlig. På en million er den forskjellen på 20 steg og en million.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tdt4110-6-3-def-14",
+      "type": "definition",
+      "title": "Input-størrelsen $n$",
+      "content": "Tallet som sier hvor mye data algoritmen får: antall elementer i lista, antall rader i tabellen, antall tegn i strengen.\n\nAll kompleksitetsanalyse handler om hva som skjer med arbeidsmengden når $n$ vokser. Derfor må du alltid si hva $n$ er før du oppgir en kompleksitet — «$O(n)$» uten å si hva $n$ teller, er et halvt svar."
+    },
+    {
+      "id": "tdt4110-6-3-def-15",
+      "type": "definition",
+      "title": "Kjøretidskompleksitet",
+      "content": "Et mål på hvor mye arbeid en algoritme gjør som funksjon av input-størrelsen $n$ — ikke målt i sekunder, men i antall grunnleggende operasjoner: sammenligninger, tildelinger, bytter.\n\nGrunnen til at vi ikke måler tid, er at sekunder avhenger av maskinen. Antall sammenligninger gjør ikke det: et sekvensielt søk gjør $n$ sammenligninger i verste fall, på hvilken som helst maskin, i hvilket som helst språk."
+    },
+    {
+      "id": "tdt4110-6-3-def-16",
+      "type": "definition",
+      "title": "Verste tilfelle",
+      "content": "Den mest arbeidskrevende inndataen av en gitt størrelse. Kompleksitet oppgis normalt for verste tilfelle, med mindre noe annet står.\n\nFor sekvensielt søk er verste tilfelle at verdien ligger sist — eller ikke finnes i det hele tatt — så alle $n$ elementene må sjekkes. Beste tilfelle er at den ligger først, altså ett steg. Sier du «sekvensielt søk er $O(n)$», sier du noe om verste tilfelle, og du bør si det høyt hvis oppgaven spør presist."
+    },
+    {
+      "id": "tdt4110-6-3-def-17",
+      "type": "definition",
+      "title": "Big-O-notasjon",
+      "content": "Skrivemåten $O(\\ldots)$ som navngir **vekstformen** til arbeidsmengden, og ser bort fra konstanter og mindre ledd.\n\nGjør en algoritme $3n + 12$ sammenligninger, skriver vi $O(n)$: det er $n$-leddet som avgjør når $n$ blir stort, og et tretall foran betyr lite ved siden av forskjellen mellom $n$ og $n^2$. Poenget med notasjonen er å kunne sammenligne algoritmer uten å måtte snakke om maskinvare."
+    },
+    {
+      "id": "tdt4110-6-3-def-18",
+      "type": "definition",
+      "title": "$O(1)$ — konstant tid",
+      "content": "Arbeidsmengden er den samme uansett hvor store dataene er. Å hente `x[5]` ut av ei liste tar like lang tid enten lista har ti eller ti millioner elementer.\n\nAndre eksempler: `len(x)`, `x.append(v)`, å lese en verdi fra en ordbok. Det er den beste klassen som finnes, og den er grunnen til at ordbøker er så nyttige i programmeringsoppgaven — oppslag i ordbok er $O(1)$, mens søk i liste er $O(n)$."
+    },
+    {
+      "id": "tdt4110-6-3-def-19",
+      "type": "definition",
+      "title": "$O(\\log n)$ — logaritmisk tid",
+      "content": "Arbeidsmengden vokser med antall ganger $n$ kan halveres. Tidoblet datamengde koster bare noen få steg til.\n\n**Binærsøk er det kanoniske eksemplet**, og på eksamen er det nesten alltid dette spørsmålet stilles om. Tallene: 1 000 elementer gir 10 steg, 1 000 000 gir 20. Merk forutsetningen — kompleksiteten gjelder bare fordi lista er sortert."
+    },
+    {
+      "id": "tdt4110-6-3-def-20",
+      "type": "definition",
+      "title": "$O(n)$ — lineær tid",
+      "content": "Arbeidsmengden vokser i takt med datamengden: dobbelt så mange elementer gir dobbelt så mye arbeid.\n\n**Sekvensielt søk er det kanoniske eksemplet.** Det samme gjelder alt annet som går gjennom lista én gang: `sum(x)`, `max(x)`, `v in x`, og hver eneste analysefunksjon du skriver i programmeringsoppgaven. En enkelt `for`-løkke over dataene er $O(n)$."
+    },
+    {
+      "id": "tdt4110-6-3-def-21",
+      "type": "definition",
+      "title": "$O(n^2)$ — kvadratisk tid",
+      "content": "Arbeidsmengden vokser med kvadratet av datamengden: ti ganger så mange elementer gir hundre ganger så mye arbeid.\n\n**Boblesortering er det kanoniske eksemplet**, og formen røper seg alltid på samme måte: en løkke inne i en annen løkke, der begge går gjennom dataene. Konkret gjør boblesortering $\\frac{n(n-1)}{2}$ sammenligninger, altså 4 950 for 100 elementer og 499 500 for 1 000."
+    },
+    {
+      "id": "tdt4110-6-3-def-22",
+      "type": "definition",
+      "title": "$O(2^n)$ — eksponentiell tid",
+      "content": "Arbeidsmengden dobles hver gang du legger til **ett** element. Dette er klassen der problemene blir praktisk uløselige.\n\nTallene illustrerer hvorfor: 20 elementer gir omtrent en million, 30 gir en milliard, 40 gir tusen milliarder. Algoritmer i denne klassen er brukbare bare på svært små inndata, og de dukker opp når en løsning må prøve alle kombinasjoner av valg."
+    },
+    {
+      "id": "tdt4110-6-3-def-23",
+      "type": "definition",
+      "title": "$O(n!)$ — faktoriell tid",
+      "content": "Arbeidsmengden vokser som $n$-fakultet, altså $1 \\times 2 \\times 3 \\times \\ldots \\times n$. Det er enda verre enn eksponentiell.\n\nKlassen dukker opp når en løsning må prøve alle **rekkefølger** av noe. Handelsreisendes problem er standardeksemplet: med 10 byer og et fast startpunkt er det 362 880 mulige ruter, med 20 byer er tallet over 121 000 000 000 000 000."
+    },
+    {
+      "id": "tdt4110-6-3-thm-24",
+      "type": "theorem",
+      "title": "Slik kjenner du igjen klassen i din egen kode",
+      "content": "Du skal ikke gjøre formell analyse i dette emnet. Du skal kunne kjenne igjen formen, og det gjøres ved å telle løkker:\n\n1. **Ingen løkke over dataene** $\\to$ $O(1)$. Du henter én verdi, uansett hvor mye data det er.\n2. **Én løkke gjennom dataene** $\\to$ $O(n)$. Dette er de aller fleste funksjonene du skriver i faget.\n3. **En løkke inne i en løkke, begge over dataene** $\\to$ $O(n^2)$. Boblesortering, og «sammenlign hver rad med hver rad».\n4. **Halverer arbeidet i hvert steg** $\\to$ $O(\\log n)$. Binærsøk er det eneste eksemplet i pensum.\n5. **Prøver alle kombinasjoner eller alle rekkefølger** $\\to$ $O(2^n)$ eller $O(n!)$. Brute force.\n\nMerk et vanlig feilgrep i punkt 3: en løkke inne i en løkke er bare $O(n^2)$ hvis **begge** går over dataene. Går den indre løkka over de sju ukedagene, uansett hvor stor tabellen er, er den en konstant — og hele funksjonen er $O(n)$."
+    },
+    {
+      "id": "tdt4110-6-3-ex-25",
+      "type": "example",
+      "title": "Eksempel 3: tallene bak klassene",
+      "problem": "Sett opp hvor mye arbeid de tre algoritmene fra Del 6 gjør for 10, 100, 1 000 og 1 000 000 elementer — og vurder hvilke av dem som er brukbare.",
+      "solution": "Tallene er antall grunnoperasjoner i verste tilfelle: halveringer for binærsøk, sammenligninger for de to andre.\n\n| Antall elementer $n$ | Binærsøk $O(\\log n)$ | Sekvensielt søk $O(n)$ | Boblesortering $O(n^2)$ |\n|---|---|---|---|\n| 10 | 4 | 10 | 45 |\n| 100 | 7 | 100 | 4 950 |\n| 1 000 | 10 | 1 000 | 499 500 |\n| 1 000 000 | 20 | 1 000 000 | 499 999 500 000 |\n\nTre observasjoner er verdt å ta med seg:\n\n- **For 10 elementer er alle tre like gode.** Forskjellene er usynlige, og det er derfor kompleksitet ikke er noe du merker når du tester på småeksempler.\n- **For 1 000 000 er forskjellen avgjørende.** Binærsøket er ferdig på 20 steg. Boblesorteringen ville gjort omtrent 500 milliarder sammenligninger — det er ikke tregt, det er praktisk umulig.\n- **Kolonnen for boblesortering vokser fortest.** Fra 1 000 til 1 000 000 elementer, altså tusen ganger mer data, går arbeidet opp en million ganger. Det er det $O(n^2)$ betyr i praksis.\n\nRegnestykket for boblesortering er $\\frac{n(n-1)}{2}$: for $n = 100$ gir det $\\frac{100 \\times 99}{2} = 4\\,950$."
+    },
+    {
+      "id": "tdt4110-6-3-exr-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-6-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — teori/flervalg.) Hvilken kjøretidskompleksitet har binærsøk i ei **sortert** liste med $n$ elementer?\n\n**a)** $O(n^2)$\n**b)** $O(n)$\n**c)** $O(1)$\n**d)** $O(\\log n)$",
+        "solution": "**Riktig svar: d)**\n\nHvert steg halverer det som er igjen å lete i, og antall halveringer det tar å komme fra $n$ til ett element, er $\\log_2 n$.\n\nDe tre andre er de faste nære distraktorene, og hver av dem er riktig svar på et **annet** spørsmål:\n\n- **$O(n)$** er sekvensielt søk. Dette er den vanligste feilkryssingen, fordi begge er «søk».\n- **$O(n^2)$** er boblesortering, altså algoritmen du eventuelt måtte kjøre **før** binærsøket for å få lista sortert.\n- **$O(1)$** ville betydd at søket tok like mange steg uansett listestørrelse. Binærsøk er raskt, men ikke uavhengig av $n$: en million elementer koster dobbelt så mange steg som tusen.\n\nMerk formuleringen «i ei sortert liste» i oppgaveteksten. Uten den forutsetningen har binærsøk ingen meningsfull kompleksitet — det gir jo feil svar.",
+        "hints": [
+          "Hva skjer med søkeområdet i hvert steg?",
+          "Hvor mange ganger kan du halvere 1 000 før du står igjen med ett?",
+          "Én av de fire klassene beskriver den halveringen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-6-3-exr-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-6-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — regnespørsmål.) Boblesortering gjør $\\frac{n(n-1)}{2}$ sammenligninger på ei liste med $n$ elementer.\n\n**a)** Hvor mange sammenligninger blir det for 200 elementer?\n**b)** Lista dobles fra 200 til 400 elementer. Hvor mange ganger flere sammenligninger blir det da, omtrent?\n**c)** Hva heter vekstklassen dette er et eksempel på?",
+        "solution": "**a)** Sett inn i formelen: $\\frac{200 \\times 199}{2} = \\frac{39\\,800}{2} = 19\\,900$ sammenligninger.\n\n**b)** Regn ut begge og sammenlign. For 400: $\\frac{400 \\times 399}{2} = \\frac{159\\,600}{2} = 79\\,800$. Forholdet er $\\frac{79\\,800}{19\\,900} \\approx 4{,}01$ — altså **omtrent fire ganger så mange**.\n\nDet er akkurat det du skal forvente: dobbelt så mye data, fire ganger arbeidet, fordi $2^2 = 4$.\n\n**c)** Kvadratisk tid, $O(n^2)$.\n\nMerk at du klarer hele oppgaven med kalkulatoren du har lov til å ha på eksamen — hjelpemiddelkode D betyr én bestemt, enkel kalkulator, ingen bøker og ingen annen elektronikk. Regnestykkene i teoridelen er alltid av denne typen: to multiplikasjoner og en divisjon.",
+        "hints": [
+          "Sett tallet rett inn i formelen, og regn telleren først.",
+          "Til b): regn begge tallene, og del det største på det minste.",
+          "Til b): hva er $2^2$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-6-3-t-26",
+      "type": "text",
+      "content": "## Løkke 4 — lønner det seg å sortere først? (~10 min)\n\nNå kan du sette de to kapitlene sammen. Binærsøk er dramatisk raskere enn sekvensielt søk — men det krever ei sortert liste, og sortering koster. Spørsmålet er når regnestykket går opp.\n\nSvaret følger av tallene: å sortere 1 000 elementer med boblesortering koster nesten 500 000 sammenligninger, mens ett sekvensielt søk koster høyst 1 000. Skal du slå opp **én** gang, er sortering helt bortkastet. Skal du slå opp **tusen** ganger i den samme lista, betaler sorteringen seg fort inn, fordi hvert oppslag da koster 10 steg i stedet for 1 000.\n\nDette er den eneste avveiningen fra dette kapitlet du vil få bruk for i en programmeringsoppgave — og på eksamen ender du nesten alltid på sekvensielt søk, fordi tabellene er små og oppslagene få."
+    },
+    {
+      "id": "tdt4110-6-3-def-27",
+      "type": "definition",
+      "title": "Brute force (uttømmende søk)",
+      "content": "En løsningsmetode som prøver **alle** muligheter og velger den beste, i stedet for å bruke et smartere resonnement.\n\nMetoden har to egenskaper som alltid nevnes sammen: den finner garantert det riktige svaret, og den blir ubrukelig fort når problemet vokser, fordi antall muligheter typisk vokser eksponentielt eller faktorielt. Å prøve alle passord av en gitt lengde er brute force; det samme er å prøve alle ruter mellom byer."
+    },
+    {
+      "id": "tdt4110-6-3-def-28",
+      "type": "definition",
+      "title": "Handelsreisendes problem",
+      "content": "Standardeksemplet på et problem der brute force blir håpløst: gitt et sett byer med avstander mellom seg, finn den korteste ruta som besøker hver by nøyaktig én gang og vender tilbake til start.\n\nMed et fast startpunkt er antall mulige ruter $(n-1)!$ — for 10 byer er det 362 880, for 20 byer over 121 000 000 000 000 000. Problemet er også kjent under det engelske navnet «travelling salesman». Det finnes ingen kjent metode som løser det raskt for store $n$; i praksis brukes metoder som finner en god, men ikke garantert beste, rute."
+    },
+    {
+      "id": "tdt4110-6-3-ex-29",
+      "type": "example",
+      "title": "Eksempel 4: et gjennomgått flervalg om brute force",
+      "problem": "Hva kjennetegner en brute force-løsning?\n\n**a)** Den finner en god løsning raskt, men uten garanti for at den er den beste.\n**b)** Den halverer søkeområdet i hvert steg og krever sorterte data.\n**c)** Den prøver alle mulighetene og finner garantert den beste, men blir fort uhåndterlig.\n**d)** Den bruker mindre minne enn andre metoder, på bekostning av kjøretid.",
+      "solution": "**Riktig svar: c)**\n\nBegge halvdelene av setningen må være med: garantien for riktig svar er den ene siden av brute force, og den eksplosive veksten er den andre. Et alternativ som bare nevner den ene, er ufullstendig.\n\nSlik faller de tre andre:\n\n- **a)** beskriver det motsatte — en heuristikk, altså en metode som gir en god nok løsning uten garanti. Dette er den nærmeste distraktoren, fordi det er nettopp slike metoder man bruker **i stedet for** brute force på store problemer.\n- **b)** beskriver binærsøk. Halvering og sorteringskrav er binærsøkets kjennetegn, ikke brute force sitt.\n- **d)** handler om minnebruk, som ikke er en del av definisjonen i det hele tatt.\n\nLegg merke til teknikken som avgjorde: hvert av de fire alternativene er en **korrekt beskrivelse av noe** — bare ett av dem beskriver brute force. Det er slik teori-flervalgene i dette emnet er bygget, og derfor må du lese alle fire før du krysser av."
+    },
+    {
+      "id": "tdt4110-6-3-exr-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-6-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — teori/flervalg.) Hvorfor krever binærsøk at lista er sortert?\n\n**a)** Fordi slutningen «er midtelementet for lite, er alt til venstre også for lite» bare holder i ei sortert liste\n**b)** Fordi `while`-løkka ellers ikke ville stoppet, og programmet ville hengt\n**c)** Fordi `imid` ellers kunne blitt en indeks utenfor lista og gitt `IndexError`\n**d)** Fordi indeksene ellers ikke ville stått i stigende rekkefølge i søkevinduet",
+        "solution": "**Riktig svar: a)**\n\nDette er hele begrunnelsen: binærsøk kaster halve lista uten å se på den, og det er bare forsvarlig hvis sorteringen garanterer at målet umulig kan ligge der.\n\nDe tre andre er nære distraktorer fordi de beskriver ting som **er** sanne om binærsøk generelt, men som ikke avhenger av sorteringen:\n\n- **b)** Løkka stopper helt fint på ei usortert liste — vinduet krymper i hvert steg uansett. Nettopp derfor er feilen så farlig: du får et svar, det er bare galt.\n- **c)** `imid` ligger alltid mellom `imin` og `imax`, som begge er lovlige indekser. Sorteringen har ingenting med det å gjøre.\n- **d)** Indeksene står i stigende rekkefølge uansett hvordan verdiene ligger — det er **verdiene** som må være sortert, ikke indeksene.\n\nSe [eksempel 5 i kap. 6.2](/tdt4110/tdt4110-6-2) for et kjørt eksempel der binærsøk svarer `-1` på en verdi som ligger i lista.",
+        "hints": [
+          "Hva gjør binærsøk med halvparten av lista, uten å se på den?",
+          "Hvilken slutning må være sann for at det skal være forsvarlig?",
+          "Sjekk om de andre alternativene faktisk har noe med sortering å gjøre."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-6-3-exr-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-6-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — resonnement.) Et program skal slå opp postnumre i et register med 1 000 rader. Registeret leses fra fil i vilkårlig rekkefølge.\n\n**a)** Hvor mange sammenligninger bruker ett sekvensielt søk i verste tilfelle?\n**b)** Alternativet er å boblesortere registeret først og deretter binærsøke. Hvor mange sammenligninger koster sorteringen, og hvor mange koster hvert oppslag etterpå?\n**c)** Programmet skal gjøre 5 oppslag. Hvilken framgangsmåte er billigst? Begrunn med tallene.\n**d)** Hva om programmet skal gjøre 5 000 oppslag?",
+        "solution": "**a)** Verste tilfelle er at postnummeret ligger sist eller ikke finnes: **1 000 sammenligninger**.\n\n**b)** Sorteringen koster $\\frac{1000 \\times 999}{2} = 499\\,500$ sammenligninger. Hvert binærsøk etterpå koster $\\log_2 1000 \\approx 10$ steg, siden $2^{10} = 1024$.\n\n**c)** Regn begge veier:\n\n| Framgangsmåte | Regnestykke | Sammenligninger |\n|---|---|---|\n| Sekvensielt, 5 oppslag | $5 \\times 1\\,000$ | 5 000 |\n| Sorter + binærsøk, 5 oppslag | $499\\,500 + 5 \\times 10$ | 499 550 |\n\n**Sekvensielt søk er billigst**, og med god margin — sorteringen alene koster hundre ganger mer enn hele den andre framgangsmåten.\n\n**d)** Nå snur det:\n\n| Framgangsmåte | Regnestykke | Sammenligninger |\n|---|---|---|\n| Sekvensielt, 5 000 oppslag | $5\\,000 \\times 1\\,000$ | 5 000 000 |\n| Sorter + binærsøk, 5 000 oppslag | $499\\,500 + 5\\,000 \\times 10$ | 549 500 |\n\n**Sorter først**, og du bruker under en tiendedel så mye arbeid.\n\n**Poenget:** sortering er en engangsinvestering, og den lønner seg når den kan fordeles på mange oppslag. Bryteren ligger et sted mellom 5 og 5 000 oppslag — men på eksamen får du aldri tabeller store nok til at dette betyr noe i praksis. Der er svaret nesten alltid sekvensielt søk, fordi det er enklest å skrive riktig.",
+        "hints": [
+          "Til a): hvor mange elementer må sjekkes hvis verdien ikke finnes?",
+          "Til b): bruk formelen $\\frac{n(n-1)}{2}$ for sorteringen, og finn hvilken potens av 2 som passerer 1 000.",
+          "Til c) og d): sett opp totalkostnaden som «sortering + antall oppslag $\\times$ pris per oppslag»."
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-6-3-exr-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4110-6-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — teori/flervalg.) En funksjon går gjennom alle radene i en tabell med $n$ rader, og for hver rad går den gjennom de tolv månedene i året og summerer. Hvilken kjøretidskompleksitet har funksjonen?\n\n**a)** $O(n^2)$, fordi den har en løkke inne i en løkke\n**b)** $O(n)$, fordi den indre løkka har et fast antall runder\n**c)** $O(\\log n)$, fordi den behandler dataene i grupper\n**d)** $O(1)$, fordi antall måneder ikke avhenger av tabellen",
+        "solution": "**Riktig svar: b)**\n\nDen indre løkka går tolv runder uansett hvor stor tabellen er. Tolv er en konstant, og i Big-O ser vi bort fra konstanter — funksjonen gjør $12n$ operasjoner, som er $O(n)$.\n\nDette er den viktigste presiseringen i hele kapitlet, og også den mest testede:\n\n- **a)** er fella. «Løkke i løkke betyr $O(n^2)$» er en huskeregel som bare holder når **begge** løkkene går over dataene. Her gjør bare den ytre det.\n- **c)** Ingenting halveres, og gruppering i seg selv har ingenting med logaritmer å gjøre.\n- **d)** Riktig at antall måneder er uavhengig av tabellen — men den ytre løkka går fortsatt gjennom alle radene, så arbeidet vokser med $n$.\n\nPrøvesteinen er alltid den samme: **spør om hver løkke går over dataene, eller over noe med fast størrelse.**",
+        "hints": [
+          "Hvor mange runder går den indre løkka når tabellen har 5 rader? Og når den har 5 000?",
+          "Skriv opp totalt antall operasjoner som et uttrykk i $n$.",
+          "Hva gjør Big-O med et konstant tall foran $n$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4110-6-3-warn-30",
+      "type": "warning",
+      "title": "Typiske feil: kompleksitet",
+      "content": "Feilkode **#11** i bokas register er «forveksle tett formulerte alternativer», og i akkurat dette stoffet har den fire faste former:\n\n- **Å bytte om $O(\\log n)$ og $O(n)$.** Binærsøk er $O(\\log n)$, sekvensielt søk er $O(n)$. Huskeregelen: **det som halverer, er logaritmisk.**\n- **Å tro at binærsøk virker på ei usortert liste.** Den vanligste enkeltfeilen i hele Del 6, og den koster to poeng: ett på kompleksitetsspørsmålet og ett på forutsetningsspørsmålet.\n- **Å telle løkker uten å se hva de går over.** En løkke inne i en løkke er bare $O(n^2)$ hvis begge går over dataene.\n- **Å blande brute force med en effektiv metode.** Brute force prøver alle muligheter og er derfor treg, men den garanterer riktig svar. En rask metode som ikke garanterer det beste svaret, er det motsatte.\n\nEn femte, mildere felle: å oppgi en kompleksitet uten å si hva $n$ er, eller uten å si om det gjelder verste eller beste tilfelle. Sier oppgaven ingenting, mener den verste tilfelle."
+    },
+    {
+      "id": "tdt4110-6-3-t-31",
+      "type": "text",
+      "content": "## Avgrensning — dette skal du IKKE kunne\n\nBoka stopper her, og det er med vilje. **Formell asymptotisk analyse er utenfor pensum i TDT4110**: du skal ikke bevise at en algoritme er $O(n \\log n)$, ikke arbeide med $\\Omega$ og $\\Theta$, og ikke utlede kompleksiteten til en algoritme du ikke har sett før. Det hører hjemme i senere algoritmeemner.\n\nDet du skal kunne, er de fem klassene i dette kapitlet, hvilken algoritme som hører til hvilken, og hvorfor. Ser du et eksamensspørsmål som krever mer enn det, har du sannsynligvis lest det for komplisert.\n\nÉn ting til, som du bør **kjenne til** uten å pugge: Pythons innebygde `sorted()` og `.sort()` er langt raskere enn boblesortering — de er $O(n \\log n)$, ikke $O(n^2)$. Det er en av grunnene til at fasitene bruker dem fritt."
+    },
+    {
+      "id": "tdt4110-6-3-col-32",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene du bør ha med deg",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "tdt4110-6-3-col-32-t1",
+          "type": "text",
+          "content": "1. En algoritme er en **entydig** og **endelig** oppskrift som løser et bestemt problem — uavhengig av programmeringsspråk.\n2. Pseudokode beskriver en algoritme i kode-lignende klarspråk, og skal **ikke** kunne kjøres.\n3. Kjøretidskompleksitet måler hvordan arbeidet vokser med input-størrelsen $n$, ikke hvor mange sekunder det tar.\n4. Binærsøk er $O(\\log n)$, sekvensielt søk er $O(n)$, boblesortering er $O(n^2)$.\n5. Binærsøk forutsetter **sortert** liste. Uten den gir det feil svar, uten feilmelding.\n6. Brute force prøver alle muligheter: garantert riktig svar, men $O(2^n)$ eller $O(n!)$ — ubrukelig for store problemer."
+        }
+      ]
+    },
+    {
+      "id": "tdt4110-6-3-col-33",
+      "type": "collapsible",
+      "title": "Begreps- og enhetsliste",
+      "buttonText": "Vis begreper og enheter",
+      "content": [
+        {
+          "id": "tdt4110-6-3-col-33-t1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et teorikapittel: den lister fagbegrepene og enhetene i stedet for greske bokstaver.\n\n| Begrep/enhet | Presis betydning |\n|---|---|\n| Algoritme | Entydig, endelig oppskrift som løser et bestemt problem; språkuavhengig |\n| Entydighet | Hvert steg har nøyaktig én tolkning |\n| Endelighet (terminering) | Algoritmen stopper etter et endelig antall steg for enhver lovlig inndata |\n| Inndata / utdata | Null eller flere verdier inn; én eller flere verdier ut |\n| Pseudokode | Kode-lignende beskrivelse i klarspråk; skal ikke kunne kjøres, men må være entydig |\n| Program | Én bestemt nedskriving av en algoritme i ett bestemt språk |\n| Input-størrelse $n$ | Antall elementer/rader/tegn algoritmen får inn |\n| Kjøretidskompleksitet | Hvordan antall grunnoperasjoner vokser med $n$ — ikke målt i sekunder |\n| Verste tilfelle | Den mest arbeidskrevende inndataen av en gitt størrelse; standard når ikke annet er sagt |\n| Big-O, $O(\\ldots)$ | Notasjon for vekstform; ser bort fra konstanter og mindre ledd |\n| $O(1)$ | Konstant: uavhengig av $n$. Indeksoppslag, `len(x)`, ordbokoppslag |\n| $O(\\log n)$ | Logaritmisk: halverer i hvert steg. **Binærsøk** |\n| $O(n)$ | Lineær: én gjennomgang. **Sekvensielt søk**, `sum(x)`, `max(x)` |\n| $O(n^2)$ | Kvadratisk: løkke i løkke over dataene. **Boblesortering** |\n| $O(2^n)$ | Eksponentiell: dobles per ekstra element. Alle kombinasjoner |\n| $O(n!)$ | Faktoriell: alle rekkefølger. Handelsreisendes problem |\n| Brute force | Prøver alle muligheter; garantert riktig svar, men eksplosiv vekst |\n| Handelsreisendes problem | Korteste rundtur innom $n$ byer; $(n-1)!$ mulige ruter med fast start |\n\n**Formler i dette delkapitlet:**\n\n- Boblesortering gjør $\\frac{n(n-1)}{2}$ sammenligninger på $n$ elementer.\n- Binærsøk bruker omtrent $\\log_2 n$ steg; $2^{10} = 1024$ og $2^{20} = 1\\,048\\,576$.\n- Handelsreisendes problem har $(n-1)!$ mulige ruter med et fast startpunkt."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

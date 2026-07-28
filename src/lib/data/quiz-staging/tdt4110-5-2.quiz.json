@@ -1,0 +1,222 @@
+[
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n\nprint(fakultet(5))\n```",
+  "options": [
+   "`120`",
+   "`720`",
+   "`15`",
+   "`25`"
+  ],
+  "explanation": "Fakultet av 5 er 5 ganger 4 ganger 3 ganger 2, altså 120. `720` er fakultet av 6, altså ett kall for mye, `15` er summen av tallene i stedet for produktet, og `25` er 5 ganget med seg selv."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n\nprint(fakultet(0), fakultet(1))\n```",
+  "options": [
+   "`1 1`",
+   "`0 1`",
+   "`1 0`",
+   "`0 0`"
+  ],
+  "explanation": "Grunntilfellet `n <= 1` fanger begge argumentene og gir 1 for hver av dem. `0 1` og `0 0` forutsetter at fakultet av 0 er 0, og `1 0` snur det samme feilsvaret."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef sfd(a, b):\n    if b == 0:\n        return a\n    return sfd(b, a % b)\n\nprint(sfd(60, 24))\n```",
+  "options": [
+   "`12`",
+   "`6`",
+   "`24`",
+   "`4`"
+  ],
+  "explanation": "Kjeden er 60 og 24, så 24 og 12, så 12 og 0 — og da returneres 12, som er største felles divisor. `6` og `4` er felles divisorer, men ikke de største, og `24` er bare det minste av de to tallene."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef sfd(a, b):\n    if b == 0:\n        return a\n    return sfd(b, a % b)\n\nprint(sfd(7, 13))\n```",
+  "options": [
+   "`1`",
+   "`7`",
+   "`13`",
+   "`91`"
+  ],
+  "explanation": "7 og 13 har ingen felles divisor større enn 1, så kjeden ender på 1. `7` og `13` er tallene selv, og `91` er produktet av dem."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef tverrsum(n):\n    if n == 0:\n        return 0\n    return n % 10 + tverrsum(n // 10)\n\nprint(tverrsum(3080))\n```",
+  "options": [
+   "`11`",
+   "`38`",
+   "`12`",
+   "`3080`"
+  ],
+  "explanation": "Sifrene 3, 0, 8 og 0 summeres til 11, og nullene er ikke spesialtilfeller. `38` limer sifrene sammen i stedet for å summere dem, `12` teller ett siffer feil, og `3080` er tallet selv."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef tverrsum(n):\n    if n == 0:\n        return 0\n    return n % 10 + tverrsum(n // 10)\n\nprint(tverrsum(0))\n```",
+  "options": [
+   "`0`",
+   "`1`",
+   "`10`",
+   "`None`"
+  ],
+  "explanation": "Argumentet treffer grunntilfellet med én gang, så funksjonen returnerer 0 uten noe rekursivt kall. `1` og `10` forutsetter minst ett steg, og `None` ville krevd at grunntilfellet manglet en `return`."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef potens(g, e):\n    if e == 0:\n        return 1\n    return g * potens(g, e - 1)\n\nprint(potens(3, 4))\n```",
+  "options": [
+   "`81`",
+   "`12`",
+   "`64`",
+   "`27`"
+  ],
+  "explanation": "3 ganges med seg selv fire ganger, altså 81. `12` legger sammen i stedet for å gange, `64` bytter om grunntall og eksponent, og `27` gjør ett steg for lite."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef potens(g, e):\n    if e == 0:\n        return 1\n    return g * potens(g, e - 1)\n\nprint(potens(5, 0), potens(1, 9))\n```",
+  "options": [
+   "`1 1`",
+   "`0 1`",
+   "`5 9`",
+   "`0 9`"
+  ],
+  "explanation": "Ethvert tall opphøyd i 0 er 1, og 1 opphøyd i hva som helst er 1. `0 1` og `0 9` forutsetter at grunntilfellet gir 0, og `5 9` returnerer argumentene i stedet for å regne."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(7))\n```",
+  "options": [
+   "`13`",
+   "`21`",
+   "`8`",
+   "`14`"
+  ],
+  "explanation": "Rekka er 0, 1, 1, 2, 3, 5, 8, 13, så det åttende tallet — indeks 7 — er 13. `21` er ett steg for langt, `8` ett steg for kort, og `14` er summen av to naboer lenger nede i rekka."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(0), fib(1), fib(2))\n```",
+  "options": [
+   "`0 1 1`",
+   "`1 1 2`",
+   "`0 1 2`",
+   "`1 1 1`"
+  ],
+  "explanation": "Grunntilfellet returnerer `n` selv, så `fib(0)` er 0 og `fib(1)` er 1, og `fib(2)` er summen av dem. `1 1 2` og `1 1 1` forutsetter at grunntilfellet gir 1, og `0 1 2` regner `fib(2)` feil."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef total(x):\n    if len(x) == 0:\n        return 0\n    return x[0] + total(x[1:])\n\nprint(total([4, 9, 2]), total([]))\n```",
+  "options": [
+   "`15 0`",
+   "`15 None`",
+   "`4 0`",
+   "`15 1`"
+  ],
+  "explanation": "Funksjonen summerer lista, og den tomme lista treffer grunntilfellet og gir 0. `15 None` forutsetter at grunntilfellet mangler retur, `4 0` returnerer bare første element, og `15 1` gir feil verdi for tomtilfellet."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef snu(s):\n    if s == '':\n        return ''\n    return snu(s[1:]) + s[0]\n\nprint(snu('trikk'))\n```",
+  "options": [
+   "`kkirt`",
+   "`trikk`",
+   "`rikkt`",
+   "`kkitr`"
+  ],
+  "explanation": "Første tegn flyttes bakerst i hvert steg, så hele strengen snus. `trikk` er originalen, `rikkt` flytter bare det første tegnet én plass bakover, og `kkitr` har de to siste tegnene byttet om."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef f(n):\n    if n == 0:\n        return 0\n    f(n - 1)\n    return n\n\nprint(f(4))\n```",
+  "options": [
+   "`4`",
+   "`10`",
+   "`0`",
+   "`None`"
+  ],
+  "explanation": "Det rekursive kallet står uten `return`, så svaret kastes — men den siste linja returnerer `n`, altså 4. `10` summerer alle kallene, `0` antar at grunntilfellets verdi bobler opp, og `None` ville krevd at funksjonen manglet `return` helt."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef ned(n):\n    if n == 0:\n        return ''\n    return str(n) + ned(n - 1)\n\nprint(ned(4))\n```",
+  "options": [
+   "`4321`",
+   "`1234`",
+   "`432`",
+   "`10`"
+  ],
+  "explanation": "Sifferet legges FORAN svaret fra det neste kallet, så tallene kommer i synkende rekkefølge. `1234` er svaret om leddene byttes om, `432` stopper ett kall for tidlig, og `10` summerer i stedet for å bygge en streng."
+ },
+ {
+  "question": "Hvorfor skrives grunntilfellet i fakultet som `if n <= 1` og ikke som `if n == 1`?",
+  "options": [
+   "Fordi `n <= 1` også fanger argumentet 0, som ellers ville løpt forbi utgangen",
+   "Fordi `n == 1` er en syntaksfeil når argumentet er et heltall",
+   "Fordi `n <= 1` gjør funksjonen raskere ved at den hopper over et steg",
+   "Fordi `n == 1` ville fått funksjonen til å returnere `None` for alle argumenter"
+  ],
+  "explanation": "Med `n == 1` treffer `fakultet(0)` aldri utgangen, og kallene fortsetter nedover i negative tall til stakken er full. Svaret om syntaksfeil er galt fordi `==` er lovlig, hastighetssvaret blander sammen to ulike ting, og `None` oppstår først når `return` mangler."
+ },
+ {
+  "question": "En rekursiv funksjon avbrytes med meldingen `RecursionError: maximum recursion depth exceeded`. Hva forteller det deg?",
+  "options": [
+   "At funksjonen aldri når grunntilfellet — det mangler, eller argumentet krymper ikke",
+   "At argumentet var for stort, og at funksjonen ville regnet riktig for et mindre tall",
+   "At funksjonen mangler `return` foran det rekursive kallet sitt",
+   "At rekursjon ikke kan brukes på den datatypen argumentet har"
+  ],
+  "explanation": "Meldingen er et symptom på at kjeden aldri stopper, og årsaken ligger alltid i grunntilfellet eller i steget. Et for stort argument gir samme melding bare i sjeldne tilfeller, en glemt `return` gir `None` uten krasj, og datatypen har ingenting med dybden å gjøre."
+ },
+ {
+  "question": "Hva er forskjellen på det rekursive steget i fakultet og i potens?",
+  "options": [
+   "Fakultet ganger med tallet som telles ned; potens med et fast grunntall",
+   "Fakultet har to grunntilfeller, mens potens klarer seg med ett enkelt",
+   "Fakultet teller argumentet oppover, mens potens teller det nedover mot null",
+   "Fakultet bruker `//` i steget sitt, mens potens bruker vanlig multiplikasjon"
+  ],
+  "explanation": "I fakultet er faktoren `n`, som synker for hvert kall; i potens er faktoren grunntallet, som er det samme hele veien. Fakultet har ett grunntilfelle, begge teller nedover, og ingen av dem bruker heltallsdeling."
+ },
+ {
+  "question": "Hvorfor må kall-stakken bygges utover FØR returverdiene foldes innover når du sporer et rekursivt kall?",
+  "options": [
+   "Fordi ingen av de ventende kallene kan regnes ferdig før grunntilfellet har svart",
+   "Fordi Python regner ut alle argumentene på forhånd og deretter kaller funksjonen én gang",
+   "Fordi grunntilfellet alltid er det første kallet som starter i en rekursiv kjede",
+   "Fordi returverdiene ellers kommer i samme rekkefølge som kallene ble startet"
+  ],
+  "explanation": "Hvert kall står og venter på svaret fra kallet under seg, så du må helt ned før du kan regne noe. Python kaller funksjonen én gang per nivå, grunntilfellet er det SISTE kallet som startes, og returverdiene kommer nettopp i motsatt rekkefølge av kallene."
+ },
+ {
+  "question": "Hvor mange ganger kalles `tverrsum` når du regner ut `tverrsum(4072)`?",
+  "options": [
+   "Fem ganger — ett per siffer, pluss kallet som treffer grunntilfellet",
+   "Fire ganger — ett kall for hvert av de fire sifrene som finnes i tallet",
+   "Tre ganger — nullen i tallet gir ikke noe eget rekursivt kall",
+   "Én gang — den rekursive linja regnes ut i det samme kallet"
+  ],
+  "explanation": "Kjeden er 4072, 407, 40, 4 og til slutt 0, altså fem kall, og grunntilfellet må telles med. Fire kall glemmer grunntilfellet, tre kall antar at nullsifferet hoppes over, og ett kall beskriver ikke rekursjon i det hele tatt."
+ },
+ {
+  "question": "Oppgaveteksten ber uttrykkelig om en **rekursiv** funksjon, og du leverer en korrekt løkkeløsning. Hva skjer med uttellingen?",
+  "options": [
+   "Den gir lite eller ingen uttelling — oppgaven tester nettopp rekursjonen",
+   "Den gir full uttelling, fordi flere korrekte løsninger alltid sidestilles i dette emnet",
+   "Den gir full uttelling så lenge du skriver en kommentar om at løkka er raskere",
+   "Den gir null uttelling, og hele programmeringsoppgaven regnes som ubesvart"
+  ],
+  "explanation": "Sidestillingen av flere korrekte løsninger gjelder når oppgaven ikke har bestemt formen; ber den om rekursjon, er formen en del av kravet. En kommentar endrer ikke det, og resten av oppgaven vurderes fortsatt for seg."
+ },
+ {
+  "question": "Hva er grunntilfellet i en rekursiv funksjon som går gjennom ei liste med utsnittet `x[1:]`?",
+  "options": [
+   "Den tomme lista, testet med `len(x) == 0`",
+   "Lista med akkurat ett element, testet med `len(x) == 1`",
+   "Det første elementet i lista, testet med `x[0] == 0`",
+   "Hele lista uendret, testet med `x == x[1:]`"
+  ],
+  "explanation": "Utsnittet krymper lista med ett element om gangen, og til slutt står du igjen med den tomme lista. Testen på ett element virker for ikke-tomme lister, men krasjer på den tomme; de to siste testene ser på innholdet i stedet for på lengden."
+ },
+ {
+  "question": "Hvorfor er rekursiv Fibonacci treg sammenlignet med de andre klassikerne?",
+  "options": [
+   "Fordi steget har to rekursive kall, og de samme delverdiene regnes ut om igjen mange ganger",
+   "Fordi grunntilfellet returnerer `n` i stedet for et fast tall, og det koster et ekstra oppslag",
+   "Fordi hvert kall lager en ny kopi av hele tallrekka før det regner videre",
+   "Fordi addisjon er en tyngre operasjon for datamaskinen enn multiplikasjon"
+  ],
+  "explanation": "To kall per steg gir et tre av kall der `fib(2)` regnes ut flere ganger, og arbeidet vokser raskt med `n`. Hva grunntilfellet returnerer har ingen betydning for antallet, ingen tallrekke kopieres, og addisjon er ikke tyngre enn multiplikasjon."
+ }
+]
