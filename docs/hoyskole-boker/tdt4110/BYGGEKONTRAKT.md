@@ -1072,8 +1072,21 @@ python3 scripts/hoyskolebok/sjekk-prosaregel.py tdt4110 \
 **Øvrige avgrensninger** (nevnes bare i kap. 0.1s avgrensningsavsnitt, som sier
 at de er utenfor pensum): klasser og objektorientering, lenkede strukturer,
 iteratorer, generatorer/`yield`, dekoratorer, tråder, kontekstmanagere man
-skriver selv (`with open` brukes ikke — arkivet bruker `open`/`close`),
-`map`/`filter`/`reduce`, regulære uttrykk, JSON/CSV-moduler, GUI, nettverkskode.
+skriver selv, `map`/`filter`/`reduce`, regulære uttrykk, JSON/CSV-moduler, GUI,
+nettverkskode.
+
+> **RETTELSE 28. juli 2026 (byggeleder).** Denne lista sa opprinnelig at
+> «`with open` brukes ikke — arkivet bruker `open`/`close`». Det var feil, og
+> det er en viktig forskjell: å SKRIVE sin egen kontekstmanager er utenfor
+> pensum, men å BRUKE `with open` er ikke det samme. Skjelettet underviser
+> `with open(filnavn) as f:` to steder — i kodekontrakten for kap. 4.1, og som
+> **steg 1 i løsningsoppskriften** som Del 7 bygger hele programmeringskjeden
+> på. Del 7 er 50–60 % av eksamen, så feilen ville truffet bokas tyngste del.
+>
+> Gjeldende regel: `open`/`close` er bokas hovedform, fordi det er den arkivets
+> fasiter bruker. `with open` undervises som sidestilt og fullverdig alternativ
+> — begge gir full pott. Del 4-agenten løste konflikten slik på egen hånd før
+> den ble oppdaget, så kap. 4.1–4.3 er allerede riktige.
 
 ---
 
