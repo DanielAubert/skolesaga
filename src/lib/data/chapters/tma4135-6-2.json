@@ -1,0 +1,488 @@
+{
+  "id": "tma4135-6-2",
+  "courseId": "tma4135",
+  "chapterNumber": "6.2",
+  "title": "Numerisk integrasjon — trapes, Simpson, presisjonsgrad og Gauss–Legendre",
+  "description": "Trapes- og Simpson-regelen med feilledd, presisjonsgrad ved å teste $x^n$, og den nye Gauss–Legendre-kvadraturen med utdelt node-/vekt-tabell.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "regne ut en tilnærming til et integral med sammensatt trapes- og Simpson-regel og kontrollere vektmønsteret",
+    "bruke feilleddene til å bestemme hvor mange delintervall som trengs for en gitt toleranse",
+    "bestemme presisjonsgraden til en kvadraturformel ved å teste den på potenser til den feiler",
+    "flytte et integral til standardintervallet og bruke en utdelt node- og vekttabell for Gauss-kvadratur"
+  ],
+  "content": [
+    {
+      "id": "tma4135-6-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Numerisk integrasjon er sjanger J.** Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene; **J er numerisk integrasjon med presisjonsgrad**. Interpolasjon var $I$ — og det er ingen tilfeldighet at de står ved siden av hverandre: en kvadraturformel er integralet av et interpolasjonspolynom.\n\n**Frekvens: 8 av 13 gjennomgåtte sett (62 %)** — den hyppigste enkeltmetoden i hele numerikk-blokken. To delspørsmål går igjen:\n\n1. **Presisjonsgrad:** «bestem presisjonsgraden til denne formelen» — du tester på $1, x, x^2,\\dots$ til den feiler.\n2. **Velg $h$ eller $n$ fra feilleddet:** «hvor mange delintervall trengs for at feilen skal bli under $0{,}01$?»\n\n**Formelark-merking.**\n\n- **Står på det utdelte formelarket — tren oppslaget:** trapesregelen med feilleddet $|\\varepsilon|\\le\\frac{b-a}{12}h^{2}\\max|f''|$, Simpsons regel med feilleddet $|\\varepsilon|\\le\\frac{b-a}{180}h^{4}\\max|f^{(4)}|$, og selve vektmønsteret $1,4,2,\\dots,4,1$. Ferdigheten er å plukke riktig linje og sette inn riktig $h$, $b-a$ og derivertorden.\n- **Må kunnes eller utledes aktivt:** presisjonsgrad-testen (formelarket har ingen liste over presisjonsgrader), transformasjonen $[a,b]\\to[-1,1]$ i Gauss-kvadratur, og selve resonnementet som løser feilleddet for $h$.\n\n**Tidsbruk:** 60 minutter lesetid, fire løkker. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-6-2-nysjanger",
+      "type": "tip",
+      "title": "Om Gauss–Legendre — ærlig om belegget",
+      "content": "**Gauss–Legendre-kvadratur er ny i dette emnet, og arkivbelegget er tynt. Det sier vi rett ut.**\n\nMetoden opptrer i **1 av de 13 gjennomgåtte settene** — kontinuasjonssettet fra 2024. Det er ett sett. Vi vet altså ikke om den er kommet for å bli eller var et engangsinnfall.\n\n**Argumentet for å ta den likevel:** den er det nyeste innslaget i arkivet, node- og vekttabellen deles ut i selve oppgaven (så du skal ikke huske tall), og selve regnearbeidet er kort. Kommer den, er den billig å score på.\n\n**Argumentet for å nedprioritere:** ett sett er et smalt grunnlag. Har du dårlig tid, kommer løkke 4 etter alt annet i dette kapitlet — og etter Del 2, Del 3, Del 5, Del 7 og Del 8.\n\n**Vår anbefaling:** les løkke 4, gjør minst én oppgave. Det er femten minutter, og det er lite å holde styr på: én transformasjonsformel og én tabell."
+    },
+    {
+      "id": "tma4135-6-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 6.1](/tma4135/tma4135-6-1) — interpolasjonspolynomet og interpolasjonsfeilen. Alle kvadraturformlene i dette kapitlet er integralet av et interpolasjonspolynom, og feilleddene arver formen sin derfra.\n\nDu trenger også vanlig integralregning: eksakt integrasjon av polynomer, og at $\\int_1^3 \\frac{dx}{x}=\\ln 3$.\n\nKapitlet er forutsetning for differansemetodene i Del 8, der de samme Taylor-argumentene dukker opp igjen — der som avkuttingsfeil i stedet for kvadraturfeil."
+    },
+    {
+      "id": "tma4135-6-2-motivasjon",
+      "type": "text",
+      "content": "## Når det ikke finnes noen antiderivert\n\n$\\int_0^1 e^{-x^{2}}\\,dx$ har ingen antiderivert som kan skrives med elementære funksjoner. Det har ikke $\\int \\frac{\\sin x}{x}dx$ heller. Og i praksis er situasjonen ofte enda enklere: du har **ikke** en funksjon i det hele tatt, bare en måleserie, og du skal finne arealet under den.\n\n**Numerisk integrasjon (kvadratur) er svaret på begge deler.** Ideen er enkel og går rett tilbake til [kap. 6.1](/tma4135/tma4135-6-1):\n\n1. Legg et interpolasjonspolynom gjennom noen punkter på kurven.\n2. Integrer polynomet i stedet — det kan du alltid gjøre eksakt.\n\nBruker du en rett linje gjennom to punkter, får du **trapesregelen**. Bruker du en parabel gjennom tre punkter, får du **Simpsons regel**. Det er hele hemmeligheten, og den forklarer også hvorfor feilleddene ser ut som de gjør: de er integralet av interpolasjonsfeilen.\n\n**Så kommer et vendepunkt.** I trapes og Simpson bestemmer du selv bare $h$ — nodene ligger der de ligger. Men hva om du får velge nodene *også*? Da kan du med $N$ punkter treffe polynomer helt opp til grad $2N-1$, i stedet for grad $N-1$. Det er **Gauss–Legendre-kvadratur**, og det er den siste løkka i kapitlet."
+    },
+    {
+      "id": "tma4135-6-2-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 60 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-6-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Trapes og Simpson (~17 min)"
+    },
+    {
+      "id": "tma4135-6-2-def-kvadratur",
+      "type": "definition",
+      "title": "Kvadraturformel",
+      "content": "En tilnærming til et bestemt integral som en **vektet sum av funksjonsverdier**:\n\n$$\\int_a^b f(x)\\,dx \\approx \\sum_{i=0}^{m} w_i\\,f(x_i).$$\n\nTallene $x_i$ kalles **nodene** og $w_i$ **vektene**. Alle formlene i dette kapitlet har denne formen — de skiller seg bare i hvor nodene ligger og hvilke vekter de får.\n\n**En nyttig kontroll:** setter du $f\\equiv 1$, skal summen av vektene bli $b-a$. Det er den enkleste testen som finnes på om du har skrevet av en formel riktig."
+    },
+    {
+      "id": "tma4135-6-2-def-trapes",
+      "type": "definition",
+      "title": "Trapesregelen",
+      "content": "Erstatt $f$ med den rette linja gjennom endepunktene og integrer den:\n\n$$\\int_a^b f(x)\\,dx \\approx \\frac{b-a}{2}\\left(f(a)+f(b)\\right).$$\n\nNavnet kommer av formen: arealet under en rett linje over et intervall er et trapes med parallellsidene $f(a)$ og $f(b)$ og høyden $b-a$.\n\n**Med bare to punkter er dette svært grovt.** I praksis brukes den sammensatte varianten under."
+    },
+    {
+      "id": "tma4135-6-2-def-sammensatt-trapes",
+      "type": "definition",
+      "title": "Sammensatt trapesregel",
+      "content": "Del $[a,b]$ i $n$ like delintervall med $h=\\dfrac{b-a}{n}$ og noder $x_i=a+ih$. Legg sammen ett trapes per delintervall:\n\n$$T_n=\\frac{h}{2}\\left(f_0+2f_1+2f_2+\\dots+2f_{n-1}+f_n\\right).$$\n\n**Vektmønsteret er $1,2,2,\\dots,2,1$**: endepunktene teller enkelt, de indre dobbelt. Grunnen er at hvert indre punkt er endepunkt i to nabotrapeser.\n\n**Kontroll:** summen av vektene er $\\frac{h}{2}(1+2(n-1)+1)=\\frac{h}{2}\\cdot 2n=nh=b-a$ ✔.\n\n**Formelen står på det utdelte formelarket — tren oppslaget.**"
+    },
+    {
+      "id": "tma4135-6-2-def-simpson",
+      "type": "definition",
+      "title": "Simpsons regel",
+      "content": "Erstatt $f$ med parabelen gjennom tre punkter og integrer den. Over $[a,b]$ med midtpunkt $m=\\frac{a+b}{2}$ og $h=\\frac{b-a}{2}$:\n\n$$\\int_a^b f(x)\\,dx\\approx\\frac{h}{3}\\left(f(a)+4f(m)+f(b)\\right).$$\n\n**Legg merke til firetallet i midten.** Det kommer direkte av integrasjonen av parabelen: midtpunktet veier fire ganger så mye som hvert endepunkt, og de tre vektene $\\frac{h}{3}(1+4+1)=2h=b-a$ summerer til intervall-lengden ✔."
+    },
+    {
+      "id": "tma4135-6-2-def-sammensatt-simpson",
+      "type": "definition",
+      "title": "Sammensatt Simpson og vektmønsteret",
+      "content": "Del $[a,b]$ i $n$ delintervall med $h=\\frac{b-a}{n}$, der **$n$ må være et partall**, og bruk Simpson parvis:\n\n$$S_n=\\frac{h}{3}\\left(f_0+4f_1+2f_2+4f_3+2f_4+\\dots+4f_{n-1}+f_n\\right).$$\n\n**Vektmønsteret er $1,4,2,4,2,\\dots,4,1$.** Reglene:\n\n- Endepunktene $f_0$ og $f_n$ får vekt 1.\n- Nodene med **ulik** indeks (midtpunktene i hvert parabelstykke) får vekt 4.\n- Nodene med **lik** indeks inne i intervallet får vekt 2 (de er delt mellom to parabler).\n\n**Sjekk alltid at mønsteret begynner og slutter med 1, og at det er en 4 ved siden av hver 1.** Det er den vanligste avskrivningsfeilen.\n\n**Formelen står på det utdelte formelarket — tren oppslaget.**"
+    },
+    {
+      "id": "tma4135-6-2-def-partall",
+      "type": "definition",
+      "title": "Hvorfor $n$ må være et partall i Simpson",
+      "content": "Hvert parabelstykke dekker **to** delintervall — venstre, midt og høyre node. Skal hele $[a,b]$ dekkes uten overlapp eller hull, må antallet delintervall være delelig med 2.\n\nEr $n$ et oddetall, finnes det ingen sammensatt Simpson-formel over de nodene. Da må du enten legge til en node, eller behandle det siste delintervallet med trapes.\n\n**På eksamen:** oppgir oppgaven et oddetall $n$ og ber om Simpson, er det som regel du som har telt feil — les om igjen."
+    },
+    {
+      "id": "tma4135-6-2-eks1",
+      "type": "example",
+      "title": "Trapes og Simpson på samme integral",
+      "problem": "Regn ut $\\displaystyle\\int_1^3\\frac{dx}{x}$ tilnærmet med $n=4$ delintervall, både med trapesregelen og med Simpsons regel. Sammenlikn med den eksakte verdien $\\ln 3\\approx 1{,}098612$.",
+      "solution": "**Steg 1 — nodene.** $h=\\dfrac{3-1}{4}=0{,}5$, og nodene er\n\n$$x_0=1,\\quad x_1=1{,}5,\\quad x_2=2,\\quad x_3=2{,}5,\\quad x_4=3.$$\n\nFunksjonsverdiene $f=1/x$:\n\n| $i$ | $x_i$ | $f_i$ |\n|---|---|---|\n| 0 | 1 | $1$ |\n| 1 | $1{,}5$ | $2/3\\approx 0{,}666667$ |\n| 2 | 2 | $1/2=0{,}5$ |\n| 3 | $2{,}5$ | $2/5=0{,}4$ |\n| 4 | 3 | $1/3\\approx 0{,}333333$ |\n\n**Steg 2 — trapesregelen.** Mønsteret er $1,2,2,2,1$:\n\n$$T_4=\\frac{0{,}5}{2}\\left(1+2\\left(\\tfrac23+\\tfrac12+\\tfrac25\\right)+\\tfrac13\\right)=0{,}25\\left(1+2\\cdot\\tfrac{47}{30}+\\tfrac13\\right).$$\n\n$$=0{,}25\\cdot\\frac{67}{15}=\\frac{67}{60}\\approx 1{,}116667.$$\n\nFeil: $|T_4-\\ln 3|\\approx 0{,}018054$.\n\n**Steg 3 — Simpsons regel.** Mønsteret er $1,4,2,4,1$:\n\n$$S_4=\\frac{0{,}5}{3}\\left(1+4\\cdot\\tfrac23+2\\cdot\\tfrac12+4\\cdot\\tfrac25+\\tfrac13\\right)=\\frac16\\left(1+\\tfrac83+1+\\tfrac85+\\tfrac13\\right).$$\n\nFelles nevner 15: $\\tfrac{15+40+15+24+5}{15}=\\tfrac{99}{15}$, så\n\n$$S_4=\\frac16\\cdot\\frac{99}{15}=\\frac{99}{90}=\\frac{11}{10}=1{,}1.$$\n\nFeil: $|S_4-\\ln 3|\\approx 0{,}001388$.\n\n**Steg 4 — sammenlikning.** Med nøyaktig de samme fem funksjonsverdiene er Simpson **tretten ganger mer nøyaktig** enn trapes. Det eneste som skiller dem, er vektene.\n\n**Hvorfor?** Trapes bruker rette linjer og er eksakt for polynomer av grad 1. Simpson bruker parabler og er eksakt helt opp til grad 3 (det viser vi i løkke 3). Funksjonen $1/x$ er krum, og krumningen er nettopp det trapes ikke fanger.\n\n**En observasjon verdt å ta med:** trapesverdien er for **stor**. Det er ikke tilfeldig — $1/x$ er konveks, og trapes-linjene ligger da over kurven overalt. Slike fortegnsargumenter er gratis kontroller."
+    },
+    {
+      "id": "tma4135-6-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Et integral over $[0,2]$ skal regnes med $n=4$ delintervall.\n\n**a)** Hva er $h$, og hvilke noder gir det?\n**b)** Skriv opp vektmønsteret for trapesregelen.\n**c)** Skriv opp vektmønsteret for Simpsons regel.",
+        "solution": "**a)** $h=\\dfrac{2-0}{4}=0{,}5$, og nodene er\n\n$$x_0=0,\\quad x_1=0{,}5,\\quad x_2=1,\\quad x_3=1{,}5,\\quad x_4=2.$$\n\n**b)** Trapes: $1,\\ 2,\\ 2,\\ 2,\\ 1$, med faktoren $\\dfrac{h}{2}$ utenfor.\n\n**c)** Simpson: $1,\\ 4,\\ 2,\\ 4,\\ 1$, med faktoren $\\dfrac{h}{3}$ utenfor.\n\n**Kontroll av begge:** summen av vektene ganget med faktoren skal bli $b-a=2$.\nTrapes: $\\frac{0{,}5}{2}(1+2+2+2+1)=0{,}25\\cdot 8=2$ ✔.\nSimpson: $\\frac{0{,}5}{3}(1+4+2+4+1)=\\frac{0{,}5}{3}\\cdot 12=2$ ✔.",
+        "hints": [
+          "$h$ er intervallets lengde delt på antall delintervall.",
+          "Trapes: endepunktene teller enkelt, de indre dobbelt.",
+          "Simpson: 1 i endene, 4 på ulike indekser, 2 på like indekser inne i intervallet."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger J — numerisk integrasjon.) Regn ut $\\displaystyle\\int_0^2 \\frac{dx}{1+x}$ tilnærmet med Simpsons regel og $n=2$. Sammenlikn med den eksakte verdien $\\ln 3$.",
+        "solution": "$h=\\dfrac{2-0}{2}=1$, noder $x_0=0$, $x_1=1$, $x_2=2$, og $f(x)=\\dfrac{1}{1+x}$:\n\n$$f_0=1,\\qquad f_1=\\frac12,\\qquad f_2=\\frac13.$$\n\nSimpson med mønsteret $1,4,1$:\n\n$$S_2=\\frac{1}{3}\\left(1+4\\cdot\\frac12+\\frac13\\right)=\\frac13\\left(1+2+\\frac13\\right)=\\frac13\\cdot\\frac{10}{3}=\\frac{10}{9}\\approx 1{,}111111.$$\n\nEksakt: $\\int_0^2\\frac{dx}{1+x}=\\left[\\ln(1+x)\\right]_0^2=\\ln 3\\approx 1{,}098612$.\n\n**Feil:** $\\left|\\frac{10}{9}-\\ln 3\\right|\\approx 0{,}012499$.\n\n**Kommentar.** Med bare tre funksjonsverdier er feilen omtrent én prosent. Merk at integralet er det samme som i eksempel 1 — substitusjonen $u=1+x$ flytter $\\int_1^3 du/u$ til $\\int_0^2 dx/(1+x)$. Der ga Simpson med **fem** punkter feilen $0{,}0014$; her gir tre punkter $0{,}0125$. Å doble antall punkter ga altså omtrent en faktor ni i nøyaktighet, og det stemmer bra med at Simpson-feilen går som $h^{4}$: en halvering av $h$ skal gi en faktor 16, men $\\max|f^{(4)}|$ er hentet i det samme punktet begge ganger, så anslaget er grovere enn den faktiske forbedringen.",
+        "hints": [
+          "$n=2$ gir bare tre noder og mønsteret $1,4,1$.",
+          "$f(x)=1/(1+x)$ — regn ut de tre verdiene som brøker.",
+          "Den eksakte verdien er $\\ln(1+x)$ evaluert i endepunktene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Feilleddene og valg av $n$ (~15 min)\n\nNå kommer det du faktisk blir bedt om på eksamen: hvor mange delintervall trengs for at feilen skal komme under en gitt toleranse?"
+    },
+    {
+      "id": "tma4135-6-2-def-trapesfeil",
+      "type": "definition",
+      "title": "Feilleddet for trapesregelen",
+      "content": "For den sammensatte trapesregelen med steglengde $h$ gjelder\n\n$$\\left|\\int_a^b f(x)\\,dx - T_n\\right|\\ \\le\\ \\frac{b-a}{12}\\,h^{2}\\,\\max_{[a,b]}\\left|f''(x)\\right|.$$\n\n**Tre ting å lese ut av formelen:**\n\n1. **$h^2$** — feilen er av **andre orden**. Halverer du $h$, blir feilen fire ganger mindre.\n2. **$f''$** — det er krumningen trapes ikke fanger. Er $f$ lineær, er $f''=0$ og trapes er eksakt.\n3. **$b-a$ som faktor**, ikke $h$ — mange skriver feil her.\n\n**Formelen står på det utdelte formelarket — tren oppslaget** på hvilken derivert som hører til hvilken regel."
+    },
+    {
+      "id": "tma4135-6-2-def-fortegn",
+      "type": "definition",
+      "title": "Fortegnet på trapesfeilen",
+      "content": "En gratis kontroll som ofte glemmes: er $f$ **konveks** på hele intervallet (altså $f''\\ge 0$), ligger hver trapes-linje **over** kurven, og trapesregelen gir dermed et **for stort** svar.\n\nEr $f$ **konkav** ($f''\\le 0$), ligger linjene under, og trapes gir et **for lite** svar.\n\n**Bruken:** har du regnet $T_n$ og vet at $f$ er konveks, kan du skrive «$T_n$ er et overestimat» — og du har en ekstra opplysning som ikke koster noe. Skulle du ha fått $T_n$ mindre enn den eksakte verdien, vet du at noe er galt.\n\nMidtpunktsregelen bommer motsatt vei av trapes, og det er grunnen til at et vektet gjennomsnitt av de to (nemlig Simpson) treffer så mye bedre.\n\n**Argumentet må kunnes** — det står ingen steder på formelarket, men det er en billig kvalitetsmarkør i en besvarelse."
+    },
+    {
+      "id": "tma4135-6-2-def-simpsonfeil",
+      "type": "definition",
+      "title": "Feilleddet for Simpsons regel",
+      "content": "For sammensatt Simpson med steglengde $h$ gjelder\n\n$$\\left|\\int_a^b f(x)\\,dx-S_n\\right|\\ \\le\\ \\frac{b-a}{180}\\,h^{4}\\,\\max_{[a,b]}\\left|f^{(4)}(x)\\right|.$$\n\n**$h^4$ er hele forskjellen.** Halverer du $h$, blir feilen **seksten** ganger mindre — mot fire for trapes. Det er derfor Simpson vinner så tydelig i eksempel 1.\n\nOg **den fjerdederiverte** forklarer hvorfor Simpson er eksakt for tredjegradspolynomer: der er $f^{(4)}\\equiv 0$.\n\n**Formelen står på det utdelte formelarket — tren oppslaget.**"
+    },
+    {
+      "id": "tma4135-6-2-def-konvergensorden",
+      "type": "definition",
+      "title": "Konvergensorden",
+      "content": "Eksponenten $p$ i feiluttrykket $|\\varepsilon|\\le C h^{p}$.\n\n| Regel | Orden | Halvering av $h$ gir |\n|---|---|---|\n| Trapes | 2 | feil $/4$ |\n| Simpson | 4 | feil $/16$ |\n\n**Slik måler du orden i praksis:** regn med $h$ og med $h/2$, og se på forholdet mellom feilene. Er det omtrent 4, er ordenen 2; er det omtrent 16, er ordenen 4.\n\n**Ikke forveksle konvergensorden med presisjonsgrad.** Ordenen sier hvor fort feilen faller når $h$ minker; presisjonsgraden sier hvilke polynomer formelen treffer eksakt. Simpson har orden 4 og presisjonsgrad 3."
+    },
+    {
+      "id": "tma4135-6-2-def-velg-n",
+      "type": "definition",
+      "title": "Å velge $n$ fra feilleddet",
+      "content": "Standardoppgaven i denne sjangeren. Oppskriften er fire steg:\n\n1. **Finn $M$**, altså $\\max|f''|$ (trapes) eller $\\max|f^{(4)}|$ (Simpson), på hele $[a,b]$.\n2. **Sett opp ulikheten** $\\dfrac{b-a}{12}h^{2}M\\le \\text{tol}$, henholdsvis $\\dfrac{b-a}{180}h^{4}M\\le \\text{tol}$.\n3. **Løs for $h$** ved å ta kvadratrot, henholdsvis fjerderot.\n4. **Regn $n=\\dfrac{b-a}{h}$ og rund OPPOVER.** For Simpson: rund opp til nærmeste **partall**.\n\n**Avrundingen oppover er ikke valgfri.** Runder du ned, blir $h$ større enn tillatt og garantien brister. Løsningsforslagene er nøye på dette punktet, og det er et sted der en ellers riktig besvarelse mister poeng.\n\n**Manøvren må kunnes** — formelarket gir deg feilleddet, ikke framgangsmåten."
+    },
+    {
+      "id": "tma4135-6-2-eks2",
+      "type": "example",
+      "title": "Hvor mange delintervall trengs?",
+      "problem": "Integralet $\\displaystyle\\int_1^3\\frac{dx}{x}$ skal regnes med feil under $10^{-3}$.\n\n**a)** Hvor mange delintervall trengs med trapesregelen?\n**b)** Hvor mange trengs med Simpsons regel?",
+      "solution": "**Steg 1 — de deriverte.** Med $f(x)=1/x$:\n\n$$f'=-\\frac{1}{x^{2}},\\quad f''=\\frac{2}{x^{3}},\\quad f'''=-\\frac{6}{x^{4}},\\quad f^{(4)}=\\frac{24}{x^{5}}.$$\n\nBegge de aktuelle er avtakende i absoluttverdi på $[1,3]$, så maksimum ligger i venstre endepunkt:\n\n$$M_2=\\max_{[1,3]}\\left|f''\\right|=2,\\qquad M_4=\\max_{[1,3]}\\left|f^{(4)}\\right|=24.$$\n\n**a) Trapes.** Med $b-a=2$:\n\n$$\\frac{2}{12}h^{2}\\cdot 2\\le 10^{-3}\\ \\Longleftrightarrow\\ \\frac{h^{2}}{3}\\le 10^{-3}\\ \\Longleftrightarrow\\ h^{2}\\le 3\\cdot 10^{-3}.$$\n\n$$h\\le\\sqrt{0{,}003}\\approx 0{,}054772.$$\n\n$$n=\\frac{b-a}{h}\\ge\\frac{2}{0{,}054772}\\approx 36{,}51\\ \\Longrightarrow\\ \\boxed{n=37}.$$\n\n*Kontroll:* med $n=37$ er $h=2/37\\approx 0{,}054054$ og grensen blir $\\frac{2}{12}(0{,}054054)^2\\cdot 2\\approx 9{,}74\\cdot 10^{-4}<10^{-3}$ ✔. Med $n=36$ blir grensen $1{,}029\\cdot 10^{-3}$, altså **over** kravet — avrundingen oppover var nødvendig.\n\n**b) Simpson.** Med $b-a=2$:\n\n$$\\frac{2}{180}h^{4}\\cdot 24\\le 10^{-3}\\ \\Longleftrightarrow\\ \\frac{48}{180}h^{4}\\le 10^{-3}\\ \\Longleftrightarrow\\ h^{4}\\le\\frac{180}{48}\\cdot 10^{-3}=3{,}75\\cdot 10^{-3}.$$\n\n$$h\\le\\left(3{,}75\\cdot 10^{-3}\\right)^{1/4}\\approx 0{,}247589.$$\n\n$$n\\ge\\frac{2}{0{,}247589}\\approx 8{,}08.$$\n\nRund opp til nærmeste **partall**: $n=10$.\n\n*Kontroll:* $n=10$ gir $h=0{,}2$ og grensen $\\frac{2}{180}(0{,}2)^4\\cdot 24\\approx 4{,}27\\cdot 10^{-4}<10^{-3}$ ✔. Og $n=8$ ($h=0{,}25$) gir $1{,}042\\cdot 10^{-3}$, altså over kravet — så $n=10$ er det minste brukbare partallet.\n\n**Svar:** trapes trenger 37 delintervall, Simpson trenger 10.\n\n**Kommentaren som hører til.** Simpson trenger under en tredjedel så mange funksjonsevalueringer for samme garanti. **Det er hele argumentet for Simpson**, og det er verdt én setning i besvarelsen.\n\n**Merk også at anslagene er romslige.** Vi så i eksempel 1 at $S_4$ allerede hadde feil $0{,}0014$ — ikke langt fra $10^{-3}$ med bare fire delintervall, mens garantien krevde ti. Garantien bruker $M_4=24$, som gjelder ved $x=1$; ved $x=3$ er $|f^{(4)}|$ bare $24/243\\approx 0{,}1$."
+    },
+    {
+      "id": "tma4135-6-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger J — valg av $n$.) $\\displaystyle\\int_0^1 e^{x}\\,dx$ skal regnes med trapesregelen og feil under $10^{-4}$.\n\n**a)** Finn $\\max|f''|$ på $[0,1]$.\n**b)** Bestem det minste antallet delintervall $n$ som garanterer kravet.\n**c)** Hvor mange delintervall ville Simpsons regel trengt?",
+        "solution": "**a)** Alle deriverte av $e^x$ er $e^x$, som er voksende, så\n\n$$M_2=\\max_{[0,1]}\\left|f''\\right|=e\\approx 2{,}718282.$$\n\nDet samme gjelder $M_4=e$.\n\n**b)** Med $b-a=1$:\n\n$$\\frac{1}{12}h^{2}e\\le 10^{-4}\\ \\Longleftrightarrow\\ h^{2}\\le\\frac{12\\cdot 10^{-4}}{e}\\approx 4{,}4146\\cdot 10^{-4}.$$\n\n$$h\\le 0{,}021011\\ \\Longrightarrow\\ n\\ge\\frac{1}{0{,}021011}\\approx 47{,}59.$$\n\n$$\\boxed{n=48}$$\n\n*Kontroll:* $h=1/48\\approx 0{,}020833$ gir grensen $\\frac{1}{12}(0{,}020833)^{2}e\\approx 9{,}83\\cdot 10^{-5}<10^{-4}$ ✔.\n\n**c)** Simpson:\n\n$$\\frac{1}{180}h^{4}e\\le 10^{-4}\\ \\Longleftrightarrow\\ h^{4}\\le\\frac{180\\cdot 10^{-4}}{e}\\approx 6{,}6219\\cdot 10^{-3}.$$\n\n$$h\\le 0{,}285249\\ \\Longrightarrow\\ n\\ge 3{,}506.$$\n\nRund opp til nærmeste partall: $n=4$.\n\n**Svar:** trapes trenger 48 delintervall, Simpson trenger 4.\n\n**Kommentar.** Tolv ganger færre funksjonsevalueringer. Kontrasten blir enda skarpere jo strengere toleransen er, fordi kravet til $h$ vokser som $\\text{tol}^{-1/2}$ for trapes og bare $\\text{tol}^{-1/4}$ for Simpson.",
+        "hints": [
+          "Alle deriverte av $e^x$ er $e^x$ — hvor på $[0,1]$ er den størst?",
+          "Løs ulikheten for $h$ først, og regn $n=(b-a)/h$ etterpå.",
+          "Rund alltid oppover — og for Simpson opp til nærmeste partall."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger J.) Du regner et integral med sammensatt trapesregel og får feilen $0{,}0080$ med $n=10$.\n\n**a)** Hva forventer du at feilen blir med $n=20$?\n**b)** Hvor stor må $n$ omtrent være for at feilen skal komme under $10^{-4}$?\n**c)** Samme spørsmål som b), men for en metode av orden 4.",
+        "solution": "**a)** Trapes har **konvergensorden 2**, altså $|\\varepsilon|\\approx Ch^{2}$. Dobler du $n$, halveres $h$, og feilen faller med en faktor $2^{2}=4$:\n\n$$\\varepsilon_{20}\\approx\\frac{0{,}0080}{4}=0{,}0020.$$\n\n**b)** Vi vil ha $|\\varepsilon|\\le 10^{-4}$, altså en reduksjon med faktoren\n\n$$\\frac{0{,}0080}{10^{-4}}=80.$$\n\nMed orden 2 er feilen proporsjonal med $1/n^{2}$, så\n\n$$\\left(\\frac{n}{10}\\right)^{2}\\ge 80\\ \\Longrightarrow\\ \\frac{n}{10}\\ge\\sqrt{80}\\approx 8{,}944\\ \\Longrightarrow\\ n\\ge 89{,}4.$$\n\n$$\\boxed{n\\approx 90}$$\n\n**c)** Med orden 4 er feilen proporsjonal med $1/n^{4}$:\n\n$$\\left(\\frac{n}{10}\\right)^{4}\\ge 80\\ \\Longrightarrow\\ \\frac{n}{10}\\ge 80^{1/4}\\approx 2{,}991\\ \\Longrightarrow\\ n\\ge 29{,}91.$$\n\n$$\\boxed{n\\approx 30}$$\n\n**Kommentar.** Tre ganger færre punkter for samme nøyaktighet — og forskjellen vokser med kravet. Det er verdt å merke at dette resonnementet er **rent asymptotisk**: det forutsetter at $C$ er den samme for begge $n$, noe som holder når $h$ er liten nok til at feiluttrykket dominerer.",
+        "hints": [
+          "Orden $p$ betyr at feilen går som $h^p$, og $h$ er omvendt proporsjonal med $n$.",
+          "Finn først hvilken faktor feilen må reduseres med.",
+          "Ta $p$-te rot av reduksjonsfaktoren for å finne hvor mye $n$ må vokse."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~32 min brukt) —\n\nDu kan regne begge formlene og velge $n$ fra feilleddet. De to siste løkkene er de som skiller: presisjonsgrad, som er det hyppigste teorispørsmålet i sjangeren, og Gauss–Legendre, som er det nyeste."
+    },
+    {
+      "id": "tma4135-6-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Presisjonsgrad (~14 min)\n\nDette er delspørsmålet som går igjen: «bestem presisjonsgraden». Det er en kort, mekanisk prosedyre — men det er svært lett å stoppe ett skritt for tidlig."
+    },
+    {
+      "id": "tma4135-6-2-def-presisjonsgrad",
+      "type": "definition",
+      "title": "Presisjonsgrad",
+      "content": "Den **høyeste** graden $d$ slik at kvadraturformelen er **eksakt** for alle polynomer av grad $\\le d$.\n\nMerk ordet «høyeste». En formel med presisjonsgrad 3 er eksakt for $1$, $x$, $x^2$ og $x^3$, og **ikke** eksakt for minst ett polynom av grad 4.\n\n**Hvorfor det holder å teste potenser.** En kvadraturformel er lineær i $f$, og det er integralet også. Er formelen eksakt for hver av $1,x,\\dots,x^{d}$, er den eksakt for enhver linearkombinasjon av dem — altså for ethvert polynom av grad $\\le d$.\n\n| Formel | Presisjonsgrad |\n|---|---|\n| Trapes | 1 |\n| Simpson | 3 |\n| Midtpunkt | 1 |\n| Gauss–Legendre med $N$ noder | $2N-1$ |\n\n**Presisjonsgradene står ikke på det utdelte formelarket** — de må kunnes, eller utledes med testen under."
+    },
+    {
+      "id": "tma4135-6-2-def-test",
+      "type": "definition",
+      "title": "Testprosedyren for presisjonsgrad",
+      "content": "Fire steg, og alle skal skrives ut:\n\n1. **Velg et bekvemt intervall.** Er formelen gitt på $[-1,1]$, bruk det; ellers er $[0,1]$ eller $[-h,h]$ ofte enklest. Presisjonsgraden er uavhengig av intervallet, siden en lineær substitusjon tar polynomer til polynomer av samme grad.\n2. **Test $f(x)=1$**, deretter $x$, $x^{2}$, … Regn både formelverdien og det eksakte integralet, og sammenlikn.\n3. **Fortsett til den første som feiler.**\n4. **Presisjonsgraden er én mindre enn den graden som feilet.**\n\n**Den klassiske fellen er å stoppe for tidlig.** Får du treff på $x^{2}$, er du ikke ferdig — mange formler er eksakte for $x^{3}$ av symmetrigrunner, uten å være det for $x^{4}$. **Du må teste videre til noe faktisk feiler.**\n\n**Den andre fellen er å telle feil til slutt.** Er formelen eksakt til og med $x^{3}$ og feiler på $x^{4}$, er graden **3**, ikke 4."
+    },
+    {
+      "id": "tma4135-6-2-def-symmetri",
+      "type": "definition",
+      "title": "Symmetri gir gratis grader",
+      "content": "Er nodene og vektene symmetriske om intervallets midtpunkt, er formelen automatisk eksakt for alle **odde** potenser regnet fra midtpunktet — begge sider gir like store bidrag med motsatt fortegn, og de kanselleres.\n\nDet er nettopp derfor Simpson «gratis» får med $x^{3}$ og altså har presisjonsgrad 3 og ikke 2, selv om den bare bygger på en parabel.\n\n**Praktisk konsekvens:** presisjonsgraden til en symmetrisk formel er alltid et **oddetall**. Får du et partall som svar, har du regnefeil eller har stoppet for tidlig."
+    },
+    {
+      "id": "tma4135-6-2-def-midtpunkt",
+      "type": "definition",
+      "title": "Midtpunktsregelen",
+      "content": "Den enkleste formelen av alle: én node, midt i intervallet.\n\n$$\\int_a^b f(x)\\,dx\\approx (b-a)\\,f\\!\\left(\\frac{a+b}{2}\\right).$$\n\nTil tross for at den bare bruker **ett** punkt, har den presisjonsgrad 1 — like god som trapes, som bruker to. Grunnen er symmetrien: feilen fra venstre halvdel kanselleres av feilen fra høyre.\n\n**Regelen er verdt å kjenne** som eksempel på at flere punkter ikke automatisk gir høyere presisjonsgrad, og som et hint om hva Gauss-kvadratur gjør: den plasserer nodene der symmetrien lønner seg mest."
+    },
+    {
+      "id": "tma4135-6-2-eks3",
+      "type": "example",
+      "title": "Presisjonsgraden til Simpsons regel",
+      "problem": "Bestem presisjonsgraden til Simpsons regel ved å teste den på $x^{n}$.",
+      "solution": "**Steg 1 — velg intervall.** Vi bruker $[-1,1]$ med nodene $-1$, $0$, $1$. Da er $h=1$, og formelen er\n\n$$S(f)=\\frac{h}{3}\\left(f(-1)+4f(0)+f(1)\\right)=\\frac13\\left(f(-1)+4f(0)+f(1)\\right).$$\n\n**Steg 2 — test potens for potens.**\n\n**$f(x)=1$:** $S=\\frac13(1+4+1)=2$. Eksakt: $\\int_{-1}^{1}1\\,dx=2$. **Likt** ✔\n\n**$f(x)=x$:** $S=\\frac13(-1+0+1)=0$. Eksakt: $\\int_{-1}^{1}x\\,dx=0$. **Likt** ✔\n\n**$f(x)=x^{2}$:** $S=\\frac13(1+0+1)=\\frac23$. Eksakt: $\\int_{-1}^{1}x^{2}dx=\\left[\\frac{x^{3}}{3}\\right]_{-1}^{1}=\\frac23$. **Likt** ✔\n\n**$f(x)=x^{3}$:** $S=\\frac13(-1+0+1)=0$. Eksakt: $\\int_{-1}^{1}x^{3}dx=0$. **Likt** ✔\n\n**$f(x)=x^{4}$:** $S=\\frac13(1+0+1)=\\frac23$. Eksakt: $\\int_{-1}^{1}x^{4}dx=\\left[\\frac{x^{5}}{5}\\right]_{-1}^{1}=\\frac25$.\n\n$$\\frac23\\ne\\frac25.$$\n\n**Ulikt** ✘ — her feiler den.\n\n**Steg 3 — konkluder.** Formelen er eksakt til og med grad 3 og feiler på grad 4.\n\n$$\\boxed{\\text{Presisjonsgraden til Simpsons regel er } 3.}$$\n\n**To kommentarer.**\n\nLegg merke til at $x^{1}$ og $x^{3}$ gikk gjennom **uten arbeid** — begge sidene ble null, fordi både nodene og vektene er symmetriske om null og potensen er odde. Det er symmetrien som gir Simpson den ekstra graden.\n\nOg legg merke til hvor lett det er å stoppe for tidlig. Hadde vi gitt oss etter $x^{2}$, ville vi svart «grad 2» — som er galt. Hadde vi derimot telt feil til slutt og sagt «eksakt for $x^{3}$, altså grad 4», ville det også vært galt. **Begge disse feilene er dokumentert som gjengangere i sjangeren.**\n\n**Kontroll mot feilleddet.** Simpson-feilen inneholder $f^{(4)}$. For et tredjegradspolynom er $f^{(4)}\\equiv 0$, altså er feilen null — og for $x^{4}$ er $f^{(4)}=24\\ne 0$. Feilleddet og presisjonsgraden forteller nøyaktig det samme."
+    },
+    {
+      "id": "tma4135-6-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger J — presisjonsgrad.) Bestem presisjonsgraden til trapesregelen ved å teste på $x^{n}$ over $[-1,1]$ med nodene $\\pm 1$.",
+        "solution": "Formelen er $T(f)=\\dfrac{b-a}{2}\\left(f(-1)+f(1)\\right)=f(-1)+f(1)$, siden $b-a=2$.\n\n**$f=1$:** $T=1+1=2$. Eksakt $=2$. **Likt** ✔\n\n**$f=x$:** $T=-1+1=0$. Eksakt $=0$. **Likt** ✔\n\n**$f=x^{2}$:** $T=1+1=2$. Eksakt $=\\dfrac23$.\n\n$$2\\ne\\frac23.$$\n\n**Ulikt** ✘\n\n**Konklusjon:** eksakt til og med grad 1, feiler på grad 2.\n\n$$\\boxed{\\text{Presisjonsgraden til trapesregelen er } 1.}$$\n\n**Kontroll mot feilleddet:** trapes-feilen inneholder $f''$, som er null for alle førstegradspolynomer og lik 2 for $x^{2}$. Samme svar, sett fra en annen kant.\n\n**Merk symmetrien igjen:** $x^{1}$ gikk gjennom gratis. Trapes er også symmetrisk, og presisjonsgraden er derfor et oddetall — her det minste mulige.",
+        "hints": [
+          "Sett $b-a=2$ inn i trapesformelen først.",
+          "Test $1$, deretter $x$, deretter $x^2$ — og regn det eksakte integralet hver gang.",
+          "Presisjonsgraden er én mindre enn den graden som feilet."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger J — krevende.) En kvadraturformel på $[-1,1]$ er gitt ved\n\n$$Q(f)=A\\,f(-1)+B\\,f(0)+A\\,f(1).$$\n\n**a)** Bestem $A$ og $B$ slik at presisjonsgraden blir så høy som mulig.\n**b)** Hvilken kjent formel er dette?\n**c)** Hvorfor kan du ikke oppnå presisjonsgrad 4 med disse nodene?",
+        "solution": "**a)** Formelen er symmetrisk (samme vekt $A$ i begge endepunkter), så alle odde potenser går gjennom automatisk:\n\n$$Q(x)=A(-1)+B\\cdot 0+A\\cdot 1=0=\\int_{-1}^{1}x\\,dx\\ ✔,\\qquad Q(x^{3})=0=\\int_{-1}^{1}x^{3}dx\\ ✔.$$\n\nVi trenger derfor bare kravene fra de **like** potensene.\n\n**$f=1$:** $Q=2A+B$, eksakt $=2$:\n$$2A+B=2.$$\n\n**$f=x^{2}$:** $Q=A+0+A=2A$, eksakt $=\\dfrac23$:\n$$2A=\\frac23\\ \\Longrightarrow\\ A=\\frac13.$$\n\nSett inn i den første: $B=2-\\dfrac23=\\dfrac43$.\n\n$$\\boxed{A=\\frac13,\\qquad B=\\frac43}$$\n\n**b)** Formelen blir\n\n$$Q(f)=\\frac13 f(-1)+\\frac43 f(0)+\\frac13 f(1)=\\frac13\\left(f(-1)+4f(0)+f(1)\\right),$$\n\nsom er nøyaktig **Simpsons regel** på $[-1,1]$ med $h=1$.\n\n**Poenget med oppgaven:** Simpsons vekter er ikke valgt tilfeldig. De er de **eneste** som gir høyest mulig presisjonsgrad med akkurat disse tre nodene.\n\n**c)** Test $x^{4}$ med de bestemte vektene:\n\n$$Q(x^{4})=\\frac13\\cdot 1+\\frac43\\cdot 0+\\frac13\\cdot 1=\\frac23,\\qquad \\int_{-1}^{1}x^{4}dx=\\frac25.$$\n\nDisse er ulike, og vi har ingen frihetsgrader igjen — $A$ og $B$ er allerede låst av kravene fra $1$ og $x^{2}$.\n\n**Den generelle grunnen:** med tre faste noder har vi tre frihetsgrader (tre vekter), her redusert til to av symmetrien. Vi kan derfor tilfredsstille to uavhengige krav, og symmetrien gir oss to gratis på kjøpet — til sammen presisjonsgrad 3.\n\n**Vil du høyere med tre punkter, må du få lov til å flytte nodene også.** Da har du seks frihetsgrader, og du kan komme til grad $2\\cdot 3-1=5$. Det er nettopp det Gauss–Legendre gjør, og det er neste løkke.",
+        "hints": [
+          "Symmetriske vekter gjør at alle odde potenser går gjennom uten krav.",
+          "Sett opp én likning fra $f=1$ og én fra $f=x^2$.",
+          "For c): tell frihetsgrader — hvor mange uavhengige krav kan tre vekter oppfylle?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Gauss–Legendre-kvadratur (~14 min)\n\nSå langt har nodene ligget fast, jevnt fordelt. Men hvorfor det? Får du velge nodene fritt, dobler du antall frihetsgrader — og det gir dobbelt så høy presisjonsgrad for samme antall funksjonsevalueringer."
+    },
+    {
+      "id": "tma4135-6-2-def-gauss",
+      "type": "definition",
+      "title": "Gauss–Legendre-kvadratur",
+      "content": "En kvadraturformel på **standardintervallet** $[-1,1]$ der både noder og vekter er valgt for å gi høyest mulig presisjonsgrad:\n\n$$\\int_{-1}^{1} g(\\xi)\\,d\\xi\\approx\\sum_{i=1}^{N} w_i\\,g(\\xi_i).$$\n\nMed $N$ noder har vi $2N$ frihetsgrader ($N$ noder og $N$ vekter), og det gir\n\n$$\\text{presisjonsgrad}=2N-1.$$\n\n**To noder gir altså presisjonsgrad 3 — like god som Simpsons tre noder.** Tre noder gir grad 5.\n\nNodene er nullpunktene til Legendre-polynomene; derav navnet. Du trenger ikke kunne dem — **tabellen deles ut i selve oppgaven**."
+    },
+    {
+      "id": "tma4135-6-2-def-gausstabell",
+      "type": "definition",
+      "title": "Node- og vekttabellen",
+      "content": "Verdiene på standardintervallet $[-1,1]$:\n\n| $N$ | Noder $\\xi_i$ | Vekter $w_i$ | Presisjonsgrad |\n|---|---|---|---|\n| 1 | $0$ | $2$ | 1 |\n| 2 | $\\pm\\dfrac{1}{\\sqrt3}\\approx\\pm 0{,}577350$ | $1,\\ 1$ | 3 |\n| 3 | $0$; $\\pm\\sqrt{\\dfrac35}\\approx\\pm 0{,}774597$ | $\\dfrac89$; $\\dfrac59,\\ \\dfrac59$ | 5 |\n\n**Kontroller alltid at vektene summerer til 2.** Det er lengden av $[-1,1]$, og det svarer til at formelen er eksakt for $f\\equiv 1$. For $N=3$: $\\frac89+\\frac59+\\frac59=\\frac{18}{9}=2$ ✔.\n\n**Tabellen deles ut i oppgaven** — den skal ikke pugges. Det som må kunnes, er hva du gjør med den."
+    },
+    {
+      "id": "tma4135-6-2-def-transformasjon",
+      "type": "definition",
+      "title": "Transformasjonen $[a,b]\\to[-1,1]$",
+      "content": "Tabellen gjelder bare på $[-1,1]$, så integralet må først flyttes dit. Den lineære sammenhengen er\n\n$$x(\\xi)=\\frac{(b-a)\\xi+(a+b)}{2},\\qquad dx=\\frac{b-a}{2}\\,d\\xi.$$\n\n**Kontroller den på endepunktene:** $\\xi=-1$ gir $x=\\frac{-(b-a)+(a+b)}{2}=a$ ✔, og $\\xi=1$ gir $x=b$ ✔. Det tar fem sekunder og fanger alle fortegnsfeil.\n\nIntegralet blir\n\n$$\\int_a^b f(x)\\,dx=\\frac{b-a}{2}\\int_{-1}^{1}f\\left(x(\\xi)\\right)d\\xi\\approx\\frac{b-a}{2}\\sum_{i=1}^{N}w_i\\,f\\left(x(\\xi_i)\\right).$$\n\n**Transformasjonen må kunnes** — den står ikke på det utdelte formelarket."
+    },
+    {
+      "id": "tma4135-6-2-def-jacobi",
+      "type": "definition",
+      "title": "Jacobifaktoren $\\frac{b-a}{2}$",
+      "content": "Faktoren foran summen, som kommer av at $dx=\\frac{b-a}{2}d\\xi$.\n\n**Å glemme den er den vanligste feilen i hele sjangeren.** Symptomet er lett å kjenne igjen: svaret er feil med nøyaktig faktoren $\\frac{b-a}{2}$, altså for stort eller for lite på en helt regelmessig måte.\n\n**Gratis kontroll:** bruk formelen på $f\\equiv 1$. Da skal svaret bli $b-a$:\n\n$$\\frac{b-a}{2}\\sum_i w_i=\\frac{b-a}{2}\\cdot 2=b-a\\ ✔.$$\n\nEr $[a,b]$ akkurat 2 langt (som $[1,3]$), er faktoren 1 og feilen usynlig. Ikke la det lure deg på et intervall der den ikke er det."
+    },
+    {
+      "id": "tma4135-6-2-def-gauss-vs",
+      "type": "definition",
+      "title": "Gauss mot Simpson — når lønner det seg?",
+      "content": "| | Simpson, 3 punkter | Gauss, 2 punkter | Gauss, 3 punkter |\n|---|---|---|---|\n| Funksjonsevalueringer | 3 | 2 | 3 |\n| Presisjonsgrad | 3 | 3 | 5 |\n| Noder | faste, jevne | irrasjonale | irrasjonale |\n| Endepunktene brukt | ja | nei | nei |\n\n**Gauss vinner på nøyaktighet per funksjonsevaluering.** Men den har to praktiske ulemper: nodene er irrasjonale tall du må slå opp, og de treffer aldri endepunktene — så metoden passer dårlig hvis du bare har en ferdig tabell med jevne verdier.\n\n**At endepunktene ikke brukes, er også en styrke:** har $f$ en singularitet i et endepunkt (som $1/\\sqrt{x}$ i $x=0$), kan Gauss brukes der Simpson bryter helt sammen."
+    },
+    {
+      "id": "tma4135-6-2-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: Gauss–Legendre mot Simpson",
+      "problem": "Integralet $\\displaystyle I=\\int_1^3\\frac{dx}{x}$ har den eksakte verdien $\\ln 3\\approx 1{,}0986123$.\n\n**a)** Regn $I$ med Gauss–Legendre og 2 noder.\n**b)** Regn $I$ med Gauss–Legendre og 3 noder.\n**c)** Sammenlikn med Simpson fra eksempel 1, målt i antall funksjonsevalueringer.\n\nBruk node- og vekttabellen over.",
+      "solution": "**Steg 1 — transformasjonen.** Med $a=1$, $b=3$ er $b-a=2$ og $a+b=4$:\n\n$$x(\\xi)=\\frac{2\\xi+4}{2}=\\xi+2,\\qquad \\frac{b-a}{2}=1.$$\n\n*Kontroll:* $\\xi=-1\\Rightarrow x=1$ ✔, $\\xi=1\\Rightarrow x=3$ ✔. Jacobifaktoren er tilfeldigvis 1 her, siden intervallet er akkurat 2 langt — men vi skriver den likevel, for vane.\n\n**a) To noder.** Fra tabellen: $\\xi=\\pm\\frac{1}{\\sqrt3}$, begge med vekt 1.\n\n$$x_1=2-\\frac{1}{\\sqrt3}\\approx 1{,}4226497,\\qquad x_2=2+\\frac{1}{\\sqrt3}\\approx 2{,}5773503.$$\n\n$$f(x_1)=\\frac{1}{1{,}4226497}\\approx 0{,}7029137,\\qquad f(x_2)=\\frac{1}{2{,}5773503}\\approx 0{,}3879954.$$\n\n$$G_2=1\\cdot\\left(1\\cdot 0{,}7029137+1\\cdot 0{,}3879954\\right)\\approx 1{,}0909091.$$\n\n**Eksakt verdi av $G_2$.** Her går det an å regne uten desimaler:\n\n$$\\frac{1}{2-\\frac{1}{\\sqrt3}}+\\frac{1}{2+\\frac{1}{\\sqrt3}}=\\frac{\\left(2+\\frac{1}{\\sqrt3}\\right)+\\left(2-\\frac{1}{\\sqrt3}\\right)}{4-\\frac13}=\\frac{4}{\\frac{11}{3}}=\\frac{12}{11}.$$\n\n$$G_2=\\frac{12}{11}\\approx 1{,}0909091,\\qquad |G_2-I|\\approx 7{,}70\\cdot 10^{-3}.$$\n\n**b) Tre noder.** Fra tabellen: $\\xi=0$ med vekt $\\frac89$, og $\\xi=\\pm\\sqrt{3/5}$ med vekt $\\frac59$ hver.\n\n$$x=2,\\qquad x=2\\mp\\sqrt{0{,}6}\\ \\Longrightarrow\\ 1{,}2254033 \\text{ og } 2{,}7745967.$$\n\n$$f(2)=0{,}5,\\qquad f(1{,}2254033)\\approx 0{,}8160578,\\qquad f(2{,}7745967)\\approx 0{,}3604127.$$\n\n$$G_3=\\frac89\\cdot 0{,}5+\\frac59\\left(0{,}8160578+0{,}3604127\\right)=0{,}4444444+\\frac59\\cdot 1{,}1764705.$$\n\n$$G_3\\approx 0{,}4444444+0{,}6535947=1{,}0980392.$$\n\n**Eksakt:** de to ytre leddene gir $\\frac{1}{2-\\sqrt{0{,}6}}+\\frac{1}{2+\\sqrt{0{,}6}}=\\frac{4}{4-0{,}6}=\\frac{4}{3{,}4}=\\frac{20}{17}$, så\n\n$$G_3=\\frac{4}{9}+\\frac59\\cdot\\frac{20}{17}=\\frac{4}{9}+\\frac{100}{153}=\\frac{68+100}{153}=\\frac{168}{153}=\\frac{56}{51}.$$\n\n$$G_3=\\frac{56}{51}\\approx 1{,}0980392,\\qquad |G_3-I|\\approx 5{,}73\\cdot 10^{-4}.$$\n\n**c) Sammenlikningen.**\n\n| Metode | Funksjonsevalueringer | Verdi | Feil |\n|---|---|---|---|\n| Trapes, $n=4$ | 5 | $67/60\\approx 1{,}116667$ | $1{,}81\\cdot 10^{-2}$ |\n| Simpson, $n=4$ | 5 | $11/10=1{,}1$ | $1{,}39\\cdot 10^{-3}$ |\n| Gauss, $N=2$ | **2** | $12/11\\approx 1{,}090909$ | $7{,}70\\cdot 10^{-3}$ |\n| Gauss, $N=3$ | **3** | $56/51\\approx 1{,}098039$ | $5{,}73\\cdot 10^{-4}$ |\n\n**Konklusjon.** Gauss med tre punkter slår Simpson med fem punkter — både i nøyaktighet og i antall funksjonsevalueringer. Gauss med to punkter er dårligere enn Simpson med fem, men bruker under halvparten så mange evalueringer; per evaluering er den klart mest effektiv.\n\n**Når betyr dette noe?** Når hver funksjonsevaluering er dyr — for eksempel når $f(x)$ er resultatet av en simulering. Er $f$ bare en formel, spiller det liten rolle.\n\n**Tidsbruk på eksamen:** transformasjonen 2 min, a) 4 min, b) 6 min, c) 3 min. Til sammen omtrent 15 minutter."
+    },
+    {
+      "id": "tma4135-6-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger J — Gauss–Legendre.) Regn ut $\\displaystyle\\int_0^1 e^{-x^{2}}\\,dx$ med Gauss–Legendre og 2 noder. Den eksakte verdien er $0{,}7468241$.\n\nSammenlikn med Simpsons regel med $n=2$, som gir $0{,}7471804$.",
+        "solution": "**Transformasjonen.** $a=0$, $b=1$, så $b-a=1$ og $a+b=1$:\n\n$$x(\\xi)=\\frac{1\\cdot\\xi+1}{2}=\\frac{\\xi+1}{2},\\qquad \\frac{b-a}{2}=\\frac12.$$\n\n*Kontroll:* $\\xi=-1\\Rightarrow x=0$ ✔, $\\xi=1\\Rightarrow x=1$ ✔. **Her er jacobifaktoren $\\frac12$, ikke 1** — den må med.\n\n**Nodene.** $\\xi=\\mp\\frac{1}{\\sqrt3}$ gir\n\n$$x_1=\\frac{1-0{,}5773503}{2}=0{,}2113249,\\qquad x_2=\\frac{1+0{,}5773503}{2}=0{,}7886751.$$\n\n**Funksjonsverdiene.**\n\n$$f(x_1)=e^{-0{,}2113249^{2}}=e^{-0{,}0446582}\\approx 0{,}9563243,$$\n$$f(x_2)=e^{-0{,}7886751^{2}}=e^{-0{,}6220085}\\approx 0{,}5368651.$$\n\n**Summen med jacobifaktoren.**\n\n$$G_2=\\frac12\\left(1\\cdot 0{,}9563243+1\\cdot 0{,}5368651\\right)=\\frac12\\cdot 1{,}4931894\\approx 0{,}7465947.$$\n\n**Feilene.**\n\n$$|G_2-I|\\approx 2{,}29\\cdot 10^{-4},\\qquad |S_2-I|\\approx 3{,}56\\cdot 10^{-4}.$$\n\n**Svar:** Gauss med **to** funksjonsevalueringer er nøyaktigere enn Simpson med **tre**.\n\n**Merk hvor lett det er å gå i jacobi-fella her.** Utelater du faktoren $\\frac12$, får du $1{,}4931894$ — nesten nøyaktig dobbelt så mye som det riktige svaret. Kontrollen «$f\\equiv 1$ skal gi $b-a=1$» ville avslørt det umiddelbart.",
+        "hints": [
+          "Transformer først; her er intervallet 1 langt, så jacobifaktoren er ikke 1.",
+          "Nodene på $[-1,1]$ er $\\pm 1/\\sqrt3$ — flytt dem med $x=(\\xi+1)/2$.",
+          "Begge vektene er 1; det er jacobifaktoren som gjør jobben utenfor summen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger J.) Vis at Gauss–Legendre med 2 noder har presisjonsgrad 3, ved å teste formelen\n\n$$\\int_{-1}^{1}g(\\xi)\\,d\\xi\\approx g\\!\\left(-\\tfrac{1}{\\sqrt3}\\right)+g\\!\\left(\\tfrac{1}{\\sqrt3}\\right)$$\n\npå $\\xi^{n}$ for $n=0,1,2,3,4$.",
+        "solution": "**$g=1$:** $Q=1+1=2$. Eksakt: $2$. **Likt** ✔\n\n**$g=\\xi$:** $Q=-\\frac{1}{\\sqrt3}+\\frac{1}{\\sqrt3}=0$. Eksakt: $0$. **Likt** ✔\n\n**$g=\\xi^{2}$:** $Q=\\frac13+\\frac13=\\frac23$. Eksakt: $\\int_{-1}^{1}\\xi^{2}d\\xi=\\frac23$. **Likt** ✔\n\n**$g=\\xi^{3}$:** $Q=-\\frac{1}{3\\sqrt3}+\\frac{1}{3\\sqrt3}=0$. Eksakt: $0$. **Likt** ✔\n\n**$g=\\xi^{4}$:** $Q=\\frac19+\\frac19=\\frac29$. Eksakt: $\\int_{-1}^{1}\\xi^{4}d\\xi=\\frac25$.\n\n$$\\frac29\\approx 0{,}2222\\ne 0{,}4=\\frac25.$$\n\n**Ulikt** ✘\n\n**Konklusjon:** eksakt til og med grad 3, feiler på grad 4, altså\n\n$$\\boxed{\\text{presisjonsgrad } 3=2N-1 \\text{ med } N=2.}$$\n\n**Legg merke til hvor $x^{2}$-treffet kommer fra.** Nodene $\\pm 1/\\sqrt3$ er valgt nettopp slik at $2\\cdot\\frac13=\\frac23$. Hadde nodene ligget i $\\pm\\frac12$, ville $Q(\\xi^2)=\\frac12\\ne\\frac23$, og presisjonsgraden ville falt til 1. **Det er nodeplasseringen som gjør hele forskjellen** — ikke vektene, som her bare er 1.\n\n**Og igjen gikk de odde potensene gjennom gratis**, av symmetri.",
+        "hints": [
+          "Regn ut $\\left(1/\\sqrt3\\right)^n$ for hver $n$; potensene av 3 gjør det enkelt.",
+          "De odde potensene kanselleres av symmetrien — de gir ingen informasjon.",
+          "Sammenlikn med det eksakte integralet $\\int_{-1}^1 \\xi^n d\\xi = 2/(n+1)$ for like $n$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger J — krevende.) En kvadraturformel på $[-1,1]$ er gitt ved\n\n$$Q(g)=w\\left(g(-c)+g(c)\\right),\\qquad 0<c<1.$$\n\n**a)** Bestem $w$ og $c$ slik at presisjonsgraden blir så høy som mulig.\n**b)** Hvilken formel er dette?\n**c)** Vis at valget av $c$ er det eneste mulige med positiv $c$.",
+        "solution": "**a)** Formelen er symmetrisk, så alle odde potenser gir null på begge sider og stiller ingen krav. Vi tester de like:\n\n**$g=1$:** $Q=2w$, eksakt $=2$:\n$$2w=2\\ \\Longrightarrow\\ w=1.$$\n\n**$g=\\xi^{2}$:** $Q=w\\left(c^{2}+c^{2}\\right)=2wc^{2}=2c^{2}$, eksakt $=\\dfrac23$:\n$$2c^{2}=\\frac23\\ \\Longrightarrow\\ c^{2}=\\frac13\\ \\Longrightarrow\\ c=\\frac{1}{\\sqrt3}.$$\n\n(Vi tar den positive rota, siden $0<c<1$.)\n\n$$\\boxed{w=1,\\qquad c=\\frac{1}{\\sqrt3}}$$\n\n**Sjekk hvor langt vi kommer.** $g=\\xi^{3}$: begge sider null ✔ (symmetri). $g=\\xi^{4}$: $Q=2c^{4}=2\\cdot\\frac19=\\frac29$, mens eksakt er $\\frac25$ — ulikt ✘.\n\nPresisjonsgraden er altså **3**.\n\n**b)** Dette er nøyaktig **Gauss–Legendre med to noder**. Vi har utledet tabellraden i stedet for å slå den opp.\n\n**c)** Kravet $c^{2}=\\frac13$ har nøyaktig to løsninger, $c=\\pm\\frac{1}{\\sqrt3}$, og bare den positive oppfyller $0<c<1$. Altså er nodeplasseringen entydig bestemt.\n\n**Den dypere grunnen.** Vi hadde to frie parametre, $w$ og $c$, og symmetrien ga oss to gratis grader (de odde potensene). To krav ($1$ og $\\xi^{2}$) låste begge parametrene, og til sammen ble presisjonsgraden $2\\cdot 2-1=3$. **Det er akkurat regnestykket bak formelen $2N-1$**: $2N$ frihetsgrader gir $2N$ oppfylte krav, altså eksakthet til og med grad $2N-1$.\n\n**Kontroll av at anslaget er skarpt:** en formel med to noder kan aldri ha presisjonsgrad 4, for da måtte den blant annet være eksakt for $g(\\xi)=(\\xi^{2}-c^{2})^{2}$, som er et fjerdegradspolynom med $Q(g)=0$, men med et strengt positivt integral. Det er umulig.",
+        "hints": [
+          "Symmetrien betyr at bare $g=1$ og $g=\\xi^2$ gir krav.",
+          "To ukjente, to likninger — løs $w$ først.",
+          "For c): hvor mange løsninger har $c^2=1/3$ med $0<c<1$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-2-o10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger J — krevende, sammensatt.) Integralet $\\displaystyle\\int_0^2 x\\,e^{x}\\,dx$ har den eksakte verdien $e^{2}+1\\approx 8{,}389056$.\n\n**a)** Regn ut tilnærmingen med Simpsons regel og $n=2$.\n**b)** Regn ut tilnærmingen med Gauss–Legendre og 2 noder.\n**c)** Hvorfor er Simpson-feilen så mye større her enn i eksempel 1, selv om formelen er den samme?",
+        "solution": "**a) Simpson, $n=2$.** $h=1$, noder $0,1,2$, og $f(x)=xe^{x}$:\n\n$$f_0=0,\\qquad f_1=e\\approx 2{,}718282,\\qquad f_2=2e^{2}\\approx 14{,}778112.$$\n\n$$S_2=\\frac13\\left(0+4e+2e^{2}\\right)=\\frac{4e+2e^{2}}{3}\\approx\\frac{10{,}873127+14{,}778112}{3}\\approx 8{,}550413.$$\n\nFeil: $|S_2-I|\\approx 0{,}161357$.\n\n**b) Gauss, $N=2$.** Transformasjonen for $[0,2]$: $b-a=2$, $a+b=2$, så\n\n$$x(\\xi)=\\frac{2\\xi+2}{2}=\\xi+1,\\qquad \\frac{b-a}{2}=1.$$\n\nNodene $\\xi=\\mp\\frac{1}{\\sqrt3}$ gir\n\n$$x_1=1-0{,}5773503=0{,}4226497,\\qquad x_2=1+0{,}5773503=1{,}5773503.$$\n\n$$f(x_1)=0{,}4226497\\cdot e^{0{,}4226497}\\approx 0{,}4226497\\cdot 1{,}5259227\\approx 0{,}6449288,$$\n$$f(x_2)=1{,}5773503\\cdot e^{1{,}5773503}\\approx 1{,}5773503\\cdot 4{,}8420876\\approx 7{,}6377338.$$\n\n$$G_2=1\\cdot\\left(0{,}6449288+7{,}6377338\\right)\\approx 8{,}2826626.$$\n\nFeil: $|G_2-I|\\approx 0{,}106393$.\n\n**Gauss med to punkter slår Simpson med tre**, også her.\n\n**c)** Feilleddet for Simpson er $\\dfrac{b-a}{180}h^{4}\\max\\left|f^{(4)}\\right|$. For $f(x)=xe^{x}$ er\n\n$$f'=(x+1)e^{x},\\quad f''=(x+2)e^{x},\\quad f'''=(x+3)e^{x},\\quad f^{(4)}=(x+4)e^{x},$$\n\nså $\\max_{[0,2]}\\left|f^{(4)}\\right|=6e^{2}\\approx 44{,}334$.\n\n$$|\\varepsilon|\\le\\frac{2}{180}\\cdot 1^{4}\\cdot 44{,}334\\approx 0{,}4926.$$\n\nDen faktiske feilen $0{,}161$ ligger godt innenfor.\n\n**Sammenlikn med eksempel 1:** der var $b-a=2$, $h=0{,}5$ og $\\max|f^{(4)}|=24$, altså\n\n$$\\frac{2}{180}(0{,}5)^{4}\\cdot 24\\approx 0{,}0167.$$\n\n**To ting skiller.** For det første er $h$ fire ganger større her ($1$ mot $0{,}5$), og $h^{4}$ gir en faktor $256$. For det andre er den fjerdederiverte omtrent dobbelt så stor. **Formelen er den samme — det er $h$ og funksjonen som er forskjellige.**\n\n**Lærdommen:** Simpsons regel er ikke «nøyaktig» eller «unøyaktig» i seg selv. Nøyaktigheten avgjøres av $h^{4}$ og av hvor krum funksjonen er, og feilleddet forteller deg nøyaktig hvordan de to spiller sammen.",
+        "hints": [
+          "For a): $n=2$ gir mønsteret $1,4,1$ med $h=1$.",
+          "For b): transformer til $[-1,1]$ og pass på jacobifaktoren — her er den 1.",
+          "For c): deriver $xe^x$ fire ganger og finn maksimum på $[0,2]$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**1. Å stoppe $x^{n}$-testingen for tidlig.** Treffer formelen på $x^{2}$, er du ikke ferdig. Symmetriske formler får odde potenser gratis, og de skjuler seg mellom de like. **Test til noe faktisk feiler.**\n\n**2. Å forveksle «eksakt for $x^{3}$» med presisjonsgrad 4.** Presisjonsgraden er den **høyeste** graden som går gjennom, altså 3. Feilen kommer av å telle den graden som feilet.\n\n**3. Feil vektmønster i Simpson.** Mønsteret er $1,4,2,4,\\dots,4,1$. Vanlige varianter av feilen: å begynne med 4, å sette 2 ved siden av en 1, eller å bruke $1,2,2,\\dots,2,1$ (som er trapes). **Kontroll:** summen av vektene ganget med $h/3$ skal bli $b-a$.\n\n**4. Å glemme jacobifaktoren $\\frac{b-a}{2}$ i Gauss-kvadratur.** Symptomet er et svar som er feil med nøyaktig den faktoren. Er intervallet akkurat 2 langt, er faktoren 1 og feilen usynlig — la det ikke gi deg falsk trygghet.\n\n**5. Å runde antall delintervall nedover.** Kommer du til $n\\ge 36{,}5$, er svaret 37, ikke 36. For Simpson må du dessuten opp til nærmeste **partall**.\n\n**6. Å bruke feil derivert i feilleddet.** Trapes har $f''$ og $h^{2}$; Simpson har $f^{(4)}$ og $h^{4}$. Å blande dem gir et anslag som kan være flere størrelsesordener galt.\n\n**7. Å hente maksimum av den deriverte på feil intervall.** Maksimeringen skal gå over hele $[a,b]$, ikke bare over de nodene du tilfeldigvis regner i."
+    },
+    {
+      "id": "tma4135-6-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-6-2-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på forkunnskapene fra [kap. 6.1](/tma4135/tma4135-6-1) og på integralregning."
+        },
+        {
+          "id": "tma4135-6-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-2-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\int_{-1}^{1}x^{n}\\,dx$ for $n=0,1,2,3,4$.",
+            "solution": "$$\\int_{-1}^{1}x^{n}dx=\\left[\\frac{x^{n+1}}{n+1}\\right]_{-1}^{1}=\\frac{1-(-1)^{n+1}}{n+1}.$$\n\nFor **odde** $n$ er $(-1)^{n+1}=1$, så integralet er 0. For **like** $n$ er det $\\dfrac{2}{n+1}$.\n\n$$n=0:\\ 2,\\qquad n=1:\\ 0,\\qquad n=2:\\ \\tfrac23,\\qquad n=3:\\ 0,\\qquad n=4:\\ \\tfrac25.$$\n\nDette er de fasitverdiene alle presisjonsgrad-tester i kapitlet sammenliknes mot.",
+            "hints": [
+              "Bruk potensregelen og sett inn begge grensene.",
+              "Odde potenser er odde funksjoner — hva blir integralet over et symmetrisk intervall?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-2-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver $f(x)=1/x$ fire ganger.",
+            "solution": "$$f=x^{-1},\\quad f'=-x^{-2},\\quad f''=2x^{-3},\\quad f'''=-6x^{-4},\\quad f^{(4)}=24x^{-5}.$$\n\nMønsteret er $f^{(n)}(x)=(-1)^{n}n!\\,x^{-(n+1)}$. Alle er avtakende i absoluttverdi for $x>0$, så maksimum ligger alltid i det venstre endepunktet — det er derfor $M_2=2$ og $M_4=24$ på $[1,3]$.",
+            "hints": [
+              "Skriv $1/x$ som $x^{-1}$ og bruk potensregelen fire ganger.",
+              "Hold styr på fortegnene: de veksler."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-2-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Løs $h^{4}\\le 3{,}75\\cdot 10^{-3}$ for $h>0$, og finn deretter $n=2/h$.",
+            "solution": "$$h\\le\\left(3{,}75\\cdot 10^{-3}\\right)^{1/4}.$$\n\nRegn i to steg: $\\sqrt{3{,}75\\cdot 10^{-3}}=\\sqrt{0{,}00375}\\approx 0{,}0612372$, og deretter\n\n$$\\sqrt{0{,}0612372}\\approx 0{,}2475626.$$\n\n$$n=\\frac{2}{h}\\ge\\frac{2}{0{,}2475626}\\approx 8{,}08.$$\n\nRundet opp til nærmeste partall: $n=10$.\n\n**Merk teknikken:** fjerderot er kvadratrot to ganger. Det er raskt på en enkel kalkulator, som er den eneste typen som er tillatt.",
+            "hints": [
+              "Fjerderot er kvadratrot to ganger.",
+              "Husk å runde $n$ oppover — og for Simpson opp til et partall."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-2-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at $\\dfrac{1}{2-c}+\\dfrac{1}{2+c}=\\dfrac{4}{4-c^{2}}$, og bruk det med $c=1/\\sqrt3$.",
+            "solution": "Sett på felles nevner:\n\n$$\\frac{1}{2-c}+\\frac{1}{2+c}=\\frac{(2+c)+(2-c)}{(2-c)(2+c)}=\\frac{4}{4-c^{2}}.$$\n\nMed $c=\\dfrac{1}{\\sqrt3}$ er $c^{2}=\\dfrac13$, så\n\n$$\\frac{4}{4-\\frac13}=\\frac{4}{\\frac{11}{3}}=\\frac{12}{11}.$$\n\nDette er nøyaktig regnestykket som gir den eksakte verdien av $G_2$ i eksempel 4 — og det er verdt å gjøre, fordi et eksakt svar er lettere å kontrollere enn et desimaltall.",
+            "hints": [
+              "Bruk konjugatsetningen i nevneren.",
+              "$\\left(1/\\sqrt3\\right)^2=1/3$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-6-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-6-2-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $[a,b]$ | Integrasjonsintervallet |\n| $n$ | Antall delintervall (partall i Simpson) |\n| $h=\\dfrac{b-a}{n}$ | Steglengden, altså avstanden mellom nodene |\n| $x_i=a+ih$ | Node nummer $i$ |\n| $f_i=f(x_i)$ | Funksjonsverdien i node $i$ |\n| $T_n$ | Sammensatt trapesregel med $n$ delintervall |\n| $S_n$ | Sammensatt Simpson med $n$ delintervall |\n| $w_i$ | Vekten til node $i$ i en kvadraturformel |\n| $\\xi$ | Variabelen på standardintervallet $[-1,1]$ i Gauss-kvadratur |\n| $\\xi_i$ | Gauss-noden nummer $i$ |\n| $N$ | Antall Gauss-noder |\n| $M_2$, $M_4$ | Maksimum av $\\left\\lvert f''\\right\\rvert$, henholdsvis $\\left\\lvert f^{(4)}\\right\\rvert$ |\n| $d$ | Presisjonsgrad |\n"
+        },
+        {
+          "id": "tma4135-6-2-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$T_n=\\frac{h}{2}\\left(f_0+2f_1+\\dots+2f_{n-1}+f_n\\right)$$\nSammensatt trapesregel, vektmønster $1,2,\\dots,2,1$. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$S_n=\\frac{h}{3}\\left(f_0+4f_1+2f_2+4f_3+\\dots+4f_{n-1}+f_n\\right)$$\nSammensatt Simpson, vektmønster $1,4,2,\\dots,4,1$, $n$ partall. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\left|\\varepsilon_T\\right|\\le\\frac{b-a}{12}\\,h^{2}\\max\\left|f''\\right|$$\nTrapesfeilen, orden 2. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\left|\\varepsilon_S\\right|\\le\\frac{b-a}{180}\\,h^{4}\\max\\left|f^{(4)}\\right|$$\nSimpson-feilen, orden 4. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\int_a^b f\\,dx\\approx\\frac{b-a}{2}\\sum_{i=1}^{N}w_i\\,f\\left(x(\\xi_i)\\right),\\qquad x(\\xi)=\\frac{(b-a)\\xi+(a+b)}{2}$$\nGauss–Legendre etter transformasjon til $[-1,1]$. *(Node- og vekttabellen deles ut i oppgaven; transformasjonen og jacobifaktoren må kunnes.)*\n\n$$dx=\\frac{b-a}{2}\\,d\\xi$$\nJacobifaktoren. *(Må kunnes — den er den vanligste utelatelsen i sjangeren.)*\n\n$$\\text{presisjonsgrad for Gauss med } N \\text{ noder}=2N-1$$\nDobbelt så høy som med faste noder, fordi nodene også er frie. *(Må kunnes eller utledes aktivt.)*\n\n$$\\int_a^b f\\,dx\\approx (b-a)f\\!\\left(\\frac{a+b}{2}\\right)$$\nMidtpunktsregelen, presisjonsgrad 1 med bare ett punkt. *(Må kunnes.)*\n\n$$\\sum_i w_i=b-a\\quad\\text{(på }[-1,1]:\\ \\sum_i w_i=2\\text{)}$$\nKontrollen som fanger avskrivningsfeil i alle formlene. *(Må kunnes.)*\n\n**Kolliderende symboler i dette kapitlet.** Bokstaven $h$ er steglengde i integrasjonsretningen her og nodeavstand i [kap. 6.1](/tma4135/tma4135-6-1); i hele Del 7 er $h$ steglengden i tid, og i Del 8 blir $h$ romsteget mens tidssteget skrives $\\Delta t$ (det utdelte formelarket kaller tidssteget $k$). Bokstaven $n$ er antall delintervall her, men graden til interpolasjonspolynomet i [kap. 6.1](/tma4135/tma4135-6-1) — pass på ved overgangen mellom kapitlene. Bokstaven $\\xi$ er standardvariabelen på $[-1,1]$ her, men det ukjente mellompunktet i interpolasjonsfeilen i [kap. 6.1](/tma4135/tma4135-6-1). Og $w_i$ er kvadraturvekter her, mens $w$ i [kap. 4.3](/tma4135/tma4135-4-3) er enhetsroten."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

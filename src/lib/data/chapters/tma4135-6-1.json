@@ -1,0 +1,491 @@
+{
+  "id": "tma4135-6-1",
+  "courseId": "tma4135",
+  "chapterNumber": "6.1",
+  "title": "Interpolasjon — Lagrange og Newtons dividerte differanser",
+  "description": "De to måtene å legge et polynom gjennom punkter — Lagrange og Newton — og interpolasjonsfeilen fra formelarket.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp kardinalfunksjonene og skrive interpolasjonspolynomet på Lagrange-form",
+    "fylle ut en differanstabell og lese av koeffisientene til Newton-formen",
+    "begrunne at de to formene gir samme polynom, og bruke entydigheten som symmetriargument",
+    "anslå interpolasjonsfeilen med riktig derivertorden og fakultet, og vurdere hvor stramt anslaget er"
+  ],
+  "content": [
+    {
+      "id": "tma4135-6-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Interpolasjon er sjanger I i denne boka.** Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene som går igjen på settene; **I er interpolasjon med Lagrange- eller Newton-form**. Du møter bokstaven flere steder senere, og den betyr alltid det samme.\n\n**Frekvens: 7 av 13 gjennomgåtte sett (54 %).** Den ligger nesten alltid i numerikk-blokken bakerst i settet, som en oppgave på 8–12 poeng. Det er en av de vennligste oppgavene på hele eksamen: regnearbeidet er rent aritmetisk, og du kan alltid kontrollere svaret ditt selv ved å sette inn punktene.\n\n**Løsningsforslagene godtar eksplisitt begge metodene.** Skal du finne polynomet gjennom noen punkter, står det deg fritt å bruke Lagrange-formen eller Newtons dividerte differanser. Boka viser begge, og du skal kunne begge — for spørres du «vis at de gir samme polynom», må du kunne føre begge veier.\n\n**Formelark-merking.** Dette kapitlet er et av dem der arket gir deg mest:\n\n- **Står på det utdelte formelarket — tren oppslaget:** Lagrange-formelen med kardinalfunksjonene, oppsettet for Newtons dividerte differanser, **interpolasjonsfeilen** $\\varepsilon_n(x)=\\prod_k (x-x_k)\\,f^{(n+1)}(\\xi)/(n+1)!$, og **Chebyshev-punktene**. Ferdigheten her er å indeksere riktig: hvilken node hører til hvilken faktor, og hva er $n$ i $(n+1)!$.\n- **Må kunnes eller utledes aktivt:** selve differanstabellen (arket viser formen, ikke hvordan du fyller den ut), entydigheten til interpolasjonspolynomet, og symmetriargumentet som følger av entydigheten.\n\n**Tidsbruk:** 60 minutter lesetid, fire løkker. Naturlig pausepunkt etter løkke 2. Skriver du av for hånd, regn med halvannen gang så lang tid."
+    },
+    {
+      "id": "tma4135-6-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 1.1](/tma4135/tma4135-1-1) for regning med polynomer og faktorisering. Utover det trenger du bare å kunne derivere og sette inn tall — kapitlet kan i praksis leses uten forkunnskaper fra resten av boka.\n\nKapitlet er derimot forutsetning for [kap. 6.2](/tma4135/tma4135-6-2): trapes- og Simpson-regelen er ikke annet enn integralet av et interpolasjonspolynom, og feilleddene der har nøyaktig samme form som feilleddet her."
+    },
+    {
+      "id": "tma4135-6-1-motivasjon",
+      "type": "text",
+      "content": "## Når du bare har en tabell\n\nEn temperaturlogger måler hver time. Du trenger verdien klokken 14.20. En materialtabell gir tettheten ved 0, 20, 40 og 60 grader, og du skal bruke 33 grader. En måling er dyr, så du har fem punkter og ingen formel.\n\n**Interpolasjon er svaret på nettopp den situasjonen:** legg en glatt kurve gjennom de punktene du har, og les av mellom dem. Den enkleste glatte kurven er et polynom, og det viser seg at det finnes nøyaktig ett polynom av lav nok grad som treffer alle punktene.\n\n**To veier til samme polynom.** Lagrange-formen skriver polynomet ferdig med én gang, uten å løse noe likningssystem. Newton-formen bygger det opp punkt for punkt, slik at et nytt målepunkt bare legger til ett nytt ledd. De gir det **samme** polynomet — de er to måter å skrive det samme på, og hvilken du velger, avhenger av hva oppgaven ber om.\n\n**Og en advarsel som følger med gratis:** interpolasjon er ikke det samme som sannhet. Mellom punktene kan polynomet gjøre hva som helst, og feilformelen forteller deg nøyaktig hvor galt det kan gå. Den siste løkka i kapitlet handler om det."
+    },
+    {
+      "id": "tma4135-6-1-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene i kapitlet er samtidig kortene i flashcard-bunken. Tidsanslaget på 60 minutter gjelder kjernestoffet: teksten, eksemplene og oppgavene."
+    },
+    {
+      "id": "tma4135-6-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Lagrange-formen (~16 min)"
+    },
+    {
+      "id": "tma4135-6-1-def-interpolasjon",
+      "type": "definition",
+      "title": "Interpolasjonsproblemet",
+      "content": "Oppgaven som hele kapitlet handler om: gitt $n+1$ punkter med **ulike** $x$-verdier,\n\n$$(x_0,f_0),\\ (x_1,f_1),\\ \\dots,\\ (x_n,f_n),$$\n\nfinn et polynom $p$ av grad **høyst** $n$ som treffer alle punktene:\n\n$$p(x_k)=f_k \\qquad \\text{for } k=0,1,\\dots,n.$$\n\n**Merk tellingen.** Med tre punkter er $n=2$, og du leter etter et polynom av grad høyst 2. Fire punkter gir grad høyst 3. Antall punkter er alltid én mer enn graden — det er den vanligste kilden til rot i feilformelen senere."
+    },
+    {
+      "id": "tma4135-6-1-def-noder",
+      "type": "definition",
+      "title": "Noder og nodeverdier",
+      "content": "**Nodene** er $x$-verdiene $x_0,\\dots,x_n$. De må være **innbyrdes forskjellige**; to punkter med samme $x$ og ulik $f$ ville gjort problemet uløselig.\n\n**Nodeverdiene** er de tilhørende $f_0,\\dots,f_n$. De kan være hva som helst — de kan komme fra en måling, en tabell eller en funksjon $f$ vi kjenner, men bare vil regne billig på.\n\nNodene trenger **ikke** ligge med jevn avstand. Er avstanden konstant, kaller vi nodene **ekvidistante**, og da forenkles flere formler."
+    },
+    {
+      "id": "tma4135-6-1-def-kardinal",
+      "type": "definition",
+      "title": "Kardinalfunksjonen $\\ell_k$",
+      "content": "Byggeklossen i Lagrange-formen. For hver node $x_k$ defineres\n\n$$\\ell_k(x)=\\prod_{j\\ne k}\\frac{x-x_j}{x_k-x_j} = \\frac{(x-x_0)\\cdots\\widehat{(x-x_k)}\\cdots(x-x_n)}{(x_k-x_0)\\cdots\\widehat{(x_k-x_k)}\\cdots(x_k-x_n)},$$\n\nder hatten betyr at faktoren med $j=k$ er utelatt.\n\n**Den avgjørende egenskapen** er at $\\ell_k$ er 1 i sin egen node og 0 i alle de andre:\n\n$$\\ell_k(x_j)=\\begin{cases}1,& j=k\\\\ 0,& j\\ne k.\\end{cases}$$\n\nGrunnen er lett å se: setter du inn $x=x_j$ med $j\\ne k$, står faktoren $(x_j-x_j)$ i telleren og gjør hele produktet null. Setter du inn $x=x_k$, blir hver brøk lik 1.\n\nHver $\\ell_k$ har grad nøyaktig $n$ (det er $n$ faktorer i telleren). **Formelen står på det utdelte formelarket — tren oppslaget** ved å øve på hvilke faktorer som skal utelates."
+    },
+    {
+      "id": "tma4135-6-1-def-lagrangeform",
+      "type": "definition",
+      "title": "Lagrange-formen",
+      "content": "Interpolasjonspolynomet skrevet som en vektet sum av kardinalfunksjonene:\n\n$$p(x)=\\sum_{k=0}^{n} f_k\\,\\ell_k(x).$$\n\n**Hvorfor det virker:** sett inn $x=x_j$. Alle leddene med $k\\ne j$ forsvinner (fordi $\\ell_k(x_j)=0$), og leddet med $k=j$ gir $f_j\\cdot 1=f_j$. Altså er $p(x_j)=f_j$ for alle $j$, som er nøyaktig det vi ba om.\n\n**Styrken:** ingen likninger å løse, svaret er ferdig med én gang.\n**Svakheten:** kommer det et nytt punkt til, må alle kardinalfunksjonene skrives om fra bunn."
+    },
+    {
+      "id": "tma4135-6-1-def-grad",
+      "type": "definition",
+      "title": "Graden til interpolasjonspolynomet",
+      "content": "Grad **høyst** $n$, ikke nødvendigvis grad $n$.\n\nLigger alle punktene på en rett linje, er interpolasjonspolynomet gjennom tre av dem førstegradspolynomet — koeffisienten foran $x^2$ blir null. Oppgaveteksten sier derfor som regel «polynomet av **minste** grad», og det er det samme polynomet: entydighetssetningen under garanterer at det bare finnes ett.\n\n**Praktisk:** blir den ledende koeffisienten null i regningen din, er det ikke en feil. Det betyr at punktene ligger på en enklere kurve enn du trodde."
+    },
+    {
+      "id": "tma4135-6-1-teo-entydighet",
+      "type": "theorem",
+      "title": "Entydighetssetningen",
+      "content": "Til $n+1$ punkter med ulike noder finnes det **nøyaktig ett** polynom av grad høyst $n$ som går gjennom dem alle.\n\n**Bevis.** Lagrange-formen viser at det finnes minst ett. Anta at $p$ og $q$ begge er slike polynomer, og sett $d=p-q$. Da har $d$ grad høyst $n$, og\n\n$$d(x_k)=p(x_k)-q(x_k)=f_k-f_k=0 \\qquad \\text{for alle } k=0,\\dots,n.$$\n\nAltså har $d$ minst $n+1$ nullpunkter. Et polynom av grad høyst $n$ som ikke er identisk null, har høyst $n$ nullpunkter. Da må $d\\equiv 0$, det vil si $p=q$. $\\blacksquare$\n\n**Dette er kapitlets viktigste teoretiske resultat**, og det brukes til tre ting:\n\n1. Lagrange- og Newton-formen må gi **samme** polynom — de er to skrivemåter for ett objekt.\n2. Symmetriargumenter: klarer du å peke på ett polynom som passer, har du funnet *det* polynomet (løkke 4).\n3. Feilformelen: den beskriver avviket fra *det* interpolasjonspolynomet, ikke fra «et» av flere.\n\n**Entydigheten må kunnes** — den står ikke på det utdelte formelarket, og løsningsforslagene bruker den ved navn."
+    },
+    {
+      "id": "tma4135-6-1-eks1",
+      "type": "example",
+      "title": "Lagrange-formen på tre punkter",
+      "problem": "Finn polynomet av minste grad gjennom\n\n$$(0,\\,1),\\qquad (2,\\,5),\\qquad (3,\\,4).$$",
+      "solution": "**Steg 1 — hvor mange punkter?** Tre punkter, altså $n=2$, og vi leter etter et polynom av grad høyst 2. Nodene er $x_0=0$, $x_1=2$, $x_2=3$ med verdier $f_0=1$, $f_1=5$, $f_2=4$.\n\n**Steg 2 — kardinalfunksjonene.** Hver av dem utelater sin egen node i telleren:\n\n$$\\ell_0(x)=\\frac{(x-2)(x-3)}{(0-2)(0-3)}=\\frac{(x-2)(x-3)}{6},$$\n\n$$\\ell_1(x)=\\frac{(x-0)(x-3)}{(2-0)(2-3)}=\\frac{x(x-3)}{-2},$$\n\n$$\\ell_2(x)=\\frac{(x-0)(x-2)}{(3-0)(3-2)}=\\frac{x(x-2)}{3}.$$\n\n*Kontroll før vi går videre:* $\\ell_0(0)=\\frac{(-2)(-3)}{6}=1$ og $\\ell_0(2)=0$, $\\ell_0(3)=0$. Slik skal det være.\n\n**Steg 3 — sett sammen.** Etter Lagrange-formen er\n\n$$p(x)=1\\cdot\\frac{(x-2)(x-3)}{6}+5\\cdot\\frac{x(x-3)}{-2}+4\\cdot\\frac{x(x-2)}{3}.$$\n\n**Steg 4 — gang ut.** Ledd for ledd:\n\n$$\\frac{(x-2)(x-3)}{6}=\\frac{x^2-5x+6}{6}=\\frac{x^2}{6}-\\frac{5x}{6}+1,$$\n\n$$-\\frac{5x(x-3)}{2}=-\\frac{5x^2-15x}{2}=-\\frac{5x^2}{2}+\\frac{15x}{2},$$\n\n$$\\frac{4x(x-2)}{3}=\\frac{4x^2-8x}{3}=\\frac{4x^2}{3}-\\frac{8x}{3}.$$\n\nLegg sammen koeffisientene. For $x^2$: $\\frac16-\\frac52+\\frac43=\\frac{1-15+8}{6}=-1$. For $x$: $-\\frac56+\\frac{15}{2}-\\frac83=\\frac{-5+45-16}{6}=\\frac{24}{6}=4$. Konstantleddet er 1.\n\n$$\\boxed{p(x)=-x^2+4x+1}$$\n\n**Kontroll — sett inn punktene.** $p(0)=1$ ✔, $p(2)=-4+8+1=5$ ✔, $p(3)=-9+12+1=4$ ✔.\n\nDenne kontrollen tar femten sekunder og fanger nesten alle regnefeil. **Gjør den alltid**, også på eksamen — den koster ingenting og du kan skrive «kontroll: $p(x_k)=f_k$ for alle tre» i besvarelsen."
+    },
+    {
+      "id": "tma4135-6-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Nodene er $x_0=-1$, $x_1=0$, $x_2=2$.\n\n**a)** Skriv opp $\\ell_1(x)$ uten å gange ut.\n**b)** Regn ut $\\ell_1(0)$, $\\ell_1(-1)$ og $\\ell_1(2)$.\n**c)** Hvilken grad har $\\ell_1$?",
+        "solution": "**a)** Kardinalfunksjonen til $x_1=0$ utelater faktoren $(x-0)$:\n\n$$\\ell_1(x)=\\frac{(x-(-1))(x-2)}{(0-(-1))(0-2)}=\\frac{(x+1)(x-2)}{1\\cdot(-2)}=\\frac{(x+1)(x-2)}{-2}.$$\n\n**b)** $\\ell_1(0)=\\frac{(1)(-2)}{-2}=1$. $\\ell_1(-1)=\\frac{0\\cdot(-3)}{-2}=0$. $\\ell_1(2)=\\frac{3\\cdot 0}{-2}=0$.\n\nNøyaktig som definisjonen lover: 1 i sin egen node, 0 i de andre.\n\n**c)** Grad 2. Det er to faktorer i telleren, og nevneren er et tall.",
+        "hints": [
+          "Utelat faktoren som hører til din egen node, både i teller og nevner.",
+          "Sett inn tallene ett for ett; to av de tre innsettingene gir en faktor lik null.",
+          "Tell antall faktorer med $x$ i telleren."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger I — interpolasjon.) Finn polynomet av minste grad gjennom $(-1,\\,4)$, $(1,\\,0)$ og $(2,\\,1)$ på Lagrange-form, og kontroller svaret ved innsetting.",
+        "solution": "$n=2$, noder $x_0=-1$, $x_1=1$, $x_2=2$.\n\n**Kardinalfunksjonene:**\n\n$$\\ell_0(x)=\\frac{(x-1)(x-2)}{(-1-1)(-1-2)}=\\frac{(x-1)(x-2)}{6},$$\n$$\\ell_1(x)=\\frac{(x+1)(x-2)}{(1+1)(1-2)}=\\frac{(x+1)(x-2)}{-2},$$\n$$\\ell_2(x)=\\frac{(x+1)(x-1)}{(2+1)(2-1)}=\\frac{(x+1)(x-1)}{3}.$$\n\n**Lagrange-formen** (leddet med $f_1=0$ faller bort):\n\n$$p(x)=4\\cdot\\frac{(x-1)(x-2)}{6}+0+1\\cdot\\frac{(x+1)(x-1)}{3}=\\frac{2(x^2-3x+2)}{3}+\\frac{x^2-1}{3}.$$\n\n$$p(x)=\\frac{2x^2-6x+4+x^2-1}{3}=\\frac{3x^2-6x+3}{3}=x^2-2x+1.$$\n\n$$\\boxed{p(x)=x^2-2x+1=(x-1)^2}$$\n\n**Kontroll:** $p(-1)=1+2+1=4$ ✔, $p(1)=0$ ✔, $p(2)=4-4+1=1$ ✔.\n\n**Legg merke til to ting.** For det første forsvant hele midtleddet fordi $f_1=0$ — det er verdt å se etter før du regner. For det andre ble svaret et pent kvadrat; det er tilfeldig her, men det er alltid lurt å faktorisere sluttsvaret, for da blir kontrollen enklere.",
+        "hints": [
+          "Skriv opp de tre kardinalfunksjonene først, med nevnerne som rene tall.",
+          "Ett av leddene har $f_k=0$ og bidrar ikke — det sparer deg en tredjedel av arbeidet.",
+          "Sett de to gjenstående leddene på felles nevner 3."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Newtons dividerte differanser (~16 min)\n\nLagrange-formen er ferdig med én gang, men den har en svakhet: kommer det et punkt til, må alt regnes på nytt. Newton-formen fikser akkurat det."
+    },
+    {
+      "id": "tma4135-6-1-def-dd1",
+      "type": "definition",
+      "title": "Dividert differanse av første orden",
+      "content": "Stigningstallet mellom to punkter:\n\n$$f[x_i,x_{i+1}]=\\frac{f_{i+1}-f_i}{x_{i+1}-x_i}.$$\n\nDet er ikke annet enn et gjennomsnittlig stigningstall — den samme brøken du bruker for å finne stigningen til en rett linje.\n\n**Navnet «dividert differanse»** kommer av at det er en differanse (i telleren) dividert med en differanse (i nevneren)."
+    },
+    {
+      "id": "tma4135-6-1-def-ddk",
+      "type": "definition",
+      "title": "Dividert differanse av orden $k$",
+      "content": "Bygges rekursivt av to differanser ett trinn lavere:\n\n$$f[x_i,\\dots,x_{i+k}]=\\frac{f[x_{i+1},\\dots,x_{i+k}]-f[x_i,\\dots,x_{i+k-1}]}{x_{i+k}-x_i}.$$\n\n**Merk nevneren:** den er avstanden mellom den **ytterste** noden til høyre og den **ytterste** til venstre i den gruppen du regner på — ikke avstanden mellom to nabonoder. Det er den klassiske feilen i tabellen.\n\nEn dividert differanse er **symmetrisk** i argumentene sine: rekkefølgen på nodene spiller ingen rolle for verdien. Det er en fin kontroll — regner du tabellen ovenfra og ned eller nedenfra og opp, skal du få det samme."
+    },
+    {
+      "id": "tma4135-6-1-def-tabell",
+      "type": "definition",
+      "title": "Differanstabellen",
+      "content": "Oppstillingen som organiserer regningen. Kolonnene er ordenene, og hver ny kolonne er én kortere enn den forrige:\n\n$$\\begin{array}{c|c|c|c}\nx_0 & f_0 & & \\\\\n    &     & f[x_0,x_1] & \\\\\nx_1 & f_1 & & f[x_0,x_1,x_2] \\\\\n    &     & f[x_1,x_2] & \\\\\nx_2 & f_2 & &\n\\end{array}$$\n\n**Koeffisientene i Newton-formen er den øverste skråkanten** — altså $f_0$, $f[x_0,x_1]$, $f[x_0,x_1,x_2]$ og så videre.\n\n**Selve utfyllingen må kunnes.** Formen på tabellen finnes på det utdelte formelarket, men rekkefølgen du fyller den ut i, og hvilke tall som havner i nevneren, må sitte i fingrene."
+    },
+    {
+      "id": "tma4135-6-1-def-newtonform",
+      "type": "definition",
+      "title": "Newton-formen",
+      "content": "Interpolasjonspolynomet skrevet som en trappe av stadig lengre produkter:\n\n$$p(x)=f_0+f[x_0,x_1](x-x_0)+f[x_0,x_1,x_2](x-x_0)(x-x_1)+\\dots$$\n$$\\dots+f[x_0,\\dots,x_n](x-x_0)(x-x_1)\\cdots(x-x_{n-1}).$$\n\n**Styrken:** hvert ledd forsvinner i alle nodene til venstre for seg. Setter du inn $x=x_0$, står bare $f_0$ igjen; setter du inn $x=x_1$, står de to første leddene igjen, og så videre. Derfor **legger et nytt punkt bare til ett nytt ledd** — alt du har regnet før, står.\n\n**Formen står på det utdelte formelarket — tren oppslaget.** Det som må kunnes, er å fylle ut tabellen og lese av riktig skråkant."
+    },
+    {
+      "id": "tma4135-6-1-def-ledende",
+      "type": "definition",
+      "title": "Den ledende koeffisienten",
+      "content": "Koeffisienten foran den høyeste potensen i interpolasjonspolynomet er nøyaktig den siste dividerte differansen:\n\n$$\\text{koeffisienten foran } x^n \\ =\\ f[x_0,x_1,\\dots,x_n].$$\n\nDet ser du direkte av Newton-formen: bare det siste leddet inneholder $x^n$, og faktoren foran produktet er $f[x_0,\\dots,x_n]$.\n\n**To nyttige følger.** (1) Er den siste dividerte differansen null, har polynomet lavere grad enn du trodde. (2) Har du regnet ut polynomet på Lagrange-form, kan du sammenlikne den ledende koeffisienten med den siste dividerte differansen som en rask kontroll — de må være like."
+    },
+    {
+      "id": "tma4135-6-1-eks2",
+      "type": "example",
+      "title": "Samme punkter, Newton-form",
+      "problem": "Finn polynomet gjennom $(0,\\,1)$, $(2,\\,5)$, $(3,\\,4)$ ved Newtons dividerte differanser, og vis at det er det samme som Lagrange-formen ga.",
+      "solution": "**Steg 1 — første ordens differanser.**\n\n$$f[x_0,x_1]=\\frac{5-1}{2-0}=\\frac{4}{2}=2,\\qquad f[x_1,x_2]=\\frac{4-5}{3-2}=\\frac{-1}{1}=-1.$$\n\n**Steg 2 — andre ordens differanse.** Nevneren er $x_2-x_0=3-0=3$:\n\n$$f[x_0,x_1,x_2]=\\frac{f[x_1,x_2]-f[x_0,x_1]}{x_2-x_0}=\\frac{-1-2}{3}=\\frac{-3}{3}=-1.$$\n\n**Tabellen samlet:**\n\n| $x_k$ | $f_k$ | 1. orden | 2. orden |\n|---|---|---|---|\n| 0 | 1 | | |\n| | | 2 | |\n| 2 | 5 | | $-1$ |\n| | | $-1$ | |\n| 3 | 4 | | |\n\nKoeffisientene er den øverste skråkanten: $1$, $2$, $-1$.\n\n**Steg 3 — Newton-formen.**\n\n$$p(x)=1+2(x-0)+(-1)(x-0)(x-2)=1+2x-x(x-2).$$\n\n**Steg 4 — gang ut.**\n\n$$p(x)=1+2x-x^2+2x=-x^2+4x+1.$$\n\n**Samme svar som i eksempel 1.** Det er ingen tilfeldighet: **etter entydighetssetningen** finnes det bare ett polynom av grad høyst 2 gjennom tre punkter, så de to metodene *må* gi det samme.\n\n**Kontroll av den ledende koeffisienten.** Den siste dividerte differansen er $-1$, og koeffisienten foran $x^2$ i sluttsvaret er $-1$. Stemmer.\n\n**Hvilken metode er raskest?** For hånd, med tre eller fire punkter, er Newton som regel raskere — du regner bare med tall, ikke med parenteser fulle av $x$. Lagrange er raskest hvis du bare skal ha polynomet på faktorisert form, eller hvis flere av $f_k$ er null. Begge premieres; si gjerne i besvarelsen hvorfor du valgte som du gjorde."
+    },
+    {
+      "id": "tma4135-6-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger I.) Sett opp differanstabellen for $(1,\\,2)$, $(2,\\,3)$, $(4,\\,11)$, og skriv opp Newton-formen. Gang ut til slutt.",
+        "solution": "**Første ordens differanser:**\n\n$$f[x_0,x_1]=\\frac{3-2}{2-1}=1,\\qquad f[x_1,x_2]=\\frac{11-3}{4-2}=\\frac{8}{2}=4.$$\n\n**Andre ordens** (nevner $x_2-x_0=4-1=3$):\n\n$$f[x_0,x_1,x_2]=\\frac{4-1}{3}=1.$$\n\n| $x_k$ | $f_k$ | 1. orden | 2. orden |\n|---|---|---|---|\n| 1 | 2 | | |\n| | | 1 | |\n| 2 | 3 | | 1 |\n| | | 4 | |\n| 4 | 11 | | |\n\n**Newton-formen:**\n\n$$p(x)=2+1\\cdot(x-1)+1\\cdot(x-1)(x-2).$$\n\n**Utganget:**\n\n$$p(x)=2+x-1+x^2-3x+2=x^2-2x+3.$$\n\n**Kontroll:** $p(1)=1-2+3=2$ ✔, $p(2)=4-4+3=3$ ✔, $p(4)=16-8+3=11$ ✔.",
+        "hints": [
+          "Første ordens differanse er $(f_{i+1}-f_i)/(x_{i+1}-x_i)$ — pass på at nodene ikke ligger med lik avstand her.",
+          "I andre ordens differanse er nevneren $x_2-x_0$, ikke $x_2-x_1$.",
+          "Newton-koeffisientene er den øverste skråkanten i tabellen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I.) Punktene $(-1,\\,2)$, $(0,\\,1)$, $(1,\\,0)$ og $(2,\\,5)$ er gitt.\n\n**a)** Sett opp differanstabellen.\n**b)** Skriv opp Newton-formen og gang ut.\n**c)** Legg merke til de tre første punktene alene: hvilket polynom gir de? Forklar ved hjelp av tabellen hvorfor det er så enkelt.",
+        "solution": "**a) Differanstabellen.** Nodene er ekvidistante med avstand 1.\n\nFørste orden: $\\frac{1-2}{0-(-1)}=-1$, $\\frac{0-1}{1-0}=-1$, $\\frac{5-0}{2-1}=5$.\n\nAndre orden: $\\frac{-1-(-1)}{1-(-1)}=\\frac{0}{2}=0$, $\\frac{5-(-1)}{2-0}=\\frac{6}{2}=3$.\n\nTredje orden: $\\frac{3-0}{2-(-1)}=\\frac{3}{3}=1$.\n\n| $x_k$ | $f_k$ | 1. orden | 2. orden | 3. orden |\n|---|---|---|---|---|\n| $-1$ | 2 | | | |\n| | | $-1$ | | |\n| 0 | 1 | | 0 | |\n| | | $-1$ | | 1 |\n| 1 | 0 | | 3 | |\n| | | 5 | | |\n| 2 | 5 | | | |\n\n**b) Newton-formen** med skråkanten $2,\\ -1,\\ 0,\\ 1$:\n\n$$p(x)=2-1\\cdot(x+1)+0\\cdot(x+1)x+1\\cdot(x+1)x(x-1).$$\n\nAndregradsleddet faller bort. Utganget:\n\n$$p(x)=2-x-1+x(x^2-1)=1-x+x^3-x=x^3-2x+1.$$\n\n$$\\boxed{p(x)=x^3-2x+1}$$\n\n**Kontroll:** $p(-1)=-1+2+1=2$ ✔, $p(0)=1$ ✔, $p(1)=1-2+1=0$ ✔, $p(2)=8-4+1=5$ ✔.\n\n**c)** De tre første punktene har andre ordens differanse **null**. Etter regelen om den ledende koeffisienten betyr det at andregradsleddet er null, altså at polynomet gjennom $(-1,2)$, $(0,1)$, $(1,0)$ er et **førstegradspolynom**:\n\n$$p_2(x)=2-1\\cdot(x+1)=1-x.$$\n\nOg det stemmer: de tre punktene ligger på den rette linja $y=1-x$. **Poenget:** en null i differanstabellen er et signal om at graden faller, og det er gratis informasjon du får med Newton-formen, men ikke med Lagrange.",
+        "hints": [
+          "Sett opp tabellen kolonne for kolonne; nevneren i orden $k$ spenner over $k$ nodeavstander.",
+          "En null i en kolonne betyr at det tilhørende leddet i Newton-formen forsvinner.",
+          "For c): koeffisienten foran den høyeste potensen er den siste dividerte differansen i den gruppen du ser på."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~32 min brukt) —\n\nDu har begge formene og vet at de gir samme polynom. Resten av kapitlet handler om hvor godt polynomet faktisk treffer funksjonen mellom nodene, og om et par argumenter som sparer deg mye regning på eksamen."
+    },
+    {
+      "id": "tma4135-6-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Interpolasjonsfeilen (~15 min)\n\nSå langt har vi bare krevd at polynomet treffer punktene. Men hvis punktene kommer fra en funksjon $f$, er spørsmålet: hvor mye bommer $p$ **mellom** punktene?"
+    },
+    {
+      "id": "tma4135-6-1-def-nodepolynom",
+      "type": "definition",
+      "title": "Nodepolynomet $\\omega(x)$",
+      "content": "Produktet av alle nodefaktorene:\n\n$$\\omega(x)=(x-x_0)(x-x_1)\\cdots(x-x_n)=\\prod_{k=0}^{n}(x-x_k).$$\n\nDet har grad $n+1$ og er null i hver eneste node — akkurat som feilen må være, siden $p$ treffer nøyaktig der.\n\n**Nodepolynomet er den delen av feilen du selv styrer**, gjennom valget av noder. Funksjonsdelen er gitt; plasseringen av nodene er din."
+    },
+    {
+      "id": "tma4135-6-1-def-feilformel",
+      "type": "definition",
+      "title": "Interpolasjonsfeilen",
+      "content": "Avstanden mellom funksjonen og interpolasjonspolynomet i et punkt $x$:\n\n$$\\varepsilon_n(x)=f(x)-p(x)=\\frac{f^{(n+1)}(\\xi)}{(n+1)!}\\,\\prod_{k=0}^{n}(x-x_k),$$\n\nder $\\xi$ er et ukjent punkt i det minste intervallet som inneholder både $x$ og alle nodene.\n\n**Tre ting å merke seg.**\n\n1. **Du kjenner ikke $\\xi$** — og du trenger det ikke. Du erstatter $f^{(n+1)}(\\xi)$ med en øvre grense $\\max|f^{(n+1)}|$ over intervallet, og får et **feilanslag**.\n2. **Ordenen på den deriverte er $n+1$**, én mer enn graden. Med tre noder ($n=2$) er det den tredjederiverte, og fakultetet er $3!=6$.\n3. **Feilen er null i nodene**, som den skal være.\n\n**Formelen står på det utdelte formelarket — tren oppslaget.** Det du må gjøre selv, er å telle riktig: hvor mange noder, hvilken $n$, hvilken derivert, hvilket fakultet."
+    },
+    {
+      "id": "tma4135-6-1-def-feilgrense",
+      "type": "definition",
+      "title": "Feilanslaget",
+      "content": "Den praktiske versjonen av feilformelen, med alt ukjent erstattet av øvre grenser:\n\n$$|\\varepsilon_n(x)|\\ \\le\\ \\frac{M_{n+1}}{(n+1)!}\\,\\max_{x\\in[a,b]}\\left|\\omega(x)\\right|,\\qquad M_{n+1}=\\max_{[a,b]}\\left|f^{(n+1)}\\right|.$$\n\nSkal du bare ha feilen i **ett** punkt $x$, setter du inn $|\\omega(x)|$ direkte og får et skarpere anslag.\n\n**Anslaget er en garanti, ikke en prognose.** Den virkelige feilen er som regel klart mindre. Ber oppgaven om «et anslag på feilen», er det denne du skal levere — med begge maksimeringene skrevet ut."
+    },
+    {
+      "id": "tma4135-6-1-def-ekvidistant",
+      "type": "definition",
+      "title": "Ekvidistante noder",
+      "content": "Noder med konstant avstand $h$: $x_k=x_0+kh$.\n\nFor tre ekvidistante noder er\n\n$$\\max\\left|\\omega(x)\\right|=\\frac{2}{9\\sqrt{3}}\\,h^{3}\\approx 0{,}1283\\,h^{3}$$\n\nover hele nodeintervallet. Det viktige er potensen: **halverer du $h$, faller feilgrensen med en faktor 8** for tre noder, og mer for flere.\n\nEkvidistante noder er det naturlige valget når dataene kommer fra en tabell eller en logger. De er derimot **ikke** det beste valget hvis du står fritt — se Chebyshev-punktene under."
+    },
+    {
+      "id": "tma4135-6-1-def-runge",
+      "type": "definition",
+      "title": "Runge-fenomenet",
+      "content": "At interpolasjon med **mange ekvidistante** noder kan bli dårligere, ikke bedre, når du legger til punkter.\n\nBruker du 15 ekvidistante noder på en funksjon som $1/(1+25x^2)$, svinger interpolasjonspolynomet voldsomt nær kantene av intervallet, med feil som vokser med antall noder.\n\n**Årsaken ligger i nodepolynomet:** med ekvidistante noder blir $|\\omega(x)|$ dramatisk mye større nær kantene enn på midten. Feilformelen forutsier dette direkte.\n\n**Botemidlet** er å flytte nodene tettere sammen mot kantene — det er nettopp det Chebyshev-punktene gjør."
+    },
+    {
+      "id": "tma4135-6-1-def-chebyshev",
+      "type": "definition",
+      "title": "Chebyshev-punktene",
+      "content": "Nodevalget som gjør $\\max|\\omega(x)|$ minst mulig. På $[-1,1]$ er de\n\n$$x_k=\\cos\\left(\\frac{(2k+1)\\pi}{2n+2}\\right),\\qquad k=0,1,\\dots,n.$$\n\nDe ligger **tettere ved kantene** enn på midten, og det er akkurat motsatt av hva intuisjonen sier — men det er der ekvidistante noder svikter.\n\nSkal du bruke dem på et annet intervall $[a,b]$, flytter du dem med den samme transformasjonen som i [kap. 6.2](/tma4135/tma4135-6-2):\n\n$$x=\\frac{(b-a)\\xi+(a+b)}{2}.$$\n\n**Punktene står på det utdelte formelarket — tren oppslaget** på indekseringen: det er $2k+1$ i telleren og $2n+2$ i nevneren, og $n$ er graden, ikke antall punkter."
+    },
+    {
+      "id": "tma4135-6-1-eks3",
+      "type": "example",
+      "title": "Feilanslag for interpolasjon av $\\ln x$",
+      "problem": "Funksjonen $f(x)=\\ln x$ interpoleres i nodene $x_0=1$, $x_1=2$, $x_2=3$.\n\n**a)** Sett opp et anslag for $|f(x)-p(x)|$ på hele $[1,3]$.\n**b)** Sammenlikn anslaget med den virkelige feilen i $x=1{,}5$.",
+      "solution": "**a) Steg 1 — hvilken derivert?** Tre noder gir $n=2$, så feilformelen bruker $f^{(3)}$ og $3!=6$:\n\n$$\\varepsilon_2(x)=\\frac{f'''(\\xi)}{6}\\,(x-1)(x-2)(x-3).$$\n\n**Steg 2 — grense for den deriverte.** Med $f(x)=\\ln x$ er\n\n$$f'(x)=\\frac1x,\\qquad f''(x)=-\\frac{1}{x^{2}},\\qquad f'''(x)=\\frac{2}{x^{3}}.$$\n\nPå $[1,3]$ er $|f'''|=2/x^3$ avtakende, så maksimum er i venstre endepunkt:\n\n$$M_3=\\max_{[1,3]}\\left|f'''\\right|=f'''(1)=2.$$\n\n**Steg 3 — maksimum av nodepolynomet.** Nodene er ekvidistante med $h=1$, så\n\n$$\\max_{[1,3]}\\left|\\omega(x)\\right|=\\frac{2}{9\\sqrt3}\\,h^3=\\frac{2}{9\\sqrt3}=\\frac{2\\sqrt3}{27}\\approx 0{,}3849.$$\n\n*(Vil du regne det ut selv: $\\omega'(x)=3x^2-12x+11$ har nullpunkter $x=2\\pm\\sqrt{3}/3$, altså $x\\approx 1{,}4226$ og $x\\approx 2{,}5774$, og $|\\omega|$ er lik $2\\sqrt3/27$ i begge.)*\n\n**Steg 4 — sett sammen.**\n\n$$|\\varepsilon_2(x)|\\le\\frac{M_3}{3!}\\max\\left|\\omega\\right|=\\frac{2}{6}\\cdot 0{,}3849\\approx 0{,}1283.$$\n\n**Svar:** feilen er høyst omtrent $0{,}128$ på hele $[1,3]$.\n\n**b) Punktvis anslag i $x=1{,}5$.** Her kan vi sette inn $\\omega$ direkte:\n\n$$\\omega(1{,}5)=(0{,}5)(-0{,}5)(-1{,}5)=0{,}375,$$\n\n$$|\\varepsilon_2(1{,}5)|\\le\\frac{2}{6}\\cdot 0{,}375=0{,}125.$$\n\n**Den virkelige feilen.** Interpolasjonspolynomet er (regnet med Newton-formen)\n\n$$p(x)\\approx -0{,}14384\\,x^{2}+1{,}12467\\,x-0{,}98083,$$\n\nså $p(1{,}5)\\approx 0{,}38253$, mens $\\ln 1{,}5\\approx 0{,}40546$. Feilen er\n\n$$\\left|\\ln 1{,}5-p(1{,}5)\\right|\\approx 0{,}0229.$$\n\n**Konklusjon:** anslaget $0{,}125$ holder med god margin — den virkelige feilen er omtrent en femtedel. **Slik er det nesten alltid.** Anslaget er en garanti, og garantien er romslig fordi vi to ganger har erstattet en ukjent størrelse med det verst tenkelige. Det er ikke en svakhet ved metoden; det er hva et feilanslag er."
+    },
+    {
+      "id": "tma4135-6-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I — feilanslag.) Funksjonen $f(x)=e^{x}$ skal interpoleres i de fire ekvidistante nodene $0$, $\\tfrac13$, $\\tfrac23$, $1$.\n\n**a)** Hvilken derivert og hvilket fakultet inngår i feilformelen?\n**b)** Finn en øvre grense for $|f(x)-p(x)|$ i punktet $x=\\tfrac12$.",
+        "solution": "**a)** Fire noder gir $n=3$. Feilformelen bruker den **fjerdederiverte** og $4!=24$:\n\n$$\\varepsilon_3(x)=\\frac{f^{(4)}(\\xi)}{24}\\,(x-0)\\left(x-\\tfrac13\\right)\\left(x-\\tfrac23\\right)(x-1).$$\n\n**b)** For $f(x)=e^x$ er $f^{(4)}(x)=e^{x}$, som er voksende, så\n\n$$M_4=\\max_{[0,1]}e^{x}=e\\approx 2{,}71828.$$\n\nNodepolynomet i $x=\\tfrac12$:\n\n$$\\omega\\left(\\tfrac12\\right)=\\tfrac12\\cdot\\left(\\tfrac12-\\tfrac13\\right)\\cdot\\left(\\tfrac12-\\tfrac23\\right)\\cdot\\left(\\tfrac12-1\\right)=\\tfrac12\\cdot\\tfrac16\\cdot\\left(-\\tfrac16\\right)\\cdot\\left(-\\tfrac12\\right)=\\frac{1}{144}.$$\n\nAltså\n\n$$\\left|\\varepsilon_3\\left(\\tfrac12\\right)\\right|\\le\\frac{e}{24}\\cdot\\frac{1}{144}=\\frac{e}{3456}\\approx 7{,}87\\cdot 10^{-4}.$$\n\n**Kommentar.** Feilen er under en tusendel med bare fire punkter. Det er typisk: går du fra tre til fire noder på et kort intervall, faller feilgrensen med en faktor på flere titalls, både fordi fakultetet vokser og fordi nodepolynomet blir mindre.",
+        "hints": [
+          "Antall noder er $n+1$; feilformelen bruker den $(n+1)$-te deriverte og $(n+1)!$.",
+          "Alle deriverte av $e^x$ er $e^x$ — hvor på $[0,1]$ er den størst?",
+          "Regn ut de fire faktorene i $\\omega(1/2)$ hver for seg og hold styr på fortegnene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I.) En tabell gir $f$ i ekvidistante punkter med avstand $h$ på et intervall, og du interpolerer med to nabopunkter av gangen (lineær interpolasjon, $n=1$).\n\n**a)** Skriv opp feilformelen for dette tilfellet.\n**b)** Vis at $\\max|\\omega|=h^{2}/4$ på intervallet mellom de to nodene.\n**c)** Hvor liten må $h$ være for at feilen skal bli under $10^{-4}$ når $|f''|\\le 8$?",
+        "solution": "**a)** Med $n=1$ er det den **andrederiverte** og $2!=2$:\n\n$$\\varepsilon_1(x)=\\frac{f''(\\xi)}{2}\\,(x-x_0)(x-x_1),\\qquad x_1=x_0+h.$$\n\n**b)** Sett $s=x-x_0$, slik at $s$ løper fra 0 til $h$. Da er\n\n$$\\omega=s(s-h)=s^{2}-hs.$$\n\nDette er en parabel med nullpunkter $s=0$ og $s=h$, og toppunkt (her bunnpunkt) midt imellom, i $s=h/2$:\n\n$$\\omega\\left(\\tfrac{h}{2}\\right)=\\frac{h}{2}\\left(\\frac{h}{2}-h\\right)=\\frac{h}{2}\\cdot\\left(-\\frac{h}{2}\\right)=-\\frac{h^{2}}{4}.$$\n\nAbsoluttverdien er størst nettopp der, så $\\max|\\omega|=h^2/4$. $\\blacksquare$\n\n**c)** Feilgrensen blir\n\n$$|\\varepsilon_1|\\le\\frac{8}{2}\\cdot\\frac{h^{2}}{4}=h^{2}.$$\n\nKravet $h^{2}\\le 10^{-4}$ gir $h\\le 10^{-2}$.\n\n**Svar:** tabellsteget må være høyst $0{,}01$.\n\n**Kommentar.** Dette er grunnen til at gamle tabellverk hadde så tette rader: kravet til $h$ vokser kvadratisk med nøyaktigheten du ønsker. Vil du én siffer til, må du fire ganger så mange rader.",
+        "hints": [
+          "To noder betyr $n=1$ — hvilken derivert gir det?",
+          "Sett $s=x-x_0$ og se på $\\omega$ som en parabel i $s$.",
+          "Løs ulikheten $|\\varepsilon_1|\\le 10^{-4}$ for $h$ til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Entydighet som verktøy og full eksamensoppgave (~13 min)\n\nEntydighetssetningen er ikke bare et teoretisk resultat. Den er en snarvei du kan bruke til å slippe unna hele regnearbeidet — og det er nettopp den snarveien de siste settene har spurt etter."
+    },
+    {
+      "id": "tma4135-6-1-def-symmetriargument",
+      "type": "definition",
+      "title": "Symmetriargumentet via entydighet",
+      "content": "Er nodene plassert symmetrisk om null ($x$-verdiene kommer i par $\\pm a$), og er dataene **odde** ($f(-x_k)=-f(x_k)$), så er interpolasjonspolynomet odde.\n\n**Begrunnelsen er entydigheten.** La $p$ være interpolasjonspolynomet, og sett $q(x)=-p(-x)$. Da har $q$ samme grad som $p$, og i hver node er\n\n$$q(x_k)=-p(-x_k)=-f(-x_k)=-\\left(-f(x_k)\\right)=f(x_k).$$\n\nAltså interpolerer $q$ de samme punktene. **Etter entydighetssetningen** er $q=p$, det vil si $-p(-x)=p(x)$ — og det er nettopp definisjonen på at $p$ er odde.\n\n**Konsekvensen er praktisk:** alle koeffisienter foran like potenser er null. Med fire symmetriske noder vet du på forhånd at $p(x)=ax^3+bx$, og du har spart deg halve regningen.\n\nDet samme argumentet med **like** data ($f(-x_k)=f(x_k)$) gir at $p$ er like: bare like potenser overlever."
+    },
+    {
+      "id": "tma4135-6-1-def-oppdatering",
+      "type": "definition",
+      "title": "Oppdatering med et nytt punkt",
+      "content": "Kommer det et punkt $(x_{n+1},f_{n+1})$ til, blir det nye interpolasjonspolynomet\n\n$$p_{\\text{ny}}(x)=p(x)+f[x_0,\\dots,x_{n+1}]\\,(x-x_0)(x-x_1)\\cdots(x-x_n).$$\n\nDet gamle polynomet står uendret; du regner bare **én ny dividert differanse** og legger på ett ledd.\n\n**Dette er Newton-formens hovedgrunn til å eksistere.** På Lagrange-form måtte alle $n+1$ kardinalfunksjonene bygges om fra bunn, fordi hver av dem inneholder alle nodene."
+    },
+    {
+      "id": "tma4135-6-1-def-vandermonde",
+      "type": "definition",
+      "title": "Vandermonde-veien",
+      "content": "Den tredje, direkte metoden: skriv $p(x)=c_0+c_1x+\\dots+c_nx^n$ og sett inn hvert punkt. Det gir et lineært likningssystem i koeffisientene:\n\n$$\\begin{pmatrix}1&x_0&\\cdots&x_0^{n}\\\\ 1&x_1&\\cdots&x_1^{n}\\\\ \\vdots& & &\\vdots\\\\ 1&x_n&\\cdots&x_n^{n}\\end{pmatrix}\\begin{pmatrix}c_0\\\\ c_1\\\\ \\vdots\\\\ c_n\\end{pmatrix}=\\begin{pmatrix}f_0\\\\ f_1\\\\ \\vdots\\\\ f_n\\end{pmatrix}.$$\n\nMatrisen kalles **Vandermonde-matrisen**, og den er inverterbar nettopp fordi nodene er forskjellige — det er en annen måte å se entydigheten på.\n\n**Metoden er korrekt, men treg**, og den blir numerisk ustabil for mange punkter. Den er verdt å kjenne fordi den forklarer hvorfor problemet har én løsning, og fordi et lite $2\\times2$- eller $3\\times3$-system av og til er den raskeste veien for hånd."
+    },
+    {
+      "id": "tma4135-6-1-def-ekstrapolasjon",
+      "type": "definition",
+      "title": "Interpolasjon kontra ekstrapolasjon",
+      "content": "**Interpolasjon** er å bruke $p$ **innenfor** nodeintervallet. **Ekstrapolasjon** er å bruke det utenfor.\n\nFeilformelen viser hvorfor det andre er farlig: nodepolynomet $\\omega(x)=\\prod(x-x_k)$ vokser raskt så snart $x$ kommer utenfor nodene, siden **alle** faktorene da vokser samtidig. Innenfor har faktorene ulike fortegn og delvis utlikner hverandre.\n\n**Praktisk regel:** hold deg innenfor. Må du utenfor, si det, og bruk feilformelen til å vise hvor fort anslaget forfaller."
+    },
+    {
+      "id": "tma4135-6-1-def-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg: Lagrange eller Newton?",
+      "content": "**Begge premieres i løsningsforslagene.** Velg etter hva oppgaven ber om:\n\n| Situasjonen | Velg |\n|---|---|\n| «Finn polynomet» for hånd, 3–4 punkter | Newton — bare tallregning |\n| Flere av $f_k$ er null | Lagrange — leddene faller bort |\n| Et punkt kan komme til senere | Newton — du legger bare til ett ledd |\n| «Vis at de gir samme polynom» | Begge, og påberop entydigheten |\n| Du skal ha den ledende koeffisienten | Newton — det er den siste differansen |\n\n**Si i besvarelsen hvilken du bruker**, og hvorfor. Løsningsforslagene gjør det, og det koster deg én setning."
+    },
+    {
+      "id": "tma4135-6-1-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: begge former, symmetri og feilanslag",
+      "problem": "En funksjon $f$ er kjent i fire punkter:\n\n$$(-2,\\,-6),\\qquad (-1,\\,0),\\qquad (1,\\,0),\\qquad (2,\\,6).$$\n\n**a)** Vis uten regning at interpolasjonspolynomet er et odde polynom, og si hvilken form det derfor må ha.\n**b)** Finn polynomet med Newtons dividerte differanser.\n**c)** Kontroller med Lagrange-formen at leddet med $x^2$ virkelig er borte.\n**d)** Anta i tillegg at $|f^{(4)}|\\le 24$ på $[-2,2]$. Anslå $|f(x)-p(x)|$ i $x=0$.",
+      "solution": "**a) Symmetriargumentet.** Nodene er $\\pm1$ og $\\pm2$ — symmetriske om null. Og dataene er odde: $f(-1)=0=-f(1)$, og $f(-2)=-6=-f(2)$.\n\nSett $q(x)=-p(-x)$. I hver node er $q(x_k)=-p(-x_k)=-f(-x_k)=f(x_k)$, så $q$ interpolerer de samme fire punktene og har samme grad. **Etter entydighetssetningen** er $q=p$, altså $p(-x)=-p(x)$: polynomet er odde.\n\nEt odde polynom av grad høyst 3 har formen\n\n$$p(x)=ax^{3}+bx.$$\n\nVi vet altså på forhånd at koeffisientene foran $x^2$ og $x^0$ er null, og at vi bare trenger å bestemme to tall.\n\n**b) Newtons dividerte differanser.** Noder i rekkefølge $-2,-1,1,2$.\n\nFørste orden:\n$$\\frac{0-(-6)}{-1-(-2)}=\\frac{6}{1}=6,\\qquad \\frac{0-0}{1-(-1)}=0,\\qquad \\frac{6-0}{2-1}=6.$$\n\nAndre orden (nevnere $1-(-2)=3$ og $2-(-1)=3$):\n$$\\frac{0-6}{3}=-2,\\qquad \\frac{6-0}{3}=2.$$\n\nTredje orden (nevner $2-(-2)=4$):\n$$\\frac{2-(-2)}{4}=\\frac{4}{4}=1.$$\n\n| $x_k$ | $f_k$ | 1. | 2. | 3. |\n|---|---|---|---|---|\n| $-2$ | $-6$ | | | |\n| | | 6 | | |\n| $-1$ | 0 | | $-2$ | |\n| | | 0 | | 1 |\n| 1 | 0 | | 2 | |\n| | | 6 | | |\n| 2 | 6 | | | |\n\nNewton-formen med skråkanten $-6,\\ 6,\\ -2,\\ 1$:\n\n$$p(x)=-6+6(x+2)-2(x+2)(x+1)+1\\cdot(x+2)(x+1)(x-1).$$\n\nGang ut ledd for ledd:\n$$-6+6x+12=6x+6,$$\n$$-2\\left(x^{2}+3x+2\\right)=-2x^{2}-6x-4,$$\n$$(x+2)\\left(x^{2}-1\\right)=x^{3}+2x^{2}-x-2.$$\n\nLegg sammen: $x^3$-ledd: $1$. $x^2$-ledd: $-2+2=0$. $x$-ledd: $6-6-1=-1$. Konstant: $6-4-2=0$.\n\n$$\\boxed{p(x)=x^{3}-x}$$\n\nFormen $ax^3+bx$ stemmer, med $a=1$ og $b=-1$ — akkurat som a) lovet.\n\n**Kontroll:** $p(-2)=-8+2=-6$ ✔, $p(-1)=-1+1=0$ ✔, $p(1)=1-1=0$ ✔, $p(2)=8-2=6$ ✔.\n\n**c) Lagrange-kontroll av $x^2$-leddet.** På Lagrange-form er\n\n$$p(x)=-6\\,\\ell_0(x)+0\\cdot\\ell_1(x)+0\\cdot\\ell_2(x)+6\\,\\ell_3(x)=6\\left(\\ell_3(x)-\\ell_0(x)\\right).$$\n\nDe to kardinalfunksjonene er\n\n$$\\ell_0(x)=\\frac{(x+1)(x-1)(x-2)}{(-2+1)(-2-1)(-2-2)}=\\frac{(x^{2}-1)(x-2)}{-12},$$\n$$\\ell_3(x)=\\frac{(x+2)(x+1)(x-1)}{(2+2)(2+1)(2-1)}=\\frac{(x^{2}-1)(x+2)}{12}.$$\n\nAltså\n\n$$p(x)=6\\cdot\\frac{(x^{2}-1)\\left[(x+2)+(x-2)\\right]}{12}=\\frac{(x^{2}-1)\\cdot 2x}{2}=x\\left(x^{2}-1\\right)=x^{3}-x.$$\n\nSamme svar, og $x^2$-leddet er borte fordi de to nevnerne $-12$ og $12$ er hverandres motsatte og de to parentesene $(x+2)$ og $(x-2)$ legger seg sammen til $2x$. **Det er symmetrien, sett i regningen.**\n\n**d) Feilanslag i $x=0$.** Fire noder gir $n=3$, altså den fjerdederiverte og $4!=24$:\n\n$$\\varepsilon_3(0)=\\frac{f^{(4)}(\\xi)}{24}\\,\\omega(0),\\qquad \\omega(0)=(0+2)(0+1)(0-1)(0-2)=2\\cdot 1\\cdot(-1)\\cdot(-2)=4.$$\n\nMed $M_4=24$:\n\n$$\\left|\\varepsilon_3(0)\\right|\\le\\frac{24}{24}\\cdot 4=4.$$\n\n**Svar:** feilen i $x=0$ er høyst 4.\n\n**Ærlig kommentar til anslaget.** Fire er en romslig grense — den sier egentlig bare at $f(0)$ ligger et sted mellom $-4$ og $4$, siden $p(0)=0$. Med så stor tillatt fjerdederivert på et så bredt intervall er det ikke mer å hente. Skal anslaget bli nyttig, må enten intervallet krympes eller $M_4$ være mindre. **Det er en del av svaret å si dette** — et feilanslag uten en vurdering av om det er brukbart, er halvferdig.\n\n**Tidsbruk på eksamen:** a) 2 min, b) 8 min, c) 5 min, d) 4 min. Til sammen omtrent 19 minutter for en oppgave på 10 poeng — det ligger godt innenfor budsjettet på cirka 24 minutter per tipoengsoppgave."
+    },
+    {
+      "id": "tma4135-6-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I — symmetriargument.) Punktene $(-3,\\,10)$, $(-1,\\,2)$, $(1,\\,2)$, $(3,\\,10)$ er gitt.\n\n**a)** Vis at interpolasjonspolynomet er et like polynom, og si hvilken form det må ha.\n**b)** Bestem polynomet ved å bruke formen fra a) og sette inn to av punktene.\n**c)** Hvorfor sparer argumentet i a) deg for arbeid?",
+        "solution": "**a)** Nodene $\\pm1$, $\\pm3$ er symmetriske om null, og dataene er like: $f(-1)=2=f(1)$ og $f(-3)=10=f(3)$.\n\nSett $q(x)=p(-x)$. I hver node er $q(x_k)=p(-x_k)=f(-x_k)=f(x_k)$, så $q$ interpolerer de samme punktene og har samme grad som $p$. **Etter entydighetssetningen** er $q=p$, altså $p(-x)=p(x)$: polynomet er like.\n\nEt like polynom av grad høyst 3 har bare like potenser:\n\n$$p(x)=ax^{2}+b.$$\n\n**b)** Sett inn to punkter:\n\n$$x=1:\\quad a+b=2,\\qquad x=3:\\quad 9a+b=10.$$\n\nTrekk fra: $8a=8$, så $a=1$ og $b=1$.\n\n$$\\boxed{p(x)=x^{2}+1}$$\n\n**Kontroll:** $p(\\pm1)=2$ ✔, $p(\\pm3)=10$ ✔. Alle fire punktene treffes, og polynomet har grad 2 — lavere enn de maksimale 3, som er helt i orden.\n\n**c)** Uten argumentet måtte du satt opp en differanstabell med fire rader og tre kolonner, eller fire kardinalfunksjoner av grad 3, og deretter ganget ut et tredjegradspolynom. Med argumentet reduseres alt til et $2\\times2$-system i hodet.\n\n**Merk også** at tredjegradsleddet og førstegradsleddet ikke bare er «små» — de er nøyaktig null, og det vet du **før** du regner.",
+        "hints": [
+          "Sett $q(x)=p(-x)$ og sjekk hva $q$ gjør i hver node.",
+          "Et like polynom av grad høyst 3 kan ikke ha $x^3$- eller $x^1$-ledd.",
+          "To ukjente krever bare to av de fire punktene — de to andre blir kontroll."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I — oppdatering.) Du har allerede funnet at polynomet gjennom $(0,\\,1)$, $(2,\\,5)$, $(3,\\,4)$ er $p(x)=-x^{2}+4x+1$, med differanstabellen $1$, $2$, $-1$ på skråkanten.\n\nEt nytt målepunkt $(4,\\,-3)$ kommer inn.\n\n**a)** Regn ut den ene nye dividerte differansen du trenger.\n**b)** Skriv opp det nye interpolasjonspolynomet uten å regne om noe av det gamle.\n**c)** Kontroller at det nye polynomet fortsatt treffer de tre gamle punktene.",
+        "solution": "**a)** Vi trenger å utvide tabellen med én rad. Nye noder i rekkefølge: $0,2,3,4$.\n\nFørste orden, nytt element: $f[x_2,x_3]=\\dfrac{-3-4}{4-3}=-7$.\n\nAndre orden, nytt element (nevner $x_3-x_1=4-2=2$): $f[x_1,x_2,x_3]=\\dfrac{-7-(-1)}{2}=\\dfrac{-6}{2}=-3$.\n\nTredje orden (nevner $x_3-x_0=4-0=4$): $f[x_0,x_1,x_2,x_3]=\\dfrac{-3-(-1)}{4}=\\dfrac{-2}{4}=-\\dfrac12$.\n\n**b)** Etter oppdateringsregelen legges det bare på ett ledd:\n\n$$p_{\\text{ny}}(x)=\\underbrace{-x^{2}+4x+1}_{\\text{det gamle}}-\\frac12\\,(x-0)(x-2)(x-3).$$\n\nVil du ha det utganget:\n\n$$-\\frac12\\,x\\left(x^{2}-5x+6\\right)=-\\frac12 x^{3}+\\frac52 x^{2}-3x,$$\n\n$$p_{\\text{ny}}(x)=-\\frac12 x^{3}+\\frac32 x^{2}+x+1.$$\n\n**Kontroll i det nye punktet:** $p_{\\text{ny}}(4)=-32+24+4+1=-3$ ✔.\n\n**c)** Det nye leddet er $-\\frac12(x-0)(x-2)(x-3)$, som er **null i $x=0$, $x=2$ og $x=3$** — nettopp de tre gamle nodene. Derfor er $p_{\\text{ny}}(x_k)=p(x_k)=f_k$ der, uten at vi trenger å regne.\n\n*(Sjekk likevel én av dem: $p_{\\text{ny}}(2)=-4+6+2+1=5$ ✔.)*\n\n**Dette er hele poenget med Newton-formen.** Hvert nytt ledd er konstruert til å være usynlig i alle de gamle nodene.",
+        "hints": [
+          "Utvid differanstabellen nedover med den nye raden; du trenger tre nye tall.",
+          "Det nye leddet er den nye dividerte differansen ganget med alle de gamle nodefaktorene.",
+          "For c): hvor er produktet $(x-0)(x-2)(x-3)$ lik null?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger I — krevende.) La $p$ være interpolasjonspolynomet til $f(x)=\\dfrac{1}{x}$ i nodene $1$, $2$ og $4$.\n\n**a)** Finn $p$ med Newtons dividerte differanser.\n**b)** Anslå $|f(3)-p(3)|$ ved hjelp av feilformelen.\n**c)** Regn ut den virkelige feilen i $x=3$ og sammenlikn.",
+        "solution": "**a) Differanstabellen.** $f_0=1$, $f_1=\\tfrac12$, $f_2=\\tfrac14$.\n\nFørste orden:\n$$f[x_0,x_1]=\\frac{\\tfrac12-1}{2-1}=-\\frac12,\\qquad f[x_1,x_2]=\\frac{\\tfrac14-\\tfrac12}{4-2}=\\frac{-\\tfrac14}{2}=-\\frac18.$$\n\nAndre orden (nevner $4-1=3$):\n$$f[x_0,x_1,x_2]=\\frac{-\\tfrac18+\\tfrac12}{3}=\\frac{\\tfrac38}{3}=\\frac18.$$\n\n**Newton-formen:**\n\n$$p(x)=1-\\frac12(x-1)+\\frac18(x-1)(x-2).$$\n\nUtganget: $\\frac18\\left(x^2-3x+2\\right)=\\frac{x^2}{8}-\\frac{3x}{8}+\\frac14$, så\n\n$$p(x)=1-\\frac{x}{2}+\\frac12+\\frac{x^{2}}{8}-\\frac{3x}{8}+\\frac14=\\frac{x^{2}}{8}-\\frac{7x}{8}+\\frac74.$$\n\n**Kontroll:** $p(1)=\\tfrac18-\\tfrac78+\\tfrac74=\\tfrac{1-7+14}{8}=1$ ✔. $p(2)=\\tfrac48-\\tfrac{14}{8}+\\tfrac{14}{8}=\\tfrac12$ ✔. $p(4)=\\tfrac{16}{8}-\\tfrac{28}{8}+\\tfrac{14}{8}=\\tfrac28=\\tfrac14$ ✔.\n\n**b) Feilanslag.** Tre noder gir $n=2$, altså $f'''$ og $3!=6$. Med $f(x)=1/x$:\n\n$$f'(x)=-x^{-2},\\qquad f''(x)=2x^{-3},\\qquad f'''(x)=-6x^{-4}.$$\n\nPå $[1,4]$ er $|f'''(x)|=6/x^{4}$ størst i $x=1$: $M_3=6$.\n\nNodepolynomet i $x=3$:\n\n$$\\omega(3)=(3-1)(3-2)(3-4)=2\\cdot 1\\cdot(-1)=-2,\\qquad |\\omega(3)|=2.$$\n\n$$\\left|\\varepsilon_2(3)\\right|\\le\\frac{6}{6}\\cdot 2=2.$$\n\n**c) Den virkelige feilen.**\n\n$$p(3)=\\frac{9}{8}-\\frac{21}{8}+\\frac{14}{8}=\\frac{2}{8}=\\frac14,\\qquad f(3)=\\frac13.$$\n\n$$\\left|f(3)-p(3)\\right|=\\left|\\frac13-\\frac14\\right|=\\frac{1}{12}\\approx 0{,}0833.$$\n\n**Sammenlikning.** Anslaget er 2; den virkelige feilen er $1/12$ — anslaget er 24 ganger for stort.\n\n**Hvorfor er det så slapt her?** Fordi $M_3$ hentes i $x=1$, der $|f'''|=6$, mens den i det aktuelle området rundt $x=3$ bare er $6/81\\approx 0{,}074$ — nesten hundre ganger mindre. Maksimeringen over hele $[1,4]$ er altså svært konservativ når funksjonen er så ujevn.\n\n**Lærdommen:** anslaget er alltid gyldig, men det er skarpest når $f^{(n+1)}$ varierer lite over intervallet. Ber en oppgave om et anslag, skal du levere det — men det er et pluss å kommentere hvor stramt det er.",
+        "hints": [
+          "Regn tabellen med brøker, ikke desimaltall — svaret blir eksakt og kontrollen lettere.",
+          "For b): hvor på $[1,4]$ er $|{-6}/x^4|$ størst?",
+          "For c): $p(3)$ og $f(3)=1/3$ er begge enkle brøker."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-1-o10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger I — krevende, teori.) La $p$ være interpolasjonspolynomet av grad høyst $n$ til en funksjon $f$ i nodene $x_0,\\dots,x_n$.\n\n**a)** Vis at hvis $f$ selv er et polynom av grad høyst $n$, så er $p=f$.\n**b)** Bruk feilformelen til å gi et annet bevis for det samme.\n**c)** Hva sier feilformelen hvis $f$ er et polynom av grad nøyaktig $n+1$ med ledende koeffisient $a$?",
+        "solution": "**a) Entydighetsveien.** Er $f$ et polynom av grad høyst $n$, så oppfyller $f$ selv interpolasjonsbetingelsene $f(x_k)=f_k$ — trivielt. Altså finnes det minst ett polynom av grad høyst $n$ gjennom punktene, nemlig $f$. **Etter entydighetssetningen** finnes det bare ett, og siden $p$ også er et slikt, må $p=f$. $\\blacksquare$\n\n**b) Feilformelveien.** Feilformelen sier\n\n$$f(x)-p(x)=\\frac{f^{(n+1)}(\\xi)}{(n+1)!}\\,\\omega(x).$$\n\nEr $f$ et polynom av grad høyst $n$, er den $(n+1)$-te deriverte identisk null. Da er høyresiden null for alle $x$, altså $f=p$. $\\blacksquare$\n\n**c)** Skriv $f(x)=ax^{n+1}+(\\text{ledd av grad} \\le n)$. Da er\n\n$$f^{(n+1)}(x)=a\\,(n+1)! \\qquad \\text{for alle } x,$$\n\nsiden hver derivasjon av $x^{n+1}$ trekker ned én faktor: $(n+1)\\cdot n\\cdots 1=(n+1)!$. Sett inn:\n\n$$f(x)-p(x)=\\frac{a\\,(n+1)!}{(n+1)!}\\,\\omega(x)=a\\,\\omega(x).$$\n\n**Feilen er altså eksakt $a\\,\\omega(x)$** — ingen ukjent $\\xi$, ingen ulikhet, bare en likhet.\n\n**Kontroll på et konkret tilfelle.** Ta $f(x)=x^{2}$ ($n=1$, $a=1$) interpolert i $x_0=0$, $x_1=1$. Da er $p(x)=x$ (linja gjennom $(0,0)$ og $(1,1)$), og\n\n$$f(x)-p(x)=x^{2}-x=x(x-1)=\\omega(x).$$\n\nStemmer med $a=1$.\n\n**Hvorfor dette er verdt å kunne.** Resultatet i c) er nøyaktig det som gjør presisjonsgrad-testingen i [kap. 6.2](/tma4135/tma4135-6-2) mulig: når du tester en integrasjonsformel på $x^{n}$ og den plutselig feiler, er det fordi den underliggende interpolasjonsfeilen har sluttet å være null.",
+        "hints": [
+          "For a): hvilket polynom er det åpenbare kandidatsvaret?",
+          "For b): hva er den $(n+1)$-te deriverte av et polynom av grad $n$?",
+          "For c): deriver $ax^{n+1}$ hele $n+1$ ganger og hold styr på faktorene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**1. Feil node i en kardinalfunksjon.** Den vanligste feilen i hele sjangeren: du glemmer å utelate din egen node, eller du utelater feil node i nevneren. **Botemiddel:** sjekk at $\\ell_k(x_k)=1$ før du går videre. Det tar ti sekunder.\n\n**2. Regnefeil i differanstabellen — særlig i nevneren.** I orden $k$ er nevneren avstanden mellom den ytterste noden til høyre og den ytterste til venstre i gruppen, ikke avstanden mellom nabonoder. Med ekvidistante noder er nevneren $kh$, ikke $h$.\n\n**3. Å glemme at Lagrange og Newton gir samme polynom.** Spør oppgaven «vis at de er like», holder det ikke å regne begge og konstatere at tallene stemmer. **Påberop entydighetssetningen ved navn** — det er argumentet, regningen er bare kontrollen.\n\n**4. Feil $(n+1)!$ i feilformelen.** Med tre noder er $n=2$, den deriverte er den tredje, og fakultetet er $3!=6$. Den hyppigste feilen er å bruke $n!$ eller å telle antall noder som $n$.\n\n**5. Å slutte for tidlig i differanstabellen.** Har du fire punkter, skal tabellen ha tre kolonner. Stopper du etter to, mister du tredjegradsleddet — og polynomet ditt treffer bare tre av de fire punktene.\n\n**6. Å ikke kontrollere.** Interpolasjon er den ene sjangeren der kontrollen er gratis: sett nodene inn i sluttsvaret. Gjør det, og skriv at du gjorde det."
+    },
+    {
+      "id": "tma4135-6-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-6-1-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på forkunnskapene fra [kap. 1.1](/tma4135/tma4135-1-1) og på ren polynomregning. De skal gå fort."
+        },
+        {
+          "id": "tma4135-6-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-1-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Gang ut $(x-1)(x-2)(x-3)$.",
+            "solution": "$$(x-1)(x-2)=x^{2}-3x+2.$$\n$$\\left(x^{2}-3x+2\\right)(x-3)=x^{3}-3x^{2}+2x-3x^{2}+9x-6=x^{3}-6x^{2}+11x-6.$$\n\nDette er nodepolynomet for nodene $1,2,3$, som brukes i eksempel 3.",
+            "hints": [
+              "Gang ut to faktorer først, og multipliser resultatet med den tredje."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-1-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn nullpunktene til $3x^{2}-12x+11$ og gi dem eksakt.",
+            "solution": "$$x=\\frac{12\\pm\\sqrt{144-4\\cdot 3\\cdot 11}}{6}=\\frac{12\\pm\\sqrt{12}}{6}=\\frac{12\\pm 2\\sqrt3}{6}=2\\pm\\frac{\\sqrt3}{3}.$$\n\nNumerisk: $x\\approx 1{,}4226$ og $x\\approx 2{,}5774$. Dette er de deriverte-nullpunktene til nodepolynomet i eksempel 3, altså der $|\\omega|$ er størst.",
+            "hints": [
+              "Bruk abc-formelen og forenkle rota.",
+              "$\\sqrt{12}=2\\sqrt3$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-1-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver $f(x)=\\ln x$ tre ganger.",
+            "solution": "$$f'(x)=\\frac1x=x^{-1},\\qquad f''(x)=-x^{-2}=-\\frac{1}{x^{2}},\\qquad f'''(x)=2x^{-3}=\\frac{2}{x^{3}}.$$\n\nMønsteret er $f^{(n)}(x)=(-1)^{n-1}(n-1)!\\,x^{-n}$ for $n\\ge1$ — nyttig når feilformelen ber om en høy derivert av en logaritme.",
+            "hints": [
+              "Skriv $1/x$ som $x^{-1}$ og bruk potensregelen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-1-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Løs likningssystemet $a+b=2$, $9a+b=10$.",
+            "solution": "Trekk den første likningen fra den andre:\n\n$$8a=8\\ \\Longrightarrow\\ a=1,\\qquad b=2-a=1.$$\n\n$$\\boxed{a=1,\\ b=1}$$\n\nDette er nøyaktig systemet som dukker opp i oppgave 7, når symmetriargumentet har redusert et fjerdepunkts-problem til to ukjente.",
+            "hints": [
+              "Eliminer $b$ ved å trekke likningene fra hverandre."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-6-1-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | Høyeste tillatte grad; antall noder er $n+1$ |\n| $x_k$ | Node nummer $k$, $k=0,\\dots,n$ |\n| $f_k$ | Nodeverdien i $x_k$; ofte $f_k=f(x_k)$ |\n| $p(x)$ | Interpolasjonspolynomet, grad høyst $n$ |\n| $\\ell_k(x)$ | Kardinalfunksjonen til node $k$; 1 i $x_k$, 0 i de andre |\n| $f[x_i,x_{i+1}]$ | Dividert differanse av første orden |\n| $f[x_0,\\dots,x_k]$ | Dividert differanse av orden $k$ |\n| $\\omega(x)$ | Nodepolynomet $\\prod_k (x-x_k)$, grad $n+1$ |\n| $\\varepsilon_n(x)$ | Interpolasjonsfeilen $f(x)-p(x)$ |\n| $\\xi$ | Det ukjente mellompunktet i feilformelen |\n| $M_{n+1}$ | Øvre grense for $\\left\\lvert f^{(n+1)}\\right\\rvert$ på intervallet |\n| $h$ | Nodeavstand ved ekvidistante noder |\n"
+        },
+        {
+          "id": "tma4135-6-1-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$\\ell_k(x)=\\prod_{j\\ne k}\\frac{x-x_j}{x_k-x_j},\\qquad p(x)=\\sum_{k=0}^{n}f_k\\,\\ell_k(x)$$\nLagrange-formen med kardinalfunksjonene. *(Står på det utdelte formelarket — tren oppslaget på hvilken faktor som utelates.)*\n\n$$f[x_i,\\dots,x_{i+k}]=\\frac{f[x_{i+1},\\dots,x_{i+k}]-f[x_i,\\dots,x_{i+k-1}]}{x_{i+k}-x_i}$$\nRekursjonen for dividerte differanser. *(Formen står på det utdelte formelarket; selve utfyllingen av tabellen må kunnes.)*\n\n$$p(x)=f_0+\\sum_{k=1}^{n}f[x_0,\\dots,x_k]\\prod_{j=0}^{k-1}(x-x_j)$$\nNewton-formen. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\text{koeffisienten foran } x^{n}=f[x_0,\\dots,x_n]$$\nDen ledende koeffisienten er den siste dividerte differansen. *(Må kunnes.)*\n\n$$\\varepsilon_n(x)=f(x)-p(x)=\\frac{f^{(n+1)}(\\xi)}{(n+1)!}\\prod_{k=0}^{n}(x-x_k)$$\nInterpolasjonsfeilen. *(Står på det utdelte formelarket — tren oppslaget på riktig orden og fakultet.)*\n\n$$\\left|\\varepsilon_n(x)\\right|\\le\\frac{M_{n+1}}{(n+1)!}\\max\\left|\\omega(x)\\right|,\\qquad M_{n+1}=\\max\\left|f^{(n+1)}\\right|$$\nFeilanslaget. *(Følger av feilformelen; maksimeringen må gjøres selv.)*\n\n$$\\max\\left|\\omega\\right|=\\frac{h^{2}}{4}\\ (n=1),\\qquad \\max\\left|\\omega\\right|=\\frac{2}{9\\sqrt3}h^{3}\\ (n=2)$$\nNodepolynomets maksimum ved ekvidistante noder. *(Må kunnes eller utledes aktivt — de utledes ved vanlig derivasjon.)*\n\n$$x_k=\\cos\\left(\\frac{(2k+1)\\pi}{2n+2}\\right),\\qquad k=0,\\dots,n$$\nChebyshev-punktene på $[-1,1]$. *(Står på det utdelte formelarket — tren oppslaget på indekseringen.)*\n\n$$q(x)=-p(-x)\\ \\Rightarrow\\ q=p \\quad\\text{(odde data, symmetriske noder)}$$\nSymmetriargumentet via entydigheten. *(Må kunnes og navngis — entydighetssetningen står ikke på arket.)*\n\n$$p_{\\text{ny}}(x)=p(x)+f[x_0,\\dots,x_{n+1}]\\prod_{j=0}^{n}(x-x_j)$$\nOppdatering med et nytt punkt. *(Må kunnes.)*\n\n**Kolliderende symboler i dette kapitlet.** Bokstaven $n$ er graden her, mens den i [kap. 3.1](/tma4135/tma4135-3-1) er nummeret på en Fourier-koeffisient og i [kap. 4.3](/tma4135/tma4135-4-3) frekvensindeksen — les den alltid ut fra sammenhengen. Bokstaven $h$ er nodeavstand her og i [kap. 6.2](/tma4135/tma4135-6-2), og den er **steglengde** i hele Del 7; i Del 8 blir $h$ romsteget, mens tidssteget der skrives $\\Delta t$ (det utdelte formelarket kaller tidssteget $k$). Bokstaven $L$ er *ikke* i bruk her; i [kap. 3.1](/tma4135/tma4135-3-1) er den halvperioden, og i [kap. 6.3](/tma4135/tma4135-6-3) blir den kontraksjonskonstanten. Og $\\xi$ er mellompunktet i feilformelen her, men transformasjonsvariabelen på $[-1,1]$ i Gauss-kvadratur i [kap. 6.2](/tma4135/tma4135-6-2)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

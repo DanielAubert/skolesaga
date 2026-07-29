@@ -1,0 +1,354 @@
+{
+  "id": "tma4135-5-5",
+  "courseId": "tma4135",
+  "chapterNumber": "5.5",
+  "title": "Drill — separasjon av variable fra ende til annen",
+  "description": "Sjangerdrill på hele G-komplekset (den 14–20-poengs stapleoppgaven): oppsett → tre $k$-tilfeller → egenverdier → superposisjon → Fourier-matching, som A-besvarelse.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "følge en fast åttestegs oppskrift fra oppgavetekst til ferdig kontrollert løsning, uten å hoppe over noe steg",
+    "kjenne igjen hvilken randtype oppgaven har, og hente riktig egenfunksjonsbasis uten å lete",
+    "veksle mellom varmelikningen, bølgeligningen og Laplace-likningen med samme romanalyse og ulik tidsfaktor",
+    "budsjettere tida i den dyreste oppgaven på settet, og se når koeffisientene kan leses av framfor å integreres"
+  ],
+  "content": [
+    {
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillkapitlet for den dyreste oppgaven på settet.** Separasjon av variable står på 12 av 13 gjennomgåtte sett — 92 % — og er typisk verdt 14–20 poeng, fordelt på fire eller fem delpunkter som bygger på hverandre.\n\n**Oppgavene merkes med bokstaven G.** Boka bruker bokstavene A til S som korte navn på de nitten oppgavetypene som går igjen på settene; **G er separasjon av variable**. Bokstaven forklares første gang den brukes i hvert kapittel.\n\n**Her regner du, du leser ikke.** Kapitlet har én løsningsoppskrift, ett gjennomregnet eksamenscase med kommentarer om hva som gir uttelling i hvert steg, og tolv oppgaver som roterer gjennom hele sjangeren: kalde ender, isolerte ender, blandet rand, ikke-homogene randverdier, kildeledd, bølgeligningen og Laplace-likningen på et rektangel. Har du gjort alle tolv, har du sett hver variant arkivet inneholder.\n\n**Det som skiller midtsjiktet fra toppsjiktet, er fortsatt det samme:** at alle tre tilfellene for separasjonskonstanten skrives ut, hver gang, med en begrunnelse for hvert. Det er det enkleste stedet å hente poeng i hele Del 5, og det enkleste stedet å miste dem.\n\n**Formelark-merking.** Eksamen har hjelpemiddelkode C, med utdelt formelark og eget A5-ark. **Selve separasjonsoppskriften står ikke på det utdelte arket — den må kunnes.** Det du henter fra arket underveis, er **reduksjonsformlene for delvis integrasjon** og de **trigonometriske identitetene**; de **står på det utdelte formelarket, så tren oppslaget**.\n\n**Tidsbruk:** 90 minutter, delt i fire bolker à omtrent tjue minutter. Med håndskriving blir det over to timer, og det er meningen at kapitlet skal deles over flere økter — pausepunktene er markert. Ta gjerne én bolk per kveld.\n\n**Karakterrealisme.** Får du de mekaniske delpunktene til å sitte — ansatsen, de to ODE-ene, egenverdiene ved kalde ender — ligger du an til en solid C, som er en god og vanlig karakter. Veien opp mot A i denne sjangeren går gjennom tre ting: alle tre $k$-tilfellene skrevet ut, riktig egenfunksjonsbasis ved Neumann- og blandet rand, og at du ser når koeffisientene kan leses av i stedet for å integreres.",
+      "id": "tma4135-5-5-eksamensvinkel"
+    },
+    {
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 5.1](/tma4135/tma4135-5-1) (ansatsen, de tre $k$-tilfellene, egenverdier), [kap. 5.2](/tma4135/tma4135-5-2) (superposisjon, Fourier-matching, stasjonær reduksjon), [kap. 5.3](/tma4135/tma4135-5-3) (bølgeligningen på et endelig intervall) og [kap. 5.4](/tma4135/tma4135-5-4) (verifikasjon ved innsetting, som brukes som kontroll i hver eneste oppgave her). Fra Del 3 trengs koeffisientintegralene, se [kap. 3.1](/tma4135/tma4135-3-1) og [kap. 3.2](/tma4135/tma4135-3-2).\n\n**Sist du var her.** De fem uttrykkene du kommer til å bruke i nesten hver oppgave, ferdig oppfrisket:\n\n$$\\text{Separasjonen:}\\qquad \\frac{F''}{F} = \\frac{G'}{c^2G} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\quad G' + c^2kG = 0$$\n\n$$\\text{Dirichlet-rand:}\\qquad k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\quad F_n = \\sin\\frac{n\\pi x}{L}, \\quad n \\ge 1$$\n\n$$\\text{Neumann-rand:}\\qquad k_0 = 0,\\; F_0 = 1; \\quad k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\quad F_n = \\cos\\frac{n\\pi x}{L}$$\n\n$$\\text{Tidsfaktor, varme:}\\qquad G_n(t) = e^{-c^2k_nt}$$\n\n$$\\text{Koeffisienten:}\\qquad B_n = \\frac{2}{L}\\int_0^L f(x)\\sin\\frac{n\\pi x}{L}\\,dx \\quad (\\text{Dirichlet})$$\n\nKlarer du å skrive disse fem fra hukommelsen før du begynner, går resten av kapitlet dobbelt så fort.",
+      "id": "tma4135-5-5-forkunnskaper"
+    },
+    {
+      "type": "text",
+      "content": "## Løsningsoppskriften — åtte steg (~8 min å lese)\n\nDette er algoritmen. Følg den i denne rekkefølgen hver gang, også når oppgaven ser annerledes ut enn den forrige.\n\n**1. Rydd først: er problemet homogent?**\nSjekk randbetingelsene og likningen. Er en randverdi ulik null, eller finnes det et kildeledd, så finn den stasjonære løsningen $w(x)$ og sett $v = u - w$. Alt videre gjøres på $v$. Hopper du over dette steget når det trengs, kollapser hele resten.\n\n**2. Sett $u = F(x)G(t)$ og separer.**\nDeriver produktet, sett inn, del på $c^2FG$, og skriv fortegnskonvensjonen eksplisitt: $F''/F = -k$. Skriv opp begge de to vanlige differensiallikningene.\n\n**3. Oversett randbetingelsene til $F$.**\n$u(0,t) = F(0)G(t) = 0$ for alle $t$, og $G \\not\\equiv 0$, altså $F(0) = 0$. Ved Neumann-rand er det $F'$ som er null. Ta med setningen — det er et logisk trinn sensor ser etter.\n\n**4. Behandl alle tre $k$-tilfellene.**\n$k = 0$: $F = Ax + B$. $k < 0$ ($k = -\\mu^2$): $F = A\\cosh\\mu x + B\\sinh\\mu x$. $k > 0$ ($k = p^2$): $F = A\\cos px + B\\sin px$. Skriv ut hva randbetingelsene gir i hvert tilfelle, og konkluder «bare triviell løsning» der det er tilfelle.\n\n**5. Les av egenverdier og egenfunksjoner.**\nFra det overlevende tilfellet: en likning av typen $\\sin pL = 0$ eller $\\cos pL = 0$, som gir $p_n$ og dermed $k_n$ og $F_n$.\n\n**6. Løs $t$-likningen.**\nVarmelikningen: $G_n = e^{-c^2k_nt}$. Bølgeligningen: $G_n = a_n\\cos(c\\sqrt{k_n}\\,t) + b_n\\sin(c\\sqrt{k_n}\\,t)$. Laplace-likningen på et rektangel: $G$-likningen har motsatt fortegn og gir $\\sinh$ og $\\cosh$.\n\n**7. Superponer og match initialbetingelsen.**\nSkriv summen. **Se etter om koeffisientene kan leses av** — sjekk først om en trigonometrisk identitet gjør initialdataene om til en egenfunksjonssum. Ellers regn koeffisientintegralet.\n\n**8. Legg $w$ tilbake, kontroller, og les av grensen.**\nSett den ferdige løsningen inn i likningen **og** i begge randbetingelsene **og** i initialbetingelsen. Blir du spurt om $t \\to \\infty$, er svaret det leddet som ikke dør ut.\n\n**Om delpunkt-koblingene.** Eksamensoppgavene i denne sjangeren er nesten alltid kjedet: svaret fra a) brukes i b), og b) i c). Får du feil mellomresultat men regner riktig videre, gir det fortsatt uttelling. **Derfor: skriv alltid ned mellomsvaret tydelig og gå videre, selv om du er i tvil om det.**",
+      "id": "tma4135-5-5-oppskrift"
+    },
+    {
+      "type": "text",
+      "content": "**Formelkort — hopp trygt over ved førstegangslesing.** De åtte boksene under er repetisjonskortene til dette kapitlet, og de er samtidig flashcard-bunken. De sier ingenting nytt utover oppskriften over; de er der for å pugges i kortform kvelden før eksamen. Tidsanslaget på 90 minutter gjelder oppgaveregningen, ikke kortene.",
+      "id": "tma4135-5-5-kort-notis"
+    },
+    {
+      "type": "definition",
+      "title": "Oppskrift: separasjon i åtte steg",
+      "content": "1. Gjør problemet homogent: finn $w$, sett $v = u - w$.\n2. Sett $u = F(x)G(t)$ og separer med $F''/F = -k$.\n3. Oversett randbetingelsene til $F$ (eller $F'$).\n4. Behandl **alle tre** $k$-tilfellene.\n5. Les av $k_n$ og $F_n$.\n6. Løs $t$-likningen.\n7. Superponer og match initialbetingelsen — les av hvis mulig.\n8. Legg $w$ tilbake, kontroller ved innsetting, og les av grensen.\n\n**Denne står ikke på det utdelte formelarket — den må kunnes.** Skriv den på ditt eget A5-ark.",
+      "id": "tma4135-5-5-kort-oppskrift"
+    },
+    {
+      "type": "definition",
+      "title": "Kort: de tre $k$-tilfellene",
+      "content": "$$k > 0,\\; k = p^2: \\qquad F = A\\cos px + B\\sin px$$\n\n$$k = 0: \\qquad F = Ax + B$$\n\n$$k < 0,\\; k = -\\mu^2: \\qquad F = A\\cosh\\mu x + B\\sinh\\mu x$$\n\nVed homogen rand overlever **alltid** $k > 0$. Tilfellet $k < 0$ overlever **aldri** — $\\cosh$ er aldri null, og $\\sinh$ bare i origo. Tilfellet $k = 0$ overlever **bare** når begge randbetingelsene er av Neumann-type.\n\nAlle tre skal likevel skrives ut hver gang. Det er der poengene ligger.",
+      "id": "tma4135-5-5-kort-tre-k"
+    },
+    {
+      "type": "definition",
+      "title": "Kort: egenverdiene ved Dirichlet-rand",
+      "content": "$F(0) = F(L) = 0$ gir\n\n$$k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{L}, \\qquad n = 1, 2, 3, \\dots$$\n\nTellingen starter på 1. Sluttlikningen er $\\sin pL = 0$.\n\nKoeffisientene matches med $B_n = \\dfrac{2}{L}\\displaystyle\\int_0^L f(x)\\sin\\frac{n\\pi x}{L}\\,dx$.",
+      "id": "tma4135-5-5-kort-dirichlet"
+    },
+    {
+      "type": "definition",
+      "title": "Kort: egenverdiene ved Neumann-rand",
+      "content": "$F'(0) = F'(L) = 0$ gir\n\n$$k_0 = 0,\\; F_0 = 1 \\qquad\\text{og}\\qquad k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\; F_n(x) = \\cos\\frac{n\\pi x}{L}, \\; n \\ge 1.$$\n\nTellingen starter på 0, og konstantleddet er den eneste komponenten som ikke dør ut.\n\nKoeffisientene: $A_0 = \\dfrac1L\\displaystyle\\int_0^L f\\,dx$ (middelverdien) og $A_n = \\dfrac2L\\displaystyle\\int_0^L f\\cos\\frac{n\\pi x}{L}\\,dx$.",
+      "id": "tma4135-5-5-kort-neumann"
+    },
+    {
+      "type": "definition",
+      "title": "Kort: egenverdiene ved blandet rand",
+      "content": "$F(0) = 0$ og $F'(L) = 0$ gir sluttlikningen $\\cos pL = 0$, altså **odde** multipler:\n\n$$k_n = \\left(\\frac{(2n-1)\\pi}{2L}\\right)^2, \\qquad F_n(x) = \\sin\\frac{(2n-1)\\pi x}{2L}.$$\n\nEr det motsatt — $F'(0) = 0$ og $F(L) = 0$ — er egenverdiene de samme, men egenfunksjonene blir $\\cos\\dfrac{(2n-1)\\pi x}{2L}$.\n\n**Tommelfingerregel:** cosinus rundt den isolerte enden, sinus rundt den faste.",
+      "id": "tma4135-5-5-kort-blandet"
+    },
+    {
+      "type": "definition",
+      "title": "Kort: tidsfaktoren for varme og bølge",
+      "content": "**Varmelikningen** $u_t = c^2u_{xx}$: $G' + c^2kG = 0$ gir\n\n$$G_n(t) = e^{-c^2k_nt} \\qquad (\\text{demping}).$$\n\n**Bølgeligningen** $u_{tt} = c^2u_{xx}$: $G'' + c^2kG = 0$ gir\n\n$$G_n(t) = a_n\\cos\\left(c\\sqrt{k_n}\\,t\\right) + b_n\\sin\\left(c\\sqrt{k_n}\\,t\\right) \\qquad (\\text{svingning}).$$\n\nRomproblemet er **identisk** i de to tilfellene. Bare $G$-likningen skiller dem, og det er hele forskjellen mellom noe som dør ut og noe som svinger for alltid.",
+      "id": "tma4135-5-5-kort-tidsfaktor"
+    },
+    {
+      "type": "definition",
+      "title": "Kort: ikke-homogen reduksjon",
+      "content": "**Faste randtemperaturer** $u(0,t) = T_0$, $u(L,t) = T_1$: løs $w'' = 0$, som gir\n\n$$w(x) = T_0 + \\frac{T_1 - T_0}{L}x.$$\n\n**Konstant kildeledd** $u_t = c^2u_{xx} + \\alpha$ med nullrand: løs $c^2w'' + \\alpha = 0$, som gir\n\n$$w(x) = \\frac{\\alpha}{2c^2}x(L-x).$$\n\nI begge tilfeller: sett $v = u - w$, løs det homogene problemet for $v$ med $v(x,0) = f(x) - w(x)$, og legg $w$ tilbake til slutt. Grensen når $t \\to \\infty$ er nettopp $w$.",
+      "id": "tma4135-5-5-kort-ikke-homogen"
+    },
+    {
+      "type": "definition",
+      "title": "Kort: Fourier-matching — når slipper du integralet",
+      "content": "**Les av direkte** når $u(x,0)$ allerede er en endelig sum av egenfunksjoner. Se særlig etter skjulte tilfeller:\n\n$$\\cos^2\\theta = \\tfrac12(1+\\cos 2\\theta), \\qquad \\sin^2\\theta = \\tfrac12(1-\\cos 2\\theta), \\qquad \\sin\\theta\\cos\\theta = \\tfrac12\\sin 2\\theta,$$\n\nsom alle **står på det utdelte formelarket — tren oppslaget**.\n\n**Regn integralet** ellers, med reduksjonsformlene fra arket. Sjekk alltid $L$ først: er egenfunksjonen $\\sin(n\\pi x/L)$, må initialdataene skrives på samme form før du leser av $n$.",
+      "id": "tma4135-5-5-kort-matching"
+    },
+    {
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase, med sensornotater i margen",
+      "problem": "**Eksamensoppgave (~18 min, 16 poeng).** En stang på $0 \\le x \\le 2$ har begge ender i isvann. Betrakt\n\n$$u_t = 3u_{xx}, \\qquad 0 < x < 2, \\qquad u(0,t) = u(2,t) = 0, \\qquad u(x,0) = 4\\sin\\frac{\\pi x}{2} - \\sin\\frac{3\\pi x}{2}.$$\n\n**a)** Sett $u = F(x)G(t)$ og utled de to vanlige differensiallikningene. (3 poeng)\n**b)** Finn egenverdiene og egenfunksjonene ved å behandle alle tre tilfellene. (7 poeng)\n**c)** Bestem løsningen som oppfyller initialbetingelsen. (4 poeng)\n**d)** Hva nærmer løsningen seg når $t \\to \\infty$, og hvilket ledd dør ut sist? (2 poeng)",
+      "solution": "**a) Separasjonen. (3 poeng)**\n\nMed $u = F(x)G(t)$ er $u_t = FG'$ og $u_{xx} = F''G$, så $FG' = 3F''G$. Del på $3FG$:\n\n$$\\frac{G'}{3G} = \\frac{F''}{F}.$$\n\nVenstre side avhenger bare av $t$, høyre bare av $x$; skal de være like for alle $x$ og $t$, må begge være samme konstant, som vi kaller $-k$:\n\n$$F'' + kF = 0, \\qquad G' + 3kG = 0.$$\n\nRandbetingelsene: $u(0,t) = F(0)G(t) = 0$ for alle $t$, og $G \\not\\equiv 0$ (ellers er $u$ triviell), altså $F(0) = 0$. Tilsvarende $F(2) = 0$.\n\n> *Sensornotat:* alle tre poengene her er mekaniske. Det som må stå, er (i) begge de to ODE-ene, (ii) fortegnskonvensjonen skrevet ut, og (iii) setningen om at randbetingelsene overføres til $F$ fordi $G$ ikke er identisk null. Den siste er ett poeng verdt, og den koster én linje.\n\n**b) De tre tilfellene. (7 poeng)**\n\n*Tilfelle $k = 0$.* Da er $F'' = 0$, altså $F = Ax + B$.\n$F(0) = 0$ gir $B = 0$. $F(2) = 2A = 0$ gir $A = 0$.\nBare $F \\equiv 0$ — **triviell løsning, forkastes**.\n\n*Tilfelle $k < 0$.* Skriv $k = -\\mu^2$ med $\\mu > 0$. Da er $F'' - \\mu^2F = 0$, altså\n\n$$F = A\\cosh\\mu x + B\\sinh\\mu x.$$\n\n$F(0) = 0$: siden $\\cosh 0 = 1$ og $\\sinh 0 = 0$, gir dette $A = 0$.\n$F(2) = B\\sinh 2\\mu = 0$: men $2\\mu > 0$ og $\\sinh$ er strengt positiv for positive argumenter, så $B = 0$.\nBare $F \\equiv 0$ — **triviell løsning, forkastes**.\n\n*Tilfelle $k > 0$.* Skriv $k = p^2$ med $p > 0$. Da er\n\n$$F = A\\cos px + B\\sin px.$$\n\n$F(0) = 0$ gir $A = 0$, så $F = B\\sin px$.\n$F(2) = B\\sin 2p = 0$ med $B \\ne 0$ krever\n\n$$\\sin 2p = 0 \\quad\\Longrightarrow\\quad 2p = n\\pi \\quad\\Longrightarrow\\quad p_n = \\frac{n\\pi}{2}, \\qquad n = 1,2,3,\\dots$$\n\n**Egenverdier og egenfunksjoner:**\n\n$$k_n = \\frac{n^2\\pi^2}{4}, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{2}.$$\n\nTidsfaktoren: $G' = -3k_nG$ gir\n\n$$G_n(t) = \\exp\\left(-\\frac{3n^2\\pi^2 t}{4}\\right).$$\n\n> *Sensornotat:* dette er delpunktet der karakterene skiller lag. De to «tomme» tilfellene er verdt omtrent to poeng til sammen, og de tar tre linjer hver. En besvarelse som bare skriver «$k$ må være positiv» og går videre til svaret, får de fire poengene for $k > 0$-regningen og mister resten — selv om alt annet er riktig. **Skriv dem ut.** Legg også merke til at faktoren 3 hører hjemme i $G$, ikke i $k_n$; å legge den inn i egenverdiene er en av de vanligste feilene her.\n\n**c) Match initialbetingelsen. (4 poeng)**\n\nSuperposisjon:\n\n$$u(x,t) = \\sum_{n=1}^{\\infty}B_n\\sin\\frac{n\\pi x}{2}\\exp\\left(-\\frac{3n^2\\pi^2t}{4}\\right).$$\n\nSett $t = 0$:\n\n$$\\sum_{n=1}^{\\infty}B_n\\sin\\frac{n\\pi x}{2} \\;\\overset{!}{=}\\; 4\\sin\\frac{\\pi x}{2} - \\sin\\frac{3\\pi x}{2}.$$\n\nHøyresiden er allerede en endelig sum av egenfunksjonene — **ingen integraler trengs**. Sammenlikn ledd for ledd: $B_1 = 4$, $B_3 = -1$, alle andre null. Med $k_1 = \\pi^2/4$ og $k_3 = 9\\pi^2/4$:\n\n$$\\boxed{u(x,t) = 4\\sin\\frac{\\pi x}{2}\\,e^{-3\\pi^2t/4} \\;-\\; \\sin\\frac{3\\pi x}{2}\\,e^{-27\\pi^2t/4}.}$$\n\n*Kontroll — likningen.* For ett ledd $\\sin(p x)e^{-3p^2t}$ er $u_t = -3p^2u$ og $3u_{xx} = -3p^2u$. Like. Oppfylt for begge ledd, og dermed for summen.\n\n*Kontroll — randen.* I $x = 0$: $\\sin 0 = 0$ i begge ledd. I $x = 2$: $\\sin\\pi = 0$ og $\\sin 3\\pi = 0$. Oppfylt.\n\n*Kontroll — initialbetingelsen.* Sett $t = 0$: begge eksponentialene blir 1, og vi får nøyaktig $4\\sin\\frac{\\pi x}{2} - \\sin\\frac{3\\pi x}{2}$. Oppfylt.\n\n> *Sensornotat:* å regne koeffisientintegralet $B_n = \\int_0^2(\\dots)\\sin\\frac{n\\pi x}{2}\\,dx$ her gir samme svar, men koster fem til åtte minutter og gir ikke ett ekstra poeng. Tidsfella er reell: dette er den dyreste oppgaven på settet, og den tida du sparer her, trenger du på numerikk-blokken til slutt. Skriv én setning om at koeffisientene leses av direkte fordi initialdataene alt er en egenfunksjonssum.\n\n**d) Grensen. (2 poeng)**\n\nBegge eksponentialene går mot null når $t \\to \\infty$, så\n\n$$u(x,t) \\;\\longrightarrow\\; 0.$$\n\nDet er som forventet: begge ender holdes kalde, og stanga mister varme til isvannet.\n\nLeddet med **minst** eksponent i tallverdi dør ut sist, altså $4\\sin\\frac{\\pi x}{2}e^{-3\\pi^2t/4}$. Forholdet mellom leddene er\n\n$$\\frac{e^{-27\\pi^2t/4}}{e^{-3\\pi^2t/4}} = e^{-6\\pi^2 t},$$\n\nsom ved $t = 0{,}05$ allerede er $e^{-2{,}96} \\approx 0{,}052$, altså under seks prosent. Etter kort tid er profilen praktisk talt en ren halv sinusbue.\n\n> *Sensornotat:* to poeng for to setninger. Dette delpunktet er gratis når du har skrevet løsningen — men det er også det delpunktet flest lar stå tomt, fordi tida er brukt opp på b) og c). Det er nettopp derfor oppskriftens steg 8 sier at du skal lese av grensen med én gang du har svaret.",
+      "id": "tma4135-5-5-case"
+    },
+    {
+      "type": "text",
+      "content": "## Bolk 1 — Grunnvarianten: kalde ender (~20 min)\n\nFire oppgaver på det som er standardformen. Klarer du disse på tjue minutter til sammen, har du eksamenstempoet.",
+      "id": "tma4135-5-5-bolk1"
+    },
+    {
+      "id": "tma4135-5-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjenkjenning.) For hvert randverdiproblem for $F$ på $[0,L]$: si hvilke av tilfellene $k > 0$, $k = 0$, $k < 0$ som gir ikke-trivielle løsninger, og hva egenfunksjonene blir. Ikke regn.\n\n**a)** $F(0) = F(L) = 0$\n**b)** $F'(0) = F'(L) = 0$\n**c)** $F(0) = 0$, $F'(L) = 0$\n**d)** $F'(0) = 0$, $F(L) = 0$",
+        "solution": "**a)** Bare $k > 0$. Egenfunksjoner $\\sin\\dfrac{n\\pi x}{L}$, $n \\ge 1$, med $k_n = (n\\pi/L)^2$.\n\n**b)** Både $k = 0$ og $k > 0$. Egenfunksjoner $F_0 = 1$ og $\\cos\\dfrac{n\\pi x}{L}$, $n \\ge 1$, med samme $k_n$.\n\n**c)** Bare $k > 0$, og bare odde multipler: $\\sin\\dfrac{(2n-1)\\pi x}{2L}$, med $k_n = \\left(\\dfrac{(2n-1)\\pi}{2L}\\right)^2$.\n\n**d)** Bare $k > 0$, odde multipler igjen, men nå cosinus: $\\cos\\dfrac{(2n-1)\\pi x}{2L}$, med samme $k_n$ som i c).\n\n**Tre regler dekker alle fire:**\n1. $k < 0$ overlever aldri ved homogen rand.\n2. $k = 0$ overlever bare når *begge* betingelsene er av Neumann-type.\n3. Egenfunksjonen er cosinus rundt en isolert ende og sinus rundt en fast ende. Er de to endene av ulik type, blir egenverdiene halvtall — odde multipler av $\\pi/(2L)$.",
+        "hints": [
+          "Tenk på hva en rett linje og en hyperbelfunksjon kan gjøre i to punkter samtidig.",
+          "Ved en isolert ende er det $F'$ som må være null. Hvilken av sinus og cosinus har vannrett tangent i $x = 0$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger G.) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < 3, \\qquad u(0,t) = u(3,t) = 0, \\qquad u(x,0) = 2\\sin\\frac{\\pi x}{3},$$\n\nog kontroller svaret ved innsetting i likningen og i begge randbetingelsene.",
+        "solution": "**Egenverdier.** Dirichlet-rand på $[0,3]$, altså $L = 3$ (de tre tilfellene er gjennomgått i [kap. 5.1](/tma4135/tma4135-5-1) og gjentas ikke her, siden oppgaven bare ber om løsningen):\n\n$$k_n = \\frac{n^2\\pi^2}{9}, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{3}, \\qquad G_n(t) = e^{-n^2\\pi^2t/9}.$$\n\n**Matching.** Initialdataene er $2\\sin\\frac{\\pi x}{3}$, som er $n = 1$ med vekt 2. Altså $B_1 = 2$, resten null:\n\n$$u(x,t) = 2\\sin\\frac{\\pi x}{3}\\,e^{-\\pi^2 t/9}.$$\n\n**Kontroll — likningen.**\n\n$$u_t = -\\frac{2\\pi^2}{9}\\sin\\frac{\\pi x}{3}e^{-\\pi^2t/9}, \\qquad u_{xx} = -\\frac{2\\pi^2}{9}\\sin\\frac{\\pi x}{3}e^{-\\pi^2t/9}.$$\n\nLike, så $u_t = u_{xx}$ er oppfylt.\n\n**Kontroll — randen.** $u(0,t) = 2\\sin 0\\cdot e^{-\\pi^2t/9} = 0$. Og $u(3,t) = 2\\sin\\pi\\cdot e^{-\\pi^2t/9} = 0$. Begge oppfylt.\n\n**Kontroll — initialbetingelsen.** $u(x,0) = 2\\sin\\frac{\\pi x}{3}$. Oppfylt.",
+        "hints": [
+          "Hva er $L$ her, og hvilken $n$ svarer $\\sin(\\pi x/3)$ til?",
+          "Eksponenten er $-c^2k_nt$ med $c^2 = 1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — koeffisientintegral.) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = x.$$",
+        "solution": "**Egenverdier.** $L = \\pi$ gir $k_n = n^2$, $F_n = \\sin nx$, $G_n = e^{-n^2t}$.\n\n**Matching.** Initialdataene er $f(x) = x$, ikke en sum av sinuser, så integralet må regnes:\n\n$$B_n = \\frac{2}{\\pi}\\int_0^{\\pi}x\\sin nx\\,dx.$$\n\n**Fra reduksjonsformelen på det utdelte formelarket** med $a = n$:\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a} + \\frac{\\sin ax}{a^2}.$$\n\nMellom 0 og $\\pi$: sinusleddet er null i begge ender ($\\sin n\\pi = 0$, $\\sin 0 = 0$), og igjen står $-\\dfrac{\\pi\\cos n\\pi}{n} = -\\dfrac{\\pi(-1)^n}{n}$. Altså\n\n$$B_n = \\frac{2}{\\pi}\\cdot\\left(-\\frac{\\pi(-1)^n}{n}\\right) = \\frac{2(-1)^{n+1}}{n}.$$\n\n**Svar:**\n\n$$u(x,t) = 2\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n}\\,\\sin(nx)\\,e^{-n^2t}.$$\n\n**Kontroll — likningen og randen.** Hvert ledd $\\sin(nx)e^{-n^2t}$ har $u_t = -n^2u = u_{xx}$, og er null i $x = 0$ og $x = \\pi$. Oppfylt ledd for ledd.\n\n**Kontroll — initialbetingelsen.** Sett $t = 0$ og $x = \\pi/2$: rekka blir $2\\left(1 - 0 - \\tfrac13 + 0 + \\tfrac15 - \\cdots\\right)\\cdot$ med $\\sin(n\\pi/2)$-faktorene, altså $2\\left(1 - \\tfrac13 + \\tfrac15 - \\cdots\\right) = 2\\cdot\\frac{\\pi}{4} = \\frac{\\pi}{2}$. Det stemmer med $f(\\pi/2) = \\pi/2$.\n\n**Om endepunktet $x = \\pi$.** Hvert ledd i rekka er null der, mens $f(\\pi) = \\pi$. Det er ingen feil: det er et sprang mellom randbetingelsen og initialbetingelsen, og etter konvergensteoremet fra [kap. 3.2](/tma4135/tma4135-3-2) gir rekka middelverdien $\\tfrac12(0 + \\pi) = \\tfrac{\\pi}{2}$ der. **Nevn dette hvis oppgaven spør — det er et typisk siste delpunkt.**",
+        "hints": [
+          "Initialdataene er ikke en egenfunksjonssum, så integralet må regnes.",
+          "Slå opp reduksjonsformelen for $\\int x\\sin ax\\,dx$ og sett $a = n$.",
+          "Bare $\\cos$-leddet overlever grensene, siden $\\sin n\\pi = 0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — skjult egenfunksjon.) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u_x(0,t) = u_x(\\pi,t) = 0, \\qquad u(x,0) = 2\\sin^2 x,$$\n\nog angi likevektstemperaturen.",
+        "solution": "**Skriv om initialdataene.** **Fra de trigonometriske identitetene på det utdelte formelarket:** $\\sin^2\\theta = \\tfrac12(1 - \\cos 2\\theta)$, altså\n\n$$u(x,0) = 2\\cdot\\tfrac12\\left(1 - \\cos 2x\\right) = 1 - \\cos 2x.$$\n\n**Egenverdier.** Neumann-rand på $[0,\\pi]$: $k_0 = 0$ med $F_0 = 1$, og $k_n = n^2$ med $F_n = \\cos nx$. Tidsfaktorene er $G_0 = 1$ og $G_n = e^{-n^2t}$.\n\n**Matching.** Initialdataene er nå en egenfunksjonssum: konstanten 1 og moden $n = 2$ med vekt $-1$. Altså $A_0 = 1$, $A_2 = -1$, resten null. Med $k_2 = 4$:\n\n$$u(x,t) = 1 - \\cos(2x)\\,e^{-4t}.$$\n\n**Kontroll — likningen.** $u_t = 4\\cos(2x)e^{-4t}$ og $u_{xx} = 4\\cos(2x)e^{-4t}$. Like. Oppfylt.\n\n**Kontroll — randen.** $u_x = 2\\sin(2x)e^{-4t}$, som er null i $x = 0$ ($\\sin 0 = 0$) og i $x = \\pi$ ($\\sin 2\\pi = 0$). Begge oppfylt.\n\n**Kontroll — initialbetingelsen.** $u(x,0) = 1 - \\cos 2x = 2\\sin^2x$. Oppfylt.\n\n**Likevekt.** Eksponentialleddet dør ut, så $u \\to 1$.\n\n*Kontroll mot middelverdien:* stanga er isolert, så middeltemperaturen er bevart:\n\n$$\\frac{1}{\\pi}\\int_0^{\\pi}2\\sin^2x\\,dx = \\frac{1}{\\pi}\\cdot\\pi = 1.$$\n\nStemmer.\n\n**Poenget med oppgaven:** hadde du gått rett på koeffisientintegralet $A_n = \\frac{2}{\\pi}\\int_0^\\pi 2\\sin^2x\\cos nx\\,dx$, ville du fått samme svar etter mye mer arbeid. **Se etter identiteten først.**",
+        "hints": [
+          "Slå opp dobbeltvinkelformelen for $\\sin^2\\theta$ på formelarket.",
+          "Etter omskrivingen er initialdataene en konstant pluss én cosinusmode — hvilken $n$?",
+          "For likevekten: hva er bevart når begge ender er isolert?"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nFire oppgaver på grunnvarianten er unnagjort. Tar du en pause her, start neste bolk med å skrive de tre $k$-tilfellene fra hukommelsen.",
+      "id": "tma4135-5-5-pause1"
+    },
+    {
+      "type": "text",
+      "content": "## Bolk 2 — De to variantene som gjør oppgaven dyrere (~24 min)\n\nBlandet rand og ikke-homogene problemer. Begge er lette å kjenne igjen, og begge koster poeng hvis du behandler dem som grunnvarianten.",
+      "id": "tma4135-5-5-bolk2"
+    },
+    {
+      "id": "tma4135-5-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — blandet rand.) Finn egenverdiene, egenfunksjonene og produktløsningene for\n\n$$u_t = 3u_{xx}, \\qquad 0 < x < 5, \\qquad u(0,t) = 0, \\qquad u_x(5,t) = 0,$$\n\nved å behandle alle tre tilfellene.",
+        "solution": "**Separasjon.** $u = FG$ gir $F'' + kF = 0$ og $G' + 3kG = 0$, med $F(0) = 0$ og $F'(5) = 0$.\n\n**$k = 0$:** $F = Ax + B$, $F' = A$. Fra $F(0) = 0$: $B = 0$. Fra $F'(5) = 0$: $A = 0$. Triviell — forkastes.\n\n**$k < 0$, $k = -\\mu^2$:** $F = A\\cosh\\mu x + B\\sinh\\mu x$, $F' = \\mu(A\\sinh\\mu x + B\\cosh\\mu x)$.\nFra $F(0) = 0$: $A = 0$, så $F = B\\sinh\\mu x$ og $F' = B\\mu\\cosh\\mu x$.\nFra $F'(5) = 0$: $B\\mu\\cosh 5\\mu = 0$. Men $\\cosh \\ge 1$ alltid, og $\\mu > 0$, så $B = 0$. Triviell — forkastes.\n\n**$k > 0$, $k = p^2$:** $F = A\\cos px + B\\sin px$.\nFra $F(0) = 0$: $A = 0$, så $F = B\\sin px$ og $F' = Bp\\cos px$.\nFra $F'(5) = 0$: $Bp\\cos 5p = 0$ med $B \\ne 0$ og $p > 0$ krever\n\n$$\\cos 5p = 0 \\quad\\Longrightarrow\\quad 5p = \\frac{(2n-1)\\pi}{2} \\quad\\Longrightarrow\\quad p_n = \\frac{(2n-1)\\pi}{10}.$$\n\n**Egenverdier og egenfunksjoner:**\n\n$$k_n = \\frac{(2n-1)^2\\pi^2}{100}, \\qquad F_n(x) = \\sin\\frac{(2n-1)\\pi x}{10}, \\qquad n = 1,2,3,\\dots$$\n\n**Tidsfaktoren:** $G_n(t) = \\exp\\left(-\\dfrac{3(2n-1)^2\\pi^2t}{100}\\right)$.\n\n**Produktløsningene:**\n\n$$u_n(x,t) = \\sin\\frac{(2n-1)\\pi x}{10}\\exp\\left(-\\frac{3(2n-1)^2\\pi^2 t}{100}\\right).$$\n\n**Kontroll for $n = 1$.** Med $p = \\pi/10$: $u_t = -3p^2u$ og $3u_{xx} = -3p^2u$. Like. Randen: $u(0,t) = \\sin 0 = 0$, og $u_x = p\\cos(px)e^{-3p^2t}$ som i $x = 5$ gir $\\cos(\\pi/2) = 0$. Begge oppfylt.\n\n**Kjennetegnet på blandet rand:** bare **odde** multipler. De tre første $p$-verdiene er $\\pi/10$, $3\\pi/10$, $5\\pi/10$ — ikke $\\pi/5$, $2\\pi/5$, $3\\pi/5$ som ved Dirichlet i begge ender.",
+        "hints": [
+          "Randbetingelsen i $x = 5$ er på $F'$, ikke på $F$ — deriver løsningsformene før du setter inn.",
+          "I tilfellet $k < 0$: kan $\\cosh$ noen gang bli null?",
+          "Sluttlikningen blir $\\cos 5p = 0$, ikke $\\sin 5p = 0$. Skriv ut de tre første $p$-verdiene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — ikke-homogen rand.) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < 4, \\qquad u(0,t) = 3, \\qquad u(4,t) = 11, \\qquad u(x,0) = 3 + 2x + 6\\sin\\frac{\\pi x}{2},$$\n\nog angi grensen når $t \\to \\infty$.",
+        "solution": "**Steg 1 — stasjonær løsning.** $w'' = 0$ gir $w = Ax + B$. Fra $w(0) = 3$: $B = 3$. Fra $w(4) = 4A + 3 = 11$: $A = 2$. Altså\n\n$$w(x) = 3 + 2x.$$\n\n**Steg 2 — reduser.** $v = u - w$ oppfyller $v_t = v_{xx}$ med $v(0,t) = v(4,t) = 0$ og\n\n$$v(x,0) = 3 + 2x + 6\\sin\\frac{\\pi x}{2} - (3 + 2x) = 6\\sin\\frac{\\pi x}{2}.$$\n\n**Steg 3 — egenverdier.** Dirichlet på $[0,4]$: $F_n = \\sin\\dfrac{n\\pi x}{4}$ og $k_n = \\dfrac{n^2\\pi^2}{16}$.\n\nInitialdataene $6\\sin\\frac{\\pi x}{2} = 6\\sin\\frac{2\\pi x}{4}$ svarer til $n = 2$, med $k_2 = \\dfrac{4\\pi^2}{16} = \\dfrac{\\pi^2}{4}$. Altså $B_2 = 6$, resten null — **ingen integraler**.\n\n**Steg 4 — sett sammen.**\n\n$$u(x,t) = 3 + 2x + 6\\sin\\frac{\\pi x}{2}\\,e^{-\\pi^2t/4}.$$\n\n**Kontroll — likningen.** Leddet $3 + 2x$ har $u_t = 0$ og $u_{xx} = 0$: oppfylt. Rekkeleddet har $u_t = -\\dfrac{\\pi^2}{4}u$ og $u_{xx} = -\\dfrac{\\pi^2}{4}u$: oppfylt.\n\n**Kontroll — randen.** I $x = 0$: $3 + 0 + 6\\sin 0 = 3$. I $x = 4$: $3 + 8 + 6\\sin 2\\pi\\cdot e^{-\\pi^2t/4} = 11$. Begge oppfylt for alle $t$.\n\n**Kontroll — initialbetingelsen.** Sett $t = 0$: $3 + 2x + 6\\sin\\frac{\\pi x}{2}$. Oppfylt.\n\n**Grensen.** Eksponentialleddet dør ut, så\n\n$$u(x,t) \\;\\longrightarrow\\; 3 + 2x = w(x).$$\n\n**Merk hvor lett $n$ leses feil.** Egenfunksjonene på $[0,4]$ er $\\sin\\frac{n\\pi x}{4}$. Uttrykket $\\sin\\frac{\\pi x}{2}$ er *ikke* $n = 1$; skriv det om til $\\sin\\frac{2\\pi x}{4}$ først, så ser du at $n = 2$. Bommer du her, får du eksponenten $e^{-\\pi^2t/16}$ i stedet for $e^{-\\pi^2t/4}$.",
+        "hints": [
+          "Finn $w$ først: en rett linje gjennom randverdiene.",
+          "Regn ut $v(x,0) = u(x,0) - w(x)$ — se om noe kansellerer.",
+          "Skriv $\\sin(\\pi x/2)$ på formen $\\sin(n\\pi x/4)$ før du leser av $n$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-5-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — kildeledd.) Løs\n\n$$u_t = 2u_{xx} + 4, \\qquad 0 < x < 1, \\qquad u(0,t) = u(1,t) = 0, \\qquad u(x,0) = 0,$$\n\nog angi likevektstemperaturen i midtpunktet.",
+        "solution": "**Steg 1 — stasjonær løsning.** Sett $u_t = 0$: $2w'' + 4 = 0$, altså $w'' = -2$. To integrasjoner:\n\n$$w = -x^2 + Ax + B.$$\n\nFra $w(0) = 0$: $B = 0$. Fra $w(1) = -1 + A = 0$: $A = 1$. Altså\n\n$$w(x) = x(1-x).$$\n\n*Kontroll:* $w'' = -2$, så $2w'' + 4 = -4 + 4 = 0$. Og $w(0) = w(1) = 0$. Riktig.\n\n**Steg 2 — reduser.** $v = u - w$ gir $v_t = u_t = 2u_{xx} + 4 = 2\\left(v_{xx} + w''\\right) + 4 = 2v_{xx}$, altså den homogene likningen. Randbetingelsene er fortsatt null, og\n\n$$v(x,0) = 0 - x(1-x) = -x(1-x).$$\n\n**Steg 3 — koeffisientene.** Dirichlet på $[0,1]$: $F_n = \\sin n\\pi x$, $k_n = n^2\\pi^2$, og tidsfaktoren $G_n = e^{-2n^2\\pi^2t}$ (husk $c^2 = 2$).\n\n$$B_n = 2\\int_0^1\\left(-x(1-x)\\right)\\sin(n\\pi x)\\,dx = -2\\int_0^1\\left(x - x^2\\right)\\sin(n\\pi x)\\,dx.$$\n\n**Fra reduksjonsformlene på det utdelte formelarket** med $a = n\\pi$ blir resultatet\n\n$$B_n = \\frac{4\\left((-1)^n - 1\\right)}{n^3\\pi^3},$$\n\naltså $B_n = -\\dfrac{8}{n^3\\pi^3}$ for odde $n$ og 0 for like.\n\n**Svar:**\n\n$$u(x,t) = x(1-x) - \\frac{8}{\\pi^3}\\sum_{m=0}^{\\infty}\\frac{1}{(2m+1)^3}\\sin\\!\\left((2m+1)\\pi x\\right)e^{-2(2m+1)^2\\pi^2t}.$$\n\n**Kontroll — likningen.** Leddet $x(1-x)$ har $u_t = 0$ og $u_{xx} = -2$, så $2u_{xx} + 4 = 0 = u_t$. Oppfylt. Hvert rekkeledd har $u_t = -2n^2\\pi^2u = 2u_{xx}$. Oppfylt.\n\n**Kontroll — randen.** $x(1-x)$ er null i begge ender, og $\\sin 0 = \\sin n\\pi = 0$. Oppfylt.\n\n**Likevekt i midtpunktet.** Alle rekkeledd dør ut, så $u \\to w(x) = x(1-x)$, og\n\n$$w\\!\\left(\\tfrac12\\right) = \\tfrac14 = 0{,}25.$$\n\n**Rimelighetssjekk:** profilen buer oppover med maksimum på midten, som den skal når stanga varmes jevnt og bare kan kvitte seg med varmen gjennom endene.",
+        "hints": [
+          "Sett $u_t = 0$ og løs $2w'' + 4 = 0$ med de to randbetingelsene.",
+          "Sjekk at kildeleddet virkelig forsvinner når du setter $v = u - w$.",
+          "Del koeffisientintegralet i $\\int x\\sin$ og $\\int x^2\\sin$, og slå opp begge reduksjonsformlene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-5-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — Neumann med langtidsgrense.) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < 2, \\qquad u_x(0,t) = u_x(2,t) = 0, \\qquad u(x,0) = 5 + 3\\cos\\frac{\\pi x}{2},$$\n\nog bekreft grensen mot middelverdien av initialtemperaturen.",
+        "solution": "**Egenverdier.** Neumann-rand på $[0,2]$, altså $L = 2$:\n\n$$k_0 = 0,\\; F_0 = 1; \\qquad k_n = \\frac{n^2\\pi^2}{4},\\; F_n(x) = \\cos\\frac{n\\pi x}{2}.$$\n\n**Matching.** Initialdataene er konstanten 5 og moden $\\cos\\frac{\\pi x}{2}$, som er $n = 1$ (siden $L = 2$). Altså $A_0 = 5$, $A_1 = 3$, resten null. Med $k_1 = \\pi^2/4$:\n\n$$u(x,t) = 5 + 3\\cos\\frac{\\pi x}{2}\\,e^{-\\pi^2 t/4}.$$\n\n**Kontroll — likningen.** $u_t = -\\dfrac{3\\pi^2}{4}\\cos\\frac{\\pi x}{2}e^{-\\pi^2t/4}$ og $u_{xx} = -\\dfrac{3\\pi^2}{4}\\cos\\frac{\\pi x}{2}e^{-\\pi^2t/4}$. Like. Oppfylt.\n\n**Kontroll — randen.** $u_x = -\\dfrac{3\\pi}{2}\\sin\\frac{\\pi x}{2}e^{-\\pi^2t/4}$, som er null i $x = 0$ ($\\sin 0 = 0$) og i $x = 2$ ($\\sin\\pi = 0$). Begge oppfylt.\n\n**Kontroll — initialbetingelsen.** $u(x,0) = 5 + 3\\cos\\frac{\\pi x}{2}$. Oppfylt.\n\n**Grensen.** Eksponentialleddet dør ut, så $u \\to 5$.\n\n*Bekreftelse mot middelverdien:*\n\n$$\\frac{1}{2}\\int_0^2\\left(5 + 3\\cos\\frac{\\pi x}{2}\\right)dx = \\frac12\\left(10 + 3\\cdot\\left[\\frac{2}{\\pi}\\sin\\frac{\\pi x}{2}\\right]_0^2\\right) = \\frac12\\left(10 + \\frac{6}{\\pi}\\sin\\pi\\right) = 5.$$\n\nStemmer, som det må: isolerte ender bevarer middeltemperaturen.\n\n**Merk at $k = 0$-leddet er hele svaret på siste delpunkt.** Hopper du over $k = 0$-tilfellet i steg 4, mister du ikke bare et tilfelle — du mister også det leddet som avgjør langtidsoppførselen.",
+        "hints": [
+          "Neumann-rand gir cosinuser pluss et konstantledd.",
+          "Med $L = 2$: hvilken $n$ svarer $\\cos(\\pi x/2)$ til?",
+          "For grensen: hvilket ledd har $k_n = 0$ og dermed ingen demping?"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nNå har du sett alle de fire randtypene og begge reduksjonene. Neste bolk går over til bølge- og Laplace-likningen, der romproblemet er det samme og bare $G$-likningen er ny.",
+      "id": "tma4135-5-5-pause2"
+    },
+    {
+      "type": "text",
+      "content": "## Bolk 3 — Andre likninger, samme romproblem (~24 min)\n\nBølgeligningen og Laplace-likningen bruker nøyaktig samme $F$-analyse. Det er verdt å legge merke til, for det betyr at hele arbeidet fra bolk 1 og 2 kan gjenbrukes.",
+      "id": "tma4135-5-5-bolk3"
+    },
+    {
+      "id": "tma4135-5-5-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G og H — bølgeligningen på et intervall.) Løs\n\n$$u_{tt} = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = 0, \\qquad u_t(x,0) = \\sin x.$$\n\n**a)** Utled de to ODE-ene og finn egenverdiene.\n**b)** Finn løsningen.\n**c)** Angi perioden, og forklar hvorfor løsningen ikke dør ut.",
+        "solution": "**a)** Med $u = FG$ er $u_{tt} = FG''$ og $u_{xx} = F''G$, så $FG'' = F''G$:\n\n$$\\frac{G''}{G} = \\frac{F''}{F} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\qquad G'' + kG = 0.$$\n\nRandbetingelsene gir $F(0) = F(\\pi) = 0$, som er nøyaktig samme romproblem som i grunnvarianten. De tre tilfellene gir som før at bare $k > 0$ overlever ($k = 0$ gir en rett linje som er null i to punkter; $k < 0$ gir hyperbelfunksjoner som ikke kan bli null to ganger), og\n\n$$k_n = n^2, \\qquad F_n(x) = \\sin nx.$$\n\n**b)** Tidsfaktoren løser $G'' + n^2G = 0$, altså\n\n$$G_n(t) = a_n\\cos nt + b_n\\sin nt.$$\n\nSuperposisjon:\n\n$$u(x,t) = \\sum_{n=1}^{\\infty}\\sin(nx)\\left(a_n\\cos nt + b_n\\sin nt\\right).$$\n\n*Match $u(x,0) = 0$:* sett $t = 0$, da blir $\\sum a_n\\sin nx = 0$, altså alle $a_n = 0$.\n\n*Match $u_t(x,0) = \\sin x$:* deriver,\n\n$$u_t = \\sum\\sin(nx)\\left(-na_n\\sin nt + nb_n\\cos nt\\right),$$\n\nsom i $t = 0$ gir $\\sum n b_n\\sin nx = \\sin x$. Sammenlikn ledd for ledd: $1\\cdot b_1 = 1$, altså $b_1 = 1$, og alle andre null.\n\n**Svar:**\n\n$$u(x,t) = \\sin x\\,\\sin t.$$\n\n**Kontroll.** $u_{tt} = -\\sin x\\sin t$ og $u_{xx} = -\\sin x\\sin t$. Like. Oppfylt. Randen: $\\sin 0 = \\sin\\pi = 0$. Oppfylt. Initialdata: $u(x,0) = \\sin x\\cdot 0 = 0$, og $u_t = \\sin x\\cos t$ som i $t = 0$ gir $\\sin x$. Begge oppfylt.\n\n**c) Perioden.** Tidsfaktoren $\\sin t$ har vinkelfrekvens 1, altså periode $T = 2\\pi$.\n\n**Hvorfor den ikke dør ut:** $G$-likningen er $G'' + n^2G = 0$, en ren svingningslikning uten dempingsledd. Der varmelikningen ga en førsteordens likning $G' + c^2kG = 0$ med eksponentielt avtakende løsning, gir bølgeligningen en andreordens likning med rene cosinus- og sinusløsninger. **Ideelle bølger taper ikke energi.**\n\n**Merk faktoren $n$ i matchingen av $u_t$.** Da du deriverte, kom $n$ ned som faktor foran $b_n$. Glemmer du den, får du $b_1 = 1$ ved en tilfeldighet her (fordi $n = 1$), men feil svar for enhver annen mode. Skriv derivasjonen ut.",
+        "hints": [
+          "Romproblemet er identisk med varmetilfellet — bare $G$-likningen er ny.",
+          "To initialbetingelser gir to koeffisientsett: $a_n$ fra $u(x,0)$ og $b_n$ fra $u_t(x,0)$.",
+          "Når du deriverer $G_n$, kommer $n$ ned som faktor. Ta den med når du matcher."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-5-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G — Laplace-likningen på et rektangel.) Betrakt\n\n$$u_{xx} + u_{yy} = 0 \\quad\\text{på}\\quad 0 < x < 1,\\; 0 < y < 2,$$\n\nmed $u = 0$ på de tre sidene $x = 0$, $x = 1$ og $y = 0$, og $u(x,2) = \\sin(\\pi x)$ på den fjerde.\n\n**a)** Separer og finn egenverdiene fra $x$-retningen.\n**b)** Løs $y$-likningen, og bruk betingelsen i $y = 0$.\n**c)** Finn løsningen.",
+        "solution": "**a) Separasjon.** Sett $u = F(x)H(y)$. Da er $F''H + FH'' = 0$, altså\n\n$$\\frac{F''}{F} = -\\frac{H''}{H} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\qquad H'' - kH = 0.$$\n\n**Legg merke til fortegnet:** $H$-likningen får $-k$, ikke $+k$. Det er det som gjør at $H$ blir hyperbolsk i stedet for oscillerende.\n\nRandbetingelsene $u(0,y) = u(1,y) = 0$ gir $F(0) = F(1) = 0$, altså det vanlige romproblemet med $L = 1$. De tre tilfellene: $k = 0$ gir en rett linje som er null i to punkter, altså triviell; $k < 0$ gir $\\cosh$ og $\\sinh$, som heller ikke kan være null i to punkter; og $k = p^2 > 0$ gir $F = B\\sin px$ med $\\sin p = 0$, altså\n\n$$k_n = n^2\\pi^2, \\qquad F_n(x) = \\sin(n\\pi x).$$\n\n**b) $y$-likningen.** Med $k = k_n > 0$ er $H'' - n^2\\pi^2H = 0$, som er hyperbolsk:\n\n$$H_n(y) = a_n\\cosh(n\\pi y) + b_n\\sinh(n\\pi y).$$\n\nBetingelsen $u(x,0) = 0$ gir $H_n(0) = 0$, og siden $\\cosh 0 = 1$ og $\\sinh 0 = 0$ blir $a_n = 0$. Altså\n\n$$H_n(y) = b_n\\sinh(n\\pi y).$$\n\n**c) Løsningen.** Superposisjon:\n\n$$u(x,y) = \\sum_{n=1}^{\\infty}b_n\\sin(n\\pi x)\\sinh(n\\pi y).$$\n\nMatch den fjerde siden: $u(x,2) = \\sum b_n\\sin(n\\pi x)\\sinh(2n\\pi) = \\sin(\\pi x)$.\n\nHøyresiden er én egenfunksjon, $n = 1$ — **koeffisienten leses av**:\n\n$$b_1\\sinh(2\\pi) = 1 \\quad\\Longrightarrow\\quad b_1 = \\frac{1}{\\sinh 2\\pi}, \\qquad b_n = 0 \\text{ for } n \\ge 2.$$\n\n**Svar:**\n\n$$u(x,y) = \\frac{\\sin(\\pi x)\\,\\sinh(\\pi y)}{\\sinh(2\\pi)}.$$\n\nTallverdien $\\sinh 2\\pi \\approx 267{,}74$, så koeffisienten er omtrent $0{,}00373$.\n\n**Kontroll — likningen.**\n\n$$u_{xx} = -\\frac{\\pi^2\\sin(\\pi x)\\sinh(\\pi y)}{\\sinh 2\\pi}, \\qquad u_{yy} = +\\frac{\\pi^2\\sin(\\pi x)\\sinh(\\pi y)}{\\sinh 2\\pi}.$$\n\nSummen er null. Oppfylt. (Legg merke til fortegnsforskjellen: $\\sin'' = -\\sin$, mens $\\sinh'' = +\\sinh$ — det er nettopp det som får leddene til å kansellere.)\n\n**Kontroll — randen.** I $x = 0$ og $x = 1$: $\\sin 0 = \\sin\\pi = 0$. I $y = 0$: $\\sinh 0 = 0$. I $y = 2$: $\\dfrac{\\sin(\\pi x)\\sinh 2\\pi}{\\sinh 2\\pi} = \\sin(\\pi x)$. Alle fire oppfylt.\n\n**Det som er nytt her:** ingen tid i det hele tatt. Laplace-likningen beskriver en likevektstilstand, og de to romvariablene spiller nesten symmetriske roller — det er randbetingelsene som avgjør hvilken retning som får oscillasjon og hvilken som får hyperbelfunksjoner. **Regelen: retningen med to homogene randbetingelser blir den oscillerende.**",
+        "hints": [
+          "Separer med $F''/F = -k$; hvilket fortegn får da $H$-likningen?",
+          "Tre av de fire sidene er homogene. Hvilken retning har to homogene betingelser?",
+          "Bruk $\\sinh 0 = 0$ til å kvitte deg med $\\cosh$-leddet."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nSiste bolk er to fulle eksamensoppgaver med flere delpunkter. Ta dem på tid, med formelark ved siden av, og skriv fullstendig.",
+      "id": "tma4135-5-5-pause3"
+    },
+    {
+      "type": "text",
+      "content": "## Bolk 4 — To fulle oppgaver på eksamensnivå (~24 min)\n\nNå på tid. Sett av tolv minutter til hver, skriv fullstendig med begrunnelser og metodenavn, og åpne fasiten først etterpå.",
+      "id": "tma4135-5-5-bolk4"
+    },
+    {
+      "id": "tma4135-5-5-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o11",
+        "number": 11,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G — full oppgave, ~12 min, 12 poeng.) En stang på $0 \\le x \\le 1$ har venstre ende i isvann og høyre ende isolert:\n\n$$u_t = 4u_{xx}, \\qquad u(0,t) = 0, \\qquad u_x(1,t) = 0, \\qquad u(x,0) = 3\\sin\\frac{\\pi x}{2}.$$\n\n**a)** Sett $u = F(x)G(t)$ og utled de to ODE-ene. (3 poeng)\n**b)** Finn egenverdiene ved å behandle alle tre tilfellene. (5 poeng)\n**c)** Bestem løsningen, og kontroller den ved innsetting i likningen og i begge randbetingelsene. (4 poeng)",
+        "solution": "**a)** $u_t = FG'$ og $u_{xx} = F''G$, så $FG' = 4F''G$. Del på $4FG$:\n\n$$\\frac{G'}{4G} = \\frac{F''}{F} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\qquad G' + 4kG = 0.$$\n\nRandbetingelsene: $u(0,t) = F(0)G(t) = 0$ for alle $t$ med $G \\not\\equiv 0$ gir $F(0) = 0$; og $u_x(1,t) = F'(1)G(t) = 0$ gir $F'(1) = 0$.\n\n**b) De tre tilfellene.**\n\n*$k = 0$:* $F = Ax + B$, $F' = A$. Fra $F(0) = 0$: $B = 0$. Fra $F'(1) = 0$: $A = 0$. Triviell — forkastes.\n\n*$k < 0$, $k = -\\mu^2$:* $F = A\\cosh\\mu x + B\\sinh\\mu x$. Fra $F(0) = 0$: $A = 0$, så $F = B\\sinh\\mu x$ og $F' = B\\mu\\cosh\\mu x$. Fra $F'(1) = 0$: $B\\mu\\cosh\\mu = 0$, og siden $\\cosh\\mu \\ge 1$ og $\\mu > 0$ er $B = 0$. Triviell — forkastes.\n\n*$k > 0$, $k = p^2$:* $F = A\\cos px + B\\sin px$. Fra $F(0) = 0$: $A = 0$, så $F = B\\sin px$ og $F' = Bp\\cos px$. Fra $F'(1) = 0$: $Bp\\cos p = 0$ med $B \\ne 0$ og $p > 0$ krever $\\cos p = 0$, altså\n\n$$p_n = \\frac{(2n-1)\\pi}{2}, \\qquad n = 1,2,3,\\dots$$\n\n**Egenverdier og egenfunksjoner:**\n\n$$k_n = \\frac{(2n-1)^2\\pi^2}{4}, \\qquad F_n(x) = \\sin\\frac{(2n-1)\\pi x}{2}.$$\n\n**c) Løsningen.** Tidsfaktoren: $G_n = e^{-4k_nt} = e^{-(2n-1)^2\\pi^2t}$.\n\nInitialdataene $3\\sin\\frac{\\pi x}{2}$ er egenfunksjonen med $n = 1$, vekt 3 — koeffisienten leses av. Med $k_1 = \\pi^2/4$ og $4k_1 = \\pi^2$:\n\n$$\\boxed{u(x,t) = 3\\sin\\frac{\\pi x}{2}\\,e^{-\\pi^2 t}.}$$\n\n*Kontroll — likningen.*\n\n$$u_t = -3\\pi^2\\sin\\frac{\\pi x}{2}e^{-\\pi^2t}, \\qquad u_{xx} = -\\frac{3\\pi^2}{4}\\sin\\frac{\\pi x}{2}e^{-\\pi^2t} \\;\\Rightarrow\\; 4u_{xx} = -3\\pi^2\\sin\\frac{\\pi x}{2}e^{-\\pi^2t}.$$\n\nLike. Oppfylt.\n\n*Kontroll — randen.* $u(0,t) = 3\\sin 0\\cdot e^{-\\pi^2t} = 0$. Oppfylt.\n$u_x = \\dfrac{3\\pi}{2}\\cos\\dfrac{\\pi x}{2}e^{-\\pi^2t}$, som i $x = 1$ gir $\\cos\\dfrac{\\pi}{2} = 0$. Oppfylt.\n\n*Kontroll — initialbetingelsen.* $u(x,0) = 3\\sin\\frac{\\pi x}{2}$. Oppfylt.\n\n**Poengfordelingen forklart.** Delpunkt a) er tre mekaniske poeng. Delpunkt b) er fem, og de to «tomme» tilfellene er verdt omtrent to av dem. Delpunkt c) er fire: to for løsningen, to for kontrollen. **Legg merke til at kontrollen er eksplisitt etterspurt her — den er ikke pynt, den er poeng.**",
+        "hints": [
+          "Randbetingelsen i høyre ende er på $F'$ — deriver hver løsningsform før du setter inn.",
+          "Sluttlikningen blir $\\cos p = 0$, ikke $\\sin p = 0$.",
+          "Initialdataene er én egenfunksjon; sjekk hvilken $n$ ved å sammenlikne argumentene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-5-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-5-o12",
+        "number": 12,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G — full oppgave, ~12 min, 12 poeng.) Betrakt\n\n$$u_t = u_{xx}, \\qquad -2 < x < 2, \\qquad u(-2,t) = u(2,t) = 0.$$\n\n**a)** Forklar hvorfor egenverdiene bare avhenger av lengden på intervallet, og finn dem. (5 poeng)\n**b)** Skriv opp egenfunksjonene. (3 poeng)\n**c)** Bestem løsningen når $u(x,0) = 7\\sin\\!\\left(\\dfrac{\\pi(x+2)}{2}\\right)$, og kontroller den. (4 poeng)",
+        "solution": "**a)** Sett $s = x + 2$, slik at $-2 < x < 2$ blir $0 < s < 4$. Kjerneregelen gir $u_x = u_s$ og $u_{xx} = u_{ss}$, siden $ds/dx = 1$. Likningen er altså uendret: $u_t = u_{ss}$ på $0 < s < 4$ med $u = 0$ i begge ender.\n\nDet er standardproblemet med intervallengde $\\ell = 4$. Separasjonen $u = FG$ gir $F'' + kF = 0$ med $F(0) = F(4) = 0$, og de tre tilfellene:\n\n*$k = 0$:* $F = As + B$ er null i to punkter, altså null overalt. Triviell.\n*$k < 0$:* $F = A\\cosh\\mu s + B\\sinh\\mu s$; $F(0) = 0$ gir $A = 0$, og $F(4) = B\\sinh 4\\mu = 0$ med $\\sinh 4\\mu \\ne 0$ gir $B = 0$. Triviell.\n*$k > 0$, $k = p^2$:* $F = B\\sin ps$ med $\\sin 4p = 0$, altså $p_n = \\dfrac{n\\pi}{4}$.\n\n**Egenverdiene:**\n\n$$k_n = \\frac{n^2\\pi^2}{16}, \\qquad n = 1,2,3,\\dots$$\n\n**Hvorfor bare lengden teller:** en forskyvning $s = x - a$ endrer verken $u_{xx}$ eller $u_t$, siden den indre deriverte er 1. Randverdiproblemet er derfor det samme uansett hvor intervallet ligger — bare avstanden mellom endene betyr noe.\n\n**b)** I den forskjøvne variabelen er $F_n(s) = \\sin\\dfrac{n\\pi s}{4}$, altså tilbake i $x$:\n\n$$F_n(x) = \\sin\\frac{n\\pi(x+2)}{4}.$$\n\n**c)** Tidsfaktoren er $G_n = e^{-k_nt} = e^{-n^2\\pi^2t/16}$.\n\nInitialdataene er $7\\sin\\dfrac{\\pi(x+2)}{2}$. Skriv dem på formen $\\sin\\dfrac{n\\pi(x+2)}{4}$:\n\n$$\\frac{\\pi(x+2)}{2} = \\frac{2\\pi(x+2)}{4} \\quad\\Longrightarrow\\quad n = 2.$$\n\nAltså $B_2 = 7$, resten null. Med $k_2 = \\dfrac{4\\pi^2}{16} = \\dfrac{\\pi^2}{4}$:\n\n$$\\boxed{u(x,t) = 7\\sin\\frac{\\pi(x+2)}{2}\\,e^{-\\pi^2 t/4}.}$$\n\n*Kontroll — likningen.* Sett $\\theta = \\dfrac{\\pi(x+2)}{2}$, med $\\theta_x = \\dfrac{\\pi}{2}$.\n\n$$u_t = -\\frac{7\\pi^2}{4}\\sin\\theta\\,e^{-\\pi^2t/4}, \\qquad u_{xx} = -7\\left(\\frac{\\pi}{2}\\right)^2\\sin\\theta\\,e^{-\\pi^2t/4} = -\\frac{7\\pi^2}{4}\\sin\\theta\\,e^{-\\pi^2t/4}.$$\n\nLike. Oppfylt.\n\n*Kontroll — randen.* I $x = -2$: $\\sin 0 = 0$. I $x = 2$: $\\sin\\left(\\dfrac{4\\pi}{2}\\right) = \\sin 2\\pi = 0$. Begge oppfylt.\n\n*Kontroll — initialbetingelsen.* $u(x,0) = 7\\sin\\dfrac{\\pi(x+2)}{2}$. Oppfylt.\n\n**Den vanligste feilen i denne varianten** er å bruke $L = 2$ fordi det står 2 i randbetingelsene. Lengden er 4. Skriv ned $\\ell = b - a$ eksplisitt før du gjør noe annet.",
+        "hints": [
+          "Hva skjer med $u_{xx}$ hvis du forskyver $x$ med en konstant?",
+          "Intervallet fra $-2$ til 2 har lengde 4, ikke 2.",
+          "Skriv initialdataene på formen $\\sin\\frac{n\\pi(x+2)}{4}$ før du leser av $n$."
+        ]
+      }
+    },
+    {
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å hoppe over ett eller to av $k$-tilfellene.** Dette er fortsatt den dyreste enkeltfeilen i sjangeren, og den er ren poenggiverting: fasitene behandler alle tre hver gang, og du får uttelling for hvert — også for de som ender med «bare triviell løsning». Tre linjer per tilfelle.\n\n**Å bruke feil intervallengde.** På $[-2,2]$ er lengden 4. På $[1,4]$ er den 3. Skriv $\\ell = b - a$ på egen linje før du gjør noe annet, og bruk den i $k_n = (n\\pi/\\ell)^2$.\n\n**Å lese av $n$ feil.** Egenfunksjonene er $\\sin(n\\pi x/L)$. Står det $\\sin(\\pi x/2)$ på et intervall med $L = 4$, er det $n = 2$, ikke $n = 1$. Skriv alltid initialdataene på egenfunksjonsformen først.\n\n**Å putte $c^2$ inn i egenverdiene.** Konstanten foran $u_{xx}$ hører hjemme i tidsfaktoren $e^{-c^2k_nt}$, aldri i $k_n$. Egenverdiene avhenger bare av intervallengden og randtypen.\n\n**Å superponere før problemet er gjort homogent.** Er en randverdi ulik null, eller er det et kildeledd, skal du finne $w$ og sette $v = u - w$ **først**. Denne feilen ødelegger hele oppgaven, ikke bare ett delpunkt.\n\n**Å bruke sinus ved Neumann-rand.** Isolerte ender gir cosinuser *og* et konstantledd. Konstantleddet er dessuten hele svaret på «hva skjer når $t \\to \\infty$».\n\n**Å regne et koeffisientintegral som kunne vært lest av.** Sjekk alltid om initialdataene allerede er en egenfunksjonssum — og se etter en trigonometrisk identitet som avslører at de er det. Dette er den største tidsfella i den dyreste oppgaven på settet.\n\n**Å glemme faktoren $n$ når bølgeligningens $u_t(x,0)$ matches.** Derivasjonen av $\\cos(cn\\pi t/L)$ og $\\sin(cn\\pi t/L)$ trekker ned en faktor $cn\\pi/L$. Skriv derivasjonen ut.\n\n**Tidsfella.** Denne oppgaven er verdt 14–20 poeng og kan sluke førti minutter hvis du regner integraler du ikke trenger. Budsjetter tjue minutter, og gå videre til numerikk-blokken når de er brukt opp — der ligger det like mange poeng og de er raskere å hente.\n\n**Å la kontrollen ligge.** To til tre minutter på å sette løsningen inn i likningen, i begge randbetingelsene og i initialbetingelsen fanger nesten alle feil, og gir ofte uttelling i seg selv fordi delpunktet ber om det eksplisitt.",
+      "id": "tma4135-5-5-typiske-feil"
+    },
+    {
+      "id": "tma4135-5-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-5-5-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 5.1](/tma4135/tma4135-5-1) til [kap. 5.4](/tma4135/tma4135-5-4) og gjentas i oppskriften over.\n\n| Symbol | Betydning |\n|---|---|\n| $u(x,t)$ | Den ukjente løsningen |\n| $F(x)$, $G(t)$ | Rom- og tidsfaktor i separasjonsansatsen. **Merk:** $F(s)$ i Del 2 er Laplace-transformen |\n| $H(y)$ | Faktoren i den andre romretningen ved Laplace-likningen på et rektangel |\n| $k$ | Separasjonskonstanten, konvensjon $F''/F = -k$. Brukes bare i Del 5; formelarket bruker $k$ om tidssteget i differansemetoder |\n| $k_n$, $F_n$ | Den $n$-te egenverdien og egenfunksjonen |\n| $p$, $\\mu$ | Hjelpestørrelser: $k = p^2$ når $k > 0$, og $k = -\\mu^2$ når $k < 0$ |\n| $c^2$ | Konstanten foran $u_{xx}$: diffusivitet i varmelikningen, kvadratet av bølgefarten i bølgeligningen |\n| $L$, $\\ell$ | Intervallengden. **Merk:** i Del 3 er $L$ halvperioden, i Del 6 kontraksjonskonstanten |\n| $B_n$ | Koeffisienten foran mode $n$ ved Dirichlet-rand |\n| $A_0$, $A_n$ | Koeffisientene ved Neumann-rand |\n| $a_n$, $b_n$ | De to koeffisientene i bølgeligningens tidsfaktor |\n| $w(x)$ | Den stasjonære løsningen |\n| $v(x,t)$ | Den reduserte løsningen $u - w$ |\n| $\\alpha$ | Styrken på et konstant kildeledd |\n"
+        },
+        {
+          "id": "tma4135-5-5-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$\\frac{F''}{F} = \\frac{G'}{c^2G} = -k \\;\\Longrightarrow\\; F'' + kF = 0, \\quad G' + c^2kG = 0$$\nSeparasjonen for varmelikningen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{F''}{F} = \\frac{G''}{c^2G} = -k \\;\\Longrightarrow\\; F'' + kF = 0, \\quad G'' + c^2kG = 0$$\nSeparasjonen for bølgeligningen — samme $F$-likning, andreordens $G$-likning. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{F''}{F} = -\\frac{H''}{H} = -k \\;\\Longrightarrow\\; F'' + kF = 0, \\quad H'' - kH = 0$$\nSeparasjonen for Laplace-likningen — merk fortegnet i $H$-likningen, som gir hyperbelfunksjoner. *(Må kunnes eller utledes aktivt.)*\n\n$$k > 0: F = A\\cos px + B\\sin px \\quad\\big|\\quad k = 0: F = Ax+B \\quad\\big|\\quad k < 0: F = A\\cosh\\mu x + B\\sinh\\mu x$$\nDe tre tilfellene. Alle skal skrives ut, hver gang. *(Må kunnes eller utledes aktivt.)*\n\n$$F(0) = F(L) = 0 \\;\\Rightarrow\\; k_n = \\left(\\frac{n\\pi}{L}\\right)^2,\\; F_n = \\sin\\frac{n\\pi x}{L}$$\nDirichlet-rand. *(Må kunnes eller utledes aktivt.)*\n\n$$F'(0) = F'(L) = 0 \\;\\Rightarrow\\; k_0 = 0,\\,F_0 = 1;\\quad k_n = \\left(\\frac{n\\pi}{L}\\right)^2,\\; F_n = \\cos\\frac{n\\pi x}{L}$$\nNeumann-rand, med konstantleddet. *(Må kunnes eller utledes aktivt.)*\n\n$$F(0) = F'(L) = 0 \\;\\Rightarrow\\; k_n = \\left(\\frac{(2n-1)\\pi}{2L}\\right)^2,\\; F_n = \\sin\\frac{(2n-1)\\pi x}{2L}$$\nBlandet rand — bare odde multipler. *(Må kunnes eller utledes aktivt.)*\n\n$$G_n(t) = e^{-c^2k_nt} \\quad (\\text{varme}), \\qquad G_n(t) = a_n\\cos\\!\\left(c\\sqrt{k_n}t\\right) + b_n\\sin\\!\\left(c\\sqrt{k_n}t\\right) \\quad (\\text{bølge})$$\nTidsfaktorene. *(Må kunnes eller utledes aktivt.)*\n\n$$B_n = \\frac2L\\int_0^L f(x)\\sin\\frac{n\\pi x}{L}dx, \\qquad A_0 = \\frac1L\\int_0^L f\\,dx, \\qquad A_n = \\frac2L\\int_0^L f\\cos\\frac{n\\pi x}{L}dx$$\nKoeffisientene ved Dirichlet- og Neumann-rand. *(Må kunnes eller utledes aktivt — se [kap. 3.2](/tma4135/tma4135-3-2).)*\n\n$$w(x) = T_0 + \\frac{T_1-T_0}{L}x, \\qquad w(x) = \\frac{\\alpha}{2c^2}x(L-x)$$\nStasjonære løsninger ved faste randtemperaturer og ved konstant kildeledd. *(Må kunnes eller utledes aktivt.)*\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}, \\qquad \\int x^2\\sin ax\\,dx = -\\frac{x^2\\cos ax}{a}+\\frac{2x\\sin ax}{a^2}+\\frac{2\\cos ax}{a^3}$$\nReduksjonsformlene for koeffisientintegralene. *(Står på det utdelte formelarket — tren oppslaget, sett $a = n\\pi/L$.)*\n\n$$\\cos^2\\theta = \\tfrac12(1+\\cos2\\theta), \\qquad \\sin^2\\theta = \\tfrac12(1-\\cos2\\theta), \\qquad \\sin\\theta\\cos\\theta = \\tfrac12\\sin2\\theta$$\nIdentitetene som avslører en skjult egenfunksjon. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\sin n\\pi = 0, \\qquad \\cos n\\pi = (-1)^n, \\qquad \\cosh z \\ge 1, \\qquad \\sinh z = 0 \\Leftrightarrow z = 0$$\nDe fire faktaene som avgjør hvert eneste randverdiproblem. *(Må kunnes.)*\n\n**Kolliderende symboler:** $k$ er i hele Del 5 separasjonskonstanten; på det utdelte formelarket betyr $k$ tidssteget i differansemetoder, og boka skriver $\\Delta t$ der. $c$ er kvadratroten av diffusiviteten i varmelikningen og bølgefarten i bølgeligningen; $c_n$ i Del 3 er en kompleks Fourier-koeffisient. $F$ er romfaktoren her, mens $F(s)$ i Del 2 er Laplace-transformen. $L$ er intervallengden; i Del 3 er $L$ halvperioden, i Del 6 kontraksjonskonstanten. $a_n$ og $b_n$ er her koeffisientene i bølgeligningens tidsfaktor, mens de i Del 3 er Fourier-koeffisienter."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
