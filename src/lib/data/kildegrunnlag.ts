@@ -260,6 +260,38 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  tma4135: {
+    courseId: 'tma4135',
+    institusjon: 'Norges teknisk-naturvitenskapelige universitet (NTNU) — Institutt for matematiske fag',
+    sammendrag:
+      'Boka er kalibrert mot TMA4135s eksamensarkiv ved NTNU: 56 unike filer — 29 oppgavesett og 27 løsningsforslag — fordelt på to grupper. Settene fra 2015 til 2024 ligger under emnets egen kode; de eldre, fra 2003 til 2014, ligger under forgjengerkodene TMA4123, TMA4125 og TMA4130, fordi NTNUs Matematikk 4-serie har byttet emnekode flere ganger. Alle 56 er høst- eller kontinuasjonseksamener. Emnet har aldri hatt våreksamen. Frekvenspåstandene i boka bygger på de 13 settene analysen har gjennomgått i detalj.',
+    eksamenssett: [
+      {
+        tittel: '13 gjennomgåtte sett (H2015 – Kont2024)',
+        detalj:
+          'Fire timers skriftlig skoleeksamen, hjelpemiddelkode C: bestemt enkel kalkulator, ett gult stemplet A5-ark med egne håndskrevne notater, og et formelark som deles ut sammen med oppgavesettet. Disse tretten er frekvensnevneren: står det «N av 13 sett», er det disse. Ordinær eksamen for høsten 2026 er 4. januar 2027.',
+      },
+      {
+        tittel: 'Eldre sett (2003 – 2014) under forgjengerkodene',
+        detalj:
+          'Rundt 30 filer med TMA4135 i filnavnet ligger arkivert under TMA4123, TMA4125 og TMA4130. De er lest for å bekrefte at oppgavetradisjonen er gammel og stabil, men inngår IKKE i frekvenstallene: de er ikke gjennomgått i detalj, og pensum har drevet over tjue år.',
+      },
+    ],
+    sensorveiledninger: [],
+    andreKilder: [
+      {
+        tittel: 'NTNUs emnebeskrivelse for TMA4135',
+        detalj:
+          'Brukt til å fastslå semester, hjelpemiddelkode og eksamensdato, og til målgruppeavklaringen i kapittel 0.1.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har INGEN sensorveiledninger. De 27 løsningsforslagene er skrevet av faglærer, ikke av sensorkollegiet, og er opphavsrettslig vernet. De er brukt som fasitkilde for å fastslå hva som faktisk gir uttelling, men ingen del av dem er gjengitt — alle oppgaver, eksempler og modellbesvarelser i boka er nyskrevne.',
+      'NTNU tilbyr samtidig TMA4432 Matematikk 4C, nytt fra studieåret 2026/2027, med hjelpemiddelkode D og ingen trykte eller håndskrevne hjelpemidler. Det emnet har ikke Laplace-transform, og har i stedet singulærverdidekomposisjon, splines og Bézier-kurver. Denne boka er ikke skrevet for det — kapittel 0.1 åpner med en sorteringsboks som lar leseren sjekke hvilket emne hun har.',
+      'Diskret Fourier-transform har tynt belegg: temaet forekommer i 2 av de 13 gjennomgåtte settene, begge kontinuasjonssett. Boka sier det tre steder framfor å presentere det som en gjenganger.',
+    ],
+    analysedato: 'juli 2026',
+  },
   in2010: {
     courseId: 'in2010',
     institusjon: 'Universitetet i Oslo (UiO) — Institutt for informatikk',
