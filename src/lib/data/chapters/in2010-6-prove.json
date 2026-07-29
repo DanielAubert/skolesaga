@@ -1,0 +1,272 @@
+{
+  "id": "in2010-6-prove",
+  "courseId": "in2010",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Korteste vei, spenntrær og grådighet",
+  "description": "Fire prøver med full fasit: korteste-avstander-matrisen og kjøretidene, topologisk sortering med sykeldeteksjon, MST-modellering og reversert Dijkstra, og Huffman-håndkjøring.",
+  "estimatedMinutes": 110,
+  "competenceGoals": [
+    "kunne velge riktig grafalgoritme ut fra oppgavetekstens signalord og oppgi kjøretiden",
+    "kunne håndkjøre Dijkstra, Prim, Kruskal, Kahn og Huffman feilfritt og oppgi sluttilstanden",
+    "kunne skrive en Del 2-besvarelse i de fire leddene sensor krever",
+    "kunne regne ut hva en antigjettings-skalering krever av sikre svar"
+  ],
+  "content": [
+    {
+      "id": "in2010-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til del 6",
+      "content": "**4 prøver à ~28 min** (25 + 30 + 30 + 25 minutter, 110 minutter i alt). Prøvene\ndekker hele Del 6 — korteste-vei-matrisen, topologisk sortering, minimale\nspenntrær, reversert Dijkstra og Huffman-koding. Alle oppgaver er nyskrevne og satt\ni eksamens sjangre, og løsningsforslagene viser formen sensor forventer, med\npoengfordeling per delmoment.\n\n- **Prøve 6.A (25 min):** Korteste-avstander-matrisen og kjøretid per\n  grafalgoritme (sjanger F — matriseavkryssing, altså at du kobler egenskap til\n  algoritme). Dekker [kap. 6.2](/in2010/in2010-6-2) og\n  [kap. 6.5](/in2010/in2010-6-5). Her ligger **fem flervalgsspørsmål inline i\n  prøven**, med bokstavsvar i fasiten.\n- **Prøve 6.B (30 min):** Topologisk sortering og sykeldeteksjon i pseudokode\n  (sjanger H — grafalgoritme i pseudokode). Dekker\n  [kap. 6.1](/in2010/in2010-6-1).\n- **Prøve 6.C (30 min):** MST-modellering og reversert Dijkstra, velg lavest\n  kjøretid (sjanger H). Dekker [kap. 6.2](/in2010/in2010-6-2) og\n  [kap. 6.3](/in2010/in2010-6-3).\n- **Prøve 6.D (25 min):** Huffman-kodelengder og MST-gjenkjenning (sjanger E —\n  håndkjøring, og F). Dekker [kap. 6.3](/in2010/in2010-6-3) og\n  [kap. 6.4](/in2010/in2010-6-4).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og uten oppslag. Eksamen er\nen firetimers digital skoleeksamen i Inspera — UiOs digitale eksamenssystem —\n**uten hjelpemidler**. Du skriver alt, også pseudokode, rett inn i Inspera, og du\nfår ikke slå opp en eneste kjøretid. Å håndkjøre Prim på papir og skrive Dijkstra\nfra hukommelsen er ferdigheter som bare øves på én måte.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** De fem\nflervalgsspørsmålene står **inline i prøve 6.A**; den interaktive quizen til\nkapitlene 6.1 til 6.5 er den store flervalgsbanken, og den tas separat.\n\nÅpne fasiten først når du er ferdig, og bruk selvdiagnose-lista nederst i hver\nprøve. Husk at C er en god og vanlig karakter — målet er ikke plettfrie tavler,\nmen å levere alle delmomentene: problemet navngitt, antagelsene oppgitt,\nalgoritmen, og kjøretiden som matcher."
+    },
+    {
+      "id": "in2010-6-prove-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 6: [kap. 6.1](/in2010/in2010-6-1) om topologisk\nsortering og sykeldeteksjon; [kap. 6.2](/in2010/in2010-6-2) om\nkorteste-vei-matrisen, Dijkstra og reversert Dijkstra;\n[kap. 6.3](/in2010/in2010-6-3) om minimale spenntrær med Prim og Kruskal;\n[kap. 6.4](/in2010/in2010-6-4) om Huffman-koding; og drillen i\n[kap. 6.5](/in2010/in2010-6-5).\n\nFra tidligere deler trengs $O$-notasjonen ([kap. 1.1](/in2010/in2010-1-1)),\nløkketellingen ([kap. 1.2](/in2010/in2010-1-2)), min-heapen som prioritetskø\n([kap. 4.4](/in2010/in2010-4-4)) og BFS/DFS\n([kap. 5.2](/in2010/in2010-5-2))."
+    },
+    {
+      "id": "in2010-6-prove-coll-A",
+      "type": "collapsible",
+      "title": "Prøve 6.A — Korteste-avstander-matrisen og kjøretider (25 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in2010-6-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 6.A — korteste-avstander-matrisen og kjøretider (25 minutter).** Tre\noppgaver, alle sjanger F. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller 6 p, oppgave 2 teller 6 p, oppgave 3 teller\n8 p — 20 poeng i alt.\n\nOppgave 3 er en flervalgsblokk. Der gjelder ingen antigjettings-skalering, så\n**svar på alle fem** — ubesvart teller som feil."
+        },
+        {
+          "id": "in2010-6-prove-A-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-A-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F — matriseavkryssing, altså at du kobler graftype til algoritme.) For\nhver graftype: oppgi den **raskeste korrekte** algoritmen for korteste vei fra én\nkilde, og dens kjøretid.\n\n**a)** Et uvektet vennskapsnettverk.\n**b)** En vektet produksjonskjede uten sykler, der noen kanter har negativ vekt.\n**c)** Et veinett med positive kjøretider og rundkjøringer.\n**d)** Et valutanett der noen overføringer gir gevinst, men ingen rundtur gir\nnetto gevinst.",
+            "solution": "**a)** **Bredde-først-søk**, $O(|V| + |E|)$. Uten vekter er korteste vei det samme\nsom færrest kanter.\n\n**b)** **Topologisk sortering og én gjennomgang**, $O(|V| + |E|)$. Grafen er en\nDAG, og metoden tåler negative vekter. Bellman-Ford ville også vært korrekt, men\nkoster $O(|V| \\cdot |E|)$ — langt mer.\n\n**c)** **Dijkstra med prioritetskø**, $O((|V| + |E|)\\log |V|)$. Alle vekter er\npositive, men rundkjøringene betyr sykler, som utelukker DAG-metoden.\n\n**d)** **Bellman-Ford**, $O(|V| \\cdot |E|)$. «Ingen rundtur gir netto gevinst» er\nnøyaktig formuleringen «ingen negativ sykel», som er Bellman-Fords forutsetning.\nDe negative kantene utelukker Dijkstra.\n\n**Poengfordeling (6 p):** 1 p per rad for riktig algoritme, 0,5 p per rad for\nriktig kjøretid.\n\n**Fella som testes:** i deloppgave d) fristes mange til Dijkstra fordi «det finnes\ningen negativ sykel». Det er **Bellman-Fords** krav. Dijkstra krever at ingen\n**enkeltkant** er negativ.",
+            "hints": [
+              "Still to spørsmål om hver graf: har den vekter, og er den asyklisk?",
+              "Radene i matrisen står fra raskest til tregest. Velg den øverste som passer."
+            ]
+          }
+        },
+        {
+          "id": "in2010-6-prove-A-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-A-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F.) Fyll inn kjøretiden for hver algoritme. Anta binær prioritetskø der\ndet er relevant, og at $|V|$ er antall noder og $|E|$ antall kanter.\n\n**a)** Kahns topologiske sortering\n**b)** Dijkstras algoritme\n**c)** Kruskals algoritme\n**d)** Bellman-Ford\n**e)** Huffmans algoritme på $n$ symboler\n**f)** Dybde-først-søk fra **én** node",
+            "solution": "**a)** $O(|V| + |E|)$ — hver node tas ut av køen én gang, hver kant behandles én\ngang.\n\n**b)** $O((|V| + |E|)\\log |V|)$ — $|V|$ uttak og opptil $|E|$ `DecreaseKey`, hver\n$O(\\log |V|)$.\n\n**c)** $O(|E| \\log |E|)$ — sorteringen av kantene dominerer.\n\n**d)** $O(|V| \\cdot |E|)$ — alle kanter relakseres i hver av $|V| - 1$ runder.\n\n**e)** $O(n \\log n)$ — $n$ innsettinger og $n - 1$ sammenslåinger, hver\n$O(\\log n)$.\n\n**f)** $O(|E|)$ — **ikke** $O(|V| + |E|)$. Fra én node besøkes bare kantene i den\nkomponenten søket når. Det er DFS-**full**, som starter på nytt fra hver ubesøkte\nnode, som er $O(|V| + |E|)$.\n\n**Poengfordeling (6 p):** 1 p per rad.\n\n**Fella som testes** ligger i f): å blande DFS fra én node med DFS-full er felle\n**#6** i bokas feilregister, og det trekkes eksplisitt for den.",
+            "hints": [
+              "Tre av radene er lineære, to har en logaritmefaktor, og én er et produkt.",
+              "Deloppgave f) sier «fra én node». Er det det samme som en full traversering?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-6-prove-A-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-A-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F, flervalg.) Kryss av for **ett** riktig alternativ per spørsmål.\n\n**1.** Hvilken algoritme finner **ikke** et minimalt spenntre?\na) Prim\nb) Kruskal\nc) Dijkstra\nd) Borůvka\n\n**2.** Hva er Prims kjøretid på en **komplett** graf?\na) $O(|V| \\log |V|)$\nb) $O(|V|^2)$\nc) $O(|V|^3)$\nd) $O(|V|^2 \\log |V|)$\n\n**3.** Hvor mange kanter har et spenntre over $|V|$ noder?\na) $|V|$\nb) $|V| - 1$\nc) $|V| + 1$\nd) $2|V|$\n\n**4.** Kahns algoritme prosesserer 5 av 8 noder. Hva betyr det?\na) Grafen er usammenhengende\nb) Tre noder har utgrad 0\nc) Rekkefølgen må startes på nytt\nd) Grafen har en sykel\n\n**5.** Hva er relaksering av kanten fra $u$ til $v$?\na) Å senke `avstand[v]` hvis veien via `u` er kortere\nb) Å fjerne kanten fra grafen\nc) Å legge `v` inn i prioritetskøen\nd) Å snu kantens retning",
+            "solution": "**Fasit: 1c, 2d, 3b, 4d, 5a.**\n\n**1. c) Dijkstra.** Den minimerer avstanden fra én bestemt node til alle andre,\nikke summen av kantene i nettet. Prim, Kruskal og Borůvka er alle\nMST-algoritmer.\n\n**2. d) $O(|V|^2 \\log |V|)$.** En komplett graf har $|E| = |V|(|V|-1)/2$, altså\n$O(|V|^2)$ kanter, satt inn i $O((|V| + |E|)\\log |V|)$.\n\n**3. b) $|V| - 1$.** Flere gir en sykel, færre gjør at noe henger løst.\n\n**4. d) Grafen har en sykel.** Noder blir liggende igjen bare hvis inngraden aldri\nnår null. At grafen er usammenhengende, er ikke noe problem for Kahn — alle\nkildenoder legges i køen fra starten.\n\n**5. a) Å senke `avstand[v]` hvis veien via `u` er kortere.** Dette er\ngrunnoperasjonen i alle fire korteste-vei-algoritmene; de skiller seg bare i\nrekkefølgen kantene relakseres i.\n\n**Poengfordeling (8 p):** 1,5 p per riktig svar, avrundet opp til 8 p ved alle\nfem riktige. Ingen antigjettings-skalering på denne blokken, så ubesvart teller\nsom feil — svar alltid.\n\n**Merk fasitmønsteret:** c, d, b, d, a. Bokstavene er stokket med vilje. På en ekte\nDel 1-blokk er det ingen sammenheng mellom svarene, og en kandidat som «ser et\nmønster», ser noe som ikke er der.\n\n**Selvdiagnose etter prøve 6.A**\n\n☐ Stilte du de to spørsmålene — vekter? asyklisk? — før du valgte rad i matrisen?\n\n☐ Oppga du **både** algoritme og kjøretid i hver rad?\n\n☐ Skiller du DFS fra én node ($O(|E|)$) fra DFS-full ($O(|V| + |E|)$)?\n\n☐ Husker du at Dijkstras krav er «ingen negativ **kant**», ikke «ingen negativ\nsykel»?\n\n☐ Svarte du på alle fem flervalgene, også de du var usikker på?",
+            "hints": [
+              "Spørsmål 1: hvilken av de fire minimerer noe annet enn summen av kantene?",
+              "Spørsmål 4: hva er den eneste grunnen til at en node aldri når inngrad 0?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-6-prove-coll-B",
+      "type": "collapsible",
+      "title": "Prøve 6.B — Topologisk sortering og sykeldeteksjon (30 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in2010-6-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 6.B — topologisk sortering og sykeldeteksjon (30 minutter).** Tre\noppgaver, sjanger H. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller 8 p, oppgave 2 teller 7 p, oppgave 3 teller\n9 p — 24 poeng i alt.\n\nHusk formen sensor krever på sjanger H: problemet navngitt, antagelser om\nrepresentasjon, algoritmen, og kjøretid som matcher."
+        },
+        {
+          "id": "in2010-6-prove-B-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-B-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger H — grafalgoritme i pseudokode.) Sju arbeidsoppgaver har avhengighetene\n`A -> B`, `A -> D`, `B -> C`, `D -> C`, `C -> E`, `D -> F`, `E -> G`, `F -> G`.\n\n**a)** Sett opp inngradstabellen og kontrollér den mot antall kanter.\n**b)** Håndkjør Kahns algoritme og oppgi rekkefølgen. Bruk alfabetisk rekkefølge i\nkøen.\n**c)** Er rekkefølgen entydig? Begrunn svaret.",
+            "solution": "**a)** `A=0, B=1, C=2, D=1, E=1, F=1, G=2`. Summen er 8, og grafen har 8 kanter.\nStemmer.\n\n**b)**\n\n| Steg | Plukket | Naboers inngrad senkes | Inngrader etter | Kø etter | Rekkefølge så langt |\n|---|---|---|---|---|---|\n| 1 | A | `B: 1 -> 0`, `D: 1 -> 0` | `A=0, B=0, C=2, D=0, E=1, F=1, G=2` | `B, D` | `A` |\n| 2 | B | `C: 2 -> 1` | `A=0, B=0, C=1, D=0, E=1, F=1, G=2` | `D` | `A, B` |\n| 3 | D | `C: 1 -> 0`, `F: 1 -> 0` | `A=0, B=0, C=0, D=0, E=1, F=0, G=2` | `C, F` | `A, B, D` |\n| 4 | C | `E: 1 -> 0` | `A=0, B=0, C=0, D=0, E=0, F=0, G=2` | `E, F` | `A, B, D, C` |\n| 5 | E | `G: 2 -> 1` | `A=0, B=0, C=0, D=0, E=0, F=0, G=1` | `F` | `A, B, D, C, E` |\n| 6 | F | `G: 1 -> 0` | `A=0, B=0, C=0, D=0, E=0, F=0, G=0` | `G` | `A, B, D, C, E, F` |\n| 7 | G | ingen | `A=0, B=0, C=0, D=0, E=0, F=0, G=0` | `tom` | `A, B, D, C, E, F, G` |\n\n**Sluttilstand: `A, B, D, C, E, F, G`**\n\nAlle sju nodene ble prosessert, så grafen er en DAG.\n\n**c)** Nei. I steg 1 lå både $B$ og $D$ i køen samtidig, og i steg 3 lå både $C$ og\n$F$ der. Hver gang køen inneholder mer enn én node, finnes det et fritt valg, og\ndermed minst to lovlige rekkefølger.\n\nFor eksempel er `A, D, B, C, F, E, G` også lovlig — kontrollér selv at alle åtte\nkantene peker framover i den.\n\n**Poengfordeling (8 p):** 1 p for inngradstabellen med kontroll, 4 p for sporingen\nmed delvis uttelling per rad, 1 p for sluttrekkefølgen, 2 p for\nentydighetsvurderingen med begrunnelse.\n\n**Fella som testes:** å tro at det finnes én «fasit-rekkefølge». Sensor sjekker at\nalle kantene peker framover, ikke at du traff en bestemt rekkefølge.",
+            "hints": [
+              "Tell pilspissene inn til hver node, og kontrollér at summen er antall kanter.",
+              "Del c): hvor mange noder lå i køen samtidig underveis?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-6-prove-B-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-B-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger H.) Seks prosesser har avhengighetene `A -> B`, `B -> C`, `C -> D`,\n`D -> E`, `E -> C`, `A -> F`.\n\n**a)** Håndkjør Kahns algoritme og oppgi hva den svarer.\n**b)** Hvilke noder ble liggende igjen, og hvilken sykel utgjør de?\n**c)** Hvor mange kanter må fjernes for at en rekkefølge skal bli mulig, og\nhvilke valg har du?",
+            "solution": "**a)** Inngradene er `A=0, B=1, C=2, D=1, E=1, F=1`. Summen er 6, og grafen har 6\nkanter.\n\n| Steg | Plukket | Naboers inngrad senkes | Inngrader etter | Kø etter | Rekkefølge så langt |\n|---|---|---|---|---|---|\n| 1 | A | `B: 1 -> 0`, `F: 1 -> 0` | `A=0, B=0, C=2, D=1, E=1, F=0` | `B, F` | `A` |\n| 2 | B | `C: 2 -> 1` | `A=0, B=0, C=1, D=1, E=1, F=0` | `F` | `A, B` |\n| 3 | F | ingen | `A=0, B=0, C=1, D=1, E=1, F=0` | `tom` | `A, B, F` |\n\nAlgoritmen prosesserte 3 noder av 6. Svaret er **«syklisk»** — ingen topologisk\nrekkefølge finnes.\n\n**b)** $C$, $D$ og $E$ ble liggende igjen, med inngradene\n`C=1, D=1, E=1` da køen gikk tom. De utgjør sykelen `C -> D -> E -> C`.\n\n**c)** Én kant holder. Du kan fjerne hvilken som helst av de tre kantene i sykelen:\n`C -> D`, `D -> E` eller `E -> C`.\n\nFjerner du `E -> C`, blir inngradene `A=0, B=1, C=1, D=1, E=1, F=1`, og Kahn gir\nrekkefølgen `A, B, C, D, E, F`. Kontrollér at alle fem gjenværende kanter peker\nframover.\n\n**Poengfordeling (7 p):** 3 p for sporingen, 1 p for å melde «syklisk», 2 p for å\nidentifisere sykelen, 1 p for reparasjonen.\n\n**Fella som testes:** å levere `A, B, F` som svar. Det er ikke en topologisk\nrekkefølge av grafen — det er tre noder av seks. Algoritmen **skal melde fra**, og\nen besvarelse uten den sammenligningen mister et helt delmoment.",
+            "hints": [
+              "Sammenlign antall prosesserte noder med $|V|$ når køen går tom.",
+              "Nodene som blir liggende igjen, forteller deg nøyaktig hvor sykelen er."
+            ]
+          }
+        },
+        {
+          "id": "in2010-6-prove-B-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-B-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger H, krevende.) Skriv en algoritme som tar en rettet graf $G$ og en node\n$t$, og returnerer **antall noder som må behandles før $t$** — direkte eller\nindirekte.\n\n**a)** Navngi problemet og oppgi antagelser om representasjon.\n**b)** Skriv algoritmen i pseudokode.\n**c)** Oppgi kjøretiden, og si hva en naiv løsning ville kostet.",
+            "solution": "**a) Problemet navngitt.** Dette er «hvem kan nå $t$» — reachability, altså hvem\nsom kan nås fra hvem, lest baklengs. Nøkkelobservasjonen er at «hvem når $t$ i\n$G$» er det samme som «hvem nås fra $t$ i den reverserte grafen $G^R$».\n\n**Antagelser om representasjon:** $G = (V, E)$ er gitt som nabolister, slik at\n`G.naboer(v)` gir alle noder med en kant fra `v`. Vi kan bygge $G^R$ ved én\ngjennomgang av alle nabolistene. Hver node har et felt `v.besokt`.\n\n**b)**\n\n```text\nProcedure AntallForutsetninger(G, t)\n  Input:  rettet graf G = (V, E) som nabolister, en node t\n  Output: antall noder som har en sti til t\n  bygg G_R = G med alle kanter snudd\n  for hver v i V:\n      v.besokt = usant\n  DFSVisit(G_R, t)\n  antall = 0\n  for hver v i V:\n      if v.besokt:\n          antall = antall + 1\n  return antall - 1          // t selv teller ikke med\n\nProcedure DFSVisit(G, v)\n  Input:  graf G som nabolister, node v\n  Output: alle noder naabare fra v er merket besokt\n  v.besokt = sant\n  for hver w i G.naboer(v):\n      if w.besokt er usant:\n          DFSVisit(G, w)\n```\n\n**c) Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall noder og $|E|$ antall kanter.\nÅ snu grafen koster én gjennomgang av alle nabolistene; traverseringen besøker hver\nnode og hver kant én gang; opptellingen er $O(|V|)$. Tre lineære pass etter\nhverandre er fortsatt lineært.\n\n**Den naive løsningen** kjører en traversering fra **hver** node og sjekker om den\nnår $t$: $O(|V| \\cdot (|V| + |E|))$. Det er felle **#1** — full gjennomgang der ett\ngrep holdt — og forskjellen er øverste mot nederste trinn i poengtrappen.\n\n**Poengfordeling (9 p):** 3 p for å se reverseringen (hovedmomentet, gir mest),\n1 p for antagelsene, 3 p for pseudokoden, 1 p for kjøretiden, 1 p for\nsammenligningen med den naive løsningen.\n\n**Merk at en klar forklaring i naturlig språk gir like mye som pseudokoden.** «Snu\nalle kantene, gjør én dybde-først-traversering fra $t$, og tell hvor mange noder\nden nådde, minus $t$ selv» er et fullgodt svar — kravet er entydighet, ikke\nsyntaks.\n\n**Selvdiagnose etter prøve 6.B**\n\n☐ Kontrollerte du inngradstabellen mot antall kanter?\n\n☐ Sammenlignet du antall prosesserte noder med $|V|$, og meldte fra om sykel?\n\n☐ Oppga du antagelser om representasjon i pseudokodeoppgaven?\n\n☐ Matcher kjøretiden du skrev, algoritmen du faktisk ga?\n\n☐ Definerte du hva $|V|$ og $|E|$ står for?",
+            "hints": [
+              "Spørsmålet «hvem når $t$» er det samme som «hvem nås fra $t$» i grafen med alle piler snudd.",
+              "Hvor mange traverseringer trenger du egentlig — én, eller én per node?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-6-prove-coll-C",
+      "type": "collapsible",
+      "title": "Prøve 6.C — MST-modellering og reversert Dijkstra (30 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in2010-6-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 6.C — MST-modellering og reversert Dijkstra (30 minutter).** Tre oppgaver,\nsjanger H. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller 8 p, oppgave 2 teller 9 p, oppgave 3 teller\n8 p — 25 poeng i alt.\n\nDette er prøven som ligger nærmest det som avgjør karakteren på Del 2: velg\n**lavest mulig** kjøretid, og begrunn valget."
+        },
+        {
+          "id": "in2010-6-prove-C-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-C-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger E — håndkjøring, altså at du utfører algoritmen steg for steg og oppgir\nsluttilstanden.) En rettet vektet graf har kantene `A -> B` 2, `A -> C` 5,\n`B -> C` 1, `B -> D` 7, `C -> D` 3, `C -> E` 8, `D -> E` 2, `D -> F` 4,\n`E -> F` 6.\n\n**a)** Kjør Dijkstra fra $A$ og oppgi hele avstandstabellen.\n**b)** Hvilken vei går korteste rute til $F$?\n**c)** Én av kantene i grafen inngår ikke i noen korteste vei fra $A$. Finn den, og\nforklar hvorfor.",
+            "solution": "**a)**\n\n| Steg | Ferdig (tatt ut av køen) | Relakserte kanter | avstand-tabell etter | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|\n| 1 | A (avstand 0) | `B: ∞ -> 2`, `C: ∞ -> 5` | `A=0, B=2, C=5, D=∞, E=∞, F=∞` | `(2, B), (∞, F), (5, C), (∞, D), (∞, E)` |\n| 2 | B (avstand 2) | `C: 5 -> 3`, `D: ∞ -> 9` | `A=0, B=2, C=3, D=9, E=∞, F=∞` | `(3, C), (9, D), (∞, E), (∞, F)` |\n| 3 | C (avstand 3) | `D: 9 -> 6`, `E: ∞ -> 11` | `A=0, B=2, C=3, D=6, E=11, F=∞` | `(6, D), (∞, F), (11, E)` |\n| 4 | D (avstand 6) | `E: 11 -> 8`, `F: ∞ -> 10` | `A=0, B=2, C=3, D=6, E=8, F=10` | `(8, E), (10, F)` |\n| 5 | E (avstand 8) | ingen | `A=0, B=2, C=3, D=6, E=8, F=10` | `(10, F)` |\n| 6 | F (avstand 10) | ingen | `A=0, B=2, C=3, D=6, E=8, F=10` | `tom` |\n\n**Sluttilstand: `A=0, B=2, C=3, D=6, E=8, F=10`**\n\n**b)** Forgjengerne er $F$ fra $D$, $D$ fra $C$, $C$ fra $B$, $B$ fra $A$. Ruten er\n`A -> B -> C -> D -> F`, med kostnad $2 + 1 + 3 + 4 = 10$. Stemmer med tabellen.\n\n**c)** Flere kanter er ubrukt, men den tydeligste er `C -> E` (8): den ville gitt\n$E$ avstanden $3 + 8 = 11$, mens veien via $D$ gir $6 + 2 = 8$. Også `A -> C` (5),\n`B -> D` (7) og `E -> F` (6) er ubrukt — `E -> F` ville gitt $F$ avstanden\n$8 + 6 = 14$ mot 10 via $D$.\n\n**Poengfordeling (8 p):** 5 p for sporingen med delvis uttelling per rad, 1 p for\nsluttilstanden, 1 p for ruten, 1 p for den ubrukte kanten med begrunnelse.\n\n**Kontrollen:** avstandene på nodene som tas ut, er 0, 2, 3, 6, 8, 10 — stigende\nhele veien, som de skal i en Dijkstra-kjøring uten negative kanter.\n\n**Fella som testes:** å avslutte når $F$ blir *oppdaget* i steg 4 (verdien 10) i\nstedet for når den blir *tatt ut* i steg 6. Her ble verdien tilfeldigvis ikke\nendret etterpå, men det kunne den blitt — sensor ber om tabellen ved\nterminering.",
+            "hints": [
+              "Sett alle avstander til $\\infty$ bortsett fra $A$, og ta ut den minste hver gang.",
+              "Del c): regn ut hva hver ubrukt kant ville gitt, og sammenlign med tabellen."
+            ]
+          }
+        },
+        {
+          "id": "in2010-6-prove-C-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-C-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger H.) Tre reservelagre $P$, $Q$ og $R$ leverer til ett verksted $T$.\nVeinettet er enveiskjørt med kjøretider: `P -> X` 6, `Q -> X` 3, `Q -> Y` 1,\n`R -> Y` 5, `X -> T` 2, `Y -> T` 7.\n\n**a)** Navngi problemet, og forklar hvorfor **én** algoritmekjøring holder.\n**b)** Kjør algoritmen og oppgi resultatet.\n**c)** Hvilket lager er nærmest, og hva koster den naive løsningen til\nsammenligning?",
+            "solution": "**a) Problemet navngitt:** korteste vei med **flere mulige startnoder og ett mål**.\n\nAvstanden fra $p$ til $T$ i $G$ er nøyaktig den samme som avstanden fra $T$ til $p$\ni den **reverserte** grafen $G^R$ — det er den samme veien, lest baklengs. Derfor\nholder det med én Dijkstra-kjøring fra $T$ i $G^R$, og du får avstanden til alle\ntre lagrene på én gang.\n\n**Antagelser om representasjon:** $G = (V, E)$ som nabolister med ikke-negative\nkjøretider; $G^R$ bygges ved én gjennomgang av alle nabolistene,\n$O(|V| + |E|)$.\n\n**b)** Den reverserte grafen har kantene `T -> X` 2, `T -> Y` 7, `X -> P` 6,\n`X -> Q` 3, `Y -> Q` 1, `Y -> R` 5.\n\n| Steg | Ferdig (tatt ut av køen) | Relakserte kanter | avstand-tabell etter | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|\n| 1 | T (avstand 0) | `X: ∞ -> 2`, `Y: ∞ -> 7` | `P=∞, Q=∞, R=∞, T=0, X=2, Y=7` | `(2, X), (7, Y), (∞, R), (∞, Q), (∞, P)` |\n| 2 | X (avstand 2) | `P: ∞ -> 8`, `Q: ∞ -> 5` | `P=8, Q=5, R=∞, T=0, X=2, Y=7` | `(5, Q), (7, Y), (∞, R), (8, P)` |\n| 3 | Q (avstand 5) | ingen | `P=8, Q=5, R=∞, T=0, X=2, Y=7` | `(7, Y), (8, P), (∞, R)` |\n| 4 | Y (avstand 7) | `R: ∞ -> 12` | `P=8, Q=5, R=12, T=0, X=2, Y=7` | `(8, P), (12, R)` |\n| 5 | P (avstand 8) | ingen | `P=8, Q=5, R=12, T=0, X=2, Y=7` | `(12, R)` |\n| 6 | R (avstand 12) | ingen | `P=8, Q=5, R=12, T=0, X=2, Y=7` | `tom` |\n\n**Sluttilstand: `P=8, Q=5, R=12, T=0, X=2, Y=7`**\n\n**c)** **$Q$ er nærmest, med 5 minutter.** Deretter kommer $P$ med 8 og $R$ med 12.\n\nDen naive løsningen kjører Dijkstra fra hvert lager:\n$O(3 \\cdot (|V| + |E|)\\log |V|)$ mot $O((|V| + |E|)\\log |V|)$ for den reverserte.\nMed tre lagre er det tre ganger arbeidet; med hundre lagre er det hundre ganger.\n\nDette er felle **#1** i bokas feilregister — full gjennomgang der ett grep holdt —\nog den er dokumentert som A/B-skillet på nettopp denne oppgavetypen.\n\n**Poengfordeling (9 p):** 3 p for å se reverseringen (hovedmomentet), 1 p for\nantagelsene, 3 p for kjøringen, 1 p for kjøretiden, 1 p for sammenligningen.\n\n**Merk avstanden til $Q$.** Den ble først satt til 5 via $X$ i steg 2, og\n$Y$-veien ville gitt $7 + 1 = 8$ — dårligere. At $Q$ har den korteste kanten inn\ntil seg (1 fra $Y$), betyr ingenting når $Y$ selv ligger langt unna.",
+            "hints": [
+              "Snu alle pilene, og spør hvor langt det er **fra** $T$ til hvert lager.",
+              "Én Dijkstra-kjøring gir avstanden til alle noder i grafen, ikke bare til én."
+            ]
+          }
+        },
+        {
+          "id": "in2010-6-prove-C-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-C-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger H, krevende.) Seks pumpestasjoner skal kobles sammen med rør. Alle mulige\nstrekninger og anleggsprisene er kjent: $A$–$B$ 7, $A$–$C$ 2, $B$–$C$ 4,\n$B$–$D$ 1, $C$–$D$ 6, $C$–$E$ 8, $D$–$E$ 3, $D$–$F$ 9, $E$–$F$ 5.\n\n**a)** Hvilket problem er dette? Kjør Prim fra $A$ og oppgi kantene og\ntotalkostnaden.\n**b)** Kjør Kruskal på samme graf og sammenlign.\n**c)** Etterpå skal en inspektør gå fra $A$ til $F$ **gjennom rørnettet**. Hvilken\nalgoritme velger du, og hvorfor ikke Dijkstra?",
+            "solution": "**a) Problemet navngitt:** **minimalt spenntre**. «Koble alle sammen» til lavest\nsamlet anleggspris, uten krav til hvordan forbindelsene går.\n\n**Antagelser om representasjon:** urettet, sammenhengende, vektet graf\n$G = (V, E)$ som nabolister; prioritetskø som binær min-heap med `RemoveMin` og\n`DecreaseKey` i $O(\\log |V|)$.\n\n| Steg | Node tatt inn i treet | Kant lagt til | Sum så langt | Oppdaterte nøkler (DecreaseKey) | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|---|\n| 1 | A | — (startnode) | 0 | `B: ∞ -> 7` (via A), `C: ∞ -> 2` (via A) | `(2, C), (∞, F), (7, B), (∞, D), (∞, E)` |\n| 2 | C | `A–C` (2) | 2 | `B: 7 -> 4` (via C), `D: ∞ -> 6` (via C), `E: ∞ -> 8` (via C) | `(4, B), (6, D), (8, E), (∞, F)` |\n| 3 | B | `C–B` (4) | 6 | `D: 6 -> 1` (via B) | `(1, D), (∞, F), (8, E)` |\n| 4 | D | `B–D` (1) | 7 | `E: 8 -> 3` (via D), `F: ∞ -> 9` (via D) | `(3, E), (9, F)` |\n| 5 | E | `D–E` (3) | 10 | `F: 9 -> 5` (via E) | `(5, F)` |\n| 6 | F | `E–F` (5) | 15 | ingen | `tom` |\n\n**Sluttilstand: kantene `A-C (2)`, `C-B (4)`, `B-D (1)`, `D-E (3)`, `E-F (5)`,\ntotalkostnad 15.**\n\nKontroll: fem kanter, og $|V| - 1 = 6 - 1 = 5$. Stemmer.\n\n**Kjøretid:** $O((|V| + |E|)\\log |V|)$, der $|V| = 6$ er antall pumpestasjoner og\n$|E| = 9$ antall mulige rørstrekninger.\n\n**b)**\n\n| Steg | Kant | Vekt | Find(u) / Find(v) | Beslutning | Komponenter etter | Sum |\n|---|---|---|---|---|---|---|\n| 1 | B–D | 1 | `B` / `D` | **velg** — ulike komponenter, slås sammen | `{A} {B,D} {C} {E} {F}` | 1 |\n| 2 | A–C | 2 | `A` / `C` | **velg** — ulike komponenter, slås sammen | `{A,C} {B,D} {E} {F}` | 3 |\n| 3 | D–E | 3 | `B` / `E` | **velg** — ulike komponenter, slås sammen | `{A,C} {B,D,E} {F}` | 6 |\n| 4 | B–C | 4 | `B` / `A` | **velg** — ulike komponenter, slås sammen | `{A,B,C,D,E} {F}` | 10 |\n| 5 | E–F | 5 | `A` / `F` | **velg** — ulike komponenter, slås sammen | `{A,B,C,D,E,F}` | 15 |\n\n**Samme fem kanter, samme totalkostnad 15.** Alle kantvektene er forskjellige, så\ndet minimale spenntreet er entydig, og enhver korrekt algoritme må ende der.\n\nKruskals kjøretid er $O(|E| \\log |E|)$ — sorteringen dominerer.\n\n**c)** Bruk **bredde-først-søk eller dybde-først-søk i treet**, $O(|V|)$.\n\nTo grunner til at Dijkstra er feil valg:\n\n1. **Det finnes bare én vei** mellom to noder i et tre, siden treet ikke har\n   sykler. Det er ingenting å minimere.\n2. **Vektene måler noe annet nå.** De er anleggspriser — kostnaden ved å *ha*\n   røret — ikke gangavstander. Å summere anleggspriser langs inspektørens rute gir\n   ikke et meningsfullt tall.\n\nRørnettet er kjeden `A - C - B - D - E - F`, så inspektøren må innom **5 strekk**.\n\n**Poengfordeling (8 p):** 3 p for Prim-kjøringen, 2 p for Kruskal med\nsammenligningen, 3 p for deloppgave c) med begge begrunnelsene.\n\n**Merk at deloppgave c) er der de fleste taper poeng.** Den er dokumentert som en\nfelle i arkivet: etter en MST-oppgave kommer et oppfølgingsspørsmål om vei i det\nferdige nettet, og Dijkstra er da både tregere og basert på feil størrelse.\n\n**Selvdiagnose etter prøve 6.C**\n\n☐ Stiger avstandene på nodene du tok ut i Dijkstra-kjøringen?\n\n☐ Har spenntreet ditt nøyaktig $|V| - 1$ kanter?\n\n☐ Så du reverseringen i oppgave 2, eller kjørte du én gang per lager?\n\n☐ Sa du hva vekten måler — kostnaden ved å **ha** kanten eller ved å **bruke**\nden?\n\n☐ Oppga du kjøretid for hver algoritme, med $|V|$ og $|E|$ definert?",
+            "hints": [
+              "Nøkkelen i Prim er vekten på kanten inn til treet, ikke avstanden fra $A$.",
+              "Del c): hvor mange veier finnes det mellom to noder i et tre?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-6-prove-coll-D",
+      "type": "collapsible",
+      "title": "Prøve 6.D — Huffman-koding og MST-gjenkjenning (25 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in2010-6-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 6.D — Huffman-koding og MST-gjenkjenning (25 minutter).** Tre oppgaver,\nsjanger E og F. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller 8 p, oppgave 2 teller 6 p, oppgave 3 teller\n6 p — 20 poeng i alt.\n\nOppgave 3 er en **sant/usant-blokk med antigjettings-skalering**. Les\nskaleringsregelen i oppgaveteksten før du svarer."
+        },
+        {
+          "id": "in2010-6-prove-D-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-D-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger E — håndkjøring, altså at du utfører algoritmen steg for steg og oppgir\nsluttilstanden.) Seks symboler har frekvensene $A$ 18, $B$ 11, $C$ 7, $D$ 5,\n$E$ 3, $F$ 1.\n\n**a)** Hvor mange sammenslåinger gjør algoritmen?\n**b)** Bygg Huffman-treet og oppgi kodelengden til hvert symbol.\n**c)** Hvor mange bits trengs totalt, og hvor mye spares mot en fast koding?",
+            "solution": "**a)** $n - 1 = 6 - 1 = 5$ sammenslåinger.\n\n**b)** Sortert stigende: 1 ($F$), 3 ($E$), 5 ($D$), 7 ($C$), 11 ($B$), 18 ($A$).\n\n| Steg | To minste tatt ut | Ny node lagt inn | Kø etter (heap-array) |\n|---|---|---|---|\n| 1 | (1, F) og (3, E) | (4, EF) | `(4, EF), (5, D), (11, B), (18, A), (7, C)` |\n| 2 | (4, EF) og (5, D) | (9, DEF) | `(7, C), (9, DEF), (11, B), (18, A)` |\n| 3 | (7, C) og (9, DEF) | (16, CDEF) | `(11, B), (18, A), (16, CDEF)` |\n| 4 | (11, B) og (16, CDEF) | (27, BCDEF) | `(18, A), (27, BCDEF)` |\n| 5 | (18, A) og (27, BCDEF) | (45, ABCDEF) | `(45, ABCDEF)` |\n\nFem sammenslåinger, som ventet.\n\n| Symbol | Frekvens | Kodeord | Kodelengde | Bits (frekvens × lengde) |\n|---|---|---|---|---|\n| `A` | 18 | `0` | 1 | 18 |\n| `B` | 11 | `10` | 2 | 22 |\n| `C` | 7 | `110` | 3 | 21 |\n| `D` | 5 | `1111` | 4 | 20 |\n| `E` | 3 | `11101` | 5 | 15 |\n| `F` | 1 | `11100` | 5 | 5 |\n| **Sum** | 45 |  |  | **101** |\n\n**Kodelengder: $A$ 1, $B$ 2, $C$ 3, $D$ 4, $E$ 5, $F$ 5.**\n\n**c)** Totalt **101 bits**. Fast koding trenger 3 bits per symbol (seks symboler\nkrever minst 3, siden $2^2 = 4 < 6$), og meldingen har\n$18 + 11 + 7 + 5 + 3 + 1 = 45$ symboler, altså $45 \\cdot 3 = 135$ bits.\nBesparelsen er **34 bits**, rundt 25 %.\n\n**Poengfordeling (8 p):** 1 p for antall sammenslåinger, 4 p for sammenslåingene\nmed delvis uttelling per steg, 1 p for kodelengdene, 1 p for totalen, 1 p for\nsammenligningen.\n\n**Kontrollen som tar fem sekunder:** frekvensene stiger $1, 3, 5, 7, 11, 18$, og\nkodelengdene synker $5, 5, 4, 3, 2, 1$. Motsatt vei, som de skal.\n\n**Fella som testes:** å gi kortest kode til det sjeldneste symbolet. Sorter alltid\netter frekvens og sjekk retningen før du leverer.",
+            "hints": [
+              "Sorter frekvensene stigende først — da ser du hvilke to som slås sammen.",
+              "Kodelengden til et symbol er antall sammenslåinger det var med i."
+            ]
+          }
+        },
+        {
+          "id": "in2010-6-prove-D-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-D-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F — matriseavkryssing.) Sett kryss for hver algoritme: finner den et\n**minimalt** spenntre? Begrunn hvert svar med én setning.\n\n**a)** Kruskal\n**b)** Dijkstra\n**c)** Bredde-først-søk\n**d)** Borůvka\n**e)** Prim\n**f)** Dybde-først-søk",
+            "solution": "**a) Ja.** Tar kantene i stigende vektrekkefølge og hopper over dem som ville laget\nen sykel.\n\n**b) Nei.** Minimerer avstanden fra én bestemt node til alle andre, ikke summen av\nkantene i nettet.\n\n**c) Nei.** Finner *et* spenntre, men leser aldri kantvektene.\n\n**d) Ja.** Hver komponent velger sin letteste utkant, i runder.\n\n**e) Ja.** Vokser ett tre og tar alltid den letteste kanten ut av det.\n\n**f) Nei.** Samme som bredde-først-søk — et spenntre valgt vilkårlig av\ntraverseringen.\n\n**Poengfordeling (6 p):** 1 p per rad, med halv uttelling uten begrunnelse.\n\n**Kontrollen som avgjør hele oppgaven:** leser algoritmen kantvektene i det hele\ntatt? BFS og DFS gjør ikke det. Dijkstra gjør det, men minimerer feil størrelse.\n\n**Merk fasitmønsteret:** ja, nei, nei, ja, ja, nei — tre av hver, i blandet\nrekkefølge. På en ekte avkryssing er det ingen sammenheng mellom radene.",
+            "hints": [
+              "Tre av seks er MST-algoritmer.",
+              "Spør for hver: bruker den kantvektene til noe som helst?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-6-prove-D-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-6-prove-D-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger C — kjøretids- og teorifakta, sant/usant.) Marker sant eller usant for\nhvert utsagn.\n\n**Antigjettings-skalering:** poengsummen på denne blokken regnes som\n$2 \\cdot \\max(n - 3, 0)$, der $n$ er antall riktige av 6. Ren gjetting gir i snitt\n3 riktige og dermed **0 poeng**. Regn selv ut hvor mange du må ha sikkert riktige\nfor å tjene ditt første poeng.\n\n**a)** Huffman-treet er entydig bestemt av frekvenstabellen.\n**b)** Et minimalt spenntre har alltid nøyaktig $|V| - 1$ kanter.\n**c)** Dijkstra gir riktig svar så lenge grafen ikke har en negativ sykel.\n**d)** Korteste vei i en vektet DAG kan finnes i $O(|V| + |E|)$.\n**e)** Kruskals kjøretid domineres av union-find-operasjonene.\n**f)** BFS gir korteste vei når alle kantvekter er like.",
+            "solution": "**Fasit: a) usant, b) sant, c) usant, d) sant, e) usant, f) sant.**\n\n**a) Usant.** Er to frekvenser like, kan sammenslåingene gjøres i forskjellig\nrekkefølge, og kodeordene kan bli forskjellige. Den totale bitkostnaden er derimot\nalltid den samme.\n\n**b) Sant.** Færre kanter gjør at noe henger løst; flere gir en sykel.\n\n**c) Usant.** Dijkstra krever at **ingen kant** er negativ. «Ingen negativ sykel»\ner Bellman-Fords krav, og Dijkstra feiler på grafer helt uten sykler.\n\n**d) Sant.** Sortér topologisk og gå gjennom nodene i den rekkefølgen — to lineære\npass. Metoden tåler til og med negative vekter.\n\n**e) Usant.** Sorteringen av kantene dominerer, $O(|E| \\log |E|)$.\nUnion-find-operasjonene er nær konstante.\n\n**f) Sant.** Med like vekter er kostnaden nøyaktig antall kanter, og det er det BFS\nteller.\n\n**Poengregningen:** med skaleringen $2 \\cdot \\max(n - 3, 0)$ gir 3 riktige 0 poeng,\n4 riktige 2 poeng, 5 riktige 4 poeng og alle 6 riktige 6 poeng. Du må altså ha\n**minst 4** sikkert riktige for å tjene noe som helst — og det er hele poenget med\nantigjettingen: usikkerhet skaleres til null.\n\n**Merk samtidig den andre halvdelen av regelen:** på de vanlige korte svarene i\nDel 1 gjøres det **ingen** forskjell på feil og ubesvart. Der lønner det seg alltid\nå svare, uansett hvor usikker du er. Skaleringen gjelder bare sant/usant-blokkene.\n\n**Poengfordeling (6 p):** 1 p per riktig, deretter skalert som over.\n\n**Merk fasitmønsteret:** usant, sant, usant, sant, usant, sant. Det er ingen\nsammenheng mellom svarene på en ekte blokk — mønsteret her er tilfeldig, og du\nskal ikke lete etter et.\n\n**Selvdiagnose etter prøve 6.D**\n\n☐ Gjorde du nøyaktig $n - 1$ sammenslåinger i Huffman-oppgaven?\n\n☐ Går kodelengdene motsatt vei av frekvensene?\n\n☐ Regnet du ut totalen som frekvens **ganger** kodelengde, summert?\n\n☐ Skiller du Dijkstras krav («ingen negativ kant») fra Bellman-Fords («ingen\nnegativ sykel»)?\n\n☐ Regnet du ut hvor mange sikre svar antigjettings-skaleringen krever før du\nbegynte å gjette?",
+            "hints": [
+              "Punkt c): tenk på grafen fra kapitlet der Dijkstra ga feil svar uten at det fantes noen sykel.",
+              "Punkt e): hva er det dyreste enkeltsteget i Kruskal?"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,424 @@
+{
+  "id": "in2010-6-2",
+  "courseId": "in2010",
+  "chapterNumber": "6.2",
+  "title": "Korteste vei — BFS, Dijkstra, DAG og reversert graf",
+  "description": "Korteste-vei-verktøykassen — BFS (uvektet), Dijkstra (ikke-negative vekter), DAG via topsort, Bellman-Ford (fakta) — og det avgjørende reversert-Dijkstra-trikset.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne velge riktig korteste-vei-algoritme ut fra graftypen, og oppgi kjøretiden for hver av de fire tilfellene",
+    "kunne håndkjøre Dijkstras algoritme og oppgi avstandstabellen ved terminering",
+    "kunne skrive Dijkstra og DAG-metoden i pseudokode med antagelser, invariant og kjøretid",
+    "kunne forklare hvorfor én negativ kant er nok til å ødelegge Dijkstra, selv i en graf uten sykler",
+    "kunne gjenkjenne «flere utgangspunkt, ett mål» og løse det med én kjøring i den reverserte grafen"
+  ],
+  "content": [
+    {
+      "id": "in2010-6-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Korteste vei er i **7 av 7 sett (100 %)** — men nesten aldri som «håndkjør\nDijkstra og oppgi tabellen». Faget tester det på to helt andre måter:\n\n- **Sjanger F — matriseavkryssing**, altså at du krysser av hvilken algoritme som\n  passer hvilken graftype. Dette er det tryggeste Del 1-poenget i hele Del 6, og\n  det er fire faste rader du skal kunne uten å tenke deg om.\n- **Sjanger H — grafalgoritme i pseudokode**, altså at du selv skriver algoritmen\n  og oppgir kjøretiden. Her er det ett bestemt grep som skiller B fra A:\n  **å snu grafen** i stedet for å kjøre Dijkstra én gang per utgangspunkt.\n\nPrioritet: **høyeste** for matrisen (du bør kunne de fire radene i søvne), og\n**kunne** for reversert Dijkstra (nivå 2 — den er A/B-skillet, ikke\nbestått-grensen).\n\nDet er verdt å si tydelig hva som **ikke** kommer: du blir sjelden bedt om å føre\nen Dijkstra-tabell steg for steg i et ferdig oppsett. Du blir bedt om å **velge**\nriktig algoritme og **skrive den ned**. Håndkjøringen i dette kapitlet er derfor\net middel til å forstå algoritmen, ikke et mål i seg selv — den ligger i\n[kap. 6.5](/in2010/in2010-6-5) i drillform.\n\n**Slik er kapitlet lagt opp (60 min):** fire løkker med tidsanslag, og\npausepunkter etter løkke 2 og løkke 3. Dette er det lengste kapitlet i Del 6."
+    },
+    {
+      "id": "in2010-6-2-t-forkunn",
+      "type": "text",
+      "content": "## Sist du var her\n\nTre resultater fra tidligere kapitler brukes hele veien her. De står ferdig\noppfrisket, så du slipper å bla:\n\n**1. Bredde-først-søk (BFS) besøker nodene lagvis.** Fra startnoden tas først alle\nnaboer, så alle naboers naboer, og så videre. Kjøretiden er\n$O(|V| + |E|)$: hver node tas ut av køen én gang, hver kant behandles én gang.\nDetaljene står i [kap. 5.2](/in2010/in2010-5-2).\n\n**2. Min-heapen tar ut det minste elementet i $O(\\log n)$.** Den er et array med\nindeks fra 0; forelder til $i$ er $\\lfloor (i-1)/2 \\rfloor$, og barna er $2i+1$ og\n$2i+2$. `RemoveMin` koster $O(\\log n)$, og det samme gjør `Insert` og\n`DecreaseKey`. Se [kap. 4.4](/in2010/in2010-4-4). Dette er prioritetskøen Dijkstra\nbruker, og hele Dijkstras kjøretid kommer derfra.\n\n**3. Topologisk sortering ordner en DAG slik at alle kanter peker framover**, i\n$O(|V| + |E|)$ med Kahns algoritme. Se [kap. 6.1](/in2010/in2010-6-1). Det er\ngrunnen til at en vektet DAG kan løses raskere enn en generell graf.\n\nTrenger du å friske opp hva en naboliste er, står det i\n[kap. 5.1](/in2010/in2010-5-1)."
+    },
+    {
+      "id": "in2010-6-2-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-6-2-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | en graf med nodemengden $V$ og kantmengden $E$ |\n| $\\lvert V \\rvert$, $\\lvert E \\rvert$ | antall noder og antall kanter |\n| $w(u, v)$ | vekten (kostnaden) på kanten fra $u$ til $v$ |\n| `avstand[v]` | beste kjente avstand fra startnoden til $v$ så langt |\n| `forgjenger[v]` | noden vi kom fra da `avstand[v]` sist ble forbedret |\n| $\\infty$ | brukes som startverdi for noder vi ennå ikke har nådd |\n| $G^R$ | den **reverserte** grafen — alle kanter snudd |\n| $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | lineær tid: BFS, topologisk sortering, DAG-korteste-vei |\n| $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log \\lvert V \\rvert)$ | Dijkstra med binær prioritetskø |\n| $O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$ | Bellman-Ford |"
+        },
+        {
+          "id": "in2010-6-2-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `BFS(G, s)` | korteste vei i **uvektet** graf, målt i antall kanter | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| `Dijkstra(G, s)` | korteste vei fra `s` når **ingen kant er negativ** | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log \\lvert V \\rvert)$ |\n| `DAGKortesteVei(G, s)` | korteste vei i en **vektet DAG**, også med negative vekter | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| `BellmanFord(G, s)` | korteste vei når **negative kanter** finnes, men ingen negativ sykel | $O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$ |\n| `Relakser(u, v)` | prøver om veien via `u` er kortere til `v`, og oppdaterer i så fall | $O(1)$ |\n| `PQ.RemoveMin()` | tar ut noden med lavest `avstand` i prioritetskøen | $O(\\log \\lvert V \\rvert)$ |\n| `PQ.DecreaseKey(v, x)` | senker `v` sin nøkkel til `x` og flytter den oppover i heapen | $O(\\log \\lvert V \\rvert)$ |"
+        },
+        {
+          "id": "in2010-6-2-nt-3",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$\\text{avstand}[v] = \\min\\bigl(\\text{avstand}[v],\\ \\text{avstand}[u] + w(u, v)\\bigr)$$\n\nRelakseringen. Hele korteste-vei-teorien er denne ene linja, gjentatt i riktig\nrekkefølge. De fire algoritmene skiller seg bare i **hvilken rekkefølge** de\nrelakserer kantene.\n\n$$O\\bigl((|V| + |E|)\\log |V|\\bigr)$$\n\nDijkstras kjøretid: $|V|$ uttak fra prioritetskøen à $O(\\log |V|)$, pluss $|E|$\nrelakseringer som hver kan koste en `DecreaseKey` à $O(\\log |V|)$."
+        }
+      ]
+    },
+    {
+      "id": "in2010-6-2-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — når alle skritt koster like mye (ca. 10 min)\n\nEt gangveinett mellom åtte bygg. Alle strekkene tar omtrent like lang tid å gå, så\ndet eneste som teller, er **hvor mange strekk** du må innom. Hvor mange strekk er\ndet fra bygg $A$ til bygg $H$?\n\nNår alle kanter koster det samme, er korteste vei det samme som **færrest kanter**,\nog da trenger du ingen prioritetskø. Bredde-først-søket tar nodene i den\nrekkefølgen de ligger fra startnoden: først alle som er ett skritt unna, så alle\nsom er to skritt unna. Første gang du når en node, er det via den korteste veien —\ndet ligger i selve lagvis-rekkefølgen."
+    },
+    {
+      "id": "in2010-6-2-th-1",
+      "type": "theorem",
+      "title": "BFS gir korteste vei i uvektet graf",
+      "content": "I en graf uten vekter (eller der alle vekter er like), gir bredde-først-søk fra\n$s$ korteste avstand fra $s$ til alle andre noder, målt i antall kanter.\n\n**Hvorfor:** BFS tar nodene ut av køen i ikke-synkende avstandsrekkefølge. Alle\nnoder med avstand 1 tas ut før noen med avstand 2, og så videre. Første gang en\nnode oppdages, skjer det derfor fra en node på laget rett foran — og det er en\nkorteste vei.\n\n**Kjøretid:** $O(|V| + |E|)$. Hver node legges i køen og tas ut nøyaktig én gang,\nog hver kant ses på nøyaktig én gang (to ganger i en urettet graf, én gang fra hver\nende — det endrer ikke orden).\n\n**Merk hva som gjør dette galt for vektede grafer:** BFS teller kanter. En vei med\nto dyre kanter er kortere i *antall kanter* enn en vei med tre billige, men kan\nvære mye lengre i *kostnad*. Å bruke BFS på en vektet graf er en av de faste\nfellene på matrisen."
+    },
+    {
+      "id": "in2010-6-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: BFS i gangveinettet",
+      "problem": "Gangveinettet har strekkene $A$–$B$, $A$–$C$, $B$–$D$, $C$–$D$, $C$–$E$, $D$–$F$,\n$E$–$G$, $F$–$H$ og $G$–$H$ — alle like lange og alle toveis. Finn antall strekk\nfra $A$ til hver av de andre byggene.",
+      "solution": "Køen behandles i alfabetisk rekkefølge blant like kandidater, slik at sporingen\nkan gjenskapes nøyaktig.\n\n| Steg | Tatt ut av køen | Nye noder oppdaget | Kø etter | avstand-tabell etter |\n|---|---|---|---|---|\n| 1 | A (avst. 0) | `B = 1`, `C = 1` | `B, C` | `A=0, B=1, C=1, D=∞, E=∞, F=∞, G=∞, H=∞` |\n| 2 | B (avst. 1) | `D = 2` | `C, D` | `A=0, B=1, C=1, D=2, E=∞, F=∞, G=∞, H=∞` |\n| 3 | C (avst. 1) | `E = 2` | `D, E` | `A=0, B=1, C=1, D=2, E=2, F=∞, G=∞, H=∞` |\n| 4 | D (avst. 2) | `F = 3` | `E, F` | `A=0, B=1, C=1, D=2, E=2, F=3, G=∞, H=∞` |\n| 5 | E (avst. 2) | `G = 3` | `F, G` | `A=0, B=1, C=1, D=2, E=2, F=3, G=3, H=∞` |\n| 6 | F (avst. 3) | `H = 4` | `G, H` | `A=0, B=1, C=1, D=2, E=2, F=3, G=3, H=4` |\n| 7 | G (avst. 3) | ingen | `H` | `A=0, B=1, C=1, D=2, E=2, F=3, G=3, H=4` |\n| 8 | H (avst. 4) | ingen | `tom` | `A=0, B=1, C=1, D=2, E=2, F=3, G=3, H=4` |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nA=0, B=1, C=1, D=2, E=2, F=3, G=3, H=4\n```\n\n**Se på steg 6 og 7.** Node $H$ oppdages fra $F$ med avstand 4. Senere tas $G$ ut\nmed avstand 3, og $G$ har også en kant til $H$ — men $H$ er allerede oppdaget, og\nen ny vei via $G$ ville gitt $3 + 1 = 4$, altså det samme. BFS ser ikke engang på\nden muligheten, og trenger ikke: **første gang** en node oppdages, er avstanden\nallerede minimal.\n\n**Kontrollen:** avstandene skal stige langs køen. Ser du at en node tas ut med\nlavere avstand enn den forrige, har du gjort en feil i sporingen.\n\n**Fellenote.** Fella her er å bruke denne metoden på en graf med vekter. Hadde\nstrekket $A$–$C$ tatt ti minutter og $A$–$B$–$D$ tatt tre, ville BFS fortsatt\nsagt at $C$ er «nærmere» enn $D$. BFS teller kanter, ikke minutter."
+    },
+    {
+      "id": "in2010-6-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger H — grafalgoritme, altså at du gjenkjenner problemet og\nbruker riktig algoritme.) Et uvektet nett har kantene $A$–$B$, $A$–$D$, $B$–$C$,\n$C$–$E$, $D$–$E$, $E$–$F$, $F$–$G$, alle toveis.\n\n**a)** Kjør BFS fra $A$ og oppgi avstanden til hver node.\n**b)** Hvilken algoritme ville du brukt hvis kantene hadde hatt ulike, positive\nvekter?",
+        "solution": "**a)**\n\n| Steg | Tatt ut av køen | Nye noder oppdaget | Kø etter | avstand-tabell etter |\n|---|---|---|---|---|\n| 1 | A (avst. 0) | `B = 1`, `D = 1` | `B, D` | `A=0, B=1, C=∞, D=1, E=∞, F=∞, G=∞` |\n| 2 | B (avst. 1) | `C = 2` | `D, C` | `A=0, B=1, C=2, D=1, E=∞, F=∞, G=∞` |\n| 3 | D (avst. 1) | `E = 2` | `C, E` | `A=0, B=1, C=2, D=1, E=2, F=∞, G=∞` |\n| 4 | C (avst. 2) | ingen | `E` | `A=0, B=1, C=2, D=1, E=2, F=∞, G=∞` |\n| 5 | E (avst. 2) | `F = 3` | `F` | `A=0, B=1, C=2, D=1, E=2, F=3, G=∞` |\n| 6 | F (avst. 3) | `G = 4` | `G` | `A=0, B=1, C=2, D=1, E=2, F=3, G=4` |\n| 7 | G (avst. 4) | ingen | `tom` | `A=0, B=1, C=2, D=1, E=2, F=3, G=4` |\n\n**Sluttilstand: `A=0, B=1, C=2, D=1, E=2, F=3, G=4`**\n\nMerk at $E$ nås med avstand 2 via $D$, ikke via $C$ — begge veiene er like lange,\nog BFS tar den den kommer til først.\n\n**b)** Dijkstras algoritme. Når kantene har ulike vekter, er «færrest kanter» ikke\nlenger det samme som «lavest kostnad», og BFS gir feil svar. Kjøretiden blir\n$O((|V| + |E|) \\log |V|)$ med binær prioritetskø — noe dyrere enn BFS' lineære\n$O(|V| + |E|)$, og det er nettopp derfor du bruker BFS når du kan.",
+        "hints": [
+          "Tegn nodene i lag: hvem er ett skritt fra $A$, hvem er to?",
+          "Del b): hva er det BFS egentlig teller?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-2-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — Dijkstra: alltid den nærmeste uferdige (ca. 18 min)\n\nNå koster strekkene forskjellig. Et bilnett mellom seks knutepunkter, med\nkjøretider i minutter og enveiskjøring på alle strekk. Hvor lang tid tar det fra\n$A$ til hvert av de andre?\n\nGrunnideen i Dijkstras algoritme er én setning: **ta alltid den uferdige noden med\nlavest kjent avstand, og erklær den ferdig.** Når du gjør det, kan ingen senere\noppdagelse gjøre den kortere — for enhver annen vei dit måtte gått gjennom en node\nmed *høyere* avstand, og alle kanter koster minst 0.\n\nDen siste halvsetningen er hele forutsetningen: **alle kanter må være\nikke-negative.** Vi kommer tilbake til hva som skjer når de ikke er det."
+    },
+    {
+      "id": "in2010-6-2-def-1",
+      "type": "definition",
+      "title": "Relaksering",
+      "content": "Grunnoperasjonen i alle korteste-vei-algoritmer: for en kant fra $u$ til $v$,\nsjekk om veien via $u$ er bedre enn det du har.\n\n$$\\text{avstand}[v] = \\min\\bigl(\\text{avstand}[v],\\ \\text{avstand}[u] + w(u, v)\\bigr)$$\n\nBlir avstanden lavere, oppdateres den, og `forgjenger[v]` settes til $u$. Kostnad\n$O(1)$ per kant. De fire korteste-vei-algoritmene i dette kapitlet gjør nøyaktig\ndet samme — de skiller seg bare i **rekkefølgen** kantene relakseres i."
+    },
+    {
+      "id": "in2010-6-2-def-2",
+      "type": "definition",
+      "title": "Dijkstras algoritme",
+      "content": "Finner korteste vei fra én kilde til alle noder i en graf med **ikke-negative**\nkantvekter, ved hjelp av en prioritetskø.\n\nKjøretid $O((|V| + |E|)\\log |V|)$ med binær heap. Krever ikke-negative vekter;\ngir gale svar hvis en kant er negativ, selv om grafen ikke har negativ sykel."
+    },
+    {
+      "id": "in2010-6-2-img-1",
+      "type": "image",
+      "src": "/images/textbook/in2010/dijkstra-veinett.svg",
+      "alt": "Rettet vektet graf med seks noder A til F. Kantene er A til B med vekt 4, A til C med vekt 2, C til B med vekt 1, B til D med vekt 5, C til D med vekt 8, C til E med vekt 10, D til E med vekt 2, D til F med vekt 6 og E til F med vekt 3. Under hver node står den korteste avstanden fra A.",
+      "caption": "Bilnettet fra eksempel 2. De uthevede kantene er de fem som korteste-vei-treet faktisk bruker — legg merke til at den direkte kanten A til B (4 minutter) ikke er blant dem: omveien via C koster bare 3."
+    },
+    {
+      "id": "in2010-6-2-th-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Dijkstra`",
+      "content": "**Antagelser om representasjon.** Grafen $G = (V, E)$ er gitt som nabolister, der\n`G.naboer(v)` gir parene `(w, vekt)` for hver kant `v -> w`. **Alle vekter er\nikke-negative.** `avstand` og `forgjenger` er arrayer indeksert på node.\nPrioritetskøen `PQ` er en binær min-heap ordnet på `avstand`, med `RemoveMin` og\n`DecreaseKey` i $O(\\log |V|)$ — se [kap. 4.4](/in2010/in2010-4-4).\n\n**Prebetingelse:** ingen kantvekt er negativ.\n**Postbetingelse:** `avstand[v]` er korteste avstand fra `s` til `v` for alle `v`,\nog $\\infty$ for noder som ikke kan nås.\n\n```text\nProcedure Dijkstra(G, s)\n  Input:  vektet graf G = (V, E) som nabolister, alle vekter >= 0; startnode s\n  Output: avstand[v] = korteste avstand fra s til v, for alle v i V\n  for hver v i V:\n      avstand[v] = uendelig\n      forgjenger[v] = ingen\n  avstand[s] = 0\n  PQ = min-heap med alle noder i V, ordnet paa avstand\n  while PQ er ikke tom:\n      u = PQ.RemoveMin()\n      for hver (v, vekt) i G.naboer(u):\n          if v er fortsatt i PQ and avstand[u] + vekt < avstand[v]:\n              avstand[v] = avstand[u] + vekt\n              forgjenger[v] = u\n              PQ.DecreaseKey(v, avstand[v])\n  return avstand, forgjenger\n```\n\n**Invarianten i én setning:** når en node tas ut av prioritetskøen, er `avstand`\ntil den noden endelig — ingen senere relaksering kan senke den, fordi enhver annen\nvei dit må gå via en node som fortsatt ligger i køen og derfor har minst like høy\navstand.\n\n**Kjøretid:** $O((|V| + |E|)\\log |V|)$. Tell operasjonene: $|V|$ kall på\n`RemoveMin`, hvert $O(\\log |V|)$, gir $O(|V| \\log |V|)$. `for`-løkka kjøres én\ngang per node, og går over *den nodens* naboliste — til sammen $|E|$ ganger — og\nhver relaksering kan utløse en `DecreaseKey` à $O(\\log |V|)$, altså\n$O(|E| \\log |V|)$. Summen er $O((|V| + |E|)\\log |V|)$.\n\n**Merk at det er en sum, ikke et produkt.** Å skrive $O(|V| \\cdot |E| \\log |V|)$\ner samme telleefeil som ved topologisk sortering: den indre løkka går over nabolista\ntil den ene noden, ikke over alle kanter."
+    },
+    {
+      "id": "in2010-6-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Dijkstra i bilnettet",
+      "problem": "Kjøretidene i minutter, alle enveiskjørte: `A -> B` 4, `A -> C` 2, `C -> B` 1,\n`B -> D` 5, `C -> D` 8, `C -> E` 10, `D -> E` 2, `D -> F` 6, `E -> F` 3.\n\nFinn korteste kjøretid fra $A$ til alle knutepunktene.",
+      "solution": "Prioritetskøen inneholder **alle** noder fra starten, med $\\infty$ som avstand for\nalle utenom $A$. Kolonnen lengst til høyre viser køens innhold som **heap-array**\nmed indeks fra 0 — altså slik heapen faktisk lagrer det, ikke sortert. Element 0 er\nalltid det minste; resten står i heap-orden.\n\n| Steg | Ferdig (tatt ut av køen) | Relakserte kanter | avstand-tabell etter | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|\n| 1 | A (avstand 0) | `B: ∞ -> 4`, `C: ∞ -> 2` | `A=0, B=4, C=2, D=∞, E=∞, F=∞` | `(2, C), (∞, F), (4, B), (∞, D), (∞, E)` |\n| 2 | C (avstand 2) | `B: 4 -> 3`, `D: ∞ -> 10`, `E: ∞ -> 12` | `A=0, B=3, C=2, D=10, E=12, F=∞` | `(3, B), (10, D), (12, E), (∞, F)` |\n| 3 | B (avstand 3) | `D: 10 -> 8` | `A=0, B=3, C=2, D=8, E=12, F=∞` | `(8, D), (∞, F), (12, E)` |\n| 4 | D (avstand 8) | `E: 12 -> 10`, `F: ∞ -> 14` | `A=0, B=3, C=2, D=8, E=10, F=14` | `(10, E), (14, F)` |\n| 5 | E (avstand 10) | `F: 14 -> 13` | `A=0, B=3, C=2, D=8, E=10, F=13` | `(13, F)` |\n| 6 | F (avstand 13) | ingen | `A=0, B=3, C=2, D=8, E=10, F=13` | `tom` |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nA=0, B=3, C=2, D=8, E=10, F=13\n```\n\n**Se på steg 2.** Kanten `A -> B` ga først avstand 4 til $B$. Men $C$ tas ut før\n$B$, og fra $C$ er det bare 1 minutt til $B$: $2 + 1 = 3 < 4$. Avstanden til $B$\nsenkes, og `forgjenger[B]` blir $C$, ikke $A$. **Den direkte kanten er ikke\nkorteste vei.** Det er nettopp derfor du trenger algoritmen og ikke bare kan lese\nav grafen.\n\n**Se på steg 3.** Nå tas $B$ ut med avstand 3. Fra dette øyeblikket er 3 endelig —\nog det er trygt, fordi alt annet i køen har avstand minst 3, og ingen kant kan\ntrekke fra.\n\n**Korteste vei til $F$, lest ut av forgjengerne:** $F$ kom fra $E$, $E$ fra $D$,\n$D$ fra $B$, $B$ fra $C$, $C$ fra $A$. Veien er\n`A -> C -> B -> D -> E -> F` med kostnad $2 + 1 + 5 + 2 + 3 = 13$. Stemmer med\ntabellen.\n\n**Kontrollen som fanger de fleste feil:** avstandene på nodene som tas ut, skal\naldri synke. Her er de 0, 2, 3, 8, 10, 13 — stigende hele veien. Synker den, har du\nenten regnet feil eller så har grafen en negativ kant.\n\n**Fellenote.** Den vanligste feilen her er å avslutte for tidlig — å stoppe når\nmålnoden er oppdaget i stedet for når den er **tatt ut av køen**. I steg 2 er $F$\nfortsatt $\\infty$, i steg 4 er den 14, og først i steg 5 blir den 13. Sensor ber om\navstandstabellen **ved terminering**."
+    },
+    {
+      "id": "in2010-6-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — håndkjøring, altså at du utfører algoritmen steg for steg og oppgir\nsluttilstanden.) En rettet vektet graf har kantene `A -> B` 7, `A -> C` 3,\n`C -> B` 2, `B -> D` 4, `C -> D` 9, `B -> E` 6, `D -> E` 1.\n\n**a)** Kjør Dijkstra fra $A$ og oppgi hele avstandstabellen.\n**b)** Hvilken vei går korteste rute til $E$?\n**c)** Hvorfor er avstanden til $B$ ikke 7?",
+        "solution": "**a)**\n\n| Steg | Ferdig (tatt ut av køen) | Relakserte kanter | avstand-tabell etter | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|\n| 1 | A (avstand 0) | `B: ∞ -> 7`, `C: ∞ -> 3` | `A=0, B=7, C=3, D=∞, E=∞` | `(3, C), (∞, E), (7, B), (∞, D)` |\n| 2 | C (avstand 3) | `B: 7 -> 5`, `D: ∞ -> 12` | `A=0, B=5, C=3, D=12, E=∞` | `(5, B), (∞, E), (12, D)` |\n| 3 | B (avstand 5) | `D: 12 -> 9`, `E: ∞ -> 11` | `A=0, B=5, C=3, D=9, E=11` | `(9, D), (11, E)` |\n| 4 | D (avstand 9) | `E: 11 -> 10` | `A=0, B=5, C=3, D=9, E=10` | `(10, E)` |\n| 5 | E (avstand 10) | ingen | `A=0, B=5, C=3, D=9, E=10` | `tom` |\n\n**Sluttilstand: `A=0, B=5, C=3, D=9, E=10`**\n\n**b)** Forgjengerne er $E$ fra $D$, $D$ fra $B$, $B$ fra $C$, $C$ fra $A$. Veien er\n`A -> C -> B -> D -> E`, med kostnad $3 + 2 + 4 + 1 = 10$. Stemmer med tabellen.\n\n**c)** Fordi omveien er billigere enn den direkte kanten: `A -> C` koster 3 og\n`C -> B` koster 2, til sammen 5, mot 7 for `A -> B` direkte. I steg 2 senkes\navstanden til $B$ fra 7 til 5.\n\n**Merk hva som skjedde med $E$.** Kanten `B -> E` ga først 11 i steg 3. Så ble $D$\ntatt ut med avstand 9, og `D -> E` med vekt 1 ga 10. Den nest siste relakseringen\nvar altså den som avgjorde svaret.",
+        "hints": [
+          "Sett alle avstander til $\\infty$ bortsett fra startnoden, og ta ut den minste hver gang.",
+          "Etter at $C$ er tatt ut: hva blir den nye avstanden til $B$?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-2-tip-2",
+      "type": "tip",
+      "title": "Pausepunkt",
+      "content": "— naturlig pausepunkt —\n\nDu har nå to av de fire radene i korteste-vei-matrisen: uvektet gir BFS, og\nikke-negative vekter gir Dijkstra. De to siste radene handler begge om det samme\nspørsmålet: **hva gjør vi når en kant kan være negativ?**"
+    },
+    {
+      "id": "in2010-6-2-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — når en kant kan være negativ (ca. 16 min)\n\nNegative kanter høres kunstig ut i et veinett, men de er helt vanlige så snart\nvekten er noe annet enn avstand: en transaksjon som gir gevinst, et\nproduksjonstrinn som frigjør kapasitet, et bytte som gir tilbake mer enn det\nkostet.\n\nOg de ødelegger Dijkstra. Ikke litt — helt."
+    },
+    {
+      "id": "in2010-6-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Dijkstra gir feil svar på én negativ kant",
+      "problem": "En graf har kantene `A -> B` 5, `A -> C` 6, `C -> B` −4 og `B -> D` 1. Grafen har\ningen sykel i det hele tatt, og altså heller ingen negativ sykel.\n\nKjør Dijkstra, kjør deretter Bellman-Ford, og forklar forskjellen.",
+      "solution": "**Dijkstra først:**\n\n| Steg | Ferdig (tatt ut av køen) | Relakserte kanter | avstand-tabell etter | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|\n| 1 | A (avstand 0) | `B: ∞ -> 5`, `C: ∞ -> 6` | `A=0, B=5, C=6, D=∞` | `(5, B), (∞, D), (6, C)` |\n| 2 | B (avstand 5) | `D: ∞ -> 6` | `A=0, B=5, C=6, D=6` | `(6, C), (6, D)` |\n| 3 | C (avstand 6) | ingen | `A=0, B=5, C=6, D=6` | `(6, D)` |\n| 4 | D (avstand 6) | ingen | `A=0, B=5, C=6, D=6` | `tom` |\n\nDijkstra svarer `A=0, B=5, C=6, D=6`.\n\n**Bellman-Ford på samme graf.** Algoritmen relakserer **alle** kanter, gjentatte\nganger, i $|V| - 1$ runder:\n\n| Runde | Kanter som ga forbedring | avstand-tabell etter |\n|---|---|---|\n| 1 | `A -> B`: `∞ -> 5`, `A -> C`: `∞ -> 6`, `B -> D`: `∞ -> 6`, `C -> B`: `5 -> 2` | `A=0, B=2, C=6, D=6` |\n| 2 | `B -> D`: `6 -> 3` | `A=0, B=2, C=6, D=3` |\n| 3 | ingen endring | `A=0, B=2, C=6, D=3` |\n\nBellman-Ford svarer `A=0, B=2, C=6, D=3`.\n\n**Sluttilstand — det riktige svaret:**\n\n```text\nA=0, B=2, C=6, D=3\n```\n\n**Hvor Dijkstra gikk galt.** I steg 2 ble $B$ tatt ut med avstand 5 og erklært\nferdig. Men veien `A -> C -> B` koster $6 + (-4) = 2$, altså mindre. Da $C$ ble tatt\nut i steg 3, var $B$ allerede ute av køen, og relakseringen ble aldri gjort.\nFeilen forplantet seg videre til $D$: 6 i stedet for 3.\n\n**Hvorfor invarianten brøt sammen.** Dijkstras garanti hviler på at ingen kant kan\ntrekke fra: enhver vei via noder som fortsatt ligger i køen, må koste minst like\nmye som den noden du tar ut. Med en negativ kant er det ikke sant lenger — en dyr\nnode kan lede til en billig kant.\n\n**Merk at grafen ikke engang har en sykel.** Det er en utbredt misforståelse at\nDijkstra bare feiler ved negative *sykler*. Én enkelt negativ kant holder.\n\n**Fellenote.** Fella er å bruke Dijkstra fordi grafen «ser grei ut». Kontrollen\ntar to sekunder: **finnes det en negativ vekt i det hele tatt?** Hvis ja, er\nDijkstra utelukket — da er svaret Bellman-Ford, eller topologisk sortering hvis\ngrafen er en DAG."
+    },
+    {
+      "id": "in2010-6-2-def-3",
+      "type": "definition",
+      "title": "Bellman-Ford",
+      "content": "Finner korteste vei fra én kilde selv når **negative kantvekter** finnes, så lenge\ngrafen ikke har en **negativ sykel**.\n\nMetoden er enkel: relakser **alle** kanter, og gjenta $|V| - 1$ ganger. Etter\nrunde $k$ er alle korteste veier med høyst $k$ kanter funnet, og en korteste vei\nkan aldri ha mer enn $|V| - 1$ kanter.\n\nKjøretid $O(|V| \\cdot |E|)$ — klart tregere enn Dijkstra, og det er prisen for å\ntåle negative vekter. En ekstra runde som fortsatt gir forbedringer, avslører at\ngrafen har en negativ sykel."
+    },
+    {
+      "id": "in2010-6-2-def-4",
+      "type": "definition",
+      "title": "Negativ sykel",
+      "content": "En sykel der summen av kantvektene er negativ. Da finnes det **ingen** korteste\nvei: hver ny runde rundt sykelen gjør veien billigere, i det uendelige.\n\nBellman-Ford oppdager det ved å kjøre én runde ekstra: gir runde nummer $|V|$\nfortsatt forbedringer, finnes en negativ sykel. I IN2010 er dette et faktapunkt,\nikke en oppgavetype."
+    },
+    {
+      "id": "in2010-6-2-t-4",
+      "type": "text",
+      "content": "Men det finnes en sak til, og den er den viktigste av dem alle på matrisen:\n**hva om grafen er en DAG?**\n\nI en DAG kan nodene ordnes slik at alle kanter peker framover. Går du gjennom\nnodene i den rekkefølgen og relakserer utkantene deres, er hver node **ferdig** i\ndet du kommer til den — alt som kunne forbedret den, ligger bak deg. Da trenger du\ningen prioritetskø, og det spiller ingen rolle om noen vekter er negative."
+    },
+    {
+      "id": "in2010-6-2-th-3",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `DAGKortesteVei`",
+      "content": "**Antagelser om representasjon.** $G = (V, E)$ er en **rettet asyklisk** vektet\ngraf gitt som nabolister. Vektene kan være negative. `avstand` er et array\nindeksert på node.\n\n**Prebetingelse:** $G$ er en DAG. **Postbetingelse:** `avstand[v]` er korteste\navstand fra `s` til alle `v` som kan nås, og $\\infty$ for resten.\n\n```text\nProcedure DAGKortesteVei(G, s)\n  Input:  vektet DAG G = (V, E) som nabolister, startnode s\n  Output: avstand[v] = korteste avstand fra s til v\n  topo = TopologiskSortering(G)\n  for hver v i V:\n      avstand[v] = uendelig\n  avstand[s] = 0\n  for hver u i topo, i rekkefolge:\n      if avstand[u] er uendelig:\n          fortsett med neste u\n      for hver (v, vekt) i G.naboer(u):\n          if avstand[u] + vekt < avstand[v]:\n              avstand[v] = avstand[u] + vekt\n              forgjenger[v] = u\n  return avstand\n```\n\n**Invarianten i én setning:** når `u` behandles i topologisk rekkefølge, er alle\nnoder med en kant **inn** til `u` allerede behandlet, så `avstand[u]` kan ikke bli\nlavere senere.\n\n**Kjøretid:** $O(|V| + |E|)$. Den topologiske sorteringen koster\n$O(|V| + |E|)$ (se [kap. 6.1](/in2010/in2010-6-1)), og løkka etterpå går gjennom\nhver node én gang og hver kant én gang. To lineære pass etter hverandre er\nfortsatt lineært.\n\n**Dette er raskere enn Dijkstra** — $O(|V| + |E|)$ mot\n$O((|V| + |E|)\\log |V|)$ — og det tåler i tillegg negative vekter. Prisen er\nforutsetningen: grafen må være asyklisk."
+    },
+    {
+      "id": "in2010-6-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Korteste vei i en vektet DAG med en negativ kant",
+      "problem": "Seks produksjonstrinn med kantene `A -> B` 3, `A -> C` 7, `B -> C` 2, `B -> D` 6,\n`C -> D` 1, `C -> E` −3, `D -> E` 2, `D -> F` 5, `E -> F` 8. Kanten `C -> E` er\nnegativ fordi trinnet frigjør lagerplass.\n\nFinn laveste totalkostnad fra $A$ til hvert trinn.",
+      "solution": "**Steg 1 — topologisk rekkefølge.** Alle kanter går fra en tidligere til en senere\nbokstav, så grafen er en DAG, og `A, B, C, D, E, F` er en lovlig\ntopologisk rekkefølge.\n\n**Steg 2 — én gjennomgang i den rekkefølgen, med relaksering:**\n\n| Steg | Node i topologisk rekkefølge | Relakserte kanter | avstand-tabell etter |\n|---|---|---|---|\n| 1 | A | `B: ∞ -> 3`, `C: ∞ -> 7` | `A=0, B=3, C=7, D=∞, E=∞, F=∞` |\n| 2 | B | `C: 7 -> 5`, `D: ∞ -> 9` | `A=0, B=3, C=5, D=9, E=∞, F=∞` |\n| 3 | C | `D: 9 -> 6`, `E: ∞ -> 2` | `A=0, B=3, C=5, D=6, E=2, F=∞` |\n| 4 | D | `F: ∞ -> 11` | `A=0, B=3, C=5, D=6, E=2, F=11` |\n| 5 | E | `F: 11 -> 10` | `A=0, B=3, C=5, D=6, E=2, F=10` |\n| 6 | F | ingen | `A=0, B=3, C=5, D=6, E=2, F=10` |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nA=0, B=3, C=5, D=6, E=2, F=10\n```\n\n**Se på $E$.** Avstanden til $E$ er 2, som er **lavere** enn avstanden til både\n$C$ (5) og $D$ (6) — noe som er umulig i en graf med bare ikke-negative vekter.\nDet er den negative kanten `C -> E` som gjør det: $5 + (-3) = 2$.\n\n**Og se hva Dijkstra ville gjort her:** den ville tatt ut $E$ … nei, den ville\nførst tatt ut $A$, så $B$ (3), så $C$ (5), og deretter $D$ (6) — men i det $C$ ble\ntatt ut, ble $E$ satt til 2, altså lavere enn $C$ selv. En avstand som er lavere\nenn den noden vi nettopp erklærte ferdig, bryter Dijkstras hele forutsetning. På\ndenne grafen hadde vi vært heldige og fått riktig svar likevel, men garantien er\nborte, og på grafen i eksempel 3 var svaret feil. **Du kan ikke bruke «det gikk\nbra sist» som argument.**\n\n**Kontrollen:** hver node skal ha fått sin endelige verdi før den behandles i\nrekkefølgen. Det følger av topologien, og det er derfor én gjennomgang holder.\n\n**Poengtrapp-notat.** På en oppgave der grafen er en DAG, er\n$O(|V| + |E|)$ det øverste trinnet. Dijkstra ($O((|V| + |E|)\\log |V|)$) er\nkorrekt hvis alle vekter er ikke-negative, men tregere, og gir færre poeng.\nBellman-Ford ($O(|V| \\cdot |E|)$) er riktigst av alle i den forstand at den\nalltid virker — og gir minst poeng, fordi den er den tregeste."
+    },
+    {
+      "id": "in2010-6-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) En vektet DAG har kantene `A -> B` 4, `A -> C` 2, `C -> B` −1,\n`B -> D` 3, `C -> D` 8, `D -> E` 2.\n\n**a)** Oppgi en topologisk rekkefølge.\n**b)** Finn korteste avstand fra $A$ til alle nodene, ved å gå gjennom i den\nrekkefølgen.\n**c)** Hvorfor kan du ikke bruke Dijkstra her, og hvorfor spiller det ingen rolle\nat grafen ikke har noen sykel?",
+        "solution": "**a)** Inngradene er `A=0, B=2, C=1, D=2, E=1`. Kahns algoritme gir\n`A, C, B, D, E`.\n\n**b)**\n\n| Steg | Node i topologisk rekkefølge | Relakserte kanter | avstand-tabell etter |\n|---|---|---|---|\n| 1 | A | `B: ∞ -> 4`, `C: ∞ -> 2` | `A=0, B=4, C=2, D=∞, E=∞` |\n| 2 | C | `B: 4 -> 1`, `D: ∞ -> 10` | `A=0, B=1, C=2, D=10, E=∞` |\n| 3 | B | `D: 10 -> 4` | `A=0, B=1, C=2, D=4, E=∞` |\n| 4 | D | `E: ∞ -> 6` | `A=0, B=1, C=2, D=4, E=6` |\n| 5 | E | ingen | `A=0, B=1, C=2, D=4, E=6` |\n\n**Sluttilstand: `A=0, B=1, C=2, D=4, E=6`**\n\n**c)** Fordi kanten `C -> B` har vekt −1, og Dijkstras garanti forutsetter at\n**ingen** kant er negativ. Konkret ville Dijkstra tatt ut $B$ med avstand 4 i andre\nrunde og erklært den ferdig, før $C$ ble tatt ut med avstand 2 og kunne senket $B$\ntil 1.\n\nAt grafen ikke har noen sykel, hjelper ikke: Dijkstras invariant handler om\n**enkeltkanter** som kan trekke fra, ikke om sykler. Det er en av de faste fellene\n— «ingen negativ sykel» er kravet til **Bellman-Ford**, ikke til Dijkstra.\n\n**Riktig valg her:** topologisk sortering og én gjennomgang, $O(|V| + |E|)$ —\nraskere enn både Dijkstra og Bellman-Ford, og korrekt til tross for den negative\nkanten.",
+        "hints": [
+          "Regn ut inngradene og kjør Kahn først — resten er én gjennomgang.",
+          "Del c): hva er det nøyaktig Dijkstra forutsetter om kantvektene?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-2-th-4",
+      "type": "theorem",
+      "title": "Korteste-avstander-matrisen — de fire radene",
+      "content": "Dette er det tryggeste Del 1-poenget i Del 6, og det kommer som en avkryssing\n(sjanger F). Lær radene som en enhet:\n\n| Grafen er … | Bruk | Kjøretid |\n|---|---|---|\n| **uvektet** | bredde-først-søk (BFS) | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| **vektet DAG** (asyklisk) | topologisk sortering, så én gjennomgang | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| **vektet uten negative kanter** | Dijkstra med prioritetskø | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log \\lvert V \\rvert)$ |\n| **vektet med negative kanter, ingen negativ sykel** | Bellman-Ford | $O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$ |\n\n**Slik leser du matrisen riktig.** Radene er ordnet fra raskest til tregest, og du\nskal alltid velge den **øverste** raden som passer. En vektet DAG uten negative\nkanter kan løses med Dijkstra — men topologisk sortering er raskere, og\npoengtrappen belønner det raskeste korrekte svaret.\n\n**De to spørsmålene som avgjør raden:**\n\n1. Har kantene vekter i det hele tatt? Nei: bruk **BFS**.\n2. Er grafen asyklisk? Ja: bruk **topologisk sortering**. Nei: finnes det en\n   negativ kant? Nei: bruk **Dijkstra**. Ja: bruk **Bellman-Ford**.\n\n**Merk at «ingen negativ sykel» er kravet til Bellman-Ford**, ikke til Dijkstra.\nDijkstra krever at ingen **kant** er negativ. Å blande disse to er en fast felle,\nog den koster hele avkryssingen."
+    },
+    {
+      "id": "in2010-6-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — matriseavkryssing, altså at du kobler graftype til algoritme.) Fyll\ninn den **raskeste** korrekte algoritmen og dens kjøretid for hver graftype.\n\n**a)** Et uvektet sosialt nettverk.\n**b)** En vektet, asyklisk arbeidsflyt der noen kanter har negativ vekt.\n**c)** Et veinett med kjøretider i minutter, alle positive, med rundkjøringer\n(altså sykler).\n**d)** Et handelsnett med gevinster og tap på hver overføring, sykler finnes, men\ningen sykel gir netto gevinst.",
+        "solution": "**a)** **Bredde-først-søk (BFS)**, $O(|V| + |E|)$. Uten vekter er korteste vei det\nsamme som færrest kanter.\n\n**b)** **Topologisk sortering og én gjennomgang**, $O(|V| + |E|)$. Grafen er en\nDAG, og metoden tåler negative vekter. Bellman-Ford ville også gitt riktig svar,\nmen koster $O(|V| \\cdot |E|)$ — betydelig mer.\n\n**c)** **Dijkstra med prioritetskø**, $O((|V| + |E|)\\log |V|)$. Alle vekter er\npositive, men syklene utelukker DAG-metoden.\n\n**d)** **Bellman-Ford**, $O(|V| \\cdot |E|)$. Negative kanter utelukker Dijkstra,\nog syklene utelukker DAG-metoden. «Ingen sykel gir netto gevinst» er nøyaktig\nformuleringen «ingen negativ sykel», som er Bellman-Fords forutsetning.\n\n**Merk at svarene er fire forskjellige algoritmer** — en av grunnene til at denne\navkryssingen er så vanlig, er at den skiller godt. Kandidater som bare husker\n«Dijkstra er korteste vei» får bare ett av fire riktig.\n\n**Kontrollen for hver rad:** still de to spørsmålene i rekkefølge — vekter?\nasyklisk? negative kanter? — og velg den øverste raden som passer.",
+        "hints": [
+          "Still to spørsmål om hver graf: har den vekter, og er den asyklisk?",
+          "Når flere algoritmer er korrekte, skal du oppgi den raskeste."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å bruke Dijkstra når en kant er negativ.** Dette er den dyreste feilen i\n  kapitlet, og den er utbredt fordi mange husker forutsetningen som «ingen negativ\n  sykel». Det er Bellman-Fords krav. Dijkstra krever at **ingen kant** er negativ,\n  og feiler på en graf helt uten sykler, som i eksempel 3.\n- **Å kjøre Dijkstra fra hvert utgangspunkt når én reversert kjøring holder.**\n  Dette er felle **#1** i bokas feilregister — full/naiv gjennomgang der ett smart\n  grep var mulig — og den koster typisk halve poengsummen på Del 2. Se løkke 4.\n- **Å bruke BFS på en vektet graf.** BFS teller kanter. To dyre kanter er «kortere»\n  enn tre billige, målt i antall — og det er som regel feil svar.\n- **Å stoppe Dijkstra når målnoden blir oppdaget.** En node er ferdig først når den\n  er **tatt ut av køen**. I eksempel 2 hadde $F$ verdien 14 en stund før den ble\n  13.\n- **Å bruke Dijkstra på en vektet DAG.** Korrekt (hvis vektene er ikke-negative),\n  men tregere enn nødvendig: $O((|V| + |E|)\\log |V|)$ i stedet for\n  $O(|V| + |E|)$. Poengtrappen straffer det.\n- **Å oppgi kjøretiden $O(|V| \\cdot |E| \\log |V|)$ for Dijkstra.** Det er\n  telleefeilen der man ganger antall noder med antall kanter. Riktig svar er\n  $O((|V| + |E|)\\log |V|)$ — en sum inni en logaritmefaktor.\n\nOg den gjennomgående: **å oppgi kjøretid uten å definere størrelsene.** Skriv\n$|V|$ for antall noder og $|E|$ for antall kanter, og si det. Bruker du $n$ uten\nforklaring, er det felle **#10**, som det trekkes eksplisitt for."
+    },
+    {
+      "id": "in2010-6-2-t-5",
+      "type": "text",
+      "content": "## Løkke 4 — trikset som skiller B fra A: snu grafen (ca. 14 min)\n\nNå kommer det grepet som oftest avgjør toppkarakteren på en korteste-vei-oppgave.\n\nSituasjonen er alltid den samme i formen: du har **flere mulige utgangspunkt** og\n**ett mål**, og spørsmålet er hvilket utgangspunkt som er nærmest målet. En\nbrannstasjon som skal velges, en av flere lagre som skal levere, en av flere\ninngangsdører som skal brukes.\n\nDen nærliggende løsningen er å kjøre Dijkstra fra hvert utgangspunkt og\nsammenligne. Med $|U|$ utgangspunkt koster det $|U|$ Dijkstra-kjøringer, altså\n$O(|U| \\cdot (|V| + |E|)\\log |V|)$.\n\n**Den gode løsningen snur grafen.** Avstanden fra $p$ til $t$ i $G$ er nøyaktig\ndet samme som avstanden fra $t$ til $p$ i den reverserte grafen $G^R$. Så kjør\n**én** Dijkstra, fra $t$, i $G^R$ — og les av avstanden til alle utgangspunktene\npå én gang."
+    },
+    {
+      "id": "in2010-6-2-img-2",
+      "type": "image",
+      "src": "/images/textbook/in2010/reversert-graf.svg",
+      "alt": "To grafer side om side. Til venstre den opprinnelige rettede grafen med utgangspunktene P, Q og R som peker mot mellomnodene S og M, som igjen peker mot målet T. Til høyre den samme grafen med alle kanter snudd, slik at T peker mot S og M, som peker videre mot P, Q og R.",
+      "caption": "Samme graf, snudd. Til venstre må du kjøre Dijkstra tre ganger, én per utgangspunkt. Til høyre holder det med én kjøring fra T — og du får avstanden til alle tre utgangspunktene på én gang."
+    },
+    {
+      "id": "in2010-6-2-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Eksamensnivå — hvilket utgangspunkt er nærmest?",
+      "problem": "Tre beredskapspunkter $P$, $Q$ og $R$ skal vurderes. Et oppdrag skal utføres på\nsted $T$. Veinettet er enveiskjørt med kjøretider: `P -> S` 4, `Q -> S` 2,\n`Q -> M` 7, `R -> M` 3, `S -> T` 5, `M -> T` 1.\n\nHvilket beredskapspunkt kommer raskest fram til $T$? Skriv en algoritme som løser\nproblemet generelt, med lavest mulig kjøretid.",
+      "solution": "**Problemet navngitt.** Dette er korteste vei **til** én bestemt node fra flere\nmulige startnoder. Nøkkelobservasjonen er at «avstand fra $p$ til $t$ i $G$» er det\nsamme som «avstand fra $t$ til $p$ i $G^R$» — den samme veien, lest baklengs.\n\n**Antagelser om representasjon.** $G = (V, E)$ er en rettet vektet graf gitt som\nnabolister, med **ikke-negative** kjøretider. $U \\subseteq V$ er mengden av\nmulige utgangspunkt, og $t$ er målnoden. Vi kan bygge den reverserte grafen $G^R$\nved én gjennomgang av alle nabolistene, $O(|V| + |E|)$.\n\n**Algoritmen.**\n\n```text\nProcedure NaermesteUtgangspunkt(G, U, t)\n  Input:  rettet vektet graf G = (V, E), alle vekter >= 0;\n          mengden U av mulige utgangspunkt; maalnoden t\n  Output: den noden i U som har lavest kjoeretid til t, og selve kjoeretiden\n  G_R = G med alle kanter snudd\n  avstand = Dijkstra(G_R, t)\n  beste = ingen\n  for hver p i U:\n      if beste er ingen or avstand[p] < avstand[beste]:\n          beste = p\n  return beste, avstand[beste]\n```\n\n**Kjøring på tallene.** Den reverserte grafen har kantene `T -> S` 5, `T -> M` 1,\n`S -> P` 4, `S -> Q` 2, `M -> Q` 7, `M -> R` 3. Dijkstra fra $T$:\n\n| Steg | Ferdig (tatt ut av køen) | Relakserte kanter | avstand-tabell etter | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|\n| 1 | T (avstand 0) | `M: ∞ -> 1`, `S: ∞ -> 5` | `M=1, P=∞, Q=∞, R=∞, S=5, T=0` | `(1, M), (5, S), (∞, Q), (∞, R), (∞, P)` |\n| 2 | M (avstand 1) | `Q: ∞ -> 8`, `R: ∞ -> 4` | `M=1, P=∞, Q=8, R=4, S=5, T=0` | `(4, R), (5, S), (8, Q), (∞, P)` |\n| 3 | R (avstand 4) | ingen | `M=1, P=∞, Q=8, R=4, S=5, T=0` | `(5, S), (∞, P), (8, Q)` |\n| 4 | S (avstand 5) | `P: ∞ -> 9`, `Q: 8 -> 7` | `M=1, P=9, Q=7, R=4, S=5, T=0` | `(7, Q), (9, P)` |\n| 5 | Q (avstand 7) | ingen | `M=1, P=9, Q=7, R=4, S=5, T=0` | `(9, P)` |\n| 6 | P (avstand 9) | ingen | `M=1, P=9, Q=7, R=4, S=5, T=0` | `tom` |\n\n**Sluttilstand:**\n\n```text\nM=1, P=9, Q=7, R=4, S=5, T=0\n```\n\n**Svaret:** $R$ er nærmest, med 4 minutter. Deretter $Q$ med 7 og $P$ med 9.\n\n**Kjøretid:** $O((|V| + |E|)\\log |V|)$ — én reversering ($O(|V| + |E|)$), én\nDijkstra, og én gjennomgang av $U$ ($O(|U|)$, som er høyst $O(|V|)$). Her er $|V|$\nantall veikryss og $|E|$ antall veistrekk.\n\n**Hvorfor dette er lavest mulig, og hva den naive løsningen koster.** Kjører du\nDijkstra fra hvert utgangspunkt, blir det $|U|$ kjøringer:\n$O(|U| \\cdot (|V| + |E|)\\log |V|)$. Med tre beredskapspunkter er det tre ganger\nså mye arbeid; med hundre er det hundre ganger. Reverseringen fjerner faktoren\n$|U|$ helt.\n\n**Poengtrappen på denne oppgavetypen** er dokumentert eksplisitt i arkivet: den\nreverserte løsningen er toppsvaret, $|U|$ Dijkstra-kjøringer er et korrekt\nmidtsvar, og det er nøyaktig den forskjellen som skiller A fra B. Felle **#1**\nigjen: full gjennomgang der ett grep holdt.\n\n**Alternativet du også kan nevne:** legg til en kunstig **supernode** $s^*$ med\nkanter av vekt 0 inn til alle noder i $U$, og kjør én Dijkstra fra $s^*$. Det gir\nkorteste avstand fra «noe i $U$» til $t$ i én kjøring — men det gir deg *ikke*\nhvilket utgangspunkt som var best, uten å lese av forgjengerne. Reverseringen er\ndet reneste svaret her."
+    },
+    {
+      "id": "in2010-6-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) I den reverserte grafen fra eksempel 5 fikk vi\n`M=1, P=9, Q=7, R=4, S=5, T=0`.\n\n**a)** Hvor lang tid tar det fra $Q$ til $T$ i den **opprinnelige** grafen, og\nhvilken vei går ruten?\n**b)** Et nytt beredskapspunkt $N$ legges til, med kanten `N -> M` av vekt 2. Blir\n$N$ det nærmeste?\n**c)** Hvorfor kan du svare på b) uten å kjøre Dijkstra på nytt fra bunnen?",
+        "solution": "**a)** 7 minutter. I den reverserte kjøringen ble $Q$ satt til 7 da $S$ ble tatt ut\nmed avstand 5, altså via `T -> S -> Q`. Lest baklengs i den opprinnelige grafen er\nruten `Q -> S -> T`, med kostnad $2 + 5 = 7$. Alternativet `Q -> M -> T` koster\n$7 + 1 = 8$ og er dårligere.\n\n**b)** Ja. Avstanden fra $M$ til $T$ er 1, så `N -> M -> T` koster $2 + 1 = 3$. Det\ner lavere enn $R$ sine 4 minutter, og $N$ blir det nærmeste beredskapspunktet.\n\n**c)** Fordi den reverserte Dijkstra-kjøringen allerede ga korteste avstand fra\n$T$ til **hver eneste node** i grafen, ikke bare til de tre utgangspunktene. Å\nlegge til en ny node som bare har en utkant til $M$, betyr at avstanden til den\ner `avstand[M]` pluss kantvekten.\n\n**Momentet:** det er nettopp derfor reverseringen er så billig. Én Dijkstra gir\navstanden til alle mulige utgangspunkt — også de som ikke fantes da du kjørte\nden.",
+        "hints": [
+          "Avstanden fra $T$ til $Q$ i den reverserte grafen er den samme som fra $Q$ til $T$ i den opprinnelige.",
+          "Del b): du kjenner allerede avstanden fra $M$ til $T$."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger H, krevende.) En leverandør har lagre i nodemengden $U$ og skal levere til\n**alle** kunder i nodemengden $K$. For hver kunde vil de vite hvilket lager som er\nnærmest.\n\n**a)** Hva koster det å kjøre reversert Dijkstra én gang per kunde?\n**b)** Hva koster det å kjøre Dijkstra én gang per lager?\n**c)** Hvilken av de to velger du, og hva er betingelsen?\n**d)** Skriv løsningen for det tilfellet at $|U|$ er mye mindre enn $|K|$.",
+        "solution": "**a)** Én reversert Dijkstra per kunde gir avstanden fra alle lagre til **den**\nkunden. Med $|K|$ kunder blir det\n$O(|K| \\cdot (|V| + |E|)\\log |V|)$.\n\n**b)** Én Dijkstra per lager gir avstanden fra **det** lageret til alle kunder. Med\n$|U|$ lagre blir det $O(|U| \\cdot (|V| + |E|)\\log |V|)$.\n\n**c)** Du velger den med færrest kjøringer: er $|U| < |K|$, kjør per lager; er\n$|K| < |U|$, kjør reversert per kunde. Betingelsen er altså rett og slett hvilken\nav de to mengdene som er minst — og det er et poeng verdt å skrive eksplisitt, for\ndet viser at du har forstått hva reverseringen faktisk kjøper deg.\n\n**d) Problemet navngitt:** korteste avstand fra hvert lager til hver kunde, når\nantall lagre er lite.\n\n**Antagelser om representasjon:** $G = (V, E)$ som nabolister, ikke-negative\nvekter. `naermeste` og `avstandTil` er arrayer indeksert på kunde.\n\n```text\nProcedure NaermesteLagerPerKunde(G, U, K)\n  Input:  rettet vektet graf G = (V, E), alle vekter >= 0;\n          lagermengden U, kundemengden K\n  Output: for hver kunde: naermeste lager og avstanden dit\n  for hver k i K:\n      avstandTil[k] = uendelig\n      naermeste[k] = ingen\n  for hver u i U:\n      d = Dijkstra(G, u)\n      for hver k i K:\n          if d[k] < avstandTil[k]:\n              avstandTil[k] = d[k]\n              naermeste[k] = u\n  return naermeste, avstandTil\n```\n\n**Kjøretid:** $O\\bigl(|U| \\cdot (|V| + |E|)\\log |V|\\bigr)$, der $|V|$ er antall\nveikryss, $|E|$ antall veistrekk og $|U|$ antall lagre. Den indre løkka over\nkundene koster $O(|U| \\cdot |K|)$ til sammen, som er dominert av\nDijkstra-kjøringene så lenge $|K| \\le |V|$.\n\n**Poengtrapp-notat.** Det som gir uttelling her, er ikke pseudokoden — den er\nenkel. Det er **valget** og begrunnelsen: at du sammenligner $|U|$ og $|K|$ og sier\nhvilken vei du snur grafen. En besvarelse som bare kjører $|U| \\cdot |K|$\nDijkstra-kjøringer (én per par) er korrekt og gir minst poeng.",
+        "hints": [
+          "Én Dijkstra-kjøring gir avstanden til **alle** noder — ikke bare til én.",
+          "Spørsmålet er hvor mange kjøringer du trenger, ikke hvor dyr hver kjøring er."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger C — kjøretids- og teorifakta, altså sant/usant som skal sitte sikkert.)\nMarker sant eller usant, og begrunn hvert svar med én setning.\n\n**a)** Dijkstra gir riktig svar så lenge grafen ikke har en negativ sykel.\n**b)** Bellman-Ford kan brukes på enhver graf der Dijkstra kan brukes.\n**c)** BFS gir korteste vei i en vektet graf der alle kanter har vekt 1.\n**d)** Topologisk sortering kan brukes til korteste vei i en graf med sykler.\n**e)** Dijkstra med binær prioritetskø er $O(|V| \\cdot |E| \\log |V|)$.",
+        "solution": "**a) Usant.** Dijkstra krever at **ingen kant** er negativ. Eksempel 3 viser en\ngraf helt uten sykler der Dijkstra likevel gir feil svar. «Ingen negativ sykel» er\nBellman-Fords krav.\n\n**b) Sant.** Bellman-Ford har svakere forutsetninger enn Dijkstra og gir riktig\nsvar overalt hvor Dijkstra gjør det — den er bare tregere,\n$O(|V| \\cdot |E|)$ mot $O((|V| + |E|)\\log |V|)$.\n\n**c) Sant.** Med alle vekter lik 1 er kostnaden nøyaktig antall kanter, og det er\ndet BFS teller. Dette er grensetilfellet der den uvektede og den vektede raden i\nmatrisen faller sammen.\n\n**d) Usant.** En graf med sykel har ingen topologisk rekkefølge (se\n[kap. 6.1](/in2010/in2010-6-1)), så metoden kan ikke starte i det hele tatt.\n\n**e) Usant.** Riktig kjøretid er $O((|V| + |E|)\\log |V|)$ — en **sum** inni\nlogaritmefaktoren. Produktet $|V| \\cdot |E|$ oppstår hvis du tror den indre løkka\ngår over alle kanter for hver node.\n\n**Merk fasitmønsteret:** tre usanne og to sanne, i rekkefølgen usant, sant, sant,\nusant, usant. Under en antigjettings-skalering er dette akkurat den typen blokk der\nhalvparten riktig gjetting gir null poeng — hvert punkt må sitte sikkert.",
+        "hints": [
+          "Skill nøye mellom «ingen negativ kant» og «ingen negativ sykel» — de hører til hver sin algoritme.",
+          "Punkt e): er kjøretiden en sum eller et produkt?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-2-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet.\n\nKortene her er kalibrert som eksamen tester dem: **algoritme, kjøretid,\nforutsetning.** Fordi eksamen er hjelpemiddelfri, er dette puggematerialet."
+    },
+    {
+      "id": "in2010-6-2-def-5",
+      "type": "definition",
+      "title": "Korteste-avstander-matrisen",
+      "content": "De fire faste radene, ordnet fra raskest til tregest:\n\n- **uvektet**: BFS, $O(|V| + |E|)$\n- **vektet DAG**: topologisk sortering og én gjennomgang, $O(|V| + |E|)$\n- **ingen negative kanter**: Dijkstra, $O((|V| + |E|)\\log |V|)$\n- **negative kanter, ingen negativ sykel**: Bellman-Ford, $O(|V| \\cdot |E|)$\n\nVelg alltid den øverste raden som passer."
+    },
+    {
+      "id": "in2010-6-2-def-6",
+      "type": "definition",
+      "title": "Dijkstras forutsetning",
+      "content": "**Ingen kantvekt får være negativ.** Ikke «ingen negativ sykel» — det er\nBellman-Fords krav.\n\nGrunnen ligger i invarianten: når en node tas ut av køen, er avstanden endelig\nfordi enhver annen vei dit må gå via en node med minst like høy avstand. En\nnegativ kant kan trekke fra, og da faller argumentet."
+    },
+    {
+      "id": "in2010-6-2-def-7",
+      "type": "definition",
+      "title": "Bellman-Fords kjøretid og forutsetning",
+      "content": "$O(|V| \\cdot |E|)$: alle $|E|$ kanter relakseres i hver av $|V| - 1$ runder.\n\nForutsetningen er at grafen ikke har en **negativ sykel**. Negative enkeltkanter er\nhelt greit — det er hele grunnen til at algoritmen finnes. Én ekstra runde som\nfortsatt gir forbedringer, avslører en negativ sykel."
+    },
+    {
+      "id": "in2010-6-2-def-8",
+      "type": "definition",
+      "title": "Hvorfor $|V| - 1$ runder i Bellman-Ford",
+      "content": "En korteste vei kan ikke ha mer enn $|V| - 1$ kanter — hadde den hatt flere, måtte\nden besøkt en node to ganger, altså gått i en sykel, og en sykel uten negativ\ntotalvekt kan alltid kuttes ut.\n\nEtter runde $k$ er alle korteste veier med høyst $k$ kanter funnet. Etter\n$|V| - 1$ runder er derfor alt funnet."
+    },
+    {
+      "id": "in2010-6-2-def-9",
+      "type": "definition",
+      "title": "Korteste vei i vektet DAG",
+      "content": "Sortér topologisk, gå gjennom nodene i den rekkefølgen, og relakser utkantene til\nhver node. $O(|V| + |E|)$.\n\nMetoden er **raskere enn Dijkstra** og tåler i tillegg **negative** kantvekter. Den\neneste forutsetningen er at grafen er asyklisk. Når oppgaven sier «arbeidsflyt»,\n«produksjonskjede» eller «avhengigheter», er det ofte denne raden i matrisen som\ngjelder."
+    },
+    {
+      "id": "in2010-6-2-def-10",
+      "type": "definition",
+      "title": "Reversert Dijkstra",
+      "content": "Flere mulige startnoder, ett mål: snu alle kanter og kjør **én** Dijkstra fra\nmålet. Avstanden fra $p$ til $t$ i $G$ er den samme som fra $t$ til $p$ i $G^R$.\n\nKjøretid $O((|V| + |E|)\\log |V|)$ mot $O(|U| \\cdot (|V| + |E|)\\log |V|)$ for én\nkjøring per utgangspunkt. Dette er det dokumenterte A/B-skillet på\nkorteste-vei-oppgaver."
+    },
+    {
+      "id": "in2010-6-2-def-11",
+      "type": "definition",
+      "title": "Supernode-trikset",
+      "content": "Alternativ til reversering når du bare vil vite **den korteste** avstanden fra\n*noen* node i en mengde $U$: legg til en kunstig node $s^*$ med kanter av vekt 0\ntil alle noder i $U$, og kjør én Dijkstra fra $s^*$.\n\nKostnaden er $O(|U|)$ ekstra kanter og endrer ikke kjøretidens orden. Ulempen er at\ndu må lese av forgjengerne for å finne ut *hvilken* node i $U$ som var best."
+    },
+    {
+      "id": "in2010-6-2-def-12",
+      "type": "definition",
+      "title": "Relaksering",
+      "content": "$$\\text{avstand}[v] = \\min\\bigl(\\text{avstand}[v],\\ \\text{avstand}[u] + w(u, v)\\bigr)$$\n\nKostnad $O(1)$. Hele korteste-vei-teorien er denne ene linja gjentatt i riktig\nrekkefølge — BFS, Dijkstra, DAG-metoden og Bellman-Ford skiller seg bare i\n**rekkefølgen** de relakserer kantene i."
+    },
+    {
+      "id": "in2010-6-2-def-13",
+      "type": "definition",
+      "title": "Dijkstras invariant",
+      "content": "Når en node tas ut av prioritetskøen, er avstanden til den **endelig**.\n\nBegrunnelsen: enhver annen vei dit må gå gjennom en node som fortsatt ligger i\nkøen, og den har minst like høy avstand — pluss en kant som ikke kan være negativ.\nFjerner du ikke-negativitets-kravet, faller hele argumentet, og med det\nalgoritmen."
+    },
+    {
+      "id": "in2010-6-2-def-14",
+      "type": "definition",
+      "title": "`forgjenger`-arrayet",
+      "content": "For hver node: hvilken node vi kom fra da avstanden sist ble forbedret.\n\nSelve **veien** leses ut baklengs fra målet til startnoden, i $O(|V|)$. Uten dette\narrayet har du bare avstandene, ikke rutene — og oppgaver som ber om «hvilken vei»\nkrever begge deler."
+    },
+    {
+      "id": "in2010-6-2-def-15",
+      "type": "definition",
+      "title": "BFS som korteste vei",
+      "content": "I en uvektet graf (eller når alle vekter er like) gir BFS korteste avstand målt i\n**antall kanter**, i $O(|V| + |E|)$.\n\nGrunnen er lagvis-rekkefølgen: alle noder med avstand $k$ tas ut før noen med\navstand $k+1$. På en vektet graf er dette galt — BFS teller kanter, ikke kostnad."
+    },
+    {
+      "id": "in2010-6-2-def-16",
+      "type": "definition",
+      "title": "Prioritetskøens rolle i Dijkstra",
+      "content": "Køen svarer på «hvilken uferdig node har lavest kjent avstand». Med binær heap\nkoster `RemoveMin` og `DecreaseKey` $O(\\log |V|)$ hver.\n\nDet er nøyaktig der logaritmefaktoren i $O((|V| + |E|)\\log |V|)$ kommer fra. Uten\nprioritetskø, med lineær leting hver runde, blir Dijkstra $O(|V|^2 + |E|)$ — som\nfaktisk er raskere på svært tette grafer, men ikke er standardsvaret."
+    },
+    {
+      "id": "in2010-6-2-def-17",
+      "type": "definition",
+      "title": "Negativ sykel",
+      "content": "En sykel der summen av kantvektene er negativ. Da finnes ingen korteste vei — hver\nny runde rundt gjør veien billigere.\n\nBellman-Ford oppdager det med én ekstra relakseringsrunde: gir runde $|V|$\nfortsatt forbedringer, finnes en negativ sykel. I IN2010 er dette et faktapunkt på\nDel 1, ikke en oppgavetype på Del 2."
+    },
+    {
+      "id": "in2010-6-2-def-18",
+      "type": "definition",
+      "title": "Enkeltkilde mot alle par",
+      "content": "Alle fire algoritmene i dette kapitlet er **enkeltkilde**: én kjøring gir avstanden\nfra én startnode til alle andre.\n\nVil du ha avstanden mellom **alle par**, må du kjøre en av dem én gang per node.\nAlgoritmer laget spesielt for alle-par-problemet er **ikke** IN2010-pensum — se\navgrensningen i [kap. 7.3](/in2010/in2010-7-3)."
+    },
+    {
+      "id": "in2010-6-2-def-19",
+      "type": "definition",
+      "title": "Mønstergjenkjenning: «nærmeste kilde»",
+      "content": "Ser du «hvilket av flere utgangspunkt er nærmest målet», er svaret **én reversert\nDijkstra**, ikke én kjøring per utgangspunkt.\n\nBeslektede formuleringer: «hvilken av stasjonene kommer først fram», «hvilket lager\nskal levere», «hvilken inngang er nærmest». Alle har samme struktur: mange\nstartnoder, ett mål."
+    },
+    {
+      "id": "in2010-6-2-def-20",
+      "type": "definition",
+      "title": "Å stoppe Dijkstra tidlig",
+      "content": "Skal du bare ha avstanden til én bestemt node $t$, kan du avslutte i det $t$ blir\n**tatt ut av køen** — da er avstanden endelig.\n\nÅ stoppe når $t$ blir *oppdaget*, er derimot feil: verdien kan fortsatt bli lavere.\nOrden på kjøretiden endres ikke av tidlig stopp i verste tilfelle."
+    },
+    {
+      "id": "in2010-6-2-def-21",
+      "type": "definition",
+      "title": "Uoppnåelige noder",
+      "content": "Noder som ikke kan nås fra startnoden, beholder $\\infty$ som avstand gjennom hele\nkjøringen.\n\nDet er et gyldig svar, ikke en feil, og det skal stå i tabellen. En besvarelse som\nutelater dem, har ikke oppgitt hele sluttilstanden — sensor ber om avstanden til\n**alle** noder."
+    },
+    {
+      "id": "in2010-6-2-def-22",
+      "type": "definition",
+      "title": "Poengtrappen på korteste vei",
+      "content": "Samme oppgave, tre nivåer: $O(|V| + |E|)$ når grafen tillater det (uvektet eller\nDAG), $O((|V| + |E|)\\log |V|)$ med Dijkstra, $O(|V| \\cdot |E|)$ med\nBellman-Ford.\n\nAlle tre kan være korrekte på samme graf. Bare den øverste gir full uttelling — «å\nvelge riktig algoritme er å velge poeng» er den mest gjentatte poengregelen i\nsensorveiledningene."
+    },
+    {
+      "id": "in2010-6-2-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-6-2-rep-1",
+          "type": "text",
+          "content": "**Matrisen, som må sitte hjelpemiddelfritt:**\n\n| Grafen er … | Bruk | Kjøretid |\n|---|---|---|\n| uvektet | BFS | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| vektet DAG | topologisk sortering + én gjennomgang | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| ingen negative kanter | Dijkstra | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log \\lvert V \\rvert)$ |\n| negative kanter, ingen negativ sykel | Bellman-Ford | $O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$ |\n\n**Dijkstra, som må kunne skrives fra hukommelsen:**\n\n```text\nProcedure Dijkstra(G, s)\n  Input:  vektet graf G som nabolister, alle vekter >= 0; startnode s\n  Output: avstand[v] for alle v\n  for hver v i V:\n      avstand[v] = uendelig\n  avstand[s] = 0\n  PQ = min-heap med alle noder, ordnet paa avstand\n  while PQ er ikke tom:\n      u = PQ.RemoveMin()\n      for hver (v, vekt) i G.naboer(u):\n          if v er fortsatt i PQ and avstand[u] + vekt < avstand[v]:\n              avstand[v] = avstand[u] + vekt\n              forgjenger[v] = u\n              PQ.DecreaseKey(v, avstand[v])\n```\n\n**De tre setningene som er verdt mest poeng:**\n\n1. Dijkstra krever at **ingen kant** er negativ — ikke bare ingen negativ sykel.\n2. Flere utgangspunkt og ett mål: **snu grafen** og kjør Dijkstra **én** gang.\n3. Er grafen en DAG, er topologisk sortering raskere enn Dijkstra og tåler\n   negative vekter.\n\n**To kontroller som tar ti sekunder hver:** stiger avstandene på nodene du tar ut\nav køen? Og matcher kjøretiden du oppga, algoritmen du faktisk skrev?\n\n**Videre:** [kap. 6.3](/in2010/in2010-6-3) om minimale spenntrær, som bruker samme\nprioritetskø til noe helt annet, og [kap. 6.5](/in2010/in2010-6-5), som driller\nmatrisen og modelleringen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

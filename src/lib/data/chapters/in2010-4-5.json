@@ -1,0 +1,396 @@
+{
+ "id": "in2010-4-5",
+ "courseId": "in2010",
+ "chapterNumber": "4.5",
+ "title": "DRILL — Håndkjøring av heap og AVL",
+ "description": "Full drill på sjanger E for de to sikreste håndkjøringsstrukturene: heap-innsetting/removeMin (indeks fra 0) og AVL-rotasjonstelling — mekanisk og feilfritt.",
+ "estimatedMinutes": 85,
+ "competenceGoals": [
+  "kunne håndkjøre innsetting og fjerning av minsteelementet i en min-heap lagret som array med indeks fra 0, og oppgi arrayet som sluttsvar",
+  "kunne utføre down-heap korrekt: alltid mot det minste barnet, og alltid med en sjekk av at barnet finnes",
+  "kunne telle enkle rotasjoner i et AVL-tre, der en dobbelrotasjon teller som to, og oppgi rotverdien og gyldigheten til slutt",
+  "kunne avgjøre om en gitt struktur er en gyldig min-heap eller et gyldig AVL-tre, og peke ut det konkrete bruddet når den ikke er det"
+ ],
+ "content": [
+  {
+   "id": "in2010-4-5-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette er drillkapitlet for **håndkjøring** — den sjangeren der det ikke finnes\nnoe å forstå, bare noe å beherske, og der svaret enten er helt riktig eller ikke.\n\n- **Sjanger E — håndkjøring av en datastruktur**, altså at du utfører operasjonen\n  steg for steg på papiret og oppgir **bare sluttilstanden**.\n- **Min-heap** har vært på **86 % av settene (6 av 7)** i perioden boka bygger på,\n  og er den hyppigste håndkjøringskandidaten i hele faget.\n- **AVL-rotasjoner** har vært på **43 % (3 av 7)** — sjeldnere, men **tyngre enn i\n  NTNUs TDT4120**, der balanserte trær har mindre eksamensvekt. Her skal de\n  faktisk håndkjøres, ikke bare gjenkjennes.\n\n**Formatet du leverer er en del av oppgaven.** For en min-heap er svaret **hele\narrayet, kommaseparert, med indeks fra 0** — ikke treet. For et AVL-tre er svaret\n**antall enkle rotasjoner** (en dobbelrotasjon teller som to), **rotverdien** til\nslutt, og om resultatet er et gyldig AVL-tre. Leverer du noe annet, har du gjort\nhele jobben og likevel mistet poeng.\n\nEksamen er **hjelpemiddelfri**: ingen bok, ingen maskin som kan kjøre operasjonen\nfor deg, og du skriver svaret rett inn i Inspera, som er UiOs digitale\neksamenssystem. Heap-indeksene og down-heap-regelen må derfor sitte i fingrene.\n\nPrioritet: heap **må sitte** — høyeste prioritet. AVL ligger ett hakk under, men\ner ofte det som skiller de øverste karakterene.\n\n**Slik er kapitlet lagt opp (85 min):** oppskriften og et gjennomarbeidet\neksamenscase først (ca. 15 min), deretter tretten oppgaver i tre bolker —\ninnsetting i heap (ca. 20 min), `RemoveMin` og down-heap (ca. 25 min), og\nAVL-rotasjoner med gyldighetsvurdering (ca. 25 min). Det summerer til 85 minutter.\nBolkene er uavhengige, så ta gjerne én per kveld. Etter hver bolk står en boks som\nsier hva oppgavene testet. Begrepsbanken og repetisjonen helt til slutt kommer i\ntillegg — de er repetisjonsstoff, ikke nytt stoff."
+  },
+  {
+   "id": "in2010-4-5-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nDette er en drill, ikke et nytt tema. Du skal ikke måtte bla for å komme i gang,\nså her er de tre resultatene du bruker i hver eneste oppgave, ferdig oppfrisket.\n\n**Sist du var her — 1) heapen som array, indeks fra 0** (fra\n[kap. 4.4](/in2010/in2010-4-4)).\n\nRota ligger på indeks 0. For noden på indeks $i$ er forelderen\n$\\lfloor (i-1)/2 \\rfloor$ (heltallsdivisjon, altså avrundet nedover), venstre\nbarn er $2i+1$ og høyre barn er $2i+2$. Slik ligger de sju første indeksene:\n\n```text\n                0\n        1               2\n    3       4       5       6\n```\n\nNoden på indeks 4 har forelder på indeks 1, fordi $\\lfloor 3/2 \\rfloor = 1$, og\nbarn på indeks 9 og 10 — som bare finnes hvis heapen er stor nok. Legg merke til at\nbåde indeks 3 og indeks 4 får forelder 1: heltallsdivisjonen kaster resten.\n\n**Sist du var her — 2) down-heap-regelen** (fra [kap. 4.4](/in2010/in2010-4-4)).\n\nNår `RemoveMin` har flyttet det siste elementet opp til rota, synker elementet\nnedover igjen. I hvert steg sammenlignes det med det **minste** av barna sine og\nbytter plass med det hvis barnet er mindre. To detaljer avgjør poengene:\n\n- barnet du bytter med skal være det **minste**, ikke det venstre;\n- du må **sjekke at barnet finnes** før du leser det. Venstre barn finnes bare\n  hvis $2i+1$ er mindre enn antall elementer, og høyre barn kan mangle selv om\n  venstre finnes.\n\n**Sist du var her — 3) rotasjonstellingen i AVL** (fra\n[kap. 4.3](/in2010/in2010-4-3)).\n\nEt AVL-tre er høydebalansert: i hver node skiller høyden på venstre og høyre\nsubtre med høyst 1. Blir en node ubalansert etter en innsetting, rettes det med én\nrebalansering — **enkel rotasjon** i tilfellene LL og RR, **dobbelrotasjon** i LR\nog RL. En dobbelrotasjon er satt sammen av to enkle og **teller derfor som to**.\nÉn innsetting utløser høyst én rebalansering, aldri flere.\n\nTrenger du grunnlaget bak: [kap. 4.1](/in2010/in2010-4-1) om binære søketrær,\n[kap. 4.3](/in2010/in2010-4-3) om AVL og rød-svart-trær, og\n[kap. 4.4](/in2010/in2010-4-4) om heap og prioritetskø. Kjøretidene bruker\n$O$-notasjonen fra [kap. 1.1](/in2010/in2010-1-1)."
+  },
+  {
+   "id": "in2010-4-5-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-4-5-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer i strukturen |\n| $H$ | min-heapen, lagret som ett array med indeks fra 0 |\n| `H[i]` | elementet på indeks $i$ i heapen |\n| $h$ | høyden til et tre, målt i **kanter**; et enkelt blad har høyde 0 |\n| $\\lfloor x \\rfloor$ | nedrunding — her: heltallsdivisjon som kaster resten |\n| `bf(v)` | balansefaktoren til AVL-noden `v`: høyden til venstre subtre minus høyden til høyre |\n| $O(\\log n)$ | logaritmisk tid — kostnaden for én heap- eller AVL-operasjon |\n| $O(n)$ | lineær tid — kostnaden for å bygge en heap, og for å finne max i en min-heap |"
+    },
+    {
+     "id": "in2010-4-5-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insert(H, x)` | legger `x` på første ledige indeks og sifter opp mens forelderen er større | $O(\\log n)$ |\n| `RemoveMin(H)` | fjerner og returnerer minste element; flytter siste element til rota og down-heaper mot **minste** barn | $O(\\log n)$ |\n| `FindMin(H)` | leser `H[0]` og lar heapen stå urørt | $O(1)$ |\n| `BuildHeap(A)` | gjør et vilkårlig array om til en min-heap ved down-heap nedenfra og opp | $O(n)$ |\n| `AVLInsert(T, x)` | setter inn som i et binært søketre og rebalanserer med høyst én rotasjon (enkel eller dobbel) | $O(\\log n)$ |\n| `ErGyldigHeap(H)` | sjekker at hver forelder er mindre enn eller lik begge barna sine | $O(n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\lfloor (i-1)/2 \\rfloor$$\n\nIndeksen til **forelderen** til noden på indeks $i$. Heltallsdivisjonen gjør at\nindeks 3 og indeks 4 får samme forelder, nemlig indeks 1.\n\n$$2i+1 \\qquad 2i+2$$\n\nIndeksene til **venstre** og **høyre barn**. Begge finnes bare hvis de er mindre\nenn antall elementer — det er nettopp den sjekken down-heap må gjøre.\n\nBalansefaktoren skrives `bf(v)` og er høyden til `v.left` minus høyden til\n`v.right`, der et **tomt subtre har høyde** $-1$. Et tre er et gyldig AVL-tre\nhvis `bf(v)` er $-1$, $0$ eller $1$ i **hver** node."
+    }
+   ]
+  },
+  {
+   "id": "in2010-4-5-th-1",
+   "type": "theorem",
+   "title": "Løsningsoppskriften for håndkjøring av heap og AVL",
+   "content": "To oppskrifter, én for hver struktur. Første steg er alltid å se hvilken av dem\ndu har foran deg.\n\n**Heap — `Insert` og `RemoveMin`.**\n\n1. **Skriv indeksene over arrayet.** Én linje med `0 1 2 3 4 …` over verdiene.\n   Da kan du ikke miste tellingen, og forelder- og barnindeksene blir noe du\n   leser av i stedet for noe du husker.\n2. **`Insert(H, x)`:** legg `x` på første ledige indeks, altså indeks $n$.\n   Sammenlign med forelderen på $\\lfloor (i-1)/2 \\rfloor$. Er `x` mindre, bytt,\n   og gjenta fra den nye indeksen. Stopp når forelderen er mindre enn eller lik\n   `x`, eller når du står på indeks 0.\n3. **`RemoveMin(H)`:** ta vare på `H[0]`, flytt det **siste** elementet opp til\n   rota og krymp arrayet med én plass. Sammenlign så med det **minste** barnet og\n   bytt hvis barnet er mindre. Gjenta fra den nye indeksen.\n4. **Sjekk at barnet finnes før du leser det.** Venstre barn $2i+1$ finnes bare\n   hvis $2i+1$ er mindre enn $n$; finnes ikke venstre barn, er noden et blad og du\n   stopper. Finnes venstre, men ikke høyre, sammenligner du bare med venstre.\n5. **Lever bare arrayet**, kommaseparert, med indeks fra 0.\n\n**AVL — innsetting med rotasjonstelling.**\n\n1. **Sett inn som i et vanlig binært søketre**: mindre til venstre, større til\n   høyre, ned til en ledig plass.\n2. **Gå oppover fra den nye noden** og finn den **første** noden der\n   balansefaktoren er blitt $2$ eller $-2$. Det er der rebalanseringen skjer.\n3. **Bestem tilfellet** ut fra hvilken vei de to første stegene ned mot den nye\n   noden går: venstre–venstre (LL) og høyre–høyre (RR) gir **enkel** rotasjon;\n   venstre–høyre (LR) og høyre–venstre (RL) gir **dobbel**.\n4. **Legg til i telleren:** enkel er $+1$, dobbel er $+2$, fordi dobbelrotasjonen\n   er to enkle utført etter hverandre. Fortsett så med neste innsetting.\n5. **Lever tre ting:** totalt antall **enkle** rotasjoner, **rotverdien** til\n   slutt, og om treet er et gyldig AVL-tre.\n\n**De to kontrollene, noen sekunder hver, som fanger nesten alt:**\n\n- **Heap:** les arrayet ditt én gang til, og sjekk hvert forelder–barn-par mot\n  indeksformlene. Er `H[0]` det minste elementet, og er hver forelder mindre enn\n  eller lik begge barna? Er ikke det oppfylt, er svaret galt uansett hvor pen\n  sporingen din er.\n- **AVL:** stemmer tellingen din med regnestykket «antall enkle rotasjoner pluss\n  to ganger antall dobbeltrotasjoner»? Og har du faktisk skrevet ned rotverdien?\n  Det er det oftest glemte delsvaret i hele sjangeren."
+  },
+  {
+   "id": "in2010-4-5-ex-case",
+   "type": "example",
+   "title": "Eksempel 1: Gjennomarbeidet eksamenscase med sensorkommentarer",
+   "problem": "(Eksamensnivå, sjanger E.) Et sett har denne oppgaven, verdt 6 poeng:\n\n**a)** (2 p) Sett inn 7, 3, 9, 1 og 4 i denne rekkefølgen i en tom min-heap lagret\nsom array med indeks fra 0. Oppgi arrayet.\n\n**b)** (2 p) Utfør deretter én `RemoveMin` på heapen fra a). Oppgi arrayet.\n\n**c)** (2 p) Sett inn 20, 10, 30, 25 og 27 i denne rekkefølgen i et tomt AVL-tre.\nHvor mange enkle rotasjoner utføres totalt, hva er rotverdien til slutt, og er\nresultatet et gyldig AVL-tre?",
+   "solution": "**a) Innsettingene.**\n\n| Steg | Sett inn | Array før sift-up | Bytter (indekser) | Array etter steget |\n|---|---|---|---|---|\n| 1 | 7 | `7` | ingen | `7` |\n| 2 | 3 | `7, 3` | `1<->0` | `3, 7` |\n| 3 | 9 | `3, 7, 9` | ingen | `3, 7, 9` |\n| 4 | 1 | `3, 7, 9, 1` | `3<->1 ; 1<->0` | `1, 3, 9, 7` |\n| 5 | 4 | `1, 3, 9, 7, 4` | ingen | `1, 3, 9, 7, 4` |\n\n**Sluttilstand: `1, 3, 9, 7, 4`**\n\n```text\n                1\n               (0)\n        3               9\n       (1)             (2)\n    7       4\n   (3)     (4)\n```\n\nLegg merke til steg 4: 1-eren legges på indeks 3, bytter med forelderen på indeks\n1, og bytter så én gang til med rota. To bytter, altså like mange som høyden på\ndet stedet den ble lagt inn.\n\n> **Sensornotat, a) — 2 poeng.** Typisk fordeling: 1 p for riktig sluttarray, 1 p\n> for at svaret faktisk er **arrayet** og ikke en tegning av treet.\n>\n> **Delvis riktig tilstand gir delvis uttelling.** Har du riktig metode, men ett\n> element på feil plass, gir sporingen din som regel halv uttelling — forutsatt at\n> du har skrevet den ned. Det siste poenget henger på formatet: kommaseparert\n> array, indeks fra 0.\n\n**b) Én `RemoveMin`.**\n\nOperasjonen returnerer 1.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 1`; flytt siste element 4 til rot og krymp arrayet | `4, 3, 9, 7` |\n| 2 | barna er `H[1] = 3` og `H[2] = 9`, minste er `H[1] = 3`; 4 er større enn 3, bytt | `3, 4, 9, 7` |\n| 3 | kun venstre barn finnes: `H[3] = 7`; 4 er mindre enn 7, stopp | `3, 4, 9, 7` |\n\n**Sluttilstand: `3, 4, 9, 7`**\n\n```text\n                3\n               (0)\n        4               9\n       (1)             (2)\n    7\n   (3)\n```\n\n**Delsteg 3 er hele poenget med denne oppgaven.** Etter delsteg 2 står 4-eren på\nindeks 1. Barna til indeks 1 er indeks 3 og indeks 4. Arrayet har nå bare fire\nelementer, altså indeks 0 til 3 — så **høyre barn finnes ikke**, og du\nsammenligner bare med venstre. Leser du `H[4]` uansett, leser du utenfor arrayet.\n\n> **Sensornotat, b) — 2 poeng.** 1 p for riktig array, 1 p for at down-heap er\n> utført korrekt hele veien ned. Her ligger felle **#3** i bokas feilregister:\n> down-heap uten å sjekke at barnet finnes. Sensorveiledningen — altså UiOs egen\n> retningslinje for hva som gir uttelling — har hatt et eksplisitt **takpoeng** på\n> denne: en besvarelse som leser et barn som ikke finnes, får ikke full pott selv\n> om sluttarrayet tilfeldigvis blir riktig.\n>\n> Den andre halvdelen av samme felle er å bytte med **venstre** barn i stedet for\n> det **minste**. I delsteg 2 var venstre barn 3 og høyre 9, så her ville de to\n> reglene gitt samme svar — men det gjør de ikke alltid, og sensor ser hvilken du\n> brukte.\n\n**c) AVL-innsettingene.**\n\n| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 20 | ingen | – | ingen | 0 | 0 | 20 |\n| 2 | 10 | ingen | – | ingen | 0 | 0 | 20 |\n| 3 | 30 | ingen | – | ingen | 0 | 0 | 20 |\n| 4 | 25 | ingen | – | ingen | 0 | 0 | 20 |\n| 5 | 27 | 30 | LR | dobbelrotasjon om 30: først venstrerotasjon om 25, deretter høyrerotasjon om 30 | 2 | 2 | 20 |\n\nTreet til slutt:\n\n```text\n        20\n   ____/ \\__________\n  10                27\n               ____/ \\____\n              25          30\n```\n\n**Svaret, i det formatet oppgaven ber om:**\n\n- **Antall enkle rotasjoner: 2** (én dobbelrotasjon, som er to enkle).\n- **Rotverdi til slutt: 20.**\n- **Gyldig AVL-tre: ja.** Balansefaktorene er 20: $-1$, 10: $0$, 27: $0$, 25: $0$,\n  30: $0$ — alle innenfor $-1$ til $1$.\n\n> **Sensornotat, c) — 2 poeng.** 1 p for rotasjonstallet, 1 p for rotverdi og\n> gyldighet samlet.\n>\n> **Det ene svaret som koster flest poeng her, er «1 rotasjon».** Det er riktig\n> hvis du teller *rebalanseringer*, men oppgaven spør etter **enkle** rotasjoner,\n> og en dobbelrotasjon er to. Les alltid hva som telles.\n>\n> Merk også at **rota ikke endret seg**. Mange forventer at en rotasjon alltid gir\n> ny rot, men rebalanseringen skjedde nede i høyre subtre, om noden 30. Rotverdien\n> er et selvstendig delsvar nettopp fordi den ikke følger av rotasjonstallet.\n\n**Margnotat om delvis uttelling.** Oppgaven er verdt 6 poeng fordelt på tre\nuavhengige deler. Bommer du på heap-arrayet i a), kan du fortsatt få full pott på\nb) hvis du utfører `RemoveMin` korrekt på **din egen** heap fra a) — sensor følger\nsporingen din. Og c) er helt uavhengig av begge. **La aldri en deloppgave stå\ntom.**"
+  },
+  {
+   "id": "in2010-4-5-t-b1",
+   "type": "text",
+   "content": "## Bolk 1 — innsetting i min-heap (ca. 20 min)\n\nFire oppgaver på `Insert` og sift-up, fra sekvenser uten et eneste bytte til\nsekvenser der hvert element må helt opp til rota. Bruk oppskriften hver gang, også\nnår oppgaven ser triviell ut — det er vanen du skal ha på eksamensdagen."
+  },
+  {
+   "id": "in2010-4-5-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Eksamensnivå, sjanger E — håndkjøring, altså at du utfører operasjonen steg\nfor steg og oppgir sluttilstanden.) Sett inn 6, 13, 4, 21, 9 og 2 i denne\nrekkefølgen i en tom min-heap lagret som array med indeks fra 0.\n\n**a)** Oppgi arrayet etter hver innsetting.\n**b)** Oppgi sluttilstanden.\n**c)** Hvilke innsettinger krevde ingen bytter i det hele tatt, og hvorfor?",
+    "solution": "**a)**\n\n| Steg | Sett inn | Array før sift-up | Bytter (indekser) | Array etter steget |\n|---|---|---|---|---|\n| 1 | 6 | `6` | ingen | `6` |\n| 2 | 13 | `6, 13` | ingen | `6, 13` |\n| 3 | 4 | `6, 13, 4` | `2<->0` | `4, 13, 6` |\n| 4 | 21 | `4, 13, 6, 21` | ingen | `4, 13, 6, 21` |\n| 5 | 9 | `4, 13, 6, 21, 9` | `4<->1` | `4, 9, 6, 21, 13` |\n| 6 | 2 | `4, 9, 6, 21, 13, 2` | `5<->2 ; 2<->0` | `2, 9, 4, 21, 13, 6` |\n\n**b) Sluttilstand: `2, 9, 4, 21, 13, 6`**\n\n```text\n                2\n               (0)\n        9               4\n       (1)             (2)\n   21      13       6\n   (3)     (4)     (5)\n```\n\n**c)** Steg 1, 2 og 4. I steg 2 ble 13 lagt på indeks 1, der forelderen er indeks\n0 med verdien 6 — og $13$ er større enn $6$, så sift-up stoppet umiddelbart. I steg\n4 ble 21 lagt på indeks 3, der forelderen er indeks 1 med verdien 13, og igjen var\ndet nye elementet størst.\n\n**Momentet:** et element som er stort, faller til ro der det landet. Sift-up gjør\narbeid bare når det nye elementet er **mindre** enn forelderen — det er derfor\n`Insert` er $O(\\log n)$ i verste tilfelle, men ofte langt billigere.\n\n**Kontrollen:** er `H[0]` det minste av alle elementene? Her er `H[0] = 2`, og 2 er\ndet minste tallet i sekvensen. Det er ikke noe bevis for at resten er riktig, men\ndet avslører den vanligste feilen med én gang.",
+    "hints": [
+     "Skriv indeksene 0, 1, 2, … over arrayet før du setter inn noe, så du kan lese av forelderindeksen i stedet for å regne den ut på nytt hver gang.",
+     "For hvert nytt element: hvilken indeks havner det på, og hva er $\\lfloor (i-1)/2 \\rfloor$ for den indeksen?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Eksamensnivå, sjanger E.) Sett inn 15, 10, 20, 8, 25, 5, 30 og 2 i denne\nrekkefølgen i en tom min-heap (array, indeks fra 0).\n\n**a)** Oppgi arrayet etter hver innsetting.\n**b)** Oppgi sluttilstanden.\n**c)** Hvor mange bytter kostet den siste innsettingen, og hva sier tallet om\nhøyden på heapen?",
+    "solution": "**a)**\n\n| Steg | Sett inn | Array før sift-up | Bytter (indekser) | Array etter steget |\n|---|---|---|---|---|\n| 1 | 15 | `15` | ingen | `15` |\n| 2 | 10 | `15, 10` | `1<->0` | `10, 15` |\n| 3 | 20 | `10, 15, 20` | ingen | `10, 15, 20` |\n| 4 | 8 | `10, 15, 20, 8` | `3<->1 ; 1<->0` | `8, 10, 20, 15` |\n| 5 | 25 | `8, 10, 20, 15, 25` | ingen | `8, 10, 20, 15, 25` |\n| 6 | 5 | `8, 10, 20, 15, 25, 5` | `5<->2 ; 2<->0` | `5, 10, 8, 15, 25, 20` |\n| 7 | 30 | `5, 10, 8, 15, 25, 20, 30` | ingen | `5, 10, 8, 15, 25, 20, 30` |\n| 8 | 2 | `5, 10, 8, 15, 25, 20, 30, 2` | `7<->3 ; 3<->1 ; 1<->0` | `2, 5, 8, 10, 25, 20, 30, 15` |\n\n**b) Sluttilstand: `2, 5, 8, 10, 25, 20, 30, 15`**\n\n```text\n                                2\n                               (0)\n                5                               8\n               (1)                             (2)\n       10              25              20              30\n       (3)             (4)             (5)             (6)\n   15\n   (7)\n```\n\n**c)** Tre bytter: fra indeks 7 til 3, fra 3 til 1, og fra 1 til 0. Det er\nnøyaktig veien fra det nederste nivået opp til rota, og heapen har på det\ntidspunktet tre nivåer over det nederste elementet.\n\n**Momentet:** kostnaden ved en innsetting er **høyst** høyden på treet, altså\n$O(\\log n)$. Et element som er mindre enn alt annet, betaler alltid full pris —\ndet er den dyreste innsettingen som finnes, og den koster likevel bare tre bytter i\nen heap med åtte elementer.\n\n**Legg merke til at indeks 7 sitt bytte gikk til indeks 3, ikke til indeks 6.**\nForelderen til 7 er $\\lfloor 6/2 \\rfloor = 3$. Blander du 0- og 1-indeksering,\nhavner du på indeks 3 med formelen $\\lfloor 7/2 \\rfloor = 3$ i dette ene\ntilfellet ved en tilfeldighet — men på indeks 5 ville de to formlene gitt\nhenholdsvis 2 og 2, og på indeks 6 gitt 2 og 3. Bruk alltid\n$\\lfloor (i-1)/2 \\rfloor$.",
+    "hints": [
+     "Elementene 20, 25 og 30 er alle større enn foreldrene sine når de settes inn — de koster ingenting.",
+     "Følg 2-tallet i siste steg: hvilken indeks legges det på, og hvilke indekser passerer det på vei opp?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E.) Sett inn 40, 35, 30, 25, 20, 15 og 10 i denne\nrekkefølgen i en tom min-heap (array, indeks fra 0).\n\n**a)** Oppgi arrayet etter hver innsetting.\n**b)** Oppgi sluttilstanden.\n**c)** Hvert eneste element utløste minst ett bytte. Hvorfor, og hva ville skjedd\nhvis sekvensen var snudd?",
+    "solution": "**a)**\n\n| Steg | Sett inn | Array før sift-up | Bytter (indekser) | Array etter steget |\n|---|---|---|---|---|\n| 1 | 40 | `40` | ingen | `40` |\n| 2 | 35 | `40, 35` | `1<->0` | `35, 40` |\n| 3 | 30 | `35, 40, 30` | `2<->0` | `30, 40, 35` |\n| 4 | 25 | `30, 40, 35, 25` | `3<->1 ; 1<->0` | `25, 30, 35, 40` |\n| 5 | 20 | `25, 30, 35, 40, 20` | `4<->1 ; 1<->0` | `20, 25, 35, 40, 30` |\n| 6 | 15 | `20, 25, 35, 40, 30, 15` | `5<->2 ; 2<->0` | `15, 25, 20, 40, 30, 35` |\n| 7 | 10 | `15, 25, 20, 40, 30, 35, 10` | `6<->2 ; 2<->0` | `10, 25, 15, 40, 30, 35, 20` |\n\n**b) Sluttilstand: `10, 25, 15, 40, 30, 35, 20`**\n\n```text\n               10\n               (0)\n       25              15\n       (1)             (2)\n   40      30      35      20\n   (3)     (4)     (5)     (6)\n```\n\n**c)** Fordi sekvensen er **synkende**: hvert nytt element er mindre enn alt som\nallerede ligger der, og må derfor helt opp til rota. Det er verste tilfelle for\n`Insert`, og totalkostnaden er summen av høydene, altså\n$0 + 1 + 1 + 2 + 2 + 2 + 2 = 10$ bytter for sju elementer.\n\nVar sekvensen snudd — 10, 15, 20, 25, 30, 35, 40 — ville hvert nytt element vært\nstørre enn forelderen sin, og **ingen** bytter vært nødvendige. Arrayet ville stått\nakkurat slik det ble skrevet inn.\n\n**Momentet:** kostnaden ved å bygge en heap med gjentatte `Insert` avhenger av\nrekkefølgen, og verste tilfelle er $O(n \\log n)$. Det er nettopp derfor\n`BuildHeap` finnes: den bygger heapen nedenfra i $O(n)$, uansett rekkefølge.\n\n**Merk at sluttilstanden ikke er sortert.** `10, 25, 15, 40, 30, 35, 20` er en\ngyldig min-heap — hver forelder er mindre enn begge barna — men rekkefølgen i\narrayet er ikke stigende, og skal ikke være det. En heap ordner **opp–ned**, ikke\nvenstre–høyre. Det er felle **#9** i bokas feilregister: å forveksle\nheap-egenskapen med søketre-egenskapen.",
+    "hints": [
+     "Sekvensen er synkende. Hva betyr det for hvert nytt element sammenlignet med det som allerede ligger i heapen?",
+     "Tell byttene per innsetting, og sammenlign med hvor mange nivåer heapen har når elementet settes inn."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E.) En min-heap inneholder `2, 3, 7, 5, 4, 9, 8`\n(array, indeks fra 0). Sett inn 1.\n\n**a)** Hvilken indeks legges 1-eren på, og hvilke indekser passerer den på vei\nopp?\n**b)** Oppgi arrayet etterpå.\n**c)** Er det mulig å sette inn et element som havner lenger ned enn indeks 7 i\ndenne heapen? Begrunn.",
+    "solution": "Startheapen er `2, 3, 7, 5, 4, 9, 8` med sju elementer, altså indeks 0 til 6.\n\n**a)** Første ledige indeks er 7, så 1-eren legges der: `2, 3, 7, 5, 4, 9, 8, 1`.\nDeretter sifter den opp gjennom indeks 3 og indeks 1 til rota på indeks 0.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | `H[7] = 1` er mindre enn forelderen `H[3] = 5`, bytt | `2, 3, 7, 1, 4, 9, 8, 5` |\n| 2 | `H[3] = 1` er mindre enn forelderen `H[1] = 3`, bytt | `2, 1, 7, 3, 4, 9, 8, 5` |\n| 3 | `H[1] = 1` er mindre enn forelderen `H[0] = 2`, bytt | `1, 2, 7, 3, 4, 9, 8, 5` |\n| 4 | elementet er på rota, stopp | `1, 2, 7, 3, 4, 9, 8, 5` |\n\n**b) Sluttilstand: `1, 2, 7, 3, 4, 9, 8, 5`**\n\nMerk hva som skjedde med 5-tallet: det lå på indeks 3, ble dyttet ned til indeks 7,\nog er fortsatt lovlig plassert. Sift-up flytter ikke bare det nye elementet — hvert\nbytte skyver også et gammelt element ett nivå ned.\n\n**c)** Nei. Et nytt element legges alltid på **første ledige indeks**, og den er\nbestemt av hvor mange elementer heapen har, ikke av verdien. Med sju elementer er\nførste ledige indeks 7, uansett hva du setter inn. Er elementet stort, blir det\nliggende der; er det lite, sifter det oppover. Det kan aldri havne lenger ned.\n\n**Momentet:** heapen er et **komplett** tre — nivåene fylles fra venstre mot høyre\nuten hull. Det er det strukturkravet som gjør at arrayformen fungerer i det hele\ntatt, og som gjør at forelder- og barnindeksene kan regnes ut i stedet for å\nlagres.",
+    "hints": [
+     "Tell elementene i startheapen. Hvilken indeks er den første ledige?",
+     "Regn ut $\\lfloor (i-1)/2 \\rfloor$ for indeksen du landet på, og gjenta så lenge det nye elementet er minst."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-tip-signal-1",
+   "type": "tip",
+   "title": "Hva bolk 1 testet",
+   "content": "De fire oppgavene rullerte hele `Insert`-mekanikken:\n\n- **Oppgave 1** testet grunntilfellet, der noen elementer sifter og andre blir\n  liggende, og at du ser hvorfor.\n- **Oppgave 2** testet den lengste mulige sift-up-veien i en heap med åtte\n  elementer, og at du bruker $\\lfloor (i-1)/2 \\rfloor$ og ikke en 1-indeksert\n  formel.\n- **Oppgave 3** testet verste tilfelle — en synkende sekvens der alt må til topps —\n  og at du ikke forventer at sluttarrayet er sortert.\n- **Oppgave 4** testet at plasseringen bestemmes av **antall elementer**, ikke av\n  verdien, og at et bytte flytter to elementer.\n\nKlarte du 3 og 4 uten å nøle, sitter både indeksformlene og strukturkravet. Bommet\ndu, er kontrollen fra oppskriften verdt å gjøre til en vane: **les arrayet ditt én\ngang til og sjekk hvert forelder–barn-par.**"
+  },
+  {
+   "id": "in2010-4-5-t-b2",
+   "type": "text",
+   "content": "## Bolk 2 — `RemoveMin` og down-heap (ca. 25 min)\n\n— naturlig pausepunkt —\n\nFire oppgaver på den operasjonen som gir flest tapte poeng i hele faget. Alle fire\nhandler om det samme spørsmålet: **hvilket barn skal jeg sammenligne med, og finnes\ndet i det hele tatt?**"
+  },
+  {
+   "id": "in2010-4-5-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E.) Min-heapen er `1, 3, 6, 5, 9, 8, 7` (array, indeks\nfra 0). Utfør `RemoveMin` **to** ganger.\n\n**a)** Oppgi arrayet etter første `RemoveMin`.\n**b)** Oppgi arrayet etter andre `RemoveMin`.\n**c)** Hvilke verdier returnerte de to operasjonene?",
+    "solution": "**Første `RemoveMin`** — returnerer 1.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 1`; flytt siste element 7 til rot og krymp arrayet | `7, 3, 6, 5, 9, 8` |\n| 2 | barna er `H[1] = 3` og `H[2] = 6`, minste er `H[1] = 3`; 7 er større, bytt | `3, 7, 6, 5, 9, 8` |\n| 3 | barna er `H[3] = 5` og `H[4] = 9`, minste er `H[3] = 5`; 7 er større, bytt | `3, 5, 6, 7, 9, 8` |\n| 4 | indeks 3 har ingen barn (venstre barn ville vært indeks 7, og heapen har 6 elementer), stopp | `3, 5, 6, 7, 9, 8` |\n\n**a) `3, 5, 6, 7, 9, 8`**\n\n```text\n                3\n               (0)\n        5               6\n       (1)             (2)\n    7       9       8\n   (3)     (4)     (5)\n```\n\n**Andre `RemoveMin`** — returnerer 3.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 3`; flytt siste element 8 til rot og krymp arrayet | `8, 5, 6, 7, 9` |\n| 2 | barna er `H[1] = 5` og `H[2] = 6`, minste er `H[1] = 5`; 8 er større, bytt | `5, 8, 6, 7, 9` |\n| 3 | barna er `H[3] = 7` og `H[4] = 9`, minste er `H[3] = 7`; 8 er større, bytt | `5, 7, 6, 8, 9` |\n| 4 | indeks 3 har ingen barn (venstre barn ville vært indeks 7, og heapen har 5 elementer), stopp | `5, 7, 6, 8, 9` |\n\n**b) `5, 7, 6, 8, 9`**\n\n```text\n                5\n               (0)\n        7               6\n       (1)             (2)\n    8       9\n   (3)     (4)\n```\n\n**c)** Første operasjon returnerte **1**, andre returnerte **3** — de to minste\nelementene, i stigende rekkefølge. Det er nettopp det en prioritetskø er til for.\n\n**Margnotat om delvis uttelling.** Én `RemoveMin` er typisk verdt 2 poeng: ett for\nselve down-heapen og ett for at sluttarrayet er levert i riktig format. Sporer du\nden andre operasjonen korrekt på **din egen** heap fra a), får du uttelling for b)\nselv om a) er feil. Skriv derfor alltid ned delstegene.\n\n**Den skjulte fella:** i delsteg 4 i begge operasjonene stoppet vi fordi indeks 3\nikke har barn. Regn selv: venstre barn av indeks 3 er $2 \\cdot 3 + 1 = 7$, og med\nseks — og senere fem — elementer finnes ingen indeks 7. Det er felle **#3** i bokas\nfeilregister: down-heap uten å sjekke at barnet finnes.",
+    "hints": [
+     "Første steg i `RemoveMin` er alltid det samme: siste element opp til rota, og arrayet krymper med én plass.",
+     "For hver posisjon nedover: regn ut $2i+1$ og $2i+2$, og sjekk om indeksene i det hele tatt finnes i det krympede arrayet."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E.) Min-heapen er `2, 4, 3, 8, 6, 5, 7`. Utfør\n`RemoveMin` **tre** ganger, og oppgi arrayet etter hver av dem.\n\n**a)** Etter første.\n**b)** Etter andre.\n**c)** Etter tredje.\n**d)** I én av de tre operasjonene hadde noden bare **ett** barn. Hvilken, og hva\ngjør du da?",
+    "solution": "**Første `RemoveMin`** — returnerer 2.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 2`; flytt siste element 7 til rot og krymp arrayet | `7, 4, 3, 8, 6, 5` |\n| 2 | barna er `H[1] = 4` og `H[2] = 3`, minste er `H[2] = 3`; 7 er større, bytt | `3, 4, 7, 8, 6, 5` |\n| 3 | kun venstre barn finnes: `H[5] = 5`; 7 er større, bytt | `3, 4, 5, 8, 6, 7` |\n| 4 | indeks 5 har ingen barn (venstre barn ville vært indeks 11), stopp | `3, 4, 5, 8, 6, 7` |\n\n**a) `3, 4, 5, 8, 6, 7`**\n\n**Andre `RemoveMin`** — returnerer 3.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 3`; flytt siste element 7 til rot og krymp arrayet | `7, 4, 5, 8, 6` |\n| 2 | barna er `H[1] = 4` og `H[2] = 5`, minste er `H[1] = 4`; 7 er større, bytt | `4, 7, 5, 8, 6` |\n| 3 | barna er `H[3] = 8` og `H[4] = 6`, minste er `H[4] = 6`; 7 er større, bytt | `4, 6, 5, 8, 7` |\n| 4 | indeks 4 har ingen barn (venstre barn ville vært indeks 9), stopp | `4, 6, 5, 8, 7` |\n\n**b) `4, 6, 5, 8, 7`**\n\n**Tredje `RemoveMin`** — returnerer 4.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 4`; flytt siste element 7 til rot og krymp arrayet | `7, 6, 5, 8` |\n| 2 | barna er `H[1] = 6` og `H[2] = 5`, minste er `H[2] = 5`; 7 er større, bytt | `5, 6, 7, 8` |\n| 3 | indeks 2 har ingen barn (venstre barn ville vært indeks 5, og heapen har 4 elementer), stopp | `5, 6, 7, 8` |\n\n**c) `5, 6, 7, 8`**\n\n```text\n                5\n               (0)\n        6               7\n       (1)             (2)\n    8\n   (3)\n```\n\n**d)** Den **første**, i delsteg 3. Etter delsteg 2 sto 7-eren på indeks 2. Barna\ntil indeks 2 er indeks 5 og indeks 6, men arrayet var da krympet til seks elementer\n— indeks 0 til 5. **Venstre barn fantes, høyre gjorde ikke.**\n\nDa sammenligner du bare med det ene barnet som finnes. Regelen «bytt med det minste\nbarnet» blir «bytt med det eneste barnet» når høyre mangler.\n\n**Dette er nøyaktig felle #3.** En besvarelse som leser `H[6]` her, leser utenfor\narrayet. En besvarelse som stopper fordi «noden har ikke to barn», stopper for\ntidlig og lar 7-eren stå over 5-eren — som gir en ugyldig heap. Begge deler koster\npoeng, og sensorveiledningen har hatt et eksplisitt takpoeng på nettopp denne\ndetaljen.\n\n**Legg merke til at 7-eren ble flyttet opp til rota tre ganger på rad**, uten å\nvære en del av heapen ved starten av hver operasjon. Det er ikke noe mystisk ved\ndet: 7 var det siste elementet i arrayet før første operasjon, ble sendt nedover\ntil indeks 5, og var derfor på ny det siste elementet ved neste operasjon.",
+    "hints": [
+     "Skriv ned antall elementer etter hver krymping — det er tallet som avgjør hvilke barneindekser som finnes.",
+     "I den første operasjonen: regn ut $2 \\cdot 2 + 1$ og $2 \\cdot 2 + 2$, og sammenlign med antall elementer."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E.) Min-heapen er `5, 9, 6, 11, 10, 8, 7, 15, 13`\n(ni elementer). Utfør `RemoveMin` én gang.\n\n**a)** Oppgi arrayet etterpå.\n**b)** Down-heapen valgte høyre barn i ett av stegene. Hvilket, og hvorfor?\n**c)** Hva ville sluttarrayet blitt hvis du hadde byttet med **venstre** barn hver\ngang i stedet?",
+    "solution": "**`RemoveMin`** — returnerer 5.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 5`; flytt siste element 13 til rot og krymp arrayet | `13, 9, 6, 11, 10, 8, 7, 15` |\n| 2 | barna er `H[1] = 9` og `H[2] = 6`, minste er `H[2] = 6`; 13 er større, bytt | `6, 9, 13, 11, 10, 8, 7, 15` |\n| 3 | barna er `H[5] = 8` og `H[6] = 7`, minste er `H[6] = 7`; 13 er større, bytt | `6, 9, 7, 11, 10, 8, 13, 15` |\n| 4 | indeks 6 har ingen barn (venstre barn ville vært indeks 13), stopp | `6, 9, 7, 11, 10, 8, 13, 15` |\n\n**a) Sluttilstand: `6, 9, 7, 11, 10, 8, 13, 15`**\n\n```text\n                                6\n                               (0)\n                9                               7\n               (1)                             (2)\n       11              10               8              13\n       (3)             (4)             (5)             (6)\n   15\n   (7)\n```\n\n**b)** I **begge** stegene, faktisk. I delsteg 2 var barna 9 (venstre) og 6\n(høyre), og 6 er minst. I delsteg 3 var barna 8 (venstre) og 7 (høyre), og 7 er\nminst. Dette er en av de sjeldnere oppgavene der høyre barn vinner to ganger på rad\n— nettopp derfor er den med.\n\n**c)** Da ville delsteg 2 byttet 13 med 9, og delsteg 3 byttet 13 med `H[3] = 11`:\n\n`9, 11, 6, 13, 10, 8, 7, 15`\n\nSe på indeks 0 og indeks 2: rota er 9, men `H[2] = 6` er mindre. **Heap-egenskapen\ner brutt allerede i rota**, og strukturen er ikke lenger en min-heap. Det minste\nelementet ville dessuten ikke ligget på indeks 0, som er hele poenget med en\nprioritetskø: neste `FindMin` ville svart 9, mens det riktige svaret er 6.\n\n**Momentet:** «bytt med det minste barnet» er ikke en detalj, det er selve\nkorrektheten. Bytter du med det største, dytter du et stort element ned over et\nmindre og lager et brudd du aldri oppdager — down-heapen fortsetter bare nedover og\nser aldri tilbake.\n\n**Kontrollen:** når du er ferdig, sjekk at `H[0]` er det minste tallet i arrayet.\nHer er `H[0] = 6`, og 6 er minst av de åtte gjenværende. I det gale svaret er\n`H[0] = 9`, og du ser feilen på ett blikk.",
+    "hints": [
+     "Bare de to første delstegene gjør arbeid — resten er å sjekke om barna finnes.",
+     "Skriv opp begge barneverdiene før du velger, hver gang. Det er selve valget oppgaven tester."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E.) Min-heapen er `1, 2, 5, 4, 3, 9, 8, 7, 6` (ni\nelementer). Utfør `RemoveMin` **to** ganger.\n\n**a)** Oppgi arrayet etter første operasjon.\n**b)** Oppgi arrayet etter andre.\n**c)** Begge operasjonene stoppet før elementet nådde bunnen. Hvorfor er det ikke\nen feil?",
+    "solution": "**Første `RemoveMin`** — returnerer 1.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 1`; flytt siste element 6 til rot og krymp arrayet | `6, 2, 5, 4, 3, 9, 8, 7` |\n| 2 | barna er `H[1] = 2` og `H[2] = 5`, minste er `H[1] = 2`; 6 er større, bytt | `2, 6, 5, 4, 3, 9, 8, 7` |\n| 3 | barna er `H[3] = 4` og `H[4] = 3`, minste er `H[4] = 3`; 6 er større, bytt | `2, 3, 5, 4, 6, 9, 8, 7` |\n| 4 | indeks 4 har ingen barn (venstre barn ville vært indeks 9, og heapen har 8 elementer), stopp | `2, 3, 5, 4, 6, 9, 8, 7` |\n\n**a) `2, 3, 5, 4, 6, 9, 8, 7`**\n\n```text\n                                2\n                               (0)\n                3                               5\n               (1)                             (2)\n        4               6               9               8\n       (3)             (4)             (5)             (6)\n    7\n   (7)\n```\n\n**Andre `RemoveMin`** — returnerer 2.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på `H[0] = 2`; flytt siste element 7 til rot og krymp arrayet | `7, 3, 5, 4, 6, 9, 8` |\n| 2 | barna er `H[1] = 3` og `H[2] = 5`, minste er `H[1] = 3`; 7 er større, bytt | `3, 7, 5, 4, 6, 9, 8` |\n| 3 | barna er `H[3] = 4` og `H[4] = 6`, minste er `H[3] = 4`; 7 er større, bytt | `3, 4, 5, 7, 6, 9, 8` |\n| 4 | indeks 3 har ingen barn (venstre barn ville vært indeks 7, og heapen har 7 elementer), stopp | `3, 4, 5, 7, 6, 9, 8` |\n\n**b) `3, 4, 5, 7, 6, 9, 8`**\n\n```text\n                3\n               (0)\n        4               5\n       (1)             (2)\n    7       6       9       8\n   (3)     (4)     (5)     (6)\n```\n\n**c)** Fordi down-heap skal stoppe så snart elementet er på plass — det vil si når\ndet er mindre enn eller lik begge barna, **eller** når det ikke har flere barn.\nBegge operasjonene her stoppet av den siste grunnen: elementet havnet på en indeks\nuten barn.\n\nDet er verdt å merke seg at down-heap **aldri** trenger å gå lenger enn til et\nblad, og at den ofte stopper tidligere. Kjøretiden $O(\\log n)$ er en **øvre**\ngrense: den sier hvor langt turen i verste fall kan gå, ikke hvor langt den faktisk\ngår.\n\n**Den andre stoppgrunnen — at elementet er mindre enn begge barna — dukket ikke opp\ni denne oppgaven, men den er like viktig.** Sto det for eksempel et element som var\nmindre enn begge barna sine på indeks 1, ville du stoppet der, midt i treet, med\nresten av strukturen urørt.\n\n**Merk hvordan begge sluttarrayene fortsatt er ugyldige å lese som sorterte\nlister.** `3, 4, 5, 7, 6, 9, 8` er en helt korrekt min-heap, men 7 kommer før 6.\nDet er felle **#9**: heap-egenskapen ordner **opp–ned** (forelder mot barn), ikke\n**venstre–høyre** slik et binært søketre gjør.",
+    "hints": [
+     "Etter krympingen har heapen åtte elementer i første operasjon og sju i den andre — hold antallet i hodet hele veien.",
+     "Down-heap har to stoppgrunner. Hvilken av dem inntreffer her?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-tip-signal-2",
+   "type": "tip",
+   "title": "Hva bolk 2 testet",
+   "content": "- **Oppgave 5** testet den rene down-heapen to ganger på rad, og at du husker at\n  arrayet krymper mellom operasjonene.\n- **Oppgave 6** testet tilfellet der noden har **bare venstre barn** — felle\n  **#3**, og den enkeltdetaljen i faget som har hatt eksplisitt takpoeng i\n  sensorveiledningen.\n- **Oppgave 7** testet valget av **minste** barn i to steg på rad der høyre barn\n  vant, og viste hva som konkret går galt hvis du velger venstre.\n- **Oppgave 8** testet at down-heap stopper når noden ikke har flere barn, og at\n  et korrekt heap-array ikke er sortert.\n\nBlir du usikker midt i en down-heap, gjør dette: skriv ned **antall elementer**\netter krympingen, og regn ut $2i+1$ og $2i+2$ for hver posisjon du står på. Er\n$2i+1$ større enn eller lik antallet, er du ferdig — noden er et blad."
+  },
+  {
+   "id": "in2010-4-5-t-b3",
+   "type": "text",
+   "content": "## Bolk 3 — AVL-rotasjoner og gyldighetsvurdering (ca. 25 min)\n\nFem oppgaver. De tre første teller rotasjoner i innsettingssekvenser, den fjerde\nviser sekvenser som **ikke** utløser noen rotasjon i det hele tatt, og den femte\nber deg avgjøre om en ferdig struktur er gyldig. Svaret er hver gang de samme tre\ntingene: **antall enkle rotasjoner, rotverdien, og gyldig eller ikke.**"
+  },
+  {
+   "id": "in2010-4-5-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E.) Sett inn 100, 90, 80, 70, 60 og 50 i denne\nrekkefølgen i et tomt AVL-tre.\n\n**a)** Hvilke innsettinger utløste en rebalansering, og hvilket tilfelle var det?\n**b)** Hvor mange **enkle** rotasjoner utføres totalt?\n**c)** Hva er rotverdien til slutt, og er treet et gyldig AVL-tre?",
+    "solution": "**a)**\n\n| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 100 | ingen | – | ingen | 0 | 0 | 100 |\n| 2 | 90 | ingen | – | ingen | 0 | 0 | 100 |\n| 3 | 80 | 100 | LL | enkel høyrerotasjon om 100 | 1 | 1 | 90 |\n| 4 | 70 | ingen | – | ingen | 0 | 1 | 90 |\n| 5 | 60 | 80 | LL | enkel høyrerotasjon om 80 | 1 | 2 | 90 |\n| 6 | 50 | 90 | LL | enkel høyrerotasjon om 90 | 1 | 3 | 70 |\n\nTre rebalanseringer, alle av typen **LL** — venstre–venstre. Det er ikke tilfeldig:\nsekvensen er strengt synkende, så hvert nytt element går til venstre, og så til\nvenstre igjen.\n\n**b) Totalt antall enkle rotasjoner: 3.** Alle tre var enkle, så tellingen er\nrett fram her.\n\n**c)** Treet til slutt:\n\n```text\n              70\n         ____/ \\__________\n        60                90\n   ____/             ____/ \\____\n  50                80         100\n```\n\n**Rotverdi: 70. Gyldig AVL-tre: ja.** Balansefaktorene er 70: $0$, 60: $+1$,\n50: $0$, 90: $0$, 80: $0$, 100: $0$.\n\n**Momentet:** legg merke til at rota endret seg i steg 3 (fra 100 til 90) og i steg\n6 (fra 90 til 70), men **ikke** i steg 5, der rotasjonen skjedde nede i venstre\nsubtre. Rotverdien er et selvstendig delsvar nettopp fordi den ikke følger av\nrotasjonstallet.\n\n**Sammenlign med et vanlig binært søketre:** hadde du satt inn de samme seks tallene\nuten balansering, ville du fått en kjede med høyde 5 og søketid $O(n)$. AVL-treet\nhar høyde 2. Det er det de tre rotasjonene kjøpte deg.",
+    "hints": [
+     "Sekvensen er synkende. Hvilken vei går hvert nytt element fra rota, og hvilket rotasjonstilfelle svarer det til?",
+     "Etter hver innsetting: finn den **første** noden på vei oppover der balansefaktoren blir $2$ eller $-2$."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E.) Sett inn 1, 2, 3, 4, 5, 6 og 7 i denne rekkefølgen i\net tomt AVL-tre.\n\n**a)** Hvor mange enkle rotasjoner utføres totalt?\n**b)** Hva er rotverdien til slutt?\n**c)** Hvordan ser treet ut, og hva er spesielt med formen?",
+    "solution": "**a)**\n\n| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 1 | ingen | – | ingen | 0 | 0 | 1 |\n| 2 | 2 | ingen | – | ingen | 0 | 0 | 1 |\n| 3 | 3 | 1 | RR | enkel venstrerotasjon om 1 | 1 | 1 | 2 |\n| 4 | 4 | ingen | – | ingen | 0 | 1 | 2 |\n| 5 | 5 | 3 | RR | enkel venstrerotasjon om 3 | 1 | 2 | 2 |\n| 6 | 6 | 2 | RR | enkel venstrerotasjon om 2 | 1 | 3 | 4 |\n| 7 | 7 | 5 | RR | enkel venstrerotasjon om 5 | 1 | 4 | 4 |\n\n**Totalt antall enkle rotasjoner: 4.** Alle fire var enkle venstrerotasjoner —\ntilfellet RR, høyre–høyre, som er speilbildet av LL.\n\n**b) Rotverdi til slutt: 4.**\n\n**c)**\n\n```text\n                    4\n         __________/ \\__________\n        2                       6\n   ____/ \\____             ____/ \\____\n  1           3           5           7\n```\n\nTreet er **perfekt balansert**: alle sju nodene ligger i et komplett tre av høyde\n2, og hver eneste balansefaktor er $0$. Det er ikke noe AVL-treet garanterer — den\ngaranterer bare at høyden er $O(\\log n)$ — men med $n = 7$ og en stigende sekvens\nfaller det slik ut.\n\n**Momentet:** en stigende innsettingsrekkefølge er verste tilfelle for et *vanlig*\nbinært søketre, som ville blitt en kjede med høyde 6. AVL-treet betaler fire\nrotasjoner og ender med høyde 2. Fire rotasjoner er dessuten en **konstant** pris\nper innsetting: én innsetting utløser høyst én rebalansering, uansett hvor stort\ntreet er.\n\n**Merk rotasjonen i steg 6.** Ubalansen ble oppdaget i **rota** (noden 2), ikke i\nen node lenger nede — og derfor endret rotverdien seg fra 2 til 4. I steg 7 ble\nubalansen oppdaget i noden 5, godt nede i høyre subtre, og rota sto stille.",
+    "hints": [
+     "Sekvensen er stigende, så hvert nytt element går til høyre og deretter til høyre igjen.",
+     "Etter hver rotasjon: hvilken node har overtatt plassen til den som var ubalansert?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o11",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E.) Sett inn 10, 20, 30, 40, 50 og 25 i denne\nrekkefølgen i et tomt AVL-tre.\n\n**a)** Hvilke innsettinger utløste rebalansering, og hvilket tilfelle var hver av\ndem?\n**b)** Hvor mange **enkle** rotasjoner utføres totalt?\n**c)** Hva er rotverdien til slutt, og er treet gyldig?\n**d)** Hva ville svaret på b) blitt hvis oppgaven i stedet hadde spurt om antall\n**rebalanseringer**?",
+    "solution": "**a)**\n\n| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 10 | ingen | – | ingen | 0 | 0 | 10 |\n| 2 | 20 | ingen | – | ingen | 0 | 0 | 10 |\n| 3 | 30 | 10 | RR | enkel venstrerotasjon om 10 | 1 | 1 | 20 |\n| 4 | 40 | ingen | – | ingen | 0 | 1 | 20 |\n| 5 | 50 | 30 | RR | enkel venstrerotasjon om 30 | 1 | 2 | 20 |\n| 6 | 25 | 20 | RL | dobbelrotasjon om 20: først høyrerotasjon om 40, deretter venstrerotasjon om 20 | 2 | 4 | 30 |\n\nTre rebalanseringer: to enkle (RR) i steg 3 og 5, og **én dobbel (RL)** i steg 6.\n\n**b) Totalt antall enkle rotasjoner: 4.** To fra de enkle rotasjonene, og **to fra\ndobbelrotasjonen**, som er satt sammen av en høyrerotasjon og en venstrerotasjon.\n\n**c)** Treet til slutt:\n\n```text\n                    30\n         __________/ \\____\n        20                40\n   ____/ \\____             \\____\n  10          25                50\n```\n\n**Rotverdi: 30. Gyldig AVL-tre: ja.** Balansefaktorene er 30: $0$, 20: $0$,\n10: $0$, 25: $0$, 40: $-1$, 50: $0$.\n\n**d)** Da ville svaret vært **3** — to enkle og én dobbel, altså tre\nrebalanseringer.\n\n**Dette er den viktigste enkeltopplysningen i hele AVL-drillen.** «Antall\nrotasjoner» og «antall rebalanseringer» er to forskjellige tall, og oppgaven sier\nalltid hvilket den vil ha. Når det står **enkle rotasjoner**, teller en\ndobbelrotasjon som to. Svarer du 3 der fasiten er 4, har du forstått strukturen\nriktig og likevel mistet poenget.\n\n**Hvorfor steg 6 ble en dobbelrotasjon:** 25-eren gikk til **høyre** fra den\nubalanserte noden 20, og deretter til **venstre** ned mot 40. Høyre–venstre er\ntilfellet RL, og det kan ikke rettes med én enkel rotasjon — en enkel\nvenstrerotasjon om 20 ville bare flyttet ubalansen over til den andre siden.",
+    "hints": [
+     "Se hvilken vei de to første stegene ned mot det nye elementet går fra den ubalanserte noden — det avgjør om tilfellet er enkelt eller dobbelt.",
+     "Legg sammen: hver enkel rotasjon er $+1$, hver dobbelrotasjon er $+2$."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o12",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E.) To innsettingssekvenser:\n\n**a)** 8, 4, 12, 2, 6, 10, 14, 1, 3 i et tomt AVL-tre. Hvor mange enkle rotasjoner,\nog hva er rotverdien?\n**b)** 7, 3, 9, 1, 5, 8, 10, 4, 6, 2 i et tomt AVL-tre. Samme spørsmål.\n**c)** Hva har de to sekvensene til felles, og hva er lærdommen for eksamen?",
+    "solution": "**a)**\n\n| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 8 | ingen | – | ingen | 0 | 0 | 8 |\n| 2 | 4 | ingen | – | ingen | 0 | 0 | 8 |\n| 3 | 12 | ingen | – | ingen | 0 | 0 | 8 |\n| 4 | 2 | ingen | – | ingen | 0 | 0 | 8 |\n| 5 | 6 | ingen | – | ingen | 0 | 0 | 8 |\n| 6 | 10 | ingen | – | ingen | 0 | 0 | 8 |\n| 7 | 14 | ingen | – | ingen | 0 | 0 | 8 |\n| 8 | 1 | ingen | – | ingen | 0 | 0 | 8 |\n| 9 | 3 | ingen | – | ingen | 0 | 0 | 8 |\n\n**Totalt antall enkle rotasjoner: 0. Rotverdi: 8. Gyldig AVL-tre: ja.**\n\n```text\n                                8\n                     __________/ \\__________\n                    4                       12\n         __________/ \\____             ____/ \\____\n        2                 6           10          14\n   ____/ \\____\n  1           3\n```\n\n**b)**\n\n| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 7 | ingen | – | ingen | 0 | 0 | 7 |\n| 2 | 3 | ingen | – | ingen | 0 | 0 | 7 |\n| 3 | 9 | ingen | – | ingen | 0 | 0 | 7 |\n| 4 | 1 | ingen | – | ingen | 0 | 0 | 7 |\n| 5 | 5 | ingen | – | ingen | 0 | 0 | 7 |\n| 6 | 8 | ingen | – | ingen | 0 | 0 | 7 |\n| 7 | 10 | ingen | – | ingen | 0 | 0 | 7 |\n| 8 | 4 | ingen | – | ingen | 0 | 0 | 7 |\n| 9 | 6 | ingen | – | ingen | 0 | 0 | 7 |\n| 10 | 2 | ingen | – | ingen | 0 | 0 | 7 |\n\n**Totalt antall enkle rotasjoner: 0. Rotverdi: 7. Gyldig AVL-tre: ja.**\n\n```text\n                                      7\n               ______________________/ \\__________\n              3                                   9\n   __________/ \\__________                   ____/ \\____\n  1                       5                 8           10\n   \\____             ____/ \\____\n        2           4           6\n```\n\n**c)** Begge sekvensene er lagt opp slik at treet **allerede er balansert\nunderveis**: elementene kommer i en rekkefølge som fyller nivåene omtrent jevnt, og\ningen node får noen gang balansefaktor $2$ eller $-2$.\n\n**Lærdommen:** null er et fullgodt svar. Sitter du på eksamen og har gått gjennom\nhele sekvensen uten å finne en eneste ubalanse, er sannsynligvis ikke feilen din —\noppgaven kan være konstruert nettopp for å teste om du roter til et balansert tre\nmed rotasjoner det ikke er behov for.\n\n**Den vanligste feilen her er å rotere «for sikkerhets skyld».** Balansefaktoren\nskal bli $2$ eller $-2$ før du gjør noe. Er den $1$ eller $-1$, er treet et helt\nlovlig AVL-tre — se rota i a), som har balansefaktor $+1$, og likevel er gyldig.",
+    "hints": [
+     "Gå gjennom sekvensen og hold styr på balansefaktoren i hver node du passerer på vei ned.",
+     "Grensen for rebalansering er balansefaktor $2$ eller $-2$, ikke $1$ eller $-1$."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-oppg-13",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-5-o13",
+    "number": "13",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E.) Tre strukturer skal vurderes. Svar ja eller nei, og\nbegrunn med det konkrete bruddet der det finnes.\n\n**a)** Er dette et gyldig AVL-tre?\n\n```text\n                    40\n               ____/ \\____\n              20          60\n         ____/             \\____\n        10                      70\n   ____/\n  5\n```\n\n**b)** Er `3, 4, 8, 9, 5, 10, 12, 11` en gyldig min-heap (array, indeks fra 0)?\n**c)** Er `2, 3, 5, 9, 4, 7, 6` en gyldig min-heap?\n**d)** I c): er arrayet også et gyldig binært søketre lest som et komplett tre?",
+    "solution": "**a) Nei.**\n\nBalansefaktorene, i pre-order: 40: $+1$, 20: $+2$, 10: $+1$, 5: $0$, 60: $-1$,\n70: $0$.\n\nBruddet er i noden **20**: venstre subtre (10 med 5 under) har høyde 1, høyre\nsubtre er tomt og har høyde $-1$, så `bf(20)` er $1 - (-1) = 2$. Grensen er $1$ i\nabsoluttverdi, og $2$ er over.\n\nMerk at rota **er** i orden: `bf(40)` er $+1$, som er lovlig. Et AVL-tre er ikke\ngyldig fordi rota er balansert — kravet gjelder **hver eneste node**, og det er\nderfor du må gå gjennom hele treet.\n\n**b) Ja.**\n\n```text\n                                3\n                               (0)\n                4                               8\n               (1)                             (2)\n        9               5              10              12\n       (3)             (4)             (5)             (6)\n   11\n   (7)\n```\n\nKontroll av alle forelder–barn-par:\n\n- `H[0] = 3` mot `H[1] = 4`: greit\n- `H[0] = 3` mot `H[2] = 8`: greit\n- `H[1] = 4` mot `H[3] = 9`: greit\n- `H[1] = 4` mot `H[4] = 5`: greit\n- `H[2] = 8` mot `H[5] = 10`: greit\n- `H[2] = 8` mot `H[6] = 12`: greit\n- `H[3] = 9` mot `H[7] = 11`: greit\n\nHver forelder er mindre enn eller lik begge barna sine, og treet er komplett — åtte\nelementer fyller indeks 0 til 7 uten hull.\n\n**Legg merke til at `H[3] = 9` er større enn `H[4] = 5`.** Det er helt lovlig: de\nto er søsken, ikke forelder og barn, og heap-egenskapen sier ingenting om søsken.\n\n**c) Ja.**\n\n```text\n                2\n               (0)\n        3               5\n       (1)             (2)\n    9       4       7       6\n   (3)     (4)     (5)     (6)\n```\n\nKontroll av alle forelder–barn-par:\n\n- `H[0] = 2` mot `H[1] = 3`: greit\n- `H[0] = 2` mot `H[2] = 5`: greit\n- `H[1] = 3` mot `H[3] = 9`: greit\n- `H[1] = 3` mot `H[4] = 4`: greit\n- `H[2] = 5` mot `H[5] = 7`: greit\n- `H[2] = 5` mot `H[6] = 6`: greit\n\n**d) Nei.** Les treet i c) som et binært søketre: rota er 2, og hele venstre subtre\n(3, 9, 4) består av tall som er **større** enn 2. BST-egenskapen krever at alt til\nvenstre er mindre enn noden, og det er brutt allerede i første ledd.\n\n**Dette er felle #9 i renfremstilling.** De to strukturene bruker samme tegning og\nsamme array, men helt forskjellige regler:\n\n| | Ordner | Krav |\n|---|---|---|\n| **Min-heap** | opp–ned | forelder er mindre enn eller lik **begge** barna; ingen krav mellom søsken |\n| **Binært søketre** | venstre–høyre | alt i venstre subtre er mindre enn noden, alt i høyre er større |\n\nEn min-heap sier ingenting om rekkefølgen fra venstre til høyre, og et binært\nsøketre sier ingenting om at rota skal være minst. Blander du dem, svarer du feil\npå begge.",
+    "hints": [
+     "I a): regn ut balansefaktoren for hver node, ikke bare for rota.",
+     "I b) og c): sett opp forelder–barn-parene systematisk med $2i+1$ og $2i+2$, og sjekk hvert par for seg."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-5-tip-signal-3",
+   "type": "tip",
+   "title": "Hva bolk 3 testet",
+   "content": "- **Oppgave 9** testet en ren LL-sekvens og at rotverdien er et selvstendig\n  delsvar som ikke følger av rotasjonstallet.\n- **Oppgave 10** testet speilbildet, RR, og at én innsetting utløser høyst én\n  rebalansering.\n- **Oppgave 11** testet den ene detaljen som koster flest poeng i sjangeren:\n  **dobbelrotasjon teller som to enkle**, og oppgaven sier alltid hvilket tall den\n  vil ha.\n- **Oppgave 12** testet at **null rotasjoner** er et fullgodt svar, og at grensen\n  er balansefaktor $2$ eller $-2$ — ikke $1$.\n- **Oppgave 13** testet gyldighetsvurdering av begge strukturene, og skillet\n  mellom heap-egenskapen (opp–ned) og søketre-egenskapen (venstre–høyre).\n\nEr du i tvil om et rotasjonstall på eksamen: skriv ned **hvilke** rebalanseringer\ndu fant og hvilket tilfelle hver var. Da får du uttelling for resonnementet selv om\nsummeringen bommer, og du oppdager ofte feilen selv i samme slengen."
+  },
+  {
+   "id": "in2010-4-5-warn-1",
+   "type": "warning",
+   "title": "Typiske feil — fellekatalogen for håndkjøring av heap og AVL",
+   "content": "Samlet, i den rekkefølgen de koster mest poeng.\n\n- **Down-heap uten å sjekke at barnet finnes** — felle **#3** i bokas\n  feilregister, og den ene detaljen som har hatt et eksplisitt takpoeng i\n  sensorveiledningen. Venstre barn $2i+1$ finnes bare hvis indeksen er mindre enn\n  antall elementer. **Kontrollen:** skriv ned antall elementer etter hver krymping.\n- **Down-heap mot venstre barn i stedet for det minste.** De to reglene gir samme\n  svar av og til, og sensor ser hvilken du brukte. Skriv opp begge barneverdiene\n  før du velger.\n- **Dobbelrotasjon telt som én.** En dobbelrotasjon er to enkle. Spør oppgaven om\n  **enkle rotasjoner**, er svaret det dobbelte av antall dobbelrotasjoner pluss\n  antall enkle.\n- **Glemt rotverdi eller glemt gyldighetssvar.** AVL-svaret har tre deler, og de to\n  siste er de som oftest står igjen ubesvart.\n- **1-indekserte heap-formler.** Bruker du $\\lfloor i/2 \\rfloor$ og $2i$, regner\n  du i en annen konvensjon enn faget. Riktig er $\\lfloor (i-1)/2 \\rfloor$, $2i+1$\n  og $2i+2$.\n- **Å levere treet i stedet for arrayet.** Sluttilstanden på en heap-håndkjøring er\n  arrayet, kommaseparert, med indeks fra 0. Tegningen er ditt arbeidsverktøy, ikke\n  svaret.\n- **Å reparere en struktur før operasjonen.** Får du en heap som du mistenker er\n  ugyldig, skal du utføre den oppgitte operasjonen på den heapen du fikk — ikke\n  «rydde» den først. Spør oppgaven derimot om strukturen **er** gyldig, er det den\n  vurderingen som er svaret.\n- **Å oppgi mer enn sluttilstanden.** Sensor ber om sluttilstanden. Sporingen din\n  er verdt å ta med som arbeid, men den erstatter ikke et tydelig merket sluttsvar.\n- **Å forveksle heap-egenskapen med søketre-egenskapen** — felle **#9**. Heapen\n  ordner opp–ned og sier ingenting om søsken; søketreet ordner venstre–høyre og\n  sier ingenting om at rota er minst.\n- **Å tro at et heap-array skal være sortert.** `10, 25, 15, 40, 30, 35, 20` er en\n  helt korrekt min-heap.\n\n**Og den viktigste vanen:** skriv ned delstegene mens du går. Blir sluttilstanden\nfeil, viser sporingen at metoden var riktig — og **delvis riktig tilstand gir\ndelvis uttelling.** Det siste poenget henger som regel på barn-sjekken i down-heap\nog på at svaret er levert i eksamensformatet."
+  },
+  {
+   "id": "in2010-4-5-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-4-5-def-1",
+   "type": "definition",
+   "title": "Heap-indeksene fra 0",
+   "content": "Rota ligger på indeks 0. For noden på indeks $i$ er forelderen\n$\\lfloor (i-1)/2 \\rfloor$, venstre barn er $2i+1$ og høyre barn er $2i+2$.\n\nHeltallsdivisjonen gjør at indeks 3 og indeks 4 deler forelder. Formlene\n$\\lfloor i/2 \\rfloor$ og $2i$ hører til en 1-indeksert konvensjon som **ikke**\nbrukes i dette faget."
+  },
+  {
+   "id": "in2010-4-5-def-2",
+   "type": "definition",
+   "title": "Sift-up — innsetting i en min-heap",
+   "content": "`Insert(H, x)` legger `x` på første ledige indeks, altså indeks $n$, og bytter\noppover så lenge forelderen er større. Kjøretid $O(\\log n)$.\n\nPlasseringen bestemmes av **antall elementer**, ikke av verdien. Et stort element\nblir liggende der det landet; et lite sifter helt opp til rota."
+  },
+  {
+   "id": "in2010-4-5-def-3",
+   "type": "definition",
+   "title": "Down-heap — fjerning av minsteelementet",
+   "content": "`RemoveMin(H)` tar vare på `H[0]`, flytter det **siste** elementet til rota,\nkrymper arrayet og lar elementet synke mot det **minste** barnet. Kjøretid\n$O(\\log n)$.\n\nOperasjonen stopper når elementet er mindre enn eller lik begge barna, eller når\nnoden ikke har flere barn."
+  },
+  {
+   "id": "in2010-4-5-def-4",
+   "type": "definition",
+   "title": "Barn-sjekken i down-heap",
+   "content": "Før du leser et barn, må du sjekke at indeksen finnes: venstre barn $2i+1$ må\nvære mindre enn antall elementer, og høyre barn $2i+2$ kan mangle selv om venstre\nfinnes.\n\nDette er felle **#3** i bokas feilregister — den ene detaljen som har hatt et\neksplisitt takpoeng i sensorveiledningen, altså en øvre grense for hvor mye\nuttelling en besvarelse uten sjekken kan få."
+  },
+  {
+   "id": "in2010-4-5-def-5",
+   "type": "definition",
+   "title": "Sluttilstandsformatet for en heap",
+   "content": "Svaret på en heap-håndkjøring er **hele arrayet, kommaseparert, med indeks fra\n0** — ikke treet, ikke bare elementene som ble flyttet, og ikke arrayet sortert.\n\nTegningen av treet er ditt arbeidsverktøy underveis. Å levere den i stedet for\narrayet koster poeng selv når innholdet er riktig."
+  },
+  {
+   "id": "in2010-4-5-def-6",
+   "type": "definition",
+   "title": "Heap-egenskapen kontra søketre-egenskapen",
+   "content": "Min-heapen ordner **opp–ned**: hver forelder er mindre enn eller lik begge\nbarna, og det finnes ingen regel mellom søsken. Et binært søketre ordner\n**venstre–høyre**: alt i venstre subtre er mindre enn noden, alt i høyre er større.\n\nÅ blande dem er felle **#9**. Et korrekt heap-array er derfor sjelden sortert, og\net binært søketre har sjelden det minste elementet i rota."
+  },
+  {
+   "id": "in2010-4-5-def-7",
+   "type": "definition",
+   "title": "Enkel og dobbel rotasjon i et AVL-tre",
+   "content": "Ubalanse i tilfellene **LL** og **RR** rettes med én **enkel** rotasjon;\ntilfellene **LR** og **RL** krever en **dobbelrotasjon**, som er to enkle utført\netter hverandre.\n\nTilfellet leses av veien fra den ubalanserte noden ned mot det nye elementet: to\nsteg samme vei gir enkel, to steg i hver sin retning gir dobbel."
+  },
+  {
+   "id": "in2010-4-5-def-8",
+   "type": "definition",
+   "title": "Rotasjonstellingen — dobbel teller som to",
+   "content": "Spør oppgaven om antall **enkle rotasjoner**, teller hver dobbelrotasjon som\n**2**. Spør den om antall **rebalanseringer**, teller den som **1**.\n\nDette er den enkeltdetaljen som koster flest poeng i AVL-sjangeren: to forskjellige\ntall for samme håndkjøring, og oppgaven sier alltid hvilket den vil ha."
+  },
+  {
+   "id": "in2010-4-5-def-9",
+   "type": "definition",
+   "title": "Sluttilstandsformatet for et AVL-tre",
+   "content": "Svaret har tre deler: **antall enkle rotasjoner**, **rotverdien** til slutt, og\nom resultatet er et **gyldig AVL-tre**.\n\nRotverdien er et selvstendig delsvar — den endrer seg bare når rebalanseringen\nskjer i rota, og følger altså ikke av rotasjonstallet. Det er den delen som oftest\nstår igjen ubesvart."
+  },
+  {
+   "id": "in2010-4-5-def-10",
+   "type": "definition",
+   "title": "Balansefaktor",
+   "content": "`bf(v)` er høyden til `v.left` minus høyden til `v.right`, der et tomt subtre\nhar høyde $-1$ og et blad har høyde $0$.\n\nTreet er et gyldig AVL-tre hvis `bf(v)` er $-1$, $0$ eller $1$ i **hver** node.\nRebalansering utløses først når faktoren blir $2$ eller $-2$ — ikke ved $1$."
+  },
+  {
+   "id": "in2010-4-5-def-11",
+   "type": "definition",
+   "title": "Høyst én rebalansering per innsetting",
+   "content": "En innsetting i et AVL-tre utløser **høyst én** rebalansering, enten enkel eller\ndobbel, i den første noden på vei oppover der balansefaktoren blir $2$ eller $-2$.\n\nDerfor er `AVLInsert` $O(\\log n)$: søket ned koster høyden, rebalanseringen koster\nkonstant tid. Og derfor er null rotasjoner et fullgodt svar når sekvensen holder\ntreet balansert underveis."
+  },
+  {
+   "id": "in2010-4-5-def-12",
+   "type": "definition",
+   "title": "Delvis uttelling på en håndkjøring",
+   "content": "Sjanger E gir poeng per delmoment: riktig metode, riktig sluttilstand, og riktig\nformat. Skriver du ned delstegene, får du uttelling for metoden selv om\nsluttilstanden blir feil.\n\nDet siste poenget henger typisk på barn-sjekken i down-heap og på at svaret er\nlevert i eksamensformatet. Derfor skal ingen deloppgave stå tom — delene er\nuavhengige."
+  },
+  {
+   "id": "in2010-4-5-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kortet du tar med til eksamen",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-4-5-rep-1",
+     "type": "text",
+     "content": "**Heap-indeksene, som må sitte uten oppslag:**\n\n$$\\lfloor (i-1)/2 \\rfloor \\qquad 2i+1 \\qquad 2i+2$$\n\nForelder, venstre barn, høyre barn — med rota på indeks 0.\n\n**Heap-oppskriften, fem steg:**\n\n1. Skriv indeksene over arrayet.\n2. `Insert`: legg elementet på indeks $n$, sift opp mens forelderen er større.\n3. `RemoveMin`: siste element til rota, krymp arrayet, down-heap mot **minste**\n   barn.\n4. Sjekk at barnet finnes før du leser det — $2i+1$ må være mindre enn antall\n   elementer.\n5. Lever **hele arrayet**, kommaseparert, indeks fra 0.\n\n**Pseudokoden bak, som du skal kjenne igjen:**\n\n```text\nProcedure Insert(H, x)\n  Input:  min-heap H som array (indeks fra 0), element x\n  Output: H med x satt inn, heap-egenskapen gjenopprettet\n  i = |H|\n  H[i] = x\n  while i > 0 and H[(i-1)/2] > H[i]:\n      bytt H[i] og H[(i-1)/2]\n      i = (i-1)/2\n  Kjoeretid: O(log n)\n```\n\n```text\nProcedure RemoveMin(H)\n  Input:  ikke-tom min-heap H som array (indeks fra 0)\n  Output: minste element returnert, H med elementet fjernet\n  min = H[0]\n  H[0] = H[|H|-1]\n  krymp H med en plass\n  i = 0\n  while 2*i + 1 < |H|:\n      b = 2*i + 1\n      if 2*i + 2 < |H| and H[2*i + 2] < H[b]:\n          b = 2*i + 2\n      if H[i] <= H[b]:\n          stopp\n      bytt H[i] og H[b]\n      i = b\n  return min\n  Kjoeretid: O(log n)\n```\n\nLegg merke til de to linjene som er hele felle **#3**: `while 2*i + 1 < |H|` og\n`if 2*i + 2 < |H| and …`. Uten dem leser prosedyren utenfor arrayet.\n\n**AVL-oppskriften, fem steg:**\n\n1. Sett inn som i et binært søketre.\n2. Gå oppover og finn den **første** noden med balansefaktor $2$ eller $-2$.\n3. Bestem tilfellet: LL og RR gir enkel, LR og RL gir dobbel.\n4. Tell: enkel $+1$, dobbel $+2$.\n5. Lever tre ting: antall enkle rotasjoner, rotverdien, og gyldig eller ikke.\n\n**Kjøretidene:**\n\n| Operasjon | Kjøretid |\n|---|---|\n| `Insert` og `RemoveMin` i en min-heap | $O(\\log n)$ |\n| `FindMin` i en min-heap | $O(1)$ |\n| `BuildHeap` på $n$ elementer | $O(n)$ |\n| Finne det **største** elementet i en min-heap | $O(n)$ |\n| `AVLInsert`, og søk i et AVL-tre | $O(\\log n)$ |\n\n**De to kontrollene, noen sekunder hver:**\n\n- **Heap:** er `H[0]` det minste elementet, og er hvert forelder–barn-par i orden?\n- **AVL:** stemmer rotasjonstallet med «enkle pluss to ganger doble», og har du\n  faktisk skrevet ned rotverdien?\n\n**Og husk hva du kan få poeng for selv om sluttilstanden svikter:** delstegene,\nrotverdien og gyldighetsvurderingen er uavhengige delmomenter. C er en god og\nvanlig karakter, og den nås av den som leverer alle delmomentene sine — ikke av den\nsom har én feilfri tabell og tre blanke felt.\n\n**Neste steg:** [kap. 4.P](/in2010/in2010-4-prove) har fire prøver på hele Del 4,\nog [kap. 5.1](/in2010/in2010-5-1) starter grafdelen."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Hva er kjøretiden til et beskåret `InRange` i et balansert søketre?",
+  "options": [
+   "$O(\\log n + t)$, der $t$ er antall treff",
+   "$O(n)$, siden hele treet må traverseres",
+   "$O(\\log n)$, uansett hvor mange treff",
+   "$O(t)$, siden bare treffene blir besøkt"
+  ],
+  "explanation": "Algoritmen følger to søkeveier ned gjennom treet, $O(\\log n)$, og besøker ellers bare noder som skrives ut eller ligger mellom veiene, $O(t)$. $O(t)$ alene glemmer veien ned, og $O(\\log n)$ alene glemmer at treffene må skrives ut — begge er nær-sanne og fanger den som husker halve begrunnelsen."
+ },
+ {
+  "question": "Når går `InRange(v, a, b)` ned i **venstre** subtre?",
+  "options": [
+   "Bare hvis `a < v.x`",
+   "Bare hvis `v.x < b`",
+   "Bare hvis `a <= v.x and v.x <= b`",
+   "Alltid, som i vanlig in-order"
+  ],
+  "explanation": "Er `v.x` mindre enn eller lik `a`, er alt i venstre subtre enda mindre, og grenen kan beskjæres. `v.x < b` er vakten foran **høyre** kall, og den tredje betingelsen er testen for om noden selv skal skrives ut — de tre `if`-ene er uavhengige av hverandre."
+ },
+ {
+  "question": "En besvarelse løser intervalloppgaven med full in-order og en `if`-test på hver verdi. Hvordan vurderes den?",
+  "options": [
+   "Korrekt, men $O(n)$ og typisk halv uttelling",
+   "Gal, fordi utskriften ikke blir sortert",
+   "Korrekt og $O(\\log n + t)$, som den beskårne",
+   "Korrekt og full uttelling, siden svaret stemmer"
+  ],
+  "explanation": "Løsningen gir riktig svar, men bruker ikke ordningen i treet, og poengtrappen straffer nettopp det: lavere kjøretid er mer poenggivende på samme oppgave. Dette er felle #1 i bokas feilregister, og den er farlig fordi besvarelsen ser helt riktig ut."
+ },
+ {
+  "question": "Hvor lang er den lengste stien som har noden `v` som toppunkt?",
+  "options": [
+   "$h_L + h_R + 2$",
+   "$h_L + h_R + 1$",
+   "$h_L + h_R$",
+   "$\\max(h_L, h_R) + 1$"
+  ],
+  "explanation": "Stien går ned i venstre subtre, gjennom `v`, og ned i høyre, og de to ekstra kantene er kantene fra `v` til hvert av barna. Det siste alternativet er formelen for **høyden** til noden, ikke for stien gjennom den — de to blandes lett, fordi begge regnes ut i samme kall."
+ },
+ {
+  "question": "Hvilken høyde har et tomt subtre, i konvensjonen diameter-algoritmen bruker?",
+  "options": [
+   "$-1$",
+   "$0$",
+   "$1$",
+   "Udefinert"
+  ],
+  "explanation": "Bladnoder har høyde $0$, og tomme subtrær $-1$. Konvensjonen er ikke pynt: den er det som gjør at $h_L + h_R + 2$ stemmer også når en node mangler et barn — med $0$ for tomt subtre blir hver kandidatverdi systematisk for stor."
+ },
+ {
+  "question": "Hva blir kjøretiden hvis du regner ut diameteren ved å kalle en høydefunksjon på nytt i hver node?",
+  "options": [
+   "$O(n^2)$",
+   "$O(n \\log n)$",
+   "$O(n)$",
+   "$O(h)$"
+  ],
+  "explanation": "Hvert høydekall koster $O(\\text{størrelsen på subtreet})$, og gjentas i alle $n$ noder. Svaret blir riktig, men prisen er kvadratisk — felle #2 — mens den lineære varianten gjør nøyaktig ett høydekall per node totalt."
+ },
+ {
+  "question": "Hvorfor holdes den største stien i en egen variabel i stedet for å returneres fra rota?",
+  "options": [
+   "Fordi den lengste stien ikke må gå gjennom rota",
+   "Fordi en rekursiv prosedyre bare kan returnere ett tall",
+   "Fordi høyden må regnes ut på nytt i hver node",
+   "Fordi post-order-rekkefølgen ellers ville blitt feil"
+  ],
+  "explanation": "Den lengste stien kan ligge helt inne i ett subtre, langt fra toppen, så alle noder må prøves som toppunkt. Returverdien er reservert til høyden, som forelderen trenger — men det er en praktisk fordeling, ikke en begrensning i pseudokoden."
+ },
+ {
+  "question": "I hvilken rekkefølge behandler diameter-algoritmen nodene?",
+  "options": [
+   "Post-order",
+   "Pre-order",
+   "In-order",
+   "Nivåorden"
+  ],
+  "explanation": "Begge barna må være ferdige før noden kan regne ut $h_L + h_R + 2$, og det er nøyaktig post-order. Rekkefølgen er ikke en stilistisk detalj: den er den eneste der begge høydene finnes når du trenger dem."
+ },
+ {
+  "question": "Hva er kjøretiden til `LCA` i et binært søketre?",
+  "options": [
+   "$O(h)$",
+   "$O(n)$",
+   "$O(\\log n)$ uansett",
+   "$O(h^2)$"
+  ],
+  "explanation": "Løkka går ett nivå ned per runde og aldri opp igjen, så kostnaden er høyden. $O(\\log n)$ gjelder bare hvis treet er balansert — på et degenerert tre er $h = n - 1$, og da er også `LCA` lineær."
+ },
+ {
+  "question": "Når stopper `LCA`-løkka i et binært søketre?",
+  "options": [
+   "Når den ene verdien er mindre og den andre større",
+   "Når begge verdiene er mindre enn noden du står i",
+   "Når noden du står i, er en bladnode i treet",
+   "Når begge verdiene er funnet hver for seg i treet"
+  ],
+  "explanation": "Så lenge begge ligger på samme side, kan ikke noden være den nærmeste felles forfaren; første gang de skiller lag, er den det. Tilfellet der noden **er** en av verdiene, dekkes av den samme `else`-grenen, fordi en node regnes som sin egen forfar."
+ },
+ {
+  "question": "Hva skjer med intervallet i `CheckBST` når rekursjonen går til venstre?",
+  "options": [
+   "Noden blir det nye taket, `high`",
+   "Noden blir det nye gulvet, `low`",
+   "Intervallet sendes uendret nedover",
+   "Begge grensene settes til nodens verdi"
+  ],
+  "explanation": "Alt i venstre subtre må være mindre enn noden, så nodens verdi blir den nye øvre grensen; går du til høyre, blir den den nye nedre grensen. Å sende intervallet uendret ville gjort testen like svak som en ren barn-mot-forelder-sjekk."
+ },
+ {
+  "question": "Hvorfor er det utilstrekkelig å sjekke hver node bare mot sine to barn?",
+  "options": [
+   "Fordi kravet gjelder alle verdier i subtreet",
+   "Fordi metoden ikke oppdager duplikater i treet",
+   "Fordi metoden ikke virker på et degenerert tre",
+   "Fordi metoden forutsetter at treet er balansert"
+  ],
+  "explanation": "En node kan være riktig plassert i forhold til sin egen forelder og likevel bryte et krav som stammer fra en forfar høyere opp — det er nettopp det eksempelet med 55 i venstre subtre til 50 viser. Intervallmetoden fanger slike brudd fordi kravet fra rota fortsatt ligger i `high`."
+ },
+ {
+  "question": "Hvor mye minne bruker en rekursiv tre-algoritme, utenom selve treet?",
+  "options": [
+   "$O(h)$, som blir $O(n)$ på et skjevt tre",
+   "$O(\\log n)$, uansett formen på treet",
+   "$O(1)$, siden ingenting lagres underveis",
+   "$O(n)$, uansett formen på treet"
+  ],
+  "explanation": "Kallstakken blir like dyp som treet, altså $O(h)$. På et balansert tre er det $O(\\log n)$ og ufarlig, men på et degenerert tre blir det $O(n)$ — å nevne dette er et sikkert delpoeng i en Del 2-besvarelse."
+ },
+ {
+  "question": "Hva sier poengtrappen på en Del 2-oppgave?",
+  "options": [
+   "Lavere kjøretid gir mer poeng på samme oppgave",
+   "Lengre og mer detaljert svar gir mer poeng",
+   "Bare feilfri pseudokode gir poeng på oppgaven",
+   "Kjøretiden teller bare når oppgaven ber om den"
+  ],
+  "explanation": "Sensurgrunnlaget sier det ofte rett ut: $O(n)$ gir full pott, $O(n \\log n)$ mindre og $O(n^2)$ minst, på **samme** oppgave. Kjøretiden skal alltid oppgis og skal matche algoritmen du faktisk ga — det trekkes både for manglende og for feil kompleksitet."
+ }
+]

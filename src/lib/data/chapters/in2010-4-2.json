@@ -1,0 +1,375 @@
+{
+ "id": "in2010-4-2",
+ "courseId": "in2010",
+ "chapterNumber": "4.2",
+ "title": "Tre-algoritmer i pseudokode — beskjæring og lineær rekursjon",
+ "description": "De faste Del 2-treoppgavene — InRange (beskåret in-order), diameter (én DFS), LCA og checkBST — der lavere kjøretid gir mer poeng.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne skrive et beskåret intervallsøk i et binært søketre og begrunne hvorfor det er raskere enn en full traversering",
+  "kunne regne ut den lengste stien i et tre med én gjennomgang, og forklare hvorfor varianten med en høydeberegning per node blir kvadratisk",
+  "kunne finne nærmeste felles forfar til to verdier i et søketre og oppgi kjøretiden som høyden på treet",
+  "kunne avgjøre om et tre er et gyldig søketre ved å sende et intervall nedover, og oppgi antagelser og kjøretid slik en Del 2-besvarelse krever"
+ ],
+ "content": [
+  {
+   "id": "in2010-4-2-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Tre-algoritmer i pseudokode har vært på **6 av 7 sett i arkivet (86 %)**, og\nde er alltid på **Del 2** — den delen av settet der du skriver algoritmen selv\nog der karakteren avgjøres.\n\nSjangeren har et navn i denne boka: **sjanger G — tre-algoritmer i\npseudokode**, altså at du får et binært søketre og en oppgave, og skal levere\nen algoritme med oppgitt kjøretid. Fire oppgaver går igjen, og alle fire står\ni dette kapitlet: skriv ut verdiene i et intervall, finn den lengste stien i\ntreet, finn nærmeste felles forfar til to noder, og avgjør om et tre i det\nhele tatt er et gyldig søketre.\n\n**Her slår poengtrappen inn for fullt.** Sensorveiledningene sier det rett ut:\nlavere kjøretid gir mer poeng på **samme** oppgave. På hver av de fire\noppgavene finnes det en opplagt løsning som besøker hele treet, og en litt\nsmartere som ikke gjør det — og forskjellen er verdt flere poeng hver gang:\n\n| Oppgave | Den opplagte løsningen | Den som gir full pott |\n|---|---|---|\n| verdier i et intervall | full traversering, $O(n)$ | beskåret, $O(\\log n + t)$ |\n| lengste sti (diameter) | høyde per node, $O(n^2)$ | én gjennomgang, $O(n)$ |\n| gyldig søketre? | minste og største per node, $O(n^2)$ | intervall nedover, $O(n)$ |\n\nPrioritet: **høyeste**. Dette er stoffet som skiller en C fra en A i Del 4 —\nog C er en god og vanlig karakter, så les dette som en mulighet, ikke som et\nkrav om plettfrihet.\n\n**Slik er kapitlet lagt opp (55 min):** fire løkker med tidsanslag, én per\nalgoritme, og et kort avsnitt til slutt om spørsmålet «kan dette gjøres\nraskere?» — som du bør stille deg selv på hver eneste Del 2-oppgave."
+  },
+  {
+   "id": "in2010-4-2-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- [kap. 4.1](/in2010/in2010-4-1) — BST-egenskapen, at in-order gir **sortert**\n  utskrift, og at alle veier ned gjennom treet koster $O(h)$. Alt i dette\n  kapitlet hviler på de tre tingene.\n- [kap. 1.2](/in2010/in2010-1-2) — å lese kjøretid ut av kode. Her teller du\n  ikke løkker, men **hvor mange noder algoritmen besøker**, og prinsippet er\n  det samme.\n\nAlgoritmene her er **rekursive**, og rekursjon er pensum i IN2010 — du skal\nbruke den fritt. Er den fersk:\n\n- [Rekursjon — spore og skrive](/tdt4110/tdt4110-5-2) — å følge et rekursivt\n  kall steg for steg, og å skrive et selv.\n- [Nøstede lister og ordbøker](/in1000/in1000-8-1) — strukturer som inneholder\n  strukturer, som er akkurat det et subtre er."
+  },
+  {
+   "id": "in2010-4-2-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-4-2-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall noder i treet |\n| $h$ | høyden til treet, målt i kanter; $O(\\log n)$ balansert, $n-1$ degenerert |\n| $t$ | antall **treff**, altså hvor mange verdier som faktisk ligger i intervallet |\n| $a$, $b$ | nedre og øvre grense i et intervall, begge inklusive |\n| `v.x`, `v.left`, `v.right` | verdien i noden og pekerne til de to barna; `nil` når barnet mangler |\n| `v.parent`, `v.depth` | forelderpeker og dybde — antas kun der oppgaven handler om et generelt tre |\n| $h_L$, $h_R$ | høyden til venstre og høyre subtre av noden du står i |\n| $O(\\log n + t)$ | kjøretiden til et beskåret intervallsøk: én vei ned pluss ett steg per treff |\n| $O(n^2)$ | kjøretiden til de naive variantene, der en $O(n)$-jobb gjøres i hver av $n$ noder |"
+    },
+    {
+     "id": "in2010-4-2-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `InRange(v, a, b)` | skriver ut alle verdier i subtreet under `v` som ligger mellom `a` og `b`, i stigende rekkefølge | $O(\\log n + t)$ |\n| `InOrder(v)` | skriver ut **alle** verdiene i stigende rekkefølge — den naive varianten av `InRange` | $O(n)$ |\n| `Hoyde(v)` | returnerer høyden til subtreet under `v` i kanter, med $-1$ for tomt subtre | $O(n)$ |\n| `Diameter(rot)` | returnerer lengden på den lengste stien i treet, målt i kanter | $O(n)$ |\n| `LCA(v, x, y)` | returnerer nærmeste felles forfar til verdiene `x` og `y` i et BST | $O(h)$ |\n| `CheckBST(v, low, high)` | avgjør om subtreet under `v` er et gyldig BST med alle verdier i intervallet | $O(n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{lengste sti gjennom noden } v = h_L + h_R + 2$$\n\nStien går ned i venstre subtre, opp igjen, gjennom `v`, og ned i høyre. De to\nekstra kantene er kantene fra `v` til hvert av barna.\n\n$$h(\\text{tomt subtre}) = -1, \\qquad h(\\text{bladnode}) = 0$$\n\nKonvensjonen som gjør at formelen over stemmer også når noden mangler et barn.\n\n$$O(\\log n + t) \\ \\text{ mot } \\ O(n)$$\n\nPoengtrappen i ett uttrykk: beskjæring betaler bare for veien ned pluss\ntreffene, mens full traversering betaler for hele treet."
+    }
+   ]
+  },
+  {
+   "id": "in2010-4-2-t-1",
+   "type": "text",
+   "content": "## Løkke 1 — å hoppe over det du vet du ikke trenger (ca. 15 min)\n\nEn værstasjon lagrer observasjoner i et binært søketre nøklet på klokkeslett.\nDu skal hente ut alt som ble målt mellom klokka 09 og klokka 11. Treet har en\nmillion observasjoner; intervallet inneholder kanskje tolv.\n\nDen opplagte løsningen er å gå gjennom hele treet med `InOrder` og skrive ut\ndem som ligger innenfor. Den virker, og den er $O(n)$ — en million steg for\ntolv treff.\n\nMen søketreet vet noe du ikke utnytter. Står du i en node med verdien 14, og\nøvre grense er 11, så er **hele høyre subtre** større enn 14 og dermed større\nenn 11. Ikke én eneste verdi der inne kan være et treff. Du trenger ikke å se\npå dem — du kan **beskjære** grenen.\n\nDet er hele ideen, og det er den som skiller full pott fra halv pott på denne\noppgaven. Boka kaller den motsatte feilen — å traversere alt når beskjæring\nvar mulig — for felle **#1** i feilregisteret."
+  },
+  {
+   "id": "in2010-4-2-def-1",
+   "type": "definition",
+   "title": "Beskjæring",
+   "content": "Å la være å gå ned i et subtre fordi ordningen i treet allerede garanterer at\ndet ikke kan inneholde noe du er ute etter.\n\nI et søketre er garantien BST-egenskapen: er noden større enn øvre grense, er\nhele høyre subtre også det. Beskjæring er den enkleste måten å komme fra $O(n)$\ntil $O(\\log n + t)$ på, og den er nøyaktig det poengtrappen belønner."
+  },
+  {
+   "id": "in2010-4-2-th-1",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `InRange`",
+   "content": "**Antagelser om representasjon.** Treet er et binært søketre av noder med\n`v.x`, `v.left` og `v.right`; et tomt subtre er `nil`. Grensene `a` og `b` er\nav samme type som verdiene, og begge er inklusive.\n\n**Prebetingelse:** treet oppfyller BST-egenskapen, og `a` er ikke større enn\n`b`.\n**Postbetingelse:** nøyaktig de verdiene som ligger mellom `a` og `b` er\nskrevet ut, i stigende rekkefølge, og treet er uendret.\n\n```text\nProcedure InRange(v, a, b)\n  Input:  rota v i et BST (nil hvis subtreet er tomt), nedre grense a, oevre grense b\n  Output: alle verdier x i subtreet med a <= x <= b, skrevet ut i stigende rekkefoelge\n  if v er nil:\n      return\n  if a < v.x:\n      InRange(v.left, a, b)\n  if a <= v.x and v.x <= b:\n      skriv ut v.x\n  if v.x < b:\n      InRange(v.right, a, b)\n```\n\n**Grunnideen i én setning:** dette er in-order-traverseringen fra\n[kap. 4.1](/in2010/in2010-4-1) med to vakter satt foran de rekursive kallene —\nvenstre besøkes bare hvis det kan finnes noe stort nok der, høyre bare hvis det\nkan finnes noe lite nok.\n\nDe to vaktene er hele forskjellen, og de er verdt å lese én gang til:\n\n- `if a < v.x` — er noden allerede mindre enn eller lik nedre grense, er alt i\n  venstre subtre for lite. Hopp over.\n- `if v.x < b` — er noden allerede større enn eller lik øvre grense, er alt i\n  høyre subtre for stort. Hopp over.\n\n**Kjøretid:** $O(\\log n + t)$ i et balansert tre, der $n$ er antall noder og\n$t$ er antall verdier som faktisk skrives ut. Begrunnelsen er todelt:\nalgoritmen følger to søkeveier ned gjennom treet, én for hver grense, og det\nkoster $O(h) = O(\\log n)$; alt annet den besøker, er noder som enten skrives ut\neller ligger mellom de to søkeveiene, og det er $O(t)$ av dem. Generelt skrives\nkjøretiden $O(h + t)$, siden $h$ er $n-1$ i et degenerert tre.\n\n**Spesialtilfellet du bør nevne:** er `a` lik `b`, er $t$ høyst 1, og\nkjøretiden blir $O(\\log n)$. Da er `InRange` blitt et vanlig søk.\n\n**Poengtrapp-notat.** Den naive løsningen — full `InOrder` med en\n`if`-test på hver verdi — er $O(n)$ og gir typisk omtrent halv uttelling. Den\ner ikke gal, den er bare dyrere enn nødvendig, og det er nettopp det\npoengtrappen straffer."
+  },
+  {
+   "id": "in2010-4-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Hvilke noder slipper vi å se på?",
+   "problem": "Et binært søketre er bygget ved å sette inn 50, 30, 70, 20, 40, 60 og 80. Kjør\n`InRange` med intervallet $[25, 60]$. Hvilke noder besøkes, hvilke skrives ut,\nog hva sparer du sammenlignet med en full in-order-traversering?",
+   "solution": "**Treet:**\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          40          60          80\n```\n\n**Sporingen:**\n\n- noder BESOEKT av beskåret InRange (6 stk): 50, 30, 20, 40, 70, 60\n- noder skrevet ut (sortert): 30, 40, 50, 60\n- noder en NAIV full in-order ville besøkt: 7 stk\n- beskjæringer:\n  - høyre subtre til 70 (`alt der er >= 70 > 60 = b`)\n\n**Hva som skjedde, node for node.** I rota 50 er `a < v.x` sant (25 er mindre\nenn 50), så venstre besøkes; 50 ligger i intervallet og skrives ut; og\n`v.x < b` er sant (50 er mindre enn 60), så høyre besøkes også. I noden 70 er\n`v.x < b` **usant** — 70 er ikke mindre enn 60 — og høyre subtre, altså 80,\nbeskjæres.\n\n**Sluttsvaret:** 30, 40, 50, 60 — i stigende rekkefølge, slik in-order-formen\ngaranterer.\n\n**Besparelsen er beskjeden her, og det er poenget med å vise et lite tre:** 6\nbesøk mot 7. I et tre med en million noder og fire treff ville den naive\nløsningen brukt en million steg, mens den beskårne bruker omtrent 20 pluss\ntreffene. Forskjellen er ikke en konstant — den er $O(n)$ mot\n$O(\\log n + t)$.\n\n**Fellenote.** Fella her er felle **#1** — å kjøre en full traversering når\nbeskjæring var mulig. Den koster typisk halve poengsummen på oppgaven, og den\ner lett å gjøre, fordi den naive løsningen både er kortere å skrive og\nfullstendig korrekt."
+  },
+  {
+   "id": "in2010-4-2-opg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger G — tre-algoritmer i pseudokode, altså at du skriver\nalgoritmen selv og oppgir kjøretiden.) Du står i en node `v` under kjøring av\n`InRange(v, a, b)`.\n\n**a)** Under hvilken betingelse går du ned i **venstre** subtre, og hvorfor er\ndet trygt å hoppe over det ellers?\n**b)** Under hvilken betingelse går du ned i **høyre** subtre?\n**c)** Hvilken traverseringsrekkefølge sikrer at utskriften blir sortert?",
+    "solution": "**a)** Bare hvis `a < v.x`. Er `v.x` mindre enn eller lik `a`, sier\nBST-egenskapen at **alle** verdier i venstre subtre er mindre enn `v.x`, og\ndermed mindre enn eller lik `a`. Ingen av dem kan ligge i intervallet, så\ngrenen kan beskjæres uten å se på en eneste node.\n\n**b)** Bare hvis `v.x < b`. Symmetrisk: er `v.x` større enn eller lik `b`, er\nalt i høyre subtre enda større, og ingen av dem kan være treff.\n\n**c)** In-order: venstre subtre, så noden selv, så høyre subtre. Beskjæringen\nfjerner bare grener som ikke inneholder treff — den endrer ikke rekkefølgen på\ndem som er igjen, så utskriften er fortsatt sortert.\n\n**Merk at utskriften av noden selv har sin egen test**, `a <= v.x and v.x <= b`,\nuavhengig av de to andre. En node kan godt bli besøkt uten å bli skrevet ut —\nden ligger da på veien ned mot treffene.",
+    "hints": [
+     "BST-egenskapen sier hva som gjelder for **hele** subtreet, ikke bare for barnet.",
+     "Tenk deg at `v.x` er langt utenfor intervallet — hvilken av de to grenene kan da umulig inneholde noe?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-opg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger G.) Et binært søketre er bygget ved å sette inn 42, 17, 63, 8, 25, 55,\n71, 4, 12, 20 og 33 i denne rekkefølgen. Kjør `InRange` med intervallet\n$[20, 45]$.\n\n**a)** Hvilke noder besøkes, og hvilke skrives ut?\n**b)** Hvilke subtrær beskjæres, og hvilken av de to vaktene sørger for hver\nav dem?\n**c)** Hvor mange noder ville en full in-order-traversering besøkt?",
+    "solution": "**Treet:**\n\n```text\n                                            42\n                     ______________________/ \\__________\n                    17                                  63\n         __________/ \\__________                   ____/ \\____\n        8                       25                55          71\n   ____/ \\____             ____/ \\____\n  4           12          20          33\n```\n\n**a) og b)**\n\n- noder BESOEKT av beskåret InRange (7 stk): 42, 17, 25, 20, 33, 63, 55\n- noder skrevet ut (sortert): 20, 25, 33, 42\n- noder en NAIV full in-order ville besøkt: 11 stk\n- beskjæringer:\n  - venstre subtre til 17 (`alt der er <= 17 < 20 = a`)\n  - høyre subtre til 63 (`alt der er >= 63 > 45 = b`)\n\nDen første beskjæringen kommer av vakten `if a < v.x`: i noden 17 er `a` lik\n20, som ikke er mindre enn 17, så venstre subtre — med 8, 4 og 12 — hoppes\nover. Den andre kommer av vakten `if v.x < b`: i noden 63 er 63 ikke mindre\nenn 45, så høyre subtre med 71 hoppes over.\n\n**c)** 11 noder — hele treet. Den beskårne varianten besøkte 7 og skrev ut 4.\n\n**Legg merke til nodene 63 og 55.** De blir besøkt, men ingen av dem skrives\nut. Det er ikke sløsing: algoritmen må innom dem for å komme ned til der\ntreffene kunne ha vært. Det er nettopp de nodene $O(\\log n)$-leddet i\nkjøretiden betaler for — veien ned — mens $t$-leddet betaler for treffene.",
+    "hints": [
+     "Tegn treet først. Alle innsettingene går én vei ned fra rota, som i [kap. 4.1](/in2010/in2010-4-1).",
+     "Gå gjennom de tre `if`-ene i kontrakten for hver node du står i, i rekkefølge."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-opg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger G.) Et binært søketre er bygget ved å sette inn 30, 15, 45, 10, 20,\n40, 60, 5, 12, 18 og 25 i denne rekkefølgen. Kjør `InRange` med intervallet\n$[18, 18]$ — altså med `a` lik `b`.\n\n**a)** Hvilke noder besøkes, og hva skrives ut?\n**b)** Hvilke tre subtrær beskjæres?\n**c)** Hva blir kjøretiden når `a` er lik `b`, og hva har algoritmen egentlig\nblitt til?",
+    "solution": "**Treet:**\n\n```text\n                                            30\n                     ______________________/ \\__________\n                    15                                  45\n         __________/ \\__________                   ____/ \\____\n        10                      20                40          60\n   ____/ \\____             ____/ \\____\n  5           12          18          25\n```\n\n**a) og b)**\n\n- noder BESOEKT av beskåret InRange (4 stk): 30, 15, 20, 18\n- noder skrevet ut (sortert): 18\n- noder en NAIV full in-order ville besøkt: 11 stk\n- beskjæringer:\n  - venstre subtre til 15 (`alt der er <= 15 < 18 = a`)\n  - høyre subtre til 20 (`alt der er >= 20 > 18 = b`)\n  - høyre subtre til 30 (`alt der er >= 30 > 18 = b`)\n\n**c)** $O(\\log n)$ i et balansert tre, eller $O(h)$ generelt. Med `a` lik `b`\ner antall treff $t$ høyst 1, så $t$-leddet forsvinner ut av uttrykket\n$O(\\log n + t)$.\n\nAlgoritmen har blitt et helt vanlig **søk**. I hver node er høyst én av de to\nvaktene sann, så rekursjonen følger én sti nedover — nøyaktig det `Search`\ngjorde i [kap. 4.1](/in2010/in2010-4-1). Fire noder besøkt av elleve, og det\nhadde vært fire av en million like gjerne.\n\n**Momentet:** beskjæringen er ikke en optimalisering på marginen. Den gjør at\nkostnaden følger **svaret** i stedet for **datamengden**, og det er den\negenskapen sensor betaler for.",
+    "hints": [
+     "Med `a` lik `b`: kan begge vaktene være sanne i samme node?",
+     "Tell hvor mange noder du faktisk er innom, og sammenlign med høyden på treet."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-t-2",
+   "type": "text",
+   "content": "## Løkke 2 — diameter: én gjennomgang i stedet for n (ca. 15 min)\n\n— naturlig pausepunkt —\n\nEt fibernett er lagt ut som et tre, med en sentral node og grener som deler\nseg videre. Spørsmålet fra driftsavdelingen er enkelt: **hvor langt er det\nmellom de to punktene som ligger lengst fra hverandre?** Det tallet kalles\ntreets **diameter**, og det måles i antall kanter på den lengste stien.\n\nTo ting gjør oppgaven til en klassiker på Del 2.\n\n**Den første:** stien går ikke nødvendigvis gjennom rota. Den kan ligge helt\ninne i ett av subtrærne, langt fra toppen. Enhver løsning som bare regner ut\n«venstre høyde pluss høyre høyde» i rota, er gal.\n\n**Den andre:** den nærliggende måten å fikse det på er å gjøre nettopp den\nregningen i **hver** node, og ta den største. Det er riktig — og det er\n$O(n^2)$, fordi hver høydeberegning i seg selv er $O(n)$. Boka kaller det\nfelle **#2**: kvadratisk der lineær var mulig.\n\nDen lineære løsningen bruker et triks du kommer til å se igjen i graf-delen:\n**la den rekursive funksjonen returnere det ene svaret og oppdatere det andre\nunderveis.** Én gjennomgang, to svar."
+  },
+  {
+   "id": "in2010-4-2-def-2",
+   "type": "definition",
+   "title": "Diameter i et tre",
+   "content": "Lengden på den lengste stien mellom to noder i treet, målt i antall **kanter**.\n\nStien går ikke nødvendigvis gjennom rota. For **hver** node $v$ er den lengste\nstien som har $v$ som toppunkt, lik $h_L + h_R + 2$, der $h_L$ og $h_R$ er\nhøydene til de to subtrærne. Diameteren er den største av disse verdiene over\nalle noder."
+  },
+  {
+   "id": "in2010-4-2-def-3",
+   "type": "definition",
+   "title": "Subtre-høyde med tomt subtre lik $-1$",
+   "content": "Høyden til et subtre er antall kanter på den lengste stien ned fra roten i\nsubtreet. En bladnode har høyde $0$, og et **tomt** subtre får høyde $-1$.\n\nKonvensjonen er ikke pynt: den er det som gjør at formelen $h_L + h_R + 2$\nstemmer også når en node mangler et barn. En node med bare ett barn som er\nbladnode får $0 + (-1) + 2 = 1$, som er riktig — det er én kant ned til\nbarnet."
+  },
+  {
+   "id": "in2010-4-2-th-2",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `Diameter`",
+   "content": "**Antagelser om representasjon.** Et binært tre av noder med `v.x`, `v.left`\nog `v.right`; `nil` for tomt subtre. Treet trenger **ikke** å være et søketre —\ndiameter handler bare om formen. Vi antar at `maks` er en variabel begge\nprosedyrene ser.\n\n**Prebetingelse:** ingen, ut over at `rot` peker på et tre eller er `nil`.\n**Postbetingelse:** returverdien er antall kanter på den lengste stien i treet;\ntreet er uendret.\n\n```text\nProcedure Diameter(rot)\n  Input:  rota i et binaert tre (nil hvis treet er tomt)\n  Output: lengden paa den lengste stien i treet, maalt i kanter\n  maks = 0\n  Hoyde(rot)\n  return maks\n\nProcedure Hoyde(v)\n  Input:  noden v (kan vaere nil)\n  Output: hoeyden til subtreet med rot v, maalt i kanter; -1 for tomt subtre\n  if v er nil:\n      return -1\n  hL = Hoyde(v.left)\n  hR = Hoyde(v.right)\n  if hL + hR + 2 > maks:\n      maks = hL + hR + 2\n  return 1 + storste av hL og hR\n```\n\n**Grunnideen i én setning:** `Hoyde` regner ut det den er bedt om og noterer\nsamtidig, gratis, den lengste stien som passerer gjennom noden den står i — så\nnår rekursjonen er ferdig, er alle noder prøvd som toppunkt.\n\nRekkefølgen er **post-order**: begge barna er ferdige før noden selv gjør noe.\nDet er nettopp derfor `hL` og `hR` er tilgjengelige når `maks` skal oppdateres.\n\n**Kjøretid:** $O(n)$, der $n$ er antall noder. Hver node får nøyaktig ett\n`Hoyde`-kall, og arbeidet i kallet er to sammenligninger og en addisjon utenom\nrekursjonen — altså konstant per node.\n\n**Rekursjonen har én kostnad til, og den skal du nevne én gang i besvarelsen:**\nkallstakken blir like dyp som treet, altså $O(h)$ i minne. På et balansert tre\ner det $O(\\log n)$ og helt ufarlig; på et skjevt tre er $h = n - 1$, og da\nbruker algoritmen $O(n)$ minne. Det er et fint delpoeng å ta med, og det er den\neneste prisen rekursjonen har her.\n\n**Poengtrapp-notat.** Varianten som kaller `Hoyde` på nytt i hver node er\n$O(n^2)$ og gir tydelig mindre uttelling enn denne, selv om den gir riktig\nsvar. På en diameteroppgave har trappen vært eksplisitt i veiledningen: den\nlineære løsningen gir full pott, den kvadratiske noe under to tredjedeler."
+  },
+  {
+   "id": "in2010-4-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Post-order-tabellen for diameter",
+   "problem": "Regn ut diameteren til det binære søketreet som er bygget av 50, 30, 70, 20,\n40, 60 og 80. Vis hva `Hoyde` returnerer i hver node, og hvordan `maks`\nutvikler seg.",
+   "solution": "**Treet:**\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          40          60          80\n```\n\nRadene står i **post-order**, altså i den rekkefølgen `Hoyde` faktisk blir\nferdig med nodene:\n\n| Node (post-order) | hL | hR | hL+hR+2 | maks hittil |\n|---|---|---|---|---|\n| 20 | -1 | -1 | 0 | 0 |\n| 40 | -1 | -1 | 0 | 0 |\n| 30 | 0 | 0 | 2 | 2 |\n| 60 | -1 | -1 | 0 | 2 |\n| 80 | -1 | -1 | 0 | 2 |\n| 70 | 0 | 0 | 2 | 2 |\n| 50 | 1 | 1 | 4 | 4 |\n\n- diameter (antall KANTER på lengste sti): 4\n\n**Les tabellen nedenfra og opp.** Bladnodene 20, 40, 60 og 80 har to tomme\nsubtrær, altså $h_L = h_R = -1$, og kandidatverdien blir $-1 + (-1) + 2 = 0$ —\nriktig, for stien fra en bladnode til seg selv har null kanter. I noden 30 er\nbegge barna bladnoder med høyde 0, så kandidaten er $0 + 0 + 2 = 2$: stien\n20-30-40 har to kanter. I rota er begge subtrærne høyde 1, og kandidaten blir\n$1 + 1 + 2 = 4$ — stien 20-30-50-70-60, som har fire kanter.\n\n**Svaret er 4.** Her lå maksimum i rota, men det er ikke noe algoritmen kunne\nvisst på forhånd: hver eneste node ble prøvd som toppunkt, og det er hele\ngrunnen til at `maks` er en variabel og ikke bare returverdien fra rota.\n\n**Én gjennomgang ga to svar.** `Hoyde` returnerte høyden, som forelderen\ntrengte, og oppdaterte `maks` på veien. Hadde vi i stedet kalt `Hoyde` på nytt\nfra hver node, ville de sju kallene kostet $O(n)$ hver, og totalen blitt\n$O(n^2)$.\n\n**Fellenote.** Fella her er felle **#2** — kvadratisk der lineær var mulig.\nDen nest vanligste er å glemme $-1$-konvensjonen for tomme subtrær og regne\nbladnoder som høyde 1; da blir alle kandidatverdiene to for store."
+  },
+  {
+   "id": "in2010-4-2-opg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger G.) Et binært søketre er bygget ved å sette inn 8, 3, 10, 1, 6, 14, 4,\n7 og 13 i denne rekkefølgen.\n\n**a)** Sett opp post-order-tabellen med `hL`, `hR`, `hL+hR+2` og `maks hittil`,\nog oppgi diameteren.\n**b)** Hvilken node ga den største kandidatverdien, og hvilken sti er det?\n**c)** Node 10 har `hL = -1`. Hva betyr det, og hvorfor er kandidatverdien i\nden noden likevel meningsfull?",
+    "solution": "**Treet:**\n\n```text\n                                8\n         ______________________/ \\____\n        3                             10\n   ____/ \\__________                   \\__________\n  1                 6                             14\n               ____/ \\____                   ____/\n              4           7                 13\n```\n\n**a)**\n\n| Node (post-order) | hL | hR | hL+hR+2 | maks hittil |\n|---|---|---|---|---|\n| 1 | -1 | -1 | 0 | 0 |\n| 4 | -1 | -1 | 0 | 0 |\n| 7 | -1 | -1 | 0 | 0 |\n| 6 | 0 | 0 | 2 | 2 |\n| 3 | 0 | 1 | 3 | 3 |\n| 13 | -1 | -1 | 0 | 3 |\n| 14 | 0 | -1 | 1 | 3 |\n| 10 | -1 | 1 | 2 | 3 |\n| 8 | 2 | 2 | 6 | 6 |\n\n- diameter (antall KANTER på lengste sti): 6\n\n**b)** Rota 8, med kandidatverdien 6. Venstre subtre har høyde 2 (ned til 4\neller 7), og høyre subtre har høyde 2 (ned til 13). Stien går 4-6-3-8-10-14-13,\naltså seks kanter. Stien 7-6-3-8-10-14-13 er like lang.\n\n**c)** `hL = -1` betyr at noden **mangler venstre barn** — subtreet er tomt, og\nkonvensjonen gir tomme subtrær høyde $-1$. Kandidatverdien\n$-1 + 1 + 2 = 2$ er fortsatt riktig: den lengste stien med 10 som toppunkt går\nbare nedover på høyresiden, 10-14-13, og den har to kanter.\n\n**Merk hvorfor tabellen leses nedenfra:** verdiene i node 3 kan ikke regnes ut\nfør 1 og 6 er ferdige, og 6 kan ikke regnes ut før 4 og 7 er ferdige.\nPost-order er ikke en stilistisk detalj, det er den eneste rekkefølgen der\ntallene finnes når du trenger dem.",
+    "hints": [
+     "Begynn med bladnodene: begge subtrærne deres er tomme, så begge høydene er $-1$.",
+     "Arbeid deg oppover. En node kan først behandles når begge barna er ferdige."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-opg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger G, eksamensnivå.) Et binært søketre er bygget ved å sette inn 1, 2, 3,\n4 og 5 i denne rekkefølgen.\n\n**a)** Sett opp post-order-tabellen og oppgi diameteren.\n**b)** Hvor dyp blir kallstakken når `Diameter` kjører på dette treet, og hva\ner det uttrykt i $n$?\n**c)** En medstudent foreslår å regne ut diameteren ved å kalle `Hoyde` på\nvenstre og høyre subtre i **hver** node og ta den største summen. Gir det\nriktig svar, og hva blir kjøretiden?",
+    "solution": "**Treet:**\n\n```text\n  1\n   \\____\n        2\n         \\____\n              3\n               \\____\n                    4\n                     \\____\n                          5\n```\n\n**a)**\n\n| Node (post-order) | hL | hR | hL+hR+2 | maks hittil |\n|---|---|---|---|---|\n| 5 | -1 | -1 | 0 | 0 |\n| 4 | -1 | 0 | 1 | 1 |\n| 3 | -1 | 1 | 2 | 2 |\n| 2 | -1 | 2 | 3 | 3 |\n| 1 | -1 | 3 | 4 | 4 |\n\n- diameter (antall KANTER på lengste sti): 4\n\nHver node har tomt venstre subtre, så `hL` er $-1$ hele veien ned. Den lengste\nstien er hele kjeden 1-2-3-4-5, med fire kanter.\n\n**b)** Kallstakken blir fem nivåer dyp — ett per node — fordi `Hoyde(1)` ikke\nkan returnere før `Hoyde(2)` er ferdig, som ikke kan returnere før `Hoyde(3)`\ner ferdig, og så videre. Dybden er $h + 1$, altså $O(h)$, og på et degenerert\ntre er $h = n - 1$. Rekursjonen bruker altså $O(n)$ **minne** her, mot\n$O(\\log n)$ på et balansert tre.\n\nKjøretiden er fortsatt $O(n)$ — det er bare minnebruken skjevheten rammer. Å\nnevne dette er et delpoeng, ikke et hovedpoeng.\n\n**c) Ja, det gir riktig svar — men kjøretiden blir $O(n^2)$.** Hver node gjør\nto `Hoyde`-kall, og et `Hoyde`-kall koster $O(\\text{størrelsen på subtreet})$.\nPå dette treet koster kallet i node 1 fem steg, i node 2 fire, og så videre —\ntil sammen $5 + 4 + 3 + 2 + 1 = 15$ steg for fem noder. Generelt blir summen\n$O(n^2)$.\n\nDen lineære varianten gjør nøyaktig **ett** `Hoyde`-kall per node totalt, ikke\nett per node per node. Dette er felle **#2** i bokas feilregister, og på denne\noppgaven er det den dyreste feilen du kan gjøre og likevel ha rett.",
+    "hints": [
+     "Alle nodene har bare høyre barn — hva blir `hL` da, i hver eneste rad?",
+     "For c): hvor mange noder besøker ett `Hoyde`-kall fra rota, og hvor mange slike kall blir det?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-t-3",
+   "type": "text",
+   "content": "## Løkke 3 — nærmeste felles forfar (ca. 10 min)\n\nTo filer ligger et sted i et mappetre. Hvilken mappe er den **nærmeste** som\ninneholder begge? Det er spørsmålet **LCA** stiller — forkortelsen står for\n«lowest common ancestor», på norsk nærmeste felles forfar.\n\nI et vilkårlig tre må du løse det med forelderpekere: løft den dypeste noden\nopp til begge er like dypt nede, og gå så oppover i takt til de møtes.\n\nI et **søketre** er det mye enklere, og det er søketre-varianten som går igjen\npå eksamen. Der bærer verdiene selv informasjonen du trenger: står du i en\nnode der begge verdiene er mindre, må begge ligge til venstre. Er begge større,\nligger begge til høyre. Og i det øyeblikket den ene er på hver side — eller\nnoden **er** en av dem — har du funnet møtepunktet."
+  },
+  {
+   "id": "in2010-4-2-th-3",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `LCA` i et BST",
+   "content": "**Antagelser om representasjon.** Et binært søketre av noder med `v.x`,\n`v.left` og `v.right`. Begge verdiene `x` og `y` finnes i treet, og `x` er ikke\nstørre enn `y` — er du usikker på rekkefølgen, bytt om på dem først.\n\n**Prebetingelse:** treet oppfyller BST-egenskapen.\n**Postbetingelse:** returverdien er den dypeste noden som har både `x` og `y` i\nsitt subtre; treet er uendret.\n\n```text\nProcedure LCA(v, x, y)\n  Input:  rota v i et BST, to verdier x og y som finnes i treet, med x <= y\n  Output: noden som er naermeste felles forfar til x og y\n  while v er ikke nil:\n      if y < v.x:\n          v = v.left\n      else if v.x < x:\n          v = v.right\n      else:\n          return v\n  return nil\n```\n\n**Grunnideen i én setning:** så lenge begge verdiene ligger på samme side av\nnoden, kan ikke noden være den nærmeste felles forfaren — og første gang de\nikke gjør det, er den det.\n\nMerk at `else`-grenen også dekker tilfellet der `v.x` er lik `x` eller `y`. En\nnode regnes som sin egen forfar, så hvis den ene verdien ligger i noden og den\nandre under den, er noden svaret.\n\n**Kjøretid:** $O(h)$, der $h$ er høyden. Løkka går ett nivå ned per runde og\naldri opp igjen. I et balansert tre er det $O(\\log n)$; på et skjevt tre\n$O(n)$.\n\n**Varianten for et generelt tre** — der verdiene ikke er ordnet og du i stedet\nhar `v.parent` og `v.depth` — går slik:\n\n```text\nProcedure LCAGenerelt(u, w)\n  Input:  to noder u og w i et tre der hver node har parent og depth\n  Output: naermeste felles forfar til u og w\n  while u.depth > w.depth:\n      u = u.parent\n  while w.depth > u.depth:\n      w = w.parent\n  while u er ikke lik w:\n      u = u.parent\n      w = w.parent\n  return u\n```\n\nOgså $O(h)$: først løftes den dypeste opp til lik dybde, så går begge oppover i\ntakt. Oppgi hvilken av de to du har antatt — sensor binder seg ikke til\nrepresentasjonen, men du må si hva du forutsetter."
+  },
+  {
+   "id": "in2010-4-2-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Fire LCA-spørsmål i det samme treet",
+   "problem": "Finn nærmeste felles forfar til parene (20, 40), (20, 80), (60, 80) og (30, 30)\ni søketreet bygget av 50, 30, 70, 20, 40, 60 og 80.",
+   "solution": "**Treet:**\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          40          60          80\n```\n\n| x | y | Vei fra rota | LCA |\n|---|---|---|---|\n| 20 | 40 | `50 -> 30` | 30 |\n| 20 | 80 | `50` | 50 |\n| 60 | 80 | `50 -> 70` | 70 |\n| 30 | 30 | `50 -> 30` | 30 |\n\n**Rad for rad.** For (20, 40): i rota er `y` lik 40, som er mindre enn 50, så\nbegge ligger til venstre og vi går dit. I noden 30 er 20 mindre og 40 større —\nde skiller lag — så 30 er svaret.\n\nFor (20, 80) skiller de lag med en gang: 20 hører hjemme til venstre for 50 og\n80 til høyre, så rota selv er nærmeste felles forfar. Én sammenligning.\n\nFor (30, 30), altså samme verdi to ganger, stopper løkka i noden 30 fordi\nverken `y < v.x` eller `v.x < x` er sann. En node er sin egen forfar, og svaret\ner noden selv.\n\n**Merk hva som ikke skjer:** algoritmen leter aldri etter `x` og `y` hver for\nseg. Den følger én sti, og den stopper i det øyeblikket den ser at verdiene må\nskille lag. Det er derfor kjøretiden er $O(h)$ og ikke $O(h)$ to ganger — ikke\nat det ville endret orden, men fordi det viser hva BST-egenskapen faktisk gir\ndeg gratis."
+  },
+  {
+   "id": "in2010-4-2-opg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger G.) Bruk søketreet som er bygget ved å sette inn 42, 17, 63, 8, 25,\n55, 71, 4, 12, 20 og 33.\n\n**a)** Finn nærmeste felles forfar til parene (4, 12), (20, 33), (12, 55) og\n(55, 71). Oppgi veien fra rota i hvert tilfelle.\n**b)** Hvilket av de fire parene stoppet raskest, og hvorfor?\n**c)** Hvorfor er kjøretiden $O(h)$ og ikke $O(n)$?",
+    "solution": "**Treet:**\n\n```text\n                                            42\n                     ______________________/ \\__________\n                    17                                  63\n         __________/ \\__________                   ____/ \\____\n        8                       25                55          71\n   ____/ \\____             ____/ \\____\n  4           12          20          33\n```\n\n**a)**\n\n| x | y | Vei fra rota | LCA |\n|---|---|---|---|\n| 4 | 12 | `42 -> 17 -> 8` | 8 |\n| 20 | 33 | `42 -> 17 -> 25` | 25 |\n| 12 | 55 | `42` | 42 |\n| 55 | 71 | `42 -> 63` | 63 |\n\n**b)** Paret (12, 55). Der skilte verdiene lag allerede i rota — 12 hører\nhjemme til venstre for 42 og 55 til høyre — så løkka returnerte etter én\nsammenligning.\n\nDet er verdt å merke seg at det **motsatte** av intuisjonen gjelder: jo lenger\nfra hverandre de to verdiene er, desto raskere finner du forfaren deres. Ligger\nde tett sammen, må du langt ned i treet før de skiller lag.\n\n**c)** Fordi løkka gjør ett steg per **nivå**, ikke ett steg per node. Hver\nsammenligning velger én av to grener og utelukker den andre helt, så antall\nrunder er høyst høyden pluss én. Algoritmen ser aldri på mer enn én node per\nnivå.\n\nDet forutsetter BST-egenskapen. I et generelt tre uten ordning finnes ikke\ndenne snarveien, og du må bruke `parent`- og `depth`-varianten i stedet — som\nogså er $O(h)$, men som trenger flere felter i noden.",
+    "hints": [
+     "Sammenlign begge verdiene med noden du står i: ligger de på samme side, går du dit.",
+     "Stopp første gang den ene er mindre og den andre større — eller noden er én av dem."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-t-4",
+   "type": "text",
+   "content": "## Løkke 4 — er dette i det hele tatt et søketre? (ca. 12 min)\n\nEn datafil er importert fra et gammelt system, og strukturen påstås å være et\nbinært søketre. Før noe annet kjøres på den, må påstanden sjekkes.\n\nDen første ideen de fleste får, er å gå gjennom hver node og sjekke at venstre\nbarn er mindre og høyre barn er større. **Den testen er ikke god nok**, og\ngrunnen er ordet «alle» i BST-egenskapen: kravet gjelder hele subtreet, ikke\nbare barna. En node kan være større enn sin forelder og likevel ligge i\nvenstre subtre til noe høyere opp.\n\nNeste idé pleier å være: finn største verdi i venstre subtre og minste i\nhøyre, for hver node. Den er **riktig**, men den er $O(n^2)$ — igjen felle\n**#2**, en $O(n)$-jobb gjort i hver av $n$ noder.\n\nDen lineære løsningen snur problemet: i stedet for å hente informasjon opp\nfra subtrærne, sender du et **krav** nedover. Hver node får med seg intervallet\nden må ligge i, og strammer det inn for barna sine."
+  },
+  {
+   "id": "in2010-4-2-th-4",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `CheckBST`",
+   "content": "**Antagelser om representasjon.** Et binært tre av noder med `v.x`, `v.left`\nog `v.right`; `nil` for tomt subtre. Verdiene er unike og kan sammenlignes. Vi\nantar at det finnes verdier som er mindre og større enn alt i treet, skrevet\n`-uendelig` og `+uendelig`.\n\n**Prebetingelse:** ingen — det er nettopp gyldigheten som skal avgjøres.\n**Postbetingelse:** returverdien er `sant` hvis og bare hvis subtreet under `v`\ner et gyldig BST med alle verdier strengt inne i intervallet; treet er uendret.\n\n```text\nProcedure CheckBST(v, low, high)\n  Input:  noden v, og intervallet (low, high) som alle verdier i subtreet maa ligge i\n  Output: sant hvis subtreet med rot v er et gyldig BST innenfor intervallet\n  if v er nil:\n      return sant\n  if v.x <= low or v.x >= high:\n      return usant\n  return CheckBST(v.left, low, v.x) and CheckBST(v.right, v.x, high)\n```\n\nKalles på hele treet som `CheckBST(rot, -uendelig, +uendelig)`.\n\n**Invarianten i én setning:** når kallet gjøres på en node, inneholder\nintervallet `(low, high)` nøyaktig de verdiene som er lovlige der ut fra alle\nforfedrene — så en node som bryter mot noe langt oppe i treet, blir tatt her\nog ikke først senere.\n\nSe hvordan intervallet strammes: går du til **venstre**, blir noden det nye\ntaket; går du til **høyre**, blir den det nye gulvet. Det er hele mekanismen.\n\n**Kjøretid:** $O(n)$, der $n$ er antall noder. Hver node får ett kall, og\narbeidet per kall er to sammenligninger. I praksis stopper algoritmen ved\nførste brudd, men verste tilfelle — et gyldig tre — krever at alle noder\nsjekkes.\n\n**Alternativet som også er $O(n)$:** kjør `InOrder` og sjekk at utskriften er\nstrengt stigende. Den er like god, og den er lettere å forklare i naturlig\nspråk — noe som gir full uttelling så lenge forklaringen er entydig.\n\n**Poengtrapp-notat.** Å hente `Min` og `Maks` i hvert subtre for hver node gir\nriktig svar i $O(n^2)$ og dermed klart mindre uttelling. Å bare sammenligne\nhver node med sine to barn er **gal** og gir tilsvarende lite, uansett hvor\npent den er skrevet."
+  },
+  {
+   "id": "in2010-4-2-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Ett gyldig tre og ett som ser gyldig ut",
+   "problem": "Kjør `CheckBST` på treet bygget av 50, 30, 70, 20, 40, 60 og 80. Kjør den\nderetter på det samme treet der noden 40 er byttet ut med 55, og forklar\nhvorfor en test som bare sammenligner hver node med sine barn, ikke fanger\nfeilen.",
+   "solution": "**Det gyldige treet:**\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          40          60          80\n```\n\n| Node | low | high | Status |\n|---|---|---|---|\n| 50 | -uendelig | +uendelig | OK |\n| 30 | -uendelig | 50 | OK |\n| 20 | -uendelig | 30 | OK |\n| 40 | 30 | 50 | OK |\n| 70 | 50 | +uendelig | OK |\n| 60 | 50 | 70 | OK |\n| 80 | 70 | +uendelig | OK |\n\n- gyldig BST: JA\n- in-order: 20, 30, 40, 50, 60, 70, 80 (sortert)\n\n**Det brutte treet.** Samme tre, men noden 40 er endret til 55. Lokalt ser det\nriktig ut (`55 > 30`), men 55 ligger i VENSTRE subtre til rota 50.\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          55          60          80\n```\n\n| Node | low | high | Status |\n|---|---|---|---|\n| 50 | -uendelig | +uendelig | OK |\n| 30 | -uendelig | 50 | OK |\n| 20 | -uendelig | 30 | OK |\n| 55 | 30 | 50 | BRUDD |\n\n- gyldig BST: NEI\n- in-order: 20, 30, 55, 50, 60, 70, 80 (IKKE sortert)\n\n**Hvorfor barn-mot-forelder-testen svikter.** Noden 55 er større enn sin\nforelder 30 og ligger til høyre for den. Ser du bare på det ene forholdet, er\nalt i orden. Kravet den bryter, kommer fra **rota**: alt i venstre subtre til\n50 må være mindre enn 50, og 55 er ikke det.\n\nIntervallmetoden fanger det umiddelbart, fordi kravet fra rota fortsatt ligger\ni `high` når vi kommer ned til 55: intervallet er $(30, 50)$, og 55 er utenfor.\nLegg merke til at algoritmen stoppet etter fire noder — den trengte ikke å se\npå høyresiden i det hele tatt.\n\n**Den andre kontrollen sier det samme:** in-order-utskriften er 20, 30, 55, 50,\n60, 70, 80, og der kommer 50 etter 55. Ikke sortert, altså ikke et søketre.\n\n**Fellenote.** Fella her er felle **#9** — å sjekke en lokal, heap-aktig\nrelasjon mellom forelder og barn i stedet for BST-egenskapens krav om at\n**alle** verdier i subtreet skal ligge på riktig side."
+  },
+  {
+   "id": "in2010-4-2-opg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger G, eksamensnivå.) Et binært tre har rot 20 med barna 10 og 30. Noden\n10 har barna 5 og 15; noden 30 har barna 12 og 35.\n\n**a)** Sett opp `low`/`high`-tabellen som `CheckBST` genererer, og oppgi hvor\ndet første bruddet skjer.\n**b)** Vis at in-order-metoden gir samme konklusjon.\n**c)** Hvorfor er intervallmetoden $O(n)$, mens metoden med `Min` og `Maks` per\nnode er $O(n^2)$?",
+    "solution": "**Treet:**\n\n```text\n                    20\n         __________/ \\__________\n        10                      30\n   ____/ \\____             ____/ \\____\n  5           15          12          35\n```\n\n**a)**\n\n| Node | low | high | Status |\n|---|---|---|---|\n| 20 | -uendelig | +uendelig | OK |\n| 10 | -uendelig | 20 | OK |\n| 5 | -uendelig | 10 | OK |\n| 15 | 10 | 20 | OK |\n| 30 | 20 | +uendelig | OK |\n| 12 | 20 | 30 | BRUDD |\n\n- gyldig BST: NEI\n\nBruddet er i noden 12. Den ligger i **høyre** subtre til rota 20, så kravet\narvet fra rota er at alt der er større enn 20 — og 12 er det ikke. Lokalt ser\ndet uskyldig ut: 12 er mindre enn forelderen 30 og ligger til venstre for den,\nakkurat som det skal.\n\n**b)** in-order: 5, 10, 15, 20, 12, 30, 35 (IKKE sortert)\n\nEtter 20 kommer 12, som er mindre. En in-order-utskrift av et gyldig søketre er\nstrengt stigende, så treet er ikke gyldig. Samme konklusjon, samme kjøretid\n$O(n)$, og en forklaring som er kortere å skrive i naturlig språk.\n\n**c)** Fordi de to metodene gjør ulikt mye arbeid **per node**.\n\nIntervallmetoden gjør to sammenligninger i hver node og sender intervallet\nvidere nedover. Hver node behandles nøyaktig én gang, og arbeidet per node er\nkonstant. Til sammen $O(n)$.\n\n`Min`/`Maks`-metoden må traversere **hele venstre subtre** for å finne den\nstørste verdien der, og hele høyre subtre for å finne den minste — i hver\neneste node. Ett slikt oppslag er $O(\\text{størrelsen på subtreet})$, og\ngjentatt for alle noder blir summen $O(n^2)$ i verste fall. Informasjonen\nhentes oppover mange ganger, i stedet for å sendes nedover én gang.\n\nDette er felle **#2** i bokas feilregister, og den koster her omtrent en\ntredjedel av poengene på oppgaven.",
+    "hints": [
+     "Start i rota med intervallet fra minus uendelig til pluss uendelig, og stram det inn ett nivå om gangen.",
+     "Går du til venstre, blir noden det nye taket; går du til høyre, blir den det nye gulvet."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "De to første er de dyreste i hele Del 2, og de er begge feil som gir **riktig\nsvar** — det er derfor de er så lette å gjøre.\n\n- **Full traversering der beskjæring var mulig.** Felle **#1**. Å skrive\n  `InOrder` med en `if`-test på hver verdi løser intervalloppgaven i $O(n)$,\n  og koster typisk halve poengsummen. **Kontrollen:** kan ordningen i treet\n  utelukke en gren før du går ned i den? I et søketre er svaret som regel ja.\n- **Kvadratisk der lineær var mulig.** Felle **#2**. Diameter med et nytt\n  `Hoyde`-kall i hver node, eller `checkBST` med `Min` og `Maks` per node.\n  **Kontrollen:** gjør du en jobb som selv koster $O(n)$, inne i noe som\n  besøker alle noder? Da er du på $O(n^2)$, og det finnes nesten alltid en\n  måte å samle informasjonen på i én gjennomgang.\n- **Å anta at den lengste stien går gjennom rota.** Den kan ligge helt inne i\n  ett subtre. Derfor holdes `maks` som en variabel som oppdateres i hver node,\n  ikke som returverdien fra rota.\n- **Å glemme at tomt subtre har høyde $-1$.** Med feil konvensjon blir alle\n  kandidatverdiene systematisk to for store, og diameteren blir gal på hvert\n  eneste tre.\n- **Å sjekke BST-egenskapen bare mot barna.** Felle **#9** i praksis: kravet\n  gjelder **alle** verdier i subtreet, ikke bare de to nærmeste. En node kan\n  se helt riktig ut lokalt og likevel bryte et krav fra rota.\n- **Å oppgi kjøretid uten å definere $n$.** Felle **#10**, og et eksplisitt\n  trekk. Skriv «der $n$ er antall noder i treet» og «der $t$ er antall\n  treff» — det tar fem sekunder og er et sikkert delpoeng.\n- **Å skrive uklar eller altfor lang pseudokode.** Felle **#12**. En setning\n  sensor ikke forstår etter to gjennomlesninger, blir ignorert. Kravet er\n  entydighet, ikke syntaks — og en klar forklaring i naturlig språk kan gi like\n  mye som kode."
+  },
+  {
+   "id": "in2010-4-2-t-5",
+   "type": "text",
+   "content": "## Kan dette gjøres raskere? (ca. 3 min)\n\nStill deg dette spørsmålet på hver eneste Del 2-oppgave, før du begynner å\nskrive. Det er ikke en høflighetsfrase: poengtrappen er en eksplisitt del av\nsensurgrunnlaget, og på de fire oppgavene i dette kapitlet er svaret ja hver\ngang.\n\n| Oppgave | Naiv løsning | Kjøretid | Bedre løsning | Kjøretid |\n|---|---|---|---|---|\n| verdier i $[a, b]$ | full in-order med test | $O(n)$ | beskåret in-order | $O(\\log n + t)$ |\n| diameter | `Hoyde` i hver node | $O(n^2)$ | én post-order med global maks | $O(n)$ |\n| nærmeste felles forfar | søk etter hver verdi og sammenlign stiene | $O(h)$ | intervall-sammenligning nedover | $O(h)$ |\n| gyldig søketre? | `Min`/`Maks` per node | $O(n^2)$ | intervall nedover, eller in-order | $O(n)$ |\n\n**Legg merke til LCA-raden.** Der er begge løsningene $O(h)$, og den naive er\nikke dårligere asymptotisk. Det er en nyttig påminnelse: poengtrappen belønner\n**lavere orden**, ikke elegant kode. Er ordenen den samme, er du i mål — men\nsi det, så sensor ser at du har vurdert det.\n\nOg for de tre andre radene: forskjellen er ikke kosmetisk. Med en million\nnoder er $O(n^2)$ omtrent en billion steg og $O(n)$ omtrent en million. Det er\nforskjellen mellom et program som svarer og et som ikke gjør det."
+  },
+  {
+   "id": "in2010-4-2-opg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger G, eksamensnivå.) Skriv en prosedyre som **teller** hvor mange verdier\ni et binært søketre som ligger i intervallet $[a, b]$, så effektivt som mulig.\nProsedyren skal returnere tallet, ikke skrive noe ut.\n\nOppgi antagelser om representasjon, algoritmen, og kjøretiden med $n$ definert.\nSi også hva en naiv løsning ville kostet.",
+    "solution": "**Problemet navngitt.** Dette er et intervallsøk i et binært søketre, altså\nsamme mønster som `InRange` — men med en teller i stedet for utskrift.\nBeskjæring er mulig, og derfor er det beskjæring som skal brukes.\n\n**Antagelser om representasjon.** Treet er et binært søketre av noder med\n`v.x`, `v.left` og `v.right`; et tomt subtre er `nil`. Grensene `a` og `b` er\ninklusive, og `a` er ikke større enn `b`. Verdiene er unike.\n\n**Algoritmen:**\n\n```text\nProcedure CountInRange(v, a, b)\n  Input:  rota v i et BST (nil hvis subtreet er tomt), grensene a og b\n  Output: antall verdier x i subtreet med a <= x <= b\n  if v er nil:\n      return 0\n  antall = 0\n  if a < v.x:\n      antall = antall + CountInRange(v.left, a, b)\n  if a <= v.x and v.x <= b:\n      antall = antall + 1\n  if v.x < b:\n      antall = antall + CountInRange(v.right, a, b)\n  return antall\n```\n\n**Kjøretid:** $O(\\log n + t)$ i et balansert tre, der $n$ er antall noder i\ntreet og $t$ er antall verdier som ligger i intervallet. Begrunnelsen er den\nsamme som for `InRange`: de to vaktene gjør at algoritmen følger to søkeveier\nned gjennom treet, $O(\\log n)$ til sammen, og ellers bare besøker noder som\ntelles eller ligger mellom de to veiene, $O(t)$ av dem. Generelt er den\n$O(h + t)$, og på et degenerert tre blir det $O(n)$.\n\n**Poengtrapp-notat.** En naiv løsning som traverserer hele treet og teller\nunderveis, er $O(n)$ og gir typisk omtrent halv uttelling — den er korrekt,\nmen den bruker ikke ordningen i treet i det hele tatt, og det er nettopp den\nvurderingen oppgaven tester. Ordene «så effektivt som mulig» i oppgaveteksten\ner signalet om at trappen er i spill.\n\n**Kan dette gjøres raskere?** Ikke med denne representasjonen. Skulle du svare\npå **mange** slike spørsmål på det samme treet, kunne hver node lagret\nstørrelsen på sitt eget subtre; da blir hvert svar $O(h)$ uavhengig av $t$,\nfordi du kan telle hele subtrær i ett steg i stedet for å gå ned i dem. Det\nkrever ekstra felter og vedlikehold ved innsetting, og er utenfor det oppgaven\nber om — men å nevne det viser at du har sett grensen for løsningen din.",
+    "hints": [
+     "Start fra `InRange`-kontrakten: hvilke tre `if`-er var det, og hva skal skje i stedet for utskriften?",
+     "Rekursjonen må nå **returnere** et tall, så hvert kall må legge sammen bidragene fra de to grenene."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-opg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-2-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger G og K — drøft to strategier, altså at du sammenligner to løsninger på\nkjøretid og konkluderer.) Du skal avgjøre om et binært tre er et gyldig\nsøketre. To løsninger er foreslått: intervallmetoden `CheckBST`, og «kjør\nin-order og sjekk at utskriften er strengt stigende».\n\n**a)** Sammenlign de to på kjøretid og minnebruk, og definér $n$.\n**b)** Er det noen situasjon der den ene er å foretrekke?\n**c)** Konkludér: hvilken ville du levert på eksamen?",
+    "solution": "**a) Kjøretid og minne.**\n\nLa $n$ være antall noder i treet og $h$ høyden.\n\n**Intervallmetoden** besøker hver node én gang og gjør to sammenligninger der.\nKjøretid $O(n)$. Minnebruken er kallstakken, $O(h)$ — som er $O(\\log n)$ på et\nbalansert tre og $O(n)$ på et skjevt.\n\n**In-order-metoden** besøker også hver node én gang og sammenligner hver verdi\nmed den forrige. Kjøretid $O(n)$. Minnebruken er den samme kallstakken $O(h)$,\n**forutsatt** at du sammenligner underveis og bare husker forrige verdi.\nLagrer du hele utskriften i en liste først, bruker du $O(n)$ ekstra minne uten\nå vinne noe på det.\n\nDe to er altså like raske, og like sparsomme — hvis in-order-varianten skrives\nriktig.\n\n**b) Ja, på to punkter, og de trekker hver sin vei.**\n\nIntervallmetoden **stopper ved første brudd**, og på et tre der feilen ligger\ntidlig, avsluttes den etter noen få noder. In-order-varianten kan gjøre det\nsamme, men bare hvis du husker å avbryte — mange skriver den slik at hele\nutskriften produseres først.\n\nIn-order-varianten er til gjengjeld **lettere å forklare entydig i naturlig\nspråk**: «traverser in-order og sjekk at hver verdi er større enn den forrige»\ner én setning, og den gir full uttelling hvis den er presis. Intervallmetoden\nkrever at du forklarer hvordan intervallet strammes inn, og det er en setning\neller to mer.\n\n**c) Konklusjon: intervallmetoden**, skrevet som pseudokode.\n\nBegrunnelsen er ikke kjøretid — den er lik — men at intervallmetoden gjør det\n**eksplisitt** at kravet arves fra alle forfedre, og det er nettopp den\ninnsikten oppgaven tester. Den viser at du har forstått hvorfor en test mot\nbarna alene er utilstrekkelig, mens in-order-varianten kan skrives helt riktig\nav en som ikke har tenkt på det problemet i det hele tatt.\n\nHar du dårlig tid, er in-order-svaret i én klar setning et helt greit svar som\ngir god uttelling. Det er ikke et kompromiss mellom de to: velg\nintervallmetoden når du har tid til å skrive den riktig, in-order-setningen når\ndu ikke har det.\n\n**Merk at begge er $O(n)$, og at ingen av dem kan gjøres raskere.** Å avgjøre\nom et tre er et søketre krever at hver node undersøkes minst én gang —\nutelater du én, kan nettopp den være feil. $O(n)$ er nedre grense her, og det\ner verdt en setning i besvarelsen.",
+    "hints": [
+     "Skriv opp kjøretid **og** minnebruk for begge før du sammenligner — det er to akser, ikke én.",
+     "Tenk på hva som skjer med in-order-varianten hvis du lagrer hele utskriften før du sjekker den."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-2-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-4-2-def-4",
+   "type": "definition",
+   "title": "`InRange(v, a, b)` — beskåret in-order",
+   "content": "Skriver ut alle verdier i intervallet $[a, b]$ i stigende rekkefølge, og går\nbare ned i en gren når ordningen tillater at det kan finnes treff der.\nKjøretid $O(\\log n + t)$ i et balansert tre, generelt $O(h + t)$, der $t$ er\nantall treff.\n\nDe to vaktene er `if a < v.x` foran venstre kall og `if v.x < b` foran høyre.\nUten dem er algoritmen en vanlig in-order og koster $O(n)$."
+  },
+  {
+   "id": "in2010-4-2-def-5",
+   "type": "definition",
+   "title": "`Diameter` — én gjennomgang",
+   "content": "Returnerer antall kanter på den lengste stien i treet. Kjøretid $O(n)$,\nminnebruk $O(h)$ for kallstakken.\n\nVirkemåten: én post-order-rekursjon som **returnerer** subtre-høyden og\n**oppdaterer** en global maks med $h_L + h_R + 2$ i hver node. Én gjennomgang,\nto svar."
+  },
+  {
+   "id": "in2010-4-2-def-6",
+   "type": "definition",
+   "title": "Formelen $h_L + h_R + 2$",
+   "content": "Lengden på den lengste stien som har noden `v` som toppunkt: ned i venstre\nsubtre, gjennom `v`, og ned i høyre.\n\nDe to ekstra kantene er kantene fra `v` til hvert av barna. Formelen stemmer\nogså når et barn mangler, fordi et tomt subtre har høyde $-1$."
+  },
+  {
+   "id": "in2010-4-2-def-7",
+   "type": "definition",
+   "title": "`LCA` i et binært søketre",
+   "content": "Finner nærmeste felles forfar til to verdier ved å gå én sti nedover fra rota:\ner begge mindre enn noden, gå til venstre; er begge større, gå til høyre;\nellers er noden svaret. Kjøretid $O(h)$.\n\nEn node regnes som sin egen forfar. Jo lenger fra hverandre verdiene er, desto\nraskere skiller de lag — og desto kortere blir søket."
+  },
+  {
+   "id": "in2010-4-2-def-8",
+   "type": "definition",
+   "title": "LCA i et generelt tre",
+   "content": "Uten ordning i verdiene trenger du `v.parent` og `v.depth`: løft den dypeste\nnoden opp til begge er like dypt nede, og gå så oppover i takt til de er samme\nnode. Kjøretid $O(h)$.\n\nOppgi hvilken av de to variantene du har antatt. Sensor binder seg ikke til\nrepresentasjonen, men antagelsen må stå i besvarelsen."
+  },
+  {
+   "id": "in2010-4-2-def-9",
+   "type": "definition",
+   "title": "`CheckBST(v, low, high)`",
+   "content": "Avgjør om et tre er et gyldig binært søketre ved å sende et **intervall**\nnedover: går du til venstre blir noden det nye taket, går du til høyre blir den\ndet nye gulvet. Kjøretid $O(n)$.\n\nKalles som `CheckBST(rot, -uendelig, +uendelig)`. Metoden fanger brudd som\nstammer fra en forfar langt oppe i treet — nettopp de en test mot barna alene\nikke ser.\n\n**Alternativet med samme kjøretid:** traverser in-order og sjekk at hver verdi\ner strengt større enn den forrige. Like god, og lettere å forklare i én setning\nnaturlig språk — men sammenlign underveis, ellers bruker du $O(n)$ ekstra minne\npå å lagre hele utskriften først."
+  },
+  {
+   "id": "in2010-4-2-def-11",
+   "type": "definition",
+   "title": "Rekursjonsdybde og kallstakken",
+   "content": "En rekursiv tre-algoritme bruker $O(h)$ minne, fordi kallstakken blir like dyp\nsom treet.\n\nPå et balansert tre er det $O(\\log n)$ og ufarlig. På et degenerert tre er\n$h = n - 1$, og da bruker algoritmen $O(n)$ minne selv om kjøretiden er\nuendret. Å nevne dette er et sikkert delpoeng i en Del 2-besvarelse."
+  },
+  {
+   "id": "in2010-4-2-def-12",
+   "type": "definition",
+   "title": "Poengtrappen",
+   "content": "Sensurregelen «lavere kjøretidskompleksitet er mer poenggivende» — på **samme**\noppgave gir $O(n)$ full pott, $O(n \\log n)$ mindre, og $O(n^2)$ minst.\n\nDen er ofte skrevet ut eksplisitt i veiledningen. Å velge riktig algoritme er\nderfor å velge poeng, og formuleringen «så effektivt som mulig» i en\noppgavetekst er signalet om at trappen gjelder."
+  },
+  {
+   "id": "in2010-4-2-def-13",
+   "type": "definition",
+   "title": "Felle #1 — naiv full traversering",
+   "content": "Å gå gjennom hele treet når ordningen kunne ha utelukket grener. Typisk\n`InOrder` med en `if`-test i stedet for beskåret `InRange`.\n\nLøsningen er korrekt, men $O(n)$ i stedet for $O(\\log n + t)$, og koster\ntypisk halve poengsummen. Kontrollen: kan ordningen utelukke en gren før du går\nned i den?"
+  },
+  {
+   "id": "in2010-4-2-def-14",
+   "type": "definition",
+   "title": "Felle #2 — kvadratisk der lineær var mulig",
+   "content": "Å gjøre en jobb som selv koster $O(n)$, i hver av $n$ noder. Diameter med et\nnytt høydekall per node, eller `checkBST` med `Min` og `Maks` per node.\n\nBegge gir riktig svar i $O(n^2)$. Kuren er den samme begge steder: samle\ninformasjonen i **én** gjennomgang, enten ved å returnere den oppover eller\nsende et krav nedover."
+  },
+  {
+   "id": "in2010-4-2-def-15",
+   "type": "definition",
+   "title": "Sjanger G — tre-algoritmer i pseudokode",
+   "content": "Del 2-sjangeren der du får et binært søketre og skal skrive algoritmen selv:\n`InRange`, diameter, `LCA` eller `checkBST`. Har vært på 6 av 7 sett (86 %).\n\nFull uttelling krever fire ledd: problemet navngitt, antagelser om\nrepresentasjon oppgitt, algoritmen (pseudokode **eller** klar naturlig-språk-\nforklaring), og kjøretid som matcher koden med $n$ definert."
+  },
+  {
+   "id": "in2010-4-2-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kapitlet på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-4-2-rep-1",
+     "type": "text",
+     "content": "**De fire algoritmene, med kjøretid og den naive varianten de skal slå:**\n\n| Algoritme | Grunnidé | Kjøretid | Naiv variant |\n|---|---|---|---|\n| `InRange(v, a, b)` | in-order med to vakter | $O(\\log n + t)$ | full in-order, $O(n)$ |\n| `Diameter(rot)` | post-order, returnér høyde og oppdatér maks | $O(n)$ | høyde per node, $O(n^2)$ |\n| `LCA(v, x, y)` | gå ned til verdiene skiller lag | $O(h)$ | to søk og sammenlign stiene, $O(h)$ |\n| `CheckBST(v, low, high)` | send intervallet nedover | $O(n)$ | `Min`/`Maks` per node, $O(n^2)$ |\n\n**De to vaktene i `InRange`,** som er hele beskjæringen:\n\n```text\n  if a < v.x:      InRange(v.left, a, b)\n  if a <= v.x and v.x <= b:      skriv ut v.x\n  if v.x < b:      InRange(v.right, a, b)\n```\n\n**Diameter-formelen:** lengste sti gjennom `v` er $h_L + h_R + 2$, og et tomt\nsubtre har høyde $-1$. Hold `maks` som en variabel — stien går ikke\nnødvendigvis gjennom rota.\n\n**Del 2-svarformen, fire ledd som alltid skal med:**\n\n1. Navngi problemet og velg verktøy.\n2. Oppgi antagelser om representasjon.\n3. Algoritmen — pseudokode eller en klar forklaring i naturlig språk.\n4. Kjøretid som matcher koden, med $n$ definert, og ett ord om hvorfor dette\n   er lavest mulig.\n\n**De to fellene som gir riktig svar til feil pris:** **#1** full traversering\nder beskjæring var mulig, og **#2** kvadratisk der lineær var mulig. Begge\nkoster mye, og begge oppdages ved å spørre «kan dette gjøres raskere?» før du\nbegynner å skrive.\n\n**Videre:** [kap. 4.3](/in2010/in2010-4-3) om hvordan et AVL-tre holder $h$\nnede på $O(\\log n)$, og [kap. 4.4](/in2010/in2010-4-4) om heapen — den andre\ntrestrukturen, med en helt annen ordningsregel."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

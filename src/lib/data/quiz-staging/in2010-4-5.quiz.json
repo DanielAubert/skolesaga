@@ -1,0 +1,202 @@
+[
+ {
+  "question": "En min-heap er lagret som array med indeks fra 0. Hvilken indeks har forelderen til noden på indeks 9?",
+  "options": [
+   "Indeks 4",
+   "Indeks 5",
+   "Indeks 3",
+   "Indeks 8"
+  ],
+  "explanation": "Forelderen er $\\lfloor (9-1)/2 \\rfloor = 4$. Indeks 5 er svaret man får med den 1-indekserte formelen $\\lfloor 9/2 \\rfloor$, som hører til en annen konvensjon enn dette faget bruker. Indeks 8 er nabofeltet, ikke forelderen."
+ },
+ {
+  "question": "Hvilke indekser har barna til noden på indeks 4, med indeks fra 0?",
+  "options": [
+   "Indeks 9 og indeks 10",
+   "Indeks 8 og indeks 10",
+   "Indeks 5 og indeks 6",
+   "Indeks 7 og indeks 8"
+  ],
+  "explanation": "Barna er $2i+1 = 9$ og $2i+2 = 10$. Indeks 8 og 10 blander de to konvensjonene: $2i$ for venstre barn hører til den 1-indekserte formen. Indeks 5 og 6 er nabofeltene i arrayet, som ikke har noe med foreldre og barn å gjøre."
+ },
+ {
+  "question": "I down-heap skal elementet som synker, sammenlignes med:",
+  "options": [
+   "det minste av de to barna",
+   "det største av de to barna",
+   "det venstre barnet, som alltid finnes",
+   "forelderen, som ligger ett nivå over"
+  ],
+  "explanation": "Bytter du med det største barnet, dytter du et stort element ned over et mindre og bryter heap-egenskapen uten å oppdage det. Venstre barn er riktig svar bare når høyre mangler — regelen er «minst», ikke «venstre»."
+ },
+ {
+  "question": "En min-heap har seks elementer. Hvilke barn har noden på indeks 2?",
+  "options": [
+   "Bare venstre barn, på indeks 5",
+   "Begge barna, på indeks 5 og indeks 6",
+   "Bare høyre barn, på indeks 6",
+   "Ingen barn — noden er et blad"
+  ],
+  "explanation": "Venstre barn er $2 \\cdot 2 + 1 = 5$, som finnes fordi arrayet har indeks 0 til 5. Høyre barn ville vært indeks 6, som ikke finnes. Å lese indeks 6 likevel er felle #3 — down-heap uten å sjekke at barnet finnes."
+ },
+ {
+  "question": "Hva er konsekvensen av å utelate sjekken av at barnet finnes i down-heap?",
+  "options": [
+   "Prosedyren leser utenfor arrayet og gir en ugyldig heap",
+   "Heapen blir en max-heap i stedet for en min-heap",
+   "Sluttilstanden blir riktig, men kjøretiden stiger til $O(n)$",
+   "Rotelementet blir stående uendret gjennom hele operasjonen"
+  ],
+  "explanation": "Uten sjekken leser løkka en indeks som ikke finnes, og resultatet er udefinert. Kjøretiden er ikke problemet — down-heap er $O(\\log n)$ uansett — og operasjonen bytter fortsatt ut rota i første steg."
+ },
+ {
+  "question": "`BuildHeap` kjøres på `17, 3, 12, 8, 1, 20, 5, 14, 9, 6`. Hva blir arrayet etterpå?",
+  "options": [
+   "`1, 3, 5, 8, 6, 20, 12, 14, 9, 17`",
+   "`1, 3, 5, 6, 8, 9, 12, 14, 17, 20`",
+   "`1, 3, 5, 8, 6, 12, 20, 9, 14, 17`",
+   "`1, 6, 5, 8, 3, 20, 12, 14, 9, 17`"
+  ],
+  "explanation": "Down-heap kjøres fra indeks 4 og nedover til 0, og gir denne heapen. Det sorterte alternativet er fella: `BuildHeap` sorterer ikke, den gjenoppretter bare heap-egenskapen, som ordner opp–ned og ikke venstre–høyre."
+ },
+ {
+  "question": "Hva er kjøretiden til `BuildHeap` på $n$ elementer?",
+  "options": [
+   "$O(n)$",
+   "$O(n \\log n)$",
+   "$O(\\log n)$",
+   "$O(n^2)$"
+  ],
+  "explanation": "Nodene nær bunnen er mange, men flytter seg få nivåer, og summen av arbeidet holder seg under $2n$. $O(n \\log n)$ er kostnaden ved å bygge heapen med $n$ gjentatte `Insert`, og er den vanligste forvekslingen."
+ },
+ {
+  "question": "Hva koster det å finne det største elementet i en min-heap med $n$ elementer?",
+  "options": [
+   "$O(n)$",
+   "$O(\\log n)$",
+   "$O(1)$",
+   "$O(n \\log n)$"
+  ],
+  "explanation": "Det største elementet ligger i et blad, og en min-heap sier ingenting om hvilket. Over halvparten av elementene er blader, så alle må undersøkes. $O(\\log n)$ og $O(1)$ gjelder minsteelementet, ikke det største."
+ },
+ {
+  "question": "Får man en max-heap ved å reversere arrayet til en min-heap?",
+  "options": [
+   "Nei — reverseringen ødelegger forelder–barn-forholdene",
+   "Ja, så lenge treet er komplett og uten hull",
+   "Ja, og det er nettopp derfor arrayformen brukes",
+   "Nei, men bare hvis antall elementer ikke er en potens av to"
+  ],
+  "explanation": "Forelder–barn-forholdene bestemmes av indeksene, og reverseringen flytter elementene til helt andre indekser. Antall elementer og formen på treet har ingen betydning, og arrayformen brukes fordi indeksformlene er billige, ikke fordi reversering gir noe."
+ },
+ {
+  "question": "Hvordan skal sluttilstanden på en heap-håndkjøring leveres?",
+  "options": [
+   "Som hele arrayet, kommaseparert, med indeks fra 0",
+   "Som treet tegnet med nivåene under hverandre",
+   "Som elementene som ble flyttet under operasjonen",
+   "Som arrayet sortert i stigende rekkefølge etter verdi"
+  ],
+  "explanation": "Sensor ber om arrayet, og tegningen er kandidatens arbeidsverktøy. Å sortere arrayet er dobbelt galt: heapen er ikke sortert, og sorteringen ødelegger informasjonen om hvor elementene faktisk ligger."
+ },
+ {
+  "question": "Hvor mange enkle rotasjoner utgjør én dobbelrotasjon i et AVL-tre?",
+  "options": [
+   "To enkle rotasjoner",
+   "Én enkel rotasjon",
+   "Tre enkle rotasjoner",
+   "Fire enkle rotasjoner"
+  ],
+  "explanation": "En dobbelrotasjon er to enkle utført etter hverandre, én i hver retning. Å svare «én» er å telle rebalanseringer i stedet for rotasjoner, og er den vanligste feilen i AVL-håndkjøringer."
+ },
+ {
+  "question": "Sett inn 10, 20, 30, 40, 50 og 25 i et tomt AVL-tre. Hvor mange **enkle** rotasjoner utføres totalt?",
+  "options": [
+   "4 enkle rotasjoner",
+   "3 enkle rotasjoner",
+   "2 enkle rotasjoner",
+   "5 enkle rotasjoner"
+  ],
+  "explanation": "To enkle rotasjoner av typen RR, pluss én dobbelrotasjon av typen RL som teller som to. Svaret «tre» teller antall rebalanseringer i stedet for antall enkle rotasjoner."
+ },
+ {
+  "question": "Sett inn 100, 90, 80, 70, 60 og 50 i et tomt AVL-tre. Hva er rotverdien til slutt?",
+  "options": [
+   "70",
+   "90",
+   "80",
+   "60"
+  ],
+  "explanation": "Sekvensen er synkende, så alle tre rebalanseringene er av typen LL. Rota flyttes fra 100 til 90 ved den første og fra 90 til 70 ved den siste. 90 er rotverdien underveis, men ikke til slutt; 80 og 60 er noder i det ferdige treet, men ingen av dem er rota."
+ },
+ {
+  "question": "Hva er balansefaktoren til en node i et AVL-tre?",
+  "options": [
+   "Høyden til venstre subtre minus høyden til høyre subtre",
+   "Antall noder i venstre subtre minus antall i høyre subtre",
+   "Høyden til hele treet minus antall rotasjoner utført",
+   "Differansen mellom rotverdien og verdien i noden selv"
+  ],
+  "explanation": "AVL-kravet gjelder høyder, ikke antall noder. Et subtre kan ha langt flere noder enn nabosubtreet og likevel ha samme høyde, og da er balansefaktoren $0$."
+ },
+ {
+  "question": "Hvilken høyde har et tomt subtre, i konvensjonen boka bruker?",
+  "options": [
+   "$-1$",
+   "$0$",
+   "$1$",
+   "Udefinert"
+  ],
+  "explanation": "Et tomt subtre har høyde $-1$, slik at et blad med to tomme barn får høyde $0$ og balansefaktor $0$. Setter du høyden til $0$, får hvert blad balansefaktor $0$ likevel, men foreldre med bare ett barn regnes feil."
+ },
+ {
+  "question": "Hvor mange rebalanseringer kan én innsetting i et AVL-tre utløse?",
+  "options": [
+   "Høyst én, enten enkel eller dobbel",
+   "Én i hver node på veien opp mot rota",
+   "Høyst to, én i hver retning",
+   "Så mange som trengs til treet er perfekt balansert"
+  ],
+  "explanation": "Rebalanseringen i den første ubalanserte noden gjenoppretter høyden subtreet hadde før innsettingen, så ingen node lenger oppe blir ubalansert. Det er derfor `AVLInsert` er $O(\\log n)$, og AVL-trær er ikke perfekt balanserte."
+ },
+ {
+  "question": "Hva skal oppgis som svar på en AVL-håndkjøring?",
+  "options": [
+   "Antall enkle rotasjoner, rotverdien, og om treet er gyldig",
+   "Treet tegnet på nytt med balansefaktoren skrevet inn i hver node",
+   "In-order-utskriften av treet etter siste innsetting",
+   "Høyden til treet og antall noder på det nederste nivået"
+  ],
+  "explanation": "De tre delene er selvstendige delmomenter, og rotverdien er den som oftest står igjen ubesvart. In-order-utskriften er svaret på en søketre-håndkjøring, ikke på en rotasjonstelling."
+ },
+ {
+  "question": "Hvilken struktur ordner elementene **venstre–høyre**?",
+  "options": [
+   "Binært søketre — alt til venstre er mindre enn noden",
+   "Min-heap — alt til venstre er mindre enn noden",
+   "Begge to, men bare når treet er komplett og uten hull i nivåene",
+   "Ingen av dem — begge ordner opp–ned, fra forelder til barn"
+  ],
+  "explanation": "Søketreet ordner venstre–høyre, min-heapen ordner opp–ned og sier ingenting om søsken. Å blande de to er felle #9, og gir feil svar på begge strukturene samtidig."
+ },
+ {
+  "question": "Min-heapen er `2, 3, 7, 5, 4, 9, 8`. Hva blir arrayet etter at 1 er satt inn?",
+  "options": [
+   "`1, 2, 7, 3, 4, 9, 8, 5`",
+   "`1, 3, 7, 5, 4, 9, 8, 2`",
+   "`2, 3, 7, 5, 4, 9, 8, 1`",
+   "`1, 2, 7, 5, 4, 9, 8, 3`"
+  ],
+  "explanation": "1-eren legges på indeks 7 og sifter opp gjennom indeks 3 og 1 til rota, mens 5, 3 og 2 dyttes ett nivå ned hver. Alternativet uten bytter er svaret man får hvis sift-up glemmes helt."
+ },
+ {
+  "question": "Min-heapen er `1, 3, 9, 7, 4`. Hva blir arrayet etter én `RemoveMin`?",
+  "options": [
+   "`3, 4, 9, 7`",
+   "`3, 9, 7, 4`",
+   "`4, 3, 9, 7`",
+   "`3, 4, 7, 9`"
+  ],
+  "explanation": "Siste element 4 flyttes til rota, bytter med det minste barnet 3, og stopper fordi det eneste barnet igjen er 7. Alternativet `3, 9, 7, 4` er svaret man får hvis man bare stryker rota og skyver resten til venstre."
+ }
+]

@@ -1,0 +1,345 @@
+{
+  "id": "in2010-6-3",
+  "courseId": "in2010",
+  "chapterNumber": "6.3",
+  "title": "Minimale spenntrær — Prim, Kruskal, Borůvka",
+  "description": "Minimale spenntrær (MST) — Prim med prioritetskø, gjenkjenning av Kruskal/Borůvka, og hvorfor BFS/DFS *ikke* gir MST.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne håndkjøre Prim og Kruskal på en urettet vektet graf og oppgi kantene og totalvekten",
+    "kunne skrive Prim i pseudokode med antagelser, grunnidé og kjøretid, også for en komplett graf",
+    "kunne begrunne hvorfor bredde- og dybde-først-søk ikke finner minimale spenntrær",
+    "kunne gjenkjenne at «koble alt sammen billigst» er et spenntreproblem, og at korteste vei i det ferdige treet er en traversering"
+  ],
+  "content": [
+    {
+      "id": "in2010-6-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Minimale spenntrær er med i **4 av 7 sett (57 %)**, og de kommer i to former:\n\n- **Sjanger F — matriseavkryssing**, altså at du krysser av hvilke algoritmer som\n  faktisk finner et minimalt spenntre. Her er det ett fast svar som skiller:\n  **BFS og DFS gjør det ikke.** De finner *et* spenntre, ikke det minimale.\n- **Sjanger H — modellering i pseudokode**, altså at du gjenkjenner problemet og\n  skriver algoritmen. Mønsteret er alltid: «koble alt sammen så billig som mulig».\n\nPrioritet: **kunne** (nivå 2 av tre — «må sitte» er nivå 1, «kjenne til» er\nnivå 3). Prim er den du skal kunne skrive; Kruskal og Borůvka skal du kunne\n**gjenkjenne** og si hva de gjør.\n\nDet er én oppfølgingsfelle du bør kjenne før du begynner, fordi den er dokumentert\ni arkivet: når oppgaven først har bedt deg bygge det billigste nettet, spør den\ngjerne videre om **korteste vei mellom to punkter i det ferdige nettet**. Der er\nsvaret **ikke** Dijkstra. Vi kommer tilbake til hvorfor i løkke 4.\n\n**Slik er kapitlet lagt opp (50 min):** fire løkker med teori, gjennomkjørt\neksempel og oppgaver, og et pausepunkt etter løkke 3."
+    },
+    {
+      "id": "in2010-6-3-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 6.2](/in2010/in2010-6-2) — prioritetskøen som verktøy, og\n  `DecreaseKey`. Prim er bygget nøyaktig som Dijkstra, men med én avgjørende\n  forskjell i hva som legges i køen.\n- [kap. 4.4](/in2010/in2010-4-4) — min-heapen, som er prioritetskøen. `RemoveMin`\n  og `DecreaseKey` er $O(\\log n)$ hver.\n- [kap. 5.2](/in2010/in2010-5-2) — BFS og DFS. De brukes både som kontrast (de\n  finner *ikke* minimale spenntrær) og som verktøy i selve modelleringen.\n- [kap. 5.1](/in2010/in2010-5-1) — grafnotasjonen og nabolistene."
+    },
+    {
+      "id": "in2010-6-3-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-6-3-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | urettet, vektet graf |\n| $\\lvert V \\rvert$, $\\lvert E \\rvert$ | antall noder og antall kanter |\n| $w(u, v)$ | vekten på kanten mellom $u$ og $v$ — her en **kostnad**, ikke en avstand |\n| $T$ | spenntreet som bygges; har alltid nøyaktig $\\lvert V \\rvert - 1$ kanter |\n| `noekkel[v]` | vekten på den letteste kjente kanten fra $v$ inn til treet |\n| $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log \\lvert V \\rvert)$ | Prim med binær prioritetskø |\n| $O(\\lvert E \\rvert \\log \\lvert E \\rvert)$ | Kruskal — sorteringen dominerer |\n| $O(\\lvert V \\rvert^2 \\log \\lvert V \\rvert)$ | Prim på en **komplett** graf, der $\\lvert E \\rvert$ er $\\lvert V \\rvert(\\lvert V \\rvert-1)/2$ |"
+        },
+        {
+          "id": "in2010-6-3-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Prim(G, s)` | bygger et minimalt spenntre ved å vokse ett tre fra `s` | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log \\lvert V \\rvert)$ |\n| `Kruskal(G)` | bygger et minimalt spenntre ved å ta kanter i vektrekkefølge | $O(\\lvert E \\rvert \\log \\lvert E \\rvert)$ |\n| `Find(v)` | gir navnet på komponenten `v` tilhører | nær $O(1)$ i praksis |\n| `Union(u, v)` | slår sammen komponentene til `u` og `v` | nær $O(1)$ i praksis |\n| `PQ.RemoveMin()` | tar ut noden med lettest kjent kant inn til treet | $O(\\log \\lvert V \\rvert)$ |\n| `PQ.DecreaseKey(v, x)` | senker `v` sin nøkkel til `x` | $O(\\log \\lvert V \\rvert)$ |"
+        },
+        {
+          "id": "in2010-6-3-nt-3",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$|T| = |V| - 1$$\n\nEt spenntre over $|V|$ noder har alltid nøyaktig $|V| - 1$ kanter. Bruk det som\nkontrollregning: har svaret ditt flere, har du en sykel; har det færre, henger\nikke alt sammen.\n\n$$|E| = \\frac{|V|(|V| - 1)}{2}$$\n\nAntall kanter i en **komplett** urettet graf, der alle par er koblet. Setter du\ndet inn i Prims kjøretid, får du $O(|V|^2 \\log |V|)$ — den formen dukker opp når\noppgaven sier at «alle punkter kan kobles til alle»."
+        }
+      ]
+    },
+    {
+      "id": "in2010-6-3-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — å koble alt sammen så billig som mulig (ca. 12 min)\n\nSju gårder i en dal skal få fiber. Mellom noen av gårdene er det mulig å grave, og\nhver mulig grøft har en pris i hundretusen kroner. Alle gårdene må ende opp\ntilkoblet — men det er likegyldig **hvordan** de henger sammen, så lenge det går an\nå komme fra hvilken som helst gård til hvilken som helst annen gjennom nettet.\n\nHva er den billigste måten?\n\nTo observasjoner løser halve problemet. For det første: løsningen kan aldri\ninneholde en sykel. Har du en sykel, kan du fjerne den dyreste kanten i den, og\nalt henger fortsatt sammen — bare billigere. For det andre: løsningen må ha\nnøyaktig $|V| - 1$ kanter. Færre, og noe henger løst; flere, og du har en sykel.\n\nEn sammenhengende graf uten sykler er et **tre**. Vi leter altså etter et tre."
+    },
+    {
+      "id": "in2010-6-3-def-1",
+      "type": "definition",
+      "title": "Spenntre",
+      "content": "En delmengde av kantene som holder **alle** nodene sammenhengende, og som ikke\ninneholder noen sykel.\n\nEt spenntre over $|V|$ noder har alltid nøyaktig $|V| - 1$ kanter. En\nsammenhengende graf har som regel mange forskjellige spenntrær — både BFS og DFS\nproduserer ett hver, uten at noen av dem trenger å være billig."
+    },
+    {
+      "id": "in2010-6-3-def-2",
+      "type": "definition",
+      "title": "Minimalt spenntre (MST)",
+      "content": "Det spenntreet som har **lavest samlet kantvekt** av alle spenntrær i grafen.\n\nEr alle kantvektene forskjellige, er det minimale spenntreet **entydig** — det\nfinnes bare ett. Er noen vekter like, kan det finnes flere, men de har alle samme\ntotalvekt.\n\nMerk hva som *ikke* er kravet: et minimalt spenntre gir ingen garanti om korteste\nvei mellom to bestemte noder. Det minimerer **summen**, ikke enkeltavstander."
+    },
+    {
+      "id": "in2010-6-3-img-1",
+      "type": "image",
+      "src": "/images/textbook/in2010/mst-fibernett.svg",
+      "alt": "Urettet vektet graf med sju noder A til G. Kantene med vekt er A–B 4, A–C 8, B–C 2, B–D 7, C–D 1, C–E 5, D–E 9, D–F 3, E–F 6, E–G 11 og F–G 10. Seks kanter er uthevet: A–B, B–C, C–D, C–E, D–F og F–G.",
+      "caption": "Fibernettet fra eksempel 1. De seks uthevede kantene utgjør det minimale spenntreet, med samlet kostnad 25. Legg merke til at den dyre kanten F–G (10) likevel må med — G har ingen billigere forbindelse enn den og E–G (11)."
+    },
+    {
+      "id": "in2010-6-3-th-1",
+      "type": "theorem",
+      "title": "Hvilke algoritmer finner et minimalt spenntre — og hvilke gjør det ikke",
+      "content": "Dette er avkryssingen som går igjen, og den har ett fast mønster:\n\n| Algoritme | Finner MST? | Merknad |\n|---|---|---|\n| **Prim** | ja | vokser ett tre fra en startnode |\n| **Kruskal** | ja | tar kanter i vektrekkefølge, hopper over dem som lager sykel |\n| **Borůvka** | ja | hver komponent velger sin letteste utkant, i runder |\n| **BFS** | **nei** | finner et spenntre, men ser ikke på vektene i det hele tatt |\n| **DFS** | **nei** | samme sak — et spenntre, valgt vilkårlig |\n| **Dijkstra** | **nei** | finner korteste **veier** fra én node, ikke billigste **nett** |\n\nDe tre øverste er alle **grådige**: de tar den billigste lovlige kanten som er\ntilgjengelig, og angrer aldri. At det faktisk gir et globalt minimum, er et\nresultat du skal kjenne, ikke bevise.\n\n**De tre nederste er fellene.** BFS og DFS produserer et spenntre som en\nbieffekt av traverseringen — kantene de bruker, er de kantene de tilfeldigvis kom\ntil først. Dijkstra minimerer noe helt annet: avstanden fra én bestemt node til\nalle andre. Et Dijkstra-tre og et minimalt spenntre er sjelden det samme treet."
+    },
+    {
+      "id": "in2010-6-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger F — matriseavkryssing, altså at du kobler egenskap til\nalgoritme.) Sett kryss: finner algoritmen et **minimalt** spenntre?\n\n**a)** Prim\n**b)** Dybde-først-søk\n**c)** Kruskal\n**d)** Dijkstra\n**e)** Borůvka",
+        "solution": "**a) Ja.** Prim vokser ett tre og velger hele tiden den letteste kanten ut fra\ntreet.\n\n**b) Nei.** DFS finner *et* spenntre, men ser aldri på vektene. Treet det gir, kan\nvære så dyrt som helst.\n\n**c) Ja.** Kruskal tar kantene i stigende vektrekkefølge og hopper over dem som\nville laget en sykel.\n\n**d) Nei.** Dijkstra minimerer avstanden fra én bestemt node til alle andre, ikke\nden totale kantvekten i nettet. Det er to forskjellige problemer.\n\n**e) Ja.** Borůvka lar hver komponent velge sin letteste utkant, i runder.\n\n**Kontrollen:** tre ja og to nei. Spør deg selv om algoritmen i det hele tatt\n**leser** kantvektene — BFS og DFS gjør ikke det, og da kan de umulig minimere noe\nsom avhenger av dem.",
+        "hints": [
+          "Spør for hver algoritme: bruker den kantvektene til noe som helst?",
+          "Dijkstra minimerer noe — men er det summen av kantene i nettet?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-3-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — Prim: la treet vokse (ca. 14 min)\n\nPrims algoritme er Dijkstra med én linje endret, og den linja er verdt å stoppe\nopp ved.\n\nI Dijkstra er nøkkelen til en node **avstanden fra startnoden**:\n`avstand[u] + vekt`. I Prim er nøkkelen bare **vekten på kanten inn til treet**:\n`vekt`. Prim bryr seg ikke om hvor langt det er tilbake til startnoden — den vil\nbare koble den neste noden på billigst mulig vis.\n\nAlt annet er likt: en prioritetskø over noder som ikke er i treet ennå, `RemoveMin`\nfor å velge den neste, og `DecreaseKey` når en billigere forbindelse dukker opp."
+    },
+    {
+      "id": "in2010-6-3-th-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Prim`",
+      "content": "**Antagelser om representasjon.** $G = (V, E)$ er en **urettet**, vektet og\nsammenhengende graf gitt som nabolister, der `G.naboer(v)` gir parene\n`(u, vekt)`. `noekkel` og `fra` er arrayer indeksert på node. Prioritetskøen `PQ`\ner en binær min-heap ordnet på `noekkel`, med `RemoveMin` og `DecreaseKey` i\n$O(\\log |V|)$.\n\n**Prebetingelse:** grafen er sammenhengende (ellers finnes ikke noe spenntre —\nda får du et minimalt spenn*skog* per komponent).\n**Postbetingelse:** kantene `(fra[v], v)` for alle `v` unntatt `s` utgjør et\nminimalt spenntre.\n\n```text\nProcedure Prim(G, s)\n  Input:  urettet, sammenhengende, vektet graf G = (V, E) som nabolister;\n          startnode s\n  Output: for hver node v: kanten (fra[v], v) som knytter v til treet\n  for hver v i V:\n      noekkel[v] = uendelig\n      fra[v] = ingen\n  noekkel[s] = 0\n  PQ = min-heap med alle noder i V, ordnet paa noekkel\n  while PQ er ikke tom:\n      u = PQ.RemoveMin()          // u tas inn i treet\n      for hver (v, vekt) i G.naboer(u):\n          if v er fortsatt i PQ and vekt < noekkel[v]:\n              noekkel[v] = vekt\n              fra[v] = u\n              PQ.DecreaseKey(v, vekt)\n  return fra\n```\n\n**Grunnideen i én setning:** den letteste kanten som går ut av treet, kan alltid\ntas med — ethvert spenntre må krysse skillet mellom treet og resten et sted, og\ndet er billigst å gjøre det her.\n\n**Kjøretid:** $O((|V| + |E|)\\log |V|)$. Tell operasjonene: $|V|$ kall på\n`RemoveMin` à $O(\\log |V|)$, og til sammen $|E|$ gjennomganger av nabolister (hver\nkant én gang fra hver ende i en urettet graf, altså $2|E|$ — samme orden) der hver\nkan utløse en `DecreaseKey` à $O(\\log |V|)$.\n\n**På en komplett graf**, der alle par er koblet, er\n$|E| = |V|(|V|-1)/2$, og kjøretiden blir $O(|V|^2 \\log |V|)$. Den formen skal du\nkunne oppgi når oppgaven sier «alle punkter kan kobles til alle».\n\n**Den ene linja som skiller Prim fra Dijkstra** er testen `vekt < noekkel[v]`. I\nDijkstra står det `avstand[u] + vekt < avstand[v]`. Bytter du dem om, løser du\nfeil problem — og det er ikke synlig i pseudokoden med mindre du ser etter."
+    },
+    {
+      "id": "in2010-6-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Prim på fibernettet",
+      "problem": "Gravekostnadene mellom de sju gårdene, i hundretusen kroner: $A$–$B$ 4, $A$–$C$ 8,\n$B$–$C$ 2, $B$–$D$ 7, $C$–$D$ 1, $C$–$E$ 5, $D$–$E$ 9, $D$–$F$ 3, $E$–$F$ 6,\n$E$–$G$ 11, $F$–$G$ 10.\n\nFinn det billigste nettet som kobler alle sju gårdene sammen, og oppgi\ntotalkostnaden. Start i $A$.",
+      "solution": "Prioritetskøen inneholder alle noder som ennå ikke er i treet, med nøkkelen «vekten\npå den letteste kjente kanten inn til treet». Kolonnen lengst til høyre viser køens\ninnhold som **heap-array** med indeks fra 0.\n\n| Steg | Node tatt inn i treet | Kant lagt til | Sum så langt | Oppdaterte nøkler (DecreaseKey) | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|---|\n| 1 | A | — (startnode) | 0 | `B: ∞ -> 4` (via A), `C: ∞ -> 8` (via A) | `(4, B), (∞, G), (8, C), (∞, D), (∞, E), (∞, F)` |\n| 2 | B | `A–B` (4) | 4 | `C: 8 -> 2` (via B), `D: ∞ -> 7` (via B) | `(2, C), (7, D), (∞, F), (∞, G), (∞, E)` |\n| 3 | C | `B–C` (2) | 6 | `D: 7 -> 1` (via C), `E: ∞ -> 5` (via C) | `(1, D), (5, E), (∞, F), (∞, G)` |\n| 4 | D | `C–D` (1) | 7 | `F: ∞ -> 3` (via D) | `(3, F), (∞, G), (5, E)` |\n| 5 | F | `D–F` (3) | 10 | `G: ∞ -> 10` (via F) | `(5, E), (10, G)` |\n| 6 | E | `C–E` (5) | 15 | ingen | `(10, G)` |\n| 7 | G | `F–G` (10) | 25 | ingen | `tom` |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nKanter i treet:  A-B (4), B-C (2), C-D (1), C-E (5), D-F (3), F-G (10)\nTotal kostnad:   25\n```\n\n**Kontrollen:** treet har 6 kanter, og $|V| - 1 = 7 - 1 = 6$. Stemmer.\n\n**Se på steg 2.** Kanten $A$–$C$ kostet 8, men i det $B$ kom inn i treet, ble det\nklart at $C$ kunne nås for 2 via $B$. `DecreaseKey` senket nøkkelen fra 8 til 2, og\n`fra[C]` ble $B$ i stedet for $A$. Den dyre kanten $A$–$C$ havnet aldri i treet.\n\n**Se på steg 5.** Her tas $F$ inn med kanten $D$–$F$ (3), og først da blir $G$\ntilgjengelig i det hele tatt — for 10. Det er den nest dyreste kanten i hele\ngrafen, og den må likevel med: $G$ har bare to forbindelser, 10 og 11, og én av dem\nmå brukes for at $G$ skal henge sammen med resten.\n\n**Momentet:** et minimalt spenntre er ikke et tre av billige kanter. Det er det\nbilligste treet — og noen ganger tvinger strukturen deg til å ta en dyr kant.\n\n**Fellenote.** Fella her er å stoppe når «det ser sammenhengende ut». Tell\nkantene: nøyaktig $|V| - 1$, hverken flere eller færre."
+    },
+    {
+      "id": "in2010-6-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — håndkjøring, altså at du utfører algoritmen steg for steg og oppgir\nsluttilstanden.) En urettet vektet graf har kantene $A$–$B$ 1, $A$–$C$ 4,\n$B$–$C$ 2, $B$–$D$ 5, $C$–$D$ 3, $C$–$E$ 7, $D$–$E$ 6.\n\n**a)** Kjør Prim fra $A$. Oppgi kantene i treet og totalvekten.\n**b)** Hvor mange kanter skal treet ha, og stemmer det?\n**c)** Hvilke to kanter ble aldri med, og hvorfor?",
+        "solution": "**a)**\n\n| Steg | Node tatt inn i treet | Kant lagt til | Sum så langt | Oppdaterte nøkler (DecreaseKey) | Prioritetskø etter (heap-array) |\n|---|---|---|---|---|---|\n| 1 | A | — (startnode) | 0 | `B: ∞ -> 1` (via A), `C: ∞ -> 4` (via A) | `(1, B), (∞, E), (4, C), (∞, D)` |\n| 2 | B | `A–B` (1) | 1 | `C: 4 -> 2` (via B), `D: ∞ -> 5` (via B) | `(2, C), (∞, E), (5, D)` |\n| 3 | C | `B–C` (2) | 3 | `D: 5 -> 3` (via C), `E: ∞ -> 7` (via C) | `(3, D), (7, E)` |\n| 4 | D | `C–D` (3) | 6 | `E: 7 -> 6` (via D) | `(6, E)` |\n| 5 | E | `D–E` (6) | 12 | ingen | `tom` |\n\n**Sluttilstand: kantene `A-B (1)`, `B-C (2)`, `C-D (3)`, `D-E (6)`, totalvekt 12.**\n\n**b)** $|V| - 1 = 5 - 1 = 4$ kanter. Treet har fire. Stemmer.\n\n**c)** $A$–$C$ (4) og $C$–$E$ (7) ble aldri med, og begge av samme grunn: da tiden\nkom for å koble den aktuelle noden, fantes det en billigere kant.\n\n- $A$–$C$ kostet 4, men i steg 2 senket $B$–$C$ nøkkelen til $C$ fra 4 til 2.\n- $C$–$E$ kostet 7, men i steg 4 senket $D$–$E$ nøkkelen til $E$ fra 7 til 6.\n\nKanten $B$–$D$ (5) ble heller ikke med — i steg 3 senket $C$–$D$ nøkkelen til $D$\nfra 5 til 3.\n\n**Merk hvordan `DecreaseKey` er selve arbeidet i Prim.** Tre av de sju kantene ble\nutkonkurrert underveis; det er nettopp det prioritetskøen holder styr på.",
+        "hints": [
+          "Nøkkelen til en node er vekten på den letteste kanten inn til treet — ikke avstanden fra startnoden.",
+          "Etter at $B$ er tatt inn: hva er den nye nøkkelen til $C$?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-3-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — Kruskal: ta de billigste kantene først (ca. 12 min)\n\nKruskals algoritme angriper problemet fra motsatt kant. I stedet for å la ett tre\nvokse, sorterer den **alle kantene** etter vekt og går gjennom dem fra billigst til\ndyrest. Hver kant tas med, med mindre den ville laget en sykel.\n\nDa trenger den ett hjelpemiddel: en måte å svare raskt på spørsmålet «henger disse\nto nodene allerede sammen?». Det er **union-find**: hver node hører til en\nkomponent, `Find(v)` gir komponentens navn, og `Union(u, v)` slår to komponenter\nsammen. Lager kanten en sykel? Nøyaktig når `Find(u)` og `Find(v)` gir samme svar."
+    },
+    {
+      "id": "in2010-6-3-def-3",
+      "type": "definition",
+      "title": "Union-find",
+      "content": "En datastruktur for å holde styr på hvilke elementer som hører til samme\nkomponent. To operasjoner: `Find(v)` gir navnet på komponenten, `Union(u, v)`\nslår to komponenter sammen.\n\nI sin enkleste form er hver komponent et tre av pekere til en representant.\nMed de vanlige optimaliseringene er begge operasjonene så nær $O(1)$ som gjør\ningen forskjell — i IN2010 er det nok å vite at de **ikke** dominerer Kruskals\nkjøretid. Det gjør sorteringen."
+    },
+    {
+      "id": "in2010-6-3-th-3",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Kruskal`",
+      "content": "**Antagelser om representasjon.** $G = (V, E)$ er en urettet, vektet graf, og\nkantene kan listes som trippel `(u, v, vekt)`. En union-find-struktur over $V$ er\ntilgjengelig med `Find` og `Union`.\n\n**Prebetingelse:** ingen. **Postbetingelse:** `T` er et minimalt spenntre hvis\ngrafen er sammenhengende; ellers et minimalt spenntre per komponent.\n\n```text\nProcedure Kruskal(G)\n  Input:  urettet, vektet graf G = (V, E) som kantliste\n  Output: kantmengden T i et minimalt spenntre\n  sorter alle kanter i E stigende paa vekt\n  lag en union-find-struktur der hver node er sin egen komponent\n  T = tom mengde\n  for hver kant (u, v, vekt) i sortert rekkefolge:\n      if Find(u) er ulik Find(v):\n          T.leggTil((u, v))\n          Union(u, v)\n          if |T| er lik |V| - 1:\n              stopp\n  return T\n```\n\n**Grunnideen i én setning:** den billigste kanten som forbinder to komponenter som\nennå ikke henger sammen, kan alltid tas med — det er samme grådighetsargument som\ni Prim, bare anvendt på komponenter i stedet for på ett voksende tre.\n\n**Kjøretid:** $O(|E| \\log |E|)$. Sorteringen av kantene dominerer:\n$O(|E| \\log |E|)$. Løkka gjør $O(|E|)$ `Find`-par og høyst $|V| - 1$ `Union`-kall,\nog de er så billige at de forsvinner i sammenligning. Siden\n$|E| \\le |V|^2$, er $\\log |E| \\le 2\\log |V|$, så uttrykket kan også skrives\n$O(|E| \\log |V|)$ — begge former godtas.\n\n**Stopp-linja er verdt et delpoeng.** Når $T$ har $|V| - 1$ kanter, er treet\nferdig, og resten av den sorterte lista kan hoppes over."
+    },
+    {
+      "id": "in2010-6-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Kruskal på det samme fibernettet",
+      "problem": "Kjør Kruskals algoritme på fibernettet fra eksempel 1, og sammenlign resultatet\nmed det Prim ga. Vis union-find-tilstanden underveis.",
+      "solution": "Kantene sorteres først etter vekt: $C$–$D$ 1, $B$–$C$ 2, $D$–$F$ 3, $A$–$B$ 4,\n$C$–$E$ 5, $E$–$F$ 6, $B$–$D$ 7, $A$–$C$ 8, $D$–$E$ 9, $F$–$G$ 10, $E$–$G$ 11.\n\nKolonnen «Komponenter etter» viser union-find-strukturen som en partisjon av\nnodene. `Find(u)` og `Find(v)` gir navnet på komponenten hver node tilhører — her\nrepresentert ved den alfabetisk minste noden i komponenten.\n\n| Steg | Kant | Vekt | Find(u) / Find(v) | Beslutning | Komponenter etter | Sum |\n|---|---|---|---|---|---|---|\n| 1 | C–D | 1 | `C` / `D` | **velg** — ulike komponenter, slås sammen | `{A} {B} {C,D} {E} {F} {G}` | 1 |\n| 2 | B–C | 2 | `B` / `C` | **velg** — ulike komponenter, slås sammen | `{A} {B,C,D} {E} {F} {G}` | 3 |\n| 3 | D–F | 3 | `B` / `F` | **velg** — ulike komponenter, slås sammen | `{A} {B,C,D,F} {E} {G}` | 6 |\n| 4 | A–B | 4 | `A` / `B` | **velg** — ulike komponenter, slås sammen | `{A,B,C,D,F} {E} {G}` | 10 |\n| 5 | C–E | 5 | `A` / `E` | **velg** — ulike komponenter, slås sammen | `{A,B,C,D,E,F} {G}` | 15 |\n| 6 | E–F | 6 | `A` / `A` | **forkast** — samme komponent, ville laget sykel | `{A,B,C,D,E,F} {G}` | 15 |\n| 7 | B–D | 7 | `A` / `A` | **forkast** — samme komponent, ville laget sykel | `{A,B,C,D,E,F} {G}` | 15 |\n| 8 | A–C | 8 | `A` / `A` | **forkast** — samme komponent, ville laget sykel | `{A,B,C,D,E,F} {G}` | 15 |\n| 9 | D–E | 9 | `A` / `A` | **forkast** — samme komponent, ville laget sykel | `{A,B,C,D,E,F} {G}` | 15 |\n| 10 | F–G | 10 | `A` / `G` | **velg** — ulike komponenter, slås sammen | `{A,B,C,D,E,F,G}` | 25 |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nKanter i treet:  C-D (1), B-C (2), D-F (3), A-B (4), C-E (5), F-G (10)\nTotal kostnad:   25\n```\n\n**Sammenlign med Prim.** Prim ga kantene $A$–$B$, $B$–$C$, $C$–$D$, $C$–$E$,\n$D$–$F$, $F$–$G$. Det er **nøyaktig de samme seks kantene**, bare funnet i en annen\nrekkefølge — og med samme totalkostnad 25.\n\nDet er ingen tilfeldighet: alle kantvektene i denne grafen er forskjellige, og da\ner det minimale spenntreet **entydig**. Enhver korrekt MST-algoritme må gi samme\nsvar.\n\n**Se på steg 6 til 9.** Fire kanter på rad blir forkastet ($E$–$F$ 6, $B$–$D$ 7,\n$A$–$C$ 8, $D$–$E$ 9). Alle fire har begge endepunktene i den samme komponenten\n`{A,B,C,D,E,F}` — de ville laget en sykel. Det er nettopp den jobben `Find` gjør,\nog den er hele grunnen til at Kruskal trenger union-find.\n\n**Se på steg 10.** Kanten $F$–$G$ (10) er dyr, men $G$ ligger fortsatt alene i sin\negen komponent, og kanten tas. Etterpå har $T$ seks kanter, altså $|V| - 1$, og\nalgoritmen kan stoppe — den siste kanten $E$–$G$ (11) trenger aldri å bli sett på.\n\n**Fellenote.** Fella her er å ta med en kant uten å sjekke komponentene, typisk\nden nest billigste kanten ut fra hver node. Da får du sykler, og treet blir\nugyldig. Kontrollen er alltid den samme: nøyaktig $|V| - 1$ kanter til slutt."
+    },
+    {
+      "id": "in2010-6-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E.) Kjør Kruskals algoritme på grafen fra oppgave 2: $A$–$B$ 1,\n$A$–$C$ 4, $B$–$C$ 2, $B$–$D$ 5, $C$–$D$ 3, $C$–$E$ 7, $D$–$E$ 6.\n\n**a)** Sett opp kantene i sortert rekkefølge.\n**b)** Kjør algoritmen og vis hvilke kanter som velges og forkastes.\n**c)** Sammenlign svaret med det Prim ga i oppgave 2. Hva forteller sammenligningen\ndeg?",
+        "solution": "**a)** Sortert på vekt: $A$–$B$ 1, $B$–$C$ 2, $C$–$D$ 3, $A$–$C$ 4, $B$–$D$ 5,\n$D$–$E$ 6, $C$–$E$ 7.\n\n**b)**\n\n| Steg | Kant | Vekt | Find(u) / Find(v) | Beslutning | Komponenter etter | Sum |\n|---|---|---|---|---|---|---|\n| 1 | A–B | 1 | `A` / `B` | **velg** — ulike komponenter, slås sammen | `{A,B} {C} {D} {E}` | 1 |\n| 2 | B–C | 2 | `A` / `C` | **velg** — ulike komponenter, slås sammen | `{A,B,C} {D} {E}` | 3 |\n| 3 | C–D | 3 | `A` / `D` | **velg** — ulike komponenter, slås sammen | `{A,B,C,D} {E}` | 6 |\n| 4 | A–C | 4 | `A` / `A` | **forkast** — samme komponent, ville laget sykel | `{A,B,C,D} {E}` | 6 |\n| 5 | B–D | 5 | `A` / `A` | **forkast** — samme komponent, ville laget sykel | `{A,B,C,D} {E}` | 6 |\n| 6 | D–E | 6 | `A` / `E` | **velg** — ulike komponenter, slås sammen | `{A,B,C,D,E}` | 12 |\n\n**Sluttilstand: kantene `A-B (1)`, `B-C (2)`, `C-D (3)`, `D-E (6)`, totalvekt 12.**\n\n**c)** Nøyaktig samme fire kanter og samme totalvekt som Prim ga. Alle\nkantvektene i grafen er forskjellige, og da er det minimale spenntreet entydig —\nenhver korrekt algoritme må komme fram til det samme.\n\n**Merk hvordan de to algoritmene kom dit forskjellig.** Prim bygget treet fra $A$\nog utover, i rekkefølgen $A$, $B$, $C$, $D$, $E$. Kruskal tok kantene i\nprisrekkefølge og hadde en periode to atskilte komponenter under bygging. Ulik vei,\nsamme mål.",
+        "hints": [
+          "Sorter kantene på vekt før du gjør noe annet.",
+          "For hver kant: ligger de to endepunktene allerede i samme komponent?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-3-tip-2",
+      "type": "tip",
+      "title": "Pausepunkt",
+      "content": "— naturlig pausepunkt —\n\nDu har nå begge algoritmene og forstår hvorfor de gir samme svar. Siste løkke\nhandler om det som faktisk står i eksamensoppgavene: å **gjenkjenne** at et problem\ner et MST-problem, og å unngå den ene fellen som kommer rett etterpå."
+    },
+    {
+      "id": "in2010-6-3-def-4",
+      "type": "definition",
+      "title": "Borůvkas algoritme",
+      "content": "Bør kjenne til. Den tredje MST-algoritmen: i hver runde velger **hver komponent**\nsin egen letteste utkant, og alle de valgte kantene legges til samtidig.\n\nAntall komponenter minst halveres per runde, så det trengs $O(\\log |V|)$ runder à\n$O(|E|)$ arbeid: $O(|E| \\log |V|)$. På eksamen skal du kunne krysse av at Borůvka\nfinner et minimalt spenntre — du blir ikke bedt om å håndkjøre den."
+    },
+    {
+      "id": "in2010-6-3-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å tro at BFS eller DFS gir et minimalt spenntre.** De gir *et* spenntre. De\n  leser ikke engang kantvektene. Dette er den faste avkryssingsfellen, og den er\n  verdt hele poenget på sjanger F.\n- **Å bruke Dijkstra i det ferdige spenntreet.** Når oppgaven først har bedt deg\n  bygge det billigste nettet og deretter spør om korteste vei **i det nettet**, er\n  vektene byggekostnader, ikke avstander. Se løkke 4 — dette er dokumentert som en\n  feil som gir færre poeng.\n- **Å blande Prim og Dijkstra i pseudokoden.** Nøkkelen i Prim er `vekt`; i\n  Dijkstra er den `avstand[u] + vekt`. Én linje, to helt forskjellige problemer.\n- **Å glemme sykelsjekken i Kruskal.** Uten `Find(u) er ulik Find(v)` samler du\n  bare de billigste kantene, og resultatet har både sykler og løse noder.\n- **Å levere et tre med feil antall kanter.** Et spenntre over $|V|$ noder har\n  nøyaktig $|V| - 1$ kanter. Denne kontrollen tar fem sekunder og fanger de fleste\n  håndkjøringsfeil.\n- **Å oppgi feil Prim-kjøretid for en komplett graf.** Sier oppgaven at alle punkter\n  kan kobles til alle, er $|E| = |V|(|V|-1)/2$, og kjøretiden blir\n  $O(|V|^2 \\log |V|)$ — ikke $O((|V| + |E|)\\log |V|)$ uten videre forklaring.\n\nOg den gjennomgående: **å ikke si hva størrelsene er.** Skriv at $|V|$ er antall\ngårder og $|E|$ antall mulige grøfter. Kjøretid uten definerte størrelser er felle\n**#10**, og det trekkes eksplisitt for den."
+    },
+    {
+      "id": "in2010-6-3-t-4",
+      "type": "text",
+      "content": "## Løkke 4 — modelleringen, og fellen som kommer rett etterpå (ca. 12 min)\n\nPå eksamen står det aldri «finn et minimalt spenntre». Det står noe slikt som\n«kommunen skal legge fiber til alle gårdene så billig som mulig». Jobben din er å\nkjenne igjen strukturen.\n\n**Mønsteret:** når oppgaven ber deg **koble alt sammen** til lavest mulig samlet\nkostnad, og det er likegyldig hvordan forbindelsene går, er svaret et minimalt\nspenntre.\n\nOg så kommer oppfølgingsspørsmålet, som er der halve poengsummen ligger: «etterpå\nskal en tekniker kjøre fra gård $A$ til gård $G$ **gjennom det nye nettet**.\nHvilken vei?»\n\nHer svarer mange Dijkstra, og det er feil av to grunner."
+    },
+    {
+      "id": "in2010-6-3-th-4",
+      "type": "theorem",
+      "title": "Korteste vei i et ferdig spenntre er BFS eller DFS — ikke Dijkstra",
+      "content": "Når du først har bygget spenntreet, og skal finne veien mellom to noder **i\ntreet**, gjelder to ting:\n\n**1. Det finnes bare én vei.** Et tre har ingen sykler, så mellom to noder finnes\nnøyaktig én sti. Det er ingenting å minimere. En enkel traversering — BFS eller\nDFS — finner den i $O(|V| + |E|)$, og i et tre er $|E| = |V| - 1$, så det er\n$O(|V|)$.\n\n**2. Vektene betyr noe annet nå.** I det opprinnelige problemet var vekten\n**byggekostnad** — hva det koster å grave grøfta. Å legge sammen byggekostnader\nlangs en rute gir ikke noe meningsfullt tall: teknikeren betaler ikke for grøfta på\nnytt når han kjører gjennom den.\n\nÅ kjøre Dijkstra her er derfor ikke bare unødvendig dyrt\n($O((|V| + |E|)\\log |V|)$ i stedet for $O(|V|)$) — det er å minimere en størrelse\nsom ikke gir mening i oppgaven. Sensorveiledningene omtaler dette som «ikke\nveldefinert», og det gir færre poeng enn traverseringen.\n\n**Regelen å ta med seg:** når du ser en vekt, spør alltid *hva den måler*. Er den\nen kostnad ved å **ha** kanten, hører den hjemme i et MST. Er den en kostnad ved å\n**bruke** kanten, hører den hjemme i et korteste-vei-problem."
+    },
+    {
+      "id": "in2010-6-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — bygg nettet, og finn veien i det",
+      "problem": "En kommune skal legge fiber mellom sju gårder. Alle mulige grøfter og prisene deres\ner kjent (grafen fra eksempel 1).\n\n**a)** Beskriv en algoritme som finner det billigste nettet som kobler alle gårdene\nsammen. Oppgi kjøretid.\n\n**b)** Etter at nettet er bygget, skal en tekniker kjøre fra gård $A$ til gård $G$\n**gjennom det nye nettet**, og vil vite hvor mange strekk han må innom. Beskriv en\nalgoritme, og oppgi kjøretid.",
+      "solution": "**a) Problemet navngitt.** «Koble alt sammen til lavest samlet kostnad, uten krav\ntil hvordan» er definisjonen på et **minimalt spenntre**.\n\n**Antagelser om representasjon.** Gårdene er nodene i en urettet, vektet,\nsammenhengende graf $G = (V, E)$ gitt som nabolister; $|V| = 7$ gårder og $|E|$ er\nantall mulige grøfter. Vekten på en kant er gravekostnaden.\n\n**Algoritmen:** Prim med binær prioritetskø, som i pseudokode-kontrakten over.\nResultatet er de seks kantene $A$–$B$ (4), $B$–$C$ (2), $C$–$D$ (1), $C$–$E$ (5),\n$D$–$F$ (3) og $F$–$G$ (10), med samlet kostnad **25**.\n\n**Kjøretid:** $O((|V| + |E|)\\log |V|)$, der $|V|$ er antall gårder og $|E|$ antall\nmulige grøfter. Er alle par koblet — en komplett graf — er\n$|E| = |V|(|V|-1)/2$, og kjøretiden blir $O(|V|^2 \\log |V|)$.\n\nKruskal ($O(|E| \\log |E|)$) er like riktig og gir samme uttelling.\n\n**b) Problemet navngitt.** Nå er grafen **treet**, ikke det opprinnelige nettet.\nMellom to noder i et tre finnes nøyaktig én sti, så det er ingenting å minimere —\ndet er en ren traverseringsoppgave.\n\n**Antagelser om representasjon.** Spenntreet $T$ fra deloppgave a), lagret som\nnabolister over de $|V| - 1$ kantene.\n\n**Algoritmen:**\n\n```text\nProcedure VeiITreet(T, a, b)\n  Input:  spenntreet T som nabolister, to noder a og b\n  Output: antall strekk paa veien fra a til b, og selve veien\n  gjor en bredde-forst-traversering fra a i T,\n      og noter forgjenger[v] for hver node som oppdages\n  les veien baklengs fra b via forgjenger til du naar a\n  return lengden paa veien, og veien selv\n```\n\n**Kjøring på tallene.** Bredde-først fra $A$ i spenntreet:\n\n| Steg | Tatt ut av køen | Nye noder oppdaget | Kø etter | avstand-tabell etter |\n|---|---|---|---|---|\n| 1 | A (avst. 0) | `B = 1` | `B` | `A=0, B=1, C=∞, D=∞, E=∞, F=∞, G=∞` |\n| 2 | B (avst. 1) | `C = 2` | `C` | `A=0, B=1, C=2, D=∞, E=∞, F=∞, G=∞` |\n| 3 | C (avst. 2) | `D = 3`, `E = 3` | `D, E` | `A=0, B=1, C=2, D=3, E=3, F=∞, G=∞` |\n| 4 | D (avst. 3) | `F = 4` | `E, F` | `A=0, B=1, C=2, D=3, E=3, F=4, G=∞` |\n| 5 | E (avst. 3) | ingen | `F` | `A=0, B=1, C=2, D=3, E=3, F=4, G=∞` |\n| 6 | F (avst. 4) | `G = 5` | `G` | `A=0, B=1, C=2, D=3, E=3, F=4, G=5` |\n| 7 | G (avst. 5) | ingen | `tom` | `A=0, B=1, C=2, D=3, E=3, F=4, G=5` |\n\nAntall strekk fra $A$ til $G$ er **5**, og veien er\n`A - B - C - D - F - G`.\n\n**Kjøretid:** $O(|V| + |E_T|)$ der $|E_T| = |V| - 1$, altså $O(|V|)$ — lineært i\nantall gårder.\n\n**Hvorfor ikke Dijkstra.** To grunner, og begge er verdt å skrive:\n\n1. **Det finnes bare én vei** mellom to noder i et tre. Det er ingenting å\n   minimere, så en traversering holder — og den er $O(|V|)$ mot Dijkstras\n   $O((|V| + |E|)\\log |V|)$.\n2. **Vektene måler noe annet.** De er gravekostnader, ikke reiseavstander. Å\n   summere dem langs teknikerens rute gir ikke et meningsfullt tall.\n\n**Poengtrapp-notat.** Deloppgave a) gir uttelling for å navngi MST og velge en\nkorrekt algoritme med riktig kjøretid — det er hovedmomentet, og det gir mest.\nDeloppgave b) skiller: BFS eller DFS i treet er toppsvaret; Dijkstra i treet er\nkorrekt i den forstand at det finner *en* vei, men både tregere og basert på en\nstørrelse oppgaven ikke ba om, og det gir mindre."
+    },
+    {
+      "id": "in2010-6-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — grafalgoritme i pseudokode.) Et vannverk skal legge rør mellom tolv\ntanker. Hver mulig rørstrekning har en anleggskostnad. Alle tankene må henge\nsammen.\n\n**a)** Hvilket problem er dette, og hvilken algoritme velger du?\n**b)** Hvor mange rørstrekninger vil løsningen inneholde?\n**c)** En kollega foreslår å kjøre Dijkstra fra tank 1 og bruke kantene i\nresultatet. Hva blir galt?",
+        "solution": "**a)** Dette er et **minimalt spenntre**: koble alt sammen til lavest samlet\nkostnad, uten krav til hvordan forbindelsene går. Prim med binær prioritetskø gir\n$O((|V| + |E|)\\log |V|)$, der $|V| = 12$ er antall tanker og $|E|$ er antall mulige\nrørstrekninger. Kruskal med $O(|E| \\log |E|)$ er like god.\n\n**b)** $|V| - 1 = 11$ rørstrekninger. Færre, og en tank henger løst; flere, og du\nhar en sykel — og en sykel kan alltid gjøres billigere ved å fjerne den dyreste\nkanten i den.\n\n**c)** Dijkstra minimerer **avstanden fra tank 1** til hver av de andre, ikke den\nsamlede anleggskostnaden. Treet Dijkstra bygger, er som regel dyrere.\n\nKonkret: Dijkstra vil gjerne velge en direkte, dyr kant fra tank 1 til en fjern\ntank, fordi det gir kort avstand *fra tank 1*. Prim ville i stedet nådd den samme\ntanken via en kjede av billige kanter, som koster mindre totalt, men gir lengre\navstand fra tank 1.\n\n**De to problemene er forskjellige:** Dijkstra minimerer $|V| - 1$ **enkeltvis**\navstander fra én node; MST minimerer **summen** av de $|V| - 1$ kantene. Ingen av\nløsningene løser det andre problemet.",
+        "hints": [
+          "Hva er det oppgaven ber om å minimere — summen av alle kantene, eller avstanden fra ett bestemt sted?",
+          "Del b): hvor mange kanter har et tre med $n$ noder?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — kjøretids- og teorifakta, altså sant/usant som skal sitte sikkert.)\nMarker sant eller usant, og begrunn hvert svar med én setning.\n\n**a)** Et minimalt spenntre inneholder alltid den letteste kanten i grafen.\n**b)** Et minimalt spenntre inneholder aldri den tyngste kanten i grafen.\n**c)** Hvis alle kantvekter er forskjellige, er det minimale spenntreet entydig.\n**d)** Kruskals kjøretid domineres av sorteringen av kantene.\n**e)** Prim og Kruskal kan gi trær med ulik totalvekt på samme graf.",
+        "solution": "**a) Sant.** Den letteste kanten kan alltid tas med: den kan ikke inngå i noen\nsykel av lettere kanter, siden det ikke finnes noen. (Er flere kanter like lette,\ngjelder det minst én av dem.)\n\n**b) Usant.** I fibernettet i eksempel 1 er $F$–$G$ (10) den nest tyngste kanten,\nog den **må** med, fordi $G$ ellers ikke henger sammen med resten. Er den tyngste\nkanten den eneste forbindelsen til en node, er den uunngåelig.\n\n**c) Sant.** Med forskjellige vekter er hvert grådige valg entydig bestemt, og alle\nkorrekte algoritmer ender på det samme treet. Eksempel 1 og 2 viser det: Prim og\nKruskal ga nøyaktig de samme seks kantene.\n\n**d) Sant.** Sorteringen koster $O(|E| \\log |E|)$, mens union-find-operasjonene er\nså nær konstante at de forsvinner i sammenligning.\n\n**e) Usant.** Begge finner et **minimalt** spenntre, og alle minimale spenntrær i\nen graf har per definisjon samme totalvekt. Er vektene like noen steder, kan de\nvelge forskjellige kanter — men summen blir den samme.\n\n**Merk fasitmønsteret:** sant, usant, sant, sant, usant. Under en\nantigjettings-skalering er dette den typen blokk der hvert punkt må sitte —\nhalvparten riktig gir null netto.",
+        "hints": [
+          "Punkt b): tenk på en node som bare har én eneste kant inn til seg.",
+          "Punkt e): hva betyr ordet «minimalt» i «minimalt spenntre»?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger H, krevende.) Et selskap har allerede lagt kabel mellom noen av $n$\nlokasjoner. Nå skal de koble sammen resten, så billig som mulig. De eksisterende\nkablene er gratis å bruke; de nye har en kjent gravekostnad hver.\n\n**a)** Hvordan modellerer du de eksisterende kablene?\n**b)** Skriv algoritmen, og oppgi kjøretiden.\n**c)** Hva blir svaret hvis de eksisterende kablene allerede kobler alle\nlokasjonene sammen?",
+        "solution": "**a) Problemet navngitt.** Dette er fortsatt et minimalt spenntre — bare med noen\nkanter som allerede er betalt for.\n\nModelleringen er å gi de eksisterende kablene **vekt 0**. En kant som ikke koster\nnoe, vil enhver MST-algoritme ta med hvis den overhodet kan (den er alltid den\nletteste tilgjengelige), og det er nøyaktig oppførselen vi vil ha.\n\n**b) Antagelser om representasjon.** Lokasjonene er nodene i en urettet, vektet\ngraf $G = (V, E)$ med $|V| = n$; $E$ inneholder både de eksisterende kablene (vekt\n0) og alle mulige nye grøfter (med sin gravekostnad). Grafen antas\nsammenhengende — ellers finnes ingen løsning.\n\n```text\nProcedure BilligsteUtvidelse(G)\n  Input:  urettet vektet graf G = (V, E) der eksisterende kabler har vekt 0\n          og mulige nye stroekk har sin gravekostnad\n  Output: de nye stroekkene som maa graves, og totalkostnaden\n  T = Kruskal(G)                  // eller Prim(G, en vilkaarlig node)\n  nye = alle kanter i T med vekt storre enn 0\n  return nye, summen av vektene i nye\n```\n\n**Kjøretid:** $O(|E| \\log |E|)$ med Kruskal, der $|V| = n$ er antall lokasjoner og\n$|E|$ antall kanter (eksisterende pluss mulige). Med Prim blir det\n$O((|V| + |E|)\\log |V|)$. Begge er korrekte.\n\n**Hvorfor 0-trikset virker:** Kruskal sorterer kantene stigende, så alle\n0-kantene kommer først og blir tatt med med mindre de lager en sykel. Etter den\nfasen er komponentene i union-find-strukturen nøyaktig de gruppene som allerede\nhenger sammen, og resten av kjøringen kobler dem så billig som mulig.\n\n**c)** Da er alle 0-kantene nok til å binde grafen sammen, og Kruskal vil ha\n$|V| - 1$ kanter i $T$ før den kommer til den første kanten med positiv vekt.\nSvaret blir en **tom** mengde nye strekk og totalkostnad **0** — det trenger ikke\ngraves i det hele tatt.\n\n**Poengtrapp-notat.** Hovedmomentet, og det som gir mest, er å se at dette er et\nMST-problem og at eksisterende kabler modelleres som 0-kanter. Detaljene om hvilken\nav de to algoritmene du velger, er verdt mindre. En besvarelse som i stedet\nforsøker å behandle de eksisterende kablene som «allerede sammenslåtte\nkomponenter» i union-find, er også riktig — og faktisk den samme ideen, sett fra\nen annen kant.",
+        "hints": [
+          "Hva slags vekt skal en kant ha når det ikke koster noe å bruke den?",
+          "Hva gjør Kruskal med de letteste kantene i grafen, helt i begynnelsen?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-3-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-6-3-def-5",
+      "type": "definition",
+      "title": "Prim",
+      "content": "Bygger et minimalt spenntre ved å la ett tre vokse fra en startnode: ta alltid den\nletteste kanten som går ut av treet.\n\nKjøretid $O((|V| + |E|)\\log |V|)$ med binær prioritetskø, eller\n$O(|V|^2 \\log |V|)$ på en komplett graf. Krever at grafen er sammenhengende."
+    },
+    {
+      "id": "in2010-6-3-def-6",
+      "type": "definition",
+      "title": "Kruskal",
+      "content": "Bygger et minimalt spenntre ved å gå gjennom kantene i **stigende vektrekkefølge**\nog ta med hver kant som ikke lager en sykel.\n\nKjøretid $O(|E| \\log |E|)$ — sorteringen dominerer. Trenger union-find for å\navgjøre om to noder allerede henger sammen."
+    },
+    {
+      "id": "in2010-6-3-def-7",
+      "type": "definition",
+      "title": "BFS og DFS gir IKKE minimalt spenntre",
+      "content": "Begge produserer *et* spenntre som en bieffekt av traverseringen, men de leser ikke\nkantvektene i det hele tatt.\n\nDette er den faste avkryssingsfellen på sjanger F. Kontrollen er enkel: en\nalgoritme som aldri ser på vektene, kan umulig minimere noe som avhenger av dem."
+    },
+    {
+      "id": "in2010-6-3-def-8",
+      "type": "definition",
+      "title": "Antall kanter i et spenntre",
+      "content": "$$|T| = |V| - 1$$\n\nAlltid, uansett graf og uansett algoritme. Bruk det som kontrollregning etter en\nhåndkjøring: flere kanter betyr at du har en sykel, færre at noe henger løst."
+    },
+    {
+      "id": "in2010-6-3-def-9",
+      "type": "definition",
+      "title": "Prim mot Dijkstra — den ene linja",
+      "content": "Prim: `if vekt < noekkel[v]` — nøkkelen er vekten på kanten inn til treet.\nDijkstra: `if avstand[u] + vekt < avstand[v]` — nøkkelen er avstanden fra\nstartnoden.\n\nAlt annet i de to algoritmene er likt. Bytter du om testen, løser du feil problem,\nog det er ikke synlig i pseudokoden med mindre du ser etter."
+    },
+    {
+      "id": "in2010-6-3-def-10",
+      "type": "definition",
+      "title": "Korteste vei i et ferdig spenntre",
+      "content": "Bruk **BFS eller DFS**, ikke Dijkstra. Et tre har ingen sykler, så mellom to noder\nfinnes nøyaktig én sti — det er ingenting å minimere.\n\nKjøretid $O(|V|)$, siden treet har $|V| - 1$ kanter. Å bruke Dijkstra her er både\ntregere og basert på vekter som måler byggekostnad, ikke reiseavstand."
+    },
+    {
+      "id": "in2010-6-3-def-11",
+      "type": "definition",
+      "title": "Entydig minimalt spenntre",
+      "content": "Er **alle** kantvektene forskjellige, finnes det bare ett minimalt spenntre, og\nalle korrekte algoritmer gir samme svar.\n\nEr noen vekter like, kan det finnes flere minimale spenntrær — men de har alle\nnøyaktig samme totalvekt, så svaret på «hva koster det» er uansett entydig."
+    },
+    {
+      "id": "in2010-6-3-def-12",
+      "type": "definition",
+      "title": "Grådig algoritme",
+      "content": "En algoritme som tar det beste lokale valget i hvert steg og aldri angrer. Prim,\nKruskal, Borůvka og Huffman er alle grådige.\n\nFor MST er grådighet **beviselig optimalt** — den letteste kanten ut av en delvis\nbygget struktur kan alltid tas med. At det holder, er et resultat du skal kjenne,\nikke bevise."
+    },
+    {
+      "id": "in2010-6-3-def-13",
+      "type": "definition",
+      "title": "Prims kjøretid på en komplett graf",
+      "content": "I en komplett urettet graf er $|E| = |V|(|V|-1)/2$, altså $O(|V|^2)$ kanter.\n\nSatt inn i $O((|V| + |E|)\\log |V|)$ gir det $O(|V|^2 \\log |V|)$. Denne formen skal\ndu oppgi når oppgaveteksten sier at «alle punkter kan kobles til alle» — det er en\ndokumentert formulering i arkivet."
+    },
+    {
+      "id": "in2010-6-3-def-14",
+      "type": "definition",
+      "title": "Kanter med vekt 0",
+      "content": "Modelleringsknepet for «denne forbindelsen finnes allerede og er gratis»: gi kanten\nvekt 0.\n\nEnhver MST-algoritme tar da kanten med hvis den kan, siden ingen kant er lettere.\nEtterpå leser du av hvilke kanter i treet som har positiv vekt — det er dem som\nfaktisk må bygges."
+    },
+    {
+      "id": "in2010-6-3-def-15",
+      "type": "definition",
+      "title": "Mønstergjenkjenning: når er svaret MST?",
+      "content": "Når oppgaven ber deg **koble alt sammen** til lavest mulig **samlet** kostnad, og\ndet er likegyldig hvordan forbindelsene går.\n\nTypiske formuleringer: «alle skal kunne nå alle», «billigst mulig nett», «minst\nmulig graving totalt». Er spørsmålet derimot «hvor raskt kommer jeg fra $A$ til\n$B$», er det korteste vei — se [kap. 6.2](/in2010/in2010-6-2)."
+    },
+    {
+      "id": "in2010-6-3-def-16",
+      "type": "definition",
+      "title": "Hva vekten måler",
+      "content": "Spørsmålet som avgjør hvilket problem du står overfor: er vekten en kostnad ved å\n**ha** kanten, eller ved å **bruke** den?\n\nByggekostnad og anleggspris hører hjemme i et minimalt spenntre. Reisetid og\navstand hører hjemme i et korteste-vei-problem. Å summere byggekostnader langs en\nrute er den dokumenterte fellen i oppfølgingsspørsmålet."
+    },
+    {
+      "id": "in2010-6-3-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-6-3-rep-1",
+          "type": "text",
+          "content": "**Avkryssingen, som må sitte hjelpemiddelfritt:**\n\n| Algoritme | Finner MST? | Kjøretid |\n|---|---|---|\n| Prim | ja | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log \\lvert V \\rvert)$ |\n| Kruskal | ja | $O(\\lvert E \\rvert \\log \\lvert E \\rvert)$ |\n| Borůvka | ja | $O(\\lvert E \\rvert \\log \\lvert V \\rvert)$ |\n| BFS | **nei** | leser ikke vektene |\n| DFS | **nei** | leser ikke vektene |\n| Dijkstra | **nei** | minimerer avstand, ikke sum |\n\n**Prim, som må kunne skrives fra hukommelsen:**\n\n```text\nProcedure Prim(G, s)\n  Input:  urettet, sammenhengende, vektet graf G som nabolister; startnode s\n  Output: kanten (fra[v], v) for hver v — til sammen et minimalt spenntre\n  for hver v i V:\n      noekkel[v] = uendelig\n  noekkel[s] = 0\n  PQ = min-heap med alle noder, ordnet paa noekkel\n  while PQ er ikke tom:\n      u = PQ.RemoveMin()\n      for hver (v, vekt) i G.naboer(u):\n          if v er fortsatt i PQ and vekt < noekkel[v]:\n              noekkel[v] = vekt\n              fra[v] = u\n              PQ.DecreaseKey(v, vekt)\n```\n\n**De tre setningene som er verdt mest poeng:**\n\n1. BFS og DFS finner **ikke** minimale spenntrær.\n2. Korteste vei **i det ferdige treet** er BFS eller DFS, ikke Dijkstra.\n3. Et spenntre har nøyaktig $|V| - 1$ kanter — bruk det som kontroll.\n\n**To kontroller som tar ti sekunder hver:** har treet ditt $|V| - 1$ kanter? Og\nmåler vekten en kostnad ved å **ha** kanten eller ved å **bruke** den?\n\n**Videre:** [kap. 6.4](/in2010/in2010-6-4) om Huffman, som er den tredje grådige\nalgoritmen i denne delen, og [kap. 6.5](/in2010/in2010-6-5), som driller\nmodelleringen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

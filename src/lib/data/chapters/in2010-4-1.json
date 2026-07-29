@@ -1,0 +1,405 @@
+{
+ "id": "in2010-4-1",
+ "courseId": "in2010",
+ "chapterNumber": "4.1",
+ "title": "Binære søketrær (BST)",
+ "description": "BST-egenskapen, innsetting og traversering — inkludert at in-order på et BST gir sortert rekkefølge.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne håndkjøre innsetting i et binært søketre og oppgi in-order-utskriften og rotverdien som sluttilstand",
+  "kunne forklare hvorfor in-order-traversering av et søketre gir verdiene i stigende rekkefølge",
+  "kunne skrive innsetting, søk, minste og største verdi i pseudokode og oppgi kjøretiden som høyden på treet",
+  "kunne slette en verdi i alle tre tilfellene, inkludert å finne in-order-etterfølgeren når noden har to barn"
+ ],
+ "content": [
+  {
+   "id": "in2010-4-1-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Binære søketrær har vært på **6 av 7 sett i arkivet (86 %)**, og de dukker opp\npå to steder i eksamenssettet:\n\n- **Sjanger E — håndkjøring av datastruktur**, altså at du utfører operasjonen\n  steg for steg og oppgir **kun sluttilstanden**. Du får en rekke tall, setter\n  dem inn i et tomt tre, og leverer in-order-utskriften eller rotverdien.\n  Dette er Del 1, den auto-rettede delen av settet.\n- **Sjanger G — tre-algoritmer i pseudokode**, altså at du skriver algoritmen\n  selv og oppgir kjøretiden. Den hører hjemme på Del 2, der karakteren\n  avgjøres, og den bygger helt og holdent på det du lærer her. Selve\n  skrivetreningen får du i [kap. 4.2](/in2010/in2010-4-2).\n\nKapitlet her er grunnmuren for begge. Prioritet: **høyeste** — sammen med\nheap i [kap. 4.4](/in2010/in2010-4-4) er dette den sikreste\nhåndkjøringskandidaten i hele faget.\n\nOg så den ene forvekslingen som koster flest poeng i Del 4: et søketre\nsorterer **venstre mot høyre**, mens en heap sorterer **oppover og nedover**.\nDe to strukturene ser like ut på papiret og oppfører seg helt forskjellig.\nBoka kaller den forvekslingen felle **#9**, og den kommer igjen i hvert\nkapittel i denne delen.\n\n**Slik er kapitlet lagt opp (50 min):** fire løkker med tidsanslag —\ninnsetting, traversering, søk og høyde, og til slutt sletting med de tre\ntilfellene. Det er pausepunkter underveis."
+  },
+  {
+   "id": "in2010-4-1-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- [kap. 2.1](/in2010/in2010-2-1) — hva «sortert rekkefølge» betyr presist, og\n  invariant-tenkningen. Hele poenget med et søketre er at det holder på en\n  ordning uten å sortere noe på nytt.\n- [kap. 1.1](/in2010/in2010-1-1) — O-notasjonen. Alle kjøretidene her er\n  $O(h)$, der $h$ er høyden på treet, og hele kapitlet handler til slutt om\n  hvor stor $h$ kan bli.\n\nEr det lenge siden du har tenkt på objekter med felter som peker videre til\nandre objekter:\n\n- [Klasser og objekter: `class`, `__init__` og `self`](/in1000/in1000-5-1) — en\n  node i et tre er nettopp et objekt med tre felter: en verdi og to pekere."
+  },
+  {
+   "id": "in2010-4-1-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-4-1-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall noder i treet |\n| $h$ | høyden til treet, målt i **kanter** på den lengste stien fra rota ned til en bladnode |\n| `v` | en node i treet |\n| `v.x` | verdien som er lagret i noden `v` (noen bøker skriver `v.element`) |\n| `v.left`, `v.right` | pekerne til venstre og høyre barn; `nil` når barnet mangler |\n| `nil` | «ingen node» — det et tomt subtre er representert med |\n| $O(h)$ | kjøretiden til alle veier ned gjennom treet: innsetting, søk, minste, største, sletting |\n| $O(n)$ | kjøretiden til en traversering som må innom hver node |\n| $O(\\log n)$ | høyden til et **balansert** tre, og dermed den gode varianten av $O(h)$ |"
+    },
+    {
+     "id": "in2010-4-1-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insert(v, x)` | setter verdien `x` inn på den plassen søkeveien fra `v` ender; returnerer rota | $O(h)$ |\n| `Search(v, x)` | følger søkeveien fra `v` og svarer sant hvis `x` finnes | $O(h)$ |\n| `Min(v)` | går til venstre så langt det går og returnerer den minste verdien | $O(h)$ |\n| `Maks(v)` | går til høyre så langt det går og returnerer den største verdien | $O(h)$ |\n| `InOrder(v)` | skriver ut venstre subtre, så noden, så høyre subtre — utskriften er **sortert** | $O(n)$ |\n| `PreOrder(v)` | skriver ut noden først, så venstre subtre, så høyre | $O(n)$ |\n| `PostOrder(v)` | skriver ut begge subtrærne først, så noden | $O(n)$ |\n| `Delete(v, x)` | fjerner verdien `x`, med de tre tilfellene bladnode / ett barn / to barn | $O(h)$ |\n\n**Formler i dette delkapitlet:**\n\n$$h = O(\\log n) \\quad \\text{(balansert tre)}$$\n\nEt tre der nivåene er fylt opp, har høyde omtrent $\\log_2 n$. Da er $O(h)$\nden gode kjøretiden $O(\\log n)$.\n\n$$h = n - 1 \\quad \\text{(degenerert tre)}$$\n\nSetter du inn tall som allerede er sortert, blir treet en kjede. Da er\n$O(h) = O(n)$, og søketreet er ikke bedre enn en liste.\n\n$$\\text{in-order-utskrift av et BST} = \\text{verdiene i stigende rekkefølge}$$\n\nNøkkelinnsikten hele Del 4 hviler på."
+    }
+   ]
+  },
+  {
+   "id": "in2010-4-1-t-1",
+   "type": "text",
+   "content": "## Løkke 1 — registeret som holder seg ordnet av seg selv (ca. 12 min)\n\nEn kommune har vannmålere ute hos abonnentene, og hver måler har et nummer.\nRegisteret må klare to ting samtidig: finne én bestemt måler raskt, og kunne\nskrive ut **alle** målerne i stigende nummerrekkefølge når årsavregningen\nkjøres. Nye målere settes inn hele tiden.\n\nDu har to kjente løsninger, og begge svikter på hver sin halvdel:\n\n- **Et sortert array.** Søk går raskt, fordi du kan halvere deg fram. Men å\n  sette inn en ny måler midt i betyr å flytte alt bak den ett hakk — $O(n)$\n  arbeid per innsetting.\n- **En usortert lenket liste.** Innsetting er billig, men å finne én måler\n  krever at du går gjennom alt, og en sortert utskrift krever at du sorterer\n  først.\n\nDet binære søketreet gir deg begge deler. Det er bygget av noder med en verdi\nog to pekere, og den ene regelen som styrer alt, er hvor en verdi får lov til\nå ligge i forhold til noden over."
+  },
+  {
+   "id": "in2010-4-1-def-1",
+   "type": "definition",
+   "title": "Binært søketre (BST)",
+   "content": "En trestruktur der hver node `v` har en verdi `v.x` og opptil to barn,\n`v.left` og `v.right`, og der verdiene er ordnet **venstre mot høyre** etter\nBST-egenskapen.\n\nInnsetting, søk, minste, største og sletting koster alle $O(h)$, der $h$ er\nhøyden. En full traversering koster $O(n)$. Strukturen holder verdiene ordnet\nhele tiden, uten at noe sorteres på nytt."
+  },
+  {
+   "id": "in2010-4-1-def-2",
+   "type": "definition",
+   "title": "BST-egenskapen",
+   "content": "For **hver** node `v` i treet gjelder: alle verdier i venstre subtre er mindre\nenn `v.x`, og alle verdier i høyre subtre er større enn `v.x`.\n\nMerk ordet **alle**. Kravet gjelder ikke bare barna, men hele subtreet under\ndem — det er den presiseringen `checkBST` i [kap. 4.2](/in2010/in2010-4-2)\nhandler om. Egenskapen er en **venstre-høyre**-ordning, i motsetning til\nheap-egenskapen i [kap. 4.4](/in2010/in2010-4-4), som er en **opp-ned**-ordning\nuten noen ordning mellom søsken. Å blande de to er felle **#9** i bokas\nfeilregister, og den fella er den vanligste i hele Del 4."
+  },
+  {
+   "id": "in2010-4-1-fig-1",
+   "type": "image",
+   "src": "/images/textbook/in2010/bst-egenskap.svg",
+   "alt": "Et binært søketre med rot 50, barna 30 og 70, og bladnodene 20, 40, 60 og 80. Hele venstre subtre er ringet inn og merket at alt der er mindre enn 50, og hele høyre subtre er ringet inn og merket at alt der er større enn 50.",
+   "caption": "Se etter at ringene omslutter **hele** subtrær, ikke bare barna: kravet om at alt skal være mindre enn 50 gjelder også 20 og 40, som ligger to nivåer ned."
+  },
+  {
+   "id": "in2010-4-1-def-3",
+   "type": "definition",
+   "title": "Noderepresentasjon i et binærtre",
+   "content": "Hver node er et objekt med tre felter: verdien `v.x` og pekerne `v.left` og\n`v.right`. Mangler et barn, er pekeren `nil`. Et tomt tre er `nil`.\n\nPå eksamen **oppgir du selv** hva du antar om representasjonen, og sensor\nbinder seg ikke til én form. Du kan trygt anta at noden har de feltene du\ntrenger — også `v.parent` hvis algoritmen din skal gå oppover — så lenge du\nsier det i besvarelsen."
+  },
+  {
+   "id": "in2010-4-1-th-1",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `Insert`",
+   "content": "**Antagelser om representasjon.** Treet er bygget av noder med feltene `v.x`,\n`v.left` og `v.right`; et tomt tre er `nil`. Verdiene kan sammenlignes med `<`\nog `>`, og vi tillater ikke duplikater.\n\n**Prebetingelse:** treet oppfyller BST-egenskapen.\n**Postbetingelse:** treet oppfyller fortsatt BST-egenskapen, og `x` finnes i\ndet nøyaktig én gang.\n\n```text\nProcedure Insert(v, x)\n  Input:  rota v i et BST (nil hvis treet er tomt), verdien x\n  Output: rota i treet etter at x er satt inn\n  if v er nil:\n      return NyNode(x)\n  if x < v.x:\n      v.left = Insert(v.left, x)\n  else if x > v.x:\n      v.right = Insert(v.right, x)\n  return v\n```\n\n**Grunnideen i én setning:** en ny verdi legges nøyaktig der søket etter den\nville endt — på den første ledige plassen søkeveien peker mot — og derfor er\nden fortsatt til å finne igjen med samme sammenligninger.\n\nLegg merke til at `else if x > v.x` gjør at en verdi som allerede finnes,\nikke settes inn på nytt: begge betingelsene er usanne, og prosedyren\nreturnerer noden uendret.\n\n**Kjøretid:** $O(h)$. Hver rekursjon går ett nivå ned, og arbeidet på hvert\nnivå er én sammenligning, så antall steg er høyden på treet. I et balansert\ntre er det $O(\\log n)$; i et degenerert tre er det $O(n)$. Det er derfor\nkjøretiden skrives $O(h)$ og ikke $O(\\log n)$ — hvilken av dem du faktisk får,\navhenger av formen på treet."
+  },
+  {
+   "id": "in2010-4-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Innsetting i et tomt tre",
+   "problem": "Sett inn 50, 30, 70, 20, 40, 60 og 80 i denne rekkefølgen i et tomt binært\nsøketre. Tegn treet, og oppgi rotverdien og in-order-utskriften.",
+   "solution": "Hver innsetting starter i rota og går én vei nedover. Sammenligningene er hele\narbeidet:\n\n| Steg | Nøkkel | Sammenligninger fra rota | Plassering |\n|---|---|---|---|\n| 1 | 50 | treet er tomt | ny rot |\n| 2 | 30 | `30 < 50 -> venstre` | venstre barn av 50 |\n| 3 | 70 | `70 > 50 -> høyre` | høyre barn av 50 |\n| 4 | 20 | `20 < 50 -> venstre; 20 < 30 -> venstre` | venstre barn av 30 |\n| 5 | 40 | `40 < 50 -> venstre; 40 > 30 -> høyre` | høyre barn av 30 |\n| 6 | 60 | `60 > 50 -> høyre; 60 < 70 -> venstre` | venstre barn av 70 |\n| 7 | 80 | `80 > 50 -> høyre; 80 > 70 -> høyre` | høyre barn av 70 |\n\n**Treet til slutt:**\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          40          60          80\n```\n\n- rotverdi: 50\n- in-order (SORTERT): 20, 30, 40, 50, 60, 70, 80\n- høyde (kanter): 2   antall noder: 7\n\n**Sluttilstanden du leverer** er in-order-utskriften og rotverdien — det er\ndet sensor ber om, og det er nok til å avgjøre at treet ditt er riktig.\n\n**Legg merke til at innsettingsrekkefølgen ikke kan leses ut av utskriften.**\nIn-order gir 20, 30, 40, 50, 60, 70, 80, mens vi satte inn 50 først. De to\nlistene har ingenting med hverandre å gjøre utover at de inneholder de samme\ntallene.\n\n**Fellenote.** Fella her er felle **#9** — å lese treet som en heap. Hadde\ndette vært en min-heap, ville kravet vært at forelderen er mindre enn **begge**\nbarna, uten noe krav om at 30 skal ligge til venstre for 70. I et søketre er\ndet motsatt: siden er alt."
+  },
+  {
+   "id": "in2010-4-1-opg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger E — håndkjøring, altså at du utfører operasjonen\nsteg for steg og oppgir sluttilstanden.) Sett inn 6, 2, 8, 1, 4 og 7 i denne\nrekkefølgen i et tomt binært søketre.\n\n**a)** Hvor havner 4, og hvilke sammenligninger tok deg dit?\n**b)** Oppgi rotverdien og in-order-utskriften.",
+    "solution": "**a)** Innsettingen av 4 gjør to sammenligninger:\n\n| Steg | Nøkkel | Sammenligninger fra rota | Plassering |\n|---|---|---|---|\n| 5 | 4 | `4 < 6 -> venstre; 4 > 2 -> høyre` | høyre barn av 2 |\n\n**b)** Hele sporingen:\n\n| Steg | Nøkkel | Sammenligninger fra rota | Plassering |\n|---|---|---|---|\n| 1 | 6 | treet er tomt | ny rot |\n| 2 | 2 | `2 < 6 -> venstre` | venstre barn av 6 |\n| 3 | 8 | `8 > 6 -> høyre` | høyre barn av 6 |\n| 4 | 1 | `1 < 6 -> venstre; 1 < 2 -> venstre` | venstre barn av 2 |\n| 5 | 4 | `4 < 6 -> venstre; 4 > 2 -> høyre` | høyre barn av 2 |\n| 6 | 7 | `7 > 6 -> høyre; 7 < 8 -> venstre` | venstre barn av 8 |\n\n```text\n                    6\n         __________/ \\__________\n        2                       8\n   ____/ \\____             ____/\n  1           4           7\n```\n\n- rotverdi: 6\n- in-order (SORTERT): 1, 2, 4, 6, 7, 8\n- høyde (kanter): 2   antall noder: 6\n\nRotverdien er den **første** verdien du satte inn, og den flytter seg aldri.\nDet er en gratis kontroll: står det noe annet enn 6 i rota di, har du gjort en\nfeil et sted.",
+    "hints": [
+     "Start i rota med hver ny verdi, og sammenlign deg nedover ett nivå om gangen.",
+     "Er verdien mindre enn noden du står på, går du til venstre — ellers til høyre."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-1-t-2",
+   "type": "text",
+   "content": "## Løkke 2 — traversering, og hvorfor in-order er sortert (ca. 10 min)\n\nÅ traversere et tre er å besøke hver node nøyaktig én gang. Rekkefølgen\nbestemmes av **når** du behandler noden selv i forhold til de to subtrærne:\n\n- **in-order:** venstre subtre, så noden, så høyre subtre\n- **pre-order:** noden, så venstre subtre, så høyre subtre\n- **post-order:** venstre subtre, så høyre subtre, så noden\n\nAlle tre koster $O(n)$, fordi hver node behandles én gang og arbeidet per node\ner konstant. Det er den ene av dem som er interessant her: på et søketre gir\n**in-order verdiene i stigende rekkefølge**. Ikke tilfeldigvis, men fordi\nBST-egenskapen sier at alt til venstre er mindre og alt til høyre er større.\nSkriver du ut i den rekkefølgen, skriver du ut i sortert rekkefølge.\n\nDenne ene setningen er verdt mer enn den ser ut til. Den er grunnen til at\nintervall-utskrift kan beskjæres i [kap. 4.2](/in2010/in2010-4-2), og den er\nen av to måter å sjekke om et tre i det hele tatt er et gyldig søketre."
+  },
+  {
+   "id": "in2010-4-1-th-2",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `InOrder`",
+   "content": "**Antagelser om representasjon.** Samme som for `Insert`: noder med `v.x`,\n`v.left`, `v.right`, og `nil` for tomt subtre.\n\n**Prebetingelse:** treet oppfyller BST-egenskapen.\n**Postbetingelse:** alle $n$ verdiene er skrevet ut, i stigende rekkefølge, og\ntreet er uendret.\n\n```text\nProcedure InOrder(v)\n  Input:  rota v i et BST (nil hvis treet er tomt)\n  Output: alle verdiene i subtreet skrevet ut i stigende rekkefoelge\n  if v er nil:\n      return\n  InOrder(v.left)\n  skriv ut v.x\n  InOrder(v.right)\n```\n\n**Invarianten i én setning:** når kallet på en node er ferdig, er nøyaktig de\nverdiene som ligger i subtreet under noden skrevet ut, og de er skrevet ut i\nstigende rekkefølge.\n\nBytter du om på de tre linjene, får du de to andre traverseringene:\n`skriv ut` først gir pre-order, `skriv ut` sist gir post-order. Bare in-order\ngir sortert utskrift, og bare på et gyldig søketre.\n\n**Kjøretid:** $O(n)$, der $n$ er antall noder. Hver node får nøyaktig ett\nkall, og arbeidet i kallet er konstant utenom rekursjonen — så antall steg er\nproporsjonalt med antall noder. Merk at $h$ ikke er med i uttrykket i det hele\ntatt: en traversering må uansett innom alt."
+  },
+  {
+   "id": "in2010-4-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: De tre traverseringene på samme tre",
+   "problem": "Et binært søketre er bygget ved å sette inn 15, 9, 20, 6, 12, 17, 25, 3, 8 og\n11 i denne rekkefølgen. Oppgi in-order-, pre-order- og post-order-utskriften,\nog forklar hva hver av dem forteller deg om treet.",
+   "solution": "**Treet:**\n\n```text\n                                      15\n                     ________________/ \\__________\n                    9                             20\n         __________/ \\__________             ____/ \\____\n        6                       12          17          25\n   ____/ \\____             ____/\n  3           8           11\n```\n\n- rotverdi: 15\n- in-order (SORTERT): 3, 6, 8, 9, 11, 12, 15, 17, 20, 25\n- pre-order: 15, 9, 6, 3, 8, 12, 11, 20, 17, 25\n- post-order: 3, 8, 6, 11, 12, 9, 17, 25, 20, 15\n- høyde (kanter): 3   antall noder: 10\n\n**Hva de tre utskriftene forteller:**\n\n**In-order** er de ti verdiene i stigende rekkefølge. Den sier ingenting om\nformen på treet — et helt annet søketre med de samme ti tallene ville gitt\nnøyaktig samme in-order-utskrift.\n\n**Pre-order** starter med 15, som er rota. Det er ingen tilfeldighet:\npre-order skriver alltid ut noden før subtrærne, så det første tallet er\nalltid rotverdien. Denne utskriften bestemmer faktisk treet entydig, fordi du\nkan lese den som en innsettingsrekkefølge.\n\n**Post-order** slutter med 15. Noden skrives ut sist, så det siste tallet er\nalltid rota. Post-order er rekkefølgen du trenger når arbeidet i en node\navhenger av svarene fra begge barna — akkurat slik diameter-algoritmen i\n[kap. 4.2](/in2010/in2010-4-2) fungerer.\n\n**Kontrollen som tar fem sekunder:** in-order-utskriften **skal** være sortert.\nEr den ikke det, har du enten satt inn feil eller tegnet treet feil, og du vet\ndet før du leverer.\n\n**Fellenote.** Fella her er å tro at in-order gir innsettingsrekkefølgen. Det\ngjør pre-order — in-order gir den sorterte rekkefølgen, uansett hvilken\nrekkefølge tallene kom inn i."
+  },
+  {
+   "id": "in2010-4-1-opg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Sett inn 12, 5, 18, 3, 9, 15 og 21 i denne rekkefølgen i et tomt\nbinært søketre.\n\n**a)** Oppgi in-order- og pre-order-utskriften.\n**b)** Hva er høyden på treet, målt i kanter?\n**c)** Hvilken av de to utskriftene ville en medstudent kunne bruke til å\ngjenskape nøyaktig dette treet?",
+    "solution": "**Treet:**\n\n```text\n                    12\n         __________/ \\__________\n        5                       18\n   ____/ \\____             ____/ \\____\n  3           9           15          21\n```\n\n**a)**\n\n- in-order (SORTERT): 3, 5, 9, 12, 15, 18, 21\n- pre-order: 12, 5, 3, 9, 18, 15, 21\n\n**b)** høyde (kanter): 2   antall noder: 7\n\nAlle bladnodene ligger to kanter fra rota, og treet er helt fylt opp. Det er\nden beste formen sju noder kan ha.\n\n**c)** Pre-order. Setter du inn 12, 5, 3, 9, 18, 15, 21 i den rekkefølgen i et\ntomt tre, får du nøyaktig dette treet tilbake — 12 blir rot, 5 går til venstre,\nog så videre.\n\nIn-order er ubrukelig til det formålet: 3, 5, 9, 12, 15, 18, 21 er bare tallene\ni sortert rekkefølge, og setter du dem inn i den rekkefølgen, får du en\ndegenerert kjede med høyde 6 i stedet for et pent tre med høyde 2. Samme tall,\nhelt annen struktur.",
+    "hints": [
+     "Tegn treet før du skriver noe: rota er den første verdien, og hver ny verdi går én vei ned.",
+     "Pre-order behandler noden selv **før** subtrærne — hva blir da det første tallet?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-1-t-3",
+   "type": "text",
+   "content": "## Løkke 3 — søk, ytterpunktene, og høyden som avgjør alt (ca. 13 min)\n\n— naturlig pausepunkt —\n\nSøk i et søketre er den samme bevegelsen som innsetting, bare uten å legge\nigjen noe: start i rota, sammenlign, gå én vei. Er verdien mindre enn noden,\nkan den bare ligge til venstre — hele høyre subtre er utelukket i ett steg.\n\nDe to ytterpunktene faller ut gratis av den samme regelen. Den **minste**\nverdien ligger så langt til venstre som det går an å komme, og den **største**\nså langt til høyre. Ingen av dem trenger å ligge nederst i treet, og ingen av\ndem har noe med rota å gjøre.\n\nAlle tre operasjonene koster $O(h)$. Og da er spørsmålet: hvor stor er $h$?"
+  },
+  {
+   "id": "in2010-4-1-th-3",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `Search`",
+   "content": "**Antagelser om representasjon.** Noder med `v.x`, `v.left`, `v.right`; `nil`\nfor tomt subtre. Verdiene kan sammenlignes.\n\n**Prebetingelse:** treet oppfyller BST-egenskapen.\n**Postbetingelse:** returverdien er `sant` hvis og bare hvis `x` finnes i\ntreet; treet er uendret.\n\n```text\nProcedure Search(v, x)\n  Input:  rota v i et BST, verdien x det soekes etter\n  Output: sant hvis x finnes i treet, ellers usant\n  while v er ikke nil:\n      if x er lik v.x:\n          return sant\n      if x < v.x:\n          v = v.left\n      else:\n          v = v.right\n  return usant\n```\n\n**Grunnideen i én setning:** hver sammenligning utelukker et helt subtre, så\nsøket følger én sti nedover og trenger aldri å gå tilbake.\n\nHer er løkkeformen skrevet ut, men den rekursive varianten er like god og gir\nsamme uttelling — rekursjon er pensum i dette faget og brukes fritt.\n\n**Kjøretid:** $O(h)$. Løkka gjør ett steg per nivå og går aldri oppover igjen,\nså antall sammenligninger er høyst høyden pluss én. Verste tilfelle for et\n**degenerert** tre er $O(n)$ — se eksempel 3."
+  },
+  {
+   "id": "in2010-4-1-th-4",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `Min` og `Maks`",
+   "content": "**Antagelser om representasjon.** Som over, og treet er ikke tomt.\n\n**Prebetingelse:** `v` er rota i et ikke-tomt BST.\n**Postbetingelse:** returverdien er den minste (henholdsvis største) verdien i\ntreet; treet er uendret.\n\n```text\nProcedure Min(v)\n  Input:  rota v i et ikke-tomt BST\n  Output: den minste verdien i treet\n  while v.left er ikke nil:\n      v = v.left\n  return v.x\n```\n\n`Maks` er den samme prosedyren med `v.right` i stedet for `v.left`.\n\n**Invarianten i én setning:** noden du står på er alltid den minste i det\nsubtreet du har igjen, og du stopper når det ikke finnes noe mindre til\nvenstre.\n\n**Kjøretid:** $O(h)$ — løkka går rett nedover langs venstrekanten og stopper\nsenest i en bladnode. Merk at den minste verdien **ikke** nødvendigvis er en\nbladnode: den kan ha et høyre barn. Den har bare ikke noe venstre barn."
+  },
+  {
+   "id": "in2010-4-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Samme søk i to trær med de samme tallene",
+   "problem": "Søk etter 40, 65, 80, 50 og 21 i søketreet fra eksempel 1 (bygget av 50, 30,\n70, 20, 40, 60, 80). Søk deretter etter 5, 3 og 6 i et tre som er bygget ved å\nsette inn 1, 2, 3, 4, 5 i denne rekkefølgen. Sammenlign antall\nsammenligninger.",
+   "solution": "**Første tre** — det fra eksempel 1:\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          40          60          80\n```\n\n| Nøkkel | Vei fra rota | Resultat | Antall sammenligninger |\n|---|---|---|---|\n| 40 | `50 -> 30 -> 40` | funnet | 3 |\n| 65 | `50 -> 70 -> 60` | ikke funnet | 3 |\n| 80 | `50 -> 70 -> 80` | funnet | 3 |\n| 50 | `50` | funnet | 1 |\n| 21 | `50 -> 30 -> 20` | ikke funnet | 3 |\n\nSju noder, og ingen søk koster mer enn tre sammenligninger. Det er $O(\\log n)$\ni praksis.\n\n**Andre tre** — tallene satt inn i sortert rekkefølge:\n\n```text\n  1\n   \\____\n        2\n         \\____\n              3\n               \\____\n                    4\n                     \\____\n                          5\n```\n\n| Nøkkel | Vei fra rota | Resultat | Antall sammenligninger |\n|---|---|---|---|\n| 5 | `1 -> 2 -> 3 -> 4 -> 5` | funnet | 5 |\n| 3 | `1 -> 2 -> 3` | funnet | 3 |\n| 6 | `1 -> 2 -> 3 -> 4 -> 5` | ikke funnet | 5 |\n\n**Det er samme algoritme, samme antall noder i samme størrelsesorden — og helt\nannen kostnad.** Det andre treet har ingen forgreninger i det hele tatt. Hver\nnode har bare et høyre barn, så strukturen er en lenket liste med ekstra\npekere, og søket er et lineært søk.\n\nDet er nettopp derfor kjøretiden skrives $O(h)$ og ikke $O(\\log n)$. Høyden er\n2 i det første treet og 4 i det andre, og med 1000 noder i stedet for sju ville\nforskjellen vært omtrent 10 mot 999.\n\n**Fellenote.** Fella her er felle **#10** — å oppgi en kjøretid uten å si hva\nstørrelsen er. Skriver du «$O(\\log n)$» om et søketre uten å nevne at det\nforutsetter balanse, har du gitt et svar som er galt for det andre treet over."
+  },
+  {
+   "id": "in2010-4-1-fig-2",
+   "type": "image",
+   "src": "/images/textbook/in2010/bst-hoyde.svg",
+   "alt": "To binære søketrær side om side. Til venstre et balansert tre med høyde 2, der alle nivåer er fylt opp. Til høyre en degenerert kjede 10-20-30-40-50 med høyde 4, der hver node bare har ett høyre barn.",
+   "caption": "Se etter at begge er gyldige søketrær. Forskjellen ligger ikke i reglene, men i hvilken rekkefølge verdiene ble satt inn i — og den forskjellen er hele skillet mellom $O(\\log n)$ og $O(n)$."
+  },
+  {
+   "id": "in2010-4-1-def-4",
+   "type": "definition",
+   "title": "Høyden $h$ til et tre",
+   "content": "Antall **kanter** på den lengste stien fra rota ned til en bladnode. Et tre med\nbare én node har høyde 0, og et tomt tre regnes som høyde $-1$.\n\nHøyden er den eneste størrelsen som avgjør kjøretiden til innsetting, søk,\nminste, største og sletting — alle er $O(h)$. Merk at noen bøker teller noder\ni stedet for kanter og får ett mer; oppgi hvilken konvensjon du bruker hvis\noppgaven ikke sier det."
+  },
+  {
+   "id": "in2010-4-1-def-5",
+   "type": "definition",
+   "title": "Balansert tre",
+   "content": "Et tre der nivåene stort sett er fylt opp, slik at høyden er $h = O(\\log n)$.\n\nDa er alle $O(h)$-operasjonene $O(\\log n)$, som er det søketreet selges på. Et\nvanlig BST blir **ikke** balansert av seg selv — det må enten være flaks med\ninnsettingsrekkefølgen, eller strukturen må rebalansere aktivt, slik AVL-treet i\n[kap. 4.3](/in2010/in2010-4-3) gjør."
+  },
+  {
+   "id": "in2010-4-1-def-6",
+   "type": "definition",
+   "title": "Degenerert (skjevt) tre",
+   "content": "Et tre der hver node har høyst ett barn, slik at strukturen er en kjede. Da er\n$h = n - 1$, altså $O(h) = O(n)$.\n\nDet skjer garantert hvis du setter inn allerede sorterte verdier: hver ny verdi\ner større enn alle de foregående og havner lengst til høyre. Et søketre bygget\nav sortert input er ikke raskere enn et lineært søk, og det er den viktigste\ngrunnen til at balanserte trær finnes."
+  },
+  {
+   "id": "in2010-4-1-opg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Sett inn 9, 7, 5, 3 og 1 i denne rekkefølgen i et tomt binært\nsøketre.\n\n**a)** Tegn treet, og oppgi in-order-utskriften og høyden.\n**b)** Hvor mange sammenligninger koster et søk etter 1?\n**c)** Hvilken innsettingsrekkefølge av de samme fem tallene ville gitt lavest\nmulig høyde?",
+    "solution": "**a)** Hver ny verdi er mindre enn alle de foregående, så alle går til venstre:\n\n| Steg | Nøkkel | Sammenligninger fra rota | Plassering |\n|---|---|---|---|\n| 1 | 9 | treet er tomt | ny rot |\n| 2 | 7 | `7 < 9 -> venstre` | venstre barn av 9 |\n| 3 | 5 | `5 < 9 -> venstre; 5 < 7 -> venstre` | venstre barn av 7 |\n| 4 | 3 | `3 < 9 -> venstre; 3 < 7 -> venstre; 3 < 5 -> venstre` | venstre barn av 5 |\n| 5 | 1 | `1 < 9 -> venstre; 1 < 7 -> venstre; 1 < 5 -> venstre; 1 < 3 -> venstre` | venstre barn av 3 |\n\n```text\n                          9\n                     ____/\n                    7\n               ____/\n              5\n         ____/\n        3\n   ____/\n  1\n```\n\n- rotverdi: 9\n- in-order (SORTERT): 1, 3, 5, 7, 9\n- høyde (kanter): 4   antall noder: 5\n\n**b)** Fem sammenligninger — én per node. Søket må helt ned til bunnen av\nkjeden, og det er nøyaktig like mange steg som et lineært søk gjennom en\nusortert liste med fem elementer ville krevd.\n\n**c)** Sett inn medianen først: 5, deretter 3 og 7, deretter 1 og 9. Da blir 5\nrot, 3 og 7 barn, og 1 og 9 bladnoder — høyde 2 i stedet for 4. Enhver\nrekkefølge som starter med 5 og deretter tar 3 og 7 før ytterpunktene, gir det\nsamme.\n\n**Momentet:** treet er like gyldig i begge tilfeller. BST-egenskapen sier\ningenting om balanse, og et søketre gir ingen garanti om $O(\\log n)$ av seg\nselv.",
+    "hints": [
+     "Sammenlign hver ny verdi med rota først — hvilken vei peker den, hver eneste gang?",
+     "Tell kantene på den lengste stien fra rota og ned, ikke nodene."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-1-opg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger C — kjøretids- og teorifakta, altså sant/usant-punktene som må sitte\nsikkert på Del 1.) Avgjør om hvert utsagn er sant eller usant, og begrunn med\nén setning.\n\n**a)** Den minste verdien i et binært søketre ligger alltid i en bladnode.\n**b)** In-order-utskriften av et gyldig søketre er alltid sortert.\n**c)** Et søk i et binært søketre med $n$ noder koster $O(\\log n)$.\n**d)** Rotverdien er alltid den første verdien som ble satt inn.",
+    "solution": "**a) Usant.** Den minste verdien ligger så langt til venstre som mulig, men den\nkan godt ha et **høyre** barn. I treet fra eksempel 2 er 3 minst og er en\nbladnode — men hadde vi satt inn 4 i tillegg, ville 3 fortsatt vært minst, med\n4 som høyre barn. Kravet er bare at `v.left` er `nil`.\n\n**b) Sant.** BST-egenskapen sier at alt i venstre subtre er mindre og alt i\nhøyre er større, og in-order skriver ut nettopp i den rekkefølgen. Dette er\nden ene traverseringen som gir sortert utskrift, og den gjør det på **alle**\ngyldige søketrær.\n\n**c) Usant.** Søket koster $O(h)$, og $h$ er $O(\\log n)$ bare hvis treet er\nbalansert. Et tre bygget av sorterte verdier er en kjede med $h = n - 1$, og da\ner søket $O(n)$. Dette er nøyaktig den formuleringen som skiller et riktig svar\nfra et halvriktig på Del 1.\n\n**d) Sant** — så lenge ingenting er slettet. Innsetting endrer aldri en\neksisterende node, den henger bare en ny node nederst. Sletting av rota kan\nderimot bytte rotverdien, slik du får se i løkke 4.\n\n**Merk fordelingen:** to sanne og to usanne. På et sant/usant-punkt der du er\nusikker, er det ingen hjelp i å telle hvor mange sanne du har hatt hittil —\nsettene blander bevisst.",
+    "hints": [
+     "Tenk gjennom hvert utsagn med et konkret lite tre foran deg, ikke bare i hodet.",
+     "For c): hva heter størrelsen kjøretiden faktisk avhenger av?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-1-t-4",
+   "type": "text",
+   "content": "## Løkke 4 — sletting, og de tre tilfellene (ca. 15 min)\n\n— naturlig pausepunkt —\n\nÅ fjerne en verdi er den eneste operasjonen på et søketre som ikke er én rett\nvei nedover. Å finne noden er lett; problemet er hva du gjør med hullet den\netterlater seg, og svaret avhenger av hvor mange barn noden har.\n\nDet er derfor sletting alltid deles i **tre tilfeller**, og det er derfor du\nbør skrive dem opp som tre tilfeller når du svarer:\n\n1. **Bladnode** — ingen barn. Noden fjernes, og ingenting mer skjer.\n2. **Ett barn** — barnet løftes opp og tar nodens plass. Hele subtreet under\n   følger med, og BST-egenskapen holder fortsatt, fordi alt i det subtreet\n   allerede lå på riktig side av forelderen.\n3. **To barn** — her går det ikke an å løfte opp noen av barna direkte, for da\n   ville det andre barnet bli hjemløst. I stedet finner du verdien som ligger\n   **rett etter** den du skal fjerne i sortert rekkefølge, kopierer den inn i\n   noden, og sletter den på sin gamle plass.\n\nDen verdien i punkt 3 har et navn."
+  },
+  {
+   "id": "in2010-4-1-def-7",
+   "type": "definition",
+   "title": "In-order-etterfølger",
+   "content": "Verdien som kommer rett etter en gitt node i in-order-utskriften. For en node\nmed to barn er det alltid den **minste verdien i høyre subtre** — altså\n`Min(v.right)`.\n\nDen er akkurat den riktige erstatteren ved sletting: den er større enn alt i\nvenstre subtre og mindre enn alt annet i høyre subtre, så BST-egenskapen holder\netter byttet. Og fordi den er minst i sitt subtre, har den aldri et venstre\nbarn — så sletting av den selv faller alltid i tilfelle 1 eller 2."
+  },
+  {
+   "id": "in2010-4-1-th-5",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `Delete`",
+   "content": "**Antagelser om representasjon.** Noder med `v.x`, `v.left`, `v.right`; `nil`\nfor tomt subtre. Prosedyren returnerer den nye rota i subtreet, slik at\nforelderen kan koble den inn — det er den enkleste måten å slippe\n`parent`-pekere.\n\n**Prebetingelse:** treet oppfyller BST-egenskapen.\n**Postbetingelse:** `x` finnes ikke i treet, alle andre verdier er uendret, og\nBST-egenskapen holder fortsatt.\n\n```text\nProcedure Delete(v, x)\n  Input:  rota v i et BST, verdien x som skal fjernes\n  Output: rota i subtreet etter at x er fjernet\n  if v er nil:\n      return nil\n  if x < v.x:\n      v.left = Delete(v.left, x)\n  else if x > v.x:\n      v.right = Delete(v.right, x)\n  else:\n      if v.left er nil:\n          return v.right\n      if v.right er nil:\n          return v.left\n      e = MinNode(v.right)\n      v.x = e.x\n      v.right = Delete(v.right, e.x)\n  return v\n```\n\n`MinNode` er `Min` fra kontrakten over, men den returnerer selve noden i stedet\nfor verdien.\n\n**Legg merke til hvor kompakt de tre tilfellene er blitt.** De to første\n`if`-ene inne i `else` dekker både bladnode og ett barn: har noden ingen\nvenstre, returnerer vi høyre — og er høyre også `nil`, returnerer vi `nil`,\nsom er nøyaktig det bladnode-tilfellet skal gjøre.\n\n**Kjøretid:** $O(h)$. Søket ned til noden er $O(h)$, og i to-barn-tilfellet\nkoster `MinNode` pluss det andre `Delete`-kallet til sammen én ny vei nedover\ni høyre subtre — altså $O(h)$ til, som ikke endrer orden."
+  },
+  {
+   "id": "in2010-4-1-fig-3",
+   "type": "image",
+   "src": "/images/textbook/in2010/bst-sletting.svg",
+   "alt": "De tre slettetilfellene i det samme søketreet. Til venstre fjernes bladnoden 20 uten videre. I midten fjernes noden 30, som har ett barn, og barnet 40 løftes opp i stedet. Til høyre fjernes noden 70, som har to barn, og in-order-etterfølgeren 60 kopieres inn i noden.",
+   "caption": "Se etter hva som skjer med **verdien** i tredje panel: noden blir stående, det er innholdet som byttes ut med 60, og deretter fjernes den gamle 60-en lenger nede."
+  },
+  {
+   "id": "in2010-4-1-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Tre slettinger etter hverandre",
+   "problem": "Ta søketreet fra eksempel 1 (bygget av 50, 30, 70, 20, 40, 60, 80) og slett\n20, deretter 30, deretter 70. Oppgi treet og in-order-utskriften etter hver\nsletting, og si hvilket av de tre tilfellene hver av dem er.",
+   "solution": "**Starttreet:**\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          40          60          80\n```\n\n**Slett 20** — tilfelle: bladnode (ingen barn). noden fjernes uten mer arbeid\n\n```text\n              50\n   __________/ \\__________\n  30                      70\n   \\____             ____/ \\____\n        40          60          80\n```\n\n- rot: 50 | in-order: 30, 40, 50, 60, 70, 80 | høyde: 2\n\n**Slett 30** — tilfelle: ett barn. barnet 40 løftes opp og tar nodens plass\n\n```text\n        50\n   ____/ \\__________\n  40                70\n               ____/ \\____\n              60          80\n```\n\n- rot: 50 | in-order: 40, 50, 60, 70, 80 | høyde: 2\n\n**Slett 70** — tilfelle: to barn. in-order-etterfølgeren er 80 (minste i høyre\nsubtre); verdien kopieres inn i noden, og 80 slettes på sin gamle plass\n\n```text\n        50\n   ____/ \\__________\n  40                80\n               ____/\n              60\n```\n\n- rot: 50 | in-order: 40, 50, 60, 80 | høyde: 2\n\n**Se på det siste steget.** Noden som holdt 70, har nå verdien 80, og den gamle\n80-noden er borte. Erstatteren finner du ved å gå **én gang til høyre** fra\nnoden som skal fjernes, og deretter så langt til venstre det går. Her er høyre\nbarn av 70 nettopp 80, og 80 har ikke noe venstre barn — så 80 er\nin-order-etterfølgeren. Det stemmer med in-order-rekka før slettingen: 40, 50,\n60, 70, 80, der tallet rett etter 70 er 80.\n\n**Kontrollen etter hver sletting:** in-order-utskriften skal fortsatt være\nsortert, og den skal ha nøyaktig ett tall færre. Begge deler stemmer i alle tre\nstegene over.\n\n**Fellenote.** Fella her er å bytte inn feil node i to-barn-tilfellet — for\neksempel det største barnet, eller venstre barn. Erstatteren må være\n**in-order-etterfølgeren**, altså `Min(v.right)`, ellers brytes BST-egenskapen\nmed en gang."
+  },
+  {
+   "id": "in2010-4-1-opg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Ta søketreet bygget av 50, 30, 70, 20, 40, 60 og 80, og slett\n**rotverdien** 50.\n\n**a)** Hvilket av de tre tilfellene er dette, og hvilken verdi tar over?\n**b)** Tegn treet etterpå, og oppgi rotverdien og in-order-utskriften.\n**c)** Hvorfor kan du ikke bare løfte opp venstre barn, 30, i stedet?",
+    "solution": "**Starttreet:**\n\n```text\n                    50\n         __________/ \\__________\n        30                      70\n   ____/ \\____             ____/ \\____\n  20          40          60          80\n```\n\n**a)** **Slett 50** — tilfelle: to barn. in-order-etterfølgeren er 60 (minste i\nhøyre subtre); verdien kopieres inn i noden, og 60 slettes på sin gamle plass\n\n**b)**\n\n```text\n                    60\n         __________/ \\____\n        30                70\n   ____/ \\____             \\____\n  20          40                80\n```\n\n- rot: 60 | in-order: 20, 30, 40, 60, 70, 80 | høyde: 2\n\n**c)** Fordi 30 allerede har to barn selv (20 og 40), og rota etter slettingen\nmå ha plass til både det gamle venstre subtreet og det gamle høyre subtreet.\nLøfter du opp 30, har du plutselig tre subtrær som skal henge under en node med\nto pekere, og 70-siden blir hjemløs.\n\nIn-order-etterfølgeren har ikke det problemet: den har per definisjon ikke noe\nvenstre barn, så den kan flyttes uten å etterlate seg et hull som må fylles av\nnoe annet enn sitt eget høyre subtre.\n\n**Merk at rotverdien endret seg** — fra 50 til 60. Det er den ene situasjonen\nder «rota er den første verdien du satte inn» ikke lenger stemmer.",
+    "hints": [
+     "Hvor mange barn har noden du skal fjerne? Det avgjør hvilket av de tre tilfellene du er i.",
+     "Etterfølgeren er den minste verdien i **høyre** subtre — gå én gang til høyre, så helt til venstre."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-1-opg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Et søketre er bygget ved å sette inn 15, 9, 20, 6, 12, 17, 25, 3,\n8 og 11 i denne rekkefølgen. Slett først 25, deretter 17.\n\n**a)** Hvilket tilfelle er hver av de to slettingene?\n**b)** Oppgi in-order-utskriften etter hver sletting.\n**c)** Endret høyden på treet seg?",
+    "solution": "**Starttreet:**\n\n```text\n                                      15\n                     ________________/ \\__________\n                    9                             20\n         __________/ \\__________             ____/ \\____\n        6                       12          17          25\n   ____/ \\____             ____/\n  3           8           11\n```\n\n**a) og b)**\n\n**Slett 25** — tilfelle: bladnode (ingen barn). noden fjernes uten mer arbeid\n\n```text\n                                      15\n                     ________________/ \\__________\n                    9                             20\n         __________/ \\__________             ____/\n        6                       12          17\n   ____/ \\____             ____/\n  3           8           11\n```\n\n- rot: 15 | in-order: 3, 6, 8, 9, 11, 12, 15, 17, 20 | høyde: 3\n\n**Slett 17** — tilfelle: bladnode (ingen barn). noden fjernes uten mer arbeid\n\n```text\n                                      15\n                     ________________/ \\____\n                    9                       20\n         __________/ \\__________\n        6                       12\n   ____/ \\____             ____/\n  3           8           11\n```\n\n- rot: 15 | in-order: 3, 6, 8, 9, 11, 12, 15, 20 | høyde: 3\n\nBegge er bladnoder. 25 har ingen barn fra starten av, og 17 ble en bladnode\nallerede før slettingen — den hadde ingen barn i utgangspunktet heller.\n\n**c)** Nei. Høyden er 3 hele veien, fordi den lengste stien går ned på\nvenstresiden — 15, 9, 6, 3 — og den er urørt. Sletting til høyre gjorde treet\nsmalere, men ikke lavere.\n\n**Momentet:** høyden bestemmes av den **lengste** stien, og den kan bare synke\nhvis du fjerner noe på nettopp den stien. Det er derfor et tre som har blitt\nskjevt, ikke retter seg selv opp av at du sletter noe et helt annet sted.",
+    "hints": [
+     "Tell barna til hver av de to nodene i treet før du fjerner dem.",
+     "Høyden er den lengste stien fra rota — sjekk hvilken side den går ned på."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-1-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "- **Å forveksle BST-egenskapen med heap-egenskapen.** Dette er felle **#9** i\n  bokas feilregister, og den dyreste i Del 4. Et søketre ordner **venstre mot\n  høyre**: alt i venstre subtre er mindre enn noden, alt i høyre er større. En\n  heap ordner **opp mot ned**: forelderen er mindre enn begge barna, og det\n  finnes ingen ordning mellom søsken. **Kontrollen:** skriv ut in-order. Er\n  utskriften sortert, er det et søketre.\n- **Å tro at in-order gir innsettingsrekkefølgen.** In-order gir alltid den\n  sorterte rekkefølgen, uansett hvordan verdiene kom inn. Det er **pre-order**\n  som kan leses som en innsettingsrekkefølge.\n- **Å anta at treet er balansert.** Et vanlig BST har ingen slik garanti.\n  Kjøretiden er $O(h)$, og $h$ kan være alt fra omtrent $\\log_2 n$ til\n  $n - 1$. Skriver du «$O(\\log n)$» uten forbehold, har du svart feil på et\n  degenerert tre — og det er felle **#10**, å oppgi en kjøretid uten å si hva\n  størrelsen er og hva som forutsettes.\n- **Å gå til feil side ved innsetting.** Den vanligste regnefeilen under\n  tidspress, og den forplanter seg: alle senere verdier som skulle ned samme\n  vei, havner galt. **Kontrollen:** in-order-utskriften din skal være sortert.\n  Er den ikke det, er treet feil.\n- **Å bytte inn feil node ved sletting av en node med to barn.** Erstatteren\n  er **in-order-etterfølgeren**, altså den minste verdien i høyre subtre. Å\n  løfte opp et av barna direkte ødelegger treet.\n- **Å levere treet når sensor ba om in-order.** Håndkjøringssjangeren spør\n  etter en bestemt sluttilstand — les hva den ber om, og lever nøyaktig det:\n  in-order-utskriften, rotverdien, eller begge."
+  },
+  {
+   "id": "in2010-4-1-opg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger E, eksamensnivå.) Sett inn 5, 3, 8, 2, 4, 7, 9 og 1 i denne\nrekkefølgen i et tomt binært søketre.\n\n**a)** Oppgi in-order-, pre-order- og post-order-utskriften, samt høyden.\n**b)** En medstudent påstår at treet også er en gyldig min-heap, «siden 5 er\nminst av 5, 3 og 8 sine forfedre». Avgjør påstanden.\n**c)** Hvilken av de tre utskriftene ville du levert hvis oppgaven bare sa\n«oppgi sluttilstanden»?",
+    "solution": "**a) Treet:**\n\n```text\n                          5\n               __________/ \\__________\n              3                       8\n         ____/ \\____             ____/ \\____\n        2           4           7           9\n   ____/\n  1\n```\n\n- rotverdi: 5\n- in-order (SORTERT): 1, 2, 3, 4, 5, 7, 8, 9\n- pre-order: 5, 3, 2, 1, 4, 8, 7, 9\n- post-order: 1, 2, 4, 3, 7, 9, 8, 5\n- høyde (kanter): 3   antall noder: 8\n\n**b) Påstanden er usann, og begrunnelsen er feil på to måter.**\n\nEn min-heap krever at **hver** node er mindre enn **begge** sine barn. Her er\nrota 5 større enn sitt venstre barn 3, så kravet brytes allerede i første\nnivå. Faktisk er det motsatt av hva et søketre gjør: i et søketre er venstre\nbarn alltid mindre enn forelderen.\n\nDen andre feilen er selve resonnementet. At 5 er minst blant «5, 3 og 8»\nstemmer ikke i det hele tatt — 3 er mindre — og selv om det hadde stemt, ville\ndet vært å sjekke feil retning. Dette er felle **#9** i praksis: to strukturer\nsom tegnes likt og som følger helt ulike regler.\n\nFor ordens skyld krever en heap også at treet er **komplett**, altså at alle\nnivåer er fylt opp ovenfra og fra venstre. Dette treet har 1 hengende alene\nunder 2 mens 7 og 9 ligger på nivået over, så også strukturkravet svikter.\n\n**c) In-order-utskriften: 1, 2, 3, 4, 5, 7, 8, 9** — og gjerne rotverdien 5 i\ntillegg. Det er standardformatet for et søketre i sjanger E, på samme måte som\nhele arrayet er formatet for en heap. Er du i tvil, ta med begge: det koster\nti sekunder, og delvis riktig sluttilstand gir delvis uttelling.",
+    "hints": [
+     "Tegn treet først, og les de tre utskriftene av tegningen — ikke prøv å gjøre det i hodet.",
+     "For b): hva er det presise kravet i en min-heap, og hvilke to noder skal du sammenligne?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-1-opg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger E og C, eksamensnivå.) Et søketre er bygget ved å sette inn 24, 11,\n37, 6, 18, 30, 44, 14 og 21 i denne rekkefølgen.\n\n**a)** Oppgi in-order-, pre-order- og post-order-utskriften, samt rotverdi og\nhøyde.\n**b)** Du skal fjerne 11. Hvilket tilfelle er det, hvilken verdi tar over, og\nhva blir in-order-utskriften etterpå?\n**c)** Hvor mange sammenligninger koster et søk etter 21, og hvordan forholder\ndet tallet seg til høyden?",
+    "solution": "**a) Treet:**\n\n```text\n                                24\n         ______________________/ \\__________\n        11                                  37\n   ____/ \\__________                   ____/ \\____\n  6                 18                30          44\n               ____/ \\____\n              14          21\n```\n\n- rotverdi: 24\n- in-order (SORTERT): 6, 11, 14, 18, 21, 24, 30, 37, 44\n- pre-order: 24, 11, 6, 18, 14, 21, 37, 30, 44\n- post-order: 6, 14, 21, 18, 11, 30, 44, 37, 24\n- høyde (kanter): 3   antall noder: 9\n\n**b)** Noden 11 har to barn, 6 og 18, så dette er **tilfelle 3**.\nIn-order-etterfølgeren er den minste verdien i høyre subtre: gå til 18, så\nhelt til venstre, og du havner på **14**. Verdien 14 kopieres inn i noden, og\nden gamle 14-noden fjernes — den er en bladnode, så det er tilfelle 1.\n\nIn-order etterpå: **6, 14, 18, 21, 24, 30, 37, 44** — fortsatt sortert, og med\nnøyaktig ett tall færre. Begge kontrollene stemmer.\n\n**c)** Søkeveien er `24 -> 11 -> 18 -> 21`, altså fire sammenligninger. Høyden\ner 3 kanter, og 21 ligger nederst, så søket bruker $h + 1 = 4$ sammenligninger.\n\nDet er den generelle regelen: et søk gjør høyst én sammenligning per nivå, og\nantall nivåer er $h + 1$. Derfor er kjøretiden $O(h)$ — og derfor er det ingen\nhjelp i å vite hvor mange noder treet har, hvis du ikke vet noe om formen.",
+    "hints": [
+     "Tegn treet før du svarer på noe — alle tre utskriftene leses rett av tegningen.",
+     "For b): gå én gang til høyre fra noden som skal fjernes, og deretter så langt til venstre det går."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-1-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-4-1-def-8",
+   "type": "definition",
+   "title": "`Insert` i et BST",
+   "content": "Setter en verdi inn der søkeveien fra rota ender. Kjøretid $O(h)$.\n\nNye verdier havner alltid nederst, som en ny bladnode, og ingen eksisterende\nnode flyttes. Rotverdien er derfor den første verdien som ble satt inn — helt\ntil noe slettes."
+  },
+  {
+   "id": "in2010-4-1-def-9",
+   "type": "definition",
+   "title": "In-order-traversering",
+   "content": "Venstre subtre, så noden, så høyre subtre. Kjøretid $O(n)$.\n\nPå et gyldig søketre gir den verdiene i **stigende rekkefølge**. Det er\nkapitlets viktigste enkeltfakta, det er sluttformatet sensor ber om i sjanger\nE, og det er grunnlaget for beskjæring i [kap. 4.2](/in2010/in2010-4-2)."
+  },
+  {
+   "id": "in2010-4-1-def-10",
+   "type": "definition",
+   "title": "Pre-order og post-order",
+   "content": "**Pre-order:** noden, så venstre, så høyre — første tall er alltid rota, og\nutskriften kan brukes som innsettingsrekkefølge for å gjenskape treet.\n**Post-order:** venstre, så høyre, så noden — siste tall er alltid rota.\n\nBegge er $O(n)$. Post-order er rekkefølgen du trenger når svaret i en node\navhenger av svarene fra begge barna, slik som subtre-høyder."
+  },
+  {
+   "id": "in2010-4-1-def-11",
+   "type": "definition",
+   "title": "`Search` i et BST",
+   "content": "Følger én sti fra rota: mindre gir venstre, større gir høyre. Kjøretid $O(h)$.\n\nHver sammenligning utelukker et helt subtre, og søket går aldri tilbake. Antall\nsammenligninger er høyst $h + 1$, altså ett per nivå."
+  },
+  {
+   "id": "in2010-4-1-def-12",
+   "type": "definition",
+   "title": "`Min` og `Maks` i et BST",
+   "content": "`Min` går til venstre så langt det går; `Maks` går til høyre så langt det går.\nBegge er $O(h)$.\n\nDen minste verdien er ikke nødvendigvis en bladnode — den kan ha et høyre barn.\nKravet er bare at `v.left` er `nil`."
+  },
+  {
+   "id": "in2010-4-1-def-13",
+   "type": "definition",
+   "title": "Sletting av en bladnode",
+   "content": "Tilfelle 1: noden har ingen barn og fjernes uten mer arbeid.\n\nIngen andre noder berøres, og BST-egenskapen kan ikke brytes av å fjerne noe\nhelt nederst."
+  },
+  {
+   "id": "in2010-4-1-def-14",
+   "type": "definition",
+   "title": "Sletting av en node med ett barn",
+   "content": "Tilfelle 2: barnet løftes opp og tar nodens plass, med hele subtreet sitt.\n\nDet er trygt fordi alt i det subtreet allerede lå på riktig side av\nforelderen over — ordningen mellom dem endres ikke av at ett ledd forsvinner."
+  },
+  {
+   "id": "in2010-4-1-def-15",
+   "type": "definition",
+   "title": "Sletting av en node med to barn",
+   "content": "Tilfelle 3: in-order-etterfølgeren, altså `Min(v.right)`, kopieres inn i noden,\nog den gamle etterfølger-noden slettes på sin plass.\n\nEtterfølgeren har aldri et venstre barn, så den andre slettingen faller alltid\ni tilfelle 1 eller 2 og kan ikke starte en ny runde. Hele operasjonen er\n$O(h)$."
+  },
+  {
+   "id": "in2010-4-1-def-16",
+   "type": "definition",
+   "title": "BST-egenskap kontra heap-egenskap",
+   "content": "**BST:** venstre-høyre. Alt i venstre subtre er mindre enn noden, alt i høyre\ner større. **Heap:** opp-ned. Forelderen er mindre enn begge barna, og det\nfinnes ingen ordning mellom søsken.\n\nÅ blande de to er felle **#9**, den vanligste feilen i Del 4. Kontrollen tar\nfem sekunder: er in-order-utskriften sortert, er det et søketre."
+  },
+  {
+   "id": "in2010-4-1-def-17",
+   "type": "definition",
+   "title": "Sjanger E — håndkjøring av datastruktur",
+   "content": "Del 1-sjangeren der du får en operasjonsrekke og skal oppgi **kun\nsluttilstanden** til strukturen.\n\nMinst én per sett, ofte to. Delvis riktig sluttilstand gir delvis uttelling, så\nla aldri svaret stå tomt — men les nøye hva slags sluttilstand oppgaven ber om."
+  },
+  {
+   "id": "in2010-4-1-def-18",
+   "type": "definition",
+   "title": "Svarformatet for et BST på eksamen",
+   "content": "**In-order-utskriften**, som er verdiene i stigende rekkefølge, eventuelt\nsammen med **rotverdien**.\n\nDet tilsvarer «hele arrayet» for en heap og «hele tabellen med `_`» for en\nhashtabell: hver struktur har sitt eget format, og å levere feil format koster\npoeng selv når håndkjøringen er riktig. Er du i tvil, ta med både\nin-order-utskriften og rotverdien."
+  },
+  {
+   "id": "in2010-4-1-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kapitlet på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-4-1-rep-1",
+     "type": "text",
+     "content": "**BST-egenskapen:** for hver node er **alt** i venstre subtre mindre, og **alt**\ni høyre subtre større. Venstre-høyre, ikke opp-ned.\n\n**Håndkjøringsoppskriften, fire steg:**\n\n1. Tegn treet mens du setter inn. Start i rota med hver ny verdi.\n2. Mindre gir venstre, større gir høyre — én sammenligning per nivå.\n3. Les in-order av tegningen: venstre subtre, node, høyre subtre.\n4. Kontroller at utskriften er **sortert**, og lever den sammen med\n   rotverdien.\n\n**De fire kjøretidene som må sitte hjelpemiddelfritt:**\n\n| Operasjon | Kjøretid | Balansert | Degenerert |\n|---|---|---|---|\n| `Insert`, `Search`, `Min`, `Maks`, `Delete` | $O(h)$ | $O(\\log n)$ | $O(n)$ |\n| `InOrder`, `PreOrder`, `PostOrder` | $O(n)$ | $O(n)$ | $O(n)$ |\n\nSkriv **alltid** $O(h)$ først, og si hva $h$ blir under hvilken antagelse. Å\nskrive $O(\\log n)$ uten forbehold er feil på et skjevt tre.\n\n**Sletting, tre tilfeller:**\n\n1. bladnode — fjern den\n2. ett barn — løft barnet opp\n3. to barn — kopier inn in-order-etterfølgeren `Min(v.right)`, og slett den\n   på sin gamle plass\n\n**To kontroller som tar fem sekunder hver:** er in-order sortert? Og har\nutskriften nøyaktig like mange tall som du har satt inn, minus det du har\nslettet?\n\n**Videre:** [kap. 4.2](/in2010/in2010-4-2) bruker in-order-innsikten til å\nskrive Del 2-algoritmene, og [kap. 4.3](/in2010/in2010-4-3) viser hvordan et\nAVL-tre tvinger $h$ ned til $O(\\log n)$ for godt."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

@@ -1,0 +1,454 @@
+{
+ "id": "in2010-4-4",
+ "courseId": "in2010",
+ "chapterNumber": "4.4",
+ "title": "Heap og prioritetskø",
+ "description": "Min-heapen som array (indeks fra 0), Insert (sift-up) og RemoveMin (down-heap) med håndkjøring, og de faste heap-faktaene.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne regne ut forelder- og barneindeksene i en heap som ligger som array med indeks fra 0, og avgjøre når et barn ikke finnes",
+  "kunne håndkjøre innsetting og uthenting av minste element i en min-heap og oppgi hele arrayet som sluttilstand",
+  "kunne skrive innsettings- og nedsynkingsprosedyrene i pseudokode, med sjekk på at barnet finnes og med riktig kjøretid",
+  "kunne begrunne hvorfor det å bygge en heap fra et vilkårlig array er lineært, og gjengi de faste heap-faktaene med begrunnelse"
+ ],
+ "content": [
+  {
+   "id": "in2010-4-4-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Heapen er den hyppigste håndkjøringskandidaten i hele faget.** Den har vært på\n**6 av de 7 settene i arkivet (86 %)**, og den testes på to måter:\n\n- **Sjanger E — håndkjøring av en datastruktur**, altså at du utfører\n  operasjonen steg for steg på papir og oppgir **kun sluttilstanden**. Du får et\n  array og en operasjonsrekke, og skal levere arrayet etterpå.\n- **Sjanger C — kjøretids- og teori-fakta**, altså sant/usant-påstander som\n  rettes automatisk. Heap-faktaene er blant de mest brukte, og flere av dem er\n  laget for å fange den som «nesten» husker.\n\nPrioritet: **høyeste**. Dette kapitlet og drillen i\n[kap. 4.5](/in2010/in2010-4-5) er de to viktigste i Del 4.\n\n**To ting må sitte helt presist, og de er begge lette å bomme på:**\n\n1. **Indeks fra 0.** Rota ligger på indeks 0, forelderen til $i$ er\n   $\\lfloor (i-1)/2 \\rfloor$, og barna er $2i+1$ og $2i+2$. Mange lærebøker og\n   andre emner indekserer fra 1 og skriver $\\lfloor i/2 \\rfloor$, $2i$ og\n   $2i+1$. **Det er ikke konvensjonen her.** Bruker du 1-formlene på et\n   0-indeksert array, blir hver eneste indeks feil.\n2. **`BuildHeap` er $O(n)$, ikke $O(n\\log n)$.** Dette er en fast distraktor på\n   Del 1, og du får se tellingen som beviser det i løkke 4.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| Løkke | Innhold | Tid |\n|---|---|---|\n| 1 | Prioritetskøen, heap-egenskapen og arrayet | ca. 13 min |\n| 2 | `Insert` og sift-up | ca. 13 min |\n| 3 | `RemoveMin` og down-heap | ca. 14 min |\n| 4 | `BuildHeap` — og hvorfor den er $O(n)$ | ca. 10 min |\n| 5 | De faste heap-faktaene | ca. 5 min |"
+  },
+  {
+   "id": "in2010-4-4-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- [kap. 2.2](/in2010/in2010-2-2) — heapsort ble nevnt der, med løftet om at selve\n  strukturen kom i Del 4. Dette er den delen. Du trenger derfra bare at heapsort\n  er $O(n \\log n)$ og at det å **bygge** heapen er $O(n)$.\n- [kap. 4.1](/in2010/in2010-4-1) — BST-egenskapen. Den er heapens motstykke, og\n  de to forveksles systematisk. Har du BST-egenskapen klart for deg, er\n  heap-egenskapen lett å holde adskilt.\n- [kap. 1.1](/in2010/in2010-1-1) — hva $O(\\log n)$ betyr. Heapens høyde er\n  logaritmisk, og det er derfor alle operasjonene er det.\n- [kap. 1.4](/in2010/in2010-1-4) — der sto heap-faktaene som løsrevne påstander.\n  Her får de begrunnelsene sine.\n\nEr array-tenkning ferskt: [Lister](/in1000/in1000-3-1) — indeksering fra 0 er\nalt heapens smarteste triks bygger på."
+  },
+  {
+   "id": "in2010-4-4-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-4-4-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer i heapen |\n| $H$ | selve heapen, som er **ett array** med indeks fra $0$ til $n-1$ |\n| $i$ | en indeks i arrayet |\n| $\\lfloor x \\rfloor$ | nedrunding — heltallsdelen av $x$; $\\lfloor 3{,}5 \\rfloor = 3$ |\n| $h$ | høyden til heapen, altså antall kanter fra rota ned til det dypeste bladet |\n| $O(1)$ | konstant tid — kostnaden for å lese det minste elementet |\n| $O(\\log n)$ | logaritmisk tid — én sti opp eller ned gjennom treet |\n| $O(n)$ | lineær tid — å bygge en heap, og å lete etter det største elementet |"
+    },
+    {
+     "id": "in2010-4-4-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insert(H, x)` | legger `x` på første ledige plass og lar det stige opp mot rota til heap-egenskapen holder | $O(\\log n)$ |\n| `RemoveMin(H)` | fjerner og returnerer det minste elementet, og reparerer heapen med down-heap | $O(\\log n)$ |\n| `FindMin(H)` | leser det minste elementet uten å fjerne det; det ligger alltid på indeks 0 | $O(1)$ |\n| `DownHeap(H, i, n)` | lar elementet på indeks `i` synke mot det **minste** barnet så lenge det er større | $O(\\log n)$ |\n| `BuildHeap(A)` | gjør et vilkårlig array om til en min-heap ved å kjøre `DownHeap` nedenfra og opp | $O(n)$ — **ikke** $O(n \\log n)$ |\n| `ParentOf(i)` | indeksen til forelderen: `(i - 1) / 2` med heltallsdivisjon | $O(1)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{forelder}(i) = \\lfloor (i-1)/2 \\rfloor$$\n\nIndeksen til forelderen. **Indeks fra 0** — rota ligger på 0 og har ingen\nforelder.\n\n$$\\text{venstre barn}(i) = 2i+1, \\qquad \\text{høyre barn}(i) = 2i+2$$\n\nIndeksene til de to barna. Er $2i+1 \\ge n$, har noden **ingen** barn; er\n$2i+2 \\ge n$, har den bare venstre barn.\n\n$$h = \\lfloor \\log_2 n \\rfloor$$\n\nHøyden til en heap med $n$ elementer. Treet er komplett, så høyden er den lavest\nmulige for $n$ noder — og det er derfor `Insert` og `RemoveMin` er\n$O(\\log n)$."
+    }
+   ]
+  },
+  {
+   "id": "in2010-4-4-t-1",
+   "type": "text",
+   "content": "## Løkke 1 — alltid-minste-først-køen (ca. 13 min)\n\nEt kommunalt vaktlag tar imot meldinger om hull i veien. Hver melding får et\nhastetall: 1 er «gjennomgående hovedvei, må fikses i dag», 9 er «grusvei til en\nhytteklynge». Meldingene kommer inn hulter til bulter gjennom dagen, og laget\nskal alltid ta den mest hastende først.\n\nEn vanlig kø hjelper ikke — den gir deg den **eldste** meldingen, ikke den mest\nhastende. En sortert liste hjelper heller ikke helt: hver nye melding må settes\ninn på riktig plass, og det koster $O(n)$ når lista er lang.\n\nDet du trenger, er en struktur der du kan gjøre **to** ting billig: legge inn en\nny melding, og plukke ut den med lavest hastetall. Det er en **prioritetskø**, og\nden vanligste måten å bygge den på er en **heap**.\n\nTrikset i heapen er at den ikke holder alt sortert. Den holder bare akkurat nok\norden til at det minste elementet alltid ligger øverst — og «akkurat nok» er\nbillig å vedlikeholde."
+  },
+  {
+   "id": "in2010-4-4-def-1",
+   "type": "definition",
+   "title": "Prioritetskø",
+   "content": "En samling der du kan legge inn elementer og alltid hente ut det med **høyest\nprioritet** — i en min-prioritetskø betyr det det **minste** elementet.\n\nKontrakten er tre operasjoner: `Insert` (legg inn), `RemoveMin` (fjern og\nreturner det minste) og `FindMin` (les det minste). Med en min-heap koster de\n$O(\\log n)$, $O(\\log n)$ og $O(1)$. Prioritetskøen er ikke en datastruktur i seg\nselv, men en **kontrakt** som kan oppfylles på flere måter — se\n[kap. 1.4](/in2010/in2010-1-4) om at et balansert søketre gir samme orden."
+  },
+  {
+   "id": "in2010-4-4-def-2",
+   "type": "definition",
+   "title": "Heap-egenskapen (min-heap)",
+   "content": "I en min-heap er **hver forelder mindre enn eller lik begge barna sine**.\n\nOrdningen går **opp og ned**, aldri sideveis: det står ingenting om forholdet\nmellom to søsken, og ingenting om forholdet mellom to noder på samme nivå.\nVenstre barn kan godt være større enn høyre barn.\n\nKonsekvensen er at det **minste** elementet garantert ligger på rota — og bare\ndet. Resten av strukturen er så godt som usortert."
+  },
+  {
+   "id": "in2010-4-4-def-3",
+   "type": "definition",
+   "title": "Strukturkravet — et komplett binært tre",
+   "content": "En heap er alltid et **komplett** binært tre: alle nivåer er helt fylt, bortsett\nfra det nederste, som fylles fra venstre.\n\nDette er ikke pynt. Det er strukturkravet som gjør at treet kan lagres som ett\narray uten hull, og som holder høyden på $\\lfloor \\log_2 n \\rfloor$ uansett\nhvilke verdier som legges inn. En heap kan aldri bli skjev slik et vanlig\nsøketre kan."
+  },
+  {
+   "id": "in2010-4-4-th-1",
+   "type": "theorem",
+   "title": "Heap-egenskapen er ikke BST-egenskapen",
+   "content": "Dette er den vanligste forvekslingen i hele Del 4, og den har eget nummer i bokas\nfeilregister: felle **#9**.\n\n| | BST (kap. 4.1) | Min-heap |\n|---|---|---|\n| Retning på ordningen | **venstre–høyre** | **opp–ned** |\n| Regelen | alt i venstre subtre er mindre enn noden, alt i høyre er større | forelderen er mindre enn eller lik **begge** barna |\n| Hvor ligger det minste? | lengst til venstre | på rota, indeks 0 |\n| Hva gir in-order? | den **sorterte** rekkefølgen | ingenting nyttig |\n| Form | kan bli en skjev kjede | alltid komplett |\n\n**Kontrollspørsmålet som skiller dem på to sekunder:** sier regelen noe om\nforholdet mellom **søsken**? I et BST gjør den det indirekte — alt til venstre\nfor en node er mindre enn alt til høyre. I en heap gjør den det **ikke**. Er du\nusikker på om `9` kan stå til venstre for `4` i en min-heap: ja, hvis de har hver\nsin forelder som begge er små nok.\n\n**Og den direkte følgen:** påstanden «i en min-heap er venstre barn alltid mindre\nenn høyre barn» er **usann**, og den er en fast distraktor på Del 1."
+  },
+  {
+   "id": "in2010-4-4-def-4",
+   "type": "definition",
+   "title": "Array-representasjonen med indeks fra 0",
+   "content": "Heapen lagres som **ett array**, uten pekere. Rota ligger på indeks 0, og\nnivåene legges etter hverandre fra venstre mot høyre.\n\n$$\\text{forelder}(i) = \\lfloor (i-1)/2 \\rfloor, \\qquad\n\\text{barn}(i) = 2i+1 \\ \\text{og} \\ 2i+2$$\n\nFordi treet er komplett, er det ingen hull i arrayet, og hver indeks kan regnes\nom til forelder og barn med ren aritmetikk. **IN2010 indekserer fra 0**, og\nformlene over er de eneste som gjelder i denne boka. Framstillinger som lar rota\nligge på indeks 1, bruker andre formler, og de gir feil node her."
+  },
+  {
+   "id": "in2010-4-4-def-5",
+   "type": "definition",
+   "title": "Barneindeksene og kanttilfellene",
+   "content": "Elementet på indeks $i$ har venstre barn på $2i+1$ og høyre barn på $2i+2$ — men\nbare hvis indeksene finnes.\n\nMed $n$ elementer i heapen gjelder:\n\n- $2i+1 \\ge n$: noden er et **blad** og har ingen barn.\n- $2i+1 < n$ men $2i+2 \\ge n$: noden har **bare venstre** barn.\n- ellers: noden har begge barna.\n\nDisse tre tilfellene er hele innholdet i felle **#3** — down-heap som ikke\nsjekker at barnet finnes."
+  },
+  {
+   "id": "in2010-4-4-img-1",
+   "type": "image",
+   "src": "/images/textbook/in2010/heap-array-tre.svg",
+   "alt": "Øverst et komplett binært tre med sju noder: 2 på toppen med indeks 0, deretter 5 og 8 med indeks 1 og 2, og nederst 10, 25, 20 og 30 med indeks 3 til 6. Under treet det samme som en rad av sju arrayceller med verdiene 2, 5, 8, 10, 25, 20 og 30 og indeksene 0 til 6. Nederst står formlene for forelderindeksen og de to barneindeksene.",
+   "caption": "Treet og arrayet er det samme. Se på hvordan nivåene i treet legger seg etter hverandre i arrayet, og bruk formlene nederst til å hoppe mellom en node og familien dens uten å tegne noe."
+  },
+  {
+   "id": "in2010-4-4-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Familien til hver indeks",
+   "problem": "Min-heapen i figuren over er arrayet `2, 5, 8, 10, 25, 20, 30` med indeks fra 0.\nSett opp forelderen og de to barna til hver indeks, og si hvilke noder som er\nblader.",
+   "solution": "Regn mekanisk: forelder er $\\lfloor (i-1)/2 \\rfloor$, barna er $2i+1$ og $2i+2$,\nog en indeks som er $\\ge 7$ finnes ikke, siden $n = 7$.\n\n| Indeks $i$ | `H[i]` | Forelder | Verdi | Venstre barn $2i+1$ | Høyre barn $2i+2$ |\n|---|---|---|---|---|---|\n| 0 | 2 | - | - | 1 (verdi 5) | 2 (verdi 8) |\n| 1 | 5 | 0 | 2 | 3 (verdi 10) | 4 (verdi 25) |\n| 2 | 8 | 0 | 2 | 5 (verdi 20) | 6 (verdi 30) |\n| 3 | 10 | 1 | 5 | 7 finnes ikke | 8 finnes ikke |\n| 4 | 25 | 1 | 5 | 9 finnes ikke | 10 finnes ikke |\n| 5 | 20 | 2 | 8 | 11 finnes ikke | 12 finnes ikke |\n| 6 | 30 | 2 | 8 | 13 finnes ikke | 14 finnes ikke |\n\n**Bladene er indeks 3, 4, 5 og 6** — fire av sju noder. De indre nodene er 0, 1\nog 2.\n\n**Kontroller heap-egenskapen med tabellen:** $2 \\le 5$ og $2 \\le 8$;\n$5 \\le 10$ og $5 \\le 25$; $8 \\le 20$ og $8 \\le 30$. Alle seks\nforelder–barn-parene holder, så dette er en gyldig min-heap.\n\n**Legg merke til indeks 1 og 2.** Verdien 5 står til venstre for 8, men det er\nren tilfeldighet — heap-egenskapen sier ingenting om søsken. Hadde arrayet vært\n`2, 8, 5, 10, 25, 20, 30`, ville det fortsatt vært en gyldig min-heap, selv om\ndet da hadde vært et brudd på BST-egenskapen (felle **#9**).\n\n**Regn med 0-formlene, ikke 1-formlene.** Med $\\lfloor i/2 \\rfloor$ ville\nforelderen til indeks 6 blitt 3 i stedet for 2 — altså feil node, feil verdi og\nfeil svar på resten av oppgaven."
+  },
+  {
+   "id": "in2010-4-4-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-4-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave.) En min-heap ligger som array med indeks fra 0 og har $n = 12$\nelementer.\n\n**a)** Hvilken indeks har forelderen til indeks 6?\n**b)** Hvilke indekser har barna til indeks 4?\n**c)** Har indeks 5 to barn, ett barn eller ingen barn?",
+    "solution": "**a)** $\\lfloor (6-1)/2 \\rfloor = \\lfloor 2{,}5 \\rfloor = 2$. **Forelderen er\nindeks 2.**\n\nMerk hva 1-formelen ville gitt: $\\lfloor 6/2 \\rfloor = 3$ — feil node. For\npartall $i$ gir de to konvensjonene forskjellig svar, og det er nettopp der\nfeilen oppdages.\n\n**b)** $2 \\cdot 4 + 1 = 9$ og $2 \\cdot 4 + 2 = 10$. **Barna er indeks 9 og 10**,\nog begge finnes, siden $n = 12$ gir gyldige indekser $0$ til $11$.\n\n**c)** $2 \\cdot 5 + 1 = 11$, som er mindre enn 12, så venstre barn finnes.\n$2 \\cdot 5 + 2 = 12$, som **ikke** er mindre enn 12, så høyre barn finnes ikke.\n**Indeks 5 har bare venstre barn.**\n\nNettopp det tilfellet er grunnen til at down-heap må sjekke om høyre barn finnes\nfør den sammenligner med det — se løkke 3.",
+    "hints": [
+     "Skriv opp de tre formlene først: forelder er $\\lfloor (i-1)/2 \\rfloor$, barna er $2i+1$ og $2i+2$.",
+     "For c): regn ut begge barneindeksene, og sammenlign hver av dem med $n$."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-4-t-2",
+   "type": "text",
+   "content": "## Løkke 2 — `Insert` og sift-up (ca. 13 min)\n\nEt nytt element skal inn. Hvor?\n\nStrukturkravet svarer med én gang: heapen er et komplett tre, så det er nøyaktig\n**én** plass det nye elementet kan ligge — den første ledige, altså indeks $n$\nbakerst i arrayet. Der legger vi det, og så er heap-egenskapen antakelig brutt,\nfordi elementet kan være mindre enn forelderen sin.\n\nReparasjonen heter **sift-up**: sammenlign med forelderen, bytt hvis elementet er\nmindre, og gjenta oppover. Du stopper når forelderen er mindre enn eller lik\nelementet, eller når du har nådd rota.\n\nLegg merke til hvor lite som skjer. Du berører **én sti** fra bunnen opp til\nrota, og den er $\\lfloor \\log_2 n \\rfloor$ ledd lang. Resten av heapen røres\nikke."
+  },
+  {
+   "id": "in2010-4-4-th-2",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `Insert`",
+   "content": "**Antagelser om representasjon.** `H` er et array med indeks fra 0 som allerede\noppfyller heap-egenskapen. `|H|` er antall elementer. Divisjonen `(i-1)/2` er\n**heltallsdivisjon**, altså med nedrunding.\n\n**Prebetingelse:** `H` er en gyldig min-heap. **Postbetingelse:** `H` inneholder\n`x` i tillegg til alt den hadde før, og er fortsatt en gyldig min-heap.\n\n```text\nProcedure Insert(H, x)\n  Input:  min-heap H som array (indeks fra 0), element x\n  Output: H med x satt inn, heap-egenskapen gjenopprettet\n  i = |H|\n  H[i] = x\n  while i > 0 and H[(i-1)/2] > H[i]:\n      bytt H[i] og H[(i-1)/2]\n      i = (i-1)/2\n  Kjoeretid: O(log n)\n```\n\n**Invarianten i én setning:** etter hvert bytte er alt under `i` en gyldig\nmin-heap, og det eneste mulige bruddet ligger mellom `i` og forelderen — så når\nløkka stopper, finnes det ingen brudd.\n\n**Merk `i > 0` som første ledd i betingelsen.** Uten den ville løkka regnet ut\nforelderen til rota, og indeks 0 har ingen forelder. Rekkefølgen på de to leddene\ner ikke likegyldig: `i > 0` må stå først, slik at det andre leddet aldri\nevalueres når `i` er 0.\n\n**Kjøretid:** $O(\\log n)$, der $n$ er antall elementer i heapen. Elementet\nflyttes høyst ett nivå per bytte, og treet har $\\lfloor \\log_2 n \\rfloor$\nnivåer over bunnen — én sti, ingen forgrening."
+  },
+  {
+   "id": "in2010-4-4-img-2",
+   "type": "image",
+   "src": "/images/textbook/in2010/heap-siftup.svg",
+   "alt": "Tre trinn ved siden av hverandre. Først min-heapen 3, 7, 9 der 1 legges på indeks 3 som venstre barn av 7. Deretter bytter 1 plass med forelderen 7, slik at arrayet blir 3, 1, 9, 7. Til slutt bytter 1 plass med rota 3, slik at arrayet blir 1, 3, 9, 7 og 1 står øverst.",
+   "caption": "Sift-up i to bytter. Følg tallet 1 oppover: det bytter med forelderen så lenge det er mindre, og stopper på rota. Legg merke til at ingen andre deler av heapen endres."
+  },
+  {
+   "id": "in2010-4-4-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Bygg en heap med fem innsettinger",
+   "problem": "Sett inn 7, 3, 9, 1 og 4 i denne rekkefølgen i en **tom** min-heap (array,\nindeks fra 0). Oppgi arrayet til slutt.",
+   "solution": "Innsetting i TOM min-heap, indeks fra 0: 7, 3, 9, 1, 4\n\n| Steg | Sett inn | Array før sift-up | Bytter (indekser) | Array etter steget |\n|---|---|---|---|---|\n| 1 | 7 | `7` | ingen | `7` |\n| 2 | 3 | `7, 3` | 1<->0 | `3, 7` |\n| 3 | 9 | `3, 7, 9` | ingen | `3, 7, 9` |\n| 4 | 1 | `3, 7, 9, 1` | 3<->1 ; 1<->0 | `1, 3, 9, 7` |\n| 5 | 4 | `1, 3, 9, 7, 4` | ingen | `1, 3, 9, 7, 4` |\n\n**Sluttilstand (arrayet, indeks fra 0):** `1, 3, 9, 7, 4`\n\n```text\n                1\n               (0)\n        3               9\n       (1)             (2)\n    7       4\n   (3)     (4)\n```\n\n- gyldig min-heap: JA | antall elementer: 5\n\n**Steg 4 er det som er verdt å studere.** Etter at 1 er lagt på indeks 3, er\nforelderen indeks $\\lfloor (3-1)/2 \\rfloor = 1$ med verdien 7. Siden $1 < 7$,\nbyttes de. Nå står 1 på indeks 1, og forelderen er indeks\n$\\lfloor (1-1)/2 \\rfloor = 0$ med verdien 3. Siden $1 < 3$, byttes de igjen, og\n1 er på rota. Det er nøyaktig de to byttene figuren over viser.\n\n**Steg 5 er det som er lett å overse.** 4 legges på indeks 4, forelderen er\nindeks $\\lfloor 3/2 \\rfloor = 1$ med verdien 3, og $4 > 3$. **Ingen bytte.** Det\ner helt normalt at en innsetting ikke flytter noe — mange håndkjøringer går galt\nfordi kandidaten «føler» at det burde skje noe.\n\n**Kontroll:** heapen har fem elementer, og de fem tallene du fikk utdelt er alle\nmed. Sjekk deretter de tre forelder–barn-parene: $1 \\le 3$, $1 \\le 9$,\n$3 \\le 7$, $3 \\le 4$. Alt holder.\n\n**Fellenote.** Fella her er felle **#9** — å prøve å holde arrayet sortert, som\nom det var et søketre. `1, 3, 9, 7, 4` er ikke sortert, og skal ikke være det. En\nheap er sortert **oppover**, ikke bortover."
+  },
+  {
+   "id": "in2010-4-4-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-4-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Sett inn 12, 9, 14, 6, 11 og 3 i denne rekkefølgen i en tom\nmin-heap (array, indeks fra 0). Oppgi arrayet til slutt.",
+    "solution": "Innsetting i TOM min-heap, indeks fra 0: 12, 9, 14, 6, 11, 3\n\n| Steg | Sett inn | Array før sift-up | Bytter (indekser) | Array etter steget |\n|---|---|---|---|---|\n| 1 | 12 | `12` | ingen | `12` |\n| 2 | 9 | `12, 9` | 1<->0 | `9, 12` |\n| 3 | 14 | `9, 12, 14` | ingen | `9, 12, 14` |\n| 4 | 6 | `9, 12, 14, 6` | 3<->1 ; 1<->0 | `6, 9, 14, 12` |\n| 5 | 11 | `6, 9, 14, 12, 11` | ingen | `6, 9, 14, 12, 11` |\n| 6 | 3 | `6, 9, 14, 12, 11, 3` | 5<->2 ; 2<->0 | `3, 9, 6, 12, 11, 14` |\n\n**Sluttilstand (arrayet, indeks fra 0):** `3, 9, 6, 12, 11, 14`\n\n```text\n                3\n               (0)\n        9               6\n       (1)             (2)\n   12      11      14\n   (3)     (4)     (5)\n```\n\n- gyldig min-heap: JA | antall elementer: 6\n\n**Steg 6 går opp den høyre siden.** 3 legges på indeks 5, forelderen er indeks\n$\\lfloor 4/2 \\rfloor = 2$ med verdien 14, og de byttes. Så er 3 på indeks 2,\nforelderen er indeks 0 med verdien 6, og de byttes igjen. To bytter, og 3 er på\nrota.\n\n**Merk sluttarrayet: `3, 9, 6, 12, 11, 14`.** Verdien 9 står til venstre for 6,\naltså er venstre barn større enn høyre barn. Det er helt lovlig — heap-egenskapen\nsier ingenting om søsken. Prøver du å «rette» det, ødelegger du håndkjøringen.",
+    "hints": [
+     "Legg hvert nytt element på første ledige indeks, og regn ut forelderen med $\\lfloor (i-1)/2 \\rfloor$ før du sammenligner.",
+     "Etter et bytte er elementet på forelderens indeks. Regn ut den nye forelderen på nytt, ikke gjett."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-4-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-4-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Sett inn 5, 8, 6, 9, 12, 7 og 10 i denne rekkefølgen i en tom\nmin-heap (array, indeks fra 0).\n\n**a)** Oppgi arrayet til slutt.\n**b)** Hvor mange bytter ble utført totalt, og hva forteller det om\ninnsettingsrekkefølgen?",
+    "solution": "Innsetting i TOM min-heap, indeks fra 0: 5, 8, 6, 9, 12, 7, 10\n\n| Steg | Sett inn | Array før sift-up | Bytter (indekser) | Array etter steget |\n|---|---|---|---|---|\n| 1 | 5 | `5` | ingen | `5` |\n| 2 | 8 | `5, 8` | ingen | `5, 8` |\n| 3 | 6 | `5, 8, 6` | ingen | `5, 8, 6` |\n| 4 | 9 | `5, 8, 6, 9` | ingen | `5, 8, 6, 9` |\n| 5 | 12 | `5, 8, 6, 9, 12` | ingen | `5, 8, 6, 9, 12` |\n| 6 | 7 | `5, 8, 6, 9, 12, 7` | ingen | `5, 8, 6, 9, 12, 7` |\n| 7 | 10 | `5, 8, 6, 9, 12, 7, 10` | ingen | `5, 8, 6, 9, 12, 7, 10` |\n\n**a) Sluttilstand (arrayet, indeks fra 0): `5, 8, 6, 9, 12, 7, 10`**\n\n```text\n                5\n               (0)\n        8               6\n       (1)             (2)\n    9      12       7      10\n   (3)     (4)     (5)     (6)\n```\n\n- gyldig min-heap: JA | antall elementer: 7\n\n**b) Null bytter.** Ikke ett eneste sift-up-steg ble utført. Grunnen er at hver\nnye nøkkel allerede var større enn forelderen den havnet under: 8 og 6 under 5, 9\nog 12 under 8, 7 og 10 under 6.\n\nDette er **beste tilfelle** for en innsettingsrekke. Verste tilfelle er motsatt:\nen rekke der hver ny nøkkel er mindre enn alle de foregående, slik at hver eneste\ninnsetting må helt til rota — da koster hver innsetting $\\lfloor \\log_2 n\n\\rfloor$ bytter.\n\n**Merk at arrayet ikke er sortert**, selv om ingenting ble byttet: 6 står etter 8,\nog 7 står etter 12. En heap er ikke en sortert liste, og en innsettingsrekke som\nikke utløser bytter, gir heller ikke en sortert en.",
+    "hints": [
+     "Sett inn ett element om gangen og sammenlign med forelderen før du bestemmer deg for om noe skal byttes.",
+     "Se på hvert nytt element og forelderen det havner under. Er det nye elementet noen gang minst?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-4-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Innsetting i en heap som allerede finnes",
+   "problem": "Min-heapen `4, 6, 5, 9, 8, 7, 10` er gitt (array, indeks fra 0). Sett inn 2, og\noppgi arrayet etterpå.",
+   "solution": "Startheap: `4, 6, 5, 9, 8, 7, 10`. Sett inn 2.\n\nLegg 2 på første ledige indeks, 7: `4, 6, 5, 9, 8, 7, 10, 2`\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | H[7] = 2 < forelder H[3] = 9, bytt | `4, 6, 5, 2, 8, 7, 10, 9` |\n| 2 | H[3] = 2 < forelder H[1] = 6, bytt | `4, 2, 5, 6, 8, 7, 10, 9` |\n| 3 | H[1] = 2 < forelder H[0] = 4, bytt | `2, 4, 5, 6, 8, 7, 10, 9` |\n| 4 | elementet er på rota, stopp | `2, 4, 5, 6, 8, 7, 10, 9` |\n\n**Sluttilstand:** `2, 4, 5, 6, 8, 7, 10, 9`\n\n**Dette er verste tilfelle for én innsetting.** Elementet 2 er mindre enn alt\nannet i heapen, så det må helt fra bunnen til rota: tre bytter i en heap med åtte\nelementer. Antall nivåer over bunnen er\n$\\lfloor \\log_2 8 \\rfloor = 3$, som er nøyaktig det vi teller. Det er hele\nbegrunnelsen for at `Insert` er $O(\\log n)$ — du kan aldri gjøre flere bytter enn\ndet er nivåer.\n\n**Følg indeksene, ikke bildet.** Fra indeks 7 er forelderen\n$\\lfloor 6/2 \\rfloor = 3$; fra indeks 3 er den $\\lfloor 2/2 \\rfloor = 1$; fra\nindeks 1 er den $\\lfloor 0/2 \\rfloor = 0$. Kjeden $7 \\to 3 \\to 1 \\to 0$ er\nstien opp, og den er den eneste delen av arrayet som endres.\n\n**Delsteg 4 er ikke overflødig.** Løkka må stoppe fordi `i = 0`, ikke fordi noen\nsammenligning slo feil. Det er `i > 0`-leddet i pseudokoden som gjør jobben.\n\n**Fellenote.** Fella her er å legge det nye elementet på «riktig» plass med én\ngang, som i en sortert liste. Nye elementer legges **alltid** på første ledige\nindeks, og flyttes deretter. Gjør du noe annet, brytes strukturkravet, og alle\nindeksformlene slutter å gjelde."
+  },
+  {
+   "id": "in2010-4-4-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-4-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger E.) Min-heapen `3, 5, 4, 9, 8, 6, 7` er gitt (array, indeks fra 0). Sett\ninn 11, og oppgi arrayet etterpå. Hvor mange bytter kreves?",
+    "solution": "Startheap: `3, 5, 4, 9, 8, 6, 7`. Sett inn 11.\n\nLegg 11 på første ledige indeks, 7: `3, 5, 4, 9, 8, 6, 7, 11`\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | H[7] = 11 >= forelder H[3] = 9, stopp | `3, 5, 4, 9, 8, 6, 7, 11` |\n\n**Sluttilstand:** `3, 5, 4, 9, 8, 6, 7, 11`\n\n**Null bytter.** Elementet 11 er større enn forelderen sin allerede der det\nlandet, så løkkebetingelsen er usann med én gang.\n\n**Dette er beste tilfelle for én innsetting: $O(1)$.** Kjøretiden $O(\\log n)$ er\nen **øvre** grense — den sier hvor ille det kan gå, ikke hvor lang tid hver\ninnsetting faktisk tar. Sammenlign med eksempel 3, der elementet måtte hele veien\ntil rota.\n\n**Merk hvor lite du trengte å gjøre.** Én sammenligning. Å skrive opp hele\narrayet på nytt er likevel riktig svarform — sensor ber om sluttilstanden, og den\ner hele arrayet, også når ingenting flyttet seg.",
+    "hints": [
+     "Regn ut hvilken indeks 11 havner på, og hvilken indeks forelderen har.",
+     "Sammenlign de to verdiene før du bytter noe. Må det alltid skje et bytte?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-4-t-3",
+   "type": "text",
+   "content": "## Løkke 3 — `RemoveMin` og down-heap (ca. 14 min)\n\n— naturlig pausepunkt —\n\nNå til den operasjonen prioritetskøen egentlig finnes for: å plukke ut det minste\nelementet.\n\nSelve uthentingen er gratis — det minste ligger på indeks 0. Problemet er hullet\nsom blir igjen. Løsningen er å fylle det med det **siste** elementet i arrayet\n(det eneste som kan fjernes uten å ødelegge strukturkravet), krympe arrayet, og\nderetter la det innflyttede elementet **synke** til det er på plass.\n\nNedstigningen heter **down-heap**, og den har to detaljer som er hele forskjellen\nmellom full og halv uttelling:\n\n1. **Du synker alltid mot det MINSTE av barna.** Bytter du med det største, får\n   du et nytt brudd på veien ned, og heapen blir ugyldig.\n2. **Du må sjekke at barnet finnes.** Nederst i treet har noder ingen barn, og\n   noen har bare venstre barn. Å lese `H[2i+2]` uten å sjekke er felle **#3** i\n   bokas feilregister, og den har eksplisitt takpoeng i sensorveiledningene: uten\n   sjekken får du maks delvis uttelling, uansett hvor riktig resten er."
+  },
+  {
+   "id": "in2010-4-4-th-3",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `RemoveMin` og `DownHeap`",
+   "content": "**Antagelser om representasjon.** `H` er et array med indeks fra 0 som oppfyller\nheap-egenskapen. `|H|` er antall elementer. Alle divisjoner er\nheltallsdivisjoner.\n\n**Prebetingelse:** `H` er en gyldig, ikke-tom min-heap. **Postbetingelse:** det\nminste elementet er returnert og fjernet, og `H` er fortsatt en gyldig min-heap\nmed ett element færre.\n\nArbeidet deles i to: `RemoveMin` gjør selve uthentingen, og overlater\nreparasjonen til `DownHeap`.\n\n```text\nProcedure RemoveMin(H)\n  Input:  ikke-tom min-heap H som array (indeks fra 0)\n  Output: det minste elementet; H er krympet med ett og reparert\n  minste = H[0]\n  H[0] = H[|H| - 1]\n  fjern siste element fra H\n  DownHeap(H, 0, |H|)\n  return minste\n  Kjoeretid: O(log n)\n```\n\n`DownHeap(H, i, n)` lar elementet paa indeks `i` synke saa lenge det er stoerre\nenn det minste barnet sitt:\n\n```text\nProcedure DownHeap(H, i, n)\n  Input:  array H, startindeks i, antall elementer n\n  Output: H der subtreet med rot i oppfyller heap-egenskapen\n  while 2*i + 1 < n:\n      minste = 2*i + 1\n      if 2*i + 2 < n and H[2*i + 2] < H[minste]:\n          minste = 2*i + 2\n      if H[i] <= H[minste]:\n          bryt ut av loekka\n      bytt H[i] og H[minste]\n      i = minste\n  Kjoeretid: O(log n)\n```\n\n**De to sjekkene som utgjør felle #3, står begge i `DownHeap`:**\n\n1. **`while 2*i + 1 < n`** — finnes venstre barn i det hele tatt? Er svaret nei,\n   er noden et blad, og det er ingenting å synke ned til.\n2. **`if 2*i + 2 < n and ...`** — finnes høyre barn? Er svaret nei, er venstre\n   barn det eneste kandidaten, og sammenligningen med `H[2*i + 2]` må ikke\n   utføres.\n\nRekkefølgen i det andre leddet er avgjørende: `2*i + 2 < n` må stå **før**\n`H[2*i + 2] < H[minste]`, ellers leses en indeks som ikke finnes.\n\n**Invarianten i én setning:** etter hvert bytte er alt over `i` en gyldig\nmin-heap, og det eneste mulige bruddet ligger mellom `i` og barna — så når løkka\nstopper, finnes det ingen brudd.\n\n**Kjøretid:** $O(\\log n)$, der $n$ er antall elementer. Elementet synker høyst\nett nivå per runde, og treet har $\\lfloor \\log_2 n \\rfloor$ nivåer. Selve\nuthentingen av `H[0]` er $O(1)$ — det er reparasjonen som koster."
+  },
+  {
+   "id": "in2010-4-4-img-3",
+   "type": "image",
+   "src": "/images/textbook/in2010/heap-nedheap.svg",
+   "alt": "Tre trinn ved siden av hverandre. Først min-heapen 2, 5, 3, 9, 8, 4 tegnet som tre. Deretter er 2 fjernet og det siste elementet 4 flyttet opp til rota, slik at arrayet blir 4, 5, 3, 9, 8. Til slutt bytter 4 plass med det minste barnet 3, slik at arrayet blir 3, 5, 4, 9, 8.",
+   "caption": "RemoveMin i to trinn: siste element til rota, så ned mot det MINSTE barnet. Legg merke til at 4 bytter med høyre barn, ikke med venstre — det er størrelsen på barnet som bestemmer, ikke siden."
+  },
+  {
+   "id": "in2010-4-4-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Én `RemoveMin`",
+   "problem": "Utfør `RemoveMin` én gang på min-heapen `2, 5, 3, 9, 8, 4` (array, indeks fra 0).\nOppgi arrayet etterpå.",
+   "solution": "Startheap (indeks fra 0): `2, 5, 3, 9, 8, 4` — gyldig min-heap: JA\n\n**RemoveMin nr. 1** — returnerer 2.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på H[0] = 2; flytt siste element 4 til rot og krymp arrayet | `4, 5, 3, 9, 8` |\n| 2 | barna er H[1] = 5 og H[2] = 3, minste er H[2] = 3; 4 > 3, bytt | `3, 5, 4, 9, 8` |\n| 3 | indeks 2 har ingen barn (2*2+1 = 5 er utenfor n = 5), stopp | `3, 5, 4, 9, 8` |\n\n**Array etter RemoveMin nr. 1: `3, 5, 4, 9, 8`**\n\n```text\n                3\n               (0)\n        5               4\n       (1)             (2)\n    9       8\n   (3)     (4)\n```\n\n- gyldig min-heap: JA\n\n**Delsteg 2 er hele poenget.** Elementet 4 har barna 5 og 3. Hadde vi byttet med\n**venstre** barn (5) fordi det står først, ville arrayet blitt `5, 4, 3, 9, 8` —\nog der er $5 > 3$, altså et brudd på heap-egenskapen i rota. Down-heap går\n**alltid** mot det minste barnet, og det er derfor.\n\n**Delsteg 3 er den sjekken oppgaven egentlig tester.** Etter byttet står 4 på\nindeks 2. Venstre barn ville vært indeks $2 \\cdot 2 + 1 = 5$, men heapen har nå\nbare fem elementer, altså indeksene 0 til 4. Indeks 5 finnes ikke, løkka stopper,\nog vi er ferdige. Uten den sjekken ville algoritmen lest utenfor arrayet.\n\n**Sluttilstanden du leverer, er hele arrayet:** `3, 5, 4, 9, 8`. Ikke treet, ikke\nbare det som ble flyttet — hele arrayet, kommaseparert, med indeks fra 0.\n\n**Fellenote.** Fella her er felle **#3** — down-heap uten å sjekke at barnet\nfinnes. Den har eksplisitt takpoeng i sensorveiledningene: leser du `H[5]` i en\nheap med fem elementer, er algoritmen din feil, uansett hvor riktig resten ser\nut."
+  },
+  {
+   "id": "in2010-4-4-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "De to første er de dyreste, og begge sitter i down-heap.\n\n- **Down-heap uten å sjekke at barnet finnes.** Dette er felle **#3** i bokas\n  feilregister, og den har eksplisitt takpoeng i sensorveiledningene. Du trenger\n  **to** sjekker: `2*i + 1 < n` for om venstre barn finnes i det hele tatt, og\n  `2*i + 2 < n` før du i det hele tatt sammenligner med høyre barn.\n  **Kontrollen:** har du noen gang lest en indeks som er $\\ge n$ i sporingen din?\n- **Å synke mot feil barn.** Down-heap går mot det **minste** barnet, ikke mot\n  venstre barn og ikke mot det største. Bytter du med det største, lager du et\n  nytt brudd rett under deg.\n- **Å blande 0- og 1-indeksering.** IN2010 bruker\n  $\\lfloor (i-1)/2 \\rfloor$, $2i+1$ og $2i+2$. Formlene\n  $\\lfloor i/2 \\rfloor$, $2i$ og $2i+1$ hører til 1-indekserte framstillinger og\n  gir feil node her. Kontroll: forelderen til indeks 0 skal ikke finnes.\n- **Å forveksle heap-egenskapen med BST-egenskapen.** Felle **#9**. Heapen ordner\n  **opp–ned**; søketreet ordner **venstre–høyre**. I en heap kan venstre barn godt\n  være større enn høyre barn, og arrayet er ikke sortert.\n- **Å påstå at `BuildHeap` er $O(n \\log n)$.** Den er $O(n)$, og du får se\n  tellingen i neste løkke. Det er selve heapsorteringen som er $O(n \\log n)$,\n  fordi de $n$ uthentingene koster $O(\\log n)$ hver — se\n  [kap. 2.2](/in2010/in2010-2-2).\n- **Å levere treet i stedet for arrayet.** Svarformatet for en heap-håndkjøring\n  er **hele arrayet**, kommaseparert, med indeks fra 0. Et pent tegnet tre uten\n  arrayet under gir ikke full uttelling.\n\nOg den gjennomgående: **å bruke $n$ uten å definere det** — felle **#10**. Si i\nsamme setning at $n$ er antall elementer i heapen."
+  },
+  {
+   "id": "in2010-4-4-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-4-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Utfør `RemoveMin` én gang på min-heapen `3, 7, 5, 12, 9, 6` (array,\nindeks fra 0).\n\n**a)** Oppgi arrayet etterpå.\n**b)** Hvilket element ble returnert, og hvor mange bytter kostet reparasjonen?",
+    "solution": "Startheap (indeks fra 0): `3, 7, 5, 12, 9, 6` — gyldig min-heap: JA\n\n**RemoveMin nr. 1** — returnerer 3.\n\n| Delsteg | Handling | Array etter delsteget |\n|---|---|---|\n| 1 | ta vare på H[0] = 3; flytt siste element 6 til rot og krymp arrayet | `6, 7, 5, 12, 9` |\n| 2 | barna er H[1] = 7 og H[2] = 5, minste er H[2] = 5; 6 > 5, bytt | `5, 7, 6, 12, 9` |\n| 3 | indeks 2 har ingen barn (2*2+1 = 5 er utenfor n = 5), stopp | `5, 7, 6, 12, 9` |\n\n**a) Array etter RemoveMin nr. 1: `5, 7, 6, 12, 9`**\n\n```text\n                5\n               (0)\n        7               6\n       (1)             (2)\n   12       9\n   (3)     (4)\n```\n\n- gyldig min-heap: JA\n\n**b)** Elementet **3** ble returnert, og reparasjonen kostet **ett** bytte.\n\n**Legg merke til delsteg 2.** Elementet 6 hadde barna 7 og 5. Det minste er 5, som\nstår som **høyre** barn. Down-heap bryr seg ikke om hvilken side barnet står på —\nbare om verdien. Hadde du byttet med 7 fordi det står først, ville resultatet\nblitt `7, 6, 5, 12, 9`, som ikke er en gyldig min-heap.\n\n**Og delsteg 3:** etter byttet står 6 på indeks 2, og venstre barn ville vært\nindeks 5. Heapen har nå fem elementer, altså indeksene 0 til 4, så indeks 5 finnes\nikke. Løkka stopper. Dette er felle **#3**-sjekken i praksis.\n\n**Kontroll:** heapen hadde seks elementer og har nå fem. Alle de gjenværende\ntallene er med, og ingen er duplisert.",
+    "hints": [
+     "Flytt det siste elementet til rota og krymp arrayet før du begynner å sammenligne.",
+     "Når du står på en indeks: regn ut begge barneindeksene og sjekk om de er mindre enn det nye antallet elementer."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-4-t-4",
+   "type": "text",
+   "content": "## Løkke 4 — `BuildHeap`, og hvorfor den er $O(n)$ (ca. 10 min)\n\nDu har et vilkårlig array og vil gjøre det om til en heap. Den opplagte måten er\nå sette inn ett element om gangen: $n$ innsettinger à $O(\\log n)$, altså\n$O(n \\log n)$.\n\nDet finnes en bedre måte, og forskjellen er ikke bare konstantfaktorer — den er\nen hel $O$-klasse.\n\n**Ideen:** i stedet for å bygge ovenfra og ned, går du **nedenfra og opp**. Den\nnederste halvparten av arrayet er blader, og et blad er allerede en gyldig heap i\nseg selv. Start derfor på den siste **indre** noden, indeks\n$\\lfloor n/2 \\rfloor - 1$, og kjør `DownHeap` derfra og bakover til indeks 0.\n\n```text\nProcedure BuildHeap(A)\n  Input:  vilkaarlig array A med n elementer (indeks fra 0)\n  Output: A omgjort til en gyldig min-heap\n  n = |A|\n  for i = n/2 - 1 ned til 0:\n      DownHeap(A, i, n)\n  Kjoeretid: O(n)\n```\n\nHvorfor blir dette billigere? Fordi **de fleste nodene ligger nær bunnen og har\nkort vei å synke.** Den ene noden som kan synke helt gjennom treet, er rota — og\ndet er én node. Teoremet under teller det opp."
+  },
+  {
+   "id": "in2010-4-4-th-4",
+   "type": "theorem",
+   "title": "`BuildHeap` er $O(n)$ — med tellingen",
+   "content": "En $O$-påstand uten telling er verre enn ingen påstand, så her er tellingen.\n\nEt komplett tre med høyde $h$ har høyst $\\lceil n / 2^{d+1} \\rceil$ noder på\ndybde $d$, og `DownHeap` fra dybde $d$ gjør høyst $h - d$ bytter — den kan ikke\nsynke lenger enn til bunnen. Ganger vi de to sammen og summerer over alle dybder,\nfår vi det totale arbeidet.\n\n**$n = 15$ (høyde $h = 3$):**\n\n| Dybde $d$ | Antall noder | Maks bytter per node ($h-d$) | Produkt |\n|---|---|---|---|\n| 0 | 1 | 3 | 3 |\n| 1 | 2 | 2 | 4 |\n| 2 | 4 | 1 | 4 |\n| 3 | 8 | 0 | 0 |\n| **Sum** | **15** | | **11** |\n\nSum av arbeidet er 11, og $11 < 2n = 30$. Arbeidet er altså under $2n$, ikke\n$n\\log n = 45$.\n\n**$n = 31$ (høyde $h = 4$):**\n\n| Dybde $d$ | Antall noder | Maks bytter per node ($h-d$) | Produkt |\n|---|---|---|---|\n| 0 | 1 | 4 | 4 |\n| 1 | 2 | 3 | 6 |\n| 2 | 4 | 2 | 8 |\n| 3 | 8 | 1 | 8 |\n| 4 | 16 | 0 | 0 |\n| **Sum** | **31** | | **26** |\n\nSum av arbeidet er 26, og $26 < 2n = 62$. Arbeidet er altså under $2n$, ikke\n$n\\log n = 124$.\n\n**$n = 63$ (høyde $h = 5$):**\n\n| Dybde $d$ | Antall noder | Maks bytter per node ($h-d$) | Produkt |\n|---|---|---|---|\n| 0 | 1 | 5 | 5 |\n| 1 | 2 | 4 | 8 |\n| 2 | 4 | 3 | 12 |\n| 3 | 8 | 2 | 16 |\n| 4 | 16 | 1 | 16 |\n| 5 | 32 | 0 | 0 |\n| **Sum** | **63** | | **57** |\n\nSum av arbeidet er 57, og $57 < 2n = 126$. Arbeidet er altså under $2n$, ikke\n$n\\log n = 315$.\n\n**Les mønsteret i de tre tabellene.** Halvparten av nodene ligger på nederste\nnivå og gjør **null** arbeid. En firedel ligger ett nivå over og gjør høyst ett\nbytte. En åttedel gjør høyst to. Antall noder halveres for hvert nivå oppover,\nmens arbeidet per node bare vokser med én — og en halvering slår en økning på én.\nTotalen holder seg under $2n$ for alle tre $n$-verdiene, og forholdet mellom sum\nog $n$ synker ikke ut av kontroll når $n$ vokser: $11/15$, $26/31$, $57/63$ —\nalle under 1.\n\n**Konklusjonen:** `BuildHeap` er $O(n)$, der $n$ er antall elementer i arrayet.\n\n**Og avgrensningen, som er like viktig:** heapsort er likevel\n$O(n \\log n)$ — ikke fordi byggingen koster det, men fordi de $n$ uthentingene\netterpå koster $O(\\log n)$ hver. Det er blandingen av de to fasene som skaper\nfeilen «`BuildHeap` er $O(n \\log n)$». Se\n[kap. 2.2](/in2010/in2010-2-2)."
+  },
+  {
+   "id": "in2010-4-4-ex-5",
+   "type": "example",
+   "title": "Eksempel 5: `BuildHeap` på ni elementer",
+   "problem": "Gjør arrayet `9, 4, 7, 1, 8, 3, 6, 2, 5` om til en min-heap med `BuildHeap`.\nOppgi arrayet til slutt og antall bytter.",
+   "solution": "Array før: `9, 4, 7, 1, 8, 3, 6, 2, 5` (n = 9)\n\nDown-heap kjøres fra indeks 3 (= n/2 - 1) og nedover til 0. Indeksene 4 til 8 er blader og har ingen barn.\n\n| Steg | Indeks i | Verdi | Bytter | Array etter steget |\n|---|---|---|---|---|\n| 1 | 3 | 1 | ingen | `9, 4, 7, 1, 8, 3, 6, 2, 5` |\n| 2 | 2 | 7 | 2<->5 | `9, 4, 3, 1, 8, 7, 6, 2, 5` |\n| 3 | 1 | 4 | 1<->3 ; 3<->7 | `9, 1, 3, 2, 8, 7, 6, 4, 5` |\n| 4 | 0 | 9 | 0<->1 ; 1<->3 ; 3<->7 | `1, 2, 3, 4, 8, 7, 6, 9, 5` |\n\n**Sluttilstand: `1, 2, 3, 4, 8, 7, 6, 9, 5`**\n\n```text\n                                1\n                               (0)\n                2                               3\n               (1)                             (2)\n        4               8               7               6\n       (3)             (4)             (5)             (6)\n    9       5\n   (7)     (8)\n```\n\n- gyldig min-heap: JA\n- totalt antall bytter: 6 (mot n = 9 elementer)\n\n**Merk hvor løkka starter.** Med $n = 9$ er $\\lfloor 9/2 \\rfloor - 1 = 3$.\nIndeksene 4 til 8 hoppes helt over, fordi de er blader — fem av ni noder gjør\ningenting overhodet. Det er halve forklaringen på $O(n)$ i praksis.\n\n**Merk arbeidsfordelingen.** Steg 1 gir null bytter, steg 2 gir ett, steg 3 gir\nto, og steg 4 — rota — gir tre. Nøyaktig det mønsteret teoremet over teller:\nmange noder med lite arbeid, én node med mest.\n\n**Totalen: 6 bytter for 9 elementer.** Til sammenligning ville $n \\log n$ her\nvært omtrent $9 \\cdot 3 = 27$. Forskjellen er ikke en konstantfaktor du kan se\nbort fra, den er en $O$-klasse.\n\n**Fellenote.** Fella her er å kjøre `DownHeap` ovenfra og ned i stedet for\nnedenfra og opp. Går du fra indeks 0 og oppover, kan et element du «reparerte»\ntidlig bli feilplassert av en senere reparasjon — og resultatet er ikke en gyldig\nheap. Nedenfra og opp virker fordi hvert subtre allerede er en gyldig heap når du\nkommer til rota i det."
+  },
+  {
+   "id": "in2010-4-4-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-4-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Gjør arrayet `10, 20, 15, 30, 40, 5, 25` om til en min-heap med\n`BuildHeap`.\n\n**a)** På hvilken indeks starter løkka, og hvorfor?\n**b)** Oppgi arrayet til slutt og antall bytter.",
+    "solution": "Array før: `10, 20, 15, 30, 40, 5, 25` (n = 7)\n\n**a)** Løkka starter på indeks $\\lfloor 7/2 \\rfloor - 1 = 2$. Grunnen er at\nindeksene 3 til 6 er **blader** — for indeks 3 er venstre barn\n$2 \\cdot 3 + 1 = 7$, som er utenfor arrayet. Et blad er allerede en gyldig heap i\nseg selv, så det er ingenting å gjøre der.\n\nDown-heap kjøres fra indeks 2 (= n/2 - 1) og nedover til 0. Indeksene 3 til 6 er blader og har ingen barn.\n\n| Steg | Indeks i | Verdi | Bytter | Array etter steget |\n|---|---|---|---|---|\n| 1 | 2 | 15 | 2<->5 | `10, 20, 5, 30, 40, 15, 25` |\n| 2 | 1 | 20 | ingen | `10, 20, 5, 30, 40, 15, 25` |\n| 3 | 0 | 10 | 0<->2 | `5, 20, 10, 30, 40, 15, 25` |\n\n**b) Sluttilstand: `5, 20, 10, 30, 40, 15, 25`**\n\n```text\n                5\n               (0)\n       20              10\n       (1)             (2)\n   30      40      15      25\n   (3)     (4)     (5)     (6)\n```\n\n- gyldig min-heap: JA\n- totalt antall bytter: 2 (mot n = 7 elementer)\n\n**To bytter for sju elementer.** Hadde du bygget heapen ved sju `Insert`-kall,\nville arbeidet vært en helt annen sak. Dette er `BuildHeap` sin $O(n)$ i praksis.\n\n**Steg 2 er verdt å merke seg.** Elementet 20 har barna 30 og 40, og er mindre enn\nbegge — ingenting skjer. At et steg ikke gjør noe, betyr ikke at du kan hoppe over\ndet; du må se etter for å vite det.\n\n**Kontroll:** sju elementer inn, sju ut, alle tallene med. Og de tre\nforelder–barn-parene: $5 \\le 20$, $5 \\le 10$, $20 \\le 30$, $20 \\le 40$,\n$10 \\le 15$, $10 \\le 25$. Alt holder.",
+    "hints": [
+     "Regn ut startindeksen $\\lfloor n/2 \\rfloor - 1$ først, og sjekk hvilke indekser som er blader.",
+     "Kjør `DownHeap` på én indeks om gangen, bakover mot 0. Husk å synke mot det minste barnet."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-4-t-5",
+   "type": "text",
+   "content": "## Løkke 5 — de faste heap-faktaene (ca. 5 min)\n\nFire påstander om heaper går igjen på Del 1, år etter år. Tre av dem er laget for\nå fange den som «nesten» husker. Her er de, med begrunnelsene."
+  },
+  {
+   "id": "in2010-4-4-def-6",
+   "type": "definition",
+   "title": "Sift-up",
+   "content": "Reparasjonen etter en innsetting: det nye elementet sammenlignes med forelderen\nsin og bytter oppover så lenge det er mindre.\n\nÉn sti fra bunnen mot rota, høyst $\\lfloor \\log_2 n \\rfloor$ bytter, altså\n$O(\\log n)$. Ingen andre deler av heapen berøres. Stopper når forelderen er\nmindre enn eller lik elementet, eller når rota er nådd."
+  },
+  {
+   "id": "in2010-4-4-def-7",
+   "type": "definition",
+   "title": "Down-heap",
+   "content": "Reparasjonen nedover: elementet sammenlignes med det **minste** av barna sine og\nsynker så lenge det er størst.\n\nÉn sti fra rota mot bunnen, høyst $\\lfloor \\log_2 n \\rfloor$ bytter, altså\n$O(\\log n)$. To sjekker er obligatoriske: at venstre barn finnes\n($2i+1 < n$), og at høyre barn finnes ($2i+2 < n$) før det sammenlignes.\nÅ utelate dem er felle **#3**."
+  },
+  {
+   "id": "in2010-4-4-def-8",
+   "type": "definition",
+   "title": "`Insert` i en min-heap",
+   "content": "Legger elementet på første ledige indeks, altså bakerst i arrayet, og lar det\nstige med sift-up.\n\n$O(\\log n)$ i **verste** tilfelle, der $n$ er antall elementer. Beste tilfelle er\n$O(1)$ — når elementet allerede er større enn forelderen sin der det landet.\nStrukturkravet gjør at det ikke finnes noen annen plass å legge det."
+  },
+  {
+   "id": "in2010-4-4-def-9",
+   "type": "definition",
+   "title": "`RemoveMin`",
+   "content": "Returnerer `H[0]`, flytter det siste elementet til rota, krymper arrayet og\nkjører down-heap fra indeks 0.\n\n$O(\\log n)$, der $n$ er antall elementer. Selve uthentingen er $O(1)$; det er\nreparasjonen som koster. Merk at det er det **siste** elementet som flyttes opp,\nikke et av barna — alt annet ville brutt strukturkravet."
+  },
+  {
+   "id": "in2010-4-4-def-10",
+   "type": "definition",
+   "title": "`FindMin`",
+   "content": "Leser det minste elementet uten å fjerne det. Det ligger alltid på indeks 0.\n\n$O(1)$. Dette er heapens billigste operasjon og hele grunnen til at strukturen\nbrukes som prioritetskø. Kontrast: å finne det **største** i en min-heap er\n$O(n)$."
+  },
+  {
+   "id": "in2010-4-4-def-11",
+   "type": "definition",
+   "title": "`BuildHeap` er $O(n)$",
+   "content": "Gjør et vilkårlig array om til en heap ved å kjøre down-heap fra indeks\n$\\lfloor n/2 \\rfloor - 1$ og bakover til 0.\n\n$O(n)$ — **ikke** $O(n \\log n)$. Grunnen er arbeidsfordelingen: halvparten av\nnodene er blader og gjør ingenting, en firedel synker høyst ett nivå, en åttedel\nhøyst to. Summen holder seg under $2n$. Påstanden «å bygge en heap fra et\nvilkårlig array tar $O(n \\log n)$» er en fast distraktor, og den er **usann**."
+  },
+  {
+   "id": "in2010-4-4-ex-6",
+   "type": "example",
+   "title": "Eksempel 6: To arrayer — hvilket er en gyldig min-heap?",
+   "problem": "Avgjør for hvert av arrayene om det er en gyldig min-heap (indeks fra 0).\n\n**a)** `1, 5, 3, 8, 6, 4, 2`\n**b)** `2, 4, 3, 7, 5, 9, 6`",
+   "solution": "Framgangsmåten er mekanisk: gå gjennom hver indre node og sammenlign med begge\nbarna. Med sju elementer er de indre nodene 0, 1 og 2, altså seks par å sjekke.\n\n**a)** Array: `1, 5, 3, 8, 6, 4, 2`\n\n```text\n                1\n               (0)\n        5               3\n       (1)             (2)\n    8       6       4       2\n   (3)     (4)     (5)     (6)\n```\n\n- gyldig min-heap: **NEI** — H[2] = 3 har barnet H[6] = 2, og 2 < 3.\n- kontroll av alle foreldre-barn-par:\n  - H[0] = 1 mot H[1] = 5: OK\n  - H[0] = 1 mot H[2] = 3: OK\n  - H[1] = 5 mot H[3] = 8: OK\n  - H[1] = 5 mot H[4] = 6: OK\n  - H[2] = 3 mot H[5] = 4: OK\n  - H[2] = 3 mot H[6] = 2: BRUDD\n\n**b)** Array: `2, 4, 3, 7, 5, 9, 6`\n\n```text\n                2\n               (0)\n        4               3\n       (1)             (2)\n    7       5       9       6\n   (3)     (4)     (5)     (6)\n```\n\n- gyldig min-heap: **JA** — hver forelder er mindre enn eller lik begge barna sine.\n- kontroll av alle foreldre-barn-par:\n  - H[0] = 2 mot H[1] = 4: OK\n  - H[0] = 2 mot H[2] = 3: OK\n  - H[1] = 4 mot H[3] = 7: OK\n  - H[1] = 4 mot H[4] = 5: OK\n  - H[2] = 3 mot H[5] = 9: OK\n  - H[2] = 3 mot H[6] = 6: OK\n\n**Sammenlign de to.** I (b) står 9 til venstre for 6, altså er venstre barn\nstørre enn høyre barn — og det er **ikke** noe brudd. I (a) er det heller ikke\nsøskenforholdet som feiler, men at 2 ligger **under** 3. Ordningen går opp og ned.\n\n**Ett par er nok.** Så snart du finner ett brudd, er svaret nei, og du kan\nstoppe. Sensor ber som regel om hvilket par som bryter — oppgi indeksene, ikke\nbare verdiene.\n\n**Fellenote.** Fella her er felle **#9** — å lete etter BST-egenskapen i stedet\nfor heap-egenskapen. Er du i tvil: sjekk **bare** forelder mot barn, aldri søsken\nmot søsken."
+  },
+  {
+   "id": "in2010-4-4-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-4-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger C — kjøretids- og teori-fakta, altså sant/usant-påstander som rettes\nautomatisk.) Avgjør sant eller usant, og begrunn hver med én setning.\n\n**a)** Du kan finne det største elementet i en min-heap i $O(\\log n)$.\n**b)** Å gjøre et vilkårlig array om til en heap koster $O(n \\log n)$.\n**c)** I et komplett binært tre ligger over halvparten av nodene på de to\nnederste nivåene.\n**d)** En min-heap blir en gyldig max-heap hvis du reverserer arrayet.",
+    "solution": "La $n$ være antall elementer i heapen.\n\n**a) Usant — det er $O(n)$.** Det største elementet i en min-heap ligger alltid i\net **blad**, men heap-egenskapen sier ingenting om hvilket. Ta en konkret heap med\n15 elementer:\n\n`1, 3, 2, 7, 5, 4, 6, 15, 12, 9, 11, 8, 10, 13, 14`\n\nHer er $\\max = 15$, og det står på indeks 7. Bladene er indeksene 7 til 14, altså\n8 av 15 noder, og du må se på alle for å vite hvilket som er størst. Det er\n$O(n)$. Dette er en av de mest brukte distraktorene i faget: strukturen som gjør\nminimum billig, gjør maksimum dyrt.\n\n**b) Usant — `BuildHeap` er $O(n)$.** Halvparten av nodene er blader og synker\nikke i det hele tatt, en firedel synker høyst ett nivå, en åttedel høyst to. For\n$n = 15$ er summen av maksimalt arbeid 11, som er under $2n = 30$ og langt under\n$n \\log n = 45$. At **heapsort** er $O(n \\log n)$, er en annen sak: der koster\nde $n$ uthentingene $O(\\log n)$ hver.\n\n**c) Sant.** I samme heap med $n = 15$ er de to nederste nivåene indeks 3 til 6\n(4 noder) og indeks 7 til 14 (8 noder), til sammen **12 av 15 noder = 80 %**.\nGrunnen er at antall noder dobles for hvert nivå nedover, så det nederste nivået\nalene rommer omtrent halvparten. Det er nettopp denne fordelingen som gjør\n`BuildHeap` lineær.\n\n**d) Usant.** Ta min-heapen `5, 8, 6, 9, 12, 7, 10` fra oppgave 3, som er gyldig.\nReversert blir den `10, 7, 12, 9, 6, 8, 5`. Sjekk rota: H[0] = 10 har barnet\nH[2] = 12, og $12 > 10$ — brudd på max-heap-egenskapen med én gang. Også\nH[1] = 7 har barnet H[3] = 9, som er større. Reverseringen snur rekkefølgen i\narrayet, men den snur **ikke** forelder–barn-forholdene, siden forelderen til\nindeks $i$ ikke blir barnet til den reverserte indeksen. Vil du ha en max-heap,\nmå du bygge den med motsatt sammenligning.\n\n**Om antigjettingen.** Én sann og tre usanne her. På eksamen skaleres\nsant/usant-summen slik at ren gjetting i snitt gir null — for eksempel\n$2\\cdot\\max(n-16,\\ 0)$ av 32 riktige, der 16 riktige gir 0 poeng. Den andre\nhalvdelen av regelen er like viktig: på de **vanlige** korte svarene, som ikke er\nstrafferammet, teller ubesvart som feil, så der skal du alltid svare.",
+    "hints": [
+     "For a) og d): hold fast på at heap-egenskapen bare sier noe om forelder mot barn, aldri om søsken eller om arrayets rekkefølge.",
+     "For c): skriv opp indeksene på hvert nivå i en heap med 15 elementer og tell nodene nivå for nivå."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-4-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-4-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger E, krevende.) En kollega har skrevet denne prosedyren og påstår at den\nreparerer en min-heap nedover:\n\n```text\nProcedure DownHeap(H, i, n)\n  Input:  array H, startindeks i, antall elementer n\n  Output: H reparert nedover fra i\n  while i < n:\n      venstre = 2*i + 1\n      hoeyre = 2*i + 2\n      if H[venstre] < H[hoeyre]:\n          minste = venstre\n      else:\n          minste = hoeyre\n      bytt H[i] og H[minste]\n      i = minste\n```\n\n**a)** Finn alle feilene.\n**b)** Vis konkret hva som går galt når prosedyren kjøres med `i = 0` på arrayet\n`4, 5, 3, 9, 8` med $n = 5$.\n**c)** Skriv en korrekt versjon.",
+    "solution": "**a) Tre feil.**\n\n1. **Ingen sjekk på at barna finnes.** Løkkebetingelsen er `i < n`, men det\n   relevante spørsmålet er om **venstre barn** finnes, altså `2*i + 1 < n`.\n   Slik den står, leses `H[venstre]` og `H[hoeyre]` også når indeksene er utenfor\n   arrayet. Dette er felle **#3** i bokas feilregister — down-heap uten å sjekke\n   at barnet finnes — og den har eksplisitt takpoeng i sensorveiledningene.\n2. **Høyre barn brukes uten egen sjekk.** Selv når venstre barn finnes, kan\n   høyre mangle. Sammenligningen `H[venstre] < H[hoeyre]` må stå bak et\n   `2*i + 2 < n`, ellers leses en indeks som ikke er der.\n3. **Ingen stoppbetingelse når elementet er på plass.** Prosedyren bytter\n   **hver** runde, uten å sjekke om `H[i]` allerede er mindre enn eller lik det\n   minste barnet. Da synker elementet videre selv når heap-egenskapen holder, og\n   den blir ødelagt på vei ned.\n\n**b) Konkret, med `H = 4, 5, 3, 9, 8` og $n = 5$:**\n\nFørste runde: `i = 0`, `venstre = 1`, `hoeyre = 2`. H[1] = 5 og H[2] = 3, så\n`minste = 2`. Bytt: arrayet blir `3, 5, 4, 9, 8`, og `i = 2`. Så langt riktig.\n\nAndre runde: `i = 2` er fortsatt mindre enn $n = 5$, så løkka fortsetter.\n`venstre = 5` og `hoeyre = 6`. **Men arrayet har bare indeksene 0 til 4.**\nProsedyren leser `H[5]` og `H[6]`, som ikke finnes.\n\nMed den korrekte sjekken ville løkka stoppet her, siden $2 \\cdot 2 + 1 = 5$ ikke\ner mindre enn 5, og svaret ville blitt `3, 5, 4, 9, 8`.\n\n**c) Korrekt versjon:**\n\n**Antagelser om representasjon:** `H` er et array med indeks fra 0, `n` er antall\nelementer, og subtrærne under `i` oppfyller allerede heap-egenskapen.\n\n```text\nProcedure DownHeap(H, i, n)\n  Input:  array H, startindeks i, antall elementer n\n  Output: H der subtreet med rot i oppfyller heap-egenskapen\n  while 2*i + 1 < n:\n      minste = 2*i + 1\n      if 2*i + 2 < n and H[2*i + 2] < H[minste]:\n          minste = 2*i + 2\n      if H[i] <= H[minste]:\n          bryt ut av loekka\n      bytt H[i] og H[minste]\n      i = minste\n```\n\n**Kjøretid:** $O(\\log n)$, der $n$ er antall elementer i heapen. Elementet\nsynker høyst ett nivå per runde, og treet har $\\lfloor \\log_2 n \\rfloor$\nnivåer.\n\n**Poengtrapp-notat.** Sensorveiledningene setter tak på uttellingen for en\ndown-heap uten barnsjekk: du kan få uttelling for grunnideen — siste element til\nrota, deretter synke — men ikke full pott. De tre feilene over er nettopp de tre\ndelmomentene poengfordelingen deles opp i.\n\n**Kan dette gjøres raskere?** Nei. $O(\\log n)$ er høyden på treet, og et element\nsom skal fra rota til bunnen, må passere hvert nivå. Det eneste som kan\nforbedres, er antall sammenligninger per nivå, og det endrer ikke orden.",
+    "hints": [
+     "Gå gjennom løkka linje for linje og spør ved hver indeks: kan denne være utenfor arrayet?",
+     "Sammenlign med `Insert`-kontrakten: der stopper løkka når elementet er på plass. Gjør denne det?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-4-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-4-4-def-12",
+   "type": "definition",
+   "title": "Barnsjekken i down-heap",
+   "content": "De to sjekkene som må stå i enhver down-heap: `2*i + 1 < n` for om venstre barn\nfinnes i det hele tatt, og `2*i + 2 < n` **før** høyre barn brukes i en\nsammenligning.\n\nUten dem leser algoritmen utenfor arrayet. Dette er felle **#3** i bokas\nfeilregister, og den eneste fellen i Del 4 med eksplisitt takpoeng: mangler\nsjekken, er full uttelling utelukket uansett hvor riktig resten er."
+  },
+  {
+   "id": "in2010-4-4-def-13",
+   "type": "definition",
+   "title": "Down-heap går mot det minste barnet",
+   "content": "Når et element skal synke, byttes det med det **minste** av de to barna — ikke\nmed venstre barn, og ikke med det største.\n\nGrunnen: bytter du med det største, blir det du flyttet opp større enn søskenet\nsitt, og du har laget et nytt brudd rett under deg. Med det minste blir den nye\nforelderen mindre enn begge barna, og bruddet forsvinner."
+  },
+  {
+   "id": "in2010-4-4-def-14",
+   "type": "definition",
+   "title": "Max i en min-heap er $O(n)$",
+   "content": "Det største elementet i en min-heap ligger i et **blad**, men heap-egenskapen\nsier ikke hvilket. Bladene er omtrent halvparten av nodene, og alle må sjekkes.\n\nKjøretiden er derfor $O(n)$, ikke $O(\\log n)$. Påstanden «du kan finne det\nstørste elementet i en min-heap i $O(\\log n)$» er **usann** og er en fast\ndistraktor på Del 1. Trenger du både min og max billig, trenger du to strukturer\n— eller en annen struktur."
+  },
+  {
+   "id": "in2010-4-4-def-15",
+   "type": "definition",
+   "title": "Reversering gir ikke en max-heap",
+   "content": "Å snu arrayet til en min-heap gir **ikke** en gyldig max-heap.\n\nReverseringen snur rekkefølgen i arrayet, men den snur ikke forelder–barn-\nforholdene: forelderen til indeks $i$ blir ikke barnet til den reverserte\nindeksen. Konkret gir min-heapen `5, 8, 6, 9, 12, 7, 10` reversert\n`10, 7, 12, 9, 6, 8, 5`, der rota 10 har barnet 12 — brudd med én gang. Vil du ha\nen max-heap, må du bygge den med motsatt sammenligning."
+  },
+  {
+   "id": "in2010-4-4-def-16",
+   "type": "definition",
+   "title": "De to nederste nivåene",
+   "content": "I et komplett binært tre ligger **over halvparten** av nodene på de to nederste\nnivåene.\n\nAntall noder dobles for hvert nivå nedover, så det nederste nivået alene rommer\nomtrent halvparten. Konkret, for $n = 15$: nivåene med indeks 3 til 6 (4 noder) og\n7 til 14 (8 noder) utgjør 12 av 15 noder, altså 80 %. Denne fordelingen er hele\ngrunnen til at `BuildHeap` er $O(n)$."
+  },
+  {
+   "id": "in2010-4-4-def-17",
+   "type": "definition",
+   "title": "Høyden til en heap",
+   "content": "$h = \\lfloor \\log_2 n \\rfloor$, der $n$ er antall elementer og høyden telles i\n**kanter** fra rota til det dypeste bladet.\n\nFordi treet alltid er komplett, er dette den lavest mulige høyden for $n$ noder —\nen heap kan aldri bli skjev slik et vanlig søketre kan. Det er derfor `Insert` og\n`RemoveMin` er $O(\\log n)$ også i verste tilfelle. Merk skillet: en heap med 8\nelementer har høyde 3 og **fire** nivåer."
+  },
+  {
+   "id": "in2010-4-4-def-18",
+   "type": "definition",
+   "title": "Max-heap",
+   "content": "Speilbildet av min-heapen: hver forelder er **større enn eller lik** begge barna,\nog det største elementet ligger på rota.\n\nSamme struktur, samme indeksformler, samme kjøretider — bare motsatt\nsammenligning i sift-up og down-heap. En max-heap fås ved å bygge på nytt med\nsnudd sammenligning, ikke ved å reversere arrayet til en min-heap."
+  },
+  {
+   "id": "in2010-4-4-def-19",
+   "type": "definition",
+   "title": "Heapsort",
+   "content": "Bygger en heap av arrayet ($O(n)$) og henter deretter ut elementene ett for ett\n($n$ ganger $O(\\log n)$).\n\nTotalt $O(n \\log n)$ i **alle** tilfeller, in-place, men **ikke** stabil —\nuthentingen flytter elementer over lang avstand. Merk hvor de to tallene kommer\nfra: byggingen er lineær, uthentingen er logaritmisk per element. Se\n[kap. 2.2](/in2010/in2010-2-2)."
+  },
+  {
+   "id": "in2010-4-4-def-20",
+   "type": "definition",
+   "title": "Svarformatet for en heap-håndkjøring",
+   "content": "**Hele arrayet**, kommaseparert, med indeks fra 0. Ikke treet, ikke bare\nelementene som flyttet seg.\n\nDelvis riktig array gir delvis uttelling, så lever alltid noe. Tegner du treet i\ntillegg, er det greit — men arrayet må stå der, for det er det sensor ber om."
+  },
+  {
+   "id": "in2010-4-4-def-21",
+   "type": "definition",
+   "title": "Heap kontra balansert søketre som prioritetskø",
+   "content": "Begge gir $O(\\log n)$ på innsetting og uthenting av det minste elementet, så i\n$O$-klasse er de like — påstanden om at et AVL-tre kan brukes som prioritetskø\nmed samme orden som en heap, er **sann**.\n\nHeapen vinner likevel i praksis: den er ett array uten pekere, den har lave\nkonstantfaktorer, og den bygges på $O(n)$. Søketreet vinner når du i tillegg\ntrenger sortert traversering eller søk på vilkårlige nøkler. Se\n[kap. 4.3](/in2010/in2010-4-3)."
+  },
+  {
+   "id": "in2010-4-4-def-22",
+   "type": "definition",
+   "title": "Heap-egenskapen er ikke BST-egenskapen",
+   "content": "Heapen ordner **opp–ned**: forelderen er mindre enn eller lik begge barna. Et\nbinært søketre ordner **venstre–høyre**: alt til venstre er mindre, alt til høyre\ner større.\n\nÅ blande dem er felle **#9** i bokas feilregister. To følger å merke seg: i en\nmin-heap kan venstre barn godt være større enn høyre barn, og arrayet til en heap\ner ikke sortert. Se [kap. 4.1](/in2010/in2010-4-1)."
+  },
+  {
+   "id": "in2010-4-4-def-23",
+   "type": "definition",
+   "title": "Sjanger E — håndkjøring av datastruktur",
+   "content": "Del 1-sjangeren der du får en struktur og en operasjonsrekke og skal oppgi **kun\nsluttilstanden**.\n\nMinst én per sett, ofte to, og heapen er den hyppigste kandidaten (86 %, 6 av 7\nsett). Formatet er strengt: hele arrayet, indeks fra 0. Delvis riktig tilstand\ngir delvis uttelling, så la aldri svaret stå tomt."
+  },
+  {
+   "id": "in2010-4-4-def-24",
+   "type": "definition",
+   "title": "Sjanger C — kjøretids- og teori-fakta",
+   "content": "Del 1-sjangeren med sant/usant-påstander som rettes automatisk, med\n**antigjettings-skalering**: summen skaleres slik at ren gjetting i snitt gir\nnull poeng.\n\nHeap-faktaene er blant de mest brukte: `BuildHeap` er $O(n)$, max i en min-heap\ner $O(n)$, reversering gir ikke en max-heap, venstre barn er ikke alltid minst.\nMerk den andre halvdelen av regelen: på **vanlige** korte svar, som ikke er\nstrafferammet, teller ubesvart som feil, så der skal du alltid svare."
+  },
+  {
+   "id": "in2010-4-4-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kapitlet på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-4-4-rep-1",
+     "type": "text",
+     "content": "**Indeksformlene, som må sitte hjelpemiddelfritt (indeks fra 0):**\n\n$$\\text{forelder}(i) = \\lfloor (i-1)/2 \\rfloor, \\qquad\n\\text{barn}(i) = 2i+1 \\ \\text{og} \\ 2i+2$$\n\nRota er indeks 0. Er $2i+1 \\ge n$, er noden et blad; er $2i+2 \\ge n$, har den\nbare venstre barn.\n\n**Håndkjøringsoppskriften:**\n\n1. **`Insert`:** legg elementet på indeks $n$, bytt oppover mot forelderen så\n   lenge det er mindre.\n2. **`RemoveMin`:** ta vare på `H[0]`, flytt siste element til rota, krymp\n   arrayet, og synk mot det **minste** barnet — med begge barnsjekkene.\n3. **`BuildHeap`:** kjør down-heap fra indeks $\\lfloor n/2 \\rfloor - 1$ og\n   bakover til 0.\n4. **Lever hele arrayet**, kommaseparert, med indeks fra 0.\n\n**Pseudokoden som må sitte:**\n\n```text\nProcedure DownHeap(H, i, n)\n  while 2*i + 1 < n:\n      minste = 2*i + 1\n      if 2*i + 2 < n and H[2*i + 2] < H[minste]:\n          minste = 2*i + 2\n      if H[i] <= H[minste]:\n          bryt ut av loekka\n      bytt H[i] og H[minste]\n      i = minste\n```\n\nDe to `< n`-sjekkene ER felle #3.\n\n**Kjøretidene:**\n\n| Operasjon | Kjøretid |\n|---|---|\n| `FindMin` | $O(1)$ |\n| `Insert` | $O(\\log n)$ |\n| `RemoveMin` | $O(\\log n)$ |\n| `BuildHeap` | $O(n)$ — **ikke** $O(n \\log n)$ |\n| Finne **max** i en min-heap | $O(n)$ |\n| Heapsort | $O(n \\log n)$ |\n\n**De fire faste sant/usant-punktene:**\n\n| Påstand | Svar |\n|---|---|\n| `BuildHeap` er $O(n \\log n)$ | usant, den er $O(n)$ |\n| Max i en min-heap finnes i $O(\\log n)$ | usant, det er $O(n)$ |\n| Over halvparten av nodene ligger på de to nederste nivåene | sant |\n| Reversering av arrayet gir en max-heap | usant |\n\n**Tre kontroller som tar ti sekunder hver:** har du lest en indeks $\\ge n$ noe\nsted? Er antall elementer riktig etter operasjonen? Og holder heap-egenskapen for\nhvert forelder–barn-par i sluttarrayet?\n\n**Videre:** [kap. 4.5](/in2010/in2010-4-5) er ren drill på heap- og\nAVL-håndkjøring, og prøvene ligger i [kap. 4.P](/in2010/in2010-4-prove).\nHeapen kommer tilbake som verktøy i Dijkstra og Prim i Del 6, og i\nHuffman-kodingen."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

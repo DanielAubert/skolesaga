@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Hva er en sterkt sammenhengende komponent i en rettet graf?",
+  "options": [
+   "En maksimal mengde noder der hver når hver av de andre",
+   "En maksimal mengde noder som henger sammen uten retninger",
+   "En maksimal mengde noder med minst én kant seg imellom",
+   "En maksimal mengde noder som alle nås fra samme startnode"
+  ],
+  "explanation": "Kravet er rettet vei begge veier mellom hvert par. Å se bort fra retningene gir **svakt** sammenhengende, som er noe helt annet: et enveiskjørt gatenett kan være svakt sammenhengende og likevel ha mange SCC-er. At alle nås fra én startnode sier ingenting om veien tilbake."
+ },
+ {
+  "question": "Komponentgrafen til en vilkårlig rettet graf er alltid",
+  "options": [
+   "en rettet graf uten sykler, altså en DAG",
+   "en rettet graf med minst én rundtur i seg",
+   "en urettet graf med samme antall kanter",
+   "en sammenhengende graf med nøyaktig én kilde"
+  ],
+  "explanation": "Gikk det en rundtur mellom to komponenter, ville alle nodene i begge nådd hverandre begge veier, og da hadde de vært én komponent. Resultatet er kjent og skal ikke bevises på eksamen. Antall kilder kan godt være mer enn én — det er nettopp det den minste startmengden teller."
+ },
+ {
+  "question": "Hvor få noder må du minst starte i for å nå alle noder i en rettet graf?",
+  "options": [
+   "Antall komponenter med inngrad 0 i komponentgrafen",
+   "Antall komponenter med utgrad 0 i komponentgrafen",
+   "Antall komponenter i komponentgrafen, uansett grad",
+   "Antall noder uten innkommende kant i selve grafen"
+  ],
+  "explanation": "En komponent med inngrad 0 kan ikke nås utenfra og må ha en startnode, og alle andre komponenter nås fra en av dem. Utgrad 0 svarer på det motsatte spørsmålet — hvor alt ender opp — og forvekslingen er den vanligste enkeltfeilen i sjangeren. Å telle noder uten innkommende kant i den opprinnelige grafen bommer, fordi en hel gruppe kan peke innbyrdes på hverandre."
+ },
+ {
+  "question": "Hvilke komponenter svarer på «finn alle grupper der alle når hverandre»?",
+  "options": [
+   "SCC-ene med mer enn én node i seg",
+   "SCC-ene med nøyaktig inngrad 0 i grafen",
+   "SCC-ene med både inngrad og utgrad 0",
+   "Alle SCC-ene, siden hver er en slik gruppe"
+  ],
+  "explanation": "En SCC med minst to noder inneholder en rettet rundtur, og det er nettopp det «alle når hverandre» betyr. Alle SCC-ene er teknisk sett grupper, men en gruppe på én node er ingen rundtur — den noden når bare seg selv. Inn- og utgrad handler om forholdet til andre komponenter, ikke om rundturer innad."
+ },
+ {
+  "question": "Hva er kjøretiden til å finne alle sterkt sammenhengende komponenter?",
+  "options": [
+   "$O(|V| + |E|)$",
+   "$O(|V| \\cdot |E|)$",
+   "$O((|V| + |E|) \\log |V|)$",
+   "$O(|V|^2 + |E|)$"
+  ],
+  "explanation": "To dybde-først-gjennomløp pluss én snuing av grafen er tre lineære pass, og tre lineære pass er fremdeles lineært. Logaritmen hører til algoritmer med prioritetskø. $O(|V| \\cdot |E|)$ er det du får hvis du traverserer fra hver node i stedet."
+ },
+ {
+  "question": "Hva koster det å svare på «hvem når hvem» ved å kjøre en DFS-full fra hver eneste node?",
+  "options": [
+   "$O(|V| \\cdot (|V| + |E|))$",
+   "$O(|V| + |E|)$",
+   "$O(|V|^2)$",
+   "$O(|E| \\log |V|)$"
+  ],
+  "explanation": "Én DFS-full er $O(|V| + |E|)$, og du gjentar den $|V|$ ganger. Svaret blir riktig, men dette er felle #1 — naiv full traversering der én SCC-kjøring holdt — og poengtrappen er eksplisitt: lavere kjøretid gir mer uttelling på samme oppgave. $O(|V|^2)$ glemmer kantleddet."
+ },
+ {
+  "question": "Hva gjør det andre gjennomløpet i SCC-algoritmen?",
+  "options": [
+   "En ny DFS i den snudde grafen, i synkende ferdigrekkefølge",
+   "En ny DFS i den samme grafen, i synkende ferdigrekkefølge",
+   "En ny DFS i den snudde grafen, i vanlig besøksrekkefølge",
+   "En bredde-først-traversering i den snudde grafen fra hver node"
+  ],
+  "explanation": "Begge deler må stemme: grafen må være snudd, og rekkefølgen må være synkende ferdigrekkefølge. Endrer du bare én av dem, samler traverseringen inn noder fra flere komponenter og svaret blir galt. Besøksrekkefølge er ikke det samme som ferdigrekkefølge."
+ },
+ {
+  "question": "Hva betyr det at en komponent har utgrad 0 i komponentgrafen?",
+  "options": [
+   "At ingen kant forlater komponenten, så alt som kommer dit, blir",
+   "At ingen kant peker inn i komponenten, så den må startes i selv",
+   "At komponenten inneholder nøyaktig én node uten utgående kant",
+   "At komponenten nås fra alle de andre komponentene i grafen"
+  ],
+  "explanation": "Utgrad 0 er et endepunkt: du kommer deg ikke ut igjen. Å beskrive det som «ingen kant peker inn» er inngrad 0, altså det motsatte, og forvekslingen koster fast poeng. Komponenten kan godt bestå av flere noder som peker på hverandre, og den nås ikke nødvendigvis fra alle andre — det gjelder bare når den er den eneste med utgrad 0."
+ },
+ {
+  "question": "En rettet graf inneholder ingen rundturer i det hele tatt. Hvor mange SCC-er har den?",
+  "options": [
+   "Like mange som den har noder",
+   "Nøyaktig én, som rommer alle nodene",
+   "Like mange som den har kanter",
+   "Ingen, siden det ikke finnes rundturer"
+  ],
+  "explanation": "Uten en rundtur kan ingen to noder nå hverandre begge veier, så hver node blir sin egen komponent. Grafen er da allerede en DAG, og komponentgrafen er identisk med grafen selv. At det ikke finnes rundturer, betyr altså ikke at det ikke finnes komponenter — det betyr at alle har størrelse 1."
+ },
+ {
+  "question": "Oppgaven ber deg finne den minste startmengden. Bør du bevise at komponentgrafen er en DAG?",
+  "options": [
+   "Nei, resultatet er kjent og kan brukes uten videre begrunnelse",
+   "Ja, ellers får du ingen uttelling for algoritmevalget ditt",
+   "Ja, men bare hvis grafen inneholder mer enn én rundtur",
+   "Nei, men du må vise at grafen ikke inneholder noen sykel"
+  ],
+  "explanation": "Egenskapen er standardstoff og kan brukes fritt; én setning med intuisjonen er mer enn nok. Minutter brukt på et unødvendig bevis er tatt fra oppgaver som gir poeng. Å vise at grafen selv er syklusfri er noe helt annet, og som regel er den ikke det."
+ },
+ {
+  "question": "Hva menes med ferdigrekkefølgen i det første gjennomløpet?",
+  "options": [
+   "Rekkefølgen kallene returnerer i, når alle utveier er utforsket",
+   "Rekkefølgen nodene besøkes i, når traverseringen når dem først",
+   "Rekkefølgen nodene står i, i nabolistene til den snudde grafen",
+   "Rekkefølgen den ytre løkka går gjennom nodene i grafen i"
+  ],
+  "explanation": "En node er ferdig først når naboløkka er tømt, og i pseudokoden ligger derfor innlegningen etter løkka, ikke før. Bytter du det om, får du besøksrekkefølgen, og hele algoritmen slutter å virke. Den ytre løkkas rekkefølge er noe helt annet og kan være vilkårlig."
+ },
+ {
+  "question": "Komponentgrafen har nøyaktig én komponent med inngrad 0. Hva følger av det?",
+  "options": [
+   "Det finnes en enkelt node som når alle de andre nodene",
+   "Det finnes en enkelt node som nås fra alle de andre nodene",
+   "Alle komponentene inneholder minst to noder hver",
+   "Grafen er sterkt sammenhengende og har bare én komponent"
+  ],
+  "explanation": "Følg kanter bakover fra en vilkårlig node: i en DAG kan du ikke gå i ring, så du må ende i en komponent med inngrad 0 — og finnes det bare én, når den alt. Det speilvendte utsagnet, at én node nås fra alle, følger av nøyaktig én komponent med **utgrad** 0. Antall noder per komponent er helt uavhengig av dette."
+ },
+ {
+  "question": "Hvorfor kan du erstatte spørsmål om enkeltnoder med spørsmål om komponenter?",
+  "options": [
+   "Fordi noder i samme SCC når nøyaktig de samme nodene",
+   "Fordi noder i samme SCC har den samme utgraden",
+   "Fordi hver SCC har nøyaktig én kant ut i komponentgrafen",
+   "Fordi SCC-ene alltid er like store når grafen er rettet"
+  ],
+  "explanation": "Ligger $u$ og $v$ i samme komponent, når $u$ alt $v$ når, siden $u$ først kan gå til $v$ — og omvendt. Derfor har alle noder i samme komponent identiske rader i en «hvem når hvem»-tabell. Verken utgrad, antall utkanter eller størrelse er nødvendigvis like."
+ },
+ {
+  "question": "Du skal finne hvor alt ender opp i en rettet graf. Hvor stiller du spørsmålet?",
+  "options": [
+   "I komponentgrafen, ved å se etter utgrad 0",
+   "I den opprinnelige grafen, ved å se etter utgrad 0",
+   "I den snudde grafen, ved å se etter inngrad 0",
+   "I komponentgrafen, ved å se etter størst mulig inngrad"
+  ],
+  "explanation": "En gruppe noder kan peke innbyrdes på hverandre og likevel være et endepunkt, så i den opprinnelige grafen finner du bare de endepunktene som er enkeltnoder. Spørsmålet må derfor alltid stilles i komponentgrafen. Størst inngrad sier ingenting om hvorvidt du kommer deg videre."
+ }
+]

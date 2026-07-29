@@ -1,0 +1,284 @@
+{
+  "id": "in2010-6-4",
+  "courseId": "in2010",
+  "chapterNumber": "6.4",
+  "title": "Huffman-koding",
+  "description": "Huffman-koding som grådig algoritme — bygg treet via prioritetskø, og les av kodelengder fra en frekvenstabell (håndkjøring).",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne bygge et Huffman-tre fra en frekvenstabell for hånd og oppgi kodelengden per symbol",
+    "kunne regne ut totalt antall bits og sammenligne med en fast koding",
+    "kunne forklare hvorfor kodene danner en prefikskode, og hva det betyr for dekoding",
+    "kunne oppgi kjøretiden og si hva størrelsen i den står for"
+  ],
+  "content": [
+    {
+      "id": "in2010-6-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Huffman-koding dukker opp i **4 til 5 av 7 sett (rundt 64 %)**, og den kommer\nnesten alltid i én form:\n\n- **Sjanger E — håndkjøring**, altså at du utfører algoritmen steg for steg og\n  oppgir sluttilstanden. Du får en frekvenstabell og skal oppgi **kodelengden per\n  symbol**, eller det totale antallet bits for en tekst.\n\nDu blir svært sjelden bedt om å skrive Huffman i pseudokode. Du blir bedt om å\n**bygge treet på papir og lese av tallene** — og det er en mekanisk ferdighet du\nkan trene deg feilfri på i løpet av en halvtime.\n\nPrioritet: **kjenne** (nivå 3 av tre — «må sitte» er nivå 1, «kunne» er nivå 2).\nDet betyr ikke at temaet er uviktig, men at det gir få poeng per side lest. Til\ngjengjeld er de poengene svært lette å ta: én korrekt håndkjøring er typisk 2\npoeng, og det er ingen skjønn i vurderingen.\n\n**Slik er kapitlet lagt opp (45 min):** tre løkker med teori, gjennomkjørt\neksempel og oppgaver."
+    },
+    {
+      "id": "in2010-6-4-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 4.4](/in2010/in2010-4-4) — min-heapen som prioritetskø. Huffman bygger\n  treet ved å ta ut de to minste elementene gjentatte ganger, og det er nøyaktig\n  `RemoveMin` to ganger.\n- [kap. 6.3](/in2010/in2010-6-3) — begrepet **grådig algoritme**. Huffman er den\n  tredje grådige algoritmen i denne delen, etter Prim og Kruskal.\n- [kap. 4.1](/in2010/in2010-4-1) — binære trær, og hva det vil si at en node er et\n  blad."
+    },
+    {
+      "id": "in2010-6-4-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-6-4-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall forskjellige symboler i alfabetet |\n| $f(s)$ | frekvensen til symbolet $s$ — hvor mange ganger det forekommer |\n| $\\ell(s)$ | kodelengden til $s$, altså antall bits i kodeordet |\n| $O(n \\log n)$ | Huffmans kjøretid: $n$ sammenslåinger à $O(\\log n)$ |\n| $O(\\log n)$ | `RemoveMin` og `Insert` i prioritetskøen |"
+        },
+        {
+          "id": "in2010-6-4-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Huffman(frekvenser)` | bygger et optimalt prefikstre fra en frekvenstabell | $O(n \\log n)$ |\n| `PQ.RemoveMin()` | tar ut noden med lavest frekvens | $O(\\log n)$ |\n| `PQ.Insert(node)` | legger den sammenslåtte noden tilbake i køen | $O(\\log n)$ |\n| `LesAvKoder(rot)` | traverserer treet og gir kodeordet for hvert symbol | $O(n)$ i et tre med $n$ blad |"
+        },
+        {
+          "id": "in2010-6-4-nt-3",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$\\text{totalt antall bits} = \\sum_{s} f(s) \\cdot \\ell(s)$$\n\nHvert symbol koster kodelengden sin, én gang per forekomst. Dette er tallet\noppgaven ber om når den spør «hvor mange bits trengs for å kode teksten?».\n\n$$\\text{antall interne noder} = n - 1$$\n\nHver sammenslåing lager én ny node og reduserer køens størrelse med én. Starter du\nmed $n$ blad, gjør du derfor nøyaktig $n - 1$ sammenslåinger. Bruk det som\nkontrollregning på håndkjøringen."
+        }
+      ]
+    },
+    {
+      "id": "in2010-6-4-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — hvorfor korte koder til vanlige tegn (ca. 12 min)\n\nTenk deg at du skal sende en lang tekst over en treg linje, og at du selv får\nbestemme hvordan hvert tegn skal kodes som bits.\n\nDen enkle løsningen er å gi alle tegn like lange koder. Har du seks forskjellige\ntegn, holder det med 3 bits hver ($2^3 = 8 \\ge 6$), og en tekst på 50 tegn koster\n150 bits.\n\nMen tegnene er ikke like vanlige. I en norsk tekst er `E` langt hyppigere enn `K`.\nGir du `E` en kode på 1 bit og `K` en på 5, betaler du mer for de sjeldne tegnene\nog mindre for de vanlige — og siden de vanlige forekommer oftest, går regnestykket\ni din favør.\n\nDet er hele ideen i Huffman-koding. Og det er også der den vanligste feilen ligger:\n**kort kode til hyppig symbol**, ikke omvendt."
+    },
+    {
+      "id": "in2010-6-4-def-1",
+      "type": "definition",
+      "title": "Prefikskode",
+      "content": "En koding der **ingen** kodeord er begynnelsen på et annet kodeord.\n\nDet er egenskapen som gjør at en bitstreng kan leses entydig uten skilletegn: når\ndu har lest et gyldig kodeord, vet du at det er ferdig. Har `E` koden `0` og `R`\nkoden `01`, er koden **ikke** en prefikskode — og bitstrengen `01` kunne betydd\nbåde «R» og «E fulgt av noe som begynner på 1».\n\nEt binærtre der alle symbolene ligger i **bladene**, gir automatisk en prefikskode:\ningen vei til et blad er begynnelsen på en annen vei til et blad."
+    },
+    {
+      "id": "in2010-6-4-def-2",
+      "type": "definition",
+      "title": "Huffman-tre",
+      "content": "Et binærtre der hvert symbol ligger i et blad, og kodeordet leses av veien fra\nrota: venstre gren er `0`, høyre gren er `1`.\n\nTreet bygges grådig nedenfra: slå gjentatte ganger sammen de **to minste**\nfrekvensene til én ny node. Resultatet er en optimal prefikskode — ingen annen\nprefikskode gir færre bits totalt."
+    },
+    {
+      "id": "in2010-6-4-img-1",
+      "type": "image",
+      "src": "/images/textbook/in2010/huffman-tre.svg",
+      "alt": "Binært Huffman-tre med rot av frekvens 50. Venstre barn er bladet E med frekvens 20; høyre barn er en intern node med frekvens 30. Denne har bladet R (12) til venstre og en node med frekvens 18 til høyre. Node 18 har bladet S (8) til venstre og en node med frekvens 10 til høyre. Node 10 har en node med frekvens 5 til venstre og bladet T (5) til høyre. Node 5 har bladene K (2) og V (3).",
+      "caption": "Huffman-treet fra eksempel 1. Kodeordet til et symbol leses av veien ned fra rota: venstre er 0, høyre er 1. Det hyppigste symbolet E ligger nærmest rota og får ett enkelt bit; de to sjeldneste, K og V, ligger dypest og får fem."
+    },
+    {
+      "id": "in2010-6-4-th-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Huffman`",
+      "content": "**Antagelser om representasjon.** Frekvenstabellen er en liste av par\n`(symbol, frekvens)` med $n$ oppføringer. Prioritetskøen `PQ` er en min-heap\nordnet på frekvens, med `RemoveMin` og `Insert` i $O(\\log n)$ — se\n[kap. 4.4](/in2010/in2010-4-4). En trenode har feltene `v.frekvens`, `v.venstre`\nog `v.hoyre`; et blad har i tillegg `v.symbol`.\n\n**Prebetingelse:** $n \\ge 2$ og alle frekvenser er positive.\n**Postbetingelse:** returverdien er rota i et binærtre der hvert symbol er et blad,\nog kodene lest av treet danner en optimal prefikskode.\n\n```text\nProcedure Huffman(frekvenser)\n  Input:  liste med n par (symbol, frekvens), alle frekvenser > 0\n  Output: rota i et Huffman-tre\n  PQ = tom min-heap ordnet paa frekvens\n  for hvert par (s, f) i frekvenser:\n      PQ.Insert(nytt blad med symbol s og frekvens f)\n  while PQ inneholder mer enn én node:\n      a = PQ.RemoveMin()\n      b = PQ.RemoveMin()\n      ny = ny node med frekvens a.frekvens + b.frekvens\n      ny.venstre = a\n      ny.hoyre = b\n      PQ.Insert(ny)\n  return PQ.RemoveMin()\n```\n\n**Grunnideen i én setning:** de to sjeldneste symbolene må ligge dypest i treet,\nså de kan trygt slås sammen først — og etterpå er det samme problem med ett symbol\nmindre.\n\n**Kjøretid:** $O(n \\log n)$. Tell operasjonene: $n$ `Insert` i starten à\n$O(\\log n)$ gir $O(n \\log n)$. `while`-løkka kjøres $n - 1$ ganger (hver runde\nreduserer køens størrelse med én, fra $n$ til 1), og hver runde gjør to\n`RemoveMin` og én `Insert`, altså $O(\\log n)$. Summen er $O(n \\log n)$.\n\n**Å lese av kodene** koster en traversering av treet, $O(n)$, og endrer ikke\norden."
+    },
+    {
+      "id": "in2010-6-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Bygg Huffman-treet og les av kodelengdene",
+      "problem": "Et tekstutdrag på 50 tegn bruker bare seks bokstaver, med disse frekvensene:\n$E$ 20, $R$ 12, $S$ 8, $T$ 5, $V$ 3, $K$ 2.\n\nBygg Huffman-treet, oppgi kodelengden til hvert symbol, og finn hvor mange bits\nteksten trenger til sammen.",
+      "solution": "**Steg 1 — sett alle symbolene i prioritetskøen** som blad, ordnet på frekvens.\n\nKøen vises som **heap-array** med indeks fra 0. Etikettene på de sammenslåtte\nnodene, som `KV` og `KTV`, viser hvilke symboler som ligger under noden — de er\nbare navn, ikke en del av algoritmen. Ved lik frekvens tas den alfabetisk minste\netiketten først, slik at sporingen kan gjenskapes nøyaktig.\n\n**Steg 2 — slå sammen de to minste, gjentatte ganger:**\n\n| Steg | To minste tatt ut | Ny node lagt inn | Kø etter (heap-array) |\n|---|---|---|---|\n| 1 | (2, K) og (3, V) | (5, KV) | `(5, KV), (5, T), (12, R), (20, E), (8, S)` |\n| 2 | (5, KV) og (5, T) | (10, KTV) | `(8, S), (10, KTV), (12, R), (20, E)` |\n| 3 | (8, S) og (10, KTV) | (18, KSTV) | `(12, R), (20, E), (18, KSTV)` |\n| 4 | (12, R) og (18, KSTV) | (30, KRSTV) | `(20, E), (30, KRSTV)` |\n| 5 | (20, E) og (30, KRSTV) | (50, EKRSTV) | `(50, EKRSTV)` |\n\nFem sammenslåinger for seks symboler. Kontrollregning: $n - 1 = 6 - 1 = 5$.\nStemmer.\n\n**Steg 3 — les av kodene** ved å gå ned fra rota: venstre er `0`, høyre er `1`.\nI hver sammenslåing over er den **først uttatte** noden venstre barn.\n\n| Symbol | Frekvens | Kodeord | Kodelengde | Bits (frekvens × lengde) |\n|---|---|---|---|---|\n| `E` | 20 | `0` | 1 | 20 |\n| `K` | 2 | `11100` | 5 | 10 |\n| `R` | 12 | `10` | 2 | 24 |\n| `S` | 8 | `110` | 3 | 24 |\n| `T` | 5 | `1111` | 4 | 20 |\n| `V` | 3 | `11101` | 5 | 15 |\n| **Sum** | 50 |  |  | **113** |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nE: 1 bit    R: 2 bits   S: 3 bits\nT: 4 bits   V: 5 bits   K: 5 bits\nTotalt: 113 bits\n```\n\n**Sammenligningen som viser poenget.** Med fast kodelengde trengs 3 bits per tegn\n(seks symboler krever minst 3, siden $2^2 = 4 < 6$), altså\n$50 \\cdot 3 = 150$ bits. Huffman bruker 113. Det er en besparelse på 37 bits,\neller nesten 25 %.\n\n**Se på rekkefølgen på kodelengdene:** 1, 2, 3, 4, 5, 5 — de følger frekvensene\nnøyaktig omvendt. Det er ikke tilfeldig, det er hele algoritmen. Får du en tabell\nder et sjeldent symbol har kortere kode enn et hyppig, har du gjort en feil.\n\n**Fellenote.** Fella her er å bytte om: kort kode til det sjeldneste symbolet.\nKontrollen tar fem sekunder — sorter symbolene etter frekvens og sjekk at\nkodelengdene går motsatt vei."
+    },
+    {
+      "id": "in2010-6-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger E — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir sluttilstanden.) Bruk kodetabellen fra eksempel 1.\n\n**a)** Hvor mange bits trengs for å kode strengen `RESE`?\n**b)** Bitstrengen `100110` skal dekodes. Hvilken tekst er det?\n**c)** Hvorfor trenger du ingen skilletegn mellom kodeordene?",
+        "solution": "Kodetabellen fra eksempel 1: `E = 0`, `R = 10`, `S = 110`, `T = 1111`,\n`V = 11101`, `K = 11100`.\n\n**a)** $R$ (2) + $E$ (1) + $S$ (3) + $E$ (1) = **7 bits**. Bitstrengen er\n`10` + `0` + `110` + `0` = `1001100`.\n\n**b)** Les fra venstre, ett bit av gangen, og stopp så snart du har et gyldig\nkodeord:\n\n- `1` — ikke et kodeord. `10` — det er `R`. Igjen: `0110`.\n- `0` — det er `E`. Igjen: `110`.\n- `1` — nei. `11` — nei. `110` — det er `S`.\n\nTeksten er **`RES`**.\n\n**c)** Fordi kodene danner en **prefikskode**: ingen kodeord er begynnelsen på et\nannet. Når du har lest et gyldig kodeord, kan det ikke være starten på noe lengre,\nså du vet at det er ferdig.\n\nEgenskapen kommer gratis av at alle symbolene ligger i **bladene**: veien til ett\nblad kan aldri være begynnelsen på veien til et annet blad.",
+        "hints": [
+          "Slå opp kodelengden til hvert tegn i tabellen og legg sammen.",
+          "Del b): les bit for bit, og stopp så snart du kjenner igjen et kodeord."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-4-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — håndkjøringen, steg for steg (ca. 15 min)\n\nDette er den delen som gir poeng på eksamen, så den er verdt å gjøre mekanisk.\nOppskriften er fire steg, og den er den samme hver gang."
+    },
+    {
+      "id": "in2010-6-4-th-2",
+      "type": "theorem",
+      "title": "Håndkjøringsoppskriften for Huffman",
+      "content": "1. **Skriv opp alle frekvensene sortert stigende.** Da ser du med én gang hvilke\n   to som skal slås sammen først.\n2. **Slå sammen de to minste.** Summen blir en ny node, og den settes inn på riktig\n   plass i den sorterte lista. Gjenta til det er én node igjen.\n3. **Tell sammenslåingene:** det skal være nøyaktig $n - 1$ av dem.\n4. **Les av kodelengden per symbol** som antall sammenslåinger symbolet var med i,\n   altså dybden i treet.\n\n**Snarveien for punkt 4:** du trenger ofte ikke tegne treet i det hele tatt.\nKodelengden til et symbol er antallet ganger frekvensen dets inngikk i en\nsammenslåing. Fulgte $K$ med i sammenslåing 1, 2, 3, 4 og 5, er kodelengden 5.\n\n**Totalt antall bits:**\n\n$$\\sum_{s} f(s) \\cdot \\ell(s)$$\n\nMerk at dette tallet er entydig selv når treet ikke er det. Er to frekvenser like,\nkan sammenslåingene gjøres i forskjellig rekkefølge, og du kan få forskjellige\nkodeord — men den totale bitkostnaden er alltid den samme, og det er den sensor\nregner på."
+    },
+    {
+      "id": "in2010-6-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Håndkjøring uten å tegne treet",
+      "problem": "Fem symboler har frekvensene $L$ 12, $O$ 9, $S$ 4, $T$ 3, $U$ 2. Oppgi\nkodelengden til hvert symbol og totalt antall bits, uten å tegne treet.",
+      "solution": "**Sortert stigende:** 2 ($U$), 3 ($T$), 4 ($S$), 9 ($O$), 12 ($L$).\n\n| Steg | To minste tatt ut | Ny node lagt inn | Kø etter (heap-array) |\n|---|---|---|---|\n| 1 | (2, U) og (3, T) | (5, TU) | `(4, S), (5, TU), (9, O), (12, L)` |\n| 2 | (4, S) og (5, TU) | (9, STU) | `(9, O), (12, L), (9, STU)` |\n| 3 | (9, O) og (9, STU) | (18, OSTU) | `(12, L), (18, OSTU)` |\n| 4 | (12, L) og (18, OSTU) | (30, LOSTU) | `(30, LOSTU)` |\n\n**Kodelengdene, lest som antall sammenslåinger hvert symbol var med i:**\n\n- $U$ var med i sammenslåing 1, 2, 3 og 4: lengde 4.\n- $T$ var med i 1, 2, 3 og 4: lengde 4.\n- $S$ var med i 2, 3 og 4: lengde 3.\n- $O$ var med i 3 og 4: lengde 2.\n- $L$ var med i 4: lengde 1.\n\n| Symbol | Frekvens | Kodeord | Kodelengde | Bits (frekvens × lengde) |\n|---|---|---|---|---|\n| `L` | 12 | `0` | 1 | 12 |\n| `O` | 9 | `10` | 2 | 18 |\n| `S` | 4 | `110` | 3 | 12 |\n| `T` | 3 | `1111` | 4 | 12 |\n| `U` | 2 | `1110` | 4 | 8 |\n| **Sum** | 30 |  |  | **62** |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nL: 1 bit    O: 2 bits   S: 3 bits   T: 4 bits   U: 4 bits\nTotalt: 62 bits\n```\n\n**Kontrollregningene, begge verdt å gjøre:**\n\n1. **Antall sammenslåinger:** 4, og $n - 1 = 5 - 1 = 4$. Stemmer.\n2. **Kodelengdene mot frekvensene:** frekvensene stiger $2, 3, 4, 9, 12$, og\n   lengdene synker $4, 4, 3, 2, 1$. Motsatt vei hele veien, som de skal.\n\n**Sammenligning med fast kodelengde:** fem symboler krever 3 bits hver, altså\n$30 \\cdot 3 = 90$ bits mot Huffmans 62.\n\n**Merk hvorfor snarveien virker.** Hver gang en node inngår i en sammenslåing,\nkommer den ett nivå lenger ned fra rota, og hvert nivå er ett bit. Å telle\nsammenslåinger er derfor nøyaktig det samme som å telle dybde i treet — og det er\nmye raskere å gjøre riktig under tidspress."
+    },
+    {
+      "id": "in2010-6-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E.) Fem symboler har frekvensene $A$ 15, $B$ 7, $C$ 6, $D$ 6, $E$ 5.\n\n**a)** Kjør Huffmans algoritme og oppgi hvilke noder som slås sammen i hvert steg.\n**b)** Oppgi kodelengden til hvert symbol.\n**c)** Hvor mange bits trengs totalt, og hvor mye sparer du mot fast\nkodelengde?",
+        "solution": "**a)** Sortert stigende: 5 ($E$), 6 ($C$), 6 ($D$), 7 ($B$), 15 ($A$).\n\nMerk at $C$ og $D$ har samme frekvens. Da kan sammenslåingene gjøres i forskjellig\nrekkefølge, og kodeordene kan bli forskjellige — men kodelengdene og totalen blir\nde samme uansett. Her tas den alfabetisk første ved likhet.\n\n| Steg | To minste tatt ut | Ny node lagt inn | Kø etter (heap-array) |\n|---|---|---|---|\n| 1 | (5, E) og (6, C) | (11, CE) | `(6, D), (11, CE), (7, B), (15, A)` |\n| 2 | (6, D) og (7, B) | (13, BD) | `(11, CE), (15, A), (13, BD)` |\n| 3 | (11, CE) og (13, BD) | (24, BCDE) | `(15, A), (24, BCDE)` |\n| 4 | (15, A) og (24, BCDE) | (39, ABCDE) | `(39, ABCDE)` |\n\n**b)**\n\n| Symbol | Frekvens | Kodeord | Kodelengde | Bits (frekvens × lengde) |\n|---|---|---|---|---|\n| `A` | 15 | `0` | 1 | 15 |\n| `B` | 7 | `111` | 3 | 21 |\n| `C` | 6 | `101` | 3 | 18 |\n| `D` | 6 | `110` | 3 | 18 |\n| `E` | 5 | `100` | 3 | 15 |\n| **Sum** | 39 |  |  | **87** |\n\n**Kodelengder: $A$ 1, $B$ 3, $C$ 3, $D$ 3, $E$ 3.**\n\n**c)** Totalt **87 bits**. Med fast kodelengde trengs 3 bits per symbol (fem\nsymboler krever minst 3), altså $39 \\cdot 3 = 117$ bits. Besparelsen er 30 bits,\neller rundt 26 %.\n\n**Merk at fire av fem symboler fikk lengde 3** — det samme som fast kodelengde\nville gitt. Hele gevinsten ligger i at $A$, som er hyppigst, kom ned i 1 bit. Når\nfrekvensene er nokså jevne, gir Huffman lite; når de er svært skjeve, gir den\nmye.",
+        "hints": [
+          "Sorter frekvensene stigende først — da ser du hvilke to som slås sammen.",
+          "Kodelengden til et symbol er antall sammenslåinger det var med i."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-4-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å gi kortest kode til det sjeldneste symbolet.** Dette er den klassiske\n  ombyttingen, og den ødelegger hele svaret. **Kontrollen:** sorter symbolene etter\n  frekvens og sjekk at kodelengdene går motsatt vei.\n- **Å slå sammen andre enn de to minste.** Algoritmen er grådig og har ingen\n  unntak: alltid de to laveste frekvensene i køen, også når den ene er en node du\n  nettopp laget.\n- **Å blande kodelengde og kodeord.** Spør oppgaven om kodelengden, er svaret et\n  tall (4). Spør den om kodeordet, er svaret en bitstreng (`1110`). Les\n  oppgaveteksten nøye — det er sensors mest gjentatte råd.\n- **Å regne totalbits feil.** Formelen er $\\sum_s f(s) \\cdot \\ell(s)$ — frekvens\n  ganger lengde, summert. Ikke summen av kodelengdene alene, og ikke summen av\n  frekvensene.\n- **Å tro at treet er entydig.** Er to frekvenser like, finnes flere gyldige\n  Huffman-trær. Kodeordene kan variere; totalen kan ikke. Oppgir du en gyldig\n  tabell med riktig total, er svaret riktig selv om det ikke ser ut som fasiten.\n- **Å glemme kontrollen $n - 1$.** Med $n$ symboler skal det være nøyaktig $n - 1$\n  sammenslåinger. Har du flere eller færre, har du mistet eller duplisert en node\n  underveis.\n\nOg den gjennomgående: **å oppgi kjøretiden $O(n)$.** Huffman er $O(n \\log n)$ —\nlogaritmefaktoren kommer fra prioritetskøen, og uten den kunne du ikke funnet de\nto minste billig."
+    },
+    {
+      "id": "in2010-6-4-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — hvorfor grådighet virker her (ca. 10 min)\n\nHuffman er den tredje grådige algoritmen i Del 6. Prim tar alltid den letteste\nkanten ut av treet; Kruskal tar alltid den letteste kanten som ikke lager sykel;\nHuffman slår alltid sammen de to minste frekvensene.\n\nAlle tre har det til felles at det lokale valget aldri må gjøres om. Det er ikke\nselvsagt — for de fleste optimeringsproblemer er grådighet feil. At det virker\nher, er et resultat du skal **kjenne til**, ikke bevise."
+    },
+    {
+      "id": "in2010-6-4-th-3",
+      "type": "theorem",
+      "title": "Huffman gir en optimal prefikskode",
+      "content": "Bør kjenne til. Ingen prefikskode gir færre bits totalt enn den Huffmans algoritme\nfinner.\n\n**Intuisjonen bak, i to setninger.** De to sjeldneste symbolene må ligge dypest i\net optimalt tre — ellers kunne du byttet et sjeldent symbol med et hyppigere som\nlå dypere, og spart bits. Og siden de er dypest, kan de like gjerne være søsken,\nfor da er treet over dem det samme problemet med ett symbol færre.\n\n**Det du skal kunne på eksamen** er påstanden og at algoritmen er grådig — ikke\nbeviset. Selve beviset er ikke IN2010-pensum.\n\n**Merk grensen for hva «optimal» betyr:** optimal blant **prefikskoder med ett fast\nkodeord per symbol**. Andre komprimeringsmetoder kan gjøre det bedre ved å utnytte\nmønstre over flere tegn — men det er utenfor pensum, og utenfor det Huffman lover."
+    },
+    {
+      "id": "in2010-6-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — seks statuskoder fra en sensor",
+      "problem": "En sensor sender en av seks statuskoder hvert minutt. Over en time ble kodene talt\nopp slik: $N$ 25, $I$ 14, $G$ 9, $H$ 6, $J$ 4, $Y$ 2.\n\n**a)** Bygg Huffman-treet og oppgi kodelengden per statuskode.\n**b)** Hvor mange bits trengs for hele timen?\n**c)** Hvor mye spares mot en fast koding, og hva ville skjedd hvis alle seks\nkodene forekom like ofte?",
+      "solution": "**a)** Sortert stigende: 2 ($Y$), 4 ($J$), 6 ($H$), 9 ($G$), 14 ($I$), 25 ($N$).\nSum: 60 — én kode per minutt i en time. Stemmer.\n\n| Steg | To minste tatt ut | Ny node lagt inn | Kø etter (heap-array) |\n|---|---|---|---|\n| 1 | (2, Y) og (4, J) | (6, JY) | `(6, H), (6, JY), (14, I), (25, N), (9, G)` |\n| 2 | (6, H) og (6, JY) | (12, HJY) | `(9, G), (12, HJY), (14, I), (25, N)` |\n| 3 | (9, G) og (12, HJY) | (21, GHJY) | `(14, I), (25, N), (21, GHJY)` |\n| 4 | (14, I) og (21, GHJY) | (35, GHIJY) | `(25, N), (35, GHIJY)` |\n| 5 | (25, N) og (35, GHIJY) | (60, GHIJNY) | `(60, GHIJNY)` |\n\nFem sammenslåinger, og $n - 1 = 6 - 1 = 5$. Stemmer.\n\n| Symbol | Frekvens | Kodeord | Kodelengde | Bits (frekvens × lengde) |\n|---|---|---|---|---|\n| `G` | 9 | `110` | 3 | 27 |\n| `H` | 6 | `1110` | 4 | 24 |\n| `I` | 14 | `10` | 2 | 28 |\n| `J` | 4 | `11111` | 5 | 20 |\n| `N` | 25 | `0` | 1 | 25 |\n| `Y` | 2 | `11110` | 5 | 10 |\n| **Sum** | 60 |  |  | **134** |\n\n**Kodelengder: $N$ 1, $I$ 2, $G$ 3, $H$ 4, $J$ 5, $Y$ 5.**\n\n**b)** **134 bits** for hele timen.\n\n**c)** Fast koding trenger 3 bits per melding (seks koder krever minst 3, siden\n$2^2 = 4 < 6$), altså $60 \\cdot 3 = 180$ bits. Huffman bruker\n134, en besparelse på 46 bits,\neller rundt 26 %.\n\n**Hadde alle seks kodene forekommet like ofte** — 10 hver — ville Huffman gitt\nkodelengder på 2, 2, 3, 3, 3, 3 (treet den bygger på seks like frekvenser), og\ntotalt $10 \\cdot (2 + 2 + 3 + 3 + 3 + 3) = 160$ bits mot fast kodings 180. En liten\ngevinst, men langt mindre enn de 46 bitene her.\n\n**Momentet, og det som gir det siste poenget:** Huffman tjener på **skjevhet**.\nJo skjevere frekvensfordelingen er, jo mer sparer du. Er alle symbolene like\nvanlige, er det nesten ingenting å hente — og det er verdt å si i en besvarelse,\nfordi det viser at du forstår hva algoritmen faktisk utnytter.\n\n**Kjøretid:** $O(n \\log n)$, der $n = 6$ er antall forskjellige statuskoder — ikke\nantall meldinger. Å blande de to er en fast forveksling: alfabetets størrelse er\ndet som styrer kostnaden ved å bygge treet."
+    },
+    {
+      "id": "in2010-6-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — kjøretids- og teorifakta, altså sant/usant som skal sitte sikkert.)\nMarker sant eller usant, og begrunn hvert svar med én setning.\n\n**a)** I et Huffman-tre har det hyppigste symbolet alltid den korteste koden.\n**b)** Huffman-treet er entydig bestemt av frekvenstabellen.\n**c)** Huffmans kjøretid er $O(n \\log n)$, der $n$ er antall forskjellige symboler.\n**d)** En Huffman-kode er alltid en prefikskode.\n**e)** Huffman lønner seg mest når alle symbolene forekommer like ofte.",
+        "solution": "**a) Sant.** Symbolene med høyest frekvens havner nærmest rota, fordi de blir slått\nsammen sist. (Er to frekvenser like, kan de bytte plass, men lengdene blir de\nsamme.)\n\n**b) Usant.** Er to frekvenser like, kan sammenslåingene gjøres i forskjellig\nrekkefølge, og kodeordene kan bli forskjellige. Den totale bitkostnaden er derimot\nalltid den samme.\n\n**c) Sant.** $n$ innsettinger i prioritetskøen pluss $n - 1$ sammenslåinger, hver\nmed to `RemoveMin` og én `Insert` à $O(\\log n)$. Merk at $n$ er alfabetets\nstørrelse, ikke tekstens lengde.\n\n**d) Sant.** Alle symbolene ligger i bladene, og veien til ett blad kan aldri være\nbegynnelsen på veien til et annet.\n\n**e) Usant.** Det er motsatt: Huffman tjener på **skjeve** fordelinger. Er alle\nsymbolene like vanlige, blir kodelengdene nesten like, og gevinsten mot fast koding\ner liten.\n\n**Merk fasitmønsteret:** sant, usant, sant, sant, usant. Under en\nantigjettings-skalering må hvert punkt sitte — å gjette på halvparten gir null\nnetto.",
+        "hints": [
+          "Punkt b): hva skjer hvis to symboler har nøyaktig samme frekvens?",
+          "Punkt e): hva er det Huffman egentlig utnytter i frekvenstabellen?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger E, krevende.) En melding består av sju symboler med frekvensene 1, 1, 2,\n3, 5, 8, 13.\n\n**a)** Hvor mange sammenslåinger gjør algoritmen?\n**b)** Bygg treet og oppgi kodelengden til hvert symbol.\n**c)** Hva er totalt antall bits, og hva blir gevinsten mot fast kodelengde?\n**d)** Hva er spesielt med denne frekvensfordelingen, og hva gjør den med treets\nform?",
+        "solution": "**a)** $n - 1 = 7 - 1 = 6$ sammenslåinger.\n\n**b)** Vi følger oppskriften og holder lista sortert stigende:\n\n| Steg | To minste | Ny node | Lista etter |\n|---|---|---|---|\n| 1 | 1 og 1 | 2 | 2, 2, 3, 5, 8, 13 |\n| 2 | 2 og 2 | 4 | 3, 4, 5, 8, 13 |\n| 3 | 3 og 4 | 7 | 5, 7, 8, 13 |\n| 4 | 5 og 7 | 12 | 8, 12, 13 |\n| 5 | 8 og 12 | 20 | 13, 20 |\n| 6 | 13 og 20 | 33 | 33 |\n\nKodelengden er antall sammenslåinger symbolet var med i:\n\n| Frekvens | Var med i steg | Kodelengde |\n|---|---|---|\n| 1 | 1, 2, 3, 4, 5, 6 | 6 |\n| 1 | 1, 2, 3, 4, 5, 6 | 6 |\n| 2 | 2, 3, 4, 5, 6 | 5 |\n| 3 | 3, 4, 5, 6 | 4 |\n| 5 | 4, 5, 6 | 3 |\n| 8 | 5, 6 | 2 |\n| 13 | 6 | 1 |\n\n**c)** Totalt antall bits:\n\n$$1 \\cdot 6 + 1 \\cdot 6 + 2 \\cdot 5 + 3 \\cdot 4 + 5 \\cdot 3 + 8 \\cdot 2 + 13 \\cdot 1 = 6 + 6 + 10 + 12 + 15 + 16 + 13 = 78$$\n\nMed fast kodelengde trengs 3 bits per symbol (sju symboler krever minst 3, siden\n$2^2 = 4 < 7$), og meldingen har $1+1+2+3+5+8+13 = 33$ symboler, altså\n$33 \\cdot 3 = 99$ bits. Gevinsten er 21 bits, rundt 21 %.\n\n**d)** Frekvensene er **Fibonacci-tall**: hvert tall er summen av de to foregående.\nDet gjør at den nye noden i hvert steg blir nøyaktig like stor som det neste\nsymbolet i lista — og derfor blir treet så skjevt som et binærtre kan bli: en\n**kjede**, der hvert nivå har ett blad og én intern node.\n\nKodelengdene blir 1, 2, 3, 4, 5, 6, 6 — så jevnt stigende som mulig. Dette er det\nverste tilfellet for treets **høyde**: med $n$ symboler kan en Huffman-kode ha\nkodeord på opptil $n - 1$ bits.\n\n**Momentet:** Huffman garanterer lavest totalkostnad, ikke lav høyde. En\nfrekvensfordeling som vokser eksponentielt, gir et helt ubalansert tre — og\nkodene blir likevel optimale.",
+        "hints": [
+          "Hold lista sortert etter hvert steg, og sett den nye summen inn på riktig plass.",
+          "Se på tallrekken 1, 1, 2, 3, 5, 8, 13 — kjenner du den igjen?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-4-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-6-4-def-3",
+      "type": "definition",
+      "title": "Huffmans algoritme",
+      "content": "Bygger en optimal prefikskode: legg alle symbolene i en min-heap ordnet på\nfrekvens, slå gjentatte ganger sammen de **to minste** til én ny node, og legg\nnoden tilbake.\n\nKjøretid $O(n \\log n)$, der $n$ er antall forskjellige symboler — ikke tekstens\nlengde. Grådig algoritme, som Prim og Kruskal."
+    },
+    {
+      "id": "in2010-6-4-def-4",
+      "type": "definition",
+      "title": "Kodelengde per symbol",
+      "content": "Dybden til symbolets blad i Huffman-treet, altså antall bits i kodeordet.\n\n**Snarveien i håndkjøring:** kodelengden er antall sammenslåinger symbolet var med\ni. Du trenger ikke tegne treet for å svare på eksamen."
+    },
+    {
+      "id": "in2010-6-4-def-5",
+      "type": "definition",
+      "title": "Totalt antall bits",
+      "content": "$$\\sum_{s} f(s) \\cdot \\ell(s)$$\n\nFrekvens ganger kodelengde, summert over alle symboler. Dette tallet er entydig\nselv når treet ikke er det — er to frekvenser like, kan kodeordene variere, men\ntotalen er alltid den samme."
+    },
+    {
+      "id": "in2010-6-4-def-6",
+      "type": "definition",
+      "title": "Antall sammenslåinger",
+      "content": "Med $n$ symboler gjør Huffmans algoritme nøyaktig $n - 1$ sammenslåinger, og treet\nfår $n - 1$ interne noder.\n\nHver runde tar ut to noder og setter inn én, så køen krymper med én per runde: fra\n$n$ til 1. Bruk tallet som kontrollregning på håndkjøringen."
+    },
+    {
+      "id": "in2010-6-4-def-7",
+      "type": "definition",
+      "title": "Huffman-treet er ikke alltid entydig",
+      "content": "Er to frekvenser like, kan sammenslåingene gjøres i forskjellig rekkefølge, og\nkodeordene kan bli forskjellige.\n\nKodelengdene og den totale bitkostnaden er derimot alltid de samme. Leverer du en\ngyldig tabell med riktig total, er svaret riktig selv om det ikke ligner\nfasiten."
+    },
+    {
+      "id": "in2010-6-4-def-8",
+      "type": "definition",
+      "title": "Når lønner Huffman seg?",
+      "content": "Når frekvensfordelingen er **skjev**. Jo mer noen symboler dominerer, jo mer\nsparer du mot en fast koding.\n\nEr alle symbolene like vanlige, blir kodelengdene nesten like, og gevinsten er\nliten. Det er ofte det siste delpoenget i en oppgave: å si hva algoritmen faktisk\nutnytter."
+    },
+    {
+      "id": "in2010-6-4-def-9",
+      "type": "definition",
+      "title": "Fast kodelengde som referanse",
+      "content": "Med $n$ forskjellige symboler trengs $\\lceil \\log_2 n \\rceil$ bits per symbol i\nen fast koding — 3 bits for 5 til 8 symboler, 4 bits for 9 til 16.\n\nDet er tallet du sammenligner Huffman med når oppgaven spør «hvor mye spares?»."
+    },
+    {
+      "id": "in2010-6-4-def-10",
+      "type": "definition",
+      "title": "Grådig algoritme i Del 6",
+      "content": "Prim, Kruskal og Huffman er alle grådige: de tar det beste lokale valget i hvert\nsteg og angrer aldri.\n\nFor alle tre er grådighet beviselig optimalt. Det er ikke selvsagt — for de fleste\noptimeringsproblemer er grådighet feil — og at det virker her, er et resultat du\nskal kjenne, ikke bevise."
+    },
+    {
+      "id": "in2010-6-4-def-11",
+      "type": "definition",
+      "title": "Huffmans høyde i verste tilfelle",
+      "content": "Med $n$ symboler kan et kodeord bli opptil $n - 1$ bits langt.\n\nDet skjer når frekvensene vokser slik at hver ny sammenslåing er like stor som det\nneste symbolet — for eksempel Fibonacci-tallene 1, 1, 2, 3, 5, 8, 13. Treet blir da\nen kjede. Huffman garanterer lavest **totalkostnad**, ikke lav høyde."
+    },
+    {
+      "id": "in2010-6-4-def-12",
+      "type": "definition",
+      "title": "Dekoding av en Huffman-kode",
+      "content": "Les bitstrengen fra venstre, ett bit av gangen, og følg treet ned fra rota. Når du\nnår et blad, skriv ut symbolet og start på rota igjen.\n\nKostnaden er ett steg per bit, altså $O(\\text{antall bits})$. Prefiks-egenskapen er\ndet som gjør at du aldri trenger å lese fram og tilbake."
+    },
+    {
+      "id": "in2010-6-4-def-13",
+      "type": "definition",
+      "title": "Prefikskode",
+      "content": "En koding der ingen kodeord er begynnelsen på et annet. Det gjør bitstrengen\nentydig lesbar uten skilletegn.\n\nEt binærtre med alle symbolene i **bladene** gir automatisk en prefikskode. Ligger\net symbol i en intern node, brytes egenskapen, og koden blir tvetydig."
+    },
+    {
+      "id": "in2010-6-4-def-14",
+      "type": "definition",
+      "title": "Hva $n$ er i Huffmans kjøretid",
+      "content": "$n$ er antall **forskjellige symboler** i alfabetet, ikke antall tegn i teksten.\n\nÅ kode en tekst på en million tegn med seks forskjellige symboler koster\n$O(6 \\log 6)$ for å bygge treet, pluss ett oppslag per tegn. Å blande de to\nstørrelsene er en fast forveksling — og felle **#10**, kjøretid med udefinerte\nstørrelser."
+    },
+    {
+      "id": "in2010-6-4-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-6-4-rep-1",
+          "type": "text",
+          "content": "**Håndkjøringsoppskriften, fire steg:**\n\n1. Skriv frekvensene sortert stigende.\n2. Slå sammen de to minste; sett summen inn på riktig plass. Gjenta.\n3. Kontrollér at du gjorde nøyaktig $n - 1$ sammenslåinger.\n4. Kodelengden per symbol = antall sammenslåinger symbolet var med i.\n\n**Formelen som må sitte:**\n\n$$\\text{totalt antall bits} = \\sum_{s} f(s) \\cdot \\ell(s)$$\n\n**Pseudokoden, i kortform:**\n\n```text\nProcedure Huffman(frekvenser)\n  Input:  n par (symbol, frekvens)\n  Output: rota i et Huffman-tre\n  PQ = min-heap med ett blad per symbol, ordnet paa frekvens\n  while PQ inneholder mer enn én node:\n      a = PQ.RemoveMin()\n      b = PQ.RemoveMin()\n      ny = ny node med frekvens a.frekvens + b.frekvens\n      ny.venstre = a; ny.hoyre = b\n      PQ.Insert(ny)\n  return PQ.RemoveMin()\n```\n\n**Kjøretiden:** $O(n \\log n)$, der $n$ er antall **forskjellige symboler**.\n\n**To kontroller som tar fem sekunder hver:** gjorde du $n - 1$ sammenslåinger? Og\ngår kodelengdene motsatt vei av frekvensene?\n\n**Videre:** [kap. 6.5](/in2010/in2010-6-5) driller Huffman-håndkjøringen sammen med\nkorteste-vei-matrisen og MST-modelleringen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
