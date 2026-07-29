@@ -1,339 +1,339 @@
 {
- "id": "med1100-7-3",
- "courseId": "med1100",
- "chapterNumber": "7.3",
- "title": "Hardy-Weinberg og populasjonsgenetikk",
- "description": "Hardy-Weinberg-likevekten og bærerfrekvens-beregning — med de faste fellene rundt friske bærere og letale alleler.",
- "estimatedMinutes": 55,
- "competenceGoals": [
-  "kunne gå fra oppgitt forekomst til allelfrekvens og bærerfrekvens med hvert regnesteg vist og kontrollsummen med",
-  "kunne skille allelfrekvens fra genotypefrekvens og si hvilken av dem et oppgitt tall er",
-  "kunne ramse opp de fem forutsetningene og peke ut hvilken som er brutt i et gitt tilfelle",
-  "kunne begrunne med tall hvorfor et sjeldent recessivt allel synker svært langsomt i frekvens selv under sterk seleksjon"
- ],
- "content": [
-  {
-   "id": "med1100-7-3-tip-eksamensvinkel",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "**Hvilken eksamen trener du her?** **Blokk 2** — den seks timer lange skriftlige eksamenen. Modulen har tre separate **blokkeksamener** med ulikt format, som alle må bestås hver for seg. Dette kapitlet hører til genetikkoppgaven, **oppgave E** i den stabile rekkefølgen.\n\n**Hvor ofte kommer det?** Hardy-Weinberg-beregning — å gå fra hvor vanlig en tilstand er til hvor mange som bærer allelet uten å vise noe — er observert i **rundt 7 av de 14 leste sittingene** av blokk 2 (høsten 2022 til høsten 2025). Det er altså rundt halvparten av gangene, og når det kommer, er det som regel en kort deloppgave inne i den større genetikkoppgaven.\n\n**I hvilken form?** **B2-REGN** — regneoppgaven i blokk 2. Du får oppgitt hvor vanlig tilstanden er, og skal finne allelfrekvensen og bærerfrekvensen. Utregningen skal vises, og svaret skal tolkes i klartekst: «rundt én av femti er bærer» sier mer enn «0,0198».\n\n**Ingen minuspoeng her.** Kapitlet trener ingen **rutenett** — ingen avkryssingstabell der du krysser riktig/galt. Det er bare på rutenettene i blokk 2 at **negativ retting** gjelder, og en regneoppgave har ingen slik straff. Skriv alt du kan begrunne.\n\n**Hjelpemidler:** enkel kalkulator, ingen formelsamling. Du må kunne kvadratrot på kalkulatoren, og du må huske de tre linjene med formler. De er korte.\n\n**Hva sensor ser etter:**\n\n- At du skiller **allelfrekvens** fra **genotypefrekvens**. Det er $q$ som er allelfrekvensen, og $q^2$ som er andelen affiserte. Å bytte om på dem er den ene store fellen.\n- At du husker de **friske bærerne**. Feilkode **E14** er å glemme at de aller fleste sykdomsallelene ligger hos friske heterozygote, og at letale recessive alleler dermed ikke ligger i likevekt.\n- At du sier **når** likevekten gjelder. En beregning uten et ord om forutsetningene er en beregning uten kontroll."
-  },
-  {
-   "id": "med1100-7-3-forkunnskaper",
-   "type": "text",
-   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 7.2](/med1100/med1100-7-2). Her er det du trenger, ferdig oppfrisket:\n\n**1. Fra [kap. 7.2](/med1100/med1100-7-2): allel, genotype og bærer.** Et **allel** er en variant av genet. På et autosom har du to av dem. **Homozygot** betyr to like ($AA$ eller $aa$), **heterozygot** betyr to ulike ($Aa$). Ved et recessivt mønster er den heterozygote en **frisk bærer**: hun viser ingenting, men gir sykdomsallelet videre til halvparten av barna sine.\n\n**2. Fra [kap. 7.2](/med1100/med1100-7-2): produktregelen.** For uavhengige hendelser ganges sannsynlighetene:\n\n$$P(\\text{begge}) = P(\\text{den ene}) \\cdot P(\\text{den andre})$$\n\nDet er nettopp denne regelen hele Hardy-Weinberg-likningen er bygd av — den beskriver hva som skjer når to tilfeldig valgte kjønnsceller møtes.\n\n**3. Fra [kap. 7.2](/med1100/med1100-7-2): to bærere gir $\\tfrac14$ affiserte barn.** Den brøken kommer tilbake i hvert eneste regnestykke her.\n\n**4. Fra videregående.** Grunnlaget i nedarvingsmønstre og allelfrekvenser ligger i [Avanserte arvemønstre (Biologi 2)](/biologi-2/biologi-2-1-7).\n\nBegrepene **allelfrekvens**, **genotypefrekvens**, **likevekt**, **seleksjon** og **genetisk drift** innføres fra grunnen av under. Du trenger ingen forkunnskaper utover å kunne ta kvadratrot på kalkulator."
-  },
-  {
-   "id": "med1100-7-3-nokkelfakta",
-   "type": "collapsible",
-   "title": "Nøkkelfakta- og formelliste",
-   "buttonText": "Vis nøkkelfakta og formler",
-   "content": [
+  "id": "med1100-7-3",
+  "courseId": "med1100",
+  "chapterNumber": "7.3",
+  "title": "Hardy-Weinberg og populasjonsgenetikk",
+  "description": "Hardy-Weinberg-likevekten og bærerfrekvens-beregning — med de faste fellene rundt friske bærere og letale alleler.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne gå fra oppgitt forekomst til allelfrekvens og bærerfrekvens med hvert regnesteg vist og kontrollsummen med",
+    "kunne skille allelfrekvens fra genotypefrekvens og si hvilken av dem et oppgitt tall er",
+    "kunne ramse opp de fem forutsetningene og peke ut hvilken som er brutt i et gitt tilfelle",
+    "kunne begrunne med tall hvorfor et sjeldent recessivt allel synker svært langsomt i frekvens selv under sterk seleksjon"
+  ],
+  "content": [
     {
-     "id": "med1100-7-3-nokkelfakta-tekst",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $p$ | frekvensen av det vanlige allelet $A$ | andel (0–1) |\n| $q$ | frekvensen av sykdomsallelet $a$ | andel (0–1) |\n| $p^2$ | andelen homozygote for det vanlige allelet ($AA$) | andel (0–1) |\n| $2pq$ | andelen heterozygote — **bærerfrekvensen** ($Aa$) | andel (0–1) |\n| $q^2$ | andelen homozygote for sykdomsallelet ($aa$) — de affiserte | andel (0–1) |\n| $N$ | antall individer i populasjonen | personer |\n\n**Formler i dette kapitlet:**\n\n$$p + q = 1$$\n\nDet finnes bare to varianter, så andelene deres må dekke alt. *Bruksbetingelse:* gjelder når genet har nøyaktig to alleler, slik alle oppgavene i MED1100 forutsetter.\n\n$$p^2 + 2pq + q^2 = 1$$\n\nDe tre genotypene dekker hele populasjonen. *Bruksbetingelse:* gjelder når de fem forutsetningene under er oppfylt. Uttrykket er bare $(p+q)^2$ skrevet ut.\n\n$$q = \\sqrt{q^2} = \\sqrt{\\text{andelen affiserte}}$$\n\nVeien inn i regnestykket. *Bruksbetingelse:* forutsetter et **recessivt** mønster, der bare de homozygote er affisert. Ved et dominant mønster gjelder den ikke.\n\n$$\\text{bærerfrekvens} = 2pq \\approx 2q \\quad \\text{når } p \\approx 1$$\n\n*Bruksbetingelse:* tilnærmingen $2q$ er god når $q$ er liten, altså ved sjeldne tilstander. Ved $q = 0{,}01$ gir den 0,0200 mot eksakt 0,0198 — én prosents avvik. Ved $q = 0{,}2$ gir den 0,40 mot eksakt 0,32, og da er den ubrukelig. Skriv alltid hvilken av de to du har brukt.\n\n$$\\text{allelfrekvens fra opptalte genotyper:} \\qquad p = \\frac{2 \\cdot n_{AA} + n_{Aa}}{2N}$$\n\nHver person har to alleler, så nevneren er $2N$. *Bruksbetingelse:* gjelder alltid — dette er ren opptelling og forutsetter ingen likevekt.\n\n**De fem forutsetningene for likevekt** (de skal kunne ramses opp):\n\n1. **Tilfeldig paring** med hensyn på genet.\n2. **Ingen seleksjon** — alle tre genotypene har samme sjanse for å få barn.\n3. **Ingen ny mutasjon** av betydning.\n4. **Ingen inn- eller utvandring** som endrer sammensetningen.\n5. **Stor populasjon**, så tilfeldigheter ikke forskyver frekvensene.\n\n**Faste kontraster som skiller riktig fra nesten riktig**\n\n- $q$ er **allelfrekvensen**; $q^2$ er **andelen affiserte**. Prevalensen er $q^2$, ikke $q$.\n- Ved et sjeldent recessivt allel ligger nesten alle sykdomsallelene hos **friske bærere**: andelen er $2pq/(2pq + 2q^2) = p$. Ved $q = 0{,}01$ er det 99 prosent av dem.\n- **Letale recessive alleler er ikke i likevekt** — seleksjon mot de homozygote bryter forutsetning 2.\n\n**Talleksempel til kontroll** (prevalens $1/10\\,000$): $q = 0{,}01$, $p = 0{,}99$, $2pq = 0{,}0198$, altså rundt **én av femti** er bærer."
-    }
-   ]
-  },
-  {
-   "id": "med1100-7-3-oversikt",
-   "type": "text",
-   "content": "En tilstand rammer én av ti tusen. Det høres ut som noe du aldri møter. Men hvor mange bærer allelet uten å vise noe?\n\nSvaret er rundt **én av femti**. To hundre ganger flere enn de affiserte. Og det er ikke et spesialtilfelle — det er regelen for alle sjeldne recessive tilstander, og grunnen er ren aritmetikk: for å bli affisert må du få allelet fra begge foreldre, og det er en sjelden dobbelthendelse. For å bli bærer holder det med én.\n\nDette kapitlet gir deg den ene likningen som knytter de to tallene sammen, og som lar deg gå fra «hvor mange er syke» til «hvor mange bærer allelet». Regningen er kort. Det som gir og tar poeng, er to ting: at du skiller allelfrekvens fra andelen affiserte, og at du sier når likningen faktisk gjelder.\n\n> Denne boka forbereder deg til eksamen i MED1100. Den handler om **det friske mennesket** og om mekanismer — ikke om å stille diagnoser, velge behandling eller gi råd. Ingen av regnestykkene, verdiene eller mekanismene her skal brukes på en virkelig pasient eller på deg selv. Klinisk vurdering læres senere i studiet, under veiledning.\n\n**Alle tallverdiene i dette kapitlet er oppdiktede** og valgt for at regnestykkene skal gå opp. De er ikke forekomsttall for noen virkelig tilstand, og skal ikke brukes som det."
-  },
-  {
-   "id": "med1100-7-3-lokke1",
-   "type": "text",
-   "content": "## Løkke 1 — Allelfrekvens, genotypefrekvens og likevekten (~15 min)"
-  },
-  {
-   "id": "med1100-7-3-def-populasjon",
-   "type": "definition",
-   "title": "Populasjon",
-   "content": "En avgrenset gruppe individer som får barn med hverandre. I regneoppgavene er den som regel «befolkningen i et område» eller «en gruppe på $N$ personer».\n\n**Hvorfor avgrensningen betyr noe:** allelfrekvenser gjelder alltid **i en bestemt populasjon**. Slår du to populasjoner med ulike frekvenser sammen, får den samlede gruppen ikke lenger likevektsfordeling, selv om hver av dem hadde det. Det er en av grunnene til at forutsetningen om tilfeldig paring er så sentral."
-  },
-  {
-   "id": "med1100-7-3-def-allelfrekvens",
-   "type": "definition",
-   "title": "Allelfrekvens ($p$ og $q$)",
-   "content": "Andelen av alle alleler i populasjonen som er av en bestemt variant. Med to varianter kalles de $p$ og $q$, og de summerer til 1.\n\n**Slik telles den:** hver person har to alleler, så en populasjon på $N$ personer har $2N$ alleler til sammen. En homozygot bidrar med to like, en heterozygot med ett av hver:\n\n$$p = \\frac{2 \\cdot n_{AA} + n_{Aa}}{2N}$$\n\n**Avgrensningen mot naboen:** allelfrekvensen er en andel av **alleler**, ikke av personer. Genotypefrekvensen er en andel av **personer**. Å blande de to er den vanligste feilen i denne sjangeren, og den gir svar som er kvadratisk feil."
-  },
-  {
-   "id": "med1100-7-3-def-genotypefrekvens",
-   "type": "definition",
-   "title": "Genotypefrekvens",
-   "content": "Andelen av **individene** som har en bestemt kombinasjon: $AA$, $Aa$ eller $aa$. De tre andelene summerer til 1.\n\n**Sammenhengen med allelfrekvensen:** genotypefrekvensene kan alltid telles opp direkte, uansett om populasjonen er i likevekt. Å **regne** dem ut fra allelfrekvensen med $p^2$, $2pq$ og $q^2$ krever derimot at likevektsforutsetningene holder. Den forskjellen er verdt å nevne i besvarelsen."
-  },
-  {
-   "id": "med1100-7-3-def-hw",
-   "type": "definition",
-   "title": "Hardy-Weinberg-likevekten",
-   "content": "Regelen om at genotypefrekvensene i en populasjon som oppfyller fem forutsetninger, blir\n\n$$p^2 + 2pq + q^2 = 1$$\n\nog at de **holder seg uendret** fra generasjon til generasjon.\n\n**Hvorfor uttrykket ser slik ut:** det er bare $(p+q)^2$ ganget ut. Tenk på det som et krysningsskjema over hele populasjonen: en tilfeldig kjønnscelle bærer $A$ med sannsynlighet $p$ og $a$ med sannsynlighet $q$. To slike møtes uavhengig av hverandre, og produktregelen gir $p \\cdot p$ for $AA$, $q \\cdot q$ for $aa$, og $p \\cdot q + q \\cdot p = 2pq$ for de heterozygote — som kan oppstå på to måter.\n\n**Det den brukes til på eksamen:** til å gå fra andelen affiserte, som er observerbar, til bærerfrekvensen, som ikke er det."
-  },
-  {
-   "id": "med1100-7-3-def-forutsetninger",
-   "type": "definition",
-   "title": "De fem forutsetningene",
-   "content": "Likevekten gjelder bare når fem betingelser er oppfylt. Du skal kunne ramse dem opp, og du skal kunne si hvilken av dem som brytes i et gitt tilfelle:\n\n1. **Tilfeldig paring** med hensyn på genet — ingen velger partner etter denne egenskapen.\n2. **Ingen seleksjon** — alle tre genotypene har samme sjanse for å få barn som fører allelene videre.\n3. **Ingen ny mutasjon** av betydning i genet.\n4. **Ingen inn- eller utvandring** som endrer sammensetningen.\n5. **Stor populasjon** — i en liten gruppe forskyver tilfeldigheter frekvensene fra generasjon til generasjon.\n\n**Slik brukes de i en besvarelse:** når oppgaven spør «hvorfor gjelder ikke likevekten her», skal du peke på **hvilken** av de fem som er brutt, og si hvordan. Et generelt «forutsetningene er ikke oppfylt» høster lite."
-  },
-  {
-   "id": "med1100-7-3-teorem-1",
-   "type": "theorem",
-   "title": "Regneprosedyre: fra forekomst til bærerfrekvens",
-   "content": "**Trinn 1 — skriv ned hva som er oppgitt, og hva det er.** «Én av ti tusen er affisert» betyr at $q^2 = 1/10\\,000 = 0{,}0001$. Legg merke til at det oppgitte tallet er $q^2$, ikke $q$. Skriv det eksplisitt — det er her halvparten av feilene oppstår.\n\n**Trinn 2 — finn allelfrekvensen.**\n\n$$q = \\sqrt{q^2} = \\sqrt{0{,}0001} = 0{,}01$$\n\n**Trinn 3 — finn den andre allelfrekvensen.**\n\n$$p = 1 - q = 1 - 0{,}01 = 0{,}99$$\n\n**Trinn 4 — regn bærerfrekvensen.**\n\n$$2pq = 2 \\cdot 0{,}99 \\cdot 0{,}01 = 0{,}0198$$\n\nBruker du tilnærmingen $2q = 0{,}02$, **si at du gjør det**, og si hvorfor den holder her ($p$ er nær 1).\n\n**Trinn 5 — kontroller at de tre andelene summerer til 1.**\n\n$$p^2 + 2pq + q^2 = 0{,}9801 + 0{,}0198 + 0{,}0001 = 1{,}0000 \\checkmark$$\n\n**Trinn 6 — svar i klartekst, med en lesbar form.** «Bærerfrekvensen er 0,0198, altså rundt **én av femti**.» Formen «én av N» er den sensor lettest kan lese, og den viser at du forstår hva tallet betyr.\n\n**Trinn 7 — si ett ord om forutsetningene.** «Beregningen forutsetter Hardy-Weinberg-likevekt: tilfeldig paring, ingen seleksjon mot noen av genotypene, og en stor populasjon.» Én setning, og du har dekket kontrollpunktet sensor ser etter."
-  },
-  {
-   "id": "med1100-7-3-ex-1",
-   "type": "example",
-   "title": "Eksempel 1: Er populasjonen i likevekt? (B2-REGN)",
-   "problem": "I en oppdiktet populasjon på **1 000 personer** er genotypene talt opp direkte:\n\n| Genotype | Antall |\n|---|---|\n| $AA$ | 700 |\n| $Aa$ | 200 |\n| $aa$ | 100 |\n\n**a)** Regn ut allelfrekvensene $p$ og $q$.\n\n**b)** Hvor mange av hver genotype ville vi ventet hvis populasjonen var i Hardy-Weinberg-likevekt?\n\n**c)** Er populasjonen i likevekt? Hvilken av forutsetningene kan være brutt?",
-   "solution": "**Full-pott-besvarelse. Vist utregning, med enheter.**\n\n**a) Allelfrekvensene.**\n\nHver person har to alleler, så det er $2 \\cdot 1\\,000 = 2\\,000$ alleler til sammen. En $AA$ bidrar med to $A$, en $Aa$ med ett:\n\n$$p = \\frac{2 \\cdot 700 + 200}{2\\,000} = \\frac{1\\,400 + 200}{2\\,000} = \\frac{1\\,600}{2\\,000} = 0{,}80$$\n\n$$q = 1 - p = 0{,}20$$\n\n**Kontroll ved å telle $a$-allelene direkte:** $(2 \\cdot 100 + 200)/2\\,000 = 400/2\\,000 = 0{,}20$ ✓\n\n**b) Forventet fordeling ved likevekt.**\n\n$$p^2 \\cdot N = 0{,}80^2 \\cdot 1\\,000 = 0{,}64 \\cdot 1\\,000 = 640 \\text{ personer } (AA)$$\n$$2pq \\cdot N = 2 \\cdot 0{,}80 \\cdot 0{,}20 \\cdot 1\\,000 = 0{,}32 \\cdot 1\\,000 = 320 \\text{ personer } (Aa)$$\n$$q^2 \\cdot N = 0{,}20^2 \\cdot 1\\,000 = 0{,}04 \\cdot 1\\,000 = 40 \\text{ personer } (aa)$$\n\nKontroll: $640 + 320 + 40 = 1\\,000$ personer ✓\n\n| Genotype | Observert | Forventet ved likevekt |\n|---|---|---|\n| $AA$ | 700 | 640 |\n| $Aa$ | 200 | 320 |\n| $aa$ | 100 | 40 |\n\n**c) Er populasjonen i likevekt?**\n\n**Nei.** Det er tydelig **overskudd av begge de homozygote** gruppene (700 mot 640 og 100 mot 40) og tilsvarende **underskudd av heterozygote** (200 mot 320).\n\n**Hvilken forutsetning kan være brutt:** dette mønsteret — for få heterozygote, for mange homozygote — er den klassiske signaturen på **ikke-tilfeldig paring**, forutsetning 1. Enten fordi partnere velges blant nære slektninger, eller fordi det vi kaller «én populasjon» i virkeligheten er to grupper med ulike allelfrekvenser som ikke får barn med hverandre.\n\n**Pluss-punkt:** å påpeke at allelfrekvensene i a) er helt korrekte likevel. Opptelling av alleler forutsetter **ingen** likevekt; det er bare det å *regne* genotypefrekvenser fra allelfrekvenser som gjør det. Den forskjellen er verdt å skrive ut.\n\n**Merk:** en formell statistisk test av om avviket er større enn tilfeldig variasjon, gjøres med kji-kvadrat. Den metoden hører til statistikkdelen i blokk 1 og forventes ikke her — her holder det å beskrive retningen på avviket og peke ut forutsetningen."
-  },
-  {
-   "id": "med1100-7-3-oppg-1",
-   "type": "exercise",
-   "exercise": {
-    "id": "med1100-7-3-oppg-1-e",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innsteg, B2-REGN — regneoppgaven i blokk 2.) Forklar med egne ord forskjellen på **allelfrekvens** og **genotypefrekvens**, og si hvilken av dem tallet $q^2$ er.",
-    "solution": "**Allelfrekvens** er andelen av alle *alleler* i populasjonen som er av en bestemt variant. Siden hver person har to alleler, telles den av $2N$ alleler til sammen.\n\n**Genotypefrekvens** er andelen av *personene* som har en bestemt kombinasjon — $AA$, $Aa$ eller $aa$.\n\n**$q^2$ er en genotypefrekvens:** andelen personer som er homozygote for sykdomsallelet, altså de affiserte i et recessivt mønster. Allelfrekvensen er $q$, uten kvadrat.\n\n**Kortversjonen:** $q$ handler om alleler, $q^2$ om personer. Blander du dem, blir svaret kvadratisk feil — og ved sjeldne tilstander betyr det en faktor på hundre eller mer.",
-    "hints": [
-     "Spør deg selv hva som telles i nevneren: personer, eller alleler?",
-     "Tenk på hvor mange alleler en populasjon på N personer har til sammen."
-    ]
-   }
-  },
-  {
-   "id": "med1100-7-3-oppg-2",
-   "type": "exercise",
-   "exercise": {
-    "id": "med1100-7-3-oppg-2-e",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(B2-REGN.) I en oppdiktet populasjon på **500 personer** er 320 homozygote $AA$, 160 heterozygote $Aa$ og 20 homozygote $aa$.\n\n**a)** Regn ut $p$ og $q$.\n\n**b)** Hvor mange av hver genotype ville vi ventet ved likevekt? Er populasjonen i likevekt?",
-    "solution": "**a) Allelfrekvensene.**\n\nTotalt antall alleler: $2 \\cdot 500 = 1\\,000$.\n\n$$p = \\frac{2 \\cdot 320 + 160}{1\\,000} = \\frac{640 + 160}{1\\,000} = \\frac{800}{1\\,000} = 0{,}80$$\n$$q = 1 - 0{,}80 = 0{,}20$$\n\n**b) Forventet ved likevekt.**\n\n$$p^2 \\cdot 500 = 0{,}64 \\cdot 500 = 320 \\text{ personer}$$\n$$2pq \\cdot 500 = 0{,}32 \\cdot 500 = 160 \\text{ personer}$$\n$$q^2 \\cdot 500 = 0{,}04 \\cdot 500 = 20 \\text{ personer}$$\n\nKontroll: $320 + 160 + 20 = 500$ personer ✓\n\n**Observert og forventet er identiske.** Populasjonen er altså i Hardy-Weinberg-likevekt for dette genet.\n\n**Tolkning i klartekst:** at tallene stemmer betyr ikke at forutsetningene er *bevist* oppfylt — det betyr at det ikke finnes noe i disse tallene som taler mot dem.",
-    "hints": [
-     "Tell allelene, ikke personene: hver person bidrar med to.",
-     "I b): regn forventet antall for hver genotype og sammenlign linje for linje."
-    ]
-   }
-  },
-  {
-   "id": "med1100-7-3-lokke2",
-   "type": "text",
-   "content": "## Løkke 2 — Fra forekomst til bærerfrekvens (~20 min)"
-  },
-  {
-   "id": "med1100-7-3-lokke2-intro",
-   "type": "text",
-   "content": "Nå kommer den oppgaven som faktisk står på eksamen. Du får oppgitt hvor mange som er affisert, og skal finne hvor mange som bærer allelet uten å vise noe.\n\nRegnestykket er tre linjer. Fellen ligger i første linje: å vite at det oppgitte tallet er $q^2$ og ikke $q$."
-  },
-  {
-   "id": "med1100-7-3-def-prevalens-q2",
-   "type": "definition",
-   "title": "Forekomsten er $q^2$, ikke $q$",
-   "content": "Ved et **autosomalt recessivt** mønster er bare de homozygote affisert. Andelen affiserte i populasjonen er derfor $q^2$, og allelfrekvensen finner du ved å ta kvadratroten:\n\n$$q = \\sqrt{\\text{andelen affiserte}}$$\n\n**Hvorfor dette er den store fellen:** «én av ti tusen er affisert» ser ut som en allelfrekvens fordi det er ett tall. Det er det ikke — det er kvadratet. Bruker du $0{,}0001$ som $q$ i stedet for $q^2$, blir bærerfrekvensen hundre ganger for lav.\n\n**Bruksbetingelsen:** dette gjelder bare for recessive mønstre. Ved et dominant mønster er de affiserte $p^2 + 2pq$, altså alle som har minst ett sykdomsallel, og regnestykket blir et helt annet."
-  },
-  {
-   "id": "med1100-7-3-def-baererfrekvens",
-   "type": "definition",
-   "title": "Bærerfrekvens ($2pq$)",
-   "content": "Andelen av populasjonen som er heterozygot, altså friske bærere av sykdomsallelet:\n\n$$\\text{bærerfrekvens} = 2pq$$\n\n**Hvorfor det står en toer der:** en heterozygot kan oppstå på to måter — $A$ fra mor og $a$ fra far, eller motsatt. Krysningsskjemaet over hele populasjonen har to slike ruter, og de legges sammen.\n\n**Størrelsesordenen som er verdt å ha i hodet:** ved en tilstand som rammer én av ti tusen, er bærerfrekvensen rundt én av femti. **To hundre ganger flere bærere enn affiserte.** Det er dette forholdet som gjør at sjeldne recessive tilstander kan ligge skjult i en befolkning i generasjon etter generasjon."
-  },
-  {
-   "id": "med1100-7-3-def-tilnaerming",
-   "type": "definition",
-   "title": "Tilnærmingen $2pq \\approx 2q$",
-   "content": "Når allelet er sjeldent, er $p$ svært nær 1, og da er $2pq \\approx 2q$.\n\n**Hvor godt den holder — regnet ut:**\n\n| $q$ | eksakt $2pq$ | tilnærmet $2q$ | avvik |\n|---|---|---|---|\n| 0,005 | 0,00995 | 0,0100 | 0,5 prosent |\n| 0,01 | 0,0198 | 0,0200 | 1 prosent |\n| 0,05 | 0,0950 | 0,1000 | 5 prosent |\n| 0,20 | 0,3200 | 0,4000 | 25 prosent |\n\n**Bruksbetingelsen:** tilnærmingen er utmerket for sjeldne alleler og ubrukelig for vanlige. Tommelfingerregelen er at avviket i prosent er omtrent $q$ i prosent.\n\n**Slik skriver du det på eksamen:** bruk gjerne $2q$ for å få et raskt overslag, men **si at det er en tilnærming** og oppgi betingelsen. Sensor premierer at du kjenner grensene for et grep, ikke at du unngår det."
-  },
-  {
-   "id": "med1100-7-3-ex-2",
-   "type": "example",
-   "title": "Eksempel 2: Bærerfrekvensen fra forekomsten (B2-REGN)",
-   "problem": "En oppdiktet autosomalt recessiv tilstand rammer **1 av 10 000** i en befolkning.\n\n**a)** Regn ut allelfrekvensen $q$ og bærerfrekvensen.\n\n**b)** Hvor mange ganger flere bærere enn affiserte er det?\n\n**c)** Hvilke forutsetninger hviler beregningen på?",
-   "solution": "**Full-pott-besvarelse.**\n\n**a) Allelfrekvens og bærerfrekvens.**\n\n*Trinn 1 — hva det oppgitte tallet er.* Bare de homozygote er affisert, så\n\n$$q^2 = \\frac{1}{10\\,000} = 0{,}0001$$\n\n*Trinn 2 — allelfrekvensen.*\n\n$$q = \\sqrt{0{,}0001} = 0{,}01$$\n\n*Trinn 3 — den andre allelfrekvensen.*\n\n$$p = 1 - 0{,}01 = 0{,}99$$\n\n*Trinn 4 — bærerfrekvensen.*\n\n$$2pq = 2 \\cdot 0{,}99 \\cdot 0{,}01 = 0{,}0198$$\n\n*Trinn 5 — kontroll.*\n\n$$p^2 + 2pq + q^2 = 0{,}9801 + 0{,}0198 + 0{,}0001 = 1{,}0000 \\checkmark$$\n\n**Svar i klartekst:** bærerfrekvensen er 0,0198, altså rundt **én av femti**. Med tilnærmingen $2q = 0{,}02$ får vi én av femti direkte — avviket er én prosent, og tilnærmingen er godt innenfor her fordi $p$ er nær 1.\n\n**b) Forholdet mellom bærere og affiserte.**\n\n$$\\frac{2pq}{q^2} = \\frac{0{,}0198}{0{,}0001} = 198$$\n\nDet er altså rundt **198 ganger flere bærere enn affiserte**.\n\n**Tolkning i klartekst:** i en befolkning på 100 000 ventes 10 affiserte og rundt 1 980 friske bærere. Det er selve grunnen til at en sjelden recessiv tilstand kan «forsvinne» i mange generasjoner og så dukke opp igjen: allelet er hele tiden til stede, men gjemt i friske mennesker.\n\n**Pluss-punkt:** å regne ut hvor stor andel av sykdomsallelene som ligger hos friske bærere. Bærerne har ett hver, de affiserte to hver:\n\n$$\\frac{2pq}{2pq + 2q^2} = \\frac{0{,}0198}{0{,}0198 + 0{,}0002} = \\frac{0{,}0198}{0{,}0200} = 0{,}99$$\n\n**99 prosent av sykdomsallelene ligger hos friske bærere.** (Uttrykket forenkles for øvrig til $p$ — prøv selv.) Dette er hele innholdet i feilkode **E14**, som er å glemme nettopp disse bærerne.\n\n**c) Forutsetningene.**\n\nBeregningen forutsetter Hardy-Weinberg-likevekt: tilfeldig paring med hensyn på genet, ingen seleksjon mot noen av genotypene, ingen betydelig nymutasjon, ingen inn- eller utvandring som endrer sammensetningen, og en stor populasjon.\n\n**Den viktigste i praksis:** ingen seleksjon. Er tilstanden alvorlig nok til at de affiserte i praksis ikke får barn, er forutsetning 2 brutt — og da gjelder ikke likevekten. Det ser vi nærmere på i neste løkke."
-  },
-  {
-   "id": "med1100-7-3-oppg-3",
-   "type": "exercise",
-   "exercise": {
-    "id": "med1100-7-3-oppg-3-e",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(B2-REGN.) En oppdiktet autosomalt recessiv tilstand rammer **1 av 2 500**.\n\n**a)** Regn ut $q$, $p$ og bærerfrekvensen. Kontroller at de tre genotypefrekvensene summerer til 1.\n\n**b)** Oppgi bærerfrekvensen på formen «én av N».\n\n**c)** Hvor mye bommer du hvis du bruker tilnærmingen $2q$ i stedet for $2pq$?",
-    "solution": "**a) Regnestykket.**\n\n$$q^2 = \\frac{1}{2\\,500} = 0{,}0004 \\quad \\Rightarrow \\quad q = \\sqrt{0{,}0004} = 0{,}02$$\n$$p = 1 - 0{,}02 = 0{,}98$$\n$$2pq = 2 \\cdot 0{,}98 \\cdot 0{,}02 = 0{,}0392$$\n\n**Kontroll:**\n\n$$p^2 + 2pq + q^2 = 0{,}9604 + 0{,}0392 + 0{,}0004 = 1{,}0000 \\checkmark$$\n\n**b) På formen «én av N».**\n\n$$\\frac{1}{0{,}0392} = 25{,}5$$\n\nAltså rundt **én av tjuefem** er bærer.\n\n**c) Tilnærmingen.**\n\n$$2q = 2 \\cdot 0{,}02 = 0{,}0400$$\n\nAvviket er $0{,}0400 - 0{,}0392 = 0{,}0008$, altså rundt **2 prosent for høyt**. Det er godt innenfor det som er brukbart, og tilnærmingen kan trygt brukes her — men si at du bruker den.\n\n**Tolkning i klartekst:** rundt én av tjuefem bærer allelet uten å vise noe, mot én av 2 500 som er affisert. Det er rundt hundre ganger flere bærere enn affiserte.",
-    "hints": [
-     "Første spørsmål er alltid: er det oppgitte tallet q eller q i andre?",
-     "I c): regn ut begge verdiene og finn den relative forskjellen mellom dem."
-    ]
-   }
-  },
-  {
-   "id": "med1100-7-3-oppg-4",
-   "type": "exercise",
-   "exercise": {
-    "id": "med1100-7-3-oppg-4-e",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(B2-REGN.) I en oppdiktet befolkning er bærerfrekvensen for et autosomalt recessivt allel **oppgitt til 1 av 20**.\n\n**a)** Hvor stor er allelfrekvensen $q$ omtrent?\n\n**b)** Hvor mange affiserte ventes i en befolkning på 400 000?\n\n**c)** To tilfeldig valgte personer fra denne befolkningen får barn. Hvor stor er sannsynligheten for at barnet blir affisert? Sammenlign med svaret i b), og forklar hva du ser.",
-    "solution": "**a) Allelfrekvensen.**\n\nBærerfrekvensen er $2pq = 1/20 = 0{,}05$. Med tilnærmingen $2pq \\approx 2q$:\n\n$$q \\approx \\frac{0{,}05}{2} = 0{,}025$$\n\n(Regnet eksakt fra $2q(1-q) = 0{,}05$ blir $q = 0{,}0253$, altså praktisk talt det samme. Tilnærmingen er god fordi $q$ er liten.)\n\n**b) Forventet antall affiserte.**\n\n$$q^2 = 0{,}025^2 = 0{,}000625$$\n$$0{,}000625 \\cdot 400\\,000 = 250 \\text{ personer}$$\n\n**Tolkning:** rundt 250 affiserte, mot $0{,}05 \\cdot 400\\,000 = 20\\,000$ bærere. Åtti ganger flere bærere enn affiserte.\n\n**c) Sannsynligheten for et affisert barn.**\n\nBegge må være bærere, og begge må gi videre sykdomsallelet:\n\n$$P = 0{,}05 \\cdot 0{,}05 \\cdot \\tfrac14 = 0{,}000625$$\n\n**Dette er nøyaktig samme tall som $q^2$ i b).**\n\n**Forklaringen — og dette er poenget i oppgaven:** de to regnestykkene er samme regnestykke skrevet på to måter. $q^2$ *er* sannsynligheten for at to tilfeldige kjønnsceller begge bærer allelet. Går du veien om bærerfrekvensen, får du $(2q)^2/4 = q^2$ — toerne og firetallet forkorter hverandre bort.\n\n**Pluss-punkt:** å påpeke at dette er en god kontroll. Får du to ulike tall ut av de to veiene, har du gjort en regnefeil et sted.",
-    "hints": [
-     "I a): bruk sammenhengen mellom bærerfrekvens og allelfrekvens, og si om du bruker tilnærmingen.",
-     "I b): forventet antall er andelen ganget med befolkningen.",
-     "I c): sett opp de tre leddene før du regner, og sammenlign så tallet med b)."
-    ]
-   }
-  },
-  {
-   "id": "med1100-7-3-warning-1",
-   "type": "warning",
-   "title": "Typiske feil i Hardy-Weinberg-regning",
-   "content": "**1. Å bruke forekomsten som $q$ i stedet for $q^2$.** Den store fellen. «Én av ti tusen er affisert» betyr $q^2 = 0{,}0001$, ikke $q = 0{,}0001$. Bommer du her, blir bærerfrekvensen hundre ganger for lav. Skriv alltid $q^2 = \\ldots$ som første linje, og ta kvadratroten som eget steg.\n\n**2. Felle E14 — å glemme de friske bærerne.** Ved et sjeldent recessivt allel ligger rundt 99 prosent av sykdomsallelene hos friske heterozygote. Et svar som behandler de affiserte som «alle som har allelet», er kvalitativt feil, ikke bare tallmessig.\n\n**3. Felle E14, andre halvdel — å bruke likevekten på et letalt allel.** Er de homozygote i praksis uten barn, er forutsetningen om ingen seleksjon brutt, og frekvensen er ikke stabil. Se neste løkke.\n\n**4. Å bruke tilnærmingen $2q$ uten å si det.** For et sjeldent allel er den utmerket. For et vanlig allel er den grovt feil: ved $q = 0{,}2$ gir den 0,40 mot eksakt 0,32. Si hvilken du bruker, og hvorfor.\n\n**5. Å hoppe over kontrollsummen.** $p^2 + 2pq + q^2 = 1$ tar fem sekunder og avslører en tastefeil før den forplanter seg.\n\n**6. Å bruke likningen på et dominant mønster.** Der er de affiserte $p^2 + 2pq$, ikke $q^2$. Les nøye hva slags mønster oppgaven beskriver.\n\n**7. Å glemme å nevne forutsetningene.** Én setning holder, men den skal være der — og den skal si **hvilken** forutsetning som er relevant hvis oppgaven legger opp til det.\n\n**8. Felle E22 — sluttsvar uten vist utregning.** I blokk 2 er utregningen selve svaret. Skriv de fire linjene, ikke bare den siste."
-  },
-  {
-   "id": "med1100-7-3-lokke3",
-   "type": "text",
-   "content": "## Løkke 3 — Når likevekten ikke gjelder (~20 min)"
-  },
-  {
-   "id": "med1100-7-3-lokke3-intro",
-   "type": "text",
-   "content": "Hardy-Weinberg er en **modell**, ikke en naturlov. Den beskriver hva som skjer når ingenting forstyrrer. Eksamensoppgaver spør derfor ofte om det motsatte: hva skjer når noe *gjør* det?\n\nFem krefter kan forskyve frekvensene. Én av dem — seleksjon — er den du må kunne regne litt på."
-  },
-  {
-   "id": "med1100-7-3-def-seleksjon",
-   "type": "definition",
-   "title": "Seleksjon",
-   "content": "At de tre genotypene ikke har samme sjanse for å føre allelene sine videre. Bryter forutsetning 2.\n\n**Konsekvensen i et recessivt mønster:** seleksjon rammer bare de homozygote, siden bare de viser egenskapen. De heterozygote er usynlige for seleksjonen — og det er derfor allelet forsvinner så sakte.\n\n**Med fullstendig seleksjon** — de homozygote får ingen barn — blir den nye allelfrekvensen\n\n$$q' = \\frac{q}{1+q}$$\n\nVed $q = 0{,}01$ gir det $q' = 0{,}00990$: en nedgang på under én prosent per generasjon. Dette regnes ut i Eksempel 3."
-  },
-  {
-   "id": "med1100-7-3-def-drift",
-   "type": "definition",
-   "title": "Genetisk drift",
-   "content": "Tilfeldige forskyvninger av allelfrekvensen fra generasjon til generasjon, fordi bare et utvalg av allelene faktisk føres videre. Bryter forutsetning 5.\n\n**Hvorfor størrelsen på populasjonen avgjør:** i en stor populasjon jevner tilfeldighetene seg ut. I en liten kan et allel forsvinne helt, eller bli vanlig, uten at det har noen fordel eller ulempe overhodet.\n\n**Skillet mot naboen:** seleksjon virker i en **retning** — den favoriserer eller straffer bestemte genotyper. Drift har ingen retning; den er ren tilfeldighet. Å kalle en tilfeldig forskyvning for seleksjon er en presisjonsfeil sensor merker."
-  },
-  {
-   "id": "med1100-7-3-def-grunnleggereffekt",
-   "type": "definition",
-   "title": "Grunnleggereffekt og flaskehals",
-   "content": "To spesialtilfeller av genetisk drift.\n\n**Grunnleggereffekt:** en ny populasjon startes av et lite antall individer, og allelfrekvensene i den nye gruppen speiler tilfeldigvis de få grunnleggerne — ikke populasjonen de kom fra.\n\n**Flaskehals:** en populasjon reduseres kraftig i antall og vokser så opp igjen fra de få som var igjen. Samme mekanisme, motsatt historie.\n\n**Fellestrekket som skal med i et svar:** begge gir en **liten effektiv populasjon** i én generasjon, og det er nok til å forskyve frekvensene varig. Et allel som var sjeldent, kan bli vanlig — uten at det har noen fordel."
-  },
-  {
-   "id": "med1100-7-3-def-ikke-tilfeldig",
-   "type": "definition",
-   "title": "Ikke-tilfeldig paring",
-   "content": "At partnervalget henger sammen med genotypen — enten fordi partnere velges blant slektninger, eller fordi populasjonen i virkeligheten består av grupper som ikke får barn med hverandre. Bryter forutsetning 1.\n\n**Signaturen i tallene:** **færre heterozygote og flere homozygote** enn likevekten forutsier, akkurat slik vi så i Eksempel 1.\n\n**Det som er verdt å merke seg:** ikke-tilfeldig paring endrer **genotypefrekvensene**, men ikke **allelfrekvensene**. Allelene er de samme; de er bare pakket annerledes i individene. Å få fram nettopp den forskjellen er et pluss-punkt."
-  },
-  {
-   "id": "med1100-7-3-def-genflyt",
-   "type": "definition",
-   "title": "Genflyt (migrasjon)",
-   "content": "At individer flytter inn i eller ut av populasjonen og tar med seg alleler. Bryter forutsetning 4.\n\n**Effekten:** genflyt **utjevner** forskjeller mellom populasjoner. To grupper med ulike allelfrekvenser blir likere jo mer utveksling det er mellom dem.\n\n**Konsekvensen for en beregning:** en frekvens målt i én gruppe kan ikke uten videre brukes på en annen. Oppgaver som oppgir en bærerfrekvens, oppgir den derfor alltid for en bestemt befolkning."
-  },
-  {
-   "id": "med1100-7-3-def-mutasjon-hw",
-   "type": "definition",
-   "title": "Mutasjon som frekvensendrer",
-   "content": "Nye endringer i genet skaper nye alleler og endrer frekvensene. Bryter forutsetning 3.\n\n**Størrelsesorden, og hvorfor det sjelden er det viktigste:** mutasjonsraten per gen per generasjon er svært lav, og over noen få generasjoner er effekten forsvinnende sammenliknet med seleksjon og drift. Mutasjon er likevel **kilden** til all variasjon — uten den ville det ikke vært noe for de andre kreftene å virke på.\n\nNøyaktige mutasjonsrater er stoff du **bør kjenne til** at finnes; tallverdier er ikke krav i MED1100 og skal ikke pugges."
-  },
-  {
-   "id": "med1100-7-3-def-letale",
-   "type": "definition",
-   "title": "Letale recessive alleler og likevekten",
-   "content": "Et allel som gjør de homozygote ute av stand til å få barn, er per definisjon under seleksjon. Forutsetning 2 er brutt, og **populasjonen er ikke i Hardy-Weinberg-likevekt for dette genet**.\n\n**Det som overrasker, og som er selve poenget:** frekvensen synker likevel bare ubetydelig per generasjon. Grunnen er at nesten alle allelene ligger trygt hos friske bærere, som seleksjonen ikke ser. Ved $q = 0{,}01$ tar det over hundre generasjoner å halvere frekvensen.\n\n**Hvorfor dette er feilkode E14:** studenter skriver enten at likevekten gjelder (den gjør ikke det), eller at allelet raskt forsvinner (det gjør det ikke). Begge deler er galt, og de er galt av samme grunn: bærerne er glemt."
-  },
-  {
-   "id": "med1100-7-3-ex-3",
-   "type": "example",
-   "title": "Eksempel 3: Hvorfor letale recessive alleler ikke er i likevekt (eksamensnivå)",
-   "problem": "En oppdiktet autosomalt recessiv tilstand har allelfrekvens $q = 0{,}01$. Anta at de homozygote ikke får barn i det hele tatt, mens heterozygote og homozygot normale får barn som vanlig.\n\n**a)** **Forklar** hvorfor populasjonen ikke er i Hardy-Weinberg-likevekt for dette genet.\n\n**b)** Vis at den nye allelfrekvensen i neste generasjon blir $q' = q/(1+q)$, og regn ut verdien.\n\n**c)** Regn ut frekvensen etter fem generasjoner, og **forklar** hvorfor allelet forsvinner så sakte.\n\nOppgaven er verdt 8 vekttall.",
-   "solution": "**Full-pott-besvarelse.** Merk spørreordet i a) og c): **forklar** krever mekanismen bak, ikke bare en konstatering.\n\n— naturlig pausepunkt mellom a) og b) —\n\n**a) Hvorfor likevekten ikke gjelder.**\n\nLikevekten forutsetter at alle tre genotypene har samme sjanse for å føre allelene sine videre (forutsetning 2). Her har de homozygote $aa$ ingen slik sjanse i det hele tatt. Det er **seleksjon**, og forutsetningen er dermed brutt.\n\nKonsekvensen er at frekvensen $q$ **synker fra generasjon til generasjon** i stedet for å holde seg konstant. Og siden $p$ og $q$ endrer seg, endrer også genotypefrekvensene seg — likevektsfordelingen $p^2 : 2pq : q^2$ gjenopprettes hver generasjon ut fra de nye frekvensene, men frekvensene selv står ikke stille. Det er nettopp definisjonen på ikke å være i likevekt.\n\n**b) Den nye allelfrekvensen.**\n\n*Utledningen.* Blant foreldrene til neste generasjon finnes bare $AA$ og $Aa$, i forholdet $p^2 : 2pq$. Til sammen utgjør de $p^2 + 2pq = 1 - q^2$ av den opprinnelige populasjonen.\n\nBlant disse foreldrene kommer $a$-allelene bare fra de heterozygote, som har ett hver:\n\n$$q' = \\frac{\\text{antall } a\\text{-alleler}}{\\text{antall alleler i alt}} = \\frac{2pq}{2(1 - q^2)} = \\frac{pq}{(1-q)(1+q)} = \\frac{pq}{p(1+q)} = \\frac{q}{1+q}$$\n\nder vi brukte at $p = 1 - q$.\n\n*Innsetting med tall:*\n\n$$q' = \\frac{0{,}01}{1 + 0{,}01} = \\frac{0{,}01}{1{,}01} = 0{,}009901$$\n\n**Tolkning i klartekst:** frekvensen synker fra 0,0100 til 0,0099, altså med under **én prosent** på én generasjon.\n\n— naturlig pausepunkt —\n\n**c) Etter fem generasjoner.**\n\nRegelen brukes om igjen, generasjon for generasjon:\n\n| Generasjon | $q$ | $q^2$ (andel affiserte) |\n|---|---|---|\n| 0 | 0,010000 | $1{,}00 \\cdot 10^{-4}$ |\n| 1 | 0,009901 | $9{,}80 \\cdot 10^{-5}$ |\n| 2 | 0,009804 | $9{,}61 \\cdot 10^{-5}$ |\n| 3 | 0,009709 | $9{,}43 \\cdot 10^{-5}$ |\n| 4 | 0,009615 | $9{,}25 \\cdot 10^{-5}$ |\n| 5 | 0,009524 | $9{,}07 \\cdot 10^{-5}$ |\n\nEtter fem generasjoner er allelfrekvensen 0,00952 — en nedgang på under 5 prosent. Andelen affiserte er sunket fra 1 av 10 000 til rundt 1 av 11 000.\n\n**Forklaringen — dette er der poengene ligger:** seleksjonen ser bare de homozygote, og de er en forsvinnende liten del av dem som har allelet. Ved $q = 0{,}01$ ligger **99 prosent av sykdomsallelene hos friske bærere**, som formerer seg helt normalt. Hver generasjon fjernes bare de få allelene som tilfeldigvis er parvis samlet i en homozygot, mens hovedtyngden går uforstyrret videre.\n\n**Pluss-punkt:** å vise kontrasten. Er allelet vanlig — si $q = 0{,}5$ — synker det raskt: $0{,}5 \\rightarrow 0{,}333 \\rightarrow 0{,}250 \\rightarrow 0{,}200$ på tre generasjoner. Seleksjonen er effektiv når mange av allelene er samlet i homozygote, og nesten virkningsløs når nesten ingen er det. Det er samme mekanisme, bare med et helt annet utgangspunkt.\n\n**Feller:**\n\n- Å svare at likevekten gjelder «fordi tilstanden er sjelden». Sjeldenhet er ikke en av de fem forutsetningene.\n- Å svare at allelet «raskt forsvinner». Det gjør det ikke, og grunnen er bærerne — dette er felle **E14**.\n- Å nøye seg med å konstatere at forutsetning 2 er brutt, uten å si hva konsekvensen er. Spørreordet er **forklar**, og da kreves mekanismen."
-  },
-  {
-   "id": "med1100-7-3-oppg-5",
-   "type": "exercise",
-   "exercise": {
-    "id": "med1100-7-3-oppg-5-e",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(B2-MEK — mekanisme- og forklaringsoppgaven i blokk 2.) Ramse opp de fem forutsetningene for Hardy-Weinberg-likevekt, og si for hver av dem hvilken virkelig kraft som bryter den.",
-    "solution": "**De fem forutsetningene, med den kraften som bryter hver av dem:**\n\n1. **Tilfeldig paring med hensyn på genet.** Brytes av **ikke-tilfeldig paring** — partnervalg blant slektninger, eller at «populasjonen» i virkeligheten er flere grupper som ikke blander seg. Signaturen i tallene er for få heterozygote.\n\n2. **Ingen seleksjon.** Brytes av **seleksjon** — når en genotype har systematisk lavere eller høyere sjanse for å føre allelene videre. Ved et recessivt mønster rammer seleksjonen bare de homozygote.\n\n3. **Ingen ny mutasjon av betydning.** Brytes av **mutasjon**. Effekten per generasjon er svært liten, men mutasjon er kilden til all variasjon.\n\n4. **Ingen inn- eller utvandring.** Brytes av **genflyt** — som utjevner forskjeller mellom populasjoner.\n\n5. **Stor populasjon.** Brytes av **genetisk drift** — tilfeldige forskyvninger som slår hardt ut i små grupper. Grunnleggereffekt og flaskehals er to spesialtilfeller.\n\n**Presiseringen som løfter svaret:** legg merke til at bare forutsetning 1 endrer genotypefrekvensene **uten** å endre allelfrekvensene. De fire andre endrer selve allelfrekvensene, og dermed alt.",
-    "hints": [
-     "Ramse opp de fem først, og koble deretter én kraft til hver.",
-     "Tenk over hvilken av de fem som lar allelfrekvensene stå stille selv om genotypefordelingen endres."
-    ]
-   }
-  },
-  {
-   "id": "med1100-7-3-oppg-6",
-   "type": "exercise",
-   "exercise": {
-    "id": "med1100-7-3-oppg-6-e",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(B2-REGN.) Et autosomalt recessivt allel har frekvens $q = 0{,}04$ i en oppdiktet populasjon. De homozygote får ingen barn.\n\n**a)** Hvor stor andel av populasjonen er affisert, og hvor stor andel er bærere?\n\n**b)** Hvor stor andel av sykdomsallelene i populasjonen ligger hos friske bærere?\n\n**c)** Hva blir allelfrekvensen i neste generasjon?",
-    "solution": "**a) Andelene.**\n\n$$q^2 = 0{,}04^2 = 0{,}0016 \\quad \\text{(1,6 promille, altså rundt 1 av 625)}$$\n$$p = 1 - 0{,}04 = 0{,}96$$\n$$2pq = 2 \\cdot 0{,}96 \\cdot 0{,}04 = 0{,}0768 \\quad \\text{(rundt 1 av 13)}$$\n\n**Kontroll:** $0{,}9216 + 0{,}0768 + 0{,}0016 = 1{,}0000$ ✓\n\n**b) Andelen av allelene som ligger hos bærere.**\n\nBærerne har ett sykdomsallel hver, de affiserte har to:\n\n$$\\frac{2pq}{2pq + 2q^2} = \\frac{0{,}0768}{0{,}0768 + 0{,}0032} = \\frac{0{,}0768}{0{,}0800} = 0{,}96$$\n\n**96 prosent** av sykdomsallelene ligger hos friske bærere. (Legg merke til at svaret er nøyaktig $p$ — det er ingen tilfeldighet, og uttrykket forenkles til $p$ generelt.)\n\n**c) Neste generasjon.**\n\n$$q' = \\frac{q}{1+q} = \\frac{0{,}04}{1{,}04} = 0{,}03846$$\n\n**Tolkning i klartekst:** frekvensen synker med rundt 3,8 prosent på én generasjon — mer enn ved $q = 0{,}01$, fordi en større andel av allelene nå sitter i homozygote som seleksjonen faktisk rammer. Men 96 prosent av allelene er fortsatt skjult hos friske bærere, så nedgangen er fremdeles langsom.",
-    "hints": [
-     "Regn de tre genotypefrekvensene først og kontroller at de summerer til 1.",
-     "I b): tell alleler, ikke personer — de affiserte har to hver.",
-     "I c): formelen for fullstendig seleksjon mot homozygote står i begrepsbanken over."
-    ]
-   }
-  },
-  {
-   "id": "med1100-7-3-oppg-7",
-   "type": "exercise",
-   "exercise": {
-    "id": "med1100-7-3-oppg-7-e",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, B2-REGN og B2-MEK.) I en oppdiktet befolkning på **250 000** personer er **160** affisert av en autosomalt recessiv tilstand.\n\n**a)** Regn ut $q$, $p$ og bærerfrekvensen. Oppgi bærerfrekvensen som «én av N» og som forventet antall bærere i befolkningen.\n\n**b)** To tilfeldig valgte **friske** personer fra denne befolkningen får barn. Hvor stor er sannsynligheten for at barnet blir affisert? Sammenlign med $q^2$, og forklar hvorfor de to tallene ikke er helt like.\n\n**c)** En medstudent hevder at siden tilstanden er alvorlig og de affiserte ikke får barn, «må allelet være i ferd med å forsvinne raskt». **Forklar** presist hvorfor det ikke stemmer.",
-    "solution": "**a) Frekvensene.**\n\n$$q^2 = \\frac{160}{250\\,000} = 0{,}00064 \\quad \\Rightarrow \\quad q = \\sqrt{0{,}00064} = 0{,}0253$$\n$$p = 1 - 0{,}0253 = 0{,}9747$$\n$$2pq = 2 \\cdot 0{,}9747 \\cdot 0{,}0253 = 0{,}0493$$\n\n**Kontroll:** $0{,}9500 + 0{,}0493 + 0{,}00064 = 0{,}99994 \\approx 1$ ✓ (avrundingsrest)\n\n**På formen «én av N»:** $1/0{,}0493 = 20{,}3$, altså rundt **én av tjue**.\n\n**Forventet antall bærere:** $0{,}0493 \\cdot 250\\,000 = 12\\,325$ personer — mot 160 affiserte. Rundt sytti ganger flere bærere.\n\n**b) Sannsynligheten for et affisert barn av to friske.**\n\nHer må vi bruke bærersannsynligheten **gitt at personen er frisk**. De friske utgjør $1 - q^2$ av befolkningen, og bærerne er $2pq$:\n\n$$P(\\text{bærer} \\mid \\text{frisk}) = \\frac{2pq}{1 - q^2} = \\frac{0{,}0493}{1 - 0{,}00064} = \\frac{0{,}0493}{0{,}99936} = 0{,}04933$$\n\n$$P(\\text{affisert barn}) = 0{,}04933 \\cdot 0{,}04933 \\cdot \\tfrac14 = 0{,}000608$$\n\n**Sammenlikning:** $q^2 = 0{,}000640$, mens dette gir $0{,}000608$ — litt **lavere**.\n\n**Forklaringen:** når vi krever at begge foreldre er **friske**, har vi utelukket den lille gruppen affiserte, som ellers ville bidratt med sikre sykdomsalleler. Det trekker sannsynligheten litt ned. Uttrykket forenkler seg for øvrig til $(pq/(1-q^2))^2 \\cdot \\ldots$, og for små $q$ er forskjellen ubetydelig — her rundt 5 prosent.\n\n**Pluss-punkt:** å påpeke at $q^2$ gjelder for et tilfeldig par **uten** at vi vet noe om foreldrene, mens det andre tallet gjelder når vi vet at de er friske. To ulike spørsmål, to litt ulike svar.\n\n**c) Hvorfor allelet ikke forsvinner raskt.**\n\n*Momentlisten:*\n\n1. **Seleksjonen ser bare de homozygote.** Bare de affiserte rammes; de heterozygote er fenotypisk friske og får barn som alle andre.\n2. **Nesten alle allelene ligger hos bærerne.** Andelen er $2pq/(2pq + 2q^2) = p = 0{,}975$ — altså **97,5 prosent** av sykdomsallelene er skjult hos friske.\n3. **Regnestykket for nedgangen:** med fullstendig seleksjon mot de homozygote blir\n\n$$q' = \\frac{q}{1+q} = \\frac{0{,}0253}{1{,}0253} = 0{,}02468$$\n\naltså en nedgang på rundt **2,5 prosent** på én generasjon. Med den takten trengs det flere titalls generasjoner bare for å halvere frekvensen.\n\n4. **Den riktige konklusjonen:** medstudenten har rett i at populasjonen **ikke er i Hardy-Weinberg-likevekt** for dette genet — forutsetningen om ingen seleksjon er brutt. Men slutningen «altså forsvinner allelet raskt» er feil, og feilen er nettopp felle **E14**: å glemme at bærerne holder allelet i sirkulasjon.\n\n**Den skarpe formuleringen:** seleksjon mot et recessivt allel er effektiv når allelet er vanlig og nesten virkningsløs når det er sjeldent — og et sjeldent allel er nettopp det vi har her.",
-    "hints": [
-     "Begynn med å slå fast at det oppgitte antallet affisert gir deg q i andre, ikke q.",
-     "I b): hvilken gruppe er du inne i når du allerede vet at personen er frisk? Nevneren er ikke hele befolkningen.",
-     "I c): to ting skal skilles — om likevekten gjelder, og hvor raskt frekvensen endrer seg. Medstudenten har rett i det ene og feil i det andre."
-    ]
-   }
-  },
-  {
-   "id": "med1100-7-3-begrepsbank",
-   "type": "text",
-   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
-  },
-  {
-   "id": "med1100-7-3-def-xbundet-hw",
-   "type": "definition",
-   "title": "Hardy-Weinberg for et X-bundet gen",
-   "content": "For et gen på X-kromosomet gjelder ikke $q^2$ for mennene. Menn har bare **ett** X, så andelen affiserte menn er rett og slett $q$ — allelfrekvensen selv.\n\n**Konsekvensen som overrasker:** for et sjeldent X-bundet recessivt allel er andelen affiserte menn mye høyere enn andelen affiserte kvinner, som er $q^2$. Er $q = 0{,}001$, er én av tusen menn affisert og bare én av en million kvinner.\n\n**Slik brukes det:** oppgis forekomsten blant gutter, har du $q$ direkte, uten kvadratrot. Bærerfrekvensen blant kvinner er da $2pq \\approx 2q$.\n\nDette er stoff du **bør kjenne til**. Hovedregningen i MED1100 gjelder autosomale mønstre."
-  },
-  {
-   "id": "med1100-7-3-def-likevekt-ett-slag",
-   "type": "definition",
-   "title": "Likevekten gjenopprettes på én generasjon",
-   "content": "En egenskap ved modellen som er verdt å kjenne: uansett hvor skjevt genotypene er fordelt i utgangspunktet, gir **én** runde med tilfeldig paring likevektsfordelingen $p^2 : 2pq : q^2$ — så lenge de andre forutsetningene holder.\n\n**Hvorfor:** allelfrekvensene endres ikke av tilfeldig paring. Neste generasjon dannes ved at kjønnsceller trekkes uavhengig fra den samme allelpuljen, og det er nettopp det $(p+q)^2$ beskriver.\n\n**Poenget for en besvarelse:** likevekten er ikke noe som bygges opp langsomt. Den er der etter én generasjon, og den forsvinner så snart en av forutsetningene brytes."
-  },
-  {
-   "id": "med1100-7-3-repetisjon",
-   "type": "collapsible",
-   "title": "Repetisjon",
-   "buttonText": "Vis kontrollpunktene",
-   "content": [
+      "id": "med1100-7-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hvilken eksamen trener du her?** **Blokk 2** — den seks timer lange skriftlige eksamenen. Modulen har tre separate **blokkeksamener** med ulikt format, som alle må bestås hver for seg. Dette kapitlet hører til genetikkoppgaven, **oppgave E** i den stabile rekkefølgen.\n\n**Hvor ofte kommer det?** Hardy-Weinberg-beregning — å gå fra hvor vanlig en tilstand er til hvor mange som bærer allelet uten å vise noe — er observert i **rundt 7 av de 14 leste sittingene** av blokk 2 (høsten 2022 til høsten 2025). Det er altså rundt halvparten av gangene, og når det kommer, er det som regel en kort deloppgave inne i den større genetikkoppgaven.\n\n**I hvilken form?** **B2-REGN** — regneoppgaven i blokk 2. Du får oppgitt hvor vanlig tilstanden er, og skal finne allelfrekvensen og bærerfrekvensen. Utregningen skal vises, og svaret skal tolkes i klartekst: «rundt én av femti er bærer» sier mer enn «0,0198».\n\n**Ingen minuspoeng her.** Kapitlet trener ingen **rutenett** — ingen avkryssingstabell der du krysser riktig/galt. Det er bare på rutenettene i blokk 2 at **negativ retting** gjelder, og en regneoppgave har ingen slik straff. Skriv alt du kan begrunne.\n\n**Hjelpemidler:** enkel kalkulator, ingen formelsamling. Du må kunne kvadratrot på kalkulatoren, og du må huske de tre linjene med formler. De er korte.\n\n**Hva sensor ser etter:**\n\n- At du skiller **allelfrekvens** fra **genotypefrekvens**. Det er $q$ som er allelfrekvensen, og $q^2$ som er andelen affiserte. Å bytte om på dem er den ene store fellen.\n- At du husker de **friske bærerne**. Feilkode **E14** er å glemme at de aller fleste sykdomsallelene ligger hos friske heterozygote, og at letale recessive alleler dermed ikke ligger i likevekt.\n- At du sier **når** likevekten gjelder. En beregning uten et ord om forutsetningene er en beregning uten kontroll."
+    },
     {
-     "id": "med1100-7-3-repetisjon-tekst",
-     "type": "text",
-     "content": "Seks kontrollpunkter. Klarer du dem uten å bla, sitter kapitlet.\n\n1. **«Én av fire tusen er affisert.» Hva er $q$?** $q^2 = 1/4\\,000 = 0{,}00025$, altså $q = 0{,}0158$. Det oppgitte tallet er alltid $q^2$ ved et recessivt mønster.\n\n2. **Hvorfor står det en toer i $2pq$?** Fordi en heterozygot kan oppstå på to måter — $A$ fra mor og $a$ fra far, eller motsatt. Krysningsskjemaet har to slike ruter.\n\n3. **Når holder tilnærmingen $2pq \\approx 2q$?** Når $q$ er liten. Avviket i prosent er omtrent $q$ i prosent: 1 prosent avvik ved $q = 0{,}01$, men 25 prosent avvik ved $q = 0{,}2$.\n\n4. **Hvorfor er letale recessive alleler ikke i Hardy-Weinberg-likevekt?** Fordi seleksjon mot de homozygote bryter forutsetning 2. Men frekvensen synker likevel svært langsomt, siden nesten alle allelene ligger hos friske bærere.\n\n5. **Hvilken av de fem forutsetningene endrer genotypefrekvensene uten å endre allelfrekvensene?** Tilfeldig paring. Brytes den, blir det for få heterozygote — men allelene er de samme, bare pakket annerledes.\n\n6. **Fra [kap. 7.2](/med1100/med1100-7-2):** hvorfor er $\\tfrac14$ det siste leddet i sannsynligheten for et affisert barn av to bærere? Fordi hver forelder gir sykdomsallelet i halvparten av tilfellene, og de to hendelsene er uavhengige: $\\tfrac12 \\cdot \\tfrac12 = \\tfrac14$.\n\n7. **Fra [kap. 0.2](/med1100/med1100-0-2):** hva kreves av en regneoppgave i blokk 2? Vist utregning, enhet eller andel på hvert tall, og en tolkningssetning. Et tall alene er felle E22."
+      "id": "med1100-7-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 7.2](/med1100/med1100-7-2). Her er det du trenger, ferdig oppfrisket:\n\n**1. Fra [kap. 7.2](/med1100/med1100-7-2): allel, genotype og bærer.** Et **allel** er en variant av genet. På et autosom har du to av dem. **Homozygot** betyr to like ($AA$ eller $aa$), **heterozygot** betyr to ulike ($Aa$). Ved et recessivt mønster er den heterozygote en **frisk bærer**: hun viser ingenting, men gir sykdomsallelet videre til halvparten av barna sine.\n\n**2. Fra [kap. 7.2](/med1100/med1100-7-2): produktregelen.** For uavhengige hendelser ganges sannsynlighetene:\n\n$$P(\\text{begge}) = P(\\text{den ene}) \\cdot P(\\text{den andre})$$\n\nDet er nettopp denne regelen hele Hardy-Weinberg-likningen er bygd av — den beskriver hva som skjer når to tilfeldig valgte kjønnsceller møtes.\n\n**3. Fra [kap. 7.2](/med1100/med1100-7-2): to bærere gir $\\tfrac14$ affiserte barn.** Den brøken kommer tilbake i hvert eneste regnestykke her.\n\n**4. Fra videregående.** Grunnlaget i nedarvingsmønstre og allelfrekvenser ligger i [Avanserte arvemønstre (Biologi 2)](/biologi-2/biologi-2-1-7).\n\nBegrepene **allelfrekvens**, **genotypefrekvens**, **likevekt**, **seleksjon** og **genetisk drift** innføres fra grunnen av under. Du trenger ingen forkunnskaper utover å kunne ta kvadratrot på kalkulator."
+    },
+    {
+      "id": "med1100-7-3-nokkelfakta",
+      "type": "collapsible",
+      "title": "Nøkkelfakta- og formelliste",
+      "buttonText": "Vis nøkkelfakta og formler",
+      "content": [
+        {
+          "id": "med1100-7-3-nokkelfakta-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $p$ | frekvensen av det vanlige allelet $A$ | andel (0–1) |\n| $q$ | frekvensen av sykdomsallelet $a$ | andel (0–1) |\n| $p^2$ | andelen homozygote for det vanlige allelet ($AA$) | andel (0–1) |\n| $2pq$ | andelen heterozygote — **bærerfrekvensen** ($Aa$) | andel (0–1) |\n| $q^2$ | andelen homozygote for sykdomsallelet ($aa$) — de affiserte | andel (0–1) |\n| $N$ | antall individer i populasjonen | personer |\n\n**Formler i dette kapitlet:**\n\n$$p + q = 1$$\n\nDet finnes bare to varianter, så andelene deres må dekke alt. *Bruksbetingelse:* gjelder når genet har nøyaktig to alleler, slik alle oppgavene i MED1100 forutsetter.\n\n$$p^2 + 2pq + q^2 = 1$$\n\nDe tre genotypene dekker hele populasjonen. *Bruksbetingelse:* gjelder når de fem forutsetningene under er oppfylt. Uttrykket er bare $(p+q)^2$ skrevet ut.\n\n$$q = \\sqrt{q^2} = \\sqrt{\\text{andelen affiserte}}$$\n\nVeien inn i regnestykket. *Bruksbetingelse:* forutsetter et **recessivt** mønster, der bare de homozygote er affisert. Ved et dominant mønster gjelder den ikke.\n\n$$\\text{bærerfrekvens} = 2pq \\approx 2q \\quad \\text{når } p \\approx 1$$\n\n*Bruksbetingelse:* tilnærmingen $2q$ er god når $q$ er liten, altså ved sjeldne tilstander. Ved $q = 0{,}01$ gir den 0,0200 mot eksakt 0,0198 — én prosents avvik. Ved $q = 0{,}2$ gir den 0,40 mot eksakt 0,32, og da er den ubrukelig. Skriv alltid hvilken av de to du har brukt.\n\n$$\\text{allelfrekvens fra opptalte genotyper:} \\qquad p = \\frac{2 \\cdot n_{AA} + n_{Aa}}{2N}$$\n\nHver person har to alleler, så nevneren er $2N$. *Bruksbetingelse:* gjelder alltid — dette er ren opptelling og forutsetter ingen likevekt.\n\n**De fem forutsetningene for likevekt** (de skal kunne ramses opp):\n\n1. **Tilfeldig paring** med hensyn på genet.\n2. **Ingen seleksjon** — alle tre genotypene har samme sjanse for å få barn.\n3. **Ingen ny mutasjon** av betydning.\n4. **Ingen inn- eller utvandring** som endrer sammensetningen.\n5. **Stor populasjon**, så tilfeldigheter ikke forskyver frekvensene.\n\n**Faste kontraster som skiller riktig fra nesten riktig**\n\n- $q$ er **allelfrekvensen**; $q^2$ er **andelen affiserte**. Prevalensen er $q^2$, ikke $q$.\n- Ved et sjeldent recessivt allel ligger nesten alle sykdomsallelene hos **friske bærere**: andelen er $2pq/(2pq + 2q^2) = p$. Ved $q = 0{,}01$ er det 99 prosent av dem.\n- **Letale recessive alleler er ikke i likevekt** — seleksjon mot de homozygote bryter forutsetning 2.\n\n**Talleksempel til kontroll** (prevalens $1/10\\,000$): $q = 0{,}01$, $p = 0{,}99$, $2pq = 0{,}0198$, altså rundt **én av femti** er bærer."
+        }
+      ]
+    },
+    {
+      "id": "med1100-7-3-oversikt",
+      "type": "text",
+      "content": "En tilstand rammer én av ti tusen. Det høres ut som noe du aldri møter. Men hvor mange bærer allelet uten å vise noe?\n\nSvaret er rundt **én av femti**. To hundre ganger flere enn de affiserte. Og det er ikke et spesialtilfelle — det er regelen for alle sjeldne recessive tilstander, og grunnen er ren aritmetikk: for å bli affisert må du få allelet fra begge foreldre, og det er en sjelden dobbelthendelse. For å bli bærer holder det med én.\n\nDette kapitlet gir deg den ene likningen som knytter de to tallene sammen, og som lar deg gå fra «hvor mange er syke» til «hvor mange bærer allelet». Regningen er kort. Det som gir og tar poeng, er to ting: at du skiller allelfrekvens fra andelen affiserte, og at du sier når likningen faktisk gjelder.\n\n> Denne boka forbereder deg til eksamen i MED1100. Den handler om **det friske mennesket** og om mekanismer — ikke om å stille diagnoser, velge behandling eller gi råd. Ingen av regnestykkene, verdiene eller mekanismene her skal brukes på en virkelig pasient eller på deg selv. Klinisk vurdering læres senere i studiet, under veiledning.\n\n**Alle tallverdiene i dette kapitlet er oppdiktede** og valgt for at regnestykkene skal gå opp. De er ikke forekomsttall for noen virkelig tilstand, og skal ikke brukes som det."
+    },
+    {
+      "id": "med1100-7-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Allelfrekvens, genotypefrekvens og likevekten (~15 min)"
+    },
+    {
+      "id": "med1100-7-3-def-populasjon",
+      "type": "definition",
+      "title": "Populasjon",
+      "content": "En avgrenset gruppe individer som får barn med hverandre. I regneoppgavene er den som regel «befolkningen i et område» eller «en gruppe på $N$ personer».\n\n**Hvorfor avgrensningen betyr noe:** allelfrekvenser gjelder alltid **i en bestemt populasjon**. Slår du to populasjoner med ulike frekvenser sammen, får den samlede gruppen ikke lenger likevektsfordeling, selv om hver av dem hadde det. Det er en av grunnene til at forutsetningen om tilfeldig paring er så sentral."
+    },
+    {
+      "id": "med1100-7-3-def-allelfrekvens",
+      "type": "definition",
+      "title": "Allelfrekvens ($p$ og $q$)",
+      "content": "Andelen av alle alleler i populasjonen som er av en bestemt variant. Med to varianter kalles de $p$ og $q$, og de summerer til 1.\n\n**Slik telles den:** hver person har to alleler, så en populasjon på $N$ personer har $2N$ alleler til sammen. En homozygot bidrar med to like, en heterozygot med ett av hver:\n\n$$p = \\frac{2 \\cdot n_{AA} + n_{Aa}}{2N}$$\n\n**Avgrensningen mot naboen:** allelfrekvensen er en andel av **alleler**, ikke av personer. Genotypefrekvensen er en andel av **personer**. Å blande de to er den vanligste feilen i denne sjangeren, og den gir svar som er kvadratisk feil."
+    },
+    {
+      "id": "med1100-7-3-def-genotypefrekvens",
+      "type": "definition",
+      "title": "Genotypefrekvens",
+      "content": "Andelen av **individene** som har en bestemt kombinasjon: $AA$, $Aa$ eller $aa$. De tre andelene summerer til 1.\n\n**Sammenhengen med allelfrekvensen:** genotypefrekvensene kan alltid telles opp direkte, uansett om populasjonen er i likevekt. Å **regne** dem ut fra allelfrekvensen med $p^2$, $2pq$ og $q^2$ krever derimot at likevektsforutsetningene holder. Den forskjellen er verdt å nevne i besvarelsen."
+    },
+    {
+      "id": "med1100-7-3-def-hw",
+      "type": "definition",
+      "title": "Hardy-Weinberg-likevekten",
+      "content": "Regelen om at genotypefrekvensene i en populasjon som oppfyller fem forutsetninger, blir\n\n$$p^2 + 2pq + q^2 = 1$$\n\nog at de **holder seg uendret** fra generasjon til generasjon.\n\n**Hvorfor uttrykket ser slik ut:** det er bare $(p+q)^2$ ganget ut. Tenk på det som et krysningsskjema over hele populasjonen: en tilfeldig kjønnscelle bærer $A$ med sannsynlighet $p$ og $a$ med sannsynlighet $q$. To slike møtes uavhengig av hverandre, og produktregelen gir $p \\cdot p$ for $AA$, $q \\cdot q$ for $aa$, og $p \\cdot q + q \\cdot p = 2pq$ for de heterozygote — som kan oppstå på to måter.\n\n**Det den brukes til på eksamen:** til å gå fra andelen affiserte, som er observerbar, til bærerfrekvensen, som ikke er det."
+    },
+    {
+      "id": "med1100-7-3-def-forutsetninger",
+      "type": "definition",
+      "title": "De fem forutsetningene",
+      "content": "Likevekten gjelder bare når fem betingelser er oppfylt. Du skal kunne ramse dem opp, og du skal kunne si hvilken av dem som brytes i et gitt tilfelle:\n\n1. **Tilfeldig paring** med hensyn på genet — ingen velger partner etter denne egenskapen.\n2. **Ingen seleksjon** — alle tre genotypene har samme sjanse for å få barn som fører allelene videre.\n3. **Ingen ny mutasjon** av betydning i genet.\n4. **Ingen inn- eller utvandring** som endrer sammensetningen.\n5. **Stor populasjon** — i en liten gruppe forskyver tilfeldigheter frekvensene fra generasjon til generasjon.\n\n**Slik brukes de i en besvarelse:** når oppgaven spør «hvorfor gjelder ikke likevekten her», skal du peke på **hvilken** av de fem som er brutt, og si hvordan. Et generelt «forutsetningene er ikke oppfylt» høster lite."
+    },
+    {
+      "id": "med1100-7-3-teorem-1",
+      "type": "theorem",
+      "title": "Regneprosedyre: fra forekomst til bærerfrekvens",
+      "content": "**Trinn 1 — skriv ned hva som er oppgitt, og hva det er.** «Én av ti tusen er affisert» betyr at $q^2 = 1/10\\,000 = 0{,}0001$. Legg merke til at det oppgitte tallet er $q^2$, ikke $q$. Skriv det eksplisitt — det er her halvparten av feilene oppstår.\n\n**Trinn 2 — finn allelfrekvensen.**\n\n$$q = \\sqrt{q^2} = \\sqrt{0{,}0001} = 0{,}01$$\n\n**Trinn 3 — finn den andre allelfrekvensen.**\n\n$$p = 1 - q = 1 - 0{,}01 = 0{,}99$$\n\n**Trinn 4 — regn bærerfrekvensen.**\n\n$$2pq = 2 \\cdot 0{,}99 \\cdot 0{,}01 = 0{,}0198$$\n\nBruker du tilnærmingen $2q = 0{,}02$, **si at du gjør det**, og si hvorfor den holder her ($p$ er nær 1).\n\n**Trinn 5 — kontroller at de tre andelene summerer til 1.**\n\n$$p^2 + 2pq + q^2 = 0{,}9801 + 0{,}0198 + 0{,}0001 = 1{,}0000 \\checkmark$$\n\n**Trinn 6 — svar i klartekst, med en lesbar form.** «Bærerfrekvensen er 0,0198, altså rundt **én av femti**.» Formen «én av N» er den sensor lettest kan lese, og den viser at du forstår hva tallet betyr.\n\n**Trinn 7 — si ett ord om forutsetningene.** «Beregningen forutsetter Hardy-Weinberg-likevekt: tilfeldig paring, ingen seleksjon mot noen av genotypene, og en stor populasjon.» Én setning, og du har dekket kontrollpunktet sensor ser etter."
+    },
+    {
+      "id": "med1100-7-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Er populasjonen i likevekt? (B2-REGN)",
+      "problem": "I en oppdiktet populasjon på **1 000 personer** er genotypene talt opp direkte:\n\n| Genotype | Antall |\n|---|---|\n| $AA$ | 700 |\n| $Aa$ | 200 |\n| $aa$ | 100 |\n\n**a)** Regn ut allelfrekvensene $p$ og $q$.\n\n**b)** Hvor mange av hver genotype ville vi ventet hvis populasjonen var i Hardy-Weinberg-likevekt?\n\n**c)** Er populasjonen i likevekt? Hvilken av forutsetningene kan være brutt?",
+      "solution": "**Full-pott-besvarelse. Vist utregning, med enheter.**\n\n**a) Allelfrekvensene.**\n\nHver person har to alleler, så det er $2 \\cdot 1\\,000 = 2\\,000$ alleler til sammen. En $AA$ bidrar med to $A$, en $Aa$ med ett:\n\n$$p = \\frac{2 \\cdot 700 + 200}{2\\,000} = \\frac{1\\,400 + 200}{2\\,000} = \\frac{1\\,600}{2\\,000} = 0{,}80$$\n\n$$q = 1 - p = 0{,}20$$\n\n**Kontroll ved å telle $a$-allelene direkte:** $(2 \\cdot 100 + 200)/2\\,000 = 400/2\\,000 = 0{,}20$ ✓\n\n**b) Forventet fordeling ved likevekt.**\n\n$$p^2 \\cdot N = 0{,}80^2 \\cdot 1\\,000 = 0{,}64 \\cdot 1\\,000 = 640 \\text{ personer } (AA)$$\n$$2pq \\cdot N = 2 \\cdot 0{,}80 \\cdot 0{,}20 \\cdot 1\\,000 = 0{,}32 \\cdot 1\\,000 = 320 \\text{ personer } (Aa)$$\n$$q^2 \\cdot N = 0{,}20^2 \\cdot 1\\,000 = 0{,}04 \\cdot 1\\,000 = 40 \\text{ personer } (aa)$$\n\nKontroll: $640 + 320 + 40 = 1\\,000$ personer ✓\n\n| Genotype | Observert | Forventet ved likevekt |\n|---|---|---|\n| $AA$ | 700 | 640 |\n| $Aa$ | 200 | 320 |\n| $aa$ | 100 | 40 |\n\n**c) Er populasjonen i likevekt?**\n\n**Nei.** Det er tydelig **overskudd av begge de homozygote** gruppene (700 mot 640 og 100 mot 40) og tilsvarende **underskudd av heterozygote** (200 mot 320).\n\n**Hvilken forutsetning kan være brutt:** dette mønsteret — for få heterozygote, for mange homozygote — er den klassiske signaturen på **ikke-tilfeldig paring**, forutsetning 1. Enten fordi partnere velges blant nære slektninger, eller fordi det vi kaller «én populasjon» i virkeligheten er to grupper med ulike allelfrekvenser som ikke får barn med hverandre.\n\n**Pluss-punkt:** å påpeke at allelfrekvensene i a) er helt korrekte likevel. Opptelling av alleler forutsetter **ingen** likevekt; det er bare det å *regne* genotypefrekvenser fra allelfrekvenser som gjør det. Den forskjellen er verdt å skrive ut.\n\n**Merk:** en formell statistisk test av om avviket er større enn tilfeldig variasjon, gjøres med kji-kvadrat. Den metoden hører til statistikkdelen i blokk 1 og forventes ikke her — her holder det å beskrive retningen på avviket og peke ut forutsetningen."
+    },
+    {
+      "id": "med1100-7-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-7-3-oppg-1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg, B2-REGN — regneoppgaven i blokk 2.) Forklar med egne ord forskjellen på **allelfrekvens** og **genotypefrekvens**, og si hvilken av dem tallet $q^2$ er.",
+        "solution": "**Allelfrekvens** er andelen av alle *alleler* i populasjonen som er av en bestemt variant. Siden hver person har to alleler, telles den av $2N$ alleler til sammen.\n\n**Genotypefrekvens** er andelen av *personene* som har en bestemt kombinasjon — $AA$, $Aa$ eller $aa$.\n\n**$q^2$ er en genotypefrekvens:** andelen personer som er homozygote for sykdomsallelet, altså de affiserte i et recessivt mønster. Allelfrekvensen er $q$, uten kvadrat.\n\n**Kortversjonen:** $q$ handler om alleler, $q^2$ om personer. Blander du dem, blir svaret kvadratisk feil — og ved sjeldne tilstander betyr det en faktor på hundre eller mer.",
+        "hints": [
+          "Spør deg selv hva som telles i nevneren: personer, eller alleler?",
+          "Tenk på hvor mange alleler en populasjon på N personer har til sammen."
+        ]
+      }
+    },
+    {
+      "id": "med1100-7-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-7-3-oppg-2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(B2-REGN.) I en oppdiktet populasjon på **500 personer** er 320 homozygote $AA$, 160 heterozygote $Aa$ og 20 homozygote $aa$.\n\n**a)** Regn ut $p$ og $q$.\n\n**b)** Hvor mange av hver genotype ville vi ventet ved likevekt? Er populasjonen i likevekt?",
+        "solution": "**a) Allelfrekvensene.**\n\nTotalt antall alleler: $2 \\cdot 500 = 1\\,000$.\n\n$$p = \\frac{2 \\cdot 320 + 160}{1\\,000} = \\frac{640 + 160}{1\\,000} = \\frac{800}{1\\,000} = 0{,}80$$\n$$q = 1 - 0{,}80 = 0{,}20$$\n\n**b) Forventet ved likevekt.**\n\n$$p^2 \\cdot 500 = 0{,}64 \\cdot 500 = 320 \\text{ personer}$$\n$$2pq \\cdot 500 = 0{,}32 \\cdot 500 = 160 \\text{ personer}$$\n$$q^2 \\cdot 500 = 0{,}04 \\cdot 500 = 20 \\text{ personer}$$\n\nKontroll: $320 + 160 + 20 = 500$ personer ✓\n\n**Observert og forventet er identiske.** Populasjonen er altså i Hardy-Weinberg-likevekt for dette genet.\n\n**Tolkning i klartekst:** at tallene stemmer betyr ikke at forutsetningene er *bevist* oppfylt — det betyr at det ikke finnes noe i disse tallene som taler mot dem.",
+        "hints": [
+          "Tell allelene, ikke personene: hver person bidrar med to.",
+          "I b): regn forventet antall for hver genotype og sammenlign linje for linje."
+        ]
+      }
+    },
+    {
+      "id": "med1100-7-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Fra forekomst til bærerfrekvens (~20 min)"
+    },
+    {
+      "id": "med1100-7-3-lokke2-intro",
+      "type": "text",
+      "content": "Nå kommer den oppgaven som faktisk står på eksamen. Du får oppgitt hvor mange som er affisert, og skal finne hvor mange som bærer allelet uten å vise noe.\n\nRegnestykket er tre linjer. Fellen ligger i første linje: å vite at det oppgitte tallet er $q^2$ og ikke $q$."
+    },
+    {
+      "id": "med1100-7-3-def-prevalens-q2",
+      "type": "definition",
+      "title": "Forekomsten er $q^2$, ikke $q$",
+      "content": "Ved et **autosomalt recessivt** mønster er bare de homozygote affisert. Andelen affiserte i populasjonen er derfor $q^2$, og allelfrekvensen finner du ved å ta kvadratroten:\n\n$$q = \\sqrt{\\text{andelen affiserte}}$$\n\n**Hvorfor dette er den store fellen:** «én av ti tusen er affisert» ser ut som en allelfrekvens fordi det er ett tall. Det er det ikke — det er kvadratet. Bruker du $0{,}0001$ som $q$ i stedet for $q^2$, blir bærerfrekvensen hundre ganger for lav.\n\n**Bruksbetingelsen:** dette gjelder bare for recessive mønstre. Ved et dominant mønster er de affiserte $p^2 + 2pq$, altså alle som har minst ett sykdomsallel, og regnestykket blir et helt annet."
+    },
+    {
+      "id": "med1100-7-3-def-baererfrekvens",
+      "type": "definition",
+      "title": "Bærerfrekvens ($2pq$)",
+      "content": "Andelen av populasjonen som er heterozygot, altså friske bærere av sykdomsallelet:\n\n$$\\text{bærerfrekvens} = 2pq$$\n\n**Hvorfor det står en toer der:** en heterozygot kan oppstå på to måter — $A$ fra mor og $a$ fra far, eller motsatt. Krysningsskjemaet over hele populasjonen har to slike ruter, og de legges sammen.\n\n**Størrelsesordenen som er verdt å ha i hodet:** ved en tilstand som rammer én av ti tusen, er bærerfrekvensen rundt én av femti. **To hundre ganger flere bærere enn affiserte.** Det er dette forholdet som gjør at sjeldne recessive tilstander kan ligge skjult i en befolkning i generasjon etter generasjon."
+    },
+    {
+      "id": "med1100-7-3-def-tilnaerming",
+      "type": "definition",
+      "title": "Tilnærmingen $2pq \\approx 2q$",
+      "content": "Når allelet er sjeldent, er $p$ svært nær 1, og da er $2pq \\approx 2q$.\n\n**Hvor godt den holder — regnet ut:**\n\n| $q$ | eksakt $2pq$ | tilnærmet $2q$ | avvik |\n|---|---|---|---|\n| 0,005 | 0,00995 | 0,0100 | 0,5 prosent |\n| 0,01 | 0,0198 | 0,0200 | 1 prosent |\n| 0,05 | 0,0950 | 0,1000 | 5 prosent |\n| 0,20 | 0,3200 | 0,4000 | 25 prosent |\n\n**Bruksbetingelsen:** tilnærmingen er utmerket for sjeldne alleler og ubrukelig for vanlige. Tommelfingerregelen er at avviket i prosent er omtrent $q$ i prosent.\n\n**Slik skriver du det på eksamen:** bruk gjerne $2q$ for å få et raskt overslag, men **si at det er en tilnærming** og oppgi betingelsen. Sensor premierer at du kjenner grensene for et grep, ikke at du unngår det."
+    },
+    {
+      "id": "med1100-7-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Bærerfrekvensen fra forekomsten (B2-REGN)",
+      "problem": "En oppdiktet autosomalt recessiv tilstand rammer **1 av 10 000** i en befolkning.\n\n**a)** Regn ut allelfrekvensen $q$ og bærerfrekvensen.\n\n**b)** Hvor mange ganger flere bærere enn affiserte er det?\n\n**c)** Hvilke forutsetninger hviler beregningen på?",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Allelfrekvens og bærerfrekvens.**\n\n*Trinn 1 — hva det oppgitte tallet er.* Bare de homozygote er affisert, så\n\n$$q^2 = \\frac{1}{10\\,000} = 0{,}0001$$\n\n*Trinn 2 — allelfrekvensen.*\n\n$$q = \\sqrt{0{,}0001} = 0{,}01$$\n\n*Trinn 3 — den andre allelfrekvensen.*\n\n$$p = 1 - 0{,}01 = 0{,}99$$\n\n*Trinn 4 — bærerfrekvensen.*\n\n$$2pq = 2 \\cdot 0{,}99 \\cdot 0{,}01 = 0{,}0198$$\n\n*Trinn 5 — kontroll.*\n\n$$p^2 + 2pq + q^2 = 0{,}9801 + 0{,}0198 + 0{,}0001 = 1{,}0000 \\checkmark$$\n\n**Svar i klartekst:** bærerfrekvensen er 0,0198, altså rundt **én av femti**. Med tilnærmingen $2q = 0{,}02$ får vi én av femti direkte — avviket er én prosent, og tilnærmingen er godt innenfor her fordi $p$ er nær 1.\n\n**b) Forholdet mellom bærere og affiserte.**\n\n$$\\frac{2pq}{q^2} = \\frac{0{,}0198}{0{,}0001} = 198$$\n\nDet er altså rundt **198 ganger flere bærere enn affiserte**.\n\n**Tolkning i klartekst:** i en befolkning på 100 000 ventes 10 affiserte og rundt 1 980 friske bærere. Det er selve grunnen til at en sjelden recessiv tilstand kan «forsvinne» i mange generasjoner og så dukke opp igjen: allelet er hele tiden til stede, men gjemt i friske mennesker.\n\n**Pluss-punkt:** å regne ut hvor stor andel av sykdomsallelene som ligger hos friske bærere. Bærerne har ett hver, de affiserte to hver:\n\n$$\\frac{2pq}{2pq + 2q^2} = \\frac{0{,}0198}{0{,}0198 + 0{,}0002} = \\frac{0{,}0198}{0{,}0200} = 0{,}99$$\n\n**99 prosent av sykdomsallelene ligger hos friske bærere.** (Uttrykket forenkles for øvrig til $p$ — prøv selv.) Dette er hele innholdet i feilkode **E14**, som er å glemme nettopp disse bærerne.\n\n**c) Forutsetningene.**\n\nBeregningen forutsetter Hardy-Weinberg-likevekt: tilfeldig paring med hensyn på genet, ingen seleksjon mot noen av genotypene, ingen betydelig nymutasjon, ingen inn- eller utvandring som endrer sammensetningen, og en stor populasjon.\n\n**Den viktigste i praksis:** ingen seleksjon. Er tilstanden alvorlig nok til at de affiserte i praksis ikke får barn, er forutsetning 2 brutt — og da gjelder ikke likevekten. Det ser vi nærmere på i neste løkke."
+    },
+    {
+      "id": "med1100-7-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-7-3-oppg-3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B2-REGN.) En oppdiktet autosomalt recessiv tilstand rammer **1 av 2 500**.\n\n**a)** Regn ut $q$, $p$ og bærerfrekvensen. Kontroller at de tre genotypefrekvensene summerer til 1.\n\n**b)** Oppgi bærerfrekvensen på formen «én av N».\n\n**c)** Hvor mye bommer du hvis du bruker tilnærmingen $2q$ i stedet for $2pq$?",
+        "solution": "**a) Regnestykket.**\n\n$$q^2 = \\frac{1}{2\\,500} = 0{,}0004 \\quad \\Rightarrow \\quad q = \\sqrt{0{,}0004} = 0{,}02$$\n$$p = 1 - 0{,}02 = 0{,}98$$\n$$2pq = 2 \\cdot 0{,}98 \\cdot 0{,}02 = 0{,}0392$$\n\n**Kontroll:**\n\n$$p^2 + 2pq + q^2 = 0{,}9604 + 0{,}0392 + 0{,}0004 = 1{,}0000 \\checkmark$$\n\n**b) På formen «én av N».**\n\n$$\\frac{1}{0{,}0392} = 25{,}5$$\n\nAltså rundt **én av tjuefem** er bærer.\n\n**c) Tilnærmingen.**\n\n$$2q = 2 \\cdot 0{,}02 = 0{,}0400$$\n\nAvviket er $0{,}0400 - 0{,}0392 = 0{,}0008$, altså rundt **2 prosent for høyt**. Det er godt innenfor det som er brukbart, og tilnærmingen kan trygt brukes her — men si at du bruker den.\n\n**Tolkning i klartekst:** rundt én av tjuefem bærer allelet uten å vise noe, mot én av 2 500 som er affisert. Det er rundt hundre ganger flere bærere enn affiserte.",
+        "hints": [
+          "Første spørsmål er alltid: er det oppgitte tallet q eller q i andre?",
+          "I c): regn ut begge verdiene og finn den relative forskjellen mellom dem."
+        ]
+      }
+    },
+    {
+      "id": "med1100-7-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-7-3-oppg-4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B2-REGN.) I en oppdiktet befolkning er bærerfrekvensen for et autosomalt recessivt allel **oppgitt til 1 av 20**.\n\n**a)** Hvor stor er allelfrekvensen $q$ omtrent?\n\n**b)** Hvor mange affiserte ventes i en befolkning på 400 000?\n\n**c)** To tilfeldig valgte personer fra denne befolkningen får barn. Hvor stor er sannsynligheten for at barnet blir affisert? Sammenlign med svaret i b), og forklar hva du ser.",
+        "solution": "**a) Allelfrekvensen.**\n\nBærerfrekvensen er $2pq = 1/20 = 0{,}05$. Med tilnærmingen $2pq \\approx 2q$:\n\n$$q \\approx \\frac{0{,}05}{2} = 0{,}025$$\n\n(Regnet eksakt fra $2q(1-q) = 0{,}05$ blir $q = 0{,}0257$, altså praktisk talt det samme. Tilnærmingen er god fordi $q$ er liten.)\n\n**b) Forventet antall affiserte.**\n\n$$q^2 = 0{,}025^2 = 0{,}000625$$\n$$0{,}000625 \\cdot 400\\,000 = 250 \\text{ personer}$$\n\n**Tolkning:** rundt 250 affiserte, mot $0{,}05 \\cdot 400\\,000 = 20\\,000$ bærere. Åtti ganger flere bærere enn affiserte.\n\n**c) Sannsynligheten for et affisert barn.**\n\nBegge må være bærere, og begge må gi videre sykdomsallelet:\n\n$$P = 0{,}05 \\cdot 0{,}05 \\cdot \\tfrac14 = 0{,}000625$$\n\n**Dette er nøyaktig samme tall som $q^2$ i b).**\n\n**Forklaringen — og dette er poenget i oppgaven:** de to regnestykkene er samme regnestykke skrevet på to måter. $q^2$ *er* sannsynligheten for at to tilfeldige kjønnsceller begge bærer allelet. Går du veien om bærerfrekvensen, får du $(2q)^2/4 = q^2$ — toerne og firetallet forkorter hverandre bort.\n\n**Pluss-punkt:** å påpeke at dette er en god kontroll. Får du to ulike tall ut av de to veiene, har du gjort en regnefeil et sted.",
+        "hints": [
+          "I a): bruk sammenhengen mellom bærerfrekvens og allelfrekvens, og si om du bruker tilnærmingen.",
+          "I b): forventet antall er andelen ganget med befolkningen.",
+          "I c): sett opp de tre leddene før du regner, og sammenlign så tallet med b)."
+        ]
+      }
+    },
+    {
+      "id": "med1100-7-3-warning-1",
+      "type": "warning",
+      "title": "Typiske feil i Hardy-Weinberg-regning",
+      "content": "**1. Å bruke forekomsten som $q$ i stedet for $q^2$.** Den store fellen. «Én av ti tusen er affisert» betyr $q^2 = 0{,}0001$, ikke $q = 0{,}0001$. Bommer du her, blir bærerfrekvensen hundre ganger for lav. Skriv alltid $q^2 = \\ldots$ som første linje, og ta kvadratroten som eget steg.\n\n**2. Felle E14 — å glemme de friske bærerne.** Ved et sjeldent recessivt allel ligger rundt 99 prosent av sykdomsallelene hos friske heterozygote. Et svar som behandler de affiserte som «alle som har allelet», er kvalitativt feil, ikke bare tallmessig.\n\n**3. Felle E14, andre halvdel — å bruke likevekten på et letalt allel.** Er de homozygote i praksis uten barn, er forutsetningen om ingen seleksjon brutt, og frekvensen er ikke stabil. Se neste løkke.\n\n**4. Å bruke tilnærmingen $2q$ uten å si det.** For et sjeldent allel er den utmerket. For et vanlig allel er den grovt feil: ved $q = 0{,}2$ gir den 0,40 mot eksakt 0,32. Si hvilken du bruker, og hvorfor.\n\n**5. Å hoppe over kontrollsummen.** $p^2 + 2pq + q^2 = 1$ tar fem sekunder og avslører en tastefeil før den forplanter seg.\n\n**6. Å bruke likningen på et dominant mønster.** Der er de affiserte $p^2 + 2pq$, ikke $q^2$. Les nøye hva slags mønster oppgaven beskriver.\n\n**7. Å glemme å nevne forutsetningene.** Én setning holder, men den skal være der — og den skal si **hvilken** forutsetning som er relevant hvis oppgaven legger opp til det.\n\n**8. Felle E22 — sluttsvar uten vist utregning.** I blokk 2 er utregningen selve svaret. Skriv de fire linjene, ikke bare den siste."
+    },
+    {
+      "id": "med1100-7-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Når likevekten ikke gjelder (~20 min)"
+    },
+    {
+      "id": "med1100-7-3-lokke3-intro",
+      "type": "text",
+      "content": "Hardy-Weinberg er en **modell**, ikke en naturlov. Den beskriver hva som skjer når ingenting forstyrrer. Eksamensoppgaver spør derfor ofte om det motsatte: hva skjer når noe *gjør* det?\n\nFem krefter kan forskyve frekvensene. Én av dem — seleksjon — er den du må kunne regne litt på."
+    },
+    {
+      "id": "med1100-7-3-def-seleksjon",
+      "type": "definition",
+      "title": "Seleksjon",
+      "content": "At de tre genotypene ikke har samme sjanse for å føre allelene sine videre. Bryter forutsetning 2.\n\n**Konsekvensen i et recessivt mønster:** seleksjon rammer bare de homozygote, siden bare de viser egenskapen. De heterozygote er usynlige for seleksjonen — og det er derfor allelet forsvinner så sakte.\n\n**Med fullstendig seleksjon** — de homozygote får ingen barn — blir den nye allelfrekvensen\n\n$$q' = \\frac{q}{1+q}$$\n\nVed $q = 0{,}01$ gir det $q' = 0{,}00990$: en nedgang på under én prosent per generasjon. Dette regnes ut i Eksempel 3."
+    },
+    {
+      "id": "med1100-7-3-def-drift",
+      "type": "definition",
+      "title": "Genetisk drift",
+      "content": "Tilfeldige forskyvninger av allelfrekvensen fra generasjon til generasjon, fordi bare et utvalg av allelene faktisk føres videre. Bryter forutsetning 5.\n\n**Hvorfor størrelsen på populasjonen avgjør:** i en stor populasjon jevner tilfeldighetene seg ut. I en liten kan et allel forsvinne helt, eller bli vanlig, uten at det har noen fordel eller ulempe overhodet.\n\n**Skillet mot naboen:** seleksjon virker i en **retning** — den favoriserer eller straffer bestemte genotyper. Drift har ingen retning; den er ren tilfeldighet. Å kalle en tilfeldig forskyvning for seleksjon er en presisjonsfeil sensor merker."
+    },
+    {
+      "id": "med1100-7-3-def-grunnleggereffekt",
+      "type": "definition",
+      "title": "Grunnleggereffekt og flaskehals",
+      "content": "To spesialtilfeller av genetisk drift.\n\n**Grunnleggereffekt:** en ny populasjon startes av et lite antall individer, og allelfrekvensene i den nye gruppen speiler tilfeldigvis de få grunnleggerne — ikke populasjonen de kom fra.\n\n**Flaskehals:** en populasjon reduseres kraftig i antall og vokser så opp igjen fra de få som var igjen. Samme mekanisme, motsatt historie.\n\n**Fellestrekket som skal med i et svar:** begge gir en **liten effektiv populasjon** i én generasjon, og det er nok til å forskyve frekvensene varig. Et allel som var sjeldent, kan bli vanlig — uten at det har noen fordel."
+    },
+    {
+      "id": "med1100-7-3-def-ikke-tilfeldig",
+      "type": "definition",
+      "title": "Ikke-tilfeldig paring",
+      "content": "At partnervalget henger sammen med genotypen — enten fordi partnere velges blant slektninger, eller fordi populasjonen i virkeligheten består av grupper som ikke får barn med hverandre. Bryter forutsetning 1.\n\n**Signaturen i tallene:** **færre heterozygote og flere homozygote** enn likevekten forutsier, akkurat slik vi så i Eksempel 1.\n\n**Det som er verdt å merke seg:** ikke-tilfeldig paring endrer **genotypefrekvensene**, men ikke **allelfrekvensene**. Allelene er de samme; de er bare pakket annerledes i individene. Å få fram nettopp den forskjellen er et pluss-punkt."
+    },
+    {
+      "id": "med1100-7-3-def-genflyt",
+      "type": "definition",
+      "title": "Genflyt (migrasjon)",
+      "content": "At individer flytter inn i eller ut av populasjonen og tar med seg alleler. Bryter forutsetning 4.\n\n**Effekten:** genflyt **utjevner** forskjeller mellom populasjoner. To grupper med ulike allelfrekvenser blir likere jo mer utveksling det er mellom dem.\n\n**Konsekvensen for en beregning:** en frekvens målt i én gruppe kan ikke uten videre brukes på en annen. Oppgaver som oppgir en bærerfrekvens, oppgir den derfor alltid for en bestemt befolkning."
+    },
+    {
+      "id": "med1100-7-3-def-mutasjon-hw",
+      "type": "definition",
+      "title": "Mutasjon som frekvensendrer",
+      "content": "Nye endringer i genet skaper nye alleler og endrer frekvensene. Bryter forutsetning 3.\n\n**Størrelsesorden, og hvorfor det sjelden er det viktigste:** mutasjonsraten per gen per generasjon er svært lav, og over noen få generasjoner er effekten forsvinnende sammenliknet med seleksjon og drift. Mutasjon er likevel **kilden** til all variasjon — uten den ville det ikke vært noe for de andre kreftene å virke på.\n\nNøyaktige mutasjonsrater er stoff du **bør kjenne til** at finnes; tallverdier er ikke krav i MED1100 og skal ikke pugges."
+    },
+    {
+      "id": "med1100-7-3-def-letale",
+      "type": "definition",
+      "title": "Letale recessive alleler og likevekten",
+      "content": "Et allel som gjør de homozygote ute av stand til å få barn, er per definisjon under seleksjon. Forutsetning 2 er brutt, og **populasjonen er ikke i Hardy-Weinberg-likevekt for dette genet**.\n\n**Det som overrasker, og som er selve poenget:** frekvensen synker likevel bare ubetydelig per generasjon. Grunnen er at nesten alle allelene ligger trygt hos friske bærere, som seleksjonen ikke ser. Ved $q = 0{,}01$ tar det over hundre generasjoner å halvere frekvensen.\n\n**Hvorfor dette er feilkode E14:** studenter skriver enten at likevekten gjelder (den gjør ikke det), eller at allelet raskt forsvinner (det gjør det ikke). Begge deler er galt, og de er galt av samme grunn: bærerne er glemt."
+    },
+    {
+      "id": "med1100-7-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Hvorfor letale recessive alleler ikke er i likevekt (eksamensnivå)",
+      "problem": "En oppdiktet autosomalt recessiv tilstand har allelfrekvens $q = 0{,}01$. Anta at de homozygote ikke får barn i det hele tatt, mens heterozygote og homozygot normale får barn som vanlig.\n\n**a)** **Forklar** hvorfor populasjonen ikke er i Hardy-Weinberg-likevekt for dette genet.\n\n**b)** Vis at den nye allelfrekvensen i neste generasjon blir $q' = q/(1+q)$, og regn ut verdien.\n\n**c)** Regn ut frekvensen etter fem generasjoner, og **forklar** hvorfor allelet forsvinner så sakte.\n\nOppgaven er verdt 8 vekttall.",
+      "solution": "**Full-pott-besvarelse.** Merk spørreordet i a) og c): **forklar** krever mekanismen bak, ikke bare en konstatering.\n\n— naturlig pausepunkt mellom a) og b) —\n\n**a) Hvorfor likevekten ikke gjelder.**\n\nLikevekten forutsetter at alle tre genotypene har samme sjanse for å føre allelene sine videre (forutsetning 2). Her har de homozygote $aa$ ingen slik sjanse i det hele tatt. Det er **seleksjon**, og forutsetningen er dermed brutt.\n\nKonsekvensen er at frekvensen $q$ **synker fra generasjon til generasjon** i stedet for å holde seg konstant. Og siden $p$ og $q$ endrer seg, endrer også genotypefrekvensene seg — likevektsfordelingen $p^2 : 2pq : q^2$ gjenopprettes hver generasjon ut fra de nye frekvensene, men frekvensene selv står ikke stille. Det er nettopp definisjonen på ikke å være i likevekt.\n\n**b) Den nye allelfrekvensen.**\n\n*Utledningen.* Blant foreldrene til neste generasjon finnes bare $AA$ og $Aa$, i forholdet $p^2 : 2pq$. Til sammen utgjør de $p^2 + 2pq = 1 - q^2$ av den opprinnelige populasjonen.\n\nBlant disse foreldrene kommer $a$-allelene bare fra de heterozygote, som har ett hver:\n\n$$q' = \\frac{\\text{antall } a\\text{-alleler}}{\\text{antall alleler i alt}} = \\frac{2pq}{2(1 - q^2)} = \\frac{pq}{(1-q)(1+q)} = \\frac{pq}{p(1+q)} = \\frac{q}{1+q}$$\n\nder vi brukte at $p = 1 - q$.\n\n*Innsetting med tall:*\n\n$$q' = \\frac{0{,}01}{1 + 0{,}01} = \\frac{0{,}01}{1{,}01} = 0{,}009901$$\n\n**Tolkning i klartekst:** frekvensen synker fra 0,0100 til 0,0099, altså med under **én prosent** på én generasjon.\n\n— naturlig pausepunkt —\n\n**c) Etter fem generasjoner.**\n\nRegelen brukes om igjen, generasjon for generasjon:\n\n| Generasjon | $q$ | $q^2$ (andel affiserte) |\n|---|---|---|\n| 0 | 0,010000 | $1{,}00 \\cdot 10^{-4}$ |\n| 1 | 0,009901 | $9{,}80 \\cdot 10^{-5}$ |\n| 2 | 0,009804 | $9{,}61 \\cdot 10^{-5}$ |\n| 3 | 0,009709 | $9{,}43 \\cdot 10^{-5}$ |\n| 4 | 0,009615 | $9{,}25 \\cdot 10^{-5}$ |\n| 5 | 0,009524 | $9{,}07 \\cdot 10^{-5}$ |\n\nEtter fem generasjoner er allelfrekvensen 0,00952 — en nedgang på under 5 prosent. Andelen affiserte er sunket fra 1 av 10 000 til rundt 1 av 11 000.\n\n**Forklaringen — dette er der poengene ligger:** seleksjonen ser bare de homozygote, og de er en forsvinnende liten del av dem som har allelet. Ved $q = 0{,}01$ ligger **99 prosent av sykdomsallelene hos friske bærere**, som formerer seg helt normalt. Hver generasjon fjernes bare de få allelene som tilfeldigvis er parvis samlet i en homozygot, mens hovedtyngden går uforstyrret videre.\n\n**Pluss-punkt:** å vise kontrasten. Er allelet vanlig — si $q = 0{,}5$ — synker det raskt: $0{,}5 \\rightarrow 0{,}333 \\rightarrow 0{,}250 \\rightarrow 0{,}200$ på tre generasjoner. Seleksjonen er effektiv når mange av allelene er samlet i homozygote, og nesten virkningsløs når nesten ingen er det. Det er samme mekanisme, bare med et helt annet utgangspunkt.\n\n**Feller:**\n\n- Å svare at likevekten gjelder «fordi tilstanden er sjelden». Sjeldenhet er ikke en av de fem forutsetningene.\n- Å svare at allelet «raskt forsvinner». Det gjør det ikke, og grunnen er bærerne — dette er felle **E14**.\n- Å nøye seg med å konstatere at forutsetning 2 er brutt, uten å si hva konsekvensen er. Spørreordet er **forklar**, og da kreves mekanismen."
+    },
+    {
+      "id": "med1100-7-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-7-3-oppg-5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B2-MEK — mekanisme- og forklaringsoppgaven i blokk 2.) Ramse opp de fem forutsetningene for Hardy-Weinberg-likevekt, og si for hver av dem hvilken virkelig kraft som bryter den.",
+        "solution": "**De fem forutsetningene, med den kraften som bryter hver av dem:**\n\n1. **Tilfeldig paring med hensyn på genet.** Brytes av **ikke-tilfeldig paring** — partnervalg blant slektninger, eller at «populasjonen» i virkeligheten er flere grupper som ikke blander seg. Signaturen i tallene er for få heterozygote.\n\n2. **Ingen seleksjon.** Brytes av **seleksjon** — når en genotype har systematisk lavere eller høyere sjanse for å føre allelene videre. Ved et recessivt mønster rammer seleksjonen bare de homozygote.\n\n3. **Ingen ny mutasjon av betydning.** Brytes av **mutasjon**. Effekten per generasjon er svært liten, men mutasjon er kilden til all variasjon.\n\n4. **Ingen inn- eller utvandring.** Brytes av **genflyt** — som utjevner forskjeller mellom populasjoner.\n\n5. **Stor populasjon.** Brytes av **genetisk drift** — tilfeldige forskyvninger som slår hardt ut i små grupper. Grunnleggereffekt og flaskehals er to spesialtilfeller.\n\n**Presiseringen som løfter svaret:** legg merke til at bare forutsetning 1 endrer genotypefrekvensene **uten** å endre allelfrekvensene. De fire andre endrer selve allelfrekvensene, og dermed alt.",
+        "hints": [
+          "Ramse opp de fem først, og koble deretter én kraft til hver.",
+          "Tenk over hvilken av de fem som lar allelfrekvensene stå stille selv om genotypefordelingen endres."
+        ]
+      }
+    },
+    {
+      "id": "med1100-7-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-7-3-oppg-6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B2-REGN.) Et autosomalt recessivt allel har frekvens $q = 0{,}04$ i en oppdiktet populasjon. De homozygote får ingen barn.\n\n**a)** Hvor stor andel av populasjonen er affisert, og hvor stor andel er bærere?\n\n**b)** Hvor stor andel av sykdomsallelene i populasjonen ligger hos friske bærere?\n\n**c)** Hva blir allelfrekvensen i neste generasjon?",
+        "solution": "**a) Andelene.**\n\n$$q^2 = 0{,}04^2 = 0{,}0016 \\quad \\text{(1,6 promille, altså rundt 1 av 625)}$$\n$$p = 1 - 0{,}04 = 0{,}96$$\n$$2pq = 2 \\cdot 0{,}96 \\cdot 0{,}04 = 0{,}0768 \\quad \\text{(rundt 1 av 13)}$$\n\n**Kontroll:** $0{,}9216 + 0{,}0768 + 0{,}0016 = 1{,}0000$ ✓\n\n**b) Andelen av allelene som ligger hos bærere.**\n\nBærerne har ett sykdomsallel hver, de affiserte har to:\n\n$$\\frac{2pq}{2pq + 2q^2} = \\frac{0{,}0768}{0{,}0768 + 0{,}0032} = \\frac{0{,}0768}{0{,}0800} = 0{,}96$$\n\n**96 prosent** av sykdomsallelene ligger hos friske bærere. (Legg merke til at svaret er nøyaktig $p$ — det er ingen tilfeldighet, og uttrykket forenkles til $p$ generelt.)\n\n**c) Neste generasjon.**\n\n$$q' = \\frac{q}{1+q} = \\frac{0{,}04}{1{,}04} = 0{,}03846$$\n\n**Tolkning i klartekst:** frekvensen synker med rundt 3,8 prosent på én generasjon — mer enn ved $q = 0{,}01$, fordi en større andel av allelene nå sitter i homozygote som seleksjonen faktisk rammer. Men 96 prosent av allelene er fortsatt skjult hos friske bærere, så nedgangen er fremdeles langsom.",
+        "hints": [
+          "Regn de tre genotypefrekvensene først og kontroller at de summerer til 1.",
+          "I b): tell alleler, ikke personer — de affiserte har to hver.",
+          "I c): formelen for fullstendig seleksjon mot homozygote står i begrepsbanken over."
+        ]
+      }
+    },
+    {
+      "id": "med1100-7-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-7-3-oppg-7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B2-REGN og B2-MEK.) I en oppdiktet befolkning på **250 000** personer er **160** affisert av en autosomalt recessiv tilstand.\n\n**a)** Regn ut $q$, $p$ og bærerfrekvensen. Oppgi bærerfrekvensen som «én av N» og som forventet antall bærere i befolkningen.\n\n**b)** To tilfeldig valgte **friske** personer fra denne befolkningen får barn. Hvor stor er sannsynligheten for at barnet blir affisert? Sammenlign med $q^2$, og forklar hvorfor de to tallene ikke er helt like.\n\n**c)** En medstudent hevder at siden tilstanden er alvorlig og de affiserte ikke får barn, «må allelet være i ferd med å forsvinne raskt». **Forklar** presist hvorfor det ikke stemmer.",
+        "solution": "**a) Frekvensene.**\n\n$$q^2 = \\frac{160}{250\\,000} = 0{,}00064 \\quad \\Rightarrow \\quad q = \\sqrt{0{,}00064} = 0{,}0253$$\n$$p = 1 - 0{,}0253 = 0{,}9747$$\n$$2pq = 2 \\cdot 0{,}9747 \\cdot 0{,}0253 = 0{,}0493$$\n\n**Kontroll:** $0{,}9500 + 0{,}0493 + 0{,}00064 = 0{,}99994 \\approx 1$ ✓ (avrundingsrest)\n\n**På formen «én av N»:** $1/0{,}0493 = 20{,}3$, altså rundt **én av tjue**.\n\n**Forventet antall bærere:** $0{,}0493 \\cdot 250\\,000 = 12\\,325$ personer — mot 160 affiserte. Rundt sytti ganger flere bærere.\n\n**b) Sannsynligheten for et affisert barn av to friske.**\n\nHer må vi bruke bærersannsynligheten **gitt at personen er frisk**. De friske utgjør $1 - q^2$ av befolkningen, og bærerne er $2pq$:\n\n$$P(\\text{bærer} \\mid \\text{frisk}) = \\frac{2pq}{1 - q^2} = \\frac{0{,}0493}{1 - 0{,}00064} = \\frac{0{,}0493}{0{,}99936} = 0{,}04933$$\n\n$$P(\\text{affisert barn}) = 0{,}04933 \\cdot 0{,}04933 \\cdot \\tfrac14 = 0{,}000608$$\n\n**Sammenlikning:** $q^2 = 0{,}000640$, mens dette gir $0{,}000608$ — litt **lavere**.\n\n**Forklaringen:** når vi krever at begge foreldre er **friske**, har vi utelukket den lille gruppen affiserte, som ellers ville bidratt med sikre sykdomsalleler. Det trekker sannsynligheten litt ned. Uttrykket forenkler seg for øvrig til $(pq/(1-q^2))^2 \\cdot \\ldots$, og for små $q$ er forskjellen ubetydelig — her rundt 5 prosent.\n\n**Pluss-punkt:** å påpeke at $q^2$ gjelder for et tilfeldig par **uten** at vi vet noe om foreldrene, mens det andre tallet gjelder når vi vet at de er friske. To ulike spørsmål, to litt ulike svar.\n\n**c) Hvorfor allelet ikke forsvinner raskt.**\n\n*Momentlisten:*\n\n1. **Seleksjonen ser bare de homozygote.** Bare de affiserte rammes; de heterozygote er fenotypisk friske og får barn som alle andre.\n2. **Nesten alle allelene ligger hos bærerne.** Andelen er $2pq/(2pq + 2q^2) = p = 0{,}975$ — altså **97,5 prosent** av sykdomsallelene er skjult hos friske.\n3. **Regnestykket for nedgangen:** med fullstendig seleksjon mot de homozygote blir\n\n$$q' = \\frac{q}{1+q} = \\frac{0{,}0253}{1{,}0253} = 0{,}02468$$\n\naltså en nedgang på rundt **2,5 prosent** på én generasjon. Med den takten trengs det flere titalls generasjoner bare for å halvere frekvensen.\n\n4. **Den riktige konklusjonen:** medstudenten har rett i at populasjonen **ikke er i Hardy-Weinberg-likevekt** for dette genet — forutsetningen om ingen seleksjon er brutt. Men slutningen «altså forsvinner allelet raskt» er feil, og feilen er nettopp felle **E14**: å glemme at bærerne holder allelet i sirkulasjon.\n\n**Den skarpe formuleringen:** seleksjon mot et recessivt allel er effektiv når allelet er vanlig og nesten virkningsløs når det er sjeldent — og et sjeldent allel er nettopp det vi har her.",
+        "hints": [
+          "Begynn med å slå fast at det oppgitte antallet affisert gir deg q i andre, ikke q.",
+          "I b): hvilken gruppe er du inne i når du allerede vet at personen er frisk? Nevneren er ikke hele befolkningen.",
+          "I c): to ting skal skilles — om likevekten gjelder, og hvor raskt frekvensen endrer seg. Medstudenten har rett i det ene og feil i det andre."
+        ]
+      }
+    },
+    {
+      "id": "med1100-7-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "med1100-7-3-def-xbundet-hw",
+      "type": "definition",
+      "title": "Hardy-Weinberg for et X-bundet gen",
+      "content": "For et gen på X-kromosomet gjelder ikke $q^2$ for mennene. Menn har bare **ett** X, så andelen affiserte menn er rett og slett $q$ — allelfrekvensen selv.\n\n**Konsekvensen som overrasker:** for et sjeldent X-bundet recessivt allel er andelen affiserte menn mye høyere enn andelen affiserte kvinner, som er $q^2$. Er $q = 0{,}001$, er én av tusen menn affisert og bare én av en million kvinner.\n\n**Slik brukes det:** oppgis forekomsten blant gutter, har du $q$ direkte, uten kvadratrot. Bærerfrekvensen blant kvinner er da $2pq \\approx 2q$.\n\nDette er stoff du **bør kjenne til**. Hovedregningen i MED1100 gjelder autosomale mønstre."
+    },
+    {
+      "id": "med1100-7-3-def-likevekt-ett-slag",
+      "type": "definition",
+      "title": "Likevekten gjenopprettes på én generasjon",
+      "content": "En egenskap ved modellen som er verdt å kjenne: uansett hvor skjevt genotypene er fordelt i utgangspunktet, gir **én** runde med tilfeldig paring likevektsfordelingen $p^2 : 2pq : q^2$ — så lenge de andre forutsetningene holder.\n\n**Hvorfor:** allelfrekvensene endres ikke av tilfeldig paring. Neste generasjon dannes ved at kjønnsceller trekkes uavhengig fra den samme allelpuljen, og det er nettopp det $(p+q)^2$ beskriver.\n\n**Poenget for en besvarelse:** likevekten er ikke noe som bygges opp langsomt. Den er der etter én generasjon, og den forsvinner så snart en av forutsetningene brytes."
+    },
+    {
+      "id": "med1100-7-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis kontrollpunktene",
+      "content": [
+        {
+          "id": "med1100-7-3-repetisjon-tekst",
+          "type": "text",
+          "content": "Seks kontrollpunkter. Klarer du dem uten å bla, sitter kapitlet.\n\n1. **«Én av fire tusen er affisert.» Hva er $q$?** $q^2 = 1/4\\,000 = 0{,}00025$, altså $q = 0{,}0158$. Det oppgitte tallet er alltid $q^2$ ved et recessivt mønster.\n\n2. **Hvorfor står det en toer i $2pq$?** Fordi en heterozygot kan oppstå på to måter — $A$ fra mor og $a$ fra far, eller motsatt. Krysningsskjemaet har to slike ruter.\n\n3. **Når holder tilnærmingen $2pq \\approx 2q$?** Når $q$ er liten. Avviket i prosent er omtrent $q$ i prosent: 1 prosent avvik ved $q = 0{,}01$, men 25 prosent avvik ved $q = 0{,}2$.\n\n4. **Hvorfor er letale recessive alleler ikke i Hardy-Weinberg-likevekt?** Fordi seleksjon mot de homozygote bryter forutsetning 2. Men frekvensen synker likevel svært langsomt, siden nesten alle allelene ligger hos friske bærere.\n\n5. **Hvilken av de fem forutsetningene endrer genotypefrekvensene uten å endre allelfrekvensene?** Tilfeldig paring. Brytes den, blir det for få heterozygote — men allelene er de samme, bare pakket annerledes.\n\n6. **Fra [kap. 7.2](/med1100/med1100-7-2):** hvorfor er $\\tfrac14$ det siste leddet i sannsynligheten for et affisert barn av to bærere? Fordi hver forelder gir sykdomsallelet i halvparten av tilfellene, og de to hendelsene er uavhengige: $\\tfrac12 \\cdot \\tfrac12 = \\tfrac14$.\n\n7. **Fra [kap. 0.2](/med1100/med1100-0-2):** hva kreves av en regneoppgave i blokk 2? Vist utregning, enhet eller andel på hvert tall, og en tolkningssetning. Et tall alene er felle E22."
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }
