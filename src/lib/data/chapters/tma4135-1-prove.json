@@ -1,0 +1,202 @@
+{
+  "id": "tma4135-1-prove",
+  "courseId": "tma4135",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Komplekse tall og funksjoner (repetisjon)",
+  "description": "To nyskrevne prøver med fullstendige løsningsforslag: polar form, Eulers formel og komplekse røtter, og enhetsrøtter med kompleks partialbrøk. To prøver à ~20 min — kan tas som separate økter.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "løse oppgaver om polar form, Eulers formel og komplekse røtter under tidspress, med fullstendig føring",
+    "arbeide sikkert med de N enhetsrøttene, blant annet periodisiteten og at summen av dem er null",
+    "spalte et uttrykk med et konjugert polpar i nevneren både ved kvadratkomplettering og ved kompleks partialbrøk, og vise at formene er like"
+  ],
+  "content": [
+    {
+      "id": "tma4135-1-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til del 1",
+      "content": "**To prøver à ~20 minutter.** Del 1 er en repetisjonsdel på ett kapittel, og er en forutsetning for Laplace, Fourier og den diskrete Fourier-transformen — ikke en egen oppgavetype på eksamen. Derfor er det to prøver her, ikke fire som i temadelene.\n\n- **Prøve 1.A (20 min, 20 poeng):** polar form, Eulers formel og komplekse røtter.\n- **Prøve 1.B (20 min, 20 poeng):** enhetsrøtter og kompleks partialbrøk — broen til [kap. 2.2](/tma4135/tma4135-2-2) og [kap. 4.3](/tma4135/tma4135-4-3).\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** De er korte nok til å passe inn på slutten av en leseøkt.\n\n**Om tempoet.** Tjue poeng på tjue minutter er raskere enn eksamenstakten, som er rundt 24 minutter per oppgave på 10 poeng. Det er med vilje: dette er repetisjonsstoff med korte regnestykker, ikke fulle eksamensoppgaver. Minuttene per deloppgave er oppgitt i oppgaveteksten og summerer seg til 20 i hver prøve.\n\n**Hver prøve avsluttes med fire raske spørsmål med svaralternativer.** De ligger nederst i hver prøve, teller ikke poeng, og er en **treningsform** — settene i dette emnet har aldri hatt en avkryssingsdel.\n\n**Slik bruker du dem:** ta prøven på tid, uten fasit og uten kapitlet oppslått. Bruk kalkulator. Skriv fullstendige svar med utregning, og skriv navnet på metoden du bruker — det er en del av kravet om at alle svar skal begrunnes. Åpne løsningsforslaget først etterpå, og kryss av i selvdiagnosen.\n\n**Formelark-merking:** trigonometriske identiteter **står på det utdelte formelarket — tren oppslaget**. Alt annet i denne delen — Eulers formel, rotformelen, kvadratkomplettering og kompleks partialbrøk — **må kunnes** eller utledes aktivt."
+    },
+    {
+      "id": "tma4135-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 1.1](/tma4135/tma4135-1-1) — polar form, Eulers formel og Eulers formler for cosinus og sinus, de Moivres formel, rotformelen for $z^n=w$, de $N$ enhetsrøttene, kvadratkomplettering og kompleks partialbrøk. Ingenting utover det kapitlet er nødvendig. Alle oppgavene er nyskrevne for denne boka."
+    },
+    {
+      "id": "tma4135-1-prove-intro",
+      "type": "text",
+      "content": "Under ligger de to prøvene, hver i en egen boks du kan åpne når du er klar. Løsningsforslagene er ført som toppbesvarelser: hvert mellomsteg er med, metodenavnet er skrevet ut, og kontrollregningen står der. Det er den føringen som gir full uttelling — ikke et riktig sluttsvar alene."
+    },
+    {
+      "id": "tma4135-1-prove-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 1.A — Polar form, Eulers formel og komplekse røtter (20 min)",
+      "buttonText": "Vis prøve 1.A",
+      "content": [
+        {
+          "id": "tma4135-1-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 1.A — Polar form, Eulers formel og komplekse røtter.** 20 minutter, 20 poeng. Kalkulator er tillatt. Oppgi eksakte uttrykk der det går an.\n\nTidsbudsjett: oppgave 1 ~7 min (8 poeng), oppgave 2 ~6 min (6 poeng), oppgave 3 ~7 min (6 poeng)."
+        },
+        {
+          "id": "tma4135-1-prove-A-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-prove-A-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~7 min) La $z = -3 + 3i$.\n\n**a)** Skriv $z$ på polar form med hovedargumentet. (4 poeng)\n**b)** Regn ut $z^4$ og oppgi svaret på kartesisk form. (4 poeng)",
+            "solution": "**a)** Modulus:\n$$|z| = \\sqrt{(-3)^2+3^2} = \\sqrt{18} = 3\\sqrt2.$$\nArgument: $\\cos\\theta = -3/(3\\sqrt2) = -1/\\sqrt2$ og $\\sin\\theta = 1/\\sqrt2$. Cosinus negativ og sinus positiv gir **andre kvadrant**, så hovedargumentet er\n$$\\theta = \\frac{3\\pi}{4}.$$\nAltså\n$$z = 3\\sqrt2\\,e^{i3\\pi/4} = 3\\sqrt2\\left(\\cos\\frac{3\\pi}{4} + i\\sin\\frac{3\\pi}{4}\\right).$$\n*(Regner du bare $\\arctan(3/(-3)) = -\\pi/4$, får du vinkelen til $3-3i$ i stedet. Tegn punktet.)*\n\n**b)** **Etter de Moivres formel:**\n$$z^4 = \\left(3\\sqrt2\\right)^4 e^{i\\cdot 4\\cdot 3\\pi/4} = \\left(3\\sqrt2\\right)^4 e^{i3\\pi}.$$\nModulusen er $\\left(3\\sqrt2\\right)^4 = 3^4\\cdot\\left(\\sqrt2\\right)^4 = 81\\cdot 4 = 324$. Vinkelen $3\\pi$ reduseres modulo $2\\pi$ til $\\pi$, og $e^{i\\pi} = -1$. Altså\n$$z^4 = 324\\cdot(-1) = -324.$$\n\n**Kontroll.** $z^2 = (-3+3i)^2 = 9 - 18i + 9i^2 = -18i$, og $z^4 = (-18i)^2 = 324\\,i^2 = -324$. Stemmer.",
+            "hints": [
+              "Tegn punktet $(-3,3)$ i planet før du velger vinkel.",
+              "I b): $\\left(3\\sqrt2\\right)^4 = 3^4\\left(\\sqrt2\\right)^4$ — regn de to faktorene hver for seg."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-prove-A-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-prove-A-o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(6 poeng, ~6 min) Bruk de Moivres formel til å vise at\n\n$$\\sin 3\\theta = 3\\sin\\theta - 4\\sin^3\\theta$$\n\nfor alle reelle $\\theta$. Kontroller identiteten i to punkter.",
+            "solution": "**Etter de Moivres formel** med $r=1$ og $n=3$:\n$$\\cos3\\theta + i\\sin3\\theta = \\left(\\cos\\theta + i\\sin\\theta\\right)^3.$$\n\nGang ut høyresiden med binomialformelen $(x+y)^3 = x^3+3x^2y+3xy^2+y^3$, der $x = \\cos\\theta$ og $y = i\\sin\\theta$. Bruk $i^2=-1$ og $i^3=-i$:\n$$\\cos^3\\theta + 3i\\cos^2\\theta\\sin\\theta - 3\\cos\\theta\\sin^2\\theta - i\\sin^3\\theta.$$\n\n**Sammenlign imaginærdelene** på de to sidene:\n$$\\sin3\\theta = 3\\cos^2\\theta\\sin\\theta - \\sin^3\\theta.$$\n\n**Erstatt $\\cos^2\\theta$** med $1-\\sin^2\\theta$:\n$$\\sin3\\theta = 3\\left(1-\\sin^2\\theta\\right)\\sin\\theta - \\sin^3\\theta = 3\\sin\\theta - 3\\sin^3\\theta - \\sin^3\\theta = 3\\sin\\theta - 4\\sin^3\\theta,$$\nsom var det vi skulle vise.\n\n**Kontroll.** Ved $\\theta = \\pi/2$: venstre side er $\\sin(3\\pi/2) = -1$, høyre side er $3\\cdot 1 - 4\\cdot 1 = -1$. Ved $\\theta = \\pi/6$: venstre side er $\\sin(\\pi/2) = 1$, høyre side er $3\\cdot\\tfrac12 - 4\\cdot\\tfrac18 = \\tfrac32 - \\tfrac12 = 1$. Stemmer begge steder.\n\n*Alternativ vei:* samme resultat kan utledes fra Eulers formel for sinus ved å kube $\\left(e^{i\\theta}-e^{-i\\theta}\\right)/(2i)$ og pare sammen leddene. Begge veiene er gyldige — si hvilken du bruker.",
+            "hints": [
+              "Skriv $\\cos3\\theta+i\\sin3\\theta$ som en tredjepotens, og gang ut.",
+              "Etter utregningen: sammenlign bare de leddene som har $i$ foran seg."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-prove-A-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-prove-A-o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(6 poeng, ~7 min) Finn alle løsninger av $z^3 = -8i$. Oppgi svarene på kartesisk form, og kontroller én av dem ved innsetting.",
+            "solution": "**Høyresiden på polar form.** $|-8i| = 8$, og $-8i$ ligger rett ned langs den imaginære aksen, altså med hovedargument $-\\pi/2$. Da er\n$$-8i = 8\\,e^{-i\\pi/2}.$$\n\n**Rotformelen** med $n=3$, $\\rho=8$, $\\varphi=-\\pi/2$:\n$$z_k = 8^{1/3}\\,e^{i\\left(-\\pi/2 + 2\\pi k\\right)/3} = 2\\,e^{i\\left(-\\pi/6 + 2\\pi k/3\\right)}, \\qquad k = 0,1,2.$$\n\n**Vinklene** blir $-\\pi/6$, $-\\pi/6 + 2\\pi/3 = \\pi/2$ og $-\\pi/6+4\\pi/3 = 7\\pi/6$.\n\n**Kartesisk form.**\n$$z_0 = 2\\left(\\cos\\left(-\\tfrac{\\pi}{6}\\right) + i\\sin\\left(-\\tfrac{\\pi}{6}\\right)\\right) = 2\\left(\\tfrac{\\sqrt3}{2} - \\tfrac12 i\\right) = \\sqrt3 - i,$$\n$$z_1 = 2\\left(\\cos\\tfrac{\\pi}{2} + i\\sin\\tfrac{\\pi}{2}\\right) = 2i,$$\n$$z_2 = 2\\left(\\cos\\tfrac{7\\pi}{6} + i\\sin\\tfrac{7\\pi}{6}\\right) = 2\\left(-\\tfrac{\\sqrt3}{2} - \\tfrac12 i\\right) = -\\sqrt3 - i.$$\n\n**Kontroll av $z_1 = 2i$:** $(2i)^3 = 8i^3 = 8\\cdot(-i) = -8i$. Stemmer.\n\n**Kontroll av $z_0 = \\sqrt3 - i$:** $\\left(\\sqrt3-i\\right)^2 = 3 - 2\\sqrt3\\,i - 1 = 2-2\\sqrt3\\,i$, og\n$$\\left(2-2\\sqrt3\\,i\\right)\\left(\\sqrt3-i\\right) = 2\\sqrt3 - 2i - 2\\cdot 3\\,i + 2\\sqrt3\\,i^2 = 2\\sqrt3 - 8i - 2\\sqrt3 = -8i.$$\nStemmer.\n\nDe tre røttene ligger på en sirkel med radius 2, med $120^\\circ$ mellom seg — den geometriske kontrollen du alltid kan gjøre på tre sekunder.",
+            "hints": [
+              "Hvilket argument har et rent imaginært tall som peker nedover?",
+              "Kubikkrota av 8 er 2, og de tre vinklene ligger $2\\pi/3$ fra hverandre."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-prove-A-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Dette er en treningsform boka bruker for rask selvkontroll — settene i dette emnet har ingen slik del.\n\n**1.** Hovedargumentet til $-1-i$ er: **a)** $\\pi/4$ · **b)** $-3\\pi/4$ · **c)** $3\\pi/4$ · **d)** $5\\pi/4$\n\n**2.** Hvor mange løsninger har $z^5 = 32$ i de komplekse tallene? **a)** 1 · **b)** 2 · **c)** 10 · **d)** 5\n\n**3.** $e^{i\\pi}$ er lik: **a)** $-1$ · **b)** $1$ · **c)** $i$ · **d)** $-i$\n\n**4.** $\\sin\\theta$ uttrykt ved eksponentialer er: **a)** $\\dfrac{e^{i\\theta}+e^{-i\\theta}}{2}$ · **b)** $\\dfrac{e^{i\\theta}-e^{-i\\theta}}{2}$ · **c)** $\\dfrac{e^{i\\theta}-e^{-i\\theta}}{2i}$ · **d)** $\\dfrac{e^{i\\theta}+e^{-i\\theta}}{2i}$"
+        },
+        {
+          "id": "tma4135-1-prove-A-hurtig-fasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1b · 2d · 3a · 4c.**\n\n**1b:** $-1-i$ ligger i tredje kvadrant. Vinkelen $5\\pi/4$ peker på samme punkt, men hovedargumentet skal ligge i $(-\\pi,\\pi]$, så svaret er $-3\\pi/4$. Alternativ **d** er altså riktig punkt, men feil representant.\n**2d:** likningen $z^n=w$ har alltid nøyaktig $n$ løsninger for $w\\ne 0$. Alternativ **a** teller bare den reelle rota $z=2$.\n**3a:** $e^{i\\pi} = \\cos\\pi + i\\sin\\pi = -1 + 0 = -1$.\n**4c:** nevneren er $2i$, ikke $2$ — alternativ **b** er cosinus-formelen med feil fortegn, og **a** er cosinus."
+        },
+        {
+          "id": "tma4135-1-prove-A-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.A\n\nKryss av det du faktisk gjorde, ikke det du kunne ha gjort.\n\n☐ Jeg tegnet punktet i planet før jeg oppga argumentet, og fikk riktig kvadrant.\n\n☐ Jeg oppga hovedargumentet i $(-\\pi,\\pi]$, ikke en vilkårlig representant.\n\n☐ Jeg skrev **navnet** «de Moivres formel» i besvarelsen, ikke bare regningen.\n\n☐ Jeg reduserte vinkelen modulo $2\\pi$ i oppgave 1b.\n\n☐ Jeg fant **alle tre** røttene i oppgave 3, ikke bare den ene som var lett å se.\n\n☐ Jeg kontrollerte minst ett svar ved innsetting eller ved en modulusregning.\n\n☐ Jeg oppga eksakte uttrykk ($\\sqrt3$, ikke $1{,}73$).\n\n**Færre enn fem kryss?** Les [kap. 1.1](/tma4135/tma4135-1-1) løkke 1–3 på nytt, og gjør oppgave 1, 3 og 6 der før du går videre til prøve 1.B."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-1-prove-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 1.B — Enhetsrøtter og kompleks partialbrøk (20 min)",
+      "buttonText": "Vis prøve 1.B",
+      "content": [
+        {
+          "id": "tma4135-1-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 1.B — Enhetsrøtter og kompleks partialbrøk.** 20 minutter, 20 poeng. Dette er broen til to senere deler: enhetsrøttene bærer den diskrete Fourier-transformen i [kap. 4.3](/tma4135/tma4135-4-3), og den komplekse partialbrøken er den ene av to godtatte veier gjennom invers Laplace-transform i [kap. 2.2](/tma4135/tma4135-2-2).\n\nTidsbudsjett: oppgave 1 ~6 min (7 poeng), oppgave 2 ~9 min (9 poeng), oppgave 3 ~5 min (4 poeng)."
+        },
+        {
+          "id": "tma4135-1-prove-B-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-prove-B-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(7 poeng, ~6 min) La $w = e^{2\\pi i/8}$ være den grunnleggende åttende enhetsroten.\n\n**a)** Skriv $w$, $w^2$ og $w^4$ på kartesisk form. (3 poeng)\n**b)** Vis at $\\sum_{k=0}^{7} w^{k} = 0$, og begrunn det uten å legge sammen de åtte tallene ett for ett. (4 poeng)",
+            "solution": "**a)** Enhetsroten svarer til vinkelen $2\\pi/8 = \\pi/4$:\n$$w = e^{i\\pi/4} = \\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4} = \\frac{\\sqrt2}{2} + \\frac{\\sqrt2}{2}\\,i.$$\nVidere er\n$$w^2 = e^{i\\pi/2} = i, \\qquad w^4 = e^{i\\pi} = -1.$$\n*(Merk $w^4 = -1$: for et partall $N$ er alltid $w_N^{\\,N/2} = -1$. Den egenskapen er selve grunnen til at den raske Fourier-transformen kan halvere problemet i hvert trinn.)*\n\n**b)** Summen er en **geometrisk rekke** med kvotient $w$. Siden $w \\ne 1$, gir formelen for geometrisk rekke\n$$\\sum_{k=0}^{7} w^{k} = \\frac{w^{8}-1}{w-1}.$$\nMen $w^{8} = \\left(e^{2\\pi i/8}\\right)^8 = e^{2\\pi i} = 1$, så telleren er $1-1 = 0$ mens nevneren $w-1 \\ne 0$. Altså er summen $0$.\n\n*Geometrisk begrunnelse:* de åtte punktene ligger jevnt fordelt på enhetssirkelen, så hvert punkt har et motsatt punkt fire skritt unna ($w^{k+4} = w^k\\cdot w^4 = -w^k$). Punktene kansellerer altså parvis.\n\n**Kontroll av parene:** $w^0+w^4 = 1 + (-1) = 0$ og $w^1+w^5 = 0$, og tilsvarende for de to siste parene. Fire par som hvert gir null.",
+            "hints": [
+              "Hvilken vinkel svarer $e^{2\\pi i/8}$ til, i grader?",
+              "For b): summen er en geometrisk rekke — hva er kvotienten, og hva blir telleren når du bruker formelen?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-prove-B-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-prove-B-o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(9 poeng, ~9 min) Gitt uttrykket $\\dfrac{s-1}{s^2+2s+10}$.\n\n**a)** Kvadratkompletter nevneren og skriv brøken på formen $\\dfrac{\\alpha(s-a)+\\beta b}{(s-a)^2+b^2}$. Oppgi $a$, $b$, $\\alpha$ og $\\beta$. (3 poeng)\n**b)** Finn den komplekse partialbrøkoppspaltingen av samme uttrykk. (4 poeng)\n**c)** Vis at de to formene er det samme uttrykket. (2 poeng)",
+            "solution": "**a) Kvadratkomplettering.** Diskriminanten er $2^2-4\\cdot 10 = -36 < 0$, så nevneren har ingen reelle røtter. Halvparten av førstegradskoeffisienten er 1, så\n$$s^2+2s+10 = (s+1)^2 + (10-1) = (s+1)^2+9 = (s+1)^2+3^2.$$\nHer er $a = -1$ og $b = 3$. Telleren skrives om slik at $(s+1)$ kommer fram:\n$$s-1 = (s+1) - 2.$$\nDermed\n$$\\frac{s-1}{s^2+2s+10} = \\frac{(s+1)}{(s+1)^2+3^2} - \\frac{2}{3}\\cdot\\frac{3}{(s+1)^2+3^2},$$\naltså $\\alpha = 1$ og $\\beta = -\\tfrac23$.\n\n**Kontroll:** $1\\cdot(s+1) + \\left(-\\tfrac23\\right)\\cdot 3 = s+1-2 = s-1$. Stemmer.\n\n**b) Kompleks partialbrøk.** Røttene i nevneren er\n$$s = \\frac{-2\\pm\\sqrt{-36}}{2} = \\frac{-2\\pm 6i}{2} = -1\\pm 3i,$$\net konjugert polpar med samme $a$ og $b$ som i a). Ansatsen er\n$$\\frac{s-1}{s^2+2s+10} = \\frac{A}{s-(-1+3i)} + \\frac{\\bar A}{s-(-1-3i)},$$\nog **tildekkingsmetoden** gir\n$$A = \\left.\\frac{s-1}{s-(-1-3i)}\\right|_{s=-1+3i} = \\frac{(-1+3i)-1}{(-1+3i)-(-1-3i)} = \\frac{-2+3i}{6i}.$$\nForleng med $-i$ for å bli kvitt $i$ i nevneren:\n$$A = \\frac{(-2+3i)(-i)}{6i\\cdot(-i)} = \\frac{2i - 3i^2}{6} = \\frac{3+2i}{6} = \\frac12 + \\frac13 i.$$\nKonjugatet følger gratis: $\\bar A = \\tfrac12 - \\tfrac13 i$. Altså\n$$\\frac{s-1}{s^2+2s+10} = \\frac{\\tfrac12+\\tfrac13 i}{s+1-3i} + \\frac{\\tfrac12-\\tfrac13 i}{s+1+3i}.$$\n\n**c) At formene er like.** Legg de to komplekse brøkene sammen over fellesnevneren\n$$(s+1-3i)(s+1+3i) = (s+1)^2 - (3i)^2 = (s+1)^2+9,$$\nsom er nøyaktig nevneren fra a). Telleren blir\n$$A\\big((s+1)+3i\\big) + \\bar A\\big((s+1)-3i\\big) = \\big(A+\\bar A\\big)(s+1) + 3i\\big(A-\\bar A\\big).$$\nHer er $A+\\bar A = 1$ og $A-\\bar A = \\tfrac23 i$, så telleren er\n$$1\\cdot(s+1) + 3i\\cdot\\tfrac23 i = (s+1) + 2i^2 = (s+1) - 2 = s-1.$$\nDet er telleren vi startet med, så de to formene er samme uttrykk.\n\n**Hvilken er raskest?** Kvadratkomplettering, her som ellers når nevneren er ett andregradsuttrykk. Den komplekse veien er verdt å ha, fordi den fungerer mekanisk uten at du trenger å se hvordan telleren skal splittes, og fordi den er den som generaliserer når nevneren har flere faktorer. Begge godtas — skriv hvilken du bruker.",
+            "hints": [
+              "I a): finn først hva som skal stå inni parentesen i $(s+\\ldots)^2$, og trekk fra det du la til for mye.",
+              "I b): nevneren i tildekkingsformelen er alltid differansen mellom de to røttene, altså $2bi$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-prove-B-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-prove-B-o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(4 poeng, ~5 min) La $w = e^{2\\pi i/N}$.\n\n**a)** Vis at $w^{N+j} = w^{j}$ for alle hele tall $j$, og forklar med én setning hva egenskapen betyr geometrisk. (2 poeng)\n**b)** For $N = 8$: hvilke av de åtte enhetsrøttene er reelle tall? (2 poeng)",
+            "solution": "**a)** Regn direkte:\n$$w^{N+j} = w^{N}\\,w^{j} = \\left(e^{2\\pi i/N}\\right)^{N} w^{j} = e^{2\\pi i}\\,w^{j} = 1\\cdot w^{j} = w^{j}.$$\nGeometrisk: å gå $N$ skritt rundt sirkelen er å gå én hel omdreining, så du havner tilbake der du var. Eksponenten teller altså bare **modulo $N$**.\n\n*Hvorfor dette er viktig senere:* i [kap. 4.3](/tma4135/tma4135-4-3) er det denne periodisiteten som gjør at to ulike frekvenser kan gi nøyaktig samme målinger i $N$ punkter. Fenomenet heter aliasing.\n\n**b)** Enhetsroten $w^k = e^{2\\pi i k/8}$ er reell nøyaktig når den imaginære delen $\\sin(2\\pi k/8)$ er null, altså når $2\\pi k/8$ er et helt multiplum av $\\pi$. Det skjer for $k = 0$ og $k = 4$:\n$$w^0 = 1, \\qquad w^4 = e^{i\\pi} = -1.$$\nDe øvrige seks kommer i tre konjugerte par ($w^1$ med $w^7$, $w^2$ med $w^6$, $w^3$ med $w^5$) og har alle en imaginærdel forskjellig fra null.",
+            "hints": [
+              "I a): hva er $\\left(e^{2\\pi i/N}\\right)^N$?",
+              "I b): et komplekst tall er reelt nøyaktig når imaginærdelen er null — hvilke vinkler gir $\\sin = 0$?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-prove-B-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\n**1.** For $N = 8$ er $\\sum_{k=0}^{7} w^{k}$ lik: **a)** $8$ · **b)** $1$ · **c)** $0$ · **d)** $-1$\n\n**2.** Med $w = e^{2\\pi i/8}$ er $w^{11}$ lik: **a)** $w^{3}$ · **b)** $w^{8}$ · **c)** $w^{4}$ · **d)** $0$\n\n**3.** Tellerne i et konjugert par av partialbrøker er: **a)** alltid reelle · **b)** hverandres konjugat · **c)** alltid rent imaginære · **d)** uavhengige av hverandre\n\n**4.** Kvadratkomplettert er $s^2+2s+10$ lik: **a)** $(s+2)^2+6$ · **b)** $(s+1)^2+10$ · **c)** $(s+2)^2+10$ · **d)** $(s+1)^2+9$"
+        },
+        {
+          "id": "tma4135-1-prove-B-hurtig-fasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1c · 2a · 3b · 4d.**\n\n**1c:** summen av alle $N$ enhetsrøttene er null for $N\\ge 2$ — alternativ **a** teller antall ledd, ikke summen.\n**2a:** $11 = 8+3$, og eksponenten teller modulo 8, så $w^{11} = w^3$. Alternativ **c** ville vært svaret hvis regelen var å trekke fra 7.\n**3b:** derfor trenger du bare regne ut den ene telleren. Alternativ **a** er nær sannheten i den forstand at **summen** av de to brøkene er reell, men de enkelte tellerne er det ikke.\n**4d:** halvparten av 2 er 1, så kvadratet er $(s+1)^2 = s^2+2s+1$, og det mangler $10-1 = 9$. Alternativ **b** glemmer å trekke fra det man la til."
+        },
+        {
+          "id": "tma4135-1-prove-B-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.B\n\n☐ Jeg brukte formelen for geometrisk rekke i oppgave 1b, i stedet for å legge sammen åtte tall.\n\n☐ Jeg kvadratkompletterte riktig: la til **og** trakk fra det samme.\n\n☐ Jeg skrev telleren om slik at $(s+1)$ kom fram, i stedet for å gjette koeffisienter.\n\n☐ Jeg regnet ut bare **én** teller i den komplekse oppspaltingen og tok den andre som konjugatet.\n\n☐ Jeg fikk $i$ ut av nevneren ved å forlenge med $-i$, ikke ved å prøve meg fram.\n\n☐ Jeg viste i c) at de imaginære delene faller bort, og fikk et **reelt** uttrykk.\n\n☐ Jeg skrev navnet på metoden («kvadratkomplettering», «tildekkingsmetoden») i besvarelsen.\n\n**Mangler du kryss på de tre siste?** Gå tilbake til løkke 4 i [kap. 1.1](/tma4135/tma4135-1-1) og gjør oppgave 8 og 9 om igjen. Den komplekse partialbrøken kommer igjen i [kap. 2.2](/tma4135/tma4135-2-2), og der er den verdt flere poeng."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-1-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-1-prove-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 1.1](/tma4135/tma4135-1-1).\n\n| Symbol | Betydning |\n|---|---|\n| $i$ | Den imaginære enheten, $i^2=-1$ |\n| $z = a+bi$ | Komplekst tall på kartesisk form |\n| $\\bar z$, $\\bar A$ | Kompleks konjugat |\n| $\\lvert z\\rvert$ | Modulus, avstanden fra origo |\n| $r$, $\\rho$ | Modulus i polar form |\n| $\\theta$, $\\varphi$ | Argument (vinkel) |\n| $w = e^{2\\pi i/N}$ | Den grunnleggende $N$-te enhetsroten |\n| $z_k$ | Rot nummer $k$ av $n$ mulige |\n| $s$ | Variabelen i brøkene i prøve 1.B |\n| $a \\pm bi$ | Konjugert polpar — de to røttene i en nevner uten reelle røtter |\n| $\\alpha$, $\\beta$ | Koeffisientene i den kvadratkompletterte formen |\n"
+        },
+        {
+          "id": "tma4135-1-prove-sym-form",
+          "type": "text",
+          "content": "**Formler brukt i disse prøvene:**\n\n$$z = r e^{i\\theta}, \\qquad e^{i\\theta} = \\cos\\theta + i\\sin\\theta$$\nPolar form og Eulers formel. *(Må kunnes eller utledes aktivt.)*\n\n$$\\left(re^{i\\theta}\\right)^n = r^n e^{in\\theta}$$\nde Moivres formel — brukt i prøve 1.A oppgave 1b og 2. *(Må kunnes eller utledes aktivt.)*\n\n$$z_k = \\rho^{1/n}\\,e^{i(\\varphi+2\\pi k)/n}, \\qquad k = 0,\\dots,n-1$$\nDe $n$ røttene av $z^n = \\rho e^{i\\varphi}$. *(Må kunnes eller utledes aktivt.)*\n\n$$\\sum_{k=0}^{N-1} q^{k} = \\frac{q^{N}-1}{q-1}, \\qquad q \\ne 1$$\nGeometrisk rekke — brukt på $q = w$ i prøve 1.B oppgave 1b. *(Må kunnes eller utledes aktivt.)*\n\n$$s^2+ps+q = \\left(s+\\tfrac{p}{2}\\right)^2 + \\left(q - \\tfrac{p^2}{4}\\right)$$\nKvadratkomplettering. *(Må kunnes eller utledes aktivt — står ikke på arket.)*\n\n$$A = \\left.\\frac{N(s)}{s-(a-bi)}\\right|_{s=a+bi}$$\nTildekkingsmetoden for telleren i et konjugert polpar. *(Må kunnes eller utledes aktivt.)*\n\n$$\\sin 3\\theta = 3\\sin\\theta - 4\\sin^3\\theta$$\nIdentiteten som utledes i prøve 1.A oppgave 2. De grunnleggende trigonometriske identitetene **står på det utdelte formelarket — tren oppslaget**; denne står ikke der, men følger på tre linjer fra de Moivres formel.\n\n**Kolliderende symboler:** $r$ er modulus her, men stabilitetstallet $\\Delta t/h^2$ i Del 8. Bokstaven $s$ er her bare en variabel i en brøk; fra Del 2 er den variabelen i det Laplace-transformerte planet. $N$ er antall enhetsrøtter her og antall målepunkter i [kap. 4.3](/tma4135/tma4135-4-3) — det er samme $N$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

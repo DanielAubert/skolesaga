@@ -1,0 +1,478 @@
+{
+  "id": "tma4135-1-1",
+  "courseId": "tma4135",
+  "chapterNumber": "1.1",
+  "title": "Komplekse tall, Eulers formel og enhetsrøtter",
+  "description": "Kort repetisjon av det komplekse apparatet boka trenger: polar form, Eulers formel, komplekse røtter og delbrøk med komplekse poler.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "veksle sikkert mellom kartesisk og polar form, og bestemme modulus og hovedargument med riktig kvadrant",
+    "bruke Eulers formel og de Moivres formel til å regne ut potenser og til å utlede trigonometriske identiteter",
+    "finne alle n røtter av et komplekst tall, og gjøre rede for de N enhetsrøttene og at summen av dem er null",
+    "spalte en brøk med et konjugert polpar i nevneren både ved kvadratkomplettering og ved kompleks partialbrøk, og vise at de gir samme reelle uttrykk"
+  ],
+  "content": [
+    {
+      "id": "tma4135-1-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette temaet er aldri en egen oppgave på eksamen — og likevel er det verdt 50 minutter.**\n\nKomplekse tall har ikke stått som selvstendig oppgave i noen av de 13 gjennomgåtte settene. Men apparatet dukker opp inne i fire andre oppgavetyper som til sammen er på hvert eneste sett:\n\n- **kompleks delbrøk** når nevneren i en Laplace-transform har røtter $a\\pm bi$ — de nyeste løsningsforslagene viser både den reelle og den komplekse veien;\n- **kompleks Fourier-rekke** $\\sum c_n e^{inx}$, som er en fast variant av Fourier-rekkeoppgaven;\n- **enhetsrøttene** $w=e^{2\\pi i/N}$, som er hele grunnlaget for den diskrete Fourier-transformen;\n- **komplekse egenverdier** når du skal avgjøre om en numerisk metode er stabil.\n\n**Kalibrer tiden din deretter.** Dette er ikke kapitlet der du skal bruke mest arbeid. Målet er å komme raskt til det punktet der $e^{i\\theta}$ ikke stopper deg, og så gå videre til Del 2. Kan du komplekse tall godt fra før, skum eksemplene, gjør oppgave 5, 9 og 10, og gå videre.\n\n**Formelark-merking:** trigonometriske identiteter **står på det utdelte formelarket — tren oppslaget**. Kvadratkomplettering og faktorisering av andregradsuttrykk **må kunnes eller utledes aktivt** — de står ikke noe sted, og de er det du faktisk bruker i Del 2."
+    },
+    {
+      "id": "tma4135-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** ingen kapitler i denne boka. Kapitlet er selv repetisjon og starter fra definisjonen av $i$.\n\nFra videregående og tidligere matematikkemner forutsettes: regning med brøk og potenser, andregradsformelen, faktorisering av polynomer, de vanlige verdiene av $\\sin$ og $\\cos$ for $0$, $\\pi/6$, $\\pi/4$, $\\pi/3$ og $\\pi/2$, og hva det vil si at en funksjon er periodisk. Har du sett komplekse tall før, er dette en oppfriskning på under en time. Har du ikke det, er alt du trenger definert her.\n\nKapitlet er skrevet som forberedelse til [kap. 2.2](/tma4135/tma4135-2-2) (invers Laplace-transform), [kap. 3.3](/tma4135/tma4135-3-3) (kompleks Fourier-rekke) og [kap. 4.3](/tma4135/tma4135-4-3) (diskret Fourier-transform)."
+    },
+    {
+      "id": "tma4135-1-1-motivasjon",
+      "type": "text",
+      "content": "## Hvorfor et helt tallsystem til?\n\nTenk på en gyngestol som svinger og samtidig mister fart. Bevegelsen har to egenskaper samtidig: den **svinger** med en bestemt frekvens, og den **dempes** med en bestemt rate. Skal du beskrive den med reelle tall, trenger du to funksjoner, en $\\cos$ og en $e^{-t}$, og du må holde styr på begge hver gang du regner.\n\nKomplekse tall pakker svingning og demping sammen i **ett** tall. Det er hele poenget: $e^{(-1+3i)t}$ er både dempingen og svingningen, og regnereglene for eksponentialfunksjonen gjelder som før. Når du senere transformerer en differensiallikning og får en nevner som $s^2+2s+10$, er de komplekse røttene $-1\\pm 3i$ nettopp «demping 1, frekvens 3» — svaret leses rett ut av tallet.\n\nSamme grep gjør Fourier-rekker kortere. En reell rekke har to koeffisientfølger, $a_n$ og $b_n$; den komplekse har én, $c_n$. Og den diskrete Fourier-transformen hviler helt og holdent på at $N$ punkter jevnt fordelt rundt en sirkel har en enkel algebraisk beskrivelse — det er enhetsrøttene.\n\nKapitlet gjør fire ting, i denne rekkefølgen: polar form, Eulers formel, røtter og enhetsrøtter, og til slutt komplekse delbrøk. Ingenting bevises som ikke må bevises; alt er til bruk."
+    },
+    {
+      "id": "tma4135-1-1-flashcard-notis",
+      "type": "text",
+      "content": "**Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonene i dette kapitlet er samtidig kortene i flashcard-bunken. Kan du komplekse tall fra før, skum dem og gå rett på eksemplene; tidsanslaget på 50 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Kartesisk og polar form (~12 min)\n\nEt komplekst tall kan skrives på to måter, og hele kapitlet handler egentlig om å bytte mellom dem raskt. Den kartesiske formen er god til å legge sammen; den polare er god til å gange, dele og opphøye i potenser."
+    },
+    {
+      "id": "tma4135-1-1-def-i",
+      "type": "definition",
+      "title": "Den imaginære enheten",
+      "content": "Tallet som gjør det mulig å ta kvadratrota av et negativt tall. Det defineres ved den ene egenskapen at kvadratet er $-1$:\n\n$$i^2 = -1.$$\n\nAlt annet følger av vanlige regneregler. For eksempel er $i^3 = i^2\\cdot i = -i$ og $i^4 = 1$, så potensene av $i$ gjentar seg med periode fire: $i, -1, -i, 1, i, \\dots$"
+    },
+    {
+      "id": "tma4135-1-1-def-kartesisk",
+      "type": "definition",
+      "title": "Kompleks tall på kartesisk form",
+      "content": "Et komplekst tall er en sum av et vanlig tall og et imaginært ledd:\n\n$$z = a + bi, \\qquad a,\\,b \\in \\mathbb{R}.$$\n\nDu kan tegne $z$ som punktet $(a,b)$ i planet — den vannrette aksen er den reelle, den loddrette den imaginære. Addisjon og subtraksjon gjøres komponentvis, akkurat som med vektorer. Multiplikasjon gjøres som vanlig utregning av parenteser, med $i^2=-1$ til slutt."
+    },
+    {
+      "id": "tma4135-1-1-def-re-im",
+      "type": "definition",
+      "title": "Reell del og imaginær del",
+      "content": "For $z = a+bi$ skriver vi $\\operatorname{Re} z = a$ og $\\operatorname{Im} z = b$. Merk at den imaginære delen er **et reelt tall** — det er $b$, ikke $bi$. Et tall er reelt nøyaktig når $\\operatorname{Im} z = 0$, og rent imaginært når $\\operatorname{Re} z = 0$. Kravet «vis at svaret er reelt» dukker opp i den diskrete Fourier-transformen, og betyr alltid: vis at den imaginære delen faller bort."
+    },
+    {
+      "id": "tma4135-1-1-def-konjugat",
+      "type": "definition",
+      "title": "Kompleks konjugat",
+      "content": "Speilingen om den reelle aksen: bytt fortegn på den imaginære delen.\n\n$$\\bar z = a - bi \\quad \\text{når} \\quad z = a+bi.$$\n\nTo regneregler brukes hele tiden: $z + \\bar z = 2\\operatorname{Re} z$ (summen av et tall og konjugatet er alltid reell), og $z\\bar z = a^2+b^2 = |z|^2$. Den siste er trikset for å dele: gang teller og nevner med konjugatet av nevneren, så blir nevneren reell."
+    },
+    {
+      "id": "tma4135-1-1-def-modulus",
+      "type": "definition",
+      "title": "Modulus",
+      "content": "Avstanden fra origo til punktet $z$ i planet — hvor «stort» tallet er.\n\n$$|z| = \\sqrt{a^2+b^2} = \\sqrt{z\\bar z}.$$\n\nModulusen er alltid et ikke-negativt reelt tall, og den er multiplikativ: $|zw| = |z|\\,|w|$. Det er nettopp derfor polar form gjør multiplikasjon enkel."
+    },
+    {
+      "id": "tma4135-1-1-def-argument",
+      "type": "definition",
+      "title": "Argument og hovedargument",
+      "content": "Vinkelen fra den positive reelle aksen ut til $z$, målt mot klokka:\n\n$$\\theta = \\arg z, \\qquad \\tan\\theta = \\frac{b}{a}.$$\n\nArgumentet er bare bestemt opp til hele omdreininger: $\\theta$ og $\\theta + 2\\pi k$ gir samme punkt. **Hovedargumentet** er den entydige verdien i $(-\\pi,\\,\\pi]$. Advarsel: $\\arctan(b/a)$ på kalkulatoren gir alltid en vinkel i første eller fjerde kvadrant. Ligger $z$ til venstre i planet (altså $a<0$), må du legge til eller trekke fra $\\pi$ selv. Tegn punktet før du svarer."
+    },
+    {
+      "id": "tma4135-1-1-def-polar",
+      "type": "definition",
+      "title": "Polar form (eksponentialform)",
+      "content": "Samme tall beskrevet ved lengde og vinkel i stedet for koordinater:\n\n$$z = r\\,(\\cos\\theta + i\\sin\\theta) = r\\,e^{i\\theta}, \\qquad r = |z|,\\ \\theta = \\arg z.$$\n\nVeien tilbake er $a = r\\cos\\theta$ og $b = r\\sin\\theta$. Bruk kartesisk form når du skal legge sammen, polar form når du skal gange, dele eller opphøye. **Merk:** her betyr $r$ radius. I Del 8 betyr $r$ stabilitetstallet $\\Delta t/h^2$ — samme bokstav, helt forskjellig størrelse."
+    },
+    {
+      "id": "tma4135-1-1-eks-1",
+      "type": "example",
+      "title": "Fra kartesisk til polar form",
+      "problem": "Skriv $z = -1 + i\\sqrt{3}$ på polar form, og oppgi $|z|$, hovedargumentet og $\\bar z$.",
+      "solution": "**Modulus.** $|z| = \\sqrt{(-1)^2 + (\\sqrt3)^2} = \\sqrt{1+3} = \\sqrt4 = 2$.\n\n**Argument.** Vi trenger vinkelen $\\theta$ med\n$$\\cos\\theta = \\frac{a}{r} = \\frac{-1}{2}, \\qquad \\sin\\theta = \\frac{b}{r} = \\frac{\\sqrt3}{2}.$$\nCosinus er negativ og sinus positiv, så $z$ ligger i **andre kvadrant** — tegn gjerne punktet $(-1,\\sqrt3)$ for å se det. Den vinkelen i $(-\\pi,\\pi]$ som har disse to verdiene, er\n$$\\theta = \\frac{2\\pi}{3}.$$\nHadde vi bare regnet $\\arctan(\\sqrt3/(-1)) = \\arctan(-\\sqrt3) = -\\pi/3$, ville vi fått vinkelen til det **motsatte** punktet $1 - i\\sqrt3$. Det er den vanligste feilen i denne regningen.\n\n**Polar form.**\n$$z = 2\\left(\\cos\\frac{2\\pi}{3} + i\\sin\\frac{2\\pi}{3}\\right) = 2e^{i2\\pi/3}.$$\n\n**Konjugat.** $\\bar z = -1 - i\\sqrt3 = 2e^{-i2\\pi/3}$ — samme lengde, motsatt vinkel.\n\n**Kontroll.** $z\\bar z = (-1+i\\sqrt3)(-1-i\\sqrt3) = 1 - (i\\sqrt3)^2 = 1+3 = 4 = |z|^2$. Stemmer."
+    },
+    {
+      "id": "tma4135-1-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ren gjengivelse — bruk definisjonene over. La $z = 5 - 12i$.\n\n**a)** Skriv opp $\\operatorname{Re} z$, $\\operatorname{Im} z$ og $\\bar z$.\n**b)** Regn ut $|z|$.\n**c)** Regn ut $z\\bar z$ og kontroller at svaret er $|z|^2$.",
+        "solution": "**a)** $\\operatorname{Re} z = 5$, $\\operatorname{Im} z = -12$ (tallet $-12$, ikke $-12i$), og $\\bar z = 5 + 12i$.\n\n**b)** $|z| = \\sqrt{5^2 + (-12)^2} = \\sqrt{25+144} = \\sqrt{169} = 13$.\n\n**c)** $z\\bar z = (5-12i)(5+12i) = 25 - (12i)^2 = 25 + 144 = 169$, og $|z|^2 = 13^2 = 169$. Stemmer.",
+        "hints": [
+          "Den imaginære delen er koeffisienten foran $i$, uten $i$-en.",
+          "For c): bruk konjugatsetningen $(x-y)(x+y)=x^2-y^2$ med $y = 12i$, og husk $i^2=-1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv $z = -2-2i$ på polar form med hovedargumentet, og skriv deretter $1/z$ på kartesisk form.",
+        "solution": "**Modulus.** $|z| = \\sqrt{(-2)^2+(-2)^2} = \\sqrt8 = 2\\sqrt2$.\n\n**Argument.** Både $a$ og $b$ er negative, så $z$ ligger i tredje kvadrant. Med $\\cos\\theta = -2/(2\\sqrt2) = -1/\\sqrt2$ og $\\sin\\theta = -1/\\sqrt2$ blir hovedargumentet\n$$\\theta = -\\frac{3\\pi}{4}.$$\n(Vinkelen $5\\pi/4$ peker på samme punkt, men ligger utenfor $(-\\pi,\\pi]$.)\n\n**Polar form.** $z = 2\\sqrt2\\,e^{-i3\\pi/4}$.\n\n**Invers.** Gang med konjugatet:\n$$\\frac{1}{z} = \\frac{\\bar z}{z\\bar z} = \\frac{-2+2i}{8} = -\\frac14 + \\frac14 i.$$\n**Kontroll:** $\\left|1/z\\right| = \\sqrt{1/16+1/16} = 1/(2\\sqrt2)$, som er $1/|z|$. Stemmer.",
+        "hints": [
+          "Tegn punktet $(-2,-2)$ først, og se hvilken kvadrant du er i før du velger vinkel.",
+          "For å dele: gang teller og nevner med konjugatet av nevneren."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Eulers formel (~13 min)\n\nNå kommer den ene formelen resten av boka hviler på. Skrivemåten $e^{i\\theta}$ er ikke en forkortelse noen fant på for å spare plass — den oppfører seg som en eksponentialfunksjon i alle regnestykker, og det er derfor den er så nyttig."
+    },
+    {
+      "id": "tma4135-1-1-def-euler",
+      "type": "definition",
+      "title": "Eulers formel",
+      "content": "Broen mellom eksponentialfunksjonen og trigonometrien:\n\n$$e^{i\\theta} = \\cos\\theta + i\\sin\\theta.$$\n\nMed den blir polar form til $z = re^{i\\theta}$. Tre konsekvenser du bruker rett fra starten: $|e^{i\\theta}| = 1$ for alle reelle $\\theta$ (punktet ligger på enhetssirkelen), $e^{i\\theta}$ er periodisk med periode $2\\pi$, og $\\overline{e^{i\\theta}} = e^{-i\\theta}$.\n\n*Intuisjon:* $e^{i\\theta}$ er punktet du kommer til når du går vinkelen $\\theta$ langs enhetssirkelen. Å gange to slike tall er å legge sammen vinklene — akkurat som eksponentialfunksjonen legger sammen eksponenter. **Må kunnes eller utledes aktivt.**"
+    },
+    {
+      "id": "tma4135-1-1-def-euler-cos-sin",
+      "type": "definition",
+      "title": "Eulers formler for cosinus og sinus",
+      "content": "Løser du Eulers formel for $\\theta$ og $-\\theta$ som to likninger med to ukjente, får du trigonometri uttrykt ved eksponentialer:\n\n$$\\cos\\theta = \\frac{e^{i\\theta}+e^{-i\\theta}}{2}, \\qquad \\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}.$$\n\nLegg merke til $2i$ i nevneren for sinus — ikke $2$. Dette er nøkkelen til å oversette mellom den reelle Fourier-rekka (med $a_n$ og $b_n$) og den komplekse (med $c_n$) i [kap. 3.3](/tma4135/tma4135-3-3), og til å regne ut $\\cos^n\\theta$ uten å lete i en identitetstabell. **Må kunnes eller utledes aktivt.**"
+    },
+    {
+      "id": "tma4135-1-1-def-demoivre",
+      "type": "definition",
+      "title": "de Moivres formel",
+      "content": "Å opphøye i polar form er å gange lengden og multiplisere vinkelen:\n\n$$\\left(re^{i\\theta}\\right)^n = r^n e^{in\\theta} = r^n\\big(\\cos n\\theta + i\\sin n\\theta\\big), \\qquad n \\in \\mathbb{Z}.$$\n\nFormelen gjelder også for negative $n$. Den erstatter all utregning av parenteser: $(1+i)^{10}$ tar tre linjer på polar form og en halv side på kartesisk. Den brukes også baklengs, til å utlede identiteter for $\\cos n\\theta$ og $\\sin n\\theta$."
+    },
+    {
+      "id": "tma4135-1-1-def-produkt",
+      "type": "definition",
+      "title": "Produkt og kvotient på polar form",
+      "content": "For $z = r e^{i\\theta}$ og $w = \\rho e^{i\\varphi}$:\n\n$$zw = r\\rho\\, e^{i(\\theta+\\varphi)}, \\qquad \\frac{z}{w} = \\frac{r}{\\rho}\\, e^{i(\\theta-\\varphi)}.$$\n\nMed ord: lengdene ganges, vinklene legges sammen. Dette er hele grunnen til at polar form finnes. Sammenlign med kartesisk form, der samme regnestykke krever fire delmultiplikasjoner og en samling av ledd."
+    },
+    {
+      "id": "tma4135-1-1-eks-2",
+      "type": "example",
+      "title": "Potens med de Moivres formel",
+      "problem": "Regn ut $(1+i)^{10}$ og oppgi svaret på kartesisk form.",
+      "solution": "**Skriv grunntallet på polar form.** $|1+i| = \\sqrt{1+1} = \\sqrt2$, og punktet $(1,1)$ ligger i første kvadrant med vinkel $\\pi/4$. Altså\n$$1+i = \\sqrt2\\,e^{i\\pi/4}.$$\n\n**Bruk de Moivres formel.**\n$$(1+i)^{10} = \\left(\\sqrt2\\right)^{10} e^{i\\cdot 10\\pi/4} = 2^{5}\\,e^{i5\\pi/2} = 32\\,e^{i5\\pi/2}.$$\n\n**Reduser vinkelen.** $e^{i\\theta}$ har periode $2\\pi$, så vi trekker fra $2\\pi$: $5\\pi/2 - 2\\pi = \\pi/2$. Dermed\n$$(1+i)^{10} = 32\\,e^{i\\pi/2} = 32\\left(\\cos\\frac{\\pi}{2} + i\\sin\\frac{\\pi}{2}\\right) = 32i.$$\n\n**Kontroll.** $(1+i)^2 = 1 + 2i + i^2 = 2i$. Da er $(1+i)^{10} = \\left((1+i)^2\\right)^5 = (2i)^5 = 32\\,i^5 = 32i$, siden $i^5 = i^4\\cdot i = i$. Stemmer."
+    },
+    {
+      "id": "tma4135-1-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\left(\\sqrt{3}-i\\right)^{6}$ og oppgi svaret som et eksakt uttrykk. Kontroller svaret på en uavhengig måte.",
+        "solution": "**Polar form.** $\\left|\\sqrt3 - i\\right| = \\sqrt{3+1} = 2$, og med $\\cos\\theta = \\sqrt3/2$, $\\sin\\theta = -1/2$ ligger punktet i fjerde kvadrant med $\\theta = -\\pi/6$. Altså $\\sqrt3 - i = 2e^{-i\\pi/6}$.\n\n**de Moivres formel.**\n$$\\left(\\sqrt3-i\\right)^6 = 2^6 e^{-i\\cdot 6\\pi/6} = 64\\,e^{-i\\pi} = 64\\big(\\cos(-\\pi) + i\\sin(-\\pi)\\big) = -64.$$\n\n**Kontroll ved direkte utregning.** Kvadrer først:\n$$\\left(\\sqrt3-i\\right)^2 = 3 - 2\\sqrt3\\,i + i^2 = 2 - 2\\sqrt3\\,i.$$\nKall dette $u$. Da er\n$$u^2 = 4 - 8\\sqrt3\\,i + 12\\,i^2 = -8 - 8\\sqrt3\\,i,$$\n$$u^3 = u^2\\,u = \\left(-8-8\\sqrt3\\,i\\right)\\left(2-2\\sqrt3\\,i\\right) = -16 + 16\\sqrt3\\,i - 16\\sqrt3\\,i + 48\\,i^2 = -16 - 48 = -64.$$\nOg $\\left(\\sqrt3-i\\right)^6 = u^3 = -64$. Stemmer.\n\nLegg merke til hvor mye lengre den kartesiske veien er. På polar form var hele regningen to linjer: modulus $2^6 = 64$, argument $6\\cdot(-\\pi/6) = -\\pi$.",
+        "hints": [
+          "Finn $|z|$ og $\\arg z$ først — svaret faller ut av de to alene.",
+          "Vinkelen $-\\pi/6$ ganget med 6 gir $-\\pi$, og $e^{-i\\pi} = -1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-eks-3",
+      "type": "example",
+      "title": "Trigonometrisk identitet uten identitetstabell",
+      "problem": "Vis at $\\cos^3\\theta = \\tfrac34\\cos\\theta + \\tfrac14\\cos3\\theta$ ved hjelp av Eulers formler.",
+      "solution": "**Skriv om og kubér.** Fra Eulers formel for cosinus:\n$$\\cos^3\\theta = \\left(\\frac{e^{i\\theta}+e^{-i\\theta}}{2}\\right)^3 = \\frac{1}{8}\\left(e^{i\\theta}+e^{-i\\theta}\\right)^3.$$\n\n**Bruk binomialformelen** på $(x+y)^3 = x^3+3x^2y+3xy^2+y^3$ med $x = e^{i\\theta}$, $y = e^{-i\\theta}$. Da er $x^2y = e^{i\\theta}$ og $xy^2 = e^{-i\\theta}$, så\n$$\\left(e^{i\\theta}+e^{-i\\theta}\\right)^3 = e^{3i\\theta} + 3e^{i\\theta} + 3e^{-i\\theta} + e^{-3i\\theta}.$$\n\n**Par sammen igjen.** Leddene $e^{3i\\theta}+e^{-3i\\theta}$ er $2\\cos3\\theta$, og $3\\left(e^{i\\theta}+e^{-i\\theta}\\right)$ er $6\\cos\\theta$. Dermed\n$$\\cos^3\\theta = \\frac{1}{8}\\big(2\\cos3\\theta + 6\\cos\\theta\\big) = \\frac14\\cos3\\theta + \\frac34\\cos\\theta.$$\n\n**Kontroll ved $\\theta = 0$:** venstre side er $1$, høyre side er $\\tfrac34 + \\tfrac14 = 1$. Ved $\\theta = \\pi/2$: venstre side er $0$, høyre side er $\\tfrac34\\cdot 0 + \\tfrac14\\cos(3\\pi/2) = 0$. Stemmer.\n\n*Hvorfor dette er verdt å kunne:* de trigonometriske identitetene **står på det utdelte formelarket — tren oppslaget**, men arket har ikke alle. Kan du regningen over, produserer du den identiteten du trenger på to minutter i stedet for å lete."
+    },
+    {
+      "id": "tma4135-1-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk Eulers formel for sinus til å vise at $\\sin^2\\theta = \\tfrac12 - \\tfrac12\\cos2\\theta$. Kontroller resultatet i to punkter.",
+        "solution": "Fra Eulers formel for sinus:\n$$\\sin^2\\theta = \\left(\\frac{e^{i\\theta}-e^{-i\\theta}}{2i}\\right)^2 = \\frac{\\left(e^{i\\theta}-e^{-i\\theta}\\right)^2}{(2i)^2} = \\frac{\\left(e^{i\\theta}-e^{-i\\theta}\\right)^2}{-4}.$$\n\nKvadrer parentesen: $e^{2i\\theta} - 2 + e^{-2i\\theta}$. Her er $e^{2i\\theta}+e^{-2i\\theta} = 2\\cos2\\theta$, så parentesen er $2\\cos2\\theta - 2$. Dermed\n$$\\sin^2\\theta = \\frac{2\\cos2\\theta - 2}{-4} = \\frac{2 - 2\\cos2\\theta}{4} = \\frac12 - \\frac12\\cos2\\theta.$$\n\n**Kontroll.** Ved $\\theta = 0$: venstre side $0$, høyre side $\\tfrac12-\\tfrac12 = 0$. Ved $\\theta = \\pi/2$: venstre side $1$, høyre side $\\tfrac12 - \\tfrac12\\cos\\pi = \\tfrac12+\\tfrac12 = 1$. Stemmer.\n\nMerk at $(2i)^2 = -4$, ikke $4$ — det er her fortegnsfeilene oppstår.",
+        "hints": [
+          "Skriv $\\sin\\theta$ som en brøk med $2i$ i nevneren, og kvadrer hele brøken.",
+          "Regn ut $(2i)^2$ eksplisitt før du forenkler; fortegnet der avgjør hele svaret."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå de to skrivemåtene og Eulers formel. Resten av kapitlet er anvendelser: røtter i neste løkke, og komplekse delbrøk i den siste. Tar du en pause her, er det disse to du bør ha i hodet når du kommer tilbake: $z = re^{i\\theta}$ og $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$."
+    },
+    {
+      "id": "tma4135-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Røtter og enhetsrøtter (~13 min)\n\nEt reelt tall har én kubikkrot. Et komplekst tall har tre. Grunnen er at argumentet er bestemt bare opp til hele omdreininger — og når du deler vinkelen på $n$, gir hver omdreining et nytt svar."
+    },
+    {
+      "id": "tma4135-1-1-def-rotter",
+      "type": "definition",
+      "title": "De n komplekse n-te røttene",
+      "content": "Likningen $z^n = w$ har nøyaktig $n$ løsninger for ethvert $w \\ne 0$. Skriv $w = \\rho e^{i\\varphi}$. Fordi argumentet kan økes med $2\\pi$ uten å endre $w$, er løsningene\n\n$$z_k = \\rho^{1/n}\\,e^{i(\\varphi + 2\\pi k)/n}, \\qquad k = 0,1,\\dots,n-1.$$\n\nAlle $n$ røttene har samme lengde $\\rho^{1/n}$, og vinklene ligger jevnt fordelt med avstand $2\\pi/n$. Geometrisk er de hjørnene i en regulær $n$-kant om origo. For $k = n$ er du tilbake der du startet, så det holder å telle til $n-1$. **Må kunnes eller utledes aktivt.**"
+    },
+    {
+      "id": "tma4135-1-1-def-enhetsrotter",
+      "type": "definition",
+      "title": "De N enhetsrøttene",
+      "content": "Spesialtilfellet $w = 1$. Da er $\\rho = 1$ og $\\varphi = 0$, så løsningene av $z^N = 1$ er potensene av ett enkelt tall:\n\n$$w_N = e^{2\\pi i/N}, \\qquad z_k = w_N^{\\,k} = e^{2\\pi i k/N}, \\quad k = 0,1,\\dots,N-1.$$\n\nDe ligger jevnt fordelt på enhetssirkelen, med $z_0 = 1$. To egenskaper brukes hele tiden i [kap. 4.3](/tma4135/tma4135-4-3): potensene gjentar seg, $w_N^{\\,N+j} = w_N^{\\,j}$, og $w_N^{\\,N/2} = -1$ når $N$ er et partall. Enhetsrøttene er hele grunnlaget for den diskrete Fourier-transformen."
+    },
+    {
+      "id": "tma4135-1-1-def-sum-enhetsrotter",
+      "type": "definition",
+      "title": "Summen av alle N enhetsrøtter",
+      "content": "For $N \\ge 2$ er summen av alle enhetsrøttene null:\n\n$$\\sum_{k=0}^{N-1} w_N^{\\,k} = 0, \\qquad w_N = e^{2\\pi i/N}.$$\n\n*Begrunnelse:* summen er en geometrisk rekke med kvotient $w_N \\ne 1$, så den er $(w_N^{\\,N}-1)/(w_N-1)$, og telleren er null fordi $w_N^{\\,N} = 1$. *Intuisjon:* punktene ligger symmetrisk rundt origo, så de kansellerer hverandre. Egenskapen er grunnen til at den diskrete Fourier-transformen kan inverteres, og den brukes til å vise at koeffisienter faller bort."
+    },
+    {
+      "id": "tma4135-1-1-eks-4",
+      "type": "example",
+      "title": "Alle tredjerøttene av et komplekst tall",
+      "problem": "Finn alle løsninger av $z^3 = \\sqrt3 + i$, og oppgi dem på polar form.",
+      "solution": "**Skriv høyresiden på polar form.** $\\left|\\sqrt3+i\\right| = \\sqrt{3+1} = 2$. Med $\\cos\\varphi = \\sqrt3/2$ og $\\sin\\varphi = 1/2$ er $\\varphi = \\pi/6$ (første kvadrant). Altså $\\sqrt3+i = 2e^{i\\pi/6}$.\n\n**Sett opp rotformelen** med $n = 3$, $\\rho = 2$, $\\varphi = \\pi/6$:\n$$z_k = 2^{1/3}\\,e^{i\\left(\\pi/6 + 2\\pi k\\right)/3} = 2^{1/3}\\,e^{i\\left(\\pi/18 + 2\\pi k/3\\right)}, \\qquad k = 0,1,2.$$\n\n**Skriv dem ut.**\n$$z_0 = 2^{1/3} e^{i\\pi/18}, \\qquad z_1 = 2^{1/3} e^{i13\\pi/18}, \\qquad z_2 = 2^{1/3} e^{i25\\pi/18}.$$\nI grader er vinklene $10^\\circ$, $130^\\circ$ og $250^\\circ$ — jevnt fordelt med $120^\\circ$ mellom seg, som de skal være.\n\n**Kontroll.** Alle tre har modulus $\\left(2^{1/3}\\right)^3 = 2$ når de opphøyes i tredje, og argumentene blir $\\pi/6$, $\\pi/6 + 2\\pi$ og $\\pi/6 + 4\\pi$ — alle samme punkt. Stemmer.\n\n**Merk formen på svaret.** Her er polar form det eksakte svaret. Å tvinge det over på kartesisk form ville gitt $2^{1/3}\\cos 10^\\circ + i\\,2^{1/3}\\sin 10^\\circ$, som verken er penere eller mer eksakt."
+    },
+    {
+      "id": "tma4135-1-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Skriv de fire fjerderøttene av $1$, altså løsningene av $z^4 = 1$, på kartesisk form.\n**b)** Vis ved direkte utregning at summen av dem er null.",
+        "solution": "**a)** Med $N = 4$ er $w_4 = e^{2\\pi i/4} = e^{i\\pi/2} = i$, og røttene er potensene $w_4^{\\,k}$ for $k = 0,1,2,3$:\n$$z_0 = 1, \\qquad z_1 = i, \\qquad z_2 = i^2 = -1, \\qquad z_3 = i^3 = -i.$$\nDe ligger på enhetssirkelen med $90^\\circ$ mellom seg, altså i hjørnene av et kvadrat.\n\n**b)** $1 + i + (-1) + (-i) = (1-1) + (i-i) = 0$. Både den reelle og den imaginære delen kanselleres parvis, som symmetrien tilsier.",
+        "hints": [
+          "Start med $w_4 = e^{2\\pi i/4}$ og regn ut hvilken vinkel det svarer til.",
+          "Potensene av $i$ gjentar seg med periode fire — du har allerede sett listen $i, -1, -i, 1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn alle løsninger av $z^4 = -16$, og oppgi dem på kartesisk form. Kontroller én av dem ved innsetting.",
+        "solution": "**Polar form av høyresiden.** $|-16| = 16$ og $\\arg(-16) = \\pi$, så $-16 = 16e^{i\\pi}$.\n\n**Rotformelen** med $n=4$:\n$$z_k = 16^{1/4}\\,e^{i(\\pi+2\\pi k)/4} = 2\\,e^{i(\\pi/4 + \\pi k/2)}, \\qquad k = 0,1,2,3.$$\n\n**Kartesisk form.** Vinklene er $\\pi/4$, $3\\pi/4$, $5\\pi/4$ og $7\\pi/4$, og $\\cos$ og $\\sin$ har verdien $\\pm 1/\\sqrt2$ i alle fire. Med $2\\cdot 1/\\sqrt2 = \\sqrt2$ blir svarene\n$$z_0 = \\sqrt2 + i\\sqrt2, \\quad z_1 = -\\sqrt2 + i\\sqrt2, \\quad z_2 = -\\sqrt2 - i\\sqrt2, \\quad z_3 = \\sqrt2 - i\\sqrt2.$$\n\n**Kontroll av $z_0$.** $\\left(\\sqrt2+i\\sqrt2\\right)^2 = 2 + 2\\cdot 2 i + 2i^2 = 4i$, og $(4i)^2 = 16i^2 = -16$. Stemmer.\n\nLegg merke til at røttene kommer i to konjugerte par, $z_0$ med $z_3$ og $z_1$ med $z_2$. Det er ingen tilfeldighet: koeffisientene i $z^4+16$ er reelle.",
+        "hints": [
+          "Skriv $-16$ på polar form først: hvilken modulus og hvilket argument har et negativt reelt tall?",
+          "Fjerderota av 16 er 2, og de fire vinklene ligger $\\pi/2$ fra hverandre."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $w = e^{2\\pi i/6}$ være den grunnleggende sjetteenhetsroten.\n\n**a)** Vis at $w^3 = -1$.\n**b)** Regn ut $\\sum_{k=0}^{5} w^{2k}$, og begrunn svaret uten å regne ut hvert ledd numerisk.\n**c)** Hva sier resultatet i b) om hvilke potenser av $w$ som opptrer i summen?",
+        "solution": "**a)** $w^3 = \\left(e^{2\\pi i/6}\\right)^3 = e^{6\\pi i/6} = e^{i\\pi} = \\cos\\pi + i\\sin\\pi = -1$. Geometrisk: tre skritt à $60^\\circ$ er $180^\\circ$, altså rett over på den motsatte siden av sirkelen.\n\n**b)** Sett $v = w^2 = e^{4\\pi i/6} = e^{2\\pi i/3}$. Da er $v$ en tredjeenhetsrot, siden $v^3 = e^{2\\pi i} = 1$. Summen er\n$$\\sum_{k=0}^{5} w^{2k} = \\sum_{k=0}^{5} v^{k} = \\underbrace{\\left(1+v+v^2\\right)}_{k=0,1,2} + \\underbrace{\\left(v^3+v^4+v^5\\right)}_{k=3,4,5}.$$\nFordi $v^3 = 1$ er den andre parentesen lik den første, så summen er $2\\left(1+v+v^2\\right)$. Og $1+v+v^2$ er summen av **alle** de tre enhetsrøttene av orden 3, som er null. Altså\n$$\\sum_{k=0}^{5} w^{2k} = 2\\cdot 0 = 0.$$\n\n**c)** At $w^2$ bare treffer tre av de seks enhetsrøttene — nemlig $1$, $e^{2\\pi i/3}$ og $e^{4\\pi i/3}$ — og treffer hver av dem to ganger når $k$ går fra 0 til 5. Å gange eksponenten med 2 «folder» sirkelen dobbelt. Dette er nøyaktig mekanismen bak **aliasing** i den diskrete Fourier-transformen: to ulike frekvenser kan gi identiske målinger fordi de treffer de samme enhetsrøttene.",
+        "hints": [
+          "For a): hvilken vinkel svarer $w^3$ til, og hvor på enhetssirkelen ligger den?",
+          "For b): sett $v = w^2$ og finn ut hvor mange ganger $v$ må ganges med seg selv før du er tilbake i 1."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Komplekse polpar og delbrøk (~12 min)\n\nDette er løkka som betaler regningen for hele kapitlet. Når du i [kap. 2.2](/tma4135/tma4135-2-2) skal invers-transformere en brøk som $\\dfrac{s+5}{s^2+4s+13}$, er nevneren et andregradsuttrykk **uten reelle røtter**. Da finnes to veier: kvadratkomplettere, eller spalte i to komplekse brøker. Løsningsforslagene godtar begge, og du bør kunne begge — den ene er raskest, den andre hjelper når den første ikke passer.\n\nHer behandler vi det som ren algebra. Bokstaven $s$ er bare en variabel; hva den betyr, kommer i Del 2."
+    },
+    {
+      "id": "tma4135-1-1-def-negativ-diskriminant",
+      "type": "definition",
+      "title": "Andregradslikning med negativ diskriminant",
+      "content": "Likningen $s^2 + ps + q = 0$ har løsningene\n\n$$s = \\frac{-p \\pm \\sqrt{p^2-4q}}{2}.$$\n\nEr diskriminanten $p^2-4q$ negativ, skriver vi $\\sqrt{p^2-4q} = i\\sqrt{4q-p^2}$ og får to konjugerte komplekse røtter $s = a \\pm bi$ med $a = -p/2$ og $b = \\sqrt{4q-p^2}/2$. Et andregradsuttrykk med reelle koeffisienter har altså enten to reelle røtter eller **to røtter som er hverandres konjugat** — aldri én av hver. **Må kunnes eller utledes aktivt** (står ikke på formelarket)."
+    },
+    {
+      "id": "tma4135-1-1-def-kvadratkomplettering",
+      "type": "definition",
+      "title": "Kvadratkomplettering av en andregradsnevner",
+      "content": "Å skrive $s^2+ps+q$ som et fullstendig kvadrat pluss en konstant:\n\n$$s^2+ps+q = \\left(s+\\frac{p}{2}\\right)^2 + \\left(q - \\frac{p^2}{4}\\right).$$\n\nNår diskriminanten er negativ, er det siste leddet positivt, og du kan skrive det som $b^2$. Da har nevneren formen $(s-a)^2+b^2$ — nøyaktig formen som står i tabellen på formelarket. Kvadratkomplettering er derfor ofte den raskeste veien. Selve grepet **må kunnes eller utledes aktivt**; det står ikke på arket."
+    },
+    {
+      "id": "tma4135-1-1-def-konjugert-polpar",
+      "type": "definition",
+      "title": "Konjugert polpar",
+      "content": "To nullpunkter i nevneren som er hverandres konjugat, $s = a+bi$ og $s = a-bi$. De opptrer alltid sammen når koeffisientene er reelle. I brøkoppspaltingen hører det ett ledd til hver:\n\n$$\\frac{A}{s-(a+bi)} + \\frac{\\bar A}{s-(a-bi)},$$\n\nog **tellerne er også hverandres konjugat**. Det er derfor du bare trenger å regne ut den ene: den andre får du gratis ved å bytte fortegn på alle $i$-ene. Paret gir til sammen ett reelt uttrykk, ikke to komplekse — det er den vanligste misforståelsen her."
+    },
+    {
+      "id": "tma4135-1-1-def-kompleks-delbrok",
+      "type": "definition",
+      "title": "Kompleks partialbrøkoppspalting",
+      "content": "Å skrive en brøk med et andregradsuttrykk i nevneren som en sum av to førstegradsbrøker med komplekse nevnere. For $N(s)$ av grad høyst 1 og nevner med røttene $a\\pm bi$:\n\n$$\\frac{N(s)}{(s-(a+bi))(s-(a-bi))} = \\frac{A}{s-(a+bi)} + \\frac{\\bar A}{s-(a-bi)}, \\qquad A = \\left.\\frac{N(s)}{s-(a-bi)}\\right|_{s=a+bi}.$$\n\nFormelen for $A$ er **tildekkingsmetoden**: stryk faktoren du regner koeffisienten til, og sett inn den tilhørende roten i det som er igjen. Nevneren blir da alltid $2bi$ — differansen mellom de to røttene."
+    },
+    {
+      "id": "tma4135-1-1-eks-5",
+      "type": "example",
+      "title": "Eksamensnivå: to veier til samme svar",
+      "problem": "Skriv $\\dfrac{s+5}{s^2+4s+13}$\n\n**a)** på formen $\\dfrac{\\alpha(s-a) + \\beta b}{(s-a)^2+b^2}$ ved kvadratkomplettering, og\n**b)** som en sum av to komplekse partialbrøker.\n\nVis at de to formene er samme uttrykk.",
+      "solution": "**a) Kvadratkomplettering.** Nevneren har $p = 4$, $q = 13$, altså diskriminant $16 - 52 = -36 < 0$. Ingen reelle røtter. Vi kompletterer:\n$$s^2+4s+13 = (s+2)^2 + \\left(13 - 4\\right) = (s+2)^2 + 9 = (s+2)^2 + 3^2.$$\nHer er $a = -2$ og $b = 3$. Så tvinger vi telleren over på samme form ved å legge til og trekke fra:\n$$s+5 = (s+2) + 3.$$\nDermed\n$$\\frac{s+5}{s^2+4s+13} = \\frac{(s+2)}{(s+2)^2+3^2} + \\frac{3}{(s+2)^2+3^2}.$$\nMed notasjonen i oppgaven er $\\alpha = 1$ og $\\beta = 1$.\n\n**Hvorfor akkurat denne formen?** Fordi begge de to brøkene står som ferdige rader i tabellen på formelarket — den første med $\\cos$, den andre med $\\sin$. **Denne oppdelingen står ikke på det utdelte formelarket; den må du gjøre selv.**\n\n**b) Kompleks partialbrøk.** Røttene i nevneren er\n$$s = \\frac{-4 \\pm \\sqrt{16-52}}{2} = \\frac{-4 \\pm 6i}{2} = -2 \\pm 3i,$$\net konjugert polpar med $a = -2$, $b = 3$ — de samme tallene som over, som seg hør og bør. Vi setter\n$$\\frac{s+5}{s^2+4s+13} = \\frac{A}{s-(-2+3i)} + \\frac{\\bar A}{s-(-2-3i)}.$$\nTildekkingsmetoden gir\n$$A = \\left.\\frac{s+5}{s-(-2-3i)}\\right|_{s=-2+3i} = \\frac{(-2+3i)+5}{(-2+3i)-(-2-3i)} = \\frac{3+3i}{6i}.$$\nForleng med $-i$ for å få $i$ ut av nevneren:\n$$A = \\frac{(3+3i)(-i)}{6i\\cdot(-i)} = \\frac{-3i - 3i^2}{6} = \\frac{3 - 3i}{6} = \\frac12 - \\frac12 i.$$\nKonjugatet er $\\bar A = \\tfrac12 + \\tfrac12 i$, gratis. Altså\n$$\\frac{s+5}{s^2+4s+13} = \\frac{\\tfrac12-\\tfrac12 i}{s+2-3i} + \\frac{\\tfrac12+\\tfrac12 i}{s+2+3i}.$$\n\n**At de er like.** Legg sammen de to brøkene i b) over fellesnevner $(s+2)^2+9$. Telleren blir\n$$A\\big((s+2)+3i\\big) + \\bar A\\big((s+2)-3i\\big) = \\big(A+\\bar A\\big)(s+2) + 3i\\big(A-\\bar A\\big).$$\nHer er $A + \\bar A = 1$ og $A - \\bar A = -i$, så telleren er\n$$1\\cdot(s+2) + 3i\\cdot(-i) = (s+2) + 3 = s+5.$$\nNøyaktig telleren vi startet med. De to formene er altså det samme uttrykket.\n\n**Hvilken skal du velge?** Kvadratkomplettering er raskest her, og løsningsforslagene sier det samme der begge veiene vises. Den komplekse veien er verdt å kunne likevel, av to grunner: den fungerer mekanisk uten at du trenger å se noe triks i telleren, og den er den eneste som generaliserer når nevneren har flere faktorer. Skriv gjerne begge navn i besvarelsen — å si hvilken metode du bruker, er en del av begrunnelseskravet."
+    },
+    {
+      "id": "tma4135-1-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Kvadratkompletter nevneren i $\\dfrac{2s+1}{s^2+6s+25}$ og skriv brøken på formen\n\n$$\\frac{\\alpha(s+3) + \\beta\\cdot 4}{(s+3)^2+4^2}.$$\n\nOppgi $\\alpha$ og $\\beta$ eksakt.",
+        "solution": "**Nevneren.** $p = 6$, $q = 25$, diskriminant $36-100 = -64 < 0$, så ingen reelle røtter. Kvadratkomplettering:\n$$s^2+6s+25 = (s+3)^2 + (25-9) = (s+3)^2 + 16 = (s+3)^2 + 4^2.$$\n\n**Telleren.** Vi vil ha $s+3$ fram. Siden $2s+1 = 2(s+3) - 6 + 1 = 2(s+3) - 5$, får vi\n$$\\frac{2s+1}{s^2+6s+25} = \\frac{2(s+3) - 5}{(s+3)^2+4^2}.$$\n\n**Sammenlign med den oppgitte formen.** Vi trenger $\\beta\\cdot 4 = -5$, altså\n$$\\alpha = 2, \\qquad \\beta = -\\frac54.$$\n\n**Kontroll.** $2(s+3) + \\left(-\\tfrac54\\right)\\cdot 4 = 2s+6-5 = 2s+1$. Stemmer.",
+        "hints": [
+          "Halvparten av førstegradskoeffisienten er 3, så kvadratet du leter etter er $(s+3)^2$.",
+          "Skriv telleren som $2(s+3)$ pluss en konstant, og finn konstanten ved å regne ut hva $2(s+3)$ faktisk er."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Spalt $\\dfrac{4}{s^2+2s+5}$ i komplekse partialbrøker, og vis ved å legge dem sammen igjen at summen er reell.",
+        "solution": "**Røttene.** Diskriminanten er $4-20 = -16$, så\n$$s = \\frac{-2\\pm\\sqrt{-16}}{2} = \\frac{-2\\pm 4i}{2} = -1\\pm 2i.$$\nEt konjugert polpar med $a = -1$, $b = 2$.\n\n**Tildekkingsmetoden.** Med teller $N(s) = 4$:\n$$A = \\left.\\frac{4}{s-(-1-2i)}\\right|_{s=-1+2i} = \\frac{4}{(-1+2i)-(-1-2i)} = \\frac{4}{4i} = \\frac{1}{i}.$$\nForleng med $-i$: $\\dfrac{1}{i} = \\dfrac{-i}{i\\cdot(-i)} = \\dfrac{-i}{1} = -i$. Altså $A = -i$ og $\\bar A = i$, og\n$$\\frac{4}{s^2+2s+5} = \\frac{-i}{s+1-2i} + \\frac{i}{s+1+2i}.$$\n\n**Legg sammen igjen.** Fellesnevneren er $(s+1-2i)(s+1+2i) = (s+1)^2 - (2i)^2 = (s+1)^2+4$. Telleren blir\n$$-i\\big((s+1)+2i\\big) + i\\big((s+1)-2i\\big) = -i(s+1) - 2i^2 + i(s+1) - 2i^2.$$\n$(s+1)$-leddene kansellerer hverandre, og $-2i^2 = 2$ to ganger gir\n$$\\text{teller} = 2 + 2 = 4.$$\nSummen er altså $\\dfrac{4}{(s+1)^2+4} = \\dfrac{4}{s^2+2s+5}$ — reell, som den skal være.\n\n**Poenget.** De imaginære delene måtte kansellere, fordi tellerne er hverandres konjugat og nevnerne likeså. Får du et komplekst uttrykk igjen til slutt, har du regnefeil et sted.",
+        "hints": [
+          "Finn røttene med andregradsformelen først, og skriv kvadratrota av det negative tallet som $i$ ganger en positiv rot.",
+          "Nevneren i tildekkingsformelen er alltid differansen mellom de to røttene, altså $2bi$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-1-1-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Løs $z^2 - 4z + 13 = 0$.\n**b)** Skriv begge røttene på polar form med hovedargumentet, eksakt der det går an og ellers med fire desimaler.\n**c)** Bruk svaret i a) til å faktorisere $z^2-4z+13$ i to komplekse førstegradsfaktorer, og kontroller ved å gange dem ut.",
+        "solution": "**a)** Diskriminanten er $16 - 52 = -36$, så $\\sqrt{-36} = 6i$ og\n$$z = \\frac{4 \\pm 6i}{2} = 2 \\pm 3i.$$\n\n**b)** Begge har samme modulus:\n$$|2\\pm 3i| = \\sqrt{4+9} = \\sqrt{13} \\approx 3{,}6056.$$\nFor $z = 2+3i$ ligger punktet i første kvadrant, så hovedargumentet er\n$$\\theta = \\arctan\\frac{3}{2} \\approx 0{,}9828 \\ \\text{rad} \\approx 56{,}31^\\circ.$$\nRoten $2-3i$ er konjugatet og har derfor samme modulus og motsatt argument, $-0{,}9828$ rad. På polar form:\n$$2+3i = \\sqrt{13}\\,e^{i\\cdot 0{,}9828}, \\qquad 2-3i = \\sqrt{13}\\,e^{-i\\cdot 0{,}9828}.$$\nHer er argumentet ikke en pen brøkdel av $\\pi$, så desimaltall er riktig svarform; modulusen oppgis eksakt som $\\sqrt{13}$.\n\n**c)** Et andregradspolynom med ledende koeffisient 1 faktoriseres som produktet av $(z - \\text{rot})$:\n$$z^2-4z+13 = \\big(z-(2+3i)\\big)\\big(z-(2-3i)\\big).$$\n**Kontroll:** skriv faktorene som $\\big((z-2)-3i\\big)\\big((z-2)+3i\\big)$. Etter konjugatsetningen er dette\n$$(z-2)^2 - (3i)^2 = z^2-4z+4 + 9 = z^2-4z+13.$$\nStemmer.\n\nLegg merke til hva kontrollen egentlig viste: å gange et konjugert par av førstegradsfaktorer sammen **er** kvadratkomplettering, lest baklengs. Det er grunnen til at de to metodene i eksempel 5 måtte gi samme svar.",
+        "hints": [
+          "For b): $\\arctan(3/2)$ er ikke en standardvinkel — oppgi modulusen eksakt og argumentet med desimaler.",
+          "For c): et polynom med ledende koeffisient 1 er produktet av $(z-\\text{rot})$ over alle røttene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-1-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil kvadrant for argumentet.** Kalkulatorens $\\arctan(b/a)$ svarer alltid med en vinkel mellom $-\\pi/2$ og $\\pi/2$. Ligger $z$ til venstre i planet, altså $a<0$, er svaret $\\pi$ for lite eller for stort. **Tegn punktet før du oppgir vinkelen.** Denne feilen forplanter seg direkte til alle røttene, siden alle vinklene deles på $n$.\n\n**Å tro at et konjugert polpar gir to komplekse ledd i sluttsvaret.** Det gir **ett reelt** ledd. Sitter du igjen med $i$ i et svar som skulle vært reelt, har du regnefeil — de imaginære delene skal kansellere hverandre.\n\n**Fortegnsrot i $\\dfrac{1}{2i}$-formelen for sinus.** Nevneren er $2i$, ikke $2$, og $(2i)^2 = -4$, ikke $4$. Halvparten av fortegnsfeilene i den komplekse Fourier-rekka kommer herfra.\n\n**Å glemme en rot.** $z^n = w$ har nøyaktig $n$ løsninger. Har du funnet færre, har du stoppet for tidlig i $k$-tellingen. Kontroll: alle røttene har samme modulus, og vinklene ligger $2\\pi/n$ fra hverandre.\n\n**Å tvinge et svar over på kartesisk form.** Er argumentet ikke en pen brøkdel av $\\pi$, er polar form det eksakte svaret. $2^{1/3}e^{i\\pi/18}$ er penere og mer presist enn desimaltallene sine."
+    },
+    {
+      "id": "tma4135-1-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-1-1-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter fra videregående. Bruker du mer enn ti minutter på dem til sammen, er det verdt å friske opp algebraen før du går videre til [kap. 2.1](/tma4135/tma4135-2-1)."
+        },
+        {
+          "id": "tma4135-1-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs $x^2 - 6x + 5 = 0$ med andregradsformelen, og faktoriser uttrykket.",
+            "solution": "Diskriminanten er $36-20 = 16$, så $x = (6\\pm 4)/2$, altså $x = 5$ og $x = 1$. Faktorisering: $x^2-6x+5 = (x-5)(x-1)$. Kontroll ved utregning: $x^2 - x - 5x + 5 = x^2-6x+5$.",
+            "hints": [
+              "Regn ut diskriminanten $p^2-4q$ først og sjekk fortegnet."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp eksakte verdier for $\\cos\\theta$ og $\\sin\\theta$ for $\\theta = 0$, $\\pi/6$, $\\pi/4$, $\\pi/3$ og $\\pi/2$.",
+            "solution": "$$\\begin{array}{c|ccccc} \\theta & 0 & \\pi/6 & \\pi/4 & \\pi/3 & \\pi/2 \\\\ \\hline \\cos\\theta & 1 & \\tfrac{\\sqrt3}{2} & \\tfrac{\\sqrt2}{2} & \\tfrac12 & 0 \\\\ \\sin\\theta & 0 & \\tfrac12 & \\tfrac{\\sqrt2}{2} & \\tfrac{\\sqrt3}{2} & 1 \\end{array}$$\n\nHuskeregel: tellerne i sinusraden er $\\sqrt0,\\sqrt1,\\sqrt2,\\sqrt3,\\sqrt4$ delt på 2, og cosinusraden er den samme baklengs.",
+            "hints": [
+              "Tenk på 30–60–90-trekanten og den likebeinte rettvinklede trekanten."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $(3-2i)(1+4i)$ ved vanlig utregning av parenteser.",
+            "solution": "$$(3-2i)(1+4i) = 3 + 12i - 2i - 8i^2 = 3 + 10i + 8 = 11 + 10i,$$\nder vi brukte $i^2 = -1$ i det siste leddet. Kontroll av modulus: $|3-2i|\\,|1+4i| = \\sqrt{13}\\cdot\\sqrt{17} = \\sqrt{221}$, og $|11+10i| = \\sqrt{121+100} = \\sqrt{221}$. Stemmer.",
+            "hints": [
+              "Gang ut som vanlig, og erstatt $i^2$ med $-1$ helt til slutt."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-1-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Spalt $\\dfrac{5}{(x-1)(x+4)}$ i to reelle partialbrøker.",
+            "solution": "Sett $\\dfrac{5}{(x-1)(x+4)} = \\dfrac{A}{x-1} + \\dfrac{B}{x+4}$. Tildekkingsmetoden: sett $x = 1$ i $5/(x+4)$, som gir $A = 5/5 = 1$; sett $x = -4$ i $5/(x-1)$, som gir $B = 5/(-5) = -1$. Altså\n$$\\frac{5}{(x-1)(x+4)} = \\frac{1}{x-1} - \\frac{1}{x+4}.$$\nKontroll: $\\dfrac{(x+4)-(x-1)}{(x-1)(x+4)} = \\dfrac{5}{(x-1)(x+4)}$. Stemmer. Dette er nøyaktig samme grep som i løkke 4, bare med reelle røtter.",
+            "hints": [
+              "Bruk tildekkingsmetoden: stryk den ene faktoren og sett inn den tilhørende roten i resten."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-1-1-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-1-1-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut summen av den geometriske rekka $1 + q + q^2 + \\dots + q^{N-1}$ for $q \\ne 1$, og forklar hvorfor formelen ikke gjelder for $q = 1$.",
+            "solution": "Kall summen $S$. Da er $qS = q + q^2 + \\dots + q^{N}$, og\n$$S - qS = 1 - q^{N} \\;\\Longrightarrow\\; S = \\frac{1-q^{N}}{1-q} = \\frac{q^N-1}{q-1}.$$\nFor $q = 1$ er nevneren null, og formelen gir null delt på null. Der er svaret opplagt $S = N$, siden alle $N$ leddene er 1.\n\nDenne formelen er begrunnelsen for at summen av alle enhetsrøttene er null: sett $q = w_N$, og telleren blir $w_N^{\\,N} - 1 = 0$.",
+            "hints": [
+              "Gang hele summen med $q$ og trekk den opprinnelige summen fra."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-1-1-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $i$ | Den imaginære enheten, $i^2=-1$ |\n| $z = a+bi$ | Komplekst tall på kartesisk form |\n| $\\operatorname{Re} z$, $\\operatorname{Im} z$ | Reell del $a$ og imaginær del $b$ (begge reelle tall) |\n| $\\bar z$ | Kompleks konjugat, $a-bi$ |\n| $\\lvert z\\rvert$ | Modulus, avstanden fra origo |\n| $r$ | Modulusen i polar form. **Merk:** i Del 8 betyr $r$ stabilitetstallet $\\Delta t/h^2$ |\n| $\\theta$, $\\arg z$ | Argumentet, vinkelen fra den positive reelle aksen |\n| $\\mathbb{R}$ | Mengden av reelle tall |\n| $w_N = e^{2\\pi i/N}$ | Den grunnleggende $N$-te enhetsroten |\n| $z_k$ | Rot nummer $k$ av $n$ mulige |\n| $s$ | Variabelen i brøkene i løkke 4 (blir Laplace-variabelen i Del 2) |\n| $A$, $\\bar A$ | Tellerne i et konjugert par av partialbrøker |\n| $a \\pm bi$ | Et konjugert polpar — de to røttene i en nevner uten reelle røtter |\n"
+        },
+        {
+          "id": "tma4135-1-1-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$i^2 = -1$$\nDefinisjonen av den imaginære enheten. *(Må kunnes eller utledes aktivt.)*\n\n$$|z| = \\sqrt{a^2+b^2} = \\sqrt{z\\bar z}$$\nModulus. *(Må kunnes eller utledes aktivt.)*\n\n$$z = r(\\cos\\theta + i\\sin\\theta) = re^{i\\theta}$$\nPolar form. *(Må kunnes eller utledes aktivt.)*\n\n$$e^{i\\theta} = \\cos\\theta + i\\sin\\theta$$\nEulers formel. *(Må kunnes eller utledes aktivt — den står ikke på arket, og alt i Del 3 og Del 4 hviler på den.)*\n\n$$\\cos\\theta = \\frac{e^{i\\theta}+e^{-i\\theta}}{2}, \\qquad \\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}$$\nEulers formler for cosinus og sinus. *(Må kunnes eller utledes aktivt.)*\n\n$$\\left(re^{i\\theta}\\right)^n = r^n e^{in\\theta}$$\nde Moivres formel. *(Må kunnes eller utledes aktivt.)*\n\n$$z_k = \\rho^{1/n} e^{i(\\varphi+2\\pi k)/n}, \\qquad k=0,\\dots,n-1$$\nDe $n$ røttene av $z^n = \\rho e^{i\\varphi}$. *(Må kunnes eller utledes aktivt.)*\n\n$$\\sum_{k=0}^{N-1} \\left(e^{2\\pi i/N}\\right)^k = 0, \\qquad N \\ge 2$$\nSummen av alle enhetsrøttene. *(Må kunnes eller utledes aktivt.)*\n\n$$s^2+ps+q = \\left(s+\\tfrac{p}{2}\\right)^2 + \\left(q-\\tfrac{p^2}{4}\\right)$$\nKvadratkomplettering. *(Må kunnes eller utledes aktivt — står ikke på arket, og er den raskeste veien i [kap. 2.2](/tma4135/tma4135-2-2).)*\n\n$$\\frac{N(s)}{(s-(a+bi))(s-(a-bi))} = \\frac{A}{s-(a+bi)} + \\frac{\\bar A}{s-(a-bi)}$$\nKompleks partialbrøk med tildekkingsmetoden for $A$. *(Må kunnes eller utledes aktivt.)*\n\n$$\\sin(\\alpha\\pm\\beta), \\quad \\cos(\\alpha\\pm\\beta), \\quad \\cos 2\\alpha, \\quad \\sin 2\\alpha$$\nDe trigonometriske identitetene. *(Står på det utdelte formelarket — tren oppslaget. Du trenger dem sjelden i dette kapitlet, men ofte i Del 3.)*\n\n**Kolliderende symboler:** i dette kapitlet er $r$ modulusen (radius) og $a$, $b$ er koordinatene til et komplekst tall. I Del 8 er $r$ stabilitetstallet $\\Delta t/h^2$, og i Del 6 er $a$ og $b$ endepunktene i et intervall. Bokstaven $s$ er her bare en variabel i en brøk; fra Del 2 er den variabelen i det Laplace-transformerte planet. Og $N$ er antall enhetsrøtter her og antall målepunkter i [kap. 4.3](/tma4135/tma4135-4-3) — det er samme $N$, og det er meningen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
