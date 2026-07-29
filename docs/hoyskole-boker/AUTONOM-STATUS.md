@@ -13,9 +13,9 @@ og undervises til høsten — belegg i valgnotatet nederst.
 | Fase | `tdt4110` | `med1100` | `tma4135` | `in2010` |
 |---|---|---|---|---|
 | Steg 0 | ✅ | ✅ | ✅ | ✅ |
-| Steg 1 — byggebølge | ✅ 47/47 | ⏳ 59/63 | ⏳ 3/36 | ⏳ 2/42 |
-| Steg 2 — wiring | ✅ | — | — | — |
-| Steg 3 — verifisering | ✅ 2 redaktører | — | — | — |
+| Steg 1 — byggebølge | ✅ 47/47 | ✅ 63/63 | ⏳ 9/36 | ⏳ 6/42 |
+| Steg 2 — wiring | ✅ | ✅ | — | — |
+| Steg 3 — verifisering | ✅ | ⏳ 2 redaktører | — | — |
 | Steg 4 — sluttport + deploy | ⏳ | — | — | — |
 
 **tdt4110 er reelt ferdig** — bygget, wiret, verifisert, alle porter grønne og
