@@ -1,0 +1,423 @@
+{
+  "id": "tma4135-6-4",
+  "courseId": "tma4135",
+  "chapterNumber": "6.4",
+  "title": "Rotsøking — Newtons metode, biseksjon og sekant",
+  "description": "Newtons metode (skalar + system), biseksjonens iterasjonstelling, og sekantmetoden som beredskap.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "vise at en likning har nøyaktig én reell rot ved å kombinere monotoni med mellomverdisetningen",
+    "gjennomføre Newton-skritt for hånd, både for én likning og for et system med to ukjente",
+    "regne ut hvor mange biseksjonsskritt en gitt toleranse krever, med korrekt avrunding oppover",
+    "vurdere hvilken rotsøkingsmetode som passer, og kjenne igjen når Newton svikter"
+  ],
+  "content": [
+    {
+      "id": "tma4135-6-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Rotsøking er sjanger L.** Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene; **L er rotsøking med Newton, biseksjon eller sekant**.\n\n**Frekvens, delt på metode:**\n\n- **Newtons metode: 4 av 13 sett (31 %)** — både skalar og for systemer.\n- **Biseksjon: 2 av 13 sett (15 %)** — alltid som iterasjonstelling.\n- **Sekantmetoden: 1 av 13 sett (8 %)**, og det ene er fra 2015. Den er på vei ut, står fortsatt på det utdelte formelarket, og holdes her på **kjenne-nivå**: du skal vite hva den er og kunne bruke formelen hvis den kommer, men den er ikke verdt drill.\n\n**Formen på Newton-oppgaven er nesten alltid den samme, i to trinn:**\n\n1. **Vis at likningen har nøyaktig én reell rot** — monotoni ($f'$ har fast fortegn) pluss fortegnsskifte, og **mellomverdisetningen** navngitt.\n2. **Gjør én eller to iterasjoner** fra en oppgitt startverdi.\n\n**Trinn 1 hoppes ofte over, og det er der poengene ligger.** Å bare iterere er den mekaniske delen; entydighetsargumentet er det som skiller.\n\n**Formelark-merking.**\n\n- **Står på det utdelte formelarket — tren oppslaget:** Newtons metode i skalarform $x_{k+1}=x_k-\\frac{f(x_k)}{f'(x_k)}$, Newtons metode for **systemer** med Jacobi-matrisen $J_F$, og sekantformelen. Ferdigheten er å sette inn riktig $f$ og $f'$, og for systemer å sette opp $J_F$ riktig.\n- **Må kunnes eller utledes aktivt:** entydighetsargumentet med **mellomverdisetningen**, biseksjonstellingen $k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}$, og hvorfor Newton konvergerer kvadratisk.\n\n**Tidsbruk:** 55 minutter lesetid, fire løkker. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-6-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 6.3](/tma4135/tma4135-6-3) — Newtons metode er en fikspunktiterasjon med $g(x)=x-\\dfrac{f(x)}{f'(x)}$, og hele konvergensteorien derfra gjelder. Du så allerede i oppgave 8 der at $g'(r)=0$, som er grunnen til at Newton er så rask.\n\nDu trenger dessuten derivasjon, og for systemdelen litt matriseregning: $2\\times2$-determinant og løsning av et lineært system med to ukjente.\n\nKapitlet er forutsetning for [kap. 7.1](/tma4135/tma4135-7-1), der bakover-Euler krever at du løser en likning for $y_{n+1}$ — og der er Newton standardverktøyet."
+    },
+    {
+      "id": "tma4135-6-4-motivasjon",
+      "type": "text",
+      "content": "## Å finne der en kurve krysser aksen\n\nEn bjelke er stabil så lenge en bestemt funksjon er positiv. Ved hvilken last blir den null? En kjemisk likevekt er gitt ved en likning du ikke kan løse for hånd. Hvor ligger konsentrasjonen?\n\nBegge er **rotsøking**: finn $x$ slik at $f(x)=0$.\n\n**To helt ulike strategier finnes.**\n\n**Den ene er tålmodig og trygg.** Vet du at $f$ skifter fortegn mellom $a$ og $b$, må den ha en rot der. Del intervallet i to, se hvilken halvdel som fortsatt har fortegnsskifte, og gjenta. Det er **biseksjon**. Den er treg — hvert skritt gir bare ett nytt binært siffer — men den **kan ikke svikte**, og du vet på forhånd nøyaktig hvor mange skritt du trenger.\n\n**Den andre er rask og litt dristig.** Legg tangenten til kurven i et punkt, og se hvor tangenten krysser aksen. Bruk det som nytt punkt. Det er **Newtons metode**. Den dobler antall korrekte siffer per skritt — men den kan også løpe helt av gårde hvis startverdien er dårlig eller $f'$ er nær null.\n\n**I praksis kombineres de:** biseksjon til du er trygt nær roten, deretter Newton for å bli ferdig. På eksamen kommer de derimot som separate delpunkter — og det er entydighetsargumentet foran som er det egentlige spørsmålet."
+    },
+    {
+      "id": "tma4135-6-4-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 55 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-6-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Entydig rot og Newtons metode (~15 min)"
+    },
+    {
+      "id": "tma4135-6-4-def-rot",
+      "type": "definition",
+      "title": "Rot og nullpunkt",
+      "content": "Et tall $r$ med $f(r)=0$. Ordene «rot», «nullpunkt» og «løsning av likningen $f(x)=0$» betyr det samme.\n\n**Sammenhengen med [kap. 6.3](/tma4135/tma4135-6-3):** skriver du likningen om til $x=g(x)$, blir røttene til $f$ nøyaktig fikspunktene til $g$. Rotsøking og fikspunktiterasjon er to innganger til det samme problemet."
+    },
+    {
+      "id": "tma4135-6-4-teo-mellomverdi",
+      "type": "theorem",
+      "title": "Mellomverdisetningen",
+      "content": "Er $f$ **kontinuerlig** på $[a,b]$ og $f(a)$ og $f(b)$ har **motsatt fortegn**, finnes det minst én $r$ i $(a,b)$ med $f(r)=0$.\n\n**Hvorfor den brukes her:** den er argumentet for at en rot i det hele tatt **finnes**. Uten den har du bare påstått det.\n\n**Setningen sier ingenting om entydighet.** En funksjon kan skifte fortegn og krysse aksen tre ganger. Entydigheten må komme fra et eget argument — som regel monotoni.\n\n**Setningen skal navngis i besvarelsen.** «Siden $f$ er kontinuerlig og $f(1)<0<f(2)$, gir mellomverdisetningen en rot i $(1,2)$» er den setningen som gir poeng. Den står ikke på det utdelte formelarket, og den **må kunnes**."
+    },
+    {
+      "id": "tma4135-6-4-def-entydig",
+      "type": "definition",
+      "title": "Entydig rot — det todelte argumentet",
+      "content": "Standardføringen i denne sjangeren har **to** deler, og begge må med:\n\n1. **Eksistens:** $f$ er kontinuerlig, og $f(a)$ og $f(b)$ har motsatt fortegn. **Etter mellomverdisetningen** finnes en rot i $(a,b)$.\n2. **Entydighet:** $f'$ har **fast fortegn** (regn den ut og vis det), så $f$ er strengt monoton og kan krysse aksen høyst én gang.\n\n**Til sammen: nøyaktig én rot.**\n\n**Merk at entydigheten ofte gjelder hele tallinja**, ikke bare intervallet. Er $f'(x)=3x^{2}+2>0$ for **alle** $x$, har $f$ høyst én reell rot overhodet — og det er et sterkere og penere utsagn enn å begrense seg til $[a,b]$. Si det når det er sant.\n\n**Argumentet må kunnes** og er det som oftest utelates."
+    },
+    {
+      "id": "tma4135-6-4-def-newton",
+      "type": "definition",
+      "title": "Newtons metode",
+      "content": "Iterasjonen\n\n$$x_{k+1}=x_k-\\frac{f(x_k)}{f'(x_k)}.$$\n\n**Geometrisk:** legg tangenten til grafen i punktet $\\left(x_k,f(x_k)\\right)$. Tangentlinja er\n\n$$y=f(x_k)+f'(x_k)\\left(x-x_k\\right),$$\n\nog setter du $y=0$ og løser for $x$, får du nettopp $x_{k+1}$. **Newtons metode erstatter kurven med tangenten og finner tangentens nullpunkt.**\n\n**Formelen står på det utdelte formelarket — tren oppslaget** på å sette inn riktig $f$ og $f'$, og på å regne brøken i én operasjon på kalkulatoren.\n\n**Kravet er at $f'(x_k)\\ne 0$.** Er tangenten vannrett, treffer den aldri aksen, og metoden bryter sammen."
+    },
+    {
+      "id": "tma4135-6-4-def-kvadratisk",
+      "type": "definition",
+      "title": "Kvadratisk konvergens",
+      "content": "Newtons metode dobler antall korrekte siffer per skritt:\n\n$$\\left|x_{k+1}-r\\right|\\le C\\left|x_k-r\\right|^{2}.$$\n\n**Hvorfor.** Newton er fikspunktiterasjon med $g(x)=x-\\dfrac{f(x)}{f'(x)}$. Deriverer du med kvotientregelen, får du\n\n$$g'(x)=1-\\frac{f'(x)^{2}-f(x)f''(x)}{f'(x)^{2}}=\\frac{f(x)f''(x)}{f'(x)^{2}}.$$\n\nI roten er $f(r)=0$, altså $g'(r)=0$ — og en fikspunktiterasjon med $g'(r)=0$ konvergerer kvadratisk, slik du så i [kap. 6.3](/tma4135/tma4135-6-3).\n\n**I praksis:** typiske feilfølger er $10^{-1}$, $10^{-2}$, $10^{-5}$, $10^{-10}$. Tre–fire iterasjoner holder nesten alltid, og det er derfor eksamensoppgaver bare ber om én eller to.\n\n**Forbeholdet:** kvadratisk konvergens gjelder når $f'(r)\\ne 0$ og startverdien er nær nok. Er ingen av delene oppfylt, kan metoden bli treg eller sprike."
+    },
+    {
+      "id": "tma4135-6-4-eks1",
+      "type": "example",
+      "title": "Entydig rot og to Newton-skritt",
+      "problem": "La $f(x)=x^{3}+2x-5$.\n\n**a)** Vis at $f$ har nøyaktig én reell rot, og at den ligger i $(1,2)$.\n**b)** Gjør to Newton-skritt fra $x_0=1{,}5$.\n**c)** Kommenter hvor raskt feilen faller.",
+      "solution": "**a) Eksistens.** $f$ er et polynom og dermed kontinuerlig overalt. Videre er\n\n$$f(1)=1+2-5=-2<0,\\qquad f(2)=8+4-5=7>0.$$\n\nFortegnene er motsatte, så **etter mellomverdisetningen** finnes en rot i $(1,2)$.\n\n**Entydighet.**\n\n$$f'(x)=3x^{2}+2.$$\n\nSiden $3x^{2}\\ge 0$ for alle $x$, er $f'(x)\\ge 2>0$ **for alle reelle $x$**. Altså er $f$ strengt voksende på hele tallinja og kan krysse aksen høyst én gang.\n\n**Konklusjon:** $f$ har **nøyaktig én** reell rot, og den ligger i $(1,2)$. $\\blacksquare$\n\n**b) Newton fra $x_0=1{,}5$.**\n\n**Skritt 1.**\n$$f(1{,}5)=3{,}375+3-5=1{,}375,\\qquad f'(1{,}5)=3\\cdot 2{,}25+2=8{,}75.$$\n$$x_1=1{,}5-\\frac{1{,}375}{8{,}75}=1{,}5-0{,}1571429=1{,}3428571.$$\n\n**Skritt 2.**\n$$f(1{,}3428571)=2{,}4213... +2{,}6857143-5\\approx 0{,}1072420,$$\n$$f'(1{,}3428571)=3\\cdot 1{,}8032653+2\\approx 7{,}4097959.$$\n$$x_2=1{,}3428571-\\frac{0{,}1072420}{7{,}4097959}=1{,}3428571-0{,}0144730=1{,}3283841.$$\n\n**Svar:** $x_1\\approx 1{,}342857$ og $x_2\\approx 1{,}328384$.\n\n**c) Feilutviklingen.** Den eksakte roten er $r\\approx 1{,}3282689$.\n\n| $k$ | $x_k$ | $\\left|x_k-r\\right|$ |\n|---|---|---|\n| 0 | $1{,}5$ | $1{,}7\\cdot 10^{-1}$ |\n| 1 | $1{,}3428571$ | $1{,}5\\cdot 10^{-2}$ |\n| 2 | $1{,}3283841$ | $1{,}2\\cdot 10^{-4}$ |\n| 3 | $1{,}3282689$ | $7{,}2\\cdot 10^{-9}$ |\n\n**Se doblingen:** omtrent 1, deretter 2, deretter 4, deretter 8 korrekte desimaler. Feilen kvadreres — nøyaktig som teorien lover.\n\n**Sammenlikn med [kap. 6.3](/tma4135/tma4135-6-3):** der trengte vi 19 iterasjoner for fire desimaler med lineær konvergens. Her holder to.\n\n**Merk hva svaret skal inneholde.** Delpunkt a) er ikke pynt — det er halve oppgaven. En besvarelse som går rett på iterasjonene, har hoppet over både mellomverdisetningen og monotonien, og de er begge navngitte krav i sjangeren."
+    },
+    {
+      "id": "tma4135-6-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-4-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) La $f(x)=x^{3}-2x-3$.\n\n**a)** Regn ut $f(1)$ og $f(2)$.\n**b)** Regn ut $f'(x)$.\n**c)** Gjør ett Newton-skritt fra $x_0=2$.",
+        "solution": "**a)** $f(1)=1-2-3=-4$ og $f(2)=8-4-3=1$.\n\nFortegnene er motsatte, så det finnes en rot i $(1,2)$ — **etter mellomverdisetningen**.\n\n**b)** $f'(x)=3x^{2}-2$.\n\n**c)** $f(2)=1$ og $f'(2)=3\\cdot 4-2=10$, så\n\n$$x_1=2-\\frac{1}{10}=1{,}9.$$\n\n*Kontroll:* $f(1{,}9)=6{,}859-3{,}8-3=0{,}059$ — mye nærmere null enn $f(2)=1$. Skrittet gikk riktig vei.",
+        "hints": [
+          "Sett inn tallene i polynomet.",
+          "Deriver leddvis.",
+          "Newton-formelen er $x_1=x_0-f(x_0)/f'(x_0)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-4-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger L — rotsøking.) Vis at $f(x)=e^{x}+x-2$ har nøyaktig én reell rot, og gjør ett Newton-skritt fra $x_0=0{,}5$.",
+        "solution": "**Eksistens.** $f$ er kontinuerlig overalt, og\n\n$$f(0)=1+0-2=-1<0,\\qquad f(1)=e+1-2\\approx 1{,}7183>0.$$\n\n**Etter mellomverdisetningen** finnes en rot i $(0,1)$.\n\n**Entydighet.**\n\n$$f'(x)=e^{x}+1.$$\n\nSiden $e^{x}>0$ for alle $x$, er $f'(x)>1>0$ overalt. $f$ er altså strengt voksende på hele tallinja og har **nøyaktig én** reell rot. $\\blacksquare$\n\n**Newton-skrittet.**\n\n$$f(0{,}5)=e^{0{,}5}+0{,}5-2\\approx 1{,}6487213-1{,}5=0{,}1487213,$$\n$$f'(0{,}5)=e^{0{,}5}+1\\approx 2{,}6487213.$$\n\n$$x_1=0{,}5-\\frac{0{,}1487213}{2{,}6487213}\\approx 0{,}5-0{,}0561483=0{,}4438517.$$\n\n*Kontroll:* $f(0{,}4438517)=e^{0{,}4438517}+0{,}4438517-2\\approx 0{,}0025509$ — betydelig nærmere null enn $0{,}1487$. ✔\n\n**Svar:** $x_1\\approx 0{,}443852$ (mer presist $0{,}4438517$).",
+        "hints": [
+          "Sjekk fortegnet i to punkter og navngi setningen som gir eksistens.",
+          "Er $f'$ alltid positiv, kan grafen krysse aksen høyst én gang.",
+          "Regn $f(x_0)$ og $f'(x_0)$ hver for seg før du setter inn i formelen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Biseksjon og iterasjonstellingen (~13 min)\n\nNewton er rask, men den gir ingen garanti. Biseksjon er treg, men den gir en garanti du kan regne ut **på forhånd** — og det er nettopp den regningen eksamen spør etter."
+    },
+    {
+      "id": "tma4135-6-4-def-biseksjon",
+      "type": "definition",
+      "title": "Biseksjonsmetoden",
+      "content": "Halveringsmetoden. Start med $[a,b]$ der $f(a)$ og $f(b)$ har motsatt fortegn. Gjenta:\n\n1. Regn midtpunktet $m=\\dfrac{a+b}{2}$ og $f(m)$.\n2. Har $f(a)$ og $f(m)$ motsatt fortegn, ligger roten i $[a,m]$ — sett $b=m$.\n3. Ellers ligger den i $[m,b]$ — sett $a=m$.\n\n**Etter hvert skritt er intervallet halvert**, og roten ligger fortsatt inne i det. Metoden **kan ikke svikte** så lenge fortegnsskiftet er der ved start.\n\n**Prisen** er at hvert skritt gir bare ett nytt binært siffer — omtrent 0,3 desimaler. Det er tregt, men helt forutsigbart."
+    },
+    {
+      "id": "tma4135-6-4-def-bisek-feil",
+      "type": "definition",
+      "title": "Feilgrensen etter $k$ skritt",
+      "content": "Etter $k$ halveringer har intervallet lengden $\\dfrac{b-a}{2^{k}}$, og velger du midtpunktet som svar, er feilen høyst halvparten av det:\n\n$$\\left|x_k-r\\right|\\le\\frac{b-a}{2^{\\,k+1}}.$$\n\nNøyer du deg med et endepunkt som svar, er grensen $\\dfrac{b-a}{2^{k}}$.\n\n**Merk at grensen ikke avhenger av $f$ i det hele tatt.** Den gjelder for enhver kontinuerlig funksjon med fortegnsskifte — det er hele styrken ved metoden."
+    },
+    {
+      "id": "tma4135-6-4-def-bisek-telling",
+      "type": "definition",
+      "title": "Iterasjonstellingen",
+      "content": "Standardspørsmålet: hvor mange skritt trengs for at feilen skal komme under en toleranse?\n\n$$\\frac{b-a}{2^{\\,k}}\\le 2\\,\\text{tol}\\quad\\text{med midtpunktet som svar}\\ \\Longleftrightarrow\\ k\\ \\ge\\ \\log_2\\frac{b-a}{2\\,\\text{tol}}.$$\n\n**Rund oppover.** Kommer du til $k\\ge 8{,}97$, er svaret 9 skritt — ikke 8.\n\n**Regn logaritmen slik på en enkel kalkulator:**\n\n$$\\log_2 X=\\frac{\\ln X}{\\ln 2}.$$\n\n**Tellingen må kunnes** — den står ikke på det utdelte formelarket, og den er den eneste formen biseksjonsoppgaven kommer i."
+    },
+    {
+      "id": "tma4135-6-4-def-newton-svikter",
+      "type": "definition",
+      "title": "Når Newton svikter",
+      "content": "Tre situasjoner å kjenne igjen:\n\n1. **$f'(x_k)$ nær null.** Tangenten er nesten vannrett, og $x_{k+1}$ kastes langt bort. Symptomet er et enormt sprang i iteratene.\n2. **Dårlig startverdi.** Newton konvergerer bare *lokalt*. Fra feil sted kan følgen løpe mot en annen rot, eller ut mot uendelig.\n3. **Multippel rot.** Er $f(r)=f'(r)=0$, faller konvergensen fra kvadratisk til **lineær**. For $f(x)=(x-1)^{2}$ blir Newton-iterasjonen $x_{k+1}=\\frac{x_k+1}{2}$, som fra $x_0=1{,}5$ gir $1{,}25,\\ 1{,}125,\\ 1{,}0625,\\dots$ — halvering per skritt, ikke dobling av siffer.\n\n**Botemidlet i alle tre tilfellene er det samme:** bruk biseksjon til å komme trygt nær roten, og bytt til Newton etterpå.\n\n**Dette er «kjenne»-stoff** — du skal kunne peke på symptomet, ikke analysere det."
+    },
+    {
+      "id": "tma4135-6-4-eks2",
+      "type": "example",
+      "title": "Biseksjon: telling og gjennomføring",
+      "problem": "Roten til $f(x)=x^{3}+2x-5$ ligger i $[1,2]$.\n\n**a)** Hvor mange biseksjonsskritt trengs for at feilen skal bli under $10^{-3}$?\n**b)** Gjør de fire første skrittene og vis intervallene.\n**c)** Hvor mange skritt trengs for $10^{-4}$?",
+      "solution": "**a) Tellingen.** Med $b-a=1$ og $\\text{tol}=10^{-3}$:\n\n$$k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}=\\log_2\\frac{1}{2\\cdot 10^{-3}}=\\log_2 500=\\frac{\\ln 500}{\\ln 2}=\\frac{6{,}2146}{0{,}6931}\\approx 8{,}966.$$\n\n**Rund oppover:**\n\n$$\\boxed{k=9 \\text{ skritt}}$$\n\n*Kontroll:* etter 9 skritt er intervallet $2^{-9}=1{,}953\\cdot 10^{-3}$ langt, og midtpunktet ligger høyst $9{,}77\\cdot 10^{-4}<10^{-3}$ fra roten ✔. Etter 8 skritt er grensen $1{,}95\\cdot 10^{-3}$, altså over kravet.\n\n**b) De fire første skrittene.** Vi vet $f(1)=-2<0$ og $f(2)=7>0$.\n\n**Skritt 1:** $m=1{,}5$, $f(1{,}5)=1{,}375>0$. Fortegnsskifte mellom 1 og 1,5 → nytt intervall $[1;\\ 1{,}5]$.\n\n**Skritt 2:** $m=1{,}25$, $f(1{,}25)=1{,}953125+2{,}5-5=-0{,}546875<0$. Skifte mellom 1,25 og 1,5 → $[1{,}25;\\ 1{,}5]$.\n\n**Skritt 3:** $m=1{,}375$, $f(1{,}375)=2{,}599609+2{,}75-5=0{,}349609>0$ → $[1{,}25;\\ 1{,}375]$.\n\n**Skritt 4:** $m=1{,}3125$, $f(1{,}3125)=2{,}260986+2{,}625-5=-0{,}114014<0$ → $[1{,}3125;\\ 1{,}375]$.\n\n| Skritt | $m$ | $f(m)$ | Nytt intervall | Lengde |\n|---|---|---|---|---|\n| 1 | $1{,}5$ | $+1{,}375$ | $[1;\\ 1{,}5]$ | $0{,}5$ |\n| 2 | $1{,}25$ | $-0{,}5469$ | $[1{,}25;\\ 1{,}5]$ | $0{,}25$ |\n| 3 | $1{,}375$ | $+0{,}3496$ | $[1{,}25;\\ 1{,}375]$ | $0{,}125$ |\n| 4 | $1{,}3125$ | $-0{,}1140$ | $[1{,}3125;\\ 1{,}375]$ | $0{,}0625$ |\n\nRoten $r\\approx 1{,}3283$ ligger inne i hvert av intervallene ✔.\n\n**c)** Med $\\text{tol}=10^{-4}$:\n\n$$k\\ge\\log_2\\frac{1}{2\\cdot 10^{-4}}=\\log_2 5000=\\frac{8{,}5172}{0{,}6931}\\approx 12{,}288\\ \\Longrightarrow\\ \\boxed{k=13}.$$\n\n**Sammenlikn med Newton.** Newton nådde $10^{-4}$ på **to** skritt (eksempel 1); biseksjon trenger 13. Til gjengjeld visste vi de 13 på forhånd, og de kan ikke svikte.\n\n**Legg merke til den faste kostnaden:** ett siffer mer koster $\\log_2 10\\approx 3{,}3$ ekstra skritt, uansett funksjon."
+    },
+    {
+      "id": "tma4135-6-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-4-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger L — biseksjon.) En rot ligger i $[0,1]$.\n\n**a)** Hvor mange biseksjonsskritt trengs for feil under $10^{-6}$?\n**b)** Hvor mange flere skritt trengs for å komme fra $10^{-3}$ til $10^{-6}$?\n**c)** Forklar hvorfor svaret i b) er uavhengig av funksjonen.",
+        "solution": "**a)**\n\n$$k\\ge\\log_2\\frac{1}{2\\cdot 10^{-6}}=\\log_2\\left(5\\cdot 10^{5}\\right)=\\frac{\\ln\\left(5\\cdot 10^{5}\\right)}{\\ln 2}=\\frac{13{,}1224}{0{,}6931}\\approx 18{,}93.$$\n\n$$\\boxed{k=19 \\text{ skritt}}$$\n\n**b)** For $10^{-3}$:\n\n$$k\\ge\\log_2\\frac{1}{2\\cdot 10^{-3}}=\\log_2 500\\approx 8{,}97\\ \\Longrightarrow\\ k=9.$$\n\nDifferansen er $19-9=10$ skritt.\n\n*Kontroll direkte:* å gå tre desimaler ned krever en reduksjon på faktoren $10^{3}=1000$, og $\\log_2 1000\\approx 9{,}97$, altså 10 halveringer. ✔\n\n**c)** Feilgrensen $\\dfrac{b-a}{2^{\\,k+1}}$ inneholder **ikke** $f$ i det hele tatt — bare intervall-lengden og antall skritt. Derfor er kostnaden per siffer den samme uansett hvilken funksjon du søker roten til:\n\n$$\\text{skritt per desimal}=\\log_2 10\\approx 3{,}32.$$\n\n**Det er både biseksjonens styrke og dens svakhet.** Styrken: du kan love et antall skritt før du har sett funksjonen. Svakheten: du får ingen gevinst av at funksjonen er snill — Newton ville brukt informasjon om $f'$ og vært ferdig for lengst.",
+        "hints": [
+          "Bruk $k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}$ og regn logaritmen som $\\ln X/\\ln 2$.",
+          "Regn begge tellingene og ta differansen.",
+          "Se på hvilke størrelser som inngår i feilgrensen — og hvilke som ikke gjør det."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-4-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~28 min brukt) —\n\nDu har begge de skalare metodene. De to siste løkkene er Newton for systemer — som er den formen 4D-settene har brukt — og en kort gjennomgang av sekantmetoden og beredskapsstoffet."
+    },
+    {
+      "id": "tma4135-6-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Newtons metode for systemer (~15 min)\n\nTo likninger, to ukjente, ingen formel som løser dem. Newton generaliseres nesten uten endring — du bytter bare ut divisjonen med $f'$ med å løse et lineært system."
+    },
+    {
+      "id": "tma4135-6-4-def-system",
+      "type": "definition",
+      "title": "Newtons metode for systemer",
+      "content": "For et system $F(\\mathbf x)=\\mathbf 0$ med like mange likninger som ukjente:\n\n$$\\mathbf x_{k+1}=\\mathbf x_k-J_F\\left(\\mathbf x_k\\right)^{-1}F\\left(\\mathbf x_k\\right).$$\n\n**Sammenlikn med skalarformen:** $f(x_k)$ er blitt vektoren $F(\\mathbf x_k)$, og $1/f'(x_k)$ er blitt den inverse Jacobi-matrisen. Ellers er alt likt.\n\n**Formelen står på det utdelte formelarket — tren oppslaget** på å sette opp $J_F$ med riktige partielt deriverte i riktige posisjoner."
+    },
+    {
+      "id": "tma4135-6-4-def-jacobi",
+      "type": "definition",
+      "title": "Jacobi-matrisen $J_F$",
+      "content": "Matrisen av alle partielt deriverte. For $F=\\begin{pmatrix}F_1\\\\ F_2\\end{pmatrix}$ med variable $x,y$:\n\n$$J_F=\\begin{pmatrix}\\dfrac{\\partial F_1}{\\partial x} & \\dfrac{\\partial F_1}{\\partial y}\\\\[2ex] \\dfrac{\\partial F_2}{\\partial x} & \\dfrac{\\partial F_2}{\\partial y}\\end{pmatrix}.$$\n\n**Husk plasseringen:** **rad** $i$ hører til likning nummer $i$; **kolonne** $j$ hører til variabel nummer $j$. Å transponere den ved et uhell er en dokumentert feilkilde.\n\n**Kontroll:** er $F_2$ uavhengig av $y$, skal hele posisjonen $(2,2)$ være null. Slike nuller er raske å sjekke."
+    },
+    {
+      "id": "tma4135-6-4-def-los-systemet",
+      "type": "definition",
+      "title": "Løs systemet — ikke inverter",
+      "content": "I praksis regner du **aldri** ut $J_F^{-1}$. Du løser i stedet det lineære systemet\n\n$$J_F\\left(\\mathbf x_k\\right)\\,\\Delta\\mathbf x=F\\left(\\mathbf x_k\\right),\\qquad \\mathbf x_{k+1}=\\mathbf x_k-\\Delta\\mathbf x.$$\n\n**For hånd med to ukjente** går begge veier like fort, og inversen av en $2\\times2$-matrise er kort:\n\n$$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}^{-1}=\\frac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\ -c&a\\end{pmatrix}.$$\n\n**Regn ut determinanten $ad-bc$ først** og skriv den ned — er den null eller nær null, er systemet singulært, og Newton-skrittet er udefinert. Det er systemversjonen av «$f'(x_k)=0$».\n\n**For store systemer** er inversjon både treg og numerisk uheldig; da brukes LU-faktorisering eller en iterativ metode. Se boksen om beredskapsstoff."
+    },
+    {
+      "id": "tma4135-6-4-eks3",
+      "type": "example",
+      "title": "Eksamensnivå: Newton for et $2\\times2$-system",
+      "problem": "Finn skjæringspunktet mellom sirkelen $x^{2}+y^{2}=4$ og parabelen $y=x^{2}$ i første kvadrant.\n\n**a)** Sett opp $F$ og $J_F$.\n**b)** Gjør ett Newton-skritt fra $\\mathbf x_0=(1,\\,1)$.\n**c)** Gjør ett skritt til, og sammenlikn med den eksakte løsningen $(1{,}2496211,\\ 1{,}5615528)$.",
+      "solution": "**a) Oppsettet.** Flytt alt over på venstre side:\n\n$$F(x,y)=\\begin{pmatrix}x^{2}+y^{2}-4\\\\ y-x^{2}\\end{pmatrix}.$$\n\nJacobi-matrisen — rad 1 fra $F_1$, rad 2 fra $F_2$; kolonne 1 er derivert med hensyn på $x$, kolonne 2 med hensyn på $y$:\n\n$$J_F(x,y)=\\begin{pmatrix}2x & 2y\\\\ -2x & 1\\end{pmatrix}.$$\n\n*Kontroll:* $\\partial F_2/\\partial y=\\partial(y-x^2)/\\partial y=1$ ✔, og $\\partial F_2/\\partial x=-2x$ ✔.\n\n**b) Første skritt fra $(1,1)$.**\n\n$$F(1,1)=\\begin{pmatrix}1+1-4\\\\ 1-1\\end{pmatrix}=\\begin{pmatrix}-2\\\\ 0\\end{pmatrix},\\qquad J_F(1,1)=\\begin{pmatrix}2&2\\\\ -2&1\\end{pmatrix}.$$\n\nDeterminanten: $\\det=2\\cdot 1-2\\cdot(-2)=2+4=6\\ne 0$ ✔.\n\nLøs $J_F\\,\\Delta\\mathbf x=F$, altså\n\n$$\\begin{pmatrix}2&2\\\\ -2&1\\end{pmatrix}\\begin{pmatrix}\\Delta x\\\\ \\Delta y\\end{pmatrix}=\\begin{pmatrix}-2\\\\ 0\\end{pmatrix}.$$\n\nFra andre likning: $-2\\Delta x+\\Delta y=0$, altså $\\Delta y=2\\Delta x$. Sett inn i den første:\n\n$$2\\Delta x+2\\cdot 2\\Delta x=-2\\ \\Longrightarrow\\ 6\\Delta x=-2\\ \\Longrightarrow\\ \\Delta x=-\\frac13,\\quad \\Delta y=-\\frac23.$$\n\n$$\\mathbf x_1=\\mathbf x_0-\\Delta\\mathbf x=\\begin{pmatrix}1\\\\ 1\\end{pmatrix}-\\begin{pmatrix}-\\tfrac13\\\\ -\\tfrac23\\end{pmatrix}=\\begin{pmatrix}\\tfrac43\\\\ \\tfrac53\\end{pmatrix}\\approx\\begin{pmatrix}1{,}3333333\\\\ 1{,}6666667\\end{pmatrix}.$$\n\n**c) Andre skritt fra $\\left(\\tfrac43,\\tfrac53\\right)$.**\n\n$$F=\\begin{pmatrix}\\tfrac{16}{9}+\\tfrac{25}{9}-4\\\\ \\tfrac53-\\tfrac{16}{9}\\end{pmatrix}=\\begin{pmatrix}\\tfrac{41-36}{9}\\\\ \\tfrac{15-16}{9}\\end{pmatrix}=\\begin{pmatrix}\\tfrac59\\\\ -\\tfrac19\\end{pmatrix},$$\n\n$$J_F=\\begin{pmatrix}\\tfrac83 & \\tfrac{10}{3}\\\\ -\\tfrac83 & 1\\end{pmatrix},\\qquad \\det=\\frac83+\\frac{80}{9}=\\frac{24+80}{9}=\\frac{104}{9}.$$\n\nLøs $J_F\\,\\Delta\\mathbf x=F$. Fra andre likning: $-\\tfrac83\\Delta x+\\Delta y=-\\tfrac19$, altså $\\Delta y=\\tfrac83\\Delta x-\\tfrac19$. Sett inn i den første:\n\n$$\\frac83\\Delta x+\\frac{10}{3}\\left(\\frac83\\Delta x-\\frac19\\right)=\\frac59\\ \\Longrightarrow\\ \\frac83\\Delta x+\\frac{80}{9}\\Delta x-\\frac{10}{27}=\\frac59.$$\n\n$$\\frac{104}{9}\\Delta x=\\frac59+\\frac{10}{27}=\\frac{15+10}{27}=\\frac{25}{27}\\ \\Longrightarrow\\ \\Delta x=\\frac{25}{27}\\cdot\\frac{9}{104}=\\frac{25}{312}.$$\n\n$$\\Delta y=\\frac83\\cdot\\frac{25}{312}-\\frac19=\\frac{200}{936}-\\frac{104}{936}=\\frac{96}{936}=\\frac{4}{39}.$$\n\n$$\\mathbf x_2=\\begin{pmatrix}\\tfrac43-\\tfrac{25}{312}\\\\ \\tfrac53-\\tfrac{4}{39}\\end{pmatrix}=\\begin{pmatrix}\\tfrac{416-25}{312}\\\\ \\tfrac{65-4}{39}\\end{pmatrix}=\\begin{pmatrix}\\tfrac{391}{312}\\\\ \\tfrac{61}{39}\\end{pmatrix}\\approx\\begin{pmatrix}1{,}2532051\\\\ 1{,}5641026\\end{pmatrix}.$$\n\n**Sammenlikning med den eksakte løsningen $(1{,}2496211,\\ 1{,}5615528)$:**\n\n| $k$ | $\\mathbf x_k$ | feil i $x$ | feil i $y$ |\n|---|---|---|---|\n| 0 | $(1;\\ 1)$ | $2{,}5\\cdot 10^{-1}$ | $5{,}6\\cdot 10^{-1}$ |\n| 1 | $(1{,}3333;\\ 1{,}6667)$ | $8{,}4\\cdot 10^{-2}$ | $1{,}1\\cdot 10^{-1}$ |\n| 2 | $(1{,}2532;\\ 1{,}5641)$ | $3{,}6\\cdot 10^{-3}$ | $2{,}5\\cdot 10^{-3}$ |\n\n**Kvadratisk konvergens også her:** feilen faller fra $10^{-1}$ til $10^{-3}$ på ett skritt. Neste skritt ville gitt omtrent $10^{-6}$.\n\n**Kontroll av svaret:** den eksakte løsningen finnes her, siden $y=x^{2}$ gir $x^{2}+x^{4}=4$, altså $u^{2}+u-4=0$ med $u=x^{2}$, som gir $u=\\frac{-1+\\sqrt{17}}{2}\\approx 1{,}5615528$ og $x=\\sqrt u\\approx 1{,}2496211$. **At $y_2\\approx 1{,}5641$ ligger nær $u$, er en fin kontroll** — og det er verdt å ta med når en oppgave lar seg løse eksakt.\n\n**Tidsbruk på eksamen:** a) 3 min, b) 6 min, c) 8 min — omtrent 17 minutter."
+    },
+    {
+      "id": "tma4135-6-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-4-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger L — Newton for system.) Gitt\n\n$$F(x,y)=\\begin{pmatrix}x^{2}-y-1\\\\ x+y^{2}-3\\end{pmatrix}.$$\n\n**a)** Sett opp $J_F$.\n**b)** Regn ut $F$ og $J_F$ i punktet $(1,1)$, og sjekk at determinanten ikke er null.\n**c)** Gjør ett Newton-skritt fra $(1,1)$.",
+        "solution": "**a)**\n\n$$J_F(x,y)=\\begin{pmatrix}2x & -1\\\\ 1 & 2y\\end{pmatrix}.$$\n\n**b)**\n\n$$F(1,1)=\\begin{pmatrix}1-1-1\\\\ 1+1-3\\end{pmatrix}=\\begin{pmatrix}-1\\\\ -1\\end{pmatrix},\\qquad J_F(1,1)=\\begin{pmatrix}2&-1\\\\ 1&2\\end{pmatrix}.$$\n\n$$\\det=2\\cdot 2-(-1)\\cdot 1=4+1=5\\ne 0.\\qquad ✔$$\n\n**c)** Løs $J_F\\,\\Delta\\mathbf x=F$:\n\n$$\\begin{pmatrix}2&-1\\\\ 1&2\\end{pmatrix}\\begin{pmatrix}\\Delta x\\\\ \\Delta y\\end{pmatrix}=\\begin{pmatrix}-1\\\\ -1\\end{pmatrix}.$$\n\nBruk inversformelen:\n\n$$\\begin{pmatrix}\\Delta x\\\\ \\Delta y\\end{pmatrix}=\\frac{1}{5}\\begin{pmatrix}2&1\\\\ -1&2\\end{pmatrix}\\begin{pmatrix}-1\\\\ -1\\end{pmatrix}=\\frac15\\begin{pmatrix}-2-1\\\\ 1-2\\end{pmatrix}=\\frac15\\begin{pmatrix}-3\\\\ -1\\end{pmatrix}=\\begin{pmatrix}-0{,}6\\\\ -0{,}2\\end{pmatrix}.$$\n\n$$\\mathbf x_1=\\begin{pmatrix}1\\\\ 1\\end{pmatrix}-\\begin{pmatrix}-0{,}6\\\\ -0{,}2\\end{pmatrix}=\\begin{pmatrix}1{,}6\\\\ 1{,}2\\end{pmatrix}.$$\n\n*Kontroll:* $F(1{,}6;\\ 1{,}2)=\\begin{pmatrix}2{,}56-1{,}2-1\\\\ 1{,}6+1{,}44-3\\end{pmatrix}=\\begin{pmatrix}0{,}36\\\\ 0{,}04\\end{pmatrix}$.\n\nBegge komponentene er betydelig nærmere null enn $(-1,-1)$ var. ✔\n\n**Svar:** $\\mathbf x_1=(1{,}6;\\ 1{,}2)$.",
+        "hints": [
+          "Rad $i$ hører til likning $i$, kolonne $j$ til variabel $j$.",
+          "Sett inn tallene og regn determinanten før du går videre.",
+          "Bruk $2\\times2$-inversformelen, eller løs systemet med innsetting."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Sekantmetoden og beredskapsstoffet (~12 min)\n\nTil slutt to ting du skal **kjenne**, ikke drille: sekantmetoden, som står på det utdelte formelarket, men bare har opptrådt én gang i arkivet, og den numeriske lineæralgebraen som ligger på samme side av arket."
+    },
+    {
+      "id": "tma4135-6-4-def-sekant",
+      "type": "definition",
+      "title": "Sekantmetoden",
+      "content": "Newton uten derivert. Erstatt $f'(x_k)$ med stigningstallet gjennom de to siste punktene:\n\n$$x_{k+1}=x_k-f(x_k)\\,\\frac{x_k-x_{k-1}}{f(x_k)-f(x_{k-1})}.$$\n\n**Geometrisk:** i stedet for tangenten bruker du **sekanten** gjennom $\\left(x_{k-1},f_{k-1}\\right)$ og $\\left(x_k,f_k\\right)$, og finner der den krysser aksen.\n\n**Fordelen:** du trenger ikke $f'$ i det hele tatt. Det er nyttig når $f$ bare finnes som en tabell eller en simulering.\n**Prisen:** du trenger **to** startverdier, og konvergensen er litt tregere enn Newtons — ordenen er omtrent $1{,}618$ i stedet for 2.\n\n**Formelen står på det utdelte formelarket — tren oppslaget.** Metoden har opptrådt i **1 av de 13 gjennomgåtte settene**, og det settet er fra 2015. Hold den på kjenne-nivå: vit hva den er, og kunne bruke formelen hvis den kommer."
+    },
+    {
+      "id": "tma4135-6-4-def-beredskap",
+      "type": "definition",
+      "title": "Beredskapsstoff: sjanger S",
+      "content": "Numerikk-siden på det utdelte formelarket inneholder også metoder for **lineære likningssystemer**. Boka kaller dette **sjanger S**, og den er på vei ut av eksamen:\n\n- **LU-faktorisering (Doolittle):** skriv $A=LU$ med $L$ nedre triangulær med 1-ere på diagonalen og $U$ øvre triangulær. Deretter løses $A\\mathbf x=\\mathbf b$ i to trinn: først $L\\mathbf y=\\mathbf b$ forlengs, så $U\\mathbf x=\\mathbf y$ baklengs. Belegg: **1 av 13 sett (8 %)**.\n- **Jacobi og Gauss–Seidel:** iterative metoder der du løser likning $i$ for ukjent $i$ og gjentar. Jacobi bruker bare gamle verdier i hver runde; Gauss–Seidel bruker de nyeste med én gang og konvergerer derfor som regel raskere. Belegg: **2 av 13 sett (15 %)**.\n\n**Hvorfor de likevel er verdt fem minutter:** de står på arket, formlene er korte, og dukker en slik oppgave opp, er den ren innsetting. Men de har ingen egen kapittelkjede i denne boka, og de er **ikke** verdt drilltid.\n\nDe henger dessuten sammen med dette kapitlet: løser du Newton-systemet i løkke 3 for et stort system, er det nettopp LU eller Gauss–Seidel du ville brukt i stedet for å invertere $J_F$."
+    },
+    {
+      "id": "tma4135-6-4-def-konvergensorden",
+      "type": "definition",
+      "title": "Konvergensorden for rotsøking",
+      "content": "Tallet $p$ i uttrykket $\\left|x_{k+1}-r\\right|\\le C\\left|x_k-r\\right|^{p}$.\n\n| Metode | Orden $p$ | Funksjonsevalueringer per skritt |\n|---|---|---|\n| Biseksjon | 1 (halvering) | 1 |\n| Fikspunkt, generelt | 1 | 1 |\n| Sekant | $\\approx 1{,}618$ | 1 |\n| Newton | 2 | 2 ($f$ og $f'$) |\n\n**Les tabellen som en avveining, ikke en rangering.** Newton har høyest orden, men koster to evalueringer per skritt. Er $f'$ dyr, kan sekantmetoden gi mer nøyaktighet per regnekrone, selv med lavere orden.\n\n**Tallet $1{,}618$** er det gylne snitt, $\\frac{1+\\sqrt5}{2}$ — det dukker opp fordi sekantfeilen tilfredsstiller $e_{k+1}\\approx C\\,e_k e_{k-1}$, og eksponentene følger Fibonacci-mønsteret.\n\n**Ordenen må kunnes på kjenne-nivå:** du skal kunne si hvilken metode som er raskest og hvorfor, ikke utlede tallene."
+    },
+    {
+      "id": "tma4135-6-4-def-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg: hvilken metode når?",
+      "content": "| Situasjonen | Velg | Fordi |\n|---|---|---|\n| Du har $f'$ og en god startverdi | Newton | kvadratisk konvergens |\n| Du skal garantere et antall skritt | Biseksjon | grensen er uavhengig av $f$ |\n| $f'$ er dyr eller ukjent | Sekant | ingen derivert trengs |\n| Roten er multippel | Biseksjon, deretter Newton | Newton alene blir lineær |\n| Flere likninger og ukjente | Newton for system | eneste av de fire som generaliserer |\n\n**Si i besvarelsen hvorfor du valgte som du gjorde.** Ber oppgaven om en bestemt metode, bruker du den — men en setning om hvorfor metoden passer, koster ingenting og viser forståelse."
+    },
+    {
+      "id": "tma4135-6-4-def-stoppkriterium",
+      "type": "definition",
+      "title": "Stoppkriterier",
+      "content": "Tre vanlige måter å avgjøre når du er ferdig:\n\n1. **$\\left|x_{k}-x_{k-1}\\right|<\\text{tol}$** — iteratene beveger seg lite. Vanligst, men kan lure deg ved svært flat konvergens.\n2. **$\\left|f(x_k)\\right|<\\text{tol}$** — funksjonsverdien er nær null. Kan lure deg motsatt vei: er $f'$ liten nær roten, kan $|f|$ være bitte liten langt fra $r$.\n3. **Fast antall skritt** fra en teoretisk telling — det er det biseksjon og fikspunkt bruker.\n\n**På eksamen brukes nesten alltid nummer 3**, fordi antallet skal kunne regnes ut på forhånd. Men det er verdt å vite at nummer 1 og 2 kan svikte hver sin vei, og at et robust program sjekker begge."
+    },
+    {
+      "id": "tma4135-6-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-4-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger L — sekantmetoden, kjenne-nivå.) La $f(x)=x^{3}+2x-5$ med $x_0=1$ og $x_1=2$.\n\n**a)** Regn ut $x_2$ og $x_3$ med sekantmetoden.\n**b)** Sammenlikn med Newton fra $x_0=1{,}5$, som ga $x_2\\approx 1{,}328384$.",
+        "solution": "**a)** $f(1)=-2$ og $f(2)=7$.\n\n**Skritt 1:**\n\n$$x_2=x_1-f(x_1)\\frac{x_1-x_0}{f(x_1)-f(x_0)}=2-7\\cdot\\frac{2-1}{7-(-2)}=2-\\frac{7}{9}=\\frac{11}{9}\\approx 1{,}2222222.$$\n\n**Skritt 2:** vi trenger $f(x_2)$:\n\n$$f(1{,}2222222)=1{,}8258...+2{,}4444444-5\\approx -0{,}7297...$$\n\nMer presist: $1{,}2222222^{3}=1{,}8257888$, så $f(x_2)\\approx 1{,}8257888+2{,}4444444-5=-0{,}7297668$.\n\n$$x_3=x_2-f(x_2)\\frac{x_2-x_1}{f(x_2)-f(x_1)}=1{,}2222222-(-0{,}7297668)\\cdot\\frac{1{,}2222222-2}{-0{,}7297668-7}.$$\n\n$$=1{,}2222222-(-0{,}7297668)\\cdot\\frac{-0{,}7777778}{-7{,}7297668}=1{,}2222222-(-0{,}7297668)(0{,}1006209).$$\n\n$$x_3\\approx 1{,}2222222+0{,}0734300\\approx 1{,}2956522.$$\n\n**Svar:** $x_2\\approx 1{,}222222$ og $x_3\\approx 1{,}295652$.\n\n**b)** Den eksakte roten er $r\\approx 1{,}3282689$.\n\n| Metode | etter 2 skritt | feil |\n|---|---|---|\n| Sekant (fra 1 og 2) | $1{,}2956522$ | $3{,}3\\cdot 10^{-2}$ |\n| Newton (fra 1,5) | $1{,}3283841$ | $1{,}2\\cdot 10^{-4}$ |\n\nNewton er klart raskere her. Men sammenlikningen er ikke helt rettferdig: sekantmetoden startet fra $x_0=1$, som ligger langt fra roten, og den bruker **ingen** derivert.\n\n**Fortsetter man sekantmetoden**, gir de neste skrittene $1{,}3302379$, $1{,}3282334$ og $1{,}3282688$ — altså fire korrekte desimaler etter fem skritt. Ordenen $1{,}618$ er ikke langt under Newtons 2, og hvert skritt koster bare **én** funksjonsevaluering mot Newtons to (både $f$ og $f'$).\n\n**Konklusjonen i praksis:** er $f'$ dyr å regne, kan sekantmetoden være det beste valget per regnekostnad. Er den billig, vinner Newton.",
+        "hints": [
+          "Sekantformelen bruker de to siste punktene — hold styr på hvilke som er $x_k$ og $x_{k-1}$.",
+          "Regn $f$ i hvert nytt punkt før du går videre.",
+          "Bruk minst sju desimaler underveis; brøken er følsom for avrunding."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-4-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger L.) Newton brukes på $f(x)=(x-1)^{2}$ fra $x_0=1{,}5$.\n\n**a)** Vis at iterasjonen blir $x_{k+1}=\\dfrac{x_k+1}{2}$.\n**b)** Regn de fire første iteratene.\n**c)** Hva slags konvergens er dette, og hvorfor ble den ikke kvadratisk?",
+        "solution": "**a)** $f(x)=(x-1)^{2}$ gir $f'(x)=2(x-1)$, så\n\n$$x_{k+1}=x_k-\\frac{(x_k-1)^{2}}{2(x_k-1)}=x_k-\\frac{x_k-1}{2}=\\frac{2x_k-x_k+1}{2}=\\frac{x_k+1}{2}.\\qquad \\blacksquare$$\n\n**b)** Fra $x_0=1{,}5$:\n\n$$x_1=\\frac{1{,}5+1}{2}=1{,}25,\\quad x_2=1{,}125,\\quad x_3=1{,}0625,\\quad x_4=1{,}03125.$$\n\nFeilene er $0{,}25$, $0{,}125$, $0{,}0625$, $0{,}03125$ — nøyaktig halvering per skritt.\n\n**c) Lineær konvergens** med faktor $\\tfrac12$, ikke kvadratisk.\n\n**Grunnen** er at roten $r=1$ er en **dobbel rot**: både $f(1)=0$ og $f'(1)=0$. Utledningen av kvadratisk konvergens hviler på at\n\n$$g'(x)=\\frac{f(x)f''(x)}{f'(x)^{2}}$$\n\ngår mot null i roten. Med en dobbel rot går både teller og nevner mot null, og grensen blir $g'(r)=\\tfrac12$ i stedet for 0. Da er vi tilbake til vanlig lineær fikspunktkonvergens fra [kap. 6.3](/tma4135/tma4135-6-3).\n\n**Generelt:** for en rot med multiplisitet $m$ blir $g'(r)=1-\\dfrac1m$. Her er $m=2$, altså $g'(r)=\\tfrac12$ ✔ — som stemmer nøyaktig med halveringen vi observerte.\n\n**Symptomet å kjenne igjen på eksamen:** Newton virker, men gir bare ett nytt siffer for hver tredje–fjerde iterasjon. Da er roten sannsynligvis multippel.",
+        "hints": [
+          "Sett inn $f$ og $f'$ i Newton-formelen og forkort brøken.",
+          "Iterasjonen er nå så enkel at du kan regne den i hodet.",
+          "Se på $g'(x)=f f''/(f')^2$ når både $f$ og $f'$ går mot null i roten."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-4-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger L — krevende, sammensatt.) Likningen $x\\ln x=1$ skal løses.\n\n**a)** Vis at den har nøyaktig én løsning for $x>0$, og lokaliser den i et intervall av lengde 1.\n**b)** Hvor mange biseksjonsskritt trengs på det intervallet for feil under $10^{-4}$?\n**c)** Gjør to Newton-skritt fra $x_0=1{,}8$ og sammenlikn arbeidsmengden.",
+        "solution": "**a)** Sett $f(x)=x\\ln x-1$ for $x>0$.\n\n**Entydighet.** Produktregelen gir\n\n$$f'(x)=\\ln x+x\\cdot\\frac1x=\\ln x+1.$$\n\nDenne er null i $x=e^{-1}\\approx 0{,}3679$, negativ før og positiv etter. $f$ er altså avtakende på $(0,e^{-1})$ og **strengt voksende** på $(e^{-1},\\infty)$.\n\nMinimumsverdien er\n\n$$f\\left(e^{-1}\\right)=e^{-1}\\cdot(-1)-1=-\\frac1e-1\\approx -1{,}368<0.$$\n\nSiden minimum er negativt og $f\\to -1$ når $x\\to 0^{+}$ (fordi $x\\ln x\\to 0$), er $f<0$ på hele $(0,e^{-1}]$ — ingen rot der. På $(e^{-1},\\infty)$ er $f$ strengt voksende og går mot $+\\infty$, så den krysser aksen **nøyaktig én gang**.\n\n**Lokalisering.**\n\n$$f(1)=1\\cdot 0-1=-1<0,\\qquad f(2)=2\\ln 2-1\\approx 1{,}3863-1=0{,}3863>0.$$\n\n**Etter mellomverdisetningen** ligger roten i $(1,2)$. $\\blacksquare$\n\n**b)** Med $b-a=1$ og $\\text{tol}=10^{-4}$:\n\n$$k\\ge\\log_2\\frac{1}{2\\cdot 10^{-4}}=\\log_2 5000\\approx 12{,}288\\ \\Longrightarrow\\ \\boxed{k=13 \\text{ skritt}}.$$\n\n**c) Newton fra $x_0=1{,}8$.**\n\n**Skritt 1.** $\\ln 1{,}8\\approx 0{,}5877867$.\n\n$$f(1{,}8)=1{,}8\\cdot 0{,}5877867-1=1{,}0580161-1=0{,}0580161,$$\n$$f'(1{,}8)=0{,}5877867+1=1{,}5877867.$$\n$$x_1=1{,}8-\\frac{0{,}0580160}{1{,}5877867}=1{,}8-0{,}0365389=1{,}7634611.$$\n\n**Skritt 2.** $\\ln 1{,}7634611\\approx 0{,}5672784$.\n\n$$f(1{,}7634611)=1{,}7634611\\cdot 0{,}5672784-1\\approx 1{,}0003734-1=0{,}0003734,$$\n$$f'(1{,}7634611)=0{,}5672784+1=1{,}5672784.$$\n$$x_2=1{,}7634611-\\frac{0{,}0003734}{1{,}5672784}\\approx 1{,}7634611-0{,}0002383=1{,}7632228.$$\n\nDen eksakte roten er $r\\approx 1{,}7632228$.\n\n| $k$ | $x_k$ | feil |\n|---|---|---|\n| 0 | $1{,}8$ | $3{,}7\\cdot 10^{-2}$ |\n| 1 | $1{,}7634611$ | $2{,}4\\cdot 10^{-4}$ |\n| 2 | $1{,}7632228$ | $1{,}0\\cdot 10^{-8}$ |\n\n**Arbeidsmengden.** Biseksjon trenger **13** skritt for $10^{-4}$. Newton var nesten der etter **ett** skritt ($2{,}4\\cdot 10^{-4}$) og fire størrelsesordener under kravet etter **to** ($1{,}0\\cdot 10^{-8}$). Se doblingen: to korrekte desimaler, deretter åtte.\n\n**Men merk hva Newton krevde til gjengjeld:** en derivert, en brukbar startverdi, og at vi allerede hadde vist at roten var entydig. Biseksjon krevde bare et fortegnsskifte. **Det er avveiningen i hele sjangeren**, og en setning om den hører hjemme i besvarelsen.",
+        "hints": [
+          "For a): finn hvor $f'=0$ og undersøk om $f$ er monoton på hver side.",
+          "Vær nøye med at $x\\ln x\\to 0$ når $x\\to 0^+$, så $f\\to -1$.",
+          "For c): $f'(x)=\\ln x+1$ — regn $\\ln x_k$ én gang og gjenbruk den i både $f$ og $f'$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-4-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger L — krevende, teori.) Vis at Newtons metode brukt på $f(x)=x^{2}-a$ (med $a>0$) gir Herons formel\n\n$$x_{k+1}=\\frac12\\left(x_k+\\frac{a}{x_k}\\right),$$\n\nog forklar hvorfor iterasjonen konvergerer mot $\\sqrt a$ for enhver $x_0>0$.",
+        "solution": "**Utledningen.** Med $f(x)=x^{2}-a$ er $f'(x)=2x$, så\n\n$$x_{k+1}=x_k-\\frac{x_k^{2}-a}{2x_k}=\\frac{2x_k^{2}-x_k^{2}+a}{2x_k}=\\frac{x_k^{2}+a}{2x_k}=\\frac12\\left(x_k+\\frac{a}{x_k}\\right).\\qquad \\blacksquare$$\n\n**Konvergens for enhver $x_0>0$.** Argumentet går i tre steg.\n\n**Steg 1 — alle iterater etter det første er minst $\\sqrt a$.** Fra ulikheten mellom aritmetisk og geometrisk gjennomsnitt:\n\n$$x_{k+1}=\\frac12\\left(x_k+\\frac{a}{x_k}\\right)\\ \\ge\\ \\sqrt{x_k\\cdot\\frac{a}{x_k}}=\\sqrt a.$$\n\n*(Ulikheten følger av at $\\left(\\sqrt{u}-\\sqrt{v}\\right)^{2}\\ge 0$ gir $\\frac{u+v}{2}\\ge\\sqrt{uv}$.)*\n\nAltså ligger $x_1,x_2,\\dots$ alle i intervallet $[\\sqrt a,\\infty)$, uansett hvor $x_0>0$ lå.\n\n**Steg 2 — følgen er avtakende fra og med $x_1$.** For $x_k\\ge\\sqrt a$ er $x_k^{2}\\ge a$, altså $\\dfrac{a}{x_k}\\le x_k$, og da er\n\n$$x_{k+1}=\\frac12\\left(x_k+\\frac{a}{x_k}\\right)\\le\\frac12\\left(x_k+x_k\\right)=x_k.$$\n\n**Steg 3 — konklusjon.** En avtakende følge som er nedad begrenset av $\\sqrt a$, konvergerer. Kall grensen $r\\ge\\sqrt a$. Går vi til grensen i iterasjonen, får vi\n\n$$r=\\frac12\\left(r+\\frac{a}{r}\\right)\\ \\Longrightarrow\\ 2r=r+\\frac{a}{r}\\ \\Longrightarrow\\ r^{2}=a\\ \\Longrightarrow\\ r=\\sqrt a,$$\n\nder vi valgte den positive rota fordi $r\\ge\\sqrt a>0$. $\\blacksquare$\n\n**Merk hva som er spesielt her.** Newton konvergerer generelt bare **lokalt** — du må starte nær nok. For $f(x)=x^{2}-a$ konvergerer den fra **enhver** positiv startverdi, og det er fordi funksjonen er konveks og voksende på $(0,\\infty)$. Slike globale garantier er unntaket, ikke regelen.\n\n**Kobling til [kap. 6.3](/tma4135/tma4135-6-3):** dette er nøyaktig $g$-funksjonen fra oppgave 8 der, med $g'\\left(\\sqrt a\\right)=0$ og kvadratisk konvergens. Herons formel er over to tusen år gammel, og den er Newtons metode.",
+        "hints": [
+          "Sett inn $f$ og $f'$ og sett brøken på felles nevner.",
+          "Bruk at det aritmetiske gjennomsnittet er minst det geometriske.",
+          "Vis at følgen er avtakende og nedad begrenset, og gå til grensen i iterasjonsformelen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**1. Å hoppe over entydighetsargumentet.** Å iterere er den mekaniske delen. Poengene ligger i å vise at roten finnes (fortegnsskifte) og at den er entydig (monotoni) — og i å **navngi mellomverdisetningen**.\n\n**2. Å glemme å navngi mellomverdisetningen.** «Siden $f$ skifter fortegn, finnes en rot» er sant, men uten navnet er argumentet ubegrunnet. Skriv setningen ut.\n\n**3. Å runde biseksjonsskritt nedover.** $k\\ge 8{,}97$ betyr 9 skritt. Med 8 er kravet ikke oppfylt.\n\n**4. Feil Jacobi-matrise.** Rad $i$ hører til likning $i$, kolonne $j$ til variabel $j$. Å transponere den er en dokumentert feilkilde, og den gir et helt galt skritt.\n\n**5. Å invertere $J_F$ uten å sjekke determinanten.** Er $\\det J_F=0$, er skrittet udefinert. Skriv determinanten ned — det tar fem sekunder og er systemversjonen av «$f'(x_k)\\ne 0$».\n\n**6. Å bruke for få siffer underveis.** Newton kvadrerer feilen, så du trenger mange siffer for å se konvergensen. Regner du med tre desimaler, ser to riktige iterater like ut.\n\n**7. Å forvente kvadratisk konvergens ved en multippel rot.** Er $f(r)=f'(r)=0$, faller Newton til lineær konvergens. Symptomet er ett nytt siffer per tredje–fjerde skritt.\n\n**8. Å blande sekant- og Newton-formelen.** Sekantmetoden bruker **to** foregående punkter og ingen derivert; Newton bruker **ett** punkt og den deriverte."
+    },
+    {
+      "id": "tma4135-6-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-6-4-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på derivasjon, fortegnsdrøfting og $2\\times2$-matriser."
+        },
+        {
+          "id": "tma4135-6-4-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-4-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver $f(x)=x\\ln x-1$ og finn hvor $f'=0$.",
+            "solution": "Produktregelen på $x\\ln x$:\n\n$$f'(x)=1\\cdot\\ln x+x\\cdot\\frac1x=\\ln x+1.$$\n\n$$f'(x)=0\\ \\Longleftrightarrow\\ \\ln x=-1\\ \\Longleftrightarrow\\ x=e^{-1}\\approx 0{,}3679.$$\n\nTil venstre for $e^{-1}$ er $\\ln x<-1$, altså $f'<0$; til høyre er $f'>0$. Funksjonen har altså et minimum der.",
+            "hints": [
+              "Bruk produktregelen på $x\\cdot\\ln x$.",
+              "Løs $\\ln x=-1$ ved å opphøye $e$ i begge sider."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-4-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-4-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\log_2 5000$ ved hjelp av naturlig logaritme.",
+            "solution": "$$\\log_2 5000=\\frac{\\ln 5000}{\\ln 2}=\\frac{8{,}5172}{0{,}6931}\\approx 12{,}288.$$\n\n*Kontroll:* $2^{12}=4096<5000$ og $2^{13}=8192>5000$, så svaret må ligge mellom 12 og 13 ✔.\n\nDette er nøyaktig biseksjonstellingen for $\\text{tol}=10^{-4}$ på et intervall av lengde 1 — og svaret der er 13 skritt, siden vi runder oppover.",
+            "hints": [
+              "Basebytteformelen er $\\log_b X=\\ln X/\\ln b$.",
+              "Kontroller med potenser av 2 rundt svaret."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-4-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-4-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Løs systemet $2u-v=-1$, $u+2v=-1$.",
+            "solution": "Fra den første: $v=2u+1$. Sett inn i den andre:\n\n$$u+2(2u+1)=-1\\ \\Longrightarrow\\ 5u+2=-1\\ \\Longrightarrow\\ u=-\\frac35=-0{,}6.$$\n\n$$v=2(-0{,}6)+1=-0{,}2.$$\n\n$$\\boxed{u=-0{,}6,\\qquad v=-0{,}2}$$\n\n*Kontroll:* $2(-0{,}6)-(-0{,}2)=-1{,}2+0{,}2=-1$ ✔ og $-0{,}6+2(-0{,}2)=-1$ ✔.\n\nDette er nøyaktig Newton-skrittet i oppgave 4, der $(u,v)=(\\Delta x,\\Delta y)$.",
+            "hints": [
+              "Løs den ene likningen for én variabel og sett inn i den andre.",
+              "Kontroller svaret i begge likningene."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-4-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-4-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn inversen til $\\begin{pmatrix}2&2\\\\ -2&1\\end{pmatrix}$.",
+            "solution": "Determinanten:\n\n$$\\det=2\\cdot 1-2\\cdot(-2)=2+4=6.$$\n\nInversformelen for en $2\\times2$-matrise bytter om diagonalen og skifter fortegn på de to andre:\n\n$$\\begin{pmatrix}2&2\\\\ -2&1\\end{pmatrix}^{-1}=\\frac16\\begin{pmatrix}1&-2\\\\ 2&2\\end{pmatrix}.$$\n\n*Kontroll:*\n\n$$\\frac16\\begin{pmatrix}1&-2\\\\ 2&2\\end{pmatrix}\\begin{pmatrix}2&2\\\\ -2&1\\end{pmatrix}=\\frac16\\begin{pmatrix}2+4&2-2\\\\ 4-4&4+2\\end{pmatrix}=\\frac16\\begin{pmatrix}6&0\\\\ 0&6\\end{pmatrix}=I\\ ✔$$\n\nDette er Jacobi-matrisen i eksempel 3.",
+            "hints": [
+              "$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}^{-1}=\\frac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\ -c&a\\end{pmatrix}$.",
+              "Kontroller ved å gange sammen og se at du får identitetsmatrisen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-6-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-6-4-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $f$ | Funksjonen i likningen $f(x)=0$ |\n| $r$ | Roten, altså løsningen |\n| $x_k$ | Iterat nummer $k$; $x_0$ er startverdien |\n| $[a,b]$ | Startintervallet med fortegnsskifte |\n| $m$ | Midtpunktet i et biseksjonsskritt |\n| $k$ | Antall skritt |\n| tol | Toleransen, altså den tillatte feilen |\n| $F$ | Vektorfunksjonen i et system $F(\\mathbf x)=\\mathbf 0$ |\n| $J_F$ | Jacobi-matrisen av partielt deriverte |\n| $\\Delta\\mathbf x$ | Newton-skrittet, løsningen av $J_F\\Delta\\mathbf x=F$ |\n| $\\det$ | Determinanten til $J_F$ |\n| $m$ (i multiplisitet) | Multiplisiteten til en rot |\n"
+        },
+        {
+          "id": "tma4135-6-4-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$x_{k+1}=x_k-\\frac{f(x_k)}{f'(x_k)}$$\nNewtons metode, skalar. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathbf x_{k+1}=\\mathbf x_k-J_F\\left(\\mathbf x_k\\right)^{-1}F\\left(\\mathbf x_k\\right)$$\nNewtons metode for systemer. *(Står på det utdelte formelarket — tren oppslaget på oppsettet av $J_F$.)*\n\n$$J_F=\\begin{pmatrix}\\partial F_1/\\partial x & \\partial F_1/\\partial y\\\\ \\partial F_2/\\partial x & \\partial F_2/\\partial y\\end{pmatrix}$$\nJacobi-matrisen: rad = likning, kolonne = variabel. *(Må kunnes.)*\n\n$$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}^{-1}=\\frac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\ -c&a\\end{pmatrix}$$\nInversen av en $2\\times2$-matrise. *(Må kunnes.)*\n\n$$x_{k+1}=x_k-f(x_k)\\,\\frac{x_k-x_{k-1}}{f(x_k)-f(x_{k-1})}$$\nSekantmetoden, uten derivert. *(Står på det utdelte formelarket — tren oppslaget; kjenne-nivå.)*\n\n$$\\left|x_k-r\\right|\\le\\frac{b-a}{2^{\\,k+1}}$$\nBiseksjonens feilgrense med midtpunktet som svar. *(Må kunnes.)*\n\n$$k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}$$\nBiseksjonstellingen — rund **oppover**. *(Må kunnes — står ikke på det utdelte formelarket.)*\n\n$$\\left|x_{k+1}-r\\right|\\le C\\left|x_k-r\\right|^{2}$$\nKvadratisk konvergens for Newton når $f'(r)\\ne 0$. *(Må kunnes eller utledes aktivt.)*\n\n$$g(x)=x-\\frac{f(x)}{f'(x)},\\qquad g'(x)=\\frac{f(x)f''(x)}{f'(x)^{2}},\\qquad g'(r)=0$$\nNewton som fikspunktiterasjon — grunnen til kvadratisk konvergens. *(Må kunnes eller utledes aktivt.)*\n\n$$f \\text{ kontinuerlig},\\ f(a)f(b)<0\\ \\Rightarrow\\ \\exists\\, r\\in(a,b):\\ f(r)=0$$\nMellomverdisetningen. *(Må kunnes og navngis.)*\n\n$$f' \\text{ har fast fortegn}\\ \\Rightarrow\\ f \\text{ strengt monoton}\\ \\Rightarrow\\ \\text{høyst én rot}$$\nEntydighetsargumentet. *(Må kunnes.)*\n\n$$A=LU,\\qquad L\\mathbf y=\\mathbf b,\\quad U\\mathbf x=\\mathbf y$$\nLU-faktorisering (Doolittle), beredskapsstoff i sjanger S. *(Står på det utdelte formelarket — tren oppslaget; kjenne-nivå.)*\n\n**Kolliderende symboler i dette kapitlet.** Bokstaven $r$ er roten her og fikspunktet i [kap. 6.3](/tma4135/tma4135-6-3), mens den i [kap. 1.1](/tma4135/tma4135-1-1) er modulusen til et komplekst tall — og i Del 8 blir $r$ stabilitetstallet $\\Delta t/h^{2}$. Bokstaven $m$ brukes to steder her: midtpunktet i biseksjon og multiplisiteten til en rot; sammenhengen skiller dem. Bokstaven $k$ er skritt-telleren her og i [kap. 6.3](/tma4135/tma4135-6-3); i Del 5 er $k$ separasjonskonstanten, og i Del 8 kaller det utdelte formelarket tidssteget $k$. Og $J$ er Jacobi-matrisen her — ikke å forveksle med **Jacobis metode** for lineære systemer, som er noe helt annet og bare deler navn med matematikeren."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

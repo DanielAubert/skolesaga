@@ -1,0 +1,436 @@
+{
+  "id": "tma4135-7-1",
+  "courseId": "tma4135",
+  "chapterNumber": "7.1",
+  "title": "Euler, Heun og Runge–Kutta — ett skritt for hånd",
+  "description": "De tre grunnleggende ODE-løserne og det som testes oftest: å ta ett skritt for hånd med riktig oppsett av stegene.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp og regne ett skritt med Euler, Heun og klassisk Runge–Kutta, med riktige argumenter i hvert stigningstall",
+    "løse det implisitte skrittet i bakover-Euler, både når likningen er lineær og når den ikke er det",
+    "forklare sammenhengen mellom lokal avkuttingsfeil, orden og hvor mye feilen faller når steglengden halveres",
+    "gjenkjenne et stivt problem på at en eksplisitt metode gir voksende eller fortegnsskiftende verdier"
+  ],
+  "content": [
+    {
+      "id": "tma4135-7-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Numeriske ODE-løsere er sjanger M.** Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene; **M er Euler, Heun og Runge–Kutta**.\n\n**Frekvens: 12 av 13 gjennomgåtte sett (92 %).** Det gjør ODE-løserne til den nest hyppigste temagruppen i hele arkivet, etter Laplace og Fourier — og den mest forutsigbare delen av numerikk-blokken.\n\n**Formen er nesten alltid den samme:** «gitt $y'=f(t,y)$ med $y(t_0)=y_0$ og $h=\\dots$, ta **ett skritt** med metoden.» Det er ren innsetting, og det er billige poeng — hvis oppstillingen er ryddig.\n\n**Det som skiller besvarelsene, er føringen.** Et RK4-skritt har fire stigningstall som bygger på hverandre. Skriver du dem opp under hverandre med argumentene synlige, ser den som retter, at du gjør det riktige selv om ett tall er feil. Roter du dem sammen på én linje, forsvinner både oversikten og uttellingen.\n\n**Formelark-merking.** Dette er kapitlet der arket gir deg aller mest:\n\n- **Står på det utdelte formelarket — tren oppslaget:** **Euler, forbedret Euler (Heun), klassisk RK4 og bakover-Euler**, alle fire ferdig oppskrevet. Ferdigheten er å sette inn riktig $f$, riktig $t_n$, riktig $y_n$ og riktig $h$ — og å vite hvilket argument som hører til hvilket stigningstall.\n- **Må kunnes eller utledes aktivt:** at **bakover-Euler er implisitt** og krever at du løser en likning for $y_{n+1}$, at antall $f$-evalueringer er metodens pris, og hva ordenen betyr for hvordan feilen faller når $h$ halveres.\n\n**Tidsbruk:** 60 minutter lesetid, fire løkker. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 6.4](/tma4135/tma4135-6-4) — bakover-Euler krever at du løser en likning for den ukjente $y_{n+1}$, og er den ikke-lineær, er Newtons metode standardverktøyet.\n\nDu trenger dessuten å kunne løse en enkel lineær førsteordens differensiallikning eksakt, siden vi hele veien sammenlikner med fasiten. For $y'+ay=b(t)$ er det integrerende faktor $e^{at}$ — men de eksakte løsningene er oppgitt der de trengs, så du kan lese kapitlet uten den ferdigheten.\n\nKapitlet er forutsetning for hele resten av Del 7: [kap. 7.2](/tma4135/tma4135-7-2) leser metodene ut av en Butcher-tabell, [kap. 7.3](/tma4135/tma4135-7-3) bruker to metoder samtidig, og [kap. 7.4](/tma4135/tma4135-7-4) undersøker når de er stabile."
+    },
+    {
+      "id": "tma4135-7-1-motivasjon",
+      "type": "text",
+      "content": "## Når du kjenner farten, men ikke veien\n\nEn differensiallikning $y'=f(t,y)$ forteller deg **hvor bratt** kurven er i ethvert punkt. Den forteller deg ikke hvor kurven ligger. Å løse likningen er å gå fra bratthet til bane.\n\nFor noen likninger går det an å gjøre eksakt. For de aller fleste går det ikke.\n\n**Den numeriske ideen er så enkel at den nesten virker for enkel:** stå i et punkt, spør likningen hvor bratt det er, gå et lite skritt i den retningen, og spør på nytt.\n\n$$y_{n+1}=y_n+h\\cdot(\\text{et stigningstall}).$$\n\n**Hverdagsbildet:** du går i tett tåke med et kompass som bare virker der du står. Du leser av retningen, går ti meter, leser av på nytt. Går du korte skritt, følger du stien bra. Går du lange, kutter du svingene.\n\n**Hele forskjellen mellom metodene ligger i hvilket stigningstall du bruker.**\n\n- **Euler** bruker brattheten der du står. Enkelt, og det kutter svingene.\n- **Heun** går et prøveskritt fram, ser hvor bratt det er *der*, og bruker gjennomsnittet. Dobbelt så mye arbeid, mye bedre svar.\n- **RK4** gjør fire slike prøver med ulik vekt. Fire ganger arbeidet, og en nøyaktighet som er i en helt annen klasse.\n- **Bakover-Euler** bruker brattheten der du skal **ende opp** — noe du ikke vet ennå, og som derfor krever at du løser en likning. Prisen er høy; gevinsten kommer i [kap. 7.4](/tma4135/tma4135-7-4).\n\nVi regner alle fire på det **samme** problemet, slik at sammenlikningen blir ærlig."
+    },
+    {
+      "id": "tma4135-7-1-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 60 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-7-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Euler og oppsettet (~14 min)"
+    },
+    {
+      "id": "tma4135-7-1-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblemet",
+      "content": "Det problemet alle metodene i Del 7 løser:\n\n$$y'=f(t,y),\\qquad y\\left(t_0\\right)=y_0.$$\n\n**Differensiallikningen** gir stigningstallet i ethvert punkt $(t,y)$; **initialbetingelsen** sier hvor kurven starter. Til sammen bestemmer de løsningen entydig (under milde krav på $f$).\n\n**Merk at $f$ kan avhenge av både $t$ og $y$.** Det er nettopp $y$-avhengigheten som gjør problemet interessant: stigningstallet endrer seg mens du beveger deg, og du kan ikke bare integrere."
+    },
+    {
+      "id": "tma4135-7-1-def-gitter",
+      "type": "definition",
+      "title": "Gitteret og steglengden $h$",
+      "content": "Punktene der du regner ut en tilnærming:\n\n$$t_n=t_0+nh,\\qquad n=0,1,2,\\dots$$\n\n**Steglengden $h$** er avstanden mellom to nabopunkter. Tallet $y_n$ er tilnærmingen til den eksakte verdien $y\\left(t_n\\right)$ — og de to er **ikke** det samme. Skriv gjerne $y_n\\approx y\\left(t_n\\right)$ første gang.\n\n**Notasjonen:** vi bruker $y_n$ for den beregnede verdien og $y\\left(t_n\\right)$ for den eksakte. Parentesen er hele forskjellen, og den er verdt å være nøye med i en besvarelse.\n\n**Merk symbolkollisjonen som kommer:** i Del 8 blir $h$ **romsteget**, og tidssteget skrives $\\Delta t$ (det utdelte formelarket kaller tidssteget $k$). I hele Del 7 er $h$ steget i tid."
+    },
+    {
+      "id": "tma4135-7-1-def-ettskritt",
+      "type": "definition",
+      "title": "Ett-skritts-metode",
+      "content": "En metode som regner $y_{n+1}$ **bare** ut fra $y_n$ — ikke fra $y_{n-1}$ eller tidligere verdier.\n\n$$y_{n+1}=y_n+h\\,\\Phi\\left(t_n,y_n,h\\right).$$\n\nFunksjonen $\\Phi$ er metodens **inkrementfunksjon**, altså det stigningstallet metoden velger å bruke. Alle metodene i dette kapitlet er ett-skritts-metoder, og alle Runge–Kutta-metoder er det.\n\n**Fordelen** er at du kan starte med én gang og bytte $h$ underveis (det utnyttes i [kap. 7.3](/tma4135/tma4135-7-3)). **Flerskritts-metoder**, som bruker flere gamle verdier, finnes, men er ikke pensum her."
+    },
+    {
+      "id": "tma4135-7-1-def-euler",
+      "type": "definition",
+      "title": "Eksplisitt Euler",
+      "content": "Den enkleste metoden av alle:\n\n$$y_{n+1}=y_n+h\\,f\\left(t_n,y_n\\right).$$\n\n**Geometrisk:** følg tangenten til løsningskurven gjennom $\\left(t_n,y_n\\right)$ et stykke $h$ framover.\n\n**«Eksplisitt»** betyr at høyresiden bare inneholder kjente størrelser — du regner ut $y_{n+1}$ direkte, uten å løse noe.\n\n**Kostnad:** én $f$-evaluering per skritt.\n**Orden:** 1. Halverer du $h$, halveres feilen.\n\n**Formelen står på det utdelte formelarket — tren oppslaget.**"
+    },
+    {
+      "id": "tma4135-7-1-def-lokal",
+      "type": "definition",
+      "title": "Lokal avkuttingsfeil",
+      "content": "Feilen ett enkelt skritt gjør, når du starter fra den **eksakte** verdien:\n\n$$\\tau_{n+1}=y\\left(t_{n+1}\\right)-\\left[y\\left(t_n\\right)+h\\,\\Phi\\left(t_n,y\\left(t_n\\right),h\\right)\\right].$$\n\nFor Euler finner du den ved Taylor-utvikling:\n\n$$y\\left(t_n+h\\right)=y\\left(t_n\\right)+h\\,y'\\left(t_n\\right)+\\frac{h^{2}}{2}y''(\\eta),$$\n\nog siden Euler bare tar med de to første leddene, er\n\n$$\\tau_{n+1}=\\frac{h^{2}}{2}y''(\\eta)=O\\left(h^{2}\\right).$$\n\n**En metode har orden $p$ når den lokale avkuttingsfeilen er $O\\left(h^{p+1}\\right)$.** Euler har altså orden 1.\n\n**Merk at det er ett skritt.** Den globale feilen — etter mange skritt — er én potens dårligere, og det forklares i neste boks."
+    },
+    {
+      "id": "tma4135-7-1-def-global",
+      "type": "definition",
+      "title": "Global feil og konvergensorden",
+      "content": "Feilen etter at du har gått hele veien fra $t_0$ til et fast sluttpunkt $T$:\n\n$$e_N=\\left|y\\left(T\\right)-y_N\\right|,\\qquad N=\\frac{T-t_0}{h}.$$\n\n**Hvorfor den er én potens dårligere enn den lokale.** Halverer du $h$, blir hvert enkelt skritt bedre med faktoren $2^{p+1}$ — men du må ta dobbelt så mange skritt. De to effektene gir til sammen\n\n$$e_N=O\\left(h^{p}\\right).$$\n\n**Tabellen du trenger:**\n\n| Metode | Lokal feil | Global orden $p$ | Halvering av $h$ gir |\n|---|---|---|---|\n| Euler | $O\\left(h^{2}\\right)$ | 1 | feil $/2$ |\n| Heun | $O\\left(h^{3}\\right)$ | 2 | feil $/4$ |\n| RK4 | $O\\left(h^{5}\\right)$ | 4 | feil $/16$ |\n| Bakover-Euler | $O\\left(h^{2}\\right)$ | 1 | feil $/2$ |\n\n**Ordenen må kunnes** — den står ikke på det utdelte formelarket, og den er det du bruker til å svare på «hvor mye bedre blir svaret hvis jeg halverer $h$?»."
+    },
+    {
+      "id": "tma4135-7-1-eks1",
+      "type": "example",
+      "title": "Ett Euler-skritt, og hva som skjer når $h$ halveres",
+      "problem": "Gitt $y'=t-2y$ med $y(0)=1$. Den eksakte løsningen er\n\n$$y(t)=\\tfrac54 e^{-2t}+\\tfrac{t}{2}-\\tfrac14,$$\n\nsom gir $y(0{,}2)\\approx 0{,}6879001$.\n\n**a)** Ta ett Euler-skritt med $h=0{,}2$.\n**b)** Ta to Euler-skritt med $h=0{,}1$.\n**c)** Ta fire Euler-skritt med $h=0{,}05$, og kommenter feilene.",
+      "solution": "**a) Ett skritt med $h=0{,}2$.**\n\n$$f(0,1)=0-2\\cdot 1=-2.$$\n\n$$y_1=y_0+h\\,f\\left(t_0,y_0\\right)=1+0{,}2\\cdot(-2)=1-0{,}4=0{,}6.$$\n\nFeil: $\\left|0{,}6-0{,}6879001\\right|=0{,}0879001$.\n\n**b) To skritt med $h=0{,}1$.**\n\n$$f(0,1)=-2\\ \\Longrightarrow\\ y_1=1+0{,}1\\cdot(-2)=0{,}8,$$\n$$f(0{,}1;\\ 0{,}8)=0{,}1-1{,}6=-1{,}5\\ \\Longrightarrow\\ y_2=0{,}8+0{,}1\\cdot(-1{,}5)=0{,}65.$$\n\nFeil: $\\left|0{,}65-0{,}6879001\\right|=0{,}0379001$.\n\n**c) Fire skritt med $h=0{,}05$.**\n\n$$f(0;\\ 1)=-2\\ \\Longrightarrow\\ y_1=1-0{,}1=0{,}9,$$\n$$f(0{,}05;\\ 0{,}9)=0{,}05-1{,}8=-1{,}75\\ \\Longrightarrow\\ y_2=0{,}9-0{,}0875=0{,}8125,$$\n$$f(0{,}1;\\ 0{,}8125)=0{,}1-1{,}625=-1{,}525\\ \\Longrightarrow\\ y_3=0{,}8125-0{,}07625=0{,}73625,$$\n$$f(0{,}15;\\ 0{,}73625)=0{,}15-1{,}4725=-1{,}3225\\ \\Longrightarrow\\ y_4=0{,}73625-0{,}0661250=0{,}670125.$$\n\nFeil: $\\left|0{,}670125-0{,}6879001\\right|=0{,}0177751$.\n\n**Samlet:**\n\n| $h$ | Skritt | $y$ ved $t=0{,}2$ | Feil | Forhold |\n|---|---|---|---|---|\n| $0{,}2$ | 1 | $0{,}6$ | $8{,}79\\cdot 10^{-2}$ | — |\n| $0{,}1$ | 2 | $0{,}65$ | $3{,}79\\cdot 10^{-2}$ | $2{,}32$ |\n| $0{,}05$ | 4 | $0{,}670125$ | $1{,}78\\cdot 10^{-2}$ | $2{,}13$ |\n\n**Feilen halveres omtrent hver gang $h$ halveres.** Forholdene $2{,}32$ og $2{,}13$ nærmer seg 2, som er nøyaktig det **orden 1** betyr.\n\n**To ting å legge merke til.**\n\nFor det første **går forholdet mot 2 nedenfra**, ikke fra 2 med en gang. Ordensresultatet er asymptotisk: det gjelder når $h$ er liten nok til at det ledende feilleddet dominerer.\n\nFor det andre **er alle tilnærmingene for små**. Løsningen er konveks her, og Euler-tangentene ligger under kurven. Slike fortegnsargumenter er gratis kontroller — og de er ofte nok til å avsløre en regnefeil.\n\n**Tidsbruk på eksamen:** ett Euler-skritt er ett minutt. Det er blant de billigste poengene på hele settet."
+    },
+    {
+      "id": "tma4135-7-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-1-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren innsetting.) Gitt $y'=t+y$ med $y(0)=1$ og $h=0{,}1$.\n\n**a)** Regn ut $f\\left(t_0,y_0\\right)$.\n**b)** Ta ett Euler-skritt.\n**c)** Ta ett skritt til.",
+        "solution": "**a)** $f(t,y)=t+y$, så\n\n$$f(0,\\ 1)=0+1=1.$$\n\n**b)**\n\n$$y_1=y_0+h\\,f\\left(t_0,y_0\\right)=1+0{,}1\\cdot 1=1{,}1.$$\n\n**c)** Nå er $t_1=0{,}1$ og $y_1=1{,}1$:\n\n$$f(0{,}1;\\ 1{,}1)=0{,}1+1{,}1=1{,}2,$$\n$$y_2=1{,}1+0{,}1\\cdot 1{,}2=1{,}22.$$\n\n*Kontroll:* den eksakte løsningen er $y(t)=2e^{t}-t-1$, som gir $y(0{,}2)=2e^{0{,}2}-1{,}2\\approx 2{,}4428055-1{,}2=1{,}2428055$. Euler ligger som ventet litt under.",
+        "hints": [
+          "Sett inn $t_0$ og $y_0$ i uttrykket for $f$.",
+          "Euler-formelen er $y_{n+1}=y_n+hf(t_n,y_n)$.",
+          "I det andre skrittet må du oppdatere **både** $t$ og $y$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-1-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger M — ODE-løsere.) Gitt $y'=y-t^{2}$ med $y(0)=1$ og $h=0{,}2$.\n\n**a)** Ta to Euler-skritt.\n**b)** Den eksakte løsningen er $y(t)=t^{2}+2t+2-e^{t}$. Regn ut $y(0{,}4)$ og finn feilen.",
+        "solution": "**a) Skritt 1.**\n\n$$f(0;\\ 1)=1-0=1\\ \\Longrightarrow\\ y_1=1+0{,}2\\cdot 1=1{,}2.$$\n\n**Skritt 2.** Nå er $t_1=0{,}2$, $y_1=1{,}2$:\n\n$$f(0{,}2;\\ 1{,}2)=1{,}2-0{,}04=1{,}16\\ \\Longrightarrow\\ y_2=1{,}2+0{,}2\\cdot 1{,}16=1{,}2+0{,}232=1{,}432.$$\n\n**b)**\n\n$$y(0{,}4)=0{,}16+0{,}8+2-e^{0{,}4}=2{,}96-1{,}4918247=1{,}4681753.$$\n\n$$\\left|y_2-y(0{,}4)\\right|=\\left|1{,}432-1{,}4681753\\right|=0{,}0361753.$$\n\n**Svar:** Euler gir $1{,}432$, den eksakte verdien er $1{,}4681753$, og feilen er omtrent $3{,}6\\cdot 10^{-2}$.\n\n*Kontroll av den eksakte løsningen:* $y'=2t+2-e^{t}$ og $y-t^{2}=2t+2-e^{t}$ ✔, og $y(0)=0+0+2-1=1$ ✔. **Å kontrollere en oppgitt løsning tar ti sekunder og er alltid verdt det.**",
+        "hints": [
+          "Regn ett skritt av gangen og oppdater både $t$ og $y$.",
+          "I skritt 2 er $t=0{,}2$, så $t^2=0{,}04$.",
+          "Kontroller den oppgitte eksakte løsningen ved å derivere den."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Heun og RK4 (~18 min)\n\nEulers svakhet er at den bruker brattheten i **startpunktet** for hele skrittet. Både Heun og RK4 gjør noe med akkurat det."
+    },
+    {
+      "id": "tma4135-7-1-def-heun",
+      "type": "definition",
+      "title": "Forbedret Euler (Heuns metode)",
+      "content": "Ta et prøveskritt med Euler, se hvor bratt det er der, og bruk **gjennomsnittet** av de to stigningstallene:\n\n$$k_1=f\\left(t_n,y_n\\right),$$\n$$k_2=f\\left(t_n+h,\\ y_n+h k_1\\right),$$\n$$y_{n+1}=y_n+\\frac{h}{2}\\left(k_1+k_2\\right).$$\n\n**Merk argumentet i $k_2$:** det er $y_n+hk_1$, altså Euler-prediksjonen — **ikke** $y_n$. Å bruke $y_n$ der er den vanligste feilen i hele sjangeren, og den gjør metoden om til Euler igjen.\n\n**Kostnad:** to $f$-evalueringer per skritt.\n**Orden:** 2. Halverer du $h$, blir feilen fire ganger mindre.\n\n**Formelen står på det utdelte formelarket — tren oppslaget** på argumentene, ikke på vektene."
+    },
+    {
+      "id": "tma4135-7-1-def-prediktor",
+      "type": "definition",
+      "title": "Prediktor–korrektor-tolkningen",
+      "content": "Heun kan leses i to trinn:\n\n1. **Prediktor:** $\\tilde y=y_n+h k_1$ — et Euler-gjett på hvor du havner.\n2. **Korrektor:** bruk stigningstallet **der** til å korrigere: $y_{n+1}=y_n+\\frac{h}{2}\\left(k_1+k_2\\right)$.\n\n**Hvorfor gjennomsnittet er bedre.** Euler bruker stigningstallet i venstre endepunkt over hele intervallet — det er venstre-rektangel-regelen for integralet $\\int_{t_n}^{t_{n+1}}f\\,dt$. Heun bruker gjennomsnittet av begge endepunkter — det er **trapesregelen** fra [kap. 6.2](/tma4135/tma4135-6-2).\n\n**Det er ikke en analogi, det er samme regnestykke.** Og det forklarer ordenene: trapes har feil $O(h^{2})$ per intervall, venstre rektangel bare $O(h)$."
+    },
+    {
+      "id": "tma4135-7-1-def-rk4",
+      "type": "definition",
+      "title": "Klassisk Runge–Kutta (RK4)",
+      "content": "Fire stigningstall, med to prøvepunkter på midten:\n\n$$k_1=f\\left(t_n,\\ y_n\\right),$$\n$$k_2=f\\left(t_n+\\tfrac{h}{2},\\ y_n+\\tfrac{h}{2}k_1\\right),$$\n$$k_3=f\\left(t_n+\\tfrac{h}{2},\\ y_n+\\tfrac{h}{2}k_2\\right),$$\n$$k_4=f\\left(t_n+h,\\ y_n+h k_3\\right),$$\n\n$$y_{n+1}=y_n+\\frac{h}{6}\\left(k_1+2k_2+2k_3+k_4\\right).$$\n\n**Merk kjedingen:** $k_2$ bruker $k_1$, $k_3$ bruker $k_2$ (ikke $k_1$), og $k_4$ bruker $k_3$. Hvert stigningstall bygger på det forrige.\n\n**Kostnad:** fire $f$-evalueringer per skritt.\n**Orden:** 4. Halverer du $h$, blir feilen seksten ganger mindre.\n\n**Formelen står på det utdelte formelarket — tren oppslaget** på argumentene: hvilket $k$ hører til hvilket punkt."
+    },
+    {
+      "id": "tma4135-7-1-def-rk4-vekter",
+      "type": "definition",
+      "title": "Vektene i RK4",
+      "content": "$$\\frac16\\left(k_1+2k_2+2k_3+k_4\\right).$$\n\nVektene er $\\tfrac16,\\tfrac13,\\tfrac13,\\tfrac16$, og de summerer til 1 — som de må, for at metoden skal treffe eksakt når $f$ er konstant.\n\n**Gjenkjenner du mønsteret?** Det er **Simpsons regel** fra [kap. 6.2](/tma4135/tma4135-6-2), med vektene $\\tfrac16,\\tfrac46,\\tfrac16$ over endepunktene og midtpunktet — bare med midtpunktsvekten delt på to prøver ($k_2$ og $k_3$).\n\n**Kontroll før du regner videre:** summen av vektene skal være 1. Har du skrevet av $\\tfrac16(k_1+2k_2+2k_3+k_4)$ feil, avslører den kontrollen det umiddelbart."
+    },
+    {
+      "id": "tma4135-7-1-def-kostnad",
+      "type": "definition",
+      "title": "Kostnad: $f$-evalueringer per skritt",
+      "content": "| Metode | Evalueringer | Orden | Nøyaktighet per evaluering |\n|---|---|---|---|\n| Euler | 1 | 1 | lav |\n| Heun | 2 | 2 | middels |\n| RK4 | 4 | 4 | høy |\n\n**Den riktige sammenlikningen er ikke per skritt, men per evaluering.** Ett RK4-skritt med $h$ koster like mye som fire Euler-skritt med $h/4$. Regner du det ut, vinner RK4 dramatisk, fordi ordenene er så ulike.\n\n**Praktisk regel:** for glatte problemer og moderate nøyaktighetskrav er RK4 nesten alltid billigst. For **stive** problemer snur bildet helt — se løkke 3 og [kap. 7.4](/tma4135/tma4135-7-4)."
+    },
+    {
+      "id": "tma4135-7-1-eks2",
+      "type": "example",
+      "title": "Euler, Heun og RK4 på samme skritt",
+      "problem": "Gitt $y'=t-2y$ med $y(0)=1$ og $h=0{,}2$. Eksakt: $y(0{,}2)\\approx 0{,}6879001$.\n\nTa **ett** skritt med hver av Euler, Heun og RK4, og sammenlikn.",
+      "solution": "**Euler** (fra eksempel 1):\n\n$$k=f(0;\\ 1)=0-2=-2,\\qquad y_1=1+0{,}2(-2)=0{,}6.$$\n\n**Heun.** To stigningstall:\n\n$$k_1=f(0;\\ 1)=0-2\\cdot 1=-2,$$\n$$k_2=f\\left(0+0{,}2,\\ 1+0{,}2\\cdot(-2)\\right)=f(0{,}2;\\ 0{,}6)=0{,}2-2\\cdot 0{,}6=0{,}2-1{,}2=-1.$$\n\n$$y_1=1+\\frac{0{,}2}{2}\\left(-2+(-1)\\right)=1+0{,}1\\cdot(-3)=1-0{,}3=0{,}7.$$\n\n**RK4.** Fire stigningstall — merk hvilket punkt hvert er regnet i:\n\n$$k_1=f(0;\\ 1)=-2,$$\n$$k_2=f\\left(0{,}1;\\ 1+0{,}1\\cdot(-2)\\right)=f(0{,}1;\\ 0{,}8)=0{,}1-1{,}6=-1{,}5,$$\n$$k_3=f\\left(0{,}1;\\ 1+0{,}1\\cdot(-1{,}5)\\right)=f(0{,}1;\\ 0{,}85)=0{,}1-1{,}7=-1{,}6,$$\n$$k_4=f\\left(0{,}2;\\ 1+0{,}2\\cdot(-1{,}6)\\right)=f(0{,}2;\\ 0{,}68)=0{,}2-1{,}36=-1{,}16.$$\n\n$$y_1=1+\\frac{0{,}2}{6}\\left(-2+2(-1{,}5)+2(-1{,}6)+(-1{,}16)\\right).$$\n\nSummen i parentesen: $-2-3-3{,}2-1{,}16=-9{,}36$.\n\n$$y_1=1+\\frac{0{,}2}{6}\\cdot(-9{,}36)=1-0{,}312=0{,}688.$$\n\n**Sammenlikning.**\n\n| Metode | Evalueringer | $y_1$ | Feil |\n|---|---|---|---|\n| Euler | 1 | $0{,}6$ | $8{,}79\\cdot 10^{-2}$ |\n| Heun | 2 | $0{,}7$ | $1{,}21\\cdot 10^{-2}$ |\n| RK4 | 4 | $0{,}688$ | $9{,}99\\cdot 10^{-5}$ |\n| **Eksakt** | — | $0{,}6879001$ | — |\n\n**Fire ganger arbeidet gir nesten tusen ganger mindre feil.** Det er hele argumentet for RK4.\n\n**Legg merke til at Heun bommer på den andre siden av Euler.** Euler ga $0{,}6$ (for lavt), Heun ga $0{,}7$ (for høyt). Det er vanlig, men ikke en regel — det avhenger av krumningen.\n\n**Kontroller du selv?** Tre raske sjekker: (1) alle $k_i$ skal være i samme størrelsesorden — er ett av dem vilt avvikende, er et argument satt inn feil; (2) vektene $\\frac16(1+2+2+1)=1$ ✔; (3) svaret skal ligge mellom Euler og Heun her, siden RK4 er den mest nøyaktige.\n\n**Tidsbruk på eksamen:** hele denne oppgaven er 6–8 minutter når oppstillingen sitter."
+    },
+    {
+      "id": "tma4135-7-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-1-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger M.) Gitt $y'=t+y$ med $y(0)=1$ og $h=0{,}1$.\n\n**a)** Ta ett Heun-skritt.\n**b)** Ta ett RK4-skritt.\n**c)** Den eksakte verdien er $y(0{,}1)=2e^{0{,}1}-1{,}1\\approx 1{,}1103418$. Sammenlikn feilene med Eulers, som ga $1{,}1$.",
+        "solution": "**a) Heun.**\n\n$$k_1=f(0;\\ 1)=0+1=1,$$\n$$k_2=f\\left(0{,}1;\\ 1+0{,}1\\cdot 1\\right)=f(0{,}1;\\ 1{,}1)=0{,}1+1{,}1=1{,}2.$$\n\n$$y_1=1+\\frac{0{,}1}{2}(1+1{,}2)=1+0{,}05\\cdot 2{,}2=1+0{,}11=1{,}11.$$\n\n**b) RK4.**\n\n$$k_1=f(0;\\ 1)=1,$$\n$$k_2=f\\left(0{,}05;\\ 1+0{,}05\\cdot 1\\right)=f(0{,}05;\\ 1{,}05)=0{,}05+1{,}05=1{,}1,$$\n$$k_3=f\\left(0{,}05;\\ 1+0{,}05\\cdot 1{,}1\\right)=f(0{,}05;\\ 1{,}055)=0{,}05+1{,}055=1{,}105,$$\n$$k_4=f\\left(0{,}1;\\ 1+0{,}1\\cdot 1{,}105\\right)=f(0{,}1;\\ 1{,}1105)=0{,}1+1{,}1105=1{,}2105.$$\n\nSummen med vekter: $1+2\\cdot 1{,}1+2\\cdot 1{,}105+1{,}2105=1+2{,}2+2{,}21+1{,}2105=6{,}6205$.\n\n$$y_1=1+\\frac{0{,}1}{6}\\cdot 6{,}6205=1+0{,}1103417=1{,}1103417.$$\n\n**c) Feilene.**\n\n| Metode | $y_1$ | Feil |\n|---|---|---|\n| Euler | $1{,}1$ | $1{,}03\\cdot 10^{-2}$ |\n| Heun | $1{,}11$ | $3{,}42\\cdot 10^{-4}$ |\n| RK4 | $1{,}1103417$ | $1{,}69\\cdot 10^{-7}$ |\n| **Eksakt** | $1{,}1103418$ | — |\n\n**RK4 treffer på sju desimaler med ett eneste skritt.** Feilen faller med omtrent en faktor 30 fra Euler til Heun, og videre med en faktor 2000 fra Heun til RK4.\n\n**Merk hvordan $k_3$ er regnet.** Argumentet er $y_n+\\frac{h}{2}k_2$ — altså med $k_2$, ikke $k_1$. Bruker du $k_1$ der, får du $k_3=k_2$, og hele fjerdeordensstrukturen faller sammen.",
+        "hints": [
+          "I $k_2$ er argumentet Euler-prediksjonen $y_n+hk_1$ — ikke $y_n$.",
+          "I RK4 bruker $k_3$ verdien av $k_2$, og $k_4$ bruker $k_3$.",
+          "Kontroller at vektene $\\frac16(1+2+2+1)$ summerer til 1."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-1-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger M.) Gitt $y'=y-t^{2}$ med $y(0)=1$ og $h=0{,}2$.\n\n**a)** Ta ett Heun-skritt.\n**b)** Ta ett RK4-skritt.\n**c)** Eksakt er $y(0{,}2)=0{,}04+0{,}4+2-e^{0{,}2}\\approx 1{,}2185598$. Rangér metodene.",
+        "solution": "**a) Heun.**\n\n$$k_1=f(0;\\ 1)=1-0=1,$$\n$$k_2=f\\left(0{,}2;\\ 1+0{,}2\\cdot 1\\right)=f(0{,}2;\\ 1{,}2)=1{,}2-0{,}04=1{,}16.$$\n\n$$y_1=1+\\frac{0{,}2}{2}(1+1{,}16)=1+0{,}1\\cdot 2{,}16=1{,}216.$$\n\n**b) RK4.**\n\n$$k_1=f(0;\\ 1)=1,$$\n$$k_2=f\\left(0{,}1;\\ 1+0{,}1\\cdot 1\\right)=f(0{,}1;\\ 1{,}1)=1{,}1-0{,}01=1{,}09,$$\n$$k_3=f\\left(0{,}1;\\ 1+0{,}1\\cdot 1{,}09\\right)=f(0{,}1;\\ 1{,}109)=1{,}109-0{,}01=1{,}099,$$\n$$k_4=f\\left(0{,}2;\\ 1+0{,}2\\cdot 1{,}099\\right)=f(0{,}2;\\ 1{,}2198)=1{,}2198-0{,}04=1{,}1798.$$\n\nVektet sum: $1+2\\cdot 1{,}09+2\\cdot 1{,}099+1{,}1798=1+2{,}18+2{,}198+1{,}1798=6{,}5578$.\n\n$$y_1=1+\\frac{0{,}2}{6}\\cdot 6{,}5578=1+0{,}2185933=1{,}2185933.$$\n\n**c) Rangering.**\n\n| Metode | $y_1$ | Feil |\n|---|---|---|\n| Euler | $1{,}2$ | $1{,}86\\cdot 10^{-2}$ |\n| Heun | $1{,}216$ | $2{,}56\\cdot 10^{-3}$ |\n| RK4 | $1{,}2185933$ | $3{,}91\\cdot 10^{-6}$ |\n\n*(Euler-verdien: $y_1=1+0{,}2\\cdot 1=1{,}2$.)*\n\n**Rangering: RK4 best, deretter Heun, deretter Euler** — som ordenene forutsier. Merk at forholdet mellom feilene her er rundt 7 fra Euler til Heun og rundt 660 fra Heun til RK4 — mindre dramatisk enn i oppgave 3, der de var 30 og 2000. Grunnen er at $h=0{,}2$ er dobbelt så stor her, og for større $h$ er de asymptotiske ordensresultatene svakere.\n\n**En ærlig observasjon:** RK4-feilen $3{,}91\\cdot 10^{-6}$ er ikke $16^{2}$ ganger bedre enn Heuns bare fordi ordenen er dobbelt så høy. Ordenen sier hvordan feilen **skalerer med $h$**, ikke hvor stor den er ved en gitt $h$. Skal du sammenlikne metoder rettferdig, må du enten fikse $h$ (som her) eller fikse antall $f$-evalueringer.",
+        "hints": [
+          "$f(t,y)=y-t^2$ — pass på at $t^2$ regnes i riktig punkt hver gang.",
+          "I RK4 er de to midtstigningstallene regnet i $t=0{,}1$, men med ulike $y$-verdier.",
+          "Regn Euler-verdien selv for å få med den i sammenlikningen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-1-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~32 min brukt) —\n\nDu kan de tre eksplisitte metodene. Resten av kapitlet er den implisitte varianten — som ser ubehagelig ut, men som er uunnværlig for en bestemt klasse problemer."
+    },
+    {
+      "id": "tma4135-7-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Bakover-Euler og stive problemer (~15 min)"
+    },
+    {
+      "id": "tma4135-7-1-def-implisitt",
+      "type": "definition",
+      "title": "Implisitt metode",
+      "content": "En metode der den ukjente $y_{n+1}$ står på **begge** sider av likhetstegnet.\n\nDa kan du ikke bare regne ut høyresiden — du må **løse en likning** for $y_{n+1}$.\n\n**Er $f$ lineær i $y$**, er likningen lineær og løses med to linjers algebra.\n**Er $f$ ikke-lineær**, må du bruke en rotsøkingsmetode — og da er Newton fra [kap. 6.4](/tma4135/tma4135-6-4) standardvalget.\n\n**Prisen** er altså at hvert skritt koster en likningsløsning i stedet for en funksjonsevaluering. **Gevinsten** er stabilitet, som er hele temaet i [kap. 7.4](/tma4135/tma4135-7-4)."
+    },
+    {
+      "id": "tma4135-7-1-def-bakover-euler",
+      "type": "definition",
+      "title": "Bakover-Euler",
+      "content": "Euler, men med stigningstallet regnet i **sluttpunktet**:\n\n$$y_{n+1}=y_n+h\\,f\\left(t_{n+1},\\ y_{n+1}\\right).$$\n\n**Sammenlikn med eksplisitt Euler:** eneste forskjell er at argumentene er $t_{n+1},y_{n+1}$ i stedet for $t_n,y_n$. Men den forskjellen gjør metoden implisitt.\n\n**Orden:** 1, akkurat som eksplisitt Euler. Du kjøper altså **ikke** nøyaktighet — du kjøper stabilitet.\n\n**Formelen står på det utdelte formelarket — tren oppslaget.** Det som **må kunnes**, er at du er nødt til å løse likningen, og hvordan."
+    },
+    {
+      "id": "tma4135-7-1-def-los-likningen",
+      "type": "definition",
+      "title": "Å løse for $y_{n+1}$",
+      "content": "**Lineært tilfelle.** Er $f(t,y)=a(t)y+b(t)$, blir likningen\n\n$$y_{n+1}=y_n+h\\left(a\\left(t_{n+1}\\right)y_{n+1}+b\\left(t_{n+1}\\right)\\right).$$\n\nSamle $y_{n+1}$ på venstre side:\n\n$$y_{n+1}\\left(1-h\\,a\\left(t_{n+1}\\right)\\right)=y_n+h\\,b\\left(t_{n+1}\\right)\\ \\Longrightarrow\\ y_{n+1}=\\frac{y_n+h\\,b\\left(t_{n+1}\\right)}{1-h\\,a\\left(t_{n+1}\\right)}.$$\n\n**Ikke-lineært tilfelle.** Skriv likningen som $G\\left(y_{n+1}\\right)=0$ med\n\n$$G(z)=z-y_n-h\\,f\\left(t_{n+1},z\\right),$$\n\nog løs med Newtons metode fra [kap. 6.4](/tma4135/tma4135-6-4). Startverdi: Euler-prediksjonen $y_n+hf\\left(t_n,y_n\\right)$ er nesten alltid god nok.\n\n**Merk at $G'(z)=1-h\\,\\partial f/\\partial y$**, som er nær 1 for liten $h$ — så Newton konvergerer raskt her."
+    },
+    {
+      "id": "tma4135-7-1-def-stiv",
+      "type": "definition",
+      "title": "Stive problemer",
+      "content": "Problemer der løsningen inneholder komponenter som endrer seg på **svært ulike tidsskalaer**.\n\nTypisk: en komponent dør ut på $10^{-4}$ sekunder, mens den interessante oppførselen skjer over sekunder. Da tvinger den raske komponenten en eksplisitt metode til å bruke absurd små skritt — ikke for nøyaktighetens skyld, men for at metoden i det hele tatt skal holde seg stabil.\n\n**Eksempel:** $y'=-20y$ med $y(0)=1$ og $h=0{,}1$. Eksplisitt Euler gir\n\n$$y_1=1+0{,}1\\cdot(-20)=-1,$$\n\naltså feil fortegn og større tallverdi enn vi startet med. Fortsetter du, vokser $|y_n|$ uten grense — mens den eksakte løsningen $e^{-20t}$ går raskt mot null.\n\nBakover-Euler gir derimot\n\n$$y_1=\\frac{1}{1+20\\cdot 0{,}1}=\\frac13\\approx 0{,}3333,$$\n\nsom er for stort sammenliknet med $e^{-2}\\approx 0{,}1353$, men i det minste **positivt og avtakende**.\n\n**Dette er kjernen i stabilitet**, og det er hele temaet i [kap. 7.4](/tma4135/tma4135-7-4). For stive problemer er implisitte metoder ikke et alternativ — de er det eneste brukbare."
+    },
+    {
+      "id": "tma4135-7-1-eks3",
+      "type": "example",
+      "title": "Bakover-Euler i lineært og ikke-lineært tilfelle",
+      "problem": "**a)** Gitt $y'=t-2y$ med $y(0)=1$ og $h=0{,}2$. Ta ett bakover-Euler-skritt og sammenlikn med de eksplisitte metodene.\n\n**b)** Gitt $y'=-y^{2}$ med $y(0)=1$ og $h=0{,}5$. Ta ett bakover-Euler-skritt. Eksakt: $y(0{,}5)=\\tfrac{1}{1{,}5}\\approx 0{,}6666667$.",
+      "solution": "**a) Lineært tilfelle.** Likningen er\n\n$$y_1=y_0+h\\,f\\left(t_1,y_1\\right)=1+0{,}2\\left(0{,}2-2y_1\\right).$$\n\n**Gang ut og samle $y_1$:**\n\n$$y_1=1+0{,}04-0{,}4y_1\\ \\Longrightarrow\\ y_1+0{,}4y_1=1{,}04\\ \\Longrightarrow\\ 1{,}4\\,y_1=1{,}04.$$\n\n$$y_1=\\frac{1{,}04}{1{,}4}=\\frac{104}{140}=\\frac{26}{35}\\approx 0{,}7428571.$$\n\n**Sammenlikning med de andre metodene:**\n\n| Metode | $y_1$ | Feil | Evalueringer |\n|---|---|---|---|\n| Eksplisitt Euler | $0{,}6$ | $8{,}79\\cdot 10^{-2}$ | 1 |\n| Bakover-Euler | $0{,}7428571$ | $5{,}50\\cdot 10^{-2}$ | 1 + en likning |\n| Heun | $0{,}7$ | $1{,}21\\cdot 10^{-2}$ | 2 |\n| RK4 | $0{,}688$ | $9{,}99\\cdot 10^{-5}$ | 4 |\n| **Eksakt** | $0{,}6879001$ | — | — |\n\n**Legg merke til at bakover-Euler bommer på motsatt side av eksplisitt Euler**, og omtrent like mye. Det er typisk: den ene metoden undervurderer, den andre overvurderer, og begge har orden 1.\n\n**Er bakover-Euler da bortkastet her?** For dette problemet, ja — det er ikke stivt, og de eksplisitte metodene er både enklere og bedre. **Poenget med bakover-Euler er ikke nøyaktighet, men stabilitet**, og den gevinsten ser du ikke før i [kap. 7.4](/tma4135/tma4135-7-4).\n\n**b) Ikke-lineært tilfelle.** Likningen er\n\n$$y_1=1+0{,}5\\cdot\\left(-y_1^{2}\\right)=1-0{,}5\\,y_1^{2}.$$\n\n**Nå står $y_1$ i annen potens** — dette er ikke lenger en lineær likning. Ordne den:\n\n$$0{,}5\\,y_1^{2}+y_1-1=0\\ \\Longleftrightarrow\\ y_1^{2}+2y_1-2=0.$$\n\nAbc-formelen:\n\n$$y_1=\\frac{-2\\pm\\sqrt{4+8}}{2}=\\frac{-2\\pm 2\\sqrt3}{2}=-1\\pm\\sqrt3.$$\n\nVi trenger den positive rota (løsningen starter i 1 og avtar mot null, den blir aldri negativ):\n\n$$y_1=\\sqrt3-1\\approx 0{,}7320508.$$\n\n**Feil:** $\\left|0{,}7320508-0{,}6666667\\right|\\approx 0{,}0653841$.\n\n*(Til sammenlikning gir eksplisitt Euler $y_1=1+0{,}5\\cdot(-1)=0{,}5$, med feil $0{,}1666667$ — mer enn dobbelt så mye.)*\n\n**Merk hva som skjedde.** Her lot likningen seg løse eksakt fordi den var en andregradslikning. **I praksis er den sjelden det**, og da må du bruke Newtons metode på\n\n$$G(z)=z-1+0{,}5z^{2}=0,\\qquad G'(z)=1+z.$$\n\nFra startverdien $z_0=0{,}5$ (Euler-prediksjonen) gir Newton\n\n$$z_1=0{,}5-\\frac{0{,}5-1+0{,}125}{1{,}5}=0{,}5+\\frac{0{,}375}{1{,}5}=0{,}75,$$\n$$z_2=0{,}75-\\frac{0{,}75-1+0{,}28125}{1{,}75}=0{,}75-\\frac{0{,}03125}{1{,}75}\\approx 0{,}7321429,$$\n\naltså fire korrekte siffer på to Newton-skritt. **Det er den fulle prisen for ett implisitt skritt:** én likningsløsning, som selv er en iterasjon.\n\n**Tidsbruk på eksamen:** det lineære tilfellet er 3 minutter, det ikke-lineære 6–8."
+    },
+    {
+      "id": "tma4135-7-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-1-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger M — implisitt.) Gitt $y'=-4y+t$ med $y(0)=2$ og $h=0{,}25$.\n\n**a)** Ta ett eksplisitt Euler-skritt.\n**b)** Ta ett bakover-Euler-skritt.\n**c)** Kommenter de to svarene.",
+        "solution": "**a) Eksplisitt Euler.**\n\n$$f(0;\\ 2)=-8+0=-8,$$\n$$y_1=2+0{,}25\\cdot(-8)=2-2=0.$$\n\n**b) Bakover-Euler.** Likningen er\n\n$$y_1=2+0{,}25\\left(-4y_1+0{,}25\\right)=2-y_1+0{,}0625.$$\n\nSamle $y_1$:\n\n$$2y_1=2{,}0625\\ \\Longrightarrow\\ y_1=1{,}03125.$$\n\n**c)** Eksplisitt Euler ga **nøyaktig null**, som betyr at hele startverdien ble spist opp av ett skritt. Med $h=0{,}25$ og $\\lambda=-4$ er $h\\lambda=-1$, og Euler-faktoren er $1+h\\lambda=0$ — vi er akkurat på grensen der metoden slukker alt på ett skritt.\n\nBakover-Euler ga $1{,}03125$, altså en avtakende men positiv verdi. Faktoren der er $\\frac{1}{1-h\\lambda}=\\frac{1}{2}$.\n\n**Den eksakte løsningen** er $y(t)=\\frac{33}{16}e^{-4t}+\\frac{t}{4}-\\frac{1}{16}$, som gir\n\n$$y(0{,}25)=\\frac{33}{16}e^{-1}+0{,}0625-0{,}0625=\\frac{33}{16}\\cdot 0{,}3678794\\approx 0{,}7587513.$$\n\nBegge metodene bommer, og de bommer hver sin vei: Euler for lavt ($0$), bakover-Euler for høyt ($1{,}03$).\n\n**Det interessante er hva som skjer med større $h$.** Øker du til $h=0{,}6$, gir eksplisitt Euler faktoren $1+h\\lambda=1-2{,}4=-1{,}4$, altså **fortegnsskifte og vekst** — mens bakover-Euler gir $\\frac{1}{1+2{,}4}=0{,}294$, som fortsatt er pen. **Det er stabilitetsforskjellen**, og den analyseres i [kap. 7.4](/tma4135/tma4135-7-4).",
+        "hints": [
+          "Eksplisitt Euler bruker $f$ i startpunktet; sett inn og regn.",
+          "Bakover-Euler gir en likning der $y_1$ står på begge sider — samle den.",
+          "Se på hvilken faktor $y_0$ ganges med i hver av metodene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Systemer og full eksamensoppgave (~13 min)\n\nAlle metodene i kapitlet virker uendret på **systemer** av differensiallikninger — du bytter bare tall mot vektorer. Det er verdt fem minutter, fordi det er slik metodene faktisk brukes."
+    },
+    {
+      "id": "tma4135-7-1-def-system",
+      "type": "definition",
+      "title": "Systemer av differensiallikninger",
+      "content": "Skriv systemet på vektorform:\n\n$$\\mathbf y'=\\mathbf f\\left(t,\\mathbf y\\right),\\qquad \\mathbf y\\left(t_0\\right)=\\mathbf y_0,$$\n\nder $\\mathbf y$ og $\\mathbf f$ er vektorer med like mange komponenter som det er likninger.\n\n**Alle formlene i kapitlet gjelder ordrett**, med $k_i$ som vektorer:\n\n$$\\mathbf k_1=\\mathbf f\\left(t_n,\\mathbf y_n\\right),\\qquad \\mathbf y_{n+1}=\\mathbf y_n+h\\,\\mathbf k_1\\quad\\text{(Euler)}.$$\n\n**Praktisk viktig:** en høyere ordens likning gjøres om til et system. For $y''=g\\left(t,y,y'\\right)$ setter du $u=y$, $v=y'$ og får\n\n$$u'=v,\\qquad v'=g(t,u,v).$$\n\n**Det er slik en andreordens likning løses numerisk** — det finnes ingen egen «RK4 for andreordens likninger»."
+    },
+    {
+      "id": "tma4135-7-1-def-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg: hvilken løser når?",
+      "content": "| Situasjonen | Velg | Fordi |\n|---|---|---|\n| Glatt problem, moderat krav | RK4 | best nøyaktighet per evaluering |\n| Rask overslagsregning for hånd | Heun | to evalueringer, orden 2 |\n| Bare ett skritt skal vises | Euler | én evaluering, én linje |\n| **Stivt** problem | Bakover-Euler eller annen implisitt | eksplisitte metoder krever absurd liten $h$ |\n| Svingende system over lang tid | RK4 eller en energibevarende metode | Euler pumper energi inn i systemet |\n\n**Ber oppgaven om en bestemt metode, bruker du den.** Men spør den «hvilken metode ville du valgt, og hvorfor?», er det denne tabellen som er svaret — og begrunnelsen er alltid en avveining mellom **orden** og **antall $f$-evalueringer**, med **stivhet** som eneste unntak der regnestykket snus helt om."
+    },
+    {
+      "id": "tma4135-7-1-def-kontrollrutine",
+      "type": "definition",
+      "title": "Kontrollrutine for ett skritt for hånd",
+      "content": "Fem raske sjekker før du leverer:\n\n1. **Har alle $k_i$ samme størrelsesorden?** Et vilt avvikende stigningstall betyr nesten alltid feil argument.\n2. **Summerer vektene til 1?** $\\frac12(1+1)$ for Heun, $\\frac16(1+2+2+1)$ for RK4.\n3. **Er $t$-argumentene riktige?** Heun: $t_n$ og $t_n+h$. RK4: $t_n$, $t_n+\\frac h2$, $t_n+\\frac h2$, $t_n+h$.\n4. **Er $y$-argumentene kjedet riktig?** $k_2$ bruker $k_1$, $k_3$ bruker $k_2$, $k_4$ bruker $k_3$.\n5. **Peker svaret riktig vei?** Er $f<0$ i startpunktet, skal $y_1<y_0$.\n\nDisse fem tar under ett minutt og fanger så godt som alle feilene i sjangeren."
+    },
+    {
+      "id": "tma4135-7-1-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: fire metoder, ett problem",
+      "problem": "Gitt initialverdiproblemet\n\n$$y'=2t-y,\\qquad y(0)=1,\\qquad h=0{,}4.$$\n\n**a)** Vis at den eksakte løsningen er $y(t)=2t-2+3e^{-t}$, og regn ut $y(0{,}4)$.\n**b)** Ta ett skritt med Euler og ett med Heun.\n**c)** Ta ett skritt med RK4.\n**d)** Ta ett skritt med bakover-Euler.\n**e)** Sett opp en tabell og rangér metodene etter feil og etter kostnad.",
+      "solution": "**a) Kontroll av den eksakte løsningen.**\n\n$$y'(t)=2-3e^{-t},\\qquad 2t-y=2t-\\left(2t-2+3e^{-t}\\right)=2-3e^{-t}.$$\n\nDe to er like ✔, og $y(0)=0-2+3=1$ ✔.\n\n$$y(0{,}4)=0{,}8-2+3e^{-0{,}4}=-1{,}2+3\\cdot 0{,}6703200=-1{,}2+2{,}0109601=0{,}8109601.$$\n\n**b) Euler.**\n\n$$k=f(0;\\ 1)=0-1=-1,\\qquad y_1=1+0{,}4\\cdot(-1)=0{,}6.$$\n\nFeil: $0{,}2109601$.\n\n**Heun.**\n\n$$k_1=f(0;\\ 1)=-1,$$\n$$k_2=f\\left(0{,}4;\\ 1+0{,}4\\cdot(-1)\\right)=f(0{,}4;\\ 0{,}6)=0{,}8-0{,}6=0{,}2.$$\n\n$$y_1=1+\\frac{0{,}4}{2}\\left(-1+0{,}2\\right)=1+0{,}2\\cdot(-0{,}8)=1-0{,}16=0{,}84.$$\n\nFeil: $0{,}0290399$.\n\n**c) RK4.**\n\n$$k_1=f(0;\\ 1)=-1,$$\n$$k_2=f\\left(0{,}2;\\ 1+0{,}2\\cdot(-1)\\right)=f(0{,}2;\\ 0{,}8)=0{,}4-0{,}8=-0{,}4,$$\n$$k_3=f\\left(0{,}2;\\ 1+0{,}2\\cdot(-0{,}4)\\right)=f(0{,}2;\\ 0{,}92)=0{,}4-0{,}92=-0{,}52,$$\n$$k_4=f\\left(0{,}4;\\ 1+0{,}4\\cdot(-0{,}52)\\right)=f(0{,}4;\\ 0{,}792)=0{,}8-0{,}792=0{,}008.$$\n\nVektet sum: $-1+2(-0{,}4)+2(-0{,}52)+0{,}008=-1-0{,}8-1{,}04+0{,}008=-2{,}832$.\n\n$$y_1=1+\\frac{0{,}4}{6}\\cdot(-2{,}832)=1-0{,}1888=0{,}8112.$$\n\nFeil: $\\left|0{,}8112-0{,}8109601\\right|=0{,}0002399$.\n\n**d) Bakover-Euler.**\n\n$$y_1=1+0{,}4\\left(2\\cdot 0{,}4-y_1\\right)=1+0{,}32-0{,}4y_1.$$\n\n$$1{,}4\\,y_1=1{,}32\\ \\Longrightarrow\\ y_1=\\frac{1{,}32}{1{,}4}=\\frac{66}{70}=\\frac{33}{35}\\approx 0{,}9428571.$$\n\nFeil: $0{,}1318970$.\n\n**e) Samlet tabell.**\n\n| Metode | $y_1$ | Feil | $f$-evalueringer | Orden |\n|---|---|---|---|---|\n| Euler | $0{,}6$ | $2{,}11\\cdot 10^{-1}$ | 1 | 1 |\n| Bakover-Euler | $0{,}9428571$ | $1{,}32\\cdot 10^{-1}$ | 1 + likning | 1 |\n| Heun | $0{,}84$ | $2{,}90\\cdot 10^{-2}$ | 2 | 2 |\n| RK4 | $0{,}8112$ | $2{,}40\\cdot 10^{-4}$ | 4 | 4 |\n| **Eksakt** | $0{,}8109601$ | — | — | — |\n\n**Rangering etter feil:** RK4, Heun, bakover-Euler, Euler.\n**Rangering etter kostnad:** Euler (1), bakover-Euler (1 + en likning), Heun (2), RK4 (4).\n\n**Konklusjonen for et ikke-stivt problem som dette er entydig:** RK4 gir nesten tusen ganger mindre feil enn Euler for fire ganger arbeidet. Det er en glimrende handel.\n\n**Merk hvor de to Euler-variantene ligger.** De har samme orden, men bommer hver sin vei — Euler for lavt, bakover-Euler for høyt. Den eksakte verdien ligger mellom dem, og det er ingen tilfeldighet: gjennomsnittet av de to er $0{,}7714$, og en vektet variant av nettopp den ideen gir **trapesmetoden** — som du møter igjen som Crank–Nicolson i Del 8.\n\n**Tidsbruk på eksamen:** a) 3 min, b) 5 min, c) 7 min, d) 3 min, e) 4 min — omtrent 22 minutter for en oppgave på 10 poeng, altså rett innenfor budsjettet."
+    },
+    {
+      "id": "tma4135-7-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-1-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger M — system.) Systemet\n\n$$u'=v,\\qquad v'=-u,$$\n\nmed $u(0)=1$, $v(0)=0$ og $h=0{,}2$, har den eksakte løsningen $u(t)=\\cos t$, $v(t)=-\\sin t$.\n\n**a)** Ta ett Euler-skritt for begge komponentene.\n**b)** Ta ett Heun-skritt.\n**c)** Sammenlikn med $u(0{,}2)=\\cos 0{,}2\\approx 0{,}9800666$ og $v(0{,}2)=-\\sin 0{,}2\\approx -0{,}1986693$.",
+        "solution": "**a) Euler.** Med $\\mathbf y=(u,v)$ og $\\mathbf f(t,u,v)=(v,\\ -u)$:\n\n$$\\mathbf k_1=\\mathbf f(0;\\ 1,\\ 0)=(0,\\ -1).$$\n\n$$u_1=1+0{,}2\\cdot 0=1,\\qquad v_1=0+0{,}2\\cdot(-1)=-0{,}2.$$\n\n**b) Heun.**\n\n$$\\mathbf k_1=(0,\\ -1),$$\n\nEuler-prediksjonen er $\\left(1+0{,}2\\cdot 0,\\ 0+0{,}2\\cdot(-1)\\right)=(1,\\ -0{,}2)$, så\n\n$$\\mathbf k_2=\\mathbf f\\left(0{,}2;\\ 1,\\ -0{,}2\\right)=(-0{,}2,\\ -1).$$\n\n$$u_1=1+\\frac{0{,}2}{2}\\left(0+(-0{,}2)\\right)=1-0{,}02=0{,}98,$$\n$$v_1=0+\\frac{0{,}2}{2}\\left(-1+(-1)\\right)=-0{,}2.$$\n\n**c) Sammenlikning.**\n\n| Metode | $u_1$ | feil i $u$ | $v_1$ | feil i $v$ |\n|---|---|---|---|---|\n| Euler | $1$ | $2{,}0\\cdot 10^{-2}$ | $-0{,}2$ | $1{,}3\\cdot 10^{-3}$ |\n| Heun | $0{,}98$ | $6{,}7\\cdot 10^{-5}$ | $-0{,}2$ | $1{,}3\\cdot 10^{-3}$ |\n| **Eksakt** | $0{,}9800666$ | — | $-0{,}1986693$ | — |\n\n**Heun treffer $u$ nesten perfekt**, mens begge metodene gir samme $v_1$. Det er tilfeldig for akkurat dette skrittet: $k_1$ og $k_2$ har samme andrekomponent ($-1$ og $-1$), fordi $u$ ikke rakk å endre seg i prediksjonen.\n\n**Et større poeng med dette systemet:** løsningen $(\\cos t,-\\sin t)$ ligger på **enhetssirkelen**, altså $u^{2}+v^{2}=1$ til alle tider. Sjekk hva metodene gjør med den:\n\n$$\\text{Euler: } 1^{2}+0{,}2^{2}=1{,}04>1,\\qquad \\text{Heun: } 0{,}98^{2}+0{,}2^{2}=0{,}9604+0{,}04=1{,}0004.$$\n\n**Euler spiraler utover; Heun holder seg mye nærmere sirkelen.** For svingende systemer er dette den viktigste egenskapen — en metode som pumper energi inn i systemet, ødelegger løsningen over tid, uansett hvor små skrittene er.\n\n**Merk hvor lite som endret seg i oppsettet.** Alle formlene er identiske; du regner bare med par av tall i stedet for enkelttall.",
+        "hints": [
+          "Skriv $\\mathbf f(t,u,v)=(v,-u)$ og regn begge komponentene samtidig.",
+          "I Heun er argumentet til $\\mathbf k_2$ hele Euler-prediksjonen, begge komponenter.",
+          "Sjekk til slutt hva $u_1^2+v_1^2$ blir — den eksakte løsningen har den lik 1."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-1-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger M — krevende.) Gitt $y'=-10y$ med $y(0)=1$.\n\n**a)** Ta ett eksplisitt Euler-skritt med $h=0{,}25$, og deretter med $h=0{,}1$.\n**b)** Ta ett bakover-Euler-skritt med de samme to steglengdene.\n**c)** Den eksakte løsningen er $y(t)=e^{-10t}$. Kommenter hva som skjer, og hvilken $h$ eksplisitt Euler trenger for å oppføre seg fornuftig.",
+        "solution": "**a) Eksplisitt Euler.** Her er $f(t,y)=-10y$, så\n\n$$y_1=y_0+h\\cdot(-10y_0)=y_0\\left(1-10h\\right).$$\n\n$$h=0{,}25:\\quad y_1=1\\cdot(1-2{,}5)=-1{,}5.$$\n$$h=0{,}1:\\quad y_1=1\\cdot(1-1)=0.$$\n\n**b) Bakover-Euler.**\n\n$$y_1=y_0+h\\left(-10y_1\\right)\\ \\Longrightarrow\\ y_1\\left(1+10h\\right)=y_0\\ \\Longrightarrow\\ y_1=\\frac{y_0}{1+10h}.$$\n\n$$h=0{,}25:\\quad y_1=\\frac{1}{3{,}5}\\approx 0{,}2857143.$$\n$$h=0{,}1:\\quad y_1=\\frac{1}{2}=0{,}5.$$\n\n**c) Kommentar.** De eksakte verdiene er\n\n$$y(0{,}25)=e^{-2{,}5}\\approx 0{,}0820850,\\qquad y(0{,}1)=e^{-1}\\approx 0{,}3678794.$$\n\n| $h$ | Euler | Bakover-Euler | Eksakt |\n|---|---|---|---|\n| $0{,}25$ | $-1{,}5$ | $0{,}2857143$ | $0{,}0820850$ |\n| $0{,}1$ | $0$ | $0{,}5$ | $0{,}3678794$ |\n\n**Eksplisitt Euler er katastrofal.** Med $h=0{,}25$ gir den **negativt** svar med **større tallverdi** enn startverdien — og gjentar du skrittet, vokser $|y_n|$ som $1{,}5^{n}$, mens den eksakte løsningen forsvinner mot null. Metoden produserer det motsatte av virkeligheten.\n\nMed $h=0{,}1$ gir den nøyaktig null, som er grensetilfellet: faktoren $1-10h$ er null.\n\n**Bakover-Euler er ikke nøyaktig, men den er kvalitativt riktig:** positiv, mindre enn 1, avtakende. Faktoren $\\frac{1}{1+10h}$ ligger alltid mellom 0 og 1 for $h>0$, uansett hvor stor $h$ er.\n\n**Hvilken $h$ trenger eksplisitt Euler?** Faktoren $\\left|1-10h\\right|$ må være mindre enn 1:\n\n$$\\left|1-10h\\right|<1\\ \\Longleftrightarrow\\ -1<1-10h<1\\ \\Longleftrightarrow\\ 0<h<0{,}2.$$\n\n**Kravet er altså $h<0{,}2$**, og det er ikke et nøyaktighetskrav — det er et **stabilitetskrav**. Selv om du bare trenger to desimalers nøyaktighet, kan du ikke bruke $h=0{,}25$; metoden bryter sammen.\n\n**Dette er stivhet i miniatyr**, og du møter hele apparatet — stabilitetsfunksjonen $R(z)$ og stabilitetsintervallet — i [kap. 7.4](/tma4135/tma4135-7-4). Der vil du se at kravet over er nøyaktig $\\left|R(z)\\right|\\le 1$ med $R(z)=1+z$ og $z=\\lambda h=-10h$.",
+        "hints": [
+          "Sett inn $f(t,y)=-10y$ og faktoriser ut $y_0$.",
+          "For bakover-Euler: samle $y_1$ på venstre side.",
+          "For c): finn for hvilke $h$ tallverdien av faktoren foran $y_0$ er mindre enn 1."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-1-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger M — krevende, teori.) Vis at Heuns metode har orden 2 for en likning der $f$ bare avhenger av $t$, altså $y'=f(t)$.\n\n**a)** Hva blir Heun-skrittet i dette tilfellet?\n**b)** Hvilken kvadraturformel svarer det til?\n**c)** Bruk feilleddet derfra til å bestemme den lokale avkuttingsfeilen.",
+        "solution": "**a)** Med $f$ uavhengig av $y$ er\n\n$$k_1=f\\left(t_n\\right),\\qquad k_2=f\\left(t_n+h\\right),$$\n\nsiden $y$-argumentet ikke spiller noen rolle. Heun-skrittet blir\n\n$$y_{n+1}=y_n+\\frac{h}{2}\\left(f\\left(t_n\\right)+f\\left(t_{n+1}\\right)\\right).$$\n\n**b)** Den eksakte løsningen tilfredsstiller\n\n$$y\\left(t_{n+1}\\right)-y\\left(t_n\\right)=\\int_{t_n}^{t_{n+1}}f(t)\\,dt.$$\n\nHeun tilnærmer altså dette integralet med\n\n$$\\frac{h}{2}\\left(f\\left(t_n\\right)+f\\left(t_{n+1}\\right)\\right),$$\n\nsom er **trapesregelen** på ett delintervall — se [kap. 6.2](/tma4135/tma4135-6-2).\n\n**c)** Feilleddet for trapesregelen på ett intervall av lengde $h$ er\n\n$$\\left|\\varepsilon\\right|\\le\\frac{h}{12}h^{2}\\max\\left|f''\\right|=\\frac{h^{3}}{12}\\max\\left|f''\\right|=O\\left(h^{3}\\right).$$\n\n*(Her er $b-a=h$, siden vi ser på ett enkelt delintervall.)*\n\nDen **lokale avkuttingsfeilen** er altså $O\\left(h^{3}\\right)$, og siden orden $p$ svarer til lokal feil $O\\left(h^{p+1}\\right)$, har Heun\n\n$$\\boxed{\\text{orden } p=2.}$$\n\n**Kontroll mot Euler.** Med samme resonnement svarer Euler til **venstre rektangelregel**, $h\\,f\\left(t_n\\right)$, som har feil $O\\left(h^{2}\\right)$ per intervall — altså orden 1. ✔\n\n**Og RK4?** Vektene $\\frac16,\\frac13,\\frac13,\\frac16$ over punktene $t_n$, $t_n+\\frac h2$ (to ganger) og $t_n+h$ er nøyaktig **Simpsons regel**, som har feil $O\\left(h^{5}\\right)$ per intervall — altså orden 4. ✔\n\n**Merk begrensningen i argumentet.** Det gjelder bare når $f$ er uavhengig av $y$. For generell $f(t,y)$ må ordenen vises med Taylor-utvikling i to variable, og det er nettopp det ordensbetingelsene i [kap. 7.2](/tma4135/tma4135-7-2) organiserer. **Men koblingen til kvadratur er ekte, og den er det beste bildet på hvorfor metodene har akkurat de ordenene de har.**",
+        "hints": [
+          "Hva skjer med $k_2$ når $f$ ikke avhenger av $y$?",
+          "Skriv den eksakte endringen i $y$ som et integral over ett skritt.",
+          "Bruk feilleddet for trapesregelen med $b-a=h$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**1. Å bruke $y_n$ i stedet for det oppdaterte argumentet i $k_2$ eller $k_3$.** Dette er den dokumenterte hovedfeilen i sjangeren. I Heun er argumentet $y_n+hk_1$; i RK4 bruker $k_3$ verdien av $k_2$, ikke $k_1$. Bruker du $y_n$ overalt, degenererer metoden til Euler.\n\n**2. Feil vekter i RK4.** Det er $\\frac16\\left(k_1+2k_2+2k_3+k_4\\right)$ — de to midtstigningstallene teller dobbelt. **Kontroll:** vektene skal summere til 1.\n\n**3. Å behandle bakover-Euler som eksplisitt.** Formelen har $y_{n+1}$ på begge sider. Du **må** løse en likning; du kan ikke sette inn $y_n$ på høyresiden.\n\n**4. Feil $t$-argument.** I RK4 er $k_2$ og $k_3$ regnet i $t_n+\\frac h2$, ikke i $t_n+h$. Å bruke feil $t$ gir riktig struktur og feil svar.\n\n**5. Å forveksle lokal og global orden.** Lokal avkuttingsfeil $O\\left(h^{p+1}\\right)$ svarer til global orden $p$. Euler har lokal feil $O\\left(h^{2}\\right)$ og global orden 1.\n\n**6. Å runde av for tidlig.** Stigningstallene bygger på hverandre, så avrunding i $k_1$ forplanter seg til alle fire. Regn med minst sju siffer underveis.\n\n**7. Å bruke en eksplisitt metode på et stivt problem uten å kommentere det.** Får du negative eller voksende verdier der løsningen skal dø ut, er det ikke en regnefeil — det er ustabilitet, og det skal du si.\n\n**8. Å blande $h$ i Del 7 med $h$ i Del 8.** Her er $h$ steglengden i **tid**. I Del 8 er $h$ romsteget, og tidssteget skrives $\\Delta t$."
+    },
+    {
+      "id": "tma4135-7-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-7-1-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på det du trenger for å regne et skritt raskt: innsetting, andregradslikninger og kontroll av en oppgitt løsning."
+        },
+        {
+          "id": "tma4135-7-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-1-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "La $f(t,y)=t-2y$. Regn ut $f(0{,}1;\\ 0{,}85)$ og $f(0{,}2;\\ 0{,}68)$.",
+            "solution": "$$f(0{,}1;\\ 0{,}85)=0{,}1-2\\cdot 0{,}85=0{,}1-1{,}7=-1{,}6,$$\n$$f(0{,}2;\\ 0{,}68)=0{,}2-2\\cdot 0{,}68=0{,}2-1{,}36=-1{,}16.$$\n\nDette er nøyaktig $k_3$ og $k_4$ i RK4-utregningen i eksempel 2. **Innsettingen er hele regnearbeidet i sjangeren** — det er derfor det lønner seg å gjøre den mekanisk og ryddig.",
+            "hints": [
+              "Sett inn $t$-verdien og $y$-verdien i uttrykket.",
+              "Regn $2y$ først, og trekk fra."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-1-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs $1{,}4\\,y=1{,}04$ og $y^{2}+2y-2=0$ (positiv rot).",
+            "solution": "**Den lineære:**\n\n$$y=\\frac{1{,}04}{1{,}4}=\\frac{104}{140}=\\frac{26}{35}\\approx 0{,}7428571.$$\n\n**Andregradslikningen:**\n\n$$y=\\frac{-2\\pm\\sqrt{4+8}}{2}=\\frac{-2\\pm 2\\sqrt3}{2}=-1\\pm\\sqrt3.$$\n\nPositiv rot: $y=\\sqrt3-1\\approx 0{,}7320508$.\n\nBegge dukker opp som bakover-Euler-skritt i eksempel 3 — det lineære tilfellet gir en brøk, det ikke-lineære en andregradslikning.",
+            "hints": [
+              "Del begge sider på koeffisienten i den første.",
+              "Bruk abc-formelen på den andre og velg riktig fortegn."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-1-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Kontroller at $y(t)=2t-2+3e^{-t}$ løser $y'=2t-y$ med $y(0)=1$.",
+            "solution": "**Deriver:**\n\n$$y'(t)=2-3e^{-t}.$$\n\n**Sett inn i høyresiden:**\n\n$$2t-y(t)=2t-\\left(2t-2+3e^{-t}\\right)=2t-2t+2-3e^{-t}=2-3e^{-t}.$$\n\nDe to uttrykkene er like, så likningen er oppfylt ✔.\n\n**Initialbetingelsen:**\n\n$$y(0)=0-2+3e^{0}=-2+3=1\\ ✔$$\n\n**Denne kontrollen tar femten sekunder** og er verdt å gjøre hver gang en oppgave oppgir en eksakt løsning. Er den oppgitte løsningen feilskrevet, oppdager du det før du bygger hele sammenlikningen på den.",
+            "hints": [
+              "Deriver den oppgitte løsningen.",
+              "Sett den inn i høyresiden av differensiallikningen og se om de to blir like."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-1-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv om $y''+3y'+2y=0$, $y(0)=1$, $y'(0)=0$, til et system av to førsteordens likninger.",
+            "solution": "Sett\n\n$$u=y,\\qquad v=y'.$$\n\nDa er\n\n$$u'=y'=v,$$\n$$v'=y''=-3y'-2y=-3v-2u.$$\n\n**Systemet:**\n\n$$u'=v,\\qquad v'=-2u-3v,$$\n\nmed initialbetingelsene $u(0)=1$, $v(0)=0$.\n\nPå vektorform: $\\mathbf y'=A\\mathbf y$ med\n\n$$A=\\begin{pmatrix}0&1\\\\ -2&-3\\end{pmatrix},\\qquad \\mathbf y_0=\\begin{pmatrix}1\\\\ 0\\end{pmatrix}.$$\n\n**Dette er standardgrepet**, og det er hvordan alle høyereordens likninger løses numerisk. Matrisen $A$ dukker opp igjen i [kap. 7.4](/tma4135/tma4135-7-4), der egenverdiene bestemmer hvilken steglengde som er stabil.",
+            "hints": [
+              "Innfør ett nytt navn per derivert, opp til én mindre enn ordenen.",
+              "Løs den opprinnelige likningen for den høyeste deriverte."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-7-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-7-1-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $f(t,y)$ | Høyresiden i $y'=f(t,y)$; stigningstallet i punktet $(t,y)$ |\n| $t_n=t_0+nh$ | Gitterpunkt nummer $n$ |\n| $h$ | Steglengden **i tid**. NB: i Del 8 er $h$ romsteget |\n| $y_n$ | Den beregnede tilnærmingen til $y\\left(t_n\\right)$ |\n| $y\\left(t_n\\right)$ | Den eksakte løsningen i $t_n$ |\n| $k_i$ | Stigningstall nummer $i$ i en Runge–Kutta-metode |\n| $\\Phi$ | Inkrementfunksjonen i $y_{n+1}=y_n+h\\Phi$ |\n| $\\tau_{n+1}$ | Lokal avkuttingsfeil (ett skritt fra eksakt start) |\n| $e_N$ | Global feil etter $N$ skritt |\n| $p$ | Metodens orden |\n| $\\mathbf y$, $\\mathbf f$ | Vektorene i et system av differensiallikninger |\n| $\\eta$ | Mellompunktet fra Taylor-utviklingen |\n"
+        },
+        {
+          "id": "tma4135-7-1-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$y_{n+1}=y_n+h\\,f\\left(t_n,y_n\\right)$$\nEksplisitt Euler, orden 1, én evaluering. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$k_1=f\\left(t_n,y_n\\right),\\quad k_2=f\\left(t_n+h,\\ y_n+hk_1\\right),\\quad y_{n+1}=y_n+\\frac{h}{2}\\left(k_1+k_2\\right)$$\nForbedret Euler (Heun), orden 2, to evalueringer. *(Står på det utdelte formelarket — tren oppslaget på argumentet i $k_2$.)*\n\n$$k_1=f\\left(t_n,y_n\\right),\\quad k_2=f\\left(t_n+\\tfrac h2,\\ y_n+\\tfrac h2k_1\\right),$$\n$$k_3=f\\left(t_n+\\tfrac h2,\\ y_n+\\tfrac h2k_2\\right),\\quad k_4=f\\left(t_n+h,\\ y_n+hk_3\\right),$$\n$$y_{n+1}=y_n+\\frac{h}{6}\\left(k_1+2k_2+2k_3+k_4\\right)$$\nKlassisk RK4, orden 4, fire evalueringer. *(Står på det utdelte formelarket — tren oppslaget på kjedingen av argumentene.)*\n\n$$y_{n+1}=y_n+h\\,f\\left(t_{n+1},y_{n+1}\\right)$$\nBakover-Euler, implisitt, orden 1. *(Står på det utdelte formelarket — tren oppslaget; at den krever likningsløsning, må kunnes.)*\n\n$$y_{n+1}=\\frac{y_n+h\\,b\\left(t_{n+1}\\right)}{1-h\\,a\\left(t_{n+1}\\right)}\\qquad\\text{når } f=a(t)y+b(t)$$\nLøsningen av det implisitte skrittet i det lineære tilfellet. *(Må kunnes eller utledes aktivt.)*\n\n$$\\tau_{n+1}=O\\left(h^{p+1}\\right)\\ \\Longleftrightarrow\\ e_N=O\\left(h^{p}\\right)$$\nLokal avkuttingsfeil mot global orden. *(Må kunnes.)*\n\n$$y\\left(t_n+h\\right)=y\\left(t_n\\right)+hy'\\left(t_n\\right)+\\frac{h^{2}}{2}y''(\\eta)$$\nTaylor-utviklingen som gir Eulers orden. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathbf y'=\\mathbf f\\left(t,\\mathbf y\\right)$$\nVektorformen; alle metodene gjelder ordrett komponentvis. *(Må kunnes.)*\n\n$$u=y,\\ v=y'\\ \\Longrightarrow\\ u'=v,\\ v'=g(t,u,v)$$\nOmskriving av en andreordens likning til et system. *(Må kunnes.)*\n\n**Kolliderende symboler i dette kapitlet.** Bokstaven $h$ er **steglengden i tid** i hele Del 7. I Del 8 er $h$ **romsteget**, og tidssteget skrives $\\Delta t$ — det utdelte formelarket kaller derimot tidssteget $k$, og skriver $r=k/h^{2}$. Marker den forskjellen på ditt eget A5-ark, for begge notasjonene dukker opp i samme oppgavesett. Bokstaven $k_i$ er stigningstall her; i Del 5 er $k$ separasjonskonstanten, og i [kap. 6.3](/tma4135/tma4135-6-3) og [kap. 6.4](/tma4135/tma4135-6-4) er $k$ iterasjonstelleren. Bokstaven $y$ er den ukjente funksjonen her, men den transformerte $Y(s)$ i Del 2 er noe annet — merk stor og liten bokstav. Og $f$ er høyresiden i differensiallikningen her, mens $f$ i Del 3 og 4 er funksjonen som skal utvikles i rekke eller transformeres."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

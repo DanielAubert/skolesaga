@@ -1,0 +1,367 @@
+{
+  "id": "tma4135-8-prove",
+  "courseId": "tma4135",
+  "chapterNumber": "8.P",
+  "title": "Prøver til del 8: Differansemetoder for PDE og randverdiproblemer",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: avkuttingsfeil via Taylor og optimal steglengde, det eksplisitte varmeskjemaet med stabilitetskravet, Crank–Nicolson og det tridiagonale systemet, og randverdiproblem med falsk rand og kodefeil-lokalisering. Fire prøver à 35–45 min — kan tas som separate økter.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "utlede avkuttingsfeilen til en differansekvotient under tidspress og balansere den mot avrundingsfeilen",
+    "føre en full oppgave med det eksplisitte varmeskjemaet: stabilitetstall, gitterpunkter for hånd og sammenligning med den analytiske løsningen",
+    "sette opp og løse Crank–Nicolson-systemet med riktige randbidrag, og begrunne den ubetingede stabiliteten",
+    "diskretisere et randverdiproblem med falsk node ved en Neumann-rand, og lokalisere den ene feilen i et kort differanseprogram"
+  ],
+  "content": [
+    {
+      "id": "tma4135-8-prove-om-provene",
+      "type": "tip",
+      "title": "Om prøvene til del 8",
+      "content": "**Fire prøver à 35–45 minutter, til sammen 155 minutter.**\n\n- **Prøve 8.A (35 min, 35 poeng):** differansekvotienter, avkuttingsfeil via Taylor og avveiningen mellom avrunding og avkutting.\n- **Prøve 8.B (40 min, 40 poeng):** det eksplisitte varmeskjemaet — gitterpunkter for hånd og stabilitetskravet $r \\le \\tfrac12$.\n- **Prøve 8.C (35 min, 35 poeng):** Crank–Nicolson og det tridiagonale systemet.\n- **Prøve 8.D (45 min, 45 poeng):** randverdiproblem med $A\\mathbf U = \\mathbf b$, falsk rand og kodefeil-lokalisering.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** De bygger ikke på hverandre, og hver er kort nok til å passe på slutten av en leseøkt.\n\n**Om tempoet.** Ett poeng per minutt er raskere enn eksamenstakten, som ligger rundt 24 minutter per oppgave på 10 poeng. Det er med vilje: her er hver oppgave rendyrket på én ferdighet, uten lesetida en full eksamensoppgave krever. Minuttene per deloppgave står i oppgaveteksten og summerer seg til den deklarerte tida.\n\n**Hver prøve avsluttes med fire raske spørsmål med svaralternativer.** De ligger nederst, teller ikke poeng, og er en **treningsform** — settene i dette emnet har aldri hatt en avkryssingsdel.\n\n**Slik bruker du prøvene:** ta dem på tid, uten fasit og uten kapitlene oppslått. Kalkulator er tillatt, og du skal late som du har det utdelte formelarket foran deg — når du trenger en differansekvotient eller Crank–Nicolson-formelen, noter «fra formelarket» og bruk den. Skriv fullstendige svar med utregning; det er en del av kravet om at alle svar skal begrunnes. Åpne løsningsforslaget først etterpå, og kryss av i selvdiagnosen.\n\n**Formelark-merking.** **Differansekvotientene og Crank–Nicolson-formelen står på det utdelte formelarket — tren oppslaget.** **Taylor-utledningen av avkuttingsfeil, stabilitetskravet $r \\le \\tfrac12$, oppsettet av likningssystemet og elimineringen av den falske noden må kunnes** — ingenting av det står på arket.\n\n**Notasjon.** Romsteget heter $h$ og tidssteget $\\Delta t$, med $r = c^2\\Delta t/h^2$. Det utdelte formelarket kaller tidssteget $k$; boka bruker $\\Delta t$ fordi $k$ er separasjonskonstanten i Del 5."
+    },
+    {
+      "id": "tma4135-8-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 8.1](/tma4135/tma4135-8-1) (differansekvotienter, avkuttingsfeil, orden, balansering), [kap. 8.2](/tma4135/tma4135-8-2) (det eksplisitte skjemaet, stabilitetstallet $r$, stabilitetskravet), [kap. 8.3](/tma4135/tma4135-8-3) (Crank–Nicolson og det tridiagonale systemet) og [kap. 8.4](/tma4135/tma4135-8-4) (randverdiproblem, falsk node, kodefeil-lokalisering).\n\nFra Del 5 trengs den analytiske løsningen av varmelikningen, se [kap. 5.1](/tma4135/tma4135-5-1) og [kap. 5.2](/tma4135/tma4135-5-2) — flere av fasitene kontrollerer det numeriske svaret mot den. Fra tidligere matematikkemner trengs Taylors formel, derivasjon, hyperbelfunksjonene og løsning av små lineære systemer."
+    },
+    {
+      "id": "tma4135-8-prove-intro",
+      "type": "text",
+      "content": "Under ligger de fire prøvene, hver i sin egen boks du kan åpne når du er klar. Løsningsforslagene er ført som toppbesvarelser: hvert mellomsteg er med, metodenavnet er skrevet ut, tabelloppslagene er markert, og kontrollregningen står der. Det er den føringen som gir full uttelling — ikke et riktig sluttsvar alene."
+    },
+    {
+      "id": "tma4135-8-prove-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 8.A — Differansekvotienter, avkuttingsfeil og optimal steglengde (35 min)",
+      "buttonText": "Vis prøve 8.A",
+      "content": [
+        {
+          "id": "tma4135-8-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 8.A — Differansekvotienter og avkuttingsfeil.** 35 minutter, 35 poeng. Kalkulator tillatt. Differansekvotientene kan brukes som om du hadde formelarket foran deg.\n\nTidsbudsjett: oppgave 1 ~12 min (12 poeng), oppgave 2 ~11 min (11 poeng), oppgave 3 ~12 min (12 poeng)."
+        },
+        {
+          "id": "tma4135-8-prove-A-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-A-ex1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~12 min) La $f(x) = \\dfrac{1}{x}$ og betrakt punktet $x_0 = 2$.\n\n**a)** Skriv opp den forlengs, den baklengs og den sentrale differansekvotienten for $f'(x_0)$. (3 poeng)\n**b)** Vis ved Taylor-utvikling at den sentrale kvotienten har avkuttingsfeil $\\dfrac{h^2}{6}f'''(x_0) + O(h^4)$. (5 poeng)\n**c)** Regn ut den sentrale kvotienten for $h = 0{,}2$ og $h = 0{,}1$, og bekreft ordenen og feilkonstanten. (4 poeng)",
+            "solution": "**a) De tre kvotientene. (3 poeng)**\n\n**Fra formelarket:**\n\n$$\\text{forlengs: } \\frac{f(x_0+h)-f(x_0)}{h}, \\qquad \\text{baklengs: } \\frac{f(x_0)-f(x_0-h)}{h}, \\qquad \\text{sentral: } \\frac{f(x_0+h)-f(x_0-h)}{2h}.$$\n\nMerk nevneren $2h$ i den sentrale — det er to steg fra $x_0-h$ til $x_0+h$.\n\n**b) Taylor-utledningen. (5 poeng)**\n\nSkriv de to rekkene begge veier:\n\n$$f(x_0+h) = f + hf' + \\frac{h^2}{2}f'' + \\frac{h^3}{6}f''' + \\frac{h^4}{24}f^{(4)} + \\cdots$$\n$$f(x_0-h) = f - hf' + \\frac{h^2}{2}f'' - \\frac{h^3}{6}f''' + \\frac{h^4}{24}f^{(4)} - \\cdots$$\n\nTrekk fra hverandre. Alle **like** ledd står med samme fortegn i begge og kansellerer:\n\n$$f(x_0+h) - f(x_0-h) = 2hf' + \\frac{2h^3}{6}f''' + O(h^5).$$\n\nDel på $2h$:\n\n$$\\frac{f(x_0+h)-f(x_0-h)}{2h} = f'(x_0) + \\frac{h^2}{6}f'''(x_0) + O(h^4). \\qquad \\blacksquare$$\n\nAvkuttingsfeilen er altså $\\dfrac{h^2}{6}f'''(x_0) + O(h^4)$, som er $O(h^2)$.\n\n*Merk hvorfor bare like potenser overlever:* formelen er symmetrisk i $h$, så feilen må være en jevn funksjon av $h$.\n\n**c) Kontrollen. (4 poeng)**\n\nDe deriverte: $f = x^{-1}$, $f' = -x^{-2}$, $f'' = 2x^{-3}$, $f''' = -6x^{-4}$. I $x_0 = 2$:\n\n$$f'(2) = -0{,}25, \\qquad f'''(2) = -\\frac{6}{16} = -0{,}375.$$\n\n$h = 0{,}2$: $f(2{,}2) = 0{,}4545455$, $f(1{,}8) = 0{,}5555556$:\n\n$$\\frac{0{,}4545455 - 0{,}5555556}{0{,}4} = \\frac{-0{,}1010101}{0{,}4} = -0{,}2525253.$$\n\n$h = 0{,}1$: $f(2{,}1) = 0{,}4761905$, $f(1{,}9) = 0{,}5263158$:\n\n$$\\frac{0{,}4761905 - 0{,}5263158}{0{,}2} = \\frac{-0{,}0501253}{0{,}2} = -0{,}2506266.$$\n\n**Feilene:**\n\n$$h = 0{,}2: \\ -2{,}52525\\cdot 10^{-3}, \\qquad h = 0{,}1: \\ -6{,}26566\\cdot 10^{-4}.$$\n\n**Orden:** $\\dfrac{2{,}52525\\cdot 10^{-3}}{6{,}26566\\cdot 10^{-4}} = 4{,}03$. Nær 4, altså **orden 2**. ✓\n\n**Feilkonstant:** teorien gir $\\dfrac{f'''(2)}{6} = \\dfrac{-0{,}375}{6} = -0{,}0625$. Målt: $-2{,}52525\\cdot 10^{-3}/0{,}04 = -0{,}0631$ og $-6{,}26566\\cdot 10^{-4}/0{,}01 = -0{,}0627$. Nærmer seg $-0{,}0625$. ✓\n\n**Merk fortegnet:** feilen er negativ fordi $f'''(2) < 0$. Å kommentere fortegnet er en billig setning som viser at du forstår hva feilleddet sier.",
+            "hints": [
+              "Taylor begge veier, og se hvilke ledd som forsvinner når du trekker fra.",
+              "$f''' (x)= -6/x^4$.",
+              "Del feilen ved $h$ på feilen ved $h/2$ — tallet du får, er $2^p$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-A-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-A-ex2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(11 poeng, ~11 min) Samme funksjon $f(x) = 1/x$ i $x_0 = 2$.\n\n**a)** Vis ved Taylor at $\\dfrac{f(x_0+h)-2f(x_0)+f(x_0-h)}{h^2} = f''(x_0) + \\dfrac{h^2}{12}f^{(4)}(x_0) + O(h^4)$. (6 poeng)\n**b)** Regn ut kvotienten for $h = 0{,}2$ og $h = 0{,}1$, og kontroller både orden og feilkonstant. (5 poeng)",
+            "solution": "**a) Utledningen. (6 poeng)**\n\nNå **adderer** vi de to rekkene, slik at de odde leddene forsvinner:\n\n$$f(x_0+h) + f(x_0-h) = 2f + h^2f'' + 2\\cdot\\frac{h^4}{24}f^{(4)} + O(h^6) = 2f + h^2f'' + \\frac{h^4}{12}f^{(4)} + O(h^6).$$\n\nTrekk fra $2f(x_0)$:\n\n$$f(x_0+h) - 2f(x_0) + f(x_0-h) = h^2f'' + \\frac{h^4}{12}f^{(4)} + O(h^6).$$\n\nDel på $h^2$:\n\n$$\\frac{f(x_0+h)-2f(x_0)+f(x_0-h)}{h^2} = f''(x_0) + \\frac{h^2}{12}f^{(4)}(x_0) + O(h^4). \\qquad \\blacksquare$$\n\n*Merk faktoren:* $2\\cdot\\frac{1}{24} = \\frac{1}{12}$. Å skrive $\\frac{1}{24}$ er den vanligste regnefeilen i denne utledningen.\n\n**b) Kontrollen. (5 poeng)**\n\n$f'' = 2x^{-3}$ og $f^{(4)} = 24x^{-5}$, så\n\n$$f''(2) = \\frac{2}{8} = 0{,}25, \\qquad f^{(4)}(2) = \\frac{24}{32} = 0{,}75.$$\n\n$h = 0{,}2$: $\\dfrac{0{,}4545455 - 2(0{,}5) + 0{,}5555556}{0{,}04} = \\dfrac{0{,}0101010}{0{,}04} = 0{,}2525253$.\n\n$h = 0{,}1$: $\\dfrac{0{,}4761905 - 1 + 0{,}5263158}{0{,}01} = \\dfrac{0{,}0025063}{0{,}01} = 0{,}2506266$.\n\n**Feilene:** $2{,}52525\\cdot 10^{-3}$ og $6{,}26566\\cdot 10^{-4}$, med forhold $4{,}03$ — **orden 2**. ✓\n\n**Feilkonstant:** teorien gir $\\dfrac{f^{(4)}(2)}{12} = \\dfrac{0{,}75}{12} = 0{,}0625$. Målt: $2{,}52525\\cdot 10^{-3}/0{,}04 = 0{,}0631$ og $6{,}26566\\cdot 10^{-4}/0{,}01 = 0{,}0627$. ✓\n\n**En observasjon verdt et poeng:** for $f = 1/x$ i $x = 2$ er de to feilene tallmessig like store, bare med motsatt fortegn. Det er tilfeldig — det skyldes at $f'''/6$ og $f^{(4)}/12$ tilfeldigvis har samme tallverdi her. Ikke generaliser fra det.",
+            "hints": [
+              "Legg de to rekkene sammen i stedet for å trekke fra.",
+              "Fjerdederiverte-leddet står i begge rekker med samme fortegn, så det dobles.",
+              "$f^{(4)}(x) = 24/x^5$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-A-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-A-ex3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(12 poeng, ~12 min) Kvotienten i oppgave 2 brukes på en datamaskin med maskinepsilon $\\varepsilon$. Hver funksjonsverdi har absoluttfeil inntil $\\varepsilon$, og de tre leddene i telleren gir til sammen et avrundingsbidrag på inntil $4\\varepsilon/h^2$.\n\n**a)** Sett opp et anslag for totalfeilen som funksjon av $h$. (3 poeng)\n**b)** Finn den $h$ som gjør totalfeilen minst, uttrykt ved $\\varepsilon$ og $M_4 = \\max|f^{(4)}|$. (5 poeng)\n**c)** Regn ut tallet for $f = 1/x$ på intervallet $[1,3]$ med $\\varepsilon = 2{,}2\\cdot 10^{-16}$, og forklar hvorfor svaret er så mye større enn maskinepsilon. (4 poeng)",
+            "solution": "**a) Totalfeilen. (3 poeng)**\n\n*Avkuttingsdelen* fra oppgave 2: $\\left|\\dfrac{h^2}{12}f^{(4)}\\right| \\le \\dfrac{M_4}{12}h^2$.\n\n*Avrundingsdelen:* $\\dfrac{4\\varepsilon}{h^2}$, som oppgitt.\n\n$$E(h) \\le \\frac{4\\varepsilon}{h^2} + \\frac{M_4}{12}h^2.$$\n\nLegg merke til at det ene leddet **stiger** og det andre **synker** når $h$ krymper. Det er hele poenget: det finnes en beste $h$.\n\n**b) Minimum. (5 poeng)**\n\nDeriver med hensyn på $h$ og sett lik null:\n\n$$E'(h) = -\\frac{8\\varepsilon}{h^3} + \\frac{M_4}{6}h = 0 \\quad\\Longrightarrow\\quad \\frac{M_4}{6}h = \\frac{8\\varepsilon}{h^3} \\quad\\Longrightarrow\\quad h^4 = \\frac{48\\varepsilon}{M_4},$$\n\n$$\\boxed{h_{\\text{opt}} = \\left(\\frac{48\\varepsilon}{M_4}\\right)^{1/4} = O\\!\\left(\\varepsilon^{1/4}\\right).}$$\n\nAt det er et minimum: $E''(h) = \\dfrac{24\\varepsilon}{h^4} + \\dfrac{M_4}{6} > 0$ for alle $h > 0$.\n\n*Kontroll mot huskeregelen:* eksponenten er $\\dfrac{1}{p+q}$ med metodens orden $p = 2$ og nevnerpotensen $q = 2$, altså $\\dfrac14$. ✓\n\n**c) Tallet. (4 poeng)**\n\n$f^{(4)}(x) = 24/x^5$ er avtakende på $[1,3]$, så maksimum ligger i venstre endepunkt:\n\n$$M_4 = \\frac{24}{1^5} = 24.$$\n\n$$h_{\\text{opt}} = \\left(\\frac{48 \\cdot 2{,}2\\cdot 10^{-16}}{24}\\right)^{1/4} = \\left(4{,}4\\cdot 10^{-16}\\right)^{1/4} = 1{,}45\\cdot 10^{-4}.$$\n\n**Hvorfor så stort?** Fordi det ikke finnes noen gevinst i å gå lenger ned. Den minste oppnåelige feilen er\n\n$$E_{\\min} = O\\!\\left(\\varepsilon^{p/(p+q)}\\right) = O\\!\\left(\\varepsilon^{1/2}\\right) \\approx 1{,}5\\cdot 10^{-8}.$$\n\nSetter du $h = 10^{-8}$ i håp om et bedre svar, blir avrundingsleddet $4\\varepsilon/h^2 = 4\\cdot 2{,}2\\cdot 10^{-16}/10^{-16} = 8{,}8$ — altså en feil på nesten 9, mot en eksakt verdi på $0{,}25$. Svaret blir fullstendig ødelagt.\n\n**Setningen som er verdt å skrive:** en dobbeltderivert regnet med differanser kan aldri bli mer nøyaktig enn omtrent $\\sqrt{\\varepsilon}$, altså rundt åtte gjeldende siffer — halvparten av maskinens seksten. Kanselleringen i $h^2$-nevneren spiser resten.",
+            "hints": [
+              "Skriv opp begge feilkildene og legg dem sammen — det ene leddet har $h$ i nevneren.",
+              "Deriver med hensyn på $h$ og løs for $h^4$ — ikke sett leddene lik hverandre uten å fullføre.",
+              "For $M_4$: hvor på $[1,3]$ er $24/x^5$ størst?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-A-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Treningsform — settene i dette emnet har ingen slik del.\n\n**1.** Feilen deles på 4 når $h$ halveres. Ordenen er: **a)** 4 · **b)** 1 · **c)** 2 · **d)** 8\n\n**2.** Nevneren i den sentrale kvotienten for $u'$ er: **a)** $2h$ · **b)** $h$ · **c)** $h^2$ · **d)** $4h$\n\n**3.** Avrundingsbidraget til en førstederivert differanse er omtrent: **a)** $\\varepsilon h$ · **b)** $\\varepsilon/h$ · **c)** $\\varepsilon$ · **d)** $\\varepsilon/h^2$\n\n**4.** Optimal $h$ ved orden 2 og nevnerpotens 1 er av størrelsesorden: **a)** $\\varepsilon^{1/2}$ · **b)** $\\varepsilon^{1/4}$ · **c)** $\\varepsilon$ · **d)** $\\varepsilon^{1/3}$"
+        },
+        {
+          "id": "tma4135-8-prove-A-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1c · 2a · 3b · 4d.**\n\n**1c:** forholdet er $2^p$, og $2^2 = 4$. Alternativ **a** er den vanligste feilen — å lese tallet 4 rett av som ordenen.\n**2a:** avstanden fra $x_{i-1}$ til $x_{i+1}$ er to steg. Alternativ **c** er nevneren i den *andre* sentraldifferansen og er nær-sann på den måten at begge står rett ved siden av hverandre på formelarket.\n**3b:** to funksjonsverdier med feil inntil $\\varepsilon$ hver, delt på $2h$. Alternativ **d** gjelder den dobbeltderiverte, der nevneren er $h^2$.\n**4d:** eksponenten er $1/(p+q) = 1/3$. Alternativ **b** er svaret for den dobbeltderiverte, der $q = 2$."
+        },
+        {
+          "id": "tma4135-8-prove-A-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 8.A\n\nKryss av det du faktisk gjorde.\n\n☐ Jeg skrev opp Taylor-rekka **begge veier** før jeg begynte å regne.\n\n☐ Jeg tok med ett ledd mer enn jeg trodde jeg trengte, og sjekket at det første leddet som overlevde, ikke var null.\n\n☐ Jeg skrev $2h$ i nevneren på den sentrale kvotienten og $h^2$ på den andre.\n\n☐ Jeg fikk faktoren $\\tfrac1{12}$ og ikke $\\tfrac1{24}$ i den andre sentraldifferansen.\n\n☐ Jeg brukte halveringstesten og skrev ned forholdet, ikke bare de to feilene.\n\n☐ Jeg kommenterte fortegnet på feilen og koblet det til fortegnet på den deriverte.\n\n☐ Jeg **deriverte** i balanseringsoppgaven i stedet for bare å sette de to leddene lik hverandre.\n\n☐ Jeg oppga svaret som en størrelsesorden i $\\varepsilon$, ikke bare som et tall.\n\n☐ Jeg fant $M_4$ som et maksimum over hele intervallet, ikke som verdien i ett punkt.\n\n**Færre enn seks kryss?** Les [kap. 8.1](/tma4135/tma4135-8-1) løkke 2 og 4 på nytt, og gjør oppgave 4, 7 og 8 der før du går videre til prøve 8.B."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-8-prove-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 8.B — Eksplisitt varmeskjema, gitterpunkt for hånd og stabilitet (40 min)",
+      "buttonText": "Vis prøve 8.B",
+      "content": [
+        {
+          "id": "tma4135-8-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 8.B — Det eksplisitte varmeskjemaet.** 40 minutter, 40 poeng. Kalkulator tillatt. Differansekvotientene kan brukes som om du hadde formelarket foran deg; stabilitetskravet må du kunne selv.\n\nTidsbudsjett: oppgave 1 ~16 min (16 poeng), oppgave 2 ~12 min (12 poeng), oppgave 3 ~12 min (12 poeng)."
+        },
+        {
+          "id": "tma4135-8-prove-B-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-B-ex1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(16 poeng, ~16 min) Betrakt\n\n$$u_t = u_{xx}, \\qquad 0 < x < 1, \\qquad u(0,t) = u(1,t) = 0, \\qquad u(x,0) = \\sin \\pi x.$$\n\nBruk det eksplisitte skjemaet med $h = 0{,}25$ og $\\Delta t = 0{,}025$.\n\n**a)** Utled skjemaet fra differansekvotientene, og regn ut $r$. (4 poeng)\n**b)** Avgjør om skjemaet er stabilt. (2 poeng)\n**c)** Regn ut hele raden $n = 1$ for hånd. (6 poeng)\n**d)** Sammenlign med den eksakte løsningen, og forklar avviket. (4 poeng)",
+            "solution": "**a) Utledningen og $r$. (4 poeng)**\n\n**Fra formelarket:** forlengs differanse i tid og den andre sentraldifferansen i rom:\n\n$$\\frac{U_i^{n+1}-U_i^n}{\\Delta t} = \\frac{U_{i+1}^n - 2U_i^n + U_{i-1}^n}{h^2}.$$\n\nGang opp med $\\Delta t$ og flytt over:\n\n$$U_i^{n+1} = U_i^n + r\\left(U_{i+1}^n - 2U_i^n + U_{i-1}^n\\right), \\qquad r = \\frac{c^2\\Delta t}{h^2}.$$\n\nMed $c^2 = 1$, $h^2 = 0{,}0625$:\n\n$$r = \\frac{0{,}025}{0{,}0625} = 0{,}4.$$\n\n**b) Stabiliteten. (2 poeng)**\n\nKravet er $r \\le \\tfrac12$. Her er $r = 0{,}4 \\le 0{,}5$, så skjemaet er **stabilt**. Dette **må kunnes** — stabilitetsbetingelsen står ikke på det utdelte formelarket.\n\n**c) Raden $n = 1$. (6 poeng)**\n\nGitterpunktene er $x_i = 0;\\ 0{,}25;\\ 0{,}5;\\ 0{,}75;\\ 1$, og startraden er\n\n$$U_0^0 = 0, \\quad U_1^0 = \\sin(0{,}25\\pi) = 0{,}707107, \\quad U_2^0 = \\sin(0{,}5\\pi) = 1,$$\n$$U_3^0 = \\sin(0{,}75\\pi) = 0{,}707107, \\quad U_4^0 = 0.$$\n\n$i = 1$:\n\n$$U_1^1 = 0{,}707107 + 0{,}4\\left(1 - 2(0{,}707107) + 0\\right) = 0{,}707107 + 0{,}4(-0{,}414214) = 0{,}707107 - 0{,}165685 = 0{,}541421.$$\n\n$i = 2$:\n\n$$U_2^1 = 1 + 0{,}4\\left(0{,}707107 - 2 + 0{,}707107\\right) = 1 + 0{,}4(-0{,}585786) = 1 - 0{,}234315 = 0{,}765685.$$\n\n$i = 3$: ved symmetri lik $U_1^1$, men vi fører den ut:\n\n$$U_3^1 = 0{,}707107 + 0{,}4\\left(0 - 1{,}414214 + 1\\right) = 0{,}707107 - 0{,}165685 = 0{,}541421.$$\n\nRandverdiene beholdes: $U_0^1 = U_4^1 = 0$.\n\n$$\\text{Rad 1} = \\left(0;\\ 0{,}541421;\\ 0{,}765685;\\ 0{,}541421;\\ 0\\right).$$\n\n**d) Sammenligning med fasiten. (4 poeng)**\n\nStartfunksjonen er selve egenfunksjonen med $n = 1$, så den analytiske løsningen fra [kap. 5.2](/tma4135/tma4135-5-2) er ett eneste ledd:\n\n$$u(x,t) = e^{-\\pi^2t}\\sin\\pi x.$$\n\nVed $t = \\Delta t = 0{,}025$ er $e^{-\\pi^2(0{,}025)} = e^{-0{,}246740} = 0{,}781344$, altså\n\n$$u(0{,}25;\\ 0{,}025) = 0{,}552493, \\qquad u(0{,}5;\\ 0{,}025) = 0{,}781344.$$\n\nAvvikene er $0{,}0111$ og $0{,}0157$, altså omtrent **2 %**.\n\n**Forklaringen på avviket.** Startdataene er én ren mode, så vi kan regne eksakt hva skjemaet gjør med den. Forsterkningsfaktoren er\n\n$$\\xi = 1 - 4r\\sin^2\\!\\left(\\frac{\\pi h}{2}\\right) = 1 - 1{,}6\\sin^2(0{,}125\\pi) = 1 - 1{,}6(0{,}146447) = 0{,}765685,$$\n\nmens den eksakte dempningen per tidssteg er $e^{-\\pi^2\\Delta t} = 0{,}781344$. **Skjemaet demper litt for mye**, så alle de numeriske verdiene ligger under fasiten — og avviket vokser for hvert steg.\n\n*Kontroll:* $\\xi \\cdot U_2^0 = 0{,}765685 \\cdot 1 = 0{,}765685$, som er nøyaktig $U_2^1$. ✓ At skjemaet gjenskaper moden eksakt med faktoren $\\xi$, er selve mekanismen bak stabilitetsanalysen.",
+            "hints": [
+              "Skriv opp $r$ på egen linje med tallene satt inn, før du regner noe annet.",
+              "Alle tre verdiene i parentesen hentes fra samme rad $n$.",
+              "I d): startdataene er nøyaktig én egenfunksjon, så den analytiske løsningen har bare ett ledd."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-B-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-B-ex2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~12 min)\n\n**a)** Finn det største tidssteget som gir et stabilt eksplisitt skjema for $u_t = 3u_{xx}$ på $[0,1]$ med $h = 0{,}2$. (4 poeng)\n**b)** Hvor mange tidssteg trengs da for å komme fram til $t = 0{,}5$? (3 poeng)\n**c)** Romgitteret forfines til $h = 0{,}05$. Hvor mange tidssteg trengs nå, og hvor mye har det totale regnearbeidet vokst? (5 poeng)",
+            "solution": "**a) Største lovlige tidssteg. (4 poeng)**\n\nStabilitetskravet er\n\n$$r = \\frac{c^2\\Delta t}{h^2} \\le \\frac12 \\quad\\Longleftrightarrow\\quad \\Delta t \\le \\frac{h^2}{2c^2}.$$\n\nMed $c^2 = 3$ og $h^2 = 0{,}04$:\n\n$$\\Delta t \\le \\frac{0{,}04}{6} = 6{,}667\\cdot 10^{-3}.$$\n\n**Merk at $c^2$ må med.** Uten den ville du fått $0{,}02$ — tre ganger for stort, og skjemaet ville sprengt.\n\n**b) Antall tidssteg. (3 poeng)**\n\n$$\\frac{0{,}5}{6{,}667\\cdot 10^{-3}} = 75.$$\n\nAltså **75 tidssteg**, og siden $75 \\cdot 6{,}667\\cdot 10^{-3} = 0{,}5$ nøyaktig, går det opp.\n\n**c) Etter forfining. (5 poeng)**\n\nMed $h = 0{,}05$ er $h^2 = 2{,}5\\cdot 10^{-3}$, så\n\n$$\\Delta t \\le \\frac{2{,}5\\cdot 10^{-3}}{6} = 4{,}167\\cdot 10^{-4}, \\qquad \\text{antall steg} = \\frac{0{,}5}{4{,}167\\cdot 10^{-4}} = 1200.$$\n\n**Sekstenganger så mange tidssteg** — som ventet, siden $h$ ble delt på 4 og grensen krymper som $h^2$: $4^2 = 16$.\n\n**Totalarbeidet.** Antall indre punkter gikk fra 4 til 19, altså nesten firedoblet. Arbeidet per tidssteg er proporsjonalt med antall punkter, så\n\n$$\\frac{1200 \\cdot 19}{75 \\cdot 4} = \\frac{22800}{300} = 76.$$\n\nRegnearbeidet er blitt omtrent **76 ganger større** for å firedoble oppløsningen i rommet. Det stemmer med at totalarbeidet vokser som $1/h^3$: $4^3 = 64$, og resten kommer av at antall indre punkter er $N-1$, ikke $N$.\n\n**Konklusjonen som er verdt et poeng:** dette er hovedargumentet for implisitte skjemaer. Med Crank–Nicolson kunne tidssteget vært valgt fritt, og forfiningen ville kostet fire ganger mer, ikke syttiseks.",
+            "hints": [
+              "Løs $r \\le \\tfrac12$ for $\\Delta t$ og husk $c^2$ i nevneren.",
+              "Antall steg er sluttiden delt på tidssteget.",
+              "I c): sammenlign både antall tidssteg og antall punkter per steg."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-B-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-B-ex3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(12 poeng, ~12 min)\n\n**a)** Vis at sagtannmønsteret $U_i^n = (-1)^iA_n$ forsterkes med faktoren $1-4r$ per tidssteg i det eksplisitte skjemaet, og utled stabilitetskravet av det. (7 poeng)\n**b)** Et gitter har $h = 0{,}1$ og kjøres med $r = 0{,}55$ på glatte startdata. Anslå hvor mange tidssteg det tar før en avrundingsfeil på $10^{-16}$ i den verste moden har vokst til størrelse 1. (5 poeng)\n\n*Den verste moden på et gitter med $N = 10$ delintervall har forsterkningsfaktor $\\xi = 1-4r\\sin^2(0{,}45\\pi)$, med $\\sin^2(0{,}45\\pi) = 0{,}97553$.*",
+            "solution": "**a) Sagtannmoden og stabilitetskravet. (7 poeng)**\n\nSkriv skjemaet på vektform:\n\n$$U_i^{n+1} = r\\,U_{i-1}^n + (1-2r)\\,U_i^n + r\\,U_{i+1}^n.$$\n\nSett inn $U_i^n = (-1)^iA_n$. Begge naboene har motsatt fortegn av midtpunktet, altså $(-1)^{i-1} = (-1)^{i+1} = -(-1)^i$:\n\n$$U_i^{n+1} = (-1)^iA_n\\left(-r + (1-2r) - r\\right) = (-1)^iA_n\\,(1-4r).$$\n\nFormen er bevart, og amplituden ganges med $1-4r$:\n\n$$A_{n+1} = (1-4r)A_n \\quad\\Longrightarrow\\quad A_n = (1-4r)^nA_0.$$\n\n**Kravet.** Dette holder seg begrenset for alle $n$ hvis og bare hvis $|1-4r| \\le 1$:\n\n$$-1 \\le 1-4r \\le 1 \\quad\\Longleftrightarrow\\quad 0 \\le 4r \\le 2 \\quad\\Longleftrightarrow\\quad 0 \\le r \\le \\tfrac12. \\qquad \\blacksquare$$\n\n*Merk at dette er den verste moden:* den fulle analysen gir $\\xi = 1-4r\\sin^2(\\beta h/2)$, og $\\sin^2$ er størst — nemlig 1 — nettopp for sagtannen. Den ene moden vi regnet på, er altså den som avgjør.\n\n**b) Hvor lenge det ser bra ut. (5 poeng)**\n\nFørst: $r = 0{,}55 > \\tfrac12$, altså **ustabilt**.\n\nForsterkningsfaktoren for den verste moden på gitteret:\n\n$$\\xi = 1 - 4(0{,}55)(0{,}97553) = 1 - 2{,}20 \\cdot 0{,}97553 = 1 - 2{,}14617 = -1{,}14617,$$\n\naltså $|\\xi| = 1{,}14617$ — en vekst på nesten 15 % per tidssteg.\n\nKrev $10^{-16}\\,|\\xi|^n \\ge 1$:\n\n$$n \\ge \\frac{16\\ln 10}{\\ln 1{,}14617} = \\frac{36{,}8414}{0{,}136424} = 270{,}1.$$\n\nRundet oppover: omtrent **271 tidssteg**.\n\n**Poenget som skal med:** de første par hundre stegene ser løsningen helt riktig ut, fordi den glatte moden dør ut som den skal og feilen ennå er mikroskopisk. Stopper du kjøringen ved $n = 150$, ser du ingenting galt. **At en kjøring «så riktig ut», er derfor ikke et stabilitetsargument** — regn ut $r$.",
+            "hints": [
+              "Bruk vektformen og at $(-1)^{i\\pm1} = -(-1)^i$.",
+              "Sett $|1-4r| \\le 1$ og løs de to ulikhetene hver for seg.",
+              "I b): ta logaritmen på begge sider av $10^{-16}|\\xi|^n \\ge 1$, og rund oppover."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-B-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Treningsform — settene i dette emnet har ingen slik del.\n\n**1.** Stabilitetstallet er: **a)** $c^2h^2/\\Delta t$ · **b)** $c^2\\Delta t/h^2$ · **c)** $c\\,\\Delta t/h$ · **d)** $\\Delta t/(c^2h^2)$\n\n**2.** Halveres $h$, må $\\Delta t$: **a)** deles på 4 · **b)** halveres · **c)** stå uendret · **d)** dobles\n\n**3.** Ved $r = \\tfrac14$ blir sagtannmoden: **a)** doblet · **b)** uendret · **c)** helt borte på ett steg · **d)** tredoblet\n\n**4.** Avkuttingsfeilen til skjemaet er: **a)** $O(\\Delta t)+O(h)$ · **b)** $O(\\Delta t^2)+O(h^2)$ · **c)** $O(\\Delta t^2)+O(h)$ · **d)** $O(\\Delta t)+O(h^2)$"
+        },
+        {
+          "id": "tma4135-8-prove-B-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1b · 2a · 3c · 4d.**\n\n**1b:** tidssteget i telleren, romsteget i annen i nevneren, og $c^2$ med. Alternativ **a** er den vanligste feilen — teller og nevner byttet om.\n**2a:** $h$ står i annen, så en halvering firedobler $r$ om $\\Delta t$ står stille. Alternativ **b** er nær-sann i den forstand at det er riktig for en *førsteordens* størrelse, men ikke her.\n**3c:** faktoren er $1-4r = 0$. Det er den kraftigste dempningen skjemaet kan gi.\n**4d:** forlengs i tid gir orden 1, sentral i rom gir orden 2. Alternativ **b** er Crank–Nicolson, som nettopp fikser ubalansen."
+        },
+        {
+          "id": "tma4135-8-prove-B-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 8.B\n\nKryss av det du faktisk gjorde.\n\n☐ Jeg regnet ut $r$ og skrev konklusjonen om stabilitet **før** jeg regnet et eneste gitterpunkt.\n\n☐ Jeg hadde $c^2$ med i $r$, ikke bare $\\Delta t/h^2$.\n\n☐ Jeg hentet alle tre verdiene i parentesen fra samme rad.\n\n☐ Jeg skrev ut regningen også for det punktet som følger av symmetri.\n\n☐ Jeg kontrollerte at ingen verdi gikk utenfor spennet i start- og randdataene.\n\n☐ Jeg sammenlignet med den analytiske løsningen fra Del 5 der den var tilgjengelig.\n\n☐ Jeg brukte forsterkningsfaktoren $\\xi$ som kontroll på håndregningen.\n\n☐ I stabilitetsutledningen brukte jeg vektformen og fikk faktoren $1-4r$, ikke $1-2r$.\n\n☐ Jeg rundet **oppover** i tellingen av tidssteg.\n\n**Færre enn seks kryss?** Les [kap. 8.2](/tma4135/tma4135-8-2) løkke 2 og 3 på nytt, og gjør oppgave 3, 5 og 8 der før du går videre til prøve 8.C."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-8-prove-prove-C",
+      "type": "collapsible",
+      "title": "Prøve 8.C — Crank–Nicolson og det tridiagonale systemet (35 min)",
+      "buttonText": "Vis prøve 8.C",
+      "content": [
+        {
+          "id": "tma4135-8-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 8.C — Crank–Nicolson.** 35 minutter, 35 poeng. Kalkulator tillatt. Crank–Nicolson-formelen kan brukes som om du hadde formelarket foran deg; oppsettet av systemet og stabilitetsargumentet må du kunne selv.\n\nTidsbudsjett: oppgave 1 ~15 min (15 poeng), oppgave 2 ~11 min (11 poeng), oppgave 3 ~9 min (9 poeng)."
+        },
+        {
+          "id": "tma4135-8-prove-C-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-C-ex1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(15 poeng, ~15 min) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < 1, \\qquad u(0,t) = u(1,t) = 0, \\qquad u(x,0) = x(1-x)$$\n\nmed Crank–Nicolson, $h = \\tfrac13$ og $\\Delta t = \\tfrac1{18}$.\n\n**a)** Regn ut $r$ og sett opp $A\\mathbf U^1 = \\mathbf b$ med tall. (7 poeng)\n**b)** Løs systemet. (4 poeng)\n**c)** Regn ut hva det **eksplisitte** skjemaet ville gitt med samme steglengder, og sammenlign begge mot den eksakte verdien $u(\\tfrac13;\\ \\tfrac1{18}) = 0{,}129135$. (4 poeng)",
+            "solution": "**a) Systemet. (7 poeng)**\n\n$$h^2 = \\tfrac19, \\qquad r = \\frac{c^2\\Delta t}{h^2} = \\frac{1/18}{1/9} = \\frac12.$$\n\n**Fra formelarket:**\n\n$$(2+2r)U_i^{n+1} - r\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = (2-2r)U_i^{n} + r\\left(U_{i+1}^{n}+U_{i-1}^{n}\\right).$$\n\nMed $r = \\tfrac12$ er $2+2r = 3$ og $2-2r = 1$:\n\n$$3U_i^{n+1} - \\tfrac12\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = U_i^n + \\tfrac12\\left(U_{i+1}^n+U_{i-1}^n\\right).$$\n\nStartraden med $x_i = 0;\\ \\tfrac13;\\ \\tfrac23;\\ 1$:\n\n$$U_0^0 = 0, \\quad U_1^0 = \\tfrac13\\cdot\\tfrac23 = \\tfrac29, \\quad U_2^0 = \\tfrac23\\cdot\\tfrac13 = \\tfrac29, \\quad U_3^0 = 0.$$\n\nHøyresiden:\n\n$$b_1 = \\tfrac29 + \\tfrac12\\left(\\tfrac29 + 0\\right) = \\tfrac29 + \\tfrac19 = \\tfrac13, \\qquad b_2 = \\tfrac29 + \\tfrac12\\left(0 + \\tfrac29\\right) = \\tfrac13.$$\n\nRandbidragene på nytt tidsnivå er null, siden randen er kald.\n\n$$\\begin{pmatrix}3 & -\\tfrac12\\\\[2pt] -\\tfrac12 & 3\\end{pmatrix}\\begin{pmatrix}U_1^1\\\\ U_2^1\\end{pmatrix} = \\begin{pmatrix}\\tfrac13\\\\[2pt] \\tfrac13\\end{pmatrix}.$$\n\n**b) Løsningen. (4 poeng)**\n\nBåde systemet og høyresiden er symmetriske, så $U_1^1 = U_2^1$. Første likning blir\n\n$$3U_1 - \\tfrac12 U_1 = \\tfrac13 \\quad\\Longrightarrow\\quad \\tfrac52 U_1 = \\tfrac13 \\quad\\Longrightarrow\\quad U_1^1 = U_2^1 = \\frac{2}{15} = 0{,}133333.$$\n\n*Kontroll i den andre likningen:* $-\\tfrac12\\cdot\\tfrac2{15} + 3\\cdot\\tfrac2{15} = \\tfrac{-1+6}{15} = \\tfrac5{15} = \\tfrac13$. ✓\n\n**c) Sammenligning med det eksplisitte skjemaet. (4 poeng)**\n\nMed $r = \\tfrac12$ er det eksplisitte skjemaet akkurat på stabilitetsgrensen — lovlig, men uten margin:\n\n$$U_1^1 = \\tfrac29 + \\tfrac12\\left(\\tfrac29 - \\tfrac49 + 0\\right) = \\tfrac29 + \\tfrac12\\left(-\\tfrac29\\right) = \\tfrac29 - \\tfrac19 = \\frac19 = 0{,}111111.$$\n\n**Oppsummering:**\n\n| Metode | $U_1^1$ | avvik fra $0{,}129135$ |\n|---|---|---|\n| Crank–Nicolson | 0,133333 | $+0{,}004198$ |\n| Eksplisitt | 0,111111 | $-0{,}018024$ |\n\nCrank–Nicolson bommer med $3{,}3$ %, det eksplisitte skjemaet med $14$ % — **over fire ganger så mye**, med nøyaktig samme gitter og samme tidssteg.\n\n**Forklaringen:** Crank–Nicolson er $O(\\Delta t^2)$ i tid, det eksplisitte bare $O(\\Delta t)$. Prisen er at et $2\\times 2$-system måtte løses. Med to ukjente er det et sekunds arbeid — og i bytte får du et svar som er fire ganger bedre og som i tillegg tåler et hvilket som helst tidssteg.",
+            "hints": [
+              "Regn ut $r$ først, og sett $2+2r$ og $2-2r$ inn i formelen fra arket.",
+              "Høyresiden bruker bare gamle verdier.",
+              "Symmetrien i data og system gir $U_1 = U_2$ og halverer regningen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-C-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-C-ex2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(11 poeng, ~11 min)\n\n**a)** Utled forsterkningsfaktoren for Crank–Nicolson og vis at skjemaet er stabilt for enhver $r$. (7 poeng)\n**b)** Hva går forsterkningsfaktoren for sagtannmoden mot når $r \\to \\infty$, og hva betyr det i praksis? (4 poeng)",
+            "solution": "**a) Utledningen. (7 poeng)**\n\nSett en bølgekomponent $U_i^n = \\xi^ne^{\\mathrm{i}\\beta x_i}$ inn i skjemaet. Naboleddene gir felles faktor\n\n$$e^{\\mathrm{i}\\beta h} + e^{-\\mathrm{i}\\beta h} = 2\\cos\\beta h,$$\n\nog $\\xi^ne^{\\mathrm{i}\\beta x_i}$ stryker på begge sider:\n\n$$\\xi\\left(2+2r-2r\\cos\\beta h\\right) = 2-2r+2r\\cos\\beta h.$$\n\nDel alt på 2 og bruk $1-\\cos\\theta = 2\\sin^2(\\theta/2)$. Med $s = 2r\\sin^2\\!\\left(\\dfrac{\\beta h}{2}\\right)$:\n\n$$\\xi(1+s) = 1-s \\quad\\Longrightarrow\\quad \\xi = \\frac{1-s}{1+s}.$$\n\n**Stabiliteten.** Siden $r > 0$ og $\\sin^2 \\ge 0$, er $s \\ge 0$, så $1+s \\ge 1 > 0$. Da er\n\n$$|\\xi| \\le 1 \\quad\\Longleftrightarrow\\quad |1-s| \\le 1+s.$$\n\nHøyre ulikhet $1-s \\le 1+s$ er $0 \\le 2s$ — sant. Venstre ulikhet $-(1+s) \\le 1-s$ er $-1 \\le 1$ — sant.\n\nAltså $|\\xi| \\le 1$ for **alle** $s \\ge 0$, altså for alle $r$ og alle bølgelengder. Skjemaet er **ubetinget stabilt**. $\\blacksquare$\n\n*Kontrast:* for det eksplisitte skjemaet er $\\xi = 1-2s$, som stuper under $-1$ så snart $s > 1$, altså $r > \\tfrac12$ for sagtannmoden.\n\n**b) Grensen for stor $r$. (4 poeng)**\n\nSagtannmoden har $\\sin^2(\\beta h/2) = 1$, altså $s = 2r$:\n\n$$\\xi = \\frac{1-2r}{1+2r} \\ \\longrightarrow\\ -1 \\quad \\text{når } r \\to \\infty.$$\n\n**Praktisk betydning:** moden dør nesten ikke ut, og den skifter fortegn for hvert tidssteg. Løsningen sprenger ikke — skjemaet *er* stabilt — men et svært stort tidssteg kan gi vedvarende småsvingninger i den numeriske løsningen som ikke har noe fysisk motstykke. Særlig merkes det når startdataene har et sprang eller en knekk, for da er de korte bølgene godt representert.\n\n**Konklusjonen som skal skrives ut:** ubetinget stabilitet betyr at du **kan** velge $\\Delta t$ fritt, ikke at du **bør** velge det stort. Velg det etter nøyaktigheten du trenger.",
+            "hints": [
+              "Sett inn $\\xi^n e^{\\mathrm{i}\\beta x_i}$ og se at eksponentialfaktoren stryker.",
+              "Bruk $e^{\\mathrm{i}\\theta}+e^{-\\mathrm{i}\\theta}=2\\cos\\theta$ og deretter $1-\\cos\\theta = 2\\sin^2(\\theta/2)$.",
+              "I b): sagtannmoden er den med $\\sin^2 = 1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-C-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-C-ex3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(9 poeng, ~9 min) Samme problem som i oppgave 1, men nå med ikke-homogen rand: $u(0,t) = 0$ og $u(1,t) = 3$.\n\nSett opp høyresiden $\\mathbf b$ for det første tidssteget med $r = \\tfrac12$, $h = \\tfrac13$ og startdata $u(x,0) = 0$ for $x < 1$. Marker tydelig hvor randbidragene kommer inn.",
+            "solution": "**Startraden.** $U_0^0 = 0$, $U_1^0 = 0$, $U_2^0 = 0$, og $U_3^0 = 3$ (randverdien).\n\n**Skjemaet med $r = \\tfrac12$:**\n\n$$3U_i^{n+1} - \\tfrac12\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = U_i^n + \\tfrac12\\left(U_{i+1}^n+U_{i-1}^n\\right).$$\n\n**$i = 1$.** Venstre side inneholder $U_0^1 = 0$, som er kjent og lik null — ingen flytting nødvendig. Høyre side:\n\n$$b_1 = U_1^0 + \\tfrac12\\left(U_2^0 + U_0^0\\right) = 0 + \\tfrac12(0+0) = 0.$$\n\n**$i = 2$.** Nå står $U_3^1 = 3$ på venstre side, og den er **kjent**. Flytt den over:\n\n$$3U_2^1 - \\tfrac12U_1^1 - \\tfrac12\\underbrace{U_3^1}_{=3} = U_2^0 + \\tfrac12\\left(U_3^0+U_1^0\\right)$$\n\n$$\\Longrightarrow\\quad 3U_2^1 - \\tfrac12U_1^1 = \\underbrace{0 + \\tfrac12(3+0)}_{\\text{gammelt nivå}} + \\underbrace{\\tfrac12 \\cdot 3}_{\\text{nytt nivå}} = 1{,}5 + 1{,}5 = 3.$$\n\n**Systemet:**\n\n$$\\begin{pmatrix}3 & -\\tfrac12\\\\[2pt] -\\tfrac12 & 3\\end{pmatrix}\\begin{pmatrix}U_1^1\\\\ U_2^1\\end{pmatrix} = \\begin{pmatrix}0\\\\ 3\\end{pmatrix}.$$\n\n**Det avgjørende poenget:** randverdien opptrer **to ganger** i $b_2$ — én gang fra det gamle tidsnivået, der den allerede står i formelens høyreside, og én gang fra det nye, flyttet over fra venstre side. **Å glemme det siste bidraget er en av de dokumenterte feilene i sjangeren.**\n\n**Løsningen** (ikke krevd, men en god kontroll): fra første likning er $U_1 = \\tfrac16U_2$. Sett inn:\n\n$$-\\tfrac1{12}U_2 + 3U_2 = 3 \\quad\\Longrightarrow\\quad \\tfrac{35}{12}U_2 = 3 \\quad\\Longrightarrow\\quad U_2^1 = \\frac{36}{35} = 1{,}028571, \\qquad U_1^1 = \\frac{6}{35} = 0{,}171429.$$\n\nBegge har beveget seg oppover fra 0, og punktet nærmest den varme randen har kommet lengst — som ventet. Ingen verdi har passert 3, som er den største verdien i rand- og startdataene.\n\n**Grensen når $t \\to \\infty$** er den stasjonære løsningen $w(x) = 3x$, altså $w(\\tfrac13) = 1$ og $w(\\tfrac23) = 2$. Retningen stemmer.",
+            "hints": [
+              "Skriv opp likningen for hvert indre punkt for seg og marker hvilke verdier som er kjente.",
+              "Randverdien på det NYE tidsnivået står på venstre side — den må flyttes over.",
+              "Se etter at randverdien dukker opp to ganger i den siste likningen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-C-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Treningsform — settene i dette emnet har ingen slik del.\n\n**1.** Diagonalen i Crank–Nicolson-matrisen er: **a)** $2-2r$ · **b)** $-r$ · **c)** $2+2r$ · **d)** $1+2r$\n\n**2.** Crank–Nicolson er stabilt for: **a)** $r \\le \\tfrac12$ · **b)** alle $r$ · **c)** $r \\le 1$ · **d)** $r \\le 2$\n\n**3.** Avkuttingsfeilen er: **a)** $O(\\Delta t^2)+O(h^2)$ · **b)** $O(\\Delta t)+O(h^2)$ · **c)** $O(\\Delta t)+O(h)$ · **d)** $O(\\Delta t^2)+O(h^4)$\n\n**4.** Et tridiagonalt system med $m$ ukjente koster omtrent: **a)** $m^2$ · **b)** $\\tfrac23m^3$ · **c)** $m\\log m$ · **d)** $8m$ operasjoner"
+        },
+        {
+          "id": "tma4135-8-prove-C-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1c · 2b · 3a · 4d.**\n\n**1c:** koeffisienten foran $U_i^{n+1}$ er $2+2r$. Alternativ **a** er nær-sann og hører til høyresiden — den står i samme formel og er lett å plukke feil. Alternativ **d** er bakover-Euler.\n**2b:** $|\\xi| = |1-s|/(1+s) \\le 1$ for alle $s \\ge 0$. Kravet $r \\le \\tfrac12$ gjelder det eksplisitte skjemaet.\n**3a:** andre orden i begge retninger — det er nettopp forbedringen fra det eksplisitte skjemaet.\n**4d:** Thomas-algoritmen er lineær i antall ukjente. Alternativ **b** er kostnaden for en full matrise, altså det du slipper."
+        },
+        {
+          "id": "tma4135-8-prove-C-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 8.C\n\nKryss av det du faktisk gjorde.\n\n☐ Jeg skrev opp formelen fra arket **uendret** før jeg satte inn tall.\n\n☐ Jeg regnet ut $r$ og satte inn i både $2+2r$ og $2-2r$.\n\n☐ Jeg satte opp matrisen med $2+2r$ på diagonalen og $-r$ ved siden.\n\n☐ Jeg holdt gamle og nye verdier fra hverandre: bare $n$-verdier i høyresiden.\n\n☐ Jeg flyttet randverdien på det **nye** tidsnivået over til høyresiden.\n\n☐ Jeg kontrollerte løsningen ved å sette den inn i én av likningene.\n\n☐ Jeg skrev eksplisitt at Crank–Nicolson er ubetinget stabilt, og hvorfor.\n\n☐ Jeg brukte $|1-s| \\le 1+s$ og skrev ut begge ulikhetene.\n\n☐ Jeg sammenlignet med det eksplisitte skjemaet der oppgaven ba om det.\n\n**Færre enn seks kryss?** Les [kap. 8.3](/tma4135/tma4135-8-3) løkke 2 og 3 på nytt, og gjør oppgave 3, 4 og 6 der før du går videre til prøve 8.D."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-8-prove-prove-D",
+      "type": "collapsible",
+      "title": "Prøve 8.D — Randverdiproblem, falsk rand og kodefeil-lokalisering (45 min)",
+      "buttonText": "Vis prøve 8.D",
+      "content": [
+        {
+          "id": "tma4135-8-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 8.D — Randverdiproblem, falsk rand og kodefeil.** 45 minutter, 45 poeng. Kalkulator tillatt. Differansekvotientene kan brukes som om du hadde formelarket foran deg.\n\nDette er prøven på eksamensnivå i Del 8: den kobler oppsett, randbehandling og feilsøking i én kjede, slik en full eksamensoppgave i sjanger P gjør.\n\nTidsbudsjett: oppgave 1 ~18 min (18 poeng), oppgave 2 ~12 min (12 poeng), oppgave 3 ~15 min (15 poeng)."
+        },
+        {
+          "id": "tma4135-8-prove-D-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-D-ex1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(18 poeng, ~18 min) Betrakt randverdiproblemet\n\n$$u'' - 9u = 9, \\qquad 0 \\le x \\le 1, \\qquad u(0) = 1, \\quad u'(1) = 0.$$\n\nBruk $h = \\tfrac13$.\n\n**a)** Diskretiser likningen og vis at den indre likningen blir $U_{i+1} - 3U_i + U_{i-1} = 1$. (5 poeng)\n**b)** Sett opp raden for randpunktet $x_3 = 1$ ved hjelp av en falsk node. (5 poeng)\n**c)** Skriv systemet $A\\mathbf U = \\mathbf b$ og løs det. (8 poeng)",
+            "solution": "**a) Diskretiseringen. (5 poeng)**\n\nGitteret er $x_0 = 0$, $x_1 = \\tfrac13$, $x_2 = \\tfrac23$, $x_3 = 1$, med $h^2 = \\tfrac19$, altså $1/h^2 = 9$.\n\n**Fra formelarket:** $u''(x_i) \\approx \\dfrac{U_{i+1}-2U_i+U_{i-1}}{h^2}$. Satt inn:\n\n$$9\\left(U_{i+1}-2U_i+U_{i-1}\\right) - 9U_i = 9.$$\n\nDel alt på 9:\n\n$$U_{i+1} - 3U_i + U_{i-1} = 1. \\qquad \\blacksquare$$\n\n**b) Randraden med falsk node. (5 poeng)**\n\n$U_3$ er en **ukjent**, siden høyre rand bare gir stigningen. Vi trenger derfor en likning i $x_3$ også.\n\n*Steg 1 — skriv likningen i randpunktet.* Den gjelder helt ut til randen:\n\n$$U_4 - 3U_3 + U_2 = 1,$$\n\nder $U_4$ er verdien i den fiktive noden $x_4 = 1 + h$, som ligger **utenfor** intervallet.\n\n*Steg 2 — bruk randbetingelsen med sentraldifferanse.* **Fra formelarket:** $u'(x_3) \\approx \\dfrac{U_4-U_2}{2h}$, så\n\n$$\\frac{U_4-U_2}{2h} = 0 \\quad\\Longrightarrow\\quad U_4 = U_2.$$\n\n*Steg 3 — eliminer.* Sett inn:\n\n$$U_2 - 3U_3 + U_2 = 1 \\quad\\Longrightarrow\\quad \\boxed{2U_2 - 3U_3 = 1.}$$\n\n**Faktoren 2 foran $U_2$ er hele poenget:** de to naboleddene falt sammen til én verdi og la seg oppå hverandre. Skriver du 1 der, løser du et helt annet problem — se oppgave 3.\n\n**c) Systemet og løsningen. (8 poeng)**\n\n$i = 1$, med $U_0 = 1$ kjent — den flyttes over til høyresiden med motsatt fortegn:\n\n$$U_2 - 3U_1 + 1 = 1 \\quad\\Longrightarrow\\quad -3U_1 + U_2 = 0.$$\n\n$i = 2$:\n\n$$U_3 - 3U_2 + U_1 = 1 \\quad\\Longrightarrow\\quad U_1 - 3U_2 + U_3 = 1.$$\n\n$i = 3$ fra b): $2U_2 - 3U_3 = 1$.\n\n$$\\begin{pmatrix}-3 & 1 & 0\\\\ 1 & -3 & 1\\\\ 0 & 2 & -3\\end{pmatrix}\\begin{pmatrix}U_1\\\\ U_2\\\\ U_3\\end{pmatrix} = \\begin{pmatrix}0\\\\ 1\\\\ 1\\end{pmatrix}.$$\n\n**Løsning.** Fra første likning: $U_2 = 3U_1$. Sett inn i den andre:\n\n$$U_1 - 9U_1 + U_3 = 1 \\quad\\Longrightarrow\\quad U_3 = 1 + 8U_1.$$\n\nSett begge inn i den tredje:\n\n$$2(3U_1) - 3(1+8U_1) = 1 \\quad\\Longrightarrow\\quad 6U_1 - 3 - 24U_1 = 1 \\quad\\Longrightarrow\\quad -18U_1 = 4,$$\n\n$$U_1 = -\\frac{2}{9} = -0{,}222222, \\qquad U_2 = -\\frac{2}{3} = -0{,}666667, \\qquad U_3 = 1 + 8\\left(-\\tfrac29\\right) = -\\frac{7}{9} = -0{,}777778.$$\n\n*Kontroll i randraden:* $2\\left(-\\tfrac23\\right) - 3\\left(-\\tfrac79\\right) = -\\tfrac43 + \\tfrac73 = \\tfrac33 = 1$. ✓\n\n*Kontroll i midtraden:* $-\\tfrac29 + 2 - \\tfrac79 = -\\tfrac99 + 2 = 1$. ✓\n\n**Sammenligning med den eksakte løsningen** (ikke krevd, men verdt en setning): partikulær $u_p = -1$, homogen $A\\cosh 3x + B\\sinh 3x$. Fra $u(0) = 1$: $A = 2$. Fra $u'(1) = 0$: $6\\sinh 3 + 3B\\cosh 3 = 0$, altså $B = -2\\tanh 3 = -1{,}990110$:\n\n$$u(x) = 2\\cosh 3x - 1{,}990110\\sinh 3x - 1.$$\n\n$$u(\\tfrac13) = -0{,}252618, \\qquad u(\\tfrac23) = -0{,}693458, \\qquad u(1) = -0{,}801344.$$\n\nAvvikene er $0{,}030$, $0{,}027$ og $0{,}024$. Med bare tre ukjente er det som forventet av et andreordens skjema.",
+            "hints": [
+              "Gang opp med $h^2$ eller del på $1/h^2$ slik at koeffisientene blir hele tall.",
+              "Skriv differensiallikningen også i randpunktet, og bruk sentraldifferansen på randbetingelsen.",
+              "$U_0$ er kjent — flytt bidraget over til høyresiden med motsatt fortegn."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-D-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-D-ex2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~12 min) Samme problem som i oppgave 1.\n\n**a)** Anta at du i stedet hadde brukt den ensidige betingelsen $\\dfrac{U_3-U_2}{h} = 0$ på randen. Hvilken orden ville skjemaet fått, og hvorfor? (6 poeng)\n**b)** En kjøring med falsk node gir største feil $3{,}04\\cdot 10^{-2}$ ved $N = 3$ og $8{,}06\\cdot 10^{-3}$ ved $N = 6$. Bekreft ordenen, og anslå feilen ved $N = 24$. (6 poeng)",
+            "solution": "**a) Ordenen med ensidig rand. (6 poeng)**\n\nDen ensidige kvotienten $\\dfrac{U_3-U_2}{h}$ er den **baklengs** differansen, med avkuttingsfeil\n\n$$-\\frac{h}{2}u''(x_3) + O(h^2),$$\n\naltså $O(h)$ — bare **første** orden. De indre likningene er $O(h^2)$, men randraden er $O(h)$.\n\n**Hvorfor det ødelegger for hele løsningen:** alle likningene i systemet er koblet. En feil i én rad forplanter seg til alle de andre gjennom eliminasjonen. Skjemaet blir derfor **førsteordens totalt**, og hele gevinsten ved å bruke sentraldifferanser inne i området går tapt.\n\n**Regelen som skal skrives:** randbehandlingen må ha minst samme orden som skjemaet inne i området. Det er nettopp derfor den falske noden finnes — den bruker sentraldifferansen, som er $O(h^2)$, og betaler bare med ett ekstra eliminasjonstrinn.\n\n*Målt på et beslektet problem:* ved $N = 64$ gir falsk node feil $1{,}2\\cdot 10^{-4}$ og ensidig rand $7{,}9\\cdot 10^{-3}$ — 65 ganger større, og forskjellen dobles for hver halvering av $h$.\n\n**b) Ordenen og anslaget. (6 poeng)**\n\nForholdet mellom de to feilene:\n\n$$\\frac{3{,}04\\cdot 10^{-2}}{8{,}06\\cdot 10^{-3}} = 3{,}77.$$\n\nDet er nær 4, altså $2^p = 4$ og $p = 2$ — **andre orden**, som forventet av falsk-rand-behandlingen. At forholdet er $3{,}77$ og ikke nøyaktig 4, skyldes at $h = \\tfrac13$ ennå er grov, slik at neste ledd i feilrekka bidrar merkbart.\n\n**Anslaget ved $N = 24$.** Fra $N = 6$ til $N = 24$ er $h$ delt på 4, altså to halveringer, som gir en faktor $4^2 = 16$:\n\n$$8{,}06\\cdot 10^{-3}/16 = 5{,}04\\cdot 10^{-4}.$$\n\n*Faktisk målt:* $5{,}16\\cdot 10^{-4}$. Anslaget treffer godt.\n\n**Merk hvorfor denne testen er verdt å kunne:** den krever ingen teori, bare to kjøringer og en divisjon — og den er samtidig det kraftigste feilsøkingsverktøyet i hele Del 8. Får du forholdet 2 i stedet for 4, er det en ensidig differanse et sted. Får du et forhold nær 1, er skjemaet strukturelt feil.",
+            "hints": [
+              "I a): hvilken orden har den baklengs differansekvotienten, og hva skjer når én rad er dårligere enn resten?",
+              "I b): del den første feilen på den andre og sammenlign med $2^p$.",
+              "Fra $N = 6$ til $N = 24$ er det to halveringer av $h$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-D-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-prove-D-ex3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(15 poeng, ~15 min) En student skal løse randverdiproblemet fra oppgave 1 numerisk og skriver dette programmet:\n\n```python\nimport numpy as np\n\nn = 3                          # antall delintervall\nh = 1/n\nA = np.zeros((n, n))           # ukjente er U_1, U_2, U_3\nb = np.zeros(n)\n\nfor i in range(1, n):          # de indre punktene\n    A[i-1, i-1] = -2/h**2 - 9\n    if i >= 2:\n        A[i-1, i-2] = 1/h**2\n    A[i-1, i] = 1/h**2\n    b[i-1] = 9\n\nA[n-1, n-2] = 2/h**2           # falsk node: faktor 2\nA[n-1, n-1] = -2/h**2 - 9\nb[n-1] = 9\n\nU = np.linalg.solve(A, b)\nprint(np.round(U, 6))\n```\n\n**Utskrift:**\n\n```text\n[-0.611111 -0.833333 -0.888889]\n```\n\nFasiten fra oppgave 1 er $\\left(-0{,}222222;\\ -0{,}666667;\\ -0{,}777778\\right)$.\n\n**a)** Hva forteller utskriften deg om hvor feilen ligger? (4 poeng)\n**b)** Finn feilen, og forklar hvorfor symptomet følger av den. (7 poeng)\n**c)** En kjøring med feilen for $n = 3, 6, 12, 24$ gir $U(1) = -0{,}8889;\\ -0{,}8976;\\ -0{,}8999;\\ -0{,}9005$. Hva bekrefter det? (4 poeng)",
+            "solution": "**a) Hvor feilen ligger. (4 poeng)**\n\nRandbetingelsen i venstre ende er $u(0) = 1$. Den verdien er ikke med i utskriften — men vi kan se hva som *ville* fulgt av den: løsningen skulle starte i 1 og synke, og $U_1$ skulle ligge et sted mellom $1$ og $-0{,}67$. Fasiten har $U_1 = -0{,}222$.\n\nProgrammet gir $U_1 = -0{,}611$, som er **langt lavere**. Kurven starter altså ikke i 1 i det hele tatt — den ser ut til å komme fra omtrent 0.\n\n**Randraden for høyre ende ser derimot riktig ut:** linja `A[n-1, n-2] = 2/h**2` har faktoren 2, altså er falsk-node-elimineringen korrekt.\n\nKonklusjon etter steg 1 i feilsøkingsoppskriften: **feilen ligger i behandlingen av venstre rand**, ikke i løkka og ikke i den falske noden.\n\n**b) Feilen. (7 poeng)**\n\nI den første likningen ($i = 1$) står leddet $\\dfrac{U_0}{h^2}$, der $U_0 = 1$ er kjent. Det skal flyttes over til høyresiden med motsatt fortegn:\n\n$$b_1 = 9 - \\frac{U_0}{h^2} = 9 - 9 \\cdot 1 = 0.$$\n\n**Programmet gjør aldri denne flyttingen.** Linja\n\n```text\nb[i-1] = 9\n```\n\nsetter $b_1 = 9$ for alle indre punkter, uten å trekke fra randbidraget i den første. Det som mangler, er en linje av typen\n\n```text\nb[0] -= 1/h**2\n```\n\netter løkka — eller tilsvarende inne i den.\n\n**Hvorfor symptomet følger av feilen.** Uten det trukne leddet løser programmet nøyaktig samme problem, men med $U_0 = 0$ i stedet for $U_0 = 1$. Det er et *annet* randverdiproblem — ett der stanga starter kald i venstre ende. Derfor ligger hele den beregnede løsningen for lavt, og mest i venstre ende der randbetingelsen virker sterkest: $-0{,}611$ mot $-0{,}222$.\n\nAt avviket avtar mot høyre ($-0{,}833$ mot $-0{,}667$, og $-0{,}889$ mot $-0{,}778$) passer også: virkningen av venstre randbetingelse dempes innover i intervallet, slik $\\cosh$- og $\\sinh$-leddene i den eksakte løsningen viser.\n\n**Rettelsen:**\n\n```text\nb[0] -= 1/h**2               # Dirichlet-verdien u(0) = 1 flyttes over\n```\n\n**c) Hva forfiningen bekrefter. (4 poeng)**\n\nTallene $-0{,}8889;\\ -0{,}8976;\\ -0{,}8999;\\ -0{,}9005$ nærmer seg tydelig en grense rundt $-0{,}9005$ — men fasiten er $-0{,}8013$.\n\n**Programmet konvergerer altså pent, bare mot feil svar.** Det er signaturen på en **strukturell** feil: skjemaet er konsistent og stabilt, men det diskretiserer et annet problem enn det oppgaven ba om.\n\n*Kontroll:* løser vi det samme randverdiproblemet eksakt, men med $u(0) = 0$ i stedet for 1, får vi $u(x) = \\cosh 3x - \\tanh 3\\,\\sinh 3x - 1$, og\n\n$$u(1) = \\frac{\\cosh^2 3 - \\sinh^2 3}{\\cosh 3} - 1 = \\frac{1}{\\cosh 3} - 1 = 0{,}09933 - 1 = -0{,}90067.$$\n\nDet er nøyaktig grensen tallene nærmer seg. ✓ Diagnosen er dermed bekreftet: programmet løser problemet med kald venstre ende.\n\n**Merk lærdommen:** en løsning som konvergerer, er ikke nødvendigvis en riktig løsning. Konvergens sier bare at skjemaet er konsistent med **noe** — og gitterforfining er derfor et verktøy for å skille strukturelle feil fra regnefeil, ikke en garanti for at svaret er riktig.",
+            "hints": [
+              "I a): hvilken randbetingelse ser du i utskriften at ikke er respektert?",
+              "I b): hva skjer med den kjente verdien $U_0$ i den første likningen?",
+              "I c): regn ut hva den eksakte løsningen ville vært med $u(0) = 0$ i stedet."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-prove-D-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Treningsform — settene i dette emnet har ingen slik del.\n\n**1.** $u'(b) = 0$ gir den falske noden: **a)** $U_{N+1} = -U_{N-1}$ · **b)** $U_{N+1} = U_N$ · **c)** $U_{N+1} = U_{N-1}$ · **d)** $U_{N+1} = 0$\n\n**2.** Etter eliminering blir koeffisienten foran $U_{N-1}$: **a)** $2/h^2$ · **b)** $1/h^2$ · **c)** $-2/h^2$ · **d)** $1/(2h^2)$\n\n**3.** En kjent Dirichlet-verdi flyttes over til høyresiden: **a)** uendret · **b)** halvert · **c)** kvadrert · **d)** med motsatt fortegn\n\n**4.** Feilen synker ikke ved forfining. Det tyder på: **a)** avrundingsfeil · **b)** strukturell feil i en rad · **c)** for stor $r$ · **d)** ustabilitet"
+        },
+        {
+          "id": "tma4135-8-prove-D-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1c · 2a · 3d · 4b.**\n\n**1c:** sentraldifferansen $(U_{N+1}-U_{N-1})/(2h) = 0$ gir speiling om randpunktet. Alternativ **b** er nær-sann: det svarer til den ensidige differansen, som er en gyldig, men bare førsteordens, behandling.\n**2a:** de to naboleddene faller sammen og legger seg oppå hverandre. Alternativ **b** er den dokumenterte enkeltfeilen i sjangeren.\n**3d:** leddet står på venstre side og bytter fortegn når det flyttes. Å glemme fortegnsbyttet er like vanlig som å glemme leddet.\n**4b:** en ren regnefeil eller for grov $h$ ville blitt mindre ved forfining. Blir feilen stående, diskretiserer skjemaet et annet problem. Alternativ **c** og **d** gjelder tidsavhengige skjemaer og har ingenting med et randverdiproblem å gjøre."
+        },
+        {
+          "id": "tma4135-8-prove-D-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 8.D\n\nKryss av det du faktisk gjorde.\n\n☐ Jeg gjorde diskretiseringen om til hele tall ved å gange opp med $h^2$.\n\n☐ Jeg skrev differensiallikningen **også i randpunktet** der bare den deriverte var gitt.\n\n☐ Jeg brukte sentraldifferansen — ikke en ensidig — på Neumann-betingelsen.\n\n☐ Jeg fikk faktoren 2 foran naboen i randraden.\n\n☐ Jeg flyttet den kjente Dirichlet-verdien over til høyresiden med motsatt fortegn.\n\n☐ Jeg kontrollerte løsningen ved å sette den inn i minst to av likningene.\n\n☐ I kodeoppgaven pekte jeg på linja **og** forklarte hvilket problem koden faktisk løser.\n\n☐ Jeg brukte gitterforfining til å skille strukturell feil fra regnefeil.\n\n☐ Jeg sjekket randbetingelsene i utskriften før jeg begynte å lese løkka.\n\n**Færre enn seks kryss?** Les [kap. 8.4](/tma4135/tma4135-8-4) løkke 2 og 4 på nytt, og gjør oppgave 4, 6 og 7 der. Er du usikker på ordensargumentet i oppgave 2, ligger det i [kap. 8.1](/tma4135/tma4135-8-1) løkke 2.\n\n**Alle fire prøvene tatt?** Da har du dekket hele sjanger P og sjanger Q. Neste steg er formelark-verkstedet i [kap. 9.1](/tma4135/tma4135-9-1), der differansekvotientene og $r \\le \\tfrac12$ får sin plass på ditt eget A5-ark."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-8-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-8-prove-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i kapitlene [8.1](/tma4135/tma4135-8-1) til [8.4](/tma4135/tma4135-8-4).\n\n| Symbol | Betydning |\n|---|---|\n| $h$ | Romsteget. **Merk:** i Del 6 og Del 7 er $h$ steglengde i integrasjon og ODE-skritt |\n| $\\Delta t$ | Tidssteget. **Merk:** det utdelte formelarket kaller tidssteget $k$; boka bruker $\\Delta t$ fordi $k$ er separasjonskonstanten i [kap. 5.1](/tma4135/tma4135-5-1) |\n| $r$ | Stabilitetstallet $c^2\\Delta t/h^2$. **Merk:** i Del 1 er $r$ radius i polar form, i Del 6 en rot |\n| $U_i$, $U_i^n$ | Beregnet verdi i $x_i$, eventuelt på tidsnivå $n$. Øvre indeks er tidsnivå, ikke potens |\n| $u$ | Den eksakte løsningen — liten bokstav |\n| $c^2$ | Diffusiviteten i $u_t = c^2u_{xx}$. **Merk:** i [kap. 5.3](/tma4135/tma4135-5-3) er $c$ bølgefarten |\n| $\\tau(h)$ | Avkuttingsfeilen |\n| $p$, $q$ | Metodens orden og nevnerpotensen i avrundingsleddet $\\varepsilon/h^q$ |\n| $M_p$ | Skranken $\\max\\left|f^{(p)}\\right|$ på intervallet |\n| $\\varepsilon$ | Maskinepsilon, $\\approx 2{,}2\\cdot 10^{-16}$ |\n| $\\xi$ | Forsterkningsfaktoren per tidssteg |\n| $s$ | Kortskrift for $2r\\sin^2(\\beta h/2)$ i Crank–Nicolson-analysen |\n| $\\beta$ | Bølgetallet |\n| $A$, $\\mathbf b$ | Koeffisientmatrisen og høyresiden i likningssystemet |\n| $U_{N+1}$ | Den falske (fiktive) noden utenfor intervallet |\n| $q(x)$, $g(x)$ | Koeffisient og høyreside i $u''+qu=g$. Mange bøker kaller høyresiden $r(x)$ — her er $r$ opptatt |\n"
+        },
+        {
+          "id": "tma4135-8-prove-sym-form",
+          "type": "text",
+          "content": "**Formler som brukes i prøvene:**\n\n$$u'(x_i) \\approx \\frac{U_{i+1}-U_{i-1}}{2h}, \\qquad u''(x_i) \\approx \\frac{U_{i+1}-2U_i+U_{i-1}}{h^2}$$\nDe sentrale differansekvotientene, begge $O(h^2)$. **Står på det utdelte formelarket — tren oppslaget.**\n\n$$\\frac{U_{i+1}-U_{i-1}}{2h} = u' + \\frac{h^2}{6}u''' + O(h^4), \\qquad \\frac{U_{i+1}-2U_i+U_{i-1}}{h^2} = u'' + \\frac{h^2}{12}u^{(4)} + O(h^4)$$\nAvkuttingsfeilene. *(Må kunnes eller utledes aktivt.)*\n\n$$E(h) \\approx \\frac{K\\varepsilon}{h^q} + Ch^p, \\qquad h_{\\text{opt}} = O\\!\\left(\\varepsilon^{1/(p+q)}\\right), \\qquad E_{\\min} = O\\!\\left(\\varepsilon^{p/(p+q)}\\right)$$\nAvveiningen mellom avrunding og avkutting. **Står ikke på arket — må kunnes.**\n\n$$U_i^{n+1} = U_i^n + r\\left(U_{i+1}^n-2U_i^n+U_{i-1}^n\\right) = rU_{i-1}^n + (1-2r)U_i^n + rU_{i+1}^n$$\nDet eksplisitte skjemaet og vektformen. *(Må kunnes eller utledes aktivt.)*\n\n$$r \\le \\tfrac12 \\quad\\Longleftrightarrow\\quad \\Delta t \\le \\frac{h^2}{2c^2}, \\qquad \\xi = 1-4r\\sin^2\\!\\frac{\\beta h}{2}$$\nStabilitetskravet og forsterkningsfaktoren. **Står ikke på arket — må kunnes.**\n\n$$(2+2r)U_i^{n+1} - r\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = (2-2r)U_i^{n} + r\\left(U_{i+1}^{n}+U_{i-1}^{n}\\right)$$\nCrank–Nicolson. **Står på det utdelte formelarket — tren oppslaget.**\n\n$$\\xi_{\\text{CN}} = \\frac{1-s}{1+s}, \\qquad s = 2r\\sin^2\\!\\frac{\\beta h}{2} \\ \\ge 0$$\nUbetinget stabilitet: $|\\xi| \\le 1$ for alle $s \\ge 0$. *(Må kunnes eller utledes aktivt.)*\n\n$$U_{i-1} + \\left(-2+h^2q_i\\right)U_i + U_{i+1} = h^2g_i$$\nDen diskrete likningen i et randverdiproblem. *(Må kunnes eller utledes aktivt.)*\n\n$$u'(b) = 0 \\ \\Longrightarrow\\ U_{N+1} = U_{N-1} \\ \\Longrightarrow\\ \\frac{2U_{N-1}-2U_N}{h^2} + q_NU_N = g_N$$\nFalsk node og elimineringen, med faktoren 2. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{\\text{feil}(h)}{\\text{feil}(h/2)} \\approx 2^p$$\nHalveringstesten — både ordensbestemmelse og feilsøkingsverktøy. *(Må kunnes.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

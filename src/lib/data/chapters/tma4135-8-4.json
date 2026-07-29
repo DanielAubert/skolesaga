@@ -1,0 +1,453 @@
+{
+  "id": "tma4135-8-4",
+  "courseId": "tma4135",
+  "chapterNumber": "8.4",
+  "title": "Randverdiproblemer, falsk rand og kodefeil-lokalisering",
+  "description": "Sett opp $A\\mathbf U=\\mathbf b$ for et randverdiproblem, håndter Neumann-rand med falsk node, og finn den innebygde feilen i en gitt Python-kode.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "diskretisere et randverdiproblem med sentraldifferanser og samle likningene i et lineært system med riktige randbidrag",
+    "behandle en betingelse på den deriverte ved å innføre en fiktiv node utenfor intervallet og eliminere den",
+    "forklare hvorfor den fiktive noden bevarer andre orden der en ensidig differanse ville ødelagt den",
+    "lokalisere den ene feilen i et kort differanseprogram ved å se at en rand- eller initialbetingelse ikke er oppfylt, og forklare hvorfor symptomet følger av feilen"
+  ],
+  "content": [
+    {
+      "id": "tma4135-8-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet dekker den tredje varianten av sjanger P** — differansemetoder for partielle differensiallikninger og randverdiproblemer, som står på **11 av 13 gjennomgåtte sett (85 %)**. Bokstavene A til S er bokas korte navn på de nitten oppgavetypene på settene, og de forklares første gang de brukes i hvert kapittel.\n\n**To underspørsmål har eget belegg, og begge er toppsjikt-markører:**\n\n- **Randverdiproblem med falsk rand: 2 av 13 sett (15 %).** Du diskretiserer $u'' + q(x)u = g(x)$, setter opp $A\\mathbf U = \\mathbf b$, og håndterer en Neumann-betingelse med en fiktiv node utenfor intervallet.\n- **Kodefeil-lokalisering: 2 av 13 sett (15 %).** Du får et kort Python-program med **én** innebygd feil, ser at randbetingelsen ikke er oppfylt, og peker på den linja som er skyld i det.\n\nHver for seg er de ikke veldig hyppige. **Samlet er de en fast del av P-blokken**, og de er billige å score på når du har gjort dem én gang — særlig kodefeilen, som er ren logikk uten tung regning.\n\n**Formelark-merking.**\n\n- **Differansekvotientene står på det utdelte formelarket — tren oppslaget.** Det gjelder både sentraldifferansen for $u'$ og den andre sentraldifferansen for $u''$; begge trengs her.\n- **Systemoppsettet, elimineringen av den falske noden og feilsøkingslogikken må kunnes.** Formelarket har ingenting om noen av delene.\n\n**En notasjonsavklaring før vi begynner.** Randverdiproblemet skrives ofte $u'' + q(x)u = r(x)$ i lærebøker. Denne boka bruker $g(x)$ for høyresiden, fordi $r$ i hele Del 8 er stabilitetstallet $c^2\\Delta t/h^2$. Ser du en $r(x)$ i en oppgavetekst, er det høyresiden — ikke stabilitetstallet.\n\n**Tidsbruk:** 60 minutter lesetid, fire løkker à omtrent et kvarter. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-8-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 8.2](/tma4135/tma4135-8-2) — gitteret, notasjonen og differanseskjemaet. Fra [kap. 8.1](/tma4135/tma4135-8-1) trengs differansekvotientene og ordensbegrepet. [Kap. 8.3](/tma4135/tma4135-8-3) er nyttig, siden systemet her har samme tridiagonale form, men ikke nødvendig.\n\n**Sist du var her.** De tre tingene du bruker i hver eneste oppgave under:\n\n$$u''(x_i) \\approx \\frac{U_{i+1} - 2U_i + U_{i-1}}{h^2}$$\n\nDen andre sentraldifferansen. **Står på det utdelte formelarket — tren oppslaget.**\n\n$$u'(x_i) \\approx \\frac{U_{i+1} - U_{i-1}}{2h}$$\n\nDen sentrale førstederiverte, orden $O(h^2)$. Det er denne som brukes i randpunktet og som gjør at den falske noden i det hele tatt dukker opp.\n\n$$\\text{orden 2 betyr: halvér } h \\ \\Rightarrow\\ \\text{feilen deles på 4.}$$\n\nHalveringstesten fra [kap. 8.1](/tma4135/tma4135-8-1). I løkke 4 brukes den som **feilsøkingsverktøy**: et skjema med en feil i randraden konvergerer ikke, og det ser du med to kjøringer.\n\nFra tidligere matematikkemner trengs å kunne løse et lite lineært system, og å lese enkel Python-kode med numpy. Du skal aldri skrive et program i denne boka — bare lese og feilsøke."
+    },
+    {
+      "id": "tma4135-8-4-motivasjon",
+      "type": "text",
+      "content": "## To slags problemer, to helt ulike løsningsmåter\n\nFram til nå har alt i Del 8 marsjert framover i tid: du kjenner starten, og du regner deg oppover rad for rad. Det kalles et **initialverdiproblem**.\n\n**Et randverdiproblem er noe annet.** Der er betingelsene gitt i *begge ender* av intervallet, og det finnes ingen retning å marsjere i. En stang som holdes på 20 grader i den ene enden og er isolert i den andre — hva er temperaturen i midten når alt har roet seg? Du kan ikke starte i venstre ende og gå mot høyre, for du vet ikke hva stigningen skal være der.\n\n**Derfor må alle punktene finnes samtidig.** Én likning per indre punkt, alle koblet til naboene sine, samlet i ett lineært system $A\\mathbf U = \\mathbf b$. Det er samme tridiagonale form som i [kap. 8.3](/tma4135/tma4135-8-3), men nå kommer den ikke av et tidssteg — den kommer av selve problemet.\n\n**Så kommer den lille komplikasjonen som gir kapitlet navn.** Er randbetingelsen av typen «temperaturen er $5$ grader», setter du bare inn tallet. Men er den «enden er isolert», altså $u'(1) = 0$, må du bruke en differansekvotient i randpunktet — og sentraldifferansen der peker på et punkt som **ligger utenfor intervallet**. Det punktet finnes ikke. Trikset er å late som det gjør, og deretter eliminere det. Den fiktive verdien kalles en **falsk node**.\n\n**Og til slutt en sjanger som er helt egen for dette emnet:** du får et kort program som løser et slikt problem, det gir feil svar, og du skal finne den ene linja som er skyld i det. Det er ikke et programmeringspensum — det er en test på om du forstår hvor randbetingelsen bor i koden.\n\nKapitlet gjør fire ting: setter opp systemet med Dirichlet-rand, innfører den falske noden, viser hvorfor den er verdt bryet, og går gjennom kodefeil-lokalisering med en oppskrift som virker."
+    },
+    {
+      "id": "tma4135-8-4-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene i dette kapitlet er samtidig kortene i flashcard-bunken. Ved første gjennomlesing holder det å lese formelen og gå videre til eksempelet; tidsanslaget på 60 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-8-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra differensiallikning til likningssystem (~15 min)\n\nVi begynner med det enkleste tilfellet: verdien er gitt i begge ender. Da er hele jobben å skrive én likning per indre punkt og samle dem."
+    },
+    {
+      "id": "tma4135-8-4-def-rvp",
+      "type": "definition",
+      "title": "Randverdiproblem",
+      "content": "En differensiallikning på et intervall $[a,b]$ der betingelsene er gitt i **begge** endepunktene:\n\n$$u''(x) + q(x)\\,u(x) = g(x), \\qquad a \\le x \\le b,$$\n\nmed én betingelse i $x = a$ og én i $x = b$.\n\n**Kontrast til et initialverdiproblem**, der begge betingelsene er gitt i samme punkt ($u(a)$ og $u'(a)$). Der kan du marsjere framover ett skritt om gangen, slik Del 7 gjør med Euler og Runge–Kutta. I et randverdiproblem finnes ingen slik retning: alle verdiene bestemmer hverandre gjensidig.\n\n**Merk bokstavene.** Mange lærebøker skriver høyresiden som $r(x)$. Her heter den $g(x)$, siden $r$ i Del 8 er stabilitetstallet fra [kap. 8.2](/tma4135/tma4135-8-2). Innholdet er det samme."
+    },
+    {
+      "id": "tma4135-8-4-def-diskretisering",
+      "type": "definition",
+      "title": "Diskretisering av randverdiproblemet",
+      "content": "Legg gitteret $x_i = a + ih$ med $h = (b-a)/N$, og erstatt $u''$ med den andre sentraldifferansen i hvert indre punkt:\n\n$$\\frac{U_{i+1} - 2U_i + U_{i-1}}{h^2} + q(x_i)\\,U_i = g(x_i), \\qquad i = 1,\\dots,N-1.$$\n\nGanger du opp med $h^2$, ser strukturen slik ut:\n\n$$U_{i-1} + \\left(-2 + h^2q_i\\right)U_i + U_{i+1} = h^2 g_i.$$\n\n**Dette er én likning per indre punkt**, med tre ukjente hver — og med bare naboene involvert. Samlet blir det et tridiagonalt system.\n\n**Formen er verdt å legge merke til:** koeffisienten $1$ på begge naboene, og hele likningens egenart samlet i diagonalleddet $-2 + h^2q_i$. Er $q$ konstant, er diagonalen den samme i alle radene."
+    },
+    {
+      "id": "tma4135-8-4-def-system",
+      "type": "definition",
+      "title": "Systemet $A\\mathbf U = \\mathbf b$",
+      "content": "Med $N-1$ indre punkter og kjente randverdier blir systemet\n\n$$A = \\begin{pmatrix} -2+h^2q_1 & 1 & & \\\\ 1 & -2+h^2q_2 & 1 & \\\\ & \\ddots & \\ddots & \\ddots \\\\ & & 1 & -2+h^2q_{N-1}\\end{pmatrix}, \\qquad \\mathbf U = \\begin{pmatrix}U_1\\\\ \\vdots\\\\ U_{N-1}\\end{pmatrix},$$\n\n$$b_i = h^2 g_i, \\quad\\text{med } b_1 \\mathrel{-}= U_0 \\ \\text{ og } \\ b_{N-1} \\mathrel{-}= U_N.$$\n\n**De to siste trekkene er de som glemmes.** I første likning står $U_0$, som er kjent — den flyttes over til høyresiden med motsatt fortegn. Det samme med $U_N$ i siste likning.\n\nEr randverdiene null, faller begge bort, og alle radene ser like ut. Det er derfor eksamensoppgaver ofte har $u(a) = 0$."
+    },
+    {
+      "id": "tma4135-8-4-def-dirichlet",
+      "type": "definition",
+      "title": "Dirichlet-rand i systemet",
+      "content": "En **Dirichlet-betingelse** gir verdien direkte: $u(a) = \\alpha$, altså $U_0 = \\alpha$.\n\n**Behandlingen er den enkleste som finnes:** $U_0$ er ikke en ukjent, den er et tall. Den fjernes fra ukjentvektoren, og bidraget $U_0$ fra første likning flyttes over til høyresiden.\n\nSystemet får dermed $N-1$ ukjente ved to Dirichlet-render, og alle radene er «vanlige» radene fra diskretiseringen.\n\n**Navnet er verdt å kunne:** Dirichlet-rand er «verdien er gitt», Neumann-rand er «den deriverte er gitt». Begge navn brukes i oppgavetekstene, og begge er innført i [kap. 5.1](/tma4135/tma4135-5-1)."
+    },
+    {
+      "id": "tma4135-8-4-eks1",
+      "type": "example",
+      "title": "Sett opp og løs systemet med Dirichlet-rand i begge ender",
+      "problem": "Diskretiser\n\n$$u'' - 9u = 9x, \\qquad 0 \\le x \\le 1, \\qquad u(0) = 0, \\quad u(1) = 0,$$\n\nmed $h = \\tfrac13$. Sett opp $A\\mathbf U = \\mathbf b$, løs, og sammenlign med den eksakte løsningen.",
+      "solution": "**Steg 1 — gitteret.** $N = 3$ delintervall gir $x_0 = 0$, $x_1 = \\tfrac13$, $x_2 = \\tfrac23$, $x_3 = 1$, og $h = \\tfrac13$ med $h^2 = \\tfrac19$, altså $1/h^2 = 9$.\n\nDe ukjente er $U_1$ og $U_2$. Randverdiene er $U_0 = U_3 = 0$.\n\n**Steg 2 — diskretiser.** **Fra formelarket:** $u'' \\approx \\dfrac{U_{i+1}-2U_i+U_{i-1}}{h^2}$. Sett inn i likningen:\n\n$$\\frac{U_{i+1}-2U_i+U_{i-1}}{h^2} - 9U_i = 9x_i.$$\n\nMed $1/h^2 = 9$ blir venstre side $9\\left(U_{i+1}-2U_i+U_{i-1}\\right) - 9U_i$. Del alt på 9:\n\n$$U_{i+1} - 3U_i + U_{i-1} = x_i.$$\n\nPent. Med akkurat dette $h$-et og denne $q$-en blir alle koeffisientene hele tall.\n\n**Steg 3 — skriv likningene.**\n\n$i = 1$: $U_2 - 3U_1 + U_0 = \\tfrac13$. Med $U_0 = 0$:\n\n$$-3U_1 + U_2 = \\tfrac13.$$\n\n$i = 2$: $U_3 - 3U_2 + U_1 = \\tfrac23$. Med $U_3 = 0$:\n\n$$U_1 - 3U_2 = \\tfrac23.$$\n\n**Steg 4 — systemet.**\n\n$$\\begin{pmatrix}-3 & 1\\\\ 1 & -3\\end{pmatrix}\\begin{pmatrix}U_1\\\\ U_2\\end{pmatrix} = \\begin{pmatrix}\\tfrac13\\\\ \\tfrac23\\end{pmatrix}.$$\n\n**Steg 5 — løs.** Fra første likning: $U_2 = 3U_1 + \\tfrac13$. Sett inn i den andre:\n\n$$U_1 - 9U_1 - 1 = \\tfrac23 \\quad\\Longrightarrow\\quad -8U_1 = \\tfrac53 \\quad\\Longrightarrow\\quad U_1 = -\\frac{5}{24} = -0{,}208333.$$\n\n$$U_2 = 3\\left(-\\frac{5}{24}\\right) + \\frac13 = -\\frac{15}{24} + \\frac{8}{24} = -\\frac{7}{24} = -0{,}291667.$$\n\n*Kontroll:* $U_1 - 3U_2 = -\\tfrac{5}{24} + \\tfrac{21}{24} = \\tfrac{16}{24} = \\tfrac23$. ✓\n\n**Steg 6 — sammenlign med fasiten.** Den eksakte løsningen finnes: homogen del $A\\cosh 3x + B\\sinh 3x$, partikulær $u_p = -x$ (sett inn: $0 - 9(-x) = 9x$ ✓). Randbetingelsene gir $A = 0$ og $B\\sinh 3 = 1$, altså\n\n$$u(x) = \\frac{\\sinh 3x}{\\sinh 3} - x, \\qquad \\sinh 3 = 10{,}0179.$$\n\n$$u(\\tfrac13) = \\frac{1{,}17520}{10{,}0179} - \\frac13 = -0{,}216023, \\qquad u(\\tfrac23) = \\frac{3{,}62686}{10{,}0179} - \\frac23 = -0{,}304628.$$\n\nAvvikene er $0{,}0077$ og $0{,}0130$. Med bare **to** indre punkter er det bra.\n\n**Steg 7 — kontroller ordenen.** Skjemaet skal være $O(h^2)$, så feilen skal deles på 4 når $h$ halveres. Kjørt for $N = 3, 6, 12, 24$ blir største feil\n\n$$1{,}30\\cdot 10^{-2}, \\quad 3{,}46\\cdot 10^{-3}, \\quad 8{,}81\\cdot 10^{-4}, \\quad 2{,}22\\cdot 10^{-4},$$\n\nmed forholdene $3{,}74$, $3{,}93$ og $3{,}97$ — på vei mot 4. ✓ Andre orden bekreftet.\n\n**Denne konvergenskontrollen er verdt å nevne i besvarelsen**, og i løkke 4 blir den selve feilsøkingsverktøyet."
+    },
+    {
+      "id": "tma4135-8-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren innsetting.) Diskretiser $u'' = 6x$ på $[0,1]$ med $u(0) = 0$, $u(1) = 1$ og $h = \\tfrac12$.\n\n**a)** Hvor mange ukjente er det?\n**b)** Skriv opp likningen for det indre punktet.\n**c)** Løs den.",
+        "solution": "**a)** Med $h = \\tfrac12$ er det to delintervall og gitterpunktene $x_0 = 0$, $x_1 = 0{,}5$, $x_2 = 1$. Bare $U_1$ er ukjent — **én ukjent**.\n\n**b)** **Fra formelarket:** $u'' \\approx \\dfrac{U_2 - 2U_1 + U_0}{h^2}$, med $h^2 = 0{,}25$:\n\n$$\\frac{U_2 - 2U_1 + U_0}{0{,}25} = 6 \\cdot 0{,}5 = 3.$$\n\n**c)** Sett inn $U_0 = 0$ og $U_2 = 1$:\n\n$$\\frac{1 - 2U_1 + 0}{0{,}25} = 3 \\quad\\Longrightarrow\\quad 1 - 2U_1 = 0{,}75 \\quad\\Longrightarrow\\quad U_1 = 0{,}125.$$\n\n**Kontroll mot fasiten:** eksakt løsning er $u = x^3 + Cx + D$; $u(0) = 0$ gir $D = 0$, og $u(1) = 1$ gir $C = 0$, altså $u = x^3$. Da er $u(0{,}5) = 0{,}125$ — **eksakt riktig**.\n\nAt det stemmer helt presist, er ingen tilfeldighet: avkuttingsfeilen inneholder $u^{(4)}$, og for et tredjegradspolynom er den fjerdederiverte null.",
+        "hints": [
+          "Antall indre punkter er antall delintervall minus 1.",
+          "Sett inn de kjente randverdiene før du løser."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger P.) Diskretiser\n\n$$u'' - 4u = 8, \\qquad 0 \\le x \\le 1, \\qquad u(0) = 0, \\quad u(1) = 1,$$\n\nmed $h = \\tfrac13$.\n\n**a)** Sett opp $A\\mathbf U = \\mathbf b$.\n**b)** Løs systemet.",
+        "solution": "**a)** Med $h = \\tfrac13$ er $1/h^2 = 9$, og de ukjente er $U_1$, $U_2$. Diskretiseringen:\n\n$$\\frac{U_{i+1}-2U_i+U_{i-1}}{h^2} - 4U_i = 8 \\quad\\Longrightarrow\\quad 9U_{i+1} - 18U_i + 9U_{i-1} - 4U_i = 8,$$\n\naltså\n\n$$9U_{i-1} - 22U_i + 9U_{i+1} = 8.$$\n\n$i = 1$ med $U_0 = 0$: $-22U_1 + 9U_2 = 8$.\n\n$i = 2$ med $U_3 = 1$: $9U_1 - 22U_2 + 9 = 8$, altså $9U_1 - 22U_2 = -1$.\n\n$$\\begin{pmatrix}-22 & 9\\\\ 9 & -22\\end{pmatrix}\\begin{pmatrix}U_1\\\\ U_2\\end{pmatrix} = \\begin{pmatrix}8\\\\ -1\\end{pmatrix}.$$\n\n**Merk at randverdien $U_3 = 1$ ble flyttet over til høyresiden** med motsatt fortegn: $8 - 9 = -1$. Det er det ene trinnet som glemmes oftest.\n\n**b)** Determinanten er $(-22)(-22) - 81 = 484 - 81 = 403$. Cramers regel:\n\n$$U_1 = \\frac{8(-22) - 9(-1)}{403} = \\frac{-176 + 9}{403} = \\frac{-167}{403} = -0{,}414392,$$\n\n$$U_2 = \\frac{(-22)(-1) - 8 \\cdot 9}{403} = \\frac{22 - 72}{403} = \\frac{-50}{403} = -0{,}124069.$$\n\n*Kontroll:* $-22(-0{,}414392) + 9(-0{,}124069) = 9{,}1166 - 1{,}1166 = 8{,}000$. ✓\n\n**Kommentar til fortegnet:** at løsningen er negativ, er som ventet. Likningen $u'' = 4u + 8$ med $u$ nær null gir $u'' > 0$, altså en kurve som bøyer oppover mellom to randverdier som ligger over den — den må dukke ned i midten.",
+        "hints": [
+          "Gang opp med $h^2$ eller del på $1/h^2$ slik at koeffisientene blir enkle.",
+          "Randverdien $U_3 = 1$ er kjent — flytt bidraget over til høyresiden.",
+          "To likninger med to ukjente løses med innsetting eller Cramers regel."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Neumann-rand og den falske noden (~16 min)\n\nNå kommer kapitlets kjerne. Hva gjør du når randbetingelsen ikke gir en **verdi**, men en **stigning**?"
+    },
+    {
+      "id": "tma4135-8-4-def-neumann",
+      "type": "definition",
+      "title": "Neumann-rand",
+      "content": "En randbetingelse på den deriverte:\n\n$$u'(b) = \\beta.$$\n\nDet vanligste tilfellet på eksamen er $\\beta = 0$, som fysisk betyr en **isolert** ende: ingen varme slipper ut.\n\n**To ting endrer seg i forhold til Dirichlet:**\n\n1. **Randverdien $U_N$ er nå en ukjent.** Systemet får én ekstra ukjent og én ekstra rad.\n2. **Den ekstra raden må komme fra randbetingelsen** — og det er der den falske noden dukker opp.\n\nNeumann-betingelsen er innført i [kap. 5.1](/tma4135/tma4135-5-1), der den ga cosinus-egenfunksjoner i stedet for sinus."
+    },
+    {
+      "id": "tma4135-8-4-def-falsk-node",
+      "type": "definition",
+      "title": "Den falske noden",
+      "content": "Et **fiktivt gitterpunkt** utenfor intervallet, $x_{N+1} = b + h$, med en verdi $U_{N+1}$ som ikke svarer til noe fysisk.\n\n**Hvorfor det trengs:** vi vil bruke sentraldifferansen i randpunktet, fordi den er $O(h^2)$:\n\n$$u'(b) \\approx \\frac{U_{N+1} - U_{N-1}}{2h}.$$\n\nDen peker på $x_{N+1}$, som ligger utenfor. Vi later som punktet finnes, bruker det i to likninger, og eliminerer det.\n\n**Det er ikke juks.** Den falske verdien opptrer bare som et mellomledd og forsvinner igjen. Ingen påstand om hva $u$ er utenfor intervallet blir stående.\n\nKalles også *fiktiv node* eller *spøkelsespunkt* (ghost point)."
+    },
+    {
+      "id": "tma4135-8-4-eliminering",
+      "type": "text",
+      "content": "**Elimineringen, steg for steg.** Anta $u'(b) = 0$ i høyre ende.\n\n**Steg 1 — randbetingelsen med sentraldifferanse:**\n\n$$\\frac{U_{N+1} - U_{N-1}}{2h} = 0 \\quad\\Longrightarrow\\quad U_{N+1} = U_{N-1}.$$\n\nDen falske verdien er altså **speilbildet** av naboen på innsiden.\n\n**Steg 2 — bruk differensiallikningen også i randpunktet.** Likningen gjelder helt ut til randen, så vi skriver den for $i = N$:\n\n$$\\frac{U_{N+1} - 2U_N + U_{N-1}}{h^2} + q_N U_N = g_N.$$\n\n**Steg 3 — sett inn fra steg 1.** Erstatt $U_{N+1}$ med $U_{N-1}$:\n\n$$\\frac{2U_{N-1} - 2U_N}{h^2} + q_N U_N = g_N.$$\n\n**Her er hele poenget: koeffisienten foran $U_{N-1}$ ble $2$, ikke $1$.** De to naboverdiene falt sammen til én, og bidragene la seg oppå hverandre.\n\n**Å glemme den faktoren 2 er den enkeltfeilen som er dokumentert i løsningsforslagene** — og den er også kodefeilen du skal lete etter i løkke 4. Skriv $2$ og understrek den.\n\n*Intuisjon:* betingelsen $u'(b) = 0$ sier at kurven er flat i randen. Da er verdien på utsiden lik verdien på innsiden — profilen speiler seg om randpunktet. Tegn det, og faktoren 2 blir opplagt.\n\n**Er $u'(b) = \\beta \\ne 0$**, gir samme regning $U_{N+1} = U_{N-1} + 2h\\beta$, og randraden blir\n\n$$\\frac{2U_{N-1} - 2U_N}{h^2} + q_NU_N = g_N - \\frac{2\\beta}{h}.$$\n\nDet ekstra leddet flyttes over til høyresiden."
+    },
+    {
+      "id": "tma4135-8-4-fig-falsk",
+      "type": "image",
+      "src": "/images/textbook/tma4135/gitter-falsk-node.svg",
+      "alt": "En vannrett akse med fem fylte punkter fra x null til x fire og en tom roed ring utenfor til hoeyre, merket x fem lik 1,25. En stiplet bue forbinder punktet U tre med den tomme ringen U fem og er merket med at de to er like. Under aksen er selve intervallet markert med en klamme, og omraadet til hoeyre for randen er merket som utenfor.",
+      "caption": "Den falske noden. Punktet $x_5$ ligger utenfor intervallet og finnes ikke i problemet — men sentraldifferansen i randpunktet $x_4$ trenger en verdi der. Randbetingelsen $u'(1) = 0$ gir $U_5 = U_3$, og når den settes inn i skjemaet, blir koeffisienten foran $U_3$ lik **2**."
+    },
+    {
+      "id": "tma4135-8-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren opptelling.) Et randverdiproblem på $[0,1]$ diskretiseres med $N = 5$ delintervall.\n\n**a)** Hvor mange ukjente er det når begge randbetingelsene er av Dirichlet-type?\n**b)** Hvor mange er det når venstre rand er Dirichlet og høyre rand er Neumann?\n**c)** Hvilke gitterpunkter trenger en falsk node i tilfellet i b), og hvor ligger den?",
+        "solution": "**a)** Gitterpunktene er $x_0, x_1, \\dots, x_5$ — seks stykker. Med Dirichlet i begge ender er $U_0$ og $U_5$ kjente, så de ukjente er $U_1, \\dots, U_4$: **fire ukjente**.\n\n**b)** Nå er bare $U_0$ kjent. $U_5$ er ukjent, siden høyre rand bare gir stigningen. De ukjente er $U_1, \\dots, U_5$: **fem ukjente**, og systemet får dermed fem likninger.\n\n**c)** Den ekstra likningen er differensiallikningen skrevet i randpunktet $x_5$. Den trenger naboverdien $U_6$, som ligger i punktet\n\n$$x_6 = 1 + h = 1{,}2,$$\n\naltså **utenfor** intervallet. Det er den falske noden, og den elimineres med randbetingelsen.\n\n**Huskeregel:** hver Neumann-rand gir én ukjent mer, én likning mer og én falsk node.",
+        "hints": [
+          "Tell gitterpunktene først: $N$ delintervall gir $N+1$ punkter.",
+          "En Dirichlet-rand gir en kjent verdi; en Neumann-rand gir det ikke."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-eks2",
+      "type": "example",
+      "title": "Falsk node fra ende til annen, med kontroll mot fasiten",
+      "problem": "Diskretiser\n\n$$u'' - 16u = 16x, \\qquad 0 \\le x \\le 1, \\qquad u(0) = 0, \\quad u'(1) = 0,$$\n\nmed $h = \\tfrac14$. Sett opp $A\\mathbf U = \\mathbf b$ med falsk node ved høyre rand, løs, og sammenlign med den eksakte løsningen.",
+      "solution": "**Steg 1 — gitteret og de ukjente.** $N = 4$ gir $x_i = 0;\\ 0{,}25;\\ 0{,}5;\\ 0{,}75;\\ 1$ og $1/h^2 = 16$.\n\n$U_0 = 0$ er kjent (Dirichlet). **$U_4$ er ukjent**, fordi høyre rand bare gir stigningen. De ukjente er altså $U_1, U_2, U_3, U_4$ — fire stykker.\n\n**Steg 2 — diskretiser likningen.** **Fra formelarket:**\n\n$$\\frac{U_{i+1}-2U_i+U_{i-1}}{h^2} - 16U_i = 16x_i.$$\n\nMed $1/h^2 = 16$ blir venstre side $16\\left(U_{i+1}-2U_i+U_{i-1}\\right) - 16U_i$. Del alt på 16:\n\n$$U_{i+1} - 3U_i + U_{i-1} = x_i.$$\n\n**Steg 3 — de indre likningene ($i = 1,2,3$).**\n\n$i = 1$, med $U_0 = 0$: $\\quad -3U_1 + U_2 = 0{,}25$\n\n$i = 2$: $\\quad U_1 - 3U_2 + U_3 = 0{,}5$\n\n$i = 3$: $\\quad U_2 - 3U_3 + U_4 = 0{,}75$\n\n**Steg 4 — randraden med falsk node ($i = 4$).** Skriv samme likning i randpunktet:\n\n$$U_5 - 3U_4 + U_3 = x_4 = 1.$$\n\nRandbetingelsen $u'(1) = 0$ med sentraldifferanse:\n\n$$\\frac{U_5 - U_3}{2h} = 0 \\quad\\Longrightarrow\\quad U_5 = U_3.$$\n\nSett inn:\n\n$$\\boxed{2U_3 - 3U_4 = 1.}$$\n\n**Faktoren 2 foran $U_3$ er hele poenget.** Skriver du $1$ der, løser du et helt annet problem — som du skal se i løkke 3 og 4.\n\n**Steg 5 — systemet.**\n\n$$\\begin{pmatrix}-3 & 1 & 0 & 0\\\\ 1 & -3 & 1 & 0\\\\ 0 & 1 & -3 & 1\\\\ 0 & 0 & 2 & -3\\end{pmatrix}\\begin{pmatrix}U_1\\\\ U_2\\\\ U_3\\\\ U_4\\end{pmatrix} = \\begin{pmatrix}0{,}25\\\\ 0{,}5\\\\ 0{,}75\\\\ 1\\end{pmatrix}.$$\n\n**Legg merke til at matrisen ikke lenger er symmetrisk** — den siste raden har 2 der de andre har 1. Det er normalt for falsk-rand-behandlingen og er ikke en feil.\n\n**Steg 6 — løs.** Ved eliminasjon:\n\n$$U_1 = -\\frac{45}{188} = -0{,}239362, \\qquad U_2 = -\\frac{22}{47} = -0{,}468085,$$\n$$U_3 = -\\frac{125}{188} = -0{,}664894, \\qquad U_4 = -\\frac{73}{94} = -0{,}776596.$$\n\n*Kontroll i randraden:* $2\\left(-\\tfrac{125}{188}\\right) - 3\\left(-\\tfrac{146}{188}\\right) = \\tfrac{-250 + 438}{188} = \\tfrac{188}{188} = 1$. ✓\n\n*Kontroll i rad 2:* $-\\tfrac{45}{188} + \\tfrac{66}{47} - \\tfrac{125}{188}$. Med felles nevner 188: $\\tfrac{-45 + 264 - 125}{188} = \\tfrac{94}{188} = 0{,}5$. ✓\n\n**Steg 7 — sammenlign med fasiten.** Eksakt: partikulær $u_p = -x$ (sett inn: $0 - 16(-x) = 16x$ ✓), homogen $A\\cosh 4x + B\\sinh 4x$. Fra $u(0) = 0$: $A = 0$. Fra $u'(1) = 0$: $4B\\cosh 4 - 1 = 0$, altså $B = \\dfrac{1}{4\\cosh 4}$:\n\n$$u(x) = \\frac{\\sinh 4x}{4\\cosh 4} - x, \\qquad \\cosh 4 = 27{,}30823.$$\n\n| $x$ | numerisk | eksakt | avvik |\n|---|---|---|---|\n| 0,25 | $-0{,}239362$ | $-0{,}239241$ | $-0{,}000120$ |\n| 0,50 | $-0{,}468085$ | $-0{,}466797$ | $-0{,}001288$ |\n| 0,75 | $-0{,}664894$ | $-0{,}658289$ | $-0{,}006605$ |\n| 1,00 | $-0{,}776596$ | $-0{,}750168$ | $-0{,}026428$ |\n\n**Merk at feilen er størst i randpunktet.** Det er typisk: randraden er den eneste som er behandlet spesielt, og den bærer mest feil. Men den er fortsatt $O(h^2)$ — se løkke 3.\n\n**Det som gir uttelling i denne oppgavetypen:** (1) at du skriver differensiallikningen også i randpunktet, (2) at du bruker sentraldifferansen — ikke en ensidig — på randbetingelsen, (3) at faktoren 2 kommer riktig ut, og (4) minst én innsettingskontroll. Ren fasit uten disse fire gir ikke full uttelling."
+    },
+    {
+      "id": "tma4135-8-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Sett opp randraden med falsk node i hvert tilfelle. Likningen er $u'' + q u = g$, gitteret har $N$ delintervall, og randbetingelsen gjelder i $x_N = b$.\n\n**a)** $u'(b) = 0$\n**b)** $u'(b) = 3$\n**c)** Venstre rand i stedet: $u'(a) = 0$, med falsk node $U_{-1}$.",
+        "solution": "**a)** Sentraldifferansen gir $\\dfrac{U_{N+1}-U_{N-1}}{2h} = 0$, altså $U_{N+1} = U_{N-1}$. Satt inn i likningen for $i = N$:\n\n$$\\frac{2U_{N-1} - 2U_N}{h^2} + q_NU_N = g_N.$$\n\n**b)** $\\dfrac{U_{N+1}-U_{N-1}}{2h} = 3$ gir $U_{N+1} = U_{N-1} + 6h$. Satt inn:\n\n$$\\frac{U_{N-1} + 6h - 2U_N + U_{N-1}}{h^2} + q_NU_N = g_N,$$\n\naltså\n\n$$\\frac{2U_{N-1} - 2U_N}{h^2} + q_NU_N = g_N - \\frac{6}{h}.$$\n\nDet ekstra leddet $6h/h^2 = 6/h$ flyttes over til høyresiden med motsatt fortegn. **Merk at det inneholder $1/h$, ikke $h$** — det er en vanlig regnefeil.\n\n**c)** Ved venstre rand er den falske noden $x_{-1} = a - h$. Betingelsen $\\dfrac{U_1 - U_{-1}}{2h} = 0$ gir $U_{-1} = U_1$. Likningen for $i = 0$:\n\n$$\\frac{U_1 - 2U_0 + U_{-1}}{h^2} + q_0U_0 = g_0 \\quad\\Longrightarrow\\quad \\frac{2U_1 - 2U_0}{h^2} + q_0U_0 = g_0.$$\n\n**Samme faktor 2, samme struktur, speilvendt.** Legg merke til at det er *innoverliggende* nabo som får faktor 2 i begge tilfeller — det er alltid slik, fordi den falske noden alltid speiles inn i intervallet.",
+        "hints": [
+          "Skriv først randbetingelsen med sentraldifferanse og løs for den falske verdien.",
+          "Skriv så differensiallikningen i randpunktet og sett inn.",
+          "I b): pass på at leddet blir $6h/h^2$, altså $6/h$, når du deler på $h^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger P — falsk rand.) Diskretiser\n\n$$u'' - 4u = 4, \\qquad 0 \\le x \\le 1, \\qquad u'(0) = 0, \\quad u(1) = 0,$$\n\nmed $h = \\tfrac12$. Sett opp systemet og løs det.",
+        "solution": "**Gitteret:** $x_0 = 0$, $x_1 = 0{,}5$, $x_2 = 1$, med $h^2 = 0{,}25$, altså $1/h^2 = 4$.\n\n$U_2 = 0$ er kjent. **$U_0$ er ukjent**, siden venstre rand bare gir stigningen. De ukjente er $U_0$ og $U_1$.\n\n**Diskretiseringen:**\n\n$$4\\left(U_{i+1}-2U_i+U_{i-1}\\right) - 4U_i = 4 \\quad\\Longrightarrow\\quad U_{i+1} - 3U_i + U_{i-1} = 1.$$\n\n**Randraden ($i = 0$, falsk node til venstre).** Betingelsen $\\dfrac{U_1 - U_{-1}}{2h} = 0$ gir $U_{-1} = U_1$. Likningen i $i = 0$:\n\n$$U_1 - 3U_0 + U_{-1} = 1 \\quad\\Longrightarrow\\quad 2U_1 - 3U_0 = 1.$$\n\n**Indre rad ($i = 1$), med $U_2 = 0$:**\n\n$$U_2 - 3U_1 + U_0 = 1 \\quad\\Longrightarrow\\quad U_0 - 3U_1 = 1.$$\n\n**Systemet:**\n\n$$\\begin{pmatrix}-3 & 2\\\\ 1 & -3\\end{pmatrix}\\begin{pmatrix}U_0\\\\ U_1\\end{pmatrix} = \\begin{pmatrix}1\\\\ 1\\end{pmatrix}.$$\n\n**Løsning.** Fra den andre: $U_0 = 1 + 3U_1$. Sett inn i den første:\n\n$$-3 - 9U_1 + 2U_1 = 1 \\quad\\Longrightarrow\\quad -7U_1 = 4 \\quad\\Longrightarrow\\quad U_1 = -\\frac47 = -0{,}571429,$$\n\n$$U_0 = 1 + 3\\left(-\\frac47\\right) = 1 - \\frac{12}{7} = -\\frac57 = -0{,}714286.$$\n\n*Kontroll i randraden:* $2\\left(-\\tfrac47\\right) - 3\\left(-\\tfrac57\\right) = \\tfrac{-8+15}{7} = 1$. ✓\n\n**Sammenligning med fasiten.** Eksakt: $u_p = -1$, homogen $A\\cosh 2x + B\\sinh 2x$. $u'(0) = 0$ gir $2B = 0$, altså $B = 0$. $u(1) = 0$ gir $A\\cosh 2 = 1$, altså $A = 1/\\cosh 2 = 1/3{,}76220 = 0{,}265802$:\n\n$$u(x) = \\frac{\\cosh 2x}{\\cosh 2} - 1.$$\n\n$$u(0) = 0{,}265802 - 1 = -0{,}734198, \\qquad u(0{,}5) = \\frac{1{,}276260}{3{,}762196} - 1 = -0{,}660776.$$\n\nAvvikene er $0{,}020$ og $0{,}089$. **Med bare to delintervall er det grovt** — det er nesten det minste gitteret som gir mening. Halverer du $h$, skal feilen deles på fire.",
+        "hints": [
+          "Hvilken av randverdiene er ukjent? Den enden der bare den deriverte er gitt.",
+          "Skriv differensiallikningen også i det randpunktet, og bruk sentraldifferansen på randbetingelsen.",
+          "Faktoren 2 havner foran naboen som ligger inne i intervallet."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hvorfor ikke bare bruke en ensidig differanse? (~13 min)\n\n— naturlig pausepunkt —\n\nEt rimelig spørsmål: hvorfor gjøre det så tungvint? Randbetingelsen $u'(b) = 0$ kunne jo like gjerne skrives\n\n$$\\frac{U_N - U_{N-1}}{h} = 0 \\quad\\Longrightarrow\\quad U_N = U_{N-1},$$\n\nuten noen falsk node i det hele tatt. Svaret er at det **ødelegger hele skjemaet**, og det er verdt å se hvorfor."
+    },
+    {
+      "id": "tma4135-8-4-def-orden-rand",
+      "type": "definition",
+      "title": "Ordenen til randbehandlingen",
+      "content": "En differanselikning er bare så nøyaktig som sitt svakeste ledd.\n\n- Den andre sentraldifferansen i de indre punktene er $O(h^2)$.\n- **Falsk node** bruker den sentrale førstederiverte i randpunktet, som også er $O(h^2)$. Skjemaet forblir andreordens.\n- **Ensidig differanse** i randpunktet er $O(h)$. Den ene raden trekker hele løsningen ned til første orden.\n\n**Regelen er generell og verdt å kunne:** randbehandlingen må ha minst samme orden som skjemaet inne i området, ellers er den høyere ordenen bortkastet.\n\nDet er hele grunnen til at den falske noden finnes. Den er ikke et pedagogisk påfunn — den er billigste vei til å bevare orden 2."
+    },
+    {
+      "id": "tma4135-8-4-eks3",
+      "type": "example",
+      "title": "To randbehandlinger, målt mot hverandre",
+      "problem": "Løs problemet fra eksempel 2 — $u'' - 16u = 16x$, $u(0) = 0$, $u'(1) = 0$ — for $N = 4, 8, 16, 32, 64$, én gang med falsk node og én gang med den ensidige betingelsen $U_N = U_{N-1}$. Sammenlign største feil.",
+      "solution": "**Resultatet av de to kjøringene:**\n\n| $N$ | $h$ | falsk node | forhold | ensidig | forhold |\n|---|---|---|---|---|---|\n| 4 | 0,2500 | $2{,}643\\cdot 10^{-2}$ | — | $1{,}540\\cdot 10^{-1}$ | — |\n| 8 | 0,1250 | $7{,}473\\cdot 10^{-3}$ | 3,54 | $7{,}005\\cdot 10^{-2}$ | 2,20 |\n| 16 | 0,0625 | $1{,}933\\cdot 10^{-3}$ | 3,87 | $3{,}314\\cdot 10^{-2}$ | 2,11 |\n| 32 | 0,0312 | $4{,}874\\cdot 10^{-4}$ | 3,97 | $1{,}609\\cdot 10^{-2}$ | 2,06 |\n| 64 | 0,0156 | $1{,}221\\cdot 10^{-4}$ | 3,99 | $7{,}923\\cdot 10^{-3}$ | 2,03 |\n\n**Les kolonnene med forhold.** Falsk node gir forholdet 4 — feilen deles på fire når $h$ halveres, altså **orden 2**. Den ensidige gir forholdet 2 — bare **orden 1**.\n\n**Se hva det koster i praksis.** Ved $N = 64$ er feilen med falsk node $1{,}2\\cdot 10^{-4}$; med ensidig rand er den $7{,}9\\cdot 10^{-3}$ — **65 ganger større**. Og forspranget vokser: hver halvering av $h$ dobler forholdet mellom de to.\n\n**Sagt på en annen måte:** for å nå samme nøyaktighet som falsk node gir ved $N = 8$, trenger den ensidige varianten omtrent $N = 570$. Det er en veldig dyr forenkling.\n\n**Det ene ekstra trinnet — å skrive likningen i randpunktet og speile den falske noden inn — er altså ikke pynt.** Det er forskjellen mellom en andreordens og en førsteordens metode.\n\n**Merk også at feilen med ensidig rand ikke er konsentrert nær randen.** Den forplanter seg innover, fordi alle likningene er koblet. Én dårlig rad ødelegger for hele løsningen — og det er nettopp derfor kodefeil i randraden er så vanskelige å oppdage ved å se på tallene."
+    },
+    {
+      "id": "tma4135-8-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En annen måte å bevare orden 2 på i randpunktet er å bruke den **ensidige andreordens** formelen fra [kap. 8.1](/tma4135/tma4135-8-1):\n\n$$u'(x_N) \\approx \\frac{3U_N - 4U_{N-1} + U_{N-2}}{2h}.$$\n\n**a)** Skriv opp randraden som $u'(b) = 0$ da gir.\n**b)** Hvilken fordel og hvilken ulempe har denne varianten sammenlignet med falsk node?\n**c)** Hvorfor blir matrisen ikke lenger tridiagonal?",
+        "solution": "**a)** Betingelsen $\\dfrac{3U_N - 4U_{N-1} + U_{N-2}}{2h} = 0$ gir randraden direkte:\n\n$$U_{N-2} - 4U_{N-1} + 3U_N = 0.$$\n\nHer brukes **ikke** differensiallikningen i randpunktet i det hele tatt — randraden er selve randbetingelsen. Det er en annen strategi enn falsk node, som bruker begge deler.\n\n**b) Fordelen:** ingen fiktive punkter, og hele resonnementet er kortere. Formelen er også allerede utledet, så det er lite å regne.\n\n**Ulempen:** feilkonstanten er dårligere. Den ensidige formelen har hovedledd $-\\dfrac{h^2}{3}u'''$, mot sentraldifferansens $\\dfrac{h^2}{6}u'''$ — **dobbelt så stor**. Og i tillegg ødelegger den båndstrukturen, se c).\n\n**c)** Raden inneholder $U_{N-2}$, som ligger **to** plasser fra diagonalen. En tridiagonal matrise har bare naboelementer, så denne raden faller utenfor båndet.\n\n**Praktisk konsekvens:** den effektive Thomas-algoritmen fra [kap. 8.3](/tma4135/tma4135-8-3) kan ikke brukes uten videre. For små systemer på eksamen betyr det ingenting, men i et program er det en reell ulempe.\n\n**Konklusjonen:** begge varianter er andreordens og begge er riktige. Falsk node bevarer båndstrukturen og har bedre feilkonstant, og er derfor standardvalget — men blir du bedt om å bruke den ensidige formelen, er det ikke feil.",
+        "hints": [
+          "I a): sett uttrykket lik null og gang opp med $2h$.",
+          "I b): sammenlign hovedleddene i avkuttingsfeilen fra [kap. 8.1](/tma4135/tma4135-8-1).",
+          "I c): hvor langt fra diagonalen ligger elementet som svarer til $U_{N-2}$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Å finne den ene linja som er feil (~16 min)\n\nNå til den sjangeren som er helt egen for dette emnet. Du får et kort program, det gir feil svar, og du skal peke på linja.\n\n**Dette er ikke et programmeringspensum.** Du skal aldri skrive et program på eksamen. Du skal lese femten linjer og se hvor randbetingelsen bor."
+    },
+    {
+      "id": "tma4135-8-4-def-feilsokoppskrift",
+      "type": "definition",
+      "title": "Oppskrift: finn feilen i et differanseprogram",
+      "content": "Fire steg, i denne rekkefølgen. De tar til sammen fem minutter.\n\n1. **Sjekk om randbetingelsene faktisk er oppfylt** i det svaret programmet gir. Er $u(0) = 0$ i oppgaven, men $U_0 \\ne 0$ i utskriften, ligger feilen i randbehandlingen — ikke i løkka.\n2. **Sammenlign radene i matrisen med likningene du selv utleder for hånd.** Skriv opp én indre rad og randraden på papir, og les dem mot koden. Nesten alle plantede feil ligger i randraden.\n3. **Forfin gitteret.** Halver $h$ og se om feilen synker. **Gjør den ikke det, er feilen strukturell** — en rad som svarer til et annet problem. Er den strukturelle feilen i randraden, kan feilen til og med *vokse* når du forfiner.\n4. **Sjekk løkkegrensene.** `range(1, n)` gir $i = 1, \\dots, n-1$. Skal siste indre punkt være med, må grensen være `n+1` eller punktet behandles for seg.\n\n**Steg 1 er det som løser oppgaven ni ganger av ti**, og det er det som er formulert i oppgavetekstene: «se at randbetingelsen ikke er oppfylt, og pek på linja»."
+    },
+    {
+      "id": "tma4135-8-4-eks4",
+      "type": "example",
+      "title": "Kodefeil-lokalisering: programmet som ikke respekterer randbetingelsen",
+      "problem": "En student skal løse randverdiproblemet fra eksempel 2,\n\n$$u'' - 16u = 16x, \\qquad u(0) = 0, \\quad u'(1) = 0,$$\n\nog skriver dette programmet. Det gir feil svar. Finn feilen, forklar symptomet, og rett den.\n\n```python\nimport numpy as np\n\nn = 4                          # antall delintervall\nh = 1/n\nx = np.linspace(0, 1, n+1)\nA = np.zeros((n, n))           # ukjente er U_1, ..., U_4\nb = np.zeros(n)\n\nfor i in range(1, n):          # de indre punktene\n    A[i-1, i-1] = -2/h**2 - 16\n    if i >= 2:\n        A[i-1, i-2] = 1/h**2\n    A[i-1, i] = 1/h**2\n    b[i-1] = 16*x[i]\n\nA[n-1, n-2] = 1/h**2           # raden for randpunktet x_n\nA[n-1, n-1] = -2/h**2 - 16\nb[n-1] = 16*x[n]\n\nU = np.linalg.solve(A, b)\nprint(np.round(U, 6))\n```\n\n**Utskrift:**\n\n```text\n[-0.227273 -0.431818 -0.568182 -0.522727]\n```",
+      "solution": "**Steg 1 — sjekk randbetingelsen i svaret.** Betingelsen er $u'(1) = 0$: løsningen skal flate ut mot høyre ende. Se på de to siste tallene:\n\n$$U_3 = -0{,}568182, \\qquad U_4 = -0{,}522727.$$\n\nKurven **stiger** mot randen, med en stigning på omtrent $(U_4-U_3)/h = 0{,}18$. Den er ikke i nærheten av flat. **Randbetingelsen er brutt**, og etter steg 1 i oppskriften ligger feilen dermed i randbehandlingen.\n\n**Steg 2 — utled randraden for hånd og les den mot koden.** Fra eksempel 2: skriv differensiallikningen i $i = 4$ og sett inn $U_5 = U_3$ fra randbetingelsen:\n\n$$\\frac{2U_3 - 2U_4}{h^2} - 16U_4 = 16.$$\n\nKoeffisienten foran $U_3$ skal altså være $\\dfrac{2}{h^2}$.\n\nI koden står det\n\n```text\nA[n-1, n-2] = 1/h**2\n```\n\n**Det er feilen, og det er én linje.** Faktoren 2 mangler. De to naboverdiene $U_3$ og $U_5$ falt sammen til én da den falske noden ble eliminert, og bidragene skulle legges sammen.\n\n**Steg 3 — hvorfor symptomet følger av feilen.** Raden koden faktisk løser, er\n\n$$\\frac{U_3 - 2U_4}{h^2} - 16U_4 = 16,$$\n\nsom er den samme som du ville fått av å sette $U_5 = 0$ — altså en **Dirichlet-betingelse i den falske noden**, ikke $u'(1) = 0$. Programmet løser et helt annet randverdiproblem: ett der løsningen tvinges mot null like utenfor intervallet. Derfor bøyer kurven oppover mot randen i stedet for å flate ut.\n\n**Steg 4 — bekreft med gitterforfining.** Kjør det samme programmet for flere $n$ og se på randverdien $U_n$:\n\n| $n$ | $U(1)$ med feilen | $U(1)$ rettet | eksakt |\n|---|---|---|---|\n| 4 | $-0{,}522727$ | $-0{,}776596$ | $-0{,}750168$ |\n| 8 | $-0{,}314344$ | $-0{,}757641$ | $-0{,}750168$ |\n| 16 | $-0{,}172100$ | $-0{,}752100$ | $-0{,}750168$ |\n| 32 | $-0{,}089919$ | $-0{,}750655$ | $-0{,}750168$ |\n\n**Se på venstre kolonne: den går mot null, ikke mot fasiten.** Feilen blir *verre* når gitteret forfines. Det er det sikreste tegnet på en strukturell feil i en randrad — en ren regnefeil ville blitt mindre.\n\nDen rettede kolonnen konvergerer pent mot $-0{,}750168$, med feil som deles på omtrent fire for hver halvering.\n\n**Rettelsen** er én tegn:\n\n```text\nA[n-1, n-2] = 2/h**2\n```\n\n**Slik formuleres svaret på eksamen**, kort og med begge delene med:\n\n> Linja `A[n-1, n-2] = 1/h**2` er feil; den skal være `2/h**2`. Ved elimineringen av den falske noden $U_5 = U_3$ legger de to naboleddene seg oppå hverandre, så koeffisienten foran $U_3$ blir $2/h^2$. Med koeffisienten $1/h^2$ løser programmet i stedet problemet med $U_5 = 0$, altså en verdibetingelse i den fiktive noden. Symptomet er at den numeriske løsningen stiger mot høyre rand i stedet for å flate ut, og at feilen vokser når gitteret forfines.\n\n**Merk hva som gir uttelling:** å peke på linja alene er halve svaret. Den andre halvdelen er å forklare **hvorfor symptomet følger av feilen** — at randbetingelsen blir en annen enn den oppgaven ba om."
+    },
+    {
+      "id": "tma4135-8-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et program skal ta fem tidssteg med det eksplisitte skjemaet for varmelikningen med $r = 0{,}4$, på et symmetrisk startprofil. Det gir dette svaret:\n\n```text\n[0.       0.206821 0.326136 0.342679 0.270243 0.142233 0.      ]\n```\n\nStartprofilen var $\\left(0;\\ 0{,}3;\\ 0{,}7;\\ 1{,}0;\\ 0{,}7;\\ 0{,}3;\\ 0\\right)$, og randbetingelsene er kalde ender i begge sider.\n\n**a)** Hva er galt med svaret, uten å regne noe?\n**b)** Her er løkka. Finn feilen.\n\n```python\nfor n in range(5):\n    for i in range(1, len(U)-1):\n        U[i] = U[i] + r*(U[i+1] - 2*U[i] + U[i-1])\n```\n\n**c)** Hva blir riktig svar?",
+        "solution": "**a)** **Svaret er ikke symmetrisk.** Startdataene er symmetriske om midtpunktet ($0{,}3;\\ 0{,}7;\\ 1{,}0;\\ 0{,}7;\\ 0{,}3$), randbetingelsene er like i begge ender, og likningen behandler de to retningene helt likt. Da **må** løsningen være symmetrisk på hver eneste rad.\n\nMen her er $U_1 = 0{,}2068$ mot $U_5 = 0{,}1422$, og toppen har flyttet seg fra midtpunktet til $U_3$ og videre. Noe behandler venstre og høyre ulikt.\n\nLegg også merke til at maksimalverdien er $0{,}343$ og at alt synker — så skjemaet er ikke ustabilt. $r = 0{,}4 \\le \\tfrac12$, som det skal.\n\n**b)** Feilen er at oppdateringen skjer **på plass**: `U[i] = U[i] + ...` skriver over `U[i]` mens den samme lista fortsatt brukes til å lese naboverdier. Når løkka kommer til $i+1$, er `U[i]` allerede den **nye** verdien, mens `U[i+2]` fortsatt er den gamle.\n\nSkjemaet krever at alle tre verdiene i parentesen hentes fra **samme** tidsnivå $n$. Her blandes nivå $n$ og $n+1$, og siden løkka går fra venstre mot høyre, favoriseres venstre side — nøyaktig det symmetribruddet vi ser.\n\n**Rettelsen** er å skrive til en ny vektor:\n\n```text\nfor n in range(5):\n    Ny = U.copy()\n    for i in range(1, len(U)-1):\n        Ny[i] = U[i] + r*(U[i+1] - 2*U[i] + U[i-1])\n    U = Ny\n```\n\n**c)** Med rettelsen blir svaret\n\n```text\n[0.       0.237088 0.412192 0.474304 0.412192 0.237088 0.      ]\n```\n\nSymmetrisk, med toppen fortsatt i midten, og alle verdier innenfor det opprinnelige spennet $[0,\\ 1]$ — som maksimumsprinsippet fra [kap. 8.2](/tma4135/tma4135-8-2) krever.\n\n**Lærdommen:** symmetri er den billigste feilsøkingstesten som finnes. Er problemet symmetrisk og svaret ikke er det, er det en feil — uten at du trenger å regne en eneste verdi.",
+        "hints": [
+          "I a): se på startdataene og randbetingelsene. Er problemet symmetrisk?",
+          "I b): hva er verdien av `U[i-1]` når løkka har kommet til indeks $i$?",
+          "Skjemaet krever at alle tre verdiene i parentesen kommer fra samme rad."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger P — kodefeil.) Et program skal løse varmelikningen $u_t = u_{xx}$ på $[0,1]$ med $u(0,t) = 0$, $u(1,t) = 1$ og $u(x,0) = 0$ for $x < 1$. Etter 50 tidssteg med $r = 0{,}4$ og $h = 0{,}1$ gir det\n\n```text\n[0.  0.001071 0.002039 0.002812 0.003313 0.003492 0.003329 0.002838 0.002066 0.001087 0.  ]\n```\n\n**a)** Hva forteller svaret deg umiddelbart?\n**b)** Her er tidsløkka. Finn feilen.\n\n```python\nfor k in range(steg):\n    Ny = np.zeros_like(U)\n    Ny[1:-1] = U[1:-1] + r*(U[2:] - 2*U[1:-1] + U[:-2])\n    U = Ny\n```\n\n**c)** Hva skulle svaret nærmet seg?",
+        "solution": "**a)** **Randbetingelsen i høyre ende er brutt.** Oppgaven sier $u(1,t) = 1$, men siste tall i utskriften er $0$. Etter steg 1 i feilsøkingsoppskriften ligger feilen dermed i randbehandlingen.\n\nLegg også merke til at *alle* verdiene er nær null, mens varmen skulle strømmet inn fra høyre. Løsningen ser ut som om ingenting varmt noen gang har vært til stede.\n\n**b)** Linja\n\n```text\nNy = np.zeros_like(U)\n```\n\nlager en **nullstilt** vektor, og deretter fylles bare de indre elementene `Ny[1:-1]`. Randelementene `Ny[0]` og `Ny[-1]` blir aldri satt — de forblir null.\n\nDet betyr at randverdien $u(1,t) = 1$ **slettes i det aller første tidssteget** og aldri kommer tilbake. Fra da av løser programmet problemet med kalde ender i begge sider, og da dør alt ut mot null. De små tallene som står igjen, er restene av den ene varmemengden som rakk å diffundere inn før randen ble nullet.\n\n**To gyldige rettelser:**\n\n```text\nNy = U.copy()          # randverdiene arves\n```\n\neller, tydeligere:\n\n```text\nNy[0] = 0.0\nNy[-1] = 1.0           # randbetingelsen settes eksplisitt\n```\n\nDen siste er å foretrekke i et program: den sier hva randbetingelsen *er*, i stedet for å stole på at den ble riktig av seg selv.\n\n**c)** Løsningen skulle nærmet seg den **stasjonære** løsningen, som er den rette linja mellom randverdiene, jf. [kap. 5.2](/tma4135/tma4135-5-2):\n\n$$w(x) = x.$$\n\nKjørt med rettelsen gir 50 tidssteg\n\n```text\n[0.  0.073564 0.149703 0.230744 0.318544 0.414304 0.518453 0.630597 0.749556 0.873473 1.  ]\n```\n\nsom er godt på vei mot $(0;\\ 0{,}1;\\ 0{,}2;\\ \\dots;\\ 1)$ og har riktig randverdi i begge ender.\n\n**Merk hvordan de to symptomene henger sammen:** at siste tall er 0 er *årsaken*, og at alt annet er nær 0 er *virkningen*. Å beskrive begge, og koblingen mellom dem, er det som gir full uttelling. Å bare skrive «randbetingelsen mangler» er halve svaret.",
+        "hints": [
+          "Sammenlign siste tall i utskriften med randbetingelsen oppgaven gir.",
+          "Hva står i `Ny[0]` og `Ny[-1]` etter at bare `Ny[1:-1]` er fylt?",
+          "I c): hva blir løsningen når alt har roet seg, altså når $u_t = 0$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-4-o9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et program løser $u'' + 4u = 0$ på $[0,1]$ med $u(0) = 1$, $u(1) = 2$, og bygger matrisen med denne løkka:\n\n```python\nfor i in range(1, n):\n    A[i-1, i-1] = -2/h**2 + 4\n    if i >= 2:\n        A[i-1, i-2] = 1/h**2\n    if i <= n-2:\n        A[i-1, i] = 1/h**2\nb[0] = -1/h**2\nb[n-2] = -2/h**2\n```\n\n**a)** Kontroller at diagonalen er riktig.\n**b)** Kontroller randbidragene i `b`.\n**c)** Programmet gir en løsning som er nær null overalt. Hvor bør du lete?",
+        "solution": "**a) Diagonalen.** Diskretiseringen er\n\n$$\\frac{U_{i+1}-2U_i+U_{i-1}}{h^2} + 4U_i = 0,$$\n\nså koeffisienten foran $U_i$ er $-\\dfrac{2}{h^2} + 4$. Koden har `-2/h**2 + 4`. **Riktig.** ✓\n\n**b) Randbidragene.** I første likning ($i = 1$) står leddet $\\dfrac{U_0}{h^2}$ med $U_0 = 1$. Det flyttes over til høyresiden med motsatt fortegn:\n\n$$b_1 = 0 - \\frac{U_0}{h^2} = -\\frac{1}{h^2}.$$\n\nKoden har `b[0] = -1/h**2`. **Riktig.** ✓\n\nI siste likning ($i = n-1$) står $\\dfrac{U_n}{h^2}$ med $U_n = 2$:\n\n$$b_{n-1} = -\\frac{2}{h^2}.$$\n\nKoden har `b[n-2] = -2/h**2`, og `b[n-2]` er nettopp siste element i en vektor med $n-1$ elementer. **Riktig.** ✓\n\n**c) Hvor du bør lete.** Både diagonalen og randbidragene er riktige — så feilen er ikke der. To ting gjenstår å kontrollere:\n\n**Løkkegrensen.** `range(1, n)` gir $i = 1, \\dots, n-1$, som er akkurat de $n-1$ indre punktene. Riktig antall rader fylles.\n\n**Nullstillingen av `b`.** Koden setter `b[0]` og `b[n-2]`, men de øvrige elementene må være null — og det er de bare hvis `b` ble opprettet med `np.zeros`. Er den laget med `np.empty`, inneholder den tilfeldig søppel.\n\n**Men det mest sannsynlige er noe helt annet, og det er verdt å nevne:** likningen $u'' + 4u = 0$ har den homogene løsningen $A\\cos 2x + B\\sin 2x$, og randverdiproblemet har **entydig løsning bare hvis** $\\sin 2 \\ne 0$. Her er $\\sin 2 = 0{,}909$, altså greit. Men matrisen er nær singulær dersom $h$ velges slik at $-2/h^2 + 4$ nær opphever naboene — og da gir `np.linalg.solve` et tall uten å klage.\n\n**Kontrollen du bør gjøre først:** sett den beregnede løsningen inn i én av likningene, og sjekk at høyresiden kommer ut. Er residualet stort, er systemet løst feil; er residualet lite mens svaret er galt, er det **systemet** som er feil oppsatt — ikke løseren.\n\n**Riktig svar på oppgaven er altså:** «feilen ligger ikke i de tre stedene som er kontrollert. Sjekk at `b` er nullstilt, sjekk løkkegrensen mot antall rader i `A`, og gjør en residualtest for å skille mellom feil oppsett og feil løsning.»",
+        "hints": [
+          "I a) og b): utled selv hva koeffisienten og randbidraget skal være, og les koden mot det.",
+          "Et randbidrag flyttes over med MOTSATT fortegn.",
+          "I c): når det som er sjekket er riktig, må du si hva du sjekker NESTE — ikke gjette."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å glemme faktoren 2 ved eliminering av den falske noden.** Dette er den dokumenterte enkeltfeilen i sjangeren, og det er nettopp den som plantes i kodefeil-oppgavene. Når $U_{N+1} = U_{N-1}$ settes inn, legger to like ledd seg oppå hverandre, og koeffisienten blir $2/h^2$. Skriv 2-tallet, og sett en ring rundt det.\n\n**Å bruke en ensidig differanse på Neumann-betingelsen.** $\\dfrac{U_N - U_{N-1}}{h} = 0$ er fristende kort, men den er bare $O(h)$ og trekker hele løsningen ned til første orden. Feilen blir titalls ganger større, slik eksempel 3 viser. Bruk sentraldifferansen og den falske noden.\n\n**Feil matriseoppføring.** Kontroller alltid to rader for hånd: én vanlig indre rad og randraden. Nesten alle plantede feil ligger i randraden, fordi det er den eneste som er utledet spesielt.\n\n**Å glemme å flytte randverdien over til høyresiden.** I første og siste likning står en kjent verdi som må over i $\\mathbf b$ — **med motsatt fortegn**. Å glemme fortegnsbyttet er like vanlig som å glemme leddet helt.\n\n**Å lete i selve løkka når randbetingelsen er brutt.** Er $U_0$ eller $U_N$ feil i utskriften, ligger feilen i randbehandlingen. Løkka over de indre punktene rører ikke randen. Denne ene erkjennelsen sparer flere minutter på eksamen.\n\n**Å peke på linja uten å forklare symptomet.** Oppgaven ber om begge deler: hvilken linje, og hvorfor det gale svaret følger av den. Halve poengsummen ligger i forklaringen.\n\n**Å tro at et lite tall betyr et lite avvik.** I eksempel 4 var svaret $-0{,}52$ mot fasiten $-0{,}75$ — det ser nesten riktig ut. Først når gitteret forfines, ser du at det ikke konvergerer i det hele tatt. **Forfin alltid.**"
+    },
+    {
+      "id": "tma4135-8-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Boksene under samler resten av kapitlets begreper som egne kort."
+    },
+    {
+      "id": "tma4135-8-4-def-robin",
+      "type": "definition",
+      "title": "Blandet rand (Robin-betingelse)",
+      "content": "En betingelse som blander verdi og derivert:\n\n$$\\alpha\\,u(b) + \\beta\\,u'(b) = \\gamma.$$\n\nBehandlingen er den samme som for ren Neumann: skriv $u'(b)$ med sentraldifferanse, løs for den falske verdien\n\n$$U_{N+1} = U_{N-1} + \\frac{2h}{\\beta}\\left(\\gamma - \\alpha U_N\\right),$$\n\nog sett inn i likningen for $i = N$. Nå havner det ekstra $U_N$-leddet i **diagonalen**, ikke bare i høyresiden.\n\nBetingelsen dukker opp i varmeledning mot omgivelser med gitt temperatur («Newtons avkjølingslov»), og prinsippet er identisk: én falsk verdi, én eliminasjon."
+    },
+    {
+      "id": "tma4135-8-4-def-residual",
+      "type": "definition",
+      "title": "Residualtesten",
+      "content": "Sett den beregnede løsningen tilbake inn i likningssystemet og se hva som blir til overs:\n\n$$\\mathbf s = A\\mathbf U - \\mathbf b.$$\n\n**Er $\\mathbf s$ nær null, er systemet løst riktig.** Da er en eventuell feil i *oppsettet* av systemet, ikke i løsningen av det.\n\n**Er $\\mathbf s$ stor, er det løseren eller innsettingen som svikter** — for eksempel en nær-singulær matrise.\n\nTesten skiller altså mellom to helt ulike feiltyper, og den tar noen sekunder. På eksamen gjør du den ved å sette svaret inn i én eller to av likningene, slik alle eksemplene i dette kapitlet gjør."
+    },
+    {
+      "id": "tma4135-8-4-def-forfining",
+      "type": "definition",
+      "title": "Gitterforfining som diagnose",
+      "content": "Kjør samme program med $h$ og med $h/2$, og sammenlign feilen mot en kjent fasit — eller, mangler fasit, sammenlign de to numeriske svarene med hverandre.\n\n- **Feilen deles på fire:** skjemaet er andreordens og trolig riktig.\n- **Feilen deles på to:** ordenen er falt til én. Se etter en ensidig differanse et sted, typisk i randraden.\n- **Feilen synker ikke, eller vokser:** skjemaet løser et *annet* problem. Feilen er strukturell, og den ligger nesten alltid i en rad som er utledet spesielt.\n\n**Den siste linja er det kraftigste diagnoseverktøyet i hele Del 8**, og den er lett å bruke: to kjøringer og en divisjon."
+    },
+    {
+      "id": "tma4135-8-4-def-symptom",
+      "type": "definition",
+      "title": "Symptom og årsak",
+      "content": "I kodefeil-oppgavene skal du levere begge deler:\n\n- **Symptomet** er det du ser i utskriften: en randverdi som er feil, en løsning som ikke er symmetrisk, tall som vokser, en kurve som bøyer feil vei.\n- **Årsaken** er linja i koden.\n\n**Og du skal koble dem:** vise at nettopp den linja gir nettopp det symptomet, ved å skrive ut hvilket problem koden faktisk løser.\n\nI eksempel 4 var koblingen at koeffisienten $1/h^2$ svarer til $U_{N+1} = 0$, altså en verdibetingelse i den falske noden i stedet for $u'(b) = 0$ — og en løsning som tvinges mot null utenfor intervallet, bøyer oppover mot randen. Den setningen er halve poengsummen."
+    },
+    {
+      "id": "tma4135-8-4-def-entydighet",
+      "type": "definition",
+      "title": "Entydighet for randverdiproblemet",
+      "content": "Det diskrete systemet $A\\mathbf U = \\mathbf b$ har entydig løsning når $A$ er inverterbar. For $u'' + qu = g$ er det garantert når $q(x) \\le 0$ på hele intervallet: da er matrisen diagonaldominant, akkurat som i [kap. 8.3](/tma4135/tma4135-8-3).\n\n**Er $q > 0$, kan det gå galt** — og det speiler det kontinuerlige problemet. $u'' + \\pi^2 u = 0$ med $u(0) = u(1) = 0$ har uendelig mange løsninger, fordi $\\pi^2$ er en egenverdi, slik du så i [kap. 5.1](/tma4135/tma4135-5-1).\n\n**Praktisk:** står det $-16u$, $-9u$ eller $-4u$ i oppgaven, er alt i orden. Står det $+u$ med positivt fortegn, er det verdt en setning om at systemet likevel har entydig løsning for det aktuelle gitteret."
+    },
+    {
+      "id": "tma4135-8-4-def-indeksering",
+      "type": "definition",
+      "title": "Indekseringen i koden mot indekseringen på papiret",
+      "content": "På papiret nummereres gitterpunktene $U_0, U_1, \\dots, U_N$. I koden ligger de ukjente i en vektor som starter på indeks 0.\n\nEr $U_0$ kjent (Dirichlet), er de ukjente $U_1,\\dots,U_N$, og de ligger i kodens `U[0]` til `U[n-1]`. **Forskyvningen på én er kilden til halvparten av alle leserfeil.**\n\n**Kontrollvanen:** skriv i margen hvilken papirindeks kodens `A[0,0]` og `A[n-1,n-1]` svarer til, før du leser resten. Da ser du med én gang om `A[n-1, n-2]` er randraden eller ikke."
+    },
+    {
+      "id": "tma4135-8-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-8-4-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter: differansekvotienter, små systemer og eksakte løsninger av andreordens likninger."
+        },
+        {
+          "id": "tma4135-8-4-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-4-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp den sentrale differansekvotienten for $u'(x_i)$ og for $u''(x_i)$, og oppgi ordenen til hver.",
+            "solution": "**Fra formelarket:**\n\n$$u'(x_i) \\approx \\frac{U_{i+1}-U_{i-1}}{2h}, \\qquad u''(x_i) \\approx \\frac{U_{i+1}-2U_i+U_{i-1}}{h^2}.$$\n\nBegge er $O(h^2)$, jf. [kap. 8.1](/tma4135/tma4135-8-1).\n\n**Merk nevnerne:** $2h$ i den første, $h^2$ i den andre. Å blande dem er en klassisk feil, og den ødelegger hele skalaen på svaret.",
+            "hints": [
+              "Den ene har nevner $2h$, den andre $h^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-4-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-4-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn den generelle løsningen av $u'' - 9u = 9x$.",
+            "solution": "**Partikulær løsning:** prøv $u_p = ax + b$. Da er $u_p'' = 0$, så $-9(ax+b) = 9x$ gir $a = -1$ og $b = 0$, altså $u_p = -x$.\n\n**Homogen løsning:** $u'' - 9u = 0$ har karakteristisk likning $r^2 = 9$, altså $r = \\pm 3$:\n\n$$u_h = A\\cosh 3x + B\\sinh 3x$$\n\n(eller $\\tilde Ae^{3x} + \\tilde Be^{-3x}$ — begge former er like gode).\n\n**Generell løsning:**\n\n$$u(x) = A\\cosh 3x + B\\sinh 3x - x.$$\n\nHyperbelformen er raskest når den ene randbetingelsen er i $x = 0$, siden $\\cosh 0 = 1$ og $\\sinh 0 = 0$.",
+            "hints": [
+              "Prøv et førstegradspolynom som partikulær løsning.",
+              "Den homogene likningen har reelle karakteristiske røtter — bruk $\\cosh$ og $\\sinh$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-4-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-4-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs $-3x + y = 2$, $x - 3y = 1$ og kontroller svaret.",
+            "solution": "Fra den første: $y = 2 + 3x$. Sett inn i den andre:\n\n$$x - 6 - 9x = 1 \\quad\\Longrightarrow\\quad -8x = 7 \\quad\\Longrightarrow\\quad x = -\\frac78 = -0{,}875,$$\n\n$$y = 2 + 3\\left(-\\frac78\\right) = 2 - \\frac{21}{8} = -\\frac58 = -0{,}625.$$\n\n*Kontroll i den andre likningen:* $-\\tfrac78 + \\tfrac{15}{8} = \\tfrac88 = 1$. ✓\n\nSystemet har nøyaktig samme form som i eksempel 1 — det er den vanligste systemstørrelsen i denne sjangeren.",
+            "hints": [
+              "Isoler én ukjent og sett inn i den andre likningen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-4-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-4-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\cosh 4$, $\\sinh 4$ og $\\sinh 1$, og bruk dem til å finne $u(1)$ når\n\n$$u(x) = \\frac{\\sinh 4x}{4\\cosh 4} - x.$$",
+            "solution": "$$\\cosh 4 = \\frac{e^4 + e^{-4}}{2} = \\frac{54{,}59815 + 0{,}01832}{2} = 27{,}308232,$$\n\n$$\\sinh 4 = \\frac{e^4 - e^{-4}}{2} = \\frac{54{,}59815 - 0{,}01832}{2} = 27{,}289917,$$\n\n$$\\sinh 1 = \\frac{e - e^{-1}}{2} = \\frac{2{,}71828 - 0{,}36788}{2} = 1{,}175201.$$\n\n$$u(1) = \\frac{27{,}289917}{4 \\cdot 27{,}308232} - 1 = \\frac{27{,}289917}{109{,}232931} - 1 = 0{,}249832 - 1 = -0{,}750168.$$\n\n**Legg merke til at $\\sinh 4/\\cosh 4 = 0{,}99933$**, altså nesten 1. For store argumenter er $\\tanh$ svært nær 1, og da er $u(1) \\approx \\tfrac14 - 1 = -0{,}75$. Et raskt overslag som fanger grove feil.",
+            "hints": [
+              "Bruk definisjonene $\\cosh x = (e^x+e^{-x})/2$ og $\\sinh x = (e^x-e^{-x})/2$.",
+              "$e^4 = 54{,}598$ og $e^{-4} = 0{,}0183$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-4-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-4-oR5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En metode har feil $2{,}6\\cdot 10^{-2}$ ved $h = 0{,}25$ og $7{,}5\\cdot 10^{-3}$ ved $h = 0{,}125$.\n\n**a)** Hvilken orden har den?\n**b)** Anslå feilen ved $h = 0{,}03125$.",
+            "solution": "**a)** Forholdet er $\\dfrac{2{,}6\\cdot 10^{-2}}{7{,}5\\cdot 10^{-3}} = 3{,}47$, som er nær 4. Metoden er **andreordens**, med litt avvik fordi $h$ ennå er grov.\n\n**b)** Fra $h = 0{,}125$ til $h = 0{,}03125$ er det to halveringer, altså en faktor $4^2 = 16$:\n\n$$7{,}5\\cdot 10^{-3}/16 = 4{,}7\\cdot 10^{-4}.$$\n\n*Faktisk målt for problemet i eksempel 2:* $4{,}87\\cdot 10^{-4}$. Anslaget treffer godt.\n\n**Merk at forholdet 3,47 ikke er 4 helt eksakt.** Det er normalt på grove gitre: neste ledd i feilrekka er ennå ikke ubetydelig. Forholdet nærmer seg 4 når $h$ krymper, slik tabellen i eksempel 3 viser.",
+            "hints": [
+              "Del den første feilen på den andre og sammenlign med $2^p$.",
+              "Hver halvering av $h$ deler feilen på 4 for en andreordens metode."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-8-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-8-4-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $u(x)$ | Den eksakte løsningen av randverdiproblemet |\n| $U_i$ | Den beregnede verdien i $x_i$ |\n| $U_{N+1}$, $U_{-1}$ | Den falske (fiktive) noden utenfor intervallet |\n| $h$ | Steglengden, $h = (b-a)/N$. **Merk:** i Del 6 og Del 7 er $h$ steglengde i integrasjon og ODE-skritt |\n| $N$ | Antall delintervall |\n| $q(x)$ | Koeffisienten foran $u$ i $u'' + qu = g$ |\n| $g(x)$ | Høyresiden. **Merk:** mange lærebøker kaller den $r(x)$ — men $r$ er stabilitetstallet $c^2\\Delta t/h^2$ i resten av Del 8, se [kap. 8.2](/tma4135/tma4135-8-2) |\n| $r$ | Brukes IKKE i dette kapitlet som annet enn stabilitetstallet fra [kap. 8.2](/tma4135/tma4135-8-2). I Del 1 er $r$ radius i polar form, i Del 6 en rot |\n| $\\alpha$, $\\beta$ | Gitte randverdier: $u(a) = \\alpha$, $u'(b) = \\beta$ |\n| $A$ | Koeffisientmatrisen, tridiagonal bortsett fra randraden |\n| $\\mathbf b$ | Høyresiden i systemet, med randbidragene innbakt |\n| $\\mathbf s$ | Residualet $A\\mathbf U - \\mathbf b$ |\n| $\\mathrm{cosh}$, $\\mathrm{sinh}$ | Hyperbelfunksjonene i de eksakte løsningene |\n"
+        },
+        {
+          "id": "tma4135-8-4-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$u'' + q(x)u = g(x), \\qquad u(a) = \\alpha, \\quad u'(b) = \\beta$$\nRandverdiproblemet i sin standardform. *(Må kunnes.)*\n\n$$u''(x_i) \\approx \\frac{U_{i+1}-2U_i+U_{i-1}}{h^2}, \\qquad u'(x_i) \\approx \\frac{U_{i+1}-U_{i-1}}{2h}$$\nDe to kvotientene kapitlet bygger på. **Står på det utdelte formelarket — tren oppslaget.**\n\n$$U_{i-1} + \\left(-2 + h^2q_i\\right)U_i + U_{i+1} = h^2g_i$$\nDen diskrete likningen i et indre punkt, ganget opp med $h^2$. *(Må kunnes eller utledes aktivt.)*\n\n$$b_1 \\mathrel{-}= U_0, \\qquad b_{N-1} \\mathrel{-}= U_N$$\nKjente Dirichlet-verdier flyttes over til høyresiden med motsatt fortegn. *(Må kunnes eller utledes aktivt.)*\n\n$$u'(b) = 0 \\ \\Longrightarrow\\ U_{N+1} = U_{N-1}$$\nSpeilingen som definerer den falske noden. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{2U_{N-1} - 2U_N}{h^2} + q_NU_N = g_N$$\nRandraden etter eliminering. **Faktoren 2 er det som glemmes.** *(Må kunnes eller utledes aktivt.)*\n\n$$u'(b) = \\beta \\ \\Longrightarrow\\ U_{N+1} = U_{N-1} + 2h\\beta, \\qquad \\text{ekstraledd } \\frac{2\\beta}{h} \\text{ til høyresiden}$$\nDen ikke-homogene Neumann-varianten. *(Må kunnes eller utledes aktivt.)*\n\n$$u'(x_N) \\approx \\frac{3U_N - 4U_{N-1} + U_{N-2}}{2h}$$\nAlternativet til falsk node: ensidig andreordens formel, med dobbelt så stor feilkonstant og ødelagt båndstruktur. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{\\text{feil}(h)}{\\text{feil}(h/2)} \\approx 4 \\ \\Rightarrow\\ \\text{orden } 2$$\nGitterforfining som diagnose. Synker ikke feilen, er feilen strukturell. *(Må kunnes.)*\n\n$$\\mathbf s = A\\mathbf U - \\mathbf b$$\nResidualtesten, som skiller feil oppsett fra feil løsning. *(Må kunnes.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

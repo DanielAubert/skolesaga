@@ -1,0 +1,402 @@
+{
+  "id": "tma4135-7-4",
+  "courseId": "tma4135",
+  "chapterNumber": "7.4",
+  "title": "Stabilitetsfunksjonen $R(z)$ og stabilitetsintervall",
+  "description": "Bruk metoden på testlikningen $y'=\\lambda y$, finn $R(z)$ med $z=\\lambda h$, og bestem det stabile steglengdeintervallet — også for systemer via egenverdiene.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "utlede stabilitetsfunksjonen ved å sette testlikningen inn i metodeformelen og faktorisere ut startverdien",
+    "finne stabilitetsintervallet på den reelle aksen ved å dele kravet i begge ulikhetene",
+    "oversette intervallet til en maksimal steglengde, og for systemer bruke den mest negative egenverdien",
+    "skille stabilitet fra nøyaktighet og begrunne når en implisitt metode er nødvendig"
+  ],
+  "content": [
+    {
+      "id": "tma4135-7-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Stabilitetsfunksjonen er sjanger O.** Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene; **O er stabilitetsfunksjonen $R(z)$ og stabilitetsintervallet**.\n\n**Frekvens: 3 av 13 gjennomgåtte sett (23 %).** Formen er svært stabil, i to eller tre delpunkter:\n\n1. **Utled $R(z)$** ved å bruke metoden på testlikningen $y'=\\lambda y$.\n2. **Finn stabilitetsintervallet** på den reelle aksen, altså hvilke $z$ som gir $\\left|R(z)\\right|\\le 1$.\n3. **Oversett til en grense for $h$** — og for et system: finn egenverdiene til systemmatrisen og bruk den mest negative.\n\n**Dette er en toppsjikt-markør.** Grunnen er at delpunkt 3 har en felle som ser triviell ut, men fanger mange: for et system er det den **mest negative** egenverdien (den med størst tallverdi) som bestemmer maks steglengde — ikke den minst negative, og ikke gjennomsnittet.\n\n**Formelark-merking.**\n\n- **Står på det utdelte formelarket — tren oppslaget:** metodeformlene fra [kap. 7.1](/tma4135/tma4135-7-1) — Euler, forbedret Euler, RK4 og bakover-Euler. Dem trenger du for å utlede $R(z)$.\n- **Må kunnes eller utledes aktivt:** **det finnes ingen ferdig $R(z)$ på arket.** Selve utledningen, betingelsen $\\left|R(z)\\right|\\le 1$, oversettelsen til $h\\le\\left|z^{*}\\right|/\\left|\\lambda\\right|$, og hele systembehandlingen med egenverdier — alt må kunnes. **Sett $R(z)$ for Euler, Heun og bakover-Euler på ditt eget A5-ark;** de tre dekker det meste.\n\n**Tidsbruk:** 50 minutter lesetid, fire løkker. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-7-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 7.1](/tma4135/tma4135-7-1) — metodeformlene og eksemplet i oppgave 7 der eksplisitt Euler brøt sammen på $y'=-10y$. Dette kapitlet forklarer nøyaktig hva som skjedde der.\n\nDu trenger dessuten å finne egenverdiene til en $2\\times2$-matrise: løs $\\det\\left(A-\\lambda I\\right)=0$, altså andregradslikningen\n\n$$\\lambda^{2}-\\left(\\operatorname{tr}A\\right)\\lambda+\\det A=0.$$\n\nKapitlet er ikke forutsetning for noe senere kapittel, men det samme resonnementet dukker opp igjen i Del 8, der stabilitetskravet for det eksplisitte varmeskjemaet blir $r\\le\\tfrac12$."
+    },
+    {
+      "id": "tma4135-7-4-motivasjon",
+      "type": "text",
+      "content": "## Når metoden lyver\n\nI [kap. 7.1](/tma4135/tma4135-7-1) løste vi $y'=-10y$ med eksplisitt Euler og $h=0{,}25$, og fikk\n\n$$y_1=-1{,}5.$$\n\nDen eksakte løsningen $e^{-10t}$ er positiv og går raskt mot null. Metoden ga et negativt tall med større tallverdi enn startverdien — og fortsetter du, vokser $\\left|y_n\\right|$ uten grense.\n\n**Det er ikke unøyaktighet. Det er kollaps.** En unøyaktig metode bommer litt; en ustabil metode gir svar som ikke har noe med løsningen å gjøre.\n\n**Og legg merke til hva som ikke hjalp:** en bedre metode. RK4 med samme $h$ på samme problem bryter også sammen, bare litt senere. **Problemet er ikke ordenen — det er steglengden.**\n\n**Spørsmålet dette kapitlet svarer på er:** hvor stor kan $h$ være før metoden begynner å lyve?\n\n**Grepet er å teste metoden på det enkleste problemet som finnes.** Likningen\n\n$$y'=\\lambda y$$\n\nhar løsningen $y=y_0e^{\\lambda t}$, som for $\\lambda<0$ går mot null. Bruker vi en ett-skritts-metode på den, får vi alltid\n\n$$y_{n+1}=R(z)\\,y_n,\\qquad z=\\lambda h,$$\n\naltså en ren multiplikasjon med et tall $R(z)$. **Da er kravet åpenbart:** skal $y_n$ gå mot null, må $\\left|R(z)\\right|\\le 1$.\n\nDet er hele kapitlet. Resten er å regne ut $R$ for hver metode og se hvilke $z$ som slipper gjennom."
+    },
+    {
+      "id": "tma4135-7-4-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 50 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-7-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Testlikningen og $R(z)$ (~13 min)"
+    },
+    {
+      "id": "tma4135-7-4-def-testlikning",
+      "type": "definition",
+      "title": "Testlikningen",
+      "content": "Den enkleste differensiallikningen som fanger det vesentlige:\n\n$$y'=\\lambda y,\\qquad y(0)=y_0,$$\n\nmed eksakt løsning $y(t)=y_0e^{\\lambda t}$.\n\n**Hvorfor akkurat denne.** For $\\lambda<0$ dør løsningen ut, og det er nettopp den oppførselen en metode kan svikte på. For $\\lambda>0$ vokser løsningen, og da vokser en numerisk løsning også — det er ikke interessant.\n\n**Hvorfor det er nok å se på én likning.** Et lineært system $\\mathbf y'=A\\mathbf y$ kan diagonaliseres, og da faller det fra hverandre i uavhengige testlikninger med $\\lambda$ lik hver egenverdi. **Det er hele koblingen til systemtilfellet i løkke 3.**\n\n**$\\lambda$ kan være kompleks.** Da beskriver testlikningen en svingning som dempes, og stabilitetsområdet blir et område i planet i stedet for et intervall."
+    },
+    {
+      "id": "tma4135-7-4-def-z",
+      "type": "definition",
+      "title": "Variabelen $z=\\lambda h$",
+      "content": "Produktet av likningens $\\lambda$ og metodens steglengde.\n\n**Hvorfor akkurat dette produktet dukker opp:** alle metodene ganger $h$ med $f(t,y)=\\lambda y$, så $h$ og $\\lambda$ opptrer alltid sammen. Ingen metode kan skille dem.\n\n**Konsekvensen er praktisk viktig:** stabilitet er ikke en egenskap ved metoden alene, og ikke ved problemet alene. **Det er $h\\lambda$ som avgjør.** En metode som er ustabil for $\\lambda=-10$ og $h=0{,}25$, er helt fin for $\\lambda=-1$ og samme $h$.\n\n**Merk at $z$ er dimensjonsløs.** Størrelsen $1/|\\lambda|$ er en tidsskala i problemet, og $z$ måler hvor mange slike tidsskalaer ett skritt spenner over."
+    },
+    {
+      "id": "tma4135-7-4-def-R",
+      "type": "definition",
+      "title": "Stabilitetsfunksjonen $R(z)$",
+      "content": "Faktoren løsningen ganges med per skritt når metoden brukes på testlikningen:\n\n$$y_{n+1}=R(z)\\,y_n,\\qquad z=\\lambda h.$$\n\n**Slik finner du den:** sett $f(t,y)=\\lambda y$ inn i metodeformelen og faktoriser ut $y_n$. Det som står igjen, er $R(z)$.\n\n**Etter $n$ skritt er**\n\n$$y_n=R(z)^{\\,n}\\,y_0,$$\n\nså oppførselen over tid avgjøres helt av om $\\left|R(z)\\right|$ er større eller mindre enn 1.\n\n**Sammenlikn med det eksakte:** den eksakte løsningen ganges med $e^{\\lambda h}=e^{z}$ per skritt. **$R(z)$ er metodens tilnærming til $e^{z}$**, og for en metode av orden $p$ stemmer de til og med leddet $z^{p}$ i rekkeutviklingen.\n\n**Det finnes ingen ferdig $R(z)$ på det utdelte formelarket — utledningen må kunnes.**"
+    },
+    {
+      "id": "tma4135-7-4-def-abs-stabil",
+      "type": "definition",
+      "title": "Absolutt stabilitet",
+      "content": "Kravet\n\n$$\\left|R(z)\\right|\\le 1.$$\n\n**Innholdet:** løsningen vokser ikke fra skritt til skritt. Er kravet oppfylt, er $\\left|y_n\\right|=\\left|R(z)\\right|^{n}\\left|y_0\\right|$ ikke-voksende, og for $\\left|R(z)\\right|<1$ går den mot null — slik den eksakte løsningen gjør når $\\lambda<0$.\n\n**Er kravet brutt**, vokser den numeriske løsningen eksponentielt selv om den eksakte dør ut. Det er nøyaktig det som skjedde med $y'=-10y$ og $h=0{,}25$: der er $z=-2{,}5$ og $R(z)=1+z=-1{,}5$, med $\\left|R\\right|=1{,}5>1$.\n\n**Merk ordet «absolutt».** Det skiller dette fra andre stabilitetsbegreper og betyr at vi ser på selve tallverdien til vekstfaktoren, uavhengig av hvor nøyaktig metoden er.\n\n**Kravet må kunnes.**"
+    },
+    {
+      "id": "tma4135-7-4-def-intervall",
+      "type": "definition",
+      "title": "Stabilitetsintervallet på den reelle aksen",
+      "content": "Mengden av **reelle, negative** $z$ som oppfyller $\\left|R(z)\\right|\\le 1$. Den er alltid på formen\n\n$$z^{*}\\le z\\le 0.$$\n\n| Metode | $R(z)$ | Intervall |\n|---|---|---|\n| Eksplisitt Euler | $1+z$ | $[-2,\\ 0]$ |\n| Heun (forbedret Euler) | $1+z+\\tfrac{z^{2}}{2}$ | $[-2,\\ 0]$ |\n| Kutta 3 | $1+z+\\tfrac{z^{2}}{2}+\\tfrac{z^{3}}{6}$ | $[-2{,}51,\\ 0]$ |\n| RK4 | $1+z+\\tfrac{z^{2}}{2}+\\tfrac{z^{3}}{6}+\\tfrac{z^{4}}{24}$ | $[-2{,}785,\\ 0]$ |\n| Bakover-Euler | $\\dfrac{1}{1-z}$ | hele $z\\le 0$ |\n\n**Legg merke til at Euler og Heun har samme intervall**, til tross for ulik orden. Høyere orden gir ikke automatisk større stabilitetsområde — det er to uavhengige egenskaper.\n\n**Og legg merke til hvor lite RK4 vinner:** fra $2$ til $2{,}785$, altså 39 prosent. **Alle eksplisitte metoder har et endelig stabilitetsintervall**, og det er den grunnleggende begrensningen som gjør implisitte metoder nødvendige for stive problemer."
+    },
+    {
+      "id": "tma4135-7-4-eks1",
+      "type": "example",
+      "title": "Utled $R(z)$ for Euler, Heun og bakover-Euler",
+      "problem": "Bruk hver av de tre metodene på testlikningen $y'=\\lambda y$ og finn stabilitetsfunksjonen.",
+      "solution": "**Eksplisitt Euler.** Formelen er $y_{n+1}=y_n+h\\,f\\left(t_n,y_n\\right)$ med $f(t,y)=\\lambda y$:\n\n$$y_{n+1}=y_n+h\\lambda y_n=\\left(1+h\\lambda\\right)y_n=(1+z)\\,y_n.$$\n\n$$\\boxed{R(z)=1+z}$$\n\n**Heun.** Stigningstallene blir\n\n$$k_1=\\lambda y_n,\\qquad k_2=\\lambda\\left(y_n+hk_1\\right)=\\lambda\\left(y_n+h\\lambda y_n\\right)=\\lambda y_n\\left(1+z\\right).$$\n\n$$y_{n+1}=y_n+\\frac{h}{2}\\left(k_1+k_2\\right)=y_n+\\frac{h\\lambda}{2}\\left(y_n+y_n(1+z)\\right)=y_n+\\frac{z}{2}\\,y_n\\left(2+z\\right).$$\n\n$$y_{n+1}=y_n\\left(1+z+\\frac{z^{2}}{2}\\right).$$\n\n$$\\boxed{R(z)=1+z+\\frac{z^{2}}{2}}$$\n\n**Bakover-Euler.** Formelen er implisitt:\n\n$$y_{n+1}=y_n+h\\lambda y_{n+1}.$$\n\nSamle $y_{n+1}$ på venstre side:\n\n$$y_{n+1}\\left(1-h\\lambda\\right)=y_n\\ \\Longrightarrow\\ y_{n+1}=\\frac{y_n}{1-z}.$$\n\n$$\\boxed{R(z)=\\frac{1}{1-z}}$$\n\n**Sammenlikn alle tre med $e^{z}$.** Rekkeutviklingen er\n\n$$e^{z}=1+z+\\frac{z^{2}}{2}+\\frac{z^{3}}{6}+\\dots$$\n\n- Euler treffer til og med $z^{1}$ — **orden 1** ✔\n- Heun treffer til og med $z^{2}$ — **orden 2** ✔\n- Bakover-Euler: $\\dfrac{1}{1-z}=1+z+z^{2}+z^{3}+\\dots$, som treffer til og med $z^{1}$ — **orden 1** ✔\n\n**Dette er en gratis ordenskontroll.** Utvikler du $R(z)$ i rekke og sammenlikner med $e^{z}$, får du metodens orden uten å røre ordensbetingelsene fra [kap. 7.2](/tma4135/tma4135-7-2).\n\n*(Forbehold: kontrollen virker fordi testlikningen er så enkel. En metode kan treffe $e^{z}$ til høy orden og likevel ha lavere orden for generelle $f$ — akkurat som i oppgave 8 i [kap. 7.2](/tma4135/tma4135-7-2). Bruk den som indikasjon, ikke som bevis.)*\n\n**Merk hvor mye pen struktur det er i disse tre svarene.** For eksplisitte metoder blir $R$ et **polynom** — den avkuttede rekka for $e^{z}$. For implisitte blir den en **rasjonal funksjon**, og det er nettopp brøkformen som gir den ubegrensede stabiliteten."
+    },
+    {
+      "id": "tma4135-7-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-4-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren innsetting.) Eksplisitt Euler brukes på $y'=-4y$.\n\n**a)** Hva er $R(z)$?\n**b)** Regn ut $R$ for $h=0{,}1$, $h=0{,}5$ og $h=0{,}6$.\n**c)** For hvilke av disse er metoden stabil?",
+        "solution": "**a)** $R(z)=1+z$ med $z=\\lambda h=-4h$.\n\n**b)**\n\n$$h=0{,}1:\\quad z=-0{,}4,\\quad R=1-0{,}4=0{,}6,$$\n$$h=0{,}5:\\quad z=-2,\\quad R=1-2=-1,$$\n$$h=0{,}6:\\quad z=-2{,}4,\\quad R=1-2{,}4=-1{,}4.$$\n\n**c)** Kravet er $\\left|R\\right|\\le 1$:\n\n- $h=0{,}1$: $\\left|0{,}6\\right|=0{,}6\\le 1$ ✔ **stabil**\n- $h=0{,}5$: $\\left|-1\\right|=1\\le 1$ ✔ **stabil**, men akkurat på grensen — løsningen veksler mellom $y_0$ og $-y_0$ uten å dø ut\n- $h=0{,}6$: $\\left|-1{,}4\\right|=1{,}4>1$ ✘ **ustabil**\n\n**Grensen** finner du av $-2\\le z\\le 0$, altså $-2\\le -4h\\le 0$, som gir\n\n$$h\\le\\frac{2}{4}=0{,}5.$$\n\n**Merk grensetilfellet $h=0{,}5$.** Der er $R=-1$ nøyaktig, og den numeriske løsningen hopper fram og tilbake mellom $\\pm y_0$ i all evighet — den vokser ikke, men den dør heller ikke ut, slik den eksakte gjør. **Det er stabilt i teknisk forstand, men ubrukelig i praksis.** Hold deg godt innenfor grensen.",
+        "hints": [
+          "Sett $f=\\lambda y$ inn i Euler-formelen og faktoriser ut $y_n$.",
+          "Regn $z=\\lambda h$ først for hver steglengde.",
+          "Kravet er at tallverdien til $R$ er høyst 1."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-4-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger O — stabilitet.) Vis at stabilitetsintervallet for eksplisitt Euler på den reelle aksen er $-2\\le z\\le 0$, og finn maks steglengde for $y'=-8y$.",
+        "solution": "**Intervallet.** Kravet er $\\left|1+z\\right|\\le 1$, altså\n\n$$-1\\le 1+z\\le 1.$$\n\nTrekk 1 fra alle tre leddene:\n\n$$-2\\le z\\le 0.$$\n\n$$\\boxed{-2\\le z\\le 0}$$\n\n**Maks steglengde for $y'=-8y$.** Her er $\\lambda=-8$, så $z=-8h$. Kravet $z\\ge -2$ gir\n\n$$-8h\\ge -2\\ \\Longrightarrow\\ h\\le\\frac{2}{8}=0{,}25.$$\n\n*(Den andre siden, $z\\le 0$, er automatisk oppfylt siden $h>0$ og $\\lambda<0$.)*\n\n$$\\boxed{h\\le 0{,}25}$$\n\n**Kontroll:** med $h=0{,}25$ er $z=-2$ og $R=-1$, altså akkurat på grensen ✔. Med $h=0{,}3$ er $z=-2{,}4$ og $\\left|R\\right|=1{,}4>1$ ✘\n\n**Den generelle formen** er verdt å legge merke til:\n\n$$h\\le\\frac{2}{\\left|\\lambda\\right|}.$$\n\nDet er den formelen du bruker igjen og igjen for eksplisitt Euler.",
+        "hints": [
+          "Skriv ulikheten $|1+z|\\le 1$ som en dobbeltulikhet uten tallverdi.",
+          "Sett $z=\\lambda h$ og løs for $h$.",
+          "Merk at $h>0$ gjør den ene siden automatisk oppfylt."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Stabilitetsintervallene og figuren (~13 min)"
+    },
+    {
+      "id": "tma4135-7-4-def-R-eksplisitt",
+      "type": "definition",
+      "title": "$R(z)$ for eksplisitte Runge–Kutta-metoder",
+      "content": "For en eksplisitt metode av orden $p$ med $s=p$ steg er\n\n$$R(z)=1+z+\\frac{z^{2}}{2!}+\\dots+\\frac{z^{p}}{p!},$$\n\naltså **Taylor-polynomet til $e^{z}$ av grad $p$**.\n\n**Hvorfor.** Metoden er eksakt til orden $p$, så $R(z)$ må stemme med $e^{z}$ til og med leddet $z^{p}$. Og siden hvert stigningstall bare kan bidra med én potens av $z$, kan $R$ ikke ha høyere grad enn $s$.\n\n**Konsekvensen:** $R$ er **alltid et polynom** for en eksplisitt metode, og et polynom går mot uendelig når $\\left|z\\right|\\to\\infty$. **Derfor har enhver eksplisitt metode et endelig stabilitetsintervall** — det finnes alltid en $h$ som er for stor.\n\nDet er den grunnleggende asymmetrien mellom eksplisitte og implisitte metoder, og hele grunnen til at stive problemer krever implisitte løsere."
+    },
+    {
+      "id": "tma4135-7-4-def-A-stabil",
+      "type": "definition",
+      "title": "A-stabilitet",
+      "content": "En metode er **A-stabil** når stabilitetsområdet inneholder hele venstre halvplan:\n\n$$\\operatorname{Re}(z)\\le 0\\ \\Longrightarrow\\ \\left|R(z)\\right|\\le 1.$$\n\n**Innholdet:** metoden er stabil for **enhver** steglengde, uansett hvor negativ $\\lambda$ er.\n\n**Bakover-Euler er A-stabil.** Med $R(z)=\\dfrac{1}{1-z}$ og $\\operatorname{Re}(z)\\le 0$ er $\\left|1-z\\right|\\ge 1$, så\n\n$$\\left|R(z)\\right|=\\frac{1}{\\left|1-z\\right|}\\le 1.\\qquad ✔$$\n\n*(For reell $z\\le 0$ ser du det direkte: $1-z\\ge 1$, så brøken er høyst 1.)*\n\n**Ingen eksplisitt metode kan være A-stabil**, siden $R$ da er et polynom og vokser uten grense.\n\n**Prisen for A-stabilitet** er at hvert skritt krever en likningsløsning. **Gevinsten** er at du kan velge $h$ etter nøyaktighet i stedet for etter stabilitet — og for et stivt problem er det forskjellen mellom tusen og en million skritt."
+    },
+    {
+      "id": "tma4135-7-4-def-maks-h",
+      "type": "definition",
+      "title": "Maks steglengde $h\\le\\left|z^{*}\\right|/\\left|\\lambda\\right|$",
+      "content": "Oversettelsen fra stabilitetsintervall til steglengde. Er intervallet $\\left[z^{*},0\\right]$ og $\\lambda<0$ reell, gir $z=\\lambda h\\ge z^{*}$ at\n\n$$h\\le\\frac{\\left|z^{*}\\right|}{\\left|\\lambda\\right|}.$$\n\n| Metode | $\\left|z^{*}\\right|$ | Maks $h$ for $y'=-5y$ |\n|---|---|---|\n| Euler | 2 | $0{,}4$ |\n| Heun | 2 | $0{,}4$ |\n| RK4 | $2{,}785$ | $0{,}557$ |\n| Bakover-Euler | $\\infty$ | ingen grense |\n\n**Merk at RK4 bare vinner 39 prosent på steglengden**, til tross for fire ganger så mange funksjonsevalueringer per skritt. **For et stivt problem er RK4 altså dårligere enn Euler per evaluering** — det er en av de mest kontraintuitive og viktigste innsiktene i numerisk ODE-løsning.\n\n**Formelen må kunnes.**"
+    },
+    {
+      "id": "tma4135-7-4-fig-stabilitet",
+      "type": "image",
+      "src": "/images/textbook/tma4135/stabilitetsintervall-rz.svg",
+      "alt": "Graf med z paa vannrett akse fra minus 3,2 til 0,6 og absoluttverdien av R paa loddrett akse fra 0 til 2. Tre kurver: en heltrukken bla for Euler, en stiplet groenn for Heun og en prikket oransje for RK4. En vannrett stiplet linje ligger paa hoeyden 1. Under grafen er to fargede segmenter tegnet: et blatt fra minus 2 til 0 merket Euler og Heun, og et oransje fra minus 2,785 til 0 merket RK4.",
+      "caption": "Stabilitetsintervallene på den reelle aksen. Metoden er absolutt stabil der kurven ligger på eller under den stiplede linja $\\left|R\\right|=1$. Euler og Heun forlater intervallet i samme punkt, $z=-2$, til tross for ulik orden; RK4 kommer til $z\\approx -2{,}785$. Legg merke til at alle tre kurvene til slutt stiger over 1 — **enhver eksplisitt metode har et endelig stabilitetsintervall**."
+    },
+    {
+      "id": "tma4135-7-4-eks2",
+      "type": "example",
+      "title": "Stabilitetsintervallet for Heun — og hvorfor det er $[-2,0]$",
+      "problem": "Vis at Heuns metode har stabilitetsintervallet $-2\\le z\\le 0$ på den reelle aksen, og forklar hvorfor det er det samme som for Euler.",
+      "solution": "**Steg 1 — funksjonen.** Fra eksempel 1: $R(z)=1+z+\\dfrac{z^{2}}{2}$.\n\n**Steg 2 — den øvre grensen $R\\le 1$.**\n\n$$1+z+\\frac{z^{2}}{2}\\le 1\\ \\Longleftrightarrow\\ z+\\frac{z^{2}}{2}\\le 0\\ \\Longleftrightarrow\\ z\\left(1+\\frac z2\\right)\\le 0.$$\n\nProduktet av to faktorer er negativt eller null mellom nullpunktene $z=0$ og $z=-2$:\n\n$$-2\\le z\\le 0.$$\n\n**Steg 3 — den nedre grensen $R\\ge -1$.**\n\n$$1+z+\\frac{z^{2}}{2}\\ge -1\\ \\Longleftrightarrow\\ 2+z+\\frac{z^{2}}{2}\\ge 0\\ \\Longleftrightarrow\\ z^{2}+2z+4\\ge 0.$$\n\nDiskriminanten er $4-16=-12<0$, så andregradsuttrykket har **ingen reelle nullpunkter** og er alltid positivt (koeffisienten foran $z^{2}$ er positiv).\n\n**Denne betingelsen er altså oppfylt for alle $z$** og gir ingen ny begrensning.\n\n**Steg 4 — konklusjon.**\n\n$$\\boxed{-2\\le z\\le 0}$$\n\n**Kontroll i endepunktet:** $R(-2)=1-2+2=1$, altså $\\left|R\\right|=1$ ✔ — nøyaktig på grensen. Og $R(-2{,}1)=1-2{,}1+2{,}205=1{,}105>1$ ✘\n\n**Hvorfor det er samme intervall som for Euler.** Svaret ligger i steg 3: for Euler er $R=1+z$, og der er det den **nedre** grensen $1+z\\ge -1$ som gir $z\\ge -2$. For Heun er den nedre grensen aldri aktiv, og det er i stedet den **øvre** grensen $R\\le 1$ som gir $z\\ge -2$.\n\n**Samme tall, helt ulik årsak.** Det er ren tilfeldighet at grensene faller sammen — og det illustrerer at orden og stabilitetsintervall er uavhengige egenskaper.\n\n**Praktisk konsekvens:** Heun koster dobbelt så mange funksjonsevalueringer som Euler og gir ingen som helst gevinst i tillatt steglengde. **For et stivt problem er Heun altså rent tap**, selv om den er dobbelt så nøyaktig for ikke-stive problemer.\n\n**Merk hvordan tallverdien håndteres.** Ulikheten $\\left|R\\right|\\le 1$ må alltid deles i to: $R\\le 1$ **og** $R\\ge -1$. Å bare sjekke den ene er den vanligste feilen i utledningen — og for Heun ville du da fått riktig svar av gal grunn."
+    },
+    {
+      "id": "tma4135-7-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-4-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger O.) Utled $R(z)$ for midtpunktsmetoden\n\n$$k_1=f\\left(t_n,y_n\\right),\\quad k_2=f\\left(t_n+\\tfrac h2,\\ y_n+\\tfrac h2 k_1\\right),\\quad y_{n+1}=y_n+h\\,k_2,$$\n\nog finn stabilitetsintervallet på den reelle aksen.",
+        "solution": "**Utledningen.** Sett $f(t,y)=\\lambda y$:\n\n$$k_1=\\lambda y_n,$$\n$$k_2=\\lambda\\left(y_n+\\frac h2\\lambda y_n\\right)=\\lambda y_n\\left(1+\\frac{z}{2}\\right).$$\n\n$$y_{n+1}=y_n+h\\lambda y_n\\left(1+\\frac z2\\right)=y_n\\left(1+z+\\frac{z^{2}}{2}\\right).$$\n\n$$\\boxed{R(z)=1+z+\\frac{z^{2}}{2}}$$\n\n**Samme $R$ som Heun!** Det er ikke tilfeldig: begge er andreordens tostegsmetoder, og for testlikningen kan $R$ ikke ha høyere grad enn stegtallet — så $R$ må være Taylor-polynomet av grad 2. **Alle andreordens tostegsmetoder har samme stabilitetsfunksjon.**\n\n**Stabilitetsintervallet** er derfor det samme som for Heun (eksempel 2):\n\n$$\\boxed{-2\\le z\\le 0}$$\n\n**Kommentar.** Familien fra oppgave 7 i [kap. 7.2](/tma4135/tma4135-7-2) — alle tostegsmetodene med $\\alpha\\beta=\\tfrac12$ — har altså **identisk** stabilitetsområde, uansett valg av $\\alpha$. De skiller seg bare i feilkonstanten, ikke i stabilitet.\n\n**Det er verdt å vite på eksamen:** ser du en andreordens tostegsmetode, kan du skrive opp $R(z)=1+z+\\tfrac{z^{2}}{2}$ direkte og spare utledningen — men **si hvorfor**, ellers ser det ut som gjetning.",
+        "hints": [
+          "Sett $f=\\lambda y$ inn i hvert stigningstall og faktoriser ut $y_n$.",
+          "$k_2$ inneholder $k_1$, som allerede er uttrykt ved $y_n$.",
+          "Sammenlikn resultatet med $R$ for Heun."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-4-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger O.) Problemet $y'=-25y$ skal løses fram til $t=1$.\n\n**a)** Finn maks $h$ for eksplisitt Euler, og hvor mange skritt det gir.\n**b)** Samme for RK4, der $\\left|z^{*}\\right|=2{,}785$.\n**c)** Sammenlikn antall $f$-evalueringer, og kommenter.",
+        "solution": "**a) Euler.** Med $\\lambda=-25$:\n\n$$h\\le\\frac{2}{25}=0{,}08.$$\n\nAntall skritt fra 0 til 1:\n\n$$N=\\frac{1}{0{,}08}=12{,}5\\ \\Longrightarrow\\ 13 \\text{ skritt}.$$\n\n$$\\text{Evalueringer: } 13\\cdot 1=13.$$\n\n**b) RK4.**\n\n$$h\\le\\frac{2{,}785}{25}=0{,}1114.$$\n\n$$N=\\frac{1}{0{,}1114}\\approx 8{,}98\\ \\Longrightarrow\\ 9 \\text{ skritt}.$$\n\n$$\\text{Evalueringer: } 9\\cdot 4=36.$$\n\n**c) Sammenlikningen.**\n\n| Metode | Maks $h$ | Skritt | Evalueringer |\n|---|---|---|---|\n| Euler | $0{,}08$ | 13 | **13** |\n| RK4 | $0{,}1114$ | 9 | **36** |\n\n**RK4 bruker nesten tre ganger så mange funksjonsevalueringer** for å komme gjennom det samme intervallet, når det er **stabiliteten** som setter grensen.\n\n**Hvorfor dette er kontraintuitivt.** For et ikke-stivt problem, der du velger $h$ etter nøyaktighet, er RK4 dramatisk bedre — vi så i [kap. 7.1](/tma4135/tma4135-7-1) at den ga tusen ganger mindre feil for fire ganger arbeidet.\n\n**Men når stabiliteten binder**, teller ordenen nesten ikke. Stabilitetsintervallet vokser bare 39 prosent fra Euler til RK4, mens kostnaden firedobles.\n\n**Og RK4 blir da urimelig nøyaktig.** Med $h=0{,}11$ på et problem med $\\lambda=-25$ er den lokale feilen mikroskopisk — vi bruker en presisjonsmetode til et problem der presisjon ikke er flaskehalsen.\n\n**Den riktige konklusjonen er ikke «bruk Euler».** Den er: **er stabiliteten flaskehalsen, skal du bytte til en implisitt metode.** Bakover-Euler har ingen steglengdegrense her og kunne brukt $h=0{,}5$ — to skritt totalt — mot en kostnad på én likningsløsning per skritt.",
+        "hints": [
+          "Bruk $h\\le|z^*|/|\\lambda|$ for hver metode.",
+          "Rund antall skritt oppover.",
+          "Evalueringer er antall skritt ganget med metodens stegtall."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-4-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~26 min brukt) —\n\nDu kan utlede $R(z)$ og finne intervallet for én likning. De to siste løkkene handler om **systemer**, som er den formen sjangeren faktisk kommer i på settene."
+    },
+    {
+      "id": "tma4135-7-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Systemer og egenverdier (~13 min)\n\nEn enkelt skalarlikning er sjelden interessant i praksis. Det interessante er systemer — og der er stabilitetsanalysen nesten like enkel, hvis du vet hvor du skal se."
+    },
+    {
+      "id": "tma4135-7-4-def-system",
+      "type": "definition",
+      "title": "Stabilitet for lineære systemer",
+      "content": "For $\\mathbf y'=A\\mathbf y$ med en diagonaliserbar matrise $A$:\n\n**Skriv om i egenvektorbasis.** Da faller systemet fra hverandre i uavhengige skalarlikninger\n\n$$w_j'=\\lambda_j w_j,$$\n\nén for hver egenverdi $\\lambda_j$ til $A$.\n\n**Metoden virker uavhengig på hver komponent**, siden den er lineær. Derfor er kravet\n\n$$\\left|R\\left(\\lambda_j h\\right)\\right|\\le 1\\qquad\\text{for ALLE } j.$$\n\n**Alle egenverdiene må inn i stabilitetsområdet samtidig.** Det er én steglengde $h$, og den må passe for hver av dem.\n\n**Framgangsmåten på eksamen, i tre steg:**\n\n1. Finn egenverdiene til $A$ (løs $\\lambda^{2}-\\left(\\operatorname{tr}A\\right)\\lambda+\\det A=0$ for en $2\\times2$-matrise).\n2. Finn kravet på $h$ for hver egenverdi.\n3. Ta det **strengeste** kravet."
+    },
+    {
+      "id": "tma4135-7-4-def-mest-negativ",
+      "type": "definition",
+      "title": "Den mest negative egenverdien styrer",
+      "content": "For reelle negative egenverdier og et intervall $\\left[z^{*},0\\right]$ er kravet\n\n$$h\\le\\frac{\\left|z^{*}\\right|}{\\left|\\lambda_j\\right|}\\qquad\\text{for hver } j,$$\n\nog det **strengeste** kravet kommer fra den **største** $\\left|\\lambda_j\\right|$ — altså den **mest negative** egenverdien:\n\n$$h\\le\\frac{\\left|z^{*}\\right|}{\\max_j\\left|\\lambda_j\\right|}.$$\n\n**⚠ Dette er fella i sjangeren.** Det er lett å gripe den egenverdien som står først, eller den som ser «viktigst» ut. **Det er alltid den med størst tallverdi** — den raskeste komponenten — som binder.\n\n**Intuisjonen:** den raskt dempede komponenten er kanskje helt uinteressant for svaret, men den er der, og en eksplisitt metode må ta små nok skritt til å håndtere **den**. Det er nettopp definisjonen på et stivt problem.\n\n**Merk at det er tallverdien som teller**, ikke fortegnet eller rekkefølgen. Med $\\lambda=-1$ og $\\lambda=-6$ er det $-6$ som styrer."
+    },
+    {
+      "id": "tma4135-7-4-def-stivhet",
+      "type": "definition",
+      "title": "Stivhetsforholdet",
+      "content": "Forholdet mellom den raskeste og den langsomste komponenten:\n\n$$S=\\frac{\\max_j\\left|\\lambda_j\\right|}{\\min_j\\left|\\lambda_j\\right|}.$$\n\n**Er $S$ stor** (typisk over 1000), er problemet **stivt**: steglengden bestemmes av en komponent som forsvinner nesten umiddelbart, mens du må integrere lenge for å følge den langsomme.\n\n**Eksempel:** med $\\lambda_1=-1$ og $\\lambda_2=-1000$ er $S=1000$. Den raske komponenten er borte etter $t\\approx 0{,}005$, men eksplisitt Euler må likevel bruke $h\\le 0{,}002$ **hele veien** — også når det bare er den langsomme komponenten igjen.\n\n**Løsningen er en implisitt metode.** Bakover-Euler er A-stabil og kan bruke $h$ etter nøyaktighet, ikke etter stabilitet.\n\n**Merk at et lite stivhetsforhold ikke betyr at problemet er lett** — det betyr bare at stabilitet ikke er flaskehalsen."
+    },
+    {
+      "id": "tma4135-7-4-eks3",
+      "type": "example",
+      "title": "Eksamensnivå: stabilitet for et system",
+      "problem": "Systemet $\\mathbf y'=A\\mathbf y$ har\n\n$$A=\\begin{pmatrix}-5 & 2\\\\ 2 & -2\\end{pmatrix}.$$\n\n**a)** Finn egenverdiene til $A$.\n**b)** Finn maks steglengde for eksplisitt Euler.\n**c)** Finn maks steglengde for RK4, med $\\left|z^{*}\\right|=2{,}785$.\n**d)** Hva ville bakover-Euler krevd?",
+      "solution": "**a) Egenverdiene.** For en $2\\times2$-matrise er karakteristisk likning\n\n$$\\lambda^{2}-\\left(\\operatorname{tr}A\\right)\\lambda+\\det A=0.$$\n\n$$\\operatorname{tr}A=-5+(-2)=-7,\\qquad \\det A=(-5)(-2)-2\\cdot 2=10-4=6.$$\n\n$$\\lambda^{2}+7\\lambda+6=0.$$\n\n$$\\lambda=\\frac{-7\\pm\\sqrt{49-24}}{2}=\\frac{-7\\pm 5}{2}.$$\n\n$$\\boxed{\\lambda_1=-1,\\qquad \\lambda_2=-6}$$\n\n*Kontroll:* summen $-1+(-6)=-7=\\operatorname{tr}A$ ✔ og produktet $(-1)(-6)=6=\\det A$ ✔\n\n**b) Eksplisitt Euler.** Kravet er $\\left|1+\\lambda_j h\\right|\\le 1$ for **begge** egenverdiene, altså $-2\\le\\lambda_j h\\le 0$.\n\n$$\\lambda_1=-1:\\quad h\\le\\frac{2}{1}=2,$$\n$$\\lambda_2=-6:\\quad h\\le\\frac{2}{6}=\\frac13\\approx 0{,}3333.$$\n\n**Det strengeste kravet gjelder:**\n\n$$\\boxed{h\\le\\frac13}$$\n\n**Det er $\\lambda_2=-6$ — den mest negative — som binder**, akkurat som regelen sier.\n\n*Kontroll ved $h=\\tfrac13$:* $z_1=-\\tfrac13$ gir $R=\\tfrac23$ ✔, og $z_2=-2$ gir $R=-1$, altså $\\left|R\\right|=1$ ✔ — akkurat på grensen.\n\n*Kontroll ved $h=0{,}4$:* $z_2=-2{,}4$ gir $R=-1{,}4$, altså $\\left|R\\right|=1{,}4>1$ ✘ — ustabil, selv om $\\lambda_1$ er helt fornøyd.\n\n**c) RK4.**\n\n$$\\lambda_1=-1:\\quad h\\le 2{,}785,$$\n$$\\lambda_2=-6:\\quad h\\le\\frac{2{,}785}{6}\\approx 0{,}4642.$$\n\n$$\\boxed{h\\le 0{,}464}$$\n\nIgjen er det $\\lambda_2$ som binder, og gevinsten mot Euler er de samme 39 prosentene.\n\n**d) Bakover-Euler.** Metoden er **A-stabil**: for enhver $\\lambda_j$ med $\\operatorname{Re}\\lambda_j\\le 0$ og enhver $h>0$ er\n\n$$\\left|R\\left(\\lambda_j h\\right)\\right|=\\frac{1}{\\left|1-\\lambda_j h\\right|}\\le 1,$$\n\nsiden $1-\\lambda_j h\\ge 1$ når $\\lambda_j\\le 0$ og $h>0$.\n\n**Ingen stabilitetsgrense på $h$.** Steglengden kan velges etter nøyaktighetskravet alene.\n\n**Er problemet stivt?** Stivhetsforholdet er\n\n$$S=\\frac{6}{1}=6,$$\n\nsom er **lite**. Dette er altså **ikke** et stivt problem, og eksplisitte metoder er helt greie her — kravet $h\\le\\tfrac13$ er ikke plagsomt.\n\n**Hadde egenverdiene vært $-1$ og $-6000$**, ville $S=6000$, og eksplisitt Euler måtte brukt $h\\le 3{,}3\\cdot 10^{-4}$ mens den interessante komponenten lever i flere sekunder. **Da hadde bakover-Euler vært eneste fornuftige valg.**\n\n**Tidsbruk på eksamen:** a) 4 min, b) 4 min, c) 2 min, d) 3 min — omtrent 13 minutter."
+    },
+    {
+      "id": "tma4135-7-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-4-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger O — system.) Systemet $\\mathbf y'=A\\mathbf y$ har\n\n$$A=\\begin{pmatrix}-3 & 2\\\\ 1 & -4\\end{pmatrix}.$$\n\n**a)** Finn egenverdiene.\n**b)** Finn maks steglengde for eksplisitt Euler.\n**c)** Regn ut stivhetsforholdet og vurder om problemet er stivt.",
+        "solution": "**a)**\n\n$$\\operatorname{tr}A=-3+(-4)=-7,\\qquad \\det A=(-3)(-4)-2\\cdot 1=12-2=10.$$\n\n$$\\lambda^{2}+7\\lambda+10=0\\ \\Longrightarrow\\ \\lambda=\\frac{-7\\pm\\sqrt{49-40}}{2}=\\frac{-7\\pm 3}{2}.$$\n\n$$\\boxed{\\lambda_1=-2,\\qquad \\lambda_2=-5}$$\n\n*Kontroll:* $-2+(-5)=-7$ ✔ og $(-2)(-5)=10$ ✔\n\n**b)** Den mest negative egenverdien er $\\lambda_2=-5$:\n\n$$h\\le\\frac{2}{\\left|\\lambda_2\\right|}=\\frac{2}{5}=0{,}4.$$\n\n$$\\boxed{h\\le 0{,}4}$$\n\n*(Fra $\\lambda_1=-2$ alene ville kravet vært $h\\le 1$ — mye slappere, og derfor ikke det bindende.)*\n\n**c) Stivhetsforholdet.**\n\n$$S=\\frac{\\max\\left|\\lambda_j\\right|}{\\min\\left|\\lambda_j\\right|}=\\frac{5}{2}=2{,}5.$$\n\n**Problemet er ikke stivt.** Et forhold på 2,5 er svært moderat — de to komponentene dør ut på omtrent samme tidsskala, og steglengden som kreves av den raske, er også fornuftig for den langsomme.\n\n**Praktisk konklusjon:** bruk en eksplisitt metode. RK4 med $h\\le\\frac{2{,}785}{5}\\approx 0{,}557$ ville være et godt valg, og her ville nøyaktighetskravet sannsynligvis binde før stabilitetskravet gjorde det.\n\n**Merk hva vurderingen krever.** Å regne $S$ er ett regnestykke; å **vurdere** hva tallet betyr, er det som gir poenget. Et forhold under omtrent 100 er som regel uproblematisk; over 1000 bør du tenke implisitt.",
+        "hints": [
+          "Bruk $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$.",
+          "Kontroller egenverdiene mot sporet og determinanten.",
+          "Det strengeste kravet kommer fra egenverdien med størst tallverdi."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Stabilitet mot nøyaktighet (~11 min)\n\nTil slutt en distinksjon som er lett å blande sammen, og som skiller besvarelsene."
+    },
+    {
+      "id": "tma4135-7-4-def-stab-vs-noyaktig",
+      "type": "definition",
+      "title": "Stabilitet er ikke nøyaktighet",
+      "content": "To helt ulike krav, som begge begrenser $h$:\n\n| | Stabilitet | Nøyaktighet |\n|---|---|---|\n| Krever | $\\left|R(\\lambda h)\\right|\\le 1$ | lokal feil $\\le$ Tol |\n| Avhenger av | $\\lambda h$ | $h^{p+1}$ og problemets glatthet |\n| Bryter man det | løsningen **eksploderer** | løsningen blir **litt gal** |\n| Bedre orden hjelper | **nesten ikke** | **mye** |\n\n**Det viktigste å forstå:** en stabil løsning kan være svært unøyaktig, og en unøyaktig løsning kan være helt stabil. De to er uavhengige.\n\n**Bakover-Euler på $y'=-10y$ med $h=0{,}5$:** $R=\\frac{1}{1+5}=\\frac16$, altså stabil ✔. Men $y_1=\\frac16\\approx 0{,}167$ mens eksakt er $e^{-5}\\approx 0{,}0067$ — **25 ganger for stort**. Stabil, og likevel ubrukelig.\n\n**Konklusjonen for praksis:** velg $h$ etter det **strengeste** av de to kravene. For ikke-stive problemer er det nøyaktighet; for stive problemer med en eksplisitt metode er det stabilitet."
+    },
+    {
+      "id": "tma4135-7-4-def-fra-butcher",
+      "type": "definition",
+      "title": "$R(z)$ direkte fra Butcher-tabellen",
+      "content": "For en eksplisitt metode kan $R$ leses ut av tabellen uten å regne stigningstall:\n\n$$R(z)=1+z\\,\\mathbf b^{\\!\\top}\\left(I-zA\\right)^{-1}\\mathbf 1,$$\n\nder $\\mathbf 1$ er vektoren med bare ettall.\n\n**For eksplisitte metoder forenkles det**, siden $A$ er nilpotent: rekka $\\left(I-zA\\right)^{-1}=I+zA+z^{2}A^{2}+\\dots$ har bare endelig mange ledd, og\n\n$$R(z)=1+z\\sum_i b_i+z^{2}\\sum_{i,j}b_ia_{ij}+z^{3}\\sum_{i,j,k}b_ia_{ij}a_{jk}+\\dots$$\n\n**Kjenner du igjen summene?** Det er nesten ordensbetingelsene fra [kap. 7.2](/tma4135/tma4135-7-2), bare med $c_j$ byttet ut med 1.\n\n**På eksamen er det som regel raskere å sette inn $f=\\lambda y$ direkte**, slik vi gjorde i eksempel 1. Formelen er verdt å kjenne fordi den viser hvorfor $R$ blir et polynom av grad høyst $s$ for eksplisitte metoder.\n\n**Dette er «kjenne»-stoff.**"
+    },
+    {
+      "id": "tma4135-7-4-def-kontrollrutine",
+      "type": "definition",
+      "title": "Kontrollrutine for en O-oppgave",
+      "content": "Seks sjekker:\n\n1. **Er $f=\\lambda y$ satt inn i ALLE stigningstallene?** Et glemt $k_i$ gir feil grad på $R$.\n2. **Er $y_n$ faktorisert helt ut?** Det som står igjen, skal være en funksjon av $z$ alene.\n3. **Stemmer $R$ med $e^{z}$ til orden $p$?** Det er en gratis kontroll på utledningen.\n4. **Er $\\left|R\\right|\\le 1$ delt i BEGGE ulikhetene**, $R\\le 1$ og $R\\ge -1$?\n5. **For systemer: er egenverdiene kontrollert** mot sporet og determinanten?\n6. **Er den MEST negative egenverdien brukt?**\n\n**Punkt 3 er den beste kontrollen.** Har du utledet $R(z)=1+z+\\tfrac{z^{2}}{2}$ for en andreordens metode, stemmer det med $e^{z}$ til og med $z^{2}$ ✔. Får du $1+z+z^{2}$, har du regnefeil."
+    },
+    {
+      "id": "tma4135-7-4-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: skalar og system i samme oppgave",
+      "problem": "**a)** Utled stabilitetsfunksjonen til Heuns metode og finn stabilitetsintervallet.\n**b)** Finn den største steglengden som gir stabil løsning av $y'=-5y$.\n**c)** Systemet $\\mathbf y'=A\\mathbf y$ har egenverdier $-2$ og $-10$. Finn maks $h$ for Heun, og for RK4 med $\\left|z^{*}\\right|=2{,}785$.\n**d)** Vurder om systemet i c) er stivt, og anbefal en metode.",
+      "solution": "**a) Utledningen.** Sett $f(t,y)=\\lambda y$ i Heuns metode:\n\n$$k_1=\\lambda y_n,$$\n$$k_2=\\lambda\\left(y_n+hk_1\\right)=\\lambda y_n\\left(1+z\\right),\\qquad z=\\lambda h.$$\n\n$$y_{n+1}=y_n+\\frac h2\\left(k_1+k_2\\right)=y_n+\\frac{h\\lambda}{2}\\,y_n\\left(1+(1+z)\\right)=y_n+\\frac z2\\,y_n\\left(2+z\\right).$$\n\n$$y_{n+1}=y_n\\left(1+z+\\frac{z^{2}}{2}\\right)\\ \\Longrightarrow\\ R(z)=1+z+\\frac{z^{2}}{2}.$$\n\n*Kontroll mot $e^{z}=1+z+\\tfrac{z^{2}}{2}+\\tfrac{z^{3}}{6}+\\dots$:* de stemmer til og med $z^{2}$, som svarer til orden 2 ✔\n\n**Stabilitetsintervallet.** Del $\\left|R\\right|\\le 1$ i to:\n\n**Øvre:** $1+z+\\tfrac{z^{2}}{2}\\le 1\\Leftrightarrow z\\left(1+\\tfrac z2\\right)\\le 0\\Leftrightarrow -2\\le z\\le 0$.\n\n**Nedre:** $1+z+\\tfrac{z^{2}}{2}\\ge -1\\Leftrightarrow z^{2}+2z+4\\ge 0$, som har diskriminant $4-16<0$ og derfor alltid er oppfylt.\n\n$$\\boxed{-2\\le z\\le 0}$$\n\n**b) Maks $h$ for $y'=-5y$.** Med $\\lambda=-5$ er $z=-5h$, og kravet $z\\ge -2$ gir\n\n$$-5h\\ge -2\\ \\Longrightarrow\\ h\\le\\frac{2}{5}=0{,}4.$$\n\n$$\\boxed{h\\le 0{,}4}$$\n\n*Kontroll ved $h=0{,}4$:* $z=-2$, $R=1-2+2=1$, altså $\\left|R\\right|=1$ ✔ — grensen. *Ved $h=0{,}5$:* $z=-2{,}5$, $R=1-2{,}5+3{,}125=1{,}625>1$ ✘\n\n**c) Systemet.** Den mest negative egenverdien er $\\lambda=-10$.\n\n**Heun** ($\\left|z^{*}\\right|=2$):\n\n$$h\\le\\frac{2}{10}=0{,}2.$$\n\n**RK4** ($\\left|z^{*}\\right|=2{,}785$):\n\n$$h\\le\\frac{2{,}785}{10}=0{,}2785.$$\n\n*(Fra $\\lambda=-2$ alene ville kravene vært $h\\le 1$ og $h\\le 1{,}39$ — begge mye slappere.)*\n\n**d) Er systemet stivt?**\n\n$$S=\\frac{10}{2}=5.$$\n\n**Nei.** Et stivhetsforhold på 5 er svært moderat. De to komponentene lever på tidsskalaer som skiller med en faktor 5 — den raske dør ut på $t\\approx 0{,}5$, den langsomme på $t\\approx 2{,}5$.\n\n**Anbefaling: RK4 med eksplisitt steglengde.** Begrunnelsen har to deler:\n\n1. **Stabiliteten er ikke plagsom.** Kravet $h\\le 0{,}28$ er langt fra dramatisk, og du trenger uansett en $h$ i den størrelsesorden for å følge den raske komponenten nøyaktig.\n2. **Nøyaktigheten er det som teller her**, og der er RK4 langt overlegen — vi så i [kap. 7.1](/tma4135/tma4135-7-1) at forspranget er flere størrelsesordener.\n\n**Når ville jeg snudd?** Hadde egenverdiene vært $-2$ og $-2000$ ($S=1000$), ville RK4 måtte bruke $h\\le 1{,}4\\cdot 10^{-3}$ gjennom hele integrasjonen — kanskje tusenvis av skritt for å følge en komponent som er borte etter et øyeblikk. **Da er bakover-Euler eller en annen A-stabil metode det riktige valget**, selv om ordenen er lavere.\n\n**Tidsbruk på eksamen:** a) 6 min, b) 3 min, c) 4 min, d) 4 min — omtrent 17 minutter for en oppgave på 10 poeng."
+    },
+    {
+      "id": "tma4135-7-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-4-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger O.) Bakover-Euler brukes på $y'=\\lambda y$ med $\\lambda<0$.\n\n**a)** Utled $R(z)$.\n**b)** Vis at $\\left|R(z)\\right|\\le 1$ for alle reelle $z\\le 0$.\n**c)** Regn ut $R$ for $\\lambda=-10$ og $h=0{,}5$, og sammenlikn med den eksakte faktoren $e^{z}$.",
+        "solution": "**a)** Formelen er $y_{n+1}=y_n+h\\,f\\left(t_{n+1},y_{n+1}\\right)=y_n+h\\lambda y_{n+1}$.\n\nSamle $y_{n+1}$ på venstre side:\n\n$$y_{n+1}\\left(1-h\\lambda\\right)=y_n\\ \\Longrightarrow\\ y_{n+1}=\\frac{1}{1-z}\\,y_n.$$\n\n$$\\boxed{R(z)=\\frac{1}{1-z}}$$\n\n**b)** For reell $z\\le 0$ er $-z\\ge 0$, altså\n\n$$1-z\\ge 1.$$\n\nDa er\n\n$$\\left|R(z)\\right|=\\frac{1}{\\left|1-z\\right|}=\\frac{1}{1-z}\\le 1.\\qquad \\blacksquare$$\n\n**Kravet er oppfylt for enhver $h>0$**, uansett hvor negativ $\\lambda$ er. Metoden er **A-stabil**.\n\n**c)** Med $\\lambda=-10$ og $h=0{,}5$ er $z=-5$:\n\n$$R(-5)=\\frac{1}{1+5}=\\frac16\\approx 0{,}16667.$$\n\nDen eksakte faktoren er\n\n$$e^{-5}\\approx 0{,}0067379.$$\n\n**Sammenlikning:** metoden demper med en faktor $0{,}167$ per skritt der den eksakte løsningen demper med $0{,}0067$ — altså **25 ganger for lite demping**.\n\n**Poenget.** Metoden er **stabil** (svaret vokser ikke, og det har riktig fortegn), men den er **svært unøyaktig**. Etter fem skritt er den numeriske løsningen $\\left(\\tfrac16\\right)^{5}\\approx 1{,}3\\cdot 10^{-4}$ mot eksakt $e^{-25}\\approx 1{,}4\\cdot 10^{-11}$ — sju størrelsesordener galt.\n\n**Det er hele distinksjonen i løkke 4:** A-stabilitet garanterer at løsningen ikke eksploderer, ikke at den er riktig. **Du må fortsatt velge $h$ etter nøyaktighet.**\n\n**Hva A-stabiliteten gir deg**, er at valget er ditt — du er ikke tvunget til en absurd liten $h$ av en komponent du ikke bryr deg om.",
+        "hints": [
+          "Formelen er implisitt; samle $y_{n+1}$ på én side.",
+          "For $z\\le 0$ er nevneren minst 1.",
+          "Sammenlikn $R(z)$ med $e^z$ tallmessig, ikke bare kvalitativt."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-4-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger O — krevende.) En metode har stabilitetsfunksjonen\n\n$$R(z)=1+z+\\frac{z^{2}}{2}+\\frac{z^{3}}{6}.$$\n\n**a)** Hvilken orden har metoden, og hvor mange steg må den minst ha?\n**b)** Vis at $z=-2$ ligger inne i stabilitetsintervallet, mens $z=-3$ ikke gjør det.\n**c)** Bestem den nedre enden av stabilitetsintervallet med to desimalers nøyaktighet.",
+        "solution": "**a)** Sammenlikn med $e^{z}=1+z+\\tfrac{z^{2}}{2}+\\tfrac{z^{3}}{6}+\\tfrac{z^{4}}{24}+\\dots$\n\n$R(z)$ stemmer til og med leddet $z^{3}$, så metoden har **orden 3**.\n\nGraden til $R$ er 3, og for en eksplisitt metode kan graden ikke overstige stegtallet. Altså har metoden **minst 3 steg**. *(Fra barrieren $p\\le s$ i [kap. 7.2](/tma4135/tma4135-7-2) følger det samme.)*\n\n**b) $z=-2$:**\n\n$$R(-2)=1-2+\\frac{4}{2}+\\frac{-8}{6}=1-2+2-1{,}3333=-0{,}3333.$$\n\n$$\\left|R(-2)\\right|=0{,}333\\le 1.\\qquad ✔$$\n\n**$z=-3$:**\n\n$$R(-3)=1-3+\\frac{9}{2}+\\frac{-27}{6}=1-3+4{,}5-4{,}5=-2.$$\n\n$$\\left|R(-3)\\right|=2>1.\\qquad ✘$$\n\n**c) Den nedre enden.** Vi leter etter det største $\\left|z\\right|$ der $\\left|R(z)\\right|=1$. Fra b) vet vi at grensen ligger mellom $-3$ og $-2$, og at $R$ er **negativ** der — så vi løser\n\n$$R(z)=-1.$$\n\nPrøv med noen verdier:\n\n$$R(-2{,}4)=1-2{,}4+\\frac{5{,}76}{2}+\\frac{-13{,}824}{6}=1-2{,}4+2{,}88-2{,}304=-0{,}824.$$\n$$R(-2{,}6)=1-2{,}6+\\frac{6{,}76}{2}+\\frac{-17{,}576}{6}=1-2{,}6+3{,}38-2{,}9293=-1{,}1493.$$\n\nGrensen ligger mellom $-2{,}6$ og $-2{,}4$. Prøv videre:\n\n$$R(-2{,}5)=1-2{,}5+3{,}125-2{,}6042=-0{,}9792,$$\n$$R(-2{,}52)=1-2{,}52+3{,}1752-2{,}6672=-1{,}0120.$$\n\nGrensen ligger mellom $-2{,}52$ og $-2{,}50$. Én halvering til:\n\n$$R(-2{,}51)=1-2{,}51+3{,}1500-2{,}6355=-0{,}9955.$$\n\nGrensen ligger mellom $-2{,}52$ og $-2{,}51$, altså\n\n$$\\boxed{z^{*}\\approx -2{,}51}$$\n\n**Svar:** stabilitetsintervallet er omtrent $-2{,}51\\le z\\le 0$.\n\n**Merk metoden.** Vi brukte i praksis **biseksjon** fra [kap. 6.4](/tma4135/tma4135-6-4) på likningen $R(z)+1=0$ — det er nøyaktig samme problem, og på eksamen er det den raskeste veien når $R$ er et tredjegradspolynom.\n\n**Merk plasseringen i mønsteret:** Euler og Heun stopper ved $-2$, denne tredjeordens metoden ved $-2{,}51$, og RK4 ved $-2{,}785$. **Intervallet vokser med ordenen, men langsomt** — og det nærmer seg aldri uendelig, siden $R$ er et polynom.",
+        "hints": [
+          "Sammenlikn $R$ med rekkeutviklingen av $e^z$ ledd for ledd.",
+          "Sjekk fortegnet til $R$ i området før du velger hvilken ulikhet du løser.",
+          "Bruk biseksjon på $R(z)=-1$ mellom de to verdiene du fant i b)."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**1. Å bruke feil egenverdi for et system.** Det er den **mest negative** — den med størst tallverdi — som setter grensen. Å bruke den minst negative gir en steglengde som er altfor stor, og løsningen eksploderer.\n\n**2. Et glemt ledd i $R(z)$.** Sett $f=\\lambda y$ inn i **alle** stigningstallene og faktoriser $y_n$ helt ut. **Kontroll:** $R$ skal stemme med rekka for $e^{z}$ til og med $z^{p}$.\n\n**3. Å bare sjekke den ene siden av $\\left|R\\right|\\le 1$.** Ulikheten må deles i $R\\le 1$ **og** $R\\ge -1$. For Euler er det den nedre som binder; for Heun den øvre. Sjekker du bare én, får du av og til riktig svar av gal grunn.\n\n**4. Å blande $z=\\lambda h$ med $h$ alene.** Stabilitetsintervallet er i $z$; steglengdegrensen får du først etter å ha delt på $\\left|\\lambda\\right|$.\n\n**5. Å tro at høyere orden gir større stabilitetsområde.** Euler og Heun har **samme** intervall $[-2,0]$ med orden 1 og 2. Orden og stabilitet er uavhengige egenskaper.\n\n**6. Å forveksle stabilitet med nøyaktighet.** En A-stabil metode kan gi svar som er sju størrelsesordener gale, slik oppgave 6 viser. Stabilitet garanterer bare at løsningen ikke eksploderer.\n\n**7. Å påstå at en eksplisitt metode kan være A-stabil.** Den kan ikke: $R$ er da et polynom og vokser uten grense. Det er hele grunnen til at implisitte metoder finnes.\n\n**8. Å regne egenverdier feil.** Kontroller alltid mot sporet (summen) og determinanten (produktet). Det tar fem sekunder."
+    },
+    {
+      "id": "tma4135-7-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-7-4-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på egenverdier, ulikheter med tallverdi og rekkeutvikling."
+        },
+        {
+          "id": "tma4135-7-4-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-4-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn egenverdiene til $\\begin{pmatrix}-5&2\\\\ 2&-2\\end{pmatrix}$.",
+            "solution": "$$\\operatorname{tr}A=-7,\\qquad \\det A=10-4=6.$$\n\n$$\\lambda^{2}+7\\lambda+6=0\\ \\Longrightarrow\\ \\lambda=\\frac{-7\\pm\\sqrt{49-24}}{2}=\\frac{-7\\pm 5}{2}.$$\n\n$$\\lambda_1=-1,\\qquad \\lambda_2=-6.$$\n\n*Kontroll:* summen er $-7=\\operatorname{tr}A$ ✔ og produktet er $6=\\det A$ ✔\n\nKontrollen mot spor og determinant tar fem sekunder og fanger nesten alle regnefeil.",
+            "hints": [
+              "Karakteristisk likning er $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$.",
+              "Kontroller svaret mot sporet og determinanten."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-4-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-4-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs $\\left|1+z\\right|\\le 1$ for reell $z$.",
+            "solution": "Skriv ulikheten uten tallverdi:\n\n$$-1\\le 1+z\\le 1.$$\n\nTrekk 1 fra alle tre leddene:\n\n$$-2\\le z\\le 0.$$\n\n**Merk at BEGGE sidene må med.** Den nedre gir $z\\ge -2$, den øvre $z\\le 0$. Sjekker du bare den ene, mister du halve svaret — og for Euler er det den nedre som er den interessante.",
+            "hints": [
+              "En ulikhet med tallverdi deles alltid i to.",
+              "Trekk fra på alle tre sider samtidig."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-4-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-4-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at $z^{2}+2z+4>0$ for alle reelle $z$.",
+            "solution": "**Metode 1 — diskriminanten.**\n\n$$\\Delta=b^{2}-4ac=4-16=-12<0.$$\n\nUttrykket har ingen reelle nullpunkter, og siden koeffisienten foran $z^{2}$ er positiv, ligger hele parabelen over aksen. $\\blacksquare$\n\n**Metode 2 — fullstendig kvadrat.**\n\n$$z^{2}+2z+4=\\left(z+1\\right)^{2}+3\\ \\ge\\ 3>0.$$\n\n**Begge metodene er akseptable**, og den andre er ofte raskest for hånd — den viser dessuten hvor mye margin det er.\n\nDette er nøyaktig ulikheten som gjør at den **nedre** grensen $R\\ge -1$ aldri binder for Heuns metode.",
+            "hints": [
+              "Regn diskriminanten, eller fullfør kvadratet.",
+              "Er koeffisienten foran $z^2$ positiv og diskriminanten negativ, er uttrykket alltid positivt."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-4-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-4-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv de fire første leddene i rekkeutviklingen av $e^{z}$ og av $\\dfrac{1}{1-z}$, og sammenlikn.",
+            "solution": "$$e^{z}=1+z+\\frac{z^{2}}{2}+\\frac{z^{3}}{6}+\\dots$$\n\n$$\\frac{1}{1-z}=1+z+z^{2}+z^{3}+\\dots\\qquad(\\left|z\\right|<1),$$\n\nsiden det er en geometrisk rekke med kvotient $z$.\n\n**Sammenlikningen:** de stemmer til og med leddet $z^{1}$, og skiller lag fra $z^{2}$ ($\\tfrac12$ mot $1$).\n\n**Konklusjon:** bakover-Euler har **orden 1** — nøyaktig som eksplisitt Euler, der $R=1+z$ også stemmer bare til første orden.\n\n**Det er hele poenget med bakover-Euler:** du får ikke bedre nøyaktighet, du får A-stabilitet.",
+            "hints": [
+              "Rekka for $e^z$ har $z^n/n!$.",
+              "$1/(1-z)$ er summen av en geometrisk rekke."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-7-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-7-4-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\lambda$ | Koeffisienten i testlikningen $y'=\\lambda y$; egenverdi for et system |\n| $h$ | Steglengden **i tid** |\n| $z=\\lambda h$ | Den dimensjonsløse stabilitetsvariabelen |\n| $R(z)$ | Stabilitetsfunksjonen; faktoren per skritt |\n| $z^{*}$ | Den nedre enden av stabilitetsintervallet |\n| $A$ | Systemmatrisen i $\\mathbf y'=A\\mathbf y$ |\n| $\\lambda_j$ | Egenverdi nummer $j$ til $A$ |\n| $S$ | Stivhetsforholdet $\\max\\lvert\\lambda_j\\rvert/\\min\\lvert\\lambda_j\\rvert$ |\n| $\\operatorname{tr}A$ | Sporet, altså summen av diagonalelementene |\n| $p$ | Metodens orden |\n| $s$ | Stegtallet |\n"
+        },
+        {
+          "id": "tma4135-7-4-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$y'=\\lambda y,\\qquad y(t)=y_0e^{\\lambda t}$$\nTestlikningen med eksakt løsning. *(Må kunnes.)*\n\n$$y_{n+1}=R(z)\\,y_n,\\qquad z=\\lambda h,\\qquad y_n=R(z)^{n}y_0$$\nDefinisjonen av stabilitetsfunksjonen. *(Må kunnes — det finnes ingen ferdig $R(z)$ på det utdelte formelarket.)*\n\n$$\\left|R(z)\\right|\\le 1$$\nKravet om absolutt stabilitet. Deles alltid i $R\\le 1$ **og** $R\\ge -1$. *(Må kunnes.)*\n\n$$R(z)=1+z\\quad\\text{(Euler)},\\qquad R(z)=1+z+\\frac{z^{2}}{2}\\quad\\text{(Heun, midtpunkt)}$$\nDe to viktigste. Begge har intervallet $[-2,0]$. *(Må kunnes eller utledes aktivt — sett dem på ditt eget A5-ark.)*\n\n$$R(z)=1+z+\\frac{z^{2}}{2}+\\frac{z^{3}}{6}+\\frac{z^{4}}{24}\\quad\\text{(RK4)},\\qquad z^{*}\\approx -2{,}785$$\nTaylor-polynomet av grad 4. *(Utledningen må kunnes; tallet $2{,}785$ oppgis som regel i oppgaven.)*\n\n$$R(z)=\\frac{1}{1-z}\\quad\\text{(bakover-Euler)},\\qquad \\left|R\\right|\\le 1 \\text{ for all } \\operatorname{Re}z\\le 0$$\nA-stabilitet. *(Må kunnes og utledes.)*\n\n$$h\\le\\frac{\\left|z^{*}\\right|}{\\left|\\lambda\\right|},\\qquad \\text{Euler: } h\\le\\frac{2}{\\left|\\lambda\\right|}$$\nOversettelsen fra intervall til steglengde. *(Må kunnes.)*\n\n$$h\\le\\frac{\\left|z^{*}\\right|}{\\max_j\\left|\\lambda_j\\right|}$$\nFor systemer: den **mest negative** egenverdien binder. *(Må kunnes — dette er fella i sjangeren.)*\n\n$$\\lambda^{2}-\\left(\\operatorname{tr}A\\right)\\lambda+\\det A=0$$\nKarakteristisk likning for en $2\\times2$-matrise. *(Må kunnes.)*\n\n$$S=\\frac{\\max_j\\left|\\lambda_j\\right|}{\\min_j\\left|\\lambda_j\\right|}$$\nStivhetsforholdet. Stort $S$ krever implisitt metode. *(Må kunnes.)*\n\n$$R(z)\\ \\text{stemmer med}\\ e^{z}\\ \\text{til og med}\\ z^{p}$$\nOrdenskontrollen av en utledet $R$. *(Må kunnes.)*\n\n**Kolliderende symboler i dette kapitlet.** Bokstaven $A$ er **systemmatrisen** her, men **koeffisientmatrisen i Butcher-tabellen** i [kap. 7.2](/tma4135/tma4135-7-2) og [kap. 7.3](/tma4135/tma4135-7-3) — to helt ulike matriser i samme del. Bokstaven $\\lambda$ er egenverdi/koeffisient her; i Del 5 brukes ikke $\\lambda$, men separasjonskonstanten $k$ spiller en beslektet rolle. Bokstaven $R$ er stabilitetsfunksjonen her, mens $r$ (liten) er roten i [kap. 6.3](/tma4135/tma4135-6-3) og [kap. 6.4](/tma4135/tma4135-6-4) — og i Del 8 blir $r$ stabilitetstallet $\\Delta t/h^{2}$, som spiller nøyaktig samme rolle som $z$ gjør her. Og $h$ er steglengden i tid i hele Del 7; i Del 8 er $h$ romsteget, mens tidssteget skrives $\\Delta t$ (det utdelte formelarket kaller tidssteget $k$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,476 @@
+{
+  "id": "tma4135-8-2",
+  "courseId": "tma4135",
+  "chapterNumber": "8.2",
+  "title": "Eksplisitt skjema for varmelikningen og stabilitet $r\\le\\tfrac12$",
+  "description": "Det eksplisitte (forward-Euler) skjemaet for varmelikningen, ett gitterpunkt for hånd, og stabilitetskravet $r\\le\\tfrac12$.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp gitteret i rom og tid og lese notasjonen med rom- og tidsindeks riktig",
+    "utlede det eksplisitte skjemaet for varmelikningen fra differansekvotientene, og regne ut gitterpunkter for hånd fra gitte initial- og randdata",
+    "regne ut stabilitetstallet og avgjøre om skjemaet er stabilt, med begrunnelse fra den veide middelverdien eller fra sagtannmoden",
+    "sammenligne den numeriske løsningen med den analytiske løsningen av samme problem og forklare avviket"
+  ],
+  "content": [
+    {
+      "id": "tma4135-8-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er hovedkapitlet i Del 8.** Oppgaver av typen «differansemetode for en partiell differensiallikning eller et randverdiproblem» står på **11 av 13 gjennomgåtte sett — 85 %**. Boka kaller den sjangeren **P**; bokstavene A til S er korte navn på de nitten oppgavetypene som går igjen på settene, og de forklares første gang de brukes i hvert kapittel.\n\n**Innenfor sjanger P finnes tre faste varianter**, én i hvert av kapitlene i denne delen:\n\n1. **det eksplisitte skjemaet for varmelikningen** — dette kapitlet;\n2. **Crank–Nicolson og det tridiagonale systemet** — [kap. 8.3](/tma4135/tma4135-8-3);\n3. **randverdiproblem med falsk rand og kodefeil** — [kap. 8.4](/tma4135/tma4135-8-4).\n\n**Delspørsmålene som går igjen her er to, og de kommer nesten alltid sammen:**\n\n- **«Regn ut $U_i^{n+1}$ for hånd»** i ett bestemt gitterpunkt, ut fra gitte initial- og randdata. Rent regnearbeid, og et sikkert delpoeng.\n- **«Avgjør om skjemaet er stabilt.»** Det er **stabilitetskravet $r \\le \\tfrac12$**, og det er en av toppsjikt-markørene i hele emnet. Bruker du skjemaet med $r > \\tfrac12$ uten å kommentere det, mister du poeng selv om regningen er riktig.\n\n**Formelark-merking.**\n\n- **Differansekvotientene står på det utdelte formelarket — tren oppslaget.** Det gjør også Crank–Nicolson-formelen du møter i neste kapittel. Ferdigheten er å plukke riktig kvotient og sette inn riktige indekser.\n- **Oppsettet av det eksplisitte skjemaet og stabilitetsgrensen $r \\le \\tfrac12$ må kunnes.** Formelarket har ingen stabilitetsbetingelse noe sted. Denne ene ulikheten hører hjemme på ditt eget A5-ark.\n\n**Tidsbruk:** 60 minutter lesetid, fire løkker à omtrent et kvarter. Naturlig pausepunkt etter løkke 2. Ganger du 1,5 fordi du skriver av for hånd, blir det halvannen time — det er en hel kveldsøkt."
+    },
+    {
+      "id": "tma4135-8-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 8.1](/tma4135/tma4135-8-1) — differansekvotientene og ordensbegrepet. Du trenger også [kap. 5.1](/tma4135/tma4135-5-1) og [kap. 5.2](/tma4135/tma4135-5-2): varmelikningen, hva rand- og initialbetingelser er, og den analytiske løsningen vi skal måle det numeriske svaret mot i løkke 4.\n\n**Sist du var her.** De tre tingene du kommer til å bruke i hver eneste oppgave i dette kapitlet:\n\n$$u''(x_i) \\approx \\frac{U_{i+1} - 2U_i + U_{i-1}}{h^2}$$\n\nDen andre sentraldifferansen fra [kap. 8.1](/tma4135/tma4135-8-1). Mønsteret $1, -2, 1$ og nevneren $h^2$.\n\n$$u_t = c^2 u_{xx}$$\n\nVarmelikningen fra [kap. 5.1](/tma4135/tma4135-5-1), med diffusivitetskonstanten $c^2$.\n\n$$u(x,t) = \\sum_{n=1}^{\\infty} B_n \\sin\\frac{n\\pi x}{L}\\,e^{-c^2(n\\pi/L)^2 t}$$\n\nDen analytiske løsningen ved kalde ender fra [kap. 5.2](/tma4135/tma4135-5-2). Den er fasiten vi kontrollerer mot til slutt — og for startdata $u(x,0) = \\sin(\\pi x/L)$ er den bare det ene leddet $\\sin(\\pi x/L)\\,e^{-c^2\\pi^2t/L^2}$.\n\nFra tidligere matematikkemner trengs ikke noe utover vanlig regning. Kapitlet er forutsetning for [kap. 8.3](/tma4135/tma4135-8-3) og [kap. 8.4](/tma4135/tma4135-8-4)."
+    },
+    {
+      "id": "tma4135-8-2-motivasjon",
+      "type": "text",
+      "content": "## Når separasjon av variable ikke rekker til\n\nI Del 5 løste du varmelikningen eksakt. Metoden var vakker, men den hadde tre forutsetninger: likningen måtte være homogen, randbetingelsene måtte være av en av noen få snille typer, og startdataene måtte la seg skrive som en Fourier-rekke du klarte å regne ut.\n\n**Ta bort én av dem, og separasjon av variable stopper.** En stang med varierende materialtykkelse, en varmekilde som slås av og på, en rand der temperaturen måles i stedet for å være gitt ved en formel — ingen av delene lar seg separere.\n\n**Differansemetoden bryr seg ikke.** Den erstatter de deriverte med tall fra nabopunkter, og så regner den seg framover i tid, rad for rad. Den virker på alt.\n\n**Men den har en pris, og prisen er dette kapitlets hovedpoeng.** Velger du tidssteget for stort, gir metoden ikke et litt unøyaktig svar — den gir et svar som **sprenger**. Etter noen titalls steg står det tall i millionklassen der temperaturen skulle vært en halv grad, og de veksler mellom pluss og minus fra gitterpunkt til gitterpunkt. Grensen mellom «virker fint» og «totalhavari» er én eneste ulikhet:\n\n$$r \\le \\tfrac12.$$\n\nKapitlet gjør fire ting: setter opp gitteret i rom og tid, utleder skjemaet og regner et gitterpunkt for hånd, viser hvor grensen $r \\le \\tfrac12$ kommer fra og hva som skjer på feil side av den, og sammenligner til slutt det numeriske svaret med den eksakte løsningen fra Del 5."
+    },
+    {
+      "id": "tma4135-8-2-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene i dette kapitlet er samtidig kortene i flashcard-bunken. Ved første gjennomlesing holder det å lese formelen og gå videre til eksempelet; tidsanslaget på 60 minutter gjelder kjernestoffet, ikke pugging av boksene."
+    },
+    {
+      "id": "tma4135-8-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — To akser, to steglengder, én notasjon (~14 min)\n\nDen store forskjellen fra [kap. 8.1](/tma4135/tma4135-8-1) er at vi nå har **to** variabler: posisjonen $x$ og tiden $t$. Det betyr to steglengder og to indekser, og det er her de fleste indeksfeilene oppstår."
+    },
+    {
+      "id": "tma4135-8-2-def-gitter",
+      "type": "definition",
+      "title": "Gitteret i rom og tid",
+      "content": "Del rommet $[0,L]$ i $N$ like biter og tiden i skritt av lengde $\\Delta t$:\n\n$$x_i = ih, \\quad h = \\frac{L}{N}, \\quad i = 0,1,\\dots,N; \\qquad t_n = n\\,\\Delta t, \\quad n = 0,1,2,\\dots$$\n\nResultatet er et rutenett av punkter $(x_i, t_n)$. Vi kjenner verdiene på **startraden** ($n = 0$, fra initialbetingelsen) og langs **de to sidekantene** ($i = 0$ og $i = N$, fra randbetingelsene). Alt annet skal regnes ut.\n\n**Rekkefølgen er avgjørende:** vi fyller inn én rad om gangen, nedenfra og opp. Rad $n+1$ regnes helt ut fra rad $n$."
+    },
+    {
+      "id": "tma4135-8-2-def-Uin",
+      "type": "definition",
+      "title": "Gitterverdien $U_i^n$",
+      "content": "Tilnærmingen til den eksakte løsningen i gitterpunktet:\n\n$$U_i^n \\approx u(x_i, t_n).$$\n\n**Den øvre indeksen $n$ er tidsnivå, ikke en potens.** $U_i^2$ betyr «verdien i punkt $i$ på tidsnivå 2», ikke «$U_i$ i annen». Notasjonen er standard i hele faget, og den er kort — men den må leses riktig.\n\nNedre indeks er rom, øvre er tid. En huskeregel: nedre indeks står lavt, som $x$-aksen; øvre står høyt, som tiden som vokser oppover."
+    },
+    {
+      "id": "tma4135-8-2-def-dt",
+      "type": "definition",
+      "title": "Tidssteget $\\Delta t$ — og hva formelarket kaller det",
+      "content": "Avstanden mellom to tidsnivåer, $\\Delta t = t_{n+1} - t_n$.\n\n**Merk denne notasjonskollisjonen — den er verdt tretti sekunder nå og et helt delpunkt på eksamen.** Det utdelte formelarket bruker bokstaven $k$ for tidssteget og skriver stabilitetstallet som $r = k/h^2$. Denne boka skriver i stedet $\\Delta t$ og $r = \\Delta t/h^2$, av én grunn: i [kap. 5.1](/tma4135/tma4135-5-1) er $k$ **separasjonskonstanten**, og to helt ulike størrelser med samme navn i samme emne er en oppskrift på feil.\n\nNår du åpner formelarket på eksamen og ser en $k$ i differanseavsnittet, er det altså **tidssteget** — det du her har lært å kalle $\\Delta t$. Skriv gjerne den oversettelsen på ditt eget A5-ark."
+    },
+    {
+      "id": "tma4135-8-2-def-tidsdifferanse",
+      "type": "definition",
+      "title": "Forlengs differanse i tid",
+      "content": "Tidsderiverten tilnærmes med den forlengs kvotienten fra [kap. 8.1](/tma4135/tma4135-8-1):\n\n$$u_t(x_i, t_n) \\approx \\frac{U_i^{n+1} - U_i^n}{\\Delta t}.$$\n\n**Hvorfor forlengs og ikke sentral?** Fordi forlengs er den eneste som inneholder nøyaktig én ukjent — verdien på det neste tidsnivået. Det er nettopp det som gjør skjemaet *eksplisitt*: du kan løse for $U_i^{n+1}$ direkte, uten å løse noe likningssystem.\n\nPrisen er ordenen. Forlengs er bare $O(\\Delta t)$, mens romdelen er $O(h^2)$. Denne ubalansen er hele motivasjonen for Crank–Nicolson i [kap. 8.3](/tma4135/tma4135-8-3)."
+    },
+    {
+      "id": "tma4135-8-2-fig-gitter",
+      "type": "image",
+      "src": "/images/textbook/tma4135/differansegitter-eksplisitt.svg",
+      "alt": "Et rutenett med seks punkter langs x-aksen og fire tidsnivaaer oppover. Randpunktene og hele startraden er markert med groenne ringer som kjente verdier. Tre blaa fylte punkter paa startraden er forbundet med streker opp til ett roedt punkt paa neste tidsnivaa, som er den ukjente verdien.",
+      "caption": "Stensilen til det eksplisitte skjemaet. Den nye verdien i midten på tidsnivå $t_1$ regnes ut av nøyaktig tre kjente verdier på nivå $t_0$: punktet under og de to naboene. Randverdiene og startraden er gitt på forhånd."
+    },
+    {
+      "id": "tma4135-8-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-2-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Et gitter for varmelikningen på $[0,1]$ har $N = 5$ delintervall og tidssteg $\\Delta t = 0{,}008$.\n\n**a)** Hva er romsteget $h$?\n**b)** Skriv opp koordinatene $(x_i, t_n)$ til gitterpunktet $U_3^2$.\n**c)** Hvor mange verdier på rad $n = 0$ er ukjente, når begge randbetingelsene er gitt?",
+        "solution": "**a)** $h = L/N = 1/5 = 0{,}2$.\n\n**b)** Nedre indeks er rom, øvre er tid:\n\n$$x_3 = 3h = 0{,}6, \\qquad t_2 = 2\\Delta t = 0{,}016.$$\n\nPunktet er altså $(0{,}6;\\ 0{,}016)$.\n\n**c)** **Ingen.** Hele rad $n = 0$ er gitt av initialbetingelsen $u(x,0)$ — det er nettopp derfor vi kan komme i gang. Randverdiene $U_0^n$ og $U_5^n$ er gitt for alle $n$, så på hver senere rad er det de fire indre verdiene $U_1, U_2, U_3, U_4$ som skal regnes ut.",
+        "hints": [
+          "$h$ er intervallengden delt på antall delintervall.",
+          "Nedre indeks teller romsteg, øvre teller tidssteg."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Skjemaet, og ett gitterpunkt for hånd (~16 min)\n\nNå setter vi de to kvotientene inn i varmelikningen og løser for den ene ukjente. Det er tre linjers algebra, og de tre linjene **må kunnes** — de står ikke på formelarket."
+    },
+    {
+      "id": "tma4135-8-2-utledning",
+      "type": "text",
+      "content": "**Utledningen.** Varmelikningen er\n\n$$u_t = c^2 u_{xx}.$$\n\nSett inn forlengs differanse i tid på venstre side og den andre sentraldifferansen i rom på høyre side, begge i punktet $(x_i, t_n)$:\n\n$$\\frac{U_i^{n+1} - U_i^n}{\\Delta t} = c^2\\,\\frac{U_{i+1}^n - 2U_i^n + U_{i-1}^n}{h^2}.$$\n\nGanger vi opp med $\\Delta t$ og flytter $U_i^n$ over, står det\n\n$$U_i^{n+1} = U_i^n + \\frac{c^2\\Delta t}{h^2}\\left(U_{i+1}^n - 2U_i^n + U_{i-1}^n\\right).$$\n\nBrøken foran parentesen får sitt eget navn, og hele resten av delen handler om den.\n\n*Intuisjon:* uttrykket i parentesen er positivt når punktet ligger **lavere** enn gjennomsnittet av naboene, altså i en grop. Da legges det til noe, og verdien stiger. Ligger punktet på en topp, er parentesen negativ, og verdien synker. Skjemaet gjør nøyaktig det varme gjør: jevner ut topper og groper. Og $r$ bestemmer hvor mye det jevner ut per skritt."
+    },
+    {
+      "id": "tma4135-8-2-def-r",
+      "type": "definition",
+      "title": "Stabilitetstallet $r$",
+      "content": "Den dimensjonsløse kombinasjonen av de to steglengdene:\n\n$$r = \\frac{c^2\\,\\Delta t}{h^2}.$$\n\nEr $c^2 = 1$, forenkles den til $r = \\Delta t/h^2$.\n\n**Legg merke til $h^2$, ikke $h$.** Halverer du romsteget og vil holde $r$ fast, må tidssteget deles på **fire**. Det er den enkeltopplysningen som gjør det eksplisitte skjemaet dyrt i praksis, og den er verdt å skrive på A5-arket.\n\nTo feller som begge er dokumentert i løsningsforslagene: å glemme $c^2$ når diffusiviteten ikke er 1, og å bytte om teller og nevner slik at det blir $h^2/\\Delta t$."
+    },
+    {
+      "id": "tma4135-8-2-def-eksplisitt",
+      "type": "definition",
+      "title": "Det eksplisitte skjemaet",
+      "content": "Formelen som regner hele den nye raden ut av den gamle:\n\n$$U_i^{n+1} = U_i^n + r\\left(U_{i+1}^n - 2U_i^n + U_{i-1}^n\\right), \\qquad i = 1, \\dots, N-1.$$\n\nDen kalles **eksplisitt** fordi den nye verdien står alene på venstre side: ingen likningssystem, bare innsetting. Det er samme grep som ett skritt med Euler forover, brukt på hvert romlig punkt samtidig.\n\nOppsettet **må kunnes** — formelarket har differansekvotientene, men ikke det ferdige skjemaet.\n\nRandverdiene $U_0^{n+1}$ og $U_N^{n+1}$ settes **ikke** av formelen; de leses av randbetingelsen. Formelen gjelder bare de indre punktene."
+    },
+    {
+      "id": "tma4135-8-2-def-vektform",
+      "type": "definition",
+      "title": "Vektformen: en veid middelverdi",
+      "content": "Samler du leddene etter hvilken gammel verdi de tilhører, blir skjemaet\n\n$$U_i^{n+1} = r\\,U_{i-1}^n + (1-2r)\\,U_i^n + r\\,U_{i+1}^n.$$\n\n**De tre vektene $r$, $1-2r$, $r$ summerer seg alltid til 1.** Den nye verdien er altså et **veid gjennomsnitt** av tre gamle verdier — forutsatt at alle tre vektene er positive.\n\nDenne omskrivingen er ikke pynt: den er det korteste stabilitetsbeviset som finnes, og du ser det i løkke 3. Er $1 - 2r \\ge 0$, er alle vektene mellom 0 og 1, og et veid gjennomsnitt kan aldri bli større enn den største av verdiene det gjennomsnittliggjør."
+    },
+    {
+      "id": "tma4135-8-2-eks1",
+      "type": "example",
+      "title": "Ett gitterpunkt for hånd — hele regningen skrevet ut",
+      "problem": "Løs $u_t = u_{xx}$ på $[0,1]$ med $u(0,t) = u(1,t) = 0$ og starttemperaturen\n\n$$u(x,0) = \\begin{cases} x, & 0 \\le x \\le \\tfrac12,\\\\[2pt] 1-x, & \\tfrac12 < x \\le 1.\\end{cases}$$\n\nBruk $h = 0{,}25$ og $\\Delta t = 0{,}025$. Regn ut hele raden $n = 1$, og deretter $U_2^2$.",
+      "solution": "**Steg 1 — regn ut $r$ og sjekk stabiliteten med en gang.** Her er $c^2 = 1$, så\n\n$$r = \\frac{c^2\\,\\Delta t}{h^2} = \\frac{0{,}025}{0{,}0625} = 0{,}4.$$\n\nSiden $0{,}4 \\le \\tfrac12$ er skjemaet **stabilt**. Dette er første linje i enhver besvarelse i sjangeren — også når oppgaven ikke spør eksplisitt.\n\n**Steg 2 — sett opp startraden.** Gitterpunktene er $x_i = 0;\\ 0{,}25;\\ 0{,}5;\\ 0{,}75;\\ 1$, og initialfunksjonen gir\n\n$$U_0^0 = 0, \\quad U_1^0 = 0{,}25, \\quad U_2^0 = 0{,}5, \\quad U_3^0 = 0{,}25, \\quad U_4^0 = 0.$$\n\n**Steg 3 — bruk skjemaet på hvert indre punkt.** Med $r = 0{,}4$:\n\n$$U_i^{n+1} = U_i^n + 0{,}4\\left(U_{i+1}^n - 2U_i^n + U_{i-1}^n\\right).$$\n\n$i = 1$:\n\n$$U_1^1 = 0{,}25 + 0{,}4\\left(0{,}5 - 2(0{,}25) + 0\\right) = 0{,}25 + 0{,}4(0) = 0{,}25.$$\n\n$i = 2$:\n\n$$U_2^1 = 0{,}5 + 0{,}4\\left(0{,}25 - 2(0{,}5) + 0{,}25\\right) = 0{,}5 + 0{,}4(-0{,}5) = 0{,}5 - 0{,}2 = 0{,}3.$$\n\n$i = 3$: ved symmetri lik $U_1^1$, men vi skriver den ut:\n\n$$U_3^1 = 0{,}25 + 0{,}4\\left(0 - 2(0{,}25) + 0{,}5\\right) = 0{,}25 + 0{,}4(0) = 0{,}25.$$\n\nRandverdiene beholdes: $U_0^1 = U_4^1 = 0$. Rad 1 er altså\n\n$$\\left(0;\\ 0{,}25;\\ 0{,}3;\\ 0{,}25;\\ 0\\right).$$\n\n**Steg 4 — ett skritt til, for $U_2^2$.**\n\n$$U_2^2 = 0{,}3 + 0{,}4\\left(0{,}25 - 2(0{,}3) + 0{,}25\\right) = 0{,}3 + 0{,}4(-0{,}1) = 0{,}3 - 0{,}04 = 0{,}26.$$\n\n**Steg 5 — kontroller at svaret er fornuftig.** Tre ting å se etter, og alle tre gir uttelling når de nevnes:\n\n1. **Toppen synker:** $0{,}5 \\to 0{,}3 \\to 0{,}26$. Varme sprer seg, temperaturen jevner seg ut. ✓\n2. **Ingen verdi er større enn den største startverdien** ($0{,}5$) eller mindre enn den minste ($0$). Det er nettopp det den veide middelverdien garanterer når $r \\le \\tfrac12$. ✓\n3. **Symmetrien er bevart:** $U_1^n = U_3^n$ på hver rad, akkurat som startdataene er symmetriske om $x = \\tfrac12$. Brytes symmetrien, er det en regnefeil — eller en kodefeil, som du skal se i [kap. 8.4](/tma4135/tma4135-8-4). ✓\n\n**Merk at $U_1$ ikke endret seg i første skritt.** Startprofilen er en rett linje mellom $x_0$ og $x_2$, og en rett linje har krumning null: parentesen ble eksakt 0. Bare knekkpunktet på toppen «vet» at noe skal skje til å begynne med. Det er en pen liten illustrasjon av at det er $u_{xx}$ — krumningen — som driver hele prosessen."
+    },
+    {
+      "id": "tma4135-8-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-2-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut $r$ og avgjør om det eksplisitte skjemaet er stabilt i hvert tilfelle.\n\n**a)** $u_t = u_{xx}$, $h = 0{,}1$, $\\Delta t = 0{,}004$.\n**b)** $u_t = u_{xx}$, $h = 0{,}05$, $\\Delta t = 0{,}002$.\n**c)** $u_t = 4u_{xx}$, $h = 0{,}2$, $\\Delta t = 0{,}002$.",
+        "solution": "**a)** $r = \\dfrac{0{,}004}{0{,}01} = 0{,}4 \\le \\tfrac12$. **Stabilt.**\n\n**b)** $r = \\dfrac{0{,}002}{0{,}0025} = 0{,}8 > \\tfrac12$. **Ustabilt.**\n\nLegg merke til hva som skjedde fra a) til b): romsteget ble halvert og tidssteget ble halvert — og skjemaet gikk fra stabilt til ustabilt. Halveres $h$, må $\\Delta t$ deles på **fire** for at $r$ skal være uendret.\n\n**c)** Her er $c^2 = 4$, og den må med:\n\n$$r = \\frac{c^2\\,\\Delta t}{h^2} = \\frac{4 \\cdot 0{,}002}{0{,}04} = \\frac{0{,}008}{0{,}04} = 0{,}2 \\le \\tfrac12. \\quad \\textbf{Stabilt.}$$\n\nUten $c^2$ hadde du fått $0{,}05$ — fire ganger for lite, og en beskjed om at du har mye slakk der du egentlig ikke har det.",
+        "hints": [
+          "$r = c^2\\Delta t/h^2$. Regn ut $h^2$ først.",
+          "I c): tallet foran $u_{xx}$ er $c^2$, og det skal inn i telleren."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-2-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger P — sjangeren er differansemetode for en PDE.) Løs $u_t = u_{xx}$ på $[0,1]$ med $u(0,t) = u(1,t) = 0$ og\n\n$$u(x,0) = x(1-x).$$\n\nBruk $h = 0{,}25$ og $\\Delta t = 0{,}0125$.\n\n**a)** Regn ut $r$ og avgjør om skjemaet er stabilt.\n**b)** Regn ut hele raden $n = 1$.\n**c)** Regn ut $U_2^2$.",
+        "solution": "**a)** $r = \\dfrac{0{,}0125}{0{,}0625} = 0{,}2$. Siden $0{,}2 \\le \\tfrac12$ er skjemaet **stabilt**.\n\n**b)** Startraden fra $u(x,0) = x(1-x)$:\n\n$$U_0^0 = 0, \\quad U_1^0 = 0{,}25 \\cdot 0{,}75 = 0{,}1875, \\quad U_2^0 = 0{,}5 \\cdot 0{,}5 = 0{,}25,$$\n$$U_3^0 = 0{,}75 \\cdot 0{,}25 = 0{,}1875, \\quad U_4^0 = 0.$$\n\nSkjemaet med $r = 0{,}2$:\n\n$$U_1^1 = 0{,}1875 + 0{,}2\\left(0{,}25 - 2(0{,}1875) + 0\\right) = 0{,}1875 + 0{,}2(-0{,}125) = 0{,}1625,$$\n\n$$U_2^1 = 0{,}25 + 0{,}2\\left(0{,}1875 - 2(0{,}25) + 0{,}1875\\right) = 0{,}25 + 0{,}2(-0{,}125) = 0{,}225,$$\n\n$$U_3^1 = 0{,}1875 + 0{,}2\\left(0 - 2(0{,}1875) + 0{,}25\\right) = 0{,}1875 + 0{,}2(-0{,}125) = 0{,}1625.$$\n\nRad 1: $\\left(0;\\ 0{,}1625;\\ 0{,}225;\\ 0{,}1625;\\ 0\\right)$.\n\n**c)**\n\n$$U_2^2 = 0{,}225 + 0{,}2\\left(0{,}1625 - 2(0{,}225) + 0{,}1625\\right) = 0{,}225 + 0{,}2(-0{,}125) = 0{,}2.$$\n\n**Kontroll:** alle verdiene synker, ingen går utenfor $[0;\\ 0{,}25]$, og symmetrien om midten holder. Legg merke til at parentesen er $-0{,}125$ i alle tre punktene på første rad: en parabel har konstant krumning, så $\\delta^2 U$ er den samme overalt. Det er en fin liten kontroll på at du har regnet riktig.",
+        "hints": [
+          "Regn ut $r$ først, og skriv opp startraden med alle fem verdiene før du begynner.",
+          "Parentesen er $U_{i+1} - 2U_i + U_{i-1}$ — bruk verdiene fra samme rad, aldri fra en blanding av rader.",
+          "Symmetrien om $x = 0{,}5$ skal holde på hver rad; bruk den som kontroll, ikke som snarvei."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Grensen $r \\le \\tfrac12$, og hva som skjer på feil side (~16 min)\n\n— naturlig pausepunkt —\n\nNå kommer kapitlets viktigste avsnitt. Vi skal vise nøyaktig hvor grensen kommer fra, og så se hva som skjer når man bommer på den med to hundredeler."
+    },
+    {
+      "id": "tma4135-8-2-def-stabilitet",
+      "type": "definition",
+      "title": "Stabilitet",
+      "content": "Et skjema er **stabilt** dersom feil som allerede finnes i tallene — avrundingsfeil, målefeil i startdataene, avkuttingsfeil fra tidligere skritt — ikke vokser når du regner videre.\n\nMerk hva stabilitet **ikke** er: det er ikke det samme som nøyaktighet. Et stabilt skjema kan gi et unøyaktig svar. Men et **ustabilt** skjema gir før eller siden et svar uten mening, uansett hvor små steg du tar i rommet.\n\nSammenhengen med [kap. 8.1](/tma4135/tma4135-8-1): konsistens sier at avkuttingsfeilen går mot null; stabilitet sier at feilene ikke forsterkes underveis. **Begge kreves** for at den beregnede løsningen skal nærme seg den eksakte."
+    },
+    {
+      "id": "tma4135-8-2-bevis1",
+      "type": "text",
+      "content": "**Argument 1 — den veide middelverdien (det korteste og det mest overbevisende).**\n\nSkriv skjemaet på vektform:\n\n$$U_i^{n+1} = r\\,U_{i-1}^n + (1-2r)\\,U_i^n + r\\,U_{i+1}^n, \\qquad r + (1-2r) + r = 1.$$\n\nAnta $r \\le \\tfrac12$. Da er $1 - 2r \\ge 0$, og alle tre vektene er **ikke-negative** og summerer seg til 1. La $M$ være den største absoluttverdien på rad $n$. Da er\n\n$$\\left|U_i^{n+1}\\right| \\le r|U_{i-1}^n| + (1-2r)|U_i^n| + r|U_{i+1}^n| \\le \\left(r + 1 - 2r + r\\right)M = M.$$\n\n**Maksimalverdien kan altså aldri vokse.** Det gjelder rad etter rad, i det uendelige. Ingenting kan sprenge.\n\n*Intuisjon:* et gjennomsnitt av tre tall ligger alltid mellom det minste og det største av dem. Så lenge alle vektene er positive, er den nye verdien fanget mellom naboene sine — nøyaktig slik ekte temperatur oppfører seg.\n\n**Og hva skjer når $r > \\tfrac12$?** Da er $1 - 2r < 0$. Midtvekten er negativ, det er ikke lenger et gjennomsnitt, og garantien er borte. At garantien forsvinner er i seg selv ikke et bevis på at noe går galt — så vi viser at det faktisk gjør det."
+    },
+    {
+      "id": "tma4135-8-2-bevis2",
+      "type": "text",
+      "content": "**Argument 2 — sagtannmoden, som viser at grensen er skarp.**\n\nSe på et mønster som veksler mellom pluss og minus fra gitterpunkt til gitterpunkt:\n\n$$U_i^n = (-1)^i A_n.$$\n\nDette er den «verste» formen data kan ha — den kortest mulige bølgen gitteret kan bære. Sett den inn i skjemaet:\n\n$$U_i^{n+1} = r(-1)^{i-1}A_n + (1-2r)(-1)^iA_n + r(-1)^{i+1}A_n.$$\n\nBåde $(-1)^{i-1}$ og $(-1)^{i+1}$ er lik $-(-1)^i$, så\n\n$$U_i^{n+1} = (-1)^iA_n\\left(-r + 1 - 2r - r\\right) = (-1)^i A_n\\,(1 - 4r).$$\n\nAmplituden ganges altså med **$1-4r$ for hvert tidssteg**:\n\n$$A_{n+1} = (1-4r)A_n \\quad\\Longrightarrow\\quad A_n = (1-4r)^n A_0.$$\n\n**Dette holder seg begrenset hvis og bare hvis $|1-4r| \\le 1$**, altså\n\n$$-1 \\le 1 - 4r \\le 1 \\quad\\Longleftrightarrow\\quad 0 \\le r \\le \\tfrac12.$$\n\nEr $r$ større, vokser sagtannmønsteret eksponentielt — og det gjør det uansett hvor pen den eksakte løsningen er, fordi avrundingsfeilene i maskinen alltid inneholder litt av det verste mønsteret.\n\n*Den fulle analysen* ser på alle bølgelengder, ikke bare den korteste. Setter du inn $U_i^n = \\xi^n e^{\\mathrm{i}\\beta x_i}$, får du forsterkningsfaktoren\n\n$$\\xi = 1 - 4r\\sin^2\\!\\left(\\frac{\\beta h}{2}\\right).$$\n\nDen er mest negativ når $\\sin^2 = 1$, altså for sagtannmoden — så den ene moden vi regnet på, er nettopp den som avgjør. Kravet $|\\xi| \\le 1$ for **alle** $\\beta$ gir samme svar: $r \\le \\tfrac12$."
+    },
+    {
+      "id": "tma4135-8-2-def-stabkrav",
+      "type": "definition",
+      "title": "Stabilitetskravet for det eksplisitte skjemaet",
+      "content": "Skjemaet er stabilt hvis og bare hvis\n\n$$r = \\frac{c^2\\,\\Delta t}{h^2} \\le \\frac{1}{2}.$$\n\nEkvivalent, løst for tidssteget:\n\n$$\\Delta t \\le \\frac{h^2}{2c^2}.$$\n\n**Dette står ikke noe sted på det utdelte formelarket — det må kunnes.** Det er én av de tre–fire formlene som er verdt plassen på ditt eget A5-ark.\n\nBetingelsen kalles ofte en **betinget stabilitet**: skjemaet er stabilt, men bare på betingelse av at tidssteget er lite nok. Kontrasten er Crank–Nicolson i [kap. 8.3](/tma4135/tma4135-8-3), som er stabilt uansett."
+    },
+    {
+      "id": "tma4135-8-2-fig-stabint",
+      "type": "image",
+      "src": "/images/textbook/tma4135/stabilitetsintervall-eksplisitt.svg",
+      "alt": "Oeverst en tallinje for r fra 0 til 1, der intervallet fra 0 til en halv er skravert groent og merket STABILT, mens omraadet til hoeyre for en halv er skravert roedt og merket USTABILT. Nederst en graf av absoluttverdien av 1 minus 4r som funksjon av r, en V-form med bunnpunkt i r lik en fjerdedel, som krysser hoeyden 1 noeyaktig ved r lik en halv.",
+      "caption": "Stabilitetsintervallet. Forsterkningsfaktoren for sagtannmoden er $1-4r$; kurven under viser $|1-4r|$. Den ligger under 1 for $0 < r \\le \\tfrac12$ og stiger over 1 straks $r$ passerer $\\tfrac12$. Ved $r = \\tfrac14$ er faktoren null — da dør det verste mønsteret ut på ett eneste skritt."
+    },
+    {
+      "id": "tma4135-8-2-eks2",
+      "type": "example",
+      "title": "Hva ustabilitet faktisk ser ut som — en kjøring på begge sider av grensen",
+      "problem": "Løs $u_t = u_{xx}$ på $[0,1]$ med kalde ender og en bratt starttemperatur: $u = 1$ i alle indre punkter, $0$ på randen. Bruk $h = 0{,}1$ og kjør skjemaet i 60 tidssteg med $r = 0{,}50$, $r = 0{,}52$ og $r = 0{,}60$. Hva skjer?",
+      "solution": "**Steg 1 — hva teorien forutsier.** Gitteret har $N = 10$ delintervall, og den mest oscillerende moden det kan bære, er $n = 9$. Forsterkningsfaktoren for den er\n\n$$\\xi = 1 - 4r\\sin^2\\!\\left(\\frac{9\\pi h}{2}\\right) = 1 - 4r\\sin^2(0{,}45\\pi).$$\n\nMed $\\sin^2(0{,}45\\pi) = 0{,}97553$:\n\n| $r$ | $\\xi$ for den verste moden | vekst per steg | etter 60 steg |\n|---|---|---|---|\n| 0,50 | $-0{,}951$ | 0,951 | $0{,}049$ (dør ut) |\n| 0,52 | $-1{,}029$ | 1,029 | $5{,}6$ (vokser) |\n| 0,60 | $-1{,}341$ | 1,341 | $4{,}5\\cdot 10^{7}$ (eksploderer) |\n\n**Steg 2 — den faktiske kjøringen.** Kjørt med skjemaet, ikke med formelen:\n\n| steg $n$ | $r = 0{,}50$ | $r = 0{,}52$ | $r = 0{,}60$ |\n|---|---|---|---|\n| 0 | 1 | 1 | 1 |\n| 10 | 0,781 | 0,788 | 1,248 |\n| 20 | 0,474 | 0,500 | 11,61 |\n| 40 | 0,174 | 0,256 | $3{,}99\\cdot 10^{3}$ |\n| 60 | 0,0637 | 0,232 | $1{,}42\\cdot 10^{6}$ |\n\nTallene er største absoluttverdi i gitteret.\n\n**Steg 3 — les tabellen.**\n\nVed $r = 0{,}50$ synker maksimalverdien jevnt, akkurat slik varme skal oppføre seg. Den eksakte løsningen ved $t = 0{,}30$ er omtrent $0{,}06$; skjemaet gir $0{,}064$.\n\nVed $r = 0{,}52$ — bare to hundredeler over grensen — synker verdien først, helt til den snur ved omtrent 40 steg og begynner å vokse igjen. **Det er den farlige situasjonen:** de første radene ser helt normale ut, så du oppdager ikke feilen med det samme.\n\nVed $r = 0{,}60$ er det ingen tvil. Etter 60 steg står det $1{,}4$ millioner der temperaturen skulle vært $0{,}02$, og fortegnet veksler fra gitterpunkt til gitterpunkt.\n\n**Steg 4 — hva som er lærdommen.** Ustabilitet er ikke unøyaktighet. Skjemaet gir ikke et litt for stort svar; det gir et svar som ikke har noe med varme å gjøre i det hele tatt. En temperatur som veksler mellom $+10^6$ og $-10^6$ mellom nabopunkter er ikke en dårlig tilnærming — den er søppel.\n\n**Og det er derfor stabilitetssjekken hører hjemme i første linje.** Regn ut $r$, sammenlign med $\\tfrac12$, og skriv konklusjonen ned før du regner et eneste gitterpunkt. Det er ett strekpunkt i besvarelsen, og det er et av de sikreste delpoengene i sjangeren."
+    },
+    {
+      "id": "tma4135-8-2-fig-ustabil",
+      "type": "image",
+      "src": "/images/textbook/tma4135/eksplisitt-ustabilitet.svg",
+      "alt": "En logaritmisk graf over stoerste absoluttverdi i gitteret gjennom 60 tidssteg. Kurven for r lik 0,50 synker jevnt fra 1 ned mot 0,06. Kurven for r lik 0,52 synker foerst og snur oppover etter omtrent 40 steg. Kurven for r lik 0,60 synker i noen faa steg og stiger deretter bratt til over en million.",
+      "caption": "Samme startdata, samme romsteg, tre valg av $r$. Med $r = 0{,}52$ ser de første tretti stegene tilforlatelige ut — veksten kommer først etterpå. Med $r = 0{,}60$ er svaret ubrukelig etter et halvt hundre steg. Merk den logaritmiske aksen: avstanden fra 1 til $10^6$ er seks hakk."
+    },
+    {
+      "id": "tma4135-8-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-2-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Finn det største tidssteget som gir et stabilt eksplisitt skjema for $u_t = u_{xx}$ på $[0,1]$ med $h = 0{,}05$.\n**b)** Samme spørsmål for $u_t = 9u_{xx}$ med $h = 0{,}05$.\n**c)** Hvor mange tidssteg trengs i b) for å komme fram til $t = 1$?",
+        "solution": "**a)** Kravet er $\\Delta t \\le \\dfrac{h^2}{2c^2}$ med $c^2 = 1$:\n\n$$\\Delta t \\le \\frac{0{,}0025}{2} = 0{,}00125.$$\n\n**b)** Med $c^2 = 9$:\n\n$$\\Delta t \\le \\frac{0{,}0025}{2 \\cdot 9} = \\frac{0{,}0025}{18} = 1{,}39 \\cdot 10^{-4}.$$\n\nNi ganger større diffusivitet gir ni ganger mindre lovlig tidssteg.\n\n**c)**\n\n$$\\text{antall steg} = \\frac{1}{1{,}39\\cdot 10^{-4}} = 7200.$$\n\n**Kommentaren som er verdt et delpoeng:** 7200 tidssteg for å komme til $t = 1$ på et gitter med bare 20 romlige intervall er svært mye arbeid for svært lite oppløsning. Det er hele grunnen til at implisitte skjemaer finnes — se [kap. 8.3](/tma4135/tma4135-8-3), der samme problem løses uten noen grense på $\\Delta t$.",
+        "hints": [
+          "Løs $r \\le \\tfrac12$ for $\\Delta t$.",
+          "Diffusiviteten $c^2$ står i telleren for $r$, så den havner i nevneren når du løser for $\\Delta t$.",
+          "Antall steg er sluttiden delt på tidssteget — rund oppover."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-2-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at sagtannmønsteret $U_i^n = (-1)^i A_n$ forsterkes med faktoren $1-4r$ per tidssteg, og bruk det til å avgjøre hva som skjer i de tre tilfellene $r = \\tfrac14$, $r = \\tfrac12$ og $r = 1$.",
+        "solution": "**Utledningen.** Sett $U_i^n = (-1)^iA_n$ inn i vektformen:\n\n$$U_i^{n+1} = r(-1)^{i-1}A_n + (1-2r)(-1)^iA_n + r(-1)^{i+1}A_n.$$\n\nBåde naboene har motsatt fortegn av midtpunktet, altså $(-1)^{i\\pm 1} = -(-1)^i$:\n\n$$U_i^{n+1} = (-1)^iA_n\\left(-r + (1-2r) - r\\right) = (-1)^iA_n(1-4r).$$\n\nFormen er bevart, og amplituden er ganget med $1-4r$. $\\blacksquare$\n\n**De tre tilfellene:**\n\n$r = \\tfrac14$: faktoren er $1 - 1 = 0$. Sagtannmønsteret forsvinner **fullstendig på ett eneste tidssteg**. Dette er den best mulige dempningen skjemaet kan gi.\n\n$r = \\tfrac12$: faktoren er $1 - 2 = -1$. Amplituden er uendret, men fortegnet snur hver gang. Mønsteret verken vokser eller dør ut — det står og vipper. Det er grensetilfellet, og det er derfor ulikheten er $\\le$ og ikke $<$.\n\n$r = 1$: faktoren er $1 - 4 = -3$. Amplituden **tredobles** for hvert tidssteg, med fortegnsskifte. Etter 20 steg er den ganget med $3^{20} \\approx 3{,}5\\cdot 10^{9}$.\n\n**Merk hvor lite som skal til.** Fra $r = \\tfrac12$ til $r = 1$ er det bare en dobling av tidssteget — og forskjellen er mellom «står stille» og «ganget med tre milliarder».",
+        "hints": [
+          "Sett inn og bruk at $(-1)^{i+1} = (-1)^{i-1} = -(-1)^i$.",
+          "Samle alt som ganger $(-1)^iA_n$.",
+          "For hvert av de tre tallene: regn ut $1-4r$ og se om absoluttverdien er under, lik eller over 1."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Kontroll mot den eksakte løsningen fra Del 5 (~14 min)\n\nDet sterkeste du kan gjøre med et numerisk svar, er å måle det mot et eksakt svar. For varmelikningen med kalde ender har vi det: [kap. 5.2](/tma4135/tma4135-5-2) ga hele løsningen som en Fourier-rekke, og for startdata $u(x,0) = \\sin\\pi x$ er rekka bare **ett ledd**."
+    },
+    {
+      "id": "tma4135-8-2-def-testproblemet",
+      "type": "definition",
+      "title": "Testproblemet med kjent fasit",
+      "content": "Problemet\n\n$$u_t = u_{xx}, \\quad 0 < x < 1, \\qquad u(0,t) = u(1,t) = 0, \\qquad u(x,0) = \\sin \\pi x$$\n\nhar den eksakte løsningen\n\n$$u(x,t) = e^{-\\pi^2 t}\\sin \\pi x.$$\n\n**Hvorfor bare ett ledd:** startfunksjonen *er* den første egenfunksjonen $\\sin(\\pi x/L)$ med $L = 1$, så alle andre Fourier-koeffisienter er null. Egenverdien er $k_1 = \\pi^2$, og tidsfaktoren blir $e^{-c^2k_1t} = e^{-\\pi^2t}$.\n\nDette er testproblemet som brukes overalt i faget, nettopp fordi fasiten er én linje. Kontroller alltid et nytt skjema mot det først."
+    },
+    {
+      "id": "tma4135-8-2-eks3",
+      "type": "example",
+      "title": "Eksamensnivå: regn tre tidssteg og sammenlign med den analytiske løsningen",
+      "problem": "Løs testproblemet $u_t = u_{xx}$, $u(0,t) = u(1,t) = 0$, $u(x,0) = \\sin \\pi x$ med $h = 0{,}2$ og $\\Delta t = 0{,}01$.\n\n**a)** Avgjør om skjemaet er stabilt.\n**b)** Regn ut $U_2^1$ for hånd.\n**c)** Regn tre tidssteg og sammenlign hele raden med den eksakte løsningen $u = e^{-\\pi^2t}\\sin\\pi x$.\n**d)** Forklar hvorfor avviket er som det er.",
+      "solution": "**a) Stabilitet.**\n\n$$r = \\frac{c^2\\Delta t}{h^2} = \\frac{0{,}01}{0{,}04} = 0{,}25 \\le \\tfrac12.$$\n\nSkjemaet er **stabilt**. Vi vet nå at ingenting kommer til å sprenge, og at maksimalverdien vil synke monotont.\n\n**b) Ett gitterpunkt for hånd.** Startraden er $U_i^0 = \\sin(\\pi x_i)$ med $x_i = 0;\\ 0{,}2;\\ 0{,}4;\\ 0{,}6;\\ 0{,}8;\\ 1$:\n\n$$U_1^0 = \\sin 0{,}2\\pi = 0{,}587785, \\quad U_2^0 = \\sin 0{,}4\\pi = 0{,}951057,$$\n$$U_3^0 = \\sin 0{,}6\\pi = 0{,}951057, \\quad U_4^0 = \\sin 0{,}8\\pi = 0{,}587785,$$\n\nog $U_0^0 = U_5^0 = 0$.\n\n$$U_2^1 = U_2^0 + r\\left(U_3^0 - 2U_2^0 + U_1^0\\right) = 0{,}951057 + 0{,}25\\left(0{,}951057 - 1{,}902113 + 0{,}587785\\right)$$\n\n$$= 0{,}951057 + 0{,}25\\,(-0{,}363271) = 0{,}951057 - 0{,}090818 = \\boxed{0{,}860239.}$$\n\n**c) Tre steg mot fasiten.** Kjørt videre med samme skjema, og sammenlignet med $u(x_i, t_n) = e^{-\\pi^2 t_n}\\sin \\pi x_i$:\n\n| $t$ | | $x = 0{,}2$ | $x = 0{,}4$ | $x = 0{,}6$ | $x = 0{,}8$ |\n|---|---|---|---|---|---|\n| 0,01 | numerisk | 0,531657 | 0,860239 | 0,860239 | 0,531657 |\n| 0,01 | eksakt | 0,532544 | 0,861674 | 0,861674 | 0,532544 |\n| 0,02 | numerisk | 0,480888 | 0,778093 | 0,778093 | 0,480888 |\n| 0,02 | eksakt | 0,482495 | 0,780693 | 0,780693 | 0,482495 |\n| 0,03 | numerisk | 0,434967 | 0,703792 | 0,703792 | 0,434967 |\n| 0,03 | eksakt | 0,437149 | 0,707322 | 0,707322 | 0,437149 |\n\nStørste avvik ved $t = 0{,}03$ er $0{,}00353$, altså omtrent **0,5 %**. På et gitter med bare fire indre punkter er det godt.\n\n**d) Hvorfor avviket er som det er — og hvorfor det er *nedad*.** Startdataene er den reneste moden som finnes, og for den kan vi regne eksakt hva skjemaet gjør. Sett $U_i^n = \\xi^n\\sin(\\pi x_i)$ inn i skjemaet; forsterkningsfaktoren blir\n\n$$\\xi = 1 - 4r\\sin^2\\!\\left(\\frac{\\pi h}{2}\\right) = 1 - 4(0{,}25)\\sin^2(0{,}1\\pi) = 1 - 0{,}0954915 = 0{,}9045085.$$\n\nDen eksakte løsningen dempes med\n\n$$e^{-\\pi^2\\Delta t} = e^{-0{,}0986960} = 0{,}9060181$$\n\nper tidssteg. Skjemaet demper altså **litt for mye** — $0{,}90451$ mot $0{,}90602$ — og derfor ligger alle de numeriske tallene litt under fasiten, med et avvik som vokser jevnt for hvert steg.\n\nKontroll: etter tre steg er $0{,}9045085^3 = 0{,}740011$ mot $e^{-3\\pi^2\\cdot 0{,}01} = 0{,}743722$. Ganget med $\\sin 0{,}4\\pi = 0{,}951057$ gir det $0{,}703792$ og $0{,}707322$ — nøyaktig tallene i tabellen. ✓\n\n**Dette er den sterkeste kontrollen boka kan gi deg:** den analytiske metoden fra Del 5 og den numeriske metoden i Del 8 svarer på nøyaktig samme spørsmål, og de svarer likt. Blir du usikker på et numerisk skjema, test det på et problem der separasjon av variable gir fasiten.\n\n**Merk hva som gir uttelling i denne oppgavetypen:** (1) $r$ regnet ut og sammenlignet med $\\tfrac12$ først, (2) minst ett gitterpunkt ført helt ut med tall, (3) en kontroll — enten mot fasiten, mot symmetrien, eller mot at maksimalverdien synker. Fasiten alene, uten mellomregning, gir ikke full uttelling."
+    },
+    {
+      "id": "tma4135-8-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-2-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Testproblemet i eksempelet, men med $h = 0{,}25$ og $\\Delta t = 0{,}03125$.\n\n**a)** Regn ut $r$ og avgjør stabiliteten.\n**b)** Regn ut forsterkningsfaktoren $\\xi = 1-4r\\sin^2(\\pi h/2)$ for grunnmoden, og sammenlign med den eksakte dempningen $e^{-\\pi^2\\Delta t}$.\n**c)** Hva blir $U_2^1$?",
+        "solution": "**a)** $h^2 = 0{,}0625$, så\n\n$$r = \\frac{0{,}03125}{0{,}0625} = 0{,}5.$$\n\nAkkurat på grensen — **stabilt**, siden kravet er $r \\le \\tfrac12$ med likhet tillatt. Men uten margin: den mest oscillerende moden verken vokser eller dør ut her.\n\n**b)** $\\sin(\\pi h/2) = \\sin(0{,}125\\pi) = 0{,}382683$, kvadrert $0{,}146447$:\n\n$$\\xi = 1 - 4(0{,}5)(0{,}146447) = 1 - 0{,}292893 = 0{,}707107.$$\n\nEksakt dempning per steg:\n\n$$e^{-\\pi^2 \\cdot 0{,}03125} = e^{-0{,}308425} = 0{,}734570.$$\n\nSkjemaet demper altså merkbart for mye — $0{,}7071$ mot $0{,}7346$, et avvik på $3{,}7$ %. Med det grovere gitteret og det større tidssteget er nøyaktigheten klart dårligere enn i eksempelet, selv om skjemaet fortsatt er stabilt.\n\n**c)** Startraden: $U_1^0 = \\sin 0{,}25\\pi = 0{,}707107$, $U_2^0 = \\sin 0{,}5\\pi = 1$, $U_3^0 = 0{,}707107$.\n\n$$U_2^1 = 1 + 0{,}5\\left(0{,}707107 - 2 + 0{,}707107\\right) = 1 + 0{,}5(-0{,}585786) = 0{,}707107.$$\n\nKontroll mot b): $U_2^1 = \\xi \\cdot U_2^0 = 0{,}707107 \\cdot 1$. ✓ Eksakt verdi er $0{,}734570$.\n\n**Lærdommen:** stabilitet er et minstekrav, ikke et kvalitetsstempel. Ved $r = \\tfrac12$ er skjemaet lovlig, men ikke særlig nøyaktig.",
+        "hints": [
+          "$r = \\Delta t/h^2$ når $c^2 = 1$.",
+          "I b): regn $\\sin(\\pi h/2)$ i radianer, kvadrer, og sett inn.",
+          "I c) kan du bruke skjemaet direkte — og kontrollere med $\\xi$ fra b), siden startdataene er nettopp grunnmoden."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-2-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger P.) Betrakt $u_t = u_{xx}$ på $[0,1]$ med **isolerte ender**: $u_x(0,t) = u_x(1,t) = 0$, og $u(x,0) = \\cos \\pi x$.\n\n**a)** Vis at den eksakte løsningen er $u = e^{-\\pi^2t}\\cos\\pi x$.\n**b)** Gitteret er $h = 0{,}25$, $\\Delta t = 0{,}015625$. Regn ut $r$ og avgjør stabiliteten.\n**c)** Regn ut $U_1^1$ og $U_2^1$ (de to første indre punktene) og sammenlign med de eksakte verdiene.\n\n*Randbetingelsene i randpunktene skal du ikke behandle her — de kommer i [kap. 8.4](/tma4135/tma4135-8-4). Bruk de eksakte verdiene $U_0^n = e^{-\\pi^2t_n}$ og $U_4^n = -e^{-\\pi^2t_n}$ når du trenger randverdier.*",
+        "solution": "**a)** Sett inn $u = e^{-\\pi^2t}\\cos\\pi x$:\n\n$$u_t = -\\pi^2e^{-\\pi^2t}\\cos\\pi x, \\qquad u_x = -\\pi e^{-\\pi^2t}\\sin\\pi x, \\qquad u_{xx} = -\\pi^2e^{-\\pi^2t}\\cos\\pi x.$$\n\nAltså $u_t = u_{xx}$. ✓\n\nRandbetingelsene: $u_x(0,t) = -\\pi e^{-\\pi^2t}\\sin 0 = 0$ ✓ og $u_x(1,t) = -\\pi e^{-\\pi^2t}\\sin\\pi = 0$ ✓.\n\nInitialbetingelsen: $u(x,0) = \\cos\\pi x$ ✓.\n\nDette er Neumann-tilfellet fra [kap. 5.1](/tma4135/tma4135-5-1) med $n = 1$: egenfunksjonen er cosinus i stedet for sinus, men egenverdien er den samme, $k_1 = \\pi^2$.\n\n**b)** $h^2 = 0{,}0625$, så\n\n$$r = \\frac{0{,}015625}{0{,}0625} = 0{,}25 \\le \\tfrac12. \\quad \\textbf{Stabilt.}$$\n\n**c)** Startraden er $U_i^0 = \\cos(\\pi x_i)$ med $x_i = 0;\\ 0{,}25;\\ 0{,}5;\\ 0{,}75;\\ 1$:\n\n$$U_0^0 = 1, \\quad U_1^0 = 0{,}707107, \\quad U_2^0 = 0, \\quad U_3^0 = -0{,}707107, \\quad U_4^0 = -1.$$\n\n$$U_1^1 = 0{,}707107 + 0{,}25\\left(0 - 2(0{,}707107) + 1\\right) = 0{,}707107 + 0{,}25(-0{,}414214) = 0{,}603553.$$\n\n$$U_2^1 = 0 + 0{,}25\\left(-0{,}707107 - 0 + 0{,}707107\\right) = 0 + 0{,}25 \\cdot 0 = 0.$$\n\n**Sammenligning.** Eksakt dempning etter ett steg er $e^{-\\pi^2\\cdot 0{,}015625} = e^{-0{,}154213} = 0{,}857089$, så\n\n$$u(0{,}25;\\ \\Delta t) = 0{,}857089 \\cdot 0{,}707107 = 0{,}606054, \\qquad u(0{,}5;\\ \\Delta t) = 0{,}857089 \\cdot 0 = 0.$$\n\nNumerisk: $0{,}603553$ mot eksakt $0{,}606054$ — avvik $0{,}0025$, altså $0{,}4$ %. I midtpunktet treffer skjemaet eksakt, av symmetrigrunner: $\\cos\\pi x$ er antisymmetrisk om $x = \\tfrac12$, så begge nabobidragene kansellerer.\n\n**Kontroll med forsterkningsfaktoren:** $\\xi = 1 - 4(0{,}25)\\sin^2(0{,}125\\pi) = 1 - 0{,}146447 = 0{,}853553$, mot eksakt $0{,}857089$. Ganget med $0{,}707107$ gir det $0{,}603553$. ✓ Samme tall som skjemaet ga — som det skal, siden startdataene er nøyaktig én mode.",
+        "hints": [
+          "I a) deriverer du to ganger med hensyn på $x$ og én gang med hensyn på $t$, og sammenligner.",
+          "Husk å sjekke randbetingelsene og initialbetingelsen også — «vis at» betyr alle tre.",
+          "I c) trenger du randverdien $U_0^0 = \\cos 0 = 1$; skjemaet brukes bare på de indre punktene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-2-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et eksplisitt skjema kjøres på $u_t = u_{xx}$ med $h = 0{,}1$ og $\\Delta t = 0{,}0055$ på $[0,1]$ med kalde ender. Startdataene er glatte: $u(x,0) = \\sin\\pi x$, altså uten noe sagtannmønster i det hele tatt.\n\n**a)** Er skjemaet stabilt?\n**b)** Vil kjøringen likevel gå galt? Begrunn.\n**c)** Anslå hvor mange tidssteg det tar før en avrundingsfeil på $10^{-16}$ i den verste moden har vokst til størrelse 1.",
+        "solution": "**a)** $r = \\dfrac{0{,}0055}{0{,}01} = 0{,}55 > \\tfrac12$. Skjemaet er **ustabilt**.\n\n**b)** **Ja, det går galt** — selv om startdataene ikke inneholder noe av det verste mønsteret.\n\nGrunnen er at datamaskinen ikke regner eksakt. Hver eneste aritmetiske operasjon legger til en avrundingsfeil av størrelse $\\varepsilon \\approx 10^{-16}$, og den feilen er tilfeldig fordelt over alle moder — inkludert den mest oscillerende. Straks det er en bitteliten komponent av sagtannmoden til stede, blir den forsterket for hvert steg mens alt annet dør ut. Etter nok steg dominerer den alt.\n\nMed $N = 10$ er den verste moden $n = 9$, og forsterkningsfaktoren er\n\n$$|\\xi| = \\left|1 - 4(0{,}55)\\sin^2(0{,}45\\pi)\\right| = \\left|1 - 2{,}2 \\cdot 0{,}97553\\right| = |{-1{,}1462}| = 1{,}1462.$$\n\nDen vokser altså med nesten 15 % per tidssteg.\n\n**c)** Vi vil ha $10^{-16}\\cdot 1{,}1462^{\\,n} \\ge 1$, altså\n\n$$n \\ge \\frac{16\\ln 10}{\\ln 1{,}1462} = \\frac{36{,}84}{0{,}13648} = 269{,}9.$$\n\nRundet oppover: omtrent **270 tidssteg**, som svarer til $t = 270 \\cdot 0{,}0055 = 1{,}49$.\n\n**Det ubehagelige er hvordan det ser ut underveis.** De første 150 stegene ser løsningen helt riktig ut — den glatte moden dør ut som den skal, og feilen er fortsatt under $10^{-6}$. Så begynner det å rykke i tallene, og kort etter er alt ødelagt. Kjører du bare til $t = 0{,}5$, ser du ingenting galt.\n\n**Konklusjonen:** at en kjøring «så riktig ut», er ikke et argument for at skjemaet er stabilt. Regn ut $r$.",
+        "hints": [
+          "$r = \\Delta t/h^2$; sammenlign med $\\tfrac12$.",
+          "I b): hvor kommer sagtannmønsteret fra, når startdataene ikke inneholder det?",
+          "I c): løs $10^{-16}|\\xi|^n \\ge 1$ ved å ta logaritmen på begge sider, og rund oppover."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil $r$-faktor.** To varianter, begge dokumentert i løsningsforslagene: å **glemme $c^2$** når diffusiviteten ikke er 1, og å **bytte om** teller og nevner slik at det blir $h^2/\\Delta t$. Skriv $r = c^2\\Delta t/h^2$ på egen linje med tallene satt inn, hver gang. Det tar ti sekunder og fanger begge.\n\n**Å bruke skjemaet med $r > \\tfrac12$ uten å kommentere det.** Dette er den dyreste feilen i kapitlet, og den koster poeng selv når alle gitterverdiene er regnet riktig. Løsningsforslagene krever at stabiliteten vurderes. Regn ut $r$ **først**, konkluder, og fortsett — også når oppgaven ikke spør.\n\n**Feil indeksering av naboverdiene.** Parentesen er $U_{i+1}^n - 2U_i^n + U_{i-1}^n$, og **alle tre skal hentes fra samme rad $n$**. Blander du inn en verdi fra rad $n+1$ fordi du allerede har regnet den ut, får du et helt annet skjema — det er nøyaktig den kodefeilen du skal lete etter i [kap. 8.4](/tma4135/tma4135-8-4).\n\n**Å la formelen overskrive randverdiene.** Skjemaet gjelder bare for $i = 1, \\dots, N-1$. Randverdiene kommer fra randbetingelsen og settes inn på nytt på hver rad.\n\n**Å tro at stabilitet betyr nøyaktighet.** Ved $r = \\tfrac12$ er skjemaet stabilt og likevel merkbart unøyaktig, slik oppgave 6 viser. Stabilitet er en nedre terskel, ikke et kvalitetsstempel.\n\n**Å glemme at $h$ og $\\Delta t$ ikke kan velges uavhengig.** Halverer du $h$ for å få bedre romlig oppløsning, må $\\Delta t$ deles på fire. Regnearbeidet åttedobles. Dette er verdt en setning i enhver drøftingsoppgave om metodevalg.\n\n**Å blande $k$-ene.** Det utdelte formelarket kaller tidssteget $k$, mens $k$ i Del 5 er separasjonskonstanten. Skriv $\\Delta t$ i din egen besvarelse, og noter i margen hva arket kaller det."
+    },
+    {
+      "id": "tma4135-8-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Boksene under samler resten av kapitlets begreper som egne kort. Ved førstegangslesing kan du gå rett til repetisjonsoppgavene."
+    },
+    {
+      "id": "tma4135-8-2-def-forsterkning",
+      "type": "definition",
+      "title": "Forsterkningsfaktoren $\\xi$",
+      "content": "Faktoren en enkelt bølgekomponent ganges med for hvert tidssteg. For det eksplisitte skjemaet:\n\n$$\\xi(\\beta) = 1 - 4r\\sin^2\\!\\left(\\frac{\\beta h}{2}\\right).$$\n\nHer er $\\beta$ bølgetallet: små $\\beta$ er lange, glatte bølger, store $\\beta$ er korte, oscillerende.\n\n**Stabilitet betyr $|\\xi| \\le 1$ for alle $\\beta$.** Siden $\\sin^2$ ligger mellom 0 og 1, ligger $\\xi$ mellom $1-4r$ og 1, og kravet blir $1-4r \\ge -1$, altså $r \\le \\tfrac12$.\n\nFor en enkelt diskret mode $\\sin(n\\pi x_i/L)$ på et gitter med $N$ intervall er $\\beta h = n\\pi h/L$, så $\\xi_n = 1 - 4r\\sin^2(n\\pi h/(2L))$."
+    },
+    {
+      "id": "tma4135-8-2-def-sagtann",
+      "type": "definition",
+      "title": "Sagtannmoden",
+      "content": "Mønsteret $U_i = (-1)^iA$ — den korteste bølgen et gitter i det hele tatt kan bære, med bølgelengde $2h$.\n\nDen er den mest utsatte moden i det eksplisitte skjemaet, og det er dens forsterkningsfaktor $1-4r$ som setter grensen $r \\le \\tfrac12$.\n\n**Praktisk gjenkjennelse:** ser du en numerisk løsning der verdiene veksler mellom pluss og minus fra nabopunkt til nabopunkt og amplituden vokser, er det denne moden som har tatt av. Diagnosen er alltid den samme: sjekk $r$."
+    },
+    {
+      "id": "tma4135-8-2-def-betinget",
+      "type": "definition",
+      "title": "Betinget kontra ubetinget stabilitet",
+      "content": "**Betinget stabil:** skjemaet er stabilt bare når steglengdene oppfyller en betingelse. Det eksplisitte skjemaet er betinget stabilt, med betingelsen $r \\le \\tfrac12$.\n\n**Ubetinget stabil:** skjemaet er stabilt for alle valg av $\\Delta t$ og $h$. Crank–Nicolson og bakover-Euler i [kap. 8.3](/tma4135/tma4135-8-3) er ubetinget stabile.\n\nPrisen for ubetinget stabilitet er alltid den samme: du må løse et likningssystem i hvert tidssteg i stedet for bare å sette inn i en formel. Hele avveiningen mellom eksplisitte og implisitte metoder ligger i denne ene setningen."
+    },
+    {
+      "id": "tma4135-8-2-def-konvergens",
+      "type": "definition",
+      "title": "Konvergens = konsistens + stabilitet",
+      "content": "At den beregnede løsningen $U_i^n$ nærmer seg den eksakte $u(x_i,t_n)$ når $h \\to 0$ og $\\Delta t \\to 0$, krever **to** ting:\n\n- **konsistens:** avkuttingsfeilen i skjemaet går mot null (den er $O(\\Delta t) + O(h^2)$ her);\n- **stabilitet:** feilene forsterkes ikke underveis.\n\nHar du bare det ene, får du ikke konvergens. Det eksplisitte skjemaet er alltid konsistent, uansett $r$ — men bare konvergent når $r \\le \\tfrac12$.\n\nDette er den enkleste formen av **Lax' ekvivalensteorem**, og det er verdt å kunne som setning, ikke bare som praktisk regel."
+    },
+    {
+      "id": "tma4135-8-2-def-arbeidsmengde",
+      "type": "definition",
+      "title": "Arbeidsmengden per tidssteg",
+      "content": "Ett tidssteg i det eksplisitte skjemaet koster omtrent $3(N-1)$ regneoperasjoner: tre ledd per indre punkt. Ingen likningssystem, ingen matriser.\n\n**Det er metodens store fordel — og hele fordelen forsvinner i stabilitetskravet.** Skal du regne fram til tiden $T$, trenger du\n\n$$\\text{antall steg} = \\frac{T}{\\Delta t} \\ge \\frac{2c^2T}{h^2}$$\n\ntidssteg. Totalarbeidet vokser dermed som $1/h^3$: én potens fra antall romlige punkter, to fra antall tidssteg.\n\nHalverer du $h$, åttedobles arbeidet. Det er dette som gjør implisitte skjemaer verdt prisen for store beregninger."
+    },
+    {
+      "id": "tma4135-8-2-def-maksprinsipp",
+      "type": "definition",
+      "title": "Maksimumsprinsippet",
+      "content": "For den eksakte varmelikningen med kalde ender gjelder: løsningen kan aldri bli større enn den største verdien i startdataene eller på randen, og aldri mindre enn den minste. Varme skaper ikke nye topper.\n\n**Det eksplisitte skjemaet arver denne egenskapen — men bare når $r \\le \\tfrac12$.** Da er den nye verdien et veid gjennomsnitt av tre gamle, med ikke-negative vekter.\n\nDet gir deg en gratis kontroll av enhver håndregning: dukker det opp en verdi utenfor det opprinnelige spennet, har du enten regnet feil eller brukt for stort tidssteg."
+    },
+    {
+      "id": "tma4135-8-2-def-avkutting-skjema",
+      "type": "definition",
+      "title": "Avkuttingsfeilen til skjemaet",
+      "content": "Setter du den eksakte løsningen inn i skjemaet, blir det som ikke går opp:\n\n$$\\tau = O(\\Delta t) + O(h^2).$$\n\n$O(\\Delta t)$ kommer fra den forlengs kvotienten i tid, $O(h^2)$ fra den andre sentraldifferansen i rom, begge utledet i [kap. 8.1](/tma4135/tma4135-8-1).\n\n**Ubalansen er skjemaets svakhet.** Rommet er andreordens, tiden bare førsteordens — og siden stabiliteten uansett tvinger $\\Delta t \\sim h^2/2$, blir de to feilbidragene faktisk av samme størrelsesorden i praksis. Det er en slags trøst, men det er en dyr trøst: du betaler $h^2$-mange tidssteg for det."
+    },
+    {
+      "id": "tma4135-8-2-def-startraden",
+      "type": "definition",
+      "title": "Startraden og randkolonnene",
+      "content": "**Startraden** $U_i^0 = u(x_i, 0)$ leses rett av initialbetingelsen, i alle punkter inkludert randen.\n\n**Randkolonnene** $U_0^n$ og $U_N^n$ leses av randbetingelsen på hvert tidsnivå.\n\nEr randbetingelsen og initialbetingelsen uenige i et hjørne — for eksempel $u(x,0) = 1$ overalt, men $u(0,t) = 0$ — er det en **inkonsistens i hjørnet**. Det er tillatt matematisk (den eksakte løsningen har et sprang der ved $t = 0$), men det gir en numerisk løsning som er dårlig nær hjørnet de første stegene, og det er nettopp slike data som fyller gitteret med sagtannkomponenter."
+    },
+    {
+      "id": "tma4135-8-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-8-2-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter fra [kap. 8.1](/tma4135/tma4135-8-1) og Del 5. Bruker du mer enn ti minutter, er det verdt å lese [kap. 5.2](/tma4135/tma4135-5-2) på nytt før du går videre til [kap. 8.3](/tma4135/tma4135-8-3)."
+        },
+        {
+          "id": "tma4135-8-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-2-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp den andre sentraldifferansen for $u_{xx}$ i punktet $x_i$, og regn den ut for tallene $U_1 = 3$, $U_2 = 5$, $U_3 = 4$ med $h = 0{,}5$.",
+            "solution": "**Fra formelarket:**\n\n$$u''(x_2) \\approx \\frac{U_3 - 2U_2 + U_1}{h^2} = \\frac{4 - 10 + 3}{0{,}25} = \\frac{-3}{0{,}25} = -12.$$\n\nNegativ krumning: punktet i midten ligger høyere enn gjennomsnittet av naboene, altså på en topp. I varmelikningen betyr det at temperaturen der er på vei ned.",
+            "hints": [
+              "Mønsteret i telleren er $1, -2, 1$, og nevneren er $h^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-2-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løsningen av $u_t = c^2u_{xx}$ på $[0,L]$ med kalde ender er $u = \\sum B_n \\sin\\frac{n\\pi x}{L}e^{-c^2(n\\pi/L)^2t}$.\n\nHva blir løsningen når $L = 1$, $c^2 = 1$ og $u(x,0) = 3\\sin 2\\pi x$?",
+            "solution": "Startfunksjonen er selv en ren egenfunksjon, med $n = 2$ og koeffisient $B_2 = 3$. Alle andre $B_n$ er null. Egenverdien er $(2\\pi/1)^2 = 4\\pi^2$, så\n\n$$u(x,t) = 3\\sin(2\\pi x)\\,e^{-4\\pi^2 t}.$$\n\n**Merk hvor mye raskere denne dør ut** enn $\\sin \\pi x$: eksponenten er fire ganger så stor. Høyere moder forsvinner først — det er derfor varmeprofiler alltid ser glatte ut etter kort tid.",
+            "hints": [
+              "Sammenlign startfunksjonen med leddene i rekka: hvilken $n$ passer?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-2-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Tre tall har vektene $0{,}3$, $0{,}4$ og $0{,}3$. Vis at det veide gjennomsnittet av $2$, $7$ og $5$ ligger mellom det minste og det største tallet.",
+            "solution": "$$0{,}3(2) + 0{,}4(7) + 0{,}3(5) = 0{,}6 + 2{,}8 + 1{,}5 = 4{,}9.$$\n\nOg $2 \\le 4{,}9 \\le 7$. ✓\n\n**Hvorfor det alltid holder:** vektene er ikke-negative og summerer seg til 1. Erstatt hvert tall med det største, og du får nøyaktig det største; erstatt med det minste, og du får det minste. Gjennomsnittet ligger mellom.\n\nDette er hele stabilitetsbeviset for det eksplisitte skjemaet, med vektene $r$, $1-2r$, $r$.",
+            "hints": [
+              "Regn ut summen, og sammenlign med det minste og det største av de tre tallene."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-2-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\sin(0{,}2\\pi)$, $\\sin(0{,}4\\pi)$, $\\sin(0{,}6\\pi)$ og $\\sin(0{,}8\\pi)$, og forklar hvorfor de to første er lik de to siste i motsatt rekkefølge.",
+            "solution": "$$\\sin 0{,}2\\pi = 0{,}587785, \\quad \\sin 0{,}4\\pi = 0{,}951057, \\quad \\sin 0{,}6\\pi = 0{,}951057, \\quad \\sin 0{,}8\\pi = 0{,}587785.$$\n\n**Grunnen:** $\\sin(\\pi - \\theta) = \\sin\\theta$. Med $\\theta = 0{,}2\\pi$ er $\\pi - \\theta = 0{,}8\\pi$, og med $\\theta = 0{,}4\\pi$ er $\\pi - \\theta = 0{,}6\\pi$.\n\nGeometrisk: $\\sin \\pi x$ er symmetrisk om $x = \\tfrac12$. Det er derfor alle radene i eksempelet i løkke 4 er symmetriske — og det gir deg en gratis halvering av regnearbeidet, samt en kontroll.",
+            "hints": [
+              "Regn i radianer.",
+              "Se på identiteten $\\sin(\\pi-\\theta) = \\sin\\theta$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-2-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-2-oR5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En størrelse ganges med $q$ for hvert steg. Etter hvor mange steg er den ganget med minst 1000, når **a)** $q = 1{,}05$ og **b)** $q = 1{,}34$?",
+            "solution": "Krev $q^n \\ge 1000$, altså $n \\ge \\dfrac{\\ln 1000}{\\ln q} = \\dfrac{6{,}9078}{\\ln q}$.\n\n**a)** $\\ln 1{,}05 = 0{,}048790$, så $n \\ge 141{,}6$, altså **142 steg**.\n\n**b)** $\\ln 1{,}34 = 0{,}292670$, så $n \\ge 23{,}6$, altså **24 steg**.\n\n**Rund alltid oppover** i denne typen telling — 141 steg er ikke nok.\n\nDette er nøyaktig regningen du gjør når du skal anslå hvor lenge et ustabilt skjema ser tilforlatelig ut før det bryter sammen.",
+            "hints": [
+              "Ta logaritmen på begge sider av $q^n \\ge 1000$.",
+              "Husk å runde oppover til nærmeste hele steg."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-8-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-8-2-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $u(x,t)$ | Den eksakte løsningen, typisk temperatur i punktet $x$ ved tiden $t$ |\n| $U_i^n$ | Den beregnede verdien i $(x_i, t_n)$. Øvre indeks er **tidsnivå**, ikke potens |\n| $h$ | Romsteget, $h = L/N$. **Merk:** i Del 6 og Del 7 er $h$ steglengde i integrasjon og i ODE-skritt |\n| $\\Delta t$ | Tidssteget. **Merk:** det utdelte formelarket kaller tidssteget $k$; boka bruker $\\Delta t$ fordi $k$ er separasjonskonstanten i [kap. 5.1](/tma4135/tma4135-5-1) |\n| $N$ | Antall romlige delintervall; det er $N-1$ indre punkter |\n| $c^2$ | Diffusivitetskonstanten i $u_t = c^2u_{xx}$. **Merk:** i [kap. 5.3](/tma4135/tma4135-5-3) er $c$ bølgefarten |\n| $r$ | Stabilitetstallet $c^2\\Delta t/h^2$. **Merk:** i Del 1 er $r$ radius i polar form, og i Del 6 en rot |\n| $\\xi$ | Forsterkningsfaktoren per tidssteg for én bølgekomponent |\n| $\\beta$ | Bølgetallet til komponenten; $\\beta h$ er faseskiftet per gitterpunkt |\n| $\\delta^2U_i$ | Kortskrift for $U_{i+1} - 2U_i + U_{i-1}$, fra [kap. 8.1](/tma4135/tma4135-8-1) |\n| $L$ | Lengden på rommet. **Merk:** i Del 3 er $L$ halvperioden, i [kap. 6.3](/tma4135/tma4135-6-3) kontraksjonskonstanten |\n| $B_n$ | Fourier-koeffisienten i den analytiske løsningen fra [kap. 5.2](/tma4135/tma4135-5-2) |\n| $\\varepsilon$ | Maskinepsilon, $\\approx 2{,}2\\cdot 10^{-16}$ |\n"
+        },
+        {
+          "id": "tma4135-8-2-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$u_t = c^2u_{xx}$$\nVarmelikningen. *(Må kunnes.)*\n\n$$\\frac{U_i^{n+1} - U_i^n}{\\Delta t} = c^2\\,\\frac{U_{i+1}^n - 2U_i^n + U_{i-1}^n}{h^2}$$\nDifferanselikningen før opprydding. Kvotientene på hver side **står på det utdelte formelarket — tren oppslaget**; å sette dem sammen til dette **må kunnes**.\n\n$$r = \\frac{c^2\\,\\Delta t}{h^2}$$\nStabilitetstallet. *(Må kunnes.)* Formelarket skriver tidssteget som $k$.\n\n$$U_i^{n+1} = U_i^n + r\\left(U_{i+1}^n - 2U_i^n + U_{i-1}^n\\right)$$\nDet eksplisitte skjemaet. *(Må kunnes eller utledes aktivt.)*\n\n$$U_i^{n+1} = r\\,U_{i-1}^n + (1-2r)\\,U_i^n + r\\,U_{i+1}^n$$\nVektformen — den nye verdien som veid gjennomsnitt. *(Må kunnes eller utledes aktivt.)*\n\n$$r \\le \\tfrac12 \\qquad\\Longleftrightarrow\\qquad \\Delta t \\le \\frac{h^2}{2c^2}$$\nStabilitetskravet. **Står ikke på formelarket — må kunnes.** Hører hjemme på ditt eget A5-ark.\n\n$$\\xi = 1 - 4r\\sin^2\\!\\left(\\frac{\\beta h}{2}\\right)$$\nForsterkningsfaktoren for en bølgekomponent. *(Må kunnes eller utledes aktivt.)*\n\n$$A_{n+1} = (1-4r)A_n$$\nSagtannmoden: amplituden ganget med $1-4r$ per steg. Kravet $|1-4r| \\le 1$ gir $r \\le \\tfrac12$. *(Må kunnes eller utledes aktivt.)*\n\n$$\\tau = O(\\Delta t) + O(h^2)$$\nAvkuttingsfeilen til skjemaet: førsteordens i tid, andreordens i rom. *(Må kunnes.)*\n\n$$u(x,t) = e^{-\\pi^2t}\\sin\\pi x$$\nDen eksakte løsningen av testproblemet, fra [kap. 5.2](/tma4135/tma4135-5-2). Fasiten å kontrollere mot. *(Må kunnes eller utledes aktivt.)*\n\n$$\\text{antall steg til tiden } T \\ \\ge\\ \\frac{2c^2T}{h^2}$$\nPrisen for stabilitetskravet: totalarbeidet vokser som $1/h^3$. *(Må kunnes.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

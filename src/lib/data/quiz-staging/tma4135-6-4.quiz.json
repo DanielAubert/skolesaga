@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Hva er Newtons metode i skalarform?",
+    "options": [
+      "$x_{k+1}=x_k-\\dfrac{f(x_k)}{f'(x_k)}$",
+      "$x_{k+1}=x_k+\\dfrac{f(x_k)}{f'(x_k)}$",
+      "$x_{k+1}=x_k-\\dfrac{f'(x_k)}{f(x_k)}$",
+      "$x_{k+1}=x_k-f(x_k)\\,f'(x_k)$"
+    ],
+    "explanation": "Formelen finner nullpunktet til tangenten i $\\left(x_k,f(x_k)\\right)$. Den står på det utdelte formelarket, men innsettingen må trenes."
+  },
+  {
+    "question": "Hvilken setning gir at en rot finnes ved fortegnsskifte?",
+    "options": [
+      "Mellomverdisetningen",
+      "Middelverdisetningen",
+      "Entydighetssetningen",
+      "Fikspunktteoremet"
+    ],
+    "explanation": "Den krever kontinuitet og motsatte fortegn i endepunktene. Middelverdisetningen brukes derimot til kontraksjonsargumentet i fikspunktkapitlet."
+  },
+  {
+    "question": "Hva gir entydighet av roten?",
+    "options": [
+      "At $f'$ har fast fortegn, så $f$ er monoton",
+      "At $f$ skifter fortegn mellom $a$ og $b$ i endene",
+      "At $f$ er kontinuerlig på hele intervallet",
+      "At $f'$ er null i minst ett punkt i intervallet"
+    ],
+    "explanation": "Fortegnsskiftet gir eksistens; monotonien gir at aksen krysses høyst én gang. Begge delene må med i besvarelsen."
+  },
+  {
+    "question": "Hvor mange biseksjonsskritt trengs på $[1,2]$ for feil under $10^{-3}$?",
+    "options": [
+      "9, siden $\\log_2 500\\approx 8{,}97$ rundes opp",
+      "8, siden $\\log_2 500\\approx 8{,}97$ rundes ned",
+      "10, siden man legger til et sikkerhetsskritt",
+      "7, siden intervallet allerede er kort"
+    ],
+    "explanation": "Formelen er $k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}$. Avrunding nedover gjør at kravet ikke er oppfylt."
+  },
+  {
+    "question": "Hva slags konvergens har Newtons metode ved en enkel rot?",
+    "options": [
+      "Kvadratisk — antall korrekte siffer dobles",
+      "Lineær — et fast antall nye siffer per skritt",
+      "Kubisk — antall korrekte siffer tredobles",
+      "Logaritmisk — konvergensen bremser opp"
+    ],
+    "explanation": "Grunnen er at $g(x)=x-f/f'$ har $g'(r)=0$. Ved en multippel rot faller den til lineær."
+  },
+  {
+    "question": "Hva er Jacobi-matrisen $J_F$ for et system?",
+    "options": [
+      "Matrisen av partielt deriverte, rad = likning",
+      "Matrisen av partielt deriverte, rad = variabel",
+      "Matrisen av andre partielt deriverte av $F$",
+      "Den inverse av koeffisientmatrisen til $F$"
+    ],
+    "explanation": "Kolonne $j$ hører til variabel $j$. Å transponere den ved et uhell gir et helt galt Newton-skritt."
+  },
+  {
+    "question": "Hvorfor bør du regne determinanten til $J_F$ før du går videre?",
+    "options": [
+      "Er den null, er Newton-skrittet udefinert",
+      "Den er selve lengden på Newton-skrittet",
+      "Den avgjør om systemet har flere løsninger",
+      "Den brukes direkte i stoppkriteriet"
+    ],
+    "explanation": "Det er systemversjonen av kravet $f'(x_k)\\ne 0$. Kontrollen tar fem sekunder."
+  },
+  {
+    "question": "Hva kjennetegner sekantmetoden sammenliknet med Newton?",
+    "options": [
+      "Den bruker to punkter og ingen derivert",
+      "Den bruker ett punkt og ingen derivert",
+      "Den bruker to punkter og den deriverte",
+      "Den bruker ett punkt og den andrederiverte"
+    ],
+    "explanation": "Stigningstallet gjennom de to siste punktene erstatter $f'$. Ordenen er omtrent $1{,}618$ i stedet for 2."
+  },
+  {
+    "question": "Hvorfor kan biseksjon ikke svikte?",
+    "options": [
+      "Feilgrensen avhenger bare av intervall og skritt",
+      "Fordi hvert skritt gir dobbelt så mange korrekte siffer",
+      "Fordi metoden bruker den deriverte som kontroll",
+      "Fordi fortegnsskiftet forsvinner etter få skritt"
+    ],
+    "explanation": "Grensen $\\frac{b-a}{2^{k+1}}$ inneholder ikke $f$ i det hele tatt. Prisen er at metoden ikke får noen gevinst av at funksjonen er snill."
+  },
+  {
+    "question": "Newton brukes på $f(x)=(x-1)^{2}$. Hva skjer?",
+    "options": [
+      "Konvergensen blir lineær med faktor $1/2$",
+      "Konvergensen blir kvadratisk som vanlig",
+      "Iterasjonen divergerer fra enhver startverdi",
+      "Iterasjonen treffer roten etter ett skritt"
+    ],
+    "explanation": "Roten er dobbel, så $f(r)=f'(r)=0$ og $g'(r)=1-1/m=1/2$. Symptomet er ett nytt siffer per tredje–fjerde skritt."
+  },
+  {
+    "question": "Hva er den geometriske tolkningen av Newtons metode?",
+    "options": [
+      "Tangentens nullpunkt blir neste iterat",
+      "Sekantens nullpunkt blir neste iterat",
+      "Midtpunktet i intervallet blir neste iterat",
+      "Speilingen om linja $y=x$ blir neste iterat"
+    ],
+    "explanation": "Kurven erstattes av tangenten i punktet. Sekanten hører til sekantmetoden, midtpunktet til biseksjon."
+  },
+  {
+    "question": "Hva er sjanger S i denne boka?",
+    "options": [
+      "Lineære systemer: LU, Jacobi, Gauss–Seidel",
+      "Numerisk integrasjon med trapes og Simpson",
+      "Rotsøking med Newton, biseksjon og sekant",
+      "Interpolasjon med Lagrange og Newton"
+    ],
+    "explanation": "Metodene står på det utdelte formelarket, men har tynt belegg: LU i 1 av 13 sett, Jacobi og Gauss–Seidel i 2 av 13. De holdes på kjenne-nivå."
+  },
+  {
+    "question": "Hva er forskjellen på Jacobis metode og Gauss–Seidel?",
+    "options": [
+      "Gauss–Seidel bruker de nyeste verdiene straks",
+      "Jacobi bruker de nyeste verdiene med én gang",
+      "Gauss–Seidel krever at matrisen er symmetrisk",
+      "Jacobi krever at matrisen er triangulær"
+    ],
+    "explanation": "Jacobi holder på hele forrige vektor gjennom en runde. Derfor konvergerer Gauss–Seidel som regel raskere."
+  },
+  {
+    "question": "I hvilken situasjon er biseksjon å foretrekke framfor Newton?",
+    "options": [
+      "Når du må garantere antall skritt på forhånd",
+      "Når du har en god startverdi og kjenner $f'$",
+      "Når du trenger mange korrekte siffer raskt",
+      "Når systemet har flere likninger og ukjente"
+    ],
+    "explanation": "Garantien er uavhengig av funksjonen. Newton er raskere, men bare lokalt konvergent."
+  },
+  {
+    "question": "Hvorfor må du regne med mange siffer i en Newton-utregning?",
+    "options": [
+      "Fordi feilen kvadreres for hvert skritt",
+      "Fordi metoden er ustabil for alle startverdier",
+      "Fordi den deriverte alltid er nær null i roten",
+      "Fordi kalkulatoren avrunder brøken automatisk"
+    ],
+    "explanation": "Med tre desimaler ser to riktige iterater like ut, og du kan ikke vise konvergensen. Bruk minst sju siffer underveis."
+  }
+]

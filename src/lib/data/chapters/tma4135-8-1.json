@@ -1,0 +1,485 @@
+{
+  "id": "tma4135-8-1",
+  "courseId": "tma4135",
+  "chapterNumber": "8.1",
+  "title": "Differansekvotienter og avkuttingsfeil via Taylor",
+  "description": "Differansekvotientene for $u_x$ og $u_{xx}$, hvorfor sentraldifferansen er $O(h^2)$ (Taylor), og avveiningen mellom avrundings- og avkuttingsfeil.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive opp forlengs, baklengs og sentrale differansekvotienter for den førstederiverte og den dobbeltderiverte, og vite hvilke av dem som ligger på det utdelte formelarket",
+    "utlede avkuttingsfeilen til en differansekvotient med Taylors formel, og lese ordenen ut av det første leddet som overlever",
+    "bestemme ordenen til en metode fra en tabell over feil ved halvert steglengde",
+    "balansere avrundingsfeil mot avkuttingsfeil og finne den steglengden som gjør totalfeilen minst"
+  ],
+  "content": [
+    {
+      "id": "tma4135-8-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Del 8 handler om én ting: å erstatte de deriverte i en differensiallikning med differanser mellom tall i et gitter.** Det er den siste av de fire søylene i emnet, og den er godt belagt: oppgaver av denne typen står på **11 av 13 gjennomgåtte sett — 85 %**.\n\n**Oppgavene merkes med to bokstaver.** Boka bruker bokstavene A til S som korte navn på de nitten oppgavetypene som går igjen på settene. **P er differansemetode for en partiell differensiallikning eller et randverdiproblem** — det er hoveddelen av Del 8. **Q er avkuttingsfeil via Taylor**, altså å vise hvor nøyaktig en differansekvotient er. Bokstavene forklares første gang de brukes i hvert kapittel; du trenger ikke pugge alfabetet.\n\n**Dette kapitlet er sjanger Q, og det er grunnmuren under resten av delen.** Q-oppgaver har belegg i **3 av 13 sett (23 %)** som selvstendig spørsmål, men differansekvotientene brukes i alle P-oppgavene — så dette kapitlet betaler seg to ganger.\n\nDe to spørsmålene som går igjen i Q:\n\n1. **«Vis ved Taylor-utvikling at denne kvotienten har feil $O(h^2)$.»** Ren utledning, og et av de spørsmålene som skiller toppsjiktet fra midtsjiktet.\n2. **«Finn den $h$ som balanserer avrundingsfeil mot avkuttingsfeil.»** Et kort optimeringsargument som gir svar av typen $h = O(\\varepsilon^{1/3})$.\n\n**Formelark-merking.** Eksamen har hjelpemiddelkode C: du får utdelt et formelark sammen med oppgavesettet, og du har med ditt eget håndskrevne A5-ark.\n\n- **Selve differansekvotientene står på det utdelte formelarket — tren oppslaget.** Numerikk-siden har forlengs, baklengs og sentral kvotient for den førstederiverte, og den andre sentraldifferansen for den dobbeltderiverte. Du skal ikke pugge dem; du skal finne dem raskt og sette inn riktig $h$ og riktige indekser.\n- **Taylor-utledningen av feilen og hele balanseringsargumentet må kunnes.** Formelarket sier ingenting om hvorfor sentraldifferansen er $O(h^2)$, og ingenting om optimal steglengde.\n\n**Tidsbruk:** 55 minutter lesetid, fire løkker à omtrent et kvarter. Ganger du 1,5 fordi du skriver av for hånd, blir det knapt halvannen time. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-8-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 6.2](/tma4135/tma4135-6-2) — derfra trenger du feilleddene til trapes- og Simpson-regelen og vanen med å lese en orden ut av en $h$-potens. Argumentene i dette kapitlet er nøyaktig de samme, bare brukt på deriverte i stedet for integraler. [Kap. 6.1](/tma4135/tma4135-6-1) er nyttig, men ikke nødvendig.\n\nFra tidligere matematikkemner forutsettes: **Taylors formel med restledd**, derivasjon av elementære funksjoner, og at du kan lese en ulikhet av typen $|\\varepsilon| \\le Ch^2$. Trenger du å friske opp Taylor, ligger det fem korte oppgaver i repetisjonsboksen nederst — gjør dem *før* du leser videre, for hele kapitlet hviler på dem.\n\nKapitlet er forutsetning for [kap. 8.2](/tma4135/tma4135-8-2), [kap. 8.3](/tma4135/tma4135-8-3) og [kap. 8.4](/tma4135/tma4135-8-4)."
+    },
+    {
+      "id": "tma4135-8-1-motivasjon",
+      "type": "text",
+      "content": "## Når du bare har tall i punkter\n\nEn datamaskin kjenner ikke funksjoner. Den kjenner tall i en liste. Skal du løse en differensiallikning numerisk, må du derfor gjøre om det eneste vanskelige — den deriverte — til noe som kan regnes ut av nabotall i lista.\n\n**Grepet er å gå tilbake til definisjonen.** Den deriverte er\n\n$$u'(x) = \\lim_{h \\to 0} \\frac{u(x+h) - u(x)}{h}.$$\n\nDatamaskinen kan ikke ta grensen. Men den kan stoppe ved en liten, endelig $h$ — og da har du en **differansekvotient**. Hele Del 8 er dette ene grepet, brukt på varmelikningen, på bølgeligningen og på randverdiproblemer.\n\n**Prisen er en feil, og den feilen har to helt ulike kilder.** Den ene er at du stoppet før grensen: det er **avkuttingsfeilen**, og den blir mindre når $h$ blir mindre. Den andre er at datamaskinen regner med endelig mange siffer: det er **avrundingsfeilen**, og den blir *større* når $h$ blir mindre, fordi du trekker fra hverandre to nesten like tall og deler på noe bittelite.\n\nDe to drar hver sin vei. Et sted midt imellom ligger den beste $h$-en — og å finne den er selve eksamensoppgaven i sjanger Q.\n\nKapitlet gjør fire ting i denne rekkefølgen: setter opp gitteret og de to enkleste kvotientene, bruker Taylor til å måle hvor gode de er, gjør det samme for den dobbeltderiverte, og avslutter med avveiningen mellom avrunding og avkutting."
+    },
+    {
+      "id": "tma4135-8-1-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene i dette kapitlet er samtidig kortene i flashcard-bunken. Ved første gjennomlesing holder det å lese formelen og gå videre til eksempelet; tidsanslaget på 55 minutter gjelder kjernestoffet, ikke pugging av boksene."
+    },
+    {
+      "id": "tma4135-8-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Gitteret og de to ensidige kvotientene (~12 min)\n\nAlt i Del 8 foregår på et **gitter**: et endelig sett med punkter der vi tillater oss å kjenne verdien av funksjonen. Første steg er å bli enige om navnene, for indeksene er der halvparten av feilene skjer."
+    },
+    {
+      "id": "tma4135-8-1-def-gitter",
+      "type": "definition",
+      "title": "Gitteret og gitterpunktene",
+      "content": "Del intervallet $[a,b]$ i $N$ like store biter. **Steglengden** er\n\n$$h = \\frac{b-a}{N},$$\n\nog **gitterpunktene** er\n\n$$x_i = a + ih, \\qquad i = 0, 1, 2, \\dots, N.$$\n\nPunktene $x_0 = a$ og $x_N = b$ er **randpunktene**; $x_1, \\dots, x_{N-1}$ er de **indre punktene**. I Del 8 er randpunktene som regel kjent på forhånd (fra randbetingelsen), og de indre er de ukjente.\n\n**Merk symbolet:** $h$ er steglengde i rommet her. I Del 6 og Del 7 er $h$ steglengden langs $x$- eller $t$-aksen i en helt annen sammenheng — samme bokstav, samme idé, men les alltid definisjonen i oppgaven."
+    },
+    {
+      "id": "tma4135-8-1-def-gitterfunksjon",
+      "type": "definition",
+      "title": "Gitterfunksjonen $U_i$",
+      "content": "Den eksakte løsningen skrives med liten $u$, tilnærmingen med stor $U$:\n\n$$U_i \\approx u(x_i).$$\n\n$U_i$ er altså et **tall**, ikke en funksjon. Hele den numeriske løsningen er lista $U_0, U_1, \\dots, U_N$.\n\nSkillet mellom liten og stor bokstav er ikke pedantisk pynt: i alle feilanalysene under settes $u(x_i)$ inn i en formel som egentlig gjelder $U_i$, og det som blir til overs, *er* feilen. Klarer du ikke å se hvilken av de to du har foran deg, klarer du heller ikke å regne ut feilen."
+    },
+    {
+      "id": "tma4135-8-1-def-forlengs",
+      "type": "definition",
+      "title": "Forlengs differansekvotient",
+      "content": "Se framover til neste gitterpunkt:\n\n$$u'(x_i) \\approx \\frac{U_{i+1} - U_i}{h}.$$\n\nDen bruker to punkter og er den billigste av alle. Kalles også **forover-differanse** (forward difference). Den **står på det utdelte formelarket — tren oppslaget**.\n\nDen kan ikke brukes i det siste gitterpunktet $x_N$: der finnes ingen $U_{N+1}$."
+    },
+    {
+      "id": "tma4135-8-1-def-baklengs",
+      "type": "definition",
+      "title": "Baklengs differansekvotient",
+      "content": "Se bakover til forrige gitterpunkt:\n\n$$u'(x_i) \\approx \\frac{U_i - U_{i-1}}{h}.$$\n\nLegg merke til at **nevneren er $+h$, ikke $-h$**, og at telleren er $U_i - U_{i-1}$ og ikke omvendt. Dette er den enkeltfeilen som oftest velter en ellers riktig utledning: fortegnet snus, og hele svaret bytter fortegn.\n\nKalles også **bakover-differanse** (backward difference), og **står på det utdelte formelarket — tren oppslaget**. Den kan ikke brukes i $x_0$."
+    },
+    {
+      "id": "tma4135-8-1-eks1",
+      "type": "example",
+      "title": "De to ensidige kvotientene på en funksjon vi kan fasiten til",
+      "problem": "La $f(x) = e^x$ og $x_0 = 1$. Regn ut den forlengs og den baklengs differansekvotienten med $h = 0{,}1$, og sammenlign med den eksakte deriverte.",
+      "solution": "**Steg 1 — hva vet vi eksakt?** Her er $f'(x) = e^x$, så\n\n$$f'(1) = e = 2{,}718281828\\dots$$\n\nDet er nettopp poenget med å teste på $e^x$: vi kjenner fasiten og kan måle feilen.\n\n**Steg 2 — de tre funksjonsverdiene.**\n\n$$f(0{,}9) = e^{0{,}9} = 2{,}459603111, \\qquad f(1) = 2{,}718281828, \\qquad f(1{,}1) = e^{1{,}1} = 3{,}004166024.$$\n\n**Steg 3 — forlengs kvotient.** **Fra formelarket:** $\\dfrac{f(x+h) - f(x)}{h}$.\n\n$$\\frac{3{,}004166024 - 2{,}718281828}{0{,}1} = \\frac{0{,}285884196}{0{,}1} = 2{,}858841955.$$\n\nFeil: $2{,}858841955 - 2{,}718281828 = +0{,}140560$.\n\n**Steg 4 — baklengs kvotient.** **Fra formelarket:** $\\dfrac{f(x) - f(x-h)}{h}$.\n\n$$\\frac{2{,}718281828 - 2{,}459603111}{0{,}1} = \\frac{0{,}258678717}{0{,}1} = 2{,}586787173.$$\n\nFeil: $2{,}586787173 - 2{,}718281828 = -0{,}131495$.\n\n**Steg 5 — les av mønsteret.** De to feilene er nesten like store og har **motsatt fortegn**. Det er ikke tilfeldig, og det er hele hemmeligheten bak neste løkke: legger du de to kvotientene sammen og deler på to, kansellerer hovedfeilene hverandre.\n\nLegg også merke til størrelsen: begge bommer i tredje desimal med $h = 0{,}1$. Det er ikke imponerende. Halverer du $h$, halveres feilen — men bare det. Det er en **førsteordens** metode, og i neste løkke gjør vi det bedre."
+    },
+    {
+      "id": "tma4135-8-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning og innsetting.) En temperaturmåler har gitt disse verdiene langs en stang, med $h = 0{,}5$:\n\n| $i$ | 0 | 1 | 2 | 3 |\n|---|---|---|---|---|\n| $x_i$ | 0 | 0,5 | 1,0 | 1,5 |\n| $U_i$ | 2,00 | 3,10 | 3,80 | 4,05 |\n\n**a)** Bruk den forlengs differansekvotienten til å anslå $u'(0{,}5)$.\n**b)** Bruk den baklengs differansekvotienten til å anslå $u'(0{,}5)$.\n**c)** Hvorfor kan du ikke bruke den forlengs kvotienten i $x = 1{,}5$?",
+        "solution": "**a)** **Fra formelarket:** $u'(x_i) \\approx \\dfrac{U_{i+1} - U_i}{h}$. Her er $i = 1$:\n\n$$u'(0{,}5) \\approx \\frac{U_2 - U_1}{h} = \\frac{3{,}80 - 3{,}10}{0{,}5} = \\frac{0{,}70}{0{,}5} = 1{,}40.$$\n\n**b)** **Fra formelarket:** $u'(x_i) \\approx \\dfrac{U_i - U_{i-1}}{h}$:\n\n$$u'(0{,}5) \\approx \\frac{U_1 - U_0}{h} = \\frac{3{,}10 - 2{,}00}{0{,}5} = \\frac{1{,}10}{0{,}5} = 2{,}20.$$\n\nDe to anslagene spriker mye ($1{,}40$ mot $2{,}20$) fordi $h = 0{,}5$ er grovt. Gjennomsnittet $1{,}80$ er den sentrale kvotienten fra neste løkke.\n\n**c)** Den forlengs kvotienten i $x_3 = 1{,}5$ ville krevd $U_4$, altså en måling i $x = 2{,}0$. Den finnes ikke. I det siste gitterpunktet er du henvist til den baklengs kvotienten — eller til en ensidig formel av høyere orden, som kommer i løkke 3.",
+        "hints": [
+          "Forlengs ser framover: telleren er neste verdi minus denne.",
+          "Baklengs ser bakover: telleren er denne verdien minus forrige. Nevneren er $+h$ i begge."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $f(x) = \\sin x$ og $x_0 = \\pi/6$, der $f'(x_0) = \\cos(\\pi/6) = 0{,}8660254$.\n\n**a)** Regn ut den forlengs differansekvotienten med $h = 0{,}1$ og med $h = 0{,}05$.\n**b)** Hvor mye mindre ble feilen da $h$ ble halvert?",
+        "solution": "**a)** Med $\\sin(\\pi/6) = 0{,}5$:\n\n$h = 0{,}1$: $\\sin(\\pi/6 + 0{,}1) = 0{,}5839604$, så\n\n$$\\frac{0{,}5839604 - 0{,}5}{0{,}1} = 0{,}8396036.$$\n\n$h = 0{,}05$: $\\sin(\\pi/6 + 0{,}05) = 0{,}5426584$, så\n\n$$\\frac{0{,}5426584 - 0{,}5}{0{,}05} = 0{,}8531672.$$\n\n**b)** Feilene:\n\n$$h = 0{,}1: \\quad 0{,}8396036 - 0{,}8660254 = -0{,}0264218,$$\n$$h = 0{,}05: \\quad 0{,}8531672 - 0{,}8660254 = -0{,}0128582.$$\n\nForholdet er $0{,}0264218/0{,}0128582 = 2{,}05$. Feilen ble altså omtrent **halvert** da $h$ ble halvert — kvotienten er av **første orden**.\n\nLegg merke til at begge feilene er negative her, mens de var positive for $e^x$ i eksempelet over. Fortegnet følger fortegnet på den dobbeltderiverte: $f''(\\pi/6) = -\\sin(\\pi/6) = -0{,}5 < 0$. Sammenhengen kommer i neste løkke.",
+        "hints": [
+          "Regn i radianer, ikke grader.",
+          "Sammenlign feilene ved å dele den ene på den andre — tallet du får, er nøkkelen til ordenen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Taylor måler feilen, og sentraldifferansen vinner (~15 min)\n\nTil nå har vi observert at feilen halveres når $h$ halveres. Nå skal vi *bevise* det, og finne en kvotient som gjør det fire ganger bedre. Verktøyet er Taylors formel, og det er det eneste verktøyet som brukes i hele sjanger Q."
+    },
+    {
+      "id": "tma4135-8-1-def-taylor",
+      "type": "definition",
+      "title": "Taylors formel med restledd",
+      "content": "Er $u$ tilstrekkelig mange ganger deriverbar rundt $x$, er\n\n$$u(x+h) = u(x) + h\\,u'(x) + \\frac{h^2}{2}u''(x) + \\frac{h^3}{6}u'''(x) + \\frac{h^4}{24}u^{(4)}(x) + \\cdots$$\n\nBytter du $h$ med $-h$, snur fortegnet på annenhver term:\n\n$$u(x-h) = u(x) - h\\,u'(x) + \\frac{h^2}{2}u''(x) - \\frac{h^3}{6}u'''(x) + \\frac{h^4}{24}u^{(4)}(x) - \\cdots$$\n\n**Disse to linjene er hele verktøykassa i dette kapitlet.** Alle differansekvotienter og alle feilledd i Del 8 kommer fra å legge dem sammen eller trekke dem fra hverandre.\n\nDet er den vekslende fortegnsrekka i den nederste linja som gjør det mulig å drepe uønskede ledd: legg dem sammen, og alle odde ledd forsvinner; trekk dem fra hverandre, og alle like ledd forsvinner."
+    },
+    {
+      "id": "tma4135-8-1-def-avkuttingsfeil",
+      "type": "definition",
+      "title": "Avkuttingsfeil",
+      "content": "**Avkuttingsfeilen** (truncation error) er differansen mellom den eksakte deriverte og differansekvotienten, når du setter inn den *eksakte* løsningen $u$:\n\n$$\\tau(h) = \\text{differansekvotient} - \\text{eksakt derivert}.$$\n\nNavnet kommer av at feilen skyldes at Taylor-rekka ble *kuttet av* etter noen ledd. Den har ingenting med datamaskinens avrunding å gjøre — den ville vært der selv om du regnet med uendelig mange siffer.\n\nOrdet skrives ut fordi det er lett å blande: **avkuttingsfeil** = «vi stoppet Taylor for tidlig», **avrundingsfeil** = «maskinen har for få siffer». De oppfører seg motsatt når $h$ krymper, og det er hele poenget i løkke 4."
+    },
+    {
+      "id": "tma4135-8-1-def-orden",
+      "type": "definition",
+      "title": "Ordenen til en differansekvotient",
+      "content": "Kan avkuttingsfeilen skrives\n\n$$\\tau(h) = C h^p + \\text{noe som er enda mindre},$$\n\nmed en konstant $C$ som ikke avhenger av $h$, sier vi at kvotienten har **orden $p$**, og skriver $\\tau(h) = O(h^p)$.\n\n**Slik leser du det i praksis:** halverer du $h$, blir feilen $2^p$ ganger mindre. Orden 1 gir halvering, orden 2 gir en firedel, orden 4 gir en sekstendel.\n\nHøyere orden er ikke gratis: det krever som regel flere gitterpunkter i formelen, og det krever at $u$ er deriverbar nok ganger til at leddene i Taylor-rekka i det hele tatt finnes."
+    },
+    {
+      "id": "tma4135-8-1-utl-forlengs",
+      "type": "text",
+      "content": "**Utledning: hvorfor er den forlengs kvotienten $O(h)$?**\n\nSett Taylor-rekka rett inn i telleren:\n\n$$\\frac{u(x+h) - u(x)}{h} = \\frac{1}{h}\\left(h\\,u'(x) + \\frac{h^2}{2}u''(x) + \\frac{h^3}{6}u'''(x) + \\cdots\\right) = u'(x) + \\frac{h}{2}u''(x) + \\frac{h^2}{6}u'''(x) + \\cdots$$\n\nAvkuttingsfeilen er alt som står etter $u'(x)$:\n\n$$\\tau(h) = \\frac{h}{2}u''(x) + O(h^2) = O(h).$$\n\n*Intuisjon:* kvotienten måler stigningen på **sekanten** fra $x$ til $x+h$, mens $u'(x)$ er stigningen på **tangenten** i $x$. Krummer kurven oppover ($u'' > 0$), ligger sekanten brattere enn tangenten, og kvotienten blir for stor. Det stemmer med eksempelet: for $e^x$ er $u'' > 0$ og forlengs-feilen var **positiv**; for $\\sin x$ i $\\pi/6$ er $u'' < 0$ og feilen var **negativ**.\n\n**Den baklengs kvotienten** får du ved å sette $-h$ inn i samme regning:\n\n$$\\frac{u(x) - u(x-h)}{h} = u'(x) - \\frac{h}{2}u''(x) + \\frac{h^2}{6}u'''(x) - \\cdots$$\n\nSamme størrelse på hovedfeilen, **motsatt fortegn**. Det forklarer nøyaktig det vi så i eksempelet — og peker rett mot neste definisjon."
+    },
+    {
+      "id": "tma4135-8-1-def-sentral",
+      "type": "definition",
+      "title": "Sentral differansekvotient for $u'$",
+      "content": "Gjennomsnittet av den forlengs og den baklengs kvotienten:\n\n$$u'(x_i) \\approx \\frac{U_{i+1} - U_{i-1}}{2h}.$$\n\n**Merk nevneren $2h$, ikke $h$** — avstanden fra $x_{i-1}$ til $x_{i+1}$ er to steg. Å skrive $h$ i nevneren halverer hele svaret og er den vanligste enkeltfeilen i sjangeren.\n\nKvotienten bruker tre punkter, men verdien i midten faller ut. Den **står på det utdelte formelarket — tren oppslaget**, og den er $O(h^2)$: det **må kunnes** eller utledes."
+    },
+    {
+      "id": "tma4135-8-1-utl-sentral",
+      "type": "text",
+      "content": "**Utledning: hvorfor er sentraldifferansen $O(h^2)$?**\n\nTrekk de to Taylor-rekkene fra hverandre. De like leddene ($u$, $h^2u''/2$, $h^4u^{(4)}/24$) står med **samme** fortegn i begge og forsvinner:\n\n$$u(x+h) - u(x-h) = 2h\\,u'(x) + \\frac{2h^3}{6}u'''(x) + \\frac{2h^5}{120}u^{(5)}(x) + \\cdots$$\n\nDel på $2h$:\n\n$$\\frac{u(x+h) - u(x-h)}{2h} = u'(x) + \\frac{h^2}{6}u'''(x) + O(h^4).$$\n\nAvkuttingsfeilen er $\\tau(h) = \\dfrac{h^2}{6}u'''(x) + O(h^4) = O(h^2)$.\n\n*Intuisjon:* leddet $\\frac{h}{2}u''$ dukket opp med $+$ i den forlengs kvotienten og med $-$ i den baklengs. I gjennomsnittet kansellerer de eksakt. Du får en orden gratis, uten å bruke flere funksjonsverdier enn før — de to naboene i stedet for naboen og deg selv.\n\n**Merk også at bare hver annen potens overlever.** Feilrekka går $h^2, h^4, h^6, \\dots$ Det er symmetrien i formelen som gjør det, og det er derfor sentrale formler er så populære i praksis."
+    },
+    {
+      "id": "tma4135-8-1-eks2",
+      "type": "example",
+      "title": "Halveringstesten: se ordenen i tallene",
+      "problem": "Bruk den sentrale differansekvotienten på $f(x) = e^x$ i $x = 1$ for $h = 0{,}1;\\ 0{,}05;\\ 0{,}025;\\ 0{,}0125$. Vis at tallene bekrefter $O(h^2)$, og at feilkonstanten stemmer med $u'''(1)/6$.",
+      "solution": "**Steg 1 — regn ut.** **Fra formelarket:** $\\dfrac{f(x+h) - f(x-h)}{2h}$. Eksakt verdi er $f'(1) = e = 2{,}7182818285$.\n\n| $h$ | sentral kvotient | feil | forhold |\n|---|---|---|---|\n| 0,1 | 2,7228145639 | $4{,}5327\\cdot 10^{-3}$ | — |\n| 0,05 | 2,7194145875 | $1{,}1328\\cdot 10^{-3}$ | 4,002 |\n| 0,025 | 2,7185649917 | $2{,}8316\\cdot 10^{-4}$ | 4,000 |\n| 0,0125 | 2,7183526176 | $7{,}0789\\cdot 10^{-5}$ | 4,000 |\n\n**Steg 2 — les av ordenen.** Hver halvering av $h$ deler feilen på **4**. Det er $2^p = 4$, altså $p = 2$: kvotienten er av andre orden, akkurat som utledningen sa.\n\n**Steg 3 — kontroller konstanten.** Utledningen ga $\\tau(h) \\approx \\frac{h^2}{6}u'''(1)$. For $u = e^x$ er $u'''(1) = e$, så\n\n$$\\frac{\\tau(h)}{h^2} \\approx \\frac{e}{6} = 0{,}45305.$$\n\nSjekk med tallene: $4{,}5327\\cdot 10^{-3}/0{,}1^2 = 0{,}45327$, og $7{,}0789\\cdot 10^{-5}/0{,}0125^2 = 0{,}45305$. Stemmer til fem siffer, og nærmer seg $e/6$ nedenfra etter hvert som $h$ krymper.\n\n**Sammenlign med den forlengs kvotienten** fra det første eksempelet: den bommet med $0{,}14$ ved $h = 0{,}1$. Sentraldifferansen bommer med $0{,}0045$ — **tretti ganger bedre**, med like mange funksjonsverdier. Det er derfor alle skjemaene i Del 8 bruker sentraldifferanser i romretningen.\n\n**Sensorregelen her:** en «vis at feilen er $O(h^2)$»-oppgave besvares med Taylor-utledningen, ikke med tabellen. Tabellen er en kontroll, ikke et bevis. Men den er en kontroll du bør gjøre, og den er verdt å nevne med én setning."
+    },
+    {
+      "id": "tma4135-8-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En numerisk metode gir disse feilene:\n\n| $h$ | 0,4 | 0,2 | 0,1 | 0,05 |\n|---|---|---|---|---|\n| feil | $3{,}20\\cdot 10^{-2}$ | $8{,}00\\cdot 10^{-3}$ | $2{,}00\\cdot 10^{-3}$ | $5{,}00\\cdot 10^{-4}$ |\n\n**a)** Bestem ordenen $p$.\n**b)** Anslå feilkonstanten $C$ i $\\tau \\approx Ch^p$.\n**c)** Hvor liten må $h$ være for at feilen skal komme under $10^{-6}$?",
+        "solution": "**a)** Hver halvering av $h$ deler feilen på 4:\n\n$$\\frac{3{,}20\\cdot 10^{-2}}{8{,}00\\cdot 10^{-3}} = 4, \\qquad \\frac{8{,}00\\cdot 10^{-3}}{2{,}00\\cdot 10^{-3}} = 4, \\qquad \\frac{2{,}00\\cdot 10^{-3}}{5{,}00\\cdot 10^{-4}} = 4.$$\n\nAltså $2^p = 4$, som gir $p = 2$.\n\n**b)** $C \\approx \\tau/h^2$. Med $h = 0{,}1$: $C \\approx 2{,}00\\cdot 10^{-3}/0{,}01 = 0{,}2$. Samme svar fra de andre radene: $3{,}20\\cdot 10^{-2}/0{,}16 = 0{,}2$ og $5{,}00\\cdot 10^{-4}/0{,}0025 = 0{,}2$. Konstanten er stabil, som den skal være.\n\n**c)** Krev $0{,}2h^2 < 10^{-6}$:\n\n$$h^2 < 5\\cdot 10^{-6} \\quad\\Longrightarrow\\quad h < 2{,}24\\cdot 10^{-3}.$$\n\nMed $h = 0{,}002$ blir anslaget $0{,}2\\cdot 4\\cdot 10^{-6} = 8\\cdot 10^{-7}$, altså under kravet.\n\n**Forbeholdet som hører med:** dette er avkuttingsfeilen alene. Regnestykket forutsetter at avrundingsfeilen fortsatt er ubetydelig ved $h = 0{,}002$ — og det er nettopp den forutsetningen løkke 4 setter et tall på.",
+        "hints": [
+          "Del hver feil på den neste og se hvilket tall du får.",
+          "$2^p$ er akkurat det tallet.",
+          "I c) løser du $Ch^p < 10^{-6}$ for $h$ med $C$ og $p$ fra a) og b)."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis ved Taylor-utvikling at den baklengs differansekvotienten har avkuttingsfeil\n\n$$\\frac{u(x) - u(x-h)}{h} - u'(x) = -\\frac{h}{2}u''(x) + O(h^2),$$\n\nog forklar hvorfor gjennomsnittet av den forlengs og den baklengs kvotienten er nøyaktig den sentrale.",
+        "solution": "**Utledningen.** Taylor bakover:\n\n$$u(x-h) = u(x) - h\\,u'(x) + \\frac{h^2}{2}u''(x) - \\frac{h^3}{6}u'''(x) + \\cdots$$\n\nSett inn i telleren:\n\n$$u(x) - u(x-h) = h\\,u'(x) - \\frac{h^2}{2}u''(x) + \\frac{h^3}{6}u'''(x) - \\cdots$$\n\nDel på $h$:\n\n$$\\frac{u(x) - u(x-h)}{h} = u'(x) - \\frac{h}{2}u''(x) + \\frac{h^2}{6}u'''(x) - \\cdots$$\n\nTrekk fra $u'(x)$, og det som står igjen, er avkuttingsfeilen:\n\n$$\\tau(h) = -\\frac{h}{2}u''(x) + O(h^2). \\qquad \\blacksquare$$\n\n**Gjennomsnittet.** Legg de to kvotientene sammen og del på to:\n\n$$\\frac{1}{2}\\left(\\frac{u(x+h) - u(x)}{h} + \\frac{u(x) - u(x-h)}{h}\\right) = \\frac{1}{2}\\cdot\\frac{u(x+h) - u(x-h)}{h} = \\frac{u(x+h) - u(x-h)}{2h}.$$\n\nVerdien $u(x)$ i midten faller ut, og igjen står den sentrale kvotienten.\n\n**Hvorfor det gir høyere orden:** hovedfeilene er $+\\frac{h}{2}u''$ og $-\\frac{h}{2}u''$. I gjennomsnittet blir summen null, og den første feilen som overlever, er $O(h^2)$-leddet. Kanselleringen er hele grunnen til at sentraldifferansen er andreordens.",
+        "hints": [
+          "Skriv Taylor-rekka for $u(x-h)$ først, med fortegnene som veksler.",
+          "Løs den for $u'(x)$, eller sett den rett inn i telleren og del på $h$.",
+          "I andre del: legg de to brøkene sammen og se hva som skjer med leddet $u(x)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Den dobbeltderiverte, og hvorfor $u_{xx}$ er hjertet i Del 8 (~14 min)\n\n— naturlig pausepunkt —\n\nVarmelikningen, bølgeligningen og randverdiproblemet har alle det samme leddet: $u_{xx}$. Det er den ene kvotienten du kommer til å bruke i hver eneste oppgave i resten av delen."
+    },
+    {
+      "id": "tma4135-8-1-def-sentral2",
+      "type": "definition",
+      "title": "Den andre sentraldifferansen",
+      "content": "Tilnærmingen til den dobbeltderiverte:\n\n$$u''(x_i) \\approx \\frac{U_{i+1} - 2U_i + U_{i-1}}{h^2}.$$\n\nMerk mønsteret i telleren: **$1, -2, 1$** — de to naboene med pluss, punktet selv med minus to. Og nevneren er $h^2$, ikke $h$ eller $2h$.\n\nDen **står på det utdelte formelarket — tren oppslaget**, og den er $O(h^2)$: at den er det, **må kunnes** eller utledes.\n\n*Intuisjon:* dette er «differansen av differansen». Anslaget på stigningen til høyre er $(U_{i+1}-U_i)/h$, til venstre $(U_i-U_{i-1})/h$. Endringen i stigning, delt på $h$, er nøyaktig uttrykket over. Krumning er endring i stigning — det er akkurat det formelen måler."
+    },
+    {
+      "id": "tma4135-8-1-def-delta2",
+      "type": "definition",
+      "title": "Differanseoperatoren $\\delta^2$",
+      "content": "Kortskrift for telleren i den andre sentraldifferansen:\n\n$$\\delta^2 U_i = U_{i+1} - 2U_i + U_{i-1}.$$\n\nMed den blir alle skjemaene i Del 8 korte å skrive: det eksplisitte skjemaet i [kap. 8.2](/tma4135/tma4135-8-2) er $U_i^{n+1} = U_i^n + r\\,\\delta^2 U_i^n$, og Crank–Nicolson i [kap. 8.3](/tma4135/tma4135-8-3) er den samme operatoren brukt på gjennomsnittet av to tidsnivåer.\n\nNotasjonen står ikke på formelarket og er ikke påkrevd på eksamen — men den sparer plass på ditt eget A5-ark."
+    },
+    {
+      "id": "tma4135-8-1-eks3",
+      "type": "example",
+      "title": "Taylor-utledning av $u''$-kvotienten, med kontroll",
+      "problem": "Vis at\n\n$$\\frac{u(x+h) - 2u(x) + u(x-h)}{h^2} = u''(x) + \\frac{h^2}{12}u^{(4)}(x) + O(h^4),$$\n\nog kontroller feilkonstanten numerisk på $f(x) = e^x$ i $x = 1$.",
+      "solution": "**Steg 1 — legg de to Taylor-rekkene sammen.** Nå er det de **odde** leddene vi vil bli kvitt, og de forsvinner når vi adderer:\n\n$$u(x+h) = u + hu' + \\frac{h^2}{2}u'' + \\frac{h^3}{6}u''' + \\frac{h^4}{24}u^{(4)} + \\frac{h^5}{120}u^{(5)} + \\cdots$$\n$$u(x-h) = u - hu' + \\frac{h^2}{2}u'' - \\frac{h^3}{6}u''' + \\frac{h^4}{24}u^{(4)} - \\frac{h^5}{120}u^{(5)} + \\cdots$$\n\nSummen:\n\n$$u(x+h) + u(x-h) = 2u + h^2u'' + \\frac{h^4}{12}u^{(4)} + O(h^6).$$\n\nHer er $2\\cdot\\frac{h^4}{24} = \\frac{h^4}{12}$, og alle odde potenser er borte.\n\n**Steg 2 — trekk fra $2u(x)$ og del på $h^2$.**\n\n$$u(x+h) - 2u(x) + u(x-h) = h^2u'' + \\frac{h^4}{12}u^{(4)} + O(h^6),$$\n\n$$\\frac{u(x+h) - 2u(x) + u(x-h)}{h^2} = u''(x) + \\frac{h^2}{12}u^{(4)}(x) + O(h^4). \\qquad \\blacksquare$$\n\nAvkuttingsfeilen er $O(h^2)$, og igjen inneholder feilrekka bare like potenser.\n\n**Steg 3 — kontroll på $e^x$ i $x = 1$.** Her er $u^{(4)}(1) = e$, så feilkonstanten skal være $e/12 = 0{,}226523$.\n\n| $h$ | kvotient | feil | feil$/h^2$ |\n|---|---|---|---|\n| 0,2 | 2,7273548578 | $9{,}0730\\cdot 10^{-3}$ | 0,226826 |\n| 0,1 | 2,7205478185 | $2{,}2660\\cdot 10^{-3}$ | 0,226599 |\n| 0,05 | 2,7188481844 | $5{,}6636\\cdot 10^{-4}$ | 0,226542 |\n| 0,025 | 2,7184234086 | $1{,}4158\\cdot 10^{-4}$ | 0,226528 |\n\nSiste kolonne nærmer seg $0{,}226523 = e/12$. Feilen deles på 4 ved hver halvering — andre orden, som utledningen sa.\n\n**Merk hvor det store spranget i orden ligger.** Den forlengs kvotienten er $O(h)$; de sentrale er $O(h^2)$. Alle skjemaene i Del 8 er sentrale i romretningen nettopp fordi denne kvotienten er gratis andreordens — mens *tidsretningen* ofte er ensidig og dermed bare førsteordens. Den ubalansen er selve grunnen til at Crank–Nicolson finnes."
+    },
+    {
+      "id": "tma4135-8-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f(x) = \\ln x$ og $x_0 = 2$.\n\n**a)** Regn ut $\\dfrac{f(2+h) - 2f(2) + f(2-h)}{h^2}$ for $h = 0{,}2$ og $h = 0{,}1$.\n**b)** Sammenlign med $f''(2)$ og bestem ordenen fra de to feilene.\n**c)** Kontroller feilkonstanten mot $\\frac{1}{12}f^{(4)}(2)$.",
+        "solution": "**a)** $f(1{,}8) = 0{,}5877867$, $f(2) = 0{,}6931472$, $f(2{,}2) = 0{,}7884574$:\n\n$$h = 0{,}2: \\quad \\frac{0{,}7884574 - 2(0{,}6931472) + 0{,}5877867}{0{,}04} = \\frac{-0{,}0100503}{0{,}04} = -0{,}2512584.$$\n\n$f(1{,}9) = 0{,}6418539$, $f(2{,}1) = 0{,}7419373$:\n\n$$h = 0{,}1: \\quad \\frac{0{,}7419373 - 2(0{,}6931472) + 0{,}6418539}{0{,}01} = \\frac{-0{,}0025031}{0{,}01} = -0{,}2503130.$$\n\n**b)** $f'(x) = 1/x$, $f''(x) = -1/x^2$, så $f''(2) = -0{,}25$. Feilene:\n\n$$h = 0{,}2: \\ -0{,}2512584 + 0{,}25 = -1{,}258\\cdot 10^{-3}, \\qquad h = 0{,}1: \\ -3{,}130\\cdot 10^{-4}.$$\n\nForholdet er $1{,}258\\cdot 10^{-3}/3{,}130\\cdot 10^{-4} = 4{,}02$, altså **orden 2**.\n\n**c)** $f'''(x) = 2/x^3$ og $f^{(4)}(x) = -6/x^4$, så $f^{(4)}(2) = -6/16 = -0{,}375$. Teorien gir feilkonstant\n\n$$\\frac{f^{(4)}(2)}{12} = \\frac{-0{,}375}{12} = -0{,}03125.$$\n\nMålt: $-1{,}258\\cdot 10^{-3}/0{,}04 = -0{,}03146$ og $-3{,}130\\cdot 10^{-4}/0{,}01 = -0{,}03130$. Nærmer seg $-0{,}03125$. Stemmer.\n\n**Merk fortegnet:** her er feilen negativ, fordi $f^{(4)} < 0$. Feilens fortegn følger fortegnet på den fjerdederiverte — det er en detalj som ofte gir et delpoeng når den kommenteres.",
+        "hints": [
+          "Regn ut de tre logaritmeverdiene med minst sju desimaler — telleren er en differanse av nesten like tall.",
+          "$f''(x) = -1/x^2$.",
+          "Deriver videre til fjerde orden for c): $f^{(4)}(x) = -6/x^4$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "I randpunktet $x_0$ finnes ingen $U_{-1}$, så sentraldifferansen kan ikke brukes. En **ensidig andreordens** formel er\n\n$$u'(x_0) \\approx \\frac{-3U_0 + 4U_1 - U_2}{2h}.$$\n\n**a)** Vis ved Taylor-utvikling at denne formelen har avkuttingsfeil $O(h^2)$.\n**b)** Finn hovedleddet i feilen.",
+        "solution": "**a) og b) i én utledning.** Skriv $U_1 = u(x_0+h)$ og $U_2 = u(x_0+2h)$, og Taylor-utvikle begge om $x_0$. Skriv $u, u', u''$ for verdiene i $x_0$:\n\n$$u(x_0+h) = u + hu' + \\frac{h^2}{2}u'' + \\frac{h^3}{6}u''' + O(h^4),$$\n\n$$u(x_0+2h) = u + 2hu' + \\frac{4h^2}{2}u'' + \\frac{8h^3}{6}u''' + O(h^4) = u + 2hu' + 2h^2u'' + \\frac{4h^3}{3}u''' + O(h^4).$$\n\nSett inn i telleren, ledd for ledd:\n\n- **konstantledd:** $-3u + 4u - u = 0$. ✓\n- **$u'$-ledd:** $4\\cdot hu' - 2hu' = 2hu'$.\n- **$u''$-ledd:** $4\\cdot\\frac{h^2}{2}u'' - 2h^2u'' = 2h^2u'' - 2h^2u'' = 0$. ✓\n- **$u'''$-ledd:** $4\\cdot\\frac{h^3}{6}u''' - \\frac{4h^3}{3}u''' = \\frac{2h^3}{3}u''' - \\frac{4h^3}{3}u''' = -\\frac{2h^3}{3}u'''$.\n\nTelleren er altså\n\n$$-3U_0 + 4U_1 - U_2 = 2hu' - \\frac{2h^3}{3}u''' + O(h^4).$$\n\nDel på $2h$:\n\n$$\\frac{-3U_0 + 4U_1 - U_2}{2h} = u'(x_0) - \\frac{h^2}{3}u'''(x_0) + O(h^3).$$\n\nAvkuttingsfeilen er $O(h^2)$, og hovedleddet er\n\n$$\\tau(h) = -\\frac{h^2}{3}u'''(x_0).$$\n\n**Kommentar til vektene $-3, 4, -1$:** de er nøyaktig de som gjør at både konstantleddet og $u''$-leddet nulles ut samtidig. Tre punkter gir tre betingelser å oppfylle, og de tre vektene er akkurat nok frihetsgrader.\n\n**Sammenlign feilkonstanten:** den sentrale kvotienten har $\\frac{h^2}{6}u'''$, denne har $\\frac{h^2}{3}u'''$ — dobbelt så stor. Samme orden, men ensidige formler er alltid litt dårligere. Bruk dem der du må, ikke der du kan velge.",
+        "hints": [
+          "Taylor-utvikle både $u(x_0+h)$ og $u(x_0+2h)$ om $x_0$, og hold styr på faktoren 2 i $2h$.",
+          "Samle telleren etter potenser av $h$: se etter at både $u$-leddet og $u''$-leddet forsvinner.",
+          "Første ledd som overlever, er $u'''$-leddet. Del til slutt på $2h$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Avrunding mot avkutting: den beste $h$ (~14 min)\n\nUtledningene over sier at feilen går mot null når $h$ gjør det. Men prøver du det på en datamaskin, skjer noe annet: feilen synker en stund og begynner så å **stige** igjen. Det er dette eksamensspørsmålet i sjanger Q handler om."
+    },
+    {
+      "id": "tma4135-8-1-def-maskinepsilon",
+      "type": "definition",
+      "title": "Maskinepsilon $\\varepsilon$",
+      "content": "Den relative nøyaktigheten datamaskinen regner med: det minste tallet slik at $1 + \\varepsilon$ er forskjellig fra 1 i maskinens tallformat.\n\nFor vanlige dobbeltpresisjons-tall er\n\n$$\\varepsilon \\approx 2{,}2\\cdot 10^{-16},$$\n\naltså omtrent 16 gjeldende siffer. En funksjonsverdi $u(x)$ lagres derfor med en absolutt feil på omtrent $\\varepsilon\\,|u|$.\n\nPå eksamen holder det å regne med $\\varepsilon$ som et symbol; tallverdien trengs bare når oppgaven ber om et konkret $h$."
+    },
+    {
+      "id": "tma4135-8-1-def-kansellering",
+      "type": "definition",
+      "title": "Kansellering i en differansekvotient",
+      "content": "Telleren $u(x+h) - u(x-h)$ er en differanse mellom to **nesten like** tall når $h$ er liten. De like sifrene i front stryker hverandre, og bare de siste, mest usikre sifrene blir igjen.\n\nHar hver funksjonsverdi en absolutt feil på inntil $\\varepsilon$, kan telleren ha feil inntil $2\\varepsilon$, og hele kvotienten inntil\n\n$$\\frac{2\\varepsilon}{2h} = \\frac{\\varepsilon}{h}.$$\n\n**Dette er avrundingsfeilen, og den vokser når $h$ krymper.** Ved $h = 10^{-8}$ er $\\varepsilon/h \\approx 2\\cdot 10^{-8}$ — mange størrelsesordener over det avkuttingsfeilen ville tilsi.\n\nFor den *andre* sentraldifferansen er nevneren $h^2$ og telleren har fire ledd, så avrundingsbidraget er omtrent $4\\varepsilon/h^2$ — langt verre."
+    },
+    {
+      "id": "tma4135-8-1-def-totalfeil",
+      "type": "definition",
+      "title": "Totalfeil-modellen",
+      "content": "Den observerte feilen er summen av de to kildene:\n\n$$E(h) \\approx \\underbrace{\\frac{K\\varepsilon}{h^q}}_{\\text{avrunding}} + \\underbrace{C h^p}_{\\text{avkutting}},$$\n\nder $p$ er metodens orden og $q$ er potensen $h$ står i nevneren med ($q = 1$ for førstederiverte, $q = 2$ for dobbeltderiverte).\n\n**Første ledd synker med $h$, andre stiger med $h$.** Grafen er en V-form på log–log-papir: bratt ned til venstre, slakt opp til høyre, med et minimum et sted i mellom."
+    },
+    {
+      "id": "tma4135-8-1-def-optimal-h",
+      "type": "definition",
+      "title": "Optimal steglengde ved balansering",
+      "content": "Minimum finner du ved å derivere $E(h)$ og sette lik null:\n\n$$E'(h) = -\\frac{qK\\varepsilon}{h^{q+1}} + pCh^{p-1} = 0 \\quad\\Longrightarrow\\quad h^{p+q} = \\frac{qK\\varepsilon}{pC},$$\n\naltså\n\n$$h_{\\text{opt}} = \\left(\\frac{qK\\varepsilon}{pC}\\right)^{1/(p+q)} = O\\!\\left(\\varepsilon^{1/(p+q)}\\right).$$\n\n**Huskeregelen:** eksponenten er $1$ delt på **summen av metodens orden og nevnerens potens**.\n\n- Sentral førstederivert: $p = 2$, $q = 1$ gir $h_{\\text{opt}} = O(\\varepsilon^{1/3})$.\n- Sentral dobbeltderivert: $p = 2$, $q = 2$ gir $h_{\\text{opt}} = O(\\varepsilon^{1/4})$.\n- Forlengs førstederivert: $p = 1$, $q = 1$ gir $h_{\\text{opt}} = O(\\varepsilon^{1/2})$.\n\nHele denne utledningen **må kunnes** — den står ikke på det utdelte formelarket i noen form."
+    },
+    {
+      "id": "tma4135-8-1-eks4",
+      "type": "example",
+      "title": "Eksamensnivå (sjanger Q): balanser feilene og finn optimal $h$",
+      "problem": "Den sentrale differansekvotienten $\\dfrac{u(x+h)-u(x-h)}{2h}$ brukes på en datamaskin med maskinepsilon $\\varepsilon$. Funksjonsverdiene har absoluttfeil inntil $\\varepsilon$.\n\n**a)** Sett opp et anslag for totalfeilen som funksjon av $h$.\n**b)** Finn den $h$ som gjør totalfeilen minst, uttrykt ved $\\varepsilon$ og de deriverte av $u$.\n**c)** Regn ut et tall for $u(x) = e^x$ i $x = 1$ med $\\varepsilon = 2{,}2\\cdot 10^{-16}$, og sammenlign med en faktisk kjøring.",
+      "solution": "**a) Totalfeilen. (Oppsettet må kunnes — arket har det ikke.)**\n\n*Avkuttingsdelen* er utledet i løkke 2:\n\n$$\\left|\\frac{h^2}{6}u'''(\\xi)\\right| \\le \\frac{h^2}{6}M_3, \\qquad M_3 = \\max|u'''|.$$\n\n*Avrundingsdelen:* hver av de to funksjonsverdiene har feil inntil $\\varepsilon$, så telleren har feil inntil $2\\varepsilon$, og etter divisjon med $2h$:\n\n$$\\frac{2\\varepsilon}{2h} = \\frac{\\varepsilon}{h}.$$\n\nTil sammen:\n\n$$E(h) \\le \\frac{\\varepsilon}{h} + \\frac{M_3}{6}h^2.$$\n\n**b) Minimum.** Deriver med hensyn på $h$ og sett lik null:\n\n$$E'(h) = -\\frac{\\varepsilon}{h^2} + \\frac{M_3}{3}h = 0 \\quad\\Longrightarrow\\quad h^3 = \\frac{3\\varepsilon}{M_3} \\quad\\Longrightarrow\\quad \\boxed{h_{\\text{opt}} = \\left(\\frac{3\\varepsilon}{M_3}\\right)^{1/3}.}$$\n\nDette er et minimum: $E''(h) = 2\\varepsilon/h^3 + M_3/3 > 0$ for alle $h > 0$.\n\n**Størrelsesordenen er $h_{\\text{opt}} = O(\\varepsilon^{1/3})$**, og den tilhørende minste feilen er av orden $\\varepsilon^{2/3}$ — altså cirka $10^{-11}$ i dobbel presisjon, ikke $10^{-16}$. Du får aldri full maskinnøyaktighet ut av en differansekvotient.\n\n**c) Tall.** For $u = e^x$ nær $x = 1$ er $M_3 = e = 2{,}718$:\n\n$$h_{\\text{opt}} = \\left(\\frac{3\\cdot 2{,}2\\cdot 10^{-16}}{2{,}718}\\right)^{1/3} = \\left(2{,}43\\cdot 10^{-16}\\right)^{1/3} = 6{,}26\\cdot 10^{-6}.$$\n\n*Faktisk kjøring* av kvotienten på $e^x$ i $x = 1$ gir denne feilkurven:\n\n| $h$ | $10^{-2}$ | $10^{-4}$ | $10^{-5}$ | $3{,}2\\cdot 10^{-6}$ | $10^{-6}$ | $10^{-8}$ |\n|---|---|---|---|---|---|---|\n| feil | $4{,}5\\cdot 10^{-5}$ | $4{,}5\\cdot 10^{-9}$ | $5{,}9\\cdot 10^{-11}$ | $3{,}3\\cdot 10^{-11}$ | $1{,}6\\cdot 10^{-10}$ | $6{,}6\\cdot 10^{-9}$ |\n\nMinimum ligger rundt $h \\approx 3\\cdot 10^{-6}$ med feil $\\approx 3\\cdot 10^{-11}$ — samme størrelsesorden som anslaget $6{,}3\\cdot 10^{-6}$, og feilen stemmer med $\\varepsilon^{2/3} \\approx 3{,}7\\cdot 10^{-11}$.\n\n**Legg merke til høyre halvdel av tabellen:** fra $h = 10^{-6}$ og nedover blir feilen *større*, ikke mindre. Det er avrundingsleddet som har tatt over. En student som «bare velger $h$ svært liten», får dårligere svar enn en som velger $h$ fornuftig.\n\n**Hva sensor ser etter i denne sjangeren:** at du (1) skriver opp begge feilkildene med riktig $h$-potens, (2) deriverer og løser for $h$ — ikke bare setter de to leddene lik hverandre uten å fullføre, og (3) svarer med størrelsesordenen $h = O(\\varepsilon^{1/3})$. Setter du bare $\\varepsilon/h = \\frac{M_3}{6}h^2$ i stedet for å derivere, får du $h = (6\\varepsilon/M_3)^{1/3}$ — samme størrelsesorden, og det godtas, men si i så fall at du balanserer leddene."
+    },
+    {
+      "id": "tma4135-8-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Gjenta balanseringen for den **andre** sentraldifferansen $\\dfrac{u(x+h)-2u(x)+u(x-h)}{h^2}$, der avrundingsbidraget er omtrent $4\\varepsilon/h^2$ og avkuttingsfeilen $\\frac{h^2}{12}M_4$ med $M_4 = \\max|u^{(4)}|$.\n\n**a)** Sett opp totalfeilen og finn $h_{\\text{opt}}$.\n**b)** Regn ut tallet for $u = e^x$ i $x = 1$ med $\\varepsilon = 2{,}2\\cdot 10^{-16}$.\n**c)** En faktisk kjøring har minimum ved $h \\approx 3{,}2\\cdot 10^{-4}$ med feil $2{,}9\\cdot 10^{-8}$. Stemmer det med anslaget?",
+        "solution": "**a)** Totalfeilen:\n\n$$E(h) \\approx \\frac{4\\varepsilon}{h^2} + \\frac{M_4}{12}h^2.$$\n\nDeriver:\n\n$$E'(h) = -\\frac{8\\varepsilon}{h^3} + \\frac{M_4}{6}h = 0 \\quad\\Longrightarrow\\quad h^4 = \\frac{48\\varepsilon}{M_4} \\quad\\Longrightarrow\\quad h_{\\text{opt}} = \\left(\\frac{48\\varepsilon}{M_4}\\right)^{1/4}.$$\n\nStørrelsesordenen er $O(\\varepsilon^{1/4})$, som stemmer med huskeregelen: $p = 2$, $q = 2$, eksponent $1/(p+q) = 1/4$.\n\n**b)** Med $M_4 = e = 2{,}718$:\n\n$$h_{\\text{opt}} = \\left(\\frac{48\\cdot 2{,}2\\cdot 10^{-16}}{2{,}718}\\right)^{1/4} = \\left(3{,}89\\cdot 10^{-15}\\right)^{1/4} = 2{,}50\\cdot 10^{-4}.$$\n\n**c)** Ja. Målt minimum $3{,}2\\cdot 10^{-4}$ mot anslag $2{,}5\\cdot 10^{-4}$ — samme størrelsesorden, og bedre enn man kan forvente av en modell som bare teller størrelsesordener. Den minste oppnåelige feilen er av orden $\\varepsilon^{1/2} \\approx 1{,}5\\cdot 10^{-8}$, og målt verdi $2{,}9\\cdot 10^{-8}$ ligger rett over.\n\n**Den viktige lærdommen:** den dobbeltderiverte tåler mye dårligere små $h$ enn den førstederiverte. Optimal $h$ er $10^{-4}$ i stedet for $10^{-6}$, og beste oppnåelige nøyaktighet er $10^{-8}$ i stedet for $10^{-11}$. Det er kanselleringen i $h^2$-nevneren som koster.",
+        "hints": [
+          "Sett opp $E(h)$ med de to leddene oppgaven gir deg, og deriver med hensyn på $h$.",
+          "Etter derivasjon får du $h^4$ alene på den ene siden.",
+          "I b) setter du bare inn tallene; i c) sammenligner du størrelsesorden, ikke siffer."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger Q — generell balansering.) En differansekvotient har avkuttingsfeil $O(h^p)$ og avrundingsbidrag $O(\\varepsilon/h^q)$, med $p, q \\ge 1$.\n\n**a)** Vis at optimal steglengde er $h_{\\text{opt}} = O\\!\\left(\\varepsilon^{1/(p+q)}\\right)$.\n**b)** Vis at den minste oppnåelige feilen er $O\\!\\left(\\varepsilon^{p/(p+q)}\\right)$.\n**c)** En metode har $p = 4$ og $q = 1$. Hvor liten kan feilen bli i dobbel presisjon, og ved hvilken $h$?",
+        "solution": "**a)** Skriv $E(h) = K\\varepsilon h^{-q} + Ch^{p}$ med positive konstanter $K, C$. Deriver:\n\n$$E'(h) = -qK\\varepsilon h^{-q-1} + pCh^{p-1}.$$\n\nSett lik null:\n\n$$pCh^{p-1} = qK\\varepsilon h^{-q-1} \\quad\\Longrightarrow\\quad h^{p+q} = \\frac{qK\\varepsilon}{pC} \\quad\\Longrightarrow\\quad h_{\\text{opt}} = \\left(\\frac{qK\\varepsilon}{pC}\\right)^{1/(p+q)}.$$\n\nSiden $qK/(pC)$ er en konstant uavhengig av $\\varepsilon$, er $h_{\\text{opt}} = O(\\varepsilon^{1/(p+q)})$. At det er et minimum følger av at $E''(h) = q(q+1)K\\varepsilon h^{-q-2} + p(p-1)Ch^{p-2} > 0$ for $h > 0$. $\\blacksquare$\n\n**b)** Sett $h_{\\text{opt}}$ inn i avkuttingsleddet:\n\n$$Ch_{\\text{opt}}^{p} = C\\left(\\frac{qK\\varepsilon}{pC}\\right)^{p/(p+q)} = O\\!\\left(\\varepsilon^{p/(p+q)}\\right).$$\n\nAvrundingsleddet gir samme størrelsesorden:\n\n$$K\\varepsilon h_{\\text{opt}}^{-q} = K\\varepsilon\\left(\\frac{qK\\varepsilon}{pC}\\right)^{-q/(p+q)} = O\\!\\left(\\varepsilon^{1 - q/(p+q)}\\right) = O\\!\\left(\\varepsilon^{p/(p+q)}\\right).$$\n\nDe to leddene er altså av samme størrelsesorden i minimum — det er nettopp det «balansering» betyr. Summen er $O(\\varepsilon^{p/(p+q)})$. $\\blacksquare$\n\n**c)** Med $p = 4$, $q = 1$ er $p + q = 5$:\n\n$$h_{\\text{opt}} = O(\\varepsilon^{1/5}) = (2{,}2\\cdot 10^{-16})^{1/5} \\approx 2{,}9\\cdot 10^{-4},$$\n\n$$E_{\\min} = O(\\varepsilon^{4/5}) = (2{,}2\\cdot 10^{-16})^{4/5} \\approx 3{,}5\\cdot 10^{-13}.$$\n\n**Tolkning:** høyere orden hjelper dobbelt. Du får både lov til å bruke en større $h$ — som demper kanselleringen — og en langt mindre sluttfeil. Sammenlign med den sentrale førstederiverte ($p = 2$, $q = 1$), som stopper på $10^{-11}$.",
+        "hints": [
+          "Skriv $E(h)$ med symbolske konstanter og deriver — ikke sett leddene lik hverandre med en gang.",
+          "Samle alle $h$-ene på én side; du får $h^{p+q}$.",
+          "I b) setter du $h_\\text{opt}$ inn i ETT av leddene — begge gir samme svar, og det er poenget."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-1-o9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger Q — full oppgave.) Betrakt kvotienten\n\n$$D_h u(x) = \\frac{u(x+2h) - u(x-2h)}{4h}.$$\n\n**a)** Vis ved Taylor-utvikling at $D_hu(x) = u'(x) + \\frac{2h^2}{3}u'''(x) + O(h^4)$.\n**b)** Sammenlign feilkonstanten med den vanlige sentraldifferansens. Hvilken er best, og med hvilken faktor?\n**c)** Funksjonsverdiene har absoluttfeil inntil $\\varepsilon$. Finn optimal $h$ for $D_h$, og forklar hvorfor $D_h$ likevel ikke er noe å foretrekke.",
+        "solution": "**a)** Bruk Taylor med steget $2h$:\n\n$$u(x+2h) = u + 2hu' + 2h^2u'' + \\frac{8h^3}{6}u''' + \\frac{16h^4}{24}u^{(4)} + \\cdots$$\n$$u(x-2h) = u - 2hu' + 2h^2u'' - \\frac{8h^3}{6}u''' + \\frac{16h^4}{24}u^{(4)} - \\cdots$$\n\nTrekk fra hverandre; alle like ledd forsvinner:\n\n$$u(x+2h) - u(x-2h) = 4hu' + \\frac{16h^3}{6}u''' + O(h^5) = 4hu' + \\frac{8h^3}{3}u''' + O(h^5).$$\n\nDel på $4h$:\n\n$$D_hu(x) = u'(x) + \\frac{2h^2}{3}u'''(x) + O(h^4). \\qquad \\blacksquare$$\n\n**b)** Den vanlige sentraldifferansen har feilkonstant $\\frac{1}{6}u'''$; denne har $\\frac{2}{3}u''' = \\frac{4}{6}u'''$. Samme orden, men **fire ganger større feil**. Det er som ventet: $D_h$ er egentlig den vanlige sentraldifferansen med steglengde $2h$, og $(2h)^2 = 4h^2$.\n\nDen vanlige sentraldifferansen er altså best, med faktor 4.\n\n**c)** Avrundingsdelen: telleren har feil inntil $2\\varepsilon$, nevneren er $4h$, så bidraget er $\\varepsilon/(2h)$. Totalfeil:\n\n$$E(h) \\approx \\frac{\\varepsilon}{2h} + \\frac{2M_3}{3}h^2, \\qquad E'(h) = -\\frac{\\varepsilon}{2h^2} + \\frac{4M_3}{3}h = 0 \\ \\Longrightarrow\\ h^3 = \\frac{3\\varepsilon}{8M_3}.$$\n\nAltså $h_{\\text{opt}} = \\left(\\frac{3\\varepsilon}{8M_3}\\right)^{1/3}$ — fortsatt $O(\\varepsilon^{1/3})$.\n\n**Hvorfor $D_h$ likevel ikke lønner seg:** avrundingsleddet er *halvert* (nevneren er dobbelt så stor), men avkuttingsleddet er *firedoblet*. Setter du inn, blir den minste oppnåelige feilen større enn for den vanlige sentraldifferansen — og $D_h$ trenger i tillegg punkter dobbelt så langt unna, noe som gjør den ubrukelig nær randen.\n\n**Konklusjonen som er verdt å skrive:** man kjøper ikke nøyaktighet ved å strekke stensilen. Man kjøper den ved å velge vekter som dreper flere Taylor-ledd — slik den ensidige formelen i oppgave 6 gjorde.",
+        "hints": [
+          "Bruk Taylor med steget $2h$, ikke $h$ — pass på at $(2h)^3 = 8h^3$.",
+          "Del til slutt på $4h$, ikke $2h$.",
+          "I c): hvor mange funksjonsverdier er det i telleren, og hva står i nevneren?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å stoppe Taylor-utviklingen for tidlig.** Dette er den dyreste feilen i sjanger Q. Tar du bare med til og med $h^2$-leddet når du skal vise at sentraldifferansen er $O(h^2)$, ser det ut som om leddet forsvant helt — og du kan ikke si hva feilen faktisk er. Regelen er enkel: ta med **ett ledd mer enn du tror du trenger**, og sjekk at det første leddet som overlever, ikke er null.\n\n**Feil fortegn i den baklengs differansen.** $\\dfrac{U_i - U_{i-1}}{h}$, ikke $\\dfrac{U_{i-1} - U_i}{h}$, og nevneren er $+h$ selv om steget går bakover. Snur du dette, snur hele svaret fortegn, og feilkonstanten din får feil fortegn i alle senere delpunkter.\n\n**Å balansere uten å fullføre.** «Vi setter $\\varepsilon/h = Ch^2$» og så stopper det. Du må **løse for $h$** og oppgi størrelsesordenen $h = O(\\varepsilon^{1/3})$. Et halvferdig balanseringsargument får sjelden mer enn halve poengsummen — løsningsforslagene fører alltid regningen helt ut.\n\n**Nevneren $h$ i stedet for $2h$ i sentraldifferansen.** Da blir svaret dobbelt så stort. Kontroller alltid med en lineær funksjon: for $u(x) = x$ skal enhver differansekvotient gi nøyaktig 1. Det tar ti sekunder og fanger både denne og en rekke andre feil.\n\n**Å blande avkuttingsfeil og avrundingsfeil.** Avkuttingsfeilen **synker** når $h$ synker; avrundingsfeilen **stiger**. Skriver du at «feilen går mot null når $h \\to 0$» i en oppgave som handler om maskinregning, har du misforstått hele spørsmålet.\n\n**Å glemme at ordenen krever deriverbarhet.** $O(h^2)$-argumentet forutsetter at $u'''$ (eller $u^{(4)}$) finnes og er begrenset i hele intervallet. Har funksjonen et knekkpunkt, faller ordenen. Nevn forutsetningen med én setning når du fører utledningen — det koster ingenting og er en av tingene et fullstendig svar har med.\n\n**Å forveksle $h$ i rommet med $\\Delta t$ i tiden.** Fra og med [kap. 8.2](/tma4135/tma4135-8-2) er det to steglengder i spill samtidig. Skriv alltid hvilken som er hvilken i første linje."
+    },
+    {
+      "id": "tma4135-8-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Boksene under samler resten av begrepene i kapitlet som egne kort. Ved førstegangslesing kan du gå rett til repetisjonsoppgavene."
+    },
+    {
+      "id": "tma4135-8-1-def-konsistens",
+      "type": "definition",
+      "title": "Konsistens",
+      "content": "En differansekvotient er **konsistent** med den deriverte den skal tilnærme, dersom avkuttingsfeilen går mot null når $h \\to 0$ — altså dersom ordenen er $p \\ge 1$.\n\nKonsistens er et minimumskrav og sjelden noe problem: alle kvotientene i dette kapitlet er konsistente. Det som *kan* svikte, er **stabiliteten**, og den kommer i [kap. 8.2](/tma4135/tma4135-8-2). Sammenhengen er den samme i hele numerisk analyse: konsistens pluss stabilitet gir konvergens.\n\nFormuleringen «skjemaet er konsistent av orden 2» betyr rett og slett at avkuttingsfeilen er $O(h^2)$."
+    },
+    {
+      "id": "tma4135-8-1-def-halveringstest",
+      "type": "definition",
+      "title": "Halveringstesten",
+      "content": "Den praktiske måten å måle ordenen på uten å utlede noe: regn feilen for $h$ og for $h/2$, og del den første på den andre.\n\n$$\\frac{\\tau(h)}{\\tau(h/2)} \\approx 2^p.$$\n\nForholdet 2 betyr orden 1, 4 betyr orden 2, 16 betyr orden 4.\n\nTesten krever at du kjenner den eksakte verdien — derfor gjøres den på en testfunksjon du kan fasiten til, som $e^x$ eller $\\sin x$. Får du et forhold som *ikke* er en potens av 2, er det som regel avrundingsfeilen som har begynt å dominere, eller en ren regnefeil."
+    },
+    {
+      "id": "tma4135-8-1-def-stensil",
+      "type": "definition",
+      "title": "Stensil",
+      "content": "Mønsteret av gitterpunkter en formel bruker, tegnet som prikker.\n\nDen sentrale $u''$-kvotienten har stensilen $\\{x_{i-1}, x_i, x_{i+1}\\}$ med vekter $\\{1, -2, 1\\}$ delt på $h^2$. Den forlengs $u'$-kvotienten har stensilen $\\{x_i, x_{i+1}\\}$ med vekter $\\{-1, 1\\}$ delt på $h$.\n\nStensilen forteller deg umiddelbart to ting: hvor mange naboverdier du trenger, og hvilke punkter formelen **ikke** kan brukes i (nær randen mangler du naboer). Det siste er hele problemstillingen i [kap. 8.4](/tma4135/tma4135-8-4)."
+    },
+    {
+      "id": "tma4135-8-1-def-symmetri",
+      "type": "definition",
+      "title": "Symmetriregelen for feilrekker",
+      "content": "En differansekvotient med **symmetriske** vekter om midtpunktet har bare **like** potenser av $h$ i feilrekka:\n\n$$\\tau(h) = C_2h^2 + C_4h^4 + C_6h^6 + \\cdots$$\n\nGrunnen er at bytte av $h$ med $-h$ ikke endrer formelen, så feilen må være en jevn funksjon av $h$.\n\n**Praktisk konsekvens:** symmetriske formler får minst orden 2 gratis, og de er de eneste som lar seg forbedre effektivt ved å kombinere to steglengder. Ensidige formler har både odde og like potenser, og er dårligere for samme antall punkter."
+    },
+    {
+      "id": "tma4135-8-1-def-lokal-global",
+      "type": "definition",
+      "title": "Avkuttingsfeil kontra sluttfeil",
+      "content": "**Avkuttingsfeilen** er feilen i én enkelt differansekvotient, målt ved å sette den eksakte løsningen inn i formelen.\n\n**Sluttfeilen** (global feil) er forskjellen mellom den eksakte løsningen og den beregnede $U_i$ etter at hele likningssystemet eller alle tidsstegene er gjennomført.\n\nDe to er ikke det samme, og de trenger ikke ha samme orden. I Del 8 er det som regel slik at et skjema med avkuttingsfeil $O(h^2)$ også får sluttfeil $O(h^2)$ — men **bare hvis skjemaet er stabilt**. Er det ustabilt, kan sluttfeilen vokse uten grenser selv om avkuttingsfeilen er bitte liten. Nettopp den situasjonen møter du i [kap. 8.2](/tma4135/tma4135-8-2)."
+    },
+    {
+      "id": "tma4135-8-1-def-maks-derivert",
+      "type": "definition",
+      "title": "Skranken $M_p$",
+      "content": "Notasjonen for den største verdien den aktuelle deriverte kan ha på intervallet:\n\n$$M_p = \\max_{x \\in [a,b]} \\left|u^{(p)}(x)\\right|.$$\n\nI feilanslag opptrer den i stedet for $u^{(p)}(\\xi)$, fordi du sjelden vet hvor mellompunktet $\\xi$ ligger. Du får en **skranke** i stedet for et eksakt uttrykk, og skriver $\\le$ i stedet for $=$.\n\nSamme grep som i feilleddene til trapes- og Simpson-regelen i [kap. 6.2](/tma4135/tma4135-6-2) — der er det $\\max|f''|$ og $\\max|f^{(4)}|$ som gjør jobben."
+    },
+    {
+      "id": "tma4135-8-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-8-1-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter: Taylors formel og elementær derivasjon. Bruker du mer enn ti minutter til sammen, er det verdt å friske opp Taylor før du går videre til [kap. 8.2](/tma4135/tma4135-8-2)."
+        },
+        {
+          "id": "tma4135-8-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-1-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp Taylor-rekka om $x = 0$ til og med $h^3$-leddet for\n\n**a)** $e^h$\n**b)** $\\sin h$\n**c)** $\\ln(1+h)$",
+            "solution": "**a)** $e^h = 1 + h + \\dfrac{h^2}{2} + \\dfrac{h^3}{6} + \\cdots$\n\n**b)** $\\sin h = h - \\dfrac{h^3}{6} + \\cdots$ (bare odde potenser, fordi $\\sin$ er en odde funksjon)\n\n**c)** $\\ln(1+h) = h - \\dfrac{h^2}{2} + \\dfrac{h^3}{3} - \\cdots$\n\nLegg merke til $\\sin$: at bare odde potenser er med, er samme symmetriargument som gjør at sentrale differansekvotienter bare har like potenser i feilrekka.",
+            "hints": [
+              "Alle tre er standardrekker — $e^h$ har $1/n!$ som koeffisient."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-1-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $u(x+h)$ til og med $h^2$-leddet for $u(x) = x^3$, og kontroller at Taylor-rekka avsluttes eksakt etter $h^3$-leddet.",
+            "solution": "$u = x^3$, $u' = 3x^2$, $u'' = 6x$, $u''' = 6$, $u^{(4)} = 0$.\n\n$$u(x+h) = x^3 + 3x^2h + \\frac{6x}{2}h^2 + \\frac{6}{6}h^3 = x^3 + 3x^2h + 3xh^2 + h^3.$$\n\nDet er nøyaktig binomialutviklingen av $(x+h)^3$. Rekka stopper fordi $u^{(4)} = 0$ og alle høyere deriverte også er null.\n\n**Nyttig konsekvens:** en differansekvotient med feilledd $\\frac{h^2}{6}u'''$ gir *ikke* eksakt svar på $x^3$, men på $x^2$ gir den eksakt svar, fordi $u''' = 0$ der. Det er samme test som presisjonsgraden i [kap. 6.2](/tma4135/tma4135-6-2).",
+            "hints": [
+              "Deriver $x^3$ fire ganger og sett inn i Taylor-formelen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-1-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En funksjon oppfyller $|\\tau(h)| \\le 0{,}05\\,h^3$. Hvor liten må $h$ være for at $|\\tau| < 10^{-4}$?",
+            "solution": "Krev $0{,}05h^3 < 10^{-4}$:\n\n$$h^3 < 2\\cdot 10^{-3} \\quad\\Longrightarrow\\quad h < \\sqrt[3]{2\\cdot 10^{-3}} = 0{,}126.$$\n\nKontroll: $h = 0{,}12$ gir $0{,}05\\cdot 1{,}728\\cdot 10^{-3} = 8{,}6\\cdot 10^{-5} < 10^{-4}$. ✓\n\n**Merk kuberoten.** Å løse $h^p < \\text{tall}$ for $h$ er nøyaktig samme regnegrep som du bruker i balanseringsoppgavene i løkke 4 — bare med $p$ erstattet av $p + q$.",
+            "hints": [
+              "Isoler $h^3$ og ta kuberoten."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-1-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut de fire første deriverte av $u(x) = \\dfrac{1}{x}$ i $x = 2$, og finn skranken $M_4 = \\max_{[1,3]}|u^{(4)}|$.",
+            "solution": "$$u = x^{-1}, \\quad u' = -x^{-2}, \\quad u'' = 2x^{-3}, \\quad u''' = -6x^{-4}, \\quad u^{(4)} = 24x^{-5}.$$\n\nI $x = 2$:\n\n$$u'(2) = -0{,}25, \\quad u''(2) = 0{,}25, \\quad u'''(2) = -0{,}375, \\quad u^{(4)}(2) = 24/32 = 0{,}75.$$\n\n**Skranken på $[1,3]$:** $|u^{(4)}(x)| = 24/x^5$ er avtakende, så maksimum ligger i venstre endepunkt:\n\n$$M_4 = \\frac{24}{1^5} = 24.$$\n\nLegg merke til hvor mye større skranken er enn verdien i midtpunktet ($0{,}75$). Feilanslag med $\\max$ er ofte pessimistiske — de skal være det, for de må gjelde overalt.",
+            "hints": [
+              "Skriv $1/x$ som $x^{-1}$ og deriver med potensregelen.",
+              "For skranken: hvor på $[1,3]$ er $24/x^5$ størst?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-1-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-1-oR5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Trapesregelen har feilledd $-\\dfrac{(b-a)h^2}{12}f''(\\xi)$, jf. [kap. 6.2](/tma4135/tma4135-6-2).\n\n**a)** Hvilken orden har den?\n**b)** Hvor mye mindre blir feilen om du dobler antall delintervall?",
+            "solution": "**a)** Feilen er proporsjonal med $h^2$, altså **orden 2**.\n\n**b)** Dobler du antall delintervall $n$, halveres $h = (b-a)/n$. Feilen deles på $2^2 = 4$.\n\n**Poenget med å ta denne her:** det er nøyaktig samme resonnement som halveringstesten i dette kapitlet. Feilleddene i numerisk integrasjon og i differansekvotienter kommer fra samme Taylor-argument — den ene integrerer restleddet, den andre leser det av direkte.",
+            "hints": [
+              "Se på hvilken potens av $h$ som står i feilleddet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-8-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-8-1-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $h$ | Steglengden i rommet, $h = (b-a)/N$. **Merk:** i Del 6 og Del 7 er $h$ steglengde i en annen sammenheng (integrasjon og ODE-skritt); fra [kap. 8.2](/tma4135/tma4135-8-2) er $h$ *bare* romsteget, og tidssteget heter $\\Delta t$ |\n| $N$ | Antall delintervall |\n| $x_i$ | Gitterpunkt nummer $i$, $x_i = a + ih$ |\n| $u(x)$ | Den eksakte løsningen — liten bokstav |\n| $U_i$ | Den beregnede tilnærmingen i $x_i$ — stor bokstav |\n| $u'$, $u''$, $u^{(4)}$ | Deriverte av den eksakte løsningen |\n| $\\tau(h)$ | Avkuttingsfeilen i differansekvotienten |\n| $p$ | Ordenen til metoden: $\\tau = O(h^p)$ |\n| $q$ | Potensen $h$ står med i nevneren; styrer avrundingsleddet $\\varepsilon/h^q$ |\n| $O(h^p)$ | «Av størrelsesorden $h^p$» — feilen deles på $2^p$ når $h$ halveres |\n| $C$, $K$ | Konstanter i feilanslagene, uavhengige av $h$ |\n| $M_p$ | Skranken $\\max\\left|u^{(p)}\\right|$ på intervallet |\n| $\\varepsilon$ | Maskinepsilon, $\\approx 2{,}2\\cdot 10^{-16}$ i dobbel presisjon |\n| $\\delta^2 U_i$ | Kortskrift for $U_{i+1} - 2U_i + U_{i-1}$ |\n| $\\xi$ | Ukjent mellompunkt i Taylors restledd |\n| $r$ | Brukes IKKE i dette kapitlet. **Merk:** i Del 1 er $r$ radius i polar form, i Del 6 en rot — og fra [kap. 8.2](/tma4135/tma4135-8-2) er $r$ stabilitetstallet $\\Delta t/h^2$ |\n"
+        },
+        {
+          "id": "tma4135-8-1-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$u'(x_i) \\approx \\frac{U_{i+1} - U_i}{h}$$\nForlengs differansekvotient, orden 1. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$u'(x_i) \\approx \\frac{U_i - U_{i-1}}{h}$$\nBaklengs differansekvotient, orden 1. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$u'(x_i) \\approx \\frac{U_{i+1} - U_{i-1}}{2h}$$\nSentral differansekvotient, orden 2. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$u''(x_i) \\approx \\frac{U_{i+1} - 2U_i + U_{i-1}}{h^2}$$\nDen andre sentraldifferansen, orden 2. Arbeidshesten i hele Del 8. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$u'(x_0) \\approx \\frac{-3U_0 + 4U_1 - U_2}{2h}$$\nEnsidig kvotient av orden 2, for bruk i randpunktet. *(Må kunnes eller utledes aktivt.)*\n\n$$u(x\\pm h) = u \\pm hu' + \\frac{h^2}{2}u'' \\pm \\frac{h^3}{6}u''' + \\frac{h^4}{24}u^{(4)} \\pm \\cdots$$\nTaylors formel begge veier — verktøyet bak alle feilleddene. *(Må kunnes.)*\n\n$$\\frac{U_{i+1} - U_i}{h} = u'(x_i) + \\frac{h}{2}u''(x_i) + O(h^2)$$\nAvkuttingsfeilen til den forlengs kvotienten. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{U_{i+1} - U_{i-1}}{2h} = u'(x_i) + \\frac{h^2}{6}u'''(x_i) + O(h^4)$$\nAvkuttingsfeilen til sentraldifferansen — kanselleringen som gir orden 2. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{U_{i+1} - 2U_i + U_{i-1}}{h^2} = u''(x_i) + \\frac{h^2}{12}u^{(4)}(x_i) + O(h^4)$$\nAvkuttingsfeilen til den andre sentraldifferansen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{\\tau(h)}{\\tau(h/2)} \\approx 2^p$$\nHalveringstesten — les ordenen ut av tallene. *(Må kunnes.)*\n\n$$E(h) \\approx \\frac{K\\varepsilon}{h^q} + Ch^p$$\nTotalfeil-modellen: avrunding pluss avkutting. *(Må kunnes.)*\n\n$$h_{\\text{opt}} = \\left(\\frac{qK\\varepsilon}{pC}\\right)^{1/(p+q)} = O\\!\\left(\\varepsilon^{1/(p+q)}\\right)$$\nOptimal steglengde. For sentral førstederivert: $O(\\varepsilon^{1/3})$. For sentral dobbeltderivert: $O(\\varepsilon^{1/4})$. *(Må kunnes eller utledes aktivt — står ikke på arket i noen form.)*\n\n$$E_{\\min} = O\\!\\left(\\varepsilon^{p/(p+q)}\\right)$$\nDen minste feilen som er mulig å oppnå. *(Må kunnes eller utledes aktivt.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
