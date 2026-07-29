@@ -590,6 +590,21 @@ matte-modus (`$RemoveMin$` er forbudt — skriv `` `RemoveMin` ``).
 `<` og `>` i prosa skrives `$x < 3$` eller `` `x < 3` ``, aldri bart (rå `<`
 går uendret inn i HTML).
 
+> **VIRKEOMRÅDE — presisert 29. juli 2026 av byggeleder.**
+> Regelen gjelder **prosa som rendres gjennom LaTeX-rendreren**: `content`-felt,
+> oppgavetekster, fasiter, tabeller. Den gjelder IKKE metadatafeltene `title` og
+> `description`, som vises som ren tekst i navigasjon, kort og
+> søkeresultater — der er `O(n²)` og `Kode → O-notasjon` helt i orden.
+>
+> Belegg: fire ferdige, live bøker (med1100, fys1100, tdt4110, in1900) har
+> unicode i nettopp de to feltene, og de rendrer riktig. Kontrakten selv skriver
+> dessuten `O(n²)` i brødteksten to steder.
+>
+> Dette betyr at skjelettets titler og beskrivelser tas ORDRETT, også når de
+> inneholder `²` eller `→`. Metadata-regelen vinner. En agent som «retter»
+> skjelettets tittel for å tilfredsstille unicode-regelen, innfører et avvik
+> mellom navigasjon og kapittelside.
+
 ### Arketypesærtrekk
 
 - **Modellbesvarelser** er kort pseudokode + oppgitt kjøretid + antagelser, med
