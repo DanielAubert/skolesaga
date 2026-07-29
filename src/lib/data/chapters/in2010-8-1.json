@@ -1,0 +1,475 @@
+{
+ "id": "in2010-8-1",
+ "courseId": "in2010",
+ "chapterNumber": "8.1",
+ "title": "DRILL — Del 2-strategi: velg lavest kjøretid (poengtrappen) og skriv presis pseudokode",
+ "description": "Den tverrgående Del 2-drillen: for hver oppgave, finn den **lavest mulige** kjøretiden (poengtrappen O(n) > O(n log n) > O(n²)) og skriv svaret som pseudokode ELLER klar naturlig-språk-forklaring som gir full uttelling.",
+ "estimatedMinutes": 90,
+ "competenceGoals": [
+  "kunne finne den raskeste korrekte løsningen på en Del 2-oppgave ved å gå gjennom de fem faste grepene",
+  "kunne skrive svaret i de fire leddene sensor krever, med kjøretid som matcher algoritmen og med n definert",
+  "kunne begrunne hvorfor en tregere korrekt løsning gir færre poeng, og hvor mye",
+  "kunne levere en besvarelse i klart naturlig språk som gir like mye uttelling som pseudokode"
+ ],
+ "content": [
+  {
+   "id": "in2010-8-1-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette er den siste drillen før øvingseksamenene, og den trener én eneste\nferdighet: **å finne den raskeste lovlige løsningen på en Del 2-oppgave, og\nskrive den ned slik at sensor kan lese den.**\n\nSensorveiledningene sier det samme hvert år: **lavere kjøretidskompleksitet er\nmer poenggivende.** Ofte står trappen skrevet rett ut i veiledningen — en\n$O(n)$-løsning gir full pott på en oppgave, $O(n \\log n)$ noe mindre og $O(n^2)$\nminst. Det er *samme oppgave*, *samme riktige svar*, og likevel forskjellig\nuttelling. Å velge algoritme er derfor ikke en stilsak. Det er poeng.\n\nDrillen går på tvers av sjangrene i Del 2:\n\n- **sjanger G — tre-algoritme i pseudokode**, altså at du skriver en prosedyre\n  som arbeider på et binærtre og oppgir kjøretiden. Kommer i 6 av 7 sett.\n- **sjanger H — grafalgoritme i pseudokode**, altså at du gjenkjenner det\n  klassiske grafproblemet i en innpakning og kaller pensumalgoritmen. Kommer i\n  hvert eneste sett, som regel to eller tre ganger.\n- **sjanger I — hashing og søk i pseudokode**, altså at du velger mellom\n  hashtabell, sortering og binærsøk. Kommer i alle 7 sett.\n- **sjanger J — ADT-design**, altså at du setter sammen kjente strukturer til en\n  ny. Kommer i 3 av 7 sett, og andelen stiger.\n\nPrioritet: **høyeste**. Dette er A- og B-differensieringen i faget. En kandidat\nsom leverer riktige, men trege løsninger på alle Del 2-oppgavene, lander i\nmidtsjiktet — og C er en god og vanlig karakter. Men veien derfra og opp går\ngjennom nøyaktig denne drillen.\n\n**Slik er kapitlet lagt opp:** løsningsoppskriften, ett gjennomkjørt\neksamenscase der samme problem løses på tre kjøretidsnivåer med margnotater om\npoeng, ett eksempel på en besvarelse skrevet helt uten pseudokode, tolv oppgaver\npå eksamensnivå og til slutt en **kald bank** på åtte oppgaver uten hint.\n\n**Om tidsanslaget:** de 90 minuttene dekker oppskriften, de to eksemplene og de\ntolv oppgavene — omtrent 15 minutter på teorien og seks per oppgave. Den kalde\nbanken kommer **i tillegg**, og bør regnes som en egen økt på rundt en time,\nsiden oppgavene der skal tas på tid uten hint. Det er også et naturlig\npausepunkt etter oppgave 6. Som ellers i boka er anslaget lesetid: skriver du\npseudokoden ut for hånd, skal du regne omtrent halvannen gang så lang tid."
+  },
+  {
+   "id": "in2010-8-1-t-forkunn",
+   "type": "text",
+   "content": "## Sist du var her — forkunnskaper i kortform\n\nDenne drillen bruker hele boka, men den hviler på fem resultater. De står ferdig\noppfrisket her, slik at du slipper å bla.\n\n**1. Vekstordningen.** Denne rekkefølgen er hele poengtrappen i én linje:\n\n$$1 < \\log n < n < n\\log n < n^2 < n^3 < 2^n < n!$$\n\nJo lenger til venstre du kommer med et korrekt svar, jo mer uttelling. Se\n[kap. 1.1](/in2010/in2010-1-1).\n\n**2. De fire verktøyene som gjør kvadratisk til lineært.**\n\n| Verktøy | Gjør | Kjøretid | Kapittel |\n|---|---|---|---|\n| hash-set / hashmap | medlemskap og telling uten sortering | $O(1)$ forventet per oppslag | [kap. 3.2](/in2010/in2010-3-2) |\n| beskjæring i et søketre | hopper over subtrær som ikke kan inneholde svaret | $O(h + \\text{antall treff})$ | [kap. 4.2](/in2010/in2010-4-2) |\n| én dybde-først-traversering som returnerer noe | samler informasjon nedenfra i stedet for å regne på nytt per node | $O(n)$ | [kap. 4.2](/in2010/in2010-4-2) |\n| forbehandling (sortér eller merk én gang) | flytter arbeid ut av løkken over spørsmålene | $O(n\\log n)$ én gang, deretter $O(\\log n)$ per spørsmål | [kap. 3.4](/in2010/in2010-3-4) |\n\n**3. Grafkjøretidene, som må sitte hjelpemiddelfritt.** Bredde-først-søk,\ndybde-først-søk over hele grafen, topologisk sortering og sterkt sammenhengende\nkomponenter er alle $O(|V| + |E|)$. Dijkstra og Prim med binær prioritetskø er\n$O((|V| + |E|)\\log|V|)$. Bellman-Ford er $O(|V| \\cdot |E|)$. Se\n[kap. 6.2](/in2010/in2010-6-2).\n\n**4. Heapen.** `Insert` og `RemoveMin` er $O(\\log n)$, og det å bygge en heap av\net helt array er $O(n)$ — ikke $O(n \\log n)$. Se\n[kap. 4.4](/in2010/in2010-4-4).\n\n**5. Svarformen sensor faktisk krever.** Fire ledd, i denne rekkefølgen: navngi\nproblemet, oppgi antagelser om representasjon, gi algoritmen, oppgi kjøretiden\nsom matcher den. Se [kap. 5.5](/in2010/in2010-5-5)."
+  },
+  {
+   "id": "in2010-8-1-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-8-1-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer i inndata; **skal alltid defineres i svaret** |\n| $m$ | antall spørsmål eller antall oppslag, når disse telles for seg |\n| $k$ | et tall oppgaven fastsetter, for eksempel «de $k$ største» |\n| $h$ | høyden på et tre; $O(\\log n)$ i et balansert tre, $O(n)$ i et skjevt |\n| $G = (V, E)$ | graf med noder $V$ og kanter $E$ |\n| $\\lvert V \\rvert$, $\\lvert E \\rvert$ | antall noder og antall kanter |\n| $G^R$ | den reverserte grafen — alle kanter snudd |\n| $O(g(n))$ | øvre grense: kjøretiden vokser høyst som $g(n)$ |"
+    },
+    {
+     "id": "in2010-8-1-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Inneholder(S, x)` | er `x` i hash-settet `S`? | $O(1)$ forventet, $O(n)$ verste |\n| `LeggTil(S, x)` | legger `x` i hash-settet | $O(1)$ forventet |\n| `BinærSøk(A, x)` | halverer søkeområdet i et **sortert** array; svarer `true`/`false` og må modifiseres for å gi indeks | $O(\\log n)$ |\n| `Sortér(A)` | sammenligningsbasert sortering, for eksempel flettesortering | $O(n \\log n)$ |\n| `Insert(H, x)`, `RemoveMin(H)` | legger inn i / fjerner minste fra min-heap | $O(\\log n)$ |\n| `ByggHeap(A)` | gjør et array om til en heap | $O(n)$ |\n| `BFS(G, s)` | lagvis traversering; korteste vei i antall kanter | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| `DFSFull(G)` | dybde-først over alle komponenter | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| `TopologiskSortering(G)` | lovlig rekkefølge, eller melding om sykel | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| `SterktSammenhengendeKomponenter(G)` | komponentene der alle når hverandre | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| `Dijkstra(G, s)` | korteste vei uten negative kanter | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log\\lvert V \\rvert)$ |"
+    },
+    {
+     "id": "in2010-8-1-nt-3",
+     "type": "text",
+     "content": "**Formler i dette delkapitlet:**\n\n$$1 < \\log n < n < n\\log n < n^2 < n^3 < 2^n < n!$$\n\nVekstordningen. Poengtrappen er denne linjen lest fra høyre mot venstre: hvert\nskritt til venstre er poeng.\n\n$$O(n \\cdot m) \\;\\longrightarrow\\; O(n\\log n) + O(m\\log n)$$\n\nForbehandlingsmønsteret: gjør arbeidet én gang på dataene i stedet for én gang\nper spørsmål.\n\n$$O(n \\log n) \\;\\longrightarrow\\; O(n \\log k)$$\n\nHeap-mønsteret for «de $k$ største»: hold bare $k$ elementer i heapen, ikke\nalle $n$."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-1-th-1",
+   "type": "theorem",
+   "title": "Løsningsoppskriften — fem steg og en trapp",
+   "content": "Enhver Del 2-oppgave kan angripes i samme rekkefølge. Steg 1 til 3 tar deg til\nen løsning; steg 4 er det som skiller midtsjiktet fra toppsjiktet.\n\n**Steg 1 — skriv ned den naive løsningen først, på kladd.** Den du kommer på\nmed én gang: to nøstede løkker, en full traversering, en algoritme kjørt én gang\nper spørsmål. Den er nesten alltid riktig, og den er nesten alltid for treg. Men\nden forteller deg hva problemet *er*, og den er verdt poeng hvis du ikke rekker\nmer.\n\n**Steg 2 — navngi problemet.** «Dette er å finne hvem som kan nås fra hvem i en\nrettet graf.» «Dette er å slå opp mange ganger i den samme mengden.» «Dette er å\nfinne de $k$ største.» Navnet peker på verktøyet.\n\n**Steg 3 — still spørsmålet: kan dette gjøres raskere?** Gå gjennom de fem faste\ngrepene:\n\n| Ser du dette i den naive løsningen? | Grepet | Gevinst |\n|---|---|---|\n| en indre løkke som leter etter et element | hash-set eller hashmap | $O(n^2) \\to O(n)$ forventet |\n| en full traversering av et søketre | beskjæring: hopp over subtrær som ikke kan inneholde svaret | $O(n) \\to O(h + \\text{treff})$ |\n| en høyde- eller sum-beregning gjentatt per node | **én** dybde-først-traversering som returnerer verdien nedenfra | $O(n^2) \\to O(n)$ |\n| samme algoritme kjørt én gang per kilde eller per spørsmål | forbehandling: kjør den én gang, eventuelt på den reverserte grafen | $O(k \\cdot T) \\to O(T)$ |\n| «finn de $k$ beste» løst ved å sortere alt | min-heap med plass til bare $k$ | $O(n \\log n) \\to O(n \\log k)$ |\n\n**Steg 4 — skriv svaret i fire ledd.** Dette er sensors faktiske krav, og mangler\nett av leddene, trekkes det:\n\n1. **Navngi problemet.**\n2. **Oppgi antagelser om representasjon** — nabolister eller nabomatrise, hvilke\n   felt en node har (`v.left`, `v.right`, `v.x`), om arrayet er sortert.\n3. **Algoritmen** — presis pseudokode **eller** en klar forklaring i naturlig\n   språk. Begge gir full uttelling. Kravet er at svaret er entydig og lett å\n   forstå, ikke at det ser ut som kode.\n4. **Kjøretiden som matcher algoritmen du faktisk ga**, med $n$ (eller $|V|$ og\n   $|E|$) definert — pluss én setning om hvorfor dette er lavest mulig.\n\n**Steg 5 — kontrollregn.** Les din egen pseudokode og tell løkkene på nytt. Den\nvanligste feilen i toppsjiktet er ikke feil algoritme, men riktig algoritme med\nfeil kjøretid oppgitt under.\n\n**Poengtrappen, som ligger under alt sammen:** på samme oppgave gir den raskeste\nkorrekte løsningen full pott, mellomløsningen noe mindre og den naive minst — men\n**ikke null**. Derfor er rekkefølgen på eksamen alltid: skriv den naive hvis du\nikke ser noe bedre, og bruk resten av tiden på å lete etter grepet."
+  },
+  {
+   "id": "in2010-8-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Samme oppgave på tre kjøretidsnivåer, med sensor-margnotater",
+   "problem": "En værtjeneste har lagret $n$ målte lufttrykk i et **usortert** array `A`, og\nvil vite om **to av målingene skiller seg med nøyaktig $x$ enheter**. Bare ja\neller nei skal besvares.\n\nOppgaven er verdt 10 poeng, og sensorveiledningen oppgir trappen: $O(n)$ gir 10,\n$O(n \\log n)$ gir 6, $O(n^2)$ gir 3.\n\nLøs oppgaven på alle tre nivåene, og oppgi hva som skiller dem.\n\nBruk `A = 8, 3, 14, 1, 11, 6` og $x = 7$ som kontrollsett.",
+   "solution": "**Navngi problemet.** Dette er et søk etter et **par med gitt differanse** i en\nusortert mengde. Det er samme familie som «finnes det to like?» og «finnes det to\nsom summerer til $x$?», og de tre løses med de samme tre verktøyene.\n\n**Antagelser om representasjon.** `A` er et array med $n$ tall, indeksert fra 0.\n$n$ er antall målinger. Tallene kan gjentas.\n\n---\n\n**Nivå 3 — den naive løsningen, $O(n^2)$, 3 poeng**\n\n```text\nProcedure FinnesDifferanseNaiv(A, x)\n  Input:  array A med n tall (indeks fra 0), tallet x\n  Output: true hvis to elementer skiller seg med x, ellers false\n  n = A.length\n  for i = 0 to n-1:\n      for j = i+1 to n-1:\n          if |A[i] - A[j]| == x:\n              return true\n  return false\n  Kjoeretid: O(n^2)\n```\n\nLøkketellingen: den ytre løkken går $n$ ganger, den indre høyst $n$ ganger, og\nkroppen er konstant. Det gir $O(n^2)$.\n\n**Sensors margnotat:** dette er en korrekt løsning, og den gir 3 av 10. Den\ntaper ikke poeng på å være feil — den taper poeng på å være treg. Lever den\nalltid framfor blankt.\n\n---\n\n**Nivå 2 — sortér først, $O(n \\log n)$, 6 poeng**\n\nSorterer du arrayet, blir det mulig å bruke to pekere som begge bare går\nframover:\n\n```text\nProcedure FinnesDifferanseSortert(A, x)\n  Input:  array A med n tall, tallet x\n  Output: true hvis to elementer skiller seg med x, ellers false\n  Sorter(A)                       // flettesortering, O(n log n)\n  i = 0\n  j = 1\n  while j < A.length:\n      d = A[j] - A[i]\n      if d == x:\n          return true\n      if d < x:\n          j = j + 1               // for liten differanse: flytt den hoeye opp\n      else:\n          i = i + 1               // for stor differanse: flytt den lave opp\n      if i == j:\n          j = j + 1\n  return false\n  Kjoeretid: O(n log n) for sorteringen, O(n) for skanningen  =  O(n log n)\n```\n\nPå kontrollsettet blir det sorterte arrayet `1, 3, 6, 8, 11, 14`, og pekerne går\nslik: $(1, 3)$ gir differanse 2, $(1, 6)$ gir 5, $(1, 8)$ gir 7 — treff.\n\n**Sensors margnotat:** riktig, raskere, 6 av 10. Merk at *sorteringen* er det\ndyreste leddet: skanningen alene er $O(n)$. Det er et signal om at hele\nsorteringen kan være unødvendig.\n\n---\n\n**Nivå 1 — hash-set, $O(n)$ forventet, 10 poeng**\n\nSorteringen var bare et middel for å kunne slå opp raskt. Et hash-set gir\noppslag direkte:\n\n```text\nProcedure FinnesDifferanse(A, x)\n  Input:  array A med n tall, tallet x\n  Output: true hvis to elementer skiller seg med x, ellers false\n  S = tomt hash-set\n  for hver a i A:\n      if Inneholder(S, a - x) or Inneholder(S, a + x):\n          return true\n      LeggTil(S, a)\n  return false\n  Kjoeretid: O(n) forventet, O(n^2) verste (hvis alt kolliderer)\n```\n\nGrunnideen i én setning: når du leser tallet `a`, er den eneste partneren som\nkan gi differanse $x$ enten `a - x` eller `a + x` — og begge kan slås opp\ndirekte i settet av alt du har sett før.\n\nSporing på kontrollsettet:\n\n| Steg | Leser `a` | `a - 7` i settet? | `a + 7` i settet? | Settet før steget |\n|---|---|---|---|---|\n| 1 | 8 | nei | nei | {tomt} |\n| 2 | 3 | nei | nei | {8} |\n| 3 | 14 | nei | nei | {3, 8} |\n| 4 | 1 | nei | ja | {3, 8, 14} |\n\nSvaret er **ja**: 8 og 1 skiller seg med 7. Algoritmen stanser etter fire av seks\nelementer.\n\n**Sensors margnotat:** 10 av 10. To ting løftet svaret hit. For det første er\nkjøretiden oppgitt som **forventet** $O(n)$ med det verste tilfellet nevnt —\nhashing er ikke $O(1)$ garantert, og det å skrive $O(1)$ uten forbeholdet\nkoster. For det andre er $n$ definert eksplisitt som antall målinger.\n\n**Hva som skiller nivåene, i én setning hver:** nivå 3 leter etter partneren ved\nå se på alle andre; nivå 2 gjør leting billig ved å ordne dataene; nivå 1\noppdager at bare **to** kandidater kan være partner, og slår dem opp direkte."
+  },
+  {
+   "id": "in2010-8-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — regn på trappen.) En Del 2-oppgave er verdt 10 poeng, og\nsensorveiledningen oppgir trappen: $O(n)$ gir 10 poeng, $O(n \\log n)$ gir 6, og\n$O(n^2)$ gir 3.\n\nEt sett har fem slike oppgaver med samme trapp.\n\n**a)** Hva får en kandidat som leverer den naive $O(n^2)$-løsningen på alle fem?\n**b)** Hva får en kandidat som leverer $O(n \\log n)$ på alle fem?\n**c)** Hva får en kandidat som leverer $O(n)$ på tre av dem og blankt på de to\nsiste?\n**d)** Hva sier sammenligningen av **a)** og **c)** om hvordan du bør bruke tiden\ni eksamenslokalet?",
+    "solution": "**a)** $5 \\cdot 3 = \\mathbf{15}$ poeng av 50.\n\n**b)** $5 \\cdot 6 = \\mathbf{30}$ poeng av 50.\n\n**c)** $3 \\cdot 10 = \\mathbf{30}$ poeng av 50 — nøyaktig det samme som **b)**,\nmed to blanke oppgaver.\n\n**d)** Sammenligningen er hele poenget med dette kapitlet. Kandidaten i **a)**\nsvarte på alt og fikk 15. Kandidaten i **c)** svarte på tre femtedeler og fikk\ndet dobbelte. Kvaliteten på løsningen betyr mer enn antall besvarte oppgaver.\n\nMen legg merke til hva som *ikke* følger av dette: å la en oppgave stå blank er\nfortsatt dyrt. Den beste strategien er kandidat **b)** pluss ett skritt til —\nlever noe på alt, og bruk resten av tiden på å flytte de svarene du rekker,\nett trinn opp trappen. Skriver du en $O(n^2)$-løsning på alle fem og deretter\nklarer å forbedre to av dem til $O(n)$, står du med\n$3 \\cdot 3 + 2 \\cdot 10 = 29$ poeng.",
+    "hints": [
+     "Sett tallene rett inn: antall oppgaver ganger poengene for det nivået.",
+     "I d): sammenlign hva de to kandidatene faktisk brukte tiden sin på."
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-t-katalog",
+   "type": "text",
+   "content": "## Naiv-til-optimal-katalogen (~10 min)\n\nUnder står de ni parene som har dukket opp i settene boka bygger på. Venstre\nkolonne er det du kommer på først; høyre kolonne er det som gir full pott. Lær\nparene som par — det er raskere enn å gjenoppdage dem under tidspress.\n\n| Problemet | Naivt | Raskt | Grepet |\n|---|---|---|---|\n| finnes det to like i et usortert array? | $O(n^2)$ dobbel løkke | $O(n)$ forventet | hash-set |\n| skriv ut verdiene i et søketre mellom $a$ og $b$ | $O(n)$ full traversering | $O(h + \\text{treff})$ | beskjæring |\n| hvor lang er den lengste stien i et binærtre? | $O(n^2)$ høyde regnet per node | $O(n)$ | én traversering som returnerer høyden |\n| er dette et gyldig binært søketre? | $O(n^2)$ minste og største hentet per node | $O(n)$ | send ned et lovlig intervall |\n| hvilket av $k$ utgangspunkt er nærmest målet? | $O(k \\cdot (\\lvert V \\rvert+\\lvert E \\rvert)\\log\\lvert V \\rvert)$ | $O((\\lvert V \\rvert+\\lvert E \\rvert)\\log\\lvert V \\rvert)$ | én Dijkstra i den reverserte grafen |\n| hvor mange sammenhengende deler har grafen? | $O(\\lvert V \\rvert \\cdot (\\lvert V \\rvert+\\lvert E \\rvert))$ traversering fra hver node | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | én dybde-først over alle komponenter |\n| finnes det en lovlig rekkefølge under avhengigheter? | $O(n!)$ prøv alle rekkefølger | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | topologisk sortering |\n| hva er de $k$ største av $n$ tall? | $O(n \\log n)$ sortér alt | $O(n \\log k)$ | min-heap med plass til $k$ |\n| $m$ spørsmål mot det samme datasettet | $O(n \\cdot m)$ | $O(n\\log n + m\\log n)$ | forbehandling: sortér én gang |\n\nLegg merke til det siste paret. Det er det minst kjente, og det er det som\noftest skiller en 8-poengsbesvarelse fra en 12-poengs: når oppgaven har **både**\ndata og spørsmål, skal arbeidet flyttes ut av spørsmålsløkken."
+  },
+  {
+   "id": "in2010-8-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: En besvarelse helt uten pseudokode — som gir full uttelling",
+   "problem": "En hjemmetjeneste har seks utrykningsbiler som står parkert på hver sin adresse\ni et veinett. Veiene er enveiskjørte, og hver vei har en kjøretid i minutter.\nDet kommer inn et oppdrag på en bestemt adresse $t$.\n\nSkriv en algoritme som finner **hvilken bil som når fram raskest**, og oppgi\nkjøretiden. Oppgaven er verdt 10 poeng.\n\nBesvar oppgaven uten å skrive én linje pseudokode.",
+   "solution": "Sensorveiledningene sier det rett ut: en klar forklaring i naturlig språk kan gi\nlike mye som — eller mer enn — rotete pseudokode. Kravet er at svaret er «lett\nforståelig, entydig og presist», ikke at det ser ut som kode. Under står en\nbesvarelse som oppfyller kravet. Den er **skrevet for denne boka**, ikke hentet\nfra noe reelt sett.\n\n---\n\n**Problemet.** Dette er korteste vei fra én kilde i en rettet, vektet graf med\nikke-negative vekter — men med *flere mulige startpunkt og ett mål*, som er\nspeilbildet av det Dijkstra løser.\n\n**Antagelser om representasjon.** Veinettet er en rettet graf $G = (V, E)$\ngitt som nabolister. Hvert veistykke `(u, v)` har en vekt `w(u, v)` som er\nkjøretiden i minutter, og alle vektene er positive. Nodene er veikryss og\nadresser. $U$ er mengden av de seks bil-adressene, og $t$ er oppdragsadressen.\nJeg lar $|V|$ være antall kryss og $|E|$ antall veistykker.\n\n**Algoritmen.** Jeg snur alle veiene, slik at hvert veistykke peker motsatt\nvei av det det gjør i virkeligheten. I den snudde grafen kjører jeg Dijkstra\n**én** gang, med oppdragsadressen $t$ som utgangspunkt. Resultatet er en\navstandstabell som for hver node oppgir korteste kjøretid fra den noden fram\ntil $t$ i det virkelige veinettet — for en vei fra $v$ til $t$ i virkeligheten\ner nøyaktig en vei fra $t$ til $v$ i den snudde grafen, og den har samme\nlengde. Til slutt leser jeg av de seks tallene som hører til bil-adressene, og\nvelger den minste. Det er den raskeste bilen, og tallet er kjøretiden dens.\n\n**Kjøretid.** Å snu grafen koster $O(|V| + |E|)$, siden hver kant flyttes én\ngang. Dijkstra med binær prioritetskø er $O((|V| + |E|)\\log|V|)$, og avlesningen\ntil slutt er $O(|U|)$, altså konstant her. Totalt blir det\n$O((|V| + |E|)\\log|V|)$.\n\n**Hvorfor dette er lavest mulig.** Den nærliggende løsningen er å kjøre\nDijkstra fra hver av de seks bilene og sammenligne. Det gir seks kjøringer,\naltså $O(|U| \\cdot (|V| + |E|)\\log|V|)$. Snuingen koster mindre enn én\nDijkstra-kjøring, så én kjøring i den snudde grafen er strengt raskere så\nsnart det er mer enn én bil.\n\n---\n\n**Hvorfor dette gir full pott:** alle fire leddene er der. Problemet er navngitt,\nantagelsene er oppgitt, algoritmen er beskrevet så presist at den kan\nimplementeres direkte, og kjøretiden er regnet ut ledd for ledd og satt opp mot\nalternativet. Ordet «Dijkstra» gjør resten av jobben — det er en pensumalgoritme,\nog du skal ikke skrive den ut på nytt.\n\n**Og en advarsel som hører til:** naturlig språk gir bare full uttelling når det\ner entydig. «Jeg snur grafen og kjører Dijkstra» uten å si fra hvor, uten\nantagelser og uten kjøretid, er ikke en besvarelse — det er en overskrift.\nSensorveiledningene formulerer terskelen slik: en setning man ikke forstår etter\nto gjennomlesninger, blir ignorert (**felle #12** — uklar eller for lang\npseudokode)."
+  },
+  {
+   "id": "in2010-8-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger B og valg av verktøy.) Under står en prosedyre en kandidat leverte på\nDel 2.\n\n```text\nProcedure TellUnike(A)\n  Input:  array A med n tall, indeks fra 0\n  Output: antall forskjellige verdier i A\n  n = A.length\n  antall = 0\n  for i = 0 to n-1:\n      ny = true\n      for j = 0 to i-1:\n          if A[j] == A[i]:\n              ny = false\n      if ny:\n          antall = antall + 1\n  return antall\n```\n\n**a)** Oppgi kjøretiden ved løkketelling.\n**b)** Hvilket av grepene i løsningsoppskriften passer her?\n**c)** Hvilken kjøretid gir grepet?",
+    "solution": "**a)** Den ytre løkken går $n$ ganger. Den indre går $i$ ganger i runde $i$,\naltså $0 + 1 + 2 + \\dots + (n-1)$ ganger totalt, som er\n$\\tfrac{n(n-1)}{2}$. Kroppen er konstant. Det gir $O(n^2)$.\n\n**b)** Den indre løkken **leter etter et element** blant dem du allerede har\nsett. Det er signalet for hash-set.\n\n**c)** $O(n)$ forventet: gå gjennom arrayet én gang, og legg hvert tall i et\nhash-set. Antall unike er antall elementer i settet til slutt. Verste tilfelle\ner $O(n^2)$ hvis alle nøklene kolliderer, og forbeholdet skal med.\n\n$n$ er antall tall i `A`.",
+    "hints": [
+     "Tell den indre løkken for hver runde av den ytre, og summér.",
+     "Hva er det den indre løkken egentlig svarer på? «Har jeg sett dette tallet før?»"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — tre-algoritme i pseudokode, altså at du skriver\nprosedyren selv og oppgir kjøretiden.) Et binært søketre er bygget ved å sette\ninn 50, 30, 70, 20, 40, 60, 80, 35 og 45 i denne rekkefølgen.\n\nEn kandidat skal telle hvor mange verdier i treet som er mindre enn et gitt tall\n$x$, og leverer dette:\n\n```text\nProcedure TellMindreNaiv(v, x)\n  Input:  rotnoden v i et binaert soeketre, tallet x\n  Output: antall verdier i treet som er mindre enn x\n  if v == null:\n      return 0\n  eget = 0\n  if v.x < x:\n      eget = 1\n  return eget + TellMindreNaiv(v.left, x) + TellMindreNaiv(v.right, x)\n```\n\n**a)** Hva er kjøretiden til denne, og hvor mange noder besøker den for\n$x = 38$?\n**b)** Skriv en raskere prosedyre. Oppgi antagelser og kjøretid.\n**c)** Hvor mange noder besøker din prosedyre for $x = 38$, og hva er svaret?",
+    "solution": "**a)** Prosedyren kaller seg selv på **begge** barn uansett, så den besøker hver\nnode nøyaktig én gang: $O(n)$, der $n$ er antall noder. For $x = 38$ besøker den\nalle **9** nodene.\n\nDen er korrekt. Den er bare blind for at treet er sortert.\n\n**b)** **Navngi problemet.** Dette er en tellevariant av beskåret traversering i\net binært søketre.\n\n**Antagelser om representasjon.** Hver node `v` har feltene `v.x` (verdien),\n`v.left` og `v.right`. Treet oppfyller søketre-egenskapen: alt i venstre subtre\ner mindre enn `v.x`, alt i høyre subtre er større. $n$ er antall noder og $h$ er\nhøyden.\n\n```text\nProcedure TellMindre(v, x)\n  Input:  rotnoden v i et binaert soeketre, tallet x\n  Output: antall verdier i treet som er mindre enn x\n  if v == null:\n      return 0\n  if v.x < x:\n      // v og HELE venstre subtre er mindre enn x: tell dem uten aa besoeke dem\n      return 1 + StoerrelseAv(v.left) + TellMindre(v.right, x)\n  else:\n      // v og hele hoeyre subtre er stoerre enn eller lik x: hopp over hoeyre\n      return TellMindre(v.left, x)\n```\n\nHer forutsetter jeg at hver node har et felt `v.stoerrelse` med antall noder i\nsitt eget subtre, slik at `StoerrelseAv(v)` er $O(1)$. Feltet vedlikeholdes ved\ninnsetting uten å endre kjøretiden der.\n\n**Kjøretid:** $O(h)$. Hvert kall går enten til venstre eller til høyre, aldri\nbegge veier, så antall kall er høyst høyden på treet. I et balansert tre er det\n$O(\\log n)$; i et skjevt tre blir $h = n$.\n\n**Hvorfor dette er lavest mulig:** svaret avhenger av hvor $x$ ligger i den\nsorterte rekkefølgen, og det å finne den plassen krever et søk ned i treet.\nKortere enn ett rot-til-blad-søk kan det ikke gjøres.\n\n**c)** Nedstigningen for $x = 38$ blir: 50 (ikke mindre, gå venstre), 30\n(mindre, tell den og hele venstre subtre, gå høyre), 40 (ikke mindre, gå\nvenstre), 35 (mindre, tell den og gå høyre, som er tomt). Det er **4** besøkte\nnoder mot 9.\n\nSvaret er **3**: verdiene 20, 30 og 35.\n\n**Uten størrelsesfeltet.** Har ikke nodene et `stoerrelse`-felt, må venstre\nsubtre telles ved gjennomgang, og du ender på $O(h + \\text{antall treff})$ —\nsom fortsatt er raskere enn $O(n)$ når treffene er få, og som gir god\nuttelling. Det viktige er at du **sier hvilken antagelse du gjør**. Sensor\nbinder seg ikke til representasjonen; du må bare oppgi din.",
+    "hints": [
+     "Søketre-egenskapen sier noe om et HELT subtre med én sammenligning. Hva?",
+     "Når `v.x` er mindre enn `x`, hva vet du da om alle verdiene i venstre subtre?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G.) En kandidat skal finne **hvor mange noder i et\nbinærtre som har like høye subtrær** — altså noder der venstre og høyre subtre\nhar nøyaktig samme høyde. Kandidaten leverer:\n\n```text\nProcedure TellBalanserteNaiv(v)\n  Input:  rotnoden v i et binaert tre\n  Output: antall noder med like hoeye subtraer\n  if v == null:\n      return 0\n  eget = 0\n  if Hoeyde(v.left) == Hoeyde(v.right):\n      eget = 1\n  return eget + TellBalanserteNaiv(v.left) + TellBalanserteNaiv(v.right)\n```\n\n`Hoeyde(v)` er den vanlige rekursive høydeberegningen, som besøker hele\nsubtreet.\n\n**a)** Hva er kjøretiden, og hvorfor?\n**b)** Skriv en $O(n)$-løsning.\n**c)** Hva ville de to løsningene fått på en oppgave med trappen 8 poeng for\n$O(n)$ og 4 for $O(n^2)$?",
+    "solution": "**a)** $O(n^2)$ i verste tilfelle. Hver node kaller `Hoeyde` på begge sine\nsubtrær, og `Hoeyde` besøker hele subtreet. På et skjevt tre koster\nhøydeberegningen i node nummer $i$ omtrent $n - i$ steg, og summen blir\n$O(n^2)$. På et balansert tre blir det $O(n \\log n)$, siden hvert nivå til\nsammen koster $O(n)$ og det er $\\log n$ nivåer. Verste tilfelle er det som\noppgis.\n\nDette er **felle #2** — kvadratisk der lineært var mulig.\n\n**b)** **Navngi problemet.** Dette er en tellevariant som trenger høyden i hver\nnode. Grepet er at høyden kan returneres **oppover** i den samme traverseringen,\ni stedet for å regnes ut på nytt per node.\n\n**Antagelser om representasjon.** Hver node `v` har `v.left` og `v.right`. Høyden\nmåles i kanter, og et tomt tre har høyde $-1$. $n$ er antall noder. `antall` er\nen variabel som deles av alle kallene.\n\n```text\nProcedure TellBalanserte(rot)\n  Input:  rotnoden i et binaert tre\n  Output: antall noder med like hoeye subtraer\n  antall = 0\n  HoeydeOgTell(rot)\n  return antall\n\nProcedure HoeydeOgTell(v)\n  Input:  en node v\n  Output: hoeyden til subtreet med rot i v, maalt i kanter\n  if v == null:\n      return -1\n  hv = HoeydeOgTell(v.left)\n  hh = HoeydeOgTell(v.right)\n  if hv == hh:\n      antall = antall + 1\n  return 1 + max(hv, hh)\n```\n\n**Kjøretid:** $O(n)$. Hver node behandles nøyaktig én gang, og arbeidet per node\ner konstant: to rekursive kall, én sammenligning og ett maksimum.\n\n**Grunnideen i én setning:** høyden trenger ikke slås opp — den kommer gratis\noppover fra det kallet som allerede har vært nede i subtreet.\n\nEn merknad om kostnaden ved rekursjon: kallstakken blir like dyp som treet,\naltså $O(h)$ ekstra minne, og på et skjevt tre er $h = n$.\n\n**c)** Den naive får **4** poeng, den lineære **8**. Begge er korrekte. Hele\nforskjellen ligger i at den ene returnerer høyden i stedet for å be om den.",
+    "hints": [
+     "Hva koster `Hoeyde` når den kalles i hver eneste node?",
+     "Kan det rekursive kallet levere tilbake mer enn ett tall, eller sette en variabel underveis?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — hashing og søk i pseudokode.) Et arkiv har to\n**usorterte** lister: `A` med $n$ arkivnumre som er digitalisert, og `B` med $m$\narkivnumre som er etterspurt. Du skal finne **hvor mange numre som står i begge\nlistene**.\n\n**a)** Skriv den naive løsningen og oppgi kjøretiden.\n**b)** Skriv den raskeste løsningen du kjenner. Oppgi antagelser og kjøretid.\n**c)** En medstudent foreslår å sortere begge listene med radix sort først, fordi\narkivnumre er tall, og deretter flette dem. Er det lov?",
+    "solution": "**a)** For hvert nummer i `A`, gå gjennom hele `B` og se etter det:\n\n```text\nProcedure TellFellesNaiv(A, B)\n  Input:  array A med n numre, array B med m numre\n  Output: antall numre som finnes i begge\n  antall = 0\n  for hver a i A:\n      for hver b i B:\n          if a == b:\n              antall = antall + 1\n              bryt ut av den indre loekken\n  return antall\n  Kjoeretid: O(n * m)\n```\n\n**b)** **Navngi problemet.** Dette er gjentatte medlemskapsspørsmål mot den\nsamme mengden — signalet for hash-set.\n\n**Antagelser om representasjon.** `A` og `B` er arrayer. $n$ er antall numre i\n`A`, $m$ antall i `B`. Jeg antar at hver liste er uten gjentakelser; er de ikke\ndet, teller jeg hvert felles nummer én gang ved å fjerne det fra settet etter\ntreff.\n\n```text\nProcedure TellFelles(A, B)\n  Input:  array A med n numre, array B med m numre\n  Output: antall numre som finnes i begge\n  S = tomt hash-set\n  for hver a i A:\n      LeggTil(S, a)\n  antall = 0\n  for hver b i B:\n      if Inneholder(S, b):\n          antall = antall + 1\n  return antall\n  Kjoeretid: O(n + m) forventet, O(n * m) verste\n```\n\n**Kjøretid:** $O(n + m)$ forventet. Den første løkken gjør $n$ innsettinger à\n$O(1)$ forventet, den andre $m$ oppslag à $O(1)$ forventet. Verste tilfelle er\n$O(n \\cdot m)$ hvis alt kolliderer i samme bøtte, men det er ikke det som\noppgis som svaret.\n\n**Hvorfor dette er lavest mulig:** begge listene må leses minst én gang for at\nsvaret skal kunne være riktig, så $O(n + m)$ er en nedre grense for ethvert\nkorrekt svar.\n\n**c)** Ja — **her** er det lov, men det er tregere, og forbeholdet må med.\nRadix sort krever et **kjent, begrenset verdiområde**, og arkivnumre med et fast\nantall siffer oppfyller det. Da er sorteringen $O(d(n + k))$, og flettingen\n$O(n + m)$.\n\nMen to ting trekker: for det første er hash-set-løsningen enklere og minst like\nrask; for det andre er begrunnelsen den viktige delen av svaret. Sier du bare\n«jeg bruker radix sort fordi det er raskest», uten å nevne kravet om kjent\nverdiområde, er du inne på **felle #5** — lineær sortering brukt på elementer der\nalt vi vet er at de kan sammenlignes. Hadde arkivnumrene vært vilkårlige\ntekststrenger, ville forslaget vært direkte galt.",
+    "hints": [
+     "Hvor mange ganger trenger du egentlig å lese liste `B`?",
+     "Hvilken struktur svarer på «finnes dette elementet?» i konstant forventet tid?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I.) Et **sortert** array `A` med $n$ måleverdier skal\nbrukes til å svare på $m$ spørsmål av formen «finnes verdien $x$?».\n\nEn kandidat leverer en lineær skann per spørsmål, og skriver: «Jeg bruker\nbinærsøk, som returnerer indeksen til $x$ i $O(\\log n)$.»\n\n**a)** Hva er kjøretiden for den løsningen kandidaten faktisk leverte?\n**b)** Hva er kjøretiden for den kandidaten sier at hun bruker?\n**c)** Hva er galt med formuleringen om binærsøk, og hvordan skal den skrives?",
+    "solution": "**a)** En lineær skann er $O(n)$ per spørsmål, og det er $m$ spørsmål:\n$O(n \\cdot m)$.\n\n**b)** Binærsøk er $O(\\log n)$ per spørsmål, altså $O(m \\log n)$ totalt. Arrayet\ner allerede sortert, så ingen forbehandling trengs.\n\nMed $n = 1\\,000\\,000$ og $m = 1000$ er forskjellen omtrent én milliard\noperasjoner mot rundt tjue tusen.\n\n**c)** To ting.\n\nFor det første er kjøretiden oppgitt for en **annen** algoritme enn den som ble\nlevert. Sensorveiledningene er tydelige på dette: kjøretiden må matche\nalgoritmen du faktisk ga. Det trekkes både for manglende og for feil\nkompleksitet.\n\nFor det andre er påstanden om at binærsøk returnerer indeksen unøyaktig. Den\nvarianten pensum bruker, svarer `true` eller `false` — «finnes $x$ i arrayet?».\nSkal den gi **indeksen**, må den modifiseres til å returnere `midt` når treffet\nskjer, i stedet for `true`. Det er en liten endring, men å hevde indeks uten å\nnevne den er **felle #4**, og den er eksplisitt nevnt i veiledningene.\n\nRiktig formulering:\n\nJeg bruker binærsøk på det sorterte arrayet. Pensumvarianten returnerer\n`true`/`false`; jeg modifiserer den til å returnere indeksen `midt` ved treff\nog $-1$ ellers. Hvert søk er $O(\\log n)$ der $n$ er antall måleverdier, og med\n$m$ spørsmål blir totalen $O(m \\log n)$.",
+    "hints": [
+     "Skriv opp kjøretiden per spørsmål først, og gang deretter med antall spørsmål.",
+     "Hva returnerer binærsøket slik det står i pensum — en indeks eller et ja/nei?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-tip-2",
+   "type": "tip",
+   "title": "— naturlig pausepunkt —",
+   "content": "Du har nå vært gjennom de tre grepene som gjør noe kvadratisk til noe lineært:\nhash-settet, beskjæringen og den ene traverseringen som returnerer verdien\nnedenfra.\n\nDe seks neste oppgavene handler om grafer, forbehandling og om å skrive svaret\nslik at det gir uttelling. Ta gjerne en pause her — kapitlet er bygget for to\nøkter, og den kalde banken til slutt er en tredje."
+  },
+  {
+   "id": "in2010-8-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H — grafalgoritme i pseudokode, altså at du gjenkjenner\ngrafproblemet og kaller pensumalgoritmen.) Et kraftselskap har fem\nberedskapslagre plassert rundt i et enveiskjørt veinett med kjøretider på hvert\nveistykke. Når det meldes en feil på en bestemt trafo, skal systemet finne\n**hvilket lager som er nærmest trafoen**.\n\nEn kandidat foreslår: «Kjør Dijkstra fra hvert av de fem lagrene, og se hvem som\nfår lavest avstand til trafoen.»\n\n**a)** Hva er kjøretiden for kandidatens forslag?\n**b)** Beskriv en raskere løsning. Oppgi antagelser og kjøretid.\n**c)** Hvorfor virker den raskere løsningen?\n**d)** Feilen kan komme på hvilken som helst trafo, og det er tusenvis av dem.\nEndrer det svaret?",
+    "solution": "**a)** Fem Dijkstra-kjøringer:\n$O(|U| \\cdot (|V| + |E|)\\log|V|)$ der $|U| = 5$ er antall lagre. Med\nkonstant $|U|$ er dette samme *orden* som én kjøring, men femdobbel konstant —\nog oppgaven er formulert slik at $|U|$ kan vokse.\n\n**b)** **Navngi problemet.** Korteste vei fra flere mulige kilder til ett fast\nmål i en rettet, vektet graf med ikke-negative vekter.\n\n**Antagelser om representasjon.** Veinettet er en rettet graf $G = (V, E)$ gitt\nsom nabolister; `w(u, v)` er kjøretiden på veistykket og alle vekter er\npositive. $U$ er mengden lagre og $t$ er trafoen.\n\nSnu alle kantene, så du får den reverserte grafen $G^R$. Kjør **én** Dijkstra i\n$G^R$ med $t$ som utgangspunkt. Avstandstabellen gir da, for hver node, korteste\nkjøretid **fram til** $t$ i det virkelige nettet. Les av de fem tallene som\nhører til lagrene, og velg det minste.\n\n**Kjøretid:** $O(|V| + |E|)$ for å snu grafen, pluss\n$O((|V| + |E|)\\log|V|)$ for Dijkstra, pluss $O(|U|)$ for avlesningen. Totalt\n$O((|V| + |E|)\\log|V|)$ — én Dijkstra-kjøring.\n\n**c)** Fordi en vei fra lageret $u$ til trafoen $t$ i det virkelige nettet er\nnøyaktig en vei fra $t$ til $u$ i den snudde grafen, med samme kanter og samme\nsamlede vekt. De to problemene er samme problem sett fra hver sin ende.\n\n**d)** Nei — og det gjør trikset enda mer verdt. Snuingen av grafen gjøres én\ngang og kan gjenbrukes; men avstandene avhenger av *hvilken* trafo som feiler, så\nDijkstra må kjøres på nytt per hendelse. Poenget står: én kjøring per hendelse i\nstedet for $|U|$.\n\n**Poengtrappen her:** kandidatens forslag er korrekt, og det gir uttelling —\nmen trappen er eksplisitt i denne sjangeren. Én reversert kjøring er\ntoppsjiktet; $|U|$ kjøringer er midtsjiktet. Det er samme algoritme, brukt én\ngang i stedet for fem.",
+    "hints": [
+     "Hva er det egentlig du vil vite — avstanden fra lagrene, eller avstanden til trafoen?",
+     "Hva skjer med en vei hvis du snur alle kantene i grafen?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H.) Et sosialt nettverk er en urettet graf der nodene er\nbrukere og kantene er vennskap. Systemet skal svare på mange spørsmål av formen\n«henger bruker $u$ og bruker $v$ sammen gjennom en kjede av venner?». Grafen\nendrer seg ikke mellom spørsmålene.\n\nEn kandidat foreslår: «For hvert spørsmål kjører jeg et bredde-først-søk fra $u$\nog ser om jeg treffer $v$.»\n\n**a)** Hva koster kandidatens forslag for $m$ spørsmål?\n**b)** Skriv en raskere løsning. Oppgi antagelser og kjøretid.\n**c)** Hvilket av grepene i løsningsoppskriften er dette?",
+    "solution": "**a)** Ett bredde-først-søk er $O(|V| + |E|)$, og med $m$ spørsmål blir det\n$O(m \\cdot (|V| + |E|))$.\n\n**b)** **Navngi problemet.** Dette er gjentatte spørsmål om **sammenhengende\nkomponenter** i en urettet graf som ikke endrer seg.\n\n**Antagelser om representasjon.** $G = (V, E)$ er urettet og gitt som\nnabolister. Hver node `v` har et felt `v.komponent` som settes under\nforbehandlingen, og et `v.besokt`-flagg.\n\n```text\nProcedure MerkKomponenter(G)\n  Input:  urettet graf G gitt som nabolister\n  Output: hver node har fatt et komponentnummer i v.komponent\n  for hver node v i V:\n      v.besokt = false\n  nummer = 0\n  for hver node v i V:\n      if not v.besokt:\n          Merk(v, nummer)\n          nummer = nummer + 1\n  return nummer\n\nProcedure Merk(v, nummer)\n  Input:  en ubesoekt node v og et komponentnummer\n  Output: hele komponenten til v er merket\n  v.besokt = true\n  v.komponent = nummer\n  for hver nabo u av v:\n      if not u.besokt:\n          Merk(u, nummer)\n\nProcedure HengerSammen(u, v)\n  Input:  to noder\n  Output: true hvis de er i samme komponent\n  return u.komponent == v.komponent\n```\n\n**Kjøretid:** forbehandlingen er én dybde-først-traversering over alle\nkomponentene, altså $O(|V| + |E|)$. Hvert spørsmål er deretter $O(1)$ — én\nsammenligning. For $m$ spørsmål blir totalen $O(|V| + |E| + m)$.\n\n**Hvorfor dette er lavest mulig:** grafen må leses minst én gang, og hvert svar\nmå skrives, så $O(|V| + |E| + m)$ er en nedre grense.\n\n**c)** Forbehandling: arbeidet flyttes ut av løkken over spørsmålene og gjøres\n**én** gang på dataene. Legg merke til at dette er nøyaktig samme grep som\n«sortér én gang, binærsøk mange ganger» — bare med en graf i stedet for et\narray.",
+    "hints": [
+     "Grafen endrer seg ikke. Hva kan da regnes ut på forhånd?",
+     "Hva er det bredde-først-søket egentlig finner ut, og hvor mange ganger må det finnes ut?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) Et byggeprosjekt har $n$ arbeidsoppgaver. Noen\noppgaver må gjøres før andre, og kravene er gitt som en rettet graf: en kant fra\n$X$ til $Y$ betyr at $X$ må være ferdig før $Y$ kan begynne.\n\nEn kandidat skriver: «Jeg prøver alle mulige rekkefølger av de $n$ oppgavene, og\nsjekker for hver rekkefølge om alle kravene er oppfylt. Finner jeg en som\nholder, skriver jeg den ut; ellers melder jeg at det er umulig.»\n\n**a)** Hva er kjøretiden for kandidatens forslag?\n**b)** Skriv den raskeste løsningen. Oppgi antagelser og kjøretid.\n**c)** Hva skal algoritmen svare når det ikke finnes noen lovlig rekkefølge, og\nhvordan oppdager den det?",
+    "solution": "**a)** Det finnes $n!$ rekkefølger, og hver av dem må kontrolleres mot alle\nkravene, som koster $O(|V| + |E|)$. Totalt $O(n! \\cdot (|V| + |E|))$. For 20\noppgaver er $20!$ omtrent $2{,}4 \\cdot 10^{18}$ — dette kjører aldri ferdig.\n\nLegg likevel merke til at løsningen er **korrekt**. Den er bare ubrukelig.\n\n**b)** **Navngi problemet.** Dette er topologisk sortering av en rettet graf,\nmed sykeldeteksjon.\n\n**Antagelser om representasjon.** $G = (V, E)$ er rettet og gitt som nabolister.\n`inngrad[v]` er antall kanter inn til `v`, og lar seg regne ut i én gjennomgang\nav alle kantene.\n\n```text\nProcedure Installasjonsrekkefolge(G)\n  Input:  rettet graf G med noder V og kanter E, gitt som nabolister\n  Output: en lovlig rekkefolge, eller meldingen \"syklisk\"\n  for hver node v i V:\n      inngrad[v] = 0\n  for hver node u i V:\n      for hver nabo v av u:\n          inngrad[v] = inngrad[v] + 1\n  K = tom ko\n  for hver node v i V:\n      if inngrad[v] == 0:\n          legg v i K\n  rekkefolge = tom liste\n  while K er ikke tom:\n      u = ta ut av K\n      legg u bakerst i rekkefolge\n      for hver nabo v av u:\n          inngrad[v] = inngrad[v] - 1\n          if inngrad[v] == 0:\n              legg v i K\n  if lengden av rekkefolge < antall noder:\n      return \"syklisk - ingen lovlig rekkefolge finnes\"\n  return rekkefolge\n```\n\n**Kjøretid:** $O(|V| + |E|)$. Inngradene regnes ut ved å gå gjennom hver kant én\ngang. Hver node legges i køen og tas ut nøyaktig én gang, og hver kant senker en\ninngrad nøyaktig én gang.\n\n**Grunnideen i én setning:** en oppgave uten uoppfylte krav kan alltid gjøres\nnå, og når den er gjort, faller den bort fra kravene til de andre.\n\n**c)** Den skal svare at det **ikke finnes** noen lovlig rekkefølge — altså at\nkravene er sirkulære. Den oppdager det ved at løkken stopper med færre enn\n$|V|$ noder i rekkefølgen: hver node som fortsatt har inngrad større enn null,\nventer på noen som venter på den.\n\nÅ utelate denne sjekken er en av de vanligste feilene i sjangeren. Algoritmen\nstopper stille og leverer en for kort liste, som ser ut som et svar.",
+    "hints": [
+     "Hvilken oppgave kan du alltid begynne med, uansett hvor stor grafen er?",
+     "Hva blir igjen i grafen hvis kravene går i ring?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — ADT-design, altså at du setter sammen kjente\nstrukturer og oppgir kjøretid per operasjon.) En strømmetjeneste registrerer $n$\navspillinger i døgnet og skal hver morgen finne **de $k$ mest spilte** låtene,\nder $k$ er lite (typisk 10) og $n$ er stort (typisk mange millioner).\n\nEn kandidat foreslår å sortere hele lista og ta de $k$ siste.\n\n**a)** Hva er kjøretiden for kandidatens forslag?\n**b)** Beskriv en raskere løsning, og oppgi kjøretid og minnebruk.\n**c)** Kjør din løsning for hånd på `A = 12, 45, 7, 33, 21, 58, 9, 40` med\n$k = 3$, og oppgi innholdet i strukturen etter hvert steg.\n**d)** Når lønner kandidatens forslag seg likevel?",
+    "solution": "**a)** $O(n \\log n)$ for sorteringen, pluss $O(k)$ for avlesningen. Totalt\n$O(n \\log n)$, og det krever plass til alle $n$ elementene samtidig.\n\n**b)** **Navngi problemet.** Dette er «de $k$ største» i en strøm av $n$ tall.\n\n**Antagelser om representasjon.** Tallene kommer én om gangen og trenger ikke\nlagres. Strukturen er en **min-heap** som array med indeks fra 0, og den holdes\npå høyst $k$ elementer.\n\n```text\nProcedure KStorste(A, k)\n  Input:  n tall (som strom eller array), tallet k\n  Output: de k storste tallene\n  H = tom min-heap\n  for hvert tall a i A:\n      if antall elementer i H < k:\n          Insert(H, a)\n      else if a > Min(H):\n          RemoveMin(H)\n          Insert(H, a)\n  return alle elementene i H\n```\n\n**Kjøretid:** hvert av de $n$ tallene gir høyst én `RemoveMin` og én `Insert`, og\nbegge er $O(\\log k)$ fordi heapen aldri har mer enn $k$ elementer. Totalt\n$O(n \\log k)$.\n\n**Minnebruk:** $O(k)$ — heapen holder aldri mer enn $k$ tall. Kandidatens\nløsning trenger $O(n)$.\n\n**Hvorfor dette er raskere:** $\\log k$ er en konstant når $k$ er fast, så\nløsningen er i praksis lineær i $n$. Med $n = 10^7$ og $k = 10$ er $\\log_2 k$\nomtrent 3,3 mot $\\log_2 n$ på omtrent 23.\n\n**Hvorfor det er en min-heap og ikke en max-heap:** heapen skal hele tiden kunne\nsvare på «hva er det *minste* av de $k$ beste jeg har nå?», for det er det\nelementet et nytt, større tall skal skyve ut. Å velge feil variant her er en\nnær slektning av **felle #9** — å blande de to ordningskravene.\n\n**c)** Sporingen:\n\n| Steg | Leser | Handling | Heapen etter steget |\n|---|---|---|---|\n| 1 | 12 | legges inn (heapen er ikke full) | `12` |\n| 2 | 45 | legges inn (heapen er ikke full) | `12, 45` |\n| 3 | 7 | legges inn (heapen er ikke full) | `7, 45, 12` |\n| 4 | 33 | 33 er større enn 7: 7 ut, 33 inn | `12, 45, 33` |\n| 5 | 21 | 21 er større enn 12: 12 ut, 21 inn | `21, 45, 33` |\n| 6 | 58 | 58 er større enn 21: 21 ut, 58 inn | `33, 45, 58` |\n| 7 | 9 | 9 er ikke større enn 33: forkastes | `33, 45, 58` |\n| 8 | 40 | 40 er større enn 33: 33 ut, 40 inn | `40, 58, 45` |\n\nSluttilstanden er arrayet `40, 58, 45`, og de tre største er **58, 45 og 40**.\n\n**d)** Når $k$ nærmer seg $n$. Er $k = n/2$, blir $O(n \\log k)$ det samme som\n$O(n \\log n)$, og sorteringen er enklere å skrive riktig. Trengs dessuten de $k$\nstørste i **sortert** rekkefølge, må heap-innholdet sorteres til slutt — men det\nkoster bare $O(k \\log k)$.",
+    "hints": [
+     "Trenger du å ha alle n tallene i minnet samtidig for å vite hvilke k som er størst?",
+     "Hvilket element i strukturen er det du sammenligner det nye tallet mot?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o11",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger K — drøft to strategier, altså at du sammenligner to\nfremgangsmåter på kjøretid og minne og konkluderer.) En kandidat har fått denne\noppgaven:\n\nEn nettbutikk skal telle hvor mange ganger hver varekode forekommer i\nsalgsloggen. Sammenlign (a) et hashmap fra varekode til antall og (b) et\ntellearray indeksert på varekode. Drøft kjøretid og minne, og konkludér.\n\nKandidaten svarer:\n\n*«Hashmap er raskest fordi oppslag er $O(1)$. Tellearrayet blir kjempestort\nhvis det er mange varekoder. Jeg velger hashmap.»*\n\n**a)** Hvilke tre trekk gir denne besvarelsen?\n**b)** Skriv en besvarelse som gir full uttelling.",
+    "solution": "**a)** Tre trekk, og alle tre er eksplisitt nevnt i sensorveiledningene:\n\n1. **$n$ er ikke definert.** Er $n$ antall linjer i salgsloggen, eller antall\n   forskjellige varekoder? Uten det er ingen av kjøretidene tolkbare. Dette er\n   **felle #10**, og det har kostet inntil tre poeng på en enkelt oppgave.\n2. **Bare forventet kjøretid er oppgitt.** Hashmap er $O(1)$ **forventet** og\n   $O(n)$ i verste tilfelle. Sjangeren ber uttrykkelig om begge.\n3. **Ingen kvantifisering av minnet, og ingen betinget konklusjon.**\n   «Kjempestort» er ikke et svar; sjangeren spør *når* hver strategi lønner seg.\n\n**b)** En besvarelse som gir full uttelling:\n\n**Definisjoner.** La $n$ være antall linjer i salgsloggen, altså antall\ntellinger som skal utføres. La $u$ være antall **forskjellige** varekoder som\nfaktisk forekommer, og la $K$ være det største mulige varekodetallet, slik at\nkodene ligger i $[0, K]$. Merk at $u \\le n$ og $u \\le K + 1$.\n\n**Strategi (a), hashmap.** Én gjennomgang av loggen, med ett oppslag og én\noppdatering per linje. Kjøretid $O(n)$ **forventet**. I verste tilfelle\nkolliderer alle kodene i samme bøtte, og hvert oppslag blir $O(u)$, som gir\n$O(n \\cdot u)$. Minnebruk $O(u)$ — bare koder som faktisk forekommer, lagres.\nKravet er at varekodene kan hashes; de trenger ikke være tall.\n\n**Strategi (b), tellearray.** Ett array med $K + 1$ plasser, alle satt til\nnull. Hver linje gir én direkte indeksering: `C[kode] = C[kode] + 1`. Kjøretid\n$O(n + K)$ — $O(K)$ for å nullstille arrayet og $O(n)$ for gjennomgangen — og\ndette er **garantert**, ikke bare forventet. Minnebruk $O(K)$, uavhengig av\nhvor mange koder som brukes. Kravet er at varekodene er heltall i et kjent,\nbegrenset område.\n\n**Kanttilfeller.** Er $K$ mye større enn $u$ — for eksempel varekoder på\ntretten siffer der bare noen tusen er i bruk — blir tellearrayet håpløst:\n$K$ dominerer både tid og minne. Er $K$ liten og $n$ stor — for eksempel 500\nvarekoder og ti millioner salgslinjer — er tellearrayet både raskere og\ntryggere, fordi det ikke har noe verste tilfelle å frykte.\n\n**Konklusjon.** Tellearray når $K$ er kjent og i samme størrelsesorden som $u$\neller mindre enn $n$; da er $O(n + K)$ garantert og minnet forutsigbart.\nHashmap ellers, og alltid når kodene ikke er små heltall. Med typiske\nnettbutikktall, der varekodene er lange og spredte, er hashmap det riktige\nvalget — men begrunnelsen er at $K \\gg u$, ikke at «$O(1)$ er raskest».\n\n**Legg merke til den siste linjen.** Kandidaten og modellbesvarelsen lander på\n**samme** konklusjon. Forskjellen er at den ene gjettet og den andre viste\nhvorfor. Det er hele sjangeren.",
+    "hints": [
+     "Hva er `n` i denne oppgaven — og finnes det mer enn én størrelse som må navngis?",
+     "Sjangeren ber om verste OG forventet kjøretid, pluss minne. Hvilke av de tre mangler?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-oppg-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-8-1-o12",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, hele Del 2-formen.) En kommune har en logg med $n$ hendelser.\nHver hendelse har et tidspunkt (et heltall) og er lagret **usortert**. Loggen\nendres ikke.\n\nInnbyggerne stiller $m$ spørsmål av formen «hvor mange hendelser skjedde før\ntidspunkt $t$?».\n\n**a)** Skriv den naive løsningen og oppgi kjøretiden.\n**b)** Skriv den raskeste løsningen du kjenner. Oppgi antagelser og kjøretid.\n**c)** For hvilke verdier av $m$ lønner det seg å forbehandle?\n**d)** Sett opp poengtrappen for oppgaven slik du tror sensor ville gjort det,\nog begrunn rekkefølgen.",
+    "solution": "**a)** For hvert spørsmål, tell gjennom hele loggen:\n\n```text\nProcedure AntallForNaiv(L, t)\n  Input:  usortert liste L med n hendelser, tidspunktet t\n  Output: antall hendelser med tidspunkt mindre enn t\n  antall = 0\n  for hver hendelse e i L:\n      if e.tid < t:\n          antall = antall + 1\n  return antall\n```\n\nEtt spørsmål er $O(n)$, og med $m$ spørsmål blir totalen $O(n \\cdot m)$.\n\n**b)** **Navngi problemet.** Dette er gjentatte tellespørsmål mot et fast\ndatasett — signalet for forbehandling.\n\n**Antagelser om representasjon.** `L` er et array med $n$ hendelser, hver med et\nheltallsfelt `e.tid`. $T$ er et array med bare tidspunktene. Loggen endres ikke\nmellom spørsmålene.\n\n```text\nProcedure Forbehandle(L)\n  Input:  usortert liste L med n hendelser\n  Output: et sortert array T med alle tidspunktene\n  T = tidspunktene i L\n  Sorter(T)                       // flettesortering, O(n log n)\n  return T\n\nProcedure AntallFor(T, t)\n  Input:  sortert array T med n tidspunkter, tidspunktet t\n  Output: antall tidspunkter i T som er mindre enn t\n  lav = 0\n  hoy = T.length\n  while lav < hoy:\n      midt = (lav + hoy) / 2        // heltallsdivisjon\n      if T[midt] < t:\n          lav = midt + 1\n      else:\n          hoy = midt\n  return lav\n```\n\nDette er binærsøk modifisert til å returnere **antall elementer før $t$** i\nstedet for `true`/`false`. Løkken avsluttes med `lav` lik antallet tidspunkter\nsom er strengt mindre enn $t$, fordi invarianten hele veien er at alle\ntidspunkter før indeks `lav` er mindre enn $t$, og alle fra `hoy` og utover er\nminst $t$.\n\n**Kjøretid:** $O(n \\log n)$ for forbehandlingen, som gjøres **én** gang, og\n$O(\\log n)$ per spørsmål. Totalt $O(n \\log n + m \\log n)$. $n$ er antall\nhendelser i loggen, $m$ er antall spørsmål.\n\n**Hvorfor dette er lavest mulig:** loggen må leses minst én gang, og hvert\nspørsmål må besvares, så ingen løsning kan være raskere enn\n$O(n + m)$. Sorteringen ligger et logaritmisk hakk over den grensen, og fjernes\nbare hvis tidspunktene ligger i et kjent, begrenset område — da kan et\nkumulativt telleregister bygges i $O(n + K)$ og hvert spørsmål besvares i\n$O(1)$. Det krever at $K$ er kjent, jf. begrensningen på lineær sortering.\n\n**c)** Forbehandling lønner seg når\n$n \\log n + m \\log n < n \\cdot m$. Med $m = 1$ er den naive best (du sorterer\nikke en million hendelser for å svare på ett spørsmål). Allerede fra $m$ på\nstørrelse med $\\log n$ snur det: er $n = 10^6$, er $\\log_2 n$ omtrent 20, og fra\nrundt tjue spørsmål og oppover er forbehandlingen billigere. Er $m$ i samme\nstørrelsesorden som $n$, er forskjellen enorm: $10^{12}$ mot omtrent\n$4 \\cdot 10^7$.\n\n**d)** En rimelig trapp for en 10-poengs oppgave:\n\n| Løsning | Kjøretid | Poeng | Hvorfor |\n|---|---|---|---|\n| naiv skann per spørsmål | $O(n \\cdot m)$ | 3 | korrekt, men gjør alt arbeidet på nytt hver gang |\n| sortér, deretter lineær skann per spørsmål | $O(n\\log n + n \\cdot m)$ | 3 | sorterer uten å bruke sorteringen til noe |\n| sortér én gang, binærsøk per spørsmål | $O(n\\log n + m\\log n)$ | 9 | riktig grep, riktig kjøretid |\n| samme, med telleregister der verdiområdet er kjent | $O(n + K + m)$ | 10 | ser at forutsetningen kan utnyttes, og sier hva forutsetningen er |\n\nRekkefølgen følger vekstordningen, med ett tillegg: den tredje raden får ikke\nfull pott hvis kjøretiden mangler eller er oppgitt for feil algoritme, og den\nfjerde får **færre** poeng enn den tredje dersom kravet om kjent verdiområde\nikke nevnes — da er den ikke en raskere løsning, den er en gal en\n(**felle #5**).",
+    "hints": [
+     "Loggen endres aldri. Hva kan du da gjøre med den, én gang for alle?",
+     "Hvilket søk kan svare på «hvor mange er mindre enn t?» i et sortert array?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-8-1-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "Fem feil koster poeng i nettopp denne drillen. De fire første er hentet fra\nbokas feilregister; koden i parentes er nummeret registeret bruker.\n\n**1. Å levere en korrekt, men unødvendig treg løsning uten å lete videre**\n(**felle #1** — full eller naiv gjennomgang der beskjæring var mulig). Dette er\nden dyreste feilen i faget, og den er usynlig: besvarelsen ser riktig ut, fordi\nden *er* riktig. Kontrollspørsmålet «kan dette gjøres raskere?» skal stilles på\nhver eneste Del 2-oppgave, hver gang.\n\n**2. Å oppgi en kjøretid som ikke matcher koden du faktisk skrev.** Det trekkes\nbåde for manglende og for feil kompleksitet. Den vanligste varianten er å skrive\nned den kjøretiden du *ville* hatt med den beste algoritmen, og deretter levere\nen annen.\n\n**3. Å bruke $n$ uten å definere det** (**felle #10** — `n` uten definisjon, og\ndrøfting uten referanse til O-notasjon). I en oppgave med både data og spørsmål\nfinnes det minst to størrelser, og «$O(n)$» er meningsløst før du sier hvilken\ndu mener.\n\n**4. Å skrive lang, uklar pseudokode** (**felle #12** — en setning man ikke\nforstår etter to gjennomlesninger, blir ignorert). Fem klare linjer med en\nsetning som forklarer grunnideen, slår tjue linjer som må tydes. Har du dårlig\ntid, skriv i naturlig språk i stedet — det gir full uttelling når det er presist.\n\n**5. Å hoppe over den naive løsningen helt.** Ser du ikke grepet, skal du levere\ndet du har. Trappen bunner ikke i null: den naive løsningen gir alltid noen\npoeng, og en blank oppgave gir ingen."
+  },
+  {
+   "id": "in2010-8-1-coll-kaldbank",
+   "type": "collapsible",
+   "title": "Kald bank — uten hint",
+   "buttonText": "Vis den kalde banken",
+   "content": [
+    {
+     "id": "in2010-8-1-kb-intro",
+     "type": "text",
+     "content": "Åtte oppgaver med uvante innpakninger, uten hint og uten sjangermerking. Fasiten\ner en **momentliste**, ikke en ferdig besvarelse: den lister hva sensor ser etter,\nslik at du kan krysse av mot ditt eget svar.\n\nSlik brukes banken: ta én oppgave om gangen, sett klokka på åtte minutter, og\nskriv svaret fullt ut i fire ledd — navngi problemet, oppgi antagelser, gi\nalgoritmen, oppgi kjøretiden. Først deretter leser du momentlisten.\n\nPoenget med banken er at ingen av oppgavene sier hvilket kapittel de kommer fra.\nDet gjør ikke eksamensoppgavene heller."
+    },
+    {
+     "id": "in2010-8-1-kb-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in2010-8-1-k1",
+      "number": "K1",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Kald bank — ingen hint.) En fiskedisk deler ut kølapper. Hver kunde får et\nhastenivå fra 0 til 4 når hun trekker lappen, der 0 betjenes først, og antall\nnivåer endrer seg aldri. Systemet skal støtte «ny kunde» og «hvem er neste?».\n\nForeslå en struktur, oppgi kjøretid per operasjon, og begrunn hvorfor den slår\nalternativet.",
+      "solution": "**Momentliste (full uttelling krever alle fire):**\n\n- Navngir problemet som en **prioritetskø med lite, fast prioritetsområde**.\n- Velger et **array av $N = 5$ bøtter**, der hver bøtte er en kø (lenket liste)\n  over kundene på det nivået.\n- Oppgir kjøretidene: «ny kunde» er $O(1)$ (legg bakerst i sin bøtte); «hvem er\n  neste?» skanner fra bøtte 0 og oppover til den første ikke-tomme, altså\n  $O(N)$ — som er $O(1)$ når $N$ er en konstant, slik oppgaven sier.\n- Begrunner mot alternativet: en min-heap gir $O(\\log n)$ per operasjon, altså\n  **tregere**, og den bevarer heller ikke rekkefølgen mellom kunder på samme\n  nivå. Bøttekøen er stabil innenfor hvert nivå.\n\nDelvis uttelling: heap-løsningen er korrekt og gir uttelling, men ikke full — den\nutnytter ikke at antall nivåer er fast.",
+      "hints": []
+     }
+    },
+    {
+     "id": "in2010-8-1-kb-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in2010-8-1-k2",
+      "number": "K2",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Kald bank — ingen hint.) En ornitolog har notert $n$ observasjoner i løpet av\nen sesong, hver med et artsnavn. Hun vil vite **hvilken art som ble observert\nflest ganger**, og hvor mange ganger.\n\nSkriv algoritmen, oppgi antagelser og kjøretid, og si hva som ville vært\nraskeste lovlige alternativ dersom artsnavnene var erstattet med artsnumre fra\n0 til 400.",
+      "solution": "**Momentliste:**\n\n- Navngir problemet som **frekvenstelling** etterfulgt av et maksimum.\n- Antagelser: observasjonene ligger i et array; artsnavnene er tekststrenger som\n  kan hashes; $n$ er antall observasjoner og $u$ antall forskjellige arter.\n- Algoritme: gå gjennom listen én gang og tell opp i et **hashmap** fra artsnavn\n  til antall; gå deretter gjennom hashmapet og hold største verdi.\n- Kjøretid: $O(n)$ **forventet** for tellingen, $O(u)$ for maksimumet, altså\n  $O(n)$ forventet totalt. Verste tilfelle $O(n \\cdot u)$ hvis alt kolliderer.\n- Med artsnumre i $[0, 400]$: et **tellearray** med 401 plasser gir $O(n + K)$\n  **garantert**, med $K = 401$. Det er raskere og trygt, fordi verdiområdet er\n  kjent og lite. Uten den forutsetningen ville forslaget vært galt.\n\nTrekk: å oppgi hashmap som $O(1)$ uten ordet «forventet».",
+      "hints": []
+     }
+    },
+    {
+     "id": "in2010-8-1-kb-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in2010-8-1-k3",
+      "number": "K3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Kald bank — ingen hint.) Et bibliotek har $n$ bøker stående på hylla, sortert\netter et løpenummer. En bibliotekar skal finne **hvor en ny bok med nummer $x$\nskal settes inn** — altså hvor mange bøker som står foran den.\n\nSkriv algoritmen og oppgi kjøretiden. Si også hva som endrer seg dersom hylla\nikke var sortert.",
+      "solution": "**Momentliste:**\n\n- Navngir problemet som **binærsøk modifisert til å returnere en innsettingsplass**.\n- Sier eksplisitt at pensums binærsøk svarer `true`/`false`, og at det **må\n  modifiseres** — å hevde at det returnerer en indeks uten å nevne endringen er\n  et eksplisitt trekk.\n- Beskriver modifikasjonen: halvér intervallet `[lav, hoy)` og la `lav` ende opp\n  som antall bøker med lavere nummer.\n- Kjøretid $O(\\log n)$, der $n$ er antall bøker.\n- Usortert hylle: da må alle bøkene sammenlignes, altså $O(n)$ — med mindre du\n  skal gjøre mange slike innsettinger, og da lønner det seg å sortere hylla én\n  gang i $O(n \\log n)$ først.",
+      "hints": []
+     }
+    },
+    {
+     "id": "in2010-8-1-kb-4",
+     "type": "exercise",
+     "exercise": {
+      "id": "in2010-8-1-k4",
+      "number": "K4",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Kald bank — ingen hint.) Et strømnett skal bygges mellom $v$ transformatorer.\nAlle par kan i prinsippet kobles, og hver mulige kabel har en kjent\nanleggskostnad. Nettet skal henge sammen, og totalkostnaden skal være lavest\nmulig.\n\nEtterpå skal systemet kunne svare på: «hvor mange kabler går det mellom\ntransformator $A$ og transformator $B$ i det ferdige nettet?»\n\nOppgi algoritmer og kjøretider for begge delene.",
+      "solution": "**Momentliste:**\n\n- Del 1 navngis som **minimalt spenntre**. Prim med prioritetskø eller Kruskal;\n  Prim er $O((|V| + |E|)\\log|V|)$, og i en komplett graf er\n  $|E| = \\tfrac{|V|(|V|-1)}{2}$, altså $O(|V|^2\\log|V|)$.\n- Sier eksplisitt at **bredde-først-søk og dybde-først-søk ikke gir et minimalt**\n  spenntre — de leser ikke vektene i det hele tatt.\n- Del 2 navngis som **korteste vei i antall kanter i et tre**. Det ferdige nettet\n  har $|V| - 1$ kanter og ingen sykler, så det finnes nøyaktig én sti mellom to\n  noder. Bredde-først-søk finner den i $O(|V|)$.\n- Sier hvorfor Dijkstra er **feil verktøy** i del 2: vektene er\n  *anleggskostnader*, ikke avstander, så en «korteste vei» målt i kroner svarer\n  ikke på spørsmålet om antall kabler.\n- Kontrollregning: et spenntre over $v$ noder har alltid $v - 1$ kanter.",
+      "hints": []
+     }
+    },
+    {
+     "id": "in2010-8-1-kb-5",
+     "type": "exercise",
+     "exercise": {
+      "id": "in2010-8-1-k5",
+      "number": "K5",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Kald bank — ingen hint.) En bildedatabase har $m$ merkelapper. Et søkefelt skal\nforeslå alle merkelapper som begynner med det brukeren har skrevet så langt.\n\nDrøft to strukturer for dette, med kjøretid og minne, og konkludér.",
+      "solution": "**Momentliste:**\n\n- Definerer størrelsene: $m$ er antall merkelapper, $L$ er lengden på den lengste\n  merkelappen, $p$ er lengden på prefikset brukeren har skrevet, og $r$ er antall\n  treff.\n- **Prefikstre (trie):** oppslag følger prefikset tegn for tegn, $O(p)$, og\n  deretter samles treffene under den noden, $O(r \\cdot L)$. Minne: én node per\n  tegnposisjon, i verste fall $O(m \\cdot L)$, men delte prefikser deles fysisk,\n  så i praksis mindre.\n- **Hashmap:** slår opp et **helt** navn i $O(1)$ forventet, men kan ikke svare\n  på prefikser uten å gå gjennom alle $m$ nøklene, altså $O(m \\cdot p)$ per\n  tastetrykk.\n- Konklusjon med betingelse: trie når prefikssøk er hovedoperasjonen og\n  merkelappene deler prefikser; hashmap når bare eksakte oppslag trengs, eller\n  når minnet er knapt og $m$ er lite.\n- Refererer til O-notasjon gjennomgående, og definerer hver størrelse.",
+      "hints": []
+     }
+    },
+    {
+     "id": "in2010-8-1-kb-6",
+     "type": "exercise",
+     "exercise": {
+      "id": "in2010-8-1-k6",
+      "number": "K6",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Kald bank — ingen hint.) Et pariserhjul har $N$ gondoler, nummerert fra 0. Et\nsystem tildeler gondoler til gjester ut fra billettnummeret $b$: gjesten skal\nførst prøve gondol $b \\bmod N$, og hvis den er opptatt, den neste gondolen — og\netter den siste gondolen fortsetter tellingen på gondol 0.\n\nSkriv tildelingsprosedyren, oppgi kjøretid, og nevn de to feilene som oftest\ngjøres i denne typen kode.",
+      "solution": "**Momentliste:**\n\n- Kjenner igjen at dette **er** lukket hashing med lineær probing, med gondoler\n  som tabellplasser og billettnummer som nøkkel.\n- Pseudokode med `i = b mod N` og `i = (i + 1) mod N` i løkken, og en stoppregel\n  når alle plassene er prøvd.\n- Kjøretid: $O(1)$ **forventet**, $O(N)$ i verste tilfelle når nesten alt er\n  opptatt.\n- De to faste feilene: (i) indeksen får løpe utenfor $0$ til $N-1$ fordi\n  `mod N` mangler i wraparound-steget, og (ii) den samme nøkkelen settes inn på\n  nytt i stedet for å overskrive den plassen den allerede har.\n- Ekstra moment: uten en stoppregel går løkken evig når alle gondoler er\n  opptatt.",
+      "hints": []
+     }
+    },
+    {
+     "id": "in2010-8-1-kb-7",
+     "type": "exercise",
+     "exercise": {
+      "id": "in2010-8-1-k7",
+      "number": "K7",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Kald bank — ingen hint.) En intern kunnskapsbase består av artikler som lenker\ntil hverandre. Lenkene er enveis. Redaksjonen vil vite **hvilke grupper av\nartikler som alle lenker til hverandre**, direkte eller via andre artikler i\ngruppen, slik at de kan slås sammen.\n\nOppgi algoritme og kjøretid, og si hva som er galt med å løse oppgaven ved å\nstarte et søk fra hver artikkel.",
+      "solution": "**Momentliste:**\n\n- Navngir problemet som **sterkt sammenhengende komponenter** i en rettet graf.\n- Antagelser: $G = (V, E)$ rettet, gitt som nabolister; $|V|$ artikler, $|E|$\n  lenker.\n- Kaller pensumalgoritmen for sterkt sammenhengende komponenter, $O(|V| + |E|)$,\n  og oppgir at gruppene det spørres etter er komponentene med **mer enn én**\n  node.\n- Sier hva som er galt med søk fra hver artikkel: det er $|V|$ traverseringer,\n  altså $O(|V| \\cdot (|V| + |E|))$ — korrekt, men et helt trinn ned på\n  poengtrappen, og en av de eksplisitt navngitte feilene i faget.\n- Ekstra moment for full uttelling: komponentgrafen som oppstår når hver gruppe\n  trekkes sammen til én node, er alltid en rettet asyklisk graf. Det trenger\n  ikke bevises.",
+      "hints": []
+     }
+    },
+    {
+     "id": "in2010-8-1-kb-8",
+     "type": "exercise",
+     "exercise": {
+      "id": "in2010-8-1-k8",
+      "number": "K8",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Kald bank — ingen hint.) Et verksted har $n$ produksjonsjobber. Noen jobber må\nvære ferdige før andre kan starte, og hver jobb tar nøyaktig én time. Ubegrenset\nmange jobber kan kjøre samtidig, så lenge kravene er oppfylt.\n\nFinn **hvor mange timer** hele produksjonen minst tar. Oppgi algoritme og\nkjøretid.",
+      "solution": "**Momentliste:**\n\n- Navngir problemet som **lengste kjede av avhengigheter** i en rettet asyklisk\n  graf — svaret er lengden på den lengste stien, målt i antall jobber.\n- Antagelser: $G = (V, E)$ rettet, nabolister; en kant fra $X$ til $Y$ betyr at\n  $X$ må være ferdig før $Y$.\n- Algoritme i to trinn: (i) topologisk sortering, $O(|V| + |E|)$; (ii) gå\n  gjennom nodene i den rekkefølgen og sett\n  `nivaa[v] = max(nivaa[v], nivaa[u] + 1)` for hver kant `(u, v)`. Svaret er\n  største `nivaa` pluss én.\n- Kjøretid $O(|V| + |E|)$ totalt, fordi hver kant behandles nøyaktig én gang i\n  hvert trinn.\n- Begrunnelse for hvorfor den topologiske rekkefølgen er nødvendig: når $v$\n  behandles, er alle noder med kanter inn til $v$ ferdig behandlet, så\n  `nivaa[u]` er endelig.\n- Ekstra moment: melder fra hvis grafen har en sykel — da finnes det ingen\n  gyldig produksjonsplan.",
+      "hints": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-1-t-bank",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-8-1-def-1",
+   "type": "definition",
+   "title": "Poengtrappen",
+   "content": "Sensors faste regel om at **lavere kjøretid gir mer poeng på samme oppgave**.\nEn typisk trapp på en 10-poengs Del 2-oppgave: $O(n)$ gir 10, $O(n \\log n)$ gir\n6, $O(n^2)$ gir 3. Trappen bunner aldri i null, så den trege løsningen er alltid\nverdt å levere — og hvert skritt oppover er verdt like mye som flere\nDel 1-punkter."
+  },
+  {
+   "id": "in2010-8-1-def-2",
+   "type": "definition",
+   "title": "Del 2-svarformen — fire ledd",
+   "content": "Rekkefølgen sensor krever: (1) navngi problemet, (2) oppgi antagelser om\nrepresentasjon, (3) gi algoritmen som pseudokode eller klar tekst, (4) oppgi\nkjøretiden som matcher algoritmen, med $n$ definert. Mangler ett ledd, trekkes\ndet — uavhengig av om algoritmen er riktig."
+  },
+  {
+   "id": "in2010-8-1-def-3",
+   "type": "definition",
+   "title": "Kontrollspørsmålet «kan dette gjøres raskere?»",
+   "content": "Spørsmålet som skal stilles på hver eneste Del 2-oppgave etter at den naive\nløsningen står på kladden. Fem signaler utløser et grep: en indre løkke som\nleter, en full traversering av et søketre, en beregning gjentatt per node, samme\nalgoritme kjørt per kilde eller per spørsmål, og «de $k$ beste» løst ved å\nsortere alt."
+  },
+  {
+   "id": "in2010-8-1-def-4",
+   "type": "definition",
+   "title": "Hash-settet som lineær-tid-verktøy",
+   "content": "Standardgrepet som gjør $O(n^2)$ til $O(n)$: en indre løkke som leter etter et\nelement, erstattes av ett oppslag. Kjøretiden er $O(1)$ **forventet** per\noppslag og $O(n)$ i verste tilfelle. Forbeholdet «forventet» skal alltid med —\nå skrive $O(1)$ bart er et trekk."
+  },
+  {
+   "id": "in2010-8-1-def-5",
+   "type": "definition",
+   "title": "Beskjæring i et søketre",
+   "content": "Å hoppe over et helt subtre fordi søketre-egenskapen garanterer at svaret ikke\nkan ligge der. Gjør en full traversering på $O(n)$ om til\n$O(h + \\text{antall treff})$, som er $O(\\log n)$ i et balansert tre når det er få\ntreff. Å traversere fullt der beskjæring var mulig, koster typisk halve\npoengsummen."
+  },
+  {
+   "id": "in2010-8-1-def-6",
+   "type": "definition",
+   "title": "Én traversering som returnerer verdien nedenfra",
+   "content": "Grepet mot kvadratisk tre-arbeid: i stedet for å be om høyden (eller summen,\neller antallet) i hver node, lar du det rekursive kallet **returnere** den\noppover. $O(n^2)$ blir $O(n)$, fordi hver node behandles nøyaktig én gang.\nKostnaden er en kallstakk på $O(h)$, og på et skjevt tre er $h = n$."
+  },
+  {
+   "id": "in2010-8-1-def-7",
+   "type": "definition",
+   "title": "Forbehandling",
+   "content": "Å flytte arbeid ut av løkken over spørsmålene: sortér én gang, merk\nkomponentene én gang, bygg telleregisteret én gang. $O(n \\cdot m)$ blir\n$O(n\\log n + m\\log n)$. Lønner seg så snart antall spørsmål $m$ er større enn\nomtrent $\\log n$, og forutsetter at datasettet ikke endres underveis."
+  },
+  {
+   "id": "in2010-8-1-def-8",
+   "type": "definition",
+   "title": "Reversert-graf-trikset",
+   "content": "Når flere mulige utgangspunkt skal måles mot **ett** mål: snu alle kantene og\nkjør én Dijkstra fra målet, i stedet for én kjøring per utgangspunkt. Snuingen\nkoster $O(|V| + |E|)$, og totalen blir $O((|V| + |E|)\\log|V|)$ — samme orden som\nén kjøring. Virker fordi en vei fra $u$ til $t$ i grafen er nøyaktig en vei fra\n$t$ til $u$ i den reverserte."
+  },
+  {
+   "id": "in2010-8-1-def-9",
+   "type": "definition",
+   "title": "Min-heap med plass til bare k",
+   "content": "Grepet for «de $k$ største av $n$»: hold en min-heap på høyst $k$ elementer, og\nbytt ut roten hver gang et større tall kommer inn. Kjøretid $O(n \\log k)$ mot\n$O(n \\log n)$ for å sortere alt, og minne $O(k)$ mot $O(n)$. Det skal være en\n**min**-heap, fordi det er det minste av de $k$ beste som skal skyves ut."
+  },
+  {
+   "id": "in2010-8-1-def-10",
+   "type": "definition",
+   "title": "Å definere n",
+   "content": "Kravet om at hver størrelse i et kjøretidsuttrykk skal navngis: «$n$ er antall\nhendelser i loggen, $m$ er antall spørsmål». I oppgaver med både data og\nspørsmål finnes det alltid minst to størrelser, og et uttrykk uten definisjon er\nikke tolkbart. Det er et eksplisitt trekkpunkt i drøftingssjangeren, med inntil\ntre poeng i et av settene."
+  },
+  {
+   "id": "in2010-8-1-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — Del 2-strategien på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-8-1-rep-1",
+     "type": "text",
+     "content": "**Fem steg, hver gang:**\n\n1. Skriv den naive løsningen på kladd — den er poeng, og den forteller deg hva\n   problemet er.\n2. Navngi problemet.\n3. Spør «kan dette gjøres raskere?» og gå gjennom de fem signalene.\n4. Skriv svaret i fire ledd: problem, antagelser, algoritme, kjøretid.\n5. Kontrollregn kjøretiden mot koden du faktisk skrev.\n\n**De fem signalene og grepene:**\n\n| Signal i den naive løsningen | Grep | Fra | Til |\n|---|---|---|---|\n| indre løkke som leter | hash-set | $O(n^2)$ | $O(n)$ forventet |\n| full traversering av søketre | beskjæring | $O(n)$ | $O(h + \\text{treff})$ |\n| beregning gjentatt per node | én traversering som returnerer | $O(n^2)$ | $O(n)$ |\n| én kjøring per kilde eller spørsmål | forbehandling, eventuelt reversert graf | $O(k \\cdot T)$ | $O(T)$ |\n| «de $k$ beste» ved å sortere alt | min-heap med plass til $k$ | $O(n\\log n)$ | $O(n\\log k)$ |\n\n**Kjøretidene du må ha uten oppslag:**\n\n| Algoritme | Kjøretid |\n|---|---|\n| bredde-først, dybde-først over alle komponenter, topologisk sortering, sterkt sammenhengende komponenter | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| Dijkstra og Prim med binær prioritetskø | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log\\lvert V \\rvert)$ |\n| Bellman-Ford | $O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$ |\n| heap: `Insert` og `RemoveMin` / bygge heap av array | $O(\\log n)$ / $O(n)$ |\n| hash-set: oppslag | $O(1)$ forventet, $O(n)$ verste |\n| binærsøk i sortert array | $O(\\log n)$ |\n| sammenligningsbasert sortering | $O(n \\log n)$ |\n\n**Tre setninger å ta med inn i eksamenslokalet:**\n\n1. En korrekt, treg løsning er alltid bedre enn ingen — men den koster mer enn du\n   tror.\n2. En klar forklaring i naturlig språk gir like mye som pseudokode. Uklar\n   pseudokode gir mindre enn begge.\n3. Kjøretiden du skriver, skal beskrive koden du ga — ikke koden du skulle ønske\n   du hadde gitt.\n\n**Videre:** [kap. 8.2](/in2010/in2010-8-2), [kap. 8.3](/in2010/in2010-8-3) og\n[kap. 8.4](/in2010/in2010-8-4) er tre komplette øvingseksamener. Ta minst én av\ndem på tid, uten oppslag."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
