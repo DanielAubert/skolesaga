@@ -166,6 +166,20 @@ function renderMixedContent(content: string): string {
   result = result.replace(/^## ([^\n\r]+)$/gm, '<h3 class="text-xl font-bold mt-6 mb-3">$1</h3>');
   result = result.replace(/^# ([^\n\r]+)$/gm, '<h2 class="text-2xl font-bold mt-8 mb-4">$1</h2>');
 
+  // Blockquote (> ). Rendreren hadde INGEN støtte for dette, så markdown-sitatet
+  // ble stående som et bokstavelig «>» foran avsnittet: leseren så
+  // «> Margnotat: …» i stedet for en avsatt boks. Målt 29. juli 2026: 1 512
+  // linjer i 62 bøker, brukt til margnotater, sensorkommentarer og
+  // «bør kjenne til»-notiser — nettopp det som SKAL skille seg fra brødteksten.
+  //
+  // Kjører før \n\n-konverteringen under, samme sted i pipelinen som
+  // overskriftene, slik at blokken er ferdig satt før avsnittsdelingen.
+  // Flere påfølgende «> »-linjer blir ÉN blockquote, som i vanlig markdown.
+  result = result.replace(/(?:^> ?[^\n]*(?:\n|$))+/gm, (blokk: string) => {
+    const innhold = blokk.replace(/^> ?/gm, '').replace(/\n+$/, '');
+    return `<blockquote class="my-4 border-l-4 border-sky-500/40 bg-muted/40 py-2 pl-4 pr-3 text-muted-foreground">${innhold}</blockquote>\n`;
+  });
+
   // Bold (**text**)
   result = result.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
