@@ -132,4 +132,42 @@ uten å ha lest Del 6.
 
 ## Lukkede punkter
 
-*(ingen ennå)*
+**V1** (med1100 «Felle N» mot E-registeret) — venter fortsatt på med1100s
+verifiseringsbølge.
+
+**V2** (tdt4110 kap. 1.4 tagget kjørbar Python som ```text) — LUKKET 29. juli.
+Verifikatoren fant 28 slike blokker i åtte filer, ikke sju i én. 851 → 880
+kontrollerte kodeblokker. Regelen som ble brukt: ```text er for det som ikke KAN
+kjøres — plassholdere, `<…>`-maler, feilmeldinger, kall-stakker, fragmenter med
+udefinerte navn, plantede *syntaks*feil. Semantiske feil kompilerer og skal ha
+```python.
+
+**V3** (kapitteltitler) — LUKKET. Alle 47 kontrollert ordrett mot skjelettet.
+
+**V5** (kryssreferanser fra 8.7 til 6.2/6.3) — LUKKET 29. juli. 8 lenker lagt inn
+på fire steder; definisjonene står urørt, siden Del 8 skal kunne leses uten Del 6.
+
+### V6 — ⚠ LÆRDOM: en flaky port er farligere enn en rød
+
+`tdt4110-7-6-opg-8` låste fasiten til `False` for
+`print(list(set(navn)) == a)`. Svaret avhenger av PYTHONHASHSEED.
+
+**Målt rate: 54 av 300 kjøringer gir `True` — 18 %, altså 1 av 6.** Det stemmer
+med teorien: `list(set(...))` gir én av 3! = 6 rekkefølger, og nøyaktig én er
+lik `a`. Byggelederens første anslag «hver tredje gang» kom fra 4 av 12 og var
+småutvalgsstøy.
+
+**Porten var derfor ikke rød — den var flaky.** `sjekk-sporing.py` feiler bare
+når kjøringen tilfeldigvis gir `True`. Målt: 11 av 12 kjøringer grønne. Feilen
+ville passert de fleste sluttporter og slått ut sporadisk måneder senere, hos
+noen som ikke visste hvorfor.
+
+**Til framtidige bøker:** hash-avhengige uttrykk i fasitkode kan ikke fanges av
+en enkelt portkjøring. Sveip eksplisitt etter `list(set(`, `for … in set(`,
+`print(set(`, `return set(`, `set(...).pop()` og `join(set(` i KJØRBAR kode —
+ikke i prosa, der boka gjerne advarer mot dem. Verifikatoren kjørte i tillegg
+`sjekk-utskrift.py` under seks ulike faste seeds over alle 25 filer, 150
+filkjøringer, 0 avvik. Det er den sterke kontrollen.
+
+NB: `sjekk-utskrift.py` forbruker filer i datadir-en, så den må regenereres
+mellom passene — ellers får du falske `FileNotFoundError`.
