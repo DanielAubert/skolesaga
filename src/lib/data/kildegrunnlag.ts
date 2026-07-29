@@ -260,6 +260,50 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  med1100: {
+    courseId: 'med1100',
+    institusjon: 'Universitetet i Oslo (UiO) — Det medisinske fakultet',
+    sammendrag:
+      'Boka er kalibrert mot MED1100s eksamensarkiv ved UiO: 45 oppgavesett fra 2021 til 2026, fordelt på de tre blokkeksamenene modulen faktisk består av — 22 sett fra blokk 1, 16 fra blokk 2 og 7 fra blokk 3. Alle er frie etter åndsverkloven § 14. Sjangerkodene, feilkatalogen E1–E26 og temavektingen er utledet av settene selv, og hver av de tre blokkenes format er beskrevet slik arkivet viser den — ikke slik en samlet eksamen ville sett ut.',
+    eksamenssett: [
+      {
+        tittel: 'Blokk 1 — 22 sett (2021–2026)',
+        detalj:
+          'Digital eksamen på rundt fem timer, med kalkulator, statistiske tabeller og utdelt formelsamling. Fire seksjoner med vekting 20/20/20/40, der medisinsk statistikk er den siste og største. Ingen minuspoeng. Frekvenspåstander om blokk 1 i boka har nevner 16 — det er settene analysen har gjennomgått i detalj.',
+      },
+      {
+        tittel: 'Blokk 2 — 16 sett (2021–2026)',
+        detalj:
+          'Seks timers skriftlig eksamen med 9–12 hovedoppgaver merket A–I, hver med oppgitt vekttall som summerer til 100. Rekkefølgen er stabil: A histologi og elektronmikroskopi, B celledød og kreft, C signalering og endokrinologi, D molekylærbiologi, E genetikk, F enzymkinetikk. Denne blokken har negativ retting på rutenett, med nullgulv på oppgavenivå.',
+      },
+      {
+        tittel: 'Blokk 3 — 7 sett (2021–2026)',
+        detalj:
+          'Flervalgsbank på rundt 90–110 spørsmål, med velg ett og velg to. Krever presis latinsk nomenklatur. Ingen minuspoeng. Færrest sett av de tre blokkene, og det er grunnen til at boka er mer forsiktig med frekvenspåstander her.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Innebygde sensorveiledninger i blokk 1 og blokk 2',
+        detalj:
+          'Sensorveiledningene ligger ikke som egne filer, men INNE i eksamenssettene: i blokk 1-essayene fra høsten 2025 og våren 2026, og i samtlige blokk 2-sett fra høsten 2022 til høsten 2025. Det er de som er kilden til reglene boka beskriver — retting moment for moment, delpoeng for fornuftig resonnement selv ved feil sluttsvar, at det ikke skal trekkes for følgefeil, og hvilke detaljer som eksplisitt er markert som «ikke forventet». Blokk 3 har «med fasit»-versjoner i stedet.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for MED1100',
+        detalj:
+          'Brukt til å fastslå at modulen avsluttes med tre separate blokkeksamener som alle må bestås, og til hjelpemiddelbestemmelsene per blokk.',
+      },
+    ],
+    forbehold: [
+      'Blokk 3 har ingen innebygd sensorveiledning. Fasiten i de settene vises som en visuell utheving som ikke lar seg lese ut av teksten, så alle riktige svar i bokas blokk 3-stoff er Skolesagas egne — utledet av pensum, ikke avlest fra en fasit.',
+      'Blokk 3 har bare 7 sett mot blokk 1s 22. Frekvenspåstander om blokk 3 hviler derfor på et tynnere grunnlag, og boka sier det der det er relevant framfor å oppgi en prosent som ser like sikker ut som blokk 1s.',
+      'Medisinske normalverdier og tallfakta hentet fra de eldste settene (2021–2022) er merket med forbehold i teksten og loggført i docs/hoyskole-boker/med1100/USIKRE-TALL.md. Ingen av dem brukes som fasit i quiz, flashcard eller prøve.',
+      'Boka er eksamensforberedelse, aldri helseråd eller klinisk veiledning. Kliniske vignetter er innpakning rundt en mekanisme, farmakologi omtales som virkningsmåte, og alle pasientcase er oppdiktede.',
+    ],
+    analysedato: 'juli 2026',
+  },
   fys1100: {
     courseId: 'fys1100',
     institusjon: 'Universitetet i Oslo (UiO) — Fysisk institutt',

@@ -29,6 +29,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🎓',
     color: 'from-red-600 to-rose-700',
     subjects: [
+      { courseId: 'med1100', name: 'MED1100 Medisinstudiet modul 1', icon: '🩺', color: 'from-slate-500 to-slate-700' },
       { courseId: 'ling1100', name: 'LING1100 Innføring i semantikk og pragmatikk', icon: '💬', color: 'from-slate-500 to-slate-700' },
       { courseId: 'sosant1000', name: 'SOSANT1000 Antropologisk samfunnsanalyse (Innføring i sosialantropologi)', icon: '🌍', color: 'from-slate-500 to-slate-700' },
       { courseId: 'fys1100', name: 'FYS1100 Mekanikk og modellering', icon: '🪐', color: 'from-slate-500 to-slate-700' },

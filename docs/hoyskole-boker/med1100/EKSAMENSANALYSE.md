@@ -334,6 +334,27 @@ En eksamensrettet bok bør derfor bygges som **tre parallelle delbøker** med hv
 
 ---
 
+
+> **ARKIVKONTROLL 29. juli 2026 — tre sett manglet i tellingen.**
+> Analysen oppgir 42 filer, som er antallet med `med1100` i filnavnet. Mappa
+> `UiO/MEDISIN-modul-1/` har i tillegg tre sett navngitt uten emnekoden:
+> `modul-1-blokk-1-2026-var-kont.pdf`, `modul-1-blokk-2-2026-var-kont.pdf` og
+> `modul-1-blokk-2-2026-var.pdf`. MED1100 ER «Medisinstudiet modul 1», så de
+> hører hit.
+>
+> **Riktig totaltall: 45 oppgavesett** — 22 fra blokk 1, 16 fra blokk 2, 7 fra
+> blokk 3, årgangene 2021–2026. Alle er `PUB-OPPGAVE`.
+>
+> **Om sensorveiledningene — byggelederens første notat her var feil.**
+> Manifestet klassifiserer alle 45 filene som `PUB-OPPGAVE`, og jeg leste det
+> som at arkivet ikke har sensorveiledninger. Det er galt: veiledningene er
+> INNEBYGD i selve settene — i blokk 1-essayene, i hele blokk 2, og blokk 3 har
+> «med fasit»-versjoner. Dette avsnittets §8 dokumenterer det, og boka kan
+> derfor sitere dem. Samme mønster som fys1100.
+>
+> Frekvensnevnerne per blokk (16 / 14 / varierende) står uendret — de følger
+> hva analysen har gjennomgått i detalj, ikke hvor mange filer som finnes.
+
 ## 8. Kildeliste og avklaring om felles avsluttende deleksamen
 
 ### Primærkilder (MED1100-arkivet)
