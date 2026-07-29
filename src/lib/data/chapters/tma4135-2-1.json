@@ -1,0 +1,559 @@
+{
+  "id": "tma4135-2-1",
+  "courseId": "tma4135",
+  "chapterNumber": "2.1",
+  "title": "Laplace-transformen, derivasjonsregelen og ODE/IVP",
+  "description": "Grunnmekanikken i Laplace-metoden: transformer likningen, sett inn initialbetingelsene, løs algebraisk for $Y(s)$, invers-transformer.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "gjøre rede for hva Laplace-transformen er, når den finnes, og hvorfor tabellen på det utdelte formelarket er nok til å slå opp begge veier",
+    "bruke derivasjonsregelen til å transformere en differensiallikning med startverdier til en algebraisk likning i $Y(s)$",
+    "føre en likning med konstante koeffisienter gjennom hele oppskriften i fire skritt og oppgi svaret som eksakt uttrykk",
+    "bruke førsteforskyvningsteoremet til å lage transformpar som ikke står som egen rad i tabellen"
+  ],
+  "content": [
+    {
+      "id": "tma4135-2-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den mest lønnsomme timen i hele boka.**\n\nÅ løse en differensiallikning med Laplace-transform er den ene oppgavetypen som har stått på **13 av 13 sett** i frekvensgrunnlaget — den er der hvert eneste år, og den står nesten alltid som oppgave 1 eller 2. Boka kaller denne oppgavetypen **A**: «løs en vanlig differensiallikning med oppgitte startverdier ved hjelp av Laplace-transform». Bokstavene er bare en forkortelse boka bruker for oppgavetypene; hele listen står i [kap. 0.1](/tma4135/tma4135-0-1).\n\n**Hva du får igjen for arbeidet.** Kapitlet gir deg maskineriet som Del 2 hviler på: transformer likningen, sett inn startverdiene, løs den algebraiske likningen for $Y(s)$, og transformer tilbake. De tre neste kapitlene bytter bare ut hva som står på høyresiden — en stykkevis last, et støt, et integralledd. Selve maskineriet er dette.\n\n**Formelark-merking.** Eksamen har hjelpemiddelkode C: du får utdelt et formelark sammen med oppgavesettet, og du har ditt eget gule A5-ark. Derfor skiller boka konsekvent mellom to slags stoff:\n\n- Transformparene — $t^n$, $e^{at}$, $\\sin\\omega t$, $\\cos\\omega t$, $\\sinh at$, $\\cosh at$ — **står på det utdelte formelarket — tren oppslaget**.\n- Derivasjonsregelen $\\mathcal{L}\\{y'\\}=sY-y(0)$ og selve løsningsoppskriften **må kunnes eller utledes aktivt**. De står ikke på arket, og uten dem kommer du ingen vei.\n\nDet er nettopp derfor det er bortkastet å pugge tabellen: den ligger foran deg. Ferdigheten som betaler seg, er å **velge riktig rad og føre regningen**."
+    },
+    {
+      "id": "tma4135-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 1.1](/tma4135/tma4135-1-1) — polar form og komplekse røtter trengs når nevneren i $Y(s)$ ikke har reelle røtter. Ellers forutsettes bare vanlig derivasjon og integrasjon, delvis integrasjon, og at du kan faktorisere et andregradsuttrykk.\n\nHar du aldri sett Laplace-transformen før, er alt du trenger definert i dette kapitlet. Kapitlet er selve grunnmuren i [kap. 2.2](/tma4135/tma4135-2-2), [kap. 2.3](/tma4135/tma4135-2-3), [kap. 2.4](/tma4135/tma4135-2-4) og drillen i [kap. 2.5](/tma4135/tma4135-2-5)."
+    },
+    {
+      "id": "tma4135-2-1-motivasjon",
+      "type": "text",
+      "content": "## Fra kalkulus til algebra\n\nTenk på en bilfjær. Slipper du bilen ned på fjæra, svinger karosseriet noen ganger og legger seg til ro. Beskriver du det matematisk, får du en differensiallikning med to startverdier: hvor høyt karosseriet står i det du slipper, og hvor fort det beveger seg.\n\nDen klassiske veien er å gjette en løsningsform, finne den generelle løsningen med to ukjente konstanter, og til slutt bestemme konstantene fra startverdiene. Det er tre atskilte jobber, og den siste er den man roter med.\n\nLaplace-transformen bytter ut hele den veien med **én** jobb. Den gjør om en differensiallikning i tid til en **algebraisk likning** i en ny variabel $s$ — en likning uten deriverte, uten integraler, bare brøker. Startverdiene kommer ikke inn til slutt; de bygges inn i likningen fra første linje. Du løser en brøklikning, slår opp svaret i en tabell, og er ferdig.\n\nPrisen er at du må lære to nye ting: hva transformen gjør med en derivert, og hvordan du finner veien tilbake. Dette kapitlet tar det første. [Kap. 2.2](/tma4135/tma4135-2-2) tar det andre.\n\n**Tidsplan for kapitlet (~60 min lesetid):** fem løkker med tidsanslag, og et naturlig pausepunkt etter løkke 2. Anslaget gjelder lesing; regner du oppgavene med penn, kan du gange med rundt 1,5."
+    },
+    {
+      "id": "tma4135-2-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva transformen er (~10 min)\n\nEn transform er en maskin som spiser en funksjon og spytter ut en annen funksjon. Laplace-maskinen spiser en funksjon av tiden, $f(t)$ for $t\\ge 0$, og gir en funksjon av en ny variabel $s$."
+    },
+    {
+      "id": "tma4135-2-1-def-laplace",
+      "type": "definition",
+      "title": "Laplace-transformen",
+      "content": "Regelen som gjør om en funksjon av tid til en funksjon av $s$: gang med den avtakende faktoren $e^{-st}$ og integrer over hele den positive tidsaksen. Resultatet skrives med stor $F$:\n\n$$F(s) = \\mathcal{L}\\{f\\} = \\int_0^{\\infty} e^{-st} f(t)\\,dt.$$\n\nMerk skrivemåten: krøllparentesen $\\mathcal{L}\\{f\\}$ leses «Laplace-transformen av $f$», og resultatet er en funksjon av $s$ alene — all $t$-avhengighet er integrert bort. Vi bruker gjennomgående liten bokstav for tidsfunksjonen og stor bokstav for transformen: $f \\leftrightarrow F$, $y \\leftrightarrow Y$, $g \\leftrightarrow G$.\n\nFaktoren $e^{-st}$ er der for å tvinge integralet til å konvergere. Vokser $f$ ikke altfor fort, vinner $e^{-st}$ kappløpet så lenge $s$ er stor nok."
+    },
+    {
+      "id": "tma4135-2-1-def-stykkevis",
+      "type": "definition",
+      "title": "Stykkevis kontinuerlig funksjon",
+      "content": "En funksjon som er sammenhengende overalt bortsett fra i endelig mange punkter på hvert endelig intervall, og som har endelige ensidige grenseverdier i hoppene.\n\nEn trappefunksjon som slår om fra $1$ til $4$ ved $t=2$ er stykkevis kontinuerlig; den har ett hopp, og hoppet er endelig. Dette er nøyaktig den klassen av pådrag Laplace-metoden håndterer uten videre — og grunnen til at metoden slår alle alternativer når lasten skrus av og på ([kap. 2.3](/tma4135/tma4135-2-3))."
+    },
+    {
+      "id": "tma4135-2-1-def-eksp-orden",
+      "type": "definition",
+      "title": "Eksponentiell orden",
+      "content": "Vekstkravet som gjør at integralet i definisjonen konvergerer. En funksjon $f$ er av eksponentiell orden dersom den til slutt vokser langsommere enn en eksponentialfunksjon — det finnes tall $M$ og $c$ slik at\n\n$$|f(t)| \\le M e^{ct} \\qquad \\text{for alle store } t.$$\n\nAlle funksjoner du møter på eksamen oppfyller dette: polynomer, $e^{at}$, $\\sin$, $\\cos$, $\\sinh$, $\\cosh$ og trappefunksjoner. Funksjonen $e^{t^2}$ gjør det ikke, og har ingen Laplace-transform. Du skal ikke sjekke vilkåret i hver oppgave — men du skal vite at det er det som ligger under."
+    },
+    {
+      "id": "tma4135-2-1-eksistens",
+      "type": "text",
+      "content": "**Eksistenssetningen i én setning:** er $f$ stykkevis kontinuerlig og av eksponentiell orden med konstant $c$, så eksisterer $F(s)$ for alle $s > c$.\n\nDet er derfor du ser betingelser som «$s>0$» eller «$s>a$» i tabellen. På eksamen skriver du dem sjelden ut, men de forklarer hvorfor $\\mathcal{L}\\{e^{5t}\\}=1/(s-5)$ har en pol i $s=5$: der bryter integralet sammen.\n\n**Intuisjon:** $e^{-st}$ er en vekt som legger mest vekt på det som skjer tidlig. Jo større $s$, jo kortere «minne» har transformen. Store $s$ ser starten av funksjonen; små $s$ ser halen."
+    },
+    {
+      "id": "tma4135-2-1-eks-1",
+      "type": "example",
+      "title": "Transformen regnet ut fra definisjonen",
+      "problem": "Regn ut $\\mathcal{L}\\{1\\}$ og $\\mathcal{L}\\{e^{at}\\}$ direkte fra definisjonen.",
+      "solution": "**Konstantfunksjonen $f(t)=1$.**\n$$\\mathcal{L}\\{1\\} = \\int_0^{\\infty} e^{-st}\\cdot 1\\,dt = \\left[-\\frac{1}{s}e^{-st}\\right]_0^{\\infty} = 0 - \\left(-\\frac1s\\right) = \\frac1s,$$\ngyldig for $s>0$. Ved den øvre grensen går $e^{-st}\\to 0$ nettopp fordi $s>0$.\n\n**Eksponentialfunksjonen $f(t)=e^{at}$.** Samle de to eksponentene først:\n$$\\mathcal{L}\\{e^{at}\\} = \\int_0^{\\infty} e^{-st}e^{at}\\,dt = \\int_0^{\\infty} e^{-(s-a)t}\\,dt = \\left[-\\frac{1}{s-a}e^{-(s-a)t}\\right]_0^{\\infty} = \\frac{1}{s-a},$$\ngyldig for $s>a$. Legg merke til at $\\mathcal{L}\\{1\\}$ er spesialtilfellet $a=0$.\n\n**Kontroll.** Sett $a=0$ i det andre svaret: $1/(s-0)=1/s$. Stemmer med det første.\n\n**Merk:** dette er den eneste gangen i hele boka du regner ut en transform fra definisjonen. Fra nå av slår du opp — begge disse parene **står på det utdelte formelarket — tren oppslaget**. Utregningen står her fordi du skal vite hvor tabellen kommer fra, ikke fordi du skal gjenta den."
+    },
+    {
+      "id": "tma4135-2-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ren gjengivelse — slå opp i tabellen over transformpar under, og skriv ned svarene.\n\n**a)** $\\mathcal{L}\\{t^3\\}$\n**b)** $\\mathcal{L}\\{e^{-4t}\\}$\n**c)** $\\mathcal{L}\\{\\sin 5t\\}$\n**d)** $\\mathcal{L}\\{\\cosh 2t\\}$",
+        "solution": "**a)** Regelen er $\\mathcal{L}\\{t^n\\}=n!/s^{n+1}$ med $n=3$, altså $3!=6$ og $s^{4}$:\n$$\\mathcal{L}\\{t^3\\} = \\frac{6}{s^4}.$$\n\n**b)** Regelen er $\\mathcal{L}\\{e^{at}\\}=1/(s-a)$ med $a=-4$:\n$$\\mathcal{L}\\{e^{-4t}\\} = \\frac{1}{s+4}.$$\nFortegnet snur fordi $s-(-4)=s+4$.\n\n**c)** Regelen er $\\mathcal{L}\\{\\sin\\omega t\\}=\\omega/(s^2+\\omega^2)$ med $\\omega = 5$:\n$$\\mathcal{L}\\{\\sin 5t\\} = \\frac{5}{s^2+25}.$$\nTelleren er $5$, ikke $1$ — det er den vanligste slurvefeilen i denne raden.\n\n**d)** Regelen er $\\mathcal{L}\\{\\cosh at\\}=s/(s^2-a^2)$ med $a=2$:\n$$\\mathcal{L}\\{\\cosh 2t\\} = \\frac{s}{s^2-4}.$$\nMinustegnet i nevneren skiller $\\cosh$ fra $\\cos$.",
+        "hints": [
+          "Alle fire radene står på tabellen. Finn raden først, og bestem så hvilken bokstav i raden som skal byttes ut.",
+          "I c): sammenlign nøye hva som står i telleren for sinus og hva som står der for cosinus."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-tabellen",
+      "type": "text",
+      "content": "### Tabellen du får utdelt\n\nDe seks radene under er de som bærer nesten hver eneste Laplace-oppgave. Alle **står på det utdelte formelarket — tren oppslaget**. Definisjonene her er ikke puggestoff — de er kort som gjør at du kjenner igjen en rad på et halvt sekund i stedet for tjue.\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Tidsanslaget på 60 minutter gjelder kjernestoffet, ikke bunken."
+    },
+    {
+      "id": "tma4135-2-1-def-par-potens",
+      "type": "definition",
+      "title": "Transformparet for potensfunksjonen",
+      "content": "Raden som gjør om $t$ opphøyd i et helt tall til én enkelt brøk. For $n = 0, 1, 2, \\dots$:\n\n$$\\mathcal{L}\\{t^n\\} = \\frac{n!}{s^{n+1}}.$$\n\nTellerens $n!$ er fakultetet: $0!=1$, $1!=1$, $2!=2$, $3!=6$, $4!=24$. Eksponenten i nevneren er alltid **én mer** enn potensen du startet med. Spesialtilfellet $n=0$ gir $\\mathcal{L}\\{1\\}=1/s$."
+    },
+    {
+      "id": "tma4135-2-1-def-par-eksp",
+      "type": "definition",
+      "title": "Transformparet for eksponentialfunksjonen",
+      "content": "Raden som gjør en eksponentialfunksjon om til én enkelt pol:\n\n$$\\mathcal{L}\\{e^{at}\\} = \\frac{1}{s-a}, \\qquad s>a.$$\n\nTallet $a$ kan være positivt eller negativt: $\\mathcal{L}\\{e^{-3t}\\}=1/(s+3)$. Baklengs betyr det at hver faktor $(s-a)$ i en nevner svarer til et ledd $e^{at}$ i svaret — det er hele grunnlaget for delbrøkoppspaltingen i [kap. 2.2](/tma4135/tma4135-2-2)."
+    },
+    {
+      "id": "tma4135-2-1-def-par-trig",
+      "type": "definition",
+      "title": "Transformparene for sinus og cosinus",
+      "content": "De to radene som skiller seg bare ved telleren:\n\n$$\\mathcal{L}\\{\\cos\\omega t\\} = \\frac{s}{s^2+\\omega^2}, \\qquad \\mathcal{L}\\{\\sin\\omega t\\} = \\frac{\\omega}{s^2+\\omega^2}.$$\n\nHuskeregelen som virker: **cosinus har $s$ i telleren, sinus har $\\omega$.** Baklengs: ser du en nevner $s^2+9$, er $\\omega = 3$, og telleren avgjør om svaret blir $\\cos 3t$ eller $\\sin 3t$. Er telleren $6$, må du skrive den som $2\\cdot 3$ og få $2\\sin 3t$."
+    },
+    {
+      "id": "tma4135-2-1-def-par-hyp",
+      "type": "definition",
+      "title": "Transformparene for hyperbolsk sinus og cosinus",
+      "content": "Samme to rader med **minus** i nevneren:\n\n$$\\mathcal{L}\\{\\cosh at\\} = \\frac{s}{s^2-a^2}, \\qquad \\mathcal{L}\\{\\sinh at\\} = \\frac{a}{s^2-a^2}.$$\n\nDe hyperbolske funksjonene er bare en annen skrivemåte for eksponentialfunksjoner: $\\cosh at = \\tfrac12(e^{at}+e^{-at})$ og $\\sinh at = \\tfrac12(e^{at}-e^{-at})$. Derfor kan du alltid velge om du vil skrive svaret som $3\\sinh 2t$ eller som $\\tfrac32(e^{2t}-e^{-2t})$ — begge former er riktige, og begge gir full uttelling.\n\n**Fortegnet i nevneren er hele forskjellen:** $s^2+\\omega^2$ gir svingninger, $s^2-a^2$ gir vekst og demping."
+    },
+    {
+      "id": "tma4135-2-1-def-linearitet",
+      "type": "definition",
+      "title": "Linearitet",
+      "content": "Egenskapen som gjør at du kan transformere ledd for ledd. For alle konstanter $\\alpha$ og $\\beta$:\n\n$$\\mathcal{L}\\{\\alpha f + \\beta g\\} = \\alpha\\,\\mathcal{L}\\{f\\} + \\beta\\,\\mathcal{L}\\{g\\}.$$\n\nDen følger direkte av at integralet er lineært. Linearitet er grunnen til at hele metoden virker på likninger som $y''+3y'-4y$: hvert ledd transformeres for seg, og konstantene blir stående. Den gjelder også den motsatte veien, for den inverse transformen.\n\n**Advarsel:** linearitet gjelder **ikke** for produkter. $\\mathcal{L}\\{f\\cdot g\\}$ er ikke $F\\cdot G$ — det riktige svaret på det spørsmålet er konvolusjonsteoremet i [kap. 2.4](/tma4135/tma4135-2-4)."
+    },
+    {
+      "id": "tma4135-2-1-eks-2",
+      "type": "example",
+      "title": "Linearitet og tabelloppslag i praksis",
+      "problem": "Finn $\\mathcal{L}\\{3t^2 - 2e^{5t} + 4\\sin 3t\\}$.",
+      "solution": "**Del opp etter linearitet.** Konstantene $3$, $-2$ og $4$ blir stående utenfor:\n$$\\mathcal{L}\\{3t^2 - 2e^{5t} + 4\\sin 3t\\} = 3\\,\\mathcal{L}\\{t^2\\} - 2\\,\\mathcal{L}\\{e^{5t}\\} + 4\\,\\mathcal{L}\\{\\sin 3t\\}.$$\n\n**Slå opp hvert ledd** — fra tabellen på formelarket:\n- $\\mathcal{L}\\{t^2\\} = 2!/s^{3} = 2/s^3$\n- $\\mathcal{L}\\{e^{5t}\\} = 1/(s-5)$\n- $\\mathcal{L}\\{\\sin 3t\\} = 3/(s^2+9)$\n\n**Sett sammen:**\n$$\\mathcal{L}\\{3t^2 - 2e^{5t} + 4\\sin 3t\\} = \\frac{6}{s^3} - \\frac{2}{s-5} + \\frac{12}{s^2+9}.$$\n\nLegg merke til de to stedene tall møtes: $3\\cdot 2! = 6$ i første ledd, og $4\\cdot 3 = 12$ i siste. Det siste er der folk mister et poeng — de skriver $4/(s^2+9)$ og glemmer at sinus-raden allerede har en $\\omega$ i telleren.\n\n**Kontroll.** La $s\\to\\infty$: alle tre leddene går mot null, som de skal for enhver transform av en funksjon av eksponentiell orden. Hadde ett ledd gått mot en konstant, ville det vært en regnefeil."
+    },
+    {
+      "id": "tma4135-2-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn Laplace-transformen av hver funksjon. Skriv opp hvilken tabellrad du bruker.\n\n**a)** $f(t) = 5 - 2t + 6t^4$\n**b)** $f(t) = 4e^{-t} + 3\\cos 2t$\n**c)** $f(t) = 2\\sinh 3t - \\sin 3t$",
+        "solution": "**a)** Potensraden $\\mathcal{L}\\{t^n\\}=n!/s^{n+1}$ på hvert ledd, med $0!=1$, $1!=1$ og $4!=24$:\n$$F(s) = \\frac{5}{s} - \\frac{1}{s^2} + \\frac{144}{s^5}.$$\nSiste ledd: $6\\cdot 4! = 6\\cdot 24 = 144$.\n\n**b)** Eksponentialraden med $a=-1$, og cosinusraden med $\\omega = 2$:\n$$F(s) = \\frac{4}{s+1} + \\frac{3s}{s^2+4}.$$\n\n**c)** Hyperbolsk sinus med $a=3$ og vanlig sinus med $\\omega = 3$ — samme tall, forskjellig fortegn i nevneren:\n$$F(s) = \\frac{6}{s^2-9} - \\frac{3}{s^2+9}.$$\nDette paret er verdt å se på en gang til: én bokstav skiller de to nevnerne, og de to funksjonene oppfører seg helt forskjellig.",
+        "hints": [
+          "Skriv opp $n!$ for $n=0,1,4$ før du setter inn.",
+          "I c): hvilken av de to radene har minus i nevneren?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Derivasjonsregelen, motoren i metoden (~14 min)\n\nNå kommer den ene formelen som gjør Laplace-transformen til et verktøy for differensiallikninger og ikke bare en kuriositet. Den forteller hva som skjer med en **derivert** når du transformerer.\n\n**Utledningen** er delvis integrasjon, én gang. Sett $u = e^{-st}$ og $dv = f'(t)\\,dt$:\n\n$$\\mathcal{L}\\{f'\\} = \\int_0^{\\infty} e^{-st}f'(t)\\,dt = \\Big[e^{-st}f(t)\\Big]_0^{\\infty} + s\\int_0^{\\infty}e^{-st}f(t)\\,dt.$$\n\nRandleddet: ved $t=0$ gir det $-f(0)$, og ved $t\\to\\infty$ går $e^{-st}f(t)\\to 0$ når $s$ er stor nok (det er nettopp derfor vi krevde eksponentiell orden). Integralet som står igjen, er $F(s)$. Altså\n\n$$\\mathcal{L}\\{f'\\} = sF(s) - f(0).$$\n\n**Intuisjon:** å derivere i tidsplanet blir til å **gange med $s$** i $s$-planet, minus en korreksjon som er startverdien. Kalkulus blir algebra, og startverdien kommer gratis med på kjøpet — den er ikke noe du fyller inn til slutt, den *er* en del av likningen."
+    },
+    {
+      "id": "tma4135-2-1-def-derivasjon1",
+      "type": "definition",
+      "title": "Derivasjonsregelen for den førstederiverte",
+      "content": "Regelen som bytter ut derivasjon med multiplikasjon. For en funksjon $y(t)$ med transform $Y(s)$:\n\n$$\\mathcal{L}\\{y'\\} = sY - y(0).$$\n\nVi skriver bare $Y$ i stedet for $Y(s)$ når det ikke kan misforstås. Regelen **må kunnes eller utledes aktivt** — den står ikke på det utdelte formelarket, og uten den finnes det ingen Laplace-metode for differensiallikninger."
+    },
+    {
+      "id": "tma4135-2-1-def-derivasjon2",
+      "type": "definition",
+      "title": "Derivasjonsregelen for den andrederiverte",
+      "content": "Samme regel brukt to ganger. Bruk førsteordensregelen på $y'$ og sett inn:\n\n$$\\mathcal{L}\\{y''\\} = s^2Y - s\\,y(0) - y'(0).$$\n\n**Legg merke til strukturen:** $s$-potensen faller med én for hvert ledd, og startverdiene stiger i derivasjonsorden. Leddet $-s\\,y(0)$ er det som oftest forsvinner i en besvarelse — og det er en fortegns- og tallfeil som forplanter seg til hele svaret. Denne regelen **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-1-def-derivasjon-n",
+      "type": "definition",
+      "title": "Derivasjonsregelen for høyere orden",
+      "content": "Mønsteret fortsetter. For $n$-te deriverte:\n\n$$\\mathcal{L}\\{y^{(n)}\\} = s^nY - s^{n-1}y(0) - s^{n-2}y'(0) - \\dots - y^{(n-1)}(0).$$\n\nFor tredje orden, som dukker opp i flere av settene:\n\n$$\\mathcal{L}\\{y'''\\} = s^3Y - s^2y(0) - s\\,y'(0) - y''(0).$$\n\n**Kontrollregel:** antall startverdi-ledd er alltid lik derivasjonsordenen, og summen av $s$-potensen og derivasjonsordenen på startverdien er alltid $n-1$ i hvert ledd. Har du tre ledd etter $s^3Y$ i en tredjeordens likning, har du sannsynligvis riktig."
+    },
+    {
+      "id": "tma4135-2-1-eks-3",
+      "type": "example",
+      "title": "Å transformere venstresiden av en likning",
+      "problem": "En funksjon $y$ har $y(0)=2$ og $y'(0)=-1$. Skriv $\\mathcal{L}\\{y''+3y'-4y\\}$ uttrykt ved $Y$.",
+      "solution": "**Ledd for ledd, etter linearitet.**\n\nAndrederiverte, etter derivasjonsregelen:\n$$\\mathcal{L}\\{y''\\} = s^2Y - s\\,y(0) - y'(0) = s^2Y - 2s + 1.$$\nHer er $-s\\cdot 2 = -2s$ og $-(-1) = +1$. Det siste fortegnet er verdt å stoppe ved: startverdien er negativ, så minusen foran blir pluss.\n\nFørstederiverte:\n$$\\mathcal{L}\\{3y'\\} = 3\\big(sY - y(0)\\big) = 3sY - 6.$$\n\nOg det uderiverte leddet:\n$$\\mathcal{L}\\{-4y\\} = -4Y.$$\n\n**Legg sammen og samle $Y$-leddene:**\n$$\\mathcal{L}\\{y''+3y'-4y\\} = \\left(s^2+3s-4\\right)Y - 2s + 1 - 6 = \\left(s^2+3s-4\\right)Y - 2s - 5.$$\n\n**Kontroll av strukturen.** Parentesen foran $Y$ er $s^2+3s-4$ — nøyaktig samme uttrykk som du ville fått ved å bytte $y''\\to s^2$, $y'\\to s$, $y\\to 1$ i likningen. Det er ingen tilfeldighet, og det er en rask sjekk du kan gjøre hver gang. Resten, $-2s-5$, er startverdibidraget."
+    },
+    {
+      "id": "tma4135-2-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $y(0)=0$ og $y'(0)=3$.\n\n**a)** Skriv $\\mathcal{L}\\{y''\\}$ uttrykt ved $Y$.\n**b)** Skriv $\\mathcal{L}\\{y''+2y'+5y\\}$ uttrykt ved $Y$.\n**c)** En annen funksjon har $y(0)=1$, $y'(0)=0$, $y''(0)=-2$. Skriv $\\mathcal{L}\\{y'''\\}$.",
+        "solution": "**a)** $\\mathcal{L}\\{y''\\} = s^2Y - s\\cdot 0 - 3 = s^2Y - 3$.\n\n**b)** Ledd for ledd:\n$$\\mathcal{L}\\{y''\\} = s^2Y - 3, \\qquad \\mathcal{L}\\{2y'\\} = 2(sY-0) = 2sY, \\qquad \\mathcal{L}\\{5y\\} = 5Y.$$\nSamlet:\n$$\\mathcal{L}\\{y''+2y'+5y\\} = \\left(s^2+2s+5\\right)Y - 3.$$\nKontroll: parentesen er likningens venstreside med $y''\\to s^2$, $y'\\to s$, $y\\to 1$. Stemmer.\n\n**c)** $\\mathcal{L}\\{y'''\\} = s^3Y - s^2y(0) - s\\,y'(0) - y''(0) = s^3Y - s^2 - 0 + 2 = s^3Y - s^2 + 2$.\nIgjen: den negative startverdien $-2$ gir et **pluss** i uttrykket.",
+        "hints": [
+          "Skriv opp regelen med bokstaver først, og sett inn tallene etterpå — ikke omvendt.",
+          "I c): tre startverdi-ledd, med $s$-potensene 2, 1 og 0."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå halve maskineriet: du kan transformere en hvilken som helst venstreside. Resten av kapitlet handler om hva du gjør med den algebraiske likningen etterpå."
+    },
+    {
+      "id": "tma4135-2-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Fireskrittsoppskriften (~14 min)\n\nNå settes bitene sammen. Oppskriften under er den samme i hele Del 2; det eneste som varierer, er hva som står på høyresiden av likningen."
+    },
+    {
+      "id": "tma4135-2-1-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem",
+      "content": "En differensiallikning pluss like mange startverdier som likningens orden. En andreordens likning trenger $y(0)$ og $y'(0)$; en tredjeordens trenger i tillegg $y''(0)$.\n\nForkortelsen som brukes i litteraturen er **IVP**, av engelsk *initial value problem*. Boka skriver som oftest «likning med startverdier». Poenget for Laplace-metoden er at startverdiene må være gitt i **samme punkt**, og det punktet må være $t=0$ — er de gitt i to forskjellige punkter, er det et randverdiproblem, og da hjelper ikke denne metoden."
+    },
+    {
+      "id": "tma4135-2-1-def-Y",
+      "type": "definition",
+      "title": "Den transformerte løsningen $Y(s)$",
+      "content": "Laplace-transformen av den ukjente funksjonen — det du løser for i det algebraiske mellomstadiet:\n\n$$Y(s) = \\mathcal{L}\\{y(t)\\}.$$\n\n$Y(s)$ er ikke svaret. Det er svaret skrevet i et annet språk, og siste skritt er å oversette tilbake. I praksis er $Y(s)$ alltid en **rasjonal funksjon** — en brøk mellom to polynomer i $s$ — når likningen har konstante koeffisienter og høyresiden er av vanlig type."
+    },
+    {
+      "id": "tma4135-2-1-def-invers",
+      "type": "definition",
+      "title": "Den inverse Laplace-transformen",
+      "content": "Veien tilbake fra $s$-planet til tidsplanet, skrevet\n\n$$y(t) = \\mathcal{L}^{-1}\\{Y(s)\\}.$$\n\nI praksis regner du aldri ut et invers-integral. Du **leser tabellen baklengs**: du former $Y(s)$ om til noe som står i høyre kolonne, og leser av venstre. Hele [kap. 2.2](/tma4135/tma4135-2-2) handler om de to omformingene som trengs for det.\n\nDen inverse transformen er lineær, akkurat som den framlengs: $\\mathcal{L}^{-1}\\{\\alpha F + \\beta G\\} = \\alpha f + \\beta g$."
+    },
+    {
+      "id": "tma4135-2-1-def-entydighet",
+      "type": "definition",
+      "title": "Entydighet — hvorfor tabelloppslag er lov",
+      "content": "Regelen som gjør at «jeg kjente igjen uttrykket i tabellen» er et gyldig argument. To kontinuerlige funksjoner med samme Laplace-transform er like.\n\nKonsekvensen: finner du **én** funksjon som har transformen $Y(s)$, har du funnet den eneste. Du trenger ikke begrunne at det ikke finnes andre. Dette er grunnen til at fasitene skriver «fra tabellen følger …» uten videre forklaring — og det er lov for deg også, så lenge du sier hvilken rad du brukte."
+    },
+    {
+      "id": "tma4135-2-1-def-oppskrift",
+      "type": "definition",
+      "title": "Fireskrittsoppskriften for Laplace-metoden",
+      "content": "Løsningsgangen som gjentas i hele Del 2:\n\n1. **Transformer** hvert ledd i likningen med linearitet og derivasjonsregelen.\n2. **Sett inn startverdiene** med det samme — ikke til slutt.\n3. **Løs algebraisk** for $Y(s)$. Dette er ren brøkregning, ingen kalkulus.\n4. **Transformer tilbake** ved å forme $Y(s)$ om til tabellform og lese av.\n\nOppskriften **må kunnes eller utledes aktivt**. Skritt 4 er der de fleste poengene tapes, og det er derfor [kap. 2.2](/tma4135/tma4135-2-2) er et helt kapittel om akkurat det skrittet."
+    },
+    {
+      "id": "tma4135-2-1-eks-4",
+      "type": "example",
+      "title": "Fireskrittsoppskriften på en svingelikning",
+      "problem": "Løs $y'' + 4y = 0$ med $y(0)=1$ og $y'(0)=2$.",
+      "solution": "**Skritt 1 og 2 — transformer og sett inn startverdiene.** Etter derivasjonsregelen er $\\mathcal{L}\\{y''\\}=s^2Y - s\\,y(0)-y'(0) = s^2Y - s - 2$, så likningen blir\n$$s^2Y - s - 2 + 4Y = 0.$$\n\n**Skritt 3 — løs for $Y$.** Samle $Y$-leddene og flytt resten over:\n$$\\left(s^2+4\\right)Y = s+2 \\quad\\Longrightarrow\\quad Y(s) = \\frac{s+2}{s^2+4}.$$\n\n**Skritt 4 — tilbake.** Del opp i to brøker som hver treffer en tabellrad:\n$$Y(s) = \\frac{s}{s^2+4} + \\frac{2}{s^2+4}.$$\nFra tabellen på formelarket: $s/(s^2+\\omega^2)$ gir $\\cos\\omega t$, og $\\omega/(s^2+\\omega^2)$ gir $\\sin\\omega t$. Her er $\\omega^2=4$, altså $\\omega = 2$. Det andre leddet har allerede telleren $2=\\omega$, så det trengs ingen justering:\n$$y(t) = \\cos 2t + \\sin 2t.$$\n\n**Kontroll — sett inn i den opprinnelige likningen.** $y' = -2\\sin 2t + 2\\cos 2t$ og $y'' = -4\\cos 2t - 4\\sin 2t = -4y$, så $y''+4y = 0$. Startverdiene: $y(0)=1+0=1$ og $y'(0)=0+2=2$. Alt stemmer.\n\n**Om svarformen.** Du kan også skrive $y = \\sqrt2\\,\\sin\\!\\left(2t+\\pi/4\\right)$ ved å slå de to leddene sammen. Begge former er riktige. Har oppgaven ikke bedt om amplitudeform, er summen den korteste veien."
+    },
+    {
+      "id": "tma4135-2-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y'' + 9y = 0$ med $y(0)=2$ og $y'(0)=-3$. Kontroller svaret ved innsetting.",
+        "solution": "**Transformer og sett inn startverdiene med det samme.**\n$$\\mathcal{L}\\{y''\\} = s^2Y - 2s + 3,$$\nder $-s\\cdot 2 = -2s$ og $-(-3)=+3$. Likningen blir\n$$s^2Y - 2s + 3 + 9Y = 0 \\quad\\Longrightarrow\\quad \\left(s^2+9\\right)Y = 2s - 3.$$\n\n**Løs for $Y$ og del opp:**\n$$Y(s) = \\frac{2s-3}{s^2+9} = 2\\cdot\\frac{s}{s^2+9} - \\frac{3}{s^2+9}.$$\n\n**Fra tabellen** med $\\omega = 3$: første ledd gir $2\\cos 3t$. Andre ledd har telleren $3 = \\omega$, som er akkurat sinus-raden, så det gir $-\\sin 3t$.\n$$y(t) = 2\\cos 3t - \\sin 3t.$$\n\n**Kontroll.** $y' = -6\\sin 3t - 3\\cos 3t$, som gir $y'(0) = -3$. Videre er $y'' = -18\\cos 3t + 9\\sin 3t = -9y$, så $y''+9y=0$. Og $y(0)=2$. Alt stemmer.",
+        "hints": [
+          "$\\mathcal{L}\\{y''\\}=s^2Y-s\\,y(0)-y'(0)$ — sett inn tallene før du gjør noe annet.",
+          "Del brøken i to slik at den ene har $s$ i telleren og den andre har et rent tall."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y'' - 4y = 0$ med $y(0)=0$ og $y'(0)=6$. Oppgi svaret både med hyperbolsk funksjon og med eksponentialfunksjoner.",
+        "solution": "**Transformer:** $s^2Y - 0 - 6 - 4Y = 0$, altså\n$$\\left(s^2-4\\right)Y = 6 \\quad\\Longrightarrow\\quad Y(s) = \\frac{6}{s^2-4}.$$\n\n**Minustegnet i nevneren** peker på den hyperbolske raden, ikke den trigonometriske. Fra tabellen er $\\mathcal{L}\\{\\sinh at\\} = a/(s^2-a^2)$ med $a=2$, så vi trenger telleren $2$:\n$$Y(s) = 3\\cdot\\frac{2}{s^2-4} \\quad\\Longrightarrow\\quad y(t) = 3\\sinh 2t.$$\n\n**Eksponentialform.** Med $\\sinh 2t = \\tfrac12\\left(e^{2t}-e^{-2t}\\right)$:\n$$y(t) = \\frac32\\left(e^{2t}-e^{-2t}\\right).$$\nBegge former er fullgode svar.\n\n**Kontroll.** $y' = 6\\cosh 2t$, så $y'(0)=6$. Og $y''=12\\sinh 2t = 4y$, altså $y''-4y=0$. Og $y(0)=0$.",
+        "hints": [
+          "Se på fortegnet i nevneren: $s^2-4$, ikke $s^2+4$. Hvilken tabellrad har minus?",
+          "Telleren i $\\sinh$-raden er $a$, ikke $1$ — skriv $6 = 3\\cdot 2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Førsteforskyvningsteoremet (~10 min)\n\nTabellen har ingen rad for $e^{-2t}\\cos 4t$. Den trenger den heller ikke, for det finnes én regel som lager alle slike rader av de du allerede har.\n\n**Utledningen** er én linje. Skriv definisjonen for $e^{at}f(t)$ og samle eksponentene:\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = \\int_0^\\infty e^{-st}e^{at}f(t)\\,dt = \\int_0^\\infty e^{-(s-a)t}f(t)\\,dt = F(s-a).$$\n\nDet siste integralet er nøyaktig definisjonen av $F$, bare med $s-a$ der det ellers står $s$.\n\n**Intuisjon:** å gange med $e^{at}$ i tidsplanet **forskyver** transformen $a$ enheter langs $s$-aksen. Derfor navnet."
+    },
+    {
+      "id": "tma4135-2-1-def-forste-forskyvning",
+      "type": "definition",
+      "title": "Førsteforskyvningsteoremet",
+      "content": "Regelen som forteller hva multiplikasjon med en eksponentialfunksjon gjør i $s$-planet: den flytter argumentet.\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a).$$\n\nPraktisk: finn transformen til $f$ først, og bytt så hver eneste $s$ i svaret ut med $s-a$. Regelen kalles «første» fordi det finnes en **andre** forskyvning — den handler om forskyvning i tid, ikke i $s$, og kommer i [kap. 2.3](/tma4135/tma4135-2-3). Å forveksle de to er den vanligste feilen i hele Del 2.\n\nRegelen står som regel på det utdelte formelarket, men **du skal kunne bruke den begge veier uten å slå opp** — den baklengse retningen er hele poenget med kvadratkomplettering i [kap. 2.2](/tma4135/tma4135-2-2)."
+    },
+    {
+      "id": "tma4135-2-1-def-par-teat",
+      "type": "definition",
+      "title": "Transformparet for $t^n e^{at}$",
+      "content": "Det viktigste enkelttilfellet av førsteforskyvningen. Start med $\\mathcal{L}\\{t^n\\}=n!/s^{n+1}$ og bytt $s\\to s-a$:\n\n$$\\mathcal{L}\\{t^n e^{at}\\} = \\frac{n!}{(s-a)^{n+1}}.$$\n\nSpesialtilfellet $n=1$ er det du møter oftest: $\\mathcal{L}\\{t e^{at}\\} = 1/(s-a)^2$. Baklengs betyr det at en **dobbel** faktor $(s-a)^2$ i en nevner gir et ledd med $t$ ganget på eksponentialfunksjonen — et mønster du får bruk for i [kap. 2.2](/tma4135/tma4135-2-2)."
+    },
+    {
+      "id": "tma4135-2-1-eks-5",
+      "type": "example",
+      "title": "Førsteforskyvning i bruk",
+      "problem": "Finn **a)** $\\mathcal{L}\\{e^{3t}t^2\\}$ og **b)** $\\mathcal{L}\\{e^{-2t}\\cos 4t\\}$.",
+      "solution": "**a)** Start med funksjonen uten eksponentialfaktoren. Fra tabellen på formelarket: $\\mathcal{L}\\{t^2\\}=2/s^3$. **Etter førsteforskyvningsteoremet** med $a=3$ byttes hver $s$ ut med $s-3$:\n$$\\mathcal{L}\\{e^{3t}t^2\\} = \\frac{2}{(s-3)^3}.$$\n\n**b)** Fra tabellen: $\\mathcal{L}\\{\\cos 4t\\} = s/(s^2+16)$. **Etter førsteforskyvningsteoremet** med $a=-2$ byttes hver $s$ ut med $s-(-2)=s+2$ — og merk at det gjelder **også** $s$-en i telleren:\n$$\\mathcal{L}\\{e^{-2t}\\cos 4t\\} = \\frac{s+2}{(s+2)^2+16}.$$\n\n**Den typiske feilen** er å bytte bare i nevneren og skrive $s/((s+2)^2+16)$. Regelen sier $F(s-a)$ — hele funksjonen, teller og nevner.\n\n**Kontroll.** Gang ut nevneren: $(s+2)^2+16 = s^2+4s+20$. Et andregradsuttrykk uten reelle røtter (diskriminanten er $16-80<0$) — som det skal være, siden funksjonen svinger. Denne veien baklengs, fra $s^2+4s+20$ tilbake til $(s+2)^2+16$, er kvadratkomplettering, og den er tema i [kap. 2.2](/tma4135/tma4135-2-2)."
+    },
+    {
+      "id": "tma4135-2-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk førsteforskyvningsteoremet.\n\n**a)** Finn $\\mathcal{L}\\{e^{-t}\\sin 3t\\}$.\n**b)** Finn $\\mathcal{L}\\{t^3e^{2t}\\}$.\n**c)** Finn $\\mathcal{L}\\{e^{4t}\\cosh t\\}$.",
+        "solution": "**a)** Fra tabellen: $\\mathcal{L}\\{\\sin 3t\\} = 3/(s^2+9)$. **Etter førsteforskyvningsteoremet** med $a=-1$:\n$$\\mathcal{L}\\{e^{-t}\\sin 3t\\} = \\frac{3}{(s+1)^2+9}.$$\nTelleren har ingen $s$, så den står uendret.\n\n**b)** Fra tabellen: $\\mathcal{L}\\{t^3\\}=6/s^4$. Med $a=2$:\n$$\\mathcal{L}\\{t^3e^{2t}\\} = \\frac{6}{(s-2)^4}.$$\n\n**c)** Fra tabellen: $\\mathcal{L}\\{\\cosh t\\} = s/(s^2-1)$. Med $a=4$ byttes $s$ ut overalt:\n$$\\mathcal{L}\\{e^{4t}\\cosh t\\} = \\frac{s-4}{(s-4)^2-1}.$$\nHer er det lett å glemme telleren. Skriv $F(s)$ først, og gjør så substitusjonen mekanisk i hele uttrykket.",
+        "hints": [
+          "Finn først transformen til funksjonen **uten** eksponentialfaktoren.",
+          "Bytt deretter hver eneste $s$ i det uttrykket — også i telleren — ut med $s-a$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Eksamensnivå: en likning der nevneren må splittes (~12 min)\n\nI de fire eksemplene så langt kunne $Y(s)$ leses rett av tabellen. Det er sjelden på eksamen. Som regel er $Y(s)$ en brøk med flere faktorer i nevneren, og du må dele den opp i enklere brøker først.\n\nHele teknikken er tema i [kap. 2.2](/tma4135/tma4135-2-2). Her tar vi bare det enkleste tilfellet — nevneren har bare **enkle, forskjellige reelle røtter** — fordi du trenger det for å komme gjennom en fullstendig oppgave allerede nå."
+    },
+    {
+      "id": "tma4135-2-1-def-coverup",
+      "type": "definition",
+      "title": "Tildekkingsmetoden for enkle poler",
+      "content": "Den raske måten å finne tellerne i en oppspalting når nevneren har lutter forskjellige reelle røtter. Har du\n\n$$\\frac{N(s)}{(s-r_1)(s-r_2)\\cdots(s-r_m)} = \\frac{A_1}{s-r_1} + \\frac{A_2}{s-r_2} + \\dots + \\frac{A_m}{s-r_m},$$\n\nfinner du $A_k$ ved å **dekke til** faktoren $(s-r_k)$ i den opprinnelige brøken og sette $s = r_k$ i alt som er igjen.\n\nMetoden **må kunnes eller utledes aktivt** — den står ikke på formelarket. Den gjelder bare for enkle røtter; doble røtter og andregradsnevnere uten reelle røtter håndteres i [kap. 2.2](/tma4135/tma4135-2-2).\n\nKontrollen som alltid virker: sett inn en enkel $s$-verdi, for eksempel $s=0$, på begge sider og se at tallene stemmer."
+    },
+    {
+      "id": "tma4135-2-1-eks-6",
+      "type": "example",
+      "title": "Fullstendig eksamensoppgave: tredjeordens likning",
+      "problem": "Løs $y''' - 4y' = 0$ med $y(0)=1$, $y'(0)=0$ og $y''(0)=8$. Oppgi svaret som eksakt uttrykk.",
+      "solution": "**Skritt 1 og 2 — transformer og sett inn startverdiene.** Etter derivasjonsregelen for tredje orden:\n$$\\mathcal{L}\\{y'''\\} = s^3Y - s^2y(0) - s\\,y'(0) - y''(0) = s^3Y - s^2 - 8,$$\nog $\\mathcal{L}\\{4y'\\} = 4\\left(sY - y(0)\\right) = 4sY - 4$. Likningen blir\n$$s^3Y - s^2 - 8 - 4sY + 4 = 0.$$\n\n**Skritt 3 — løs for $Y$.** Samle:\n$$\\left(s^3-4s\\right)Y = s^2 + 4 \\quad\\Longrightarrow\\quad Y(s) = \\frac{s^2+4}{s\\left(s^2-4\\right)} = \\frac{s^2+4}{s(s-2)(s+2)}.$$\nFaktoriseringen av nevneren er første halvdel av jobben: $s^3-4s = s(s^2-4) = s(s-2)(s+2)$. Tre forskjellige reelle røtter — altså er tildekkingsmetoden nok.\n\n**Skritt 4 — spalt opp og transformer tilbake.** Vi skriver\n$$\\frac{s^2+4}{s(s-2)(s+2)} = \\frac{A}{s} + \\frac{B}{s-2} + \\frac{C}{s+2}$$\nog bruker tildekkingsmetoden på hver:\n$$A = \\left.\\frac{s^2+4}{(s-2)(s+2)}\\right|_{s=0} = \\frac{4}{(-2)(2)} = -1,$$\n$$B = \\left.\\frac{s^2+4}{s(s+2)}\\right|_{s=2} = \\frac{8}{2\\cdot 4} = 1,$$\n$$C = \\left.\\frac{s^2+4}{s(s-2)}\\right|_{s=-2} = \\frac{8}{(-2)(-4)} = 1.$$\nAltså\n$$Y(s) = -\\frac1s + \\frac{1}{s-2} + \\frac{1}{s+2}.$$\n\nFra tabellen på formelarket gir $1/s$ konstanten $1$ og $1/(s-a)$ gir $e^{at}$:\n$$y(t) = -1 + e^{2t} + e^{-2t} = -1 + 2\\cosh 2t.$$\nDe to siste leddene kan slås sammen til $2\\cosh 2t$ fordi $\\cosh 2t = \\tfrac12\\left(e^{2t}+e^{-2t}\\right)$. Begge skrivemåter er riktige.\n\n**Kontroll — begge veier.**\n*Startverdiene:* $y(0) = -1+1+1 = 1$; $y' = 2e^{2t}-2e^{-2t}$ gir $y'(0)=0$; $y''=4e^{2t}+4e^{-2t}$ gir $y''(0)=8$. Alle tre stemmer.\n*Likningen:* $y'''=8e^{2t}-8e^{-2t}$ og $4y' = 8e^{2t}-8e^{-2t}$, så $y'''-4y'=0$.\n\n**Hva som gir uttelling her.** Instruksen på settene er at alle svar skal begrunnes med nok mellomregning til at tenkemåten klart framgår. Det betyr i praksis: skriv ut derivasjonsregelen med startverdiene satt inn (skritt 1–2), vis faktoriseringen av nevneren, og skriv «fra tabellen» der du slår opp. Et riktig sluttsvar uten disse linjene gir ikke full uttelling."
+    },
+    {
+      "id": "tma4135-2-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y' - y = e^{3t}$ med $y(0)=0$.",
+        "solution": "**Transformer.** Etter derivasjonsregelen er $\\mathcal{L}\\{y'\\}=sY-0=sY$, og fra tabellen er $\\mathcal{L}\\{e^{3t}\\}=1/(s-3)$:\n$$sY - Y = \\frac{1}{s-3} \\quad\\Longrightarrow\\quad (s-1)Y = \\frac{1}{s-3}.$$\n\n**Løs for $Y$:**\n$$Y(s) = \\frac{1}{(s-1)(s-3)}.$$\n\n**Tildekkingsmetoden.** Med $A/(s-1) + B/(s-3)$:\n$$A = \\left.\\frac{1}{s-3}\\right|_{s=1} = \\frac{1}{-2} = -\\frac12, \\qquad B = \\left.\\frac{1}{s-1}\\right|_{s=3} = \\frac{1}{2}.$$\nAltså $Y(s) = -\\tfrac12\\cdot\\frac{1}{s-1} + \\tfrac12\\cdot\\frac{1}{s-3}$, og fra tabellen:\n$$y(t) = \\frac12\\left(e^{3t} - e^{t}\\right).$$\n\n**Kontroll.** $y' = \\tfrac12\\left(3e^{3t}-e^{t}\\right)$, så\n$$y'-y = \\frac12\\left(3e^{3t}-e^{t}\\right) - \\frac12\\left(e^{3t}-e^{t}\\right) = \\frac12\\cdot 2e^{3t} = e^{3t}.$$\nOg $y(0) = \\tfrac12(1-1) = 0$. Stemmer.",
+        "hints": [
+          "Transformer begge sider. Høyresiden er en tabellrad.",
+          "Nevneren får to forskjellige reelle røtter — tildekkingsmetoden gir begge tellerne på noen sekunder."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y' + 3y = e^{-t}$ med $y(0)=2$.",
+        "solution": "**Transformer og sett inn startverdien:**\n$$sY - 2 + 3Y = \\frac{1}{s+1} \\quad\\Longrightarrow\\quad (s+3)Y = \\frac{1}{s+1} + 2.$$\n\n**Løs for $Y$:**\n$$Y(s) = \\frac{1}{(s+1)(s+3)} + \\frac{2}{s+3}.$$\nDet andre leddet er allerede på tabellform. Det første spaltes med tildekkingsmetoden:\n$$A = \\left.\\frac{1}{s+3}\\right|_{s=-1} = \\frac12, \\qquad B = \\left.\\frac{1}{s+1}\\right|_{s=-3} = -\\frac12.$$\nAltså\n$$Y(s) = \\frac{1/2}{s+1} - \\frac{1/2}{s+3} + \\frac{2}{s+3} = \\frac{1/2}{s+1} + \\frac{3/2}{s+3}.$$\n\n**Fra tabellen:**\n$$y(t) = \\frac12 e^{-t} + \\frac32 e^{-3t}.$$\n\n**Kontroll.** $y(0) = \\tfrac12+\\tfrac32 = 2$. Og\n$$y' + 3y = \\left(-\\tfrac12e^{-t} - \\tfrac92e^{-3t}\\right) + \\left(\\tfrac32e^{-t} + \\tfrac92e^{-3t}\\right) = e^{-t}.$$\nStemmer.\n\n**Merk hvordan startverdien kom inn.** Den ble et eget ledd, $2$, på høyresiden i skritt 1 — ikke en konstant du bestemmer til slutt. Det er hele gevinsten ved metoden.",
+        "hints": [
+          "Startverdien $y(0)=2$ havner på høyresiden når du flytter over.",
+          "Samle de to $1/(s+3)$-leddene før du slår opp — det sparer et skritt."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs $y''' - y' = 0$ med $y(0)=0$, $y'(0)=1$ og $y''(0)=0$. Oppgi svaret både med hyperbolsk funksjon og med eksponentialfunksjoner, og kontroller alle tre startverdiene.",
+        "solution": "**Transformer.** Etter derivasjonsregelen for tredje orden med $y(0)=0$, $y'(0)=1$, $y''(0)=0$:\n$$\\mathcal{L}\\{y'''\\} = s^3Y - s^2\\cdot 0 - s\\cdot 1 - 0 = s^3Y - s,$$\nog $\\mathcal{L}\\{y'\\} = sY - 0 = sY$. Likningen blir\n$$s^3Y - s - sY = 0 \\quad\\Longrightarrow\\quad \\left(s^3-s\\right)Y = s.$$\n\n**Løs for $Y$.** Her lønner det seg å forkorte før man spalter:\n$$Y(s) = \\frac{s}{s^3-s} = \\frac{s}{s\\left(s^2-1\\right)} = \\frac{1}{s^2-1}.$$\nFaktoren $s$ forkortes bort, og det som så ut som en treleddet oppspalting, er én eneste tabellrad.\n\n**Fra tabellen** med $\\mathcal{L}\\{\\sinh at\\}=a/(s^2-a^2)$ og $a=1$:\n$$y(t) = \\sinh t = \\frac{e^{t}-e^{-t}}{2}.$$\n\n**Kontroll.** $y(0)=\\sinh 0 = 0$. $y' = \\cosh t$, så $y'(0)=1$. $y''=\\sinh t$, så $y''(0)=0$. Og $y'''=\\cosh t = y'$, så $y'''-y'=0$. Alle fire kravene er oppfylt.\n\n**Poenget med oppgaven:** forkort alltid før du setter i gang med oppspalting. En felles faktor mellom teller og nevner er gratis arbeid spart, og den er lett å overse når man har hastverk.",
+        "hints": [
+          "Skriv opp $\\mathcal{L}\\{y'''\\}$ og $\\mathcal{L}\\{y'\\}$ med startverdiene satt inn, og samle $Y$-leddene.",
+          "Se etter en felles faktor i teller og nevner **før** du begynner å spalte opp."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-1-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Derivasjonsregelen kan brukes til å utlede tabellrader du ikke har.\n\n**a)** Bruk at $\\left(\\sin\\omega t\\right)' = \\omega\\cos\\omega t$ og derivasjonsregelen til å utlede $\\mathcal{L}\\{\\cos\\omega t\\}$ fra $\\mathcal{L}\\{\\sin\\omega t\\} = \\omega/(s^2+\\omega^2)$.\n**b)** Bruk derivasjonsregelen på $f(t)=t^{n}$ til å vise sammenhengen $\\mathcal{L}\\{t^{n}\\} = \\dfrac{n}{s}\\,\\mathcal{L}\\{t^{n-1}\\}$ for $n\\ge 1$, og bruk den til å regne deg fra $\\mathcal{L}\\{1\\}=1/s$ opp til $\\mathcal{L}\\{t^3\\}$.",
+        "solution": "**a)** La $f(t)=\\sin\\omega t$. Da er $f(0)=0$ og $f'(t)=\\omega\\cos\\omega t$. Etter derivasjonsregelen:\n$$\\mathcal{L}\\{f'\\} = sF(s) - f(0) = s\\cdot\\frac{\\omega}{s^2+\\omega^2} - 0 = \\frac{\\omega s}{s^2+\\omega^2}.$$\nMen $\\mathcal{L}\\{f'\\} = \\mathcal{L}\\{\\omega\\cos\\omega t\\} = \\omega\\,\\mathcal{L}\\{\\cos\\omega t\\}$ etter linearitet. Deler vi begge sider på $\\omega$:\n$$\\mathcal{L}\\{\\cos\\omega t\\} = \\frac{s}{s^2+\\omega^2}.$$\nDet er nøyaktig cosinus-raden i tabellen.\n\n**b)** La $f(t)=t^{n}$ med $n\\ge 1$. Da er $f(0)=0$ og $f'(t)=n\\,t^{n-1}$. Derivasjonsregelen gir\n$$n\\,\\mathcal{L}\\{t^{n-1}\\} = \\mathcal{L}\\{f'\\} = s\\,\\mathcal{L}\\{t^{n}\\} - 0,$$\nog løser vi for det vi vil ha:\n$$\\mathcal{L}\\{t^{n}\\} = \\frac{n}{s}\\,\\mathcal{L}\\{t^{n-1}\\}.$$\n\n**Trappen oppover fra $\\mathcal{L}\\{1\\}=1/s$:**\n$$\\mathcal{L}\\{t\\} = \\frac{1}{s}\\cdot\\frac1s = \\frac{1}{s^2}, \\qquad \\mathcal{L}\\{t^2\\} = \\frac{2}{s}\\cdot\\frac{1}{s^2} = \\frac{2}{s^3}, \\qquad \\mathcal{L}\\{t^3\\} = \\frac{3}{s}\\cdot\\frac{2}{s^3} = \\frac{6}{s^4}.$$\nDette stemmer med $\\mathcal{L}\\{t^n\\}=n!/s^{n+1}$: for $n=3$ er $3!=6$ og $s^{4}$.\n\n**Hvorfor oppgaven er verdt tiden:** den viser at tabellen ikke er en samling uavhengige fakta. Radene henger sammen gjennom derivasjonsregelen, og skulle du en dag stå uten arket, kan du bygge dem opp igjen fra $\\mathcal{L}\\{1\\}$.",
+        "hints": [
+          "I a): hva er $f(0)$ når $f(t)=\\sin\\omega t$? Det leddet forsvinner.",
+          "I b): bruk at $f(0)=0$ for alle $n\\ge 1$, og løs regelen med hensyn på $\\mathcal{L}\\{t^n\\}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Et manglende ledd i $\\mathcal{L}\\{y''\\}$ — nesten alltid $-s\\,y(0)$.** Regelen har tre ledd: $s^2Y - s\\,y(0) - y'(0)$. Det midterste er det som ryker, særlig når $y(0)$ ikke er null. Motgiften er å skrive regelen med bokstaver først og sette inn tall etterpå, aldri omvendt.\n\n**Startverdiene satt inn for sent.** Noen transformerer likningen, løser for $Y$, og prøver så å presse inn startverdiene i sluttsvaret. Da er hele gevinsten ved metoden borte, og svaret blir galt. Startverdiene skal inn i skritt 2, samtidig som du bruker derivasjonsregelen.\n\n**Fortegnsfeil når en startverdi er negativ.** Er $y'(0)=-3$, blir leddet $-y'(0)=+3$. To minuser som blir pluss er den mest trivielle feilkilden i hele kapitlet, og den koster like mye som en tung feil.\n\n**Å blande derivasjonsregelen med produktregelen.** $\\mathcal{L}\\{y'\\}$ er ikke «den deriverte av $Y$», og $\\mathcal{L}\\{f\\cdot g\\}$ er ikke $F\\cdot G$. Transformen av et produkt behandles i [kap. 2.4](/tma4135/tma4135-2-4), og svaret der er ikke det du gjetter på.\n\n**Å glemme $\\omega$ i telleren på sinus-raden.** $\\mathcal{L}\\{\\sin 5t\\}=5/(s^2+25)$, ikke $1/(s^2+25)$. Samme feil andre veien: ser du $6/(s^2+9)$, er svaret $2\\sin 3t$, ikke $6\\sin 3t$.\n\n**Å forveksle $s^2+\\omega^2$ med $s^2-a^2$.** Pluss gir svingninger ($\\cos$, $\\sin$); minus gir vekst og demping ($\\cosh$, $\\sinh$). Ett fortegn skiller to helt forskjellige svar.\n\n**Å bytte bare i nevneren ved førsteforskyvning.** Regelen er $F(s-a)$ — hele funksjonen. Telleren skal med.\n\n**Å regne ut transformen fra definisjonen på eksamen.** Du har tabellen foran deg. Å integrere $\\int_0^\\infty e^{-st}\\cos\\omega t\\,dt$ for hånd koster ti minutter du ikke har, og gir ikke ett poeng mer enn oppslaget."
+    },
+    {
+      "id": "tma4135-2-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** De siste definisjonene samler opp begreper du møter i resten av Del 2. Tidsanslaget på 60 minutter gjelder kjernestoffet foran."
+    },
+    {
+      "id": "tma4135-2-1-def-pol",
+      "type": "definition",
+      "title": "Pol",
+      "content": "En $s$-verdi der en brøk sprenger, altså der nevneren er null mens telleren ikke er det.\n\nFor $Y(s) = (s+2)/\\left(s^2+4\\right)$ er polene $s = \\pm 2i$. For $Y(s)=1/((s-1)(s-3))$ er de $s=1$ og $s=3$.\n\n**Hvorfor polene er verdt å se på med én gang:** de bestemmer formen på svaret før du har regnet ferdig. Reelle poler gir eksponentialfunksjoner, et par rent imaginære poler gir rene svingninger, og et par komplekse poler $a\\pm bi$ gir dempede svingninger $e^{at}\\cos bt$ og $e^{at}\\sin bt$. Ser du polene, vet du hva slags svar du skal ende opp med."
+    },
+    {
+      "id": "tma4135-2-1-def-enkel-multippel-pol",
+      "type": "definition",
+      "title": "Enkel og multippel pol",
+      "content": "En pol er **enkel** når faktoren står i første potens, som $(s-3)$, og **multippel** når den er opphøyd, som $(s-3)^2$.\n\nSkillet avgjør hvordan brøken spaltes. En enkel pol gir ett ledd, $A/(s-3)$, og et rent eksponentialledd i svaret. En dobbel pol gir **to** ledd, $A/(s-3)+B/(s-3)^2$, og svaret får med seg en faktor $t$: $\\left(A+Bt\\right)e^{3t}$. Tildekkingsmetoden alene er ikke nok ved multiple poler — se [kap. 2.2](/tma4135/tma4135-2-2)."
+    },
+    {
+      "id": "tma4135-2-1-def-rasjonal",
+      "type": "definition",
+      "title": "Rasjonal funksjon",
+      "content": "En brøk mellom to polynomer, som $\\dfrac{s^2+4}{s^3-4s}$.\n\nAt $Y(s)$ nesten alltid blir rasjonal, er hele grunnen til at metoden er praktisk: rasjonale funksjoner kan **alltid** spaltes i enkle brøker som står i tabellen. Er graden i telleren mindre enn i nevneren — en **ekte** brøk — går oppspaltingen rett. Er den ikke det, må du dele ut først."
+    },
+    {
+      "id": "tma4135-2-1-def-karakteristisk",
+      "type": "definition",
+      "title": "Nevnerpolynomet og likningens karakteristiske uttrykk",
+      "content": "Polynomet du får foran $Y$ når du transformerer venstresiden av en likning med konstante koeffisienter.\n\nFor $y''+3y'-4y$ blir det $s^2+3s-4$ — nøyaktig likningen med $y''\\to s^2$, $y'\\to s$ og $y\\to 1$. Dette er den samme karakteristiske likningen du kjenner fra den klassiske løsningsmetoden, og røttene er de samme.\n\n**Praktisk nytte:** du kan skrive parentesen ned direkte, uten å transformere ledd for ledd, og bruke tiden på startverdibidraget i stedet. Det er også en gratis kontroll: stemmer ikke parentesen med likningen, har du regnefeil."
+    },
+    {
+      "id": "tma4135-2-1-def-grensekontroll",
+      "type": "definition",
+      "title": "Grensekontrollen $F(s)\\to 0$",
+      "content": "En rask fornuftssjekk på enhver transform du har regnet ut. For enhver funksjon av eksponentiell orden gjelder\n\n$$F(s) \\to 0 \\qquad \\text{når } s\\to\\infty.$$\n\nPraktisk betyr det at telleren i $F(s)$ alltid må ha **lavere** grad enn nevneren. Ender du med $F(s) = (s^2+1)/(s^2+4)$, som går mot $1$, har du regnet feil et sted. Sjekken koster to sekunder og fanger overraskende mange slurvefeil."
+    },
+    {
+      "id": "tma4135-2-1-def-multiplikasjon-t",
+      "type": "definition",
+      "title": "Multiplikasjon med $t$ i tidsplanet",
+      "content": "Regelen som svarer til derivasjon i $s$-planet:\n\n$$\\mathcal{L}\\{t\\,f(t)\\} = -F'(s).$$\n\nDen brukes sjelden direkte på eksamen, men den forklarer hvor faktorene $t$ i svarene kommer fra. Er $F(s)=1/(s-a)$, så er $-F'(s) = 1/(s-a)^2$, altså $\\mathcal{L}\\{te^{at}\\}=1/(s-a)^2$ — samme resultat som førsteforskyvningen ga. To veier til samme rad; velg den du husker."
+    },
+    {
+      "id": "tma4135-2-1-def-eksakt-svarform",
+      "type": "definition",
+      "title": "Eksakt svarform",
+      "content": "Kravet i oppgaveteksten om at svaret skal stå som et lukket uttrykk, ikke som et desimaltall.\n\n$\\tfrac12\\left(e^{3t}-e^{t}\\right)$ er eksakt; $0{,}5e^{3t}-0{,}5e^{t}$ er også greit, men $1{,}41\\sin(2t+0{,}79)$ er det ikke — der er både $\\sqrt2$ og $\\pi/4$ rundet av. Regelen i dette emnet er: **eksakt uttrykk der det går an, tallverdi med nok siffer ellers.** Ber en oppgave om et tall, oppgir du et tall; ellers lar du røttene og $\\pi$-ene stå."
+    },
+    {
+      "id": "tma4135-2-1-def-hjelpemiddel-c",
+      "type": "definition",
+      "title": "Hjelpemiddelkode C og det utdelte formelarket",
+      "content": "Reglementet som avgjør hva du har med deg inn i eksamenslokalet: bestemte trykte og håndskrevne hjelpemidler pluss en enkel kalkulator. I praksis betyr det ett gult, stemplet A5-ark med dine egne håndskrevne notater — **og** et formelark som deles ut sammen med oppgavesettet.\n\nFormelarket inneholder blant annet hele Laplace-tabellen. Derfor er det ikke tabellen som avgjør karakteren, men om du klarer å se hvilken rad en oppgave hører til og føre regningen fram. Boka markerer derfor gjennomgående hva som **står på det utdelte formelarket — tren oppslaget** og hva som **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-2-1-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på algebraen og kalkulusen kapitlet hviler på. Bruker du mer enn ti minutter til sammen, er det verdt en runde med grunnleggende regning før du går videre til [kap. 2.2](/tma4135/tma4135-2-2)."
+        },
+        {
+          "id": "tma4135-2-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-1-r1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Faktoriser fullstendig.\n\n**a)** $s^2-9$\n**b)** $s^3-4s$\n**c)** $s^2+5s+6$",
+            "solution": "**a)** Konjugatsetningen: $s^2-9=(s-3)(s+3)$.\n\n**b)** Sett først $s$ utenfor: $s^3-4s = s\\left(s^2-4\\right) = s(s-2)(s+2)$.\n\n**c)** To tall med produkt $6$ og sum $5$ er $2$ og $3$: $s^2+5s+6=(s+2)(s+3)$.",
+            "hints": [
+              "Se etter en felles faktor før du gjør noe annet.",
+              "I a) og b): $x^2-a^2=(x-a)(x+a)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-1-r2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver.\n\n**a)** $e^{-3t}$\n**b)** $\\cos 4t$\n**c)** $t^2e^{t}$",
+            "solution": "**a)** Kjerneregelen: $\\left(e^{-3t}\\right)' = -3e^{-3t}$.\n\n**b)** $\\left(\\cos 4t\\right)' = -4\\sin 4t$ — både fortegnet og faktoren 4 skal med.\n\n**c)** Produktregelen: $\\left(t^2e^{t}\\right)' = 2te^{t} + t^2e^{t} = \\left(t^2+2t\\right)e^{t}$.",
+            "hints": [
+              "I a) og b): den indre deriverte kommer som en faktor foran.",
+              "I c): produktregelen $(uv)'=u'v+uv'$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-1-r3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\displaystyle\\int_0^{\\infty} e^{-2t}\\,dt$, og forklar hvorfor integralet ikke konvergerer hvis eksponenten er $+2t$.",
+            "solution": "$$\\int_0^{\\infty} e^{-2t}\\,dt = \\left[-\\frac12 e^{-2t}\\right]_0^{\\infty} = 0 - \\left(-\\frac12\\right) = \\frac12.$$\nVed den øvre grensen går $e^{-2t}\\to 0$ fordi eksponenten er negativ.\n\nMed $e^{+2t}$ vokser integranden over alle grenser, og $\\left[\\tfrac12e^{2t}\\right]_0^{\\infty}$ er uendelig. Det er nøyaktig dette som er innholdet i kravet $s>a$ i transformparet $\\mathcal{L}\\{e^{at}\\}=1/(s-a)$: er $s$ for liten, taper $e^{-st}$ kappløpet mot $e^{at}$.",
+            "hints": [
+              "Antideriverte av $e^{kt}$ er $\\tfrac1k e^{kt}$.",
+              "Hva skjer med $e^{kt}$ når $t\\to\\infty$, avhengig av fortegnet på $k$?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-1-r4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Bruk delvis integrasjon til å regne ut $\\displaystyle\\int_0^{1} t\\,e^{-t}\\,dt$.",
+            "solution": "Sett $u=t$ og $dv=e^{-t}dt$, slik at $du=dt$ og $v=-e^{-t}$:\n$$\\int_0^1 te^{-t}\\,dt = \\Big[-te^{-t}\\Big]_0^1 + \\int_0^1 e^{-t}\\,dt = -e^{-1} + \\Big[-e^{-t}\\Big]_0^1 = -e^{-1} - e^{-1} + 1 = 1 - \\frac{2}{e}.$$\nTallverdi: $1 - 2/e \\approx 0{,}2642$.\n\n**Hvorfor dette er relevant:** utledningen av derivasjonsregelen er den samme manøveren, bare med $\\infty$ som øvre grense.",
+            "hints": [
+              "Velg $u=t$, siden $t$ blir enklere når du deriverer den.",
+              "$\\int e^{-t}dt = -e^{-t}$ — pass på fortegnet begge steder."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-1-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-1-r5",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv $\\dfrac{7}{(x-1)(x+6)}$ som en sum av to brøker med konstant teller.",
+            "solution": "Sett $\\dfrac{7}{(x-1)(x+6)} = \\dfrac{A}{x-1} + \\dfrac{B}{x+6}$. Gang opp:\n$$7 = A(x+6) + B(x-1).$$\nSett $x=1$: $7 = 7A$, altså $A=1$. Sett $x=-6$: $7 = -7B$, altså $B=-1$. Da er\n$$\\frac{7}{(x-1)(x+6)} = \\frac{1}{x-1} - \\frac{1}{x+6}.$$\n\n**Kontroll.** Sett $x=0$ på begge sider: venstre gir $7/((-1)(6)) = -7/6$; høyre gir $-1 - 1/6 = -7/6$. Stemmer.\n\nDette er nøyaktig tildekkingsmetoden, bare med $x$ i stedet for $s$.",
+            "hints": [
+              "Gang opp med hele nevneren, og sett deretter inn de $x$-verdiene som nuller ut én parentes om gangen.",
+              "Kontroller med en tredje $x$-verdi til slutt."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-2-1-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathcal{L}\\{f\\}$ | Laplace-transformen av $f$ |\n| $\\mathcal{L}^{-1}\\{F\\}$ | Den inverse Laplace-transformen |\n| $f(t)$, $g(t)$, $y(t)$ | Funksjoner av tid, definert for $t\\ge 0$ |\n| $F(s)$, $G(s)$, $Y(s)$ | Transformene av $f$, $g$ og $y$ |\n| $s$ | Variabelen i det transformerte planet |\n| $t$ | Tidsvariabelen |\n| $a$ | Vekstraten i $e^{at}$, eller polens plassering |\n| $\\omega$ | Vinkelfrekvensen i $\\sin\\omega t$ og $\\cos\\omega t$ |\n| $n!$ | Fakultet: $n!=1\\cdot 2\\cdots n$, og $0!=1$ |\n| $y(0)$, $y'(0)$ | Startverdiene |\n| $y^{(n)}$ | Den $n$-te deriverte av $y$ |\n| $A$, $B$, $C$ | Tellerne i en oppspaltet brøk |\n| $M$, $c$ | Konstantene i kravet om eksponentiell orden |\n\n**Kolliderende symboler i dette kapitlet:** $F$ er Laplace-transformen av $f$ her og i hele Del 2 — i separasjonsansatsen $u=F(x)G(t)$ senere i boka betyr $F$ noe helt annet. Bokstaven $a$ er vekstraten i $e^{at}$ her, men endepunktet i et intervall i numerikk-delene. Og $s$ er transformvariabelen her; i [kap. 1.1](/tma4135/tma4135-1-1) var den bare navnet på en variabel i en brøk."
+        },
+        {
+          "id": "tma4135-2-1-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$F(s) = \\mathcal{L}\\{f\\} = \\int_0^{\\infty}e^{-st}f(t)\\,dt$$\nDefinisjonen av Laplace-transformen. *(Må kunnes eller utledes aktivt — men den regnes aldri ut på eksamen.)*\n\n$$\\mathcal{L}\\{\\alpha f + \\beta g\\} = \\alpha\\mathcal{L}\\{f\\} + \\beta\\mathcal{L}\\{g\\}$$\nLinearitet. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{t^n\\} = \\frac{n!}{s^{n+1}}$$\nPotensfunksjonen. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{e^{at}\\} = \\frac{1}{s-a}$$\nEksponentialfunksjonen. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{\\cos\\omega t\\} = \\frac{s}{s^2+\\omega^2}, \\qquad \\mathcal{L}\\{\\sin\\omega t\\} = \\frac{\\omega}{s^2+\\omega^2}$$\nCosinus og sinus. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{\\cosh at\\} = \\frac{s}{s^2-a^2}, \\qquad \\mathcal{L}\\{\\sinh at\\} = \\frac{a}{s^2-a^2}$$\nHyperbolsk cosinus og sinus. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{y'\\} = sY - y(0)$$\nDerivasjonsregelen, første orden. *(Må kunnes eller utledes aktivt — den står ikke på arket.)*\n\n$$\\mathcal{L}\\{y''\\} = s^2Y - s\\,y(0) - y'(0)$$\nDerivasjonsregelen, andre orden. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{y'''\\} = s^3Y - s^2y(0) - s\\,y'(0) - y''(0)$$\nDerivasjonsregelen, tredje orden. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a)$$\nFørsteforskyvningsteoremet. *(Står på det utdelte formelarket — tren oppslaget, men du må kunne bruke den begge veier uten å slå opp.)*\n\n$$\\mathcal{L}\\{t^ne^{at}\\} = \\frac{n!}{(s-a)^{n+1}}$$\nPotens ganget med eksponentialfunksjon. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{t\\,f(t)\\} = -F'(s)$$\nMultiplikasjon med $t$. *(Må kunnes eller utledes aktivt.)*\n\n$$A_k = \\left.\\frac{N(s)}{\\prod_{j\\ne k}(s-r_j)}\\right|_{s=r_k}$$\nTildekkingsmetoden for enkle poler. *(Må kunnes eller utledes aktivt.)*\n\n$$F(s)\\to 0 \\quad \\text{når } s\\to\\infty$$\nGrensekontrollen. *(Må kunnes eller utledes aktivt.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

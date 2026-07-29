@@ -1,0 +1,412 @@
+{
+  "id": "tma4135-7-3",
+  "courseId": "tma4135",
+  "chapterNumber": "7.3",
+  "title": "Innfelt RK-par og steglengdekontroll",
+  "description": "Den nye sjangeren fra 2022: to $b$-rader gir et lokalt feilestimat som styrer aksept/forkast og neste steglengde.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "lese et innfelt par ut av en utdelt Butcher-tabell og bestemme ordenen til hver vektrad",
+    "regne det lokale feilestimatet fra de to vektradene, med felles stigningstall",
+    "avgjøre om et skritt aksepteres mot en oppgitt toleranse og si hva som skjer videre",
+    "bruke steglengdeformelen med riktig eksponent og kontrollere at forslaget peker riktig vei"
+  ],
+  "content": [
+    {
+      "id": "tma4135-7-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Innfelt Runge–Kutta-par med steglengdekontroll er sjanger N.** Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene; **N er den nye sjangeren fra 2022**.\n\n**Dette er en ny sjanger, og belegget i arkivet er tynt — det sier vi rett ut.**\n\nSjangeren opptrer i **3 av de 13 gjennomgåtte settene (23 %)**. Alle tre er fra **2022, 2023 og 2024** — den finnes ikke i et eneste sett før 2022.\n\n**Argumentet for å prioritere den:** den har vært med i **hvert eneste sett siden den dukket opp**. Tre av tre er et sterkt signal for at den er kommet for å bli, og den bygger direkte på Butcher-tabellen fra [kap. 7.2](/tma4135/tma4135-7-2). Selve regnearbeidet er kort.\n\n**Argumentet for å nedprioritere:** tre sett er et smalt grunnlag, og vi vet ikke hvordan vekten utvikler seg. Har du dårlig tid, kommer dette kapitlet etter Del 2, Del 3, Del 5, og etter [kap. 7.1](/tma4135/tma4135-7-1) og [kap. 7.2](/tma4135/tma4135-7-2).\n\n**Vår anbefaling:** ta kapitlet. Det er 55 minutter, det er lite stoff, og formen på oppgaven er svært stabil — tre delpunkter som alltid kommer i samme rekkefølge:\n\n1. **Regn feilestimatet** fra de to $b$-radene.\n2. **Avgjør om skrittet aksepteres** mot en oppgitt toleranse.\n3. **Foreslå ny steglengde** med steglengdeformelen.\n\n**Formelark-merking.**\n\n- **Står på det utdelte formelarket — tren oppslaget:** ordensbetingelsene fra [kap. 7.2](/tma4135/tma4135-7-2), som du trenger hvis oppgaven ber deg verifisere ordenene til de to radene. **Butcher-tabellen for paret deles ut i selve oppgaven.**\n- **Må kunnes eller utledes aktivt:** **feilestimatet** $\\hat\\varepsilon=h\\left|\\sum_i\\left(b_i-\\hat b_i\\right)k_i\\right|$, **aksept-/forkastregelen**, og **steglengdeformelen med eksponenten $1/(p+1)$**. Ingen av dem står på arket. **Sett dem på ditt eget A5-ark.**\n\n**Tidsbruk:** 55 minutter lesetid, fire løkker. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-7-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 7.2](/tma4135/tma4135-7-2) — Butcher-tabellen og ordensbetingelsene. Et innfelt par er ikke annet enn én tabell med **to** vektrader, og du må kunne verifisere ordenen til hver av dem.\n\nFra [kap. 7.1](/tma4135/tma4135-7-1) trenger du å regne stigningstall for hånd.\n\nFra [kap. 6.4](/tma4135/tma4135-6-4) trenger du å kunne løse en ulikhet med en $p$-te rot i.\n\nKapitlet er ikke forutsetning for noe senere kapittel — det er en avsluttet enhet."
+    },
+    {
+      "id": "tma4135-7-3-motivasjon",
+      "type": "text",
+      "content": "## Hvor stort skritt tør du ta?\n\nHittil har $h$ vært oppgitt. I virkeligheten er det det vanskeligste valget i hele beregningen.\n\n**Velger du $h$ for stor**, blir svaret unøyaktig — kanskje ubrukelig.\n**Velger du $h$ for liten**, bruker du timevis på noe som kunne tatt sekunder.\n\nOg det verste: **den riktige $h$-en er ikke den samme hele veien.** En rakett som står på bakken, trenger små skritt; når den er i bane, kan skrittene bli tusen ganger større. En fast $h$ må velges etter det verste stedet, og sløser da bort arbeid overalt ellers.\n\n**Ideen bak innfelte par er å la metoden måle sin egen feil.** Regn skrittet **to ganger** — én gang med en metode av orden $p$, én gang med en av orden $p+1$ — og bruk forskjellen mellom svarene som et estimat på feilen.\n\n**Hverdagsanalogien:** to landmålere måler samme avstand med hvert sitt utstyr, ett grovt og ett fint. Er svarene like, stoler du på begge. Spriker de, vet du at det grove utstyret ikke holder mål her — og du vet omtrent hvor mye.\n\n**Og det geniale er at det er nesten gratis.** De to metodene deler alle stigningstallene $k_i$; bare sluttblandingen er forskjellig. To svar til prisen av ett."
+    },
+    {
+      "id": "tma4135-7-3-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 55 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-7-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — To $b$-rader i én tabell (~13 min)"
+    },
+    {
+      "id": "tma4135-7-3-def-innfelt",
+      "type": "definition",
+      "title": "Innfelt Runge–Kutta-par",
+      "content": "To Runge–Kutta-metoder som **deler nodene $c_i$ og koeffisientmatrisen $A$**, men har hver sin vektrad:\n\n$$y_{n+1}=y_n+h\\sum_i b_ik_i \\qquad\\text{(orden } p\\text{)},$$\n$$\\hat y_{n+1}=y_n+h\\sum_i \\hat b_ik_i \\qquad\\text{(orden } p+1\\text{)}.$$\n\n**Det avgjørende er at stigningstallene $k_i$ er de samme.** De regnes én gang og brukes to ganger. Kostnaden for det ekstra svaret er én vektet sum — altså praktisk talt null.\n\n**Ordet «innfelt» (engelsk *embedded*)** betyr nettopp dette: den ene metoden ligger inne i den andre, og deler alt arbeidet.\n\n**Skrivemåten** er ofte $\\text{RK}p(p+1)$, for eksempel «et 2(3)-par» for orden 2 og 3."
+    },
+    {
+      "id": "tma4135-7-3-def-tabell",
+      "type": "definition",
+      "title": "Butcher-tabellen for et innfelt par",
+      "content": "Én tabell med **to** rader under streken:\n\n$$\\begin{array}{c|c}\\mathbf c & A\\\\ \\hline & \\mathbf b^{\\!\\top}\\\\ \\hline & \\hat{\\mathbf b}^{\\!\\top}\\end{array}$$\n\nDen øverste vektraden gir metoden av orden $p$, den nederste den av orden $p+1$ — men **les alltid oppgaveteksten**: konvensjonen varierer, og noen kilder setter den høyeste ordenen øverst.\n\n**Slik avgjør du selv hvilken som er hvilken:** verifiser ordensbetingelsene fra [kap. 7.2](/tma4135/tma4135-7-2) for hver rad. Radene deler $\\mathbf c$ og $A$, så regningen går fort.\n\n**Tabellen deles ut i oppgaven.** Det som **må kunnes**, er hva du gjør med de to radene."
+    },
+    {
+      "id": "tma4135-7-3-def-estimat",
+      "type": "definition",
+      "title": "Det lokale feilestimatet",
+      "content": "Forskjellen mellom de to svarene:\n\n$$\\hat\\varepsilon=\\left|\\hat y_{n+1}-y_{n+1}\\right|=h\\left|\\sum_i\\left(\\hat b_i-b_i\\right)k_i\\right|.$$\n\n**Hvorfor det er et estimat på feilen i $y_{n+1}$.** Den nøyaktige løsningen ligger nær $\\hat y_{n+1}$ (som har høyere orden), så\n\n$$\\left|y\\left(t_{n+1}\\right)-y_{n+1}\\right|\\approx\\left|\\hat y_{n+1}-y_{n+1}\\right|=\\hat\\varepsilon.$$\n\nEstimatet gjelder **den lavere ordens løsningen**. For $\\hat y_{n+1}$ selv er det en overvurdering — den er bedre enn estimatet sier.\n\n**Den praktiske formen** $h\\left|\\sum(\\hat b_i-b_i)k_i\\right|$ er ofte raskest: differansene $\\hat b_i-b_i$ er som regel enkle brøker, og flere av dem er null.\n\n**Formelen må kunnes** — den står ikke på det utdelte formelarket."
+    },
+    {
+      "id": "tma4135-7-3-def-modell",
+      "type": "definition",
+      "title": "Modellen $\\hat\\varepsilon\\approx Ch^{p+1}$",
+      "content": "Grunnlaget for hele steglengdekontrollen. Den lokale feilen til en metode av orden $p$ oppfører seg som\n\n$$\\hat\\varepsilon(h)\\approx C\\,h^{\\,p+1}$$\n\nfor liten $h$, der $C$ avhenger av problemet og av punktet du står i, men **ikke** av $h$.\n\n**Bruken:** har du målt $\\hat\\varepsilon$ ved én steglengde $h_0$, kan du **forutsi** hva den blir ved en annen:\n\n$$\\frac{\\hat\\varepsilon\\left(h_1\\right)}{\\hat\\varepsilon\\left(h_0\\right)}=\\left(\\frac{h_1}{h_0}\\right)^{p+1}.$$\n\n**Merk antakelsen:** at $C$ er den samme ved $h_0$ og $h_1$. Det holder når de to steglengdene ikke er altfor ulike — og det er grunnen til at man i praksis begrenser hvor mye $h$ får endre seg per skritt.\n\n**Modellen må kunnes** — den er det eneste du trenger for å utlede steglengdeformelen."
+    },
+    {
+      "id": "tma4135-7-3-eks1",
+      "type": "example",
+      "title": "Et 2(3)-par: to svar til prisen av ett",
+      "problem": "Et innfelt par er gitt ved\n\n$$\\begin{array}{c|ccc}0 & 0 & 0 & 0\\\\ \\tfrac12 & \\tfrac12 & 0 & 0\\\\ 1 & -1 & 2 & 0\\\\ \\hline & 0 & 1 & 0\\\\ \\hline & \\tfrac16 & \\tfrac23 & \\tfrac16\\end{array}$$\n\n**a)** Bestem ordenen til hver av de to vektradene.\n**b)** Bruk paret på $y'=t-2y$, $y(0)=1$, med $h=0{,}2$, og regn begge svarene.\n**c)** Finn det lokale feilestimatet, og sammenlikn med den virkelige feilen. Eksakt: $y(0{,}2)\\approx 0{,}6879001$.",
+      "solution": "**a) Ordenene.**\n\n**Øverste rad, $\\mathbf b=(0,1,0)$** — dette er midtpunktsmetoden fra [kap. 7.2](/tma4135/tma4135-7-2), utvidet med et ubrukt tredje steg.\n\n- Nivå 1: $0+1+0=1$ ✔\n- Nivå 2: $0\\cdot 0+1\\cdot\\tfrac12+0\\cdot 1=\\tfrac12$ ✔\n- Nivå 3, første: $1\\cdot\\left(\\tfrac12\\right)^{2}=\\tfrac14\\ne\\tfrac13$ ✘\n\n**Orden 2.**\n\n**Nederste rad, $\\hat{\\mathbf b}=\\left(\\tfrac16,\\tfrac23,\\tfrac16\\right)$** — dette er Kuttas tredjeordens metode, verifisert i [kap. 7.2](/tma4135/tma4135-7-2):\n\n- Nivå 1: $\\tfrac16+\\tfrac23+\\tfrac16=1$ ✔\n- Nivå 2: $\\tfrac23\\cdot\\tfrac12+\\tfrac16\\cdot 1=\\tfrac13+\\tfrac16=\\tfrac12$ ✔\n- Nivå 3, første: $\\tfrac23\\cdot\\tfrac14+\\tfrac16\\cdot 1=\\tfrac16+\\tfrac16=\\tfrac13$ ✔\n- Nivå 3, andre: $\\tfrac16\\left((-1)\\cdot 0+2\\cdot\\tfrac12\\right)=\\tfrac16$ ✔\n- Nivå 4, andre: $\\tfrac16\\cdot 1\\cdot 1=\\tfrac16\\ne\\tfrac18$ ✘\n\n**Orden 3.**\n\n**Vi har altså et 2(3)-par:** $p=2$ for den propagerte løsningen, $p+1=3$ for referansen.\n\n**b) Stigningstallene.** Med $f(t,y)=t-2y$:\n\n$$k_1=f(0;\\ 1)=0-2=-2,$$\n$$k_2=f\\left(0{,}1;\\ 1+0{,}2\\cdot\\tfrac12\\cdot(-2)\\right)=f(0{,}1;\\ 0{,}8)=0{,}1-1{,}6=-1{,}5,$$\n$$k_3=f\\left(0{,}2;\\ 1+0{,}2\\left((-1)(-2)+2(-1{,}5)\\right)\\right)=f\\left(0{,}2;\\ 1+0{,}2\\cdot(-1)\\right)=f(0{,}2;\\ 0{,}8).$$\n\n$$k_3=0{,}2-1{,}6=-1{,}4.$$\n\n**De to svarene.**\n\n$$y_1=1+0{,}2\\left(0\\cdot k_1+1\\cdot k_2+0\\cdot k_3\\right)=1+0{,}2\\cdot(-1{,}5)=1-0{,}3=0{,}7,$$\n\n$$\\hat y_1=1+0{,}2\\left(\\tfrac16(-2)+\\tfrac23(-1{,}5)+\\tfrac16(-1{,}4)\\right).$$\n\nRegn parentesen: $-\\tfrac13-1-\\tfrac{1{,}4}{6}=-0{,}3333333-1-0{,}2333333=-1{,}5666667$.\n\n$$\\hat y_1=1+0{,}2\\cdot(-1{,}5666667)=1-0{,}3133333=0{,}6866667.$$\n\n**Merk at alle tre stigningstallene ble brukt to ganger.** Det ekstra svaret kostet tre multiplikasjoner og to addisjoner.\n\n**c) Feilestimatet.**\n\n$$\\hat\\varepsilon=\\left|\\hat y_1-y_1\\right|=\\left|0{,}6866667-0{,}7\\right|=0{,}0133333.$$\n\n**Kontroll med differanseformelen.** Vektdifferansene er\n\n$$\\hat b_1-b_1=\\tfrac16-0=\\tfrac16,\\quad \\hat b_2-b_2=\\tfrac23-1=-\\tfrac13,\\quad \\hat b_3-b_3=\\tfrac16-0=\\tfrac16.$$\n\n$$\\hat\\varepsilon=h\\left|\\tfrac16k_1-\\tfrac13k_2+\\tfrac16k_3\\right|=\\frac{h}{6}\\left|k_1-2k_2+k_3\\right|=\\frac{0{,}2}{6}\\left|-2+3-1{,}4\\right|=\\frac{0{,}2}{6}\\cdot 0{,}4=0{,}0133333.$$\n\nSamme svar ✔\n\n**Sammenlikning med de virkelige feilene.**\n\n| | Verdi | Virkelig feil |\n|---|---|---|\n| $y_1$ (orden 2) | $0{,}7$ | $1{,}21\\cdot 10^{-2}$ |\n| $\\hat y_1$ (orden 3) | $0{,}6866667$ | $1{,}23\\cdot 10^{-3}$ |\n| Estimat $\\hat\\varepsilon$ | $1{,}33\\cdot 10^{-2}$ | — |\n\n**Estimatet $1{,}33\\cdot 10^{-2}$ treffer feilen i $y_1$ ($1{,}21\\cdot 10^{-2}$) svært godt** — det bommer med ti prosent. Det er nøyaktig slik det skal virke.\n\n**For $\\hat y_1$ er estimatet derimot ti ganger for stort**, siden den løsningen er en orden bedre. Det er en systematisk og velkjent egenskap, og den er en av grunnene til at man ofte propagerer $\\hat y$ likevel — se løkke 3."
+    },
+    {
+      "id": "tma4135-7-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-3-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Et innfelt par har vektradene\n\n$$\\mathbf b=\\left(1,\\ 0\\right),\\qquad \\hat{\\mathbf b}=\\left(\\tfrac12,\\ \\tfrac12\\right),$$\n\nmed $\\mathbf c=(0,1)$ og $a_{21}=1$.\n\n**a)** Hvilke to kjente metoder er dette?\n**b)** Hvilke ordener har de?\n**c)** Skriv opp feilestimatet uttrykt ved $k_1$ og $k_2$.",
+        "solution": "**a)** Med $\\mathbf b=(1,0)$ er $y_{n+1}=y_n+hk_1$, altså **eksplisitt Euler**.\n\nMed $\\hat{\\mathbf b}=\\left(\\tfrac12,\\tfrac12\\right)$ er $\\hat y_{n+1}=y_n+\\tfrac h2\\left(k_1+k_2\\right)$, altså **Heuns metode**.\n\nParet kalles ofte **Heun–Euler-paret**.\n\n**b)** Euler har orden 1, Heun har orden 2. Det er altså et **1(2)-par**.\n\n*(Rask verifikasjon: Euler feiler på nivå 2, siden $\\sum b_ic_i=1\\cdot 0+0\\cdot 1=0\\ne\\tfrac12$. Heun feiler på nivå 3, siden $\\sum \\hat b_ic_i^{2}=\\tfrac12\\ne\\tfrac13$.)*\n\n**c)** Vektdifferansene er $\\tfrac12-1=-\\tfrac12$ og $\\tfrac12-0=\\tfrac12$, så\n\n$$\\hat\\varepsilon=h\\left|-\\tfrac12 k_1+\\tfrac12 k_2\\right|=\\frac{h}{2}\\left|k_2-k_1\\right|.$$\n\n**Merk hvor enkelt uttrykket ble.** For dette paret er feilestimatet rett og slett halve steglengden ganger forskjellen på de to stigningstallene — et mål på hvor mye brattheten endret seg gjennom skrittet. **Det er akkurat den intuisjonen estimatet skal fange.**",
+        "hints": [
+          "Skriv ut hva hver vektrad gir for $y_{n+1}$.",
+          "Sjekk ordensbetingelsene fra kap. 7.2 for hver rad.",
+          "Feilestimatet er $h$ ganger differansen mellom de to vektede summene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-3-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger N — innfelt par.) Bruk Heun–Euler-paret fra oppgave 1 på $y'=t-2y$, $y(0)=1$, med $h=0{,}2$.\n\n**a)** Regn ut $k_1$ og $k_2$.\n**b)** Finn begge svarene og feilestimatet.\n**c)** Aksepteres skrittet mot Tol $=10^{-1}$? Mot Tol $=10^{-2}$?",
+        "solution": "**a)**\n\n$$k_1=f(0;\\ 1)=0-2\\cdot 1=-2,$$\n$$k_2=f\\left(0{,}2;\\ 1+0{,}2\\cdot(-2)\\right)=f(0{,}2;\\ 0{,}6)=0{,}2-1{,}2=-1.$$\n\n**b)**\n\n$$y_1=1+0{,}2\\cdot(-2)=0{,}6\\qquad\\text{(Euler, orden 1)},$$\n$$\\hat y_1=1+\\frac{0{,}2}{2}\\left(-2+(-1)\\right)=1-0{,}3=0{,}7\\qquad\\text{(Heun, orden 2)}.$$\n\n$$\\hat\\varepsilon=\\left|\\hat y_1-y_1\\right|=0{,}1.$$\n\n*Kontroll med formelen:* $\\dfrac{h}{2}\\left|k_2-k_1\\right|=\\dfrac{0{,}2}{2}\\left|-1+2\\right|=0{,}1\\cdot 1=0{,}1$ ✔\n\n**c)**\n\n**Tol $=10^{-1}=0{,}1$:** $\\hat\\varepsilon=0{,}1\\le 0{,}1$, så skrittet **aksepteres** — akkurat på grensen.\n\n**Tol $=10^{-2}=0{,}01$:** $\\hat\\varepsilon=0{,}1>0{,}01$, så skrittet **forkastes**. Feilen er ti ganger større enn tillatt, og skrittet må gjøres om med kortere $h$.\n\n**Merk hvor stort estimatet er.** Steglengden $h=0{,}2$ er for grov for dette problemet hvis kravet er strengt. Den eksakte feilen i Euler-svaret er $\\left|0{,}6-0{,}6879\\right|\\approx 0{,}088$ — estimatet på $0{,}1$ treffer bra.",
+        "hints": [
+          "Regn $k_1$ i startpunktet og $k_2$ i Euler-prediksjonen.",
+          "De to vektradene gir Euler og Heun.",
+          "Skrittet aksepteres når $\\hat\\varepsilon\\le$ Tol."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Aksept, forkast og ny steglengde (~15 min)\n\nFeilestimatet er halve jobben. Nå skal det brukes til noe."
+    },
+    {
+      "id": "tma4135-7-3-def-aksept",
+      "type": "definition",
+      "title": "Aksept- og forkastregelen",
+      "content": "$$\\hat\\varepsilon\\le\\text{Tol}\\ \\Longrightarrow\\ \\textbf{aksepter} \\text{ skrittet og gå videre},$$\n$$\\hat\\varepsilon>\\text{Tol}\\ \\Longrightarrow\\ \\textbf{forkast} \\text{ skrittet og gjør det om med mindre } h.$$\n\n**Merk at det er en absolutt avgjørelse**, ikke en gradering. Enten er skrittet godt nok, eller så er det ikke.\n\n**I begge tilfellene regner du en ny steglengde.** Ved aksept brukes den for **neste** skritt (og er som regel større). Ved forkast brukes den for å gjøre **det samme** skrittet om igjen (og er mindre).\n\n**Regelen må kunnes** — den står ikke på det utdelte formelarket."
+    },
+    {
+      "id": "tma4135-7-3-def-steglengde",
+      "type": "definition",
+      "title": "Steglengdeformelen",
+      "content": "$$h_{\\text{ny}}=P\\,h\\left(\\frac{\\text{Tol}}{\\hat\\varepsilon}\\right)^{1/(p+1)}.$$\n\n**Utledningen, i tre linjer.** Anta $\\hat\\varepsilon\\approx Ch^{p+1}$. Vi vil ha en $h_{\\text{ny}}$ slik at den nye feilen blir omtrent Tol:\n\n$$C\\,h_{\\text{ny}}^{\\,p+1}=\\text{Tol},\\qquad C\\,h^{\\,p+1}=\\hat\\varepsilon.$$\n\nDel likningene på hverandre; $C$ faller bort:\n\n$$\\left(\\frac{h_{\\text{ny}}}{h}\\right)^{p+1}=\\frac{\\text{Tol}}{\\hat\\varepsilon}\\ \\Longrightarrow\\ h_{\\text{ny}}=h\\left(\\frac{\\text{Tol}}{\\hat\\varepsilon}\\right)^{1/(p+1)}.$$\n\nSikkerhetsfaktoren $P$ kommer i tillegg og forklares i neste boks.\n\n**⚠ Eksponenten er $\\dfrac{1}{p+1}$, ikke $\\dfrac1p$.** Det er den dokumenterte hovedfeilen i sjangeren, og den kommer av at det er den **lokale** feilen (orden $p+1$) som modelleres, ikke den globale.\n\n**⚠ Og $p$ er ordenen til den løsningen du propagerer** — den lavere, hvis du ikke gjør lokal ekstrapolasjon. For et 2(3)-par med $p=2$ er eksponenten $\\tfrac13$.\n\n**Formelen må kunnes** — den står ikke på det utdelte formelarket. Sett den på ditt eget A5-ark."
+    },
+    {
+      "id": "tma4135-7-3-def-sikkerhet",
+      "type": "definition",
+      "title": "Sikkerhetsfaktoren $P$",
+      "content": "Et tall litt under 1, typisk\n\n$$P=0{,}8\\quad\\text{til}\\quad P=0{,}9.$$\n\n**Hvorfor den trengs.** Formelen bygger på antakelsen $\\hat\\varepsilon\\approx Ch^{p+1}$ med **konstant** $C$. Den antakelsen er tilnærmet, ikke eksakt. Sikter du rett på Tol, vil omtrent halvparten av skrittene bomme over — og et forkastet skritt koster hele arbeidet om igjen.\n\n**Med $P=0{,}9$ sikter du 10 prosent under**, og andelen forkastede skritt faller kraftig. Prisen er noen prosent flere skritt totalt. Det er en god handel.\n\n**På eksamen:** bruk verdien oppgaven oppgir. Er ingen oppgitt, si hvilken du velger — «med sikkerhetsfaktor $P=0{,}9$ blir …». **Å utelate faktoren helt er også akseptabelt hvis du sier fra**, men da må du si det."
+    },
+    {
+      "id": "tma4135-7-3-def-begrensning",
+      "type": "definition",
+      "title": "Begrensning av steglengdeendringen",
+      "content": "I praksis låses forholdet mellom ny og gammel steglengde:\n\n$$0{,}2\\ \\le\\ \\frac{h_{\\text{ny}}}{h}\\ \\le\\ 5.$$\n\n**Hvorfor.** Modellen $\\hat\\varepsilon\\approx Ch^{p+1}$ forutsetter at $C$ er den samme ved begge steglengdene. Et sprang på en faktor 100 bryter den forutsetningen fullstendig, og forslaget blir upålitelig.\n\n**Eksempel:** er $\\hat\\varepsilon$ svært liten fordi løsningen tilfeldigvis er nesten rett i akkurat dette skrittet, kan formelen foreslå $h_{\\text{ny}}=50h$. Neste skritt ville da bomme grovt.\n\n**Dette er «kjenne»-stoff** — du skal vite at grensene finnes og hvorfor, ikke regne med dem. Ber en oppgave om «foreslå ny steglengde», er det formelen den vil ha."
+    },
+    {
+      "id": "tma4135-7-3-eks2",
+      "type": "example",
+      "title": "Forkast og ny steglengde",
+      "problem": "Fortsett med 2(3)-paret fra eksempel 1, der $h=0{,}2$ ga $\\hat\\varepsilon=0{,}0133333$.\n\n**a)** Avgjør om skrittet aksepteres mot Tol $=10^{-2}$.\n**b)** Foreslå ny steglengde med $P=0{,}9$.\n**c)** Hva ville svaret blitt med Tol $=2\\cdot 10^{-2}$?",
+      "solution": "**a) Avgjørelsen.**\n\n$$\\hat\\varepsilon=0{,}0133333>0{,}01=\\text{Tol}.$$\n\n**Skrittet forkastes.** Feilestimatet er omtrent 33 prosent over toleransen, så vi må gjøre skrittet om med kortere steglengde.\n\n**b) Ny steglengde.** Den propagerte løsningen har orden $p=2$, så eksponenten er\n\n$$\\frac{1}{p+1}=\\frac13.$$\n\n$$h_{\\text{ny}}=P\\,h\\left(\\frac{\\text{Tol}}{\\hat\\varepsilon}\\right)^{1/3}=0{,}9\\cdot 0{,}2\\cdot\\left(\\frac{0{,}01}{0{,}0133333}\\right)^{1/3}.$$\n\nRegn brøken først: $\\dfrac{0{,}01}{0{,}0133333}=0{,}75$.\n\nDeretter kubikkrota: $0{,}75^{1/3}=e^{\\ln 0{,}75/3}=e^{-0{,}2876821/3}=e^{-0{,}0958940}\\approx 0{,}9085603$.\n\n$$h_{\\text{ny}}=0{,}18\\cdot 0{,}9085603\\approx 0{,}1635.$$\n\n**Svar:** gjør skrittet om med $h\\approx 0{,}164$.\n\n*Kontroll av at forslaget er fornuftig:* med den nye steglengden forventer vi\n\n$$\\hat\\varepsilon_{\\text{ny}}\\approx\\hat\\varepsilon\\left(\\frac{h_{\\text{ny}}}{h}\\right)^{3}=0{,}0133333\\cdot\\left(\\frac{0{,}1635}{0{,}2}\\right)^{3}=0{,}0133333\\cdot 0{,}5464\\approx 0{,}0073,$$\n\naltså godt under Tol $=0{,}01$ ✔ — nøyaktig den marginen sikkerhetsfaktoren skulle gi.\n\n**c) Med Tol $=2\\cdot 10^{-2}$.**\n\n$$\\hat\\varepsilon=0{,}0133333\\le 0{,}02=\\text{Tol}.$$\n\n**Skrittet aksepteres.** Vi går videre fra $y_1=0{,}7$, men regner likevel en ny steglengde for **neste** skritt:\n\n$$h_{\\text{ny}}=0{,}9\\cdot 0{,}2\\cdot\\left(\\frac{0{,}02}{0{,}0133333}\\right)^{1/3}=0{,}18\\cdot 1{,}5^{1/3}=0{,}18\\cdot 1{,}1447142\\approx 0{,}2060.$$\n\n**Svar:** aksepter, og bruk $h\\approx 0{,}206$ på neste skritt.\n\n**Legg merke til at formelen er den samme i begge tilfellene.** Det eneste som skiller aksept fra forkast, er om du går videre eller regner om — og om $h_{\\text{ny}}$ blir større eller mindre enn $h$.\n\n**Merk også hvor lite $h$ endrer seg her.** Estimatet lå nær toleransen, så forslaget ligger nær den gamle steglengden. **Det er et sunnhetstegn:** en godt innstilt integrator gjør små justeringer, ikke store sprang.\n\n**Tidsbruk på eksamen:** dette delpunktet er 4–5 minutter når formelen sitter."
+    },
+    {
+      "id": "tma4135-7-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-3-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger N — steglengdekontroll.) Et innfelt par av orden 3 og 4 brukes med $h=0{,}2$. Den propagerte løsningen har orden 3, og feilestimatet blir $\\hat\\varepsilon=5\\cdot 10^{-4}$. Toleransen er $10^{-5}$, og $P=0{,}9$.\n\n**a)** Aksepteres skrittet?\n**b)** Hvilken eksponent skal brukes i steglengdeformelen?\n**c)** Foreslå ny steglengde.",
+        "solution": "**a)**\n\n$$\\hat\\varepsilon=5\\cdot 10^{-4}>10^{-5}=\\text{Tol}.$$\n\n**Skrittet forkastes** — estimatet er 50 ganger toleransen.\n\n**b)** Den propagerte løsningen har orden $p=3$, så\n\n$$\\frac{1}{p+1}=\\frac14.$$\n\n**Merk at det er $p=3$ som teller**, ikke ordenen 4 til referanseløsningen. Det er den propagerte løsningens feil vi kontrollerer.\n\n**c)**\n\n$$h_{\\text{ny}}=0{,}9\\cdot 0{,}2\\cdot\\left(\\frac{10^{-5}}{5\\cdot 10^{-4}}\\right)^{1/4}=0{,}18\\cdot\\left(0{,}02\\right)^{1/4}.$$\n\nFjerderot er kvadratrot to ganger:\n\n$$\\sqrt{0{,}02}\\approx 0{,}1414214,\\qquad \\sqrt{0{,}1414214}\\approx 0{,}3760603.$$\n\n$$h_{\\text{ny}}=0{,}18\\cdot 0{,}3760603\\approx 0{,}0677.$$\n\n**Svar:** forkast skrittet og gjør det om med $h\\approx 0{,}068$.\n\n*Kontroll:* forholdet $h_{\\text{ny}}/h\\approx 0{,}34$ ligger godt innenfor den vanlige nedre grensen på $0{,}2$ ✔.\n\n*Kontroll av forventet feil:* $5\\cdot 10^{-4}\\cdot 0{,}34^{4}\\approx 6{,}7\\cdot 10^{-6}<10^{-5}$ ✔\n\n**Merk hvordan den høye ordenen demper reaksjonen.** Estimatet var 50 ganger for stort, men steglengden måtte bare tredeles. Med en metode av orden 1 (eksponent $\\tfrac12$) ville reduksjonen vært til under en sjuendedel. **Jo høyere orden, jo mindre må du krympe skrittet for en gitt forbedring** — det er en av hovedgrunnene til at høyordens metoder er effektive.",
+        "hints": [
+          "Sammenlikn estimatet med toleransen først.",
+          "Eksponenten er $1/(p+1)$ der $p$ er ordenen til den propagerte løsningen.",
+          "Fjerderot regnes som kvadratrot to ganger på en enkel kalkulator."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-3-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger N.) Et 2(3)-par gir $\\hat\\varepsilon=3\\cdot 10^{-5}$ med $h=0{,}1$. Toleransen er $10^{-4}$ og $P=0{,}9$.\n\n**a)** Aksepteres skrittet?\n**b)** Foreslå steglengde for neste skritt.\n**c)** Hvor mye vokser steglengden, og er veksten innenfor den vanlige grensen?",
+        "solution": "**a)**\n\n$$\\hat\\varepsilon=3\\cdot 10^{-5}\\le 10^{-4}=\\text{Tol}.$$\n\n**Skrittet aksepteres.** Feilen er godt under kravet — vi har brukt en unødvendig liten steglengde.\n\n**b)** Med $p=2$ er eksponenten $\\tfrac13$:\n\n$$h_{\\text{ny}}=0{,}9\\cdot 0{,}1\\cdot\\left(\\frac{10^{-4}}{3\\cdot 10^{-5}}\\right)^{1/3}=0{,}09\\cdot\\left(3{,}3333\\right)^{1/3}.$$\n\n$$3{,}3333^{1/3}=e^{\\ln 3{,}3333/3}=e^{1{,}2040/3}=e^{0{,}4013}\\approx 1{,}4938.$$\n\n$$h_{\\text{ny}}=0{,}09\\cdot 1{,}4938\\approx 0{,}1344.$$\n\n**Svar:** aksepter skrittet, og bruk $h\\approx 0{,}134$ på det neste.\n\n**c)** Veksten er\n\n$$\\frac{h_{\\text{ny}}}{h}=\\frac{0{,}1344}{0{,}1}\\approx 1{,}34,$$\n\naltså 34 prosent. Den vanlige øvre grensen er en faktor 5, så veksten er **godt innenfor** ✔\n\n**Merk hvor moderat formelen reagerer.** Feilestimatet var mer enn tre ganger under toleransen, men steglengden økte bare med en tredjedel. Det er kubikkrota som demper: en faktor $3{,}33$ i feil blir en faktor $1{,}49$ i steglengde.\n\n**Det er slik en adaptiv integrator oppfører seg:** den kryper oppover når det går bra, og kutter raskt når det går galt — fordi den samme eksponenten virker begge veier, men forkast er dyrere enn en litt for liten $h$.",
+        "hints": [
+          "Sammenlikn estimatet med toleransen først; her er det mindre.",
+          "Formelen er den samme ved aksept — den gjelder da neste skritt.",
+          "Regn forholdet $h_{\\text{ny}}/h$ og sammenlikn med grensen 5."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-3-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~29 min brukt) —\n\nDu kan hele mekanikken: estimat, aksept, ny steglengde. De to siste løkkene handler om varianten arkivet faktisk bruker, og om et par valg som må gjøres bevisst."
+    },
+    {
+      "id": "tma4135-7-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Varianten uten tabell, og hvilken løsning du fører videre (~14 min)\n\nFlere av oppgavene i arkivet gir deg **ikke** noen tabell. De gir deg et feilestimat og en steglengde, og ber deg finne den steglengden som treffer toleransen. Det er samme regnestykke, snudd."
+    },
+    {
+      "id": "tma4135-7-3-def-uten-tabell",
+      "type": "definition",
+      "title": "Varianten «$\\hat\\varepsilon$ oppfører seg som $Ch^{3}$»",
+      "content": "Oppgaveformen: «feilestimatet ved $h_0$ er $\\hat\\varepsilon_0$, og det oppfører seg som $Ch^{3}$. Hvilken $h_1$ gir $\\hat\\varepsilon_1\\approx\\text{Tol}$?»\n\n**Løsningen er modellen fra løkke 1, brukt direkte:**\n\n$$\\frac{\\text{Tol}}{\\hat\\varepsilon_0}=\\left(\\frac{h_1}{h_0}\\right)^{3}\\ \\Longrightarrow\\ h_1=h_0\\left(\\frac{\\text{Tol}}{\\hat\\varepsilon_0}\\right)^{1/3}.$$\n\n**Merk at eksponenten leses rett ut av oppgaveteksten.** Står det $Ch^{3}$, er eksponenten $\\tfrac13$; står det $Ch^{4}$, er den $\\tfrac14$. Du trenger ikke vite hvilken metode det er.\n\n**Merk også at sikkerhetsfaktoren ofte er utelatt her.** Oppgaven spør etter den steglengden som treffer toleransen, ikke etter et praktisk forslag. Les nøye — og si hva du gjør."
+    },
+    {
+      "id": "tma4135-7-3-def-lokal-ekstrapolasjon",
+      "type": "definition",
+      "title": "Lokal ekstrapolasjon: hvilken løsning føres videre?",
+      "content": "To valg finnes:\n\n**Uten lokal ekstrapolasjon:** før videre $y_{n+1}$, den av orden $p$ — den løsningen feilestimatet faktisk gjelder for. Da er kontrollen ærlig: du fører videre det du har målt feilen på.\n\n**Med lokal ekstrapolasjon:** før videre $\\hat y_{n+1}$, den av orden $p+1$. Den er bedre, så hvorfor ikke? Prisen er at feilestimatet nå gjelder en løsning du ikke bruker — det blir en overvurdering.\n\n**I praksis brukes lokal ekstrapolasjon nesten alltid.** Man tar den beste løsningen man har, og bruker estimatet som en konservativ styring.\n\n**Konsekvensen for eksponenten:** bruker du lokal ekstrapolasjon konsekvent, argumenterer noen for at eksponenten bør være $\\tfrac{1}{p+2}$. **På eksamen: bruk $\\tfrac{1}{p+1}$ med $p$ som ordenen oppgaven oppgir for den propagerte løsningen, og si hva du har antatt.** Konsistens og forklaring er det som teller."
+    },
+    {
+      "id": "tma4135-7-3-def-toleranse",
+      "type": "definition",
+      "title": "Absolutt kontra relativ toleranse",
+      "content": "**Absolutt toleranse:** $\\hat\\varepsilon\\le\\text{Tol}_{\\text{abs}}$. Passer når løsningen har en kjent størrelsesorden.\n\n**Relativ toleranse:** $\\hat\\varepsilon\\le\\text{Tol}_{\\text{rel}}\\left|y_n\\right|$. Passer når løsningen varierer over mange størrelsesordener.\n\n**I praksis kombineres de:**\n\n$$\\hat\\varepsilon\\ \\le\\ \\text{Tol}_{\\text{abs}}+\\text{Tol}_{\\text{rel}}\\left|y_n\\right|.$$\n\nDa unngår du to feller: at et rent relativt krav blir umulig når $y_n\\to 0$, og at et rent absolutt krav blir meningsløst når $y_n$ er enormt.\n\n**På eksamen er toleransen alltid absolutt** med mindre noe annet står. Dette er **kjenne**-stoff, men det er verdt én setning hvis en oppgave ber deg drøfte valget."
+    },
+    {
+      "id": "tma4135-7-3-def-fsal",
+      "type": "definition",
+      "title": "FSAL-egenskapen",
+      "content": "**F**irst **S**ame **A**s **L**ast: noen innfelte par er konstruert slik at det **siste** stigningstallet i ett skritt er identisk med det **første** i neste.\n\nDet skjer når den siste raden i $A$ er lik $\\hat{\\mathbf b}$, og $c_s=1$.\n\n**Gevinsten:** et $s$-stegs par koster i praksis bare $s-1$ funksjonsevalueringer per aksepterte skritt, siden ett stigningstall gjenbrukes.\n\n**Hvorfor det er verdt å vite:** flere av de mest brukte parene i praksis (blant annet det klassiske 4(5)-paret i mange programpakker) har egenskapen, og den forklarer hvorfor de er billigere enn stegtallet skulle tilsi.\n\n**Dette er «kjenne»-stoff.** Ser du at siste rad i $A$ er lik en av vektradene, kan du nevne FSAL — det er en presis observasjon som viser at du har lest tabellen."
+    },
+    {
+      "id": "tma4135-7-3-eks3",
+      "type": "example",
+      "title": "Eksamensnivå: steglengde fra en oppgitt feilmodell",
+      "problem": "En integrator med et innfelt par gir et lokalt feilestimat som oppfører seg som $\\hat\\varepsilon\\approx Ch^{3}$.\n\nMed $h_0=0{,}25$ er det målte estimatet $\\hat\\varepsilon_0=4\\cdot 10^{-3}$.\n\n**a)** Hvilken orden har den propagerte løsningen?\n**b)** Finn den steglengden $h_1$ som gir $\\hat\\varepsilon_1\\approx 10^{-4}$.\n**c)** Hvor mange skritt trengs da for å komme fra $t=0$ til $t=1$, sammenliknet med $h_0$?\n**d)** Kommenter om forslaget er praktisk brukbart.",
+      "solution": "**a)** Modellen for den lokale feilen til en metode av orden $p$ er $\\hat\\varepsilon\\approx Ch^{p+1}$. Her er eksponenten 3, altså\n\n$$p+1=3\\ \\Longrightarrow\\ \\boxed{p=2}.$$\n\nDen propagerte løsningen har **orden 2**, og paret er et 2(3)-par.\n\n**b) Den nye steglengden.** Modellen gir\n\n$$\\frac{\\hat\\varepsilon_1}{\\hat\\varepsilon_0}=\\left(\\frac{h_1}{h_0}\\right)^{3}\\ \\Longrightarrow\\ h_1=h_0\\left(\\frac{\\hat\\varepsilon_1}{\\hat\\varepsilon_0}\\right)^{1/3}.$$\n\nSett inn:\n\n$$\\frac{\\hat\\varepsilon_1}{\\hat\\varepsilon_0}=\\frac{10^{-4}}{4\\cdot 10^{-3}}=\\frac{1}{40}=0{,}025.$$\n\n$$0{,}025^{1/3}=e^{\\ln 0{,}025/3}=e^{-3{,}6889/3}=e^{-1{,}2296}\\approx 0{,}2924.$$\n\n$$h_1=0{,}25\\cdot 0{,}2924\\approx 0{,}0731.$$\n\n**Svar:** $h_1\\approx 0{,}073$.\n\n*Kontroll:* $\\hat\\varepsilon_1\\approx 4\\cdot 10^{-3}\\cdot\\left(\\frac{0{,}0731}{0{,}25}\\right)^{3}=4\\cdot 10^{-3}\\cdot 0{,}025=10^{-4}$ ✔\n\n*(Merk at vi her ikke har brukt sikkerhetsfaktor. Oppgaven spør etter den $h$ som **treffer** toleransen, ikke etter et praktisk forslag. Vil du legge til margin, gir $P=0{,}9$ i stedet $h_1\\approx 0{,}066$ — si i så fall at du gjorde det.)*\n\n**c) Antall skritt.**\n\n$$\\text{Med } h_0=0{,}25:\\quad N_0=\\frac{1}{0{,}25}=4 \\text{ skritt}.$$\n$$\\text{Med } h_1=0{,}0731:\\quad N_1=\\frac{1}{0{,}0731}\\approx 13{,}7\\ \\Longrightarrow\\ 14 \\text{ skritt}.$$\n\n**Tre og en halv gang så mange skritt** for førti ganger mindre lokal feil per skritt.\n\n**d) Er forslaget brukbart?** Ja, og det er verdt å si hvorfor:\n\n**Forholdet $h_1/h_0=0{,}29$** ligger innenfor den vanlige nedre grensen på $0{,}2$, så modellen $\\hat\\varepsilon\\approx Ch^{3}$ er fortsatt rimelig — vi ekstrapolerer ikke langt.\n\n**Kostnaden er moderat.** Fire ganger så mange skritt er en billig pris for førti ganger mindre feil, og det er nettopp fordi ordenen er 2: skalering med $h^{3}$ betyr at en tredeling av $h$ gir en 27-dobling av nøyaktigheten.\n\n**En ærlig forbehold:** modellen gjelder **lokalt**. Konstanten $C$ avhenger av hvor på løsningskurven du står, og den kan endre seg mye gjennom et integrasjonsintervall. Derfor er dette et **forslag for neste skritt**, ikke en fast steglengde for hele veien — og det er hele poenget med adaptiv kontroll: du regner et nytt forslag hver gang.\n\n**Tidsbruk på eksamen:** a) 1 min, b) 4 min, c) 2 min, d) 3 min — omtrent 10 minutter."
+    },
+    {
+      "id": "tma4135-7-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-3-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger N.) Et feilestimat oppfører seg som $\\hat\\varepsilon\\approx Ch^{4}$. Ved $h_0=0{,}4$ måles $\\hat\\varepsilon_0=8\\cdot 10^{-4}$.\n\n**a)** Hvilken orden har den propagerte løsningen?\n**b)** Finn $h_1$ som gir $\\hat\\varepsilon_1\\approx 10^{-5}$.\n**c)** Sammenlikn med hva svaret ville blitt hvis eksponenten var $\\tfrac13$ i stedet for $\\tfrac14$.",
+        "solution": "**a)** $\\hat\\varepsilon\\approx Ch^{p+1}$ med eksponent 4 gir $p+1=4$, altså\n\n$$\\boxed{p=3}.$$\n\n**b)**\n\n$$\\frac{\\hat\\varepsilon_1}{\\hat\\varepsilon_0}=\\frac{10^{-5}}{8\\cdot 10^{-4}}=\\frac{1}{80}=0{,}0125.$$\n\n$$h_1=0{,}4\\cdot\\left(0{,}0125\\right)^{1/4}.$$\n\nFjerderot som kvadratrot to ganger: $\\sqrt{0{,}0125}\\approx 0{,}1118034$, og $\\sqrt{0{,}1118034}\\approx 0{,}3343702$.\n\n$$h_1=0{,}4\\cdot 0{,}3343702\\approx 0{,}1337.$$\n\n**Svar:** $h_1\\approx 0{,}134$.\n\n*Kontroll:* $8\\cdot 10^{-4}\\cdot\\left(\\frac{0{,}1337}{0{,}4}\\right)^{4}=8\\cdot 10^{-4}\\cdot 0{,}0125=10^{-5}$ ✔\n\n**c) Med feil eksponent $\\tfrac13$:**\n\n$$0{,}0125^{1/3}=e^{\\ln 0{,}0125/3}=e^{-4{,}3820/3}=e^{-1{,}4607}\\approx 0{,}2321,$$\n\n$$h_1^{\\text{feil}}=0{,}4\\cdot 0{,}2321\\approx 0{,}0928.$$\n\n**Sammenlikningen:** $0{,}134$ mot $0{,}093$ — den gale eksponenten gir en steglengde som er **30 prosent for liten**.\n\n**Er det farlig?** Ikke direkte — en for liten steglengde gir et for nøyaktig svar, ikke et galt. Men det er **ineffektivt**: du bruker omtrent 44 prosent flere skritt enn nødvendig gjennom hele integrasjonen.\n\n**Og motsatt vei er det verre.** Bruker du eksponenten $\\tfrac14$ der den skulle vært $\\tfrac15$, får du en **for stor** steglengde, og feilen overskrider toleransen. **Det er derfor eksponenten må leses ut av oppgaven og ikke gjettes** — og det er den dokumenterte hovedfeilen i sjangeren.",
+        "hints": [
+          "Eksponenten i feilmodellen er $p+1$.",
+          "Fjerderot regnes som kvadratrot to ganger.",
+          "Regn begge svarene og se hvor stort avviket blir i prosent."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Full eksamensoppgave (~13 min)"
+    },
+    {
+      "id": "tma4135-7-3-def-hvorfor-par",
+      "type": "definition",
+      "title": "Hvorfor par og ikke to separate kjøringer?",
+      "content": "Alternativet til et innfelt par er **steghalvering**: regn skrittet én gang med $h$ og to ganger med $h/2$, og bruk forskjellen som feilestimat.\n\n| | Innfelt par | Steghalvering |\n|---|---|---|\n| Ekstra $f$-evalueringer | **0** (bare en ny vektet sum) | omtrent like mange til |\n| Krever egen tabell | ja | nei |\n| Gir feilestimat for | den propagerte løsningen | den grove løsningen |\n\n**Steghalvering virker for enhver metode**, og det er dens store fordel. Men den **dobler regnearbeidet**, og det er en høy pris når $f$ er dyr.\n\n**Det innfelte paret får feilestimatet nesten gratis** — til gjengjeld må noen ha konstruert en ekstra vektrad med riktig orden over den samme $A$ og $\\mathbf c$. Det er et ikke-trivielt arbeid, og det er derfor de brukbare parene er få og navngitte.\n\n**På eksamen møter du alltid den innfelte varianten**, med tabellen utdelt. Men det er verdt å vite at alternativet finnes, og hvorfor det ikke brukes."
+    },
+    {
+      "id": "tma4135-7-3-def-kontrollrutine",
+      "type": "definition",
+      "title": "Kontrollrutine for en N-oppgave",
+      "content": "Seks sjekker:\n\n1. **Hvilken rad har hvilken orden?** Verifiser med ordensbetingelsene fra [kap. 7.2](/tma4135/tma4135-7-2), eller les det ut av oppgaven.\n2. **Er alle $k_i$ regnet med de riktige argumentene?** Feil her ødelegger begge svarene samtidig.\n3. **Er $\\hat\\varepsilon$ regnet som en absoluttverdi?** Estimatet er alltid positivt.\n4. **Er sammenlikningen $\\hat\\varepsilon$ mot Tol gjort eksplisitt**, med ordet «aksepteres» eller «forkastes»?\n5. **Er eksponenten $\\tfrac{1}{p+1}$ med riktig $p$?**\n6. **Er $h_{\\text{ny}}$ fornuftig?** Ved forkast skal den være mindre, ved aksept større. Blir den det motsatte, har du snudd brøken.\n\n**Punkt 6 er den beste kontrollen som finnes.** Den tar to sekunder og fanger den vanligste regnefeilen: å sette $\\hat\\varepsilon/\\text{Tol}$ i stedet for $\\text{Tol}/\\hat\\varepsilon$."
+    },
+    {
+      "id": "tma4135-7-3-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: hele N-sjangeren i én oppgave",
+      "problem": "Et innfelt par er gitt ved\n\n$$\\begin{array}{c|ccc}0 & 0 & 0 & 0\\\\ \\tfrac12 & \\tfrac12 & 0 & 0\\\\ 1 & -1 & 2 & 0\\\\ \\hline & 0 & 1 & 0\\\\ \\hline & \\tfrac16 & \\tfrac23 & \\tfrac16\\end{array}$$\n\nDen øverste vektraden propageres. Bruk paret på\n\n$$y'=t-2y,\\qquad y(0)=1,\\qquad h=0{,}2,$$\n\nmed Tol $=10^{-2}$ og sikkerhetsfaktor $P=0{,}9$.\n\n**a)** Regn ut de tre stigningstallene.\n**b)** Finn begge svarene og det lokale feilestimatet.\n**c)** Avgjør om skrittet aksepteres.\n**d)** Foreslå ny steglengde, og si hva den skal brukes til.\n**e)** Kommenter hvor godt estimatet traff, gitt at den eksakte verdien er $y(0{,}2)\\approx 0{,}6879001$.",
+      "solution": "**a) Stigningstallene.** Med $f(t,y)=t-2y$, $t_0=0$, $y_0=1$, $h=0{,}2$:\n\n$$k_1=f\\left(t_0,\\ y_0\\right)=f(0;\\ 1)=0-2\\cdot 1=-2.$$\n\n$$k_2=f\\left(t_0+\\tfrac12 h,\\ y_0+h\\cdot\\tfrac12 k_1\\right)=f\\left(0{,}1;\\ 1+0{,}1\\cdot(-2)\\right)=f(0{,}1;\\ 0{,}8).$$\n$$k_2=0{,}1-2\\cdot 0{,}8=0{,}1-1{,}6=-1{,}5.$$\n\n$$k_3=f\\left(t_0+h,\\ y_0+h\\left(-k_1+2k_2\\right)\\right)=f\\left(0{,}2;\\ 1+0{,}2\\left(2-3\\right)\\right)=f(0{,}2;\\ 0{,}8).$$\n$$k_3=0{,}2-1{,}6=-1{,}4.$$\n\n*Kontroll:* alle tre stigningstallene ligger mellom $-2$ og $-1{,}4$, altså i samme størrelsesorden ✔. Og de er negative, som de må være — løsningen avtar fra $y_0=1$.\n\n**b) De to svarene.**\n\n**Orden 2** (øverste rad, $\\mathbf b=(0,1,0)$):\n\n$$y_1=y_0+h\\,k_2=1+0{,}2\\cdot(-1{,}5)=1-0{,}3=0{,}7.$$\n\n**Orden 3** (nederste rad, $\\hat{\\mathbf b}=\\left(\\tfrac16,\\tfrac23,\\tfrac16\\right)$):\n\n$$\\hat y_1=1+0{,}2\\left(\\tfrac16(-2)+\\tfrac23(-1{,}5)+\\tfrac16(-1{,}4)\\right).$$\n\n$$\\tfrac16(-2)=-0{,}3333333,\\qquad \\tfrac23(-1{,}5)=-1,\\qquad \\tfrac16(-1{,}4)=-0{,}2333333.$$\n\nSum: $-1{,}5666667$.\n\n$$\\hat y_1=1+0{,}2\\cdot(-1{,}5666667)=1-0{,}3133333=0{,}6866667.$$\n\n**Feilestimatet.**\n\n$$\\hat\\varepsilon=\\left|\\hat y_1-y_1\\right|=\\left|0{,}6866667-0{,}7\\right|=0{,}0133333.$$\n\n*Kontroll med differanseformelen:* $\\hat b_i-b_i=\\left(\\tfrac16,\\ -\\tfrac13,\\ \\tfrac16\\right)$, så\n\n$$\\hat\\varepsilon=h\\left|\\tfrac16 k_1-\\tfrac13 k_2+\\tfrac16 k_3\\right|=\\frac{0{,}2}{6}\\left|-2+3-1{,}4\\right|=\\frac{0{,}2}{6}\\cdot 0{,}4=0{,}0133333\\ ✔$$\n\n**c) Aksept eller forkast.**\n\n$$\\hat\\varepsilon=0{,}0133333\\quad\\text{mot}\\quad \\text{Tol}=0{,}01.$$\n\n$$0{,}0133333>0{,}01\\ \\Longrightarrow\\ \\textbf{skrittet forkastes.}$$\n\n**d) Ny steglengde.** Den propagerte løsningen har orden $p=2$, så eksponenten er $\\tfrac1{p+1}=\\tfrac13$:\n\n$$h_{\\text{ny}}=P\\,h\\left(\\frac{\\text{Tol}}{\\hat\\varepsilon}\\right)^{1/3}=0{,}9\\cdot 0{,}2\\cdot\\left(\\frac{0{,}01}{0{,}0133333}\\right)^{1/3}=0{,}18\\cdot 0{,}75^{1/3}.$$\n\n$$0{,}75^{1/3}\\approx 0{,}9085603\\ \\Longrightarrow\\ h_{\\text{ny}}\\approx 0{,}1635.$$\n\n**Hva den skal brukes til:** siden skrittet ble **forkastet**, skal $h_{\\text{ny}}\\approx 0{,}164$ brukes til å regne **det samme skrittet om igjen** — fra $t=0$, ikke fra $t=0{,}2$. Verdien $y_1=0{,}7$ kastes.\n\n*Kontroll:* $h_{\\text{ny}}<h$ ✔ — som det skal være ved forkast.\n\n**e) Hvor godt traff estimatet?**\n\n| | Verdi | Virkelig feil |\n|---|---|---|\n| $y_1$ (orden 2, propagert) | $0{,}7$ | $1{,}210\\cdot 10^{-2}$ |\n| $\\hat y_1$ (orden 3) | $0{,}6866667$ | $1{,}233\\cdot 10^{-3}$ |\n| Estimat $\\hat\\varepsilon$ | $1{,}333\\cdot 10^{-2}$ | — |\n\n**Estimatet på $1{,}333\\cdot 10^{-2}$ mot den virkelige feilen $1{,}210\\cdot 10^{-2}$ i den propagerte løsningen** — det bommer med omtrent 10 prosent, og det bommer **på den forsiktige siden** (overvurderer feilen). Det er nøyaktig slik en steglengdekontroll bør oppføre seg.\n\n**Hvorfor overvurderer den?** Fordi $\\hat\\varepsilon$ måler avstanden mellom $y_1$ og $\\hat y_1$, mens den virkelige feilen er avstanden mellom $y_1$ og den eksakte løsningen — og $\\hat y_1$ ligger på **motsatt** side av eksakt i forhold til $y_1$ her. Differansen blir dermed litt større enn feilen.\n\n**Og merk at $\\hat y_1$ selv er ti ganger bedre enn estimatet antyder.** Hadde vi propagert $\\hat y_1$ i stedet (lokal ekstrapolasjon), ville vi hatt en løsning med feil $1{,}2\\cdot 10^{-3}$ og en styring som trodde feilen var $1{,}3\\cdot 10^{-2}$ — konservativt, men brukbart. **Det er den vanlige praksisen**, og den er verdt å nevne.\n\n**Tidsbruk på eksamen:** a) 5 min, b) 6 min, c) 1 min, d) 4 min, e) 4 min — omtrent 20 minutter for en oppgave på 10 poeng."
+    },
+    {
+      "id": "tma4135-7-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-3-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger N.) Bruk 2(3)-paret fra eksempel 4 på $y'=y-t$, $y(0)=2$, med $h=0{,}4$, Tol $=5\\cdot 10^{-3}$ og $P=0{,}9$.\n\n**a)** Regn ut $k_1$, $k_2$ og $k_3$.\n**b)** Finn begge svarene og feilestimatet.\n**c)** Aksepteres skrittet? Foreslå ny steglengde.",
+        "solution": "**a) Stigningstallene.** Med $f(t,y)=y-t$:\n\n$$k_1=f(0;\\ 2)=2-0=2,$$\n$$k_2=f\\left(0{,}2;\\ 2+0{,}4\\cdot\\tfrac12\\cdot 2\\right)=f(0{,}2;\\ 2{,}4)=2{,}4-0{,}2=2{,}2,$$\n$$k_3=f\\left(0{,}4;\\ 2+0{,}4\\left(-2+2\\cdot 2{,}2\\right)\\right)=f\\left(0{,}4;\\ 2+0{,}4\\cdot 2{,}4\\right)=f(0{,}4;\\ 2{,}96).$$\n$$k_3=2{,}96-0{,}4=2{,}56.$$\n\n**b) De to svarene.**\n\n$$y_1=2+0{,}4\\cdot k_2=2+0{,}4\\cdot 2{,}2=2+0{,}88=2{,}88\\qquad\\text{(orden 2)},$$\n\n$$\\hat y_1=2+0{,}4\\left(\\tfrac16\\cdot 2+\\tfrac23\\cdot 2{,}2+\\tfrac16\\cdot 2{,}56\\right).$$\n\nParentesen: $0{,}3333333+1{,}4666667+0{,}4266667=2{,}2266667$.\n\n$$\\hat y_1=2+0{,}4\\cdot 2{,}2266667=2+0{,}8906667=2{,}8906667\\qquad\\text{(orden 3)}.$$\n\n$$\\hat\\varepsilon=\\left|2{,}8906667-2{,}88\\right|=0{,}0106667.$$\n\n*Kontroll med differanseformelen:*\n\n$$\\hat\\varepsilon=\\frac{h}{6}\\left|k_1-2k_2+k_3\\right|=\\frac{0{,}4}{6}\\left|2-4{,}4+2{,}56\\right|=\\frac{0{,}4}{6}\\cdot 0{,}16=0{,}0106667\\ ✔$$\n\n**c)**\n\n$$\\hat\\varepsilon=0{,}0106667>5\\cdot 10^{-3}=\\text{Tol}\\ \\Longrightarrow\\ \\textbf{forkast}.$$\n\n$$h_{\\text{ny}}=0{,}9\\cdot 0{,}4\\cdot\\left(\\frac{0{,}005}{0{,}0106667}\\right)^{1/3}=0{,}36\\cdot\\left(0{,}46875\\right)^{1/3}.$$\n\n$$0{,}46875^{1/3}=e^{\\ln 0{,}46875/3}=e^{-0{,}7576857/3}=e^{-0{,}2525619}\\approx 0{,}7768.$$\n\n$$h_{\\text{ny}}=0{,}36\\cdot 0{,}7768\\approx 0{,}2796.$$\n\n**Svar:** forkast skrittet, og gjør det om med $h\\approx 0{,}280$.\n\n*Kontroll:* $h_{\\text{ny}}<h$ ✔, og forholdet $0{,}70$ ligger godt innenfor grensene.\n\n*(Til orientering: den eksakte løsningen er $y(t)=e^{t}+t+1$, som gir $y(0{,}4)=e^{0{,}4}+1{,}4\\approx 2{,}8918$. Den virkelige feilen i $y_1$ er da $1{,}18\\cdot 10^{-2}$, mot estimatet $1{,}07\\cdot 10^{-2}$ — igjen en bom på omtrent ti prosent.)*\n\n**Merk at stigningstallene her er positive.** Løsningen vokser, og det gjenspeiles i at alle $k_i$ er rundt 2. Er ett av dem negativt i en slik oppgave, er et argument satt inn feil.",
+        "hints": [
+          "Bruk samme tabell som i eksempel 4, bare med ny $f$, ny $y_0$ og ny $h$.",
+          "I $k_3$ er $y$-argumentet $y_0+h(-k_1+2k_2)$.",
+          "Kontroller feilestimatet med formelen $\\frac h6|k_1-2k_2+k_3|$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-3-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger N — krevende.) Et innfelt par har $p=2$, og en integrator kjører med Tol $=10^{-6}$.\n\n**a)** Hvor mye må $h$ reduseres for at feilestimatet skal falle med en faktor 1000?\n**b)** En kollega bruker eksponenten $\\tfrac1p=\\tfrac12$ i stedet for $\\tfrac1{p+1}=\\tfrac13$. Hvilken steglengde foreslår hun når $\\hat\\varepsilon=10^{-3}$ og $h=0{,}1$, og hva blir konsekvensen?\n**c)** Hvor mange skritt bruker de to variantene på intervallet $[0,1]$?",
+        "solution": "**a)** Med $\\hat\\varepsilon\\approx Ch^{3}$ er\n\n$$\\frac{\\hat\\varepsilon_1}{\\hat\\varepsilon_0}=\\left(\\frac{h_1}{h_0}\\right)^{3}=\\frac{1}{1000}\\ \\Longrightarrow\\ \\frac{h_1}{h_0}=\\left(\\frac1{1000}\\right)^{1/3}=\\frac{1}{10}.$$\n\n**Steglengden må tideles.** En faktor 1000 i feil koster altså bare en faktor 10 i steglengde — det er kubikkrota som gjør jobben, og det er hele fordelen med å ha orden 2 i stedet for 1.\n\n*(Til sammenlikning: med $p=1$ og $\\hat\\varepsilon\\approx Ch^{2}$ måtte $h$ deles på $\\sqrt{1000}\\approx 31{,}6$.)*\n\n**b) Kollegaens forslag.** Uten sikkerhetsfaktor:\n\n$$h^{\\text{feil}}_{\\text{ny}}=0{,}1\\cdot\\left(\\frac{10^{-6}}{10^{-3}}\\right)^{1/2}=0{,}1\\cdot\\left(10^{-3}\\right)^{1/2}=0{,}1\\cdot 0{,}0316228\\approx 0{,}00316.$$\n\n**Det riktige forslaget:**\n\n$$h_{\\text{ny}}=0{,}1\\cdot\\left(10^{-3}\\right)^{1/3}=0{,}1\\cdot 0{,}1=0{,}01.$$\n\n**Konsekvensen:** kollegaen foreslår $0{,}00316$ der det riktige er $0{,}01$ — altså en steglengde som er **3,2 ganger for liten**.\n\n**Er det farlig?** Nei, ikke for nøyaktigheten. Feilen blir bedre enn kravet, ikke verre. Men det er **dyrt**: hun bruker over tre ganger så mange skritt som nødvendig.\n\n**Merk at feilen går motsatt vei i den andre retningen.** Skal steglengden **økes** (fordi $\\hat\\varepsilon<\\text{Tol}$), gir eksponenten $\\tfrac12$ en **for stor** økning, og da bommer neste skritt på toleransen. **Da er feilen farlig**, ikke bare dyr.\n\n**Konklusjon:** eksponenten $\\tfrac1{p+1}$ er ikke en detalj. Den er forskjellen mellom en integrator som styrer riktig og en som enten sløser eller bommer.\n\n**c) Antall skritt på $[0,1]$.**\n\n$$\\text{Riktig: } N=\\frac{1}{0{,}01}=100 \\text{ skritt}.$$\n$$\\text{Kollegaens: } N=\\frac{1}{0{,}00316}\\approx 316 \\text{ skritt}.$$\n\n**Med et 3-stegs par koster det $3\\cdot 316=948$ funksjonsevalueringer mot $3\\cdot 100=300$** — mer enn tre ganger arbeidet for et resultat som ikke er nevneverdig bedre enn kravet.\n\n**Perspektivet:** i et virkelig problem, med tusenvis av skritt og en dyr $f$, er dette forskjellen mellom minutter og timer. **Det er derfor sjangeren tester nettopp eksponenten.**",
+        "hints": [
+          "Bruk modellen $\\hat\\varepsilon\\approx Ch^{p+1}$ og løs for forholdet mellom steglengdene.",
+          "Regn begge forslagene i b) og se hvilken faktor som skiller dem.",
+          "Antall skritt er intervallengden delt på steglengden."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-3-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger N — krevende, tabellanalyse.) Et innfelt par er gitt ved\n\n$$\\begin{array}{c|ccc}0 & 0 & 0 & 0\\\\ \\tfrac13 & \\tfrac13 & 0 & 0\\\\ \\tfrac23 & 0 & \\tfrac23 & 0\\\\ \\hline & \\tfrac14 & 0 & \\tfrac34\\\\ \\hline & \\tfrac14 & \\tfrac34 & 0\\end{array}$$\n\n**a)** Bestem ordenen til hver vektrad.\n**b)** Er dette et brukbart innfelt par? Begrunn.\n**c)** Hvilken forutsetning for steglengdekontrollen bryter dette paret?",
+        "solution": "**a) Ordenene.**\n\n**Øverste rad, $\\mathbf b=\\left(\\tfrac14,0,\\tfrac34\\right)$** — dette er Heuns tredjeordens metode fra [kap. 7.2](/tma4135/tma4135-7-2):\n\n- Nivå 1: $\\tfrac14+\\tfrac34=1$ ✔\n- Nivå 2: $\\tfrac34\\cdot\\tfrac23=\\tfrac12$ ✔\n- Nivå 3a: $\\tfrac34\\cdot\\tfrac49=\\tfrac13$ ✔\n- Nivå 3b: $\\tfrac34\\cdot\\tfrac23\\cdot\\tfrac13=\\tfrac16$ ✔\n- Nivå 4a: $\\tfrac34\\cdot\\tfrac8{27}=\\tfrac29\\ne\\tfrac14$ ✘\n\n**Orden 3.**\n\n**Nederste rad, $\\hat{\\mathbf b}=\\left(\\tfrac14,\\tfrac34,0\\right)$:**\n\n- Nivå 1: $\\tfrac14+\\tfrac34=1$ ✔\n- Nivå 2: $\\tfrac14\\cdot 0+\\tfrac34\\cdot\\tfrac13+0\\cdot\\tfrac23=\\tfrac14$.\n\nKravet er $\\tfrac12$, og $\\tfrac14\\ne\\tfrac12$ ✘\n\n**Orden 1.**\n\n**b) Er paret brukbart?** **Nei.**\n\nEt innfelt par skal ha ordener $p$ og $p+1$ — altså **nabo-ordener**. Her er ordenene 3 og 1, som skiller med **to**.\n\n**Konsekvensen:** feilestimatet\n\n$$\\hat\\varepsilon=\\left|\\hat y_1-y_1\\right|$$\n\nmåler ikke lenger feilen i noen av løsningene på en brukbar måte. Det domineres fullstendig av feilen i den dårligste (orden 1), som er $O\\left(h^{2}\\right)$, mens den gode løsningen har lokal feil $O\\left(h^{4}\\right)$. Estimatet er altså **to hele ordener for stort** for den gode løsningen.\n\n**c) Forutsetningen som brytes.** Steglengdeformelen\n\n$$h_{\\text{ny}}=P\\,h\\left(\\frac{\\text{Tol}}{\\hat\\varepsilon}\\right)^{1/(p+1)}$$\n\nhviler på at $\\hat\\varepsilon\\approx Ch^{p+1}$ **for den løsningen du propagerer**. Det krever at differansen mellom de to svarene har samme orden som feilen i den propagerte løsningen — altså at ordenene ligger inntil hverandre.\n\nHer er $\\hat\\varepsilon\\approx Ch^{2}$ (fra ordenen-1-raden), mens propagerer du orden-3-raden, er dens lokale feil $O\\left(h^{4}\\right)$. **Ingen eksponent i formelen vil da gi riktig styring**, og integratoren vil bruke absurd små skritt for å tilfredsstille en toleranse som den gode løsningen møtte for lengst.\n\n**Hva ville rettet det?** Erstatt den nederste raden med en av orden 2 eller 4. Med $\\hat{\\mathbf b}=\\left(0,1,0\\right)$ ville du fått $\\sum\\hat b_ic_i=\\tfrac13\\ne\\tfrac12$, altså fortsatt orden 1 — det er ikke trivielt å finne en god ekstra rad. **Det er nettopp derfor innfelte par er publiserte, navngitte konstruksjoner** og ikke noe man setter sammen selv.\n\n**Lærdommen:** to vektrader over samme $A$ og $\\mathbf c$ gir ikke automatisk et brukbart par. Ordenene må ligge inntil hverandre, og det må verifiseres.",
+        "hints": [
+          "Sjekk ordensbetingelsene for hver rad for seg; de deler $\\mathbf c$ og $A$.",
+          "Se nøye på nivå 2 for den nederste raden — hvilke ledd bidrar?",
+          "Hva krever steglengdeformelen om forholdet mellom de to ordenene?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**1. Feil eksponent i steglengdeformelen.** Den er $\\dfrac{1}{p+1}$, ikke $\\dfrac1p$. Dette er den dokumenterte hovedfeilen i sjangeren, og den kommer av at det er den **lokale** feilen som modelleres.\n\n**2. Å bruke ordenen til feil rad.** Eksponenten skal bygge på ordenen til den løsningen du **propagerer** — som regel den laveste. Bruker du $p+1$ der du skulle brukt $p$, får du en for stor steglengde.\n\n**3. Å snu brøken i formelen.** Det er $\\dfrac{\\text{Tol}}{\\hat\\varepsilon}$, ikke omvendt. **Kontroll:** ved forkast skal $h_{\\text{ny}}<h$, ved aksept $h_{\\text{ny}}>h$. Blir det motsatt, har du snudd brøken.\n\n**4. Å forveksle de to $b$-radene.** Les oppgaveteksten: hvilken rad propageres? Konvensjonen for hvilken som står øverst, varierer mellom kilder.\n\n**5. Å glemme sikkerhetsfaktoren — eller å bruke den uten å si det.** Begge deler er akseptable. Å gjøre det uten å nevne det, er ikke.\n\n**6. Å regne stigningstallene to ganger.** Hele poenget med et innfelt par er at $k_i$ deles. Regner du dem om for den andre raden, har du misforstått konstruksjonen — og kastet bort tid.\n\n**7. Å glemme absoluttverdien i $\\hat\\varepsilon$.** Estimatet er et feilmål og alltid positivt. Et negativt «estimat» gjør resten av regningen meningsløs.\n\n**8. Å tro at et forkastet skritt bare skal justeres.** Nei — verdien kastes, og **hele skrittet regnes om** fra samme startpunkt med den nye $h$."
+    },
+    {
+      "id": "tma4135-7-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-7-3-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på potensregning og på ordensbetingelsene fra [kap. 7.2](/tma4135/tma4135-7-2)."
+        },
+        {
+          "id": "tma4135-7-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-3-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $0{,}75^{1/3}$ og $1{,}5^{1/3}$ med naturlig logaritme.",
+            "solution": "$$0{,}75^{1/3}=e^{\\frac{\\ln 0{,}75}{3}}=e^{\\frac{-0{,}2876821}{3}}=e^{-0{,}0958940}\\approx 0{,}9085603.$$\n\n$$1{,}5^{1/3}=e^{\\frac{\\ln 1{,}5}{3}}=e^{\\frac{0{,}4054651}{3}}=e^{0{,}1351550}\\approx 1{,}1447142.$$\n\n*Kontroll:* $0{,}9085603^{3}\\approx 0{,}75$ ✔ og $1{,}1447142^{3}\\approx 1{,}5$ ✔\n\n**Teknikken:** en kubikkrot regnes som $e^{\\ln x/3}$ på en enkel kalkulator, som er den eneste typen som er tillatt. Begge tallene dukker opp i eksempel 2.",
+            "hints": [
+              "$x^{1/3}=e^{\\ln x/3}$.",
+              "Kontroller ved å opphøye svaret i tredje."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-3-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\left(0{,}02\\right)^{1/4}$ uten å bruke en potenstast.",
+            "solution": "Fjerderot er kvadratrot to ganger:\n\n$$\\sqrt{0{,}02}\\approx 0{,}1414214,\\qquad \\sqrt{0{,}1414214}\\approx 0{,}3760603.$$\n\n$$\\left(0{,}02\\right)^{1/4}\\approx 0{,}3761.$$\n\n*Kontroll:* $0{,}3761^{4}=\\left(0{,}3761^{2}\\right)^{2}\\approx 0{,}1414^{2}\\approx 0{,}02$ ✔\n\nDette er nøyaktig regnestykket i oppgave 3, der et 3(4)-par gir eksponenten $\\tfrac14$.",
+            "hints": [
+              "En fjerderot er en kvadratrot av en kvadratrot.",
+              "Kontroller ved å kvadrere to ganger."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-3-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Sjekk ordensbetingelsene på nivå 1 og 2 for vektraden $\\mathbf b=(0,1,0)$ med $\\mathbf c=\\left(0,\\tfrac12,1\\right)$.",
+            "solution": "**Nivå 1:**\n\n$$\\sum b_i=0+1+0=1.\\qquad ✔$$\n\n**Nivå 2:**\n\n$$\\sum b_ic_i=0\\cdot 0+1\\cdot\\tfrac12+0\\cdot 1=\\tfrac12.\\qquad ✔$$\n\n**Nivå 3, første betingelse:**\n\n$$\\sum b_ic_i^{2}=1\\cdot\\left(\\tfrac12\\right)^{2}=\\tfrac14\\ne\\tfrac13.\\qquad ✘$$\n\n**Ordenen er 2.** Dette er midtpunktsmetoden, utvidet med et tredje ubrukt steg — den øverste vektraden i eksempel 1 og 4.\n\n**Merk at bare ett ledd bidrar** når $\\mathbf b$ har to nuller. Det gjør verifikasjonen svært rask.",
+            "hints": [
+              "Ledd med $b_i=0$ bidrar ikke til noen sum.",
+              "Fortsett til nivå 3 for å se hvor den stopper."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-3-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at $\\hat\\varepsilon=h\\left|\\sum_i\\left(\\hat b_i-b_i\\right)k_i\\right|$ er det samme som $\\left|\\hat y_{n+1}-y_{n+1}\\right|$.",
+            "solution": "Begge løsningene bygger på **de samme** stigningstallene og den samme startverdien:\n\n$$y_{n+1}=y_n+h\\sum_i b_ik_i,\\qquad \\hat y_{n+1}=y_n+h\\sum_i \\hat b_ik_i.$$\n\nTrekk fra hverandre. Leddet $y_n$ faller bort:\n\n$$\\hat y_{n+1}-y_{n+1}=h\\sum_i \\hat b_ik_i-h\\sum_i b_ik_i=h\\sum_i\\left(\\hat b_i-b_i\\right)k_i.$$\n\nTa absoluttverdien på begge sider:\n\n$$\\left|\\hat y_{n+1}-y_{n+1}\\right|=h\\left|\\sum_i\\left(\\hat b_i-b_i\\right)k_i\\right|.\\qquad \\blacksquare$$\n\n**Hvorfor den andre formen ofte er raskest:** differansene $\\hat b_i-b_i$ er som regel enkle brøker, og flere av dem er null. For 2(3)-paret i kapitlet blir de $\\left(\\tfrac16,-\\tfrac13,\\tfrac16\\right)$, som gir det kompakte uttrykket $\\tfrac h6\\left|k_1-2k_2+k_3\\right|$.",
+            "hints": [
+              "Skriv opp begge løsningene og trekk dem fra hverandre.",
+              "Startverdien $y_n$ er felles og forsvinner."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-7-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-7-3-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $k_i$ | Stigningstall nummer $i$, delt mellom begge metodene |\n| $b_i$ | Vektene til den propagerte løsningen (orden $p$) |\n| $\\hat b_i$ | Vektene til referanseløsningen (orden $p+1$) |\n| $y_{n+1}$ | Løsningen av orden $p$ |\n| $\\hat y_{n+1}$ | Løsningen av orden $p+1$ |\n| $\\hat\\varepsilon$ | Det lokale feilestimatet |\n| Tol | Toleransen, den tillatte lokale feilen |\n| $P$ | Sikkerhetsfaktoren, typisk $0{,}8$–$0{,}9$ |\n| $p$ | Ordenen til den propagerte løsningen |\n| $h$ | Nåværende steglengde |\n| $h_{\\text{ny}}$ | Foreslått ny steglengde |\n| $C$ | Feilkonstanten i modellen $\\hat\\varepsilon\\approx Ch^{p+1}$ |\n"
+        },
+        {
+          "id": "tma4135-7-3-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$y_{n+1}=y_n+h\\sum_i b_ik_i,\\qquad \\hat y_{n+1}=y_n+h\\sum_i \\hat b_ik_i$$\nDe to løsningene fra ett innfelt par, med **felles** $k_i$. *(Tabellen deles ut i oppgaven.)*\n\n$$\\hat\\varepsilon=\\left|\\hat y_{n+1}-y_{n+1}\\right|=h\\left|\\sum_i\\left(\\hat b_i-b_i\\right)k_i\\right|$$\nDet lokale feilestimatet, i to likeverdige former. *(Må kunnes — står ikke på det utdelte formelarket.)*\n\n$$\\hat\\varepsilon\\le\\text{Tol}\\ \\Rightarrow\\ \\text{aksepter},\\qquad \\hat\\varepsilon>\\text{Tol}\\ \\Rightarrow\\ \\text{forkast og regn om}$$\nAksept- og forkastregelen. *(Må kunnes.)*\n\n$$h_{\\text{ny}}=P\\,h\\left(\\frac{\\text{Tol}}{\\hat\\varepsilon}\\right)^{1/(p+1)}$$\nSteglengdeformelen. **Eksponenten er $1/(p+1)$**, og $p$ er ordenen til den **propagerte** løsningen. *(Må kunnes — sett den på ditt eget A5-ark.)*\n\n$$\\hat\\varepsilon\\approx C\\,h^{\\,p+1},\\qquad \\frac{\\hat\\varepsilon_1}{\\hat\\varepsilon_0}=\\left(\\frac{h_1}{h_0}\\right)^{p+1}$$\nFeilmodellen og den direkte varianten uten tabell. *(Må kunnes eller utledes aktivt.)*\n\n$$0{,}2\\le\\frac{h_{\\text{ny}}}{h}\\le 5$$\nVanlige grenser for steglengdeendring per skritt. *(Kjenne-nivå.)*\n\n$$\\hat\\varepsilon\\le\\text{Tol}_{\\text{abs}}+\\text{Tol}_{\\text{rel}}\\left|y_n\\right|$$\nDen kombinerte toleransen som brukes i praksis. *(Kjenne-nivå.)*\n\n$$\\sum_i b_i=1,\\quad \\sum_i b_ic_i=\\tfrac12,\\quad \\sum_i b_ic_i^{2}=\\tfrac13,\\quad \\sum_{i,j}b_ia_{ij}c_j=\\tfrac16$$\nOrdensbetingelsene som brukes til å bestemme ordenen til hver vektrad. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n**Kolliderende symboler i dette kapitlet.** Hatten over $\\hat b$, $\\hat y$ og $\\hat\\varepsilon$ betyr her «den andre metoden i paret» — den er **ikke** Fourier-transformen $\\hat f(\\omega)$ fra [kap. 4.1](/tma4135/tma4135-4-1), og heller ikke DFT-koeffisientvektoren $\\hat c$ fra [kap. 4.3](/tma4135/tma4135-4-3). Bokstaven $P$ er sikkerhetsfaktoren her; $p$ (liten) er ordenen. Bokstaven $C$ er feilkonstanten her, mens $c_i$ er nodene i Butcher-tabellen. Og $h$ er steglengden i tid i hele Del 7 — i Del 8 blir $h$ romsteget, med $\\Delta t$ som tidssteg (det utdelte formelarket kaller tidssteget $k$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

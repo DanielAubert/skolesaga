@@ -1,0 +1,430 @@
+{
+  "id": "tma4135-6-3",
+  "courseId": "tma4135",
+  "chapterNumber": "6.3",
+  "title": "Fikspunktiterasjon og kontraksjon",
+  "description": "Skriv $x=g(x)$ og vis konvergens ved **begge** fikspunktvilkårene, deretter a-priori-estimatet for nødvendig antall iterasjoner.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive en likning på fikspunktform og vurdere hvilken form som gir konvergens",
+    "sjekke begge fikspunktvilkårene på et intervall og begrunne maksimeringen med monotoni",
+    "navngi fikspunktteoremet og konkludere om entydighet og konvergens for enhver startverdi",
+    "bruke a-priori-estimatet til å finne nødvendig antall iterasjoner, med korrekt avrunding oppover"
+  ],
+  "content": [
+    {
+      "id": "tma4135-6-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Fikspunktiterasjon er sjanger K.** Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene; **K er fikspunktiterasjon og kontraksjon**.\n\n**Frekvens: 6 av 13 gjennomgåtte sett (46 %).** Oppgaven er nesten alltid bygd likt, i to eller tre delpunkter:\n\n1. **Vis at iterasjonen konvergerer** for enhver startverdi i et gitt intervall.\n2. **Finn hvor mange iterasjoner** som trengs for en gitt nøyaktighet.\n3. Av og til: gjør de første iterasjonene og oppgi svaret med nok siffer.\n\n**Dette er et av kapitlene der toppsjiktet skiller seg ut.** Grunnen er enkel: fikspunktteoremet har **to** vilkår, og en besvarelse som bare sjekker det ene, er ufullstendig. Løsningsforslagene viser alltid begge. Vilkårene er\n\n- **(i)** at $|g'|\\le L<1$ på intervallet, og\n- **(ii)** at $g$ **avbilder intervallet inn i seg selv**.\n\nDet andre er det som glemmes. Du finner en egen advarsel om det lenger nede, og en oppgave som viser hva som går galt uten det.\n\n**Formelark-merking.**\n\n- **Står på det utdelte formelarket — tren oppslaget:** Newtons metode og de andre rotsøkingsformlene på numerikk-siden (de kommer i [kap. 6.4](/tma4135/tma4135-6-4)), og de trigonometriske identitetene du eventuelt trenger for å derivere $g$.\n- **Må kunnes eller utledes aktivt:** hele fikspunktapparatet. **A-priori-estimatet står vanligvis ikke på arket**, og heller ikke de to vilkårene. Fikspunktteoremet skal navngis, og estimatet skal skrives opp fra hukommelsen — det er derfor det står øverst på lista over hva du bør ha på ditt eget A5-ark.\n\n**Tidsbruk:** 55 minutter lesetid, fire løkker. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-6-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 6.1](/tma4135/tma4135-6-1) er ikke strengt nødvendig, men gir øvelsen i å arbeide med funksjonsverdier på et intervall. Ellers trenger du derivasjon, og at du kan avgjøre om en funksjon er voksende eller avtakende.\n\nKapitlet er forutsetning for [kap. 6.4](/tma4135/tma4135-6-4): Newtons metode er en fikspunktiterasjon i forkledning, med $g(x)=x-f(x)/f'(x)$."
+    },
+    {
+      "id": "tma4135-6-3-motivasjon",
+      "type": "text",
+      "content": "## Å løse en likning ved å gjenta seg selv\n\nDu skal løse $x^{2}-4x+2=0$. Den kan du løse eksakt — men tenk deg at du ikke kunne det, og at det eneste verktøyet ditt var en kalkulator med en likhetstast.\n\n**Grepet er å skrive likningen om til formen $x=g(x)$.** Her kan vi flytte om: $4x=x^{2}+2$, altså\n\n$$x=\\frac{x^{2}+2}{4}=g(x).$$\n\nNå gjør vi noe som ser altfor enkelt ut til å virke: gjett en startverdi, sett den inn i $g$, ta svaret og sett det inn igjen, om og om igjen.\n\n$$0{,}5\\ \\to\\ 0{,}5625\\ \\to\\ 0{,}5791\\ \\to\\ 0{,}5838\\ \\to\\ 0{,}5852\\ \\to\\ \\dots$$\n\nTallene stabiliserer seg. Og de stabiliserer seg mot $2-\\sqrt2\\approx 0{,}585786$ — som er den eksakte løsningen.\n\n**Hverdagsanalogien.** Sett deg foran et speil som henger rett overfor et annet speil. Hvert bilde er speilingen av det forrige, og bildene blir stadig mindre og trekker seg mot ett punkt. Fikspunktiterasjonen gjør det samme: hvert nytt tall er «bildet» av det forrige, og hvis avbildningen krymper avstander, samler alt seg mot ett punkt.\n\n**Men det er ikke gratis.** Skriver du den samme likningen om på en annen måte — for eksempel $x=\\frac{x^2+2}{4}$ mot $x^2 = 4x-2$, altså $x=\\sqrt{4x-2}$ — kan iterasjonen sprike i stedet for å samle seg. **Hele kapitlet handler om hvordan du på forhånd vet hvilken vei det går**, og om hvor mange skritt du trenger."
+    },
+    {
+      "id": "tma4135-6-3-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 55 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-6-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fikspunkt og iterasjon (~13 min)"
+    },
+    {
+      "id": "tma4135-6-3-def-fikspunkt",
+      "type": "definition",
+      "title": "Fikspunkt",
+      "content": "Et tall $r$ som avbildes på seg selv:\n\n$$g(r)=r.$$\n\nGeometrisk er det et skjæringspunkt mellom grafen til $g$ og linja $y=x$. Har grafene ingen skjæringspunkt, finnes det ikke noe fikspunkt; har de flere, har $g$ flere fikspunkter.\n\n**Sammenhengen med likningsløsing:** en likning $f(x)=0$ kan omformes til $x=g(x)$, slik at fikspunktene til $g$ er nøyaktig røttene til $f$. Da har du gjort et rotsøkingsproblem om til et fikspunktproblem."
+    },
+    {
+      "id": "tma4135-6-3-def-fikspunktform",
+      "type": "definition",
+      "title": "Fikspunktform — og at den ikke er entydig",
+      "content": "Å skrive en likning $f(x)=0$ på formen $x=g(x)$.\n\nDet finnes **mange** måter. For $x^{2}-4x+2=0$:\n\n$$x=\\frac{x^{2}+2}{4},\\qquad x=\\sqrt{4x-2},\\qquad x=4-\\frac{2}{x},\\qquad x=x-\\alpha\\left(x^{2}-4x+2\\right).$$\n\nAlle har de samme fikspunktene, men **de oppfører seg helt ulikt** under iterasjon: noen konvergerer raskt, noen langsomt, noen ikke i det hele tatt.\n\n**Konsekvensen for besvarelsen:** oppgaven oppgir som regel $g$ for deg. Gjør den ikke det, må du velge — og da må du *begrunne* valget ved å sjekke vilkårene under."
+    },
+    {
+      "id": "tma4135-6-3-def-iterasjon",
+      "type": "definition",
+      "title": "Fikspunktiterasjonen",
+      "content": "Følgen som lages ved å sette inn i $g$ om og om igjen:\n\n$$x_{k+1}=g(x_k),\\qquad k=0,1,2,\\dots$$\n\nmed en oppgitt **startverdi** $x_0$.\n\n**Grafisk («trappediagrammet»):** gå loddrett fra $x_k$ opp til grafen til $g$ for å finne $g(x_k)$, og deretter vannrett bort til linja $y=x$ for å gjøre verdien til neste $x$. Gjentar du det, danner sporet enten en trapp eller en spiral inn mot fikspunktet — eller ut fra det.\n\n**Konvergerer følgen mot et tall $r$, og er $g$ kontinuerlig, så er $r$ et fikspunkt.** Det følger av at $x_{k+1}=g(x_k)$ i grensen blir $r=g(r)$."
+    },
+    {
+      "id": "tma4135-6-3-def-trappediagram",
+      "type": "definition",
+      "title": "Trappediagram og spiral",
+      "content": "De to bildene iterasjonen kan danne, avhengig av fortegnet til $g'$.\n\n**Trapp ($g'>0$, voksende $g$):** iteratene nærmer seg fikspunktet fra én side og blir liggende der. Feilen har samme fortegn hele veien.\n\n**Spiral ($g'<0$, avtakende $g$):** iteratene hopper vekselvis over og under fikspunktet. Feilen skifter fortegn for hvert skritt.\n\n**Spiralen gir en gratis kontroll:** er $g$ avtakende, må roten alltid ligge **mellom** to nabo-iterater. Ser du at $x_2$ og $x_3$ ligger på samme side av det du tror er svaret, har du regnefeil.\n\nEr $|g'|>1$, går trappen eller spiralen den andre veien — bort fra fikspunktet. Det er hele innholdet i vilkår (i), sett grafisk."
+    },
+    {
+      "id": "tma4135-6-3-def-kontraksjon",
+      "type": "definition",
+      "title": "Kontraksjon",
+      "content": "En funksjon som **krymper avstander**: det finnes et tall $L<1$ slik at\n\n$$\\left|g(u)-g(v)\\right|\\le L\\left|u-v\\right| \\qquad \\text{for alle } u,v \\text{ i intervallet}.$$\n\n**Bruk middelverdisetningen** for å se hvorfor derivasjon er nok: er $g$ deriverbar, er $g(u)-g(v)=g'(\\eta)(u-v)$ for en $\\eta$ mellom $u$ og $v$, så\n\n$$\\left|g(u)-g(v)\\right|\\le\\left(\\max\\left|g'\\right|\\right)\\left|u-v\\right|.$$\n\nEr $\\max|g'|\\le L<1$, er $g$ altså en kontraksjon med den konstanten.\n\n**Ordet «kontraksjon» i klarspråk:** to punkter som settes inn i $g$, kommer ut nærmere hverandre enn de gikk inn — og de kommer minst en fast brøkdel nærmere hver gang."
+    },
+    {
+      "id": "tma4135-6-3-def-L",
+      "type": "definition",
+      "title": "Kontraksjonskonstanten $L$",
+      "content": "Tallet i kontraksjonsulikheten, i praksis\n\n$$L=\\max_{x\\in I}\\left|g'(x)\\right|.$$\n\n**Slik finner du den:** som regel er $|g'|$ monoton på intervallet, og da ligger maksimum i et **endepunkt**. Skriv ut hvorfor — «$|g'(x)|=\\frac{x}{2}$ er voksende på $[0,1]$, så maksimum er i $x=1$» — det er et halvt poeng verdt.\n\n**$L$ styrer alt:**\n\n- $L$ nær 0 gir rask konvergens.\n- $L$ nær 1 gir langsom konvergens, og antall iterasjoner i estimatet vokser dramatisk.\n- $L\\ge 1$ gir ingen garanti i det hele tatt.\n\n**Merk symbolkollisjonen:** $L$ er halvperioden i Fourier-rekker ([kap. 3.1](/tma4135/tma4135-3-1)), men kontraksjonskonstanten her. De har ingenting med hverandre å gjøre."
+    },
+    {
+      "id": "tma4135-6-3-def-vilkar1",
+      "type": "definition",
+      "title": "Vilkår (i): $|g'|\\le L<1$",
+      "content": "Det første av de to vilkårene i fikspunktteoremet. Det sikrer at avstander krymper — altså at to nabopunkter kommer nærmere hverandre for hver iterasjon.\n\n**Merk den strenge ulikheten mot 1.** Er $\\max|g'|=1$, er det ikke nok: funksjonen $g(x)=x$ har $|g'|\\equiv 1$ og alle punkter som fikspunkt, og $g(x)=x+1$ har $|g'|\\equiv 1$ og ingen.\n\n**Merk også at maksimeringen skal gå over hele intervallet**, ikke bare i fikspunktet. At $|g'(r)|<1$ sier bare at iterasjonen konvergerer for startverdier *nær nok* $r$ — og «nær nok» er ikke et svar på «for enhver $x_0\\in[a,b]$»."
+    },
+    {
+      "id": "tma4135-6-3-def-vilkar2",
+      "type": "definition",
+      "title": "Vilkår (ii): $g(I)\\subseteq I$",
+      "content": "Det andre vilkåret: $g$ skal **avbilde intervallet inn i seg selv**. Er $x$ i $I$, skal $g(x)$ også være i $I$.\n\n**Hvorfor det trengs:** vilkår (i) sier bare noe om hva som skjer *inne i* $I$. Hopper iterasjonen ut av intervallet, gjelder ikke lenger anslaget på $|g'|$, og garantien er borte.\n\n**Slik viser du det, i to steg:**\n\n1. **Avgjør om $g$ er voksende eller avtakende** på $I$ (se på fortegnet til $g'$).\n2. **Regn ut endepunktsverdiene.** Er $g$ voksende, er $g(I)=[g(a),g(b)]$; er $g$ avtakende, er $g(I)=[g(b),g(a)]$. Sjekk at det ligger inne i $[a,b]$.\n\nEr $g$ ikke monoton, må du i tillegg ta med de indre ekstremalverdiene.\n\n**Dette vilkåret er det som glemmes.** Det er også det som skiller midtsjiktet fra toppsjiktet i denne sjangeren."
+    },
+    {
+      "id": "tma4135-6-3-eks1",
+      "type": "example",
+      "title": "Begge vilkårene på $g(x)=\\frac{x^{2}+2}{4}$",
+      "problem": "La $g(x)=\\dfrac{x^{2}+2}{4}$ og $I=[0,1]$.\n\n**a)** Vis at $g$ har et fikspunkt i $I$, og finn det eksakt.\n**b)** Sjekk **begge** fikspunktvilkårene på $I$.\n**c)** Gjør fire iterasjoner fra $x_0=0{,}5$ og sammenlikn med det eksakte svaret.",
+      "solution": "**a) Fikspunktet.** Løs $g(x)=x$:\n\n$$\\frac{x^{2}+2}{4}=x\\ \\Longleftrightarrow\\ x^{2}+2=4x\\ \\Longleftrightarrow\\ x^{2}-4x+2=0.$$\n\n$$x=\\frac{4\\pm\\sqrt{16-8}}{2}=\\frac{4\\pm 2\\sqrt2}{2}=2\\pm\\sqrt2.$$\n\nRøttene er $2-\\sqrt2\\approx 0{,}585786$ og $2+\\sqrt2\\approx 3{,}414214$. Bare den første ligger i $[0,1]$.\n\n$$\\boxed{r=2-\\sqrt2\\approx 0{,}5857864}$$\n\n**b) Vilkår (i) — kontraksjon.**\n\n$$g'(x)=\\frac{2x}{4}=\\frac{x}{2}.$$\n\nPå $[0,1]$ er $|g'(x)|=\\frac{x}{2}$ **voksende**, så maksimum ligger i høyre endepunkt:\n\n$$L=\\max_{[0,1]}\\left|g'\\right|=g'(1)=\\frac12<1.\\qquad ✔$$\n\n**Vilkår (ii) — $g$ avbilder $[0,1]$ inn i seg selv.**\n\n$g'(x)=\\frac{x}{2}\\ge 0$ på $[0,1]$, så $g$ er **voksende** der. Da er\n\n$$g\\left([0,1]\\right)=\\left[g(0),\\,g(1)\\right]=\\left[\\frac{0+2}{4},\\ \\frac{1+2}{4}\\right]=\\left[\\frac12,\\ \\frac34\\right].$$\n\nOg $\\left[\\tfrac12,\\tfrac34\\right]\\subset[0,1]$. ✔\n\n**Konklusjon.** Begge vilkårene holder med $L=\\frac12$. **Etter fikspunktteoremet** har $g$ et entydig fikspunkt i $[0,1]$, og iterasjonen $x_{k+1}=g(x_k)$ konvergerer mot det for **enhver** startverdi $x_0\\in[0,1]$.\n\n**c) Iterasjonene fra $x_0=0{,}5$.**\n\n$$x_1=\\frac{0{,}25+2}{4}=\\frac{2{,}25}{4}=0{,}5625,$$\n$$x_2=\\frac{0{,}5625^{2}+2}{4}=\\frac{0{,}31640625+2}{4}=0{,}5791015625,$$\n$$x_3=\\frac{0{,}5791015625^{2}+2}{4}\\approx\\frac{0{,}33535862+2}{4}\\approx 0{,}5838396549,$$\n$$x_4\\approx\\frac{0{,}34086874+2}{4}\\approx 0{,}5852171857.$$\n\n| $k$ | $x_k$ | $|x_k-r|$ |\n|---|---|---|\n| 0 | $0{,}5$ | $8{,}58\\cdot 10^{-2}$ |\n| 1 | $0{,}5625$ | $2{,}33\\cdot 10^{-2}$ |\n| 2 | $0{,}5791016$ | $6{,}69\\cdot 10^{-3}$ |\n| 3 | $0{,}5838397$ | $1{,}95\\cdot 10^{-3}$ |\n| 4 | $0{,}5852172$ | $5{,}69\\cdot 10^{-4}$ |\n\n**Legg merke til mønsteret i feilene:** hver feil er omtrent $0{,}29$ ganger den forrige. Det er mindre enn $L=\\frac12$, og det er som forventet — $L$ er et maksimum over hele intervallet, mens den faktiske krympingen nær fikspunktet er $|g'(r)|=\\frac{r}{2}\\approx 0{,}293$.\n\n**Konvergensen er lineær:** feilen faller med en fast faktor per skritt, ikke raskere. Det er kjennetegnet på fikspunktiterasjon, og det er også grunnen til at du trenger ganske mange skritt for høy nøyaktighet."
+    },
+    {
+      "id": "tma4135-6-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-3-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) La $g(x)=\\dfrac{x+3}{x+1}$ og $I=[1,2]$.\n\n**a)** Finn fikspunktet eksakt ved å løse $g(x)=x$.\n**b)** Regn ut $g(1)$ og $g(2)$.\n**c)** Regn ut $g'(x)$.",
+        "solution": "**a)**\n\n$$\\frac{x+3}{x+1}=x\\ \\Longleftrightarrow\\ x+3=x^{2}+x\\ \\Longleftrightarrow\\ x^{2}=3\\ \\Longleftrightarrow\\ x=\\pm\\sqrt3.$$\n\nBare $x=\\sqrt3\\approx 1{,}7320508$ ligger i $[1,2]$.\n\n**b)** $g(1)=\\dfrac{4}{2}=2$ og $g(2)=\\dfrac{5}{3}\\approx 1{,}6666667$.\n\n**c)** Kvotientregelen:\n\n$$g'(x)=\\frac{1\\cdot(x+1)-(x+3)\\cdot 1}{(x+1)^{2}}=\\frac{x+1-x-3}{(x+1)^{2}}=\\frac{-2}{(x+1)^{2}}.$$\n\n**Merk fortegnet:** $g'<0$ overalt, så $g$ er **avtakende**. Det får konsekvenser for hvordan du sjekker vilkår (ii) i neste oppgave.",
+        "hints": [
+          "Sett $g(x)=x$ og gang opp med nevneren.",
+          "Sett inn 1 og 2 i brøken.",
+          "Bruk kvotientregelen; telleren forenkles til en konstant."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-3-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger K — fikspunktiterasjon.) Fortsett med $g(x)=\\dfrac{x+3}{x+1}$ på $I=[1,2]$, der $g'(x)=\\dfrac{-2}{(x+1)^{2}}$.\n\n**a)** Finn $L=\\max_{I}|g'|$, og begrunn hvor maksimum ligger.\n**b)** Vis at $g$ avbilder $[1,2]$ inn i seg selv.\n**c)** Konkluder.",
+        "solution": "**a)** $|g'(x)|=\\dfrac{2}{(x+1)^{2}}$. Nevneren er **voksende** på $[1,2]$, så brøken er **avtakende**, og maksimum ligger i venstre endepunkt:\n\n$$L=\\left|g'(1)\\right|=\\frac{2}{4}=\\frac12<1.\\qquad ✔$$\n\n**b)** Siden $g'<0$ er $g$ **avtakende** på $[1,2]$. Da er\n\n$$g\\left([1,2]\\right)=\\left[g(2),\\,g(1)\\right]=\\left[\\frac53,\\ 2\\right].$$\n\nOg $\\left[\\tfrac53,2\\right]\\subset[1,2]$, siden $\\tfrac53\\approx 1{,}667\\ge 1$ og $2\\le 2$. ✔\n\n**Merk rekkefølgen på endepunktene.** Fordi $g$ er avtakende, går det største bildet ut av det **minste** argumentet. Setter du dem i feil rekkefølge, får du et intervall som ser galt ut.\n\n**c)** Begge vilkårene holder med $L=\\frac12$. **Etter fikspunktteoremet** har $g$ nøyaktig ett fikspunkt i $[1,2]$ — nemlig $\\sqrt3$ — og iterasjonen $x_{k+1}=g(x_k)$ konvergerer mot det for **enhver** $x_0\\in[1,2]$.",
+        "hints": [
+          "$|g'(x)|=2/(x+1)^2$ — er den voksende eller avtakende på intervallet?",
+          "Er $g$ avtakende, byttes rekkefølgen på endepunktsverdiene.",
+          "Skriv ut begge vilkårene og navngi teoremet i konklusjonen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Fikspunktteoremet (~13 min)"
+    },
+    {
+      "id": "tma4135-6-3-teo-fikspunkt",
+      "type": "theorem",
+      "title": "Fikspunktteoremet",
+      "content": "La $I=[a,b]$ og la $g$ være deriverbar på $I$ med\n\n**(i)** $\\left|g'(x)\\right|\\le L<1$ for alle $x\\in I$, og\n**(ii)** $g(I)\\subseteq I$.\n\nDa gjelder:\n\n1. $g$ har **nøyaktig ett** fikspunkt $r$ i $I$.\n2. Iterasjonen $x_{k+1}=g(x_k)$ konvergerer mot $r$ for **enhver** startverdi $x_0\\in I$.\n3. Feilen tilfredsstiller $\\left|x_{k}-r\\right|\\le L^{k}\\left|x_0-r\\right|$.\n\n**Bevisskisse.** Vilkår (ii) sikrer at hele følgen blir liggende i $I$, slik at (i) alltid kan brukes. Da er\n\n$$\\left|x_{k+1}-r\\right|=\\left|g(x_k)-g(r)\\right|\\le L\\left|x_k-r\\right|,$$\n\nder vi brukte at $r=g(r)$ og at $g$ er en kontraksjon. Gjentar du ulikheten $k$ ganger, får du punkt 3, og siden $L<1$ går $L^{k}\\to 0$. **Entydigheten:** hadde $g$ to fikspunkter $r$ og $s$ i $I$, ville $|r-s|=|g(r)-g(s)|\\le L|r-s|$, altså $(1-L)|r-s|\\le 0$, som med $L<1$ tvinger $r=s$. $\\blacksquare$\n\n**Begge vilkårene brukes i beviset.** Det er derfor det ikke holder å sjekke bare det ene, og det er derfor løsningsforslagene alltid skriver ut begge.\n\n**Teoremet skal navngis i besvarelsen** — «etter fikspunktteoremet konvergerer iterasjonen …». Det står ikke på det utdelte formelarket."
+    },
+    {
+      "id": "tma4135-6-3-def-hvorfor-begge",
+      "type": "definition",
+      "title": "Hvorfor begge vilkårene trengs",
+      "content": "To moteksempler viser at ingen av dem kan sløyfes.\n\n**Vilkår (i) sløyfet.** La $g(x)=x^{2}-2$ med $I=[1{,}5,\\,2{,}5]$. Fikspunktet $x=2$ ligger i $I$, og $g$ er fin og glatt. Men $g'(2)=4>1$, og iterasjonen fra $x_0=2{,}05$ gir\n\n$$2{,}05\\ \\to\\ 2{,}2025\\ \\to\\ 2{,}8510\\ \\to\\ 6{,}1282\\ \\to\\ 35{,}56\\ \\to\\ 1262{,}2\\ \\to\\ \\dots$$\n\nDen løper fra fikspunktet, ikke mot det.\n\n**Vilkår (ii) sløyfet.** La $g(x)=\\frac{x}{2}+1$ med $I=[0,1]$. Her er $|g'|=\\frac12<1$ overalt, så (i) holder glimrende. Men $g(1)=1{,}5\\notin[0,1]$, så (ii) svikter — og fikspunktet er $x=2$, som ikke ligger i $I$ i det hele tatt. Iterasjonen fra $x_0=0{,}5$ gir\n\n$$0{,}5\\ \\to\\ 1{,}25\\ \\to\\ 1{,}625\\ \\to\\ 1{,}8125\\ \\to\\ 1{,}90625\\ \\to\\ \\dots\\ \\to\\ 2.$$\n\nDen konvergerer — men **ut av intervallet**, og teoremet lovet ingenting.\n\n**Lærdommen:** vilkår (i) styrer *hvor fort*, vilkår (ii) styrer *om du blir værende*. Du trenger begge."
+    },
+    {
+      "id": "tma4135-6-3-advarsel-begge",
+      "type": "warning",
+      "title": "Toppsjiktets skille: begge vilkårene",
+      "content": "**Den vanligste enkeltfeilen i denne sjangeren er å sjekke bare $|g'|<1$.**\n\nEn besvarelse som skriver «$|g'(x)|\\le\\frac12<1$, altså konvergerer iterasjonen» har gjort halve jobben. Den mangler:\n\n- at $g$ **avbilder intervallet inn i seg selv**, med begrunnelse via monotoni og endepunktsverdier;\n- at teoremet **navngis**.\n\n**Slik ser en fullstendig føring ut, i fire linjer:**\n\n1. «$g'(x)=\\dots$, og $|g'|$ er voksende/avtakende på $[a,b]$, så $L=\\max|g'|=|g'(\\cdot)|=\\dots<1$.»\n2. «$g$ er voksende/avtakende fordi $g'$ har fast fortegn, så $g([a,b])=[g(\\cdot),g(\\cdot)]=[\\dots,\\dots]$.»\n3. «Dette ligger inne i $[a,b]$, så vilkår (ii) er oppfylt.»\n4. «Etter fikspunktteoremet har $g$ et entydig fikspunkt i $[a,b]$, og iterasjonen konvergerer mot det for enhver $x_0\\in[a,b]$.»\n\nFire linjer. Skriv dem hver gang."
+    },
+    {
+      "id": "tma4135-6-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-3-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger K.) La $g(x)=\\sqrt{x+6}$ på $I=[1,4]$.\n\n**a)** Finn fikspunktet eksakt.\n**b)** Sjekk begge vilkårene og finn $L$.\n**c)** Gjør tre iterasjoner fra $x_0=1$.",
+        "solution": "**a)**\n\n$$\\sqrt{x+6}=x\\ \\Longrightarrow\\ x+6=x^{2}\\ \\Longrightarrow\\ x^{2}-x-6=0\\ \\Longrightarrow\\ (x-3)(x+2)=0.$$\n\nRøttene er $x=3$ og $x=-2$. Kvadreringen kan innføre falske røtter, så vi kontrollerer: $\\sqrt{3+6}=3$ ✔, mens $\\sqrt{-2+6}=2\\ne -2$ ✘.\n\n$$\\boxed{r=3}$$\n\n**b) Vilkår (i).**\n\n$$g'(x)=\\frac{1}{2\\sqrt{x+6}}.$$\n\nNevneren er voksende, så $|g'|$ er **avtakende** på $[1,4]$, og maksimum ligger i venstre endepunkt:\n\n$$L=g'(1)=\\frac{1}{2\\sqrt7}\\approx 0{,}188982<1.\\qquad ✔$$\n\n**Vilkår (ii).** $g'>0$, så $g$ er **voksende**:\n\n$$g\\left([1,4]\\right)=\\left[g(1),\\,g(4)\\right]=\\left[\\sqrt7,\\ \\sqrt{10}\\right]\\approx\\left[2{,}6458,\\ 3{,}1623\\right]\\subset[1,4].\\qquad ✔$$\n\n**Konklusjon.** **Etter fikspunktteoremet** har $g$ et entydig fikspunkt i $[1,4]$, nemlig $r=3$, og iterasjonen konvergerer mot det for enhver $x_0\\in[1,4]$.\n\n**c)**\n\n$$x_1=\\sqrt{1+6}=\\sqrt7\\approx 2{,}6457513,$$\n$$x_2=\\sqrt{2{,}6457513+6}=\\sqrt{8{,}6457513}\\approx 2{,}9403658,$$\n$$x_3=\\sqrt{2{,}9403658+6}=\\sqrt{8{,}9403658}\\approx 2{,}9900445.$$\n\nFeilene er $0{,}354$, $0{,}0596$ og $0{,}00996$ — hver omtrent $0{,}17$ ganger den forrige, som stemmer godt med $|g'(3)|=\\frac{1}{2\\cdot 3}=\\frac16\\approx 0{,}167$.\n\n**En observasjon verdt å ta med:** den faktiske reduksjonsfaktoren nær fikspunktet er $|g'(r)|$, ikke $L$. $L$ er en garanti for hele intervallet og er derfor alltid minst like stor.",
+        "hints": [
+          "Kvadrer likningen og kontroller røttene etterpå — kvadrering kan gi falske løsninger.",
+          "$|g'|=1/(2\\sqrt{x+6})$ er avtakende; maksimum ligger i venstre endepunkt.",
+          "$g$ er voksende, så bildet av intervallet er $[g(1),g(4)]$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-3-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger K — moteksempel.) La $g(x)=\\dfrac{x}{2}+1$ og $I=[0,1]$.\n\n**a)** Vis at $|g'|<1$ på $I$.\n**b)** Undersøk om $g$ avbilder $I$ inn i seg selv.\n**c)** Hva sier fikspunktteoremet her, og hva skjer faktisk med iterasjonen fra $x_0=0{,}5$?",
+        "solution": "**a)** $g'(x)=\\dfrac12$ for alle $x$, så $|g'|=\\dfrac12<1$ overalt. Vilkår (i) holder, og med god margin.\n\n**b)** $g$ er voksende, så\n\n$$g\\left([0,1]\\right)=\\left[g(0),\\,g(1)\\right]=\\left[1,\\ \\tfrac32\\right].$$\n\nMen $\\tfrac32>1$, så $g([0,1])\\not\\subseteq[0,1]$. **Vilkår (ii) svikter.** ✘\n\n**c)** Fikspunktteoremet **sier ingenting** — forutsetningene er ikke oppfylt, så konklusjonen kan vi ikke bruke.\n\nHva skjer faktisk? Fikspunktet finnes ved $\\frac{x}{2}+1=x$, altså $x=2$, som ligger **utenfor** $I$. Iterasjonen fra $x_0=0{,}5$:\n\n$$0{,}5\\ \\to\\ 1{,}25\\ \\to\\ 1{,}625\\ \\to\\ 1{,}8125\\ \\to\\ 1{,}90625\\ \\to\\ 1{,}953125\\ \\to\\ \\dots$$\n\nDen konvergerer pent — mot 2. Men allerede første skritt tok den ut av $[0,1]$.\n\n**Poenget med oppgaven.** Iterasjonen «virker» her, og det er nettopp derfor moteksempelet er lærerikt: **at det går bra, betyr ikke at du har vist at det går bra.** Teoremet gir en garanti innenfor et intervall, og garantien er verdiløs hvis følgen forlater intervallet.\n\n**Og motsatt vei:** hadde fikspunktet ligget der oppgaven påsto, men iterasjonen hoppet ut i et område der $|g'|>1$, kunne den divergert. Vilkår (ii) er det som utelukker den muligheten.",
+        "hints": [
+          "$g$ er lineær, så den deriverte er konstant.",
+          "Regn ut bildet av begge endepunktene og sammenlikn med $I$.",
+          "Teoremet har to forutsetninger; hva kan du konkludere når bare én holder?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-3-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~28 min brukt) —\n\nDu har teoremet og begge vilkårene. Resten av kapitlet er det andre faste delspørsmålet: hvor mange iterasjoner trengs?"
+    },
+    {
+      "id": "tma4135-6-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — A-priori-estimatet (~15 min)\n\n«Konvergerer» er ikke nok på en eksamen. Spørsmålet er alltid: **hvor mange skritt** før feilen er under en gitt toleranse — og det skal besvares **før** du har regnet dem."
+    },
+    {
+      "id": "tma4135-6-3-def-apriori",
+      "type": "definition",
+      "title": "A-priori-estimatet",
+      "content": "Feilgrensen som bare bruker $L$ og det **første** skrittet:\n\n$$\\left|x_{k+1}-r\\right|\\ \\le\\ \\frac{L^{k+1}}{1-L}\\,\\left|g(x_0)-x_0\\right|\\ =\\ \\frac{L^{k+1}}{1-L}\\,\\left|x_1-x_0\\right|.$$\n\n**«A priori» betyr «på forhånd»:** du kan regne ut hvor mange iterasjoner du trenger etter å ha gjort **ett** skritt, og deretter sette maskinen i gang med riktig antall.\n\n**Utledning i tre linjer.** Skriv $r-x_{k+1}$ som en teleskopsum av differansene $x_{j+1}-x_j$, og bruk at hver differanse er høyst $L$ ganger den forrige:\n\n$$\\left|x_{j+1}-x_j\\right|=\\left|g(x_j)-g(x_{j-1})\\right|\\le L\\left|x_j-x_{j-1}\\right|\\le\\dots\\le L^{j}\\left|x_1-x_0\\right|.$$\n\nSummen av restleddene er en geometrisk rekke med kvotient $L$:\n\n$$\\left|r-x_{k+1}\\right|\\le\\sum_{j\\ge k+1}L^{j}\\left|x_1-x_0\\right|=\\frac{L^{k+1}}{1-L}\\left|x_1-x_0\\right|.$$\n\n**Merk eksponenten $k+1$, ikke $k$.** Det er den vanligste feilen i formelen, og den gir ett skritt for lite.\n\n**Estimatet står vanligvis ikke på det utdelte formelarket — det må kunnes.** Sett det på ditt eget A5-ark."
+    },
+    {
+      "id": "tma4135-6-3-def-svakere",
+      "type": "definition",
+      "title": "Den svakere varianten",
+      "content": "Kjenner du ikke $x_1$, kan du erstatte $|x_1-x_0|$ med hele intervallets lengde:\n\n$$\\left|x_{k}-r\\right|\\le L^{k}\\,(b-a).$$\n\nDet følger av at både $x_0$ og $r$ ligger i $[a,b]$, så $|x_0-r|\\le b-a$, kombinert med punkt 3 i fikspunktteoremet.\n\n**Varianten er svakere** (den gir flere iterasjoner), men den er akseptert i løsningsforslagene, og den er raskere når du bare skal ha et grovt tall. Si hvilken du bruker."
+    },
+    {
+      "id": "tma4135-6-3-def-avrunding",
+      "type": "definition",
+      "title": "Avrunding oppover av iterasjonstallet",
+      "content": "Løser du ulikheten for $k$, får du nesten alltid et desimaltall — og da skal du **runde oppover**.\n\n$$L^{k+1}\\le\\frac{(1-L)\\,\\text{tol}}{\\left|x_1-x_0\\right|}\\ \\Longrightarrow\\ (k+1)\\ln L\\le\\ln(\\cdots)\\ \\Longrightarrow\\ k+1\\ \\ge\\ \\frac{\\ln(\\cdots)}{\\ln L}.$$\n\n**Merk at ulikheten snur** når du deler på $\\ln L$, som er **negativ** siden $L<1$. Det er det andre stedet fortegnsfeil oppstår.\n\n**Avrunding nedover er en dokumentert feil i sjangeren.** Runder du ned, er kravet ikke oppfylt, og hele regnestykket er bortkastet. Skriv gjerne «$k+1\\ge 10{,}29$, altså trengs 11 iterasjoner» — da ser den som retter, at du har tenkt på det."
+    },
+    {
+      "id": "tma4135-6-3-def-aposteriori",
+      "type": "definition",
+      "title": "A-posteriori-estimatet",
+      "content": "Feilgrensen som bruker det **siste** skrittet du faktisk har regnet:\n\n$$\\left|x_k-r\\right|\\le\\frac{L}{1-L}\\left|x_k-x_{k-1}\\right|.$$\n\n**«A posteriori» betyr «i etterkant»:** du regner til to nabo-iterater ligger nær nok hverandre, og bruker differansen som feilmål.\n\n**Praktisk forskjell.** A-priori sier hvor mange skritt du trenger, før du starter. A-posteriori sier hvor god verdien du har, faktisk er — og den er som regel mye skarpere, fordi den bruker den **virkelige** krympingen i stedet for det verst tenkelige $L$.\n\n**Merk fella:** differansen $|x_k-x_{k-1}|$ er **ikke** feilen. Er $L$ nær 1, er faktoren $\\frac{L}{1-L}$ stor, og feilen kan være mange ganger større enn differansen."
+    },
+    {
+      "id": "tma4135-6-3-def-lineaer",
+      "type": "definition",
+      "title": "Lineær konvergens",
+      "content": "Fikspunktiterasjon har **lineær** konvergens: feilen faller med en fast faktor per skritt,\n\n$$\\left|x_{k+1}-r\\right|\\approx\\left|g'(r)\\right|\\cdot\\left|x_k-r\\right|.$$\n\n**Konsekvensen i praksis:** hvert skritt gir like mange nye korrekte siffer. Med $|g'(r)|\\approx 0{,}1$ får du omtrent ett nytt siffer per iterasjon; med $|g'(r)|\\approx 0{,}5$ trengs det tre–fire iterasjoner per siffer.\n\n**Kontrast:** Newtons metode i [kap. 6.4](/tma4135/tma4135-6-4) har **kvadratisk** konvergens — antall korrekte siffer dobles per skritt. Det er hele grunnen til at Newton er raskere når den først virker.\n\n**Spesialtilfellet $g'(r)=0$** gir raskere enn lineær konvergens. Det er ikke tilfeldig at Newtons $g(x)=x-f(x)/f'(x)$ har nettopp $g'(r)=0$."
+    },
+    {
+      "id": "tma4135-6-3-eks2",
+      "type": "example",
+      "title": "Hvor mange iterasjoner trengs?",
+      "problem": "Med $g(x)=\\dfrac{x^{2}+2}{4}$ på $[0,1]$, $L=\\dfrac12$ og $x_0=0{,}5$: hvor mange iterasjoner garanterer at feilen er under $10^{-4}$?\n\nSammenlikn deretter med den virkelige feilen.",
+      "solution": "**Steg 1 — det første skrittet.**\n\n$$x_1=g(0{,}5)=\\frac{0{,}25+2}{4}=0{,}5625,\\qquad \\left|x_1-x_0\\right|=0{,}0625.$$\n\n**Steg 2 — sett inn i a-priori-estimatet.**\n\n$$\\left|x_{k+1}-r\\right|\\le\\frac{L^{k+1}}{1-L}\\left|x_1-x_0\\right|=\\frac{\\left(\\tfrac12\\right)^{k+1}}{\\tfrac12}\\cdot 0{,}0625=0{,}125\\cdot\\left(\\tfrac12\\right)^{k+1}.$$\n\n**Steg 3 — løs ulikheten.**\n\n$$0{,}125\\cdot\\left(\\tfrac12\\right)^{k+1}\\le 10^{-4}\\ \\Longleftrightarrow\\ \\left(\\tfrac12\\right)^{k+1}\\le 8\\cdot 10^{-4}\\ \\Longleftrightarrow\\ 2^{\\,k+1}\\ge 1250.$$\n\n$$k+1\\ge\\log_2 1250=\\frac{\\ln 1250}{\\ln 2}\\approx\\frac{7{,}1309}{0{,}6931}\\approx 10{,}288.$$\n\n**Rund oppover:** $k+1=11$.\n\n$$\\boxed{\\text{11 iterasjoner garanterer feil under } 10^{-4}.}$$\n\n*Kontroll:* med $k+1=11$ er anslaget $0{,}125\\cdot 2^{-11}\\approx 6{,}10\\cdot 10^{-5}<10^{-4}$ ✔. Med $k+1=10$ blir det $1{,}22\\cdot 10^{-4}$, altså **over** kravet — avrundingen oppover var nødvendig.\n\n**Steg 4 — den virkelige feilen.** Kjører vi iterasjonen, er\n\n$$x_{11}\\approx 0{,}5857863324,\\qquad r=2-\\sqrt2\\approx 0{,}5857864376,$$\n\n$$\\left|x_{11}-r\\right|\\approx 1{,}05\\cdot 10^{-7}.$$\n\n**Anslaget var 580 ganger for stort.** Grunnen er at $L=\\frac12$ er maksimum over hele $[0,1]$, mens den faktiske krympingen nær fikspunktet er $|g'(r)|=\\frac{r}{2}\\approx 0{,}293$. Over elleve skritt blir forskjellen mellom $0{,}5^{11}$ og $0{,}293^{11}$ enorm.\n\n**Er anslaget da ubrukelig?** Nei — det er en **garanti**, og det er akkurat det oppgaven spør etter. Men det er verdt å skrive én setning om at den virkelige feilen er klart mindre. Vil du ha et skarpt tall, bruker du a-posteriori-estimatet i stedet, etter at du har regnet.\n\n**Tidsbruk på eksamen:** dette delpunktet tar 5–6 minutter når formelen sitter."
+    },
+    {
+      "id": "tma4135-6-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-3-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger K — a-priori-estimat.) Med $g(x)=\\dfrac{x+3}{x+1}$ på $[1,2]$, $L=\\dfrac12$ og $x_0=2$:\n\n**a)** Regn ut $x_1$ og $\\left|x_1-x_0\\right|$.\n**b)** Bestem antall iterasjoner som garanterer feil under $10^{-3}$.\n**c)** Kontroller mot den eksakte verdien $\\sqrt3\\approx 1{,}7320508$, gitt at $x_{10}\\approx 1{,}7320513$.",
+        "solution": "**a)**\n\n$$x_1=g(2)=\\frac{2+3}{2+1}=\\frac53\\approx 1{,}6666667,\\qquad \\left|x_1-x_0\\right|=\\left|\\frac53-2\\right|=\\frac13.$$\n\n**b)** A-priori-estimatet med $L=\\frac12$:\n\n$$\\left|x_{k+1}-r\\right|\\le\\frac{\\left(\\tfrac12\\right)^{k+1}}{\\tfrac12}\\cdot\\frac13=\\frac23\\left(\\tfrac12\\right)^{k+1}.$$\n\nKravet:\n\n$$\\frac23\\left(\\tfrac12\\right)^{k+1}\\le 10^{-3}\\ \\Longleftrightarrow\\ \\left(\\tfrac12\\right)^{k+1}\\le 1{,}5\\cdot 10^{-3}\\ \\Longleftrightarrow\\ 2^{\\,k+1}\\ge\\frac{2000}{3}\\approx 666{,}7.$$\n\n$$k+1\\ge\\log_2 666{,}7\\approx 9{,}38\\ \\Longrightarrow\\ k+1=10.$$\n\n$$\\boxed{\\text{10 iterasjoner}}$$\n\n*Kontroll:* $\\frac23\\cdot 2^{-10}\\approx 6{,}51\\cdot 10^{-4}<10^{-3}$ ✔, mens $\\frac23\\cdot 2^{-9}\\approx 1{,}30\\cdot 10^{-3}$ er over kravet.\n\n**c)** Den virkelige feilen er\n\n$$\\left|x_{10}-\\sqrt3\\right|\\approx\\left|1{,}7320513-1{,}7320508\\right|\\approx 5\\cdot 10^{-7}.$$\n\nKravet var $10^{-3}$, og vi ligger over tusen ganger bedre. **Garantien holder med svært god margin** — som den nesten alltid gjør, fordi $L$ hentes i intervallets verste punkt.",
+        "hints": [
+          "Regn $x_1$ først; det er det eneste skrittet estimatet trenger.",
+          "Sett inn i $\\frac{L^{k+1}}{1-L}|x_1-x_0|$ og løs for $k+1$.",
+          "Husk at ulikheten snur når du deler på $\\ln L$, og rund oppover."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-3-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger K.) Anta at en fikspunktiterasjon har $L=0{,}8$ og $\\left|x_1-x_0\\right|=0{,}4$.\n\n**a)** Hvor mange iterasjoner trengs for feil under $10^{-5}$?\n**b)** Samme spørsmål med $L=0{,}2$.\n**c)** Kommenter forskjellen.",
+        "solution": "**a)** A-priori-estimatet:\n\n$$\\frac{0{,}8^{\\,k+1}}{1-0{,}8}\\cdot 0{,}4=2\\cdot 0{,}8^{\\,k+1}\\le 10^{-5}\\ \\Longleftrightarrow\\ 0{,}8^{\\,k+1}\\le 5\\cdot 10^{-6}.$$\n\nTa logaritmen og husk at $\\ln 0{,}8<0$, så ulikheten snur:\n\n$$k+1\\ge\\frac{\\ln\\left(5\\cdot 10^{-6}\\right)}{\\ln 0{,}8}=\\frac{-12{,}2061}{-0{,}2231}\\approx 54{,}70.$$\n\n$$\\boxed{k+1=55 \\text{ iterasjoner}}$$\n\n**b)** Med $L=0{,}2$:\n\n$$\\frac{0{,}2^{\\,k+1}}{0{,}8}\\cdot 0{,}4=0{,}5\\cdot 0{,}2^{\\,k+1}\\le 10^{-5}\\ \\Longleftrightarrow\\ 0{,}2^{\\,k+1}\\le 2\\cdot 10^{-5}.$$\n\n$$k+1\\ge\\frac{\\ln\\left(2\\cdot 10^{-5}\\right)}{\\ln 0{,}2}=\\frac{-10{,}8198}{-1{,}6094}\\approx 6{,}72\\ \\Longrightarrow\\ k+1=7.$$\n\n$$\\boxed{7 \\text{ iterasjoner}}$$\n\n**c)** 55 mot 7 — nesten åtte ganger så mange skritt, for nøyaktig samme nøyaktighet.\n\n**Hvorfor.** Antall iterasjoner går som $\\dfrac{1}{\\left|\\ln L\\right|}$, og $\\ln 0{,}8\\approx -0{,}22$ mot $\\ln 0{,}2\\approx -1{,}61$ — en faktor 7,2. Jo nærmere $L$ ligger 1, jo flatere er logaritmen, og jo brattere vokser kravet.\n\n**Praktisk konsekvens:** har du valget mellom flere fikspunktformer av samme likning, **velg den med minst $L$**. Det er ofte det billigste grepet i hele beregningen, og det koster deg bare en derivasjon.",
+        "hints": [
+          "Sett tallene inn i $\\frac{L^{k+1}}{1-L}|x_1-x_0|$ og isoler potensen.",
+          "Ta naturlig logaritme; $\\ln L$ er negativ, så ulikheten snur.",
+          "Sammenlikn $1/|\\ln L|$ for de to verdiene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Full eksamensoppgave (~14 min)\n\nNå settes alt sammen slik oppgaven faktisk kommer: velg intervall, sjekk begge vilkårene, finn $L$, regn antall iterasjoner, gjør noen skritt."
+    },
+    {
+      "id": "tma4135-6-3-def-velg-form",
+      "type": "definition",
+      "title": "Å velge fikspunktform selv",
+      "content": "Ber oppgaven deg løse $f(x)=0$ uten å oppgi $g$, må du velge — og begrunne.\n\n**Framgangsmåte:**\n\n1. Skriv om på 2–3 måter og deriver hver av dem.\n2. Regn $|g'|$ **nær den forventede roten**. Er den over 1, forkast formen.\n3. Velg den med minst $|g'|$, og sjekk deretter begge vilkårene på et konkret intervall.\n\n**Et nyttig triks:** formen $x=x-\\alpha f(x)$ har $g'=1-\\alpha f'$, og du kan velge $\\alpha$ slik at $g'$ blir liten nær roten. Setter du $\\alpha=1/f'(x)$, får du nøyaktig Newtons metode.\n\n**Si i besvarelsen hvorfor du valgte som du gjorde.** «Formen $x=\\sqrt{4x-2}$ har $|g'|>1$ nær roten og forkastes» er en setning som viser at du forsto hva vilkåret gjør."
+    },
+    {
+      "id": "tma4135-6-3-def-kontrollrutine",
+      "type": "definition",
+      "title": "Kontrollrutinen før du leverer",
+      "content": "Fem raske sjekker på en ferdig K-oppgave:\n\n1. **Er fikspunktet kontrollert?** Sett det inn i $g$ og se at du får det tilbake.\n2. **Er $L$ strengt mindre enn 1?** Og er maksimeringen begrunnet med monotoni?\n3. **Er vilkår (ii) skrevet ut**, med riktig rekkefølge på endepunktene når $g$ er avtakende?\n4. **Er teoremet navngitt?**\n5. **Er antall iterasjoner rundet oppover?**\n\nDisse fem tar under ett minutt til sammen, og de dekker alle de dokumenterte feilene i sjangeren."
+    },
+    {
+      "id": "tma4135-6-3-eks3",
+      "type": "example",
+      "title": "Eksamensnivå: hele K-sjangeren i én oppgave",
+      "problem": "Likningen $e^{-x}=x$ skal løses numerisk.\n\n**a)** Vis at likningen har nøyaktig én løsning, og at den ligger i $[0{,}4,\\,0{,}8]$.\n**b)** Vis at iterasjonen $x_{k+1}=e^{-x_k}$ konvergerer mot løsningen for enhver $x_0$ i det intervallet.\n**c)** Bestem hvor mange iterasjoner som garanterer feil under $10^{-4}$ med $x_0=0{,}6$.\n**d)** Gjør de tre første iterasjonene.",
+      "solution": "**a) Én løsning.** Sett $f(x)=e^{-x}-x$. Da er\n\n$$f'(x)=-e^{-x}-1<0 \\qquad \\text{for alle } x,$$\n\nså $f$ er **strengt avtakende** på hele tallinja og kan ha høyst én rot.\n\nVidere er\n\n$$f(0{,}4)=e^{-0{,}4}-0{,}4\\approx 0{,}670320-0{,}4=0{,}270320>0,$$\n$$f(0{,}8)=e^{-0{,}8}-0{,}8\\approx 0{,}449329-0{,}8=-0{,}350671<0.$$\n\n$f$ er kontinuerlig og skifter fortegn, så **etter mellomverdisetningen** finnes en rot i $(0{,}4,\\,0{,}8)$. Kombinert med monotonien er den entydig. $\\blacksquare$\n\n**b) Begge vilkårene** for $g(x)=e^{-x}$ på $I=[0{,}4,\\,0{,}8]$.\n\n**(i)** $g'(x)=-e^{-x}$, altså $\\left|g'(x)\\right|=e^{-x}$, som er **avtakende**. Maksimum ligger i venstre endepunkt:\n\n$$L=e^{-0{,}4}\\approx 0{,}670320<1.\\qquad ✔$$\n\n**(ii)** $g'<0$, så $g$ er **avtakende**, og bildet blir\n\n$$g\\left([0{,}4,\\,0{,}8]\\right)=\\left[g(0{,}8),\\,g(0{,}4)\\right]=\\left[e^{-0{,}8},\\ e^{-0{,}4}\\right]\\approx\\left[0{,}449329,\\ 0{,}670320\\right].$$\n\nLigger dette inne i $[0{,}4,\\,0{,}8]$? Ja: $0{,}449\\ge 0{,}4$ og $0{,}670\\le 0{,}8$. ✔\n\n**Konklusjon.** **Etter fikspunktteoremet** har $g$ et entydig fikspunkt i $[0{,}4,\\,0{,}8]$, og iterasjonen $x_{k+1}=e^{-x_k}$ konvergerer mot det for **enhver** $x_0$ i intervallet.\n\n**c) Antall iterasjoner.** Først ett skritt:\n\n$$x_1=e^{-0{,}6}\\approx 0{,}548812,\\qquad \\left|x_1-x_0\\right|\\approx 0{,}051188.$$\n\nA-priori-estimatet:\n\n$$\\left|x_{k+1}-r\\right|\\le\\frac{L^{k+1}}{1-L}\\left|x_1-x_0\\right|=\\frac{0{,}670320^{\\,k+1}}{0{,}329680}\\cdot 0{,}051188\\approx 0{,}155268\\cdot 0{,}670320^{\\,k+1}.$$\n\nKravet:\n\n$$0{,}155268\\cdot 0{,}670320^{\\,k+1}\\le 10^{-4}\\ \\Longleftrightarrow\\ 0{,}670320^{\\,k+1}\\le 6{,}4404\\cdot 10^{-4}.$$\n\nTa naturlig logaritme; $\\ln 0{,}670320\\approx -0{,}400000$ er negativ, så ulikheten snur:\n\n$$k+1\\ge\\frac{\\ln\\left(6{,}4404\\cdot 10^{-4}\\right)}{-0{,}4}=\\frac{-7{,}34766}{-0{,}4}\\approx 18{,}369.$$\n\n**Rund oppover:**\n\n$$\\boxed{k+1=19 \\text{ iterasjoner}}$$\n\n*Kontroll:* $0{,}155268\\cdot 0{,}670320^{19}\\approx 7{,}77\\cdot 10^{-5}<10^{-4}$ ✔, mens 18 iterasjoner gir $1{,}16\\cdot 10^{-4}$, altså over kravet.\n\n**d) De tre første iterasjonene** fra $x_0=0{,}6$:\n\n$$x_1=e^{-0{,}6}\\approx 0{,}5488116,$$\n$$x_2=e^{-0{,}5488116}\\approx 0{,}5776358,$$\n$$x_3=e^{-0{,}5776358}\\approx 0{,}5612236.$$\n\nDen eksakte roten er $r\\approx 0{,}5671433$.\n\n**Legg merke til at iteratene hopper vekselvis over og under roten.** Det er fordi $g'<0$ — en avtakende $g$ gir en **spiral** inn mot fikspunktet, ikke en trapp. Det er også en gratis kontroll: er $g'$ negativ, skal fortegnet på feilen skifte for hvert skritt, og roten ligger alltid **mellom** to nabo-iterater.\n\n**Hvorfor så mange iterasjoner?** Fordi $L\\approx 0{,}67$ er ganske nær 1. Med denne $L$ trengs omtrent to og en halv iterasjon per nytt korrekt siffer.\n\n**Tidsbruk på eksamen:** a) 4 min, b) 6 min, c) 6 min, d) 3 min — omtrent 19 minutter for en oppgave på 10 poeng."
+    },
+    {
+      "id": "tma4135-6-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-3-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger K.) Likningen $x^{3}+x-1=0$ skrives om på to måter:\n\n$$\\text{(A)}\\quad x=1-x^{3},\\qquad\\qquad \\text{(B)}\\quad x=\\frac{1}{1+x^{2}}.$$\n\nRoten ligger nær $0{,}68$.\n\n**a)** Regn ut $g'$ for begge og evaluer i $x=0{,}68$.\n**b)** Hvilken form ville du valgt, og hvorfor?\n**c)** For den du valgte: sjekk begge vilkårene på $[0{,}6,\\,0{,}8]$.",
+        "solution": "**a)**\n\n**(A)** $g_A(x)=1-x^{3}$, så $g_A'(x)=-3x^{2}$ og\n\n$$\\left|g_A'(0{,}68)\\right|=3\\cdot 0{,}4624=1{,}3872>1.$$\n\n**(B)** $g_B(x)=\\dfrac{1}{1+x^{2}}$, så\n\n$$g_B'(x)=\\frac{-2x}{\\left(1+x^{2}\\right)^{2}},\\qquad \\left|g_B'(0{,}68)\\right|=\\frac{1{,}36}{\\left(1{,}4624\\right)^{2}}=\\frac{1{,}36}{2{,}1386}\\approx 0{,}6360<1.$$\n\n**b)** **Form (B).** Form (A) har $|g'|>1$ nær roten, så iterasjonen vil **divergere** derfra uansett hvor godt du gjetter startverdien. Form (B) har $|g'|<1$ og gir konvergens.\n\n*(Kontroll av at begge har samme rot: $x=1-x^3$ er $x^3+x-1=0$ ✔. Og $x(1+x^2)=1$ er $x^3+x-1=0$ ✔. Formene er ekvivalente som likninger — det er bare iterasjonen som skiller.)*\n\n**c) Vilkår (i)** på $I=[0{,}6,\\,0{,}8]$. Vi trenger $\\max|g_B'|$. Regn i endepunktene:\n\n$$\\left|g_B'(0{,}6)\\right|=\\frac{1{,}2}{\\left(1{,}36\\right)^{2}}=\\frac{1{,}2}{1{,}8496}\\approx 0{,}6488,$$\n$$\\left|g_B'(0{,}8)\\right|=\\frac{1{,}6}{\\left(1{,}64\\right)^{2}}=\\frac{1{,}6}{2{,}6896}\\approx 0{,}5949.$$\n\nFunksjonen $|g_B'|$ er avtakende på dette intervallet (telleren vokser lineært, nevneren kvadratisk), så\n\n$$L\\approx 0{,}6488<1.\\qquad ✔$$\n\n**Vilkår (ii).** $g_B'<0$ for $x>0$, så $g_B$ er **avtakende**:\n\n$$g_B\\left([0{,}6,\\,0{,}8]\\right)=\\left[g_B(0{,}8),\\,g_B(0{,}6)\\right]=\\left[\\frac{1}{1{,}64},\\ \\frac{1}{1{,}36}\\right]\\approx\\left[0{,}6098,\\ 0{,}7353\\right].$$\n\nDette ligger inne i $[0{,}6,\\,0{,}8]$. ✔\n\n**Konklusjon.** **Etter fikspunktteoremet** konvergerer $x_{k+1}=\\dfrac{1}{1+x_k^{2}}$ mot den entydige roten for enhver $x_0\\in[0{,}6,\\,0{,}8]$.",
+        "hints": [
+          "Deriver begge formene og sett inn den oppgitte tilnærmingen til roten.",
+          "Iterasjonen kan bare konvergere når $|g'|<1$ i nærheten av fikspunktet.",
+          "For c): regn $|g'|$ i begge endepunktene og avgjør monotonien."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-6-3-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger K — krevende.) La $g(x)=\\dfrac{1}{2}\\left(x+\\dfrac{a}{x}\\right)$ med $a>0$ (Herons metode for kvadratrot).\n\n**a)** Vis at fikspunktene er $x=\\pm\\sqrt a$.\n**b)** Regn ut $g'(x)$ og vis at $g'\\left(\\sqrt a\\right)=0$.\n**c)** Hva sier det om konvergenshastigheten, sammenliknet med lineær konvergens?\n**d)** Regn to iterasjoner med $a=5$ og $x_0=2$.",
+        "solution": "**a)**\n\n$$\\frac12\\left(x+\\frac{a}{x}\\right)=x\\ \\Longleftrightarrow\\ x+\\frac{a}{x}=2x\\ \\Longleftrightarrow\\ \\frac{a}{x}=x\\ \\Longleftrightarrow\\ x^{2}=a.$$\n\n$$\\boxed{x=\\pm\\sqrt a}$$\n\n**b)**\n\n$$g'(x)=\\frac12\\left(1-\\frac{a}{x^{2}}\\right).$$\n\nSett inn $x=\\sqrt a$:\n\n$$g'\\left(\\sqrt a\\right)=\\frac12\\left(1-\\frac{a}{a}\\right)=\\frac12(1-1)=0.\\qquad \\blacksquare$$\n\n**c)** Med $g'(r)=0$ faller den lineære delen av feilen bort. Taylor-utvikling av $g$ om $r$ gir\n\n$$x_{k+1}-r=g(x_k)-g(r)=g'(r)\\left(x_k-r\\right)+\\frac{g''(\\eta)}{2}\\left(x_k-r\\right)^{2}=\\frac{g''(\\eta)}{2}\\left(x_k-r\\right)^{2}.$$\n\n**Feilen kvadreres for hvert skritt.** Det er **kvadratisk konvergens**, og i praksis betyr det at antall korrekte siffer **dobles** per iterasjon — mot et fast antall nye siffer per iterasjon ved lineær konvergens.\n\n**Sammenhengen med Newton.** Herons metode *er* Newtons metode brukt på $f(x)=x^{2}-a$:\n\n$$x-\\frac{f(x)}{f'(x)}=x-\\frac{x^{2}-a}{2x}=\\frac{2x^{2}-x^{2}+a}{2x}=\\frac12\\left(x+\\frac{a}{x}\\right).$$\n\nDet er derfor $g'(r)=0$ — Newton er nettopp konstruert slik. Se [kap. 6.4](/tma4135/tma4135-6-4).\n\n**d)** Med $a=5$, $x_0=2$:\n\n$$x_1=\\frac12\\left(2+\\frac52\\right)=\\frac12\\cdot 4{,}5=2{,}25,$$\n$$x_2=\\frac12\\left(2{,}25+\\frac{5}{2{,}25}\\right)=\\frac12\\left(2{,}25+2{,}2222222\\right)=\\frac12\\cdot 4{,}4722222\\approx 2{,}2361111.$$\n\nDen eksakte verdien er $\\sqrt5\\approx 2{,}2360680$.\n\n| $k$ | $x_k$ | feil |\n|---|---|---|\n| 0 | 2 | $2{,}36\\cdot 10^{-1}$ |\n| 1 | $2{,}25$ | $1{,}39\\cdot 10^{-2}$ |\n| 2 | $2{,}2361111$ | $4{,}31\\cdot 10^{-5}$ |\n\n**Se doblingen:** omtrent 1, deretter 2, deretter 4 korrekte desimaler. Ett skritt til ville gitt rundt 9. **Det er kvadratisk konvergens i praksis**, og det er dramatisk mye raskere enn de 19 iterasjonene i eksempel 3.",
+        "hints": [
+          "Sett $g(x)=x$ og gang opp med $x$.",
+          "Deriver leddvis; $a/x$ deriveres til $-a/x^2$.",
+          "For c): Taylor-utvikle $g$ om fikspunktet når førstederiverte er null.",
+          "For d): regn med minst sju desimaler for å se doblingen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-6-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**1. Å sjekke bare ett av de to vilkårene.** Den dokumenterte hovedfeilen i sjangeren. Løsningsforslagene viser alltid både $|g'|\\le L<1$ **og** $g(I)\\subseteq I$. Én av dem er halve svaret.\n\n**2. Feil eksponent i a-priori-estimatet.** Det er $L^{k+1}$, ikke $L^{k}$, når du anslår feilen i $x_{k+1}$. Bruker du $L^{k}$, får du ett skritt for lite.\n\n**3. Å runde antall iterasjoner nedover.** $k+1\\ge 10{,}29$ betyr 11 iterasjoner, ikke 10. Runder du ned, er kravet ikke oppfylt.\n\n**4. Å glemme at ulikheten snur** når du deler på $\\ln L$. Siden $L<1$ er $\\ln L$ negativ, og et $\\le$ blir til et $\\ge$.\n\n**5. Feil rekkefølge på endepunktene i vilkår (ii)** når $g$ er avtakende. Da er $g([a,b])=[g(b),g(a)]$, ikke $[g(a),g(b)]$.\n\n**6. Å hente $\\max|g'|$ i fikspunktet i stedet for på hele intervallet.** At $|g'(r)|<1$ gir bare lokal konvergens; oppgaven spør om **enhver** $x_0$ i intervallet.\n\n**7. Å ikke navngi fikspunktteoremet.** Metodenavnet skal bæres eksplisitt i konklusjonen — det er et sensorkrav som løsningsforslagene følger konsekvent.\n\n**8. Å forveksle differansen $|x_k-x_{k-1}|$ med feilen.** Den virkelige feilen er inntil $\\frac{L}{1-L}$ ganger større, og faktoren er stor når $L$ er nær 1."
+    },
+    {
+      "id": "tma4135-6-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-6-3-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på derivasjon, monotoni og logaritmeregning — alt du trenger for å føre en K-oppgave raskt."
+        },
+        {
+          "id": "tma4135-6-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-3-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver $g(x)=\\sqrt{x+6}$ og avgjør om $|g'|$ er voksende eller avtakende for $x>-6$.",
+            "solution": "$$g(x)=(x+6)^{1/2},\\qquad g'(x)=\\frac12(x+6)^{-1/2}=\\frac{1}{2\\sqrt{x+6}}.$$\n\nNevneren $2\\sqrt{x+6}$ er **voksende**, så brøken er **avtakende**. Maksimum av $|g'|$ på et intervall $[a,b]$ ligger altså alltid i **venstre** endepunkt.",
+            "hints": [
+              "Skriv rota som en potens og bruk kjerneregelen.",
+              "En brøk med voksende nevner er avtakende."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-3-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs $2^{\\,m}\\ge 1250$ for det minste heltallet $m$.",
+            "solution": "$$m\\ge\\log_2 1250=\\frac{\\ln 1250}{\\ln 2}\\approx\\frac{7{,}1309}{0{,}6931}\\approx 10{,}288.$$\n\nMinste heltall: $m=11$.\n\n*Kontroll:* $2^{10}=1024<1250$, mens $2^{11}=2048\\ge 1250$ ✔.\n\nDette er nøyaktig regnestykket i eksempel 2.",
+            "hints": [
+              "Ta logaritmen på begge sider og del på $\\ln 2$.",
+              "Kontroller med $2^{10}$ og $2^{11}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-3-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Løs $0{,}8^{\\,m}\\le 5\\cdot 10^{-6}$ for det minste heltallet $m$, og forklar hvorfor ulikheten snur.",
+            "solution": "Ta naturlig logaritme på begge sider:\n\n$$m\\ln 0{,}8\\le\\ln\\left(5\\cdot 10^{-6}\\right).$$\n\nNå deler vi på $\\ln 0{,}8\\approx -0{,}22314$, som er **negativ**, og da snur ulikhetstegnet:\n\n$$m\\ge\\frac{\\ln\\left(5\\cdot 10^{-6}\\right)}{\\ln 0{,}8}=\\frac{-12{,}2061}{-0{,}22314}\\approx 54{,}70.$$\n\nMinste heltall: $m=55$.\n\n**Grunnen til at tegnet snur** er den samme som når du deler en ulikhet på et negativt tall i vanlig algebra. Fordi $0<L<1$, er $\\ln L$ alltid negativ, og dette skjer i **hver** eneste a-priori-utregning.",
+            "hints": [
+              "Ta logaritmen først, uten å dele.",
+              "Er $\\ln 0{,}8$ positiv eller negativ?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-3-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at $f(x)=e^{-x}-x$ er strengt avtakende, og finn fortegnet i $x=0{,}4$ og $x=0{,}8$.",
+            "solution": "$$f'(x)=-e^{-x}-1.$$\n\nSiden $e^{-x}>0$ for alle $x$, er $-e^{-x}<0$, og dermed $f'(x)<-1<0$ overalt. Altså er $f$ **strengt avtakende** på hele tallinja, og kan ha høyst én rot.\n\n$$f(0{,}4)=e^{-0{,}4}-0{,}4\\approx 0{,}6703-0{,}4=0{,}2703>0,$$\n$$f(0{,}8)=e^{-0{,}8}-0{,}8\\approx 0{,}4493-0{,}8=-0{,}3507<0.$$\n\nFortegnsskiftet gir, **etter mellomverdisetningen**, en rot i $(0{,}4,\\,0{,}8)$ — og monotonien gjør den entydig. Dette er delpunkt a) i eksempel 3.",
+            "hints": [
+              "Deriver leddvis og se på fortegnet til hvert ledd.",
+              "Regn ut $e^{-0{,}4}$ og $e^{-0{,}8}$ med kalkulator."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-6-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-6-3-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $g$ | Iterasjonsfunksjonen i $x=g(x)$ |\n| $r$ | Fikspunktet, altså løsningen av $g(r)=r$ |\n| $x_k$ | Iterat nummer $k$; $x_0$ er startverdien |\n| $I=[a,b]$ | Intervallet vilkårene sjekkes på |\n| $L$ | Kontraksjonskonstanten $\\max_I\\left\\lvert g'\\right\\rvert$ |\n| $g(I)$ | Bildet av intervallet under $g$ |\n| tol | Toleransen, altså den tillatte feilen |\n| $k+1$ | Antall iterasjoner i a-priori-estimatet |\n| $\\eta$ | Mellompunktet fra middelverdisetningen |\n| $f$ | Funksjonen i den opprinnelige likningen $f(x)=0$ |\n"
+        },
+        {
+          "id": "tma4135-6-3-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$x_{k+1}=g(x_k),\\qquad k=0,1,2,\\dots$$\nFikspunktiterasjonen. *(Må kunnes.)*\n\n$$g(r)=r$$\nDefinisjonen av fikspunkt. *(Må kunnes.)*\n\n$$\\text{(i)}\\quad \\left|g'(x)\\right|\\le L<1 \\ \\text{ for alle } x\\in I$$\nKontraksjonsvilkåret. *(Må kunnes — står ikke på det utdelte formelarket.)*\n\n$$\\text{(ii)}\\quad g(I)\\subseteq I$$\nAt $g$ avbilder intervallet inn i seg selv. *(Må kunnes — dette er det som glemmes.)*\n\n$$\\left|x_k-r\\right|\\le L^{k}\\left|x_0-r\\right|$$\nFeilen faller minst med faktoren $L$ per skritt. *(Må kunnes eller utledes aktivt.)*\n\n$$\\left|x_{k+1}-r\\right|\\le\\frac{L^{k+1}}{1-L}\\left|x_1-x_0\\right|$$\nA-priori-estimatet. Merk eksponenten $k+1$. *(Må kunnes — står vanligvis ikke på det utdelte formelarket; sett det på ditt eget A5-ark.)*\n\n$$\\left|x_k-r\\right|\\le L^{k}(b-a)$$\nDen svakere varianten, når $x_1$ ikke er regnet. *(Må kunnes; godtatt i løsningsforslagene.)*\n\n$$\\left|x_k-r\\right|\\le\\frac{L}{1-L}\\left|x_k-x_{k-1}\\right|$$\nA-posteriori-estimatet, som bruker det siste skrittet. *(Må kunnes.)*\n\n$$\\left|x_{k+1}-r\\right|\\approx\\left|g'(r)\\right|\\left|x_k-r\\right|$$\nLineær konvergens: fast faktor per skritt. *(Må kunnes.)*\n\n$$g(u)-g(v)=g'(\\eta)(u-v)$$\nMiddelverdisetningen, som knytter derivasjon til kontraksjon. *(Må kunnes og navngis.)*\n\n$$g(x)=x-\\frac{f(x)}{f'(x)}\\ \\Rightarrow\\ g'(r)=0$$\nNewtons metode som fikspunktiterasjon med kvadratisk konvergens. *(Newton-formelen står på det utdelte formelarket — tren oppslaget; at $g'(r)=0$ må utledes.)*\n\n**Kolliderende symboler i dette kapitlet.** Bokstaven $L$ er **kontraksjonskonstanten** her, men **halvperioden** i Fourier-rekkene i [kap. 3.1](/tma4135/tma4135-3-1) og [kap. 3.2](/tma4135/tma4135-3-2) — det er samme bokstav for to helt ulike ting, og du må lese den ut fra sammenhengen. Bokstaven $r$ er roten/fikspunktet her og i [kap. 6.4](/tma4135/tma4135-6-4), mens den i [kap. 1.1](/tma4135/tma4135-1-1) er modulusen til et komplekst tall; i Del 8 blir $r$ stabilitetstallet $\\Delta t/h^{2}$. Bokstaven $g$ er iterasjonsfunksjonen her, men initialhastigheten i d'Alemberts formel i [kap. 5.3](/tma4135/tma4135-5-3). Og $k$ er iterasjonstelleren her; i Del 5 er $k$ separasjonskonstanten, og i Del 8 kaller det utdelte formelarket tidssteget $k$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

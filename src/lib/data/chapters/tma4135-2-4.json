@@ -1,0 +1,478 @@
+{
+  "id": "tma4135-2-4",
+  "courseId": "tma4135",
+  "chapterNumber": "2.4",
+  "title": "Konvolusjon og integro-differensiallikninger",
+  "description": "Konvolusjonsteoremet og hvordan det knekker likninger med et integralledd $\\int_0^t g(\\tau)y(t-\\tau)\\,d\\tau$.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kjenne igjen et konvolusjonsintegral på grensene, produktformen og at argumentene summerer til $t$",
+    "bruke konvolusjonsteoremet til å gjøre et integralledd om til et produkt, og navngi teoremet i besvarelsen slik sjangeren krever",
+    "løse integrallikninger og integro-differensiallikninger fra ende til annen, med startverdier satt inn og nevneren faktorisert",
+    "bruke konvolusjonsteoremet baklengs til å finne en invers transform når produktet ikke står i tabellen"
+  ],
+  "content": [
+    {
+      "id": "tma4135-2-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Én setning avgjør denne oppgavetypen: «etter konvolusjonsteoremet …».**\n\nBoka kaller oppgavetypen **B**: en Laplace-oppgave der den ukjente funksjonen står inne i et integral. Den står i **7 av 13 sett** i frekvensgrunnlaget — den er den faste varianten inne i Laplace-blokken, og den kommer gjerne som oppgave 1 eller 2 sammen med en ren likning.\n\n**Kravet som avgjør uttellingen:** løsningsforslagene i arkivet navngir konvolusjonsteoremet eksplisitt, og oppgaveinstruksen på hvert sett krever nok mellomregning til at tenkemåten klart framgår. En besvarelse som bare skriver at «integralet transformeres til $G(s)Y(s)$» uten å si **hvorfor**, får ikke full uttelling. Skriv ordene: *«Integralleddet er en konvolusjon, og etter konvolusjonsteoremet er $\\mathcal{L}\\{g*y\\}=G(s)Y(s)$.»*\n\n**Den typiske feilen** er ikke en regnefeil. Den er at studenten ikke ser konvolusjonsstrukturen i det hele tatt, og i stedet prøver å derivere seg ut av integralet. Det går sjelden, og det koster ti minutter. Gjenkjenningen er derfor viktigere enn regningen.\n\n**Formelark-merking.** Delbrøkoppspaltingen og tabelloppslagene som kommer etter at du har løst for $Y(s)$, **står på det utdelte formelarket — tren oppslaget**. Selve konvolusjonsteoremet er ofte **ikke** oppført på arket, og det **må kunnes eller utledes aktivt** — og navngis."
+    },
+    {
+      "id": "tma4135-2-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 2.1](/tma4135/tma4135-2-1) — tabellen, derivasjonsregelen og fireskrittsoppskriften. [Kap. 2.2](/tma4135/tma4135-2-2) — delbrøkoppspalting og kvadratkomplettering; du trenger begge for siste skritt her.\n\nFra [kap. 2.3](/tma4135/tma4135-2-3) trengs ingenting direkte, men integrasjonsvariabelen $\\tau$ brukes på samme måte. Ellers forutsettes vanlig integrasjon og variabelskifte. Kapitlet er forutsetning for drillen i [kap. 2.5](/tma4135/tma4135-2-5)."
+    },
+    {
+      "id": "tma4135-2-4-motivasjon",
+      "type": "text",
+      "content": "## Når fortiden henger igjen\n\nEn stereoanlegg-forsterker gir ikke bare ut det signalet den får inn akkurat nå. Den har en viss treghet: utgangen på et gitt tidspunkt er en **vektet sum av hele det som har kommet inn til nå**, der det som skjedde nylig teller mest og det som skjedde for lenge siden teller lite.\n\nDet samme gjelder en varmeovn i et rom, en fjæring med demping, og en befolkning der fødselstallet i dag avhenger av hvor mange som ble født for tjue år siden. Alle tre gir likninger der den ukjente funksjonen står **inne i et integral** sammen med en vektfunksjon:\n\n$$y'(t) + 5\\int_0^t g(t-\\tau)\\,y(\\tau)\\,d\\tau = f(t).$$\n\nSlike likninger kalles **integro-differensiallikninger** — de har både en derivert og et integral av den ukjente. De er ubehagelige å angripe direkte: du kan ikke skille variablene, og deriverer du for å bli kvitt integralet, får du som regel noe verre.\n\nLaplace-transformen gjør dem lette, og det på grunn av én eneste regel: **transformen av et slikt integral er et produkt.** Integralet forsvinner, og du sitter igjen med en helt vanlig algebraisk likning.\n\n**Tidsplan for kapitlet (~55 min lesetid):** fire løkker, med et naturlig pausepunkt etter løkke 2. Anslaget gjelder lesing; regner du oppgavene med penn, kan du gange med rundt 1,5."
+    },
+    {
+      "id": "tma4135-2-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva en konvolusjon er (~12 min)\n\nIntegralet i likningen over har en helt bestemt form, og den formen har et navn."
+    },
+    {
+      "id": "tma4135-2-4-def-konvolusjon",
+      "type": "definition",
+      "title": "Konvolusjonen",
+      "content": "En måte å kombinere to funksjoner til en tredje, skrevet med en stjerne:\n\n$$(g*y)(t) = \\int_0^{t} g(\\tau)\\,y(t-\\tau)\\,d\\tau.$$\n\nOrdet betyr «sammenfolding», og det er en god beskrivelse: den ene funksjonen speilvendes og skyves forbi den andre, og du summerer produktet i hver posisjon.\n\n**Legg merke til tre ting i formelen.**\n1. Den øvre grensen er $t$, ikke en konstant. Konvolusjonen er en funksjon av $t$.\n2. Integrasjonsvariabelen er $\\tau$; $t$ er en parameter mens du integrerer.\n3. **Argumentene summerer alltid til $t$:** $\\tau + (t-\\tau) = t$. Det er kjennetegnet du leter etter i en oppgavetekst.\n\nBegrepet **må kunnes eller utledes aktivt** — og det viktigste er å kjenne det igjen, ikke å regne det ut."
+    },
+    {
+      "id": "tma4135-2-4-fig-konv",
+      "type": "image",
+      "src": "/images/textbook/tma4135/laplace-konvolusjon-glidevindu.svg",
+      "alt": "Skjematisk figur: en avtakende kurve g(tau) og en speilvendt kurve y(t − tau) tegnet over samme akse fra 0 til t, med det felles området skravert. Under står formelen for konvolusjonen og forklaringen av at argumentene summerer til t.",
+      "caption": "Konvolusjonen er arealet under produktet av $g(\\tau)$ og den **speilvendte og forskjøvede** $y(t-\\tau)$, over intervallet fra $0$ til $t$. Når $t$ vokser, glir den speilvendte kurven mot høyre og feltet blir bredere."
+    },
+    {
+      "id": "tma4135-2-4-def-gjenkjenning",
+      "type": "definition",
+      "title": "Slik kjenner du igjen en konvolusjon",
+      "content": "Sjekklisten du kjører på hvert integral i en oppgavetekst. Integralet er en konvolusjon dersom **alle fire** stemmer:\n\n1. Nedre grense er $0$, øvre grense er $t$.\n2. Integranden er et **produkt** av to funksjoner.\n3. Integrasjonsvariabelen er $\\tau$ (eller et annet hjelpesymbol), og $t$ står bare som parameter.\n4. **Argumentene summerer til $t$:** den ene faktoren har argument $\\tau$, den andre $t-\\tau$.\n\nPunkt 4 er det avgjørende. Står det $\\int_0^t \\sin(t-\\tau)\\,y(\\tau)\\,d\\tau$, er summen $(t-\\tau)+\\tau = t$, og det er en konvolusjon $\\sin * y$. Står det derimot $\\int_0^t \\sin(\\tau)\\,y(\\tau)\\,d\\tau$, er det **ikke** en konvolusjon — begge faktorene har argument $\\tau$.\n\n**Grensetilfellet du må kunne:** $\\int_0^t y(\\tau)\\,d\\tau$ ser ikke ut som et produkt, men det er $1 * y$, med konstantfunksjonen $1$ som den andre faktoren. Det er den vanligste formen i eksamensoppgaver."
+    },
+    {
+      "id": "tma4135-2-4-def-kommutativ",
+      "type": "definition",
+      "title": "Konvolusjonen er kommutativ",
+      "content": "Rekkefølgen spiller ingen rolle:\n\n$$(g*y)(t) = (y*g)(t).$$\n\nUtledningen er ett variabelskifte: sett $\\sigma = t-\\tau$ i integralet, slik at $d\\tau = -d\\sigma$ og grensene bytter plass. Da blir $\\int_0^t g(\\tau)y(t-\\tau)\\,d\\tau$ til $\\int_0^t g(t-\\sigma)y(\\sigma)\\,d\\sigma$, som er $(y*g)(t)$.\n\n**Praktisk nytte:** skriv integralet på den formen som er lettest å regne på. Skal du regne ut $t * \\sin t$ direkte, er det enklere å la $\\tau$ sitte på polynomet enn på sinusen — velg selv.\n\nKonvolusjonen er også **lineær** i hver faktor og **assosiativ**, men de to egenskapene brukes sjelden i denne sjangeren."
+    },
+    {
+      "id": "tma4135-2-4-eks-1",
+      "type": "example",
+      "title": "Konvolusjon regnet ut direkte",
+      "problem": "Regn ut $(1 * t^2)(t)$ og $(t * \\sin t)(t)$ direkte fra definisjonen.",
+      "solution": "**Første: $1 * t^2$.** Med $g(\\tau)=1$ og $y(t-\\tau)=(t-\\tau)^2$ — eller enklere, ved kommutativitet, med $\\tau^2$ under integralet:\n$$(1*t^2)(t) = \\int_0^{t} 1\\cdot \\tau^2\\,d\\tau = \\left[\\frac{\\tau^3}{3}\\right]_0^{t} = \\frac{t^3}{3}.$$\n\n**Kontroll med transformer.** Fra tabellen på formelarket er $\\mathcal{L}\\{1\\}=1/s$ og $\\mathcal{L}\\{t^2\\}=2/s^3$. Produktet er $2/s^4$, og potensraden med $n=3$ krever telleren $3!=6$, altså $2/s^4 = \\tfrac13\\cdot 6/s^4$, som gir $t^3/3$. Samme svar.\n\n**Andre: $t * \\sin t$.** Her lar vi $\\tau$ sitte på polynomet:\n$$(t*\\sin t)(t) = \\int_0^{t}\\tau\\,\\sin(t-\\tau)\\,d\\tau.$$\nDelvis integrasjon med $u=\\tau$ og $dv = \\sin(t-\\tau)\\,d\\tau$, slik at $v = \\cos(t-\\tau)$ (merk fortegnet: den indre deriverte er $-1$):\n$$= \\Big[\\tau\\cos(t-\\tau)\\Big]_0^{t} - \\int_0^{t}\\cos(t-\\tau)\\,d\\tau = t\\cos 0 - 0 - \\Big[-\\sin(t-\\tau)\\Big]_0^{t}.$$\nDen siste hakeparentesen: ved $\\tau=t$ er $-\\sin 0 = 0$; ved $\\tau = 0$ er $-\\sin t$. Differansen er $0-(-\\sin t) = \\sin t$. Altså\n$$(t*\\sin t)(t) = t - \\sin t.$$\n\n**Kontroll med transformer.** $\\mathcal{L}\\{t\\}=1/s^2$ og $\\mathcal{L}\\{\\sin t\\}=1/(s^2+1)$, så produktet er\n$$\\frac{1}{s^2\\left(s^2+1\\right)}.$$\nDelbrøkoppspalting ([kap. 2.2](/tma4135/tma4135-2-2)) i variabelen $s^2$: $\\dfrac{1}{s^2(s^2+1)} = \\dfrac{1}{s^2} - \\dfrac{1}{s^2+1}$, som gir $t - \\sin t$. **Samme svar.**\n\n**Poenget med eksempelet.** Legg merke til hvor mye kortere kontrollveien var. Det er hele grunnen til at man transformerer: en konvolusjon i tid er et **produkt** i $s$-planet. Neste løkke skriver den regelen ut."
+    },
+    {
+      "id": "tma4135-2-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ren gjengivelse — avgjør for hvert integral om det er en konvolusjon, og skriv i så fall hvilke to funksjoner som konvolveres.\n\n**a)** $\\displaystyle\\int_0^t e^{2(t-\\tau)}y(\\tau)\\,d\\tau$\n**b)** $\\displaystyle\\int_0^t \\tau^2 y(\\tau)\\,d\\tau$\n**c)** $\\displaystyle\\int_0^t y(\\tau)\\,d\\tau$\n**d)** $\\displaystyle\\int_0^5 \\cos(t-\\tau)y(\\tau)\\,d\\tau$",
+        "solution": "**a)** Ja. Argumentene er $t-\\tau$ og $\\tau$, som summerer til $t$. Det er $g * y$ med $g(t)=e^{2t}$.\n\n**b)** Nei. Begge faktorene har argument $\\tau$; det står ingen $t-\\tau$ noe sted. Dette er et vanlig integral, ikke en konvolusjon, og konvolusjonsteoremet gjelder ikke.\n\n**c)** Ja. Skriv integranden som $1\\cdot y(\\tau)$: det er $1 * y$, med konstantfunksjonen som den ene faktoren. Argumentene er $\\tau$ og $t-\\tau$ der den siste faktoren er konstant, så kravet er oppfylt.\n\n**d)** Nei. Den øvre grensen er $5$, ikke $t$. Konvolusjonen krever at grensen følger med.\n\n**Fellesregelen:** grensene fra $0$ til $t$, produkt av to funksjoner, og argumenter som summerer til $t$. Mangler ett av kravene, er det ingen konvolusjon.",
+        "hints": [
+          "Sjekk grensene først: skal være fra $0$ til $t$.",
+          "Legg deretter sammen argumentene i de to faktorene. Blir summen $t$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Konvolusjonsteoremet (~14 min)\n\nNå kommer regelen hele kapitlet handler om, og som skal navngis i besvarelsen din."
+    },
+    {
+      "id": "tma4135-2-4-thm-konvolusjon",
+      "type": "theorem",
+      "title": "Konvolusjonsteoremet",
+      "content": "La $g$ og $y$ ha Laplace-transformene $G(s)$ og $Y(s)$. Da er\n\n$$\\mathcal{L}\\{g*y\\} = G(s)\\,Y(s).$$\n\nI ord: **konvolusjon i tidsplanet svarer til vanlig multiplikasjon i $s$-planet.** Det er den ene setningen som gjør et integralledd om til en faktor.\n\nDen omvendte veien er like nyttig:\n\n$$\\mathcal{L}^{-1}\\{F(s)G(s)\\} = (f*g)(t).$$\n\nDen brukes når produktet $F\\cdot G$ ikke står som noen rad i tabellen — da regner du konvolusjonen i stedet.\n\n**Merk hva teoremet IKKE sier.** Det sier ikke at $\\mathcal{L}\\{f\\cdot g\\} = F\\cdot G$. Transformen av et vanlig produkt er ikke produktet av transformene; det er konvolusjonen som svarer til produktet. Forvekslingen er den grunnleggende misforståelsen i hele Del 2.\n\nTeoremet er ofte **ikke** oppført på det utdelte formelarket, og det **må kunnes eller utledes aktivt** — og navngis i besvarelsen."
+    },
+    {
+      "id": "tma4135-2-4-utledning",
+      "type": "text",
+      "content": "**Hvorfor teoremet er sant — skissen.** Skriv produktet $G(s)Y(s)$ som et dobbeltintegral:\n\n$$G(s)Y(s) = \\int_0^\\infty e^{-s\\tau}g(\\tau)\\,d\\tau \\cdot \\int_0^\\infty e^{-s\\sigma}y(\\sigma)\\,d\\sigma = \\int_0^\\infty\\!\\!\\int_0^\\infty e^{-s(\\tau+\\sigma)}g(\\tau)y(\\sigma)\\,d\\sigma\\,d\\tau.$$\n\nSett $t = \\tau+\\sigma$ og bytt integrasjonsrekkefølge. For en fast $t$ løper $\\tau$ fra $0$ til $t$, og $\\sigma = t-\\tau$:\n\n$$= \\int_0^\\infty e^{-st}\\left(\\int_0^{t}g(\\tau)y(t-\\tau)\\,d\\tau\\right)dt = \\mathcal{L}\\{g*y\\}.$$\n\n**Intuisjon:** eksponentialfaktoren $e^{-s\\tau}\\cdot e^{-s\\sigma} = e^{-s(\\tau+\\sigma)}$ bryr seg bare om **summen** av de to tidene. Derfor samler transformen automatisk alle par $(\\tau,\\sigma)$ med samme sum — og det er nøyaktig konvolusjonsintegralet.\n\nDu blir aldri bedt om å gjengi denne utledningen på eksamen. Den står her fordi den forklarer hvorfor argumentene må summere til $t$: det er ingen konvensjon, det er hele mekanismen."
+    },
+    {
+      "id": "tma4135-2-4-def-integralregelen",
+      "type": "definition",
+      "title": "Regelen for et rent integral",
+      "content": "Det viktigste spesialtilfellet av konvolusjonsteoremet — og det du bruker oftest:\n\n$$\\mathcal{L}\\left\\{\\int_0^{t} y(\\tau)\\,d\\tau\\right\\} = \\frac{Y(s)}{s}.$$\n\nDen følger direkte: integralet er $1 * y$, og $\\mathcal{L}\\{1\\}=1/s$.\n\n**Speilbildet av derivasjonsregelen.** Å derivere svarer til å gange med $s$; å integrere svarer til å dele på $s$. De to reglene er hverandres motstykker, og sammen dekker de alt du trenger for en integro-differensiallikning.\n\nRegelen **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-4-eks-2",
+      "type": "example",
+      "title": "Fra integralledd til algebra",
+      "problem": "Løs $y'(t) + 4\\displaystyle\\int_0^{t} y(\\tau)\\,d\\tau = 3$ med $y(0)=0$.",
+      "solution": "**Steg 1 — kjenn igjen strukturen.** Integralleddet er $\\int_0^t 1\\cdot y(\\tau)\\,d\\tau$, altså konvolusjonen $1 * y$. **Etter konvolusjonsteoremet** er transformen $\\mathcal{L}\\{1\\}\\cdot Y(s) = Y(s)/s$.\n\n**Steg 2 — transformer hele likningen.** Med $y(0)=0$ er $\\mathcal{L}\\{y'\\}=sY$, og fra tabellen på formelarket er $\\mathcal{L}\\{3\\}=3/s$:\n$$sY + \\frac{4Y}{s} = \\frac{3}{s}.$$\n\n**Steg 3 — løs algebraisk for $Y$.** Gang begge sider med $s$ for å bli kvitt brøkene:\n$$s^2Y + 4Y = 3 \\quad\\Longrightarrow\\quad \\left(s^2+4\\right)Y = 3 \\quad\\Longrightarrow\\quad Y(s) = \\frac{3}{s^2+4}.$$\n\n**Steg 4 — transformer tilbake.** Sinusraden med $\\omega = 2$ krever telleren $2$, så $3 = \\tfrac32\\cdot 2$:\n$$y(t) = \\frac32\\sin 2t.$$\n\n**Kontroll — sett inn i den opprinnelige likningen.**\n$$y'(t) = 3\\cos 2t, \\qquad \\int_0^t \\frac32\\sin 2\\tau\\,d\\tau = \\frac32\\left[-\\frac{\\cos 2\\tau}{2}\\right]_0^{t} = \\frac34\\left(1-\\cos 2t\\right).$$\nDa er\n$$y' + 4\\int_0^t y = 3\\cos 2t + 3 - 3\\cos 2t = 3.$$\nStemmer. Og $y(0) = 0$.\n\n**Legg merke til hva som skjedde.** Likningen hadde både en derivert og et integral. Etter transformen ble den førstnevnte til en faktor $s$ og den sistnevnte til en faktor $1/s$ — og etter én multiplikasjon med $s$ sto det en helt alminnelig andregradslikning i $Y$. Hele vanskeligheten forsvant i skritt 2."
+    },
+    {
+      "id": "tma4135-2-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk regelen for et rent integral.\n\n**a)** Skriv $\\mathcal{L}\\left\\{\\displaystyle\\int_0^t \\sin 3\\tau\\,d\\tau\\right\\}$.\n**b)** Regn ut integralet direkte og transformer svaret. Kontroller at du får det samme.",
+        "solution": "**a)** Fra tabellen på formelarket er $\\mathcal{L}\\{\\sin 3t\\}=3/\\left(s^2+9\\right)$. Etter regelen for et rent integral deler vi på $s$:\n$$\\mathcal{L}\\left\\{\\int_0^t \\sin 3\\tau\\,d\\tau\\right\\} = \\frac{3}{s\\left(s^2+9\\right)}.$$\n\n**b)** Direkte:\n$$\\int_0^t \\sin 3\\tau\\,d\\tau = \\left[-\\frac{\\cos 3\\tau}{3}\\right]_0^{t} = \\frac{1-\\cos 3t}{3}.$$\nTransformer ledd for ledd, med $\\mathcal{L}\\{1\\}=1/s$ og $\\mathcal{L}\\{\\cos 3t\\}=s/\\left(s^2+9\\right)$:\n$$\\frac13\\left(\\frac1s - \\frac{s}{s^2+9}\\right) = \\frac13\\cdot\\frac{\\left(s^2+9\\right) - s^2}{s\\left(s^2+9\\right)} = \\frac13\\cdot\\frac{9}{s\\left(s^2+9\\right)} = \\frac{3}{s\\left(s^2+9\\right)}.$$\n\n**Samme svar.** Regelen sparte deg for både integrasjonen og sammenslåingen av brøkene.",
+        "hints": [
+          "Regelen er: transformer integranden, og del på $s$.",
+          "I b): sett de to brøkene på felles nevner til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut konvolusjonen direkte, og kontroller svaret ved hjelp av konvolusjonsteoremet.\n\n**a)** $(t * e^{-t})(t)$\n**b)** $(1 * e^{2t})(t)$",
+        "solution": "**a) Direkte.** Vi lar $\\tau$ sitte på polynomet:\n$$(t*e^{-t})(t) = \\int_0^{t}\\tau\\,e^{-(t-\\tau)}\\,d\\tau = e^{-t}\\int_0^{t}\\tau e^{\\tau}\\,d\\tau.$$\nFaktoren $e^{-t}$ er konstant under integrasjonen og kan settes utenfor. Delvis integrasjon med $u=\\tau$ og $dv=e^{\\tau}d\\tau$:\n$$\\int_0^{t}\\tau e^{\\tau}\\,d\\tau = \\Big[\\tau e^{\\tau}\\Big]_0^{t} - \\int_0^{t}e^{\\tau}d\\tau = te^{t} - \\left(e^{t}-1\\right).$$\nAltså\n$$(t*e^{-t})(t) = e^{-t}\\left(te^{t} - e^{t} + 1\\right) = t - 1 + e^{-t}.$$\n\n**Kontroll etter konvolusjonsteoremet.** $\\mathcal{L}\\{t\\}=1/s^2$ og $\\mathcal{L}\\{e^{-t}\\}=1/(s+1)$, så produktet er $\\dfrac{1}{s^2(s+1)}$. Denne brøken spaltet vi opp i [kap. 2.2](/tma4135/tma4135-2-2):\n$$\\frac{1}{s^2(s+1)} = -\\frac1s + \\frac{1}{s^2} + \\frac{1}{s+1} \\quad\\Longrightarrow\\quad -1 + t + e^{-t}.$$\nSamme svar.\n\n**b) Direkte.**\n$$(1*e^{2t})(t) = \\int_0^t e^{2\\tau}\\,d\\tau = \\left[\\frac{e^{2\\tau}}{2}\\right]_0^t = \\frac{e^{2t}-1}{2}.$$\n\n**Kontroll.** Produktet av transformene er $\\dfrac{1}{s}\\cdot\\dfrac{1}{s-2} = \\dfrac{1}{s(s-2)}$. Tildekking gir $A = \\left.1/(s-2)\\right|_{s=0} = -\\tfrac12$ og $B = \\left.1/s\\right|_{s=2} = \\tfrac12$, altså $-\\tfrac12 + \\tfrac12 e^{2t}$. Samme svar.\n\n**Merk:** b) er bare regelen for et rent integral sett fra den andre siden.",
+        "hints": [
+          "I a): sett $e^{-t}$ utenfor integralet, siden $\\tau$ er integrasjonsvariabelen.",
+          "For kontrollen: gang transformene sammen og spalt opp brøken."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-pause",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu kan nå kjenne igjen en konvolusjon, og du vet hva transformen gjør med den. Resten av kapitlet bruker det til å knekke likninger."
+    },
+    {
+      "id": "tma4135-2-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Integrallikninger og integro-differensiallikninger (~16 min)\n\nNå settes oppskriften sammen. Den er den samme som i [kap. 2.1](/tma4135/tma4135-2-1), med ett ekstra gjenkjenningssteg i starten."
+    },
+    {
+      "id": "tma4135-2-4-def-integrallikning",
+      "type": "definition",
+      "title": "Integrallikning og integro-differensiallikning",
+      "content": "To slektninger som løses med samme grep.\n\nEn **integrallikning** har den ukjente funksjonen inne i et integral, men ingen deriverte:\n$$y(t) = f(t) + \\int_0^t g(t-\\tau)y(\\tau)\\,d\\tau.$$\n\nEn **integro-differensiallikning** har begge deler — både en derivert og et integral av den ukjente:\n$$y'(t) + c\\int_0^t g(t-\\tau)y(\\tau)\\,d\\tau = f(t), \\qquad y(0)=y_0.$$\n\n**Startverdier:** integrallikningen trenger ingen — starttilstanden er bakt inn i at integralet er null ved $t=0$. Integro-differensiallikningen trenger like mange som den høyeste derivasjonsordenen, akkurat som en vanlig likning.\n\nBegge blir **algebraiske** likninger i $Y(s)$ etter transformen, og begge løses på nøyaktig samme måte."
+    },
+    {
+      "id": "tma4135-2-4-def-oppskrift-konvolusjon",
+      "type": "definition",
+      "title": "Oppskrift: likning med integralledd",
+      "content": "Fem skritt:\n\n1. **Kjenn igjen konvolusjonen.** Sjekk grenser, produkt og at argumentene summerer til $t$. Skriv ned hvilken $g$ det er.\n2. **Transformer hele likningen.** Integralleddet blir $G(s)Y(s)$ — **si at det er etter konvolusjonsteoremet**. Deriverte behandles med derivasjonsregelen, og startverdiene settes inn med det samme.\n3. **Løs algebraisk for $Y(s)$.** Alle $Y$-leddene på én side; faktoriser ut $Y$; gang gjerne opp med en fellesnevner for å rydde.\n4. **Faktoriser nevneren** i den brøken du sitter igjen med.\n5. **Transformer tilbake** med delbrøk og kvadratkomplettering fra [kap. 2.2](/tma4135/tma4135-2-2).\n\nOppskriften **må kunnes eller utledes aktivt**. Skritt 1 og 2 er de som skiller denne oppgavetypen fra en vanlig likning — resten er kjent stoff."
+    },
+    {
+      "id": "tma4135-2-4-eks-3",
+      "type": "example",
+      "title": "Integrallikning: den ukjente under integraltegnet",
+      "problem": "Løs $y(t) + \\displaystyle\\int_0^{t}(t-\\tau)\\,y(\\tau)\\,d\\tau = 1$.",
+      "solution": "**Steg 1 — kjenn igjen konvolusjonen.** Grensene er $0$ til $t$; integranden er et produkt; argumentene $(t-\\tau)$ og $\\tau$ summerer til $t$. Dette er $g * y$ med $g(t) = t$.\n\n**Steg 2 — transformer. Etter konvolusjonsteoremet** er $\\mathcal{L}\\{g*y\\} = G(s)Y(s)$, og fra tabellen på formelarket er $G(s)=\\mathcal{L}\\{t\\}=1/s^2$ og $\\mathcal{L}\\{1\\}=1/s$:\n$$Y + \\frac{1}{s^2}\\,Y = \\frac1s.$$\nLegg merke til at det ikke er noen startverdi å sette inn — likningen har ingen derivert.\n\n**Steg 3 — løs for $Y$.** Faktoriser ut $Y$ på venstre side:\n$$Y\\left(1 + \\frac{1}{s^2}\\right) = \\frac1s \\quad\\Longrightarrow\\quad Y\\cdot\\frac{s^2+1}{s^2} = \\frac1s.$$\nGang begge sider med $\\dfrac{s^2}{s^2+1}$:\n$$Y(s) = \\frac1s\\cdot\\frac{s^2}{s^2+1} = \\frac{s}{s^2+1}.$$\n\n**Steg 4–5 — transformer tilbake.** Dette er cosinusraden med $\\omega = 1$, rett fra tabellen:\n$$y(t) = \\cos t.$$\n\n**Kontroll — sett inn i den opprinnelige likningen.** Vi må vise at $\\cos t + \\int_0^t (t-\\tau)\\cos\\tau\\,d\\tau = 1$. Del integralet:\n$$\\int_0^t (t-\\tau)\\cos\\tau\\,d\\tau = t\\int_0^t\\cos\\tau\\,d\\tau - \\int_0^t \\tau\\cos\\tau\\,d\\tau.$$\nFørste ledd: $t\\sin t$. Andre ledd med delvis integrasjon ($u=\\tau$, $dv=\\cos\\tau\\,d\\tau$):\n$$\\int_0^t\\tau\\cos\\tau\\,d\\tau = \\Big[\\tau\\sin\\tau\\Big]_0^t - \\int_0^t\\sin\\tau\\,d\\tau = t\\sin t + \\cos t - 1.$$\nDifferansen blir\n$$t\\sin t - \\left(t\\sin t + \\cos t - 1\\right) = 1 - \\cos t,$$\nog hele venstresiden er $\\cos t + 1 - \\cos t = 1$. Stemmer.\n\n**Hva som gir uttelling.** Skriv ordene «integralleddet er en konvolusjon med $g(t)=t$, og etter konvolusjonsteoremet er transformen $G(s)Y(s)$». Uten den setningen mangler begrunnelsen for hele skritt 2, og instruksen på settene krever at tenkemåten framgår."
+    },
+    {
+      "id": "tma4135-2-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs integrallikningen $y(t) = 1 + \\displaystyle\\int_0^{t} e^{-(t-\\tau)}y(\\tau)\\,d\\tau$.",
+        "solution": "**Kjenn igjen konvolusjonen.** Argumentene $(t-\\tau)$ og $\\tau$ summerer til $t$; det er $g * y$ med $g(t)=e^{-t}$.\n\n**Transformer. Etter konvolusjonsteoremet**, med $G(s)=1/(s+1)$ fra tabellen:\n$$Y = \\frac1s + \\frac{1}{s+1}\\,Y.$$\n\n**Løs for $Y$.** Samle $Y$-leddene:\n$$Y\\left(1 - \\frac{1}{s+1}\\right) = \\frac1s \\quad\\Longrightarrow\\quad Y\\cdot\\frac{(s+1)-1}{s+1} = \\frac1s \\quad\\Longrightarrow\\quad Y\\cdot\\frac{s}{s+1} = \\frac1s.$$\nAltså\n$$Y(s) = \\frac{s+1}{s^2} = \\frac1s + \\frac{1}{s^2}.$$\n\n**Transformer tilbake** fra tabellen:\n$$y(t) = 1 + t.$$\n\n**Kontroll.** Vi må vise at $1 + \\int_0^t e^{-(t-\\tau)}(1+\\tau)\\,d\\tau = 1+t$, altså at integralet er $t$. Sett $\\sigma = t-\\tau$:\n$$\\int_0^t e^{-(t-\\tau)}(1+\\tau)\\,d\\tau = \\int_0^t e^{-\\sigma}\\left(1 + t - \\sigma\\right)d\\sigma = (1+t)\\left(1-e^{-t}\\right) - \\int_0^t\\sigma e^{-\\sigma}\\,d\\sigma.$$\nDet siste integralet er $\\left[-\\sigma e^{-\\sigma}\\right]_0^t + \\int_0^t e^{-\\sigma}d\\sigma = -te^{-t} + 1 - e^{-t}$. Da blir hele integralet\n$$(1+t) - (1+t)e^{-t} + te^{-t} - 1 + e^{-t} = t + e^{-t}\\left(-1-t+t+1\\right) = t.$$\nStemmer.\n\n**Merk hvor pent det ble.** Brøken $\\dfrac{s+1}{s^2}$ trengte ingen delbrøkoppspalting — den kunne bare deles i to. Se etter slike snarveier før du setter opp en ansats.",
+        "hints": [
+          "Integralleddet er en konvolusjon med $g(t)=e^{-t}$. Transformer det som $G(s)Y(s)$.",
+          "Samle $Y$-leddene på én side og sett dem på felles nevner."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y'(t) + 3y(t) + 2\\displaystyle\\int_0^{t}y(\\tau)\\,d\\tau = 1$ med $y(0)=0$.",
+        "solution": "**Kjenn igjen strukturen.** Integralleddet er $1 * y$, altså den enkleste konvolusjonen. **Etter konvolusjonsteoremet** (eller direkte etter regelen for et rent integral) er transformen $Y(s)/s$.\n\n**Transformer.** Med $y(0)=0$ er $\\mathcal{L}\\{y'\\}=sY$, og $\\mathcal{L}\\{1\\}=1/s$:\n$$sY + 3Y + \\frac{2Y}{s} = \\frac1s.$$\n\n**Løs for $Y$.** Gang alt med $s$:\n$$s^2Y + 3sY + 2Y = 1 \\quad\\Longrightarrow\\quad \\left(s^2+3s+2\\right)Y = 1.$$\nFaktoriser nevneren: diskriminanten er $9-8=1>0$, og $s^2+3s+2 = (s+1)(s+2)$. Altså\n$$Y(s) = \\frac{1}{(s+1)(s+2)}.$$\n\n**Transformer tilbake ved tildekking** ([kap. 2.2](/tma4135/tma4135-2-2)):\n$$A = \\left.\\frac{1}{s+2}\\right|_{s=-1} = 1, \\qquad B = \\left.\\frac{1}{s+1}\\right|_{s=-2} = -1,$$\nså\n$$y(t) = e^{-t} - e^{-2t}.$$\n\n**Kontroll.** $y(0) = 1-1 = 0$. Videre er $y' = -e^{-t}+2e^{-2t}$ og\n$$\\int_0^t y\\,d\\tau = \\left(1-e^{-t}\\right) - \\frac12\\left(1-e^{-2t}\\right) = \\frac12 - e^{-t} + \\frac12 e^{-2t}.$$\nLegg sammen:\n$$y' + 3y + 2\\int_0^t y = \\left(-e^{-t}+2e^{-2t}\\right) + \\left(3e^{-t}-3e^{-2t}\\right) + \\left(1 - 2e^{-t} + e^{-2t}\\right) = 1.$$\nAlle eksponentialleddene kansellerer, og det står igjen $1$. Stemmer.\n\n**Merk hva multiplikasjonen med $s$ gjorde.** Den gjorde en likning med både $sY$ og $Y/s$ om til et rent andregradsuttrykk. Det er standardgrepet i skritt 3, og det lønner seg alltid å gjøre det tidlig.",
+        "hints": [
+          "Integralleddet transformeres til $Y(s)/s$. Skriv opp alle tre leddene før du rydder.",
+          "Gang hele likningen med $s$ for å bli kvitt brøkene, og faktoriser andregradsuttrykket."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensnivå og invers via konvolusjon (~13 min)\n\nTo ting gjenstår: en likning med en ekte kjerne $g(t-\\tau)$ og en kjedet oppgave, og bruken av teoremet **motsatt vei** — når produktet $F\\cdot G$ ikke står i tabellen."
+    },
+    {
+      "id": "tma4135-2-4-eks-4",
+      "type": "example",
+      "title": "Integro-differensiallikning med eksponentiell kjerne",
+      "problem": "Løs $y'(t) - 3\\displaystyle\\int_0^{t} e^{-2(t-\\tau)}\\,y(\\tau)\\,d\\tau = e^{-2t}$ med $y(0)=0$.",
+      "solution": "**Steg 1 — kjenn igjen konvolusjonen.** Grensene er $0$ til $t$; argumentene $(t-\\tau)$ og $\\tau$ summerer til $t$. Kjernen er $g(t) = e^{-2t}$, og integralleddet er $g*y$.\n\n**Steg 2 — transformer. Etter konvolusjonsteoremet** er $\\mathcal{L}\\{g*y\\}=G(s)Y(s)$, og fra tabellen på formelarket er $G(s)=1/(s+2)$. Med $y(0)=0$ er $\\mathcal{L}\\{y'\\}=sY$, og høyresiden er også $1/(s+2)$:\n$$sY - \\frac{3Y}{s+2} = \\frac{1}{s+2}.$$\n\n**Steg 3 — løs for $Y$.** Gang hele likningen med $(s+2)$:\n$$s(s+2)Y - 3Y = 1 \\quad\\Longrightarrow\\quad \\left(s^2+2s-3\\right)Y = 1.$$\n\n**Steg 4 — faktoriser nevneren.** Diskriminanten er $4+12 = 16 > 0$, med røtter $s = \\dfrac{-2\\pm 4}{2}$, altså $s=1$ og $s=-3$:\n$$Y(s) = \\frac{1}{(s-1)(s+3)}.$$\n\n**Steg 5 — transformer tilbake.** Tildekking ([kap. 2.2](/tma4135/tma4135-2-2)):\n$$A = \\left.\\frac{1}{s+3}\\right|_{s=1} = \\frac14, \\qquad B = \\left.\\frac{1}{s-1}\\right|_{s=-3} = -\\frac14.$$\nFra tabellen:\n$$y(t) = \\frac14\\left(e^{t} - e^{-3t}\\right).$$\n\n**Kontroll.** $y(0) = \\tfrac14(1-1) = 0$. For likningen: $y' = \\tfrac14\\left(e^t + 3e^{-3t}\\right)$, og\n$$\\int_0^t e^{-2(t-\\tau)}y(\\tau)\\,d\\tau = \\frac{e^{-2t}}{4}\\int_0^t \\left(e^{3\\tau} - e^{-\\tau}\\right)d\\tau = \\frac{e^{-2t}}{4}\\left(\\frac{e^{3t}-1}{3} + e^{-t} - 1\\right).$$\nGang ut: $= \\tfrac{1}{12}e^{t} - \\tfrac{1}{12}e^{-2t} + \\tfrac14 e^{-3t} - \\tfrac14 e^{-2t}$. Ganger vi med $3$ og trekker fra $y'$:\n$$y' - 3\\int_0^t\\!\\dots = \\left(\\tfrac14 e^t + \\tfrac34 e^{-3t}\\right) - \\left(\\tfrac14 e^t - \\tfrac14 e^{-2t} + \\tfrac34 e^{-3t} - \\tfrac34 e^{-2t}\\right) = e^{-2t}.$$\nStemmer.\n\n**Hva som gir uttelling i denne oppgaven.**\n- At du **navngir konvolusjonsteoremet** i skritt 2. Dette er det eksplisitte kravet i sjangeren.\n- At du ganger opp med $(s+2)$ i skritt 3 i stedet for å slite med brøk i brøk.\n- At du viser faktoriseringen av $s^2+2s-3$ og sier hvor røttene kommer fra.\n- At du markerer tabelloppslagene («fra tabellen …»).\n\n**Merk hva som IKKE virker her.** Deriverer du likningen for å bli kvitt integralet, får du $y'' - 3y + 6\\int_0^t e^{-2(t-\\tau)}y\\,d\\tau = -2e^{-2t}$ — integralet er der fortsatt, bare med en ekstra derivert på kjøpet. Kjernen $e^{-2t}$ er ikke konstant, så derivasjon fjerner ikke integralet. Det er nettopp derfor gjenkjenningen i skritt 1 er viktigere enn regningen."
+    },
+    {
+      "id": "tma4135-2-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs integrallikningen $y(t) = 2t + \\displaystyle\\int_0^{t}\\sin(t-\\tau)\\,y(\\tau)\\,d\\tau$.",
+        "solution": "**Kjenn igjen konvolusjonen.** Kjernen er $g(t)=\\sin t$, og integralleddet er $g*y$.\n\n**Transformer. Etter konvolusjonsteoremet**, med $G(s)=1/\\left(s^2+1\\right)$ og $\\mathcal{L}\\{2t\\}=2/s^2$ fra tabellen:\n$$Y = \\frac{2}{s^2} + \\frac{1}{s^2+1}\\,Y.$$\n\n**Løs for $Y$.** Samle:\n$$Y\\left(1 - \\frac{1}{s^2+1}\\right) = \\frac{2}{s^2} \\quad\\Longrightarrow\\quad Y\\cdot\\frac{\\left(s^2+1\\right)-1}{s^2+1} = \\frac{2}{s^2} \\quad\\Longrightarrow\\quad Y\\cdot\\frac{s^2}{s^2+1} = \\frac{2}{s^2}.$$\nAltså\n$$Y(s) = \\frac{2\\left(s^2+1\\right)}{s^4} = \\frac{2}{s^2} + \\frac{2}{s^4}.$$\n\n**Transformer tilbake.** Fra tabellen er $2/s^2 \\leftrightarrow 2t$, og potensraden med $n=3$ krever telleren $3!=6$, så $2/s^4 = \\tfrac13\\cdot 6/s^4 \\leftrightarrow t^3/3$:\n$$y(t) = 2t + \\frac{t^3}{3}.$$\n\n**Kontroll.** Vi må vise at integralet er lik $t^3/3$. Med $y(\\tau)=2\\tau + \\tau^3/3$:\n$$\\int_0^t \\sin(t-\\tau)\\left(2\\tau + \\frac{\\tau^3}{3}\\right)d\\tau.$$\nBruk resultatet fra eksempel 1, $(\\tau * \\sin)(t) = t - \\sin t$, på det første leddet: det gir $2(t-\\sin t)$. For det andre trengs $(\\tau^3 * \\sin)(t)$; transformen er $\\dfrac{6}{s^4}\\cdot\\dfrac{1}{s^2+1}$, og delbrøkoppspalting i $s^2$ gir $\\dfrac{6}{s^4} - \\dfrac{6}{s^2} + \\dfrac{6}{s^2+1}$, altså $t^3 - 6t + 6\\sin t$. Med faktoren $\\tfrac13$ blir det $\\tfrac{t^3}{3} - 2t + 2\\sin t$. Summen av de to bidragene er\n$$2t - 2\\sin t + \\frac{t^3}{3} - 2t + 2\\sin t = \\frac{t^3}{3}.$$\nStemmer, og hele høyresiden blir $2t + t^3/3 = y(t)$.\n\n**Merk snarveien i siste skritt av selve løsningen.** Brøken $2(s^2+1)/s^4$ trengte ingen ansats — du deler bare telleren ledd for ledd. Se etter det før du setter opp en oppspalting.",
+        "hints": [
+          "Kjernen er $\\sin t$, med transform $1/(s^2+1)$.",
+          "Etter at du har samlet $Y$-leddene, del telleren ledd for ledd i stedet for å sette opp en ansats."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk konvolusjonsteoremet **motsatt vei** til å finne $\\mathcal{L}^{-1}\\left\\{\\dfrac{1}{\\left(s^2+4\\right)^2}\\right\\}$.",
+        "solution": "**Se produktet.** Brøken er $F(s)\\cdot G(s)$ med $F = G = \\dfrac{1}{s^2+4}$. Ingen rad i tabellen har en kvadrert nevner av denne typen, så vi bruker teoremet baklengs.\n\n**Finn $f$ og $g$.** Sinusraden med $\\omega = 2$ krever telleren $2$, så\n$$f(t) = g(t) = \\frac12\\sin 2t.$$\n\n**Etter konvolusjonsteoremet** er den inverse konvolusjonen:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{\\left(s^2+4\\right)^2}\\right\\} = \\left(f*g\\right)(t) = \\frac14\\int_0^t \\sin 2\\tau\\,\\sin\\!\\big(2(t-\\tau)\\big)\\,d\\tau.$$\n\n**Regn ut integralet.** Bruk produktformelen $\\sin A\\sin B = \\tfrac12\\left(\\cos(A-B) - \\cos(A+B)\\right)$, som **står på det utdelte formelarket — tren oppslaget**. Med $A = 2\\tau$ og $B = 2t-2\\tau$ er $A-B = 4\\tau - 2t$ og $A+B = 2t$:\n$$\\frac14\\cdot\\frac12\\int_0^t\\left(\\cos(4\\tau-2t) - \\cos 2t\\right)d\\tau.$$\nDet første leddet: $\\left[\\tfrac14\\sin(4\\tau-2t)\\right]_0^t = \\tfrac14\\left(\\sin 2t - \\sin(-2t)\\right) = \\tfrac12\\sin 2t$. Det andre leddet er $\\cos 2t$ ganget med intervallengden $t$. Altså\n$$\\frac18\\left(\\frac12\\sin 2t - t\\cos 2t\\right) = \\frac{\\sin 2t}{16} - \\frac{t\\cos 2t}{8}.$$\n\n**Svar:**\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{\\left(s^2+4\\right)^2}\\right\\} = \\frac{1}{16}\\left(\\sin 2t - 2t\\cos 2t\\right).$$\n\n**Kontroll.** Ved $t=0$ er svaret $0$; og den deriverte ved $t=0$ er $\\tfrac{1}{16}\\left(2 - 2\\right) = 0$. Det stemmer med at brøken har grad 0 over grad 4, som gir både $y(0)=0$ og $y'(0)=0$.\n\n**Merk hva som gjør oppgaven verdt tiden.** Leddet $t\\cos 2t$ vokser uten grense — det er signaturen til **resonans**, og en dobbel irredusibel faktor i nevneren er alltid tegnet på at pådraget treffer systemets egen frekvens.",
+        "hints": [
+          "Skriv brøken som et produkt av to like faktorer, og finn den inverse av hver.",
+          "For integralet: bruk produktformelen for $\\sin A\\sin B$, som står på formelarket."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Denne oppgaven er kjedet — bruk svaret fra ett punkt i det neste.\n\n**a)** Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{1}{(s+1)\\left(s^2+1\\right)}\\right\\}$ ved delbrøkoppspalting.\n**b)** Løs $y'' + y = e^{-t}$ med $y(0)=0$ og $y'(0)=0$, og bruk resultatet fra a).\n**c)** Skriv løsningen i b) som en konvolusjon, uten å regne den ut, og forklar hvorfor de to formene er like.",
+        "solution": "**a)** Ansats med én reell rot og en irredusibel faktor:\n$$\\frac{1}{(s+1)\\left(s^2+1\\right)} = \\frac{A}{s+1} + \\frac{Bs+C}{s^2+1}.$$\nTildekking: $A = \\left.\\dfrac{1}{s^2+1}\\right|_{s=-1} = \\dfrac12$. Gang opp og sett inn $A$:\n$$1 - \\frac12\\left(s^2+1\\right) = \\frac{1-s^2}{2} = \\frac{(1-s)(1+s)}{2} = (Bs+C)(s+1),$$\naltså $Bs + C = \\dfrac{1-s}{2}$, det vil si $B = -\\tfrac12$ og $C = \\tfrac12$. Da er\n$$\\frac{1}{(s+1)\\left(s^2+1\\right)} = \\frac{1/2}{s+1} - \\frac12\\cdot\\frac{s}{s^2+1} + \\frac12\\cdot\\frac{1}{s^2+1},$$\nog fra tabellen på formelarket:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{(s+1)\\left(s^2+1\\right)}\\right\\} = \\frac12\\left(e^{-t} - \\cos t + \\sin t\\right).$$\n\n**Kontroll ved $s=0$:** venstre gir $1$; høyre gir $\\tfrac12 - 0 + \\tfrac12 = 1$. Stemmer.\n\n**b)** Transformer likningen. Med null startverdier er $\\mathcal{L}\\{y''\\}=s^2Y$, og fra tabellen er $\\mathcal{L}\\{e^{-t}\\}=1/(s+1)$:\n$$\\left(s^2+1\\right)Y = \\frac{1}{s+1} \\quad\\Longrightarrow\\quad Y(s) = \\frac{1}{(s+1)\\left(s^2+1\\right)}.$$\nDette er nøyaktig brøken fra a), så\n$$y(t) = \\frac12\\left(e^{-t} - \\cos t + \\sin t\\right).$$\n\n**Kontroll.** $y(0) = \\tfrac12(1-1+0) = 0$. Videre er $y' = \\tfrac12\\left(-e^{-t}+\\sin t+\\cos t\\right)$, som gir $y'(0) = \\tfrac12(-1+0+1) = 0$. Og $y'' = \\tfrac12\\left(e^{-t}+\\cos t - \\sin t\\right)$, så\n$$y''+y = \\frac12\\left(e^{-t}+\\cos t-\\sin t\\right) + \\frac12\\left(e^{-t}-\\cos t+\\sin t\\right) = e^{-t}.$$\nStemmer.\n\n**c)** Skriv $Y(s)$ som et produkt:\n$$Y(s) = \\underbrace{\\frac{1}{s+1}}_{\\mathcal{L}\\{e^{-t}\\}}\\cdot\\underbrace{\\frac{1}{s^2+1}}_{\\mathcal{L}\\{\\sin t\\}}.$$\n**Etter konvolusjonsteoremet** er den inverse konvolusjonen av de to:\n$$y(t) = \\left(e^{-t} * \\sin t\\right)(t) = \\int_0^{t} e^{-\\tau}\\sin(t-\\tau)\\,d\\tau.$$\n\n**Hvorfor formene er like.** Den inverse Laplace-transformen er entydig ([kap. 2.1](/tma4135/tma4135-2-1)): to kontinuerlige funksjoner med samme transform er like. Både delbrøkveien i a) og konvolusjonsveien her gir den inverse av samme $Y(s)$, altså er de samme funksjon. Konvolusjonsintegralet er derfor bare en annen skrivemåte for $\\tfrac12\\left(e^{-t}-\\cos t+\\sin t\\right)$ — og hadde du regnet ut integralet, ville du fått nettopp det.\n\n**Hvilken vei bør du velge på eksamen?** Delbrøk, når nevneren lar seg spalte — den gir et lukket uttrykk uten integrasjon. Konvolusjon, når nevneren ikke lar seg spalte (som i oppgave 7), eller når oppgaven eksplisitt ber om det. Nevn gjerne at den andre veien finnes; begge er honorert.",
+        "hints": [
+          "I a): sett opp ansatsen med lineær teller over $s^2+1$, og bruk tildekking for $A$.",
+          "I c): del $Y(s)$ i to faktorer som hver står i tabellen, og bruk teoremet baklengs."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-4-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs $y'(t) + 2y(t) + 2\\displaystyle\\int_0^{t}y(\\tau)\\,d\\tau = 0$ med $y(0)=4$. Kommenter hva slags oppførsel svaret beskriver.",
+        "solution": "**Kjenn igjen strukturen.** Integralleddet er $1*y$, altså $Y(s)/s$ etter konvolusjonsteoremet.\n\n**Transformer.** Med $y(0)=4$ er $\\mathcal{L}\\{y'\\}=sY-4$:\n$$sY - 4 + 2Y + \\frac{2Y}{s} = 0.$$\n\n**Løs for $Y$.** Gang alt med $s$:\n$$s^2Y - 4s + 2sY + 2Y = 0 \\quad\\Longrightarrow\\quad \\left(s^2+2s+2\\right)Y = 4s.$$\nAltså\n$$Y(s) = \\frac{4s}{s^2+2s+2}.$$\n\n**Kvadratkompletter.** Diskriminanten er $4-8 = -4 < 0$, altså irredusibel ([kap. 2.2](/tma4135/tma4135-2-2)):\n$$s^2+2s+2 = (s+1)^2 + 1,$$\nmed $a = -1$ og $\\omega = 1$. Telleren i nevnerens språk: $4s = 4(s+1) - 4$. Da er\n$$Y(s) = 4\\cdot\\frac{s+1}{(s+1)^2+1} - 4\\cdot\\frac{1}{(s+1)^2+1},$$\nder det siste leddet allerede har telleren $\\omega = 1$.\n\n**Fra tabellen på formelarket:**\n$$y(t) = 4e^{-t}\\cos t - 4e^{-t}\\sin t.$$\n\n**Kontroll.** $y(0) = 4 - 0 = 4$. Videre er\n$$y' = -4e^{-t}\\cos t - 4e^{-t}\\sin t + 4e^{-t}\\sin t - 4e^{-t}\\cos t = -8e^{-t}\\cos t.$$\nOg integralet, med $\\int e^{-t}\\cos t\\,dt = \\tfrac12 e^{-t}\\left(\\sin t - \\cos t\\right)$ og $\\int e^{-t}\\sin t\\,dt = -\\tfrac12 e^{-t}\\left(\\sin t+\\cos t\\right)$:\n$$\\int_0^t y\\,d\\tau = 4\\cdot\\frac12\\Big[e^{-\\tau}(\\sin\\tau-\\cos\\tau)\\Big]_0^t + 4\\cdot\\frac12\\Big[e^{-\\tau}(\\sin\\tau+\\cos\\tau)\\Big]_0^t = 4e^{-t}\\sin t.$$\n(De to konstantleddene ved $\\tau = 0$ er $-1$ og $+1$, som kansellerer.) Da er\n$$y' + 2y + 2\\int_0^t y = -8e^{-t}\\cos t + 8e^{-t}\\cos t - 8e^{-t}\\sin t + 8e^{-t}\\sin t = 0.$$\nStemmer.\n\n**Hva oppførselen er.** Svaret er en **dempet svingning**: amplituden krymper som $e^{-t}$, og systemet svinger med vinkelfrekvens $1$. Begge deler kunne leses rett ut av nevneren før noen koeffisient var regnet ut — realdelen $-1$ i polparet $-1\\pm i$ gir dempingen, imaginærdelen $1$ gir frekvensen. Svaret kan også skrives $4\\sqrt2\\,e^{-t}\\cos\\!\\left(t + \\pi/4\\right)$; begge former er riktige.\n\n**Merk hvorfor likningen svinger i det hele tatt.** En ren førsteordens likning $y'+2y=0$ ville gitt en glatt eksponentiell nedgang uten svingning. Det er **integralleddet** som gjør systemet andreordens — det er hukommelsen som gir det svingningen.",
+        "hints": [
+          "Startverdien $y(0)=4$ kommer inn gjennom derivasjonsregelen, akkurat som i [kap. 2.1](/tma4135/tma4135-2-1).",
+          "Gang hele likningen med $s$ først, og regn så ut diskriminanten til det andregradsuttrykket du får."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å ikke se konvolusjonsstrukturen.** Den dyreste feilen i kapitlet, og den er ikke en regnefeil. Ser du et integral fra $0$ til $t$ med den ukjente inni, skal du sjekke gjenkjenningslisten **før** du prøver noe annet. Å derivere likningen for å bli kvitt integralet virker bare når kjernen er konstant; med en kjerne som $e^{-2(t-\\tau)}$ står integralet der fortsatt, og du har fått en ekstra derivert på kjøpet.\n\n**Å glemme å navngi konvolusjonsteoremet.** Dette er et eksplisitt krav i sjangeren. Instruksen på hvert sett er at tenkemåten skal framgå, og løsningsforslagene skriver teoremnavnet ut. Skriv setningen: *«etter konvolusjonsteoremet er $\\mathcal{L}\\{g*y\\}=G(s)Y(s)$»*. Det koster ti sekunder.\n\n**Feil argument-rekkefølge.** Konvolusjonen krever at argumentene summerer til $t$: $g(\\tau)y(t-\\tau)$ eller $g(t-\\tau)y(\\tau)$. Et integral som $\\int_0^t g(\\tau)y(\\tau)\\,d\\tau$ er **ikke** en konvolusjon, og transformen er ikke et produkt.\n\n**Å tro at $\\mathcal{L}\\{f\\cdot g\\} = F\\cdot G$.** Det er den samme misforståelsen sett fra den andre siden. Produktet av transformene svarer til konvolusjonen, ikke til produktet. $\\mathcal{L}\\{t\\cdot e^{-t}\\} = 1/(s+1)^2$, mens $\\mathcal{L}\\{t\\}\\cdot\\mathcal{L}\\{e^{-t}\\} = 1/\\left(s^2(s+1)\\right)$ — to helt forskjellige uttrykk.\n\n**Å glemme startverdien i en integro-differensiallikning.** Leddet $y'$ transformeres til $sY - y(0)$, akkurat som ellers. At likningen også har et integral, endrer ingenting på det.\n\n**Å ikke gange opp med fellesnevneren.** Sitter du med $sY + 2Y/s = 1/s$ og prøver å samle $Y$ uten å rydde, blir det rotete fort. Gang hele likningen med $s$ først; da står det et polynom foran $Y$.\n\n**Å glemme den øvre grensen $t$.** Et integral fra $0$ til en konstant er ikke en konvolusjon, uansett hvordan integranden ser ut. Transformen av $\\int_0^5 \\dots$ er bare et tall ganget med noe.\n\n**Å regne ut konvolusjonsintegralet når delbrøk er kortere.** Kan nevneren spaltes, gjør det. Konvolusjonsveien er for de tilfellene der den ikke kan det — som en dobbel irredusibel faktor $\\left(s^2+\\omega^2\\right)^2$."
+    },
+    {
+      "id": "tma4135-2-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** De siste kortene samler opp begrepene og de kontrollene som lønner seg. Tidsanslaget på 55 minutter gjelder kjernestoffet foran."
+    },
+    {
+      "id": "tma4135-2-4-def-kjerne",
+      "type": "definition",
+      "title": "Kjernen i en konvolusjon",
+      "content": "Den kjente funksjonen $g$ i integralet $\\int_0^t g(t-\\tau)y(\\tau)\\,d\\tau$ — den som beskriver hvordan systemet husker fortiden.\n\n**Tolkningen er en vektfunksjon.** Verdien $g(t-\\tau)$ sier hvor mye det som skjedde ved $\\tau$ betyr for tilstanden ved $t$. En kjerne som $e^{-2(t-\\tau)}$ betyr at minnet falmer eksponentielt: det som skjedde nylig teller mest.\n\n**Praktisk:** første skritt i enhver oppgave av denne typen er å skrive ned hva $g$ er, og slå opp $G(s)$ i tabellen. Er kjernen konstant lik $1$, er $G(s)=1/s$, og da er integralleddet bare $Y(s)/s$."
+    },
+    {
+      "id": "tma4135-2-4-def-hukommelse",
+      "type": "definition",
+      "title": "Hukommelse — hvorfor integralleddet hever ordenen",
+      "content": "Effekten integralleddet har på systemets oppførsel.\n\nEn likning uten integral, som $y'+2y=0$, er førsteordens: løsningen faller glatt mot null uten å svinge. Legger du til $2\\int_0^t y$, blir nevneren i $Y(s)$ et **andregradsuttrykk**, og løsningen kan svinge.\n\n**Hvorfor:** integralet gir en faktor $1/s$, og etter multiplikasjon med $s$ er $s$-graden hevet med én. Systemet har fått en hukommelse, og hukommelse er det som gjør svingninger mulig.\n\n**Praktisk nytte:** tell $s$-potensene i nevneren etter at du har ganget opp. De forteller hvor mange ledd svaret får, og diskriminanten forteller om det svinger."
+    },
+    {
+      "id": "tma4135-2-4-def-invers-via-konvolusjon",
+      "type": "definition",
+      "title": "Invers transform via konvolusjon",
+      "content": "Utveien når $Y(s)$ er et produkt av to kjente transformer, men produktet ikke står i tabellen:\n\n$$\\mathcal{L}^{-1}\\{F(s)G(s)\\} = (f*g)(t) = \\int_0^{t}f(\\tau)g(t-\\tau)\\,d\\tau.$$\n\n**Når du velger den:** ved doble irredusible faktorer som $\\left(s^2+\\omega^2\\right)^2$, ved kjerner som ikke lar seg spalte, og når oppgaven ber om svaret som et integral.\n\n**Når du ikke velger den:** når nevneren lar seg faktorisere. Delbrøkoppspalting gir da et lukket uttrykk uten integrasjon, og går fortere.\n\nRegelen **må kunnes eller utledes aktivt** — det er konvolusjonsteoremet lest baklengs."
+    },
+    {
+      "id": "tma4135-2-4-def-resonanssignatur",
+      "type": "definition",
+      "title": "Resonans-signaturen $\\left(s^2+\\omega^2\\right)^2$",
+      "content": "Mønsteret som varsler at svaret vokser uten grense.\n\nEn **dobbel** irredusibel faktor i nevneren gir alltid et ledd med $t$ ganget på en svingning:\n\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{\\left(s^2+\\omega^2\\right)^2}\\right\\} = \\frac{1}{2\\omega^3}\\left(\\sin\\omega t - \\omega t\\cos\\omega t\\right).$$\n\nFaktoren $t$ foran cosinusen betyr at amplituden vokser lineært. Fysisk er dette **resonans**: pådraget svinger med nøyaktig systemets egen frekvens og dytter i takt hele veien.\n\n**Kontroll av formelen:** for $\\omega = 2$ gir den $\\tfrac{1}{16}\\left(\\sin 2t - 2t\\cos 2t\\right)$ — nøyaktig svaret i oppgave 7.\n\nFormelen står sjelden på arket, men **du trenger ikke huske den** — konvolusjonsveien gir den på fem linjer."
+    },
+    {
+      "id": "tma4135-2-4-def-fellesnevner-grep",
+      "type": "definition",
+      "title": "Gang opp med fellesnevneren tidlig",
+      "content": "Ryddegrepet i skritt 3 som sparer mest tid.\n\nEn transformert integro-differensiallikning ser typisk slik ut:\n$$sY - y_0 + cY + \\frac{dY}{s} = F(s).$$\nGang hele likningen med $s$ **før** du samler noe:\n$$s^2Y - s\\,y_0 + csY + dY = sF(s).$$\nNå står det et rent polynom foran $Y$, og resten er vanlig algebra.\n\n**Generelt:** har likningen en kjerne med nevner $(s+a)$, ganger du med $(s+a)$ i stedet. Se på hvilke nevnere som står der, og gang opp med produktet av dem."
+    },
+    {
+      "id": "tma4135-2-4-def-kontroll-innsetting",
+      "type": "definition",
+      "title": "Kontroll ved innsetting i integrallikningen",
+      "content": "Den eneste helt sikre kontrollen på en oppgave av denne typen: sett svaret inn i den opprinnelige likningen og regn ut integralet.\n\nDet er mer arbeid enn ved en vanlig likning, men det er verdt det, og det finnes en snarvei: du kan kontrollere **i $s$-planet** i stedet. Sett $Y(s)$ inn i den transformerte likningen og se at den går opp. Det tar noen sekunder og fanger alle feil bortsett fra dem du gjorde i selve inverstransformen.\n\n**Kontrollen som alltid er billig:** sjekk startverdien. Er $y(0)$ oppgitt, må svaret ditt gi den. Og for en ren integrallikning: sett $t=0$ i likningen — integralet er null der, så $y(0)$ må være lik høyresidens verdi i null."
+    },
+    {
+      "id": "tma4135-2-4-def-navngivning",
+      "type": "definition",
+      "title": "Å bære teoremnavnet i besvarelsen",
+      "content": "Vanen som skiller en besvarelse i toppsjiktet fra en i midtsjiktet i denne sjangeren.\n\nInstruksen på hvert sett krever at alle svar begrunnes med nok mellomregning til at tenkemåten klart framgår. For denne oppgavetypen betyr det konkret at du skriver ut **hvilket** teorem som gjør at integralet blir en faktor:\n\n> «Integralleddet er en konvolusjon med kjerne $g(t)=e^{-2t}$. Etter konvolusjonsteoremet er $\\mathcal{L}\\{g*y\\}=G(s)Y(s)$, med $G(s)=1/(s+2)$ fra tabellen.»\n\nSamme vane gjelder de andre navngitte resultatene i boka: andreforskyvningsteoremet ([kap. 2.3](/tma4135/tma4135-2-3)), derivasjonsregelen ([kap. 2.1](/tma4135/tma4135-2-1)) og senere fikspunktteoremet, mellomverdisetningen og d'Alemberts formel. Skriv navnet, ikke bare regningen."
+    },
+    {
+      "id": "tma4135-2-4-def-impulsrespons-konv",
+      "type": "definition",
+      "title": "Impulsrespons og konvolusjonsformen for løsningen",
+      "content": "Grunnen til at konvolusjonen dukker opp av seg selv i lineære systemer.\n\nLøs $ay''+by'+cy = f(t)$ med null startverdier. Transformen gir $Y(s) = F(s)\\cdot H(s)$, der\n\n$$H(s) = \\frac{1}{as^2+bs+c}$$\n\ner den samme uansett hva pådraget er. **Etter konvolusjonsteoremet** er da\n\n$$y(t) = (f * h)(t) = \\int_0^t f(\\tau)\\,h(t-\\tau)\\,d\\tau,$$\n\nmed $h = \\mathcal{L}^{-1}\\{H\\}$. Funksjonen $h$ er systemets **impulsrespons** — svaret på et enkelt støt ([kap. 2.3](/tma4135/tma4135-2-3)).\n\n**Tolkningen:** løsningen er en vektet sum av alle tidligere pådrag, med impulsresponsen som vekt. Det er nøyaktig hukommelsesbildet fra motivasjonen, og det gjelder for ethvert lineært system med konstante koeffisienter."
+    },
+    {
+      "id": "tma4135-2-4-def-nullelement",
+      "type": "definition",
+      "title": "Konvolusjonen har ingen enhet blant de vanlige funksjonene",
+      "content": "En egenskap som er verdt å vite fordi den forklarer en vanlig feilslutning.\n\nFor vanlig multiplikasjon er $1$ enheten: $1\\cdot f = f$. For konvolusjon gjelder **ikke** dette — vi så i eksempel 1 at $1 * t^2 = t^3/3$, ikke $t^2$. Konstantfunksjonen $1$ **integrerer**; den er ikke en enhet.\n\nDen eneste «funksjonen» som oppfører seg som en enhet, er Dirac-deltaen fra [kap. 2.3](/tma4135/tma4135-2-3):\n\n$$(\\delta * f)(t) = f(t),$$\n\nsom følger av at $\\mathcal{L}\\{\\delta\\} = 1$ og konvolusjonsteoremet.\n\n**Praktisk konsekvens:** ser du $\\int_0^t y(\\tau)\\,d\\tau$ i en likning, er det et **integral** av den ukjente, ikke den ukjente selv. Det hever likningens orden med én."
+    },
+    {
+      "id": "tma4135-2-4-def-differensiering-felle",
+      "type": "definition",
+      "title": "Når derivasjon fjerner integralet — og når den ikke gjør det",
+      "content": "Regelen som avgjør om snarveien «deriver likningen» virker.\n\nEr kjernen **konstant**, altså integralleddet $c\\int_0^t y(\\tau)\\,d\\tau$, forsvinner integralet når du deriverer: du får $cy(t)$, og likningen blir en vanlig differensiallikning av én orden høyere. Det virker.\n\nEr kjernen **ikke** konstant, som $e^{-2(t-\\tau)}$ eller $\\sin(t-\\tau)$, gir derivasjon deg leddet $g(0)y(t)$ pluss et **nytt** integral med $g'$ som kjerne. Integralet er der fortsatt, og du har fått en ekstra derivert på kjøpet.\n\n**Praktisk:** ikke lete etter snarveier. Transformer, uansett kjerne. Laplace-veien er like kort i begge tilfeller, og den er den eneste som virker i det andre."
+    },
+    {
+      "id": "tma4135-2-4-def-graden-i-nevneren",
+      "type": "definition",
+      "title": "Å telle graden i nevneren før du regner",
+      "content": "Kontrollen som forteller hvor mange ledd svaret skal ha.\n\nEtter at du har ganget opp med fellesnevneren, står det $P(s)\\,Y = Q(s)$ for to polynomer. Graden av $P$ er antall ledd du kan vente deg i svaret — én per rot, to per dobbel rot, og et par $\\cos/\\sin$ per irredusibel faktor.\n\n**Eksempel:** i $\\left(s^2+2s-3\\right)Y = 1$ er graden 2 med to reelle røtter, altså to eksponentialledd. I $\\left(s^2+2s+2\\right)Y = 4s$ er graden 2 med et konjugert polpar, altså ett dempet svingeledd med $\\cos$ og $\\sin$.\n\n**Bruk:** sjekk svaret ditt mot tellingen. Har du færre ledd enn nevnerens grad tilsier, har du mistet noe underveis."
+    },
+    {
+      "id": "tma4135-2-4-def-to-veier-invers",
+      "type": "definition",
+      "title": "To veier til den inverse — og når du velger hvilken",
+      "content": "Sjangeren har to godtatte metoder for siste skritt, og begge gir uttelling.\n\n**Delbrøkoppspalting** ([kap. 2.2](/tma4135/tma4135-2-2)): virker når nevneren lar seg faktorisere. Gir et lukket uttrykk uten integrasjon. **Dette er standardvalget.**\n\n**Konvolusjon:** virker alltid når $Y$ kan skrives som et produkt av to kjente transformer. Gir svaret som et integral, som du kan la stå eller regne ut. **Velg den** ved doble irredusible faktorer, eller når oppgaven ber om det.\n\n**Formuleringen som gir uttelling:** «Her bruker jeg delbrøkoppspalting, siden nevneren faktoriseres. Alternativt kunne svaret skrives som konvolusjonen $\\left(e^{-t} * \\sin t\\right)(t)$.» Å nevne den andre veien koster én linje og viser at du kjenner begge."
+    },
+    {
+      "id": "tma4135-2-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-2-4-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på forkunnskapene: integrasjon, delvis integrasjon og delbrøkoppspalting fra [kap. 2.2](/tma4135/tma4135-2-2). Bruker du mer enn ti minutter til sammen, er det verdt en runde til før du går videre til drillen i [kap. 2.5](/tma4135/tma4135-2-5)."
+        },
+        {
+          "id": "tma4135-2-4-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-4-r1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut integralene.\n\n**a)** $\\displaystyle\\int_0^t e^{3\\tau}\\,d\\tau$\n**b)** $\\displaystyle\\int_0^t \\cos 2\\tau\\,d\\tau$\n**c)** $\\displaystyle\\int_0^t \\tau^2\\,d\\tau$",
+            "solution": "**a)** $\\left[\\dfrac{e^{3\\tau}}{3}\\right]_0^t = \\dfrac{e^{3t}-1}{3}$.\n\n**b)** $\\left[\\dfrac{\\sin 2\\tau}{2}\\right]_0^t = \\dfrac{\\sin 2t}{2}$.\n\n**c)** $\\left[\\dfrac{\\tau^3}{3}\\right]_0^t = \\dfrac{t^3}{3}$.\n\nAlle tre er $1 * f$ for hver sin $f$ — og transformene deres er $F(s)/s$.",
+            "hints": [
+              "Antideriverte av $e^{k\\tau}$ er $\\tfrac1k e^{k\\tau}$.",
+              "Husk å sette inn den nedre grensen $\\tau = 0$ også."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-4-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-4-r2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Bruk delvis integrasjon.\n\n**a)** $\\displaystyle\\int_0^t \\tau e^{\\tau}\\,d\\tau$\n**b)** $\\displaystyle\\int_0^t \\tau\\cos\\tau\\,d\\tau$",
+            "solution": "**a)** Med $u=\\tau$ og $dv = e^{\\tau}d\\tau$:\n$$\\int_0^t\\tau e^{\\tau}d\\tau = \\Big[\\tau e^{\\tau}\\Big]_0^t - \\int_0^t e^{\\tau}d\\tau = te^{t} - e^{t}+1.$$\nKontroll ved $t=0$: $0-1+1=0$. Riktig, siden integralet fra $0$ til $0$ er null.\n\n**b)** Med $u=\\tau$ og $dv=\\cos\\tau\\,d\\tau$:\n$$\\int_0^t\\tau\\cos\\tau\\,d\\tau = \\Big[\\tau\\sin\\tau\\Big]_0^t - \\int_0^t\\sin\\tau\\,d\\tau = t\\sin t + \\cos t - 1.$$\nKontroll ved $t=0$: $0+1-1=0$. Riktig.",
+            "hints": [
+              "Velg $u$ til den faktoren som blir enklere når du deriverer.",
+              "Kontroller alltid at integralet er null ved $t=0$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-4-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-4-r3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Spalt opp $\\dfrac{1}{s(s+3)}$ og $\\dfrac{1}{(s-2)(s+2)}$ ved tildekking.",
+            "solution": "**Første:** $A = \\left.\\dfrac{1}{s+3}\\right|_{s=0} = \\dfrac13$ og $B = \\left.\\dfrac1s\\right|_{s=-3} = -\\dfrac13$, altså\n$$\\frac{1}{s(s+3)} = \\frac{1/3}{s} - \\frac{1/3}{s+3} \\quad\\Longrightarrow\\quad \\frac13\\left(1-e^{-3t}\\right).$$\n\n**Andre:** $A = \\left.\\dfrac{1}{s+2}\\right|_{s=2} = \\dfrac14$ og $B = \\left.\\dfrac{1}{s-2}\\right|_{s=-2} = -\\dfrac14$, altså\n$$\\frac{1}{(s-2)(s+2)} = \\frac{1/4}{s-2} - \\frac{1/4}{s+2} \\quad\\Longrightarrow\\quad \\frac14\\left(e^{2t}-e^{-2t}\\right) = \\frac12\\sinh 2t.$$\nDen siste formen kommer fra $\\sinh at = \\tfrac12\\left(e^{at}-e^{-at}\\right)$; begge er riktige.",
+            "hints": [
+              "Dekk til én faktor og sett inn den $s$-verdien som nuller den ut.",
+              "Kontroller med $s=1$ på begge sider."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-4-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-4-r4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Gang ut og forenkle.\n\n**a)** $Y\\left(1 - \\dfrac{1}{s^2+4}\\right)$\n**b)** $Y\\left(s + \\dfrac{6}{s}\\right)$",
+            "solution": "**a)** Sett på felles nevner:\n$$Y\\cdot\\frac{\\left(s^2+4\\right)-1}{s^2+4} = Y\\cdot\\frac{s^2+3}{s^2+4}.$$\n\n**b)** Samme grep:\n$$Y\\cdot\\frac{s^2+6}{s}.$$\nDette er nøyaktig manøveren i skritt 3 av oppskriften: samle alle $Y$-leddene i én faktor, med én brøk foran.",
+            "hints": [
+              "Sett parentesen på felles nevner.",
+              "Merk at telleren blir et polynom — det er nevneren i $Y(s)$ når du løser videre."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-4-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-4-r5",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Kvadratkompletter og finn den inverse: $\\dfrac{4s}{s^2+2s+2}$.",
+            "solution": "Diskriminanten er $4-8 = -4 < 0$, altså irredusibel. Halvparten av $2$ er $1$:\n$$s^2+2s+2 = (s+1)^2+1,$$\naltså $a=-1$ og $\\omega = 1$. Telleren i nevnerens språk: $4s = 4(s+1)-4$. Da er\n$$\\frac{4s}{(s+1)^2+1} = 4\\cdot\\frac{s+1}{(s+1)^2+1} - 4\\cdot\\frac{1}{(s+1)^2+1},$$\nog fra tabellen på formelarket:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{4s}{s^2+2s+2}\\right\\} = 4e^{-t}\\cos t - 4e^{-t}\\sin t.$$\n\n**Kontroll:** ved $t=0$ er svaret $4$, og gradforskjellen mellom teller og nevner er én med ledende koeffisienter $4$ og $1$. Stemmer.",
+            "hints": [
+              "Regn ut diskriminanten først.",
+              "Skriv telleren $4s$ ved hjelp av $(s+1)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-2-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-2-4-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $g*y$ | Konvolusjonen av $g$ og $y$ |\n| $\\tau$ | Integrasjonsvariabelen i konvolusjonen |\n| $t$ | Tidsvariabelen, og den øvre grensen i integralet |\n| $g(t)$ | Kjernen — den kjente funksjonen i integralet |\n| $G(s)$ | Transformen av kjernen |\n| $Y(s)$ | Transformen av den ukjente funksjonen |\n| $F(s)$ | Transformen av høyresiden |\n| $y(0)$ | Startverdien, når likningen har en derivert |\n| $\\omega$ | Frekvensen i $\\sin\\omega t$ og $\\cos\\omega t$ |\n| $\\sigma$ | Hjelpevariabel ved variabelskifte i konvolusjonen |\n| $a$ | Vekstraten i en eksponentiell kjerne $e^{at}$ |\n\n**Kolliderende symboler i dette kapitlet:** stjernen $*$ betyr konvolusjon her, aldri vanlig multiplikasjon — vanlig produkt skrives med prikk eller uten tegn. Bokstaven $g$ er kjernen her; i [kap. 2.1](/tma4135/tma4135-2-1) var den bare en vilkårlig andre funksjon. Og $\\tau$ er integrasjonsvariabel både her og i [kap. 2.3](/tma4135/tma4135-2-3), men der var den en hjelpevariabel i en utledning, mens den her står i selve svaret."
+        },
+        {
+          "id": "tma4135-2-4-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$(g*y)(t) = \\int_0^{t} g(\\tau)\\,y(t-\\tau)\\,d\\tau$$\nDefinisjonen av konvolusjonen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{g*y\\} = G(s)\\,Y(s)$$\nKonvolusjonsteoremet — skal navngis i besvarelsen. *(Må kunnes eller utledes aktivt; det står ofte ikke på arket.)*\n\n$$\\mathcal{L}^{-1}\\{F(s)G(s)\\} = (f*g)(t)$$\nKonvolusjonsteoremet baklengs. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\left\\{\\int_0^{t}y(\\tau)\\,d\\tau\\right\\} = \\frac{Y(s)}{s}$$\nRegelen for et rent integral, spesialtilfellet $g=1$. *(Må kunnes eller utledes aktivt.)*\n\n$$(g*y)(t) = (y*g)(t)$$\nKonvolusjonen er kommutativ. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{y'\\} = sY - y(0)$$\nDerivasjonsregelen, gjentatt fordi den brukes i hver integro-differensiallikning. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{e^{at}\\} = \\frac{1}{s-a}, \\qquad \\mathcal{L}\\{\\sin\\omega t\\} = \\frac{\\omega}{s^2+\\omega^2}$$\nDe to vanligste kjernene. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\sin A\\sin B = \\tfrac12\\left(\\cos(A-B) - \\cos(A+B)\\right)$$\nProduktformelen, brukt når konvolusjonsintegralet skal regnes ut. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{\\left(s^2+\\omega^2\\right)^2}\\right\\} = \\frac{1}{2\\omega^3}\\left(\\sin\\omega t - \\omega t\\cos\\omega t\\right)$$\nResonans-signaturen ved en dobbel irredusibel faktor. *(Må kunnes eller utledes aktivt — men du regner den fram med konvolusjon, du husker den ikke.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

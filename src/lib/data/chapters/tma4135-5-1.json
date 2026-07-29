@@ -1,0 +1,471 @@
+{
+  "id": "tma4135-5-1",
+  "courseId": "tma4135",
+  "chapterNumber": "5.1",
+  "title": "Separasjon av variable — varmelikningen og de tre $k$-tilfellene",
+  "description": "Emnets tyngste enkeltoppgave: sett $u=F(x)G(t)$, del i to ODE-er, og behandl **alle tre** tilfellene $k>0$, $k=0$, $k<0$ for å finne egenverdiene.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "sette inn produktansatsen i en partiell differensiallikning og dele den i to vanlige differensiallikninger med tydelig fortegnskonvensjon",
+    "oversette randbetingelser på u til randbetingelser på romfaktoren, og se hvorfor det krever at tidsfaktoren ikke er null",
+    "behandle alle tre tilfellene for separasjonskonstanten eksplisitt, og vise hvilke som bare gir den trivielle løsningen",
+    "finne egenverdier og egenfunksjoner ved kalde ender, isolerte ender og blandet rand, og kontrollere svaret ved innsetting i både likningen og randbetingelsene"
+  ],
+  "content": [
+    {
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Separasjon av variable står på 12 av 13 gjennomgåtte sett — 92 %.** Det er den tyngste enkeltoppgaven på settet, typisk verdt 14–20 poeng, og den er ofte delt i fire eller fem delpunkter som bygger på hverandre. Derfor har Del 5 høyeste prioritet i boka, sammen med Laplace-delen og Fourier-rekkene.\n\n**Oppgavene i denne sjangeren merkes med bokstaven G.** Boka bruker bokstavene A til S som korte navn på de nitten oppgavetypene som går igjen på settene; **G er separasjon av variable**. Bokstaven forklares første gang den brukes i hvert kapittel, så du trenger ikke pugge alfabetet.\n\n**Dette kapitlet dekker den første halvdelen av G-oppgaven:** å sette $u(x,t) = F(x)G(t)$, dele likningen i to vanlige differensiallikninger, og finne hvilke verdier av separasjonskonstanten som gir løsninger som ikke er null. Andre halvdel — å legge sammen løsningene og treffe initialbetingelsen — kommer i [kap. 5.2](/tma4135/tma4135-5-2).\n\n**Det som skiller midtsjiktet fra toppsjiktet her, er én ting:** at alle tre tilfellene for separasjonskonstanten behandles eksplisitt. Løsningsforslagene skriver dem alle tre ut, hver gang. Hopper du over to av dem fordi du «vet» hvilket som virker, mister du poeng selv om sluttsvaret stemmer.\n\n**Formelark-merking.** Eksamen har hjelpemiddelkode C: du får utdelt et formelark sammen med oppgavesettet, og du har med ditt eget håndskrevne A5-ark. **Ingenting i dette kapitlet står på det utdelte formelarket.** Hele separasjonsprosessen, de tre tilfellene og egenverdiene **må kunnes** eller utledes aktivt. Det du derimot får bruk for fra arket, er trigonometriske identiteter og — i neste kapittel — reduksjonsformlene for delvis integrasjon; de **står på det utdelte formelarket, så tren oppslaget**.\n\n**Tidsbruk:** 70 minutter lesetid fordelt på fire løkker à omtrent et kvarter. Ganger du 1,5 fordi du skriver av for hånd, blir det nesten to timer. Del gjerne over to økter — pausepunktet er markert midtveis.",
+      "id": "tma4135-5-1-eksamensvinkel"
+    },
+    {
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 3.1](/tma4135/tma4135-3-1) — derfra trenger du å vite hva en Fourier-rekke er og hvordan koeffisientene finnes. Du bruker dem ikke før i [kap. 5.2](/tma4135/tma4135-5-2), men det hjelper å ha sett dem.\n\nFra tidligere matematikkemner forutsettes: partiell derivasjon, og at du kan løse de to enkleste andreordens lineære differensiallikningene med konstante koeffisienter — $y'' + p^2 y = 0$ og $y'' - \\mu^2 y = 0$ — samt den enkleste førsteordens, $y' = ay$. Trenger du å friske opp dette, ligger det fem korte oppgaver i repetisjonsboksen nederst. Gjør dem *før* du leser videre; de er selve håndverket i kapitlet.\n\n**Sist du var her.** De tre løsningsformene du kommer til å bruke i hver eneste oppgave:\n\n$$y'' + p^2 y = 0 \\;\\;\\Longrightarrow\\;\\; y = A\\cos px + B\\sin px \\qquad (p > 0)$$\n\n$$y'' - \\mu^2 y = 0 \\;\\;\\Longrightarrow\\;\\; y = A\\cosh \\mu x + B\\sinh \\mu x \\qquad (\\mu > 0)$$\n\n$$y' = a y \\;\\;\\Longrightarrow\\;\\; y = C e^{a t}$$\n\nLegg merke til den midterste: den kan også skrives $y = \\tilde A e^{\\mu x} + \\tilde B e^{-\\mu x}$, og de to formene er like gode. Hyperbelformen er som regel raskest her, fordi $\\cosh 0 = 1$ og $\\sinh 0 = 0$ gjør randbetingelsen i $x = 0$ til én linje.\n\nKapitlet er forutsetning for [kap. 5.2](/tma4135/tma4135-5-2), [kap. 5.3](/tma4135/tma4135-5-3) og [kap. 5.5](/tma4135/tma4135-5-5).",
+      "id": "tma4135-5-1-forkunnskaper"
+    },
+    {
+      "type": "text",
+      "content": "## En stang som kjøles ned\n\nTa en metallstang på en meter, varm den ujevnt, og hold begge endene i isvann. Hva skjer? Temperaturen jevner seg ut innenfra, de skarpe toppene forsvinner først, og til slutt er hele stanga like kald som endene. Det tar tid, og det tar mest tid på midten.\n\nDen prosessen beskrives av **varmelikningen**, og den er en likning i to variabler samtidig: posisjonen $x$ langs stanga og tiden $t$. Det gjør den vanskeligere enn alt du har møtt til nå — en vanlig differensiallikning har bare én variabel.\n\n**Grepet som løser den, er nesten uanstendig enkelt:** gjett at temperaturen kan skrives som en funksjon av $x$ *ganger* en funksjon av $t$. Altså at formen på temperaturprofilen langs stanga holder seg lik, og at bare høyden på den synker med tida. Det er ikke sant for en vilkårlig starttemperatur — men det er sant for noen spesielle profiler, og de spesielle kan legges sammen til alle de andre. Det er hele ideen.\n\nSamme grep virker på svingende gitarstrenger, på spenningsfordelingen i en plate og på diffusjon av et fargestoff i vann. Får du separasjon av variable til å sitte, har du nøkkelen til den dyreste oppgaven på settet.\n\nKapitlet gjør fire ting i denne rekkefølgen: setter opp likningen og ansatsen, deler den i to og går gjennom alle tre tilfellene for separasjonskonstanten, gjør det samme med isolerte ender i stedet for kalde ender, og avslutter med en eksamensoppgave der de to randbetingelsene er av hver sin type.",
+      "id": "tma4135-5-1-motivasjon"
+    },
+    {
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene i dette kapitlet er samtidig kortene i flashcard-bunken. Ved første gjennomlesing holder det å lese formelen og gå videre til eksempelet; tidsanslaget på 70 minutter gjelder kjernestoffet, ikke pugging av boksene.",
+      "id": "tma4135-5-1-fc-notis"
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 1 — Likningen, randen og ansatsen (~15 min)\n\nVi begynner med å bli enige om hva som er gitt og hva som skal finnes. Halvparten av feilene i denne sjangeren gjøres før man har regnet en eneste linje, ved å lese randbetingelsene feil.",
+      "id": "tma4135-5-1-lokke1"
+    },
+    {
+      "type": "definition",
+      "title": "Partiell differensiallikning",
+      "content": "En likning som knytter sammen de partielle deriverte av en funksjon av **flere** variabler.\n\nEt eksempel er $u_t = u_{xx}$, der $u = u(x,t)$ og fotskriften betyr partiell derivasjon: $u_t = \\partial u/\\partial t$ og $u_{xx} = \\partial^2 u/\\partial x^2$.\n\nForkortelsen PDE kommer fra engelsk, *partial differential equation*. En likning med bare én variabel kalles til forskjell en vanlig differensiallikning, ODE.",
+      "id": "tma4135-5-1-def-pde"
+    },
+    {
+      "type": "definition",
+      "title": "Varmelikningen",
+      "content": "Likningen som beskriver hvordan temperatur jevner seg ut i et materiale:\n\n$$u_t = c^2 u_{xx}.$$\n\nHer er $u(x,t)$ temperaturen i punktet $x$ ved tiden $t$. Én tidsderivert på venstre side, to romderiverte på høyre — den asymmetrien er hele grunnen til at varme jevner seg ut i stedet for å svinge.\n\nIntuisjon for høyresiden: $u_{xx}$ måler krumningen. Er profilen krum nedover (en topp), er $u_{xx} < 0$ og temperaturen synker. Er den krum oppover (en bunn), stiger den. Toppene faller, bunnene stiger, alt jevner seg ut.",
+      "id": "tma4135-5-1-def-varmelikningen"
+    },
+    {
+      "type": "definition",
+      "title": "Diffusivitetskonstanten $c^2$",
+      "content": "Materialkonstanten foran $u_{xx}$ i varmelikningen. Den sier hvor raskt varme sprer seg: stor $c^2$ betyr rask utjevning, liten $c^2$ betyr treg.\n\nDen skrives som et kvadrat med vilje, for å minne om at den alltid er positiv. I oppgaver er den bare et tall — står det $u_t = 4u_{xx}$, er $c^2 = 4$.\n\n**Merk:** i [kap. 5.3](/tma4135/tma4135-5-3) betyr $c$ noe litt annet, nemlig **bølgefarten** i bølgeligningen. Symbolet er det samme, men rollen er ikke.",
+      "id": "tma4135-5-1-def-diffusivitet"
+    },
+    {
+      "type": "definition",
+      "title": "Randbetingelse",
+      "content": "En betingelse på hva som skjer i **endene** av intervallet, for alle tider.\n\nFor en stang på $0 \\le x \\le L$ er randen de to punktene $x = 0$ og $x = L$. En randbetingelse er en opplysning om $u$ eller $u_x$ i disse punktene, gyldig for alle $t > 0$.\n\nRandbetingelsene er det som avgjør hvilke løsninger som finnes i det hele tatt. Bytter du dem, bytter du hele svaret.",
+      "id": "tma4135-5-1-def-randbetingelse"
+    },
+    {
+      "type": "definition",
+      "title": "Dirichlet-randbetingelse",
+      "content": "En randbetingelse som fastsetter **verdien** av $u$ i randpunktet:\n\n$$u(0,t) = 0, \\qquad u(L,t) = 0.$$\n\nFysisk: begge endene av stanga holdes på en fast temperatur, her null. Tenk isvann. Uttalen er «diriklé»; betingelsen er oppkalt etter matematikeren Peter Gustav Lejeune Dirichlet.",
+      "id": "tma4135-5-1-def-dirichlet"
+    },
+    {
+      "type": "definition",
+      "title": "Neumann-randbetingelse",
+      "content": "En randbetingelse som fastsetter **den deriverte** i randpunktet:\n\n$$u_x(0,t) = 0, \\qquad u_x(L,t) = 0.$$\n\nFysisk: ingen varme slipper ut gjennom endene — stanga er isolert. Varmestrømmen er proporsjonal med $u_x$, så $u_x = 0$ betyr null strøm.\n\nDenne typen gir **cosinus** der Dirichlet gir sinus, og det er en av de feilene som koster mest på eksamen. Uttalen er «nøjman».",
+      "id": "tma4135-5-1-def-neumann"
+    },
+    {
+      "type": "definition",
+      "title": "Initialbetingelse",
+      "content": "En opplysning om hvordan tilstanden ser ut ved **starttidspunktet**:\n\n$$u(x,0) = f(x), \\qquad 0 < x < L.$$\n\nRandbetingelsene gjelder for alle tider i to punkter; initialbetingelsen gjelder i alle punkter til én tid. Ikke bland dem — de brukes på helt forskjellige steder i regningen. Randbetingelsene brukes i dette kapitlet; initialbetingelsen først i [kap. 5.2](/tma4135/tma4135-5-2).",
+      "id": "tma4135-5-1-def-initialbetingelse"
+    },
+    {
+      "type": "definition",
+      "title": "Homogen randbetingelse",
+      "content": "En randbetingelse med **null** på høyre side, altså $u = 0$ eller $u_x = 0$ i randpunktet.\n\nDet er homogeniteten som gjør separasjon mulig: er $u_1$ og $u_2$ to løsninger som begge er null på randen, er også summen null på randen. Med $u(0,t) = 5$ i stedet ville summen blitt 10, og hele metoden bryter sammen.\n\nIkke-homogene randbetingelser finnes på eksamen, men de gjøres om til homogene først. Det er tema i [kap. 5.2](/tma4135/tma4135-5-2).",
+      "id": "tma4135-5-1-def-homogen-rand"
+    },
+    {
+      "type": "definition",
+      "title": "Den trivielle løsningen",
+      "content": "Løsningen $u \\equiv 0$ — funksjonen som er null overalt.\n\nDen oppfyller varmelikningen og alle homogene randbetingelser, uansett. Den er derfor alltid en løsning, og alltid uinteressant. Når en oppgave ber om «alle ikke-trivielle løsninger», betyr det: alle løsninger unntatt denne.\n\nHalve arbeidet i dette kapitlet består i å vise at to av de tre tilfellene for separasjonskonstanten *bare* gir den trivielle løsningen. Det er ikke bortkastet arbeid — det er nettopp det som gir poeng.",
+      "id": "tma4135-5-1-def-triviell"
+    },
+    {
+      "type": "definition",
+      "title": "Separasjonsansatsen",
+      "content": "Gjettet som starter hele metoden: at løsningen kan skrives som et **produkt** av en funksjon av $x$ alene og en funksjon av $t$ alene,\n\n$$u(x,t) = F(x)\\,G(t).$$\n\nOrdet ansats er tysk og betyr «angrep» eller «forsøk». Det er ikke en påstand om at alle løsninger har denne formen — det er et forsøk som viser seg å gi nok løsninger til at resten kan bygges av dem.\n\n**Merk symbolvalget:** her er $F$ en funksjon av $x$. I Del 2 betyr $F(s)$ Laplace-transformen av $f$. Samme bokstav, helt ulik rolle — hold dem fra hverandre.",
+      "id": "tma4135-5-1-def-ansats"
+    },
+    {
+      "type": "example",
+      "title": "Første steg: å dele likningen i to",
+      "problem": "Sett $u(x,t) = F(x)G(t)$ inn i varmelikningen\n\n$$u_t = 4u_{xx}$$\n\nog vis at den deler seg i to vanlige differensiallikninger, én for $F$ og én for $G$.",
+      "solution": "**Steg 1 — deriver produktet.** Når vi deriverer med hensyn på $t$, er $F(x)$ en konstant; når vi deriverer med hensyn på $x$, er $G(t)$ en konstant:\n\n$$u_t = F(x)\\,G'(t), \\qquad u_{xx} = F''(x)\\,G(t).$$\n\n**Steg 2 — sett inn.**\n\n$$F G' = 4 F'' G.$$\n\n**Steg 3 — samle $x$ på den ene siden og $t$ på den andre.** Del på $4FG$ (vi ser bort fra de punktene der $F$ eller $G$ er null — det er greit, fordi vi bare leter etter ikke-trivielle løsninger):\n\n$$\\frac{G'}{4G} = \\frac{F''}{F}.$$\n\n**Steg 4 — argumentet som gir konstanten.** Venstre side avhenger bare av $t$. Høyre side avhenger bare av $x$. Skal de være like for *alle* $x$ og *alle* $t$, må begge være den samme konstanten — for holder du $x$ fast og varierer $t$, kan ikke høyresiden endre seg, og da kan ikke venstresiden det heller.\n\nVi kaller konstanten $-k$:\n\n$$\\frac{G'}{4G} = \\frac{F''}{F} = -k.$$\n\n**Steg 5 — les av de to likningene.**\n\n$$F'' + kF = 0, \\qquad G' + 4kG = 0.$$\n\nFerdig. Vi har byttet én partiell differensiallikning mot to vanlige, og *begge* er av en type du kan løse.\n\n**Om fortegnet.** Vi valgte $-k$ og ikke $k$. Det er et rent bokholderivalg, men det må være konsekvent, og du må si hvilket du bruker. Med vårt valg er det tilfellet $k > 0$ som gir de interessante løsningene, og $G$ blir da $e^{-4kt}$, altså noe som dør ut med tida — akkurat som varme skal. Andre bøker legger minustegnet motsatt vei og får de interessante løsningene for $k < 0$. **Begge er riktige; det som er galt, er å bytte underveis.** Denne boka bruker $-k$ hele veien.",
+      "id": "tma4135-5-1-eks1"
+    },
+    {
+      "id": "tma4135-5-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-1-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Sett $u = F(x)G(t)$ og skriv opp de to vanlige differensiallikningene, med konvensjonen $F''/F = -k$. Ikke løs dem.\n\n**a)** $u_t = 5u_{xx}$\n**b)** $u_t = u_{xx}$\n**c)** $u_{tt} = 9u_{xx}$",
+        "solution": "**a)** $FG' = 5F''G$, altså $\\dfrac{G'}{5G} = \\dfrac{F''}{F} = -k$, som gir\n\n$$F'' + kF = 0, \\qquad G' + 5kG = 0.$$\n\n**b)** Samme med $c^2 = 1$:\n\n$$F'' + kF = 0, \\qquad G' + kG = 0.$$\n\n**c)** Her er det **to** tidsderiverte, så $G$-likningen blir av andre orden: $FG'' = 9F''G$ gir $\\dfrac{G''}{9G} = \\dfrac{F''}{F} = -k$, altså\n\n$$F'' + kF = 0, \\qquad G'' + 9kG = 0.$$\n\n**Legg merke til mønsteret:** $F$-likningen er *den samme* i alle tre. Det er bare $G$-likningen som forandrer seg. Derfor er alt arbeidet med randbetingelser og egenverdier felles for varme- og bølgeligningen — det utnytter vi i [kap. 5.3](/tma4135/tma4135-5-3).",
+        "hints": [
+          "Deriver produktet: $u_t = FG'$ og $u_{xx} = F''G$.",
+          "Del på $c^2FG$ slik at all $x$-avhengighet står på én side."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 2 — De tre tilfellene for $k$ (~20 min)\n\nNå har vi $F'' + kF = 0$ og to randbetingelser. Spørsmålet er hvilke verdier av $k$ som gir en $F$ som ikke er null overalt. Svaret avhenger av fortegnet til $k$, og derfor må alle tre mulighetene sjekkes. Dette er kjernen i hele sjangeren.",
+      "id": "tma4135-5-1-lokke2"
+    },
+    {
+      "type": "definition",
+      "title": "Separasjonskonstanten $k$",
+      "content": "Den felles verdien av $F''/F$ og $G'/(c^2G)$ etter separasjonen, med fortegnskonvensjonen\n\n$$\\frac{F''}{F} = \\frac{G'}{c^2 G} = -k.$$\n\nKonstanten er ukjent når du starter. Randbetingelsene er det som til slutt plukker ut hvilke $k$ som er tillatt.\n\n**Merk:** bokstaven $k$ brukes **bare** som separasjonskonstant i denne boka, og bare i Del 5. På det utdelte formelarket brukes samme bokstav om **tidssteget** i differansemetoder; der skriver denne boka $\\Delta t$ i stedet, nettopp for å unngå kollisjonen.",
+      "id": "tma4135-5-1-def-k"
+    },
+    {
+      "type": "definition",
+      "title": "Randverdiproblemet for $F$",
+      "content": "De to opplysningene som til sammen bestemmer $F$:\n\n$$F'' + kF = 0, \\qquad \\text{pluss to randbetingelser i } x = 0 \\text{ og } x = L.$$\n\nDette er ikke et vanlig initialverdiproblem, der to opplysninger i samme punkt gir én entydig løsning. Her er opplysningene fordelt på hver sin ende, og da kan det hende at den eneste løsningen er $F \\equiv 0$ — med mindre $k$ er akkurat riktig. Nettopp derfor får vi bare noen tillatte $k$-verdier, ikke alle.",
+      "id": "tma4135-5-1-def-randverdiproblem"
+    },
+    {
+      "type": "text",
+      "content": "**Hvorfor tre tilfeller, og ikke ett?** Løsningsformen til $F'' + kF = 0$ avhenger fullstendig av fortegnet til $k$:\n\n- er $k > 0$, skriver vi $k = p^2$ og får **svingninger**: $F = A\\cos px + B\\sin px$;\n- er $k = 0$, står det $F'' = 0$, og vi får en **rett linje**: $F = Ax + B$;\n- er $k < 0$, skriver vi $k = -\\mu^2$ og får **hyperbelfunksjoner**: $F = A\\cosh \\mu x + B\\sinh \\mu x$.\n\nTre helt ulike funksjonsfamilier. Du kan ikke behandle dem under ett, og du kan ikke vite på forhånd hvilken som overlever randbetingelsene — det avhenger av hvilke randbetingelser du har fått. **Derfor sjekkes alle tre, hver gang, og derfor gir det poeng å skrive dem ut.**\n\nIntuisjon: sinus og cosinus kan bli null flere ganger, så de har en sjanse til å treffe null i begge ender. En rett linje som er null i to punkter, er null overalt. Og $\\cosh$ og $\\sinh$ er null i høyst ett punkt hver, så de klarer det heller ikke. Det er hele forklaringen på hvorfor Dirichlet-randen ender opp med sinus.",
+      "id": "tma4135-5-1-tre-tilfeller-tekst"
+    },
+    {
+      "type": "definition",
+      "title": "Tilfellet $k > 0$",
+      "content": "Skriv $k = p^2$ med $p > 0$. Da er $F'' + p^2 F = 0$, og\n\n$$F(x) = A\\cos px + B\\sin px.$$\n\nDette er tilfellet som gir de ikke-trivielle løsningene ved både Dirichlet- og Neumann-rand, fordi en svingning kan treffe null (eller ha vannrett tangent) i to punkter samtidig.\n\nTidsfaktoren blir $G' = -c^2 p^2 G$, altså $G = e^{-c^2p^2t}$ — en eksponentiell demping. Jo høyere $p$, jo raskere dør moden ut.",
+      "id": "tma4135-5-1-def-k-positiv"
+    },
+    {
+      "type": "definition",
+      "title": "Tilfellet $k = 0$",
+      "content": "Da er $F'' = 0$, og\n\n$$F(x) = Ax + B.$$\n\nVed **Dirichlet**-rand gir dette bare den trivielle løsningen: $F(0) = B = 0$ og $F(L) = AL = 0$ tvinger $A = B = 0$.\n\nVed **Neumann**-rand er det motsatt: $F'(x) = A$, så $F'(0) = F'(L) = 0$ gir bare $A = 0$, mens $B$ står fritt. Da overlever $F = B$, en konstant — en helt ekte løsning som svarer til den jevne middeltemperaturen.\n\n**Dette er tilfellet folk hopper over, og det er nettopp det som noen ganger er det viktigste.**",
+      "id": "tma4135-5-1-def-k-null"
+    },
+    {
+      "type": "definition",
+      "title": "Tilfellet $k < 0$",
+      "content": "Skriv $k = -\\mu^2$ med $\\mu > 0$. Da er $F'' - \\mu^2 F = 0$, og\n\n$$F(x) = A\\cosh \\mu x + B\\sinh \\mu x.$$\n\nVed homogen rand gir dette alltid bare den trivielle løsningen. Grunnen er at $\\sinh$ er null bare i $x = 0$ og $\\cosh$ aldri er null: hyperbelfunksjonene vokser monotont og kan ikke komme tilbake til null.\n\nTidsfaktoren ville dessuten blitt $G = e^{+c^2\\mu^2 t}$, altså en temperatur som vokser uten grense. Det er fysisk urimelig for en stang med kalde ender, og det er et godt kontrollargument å nevne — men det er ikke et bevis, og sensor vil se regningen.",
+      "id": "tma4135-5-1-def-k-negativ"
+    },
+    {
+      "type": "definition",
+      "title": "Egenverdi",
+      "content": "En verdi av separasjonskonstanten $k$ som gir en **ikke-triviell** løsning av randverdiproblemet for $F$.\n\nDe tillatte verdiene kommer i en uendelig følge og nummereres $k_1, k_2, k_3, \\dots$ Ordet er lånt fra lineær algebra: randverdiproblemet er en slags egenverdilikning der den dobbeltderiverte spiller rollen til matrisen.",
+      "id": "tma4135-5-1-def-egenverdi"
+    },
+    {
+      "type": "definition",
+      "title": "Egenfunksjon",
+      "content": "Den tilhørende ikke-trivielle løsningen $F_n(x)$.\n\nEgenfunksjonen er bare bestemt opp til en konstant faktor: er $F_n$ en løsning, er $7F_n$ det også. Derfor skriver vi den alltid i enklest mulig form, uten konstant foran — konstanten hentes inn igjen i [kap. 5.2](/tma4135/tma4135-5-2), når initialbetingelsen skal treffes.",
+      "id": "tma4135-5-1-def-egenfunksjon"
+    },
+    {
+      "type": "example",
+      "title": "Alle tre tilfellene: varmelikningen med kalde ender",
+      "problem": "Finn alle ikke-trivielle produktløsninger $u(x,t) = F(x)G(t)$ av\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0.$$\n\nBehandle alle tre tilfellene for separasjonskonstanten.",
+      "solution": "**Oppsett.** Med $u = FG$ blir $FG' = F''G$, altså\n\n$$\\frac{G'}{G} = \\frac{F''}{F} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\qquad G' + kG = 0.$$\n\nRandbetingelsene gjelder for alle $t$, og $G \\not\\equiv 0$ (ellers er $u$ triviell), så $u(0,t) = F(0)G(t) = 0$ tvinger $F(0) = 0$. På samme måte $F(\\pi) = 0$. Randverdiproblemet er dermed\n\n$$F'' + kF = 0, \\qquad F(0) = F(\\pi) = 0.$$\n\n**Tilfelle 1: $k = 0$.** Da er $F'' = 0$, så $F = Ax + B$.\nFra $F(0) = 0$: $B = 0$. Fra $F(\\pi) = 0$: $A\\pi = 0$, altså $A = 0$.\nBare $F \\equiv 0$ — **triviell løsning, forkastes**.\n\n**Tilfelle 2: $k < 0$.** Skriv $k = -\\mu^2$ med $\\mu > 0$. Da er $F'' - \\mu^2 F = 0$, så\n\n$$F = A\\cosh \\mu x + B\\sinh \\mu x.$$\n\nFra $F(0) = 0$: siden $\\cosh 0 = 1$ og $\\sinh 0 = 0$ får vi $A = 0$.\nFra $F(\\pi) = 0$: $B\\sinh(\\mu\\pi) = 0$. Men $\\mu\\pi > 0$, og $\\sinh$ er strengt positiv for positive argumenter, så $\\sinh(\\mu\\pi) \\ne 0$. Altså $B = 0$.\nBare $F \\equiv 0$ — **triviell løsning, forkastes**.\n\n**Tilfelle 3: $k > 0$.** Skriv $k = p^2$ med $p > 0$. Da er\n\n$$F = A\\cos px + B\\sin px.$$\n\nFra $F(0) = 0$: $A = 0$, siden $\\cos 0 = 1$ og $\\sin 0 = 0$. Altså $F = B\\sin px$.\nFra $F(\\pi) = 0$: $B\\sin(p\\pi) = 0$. Vi kan ikke ha $B = 0$ (det ville gitt triviell løsning), så vi må ha\n\n$$\\sin(p\\pi) = 0 \\quad\\Longrightarrow\\quad p\\pi = n\\pi \\quad\\Longrightarrow\\quad p = n, \\qquad n = 1, 2, 3, \\dots$$\n\n**Egenverdier og egenfunksjoner:**\n\n$$k_n = n^2, \\qquad F_n(x) = \\sin nx, \\qquad n = 1, 2, 3, \\dots$$\n\n**Tidsfaktoren.** Med $k = k_n = n^2$ blir $G' + n^2 G = 0$, altså $G_n(t) = e^{-n^2 t}$.\n\n**Produktløsningene:**\n\n$$u_n(x,t) = \\sin(nx)\\,e^{-n^2 t}, \\qquad n = 1, 2, 3, \\dots$$\n\n**Kontroll — sett inn i likningen.** Med $u = \\sin(nx)e^{-n^2t}$:\n\n$$u_t = -n^2\\sin(nx)e^{-n^2t}, \\qquad u_{xx} = -n^2\\sin(nx)e^{-n^2t}.$$\n\nDe er like, så $u_t = u_{xx}$ er oppfylt.\n\n**Kontroll — sett inn i randbetingelsene.** $u(0,t) = \\sin 0 \\cdot e^{-n^2t} = 0$ og $u(\\pi,t) = \\sin(n\\pi)e^{-n^2t} = 0$, siden $\\sin n\\pi = 0$ for alle heltall $n$. Begge er oppfylt.\n\n**Merk hvorfor $n = 0$ ikke er med:** det ville gitt $p = 0$, altså $k = 0$, som vi allerede har forkastet. Og negative $n$ gir bare $-\\sin nx$, altså samme egenfunksjon med motsatt fortegn — ingen ny løsning.",
+      "id": "tma4135-5-1-eks2"
+    },
+    {
+      "type": "image",
+      "src": "/images/textbook/tma4135/separasjon-egenfunksjoner.svg",
+      "alt": "To grafer over intervallet fra 0 til L. Den oeverste viser sinusfunksjonene for n lik 1, 2 og 3, som alle er null i begge endene. Den nederste viser cosinusfunksjonene for n lik 1, 2 og 3, som alle har vannrett tangent i begge endene, pluss en prikket vannrett linje for tilfellet k lik null.",
+      "caption": "De tre første egenfunksjonene ved hver av de to randtypene. Øverst Dirichlet-rand, der $F$ må være null i begge ender og løsningene blir sinuser. Nederst Neumann-rand, der $F'$ må være null i begge ender og løsningene blir cosinuser — og der tilfellet $k = 0$ overlever som en konstant.",
+      "id": "tma4135-5-1-fig-egenfunksjoner"
+    },
+    {
+      "id": "tma4135-5-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-1-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør, uten å regne ut hele randverdiproblemet, om tilfellet $k = 0$ gir en ikke-triviell $F$. Begrunn hver med én linje.\n\n**a)** $F(0) = 0$, $F(4) = 0$\n**b)** $F'(0) = 0$, $F'(4) = 0$\n**c)** $F(0) = 0$, $F'(4) = 0$",
+        "solution": "Med $k = 0$ er $F = Ax + B$ og $F' = A$.\n\n**a)** $F(0) = B = 0$ og $F(4) = 4A = 0$ gir $A = B = 0$. **Bare triviell løsning.** En rett linje som er null i to punkter, er null overalt.\n\n**b)** $F'(0) = A = 0$ og $F'(4) = A = 0$ er én og samme opplysning. $B$ står fritt, så $F = B$ er en **ikke-triviell** løsning: konstanten. Dette er den ene randtypen der $k = 0$ overlever.\n\n**c)** $F(0) = B = 0$ og $F'(4) = A = 0$ gir $A = B = 0$. **Bare triviell løsning.**\n\n**Regelen bak:** $k = 0$ overlever bare når *begge* randbetingelsene er av Neumann-type. Så snart minst én av dem fastsetter verdien av $F$, dør den rette linja.",
+        "hints": [
+          "Skriv opp $F$ og $F'$ for $k = 0$ først, så er alt lesing.",
+          "Spør: gir de to betingelsene to uavhengige krav, eller ett og samme?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-1-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — separasjon av variable.) Finn alle ikke-trivielle produktløsninger av\n\n$$u_t = 2u_{xx}, \\qquad 0 < x < 3, \\qquad u(0,t) = u(3,t) = 0,$$\n\nved å behandle alle tre tilfellene for separasjonskonstanten eksplisitt.",
+        "solution": "**Oppsett.** $u = FG$ gir $FG' = 2F''G$, altså\n\n$$\\frac{G'}{2G} = \\frac{F''}{F} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\qquad G' + 2kG = 0,$$\n\nmed $F(0) = F(3) = 0$.\n\n**$k = 0$:** $F = Ax + B$; $F(0) = B = 0$ og $F(3) = 3A = 0$ gir $A = 0$. Triviell — forkastes.\n\n**$k < 0$, $k = -\\mu^2$:** $F = A\\cosh\\mu x + B\\sinh\\mu x$; $F(0) = A = 0$, og $F(3) = B\\sinh 3\\mu = 0$ med $\\sinh 3\\mu \\ne 0$ gir $B = 0$. Triviell — forkastes.\n\n**$k > 0$, $k = p^2$:** $F = A\\cos px + B\\sin px$; $F(0) = A = 0$, så $F = B\\sin px$. Kravet $F(3) = B\\sin 3p = 0$ med $B \\ne 0$ gir\n\n$$3p = n\\pi \\quad\\Longrightarrow\\quad p = \\frac{n\\pi}{3}, \\qquad n = 1,2,3,\\dots$$\n\n**Egenverdier og egenfunksjoner:**\n\n$$k_n = \\frac{n^2\\pi^2}{9}, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{3}.$$\n\n**Tidsfaktoren:** $G' = -2k_n G$ gir $G_n(t) = e^{-2n^2\\pi^2 t/9}$.\n\n**Produktløsningene:**\n\n$$u_n(x,t) = \\sin\\frac{n\\pi x}{3}\\,\\exp\\left(-\\frac{2n^2\\pi^2 t}{9}\\right).$$\n\n**Kontroll ved innsetting.** $u_t = -\\frac{2n^2\\pi^2}{9}u$ og $u_{xx} = -\\frac{n^2\\pi^2}{9}u$, så $2u_{xx} = -\\frac{2n^2\\pi^2}{9}u = u_t$. Oppfylt. Randen: $\\sin 0 = 0$ og $\\sin(n\\pi) = 0$. Oppfylt.\n\n**Vanligste tabbe her:** å glemme faktoren 2 i eksponenten. Diffusivitetskonstanten står i $G$-likningen, ikke i $F$-likningen — egenverdiene er de samme uansett hvor rask stanga er.",
+        "hints": [
+          "Skriv opp de to ODE-ene med konvensjonen $F''/F = -k$ først.",
+          "For hvert av de tre tilfellene: sett inn $x = 0$ først, det gir alltid den enkleste opplysningen.",
+          "Egenverdiene avhenger av intervallengden, ikke av tallet foran $u_{xx}$."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå selve kjernen: ansatsen, de to ODE-ene, og de tre tilfellene. Tar du en pause her, start neste økt med å skrive ned fra hukommelsen hva $F$ blir i hvert av de tre tilfellene. Klarer du det uten å bla, sitter halve G-oppgaven.",
+      "id": "tma4135-5-1-pause1"
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 3 — Isolerte ender gir cosinus (~17 min)\n\nAlt vi har gjort til nå, gjelder en stang med kalde ender. Bytt til en isolert stang, og både egenfunksjonene og listen over overlevende tilfeller endrer seg. Regningen er den samme; det er avlesingen som er ny.",
+      "id": "tma4135-5-1-lokke3"
+    },
+    {
+      "type": "definition",
+      "title": "Egenverdiene ved Dirichlet-rand",
+      "content": "For $F'' + kF = 0$ på $[0,L]$ med $F(0) = F(L) = 0$:\n\n$$k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{L}, \\qquad n = 1, 2, 3, \\dots$$\n\nTellingen starter på $n = 1$. Tilfellene $k = 0$ og $k < 0$ gir bare den trivielle løsningen.\n\nDette resultatet **må kunnes** — det står ikke på det utdelte formelarket. Men skriv aldri bare svaret på eksamen: veien dit, med alle tre tilfellene, er der poengene ligger.",
+      "id": "tma4135-5-1-def-egenverdier-dirichlet"
+    },
+    {
+      "type": "definition",
+      "title": "Egenverdiene ved Neumann-rand",
+      "content": "For $F'' + kF = 0$ på $[0,L]$ med $F'(0) = F'(L) = 0$:\n\n$$k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad F_n(x) = \\cos\\frac{n\\pi x}{L}, \\qquad n = 1, 2, 3, \\dots$$\n\n**og i tillegg** $k_0 = 0$ med $F_0(x) = 1$.\n\nEgenverdiene er tallmessig de samme som ved Dirichlet-rand — men egenfunksjonene er cosinuser, og listen begynner på $n = 0$ i stedet for $n = 1$. Det ekstra leddet er middeltemperaturen, og det er den eneste komponenten som ikke dør ut med tida.",
+      "id": "tma4135-5-1-def-egenverdier-neumann"
+    },
+    {
+      "type": "example",
+      "title": "Isolert stang: Neumann-rand fra ende til annen",
+      "problem": "Finn alle ikke-trivielle produktløsninger av\n\n$$u_t = 3u_{xx}, \\qquad 0 < x < 1, \\qquad u_x(0,t) = u_x(1,t) = 0.$$\n\nBehandle alle tre tilfellene, og kommenter fysisk hva den ekstra løsningen betyr.",
+      "solution": "**Oppsett.** $u = FG$ gir $F'' + kF = 0$ og $G' + 3kG = 0$. Randbetingelsene: $u_x(0,t) = F'(0)G(t) = 0$ med $G \\not\\equiv 0$ gir $F'(0) = 0$, og tilsvarende $F'(1) = 0$.\n\n**$k = 0$:** $F = Ax + B$, så $F' = A$. Begge randbetingelsene sier $A = 0$, og $B$ er fri. Vi får\n\n$$F_0(x) = 1 \\quad (\\text{opp til konstant}).$$\n\nDa er $G' = 0$, altså $G_0 = $ konstant. **Ikke-triviell løsning:** $u_0(x,t) = 1$. Denne overlever — i motsetning til ved Dirichlet-rand.\n\n**$k < 0$, $k = -\\mu^2$:** $F = A\\cosh\\mu x + B\\sinh\\mu x$, så\n\n$$F' = \\mu\\left(A\\sinh\\mu x + B\\cosh\\mu x\\right).$$\n\nFra $F'(0) = 0$: $\\mu B = 0$, altså $B = 0$. Fra $F'(1) = 0$: $\\mu A\\sinh\\mu = 0$, og siden $\\mu > 0$ og $\\sinh\\mu > 0$ må $A = 0$. Triviell — forkastes.\n\n**$k > 0$, $k = p^2$:** $F = A\\cos px + B\\sin px$, så\n\n$$F' = p\\left(-A\\sin px + B\\cos px\\right).$$\n\nFra $F'(0) = 0$: $pB = 0$, altså $B = 0$. Da er $F = A\\cos px$ og $F' = -Ap\\sin px$.\nFra $F'(1) = 0$: $-Ap\\sin p = 0$. Vi kan ikke ha $A = 0$, og $p > 0$, så\n\n$$\\sin p = 0 \\quad\\Longrightarrow\\quad p = n\\pi, \\qquad n = 1,2,3,\\dots$$\n\n**Egenverdier og egenfunksjoner:**\n\n$$k_0 = 0,\\; F_0 = 1; \\qquad k_n = n^2\\pi^2,\\; F_n(x) = \\cos n\\pi x, \\quad n = 1,2,3,\\dots$$\n\n**Tidsfaktoren:** $G_n(t) = e^{-3n^2\\pi^2 t}$ for $n \\ge 1$, og $G_0 = $ konstant.\n\n**Produktløsningene:**\n\n$$u_0(x,t) = 1, \\qquad u_n(x,t) = \\cos(n\\pi x)\\,e^{-3n^2\\pi^2 t}.$$\n\n**Kontroll ved innsetting.** For $n \\ge 1$: $u_t = -3n^2\\pi^2 u$ og $u_{xx} = -n^2\\pi^2 u$, så $3u_{xx} = u_t$. Randen: $u_x = -n\\pi\\sin(n\\pi x)e^{-3n^2\\pi^2t}$, som er null både i $x = 0$ (der $\\sin 0 = 0$) og i $x = 1$ (der $\\sin n\\pi = 0$). Oppfylt. For $n = 0$ er $u \\equiv 1$, som trivielt oppfyller både likningen og randbetingelsene.\n\n**Fysisk tolkning.** En isolert stang kan ikke miste varme. Alle svingende moder dør ut med tida, men middeltemperaturen kan ikke forsvinne noe sted — den blir liggende som den konstante løsningen $u_0$. Til slutt er stanga jevnt varm på nøyaktig gjennomsnittstemperaturen den startet med. **At $k = 0$ overlever, er altså ikke en teknisk kuriositet; det er energibevarelse.**",
+      "id": "tma4135-5-1-eks3"
+    },
+    {
+      "id": "tma4135-5-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-1-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G.) Finn alle ikke-trivielle produktløsninger av\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u_x(0,t) = u_x(\\pi,t) = 0.$$\n\nBehandle alle tre tilfellene, og skriv opp både $F_n$ og $G_n$.",
+        "solution": "**Oppsett.** $F'' + kF = 0$, $G' + kG = 0$, med $F'(0) = F'(\\pi) = 0$.\n\n**$k = 0$:** $F = Ax + B$, $F' = A$. Begge betingelsene gir $A = 0$; $B$ er fri. **Ikke-triviell:** $F_0 = 1$, og $G' = 0$ gir $G_0 = $ konstant.\n\n**$k < 0$, $k = -\\mu^2$:** $F' = \\mu(A\\sinh\\mu x + B\\cosh\\mu x)$. $F'(0) = \\mu B = 0$ gir $B = 0$; $F'(\\pi) = \\mu A\\sinh\\mu\\pi = 0$ med $\\sinh\\mu\\pi \\ne 0$ gir $A = 0$. Triviell — forkastes.\n\n**$k > 0$, $k = p^2$:** $F' = p(-A\\sin px + B\\cos px)$. $F'(0) = pB = 0$ gir $B = 0$; $F'(\\pi) = -Ap\\sin p\\pi = 0$ med $A \\ne 0$ gir $\\sin p\\pi = 0$, altså $p = n$ for $n = 1,2,3,\\dots$\n\n**Svar:**\n\n$$k_0 = 0,\\quad F_0 = 1,\\quad G_0 = \\text{konstant};$$\n\n$$k_n = n^2,\\quad F_n(x) = \\cos nx,\\quad G_n(t) = e^{-n^2 t}, \\qquad n = 1,2,3,\\dots$$\n\n**Kontroll.** $u_n = \\cos(nx)e^{-n^2t}$ gir $u_t = -n^2 u = u_{xx}$. Og $u_x = -n\\sin(nx)e^{-n^2t}$ er null i $x = 0$ og i $x = \\pi$. Begge oppfylt.\n\n**Sammenlikn med eksempelet med kalde ender:** samme egenverdier $n^2$, men sinus er byttet med cosinus, og det er kommet et ekstra ledd for $n = 0$.",
+        "hints": [
+          "Randbetingelsene på $u$ må først oversettes til randbetingelser på $F$: $u_x(0,t) = F'(0)G(t)$.",
+          "Deriver hver av de tre løsningsformene før du setter inn — det er $F'$ som skal være null.",
+          "Ikke glem å sjekke $k = 0$ separat; her er det den som gir det ekstra leddet."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-1-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Skriv ut argumentet for at tilfellet $k < 0$ bare gir den trivielle løsningen, slik du ville gjort det på eksamen, for randverdiproblemet\n\n$$F'' + kF = 0, \\qquad F(0) = 0, \\qquad F(L) = 0, \\qquad L > 0.$$\n\nBruk formen med $\\cosh$ og $\\sinh$, og gjør det så vis også med formen $F = \\tilde A e^{\\mu x} + \\tilde B e^{-\\mu x}$, slik at du har begge veier i verktøykassa.",
+        "solution": "**Vei 1 — hyperbelform.** Sett $k = -\\mu^2$ med $\\mu > 0$. Da er $F'' - \\mu^2 F = 0$ med generell løsning\n\n$$F(x) = A\\cosh\\mu x + B\\sinh\\mu x.$$\n\nFra $F(0) = 0$: $A\\cosh 0 + B\\sinh 0 = A = 0$. Altså $F = B\\sinh\\mu x$.\nFra $F(L) = 0$: $B\\sinh\\mu L = 0$. Siden $\\mu L > 0$ og $\\sinh$ er strengt positiv for positive argumenter, er $\\sinh\\mu L \\ne 0$, og dermed $B = 0$.\nAltså $F \\equiv 0$ — bare den trivielle løsningen.\n\n**Vei 2 — eksponentialform.** Med samme $k = -\\mu^2$:\n\n$$F(x) = \\tilde A e^{\\mu x} + \\tilde B e^{-\\mu x}.$$\n\nFra $F(0) = 0$: $\\tilde A + \\tilde B = 0$, altså $\\tilde B = -\\tilde A$, og $F = \\tilde A(e^{\\mu x} - e^{-\\mu x})$.\nFra $F(L) = 0$: $\\tilde A(e^{\\mu L} - e^{-\\mu L}) = 0$. Siden $\\mu L > 0$ er $e^{\\mu L} > 1 > e^{-\\mu L}$, så parentesen er strengt positiv, og $\\tilde A = 0$.\nAltså $F \\equiv 0$.\n\n**De to veiene er samme regning i forkledning**, siden $\\sinh\\mu x = \\tfrac12(e^{\\mu x} - e^{-\\mu x})$. **Begge gir full uttelling — men si hvilken du bruker.** Hyperbelformen er som regel raskest, fordi $\\cosh 0 = 1$ og $\\sinh 0 = 0$ gjør det første steget til én linje.\n\n**Det som ikke gir uttelling:** å skrive «$k < 0$ gir voksende eksponentialer og er derfor umulig». Det er riktig fysikk, men det er ikke et argument om randbetingelsene, og fasitene krever regningen.",
+        "hints": [
+          "Sett $k = -\\mu^2$ med $\\mu > 0$, så slipper du å dra rundt på et minustegn.",
+          "Bruk $x = 0$ først: $\\cosh 0 = 1$ og $\\sinh 0 = 0$ gjør den betingelsen triviell.",
+          "Nøkkelen i siste steg er at $\\sinh$ er null bare i origo."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 4 — Blandet rand, og en oppgave på eksamensnivå (~18 min)\n\nDen varianten som skiller seg mest ut, er den der de to endene har hver sin type randbetingelse: én ende holdes kald, den andre er isolert. Da blir egenverdiene *halvtall* ganger $\\pi/L$, og det er en detalj det er lett å bomme på under tidspress.",
+      "id": "tma4135-5-1-lokke4"
+    },
+    {
+      "type": "definition",
+      "title": "Tidsfaktoren $G(t)$ for varmelikningen",
+      "content": "Løsningen av $G' + c^2 k G = 0$:\n\n$$G(t) = e^{-c^2 k t}.$$\n\nFor hver egenverdi $k_n$ hører det en egen dempingsrate: $G_n(t) = e^{-c^2 k_n t}$.\n\nTo ting er verdt å merke seg. For det første dør høye moder mye raskere enn lave, siden $k_n$ vokser som $n^2$ — etter kort tid er bare den laveste moden igjen, og det er derfor varmeprofiler blir glatte. For det andre er faktoren $c^2$ *bare* i tidsfaktoren; den påvirker aldri egenverdiene.",
+      "id": "tma4135-5-1-def-g-varme"
+    },
+    {
+      "type": "example",
+      "title": "Eksamensnivå: én kald ende og én isolert ende",
+      "problem": "**Eksamensoppgave.** Betrakt varmelikningen\n\n$$u_t = u_{xx}, \\qquad 0 < x < 2, \\qquad u(0,t) = 0, \\qquad u_x(2,t) = 0.$$\n\n**a)** Sett $u = F(x)G(t)$ og utled de to vanlige differensiallikningene, med tydelig fortegnskonvensjon.\n**b)** Finn alle egenverdier og egenfunksjoner ved å behandle alle tre tilfellene for separasjonskonstanten.\n**c)** Skriv opp produktløsningene, og kontroller ved innsetting at den første av dem oppfyller både likningen og begge randbetingelsene.",
+      "solution": "**a) Separasjonen.** Med $u = FG$ er $u_t = FG'$ og $u_{xx} = F''G$, så $FG' = F''G$. Del på $FG$:\n\n$$\\frac{G'}{G} = \\frac{F''}{F}.$$\n\nVenstre side avhenger bare av $t$, høyre bare av $x$; da må begge være samme konstant, som vi kaller $-k$:\n\n$$\\frac{G'}{G} = \\frac{F''}{F} = -k \\quad\\Longrightarrow\\quad \\boxed{F'' + kF = 0, \\qquad G' + kG = 0.}$$\n\nRandbetingelsene overføres til $F$: siden $u(0,t) = F(0)G(t) = 0$ for alle $t$ og $G \\not\\equiv 0$, er $F(0) = 0$. Og $u_x(2,t) = F'(2)G(t) = 0$ gir $F'(2) = 0$.\n\n**b) De tre tilfellene.**\n\n*Tilfelle $k = 0$.* $F = Ax + B$, $F' = A$. Fra $F(0) = 0$: $B = 0$. Fra $F'(2) = 0$: $A = 0$. Bare triviell løsning — **forkastes**.\n\n*Tilfelle $k < 0$.* Sett $k = -\\mu^2$, $\\mu > 0$. Da er $F = A\\cosh\\mu x + B\\sinh\\mu x$ og $F' = \\mu(A\\sinh\\mu x + B\\cosh\\mu x)$.\nFra $F(0) = 0$: $A = 0$, så $F = B\\sinh\\mu x$ og $F' = B\\mu\\cosh\\mu x$.\nFra $F'(2) = 0$: $B\\mu\\cosh 2\\mu = 0$. Men $\\cosh$ er alltid minst 1, og $\\mu > 0$, så $B = 0$. Bare triviell løsning — **forkastes**.\n\n*Tilfelle $k > 0$.* Sett $k = p^2$, $p > 0$. Da er $F = A\\cos px + B\\sin px$.\nFra $F(0) = 0$: $A = 0$, så $F = B\\sin px$ og $F' = Bp\\cos px$.\nFra $F'(2) = 0$: $Bp\\cos 2p = 0$. Med $B \\ne 0$ og $p > 0$ må\n\n$$\\cos 2p = 0 \\quad\\Longrightarrow\\quad 2p = \\frac{\\pi}{2} + (n-1)\\pi = \\frac{(2n-1)\\pi}{2}, \\qquad n = 1,2,3,\\dots$$\n\naltså\n\n$$p_n = \\frac{(2n-1)\\pi}{4}.$$\n\n**Egenverdier og egenfunksjoner:**\n\n$$k_n = \\frac{(2n-1)^2\\pi^2}{16}, \\qquad F_n(x) = \\sin\\frac{(2n-1)\\pi x}{4}, \\qquad n = 1,2,3,\\dots$$\n\nDe fire første $p$-verdiene er $\\pi/4$, $3\\pi/4$, $5\\pi/4$, $7\\pi/4$ — bare **odde** multipler. Det er signaturen på blandet rand.\n\n**c) Produktløsningene.** Med $G_n = e^{-k_n t}$:\n\n$$u_n(x,t) = \\sin\\frac{(2n-1)\\pi x}{4}\\,\\exp\\left(-\\frac{(2n-1)^2\\pi^2 t}{16}\\right).$$\n\n*Kontroll for $n = 1$*, altså $u_1 = \\sin\\frac{\\pi x}{4}e^{-\\pi^2 t/16}$:\n\n$$u_t = -\\frac{\\pi^2}{16}\\sin\\frac{\\pi x}{4}\\,e^{-\\pi^2 t/16}, \\qquad u_{xx} = -\\frac{\\pi^2}{16}\\sin\\frac{\\pi x}{4}\\,e^{-\\pi^2 t/16}.$$\n\nDe er identiske, så $u_t = u_{xx}$ er oppfylt.\n\nRanden ved $x = 0$: $u_1(0,t) = \\sin 0 \\cdot e^{-\\pi^2t/16} = 0$. Oppfylt.\nRanden ved $x = 2$: $u_{1,x} = \\frac{\\pi}{4}\\cos\\frac{\\pi x}{4}e^{-\\pi^2t/16}$, og i $x = 2$ blir $\\cos\\frac{\\pi}{2} = 0$. Oppfylt.\n\n**Hva som gir uttelling her.** Delpunkt a) er de mekaniske poengene: alle som setter inn produktet og deler riktig, får dem. Delpunkt b) er der midtsjiktet og toppsjiktet skiller lag — ikke på *svaret*, men på om alle tre tilfellene er skrevet ut med en begrunnelse hver. Og delpunkt c) er gratis poeng som svært mange lar ligge: det tar to minutter å sette løsningen inn i likningen og i begge randbetingelsene, og det avslører nesten enhver regnefeil du måtte ha gjort tidligere.",
+      "id": "tma4135-5-1-eks4"
+    },
+    {
+      "id": "tma4135-5-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-1-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G.) Gjør det samme som i eksempelet over, men med randbetingelsene byttet om:\n\n$$u_t = u_{xx}, \\qquad 0 < x < 1, \\qquad u_x(0,t) = 0, \\qquad u(1,t) = 0.$$\n\n**a)** Finn egenverdier og egenfunksjoner ved å behandle alle tre tilfellene.\n**b)** Sammenlikn resultatet med eksempelet over: hva er likt, og hva er byttet om?",
+        "solution": "**a)** Randbetingelsene på $F$ blir $F'(0) = 0$ og $F(1) = 0$.\n\n*$k = 0$:* $F = Ax + B$, $F' = A$. $F'(0) = 0$ gir $A = 0$; $F(1) = B = 0$. Triviell — forkastes.\n\n*$k < 0$, $k = -\\mu^2$:* $F = A\\cosh\\mu x + B\\sinh\\mu x$, $F' = \\mu(A\\sinh\\mu x + B\\cosh\\mu x)$. $F'(0) = \\mu B = 0$ gir $B = 0$, så $F = A\\cosh\\mu x$. $F(1) = A\\cosh\\mu = 0$, og $\\cosh\\mu \\ge 1$, så $A = 0$. Triviell — forkastes.\n\n*$k > 0$, $k = p^2$:* $F = A\\cos px + B\\sin px$, $F' = p(-A\\sin px + B\\cos px)$. $F'(0) = pB = 0$ gir $B = 0$, så $F = A\\cos px$. Kravet $F(1) = A\\cos p = 0$ med $A \\ne 0$ gir\n\n$$\\cos p = 0 \\quad\\Longrightarrow\\quad p_n = \\frac{(2n-1)\\pi}{2}, \\qquad n = 1,2,3,\\dots$$\n\n**Svar:**\n\n$$k_n = \\frac{(2n-1)^2\\pi^2}{4}, \\qquad F_n(x) = \\cos\\frac{(2n-1)\\pi x}{2}, \\qquad G_n(t) = \\exp\\left(-\\frac{(2n-1)^2\\pi^2 t}{4}\\right).$$\n\n*Kontroll for $n = 1$:* $u_1 = \\cos\\frac{\\pi x}{2}e^{-\\pi^2t/4}$ gir $u_t = -\\frac{\\pi^2}{4}u_1 = u_{xx}$. Randen: $u_{1,x} = -\\frac{\\pi}{2}\\sin\\frac{\\pi x}{2}e^{-\\pi^2t/4}$, som er null i $x = 0$; og $u_1(1,t) = \\cos\\frac{\\pi}{2}\\cdot e^{-\\pi^2t/4} = 0$. Begge oppfylt.\n\n**b)** Det som er likt: bare $k > 0$ overlever, og bare **odde** multipler av $\\pi/(2L)$ er tillatt — signaturen på blandet rand. Det som er byttet om: egenfunksjonen er nå cosinus i stedet for sinus, fordi det er den *venstre* enden som er isolert. **Tommelfingerregel: egenfunksjonen er cosinus rundt den isolerte enden og sinus rundt den faste enden.**",
+        "hints": [
+          "Oversett randbetingelsene til $F$ først: $u_x(0,t) = F'(0)G(t)$ og $u(1,t) = F(1)G(t)$.",
+          "Ved den isolerte enden er det $F'$ som må være null — deriver løsningsformen før du setter inn.",
+          "Siste steg blir en likning av typen $\\cos p = 0$, ikke $\\sin p = 0$. Skriv ut de første $p$-verdiene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-1-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G — intervall som ikke starter i null.) Finn alle ikke-trivielle produktløsninger av\n\n$$u_t = 4u_{xx}, \\qquad -1 < x < 1, \\qquad u(-1,t) = u(1,t) = 0.$$\n\nHint om strategi: du kan enten regne direkte, eller flytte intervallet.",
+        "solution": "**Metode 1 — flytt intervallet.** Sett $s = x + 1$, slik at $-1 < x < 1$ blir $0 < s < 2$. Kjerneregelen gir $u_x = u_s$ og $u_{xx} = u_{ss}$, så likningen er uendret: $u_t = 4u_{ss}$ på $0 < s < 2$ med $u = 0$ i begge ender. Det er standardproblemet med $L = 2$:\n\n$$k_n = \\frac{n^2\\pi^2}{4}, \\qquad F_n(s) = \\sin\\frac{n\\pi s}{2}.$$\n\nTilbake i $x$:\n\n$$F_n(x) = \\sin\\frac{n\\pi (x+1)}{2}.$$\n\n**Metode 2 — regn direkte.** Med $F = A\\cos px + B\\sin px$ gir $F(-1) = F(1) = 0$ to likninger:\n\n$$A\\cos p - B\\sin p = 0, \\qquad A\\cos p + B\\sin p = 0.$$\n\nLegger du dem sammen: $2A\\cos p = 0$. Trekker du dem fra hverandre: $2B\\sin p = 0$. Skal vi ha en ikke-triviell løsning, må minst én av $A$, $B$ være ulik null, altså må $\\cos p = 0$ (og da $B = 0$) eller $\\sin p = 0$ (og da $A = 0$). Til sammen: $p = n\\pi/2$ for $n = 1,2,3,\\dots$, med cosinus for odde $n$ og sinus for like $n$. Det er nøyaktig samme familie som over — sjekk selv at $\\sin\\frac{n\\pi(x+1)}{2}$ er $\\pm\\cos\\frac{n\\pi x}{2}$ for odde $n$ og $\\pm\\sin\\frac{n\\pi x}{2}$ for like.\n\n**De to andre tilfellene.** $k = 0$: $F = Ax + B$ er null i to punkter, altså null overalt — triviell. $k < 0$: $F = A\\cosh\\mu x + B\\sinh\\mu x$; de to randlikningene gir $A\\cosh\\mu = 0$ og $B\\sinh\\mu = 0$, og siden $\\cosh\\mu \\ge 1$ og $\\sinh\\mu > 0$ blir $A = B = 0$ — triviell.\n\n**Svar:**\n\n$$k_n = \\frac{n^2\\pi^2}{4}, \\qquad F_n(x) = \\sin\\frac{n\\pi(x+1)}{2}, \\qquad u_n(x,t) = \\sin\\frac{n\\pi(x+1)}{2}\\,e^{-n^2\\pi^2 t}.$$\n\nLegg merke til tidsfaktoren: $c^2 k_n = 4\\cdot\\frac{n^2\\pi^2}{4} = n^2\\pi^2$.\n\n**Kontroll ved innsetting.** $u_t = -n^2\\pi^2 u$ og $u_{xx} = -\\frac{n^2\\pi^2}{4}u$, så $4u_{xx} = -n^2\\pi^2 u = u_t$. Oppfylt. Randen: $u(-1,t) = \\sin 0 = 0$ og $u(1,t) = \\sin(n\\pi) = 0$. Begge oppfylt.\n\n**Poenget med oppgaven:** egenverdiene avhenger bare av **lengden** på intervallet, ikke av hvor det ligger. Er lengden $\\ell$, er $k_n = (n\\pi/\\ell)^2$ — her $\\ell = 2$.",
+        "hints": [
+          "Intervallet har lengde 2. Hva ville egenverdiene vært på $[0,2]$?",
+          "Substitusjonen $s = x+1$ endrer ikke $u_{xx}$, siden den deriverte av $s$ med hensyn på $x$ er 1.",
+          "Regner du direkte, får du to randlikninger — legg dem sammen og trekk dem fra hverandre."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-1-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Bro til [kap. 5.3](/tma4135/tma4135-5-3).) Gjør separasjonen på **bølgeligningen** i stedet:\n\n$$u_{tt} = c^2 u_{xx}, \\qquad 0 < x < L, \\qquad u(0,t) = u(L,t) = 0.$$\n\n**a)** Utled de to vanlige differensiallikningene.\n**b)** Forklar hvorfor arbeidet med de tre $k$-tilfellene er nøyaktig det samme som for varmelikningen.\n**c)** Løs $G$-likningen for en egenverdi $k_n$, og beskriv med ord hvordan løsningen oppfører seg i tid.",
+        "solution": "**a)** Med $u = FG$ er $u_{tt} = FG''$ og $u_{xx} = F''G$, så $FG'' = c^2F''G$. Del på $c^2FG$:\n\n$$\\frac{G''}{c^2 G} = \\frac{F''}{F} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\qquad G'' + c^2 k G = 0.$$\n\n**b)** Fordi $F$-likningen og randbetingelsene er *identiske* med varmetilfellet. Randbetingelsene sier ingenting om $G$; de sier bare $F(0) = F(L) = 0$. Analysen av de tre $k$-tilfellene handler utelukkende om $F$, og derfor er den ordrett den samme:\n\n$$k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{L}.$$\n\n**Dette er verdt å legge merke til:** halvparten av arbeidet i en G-oppgave er uavhengig av om likningen er varme- eller bølgeligningen. Det er bare $G$-likningen som skiller dem.\n\n**c)** Med $k = k_n = (n\\pi/L)^2 > 0$ er $c^2 k_n > 0$, så $G'' + c^2k_n G = 0$ har løsningen\n\n$$G_n(t) = a_n\\cos\\frac{cn\\pi t}{L} + b_n\\sin\\frac{cn\\pi t}{L}.$$\n\n**I tid svinger den, den dør ikke ut.** Der varmelikningen ga $e^{-c^2k_nt}$ — en demping — gir bølgeligningen en ren svingning med vinkelfrekvens $cn\\pi/L$ som holder seg for alltid. Fysisk er forskjellen at varme forsvinner ut i omgivelsene, mens en ideell streng ikke taper energi.\n\n**Kontroll ved innsetting**, for cosinusdelen $u = \\sin\\frac{n\\pi x}{L}\\cos\\frac{cn\\pi t}{L}$:\n\n$$u_{tt} = -\\frac{c^2n^2\\pi^2}{L^2}u, \\qquad u_{xx} = -\\frac{n^2\\pi^2}{L^2}u \\;\\Longrightarrow\\; c^2u_{xx} = -\\frac{c^2n^2\\pi^2}{L^2}u = u_{tt}.$$\n\nOppfylt. Randen: $\\sin 0 = 0$ og $\\sin n\\pi = 0$. Oppfylt. Sinusdelen kontrolleres på nøyaktig samme måte.",
+        "hints": [
+          "To tidsderiverte gir en andreordens likning for $G$ — skriv den opp før du løser noe.",
+          "Ser randbetingelsene på $G$ i det hele tatt? Hvis ikke, hva betyr det for $F$-analysen?",
+          "Er $c^2k_n$ positiv? Da er $G$-likningen av typen $y'' + \\omega^2 y = 0$."
+        ]
+      }
+    },
+    {
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å hoppe over ett eller to av $k$-tilfellene.** Dette er den dyreste enkeltfeilen i hele sjangeren, og den er ren poenggiverting: løsningsforslagene behandler alle tre, hver gang, og du får uttelling for hvert av dem — også for de to som ender med «bare triviell løsning». Skriv dem ut selv om du «vet» hvilket som virker.\n\n**Feil fortegnskonvensjon på $k$.** Denne boka setter $F''/F = -k$, slik at $k > 0$ er tilfellet som overlever. Bruker du en annen kilde med motsatt konvensjon og blander de to midt i en oppgave, får du egenverdier med feil fortegn og en tidsfaktor som vokser i stedet for å dø ut. Velg én konvensjon, skriv den ned i første linje, og hold deg til den.\n\n**Å blande sinus og cosinus mellom Dirichlet og Neumann.** Kalde ender ($u = 0$) gir **sinus**. Isolerte ender ($u_x = 0$) gir **cosinus**. Tenk på det som «null i endene» mot «flat i endene», så husker du det uten å pugge.\n\n**Å glemme $k = 0$ ved Neumann-rand.** Der er den konstante løsningen en helt ekte egenfunksjon, og den er som regel det viktigste enkeltleddet i svaret, fordi den er den eneste som overlever når $t \\to \\infty$. Ved Dirichlet-rand skal den derimot forkastes.\n\n**Å oversette randbetingelsene feil.** $u(0,t) = 0$ betyr $F(0)G(t) = 0$ for alle $t$, og siden $G \\not\\equiv 0$ følger $F(0) = 0$. Ta med den ene setningen — det er en logisk trinn sensor ser etter, og den koster ti sekunder.\n\n**Å putte $c^2$ inn i egenverdiene.** Diffusivitetskonstanten står i $G$-likningen, aldri i $F$-likningen. Egenverdiene $k_n$ avhenger bare av intervallengden og randtypen. Konstanten dukker først opp i eksponenten $e^{-c^2k_nt}$.\n\n**Å bruke intervallengden feil når intervallet ikke starter i null.** På $[-1,1]$ er lengden 2, ikke 1. Egenverdiene er $(n\\pi/\\ell)^2$ der $\\ell$ er lengden.\n\n**Å la være å kontrollere.** Det tar to minutter å sette den ferdige $u_n$ inn i likningen *og* i begge randbetingelsene. Gjør det alltid — det er den eneste sjekken som fanger både fortegnsfeil og feil egenverdi, og på eksamen gir selve kontrollen ofte uttelling i seg selv.",
+      "id": "tma4135-5-1-typiske-feil"
+    },
+    {
+      "id": "tma4135-5-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-5-1-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter. Bruker du mer enn ti minutter til sammen, er det verdt å friske opp lineære differensiallikninger med konstante koeffisienter før du går videre til [kap. 5.2](/tma4135/tma4135-5-2)."
+        },
+        {
+          "id": "tma4135-5-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-1-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp den generelle løsningen av hver likning.\n\n**a)** $y'' + 9y = 0$\n**b)** $y'' - 9y = 0$\n**c)** $y'' = 0$",
+            "solution": "**a)** Karakteristisk likning $r^2 + 9 = 0$ gir $r = \\pm 3i$, altså $y = A\\cos 3x + B\\sin 3x$.\n\n**b)** $r^2 - 9 = 0$ gir $r = \\pm 3$, altså $y = \\tilde A e^{3x} + \\tilde B e^{-3x}$, som like gjerne skrives $y = A\\cosh 3x + B\\sinh 3x$.\n\n**c)** $y'' = 0$ integreres to ganger: $y = Ax + B$.\n\nDisse tre er nøyaktig de tre tilfellene $k > 0$, $k < 0$ og $k = 0$ i kapitlet, med $k = 9$, $k = -9$ og $k = 0$.",
+            "hints": [
+              "Sett $y = e^{rx}$ og finn røttene i den karakteristiske likningen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-1-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs $y' + 7y = 0$ med $y(0) = 3$, og beskriv med ord hva løsningen gjør når $t$ vokser.",
+            "solution": "Likningen er $y' = -7y$, med generell løsning $y = Ce^{-7t}$. Fra $y(0) = 3$ er $C = 3$, altså\n\n$$y(t) = 3e^{-7t}.$$\n\nDen avtar eksponentielt mot null. Jo større tallet foran $y$, jo raskere. Nettopp denne formen er tidsfaktoren $G(t)$ i varmelikningen, med $7$ erstattet av $c^2k_n$.",
+            "hints": [
+              "Dette er den enkleste separable likningen — eller slå den opp som lineær førsteordens."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-1-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut de partielle deriverte $u_x$, $u_{xx}$, $u_t$ og $u_{tt}$ for\n\n$$u(x,t) = e^{-5t}\\sin 3x.$$\n\nAvgjør så hvilken av likningene $u_t = u_{xx}$ og $u_{tt} = u_{xx}$ funksjonen oppfyller, hvis noen.",
+            "solution": "$$u_x = 3e^{-5t}\\cos 3x, \\qquad u_{xx} = -9e^{-5t}\\sin 3x = -9u,$$\n\n$$u_t = -5e^{-5t}\\sin 3x = -5u, \\qquad u_{tt} = 25e^{-5t}\\sin 3x = 25u.$$\n\n$u_t = -5u$ og $u_{xx} = -9u$ er ikke like, så $u_t = u_{xx}$ er **ikke** oppfylt. Og $u_{tt} = 25u$ mot $u_{xx} = -9u$ — heller ikke.\n\nFunksjonen oppfyller derimot $u_t = \\tfrac59 u_{xx}$. Med andre ord: den er en løsning av varmelikningen for akkurat den diffusiviteten $c^2 = 5/9$.",
+            "hints": [
+              "Når du deriverer med hensyn på $t$, er $\\sin 3x$ en konstant.",
+              "Skriv svarene som et tall ganger $u$ selv — da ser du sammenhengen med én gang."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-1-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv opp verdiene av $\\sinh 0$, $\\cosh 0$, og forklar hvorfor $\\cosh x$ aldri er null mens $\\sinh x$ er null bare i $x = 0$.",
+            "solution": "$$\\sinh 0 = \\frac{e^0 - e^{-0}}{2} = 0, \\qquad \\cosh 0 = \\frac{e^0 + e^{-0}}{2} = 1.$$\n\n**Hvorfor $\\cosh$ aldri er null:** $\\cosh x = \\tfrac12(e^x + e^{-x})$ er en sum av to strengt positive tall, så $\\cosh x > 0$ for alle $x$. Faktisk er $\\cosh x \\ge 1$, med likhet bare i $x = 0$.\n\n**Hvorfor $\\sinh$ er null bare i origo:** $\\sinh x = \\tfrac12(e^x - e^{-x})$ er null nøyaktig når $e^x = e^{-x}$, altså når $x = -x$, altså $x = 0$. For $x > 0$ er $e^x > e^{-x}$, så $\\sinh x > 0$.\n\nDisse to observasjonene er hele grunnen til at tilfellet $k < 0$ alltid faller bort ved homogene randbetingelser.",
+            "hints": [
+              "Skriv begge ved hjelp av eksponentialfunksjonen og se på fortegnene."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-1-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-1-oR5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Løs likningene for $p > 0$, og skriv opp de tre minste løsningene i hvert tilfelle.\n\n**a)** $\\sin 5p = 0$\n**b)** $\\cos 5p = 0$",
+            "solution": "**a)** $\\sin\\theta = 0$ nøyaktig når $\\theta$ er et helt multiplum av $\\pi$. Med $\\theta = 5p$ og $p > 0$:\n\n$$5p = n\\pi \\quad\\Longrightarrow\\quad p = \\frac{n\\pi}{5}, \\qquad n = 1,2,3,\\dots$$\n\nDe tre minste: $\\pi/5$, $2\\pi/5$, $3\\pi/5$.\n\n**b)** $\\cos\\theta = 0$ nøyaktig når $\\theta$ er et **odde** multiplum av $\\pi/2$. Med $\\theta = 5p$ og $p > 0$:\n\n$$5p = \\frac{(2n-1)\\pi}{2} \\quad\\Longrightarrow\\quad p = \\frac{(2n-1)\\pi}{10}, \\qquad n = 1,2,3,\\dots$$\n\nDe tre minste: $\\pi/10$, $3\\pi/10$, $\\pi/2$.\n\n**Dette er nøyaktig det siste steget i en G-oppgave.** Sinuslikningen dukker opp ved lik randtype i begge ender; cosinuslikningen ved blandet rand.",
+            "hints": [
+              "Tegn enhetssirkelen og spør hvor sinus henholdsvis cosinus er null.",
+              "Skriv «odde multiplum av $\\pi/2$» som $(2n-1)\\pi/2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-5-1-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $u(x,t)$ | Den ukjente funksjonen, typisk temperatur i punktet $x$ ved tiden $t$ |\n| $u_t$, $u_{tt}$ | Partiell derivert og dobbeltderivert med hensyn på tiden |\n| $u_x$, $u_{xx}$ | Partiell derivert og dobbeltderivert med hensyn på posisjonen |\n| $F(x)$ | Romfaktoren i separasjonsansatsen. **Merk:** i Del 2 er $F(s)$ Laplace-transformen — helt annen rolle |\n| $G(t)$ | Tidsfaktoren i separasjonsansatsen |\n| $k$ | Separasjonskonstanten, med konvensjonen $F''/F = -k$. Brukes bare i Del 5. På det utdelte formelarket betyr $k$ tidssteget i differansemetoder; der skriver boka $\\Delta t$ |\n| $k_n$ | Den $n$-te egenverdien |\n| $F_n(x)$ | Den $n$-te egenfunksjonen |\n| $p$ | Hjelpestørrelse i tilfellet $k > 0$, definert ved $k = p^2$, $p > 0$ |\n| $\\mu$ | Hjelpestørrelse i tilfellet $k < 0$, definert ved $k = -\\mu^2$, $\\mu > 0$ |\n| $c^2$ | Diffusivitetskonstanten i varmelikningen. **Merk:** i [kap. 5.3](/tma4135/tma4135-5-3) er $c$ bølgefarten |\n| $L$ | Lengden på intervallet, altså stanga. **Merk:** i Del 3 er $L$ halvperioden, og i Del 6 kontraksjonskonstanten |\n| $n$ | Nummeret på moden, $n = 1,2,3,\\dots$ (og $n = 0$ ved Neumann-rand) |\n"
+        },
+        {
+          "id": "tma4135-5-1-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$u_t = c^2 u_{xx}$$\nVarmelikningen i én romdimensjon. *(Må kunnes.)*\n\n$$u(x,t) = F(x)\\,G(t)$$\nSeparasjonsansatsen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{F''}{F} = \\frac{G'}{c^2 G} = -k$$\nSeparasjonen, med bokas fortegnskonvensjon. *(Må kunnes eller utledes aktivt.)*\n\n$$F'' + kF = 0, \\qquad G' + c^2 kG = 0$$\nDe to vanlige differensiallikningene separasjonen gir. *(Må kunnes eller utledes aktivt.)*\n\n$$k > 0,\\; k = p^2: \\quad F = A\\cos px + B\\sin px$$\n$$k = 0: \\quad F = Ax + B$$\n$$k < 0,\\; k = -\\mu^2: \\quad F = A\\cosh\\mu x + B\\sinh\\mu x$$\nDe tre løsningsformene. Alle tre **må** behandles i hver oppgave. *(Må kunnes eller utledes aktivt.)*\n\n$$F(0) = F(L) = 0 \\;\\Longrightarrow\\; k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\quad F_n = \\sin\\frac{n\\pi x}{L}, \\quad n \\ge 1$$\nEgenverdiene ved Dirichlet-rand. *(Må kunnes eller utledes aktivt.)*\n\n$$F'(0) = F'(L) = 0 \\;\\Longrightarrow\\; k_0 = 0,\\; F_0 = 1; \\quad k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\quad F_n = \\cos\\frac{n\\pi x}{L}$$\nEgenverdiene ved Neumann-rand, med det ekstra konstantleddet. *(Må kunnes eller utledes aktivt.)*\n\n$$F(0) = F'(L) = 0 \\;\\Longrightarrow\\; k_n = \\left(\\frac{(2n-1)\\pi}{2L}\\right)^2, \\quad F_n = \\sin\\frac{(2n-1)\\pi x}{2L}$$\nEgenverdiene ved blandet rand — bare odde multipler. *(Må kunnes eller utledes aktivt.)*\n\n$$G(t) = e^{-c^2 k t}$$\nTidsfaktoren for varmelikningen. *(Må kunnes eller utledes aktivt.)*\n\n$$G(t) = a\\cos\\left(c\\sqrt{k}\\,t\\right) + b\\sin\\left(c\\sqrt{k}\\,t\\right)$$\nTidsfaktoren for bølgeligningen, der $G'' + c^2kG = 0$. *(Må kunnes eller utledes aktivt — se [kap. 5.3](/tma4135/tma4135-5-3).)*\n\n$$\\sinh x = \\frac{e^x - e^{-x}}{2}, \\qquad \\cosh x = \\frac{e^x + e^{-x}}{2}$$\nHyperbelfunksjonene. Definisjonene **står på det utdelte formelarket — tren oppslaget**; at $\\cosh$ aldri er null og $\\sinh$ bare i origo, **må kunnes**.\n\n$$\\sin\\theta = 0 \\Leftrightarrow \\theta = n\\pi, \\qquad \\cos\\theta = 0 \\Leftrightarrow \\theta = \\frac{(2n-1)\\pi}{2}$$\nDe to nullpunktslikningene som avslutter enhver G-oppgave. *(Må kunnes.)*\n\n**Kolliderende symboler:** $F$ er her romfaktoren $F(x)$ i separasjonsansatsen, mens $F(s)$ i Del 2 er Laplace-transformen. $c$ er her kvadratroten av diffusiviteten, mens $c$ i [kap. 5.3](/tma4135/tma4135-5-3) er bølgefarten og i Del 3 en Fourier-koeffisient $c_n$. $L$ er her intervallengden, mens $L$ i Del 3 er halvperioden og i Del 6 kontraksjonskonstanten. Og $k$ er her — og bare her — separasjonskonstanten; det utdelte formelarket bruker samme bokstav om tidssteget i differansemetoder."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

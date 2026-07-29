@@ -1,0 +1,329 @@
+{
+  "id": "tma4135-0-1",
+  "courseId": "tma4135",
+  "chapterNumber": "0.1",
+  "title": "Slik testes TMA4135 — de fire søylene og formelarket",
+  "description": "Eksamensformen, de fire garanterte søylene, temafrekvensene, sjanger-katalogen A–S og formelark-strategien som styrer hele boka.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "gjøre rede for eksamensformen i emnet: fire timer skriftlig, hjelpemiddelkode C, seks til ti poengvektede oppgaver og kravet om at alle svar skal begrunnes",
+    "bruke temafrekvensene til å prioritere lesingen og sette opp en realistisk lese- og tidsplan",
+    "skille mellom det som står på det utdelte formelarket og det du må kunne eller utlede aktivt",
+    "kjenne igjen de faste oppgavetypene i emnet og vite hvilket første grep hver av dem krever"
+  ],
+  "content": [
+    {
+      "id": "tma4135-0-1-er-dette-boka-di",
+      "type": "tip",
+      "title": "Er dette boka di?",
+      "content": "Bruk ett minutt på dette før du leser videre.\n\n- **Denne boka er skrevet for TMA4135 Matematikk 4D ved NTNU**, med ordinær skriftlig eksamen **4. januar 2027** og **hjelpemiddelkode C** (bestemt enkel kalkulator, ett gult stemplet A5-ark med egne håndskrevne notater, og et formelark som deles ut sammen med oppgavesettet).\n- **NTNU tilbyr samtidig TMA4432 Matematikk 4C**, nytt fra studieåret 2026/2027. Det emnet har **hjelpemiddelkode D — ingen trykte eller håndskrevne hjelpemidler**, bare en bestemt enkel kalkulator.\n- **Tar du TMA4432, bør du ikke bruke denne boka.** Hele opplegget her trener deg i å slå opp i et formelark du ikke får ha med deg, og Laplace-transform — som bærer en hel del av denne boka — står ikke i emnebeskrivelsen din. Du skal i stedet ha singulærverdidekomposisjon, splines og Bézier-kurver, som ikke er dekket her.\n- **Slik sjekker du hvilket emne du har:** finn emnekoden i studieplanen din og på eksamensoppmeldingen i Studentweb. Står det **TMA4135**, er dette boka di. Står det **TMA4432**, let etter en bok for det emnet.\n\nResten av boka nevner ikke TMA4432 igjen."
+    },
+    {
+      "id": "tma4135-0-1-slik-leser-du",
+      "type": "tip",
+      "title": "Slik leser du denne boka",
+      "content": "**Karakterskalaen.** Eksamen gis bokstavkarakter A–F, og fra 2018 er poengsummen på settet 100. De siste settene trykker skalaen rett på forsiden i prosent: **A 80 % og over · B 69–79 % · C 59–68 % · D 48–58 % · E 37–47 % · F under 37 %** (settene skriver A-intervallet som 80–90; tallene er nedre grenser, og alt over 80 % gir A).\n\n**C er en god og vanlig karakter.** Du trenger 59 av 100 poeng for C. Det får du ved å beherske de mekaniske delpunktene på de faste temaene — ikke ved å kunne alt. Boka sier derfor tydelig hvor du bør legge mest arbeid, og hva du trygt kan la ligge til slutt.\n\n**Sjangerbokstavene.** Eksamen i dette emnet stiller de samme oppgavetypene år etter år. For at du skal kunne snakke om dem uten å skrive en hel setning hver gang, gir boka hver type en bokstav — en ren forkortelse, ikke noe NTNU bruker. Her er hele listen, med klarspråksforklaring:\n\n| Bokstav | Oppgavetypen skrevet ut |\n|---|---|\n| A | Løs en vanlig differensiallikning med oppgitte startverdier ved hjelp av Laplace-transform |\n| B | Laplace-transform på en likning der den ukjente står inne i et integral (konvolusjon) |\n| C | Laplace-transform der pådraget slås av og på (Heaviside-trapp) eller er et støt (Dirac-puls) |\n| D | Finn Fourier-rekka til en periodisk funksjon (sinus-, cosinus-, reell eller kompleks form) |\n| E | Regn ut en Fourier-transform, eller bruk den til å løse en integrallikning |\n| F | Bruk Fourier-transform til å løse en partiell differensiallikning på hele tallinja |\n| G | Separasjon av variable: skriv løsningen som produkt av én funksjon i sted og én i tid |\n| H | Bølgelikningen: d'Alemberts formel, eller verifiser at en oppgitt funksjon løser likningen |\n| I | Interpolasjon: legg et polynom gjennom oppgitte punkter (Lagrange eller Newton) |\n| J | Numerisk integrasjon (trapes, Simpson, Gauss–Legendre) og presisjonsgrad |\n| K | Fikspunktiterasjon: vis at en iterasjon konvergerer, og tell iterasjoner |\n| L | Rotsøking med Newtons metode, halveringsmetoden eller sekantmetoden |\n| M | Numeriske løsere for differensiallikninger: Euler, Heun, Runge–Kutta |\n| N | Innfelt Runge–Kutta-par: anslå den lokale feilen og juster steglengden |\n| O | Stabilitet: finn stabilitetsfunksjonen og det største skrittet metoden tåler |\n| P | Differansemetode: erstatt de deriverte med differanser på et gitter og løs likningssystemet |\n| Q | Vis med Taylor-utvikling hvor stor avkuttingsfeilen er, og vei den mot avrundingsfeil |\n| R | Diskret Fourier-transform: koeffisienter for et signal målt i endelig mange punkter |\n| S | Numerisk lineær algebra: LU-faktorisering, Jacobi- og Gauss–Seidel-iterasjon |\n\n**Du trenger ikke forstå symbolene ennå.** Du kommer til å møte $\\mathcal{L}\\{f\\}$, $\\hat{f}(\\omega)$, $R(z)$ og $r=\\Delta t/h^2$ i tabeller lenger nede i dette kapitlet. De er navn på verktøy, og hvert av dem forklares fra bunnen i kapitlet der det brukes. Les dem her som overskrifter, ikke som matematikk.\n\n**Feilkatalogen.** Hvert temakapittel avslutter med en boks som heter «Typiske feil». De er samlet i studieguiden som en feilkatalog, slik at du kan gå gjennom alle på én gang kvelden før eksamen.\n\n**Modellbesvarelsene i boka er nyskrevne.** De er skrevet for denne boka som eksempler på føring, og er ikke gjengivelser av ekte studentbesvarelser."
+    },
+    {
+      "id": "tma4135-0-1-eksamensform",
+      "type": "text",
+      "content": "## Eksamensformen\n\n**Skriftlig skoleeksamen, 4 timer, kl. 09:00–13:00.** Bokstavkarakter A–F. **Hjelpemiddelkode C.** Settet har **6–10 oppgaver**, og fra 2018 er de poengvektet med sum 100. Alt besvares med utregning og begrunnelse på papir; settene i dette emnet har aldri hatt en avkryssingsdel. (Boksen om svarskjema på trykkinformasjonsarket er skjemametadata og har aldri vært i bruk.)\n\nDen faste instruksen står på hvert eneste sett: **alle svar skal begrunnes, med nok mellomregning til at tenkemåten klart framgår.** Et riktig sluttsvar uten utregning gir ikke full uttelling. Dette er ikke en formalitet — det er den enkeltopplysningen som påvirker føringen din mest, og boka trener den fra første kapittel.\n\n### Kort formathistorikk\n\n| Periode | Struktur | Hjelpemidler |\n|---|---|---|\n| 2015–2017 | 6 hovedoppgaver med likevektede delpunkter | Kalkulator + Rottmann formelsamling; formelark vedlagt |\n| 2018 | 9 oppgaver, poengvekting med sum 100 | Kalkulator + gult A5-ark med egne notater; kort transformtabell vedlagt |\n| 2019–2020 | 8–10 oppgaver, sum 100 poeng | A5-ark + vedlagt formelark med full numerikk-side |\n| 2022 | 10 oppgaver, poengvektet | Som over, og formelarket har nå også ordensbetingelsene for Runge–Kutta |\n| 2023–2024 | 10 oppgaver à 10 poeng, prosentskala trykt på settet | A5-ark + vedlagt formelark |\n\n**Regn med ti oppgaver à 10 poeng.** Det gir 24 minutter per oppgave hvis du bruker hele tiden — i praksis 21–22 minutter når du setter av tid til å lese settet i starten og gå gjennom svarene til slutt."
+    },
+    {
+      "id": "tma4135-0-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** ingen. Dette er bokas første kapittel og kan leses uten forkunnskaper. Skal du regne, forutsetter resten av boka derivasjon, integrasjon, delvis integrasjon og vanlige differensiallikninger fra tidligere matematikkemner — pluss komplekse tall, som boka repeterer fra grunnen i [kap. 1.1](/tma4135/tma4135-1-1)."
+    },
+    {
+      "id": "tma4135-0-1-formelark-strategi",
+      "type": "text",
+      "content": "## Formelark-strategien — bokas bærende premiss\n\n**Hjelpemiddelkode C** er grunnen til at denne boka ser ut som den gjør. Koden betyr at du møter opp med tre ting: en bestemt enkel kalkulator, **ett gult, stemplet A5-ark med dine egne håndskrevne notater**, og — det viktigste — et **formelark som deles ut sammen med oppgavesettet**. Formelarket inneholder transformtabellene og en full side med numerikkformler.\n\nKonsekvensen er enkel og bestemmer alt: **eksamen tester ikke om du husker formler. Den tester om du velger riktig metode og fører den.** Derfor ber denne boka deg aldri om å pugge en tabellrad. Drillen handler om tre ting:\n\n1. se hvilken oppgavetype du har foran deg,\n2. vite hvilken rad eller tabell på arket som løser den, og sette inn riktig $a$, $\\omega$ eller $n$,\n3. føre den utledningen arket **ikke** gir deg.\n\nFor å holde de to fra hverandre bruker boka to faste fraser, i alle kapitler:\n\n**«står på det utdelte formelarket — tren oppslaget»** gjelder blant annet:\n\n- Laplace-tabellen: $\\cos\\omega t$, $\\sin\\omega t$, $\\cosh\\omega t$, $\\sinh\\omega t$, $t^n \\leftrightarrow n!/s^{n+1}$, $e^{at} \\leftrightarrow 1/(s-a)$, andreforskyvning $f(t-a)u(t-a) \\leftrightarrow e^{-as}F(s)$, og $\\delta(t-a) \\leftrightarrow e^{-as}$.\n- Fourier-transform-tabellen: Gauss-paret $e^{-ax^2}$, $e^{-a|x|}$, $1/(x^2+a^2)$ og boksfunksjonen.\n- Trigonometriske identiteter, og reduksjonsformlene for $\\int x^n\\cos ax\\,dx$ og $\\int x^n\\sin ax\\,dx$.\n- Hele numerikk-siden: Newtons metode (både skalar og system med Jacobi-matrisen $J_F$), Lagrange-interpolasjon med feilleddet $\\varepsilon_n(x)=\\prod_k (x-x_k)\\,f^{(n+1)}(\\xi)/(n+1)!$, Chebyshev-punktene, Newtons dividerte differanser, trapes- og Simpson-formelen med feilledd, Jacobi- og Gauss–Seidel-iterasjon, Euler, forbedret Euler, klassisk Runge–Kutta av orden 4, bakover-Euler, differansekvotientene og Crank–Nicolson. Fra 2022 også ordensbetingelsene for Runge–Kutta-metoder opp til orden 4.\n\n**«må kunnes eller utledes aktivt»** gjelder blant annet: å transformere en differensiallikning og løse for den transformerte $Y(s)$; derivasjonsregelen $\\mathcal{L}\\{y'\\}=sY-y(0)$; delbrøkoppspalting og kvadratkomplettering; regelen om å finne $f$ først og forskyve sist; konvolusjonsteoremet; koeffisientintegralene i Fourier-rekka og symmetriargumentet; halvintervall-utvidelse og midling i sprang; kompleks Fourier-rekke; definisjonen av den diskrete Fourier-transformen; alle tre tilfellene for separasjonskonstanten; d'Alemberts formel; verifikasjon av at en funksjon løser en partiell differensiallikning; presisjonsgrad ved å teste formelen på $x^n$; overgangen fra $[a,b]$ til $[-1,1]$; **begge** vilkårene i fikspunktteoremet og a-priori-estimatet; entydighetsargumentet via mellomverdisetningen; å telle skritt i halveringsmetoden; å lese en Butcher-tabell og verifisere ordenen rad for rad; feilestimat og steglengdeformel i et innfelt par; utledningen av stabilitetsfunksjonen $R(z)$; Taylor-utledningen av avkuttingsfeilen; oppsettet av det eksplisitte differanseskjemaet og stabilitetskravet $r\\le\\tfrac12$; falsk-rand-eliminering og kodefeil-lokalisering.\n\nMerkingen dukker opp tre steder i hvert kapittel: i teksten der formelen introduseres, i fasiten til eksemplene («fra tabellen på formelarket: …»), og i symbol- og formellisten til slutt. Arbeidet med ditt **eget** A5-ark er et eget verksted i [kap. 9.1](/tma4135/tma4135-9-1)."
+    },
+    {
+      "id": "tma4135-0-1-def-kode-c",
+      "type": "definition",
+      "title": "Hjelpemiddelkode C",
+      "content": "Kode C er NTNUs merkelapp for hvilke hjelpemidler du får ha med deg. I dette emnet betyr den tre ting samtidig: en **bestemt enkel kalkulator**, **ett gult, stemplet A5-ark** med dine egne håndskrevne notater, og et **formelark som deles ut sammen med oppgavesettet**. Fram til og med 2017 kunne du i tillegg ha Rottmanns formelsamling; fra 2018 er A5-arket den eneste egenproduserte kilden. Det er kode C som gjør at denne boka driller metodevalg og føring i stedet for pugging."
+    },
+    {
+      "id": "tma4135-0-1-def-utdelt-ark",
+      "type": "definition",
+      "title": "Det utdelte formelarket",
+      "content": "Arket som følger med oppgavesettet, likt for alle kandidater. Det inneholder en Laplace-transform-tabell, en Fourier-transform-tabell, trigonometriske identiteter, reduksjonsformler for delvis integrasjon, og en full numerikk-side (rotsøking, interpolasjon med feilledd, Chebyshev-punkter, trapes og Simpson med feilledd, iterasjonsmetoder for likningssystemer, Euler, Heun, Runge–Kutta og bakover-Euler, differansekvotienter og Crank–Nicolson). Fra 2022 er ordensbetingelsene for Runge–Kutta-metoder opp til orden 4 også med. Ferdigheten arket krever er **oppslaget**: å finne riktig rad og sette inn riktige størrelser."
+    },
+    {
+      "id": "tma4135-0-1-def-a5",
+      "type": "definition",
+      "title": "Det gule A5-arket",
+      "content": "Ditt eget, håndskrevne ark, stemplet av eksamensvakten på forhånd. Her hører alt hjemme som **ikke** står på det utdelte arket, men som du likevel bruker ofte: konvolusjonsteoremet, a-priori-estimatet for fikspunktiterasjon, d'Alemberts formel, steglengdeformelen for innfelte par, definisjonen av den diskrete Fourier-transformen, regelen om å finne $f$ først og forskyve sist, strukturen i de tre tilfellene for separasjonskonstanten, og $r=\\Delta t/h^2$ med kravet $r\\le\\tfrac12$. Å bygge arket er et eget verksted i [kap. 9.1](/tma4135/tma4135-9-1)."
+    },
+    {
+      "id": "tma4135-0-1-def-doktrinen",
+      "type": "definition",
+      "title": "Oppslag eller utledning — bokas toveis-merking",
+      "content": "Gjennom hele boka merkes hver formel på én av to måter. **«Står på det utdelte formelarket — tren oppslaget»** betyr at du ikke skal pugge formelen, men øve på å finne riktig rad og sette inn riktige størrelser under tidspress. **«Må kunnes eller utledes aktivt»** betyr at arket ikke hjelper deg: enten sitter regelen i hodet eller på ditt eget A5-ark, eller så må du føre utledningen på papiret. Blander du de to, taper du tid på å lete etter noe som ikke finnes — eller pugger noe du får utdelt."
+    },
+    {
+      "id": "tma4135-0-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-0-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk de to listene over. Avgjør for hvert punkt om det **står på det utdelte formelarket** eller **må kunnes eller utledes aktivt**, og skriv én setning om hva det betyr for hvordan du forbereder deg.\n\n**a)** Transformparet $\\sin\\omega t \\leftrightarrow \\omega/(s^2+\\omega^2)$.\n**b)** Derivasjonsregelen $\\mathcal{L}\\{y'\\}=sY-y(0)$.\n**c)** Feilleddet i Simpsons formel.\n**d)** d'Alemberts formel for bølgelikningen.",
+        "solution": "**a)** Står på det utdelte formelarket. Du skal ikke pugge paret, men trene på å kjenne igjen formen $\\omega/(s^2+\\omega^2)$ i et uttrykk du har regnet fram, og lese av riktig $\\omega$.\n\n**b)** Må kunnes eller utledes aktivt. Arket har transformparene, ikke regelen for hvordan en derivert transformeres. Uten den kommer du ikke i gang med noen differensiallikning, så den hører hjemme i hodet.\n\n**c)** Står på det utdelte formelarket, sammen med selve Simpson-formelen. Ferdigheten er å sette inn riktig maksimum av den fjerdederiverte og løse ulikheten for steglengden.\n\n**d)** Må kunnes eller utledes aktivt. Den står ikke på arket. Skriv den på ditt eget A5-ark — den er kort og kommer igjen.",
+        "hints": [
+          "Gå tilbake til de to punktlistene i avsnittet «Formelark-strategien» og let opp hvert uttrykk der.",
+          "Tommelfingerregel: **tabeller** og **ferdige formler for standardmetoder** er utdelt; **regler for hvordan du kommer dit** er ikke."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-0-1-frekvens",
+      "type": "text",
+      "content": "## De fire søylene og temafrekvensene\n\nTallene under er telt fra **13 gjennomgåtte eksamenssett fra og med høsten 2015 til og med kontinuasjonseksamen 2024**. «10 av 13 sett» betyr at temaet var oppe som minst ett delpunkt i ti av dem. Se kildenoten nederst i kapitlet for hva grunnlaget nøyaktig består av.\n\n| Tema | Antall sett | Andel |\n|---|---|---|\n| Laplace-transform | 13 av 13 | 100 % |\n| Fourier-rekker | 13 av 13 | 100 % |\n| Separasjon av variable | 12 av 13 | 92 % |\n| Numerisk løser for differensiallikning | 12 av 13 | 92 % |\n| Differansemetode for partiell differensiallikning eller randverdiproblem | 11 av 13 | 85 % |\n| Fourier-transform | 10 av 13 | 77 % |\n| Bølgelikning, d'Alembert eller verifiser en løsning | 10 av 13 | 77 % |\n| Numerisk integrasjon og presisjonsgrad | 8 av 13 | 62 % |\n| Interpolasjon | 7 av 13 | 54 % |\n| Fikspunktiterasjon | 6 av 13 | 46 % |\n| Butcher-tabell og ordensbetingelser | 5 av 13 | 38 % |\n| Newtons metode | 4 av 13 | 31 % |\n| Innfelt Runge–Kutta-par og steglengdekontroll | 3 av 13 | 23 % |\n| Stabilitetsfunksjon og stabilitetsintervall | 3 av 13 | 23 % |\n| Halveringsmetoden | 2 av 13 | 15 % |\n| Diskret Fourier-transform | 2 av 13 | 15 % |\n| Jacobi- og Gauss–Seidel-iterasjon | 2 av 13 | 15 % |\n| Gradient og retningsderivert | 2 av 13 | 15 % |\n| LU-faktorisering | 1 av 13 | 8 % |\n| Sekantmetoden | 1 av 13 | 8 % |\n\n**Les tabellen slik:** de fem øverste radene er ryggraden. Under dem ligger en bred numerikk-blokk der hver enkelt metode har lav frekvens hver for seg — men **tre til fire av dem er på hvert eneste sett**. Du vet altså ikke hvilke numeriske metoder du får, bare at du får flere av dem. Det er derfor boka bruker tre hele deler på numerikk i stedet for én."
+    },
+    {
+      "id": "tma4135-0-1-def-soyler",
+      "type": "definition",
+      "title": "De fire søylene",
+      "content": "Boka kaller de fire temaene som er praktisk talt garantert på hvert sett, for søylene: **(1) Laplace-transform**, **(2) Fourier** i en eller annen form, **(3) separasjon av variable for en partiell differensiallikning**, og **(4) numeriske metoder**. Til sammen bærer de over 80 % av poengene på et typisk sett. Behersker du dem, er du langt over bestått-grensen selv om du lar de sjeldne temaene ligge."
+    },
+    {
+      "id": "tma4135-0-1-def-frekvens",
+      "type": "definition",
+      "title": "Frekvenstall og nevneren 13",
+      "content": "Et frekvenstall i denne boka er et **telt** antall sett, ikke et anslag. Nevneren er alltid **13** — de tretten eksamenssettene fra høsten 2015 til og med kontinuasjonseksamen 2024 som er gjennomgått oppgave for oppgave. Står det «7 av 13 sett», betyr det at temaet var oppe som minst ett delpunkt i sju av dem. Frekvensen sier noe om hvor sannsynlig temaet er, ikke hvor mange poeng det gir."
+    },
+    {
+      "id": "tma4135-0-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-0-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Du har tolv dager igjen til eksamen og rekker realistisk over halvparten av boka. Bruk frekvenstabellen over.\n\n**a)** Hvilke fem temaer ville du lest først, og hvorfor?\n**b)** Hvilke to temaer ville du latt ligge til aller sist, og hva risikerer du ved det?",
+        "solution": "**a)** Laplace-transform (13 av 13), Fourier-rekker (13 av 13), separasjon av variable (12 av 13), numerisk løser for differensiallikning (12 av 13) og differansemetode (11 av 13). Til sammen er de på hvert eneste av de tretten settene i grunnlaget, og de utgjør de tyngste enkeltoppgavene. Leser du bare disse fem og fører dem ryddig, ligger du godt an til å bestå.\n\n**b)** LU-faktorisering (1 av 13) og sekantmetoden (1 av 13). Begge er sett bare én gang, i de eldste settene i grunnlaget, og begge står dessuten på det utdelte formelarket, slik at du kan komme i gang selv uten forberedelse. Risikoen er reell men liten: dukker en av dem opp, er den erfaringsmessig et kort delpunkt, ikke en hovedoppgave — og du kan lese formelen av arket.",
+        "hints": [
+          "Sorter tabellen etter antall sett, og se hvor det store hoppet ligger.",
+          "Husk at et tema som står på det utdelte formelarket, er billigere å møte uforberedt enn et som må utledes."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-0-1-sjangerkort",
+      "type": "text",
+      "content": "## Sjangerkortet — hele oppgavekatalogen på én side\n\nDette er kortet du skal kunne skumme på tjue sekunder når du åpner settet. Kolonnen «Første grep» er det du skriver ned med én gang, før du tenker mer.\n\n| Type | Slik kjenner du den igjen | Første grep | Ark eller hode? |\n|---|---|---|---|\n| A | «Løs likningen … med $y(0)=\\dots$» | Transformer hvert ledd; sett inn startverdiene med en gang | Regelen fra hodet, tabellen fra arket |\n| B | Den ukjente står inne i et integral fra $0$ til $t$ | Kjenn igjen konvolusjonen; transformen blir et produkt | Teoremet fra hodet |\n| C | Pådraget slås på ved $t=a$, eller er et støt | Finn $f$ **først**, forskyv **sist** | Andreforskyvning står på arket |\n| D | «Finn Fourier-rekka til …» | Sjekk symmetri før du integrerer | Reduksjonsformlene står på arket |\n| E | «Regn ut den Fourier-transformerte av …» | Let etter paret i tabellen; ellers deriverings- eller konvolusjonsregelen | Tabellen står på arket |\n| F | En likning i $x$ og $t$ på hele tallinja | Transformer i $x$; du sitter igjen med en likning i $t$ alene | Reglene fra hodet |\n| G | «Finn alle løsninger på formen $u=F(x)G(t)$» | Del i to likninger med felles konstant; behandle alle tre tilfellene | Alt fra hodet |\n| H | «Vis at $u$ løser …», eller startverdier for bølgelikningen | Enten rett innsetting, eller d'Alemberts formel | Fra hodet eller A5-arket |\n| I | En tabell med punkter, «finn polynomet» | Velg Lagrange eller dividerte differanser og si hvilken | Begge står på arket |\n| J | «Bruk Simpsons formel», eller «hvilken grad er formelen eksakt til» | Sett opp formelen; test på $x^n$ for presisjonsgrad | Formelen står på arket |\n| K | «Vis at iterasjonen konvergerer» | Vis **begge** vilkårene, ikke bare det ene | Fra hodet eller A5-arket |\n| L | «Vis at likningen har nøyaktig én rot» | Monotoni og fortegnsskift, så mellomverdisetningen | Newton står på arket |\n| M | «Regn ett skritt med …» | Skriv opp $h$ og skrittformelen før du regner | Alle skjemaene står på arket |\n| N | Butcher-tabell med **to** $b$-rader | Differansen mellom de to anslagene er feilestimatet | Steglengdeformelen fra A5-arket |\n| O | «For hvilke $h$ er metoden stabil?» | Sett metoden på testlikningen $y'=\\lambda y$ | Fra hodet |\n| P | Et gitter, eller Python-kode med en matrise | Skriv opp differansekvotientene og nummerer nodene | Kvotientene står på arket |\n| Q | «Vis at feilen er av orden …» | Taylor-utvikling om samme punkt, samle leddene | Fra hodet |\n| R | Endelig mange målepunkter, $w=e^{2\\pi i/N}$ | Skriv definisjonen først, og si hvilken normering du bruker | Fra A5-arket |\n| S | Et lineært likningssystem som skal løses trinnvis | Faktoriser, eller omordne til diagonaldominans | Alt står på arket |\n"
+    },
+    {
+      "id": "tma4135-0-1-def-sjangerkatalog",
+      "type": "definition",
+      "title": "Sjangerkatalogen",
+      "content": "Katalogen er bokas navnesystem for de nitten oppgavetypene som faktisk går igjen i dette emnet, merket A til S. Bokstavene er en forkortelse boka innfører for å slippe å skrive ut hele oppgavetypen hver gang, og brukes ikke av NTNU. Hvert temakapittel oppgir hvilken type det trener, og hver drilloppgave er merket med typen sin, slik at du kan gå fra en oppgavetekst du ikke kjenner igjen til en oppskrift du har øvd på."
+    },
+    {
+      "id": "tma4135-0-1-splitt",
+      "type": "text",
+      "content": "## Delt oppgavesett med Matematikk 4N\n\nFra og med 2018 skrives eksamen felles for TMA4130 Matematikk 4N og TMA4135 Matematikk 4D. Nesten alle oppgavene er identiske for begge. **Bare én oppgave per sett** har egne varianter, og de er merket i settet.\n\nVarianten som er merket for ditt emne, har et tydelig mønster: den ber deg enten **verifisere at en oppgitt funksjon løser en partiell differensiallikning** (regn ut de andrederiverte og vis at de passer), eller den har et **gradient- eller retningsderivert-innslag**. Boka dekker alle fellestemaene fullt ut, og bruker [kap. 5.4](/tma4135/tma4135-5-4) på nettopp disse to.\n\nDu skal med andre ord ikke bli forvirret av å se «4N» i et gammelt sett du øver på — innholdet er ditt, med unntak av den ene merkede varianten."
+    },
+    {
+      "id": "tma4135-0-1-def-splitt",
+      "type": "definition",
+      "title": "Felles oppgavesett med Matematikk 4N",
+      "content": "Fra 2018 lages ett oppgavesett for både TMA4130 Matematikk 4N og TMA4135 Matematikk 4D. De aller fleste oppgavene er felles; i hvert sett er det **én** oppgave som finnes i to merkede varianter, en for hvert emne. Praktisk betydning: gamle sett merket 4N er fullverdig øvingsmateriale for deg, bortsett fra den ene merkede oppgaven."
+    },
+    {
+      "id": "tma4135-0-1-def-4d-signatur",
+      "type": "definition",
+      "title": "4D-signaturen",
+      "content": "Boka kaller den typiske 4D-merkede varianten for signaturen. Den er nesten alltid én av to: **verifiser ved direkte innsetting** at en oppgitt funksjon $u(x,t)$ løser en gitt partiell differensiallikning — regn ut de deriverte som inngår og vis at likningen holder — eller et kort **gradient- og retningsderivert-innslag** fra flervariabel kalkulus. Tilsvarende 4N-varianter er ofte Fourier-transform-utregning eller feilanalyse. Temaet bølgelikning, d'Alembert eller verifiser en løsning var oppe i 10 av 13 sett i grunnlaget."
+    },
+    {
+      "id": "tma4135-0-1-nye-sjangre",
+      "type": "text",
+      "content": "## Nytt, og nesten borte\n\n**Tre oppgavetyper er nye i settene fra 2022 og framover:** innfelte Runge–Kutta-par med steglengdekontroll (3 av 13 sett), diskret Fourier-transform (2 av 13 sett) og Gauss–Legendre-kvadratur (1 av 13 sett). Belegget er tynt fordi de rett og slett ikke fantes før, og de er konsentrert i kontinuasjonssettene. Boka behandler dem likevel som primærmål: når noe har vært på flere av de siste settene, er det ikke lenger en kuriositet. Kapitlene [4.3](/tma4135/tma4135-4-3), [6.2](/tma4135/tma4135-6-2) og [7.3](/tma4135/tma4135-7-3) sier fra om det tynne belegget der stoffet står.\n\n**Tre oppgavetyper er nesten borte:** LU-faktorisering med Doolittles metode (1 av 13), Jacobi- og Gauss–Seidel-iterasjon (2 av 13) og sekantmetoden (1 av 13). Alle tre er sett bare i de eldste settene i grunnlaget. Boka holder dem på kjenne-nivå, i quiz og i [kap. 9.1](/tma4135/tma4135-9-1) — ikke som egne kapitler. Trøsten er at alle tre står på det utdelte formelarket, så du kan lese formelen der hvis en av dem dukker opp."
+    },
+    {
+      "id": "tma4135-0-1-metaregler",
+      "type": "text",
+      "content": "## De fem reglene som styrer rettingen\n\nReglene under er lest ut av instruksen som står trykt på hvert oppgavesett, og av hvordan løsningsforslagene faktisk er ført. De gjelder alle oppgaver, i alle deler av boka.\n\n1. **Begrunn alt.** Instruksen ber om nok mellomregning til at tenkemåten klart framgår. Riktig svar uten utregning gir ikke full uttelling.\n2. **Skriv metode- og teoremnavnet.** «Etter andreforskyvningsteoremet …», «ved konvolusjonsteoremet …», «fikspunktteoremet gir …», «etter mellomverdisetningen …», «d'Alemberts formel gir …». Løsningsforslagene skriver dem ut, og det koster deg fem sekunder.\n3. **Flere veier er lov — si hvilken du går.** Der en oppgave kan løses med delbrøk **eller** kvadratkomplettering, med reell **eller** kompleks delbrøk, med Lagrange **eller** Newtons dividerte differanser, blir begge godtatt. Løsningsforslagene viser gjerne begge og kommenterer hvilken som er raskest.\n4. **Delpunktene er koblet med vilje.** «Bruk uttrykket fra b) i c)» er ikke et tips, det er designet. Ser du koblingen, sparer du både tid og poeng.\n5. **Feil forplanter seg uten å straffes to ganger.** Får du en gal mellomverdi i a), men regner korrekt videre med den i b), gir b) fortsatt uttelling. Derfor: **skriv aldri om et helt delpunkt fordi du oppdager en feil lenger oppe** — noter feilen og regn videre."
+    },
+    {
+      "id": "tma4135-0-1-def-begrunnelse",
+      "type": "definition",
+      "title": "Begrunnelseskravet",
+      "content": "Instruksen som står på hvert oppgavesett: alle svar skal begrunnes, med nok mellomregning til at tenkemåten klart framgår. I praksis betyr det at hvert oppslag skal synes («fra tabellen på formelarket: …»), at hvert teoremnavn skal skrives, og at et resultat du bare har skrevet ned, ikke teller like mye som et du har vist. Kravet er grunnen til at alle eksempler i denne boka er ført med hvert mellomsteg synlig."
+    },
+    {
+      "id": "tma4135-0-1-def-feilforplantning",
+      "type": "definition",
+      "title": "Feilforplantning",
+      "content": "Retteprinsippet om at en feil bare straffes én gang. Har du regnet ut en gal konstant i et tidlig delpunkt, men bruker den korrekt videre i de neste, gir de neste fortsatt uttelling. Konsekvensen for deg under eksamen: oppdager du en feil lenger oppe med ti minutter igjen, **skriv en linje om hva som er galt og gå videre** — ikke regn om hele oppgaven."
+    },
+    {
+      "id": "tma4135-0-1-def-delpunkt",
+      "type": "definition",
+      "title": "Delpunkt-gjenbruk",
+      "content": "Oppgavene er bygd slik at et senere delpunkt bruker resultatet fra et tidligere: finn $f(t)$ i a) og forskyv den i b); utled formelen i b) og sett inn tall i c). Å oppdage koblingen er både en tidsbesparelse og et poeng i seg selv, fordi det viser at du har forstått strukturen. Ser du et delpunkt du ikke får til, se etter om det neste likevel kan føres med et symbol for det ukjente resultatet."
+    },
+    {
+      "id": "tma4135-0-1-karakterskiller",
+      "type": "text",
+      "content": "## Hva som skiller karakternivåene\n\nDette er kalibreringen boka bruker når den merker oppgaver som lette, middels eller vanskelige.\n\n- **Bestått-sjiktet** henter poeng på de mekaniske delpunktene: transformer likningen og løs for den transformerte; sett opp koeffisientintegralet; sett $u=F(x)G(t)$ og få de to likningene; regn ett Euler-skritt; sett opp differanseskjemaet. Dette er poeng du kan hente uten å fullføre oppgaven — så begynn alltid, også på oppgaver du ikke tror du klarer.\n- **Midtsjiktet** legger til: invers-transform både med delbrøk og med kvadratkomplettering; delvis integrasjon i Fourier-koeffisientene; **alle tre** tilfellene for separasjonskonstanten; presisjonsgrad ved å teste på $x^n$; a-priori-estimatet for antall iterasjoner.\n- **Toppsjiktet** kjennetegnes av fem ting: **begge** fikspunktvilkårene, ikke bare det ene; ordensverifikasjon rad for rad i Butcher-tabellen; korrekt behandling av rand og stabilitet; andreforskyvningsteoremet brukt riktig, med $f$ funnet før forskyvningen; og at du ser og bruker koblingene mellom delpunktene.\n\nLegg merke til at ingenting av dette handler om å huske mer. Det handler om å føre mer fullstendig."
+    },
+    {
+      "id": "tma4135-0-1-def-karakterskala",
+      "type": "definition",
+      "title": "Den prosentbaserte karakterskalaen",
+      "content": "Fra 2018 har settet 100 poeng, og de siste settene trykker omregningen på forsiden: **A 80 % og over, B 69–79 %, C 59–68 %, D 48–58 %, E 37–47 %, F under 37 %** (settene oppgir A som 80–90; tallene er nedre grenser). Merk hvor lavt bestått-grensen ligger: 37 av 100 poeng. Det er omtrent fire hele oppgaver av ti, og C ligger på 59 — en god og vanlig karakter som du når uten å beherske de sjeldne temaene."
+    },
+    {
+      "id": "tma4135-0-1-def-toppsjikt",
+      "type": "definition",
+      "title": "Toppsjikt-markørene",
+      "content": "De fem detaljene som skiller en toppbesvarelse fra en god: **begge** vilkårene i fikspunktteoremet vist, ikke bare det ene; ordensbetingelsene i en Butcher-tabell sjekket rad for rad til én faktisk feiler; rand- og stabilitetsbetingelser behandlet korrekt (inkludert falsk rand og kravet $r\\le\\tfrac12$); andreforskyvningsteoremet brukt med $f$ funnet før forskyvningen; og koblingene mellom delpunktene sett og brukt. Boka merker hvert av disse punktene der det trenes."
+    },
+    {
+      "id": "tma4135-0-1-modellbesvarelser",
+      "type": "collapsible",
+      "title": "Hvordan føring gir poeng — to nyskrevne modellbesvarelser",
+      "buttonText": "Vis modellbesvarelsene",
+      "content": [
+        {
+          "id": "tma4135-0-1-mod-intro",
+          "type": "text",
+          "content": "Begge besvarelsene under er **skrevet for denne boka** som eksempler på føring. De er ikke gjengivelser av ekte studentbesvarelser. Oppgaven er med vilje ren videregåendealgebra, slik at du kan konsentrere deg om **formen** og ikke om faget:\n\n> Vis at $x=2$ er en rot i $x^3-3x-2=0$, og avgjør om likningen har flere røtter."
+        },
+        {
+          "id": "tma4135-0-1-mod-b",
+          "type": "text",
+          "content": "### Midtnivå — omtrent B\n\n«$2^3-3\\cdot 2-2 = 8-6-2 = 0$, så $x=2$ er en rot. Polynomdivisjon gir $x^3-3x-2 = (x-2)(x^2+2x+1)$. Andregradsuttrykket har røttene $x=-1$. Svar: $x=2$ og $x=-1$.»\n\n**Hva som er bra:** innsettingen er vist, faktoriseringen er riktig, og svaret er riktig. Dette er en solid besvarelse som gir de fleste poengene.\n\n**Hva som mangler:** navnet på hva som brukes (faktorteoremet), og at $x=-1$ er en **dobbeltrot** — det følger av at $x^2+2x+1=(x+1)^2$, men blir ikke sagt. Spørsmålet om likningen har flere røtter er dermed bare halvveis besvart."
+        },
+        {
+          "id": "tma4135-0-1-mod-a",
+          "type": "text",
+          "content": "### Toppnivå — omtrent A\n\n«Innsetting gir $2^3-3\\cdot2-2 = 8-6-2 = 0$, så $x=2$ er en rot. **Etter faktorteoremet** er da $x-2$ en faktor. Polynomdivisjon:\n\n$$x^3-3x-2 = (x-2)(x^2+2x+1).$$\n\n**Kontroll ved utregning:** $(x-2)(x^2+2x+1) = x^3+2x^2+x-2x^2-4x-2 = x^3-3x-2$. Stemmer.\n\nVidere er $x^2+2x+1 = (x+1)^2$, så\n\n$$x^3-3x-2 = (x-2)(x+1)^2.$$\n\nLikningen har derfor røttene $x=2$ (enkel) og $x=-1$ (dobbel), og ingen flere, siden et tredjegradspolynom har høyst tre røtter talt med multiplisitet.»\n\n**Forskjellen er ikke mer kunnskap.** Den er fire ting: teoremnavnet er skrevet, kontrollregningen er tatt med, multiplisiteten er nevnt, og svaret er avsluttet med en setning om at listen er fullstendig. Alle fire koster under et minutt."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-0-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-0-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Du får et sett med ti oppgaver à 10 poeng og fire timer. Sett opp et konkret tidsbudsjett i minutter, og gjør rede for valgene dine.\n\n**a)** Hvor mye tid setter du av til å lese gjennom hele settet før du begynner, og til gjennomgang på slutten?\n**b)** Hvor mange minutter blir det da per oppgave i snitt?\n**c)** To av oppgavene er erfaringsmessig tyngre enn de andre (separasjon av variable og den store differanseoppgaven). Hvordan justerer du budsjettet, og hva er den harde regelen du setter for deg selv?",
+        "solution": "**a)** Fire timer er 240 minutter. Sett av **10 minutter** til å lese hele settet og notere hvilken type hver oppgave er, og **15 minutter** på slutten til å gå gjennom svarene og fylle inn manglende begrunnelser. Igjen: $240-10-15 = 215$ minutter til regning.\n\n**b)** $215/10 = 21{,}5$ minutter per oppgave i snitt.\n\n**c)** Gi de to tunge oppgavene 30 minutter hver, og fordel resten: $215-60 = 155$ minutter på åtte oppgaver, altså i underkant av 20 minutter hver. Den harde regelen er en **klokkeregel**: når en oppgave har brukt opp budsjettet sitt, skriver du ned hvor langt du er kommet og går videre. Du kan alltid komme tilbake med tid til overs, men en uferdig oppgave nummer ti gir null poeng, mens de siste ti minuttene på oppgave fire kanskje gir to.\n\nDe ti minuttene til å lese settet er ikke bortkastet tid: de gjør at du begynner med den oppgaven du kan best, og at ingen oppgave overrasker deg med å være kortere enn du trodde.",
+        "hints": [
+          "Start med 240 minutter og trekk fra det som ikke er regnetid.",
+          "Tenk på hva du taper hvis du ikke rekker den siste oppgaven i det hele tatt, mot hva du taper på å avslutte en oppgave litt for tidlig."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-0-1-prognose",
+      "type": "text",
+      "content": "## Slik ser et typisk sett ut\n\nMalen har ligget nesten uendret i årevis. Regn med åtte til ti poengvektede oppgaver, og denne rekkefølgen:\n\n- **Oppgave 1–2:** Laplace-transform. Én ren differensiallikning med startverdier, og én med enten et integralledd eller et pådrag som slås på underveis.\n- **Oppgave 3:** Fourier-rekke — utvid en funksjon til en odde eller like periodisk funksjon, skissér den, finn koeffisientene. I de nyeste settene kan denne plassen i stedet være en diskret Fourier-transform.\n- **Oppgave 4–5:** separasjon av variable for varmelikningen, og enten Fourier-transform for en likning på hele tallinja eller bølgelikningen med d'Alembert eller verifikasjon.\n- **Oppgave 6–10:** numerikk-blokken — interpolasjon, numerisk integrasjon med presisjonsgrad, en rotsøkings- eller fikspunktoppgave med konvergensvilkår, Runge–Kutta med Butcher-tabell eller innfelt par, og en differansemetode med et gitter eller et kort Python-utdrag der du skal finne feilen.\n\nDette er en prognose bygd på tretten sett, ikke et løfte. Men den er stabil nok til at du kan planlegge lesingen etter den."
+    },
+    {
+      "id": "tma4135-0-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-0-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Sett opp din egen leseplan. Bruk frekvenstabellen, sjangerkortet og tidsanslagene i «Lite tid?»-boksen lenger nede.\n\n**a)** Du har seks uker og kan lese fire timer i uka. Hvor mye av boka rekker du, og hvilke deler velger du?\n**b)** Hvordan bygger du inn prøvekapitlene, og hvorfor er det viktig at de ikke havner helt til slutt?\n**c)** Hvilken ferdighet ville du prioritert høyest hvis du bare fikk trene på **én** ting, og hvordan begrunner du det med tallene i kapitlet?",
+        "solution": "**a)** Seks uker à fire timer er 24 timer, altså 1 440 minutter. Hele boka er 2 730 minutter lesetid pluss 1 080 minutter prøver, så du rekker litt over en tredjedel. Velg de fem søylene og kutt bredden: Del 0 (35 min), Del 2 Laplace (325), Del 3 Fourier-rekker (250), Del 5 partielle differensiallikninger (335) og Del 7 numeriske løsere (310) er 1 255 minutter. Da har du 185 minutter igjen til [kap. 8.2](/tma4135/tma4135-8-2) om det eksplisitte skjemaet (60) og [kap. 9.1](/tma4135/tma4135-9-1) formelark-verkstedet (75). Det du dropper — Del 4 og Del 6 — er temaer på 77 % og lavere, og flere av dem har formler på det utdelte arket.\n\n**b)** Legg prøven til en del rett etter at delen er lest, ikke til slutt. To grunner: prøven er den eneste målingen du har av om du faktisk kan føre stoffet under tidspress, og oppdager du et hull i uke to, har du fem uker på å tette det. Oppdager du det i uke seks, har du ingen. Prøvene er dessuten korte nok (20–45 minutter) til å passe inn i en vanlig leseøkt.\n\n**c)** Å transformere en differensiallikning med Laplace, sette inn startverdiene og løse for den transformerte. Begrunnelsen er tredelt: temaet er på 13 av 13 sett, det ligger nesten alltid som oppgave 1 og 2 og er dermed det første du møter, og selve grepet er kort nok til at bestått-poengene sitter der selv om du ikke kommer helt i mål med invers-transformen. Ingen annen enkeltferdighet i emnet har den kombinasjonen av høyest frekvens og lavest terskel.",
+        "hints": [
+          "Regn om lesetiden til minutter først, og sammenlign med delsummene per del i «Lite tid?»-boksen.",
+          "For c): se etter ferdigheten som scorer høyest på **både** frekvens og lav terskel — ikke den som gir flest poeng når den er fullført."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-0-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — allerede før du begynner å regne",
+      "content": "**Tidsfella.** Separasjon av variable og den store differanseoppgaven er de tyngste enkeltoppgavene på settet, og de kommer midt i. Bruker du 45 minutter på én av dem, stjeler du fra to sluttoppgaver som er verdt like mye. Sett klokkeregel før du begynner.\n\n**Å lete etter noe som ikke finnes på arket.** Det utdelte formelarket har transformparene, ikke derivasjonsregelen. Det har Simpsons formel, ikke d'Alemberts. Bruker du tre minutter på å bla etter noe som må utledes, har du tapt tre minutter og litt ro. Lær listen over hva arket faktisk inneholder.\n\n**Å pugge noe du får utdelt.** Motsatt feil, og den er dyrere fordi den koster deg tid i hele lesefasen. Ingen skal bruke en kveld på å memorere Laplace-tabellen.\n\n**Å begynne å skrive før du har lest hele settet.** De ti minuttene innledningsvis gir deg rekkefølgen på oppgavene, og rekkefølgen er verdt mer enn ti minutters regning.\n\n**Å hoppe over en oppgave du «ikke kan».** De mekaniske første linjene — sette opp, transformere, dele i to likninger — gir poeng i seg selv. Begynn alltid."
+    },
+    {
+      "id": "tma4135-0-1-lite-tid",
+      "type": "tip",
+      "title": "Lite tid?",
+      "content": "**Tidsanslagene i boka er lesetid.** Regner du oppgavene for hånd underveis — og det bør du — ganger du med omtrent 1,5. Et kapittel merket 60 minutter tar da halvannen time med penn i hånd.\n\n**Hurtigruten: fire dager, 990 minutter lesetid (rundt 25 timer med penn).** Dette er minimumsutgaven som dekker de fem viktigste temaene og gir deg formelark-strategien:\n\n| Dag | Kapitler | Min |\n|---|---|---|\n| 1 | 0.1 eksamenskart · 2.1 · 2.2 · 2.3 · prøve 2.A | 250 |\n| 2 | 2.5 Laplace-drill · 3.1 · 3.2 · prøve 3.A | 240 |\n| 3 | 5.1 · 5.2 · 5.5 separasjonsdrill · prøve 5.A | 265 |\n| 4 | 7.1 · 8.2 · 9.1 formelark-verksted · prøve 8.B | 235 |\n| | **Sum** | **990** |\n\nHar du bare tre dager, kutt 7.1 og 8.2 og behold 9.1 — arket ditt er verdt mer enn et halvt kapittel til. Det du ofrer på hurtigruten er Del 4, Del 6, kapittel 3.3 og kapitlene 5.3–5.4. Til sammen er det temaer i sjiktet 15–77 %, og flere av dem har ferdige formler på det utdelte arket.\n\n**Hele boka** er 2 730 minutter lesetid over 36 kapitler, pluss 1 080 minutter prøver — til sammen 3 810 minutter, eller 63,5 timer. Se deltidsruten under for hvordan det fordeler seg over tolv uker."
+    },
+    {
+      "id": "tma4135-0-1-deltidsrute",
+      "type": "text",
+      "content": "## Deltidsruten — tolv uker ved siden av forelesningene\n\nRundt 5,3 timer lesetid i uka i tolv uker dekker hele boka med prøver. Planen følger faglig avhengighet, ikke frekvens: du trenger Fourier-rekkene før du kan matche initialbetingelser i partielle differensiallikninger, og du trenger rotsøking før de numeriske løserne.\n\n| Uke | Innhold | Min |\n|---|---|---|\n| 1 | 0.1 · 1.1 · prøvene til del 1 · 2.1 · 2.2 | 245 |\n| 2 | 2.3 · 2.4 · 2.5 · prøvene til del 2 | 355 |\n| 3 | 3.1 · 3.2 · 3.3 · 3.4 | 250 |\n| 4 | prøvene til del 3 · 4.1 · 4.2 · 4.3 | 310 |\n| 5 | prøvene til del 4 · 5.1 · 5.2 · 5.3 | 330 |\n| 6 | 5.4 · 5.5 · prøvene til del 5 | 310 |\n| 7 | 6.1 · 6.2 · 6.3 · 6.4 · prøvene til del 6 | 375 |\n| 8 | 7.1 · 7.2 · 7.3 · 7.4 · 7.5 | 310 |\n| 9 | prøvene til del 7 · 8.1 · 8.2 | 260 |\n| 10 | 8.3 · 8.4 · prøvene til del 8 · 9.1 | 345 |\n| 11 | 9.2 øvingseksamen 1 | 240 |\n| 12 | 9.3 og 9.4 øvingseksamen 2 og 3 | 480 |\n| | **Sum** | **3 810** |\n\n**Om skjevheten i uke 12:** den er dobbelt så tung som snittet, og det er med vilje. De to siste øvingseksamenene skal tas **på tid**, fire timer i strekk, med bare kalkulator, formelark og A5-arket ditt. Da er de en generalprøve og ikke lesing — og de hører sammen, tett på eksamen. Har du ikke rom for to slike økter i samme uke, flytt den ene til uke 11 og ta øvingseksamen 1 i uke 10.\n\n**Ti uker i stedet for tolv?** Slå sammen uke 3 og 4, og uke 8 og 9. Det gir rundt 6,4 timer i uka."
+    },
+    {
+      "id": "tma4135-0-1-lese-skrive",
+      "type": "tip",
+      "title": "Lese mye, skrive lite — den vanligste lesefeilen",
+      "content": "Dette er et regnefag. Du kan lese et kapittel om separasjon av variable og føle at du forstår hvert steg, og likevel stå fast på blankt ark to dager senere. Grunnen er at gjenkjennelse og gjenkalling er to forskjellige ferdigheter, og eksamen tester bare den andre.\n\n**Praktisk regel:** for hver time du leser, skal du ha skrevet minst tjue minutter med penn — uten å se på fasiten. Eksemplene i boka er laget for det: les oppgaveteksten, legg til fasiten, prøv selv, og sammenlign etterpå.\n\n**Og en advarsel om formelarket:** det er lett å lese seg trygg på at «alt står der likevel». Det gjør det ikke. Arket gir deg tabellrader og ferdige formler; det gir deg ikke hvilken av dem du skal bruke. Nettopp derfor er oppslagsdrillen i [kap. 9.1](/tma4135/tma4135-9-1) en skriveøvelse og ikke en leseøvelse."
+    },
+    {
+      "id": "tma4135-0-1-formel-minimum",
+      "type": "collapsible",
+      "title": "Formlene du må kunne aktivt — resten står på det utdelte arket",
+      "buttonText": "Vis formel-minimum",
+      "content": [
+        {
+          "id": "tma4135-0-1-fm-intro",
+          "type": "text",
+          "content": "Dette er **hele** listen over det du selv må ha kontroll på. Alt annet i emnet står enten på det utdelte formelarket, eller kan skrives på ditt eget A5-ark. Formlene er ikke forklart her — de introduseres fra bunnen i hvert sitt kapittel. Bruk listen som en avkryssingsliste når du bygger arket ditt i [kap. 9.1](/tma4135/tma4135-9-1)."
+        },
+        {
+          "id": "tma4135-0-1-fm-laplace",
+          "type": "text",
+          "content": "### Laplace\n\n$$\\mathcal{L}\\{y'\\}=sY-y(0), \\qquad \\mathcal{L}\\{y''\\}=s^2Y-sy(0)-y'(0)$$\n\nDerivasjonsregelen — motoren i hele Del 2. Uten den kommer du ikke i gang.\n\n$$(g*y)(t)=\\int_0^t g(\\tau)\\,y(t-\\tau)\\,d\\tau, \\qquad \\mathcal{L}\\{g*y\\}=G(s)\\,Y(s)$$\n\nKonvolusjonsteoremet. Selve teoremet må navngis i besvarelsen.\n\n**Regel uten formel:** ved et pådrag som slås på ved $t=a$, finn $f$ **først** og forskyv **sist**. Selve andreforskyvningen står på arket; rekkefølgen gjør ikke det."
+        },
+        {
+          "id": "tma4135-0-1-fm-fourier",
+          "type": "text",
+          "content": "### Fourier\n\nKoeffisientintegralene for den reelle rekka, og symmetriregelen: odde funksjon gir ren sinusrekke, like funksjon gir ren cosinusrekke.\n\n$$\\text{i et sprang konvergerer rekka mot } \\tfrac12\\big(f(x^+)+f(x^-)\\big)$$\n\nMidlingsregelen — den glemmes oftere enn noe annet i denne delen.\n\nKompleks rekke $\\sum c_n e^{inx}$ med $c_n$-integralet, og broen til $a_n$ og $b_n$.\n\nDefinisjonen av den diskrete transformen med $w=e^{2\\pi i/N}$, og hvilken normering du bruker."
+        },
+        {
+          "id": "tma4135-0-1-fm-pde",
+          "type": "text",
+          "content": "### Partielle differensiallikninger\n\nAnsatsen $u(x,t)=F(x)G(t)$, og at **alle tre** tilfellene for separasjonskonstanten skal behandles.\n\n$$u(x,t)=\\tfrac12\\big(f(x+ct)+f(x-ct)\\big)+\\frac{1}{2c}\\int_{x-ct}^{x+ct} g(s)\\,ds$$\n\nd'Alemberts formel. Kort, kommer igjen, står ikke på arket — skriv den på A5-arket.\n\nFramgangsmåten for å verifisere at en oppgitt funksjon løser en likning: regn ut hver derivert som inngår, sett inn, og vis likheten."
+        },
+        {
+          "id": "tma4135-0-1-fm-numerikk",
+          "type": "text",
+          "content": "### Numerikk\n\nPresisjonsgrad bestemmes ved å teste formelen på $x^n$ for økende $n$ til den feiler.\n\nOvergangen $[a,b]\\to[-1,1]$ for Gauss-kvadratur.\n\n**Begge** fikspunktvilkårene, og a-priori-estimatet for antall iterasjoner.\n\nAntall skritt i halveringsmetoden, og entydighetsargumentet via mellomverdisetningen.\n\nHvordan en Butcher-tabell leses, og hvordan ordensbetingelsene sjekkes rad for rad.\n\n$$h_{\\text{ny}} = P\\left(\\frac{\\text{Tol}}{\\hat\\varepsilon}\\right)^{1/(p+1)}$$\n\nSteglengdeformelen for innfelte par — merk eksponenten.\n\nUtledningen av stabilitetsfunksjonen $R(z)$ ved å sette metoden på $y'=\\lambda y$.\n\n$$r = \\frac{\\Delta t}{h^2}, \\qquad r \\le \\tfrac12$$\n\nStabilitetskravet for det eksplisitte skjemaet. **Merk:** det utdelte formelarket kaller tidssteget $k$ og skriver forholdet som tidssteg delt på $h^2$. Denne boka skriver $\\Delta t$ i Del 8, fordi $k$ allerede er separasjonskonstanten i Del 5.\n\nTaylor-utledningen av avkuttingsfeilen, og hvordan en falsk rand elimineres."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-0-1-kildenote",
+      "type": "text",
+      "content": "## Hva tallene i denne boka bygger på\n\nAlle frekvenstall og sjangerbeskrivelser i boka er lest ut av et arkiv med **56 unike filer: 29 oppgavesett og 27 løsningsforslag**. Arkivet er talt opp filnavn for filnavn.\n\n**Nevneren er 13.** Frekvensgrunnlaget er de tretten velkarakteriserte settene fra høsten 2015 til og med kontinuasjonseksamen 2024, som er gjennomgått oppgave for oppgave. Står det «9 av 13 sett» i boka, er det disse tretten. Arkivet rekker tilbake til 2003, men de eldre settene fra 2003–2014 er **ikke** talt med: de er ikke gjennomgått på samme måte, og pensum har flyttet seg over tjue år. De er likevel verdt å nevne, fordi de viser én ting tydelig — oppgavetradisjonen i dette emnet har ligget fast lenge.\n\n**Emnet har aldri hatt våreksamen.** Arkivet består utelukkende av ordinære høsteksamener og kontinuasjonseksamener, så det finnes ingen vårsett du går glipp av.\n\n**Forbehold du bør kjenne til:**\n\n- Det finnes **ingen sett fra 2021** i arkivet.\n- Fire av filene — løsningsforslaget for høsten 2016, kontinuasjonssettet for 2016 med løsningsforslag, og løsningsforslaget for kontinuasjonseksamen 2017 — er skannede eller håndskrevne og lot seg ikke tekstutvinne. For disse settene bygger gjennomgangen på oppgavesettene alene.\n- Fra 2018 er eksamen felles med TMA4130, og bare **én** oppgave per sett finnes i egne varianter for hvert emne.\n- De nyeste oppgavetypene — diskret Fourier-transform, innfelt Runge–Kutta-par og Gauss–Legendre — er konsentrert i settene fra 2022 til 2024 og har derfor tynt belegg. Boka sier fra der det gjelder.\n\n**Om løsningsforslagene:** alle 27 er faglærerskrevne og opphavsrettslig vernet. De er brukt som fasitkilde for å avgjøre hva som faktisk kreves i en besvarelse, og er aldri gjengitt. Der boka skriver «løsningsforslagene viser …» eller «kravet er …», er kravet lest ut av oppgaveinstruksen og av hvordan fasitene faktisk er ført. **Alle oppgaver, eksempler og modellbesvarelser i denne boka er nyskrevne** med egne tall og egen kontekst."
+    },
+    {
+      "id": "tma4135-0-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-0-1-sym-tabell",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathcal{L}\\{f\\}$ | Laplace-transformen av $f$; forklares i [kap. 2.1](/tma4135/tma4135-2-1) |\n| $F(s)$, $Y(s)$ | Den transformerte av $f$ og av løsningen $y$ |\n| $s$ | Variabelen i det transformerte planet |\n| $\\hat{f}(\\omega)$ | Fourier-transformen av $f$; forklares i [kap. 4.1](/tma4135/tma4135-4-1) |\n| $\\omega$ | Vinkelfrekvens |\n| $a_n$, $b_n$, $c_n$ | Fourier-koeffisienter (reell og kompleks rekke) |\n| $u(t-a)$ | Enhetssprangfunksjonen (Heaviside), slår på ved $t=a$ |\n| $\\delta(t-a)$ | Dirac-pulsen i punktet $t=a$ |\n| $u(x,t)=F(x)G(t)$ | Separasjonsansatsen for en partiell differensiallikning |\n| $c$ | Bølgefart i bølgelikningen |\n| $R(z)$ | Stabilitetsfunksjonen, med $z=\\lambda h$ |\n| $h$ | Steglengde |\n| $\\Delta t$ | Tidssteg i differanseskjemaer (formelarket kaller det $k$) |\n| $r=\\Delta t/h^2$ | Stabilitetstallet i det eksplisitte skjemaet |\n| $U_i^n$ | Den numeriske verdien i gitterpunkt $x_i$ ved tidsnivå $t_n$ |\n| $w=e^{2\\pi i/N}$ | Enhetsroten som bærer den diskrete Fourier-transformen |\n| $J_F$ | Jacobi-matrisen i Newtons metode for systemer |\n| $\\varepsilon_n(x)$ | Feilleddet i interpolasjon |\n| $p$ | Ordenen til en numerisk metode |\n| A–S | Bokas forkortelser for de nitten oppgavetypene (se sjangerkortet) |\n"
+        },
+        {
+          "id": "tma4135-0-1-sym-formler",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$240 - 10 - 15 = 215 \\;\\text{minutter regnetid}$$\nTidsbudsjettet for et fire timers sett, etter at lesing og sluttkontroll er trukket fra. *(Må kunnes — det er din egen regel, ikke fagstoff.)*\n\n$$\\frac{215}{10} = 21{,}5 \\;\\text{minutter per oppgave}$$\nSnittbudsjettet på et sett med ti oppgaver à 10 poeng. *(Må kunnes.)*\n\n$$\\text{lesetid} \\times 1{,}5 = \\text{tid med penn i hånd}$$\nOmregningen alle tidsanslagene i boka skal ganges med hvis du regner underveis. *(Må kunnes.)*\n\n$$\\mathcal{L}\\{y'\\}=sY-y(0)$$\nDerivasjonsregelen, nevnt her som eksempel på formel-minimum. *(Må kunnes eller utledes aktivt — står ikke på arket.)*\n\n$$\\sin\\omega t \\;\\longleftrightarrow\\; \\frac{\\omega}{s^2+\\omega^2}$$\nEt transformpar, nevnt her som eksempel på det motsatte. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$r = \\frac{\\Delta t}{h^2} \\le \\tfrac12$$\nStabilitetskravet for det eksplisitte skjemaet. *(Må kunnes eller utledes aktivt.)*\n\n**Kolliderende symboler i denne boka:** $k$ er separasjonskonstanten i Del 5, men tidssteget på det utdelte formelarket — Del 8 skriver derfor $\\Delta t$. $c$ er bølgefart i Del 5, men en koeffisient eller en node ellers. $L$ er halvperioden i Del 3, men kontraksjonskonstanten i [kap. 6.3](/tma4135/tma4135-6-3). $r$ er radius i Del 1 og stabilitetstall i Del 8. $F$ er den Laplace-transformerte i Del 2, men stedfunksjonen $F(x)$ i separasjonsansatsen i Del 5."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

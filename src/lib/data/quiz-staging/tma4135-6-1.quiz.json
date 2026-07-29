@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hvor mange punkter trengs for et interpolasjonspolynom av grad høyst $n$?",
+    "options": [
+      "$n+1$ punkter med innbyrdes ulike $x$-verdier",
+      "$n$ punkter med innbyrdes ulike $x$-verdier",
+      "$n+2$ punkter med innbyrdes ulike $x$-verdier",
+      "$2n$ punkter med innbyrdes ulike $x$-verdier"
+    ],
+    "explanation": "Antall punkter er alltid én mer enn graden. Tre punkter gir grad høyst 2. Feil telling her forplanter seg til feilformelen, der ordenen på den deriverte er $n+1$."
+  },
+  {
+    "question": "Hva er verdien av kardinalfunksjonen $\\ell_k$ i sin egen node $x_k$?",
+    "options": [
+      "$1$, og $0$ i alle de andre nodene",
+      "$0$, og $1$ i alle de andre nodene",
+      "$f_k$, og $0$ i alle de andre nodene",
+      "$1$, og $1$ i alle de andre nodene"
+    ],
+    "explanation": "Setter du inn en annen node, står faktoren $(x_j-x_j)$ i telleren og nuller produktet. Setter du inn $x_k$, blir hver brøk lik 1."
+  },
+  {
+    "question": "Hva sier entydighetssetningen for interpolasjon?",
+    "options": [
+      "Det finnes nøyaktig ett polynom av grad høyst $n$ gjennom $n+1$ punkter",
+      "Det finnes minst to polynomer av grad høyst $n$ gjennom $n+1$ punkter",
+      "Det finnes nøyaktig ett polynom av grad nøyaktig $n$ gjennom $n+1$ punkter",
+      "Det finnes uendelig mange polynomer av grad høyst $n$ gjennom $n+1$ punkter"
+    ],
+    "explanation": "Graden er høyst $n$, ikke nøyaktig $n$ — ligger punktene på en linje, faller den ledende koeffisienten bort. Beviset ser på differansen av to slike polynomer, som får for mange nullpunkter."
+  },
+  {
+    "question": "Hva er nevneren i en dividert differanse av orden $k$?",
+    "options": [
+      "Spennet over hele gruppen, $x_{i+k}-x_i$",
+      "Spennet mellom to nabonoder, $x_{i+1}-x_i$",
+      "Antall noder i gruppen, altså $k+1$",
+      "Produktet av nodeavstandene i gruppen"
+    ],
+    "explanation": "Nevneren spenner over hele gruppen. Med ekvidistante noder er den $kh$, ikke $h$ — det er en av de hyppigste tabellfeilene."
+  },
+  {
+    "question": "Hvilken fordel har Newton-formen framfor Lagrange-formen?",
+    "options": [
+      "Et nytt punkt legger bare til ett nytt ledd i polynomet",
+      "Den gir et polynom av lavere grad enn Lagrange-formen",
+      "Den krever ikke at nodene er innbyrdes forskjellige",
+      "Den gir alltid mindre interpolasjonsfeil enn Lagrange-formen"
+    ],
+    "explanation": "Begge formene gir nøyaktig samme polynom, så feil og grad er like. Forskjellen er organiseringen: Newton-leddene er null i alle tidligere noder."
+  },
+  {
+    "question": "Hva er koeffisienten foran $x^n$ i interpolasjonspolynomet?",
+    "options": [
+      "Den siste differansen $f[x_0,\\dots,x_n]$",
+      "Den første differansen, $f[x_0,x_1]$",
+      "Nodeverdien $f_n$ i den ytterste noden til høyre",
+      "Summen av alle dividerte differanser i tabellen"
+    ],
+    "explanation": "Bare det siste leddet i Newton-formen inneholder $x^n$. Er den siste differansen null, har polynomet lavere grad enn ventet."
+  },
+  {
+    "question": "Hvilken derivert inngår i feilformelen når du interpolerer i fire noder?",
+    "options": [
+      "Den fjerdederiverte, med fakultetet $4!=24$",
+      "Den tredjederiverte, med fakultetet $3!=6$",
+      "Den femtederiverte, med fakultetet $5!=120$",
+      "Den fjerdederiverte, med fakultetet $3!=6$"
+    ],
+    "explanation": "Fire noder gir $n=3$, og formelen bruker orden $n+1=4$ i både derivasjonen og fakultetet. Å telle antall noder som $n$ er den klassiske feilen."
+  },
+  {
+    "question": "Hva er nodepolynomet $\\omega(x)$?",
+    "options": [
+      "Produktet $\\prod_{k}(x-x_k)$ over nodene, av grad $n+1$",
+      "Summen $\\sum_k (x-x_k)$ over alle nodene, av grad 1",
+      "Produktet $\\prod_k (x_k-x)$ over alle nodene, av grad $n$",
+      "Produktet av alle kardinalfunksjonene $\\ell_k(x)$"
+    ],
+    "explanation": "Nodepolynomet er null i hver node, akkurat som feilen må være. Det er den delen av feilen du selv styrer, gjennom valget av noder."
+  },
+  {
+    "question": "Hvorfor er $\\xi$ i feilformelen ikke et problem i praksis?",
+    "options": [
+      "Fordi $f^{(n+1)}(\\xi)$ byttes mot en øvre grense",
+      "Fordi $\\xi$ alltid ligger midt mellom to nabonoder",
+      "Fordi $f^{(n+1)}(\\xi)$ alltid kan settes lik null",
+      "Fordi $\\xi$ kan leses av på det utdelte formelarket"
+    ],
+    "explanation": "Du bytter den ukjente verdien mot en øvre grense og får et anslag. Det er en garanti, ikke en prognose — den virkelige feilen er som regel klart mindre."
+  },
+  {
+    "question": "Hva er Runge-fenomenet?",
+    "options": [
+      "At mange ekvidistante noder kan gi større feil nær kantene",
+      "At mange ekvidistante noder alltid gir mindre feil nær kantene",
+      "At interpolasjonspolynomet aldri treffer nodene eksakt",
+      "At Newton- og Lagrange-formen gir ulike polynomer"
+    ],
+    "explanation": "Nodepolynomet blir mye større nær kantene ved jevn fordeling. Chebyshev-punktene, som ligger tettere mot kantene, er botemidlet."
+  },
+  {
+    "question": "Hvor ligger Chebyshev-punktene tettest?",
+    "options": [
+      "Nær kantene av intervallet",
+      "Nær midten av intervallet",
+      "Jevnt fordelt over hele intervallet",
+      "Nær det høyre endepunktet alene"
+    ],
+    "explanation": "Det strider mot intuisjonen, men det er der ekvidistante noder svikter. Punktene minimerer maksimum av nodepolynomet."
+  },
+  {
+    "question": "Nodene er symmetriske om null og dataene er odde. Hva vet du om $p$?",
+    "options": [
+      "$p$ er odde, så bare ulike potenser opptrer",
+      "$p$ er like, så bare like potenser opptrer",
+      "$p$ har konstantledd lik gjennomsnittet av dataene",
+      "$p$ må ha grad nøyaktig lik antall noder"
+    ],
+    "explanation": "Sett $q(x)=-p(-x)$; den interpolerer de samme punktene, så entydigheten gir $q=p$. Argumentet sparer deg halve regningen."
+  },
+  {
+    "question": "Hva blir interpolasjonspolynomet hvis $f$ selv er et polynom av grad høyst $n$?",
+    "options": [
+      "$p=f$, fordi $f$ selv treffer alle punktene",
+      "$p$ er nullpolynomet, fordi feilen er null i nodene",
+      "$p$ blir $f$ pluss et ledd med nodepolynomet $\\omega$",
+      "$p$ får alltid én grad lavere enn $f$ selv har"
+    ],
+    "explanation": "Entydigheten gir det direkte. Feilformelen gir det samme: den $(n+1)$-te deriverte av et polynom av grad $n$ er null."
+  },
+  {
+    "question": "Hvorfor er ekstrapolasjon farligere enn interpolasjon?",
+    "options": [
+      "Fordi alle faktorene i $\\omega(x)$ vokser samtidig",
+      "Fordi feilformelen ikke gjelder utenfor nodeintervallet",
+      "Fordi polynomet slutter å treffe nodene utenfor intervallet",
+      "Fordi den $(n+1)$-te deriverte alltid er større der"
+    ],
+    "explanation": "Innenfor har faktorene ulike fortegn og utlikner delvis hverandre. Utenfor peker de samme vei, og produktet vokser raskt."
+  },
+  {
+    "question": "Nodene er $0$, $2$ og $3$. Hva er $\\ell_1(x)$?",
+    "options": [
+      "$\\dfrac{x(x-3)}{-2}$",
+      "$\\dfrac{x(x-2)}{-2}$",
+      "$\\dfrac{(x-2)(x-3)}{6}$",
+      "$\\dfrac{x(x-3)}{2}$"
+    ],
+    "explanation": "Node 1 er $x_1=2$, så faktoren $(x-2)$ utelates. Nevneren er $(2-0)(2-3)=-2$. Kontroll: $\\ell_1(2)=2\\cdot(-1)/(-2)=1$."
+  },
+  {
+    "question": "Den siste dividerte differansen i en tabell med fire punkter blir null. Hva betyr det?",
+    "options": [
+      "Polynomet har grad høyst 2, ikke 3",
+      "Punktene kan ikke interpoleres med et polynom",
+      "To av nodene må være like",
+      "Alle nodeverdiene $f_k$ må være null"
+    ],
+    "explanation": "Den siste differansen er koeffisienten foran $x^3$. Blir den null, ligger punktene på en enklere kurve enn du trodde."
+  },
+  {
+    "question": "Hva er $\\max|\\omega|$ mellom to noder med avstand $h$ ved lineær interpolasjon?",
+    "options": [
+      "$h^{2}/4$, oppnådd midt mellom nodene",
+      "$h^{2}/2$, oppnådd midt mellom nodene",
+      "$h/2$, oppnådd i en av nodene",
+      "$h^{3}/4$, oppnådd midt mellom nodene"
+    ],
+    "explanation": "Med $s=x-x_0$ er $\\omega=s(s-h)$, en parabel med bunnpunkt i $s=h/2$ og verdi $-h^2/4$ der."
+  },
+  {
+    "question": "Oppgaven ber deg vise at Lagrange- og Newton-formen gir samme polynom. Hva kreves?",
+    "options": [
+      "Regn begge og påberop entydighetssetningen ved navn",
+      "Regn begge og konstater at tallene stemte overens",
+      "Regn bare Newton-formen, siden den er raskest",
+      "Regn bare Lagrange-formen og henvis til formelarket"
+    ],
+    "explanation": "Regningen er kontrollen; argumentet er entydigheten. Løsningsforslagene skriver teoremnavnet ut, og det skal du også."
+  }
+]

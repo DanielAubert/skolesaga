@@ -1,0 +1,505 @@
+{
+  "id": "tma4135-2-2",
+  "courseId": "tma4135",
+  "chapterNumber": "2.2",
+  "title": "Invers Laplace — delbrøk og kvadratkomplettering",
+  "description": "De to teknikkene for å bringe $Y(s)$ på tabellform: delbrøkoppspalting og kvadratkomplettering — begge honoreres, boka viser begge.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "lese ut av nevneren i $Y(s)$ hvilken form svaret får, og velge riktig teknikk før du regner",
+    "spalte en rasjonal brøk i delbrøker ved enkle og multiple reelle poler, og finne tellerne både ved tildekking og ved et lineært system",
+    "kvadratkomplettere en irredusibel andregradsnevner og justere telleren slik at den treffer måltabellformene for dempet cosinus og sinus",
+    "gjennomføre den komplekse veien med et konjugert polpar og vise at den gir samme reelle svar som kvadratkompletteringen"
+  ],
+  "content": [
+    {
+      "id": "tma4135-2-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er der studenter ryker.** Å transformere likningen er mekanikk; å komme tilbake er håndverk.\n\nLaplace-blokken står på **13 av 13 sett** i frekvensgrunnlaget, og den inverse transformen er halve jobben i hver eneste av dem. Løsningsforslagene i arkivet viser gjennomgående **flere veier til samme svar** for den samme brøken — reell delbrøkoppspalting, kompleks delbrøkoppspalting og kvadratkomplettering — og alle godtas. På ett av settene er kvadratkompletteringen omtalt som den raskeste. Boka viser derfor begge veier hver gang de finnes, og sier hvilken som går fortest.\n\nDet samme gjelder tellerne i en oppspalting: de kan finnes ved **tildekking** (sett inn den $s$-verdien som nuller ut en parentes) eller ved å **løse et lineært system**. Begge er honorert i arkivets fasiter. Velg den raskeste, og nevn at den andre finnes.\n\n**Formelark-merking.** Måltabellformene du sikter mot —\n$$\\frac{\\omega}{(s-a)^2+\\omega^2} \\leftrightarrow e^{at}\\sin\\omega t, \\qquad \\frac{s-a}{(s-a)^2+\\omega^2} \\leftrightarrow e^{at}\\cos\\omega t$$\n— **står på det utdelte formelarket — tren oppslaget**. Men selve manøveren, det å spalte en brøk eller fullføre et kvadrat slik at den *treffer* en av radene, **må kunnes eller utledes aktivt**. Det står ingen steder på arket, og det er nettopp der poengene ligger."
+    },
+    {
+      "id": "tma4135-2-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 2.1](/tma4135/tma4135-2-1) — tabellen over transformpar, derivasjonsregelen, førsteforskyvningsteoremet $\\mathcal{L}\\{e^{at}f(t)\\}=F(s-a)$ og tildekkingsmetoden for enkle poler. Fra [kap. 1.1](/tma4135/tma4135-1-1) trengs komplekse tall på formen $a\\pm bi$, konjugat og kvadratkomplettering av et andregradsuttrykk.\n\nEllers forutsettes vanlig brøkregning og faktorisering av polynomer. Kapitlet er forutsetning for [kap. 2.3](/tma4135/tma4135-2-3), [kap. 2.4](/tma4135/tma4135-2-4) og drillen i [kap. 2.5](/tma4135/tma4135-2-5)."
+    },
+    {
+      "id": "tma4135-2-2-motivasjon",
+      "type": "text",
+      "content": "## Veien tilbake er den trange delen\n\nSe for deg at du har oversatt en setning til et fremmedspråk ved å slå opp ord for ord. Å oversette tilbake er verre: nå står det en frase i ordboka som ikke helt matcher det du har, og du må skrive den om før du finner den.\n\nSlik er det med den inverse Laplace-transformen. Etter at du har løst for $Y(s)$, sitter du med noe som\n$$Y(s) = \\frac{2s-1}{s^2-6s+25}.$$\nIngen rad i tabellen ser slik ut. Men to enkle omskrivninger — **delbrøkoppspalting** og **kvadratkomplettering** — får nesten enhver brøk over på en form som står der.\n\nDet er hele kapitlet. To teknikker, brukt om og om igjen, og en klar regel for hvilken du velger:\n\n- **Kan nevneren faktoriseres i reelle førstegradsfaktorer?** Del opp i delbrøker.\n- **Har nevneren et andregradsledd uten reelle røtter?** Fullfør kvadratet.\n- **Begge deler i samme nevner?** Del opp først, fullfør kvadratet på restleddet.\n\n**Tidsplan for kapitlet (~60 min lesetid):** seks løkker, med et naturlig pausepunkt etter løkke 3. Anslaget gjelder lesing; regner du oppgavene med penn, kan du gange med rundt 1,5."
+    },
+    {
+      "id": "tma4135-2-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Les svaret av nevneren før du regner (~8 min)\n\nFør du gjør noe som helst: se på nevneren. Den forteller hvilken **form** svaret får, og dermed hvilken teknikk du skal bruke. Denne halve setningen sparer deg for feil vei."
+    },
+    {
+      "id": "tma4135-2-2-def-ekte-brok",
+      "type": "definition",
+      "title": "Ekte og uekte rasjonal brøk",
+      "content": "En brøk mellom polynomer er **ekte** når telleren har lavere grad enn nevneren, og **uekte** ellers.\n\n$\\dfrac{2s-1}{s^2-6s+25}$ er ekte (grad 1 over grad 2). $\\dfrac{s^2}{s^2+4}$ er uekte (grad 2 over grad 2).\n\n**Hvorfor det betyr noe:** bare ekte brøker kan spaltes rett i delbrøker. Er brøken uekte, deler du først ut med polynomdivisjon. Heldigvis er $Y(s)$ nesten alltid ekte i denne sjangeren — det følger av grensekontrollen $F(s)\\to 0$ fra [kap. 2.1](/tma4135/tma4135-2-1). Ender du med en uekte brøk, er det som regel et varsel om regnefeil lenger opp."
+    },
+    {
+      "id": "tma4135-2-2-def-nevnerlesning",
+      "type": "definition",
+      "title": "Å lese svarformen ut av nevneren",
+      "content": "Vanen som gjør at du velger riktig teknikk med én gang. Hver type faktor i nevneren svarer til én type ledd i svaret:\n\n| Faktor i nevneren | Ledd i $y(t)$ |\n|---|---|\n| $s-a$ (enkel) | $Ce^{at}$ |\n| $(s-a)^2$ (dobbel) | $\\left(C_1+C_2t\\right)e^{at}$ |\n| $s^2+\\omega^2$ | $\\cos\\omega t$ og $\\sin\\omega t$ |\n| $s^2-a^2$ | $\\cosh at$ og $\\sinh at$, eller $e^{\\pm at}$ |\n| $(s-a)^2+\\omega^2$ | $e^{at}\\cos\\omega t$ og $e^{at}\\sin\\omega t$ |\n\nSer du $s^2+4s+20$ i en nevner, vet du **før du regner** at svaret inneholder $e^{-2t}\\cos 4t$ og $e^{-2t}\\sin 4t$ — for $s^2+4s+20 = (s+2)^2+16$. Da vet du også at det er kvadratkomplettering og ikke delbrøk som skal fram."
+    },
+    {
+      "id": "tma4135-2-2-def-irredusibel",
+      "type": "definition",
+      "title": "Irredusibel andregradsfaktor",
+      "content": "Et andregradsuttrykk som ikke kan skrives som produkt av to reelle førstegradsfaktorer — altså et med **negativ diskriminant**.\n\nFor $s^2+ps+q$ er diskriminanten $p^2-4q$. Er den negativ, har uttrykket ingen reelle røtter, og faktoren er irredusibel.\n\n$s^2+4s+20$: diskriminanten er $16-80 = -64 < 0$, altså irredusibel.\n$s^2+4s+3$: diskriminanten er $16-12 = 4 > 0$, altså $(s+1)(s+3)$.\n\n**Sjekken tar fem sekunder og bestemmer hele veien videre.** Regn ut diskriminanten før du velger teknikk."
+    },
+    {
+      "id": "tma4135-2-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ren gjengivelse — slå opp i tabellen fra [kap. 2.1](/tma4135/tma4135-2-1) og skriv ned den inverse transformen.\n\n**a)** $\\dfrac{5}{s-2}$\n**b)** $\\dfrac{3}{s^4}$\n**c)** $\\dfrac{2s}{s^2+16}$\n**d)** $\\dfrac{1}{(s+5)^2}$",
+        "solution": "**a)** Eksponentialraden $1/(s-a)\\leftrightarrow e^{at}$ med $a=2$, og konstanten $5$ blir stående:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{5}{s-2}\\right\\} = 5e^{2t}.$$\n\n**b)** Potensraden er $n!/s^{n+1}\\leftrightarrow t^n$. Med nevner $s^4$ er $n=3$, og tabellen krever telleren $3!=6$. Vi har $3$, altså halvparten:\n$$\\frac{3}{s^4} = \\frac12\\cdot\\frac{6}{s^4} \\quad\\Longrightarrow\\quad \\mathcal{L}^{-1}\\left\\{\\frac{3}{s^4}\\right\\} = \\frac{t^3}{2}.$$\n\n**c)** Cosinusraden $s/(s^2+\\omega^2)$ med $\\omega = 4$, og faktoren $2$ utenfor:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{2s}{s^2+16}\\right\\} = 2\\cos 4t.$$\n\n**d)** Fra $\\mathcal{L}\\{t^ne^{at}\\}=n!/(s-a)^{n+1}$ med $n=1$ og $a=-5$:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{(s+5)^2}\\right\\} = te^{-5t}.$$\n\n**Fellesnevneren i alle fire:** finn raden, og juster telleren slik at den stemmer nøyaktig med det tabellen krever. Alt annet er å gange og dele med et tall.",
+        "hints": [
+          "Finn først hvilken rad nevneren hører til, og hvilken $a$ eller $\\omega$ den gir.",
+          "Se så på telleren: hva krever tabellen der, og hvilken konstant må du gange med for å komme dit?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Delbrøkoppspalting med enkle reelle poler (~14 min)\n\nHar nevneren bare forskjellige reelle røtter, deler du brøken i én liten brøk per rot. Da står hvert ledd på tabellform, og du er ferdig."
+    },
+    {
+      "id": "tma4135-2-2-def-delbrok",
+      "type": "definition",
+      "title": "Delbrøkoppspalting",
+      "content": "Å skrive én brøk med sammensatt nevner som en **sum** av brøker med enklere nevnere. For lutter forskjellige reelle røtter:\n\n$$\\frac{N(s)}{(s-r_1)(s-r_2)\\cdots(s-r_m)} = \\frac{A_1}{s-r_1} + \\frac{A_2}{s-r_2} + \\dots + \\frac{A_m}{s-r_m}.$$\n\nOppsettet på høyre side kalles **ansatsen**. Å sette opp riktig ansats er halve arbeidet: én brøk per faktor, med teller av grad én lavere enn faktoren.\n\nTeknikken **må kunnes eller utledes aktivt** — den står ikke på formelarket, men den er nøkkelen til at hvert ledd havner på en rad som gjør det."
+    },
+    {
+      "id": "tma4135-2-2-def-to-metoder",
+      "type": "definition",
+      "title": "To måter å finne tellerne",
+      "content": "Begge er honorert i arkivets løsningsforslag, og de gir alltid samme svar.\n\n**Tildekkingsmetoden:** dekk til faktoren $(s-r_k)$ i den opprinnelige brøken og sett $s=r_k$ i resten. Rask, men virker bare på **enkle** reelle poler.\n\n**Lineært system:** gang opp med hele nevneren, samle like potenser av $s$, og løs likningssystemet du får. Tregere, men virker alltid — også ved multiple poler og irredusible faktorer.\n\n**Valget i praksis:** bruk tildekking der du kan, og lineært system for restene. På eksamen sier du hvilken du bruker; du trenger ikke vise begge."
+    },
+    {
+      "id": "tma4135-2-2-eks-1",
+      "type": "example",
+      "title": "Enkle reelle poler — begge metodene på samme brøk",
+      "problem": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{2s+1}{(s-1)(s+3)}\\right\\}$, og finn tellerne både ved tildekking og ved et lineært system.",
+      "solution": "**Ansats.** Nevneren har to forskjellige reelle røtter, $s=1$ og $s=-3$, begge enkle:\n$$\\frac{2s+1}{(s-1)(s+3)} = \\frac{A}{s-1} + \\frac{B}{s+3}.$$\n\n**Metode 1 — tildekking.** Dekk til $(s-1)$ og sett $s=1$ i resten:\n$$A = \\left.\\frac{2s+1}{s+3}\\right|_{s=1} = \\frac{3}{4}.$$\nDekk til $(s+3)$ og sett $s=-3$:\n$$B = \\left.\\frac{2s+1}{s-1}\\right|_{s=-3} = \\frac{-5}{-4} = \\frac{5}{4}.$$\n\n**Metode 2 — lineært system.** Gang opp med $(s-1)(s+3)$:\n$$2s+1 = A(s+3) + B(s-1) = (A+B)s + (3A - B).$$\nSammenlign koeffisienter:\n$$A + B = 2, \\qquad 3A - B = 1.$$\nLegg likningene sammen: $4A = 3$, altså $A = 3/4$, og da $B = 2 - 3/4 = 5/4$. **Samme svar.**\n\nMetode 1 tok to linjer, metode 2 tok fem. Det er derfor tildekking er standardvalget når polene er enkle og reelle.\n\n**Transformer tilbake.** Fra tabellen på formelarket gir $1/(s-a)$ leddet $e^{at}$:\n$$y(t) = \\frac34 e^{t} + \\frac54 e^{-3t}.$$\n\n**Kontroll.** Sett $s=0$ i begge former av brøken: venstre gir $1/((-1)(3)) = -1/3$; høyre gir $\\tfrac34\\cdot(-1) + \\tfrac54\\cdot\\tfrac13 = -\\tfrac34 + \\tfrac{5}{12} = -\\tfrac{9}{12}+\\tfrac{5}{12} = -\\tfrac13$. Stemmer."
+    },
+    {
+      "id": "tma4135-2-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{3s+1}{(s+1)(s-1)}\\right\\}$ ved tildekking.",
+        "solution": "**Ansats:** $\\dfrac{3s+1}{(s+1)(s-1)} = \\dfrac{A}{s+1} + \\dfrac{B}{s-1}$.\n\n**Tildekking.**\n$$A = \\left.\\frac{3s+1}{s-1}\\right|_{s=-1} = \\frac{-2}{-2} = 1, \\qquad B = \\left.\\frac{3s+1}{s+1}\\right|_{s=1} = \\frac{4}{2} = 2.$$\n\n**Fra tabellen:**\n$$y(t) = e^{-t} + 2e^{t}.$$\n\n**Kontroll ved $s=0$:** venstre side gir $1/((1)(-1)) = -1$; høyre side gir $1/1 + 2/(-1) = 1-2 = -1$. Stemmer.\n\n*Merk:* svaret kan også skrives $3\\cosh t + \\sinh t$, siden $e^{-t}+2e^t = 3\\cdot\\tfrac12(e^t+e^{-t}) + \\tfrac12(e^t-e^{-t})$. Begge former er riktige — den første er kortere.",
+        "hints": [
+          "Sett opp ansatsen med én brøk per faktor før du regner noe.",
+          "For $A$: dekk til $(s+1)$ og sett $s=-1$ i det som er igjen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{4s+2}{s(s+1)(s+2)}\\right\\}$. Kontroller svaret ved å sette inn en $s$-verdi.",
+        "solution": "**Ansats.** Tre forskjellige reelle røtter, $s=0$, $s=-1$, $s=-2$:\n$$\\frac{4s+2}{s(s+1)(s+2)} = \\frac{A}{s} + \\frac{B}{s+1} + \\frac{C}{s+2}.$$\n\n**Tildekking.**\n$$A = \\left.\\frac{4s+2}{(s+1)(s+2)}\\right|_{s=0} = \\frac{2}{1\\cdot 2} = 1,$$\n$$B = \\left.\\frac{4s+2}{s(s+2)}\\right|_{s=-1} = \\frac{-2}{(-1)(1)} = 2,$$\n$$C = \\left.\\frac{4s+2}{s(s+1)}\\right|_{s=-2} = \\frac{-6}{(-2)(-1)} = -3.$$\n\n**Fra tabellen** gir $1/s$ konstanten $1$, og $1/(s-a)$ gir $e^{at}$:\n$$y(t) = 1 + 2e^{-t} - 3e^{-2t}.$$\n\n**Kontroll ved $s=1$:** venstre side gir $6/(1\\cdot 2\\cdot 3) = 1$; høyre side gir $1 + 2/2 - 3/3 = 1+1-1 = 1$. Stemmer.\n\n**Kontroll av selve svaret:** $y(0) = 1+2-3 = 0$, som stemmer med at brøken er ekte av grad 2 under grad 3 — startverdien til en slik funksjon er null. Det er en gratis fornuftssjekk.",
+        "hints": [
+          "Tre faktorer gir tre ledd i ansatsen.",
+          "Rota $s=0$ behandles som alle andre: dekk til $s$ og sett $s=0$ i resten."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Multiple poler (~12 min)\n\nStår en faktor i andre potens, holder det ikke med ett ledd. En dobbel rot krever **to** ledd, og det andre av dem er det man glemmer."
+    },
+    {
+      "id": "tma4135-2-2-def-multippel-ansats",
+      "type": "definition",
+      "title": "Ansatsen ved multiple poler",
+      "content": "Regelen for hvor mange ledd en gjentatt faktor skal ha: én per potens, opp til multiplisiteten.\n\n$$\\frac{N(s)}{(s-r)^2} = \\frac{A}{s-r} + \\frac{B}{(s-r)^2}, \\qquad \\frac{N(s)}{(s-r)^3} = \\frac{A}{s-r} + \\frac{B}{(s-r)^2} + \\frac{C}{(s-r)^3}.$$\n\n**Hvorfor begge trengs:** teller du ledd, må antall ukjente stemme med graden av nevneren. Utelater du $A/(s-r)$, har du for få frihetsgrader, og systemet blir uløselig.\n\nTildekkingsmetoden gir bare den **høyeste** koeffisienten direkte (den som hører til den største potensen). Resten finner du med et lineært system — eller ved å sette inn ekstra $s$-verdier."
+    },
+    {
+      "id": "tma4135-2-2-def-t-faktor",
+      "type": "definition",
+      "title": "Hvorfor doble poler gir en faktor $t$",
+      "content": "Sammenhengen som forklarer svarformen. Fra [kap. 2.1](/tma4135/tma4135-2-1): $\\mathcal{L}\\{te^{at}\\} = 1/(s-a)^2$.\n\nDerfor gir en dobbel pol i $s=a$ et ledd på formen $\\left(A + Bt\\right)e^{at}$ — ikke to eksponentialledd. Ser du $(s+2)^2$ i en nevner og skriver et svar uten en $t$ i, har du mistet et ledd.\n\nSamme mønster videre: en trippel pol gir $\\left(A + Bt + Ct^2/2\\right)e^{at}$, siden $\\mathcal{L}\\{t^2e^{at}\\}=2/(s-a)^3$."
+    },
+    {
+      "id": "tma4135-2-2-eks-2",
+      "type": "example",
+      "title": "Dobbel pol i null",
+      "problem": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{1}{s^2(s+1)}\\right\\}$.",
+      "solution": "**Ansats.** Faktoren $s$ står i andre potens, så den skal ha to ledd:\n$$\\frac{1}{s^2(s+1)} = \\frac{A}{s} + \\frac{B}{s^2} + \\frac{C}{s+1}.$$\n\n**Tildekking der den virker.** Den høyeste potensen av $s$ og den enkle polen $s=-1$:\n$$B = \\left.\\frac{1}{s+1}\\right|_{s=0} = 1, \\qquad C = \\left.\\frac{1}{s^2}\\right|_{s=-1} = 1.$$\n\n**Den siste koeffisienten med et lineært system.** Gang opp med $s^2(s+1)$:\n$$1 = As(s+1) + B(s+1) + Cs^2 = (A+C)s^2 + (A+B)s + B.$$\nKoeffisienten foran $s^2$ på venstre side er $0$, så $A + C = 0$, og med $C=1$ blir $A = -1$.\n\n**Kontroll av mellomresultatet:** koeffisienten foran $s$ skal også være null, og $A+B = -1+1 = 0$. Stemmer. Konstantleddet: $B=1$. Stemmer.\n\n**Sett sammen og transformer tilbake:**\n$$\\frac{1}{s^2(s+1)} = -\\frac{1}{s} + \\frac{1}{s^2} + \\frac{1}{s+1}.$$\nFra tabellen på formelarket: $1/s\\leftrightarrow 1$, $1/s^2\\leftrightarrow t$, $1/(s+1)\\leftrightarrow e^{-t}$:\n$$y(t) = -1 + t + e^{-t}.$$\n\n**Kontroll.** $y(0) = -1+0+1 = 0$, som det skal være for en ekte brøk av grad 0 under grad 3. Og $y'(t) = 1 - e^{-t}$ gir $y'(0)=0$ — også som forventet, siden $sY(s)\\to 0$ når $s\\to\\infty$.\n\n**Legg merke til hva som ville skjedd** om du hadde satt opp ansatsen som $B/s^2 + C/(s+1)$ uten $A/s$. Da hadde du to ukjente og tre koeffisientlikninger, og systemet hadde ikke gått opp. Antall ledd må stemme med graden av nevneren."
+    },
+    {
+      "id": "tma4135-2-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{2s+3}{s^2(s+3)}\\right\\}$.",
+        "solution": "**Ansats:**\n$$\\frac{2s+3}{s^2(s+3)} = \\frac{A}{s} + \\frac{B}{s^2} + \\frac{C}{s+3}.$$\n\n**Tildekking.**\n$$B = \\left.\\frac{2s+3}{s+3}\\right|_{s=0} = \\frac{3}{3} = 1, \\qquad C = \\left.\\frac{2s+3}{s^2}\\right|_{s=-3} = \\frac{-3}{9} = -\\frac13.$$\n\n**Siste koeffisient.** Gang opp:\n$$2s+3 = As(s+3) + B(s+3) + Cs^2 = (A+C)s^2 + (3A+B)s + 3B.$$\nKoeffisienten foran $s^2$ er null på venstre side, så $A = -C = \\tfrac13$.\n\n**Kontroll:** koeffisienten foran $s$ skal være $2$, og $3A+B = 1 + 1 = 2$. Stemmer. Konstantleddet: $3B = 3$. Stemmer.\n\n**Fra tabellen:**\n$$y(t) = \\frac13 + t - \\frac13 e^{-3t}.$$\n\n**Kontroll av svaret:** $y(0) = \\tfrac13 + 0 - \\tfrac13 = 0$, som forventet av en ekte brøk.",
+        "hints": [
+          "Faktoren $s^2$ krever to ledd i ansatsen, ikke ett.",
+          "Tildekking gir $B$ og $C$ direkte. For $A$: sammenlign koeffisienten foran $s^2$ etter at du har ganget opp."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{s+1}{(s-1)^2}\\right\\}$ på to måter, og sammenlign arbeidsmengden.\n\n**a)** Ved å skrive telleren om.\n**b)** Ved en formell delbrøkoppspalting.",
+        "solution": "**a) Skriv telleren om.** Trikset er å tvinge fram nevnerens rot i telleren: $s+1 = (s-1) + 2$. Da faller brøken fra hverandre av seg selv:\n$$\\frac{s+1}{(s-1)^2} = \\frac{(s-1)+2}{(s-1)^2} = \\frac{1}{s-1} + \\frac{2}{(s-1)^2}.$$\nFra tabellen: $1/(s-a)\\leftrightarrow e^{at}$ og $1/(s-a)^2\\leftrightarrow te^{at}$ med $a=1$:\n$$y(t) = e^{t} + 2te^{t} = (1+2t)e^{t}.$$\n\n**b) Formell oppspalting.** Ansats $\\dfrac{A}{s-1} + \\dfrac{B}{(s-1)^2}$. Gang opp:\n$$s+1 = A(s-1) + B.$$\nSett $s=1$: $B = 2$. Sammenlign koeffisienten foran $s$: $A = 1$. Samme svar.\n\n**Sammenligning.** Begge er korte her, men omskrivingen i a) er den som skalerer: den samme manøveren — «skriv telleren ved hjelp av det som står i nevneren» — er det du bruker i hver eneste kvadratkompletteringsoppgave i løkke 4. Det lønner seg å venne seg til den nå.\n\n**Kontroll.** $y(0) = 1$, og brøken oppfyller $sY(s)\\to 1$ når $s\\to\\infty$, som stemmer med $y(0)=1$.",
+        "hints": [
+          "I a): kan du skrive $s+1$ ved hjelp av $(s-1)$ og et tall?",
+          "I b): gang opp med $(s-1)^2$ og sett inn $s=1$ for å få $B$ gratis."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-pause",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå den ene halvdelen: reelle røtter, enkle og multiple. Andre halvdel handler om nevnere som **ikke** har reelle røtter i det hele tatt."
+    },
+    {
+      "id": "tma4135-2-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Kvadratkomplettering (~12 min)\n\nHar nevneren en irredusibel andregradsfaktor, finnes det ingen reell rot å dekke til. Da gjør du noe annet: du skriver om nevneren til et **fullstendig kvadrat pluss et positivt tall**, og treffer dermed en rad som allerede står på arket."
+    },
+    {
+      "id": "tma4135-2-2-def-kvadratkomplettering",
+      "type": "definition",
+      "title": "Kvadratkomplettering",
+      "content": "Å skrive et andregradsuttrykk som et kvadrat pluss en rest:\n\n$$s^2+ps+q = \\left(s+\\frac{p}{2}\\right)^2 + \\left(q - \\frac{p^2}{4}\\right).$$\n\nOppskriften i ord: **halver koeffisienten foran $s$, sett den inne i parentesen, og trekk fra kvadratet av det du la til.**\n\n$$s^2-6s+25 = (s-3)^2 - 9 + 25 = (s-3)^2 + 16.$$\n\nEr faktoren irredusibel, blir restleddet **positivt**, og du kan skrive det som $\\omega^2$. Her er $\\omega = 4$. Manøveren **må kunnes eller utledes aktivt** — den står ikke på formelarket."
+    },
+    {
+      "id": "tma4135-2-2-def-maltabell",
+      "type": "definition",
+      "title": "Måltabellformene for en dempet svingning",
+      "content": "De to radene du sikter mot etter en kvadratkomplettering:\n\n$$\\frac{s-a}{(s-a)^2+\\omega^2} \\;\\leftrightarrow\\; e^{at}\\cos\\omega t, \\qquad \\frac{\\omega}{(s-a)^2+\\omega^2} \\;\\leftrightarrow\\; e^{at}\\sin\\omega t.$$\n\nBegge **står på det utdelte formelarket — tren oppslaget**. De er ikke annet enn cosinus- og sinusraden med førsteforskyvningsteoremet fra [kap. 2.1](/tma4135/tma4135-2-1) brukt på: bytt $s$ med $s-a$ overalt.\n\n**Merk kravene nøye.** Cosinusformen krever nøyaktig $s-a$ i telleren — ikke $s$, ikke $s+1$. Sinusformen krever nøyaktig $\\omega$. Får du noe annet, må telleren skrives om, og det er neste definisjon."
+    },
+    {
+      "id": "tma4135-2-2-def-tellertriks",
+      "type": "definition",
+      "title": "Å skrive telleren i nevnerens språk",
+      "content": "Manøveren som får en vilkårlig teller til å treffe de to måltabellformene. Har du kvadratkomplettert til $(s-a)^2+\\omega^2$, skriver du telleren ved hjelp av $(s-a)$:\n\n$$2s-1 \\;=\\; 2(s-3) + 5 \\qquad \\text{når } a = 3.$$\n\nRegningen er alltid den samme: gang $a$ med koeffisienten foran $s$, og juster konstanten. Etterpå deler du opp:\n\n$$\\frac{2s-1}{(s-3)^2+16} = 2\\cdot\\frac{s-3}{(s-3)^2+16} + \\frac{5}{4}\\cdot\\frac{4}{(s-3)^2+16}.$$\n\nLegg merke til det siste trinnet: konstanten $5$ måtte skrives som $\\tfrac54\\cdot 4$ for at telleren skulle bli nøyaktig $\\omega = 4$. Det er dette skrittet som glipper oftest. Manøveren **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-2-eks-3",
+      "type": "example",
+      "title": "Kvadratkomplettering fra ende til annen",
+      "problem": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{2s-1}{s^2-6s+25}\\right\\}$.",
+      "solution": "**Steg 1 — sjekk om nevneren kan faktoriseres.** Diskriminanten er $(-6)^2 - 4\\cdot 25 = 36-100 = -64 < 0$. Ingen reelle røtter, altså ingen delbrøkoppspalting. Kvadratkomplettering er veien.\n\n**Steg 2 — fullfør kvadratet.** Halvparten av $-6$ er $-3$:\n$$s^2-6s+25 = (s-3)^2 - 9 + 25 = (s-3)^2 + 16.$$\nAltså $a = 3$ og $\\omega = 4$. Nå vet vi allerede at svaret inneholder $e^{3t}\\cos 4t$ og $e^{3t}\\sin 4t$.\n\n**Steg 3 — skriv telleren i samme språk.**\n$$2s - 1 = 2(s-3) + 6 - 1 = 2(s-3) + 5.$$\n\n**Steg 4 — del opp og juster konstantene.**\n$$\\frac{2s-1}{(s-3)^2+16} = 2\\cdot\\frac{s-3}{(s-3)^2+16} + \\frac{5}{4}\\cdot\\frac{4}{(s-3)^2+16}.$$\nDet andre leddet: $5 = \\tfrac54\\cdot 4$, slik at telleren blir nøyaktig $\\omega = 4$.\n\n**Steg 5 — les av.** Fra tabellen på formelarket, med $a=3$ og $\\omega = 4$:\n$$y(t) = 2e^{3t}\\cos 4t + \\frac54 e^{3t}\\sin 4t.$$\n\n**Kontroll.** Sett $t=0$: $y(0) = 2$. Fra brøken: $sY(s) \\to 2$ når $s\\to\\infty$, som svarer til $y(0)=2$. Stemmer.\n\nEn kontroll til, som er verdt vanen: deriver svaret og sett $t=0$. $y'(0) = 2\\cdot 3 + \\tfrac54\\cdot 4 = 6+5 = 11$. Fra brøken: $s^2Y - s\\,y(0) \\to 11$ når $s\\to\\infty$, siden $s^2\\cdot\\frac{2s-1}{s^2-6s+25} - 2s \\to 11$. Stemmer også."
+    },
+    {
+      "id": "tma4135-2-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn den inverse Laplace-transformen. Skriv opp $a$ og $\\omega$ før du deler opp.\n\n**a)** $\\dfrac{s+6}{s^2+2s+10}$\n**b)** $\\dfrac{4}{s^2+6s+13}$",
+        "solution": "**a)** Diskriminanten er $4-40 = -36 < 0$, altså irredusibel. Kvadratkomplettering:\n$$s^2+2s+10 = (s+1)^2 + 9,$$\nså $a = -1$ og $\\omega = 3$. Telleren i nevnerens språk: $s+6 = (s+1) + 5$. Da er\n$$\\frac{s+6}{(s+1)^2+9} = \\frac{s+1}{(s+1)^2+9} + \\frac{5}{3}\\cdot\\frac{3}{(s+1)^2+9},$$\nog fra tabellen:\n$$y(t) = e^{-t}\\cos 3t + \\frac53 e^{-t}\\sin 3t.$$\n\n**b)** Diskriminanten er $36-52 = -16 < 0$. Kvadratkomplettering:\n$$s^2+6s+13 = (s+3)^2+4,$$\nså $a = -3$ og $\\omega = 2$. Telleren er et rent tall, så bare sinusraden er aktuell, og vi trenger telleren $\\omega = 2$:\n$$\\frac{4}{(s+3)^2+4} = 2\\cdot\\frac{2}{(s+3)^2+4} \\quad\\Longrightarrow\\quad y(t) = 2e^{-3t}\\sin 2t.$$\n\n**Kontroll av b):** $y(0)=0$, som stemmer med at telleren har grad 0 og nevneren grad 2.",
+        "hints": [
+          "Regn ut diskriminanten først — er den negativ, er kvadratkomplettering riktig vei.",
+          "Etter kvadratkompletteringen: hva må telleren være for at leddet skal treffe sinusraden nøyaktig?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Reell eller kompleks vei? (~8 min)\n\nKvadratkomplettering er ikke den eneste veien forbi en irredusibel nevner. Du kan også faktorisere den over de komplekse tallene og bruke helt vanlig delbrøkoppspalting. Arkivets løsningsforslag viser begge, og begge gir full uttelling. Boka viser deg derfor begge på **samme** brøk, så du ser at de møtes."
+    },
+    {
+      "id": "tma4135-2-2-def-konjugert-polpar",
+      "type": "definition",
+      "title": "Konjugert polpar",
+      "content": "De to komplekse røttene en irredusibel andregradsnevner har. De kommer alltid i par som er hverandres speilbilder om den reelle aksen:\n\n$$s = a + bi \\quad \\text{og} \\quad s = a - bi.$$\n\nFor $s^2-6s+25$ er de $3\\pm 4i$ — nøyaktig de samme tallene som kvadratkompletteringen ga som $a=3$ og $\\omega = 4$. Det er ingen tilfeldighet: $(s-3)^2+16 = (s-(3+4i))(s-(3-4i))$.\n\n**Konsekvensen for svaret:** et konjugert polpar gir **ett reelt** ledd i sluttsvaret, ikke to komplekse. Sitter du igjen med en $i$ i et svar som skulle vært reelt, har du regnefeil — se [kap. 1.1](/tma4135/tma4135-1-1)."
+    },
+    {
+      "id": "tma4135-2-2-def-kompleks-delbrok",
+      "type": "definition",
+      "title": "Kompleks delbrøkoppspalting",
+      "content": "Delbrøkoppspalting utført på de komplekse røttene i stedet for på et kvadrat. Ansatsen er\n\n$$\\frac{N(s)}{(s-(a+bi))(s-(a-bi))} = \\frac{A}{s-(a+bi)} + \\frac{\\bar A}{s-(a-bi)},$$\n\nder $A$ finnes ved tildekking akkurat som ellers, og den andre telleren automatisk er konjugatet $\\bar A$.\n\n**Veien tilbake til et reelt svar:** de to leddene er hverandres konjugerte, så summen er to ganger realdelen av det ene:\n\n$$y(t) = 2\\,\\operatorname{Re}\\!\\left(A\\,e^{(a+bi)t}\\right) = 2e^{at}\\left(\\operatorname{Re}A\\,\\cos bt - \\operatorname{Im}A\\,\\sin bt\\right).$$\n\nMetoden **må kunnes eller utledes aktivt**. Den er som regel litt lengre enn kvadratkomplettering, men den er trygg når kvadratkompletteringen blir rotete, og den er alltid godtatt."
+    },
+    {
+      "id": "tma4135-2-2-eks-4",
+      "type": "example",
+      "title": "Samme brøk, to veier",
+      "problem": "Vis at kompleks delbrøkoppspalting gir samme svar som kvadratkompletteringen i eksempel 3, altså for $\\dfrac{2s-1}{s^2-6s+25}$.",
+      "solution": "**Faktoriser nevneren over de komplekse tallene.** Røttene er $s = 3\\pm 4i$ (samme tall som kvadratkompletteringen ga), så\n$$s^2-6s+25 = \\left(s-(3+4i)\\right)\\left(s-(3-4i)\\right).$$\n\n**Ansats og tildekking.** Med\n$$\\frac{2s-1}{s^2-6s+25} = \\frac{A}{s-(3+4i)} + \\frac{\\bar A}{s-(3-4i)}$$\nfinner vi $A$ ved å dekke til den første faktoren og sette $s = 3+4i$:\n$$A = \\frac{2(3+4i)-1}{(3+4i)-(3-4i)} = \\frac{5+8i}{8i}.$$\nGang teller og nevner med $-i$ for å få reell nevner (samme triks som i [kap. 1.1](/tma4135/tma4135-1-1)):\n$$A = \\frac{(5+8i)(-i)}{8i\\cdot(-i)} = \\frac{-5i - 8i^2}{8} = \\frac{8-5i}{8} = 1 - \\frac58 i.$$\n\n**Sett sammen.** Leddene er konjugerte, så summen er to ganger realdelen av det første:\n$$y(t) = 2\\,\\operatorname{Re}\\!\\left(\\left(1-\\tfrac58 i\\right)e^{(3+4i)t}\\right).$$\nSkriv $e^{(3+4i)t} = e^{3t}\\left(\\cos 4t + i\\sin 4t\\right)$ etter Eulers formel og gang ut. Realdelen av produktet er\n$$1\\cdot\\cos 4t - \\left(-\\tfrac58\\right)\\sin 4t = \\cos 4t + \\tfrac58\\sin 4t,$$\nog med faktoren $2e^{3t}$ utenfor:\n$$y(t) = 2e^{3t}\\cos 4t + \\frac54 e^{3t}\\sin 4t.$$\n\n**Nøyaktig samme svar som i eksempel 3.** De to veiene er begge riktige, og ingen sensur trekker for valget.\n\n**Hvilken bør du velge?** Kvadratkomplettering tok fem korte steg; den komplekse veien tok like mange, men med komplekse brøker underveis. På eksamen er kvadratkomplettering som regel raskest for en ren andregradsnevner. Den komplekse veien er verdt å kunne fordi den er den samme metoden du allerede bruker på reelle poler — du trenger ikke lære noe nytt, bare tåle $i$-en."
+    },
+    {
+      "id": "tma4135-2-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{3s+1}{s^2-4s+13}\\right\\}$ på **begge** måtene, og kontroller at de gir samme svar.\n\n**a)** Ved kvadratkomplettering.\n**b)** Ved kompleks delbrøkoppspalting.",
+        "solution": "**a) Kvadratkomplettering.** Diskriminanten er $16-52 = -36 < 0$. Halvparten av $-4$ er $-2$:\n$$s^2-4s+13 = (s-2)^2 + 9,$$\naltså $a=2$ og $\\omega = 3$. Telleren: $3s+1 = 3(s-2) + 6 + 1 = 3(s-2) + 7$. Da er\n$$\\frac{3s+1}{(s-2)^2+9} = 3\\cdot\\frac{s-2}{(s-2)^2+9} + \\frac{7}{3}\\cdot\\frac{3}{(s-2)^2+9},$$\nog fra tabellen på formelarket:\n$$y(t) = 3e^{2t}\\cos 3t + \\frac73 e^{2t}\\sin 3t.$$\n\n**b) Kompleks delbrøkoppspalting.** Røttene er $s = 2\\pm 3i$. Tildekking gir\n$$A = \\frac{3(2+3i)+1}{(2+3i)-(2-3i)} = \\frac{7+9i}{6i} = \\frac{(7+9i)(-i)}{6} = \\frac{9-7i}{6} = \\frac32 - \\frac76 i.$$\nSummen av de to konjugerte leddene er\n$$y(t) = 2\\,\\operatorname{Re}\\!\\left(\\left(\\tfrac32 - \\tfrac76 i\\right)e^{(2+3i)t}\\right) = 2e^{2t}\\left(\\tfrac32\\cos 3t + \\tfrac76\\sin 3t\\right) = 3e^{2t}\\cos 3t + \\frac73 e^{2t}\\sin 3t.$$\n\n**Samme svar.** Legg merke til koblingen: realdelen av $A$ er halve cosinus-koeffisienten, og minus imaginærdelen er halve sinus-koeffisienten. Den sammenhengen kan du bruke som kontroll hver gang du regner den komplekse veien.\n\n**Kontroll av tallverdi.** Ved $t=0$ gir begge $y(0)=3$, som stemmer med at $sY(s)\\to 3$ når $s\\to\\infty$.",
+        "hints": [
+          "I a): fullfør kvadratet først, og skriv så telleren ved hjelp av $(s-2)$.",
+          "I b): tildekking fungerer på komplekse poler akkurat som på reelle — sett inn $s=2+3i$ i det som blir igjen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — Eksamensnivå: begge teknikkene i samme brøk (~10 min)\n\nI en reell eksamensoppgave har nevneren gjerne **både** en reell rot og en irredusibel andregradsfaktor. Da gjør du begge deler, i denne rekkefølgen: spalt opp først, kvadratkompletter restleddet."
+    },
+    {
+      "id": "tma4135-2-2-eks-5",
+      "type": "example",
+      "title": "Blandet nevner — full eksamensføring",
+      "problem": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{3s+7}{(s+1)\\left(s^2+2s+5\\right)}\\right\\}$.",
+      "solution": "**Steg 1 — kartlegg nevneren.** Én reell rot, $s=-1$, og andregradsfaktoren $s^2+2s+5$ med diskriminant $4-20 = -16 < 0$, altså irredusibel. Ansatsen får derfor ett enkelt ledd og ett med lineær teller:\n$$\\frac{3s+7}{(s+1)\\left(s^2+2s+5\\right)} = \\frac{A}{s+1} + \\frac{Bs+C}{s^2+2s+5}.$$\n\n**Steg 2 — tildekking for $A$.** Dekk til $(s+1)$ og sett $s=-1$:\n$$A = \\left.\\frac{3s+7}{s^2+2s+5}\\right|_{s=-1} = \\frac{4}{1-2+5} = \\frac{4}{4} = 1.$$\n\n**Steg 3 — resten ved subtraksjon.** Gang opp med hele nevneren:\n$$3s+7 = A\\left(s^2+2s+5\\right) + (Bs+C)(s+1).$$\nSett inn $A=1$ og flytt over:\n$$3s+7 - \\left(s^2+2s+5\\right) = -s^2 + s + 2 = (Bs+C)(s+1).$$\nFaktoriser venstresiden: $-s^2+s+2 = -\\left(s^2-s-2\\right) = -(s-2)(s+1) = (-s+2)(s+1)$. Deler vi bort $(s+1)$:\n$$Bs + C = -s + 2, \\qquad \\text{altså } B = -1,\\ C = 2.$$\n\n**Steg 4 — kvadratkompletter andregradsleddet.** $s^2+2s+5 = (s+1)^2+4$, altså $a=-1$ og $\\omega = 2$. Telleren i nevnerens språk:\n$$-s+2 = -\\left((s+1) - 1\\right) + 2 = -(s+1) + 3.$$\n\n**Steg 5 — sett sammen alt:**\n$$Y(s) = \\frac{1}{s+1} - \\frac{s+1}{(s+1)^2+4} + \\frac{3}{2}\\cdot\\frac{2}{(s+1)^2+4}.$$\n\n**Steg 6 — les av fra tabellen på formelarket:**\n$$y(t) = e^{-t} - e^{-t}\\cos 2t + \\frac32 e^{-t}\\sin 2t.$$\n\n**Kontroll ved $s=0$.** Venstre side: $7/(1\\cdot 5) = 7/5$. Høyre side: $1 - \\tfrac{1}{5} + \\tfrac32\\cdot\\tfrac25 = 1 - 0{,}2 + 0{,}6 = 1{,}4 = 7/5$. Stemmer.\n\n**Kontroll av svaret:** $y(0) = 1 - 1 + 0 = 0$, som forventet av en ekte brøk med grad 1 over grad 3.\n\n**Hva som gir uttelling.** Instruksen på settene krever nok mellomregning til at tenkemåten klart framgår. Her betyr det: skriv ansatsen ned eksplisitt, si at $A$ ble funnet ved tildekking, vis kvadratkompletteringen, og marker tabelloppslaget («fra tabellen …»). Sluttsvaret alene, uten disse linjene, gir ikke full uttelling."
+    },
+    {
+      "id": "tma4135-2-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{2s+8}{(s+2)\\left(s^2+4s+8\\right)}\\right\\}$.",
+        "solution": "**Kartlegg nevneren.** Reell rot $s=-2$; andregradsfaktoren har diskriminant $16-32 = -16 < 0$, altså irredusibel. Ansats:\n$$\\frac{2s+8}{(s+2)\\left(s^2+4s+8\\right)} = \\frac{A}{s+2} + \\frac{Bs+C}{s^2+4s+8}.$$\n\n**Tildekking for $A$:**\n$$A = \\left.\\frac{2s+8}{s^2+4s+8}\\right|_{s=-2} = \\frac{4}{4-8+8} = \\frac44 = 1.$$\n\n**Resten.** Gang opp og sett inn $A=1$:\n$$2s+8 - \\left(s^2+4s+8\\right) = -s^2 - 2s = -s(s+2) = (Bs+C)(s+2),$$\naltså $Bs+C = -s$, det vil si $B=-1$ og $C=0$.\n\n**Kvadratkompletter:** $s^2+4s+8 = (s+2)^2+4$, med $a=-2$ og $\\omega = 2$. Telleren:\n$$-s = -\\left((s+2)-2\\right) = -(s+2) + 2.$$\n\n**Sett sammen:**\n$$Y(s) = \\frac{1}{s+2} - \\frac{s+2}{(s+2)^2+4} + \\frac{2}{(s+2)^2+4}.$$\nDet siste leddet har allerede telleren $\\omega = 2$, så det trengs ingen justering.\n\n**Fra tabellen:**\n$$y(t) = e^{-2t} - e^{-2t}\\cos 2t + e^{-2t}\\sin 2t.$$\n\n**Kontroll ved $s=0$:** venstre side gir $8/(2\\cdot 8) = 1/2$; høyre side gir $\\tfrac12 - \\tfrac{2}{8} + \\tfrac{2}{8} = \\tfrac12$. Stemmer. Og $y(0) = 1-1+0 = 0$.",
+        "hints": [
+          "Spalt opp først, kvadratkompletter etterpå — aldri omvendt.",
+          "Etter at $A$ er funnet ved tildekking: gang opp, sett inn $A$, og faktoriser det som blir igjen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{2s^2+s+4}{s\\left(s^2+4\\right)}\\right\\}$.",
+        "solution": "**Ansats.** Én reell rot i $s=0$ og en irredusibel faktor $s^2+4$:\n$$\\frac{2s^2+s+4}{s\\left(s^2+4\\right)} = \\frac{A}{s} + \\frac{Bs+C}{s^2+4}.$$\n\n**Tildekking for $A$:**\n$$A = \\left.\\frac{2s^2+s+4}{s^2+4}\\right|_{s=0} = \\frac{4}{4} = 1.$$\n\n**Resten:**\n$$2s^2+s+4 - \\left(s^2+4\\right) = s^2 + s = s(s+1) = (Bs+C)s,$$\naltså $Bs+C = s+1$, det vil si $B=1$ og $C=1$.\n\n**Sett sammen.** Nevneren $s^2+4$ er allerede på formen $s^2+\\omega^2$ med $\\omega = 2$ — ingen kvadratkomplettering trengs, siden det ikke er noe førstegradsledd:\n$$Y(s) = \\frac1s + \\frac{s}{s^2+4} + \\frac12\\cdot\\frac{2}{s^2+4}.$$\n\n**Fra tabellen:**\n$$y(t) = 1 + \\cos 2t + \\frac12\\sin 2t.$$\n\n**Kontroll ved $s=1$:** venstre side gir $(2+1+4)/(1\\cdot 5) = 7/5$; høyre side gir $1 + \\tfrac15 + \\tfrac12\\cdot\\tfrac25 = 1+0{,}2+0{,}2 = 1{,}4$. Stemmer.\n\n**Merk:** her var $a=0$, så det ble ingen eksponentialfaktor. En nevner $s^2+\\omega^2$ **uten** førstegradsledd er allerede kvadratkomplettert.",
+        "hints": [
+          "Ansatsen over en irredusibel andregradsfaktor har en **lineær** teller $Bs+C$, ikke bare en konstant.",
+          "$s^2+4$ har ikke noe $s$-ledd — trenger du kvadratkomplettering i det hele tatt?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-2-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs $y'' + 6y' + 13y = 0$ med $y(0)=0$ og $y'(0)=4$. Vis hele veien fra likning til svar.",
+        "solution": "**Transformer og sett inn startverdiene.** Etter derivasjonsregelen fra [kap. 2.1](/tma4135/tma4135-2-1):\n$$\\mathcal{L}\\{y''\\} = s^2Y - s\\cdot 0 - 4 = s^2Y - 4, \\qquad \\mathcal{L}\\{6y'\\} = 6sY.$$\nLikningen blir\n$$s^2Y - 4 + 6sY + 13Y = 0 \\quad\\Longrightarrow\\quad \\left(s^2+6s+13\\right)Y = 4.$$\n\n**Løs for $Y$:**\n$$Y(s) = \\frac{4}{s^2+6s+13}.$$\n\n**Kvadratkompletter.** Diskriminanten er $36-52 = -16 < 0$. Halvparten av $6$ er $3$:\n$$s^2+6s+13 = (s+3)^2+4,$$\naltså $a=-3$ og $\\omega = 2$. Telleren er en ren konstant, så bare sinusraden er aktuell, og den krever telleren $\\omega = 2$:\n$$Y(s) = 2\\cdot\\frac{2}{(s+3)^2+4}.$$\n\n**Fra tabellen på formelarket:**\n$$y(t) = 2e^{-3t}\\sin 2t.$$\n\n**Kontroll.** $y(0)=0$. Videre er\n$$y' = -6e^{-3t}\\sin 2t + 4e^{-3t}\\cos 2t,$$\nså $y'(0) = 4$. Og setter du inn i likningen, gir de tre leddene til sammen null — polene $-3\\pm 2i$ er nettopp røttene i $s^2+6s+13$, som er likningens karakteristiske uttrykk.\n\n**Merk koblingen:** kvadratkompletteringens $a$ og $\\omega$ er realdelen og imaginærdelen av røttene i den karakteristiske likningen. Du kunne lest dempingen $e^{-3t}$ og frekvensen $2$ rett ut av nevneren, før du regnet.",
+        "hints": [
+          "Transformer først, med startverdiene satt inn med det samme.",
+          "Nevneren du får er likningens karakteristiske uttrykk. Regn ut diskriminanten før du velger teknikk."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å hoppe over kvadratkompletteringen.** Har nevneren en irredusibel andregradsfaktor og du prøver deg på delbrøk med reelle røtter, sitter du fast — eller enda verre, du «finner» røtter som ikke finnes. Regn ut diskriminanten **først**. Er den negativ, er kvadratkomplettering veien.\n\n**Feil $\\omega$ etter kvadratkompletteringen.** Restleddet er $\\omega^2$, ikke $\\omega$. Er $s^2-6s+25 = (s-3)^2+16$, er $\\omega = 4$, ikke $16$. Denne ene feilen gir feil frekvens i hele svaret, og den er lett å ikke oppdage.\n\n**Å glemme å justere telleren til $\\omega$.** Sinusraden krever nøyaktig $\\omega$ i telleren. Har du $5$ og $\\omega = 4$, må du skrive $5 = \\tfrac54\\cdot 4$. Skriver du bare $5\\sin 4t$, er svaret galt med en faktor $5/4$.\n\n**Å glemme et ledd ved multiple poler.** $(s-r)^2$ i nevneren krever **to** ledd i ansatsen, $A/(s-r)$ og $B/(s-r)^2$. Med bare ett ledd går regnestykket ikke opp — og et manglende $t$ i svaret er symptomet.\n\n**Feil fortegn og plassering i ansatsen.** En faktor $(s+3)$ har rot $s=-3$, ikke $s=3$. Tildekking med feil fortegn på rota gir feil koeffisient i alle leddene som følger.\n\n**Å bruke en konstant teller over en irredusibel faktor.** Ansatsen over $s^2+2s+5$ skal ha $\\dfrac{Bs+C}{s^2+2s+5}$, ikke $\\dfrac{B}{s^2+2s+5}$. Antall ukjente må stemme med graden.\n\n**Å bytte bare i nevneren.** Når du kvadratkompletterer, skal telleren skrives om i **samme** språk. $\\dfrac{s}{(s+2)^2+4}$ er ikke $e^{-2t}\\cos 2t$ — du må først skrive $s = (s+2)-2$.\n\n**Å la et komplekst svar bli stående.** Et konjugert polpar gir ett **reelt** ledd. Står det en $i$ i sluttsvaret ditt, har du regnefeil i den komplekse veien — realdelene og imaginærdelene skal kansellere hverandre."
+    },
+    {
+      "id": "tma4135-2-2-def-tabelloppslag-baklengs",
+      "type": "definition",
+      "title": "Å lese tabellen baklengs",
+      "content": "Ferdigheten hele kapitlet trener: å gjenkjenne en tabellrad i noe som ikke ser ut som en tabellrad ennå.\n\nTabellen på formelarket er skrevet framlengs, fra $f(t)$ til $F(s)$. Du bruker den motsatt vei. Det er lov, og det er entydig — to kontinuerlige funksjoner med samme transform er like ([kap. 2.1](/tma4135/tma4135-2-1)) — men det krever at brøken din står **nøyaktig** på en av formene i høyre kolonne.\n\nDerfor er arbeidsdelingen slik: tabellen gjør oppslaget, du gjør omskrivingen. Omskrivingen er delbrøkoppspalting, kvadratkomplettering og telleretilpasning, og ingen av de tre **står på det utdelte formelarket** — de **må kunnes eller utledes aktivt**. Det er den ene setningen som forklarer hvorfor et helt kapittel går med til noe som ser ut som ren brøkregning."
+    },
+    {
+      "id": "tma4135-2-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** De siste kortene samler opp begrepene i kapitlet og noen kontroller det lønner seg å ha i fingrene. Tidsanslaget på 60 minutter gjelder kjernestoffet foran."
+    },
+    {
+      "id": "tma4135-2-2-def-ansats",
+      "type": "definition",
+      "title": "Ansats",
+      "content": "Oppsettet du skriver ned **før** du regner ut koeffisientene i en delbrøkoppspalting — selve formen på høyresiden, med ukjente tellere.\n\nReglene for en riktig ansats: én brøk per faktor i nevneren; ett ledd per potens ved multiple faktorer; og telleren skal ha grad **én lavere** enn faktoren under. En førstegradsfaktor får konstant teller, en andregradsfaktor får lineær teller $Bs+C$.\n\n**Kontroll av ansatsen:** antall ukjente skal være lik graden av nevneren. Stemmer det ikke, mangler det et ledd."
+    },
+    {
+      "id": "tma4135-2-2-def-polynomdivisjon",
+      "type": "definition",
+      "title": "Polynomdivisjon for uekte brøker",
+      "content": "Førstehjelpen når telleren har like høy grad som nevneren eller høyere. Del ut til du sitter igjen med et polynom pluss en **ekte** brøk:\n\n$$\\frac{s^2}{s^2+4} = 1 - \\frac{4}{s^2+4}.$$\n\nBare den ekte resten spaltes videre. Polynomdelen inverteres for seg — men merk at et konstantledd som $1$ ikke har noen vanlig invers transform; den svarer til en Dirac-impuls, som er tema i [kap. 2.3](/tma4135/tma4135-2-3). I praksis betyr en uekte $Y(s)$ nesten alltid at du har regnet feil lenger opp."
+    },
+    {
+      "id": "tma4135-2-2-def-innsettingskontroll",
+      "type": "definition",
+      "title": "Innsettingskontrollen",
+      "content": "Den raskeste kontrollen på en delbrøkoppspalting: velg en $s$-verdi som ikke er en pol — helst $s=0$ eller $s=1$ — og regn ut begge sider.\n\n$$\\frac{4s+2}{s(s+1)(s+2)} \\quad\\text{ved } s=1:\\ \\frac{6}{6}=1; \\qquad \\frac{1}{1}+\\frac{2}{2}-\\frac{3}{3} = 1.$$\n\nSjekken tar femten sekunder og fanger nesten alle regnefeil i koeffisientene. Gjør den til en vane — spesielt på eksamen, der du ikke har fasit."
+    },
+    {
+      "id": "tma4135-2-2-def-startverdikontroll",
+      "type": "definition",
+      "title": "Startverdikontrollen på det ferdige svaret",
+      "content": "En gratis fornuftssjekk til slutt: sett $t=0$ i svaret og sammenlign med det brøken lover.\n\nEr $Y(s)$ en ekte brøk der telleren har grad minst to lavere enn nevneren, er $y(0)=0$. Er gradforskjellen nøyaktig én, er $y(0)$ lik forholdet mellom de ledende koeffisientene.\n\nFor $Y = (2s-1)/\\left(s^2-6s+25\\right)$ er gradforskjellen én, og forholdet er $2/1 = 2$ — som stemmer med $y(0)=2$. Ett blikk, og du vet om svaret kan være riktig."
+    },
+    {
+      "id": "tma4135-2-2-def-dempet-svingning",
+      "type": "definition",
+      "title": "Dempet svingning som svarform",
+      "content": "Den vanligste svarformen i hele Del 2:\n\n$$y(t) = e^{at}\\left(C_1\\cos\\omega t + C_2\\sin\\omega t\\right).$$\n\nTallet $a$ styrer **innhyllingen**: er $a<0$, dør svingningen ut; er $a>0$, vokser den; er $a=0$, holder den samme amplitude. Tallet $\\omega$ styrer **frekvensen**.\n\nBegge leses rett ut av den kvadratkompletterte nevneren $(s-a)^2+\\omega^2$, altså av realdelen og imaginærdelen i det konjugerte polparet. Du kan si hvordan løsningen oppfører seg før du har regnet ut én eneste koeffisient."
+    },
+    {
+      "id": "tma4135-2-2-def-linearitet-invers",
+      "type": "definition",
+      "title": "Linearitet i den inverse transformen",
+      "content": "Egenskapen som gjør at du kan invertere ledd for ledd etter en oppspalting:\n\n$$\\mathcal{L}^{-1}\\{\\alpha F + \\beta G\\} = \\alpha f + \\beta g.$$\n\nHele delbrøkstrategien hviler på denne ene linjen: du gjør om en vanskelig brøk til en **sum** av lette, nettopp fordi summen kan inverteres bit for bit.\n\nMerk at det ikke finnes noen tilsvarende regel for produkter. Er $Y = F\\cdot G$, er $y$ **ikke** $f\\cdot g$ — det riktige svaret er konvolusjonen, og den kommer i [kap. 2.4](/tma4135/tma4135-2-4)."
+    },
+    {
+      "id": "tma4135-2-2-def-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg på tolv sekunder",
+      "content": "Beslutningstreet du kjører hver gang du får en ny $Y(s)$:\n\n1. Er brøken **ekte**? Hvis ikke, del ut først.\n2. **Faktoriser nevneren** så langt du kommer med reelle røtter.\n3. For hver reell rot: enkel gir ett ledd, dobbel gir to.\n4. For hver gjenværende andregradsfaktor: **regn ut diskriminanten**. Er den negativ, kvadratkompletter.\n5. Finn koeffisientene — tildekking der det går, lineært system ellers.\n6. **Juster tellerne** til nøyaktig det tabellen krever.\n7. Les av, og **kontroller** med en $s$-verdi.\n\nOppskriften **må kunnes eller utledes aktivt**. Den er den samme uansett hvor komplisert brøken ser ut."
+    },
+    {
+      "id": "tma4135-2-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-2-2-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på forkunnskapene: faktorisering, kvadratkomplettering og transformparene fra [kap. 2.1](/tma4135/tma4135-2-1). Bruker du mer enn ti minutter til sammen, er det verdt en runde til før du går videre til [kap. 2.3](/tma4135/tma4135-2-3)."
+        },
+        {
+          "id": "tma4135-2-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-2-r1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Avgjør for hvert uttrykk om det kan faktoriseres i reelle førstegradsfaktorer. Regn ut diskriminanten.\n\n**a)** $s^2+5s+6$\n**b)** $s^2+2s+5$\n**c)** $s^2-8s+16$",
+            "solution": "**a)** Diskriminant $25-24 = 1 > 0$: to reelle røtter. $s^2+5s+6 = (s+2)(s+3)$.\n\n**b)** Diskriminant $4-20 = -16 < 0$: irredusibel. Her må du kvadratkomplettere: $(s+1)^2+4$.\n\n**c)** Diskriminant $64-64 = 0$: én dobbel rot. $s^2-8s+16 = (s-4)^2$ — dette gir en **multippel** pol, ikke en irredusibel faktor.\n\nDe tre tilfellene svarer nøyaktig til de tre teknikkene i kapitlet: vanlig delbrøk, kvadratkomplettering og multippel-ansats.",
+            "hints": [
+              "Diskriminanten til $s^2+ps+q$ er $p^2-4q$.",
+              "Null diskriminant er et eget tilfelle — hva slags rot gir det?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-2-r2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Kvadratkompletter.\n\n**a)** $s^2+8s+25$\n**b)** $s^2-2s+10$\n**c)** $s^2+s+1$",
+            "solution": "**a)** Halvparten av $8$ er $4$: $s^2+8s+25 = (s+4)^2 - 16 + 25 = (s+4)^2+9$. Her er $a=-4$, $\\omega = 3$.\n\n**b)** Halvparten av $-2$ er $-1$: $s^2-2s+10 = (s-1)^2 - 1 + 10 = (s-1)^2+9$. Her er $a=1$, $\\omega=3$.\n\n**c)** Halvparten av $1$ er $\\tfrac12$: $s^2+s+1 = \\left(s+\\tfrac12\\right)^2 - \\tfrac14 + 1 = \\left(s+\\tfrac12\\right)^2 + \\tfrac34$. Her er $a=-\\tfrac12$ og $\\omega = \\sqrt3/2$.\n\nAt $\\omega$ ikke blir et pent tall i c) er helt greit — svaret blir bare $e^{-t/2}\\cos\\!\\left(\\tfrac{\\sqrt3}{2}t\\right)$ og tilsvarende for sinus.",
+            "hints": [
+              "Halver koeffisienten foran $s$, sett den inne i parentesen, og trekk fra kvadratet av det du la til.",
+              "Restleddet er $\\omega^2$, så $\\omega$ er kvadratrota av det."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-2-r3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv om telleren slik at den passer til nevneren.\n\n**a)** $\\dfrac{s+5}{(s+2)^2+9}$ — skriv telleren ved hjelp av $(s+2)$.\n**b)** $\\dfrac{3s-2}{(s-1)^2+4}$ — skriv telleren ved hjelp av $(s-1)$.",
+            "solution": "**a)** $s+5 = (s+2) + 3$, så\n$$\\frac{s+5}{(s+2)^2+9} = \\frac{s+2}{(s+2)^2+9} + \\frac{1}{3}\\cdot\\frac{3}{(s+2)^2+9}.$$\nDen inverse er $e^{-2t}\\cos 3t + \\tfrac13 e^{-2t}\\sin 3t$.\n\n**b)** $3s-2 = 3(s-1) + 3 - 2 = 3(s-1)+1$, så\n$$\\frac{3s-2}{(s-1)^2+4} = 3\\cdot\\frac{s-1}{(s-1)^2+4} + \\frac12\\cdot\\frac{2}{(s-1)^2+4}.$$\nDen inverse er $3e^{t}\\cos 2t + \\tfrac12 e^{t}\\sin 2t$.",
+            "hints": [
+              "Gang $a$ med koeffisienten foran $s$, og juster konstanten etterpå.",
+              "Sinusleddet krever nøyaktig $\\omega$ i telleren — hva må du gange og dele med?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-2-r4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn $A$ og $B$ i $\\dfrac{5s-1}{(s-2)(s+1)} = \\dfrac{A}{s-2} + \\dfrac{B}{s+1}$ på begge måtene, og kontroller.",
+            "solution": "**Tildekking:**\n$$A = \\left.\\frac{5s-1}{s+1}\\right|_{s=2} = \\frac{9}{3} = 3, \\qquad B = \\left.\\frac{5s-1}{s-2}\\right|_{s=-1} = \\frac{-6}{-3} = 2.$$\n\n**Lineært system:** gang opp med $(s-2)(s+1)$:\n$$5s-1 = A(s+1) + B(s-2) = (A+B)s + (A-2B).$$\nDa er $A+B = 5$ og $A-2B = -1$. Trekk den andre fra den første: $3B = 6$, altså $B=2$ og $A=3$. Samme svar.\n\n**Kontroll ved $s=0$:** venstre gir $-1/((-2)(1)) = 1/2$; høyre gir $3/(-2) + 2/1 = -1{,}5+2 = 0{,}5$. Stemmer.",
+            "hints": [
+              "For tildekking: dekk til én faktor og sett inn den $s$-verdien som nuller den ut.",
+              "For systemet: gang opp, samle like potenser av $s$, og sett koeffisientene like."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-2-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-2-r5",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv den inverse transformen av hvert uttrykk uten å spalte opp noe — alle står allerede på tabellform.\n\n**a)** $\\dfrac{3}{(s-4)^3}$\n**b)** $\\dfrac{s+2}{(s+2)^2+25}$\n**c)** $\\dfrac{7}{(s+1)^2}$",
+            "solution": "**a)** Fra $\\mathcal{L}\\{t^ne^{at}\\}=n!/(s-a)^{n+1}$ med $n=2$ og $a=4$ krever tabellen telleren $2!=2$. Vi har $3 = \\tfrac32\\cdot 2$, altså\n$$\\mathcal{L}^{-1}\\left\\{\\frac{3}{(s-4)^3}\\right\\} = \\frac32 t^2e^{4t}.$$\n\n**b)** Nøyaktig cosinusformen med $a=-2$ og $\\omega = 5$: $e^{-2t}\\cos 5t$.\n\n**c)** Med $n=1$ og $a=-1$ krever tabellen telleren $1!=1$, så $7$ blir bare stående utenfor: $7te^{-t}$.",
+            "hints": [
+              "Finn $a$ og eventuelt $\\omega$ fra nevneren først.",
+              "Sammenlign så telleren din med det tabellen krever, og gang med forholdet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-2-2-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathcal{L}^{-1}\\{F\\}$ | Den inverse Laplace-transformen av $F$ |\n| $Y(s)$, $F(s)$ | Transformerte funksjoner |\n| $N(s)$ | Telleren i en rasjonal brøk |\n| $s$ | Variabelen i det transformerte planet |\n| $r_1, r_2, \\dots$ | Røttene i nevneren, altså polene |\n| $A$, $B$, $C$ | Tellerne i en delbrøkoppspalting |\n| $\\bar A$ | Det komplekse konjugatet av $A$ |\n| $a$ | Realdelen i polparet $a\\pm bi$, og dempingen $e^{at}$ i svaret |\n| $b$, $\\omega$ | Imaginærdelen i polparet, og frekvensen i svaret |\n| $p$, $q$ | Koeffisientene i $s^2+ps+q$ |\n| $p^2-4q$ | Diskriminanten, som avgjør om faktoren er irredusibel |\n| $\\operatorname{Re}A$, $\\operatorname{Im}A$ | Realdel og imaginærdel av $A$ |\n\n**Kolliderende symboler i dette kapitlet:** $a$ betyr her både realdelen i et polpar og vekstraten i $e^{at}$ — det er med vilje, for det er samme tall. I numerikk-delene senere i boka er $a$ og $b$ endepunktene i et intervall. Bokstaven $\\omega$ er frekvensen her; den betyr det samme i Fourier-delene. Og $r$ brukes her for en rot i nevneren; i [kap. 1.1](/tma4135/tma4135-1-1) var $r$ modulusen til et komplekst tall."
+        },
+        {
+          "id": "tma4135-2-2-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$\\frac{N(s)}{(s-r_1)\\cdots(s-r_m)} = \\frac{A_1}{s-r_1} + \\dots + \\frac{A_m}{s-r_m}$$\nDelbrøkoppspalting ved enkle reelle poler. *(Må kunnes eller utledes aktivt.)*\n\n$$A_k = \\left.\\frac{N(s)}{\\prod_{j\\ne k}(s-r_j)}\\right|_{s=r_k}$$\nTildekkingsmetoden. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{N(s)}{(s-r)^2} = \\frac{A}{s-r} + \\frac{B}{(s-r)^2}$$\nAnsatsen ved dobbel pol. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{N(s)}{(s-r)\\left(s^2+ps+q\\right)} = \\frac{A}{s-r} + \\frac{Bs+C}{s^2+ps+q}$$\nAnsatsen ved en irredusibel andregradsfaktor — merk den lineære telleren. *(Må kunnes eller utledes aktivt.)*\n\n$$s^2+ps+q = \\left(s+\\frac{p}{2}\\right)^2 + \\left(q-\\frac{p^2}{4}\\right)$$\nKvadratkomplettering. *(Må kunnes eller utledes aktivt — står ikke på arket.)*\n\n$$p^2-4q < 0 \\;\\Longleftrightarrow\\; \\text{ingen reelle røtter}$$\nDiskriminanten som avgjør metodevalget. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{s-a}{(s-a)^2+\\omega^2} \\;\\leftrightarrow\\; e^{at}\\cos\\omega t$$\nMåltabellformen for dempet cosinus. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\frac{\\omega}{(s-a)^2+\\omega^2} \\;\\leftrightarrow\\; e^{at}\\sin\\omega t$$\nMåltabellformen for dempet sinus. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\frac{n!}{(s-a)^{n+1}} \\;\\leftrightarrow\\; t^ne^{at}$$\nMåltabellformen ved multiple poler. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\frac{N(s)}{(s-(a+bi))(s-(a-bi))} = \\frac{A}{s-(a+bi)} + \\frac{\\bar A}{s-(a-bi)}$$\nKompleks delbrøkoppspalting. *(Må kunnes eller utledes aktivt.)*\n\n$$y(t) = 2\\,\\operatorname{Re}\\!\\left(A\\,e^{(a+bi)t}\\right) = 2e^{at}\\left(\\operatorname{Re}A\\,\\cos bt - \\operatorname{Im}A\\,\\sin bt\\right)$$\nVeien fra et konjugert polpar tilbake til et reelt svar. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}^{-1}\\{\\alpha F + \\beta G\\} = \\alpha f + \\beta g$$\nLinearitet i den inverse transformen. *(Må kunnes eller utledes aktivt.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

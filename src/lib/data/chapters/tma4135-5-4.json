@@ -1,0 +1,436 @@
+{
+  "id": "tma4135-5-4",
+  "courseId": "tma4135",
+  "chapterNumber": "5.4",
+  "title": "Verifiser at en funksjon løser en PDE + klassifisering (4D-signaturen)",
+  "description": "Den faste 4D-spesifikke oppgaven: regn $u_{xx}$, $u_{tt}$/$u_t$ ved direkte innsetting og vis likhet — pluss klassifisering lineær/ikke-lineær og et gradient-innslag.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut partielle deriverte av sammensatte uttrykk med riktig indre derivert, og sette dem inn i en gitt likning",
+    "føre en verifikasjon slik at begge sider skrives ut og konklusjonen står eksplisitt",
+    "avgjøre orden, linearitet og homogenitet for en gitt likning, og se bort fra koeffisienter som bare avhenger av de uavhengige variablene",
+    "kontrollere at en løsning også oppfyller rand- og initialbetingelsene, og angi definisjonsområdet der det trengs"
+  ],
+  "content": [
+    {
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den billigste oppgaven i hele Del 5, og den er nesten alltid med.** Verifikasjons- og klassifiseringsoppgaven står på 10 av 13 gjennomgåtte sett — 77 %.\n\n**Oppgavene merkes med bokstaven H.** Boka bruker bokstavene A til S som korte navn på de nitten oppgavetypene som går igjen på settene; **H dekker bølgeligningen, d'Alembert og verifikasjon av PDE-løsninger**. Bokstaven forklares første gang den brukes i hvert kapittel.\n\n**Hvorfor dette kapitlet har et eget navn i boka.** Fra 2018 er eksamen felles for to matematikkemner ved NTNU, og bare én oppgave per sett har egne varianter for hvert emne. Den 4D-spesifikke varianten er nesten alltid enten **å verifisere at en gitt funksjon løser en PDE** eller et lite innslag om **gradient og retningsderivert**. Derfor kaller boka dette **4D-signaturen**: det er den ene oppgaven som er skrevet spesielt for deg.\n\n**Og den er lett.** Å løse en PDE fra bunnen tar tjue minutter og krever hele separasjonsapparatet. Å *verifisere* at en gitt funksjon løser den, tar fem minutter og krever bare kjerneregelen. Poengene er de samme. **Det er den beste poeng-per-minutt-oppgaven på hele settet, og den skal du aldri la ligge.**\n\n**Formelark-merking.** Eksamen har hjelpemiddelkode C, med utdelt formelark og eget A5-ark. Trigonometriske identiteter og reduksjonsformlene for delvis integrasjon **står på det utdelte formelarket — tren oppslaget**, men du får knapt bruk for dem her: dette kapitlet er ren derivasjon, og alt av metode **må kunnes**. Til gjengjeld er det ingenting å pugge heller — du trenger kjerneregelen, produktregelen og ryddig føring.\n\n**Tidsbruk:** 55 minutter lesetid i fire løkker. Siste løkke er merket «bør kjenne til» — den dekker gradient og retningsderivert, som er nivå tre i prioriteringen. Pausepunktet er markert etter løkke 2.",
+      "id": "tma4135-5-4-eksamensvinkel"
+    },
+    {
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 5.3](/tma4135/tma4135-5-3) — derfra trenger du bølgeligningen og formen $\\phi(x+ct) + \\psi(x-ct)$, som er den vanligste typen funksjon du blir bedt om å verifisere. [Kap. 5.1](/tma4135/tma4135-5-1) gir varmelikningen og de separerte løsningene, som er den nest vanligste.\n\nFra tidligere matematikkemner forutsettes: partiell derivasjon, kjerneregelen, produktregelen, og derivasjon av $e^{ax}$, $\\sin ax$, $\\cos ax$ og potensfunksjoner. Til siste løkke trengs i tillegg vektorer i planet og prikkprodukt.\n\nKapitlet er forutsetning for [kap. 5.5](/tma4135/tma4135-5-5).",
+      "id": "tma4135-5-4-forkunnskaper"
+    },
+    {
+      "type": "text",
+      "content": "## Å sjekke svaret er lettere enn å finne det\n\nTenk deg at noen gir deg tallet 4 913 og spør om det er $17^3$. Du kan enten regne ut tredjeroten — eller gange $17\\cdot17\\cdot17$ og sammenlikne. Den andre veien er langt raskere, og den gir sikkert svar.\n\nNøyaktig det samme gjelder differensiallikninger. Å finne løsningen av $u_{tt} = 4u_{xx}$ krever d'Alembert eller separasjon. Å *sjekke* at en foreslått funksjon løser den, krever bare at du deriverer to ganger hver vei og sammenlikner.\n\nEksamen utnytter dette. I stedet for å be deg løse en likning du kanskje ikke rekker, gir den deg funksjonen og ber deg vise at den passer. Det er en helt egen sjanger med sin egen oppskrift, og den er verdt like mange poeng per minutt som noe annet på settet — ofte mer.\n\nDet andre kapitlet handler om, er å **kjenne igjen** hva slags likning du ser på: hvilken orden den har, om den er lineær, og om den er homogen. Det er ren avlesning når du vet hva du skal se etter, men det gir poeng, og det avgjør hvilke metoder som i det hele tatt er lovlige.\n\nKapitlet gjør fire ting: setter opp verifikasjonsoppskriften, klassifiserer likninger, verifiserer mot rand- og initialbetingelser i tillegg til selve likningen, og avslutter med et kort tillegg om gradient og retningsderivert.",
+      "id": "tma4135-5-4-motivasjon"
+    },
+    {
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 55 minutter gjelder kjernestoffet.",
+      "id": "tma4135-5-4-fc-notis"
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 1 — Verifikasjon ved innsetting (~14 min)\n\nOppskriften er kort og alltid den samme. Det som skiller en full besvarelse fra en halv, er at alle mellomsteg står der — sensor skal kunne følge derivasjonen uten å regne selv.",
+      "id": "tma4135-5-4-lokke1"
+    },
+    {
+      "type": "definition",
+      "title": "Partiell derivert",
+      "content": "Den deriverte med hensyn på én variabel, mens de andre holdes fast:\n\n$$u_x = \\frac{\\partial u}{\\partial x}, \\qquad u_t = \\frac{\\partial u}{\\partial t}, \\qquad u_{xx} = \\frac{\\partial^2 u}{\\partial x^2}, \\qquad u_{tt} = \\frac{\\partial^2 u}{\\partial t^2}.$$\n\nFotskriftnotasjonen leses fra venstre mot høyre: $u_{xt}$ betyr «deriver først med hensyn på $x$, så med hensyn på $t$». For de funksjonene du møter her, spiller rekkefølgen ingen rolle: $u_{xt} = u_{tx}$.",
+      "id": "tma4135-5-4-def-partiell"
+    },
+    {
+      "type": "definition",
+      "title": "Kjerneregelen for sammensatte argumenter",
+      "content": "Er $u = h(ax + bt)$, og vi setter $s = ax + bt$, så er\n\n$$u_x = a\\,h'(s), \\qquad u_t = b\\,h'(s), \\qquad u_{xx} = a^2h''(s), \\qquad u_{tt} = b^2h''(s).$$\n\n**Den indre deriverte kommer ned som en faktor hver gang du deriverer.** Deriverer du to ganger, kommer den ned to ganger — derfor $a^2$ og $b^2$, og derfor forsvinner fortegnet ved dobbeltderivasjon.\n\nDette er den ene regelen hele kapitlet hviler på. Nesten alle feil i sjangeren er en glemt eller feil indre derivert.",
+      "id": "tma4135-5-4-def-kjerneregel"
+    },
+    {
+      "type": "definition",
+      "title": "Verifikasjon ved innsetting",
+      "content": "Å vise at en gitt funksjon $u$ oppfyller en gitt likning ved å regne ut hver derivert som forekommer, sette dem inn, og vise at de to sidene blir like.\n\nDet er **ikke** nok å påstå at de blir like. Skriv ut venstresiden, skriv ut høyresiden, og avslutt med en linje som sier at de er identiske. Løsningsforslagene gjør nettopp det, og instruksen på settet krever at tenkemåten klart framgår.",
+      "id": "tma4135-5-4-def-verifikasjon"
+    },
+    {
+      "type": "definition",
+      "title": "Oppskrift: verifiser i fire steg",
+      "content": "1. **Navngi de indre argumentene.** Står det $\\cos(4x - 2t)$, skriv «sett $s = 4x - 2t$, med $s_x = 4$ og $s_t = -2$».\n2. **Regn ut hver derivert som forekommer i likningen**, én linje per derivert, i rekkefølgen $u_x$, $u_{xx}$, $u_t$, $u_{tt}$.\n3. **Sett inn i venstresiden og i høyresiden hver for seg**, og forenkle begge.\n4. **Konkluder** med at de er like — eller ikke like, hvis det er det oppgaven ber deg avgjøre.\n\nFire steg, fem minutter. Gjør det i denne rekkefølgen hver gang, så bommer du ikke.",
+      "id": "tma4135-5-4-def-oppskrift-verifikasjon"
+    },
+    {
+      "type": "example",
+      "title": "Verifikasjon: en sum av to bølgeledd",
+      "problem": "Vis ved innsetting at\n\n$$u(x,t) = (x + 3t)^4 - \\sin(2x - 6t)$$\n\nløser bølgeligningen $u_{tt} = 9u_{xx}$.",
+      "solution": "**Steg 1 — les av argumentene.** Første ledd har argumentet $x + 3t$, andre ledd $2x - 6t = 2(x - 3t)$. Begge er på formen $x \\pm ct$ med $c = 3$ — det stemmer med at $c^2 = 9$. **Det er allerede et godt tegn**, men det er ikke et bevis; vi regner.\n\n**Steg 2 — deriver med hensyn på $t$.** Den indre deriverte er $3$ i første ledd og $-6$ i andre:\n\n$$u_t = 4(x+3t)^3\\cdot 3 - \\cos(2x - 6t)\\cdot(-6) = 12(x+3t)^3 + 6\\cos(2x-6t).$$\n\n$$u_{tt} = 36(x+3t)^2\\cdot 3 - 6\\sin(2x-6t)\\cdot(-6) = 108(x+3t)^2 + 36\\sin(2x-6t).$$\n\n**Steg 3 — deriver med hensyn på $x$.** Nå er de indre deriverte $1$ og $2$:\n\n$$u_x = 4(x+3t)^3 - 2\\cos(2x-6t),$$\n\n$$u_{xx} = 12(x+3t)^2 + 4\\sin(2x-6t).$$\n\n**Steg 4 — sett inn.**\n\n$$9u_{xx} = 9\\left(12(x+3t)^2 + 4\\sin(2x-6t)\\right) = 108(x+3t)^2 + 36\\sin(2x-6t).$$\n\nSammenlikn med $u_{tt}$ over: uttrykkene er **identiske**. Altså\n\n$$u_{tt} = 9u_{xx},$$\n\nog $u$ løser bølgeligningen.\n\n**Hvorfor det måtte gå bra.** Begge leddene er funksjoner av $x + ct$ eller $x - ct$ med $c = 3$, og fra [kap. 5.3](/tma4135/tma4135-5-3) vet vi at enhver slik funksjon løser bølgeligningen med den farten. **Å nevne dette som en kontroll er verdt et poeng** — men det erstatter ikke regningen, som er det oppgaven ber om.\n\n**Fella det er verdt å se.** Hadde andre ledd vært $\\sin(2x - 5t)$, ville argumentet svart til farten $5/2$, ikke 3, og funksjonen ville *ikke* løst likningen. Sjekk alltid at alle ledd har samme fart før du begynner — det forteller deg hva svaret blir, og da vet du om du har regnet riktig.",
+      "id": "tma4135-5-4-eks1"
+    },
+    {
+      "id": "tma4135-5-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-4-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren derivasjon.) Regn ut $u_x$, $u_{xx}$, $u_t$ og $u_{tt}$ for\n\n$$u(x,t) = e^{-t}\\sin x,$$\n\nog avgjør hvilken av likningene $u_t = u_{xx}$ og $u_{tt} = u_{xx}$ funksjonen oppfyller.",
+        "solution": "**Deriverte.** Når vi deriverer med hensyn på $x$, er $e^{-t}$ en konstant; når vi deriverer med hensyn på $t$, er $\\sin x$ en konstant.\n\n$$u_x = e^{-t}\\cos x, \\qquad u_{xx} = -e^{-t}\\sin x = -u,$$\n\n$$u_t = -e^{-t}\\sin x = -u, \\qquad u_{tt} = e^{-t}\\sin x = u.$$\n\n**Sammenlikning.**\n\n- $u_t = -u$ og $u_{xx} = -u$. De er like, så **$u_t = u_{xx}$ er oppfylt**.\n- $u_{tt} = u$ og $u_{xx} = -u$. De er ikke like (med mindre $u \\equiv 0$), så $u_{tt} = u_{xx}$ er **ikke** oppfylt.\n\n**Svar:** funksjonen løser varmelikningen $u_t = u_{xx}$, ikke bølgeligningen.\n\n**Grepet å ta med seg:** skriv hver derivert som et tall ganger $u$ selv når du kan. Da blir sammenlikningen ren avlesning, og du unngår å skrive av lange uttrykk feil.",
+        "hints": [
+          "Behandle den ene faktoren som konstant mens du deriverer den andre.",
+          "Skriv svarene på formen «et tall ganger $u$» — da ser du sammenhengen umiddelbart."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-4-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hvilke verdier av konstanten $c > 0$ funksjonen\n\n$$u(x,t) = (x - 5t)^7 + e^{x - 5t}$$\n\nløser bølgeligningen $u_{tt} = c^2u_{xx}$. Begrunn uten å regne ut alle deriverte.",
+        "solution": "**Observasjonen.** Begge leddene er funksjoner av det samme argumentet $s = x - 5t$. Fra [kap. 5.3](/tma4135/tma4135-5-3) vet vi at en funksjon på formen $\\psi(x - ct)$ løser $u_{tt} = c^2u_{xx}$ nøyaktig når farten stemmer.\n\n**Kort regning som bekrefter det.** Sett $s = x - 5t$, med $s_x = 1$ og $s_t = -5$. For enhver to ganger deriverbar $\\psi$:\n\n$$u_{tt} = (-5)^2\\psi''(s) = 25\\psi''(s), \\qquad u_{xx} = 1^2\\psi''(s) = \\psi''(s).$$\n\nKravet $u_{tt} = c^2u_{xx}$ blir dermed $25\\psi'' = c^2\\psi''$, som holder for alle $x, t$ nøyaktig når\n\n$$c^2 = 25 \\quad\\Longrightarrow\\quad c = 5$$\n\n(vi tar den positive roten siden $c > 0$).\n\n**Svar:** bare $c = 5$.\n\n**Merk formuleringen.** Argumentet gjelder for *enhver* funksjon av $x - 5t$, ikke bare akkurat denne. Det er verdt å skrive: «siden $u$ er en funksjon av $x - 5t$ alene, er $u_{tt} = 25u_{xx}$ uansett hva funksjonen er». Det er kortere og sterkere enn å derivere $(x-5t)^7$ to ganger.",
+        "hints": [
+          "Ser du at begge leddene har samme indre argument?",
+          "Hva kommer ned som faktor når du deriverer med hensyn på $t$ to ganger?"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 2 — Klassifisering (~13 min)\n\nDet andre faste delspørsmålet: «avgjør om likningen er lineær». Det er ren avlesning når du vet hva du ser etter — men definisjonen har en detalj som feller mange.",
+      "id": "tma4135-5-4-lokke2"
+    },
+    {
+      "type": "definition",
+      "title": "Ordenen til en PDE",
+      "content": "Den høyeste ordenen av derivasjon som forekommer.\n\n$$u_t = u_{xx} \\;\\text{(orden 2)}, \\qquad u_x + u_y = 0 \\;\\text{(orden 1)}, \\qquad u_{tt} = c^2u_{xx} \\;\\text{(orden 2)}.$$\n\nTell antall derivasjoner i det tyngste leddet, ikke antall variabler.",
+      "id": "tma4135-5-4-def-orden"
+    },
+    {
+      "type": "definition",
+      "title": "Lineær PDE",
+      "content": "En likning der $u$ og alle dens deriverte forekommer **lineært**: hvert ledd inneholder høyst én faktor av $u$ eller en derivert av $u$, i første potens, og aldri to slike ganget sammen.\n\nKoeffisientene har lov til å være hvilke som helst funksjoner av de uavhengige variablene. Dette er den detaljen som feller flest:\n\n$$u_t = x^2\\,u_{xx} + e^{t}\\sin(x)\\,u + \\cos(x^3)$$\n\ner **lineær**, selv om den ser fryktelig ut. Alle de rare funksjonene er funksjoner av $x$ og $t$ alene, ikke av $u$.\n\n**Testen:** stryk alt som er en funksjon av bare $x$ og $t$. Er det som står igjen, en sum av ledd som hver inneholder nøyaktig én $u$-faktor i første potens? Da er likningen lineær.",
+      "id": "tma4135-5-4-def-lineaer"
+    },
+    {
+      "type": "definition",
+      "title": "Ikke-lineær PDE",
+      "content": "En likning der $u$ eller en derivert opptrer i en potens ulik 1, inne i en ikke-lineær funksjon, eller ganget med en annen $u$-faktor.\n\nEksempler:\n\n$$u\\,u_x = 1 \\quad (\\text{produkt av to } u\\text{-faktorer}),$$\n$$\\left(u_x\\right)^2 + u_y = 0 \\quad (\\text{andre potens av en derivert}),$$\n$$u_t = u_{xx} + u^3 \\quad (\\text{tredje potens av } u),$$\n$$u_t = \\sin(u) \\quad (u \\text{ inne i en ikke-lineær funksjon}).$$\n\n**Merk at det er $u$ det handler om.** Et ledd som $\\sin(x^2)$ gjør ikke likningen ikke-lineær, uansett hvor krokete det ser ut.",
+      "id": "tma4135-5-4-def-ikke-lineaer"
+    },
+    {
+      "type": "definition",
+      "title": "Homogen og ikke-homogen PDE",
+      "content": "En lineær likning er **homogen** hvis hvert eneste ledd inneholder en $u$-faktor. Har den et ledd som ikke gjør det — et **kildeledd** — er den ikke-homogen.\n\n$$u_t = u_{xx} \\quad (\\text{homogen}), \\qquad u_t = u_{xx} + \\sin x \\quad (\\text{ikke-homogen}).$$\n\nBetydningen er praktisk: superposisjon (fra [kap. 5.2](/tma4135/tma4135-5-2)) virker bare for homogene likninger. Er likningen ikke-homogen, må du først trekke fra en partikulærløsning — nøyaktig grepet $v = u - w$.",
+      "id": "tma4135-5-4-def-homogen-pde"
+    },
+    {
+      "type": "definition",
+      "title": "De tre klassiske likningene",
+      "content": "$$\\text{Varmelikningen:}\\quad u_t = c^2u_{xx} \\qquad \\text{(én tidsderivert — jevner ut)}$$\n\n$$\\text{Bølgeligningen:}\\quad u_{tt} = c^2u_{xx} \\qquad \\text{(to tidsderiverte — svinger)}$$\n\n$$\\text{Laplace-likningen:}\\quad u_{xx} + u_{yy} = 0 \\qquad \\text{(ingen tid — likevekt)}$$\n\nAlle tre er lineære, homogene og av andre orden. En løsning av Laplace-likningen kalles en **harmonisk funksjon**, og beskriver en tilstand som har lagt seg til ro — for eksempel den stasjonære temperaturfordelingen i en plate.",
+      "id": "tma4135-5-4-def-tre-klassiske"
+    },
+    {
+      "type": "definition",
+      "title": "Parabolsk, hyperbolsk og elliptisk",
+      "content": "Fagnavnene på de tre typene, i den rekkefølgen likningene står over:\n\n- **parabolsk** — varmelikningen: én tidsderivert, glatter ut, uendelig utbredelsesfart;\n- **hyperbolsk** — bølgeligningen: to tidsderiverte, transporterer, endelig utbredelsesfart $c$;\n- **elliptisk** — Laplace-likningen: ingen tid, ren likevekt.\n\nDu blir sjelden bedt om å bruke navnene på eksamen i dette emnet, men de dukker opp i oppgaveteksten, og det koster ingenting å kjenne dem igjen. **Det som derimot spørres om, er lineær eller ikke-lineær.**",
+      "id": "tma4135-5-4-def-typene"
+    },
+    {
+      "type": "example",
+      "title": "Klassifisering: seks likninger på rad",
+      "problem": "For hver likning: angi ordenen, avgjør om den er lineær eller ikke-lineær, og — hvis den er lineær — om den er homogen.\n\n$$\\text{(i)}\\;\\; u_t = u_{xx} + \\sin x \\qquad \\text{(ii)}\\;\\; u_t = u\\,u_x \\qquad \\text{(iii)}\\;\\; u_{tt} = u_{xx} + u^3$$\n\n$$\\text{(iv)}\\;\\; u_x + x^2u_y = e^{x} \\qquad \\text{(v)}\\;\\; \\left(u_x\\right)^2 + u_y = 0 \\qquad \\text{(vi)}\\;\\; u_{xx} + u_{yy} = 0$$",
+      "solution": "**(i) $u_t = u_{xx} + \\sin x$.** Høyeste derivasjon er $u_{xx}$, altså **orden 2**. Leddene med $u$ er $u_t$ og $u_{xx}$, begge i første potens uten produkter — **lineær**. Leddet $\\sin x$ inneholder ingen $u$, så likningen er **ikke-homogen**. (Dette er varmelikningen med et kildeledd, som i [kap. 5.2](/tma4135/tma4135-5-2).)\n\n**(ii) $u_t = u\\,u_x$.** **Orden 1** (bare førstederiverte). Høyresiden er et **produkt av $u$ og $u_x$**, altså to $u$-faktorer i samme ledd — **ikke-lineær**. Spørsmålet om homogenitet gir ikke mening for ikke-lineære likninger på samme måte, så det besvares ikke.\n\n**(iii) $u_{tt} = u_{xx} + u^3$.** **Orden 2**. Leddet $u^3$ er $u$ i tredje potens — **ikke-lineær**.\n\n**(iv) $u_x + x^2u_y = e^{x}$.** **Orden 1**. Koeffisienten $x^2$ er en funksjon av $x$ alene, ikke av $u$, så leddet $x^2u_y$ er lineært i $u$. Likningen er **lineær**. Høyresiden $e^x$ har ingen $u$-faktor, så den er **ikke-homogen**.\n\n**(v) $\\left(u_x\\right)^2 + u_y = 0$.** **Orden 1**. Leddet $(u_x)^2$ er en derivert i andre potens — **ikke-lineær**.\n\n**(vi) $u_{xx} + u_{yy} = 0$.** **Orden 2**, **lineær**, og hvert ledd inneholder en $u$-faktor, altså **homogen**. Dette er Laplace-likningen.\n\n**Oppsummert i en tabell:**\n\n| Likning | Orden | Lineær? | Homogen? |\n|---|---|---|---|\n| (i) | 2 | ja | nei |\n| (ii) | 1 | nei | — |\n| (iii) | 2 | nei | — |\n| (iv) | 1 | ja | nei |\n| (v) | 1 | nei | — |\n| (vi) | 2 | ja | ja |\n\n**Den ene fella verdt å understreke:** i (iv) er $x^2$ og $e^x$ funksjoner av de uavhengige variablene, ikke av $u$. **En likning blir aldri ikke-lineær av at koeffisientene eller kildeleddet er kompliserte funksjoner av $x$ og $t$.** Det er bare $u$ og dens deriverte som teller.",
+      "id": "tma4135-5-4-eks2"
+    },
+    {
+      "id": "tma4135-5-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-4-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H — klassifisering.) For hver likning: angi orden, avgjør lineær eller ikke-lineær, og for de lineære om de er homogene.\n\n**a)** $u_{tt} = 4u_{xx} - 3u$\n**b)** $u_t + u_x = u^2$\n**c)** $x u_{xx} + \\cos(t)\\,u_t = t^3$\n**d)** $u_{xx} + u_{yy} = u_x u_y$",
+        "solution": "**a) $u_{tt} = 4u_{xx} - 3u$.** Orden 2. Leddene $u_{tt}$, $u_{xx}$ og $u$ er alle i første potens uten produkter — **lineær**. Hvert ledd har en $u$-faktor — **homogen**.\n\n**b) $u_t + u_x = u^2$.** Orden 1. Leddet $u^2$ er andre potens av $u$ — **ikke-lineær**.\n\n**c) $x u_{xx} + \\cos(t)\\,u_t = t^3$.** Orden 2. Koeffisientene $x$ og $\\cos t$ er funksjoner av de uavhengige variablene, ikke av $u$, så likningen er **lineær**. Høyresiden $t^3$ har ingen $u$-faktor — **ikke-homogen**.\n\n**d) $u_{xx} + u_{yy} = u_xu_y$.** Orden 2. Høyresiden er et produkt av to deriverte av $u$ — **ikke-lineær**.\n\n**Regelen som avgjør alle fire:** se bort fra alt som bare avhenger av $x$, $y$ og $t$. Er det som står igjen, en sum der hvert ledd har nøyaktig én $u$-faktor i første potens, er likningen lineær.",
+        "hints": [
+          "Stryk alle faktorer som bare inneholder de uavhengige variablene.",
+          "Se etter potenser av $u$ eller produkter av to $u$-faktorer.",
+          "For homogenitet: finnes det et ledd helt uten $u$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-4-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H — verifikasjon av harmonisk funksjon.) Vis at\n\n$$u(x,y) = \\ln\\left(x^2 + y^2\\right)$$\n\noppfyller Laplace-likningen $u_{xx} + u_{yy} = 0$ for alle $(x,y) \\ne (0,0)$, og forklar hvorfor origo må utelates.",
+        "solution": "**Steg 1 — førstederiverte.** Sett $r^2 = x^2 + y^2$. Kjerneregelen på logaritmen:\n\n$$u_x = \\frac{2x}{x^2+y^2}, \\qquad u_y = \\frac{2y}{x^2+y^2}.$$\n\n**Steg 2 — andrederiverte.** Kvotientregelen på $u_x$, med teller $2x$ og nevner $x^2+y^2$:\n\n$$u_{xx} = \\frac{2\\left(x^2+y^2\\right) - 2x\\cdot 2x}{\\left(x^2+y^2\\right)^2} = \\frac{2y^2 - 2x^2}{\\left(x^2+y^2\\right)^2}.$$\n\nVed symmetri (bytt om $x$ og $y$):\n\n$$u_{yy} = \\frac{2x^2 - 2y^2}{\\left(x^2+y^2\\right)^2}.$$\n\n**Steg 3 — legg sammen.**\n\n$$u_{xx} + u_{yy} = \\frac{\\left(2y^2 - 2x^2\\right) + \\left(2x^2 - 2y^2\\right)}{\\left(x^2+y^2\\right)^2} = \\frac{0}{\\left(x^2+y^2\\right)^2} = 0.$$\n\nLaplace-likningen er oppfylt. Funksjonen er altså **harmonisk**.\n\n**Hvorfor origo må utelates.** I $(0,0)$ er $x^2 + y^2 = 0$, og $\\ln 0$ er ikke definert — funksjonen selv finnes ikke der. Nevneren i de deriverte blir null i samme punkt. En løsning av en differensiallikning må være definert og deriverbar i hvert punkt der påstanden skal gjelde, og derfor gjelder resultatet i hele planet **unntatt** origo.\n\n**Verdt å merke seg:** at $u_{yy}$ følger av $u_{xx}$ ved symmetri, sparer halve regningen. Skriv «ved symmetri i $x$ og $y$» — det er et fullgodt argument når funksjonen faktisk er symmetrisk, og det er raskt.",
+        "hints": [
+          "Bruk kjerneregelen på $\\ln$ først: den deriverte av $\\ln(g)$ er $g'/g$.",
+          "Bruk kvotientregelen på $u_x$, og se om du kan få $u_{yy}$ gratis ved symmetri.",
+          "For siste del: hvor er funksjonen i det hele tatt definert?"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu kan nå verifisere og klassifisere. Det dekker den vanligste 4D-varianten. Resten av kapitlet handler om å verifisere mot *flere* betingelser samtidig, og om det korte gradient-tillegget. Tar du en pause her, skriv først ned de fire stegene i verifikasjonsoppskriften fra hukommelsen.",
+      "id": "tma4135-5-4-pause1"
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 3 — Verifiser også rand- og initialbetingelsene (~16 min)\n\nOppgaven stopper sjelden ved likningen. «Vis at $u$ løser problemet» betyr som regel: likningen, randbetingelsene og initialbetingelsen. Hvert av de tre er egne poeng.",
+      "id": "tma4135-5-4-lokke3"
+    },
+    {
+      "type": "definition",
+      "title": "Varmekjernen",
+      "content": "Funksjonen\n\n$$u(x,t) = \\frac{1}{\\sqrt{t}}\\,e^{-x^2/(4t)}, \\qquad t > 0,$$\n\nsom løser varmelikningen $u_t = u_{xx}$ på hele tallinja.\n\nDen beskriver hvordan en enkelt varmeklump smøres ut: kurven er en klokkeform som blir lavere og bredere med tida, mens arealet under den holder seg konstant. Den generelle formen, som løser $u_t = c^2u_{xx}$, er $\\frac{1}{\\sqrt t}e^{-x^2/(4c^2t)}$.\n\nVarmekjernen er en klassisk verifikasjonsoppgave, fordi den ser komplisert ut og krever både produktregelen og kjerneregelen — men går pent opp.",
+      "id": "tma4135-5-4-def-varmekjerne"
+    },
+    {
+      "type": "definition",
+      "title": "Å verifisere rand- og initialbetingelser",
+      "content": "Å sette de aktuelle verdiene inn i den ferdige funksjonen og vise at kravet er oppfylt:\n\n- **randbetingelse** av Dirichlet-type: sett $x = 0$ og $x = L$ i $u$, og vis at du får den foreskrevne verdien for alle $t$;\n- **randbetingelse** av Neumann-type: regn ut $u_x$ først, og sett så inn randpunktene;\n- **initialbetingelse:** sett $t = 0$ i $u$ (og i $u_t$ for bølgeligningen) og sammenlikn med den oppgitte funksjonen.\n\n**Hver av disse er ett kort regnestykke og ett poeng.** De er nesten gratis, og de er det aller vanligste stedet studenter lar poeng ligge.",
+      "id": "tma4135-5-4-def-verifiser-betingelser"
+    },
+    {
+      "type": "example",
+      "title": "Varmekjernen: en verifikasjon med både produkt- og kjerneregel",
+      "problem": "Vis ved innsetting at\n\n$$u(x,t) = t^{-1/2}\\,e^{-x^2/(4t)}$$\n\nløser varmelikningen $u_t = u_{xx}$ for $t > 0$.",
+      "solution": "**Steg 1 — deriver med hensyn på $x$.** Her er $t^{-1/2}$ en konstant. Kjerneregelen på eksponenten, som har $\\frac{\\partial}{\\partial x}\\left(-\\frac{x^2}{4t}\\right) = -\\frac{x}{2t}$:\n\n$$u_x = t^{-1/2}\\cdot\\left(-\\frac{x}{2t}\\right)e^{-x^2/(4t)} = -\\frac{x}{2}\\,t^{-3/2}e^{-x^2/(4t)}.$$\n\nDeriver en gang til, nå med **produktregelen** på $-\\tfrac{x}{2}t^{-3/2}$ ganger eksponentialen:\n\n$$u_{xx} = -\\frac{1}{2}t^{-3/2}e^{-x^2/(4t)} + \\left(-\\frac{x}{2}t^{-3/2}\\right)\\left(-\\frac{x}{2t}\\right)e^{-x^2/(4t)}$$\n\n$$= t^{-3/2}e^{-x^2/(4t)}\\left(-\\frac12 + \\frac{x^2}{4t}\\right) = \\frac{x^2 - 2t}{4}\\,t^{-5/2}\\,e^{-x^2/(4t)}.$$\n\n**Steg 2 — deriver med hensyn på $t$.** Nå er $x$ konstant, og vi trenger produktregelen på $t^{-1/2}$ ganger eksponentialen. Den indre deriverte av eksponenten er $\\frac{\\partial}{\\partial t}\\left(-\\frac{x^2}{4t}\\right) = \\frac{x^2}{4t^2}$:\n\n$$u_t = -\\frac12 t^{-3/2}e^{-x^2/(4t)} + t^{-1/2}\\cdot\\frac{x^2}{4t^2}e^{-x^2/(4t)}$$\n\n$$= t^{-3/2}e^{-x^2/(4t)}\\left(-\\frac12 + \\frac{x^2}{4t}\\right) = \\frac{x^2 - 2t}{4}\\,t^{-5/2}\\,e^{-x^2/(4t)}.$$\n\n**Steg 3 — sammenlikn.** De to uttrykkene er **identiske**:\n\n$$u_t = \\frac{\\left(x^2 - 2t\\right)e^{-x^2/(4t)}}{4\\,t^{5/2}} = u_{xx}.$$\n\nVarmelikningen er oppfylt for alle $t > 0$.\n\n**Hvorfor $t > 0$ må stå der.** For $t = 0$ er både $t^{-1/2}$ og $x^2/(4t)$ udefinert. Funksjonen finnes ikke ved $t = 0$, og påstanden gjelder bare for positive tider. **Å skrive det er verdt et poeng** — det viser at du vet hva et definisjonsområde er.\n\n**Kontroll av rimeligheten.** For $x = 0$ er $u = t^{-1/2}$, som synker mot null når $t$ vokser: toppen faller. Og bredden vokser, siden eksponenten $-x^2/(4t)$ blir flatere. Arealet holder seg: $\\int_{-\\infty}^{\\infty}t^{-1/2}e^{-x^2/(4t)}\\,dx = 2\\sqrt{\\pi}$ uansett $t$, siden Gauss-integralet gir $\\sqrt{4\\pi t}\\cdot t^{-1/2}$. Konstant areal, synkende topp, økende bredde — nøyaktig som varme skal oppføre seg.",
+      "id": "tma4135-5-4-eks3"
+    },
+    {
+      "type": "example",
+      "title": "Eksamensnivå: verifiser likningen, randen, initialdataene — og klassifiser",
+      "problem": "**Eksamensoppgave.** Betrakt\n\n$$u(x,t) = 3e^{-4t}\\sin 2x + e^{-16t}\\sin 4x.$$\n\n**a)** Avgjør om likningen $u_t = u_{xx}$ er lineær og homogen, og angi ordenen.\n**b)** Vis ved innsetting at $u$ løser $u_t = u_{xx}$.\n**c)** Vis at $u$ oppfyller randbetingelsene $u(0,t) = u(\\pi,t) = 0$ og initialbetingelsen $u(x,0) = 3\\sin 2x + \\sin 4x$.\n**d)** Angi grensen når $t \\to \\infty$, og si hvilket ledd som dør ut sist.",
+      "solution": "**a) Klassifisering.** Høyeste derivasjon er $u_{xx}$, altså **orden 2**. Leddene $u_t$ og $u_{xx}$ inneholder hver nøyaktig én $u$-faktor i første potens, uten produkter — **lineær**. Begge ledd har en $u$-faktor, så det finnes ikke noe kildeledd — **homogen**.\n\n**b) Innsetting.** Deriver hvert ledd for seg.\n\n*Med hensyn på $t$* (der $\\sin$-faktorene er konstanter):\n\n$$u_t = 3\\cdot(-4)e^{-4t}\\sin 2x + (-16)e^{-16t}\\sin 4x = -12e^{-4t}\\sin 2x - 16e^{-16t}\\sin 4x.$$\n\n*Med hensyn på $x$* (der eksponentialene er konstanter):\n\n$$u_x = 6e^{-4t}\\cos 2x + 4e^{-16t}\\cos 4x,$$\n\n$$u_{xx} = -12e^{-4t}\\sin 2x - 16e^{-16t}\\sin 4x.$$\n\n**De to uttrykkene er identiske**, altså $u_t = u_{xx}$. Oppfylt.\n\n*Kontroll av at det måtte gå bra:* hvert ledd er på formen $e^{-n^2t}\\sin nx$, som er nøyaktig produktløsningene fra [kap. 5.1](/tma4135/tma4135-5-1) med $c^2 = 1$. Her er $n = 2$ (med $n^2 = 4$) og $n = 4$ (med $n^2 = 16$). Eksponentene stemmer.\n\n**c) Rand og initialdata.**\n\n*Randen i $x = 0$:* $\\sin 0 = 0$ i begge ledd, så\n\n$$u(0,t) = 3e^{-4t}\\cdot 0 + e^{-16t}\\cdot 0 = 0 \\quad \\text{for alle } t. \\quad\\text{Oppfylt.}$$\n\n*Randen i $x = \\pi$:* $\\sin 2\\pi = 0$ og $\\sin 4\\pi = 0$, så\n\n$$u(\\pi,t) = 3e^{-4t}\\cdot 0 + e^{-16t}\\cdot 0 = 0. \\quad\\text{Oppfylt.}$$\n\n*Initialbetingelsen:* sett $t = 0$, da er begge eksponentialene lik 1:\n\n$$u(x,0) = 3\\sin 2x + \\sin 4x. \\quad\\text{Oppfylt.}$$\n\n**d) Grensen.** Begge eksponentialene går mot null når $t \\to \\infty$, så\n\n$$u(x,t) \\;\\longrightarrow\\; 0.$$\n\nLeddet med den **minste** eksponenten i tallverdi dør ut sist, altså $3e^{-4t}\\sin 2x$. Ved $t = 1$ er forholdet mellom leddene $e^{-16}/e^{-4} = e^{-12} \\approx 6\\cdot 10^{-6}$: det andre leddet er praktisk talt borte, og profilen er en ren $\\sin 2x$-bue.\n\n**Hva som gir uttelling.** Fire delpunkter, fire ulike typer arbeid, og til sammen kanskje ti minutter. Delpunkt a) er ren avlesning. Delpunkt b) krever ryddig derivasjon med begge uttrykk skrevet ut. Delpunkt c) er tre korte innsettinger — **de er lette å hoppe over fordi de føles trivielle, men de er egne poeng**, og de er merket som egne delpunkter nettopp derfor. Delpunkt d) belønner at du vet at høye moder dør raskest.",
+      "id": "tma4135-5-4-eks4"
+    },
+    {
+      "id": "tma4135-5-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-4-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H.) Finn alle verdier av konstanten $a$ slik at\n\n$$u(x,t) = e^{-at}\\sin 3x$$\n\nløser varmelikningen $u_t = 2u_{xx}$. Vis så at løsningen din også oppfyller $u(0,t) = u(\\pi,t) = 0$.",
+        "solution": "**Deriverte.**\n\n$$u_t = -a\\,e^{-at}\\sin 3x = -a\\,u,$$\n$$u_x = 3e^{-at}\\cos 3x, \\qquad u_{xx} = -9e^{-at}\\sin 3x = -9u.$$\n\n**Sett inn i likningen.**\n\n$$u_t = 2u_{xx} \\quad\\Longleftrightarrow\\quad -a\\,u = 2\\cdot(-9u) = -18u.$$\n\nDette skal gjelde for alle $x$ og $t$, og $u$ er ikke identisk null, så vi kan dele:\n\n$$-a = -18 \\quad\\Longrightarrow\\quad a = 18.$$\n\n**Svar:** $a = 18$, altså $u = e^{-18t}\\sin 3x$.\n\n**Randbetingelsene.** $u(0,t) = e^{-18t}\\sin 0 = 0$ og $u(\\pi,t) = e^{-18t}\\sin 3\\pi = 0$, siden $\\sin 3\\pi = 0$. Begge oppfylt for alle $t$.\n\n**Kontroll mot [kap. 5.1](/tma4135/tma4135-5-1).** Produktløsningene der er $\\sin(nx)e^{-c^2n^2t}$, og med $n = 3$ og $c^2 = 2$ blir eksponenten $-2\\cdot 9\\,t = -18t$. Stemmer.\n\n**Merk teknikken:** ved å skrive hver derivert som et tall ganger $u$, blir hele oppgaven én likning i $a$. Det er raskere og sikrere enn å skrive av lange uttrykk.",
+        "hints": [
+          "Skriv både $u_t$ og $u_{xx}$ på formen «et tall ganger $u$».",
+          "Sett inn, og del på $u$ — hvorfor har du lov til det?",
+          "Sjekk svaret mot formelen for produktløsningene i [kap. 5.1](/tma4135/tma4135-5-1)."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-4-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger H — sammensatt.) Betrakt funksjonen\n\n$$u(x,t) = (x - 4t)^3 + e^{x + 4t}.$$\n\n**a)** Vis ved innsetting at $u$ løser $u_{tt} = 16u_{xx}$.\n**b)** Skriv $u$ som en sum av en høyregående og en venstregående bølge, og angi farten.\n**c)** Avgjør om $u$ også løser varmelikningen $u_t = 16u_{xx}$. Begrunn.",
+        "solution": "**a) Innsetting.** Sett $s = x - 4t$ og $r = x + 4t$, med $s_x = 1$, $s_t = -4$, $r_x = 1$, $r_t = 4$.\n\n*Tidsderiverte.*\n\n$$u_t = 3s^2\\cdot(-4) + e^{r}\\cdot 4 = -12s^2 + 4e^{r},$$\n$$u_{tt} = -24s\\cdot(-4) + 4e^{r}\\cdot 4 = 96s + 16e^{r}.$$\n\n*Romderiverte.*\n\n$$u_x = 3s^2 + e^{r}, \\qquad u_{xx} = 6s + e^{r}.$$\n\n*Sammenlikning.*\n\n$$16u_{xx} = 96s + 16e^{r} = u_{tt}. \\quad\\text{Oppfylt.}$$\n\nSkrevet ut: $u_{tt} = 96(x-4t) + 16e^{x+4t} = 16u_{xx}$.\n\n**b)** Første ledd er en funksjon av $x - 4t$ alene, altså en **høyregående** bølge; andre ledd er en funksjon av $x + 4t$, altså en **venstregående**. Med notasjonen fra [kap. 5.3](/tma4135/tma4135-5-3):\n\n$$u = \\psi(x - ct) + \\phi(x + ct), \\qquad \\psi(s) = s^3, \\quad \\phi(r) = e^{r}, \\quad c = 4.$$\n\nFarten er $c = 4$, som stemmer med $c^2 = 16$.\n\n**c) Varmelikningen.** Vi har allerede\n\n$$u_t = -12(x-4t)^2 + 4e^{x+4t}, \\qquad 16u_{xx} = 96(x-4t) + 16e^{x+4t}.$$\n\nSkal disse være like for alle $x$ og $t$, må særlig eksponentialleddene stemme: $4e^{x+4t} = 16e^{x+4t}$ er umulig. **Altså løser $u$ ikke varmelikningen.**\n\nEt enda kortere argument: for $x = 4t$ (der $s = 0$) blir $u_t = 4e^{8t}$ mens $16u_{xx} = 16e^{8t}$, og de er ulike for alle $t$. Ett motpunkt er nok til å avkrefte en «for alle»-påstand.\n\n**Merk hvorfor de to likningene oppfører seg så ulikt.** Ledd av formen $\\phi(x \\pm ct)$ løser bølgeligningen med akkurat den farten, uansett hva $\\phi$ er. Varmelikningen har ingen slik familie — der er løsningene $e^{-c^2n^2t}\\sin nx$ og varmekjernen, og formen er helt annerledes.",
+        "hints": [
+          "Navngi begge de indre argumentene før du deriverer, og hold styr på deres deriverte.",
+          "For b): hvilket ledd avhenger av $x - ct$ og hvilket av $x + ct$?",
+          "For c): hold ett av leddene fast og se om koeffisientene kan stemme. Ett motpunkt er nok."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 4 — Tillegg: gradient og retningsderivert (~12 min)\n\n**Merk: dette er «bør kjenne til»-stoff — nivå tre i bokas prioritering.** Gradient og retningsderivert dukker opp som et lite selvstendig delpunkt i den 4D-spesifikke oppgaven på 2 av 13 gjennomgåtte sett, altså 15 %. Det er lite, men det er billige poeng, og hele apparatet får plass på et kvarter. Har du dårlig tid før eksamen, er dette den ene løkka i Del 5 du kan hoppe over — men bare den.",
+      "id": "tma4135-5-4-lokke4"
+    },
+    {
+      "type": "definition",
+      "title": "Gradienten",
+      "content": "Vektoren av de partielle deriverte:\n\n$$\\nabla f(x,y) = \\left(f_x,\\; f_y\\right).$$\n\nSymbolet $\\nabla$ leses «nabla». Gradienten peker i den retningen funksjonen vokser **raskest**, og lengden $|\\nabla f|$ er nettopp den raskeste veksten per lengdeenhet.\n\nLegg merke til at gradienten er en **vektor**, mens $f$ er et tall. Å blande de to er den vanligste feilen i denne sjangeren.",
+      "id": "tma4135-5-4-def-gradient"
+    },
+    {
+      "type": "definition",
+      "title": "Retningsderiverte",
+      "content": "Vekstraten til $f$ i en gitt retning $\\hat{\\mathbf v}$, altså\n\n$$D_{\\hat{\\mathbf v}}f = \\nabla f \\cdot \\hat{\\mathbf v},$$\n\nder prikken er prikkproduktet.\n\nTolkning: står du i et punkt i et fjellandskap og går i retning $\\hat{\\mathbf v}$, er $D_{\\hat{\\mathbf v}}f$ stigningen du opplever. Går du i gradientens retning, får du den bratteste stigningen; går du motsatt vei, den bratteste nedstigningen.",
+      "id": "tma4135-5-4-def-retningsderivert"
+    },
+    {
+      "type": "definition",
+      "title": "Enhetsretning",
+      "content": "En vektor med lengde 1:\n\n$$\\hat{\\mathbf v} = \\frac{\\mathbf v}{|\\mathbf v|}.$$\n\n**Retningen må normeres før den brukes i retningsderiverte.** Gjør du det ikke, får du et svar som er skalert med lengden av $\\mathbf v$, og det er den vanligste feilen i denne sjangeren. Er $\\mathbf v = (3,4)$, er $|\\mathbf v| = 5$ og $\\hat{\\mathbf v} = (3/5,\\, 4/5)$.",
+      "id": "tma4135-5-4-def-enhetsretning"
+    },
+    {
+      "type": "definition",
+      "title": "Nivåkurve",
+      "content": "Mengden av punkter der $f$ har en fast verdi:\n\n$$f(x,y) = C.$$\n\nPå et kart er nivåkurvene høydekotene. Gradienten står alltid **vinkelrett** på nivåkurven gjennom punktet — det er en annen måte å si at den peker i retningen der funksjonen endrer seg raskest, siden den ikke endrer seg i det hele tatt langs kurven.\n\nFølgen er praktisk: er du bedt om en retning der $f$ ikke endrer seg, skal du velge en retning vinkelrett på $\\nabla f$.",
+      "id": "tma4135-5-4-def-nivaakurve"
+    },
+    {
+      "id": "tma4135-5-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-4-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — gradient-innslag, «bør kjenne til».) La\n\n$$f(x,y) = x^2e^{y}.$$\n\n**a)** Finn $\\nabla f$ og regn den ut i punktet $(2,0)$.\n**b)** Finn den retningsderiverte i $(2,0)$ i retning $\\mathbf v = (1,1)$.\n**c)** I hvilken retning vokser $f$ raskest i $(2,0)$, og hvor fort?",
+        "solution": "**a)** Partiell derivasjon, med den andre variabelen holdt fast:\n\n$$f_x = 2xe^{y}, \\qquad f_y = x^2e^{y} \\quad\\Longrightarrow\\quad \\nabla f = \\left(2xe^{y},\\; x^2e^{y}\\right).$$\n\nI punktet $(2,0)$, der $e^0 = 1$:\n\n$$\\nabla f(2,0) = \\left(4,\\; 4\\right).$$\n\n**b)** Retningen må normeres først: $|\\mathbf v| = \\sqrt{1^2+1^2} = \\sqrt2$, så\n\n$$\\hat{\\mathbf v} = \\left(\\tfrac{1}{\\sqrt2},\\; \\tfrac{1}{\\sqrt2}\\right).$$\n\nPrikkproduktet:\n\n$$D_{\\hat{\\mathbf v}}f(2,0) = (4,4)\\cdot\\left(\\tfrac{1}{\\sqrt2},\\tfrac{1}{\\sqrt2}\\right) = \\frac{4}{\\sqrt2} + \\frac{4}{\\sqrt2} = \\frac{8}{\\sqrt2} = 4\\sqrt2 \\approx 5{,}657.$$\n\n**c)** $f$ vokser raskest i gradientens retning, altså langs $(4,4)$, eller normert $\\left(\\tfrac{1}{\\sqrt2},\\tfrac{1}{\\sqrt2}\\right)$. Den raskeste veksten er lengden av gradienten:\n\n$$|\\nabla f(2,0)| = \\sqrt{4^2 + 4^2} = \\sqrt{32} = 4\\sqrt2 \\approx 5{,}657.$$\n\n**Legg merke til sammenhengen mellom b) og c):** svarene er like. Det er fordi retningen $(1,1)$ i b) tilfeldigvis peker samme vei som gradienten $(4,4)$. Retningsderiverte er alltid størst nettopp i gradientens retning, og maksimalverdien er $|\\nabla f|$ — **så hadde du sett sammenhengen først, var b) gratis når c) var gjort.**\n\n*Kontroll:* $|D_{\\hat{\\mathbf v}}f| \\le |\\nabla f|$ må gjelde for enhver enhetsretning, etter Cauchy–Schwarz. Her er de like, som de skal når retningene er parallelle.",
+        "hints": [
+          "Deriver med hensyn på én variabel om gangen; den andre er konstant.",
+          "Del $\\mathbf v$ på lengden sin før du tar prikkproduktet.",
+          "For c): hva sier gradienten om retningen for raskest vekst, og hva betyr lengden dens?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-4-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger H — sammensatt, «bør kjenne til».) La\n\n$$f(x,y) = xy^2 + 3x.$$\n\n**a)** Finn $\\nabla f$ i punktet $(1,2)$.\n**b)** Finn den retningsderiverte i $(1,2)$ i retning $\\mathbf v = (4,-3)$.\n**c)** Finn en retning der $f$ ikke endrer seg i det hele tatt i $(1,2)$, og begrunn.\n**d)** Hvilken nivåkurve går gjennom $(1,2)$?",
+        "solution": "**a)** $$f_x = y^2 + 3, \\qquad f_y = 2xy \\quad\\Longrightarrow\\quad \\nabla f = \\left(y^2+3,\\; 2xy\\right).$$\n\nI $(1,2)$:\n\n$$\\nabla f(1,2) = \\left(4+3,\\; 2\\cdot1\\cdot2\\right) = (7,\\; 4).$$\n\n**b)** Normer retningen: $|\\mathbf v| = \\sqrt{16+9} = 5$, så $\\hat{\\mathbf v} = \\left(\\tfrac45, -\\tfrac35\\right)$.\n\n$$D_{\\hat{\\mathbf v}}f(1,2) = (7,4)\\cdot\\left(\\tfrac45, -\\tfrac35\\right) = \\frac{28}{5} - \\frac{12}{5} = \\frac{16}{5} = 3{,}2.$$\n\n**c)** $f$ endrer seg ikke i en retning $\\hat{\\mathbf w}$ nøyaktig når $D_{\\hat{\\mathbf w}}f = \\nabla f\\cdot\\hat{\\mathbf w} = 0$, altså når $\\hat{\\mathbf w}$ står **vinkelrett** på gradienten.\n\nGradienten er $(7,4)$; en vektor vinkelrett på den er $(-4,7)$ (bytt om komponentene og snu fortegnet på den ene). Normert:\n\n$$\\hat{\\mathbf w} = \\frac{(-4,\\;7)}{\\sqrt{16+49}} = \\frac{(-4,\\;7)}{\\sqrt{65}}.$$\n\n*Kontroll:* $(7,4)\\cdot(-4,7) = -28 + 28 = 0$. Riktig. Retningen $(4,-7)/\\sqrt{65}$ virker like godt — begge veier langs nivåkurven duger.\n\nDette er nettopp **tangentretningen til nivåkurven** gjennom punktet, og det er den geometriske grunnen til at svaret er vinkelrett på gradienten.\n\n**d)** Verdien i punktet er\n\n$$f(1,2) = 1\\cdot 4 + 3 = 7.$$\n\nNivåkurven er derfor\n\n$$xy^2 + 3x = 7, \\qquad \\text{altså} \\qquad x\\left(y^2+3\\right) = 7, \\qquad \\text{altså} \\qquad x = \\frac{7}{y^2+3}.$$\n\n*Kontroll:* sett $y = 2$, da er $x = 7/7 = 1$. Kurven går gjennom $(1,2)$. Riktig.\n\n*Ekstra kontroll av c):* deriverer vi kurven $x = 7/(y^2+3)$ implisitt i punktet, får vi $dx/dy = -14y/(y^2+3)^2$, som i $y = 2$ gir $-28/49 = -4/7$. Tangentretningen er altså $(-4/7,\\, 1)$, som er parallell med $(-4,7)$. Stemmer med svaret i c).",
+        "hints": [
+          "Deriver leddvis; $3x$ bidrar bare til $f_x$.",
+          "For c): når er et prikkprodukt null?",
+          "For d): regn ut $f(1,2)$ først — det er verdien nivåkurven skal ha."
+        ]
+      }
+    },
+    {
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å miste den indre deriverte.** Deriverer du $\\cos(4x - 2t)$ med hensyn på $t$, kommer $-2$ ned som faktor. Deriverer du to ganger, kommer den ned to ganger og gir $(-2)^2 = 4$. Dette er den vanligste feilen i hele sjangeren. **Skriv den indre deriverte på en egen linje før du begynner.**\n\n**Å forveksle $u_t$ og $u_{tt}$.** Varmelikningen har én tidsderivert, bølgeligningen har to. Les likningen nøye før du deriverer — og legg merke til at hvis oppgaven gir deg både $u(x,0)$ og $u_t(x,0)$, er det en bølgeligning.\n\n**Å kalle en likning ikke-lineær på grunn av et ledd som ikke inneholder $u$.** $u_t = u_{xx} + \\sin(x^3) + x^{17}$ er **lineær**. Ikke-lineariteten må komme fra $u$ selv eller fra dens deriverte. Stryk alt som bare avhenger av $x$, $y$ og $t$, og se hva som står igjen.\n\n**Å glemme å sjekke rand- og initialbetingelsene.** «Vis at $u$ løser problemet» betyr som regel både likningen *og* betingelsene. Hver av dem er egne poeng og tar femten sekunder.\n\n**Å nøye seg med å påstå at sidene er like.** Skriv ut venstresiden, skriv ut høyresiden, og si eksplisitt at de er identiske. Instruksen på settet krever at tenkemåten framgår klart, og en linje som bare sier «altså stemmer det», gjør ikke det.\n\n**Å glemme definisjonsområdet.** Varmekjernen finnes ikke i $t = 0$; logaritmefunksjonen $\\ln(x^2+y^2)$ finnes ikke i origo. Å skrive «for $t > 0$» eller «for $(x,y) \\ne (0,0)$» er et poeng.\n\n**Å ikke normere retningen i en retningsderivert.** $D_{\\hat{\\mathbf v}}f = \\nabla f\\cdot\\hat{\\mathbf v}$ krever at $|\\hat{\\mathbf v}| = 1$. Bruker du $\\mathbf v = (3,4)$ direkte, får du fem ganger for stort svar.\n\n**Å tro at gradienten er et tall.** $\\nabla f$ er en vektor. Er svaret på «hvor fort vokser $f$ raskest», er det lengden $|\\nabla f|$ som skal oppgis, ikke vektoren selv.",
+      "id": "tma4135-5-4-typiske-feil"
+    },
+    {
+      "id": "tma4135-5-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-5-4-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter. Bruker du mer enn ti minutter, er det verdt å friske opp kjerneregelen og produktregelen før du går videre til [kap. 5.5](/tma4135/tma4135-5-5)."
+        },
+        {
+          "id": "tma4135-5-4-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-4-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $u_x$ og $u_t$ for\n\n**a)** $u = e^{3x - 2t}$\n**b)** $u = \\sin(5x + t)$\n**c)** $u = (2x - 7t)^4$",
+            "solution": "**a)** $$u_x = 3e^{3x-2t}, \\qquad u_t = -2e^{3x-2t}.$$\n\n**b)** $$u_x = 5\\cos(5x+t), \\qquad u_t = \\cos(5x+t).$$\n\n**c)** $$u_x = 4(2x-7t)^3\\cdot 2 = 8(2x-7t)^3, \\qquad u_t = 4(2x-7t)^3\\cdot(-7) = -28(2x-7t)^3.$$\n\nI alle tre er mønsteret det samme: den indre deriverte kommer ned som faktor. Med hensyn på $x$ er den koeffisienten foran $x$; med hensyn på $t$ er den koeffisienten foran $t$, fortegn og alt.",
+            "hints": [
+              "Kjerneregelen: ytre derivert ganger indre derivert."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-4-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-4-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $u_{xx}$ for $u = \\cos(4x - 2t)$, og deretter $u_{tt}$. Sammenlikn forholdet $u_{tt}/u_{xx}$.",
+            "solution": "Sett $s = 4x - 2t$, med $s_x = 4$ og $s_t = -2$.\n\n$$u_x = -4\\sin s, \\qquad u_{xx} = -16\\cos s = -16u,$$\n$$u_t = 2\\sin s, \\qquad u_{tt} = -4\\cos s = -4u.$$\n\nForholdet er\n\n$$\\frac{u_{tt}}{u_{xx}} = \\frac{-4u}{-16u} = \\frac14.$$\n\nFunksjonen løser altså $u_{tt} = \\tfrac14 u_{xx}$, altså bølgeligningen med $c^2 = \\tfrac14$ og fart $c = \\tfrac12$.\n\n*Kontroll:* argumentet er $4x - 2t = 4\\left(x - \\tfrac{t}{2}\\right)$, altså på formen $x - ct$ med $c = \\tfrac12$. Stemmer.",
+            "hints": [
+              "De indre deriverte er 4 og $-2$; begge kommer ned to ganger.",
+              "Skriv argumentet på formen $a(x - ct)$ og les av $c$ som kontroll."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-4-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-4-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Avgjør om hver likning er lineær eller ikke-lineær.\n\n**a)** $y'' + x^2y' + \\sin(x)\\,y = e^{x}$\n**b)** $y'' + y\\,y' = 0$\n**c)** $y' = y^2$",
+            "solution": "**a) Lineær.** Alle koeffisientene ($1$, $x^2$, $\\sin x$) er funksjoner av $x$ alene, og $y$, $y'$, $y''$ opptrer hver i første potens uten produkter. Høyresiden $e^x$ inneholder ingen $y$, så likningen er lineær og ikke-homogen.\n\n**b) Ikke-lineær.** Leddet $y\\,y'$ er et produkt av to $y$-faktorer.\n\n**c) Ikke-lineær.** $y^2$ er andre potens.\n\n**Samme test som for partielle differensiallikninger:** det er bare $y$ (eller $u$) og dens deriverte som teller, aldri koeffisientene.",
+            "hints": [
+              "Se etter potenser av den ukjente funksjonen eller produkter av to slike faktorer."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-4-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-4-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Bruk produktregelen til å derivere $u = t^{-3/2}e^{-x^2/(4t)}$ med hensyn på $t$. Skriv svaret så kompakt du kan.",
+            "solution": "Sett $A = t^{-3/2}$ og $B = e^{-x^2/(4t)}$.\n\n$$A_t = -\\tfrac32 t^{-5/2}.$$\n\nFor $B$ trengs kjerneregelen. Eksponenten er $-\\dfrac{x^2}{4}t^{-1}$, med derivert $\\dfrac{x^2}{4}t^{-2} = \\dfrac{x^2}{4t^2}$. Altså\n\n$$B_t = \\frac{x^2}{4t^2}\\,e^{-x^2/(4t)}.$$\n\nProduktregelen:\n\n$$u_t = A_tB + AB_t = -\\tfrac32 t^{-5/2}e^{-x^2/(4t)} + t^{-3/2}\\cdot\\frac{x^2}{4t^2}e^{-x^2/(4t)}.$$\n\nSett $t^{-5/2}e^{-x^2/(4t)}$ utenfor parentes:\n\n$$u_t = t^{-5/2}e^{-x^2/(4t)}\\left(-\\frac32 + \\frac{x^2}{4t}\\right) = \\frac{x^2 - 6t}{4}\\,t^{-7/2}\\,e^{-x^2/(4t)}.$$\n\n**Grepet å ta med seg:** sett alltid den laveste potensen av $t$ og eksponentialfunksjonen utenfor parentes. Da blir uttrykket kort nok til at du klarer å sammenlikne det med noe annet.",
+            "hints": [
+              "Skriv eksponenten som $-\\frac{x^2}{4}t^{-1}$ før du deriverer den.",
+              "Sett den laveste $t$-potensen og eksponentialen utenfor parentes til slutt."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-4-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-4-oR5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Normer vektorene og regn ut prikkproduktet $\\hat{\\mathbf a}\\cdot\\hat{\\mathbf b}$ for $\\mathbf a = (3,4)$ og $\\mathbf b = (0,5)$. Hva sier svaret om vinkelen mellom dem?",
+            "solution": "$$|\\mathbf a| = \\sqrt{9+16} = 5 \\;\\Rightarrow\\; \\hat{\\mathbf a} = \\left(\\tfrac35,\\tfrac45\\right), \\qquad |\\mathbf b| = 5 \\;\\Rightarrow\\; \\hat{\\mathbf b} = (0,1).$$\n\n$$\\hat{\\mathbf a}\\cdot\\hat{\\mathbf b} = \\tfrac35\\cdot 0 + \\tfrac45\\cdot 1 = \\tfrac45 = 0{,}8.$$\n\nFor enhetsvektorer er prikkproduktet nøyaktig $\\cos\\theta$, der $\\theta$ er vinkelen mellom dem. Altså\n\n$$\\cos\\theta = 0{,}8 \\quad\\Longrightarrow\\quad \\theta = \\arccos(0{,}8) \\approx 36{,}9^\\circ.$$\n\n**Sammenhengen med retningsderiverte:** $D_{\\hat{\\mathbf v}}f = |\\nabla f|\\cos\\theta$, der $\\theta$ er vinkelen mellom gradienten og retningen. Det gjør det åpenbart at retningsderiverte er størst når $\\theta = 0$ (samme retning som gradienten) og null når $\\theta = 90^\\circ$ (langs nivåkurven).",
+            "hints": [
+              "Del hver vektor på sin egen lengde.",
+              "For enhetsvektorer er prikkproduktet lik cosinus til vinkelen mellom dem."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-5-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-5-4-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $u(x,t)$ | Funksjonen som skal verifiseres |\n| $u_x$, $u_t$ | Partielle deriverte med hensyn på posisjon og tid |\n| $u_{xx}$, $u_{tt}$ | Doble partielle deriverte |\n| $u_{xt}$ | Blandet derivert; for funksjonene her er $u_{xt} = u_{tx}$ |\n| $s$, $r$ | Navn på indre argumenter, typisk $s = x - ct$ og $r = x + ct$ |\n| $c$ | Bølgefarten i [kap. 5.3](/tma4135/tma4135-5-3); $c^2$ er diffusiviteten i [kap. 5.1](/tma4135/tma4135-5-1) |\n| $f(x,y)$ | Funksjon av to romvariabler i gradient-tillegget |\n| $\\nabla f$ | Gradienten — en **vektor**, ikke et tall |\n| $D_{\\hat{\\mathbf v}}f$ | Den retningsderiverte i enhetsretningen $\\hat{\\mathbf v}$ |\n| $\\hat{\\mathbf v}$ | Enhetsvektor: $\\mathbf v$ delt på sin egen lengde |\n| $C$ | Konstanten i en nivåkurve $f(x,y) = C$ |\n| $\\theta$ | Vinkelen mellom gradienten og en retning |\n"
+        },
+        {
+          "id": "tma4135-5-4-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$u = h(ax+bt) \\;\\Longrightarrow\\; u_x = a\\,h', \\quad u_{xx} = a^2h'', \\quad u_t = b\\,h', \\quad u_{tt} = b^2h''$$\nKjerneregelen for sammensatte argumenter — kapitlets bærebjelke. *(Må kunnes.)*\n\n$$u_t = c^2u_{xx} \\quad (\\text{varme}), \\qquad u_{tt} = c^2u_{xx} \\quad (\\text{bølge}), \\qquad u_{xx} + u_{yy} = 0 \\quad (\\text{Laplace})$$\nDe tre klassiske likningene. Alle er lineære, homogene og av andre orden. *(Må kunnes.)*\n\n$$u(x,t) = \\frac{1}{\\sqrt{t}}\\,e^{-x^2/(4t)}, \\qquad t > 0$$\nVarmekjernen, som løser $u_t = u_{xx}$. *(Må kunnes å verifisere — formelen selv er ikke krevd pugget.)*\n\n$$\\text{lineær} \\;\\Longleftrightarrow\\; \\text{hvert ledd har høyst én } u\\text{-faktor i første potens}$$\nTesten for linearitet. Koeffisienter som avhenger av $x$, $y$, $t$ endrer ingenting. *(Må kunnes.)*\n\n$$\\text{homogen} \\;\\Longleftrightarrow\\; \\text{hvert ledd har en } u\\text{-faktor}$$\nTesten for homogenitet — avgjør om superposisjon er lovlig. *(Må kunnes.)*\n\n$$\\nabla f = \\left(f_x,\\; f_y\\right)$$\nGradienten. *(Må kunnes — «bør kjenne til»-nivå.)*\n\n$$D_{\\hat{\\mathbf v}}f = \\nabla f\\cdot\\hat{\\mathbf v}, \\qquad \\hat{\\mathbf v} = \\frac{\\mathbf v}{|\\mathbf v|}$$\nRetningsderiverte, med normert retning. *(Må kunnes — «bør kjenne til»-nivå.)*\n\n$$\\max_{|\\hat{\\mathbf v}| = 1} D_{\\hat{\\mathbf v}}f = |\\nabla f|$$\nRaskest vekst skjer i gradientens retning, og størrelsen er gradientens lengde. *(Må kunnes — «bør kjenne til»-nivå.)*\n\n$$\\nabla f \\perp \\text{nivåkurven } f = C$$\nGradienten står vinkelrett på nivåkurven. *(Må kunnes — «bør kjenne til»-nivå.)*\n\n$$\\frac{d}{dx}e^{g(x)} = g'(x)e^{g(x)}, \\qquad (fg)' = f'g + fg'$$\nKjerne- og produktregelen, de to eneste verktøyene i verifikasjonsoppgavene. *(Må kunnes.)*\n\n**Ingen av metodene i dette kapitlet hentes fra det utdelte formelarket** — det er ren derivasjon, og alt **må kunnes**. Trigonometriske identiteter og reduksjonsformler **står på det utdelte formelarket — tren oppslaget**, men de trengs først igjen i [kap. 5.5](/tma4135/tma4135-5-5).\n\n**Kolliderende symboler:** $c$ er bølgefart i [kap. 5.3](/tma4135/tma4135-5-3), mens $c^2$ er diffusivitet i [kap. 5.1](/tma4135/tma4135-5-1) og $c_n$ i Del 3 er en kompleks Fourier-koeffisient. $f$ er her en funksjon av to romvariabler i gradient-tillegget, mens $f(x)$ i [kap. 5.3](/tma4135/tma4135-5-3) er initialposisjonen og $f(t)$ i Del 2 er funksjonen som Laplace-transformeres. $s$ og $r$ er navn på indre argumenter her; $s$ er Laplace-variabelen i Del 2, og $r$ er stabilitetstallet i Del 8. Les dem av sammenhengen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,394 @@
+{
+  "id": "tma4135-4-2",
+  "courseId": "tma4135",
+  "chapterNumber": "4.2",
+  "title": "Fourier-transform for PDE på hele $\\mathbb{R}$",
+  "description": "Transformer PDE-en i $x$, løs ODE-en i $t$, bestem konstanten fra initialdata og invers-transformer — varmekjerne-metoden.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "oversette en partiell differensiallikning på hele tallinja til en ordinær differensiallikning i tid ved Fourier-transform",
+    "løse den transformerte likningen med omega som konstant og bestemme integrasjonskonstanten fra initialdata",
+    "transformere tilbake ved å kjenne igjen tabellraden med tiden gjemt i parameteren",
+    "avgjøre ut fra domenet om Fourier-transform eller separasjon av variable er riktig metode"
+  ],
+  "content": [
+    {
+      "id": "tma4135-4-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Denne varianten kalles sjanger F i boka:** bruk Fourier-transformen til å løse en partiell differensiallikning på hele tallinja. Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene; **F er Fourier-transform brukt på en partiell differensiallikning**.\n\nSjangeren opptrer i **3 av 13** gjennomgåtte sett (23 %), men den er nesten alltid *den* Fourier-transform-oppgaven når den først dukker opp — altså delpunkt (b) eller (c) etter en utregningsoppgave av typen i [kap. 4.1](/tma4135/tma4135-4-1). Prioriteten er derfor **middels til høy**: den skal kunnes, men den kommer etter Del 2, Del 3 og Del 5 hvis du må prioritere.\n\n**Oppskriften er alltid den samme fire steg lang**, og den er kort. Klarer du den på ett problem, klarer du den på alle.\n\n**Én avgrensning som er verdt å merke seg med én gang.** Fourier-transformen brukes når $x$ løper over **hele** $\\mathbb{R}$ og det ikke finnes randbetingelser i endelige punkter. Har du i stedet en stav av endelig lengde med betingelser i begge ender, er det **separasjon av variable** som gjelder — det er en helt annen metode, og den hører hjemme i Del 5. Å velge riktig metode ut fra domenet er et poeng i seg selv.\n\n**Formelark-merking.** **Transformtabellen står på det utdelte formelarket — tren oppslaget**; det er den du bruker både når du transformerer initialbetingelsen og når du transformerer tilbake til slutt. Derimot **må kunnes**: oversettelsen av $u_x$ og $u_{xx}$, innsikten i at ODE-en i $t$ har $\\omega$ som en konstant, og at integrasjonskonstanten er en **funksjon av $\\omega$**.\n\n**Tidsbruk:** 55 minutter lesetid, fire løkker. Pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 4.1](/tma4135/tma4135-4-1) — transformen, tabellen, derivasjonsregelen og konvolusjonsteoremet. Ingenting utover det.\n\nFra tidligere matematikkemner forutsettes at du kan løse en **separabel** eller **lineær førsteordens** ordinær differensiallikning av typen $y' = \\lambda y$, med løsning $y = Ce^{\\lambda t}$. Det er den eneste ODE-typen som dukker opp her.\n\n**Sist du var her** — de tre resultatene fra [kap. 4.1](/tma4135/tma4135-4-1) som alt bygger på:\n\n$$\\widehat{f'}(\\omega) = i\\omega\\,\\hat{f}(\\omega), \\qquad \\widehat{f''}(\\omega) = -\\omega^2\\,\\hat{f}(\\omega),$$\n\n$$e^{-ax^2} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{2a}}\\,e^{-\\omega^2/(4a)}, \\qquad \\widehat{f*g}(\\omega) = \\sqrt{2\\pi}\\,\\hat{f}(\\omega)\\hat{g}(\\omega).$$\n\n**Merk minustegnet** i den andre derivasjonsregelen. Det er det som gjør at varmelikningen får en *dempende* eksponential og ikke en voksende."
+    },
+    {
+      "id": "tma4135-4-2-motivasjon",
+      "type": "text",
+      "content": "## En stav uten ender\n\nTenk deg en svært lang metallstav — så lang at endene ikke rekker å gjøre seg gjeldende i den tiden du er interessert i. Du varmer opp et lite område på midten og lurer på hvordan varmen brer seg.\n\nMatematisk er dette varmelikningen $u_t = u_{xx}$ med $x$ over hele $\\mathbb{R}$ og en gitt starttemperatur $u(x,0)=f(x)$. Det er en likning i **to** variable, og den er vanskelig som den står.\n\n**Fourier-transformen fjerner den ene.** Transformerer du i $x$, blir $u_{xx}$ til $-\\omega^2\\hat{u}$ — en multiplikasjon, ikke en derivasjon. Igjen står bare tidsderivasjonen, og du har en helt vanlig førsteordens ODE for hver frekvens $\\omega$:\n\n$$\\frac{\\partial\\hat{u}}{\\partial t} = -\\omega^2\\hat{u}.$$\n\nLøsningen er $\\hat{u}(\\omega,t) = C(\\omega)e^{-\\omega^2 t}$, og den forteller hele historien: **hver frekvenskomponent dempes eksponentielt, og jo høyere frekvens, jo raskere dør den.** Det er derfor varme glatter ut skarpe kanter — de skarpe kantene *er* de høye frekvensene, og de forsvinner først.\n\nSå gjenstår bare å bestemme $C(\\omega)$ fra starttemperaturen og transformere tilbake.\n\nKapitlet gjør fire ting: oversettelsesreglene, den transformerte likningen og konstanten $C(\\omega)$, varmekjernen som konvolusjonsform, og til slutt en avgrensning mot Del 5 — hvilken metode passer til hvilket domene."
+    },
+    {
+      "id": "tma4135-4-2-fc-notis",
+      "type": "text",
+      "content": "**Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 55 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Å transformere i bare én variabel (~14 min)"
+    },
+    {
+      "id": "tma4135-4-2-def-ubegrenset",
+      "type": "definition",
+      "title": "PDE på hele $\\mathbb{R}$",
+      "content": "Et problem der romvariabelen løper over hele tallinja, uten endepunkter:\n\n$$u = u(x,t), \\qquad x\\in\\mathbb{R}, \\quad t>0.$$\n\nFordi det ikke finnes noen ender, finnes det heller ingen **randbetingelser** — bare en **initialbetingelse** $u(x,0)=f(x)$. Til gjengjeld kreves at $u\\to0$ når $|x|\\to\\infty$, slik at transformen finnes.\n\n**Dette er signalet om at Fourier-transformen skal brukes.** Står det i stedet $0<x<L$ med betingelser i begge ender, er det separasjon av variable som gjelder, og det hører til Del 5."
+    },
+    {
+      "id": "tma4135-4-2-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem for en PDE",
+      "content": "En partiell differensiallikning pluss en betingelse på $t=0$:\n\n$$u_t = \\mathcal{D}u \\ \\ (x\\in\\mathbb{R},\\ t>0), \\qquad u(x,0) = f(x),$$\n\nder $\\mathcal{D}$ er en operator som bare deriverer i $x$ — typisk $u_{xx}$, $u_x$ eller en kombinasjon.\n\nFordi likningen er **førsteordens i $t$**, holder én betingelse i tid. Det er nettopp derfor den transformerte likningen blir en førsteordens ODE med bare én ukjent konstant."
+    },
+    {
+      "id": "tma4135-4-2-def-transform-en-variabel",
+      "type": "definition",
+      "title": "Å transformere i én variabel",
+      "content": "Å ta Fourier-transformen med hensyn på **$x$ alene**, og la $t$ være med som en passiv parameter:\n\n$$\\hat{u}(\\omega,t) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}u(x,t)\\,e^{-i\\omega x}\\,dx.$$\n\nResultatet er en funksjon av **to** variable, $\\omega$ og $t$. Tiden er ikke rørt.\n\n**Dette er hele grepet.** Ved å transformere bare den ene variabelen bytter du en partiell derivasjon mot en multiplikasjon, og står igjen med en likning der bare $t$-derivasjonen er igjen."
+    },
+    {
+      "id": "tma4135-4-2-def-ux",
+      "type": "definition",
+      "title": "Regelen $\\widehat{u_x} = i\\omega\\hat{u}$",
+      "content": "Derivasjon i $x$ blir til multiplikasjon med $i\\omega$:\n\n$$\\widehat{\\frac{\\partial u}{\\partial x}}(\\omega,t) = i\\omega\\,\\hat{u}(\\omega,t).$$\n\nDette er derivasjonsregelen fra [kap. 4.1](/tma4135/tma4135-4-1), brukt med $t$ holdt fast. Betingelsen er den samme: $u\\to0$ når $|x|\\to\\infty$, slik at randleddet i den delvise integrasjonen forsvinner."
+    },
+    {
+      "id": "tma4135-4-2-def-uxx",
+      "type": "definition",
+      "title": "Regelen $\\widehat{u_{xx}} = -\\omega^2\\hat{u}$",
+      "content": "To derivasjoner gir faktoren $(i\\omega)^2$:\n\n$$\\widehat{\\frac{\\partial^2 u}{\\partial x^2}}(\\omega,t) = (i\\omega)^2\\hat{u}(\\omega,t) = -\\omega^2\\,\\hat{u}(\\omega,t).$$\n\n**Minustegnet er avgjørende.** Det er det som gjør at varmelikningen får løsningen $e^{-\\omega^2 t}$, som **dempes**. Mister du minustegnet, får du $e^{+\\omega^2 t}$, som vokser uten grense — et fysisk meningsløst svar, og en feil du bør kunne fange på plausibilitet alene."
+    },
+    {
+      "id": "tma4135-4-2-def-ut",
+      "type": "definition",
+      "title": "Regelen for $u_t$",
+      "content": "Tidsderivasjonen går uendret gjennom transformen:\n\n$$\\widehat{\\frac{\\partial u}{\\partial t}}(\\omega,t) = \\frac{\\partial\\hat{u}}{\\partial t}(\\omega,t).$$\n\n**Begrunnelse:** transformintegralet går over $x$, og derivasjon med hensyn på $t$ kan flyttes inn under integraltegnet. Tiden er upåvirket av at vi transformerer i rommet.\n\nDette er grunnen til at én av de to derivasjonene overlever transformen — og det er nettopp den vi vil beholde."
+    },
+    {
+      "id": "tma4135-4-2-eks1",
+      "type": "example",
+      "title": "Varmelikningen med en Gauss-puls",
+      "problem": "Løs\n$$u_t = u_{xx}, \\qquad x\\in\\mathbb{R},\\ t>0, \\qquad u(x,0) = e^{-x^2},$$\nved Fourier-transform i $x$.",
+      "solution": "**Steg 1 — transformer likningen i $x$.** Venstre side blir $\\dfrac{\\partial\\hat{u}}{\\partial t}$, høyre side blir $-\\omega^2\\hat{u}$:\n$$\\frac{\\partial\\hat{u}}{\\partial t}(\\omega,t) = -\\omega^2\\,\\hat{u}(\\omega,t).$$\n\n**Steg 2 — løs ODE-en i $t$.** For **hver fast $\\omega$** er dette en helt vanlig førsteordens likning $y' = \\lambda y$ med $\\lambda = -\\omega^2$:\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{-\\omega^2 t}.$$\n\n**Merk at integrasjonskonstanten er en funksjon av $\\omega$**, ikke et tall. Grunnen er at vi har løst likningen separat for hver frekvens, og hver av dem har sin egen konstant. Dette er det ene stedet studenter oftest slurver.\n\n**Steg 3 — bestem $C(\\omega)$ fra initialbetingelsen.** Sett $t=0$: da er $\\hat{u}(\\omega,0) = C(\\omega)$. Og $\\hat{u}(\\omega,0)$ er nettopp transformen av $u(x,0) = e^{-x^2}$. **Fra Gauss-raden på det utdelte formelarket** med $a=1$:\n$$C(\\omega) = \\frac{1}{\\sqrt2}\\,e^{-\\omega^2/4}.$$\n\nAltså\n$$\\hat{u}(\\omega,t) = \\frac{1}{\\sqrt2}\\,e^{-\\omega^2/4}\\,e^{-\\omega^2 t} = \\frac{1}{\\sqrt2}\\,e^{-\\omega^2\\left(t+\\frac14\\right)}.$$\n\n**Steg 4 — transformer tilbake.** Vi leter i Gauss-raden etter en $a$ som gir eksponenten $-\\omega^2\\left(t+\\tfrac14\\right)$. Raden gir $e^{-\\omega^2/(4a)}$, så\n$$\\frac{1}{4a} = t+\\frac14 = \\frac{4t+1}{4} \\quad\\Longrightarrow\\quad a = \\frac{1}{4t+1}.$$\nMed den $a$-en er\n$$e^{-x^2/(4t+1)} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{2a}}e^{-\\omega^2(t+1/4)} = \\sqrt{\\frac{4t+1}{2}}\\,e^{-\\omega^2(t+1/4)}.$$\nVår $\\hat{u}$ er $\\frac{1}{\\sqrt2}$ ganger eksponentialen, og $\\frac{1}{\\sqrt2} = \\frac{1}{\\sqrt{4t+1}}\\cdot\\sqrt{\\frac{4t+1}{2}}$. **Etter lineariteten** er derfor\n$$\\boxed{u(x,t) = \\frac{1}{\\sqrt{4t+1}}\\,e^{-x^2/(4t+1)}.}$$\n\n**Kontroll 1 — initialbetingelsen.** Sett $t=0$: $u(x,0) = \\frac{1}{\\sqrt1}e^{-x^2} = e^{-x^2}$. Stemmer.\n\n**Kontroll 2 — at likningen er oppfylt.** Deriver:\n$$u_t = \\frac{4x^2-2(4t+1)}{(4t+1)^{5/2}}\\,e^{-x^2/(4t+1)}, \\qquad u_{xx} = \\frac{4x^2-2(4t+1)}{(4t+1)^{5/2}}\\,e^{-x^2/(4t+1)}.$$\nDe er like, så $u_t-u_{xx}=0$. Stemmer.\n\n**Tolkning.** Løsningen er en Gauss-puls som blir **bredere og lavere** med tiden: bredden vokser som $\\sqrt{4t+1}$, og høyden synker med samme faktor. Arealet under kurven — den totale varmemengden — holder seg konstant, slik det skal i et isolert system."
+    },
+    {
+      "id": "tma4135-4-2-fig-varmekjerne",
+      "type": "image",
+      "src": "/images/textbook/tma4135/varmekjerne-utsmoring.svg",
+      "alt": "Tre kurver over samme akse som viser løsningen av varmelikningen ved tre tidspunkter. Ved tid null er kurven en høy og smal klokkeform, ved tid null komma fem er den lavere og bredere, og ved tid to er den lav og bred. Arealet under alle tre kurvene er det samme.",
+      "caption": "Løsningen $u(x,t) = e^{-x^2/(4t+1)}/\\sqrt{4t+1}$ tegnet ved tre tidspunkter. Toppen synker, halene brer seg ut, og arealet under kurven er konstant. I frekvensdomenet er dette bare dempingsfaktoren $e^{-\\omega^2 t}$ som spiser opp de høye frekvensene først."
+    },
+    {
+      "id": "tma4135-4-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-2-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren oversettelse.) Skriv opp den transformerte likningen (ODE-en i $t$) for hvert av problemene. Du skal **ikke** løse dem.\n\n**a)** $u_t = 5u_{xx}$\n**b)** $u_t = u_x$\n**c)** $u_t = u_{xx} - 2u$\n**d)** $u_t = 3u_{xx} + u_x$",
+        "solution": "Bruk $\\widehat{u_x} = i\\omega\\hat{u}$, $\\widehat{u_{xx}} = -\\omega^2\\hat{u}$ og $\\widehat{u_t} = \\hat{u}_t$.\n\n**a)** $\\dfrac{\\partial\\hat{u}}{\\partial t} = -5\\omega^2\\hat{u}.$\n\n**b)** $\\dfrac{\\partial\\hat{u}}{\\partial t} = i\\omega\\,\\hat{u}.$\n\n**c)** $\\dfrac{\\partial\\hat{u}}{\\partial t} = \\left(-\\omega^2-2\\right)\\hat{u}.$\n\n**d)** $\\dfrac{\\partial\\hat{u}}{\\partial t} = \\left(-3\\omega^2+i\\omega\\right)\\hat{u}.$\n\n**Mønsteret:** alle fire har formen $\\hat{u}_t = \\lambda(\\omega)\\,\\hat{u}$, der $\\lambda(\\omega)$ er et polynom i $i\\omega$. Løsningen blir alltid $\\hat{u} = C(\\omega)e^{\\lambda(\\omega)t}$.\n\n**Les av oppførselen fra $\\lambda$.** Er realdelen av $\\lambda$ negativ, dempes komponenten; er den rent imaginær, forskyves den bare uten å dø ut. I a) og c) dempes alt; i b) er $\\lambda$ rent imaginær, og løsningen er en ren forskyvning — det er transportlikningen.",
+        "hints": [
+          "Hver $x$-derivasjon gir en faktor $i\\omega$ — to derivasjoner gir $(i\\omega)^2 = -\\omega^2$.",
+          "Tidsderivasjonen går uendret gjennom.",
+          "Konstantledd som $-2u$ blir bare $-2\\hat u$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Firestegsoppskriften (~13 min)"
+    },
+    {
+      "id": "tma4135-4-2-def-ode-i-t",
+      "type": "definition",
+      "title": "Den transformerte likningen",
+      "content": "Resultatet av å transformere PDE-en i $x$:\n\n$$\\frac{\\partial\\hat{u}}{\\partial t}(\\omega,t) = \\lambda(\\omega)\\,\\hat{u}(\\omega,t),$$\n\nder $\\lambda(\\omega)$ kommer fra å bytte $\\partial/\\partial x$ mot $i\\omega$.\n\n**Dette er en ordinær differensiallikning, ikke en partiell.** Variabelen $\\omega$ er en **konstant** i denne likningen — den er bare med som en parameter. Å behandle $\\omega$ som en variabel som «også deriveres» er en av de vanligste feilene i sjangeren."
+    },
+    {
+      "id": "tma4135-4-2-def-Comega",
+      "type": "definition",
+      "title": "Integrasjonskonstanten $C(\\omega)$",
+      "content": "Løsningen av den transformerte likningen er\n\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{\\lambda(\\omega)t},$$\n\nder $C(\\omega)$ er **en funksjon av $\\omega$**, ikke et tall.\n\n**Hvorfor?** Fordi likningen er løst separat for hver frekvens, og hver av dem har sin egen integrasjonskonstant. Skriver du bare $C$, mister du hele koblingen til initialbetingelsen.\n\n**Konstanten bestemmes ved $t=0$:**\n$$C(\\omega) = \\hat{u}(\\omega,0) = \\widehat{u(\\cdot,0)}(\\omega) = \\hat{f}(\\omega).$$"
+    },
+    {
+      "id": "tma4135-4-2-def-oppskrift",
+      "type": "definition",
+      "title": "Firestegsoppskriften",
+      "content": "1. **Transformer PDE-en i $x$.** Bytt $u_x\\to i\\omega\\hat{u}$ og $u_{xx}\\to-\\omega^2\\hat{u}$; $u_t$ blir $\\hat{u}_t$.\n2. **Løs ODE-en i $t$** med $\\omega$ som konstant. Svaret er $\\hat{u} = C(\\omega)e^{\\lambda(\\omega)t}$.\n3. **Bestem $C(\\omega)$** ved å sette $t=0$ og transformere initialbetingelsen — **slå opp raden på det utdelte formelarket**.\n4. **Transformer tilbake** ved å kjenne igjen $\\hat{u}(\\omega,t)$ som en tabellrad, lest baklengs, med $t$ gjemt inne i parameteren.\n\n**Steg 1, 2 og 3 må kunnes.** Bare tabelloppslagene i steg 3 og 4 står på arket.\n\n**Kontroller til slutt:** sett $t=0$ og se om du får initialbetingelsen tilbake, og sett løsningen inn i likningen."
+    },
+    {
+      "id": "tma4135-4-2-def-demping",
+      "type": "definition",
+      "title": "Dempingsfaktoren $e^{-\\omega^2 t}$",
+      "content": "Faktoren som varmelikningen ganger transformen med:\n\n$$\\hat{u}(\\omega,t) = \\hat{f}(\\omega)\\,e^{-\\omega^2 t}.$$\n\nFor hver frekvens er dette en eksponentiell demping med rate $\\omega^2$. **Høye frekvenser dør ut kvadratisk raskere enn lave** — ved $t=1$ er $\\omega=10$ dempet med faktoren $e^{-100}$, mens $\\omega=1$ bare er dempet med $e^{-1}$.\n\nDet er den matematiske grunnen til at varme glatter ut skarpe kanter: kantene er de høye frekvensene, og de forsvinner først."
+    },
+    {
+      "id": "tma4135-4-2-eks2",
+      "type": "example",
+      "title": "En likning med både transport og vekst",
+      "problem": "Løs\n$$u_t = u_x + u, \\qquad x\\in\\mathbb{R},\\ t>0, \\qquad u(x,0) = e^{-x^2}.$$",
+      "solution": "**Steg 1 — transformer.** $\\widehat{u_x} = i\\omega\\hat{u}$, og $\\hat{u}$ går uendret gjennom:\n$$\\frac{\\partial\\hat{u}}{\\partial t} = \\left(i\\omega+1\\right)\\hat{u}.$$\n\n**Steg 2 — løs ODE-en.** Med $\\omega$ som konstant:\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{(1+i\\omega)t} = C(\\omega)\\,e^{t}\\,e^{i\\omega t}.$$\n\n**Steg 3 — bestem $C(\\omega)$.** Sett $t=0$: $C(\\omega) = \\hat{f}(\\omega)$, der $f(x)=e^{-x^2}$. **Fra Gauss-raden på formelarket** med $a=1$:\n$$C(\\omega) = \\frac{1}{\\sqrt2}\\,e^{-\\omega^2/4}.$$\nAltså\n$$\\hat{u}(\\omega,t) = e^{t}\\,e^{i\\omega t}\\cdot\\frac{1}{\\sqrt2}e^{-\\omega^2/4} = e^{t}\\,e^{i\\omega t}\\,\\hat{f}(\\omega).$$\n\n**Steg 4 — transformer tilbake.** Her trengs ikke Gauss-raden, men **forskyvningsregelen** fra [kap. 4.1](/tma4135/tma4135-4-1) lest baklengs: faktoren $e^{i\\omega t}$ svarer til en forskyvning med $b=-t$, altså\n$$e^{i\\omega t}\\hat{f}(\\omega) = \\widehat{f(x+t)}(\\omega).$$\n*(Regelen sier $\\widehat{f(x-b)} = e^{-ib\\omega}\\hat{f}$; setter vi $b=-t$, får vi $e^{i\\omega t}$.)*\n\nMed faktoren $e^{t}$ foran:\n$$\\boxed{u(x,t) = e^{t}\\,f(x+t) = e^{t}\\,e^{-(x+t)^2}.}$$\n\n**Kontroll 1 — initialbetingelsen.** $u(x,0) = e^{0}e^{-x^2} = e^{-x^2}$. Stemmer.\n\n**Kontroll 2 — likningen.** Med $u = e^{t}e^{-(x+t)^2}$:\n$$u_t = e^{t}e^{-(x+t)^2}\\left(1-2(x+t)\\right), \\qquad u_x = -2(x+t)e^{t}e^{-(x+t)^2}.$$\nDa er $u_x+u = e^{t}e^{-(x+t)^2}\\left(-2(x+t)+1\\right) = u_t$. Stemmer.\n\n**Tolkning.** Pulsen **flytter seg mot venstre** med fart 1 og **vokser** med faktoren $e^{t}$, men den beholder formen. Ingen utglatting skjer — og det er fordi likningen ikke har noe andrederivert-ledd. **Det er $u_{xx}$ som glatter; $u_x$ bare flytter.**\n\n**Legg merke til hvor kort steg 4 ble.** Fordi hele $\\omega$-avhengigheten samlet seg i en fasefaktor ganger $\\hat{f}$, holdt det å kjenne igjen forskyvningsregelen. Det er ofte slik: se etter om $\\hat{u}$ er $\\hat{f}$ ganger noe kjent, før du begynner å lete i tabellen."
+    },
+    {
+      "id": "tma4135-4-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-2-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F — Fourier-transform for en partiell differensiallikning.) Løs transportlikningen\n$$u_t + 2u_x = 0, \\qquad u(x,0) = f(x),$$\nfor en vilkårlig $f$ med Fourier-transform, og tolk svaret.",
+        "solution": "**Steg 1 — transformer.**\n$$\\frac{\\partial\\hat{u}}{\\partial t} + 2i\\omega\\,\\hat{u} = 0 \\quad\\Longleftrightarrow\\quad \\frac{\\partial\\hat{u}}{\\partial t} = -2i\\omega\\,\\hat{u}.$$\n\n**Steg 2 — løs.**\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{-2i\\omega t}.$$\n\n**Steg 3 — konstanten.** Ved $t=0$ er $C(\\omega) = \\hat{f}(\\omega)$, så\n$$\\hat{u}(\\omega,t) = e^{-2i\\omega t}\\,\\hat{f}(\\omega).$$\n\n**Steg 4 — tilbake.** **Etter forskyvningsregelen** med $b = 2t$ er $e^{-2i\\omega t}\\hat{f}(\\omega) = \\widehat{f(x-2t)}(\\omega)$, altså\n$$u(x,t) = f(x-2t).$$\n\n**Kontroll.** $u(x,0)=f(x)$ ✓. Og med kjerneregelen: $u_t = -2f'(x-2t)$, $u_x = f'(x-2t)$, så $u_t+2u_x = 0$ ✓.\n\n**Tolkning.** Løsningen er **initialprofilen forskjøvet mot høyre med fart 2**, uten at formen endres i det hele tatt. Det er derfor likningen kalles transportlikningen: den flytter, den glatter ikke.\n\n**Sammenlikn med varmelikningen.** Der ble $\\lambda = -\\omega^2$, som er **reell og negativ**, og gir demping. Her er $\\lambda = -2i\\omega$, som er **rent imaginær**, og gir bare faseforskyvning. Regelen: realdelen av $\\lambda(\\omega)$ styrer demping, imaginærdelen styrer transport.",
+        "hints": [
+          "Flytt $2u_x$ over på høyre side før du transformerer.",
+          "Løsningen av $\\hat u_t = \\lambda\\hat u$ er $C(\\omega)e^{\\lambda t}$ med $\\omega$ som konstant.",
+          "Kjenn igjen $e^{-ib\\omega}\\hat f$ som transformen av $f(x-b)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-2-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~27 min brukt) —\n\nDu har oppskriften og to gjennomregnede tilfeller. Resten av kapitlet er varmekjernen — den generelle formen svaret tar — og avgrensningen mot Del 5."
+    },
+    {
+      "id": "tma4135-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Varmekjernen (~14 min)\n\nHva blir svaret når initialbetingelsen ikke er en pen Gauss-funksjon, men en vilkårlig $f$? Da kommer konvolusjonsteoremet inn, og svaret får en form som er verdt å kjenne igjen."
+    },
+    {
+      "id": "tma4135-4-2-def-varmekjerne",
+      "type": "definition",
+      "title": "Varmekjernen",
+      "content": "Funksjonen som beskriver hvordan en punktformet varmekilde brer seg:\n\n$$G(x,t) = \\frac{1}{\\sqrt{4\\pi t}}\\,e^{-x^2/(4t)}, \\qquad t>0.$$\n\nDet er en Gauss-kurve med bredde proporsjonal med $\\sqrt{t}$ og areal 1 for alle $t$. **Transformen** er særlig enkel:\n\n$$\\hat{G}(\\omega,t) = \\frac{1}{\\sqrt{2\\pi}}\\,e^{-\\omega^2 t}.$$\n\n*(Kontroll: Gauss-raden med $a = \\frac{1}{4t}$ gir $\\frac{1}{\\sqrt{2a}} = \\sqrt{2t}$, og $\\sqrt{2t}\\cdot\\frac{1}{\\sqrt{4\\pi t}} = \\frac{1}{\\sqrt{2\\pi}}$.)*"
+    },
+    {
+      "id": "tma4135-4-2-teo-konvolusjonsform",
+      "type": "theorem",
+      "title": "Løsningen som konvolusjon med varmekjernen",
+      "content": "Løsningen av $u_t = u_{xx}$ på $\\mathbb{R}$ med $u(x,0)=f(x)$ er\n\n$$u(x,t) = (f*G)(x,t) = \\frac{1}{\\sqrt{4\\pi t}}\\int_{-\\infty}^{\\infty}f(s)\\,e^{-(x-s)^2/(4t)}\\,ds.$$\n\n**Utledning.** Fra firestegsoppskriften er $\\hat{u}(\\omega,t) = \\hat{f}(\\omega)e^{-\\omega^2 t}$. Skriv $e^{-\\omega^2 t} = \\sqrt{2\\pi}\\,\\hat{G}(\\omega,t)$. Da er\n$$\\hat{u} = \\sqrt{2\\pi}\\,\\hat{f}\\,\\hat{G} = \\widehat{f*G}$$\n**etter konvolusjonsteoremet**, og transformen er entydig, så $u = f*G$. $\\blacksquare$\n\n**Tolkning:** temperaturen i punktet $x$ ved tiden $t$ er et **veid gjennomsnitt** av starttemperaturen, med en Gauss-vekt sentrert i $x$. Vekta blir bredere med tiden — jo lenger du venter, jo lenger unna henter punktet informasjon fra.\n\n**Formelen må kunnes på gjenkjenningsnivå.** Ber oppgaven om svaret «uttrykt ved varmekjernen», er det denne formen som etterspørres."
+    },
+    {
+      "id": "tma4135-4-2-eks3",
+      "type": "example",
+      "title": "Eksamensnivå: varmeledning med tap",
+      "problem": "Løs\n$$u_t = u_{xx} - 3u, \\qquad x\\in\\mathbb{R},\\ t>0, \\qquad u(x,0) = e^{-x^2},$$\nog tolk de to effektene i svaret. Modellen beskriver en stav som både leder varme og taper varme til omgivelsene.\n\nFør løsningen som en toppbesvarelse.",
+      "solution": "**Steg 1 — transformer i $x$.** Leddet $u_{xx}$ blir $-\\omega^2\\hat{u}$, og leddet $-3u$ blir $-3\\hat{u}$:\n$$\\frac{\\partial\\hat{u}}{\\partial t} = \\left(-\\omega^2-3\\right)\\hat{u}.$$\n\n*Uttelling her: skriv eksplisitt at $\\omega$ er en konstant i denne likningen. Det er den innsikten delpunktet tester.*\n\n**Steg 2 — løs ODE-en i $t$.** For hver fast $\\omega$:\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{-\\left(\\omega^2+3\\right)t} = C(\\omega)\\,e^{-3t}\\,e^{-\\omega^2 t}.$$\n\n**Steg 3 — bestem $C(\\omega)$.** Ved $t=0$ er $C(\\omega) = \\hat{f}(\\omega)$ med $f(x)=e^{-x^2}$. **Fra Gauss-raden på det utdelte formelarket** med $a=1$:\n$$C(\\omega) = \\frac{1}{\\sqrt2}e^{-\\omega^2/4}.$$\nAltså\n$$\\hat{u}(\\omega,t) = e^{-3t}\\cdot\\frac{1}{\\sqrt2}\\,e^{-\\omega^2\\left(t+\\frac14\\right)}.$$\n\n**Steg 4 — transformer tilbake.** Faktoren $e^{-3t}$ er uavhengig av $\\omega$ og går rett gjennom, **etter lineariteten**. Resten er nøyaktig den samme som i eksempel 1: vi trenger Gauss-raden med $\\frac{1}{4a} = t+\\tfrac14$, altså $a = \\frac{1}{4t+1}$, som gir\n$$\\frac{1}{\\sqrt2}e^{-\\omega^2(t+1/4)} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{4t+1}}e^{-x^2/(4t+1)}.$$\n\n$$\\boxed{u(x,t) = \\frac{e^{-3t}}{\\sqrt{4t+1}}\\,e^{-x^2/(4t+1)}.}$$\n\n**Kontroll 1 — initialbetingelsen.** $u(x,0) = \\frac{1}{1}e^{-x^2} = e^{-x^2}$. Stemmer.\n\n**Kontroll 2 — likningen.** Skriv $u = e^{-3t}v$, der $v$ er løsningen fra eksempel 1. Da er\n$$u_t = -3e^{-3t}v + e^{-3t}v_t, \\qquad u_{xx} = e^{-3t}v_{xx}.$$\nSiden $v_t = v_{xx}$, blir $u_{xx}-3u = e^{-3t}v_{xx}-3e^{-3t}v = e^{-3t}v_t - 3e^{-3t}v = u_t$. Stemmer.\n\n*Denne kontrollen er også en metode: substitusjonen $u = e^{-3t}v$ fjerner tapsleddet og gir ren varmelikning for $v$. Nevn den gjerne som alternativ vei — begge gir full uttelling.*\n\n**Tolkning av de to effektene.**\n\n- **Faktoren $\\frac{1}{\\sqrt{4t+1}}e^{-x^2/(4t+1)}$** er utglattingen: pulsen brer seg ut, og toppen synker fordi varmen fordeles.\n- **Faktoren $e^{-3t}$** er tapet: hele profilen krymper mot null med en fast rate, uavhengig av $x$.\n\nI frekvensdomenet ser man det direkte: $-\\omega^2$ demper høye frekvenser raskest (utglatting), mens $-3$ demper **alle** frekvenser like mye (tap). To ledd, to helt ulike virkninger.\n\n*Uttelling her: tolkningsdelpunktet er ofte verdt like mye som selve utregningen. Skriv den ut — det er ikke nok å si at «svaret består av to faktorer».*"
+    },
+    {
+      "id": "tma4135-4-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-2-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger F.) Løs\n$$u_t = 2u_{xx}, \\qquad u(x,0) = e^{-x^2},$$\nog sammenlikn utbredelsen med den i eksempel 1.",
+        "solution": "**Steg 1.** $\\dfrac{\\partial\\hat{u}}{\\partial t} = -2\\omega^2\\hat{u}.$\n\n**Steg 2.** $\\hat{u}(\\omega,t) = C(\\omega)e^{-2\\omega^2 t}.$\n\n**Steg 3.** **Fra Gauss-raden** med $a=1$: $C(\\omega) = \\frac{1}{\\sqrt2}e^{-\\omega^2/4}$, så\n$$\\hat{u}(\\omega,t) = \\frac{1}{\\sqrt2}\\,e^{-\\omega^2\\left(2t+\\frac14\\right)}.$$\n\n**Steg 4.** Vi trenger $\\frac{1}{4a} = 2t+\\tfrac14 = \\frac{8t+1}{4}$, altså $a = \\frac{1}{8t+1}$. Da gir Gauss-raden\n$$e^{-x^2/(8t+1)} \\ \\longleftrightarrow\\ \\sqrt{\\frac{8t+1}{2}}\\,e^{-\\omega^2(2t+1/4)},$$\nog med riktig konstant:\n$$u(x,t) = \\frac{1}{\\sqrt{8t+1}}\\,e^{-x^2/(8t+1)}.$$\n\n**Kontroll.** $u(x,0)=e^{-x^2}$ ✓. Og derivasjon gir $u_t = 2u_{xx}$ ✓ *(samme regning som i eksempel 1, med $4t$ byttet mot $8t$)*.\n\n**Sammenlikningen.** I eksempel 1 var bredden $\\sqrt{4t+1}$; her er den $\\sqrt{8t+1}$. Med diffusivitet 2 i stedet for 1 brer varmen seg altså **dobbelt så raskt** — men bare i den forstand at $t$ er erstattet av $2t$. Bredden vokser fortsatt som **kvadratrota** av tiden, ikke lineært.\n\n**Generelt:** for $u_t = c^2u_{xx}$ blir svaret $u(x,t) = \\frac{1}{\\sqrt{4c^2t+1}}e^{-x^2/(4c^2t+1)}$ med denne initialbetingelsen. Diffusivitetskonstanten går inn overalt der $t$ står.",
+        "hints": [
+          "Faktoren 2 følger med gjennom hele oppskriften — også inn i eksponenten.",
+          "I steg 4: hvilken $a$ gir eksponenten $-\\omega^2(2t+1/4)$?",
+          "Sammenlikn bredden $\\sqrt{8t+1}$ med $\\sqrt{4t+1}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-2-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger F.) Løs\n$$u_t = u_{xx}, \\qquad u(x,0) = e^{-x^2/2},$$\nog forklar hvorfor svaret ser annerledes ut enn i eksempel 1.",
+        "solution": "**Steg 1–2.** Som før: $\\hat{u}(\\omega,t) = C(\\omega)e^{-\\omega^2 t}$.\n\n**Steg 3.** Initialbetingelsen har $a=\\tfrac12$, siden $e^{-x^2/2} = e^{-ax^2}$ med $a=\\tfrac12$. **Fra Gauss-raden på formelarket** er da $\\frac{1}{\\sqrt{2a}} = 1$ og $\\frac{1}{4a} = \\tfrac12$:\n$$C(\\omega) = e^{-\\omega^2/2}.$$\nAltså\n$$\\hat{u}(\\omega,t) = e^{-\\omega^2\\left(t+\\frac12\\right)}.$$\n\n**Steg 4.** Vi trenger $\\frac{1}{4a} = t+\\tfrac12 = \\frac{2t+1}{2}$, altså $a = \\frac{1}{2(2t+1)}$. Da er $\\frac{1}{\\sqrt{2a}} = \\sqrt{2t+1}$, og\n$$e^{-x^2/(4t+2)} \\ \\longleftrightarrow\\ \\sqrt{2t+1}\\,e^{-\\omega^2(t+1/2)}.$$\nVår $\\hat u$ er 1 ganger eksponentialen, altså $\\frac{1}{\\sqrt{2t+1}}$ ganger den transformen:\n$$u(x,t) = \\frac{1}{\\sqrt{2t+1}}\\,e^{-x^2/(4t+2)}.$$\n\n**Kontroll.** $u(x,0) = e^{-x^2/2}$ ✓. Innsatt i likningen: $u_t - u_{xx} = 0$ ✓.\n\n**Hvorfor svaret ser annerledes ut.** Startpulsen er **bredere** her enn i eksempel 1 ($e^{-x^2/2}$ mot $e^{-x^2}$), og da er den allerede delvis utglattet. I formelen ses det ved at nevneren er $\\sqrt{2t+1}$ i stedet for $\\sqrt{4t+1}$: den relative breddeøkningen er mindre.\n\n**Sjekk mot varmekjernen.** En bred startpuls er i seg selv en varmekjerne på et senere tidspunkt: $e^{-x^2/2}$ svarer til $4\\tau = 2$, altså $\\tau=\\tfrac12$. Løsningen er derfor «den samme kurven, bare $\\tfrac12$ tidsenhet lenger fram» — og det stemmer med at $4t+2 = 4\\left(t+\\tfrac12\\right)$.",
+        "hints": [
+          "Skriv $e^{-x^2/2}$ på formen $e^{-ax^2}$ og les av $a$.",
+          "Husk at $a=1/2$ gir $1/\\sqrt{2a} = 1$ i Gauss-raden.",
+          "I steg 4: hvilken $a$ gir eksponenten $-\\omega^2(t+1/2)$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-2-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger F — krevende.) Løs\n$$u_t = u_{xx} + u_x, \\qquad u(x,0) = e^{-x^2},$$\nog tolk de to leddene på høyresiden.",
+        "solution": "**Steg 1 — transformer.**\n$$\\frac{\\partial\\hat{u}}{\\partial t} = \\left(-\\omega^2+i\\omega\\right)\\hat{u}.$$\n\n**Steg 2 — løs.**\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{-\\omega^2 t}\\,e^{i\\omega t}.$$\n\n**Steg 3 — konstanten.** **Fra Gauss-raden** med $a=1$: $C(\\omega) = \\frac{1}{\\sqrt2}e^{-\\omega^2/4}$, så\n$$\\hat{u}(\\omega,t) = e^{i\\omega t}\\cdot\\frac{1}{\\sqrt2}\\,e^{-\\omega^2\\left(t+\\frac14\\right)}.$$\n\n**Steg 4 — tilbake, i to trinn.**\n\nUten faktoren $e^{i\\omega t}$ er dette nøyaktig $\\hat{v}(\\omega,t)$ fra eksempel 1, som svarer til\n$$v(x,t) = \\frac{1}{\\sqrt{4t+1}}\\,e^{-x^2/(4t+1)}.$$\nFaktoren $e^{i\\omega t}$ er, **etter forskyvningsregelen** med $b=-t$, det samme som å erstatte $x$ med $x+t$. Altså\n$$\\boxed{u(x,t) = \\frac{1}{\\sqrt{4t+1}}\\,e^{-(x+t)^2/(4t+1)}.}$$\n\n**Kontroll 1.** $u(x,0) = e^{-x^2}$ ✓.\n\n**Kontroll 2.** Sett $\\xi = x+t$. Med $u(x,t) = v(\\xi,t)$ er $u_x = v_\\xi$, $u_{xx} = v_{\\xi\\xi}$ og $u_t = v_t + v_\\xi$ (kjerneregelen, siden $\\xi$ avhenger av $t$). Da er\n$$u_{xx}+u_x = v_{\\xi\\xi}+v_\\xi = v_t + v_\\xi = u_t,$$\nder vi brukte at $v$ løser varmelikningen. Stemmer.\n\n**Tolkning.** Leddet $u_{xx}$ **glatter ut** — det er det som gir den voksende bredden $\\sqrt{4t+1}$. Leddet $u_x$ **transporterer** — det er det som flytter toppen fra $x=0$ til $x=-t$, altså mot venstre med fart 1.\n\nI frekvensdomenet ser man de to virkningene helt adskilt: $-\\omega^2$ er reell og gir demping; $+i\\omega$ er rent imaginær og gir bare faseforskyvning. **Realdel demper, imaginærdel flytter** — regelen fra oppgave 2 igjen, nå med begge deler samtidig.",
+        "hints": [
+          "Transformer begge leddene på høyresiden; det ene gir $-\\omega^2$, det andre $i\\omega$.",
+          "Del eksponenten i to faktorer: én som avhenger av $\\omega^2$ og én som er rent imaginær.",
+          "Den rent imaginære faktoren er en forskyvning. Hvilken vei, og hvor langt?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Når passer denne metoden, og når ikke? (~14 min)\n\nÅ velge riktig metode er et eget delpunkt på eksamen, og valget er enkelt når du vet hva du skal se etter."
+    },
+    {
+      "id": "tma4135-4-2-def-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg etter domenet",
+      "content": "| Problemet | Metode | Del |\n|---|---|---|\n| $x\\in\\mathbb{R}$, ingen randbetingelser, bare $u(x,0)=f(x)$ | **Fourier-transform** i $x$ | denne delen |\n| $0<x<L$ med betingelser i begge ender | **separasjon av variable** | Del 5 |\n| $x>0$ med én rand, eller diskretisert gitter | andre metoder | Del 5 og Del 8 |\n\n**Signalet er domenet, ikke likningen.** Varmelikningen $u_t=u_{xx}$ løses med transform på $\\mathbb{R}$ og med separasjon på et endelig intervall — samme likning, ulik metode.\n\n**Grunnen** er at Fourier-transformen krever at $u\\to0$ i begge retninger, og at randbetingelser i endelige punkter ikke lar seg uttrykke i frekvensdomenet."
+    },
+    {
+      "id": "tma4135-4-2-def-transportlikning",
+      "type": "definition",
+      "title": "Transportlikningen",
+      "content": "Likningen\n\n$$u_t + c\\,u_x = 0, \\qquad u(x,0)=f(x),$$\n\nmed løsning\n\n$$u(x,t) = f(x-ct).$$\n\nInitialprofilen flyttes med fart $c$ og **beholder formen fullstendig**. Det er ingen utglatting, fordi likningen ikke har noe andrederivert-ledd.\n\n**Merk kontrasten:** $u_{xx}$ glatter, $u_x$ flytter. Ser du begge deler i en likning, får du begge virkninger — som i oppgave 5."
+    },
+    {
+      "id": "tma4135-4-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-2-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger F.) En medstudent skal løse\n$$u_t = u_{xx}, \\qquad 0<x<\\pi, \\qquad u(0,t)=u(\\pi,t)=0, \\qquad u(x,0)=\\sin x,$$\nog begynner med å ta Fourier-transformen i $x$.\n\n**a)** Forklar hvorfor det ikke går.\n**b)** Hva slags problem hører Fourier-transform-metoden til, og hva kjennetegner det?",
+        "solution": "**a)** Fourier-transformen er definert ved et integral over **hele** $\\mathbb{R}$:\n$$\\hat{u}(\\omega,t) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}u(x,t)e^{-i\\omega x}\\,dx.$$\nHer er $u$ bare definert på $(0,\\pi)$, så integralet gir ingen mening uten at man først bestemmer hva $u$ skal være utenfor.\n\nI tillegg — og dette er det avgjørende — er **randbetingelsene** $u(0,t)=u(\\pi,t)=0$ betingelser i to bestemte punkter. Transformen bytter ut $x$ med $\\omega$, og i frekvensdomenet finnes ikke lenger punktene $x=0$ og $x=\\pi$. Betingelsene kan altså ikke uttrykkes i den transformerte likningen, og informasjonen går tapt.\n\n**Metoden som passer her, er separasjon av variable**, som er tema i Del 5. Den er laget nettopp for randbetingelser i endelige punkter: den bygger løsningen av funksjoner som *automatisk* er null i begge ender.\n\n**b)** Fourier-transform-metoden hører til **initialverdiproblemer på hele $\\mathbb{R}$**. Kjennetegnene er:\n\n- romvariabelen løper over hele tallinja, uten endepunkter;\n- det finnes **ingen randbetingelser**, bare en initialbetingelse $u(x,0)=f(x)$;\n- løsningen forutsettes å gå mot null når $|x|\\to\\infty$, slik at transformen finnes.\n\n**Praktisk sjekkliste på eksamen:** les hva som står etter likningen. Står det $x\\in\\mathbb{R}$ og bare én betingelse på $t=0$, er det transform. Står det $0<x<L$ med to betingelser i endene, er det separasjon.",
+        "hints": [
+          "Hvilket intervall integrerer Fourier-transformen over?",
+          "Hva skjer med en betingelse i punktet $x=0$ når du bytter variabel fra $x$ til $\\omega$?",
+          "Se på hva som står etter likningen: er det randbetingelser eller bare en initialbetingelse?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-2-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger F — krevende.) Løs $u_t = u_{xx}$ på $\\mathbb{R}$ med en vilkårlig initialbetingelse $u(x,0)=f(x)$, og uttrykk svaret ved varmekjernen. Kontroller deretter formelen på $f(x)=e^{-x^2}$.",
+        "solution": "**Steg 1–3.** Transformasjonen gir $\\hat{u}_t = -\\omega^2\\hat{u}$, altså\n$$\\hat{u}(\\omega,t) = \\hat{f}(\\omega)\\,e^{-\\omega^2 t}.$$\n\n**Steg 4 — tilbake med konvolusjonsteoremet.** Vi vil kjenne igjen $e^{-\\omega^2 t}$ som en transform. **Fra Gauss-raden på det utdelte formelarket**: raden gir $e^{-\\omega^2/(4a)}$, så $\\frac{1}{4a} = t$, altså $a = \\frac{1}{4t}$, og da er $\\frac{1}{\\sqrt{2a}} = \\sqrt{2t}$:\n$$e^{-x^2/(4t)} \\ \\longleftrightarrow\\ \\sqrt{2t}\\,e^{-\\omega^2 t}.$$\nDefiner **varmekjernen**\n$$G(x,t) = \\frac{1}{\\sqrt{4\\pi t}}\\,e^{-x^2/(4t)}, \\qquad\\text{slik at}\\qquad \\hat{G}(\\omega,t) = \\frac{\\sqrt{2t}}{\\sqrt{4\\pi t}}\\,e^{-\\omega^2 t} = \\frac{1}{\\sqrt{2\\pi}}\\,e^{-\\omega^2 t}.$$\n\nDa er $e^{-\\omega^2 t} = \\sqrt{2\\pi}\\,\\hat{G}$, og\n$$\\hat{u} = \\hat{f}\\cdot\\sqrt{2\\pi}\\,\\hat{G} = \\widehat{f*G}$$\n**etter konvolusjonsteoremet**. Altså\n$$\\boxed{u(x,t) = (f*G)(x,t) = \\frac{1}{\\sqrt{4\\pi t}}\\int_{-\\infty}^{\\infty}f(s)\\,e^{-(x-s)^2/(4t)}\\,ds.}$$\n\n**Kontroll på $f(x)=e^{-x^2}$.** Sett inn:\n$$u(x,t) = \\frac{1}{\\sqrt{4\\pi t}}\\int_{-\\infty}^{\\infty}e^{-s^2}e^{-(x-s)^2/(4t)}\\,ds.$$\nSamle eksponenten over felles nevner $4t$:\n$$-s^2-\\frac{(x-s)^2}{4t} = -\\frac{4ts^2+(x-s)^2}{4t} = -\\frac{(4t+1)s^2-2xs+x^2}{4t}.$$\nFullfør kvadratet i $s$: med $A = 4t+1$ er $As^2-2xs+x^2 = A\\left(s-\\frac{x}{A}\\right)^2+x^2-\\frac{x^2}{A} = A\\left(s-\\frac{x}{A}\\right)^2+\\frac{x^2(A-1)}{A}$, og $A-1 = 4t$. Eksponenten blir dermed\n$$-\\frac{A}{4t}\\left(s-\\frac{x}{A}\\right)^2-\\frac{x^2}{A}.$$\nIntegralet over $s$ gir $\\sqrt{\\frac{4\\pi t}{A}}$, så\n$$u(x,t) = \\frac{1}{\\sqrt{4\\pi t}}\\cdot\\sqrt{\\frac{4\\pi t}{4t+1}}\\,e^{-x^2/(4t+1)} = \\frac{1}{\\sqrt{4t+1}}\\,e^{-x^2/(4t+1)}.$$\nNøyaktig svaret fra eksempel 1. Stemmer.\n\n**Hva formelen betyr.** Temperaturen i $x$ ved tiden $t$ er et **veid gjennomsnitt** av hele starttemperaturen, med en klokkeformet vekt sentrert i $x$ og med bredde proporsjonal med $\\sqrt{t}$. Ved små $t$ er vekta smal og $u$ ligner $f$; ved store $t$ er den bred, og all lokal struktur er visket ut.\n\n**Om grensen $t\\to0^+$.** Varmekjernen blir da uendelig høy og uendelig smal, men beholder areal 1 — den nærmer seg en Dirac-puls. Det er den formelle grunnen til at $u(x,0)=f(x)$.",
+        "hints": [
+          "Hvilken $a$ i Gauss-raden gir nettopp $e^{-\\omega^2 t}$?",
+          "Skaler kjernen slik at transformen blir $\\frac{1}{\\sqrt{2\\pi}}e^{-\\omega^2 t}$ — da passer konvolusjonsteoremet.",
+          "I kontrollen: samle eksponenten over felles nevner og fullfør kvadratet i $s$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil fortegn på $-\\omega^2$.** To derivasjoner gir $(i\\omega)^2 = -\\omega^2$. Mister du minustegnet, får du $e^{+\\omega^2t}$, som vokser uten grense. **Plausibilitetssjekk:** varme sprer seg og dør ut; en løsning som eksploderer, er feil.\n\n**Å behandle $\\omega$ som en variabel i ODE-en.** I den transformerte likningen er $\\omega$ en **konstant**. Likningen er ordinær, ikke partiell, og det er hele poenget med transformen.\n\n**Å skrive $C$ i stedet for $C(\\omega)$.** Integrasjonskonstanten er en funksjon av frekvensen, siden ODE-en løses separat for hver $\\omega$. Skriver du bare $C$, forsvinner koblingen til initialbetingelsen.\n\n**Å glemme å sette inn initialdata.** Steg 3 er ikke valgfritt. Uten det står du igjen med en familie av løsninger i stedet for én.\n\n**Å stoppe ved $\\hat{u}$.** Oppgaven spør etter $u(x,t)$. Siste steg er å lese tabellen baklengs — med $t$ gjemt inne i parameteren $a$.\n\n**Feil $a$ i steg 4.** Har du $e^{-\\omega^2\\left(t+\\frac14\\right)}$, skal $\\frac{1}{4a} = t+\\tfrac14$, altså $a = \\frac{1}{4t+1}$ — og da må også faktoren $\\frac{1}{\\sqrt{2a}}$ regnes med den samme $a$-en. Sett inn på begge steder.\n\n**Å bruke transform der separasjon hører hjemme.** Har problemet randbetingelser i endelige punkter, er transform feil verktøy. Les hva som står etter likningen før du velger metode.\n\n**Å hoppe over kontrollen.** Sett $t=0$ og se om du får initialbetingelsen. Det tar ti sekunder og fanger nesten alle feil i steg 3 og 4."
+    },
+    {
+      "id": "tma4135-4-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-4-2-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på det [kap. 4.1](/tma4135/tma4135-4-1) forutsetter. Bruker du mer enn ti minutter, les løkke 2 og 3 i [kap. 4.1](/tma4135/tma4135-4-1) på nytt før du går videre til [kap. 4.3](/tma4135/tma4135-4-3)."
+        },
+        {
+          "id": "tma4135-4-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-2-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs $y'(t) = -5y(t)$ med $y(0)=3$.",
+            "solution": "Dette er en separabel førsteordens likning med løsning $y = Ce^{-5t}$. Initialbetingelsen gir $C = 3$, så\n$$y(t) = 3e^{-5t}.$$\n\nDette er nøyaktig strukturen i den transformerte likningen, med $-5$ byttet mot $\\lambda(\\omega)$ og 3 byttet mot $\\hat{f}(\\omega)$.",
+            "hints": [
+              "Løsningen av $y'=\\lambda y$ er $Ce^{\\lambda t}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-2-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp Gauss-raden fra formelarket, og finn transformen av $e^{-x^2/6}$.",
+            "solution": "Raden er\n$$e^{-ax^2} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{2a}}\\,e^{-\\omega^2/(4a)}.$$\nMed $a = \\tfrac16$ er $\\frac{1}{\\sqrt{2a}} = \\frac{1}{\\sqrt{1/3}} = \\sqrt3$ og $\\frac{1}{4a} = \\frac{3}{2}$:\n$$\\widehat{e^{-x^2/6}}(\\omega) = \\sqrt3\\,e^{-3\\omega^2/2}.$$\n\n*Kontroll i $\\omega=0$:* $\\frac{1}{\\sqrt{2\\pi}}\\int e^{-x^2/6}dx = \\frac{\\sqrt{6\\pi}}{\\sqrt{2\\pi}} = \\sqrt3$. Stemmer.",
+            "hints": [
+              "Skriv $x^2/6 = ax^2$ og les av $a$.",
+              "Sett $a$ inn på begge steder i raden."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-2-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Gitt at $\\hat{u}(\\omega,t) = \\frac{1}{\\sqrt2}e^{-\\omega^2(3t+1/4)}$. Finn $u(x,t)$.",
+            "solution": "Vi trenger Gauss-raden med $\\frac{1}{4a} = 3t+\\tfrac14 = \\frac{12t+1}{4}$, altså\n$$a = \\frac{1}{12t+1}.$$\nMed den $a$-en er $\\frac{1}{\\sqrt{2a}} = \\sqrt{\\frac{12t+1}{2}}$, så\n$$e^{-x^2/(12t+1)} \\ \\longleftrightarrow\\ \\sqrt{\\frac{12t+1}{2}}\\,e^{-\\omega^2(3t+1/4)}.$$\nVår $\\hat{u}$ er $\\frac{1}{\\sqrt2}$ ganger eksponentialen, altså $\\frac{1}{\\sqrt{12t+1}}$ ganger transformen over:\n$$u(x,t) = \\frac{1}{\\sqrt{12t+1}}\\,e^{-x^2/(12t+1)}.$$\n\n*Kontroll i $t=0$:* $u(x,0) = e^{-x^2}$, som stemmer med $\\hat{u}(\\omega,0) = \\frac{1}{\\sqrt2}e^{-\\omega^2/4}$.",
+            "hints": [
+              "Sett $\\frac{1}{4a}$ lik hele parentesen i eksponenten og løs for $a$.",
+              "Husk å bruke samme $a$ i faktoren $\\frac{1}{\\sqrt{2a}}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-2-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Bruk forskyvningsregelen til å avgjøre hvilken funksjon som har transform $e^{-4i\\omega}\\hat{f}(\\omega)$.",
+            "solution": "**Etter forskyvningsregelen** er $\\widehat{f(x-b)}(\\omega) = e^{-ib\\omega}\\hat{f}(\\omega)$. Sammenlikner vi eksponentene, er $b = 4$, så funksjonen er\n$$f(x-4).$$\n\nAltså originalfunksjonen flyttet **fire enheter mot høyre**. Et faseledd med **minus** i eksponenten svarer til forskyvning i positiv retning; med pluss ville det vært mot venstre.",
+            "hints": [
+              "Sammenlikn $e^{-4i\\omega}$ med $e^{-ib\\omega}$ og les av $b$.",
+              "Positiv $b$ betyr forskyvning mot høyre."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-4-2-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $u(x,t)$ | Den ukjente funksjonen — typisk temperatur i punkt $x$ ved tid $t$ |\n| $\\hat{u}(\\omega,t)$ | Fourier-transformen av $u$ i $x$-variabelen; $t$ er upåvirket |\n| $u_t$, $u_x$, $u_{xx}$ | Partielle deriverte, kortform for $\\partial u/\\partial t$ osv. |\n| $\\omega$ | Vinkelfrekvensen; en **konstant** i den transformerte likningen |\n| $t$ | Tiden. **Merk:** i [kap. 4.1](/tma4135/tma4135-4-1) var $t$ integrasjonsvariabel i konvolusjonen |\n| $f(x)$ | Initialbetingelsen $u(x,0)$ |\n| $C(\\omega)$ | Integrasjonskonstanten — en **funksjon** av $\\omega$, ikke et tall |\n| $\\lambda(\\omega)$ | Faktoren i den transformerte likningen $\\hat{u}_t = \\lambda\\hat{u}$ |\n| $G(x,t)$ | Varmekjernen |\n| $c$ | Farten i transportlikningen. **Merk:** i Del 5 er $c$ bølgefarten |\n| $s$ | Integrasjonsvariabel i konvolusjonen med varmekjernen |\n| $\\mathbb{R}$ | Mengden av reelle tall — hele tallinja |\n"
+        },
+        {
+          "id": "tma4135-4-2-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$\\hat{u}(\\omega,t) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}u(x,t)e^{-i\\omega x}\\,dx$$\nTransform i $x$ alene, med $t$ som passiv parameter. *(Må kunnes.)*\n\n$$\\widehat{u_x} = i\\omega\\,\\hat{u}, \\qquad \\widehat{u_{xx}} = -\\omega^2\\,\\hat{u}, \\qquad \\widehat{u_t} = \\frac{\\partial\\hat{u}}{\\partial t}$$\nOversettelsesreglene — merk minustegnet i den andre. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{\\partial\\hat{u}}{\\partial t} = \\lambda(\\omega)\\hat{u} \\quad\\Longrightarrow\\quad \\hat{u}(\\omega,t) = C(\\omega)e^{\\lambda(\\omega)t}, \\qquad C(\\omega) = \\hat{f}(\\omega)$$\nDen transformerte likningen og konstanten. *(Må kunnes eller utledes aktivt.)*\n\n$$e^{-ax^2} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{2a}}e^{-\\omega^2/(4a)}$$\nGauss-raden, brukt både i steg 3 og steg 4. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\widehat{f(x-b)}(\\omega) = e^{-ib\\omega}\\hat{f}(\\omega)$$\nForskyvningsregelen, brukt når $\\hat{u}$ har en rent imaginær faktor. *(Må kunnes eller utledes aktivt.)*\n\n$$G(x,t) = \\frac{1}{\\sqrt{4\\pi t}}e^{-x^2/(4t)}, \\qquad \\hat{G}(\\omega,t) = \\frac{1}{\\sqrt{2\\pi}}e^{-\\omega^2 t}$$\nVarmekjernen og transformen dens. *(Må kunnes på gjenkjenningsnivå.)*\n\n$$u(x,t) = (f*G)(x,t) = \\frac{1}{\\sqrt{4\\pi t}}\\int_{-\\infty}^{\\infty}f(s)e^{-(x-s)^2/(4t)}\\,ds$$\nLøsningen av varmelikningen på $\\mathbb{R}$ som konvolusjon. *(Må kunnes eller utledes aktivt.)*\n\n$$u_t+c\\,u_x = 0 \\quad\\Longrightarrow\\quad u(x,t) = f(x-ct)$$\nTransportlikningen — profilen flyttes uten å endre form. *(Må kunnes eller utledes aktivt.)*\n\n$$\\widehat{f*g}(\\omega) = \\sqrt{2\\pi}\\,\\hat{f}(\\omega)\\hat{g}(\\omega)$$\nKonvolusjonsteoremet, brukt i utledningen av varmekjerneformelen. *(Må kunnes eller utledes aktivt.)*\n\n**Kolliderende symboler:** $t$ er tiden her, men var integrasjonsvariabel i konvolusjonen i [kap. 4.1](/tma4135/tma4135-4-1) — derfor bruker dette kapitlet $s$ som integrasjonsvariabel. Bokstaven $c$ er farten i transportlikningen her og bølgefarten i Del 5. Bokstaven $a$ er parameteren i Gauss-raden. Og $u$ er den ukjente funksjonen i hele Del 4 og Del 5; i Del 2 var $u(t-a)$ derimot Heaviside-funksjonen — samme bokstav, helt ulik betydning, og det er verdt en ekstra titt når du blar mellom delene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

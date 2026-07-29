@@ -1,0 +1,436 @@
+{
+  "id": "tma4135-7-2",
+  "courseId": "tma4135",
+  "chapterNumber": "7.2",
+  "title": "Butcher-tabeller og ordensbetingelser",
+  "description": "Les en Runge–Kutta-metode fra en Butcher-tabell (eller Python-kode) og verifiser ordenen rad for rad til én betingelse feiler.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "lese en Butcher-tabell og oversette den til stigningstall og sluttformel, begge veier",
+    "lese koeffisientene ut av en kort Python-implementasjon av en Runge–Kutta-metode",
+    "verifisere ordenen ved å sjekke alle betingelsene på hvert nivå til den første feiler",
+    "bekrefte en ordensbestemmelse med et konvergenseksperiment og vite hva et slikt eksperiment ikke viser"
+  ],
+  "content": [
+    {
+      "id": "tma4135-7-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Butcher-tabeller og ordensbetingelser er en variant av sjanger M**, altså den samme oppgavetypen som ODE-løserne i [kap. 7.1](/tma4135/tma4135-7-1). Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene.\n\n**Frekvens: 5 av 13 gjennomgåtte sett (38 %).** Formen er svært stabil:\n\n1. **En metode presenteres** — enten som en Butcher-tabell, eller som en kort **Python-funksjon** du må lese tabellen ut av.\n2. **Du skal bestemme ordenen** ved å sjekke ordensbetingelsene i tur og orden.\n\n**Dette er en toppsjikt-markør.** Grunnen er at prosedyren har én fallgruve, og den er dødelig: **du må sjekke betingelsene rad for rad til den første feiler.** Stopper du tidligere, påstår du for høy orden. Og på nivå 3 er det **to** betingelser som begge må holde — går den ene gjennom, betyr det ingenting hvis den andre svikter.\n\nDet er nettopp det som skjer i det gjennomregnede eksempelet i løkke 3: en metode som ser ut som en velkjent tredjeordens metode, men der én oppføring i tabellen er endret, får $\\sum b_ic_i^{2}=\\tfrac13$ (riktig) og $\\sum b_ia_{ij}c_j=\\tfrac1{12}$ (galt). **Ordenen er 2, ikke 3** — og en besvarelse som stoppet etter den første av dem, svarer feil.\n\n**Formelark-merking.**\n\n- **Står på det utdelte formelarket — tren oppslaget:** **ordensbetingelsene for $p=1$ til $4$** har vært vedlagt siden 2022. Du skal altså ikke pugge dem — du skal finne riktig linje og sette inn riktige tall. Metodeformlene fra [kap. 7.1](/tma4135/tma4135-7-1) står også der.\n- **Må kunnes eller utledes aktivt:** å **lese** en Butcher-tabell (hvilket tall er $c_i$, hvilket er $b_i$, hvilket er $a_{ij}$), å lese den ut av Python-kode, og selve verifikasjonslogikken — inkludert at du må fortsette til noe faktisk feiler.\n\n**Tidsbruk:** 60 minutter lesetid, fire løkker. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 7.1](/tma4135/tma4135-7-1) — hele kapitlet. Butcher-tabellen er ikke annet enn en kompakt måte å skrive ned nøyaktig de stigningstallene du allerede har regnet med.\n\nDu trenger å kunne regne med brøker og doble summer. Ingen ny matematikk innføres her; det er organiseringen som er nytt.\n\nKapitlet er forutsetning for [kap. 7.3](/tma4135/tma4135-7-3), der en tabell får **to** $b$-rader, og for [kap. 7.4](/tma4135/tma4135-7-4), der stabilitetsfunksjonen leses ut av den samme tabellen."
+    },
+    {
+      "id": "tma4135-7-2-motivasjon",
+      "type": "text",
+      "content": "## Én tabell, alle metodene\n\nDu har nå regnet Euler, Heun og RK4 for hånd. Se på dem igjen:\n\n$$\\text{Euler:}\\quad k_1=f\\left(t_n,y_n\\right),\\qquad y_{n+1}=y_n+h\\,k_1,$$\n$$\\text{Heun:}\\quad k_2=f\\left(t_n+h,\\ y_n+hk_1\\right),\\qquad y_{n+1}=y_n+\\tfrac h2\\left(k_1+k_2\\right).$$\n\n**Alt som skiller dem, er tre sett tall:** hvor langt ut i tid hvert stigningstall regnes, hvor mye av de foregående stigningstallene som brukes i $y$-argumentet, og hvilke vekter de får til slutt.\n\n**Butcher-tabellen samler nøyaktig de tre tallsettene.** Den ser slik ut:\n\n$$\\begin{array}{c|c}\\mathbf c & A\\\\ \\hline & \\mathbf b^{\\!\\top}\\end{array}$$\n\nOg når metoden er skrevet slik, blir et vanskelig spørsmål — «hvilken orden har denne metoden?» — til en mekanisk sjekkliste. Det er **ordensbetingelsene**, og de står på det utdelte formelarket.\n\n**Hverdagsbildet:** tabellen er en oppskrift. $\\mathbf c$ sier når du skal smake, $A$ sier hvor mye av hver tidligere smaksprøve som skal med i neste, og $\\mathbf b$ sier hvordan alt til slutt blandes. To kokker med samme oppskrift lager samme rett — og oppskriften alene forteller deg hvor god retten blir.\n\n**Og det siste er det viktige:** du trenger ikke kjøre metoden for å finne ordenen. Du leser den av tabellen."
+    },
+    {
+      "id": "tma4135-7-2-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 60 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-7-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Å lese tabellen (~15 min)"
+    },
+    {
+      "id": "tma4135-7-2-def-rk",
+      "type": "definition",
+      "title": "Runge–Kutta-metode, generell form",
+      "content": "En metode med $s$ **steg** (stigningstall):\n\n$$k_i=f\\left(t_n+c_ih,\\ y_n+h\\sum_{j=1}^{s}a_{ij}k_j\\right),\\qquad i=1,\\dots,s,$$\n\n$$y_{n+1}=y_n+h\\sum_{i=1}^{s}b_ik_i.$$\n\n**Les den nedenfra:** sluttsvaret er $y_n$ pluss $h$ ganger en vektet sum av stigningstallene. Hvert stigningstall regnes i et eget punkt, forskjøvet $c_ih$ i tid og $h\\sum_j a_{ij}k_j$ i verdi.\n\n**Tallet $s$ kalles stegtallet.** Euler har $s=1$, Heun $s=2$, RK4 $s=4$. Ikke forveksle det med **ordenen** $p$ — de er ulike, og forholdet mellom dem er tema i løkke 4."
+    },
+    {
+      "id": "tma4135-7-2-def-butcher",
+      "type": "definition",
+      "title": "Butcher-tabellen",
+      "content": "Alle koeffisientene i én oppstilling:\n\n$$\\begin{array}{c|c}\\mathbf c & A\\\\ \\hline & \\mathbf b^{\\!\\top}\\end{array}\n\\qquad\\text{altså}\\qquad\n\\begin{array}{c|cccc}\nc_1 & a_{11} & a_{12} & \\cdots & a_{1s}\\\\\nc_2 & a_{21} & a_{22} & \\cdots & a_{2s}\\\\\n\\vdots & \\vdots & & & \\vdots\\\\\nc_s & a_{s1} & a_{s2} & \\cdots & a_{ss}\\\\ \\hline\n & b_1 & b_2 & \\cdots & b_s\n\\end{array}$$\n\n**Slik leser du den:**\n\n- **Venstre kolonne** ($c_i$): tidsforskyvningen for stigningstall nummer $i$.\n- **Blokken i midten** ($a_{ij}$): hvor mye av $k_j$ som går inn i $y$-argumentet til $k_i$.\n- **Nederste rad** ($b_i$): sluttvektene.\n\n**Rad $i$ i tabellen hører til stigningstall nummer $i$.** Kolonne $j$ hører til $k_j$. Å bytte om rad og kolonne i $A$ er en dokumentert feilkilde.\n\n**Tabellformen må kunnes** — den står som notasjon på det utdelte formelarket, men det er avlesningen som er ferdigheten."
+    },
+    {
+      "id": "tma4135-7-2-def-c",
+      "type": "definition",
+      "title": "Nodene $c_i$",
+      "content": "Tidsforskyvningene. Stigningstall nummer $i$ regnes i tidspunktet\n\n$$t_n+c_ih.$$\n\n**Alltid er $c_1=0$** for en eksplisitt metode: det første stigningstallet regnes i startpunktet.\n\nFor RK4 er $\\mathbf c=\\left(0,\\tfrac12,\\tfrac12,1\\right)$ — start, to på midten, og ett i sluttpunktet. Sammenlikn med hvordan du faktisk regnet i [kap. 7.1](/tma4135/tma4135-7-1): $k_2$ og $k_3$ ble regnet i $t_n+\\tfrac h2$. **Det er nøyaktig det $\\mathbf c$ forteller.**"
+    },
+    {
+      "id": "tma4135-7-2-def-b",
+      "type": "definition",
+      "title": "Vektene $b_i$",
+      "content": "Tallene i den nederste raden. De bestemmer hvordan stigningstallene blandes til slutt:\n\n$$y_{n+1}=y_n+h\\left(b_1k_1+b_2k_2+\\dots+b_sk_s\\right).$$\n\n**Kravet $\\sum_i b_i=1$ er den første ordensbetingelsen**, og det er også en gratis kontroll på at du har skrevet av tabellen riktig. Er $f$ konstant, blir alle $k_i$ like, og da må $y_{n+1}=y_n+h f$ — det tvinger fram $\\sum b_i=1$.\n\n**Kontroller alltid vektsummen først.** Er den ikke 1, har metoden ikke engang orden 1, og noe er galt med avskriften."
+    },
+    {
+      "id": "tma4135-7-2-def-A",
+      "type": "definition",
+      "title": "Koeffisientmatrisen $A$",
+      "content": "Tallene $a_{ij}$, som sier hvor mye av $k_j$ som brukes i argumentet til $k_i$:\n\n$$k_i=f\\left(t_n+c_ih,\\ y_n+h\\left(a_{i1}k_1+a_{i2}k_2+\\dots+a_{is}k_s\\right)\\right).$$\n\n**For RK4 er**\n\n$$A=\\begin{pmatrix}0&0&0&0\\\\ \\tfrac12&0&0&0\\\\ 0&\\tfrac12&0&0\\\\ 0&0&1&0\\end{pmatrix}.$$\n\nLes rad 3: $a_{32}=\\tfrac12$ og resten null, altså $k_3=f\\left(t_n+\\tfrac h2,\\ y_n+\\tfrac h2 k_2\\right)$ ✔ — akkurat slik du regnet i [kap. 7.1](/tma4135/tma4135-7-1).\n\n**Merk nullene over diagonalen.** De er det som gjør metoden eksplisitt."
+    },
+    {
+      "id": "tma4135-7-2-def-eksplisitt",
+      "type": "definition",
+      "title": "Eksplisitt kontra implisitt tabell",
+      "content": "**Eksplisitt** metode: $a_{ij}=0$ for alle $j\\ge i$, altså **strengt nedre triangulær** $A$ (nuller på og over diagonalen).\n\nDa kan $k_1$ regnes først, deretter $k_2$ (som bare bruker $k_1$), deretter $k_3$, og så videre — alt uten å løse noe.\n\n**Implisitt** metode: minst ett tall på eller over diagonalen er ulik null. Da står $k_i$ på begge sider av sin egen definisjon, og du må løse en likning — akkurat som for bakover-Euler i [kap. 7.1](/tma4135/tma4135-7-1).\n\n**Bakover-Euler som Butcher-tabell:**\n\n$$\\begin{array}{c|c}1 & 1\\\\ \\hline & 1\\end{array}$$\n\nEtt steg, med $a_{11}=1$ på diagonalen. **Ett blikk på tabellen forteller deg altså om metoden er eksplisitt eller ikke** — se etter tall på eller over diagonalen."
+    },
+    {
+      "id": "tma4135-7-2-def-radsum",
+      "type": "definition",
+      "title": "Radsum-betingelsen",
+      "content": "For nesten alle brukbare metoder gjelder\n\n$$c_i=\\sum_{j}a_{ij}\\qquad\\text{for hver } i.$$\n\n**Hvorfor:** stigningstallet $k_i$ skal svare til punktet $t_n+c_ih$ på løsningskurven, og da må $y$-forskyvningen stemme med tidsforskyvningen til første orden.\n\n**Bruk den som avskriftskontroll.** For RK4: rad 2 gir $\\tfrac12=\\tfrac12$ ✔, rad 3 gir $\\tfrac12=0+\\tfrac12$ ✔, rad 4 gir $1=0+0+1$ ✔.\n\n**⚠ Men merk hva den IKKE er:** radsum-betingelsen er **nødvendig, ikke tilstrekkelig** for høy orden. En tabell kan oppfylle den perfekt og likevel bare ha orden 2. Det er nøyaktig fella i eksempel 3 — så ikke bruk den som argument for at ordenen er høy."
+    },
+    {
+      "id": "tma4135-7-2-eks1",
+      "type": "example",
+      "title": "Butcher-tabellene for metodene du allerede kan",
+      "problem": "Skriv opp Butcher-tabellene for eksplisitt Euler, Heun og klassisk RK4, og les dem tilbake til formlene fra [kap. 7.1](/tma4135/tma4135-7-1).",
+      "solution": "**Eksplisitt Euler.** Ett steg, ingen forskyvning, vekt 1:\n\n$$\\begin{array}{c|c}0 & 0\\\\ \\hline & 1\\end{array}$$\n\nLes den: $c_1=0$ gir $k_1=f\\left(t_n,y_n\\right)$, og $b_1=1$ gir $y_{n+1}=y_n+hk_1$ ✔.\n\n**Heun (forbedret Euler).** To steg:\n\n$$\\begin{array}{c|cc}0 & 0 & 0\\\\ 1 & 1 & 0\\\\ \\hline & \\tfrac12 & \\tfrac12\\end{array}$$\n\nLes den rad for rad:\n\n- Rad 1: $c_1=0$, ingen $a$-er $\\Rightarrow k_1=f\\left(t_n,y_n\\right)$.\n- Rad 2: $c_2=1$ og $a_{21}=1$ $\\Rightarrow k_2=f\\left(t_n+h,\\ y_n+hk_1\\right)$.\n- Vektrad: $y_{n+1}=y_n+h\\left(\\tfrac12 k_1+\\tfrac12 k_2\\right)=y_n+\\tfrac h2\\left(k_1+k_2\\right)$ ✔\n\n**Klassisk RK4.** Fire steg:\n\n$$\\begin{array}{c|cccc}\n0 & 0 & 0 & 0 & 0\\\\\n\\tfrac12 & \\tfrac12 & 0 & 0 & 0\\\\\n\\tfrac12 & 0 & \\tfrac12 & 0 & 0\\\\\n1 & 0 & 0 & 1 & 0\\\\ \\hline\n & \\tfrac16 & \\tfrac13 & \\tfrac13 & \\tfrac16\n\\end{array}$$\n\nLes den:\n\n- Rad 2: $k_2=f\\left(t_n+\\tfrac h2,\\ y_n+\\tfrac h2 k_1\\right)$ ✔\n- Rad 3: $k_3=f\\left(t_n+\\tfrac h2,\\ y_n+\\tfrac h2 k_2\\right)$ ✔ — merk at det er $k_2$, ikke $k_1$, fordi ettallet står i **kolonne 2**.\n- Rad 4: $k_4=f\\left(t_n+h,\\ y_n+hk_3\\right)$ ✔\n- Vektrad: $y_{n+1}=y_n+h\\left(\\tfrac16k_1+\\tfrac13k_2+\\tfrac13k_3+\\tfrac16k_4\\right)=y_n+\\tfrac h6\\left(k_1+2k_2+2k_3+k_4\\right)$ ✔\n\n**Tre kontroller på alle tre tabellene:**\n\n1. **Vektsummen er 1.** Euler: $1$. Heun: $\\tfrac12+\\tfrac12=1$. RK4: $\\tfrac16+\\tfrac13+\\tfrac13+\\tfrac16=1$ ✔\n2. **Radsummene stemmer med $c_i$.** RK4 rad 3: $0+\\tfrac12=\\tfrac12=c_3$ ✔\n3. **$A$ er strengt nedre triangulær**, så alle tre er eksplisitte ✔\n\n**Poenget med eksempelet.** Tabellen inneholder nøyaktig den samme informasjonen som formlene — hverken mer eller mindre. **Har du en tabell, kan du regne et skritt; har du et skritt, kan du skrive tabellen.** Det er den ferdigheten oppgavene tester."
+    },
+    {
+      "id": "tma4135-7-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-2-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) En metode er gitt ved Butcher-tabellen\n\n$$\\begin{array}{c|cc}0 & 0 & 0\\\\ \\tfrac12 & \\tfrac12 & 0\\\\ \\hline & 0 & 1\\end{array}$$\n\n**a)** Skriv opp $k_1$ og $k_2$.\n**b)** Skriv opp formelen for $y_{n+1}$.\n**c)** Hva heter denne metoden?",
+        "solution": "**a)** Rad 1: $c_1=0$, ingen $a$-er:\n\n$$k_1=f\\left(t_n,\\ y_n\\right).$$\n\nRad 2: $c_2=\\tfrac12$ og $a_{21}=\\tfrac12$:\n\n$$k_2=f\\left(t_n+\\tfrac h2,\\ y_n+\\tfrac h2 k_1\\right).$$\n\n**b)** Vektraden er $\\left(0,\\ 1\\right)$:\n\n$$y_{n+1}=y_n+h\\left(0\\cdot k_1+1\\cdot k_2\\right)=y_n+h\\,k_2.$$\n\n**c)** Metoden tar et halvt Euler-skritt fram, måler stigningstallet **der**, og bruker det for hele skrittet. Det er **midtpunktsmetoden** (også kalt modifisert Euler).\n\n*Kontroller:* vektsummen er $0+1=1$ ✔, og radsummen i rad 2 er $\\tfrac12=c_2$ ✔.\n\n**Merk at $b_1=0$.** Stigningstallet $k_1$ brukes altså **ikke** direkte i sluttsvaret — men det er likevel nødvendig, siden $k_2$ bygger på det.",
+        "hints": [
+          "Rad $i$ gir stigningstall $i$: $c_i$ er tidsforskyvningen, $a_{ij}$ er hvor mye av $k_j$ som brukes.",
+          "Vektraden nederst gir sluttformelen.",
+          "Metoden måler stigningstallet midt i skrittet — hva heter en slik metode?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-2-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger M — Butcher.) Skriv opp Butcher-tabellen for metoden\n\n$$k_1=f\\left(t_n,y_n\\right),\\quad k_2=f\\left(t_n+\\tfrac23 h,\\ y_n+\\tfrac23 hk_1\\right),\\quad y_{n+1}=y_n+\\frac h4\\left(k_1+3k_2\\right).$$\n\nKontroller vektsummen og radsummene.",
+        "solution": "**Nodene.** $c_1=0$ (første stigningstall i startpunktet), $c_2=\\tfrac23$.\n\n**Koeffisientmatrisen.** $a_{21}=\\tfrac23$, alt annet null.\n\n**Vektene.** $y_{n+1}=y_n+h\\left(\\tfrac14 k_1+\\tfrac34 k_2\\right)$, så $b_1=\\tfrac14$ og $b_2=\\tfrac34$.\n\n$$\\begin{array}{c|cc}0 & 0 & 0\\\\ \\tfrac23 & \\tfrac23 & 0\\\\ \\hline & \\tfrac14 & \\tfrac34\\end{array}$$\n\n**Kontroller.**\n\n**Vektsum:** $\\tfrac14+\\tfrac34=1$ ✔\n\n**Radsummer:** rad 1 gir $0=0=c_1$ ✔, rad 2 gir $\\tfrac23=c_2$ ✔\n\n**Eksplisitt?** $A$ er strengt nedre triangulær ✔\n\n**Merk hvordan $\\tfrac h4\\left(k_1+3k_2\\right)$ ble til vektene $\\tfrac14$ og $\\tfrac34$.** Faktoren utenfor parentesen skal ganges inn, slik at det står nøyaktig $h\\sum b_ik_i$. Å glemme det er en vanlig avskriftsfeil — og vektsum-kontrollen fanger den.",
+        "hints": [
+          "$c_i$ leser du av tidsargumentet i $k_i$.",
+          "$a_{ij}$ leser du av $y$-argumentet i $k_i$.",
+          "Gang faktoren utenfor parentesen inn før du leser av $b_i$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Ordensbetingelsene (~16 min)\n\nNå til det tabellen egentlig er til for: å avgjøre ordenen uten å kjøre metoden."
+    },
+    {
+      "id": "tma4135-7-2-def-orden1",
+      "type": "definition",
+      "title": "Ordensbetingelsen for $p=1$",
+      "content": "$$\\sum_{i}b_i=1.$$\n\n**Innhold:** metoden må være **konsistent** — den må treffe eksakt når $f$ er konstant. Er summen ikke 1, har metoden ikke engang orden 1, og den konvergerer ikke i det hele tatt.\n\n**Dette er alltid det første du sjekker**, og det tar tre sekunder.\n\n**Betingelsen står på det utdelte formelarket — tren oppslaget.**"
+    },
+    {
+      "id": "tma4135-7-2-def-orden2",
+      "type": "definition",
+      "title": "Ordensbetingelsen for $p=2$",
+      "content": "$$\\sum_{i}b_ic_i=\\frac12.$$\n\n**Innhold:** metoden må fange den lineære endringen i $f$ riktig. Halvtallet kommer av at $\\int_0^h t\\,dt=\\tfrac{h^{2}}{2}$ — betingelsen er kvadraturbetingelsen for førstegradsledd.\n\n**Merk hvilke tall som ganges sammen:** vekt ganger node, ledd for ledd, og så summeres. Det er den eneste operasjonen, og den gjentas i alle de høyere betingelsene med ulike potenser.\n\n**Betingelsen står på det utdelte formelarket — tren oppslaget.**"
+    },
+    {
+      "id": "tma4135-7-2-def-orden3",
+      "type": "definition",
+      "title": "Ordensbetingelsene for $p=3$ — det er TO av dem",
+      "content": "$$\\sum_i b_ic_i^{2}=\\frac13\\qquad\\text{OG}\\qquad \\sum_{i,j}b_ia_{ij}c_j=\\frac16.$$\n\n**Begge må holde.** Dette er det viktigste punktet i hele kapitlet, og det som skiller besvarelsene.\n\n**Den første** er kvadraturbetingelsen for andregradsledd — den ligner de foregående og er lett å regne.\n\n**Den andre** er ny i formen: den er en **dobbelt** sum over både $i$ og $j$, og den involverer $A$. Den fanger at $f$ også avhenger av $y$, altså at stigningstallet endrer seg mens du beveger deg.\n\n**Slik regner du den doble summen for hånd.** Gå gjennom hver rad $i$ med $b_i\\ne 0$, og for hver av dem gjennom hver kolonne $j$ med $a_{ij}\\ne 0$:\n\n$$\\sum_{i,j}b_ia_{ij}c_j=\\sum_i b_i\\left(\\sum_j a_{ij}c_j\\right).$$\n\nFor en eksplisitt trestegsmetode har den som regel bare ett eller to ledd ulik null.\n\n**Begge betingelsene står på det utdelte formelarket — tren oppslaget på å finne dem begge.** At det er to, og ikke én, er det som **må kunnes**."
+    },
+    {
+      "id": "tma4135-7-2-def-orden4",
+      "type": "definition",
+      "title": "Ordensbetingelsene for $p=4$ — det er FIRE",
+      "content": "$$\\sum_i b_ic_i^{3}=\\frac14,\\qquad \\sum_{i,j}b_ic_ia_{ij}c_j=\\frac18,$$\n$$\\sum_{i,j}b_ia_{ij}c_j^{2}=\\frac{1}{12},\\qquad \\sum_{i,j,k}b_ia_{ij}a_{jk}c_k=\\frac{1}{24}.$$\n\n**Alle fire må holde** for at metoden skal ha orden 4.\n\n**Mønsteret i antallet:** 1 betingelse for orden 1, 2 for orden 2 (den nye pluss den gamle), 4 for orden 3, 8 for orden 4. Antallet vokser raskt — det er derfor høyordens Runge–Kutta-metoder er vanskelige å konstruere.\n\n**Den siste betingelsen har en trippel sum.** Den er sjelden nødvendig å regne for hånd på eksamen, for hvis metoden feiler tidligere, stopper du der. Men vet du at den finnes, unngår du å påstå orden 4 for tidlig.\n\n**Alle fire står på det utdelte formelarket — tren oppslaget.**"
+    },
+    {
+      "id": "tma4135-7-2-def-verifikasjon",
+      "type": "definition",
+      "title": "Verifikasjonslogikken — rad for rad til én feiler",
+      "content": "**Prosedyren, i fem steg:**\n\n1. Sjekk $\\sum b_i=1$. Feiler den, er ordenen 0 — metoden er ikke konsistent.\n2. Sjekk $\\sum b_ic_i=\\tfrac12$. Feiler den, er ordenen **1**.\n3. Sjekk **begge** nivå-3-betingelsene. Feiler minst én, er ordenen **2**.\n4. Sjekk **alle fire** nivå-4-betingelsene. Feiler minst én, er ordenen **3**.\n5. Holder alt, er ordenen minst 4.\n\n**Regelen: ordenen er nivået under det første som feiler.**\n\n**⚠ De to dødelige feilene:**\n\n- **Å stoppe for tidlig.** Går den første nivå-3-betingelsen gjennom, er du **ikke** ferdig med nivå 3. Du må sjekke den andre også.\n- **Å telle feil til slutt.** Feiler en nivå-3-betingelse, er ordenen 2 — ikke 3.\n\n**Logikken må kunnes.** Formelarket gir deg betingelsene, ikke prosedyren."
+    },
+    {
+      "id": "tma4135-7-2-eks2",
+      "type": "example",
+      "title": "Verifiser at klassisk RK4 har orden 4",
+      "problem": "Bruk Butcher-tabellen for RK4 fra eksempel 1 og sjekk alle åtte ordensbetingelsene.",
+      "solution": "**Tabellen:** $\\mathbf c=\\left(0,\\tfrac12,\\tfrac12,1\\right)$, $\\mathbf b=\\left(\\tfrac16,\\tfrac13,\\tfrac13,\\tfrac16\\right)$, og de eneste $a_{ij}$ ulik null er\n\n$$a_{21}=\\tfrac12,\\qquad a_{32}=\\tfrac12,\\qquad a_{43}=1.$$\n\n**Nivå 1.**\n\n$$\\sum b_i=\\frac16+\\frac13+\\frac13+\\frac16=\\frac{1+2+2+1}{6}=1.\\qquad ✔$$\n\n**Nivå 2.**\n\n$$\\sum b_ic_i=\\frac16\\cdot 0+\\frac13\\cdot\\frac12+\\frac13\\cdot\\frac12+\\frac16\\cdot 1=\\frac16+\\frac16=\\frac13+\\frac16.$$\n\nRegn nøye: $\\frac13\\cdot\\frac12=\\frac16$ (to ganger) og $\\frac16\\cdot 1=\\frac16$, altså\n\n$$\\sum b_ic_i=\\frac16+\\frac16+\\frac16=\\frac36=\\frac12.\\qquad ✔$$\n\n**Nivå 3, første betingelse.**\n\n$$\\sum b_ic_i^{2}=\\frac13\\cdot\\frac14+\\frac13\\cdot\\frac14+\\frac16\\cdot 1=\\frac{1}{12}+\\frac{1}{12}+\\frac16=\\frac{1+1+2}{12}=\\frac{4}{12}=\\frac13.\\qquad ✔$$\n\n**Nivå 3, andre betingelse.** Gå rad for rad. Bare radene 2, 3 og 4 har $a$-er ulik null:\n\n- $i=2$: $b_2a_{21}c_1=\\frac13\\cdot\\frac12\\cdot 0=0$\n- $i=3$: $b_3a_{32}c_2=\\frac13\\cdot\\frac12\\cdot\\frac12=\\frac{1}{12}$\n- $i=4$: $b_4a_{43}c_3=\\frac16\\cdot 1\\cdot\\frac12=\\frac{1}{12}$\n\n$$\\sum b_ia_{ij}c_j=0+\\frac1{12}+\\frac1{12}=\\frac16.\\qquad ✔$$\n\n**Metoden har minst orden 3.** Videre til nivå 4.\n\n**Nivå 4, betingelse 1.**\n\n$$\\sum b_ic_i^{3}=\\frac13\\cdot\\frac18+\\frac13\\cdot\\frac18+\\frac16\\cdot 1=\\frac{1}{24}+\\frac{1}{24}+\\frac16=\\frac{1+1+4}{24}=\\frac{6}{24}=\\frac14.\\qquad ✔$$\n\n**Nivå 4, betingelse 2.**\n\n- $i=3$: $b_3c_3a_{32}c_2=\\frac13\\cdot\\frac12\\cdot\\frac12\\cdot\\frac12=\\frac{1}{24}$\n- $i=4$: $b_4c_4a_{43}c_3=\\frac16\\cdot 1\\cdot 1\\cdot\\frac12=\\frac{1}{12}$\n\n$$\\sum=\\frac{1}{24}+\\frac{2}{24}=\\frac{3}{24}=\\frac18.\\qquad ✔$$\n\n**Nivå 4, betingelse 3.**\n\n- $i=3$: $b_3a_{32}c_2^{2}=\\frac13\\cdot\\frac12\\cdot\\frac14=\\frac{1}{24}$\n- $i=4$: $b_4a_{43}c_3^{2}=\\frac16\\cdot 1\\cdot\\frac14=\\frac{1}{24}$\n\n$$\\sum=\\frac{2}{24}=\\frac{1}{12}.\\qquad ✔$$\n\n**Nivå 4, betingelse 4** (trippel sum). Det eneste leddet med tre ikke-null faktorer er $i=4$, $j=3$, $k=2$:\n\n$$b_4a_{43}a_{32}c_2=\\frac16\\cdot 1\\cdot\\frac12\\cdot\\frac12=\\frac{1}{24}.\\qquad ✔$$\n\n**Alle åtte betingelsene holder.**\n\n$$\\boxed{\\text{Klassisk RK4 har orden 4.}}$$\n\n**Merk hvor systematisk regningen er.** Hver betingelse er en liten sum over de radene der $b_i\\ne 0$ og de kolonnene der $a_{ij}\\ne 0$. For en eksplisitt metode er det få ledd, og de fleste er null.\n\n**Tidsbruk på eksamen:** en oppgave ber sjelden om alle åtte. Ber den om «bestem ordenen», stopper du ved den første som feiler — og for de fleste oppgavemetodene skjer det på nivå 3."
+    },
+    {
+      "id": "tma4135-7-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-2-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger M — ordensverifikasjon.) Bestem ordenen til Heuns metode fra eksempel 1:\n\n$$\\begin{array}{c|cc}0 & 0 & 0\\\\ 1 & 1 & 0\\\\ \\hline & \\tfrac12 & \\tfrac12\\end{array}$$\n\nSjekk betingelsene i tur og orden til én feiler.",
+        "solution": "**Nivå 1.**\n\n$$\\sum b_i=\\frac12+\\frac12=1.\\qquad ✔$$\n\n**Nivå 2.**\n\n$$\\sum b_ic_i=\\frac12\\cdot 0+\\frac12\\cdot 1=\\frac12.\\qquad ✔$$\n\n**Metoden har minst orden 2.** Videre til nivå 3.\n\n**Nivå 3, første betingelse.**\n\n$$\\sum b_ic_i^{2}=\\frac12\\cdot 0+\\frac12\\cdot 1^{2}=\\frac12.$$\n\nKravet er $\\tfrac13$, og\n\n$$\\frac12\\ne\\frac13.\\qquad ✘$$\n\n**Her feiler den.** Vi trenger ikke sjekke den andre nivå-3-betingelsen — det holder at **én** feiler.\n\n$$\\boxed{\\text{Heuns metode har orden 2.}}$$\n\n*(For ordens skyld: den andre nivå-3-betingelsen er $b_2a_{21}c_1=\\frac12\\cdot 1\\cdot 0=0\\ne\\frac16$, så den feiler også.)*\n\n**Merk hvordan konklusjonen formuleres.** Ordenen er **2**, altså nivået **under** det som feilet. Å skrive «ordenen er 3 fordi den feiler på nivå 3» er den klassiske tellefeilen.\n\n**Kontroll mot [kap. 7.1](/tma4135/tma4135-7-1):** vi fant der at Heun har global orden 2 ved å se på hvordan feilen faller når $h$ halveres. Samme svar, funnet uten å regne et eneste skritt. **Det er hele nytten av ordensbetingelsene.**",
+        "hints": [
+          "Start med vektsummen og gå oppover ett nivå av gangen.",
+          "På nivå 2 er det vekt ganger node, summert.",
+          "Stopp ved den første betingelsen som feiler — og husk at ordenen er nivået under."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-2-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger M.) En trestegs metode er gitt ved\n\n$$\\begin{array}{c|ccc}0 & 0 & 0 & 0\\\\ \\tfrac13 & \\tfrac13 & 0 & 0\\\\ \\tfrac23 & 0 & \\tfrac23 & 0\\\\ \\hline & \\tfrac14 & 0 & \\tfrac34\\end{array}$$\n\nBestem ordenen ved å sjekke betingelsene i tur og orden.",
+        "solution": "**Kontroll av tabellen først.** Radsummer: $\\tfrac13=c_2$ ✔ og $0+\\tfrac23=\\tfrac23=c_3$ ✔. Matrisen er strengt nedre triangulær, så metoden er eksplisitt ✔.\n\n**Nivå 1.**\n\n$$\\sum b_i=\\frac14+0+\\frac34=1.\\qquad ✔$$\n\n**Nivå 2.**\n\n$$\\sum b_ic_i=\\frac14\\cdot 0+0\\cdot\\frac13+\\frac34\\cdot\\frac23=\\frac{2}{4}=\\frac12.\\qquad ✔$$\n\n**Nivå 3, første betingelse.**\n\n$$\\sum b_ic_i^{2}=\\frac34\\cdot\\left(\\frac23\\right)^{2}=\\frac34\\cdot\\frac49=\\frac{12}{36}=\\frac13.\\qquad ✔$$\n\n**Nivå 3, andre betingelse.** Bare rad 3 har både $b_i\\ne 0$ og $a_{ij}\\ne 0$ med $c_j\\ne 0$:\n\n$$\\sum b_ia_{ij}c_j=b_3a_{32}c_2=\\frac34\\cdot\\frac23\\cdot\\frac13=\\frac{6}{36}=\\frac16.\\qquad ✔$$\n\n*(Rad 2 bidrar ikke, siden $b_2=0$.)*\n\n**Metoden har minst orden 3.** Videre til nivå 4.\n\n**Nivå 4, første betingelse.**\n\n$$\\sum b_ic_i^{3}=\\frac34\\cdot\\left(\\frac23\\right)^{3}=\\frac34\\cdot\\frac{8}{27}=\\frac{24}{108}=\\frac29.$$\n\nKravet er $\\tfrac14$, og\n\n$$\\frac29\\approx 0{,}2222\\ne 0{,}25=\\frac14.\\qquad ✘$$\n\n$$\\boxed{\\text{Metoden har orden 3.}}$$\n\n**Denne metoden er Heuns tredjeordens metode**, en klassiker. Merk at $b_2=0$: det andre stigningstallet inngår ikke i sluttsvaret, men er nødvendig for å regne $k_3$ — akkurat som $k_1$ i midtpunktsmetoden i oppgave 1.\n\n**Merk også at begge nivå-3-betingelsene gikk gjennom.** Det er nettopp derfor du må sjekke begge: den ene alene ville ikke bevist noe.",
+        "hints": [
+          "Sjekk radsummene som avskriftskontroll før du begynner.",
+          "Ledd med $b_i=0$ bidrar ikke til noen av summene.",
+          "Fortsett til nivå 4 når begge nivå-3-betingelsene holder."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-2-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~31 min brukt) —\n\nDu kan lese tabellen og verifisere ordenen. De to siste løkkene er den formen sjangeren faktisk kommer i på de nyere settene: tabellen ligger gjemt i en Python-funksjon, og metoden ser ut som en kjent metode — men er det ikke."
+    },
+    {
+      "id": "tma4135-7-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Butcher-tabell fra Python-kode (~16 min)\n\nDe nyere settene presenterer ikke alltid tabellen. De gir deg **koden**, og lar deg lese den ut selv."
+    },
+    {
+      "id": "tma4135-7-2-def-lese-kode",
+      "type": "definition",
+      "title": "Å lese en Butcher-tabell ut av kode",
+      "content": "En Runge–Kutta-implementasjon har alltid samme skjelett:\n\n- Én linje per stigningstall, på formen `k_i = f(t + c_i*h, y + h*(...))`.\n- Én sluttlinje `return y + h*(...)` med vektene.\n\n**Framgangsmåten, i tre steg:**\n\n1. **Les $c_i$** fra tidsargumentet i hver `f`-kall. Står det `t`, er $c_i=0$; står det `t + h/2`, er $c_i=\\tfrac12$.\n2. **Les $a_{ij}$** fra $y$-argumentet. Tallet som ganges med `k_j` inne i parentesen etter `h*`, er $a_{ij}$.\n3. **Les $b_i$** fra returlinja, etter at du har ganget faktoren utenfor parentesen inn.\n\n**⚠ Vær nøye med faktorer utenfor parentesen.** Står det `y + h*(k1 + 4*k2 + k3)/6`, er vektene $\\tfrac16,\\tfrac46,\\tfrac16$ — altså $\\tfrac16,\\tfrac23,\\tfrac16$, ikke $1,4,1$.\n\n**⚠ Og vær nøye med hvilket $k$ som står hvor.** Det er nettopp der de innebygde feilene ligger.\n\n**Avlesningen må kunnes** — den står ingen steder på formelarket."
+    },
+    {
+      "id": "tma4135-7-2-def-observert",
+      "type": "definition",
+      "title": "Observert orden fra et numerisk eksperiment",
+      "content": "En uavhengig kontroll av ordenen: kjør metoden med $n$ og $2n$ skritt over samme intervall, og se på forholdet mellom feilene.\n\n$$\\frac{e(h)}{e(h/2)}\\approx 2^{p}.$$\n\n| Observert forhold | Orden |\n|---|---|\n| $\\approx 2$ | 1 |\n| $\\approx 4$ | 2 |\n| $\\approx 8$ | 3 |\n| $\\approx 16$ | 4 |\n\n**Bruken:** har du regnet ordenen fra tabellen, er dette en helt uavhengig bekreftelse. Er de to uenige, har du regnefeil et sted.\n\n**Merk at forholdet nærmer seg $2^{p}$ nedenfra** når $h$ minker — resultatet er asymptotisk. Ser du $4{,}21$, $4{,}10$, $4{,}05$, er ordenen 2."
+    },
+    {
+      "id": "tma4135-7-2-eks3",
+      "type": "example",
+      "title": "Les tabellen fra koden — og finn den virkelige ordenen",
+      "problem": "En metode er gitt ved denne Python-funksjonen:\n\n```python\nimport numpy as np\n\ndef steg(f, t, y, h):\n    k1 = f(t, y)\n    k2 = f(t + h/2, y + h*0.5*k1)\n    k3 = f(t + h,   y + h*(0.0*k1 + 1.0*k2))\n    return y + h*(k1 + 4*k2 + k3)/6\n```\n\n**a)** Skriv opp Butcher-tabellen.\n**b)** Bestem ordenen.\n**c)** Metoden ser ut som en kjent tredjeordens metode. Hva er endret, og hva blir konsekvensen?",
+      "solution": "**a) Avlesningen.**\n\n**Nodene** fra tidsargumentene: `f(t, y)` gir $c_1=0$; `f(t + h/2, ...)` gir $c_2=\\tfrac12$; `f(t + h, ...)` gir $c_3=1$.\n\n**Koeffisientene** fra $y$-argumentene:\n\n- `k2`: `y + h*0.5*k1` gir $a_{21}=\\tfrac12$.\n- `k3`: `y + h*(0.0*k1 + 1.0*k2)` gir $a_{31}=0$ og $a_{32}=1$.\n\n**Vektene** fra returlinja: `h*(k1 + 4*k2 + k3)/6` gir $b_1=\\tfrac16$, $b_2=\\tfrac46=\\tfrac23$, $b_3=\\tfrac16$.\n\n$$\\begin{array}{c|ccc}0 & 0 & 0 & 0\\\\ \\tfrac12 & \\tfrac12 & 0 & 0\\\\ 1 & 0 & 1 & 0\\\\ \\hline & \\tfrac16 & \\tfrac23 & \\tfrac16\\end{array}$$\n\n**Kontroller:** vektsum $\\tfrac16+\\tfrac23+\\tfrac16=1$ ✔. Radsummer: $\\tfrac12=c_2$ ✔ og $0+1=1=c_3$ ✔. Strengt nedre triangulær ✔.\n\n**Alt ser riktig ut så langt.** Det er nettopp det som gjør oppgaven vanskelig.\n\n**b) Ordenen.**\n\n**Nivå 1:** $\\sum b_i=1$ ✔\n\n**Nivå 2:**\n\n$$\\sum b_ic_i=\\frac16\\cdot 0+\\frac23\\cdot\\frac12+\\frac16\\cdot 1=\\frac13+\\frac16=\\frac12.\\qquad ✔$$\n\n**Nivå 3, første betingelse:**\n\n$$\\sum b_ic_i^{2}=\\frac23\\cdot\\frac14+\\frac16\\cdot 1=\\frac16+\\frac16=\\frac13.\\qquad ✔$$\n\n**Her ville en forhastet besvarelse stoppet og svart «orden 3».** Men vi er ikke ferdige med nivå 3.\n\n**Nivå 3, andre betingelse:**\n\n- $i=2$: $b_2a_{21}c_1=\\frac23\\cdot\\frac12\\cdot 0=0$\n- $i=3$: $b_3a_{32}c_2=\\frac16\\cdot 1\\cdot\\frac12=\\frac{1}{12}$\n\n$$\\sum b_ia_{ij}c_j=0+\\frac1{12}=\\frac1{12}.$$\n\nKravet er $\\tfrac16=\\tfrac2{12}$, og\n\n$$\\frac1{12}\\ne\\frac2{12}.\\qquad ✘$$\n\n$$\\boxed{\\text{Metoden har orden 2.}}$$\n\n**c) Hva er endret.** Den klassiske **Kuttas tredjeordens metode** har samme $\\mathbf c$ og samme $\\mathbf b$, men tredje rad i $A$ er\n\n$$a_{31}=-1,\\qquad a_{32}=2$$\n\ni stedet for $0$ og $1$. Legg merke til at **begge** tabellene har radsum $1$ i rad 3 ($-1+2=1$ og $0+1=1$) — så radsum-kontrollen avslører ingenting.\n\nMed de riktige tallene blir den andre nivå-3-betingelsen\n\n$$b_3\\left(a_{31}c_1+a_{32}c_2\\right)=\\frac16\\left((-1)\\cdot 0+2\\cdot\\frac12\\right)=\\frac16\\cdot 1=\\frac16,\\qquad ✔$$\n\naltså riktig, og metoden har orden 3.\n\n**Konsekvensen i tall.** Kjører vi begge metodene på $y'=t-2y$, $y(0)=1$, fram til $t=1$ (eksakt $y(1)\\approx 0{,}4191691$), får vi\n\n| $n$ | Feil, koden over | forhold | Feil, Kuttas RK3 | forhold |\n|---|---|---|---|---|\n| 10 | $1{,}25\\cdot 10^{-3}$ | — | $1{,}32\\cdot 10^{-4}$ | — |\n| 20 | $2{,}97\\cdot 10^{-4}$ | $4{,}21$ | $1{,}53\\cdot 10^{-5}$ | $8{,}67$ |\n| 40 | $7{,}23\\cdot 10^{-5}$ | $4{,}10$ | $1{,}83\\cdot 10^{-6}$ | $8{,}33$ |\n| 80 | $1{,}78\\cdot 10^{-5}$ | $4{,}05$ | $2{,}25\\cdot 10^{-7}$ | $8{,}16$ |\n\n**Forholdet 4 mot 8** bekrefter orden 2 mot orden 3, helt uavhengig av tabellregningen.\n\n**Lærdommen.** Én oppføring i $A$ er endret, radsummen stemmer fortsatt, den første nivå-3-betingelsen holder fortsatt — og likevel har metoden mistet en hel orden. **Det er derfor du må sjekke begge betingelsene på nivå 3**, og det er nøyaktig denne fella sjangeren er bygd rundt."
+    },
+    {
+      "id": "tma4135-7-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-2-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger M — tabell fra kode.) Les Butcher-tabellen ut av denne funksjonen, og bestem ordenen:\n\n```python\ndef steg(f, t, y, h):\n    k1 = f(t, y)\n    k2 = f(t + h, y + h*k1)\n    return y + h*(k1 + k2)/2\n```",
+        "solution": "**Avlesningen.**\n\n- `k1 = f(t, y)` gir $c_1=0$, ingen $a$-er.\n- `k2 = f(t + h, y + h*k1)` gir $c_2=1$ og $a_{21}=1$.\n- Returlinja `h*(k1 + k2)/2` gir $b_1=b_2=\\tfrac12$.\n\n$$\\begin{array}{c|cc}0 & 0 & 0\\\\ 1 & 1 & 0\\\\ \\hline & \\tfrac12 & \\tfrac12\\end{array}$$\n\n**Dette er Heuns metode** (forbedret Euler).\n\n**Ordenen.**\n\n**Nivå 1:** $\\tfrac12+\\tfrac12=1$ ✔\n\n**Nivå 2:** $\\tfrac12\\cdot 0+\\tfrac12\\cdot 1=\\tfrac12$ ✔\n\n**Nivå 3, første betingelse:** $\\tfrac12\\cdot 0+\\tfrac12\\cdot 1=\\tfrac12\\ne\\tfrac13$ ✘\n\n$$\\boxed{\\text{Orden 2.}}$$\n\n**Merk hvor lite kode som skal til.** To linjer og en returlinje beskriver metoden fullstendig, og tabellen leses av på under et minutt når du vet hva du ser etter.\n\n**Kontroll:** vi fant orden 2 for Heun i oppgave 3 også, fra tabellen direkte. Samme metode, samme svar.",
+        "hints": [
+          "Tidsargumentet i hvert `f`-kall gir $c_i$.",
+          "Faktoren som ganges med `k1` inne i $y$-argumentet, er $a_{21}$.",
+          "Gang `/2` inn før du leser av vektene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-2-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger M — tabell fra kode.) Samme oppgave for\n\n```python\ndef steg(f, t, y, h):\n    k1 = f(t, y)\n    k2 = f(t + h/3, y + h*k1/3)\n    k3 = f(t + 2*h/3, y + 2*h*k2/3)\n    return y + h*(k1 + 3*k3)/4\n```\n\n**a)** Skriv opp tabellen.\n**b)** Bestem ordenen.",
+        "solution": "**a) Avlesningen.**\n\n- `k1 = f(t, y)`: $c_1=0$.\n- `k2 = f(t + h/3, y + h*k1/3)`: $c_2=\\tfrac13$, $a_{21}=\\tfrac13$.\n- `k3 = f(t + 2*h/3, y + 2*h*k2/3)`: $c_3=\\tfrac23$, $a_{31}=0$, $a_{32}=\\tfrac23$.\n- Returlinja `h*(k1 + 3*k3)/4`: $b_1=\\tfrac14$, $b_2=0$, $b_3=\\tfrac34$.\n\n$$\\begin{array}{c|ccc}0 & 0 & 0 & 0\\\\ \\tfrac13 & \\tfrac13 & 0 & 0\\\\ \\tfrac23 & 0 & \\tfrac23 & 0\\\\ \\hline & \\tfrac14 & 0 & \\tfrac34\\end{array}$$\n\n**Dette er nøyaktig tabellen fra oppgave 4** — Heuns tredjeordens metode.\n\n**b) Ordenen.** Fra oppgave 4:\n\n**Nivå 1:** $\\tfrac14+\\tfrac34=1$ ✔\n**Nivå 2:** $\\tfrac34\\cdot\\tfrac23=\\tfrac12$ ✔\n**Nivå 3a:** $\\tfrac34\\cdot\\tfrac49=\\tfrac13$ ✔\n**Nivå 3b:** $\\tfrac34\\cdot\\tfrac23\\cdot\\tfrac13=\\tfrac16$ ✔\n**Nivå 4a:** $\\tfrac34\\cdot\\tfrac8{27}=\\tfrac29\\ne\\tfrac14$ ✘\n\n$$\\boxed{\\text{Orden 3.}}$$\n\n**Merk hvordan $b_2=0$ leses ut av koden.** I returlinja står `k1 + 3*k3` — `k2` er ikke nevnt i det hele tatt. Det betyr $b_2=0$, ikke at $k_2$ er unødvendig: uten den kan du ikke regne `k3`.\n\n**Merk også faktoren `/4`.** Vektene er $\\tfrac14$ og $\\tfrac34$, ikke $1$ og $3$. Vektsum-kontrollen ville avslørt en feilavlesning umiddelbart.",
+        "hints": [
+          "Skriv opp én rad per `k`-linje.",
+          "Et `k` som ikke står i returlinja, har vekt null.",
+          "Gang faktoren `/4` inn i alle vektene før du kontrollerer summen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Stegtall mot orden, og en full eksamensoppgave (~13 min)"
+    },
+    {
+      "id": "tma4135-7-2-def-stegtall",
+      "type": "definition",
+      "title": "Stegtall $s$ mot orden $p$",
+      "content": "For **eksplisitte** Runge–Kutta-metoder gjelder alltid\n\n$$p\\le s.$$\n\nDu kan ikke få høyere orden enn antall stigningstall. Og for $s\\ge 5$ blir det verre:\n\n| Stegtall $s$ | Høyest mulige orden $p$ |\n|---|---|\n| 1 | 1 |\n| 2 | 2 |\n| 3 | 3 |\n| 4 | 4 |\n| 5 | **4** |\n| 6 | 5 |\n| 7 | 6 |\n\n**Merk raden $s=5$.** Fem stigningstall gir ikke orden 5 — det er en kjent barriere. **Det er nettopp derfor RK4 er så utbredt:** den er den siste metoden der orden og stegtall er like, altså det siste «gratis» punktet før prisen stiger.\n\n**Bruken på eksamen:** har en firestegs metode fire stigningstall, kan ordenen ikke være 5. Er du kommet til orden 4 og alle betingelsene holder, er du ferdig — du trenger ikke sjekke nivå 5."
+    },
+    {
+      "id": "tma4135-7-2-def-antall",
+      "type": "definition",
+      "title": "Hvor mange betingelser er det?",
+      "content": "| Orden | Antall nye betingelser | Totalt |\n|---|---|---|\n| 1 | 1 | 1 |\n| 2 | 1 | 2 |\n| 3 | 2 | 4 |\n| 4 | 4 | 8 |\n| 5 | 9 | 17 |\n\n**Antallet eksploderer.** Det er derfor det finnes få praktiske metoder over orden 8, og det er også derfor formelarket stopper ved $p=4$.\n\n**Praktisk konsekvens:** på eksamen ser du aldri en verifikasjon over nivå 4. Metoden i oppgaven har typisk orden 2 eller 3, og hele poenget er at du finner den **første** betingelsen som feiler."
+    },
+    {
+      "id": "tma4135-7-2-def-hvorfor-brok",
+      "type": "definition",
+      "title": "Hvorfor står det $\\tfrac12$, $\\tfrac13$, $\\tfrac16$ på høyresidene?",
+      "content": "Brøkene er ikke tilfeldige. De er momentene til integralet over ett skritt.\n\nBetrakt det enkleste tilfellet, der $f$ bare avhenger av $t$. Da er\n\n$$y\\left(t_{n+1}\\right)-y\\left(t_n\\right)=\\int_{t_n}^{t_n+h}f(t)\\,dt,$$\n\nog metoden tilnærmer dette med $h\\sum_i b_if\\left(t_n+c_ih\\right)$ — altså en **kvadraturformel** med noder $c_i$ og vekter $b_i$ på intervallet $[0,1]$.\n\nKravet om eksakthet for $t^{m}$ gir\n\n$$\\sum_i b_ic_i^{m}=\\int_0^1 \\xi^{m}\\,d\\xi=\\frac{1}{m+1}.$$\n\n**Der har du $1$, $\\tfrac12$, $\\tfrac13$ og $\\tfrac14$** — de er nøyaktig $\\frac{1}{m+1}$ for $m=0,1,2,3$.\n\n**Betingelsene som involverer $A$** har ingen slik enkel kvadraturtolkning; de kommer av at $f$ også avhenger av $y$, og at stigningstallet derfor endrer seg underveis. **Det er de betingelsene som er nye, og det er dem som feiler i oppgavemetodene.**\n\nSammenhengen med [kap. 6.2](/tma4135/tma4135-6-2) er direkte: ordensbetingelsene av typen $\\sum b_ic_i^{m}$ er presisjonsgrad-testen, flyttet til intervallet $[0,1]$."
+    },
+    {
+      "id": "tma4135-7-2-def-kontrollrutine",
+      "type": "definition",
+      "title": "Kontrollrutine for en ordensoppgave",
+      "content": "Seks sjekker, i rekkefølge:\n\n1. **Vektsum $=1$?** Hvis ikke, er noe skrevet av feil.\n2. **Radsummer $=c_i$?** Avskriftskontroll — men **ikke** et argument for høy orden.\n3. **Er $A$ strengt nedre triangulær?** Da er metoden eksplisitt.\n4. **Gå nivå for nivå**, og skriv ut hver sum med tallene synlige.\n5. **Sjekk ALLE betingelsene på hvert nivå** før du går videre.\n6. **Konkluder med nivået UNDER det første som feilet.**\n\n**Skriv ut hver sum med tall.** «$\\sum b_ic_i^{2}=\\frac23\\cdot\\frac14+\\frac16\\cdot 1=\\frac13$ ✔» viser tenkemåten; «$=\\frac13$ ✔» gjør det ikke."
+    },
+    {
+      "id": "tma4135-7-2-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: full ordensanalyse fra kode",
+      "problem": "En kollega har implementert en ODE-løser:\n\n```python\nimport numpy as np\n\ndef steg(f, t, y, h):\n    k1 = f(t, y)\n    k2 = f(t + h/2, y + h*k1/2)\n    k3 = f(t + h,   y + h*(2.0*k2 - k1))\n    return y + h*(k1 + 4*k2 + k3)/6\n```\n\n**a)** Skriv opp Butcher-tabellen og kontroller den.\n**b)** Bestem ordenen ved å sjekke betingelsene i tur og orden.\n**c)** Beskriv et numerisk eksperiment som bekrefter svaret, og si hvilket resultat du forventer.",
+      "solution": "**a) Avlesningen.**\n\n- `k1 = f(t, y)`: $c_1=0$.\n- `k2 = f(t + h/2, y + h*k1/2)`: $c_2=\\tfrac12$, $a_{21}=\\tfrac12$.\n- `k3 = f(t + h, y + h*(2.0*k2 - k1))`: $c_3=1$, og parentesen gir $a_{31}=-1$, $a_{32}=2$.\n- Returlinja `h*(k1 + 4*k2 + k3)/6`: $b_1=\\tfrac16$, $b_2=\\tfrac46=\\tfrac23$, $b_3=\\tfrac16$.\n\n$$\\begin{array}{c|ccc}0 & 0 & 0 & 0\\\\ \\tfrac12 & \\tfrac12 & 0 & 0\\\\ 1 & -1 & 2 & 0\\\\ \\hline & \\tfrac16 & \\tfrac23 & \\tfrac16\\end{array}$$\n\n**Kontroller.**\n\n- **Vektsum:** $\\tfrac16+\\tfrac23+\\tfrac16=\\tfrac{1+4+1}{6}=1$ ✔\n- **Radsummer:** rad 2: $\\tfrac12=c_2$ ✔. Rad 3: $-1+2=1=c_3$ ✔\n- **Eksplisitt:** $A$ er strengt nedre triangulær ✔\n\n**Merk det negative tallet $a_{31}=-1$.** Negative koeffisienter er helt vanlige i Runge–Kutta-tabeller og er ikke et tegn på feil.\n\n**b) Ordenen.**\n\n**Nivå 1:** $\\sum b_i=1$ ✔\n\n**Nivå 2:**\n\n$$\\sum b_ic_i=\\frac16\\cdot 0+\\frac23\\cdot\\frac12+\\frac16\\cdot 1=\\frac13+\\frac16=\\frac12.\\qquad ✔$$\n\n**Nivå 3, første betingelse:**\n\n$$\\sum b_ic_i^{2}=\\frac23\\cdot\\frac14+\\frac16\\cdot 1=\\frac16+\\frac16=\\frac13.\\qquad ✔$$\n\n**Nivå 3, andre betingelse:**\n\n- $i=2$: $b_2a_{21}c_1=\\frac23\\cdot\\frac12\\cdot 0=0$\n- $i=3$: $b_3\\left(a_{31}c_1+a_{32}c_2\\right)=\\frac16\\left((-1)\\cdot 0+2\\cdot\\frac12\\right)=\\frac16\\cdot 1=\\frac16$\n\n$$\\sum b_ia_{ij}c_j=0+\\frac16=\\frac16.\\qquad ✔$$\n\n**Begge nivå-3-betingelsene holder** — metoden har minst orden 3. Videre til nivå 4.\n\n**Nivå 4, første betingelse:**\n\n$$\\sum b_ic_i^{3}=\\frac23\\cdot\\frac18+\\frac16\\cdot 1=\\frac1{12}+\\frac16=\\frac{1+2}{12}=\\frac14.\\qquad ✔$$\n\n**Overraskende — den gikk gjennom.** Vi må videre.\n\n**Nivå 4, andre betingelse:**\n\n- $i=2$: $b_2c_2a_{21}c_1=\\frac23\\cdot\\frac12\\cdot\\frac12\\cdot 0=0$\n- $i=3$: $b_3c_3\\left(a_{31}c_1+a_{32}c_2\\right)=\\frac16\\cdot 1\\cdot 1=\\frac16$\n\n$$\\sum b_ic_ia_{ij}c_j=\\frac16.$$\n\nKravet er $\\tfrac18$, og\n\n$$\\frac16\\approx 0{,}1667\\ne 0{,}125=\\frac18.\\qquad ✘$$\n\n$$\\boxed{\\text{Metoden har orden 3.}}$$\n\n**Dette er Kuttas tredjeordens metode**, den korrekte utgaven av metoden i eksempel 3.\n\n**Merk at nivå 4 krevde to forsøk.** Den første betingelsen på nivå 4 gikk gjennom — helt tilfeldig — og hadde vi stoppet der, ville vi påstått orden 4. **Regelen om å sjekke alle betingelsene på hvert nivå gjelder også på nivå 4.**\n\n**c) Numerisk eksperiment.**\n\n**Oppsett:** velg et problem med kjent løsning, for eksempel $y'=t-2y$ med $y(0)=1$, som har\n\n$$y(t)=\\tfrac54 e^{-2t}+\\tfrac t2-\\tfrac14,\\qquad y(1)\\approx 0{,}4191691.$$\n\nKjør metoden fra $t=0$ til $t=1$ med $n=10,20,40,80$ skritt, altså med $h$ halvert hver gang, og regn feilen $\\left|y_n-y(1)\\right|$.\n\n**Forventet resultat:** forholdet mellom to påfølgende feil skal nærme seg\n\n$$2^{p}=2^{3}=8.$$\n\n**Faktisk resultat** når eksperimentet kjøres:\n\n| $n$ | $y_n$ | Feil | Forhold |\n|---|---|---|---|\n| 10 | $0{,}4190367$ | $1{,}32\\cdot 10^{-4}$ | — |\n| 20 | $0{,}4191538$ | $1{,}53\\cdot 10^{-5}$ | $8{,}67$ |\n| 40 | $0{,}4191673$ | $1{,}83\\cdot 10^{-6}$ | $8{,}33$ |\n| 80 | $0{,}4191689$ | $2{,}25\\cdot 10^{-7}$ | $8{,}16$ |\n\nForholdet nærmer seg 8 nedenfra ✔ — **eksperimentet bekrefter orden 3**, uavhengig av tabellregningen.\n\n**Hvorfor eksperimentet er verdt å beskrive.** Ordensbetingelsene er lette å regne feil i, særlig de doble summene. Et eksperiment som gir forhold 8 når du har regnet deg fram til orden 3, er en sterk bekreftelse. Gir det 4 når du har regnet 3, vet du at du har en feil å lete etter.\n\n**Tidsbruk på eksamen:** a) 5 min, b) 12 min, c) 5 min — omtrent 22 minutter for en oppgave på 10 poeng."
+    },
+    {
+      "id": "tma4135-7-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-2-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger M — krevende.) En tostegs metode har tabellen\n\n$$\\begin{array}{c|cc}0 & 0 & 0\\\\ \\alpha & \\alpha & 0\\\\ \\hline & 1-\\beta & \\beta\\end{array}$$\n\nmed $\\alpha\\ne 0$.\n\n**a)** Hvilken betingelse må $\\alpha$ og $\\beta$ oppfylle for at metoden skal ha orden 2?\n**b)** Vis at ingen slik metode kan ha orden 3.\n**c)** Hvilke kjente metoder svarer til $\\alpha=1$ og til $\\alpha=\\tfrac12$?",
+        "solution": "**a) Nivå 1** er automatisk oppfylt:\n\n$$\\sum b_i=(1-\\beta)+\\beta=1.\\qquad ✔$$\n\n**Nivå 2:**\n\n$$\\sum b_ic_i=(1-\\beta)\\cdot 0+\\beta\\cdot\\alpha=\\alpha\\beta.$$\n\nKravet er $\\tfrac12$:\n\n$$\\boxed{\\alpha\\beta=\\frac12}$$\n\nDet er den eneste betingelsen. Med $\\alpha\\ne 0$ gir den $\\beta=\\dfrac{1}{2\\alpha}$, altså en **hel familie** av andreordens tostegsmetoder.\n\n**b) Orden 3 er umulig.** Sjekk den andre nivå-3-betingelsen:\n\n$$\\sum b_ia_{ij}c_j=b_2a_{21}c_1=\\beta\\cdot\\alpha\\cdot 0=0.$$\n\nKravet er $\\tfrac16$, og\n\n$$0\\ne\\frac16$$\n\nuansett hva $\\alpha$ og $\\beta$ er. **Betingelsen kan aldri oppfylles**, fordi $c_1=0$ og det er det eneste leddet som finnes.\n\n$$\\text{Ingen eksplisitt tostegsmetode har orden 3.}\\qquad \\blacksquare$$\n\n*(Det er også et spesialtilfelle av barrieren $p\\le s$ fra løkke 4: med $s=2$ er $p\\le 2$.)*\n\n**c) De kjente tilfellene.**\n\n**$\\alpha=1$** gir $\\beta=\\tfrac12$, altså vektene $\\left(\\tfrac12,\\tfrac12\\right)$ og tabellen\n\n$$\\begin{array}{c|cc}0 & 0 & 0\\\\ 1 & 1 & 0\\\\ \\hline & \\tfrac12 & \\tfrac12\\end{array}$$\n\nDette er **Heuns metode** (forbedret Euler).\n\n**$\\alpha=\\tfrac12$** gir $\\beta=1$, altså vektene $(0,1)$ og tabellen\n\n$$\\begin{array}{c|cc}0 & 0 & 0\\\\ \\tfrac12 & \\tfrac12 & 0\\\\ \\hline & 0 & 1\\end{array}$$\n\nDette er **midtpunktsmetoden** fra oppgave 1.\n\n**Et tredje kjent medlem:** $\\alpha=\\tfrac23$ gir $\\beta=\\tfrac34$ og vektene $\\left(\\tfrac14,\\tfrac34\\right)$ — det er **Ralstons metode**, som er den i familien med minst feilkonstant.\n\n**Poenget med oppgaven.** Ordensbetingelsene er ikke bare en test du kjører på en ferdig metode — de er **konstruksjonsverktøyet**. Vil du lage en metode av gitt orden, setter du opp betingelsene som likninger og løser for koeffisientene. Det er nøyaktig slik alle tabellene i kapitlet er laget.",
+        "hints": [
+          "Skriv ut hver ordensbetingelse med $\\alpha$ og $\\beta$ som symboler.",
+          "I den andre nivå-3-betingelsen er $c_1=0$ — hva gjør det med hele summen?",
+          "Sett inn de to verdiene av $\\alpha$ og finn $\\beta$ fra betingelsen i a)."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-7-2-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger M — krevende, kodefeil.) En student har prøvd å implementere klassisk RK4, men et konvergenseksperiment viser forholdet $4$ mellom feilene i stedet for $16$:\n\n```python\ndef steg(f, t, y, h):\n    k1 = f(t, y)\n    k2 = f(t + h/2, y + h*k1/2)\n    k3 = f(t + h/2, y + h*k1/2)\n    k4 = f(t + h,   y + h*k3)\n    return y + h*(k1 + 2*k2 + 2*k3 + k4)/6\n```\n\n**a)** Skriv opp tabellen koden faktisk implementerer.\n**b)** Finn linja med feilen, og forklar hvorfor symptomet blir en tapt orden.\n**c)** Verifiser ordenen fra tabellen.",
+        "solution": "**a) Tabellen koden faktisk implementerer.**\n\n- `k1 = f(t, y)`: $c_1=0$.\n- `k2 = f(t + h/2, y + h*k1/2)`: $c_2=\\tfrac12$, $a_{21}=\\tfrac12$.\n- `k3 = f(t + h/2, y + h*k1/2)`: $c_3=\\tfrac12$, og $y$-argumentet bruker **`k1`**, altså $a_{31}=\\tfrac12$, $a_{32}=0$.\n- `k4 = f(t + h, y + h*k3)`: $c_4=1$, $a_{43}=1$.\n- Returlinja: $\\mathbf b=\\left(\\tfrac16,\\tfrac13,\\tfrac13,\\tfrac16\\right)$.\n\n$$\\begin{array}{c|cccc}\n0 & 0 & 0 & 0 & 0\\\\\n\\tfrac12 & \\tfrac12 & 0 & 0 & 0\\\\\n\\tfrac12 & \\tfrac12 & 0 & 0 & 0\\\\\n1 & 0 & 0 & 1 & 0\\\\ \\hline\n & \\tfrac16 & \\tfrac13 & \\tfrac13 & \\tfrac16\\end{array}$$\n\n**Merk at rad 2 og rad 3 er identiske.** Det betyr at $k_2$ og $k_3$ alltid er **samme tall**.\n\n**b) Feilen.** Linja\n\n```text\n    k3 = f(t + h/2, y + h*k1/2)\n```\n\nskal være\n\n```text\n    k3 = f(t + h/2, y + h*k2/2)\n```\n\nDet er `k1` som skal vært `k2` — én tegnendring.\n\n**Hvorfor symptomet blir tapt orden.** I klassisk RK4 er $a_{32}=\\tfrac12$, og nettopp den oppføringen inngår i flere av nivå-4-betingelsene. Med $a_{32}=0$ forsvinner alle ledd som går gjennom «$k_3$ bruker $k_2$», og fjerdeordensstrukturen bryter sammen.\n\n**Merk hvor lumsk feilen er.** Metoden **virker** — den gir fornuftige svar og konvergerer pent. Radsummene stemmer fortsatt ($\\tfrac12=c_3$ ✔). Bare et konvergenseksperiment eller en ordensverifikasjon avslører den, og symptomet er nettopp det studenten så: **forholdet mellom feilene er 8, ikke 16.**\n\n**c) Verifikasjon.**\n\n**Nivå 1:** $\\sum b_i=1$ ✔\n\n**Nivå 2:** $\\frac13\\cdot\\frac12+\\frac13\\cdot\\frac12+\\frac16\\cdot 1=\\frac16+\\frac16+\\frac16=\\frac12$ ✔\n\n**Nivå 3a:** $\\frac13\\cdot\\frac14+\\frac13\\cdot\\frac14+\\frac16\\cdot 1=\\frac1{12}+\\frac1{12}+\\frac16=\\frac13$ ✔\n\n**Nivå 3b:**\n- $i=2$: $b_2a_{21}c_1=\\frac13\\cdot\\frac12\\cdot 0=0$\n- $i=3$: $b_3a_{31}c_1=\\frac13\\cdot\\frac12\\cdot 0=0$\n- $i=4$: $b_4a_{43}c_3=\\frac16\\cdot 1\\cdot\\frac12=\\frac1{12}$\n\n$$\\sum=\\frac1{12}.$$\n\nKravet er $\\tfrac16=\\tfrac2{12}$, og $\\tfrac1{12}\\ne\\tfrac2{12}$ ✘\n\n$$\\boxed{\\text{Metoden har orden 2.}}$$\n\n**Verifikasjonen stemmer med eksperimentet.** Studenten observerte forholdet $4$ mellom påfølgende feil, altså $2^{2}$ — og tabellen gir orden 2. Kjører man koden på $y'=t-2y$ fra $t=0$ til $t=1$, blir forholdene $4{,}21$, $4{,}10$ og $4{,}05$; på det ikke-lineære $y'=-y^{2}$ blir de $4{,}19$, $4{,}10$ og $4{,}05$. **Samme svar på begge problemene**, og det bekrefter analysen.\n\n**To hele ordener er borte** — fra 4 til 2 — på grunn av ett tegn i én linje. Det er verdt å merke seg: feilen er ikke «litt» galt, den er kvalitativt galt.\n\n**En nyanse verdt å ta med likevel.** Ordensbetingelsene gir den **garanterte** ordenen for **alle** problemer. På enkelte spesielt snille problemer — for eksempel når $f$ bare avhenger av $t$ — kan en metode oppføre seg bedre enn ordenen tilsier, fordi de leddene som feiler, tilfeldigvis er null. **Derfor kan et eksperiment bekrefte en verifikasjon, men ikke erstatte den.** Test alltid på et problem der $f$ faktisk avhenger av $y$.\n\n**Lærdommen:** når en kollega sier «koden virker», er svaret «på hvilket problem, og med hvilken observert orden?».",
+        "hints": [
+          "Les $y$-argumentet i `k3` bokstavelig — hvilket $k$ står der?",
+          "Er to rader i $A$ helt like, gir de to samme stigningstall.",
+          "Se hvilke ordensbetingelser som inneholder $a_{32}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-7-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**1. Å stoppe før den første betingelsen faktisk feiler.** Den dokumenterte hovedfeilen i sjangeren. Går den første nivå-3-betingelsen gjennom, må du sjekke den andre. Går begge gjennom, må du videre til nivå 4 — der det er **fire** betingelser.\n\n**2. Å telle feil til slutt.** Feiler en nivå-3-betingelse, er ordenen **2**. Å skrive «orden 3 fordi den feilet på nivå 3» er den klassiske tellefeilen.\n\n**3. Å feillese $a_{ij}$ fra koden.** Se etter hvilket `k` som står inne i $y$-argumentet. `y + h*k1/2` gir $a_{i1}=\\tfrac12$; `y + h*k2/2` gir $a_{i2}=\\tfrac12$. Én siffers forskjell, en hel orden i konsekvens.\n\n**4. Å glemme faktoren utenfor parentesen i returlinja.** `h*(k1 + 4*k2 + k3)/6` gir vektene $\\tfrac16,\\tfrac23,\\tfrac16$ — ikke $1,4,1$. **Vektsum-kontrollen fanger dette.**\n\n**5. Å forveksle $c_i$ og $b_i$.** Nodene står i venstre kolonne og gir tidsforskyvningen; vektene står i nederste rad og gir blandingen. De brukes i ulike posisjoner i hver eneste ordensbetingelse.\n\n**6. Å bruke radsum-betingelsen som argument for høy orden.** Den er **nødvendig, ikke tilstrekkelig**. Metoden i eksempel 3 oppfyller den perfekt og har likevel bare orden 2.\n\n**7. Å transponere $A$.** Rad $i$ hører til stigningstall $i$; kolonne $j$ hører til $k_j$. En transponering gir en helt annen metode.\n\n**8. Å tro at et konvergenseksperiment erstatter verifikasjonen.** Eksperimentet kan gi for høy orden på et spesielt snilt problem. Det bekrefter; det beviser ikke."
+    },
+    {
+      "id": "tma4135-7-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-7-2-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på brøkregning og på å oversette mellom formel og tabell."
+        },
+        {
+          "id": "tma4135-7-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-2-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\dfrac16+\\dfrac13+\\dfrac13+\\dfrac16$ og $\\dfrac16+\\dfrac23+\\dfrac16$.",
+            "solution": "**Første:** felles nevner 6:\n\n$$\\frac16+\\frac26+\\frac26+\\frac16=\\frac{1+2+2+1}{6}=\\frac66=1.$$\n\n**Andre:**\n\n$$\\frac16+\\frac46+\\frac16=\\frac{1+4+1}{6}=\\frac66=1.$$\n\nBegge er vektsummer fra kapitlet — for RK4 og for trestegsmetoden i eksempel 3. **At de blir 1, er den første ordensbetingelsen**, og det er den raskeste avskriftskontrollen som finnes.",
+            "hints": [
+              "Sett alt på felles nevner 6.",
+              "Summen skal bli 1 for enhver brukbar metode."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-2-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\dfrac34\\cdot\\left(\\dfrac23\\right)^{2}$ og $\\dfrac34\\cdot\\left(\\dfrac23\\right)^{3}$.",
+            "solution": "$$\\frac34\\cdot\\frac49=\\frac{12}{36}=\\frac13,$$\n$$\\frac34\\cdot\\frac{8}{27}=\\frac{24}{108}=\\frac{2}{9}.$$\n\nDen første er nivå-3-betingelsen for Heuns tredjeordens metode og gir treff ($\\tfrac13$ ✔). Den andre er nivå-4-betingelsen og gir **ikke** treff ($\\tfrac29\\ne\\tfrac14$ ✘) — det er nøyaktig der metoden stopper.",
+            "hints": [
+              "Regn potensen først, deretter produktet.",
+              "Forkort brøken til slutt."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-2-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv formelen $y_{n+1}=y_n+\\dfrac{h}{6}\\left(k_1+4k_2+k_3\\right)$ på formen $y_n+h\\sum b_ik_i$, og les av $b_i$.",
+            "solution": "Gang $\\dfrac16$ inn i parentesen:\n\n$$y_{n+1}=y_n+h\\left(\\frac16 k_1+\\frac46 k_2+\\frac16 k_3\\right)=y_n+h\\left(\\frac16 k_1+\\frac23 k_2+\\frac16 k_3\\right).$$\n\n$$b_1=\\frac16,\\qquad b_2=\\frac23,\\qquad b_3=\\frac16.$$\n\n**Kontroll:** $\\frac16+\\frac23+\\frac16=1$ ✔\n\n**Dette steget er der de fleste avskriftsfeilene skjer.** Vektene er ikke $1,4,1$ — de er $\\tfrac16,\\tfrac23,\\tfrac16$. Gjør du innmultipliseringen eksplisitt, unngår du feilen.",
+            "hints": [
+              "Faktoren utenfor parentesen må ganges inn i hvert ledd.",
+              "Kontroller at vektsummen blir 1."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-7-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-7-2-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut den doble summen $\\sum_{i,j}b_ia_{ij}c_j$ for\n\n$$\\mathbf b=\\left(\\tfrac16,\\tfrac23,\\tfrac16\\right),\\quad \\mathbf c=\\left(0,\\tfrac12,1\\right),\\quad a_{21}=\\tfrac12,\\ a_{32}=1,$$\n\nmed alle andre $a_{ij}$ lik null.",
+            "solution": "Gå gjennom hvert par $(i,j)$ der $a_{ij}\\ne 0$:\n\n**$i=2$, $j=1$:**\n$$b_2a_{21}c_1=\\frac23\\cdot\\frac12\\cdot 0=0.$$\n\n**$i=3$, $j=2$:**\n$$b_3a_{32}c_2=\\frac16\\cdot 1\\cdot\\frac12=\\frac1{12}.$$\n\n$$\\sum_{i,j}b_ia_{ij}c_j=0+\\frac1{12}=\\frac1{12}.$$\n\n**Kravet på nivå 3 er $\\tfrac16=\\tfrac2{12}$**, så denne betingelsen **feiler** — og det er nøyaktig regnestykket som gir orden 2 i eksempel 3.\n\n**Teknikken:** finn først alle $a_{ij}$ ulik null, og regn ett ledd per slik oppføring. For en eksplisitt trestegsmetode er det høyst tre ledd.",
+            "hints": [
+              "Finn først hvilke $a_{ij}$ som ikke er null.",
+              "Merk at ledd med $c_1=0$ alltid faller bort."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-7-2-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $s$ | Stegtallet, altså antall stigningstall $k_i$ |\n| $p$ | Metodens orden |\n| $k_i$ | Stigningstall nummer $i$ |\n| $c_i$ | Noden; tidsforskyvningen $t_n+c_ih$ |\n| $b_i$ | Sluttvekten til $k_i$ |\n| $a_{ij}$ | Hvor mye av $k_j$ som brukes i $y$-argumentet til $k_i$ |\n| $A$ | Matrisen av alle $a_{ij}$ |\n| $\\mathbf b$, $\\mathbf c$ | Vektorene av vekter og noder |\n| $h$ | Steglengden **i tid** |\n| $e(h)$ | Global feil ved steglengde $h$ |\n"
+        },
+        {
+          "id": "tma4135-7-2-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$k_i=f\\left(t_n+c_ih,\\ y_n+h\\sum_j a_{ij}k_j\\right),\\qquad y_{n+1}=y_n+h\\sum_i b_ik_i$$\nDen generelle Runge–Kutta-formen. *(Notasjonen står på det utdelte formelarket; avlesningen må kunnes.)*\n\n$$\\begin{array}{c|c}\\mathbf c & A\\\\ \\hline & \\mathbf b^{\\!\\top}\\end{array}$$\nButcher-tabellen. *(Formen står på det utdelte formelarket — tren oppslaget på hva som står hvor.)*\n\n$$c_i=\\sum_j a_{ij}$$\nRadsum-betingelsen — **nødvendig, ikke tilstrekkelig**. *(Må kunnes; brukes som avskriftskontroll.)*\n\n$$\\sum_i b_i=1$$\nOrdensbetingelse, $p=1$ (konsistens). *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\sum_i b_ic_i=\\frac12$$\nOrdensbetingelse, $p=2$. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\sum_i b_ic_i^{2}=\\frac13,\\qquad \\sum_{i,j}b_ia_{ij}c_j=\\frac16$$\nDe **to** ordensbetingelsene for $p=3$. *(Står på det utdelte formelarket; at det er to, må kunnes.)*\n\n$$\\sum_i b_ic_i^{3}=\\frac14,\\qquad \\sum_{i,j}b_ic_ia_{ij}c_j=\\frac18,$$\n$$\\sum_{i,j}b_ia_{ij}c_j^{2}=\\frac1{12},\\qquad \\sum_{i,j,k}b_ia_{ij}a_{jk}c_k=\\frac1{24}$$\nDe **fire** ordensbetingelsene for $p=4$. *(Står på det utdelte formelarket siden 2022 — tren oppslaget.)*\n\n$$p\\le s\\quad\\text{for eksplisitte metoder},\\qquad s=5\\ \\Rightarrow\\ p\\le 4$$\nBarrieren mellom stegtall og orden. *(Må kunnes på kjenne-nivå.)*\n\n$$\\frac{e(h)}{e(h/2)}\\approx 2^{p}$$\nObservert orden fra et konvergenseksperiment. *(Må kunnes; bekrefter, men erstatter ikke, verifikasjonen.)*\n\n**Kolliderende symboler i dette kapitlet.** Bokstaven $c_i$ er **nodene** i Butcher-tabellen; i Del 3 er $c_n$ den komplekse Fourier-koeffisienten, i [kap. 4.3](/tma4135/tma4135-4-3) DFT-koeffisienten, og i Del 5 bølgefarten. Bokstaven $b_i$ er vektene her, men $b_n$ er sinuskoeffisienten i Fourier-rekka i [kap. 3.1](/tma4135/tma4135-3-1). Bokstaven $A$ er koeffisientmatrisen i tabellen her — ikke å forveksle med systemmatrisen $A$ i [kap. 7.4](/tma4135/tma4135-7-4), der egenverdiene bestemmer stabiliteten. Bokstaven $p$ er ordenen her; i Del 6 var $p(x)$ interpolasjonspolynomet. Og $h$ er steglengden i tid i hele Del 7, mens den blir romsteget i Del 8 (der tidssteget skrives $\\Delta t$, som det utdelte formelarket kaller $k$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hva skiller et randverdiproblem fra et initialverdiproblem?",
+    "options": [
+      "Betingelsene er gitt i begge ender, ikke i samme punkt",
+      "Løsningen er en funksjon av to variabler i stedet for én",
+      "Likningen er av andre orden i stedet for av første orden",
+      "Betingelsene gjelder den deriverte i stedet for funksjonen"
+    ],
+    "explanation": "Fordi betingelsene er delt mellom endepunktene, finnes ingen retning å marsjere i — alle verdiene må finnes samtidig ved å løse et system. Begge problemtyper kan ha andreordens likning og betingelser på den deriverte."
+  },
+  {
+    "question": "Hvorfor innføres en falsk node ved en Neumann-rand?",
+    "options": [
+      "Fordi sentraldifferansen i randpunktet peker utenfor intervallet",
+      "Fordi differensiallikningen ikke gjelder helt ut til randpunktet",
+      "Fordi matrisen ellers ikke blir tridiagonal og båndstrukturen ryker",
+      "Fordi randverdien $U_N$ ellers ville vært kjent på forhånd"
+    ],
+    "explanation": "Vi vil bruke den sentrale kvotienten $(U_{N+1}-U_{N-1})/(2h)$, som er $O(h^2)$, og den trenger en verdi i $x_{N+1}$. Likningen gjelder tvert imot også i randpunktet — det er nettopp derfor vi kan skrive den der."
+  },
+  {
+    "question": "Randbetingelsen $u'(b) = 0$ gir hvilken relasjon for den falske noden?",
+    "options": [
+      "$U_{N+1} = U_{N-1}$",
+      "$U_{N+1} = U_N$",
+      "$U_{N+1} = -U_{N-1}$",
+      "$U_{N+1} = 2U_N - U_{N-1}$"
+    ],
+    "explanation": "Sentraldifferansen $(U_{N+1}-U_{N-1})/(2h) = 0$ gir at den falske verdien er speilbildet av naboen innenfor. At $U_{N+1} = U_N$ svarer til den ensidige differansen, som bare er $O(h)$."
+  },
+  {
+    "question": "Etter eliminering av den falske noden blir koeffisienten foran $U_{N-1}$ i randraden",
+    "options": [
+      "$2/h^2$",
+      "$1/h^2$",
+      "$1/(2h^2)$",
+      "$-2/h^2$"
+    ],
+    "explanation": "De to naboleddene $U_{N+1}$ og $U_{N-1}$ faller sammen til én verdi og legger seg oppå hverandre. Å skrive $1/h^2$ er den dokumenterte enkeltfeilen i sjangeren, og den som plantes i kodefeil-oppgavene."
+  },
+  {
+    "question": "Hva skjer med ordenen om du bruker $\\frac{U_N - U_{N-1}}{h} = 0$ i stedet for falsk node?",
+    "options": [
+      "Hele skjemaet faller til orden 1",
+      "Ordenen holder seg på 2, men feilkonstanten blir større",
+      "Ordenen stiger til 3 fordi færre punkter er involvert",
+      "Ordenen blir uendret, siden bare én rad er berørt"
+    ],
+    "explanation": "Én førsteordens rad trekker hele løsningen ned, fordi alle likningene er koblet. Målt gir falsk node forholdet 4 ved halvering av $h$, den ensidige bare 2 — og feilen blir titalls ganger større på fine gitre."
+  },
+  {
+    "question": "En kjent Dirichlet-verdi $U_0$ i første likning skal",
+    "options": [
+      "flyttes over til høyresiden med motsatt fortegn",
+      "flyttes over til høyresiden med uendret fortegn",
+      "beholdes på venstre side som en ekstra ukjent",
+      "settes inn i diagonalelementet i første rad"
+    ],
+    "explanation": "$U_0$ er et tall, ikke en ukjent, så det hører hjemme i $\\mathbf b$ — og fortegnet snur når leddet flyttes. Å glemme fortegnsbyttet er like vanlig som å glemme leddet."
+  },
+  {
+    "question": "Første steg når et differanseprogram gir feil svar er å",
+    "options": [
+      "sjekke om randbetingelsene er oppfylt i utskriften",
+      "kjøre programmet på nytt med et mindre tidssteg",
+      "lete etter en av-ved-én-feil i den innerste løkka",
+      "kontrollere at matrisen er symmetrisk og diagonaldominant"
+    ],
+    "explanation": "Er en randverdi feil i utskriften, ligger feilen i randbehandlingen — løkka over de indre punktene rører ikke randen. Denne ene erkjennelsen sparer minutter, og det er nøyaktig det oppgavetekstene ber om."
+  },
+  {
+    "question": "Et program gir en løsning som IKKE blir bedre når gitteret forfines. Hva betyr det?",
+    "options": [
+      "Feilen er strukturell — en rad svarer til et annet problem",
+      "Avrundingsfeilen har tatt over og dominerer avkuttingsfeilen",
+      "Steglengden er fortsatt for grov til at ordenen slår inn",
+      "Løseren har konvergert til feil rot i et ikke-lineært system"
+    ],
+    "explanation": "En ren regnefeil eller for grov $h$ gir mindre feil ved forfining. Blir den stående eller vokser den, løser programmet en annen likning — og den gale raden er nesten alltid den som er utledet spesielt, altså randraden."
+  },
+  {
+    "question": "Et eksplisitt skjema oppdaterer verdiene på plass med `U[i] = U[i] + r*(...)`. Symptomet er",
+    "options": [
+      "at symmetriske startdata gir et usymmetrisk svar",
+      "at løsningen vokser uten grenser allerede etter få steg",
+      "at randverdiene forsvinner og settes til null",
+      "at alle verdiene blir like store og løsningen flater ut"
+    ],
+    "explanation": "Naboverdien til venstre er allerede oppdatert når løkka kommer til punktet, mens den til høyre ikke er det. Det favoriserer den ene retningen, og symmetrien brytes — den billigste feilsøkingstesten som finnes."
+  },
+  {
+    "question": "Diskretiseringen av $u'' + qu = g$, ganget opp med $h^2$, gir",
+    "options": [
+      "$U_{i-1} + (-2+h^2q_i)U_i + U_{i+1} = h^2g_i$",
+      "$U_{i-1} + (-2+q_i)U_i + U_{i+1} = h^2g_i$",
+      "$U_{i-1} + (2+h^2q_i)U_i + U_{i+1} = h^2g_i$",
+      "$U_{i-1} - (2+h^2q_i)U_i - U_{i+1} = h^2g_i$"
+    ],
+    "explanation": "Naboene får koeffisient 1, og hele likningens egenart samles i diagonalleddet $-2+h^2q_i$. Uten $h^2$ foran $q_i$ blir leddet feil skalert, og med $+2$ har fortegnet på den andre sentraldifferansen falt bort."
+  },
+  {
+    "question": "Hva er residualtesten $\\mathbf s = A\\mathbf U - \\mathbf b$ god for?",
+    "options": [
+      "Å skille mellom feil oppsett av systemet og feil løsning av det",
+      "Å bestemme ordenen til skjemaet uten å kjenne fasiten",
+      "Å avgjøre om randbetingelsen er av Dirichlet- eller Neumann-type",
+      "Å finne den optimale steglengden for det aktuelle problemet"
+    ],
+    "explanation": "Er residualet nær null, er systemet løst riktig, og en eventuell feil ligger i selve oppsettet. Er residualet stort, er det løseren eller innsettingen som svikter. Ordenen finner du med gitterforfining, ikke med residualet."
+  },
+  {
+    "question": "Ved randbetingelsen $u'(b) = \\beta$ med $\\beta \\ne 0$ blir den falske noden",
+    "options": [
+      "$U_{N+1} = U_{N-1} + 2h\\beta$",
+      "$U_{N+1} = U_{N-1} + h\\beta$",
+      "$U_{N+1} = U_{N-1} + \\beta/(2h)$",
+      "$U_{N+1} = U_{N-1} - 2h\\beta$"
+    ],
+    "explanation": "Fra $(U_{N+1}-U_{N-1})/(2h) = \\beta$ følger $U_{N+1} = U_{N-1} + 2h\\beta$. Delt på $h^2$ i skjemaet blir ekstraleddet $2\\beta/h$ — merk at det inneholder $1/h$, ikke $h$."
+  },
+  {
+    "question": "Hvorfor er matrisen i et falsk-rand-problem ikke symmetrisk?",
+    "options": [
+      "Fordi randraden har koeffisienten 2 der de andre radene har 1",
+      "Fordi randraden er utledet fra en ensidig differansekvotient",
+      "Fordi den falske noden gir en ekstra kolonne i matrisen",
+      "Fordi høyresiden inneholder et ekstra bidrag fra randverdien"
+    ],
+    "explanation": "Elimineringen legger to like naboledd oppå hverandre, så bare den ene raden har 2-tallet. Det er normalt for falsk-rand-behandlingen og er ikke en feil — den falske noden gir ingen ekstra kolonne, den elimineres bort."
+  },
+  {
+    "question": "Hva må et fullstendig svar i en kodefeil-oppgave inneholde?",
+    "options": [
+      "Både linja som er feil og hvorfor symptomet følger av den",
+      "Bare linja som er feil, siden rettelsen er opplagt",
+      "Et fullstendig rettet program skrevet ut i sin helhet",
+      "En vurdering av om skjemaet er stabilt for det gitte $r$"
+    ],
+    "explanation": "Halve poengsummen ligger i koblingen: hvilket problem koden faktisk løser, og hvorfor det gir nettopp det utslaget man ser. Å skrive om hele programmet kreves aldri — oppgaven ber om lokalisering og forklaring."
+  }
+]

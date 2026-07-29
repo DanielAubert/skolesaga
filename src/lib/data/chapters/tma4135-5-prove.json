@@ -1,0 +1,391 @@
+{
+  "id": "tma4135-5-prove",
+  "courseId": "tma4135",
+  "chapterNumber": "5.P",
+  "title": "Prøver til del 5: Partielle differensiallikninger",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: separasjon med alle tre $k$-tilfellene, superposisjon og Fourier-matching med ikke-homogen reduksjon, d'Alemberts formel med variabelskifte og skisse, og 4D-signaturen med verifikasjon, klassifisering og gradient. Fire prøver à 35–45 min — kan tas som separate økter.",
+  "estimatedMinutes": 165,
+  "competenceGoals": [
+    "føre en full separasjonsoppgave under tidspress, med alle tre tilfellene for separasjonskonstanten skrevet ut",
+    "matche initialbetingelsen enten ved direkte avlesing eller ved koeffisientintegral, og redusere et ikke-homogent problem først",
+    "bruke og navngi d'Alemberts formel med riktig fart, riktig faktor og riktige grenser, og skissere resultatet",
+    "verifisere at en gitt funksjon løser en likning med tilhørende rand- og initialbetingelser, og klassifisere likningen riktig"
+  ],
+  "content": [
+    {
+      "id": "tma4135-5-prove-om-provene",
+      "type": "tip",
+      "title": "Om prøvene til del 5",
+      "content": "**Fire prøver à 35–45 minutter, til sammen 165 minutter.**\n\n- **Prøve 5.A (45 min, 45 poeng):** separasjon av variable — alle tre tilfellene for separasjonskonstanten, ved tre ulike randtyper.\n- **Prøve 5.B (40 min, 40 poeng):** superposisjon, Fourier-matching og reduksjon av et ikke-homogent problem.\n- **Prøve 5.C (35 min, 35 poeng):** d'Alemberts formel og variabelskiftet, med skisse.\n- **Prøve 5.D (45 min, 45 poeng):** 4D-signaturen — verifiser og klassifiser en PDE, pluss et gradient-innslag.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** De bygger ikke på hverandre, og hver er kort nok til å passe på slutten av en leseøkt.\n\n**Om tempoet.** Ett poeng per minutt er raskere enn eksamenstakten, som ligger rundt 24 minutter per oppgave på 10 poeng. Det er med vilje: her er hver oppgave rendyrket på én ferdighet, uten den lesetida en full eksamensoppgave krever. Minuttene per deloppgave står i oppgaveteksten og summerer seg til den deklarerte tida.\n\n**Hver prøve avsluttes med fire raske spørsmål med svaralternativer.** De ligger nederst, teller ikke poeng, og er en **treningsform** — settene i dette emnet har aldri hatt en avkryssingsdel.\n\n**Slik bruker du prøvene:** ta dem på tid, uten fasit og uten kapitlene oppslått. Du har lov til kalkulator, og du skal late som du har det utdelte formelarket foran deg — når du trenger en reduksjonsformel eller en trigonometrisk identitet, noter «fra formelarket» og bruk den. Skriv fullstendige svar med utregning og med **navnet på metoden**; det er en del av kravet om at alle svar skal begrunnes. Åpne løsningsforslaget først etterpå, og kryss av i selvdiagnosen.\n\n**Formelark-merking.** **Reduksjonsformlene for $\\int x^n\\sin ax\\,dx$ og $\\int x^n\\cos ax\\,dx$, de trigonometriske identitetene og sumformlene står på det utdelte formelarket — tren oppslaget.** Alt annet i Del 5 — separasjonsoppskriften, de tre $k$-tilfellene, egenverdiene, superposisjonen, den stasjonære reduksjonen og d'Alemberts formel — **må kunnes** eller utledes aktivt.\n\n**Karakterrealisme.** Får du de mekaniske delpunktene til å sitte — ansatsen, de to ODE-ene, egenverdiene ved kalde ender, riktig innsatt d'Alembert — ligger du an til en solid C, som er en god og vanlig karakter. Forskjellen opp mot A i denne delen ligger i tre ting: at alle tre $k$-tilfellene faktisk skrives ut, at riktig egenfunksjonsbasis velges ved Neumann- og blandet rand, og at den ferdige løsningen kontrolleres ved innsetting i både likningen og randbetingelsene.\n\nAlle oppgavene er nyskrevne for denne boka."
+    },
+    {
+      "id": "tma4135-5-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 5.1](/tma4135/tma4135-5-1) (ansatsen, de tre $k$-tilfellene, egenverdier og egenfunksjoner), [kap. 5.2](/tma4135/tma4135-5-2) (superposisjon, Fourier-matching, stasjonær reduksjon), [kap. 5.3](/tma4135/tma4135-5-3) (d'Alemberts formel og variabelskiftet) og [kap. 5.4](/tma4135/tma4135-5-4) (verifikasjon, klassifisering, gradient). [Kap. 5.5](/tma4135/tma4135-5-5) er ikke nødvendig, men gir god trening før prøvene.\n\nFra Del 3 trengs koeffisientintegralene, se [kap. 3.1](/tma4135/tma4135-3-1) og [kap. 3.2](/tma4135/tma4135-3-2). Fra tidligere matematikkemner trengs partiell derivasjon, kjerneregelen, delvis integrasjon og de enkleste lineære differensiallikningene med konstante koeffisienter."
+    },
+    {
+      "id": "tma4135-5-prove-intro",
+      "type": "text",
+      "content": "Under ligger de fire prøvene, hver i sin egen boks du kan åpne når du er klar. Løsningsforslagene er ført som toppbesvarelser: hvert mellomsteg er med, metodenavnet er skrevet ut, tabelloppslagene er markert, og kontrollregningen står der. Det er den føringen som gir full uttelling — ikke et riktig sluttsvar alene."
+    },
+    {
+      "id": "tma4135-5-prove-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 5.A — Separasjon: alle tre $k$-tilfellene og egenverdiene (45 min)",
+      "buttonText": "Vis prøve 5.A",
+      "content": [
+        {
+          "id": "tma4135-5-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 5.A — Separasjon av variable.** 45 minutter, 45 poeng. Kalkulator tillatt. Du trenger ikke formelarket i denne prøven; alt skal utledes.\n\nTidsbudsjett: oppgave 1 ~18 min (18 poeng), oppgave 2 ~15 min (15 poeng), oppgave 3 ~12 min (12 poeng)."
+        },
+        {
+          "id": "tma4135-5-prove-A-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-A-ex1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(18 poeng, ~18 min) Betrakt varmelikningen\n\n$$u_t = 5u_{xx}, \\qquad 0 < x < 4, \\qquad u(0,t) = u(4,t) = 0.$$\n\n**a)** Sett $u(x,t) = F(x)G(t)$ og utled de to vanlige differensiallikningene. Skriv fortegnskonvensjonen eksplisitt, og forklar hvorfor randbetingelsene kan overføres til $F$. (5 poeng)\n**b)** Behandl alle tre tilfellene $k > 0$, $k = 0$ og $k < 0$, og vis hvilke som bare gir den trivielle løsningen. (8 poeng)\n**c)** Skriv opp egenverdiene, egenfunksjonene og produktløsningene, og kontroller den første ved innsetting i likningen og i begge randbetingelsene. (5 poeng)",
+            "solution": "**a) Separasjonen. (5 poeng)**\n\nMed $u = F(x)G(t)$ er $u_t = FG'$ og $u_{xx} = F''G$, så likningen blir $FG' = 5F''G$. Del på $5FG$ (vi ser bort fra punkter der $F$ eller $G$ er null, siden vi leter etter ikke-trivielle løsninger):\n\n$$\\frac{G'}{5G} = \\frac{F''}{F}.$$\n\nVenstre side avhenger bare av $t$, høyre bare av $x$. Skal de være like for **alle** $x$ og **alle** $t$, må begge være samme konstant. Vi kaller den $-k$:\n\n$$\\frac{G'}{5G} = \\frac{F''}{F} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\qquad G' + 5kG = 0.$$\n\n**Overføring av randbetingelsene:** $u(0,t) = F(0)G(t) = 0$ for alle $t$. Er $G \\equiv 0$, er $u$ identisk null, altså den trivielle løsningen vi ikke er ute etter. Derfor må $F(0) = 0$. På samme måte $F(4) = 0$.\n\n**b) De tre tilfellene. (8 poeng)**\n\n*Tilfelle $k = 0$.* Da er $F'' = 0$, altså $F = Ax + B$.\n$F(0) = 0$ gir $B = 0$. $F(4) = 4A = 0$ gir $A = 0$.\nBare $F \\equiv 0$ — **triviell løsning, forkastes**. (En rett linje som er null i to punkter, er null overalt.)\n\n*Tilfelle $k < 0$.* Skriv $k = -\\mu^2$ med $\\mu > 0$. Da er $F'' - \\mu^2F = 0$, altså\n\n$$F = A\\cosh\\mu x + B\\sinh\\mu x.$$\n\n$F(0) = 0$: siden $\\cosh 0 = 1$ og $\\sinh 0 = 0$ gir dette $A = 0$, så $F = B\\sinh\\mu x$.\n$F(4) = B\\sinh 4\\mu = 0$: men $4\\mu > 0$, og $\\sinh$ er strengt positiv for positive argumenter, så $\\sinh 4\\mu \\ne 0$ og dermed $B = 0$.\nBare $F \\equiv 0$ — **triviell løsning, forkastes**.\n\n*Tilfelle $k > 0$.* Skriv $k = p^2$ med $p > 0$. Da er\n\n$$F = A\\cos px + B\\sin px.$$\n\n$F(0) = 0$ gir $A = 0$, så $F = B\\sin px$.\n$F(4) = B\\sin 4p = 0$. Vi kan ikke ha $B = 0$ (det ville gitt triviell løsning), så\n\n$$\\sin 4p = 0 \\quad\\Longrightarrow\\quad 4p = n\\pi \\quad\\Longrightarrow\\quad p_n = \\frac{n\\pi}{4}, \\qquad n = 1,2,3,\\dots$$\n\n**c) Egenverdier, egenfunksjoner og produktløsninger. (5 poeng)**\n\n$$k_n = \\frac{n^2\\pi^2}{16}, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{4}.$$\n\nTidsfaktoren: $G' = -5k_nG$ gir $G_n(t) = \\exp\\left(-\\dfrac{5n^2\\pi^2t}{16}\\right)$, altså\n\n$$u_n(x,t) = \\sin\\frac{n\\pi x}{4}\\,\\exp\\left(-\\frac{5n^2\\pi^2 t}{16}\\right), \\qquad n = 1,2,3,\\dots$$\n\n**Kontroll for $n = 1$**, altså $u_1 = \\sin\\dfrac{\\pi x}{4}\\exp\\left(-\\dfrac{5\\pi^2t}{16}\\right)$:\n\n$$u_t = -\\frac{5\\pi^2}{16}u_1, \\qquad u_{xx} = -\\frac{\\pi^2}{16}u_1 \\;\\Longrightarrow\\; 5u_{xx} = -\\frac{5\\pi^2}{16}u_1 = u_t.$$\n\nLikningen er oppfylt.\n\nRanden: $u_1(0,t) = \\sin 0\\cdot\\exp(\\dots) = 0$, og $u_1(4,t) = \\sin\\pi\\cdot\\exp(\\dots) = 0$. Begge oppfylt.\n\n**Merk hvor faktoren 5 hører hjemme:** i tidsfaktoren, ikke i egenverdiene. Egenverdiene avhenger bare av intervallengden og randtypen.",
+            "hints": [
+              "Del på $c^2FG$ og argumenter for hvorfor begge sider må være konstante.",
+              "I hvert av de tre tilfellene: bruk $x = 0$ først — det gir alltid den enkleste opplysningen.",
+              "I tilfellet $k < 0$: kan $\\sinh$ av et positivt tall være null?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-A-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-A-ex2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(15 poeng, ~15 min) Betrakt den samme likningen, men med **isolerte** ender:\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u_x(0,t) = u_x(\\pi,t) = 0.$$\n\n**a)** Overfør randbetingelsene til $F$, og behandl alle tre tilfellene. (9 poeng)\n**b)** Skriv opp alle egenverdier og egenfunksjoner, og forklar hva som er forskjellig fra oppgave 1. (4 poeng)\n**c)** Gi en fysisk tolkning av den ene løsningen som ikke dør ut. (2 poeng)",
+            "solution": "**a) De tre tilfellene. (9 poeng)**\n\nRandbetingelsene overføres: $u_x(0,t) = F'(0)G(t) = 0$ for alle $t$, og $G \\not\\equiv 0$, altså $F'(0) = 0$. Tilsvarende $F'(\\pi) = 0$.\n\nSeparasjonen gir som før $F'' + kF = 0$ og $G' + kG = 0$.\n\n*Tilfelle $k = 0$.* $F = Ax + B$, så $F' = A$. Begge randbetingelsene sier $A = 0$, mens $B$ står fritt.\n**Ikke-triviell løsning:** $F_0 = 1$ (opp til konstant). Da er $G' = 0$, så $G_0$ er konstant.\n\n*Tilfelle $k < 0$, $k = -\\mu^2$.* $F = A\\cosh\\mu x + B\\sinh\\mu x$, så\n\n$$F' = \\mu\\left(A\\sinh\\mu x + B\\cosh\\mu x\\right).$$\n\n$F'(0) = \\mu B = 0$ gir $B = 0$, så $F' = A\\mu\\sinh\\mu x$.\n$F'(\\pi) = A\\mu\\sinh\\mu\\pi = 0$: siden $\\mu > 0$ og $\\sinh\\mu\\pi > 0$, er $A = 0$.\n**Triviell — forkastes.**\n\n*Tilfelle $k > 0$, $k = p^2$.* $F = A\\cos px + B\\sin px$, så\n\n$$F' = p\\left(-A\\sin px + B\\cos px\\right).$$\n\n$F'(0) = pB = 0$ gir $B = 0$, så $F = A\\cos px$ og $F' = -Ap\\sin px$.\n$F'(\\pi) = -Ap\\sin p\\pi = 0$ med $A \\ne 0$ og $p > 0$ krever $\\sin p\\pi = 0$, altså $p = n$ for $n = 1,2,3,\\dots$\n\n**b) Svar. (4 poeng)**\n\n$$k_0 = 0,\\; F_0(x) = 1, \\; G_0 = \\text{konstant}; \\qquad k_n = n^2,\\; F_n(x) = \\cos nx,\\; G_n(t) = e^{-n^2t}.$$\n\n**To forskjeller fra oppgave 1:**\n1. Egenfunksjonene er **cosinuser** i stedet for sinuser, fordi det er $F'$ og ikke $F$ som må være null i endene.\n2. Tilfellet **$k = 0$ overlever**, og gir et ekstra konstantledd. Tellingen starter derfor på $n = 0$ i stedet for $n = 1$.\n\nEgenverdiene er tallmessig de samme, $\\left(n\\pi/L\\right)^2$ med $L = \\pi$.\n\n**c) Fysisk tolkning. (2 poeng)**\n\nIsolerte ender betyr at ingen varme slipper ut — varmestrømmen er proporsjonal med $u_x$, og den er null i begge ender. Da kan ikke det totale varmeinnholdet endre seg:\n\n$$\\frac{d}{dt}\\int_0^{\\pi}u\\,dx = \\int_0^{\\pi}u_{xx}\\,dx = \\left[u_x\\right]_0^{\\pi} = 0.$$\n\nAlle svingende moder dør ut med tida, men middeltemperaturen kan ikke forsvinne noe sted. Den blir liggende igjen som den konstante løsningen $u_0$. **At $k = 0$ overlever, er altså energibevarelse, ikke en teknisk kuriositet.**",
+            "hints": [
+              "Ved isolerte ender er det $F'$ som skal være null — deriver hver løsningsform før du setter inn.",
+              "I tilfellet $k = 0$: gir de to randbetingelsene to uavhengige krav, eller ett og samme?",
+              "For c): tenk på hva $u_x$ betyr fysisk."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-A-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-A-ex3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(12 poeng, ~12 min) Én ende kald, én ende isolert:\n\n$$u_t = 2u_{xx}, \\qquad 0 < x < 3, \\qquad u(0,t) = 0, \\qquad u_x(3,t) = 0.$$\n\n**a)** Behandl alle tre tilfellene og finn egenverdiene. (8 poeng)\n**b)** Skriv opp de tre laveste egenverdiene som tall, og forklar hva som kjennetegner denne randtypen. (4 poeng)",
+            "solution": "**a) De tre tilfellene. (8 poeng)**\n\nRandbetingelsene overføres til $F(0) = 0$ og $F'(3) = 0$. Separasjonen gir $F'' + kF = 0$ og $G' + 2kG = 0$.\n\n*$k = 0$:* $F = Ax + B$, $F' = A$. Fra $F(0) = 0$: $B = 0$. Fra $F'(3) = 0$: $A = 0$. **Triviell — forkastes.**\n\n*$k < 0$, $k = -\\mu^2$:* $F = A\\cosh\\mu x + B\\sinh\\mu x$. Fra $F(0) = 0$: $A = 0$, så $F = B\\sinh\\mu x$ og $F' = B\\mu\\cosh\\mu x$. Fra $F'(3) = 0$: $B\\mu\\cosh 3\\mu = 0$; men $\\cosh$ er alltid minst 1, og $\\mu > 0$, så $B = 0$. **Triviell — forkastes.**\n\n*$k > 0$, $k = p^2$:* $F = A\\cos px + B\\sin px$. Fra $F(0) = 0$: $A = 0$, så $F = B\\sin px$ og $F' = Bp\\cos px$. Fra $F'(3) = 0$: $Bp\\cos 3p = 0$ med $B \\ne 0$ og $p > 0$ krever\n\n$$\\cos 3p = 0 \\quad\\Longrightarrow\\quad 3p = \\frac{(2n-1)\\pi}{2} \\quad\\Longrightarrow\\quad p_n = \\frac{(2n-1)\\pi}{6}.$$\n\n**Egenverdier og egenfunksjoner:**\n\n$$k_n = \\frac{(2n-1)^2\\pi^2}{36}, \\qquad F_n(x) = \\sin\\frac{(2n-1)\\pi x}{6}, \\qquad n = 1,2,3,\\dots$$\n\nTidsfaktoren: $G_n(t) = \\exp\\left(-\\dfrac{(2n-1)^2\\pi^2t}{18}\\right)$, siden $2k_n = \\dfrac{(2n-1)^2\\pi^2}{18}$.\n\n*Kontroll for $n = 1$:* med $p = \\pi/6$ er $u_1 = \\sin(px)e^{-2p^2t}$, som gir $u_t = -2p^2u_1$ og $2u_{xx} = -2p^2u_1$ — like. Randen: $u_1(0,t) = 0$, og $u_{1,x} = p\\cos(px)e^{-2p^2t}$ som i $x = 3$ gir $\\cos(\\pi/2) = 0$. Begge oppfylt.\n\n**b) De tre laveste egenverdiene. (4 poeng)**\n\n$$k_1 = \\frac{\\pi^2}{36} \\approx 0{,}2742, \\qquad k_2 = \\frac{9\\pi^2}{36} = \\frac{\\pi^2}{4} \\approx 2{,}467, \\qquad k_3 = \\frac{25\\pi^2}{36} \\approx 6{,}854.$$\n\n**Kjennetegnet på blandet rand:** sluttlikningen blir $\\cos 3p = 0$ i stedet for $\\sin 3p = 0$, og løsningene er derfor **odde** multipler av $\\pi/6$ — ikke alle multipler. Skrevet ut: $\\pi/6$, $3\\pi/6$, $5\\pi/6$, og aldri $2\\pi/6$ eller $4\\pi/6$.\n\nFølgen er at avstanden mellom egenverdiene er større enn ved Dirichlet-rand i begge ender, og at den laveste moden er lavere. Fysisk: stanga taper varme bare i den ene enden, så utjevningen går saktere.",
+            "hints": [
+              "Én ende gir en betingelse på $F$, den andre på $F'$.",
+              "Sluttlikningen blir en cosinuslikning. Hvor er cosinus null?",
+              "For b): skriv ut de tre første $p$-verdiene og kvadrer dem."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-A-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Dette er en treningsform boka bruker for rask selvkontroll — settene i dette emnet har ingen slik del.\n\n**1.** Med bokas konvensjon $F''/F = -k$, hvilket tilfelle gir de ikke-trivielle løsningene ved kalde ender i begge ender? **a)** $k < 0$ · **b)** $k > 0$ · **c)** $k = 0$ · **d)** alle tre\n\n**2.** Hvor i uttrykket hører konstanten $c^2$ hjemme? **a)** i egenverdien $k_n$ · **b)** i egenfunksjonen $F_n$ · **c)** i randbetingelsen · **d)** i tidsfaktoren $G_n$\n\n**3.** For hvilken randtype overlever $k = 0$? **a)** begge ender isolert · **b)** begge ender kalde · **c)** venstre kald, høyre isolert · **d)** ingen\n\n**4.** Sluttlikningen ved blandet rand på $[0,L]$ er: **a)** $\\sin pL = 0$ · **b)** $\\sinh pL = 0$ · **c)** $\\cos pL = 0$ · **d)** $\\cosh pL = 0$"
+        },
+        {
+          "id": "tma4135-5-prove-A-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1b · 2d · 3a · 4c.**\n\n**1b:** med konvensjonen $F''/F = -k$ er $F'' + kF = 0$, så $k > 0$ gir svingninger som kan treffe null i begge ender. Alternativ **a** ville vært riktig med motsatt fortegnskonvensjon — det er nettopp derfor konvensjonen må skrives ned først.\n**2d:** konstanten står i $G$-likningen $G' + c^2kG = 0$ og dermed i eksponenten $e^{-c^2k_nt}$. Alternativ **a** er den vanligste feilen, og den gir feil dempingsrate for hver eneste mode.\n**3a:** bare når *begge* betingelsene er av Neumann-type overlever den konstante løsningen. Alternativ **c** er nær-sann og feller mange: så snart minst én ende fastsetter verdien av $F$, dør den rette linja.\n**4c:** blandet rand gir $\\cos pL = 0$, altså odde multipler av $\\pi/(2L)$. Alternativ **a** hører til lik randtype i begge ender."
+        },
+        {
+          "id": "tma4135-5-prove-A-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 5.A\n\nKryss av det du faktisk gjorde, ikke det du kunne ha gjort.\n\n☐ Jeg skrev fortegnskonvensjonen $F''/F = -k$ ned i første linje.\n\n☐ Jeg skrev **begge** de to vanlige differensiallikningene, ikke bare $F$-likningen.\n\n☐ Jeg begrunnet overføringen av randbetingelsene med at $G$ ikke er identisk null.\n\n☐ Jeg behandlet **alle tre** $k$-tilfellene, også de to som endte trivielt.\n\n☐ Jeg begrunnet hvorfor $\\sinh$ og $\\cosh$ ikke kan gi null der randbetingelsen krever det.\n\n☐ Jeg holdt $c^2$ utenfor egenverdiene og satte den i tidsfaktoren.\n\n☐ Jeg deriverte løsningsformene før jeg satte inn Neumann-randbetingelser.\n\n☐ Jeg kontrollerte den ferdige produktløsningen ved innsetting i både likningen og begge randbetingelsene.\n\n**Færre enn fem kryss?** Les [kap. 5.1](/tma4135/tma4135-5-1) løkke 2 og 3 på nytt, og gjør oppgave 3, 4 og 6 der før du går videre til prøve 5.B."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-5-prove-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 5.B — Superposisjon, Fourier-matching og ikke-homogen reduksjon (40 min)",
+      "buttonText": "Vis prøve 5.B",
+      "content": [
+        {
+          "id": "tma4135-5-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 5.B — Superposisjon og matching.** 40 minutter, 40 poeng. Kalkulator tillatt. Du kan bruke reduksjonsformlene og de trigonometriske identitetene som om du hadde formelarket foran deg — noter hvilken rad du bruker.\n\nTidsbudsjett: oppgave 1 ~14 min (14 poeng), oppgave 2 ~14 min (14 poeng), oppgave 3 ~12 min (12 poeng)."
+        },
+        {
+          "id": "tma4135-5-prove-B-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-B-ex1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(14 poeng, ~14 min) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = 2\\sin x - 5\\sin 3x + \\sin 7x.$$\n\n**a)** Skriv opp den generelle superposisjonen med egenfunksjonene fra [kap. 5.1](/tma4135/tma4135-5-1). (4 poeng)\n**b)** Bestem koeffisientene, og begrunn hvorfor du ikke trenger å regne noe integral. (5 poeng)\n**c)** Kontroller løsningen ved innsetting i likningen, i begge randbetingelsene og i initialbetingelsen. (3 poeng)\n**d)** Hvilket ledd dominerer etter lang tid, og hvor lang tid tar det før de to andre til sammen utgjør under én prosent av det? (2 poeng)",
+            "solution": "**a) Superposisjonen. (4 poeng)**\n\nDirichlet-rand på $[0,\\pi]$ gir $k_n = n^2$, $F_n = \\sin nx$ og $G_n = e^{-n^2t}$, altså\n\n$$u(x,t) = \\sum_{n=1}^{\\infty}B_n\\sin(nx)\\,e^{-n^2t}.$$\n\n**b) Koeffisientene. (5 poeng)**\n\nSett $t = 0$; da er alle eksponentialene lik 1:\n\n$$u(x,0) = \\sum_{n=1}^{\\infty}B_n\\sin nx \\;\\overset{!}{=}\\; 2\\sin x - 5\\sin 3x + \\sin 7x.$$\n\nHøyresiden er **allerede en endelig sum av egenfunksjonene**, og egenfunksjonene er lineært uavhengige. Derfor kan koeffisientene leses av ledd for ledd:\n\n$$B_1 = 2, \\qquad B_3 = -5, \\qquad B_7 = 1, \\qquad B_n = 0 \\text{ ellers}.$$\n\nIngen integraler nødvendige. Med $k_1 = 1$, $k_3 = 9$ og $k_7 = 49$:\n\n$$\\boxed{u(x,t) = 2\\sin(x)e^{-t} - 5\\sin(3x)e^{-9t} + \\sin(7x)e^{-49t}.}$$\n\n**c) Kontroll. (3 poeng)**\n\n*Likningen.*\n\n$$u_t = -2\\sin(x)e^{-t} + 45\\sin(3x)e^{-9t} - 49\\sin(7x)e^{-49t},$$\n$$u_{xx} = -2\\sin(x)e^{-t} + 45\\sin(3x)e^{-9t} - 49\\sin(7x)e^{-49t}.$$\n\nDe er identiske, så $u_t = u_{xx}$ er oppfylt.\n\n*Randen.* I $x = 0$ er alle sinusene null, så $u(0,t) = 0$. I $x = \\pi$ er $\\sin\\pi = \\sin 3\\pi = \\sin 7\\pi = 0$, så $u(\\pi,t) = 0$. Begge oppfylt.\n\n*Initialbetingelsen.* Sett $t = 0$: $2\\sin x - 5\\sin 3x + \\sin 7x$. Oppfylt.\n\n**d) Dominerende ledd. (2 poeng)**\n\nLeddet med lavest egenverdi dør ut sist: $2\\sin(x)e^{-t}$.\n\nDe to andre har amplituder $5e^{-9t}$ og $e^{-49t}$ mot $2e^{-t}$. Kravet blir\n\n$$\\frac{5e^{-9t} + e^{-49t}}{2e^{-t}} \\le 0{,}01.$$\n\nLeddet $e^{-49t}$ er forsvinnende lite allerede etter kort tid, så det er $5e^{-8t}/2 \\le 0{,}01$ som bestemmer:\n\n$$e^{-8t} \\le 0{,}004 \\quad\\Longrightarrow\\quad t \\ge \\frac{\\ln 250}{8} = \\frac{5{,}5215}{8} \\approx 0{,}690.$$\n\n*Kontroll ved $t = 0{,}69$:* $5e^{-6{,}21} = 0{,}0100$, $e^{-33{,}8} \\approx 2\\cdot10^{-15}$, og $2e^{-0{,}69} = 1{,}0025$. Forholdet er $0{,}0100$, altså akkurat én prosent. Stemmer.\n\nEtter omtrent $t = 0{,}69$ er profilen praktisk talt en ren halv sinusbue.",
+            "hints": [
+              "Hva er egenverdiene og egenfunksjonene på $[0,\\pi]$ med kalde ender?",
+              "Sammenlikn $u(x,0)$ ledd for ledd med den oppgitte funksjonen.",
+              "For d): hvilken eksponent er minst i tallverdi? Sett opp forholdet og løs ulikheten."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-B-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-B-ex2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(14 poeng, ~14 min) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < 1, \\qquad u(0,t) = u(1,t) = 0, \\qquad u(x,0) = x.$$\n\n**a)** Sett opp koeffisientintegralet og regn det ut. Marker tabelloppslaget. (9 poeng)\n**b)** Skriv løsningen. (3 poeng)\n**c)** Hva gir rekka i punktet $x = 1$ når $t = 0$, og hvorfor er ikke det i strid med initialbetingelsen? (2 poeng)",
+            "solution": "**a) Koeffisientintegralet. (9 poeng)**\n\nDirichlet-rand på $[0,1]$, altså $L = 1$: $k_n = n^2\\pi^2$, $F_n(x) = \\sin(n\\pi x)$, $G_n(t) = e^{-n^2\\pi^2t}$.\n\nInitialdataene $f(x) = x$ er ikke en endelig sum av sinuser, så integralet må regnes:\n\n$$B_n = \\frac{2}{L}\\int_0^L f(x)\\sin\\frac{n\\pi x}{L}\\,dx = 2\\int_0^1 x\\sin(n\\pi x)\\,dx.$$\n\n**Fra reduksjonsformelen på det utdelte formelarket** med $a = n\\pi$:\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a} + \\frac{\\sin ax}{a^2}.$$\n\nSett inn grensene 0 og 1. Sinusleddet er null i begge ender, siden $\\sin n\\pi = 0$ og $\\sin 0 = 0$. Igjen står\n\n$$\\left[-\\frac{x\\cos n\\pi x}{n\\pi}\\right]_0^1 = -\\frac{\\cos n\\pi}{n\\pi} - 0 = -\\frac{(-1)^n}{n\\pi} = \\frac{(-1)^{n+1}}{n\\pi}.$$\n\nAltså\n\n$$B_n = 2\\cdot\\frac{(-1)^{n+1}}{n\\pi} = \\frac{2(-1)^{n+1}}{n\\pi}.$$\n\n*Sjekk av de første:* $B_1 = \\dfrac{2}{\\pi} \\approx 0{,}637$, $B_2 = -\\dfrac{1}{\\pi} \\approx -0{,}318$, $B_3 = \\dfrac{2}{3\\pi} \\approx 0{,}212$. Vekslende fortegn og fall som $1/n$ — det stemmer med at den odde periodiske utvidelsen av $f(x) = x$ har et sprang, jf. [kap. 3.1](/tma4135/tma4135-3-1).\n\n**b) Løsningen. (3 poeng)**\n\n$$\\boxed{u(x,t) = \\frac{2}{\\pi}\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n}\\,\\sin(n\\pi x)\\,e^{-n^2\\pi^2 t}.}$$\n\n*Kontroll:* hvert ledd $\\sin(n\\pi x)e^{-n^2\\pi^2t}$ har $u_t = -n^2\\pi^2u = u_{xx}$, og er null i $x = 0$ og $x = 1$. Både likningen og begge randbetingelsene er oppfylt ledd for ledd.\n\n*Kontroll av initialbetingelsen i $x = \\tfrac12$:* rekka blir $\\dfrac{2}{\\pi}\\left(1 + \\dfrac13 - \\dfrac15 - \\cdots\\right)$ med faktorene $\\sin(n\\pi/2) = 1, 0, -1, 0, 1, \\dots$ — altså $\\dfrac{2}{\\pi}\\left(1 - \\dfrac13 + \\dfrac15 - \\cdots\\right) = \\dfrac{2}{\\pi}\\cdot\\dfrac{\\pi}{4} = \\dfrac12$. Det stemmer med $f(1/2) = 1/2$.\n\n**c) Verdien i $x = 1$. (2 poeng)**\n\nHvert eneste ledd i rekka inneholder $\\sin(n\\pi\\cdot 1) = \\sin n\\pi = 0$, så rekka gir **0** i $x = 1$, mens initialbetingelsen sier $f(1) = 1$.\n\nDet er ingen motsigelse. Randbetingelsen krever $u(1,t) = 0$ for alle $t > 0$, mens initialdataene sier 1 i det samme punktet ved $t = 0$. Dataene er altså motstridende i hjørnepunktet, og der har den odde periodiske utvidelsen et **sprang**. Etter konvergensteoremet fra [kap. 3.2](/tma4135/tma4135-3-2) konvergerer rekka i et sprang mot middelverdien:\n\n$$\\tfrac12\\left(f(1^-) + f(1^+)\\right) = \\tfrac12(1 + (-1)) = 0,$$\n\nder $f(1^+) = -1$ fordi den odde utvidelsen speiler verdien. Rekka gir altså akkurat den verdien teorien forutsier.\n\nFysisk er det uproblematisk: for enhver $t > 0$ er løsningen glatt, og temperaturen faller bratt men kontinuerlig mot den kalde enden. Bare i det ene øyeblikket $t = 0$ er dataene motstridende.",
+            "hints": [
+              "$L = 1$, så koeffisientformelen har faktoren $2/1 = 2$.",
+              "Slå opp reduksjonsformelen for $\\int x\\sin ax\\,dx$ og sett $a = n\\pi$.",
+              "For c): hva er verdien av hvert ledd i rekka når $x = 1$?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-B-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-B-ex3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(12 poeng, ~12 min) Løs det ikke-homogene problemet\n\n$$u_t = u_{xx}, \\qquad 0 < x < 2, \\qquad u(0,t) = 1, \\qquad u(2,t) = 7, \\qquad u(x,0) = 1 + 3x + 4\\sin(\\pi x).$$\n\n**a)** Finn den stasjonære løsningen og forklar hvorfor reduksjonen er nødvendig. (5 poeng)\n**b)** Finn løsningen. (5 poeng)\n**c)** Angi grensen når $t \\to \\infty$, og verdien i midtpunktet $x = 1$. (2 poeng)",
+            "solution": "**a) Stasjonær løsning og reduksjon. (5 poeng)**\n\n**Hvorfor reduksjonen er nødvendig:** superposisjon krever **homogene** randbetingelser. Legger du sammen to løsninger som begge er 1 i venstre ende, blir summen 2. Metoden bryter altså sammen på første linje hvis randverdiene ikke er null.\n\nSett $u_t = 0$ for å finne den stasjonære løsningen: $w'' = 0$, altså $w = Ax + B$. Randverdiene $w(0) = 1$ og $w(2) = 7$ gir $B = 1$ og $2A + 1 = 7$, altså $A = 3$:\n\n$$w(x) = 1 + 3x.$$\n\nSett $v = u - w$. Siden $w$ ikke avhenger av $t$ og $w'' = 0$, er $v_t = u_t$ og $v_{xx} = u_{xx}$, så $v$ oppfyller den **samme** likningen $v_t = v_{xx}$. På randen er\n\n$$v(0,t) = 1 - 1 = 0, \\qquad v(2,t) = 7 - 7 = 0,$$\n\naltså homogent. Initialbetingelsen blir\n\n$$v(x,0) = 1 + 3x + 4\\sin(\\pi x) - (1 + 3x) = 4\\sin(\\pi x).$$\n\n**b) Løsningen. (5 poeng)**\n\nDirichlet-rand på $[0,2]$, altså $L = 2$: $F_n(x) = \\sin\\dfrac{n\\pi x}{2}$ og $k_n = \\dfrac{n^2\\pi^2}{4}$.\n\nSkriv initialdataene på egenfunksjonsform: $\\sin(\\pi x) = \\sin\\dfrac{2\\pi x}{2}$, altså **mode $n = 2$**, med $k_2 = \\dfrac{4\\pi^2}{4} = \\pi^2$.\n\nKoeffisienten leses av: $B_2 = 4$, alle andre null. Altså $v(x,t) = 4\\sin(\\pi x)e^{-\\pi^2t}$, og\n\n$$\\boxed{u(x,t) = 1 + 3x + 4\\sin(\\pi x)\\,e^{-\\pi^2 t}.}$$\n\n*Kontroll — likningen.* Leddet $1 + 3x$ har $u_t = 0$ og $u_{xx} = 0$: oppfylt. Rekkeleddet har\n\n$$u_t = -4\\pi^2\\sin(\\pi x)e^{-\\pi^2t}, \\qquad u_{xx} = -4\\pi^2\\sin(\\pi x)e^{-\\pi^2t}.$$\n\nLike: oppfylt.\n\n*Kontroll — randen.* I $x = 0$: $1 + 0 + 4\\sin 0\\cdot e^{-\\pi^2t} = 1$. I $x = 2$: $1 + 6 + 4\\sin 2\\pi\\cdot e^{-\\pi^2t} = 7$. Begge oppfylt for alle $t$.\n\n*Kontroll — initialbetingelsen.* Sett $t = 0$: $1 + 3x + 4\\sin(\\pi x)$. Oppfylt.\n\n**c) Grensen. (2 poeng)**\n\nEksponentialleddet dør ut, så\n\n$$u(x,t) \\;\\longrightarrow\\; w(x) = 1 + 3x, \\qquad t \\to \\infty.$$\n\nI midtpunktet: $w(1) = 1 + 3 = 4$.\n\n*Rimelighetssjekk:* 4 ligger midt mellom randverdiene 1 og 7, som det skal for en lineær likevektsprofil.\n\n**Den vanligste feilen her** er å lese $\\sin(\\pi x)$ som mode $n = 1$. Med $L = 2$ er egenfunksjonene $\\sin(n\\pi x/2)$, og $\\sin(\\pi x)$ svarer til $n = 2$. Bommer du, får du eksponenten $e^{-\\pi^2t/4}$ i stedet for $e^{-\\pi^2t}$ — altså fire ganger for treg demping.",
+            "hints": [
+              "Sett $u_t = 0$ og løs $w'' = 0$ med de to randverdiene.",
+              "Regn ut $v(x,0) = u(x,0) - w(x)$ — mye kansellerer.",
+              "Skriv $\\sin(\\pi x)$ på formen $\\sin(n\\pi x/2)$ før du leser av $n$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-B-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Treningsform — settene i dette emnet har ingen slik del.\n\n**1.** Når kan koeffisientene leses av uten integral? **a)** alltid · **b)** aldri · **c)** når $u(x,0)$ er en endelig sum av egenfunksjoner · **d)** når randbetingelsene er homogene\n\n**2.** Hva må gjøres først når $u(0,t) = 5$? **a)** trekk fra en stasjonær løsning · **b)** superponer og match · **c)** bytt til Neumann-rand · **d)** dele på 5\n\n**3.** På $[0,2]$ med kalde ender svarer $\\sin(\\pi x)$ til moden: **a)** $n = 1$ · **b)** $n = 4$ · **c)** $n = \\pi$ · **d)** $n = 2$\n\n**4.** Ved isolerte ender går løsningen mot: **a)** null · **b)** middelverdien av $u(x,0)$ · **c)** randverdien · **d)** uendelig"
+        },
+        {
+          "id": "tma4135-5-prove-B-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1c · 2a · 3d · 4b.**\n\n**1c:** er initialdataene allerede en endelig sum av egenfunksjoner, leses koeffisientene av ledd for ledd. Alternativ **d** er nær-sant og feller mange: homogene randbetingelser er nødvendige for at metoden i det hele tatt skal virke, men de sier ingenting om initialdataene.\n**2a:** ikke-homogene randbetingelser må fjernes med $v = u - w$ før noe annet. Alternativ **b** er nettopp det som ikke er lov, siden summen av to løsninger ville fått randverdi 10.\n**3d:** egenfunksjonene på $[0,2]$ er $\\sin(n\\pi x/2)$, og $\\sin(\\pi x) = \\sin(2\\pi x/2)$. Alternativ **a** er den vanligste feilen og gir fire ganger for treg demping.\n**4b:** isolerte ender bevarer middeltemperaturen, og det er konstantleddet $A_0$ som overlever. Alternativ **a** hører til kalde ender i begge ender."
+        },
+        {
+          "id": "tma4135-5-prove-B-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 5.B\n\nKryss av det du faktisk gjorde.\n\n☐ Jeg sjekket om randbetingelsene var homogene **før** jeg superponerte.\n\n☐ Jeg skrev ned $w(x)$ eksplisitt og regnet ut $v(x,0) = u(x,0) - w(x)$.\n\n☐ Jeg skrev initialdataene på formen $\\sin(n\\pi x/L)$ før jeg leste av $n$.\n\n☐ Jeg leste av koeffisientene i stedet for å integrere der det var mulig.\n\n☐ Jeg noterte hvilken reduksjonsformel jeg slo opp, og hvilken $a$ jeg satte inn.\n\n☐ Jeg kontrollerte den ferdige løsningen ved innsetting i likningen, i begge randbetingelsene **og** i initialbetingelsen.\n\n☐ Jeg leste av grensen når $t \\to \\infty$ uten å måtte regne på nytt.\n\n☐ Jeg begrunnet sprangverdien i endepunktet med konvergensteoremet, ikke bare konstaterte den.\n\n**Færre enn fem kryss?** Les [kap. 5.2](/tma4135/tma4135-5-2) løkke 1 og 3 på nytt, og gjør oppgave 3, 5 og 6 der før du går videre til prøve 5.C."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-5-prove-prove-C",
+      "type": "collapsible",
+      "title": "Prøve 5.C — d'Alemberts formel og variabelskiftet (35 min)",
+      "buttonText": "Vis prøve 5.C",
+      "content": [
+        {
+          "id": "tma4135-5-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 5.C — Bølgeligningen på hele linja.** 35 minutter, 35 poeng. Kalkulator tillatt. Sumformlene og de trigonometriske identitetene kan brukes som om du hadde formelarket foran deg.\n\nTidsbudsjett: oppgave 1 ~14 min (14 poeng), oppgave 2 ~12 min (12 poeng), oppgave 3 ~9 min (9 poeng)."
+        },
+        {
+          "id": "tma4135-5-prove-C-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-C-ex1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(14 poeng, ~14 min) Betrakt\n\n$$u_{tt} = 16u_{xx}, \\qquad x \\in \\mathbb{R}, \\qquad u(x,0) = \\frac{1}{1+x^2}, \\qquad u_t(x,0) = 0.$$\n\n**a)** Les av bølgefarten og skriv opp d'Alemberts formel. (3 poeng)\n**b)** Finn løsningen. (5 poeng)\n**c)** Skissér profilen ved $t = 0$ og ved $t = 1$ i samme figur eller under hverandre, og marker toppverdiene. (4 poeng)\n**d)** Hva er $u(0,1)$? Regn ut tallverdien. (2 poeng)",
+            "solution": "**a) Farten og formelen. (3 poeng)**\n\n$c^2 = 16$, altså $c = 4$ (ikke 16).\n\n**Etter d'Alemberts formel** er løsningen av initialverdiproblemet på hele linja\n\n$$u(x,t) = \\tfrac12\\Big(f(x+ct) + f(x-ct)\\Big) + \\frac{1}{2c}\\int_{x-ct}^{x+ct}g(s)\\,ds,$$\n\nmed $f(x) = \\dfrac{1}{1+x^2}$ og $g \\equiv 0$.\n\n**b) Løsningen. (5 poeng)**\n\nSiden $g \\equiv 0$ faller hele integralleddet bort:\n\n$$\\boxed{u(x,t) = \\frac{1}{2}\\left(\\frac{1}{1+(x+4t)^2} + \\frac{1}{1+(x-4t)^2}\\right).}$$\n\n*Kontroll — likningen.* Begge leddene er funksjoner av henholdsvis $x + 4t$ og $x - 4t$. For en funksjon $h(x \\pm ct)$ er $u_{tt} = c^2h''$ og $u_{xx} = h''$, altså $u_{tt} = c^2u_{xx}$ med $c = 4$. Oppfylt for begge ledd, og dermed for summen.\n\n*Kontroll — initialposisjonen.* Ved $t = 0$ blir de to leddene like, og\n\n$$u(x,0) = \\frac12\\left(\\frac{1}{1+x^2} + \\frac{1}{1+x^2}\\right) = \\frac{1}{1+x^2}. \\quad\\text{Oppfylt.}$$\n\n*Kontroll — initialhastigheten.* Deriver:\n\n$$u_t = \\frac12\\left(\\frac{-2(x+4t)\\cdot 4}{\\left(1+(x+4t)^2\\right)^2} + \\frac{-2(x-4t)\\cdot(-4)}{\\left(1+(x-4t)^2\\right)^2}\\right).$$\n\nVed $t = 0$ blir de to leddene $\\dfrac{-8x}{(1+x^2)^2}$ og $\\dfrac{+8x}{(1+x^2)^2}$, som summerer til null. Oppfylt.\n\n**c) Skissen. (4 poeng)**\n\nVed $t = 0$: én puls med toppverdi 1 i $x = 0$.\nVed $t = 1$: to identiske pulser med toppverdi $\\tfrac12$, med topper i $x = -4$ og $x = 4$, siden hver halvdel har gått $ct = 4\\cdot 1 = 4$ enheter.\n\n*Figur i ord:* to koordinatsystemer under hverandre med samme $x$-akse fra $-8$ til 8. Øverst en enkelt klokkeformet topp sentrert i origo med høyde 1. Nederst to like klokkeformer med halv høyde, sentrert i $x = -4$ og $x = 4$, med en flat sone mellom seg.\n\n**d) Tallverdien. (2 poeng)**\n\nSett $x = 0$ og $t = 1$:\n\n$$u(0,1) = \\frac12\\left(\\frac{1}{1+16} + \\frac{1}{1+16}\\right) = \\frac{1}{17} \\approx 0{,}0588.$$\n\nPunktet midt mellom de to pulsene er nesten tilbake i ro — de to halene overlapper bare svakt der.\n\n**Merk hvorfor svaret ikke er null:** pulsen $1/(1+x^2)$ har haler som strekker seg ut i det uendelige, så det er alltid et lite bidrag overalt. Hadde startpulsen vært null utenfor et endelig intervall, ville $u(0,1)$ vært eksakt null.",
+            "hints": [
+              "Ta kvadratroten av 16 først.",
+              "Med $u_t(x,0) = 0$ forsvinner hele integralleddet.",
+              "For c): hvor langt har hver halvdel flyttet seg ved $t = 1$, og hvor høy er den?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-C-fig",
+          "type": "image",
+          "src": "/images/textbook/tma4135/dalembert-prove-5c.svg",
+          "alt": "To grafer under hverandre med x-akse fra minus 8 til 8. Oeverst en klokkeformet puls med toppverdi 1 i origo, merket t lik 0. Nederst to like pulser med toppverdi en halv, med topper i x lik minus 4 og x lik 4, merket t lik 1.",
+          "caption": "Fasit til delpunkt c): startpulsen halveres og deler seg i to som løper hver sin vei med fart $c = 4$. Ved $t = 1$ har hver halvdel gått fire enheter."
+        },
+        {
+          "id": "tma4135-5-prove-C-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-C-ex2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(12 poeng, ~12 min) La $c > 0$ og sett $y = x + ct$, $z = x - ct$.\n\n**a)** Vis ved kjerneregelen at $u_{xx} = u_{yy} + 2u_{yz} + u_{zz}$ og $u_{tt} = c^2\\left(u_{yy} - 2u_{yz} + u_{zz}\\right)$. (6 poeng)\n**b)** Konkluder at bølgeligningen er ekvivalent med $u_{yz} = 0$, og integrer opp til den generelle løsningen. (4 poeng)\n**c)** Forklar med ord hva den generelle løsningen sier fysisk. (2 poeng)",
+            "solution": "**a) Kjerneregelen. (6 poeng)**\n\nDe fire indre deriverte er $y_x = 1$, $z_x = 1$, $y_t = c$, $z_t = -c$.\n\n*Romderivasjon.*\n\n$$u_x = u_y\\,y_x + u_z\\,z_x = u_y + u_z.$$\n\nDeriver på nytt; både $u_y$ og $u_z$ er selv funksjoner av $y$ og $z$, så kjerneregelen brukes på hvert:\n\n$$u_{xx} = \\left(u_{yy}\\cdot 1 + u_{yz}\\cdot 1\\right) + \\left(u_{zy}\\cdot 1 + u_{zz}\\cdot 1\\right) = u_{yy} + u_{yz} + u_{zy} + u_{zz}.$$\n\nBlandede partielle deriverte er like, $u_{yz} = u_{zy}$, altså\n\n$$u_{xx} = u_{yy} + 2u_{yz} + u_{zz}.$$\n\n*Tidsderivasjon.*\n\n$$u_t = u_y\\cdot c + u_z\\cdot(-c) = c\\left(u_y - u_z\\right),$$\n\n$$u_{tt} = c\\left[\\left(u_{yy}\\cdot c + u_{yz}\\cdot(-c)\\right) - \\left(u_{zy}\\cdot c + u_{zz}\\cdot(-c)\\right)\\right] = c^2\\left(u_{yy} - 2u_{yz} + u_{zz}\\right).$$\n\n**b) Normalformen og den generelle løsningen. (4 poeng)**\n\nTrekk fra:\n\n$$u_{tt} - c^2u_{xx} = c^2\\left(u_{yy} - 2u_{yz} + u_{zz}\\right) - c^2\\left(u_{yy} + 2u_{yz} + u_{zz}\\right) = -4c^2u_{yz}.$$\n\nSiden $c > 0$ er $-4c^2 \\ne 0$, og dermed\n\n$$u_{tt} = c^2u_{xx} \\quad\\Longleftrightarrow\\quad u_{yz} = 0.$$\n\nLegg merke til at $u_{yy}$ og $u_{zz}$ kansellerer nøyaktig — det er hele grunnen til at dette koordinatvalget virker.\n\n*Integrasjon.* Skriv $u_{yz} = \\dfrac{\\partial}{\\partial y}\\left(u_z\\right) = 0$. Da avhenger ikke $u_z$ av $y$, altså $u_z = h(z)$ for en funksjon $h$. Integrer med hensyn på $z$; «integrasjonskonstanten» kan nå være en vilkårlig funksjon av $y$:\n\n$$u = \\psi(z) + \\phi(y), \\qquad \\psi(z) = \\int h(z)\\,dz.$$\n\nTilbake i de opprinnelige variablene:\n\n$$u(x,t) = \\phi(x + ct) + \\psi(x - ct).$$\n\n*Kontroll:* $u_{tt} = c^2\\phi'' + c^2\\psi''$ og $u_{xx} = \\phi'' + \\psi''$, så $u_{tt} = c^2u_{xx}$ for alle to ganger deriverbare $\\phi$ og $\\psi$. Oppfylt.\n\n**c) Den fysiske tolkningen. (2 poeng)**\n\n**Enhver løsning av bølgeligningen på hele linja er summen av to bølger som løper hver sin vei med fart $c$, og som beholder formen sin uforandret.** Leddet $\\psi(x - ct)$ flytter seg mot høyre, $\\phi(x + ct)$ mot venstre.\n\nDet er en påstand om fysikk — at signaler transporteres uten å endre form — og den følger av tre linjers kjerneregel.",
+            "hints": [
+              "Skriv opp de fire indre deriverte $y_x$, $z_x$, $y_t$, $z_t$ først; alle er konstanter.",
+              "Når du deriverer $u_y$ på nytt, må kjerneregelen brukes igjen — $u_y$ avhenger av både $y$ og $z$.",
+              "I b): hva kan «integrasjonskonstanten» være når du integrerer med hensyn på $z$?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-C-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-C-ex3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(9 poeng, ~9 min) Løs\n\n$$u_{tt} = u_{xx}, \\qquad u(x,0) = 0, \\qquad u_t(x,0) = \\cos x,$$\n\nforenkle svaret med en formel fra det utdelte formelarket, og kontroller det ved innsetting.",
+            "solution": "**Farten.** $c^2 = 1$, altså $c = 1$.\n\n**Etter d'Alemberts formel** med $f \\equiv 0$ står bare integralleddet igjen:\n\n$$u(x,t) = \\frac{1}{2}\\int_{x-t}^{x+t}\\cos s\\,ds = \\frac{1}{2}\\Big[\\sin s\\Big]_{x-t}^{x+t} = \\frac{\\sin(x+t) - \\sin(x-t)}{2}.$$\n\n**Forenkling.** **Fra differanseformelen på det utdelte formelarket:**\n\n$$\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}.$$\n\nMed $A = x+t$ og $B = x-t$ er $\\dfrac{A+B}{2} = x$ og $\\dfrac{A-B}{2} = t$:\n\n$$u(x,t) = \\frac{2\\cos x\\sin t}{2} = \\cos x\\,\\sin t.$$\n\n**Kontroll — likningen.**\n\n$$u_t = \\cos x\\cos t, \\qquad u_{tt} = -\\cos x\\sin t,$$\n$$u_x = -\\sin x\\sin t, \\qquad u_{xx} = -\\cos x\\sin t.$$\n\nDe to er like, så $u_{tt} = u_{xx}$ er oppfylt.\n\n**Kontroll — initialbetingelsene.** $u(x,0) = \\cos x\\cdot 0 = 0$: oppfylt. Og $u_t(x,0) = \\cos x\\cdot 1 = \\cos x$: oppfylt.\n\n**Kommentar.** Svaret er en **stående bølge**: romprofilen $\\cos x$ står i ro og amplituden $\\sin t$ pulserer. Det er ingen tilfeldighet — to motgående bølger med samme form og amplitude gir alltid en stående bølge, og det ser du direkte i det uforenklede uttrykket $\\tfrac12\\left(\\sin(x+t) - \\sin(x-t)\\right)$.\n\nMerk også at det uforenklede uttrykket er et fullgodt svar; forenklingen er der for at kontrollen skal gå raskere.",
+            "hints": [
+              "Med $u(x,0) = 0$ forsvinner midlingsleddet.",
+              "Den antideriverte til $\\cos s$ er $\\sin s$; grensene er $x - ct$ og $x + ct$.",
+              "Slå opp differanseformelen for $\\sin A - \\sin B$ på formelarket."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-C-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Treningsform — settene i dette emnet har ingen slik del.\n\n**1.** For $u_{tt} = 25u_{xx}$ er bølgefarten: **a)** 625 · **b)** 12,5 · **c)** 25 · **d)** 5\n\n**2.** Faktoren foran integralet i d'Alemberts formel er: **a)** $\\tfrac12$ · **b)** $\\tfrac{1}{2c}$ · **c)** $\\tfrac1c$ · **d)** $\\tfrac{c}{2}$\n\n**3.** Er $u_t(x,0) = 0$, blir løsningen: **a)** identisk null · **b)** en ren høyregående bølge · **c)** halve startpulsen forskjøvet hver sin vei · **d)** en konstant\n\n**4.** Avhengighetsområdet til $u(x,t)$ er: **a)** $[x-ct,\\;x+ct]$ · **b)** hele $\\mathbb{R}$ · **c)** $[x-t,\\;x+t]$ · **d)** punktet $x$ alene"
+        },
+        {
+          "id": "tma4135-5-prove-C-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1d · 2b · 3c · 4a.**\n\n**1d:** $c^2 = 25$ gir $c = 5$. Alternativ **c** er den vanligste feilen i hele sjanger H — å bruke tallet foran $u_{xx}$ direkte som fart.\n**2b:** faktoren er $\\tfrac1{2c}$. Alternativ **a** er nær-sann og stemmer bare i det spesialtilfellet $c = 1$, som er akkurat derfor den er så lett å tro på.\n**3c:** midlingsleddet gir to halvpulser som løper hver sin vei. Alternativ **b** ville krevd en bestemt starthastighet i tillegg, slik du så i [kap. 5.3](/tma4135/tma4135-5-3) oppgave 5.\n**4a:** intervallet mellom de to karakteristikkene. Alternativ **c** glemmer farten og er riktig bare når $c = 1$."
+        },
+        {
+          "id": "tma4135-5-prove-C-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 5.C\n\nKryss av det du faktisk gjorde.\n\n☐ Jeg skrev ned $c$ på egen linje før jeg satte inn i formelen.\n\n☐ Jeg skrev «etter d'Alemberts formel» eksplisitt i besvarelsen.\n\n☐ Jeg brukte $x \\pm ct$, ikke $x \\pm t$, både i argumentene og i integrasjonsgrensene.\n\n☐ Jeg hadde med faktoren $\\tfrac1{2c}$ foran integralet, ikke $\\tfrac12$ eller $\\tfrac1c$.\n\n☐ Jeg halverte startpulsen i midlingsleddet.\n\n☐ Jeg forenklet svaret med en sum- eller differanseformel fra formelarket og noterte hvilken.\n\n☐ Jeg kontrollerte svaret ved innsetting i likningen **og** i begge initialbetingelsene.\n\n☐ I skissen markerte jeg både toppverdiene og hvor langt hver halvdel hadde flyttet seg.\n\n**Færre enn fem kryss?** Les [kap. 5.3](/tma4135/tma4135-5-3) løkke 2 og 3 på nytt, og gjør oppgave 3, 5 og 6 der før du går videre til prøve 5.D."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-5-prove-prove-D",
+      "type": "collapsible",
+      "title": "Prøve 5.D — 4D-signaturen: verifiser, klassifiser og gradient (45 min)",
+      "buttonText": "Vis prøve 5.D",
+      "content": [
+        {
+          "id": "tma4135-5-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 5.D — Verifikasjon, klassifisering og gradient.** 45 minutter, 45 poeng. Kalkulator tillatt. Denne prøven trenger ingenting fra det utdelte formelarket; alt er derivasjon.\n\nTidsbudsjett: oppgave 1 ~16 min (16 poeng), oppgave 2 ~12 min (12 poeng), oppgave 3 ~9 min (9 poeng), oppgave 4 ~8 min (8 poeng)."
+        },
+        {
+          "id": "tma4135-5-prove-D-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-D-ex1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(16 poeng, ~16 min) La\n\n$$u(x,t) = (2x + t)^5 + \\cos(4x - 2t).$$\n\n**a)** Regn ut $u_t$, $u_{tt}$, $u_x$ og $u_{xx}$. Skriv den indre deriverte eksplisitt for hvert ledd. (8 poeng)\n**b)** Vis at $u$ løser $4u_{tt} = u_{xx}$. (4 poeng)\n**c)** Avgjør om $u$ også løser $u_{tt} = 4u_{xx}$. Begrunn. (2 poeng)\n**d)** Angi bølgefarten, og forklar hvordan du kunne lest den av begge leddene før du deriverte. (2 poeng)",
+            "solution": "**a) De fire deriverte. (8 poeng)**\n\nSett $s = 2x + t$ (med $s_x = 2$, $s_t = 1$) og $r = 4x - 2t$ (med $r_x = 4$, $r_t = -2$).\n\n*Med hensyn på $t$:*\n\n$$u_t = 5s^4\\cdot 1 - \\sin(r)\\cdot(-2) = 5(2x+t)^4 + 2\\sin(4x-2t),$$\n\n$$u_{tt} = 20s^3\\cdot 1 + 2\\cos(r)\\cdot(-2) = 20(2x+t)^3 - 4\\cos(4x-2t).$$\n\n*Med hensyn på $x$:*\n\n$$u_x = 5s^4\\cdot 2 - \\sin(r)\\cdot 4 = 10(2x+t)^4 - 4\\sin(4x-2t),$$\n\n$$u_{xx} = 40s^3\\cdot 2 - 4\\cos(r)\\cdot 4 = 80(2x+t)^3 - 16\\cos(4x-2t).$$\n\n**b) Innsetting. (4 poeng)**\n\n$$4u_{tt} = 4\\left(20(2x+t)^3 - 4\\cos(4x-2t)\\right) = 80(2x+t)^3 - 16\\cos(4x-2t).$$\n\nSammenlikn med $u_{xx}$ over: uttrykkene er **identiske**. Altså\n\n$$4u_{tt} = u_{xx},$$\n\nog $u$ løser likningen.\n\n**c) Den andre likningen. (2 poeng)**\n\nNei. Fra a) er\n\n$$u_{tt} = 20(2x+t)^3 - 4\\cos(4x-2t), \\qquad 4u_{xx} = 320(2x+t)^3 - 64\\cos(4x-2t).$$\n\nDet andre er nøyaktig 16 ganger det første, og de kan bare være like der begge er null. Ett motpunkt holder: sett $x = 0$, $t = 0$. Da er $u_{tt} = 0 - 4 = -4$ og $4u_{xx} = 0 - 64 = -64$, og $-4 \\ne -64$.\n\n**Ett motpunkt er nok til å avkrefte en «for alle $x$ og $t$»-påstand.**\n\n**d) Bølgefarten. (2 poeng)**\n\nLikningen $4u_{tt} = u_{xx}$ skrives om til standardform ved å dele på 4:\n\n$$u_{tt} = \\tfrac14 u_{xx} \\quad\\Longrightarrow\\quad c^2 = \\tfrac14 \\quad\\Longrightarrow\\quad c = \\tfrac12.$$\n\n**Avlesningen før derivasjon:** skriv begge argumentene på formen $a(x \\pm ct)$.\n\n$$2x + t = 2\\left(x + \\tfrac{t}{2}\\right), \\qquad 4x - 2t = 4\\left(x - \\tfrac{t}{2}\\right).$$\n\nBegge har $c = \\tfrac12$ — det første som en venstregående bølge, det andre som en høyregående. Siden begge leddene er funksjoner av $x \\pm \\tfrac12 t$, må $u$ løse bølgeligningen med nettopp $c = \\tfrac12$, og ingen annen fart. **Det er en kontroll som tar femten sekunder og forteller deg svaret før du begynner å derivere.**",
+            "hints": [
+              "Navngi begge de indre argumentene og skriv opp deres deriverte før du gjør noe annet.",
+              "Den indre deriverte kommer ned som faktor hver gang du deriverer — to ganger gir kvadratet.",
+              "For d): skriv $2x + t$ på formen $a(x + ct)$ og les av $c$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-D-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-D-ex2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~12 min) For hver likning: angi ordenen, avgjør om den er lineær eller ikke-lineær, og for de lineære om de er homogene. Begrunn hver med én setning.\n\n**a)** $u_{tt} = 3u_{xx} - 5u + \\cos(x^2)$ (3 poeng)\n**b)** $u_t = u_{xx} + \\left(u_x\\right)^2$ (3 poeng)\n**c)** $e^{t}u_{xx} + x^3u_t = 0$ (3 poeng)\n**d)** $u_{xx} + u_{yy} = \\sin(u)$ (3 poeng)",
+            "solution": "**a)** Høyeste derivasjon er $u_{tt}$ og $u_{xx}$, altså **orden 2**. Leddene med $u$ — $u_{tt}$, $u_{xx}$ og $u$ — opptrer alle i første potens uten produkter, så likningen er **lineær**. Leddet $\\cos(x^2)$ inneholder ingen $u$, så den er **ikke-homogen**.\n\n*Merk:* $\\cos(x^2)$ ser krokete ut, men det er en funksjon av $x$ alene og påvirker verken linearitet eller orden.\n\n**b)** **Orden 2**. Leddet $\\left(u_x\\right)^2$ er en derivert i andre potens — **ikke-lineær**. Spørsmålet om homogenitet stilles ikke for ikke-lineære likninger.\n\n**c)** **Orden 2**. Koeffisientene $e^t$ og $x^3$ er funksjoner av de uavhengige variablene, ikke av $u$, så leddene er lineære i $u$. Likningen er **lineær**, og siden begge ledd inneholder en $u$-faktor og høyresiden er null, er den **homogen**.\n\n**d)** **Orden 2**. Høyresiden $\\sin(u)$ har $u$ inne i en ikke-lineær funksjon — **ikke-lineær**.\n\n**Oppsummert:**\n\n| Likning | Orden | Lineær? | Homogen? |\n|---|---|---|---|\n| a) | 2 | ja | nei |\n| b) | 2 | nei | — |\n| c) | 2 | ja | ja |\n| d) | 2 | nei | — |\n\n**Regelen som avgjør alle fire:** stryk alt som bare avhenger av $x$, $y$ og $t$. Er det som står igjen, en sum der hvert ledd har nøyaktig én $u$-faktor i første potens, er likningen lineær. Og finnes det da et ledd helt uten $u$-faktor, er den ikke-homogen.",
+            "hints": [
+              "Stryk alle faktorer som bare inneholder de uavhengige variablene.",
+              "Se etter potenser av $u$ eller av en derivert, og etter $u$ inne i en funksjon.",
+              "For homogenitet: finnes det et ledd helt uten $u$?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-D-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-D-ex3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(9 poeng, ~9 min) La\n\n$$u(x,t) = 3e^{-4t}\\sin 2x + e^{-16t}\\sin 4x.$$\n\n**a)** Vis at $u$ løser $u_t = u_{xx}$. (4 poeng)\n**b)** Vis at $u$ oppfyller $u(0,t) = u(\\pi,t) = 0$ og $u(x,0) = 3\\sin 2x + \\sin 4x$. (3 poeng)\n**c)** Angi grensen når $t \\to \\infty$, og si hvilket ledd som dør ut sist. (2 poeng)",
+            "solution": "**a) Likningen. (4 poeng)**\n\n*Med hensyn på $t$* (sinusene er konstanter):\n\n$$u_t = 3\\cdot(-4)e^{-4t}\\sin 2x + (-16)e^{-16t}\\sin 4x = -12e^{-4t}\\sin 2x - 16e^{-16t}\\sin 4x.$$\n\n*Med hensyn på $x$* (eksponentialene er konstanter):\n\n$$u_x = 6e^{-4t}\\cos 2x + 4e^{-16t}\\cos 4x,$$\n\n$$u_{xx} = -12e^{-4t}\\sin 2x - 16e^{-16t}\\sin 4x.$$\n\nDe to uttrykkene er **identiske**, altså $u_t = u_{xx}$. Oppfylt.\n\n*Kontroll av at det måtte gå bra:* hvert ledd er på formen $e^{-n^2t}\\sin nx$, som er nøyaktig produktløsningene fra [kap. 5.1](/tma4135/tma4135-5-1) med $c^2 = 1$. Her $n = 2$ (med $n^2 = 4$) og $n = 4$ (med $n^2 = 16$). Eksponentene stemmer.\n\n**b) Rand og initialdata. (3 poeng)**\n\n*I $x = 0$:* $\\sin 0 = 0$ i begge ledd, så $u(0,t) = 0$ for alle $t$.\n\n*I $x = \\pi$:* $\\sin 2\\pi = 0$ og $\\sin 4\\pi = 0$, så $u(\\pi,t) = 0$ for alle $t$.\n\n*Ved $t = 0$:* begge eksponentialene er 1, så $u(x,0) = 3\\sin 2x + \\sin 4x$.\n\nAlle tre oppfylt.\n\n**c) Grensen. (2 poeng)**\n\nBegge eksponentialene går mot null, så\n\n$$u(x,t) \\;\\longrightarrow\\; 0.$$\n\nLeddet med **minst** eksponent i tallverdi dør ut sist: $3e^{-4t}\\sin 2x$.\n\n*Tallanslag:* ved $t = 1$ er forholdet mellom leddene $\\dfrac{e^{-16}}{3e^{-4}} = \\dfrac{e^{-12}}{3} \\approx 2\\cdot 10^{-6}$. Andre ledd er da praktisk talt borte, og profilen er en ren $\\sin 2x$-form som synker.\n\n**Om delpunkt b).** Det føles trivielt, men det er tre egne poeng, og det er det stedet flest lar poeng ligge på hele settet. Tre innsettinger, tre linjer, femten sekunder hver.",
+            "hints": [
+              "Deriver leddvis; behandle den ene faktoren som konstant om gangen.",
+              "For b): sett inn tallverdiene og bruk at $\\sin$ av et helt multiplum av $\\pi$ er null.",
+              "For c): hvilken eksponent er minst i tallverdi?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-D-ex4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-prove-D-ex4",
+            "number": 4,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~8 min) La\n\n$$f(x,y) = xy^2 + 3x.$$\n\n**a)** Finn $\\nabla f$ og regn den ut i punktet $(1,2)$. (3 poeng)\n**b)** Finn den retningsderiverte i $(1,2)$ i retning $\\mathbf v = (4,-3)$. (3 poeng)\n**c)** Finn en retning der $f$ ikke endrer seg i $(1,2)$, og begrunn valget. (2 poeng)",
+            "solution": "**a) Gradienten. (3 poeng)**\n\n$$f_x = y^2 + 3, \\qquad f_y = 2xy \\quad\\Longrightarrow\\quad \\nabla f = \\left(y^2 + 3,\\; 2xy\\right).$$\n\nI punktet $(1,2)$:\n\n$$\\nabla f(1,2) = \\left(4 + 3,\\; 2\\cdot 1\\cdot 2\\right) = (7,\\; 4).$$\n\n**b) Retningsderiverte. (3 poeng)**\n\nRetningen må **normeres** først: $|\\mathbf v| = \\sqrt{16 + 9} = 5$, altså\n\n$$\\hat{\\mathbf v} = \\left(\\tfrac45,\\; -\\tfrac35\\right).$$\n\nPrikkproduktet:\n\n$$D_{\\hat{\\mathbf v}}f(1,2) = (7,4)\\cdot\\left(\\tfrac45,-\\tfrac35\\right) = \\frac{28}{5} - \\frac{12}{5} = \\frac{16}{5} = 3{,}2.$$\n\n*Rimelighetssjekk:* $|\\nabla f| = \\sqrt{49+16} = \\sqrt{65} \\approx 8{,}06$, og $3{,}2 \\le 8{,}06$, som det må være — retningsderiverte er aldri større enn gradientens lengde.\n\n**c) En retning uten endring. (2 poeng)**\n\n$f$ endrer seg ikke i en retning $\\hat{\\mathbf w}$ nøyaktig når\n\n$$D_{\\hat{\\mathbf w}}f = \\nabla f\\cdot\\hat{\\mathbf w} = 0,$$\n\naltså når $\\hat{\\mathbf w}$ står **vinkelrett** på gradienten.\n\nGradienten er $(7,4)$. En vinkelrett vektor får du ved å bytte om komponentene og snu fortegnet på den ene: $(-4,7)$. Normert:\n\n$$\\hat{\\mathbf w} = \\frac{(-4,\\;7)}{\\sqrt{16+49}} = \\frac{(-4,\\;7)}{\\sqrt{65}}.$$\n\n*Kontroll:* $(7,4)\\cdot(-4,7) = -28 + 28 = 0$. Riktig.\n\nRetningen $(4,-7)/\\sqrt{65}$ duger like godt — begge veier langs nivåkurven gir null endring. Geometrisk er dette **tangentretningen til nivåkurven** $f = 7$ gjennom punktet, og det er den korte begrunnelsen: gradienten står alltid vinkelrett på nivåkurven.",
+            "hints": [
+              "Deriver leddvis; leddet $3x$ bidrar bare til $f_x$.",
+              "Del $\\mathbf v$ på sin egen lengde før du tar prikkproduktet.",
+              "For c): når er et prikkprodukt null?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-prove-D-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Treningsform — settene i dette emnet har ingen slik del.\n\n**1.** Likningen $u_t = u_{xx} + \\sin(x^3)$ er: **a)** lineær og ikke-homogen · **b)** ikke-lineær · **c)** lineær og homogen · **d)** av orden 3\n\n**2.** Deriverer du $\\cos(4x - 2t)$ to ganger med hensyn på $t$, kommer faktoren: **a)** $-2$ · **b)** $2$ · **c)** $4$ · **d)** $-4$\n\n**3.** Før du bruker $D_{\\hat{\\mathbf v}}f = \\nabla f\\cdot\\hat{\\mathbf v}$, må du: **a)** derivere $\\mathbf v$ · **b)** normere $\\mathbf v$ · **c)** kvadrere $\\nabla f$ · **d)** ingenting\n\n**4.** Varmekjernen $t^{-1/2}e^{-x^2/(4t)}$ er en løsning: **a)** for alle $t$ · **b)** bare for $t < 0$ · **c)** bare i $x = 0$ · **d)** bare for $t > 0$"
+        },
+        {
+          "id": "tma4135-5-prove-D-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1a · 2c · 3b · 4d.**\n\n**1a:** leddet $\\sin(x^3)$ inneholder ingen $u$, så likningen er lineær, men ikke-homogen. Alternativ **b** er den vanligste feilen: et krokete uttrykk i $x$ alene gjør aldri en likning ikke-lineær. Alternativ **d** forveksler eksponenten i $x^3$ med ordenen på derivasjonen.\n**2c:** den indre deriverte $-2$ kommer ned to ganger, altså $(-2)^2 = 4$. Alternativ **d** er nær-sann og oppstår hvis du tar med fortegnet bare én gang.\n**3b:** retningen må ha lengde 1. Alternativ **d** gir et svar som er skalert med $|\\mathbf v|$ — her ville det blitt fem ganger for stort.\n**4d:** både $t^{-1/2}$ og eksponenten er udefinert i $t = 0$, og for $t < 0$ er $t^{-1/2}$ ikke reell. Alternativ **a** overser definisjonsområdet, som er verdt et eget poeng på eksamen."
+        },
+        {
+          "id": "tma4135-5-prove-D-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 5.D\n\nKryss av det du faktisk gjorde.\n\n☐ Jeg navnga de indre argumentene og skrev opp deres deriverte før jeg deriverte noe.\n\n☐ Jeg skrev ut **begge** sider av likningen og sa eksplisitt at de var like.\n\n☐ Jeg sjekket at alle ledd hørte til samme bølgefart før jeg regnet.\n\n☐ Jeg avkreftet en «for alle»-påstand med ett konkret motpunkt, ikke med en løs formulering.\n\n☐ Jeg strøk koeffisienter som bare avhang av $x$, $y$ og $t$ før jeg vurderte linearitet.\n\n☐ Jeg verifiserte **også** randbetingelsene og initialbetingelsen, ikke bare likningen.\n\n☐ Jeg normerte retningsvektoren før jeg regnet den retningsderiverte.\n\n☐ Jeg oppga gradienten som en vektor og den raskeste veksten som et tall.\n\n**Færre enn fem kryss?** Les [kap. 5.4](/tma4135/tma4135-5-4) løkke 1 og 3 på nytt, og gjør oppgave 2, 4 og 6 der. Er du usikker på siste oppgave, gjør oppgave 7 og 8 i samme kapittel."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-5-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-5-prove-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 5.1](/tma4135/tma4135-5-1) til [kap. 5.4](/tma4135/tma4135-5-4).\n\n| Symbol | Betydning |\n|---|---|\n| $u(x,t)$ | Den ukjente løsningen |\n| $F(x)$, $G(t)$ | Rom- og tidsfaktor i separasjonsansatsen. **Merk:** $F(s)$ i Del 2 er Laplace-transformen |\n| $k$, $k_n$ | Separasjonskonstanten og den $n$-te egenverdien. Konvensjon: $F''/F = -k$. Brukes bare i Del 5 |\n| $p$, $\\mu$ | Hjelpestørrelser: $k = p^2$ når $k > 0$, $k = -\\mu^2$ når $k < 0$ |\n| $c$, $c^2$ | Bølgefart i [kap. 5.3](/tma4135/tma4135-5-3); $c^2$ er diffusivitet i [kap. 5.1](/tma4135/tma4135-5-1) |\n| $L$ | Intervallengden. **Merk:** i Del 3 er $L$ halvperioden, i Del 6 kontraksjonskonstanten |\n| $B_n$, $A_0$, $A_n$ | Koeffisientene ved henholdsvis Dirichlet- og Neumann-rand |\n| $w(x)$, $v(x,t)$ | Stasjonær løsning og den reduserte løsningen $u - w$ |\n| $f(x)$, $g(x)$ | Initialposisjon og initialhastighet i bølgeligningen |\n| $\\phi$, $\\psi$ | Venstre- og høyregående bølgeprofil |\n| $y$, $z$ | Karakteristiske koordinater $x + ct$ og $x - ct$. **Merk:** $y(t)$ i Del 2 er en ukjent funksjon |\n| $\\nabla f$ | Gradienten — en vektor |\n| $D_{\\hat{\\mathbf v}}f$ | Den retningsderiverte i enhetsretningen $\\hat{\\mathbf v}$ |\n"
+        },
+        {
+          "id": "tma4135-5-prove-sym-form",
+          "type": "text",
+          "content": "**Formler brukt i prøvene:**\n\n$$\\frac{F''}{F} = \\frac{G'}{c^2G} = -k \\;\\Longrightarrow\\; F'' + kF = 0, \\quad G' + c^2kG = 0$$\nSeparasjonen for varmelikningen. *(Må kunnes eller utledes aktivt.)*\n\n$$k>0: F = A\\cos px + B\\sin px \\;\\big|\\; k=0: F = Ax+B \\;\\big|\\; k<0: F = A\\cosh\\mu x + B\\sinh\\mu x$$\nDe tre tilfellene — alle skal skrives ut. *(Må kunnes eller utledes aktivt.)*\n\n$$F(0)=F(L)=0 \\Rightarrow k_n = \\left(\\tfrac{n\\pi}{L}\\right)^2,\\, F_n = \\sin\\tfrac{n\\pi x}{L}$$\n$$F'(0)=F'(L)=0 \\Rightarrow k_0=0,\\,F_0=1;\\; k_n = \\left(\\tfrac{n\\pi}{L}\\right)^2,\\, F_n = \\cos\\tfrac{n\\pi x}{L}$$\n$$F(0)=F'(L)=0 \\Rightarrow k_n = \\left(\\tfrac{(2n-1)\\pi}{2L}\\right)^2,\\, F_n = \\sin\\tfrac{(2n-1)\\pi x}{2L}$$\nEgenverdiene ved de tre randtypene. *(Må kunnes eller utledes aktivt.)*\n\n$$B_n = \\frac2L\\int_0^L f(x)\\sin\\frac{n\\pi x}{L}\\,dx$$\nFourier-matching ved Dirichlet-rand. *(Må kunnes eller utledes aktivt — se [kap. 3.2](/tma4135/tma4135-3-2).)*\n\n$$w(x) = T_0 + \\frac{T_1-T_0}{L}x, \\qquad v = u - w$$\nStasjonær løsning og reduksjonen som gjør randbetingelsene homogene. *(Må kunnes eller utledes aktivt.)*\n\n$$u(x,t) = \\tfrac12\\Big(f(x+ct)+f(x-ct)\\Big) + \\frac{1}{2c}\\int_{x-ct}^{x+ct}g(s)\\,ds$$\n**d'Alemberts formel** — navngi den i besvarelsen. *(Må kunnes; den står ikke alltid på det utdelte formelarket.)*\n\n$$y = x+ct,\\; z = x-ct \\;\\Longrightarrow\\; u_{tt} - c^2u_{xx} = -4c^2u_{yz} \\;\\Longrightarrow\\; u = \\phi(x+ct)+\\psi(x-ct)$$\nVariabelskiftet og den generelle løsningen. *(Må kunnes eller utledes aktivt.)*\n\n$$u = h(ax+bt) \\;\\Longrightarrow\\; u_x = a h', \\; u_{xx} = a^2h'', \\; u_t = bh', \\; u_{tt} = b^2h''$$\nKjerneregelen for verifikasjonsoppgaver. *(Må kunnes.)*\n\n$$\\nabla f = (f_x, f_y), \\qquad D_{\\hat{\\mathbf v}}f = \\nabla f\\cdot\\hat{\\mathbf v}, \\qquad \\hat{\\mathbf v} = \\frac{\\mathbf v}{|\\mathbf v|}$$\nGradient og retningsderivert. *(Må kunnes — «bør kjenne til»-nivå.)*\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}$$\nReduksjonsformelen brukt i prøve 5.B. *(Står på det utdelte formelarket — tren oppslaget, sett $a = n\\pi/L$.)*\n\n$$\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}, \\qquad \\cos A + \\cos B = 2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}$$\nSum- og differanseformlene brukt i prøve 5.C. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\sin n\\pi = 0, \\qquad \\cos n\\pi = (-1)^n, \\qquad \\cosh z \\ge 1, \\qquad \\sinh z = 0 \\Leftrightarrow z = 0$$\nDe fire faktaene som avgjør hvert randverdiproblem. *(Må kunnes.)*\n\n**Kolliderende symboler:** $k$ er i hele Del 5 separasjonskonstanten; formelarket bruker $k$ om tidssteget i differansemetoder, og boka skriver $\\Delta t$ der. $c$ er bølgefart i [kap. 5.3](/tma4135/tma4135-5-3) og kvadratroten av diffusiviteten i [kap. 5.1](/tma4135/tma4135-5-1); $c_n$ i Del 3 er en kompleks Fourier-koeffisient. $F$ er romfaktoren, mens $F(s)$ i Del 2 er Laplace-transformen. $y$ og $z$ er koordinater her, mens $y(t)$ i Del 2 er en ukjent funksjon. $L$ er intervallengden; i Del 3 er $L$ halvperioden, i Del 6 kontraksjonskonstanten."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

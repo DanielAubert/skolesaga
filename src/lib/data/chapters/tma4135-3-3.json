@@ -1,0 +1,402 @@
+{
+  "id": "tma4135-3-3",
+  "courseId": "tma4135",
+  "chapterNumber": "3.3",
+  "title": "Kompleks Fourier-rekke",
+  "description": "Den komplekse formen $\\sum c_n e^{inx}$, koeffisienten $c_n$ og broen til den reelle rekka via Eulers formel.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne ut de komplekse Fourier-koeffisientene for en gitt funksjon, også for generell halvperiode",
+    "veksle begge veier mellom den komplekse og den reelle formen med broformlene",
+    "bruke konjugert symmetri til å avgjøre om et sett koeffisienter kan komme fra en reell funksjon, og til å halvere regnearbeidet",
+    "velge mellom reell og kompleks form ut fra hvordan integranden ser ut, og begrunne valget"
+  ],
+  "content": [
+    {
+      "id": "tma4135-3-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Den komplekse formen er en fast variant av Fourier-oppgaven, ikke en ekstra kuriositet.** Den har vært brukt i flere av de gjennomgåtte settene, og den er inngangsporten til de to neste delene: Fourier-transformen i [kap. 4.1](/tma4135/tma4135-4-1) er nøyaktig samme idé med et integral i stedet for en sum, og den diskrete Fourier-transformen i [kap. 4.3](/tma4135/tma4135-4-3) er den komplekse rekka med endelig mange punkter.\n\nPrioriteten er derfor **høy** — litt lavere enn [kap. 3.1](/tma4135/tma4135-3-1) og [kap. 3.2](/tma4135/tma4135-3-2) hvis du må velge, men du kommer ikke gjennom Del 4 uten den.\n\n**Sjangerbokstaven er fortsatt D** — boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene, og **D er Fourier-rekker**, både i reell og kompleks form.\n\n**To ting går igjen i oppgaveteksten:** «finn den komplekse Fourier-rekka til …» og «vis hvordan $a_n$ og $b_n$ følger av $c_n$». Broen mellom formene er altså et eget delpunkt med egen uttelling — det holder ikke å regne ut $c_n$ og stoppe der.\n\n**Formelark-merking.** Ingen rad på det utdelte arket dekker den komplekse Fourier-rekka; hele apparatet **må kunnes** eller utledes aktivt. Til gjengjeld er det korte formler: én integralformel og to broformler. De **trigonometriske identitetene står på det utdelte formelarket — tren oppslaget** hvis du trenger dem underveis.\n\n**Tidsbruk:** 50 minutter lesetid, tre løkker. Kapitlet er kortere enn de to foregående, og det er med vilje: det meste er allerede kjent, bare skrevet om."
+    },
+    {
+      "id": "tma4135-3-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 1.1](/tma4135/tma4135-1-1) — Eulers formel $e^{i\\theta} = \\cos\\theta+i\\sin\\theta$, kompleks konjugering og regning med $i$. Og [kap. 3.1](/tma4135/tma4135-3-1) — koeffisientintegralene og symmetriregelen.\n\nTrenger du én ting friskt i hodet, er det disse to fra [kap. 1.1](/tma4135/tma4135-1-1):\n\n$$\\cos\\theta = \\frac{e^{i\\theta}+e^{-i\\theta}}{2}, \\qquad \\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}.$$\n\n**Merk nevneren $2i$ i sinusformelen.** Halvparten av fortegnsfeilene i dette kapitlet kommer fra å skrive $2$ der.\n\nKapitlet er forutsetning for [kap. 3.4](/tma4135/tma4135-3-4), [kap. 4.1](/tma4135/tma4135-4-1) og [kap. 4.3](/tma4135/tma4135-4-3)."
+    },
+    {
+      "id": "tma4135-3-3-motivasjon",
+      "type": "text",
+      "content": "## To følger blir til én\n\nDen reelle rekka har to koeffisientfølger å holde styr på, $a_n$ og $b_n$, og hvert ledd er en sum av to funksjoner. Det er tungvint å skrive, tungvint å derivere, og tungvint å generalisere.\n\nDen komplekse formen samler alt i **én** følge $c_n$ og **én** funksjon $e^{inx}$. Det er samme informasjon, pakket tettere. Prisen er at koeffisientene blir komplekse tall; gevinsten er at all regning blir kortere, fordi $e^{inx}$ deriveres og integreres uten at det skjer noe med formen.\n\nDet er også den formen resten av faget bruker. En signalbehandler snakker aldri om $a_n$ og $b_n$; hun snakker om spekteret $|c_n|$ — hvor mye energi som ligger på hver frekvens. Og når frekvensene går fra å være diskrete ($n = 0, \\pm1, \\pm2,\\dots$) til å være kontinuerlige, blir summen til et integral, og du har Fourier-transformen i [kap. 4.1](/tma4135/tma4135-4-1).\n\n**Én ting kan virke rar først:** rekka summerer over $n$ fra $-\\infty$ til $\\infty$, altså også over «negative frekvenser». Det er ikke fysikk, det er bokføring. Leddene $n$ og $-n$ hører sammen parvis, og summen av paret er alltid reell — det er nettopp det som gjør at en reell funksjon kommer ut i den andre enden.\n\nKapitlet gjør tre ting: definerer $c_n$, bygger broen til $a_n$ og $b_n$, og viser hva som skjer med $c_n$ når funksjonen er reell, odde eller like."
+    },
+    {
+      "id": "tma4135-3-3-fc-notis",
+      "type": "text",
+      "content": "**Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 50 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-3-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra to følger til én (~17 min)\n\nVi utleder den komplekse formen ved å bytte ut $\\cos$ og $\\sin$ med eksponentialer i den reelle rekka. Utledningen er tre linjer, og den forklarer samtidig hvorfor summen må gå over negative $n$."
+    },
+    {
+      "id": "tma4135-3-3-def-euler",
+      "type": "definition",
+      "title": "Eulers formler for cosinus og sinus",
+      "content": "Broen mellom trigonometri og eksponentialfunksjonen, hentet fra [kap. 1.1](/tma4135/tma4135-1-1):\n\n$$\\cos\\theta = \\frac{e^{i\\theta}+e^{-i\\theta}}{2}, \\qquad \\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}.$$\n\nNevneren i sinusformelen er $2i$, ikke $2$. Og siden $\\frac{1}{i} = -i$, kan sinusformelen også skrives $\\sin\\theta = -\\tfrac{i}{2}\\left(e^{i\\theta}-e^{-i\\theta}\\right)$ — en form som er lettere å regne med."
+    },
+    {
+      "id": "tma4135-3-3-utledning",
+      "type": "text",
+      "content": "**Utledningen, i tre linjer.** Start med den reelle rekka for $L=\\pi$ (samme argument fungerer for generell $L$):\n\n$$f(x) = a_0+\\sum_{n=1}^{\\infty}\\left(a_n\\cos nx + b_n\\sin nx\\right).$$\n\nSett inn Eulers formler i hvert ledd:\n\n$$a_n\\cos nx + b_n\\sin nx = a_n\\frac{e^{inx}+e^{-inx}}{2}+b_n\\frac{e^{inx}-e^{-inx}}{2i} = \\frac{a_n-ib_n}{2}e^{inx}+\\frac{a_n+ib_n}{2}e^{-inx},$$\n\nder vi brukte $\\frac{1}{2i} = -\\frac{i}{2}$ i siste steg.\n\n**Intuisjon:** hvert reelt ledd har spaltet seg i to komplekse ledd, ett med $e^{inx}$ og ett med $e^{-inx}$. Døper vi den første koeffisienten $c_n$ og den andre $c_{-n}$, kan hele rekka skrives som én sum over alle heltall — positive, negative og null. Det er *derfor* summen går fra $-\\infty$ til $\\infty$: de negative indeksene er ikke nye frekvenser, de er den andre halvparten av leddene du allerede hadde."
+    },
+    {
+      "id": "tma4135-3-3-def-kompleks-rekke",
+      "type": "definition",
+      "title": "Den komplekse Fourier-rekka",
+      "content": "Oppspaltningen skrevet med komplekse eksponentialer:\n\n$$f(x) = \\sum_{n=-\\infty}^{\\infty} c_n e^{inx}$$\n\nfor en funksjon med halvperiode $L=\\pi$, og\n\n$$f(x) = \\sum_{n=-\\infty}^{\\infty} c_n e^{i n\\pi x/L}$$\n\ngenerelt. Summen går over **alle** heltall $n$, også de negative og null."
+    },
+    {
+      "id": "tma4135-3-3-def-cn",
+      "type": "definition",
+      "title": "Den komplekse koeffisienten $c_n$",
+      "content": "Koeffisienten hentes med samme grep som i den reelle rekka — gang med den konjugerte basisfunksjonen og integrer:\n\n$$c_n = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} f(x)\\,e^{-inx}\\,dx, \\qquad n = 0,\\pm1,\\pm2,\\dots$$\n\n**Merk to ting.** Nevneren er $2\\pi$ (hele periodelengden) for **alle** $n$, også $n=0$ — her er det ingen forskjellsbehandling av konstantleddet slik det var i den reelle formen. Og **eksponenten i integralet har minus**, mens den i rekka har pluss. Å bytte om de to er den vanligste feilen i sjangeren."
+    },
+    {
+      "id": "tma4135-3-3-def-cn-generell",
+      "type": "definition",
+      "title": "$c_n$ for generell halvperiode",
+      "content": "Har $f$ halvperiode $L$ i stedet for $\\pi$:\n\n$$c_n = \\frac{1}{2L}\\int_{-L}^{L} f(x)\\,e^{-i n\\pi x/L}\\,dx.$$\n\nMønsteret er det samme som i den reelle rekka: argumentet er $\\frac{n\\pi x}{L}$, og faktoren foran er én delt på hele periodelengden."
+    },
+    {
+      "id": "tma4135-3-3-def-c0",
+      "type": "definition",
+      "title": "Konstantleddet $c_0$",
+      "content": "Sett $n=0$ i formelen; da er $e^{0}=1$, og\n\n$$c_0 = \\frac{1}{2L}\\int_{-L}^{L} f(x)\\,dx = a_0.$$\n\n$c_0$ er altså **middelverdien** av funksjonen, akkurat som $a_0$ var det. Den er alltid reell når $f$ er reell, og den er ofte det ene tallet du kan lese av uten å integrere."
+    },
+    {
+      "id": "tma4135-3-3-def-ortogonalitet-e",
+      "type": "definition",
+      "title": "Ortogonaliteten til $e^{inx}$",
+      "content": "Grunnen til at koeffisientformelen virker:\n\n$$\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} e^{imx}e^{-inx}\\,dx = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} e^{i(m-n)x}\\,dx = \\begin{cases} 1, & m=n \\\\ 0, & m\\ne n.\\end{cases}$$\n\nFor $m\\ne n$ er integralet $\\left[\\frac{e^{i(m-n)x}}{i(m-n)}\\right]_{-\\pi}^{\\pi}$, og siden $e^{ik\\pi} = e^{-ik\\pi}$ for heltall $k$, blir det null. For $m=n$ er integranden konstant lik 1.\n\nDette er den komplekse versjonen av ortogonalitetsrelasjonene fra [kap. 3.1](/tma4135/tma4135-3-1) — og legg merke til hvor mye kortere den er."
+    },
+    {
+      "id": "tma4135-3-3-def-negativ-frekvens",
+      "type": "definition",
+      "title": "Negativ frekvens",
+      "content": "Leddet med indeks $-n$, altså $c_{-n}e^{-inx}$.\n\nDet er ikke en fysisk svingning som går «baklengs». Det er den andre halvparten av det reelle leddet $a_n\\cos nx + b_n\\sin nx$, som ble spaltet i to da vi innførte eksponentialene. Leddene $n$ og $-n$ hører alltid sammen: legger du dem sammen, får du et reelt uttrykk igjen."
+    },
+    {
+      "id": "tma4135-3-3-eks1",
+      "type": "example",
+      "title": "Kompleks rekke til en enkel puls",
+      "problem": "La\n\n$$f(x) = \\begin{cases} 0, & -\\pi < x < 0 \\\\ 1, & \\;\\;\\,0 < x < \\pi\\end{cases}$$\n\nmed periode $2\\pi$. Finn den komplekse Fourier-rekka.",
+      "solution": "**Halvperioden** er $L=\\pi$, så $c_n = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} f e^{-inx}\\,dx$.\n\n**Konstantleddet.** Funksjonen er 1 på halve perioden og 0 på den andre, så middelverdien er\n$$c_0 = \\frac{1}{2\\pi}\\int_0^{\\pi} 1\\,dx = \\frac12.$$\n\n**De øvrige koeffisientene.** Siden $f=0$ på $(-\\pi,0)$, går integralet bare over $(0,\\pi)$:\n$$c_n = \\frac{1}{2\\pi}\\int_0^{\\pi} e^{-inx}\\,dx = \\frac{1}{2\\pi}\\left[\\frac{e^{-inx}}{-in}\\right]_0^{\\pi} = \\frac{1}{2\\pi}\\cdot\\frac{1-e^{-in\\pi}}{in}.$$\nNå er $e^{-in\\pi} = \\cos n\\pi - i\\sin n\\pi = (-1)^n$, så\n$$c_n = \\frac{1-(-1)^n}{2\\pi i n}, \\qquad n\\ne 0.$$\n\n**Les av mønsteret.** For **like** $n$ er telleren 0, så $c_n=0$. For **odde** $n$ er telleren 2, og med $\\frac{1}{i} = -i$:\n$$c_n = \\frac{2}{2\\pi i n} = \\frac{1}{i\\pi n} = -\\frac{i}{\\pi n}, \\qquad n \\text{ odde}.$$\n\n**Rekka.**\n$$f(x) = \\frac12 - \\frac{i}{\\pi}\\sum_{\\substack{n=-\\infty \\\\ n \\text{ odde}}}^{\\infty}\\frac{e^{inx}}{n}.$$\n\n**Kontroll av konjugert symmetri.** $c_1 = -\\frac{i}{\\pi}$ og $c_{-1} = -\\frac{i}{\\pi\\cdot(-1)} = \\frac{i}{\\pi}$. Disse er hverandres komplekskonjugerte, slik de må være når $f$ er reell. Bra.\n\n**Kontroll mot den reelle rekka.** Slår vi sammen leddene $n=1$ og $n=-1$:\n$$c_1 e^{ix}+c_{-1}e^{-ix} = -\\frac{i}{\\pi}e^{ix}+\\frac{i}{\\pi}e^{-ix} = -\\frac{i}{\\pi}\\left(e^{ix}-e^{-ix}\\right) = -\\frac{i}{\\pi}\\cdot 2i\\sin x = \\frac{2}{\\pi}\\sin x.$$\nDet er nøyaktig det første leddet i den reelle rekka til denne pulsen, som er $\\frac12+\\frac{2}{\\pi}\\left(\\sin x + \\frac{\\sin 3x}{3}+\\cdots\\right)$. To komplekse ledd ble til ett reelt — akkurat som lovet."
+    },
+    {
+      "id": "tma4135-3-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-3-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Regn ut $c_0$ for hver av funksjonene på $[-\\pi,\\pi]$, uten å regne ut noen andre koeffisienter:\n\n**a)** $f(x) = x$\n**b)** $f(x) = x^2$\n**c)** $f(x) = e^{x}$\n**d)** $f(x) = 3$",
+        "solution": "$c_0$ er middelverdien: $c_0 = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} f\\,dx$.\n\n**a)** $f$ er odde, så integralet er 0 og $c_0 = 0$.\n\n**b)** $\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}x^2\\,dx = \\frac{1}{2\\pi}\\cdot\\frac{2\\pi^3}{3} = \\frac{\\pi^2}{3}.$\n\n**c)** $\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}e^x\\,dx = \\frac{e^{\\pi}-e^{-\\pi}}{2\\pi} = \\frac{\\sinh\\pi}{\\pi} \\approx 3{,}676.$\n\n**d)** Middelverdien av en konstant er konstanten selv: $c_0 = 3$.\n\n**Merk at $c_0$ alltid er reell når $f$ er reell.** Er du kommet fram til et komplekst $c_0$, har du regnefeil — sannsynligvis har du glemt at $e^{-i\\cdot 0\\cdot x} = 1$.",
+        "hints": [
+          "$c_0 = \\frac{1}{2L}\\int_{-L}^{L} f\\,dx$ — samme som $a_0$ i den reelle rekka.",
+          "Sjekk pariteten først: en odde funksjon har middelverdi null over et symmetrisk intervall."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-3-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D — Fourier-rekker, kompleks form.) Finn den komplekse Fourier-rekka til $f(x)=x^2$ på $[-\\pi,\\pi]$, periode $2\\pi$, ved å regne ut integralet direkte.\n\nKommenter hvorfor alle $c_n$ blir reelle.",
+        "solution": "**Konstantleddet.** $c_0 = \\frac{\\pi^2}{3}$ (regnet ut i forrige oppgave).\n\n**De øvrige.** For $n\\ne0$ skal vi regne ut\n$$I = \\int_{-\\pi}^{\\pi}x^2 e^{-inx}\\,dx, \\qquad c_n = \\frac{I}{2\\pi}.$$\n\n**Første delvise integrasjon**, med $u = x^2$ og $dv = e^{-inx}dx$, altså $v = \\dfrac{e^{-inx}}{-in}$:\n$$I = \\left[\\frac{x^2e^{-inx}}{-in}\\right]_{-\\pi}^{\\pi} + \\frac{2}{in}\\int_{-\\pi}^{\\pi}x\\,e^{-inx}\\,dx.$$\nKlammeleddet: med $e^{-in\\pi} = e^{in\\pi} = (-1)^n$ blir begge endene $\\dfrac{\\pi^2(-1)^n}{-in}$, og differansen er **null**.\n\n**Andre delvise integrasjon**, på restintegralet $J = \\int_{-\\pi}^{\\pi}x\\,e^{-inx}\\,dx$, med $u=x$:\n$$J = \\left[\\frac{xe^{-inx}}{-in}\\right]_{-\\pi}^{\\pi}+\\frac{1}{in}\\int_{-\\pi}^{\\pi}e^{-inx}\\,dx.$$\nDet siste integralet er null (repetisjonsoppgave R3). Klammeleddet gir $\\dfrac{\\pi(-1)^n}{-in}-\\dfrac{-\\pi(-1)^n}{-in} = \\dfrac{2\\pi(-1)^n}{-in}$.\n\n**Sett sammen.**\n$$I = \\frac{2}{in}\\cdot\\frac{2\\pi(-1)^n}{-in} = \\frac{4\\pi(-1)^n}{in\\cdot(-in)} = \\frac{4\\pi(-1)^n}{n^2},$$\nder vi brukte $in\\cdot(-in) = -i^2n^2 = n^2$. Altså\n$$c_n = \\frac{1}{2\\pi}\\cdot\\frac{4\\pi(-1)^n}{n^2} = \\frac{2(-1)^n}{n^2}.$$\n\n**Rekka.**\n$$x^2 = \\frac{\\pi^2}{3}+2\\sum_{\\substack{n=-\\infty\\\\ n\\ne0}}^{\\infty}\\frac{(-1)^n}{n^2}e^{inx}.$$\n\n**Hvorfor er alle $c_n$ reelle?** Fordi $f$ er både **reell og like**. Da er $c_{-n} = \\overline{c_n}$ (fordi $f$ er reell) *og* $c_{-n} = c_n$ (fordi $f$ er like), og et tall som er lik sin egen konjugerte, er reelt. Sjekk: $c_n = 2(-1)^n/n^2$ er uavhengig av fortegnet på $n$, og den er reell. Stemmer.\n\n**Kontroll mot den reelle rekka.** Fra [kap. 3.1](/tma4135/tma4135-3-1) er $a_n = \\frac{4(-1)^n}{n^2}$ og $b_n = 0$. Broformelen $c_n = \\tfrac12(a_n-ib_n)$ gir $\\tfrac12\\cdot\\frac{4(-1)^n}{n^2} = \\frac{2(-1)^n}{n^2}$. Stemmer.",
+        "hints": [
+          "Delvis integrasjon med $u=x^2$, $dv = e^{-inx}dx$. Antideriverte til $e^{-inx}$ er $e^{-inx}/(-in)$.",
+          "Bruk $e^{-in\\pi} = e^{in\\pi} = (-1)^n$ i begge grensene — det luker ut flere ledd.",
+          "Til slutt: $\\frac{1}{in}\\cdot\\frac{1}{-in} = \\frac{1}{n^2}$, ikke $-\\frac{1}{n^2}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Broen mellom formene (~17 min)\n\nEksamensoppgaven stopper sjelden ved $c_n$. Det neste delpunktet er nesten alltid «vis hvordan $a_n$ og $b_n$ følger av $c_n$» — eller motsatt vei. Begge retninger er tre linjer, og de er verdt å kunne begge veier."
+    },
+    {
+      "id": "tma4135-3-3-def-bro-fram",
+      "type": "definition",
+      "title": "Broen fra $a_n,b_n$ til $c_n$",
+      "content": "Fra utledningen i løkke 1:\n\n$$c_n = \\frac{a_n-ib_n}{2}, \\qquad c_{-n} = \\frac{a_n+ib_n}{2}, \\qquad c_0 = a_0 \\qquad (n \\ge 1).$$\n\n**Huskeregel:** positiv indeks gir minus foran $i$. Byttes de om, får du speilbildet av rekka."
+    },
+    {
+      "id": "tma4135-3-3-def-bro-tilbake",
+      "type": "definition",
+      "title": "Broen fra $c_n$ til $a_n,b_n$",
+      "content": "Løs de to likningene over for $a_n$ og $b_n$:\n\n$$a_n = c_n+c_{-n}, \\qquad b_n = i\\left(c_n-c_{-n}\\right), \\qquad a_0 = c_0 \\qquad (n\\ge1).$$\n\nEr $f$ reell, forenkler dette seg ytterligere (se neste definisjon):\n\n$$a_n = 2\\operatorname{Re}(c_n), \\qquad b_n = -2\\operatorname{Im}(c_n).$$\n\n**Merk minustegnet foran $2\\operatorname{Im}$.** Det er den enkeltdetaljen som oftest går galt."
+    },
+    {
+      "id": "tma4135-3-3-def-konjugert-symmetri",
+      "type": "definition",
+      "title": "Konjugert symmetri for reell $f$",
+      "content": "Er $f$ **reell**, så er\n\n$$c_{-n} = \\overline{c_n} \\qquad \\text{for alle } n.$$\n\n**Begrunnelse:** konjuger integralformelen. Siden $\\overline{f} = f$ og $\\overline{e^{-inx}} = e^{inx}$, blir\n$$\\overline{c_n} = \\frac{1}{2L}\\int_{-L}^{L} f(x)e^{in\\pi x/L}\\,dx = c_{-n}.$$\n\n**Praktisk nytte:** du trenger bare regne ut $c_n$ for $n \\ge 0$. De negative får du gratis ved å konjugere. Det halverer arbeidet, og det er også testen på om et gitt sett koeffisienter kan komme fra en reell funksjon."
+    },
+    {
+      "id": "tma4135-3-3-def-paritet-cn",
+      "type": "definition",
+      "title": "Paritet lest av $c_n$",
+      "content": "For en **reell** funksjon $f$:\n\n- $f$ **like** $\\Rightarrow$ alle $b_n = 0$ $\\Rightarrow$ alle $c_n$ er **reelle**, og $c_{-n}=c_n$;\n- $f$ **odde** $\\Rightarrow$ alle $a_n = 0$ og $a_0=0$ $\\Rightarrow$ alle $c_n$ er **rent imaginære**, og $c_{-n}=-c_n$.\n\nDette er en rask kontroll: får du komplekse $c_n$ for en like funksjon, har du regnefeil et sted."
+    },
+    {
+      "id": "tma4135-3-3-teo-bro",
+      "type": "theorem",
+      "title": "Broen mellom den komplekse og den reelle formen",
+      "content": "La $f$ være reell, periodisk med halvperiode $L$ og stykkevis glatt. Da gjelder for $n\\ge1$:\n\n$$c_n = \\frac{a_n-ib_n}{2}, \\qquad a_n = c_n+c_{-n} = 2\\operatorname{Re}(c_n), \\qquad b_n = i\\left(c_n-c_{-n}\\right) = -2\\operatorname{Im}(c_n),$$\n\nog $c_0 = a_0$.\n\n**Bevis.** Fra utledningen i løkke 1 er $a_n\\cos\\frac{n\\pi x}{L}+b_n\\sin\\frac{n\\pi x}{L} = \\frac{a_n-ib_n}{2}e^{in\\pi x/L}+\\frac{a_n+ib_n}{2}e^{-in\\pi x/L}$. Sammenlikner vi med $c_n e^{in\\pi x/L}+c_{-n}e^{-in\\pi x/L}$ og bruker at basisfunksjonene er ortogonale (og dermed lineært uavhengige), må koeffisientene stemme ledd for ledd. Det gir de to første likningene.\n\nAdderer vi dem, får vi $c_n+c_{-n} = a_n$. Subtraherer vi, får vi $c_n - c_{-n} = -ib_n$, altså $b_n = i(c_n-c_{-n})$.\n\nEr $f$ reell, er $c_{-n}=\\overline{c_n}$, og da er $c_n+\\overline{c_n} = 2\\operatorname{Re}(c_n)$ mens $i\\left(c_n-\\overline{c_n}\\right) = i\\cdot 2i\\operatorname{Im}(c_n) = -2\\operatorname{Im}(c_n)$. Det gir de to siste. $\\blacksquare$\n\n**Hele teoremet må kunnes** — det står ikke på det utdelte formelarket. Til gjengjeld er det to formler, og de er hverandres motsatte."
+    },
+    {
+      "id": "tma4135-3-3-def-amplitude",
+      "type": "definition",
+      "title": "Amplitudespekteret $|c_n|$",
+      "content": "Absoluttverdien av koeffisienten:\n\n$$|c_n| = \\sqrt{\\left(\\operatorname{Re}c_n\\right)^2+\\left(\\operatorname{Im}c_n\\right)^2} = \\frac{\\sqrt{a_n^2+b_n^2}}{2} \\quad (n\\ge1).$$\n\nDette er hvor mye energi som ligger på frekvens $n$. Tegner du $|c_n|$ mot $n$, får du **spekteret** — det er den framstillingen en signalbehandler faktisk ser på. For en reell funksjon er spekteret symmetrisk om $n=0$, siden $|c_{-n}| = |\\overline{c_n}| = |c_n|$."
+    },
+    {
+      "id": "tma4135-3-3-def-fase",
+      "type": "definition",
+      "title": "Fasespekteret $\\arg c_n$",
+      "content": "Argumentet til koeffisienten — vinkelen i det komplekse planet:\n\n$$\\arg c_n = \\arctan\\frac{\\operatorname{Im}c_n}{\\operatorname{Re}c_n} \\quad\\text{(med riktig kvadrant)}.$$\n\nFasen forteller hvor svingningen med frekvens $n$ ligger i tid, altså hvor mye den er forskjøvet. Amplituden alene bestemmer ikke funksjonen: to signaler kan ha identiske amplitudespektre og likevel se helt forskjellige ut, hvis fasene er ulike."
+    },
+    {
+      "id": "tma4135-3-3-def-symmetrisk-delsum",
+      "type": "definition",
+      "title": "Den symmetriske delsummen",
+      "content": "Delsummen av en kompleks rekke tas alltid symmetrisk om null:\n\n$$S_N(x) = \\sum_{n=-N}^{N} c_n e^{in\\pi x/L}.$$\n\n**Grunnen:** leddene $n$ og $-n$ hører sammen og gir til sammen et reelt bidrag. Tar du bare med den ene, står du igjen med et komplekst tall der svaret skulle vært reelt. Er du usikker på om du har regnet riktig, er dette en god test: par sammen $n$ og $-n$ og sjekk at $i$-ene kansellerer."
+    },
+    {
+      "id": "tma4135-3-3-def-konjugat",
+      "type": "definition",
+      "title": "Kompleks konjugering",
+      "content": "Å bytte fortegn på den imaginære delen: $\\overline{a+bi} = a-bi$.\n\nDe tre reglene du bruker i dette kapitlet:\n\n$$\\overline{z+w} = \\overline z+\\overline w, \\qquad \\overline{zw} = \\overline z\\,\\overline w, \\qquad \\overline{e^{i\\theta}} = e^{-i\\theta} \\text{ for reell }\\theta.$$\n\nDen siste er den viktigste: den er hele grunnen til at konjugering av $c_n$ gir $c_{-n}$."
+    },
+    {
+      "id": "tma4135-3-3-eks2",
+      "type": "example",
+      "title": "Eksamensnivå: $f(x)=e^{x}$ på $[-\\pi,\\pi]$",
+      "problem": "La $f(x)=e^{x}$ på $[-\\pi,\\pi]$, utvidet periodisk med periode $2\\pi$.\n\n**a)** Finn den komplekse Fourier-rekka.\n**b)** Utled $a_n$ og $b_n$ fra $c_n$.\n**c)** Kontroller at $c_{-n}=\\overline{c_n}$, og forklar hva det betyr.\n\nFør løsningen som en toppbesvarelse.",
+      "solution": "**a) Den komplekse rekka.** Halvperioden er $L=\\pi$, så\n$$c_n = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} e^{x}e^{-inx}\\,dx = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} e^{(1-in)x}\\,dx.$$\n\nHer er hele poenget med den komplekse formen synlig: integranden er **én** eksponentialfunksjon, så det trengs ingen delvis integrasjon i det hele tatt.\n\n$$c_n = \\frac{1}{2\\pi}\\left[\\frac{e^{(1-in)x}}{1-in}\\right]_{-\\pi}^{\\pi} = \\frac{1}{2\\pi(1-in)}\\left(e^{\\pi}e^{-in\\pi}-e^{-\\pi}e^{in\\pi}\\right).$$\n\nNå er $e^{-in\\pi} = e^{in\\pi} = (-1)^n$, så begge faktorene blir den samme, og\n$$c_n = \\frac{(-1)^n\\left(e^{\\pi}-e^{-\\pi}\\right)}{2\\pi(1-in)} = \\frac{(-1)^n\\sinh\\pi}{\\pi\\left(1-in\\right)},$$\nder vi brukte $\\sinh\\pi = \\tfrac12\\left(e^{\\pi}-e^{-\\pi}\\right)$.\n\nRekka:\n$$e^{x} = \\frac{\\sinh\\pi}{\\pi}\\sum_{n=-\\infty}^{\\infty}\\frac{(-1)^n}{1-in}e^{inx}, \\qquad -\\pi<x<\\pi.$$\n\n*Kontroll av $c_0$:* sett $n=0$: $c_0 = \\frac{\\sinh\\pi}{\\pi} \\approx 3{,}676$. Det stemmer med middelverdien vi regnet ut i oppgave 1c. Bra.\n\n**b) Broen til $a_n$ og $b_n$.** Først gjør vi nevneren reell ved å forlenge med den konjugerte:\n$$c_n = \\frac{(-1)^n\\sinh\\pi}{\\pi}\\cdot\\frac{1+in}{(1-in)(1+in)} = \\frac{(-1)^n\\sinh\\pi\\left(1+in\\right)}{\\pi\\left(1+n^2\\right)}.$$\nNå leses real- og imaginærdel rett av:\n$$\\operatorname{Re}c_n = \\frac{(-1)^n\\sinh\\pi}{\\pi\\left(1+n^2\\right)}, \\qquad \\operatorname{Im}c_n = \\frac{(-1)^n n\\sinh\\pi}{\\pi\\left(1+n^2\\right)}.$$\n**Etter broformelen** $a_n = 2\\operatorname{Re}(c_n)$ og $b_n = -2\\operatorname{Im}(c_n)$:\n$$a_n = \\frac{2(-1)^n\\sinh\\pi}{\\pi\\left(1+n^2\\right)}, \\qquad b_n = \\frac{2(-1)^{n+1}n\\sinh\\pi}{\\pi\\left(1+n^2\\right)}.$$\nOg $a_0 = c_0 = \\frac{\\sinh\\pi}{\\pi}$.\n\n*Kontroll ved direkte regning:* regner du $a_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi}e^x\\cos nx\\,dx$ med delvis integrasjon to ganger, får du nøyaktig samme uttrykk. Det tar fem ganger så lang tid. **Det er derfor den komplekse veien er den raske metoden for eksponentialfunksjoner** — si det gjerne i besvarelsen, for begge veier gir full uttelling og valget av den raske er et poeng i seg selv.\n\n**c) Konjugert symmetri.**\n$$\\overline{c_n} = \\frac{(-1)^n\\sinh\\pi}{\\pi\\left(1+in\\right)} \\quad\\text{og}\\quad c_{-n} = \\frac{(-1)^{-n}\\sinh\\pi}{\\pi\\left(1-i(-n)\\right)} = \\frac{(-1)^n\\sinh\\pi}{\\pi\\left(1+in\\right)}.$$\nDe er like. *(Her brukte vi at $(-1)^{-n} = (-1)^n$.)*\n\n**Hva det betyr:** $f$ er reell. Konjugert symmetri i koeffisientene er nøyaktig ekvivalent med at funksjonen er reell — og det er den testen [kap. 4.3](/tma4135/tma4135-4-3) bruker for å avgjøre om et gitt sett DFT-koeffisienter kan komme fra et reelt signal.\n\n*Merk også:* $c_n$ er verken rent reell eller rent imaginær, og det stemmer med at $e^x$ verken er like eller odde."
+    },
+    {
+      "id": "tma4135-3-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-3-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Sagtannen $f(x)=x$ på $[-\\pi,\\pi]$ har den reelle rekka med $a_n=0$ og $b_n = \\frac{2(-1)^{n+1}}{n}$ (fra [kap. 3.1](/tma4135/tma4135-3-1)).\n\n**a)** Bruk broformelen til å finne $c_n$.\n**b)** Kontroller at $c_{-n}=\\overline{c_n}$.\n**c)** Hva sier formen på $c_n$ om pariteten til $f$?",
+        "solution": "**a)** **Etter broformelen** $c_n = \\tfrac12\\left(a_n-ib_n\\right)$ med $a_n=0$:\n$$c_n = -\\frac{i}{2}\\cdot\\frac{2(-1)^{n+1}}{n} = \\frac{-i(-1)^{n+1}}{n} = \\frac{i(-1)^{n}}{n}, \\qquad n\\ge1,$$\nog $c_0 = a_0 = 0$. For negative indekser bruker vi $c_{-n} = \\tfrac12(a_n+ib_n) = -\\frac{i(-1)^n}{n}$.\n\nSkrevet samlet: $c_n = \\frac{i(-1)^n}{n}$ for **alle** $n\\ne0$, siden formelen gir riktig fortegn også for negative $n$ (fordi både $i$-en og $n$-et snur).\n\n*Kontroll:* $c_1 = i(-1)/1 = -i$ og $c_{-1} = i(-1)^{-1}/(-1) = i$. Stemmer med regelen over.\n\n**b)** $\\overline{c_n} = \\overline{\\frac{i(-1)^n}{n}} = -\\frac{i(-1)^n}{n}$, og $c_{-n} = \\frac{i(-1)^{-n}}{-n} = -\\frac{i(-1)^n}{n}$. De er like. Bra — $f$ er reell.\n\n**c)** Alle $c_n$ er **rent imaginære** (ingen realdel). Etter regelen i definisjonsboksen betyr det at $f$ er **odde**, og det stemmer: $f(x)=x$ er odde, alle $a_n$ er null, og bare sinusleddene finnes.\n\n**Praktisk nytte av c):** ser du på et sett komplekse koeffisienter og alle er rent imaginære, vet du med én gang at funksjonen er odde — uten å ha sett funksjonen.",
+        "hints": [
+          "$c_n = \\frac{a_n - ib_n}{2}$ for $n\\ge1$; her er $a_n=0$.",
+          "Husk at $(-1)^{-n} = (-1)^n$ for heltall $n$.",
+          "Rent imaginære koeffisienter hører til én av de to paritetene — hvilken?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-3-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et sett komplekse Fourier-koeffisienter er oppgitt. Avgjør i hvert tilfelle om de kan komme fra en **reell** funksjon, og begrunn.\n\n**a)** $c_0 = 1$, $c_1 = 2+i$, $c_{-1} = 2-i$, alle andre null.\n**b)** $c_0 = 0$, $c_1 = i$, $c_{-1} = i$, alle andre null.\n**c)** $c_0 = i$, $c_1 = 1$, $c_{-1} = 1$, alle andre null.\n**d)** $c_0 = 2$, $c_1 = 3i$, $c_{-1} = -3i$, alle andre null.",
+        "solution": "Testen er **konjugert symmetri**: $c_{-n} = \\overline{c_n}$ for alle $n$, inkludert $n=0$ (som gir at $c_0$ må være reell).\n\n**a) Ja.** $\\overline{c_1} = \\overline{2+i} = 2-i = c_{-1}$, og $c_0=1$ er reell. Funksjonen er\n$$f(x) = 1+(2+i)e^{ix}+(2-i)e^{-ix} = 1+4\\cos x - 2\\sin x,$$\nsom er reell. *(Utregning: $(2+i)e^{ix}+(2-i)e^{-ix} = 2\\left(e^{ix}+e^{-ix}\\right)+i\\left(e^{ix}-e^{-ix}\\right) = 4\\cos x + i\\cdot 2i\\sin x = 4\\cos x-2\\sin x$.)*\n\n**b) Nei.** $\\overline{c_1} = -i$, men $c_{-1} = i$. Symmetrien brytes. Funksjonen blir\n$$i e^{ix}+ie^{-ix} = i\\cdot 2\\cos x = 2i\\cos x,$$\nsom er rent imaginær, ikke reell.\n\n**c) Nei.** Her er $c_1$ og $c_{-1}$ i orden ($\\overline{1}=1$), men $c_0 = i$ er ikke reell. Funksjonen får et konstant imaginært ledd: $f(x) = i+2\\cos x$.\n\n**d) Ja.** $\\overline{c_1} = \\overline{3i} = -3i = c_{-1}$, og $c_0=2$ er reell. Funksjonen er\n$$2+3ie^{ix}-3ie^{-ix} = 2+3i\\cdot 2i\\sin x = 2-6\\sin x.$$\nAlle koeffisientene for $n\\ne0$ er rent imaginære, så den ikke-konstante delen er odde — og det stemmer, siden $-6\\sin x$ er odde.\n\n**Oppsummert:** a) ja, b) nei, c) nei, d) ja.",
+        "hints": [
+          "Testen er $c_{-n} = \\overline{c_n}$ — sjekk den for hver indeks, også $n=0$.",
+          "Regn ut funksjonen i hvert tilfelle og se om $i$-ene kansellerer.",
+          "For $n=0$ betyr betingelsen at $c_0$ må være et reelt tall."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-3-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~34 min brukt) —\n\nDu har definisjonen av $c_n$ og broen begge veier. Resten av kapitlet er metodevalget: når lønner den komplekse formen seg, og når er den reelle raskere? Det er en kort løkke, men den avgjør hvor mye tid du sparer på eksamen."
+    },
+    {
+      "id": "tma4135-3-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Når lønner den komplekse veien seg? (~14 min)\n\nDen komplekse formen er ikke alltid raskest. Her er den enkle regelen, og deretter oppgaver som trener begge veier."
+    },
+    {
+      "id": "tma4135-3-3-def-skift",
+      "type": "definition",
+      "title": "Skifteegenskapen for koeffisientene",
+      "content": "Forskyver du funksjonen langs $x$-aksen, endres bare fasen til koeffisientene — ikke amplituden. Er $g(x) = f(x-d)$, så er\n\n$$c_n^{(g)} = e^{-in\\pi d/L}\\,c_n^{(f)}.$$\n\n**Utledning:** substituer $u = x-d$ i koeffisientintegralet. Da blir $e^{-in\\pi x/L} = e^{-in\\pi(u+d)/L} = e^{-in\\pi d/L}e^{-in\\pi u/L}$, og den første faktoren er konstant og kan settes utenfor.\n\n**Konsekvens:** $\\left|c_n^{(g)}\\right| = \\left|c_n^{(f)}\\right|$ — amplitudespekteret er upåvirket av forskyvning. Den samme egenskapen dukker opp igjen for den diskrete transformen i [kap. 4.3](/tma4135/tma4135-4-3), der den kalles skifteegenskapen og skal bevises."
+    },
+    {
+      "id": "tma4135-3-3-naar-kompleks",
+      "type": "text",
+      "content": "**Velg den komplekse veien når integranden inneholder en eksponentialfunksjon.** Da smelter $e^{ax}$ og $e^{-inx}$ sammen til én eksponential, og integralet er ferdig på én linje. Eksempler: $e^x$, $e^{2x}$, $\\cosh x$, $\\sinh x$.\n\n**Velg den reelle veien når funksjonen er et polynom eller stykkevis konstant og du kjenner pariteten.** Da sparer symmetriregelen deg for et helt integral, og reduksjonsformlene på det utdelte formelarket gjør resten. Å regne $\\int x^2 e^{-inx}dx$ komplekst er ikke raskere enn $\\int x^2\\cos nx\\,dx$ reelt.\n\n**Spør du hvilken sensor vil ha?** Begge. Kravet er at metoden navngis og at føringen henger sammen. Sier du «jeg bruker den komplekse formen fordi integranden da blir én eksponential», har du både valgt riktig og begrunnet valget — og begrunnelsen teller.\n\n**En siste ting.** Ber oppgaven eksplisitt om den komplekse rekka, skal du levere $c_n$ — ikke $a_n$ og $b_n$ med en kommentar om at «de kan omregnes». Og ber den om broen, skal begge formene stå der."
+    },
+    {
+      "id": "tma4135-3-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-3-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger D, kompleks form.) Finn den komplekse Fourier-rekka til $f(x)=e^{-x}$ på $[-\\pi,\\pi]$, periode $2\\pi$, og sammenlikn koeffisientene med dem for $e^{x}$ fra eksempel 2.",
+        "solution": "**Integralet.** $L=\\pi$, og integranden blir én eksponential:\n$$c_n = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}e^{-x}e^{-inx}\\,dx = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}e^{-(1+in)x}\\,dx = \\frac{1}{2\\pi}\\left[\\frac{e^{-(1+in)x}}{-(1+in)}\\right]_{-\\pi}^{\\pi}.$$\nInnsatt, med $e^{\\mp in\\pi} = (-1)^n$:\n$$c_n = \\frac{1}{2\\pi\\left(1+in\\right)}\\left(e^{\\pi}e^{in\\pi}-e^{-\\pi}e^{-in\\pi}\\right) = \\frac{(-1)^n\\left(e^{\\pi}-e^{-\\pi}\\right)}{2\\pi\\left(1+in\\right)} = \\frac{(-1)^n\\sinh\\pi}{\\pi\\left(1+in\\right)}.$$\n\n**Rekka.**\n$$e^{-x} = \\frac{\\sinh\\pi}{\\pi}\\sum_{n=-\\infty}^{\\infty}\\frac{(-1)^n}{1+in}e^{inx}, \\qquad -\\pi<x<\\pi.$$\n\n**Sammenlikningen.** For $e^{x}$ var $c_n = \\frac{(-1)^n\\sinh\\pi}{\\pi(1-in)}$; her er nevneren $1+in$ i stedet. Med andre ord: koeffisientene for $e^{-x}$ er nøyaktig **koeffisientene for $e^{x}$ med byttet fortegn på indeksen**:\n$$c_n^{(e^{-x})} = c_{-n}^{(e^{x})}.$$\n\n**Hvorfor?** Fordi $e^{-x}$ er $e^{x}$ speilet: $g(x) = f(-x)$. Substituerer du $x\\to-x$ i koeffisientformelen, snur eksponenten fortegn, og du får nettopp $c_{-n}$. **Generelt: speiling av funksjonen speiler koeffisientfølgen.** Det er en regel verdt å kjenne — den sparer et helt integral hver gang oppgaven gir deg en speilvendt slektning av noe du allerede har regnet ut.\n\n**Kontroll.** $c_0 = \\frac{\\sinh\\pi}{\\pi}$, som må være middelverdien av $e^{-x}$ over $[-\\pi,\\pi]$. Den er $\\frac{1}{2\\pi}\\left(e^{\\pi}-e^{-\\pi}\\right) = \\frac{\\sinh\\pi}{\\pi}$. Stemmer — og den er den samme som for $e^x$, slik den må være når funksjonene er speilbilder.",
+        "hints": [
+          "Slå sammen $e^{-x}$ og $e^{-inx}$ til én eksponential $e^{-(1+in)x}$.",
+          "Antideriverte til $e^{kx}$ er $e^{kx}/k$ — her er $k = -(1+in)$.",
+          "Sammenlikn med $e^x$-svaret: hva har skjedd med fortegnet i nevneren?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-3-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En reell, $2\\pi$-periodisk funksjon har komplekse koeffisienter\n\n$$c_0 = 1, \\qquad c_n = \\frac{1}{n^2+1}+\\frac{i}{n} \\ \\ (n\\ge1),$$\n\nog $c_{-n}=\\overline{c_n}$.\n\n**a)** Finn $a_n$ og $b_n$.\n**b)** Finn amplituden $|c_1|$ og amplituden $\\sqrt{a_1^2+b_1^2}$ til det første reelle leddet, og kontroller sammenhengen mellom dem.\n**c)** Er funksjonen like, odde eller ingen av delene?",
+        "solution": "**a)** **Etter broformelen** for reell $f$:\n$$a_n = 2\\operatorname{Re}(c_n) = \\frac{2}{n^2+1}, \\qquad b_n = -2\\operatorname{Im}(c_n) = -\\frac{2}{n}, \\qquad a_0 = c_0 = 1.$$\n\n**b)** $|c_1| = \\left|\\tfrac12+i\\right| = \\sqrt{\\tfrac14+1} = \\sqrt{\\tfrac54} = \\frac{\\sqrt5}{2}\\approx 1{,}118$.\n\nOg $a_1 = 1$, $b_1 = -2$, så $\\sqrt{a_1^2+b_1^2} = \\sqrt{1+4} = \\sqrt5 \\approx 2{,}236$.\n\nSammenhengen fra definisjonsboksen er $|c_n| = \\tfrac12\\sqrt{a_n^2+b_n^2}$, og $\\tfrac12\\sqrt5 = \\frac{\\sqrt5}{2}$. Stemmer.\n\n**Hvorfor faktoren $\\tfrac12$?** Fordi det reelle leddet med amplitude $\\sqrt{a_n^2+b_n^2}$ er delt likt på to komplekse ledd, ett med indeks $n$ og ett med $-n$. Hver av dem har halve amplituden.\n\n**c)** Verken like eller odde. Koeffisientene er verken rent reelle (som ville gitt like) eller rent imaginære (som ville gitt odde) — de har både realdel og imaginærdel. Tilsvarende: både $a_n$ og $b_n$ er forskjellige fra null.\n\n*Merk:* funksjonen kan likevel splittes i en like og en odde del. Den like delen har koeffisientene $\\operatorname{Re}(c_n)$, den odde delen $i\\operatorname{Im}(c_n)$. Det er samme oppspaltning som i [kap. 3.1](/tma4135/tma4135-3-1), bare uttrykt komplekst.",
+        "hints": [
+          "For reell $f$: $a_n = 2\\operatorname{Re}(c_n)$ og $b_n = -2\\operatorname{Im}(c_n)$ — pass på minustegnet.",
+          "$|z| = \\sqrt{(\\operatorname{Re}z)^2+(\\operatorname{Im}z)^2}$.",
+          "Rent reelle $c_n$ betyr like funksjon; rent imaginære betyr odde."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-3-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — bevisoppgave.) La $f$ være en $2\\pi$-periodisk, stykkevis glatt funksjon med komplekse Fourier-koeffisienter $c_n$.\n\n**a)** Vis at $f$ er reell **hvis og bare hvis** $c_{-n}=\\overline{c_n}$ for alle $n$.\n**b)** Vis at hvis $f$ er reell og **odde**, så er alle $c_n$ rent imaginære.",
+        "solution": "**a)** Vi viser begge veier.\n\n**Fra reell til symmetri.** Anta $f$ reell, altså $\\overline{f(x)} = f(x)$ for alle $x$. Konjuger koeffisientformelen. Konjugering kan flyttes inn under integraltegnet fordi integralet er en grense av summer:\n$$\\overline{c_n} = \\overline{\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}f(x)e^{-inx}\\,dx} = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}\\overline{f(x)}\\;\\overline{e^{-inx}}\\,dx = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}f(x)e^{inx}\\,dx = c_{-n},$$\nder vi brukte $\\overline{e^{-inx}} = e^{inx}$ for reell $x$ og $\\overline f = f$. Altså $c_{-n}=\\overline{c_n}$.\n\n**Fra symmetri til reell.** Anta $c_{-n}=\\overline{c_n}$ for alle $n$. Se på den symmetriske delsummen og par sammen indeksene $n$ og $-n$:\n$$c_n e^{inx}+c_{-n}e^{-inx} = c_ne^{inx}+\\overline{c_n}\\,\\overline{e^{inx}} = c_ne^{inx}+\\overline{c_ne^{inx}} = 2\\operatorname{Re}\\left(c_ne^{inx}\\right),$$\nsom er reelt. Leddet $n=0$ er $c_0$, som er reelt fordi betingelsen med $n=0$ sier $c_0 = \\overline{c_0}$. Hver symmetriske delsum er dermed reell, og grensen av reelle tall er reell. Altså er $f$ reell. $\\blacksquare$\n\n**b)** Anta $f$ reell og odde. Da gjelder to ting samtidig:\n\n- fordi $f$ er reell: $c_{-n}=\\overline{c_n}$;\n- fordi $f$ er odde: substituer $x\\to-x$ i integralet. Med $f(-x)=-f(x)$ blir\n  $$c_{-n} = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}f(x)e^{inx}\\,dx \\overset{x\\to-x}{=} \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}f(-x)e^{-inx}\\,dx = -c_n.$$\n  *(Substitusjonen snur grensene, men også fortegnet på $dx$, så de to effektene opphever hverandre.)*\n\nTil sammen: $\\overline{c_n} = c_{-n} = -c_n$. Skriv $c_n = \\alpha+i\\beta$ med reelle $\\alpha,\\beta$. Da sier likningen $\\alpha-i\\beta = -\\alpha-i\\beta$, altså $\\alpha = -\\alpha$, altså $\\alpha = 0$. Koeffisienten er rent imaginær. $\\blacksquare$\n\n**Sjekk mot et kjent eksempel.** Sagtannen $f(x)=x$ er reell og odde, og vi fant $c_n = \\frac{i(-1)^n}{n}$ — rent imaginær. Stemmer.",
+        "hints": [
+          "For a) én vei: konjuger koeffisientformelen, og bruk at $\\overline{e^{-inx}} = e^{inx}$.",
+          "For a) andre vei: par sammen leddene $n$ og $-n$ i delsummen og se om paret er reelt.",
+          "For b): bruk substitusjonen $x\\to-x$ i integralet for $c_{-n}$, i tillegg til konjugeringen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Fortegn i eksponenten.** Integralet har $e^{-inx}$; rekka har $e^{+inx}$. Bytter du om, får du koeffisientene til den speilvendte funksjonen. Skriv de to formlene ved siden av hverandre på A5-arket ditt, med fortegnene tydelig markert.\n\n**Å glemme leddet $n=0$.** I den komplekse formen er $c_0$ en helt vanlig koeffisient, men den må likevel regnes ut for seg — formelen for de andre $c_n$ har ofte $n$ i nevneren og gir ingen mening i $n=0$. Sjekk alltid $n=0$ separat.\n\n**Å bare regne ut positive $n$.** Rekka går over alle heltall. Er $f$ reell, får du de negative gratis ved konjugering — men du må si det. Regner du bare $n\\ge1$ og skriver «rekka», mangler halvparten.\n\n**Minustegnet i $b_n = -2\\operatorname{Im}(c_n)$.** Dette er den enkeltdetaljen som oftest går galt i broen. Kontroll: for sagtannen er $c_n = i(-1)^n/n$, så $\\operatorname{Im}c_n = (-1)^n/n$ og $b_n = -2(-1)^n/n = 2(-1)^{n+1}/n$ — som stemmer med [kap. 3.1](/tma4135/tma4135-3-1).\n\n**Nevneren $2$ i stedet for $2i$ i Eulers sinusformel.** $\\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}$. Med $2$ i nevneren får du et rent imaginært svar der det skulle vært reelt.\n\n**Å ikke bruke konjugert symmetri som kontroll.** Er $f$ reell, *må* $c_{-n}=\\overline{c_n}$. Det er en gratis test som fanger de fleste fortegnsfeil på under et minutt — bruk den hver gang.\n\n**Å velge kompleks form der reell form er raskere.** For polynomer med kjent paritet er den reelle veien kortere, fordi symmetriregelen fjerner et helt integral. Velg etter integranden, ikke etter vane."
+    },
+    {
+      "id": "tma4135-3-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-3-3-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på det [kap. 1.1](/tma4135/tma4135-1-1) og [kap. 3.1](/tma4135/tma4135-3-1) forutsetter. Bruker du mer enn ti minutter, les løkke 2 i [kap. 1.1](/tma4135/tma4135-1-1) på nytt før du går videre til [kap. 3.4](/tma4135/tma4135-3-4)."
+        },
+        {
+          "id": "tma4135-3-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-3-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $e^{in\\pi}$ og $e^{-in\\pi}$ for heltall $n$, og forklar hvorfor de er like.",
+            "solution": "Etter Eulers formel er $e^{in\\pi} = \\cos n\\pi + i\\sin n\\pi = (-1)^n + 0 = (-1)^n$, og likeledes $e^{-in\\pi} = \\cos n\\pi - i\\sin n\\pi = (-1)^n$.\n\nDe er like fordi $\\sin n\\pi = 0$: det imaginære bidraget forsvinner, og cosinus er en like funksjon, så fortegnet på argumentet spiller ingen rolle.\n\nDette er grunnen til at grensene $x=\\pm\\pi$ gir samme faktor $(-1)^n$ i alle koeffisientintegraler.",
+            "hints": [
+              "Bruk Eulers formel og verdiene av $\\sin n\\pi$ og $\\cos n\\pi$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-3-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\frac{1}{i}$, $\\frac{1}{2i}$ og $\\frac{1}{1-i}$ på kartesisk form.",
+            "solution": "$$\\frac1i = \\frac{1\\cdot(-i)}{i\\cdot(-i)} = \\frac{-i}{1} = -i.$$\n$$\\frac{1}{2i} = -\\frac{i}{2}.$$\n$$\\frac{1}{1-i} = \\frac{1+i}{(1-i)(1+i)} = \\frac{1+i}{1+1} = \\frac12+\\frac{i}{2}.$$\n\nRegelen er alltid den samme: forleng med den konjugerte av nevneren. Det er nøyaktig grepet som brukes i eksempel 2 for å skille real- og imaginærdel av $c_n$.",
+            "hints": [
+              "Forleng med den konjugerte av nevneren.",
+              "$(1-i)(1+i) = 1 - i^2 = 2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-3-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\int_{-\\pi}^{\\pi} e^{ikx}\\,dx$ for heltall $k$, både for $k=0$ og for $k\\ne0$.",
+            "solution": "For $k=0$ er integranden konstant lik 1, så integralet er $2\\pi$.\n\nFor $k\\ne0$:\n$$\\int_{-\\pi}^{\\pi}e^{ikx}\\,dx = \\left[\\frac{e^{ikx}}{ik}\\right]_{-\\pi}^{\\pi} = \\frac{e^{ik\\pi}-e^{-ik\\pi}}{ik} = \\frac{(-1)^k-(-1)^k}{ik} = 0.$$\n\nDette ene regnestykket er hele ortogonaliteten til $e^{inx}$: setter du $k=m-n$, ser du at integralet av $e^{imx}e^{-inx}$ er $2\\pi$ når $m=n$ og 0 ellers.",
+            "hints": [
+              "Antideriverte til $e^{ikx}$ er $e^{ikx}/(ik)$, men bare når $k\\ne0$.",
+              "Bruk $e^{ik\\pi} = e^{-ik\\pi} = (-1)^k$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-3-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv $3\\cos 2x - 4\\sin 2x$ på formen $c_2 e^{2ix}+c_{-2}e^{-2ix}$, og kontroller at $c_{-2}=\\overline{c_2}$.",
+            "solution": "**Etter broformelen** med $a_2 = 3$ og $b_2 = -4$:\n$$c_2 = \\frac{a_2-ib_2}{2} = \\frac{3+4i}{2}, \\qquad c_{-2} = \\frac{a_2+ib_2}{2} = \\frac{3-4i}{2}.$$\n\n**Kontroll ved utregning:**\n$$\\frac{3+4i}{2}e^{2ix}+\\frac{3-4i}{2}e^{-2ix} = \\frac32\\left(e^{2ix}+e^{-2ix}\\right)+2i\\left(e^{2ix}-e^{-2ix}\\right) = 3\\cos 2x + 2i\\cdot 2i\\sin 2x = 3\\cos 2x-4\\sin 2x.$$\nStemmer.\n\n**Konjugert symmetri:** $\\overline{c_2} = \\overline{\\tfrac{3+4i}{2}} = \\tfrac{3-4i}{2} = c_{-2}$. Bra — funksjonen er reell.",
+            "hints": [
+              "$c_n = \\frac{a_n - ib_n}{2}$. Her er $b_2$ negativ, så pass på fortegnet.",
+              "Kontroller ved å gange ut med Eulers formler."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-3-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-3-3-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $c_n$ | Den komplekse Fourier-koeffisienten med indeks $n$ |\n| $c_0$ | Konstantleddet — middelverdien, alltid reell når $f$ er reell |\n| $c_{-n}$ | Koeffisienten med negativ indeks; den konjugerte av $c_n$ når $f$ er reell |\n| $a_n$, $b_n$ | Koeffisientene i den reelle rekka fra [kap. 3.1](/tma4135/tma4135-3-1) |\n| $e^{inx}$ | Basisfunksjonen i den komplekse rekka |\n| $i$ | Den imaginære enheten, $i^2=-1$ |\n| $\\overline{z}$ | Kompleks konjugat av $z$ |\n| $\\operatorname{Re}z$, $\\operatorname{Im}z$ | Realdel og imaginærdel — begge reelle tall |\n| $\\lvert c_n\\rvert$ | Amplituden på frekvens $n$; spekteret |\n| $\\arg c_n$ | Fasen på frekvens $n$ |\n| $L$ | Halvperioden; perioden er $2L$ |\n| $n$ | Frekvensindeks, her over **alle** heltall $\\dots,-2,-1,0,1,2,\\dots$ |\n| $S_N$ | Den symmetriske delsummen fra $-N$ til $N$ |\n"
+        },
+        {
+          "id": "tma4135-3-3-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$f(x) = \\sum_{n=-\\infty}^{\\infty}c_n e^{in\\pi x/L}$$\nDen komplekse Fourier-rekka. *(Må kunnes eller utledes aktivt.)*\n\n$$c_n = \\frac{1}{2L}\\int_{-L}^{L}f(x)e^{-in\\pi x/L}\\,dx$$\nKoeffisientformelen — minus i eksponenten, og nevner $2L$ for **alle** $n$. *(Må kunnes eller utledes aktivt.)*\n\n$$c_0 = a_0 = \\frac{1}{2L}\\int_{-L}^{L}f\\,dx$$\nKonstantleddet, altså middelverdien. *(Må kunnes.)*\n\n$$c_n = \\frac{a_n-ib_n}{2}, \\qquad c_{-n} = \\frac{a_n+ib_n}{2}$$\nBroen fra reell til kompleks form. *(Må kunnes eller utledes aktivt.)*\n\n$$a_n = c_n+c_{-n} = 2\\operatorname{Re}(c_n), \\qquad b_n = i\\left(c_n-c_{-n}\\right) = -2\\operatorname{Im}(c_n)$$\nBroen tilbake — merk minustegnet i den siste. *(Må kunnes eller utledes aktivt.)*\n\n$$f \\text{ reell} \\iff c_{-n} = \\overline{c_n}$$\nKonjugert symmetri. Samme test brukes på DFT-en i [kap. 4.3](/tma4135/tma4135-4-3). *(Må kunnes eller utledes aktivt.)*\n\n$$\\cos\\theta = \\frac{e^{i\\theta}+e^{-i\\theta}}{2}, \\qquad \\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}$$\nEulers formler — nevneren $2i$ i sinusformelen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}e^{i(m-n)x}\\,dx = \\begin{cases}1,& m=n\\\\ 0,& m\\ne n\\end{cases}$$\nOrtogonaliteten til de komplekse eksponentialene. *(Må kunnes eller utledes aktivt.)*\n\n$$e^{\\pm in\\pi} = (-1)^n$$\nVerdien som dukker opp hver gang du setter inn grensene. *(Må kunnes.)*\n\n$$\\lvert c_n\\rvert = \\tfrac12\\sqrt{a_n^2+b_n^2} \\quad (n\\ge1)$$\nSammenhengen mellom komplekst og reelt amplitudemål. *(Må kunnes eller utledes aktivt.)*\n\nDe **trigonometriske identitetene** du eventuelt trenger underveis, **står på det utdelte formelarket — tren oppslaget**. Ingen del av selve den komplekse rekka står der.\n\n**Kolliderende symboler:** $c_n$ er den komplekse Fourier-koeffisienten hele Del 3 og Del 4 igjennom; i Del 5 er $c$ derimot bølgefarten i bølgeligningen, og i Del 7 er $c$ nodevektoren i en Butcher-tabell. Bokstaven $L$ er halvperioden her, men kontraksjonskonstanten i Del 6. Bokstaven $n$ er frekvensindeksen; i Del 7 brukes $n$ også om skrittnummeret i en numerisk metode."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

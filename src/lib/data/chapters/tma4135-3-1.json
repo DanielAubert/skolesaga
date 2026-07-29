@@ -1,0 +1,522 @@
+{
+  "id": "tma4135-3-1",
+  "courseId": "tma4135",
+  "chapterNumber": "3.1",
+  "title": "Fourier-rekker — koeffisienter og symmetriutnyttelse",
+  "description": "Den reelle Fourier-rekka, koeffisientintegralene og hvordan symmetri halverer arbeidet før man regner.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp og regne ut koeffisientintegralene for en funksjon med vilkårlig halvperiode",
+    "avgjøre om en funksjon er like eller odde, og bruke symmetri til å utelukke koeffisienter før du integrerer",
+    "bruke delvis integrasjon og reduksjonsformlene fra det utdelte formelarket på ledd av typen polynom ganger cosinus eller sinus",
+    "kontrollere en ferdig rekke ved å sette inn en bekvem verdi av x, og bruke innsettingen til å summere en tallrekke"
+  ],
+  "content": [
+    {
+      "id": "tma4135-3-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Fourier — enten som rekke eller som transform — står på 13 av 13 gjennomgåtte sett.** Det er 100 %, og det er derfor Del 3 har høyeste prioritet i hele boka sammen med Laplace-delen.\n\nDette kapitlet er grunnmuren. Alt det som senere ser vanskelig ut — halvintervall-utvidelser, midling i sprang, den komplekse formen — er den samme regningen med en ekstra vri. Får du koeffisientene til å sitte her, er resten av Del 3 påbygg.\n\n**Oppgavene i denne sjangeren merkes med bokstaven D.** Boka bruker bokstavene A til S som korte navn på de nitten oppgavetypene som går igjen på settene; **D er Fourier-rekker**. Bokstavene forklares første gang de brukes i hvert kapittel, så du trenger ikke huske dem.\n\n**Ett triks går igjen i nesten hver eneste D-oppgave:** avgjør symmetrien *før* du integrerer. Er funksjonen odde, forsvinner alle cosinusleddene; er den like, forsvinner alle sinusleddene. Da halveres arbeidet, og halvparten av fortegnsfellene forsvinner med det.\n\n**Formelark-merking.** Eksamen har hjelpemiddelkode C: du får utdelt et formelark sammen med oppgavesettet, og du har med deg ditt eget håndskrevne A5-ark. På det utdelte arket finner du **reduksjonsformlene** for $\\int x^n\\cos ax\\,dx$ og $\\int x^n\\sin ax\\,dx$ og de **trigonometriske identitetene** — de **står på det utdelte formelarket, så tren oppslaget**. Selve koeffisientintegralene og symmetriargumentet **må kunnes** eller utledes aktivt.\n\n**Tidsbruk:** 60 minutter lesetid fordelt på fire løkker. Ganger du 1,5 fordi du skriver av for hånd, blir det halvannen time. Det er greit å dele over to økter — pausepunktet er markert."
+    },
+    {
+      "id": "tma4135-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 1.1](/tma4135/tma4135-1-1) — du trenger derfra bare at $\\cos$ og $\\sin$ er periodiske, og de eksakte verdiene av dem i multipler av $\\pi/2$. Den komplekse formen kommer først i [kap. 3.3](/tma4135/tma4135-3-3), så du kan lese dette kapitlet uten komplekse tall.\n\nFra tidligere matematikkemner forutsettes: bestemt integral, **delvis integrasjon**, og at du kan derivere og integrere $\\sin ax$ og $\\cos ax$. Trenger du å friske opp delvis integrasjon, ligger det fire korte oppgaver i repetisjonsboksen nederst.\n\nKapitlet er forutsetning for [kap. 3.2](/tma4135/tma4135-3-2), [kap. 3.3](/tma4135/tma4135-3-3) og [kap. 3.4](/tma4135/tma4135-3-4)."
+    },
+    {
+      "id": "tma4135-3-1-motivasjon",
+      "type": "text",
+      "content": "## En tone er aldri én tone\n\nSlår du an strengen A på en gitar, hører du 440 svingninger i sekundet. Men et oscilloskop viser noe annet enn en ren sinuskurve: signalet er takkete, med små buler oppå den store bølgen. Grunnen er at strengen svinger i flere moder samtidig — 440 Hz, 880 Hz, 1320 Hz og videre oppover — og det du hører, er summen. Det er nettopp derfor en gitar og et piano høres forskjellige ut selv når de spiller samme tone: styrkeforholdet mellom overtonene er ulikt.\n\nFourier snudde denne observasjonen til et regnestykke. **Enhver rimelig periodisk funksjon kan skrives som en sum av rene svingninger**, og koeffisientene i summen kan regnes ut med et integral. Det gjelder ikke bare pene kurver: firkantpulsen fra en digital krets, sagtannen fra en gammel synthesizer og temperatursvingningen over et år har alle en slik oppspaltning.\n\nFor deg som ingeniørstudent er nytten konkret: en differensiallikning som er vanskelig for en vilkårlig last, er lett for en ren sinus. Spalter du lasten i sinuser, løser du likningen for hver enkelt og legger sammen. Den strategien er hele Del 5 i denne boka.\n\nKapitlet gjør fire ting i denne rekkefølgen: setter opp rekka og koeffisientintegralene, viser hvordan symmetri halverer arbeidet, tar delvis integrasjon som er motoren i regningen, og til slutt generell periode med en oppgave på eksamensnivå."
+    },
+    {
+      "id": "tma4135-3-1-fc-notis",
+      "type": "text",
+      "content": "**Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene i dette kapitlet er samtidig kortene i flashcard-bunken. Ved første gjennomlesing holder det å lese formelen og gå videre til eksempelet; tidsanslaget på 60 minutter gjelder kjernestoffet, ikke pugging av boksene."
+    },
+    {
+      "id": "tma4135-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Rekka og de tre integralene (~16 min)\n\nVi starter med å skrive ned hva målet er, og deretter hvordan koeffisientene finnes. Alt i denne løkka er ren oppskrift; forståelsen kommer i løkke 2."
+    },
+    {
+      "id": "tma4135-3-1-def-periodisk",
+      "type": "definition",
+      "title": "Periodisk funksjon",
+      "content": "En funksjon som gjentar seg selv med faste mellomrom. At $f$ er **periodisk med periode $p$** betyr at\n\n$$f(x+p) = f(x) \\qquad \\text{for alle } x.$$\n\n$\\sin x$ og $\\cos x$ er periodiske med periode $2\\pi$. En konstant funksjon er periodisk med enhver periode."
+    },
+    {
+      "id": "tma4135-3-1-def-fundamental",
+      "type": "definition",
+      "title": "Fundamentalperioden",
+      "content": "Den **minste** positive perioden en funksjon har. For $\\sin x$ er den $2\\pi$; for $\\sin 2x$ er den $\\pi$; for $|\\sin x|$ er den $\\pi$, selv om $2\\pi$ også er en periode.\n\nNår en oppgave sier «periode 2», mener den nesten alltid fundamentalperioden. Bommer du på den, får du feil argument $n\\pi x/L$ i alle leddene på én gang."
+    },
+    {
+      "id": "tma4135-3-1-def-halvperiode",
+      "type": "definition",
+      "title": "Halvperioden $L$",
+      "content": "Halvparten av perioden. Er $f$ periodisk med periode $2L$, kaller vi $L$ **halvperioden**, og vi regner koeffisientene over intervallet $[-L,L]$.\n\n$$\\text{periode } 2L \\quad\\Longleftrightarrow\\quad \\text{halvperiode } L.$$\n\nEr funksjonen gitt på $[-\\pi,\\pi]$, er $L=\\pi$. Er den gitt på $[-2,2]$, er $L=2$. Dette ene tallet styrer alle argumentene i rekka, så skriv det ned aller først."
+    },
+    {
+      "id": "tma4135-3-1-def-stykkevis-kont",
+      "type": "definition",
+      "title": "Stykkevis kontinuerlig funksjon",
+      "content": "En funksjon som er kontinuerlig overalt bortsett fra i **endelig mange** punkter per periode, og som har endelige ensidige grenseverdier i hvert av dem.\n\nFirkantpulsen er stykkevis kontinuerlig: den hopper i $x=0$, men hoppet er endelig. Funksjonen $1/x$ er *ikke* stykkevis kontinuerlig i $x=0$, fordi grensen er uendelig."
+    },
+    {
+      "id": "tma4135-3-1-def-stykkevis-glatt",
+      "type": "definition",
+      "title": "Stykkevis glatt funksjon",
+      "content": "En funksjon der både $f$ og den deriverte $f'$ er stykkevis kontinuerlige.\n\nDette er den betingelsen som gjør at Fourier-rekka faktisk konvergerer mot funksjonen. Alle funksjonene du møter på eksamen i dette emnet — polynomer, firkantpulser, sagtenner, stykkevis lineære laster — er stykkevis glatte. Du trenger derfor sjelden sjekke betingelsen, men du bør vite at den finnes, og kunne si den."
+    },
+    {
+      "id": "tma4135-3-1-def-rekka",
+      "type": "definition",
+      "title": "Den reelle Fourier-rekka",
+      "content": "Oppspaltningen av en periodisk funksjon i en konstant pluss rene svingninger. For $f$ med halvperiode $L$:\n\n$$f(x) = a_0 + \\sum_{n=1}^{\\infty}\\left(a_n\\cos\\frac{n\\pi x}{L} + b_n\\sin\\frac{n\\pi x}{L}\\right).$$\n\nLeddet $a_0$ er middelverdien, $a_n$ er hvor mye cosinus med frekvens $n$ som ligger i signalet, og $b_n$ tilsvarende for sinus. **Merk konvensjonen:** her står $a_0$ alene, ikke som $a_0/2$. Noen bøker bruker den andre; da er formelen for $a_0$ tilsvarende annerledes. Boka holder seg til den her hele veien."
+    },
+    {
+      "id": "tma4135-3-1-def-a0",
+      "type": "definition",
+      "title": "Konstantleddet $a_0$",
+      "content": "Middelverdien av funksjonen over én periode:\n\n$$a_0 = \\frac{1}{2L}\\int_{-L}^{L} f(x)\\,dx.$$\n\nNevneren er $2L$, altså hele periodelengden — dette er den ene av de tre formlene som *ikke* har $L$ alene i nevneren. Det er den vanligste enkeltfeilen i sjanger D."
+    },
+    {
+      "id": "tma4135-3-1-def-an",
+      "type": "definition",
+      "title": "Cosinuskoeffisienten $a_n$",
+      "content": "Hvor stor andel av $f$ som er en cosinus med $n$ hele svingninger per periode:\n\n$$a_n = \\frac{1}{L}\\int_{-L}^{L} f(x)\\cos\\frac{n\\pi x}{L}\\,dx, \\qquad n = 1,2,3,\\dots$$\n\nNevneren er $L$, ikke $2L$."
+    },
+    {
+      "id": "tma4135-3-1-def-bn",
+      "type": "definition",
+      "title": "Sinuskoeffisienten $b_n$",
+      "content": "Det samme for sinus:\n\n$$b_n = \\frac{1}{L}\\int_{-L}^{L} f(x)\\sin\\frac{n\\pi x}{L}\\,dx, \\qquad n = 1,2,3,\\dots$$\n\nDe tre formlene over kalles gjerne **Eulers koeffisientformler**. De **må kunnes** eller utledes aktivt — de står ikke på det utdelte formelarket."
+    },
+    {
+      "id": "tma4135-3-1-ortogonalitet-tekst",
+      "type": "text",
+      "content": "**Hvorfor virker formlene?** Intuisjon: tenk på $\\cos\\frac{n\\pi x}{L}$ og $\\sin\\frac{n\\pi x}{L}$ som retninger i et rom, akkurat som $\\mathbf{i}$, $\\mathbf{j}$ og $\\mathbf{k}$ i tre dimensjoner. To ulike slike funksjoner er «vinkelrette» på hverandre i den forstand at integralet av produktet deres over en periode er null. Skal du finne komponenten av en vektor langs $\\mathbf{i}$, tar du prikkproduktet med $\\mathbf{i}$. Skal du finne $a_n$, ganger du $f$ med $\\cos\\frac{n\\pi x}{L}$ og integrerer — alle andre ledd faller bort, og bare det ene du er ute etter blir igjen.\n\nDet er hele utledningen. Faktoren $1/L$ foran er der fordi $\\int_{-L}^{L}\\cos^2\\frac{n\\pi x}{L}\\,dx = L$, ikke 1."
+    },
+    {
+      "id": "tma4135-3-1-def-ortogonalitet",
+      "type": "definition",
+      "title": "Ortogonalitetsrelasjonene",
+      "content": "Regnestykkene som gjør at koeffisientformlene virker. For heltall $m,n \\ge 1$:\n\n$$\\int_{-L}^{L}\\cos\\frac{m\\pi x}{L}\\cos\\frac{n\\pi x}{L}\\,dx = \\begin{cases} L & m=n \\\\ 0 & m\\ne n\\end{cases}$$\n\n$$\\int_{-L}^{L}\\sin\\frac{m\\pi x}{L}\\sin\\frac{n\\pi x}{L}\\,dx = \\begin{cases} L & m=n \\\\ 0 & m\\ne n\\end{cases}$$\n\n$$\\int_{-L}^{L}\\cos\\frac{m\\pi x}{L}\\sin\\frac{n\\pi x}{L}\\,dx = 0 \\qquad \\text{for alle } m,n.$$\n\nDet siste integralet er null uansett, fordi cosinus er like, sinus er odde, og produktet dermed odde over et symmetrisk intervall."
+    },
+    {
+      "id": "tma4135-3-1-eks1",
+      "type": "example",
+      "title": "Sagtannen: $f(x)=x$ på $[-\\pi,\\pi]$",
+      "problem": "Finn Fourier-rekka til funksjonen som er $f(x) = x$ på $[-\\pi,\\pi]$ og fortsetter periodisk med periode $2\\pi$.\n\nRegn ut alle tre koeffisientene direkte fra definisjonen — vi utnytter ingen symmetri ennå.",
+      "solution": "**Halvperioden.** Perioden er $2\\pi$, så $L = \\pi$, og argumentene blir $\\frac{n\\pi x}{\\pi} = nx$. Det forenkler alt.\n\n**Konstantleddet.**\n$$a_0 = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} x\\,dx = \\frac{1}{2\\pi}\\left[\\frac{x^2}{2}\\right]_{-\\pi}^{\\pi} = \\frac{1}{2\\pi}\\left(\\frac{\\pi^2}{2}-\\frac{\\pi^2}{2}\\right) = 0.$$\n\n**Cosinuskoeffisientene.** Her trengs **delvis integrasjon** med $u = x$ og $dv = \\cos nx\\,dx$:\n$$\\int x\\cos nx\\,dx = \\frac{x\\sin nx}{n} + \\frac{\\cos nx}{n^2}.$$\n*(Denne står som en ferdig reduksjonsformel på det utdelte formelarket — tren oppslaget, og sett $a=n$.)* Innsatt:\n$$a_n = \\frac{1}{\\pi}\\left[\\frac{x\\sin nx}{n} + \\frac{\\cos nx}{n^2}\\right]_{-\\pi}^{\\pi}.$$\nNå er $\\sin n\\pi = 0$ for alle heltall $n$, så det første leddet forsvinner i begge endene. Og $\\cos n\\pi = \\cos(-n\\pi)$, så det andre leddet gir samme tall i begge ender og trekkes fra seg selv:\n$$a_n = \\frac{1}{\\pi}\\left(\\frac{\\cos n\\pi}{n^2} - \\frac{\\cos n\\pi}{n^2}\\right) = 0.$$\n\n**Sinuskoeffisientene.** Delvis integrasjon med $u = x$, $dv = \\sin nx\\,dx$:\n$$\\int x\\sin nx\\,dx = -\\frac{x\\cos nx}{n} + \\frac{\\sin nx}{n^2}.$$\n*(Også dette er en rad på det utdelte formelarket.)* Innsatt:\n$$b_n = \\frac{1}{\\pi}\\left[-\\frac{x\\cos nx}{n} + \\frac{\\sin nx}{n^2}\\right]_{-\\pi}^{\\pi} = \\frac{1}{\\pi}\\left(-\\frac{\\pi\\cos n\\pi}{n} - \\frac{\\pi\\cos n\\pi}{n}\\right) = -\\frac{2\\cos n\\pi}{n}.$$\nMed $\\cos n\\pi = (-1)^n$:\n$$b_n = \\frac{2(-1)^{n+1}}{n}.$$\n\n**Rekka.**\n$$x = 2\\left(\\sin x - \\frac{\\sin 2x}{2} + \\frac{\\sin 3x}{3} - \\frac{\\sin 4x}{4} + \\cdots\\right), \\qquad -\\pi < x < \\pi.$$\n\n**Kontroll.** Sett $x = \\pi/2$. Venstre side er $\\pi/2 \\approx 1{,}5708$. Høyre side: $2(1 - 0 - \\tfrac13 - 0 + \\tfrac15 - \\cdots) = 2\\cdot\\tfrac{\\pi}{4} = \\tfrac{\\pi}{2}$. Stemmer.\n\n**Legg merke til to ting.** For det første: begge integralene som ga null, ga det uten at vi trengte å regne — vi kunne ha sett det på forhånd, og det er nettopp det løkke 2 handler om. For det andre: koeffisientene faller av som $1/n$, ganske sakte. Det henger sammen med at den periodiske utvidelsen hopper i $x=\\pm\\pi$; en funksjon uten sprang får raskere fall, typisk $1/n^2$."
+    },
+    {
+      "id": "tma4135-3-1-fig-firkant-sagtann",
+      "type": "image",
+      "src": "/images/textbook/tma4135/firkantpuls-sagtann.svg",
+      "alt": "To grafer over tre perioder: øverst firkantpulsen som veksler mellom 1 og minus 1 med sprang i alle multipler av pi, nederst sagtannen f av x lik x med sprang i odde multipler av pi. Prikker markerer midlingsverdien 0 i hvert sprang.",
+      "caption": "Firkantpulsen og sagtannen, tegnet over tre perioder. Begge er odde funksjoner, så begge har ren sinusrekke. Prikkene i sprangene er verdien rekka konvergerer mot; det er tema i [kap. 3.2](/tma4135/tma4135-3-2)."
+    },
+    {
+      "id": "tma4135-3-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Avgjør halvperioden $L$ og skriv opp *bare* integralet for $b_n$, uten å regne det ut, for hver av disse:\n\n**a)** $f(x) = x^3$ gitt på $[-\\pi,\\pi]$, periode $2\\pi$.\n**b)** $f(x) = x$ gitt på $[-2,2]$, periode $4$.\n**c)** $f(x) = 1-|x|$ gitt på $[-1,1]$, periode $2$.",
+        "solution": "**a)** Perioden er $2\\pi$, altså $L=\\pi$:\n$$b_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} x^3\\sin nx\\,dx.$$\n\n**b)** Perioden er $4$, altså $L=2$, og argumentet blir $n\\pi x/2$:\n$$b_n = \\frac{1}{2}\\int_{-2}^{2} x\\sin\\frac{n\\pi x}{2}\\,dx.$$\n\n**c)** Perioden er $2$, altså $L=1$, og argumentet blir $n\\pi x$:\n$$b_n = \\int_{-1}^{1} (1-|x|)\\sin n\\pi x\\,dx.$$\n\nPoenget med oppgaven er at $L$ styrer tre ting samtidig: integrasjonsgrensene, faktoren $1/L$ foran, og argumentet $n\\pi x/L$. Skriver du ned $L$ først, følger resten mekanisk.",
+        "hints": [
+          "Perioden er $2L$. Finn $L$ først, og la alt annet følge av det.",
+          "Argumentet er alltid $n\\pi x/L$ — for $L=\\pi$ blir det bare $nx$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn $a_0$ for hver av funksjonene, uten å regne ut $a_n$ og $b_n$:\n\n**a)** $f(x) = 2 + x$ på $[-1,1]$, periode 2.\n**b)** $f(x) = x^2$ på $[-1,1]$, periode 2.\n**c)** Firkantpulsen som er $-1$ på $(-\\pi,0)$ og $1$ på $(0,\\pi)$, periode $2\\pi$.",
+        "solution": "$a_0$ er middelverdien over én periode, så ofte kan du lese den av uten å integrere.\n\n**a)** $a_0 = \\frac{1}{2}\\int_{-1}^{1}(2+x)\\,dx = \\frac{1}{2}\\left(4 + 0\\right) = 2.$ Leddet $x$ bidrar ikke, fordi det er odde. Middelverdien av $2+x$ er altså bare 2, som man ser med det blotte øye.\n\n**b)** $a_0 = \\frac{1}{2}\\int_{-1}^{1}x^2\\,dx = \\frac{1}{2}\\cdot\\frac{2}{3} = \\frac13.$\n\n**c)** Pulsen er like mye over som under aksen, så $a_0 = 0$. Regnet ut: $\\frac{1}{2\\pi}\\left(\\int_{-\\pi}^{0}(-1)\\,dx + \\int_{0}^{\\pi}1\\,dx\\right) = \\frac{1}{2\\pi}(-\\pi+\\pi) = 0.$\n\n**Kontroll du alltid kan gjøre:** $a_0$ må ligge mellom funksjonens minste og største verdi. Får du $a_0 = 5$ for en funksjon som aldri overstiger 1, har du regnefeil.",
+        "hints": [
+          "$a_0 = \\frac{1}{2L}\\int_{-L}^{L} f$ — legg merke til at nevneren er $2L$, ikke $L$.",
+          "Tegn funksjonen og spør: hvor ligger middelnivået?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Symmetri halverer arbeidet (~15 min)\n\nI eksempelet over regnet vi ut to integraler som begge ga null. Det var bortkastet tid — og verre: to sjanser til å gjøre fortegnsfeil. Denne løkka viser hvordan du ser nullene på forhånd."
+    },
+    {
+      "id": "tma4135-3-1-def-like",
+      "type": "definition",
+      "title": "Like funksjon",
+      "content": "En funksjon som er speilsymmetrisk om $y$-aksen:\n\n$$f(-x) = f(x) \\qquad \\text{for alle } x.$$\n\nEksempler: $x^2$, $|x|$, $\\cos x$, enhver konstant, $1-|x|$. På engelsk *even function*."
+    },
+    {
+      "id": "tma4135-3-1-def-odde",
+      "type": "definition",
+      "title": "Odde funksjon",
+      "content": "En funksjon som er punktsymmetrisk om origo:\n\n$$f(-x) = -f(x) \\qquad \\text{for alle } x.$$\n\nEksempler: $x$, $x^3$, $\\sin x$, $x|x|$, firkantpulsen som er $-1$ til venstre og $1$ til høyre. På engelsk *odd function*. En odde funksjon som er definert i $x=0$, må ha $f(0)=0$.\n\n**Merk:** de fleste funksjoner er *ingen av delene*. $f(x) = x^2 + x$ er verken like eller odde, og da må du regne ut begge koeffisientfamiliene."
+    },
+    {
+      "id": "tma4135-3-1-def-paritetsprodukt",
+      "type": "definition",
+      "title": "Produktregelen for paritet",
+      "content": "Paritet oppfører seg som fortegn under multiplikasjon:\n\n$$\\text{like}\\cdot\\text{like} = \\text{like}, \\qquad \\text{odde}\\cdot\\text{odde} = \\text{like}, \\qquad \\text{like}\\cdot\\text{odde} = \\text{odde}.$$\n\nDette er hele hemmeligheten bak symmetriregelen: er $f$ odde, er $f(x)\\cos\\frac{n\\pi x}{L}$ odde ganger like, altså odde — og integralet over et symmetrisk intervall blir null."
+    },
+    {
+      "id": "tma4135-3-1-def-int-odde",
+      "type": "definition",
+      "title": "Integralet av en odde funksjon over et symmetrisk intervall",
+      "content": "Er $g$ odde, kansellerer venstre og høyre halvdel hverandre:\n\n$$\\int_{-L}^{L} g(x)\\,dx = 0.$$\n\nGeometrisk: arealet under kurven til venstre for aksen er like stort som arealet over til høyre, med motsatt fortegn."
+    },
+    {
+      "id": "tma4135-3-1-def-int-like",
+      "type": "definition",
+      "title": "Integralet av en like funksjon over et symmetrisk intervall",
+      "content": "Er $g$ like, er de to halvdelene identiske:\n\n$$\\int_{-L}^{L} g(x)\\,dx = 2\\int_{0}^{L} g(x)\\,dx.$$\n\nDette er ikke bare en snarvei — det er også en presisjonsgevinst, fordi du slipper å sette inn en negativ nedre grense."
+    },
+    {
+      "id": "tma4135-3-1-teo-symmetri",
+      "type": "theorem",
+      "title": "Symmetriregelen for Fourier-koeffisienter",
+      "content": "La $f$ ha halvperiode $L$.\n\n**Er $f$ odde**, så er $a_0 = 0$ og $a_n = 0$ for alle $n$, og\n\n$$b_n = \\frac{2}{L}\\int_{0}^{L} f(x)\\sin\\frac{n\\pi x}{L}\\,dx.$$\n\nRekka er en **ren sinusrekke**.\n\n**Er $f$ like**, så er $b_n = 0$ for alle $n$, og\n\n$$a_0 = \\frac{1}{L}\\int_{0}^{L} f(x)\\,dx, \\qquad a_n = \\frac{2}{L}\\int_{0}^{L} f(x)\\cos\\frac{n\\pi x}{L}\\,dx.$$\n\nRekka er en **ren cosinusrekke**.\n\n**Bevis (odde tilfelle).** Produktet $f(x)\\cos\\frac{n\\pi x}{L}$ er odde ganger like, altså odde, og integralet av en odde funksjon over $[-L,L]$ er null. Derfor er $a_n = 0$; det samme argumentet med $\\cos$ erstattet av konstanten 1 gir $a_0 = 0$. Produktet $f(x)\\sin\\frac{n\\pi x}{L}$ er derimot odde ganger odde, altså like, så integralet er det dobbelte av integralet over $[0,L]$. Faktoren $2$ i formelen kommer derfra. Det like tilfellet går ordrett likedan med byttede roller.\n\n**Regelen må kunnes** — den står ikke på formelarket. Til gjengjeld er den den mest lønnsomme enkeltsetningen i hele Del 3."
+    },
+    {
+      "id": "tma4135-3-1-def-cosrekke",
+      "type": "definition",
+      "title": "Ren cosinusrekke",
+      "content": "Fourier-rekka til en like funksjon, der alle sinusleddene mangler:\n\n$$f(x) = a_0 + \\sum_{n=1}^{\\infty} a_n\\cos\\frac{n\\pi x}{L}.$$\n\nKjennetegn: rekka er selv en like funksjon, som den må være."
+    },
+    {
+      "id": "tma4135-3-1-def-sinrekke",
+      "type": "definition",
+      "title": "Ren sinusrekke",
+      "content": "Fourier-rekka til en odde funksjon, der både konstantleddet og alle cosinusleddene mangler:\n\n$$f(x) = \\sum_{n=1}^{\\infty} b_n\\sin\\frac{n\\pi x}{L}.$$\n\nKjennetegn: rekka er null i $x = 0$, uansett koeffisienter. Får du en ren sinusrekke for en funksjon med $f(0) \\ne 0$, er noe galt — eller du har med et sprang å gjøre."
+    },
+    {
+      "id": "tma4135-3-1-eks2",
+      "type": "example",
+      "title": "Symmetri i bruk: $f(x)=|x|$ på $[-\\pi,\\pi]$",
+      "problem": "Finn Fourier-rekka til $f(x) = |x|$ på $[-\\pi,\\pi]$, periode $2\\pi$. Begrunn med symmetri hvilke koeffisienter som er null før du regner.",
+      "solution": "**Steg 1 — paritet.** $|-x| = |x|$, så $f$ er **like**. Etter symmetriregelen er $b_n = 0$ for alle $n$, og vi slipper det ene av de to tunge integralene. Halvperioden er $L = \\pi$.\n\n**Steg 2 — konstantleddet.** Med den halverte formelen for like funksjoner, der $|x| = x$ på $[0,\\pi]$:\n$$a_0 = \\frac{1}{\\pi}\\int_{0}^{\\pi} x\\,dx = \\frac{1}{\\pi}\\cdot\\frac{\\pi^2}{2} = \\frac{\\pi}{2}.$$\nRimelighetssjekk: $|x|$ svinger mellom 0 og $\\pi$, og middelverdien $\\pi/2$ ligger midt imellom. Bra.\n\n**Steg 3 — cosinuskoeffisientene.**\n$$a_n = \\frac{2}{\\pi}\\int_{0}^{\\pi} x\\cos nx\\,dx.$$\n**Fra reduksjonsformelen på det utdelte formelarket** med $a = n$:\n$$\\int x\\cos nx\\,dx = \\frac{x\\sin nx}{n} + \\frac{\\cos nx}{n^2}.$$\nInnsatt mellom 0 og $\\pi$: $\\sin n\\pi = 0$, så første ledd forsvinner i begge ender, og\n$$a_n = \\frac{2}{\\pi}\\left(\\frac{\\cos n\\pi}{n^2} - \\frac{1}{n^2}\\right) = \\frac{2\\left((-1)^n - 1\\right)}{\\pi n^2}.$$\n\n**Steg 4 — les av mønsteret.** For **like** $n$ er $(-1)^n - 1 = 0$, så alle partallsledd faller bort. For **odde** $n$ er $(-1)^n - 1 = -2$, så\n$$a_n = -\\frac{4}{\\pi n^2}, \\qquad n \\text{ odde}.$$\n\n**Rekka.**\n$$|x| = \\frac{\\pi}{2} - \\frac{4}{\\pi}\\left(\\cos x + \\frac{\\cos 3x}{9} + \\frac{\\cos 5x}{25} + \\cdots\\right).$$\n\n**Kontroll.** Sett $x = 0$: venstre side er 0. Høyre side er $\\frac{\\pi}{2} - \\frac{4}{\\pi}\\left(1 + \\tfrac19 + \\tfrac1{25} + \\cdots\\right)$. Summen i parentesen er $\\pi^2/8 \\approx 1{,}2337$, og $\\frac{4}{\\pi}\\cdot\\frac{\\pi^2}{8} = \\frac{\\pi}{2}$. Til sammen 0. Stemmer.\n\n**Sammenlikn med sagtannen.** Der falt koeffisientene som $1/n$; her faller de som $1/n^2$. Forskjellen er at $|x|$ utvidet periodisk er **kontinuerlig**, mens sagtannen hopper. Jo glattere funksjon, jo raskere fall — en tommelfingerregel som er verdt å kunne når du skal sjekke om svaret ditt er plausibelt."
+    },
+    {
+      "id": "tma4135-3-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hver funksjon om den er like, odde eller ingen av delene, og si hvilke koeffisienter som dermed er null. Ikke regn ut noe integral.\n\n**a)** $f(x) = x^3$ på $[-\\pi,\\pi]$\n**b)** $f(x) = 3 - x^2$ på $[-2,2]$\n**c)** $f(x) = x + 1$ på $[-1,1]$\n**d)** $f(x) = x\\,|x|$ på $[-\\pi,\\pi]$\n**e)** $f(x) = \\cos\\frac{x}{2}$ på $[-\\pi,\\pi]$",
+        "solution": "**a)** $(-x)^3 = -x^3$, altså **odde**. Da er $a_0 = 0$ og alle $a_n = 0$; bare $b_n$ overlever.\n\n**b)** $3-(-x)^2 = 3-x^2$, altså **like**. Da er alle $b_n = 0$.\n\n**c)** $(-x)+1 = 1-x$, som verken er $x+1$ eller $-(x+1)$. **Ingen av delene** — alle tre familiene må regnes ut. *Men:* $x+1$ er summen av en odde del ($x$) og en like del ($1$), og Fourier-koeffisienter er lineære. Konstanten 1 bidrar bare til $a_0$, og $x$ bidrar bare til $b_n$. Så i praksis er $a_n = 0$ for $n\\ge1$ likevel — funnet ved å splitte, ikke ved symmetri på hele funksjonen.\n\n**d)** For $x>0$ er $x|x| = x^2$; for $x<0$ er $x|x| = -x^2$. Altså $f(-x) = -f(x)$: **odde**. Bare $b_n$.\n\n**e)** $\\cos\\left(\\frac{-x}{2}\\right) = \\cos\\frac{x}{2}$, altså **like**. Bare $a_0$ og $a_n$. *Legg merke til:* fundamentalperioden til $\\cos\\frac{x}{2}$ er $4\\pi$, men oppgaven ber om rekka med periode $2\\pi$, så vi bruker $L=\\pi$ og får en funksjon som hopper i $x=\\pm\\pi$ når den utvides.",
+        "hints": [
+          "Sett inn $-x$ og sammenlikn med det du startet med.",
+          "En sum av en like og en odde del er ingen av delene — men du kan behandle delene hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D — Fourier-rekker.) Finn Fourier-rekka til firkantpulsen\n\n$$f(x) = \\begin{cases} -1, & -\\pi < x < 0 \\\\ \\;\\;\\,1, & 0 < x < \\pi\\end{cases}$$\n\nmed periode $2\\pi$. Begrunn med symmetri hvilke koeffisienter som forsvinner.",
+        "solution": "**Paritet.** Speiler du $x$ om origo, bytter funksjonen fortegn: $f(-x) = -f(x)$. Funksjonen er **odde**, så $a_0 = 0$ og $a_n = 0$ for alle $n$. Bare sinusleddene er igjen.\n\n**Sinuskoeffisientene.** Med den halverte formelen for odde funksjoner, der $f = 1$ på $(0,\\pi)$ og $L=\\pi$:\n$$b_n = \\frac{2}{\\pi}\\int_{0}^{\\pi} 1\\cdot\\sin nx\\,dx = \\frac{2}{\\pi}\\left[-\\frac{\\cos nx}{n}\\right]_{0}^{\\pi} = \\frac{2}{\\pi}\\cdot\\frac{1-\\cos n\\pi}{n} = \\frac{2\\left(1-(-1)^n\\right)}{\\pi n}.$$\n\n**Les av mønsteret.** For like $n$ blir telleren null. For odde $n$ blir $1-(-1)^n = 2$, altså\n$$b_n = \\frac{4}{\\pi n}, \\qquad n \\text{ odde}.$$\n\n**Rekka.**\n$$f(x) = \\frac{4}{\\pi}\\left(\\sin x + \\frac{\\sin 3x}{3} + \\frac{\\sin 5x}{5} + \\cdots\\right) = \\frac{4}{\\pi}\\sum_{m=0}^{\\infty}\\frac{\\sin\\left((2m+1)x\\right)}{2m+1}.$$\n\n**Kontroll.** Sett $x = \\pi/2$: alle sinusene blir $1, -1, 1, -1,\\dots$, og rekka blir $\\frac{4}{\\pi}\\left(1-\\tfrac13+\\tfrac15-\\cdots\\right) = \\frac{4}{\\pi}\\cdot\\frac{\\pi}{4} = 1$. Funksjonsverdien i $\\pi/2$ er nettopp 1. Stemmer.\n\n**Merk fallet $1/n$.** Pulsen hopper, og koeffisientene faller sakte — akkurat som for sagtannen. Det er et generelt mønster, ikke tilfeldig.",
+        "hints": [
+          "Sjekk pariteten først: hva skjer med $f$ når du bytter fortegn på $x$?",
+          "Bruk den halverte formelen $b_n = \\frac{2}{L}\\int_0^L f\\sin\\frac{n\\pi x}{L}\\,dx$ — da er $f$ bare konstanten 1.",
+          "Uttrykket $1-(-1)^n$ er 0 for like $n$ og 2 for odde $n$. Skriv svaret som to tilfeller."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D.) Finn Fourier-rekka til $f(x) = 1-|x|$ på $[-1,1]$ med periode 2, og sammenlikn hvor raskt koeffisientene faller med det du fant for firkantpulsen i forrige oppgave.",
+        "solution": "**Halvperiode og paritet.** Perioden er 2, så $L = 1$ og argumentet er $n\\pi x$. Funksjonen er **like**, siden $1-|-x| = 1-|x|$. Altså $b_n = 0$.\n\n**Konstantleddet.** På $[0,1]$ er $1-|x| = 1-x$:\n$$a_0 = \\frac{1}{1}\\int_{0}^{1}(1-x)\\,dx = \\left[x-\\frac{x^2}{2}\\right]_0^1 = \\frac12.$$\nRimelig: funksjonen går lineært fra 1 til 0, så middelverdien er $\\tfrac12$.\n\n**Cosinuskoeffisientene.**\n$$a_n = 2\\int_{0}^{1}(1-x)\\cos n\\pi x\\,dx = 2\\int_0^1\\cos n\\pi x\\,dx - 2\\int_0^1 x\\cos n\\pi x\\,dx.$$\nFørste integral: $\\left[\\frac{\\sin n\\pi x}{n\\pi}\\right]_0^1 = 0$, siden $\\sin n\\pi = 0$.\nAndre integral, **fra reduksjonsformelen på det utdelte formelarket** med $a = n\\pi$:\n$$\\int x\\cos n\\pi x\\,dx = \\frac{x\\sin n\\pi x}{n\\pi} + \\frac{\\cos n\\pi x}{n^2\\pi^2},$$\nsom mellom 0 og 1 gir $\\frac{(-1)^n - 1}{n^2\\pi^2}$. Til sammen\n$$a_n = -2\\cdot\\frac{(-1)^n-1}{n^2\\pi^2} = \\frac{2\\left(1-(-1)^n\\right)}{n^2\\pi^2},$$\naltså $a_n = \\frac{4}{n^2\\pi^2}$ for odde $n$ og 0 for like.\n\n**Rekka.**\n$$1-|x| = \\frac12 + \\frac{4}{\\pi^2}\\left(\\cos\\pi x + \\frac{\\cos 3\\pi x}{9} + \\frac{\\cos 5\\pi x}{25}+\\cdots\\right).$$\n\n**Kontroll.** I $x=0$ er venstre side 1, og høyre side $\\tfrac12 + \\frac{4}{\\pi^2}\\cdot\\frac{\\pi^2}{8} = \\tfrac12+\\tfrac12 = 1$. Stemmer.\n\n**Sammenlikningen.** Firkantpulsen hadde $b_n \\sim 1/n$; her har vi $a_n \\sim 1/n^2$. Grunnen er kontinuitet: $1-|x|$ utvidet periodisk henger sammen (den har knekk, men ikke sprang), mens firkantpulsen hopper. **Tommelfingerregel:** sprang gir $1/n$, knekk gir $1/n^2$, glatt funksjon gir raskere enn enhver potens. Bruk den til å sjekke svaret ditt.",
+        "hints": [
+          "$L = 1$ fordi perioden er 2 — argumentet blir $n\\pi x$.",
+          "Del integralet i to: konstanten 1 og leddet $-x$. Det første gir null for $n\\ge1$.",
+          "Slå opp reduksjonsformelen for $\\int x\\cos ax\\,dx$ på formelarket og sett $a = n\\pi$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå de tre koeffisientformlene og symmetriregelen. Det er halve kapitlet, og det er den halvparten som gir flest poeng. Tar du en pause her, start neste økt med å skrive ned de tre formlene fra hukommelsen på et ark før du leser videre."
+    },
+    {
+      "id": "tma4135-3-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Delvis integrasjon er motoren (~14 min)\n\nNesten alle Fourier-koeffisienter du blir bedt om å regne ut, har formen «polynom ganger cosinus» eller «polynom ganger sinus». Da trengs delvis integrasjon — én gang for et førstegradsledd, to ganger for et andregradsledd. Det utdelte formelarket har ferdige reduksjonsformler for nettopp dette, og de er verdt et minutt å bli kjent med **før** eksamensdagen."
+    },
+    {
+      "id": "tma4135-3-1-def-delvis",
+      "type": "definition",
+      "title": "Delvis integrasjon",
+      "content": "Regelen som gjør om et integral av et produkt til et enklere integral:\n\n$$\\int u\\,dv = uv - \\int v\\,du.$$\n\nI Fourier-sammenheng velger du **alltid** polynomet som $u$ (fordi derivasjon gjør det enklere) og trigonometrifunksjonen som $dv$ (fordi integrasjon holder den like enkel)."
+    },
+    {
+      "id": "tma4135-3-1-def-red-cos",
+      "type": "definition",
+      "title": "Reduksjonsformelen for $\\int x^n\\cos ax\\,dx$",
+      "content": "Ferdigresultatet for de to tilfellene du trenger:\n\n$$\\int x\\cos ax\\,dx = \\frac{x\\sin ax}{a} + \\frac{\\cos ax}{a^2},$$\n\n$$\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a} + \\frac{2x\\cos ax}{a^2} - \\frac{2\\sin ax}{a^3}.$$\n\n**Disse står på det utdelte formelarket — tren oppslaget.** Ferdigheten som testes, er å sette inn riktig $a$: er argumentet $\\frac{n\\pi x}{L}$, så er $a = \\frac{n\\pi}{L}$, ikke $n$ og ikke $\\pi$."
+    },
+    {
+      "id": "tma4135-3-1-def-red-sin",
+      "type": "definition",
+      "title": "Reduksjonsformelen for $\\int x^n\\sin ax\\,dx$",
+      "content": "Søsterformlene:\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a} + \\frac{\\sin ax}{a^2},$$\n\n$$\\int x^2\\sin ax\\,dx = -\\frac{x^2\\cos ax}{a} + \\frac{2x\\sin ax}{a^2} + \\frac{2\\cos ax}{a^3}.$$\n\n**Står også på det utdelte formelarket.** Legg merke til minustegnet i det første leddet — det er det stedet fortegnsfeilene oppstår, og det er verdt en ekstra titt hver gang du slår opp."
+    },
+    {
+      "id": "tma4135-3-1-eks3",
+      "type": "example",
+      "title": "Uten symmetri: en halvsidig last",
+      "problem": "Finn Fourier-rekka til\n\n$$f(x) = \\begin{cases} 0, & -\\pi < x < 0 \\\\ x, & \\;\\;\\,0 \\le x < \\pi\\end{cases}$$\n\nmed periode $2\\pi$. Funksjonen er verken like eller odde, så alle tre koeffisientfamiliene må regnes ut.",
+      "solution": "**Halvperiode.** $L = \\pi$, argumentene blir $nx$.\n\n**Paritet.** $f(-1) = 0$ mens $f(1) = 1$; funksjonen er verken like eller odde. Ingen snarvei — men integralene over $[-\\pi,0]$ er null fordi $f$ er null der, så i praksis integrerer vi bare fra 0 til $\\pi$ likevel. **Merk skillet:** det er *ikke* en halvering på grunn av symmetri; det er bare at funksjonen er null på den ene halvdelen. Faktoren foran forblir $1/\\pi$, ikke $2/\\pi$.\n\n**Konstantleddet.**\n$$a_0 = \\frac{1}{2\\pi}\\int_{0}^{\\pi} x\\,dx = \\frac{1}{2\\pi}\\cdot\\frac{\\pi^2}{2} = \\frac{\\pi}{4}.$$\n\n**Cosinuskoeffisientene.** **Fra reduksjonsformelen på det utdelte formelarket** med $a = n$:\n$$a_n = \\frac{1}{\\pi}\\int_0^{\\pi} x\\cos nx\\,dx = \\frac{1}{\\pi}\\left[\\frac{x\\sin nx}{n}+\\frac{\\cos nx}{n^2}\\right]_0^{\\pi} = \\frac{1}{\\pi}\\cdot\\frac{(-1)^n-1}{n^2}.$$\nAltså $a_n = -\\frac{2}{\\pi n^2}$ for odde $n$, og 0 for like $n$.\n\n**Sinuskoeffisientene.** Fra søsterformelen:\n$$b_n = \\frac{1}{\\pi}\\int_0^{\\pi} x\\sin nx\\,dx = \\frac{1}{\\pi}\\left[-\\frac{x\\cos nx}{n}+\\frac{\\sin nx}{n^2}\\right]_0^{\\pi} = \\frac{1}{\\pi}\\cdot\\left(-\\frac{\\pi(-1)^n}{n}\\right) = \\frac{(-1)^{n+1}}{n}.$$\n\n**Rekka.**\n$$f(x) = \\frac{\\pi}{4} - \\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\frac{\\cos\\left((2m+1)x\\right)}{(2m+1)^2} + \\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n}\\sin nx.$$\n\n**Kontroll i to punkter.** I $x = \\pi/2$ er $f = \\pi/2 \\approx 1{,}5708$. Cosinusleddene: $\\cos\\left((2m+1)\\pi/2\\right) = 0$ for alle $m$, så hele cosinusdelen forsvinner. Sinusdelen blir $\\sum \\frac{(-1)^{n+1}}{n}\\sin\\frac{n\\pi}{2} = 1 - 0 - \\tfrac13 + 0 + \\tfrac15 - \\cdots = \\frac{\\pi}{4}$. Til sammen $\\frac{\\pi}{4}+\\frac{\\pi}{4} = \\frac{\\pi}{2}$. Stemmer.\n\n**Nyttig observasjon.** Funksjonen kan skrives som $\\tfrac12 x + \\tfrac12|x|$ på $[-\\pi,\\pi]$ — den odde delen er $\\tfrac12 x$ og den like delen er $\\tfrac12|x|$. Sammenlikner du koeffisientene over med sagtannen og med $|x|$ fra tidligere i kapitlet, ser du at de er nøyaktig halvparten av hver. **Å splitte en funksjon i odde og like del er derfor en fullgod alternativ metode**, og den sparer deg for ett av integralene når du allerede kjenner delene. Nevn gjerne begge veier i besvarelsen; begge gir full uttelling."
+    },
+    {
+      "id": "tma4135-3-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D.) La $f(x) = x$ på $[-2,2]$ med periode 4.\n\n**a)** Begrunn hvilke koeffisienter som er null.\n**b)** Finn $b_n$ og skriv opp rekka.\n**c)** Sammenlikn med sagtannen $f(x)=x$ på $[-\\pi,\\pi]$ og forklar hva som er endret.",
+        "solution": "**a)** $f$ er **odde**, så $a_0 = 0$ og $a_n = 0$ for alle $n$.\n\n**b)** Halvperioden er $L = 2$, så argumentet er $\\frac{n\\pi x}{2}$ og\n$$b_n = \\frac{2}{2}\\int_0^2 x\\sin\\frac{n\\pi x}{2}\\,dx = \\int_0^2 x\\sin\\frac{n\\pi x}{2}\\,dx.$$\n**Fra reduksjonsformelen på det utdelte formelarket** med $a = \\frac{n\\pi}{2}$:\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}.$$\nInnsatt mellom 0 og 2: $\\sin\\left(\\frac{n\\pi}{2}\\cdot 2\\right) = \\sin n\\pi = 0$, så bare første ledd bidrar:\n$$b_n = -\\frac{2\\cos n\\pi}{n\\pi/2} = -\\frac{4(-1)^n}{n\\pi} = \\frac{4(-1)^{n+1}}{n\\pi}.$$\n\nRekka:\n$$x = \\frac{4}{\\pi}\\left(\\sin\\frac{\\pi x}{2} - \\frac{1}{2}\\sin\\pi x + \\frac13\\sin\\frac{3\\pi x}{2} - \\cdots\\right), \\qquad -2 < x < 2.$$\n\n**Kontroll.** Sett $x = 1$: venstre side 1. Høyre side: $\\frac{4}{\\pi}\\left(1 - 0 - \\tfrac13 + 0 + \\tfrac15 - \\cdots\\right) = \\frac{4}{\\pi}\\cdot\\frac{\\pi}{4} = 1$. Stemmer.\n\n**c)** Sammenliknet med $L=\\pi$-versjonen, der $b_n = \\frac{2(-1)^{n+1}}{n}$, er to ting endret: argumentet er strukket fra $nx$ til $\\frac{n\\pi x}{2}$, og amplituden er skalert med $2/\\pi$. Det siste er ikke tilfeldig — funksjonen selv når $2$ i stedet for $\\pi$ som toppverdi, og forholdet $2/\\pi$ er nettopp det. **Generelt:** bytter du $L$, bytter du bare skalaen på $x$-aksen og på funksjonsverdiene; formen på rekka er den samme.",
+        "hints": [
+          "$L=2$, så argumentet er $n\\pi x/2$ og faktoren foran er $2/L = 1$.",
+          "Slå opp $\\int x\\sin ax\\,dx$ på formelarket og sett $a = n\\pi/2$ — ikke $n$.",
+          "$\\sin n\\pi = 0$ for alle heltall $n$; det luker ut ett av de to leddene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger D — krevende, to runder delvis integrasjon.) Finn Fourier-rekka til $f(x) = x^2 - 1$ på $[-1,1]$ med periode 2.",
+        "solution": "**Halvperiode og paritet.** $L = 1$, argument $n\\pi x$. Funksjonen er **like**, så $b_n = 0$.\n\n**Konstantleddet.**\n$$a_0 = \\int_0^1 (x^2-1)\\,dx = \\left[\\frac{x^3}{3}-x\\right]_0^1 = \\frac13 - 1 = -\\frac23.$$\nRimelig: $x^2-1$ går fra $-1$ til 0 på $[0,1]$, og $-\\tfrac23$ ligger mellom.\n\n**Cosinuskoeffisientene.** Del i to:\n$$a_n = 2\\int_0^1 x^2\\cos n\\pi x\\,dx - 2\\int_0^1\\cos n\\pi x\\,dx.$$\nDet siste integralet er $\\left[\\frac{\\sin n\\pi x}{n\\pi}\\right]_0^1 = 0$.\n\nFor det første bruker vi **reduksjonsformelen for $\\int x^2\\cos ax\\,dx$ fra det utdelte formelarket** med $a = n\\pi$:\n$$\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a}+\\frac{2x\\cos ax}{a^2}-\\frac{2\\sin ax}{a^3}.$$\nSett inn $x=1$: $\\sin n\\pi = 0$, så første og tredje ledd forsvinner, og andre ledd gir $\\frac{2(-1)^n}{n^2\\pi^2}$. Sett inn $x=0$: alt blir null. Altså\n$$a_n = 2\\cdot\\frac{2(-1)^n}{n^2\\pi^2} = \\frac{4(-1)^n}{n^2\\pi^2}.$$\n\n**Rekka.**\n$$x^2-1 = -\\frac23 + \\frac{4}{\\pi^2}\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{n^2}\\cos n\\pi x.$$\nSkrevet ut: $-\\tfrac23 - \\frac{4}{\\pi^2}\\cos\\pi x + \\frac{1}{\\pi^2}\\cos 2\\pi x - \\frac{4}{9\\pi^2}\\cos 3\\pi x + \\cdots$\n\n**Kontroll i to punkter.**\nI $x = 0$: venstre side $-1$. Høyre side $-\\tfrac23 + \\frac{4}{\\pi^2}\\sum\\frac{(-1)^n}{n^2} = -\\tfrac23 + \\frac{4}{\\pi^2}\\left(-\\frac{\\pi^2}{12}\\right) = -\\tfrac23-\\tfrac13 = -1$. Stemmer.\nI $x = 1$: venstre side 0. Høyre side $-\\tfrac23 + \\frac{4}{\\pi^2}\\sum\\frac{(-1)^n(-1)^n}{n^2} = -\\tfrac23+\\frac{4}{\\pi^2}\\cdot\\frac{\\pi^2}{6} = -\\tfrac23+\\tfrac23 = 0$. Stemmer.\n\n**Alternativ metode.** Du kan også slippe formelarket og gjøre delvis integrasjon to ganger for hånd: først $u = x^2$, $dv = \\cos n\\pi x\\,dx$, deretter $u = x$ på restintegralet. Det tar tre–fire minutter mer, og gir samme svar. Oppslaget er raskere, men begge veier gir full uttelling så lenge føringen er der.",
+        "hints": [
+          "Skill konstanten fra andregradsleddet — konstanten bidrar bare til $a_0$.",
+          "Slå opp $\\int x^2\\cos ax\\,dx$ på formelarket. Sett $a = n\\pi$.",
+          "Alle ledd med $\\sin n\\pi$ forsvinner. Bare cosinusleddet i midten overlever i $x=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Generell periode, og en oppgave på eksamensnivå (~15 min)\n\nSå langt har de fleste eksemplene hatt $L=\\pi$, der argumentet blir enkelt. På eksamen er $L$ like gjerne 1, 2 eller 3. Denne løkka drar det gjennom en full oppgave med margnotater om hva som gir uttelling."
+    },
+    {
+      "id": "tma4135-3-1-def-harmonisk",
+      "type": "definition",
+      "title": "Den $n$-te harmoniske",
+      "content": "Leddet med indeks $n$ i rekka:\n\n$$a_n\\cos\\frac{n\\pi x}{L} + b_n\\sin\\frac{n\\pi x}{L}.$$\n\nDet svinger $n$ hele ganger per periode. $n=1$ kalles **grunnsvingningen**; høyere $n$ er **overharmoniske**. Amplituden til den $n$-te harmoniske er $\\sqrt{a_n^2+b_n^2}$ — det er den som avgjør hvor mye leddet betyr for formen på kurven."
+    },
+    {
+      "id": "tma4135-3-1-def-delsum",
+      "type": "definition",
+      "title": "Delsummen $S_N$",
+      "content": "Rekka avkuttet etter $N$ ledd:\n\n$$S_N(x) = a_0 + \\sum_{n=1}^{N}\\left(a_n\\cos\\frac{n\\pi x}{L}+b_n\\sin\\frac{n\\pi x}{L}\\right).$$\n\nDette er et **trigonometrisk polynom** av grad $N$, og det er det du faktisk kan tegne. Hele spørsmålet om konvergens handler om hva $S_N$ gjør når $N$ vokser — og det er tema i [kap. 3.2](/tma4135/tma4135-3-2)."
+    },
+    {
+      "id": "tma4135-3-1-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: $f(x) = 3-x^2$ på $[-2,2]$",
+      "problem": "La $f(x) = 3-x^2$ på $[-2,2]$, utvidet periodisk med periode 4.\n\n**a)** Begrunn hvilke koeffisienter som er null.\n**b)** Finn Fourier-rekka.\n**c)** Bruk rekka i $x=0$ til å bestemme summen $\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n^2}$.\n\nFør løsningen som en toppbesvarelse.",
+      "solution": "**a) Paritet.** $3-(-x)^2 = 3-x^2$, så $f$ er **like**. Etter symmetriregelen er derfor $b_n = 0$ for alle $n$, og vi trenger bare $a_0$ og $a_n$. Halvperioden er $L = 2$, så argumentet blir $\\frac{n\\pi x}{2}$.\n\n*Uttelling her: sensor ser etter at pariteten er **begrunnet**, ikke bare påstått. Én linje med $f(-x)=f(x)$ er nok, men den må stå.*\n\n**b) Konstantleddet.** Med den halverte formelen for like funksjoner:\n$$a_0 = \\frac{1}{2}\\int_0^2 (3-x^2)\\,dx = \\frac12\\left[3x-\\frac{x^3}{3}\\right]_0^2 = \\frac12\\left(6-\\frac83\\right) = \\frac12\\cdot\\frac{10}{3} = \\frac53.$$\n\nRimelighetssjekk: $3-x^2$ går fra 3 ned til $-1$ på $[0,2]$, og $\\tfrac53 \\approx 1{,}67$ ligger midt i det området. Bra.\n\n**Cosinuskoeffisientene.**\n$$a_n = \\frac{2}{2}\\int_0^2 (3-x^2)\\cos\\frac{n\\pi x}{2}\\,dx = 3\\int_0^2\\cos\\frac{n\\pi x}{2}\\,dx - \\int_0^2 x^2\\cos\\frac{n\\pi x}{2}\\,dx.$$\n\nFørste integral: $\\left[\\frac{2\\sin(n\\pi x/2)}{n\\pi}\\right]_0^2 = \\frac{2\\sin n\\pi}{n\\pi} = 0$.\n\nAndre integral, **fra reduksjonsformelen på det utdelte formelarket** med $a = \\frac{n\\pi}{2}$:\n$$\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a}+\\frac{2x\\cos ax}{a^2}-\\frac{2\\sin ax}{a^3}.$$\nI $x=2$ er $\\sin(n\\pi) = 0$, så første og tredje ledd faller bort, og andre ledd gir\n$$\\frac{2\\cdot 2\\cos n\\pi}{(n\\pi/2)^2} = \\frac{4(-1)^n\\cdot 4}{n^2\\pi^2} = \\frac{16(-1)^n}{n^2\\pi^2}.$$\nI $x=0$ er alt null. Altså\n$$a_n = -\\frac{16(-1)^n}{n^2\\pi^2} = \\frac{16(-1)^{n+1}}{n^2\\pi^2}.$$\n\n**Rekka.**\n$$3-x^2 = \\frac53 + \\frac{16}{\\pi^2}\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n^2}\\cos\\frac{n\\pi x}{2}, \\qquad -2 \\le x \\le 2.$$\n\n*Uttelling her: hvert tabelloppslag skal synes. Skriv «fra reduksjonsformelen på formelarket med $a = n\\pi/2$» — det er en handling sensor skal kunne følge.*\n\n**c) Tallrekkesummen.** Den periodiske utvidelsen av $3-x^2$ er kontinuerlig i $x=0$ (og overalt ellers, siden $f(-2)=f(2)=-1$), så rekka gir funksjonsverdien der. Sett $x=0$, som gjør alle cosinusene lik 1:\n$$3 = \\frac53 + \\frac{16}{\\pi^2}\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n^2}.$$\nLøs for summen:\n$$\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n^2} = \\frac{\\pi^2}{16}\\left(3-\\frac53\\right) = \\frac{\\pi^2}{16}\\cdot\\frac43 = \\frac{\\pi^2}{12}.$$\n\n**Kontroll.** $\\pi^2/12 \\approx 0{,}8225$. Delsummen $1-\\tfrac14+\\tfrac19-\\tfrac1{16}+\\tfrac1{25} \\approx 0{,}8386$, og med 20 ledd er man på $0{,}8213$ — rekka alternerer og konvergerer langsomt inn mot $0{,}8225$. Stemmer.\n\n*Uttelling her: begrunnelsen for at rekka gir funksjonsverdien — altså at utvidelsen er kontinuerlig i $x=0$ — er et eget poeng. Uten den er svaret riktig, men usikret.*"
+    },
+    {
+      "id": "tma4135-3-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D.) Finn Fourier-rekka til pulsen\n\n$$f(x) = \\begin{cases} 0, & -\\pi < x < 0 \\\\ 1, & \\;\\;\\,0 < x < \\pi\\end{cases}$$\n\nmed periode $2\\pi$. Sammenlikn med firkantpulsen fra oppgave 4 og forklar likheten.",
+        "solution": "**Paritet.** Funksjonen er verken like eller odde. Men den kan skrives som\n$$f(x) = \\frac12 + \\frac12 g(x),$$\nder $g$ er firkantpulsen fra oppgave 4 (som er $-1$ til venstre og $1$ til høyre). Det er den raskeste veien, og vi bruker den — men vi regner også direkte som kontroll.\n\n**Direkte regning.** $L = \\pi$.\n$$a_0 = \\frac{1}{2\\pi}\\int_0^{\\pi} 1\\,dx = \\frac12.$$\n$$a_n = \\frac{1}{\\pi}\\int_0^{\\pi}\\cos nx\\,dx = \\frac{1}{\\pi}\\left[\\frac{\\sin nx}{n}\\right]_0^{\\pi} = 0.$$\n$$b_n = \\frac{1}{\\pi}\\int_0^{\\pi}\\sin nx\\,dx = \\frac{1}{\\pi}\\cdot\\frac{1-(-1)^n}{n},$$\naltså $b_n = \\frac{2}{\\pi n}$ for odde $n$ og 0 for like.\n\n**Rekka.**\n$$f(x) = \\frac12 + \\frac{2}{\\pi}\\left(\\sin x + \\frac{\\sin 3x}{3} + \\frac{\\sin 5x}{5}+\\cdots\\right).$$\n\n**Sammenlikningen.** Firkantpulsen hadde $b_n = \\frac{4}{\\pi n}$ for odde $n$ og ingen konstant. Her er sinuskoeffisientene nøyaktig halvparten, og det er kommet til et konstantledd $\\tfrac12$. Det stemmer eksakt med at $f = \\tfrac12 + \\tfrac12 g$: Fourier-koeffisienter er **lineære**, så en konstant flytter bare $a_0$, og en faktor $\\tfrac12$ halverer alle de andre.\n\n**Praktisk lærdom.** Ser du at en funksjon er «en kjent funksjon pluss en konstant» eller «en kjent funksjon ganget med et tall», så si det og bruk lineariteten. Det er en fullgod metode, og det er raskere enn å integrere på nytt.",
+        "hints": [
+          "Kan du skrive $f$ som en konstant pluss noe du allerede har regnet ut?",
+          "Regn også direkte som kontroll: integralet går bare fra 0 til $\\pi$, siden $f$ er null ellers.",
+          "Faktoren foran er $1/L$, ikke $2/L$ — funksjonen er ikke symmetrisk."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger D — krevende.) Finn Fourier-rekka til $f(x)=x^3$ på $[-\\pi,\\pi]$ med periode $2\\pi$.\n\nHint om metode: her trengs delvis integrasjon tre ganger, eller reduksjonsformelen brukt gjentatt.",
+        "solution": "**Paritet.** $(-x)^3 = -x^3$: **odde**. Altså $a_0 = 0$ og $a_n = 0$, og bare $b_n$ gjenstår. Halvperiode $L = \\pi$.\n\n**Sinuskoeffisientene.** Med den halverte formelen:\n$$b_n = \\frac{2}{\\pi}\\int_0^{\\pi} x^3\\sin nx\\,dx.$$\nDelvis integrasjon med $u = x^3$, $dv = \\sin nx\\,dx$:\n$$\\int x^3\\sin nx\\,dx = -\\frac{x^3\\cos nx}{n} + \\frac{3}{n}\\int x^2\\cos nx\\,dx.$$\n**Restintegralet slår vi opp på det utdelte formelarket** ($\\int x^2\\cos ax\\,dx$ med $a=n$):\n$$\\int x^2\\cos nx\\,dx = \\frac{x^2\\sin nx}{n}+\\frac{2x\\cos nx}{n^2}-\\frac{2\\sin nx}{n^3}.$$\n\nSett inn grensene $0$ og $\\pi$. I $x=\\pi$ er $\\sin n\\pi = 0$ og $\\cos n\\pi = (-1)^n$; i $x = 0$ er alle leddene null.\n\nFørste del: $\\left[-\\frac{x^3\\cos nx}{n}\\right]_0^{\\pi} = -\\frac{\\pi^3(-1)^n}{n}$.\nRestintegralet mellom grensene: $\\frac{2\\pi(-1)^n}{n^2}$, ganget med $\\frac{3}{n}$ blir $\\frac{6\\pi(-1)^n}{n^3}$.\n\nTil sammen\n$$b_n = \\frac{2}{\\pi}\\left(-\\frac{\\pi^3(-1)^n}{n}+\\frac{6\\pi(-1)^n}{n^3}\\right) = 2(-1)^n\\left(\\frac{6}{n^3}-\\frac{\\pi^2}{n}\\right) = \\frac{2(-1)^n\\left(6-\\pi^2 n^2\\right)}{n^3}.$$\n\n**De første koeffisientene.**\n$$b_1 = 2\\pi^2-12 \\approx 7{,}74, \\qquad b_2 = \\frac32-\\pi^2 \\approx -8{,}37, \\qquad b_3 = \\frac{2\\pi^2}{3}-\\frac49 \\approx 6{,}14.$$\n\n**Rekka.**\n$$x^3 = \\sum_{n=1}^{\\infty}\\frac{2(-1)^n\\left(6-\\pi^2n^2\\right)}{n^3}\\sin nx, \\qquad -\\pi < x < \\pi.$$\n\n**Kontroll.** Enkleste kontroll er å regne ut ett integral direkte. For $n=1$ gir delvis integrasjon $\\int_0^{\\pi} x^3\\sin x\\,dx = \\pi^3-6\\pi \\approx 12{,}157$, og $b_1 = \\frac{2}{\\pi}\\cdot 12{,}157 \\approx 7{,}739$. Formelen gir $b_1 = 2\\pi^2-12 \\approx 7{,}739$. Stemmer.\n\n*En innsettingskontroll er mindre nyttig her:* rekka konvergerer svært langsomt fordi koeffisientene faller som $1/n$, og i $x=\\pi/2$ trengs over tusen ledd før delsummen ligger nær $\\pi^3/8 \\approx 3{,}876$. Det er et generelt trekk ved funksjoner som hopper — vær forsiktig med å «avvise» et riktig svar fordi en kort delsum ser feil ut.\n\n**Merk fallet.** Det dominerende leddet er $-2(-1)^n\\pi^2/n$, altså $1/n$ — fordi den periodiske utvidelsen av $x^3$ hopper i $x=\\pm\\pi$, akkurat som sagtannen. Tommelfingerregelen fra oppgave 5 holder.",
+        "hints": [
+          "Odde funksjon: du slipper $a_0$ og $a_n$ helt.",
+          "Sett $u = x^3$ og $dv = \\sin nx\\,dx$. Restintegralet blir $\\int x^2\\cos nx\\,dx$ — slå det opp.",
+          "I $x=\\pi$ forsvinner alle ledd med $\\sin n\\pi$. Bare cosinusleddene overlever."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-1-o10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger D — krevende, trig-identitet fra formelarket.) Finn Fourier-rekka til $f(x) = \\cos\\frac{x}{2}$ på $[-\\pi,\\pi]$ med periode $2\\pi$.\n\nMerk at fundamentalperioden til $\\cos\\frac{x}{2}$ er $4\\pi$, ikke $2\\pi$ — den periodiske utvidelsen med periode $2\\pi$ er derfor *ikke* den samme funksjonen som $\\cos\\frac{x}{2}$ overalt.",
+        "solution": "**Paritet.** $\\cos$ er like, så $f$ er **like**, og $b_n = 0$. Halvperiode $L=\\pi$.\n\n**Konstantleddet.**\n$$a_0 = \\frac{1}{\\pi}\\int_0^{\\pi}\\cos\\frac{x}{2}\\,dx = \\frac{1}{\\pi}\\left[2\\sin\\frac{x}{2}\\right]_0^{\\pi} = \\frac{2}{\\pi}.$$\n\n**Cosinuskoeffisientene.** Her er integranden et produkt av to cosinuser, og da bruker vi **produktformelen fra det utdelte formelarket**:\n$$\\cos A\\cos B = \\tfrac12\\left(\\cos(A-B)+\\cos(A+B)\\right).$$\nMed $A = \\tfrac{x}{2}$ og $B = nx$:\n$$a_n = \\frac{2}{\\pi}\\int_0^{\\pi}\\cos\\frac{x}{2}\\cos nx\\,dx = \\frac{1}{\\pi}\\int_0^{\\pi}\\left[\\cos\\left(\\tfrac12-n\\right)x + \\cos\\left(\\tfrac12+n\\right)x\\right]dx.$$\nBegge integralene er elementære:\n$$\\frac{1}{\\pi}\\left[\\frac{\\sin\\left(\\tfrac12-n\\right)x}{\\tfrac12-n}+\\frac{\\sin\\left(\\tfrac12+n\\right)x}{\\tfrac12+n}\\right]_0^{\\pi}.$$\nI $x=\\pi$ er $\\sin\\left(\\tfrac{\\pi}{2}\\mp n\\pi\\right) = \\cos(n\\pi)\\cdot(\\pm 1)$-mønsteret; konkret er $\\sin\\left(\\tfrac{\\pi}{2}-n\\pi\\right) = (-1)^n$ og $\\sin\\left(\\tfrac{\\pi}{2}+n\\pi\\right) = (-1)^n$. Altså\n$$a_n = \\frac{(-1)^n}{\\pi}\\left(\\frac{1}{\\tfrac12-n}+\\frac{1}{\\tfrac12+n}\\right) = \\frac{(-1)^n}{\\pi}\\cdot\\frac{1}{\\tfrac14-n^2} = \\frac{-4(-1)^n}{\\pi\\left(4n^2-1\\right)}.$$\n\n**Rekka.**\n$$\\cos\\frac{x}{2} = \\frac{2}{\\pi} + \\frac{4}{\\pi}\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{4n^2-1}\\cos nx, \\qquad -\\pi \\le x \\le \\pi.$$\nDe første leddene: $a_1 = \\frac{4}{3\\pi}$, $a_2 = -\\frac{4}{15\\pi}$, $a_3 = \\frac{4}{35\\pi}$.\n\n**Kontroll.** Sett $x=0$: venstre side er 1. Høyre side er $\\frac{2}{\\pi}+\\frac{4}{\\pi}\\sum\\frac{(-1)^{n+1}}{4n^2-1}$. Summen er $\\tfrac13-\\tfrac1{15}+\\tfrac1{35}-\\cdots = \\frac{\\pi}{4}-\\frac12 \\approx 0{,}2854$, og $\\frac{2}{\\pi}+\\frac{4}{\\pi}\\cdot 0{,}2854 \\approx 0{,}6366+0{,}3634 = 1$. Stemmer.\n\n**Om nevneren $4n^2-1$.** Legg merke til at den aldri blir null for heltall $n\\ge1$, så ingen spesialtilfeller trengs her. Det er ikke alltid slik: for $|\\sin x|$ blir den tilsvarende nevneren $n^2-1$, som *er* null for $n=1$, og da må $a_1$ regnes ut separat. Se etter det hver gang du får en nevner som kan forsvinne.",
+        "hints": [
+          "Funksjonen er like — bare $a_0$ og $a_n$ trengs.",
+          "Produktet $\\cos\\frac{x}{2}\\cos nx$ skrives om med produktformelen for to cosinuser; den står på formelarket.",
+          "$\\sin\\left(\\frac{\\pi}{2}\\pm n\\pi\\right) = (-1)^n$ i begge tilfeller — regn det ut for $n=1,2$ hvis du er i tvil."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å regne ut alle koeffisientene uten å sjekke symmetri.** Dette er både et tidssluk og en feilkilde. Ett minutt på å avgjøre pariteten sparer deg for et helt integral — og for halvparten av fortegnsfellene. Skriv setningen «$f$ er odde, derfor er $a_n=0$» i besvarelsen; den gir uttelling i seg selv.\n\n**Fortegnsfeil i delvis integrasjon.** Minustegnet i $\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}$ er der feilene bor. Når du slår opp formelen på arket, les hele raden — ikke bare første ledd.\n\n**Feil $a$ i reduksjonsformelen.** Er argumentet $\\frac{n\\pi x}{L}$, så er $a = \\frac{n\\pi}{L}$. For $L=2$ betyr det $a = \\frac{n\\pi}{2}$, og da blir $a^2 = \\frac{n^2\\pi^2}{4}$, altså en faktor 4 som er lett å miste. Skriv $a$ eksplisitt på arket før du setter inn.\n\n**Nevneren $2L$ i $a_0$ mot $L$ i $a_n$ og $b_n$.** Den ene formelen har $2L$, de to andre har $L$. Blander du dem, blir konstantleddet dobbelt eller halvparten så stort, og alle kontroller feiler.\n\n**Feil halvperiode.** Står funksjonen på $[-2,2]$, er $L=2$ og perioden 4 — ikke omvendt. Skriv ned $L$ først, alltid.\n\n**Å glemme å skille ut hvilke $n$ som gir null.** Uttrykk som $(-1)^n-1$ og $1-(-1)^n$ er null for annethvert $n$. Svaret er ikke ferdig før du har sagt hvilke $n$ som overlever, og skrevet rekka med bare dem.\n\n**Å ikke sjekke svaret.** Sett inn ett bekvemt $x$ og se om rekka gir funksjonsverdien. Det tar to minutter og fanger nesten alle regnefeil. Vær bare oppmerksom på at kontrollen bare er gyldig i punkter der den periodiske utvidelsen er kontinuerlig — det håndteres i [kap. 3.2](/tma4135/tma4135-3-2)."
+    },
+    {
+      "id": "tma4135-3-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-3-1-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter. Bruker du mer enn ti minutter til sammen, er det verdt å friske opp integrasjon før du går videre til [kap. 3.2](/tma4135/tma4135-3-2)."
+        },
+        {
+          "id": "tma4135-3-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-1-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\int_0^{\\pi} \\sin nx\\,dx$ for et vilkårlig heltall $n \\ge 1$, og skriv svaret ved hjelp av $(-1)^n$.",
+            "solution": "$$\\int_0^{\\pi}\\sin nx\\,dx = \\left[-\\frac{\\cos nx}{n}\\right]_0^{\\pi} = \\frac{1-\\cos n\\pi}{n} = \\frac{1-(-1)^n}{n}.$$\nFor like $n$ er dette 0; for odde $n$ er det $2/n$. Dette ene uttrykket dukker opp i nesten hver eneste firkantpuls-oppgave.",
+            "hints": [
+              "Antideriverte til $\\sin nx$ er $-\\cos nx/n$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-1-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp verdiene av $\\sin n\\pi$ og $\\cos n\\pi$ for heltall $n$, og forklar hvorfor de er så nyttige i Fourier-regning.",
+            "solution": "$$\\sin n\\pi = 0 \\quad\\text{for alle heltall } n, \\qquad \\cos n\\pi = (-1)^n.$$\nNytten: når du setter inn grensen $x = L$ i et koeffisientintegral, blir argumentet $\\frac{n\\pi L}{L} = n\\pi$. Alle ledd som inneholder $\\sin$ av det, forsvinner umiddelbart, og alle ledd med $\\cos$ blir til $\\pm1$. Det er derfor svarene så ofte inneholder $(-1)^n$.",
+            "hints": [
+              "Tenk på enhetssirkelen: $n\\pi$ lander vekselvis på 1 og $-1$ på den reelle aksen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-1-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\int_0^1 x\\sin(n\\pi x)\\,dx$ ved delvis integrasjon, uten å bruke formelarket.",
+            "solution": "Sett $u = x$ og $dv = \\sin(n\\pi x)\\,dx$, slik at $du = dx$ og $v = -\\frac{\\cos(n\\pi x)}{n\\pi}$:\n$$\\int_0^1 x\\sin(n\\pi x)\\,dx = \\left[-\\frac{x\\cos n\\pi x}{n\\pi}\\right]_0^1 + \\frac{1}{n\\pi}\\int_0^1\\cos n\\pi x\\,dx.$$\nFørste ledd i $x=1$: $-\\frac{(-1)^n}{n\\pi}$; i $x=0$: 0. Restintegralet: $\\frac{1}{n\\pi}\\left[\\frac{\\sin n\\pi x}{n\\pi}\\right]_0^1 = 0$.\n$$\\int_0^1 x\\sin(n\\pi x)\\,dx = -\\frac{(-1)^n}{n\\pi} = \\frac{(-1)^{n+1}}{n\\pi}.$$\nKontroll for $n=1$: numerisk gir $\\int_0^1 x\\sin\\pi x\\,dx = 1/\\pi \\approx 0{,}3183$, og formelen gir $1/\\pi$. Stemmer.",
+            "hints": [
+              "Velg polynomet som $u$ — derivasjon gjør det enklere.",
+              "Husk at $v = -\\cos(n\\pi x)/(n\\pi)$, med både minus og $n\\pi$ i nevneren."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-1-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at $\\int_{-a}^{a} g(x)\\,dx = 0$ når $g$ er odde, ved å dele integralet i to og substituere.",
+            "solution": "Del i to:\n$$\\int_{-a}^{a} g = \\int_{-a}^{0} g + \\int_{0}^{a} g.$$\nI det første integralet substituerer vi $x = -t$, slik at $dx = -dt$; grensene $x=-a$ og $x=0$ blir $t=a$ og $t=0$:\n$$\\int_{-a}^{0} g(x)\\,dx = \\int_{a}^{0} g(-t)\\,(-dt) = \\int_0^{a} g(-t)\\,dt = -\\int_0^{a} g(t)\\,dt,$$\nder vi brukte $g(-t) = -g(t)$ i siste steg. De to bidragene er dermed like store med motsatt fortegn, og summen er null.",
+            "hints": [
+              "Substituer $x = -t$ i integralet over den negative halvdelen.",
+              "Pass på at substitusjonen snur integrasjonsgrensene — det gir et fortegn du må holde styr på."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-1-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-1-oR5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Avgjør perioden og halvperioden $L$ til hver av funksjonene: $\\sin 3x$, $\\cos\\frac{\\pi x}{4}$, $\\sin\\frac{2\\pi x}{5}$.",
+            "solution": "En svingning $\\sin(kx)$ eller $\\cos(kx)$ har periode $\\frac{2\\pi}{k}$.\n\n$\\sin 3x$: $k=3$, periode $\\frac{2\\pi}{3}$, halvperiode $L = \\frac{\\pi}{3}$.\n$\\cos\\frac{\\pi x}{4}$: $k = \\frac{\\pi}{4}$, periode $\\frac{2\\pi}{\\pi/4} = 8$, halvperiode $L = 4$.\n$\\sin\\frac{2\\pi x}{5}$: $k = \\frac{2\\pi}{5}$, periode $5$, halvperiode $L = \\frac52$.\n\nKontroll: i Fourier-rekka er argumentet $\\frac{n\\pi x}{L}$, altså $k = \\frac{n\\pi}{L}$ og periode $\\frac{2\\pi}{n\\pi/L} = \\frac{2L}{n}$. For $n=1$ blir det $2L$, som det skal.",
+            "hints": [
+              "Perioden til $\\sin(kx)$ er $2\\pi/k$ — les av $k$ som faktoren foran $x$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-3-1-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)$ | Funksjonen som skal spaltes i svingninger |\n| $L$ | Halvperioden. Perioden er $2L$. **Merk:** i Del 6 brukes $L$ om en helt annen størrelse, kontraksjonskonstanten |\n| $2L$ | Perioden, altså hvor langt du må gå før funksjonen gjentar seg |\n| $n$ | Nummeret på leddet i rekka, $n = 1,2,3,\\dots$ |\n| $a_0$ | Konstantleddet — middelverdien av $f$ over en periode |\n| $a_n$ | Cosinuskoeffisienten til det $n$-te leddet |\n| $b_n$ | Sinuskoeffisienten til det $n$-te leddet |\n| $S_N(x)$ | Delsummen: rekka avkuttet etter $N$ ledd |\n| $(-1)^n$ | Kortform for $\\cos n\\pi$; veksler mellom $-1$ og $1$ |\n| $a$ | Faktoren foran $x$ i reduksjonsformlene; her alltid $a = n\\pi/L$. **Merk:** i Del 6 er $a$ et intervallendepunkt |\n| $m$ | Løpeindeks når rekka skrives med bare odde ledd, $n = 2m+1$ |\n"
+        },
+        {
+          "id": "tma4135-3-1-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$f(x) = a_0 + \\sum_{n=1}^{\\infty}\\left(a_n\\cos\\frac{n\\pi x}{L}+b_n\\sin\\frac{n\\pi x}{L}\\right)$$\nDen reelle Fourier-rekka. *(Må kunnes eller utledes aktivt.)*\n\n$$a_0 = \\frac{1}{2L}\\int_{-L}^{L} f(x)\\,dx$$\nKonstantleddet — legg merke til nevneren $2L$. *(Må kunnes eller utledes aktivt.)*\n\n$$a_n = \\frac{1}{L}\\int_{-L}^{L} f(x)\\cos\\frac{n\\pi x}{L}\\,dx$$\nCosinuskoeffisienten. *(Må kunnes eller utledes aktivt.)*\n\n$$b_n = \\frac{1}{L}\\int_{-L}^{L} f(x)\\sin\\frac{n\\pi x}{L}\\,dx$$\nSinuskoeffisienten. *(Må kunnes eller utledes aktivt.)*\n\n$$f \\text{ odde} \\Rightarrow a_0 = a_n = 0, \\quad b_n = \\frac{2}{L}\\int_0^L f\\sin\\frac{n\\pi x}{L}\\,dx$$\nSymmetriregelen, odde tilfelle. *(Må kunnes eller utledes aktivt — dette er kapitlets mest lønnsomme setning.)*\n\n$$f \\text{ like} \\Rightarrow b_n = 0, \\quad a_0 = \\frac1L\\int_0^L f\\,dx, \\quad a_n = \\frac{2}{L}\\int_0^L f\\cos\\frac{n\\pi x}{L}\\,dx$$\nSymmetriregelen, like tilfelle. *(Må kunnes eller utledes aktivt.)*\n\n$$\\int u\\,dv = uv-\\int v\\,du$$\nDelvis integrasjon. *(Må kunnes eller utledes aktivt.)*\n\n$$\\int x\\cos ax\\,dx = \\frac{x\\sin ax}{a}+\\frac{\\cos ax}{a^2}, \\qquad \\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}$$\nReduksjonsformlene for førstegradsledd. *(Står på det utdelte formelarket — tren oppslaget, og sett $a = n\\pi/L$.)*\n\n$$\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a}+\\frac{2x\\cos ax}{a^2}-\\frac{2\\sin ax}{a^3}$$\n$$\\int x^2\\sin ax\\,dx = -\\frac{x^2\\cos ax}{a}+\\frac{2x\\sin ax}{a^2}+\\frac{2\\cos ax}{a^3}$$\nReduksjonsformlene for andregradsledd. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\cos A\\cos B = \\tfrac12\\left(\\cos(A-B)+\\cos(A+B)\\right)$$\nProduktformelen for to cosinuser, med søstrene for $\\sin\\sin$ og $\\sin\\cos$. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\sin n\\pi = 0, \\qquad \\cos n\\pi = (-1)^n$$\nDe to verdiene som får halve regnestykket til å forsvinne. *(Må kunnes.)*\n\n**Kolliderende symboler:** i dette kapitlet er $L$ **halvperioden**; i Del 6 er $L$ kontraksjonskonstanten i fikspunktteoremet, og de to har ingenting med hverandre å gjøre. Bokstaven $a$ er her faktoren i reduksjonsformlene ($a = n\\pi/L$); i Del 2 er $a$ forskyvningen i andreforskyvningsteoremet, og i Del 6 er $a$ venstre endepunkt i et intervall. Bokstaven $n$ er leddnummeret i rekka hele Del 3 igjennom."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

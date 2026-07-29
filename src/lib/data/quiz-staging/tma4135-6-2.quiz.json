@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hva er vektmønsteret i sammensatt Simpsons regel?",
+    "options": [
+      "$1,4,2,4,\\dots,4,1$ med faktoren $h/3$",
+      "$1,2,2,2,\\dots,2,1$ med faktoren $h/3$",
+      "$1,4,2,4,\\dots,4,1$ med faktoren $h/2$",
+      "$4,1,2,1,\\dots,1,4$ med faktoren $h/3$"
+    ],
+    "explanation": "Mønsteret begynner og slutter med 1, og hver 1 har en 4 ved siden av seg. Kontroll: summen av vektene ganget med faktoren skal bli $b-a$."
+  },
+  {
+    "question": "Hvorfor må $n$ være et partall i sammensatt Simpson?",
+    "options": [
+      "Hvert parabelstykke dekker to delintervall",
+      "Hvert parabelstykke dekker tre delintervall",
+      "Fordi vektene ellers ikke summerer til null",
+      "Fordi feilleddet ellers skifter fortegn"
+    ],
+    "explanation": "En parabel går gjennom venstre, midtre og høyre node, altså over to delintervall. Er $n$ odde, finnes det ingen sammensatt formel over de nodene."
+  },
+  {
+    "question": "Hvilken derivert står i feilleddet for trapesregelen?",
+    "options": [
+      "Den andrederiverte, sammen med $h^{2}$",
+      "Den fjerdederiverte, sammen med $h^{4}$",
+      "Den førstederiverte, sammen med $h^{1}$",
+      "Den andrederiverte, sammen med $h^{4}$"
+    ],
+    "explanation": "Trapes bruker rette linjer, så det er krumningen som ikke fanges. Simpson har derimot $f^{(4)}$ og $h^4$."
+  },
+  {
+    "question": "Hva skjer med trapesfeilen når du halverer $h$?",
+    "options": [
+      "Den blir omtrent fire ganger mindre",
+      "Den blir omtrent seksten ganger mindre",
+      "Den blir omtrent to ganger mindre",
+      "Den blir omtrent åtte ganger mindre"
+    ],
+    "explanation": "Feilen går som $h^2$, altså konvergensorden 2. Simpson har orden 4 og gir faktoren seksten."
+  },
+  {
+    "question": "Hva er presisjonsgraden til Simpsons regel?",
+    "options": [
+      "3 — eksakt til og med $x^{3}$, feiler på $x^{4}$",
+      "4 — eksakt til og med $x^{4}$, feiler på $x^{5}$",
+      "2 — eksakt til og med $x^{2}$, feiler på $x^{3}$",
+      "5 — eksakt til og med $x^{5}$, feiler på $x^{6}$"
+    ],
+    "explanation": "Formelen bygger på en parabel, men symmetrien gir $x^3$ gratis. Graden er den høyeste som går gjennom, ikke den som feiler."
+  },
+  {
+    "question": "Hvorfor får symmetriske kvadraturformler odde potenser gratis?",
+    "options": [
+      "Bidragene fra de to sidene kanselleres",
+      "Fordi vektene til odde potenser alltid er null",
+      "Fordi odde potenser har null andrederivert",
+      "Fordi nodene alltid ligger i $\\pm 1$ ved symmetri"
+    ],
+    "explanation": "Både summen og integralet blir null for en odde funksjon over et symmetrisk intervall. Derfor er presisjonsgraden til en symmetrisk formel alltid et oddetall."
+  },
+  {
+    "question": "Hvilken presisjonsgrad har Gauss–Legendre med $N$ noder?",
+    "options": [
+      "$2N-1$, fordi nodene også er frie parametre",
+      "$N-1$, som for en formel med faste noder",
+      "$2N+1$, fordi vektene teller dobbelt",
+      "$N+1$, fordi nodene er nullpunkter til polynomer"
+    ],
+    "explanation": "Med $N$ noder og $N$ vekter er det $2N$ frihetsgrader, altså $2N$ krav som kan oppfylles. To Gauss-noder er like gode som Simpsons tre."
+  },
+  {
+    "question": "Hva er jacobifaktoren i transformasjonen $[a,b]\\to[-1,1]$?",
+    "options": [
+      "$\\dfrac{b-a}{2}$, siden $dx=\\dfrac{b-a}{2}d\\xi$",
+      "$\\dfrac{a+b}{2}$, som følger av at midtpunktet flyttes",
+      "$\\dfrac{2}{b-a}$, som er den omvendte skaleringen",
+      "$b-a$, som er lengden av det opprinnelige intervallet"
+    ],
+    "explanation": "Å glemme faktoren er den vanligste feilen i sjangeren. Kontroll: bruk formelen på $f\\equiv 1$ og se at svaret blir $b-a$."
+  },
+  {
+    "question": "Du finner $n\\ge 36{,}5$ for trapesregelen. Hva svarer du?",
+    "options": [
+      "$n=37$, siden antallet må rundes oppover",
+      "$n=36$, siden antallet må rundes nedover",
+      "$n=36{,}5$, siden $n$ kan være et desimaltall",
+      "$n=38$, siden $n$ må være et partall"
+    ],
+    "explanation": "Runder du ned, blir $h$ større enn tillatt og garantien brister. Partallskravet gjelder bare Simpson."
+  },
+  {
+    "question": "Hva er presisjonsgraden til midtpunktsregelen?",
+    "options": [
+      "1, selv om den bare bruker ett punkt",
+      "0, siden den bare bruker ett eneste punkt",
+      "3, like høy som for Simpsons regel",
+      "2, siden den treffer parabler eksakt"
+    ],
+    "explanation": "Symmetrien om midtpunktet gjør at førstegradsleddet kanselleres. Den er altså like god som trapes, med halvparten så mange evalueringer."
+  },
+  {
+    "question": "Hva er nodene i Gauss–Legendre med to punkter?",
+    "options": [
+      "$\\xi=\\pm 1/\\sqrt3$, begge med vekt 1",
+      "$\\xi=\\pm 1$, begge med vekt 1 som i trapes",
+      "$\\xi=\\pm 1/2$, begge med vekt 1",
+      "$\\xi=0$ og $\\xi=1$, med vekt 1"
+    ],
+    "explanation": "Kravet $2c^2=2/3$ gir $c=1/\\sqrt3$. Tabellen deles ut i oppgaven, men kontrollen $\\sum w_i=2$ bør du gjøre uansett."
+  },
+  {
+    "question": "En kvadraturformel er eksakt for $1$ og $x$, men ikke for $x^{2}$. Graden er",
+    "options": [
+      "1, altså den høyeste som går gjennom",
+      "2, altså graden som først feiler i testen",
+      "0, siden bare konstanter er trygge",
+      "3, av symmetrigrunner i formelen"
+    ],
+    "explanation": "Dette er trapesregelen. Presisjonsgraden er den høyeste graden som er eksakt, ikke den som bryter sammen."
+  },
+  {
+    "question": "Hva er den enkleste kontrollen på at en kvadraturformel er avskrevet riktig?",
+    "options": [
+      "Summen av vektene skal bli $b-a$",
+      "Summen av vektene skal bli lik $h$",
+      "Summen av nodene skal bli $b-a$",
+      "Produktet av vektene skal bli 1"
+    ],
+    "explanation": "Det svarer til at formelen er eksakt for $f\\equiv 1$. På $[-1,1]$ betyr det at vektene summerer til 2."
+  },
+  {
+    "question": "$f$ er konveks på hele intervallet. Hva vet du om trapesverdien?",
+    "options": [
+      "Den er for stor, siden linjene ligger over kurven",
+      "Den er for liten, siden linjene ligger under kurven",
+      "Den er eksakt, siden konveksitet fjerner feilen",
+      "Den er for stor bare hvis $f$ også er voksende"
+    ],
+    "explanation": "Fortegnsargumentet er en gratis kvalitetsmarkør i en besvarelse. Midtpunktsregelen bommer motsatt vei."
+  },
+  {
+    "question": "Hvorfor er en kvadraturformel eksakt for alle polynomer av grad $\\le d$ når den treffer $1,\\dots,x^{d}$?",
+    "options": [
+      "Fordi både formelen og integralet er lineære",
+      "Fordi et polynom alltid har grad nøyaktig $d$",
+      "Fordi vektene er valgt uavhengig av $f$",
+      "Fordi feilleddet inneholder en høy derivert"
+    ],
+    "explanation": "Ethvert polynom av grad $\\le d$ er en linearkombinasjon av potensene. Lineariteten overfører eksaktheten til kombinasjonen."
+  },
+  {
+    "question": "Hvilken sammenheng er det mellom kvadratur og interpolasjon?",
+    "options": [
+      "Formelen er integralet av et interpolasjonspolynom",
+      "Interpolasjonspolynomet er den deriverte av kvadraturen",
+      "De to har ingen sammenheng utover navnelikheten",
+      "Kvadraturformelen er den deriverte av nodepolynomet"
+    ],
+    "explanation": "Trapes integrerer linja gjennom to punkter, Simpson parabelen gjennom tre. Feilleddene arver formen fra interpolasjonsfeilen."
+  },
+  {
+    "question": "Hvor mange funksjonsevalueringer bruker Gauss–Legendre med tre noder?",
+    "options": [
+      "3, og presisjonsgraden er da 5",
+      "3, og presisjonsgraden er da 3",
+      "6, siden hver node teller dobbelt",
+      "5, som for Simpson med $n=4$"
+    ],
+    "explanation": "Antall evalueringer er antall noder, og graden er $2N-1$. Det er derfor Gauss slår Simpson per evaluering."
+  },
+  {
+    "question": "Simpson gir mye større feil på $\\int_0^2 xe^{x}dx$ med $n=2$ enn på $\\int_1^3 dx/x$ med $n=4$. Hvorfor?",
+    "options": [
+      "Både $h$ og $\\max|f^{(4)}|$ er større",
+      "Formelen gjelder ikke for eksponentialfunksjoner",
+      "Vektmønsteret er et annet når $n=2$",
+      "Fordi intervallet ikke er symmetrisk om null"
+    ],
+    "explanation": "$h$ er dobbelt så stor, og $h^4$ gir alene faktoren seksten. Den fjerdederiverte er dessuten omtrent dobbelt så stor."
+  }
+]

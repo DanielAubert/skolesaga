@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva er separasjonsansatsen i denne sjangeren?",
+    "options": [
+      "$u(x,t) = F(x)\\,G(t)$ — et produkt av to enfaktorfunksjoner",
+      "$u(x,t) = F(x) + G(t)$ — en sum av to enfaktorfunksjoner",
+      "$u(x,t) = F(x)/G(t)$ — en kvotient av to funksjoner",
+      "$u(x,t) = F(x,t)\\,G(x,t)$ — et produkt av to tofaktorfunksjoner"
+    ],
+    "explanation": "Ansatsen er et produkt av en funksjon av x alene og en funksjon av t alene. Det er nettopp produktformen som gjør at likningen kan deles i to, siden en sum eller kvotient ikke lar seg skille på samme måte."
+  },
+  {
+    "question": "Hva blir $u_{xx}$ når $u = F(x)G(t)$?",
+    "options": [
+      "$F''(x)\\,G(t)$",
+      "$F(x)\\,G''(t)$",
+      "$F''(x)\\,G''(t)$",
+      "$F'(x)\\,G'(t)$"
+    ],
+    "explanation": "Når vi deriverer med hensyn på x, er G en konstant og blir stående uendret. Bare F deriveres, og to ganger, så resultatet er F dobbeltderivert ganger G."
+  },
+  {
+    "question": "Med bokas konvensjon $F''/F = -k$, hvilke to likninger gir separasjonen av $u_t = c^2u_{xx}$?",
+    "options": [
+      "$F'' + kF = 0$ og $G' + c^2kG = 0$",
+      "$F'' - kF = 0$ og $G' - c^2kG = 0$",
+      "$F'' + kF = 0$ og $G'' + c^2kG = 0$",
+      "$F' + kF = 0$ og $G' + c^2kG = 0$"
+    ],
+    "explanation": "Konvensjonen gir F dobbeltderivert lik minus k ganger F, altså den første. Varmelikningen har bare én tidsderivert, så G-likningen er av første orden, ikke andre."
+  },
+  {
+    "question": "Hvorfor må begge sider i $\\dfrac{G'}{c^2G} = \\dfrac{F''}{F}$ være konstante?",
+    "options": [
+      "Venstre side avhenger bare av $t$, høyre bare av $x$, men de er like overalt",
+      "Fordi $F$ og $G$ begge er antatt å være konstante funksjoner helt fra starten",
+      "Fordi randbetingelsene tvinger begge brøkene til å være null i hele intervallet",
+      "Fordi varmelikningen er lineær, og lineære likninger har konstante brøksider"
+    ],
+    "explanation": "Holder du x fast og lar t variere, kan ikke høyresiden endre seg, og dermed heller ikke venstresiden. Det samme argumentet motsatt vei gjør at begge må være én og samme konstant."
+  },
+  {
+    "question": "Hva er den trivielle løsningen?",
+    "options": [
+      "Funksjonen $u \\equiv 0$, som alltid oppfyller homogene randbetingelser",
+      "Funksjonen $u \\equiv 1$, som alltid oppfyller homogene randbetingelser",
+      "Den enkleste egenfunksjonen, altså moden med $n = 1$ og lavest egenverdi",
+      "Løsningen som svarer til tilfellet $k = 0$ ved kalde ender i begge ender"
+    ],
+    "explanation": "Den trivielle løsningen er funksjonen som er null overalt. Den oppfyller likningen og alle homogene randbetingelser, men er uinteressant, og halve arbeidet består i å vise at to av k-tilfellene bare gir den."
+  },
+  {
+    "question": "Hvilken løsningsform har $F'' + kF = 0$ når $k > 0$, med $k = p^2$?",
+    "options": [
+      "$F = A\\cos px + B\\sin px$",
+      "$F = A\\cosh px + B\\sinh px$",
+      "$F = Ax + B$",
+      "$F = Ae^{px} + Bxe^{px}$"
+    ],
+    "explanation": "Positiv k gir en ren svingningslikning, og løsningene er cosinus og sinus. Hyperbelfunksjonene hører til negativ k, og den rette linja til k lik null."
+  },
+  {
+    "question": "Hvilken løsningsform har $F'' + kF = 0$ når $k < 0$, med $k = -\\mu^2$?",
+    "options": [
+      "$F = A\\cosh\\mu x + B\\sinh\\mu x$",
+      "$F = A\\cos\\mu x + B\\sin\\mu x$",
+      "$F = Ax + B$",
+      "$F = A\\cos\\mu x + Bx\\sin\\mu x$"
+    ],
+    "explanation": "Negativ k gir F dobbeltderivert lik mu i andre ganger F, altså hyperbolske løsninger. De kan like gjerne skrives som en sum av to eksponentialer, og de to formene er like gode."
+  },
+  {
+    "question": "Hvorfor gir tilfellet $k < 0$ bare den trivielle løsningen ved Dirichlet-rand?",
+    "options": [
+      "Fordi $\\cosh$ aldri er null og $\\sinh$ bare er null i $x = 0$",
+      "Fordi $\\cosh$ og $\\sinh$ vokser og aldri kan være null noe sted",
+      "Fordi hyperbelfunksjoner ikke er deriverbare i randpunktene",
+      "Fordi tidsfaktoren vokser og derfor er fysisk umulig for en kald stang"
+    ],
+    "explanation": "Randbetingelsen i null gir A lik null, og betingelsen i den andre enden krever at sinus hyperbolsk av et positivt tall er null, noe den aldri er. Argumentet om voksende tidsfaktor er riktig fysikk, men er ikke det fasitene godtar som bevis."
+  },
+  {
+    "question": "Ved hvilken randtype overlever tilfellet $k = 0$ med en ikke-triviell løsning?",
+    "options": [
+      "Når begge randbetingelsene er av Neumann-type, altså $F'(0) = F'(L) = 0$",
+      "Når begge randbetingelsene er av Dirichlet-type, altså $F(0) = F(L) = 0$",
+      "Når venstre ende er kald og høyre ende er isolert, altså blandet rand",
+      "Ved alle randtyper, siden en konstant alltid løser $F'' = 0$ og randkravet"
+    ],
+    "explanation": "Med k lik null er F en rett linje, og den deriverte er en konstant. To Neumann-krav sier begge det samme, nemlig at stigningen er null, og konstantleddet står fritt. Så snart minst én ende fastsetter verdien av F, dør den rette linja."
+  },
+  {
+    "question": "Hva er egenverdiene ved Dirichlet-rand på $[0,L]$?",
+    "options": [
+      "$k_n = \\left(\\dfrac{n\\pi}{L}\\right)^2$ for $n = 1,2,3,\\dots$",
+      "$k_n = \\left(\\dfrac{n\\pi}{2L}\\right)^2$ for $n = 1,2,3,\\dots$",
+      "$k_n = \\left(\\dfrac{n\\pi}{L}\\right)^2$ for $n = 0,1,2,\\dots$",
+      "$k_n = \\dfrac{n\\pi}{L}$ for $n = 1,2,3,\\dots$"
+    ],
+    "explanation": "Sluttlikningen er at sinus av p ganger L er null, altså at p er et helt multiplum av pi delt på L. Egenverdien er kvadratet av p, og tellingen starter på 1 fordi n lik 0 ville gitt den forkastede nullverdien."
+  },
+  {
+    "question": "Hva er egenfunksjonene ved Neumann-rand på $[0,L]$?",
+    "options": [
+      "$F_0 = 1$ og $F_n = \\cos\\dfrac{n\\pi x}{L}$ for $n \\ge 1$",
+      "$F_0 = 1$ og $F_n = \\sin\\dfrac{n\\pi x}{L}$ for $n \\ge 1$",
+      "$F_n = \\cos\\dfrac{n\\pi x}{L}$ for $n \\ge 1$, uten konstantledd",
+      "$F_n = \\cos\\dfrac{(2n-1)\\pi x}{2L}$ for $n \\ge 1$, bare odde ledd"
+    ],
+    "explanation": "Isolerte ender krever at den deriverte er null, og cosinus har vannrett tangent både i null og i L. I tillegg overlever tilfellet k lik null som en konstant, og det er det leddet som ikke dør ut med tida."
+  },
+  {
+    "question": "Hva er sluttlikningen ved blandet rand, altså $F(0) = 0$ og $F'(L) = 0$?",
+    "options": [
+      "$\\cos pL = 0$, som gir odde multipler av $\\pi/2$",
+      "$\\sin pL = 0$, som gir hele multipler av $\\pi$",
+      "$\\sinh pL = 0$, som bare har løsningen $p = 0$",
+      "$\\tan pL = 0$, som gir hele multipler av $\\pi$"
+    ],
+    "explanation": "Betingelsen i null gir F lik en konstant ganger sinus. Deriverer du og setter inn L, står det cosinus av p ganger L lik null, og cosinus er null i odde multipler av pi delt på to."
+  },
+  {
+    "question": "Hvor hører konstanten $c^2$ hjemme i den ferdige produktløsningen?",
+    "options": [
+      "I tidsfaktoren, som eksponenten $e^{-c^2k_nt}$",
+      "I egenverdien, som $k_n = c^2\\left(n\\pi/L\\right)^2$",
+      "I egenfunksjonen, som $F_n = \\sin\\dfrac{cn\\pi x}{L}$",
+      "I randbetingelsen, som $u(0,t) = c^2$ ved kalde ender"
+    ],
+    "explanation": "Konstanten står bare i G-likningen, altså i tidsfaktoren. Egenverdiene avhenger utelukkende av intervallengden og randtypen, aldri av hvor rask stanga er."
+  },
+  {
+    "question": "Hvordan begrunnes overgangen fra $u(0,t) = 0$ til $F(0) = 0$?",
+    "options": [
+      "$F(0)G(t)$ er null for alle $t$, og $G \\not\\equiv 0$ hvis løsningen ikke er triviell",
+      "Produktet $F(0)G(t)$ er null, og derfor må begge faktorene være null samtidig overalt",
+      "Randbetingelsen gjelder bare i ett punkt, så $F$ må være null i hele intervallet uansett",
+      "Fordi $G(t)$ per definisjon er lik 1 i alle punkter på randen av det gitte intervallet"
+    ],
+    "explanation": "Er G identisk null, er hele løsningen null, altså den trivielle. Siden vi leter etter ikke-trivielle løsninger, må F være null i randpunktet. Denne ene setningen er et eget poeng på eksamen."
+  },
+  {
+    "question": "Hva blir tidsfaktoren $G$ for varmelikningen med egenverdi $k_n$?",
+    "options": [
+      "$G_n(t) = e^{-c^2k_nt}$, en eksponentiell demping",
+      "$G_n(t) = e^{+c^2k_nt}$, en eksponentiell vekst",
+      "$G_n(t) = \\cos\\!\\left(c\\sqrt{k_n}\\,t\\right)$, en ren svingning",
+      "$G_n(t) = 1 - c^2k_nt$, en lineær avtakning"
+    ],
+    "explanation": "Likningen G derivert pluss c i andre ganger k ganger G lik null er den enkleste eksponentiallikningen, og løsningen dør ut fordi både k og c i andre er positive. Svingningen hører til bølgeligningen, som har to tidsderiverte."
+  },
+  {
+    "question": "Hva er den eneste forskjellen mellom separasjonen av varme- og bølgeligningen?",
+    "options": [
+      "$G$-likningen blir av andre orden i stedet for første; $F$-likningen er identisk",
+      "$F$-likningen blir av fjerde orden i stedet for andre; $G$-likningen er identisk",
+      "Randbetingelsene må være av Neumann-type i bølgetilfellet, ikke Dirichlet",
+      "Separasjonskonstanten må være negativ i bølgetilfellet og positiv for varme"
+    ],
+    "explanation": "Randbetingelsene sier ingenting om G, så hele analysen av de tre k-tilfellene er ordrett den samme. Det er bare tidslikningen som får en ekstra derivasjon, og den gir svingning i stedet for demping."
+  },
+  {
+    "question": "En stang ligger på $[-1,1]$ med kalde ender. Hva er egenverdiene?",
+    "options": [
+      "$k_n = \\left(\\dfrac{n\\pi}{2}\\right)^2$, siden lengden er 2",
+      "$k_n = \\left(n\\pi\\right)^2$, siden randpunktet er $x = 1$",
+      "$k_n = \\left(\\dfrac{n\\pi}{4}\\right)^2$, siden lengden er 4",
+      "$k_n = \\left(\\dfrac{(2n-1)\\pi}{4}\\right)^2$, siden intervallet er symmetrisk"
+    ],
+    "explanation": "Egenverdiene avhenger bare av lengden på intervallet, ikke av hvor det ligger. Fra minus 1 til 1 er lengden 2, så nevneren er 2. En forskyvning endrer verken den dobbeltderiverte eller randkravene."
+  },
+  {
+    "question": "Hva kjennetegner egenverdiene ved blandet rand?",
+    "options": [
+      "Bare odde multipler av $\\pi/(2L)$ er tillatt",
+      "Bare like multipler av $\\pi/(2L)$ er tillatt",
+      "Alle hele multipler av $\\pi/L$ er tillatt, som ved Dirichlet",
+      "Alle multipler av $\\pi/(2L)$ er tillatt, både odde og like"
+    ],
+    "explanation": "Sluttlikningen blir en cosinuslikning i stedet for en sinuslikning, og cosinus er null bare i odde multipler av pi halve. Det gir større avstand mellom egenverdiene enn ved lik randtype i begge ender."
+  },
+  {
+    "question": "Hva er en egenfunksjon i denne sammenhengen?",
+    "options": [
+      "En ikke-triviell løsning $F_n$, bestemt opp til en konstant faktor",
+      "En løsning $F_n$ av randverdiproblemet med normert lengde lik 1 over hele intervallet",
+      "Tidsfaktoren $G_n$ som hører til den $n$-te tillatte verdien av separasjonskonstanten",
+      "Den fullstendige produktløsningen $u_n = F_nG_n$ for den $n$-te tillatte egenverdien"
+    ],
+    "explanation": "Egenfunksjonen er romfaktoren, ikke tidsfaktoren og ikke produktet. Er F en løsning, er også sju ganger F det, så vi skriver den alltid i enklest mulig form uten konstant foran."
+  },
+  {
+    "question": "Hva er den beste kontrollen av en ferdig produktløsning?",
+    "options": [
+      "Sett den inn i likningen og i begge randbetingelsene, og vis at alle er oppfylt",
+      "Sett den inn i likningen alene, siden randbetingelsene alt er brukt underveis",
+      "Sjekk at tidsfaktoren avtar, som den må for enhver fysisk varmeløsning",
+      "Sjekk at egenverdien er positiv, siden bare positive $k$ overlever randkravet"
+    ],
+    "explanation": "Innsettingen tar to minutter og fanger både fortegnsfeil og feil egenverdi. På eksamen gir selve kontrollen ofte uttelling i seg selv, og delpunktet ber ofte eksplisitt om den."
+  }
+]

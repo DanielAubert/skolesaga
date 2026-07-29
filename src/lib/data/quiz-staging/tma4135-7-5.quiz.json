@@ -1,0 +1,122 @@
+[
+  {
+    "question": "I RK4 er $y$-argumentet i $k_3$ lik",
+    "options": [
+      "$y_n+\\tfrac h2k_2$ — det bygger på $k_2$",
+      "$y_n+\\tfrac h2k_1$ — det bygger på $k_1$",
+      "$y_n+hk_2$ — hele steget ganger $k_2$",
+      "$y_n+\\tfrac h2\\left(k_1+k_2\\right)$ — snittet"
+    ],
+    "explanation": "Kjedingen er $k_1\\to k_2\\to k_3\\to k_4$, og både $k_2$ og $k_3$ regnes i tiden $t_n+\\tfrac h2$. I det gjennomregnede caset ble $k_2=0{,}75$ og $k_3=0{,}8125$ — så like at feilen er lett å gjøre og vanskelig å oppdage."
+  },
+  {
+    "question": "I Heuns metode er $y$-argumentet i $k_2$ lik",
+    "options": [
+      "$y_n+hk_1$, altså den fulle Euler-prediksjonen",
+      "$y_n$, altså samme verdi som brukes i $k_1$",
+      "$y_n+\\tfrac h2k_1$, altså halve Euler-skrittet",
+      "$y_{n+1}$, altså sluttresultatet av skrittet"
+    ],
+    "explanation": "Prøveskrittet er hele Euler-skrittet, og $t$-argumentet er $t_n+h$. Dette er den dokumenterte hovedfeilen i sjangeren — skriv argumentet ut i besvarelsen, så ser den som retter at du har gjort det riktig."
+  },
+  {
+    "question": "Ett bakover-Euler-skritt på $y'=-y^{2}$ med $y(0)=2$ og $h=0{,}25$ gir en likning som er",
+    "options": [
+      "andregrads, med den brukbare rota $2\\sqrt3-2$",
+      "lineær, med den eneste løsningen $y_1=1{,}6$",
+      "lineær, med den eneste løsningen $y_1=1{,}0$",
+      "andregrads, med den brukbare rota $-2\\sqrt3-2$"
+    ],
+    "explanation": "Likningen $y_1=2-0{,}25y_1^{2}$ blir $y_1^{2}+4y_1-8=0$ med røttene $-2\\pm 2\\sqrt3$. Løsningen starter i $y_0=2>0$ og avtar, så den negative rota forkastes, og svaret er $\\approx 1{,}4641$. Verdien $1{,}0$ er eksplisitt Euler."
+  },
+  {
+    "question": "Ett bakover-Euler-skritt på $y'=3-y$ med $y(0)=1$ og $h=0{,}5$ gir",
+    "options": [
+      "$y_1=\\tfrac53\\approx 1{,}667$, fra $1{,}5y_1=2{,}5$",
+      "$y_1=2$, fra $y_1=1+0{,}5\\left(3-1\\right)$",
+      "$y_1=1{,}75$, fra $y_1=1+0{,}25\\left(k_1+k_2\\right)$",
+      "$y_1=1{,}25$, fra $2y_1=2{,}5$ etter innsetting"
+    ],
+    "explanation": "Formelen er implisitt: $y_1=1+0{,}5\\left(3-y_1\\right)$, og $y_1$ må samles på venstre side. Verdien $2$ er eksplisitt Euler, og $1{,}75$ er Heun — en besvarelse som lander på $2$ har behandlet metoden som eksplisitt."
+  },
+  {
+    "question": "Hvor mange ordensbetingelser må sjekkes på nivå 3 og på nivå 4?",
+    "options": [
+      "To på nivå 3 og fire på nivå 4",
+      "Én på nivå 3 og to på nivå 4",
+      "To på nivå 3 og tre på nivå 4",
+      "Tre på nivå 3 og fire på nivå 4"
+    ],
+    "explanation": "Går den første betingelsen på et nivå gjennom, er du ikke ferdig med nivået — å stoppe der er den dokumenterte hovedfeilen i sjangeren. Feiler én betingelse på nivå 3, er ordenen 2, ikke 3: konkluder alltid med nivået under det første som feilet."
+  },
+  {
+    "question": "Returlinja `return y + h*(k1 + 4*k2 + k3)/6` gir vektene",
+    "options": [
+      "$\\left(\\tfrac16,\\ \\tfrac23,\\ \\tfrac16\\right)$",
+      "$\\left(1,\\ 4,\\ 1\\right)$",
+      "$\\left(\\tfrac16,\\ 4,\\ \\tfrac16\\right)$",
+      "$\\left(\\tfrac13,\\ \\tfrac43,\\ \\tfrac13\\right)$"
+    ],
+    "explanation": "Faktoren $\\tfrac16$ utenfor parentesen må ganges inn i hvert ledd. Kontrollen er at vektsummen blir 1: $\\tfrac16+\\tfrac23+\\tfrac16=1$. Å glemme faktoren er en dokumentert feil i avlesningen fra kode."
+  },
+  {
+    "question": "En metode med $\\mathbf b=\\left(\\tfrac29,\\tfrac13,\\tfrac49\\right)$ og $\\mathbf c=\\left(0,\\tfrac12,\\tfrac34\\right)$ har $\\sum_i b_ic_i^{3}=\\tfrac{11}{48}$. Ordenen er",
+    "options": [
+      "3, siden nivå-4-kravet $\\tfrac{12}{48}$ ikke holder",
+      "4, siden $\\tfrac{11}{48}$ er nær nok kravet $\\tfrac14$",
+      "2, siden også en nivå-3-betingelse må ha feilet",
+      "3, men bare hvis $\\sum_{i,j} b_ia_{ij}c_j\\ne\\tfrac16$"
+    ],
+    "explanation": "Kravet på nivå 4 er $\\tfrac14=\\tfrac{12}{48}$, og en ordensbetingelse er oppfylt eller ikke — det finnes ingen «nesten». Begge nivå-3-betingelsene holder for denne metoden (Ralstons), så ordenen er nivået under 4. Regn med brøker, ikke desimaltall."
+  },
+  {
+    "question": "Heun–Euler-paret på $y'=3-y$, $y(0)=1$, $h=0{,}5$ gir $\\hat\\varepsilon=0{,}25$. Med Tol $=10^{-1}$ og $P=0{,}9$ blir $h_{\\text{ny}}$",
+    "options": [
+      "$\\approx 0{,}285$, med eksponenten $\\tfrac12$",
+      "$\\approx 0{,}332$, med eksponenten $\\tfrac13$",
+      "$\\approx 0{,}316$, uten sikkerhetsfaktoren",
+      "$\\approx 0{,}712$, med snudd brøk i formelen"
+    ],
+    "explanation": "Euler-svaret propageres, så $p=1$ og eksponenten er $\\tfrac1{p+1}=\\tfrac12$: $0{,}9\\cdot 0{,}5\\cdot\\sqrt{0{,}4}$. Estimatet ligger over toleransen, så skrittet forkastes — og forslaget må da bli mindre enn $h=0{,}5$."
+  },
+  {
+    "question": "Med $P=0{,}9$ og et 3(4)-par gir sikkerhetsfaktoren en margin i feilen på",
+    "options": [
+      "$1-0{,}9^{4}\\approx 34$ prosent",
+      "$1-0{,}9^{3}\\approx 27$ prosent",
+      "$1-0{,}9\\ =\\ 10$ prosent nøyaktig",
+      "$0{,}9^{4}\\approx 66$ prosent av Tol"
+    ],
+    "explanation": "Feilen skalerer med $h^{p+1}=h^{4}$, så 10 prosent kortere steglengde gir 34 prosent mindre feil. Det er derfor andelen forkastede skritt faller fra omtrent halvparten til noen få prosent, mens antall skritt bare øker med rundt 9 prosent."
+  },
+  {
+    "question": "Et system har $\\operatorname{tr}A=-11$ og $\\det A=24$, altså egenverdiene $-3$ og $-8$. Maks steglengde for eksplisitt Euler er",
+    "options": [
+      "$h\\le 0{,}250$, fra $2/8$",
+      "$h\\le 0{,}667$, fra $2/3$",
+      "$h\\le 0{,}182$, fra $2/11$",
+      "$h\\le 0{,}348$, fra $2{,}785/8$"
+    ],
+    "explanation": "Alle egenverdiene må ligge i stabilitetsområdet samtidig, så den mest negative binder — å bruke $-3$ er den dokumenterte fella. Grensen $2{,}785/8$ gjelder RK4, og $2/11$ bruker sporet i stedet for en egenverdi."
+  },
+  {
+    "question": "Heun brukes på $y'=-4y+4$ med $h=0{,}4$. Stabilitetsgrensen er",
+    "options": [
+      "$h\\le 0{,}5$, så $h=0{,}4$ ligger innenfor",
+      "$h\\le 0{,}5$, så $h=0{,}4$ ligger utenfor",
+      "$h\\le 0{,}25$, så $h=0{,}4$ ligger utenfor",
+      "$h\\le 1{,}0$, så $h=0{,}4$ ligger innenfor"
+    ],
+    "explanation": "Koeffisienten foran $y$ er $\\lambda=-4$; konstantleddet $+4$ påvirker ikke stabiliteten. Heuns intervall $-2\\le z\\le 0$ gir $h\\le 2/4$, og $R(-1{,}6)=0{,}68$ bekrefter det. Men Heun-svaret $0{,}32$ mot eksakt $0{,}798$ viser at stabil ikke er det samme som brukbar."
+  },
+  {
+    "question": "Feilene firedeles for hver halvering av $h$. Den observerte ordenen er",
+    "options": [
+      "2, siden $2^{p}=4$ og dermed er $p=2$",
+      "4, siden feilen firedeles per halvering",
+      "1, siden $2^{p}=2$ for hver halvering",
+      "3, siden ordenen er stegtallet minus én"
+    ],
+    "explanation": "Forholdet $e(h)/e(h/2)\\approx 2^{p}$ gir $p=2$. Målingen forutsetter at du ligger godt innenfor stabilitetsområdet — er stabiliteten aktiv, følger feilene ikke $h^{p}$-mønsteret i det hele tatt, og ordensmålingen blir meningsløs."
+  }
+]

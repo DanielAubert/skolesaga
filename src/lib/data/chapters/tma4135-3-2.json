@@ -1,0 +1,457 @@
+{
+  "id": "tma4135-3-2",
+  "courseId": "tma4135",
+  "chapterNumber": "3.2",
+  "title": "Halvintervall-utvidelser, konvergens og midling",
+  "description": "Utvide en funksjon på $[0,L]$ til en odde eller like periodisk funksjon, skissere over flere perioder, og vite hva rekka konvergerer mot i sprang.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "utvide en funksjon gitt på et halvintervall til en odde eller like periodisk funksjon, og velge utvidelse ut fra hva oppgaven krever",
+    "skissere den periodiske utvidelsen over flere perioder med sprangene og midlingsverdiene riktig markert",
+    "bruke konvergensteoremet til å angi hva rekka gir i et vilkårlig punkt, også i sprang og i endepunktene",
+    "sette inn en bekvem x-verdi i en ferdig rekke og utlede summen av en tallrekke"
+  ],
+  "content": [
+    {
+      "id": "tma4135-3-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet der Fourier-oppgaven pleier å begynne.** Fourier-blokken står på 13 av 13 gjennomgåtte sett, og den vanligste innledningen er ikke «finn rekka til denne periodiske funksjonen», men «en funksjon er gitt på $[0,L]$ — utvid den til en odde (eller like) funksjon, skissér den, og finn rekka».\n\nTre ting går igjen i denne sjangeren, og de gir poeng hver for seg:\n\n- **utvidelsen** — at du velger riktig speiling og sier hvilken du valgte;\n- **skissen** over flere perioder, med sprangene tegnet riktig;\n- **konvergensverdien i et sprang**, som er gjennomsnittet $\\tfrac12\\left(f(x^+)+f(x^-)\\right)$ og *ikke* funksjonsverdien.\n\nDen siste er den hyppigste enkeltfeilen i hele Fourier-blokken. Studenter som ellers regner riktig, skriver funksjonsverdien i spranget og mister et helt delpunkt.\n\nI tillegg brukes rekka ofte baklengs: sett inn en bekvem $x$, og du får summen av en tallrekke gratis. Det er et fast delpunkt (c) på slutten av oppgaven.\n\n**Sjangerbokstaven er fortsatt D** — boka bruker bokstaver $A$ til $S$ som korte navn på de nitten oppgavetypene på settene, og **D er Fourier-rekker**.\n\n**Formelark-merking.** Ingen ny rad fra det utdelte arket kommer inn her. Utvidelsesregelen, midlingsformelen og skissekonvensjonen **må kunnes**. Reduksjonsformlene du bruker underveis, **står på det utdelte formelarket — tren oppslaget**.\n\n**Tidsbruk:** 55 minutter lesetid, fire løkker. Pausepunktet er markert etter løkke 2."
+    },
+    {
+      "id": "tma4135-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 3.1](/tma4135/tma4135-3-1) — koeffisientintegralene, symmetriregelen og delvis integrasjon. Ingenting utover det.\n\n**Sist du var her** — de tre formlene du trenger fra [kap. 3.1](/tma4135/tma4135-3-1), ferdig oppfrisket:\n\n$$a_0 = \\frac{1}{2L}\\int_{-L}^{L} f\\,dx, \\qquad a_n = \\frac{1}{L}\\int_{-L}^{L} f\\cos\\frac{n\\pi x}{L}\\,dx, \\qquad b_n = \\frac{1}{L}\\int_{-L}^{L} f\\sin\\frac{n\\pi x}{L}\\,dx.$$\n\nOg symmetriregelen: **odde** funksjon gir ren sinusrekke med $b_n = \\frac{2}{L}\\int_0^L f\\sin\\frac{n\\pi x}{L}\\,dx$; **like** funksjon gir ren cosinusrekke med $a_n = \\frac{2}{L}\\int_0^L f\\cos\\frac{n\\pi x}{L}\\,dx$ og $a_0 = \\frac1L\\int_0^L f\\,dx$.\n\nKapitlet er forutsetning for [kap. 3.4](/tma4135/tma4135-3-4)."
+    },
+    {
+      "id": "tma4135-3-2-motivasjon",
+      "type": "text",
+      "content": "## Én funksjon, to svar — og begge er riktige\n\nEn strengbit er spent opp mellom to festepunkter, og du kjenner utbøyningen langs strengen. Den er beskrevet av en funksjon på et **endelig** intervall, si $[0,1]$. Ingenting utenfor intervallet finnes.\n\nMen Fourier-rekka i [kap. 3.1](/tma4135/tma4135-3-1) er laget for **periodiske** funksjoner på $[-L,L]$. Skal du bruke apparatet, må du først dikte opp hva funksjonen gjør til venstre for null, og deretter la den gjenta seg.\n\nHer er poenget: **du kan velge**. Speiler du funksjonen som i et speil ($f(-x)=f(x)$), får du en like funksjon og en ren cosinusrekke. Speiler du den gjennom origo ($f(-x)=-f(x)$), får du en odde funksjon og en ren sinusrekke. Begge rekkene gir samme verdier på $[0,1]$, der funksjonen faktisk er definert. Utenfor er de vidt forskjellige.\n\nValget er ikke smakssak i praksis. I Del 5 skal du løse varmelikningen for en stav med endene holdt på null grader. Da kreves en løsning som er null i begge ender — og bare sinusrekka har den egenskapen automatisk. Er endene isolert i stedet, trengs cosinusrekka. **Randbetingelsene bestemmer speilingen.**\n\nKapitlet gjør fire ting: de to utvidelsene, skissen, hva rekka konvergerer mot i et sprang, og til slutt hvordan du melker en ferdig rekke for en tallrekkesum."
+    },
+    {
+      "id": "tma4135-3-2-fc-notis",
+      "type": "text",
+      "content": "**Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 55 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De to speilingene (~15 min)\n\nVi begynner med å definere presist hva de to utvidelsene er, og deretter regner vi ut begge for én og samme funksjon, slik at forskjellen blir synlig."
+    },
+    {
+      "id": "tma4135-3-2-def-halvintervall",
+      "type": "definition",
+      "title": "Halvintervallet $[0,L]$",
+      "content": "Intervallet en oppgave gir funksjonen på når den *ikke* gir deg noe å jobbe med på den negative siden.\n\nTallet $L$ blir **halvperioden** i den ferdige rekka, så den periodiske utvidelsen får periode $2L$. Er $f$ gitt på $[0,1]$, blir perioden 2; er den gitt på $[0,\\pi]$, blir perioden $2\\pi$."
+    },
+    {
+      "id": "tma4135-3-2-def-like-utvidelse",
+      "type": "definition",
+      "title": "Den like (jevne) utvidelsen",
+      "content": "Speilingen om $y$-aksen. Definer\n\n$$f_{\\text{like}}(x) = \\begin{cases} f(x), & 0 \\le x \\le L \\\\ f(-x), & -L \\le x < 0\\end{cases}$$\n\nog gjenta med periode $2L$. Resultatet er en like funksjon, så rekka blir en **ren cosinusrekke**.\n\nKjennetegn på figuren: kurven er speilsymmetrisk om $y$-aksen, og den har typisk en **knekk** (ikke sprang) i $x=0$."
+    },
+    {
+      "id": "tma4135-3-2-def-odde-utvidelse",
+      "type": "definition",
+      "title": "Den odde utvidelsen",
+      "content": "Speilingen gjennom origo. Definer\n\n$$f_{\\text{odde}}(x) = \\begin{cases} f(x), & 0 < x \\le L \\\\ -f(-x), & -L \\le x < 0\\end{cases}$$\n\nog gjenta med periode $2L$. Resultatet er en odde funksjon, så rekka blir en **ren sinusrekke**.\n\nKjennetegn på figuren: kurven er punktsymmetrisk om origo, og den får et **sprang** i $x=0$ med mindre $f(0)=0$."
+    },
+    {
+      "id": "tma4135-3-2-def-per-utvidelse",
+      "type": "definition",
+      "title": "Den periodiske utvidelsen",
+      "content": "Å gjenta en funksjon definert på ett intervall av lengde $2L$ ut over hele tallinja:\n\n$$\\tilde f(x) = f(x - 2Lk) \\quad\\text{der } k \\text{ er valgt slik at } x-2Lk \\text{ ligger i grunnintervallet}.$$\n\nDet er $\\tilde f$, ikke $f$, Fourier-rekka faktisk beskriver. Alle spørsmål om konvergens handler om $\\tilde f$ — og det er derfor du må tegne den før du svarer."
+    },
+    {
+      "id": "tma4135-3-2-def-cosrekke-halv",
+      "type": "definition",
+      "title": "Cosinusrekka til $f$ på $[0,L]$",
+      "content": "Rekka du får av den like utvidelsen:\n\n$$f(x) = a_0 + \\sum_{n=1}^{\\infty} a_n\\cos\\frac{n\\pi x}{L}, \\qquad a_0 = \\frac1L\\int_0^L f\\,dx, \\quad a_n = \\frac{2}{L}\\int_0^L f\\cos\\frac{n\\pi x}{L}\\,dx.$$\n\nLegg merke til at alle integralene går fra 0 til $L$ — du trenger aldri se på den negative siden. Utvidelsen er en tankekonstruksjon som lar deg bruke apparatet; regningen skjer der funksjonen faktisk er gitt."
+    },
+    {
+      "id": "tma4135-3-2-def-sinrekke-halv",
+      "type": "definition",
+      "title": "Sinusrekka til $f$ på $[0,L]$",
+      "content": "Rekka du får av den odde utvidelsen:\n\n$$f(x) = \\sum_{n=1}^{\\infty} b_n\\sin\\frac{n\\pi x}{L}, \\qquad b_n = \\frac{2}{L}\\int_0^L f\\sin\\frac{n\\pi x}{L}\\,dx.$$\n\nRekka er automatisk null i $x=0$ og i $x=L$, uansett koeffisienter. Det er nettopp derfor den passer til en streng som er festet i begge ender."
+    },
+    {
+      "id": "tma4135-3-2-eks1",
+      "type": "example",
+      "title": "Samme funksjon, to rekker: $f(x)=x$ på $[0,1]$",
+      "problem": "La $f(x) = x$ på $[0,1]$.\n\n**a)** Finn cosinusrekka (like utvidelse, periode 2).\n**b)** Finn sinusrekka (odde utvidelse, periode 2).\n**c)** Sammenlikn de to og forklar hvorfor de er så ulike utenfor $[0,1]$.",
+      "solution": "Halvperioden er $L = 1$ i begge tilfeller, så argumentet blir $n\\pi x$.\n\n**a) Cosinusrekka.**\n$$a_0 = \\int_0^1 x\\,dx = \\frac12.$$\n$$a_n = 2\\int_0^1 x\\cos n\\pi x\\,dx.$$\n**Fra reduksjonsformelen på det utdelte formelarket** med $a = n\\pi$:\n$$\\int x\\cos ax\\,dx = \\frac{x\\sin ax}{a}+\\frac{\\cos ax}{a^2}.$$\nI $x=1$ er $\\sin n\\pi = 0$, så første ledd faller bort; i $x=0$ er $\\cos 0 = 1$. Altså\n$$a_n = 2\\cdot\\frac{(-1)^n - 1}{n^2\\pi^2}.$$\nFor like $n$ blir dette null; for odde $n$ blir det $-\\frac{4}{n^2\\pi^2}$. Rekka:\n$$x = \\frac12 - \\frac{4}{\\pi^2}\\left(\\cos\\pi x + \\frac{\\cos 3\\pi x}{9}+\\frac{\\cos 5\\pi x}{25}+\\cdots\\right), \\qquad 0 \\le x \\le 1.$$\n\n**b) Sinusrekka.**\n$$b_n = 2\\int_0^1 x\\sin n\\pi x\\,dx.$$\n**Fra søsterformelen på arket** med $a = n\\pi$: $\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}$. I $x=1$ forsvinner sinusleddet, og\n$$b_n = 2\\cdot\\left(-\\frac{(-1)^n}{n\\pi}\\right) = \\frac{2(-1)^{n+1}}{n\\pi}.$$\nRekka:\n$$x = \\frac{2}{\\pi}\\left(\\sin\\pi x - \\frac{\\sin 2\\pi x}{2}+\\frac{\\sin 3\\pi x}{3}-\\cdots\\right), \\qquad 0 < x < 1.$$\n\n**c) Sammenlikningen.** På $[0,1]$ gir begge rekkene $x$ — de er like nyttige der. Utenfor skiller de lag:\n\n- Den **like** utvidelsen er en trekantbølge: den går opp fra 0 til 1, ned igjen til 0, opp igjen. Den er **kontinuerlig overalt**, og koeffisientene faller som $1/n^2$.\n- Den **odde** utvidelsen er en sagtann: den går opp fra $-1$ til 1, **hopper** ned til $-1$, og gjentar. Den har sprang i alle odde heltall, og koeffisientene faller som $1/n$.\n\n**Det er ikke tilfeldig at den kontinuerlige utvidelsen konvergerer raskest.** Sprang koster; jo glattere den periodiske utvidelsen er, jo færre ledd trenger du. Det er et argument for å velge den like utvidelsen når du står fritt — men i Del 5 står du sjelden fritt, for randbetingelsene bestemmer.\n\n**Kontroll av begge.** Sett $x = \\tfrac12$. Cosinusrekka: alle $\\cos\\left(n\\pi/2\\right)$ med odde $n$ er 0, så vi står igjen med $a_0 = \\tfrac12$. Riktig. Sinusrekka: $\\frac{2}{\\pi}\\left(1 - 0 - \\tfrac13 + 0 + \\tfrac15 - \\cdots\\right) = \\frac{2}{\\pi}\\cdot\\frac{\\pi}{4} = \\tfrac12$. Riktig. Begge treffer $f(\\tfrac12) = \\tfrac12$."
+    },
+    {
+      "id": "tma4135-3-2-fig-utvidelse",
+      "type": "image",
+      "src": "/images/textbook/tma4135/fourier-utvidelse-odde-like.svg",
+      "alt": "To grafer over hverandre. Øverst den like utvidelsen av f av x lik x på intervallet null til én: en trekantbølge som går fra null opp til én og ned igjen, uten sprang. Nederst den odde utvidelsen: en sagtann som går fra minus én opp til én og så hopper ned igjen, med prikker i sprangene som markerer midlingsverdien null.",
+      "caption": "De to utvidelsene av $f(x)=x$ på $[0,1]$, tegnet over tre perioder. Øverst den like (cosinusrekke, ingen sprang), nederst den odde (sinusrekke, sprang i alle odde heltall). Prikkene er verdien rekka konvergerer mot i sprangene."
+    },
+    {
+      "id": "tma4135-3-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-2-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) For hver av situasjonene: hvilken utvidelse gir en ren sinusrekke, og hvilken gir en ren cosinusrekke?\n\n**a)** Du utvider $f$ på $[0,3]$ til en odde funksjon.\n**b)** Du utvider $f$ på $[0,\\pi]$ til en like funksjon.\n**c)** Du trenger en rekke som automatisk er null i både $x=0$ og $x=L$.\n**d)** Du trenger en rekke der den deriverte automatisk er null i $x=0$.",
+        "solution": "**a)** Odde utvidelse gir **ren sinusrekke**. Halvperioden er $L=3$, så argumentet blir $\\frac{n\\pi x}{3}$ og perioden 6.\n\n**b)** Like utvidelse gir **ren cosinusrekke**, med $L=\\pi$ og argument $nx$.\n\n**c)** **Sinusrekka.** Hvert ledd $\\sin\\frac{n\\pi x}{L}$ er null både i $x=0$ og i $x=L$ (der argumentet er $n\\pi$). Dette er grunnen til at sinusrekka hører til en streng festet i begge ender.\n\n**d)** **Cosinusrekka.** Deriverer du $\\cos\\frac{n\\pi x}{L}$, får du $-\\frac{n\\pi}{L}\\sin\\frac{n\\pi x}{L}$, som er null i $x=0$. Dette hører til en stav med **isolerte** ender, der varmestrømmen — altså den deriverte — er null.\n\nPoenget: valget av speiling er ikke estetikk. Det er randbetingelsen skrevet om til et symmetrikrav.",
+        "hints": [
+          "Odde funksjoner har bare sinusledd, like funksjoner bare cosinusledd.",
+          "Sett $x=0$ inn i $\\sin\\frac{n\\pi x}{L}$ og i $\\cos\\frac{n\\pi x}{L}$ og se hva som skjer."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-2-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D — Fourier-rekker.) La $f(x) = 1$ for $0 < x < 1$.\n\n**a)** Finn sinusrekka (odde utvidelse, periode 2).\n**b)** Finn cosinusrekka (like utvidelse, periode 2), og forklar hvorfor svaret er så kort.\n**c)** Bruk sinusrekka i $x=\\tfrac12$ til å bestemme $\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1}$.",
+        "solution": "$L = 1$, argument $n\\pi x$.\n\n**a)** Odde utvidelse:\n$$b_n = 2\\int_0^1 \\sin n\\pi x\\,dx = 2\\left[-\\frac{\\cos n\\pi x}{n\\pi}\\right]_0^1 = \\frac{2\\left(1-(-1)^n\\right)}{n\\pi},$$\naltså $b_n = \\frac{4}{n\\pi}$ for odde $n$ og 0 for like. Rekka:\n$$1 = \\frac{4}{\\pi}\\left(\\sin\\pi x + \\frac{\\sin 3\\pi x}{3}+\\frac{\\sin 5\\pi x}{5}+\\cdots\\right), \\qquad 0 < x < 1.$$\nDette er firkantbølgen — den odde utvidelsen er $-1$ på $(-1,0)$ og $1$ på $(0,1)$.\n\n**b)** Like utvidelse: da er $f_{\\text{like}}(x) = 1$ for **alle** $x$, altså en konstant. Konstanten er sin egen Fourier-rekke:\n$$a_0 = \\int_0^1 1\\,dx = 1, \\qquad a_n = 2\\int_0^1\\cos n\\pi x\\,dx = 2\\left[\\frac{\\sin n\\pi x}{n\\pi}\\right]_0^1 = 0.$$\nRekka er bare $1$. Svaret er kort fordi den like utvidelsen ikke har noe å utvide — funksjonen var allerede like og allerede periodisk.\n\n**c)** Sett $x=\\tfrac12$ i sinusrekka. Da er $\\sin\\frac{n\\pi}{2}$ lik $1,0,-1,0,1,\\dots$, altså $(-1)^m$ for $n = 2m+1$:\n$$1 = \\frac{4}{\\pi}\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1} \\quad\\Longrightarrow\\quad \\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1} = \\frac{\\pi}{4}.$$\nDette er **Leibniz' rekke**. Innsettingen er gyldig fordi den odde utvidelsen er kontinuerlig i $x=\\tfrac12$ — der er den konstant lik 1.\n\n**Kontroll.** $1-\\tfrac13+\\tfrac15-\\tfrac17+\\tfrac19 = 0{,}8349$, og $\\pi/4 = 0{,}7854$. Rekka alternerer og konvergerer langsomt, men delsummene svinger inn mot riktig verdi.\n\n**Sammenlikn a) og b).** Samme funksjon på $[0,1]$, men den ene rekka har uendelig mange ledd og den andre bare ett. Det illustrerer at valget av utvidelse er en reell beslutning med reelle konsekvenser.",
+        "hints": [
+          "For a): integranden er bare $\\sin n\\pi x$ — ingen delvis integrasjon trengs.",
+          "For b): tegn den like utvidelsen først. Hva slags funksjon blir det?",
+          "For c): $\\sin\\frac{n\\pi}{2}$ er null for like $n$ og veksler mellom $1$ og $-1$ for odde."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Skissen som gir poeng (~12 min)\n\n«Skissér den periodiske utvidelsen på $[-3,3]$» er et eget delpunkt med egen uttelling. Det er også det raskeste delpunktet på hele oppgaven — hvis du vet nøyaktig hva som må være med."
+    },
+    {
+      "id": "tma4135-3-2-skisse-oppskrift",
+      "type": "text",
+      "content": "**Slik tegner du en periodisk utvidelse, i fire steg.**\n\n1. **Tegn $f$ selv på $[0,L]$.** Det er den ene biten du faktisk har fått oppgitt.\n2. **Speil over til $[-L,0]$.** Like utvidelse: speil om $y$-aksen. Odde utvidelse: speil om $y$-aksen *og* snu fortegnet — altså roter et halvt omdreining om origo.\n3. **Kopier hele $[-L,L]$-biten sidelengs**, både mot høyre og mot venstre, med skritt på $2L$. Tegn minst tre perioder hvis oppgaven ber om et intervall som dekker det.\n4. **Marker sprangene.** I hvert punkt der kurven hopper, sett en tydelig prikk på **midt imellom** de to nivåene. Det er verdien rekka konvergerer mot, og prikken er det som viser sensor at du vet det.\n\n**To feller å unngå.** Den ene er å tegne den odde utvidelsen uten sprang i $x=0$ — det er bare riktig hvis $f(0)=0$. Den andre er å tegne bare én periode når oppgaven ber om flere; da er halve poenget borte, for det er periodisiteten som skal vises.\n\n**Er utvidelsen kontinuerlig i $x=\\pm L$?** Sjekk alltid. For den like utvidelsen er svaret automatisk ja i $x=0$, og i $x=L$ avhenger det ikke av noe — kurven møter speilbildet sitt på samme nivå. For den odde utvidelsen er det motsatt: sprang i $x=0$ med mindre $f(0)=0$, og sprang i $x=L$ med mindre $f(L)=0$."
+    },
+    {
+      "id": "tma4135-3-2-o2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-2-o2b",
+        "number": "2b",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) For hver funksjon gitt på $[0,L]$: får den **odde** utvidelsen sprang i $x=0$, i $x=L$, i begge, eller i ingen av dem?\n\n**a)** $f(x) = x$ på $[0,1]$\n**b)** $f(x) = 1$ på $[0,1]$\n**c)** $f(x) = \\sin\\pi x$ på $[0,1]$\n**d)** $f(x) = 2-x$ på $[0,2]$",
+        "solution": "Regelen: den odde utvidelsen har sprang i $x=0$ når $f(0)\\ne0$, og sprang i $x=L$ når $f(L)\\ne0$. I begge tilfellene møter verdien sin egen negative speiling.\n\n**a)** $f(0)=0$ og $f(1)=1$. Sprang bare i $x=L=1$.\n\n**b)** $f(0)=1$ og $f(1)=1$. Sprang i **begge** endepunktene.\n\n**c)** $\\sin 0 = 0$ og $\\sin\\pi = 0$. **Ingen** sprang — den odde utvidelsen av $\\sin\\pi x$ er $\\sin\\pi x$ selv, helt glatt.\n\n**d)** $f(0)=2$ og $f(2)=0$. Sprang bare i $x=0$.\n\n**Poenget:** sjekk **begge** endepunktene, hver gang. Å huske spranget i origo og glemme det i $x=L$ er en vanlig halvfeil, og den koster skissepoenget.",
+        "hints": [
+          "Den odde utvidelsen krever $g(0^-) = -f(0^+)$. Når blir det et hopp?",
+          "Samme resonnement gjelder i $x=L$, der neste periode starter."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-2-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D.) La $f(x) = x^2$ på $[0,\\pi]$.\n\n**a)** Skissér den **like** periodiske utvidelsen med periode $2\\pi$ på intervallet $[-3\\pi, 3\\pi]$, og marker eventuelle sprang.\n**b)** Finn cosinusrekka.\n**c)** Bruk rekka i $x=\\pi$ til å bestemme $\\sum_{n=1}^{\\infty}\\frac{1}{n^2}$.",
+        "solution": "**a) Skissen.** Den like utvidelsen av $x^2$ på $[0,\\pi]$ er $x^2$ selv på $[-\\pi,\\pi]$, siden $x^2$ allerede er en like funksjon. Gjentatt med periode $2\\pi$ gir det en kjede av parabelbuer som møtes i $x=\\pm\\pi, \\pm3\\pi,\\dots$ på høyden $\\pi^2$.\n\n**Det er ingen sprang.** Buene møtes på samme nivå; det som skjer i $x=\\pm\\pi$ er en **knekk** — den deriverte hopper fra $+2\\pi$ til $-2\\pi$ — men funksjonen selv er kontinuerlig. Derfor er det ingen midlingsverdier å markere, og rekka gir funksjonsverdien i hvert eneste punkt.\n\n*(Figuren under viser utvidelsen.)*\n\n**b) Cosinusrekka.** $L=\\pi$, argument $nx$.\n$$a_0 = \\frac{1}{\\pi}\\int_0^{\\pi} x^2\\,dx = \\frac{1}{\\pi}\\cdot\\frac{\\pi^3}{3} = \\frac{\\pi^2}{3}.$$\n$$a_n = \\frac{2}{\\pi}\\int_0^{\\pi} x^2\\cos nx\\,dx.$$\n**Fra reduksjonsformelen på det utdelte formelarket** med $a=n$:\n$$\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a}+\\frac{2x\\cos ax}{a^2}-\\frac{2\\sin ax}{a^3}.$$\nI $x=\\pi$ forsvinner begge sinusleddene, og midtleddet gir $\\frac{2\\pi(-1)^n}{n^2}$. I $x=0$ er alt null. Altså\n$$a_n = \\frac{2}{\\pi}\\cdot\\frac{2\\pi(-1)^n}{n^2} = \\frac{4(-1)^n}{n^2}.$$\nRekka:\n$$x^2 = \\frac{\\pi^2}{3}+4\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{n^2}\\cos nx, \\qquad -\\pi \\le x \\le \\pi.$$\n\n**c) Tallrekkesummen.** Utvidelsen er kontinuerlig i $x=\\pi$, så rekka gir funksjonsverdien $\\pi^2$ der. Med $\\cos n\\pi = (-1)^n$ blir $(-1)^n\\cos n\\pi = (-1)^{2n} = 1$:\n$$\\pi^2 = \\frac{\\pi^2}{3}+4\\sum_{n=1}^{\\infty}\\frac{1}{n^2} \\quad\\Longrightarrow\\quad \\sum_{n=1}^{\\infty}\\frac{1}{n^2} = \\frac14\\left(\\pi^2-\\frac{\\pi^2}{3}\\right) = \\frac{\\pi^2}{6}.$$\n\n**Kontroll.** $\\pi^2/6 \\approx 1{,}6449$. Delsummen med 10 ledd er $1{,}5498$, med 100 ledd $1{,}6350$ — den kryper oppover mot riktig verdi, slik en positiv rekke skal. Stemmer.\n\n**Bonus:** setter du i stedet $x=0$, får du $0 = \\frac{\\pi^2}{3}+4\\sum\\frac{(-1)^n}{n^2}$, altså $\\sum\\frac{(-1)^{n+1}}{n^2} = \\frac{\\pi^2}{12}$. Én rekke, to summer — det er derfor delpunkt (c) er så billig når du først har (b).",
+        "hints": [
+          "Er $x^2$ allerede like? I så fall er den like utvidelsen bare $x^2$ på $[-\\pi,\\pi]$.",
+          "Slå opp $\\int x^2\\cos ax\\,dx$ på formelarket, sett $a=n$, og husk at $\\sin n\\pi = 0$.",
+          "I $x=\\pi$ blir $(-1)^n\\cos n\\pi = 1$ for alle $n$ — det er derfor summen blir positiv."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-2-fig-x2",
+      "type": "image",
+      "src": "/images/textbook/tma4135/like-utvidelse-x2.svg",
+      "alt": "Graf over tre perioder av den like periodiske utvidelsen av x i andre på intervallet null til pi. Kurven er en kjede av parabelbuer som møtes i punkter på høyden pi i andre ved plus og minus pi og plus og minus tre pi, med knekk men uten sprang.",
+      "caption": "Den like utvidelsen av $x^2$ på $[0,\\pi]$, tegnet over tre perioder. Buene møtes på samme nivå, så det er knekk og ikke sprang — rekka gir funksjonsverdien i hvert punkt."
+    },
+    {
+      "id": "tma4135-3-2-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå de to utvidelsene og skisseoppskriften. Resten av kapitlet handler om ett spørsmål: hva gir rekka i et punkt der utvidelsen hopper? Det er verdt å ta med friskt hode."
+    },
+    {
+      "id": "tma4135-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hva rekka gir i et sprang (~15 min)\n\nFourier-rekka er en uendelig sum av kontinuerlige funksjoner. Likevel klarer den å beskrive en funksjon som hopper. Spørsmålet er hva summen gjør akkurat i hoppet — og svaret er både enkelt og fast eksamensstoff."
+    },
+    {
+      "id": "tma4135-3-2-def-hoyregrense",
+      "type": "definition",
+      "title": "Høyregrensen $f(x_0^+)$",
+      "content": "Verdien funksjonen nærmer seg når du kommer inn mot $x_0$ **fra høyre**:\n\n$$f(x_0^+) = \\lim_{h\\to 0,\\; h>0} f(x_0+h).$$\n\nFor firkantbølgen som er $-1$ til venstre og $1$ til høyre for null, er $f(0^+) = 1$."
+    },
+    {
+      "id": "tma4135-3-2-def-venstregrense",
+      "type": "definition",
+      "title": "Venstregrensen $f(x_0^-)$",
+      "content": "Verdien funksjonen nærmer seg **fra venstre**:\n\n$$f(x_0^-) = \\lim_{h\\to 0,\\; h>0} f(x_0-h).$$\n\nFor samme firkantbølge er $f(0^-) = -1$. Merk at ingen av de to grensene trenger å være lik $f(x_0)$ — funksjonen kan til og med være udefinert i punktet."
+    },
+    {
+      "id": "tma4135-3-2-def-sprang",
+      "type": "definition",
+      "title": "Sprang (hoppdiskontinuitet)",
+      "content": "Et punkt der begge ensidige grenser finnes og er endelige, men **ulike**:\n\n$$f(x_0^+) \\ne f(x_0^-).$$\n\nDette er den eneste typen diskontinuitet du møter i dette emnet. En pol (som i $1/x$) er ikke et sprang, og Fourier-teorien under gjelder ikke der."
+    },
+    {
+      "id": "tma4135-3-2-def-springhoyde",
+      "type": "definition",
+      "title": "Springhøyden",
+      "content": "Forskjellen mellom de to nivåene:\n\n$$f(x_0^+) - f(x_0^-).$$\n\nFor firkantbølgen er springhøyden $1-(-1) = 2$. Tallet brukes både til å beskrive Gibbs-oversvinget og til å anslå hvor sakte koeffisientene faller."
+    },
+    {
+      "id": "tma4135-3-2-def-midling",
+      "type": "definition",
+      "title": "Midlingsverdien i et sprang",
+      "content": "Gjennomsnittet av de to ensidige grensene:\n\n$$\\frac{f(x_0^+)+f(x_0^-)}{2}.$$\n\n**Dette er verdien Fourier-rekka konvergerer mot i et sprang** — uansett hva $f(x_0)$ måtte være definert som. For firkantbølgen i $x=0$ er midlingsverdien $\\tfrac12(1+(-1)) = 0$, og rekka gir 0 der, selv om funksjonen aldri tar verdien 0.\n\nÅ skrive funksjonsverdien i stedet for midlingsverdien er den hyppigste enkeltfeilen i hele Fourier-blokken."
+    },
+    {
+      "id": "tma4135-3-2-def-dirichlet",
+      "type": "definition",
+      "title": "Dirichlet-betingelsene",
+      "content": "Kravene som må være oppfylt for at konvergensteoremet skal gjelde: funksjonen skal være **periodisk** og **stykkevis glatt**, altså ha endelig mange sprang per periode, endelige ensidige grenser i hvert av dem, og en derivert som også er stykkevis kontinuerlig.\n\nAlle funksjonene i dette emnet — polynomer, firkantpulser, sagtenner, stykkevis lineære laster — oppfyller betingelsene. Det du skal kunne, er å **si** at de gjør det når du bruker teoremet."
+    },
+    {
+      "id": "tma4135-3-2-teo-konvergens",
+      "type": "theorem",
+      "title": "Konvergensteoremet",
+      "content": "La $\\tilde f$ være periodisk med periode $2L$ og stykkevis glatt. Da konvergerer Fourier-rekka i **hvert** punkt $x$, og\n\n$$a_0 + \\sum_{n=1}^{\\infty}\\left(a_n\\cos\\frac{n\\pi x}{L}+b_n\\sin\\frac{n\\pi x}{L}\\right) = \\frac{\\tilde f(x^+)+\\tilde f(x^-)}{2}.$$\n\n**To konsekvenser du bruker hele tiden.**\n\n1. **I et kontinuitetspunkt** er de to ensidige grensene like, og midlingen gir bare $\\tilde f(x)$. Rekka treffer funksjonen.\n2. **I et sprang** gir rekka midt imellom nivåene, uansett hvordan funksjonen er definert i punktet.\n\n**Intuisjon:** hvert ledd i rekka er en glatt kurve, og en sum av glatte kurver «ser» ikke forskjell på venstre- og høyresiden av et hopp. Det eneste rimelige kompromisset summen kan lande på, er midt imellom — og teoremet sier at det er nøyaktig det den gjør.\n\n**Teoremet må kunnes** — det står ikke på formelarket. Når du bruker det i en besvarelse, skriv navnet: «etter konvergensteoremet gir rekka $\\tfrac12\\left(f(x^+)+f(x^-)\\right)$ her»."
+    },
+    {
+      "id": "tma4135-3-2-def-endepunkt",
+      "type": "definition",
+      "title": "Konvergensverdien i endepunktene $x=\\pm L$",
+      "content": "Et spesialtilfelle som er lett å glemme. I $x=L$ møter den periodiske utvidelsen seg selv: fra venstre kommer $f(L^-)$, og fra høyre kommer det som ligger like til høyre for $-L$, altså $f(-L^+)$. Konvergensverdien er derfor\n\n$$\\frac{f(L^-)+f(-L^+)}{2}.$$\n\nFor en **odde** utvidelse blir dette $\\tfrac12\\left(f(L^-) - f(L^-)\\right) = 0$ når $f(L)\\ne0$ — sinusrekka er jo null i $x=L$ uansett. For en **like** utvidelse blir det $f(L)$, siden nivåene møtes."
+    },
+    {
+      "id": "tma4135-3-2-def-gibbs",
+      "type": "definition",
+      "title": "Gibbs-fenomenet",
+      "content": "At delsummene $S_N$ skyter over målet like ved et sprang, og at oversvinget **ikke** blir mindre når $N$ vokser — det klemmes bare nærmere inn mot sprangpunktet.\n\nFenomenet er ikke en regnefeil og ikke et tegn på at noe er galt. Det er en egenskap ved punktvis konvergens: i hvert *fast* punkt går delsummen mot riktig verdi, men det punktet der delsummen er verst, flytter seg innover etter hvert som $N$ vokser."
+    },
+    {
+      "id": "tma4135-3-2-def-oversving",
+      "type": "definition",
+      "title": "Oversvingets størrelse",
+      "content": "Det maksimale oversvinget nærmer seg en fast andel av springhøyden:\n\n$$\\text{oversving} \\longrightarrow 8{,}95\\ \\%\\ \\text{av springhøyden}.$$\n\nFor firkantbølgen med springhøyde 2 betyr det at delsummene topper seg rundt $1{,}179$ i stedet for 1. Tallet er det samme for alle sprang i alle funksjoner — det er en universell konstant knyttet til fenomenet, ikke til den enkelte funksjonen."
+    },
+    {
+      "id": "tma4135-3-2-eks2",
+      "type": "example",
+      "title": "Konvergensverdier for de to utvidelsene",
+      "problem": "Ta igjen $f(x)=x$ på $[0,1]$ fra eksempel 1. For **hver** av de to utvidelsene: hva konvergerer Fourier-rekka mot i punktene $x = 0$, $x = \\tfrac12$, $x = 1$, $x = \\tfrac32$ og $x = 2$?",
+      "solution": "**Den like utvidelsen** er trekantbølgen: opp fra 0 til 1 på $[0,1]$, ned igjen til 0 på $[1,2]$, og så videre. Den er **kontinuerlig overalt**, så etter konvergensteoremet gir rekka rett og slett funksjonsverdien i alle punkter:\n\n| $x$ | $0$ | $\\tfrac12$ | $1$ | $\\tfrac32$ | $2$ |\n|---|---|---|---|---|---|\n| rekka gir | $0$ | $\\tfrac12$ | $1$ | $\\tfrac12$ | $0$ |\n\n*Kontroll av $x=1$ direkte i rekka:* $\\tfrac12 - \\frac{4}{\\pi^2}\\sum_{\\text{odde }n}\\frac{\\cos n\\pi}{n^2} = \\tfrac12+\\frac{4}{\\pi^2}\\cdot\\frac{\\pi^2}{8} = 1$. Stemmer.\n\n**Den odde utvidelsen** er sagtannen: den er $x$ på $(-1,1)$ og gjentas med periode 2, med sprang i alle odde heltall.\n\n- $x=0$: kontinuerlig, verdien er 0. **Rekka gir 0.**\n- $x=\\tfrac12$: kontinuerlig, verdien er $\\tfrac12$. **Rekka gir $\\tfrac12$.**\n- $x=1$: **sprang.** Venstregrensen er $f(1^-) = 1$; høyregrensen er $f(1^+) = -1$ (fordi funksjonen starter forfra på $-1$). **Etter konvergensteoremet** gir rekka\n  $$\\frac{1+(-1)}{2} = 0.$$\n  Legg merke til at dette *ikke* er 1. Sinusrekka er jo automatisk null i $x=1$, siden $\\sin n\\pi = 0$ for alle $n$ — teoremet og formelen er enige.\n- $x=\\tfrac32$: kontinuerlig. Utvidelsen er $x-2$ der, altså $-\\tfrac12$. **Rekka gir $-\\tfrac12$.**\n- $x=2$: kontinuerlig, verdien er 0. **Rekka gir 0.**\n\n**Oppsummert i tabell:**\n\n| $x$ | $0$ | $\\tfrac12$ | $1$ | $\\tfrac32$ | $2$ |\n|---|---|---|---|---|---|\n| like utvidelse | $0$ | $\\tfrac12$ | $1$ | $\\tfrac12$ | $0$ |\n| odde utvidelse | $0$ | $\\tfrac12$ | $0$ | $-\\tfrac12$ | $0$ |\n\nDe to rekkene er enige på $(0,1)$, som de skal være, og uenige utenfor.\n\n**Merk hvordan svaret føres.** For hvert punkt sier du (i) om utvidelsen er kontinuerlig der, og (ii) hvilken verdi som følger. Er det et sprang, skriver du begge ensidige grenser og midlingen mellom dem. Det er den føringen som gir full uttelling — et blankt tall uten begrunnelse gjør det ikke."
+    },
+    {
+      "id": "tma4135-3-2-fig-gibbs",
+      "type": "image",
+      "src": "/images/textbook/tma4135/gibbs-fenomenet.svg",
+      "alt": "Graf som viser firkantpulsen som stiplet linje sammen med to delsummer av Fourier-rekka, S fem og S tjuefem. Begge delsummene svinger rundt pulsen og skyter over målet like ved spranget i null. Toppen ligger på omtrent én komma én sju ni.",
+      "caption": "Delsummene $S_5$ og $S_{25}$ av firkantpulsen. Oversvinget ved spranget krymper ikke når $N$ vokser — det klemmes bare inn mot sprangpunktet. Toppen går mot $8{,}95\\ \\%$ av springhøyden."
+    },
+    {
+      "id": "tma4135-3-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-2-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D.) La $f(x) = 2-x$ på $[0,2]$, utvidet **odde** med periode 4.\n\n**a)** Finn sinusrekka.\n**b)** Hva konvergerer rekka mot i $x=0$, $x=1$, $x=2$ og $x=4$?",
+        "solution": "**a)** $L=2$, argument $\\frac{n\\pi x}{2}$.\n$$b_n = \\frac{2}{2}\\int_0^2 (2-x)\\sin\\frac{n\\pi x}{2}\\,dx = 2\\int_0^2\\sin\\frac{n\\pi x}{2}\\,dx - \\int_0^2 x\\sin\\frac{n\\pi x}{2}\\,dx.$$\nFørste integral: $2\\left[-\\frac{2\\cos(n\\pi x/2)}{n\\pi}\\right]_0^2 = \\frac{4\\left(1-(-1)^n\\right)}{n\\pi}$.\nAndre integral, **fra reduksjonsformelen på det utdelte formelarket** med $a=\\frac{n\\pi}{2}$: $\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}$. I $x=2$ er $\\sin n\\pi=0$, så bare første ledd bidrar: $-\\frac{2(-1)^n}{n\\pi/2} = -\\frac{4(-1)^n}{n\\pi}$.\nTil sammen:\n$$b_n = \\frac{4\\left(1-(-1)^n\\right)}{n\\pi} + \\frac{4(-1)^n}{n\\pi} = \\frac{4}{n\\pi}.$$\nAlle $n$ bidrar — ingen ledd faller bort her. Rekka:\n$$2-x = \\frac{4}{\\pi}\\sum_{n=1}^{\\infty}\\frac{1}{n}\\sin\\frac{n\\pi x}{2}, \\qquad 0 < x < 2.$$\n\n**Kontroll.** Sett $x=1$: venstre side er 1. Høyre side: $\\frac{4}{\\pi}\\left(1 - 0 - \\tfrac13 + 0 + \\tfrac15-\\cdots\\right)$, siden $\\sin\\frac{n\\pi}{2}$ er $1,0,-1,0,1,\\dots$. Det er $\\frac{4}{\\pi}\\cdot\\frac{\\pi}{4} = 1$. Stemmer.\n\n**b)** Den odde utvidelsen er $2-x$ på $(0,2)$, $-2-x$ på $(-2,0)$, og gjentas med periode 4.\n\n- $x=0$: **sprang.** $f(0^+) = 2$ og $f(0^-) = -2$. **Etter konvergensteoremet** gir rekka $\\tfrac12(2+(-2)) = 0$.\n- $x=1$: kontinuerlig, verdien er $2-1 = 1$. Rekka gir **1**.\n- $x=2$: her er $f(2^-) = 0$, og til høyre starter neste periode med $f(2^+) = f(-2^+)$. På $(-2,0)$ er utvidelsen $-f(-x) = -(2+x)$, som i $x=-2$ gir 0. Utvidelsen er altså **kontinuerlig** i $x=2$ med verdien 0. Rekka gir **0** — som den også må, siden $\\sin\\left(\\frac{n\\pi\\cdot 2}{2}\\right) = \\sin n\\pi = 0$.\n- $x=4$: samme som $x=0$ ved periodisitet: **sprang**, og rekka gir **0**.\n\n**Poenget med b):** to av punktene gir 0, men av helt ulike grunner. I $x=2$ er funksjonen faktisk 0; i $x=0$ er den ikke det, men midlingen er. Skriv hvilken grunn som gjelder — det er der uttellingen ligger.",
+        "hints": [
+          "Del integralet i to: konstanten 2 og leddet $-x$.",
+          "Slå opp $\\int x\\sin ax\\,dx$ på formelarket med $a = n\\pi/2$.",
+          "For b): tegn utvidelsen først, og finn de to ensidige grensene i hvert punkt før du midler."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-2-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger D.) En funksjon er gitt ved $f(x) = \\pi - x$ på $[0,\\pi]$.\n\n**a)** Finn sinusrekka (odde utvidelse, periode $2\\pi$).\n**b)** Angi hva rekka konvergerer mot i $x=0$, $x=\\tfrac{\\pi}{2}$ og $x=\\pi$.",
+        "solution": "**a)** $L=\\pi$, argument $nx$.\n$$b_n = \\frac{2}{\\pi}\\int_0^{\\pi}(\\pi-x)\\sin nx\\,dx = 2\\int_0^{\\pi}\\sin nx\\,dx - \\frac{2}{\\pi}\\int_0^{\\pi}x\\sin nx\\,dx.$$\nFørste: $2\\left[-\\frac{\\cos nx}{n}\\right]_0^{\\pi} = \\frac{2\\left(1-(-1)^n\\right)}{n}$.\nAndre, **fra formelarket** med $a=n$: $\\left[-\\frac{x\\cos nx}{n}+\\frac{\\sin nx}{n^2}\\right]_0^{\\pi} = -\\frac{\\pi(-1)^n}{n}$, ganget med $\\frac{2}{\\pi}$ gir $-\\frac{2(-1)^n}{n}$, og med minustegnet foran: $+\\frac{2(-1)^n}{n}$.\nTil sammen:\n$$b_n = \\frac{2\\left(1-(-1)^n\\right)}{n}+\\frac{2(-1)^n}{n} = \\frac{2}{n}.$$\n\nRekka:\n$$\\pi - x = 2\\sum_{n=1}^{\\infty}\\frac{\\sin nx}{n}, \\qquad 0 < x < \\pi.$$\n\n**Kontroll.** Sett $x=\\tfrac{\\pi}{2}$: venstre side er $\\tfrac{\\pi}{2}\\approx 1{,}571$. Høyre side: $2\\left(1-0-\\tfrac13+0+\\tfrac15-\\cdots\\right) = 2\\cdot\\tfrac{\\pi}{4} = \\tfrac{\\pi}{2}$. Stemmer.\n\n**b)**\n- $x=0$: den odde utvidelsen har $f(0^+) = \\pi$ og $f(0^-) = -\\pi$, altså **sprang**. **Etter konvergensteoremet** gir rekka $\\tfrac12(\\pi - \\pi) = 0$. *Ikke $\\pi$.*\n- $x=\\tfrac{\\pi}{2}$: kontinuerlig, funksjonsverdi $\\tfrac{\\pi}{2}$. Rekka gir $\\tfrac{\\pi}{2}$.\n- $x=\\pi$: her er $f(\\pi^-) = 0$, og fra høyre kommer $f(-\\pi^+)$. På $(-\\pi,0)$ er utvidelsen $-f(-x) = -(\\pi+x)$, som i $x=-\\pi$ gir 0. Utvidelsen er **kontinuerlig** med verdien 0, og rekka gir 0 (som den må, siden $\\sin n\\pi = 0$).\n\n**Legg merke til likheten med sagtannen.** Rekka $2\\sum\\frac{\\sin nx}{n}$ er nøyaktig sagtannen fra [kap. 3.1](/tma4135/tma4135-3-1) med motsatt fortegn og forskjøvet — og det er ikke tilfeldig, for $\\pi - x$ er $-x$ pluss en konstant, og den odde utvidelsen av en konstant er en firkantbølge. Prøv gjerne å utlede rekka den veien som kontroll.",
+        "hints": [
+          "Del $\\pi-x$ i konstanten $\\pi$ og leddet $-x$, og behandle dem hver for seg.",
+          "Uttrykkene $1-(-1)^n$ og $(-1)^n$ kombineres til noe overraskende enkelt — regn ut for $n=1$ og $n=2$ og se.",
+          "For b): den odde utvidelsen har $f(0^+) = \\pi$. Hva er da $f(0^-)$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Rekka baklengs: tallrekkesummer (~13 min)\n\nHar du først en Fourier-rekke, har du samtidig uendelig mange tallrekkesummer gratis — én for hver $x$ du setter inn. Dette er standard delpunkt (c) på eksamen, og det tar to minutter når du vet oppskriften."
+    },
+    {
+      "id": "tma4135-3-2-def-innsetting",
+      "type": "definition",
+      "title": "Tallrekkesum ved innsetting",
+      "content": "Teknikken: velg en $x$-verdi der (i) du kjenner funksjonsverdien, og (ii) cosinusene og sinusene blir enkle tall. Sett inn i rekka, og løs likningen for summen.\n\nDe tre nyttigste valgene:\n\n$$x=0: \\quad \\cos\\frac{n\\pi\\cdot 0}{L} = 1, \\quad \\sin\\frac{n\\pi\\cdot 0}{L} = 0.$$\n$$x=L: \\quad \\cos n\\pi = (-1)^n, \\quad \\sin n\\pi = 0.$$\n$$x=\\frac{L}{2}: \\quad \\cos\\frac{n\\pi}{2},\\ \\sin\\frac{n\\pi}{2} \\text{ veksler mellom } 0, \\pm1.$$\n\n**Betingelsen som må sjekkes:** den periodiske utvidelsen må være **kontinuerlig** i punktet du velger. Er den ikke det, gir rekka midlingsverdien, og du må bruke den i stedet for funksjonsverdien — noe som ofte er like nyttig, men som må sies."
+    },
+    {
+      "id": "tma4135-3-2-def-knekk",
+      "type": "definition",
+      "title": "Knekkpunkt",
+      "content": "Et punkt der funksjonen er kontinuerlig, men den deriverte hopper — kurven har et hjørne. Trekantbølgen har knekk i alle heltall; $|x|$ har knekk i null.\n\n**Knekk er ikke sprang.** I et knekkpunkt gir Fourier-rekka funksjonsverdien, akkurat som i et hvilket som helst annet kontinuitetspunkt, og det er ingen midling å gjøre. Forvekslingen av knekk og sprang er en vanlig kilde til feil svar på delpunkt (c)."
+    },
+    {
+      "id": "tma4135-3-2-def-punktvis",
+      "type": "definition",
+      "title": "Punktvis konvergens",
+      "content": "At rekka konvergerer i hvert enkelt punkt for seg: for hver fast $x$ går delsummen $S_N(x)$ mot en grenseverdi når $N\\to\\infty$.\n\nDette er svakere enn å si at kurven $S_N$ som helhet nærmer seg kurven til $f$. Gibbs-fenomenet er nettopp forskjellen mellom de to: i hvert *fast* punkt konvergerer delsummen fint, men det verste avviket forsvinner ikke — det flytter seg."
+    },
+    {
+      "id": "tma4135-3-2-eks3",
+      "type": "example",
+      "title": "Eksamensnivå: to summer av samme rekke",
+      "problem": "Ta cosinusrekka til $f(x)=x$ på $[0,1]$ fra eksempel 1:\n$$x = \\frac12 - \\frac{4}{\\pi^2}\\sum_{m=0}^{\\infty}\\frac{\\cos\\left((2m+1)\\pi x\\right)}{(2m+1)^2}, \\qquad 0 \\le x \\le 1.$$\n\n**a)** Bruk $x=0$ til å bestemme $\\sum_{m=0}^{\\infty}\\frac{1}{(2m+1)^2}$.\n**b)** Bruk sinusrekka fra samme eksempel i $x=\\tfrac12$ til å bestemme $\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1}$.\n\nFør begge som toppbesvarelser.",
+      "solution": "**a) Cosinusrekka i $x=0$.**\n\n*Steg 1 — sjekk kontinuiteten.* Den like utvidelsen er trekantbølgen, som er kontinuerlig overalt. Spesielt i $x=0$. **Etter konvergensteoremet** gir rekka derfor funksjonsverdien $f(0) = 0$.\n\n*Steg 2 — sett inn.* Alle cosinusene blir $\\cos 0 = 1$:\n$$0 = \\frac12 - \\frac{4}{\\pi^2}\\sum_{m=0}^{\\infty}\\frac{1}{(2m+1)^2}.$$\n\n*Steg 3 — løs for summen.*\n$$\\sum_{m=0}^{\\infty}\\frac{1}{(2m+1)^2} = \\frac{\\pi^2}{4}\\cdot\\frac12 = \\frac{\\pi^2}{8}.$$\n\n*Kontroll.* $\\pi^2/8 \\approx 1{,}2337$. Delsummen $1+\\tfrac19+\\tfrac1{25}+\\tfrac1{49}+\\tfrac1{81} = 1{,}2114$, og rekka er positiv, så den kryper oppover mot $1{,}2337$. Stemmer.\n\n**b) Sinusrekka i $x=\\tfrac12$.**\n\n*Steg 1 — sjekk kontinuiteten.* Den odde utvidelsen er sagtannen, med sprang bare i odde heltall. I $x=\\tfrac12$ er den kontinuerlig, med verdien $\\tfrac12$.\n\n*Steg 2 — sett inn.* Rekka er $x = \\frac{2}{\\pi}\\sum_{n\\ge1}\\frac{(-1)^{n+1}}{n}\\sin n\\pi x$. I $x=\\tfrac12$ er $\\sin\\frac{n\\pi}{2}$ null for like $n$, og for $n = 2m+1$ er den $(-1)^m$. Samtidig er $(-1)^{n+1} = (-1)^{2m+2} = 1$. Altså:\n$$\\frac12 = \\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1}.$$\n\n*Steg 3 — løs for summen.*\n$$\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1} = \\frac{\\pi}{4}.$$\nDette er **Leibniz' rekke**.\n\n*Kontroll.* $\\pi/4 \\approx 0{,}7854$. Delsummene $1$, $0{,}667$, $0{,}867$, $0{,}724$, $0{,}835$ alternerer rundt riktig verdi. Stemmer.\n\n**Hva sensor ser etter i denne sjangeren.** Tre ting, i denne rekkefølgen:\n\n1. **At du sjekker kontinuiteten** i punktet før du setter inn funksjonsverdien. Én setning holder: «utvidelsen er kontinuerlig i $x=0$, så rekka gir $f(0)$». Uten den er svaret riktig, men ubegrunnet.\n2. **At du holder styr på hvilke $n$ som overlever.** Skriv om til $n = 2m+1$ eksplisitt hvis rekka bare har odde ledd.\n3. **At du løser for summen til slutt.** Å stoppe ved likningen er et halvt svar.\n\n**Hvilket punkt bør du velge?** Prøv $x=0$ først — det er nesten alltid enklest, fordi alle cosinuser blir 1 og alle sinuser blir 0. Får du en triviell likning ($0=0$), prøv $x=L$, deretter $x=L/2$."
+    },
+    {
+      "id": "tma4135-3-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-2-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger D.) La $f(x) = x(1-x)$ på $[0,1]$, utvidet **like** med periode 2.\n\n**a)** Finn cosinusrekka.\n**b)** Bruk $x=0$ til å bestemme $\\sum_{k=1}^{\\infty}\\frac{1}{k^2}$ på nytt, som kontroll av rekka.",
+        "solution": "**a)** $L=1$, argument $n\\pi x$.\n$$a_0 = \\int_0^1 (x-x^2)\\,dx = \\frac12-\\frac13 = \\frac16.$$\n$$a_n = 2\\int_0^1 (x-x^2)\\cos n\\pi x\\,dx.$$\n**Fra reduksjonsformlene på det utdelte formelarket** med $a=n\\pi$:\n$$\\int_0^1 x\\cos n\\pi x\\,dx = \\frac{(-1)^n-1}{n^2\\pi^2}, \\qquad \\int_0^1 x^2\\cos n\\pi x\\,dx = \\frac{2(-1)^n}{n^2\\pi^2}.$$\n*(Det siste følger av $\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a}+\\frac{2x\\cos ax}{a^2}-\\frac{2\\sin ax}{a^3}$; sinusleddene forsvinner i begge grenser.)*\nAltså\n$$a_n = 2\\left(\\frac{(-1)^n-1}{n^2\\pi^2}-\\frac{2(-1)^n}{n^2\\pi^2}\\right) = \\frac{2\\left(-(-1)^n-1\\right)}{n^2\\pi^2} = \\frac{2\\left((-1)^{n+1}-1\\right)}{n^2\\pi^2}.$$\nFor **odde** $n$ er $(-1)^{n+1}-1 = 0$, så de faller bort. For **like** $n$ er det $-2$, altså\n$$a_n = -\\frac{4}{n^2\\pi^2}, \\qquad n \\text{ like}.$$\nSkriv $n=2k$: $a_{2k} = -\\frac{4}{4k^2\\pi^2} = -\\frac{1}{k^2\\pi^2}$. Rekka:\n$$x(1-x) = \\frac16 - \\frac{1}{\\pi^2}\\sum_{k=1}^{\\infty}\\frac{\\cos 2k\\pi x}{k^2}, \\qquad 0 \\le x \\le 1.$$\n\n**b)** Den like utvidelsen er kontinuerlig overalt (funksjonen er 0 i begge endepunkter, så det er ikke engang knekk i $x=0$ og $x=1$). Sett $x=0$, der $f(0)=0$ og alle cosinuser er 1:\n$$0 = \\frac16 - \\frac{1}{\\pi^2}\\sum_{k=1}^{\\infty}\\frac{1}{k^2} \\quad\\Longrightarrow\\quad \\sum_{k=1}^{\\infty}\\frac{1}{k^2} = \\frac{\\pi^2}{6}.$$\nSamme svar som i oppgave 3, funnet fra en helt annen funksjon. Det er en god kontroll på at begge rekkene er riktige.\n\n**Kontroll av rekka i et annet punkt.** Sett $x=\\tfrac12$: venstre side er $\\tfrac14$. Høyre side: $\\cos(k\\pi) = (-1)^k$, så $\\frac16 - \\frac{1}{\\pi^2}\\sum\\frac{(-1)^k}{k^2} = \\frac16+\\frac{1}{\\pi^2}\\cdot\\frac{\\pi^2}{12} = \\frac16+\\frac1{12} = \\frac14$. Stemmer.",
+        "hints": [
+          "Del $x-x^2$ i to og bruk begge reduksjonsformlene fra arket.",
+          "Uttrykket $(-1)^{n+1}-1$ er 0 for odde $n$ — bare partallsleddene overlever.",
+          "Skriv om til $n=2k$ før du setter inn; det gjør summen mye lettere å kjenne igjen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-3-2-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger D — krevende.) En funksjon er gitt ved\n\n$$f(x) = \\begin{cases} 1, & 0 \\le x < 1 \\\\ 0, & 1 \\le x \\le 2\\end{cases}$$\n\nog utvides **odde** med periode 4.\n\n**a)** Finn sinusrekka.\n**b)** Hva konvergerer rekka mot i $x=1$? Bruk svaret til å bestemme $\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1}$ en gang til.\n**c)** Hva gir rekka i $x=2$?",
+        "solution": "**a)** $L=2$, argument $\\frac{n\\pi x}{2}$. Integralet går bare over $[0,1]$, siden $f=0$ på $[1,2]$:\n$$b_n = \\frac{2}{2}\\int_0^1 \\sin\\frac{n\\pi x}{2}\\,dx = \\left[-\\frac{2\\cos(n\\pi x/2)}{n\\pi}\\right]_0^1 = \\frac{2\\left(1-\\cos\\frac{n\\pi}{2}\\right)}{n\\pi}.$$\n\nRegn ut mønsteret: $\\cos\\frac{n\\pi}{2}$ er $0, -1, 0, 1, 0, -1,\\dots$ for $n=1,2,3,4,5,6$. Altså\n$$b_1 = \\frac{2}{\\pi}, \\quad b_2 = \\frac{2\\cdot 2}{2\\pi} = \\frac{2}{\\pi}, \\quad b_3 = \\frac{2}{3\\pi}, \\quad b_4 = 0, \\quad b_5 = \\frac{2}{5\\pi}, \\quad b_6 = \\frac{2\\cdot 2}{6\\pi} = \\frac{2}{3\\pi}.$$\n*(For $n=2$ og $n=6$ er $\\cos\\frac{n\\pi}{2} = -1$, så telleren blir 2 i stedet for 1; for $n=4$ er den $+1$, og leddet forsvinner.)*\n\nRekka:\n$$f(x) = \\frac{2}{\\pi}\\sum_{n=1}^{\\infty}\\frac{1-\\cos\\frac{n\\pi}{2}}{n}\\sin\\frac{n\\pi x}{2}.$$\n\n**b)** I $x=1$ har den odde utvidelsen $f(1^-) = 1$ og $f(1^+) = 0$: et **sprang** med springhøyde $-1$. **Etter konvergensteoremet** gir rekka\n$$\\frac{1+0}{2} = \\frac12.$$\n\nSetter vi $x=1$ i rekka, er $\\sin\\frac{n\\pi}{2}$ null for like $n$, og for $n=2m+1$ er den $(-1)^m$; samtidig er $\\cos\\frac{n\\pi}{2} = 0$ for odde $n$, så telleren er 1. Da:\n$$\\frac12 = \\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1} \\quad\\Longrightarrow\\quad \\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1} = \\frac{\\pi}{4}.$$\nLeibniz igjen — nå utledet fra **midlingsverdien**, ikke fra en funksjonsverdi. Det er den varianten som oftest kommer på eksamen, nettopp fordi den tester begge deler samtidig.\n\n**c)** I $x=2$ er $\\sin\\left(\\frac{n\\pi\\cdot 2}{2}\\right) = \\sin n\\pi = 0$ for alle $n$, så rekka gir **0**. Det stemmer med teoremet: utvidelsen har $f(2^-) = 0$ og $f(2^+) = f(-2^+) = -f(2^-) = 0$, altså kontinuerlig med verdien 0.\n\n**Merk.** Denne funksjonen har sprang i to slags punkter: i $x=0$ og $x=\\pm 4$ (midling 0) og i $x=\\pm1$ og $x=\\pm3$ (midling $\\pm\\tfrac12$). Får du en oppgave med to ulike sprangtyper, må hver av dem behandles for seg.",
+        "hints": [
+          "Funksjonen er null på $[1,2]$, så integralet går bare fra 0 til 1 — men faktoren foran er fortsatt $2/L$.",
+          "$\\cos\\frac{n\\pi}{2}$ følger mønsteret $0,-1,0,1$ og gjentar. Skriv ut de seks første $b_n$.",
+          "For b): finn de to ensidige grensene i $x=1$ først, og midle dem — deretter sett $x=1$ i rekka."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-3-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å bruke funksjonsverdien i stedet for midlingsverdien.** Dette er den hyppigste enkeltfeilen i hele Fourier-blokken. Står du i et sprang, er svaret $\\tfrac12\\left(f(x^+)+f(x^-)\\right)$ — uansett hva $f$ er definert som i punktet, og uansett hvor «naturlig» funksjonsverdien ser ut. Skriv begge ensidige grenser før du midler.\n\n**Å forveksle knekk med sprang.** I et knekkpunkt (hjørne) er funksjonen kontinuerlig, og rekka gir funksjonsverdien. Ingen midling. Trekantbølgen har knekk i heltallene, ikke sprang — og en unødvendig midling der gir feil svar.\n\n**Å tegne feil paritet i skissen.** Den odde utvidelsen roteres om origo, ikke speiles om $y$-aksen. En vanlig variant er å tegne den like utvidelsen og kalle den odde. Test skissen din: er den odde, skal den ha $g(-x) = -g(x)$ for hver eneste $x$ du sjekker.\n\n**Å glemme spranget i $x=0$ i den odde utvidelsen.** Er $f(0)\\ne0$, *må* den odde utvidelsen hoppe i origo — fra $-f(0^+)$ til $f(0^+)$. Tegner du kurven som om den henger sammen der, mister du både skissepoenget og midlingspoenget.\n\n**Å tegne bare én periode.** Ber oppgaven om $[-3,3]$ og perioden er 2, skal du tegne tre perioder. Det er periodisiteten som er poenget.\n\n**Å sette inn i et punkt der utvidelsen hopper, uten å si det.** Innsettingen er fortsatt gyldig — men da er venstre side midlingsverdien, ikke funksjonsverdien. Skriv hvilken av de to du bruker.\n\n**Å stoppe før du har løst for summen.** Delpunkt (c) er ikke besvart før du har isolert tallrekkesummen og skrevet den som et lukket uttrykk."
+    },
+    {
+      "id": "tma4135-3-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-3-2-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på det [kap. 3.1](/tma4135/tma4135-3-1) forutsetter. Bruker du mer enn ti minutter til sammen, les løkke 2 i [kap. 3.1](/tma4135/tma4135-3-1) på nytt før du går videre til [kap. 3.3](/tma4135/tma4135-3-3)."
+        },
+        {
+          "id": "tma4135-3-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-2-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Avgjør om hver funksjon er like, odde eller ingen av delene: $x^4$, $x^5$, $\\sin x\\cos x$, $x+\\cos x$, $x^2\\sin x$.",
+            "solution": "$x^4$: **like** ($(-x)^4 = x^4$).\n$x^5$: **odde**.\n$\\sin x\\cos x$: odde ganger like er **odde**. (Det er også $\\tfrac12\\sin 2x$, som opplagt er odde.)\n$x+\\cos x$: **ingen av delene** — en odde og en like del lagt sammen.\n$x^2\\sin x$: like ganger odde er **odde**.",
+            "hints": [
+              "Bruk produktregelen for paritet: odde ganger like er odde."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-2-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\cos\\frac{n\\pi}{2}$ og $\\sin\\frac{n\\pi}{2}$ for $n=1,\\dots,8$ og beskriv mønsteret.",
+            "solution": "| $n$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n|---|---|---|---|---|---|---|---|---|\n| $\\cos\\frac{n\\pi}{2}$ | 0 | $-1$ | 0 | 1 | 0 | $-1$ | 0 | 1 |\n| $\\sin\\frac{n\\pi}{2}$ | 1 | 0 | $-1$ | 0 | 1 | 0 | $-1$ | 0 |\n\nMønsteret har periode 4. **Cosinus** er null for odde $n$ og $(-1)^{n/2}$ for like $n$. **Sinus** er null for like $n$ og $(-1)^{(n-1)/2}$ for odde $n$ — altså $(-1)^m$ når $n = 2m+1$.\n\nDisse to radene dukker opp hver eneste gang en oppgave ber deg sette inn $x = L/2$.",
+            "hints": [
+              "Gå rundt enhetssirkelen i skritt på 90 grader."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-2-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\int_0^L \\sin\\frac{n\\pi x}{L}\\,dx$ og $\\int_0^L\\cos\\frac{n\\pi x}{L}\\,dx$ for heltall $n\\ge1$.",
+            "solution": "$$\\int_0^L\\sin\\frac{n\\pi x}{L}\\,dx = \\left[-\\frac{L}{n\\pi}\\cos\\frac{n\\pi x}{L}\\right]_0^L = \\frac{L\\left(1-(-1)^n\\right)}{n\\pi},$$\nsom er 0 for like $n$ og $\\frac{2L}{n\\pi}$ for odde $n$.\n\n$$\\int_0^L\\cos\\frac{n\\pi x}{L}\\,dx = \\left[\\frac{L}{n\\pi}\\sin\\frac{n\\pi x}{L}\\right]_0^L = \\frac{L\\sin n\\pi}{n\\pi} = 0 \\quad\\text{for alle } n\\ge1.$$\n\nDet siste er verdt å merke seg: **en konstant bidrar aldri til $a_n$ for $n\\ge1$**, bare til $a_0$. Det sparer deg for et helt integral hver gang funksjonen har et konstantledd.",
+            "hints": [
+              "Antideriverte til $\\cos(kx)$ er $\\sin(kx)/k$ — her er $k = n\\pi/L$.",
+              "Husk at $\\sin n\\pi = 0$ for alle heltall $n$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-2-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Firkantbølgen $g$ er $-1$ på $(-1,0)$ og $1$ på $(0,1)$, med periode 2. Finn $g(0^+)$, $g(0^-)$, $g(1^-)$, $g(1^+)$ og midlingsverdien i hvert av de to punktene.",
+            "solution": "$g(0^+) = 1$ og $g(0^-) = -1$, så midlingen i $x=0$ er $\\tfrac12(1-1) = 0$.\n\n$g(1^-) = 1$. Til høyre for $x=1$ starter neste periode, som er kopien av $(-1,0)$: $g(1^+) = -1$. Midlingen i $x=1$ er også $\\tfrac12(1-1) = 0$.\n\nBegge sprangene har springhøyde $-2$ og midlingsverdi 0. Det stemmer med at sinusrekka til firkantbølgen er null både i $x=0$ og $x=1$, siden $\\sin n\\pi x$ er null i begge punkter.",
+            "hints": [
+              "Tegn to perioder først, så leser du grensene rett av figuren.",
+              "Husk at høyre for $x=1$ er det samme som høyre for $x=-1$, ved periodisitet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-3-2-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $[0,L]$ | Halvintervallet funksjonen er gitt på |\n| $L$ | Halvperioden i den ferdige rekka. Perioden blir $2L$ |\n| $f_{\\text{like}}$ | Den like (jevne) utvidelsen — speiling om $y$-aksen |\n| $f_{\\text{odde}}$ | Den odde utvidelsen — speiling gjennom origo |\n| $\\tilde f$ | Den periodiske utvidelsen, altså det Fourier-rekka faktisk beskriver |\n| $f(x_0^+)$ | Høyregrensen i $x_0$ |\n| $f(x_0^-)$ | Venstregrensen i $x_0$ |\n| $S_N$ | Delsummen: rekka avkuttet etter $N$ ledd |\n| $a_0, a_n$ | Koeffisientene i cosinusrekka |\n| $b_n$ | Koeffisientene i sinusrekka |\n| $m$ | Løpeindeks når bare odde ledd overlever, $n = 2m+1$ |\n| $k$ | Løpeindeks når bare like ledd overlever, $n = 2k$. **Merk:** i Del 5 er $k$ separasjonskonstanten |\n"
+        },
+        {
+          "id": "tma4135-3-2-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$f_{\\text{like}}(x) = f(-x) \\text{ for } x<0, \\qquad f_{\\text{odde}}(x) = -f(-x) \\text{ for } x<0$$\nDe to halvintervall-utvidelsene. *(Må kunnes eller utledes aktivt.)*\n\n$$a_0 = \\frac1L\\int_0^L f\\,dx, \\qquad a_n = \\frac{2}{L}\\int_0^L f\\cos\\frac{n\\pi x}{L}\\,dx$$\nCosinusrekka til $f$ på $[0,L]$ (like utvidelse). *(Må kunnes eller utledes aktivt.)*\n\n$$b_n = \\frac{2}{L}\\int_0^L f\\sin\\frac{n\\pi x}{L}\\,dx$$\nSinusrekka til $f$ på $[0,L]$ (odde utvidelse). *(Må kunnes eller utledes aktivt.)*\n\n$$\\text{rekka}(x) = \\frac{\\tilde f(x^+)+\\tilde f(x^-)}{2}$$\nKonvergensteoremet — midlingsverdien i et sprang, funksjonsverdien der utvidelsen er kontinuerlig. *(Må kunnes eller utledes aktivt — dette er kapitlets viktigste enkeltformel.)*\n\n$$\\text{oversving} \\to 8{,}95\\ \\%\\ \\text{av springhøyden}$$\nGibbs-fenomenet. *(Må kunnes på beskrivende nivå.)*\n\n$$\\cos\\frac{n\\pi}{2}: 0,-1,0,1,\\dots \\qquad \\sin\\frac{n\\pi}{2}: 1,0,-1,0,\\dots$$\nVerdiene som trengs ved innsetting i $x=L/2$. *(Må kunnes.)*\n\n$$\\int x\\cos ax\\,dx = \\frac{x\\sin ax}{a}+\\frac{\\cos ax}{a^2}, \\qquad \\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}$$\n$$\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a}+\\frac{2x\\cos ax}{a^2}-\\frac{2\\sin ax}{a^3}$$\nReduksjonsformlene som brukes i alle koeffisientintegralene her. *(Står på det utdelte formelarket — tren oppslaget, og sett $a = n\\pi/L$.)*\n\n$$\\sum_{m=0}^{\\infty}\\frac{1}{(2m+1)^2} = \\frac{\\pi^2}{8}, \\qquad \\sum_{n=1}^{\\infty}\\frac{1}{n^2} = \\frac{\\pi^2}{6}, \\qquad \\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1} = \\frac{\\pi}{4}$$\nDe tre tallrekkesummene som utledes i dette kapitlet. *(Skal ikke pugges — de skal kunne utledes fra en Fourier-rekke ved innsetting.)*\n\n**Kolliderende symboler:** $L$ er halvperioden hele Del 3 igjennom; i Del 6 betyr $L$ kontraksjonskonstanten i fikspunktteoremet. Bokstaven $k$ brukes her bare som løpeindeks når partallsleddene overlever; i Del 5 er $k$ separasjonskonstanten i separasjon av variable, og i Del 8 kaller det utdelte formelarket tidssteget $k$. Bokstaven $a$ er faktoren i reduksjonsformlene, $a = n\\pi/L$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

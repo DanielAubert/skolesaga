@@ -1,0 +1,357 @@
+{
+  "id": "tma4135-6-prove",
+  "courseId": "tma4135",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Numerisk analyse I: interpolasjon, integrasjon, rotsøking",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: interpolasjon med begge metodene og feilanslag, numerisk integrasjon med presisjonsgrad og Gauss–Legendre, fikspunktiterasjon med begge vilkårene, og rotsøking på eksamensnivå. Fire prøver à 35–40 min — kan tas som separate økter.",
+  "estimatedMinutes": 145,
+  "competenceGoals": [
+    "føre en interpolasjonsoppgave med både Lagrange- og Newton-form og begrunne likheten med entydighetssetningen",
+    "regne kvadraturtilnærminger med trapes, Simpson og Gauss–Legendre og bestemme presisjonsgrad ved testing",
+    "vise begge fikspunktvilkårene og regne nødvendig antall iterasjoner med korrekt avrunding",
+    "kombinere entydighetsargument, Newton-skritt og biseksjonstelling i én sammenhengende rotsøkingsoppgave"
+  ],
+  "content": [
+    {
+      "id": "tma4135-6-prove-om",
+      "type": "tip",
+      "title": "Om prøvene til del 6",
+      "content": "**Fire prøver à 35–40 minutter**, til sammen 145 minutter. **De kan trygt deles over flere kvelder — én prøve per økt** er den anbefalte måten. Du trenger ikke ta dem i rekkefølge, men 6.D forutsetter at du har vært gjennom 6.C.\n\n| Prøve | Tema | Sjanger | Tid |\n|---|---|---|---|\n| 6.A | Interpolasjon: Lagrange **og** Newton, oppdatering og feilanslag | I | 35 min |\n| 6.B | Numerisk integrasjon: trapes, Simpson, presisjonsgrad, Gauss–Legendre | J | 35 min |\n| 6.C | Fikspunktiterasjon: begge vilkårene og a-priori-estimatet | K | 35 min |\n| 6.D | Rotsøking: entydig rot, Newton og biseksjonstelling | L | 40 min |\n\n**Alle oppgavene er nyskrevne** — egne tall, egne funksjoner, egen innramming. De følger sjangrene fra arkivet, ikke enkeltoppgaver derfra.\n\n**Om flervalg.** To av prøvene (6.B og 6.D) har et kort flervalgsspørsmål helt til slutt, merket som **treningsform**. **Eksamen i TMA4135 har aldri hatt flervalgsdel** — de står her bare fordi de er en rask måte å teste om et begrep sitter. Alt annet er regneoppgaver med krav om begrunnelse.\n\n**Slik bruker du prøvene.** Ta tiden. Skriv fullt ut, som på eksamen — med metodenavn, mellomregning og kontroller. Se på fasiten først når du er ferdig, og bruk **selvdiagnose-sjekklista** etter hver fasit til å avgjøre hva du skal repetere.\n\n**Tidsanslagene er regnetid**, ikke lesetid. Bruker du lengre tid første gang, er det normalt."
+    },
+    {
+      "id": "tma4135-6-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 6 — [kap. 6.1](/tma4135/tma4135-6-1) om interpolasjon, [kap. 6.2](/tma4135/tma4135-6-2) om numerisk integrasjon, [kap. 6.3](/tma4135/tma4135-6-3) om fikspunktiterasjon og [kap. 6.4](/tma4135/tma4135-6-4) om rotsøking.\n\n**Sist du var her** — de fire formlene prøvene hviler tyngst på:\n\n$$p(x)=\\sum_k f_k\\,\\ell_k(x),\\qquad \\varepsilon_n(x)=\\frac{f^{(n+1)}(\\xi)}{(n+1)!}\\prod_k\\left(x-x_k\\right),$$\n\n$$S_n=\\frac{h}{3}\\left(f_0+4f_1+2f_2+\\dots+f_n\\right),\\qquad \\left|x_{k+1}-r\\right|\\le\\frac{L^{k+1}}{1-L}\\left|x_1-x_0\\right|.$$\n\nAlle fire er tilgjengelige på det utdelte formelarket **unntatt den siste** — a-priori-estimatet må du ha med deg selv."
+    },
+    {
+      "id": "tma4135-6-prove-intro",
+      "type": "text",
+      "content": "## Slik er prøvene lagt opp\n\nHver prøve har to til fire delpunkter som henger sammen, slik eksamensoppgavene gjør: svaret fra a) brukes i b), og resonnementet fra b) er forutsetningen for c). **Regner du feil i a) men riktig videre, gir det fortsatt uttelling** — det er kjedet føring som premieres, ikke fasit-treff.\n\nEtter hver fasit står det et **poeng- og tidsnotat** som viser hvordan de ti poengene ville fordelt seg, og en **selvdiagnose-sjekkliste** du krysser av i."
+    },
+    {
+      "id": "tma4135-6-prove-a",
+      "type": "collapsible",
+      "title": "Prøve 6.A — Interpolasjon med begge metodene (35 min)",
+      "buttonText": "Vis prøve 6.A",
+      "content": [
+        {
+          "id": "tma4135-6-prove-a-intro",
+          "type": "text",
+          "content": "**Prøve 6.A · sjanger I · 35 minutter · 10 poeng**\n\nAlle svar skal begrunnes, med nok mellomregning til at tenkemåten framgår. Sett inn punktene som kontroll der det er mulig."
+        },
+        {
+          "id": "tma4135-6-prove-a-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-a-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En funksjon $f$ er målt i tre punkter:\n\n$$(-1,\\,3),\\qquad (0,\\,1),\\qquad (2,\\,7).$$\n\n**a)** Finn interpolasjonspolynomet på **Lagrange-form** og gang ut.\n**b)** Finn det samme polynomet med **Newtons dividerte differanser**, og begrunn med et teorem hvorfor de to må være like.",
+            "solution": "**a) Lagrange-form.** Tre punkter gir $n=2$. Nodene er $x_0=-1$, $x_1=0$, $x_2=2$.\n\n$$\\ell_0(x)=\\frac{(x-0)(x-2)}{(-1-0)(-1-2)}=\\frac{x(x-2)}{3},$$\n$$\\ell_1(x)=\\frac{(x+1)(x-2)}{(0+1)(0-2)}=\\frac{(x+1)(x-2)}{-2},$$\n$$\\ell_2(x)=\\frac{(x+1)(x-0)}{(2+1)(2-0)}=\\frac{x(x+1)}{6}.$$\n\n*Kontroll:* $\\ell_0(-1)=\\frac{(-1)(-3)}{3}=1$ ✔.\n\n$$p(x)=3\\cdot\\frac{x(x-2)}{3}+1\\cdot\\frac{(x+1)(x-2)}{-2}+7\\cdot\\frac{x(x+1)}{6}.$$\n\nGang ut ledd for ledd:\n\n$$x(x-2)=x^{2}-2x,$$\n$$-\\frac{(x+1)(x-2)}{2}=-\\frac{x^{2}-x-2}{2}=-\\frac{x^{2}}{2}+\\frac{x}{2}+1,$$\n$$\\frac{7x(x+1)}{6}=\\frac{7x^{2}+7x}{6}=\\frac{7x^{2}}{6}+\\frac{7x}{6}.$$\n\n$x^{2}$-koeffisienten: $1-\\frac12+\\frac76=\\frac{6-3+7}{6}=\\frac{10}{6}=\\frac53$.\n$x$-koeffisienten: $-2+\\frac12+\\frac76=\\frac{-12+3+7}{6}=-\\frac{2}{6}=-\\frac13$.\nKonstantleddet: $1$.\n\n$$\\boxed{p(x)=\\frac53 x^{2}-\\frac13 x+1}$$\n\n**Kontroll:** $p(-1)=\\frac53+\\frac13+1=3$ ✔, $p(0)=1$ ✔, $p(2)=\\frac{20}{3}-\\frac23+1=\\frac{18}{3}+1=7$ ✔.\n\n**b) Newton-form.**\n\nFørste ordens differanser:\n$$f[x_0,x_1]=\\frac{1-3}{0-(-1)}=-2,\\qquad f[x_1,x_2]=\\frac{7-1}{2-0}=3.$$\n\nAndre orden (nevner $x_2-x_0=2-(-1)=3$):\n$$f[x_0,x_1,x_2]=\\frac{3-(-2)}{3}=\\frac53.$$\n\n| $x_k$ | $f_k$ | 1. orden | 2. orden |\n|---|---|---|---|\n| $-1$ | 3 | | |\n| | | $-2$ | |\n| 0 | 1 | | $5/3$ |\n| | | 3 | |\n| 2 | 7 | | |\n\n$$p(x)=3-2(x+1)+\\frac53(x+1)x=3-2x-2+\\frac53 x^{2}+\\frac53 x=\\frac53 x^{2}-\\frac13 x+1.$$\n\nSamme svar. ✔\n\n**Begrunnelsen.** **Etter entydighetssetningen** finnes det nøyaktig ett polynom av grad høyst 2 gjennom tre punkter med ulike noder. Både Lagrange-formen og Newton-formen produserer et slikt polynom, så de **må** være det samme. Regningen er kontrollen; teoremet er argumentet.\n\n*(Ekstra kontroll: den ledende koeffisienten $\\frac53$ er nøyaktig den siste dividerte differansen — slik regelen sier.)*",
+            "hints": [
+              "Skriv opp de tre kardinalfunksjonene med nevnerne som rene tall.",
+              "I andre ordens dividerte differanse er nevneren $x_2-x_0$.",
+              "Argumentet for at metodene gir samme svar, er et navngitt teorem — ikke at tallene stemte."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-a-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-a-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et fjerde målepunkt kommer inn: $(3,\\,19)$.\n\n**a)** Utvid differanstabellen og skriv det nye interpolasjonspolynomet **uten å regne om det gamle**.\n**b)** Gang ut, og kontroller i alle fire punktene.",
+            "solution": "**a) Utvidet tabell.** Vi trenger tre nye tall.\n\nFørste orden: $f[x_2,x_3]=\\dfrac{19-7}{3-2}=12$.\n\nAndre orden (nevner $x_3-x_1=3-0=3$): $f[x_1,x_2,x_3]=\\dfrac{12-3}{3}=3$.\n\nTredje orden (nevner $x_3-x_0=3-(-1)=4$): $f[x_0,\\dots,x_3]=\\dfrac{3-\\frac53}{4}=\\dfrac{\\frac43}{4}=\\dfrac13$.\n\n| $x_k$ | $f_k$ | 1. | 2. | 3. |\n|---|---|---|---|---|\n| $-1$ | 3 | | | |\n| | | $-2$ | | |\n| 0 | 1 | | $5/3$ | |\n| | | 3 | | $1/3$ |\n| 2 | 7 | | 3 | |\n| | | 12 | | |\n| 3 | 19 | | | |\n\n**Etter oppdateringsregelen** legges det bare på ett ledd:\n\n$$p_{\\text{ny}}(x)=\\underbrace{\\frac53 x^{2}-\\frac13 x+1}_{\\text{det gamle}}+\\frac13\\,(x+1)\\,x\\,(x-2).$$\n\n**b) Utganget.**\n\n$$(x+1)x(x-2)=x\\left(x^{2}-x-2\\right)=x^{3}-x^{2}-2x,$$\n\n$$\\frac13\\left(x^{3}-x^{2}-2x\\right)=\\frac{x^{3}}{3}-\\frac{x^{2}}{3}-\\frac{2x}{3}.$$\n\n$$p_{\\text{ny}}(x)=\\frac{x^{3}}{3}+\\left(\\frac53-\\frac13\\right)x^{2}+\\left(-\\frac13-\\frac23\\right)x+1=\\frac{x^{3}}{3}+\\frac43 x^{2}-x+1.$$\n\n$$\\boxed{p_{\\text{ny}}(x)=\\frac13 x^{3}+\\frac43 x^{2}-x+1}$$\n\n**Kontroll i alle fire punktene:**\n\n$$p_{\\text{ny}}(-1)=-\\frac13+\\frac43+1+1=1+2=3\\ ✔$$\n$$p_{\\text{ny}}(0)=1\\ ✔$$\n$$p_{\\text{ny}}(2)=\\frac83+\\frac{16}{3}-2+1=\\frac{24}{3}-1=8-1=7\\ ✔$$\n$$p_{\\text{ny}}(3)=9+12-3+1=19\\ ✔$$\n\n**Merk hvorfor de tre gamle punktene fortsatt treffes:** det nye leddet inneholder faktorene $(x+1)$, $x$ og $(x-2)$, som alle er null i sine respektive noder. Det er hele poenget med Newton-formen.",
+            "hints": [
+              "Du trenger tre nye tall i tabellen: én av hver orden.",
+              "Det nye leddet er den nye differansen ganget med alle de gamle nodefaktorene.",
+              "Kontroller sluttsvaret i alle fire punktene, ikke bare det nye."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-a-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-a-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Funksjonen $f(x)=e^{x}$ interpoleres i nodene $0$, $1$ og $2$.\n\n**a)** Sett opp feilformelen for dette tilfellet, med riktig derivertorden og fakultet.\n**b)** Finn en øvre grense for $\\left|f(0{,}5)-p(0{,}5)\\right|$.\n**c)** Interpolasjonspolynomet er $p(x)=\\frac{\\left(e-1\\right)^{2}}{2}x^{2}+\\frac{-e^{2}+4e-3}{2}x+1$, som gir $p(0{,}5)\\approx 1{,}4900794$. Sammenlikn den virkelige feilen med anslaget, og kommenter.",
+            "solution": "**a)** Tre noder gir $n=2$, altså den **tredjederiverte** og $3!=6$:\n\n$$\\varepsilon_2(x)=f(x)-p(x)=\\frac{f'''(\\xi)}{6}\\,(x-0)(x-1)(x-2),$$\n\nder $\\xi$ ligger i det minste intervallet som inneholder $x$ og alle nodene, altså i $(0,2)$.\n\n**b)** Alle deriverte av $e^{x}$ er $e^{x}$, som er voksende, så\n\n$$M_3=\\max_{[0,2]}\\left|f'''\\right|=e^{2}\\approx 7{,}3890561.$$\n\nNodepolynomet i $x=0{,}5$:\n\n$$\\omega(0{,}5)=0{,}5\\cdot(0{,}5-1)\\cdot(0{,}5-2)=0{,}5\\cdot(-0{,}5)\\cdot(-1{,}5)=0{,}375.$$\n\n$$\\left|\\varepsilon_2(0{,}5)\\right|\\le\\frac{e^{2}}{6}\\cdot 0{,}375\\approx\\frac{7{,}3890561}{6}\\cdot 0{,}375\\approx 0{,}4618.$$\n\n**Svar:** feilen er høyst omtrent $0{,}462$.\n\n**c) Den virkelige feilen.**\n\n$$e^{0{,}5}\\approx 1{,}6487213,\\qquad p(0{,}5)\\approx 1{,}4900794,$$\n\n$$\\left|e^{0{,}5}-p(0{,}5)\\right|\\approx 0{,}1586419.$$\n\n**Sammenlikningen:** anslaget $0{,}462$ er omtrent **tre ganger** den virkelige feilen $0{,}159$. Garantien holder, men den er romslig.\n\n**Hvorfor.** To ting er erstattet med det verst tenkelige. For det første er $M_3$ hentet i $x=2$, der $e^{x}=7{,}39$, mens den relevante verdien nær $x=0{,}5$ er omtrent $1{,}6$ — en faktor 4,5. For det andre er $\\xi$ ukjent, og vi har antatt at den ligger der den deriverte er størst.\n\n**Merk likevel at feilen her er stor i absolutt forstand.** Med bare tre noder over et intervall av lengde 2 bommer et andregradspolynom med over 9 prosent på $e^{0{,}5}$. **Det er selve budskapet i feilformelen:** $\\max|\\omega|$ vokser som $h^{3}$, og med $h=1$ er det ingen liten faktor. Vil du ha bedre, må du enten ha flere noder eller et kortere intervall — og formelen forteller nøyaktig hvor mye du vinner.",
+            "hints": [
+              "Tell antall noder først: $n+1$ noder gir derivert av orden $n+1$.",
+              "$M_3$ skal maksimeres over hele nodeintervallet $[0,2]$, ikke bare nær $x=0{,}5$.",
+              "Regn de tre faktorene i $\\omega(0{,}5)$ hver for seg og hold styr på fortegnene."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-a-poeng",
+          "type": "text",
+          "content": "### Poeng- og tidsnotat — prøve 6.A\n\n| Delpunkt | Poeng | Tid |\n|---|---|---|\n| 1a) Lagrange-form med utganging | 3 | 9 min |\n| 1b) Newton-form + entydighetsargumentet | 3 | 8 min |\n| 2a–b) Oppdatering med nytt punkt | 2 | 9 min |\n| 3a–c) Feilformel, anslag og vurdering | 2 | 9 min |\n| **Sum** | **10** | **35 min** |\n\n**Hvor poengene faktisk ligger.** I 1b) er halvparten av poenget selve **entydighetssetningen**, ikke tabellen. I 3c) er poenget **vurderingen** av hvor stramt anslaget er — et tall uten kommentar er et halvt svar.\n\n**Merk avviket mellom delsummene og totalen:** delpunktene summerer til 35 minutter, som er hele prøvetiden. Det betyr at det ikke er slakk i budsjettet — dette er en tett prøve, og det er meningen. På eksamen er tempoet omtrent 24 minutter per tipoengsoppgave."
+        },
+        {
+          "id": "tma4135-6-prove-a-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 6.A\n\nKryss av det du klarte uten å se på fasiten:\n\n☐ Jeg skrev opp kardinalfunksjonene med riktig utelatt faktor, i både teller og nevner\n☐ Jeg kontrollerte at $\\ell_k(x_k)=1$ før jeg gikk videre\n☐ Jeg brukte riktig nevner ($x_2-x_0$, ikke $x_2-x_1$) i andre ordens dividerte differanse\n☐ Jeg **navnga entydighetssetningen** som argument for at metodene gir samme polynom\n☐ Jeg la bare til ett ledd ved oppdateringen, uten å regne om det gamle\n☐ Jeg satte inn alle fire punktene som kontroll til slutt\n☐ Jeg brukte den **tredje**deriverte og $3!$ i feilformelen med tre noder\n☐ Jeg maksimerte $\\left|f'''\\right|$ over hele nodeintervallet\n☐ Jeg **kommenterte** hvor stramt feilanslaget var\n\n**Færre enn 6 kryss?** Les [kap. 6.1](/tma4135/tma4135-6-1) på nytt, med vekt på løkke 1 og 3.\n**6–8 kryss?** Se særlig på de punktene du bommet på — de er alle enkeltstående og raske å tette.\n**9 kryss?** Sjangeren sitter. Gå videre til prøve 6.B."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-6-prove-b",
+      "type": "collapsible",
+      "title": "Prøve 6.B — Numerisk integrasjon og presisjonsgrad (35 min)",
+      "buttonText": "Vis prøve 6.B",
+      "content": [
+        {
+          "id": "tma4135-6-prove-b-intro",
+          "type": "text",
+          "content": "**Prøve 6.B · sjanger J · 35 minutter · 10 poeng**\n\nIntegralet i oppgave 1 og 2 er $\\displaystyle I=\\int_0^1\\frac{dx}{1+x^{2}}=\\frac{\\pi}{4}\\approx 0{,}7853982$.\n\nNode- og vekttabell for Gauss–Legendre på $[-1,1]$:\n\n| $N$ | Noder $\\xi_i$ | Vekter $w_i$ |\n|---|---|---|\n| 2 | $\\pm 0{,}5773503$ | $1,\\ 1$ |\n| 3 | $0$; $\\pm 0{,}7745967$ | $8/9$; $5/9,\\ 5/9$ |\n\n**Til slutt i prøven står ett flervalgsspørsmål, merket som treningsform.** Eksamen i TMA4135 har aldri hatt flervalgsdel."
+        },
+        {
+          "id": "tma4135-6-prove-b-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-b-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**a)** Regn ut $I$ tilnærmet med sammensatt trapesregel og $n=4$.\n**b)** Regn ut $I$ tilnærmet med Simpsons regel og $n=4$.\n**c)** Sammenlikn feilene, og forklar forskjellen ut fra feilleddene.",
+            "solution": "**Nodene.** $h=\\dfrac{1-0}{4}=0{,}25$, og $f(x)=\\dfrac{1}{1+x^{2}}$:\n\n| $i$ | $x_i$ | $f_i$ |\n|---|---|---|\n| 0 | $0$ | $1$ |\n| 1 | $0{,}25$ | $\\frac{1}{1{,}0625}=0{,}9411765$ |\n| 2 | $0{,}5$ | $\\frac{1}{1{,}25}=0{,}8$ |\n| 3 | $0{,}75$ | $\\frac{1}{1{,}5625}=0{,}64$ |\n| 4 | $1$ | $\\frac12=0{,}5$ |\n\n**a) Trapes**, mønster $1,2,2,2,1$:\n\n$$T_4=\\frac{0{,}25}{2}\\left(1+2\\left(0{,}9411765+0{,}8+0{,}64\\right)+0{,}5\\right)=0{,}125\\left(1+2\\cdot 2{,}3811765+0{,}5\\right).$$\n\n$$=0{,}125\\cdot 6{,}2623529=0{,}7827941.$$\n\nFeil: $\\left|T_4-\\frac{\\pi}{4}\\right|\\approx 2{,}604\\cdot 10^{-3}$.\n\n**b) Simpson**, mønster $1,4,2,4,1$:\n\n$$S_4=\\frac{0{,}25}{3}\\left(1+4\\cdot 0{,}9411765+2\\cdot 0{,}8+4\\cdot 0{,}64+0{,}5\\right)$$\n\n$$=\\frac{0{,}25}{3}\\left(1+3{,}7647059+1{,}6+2{,}56+0{,}5\\right)=\\frac{0{,}25}{3}\\cdot 9{,}4247059=0{,}7853922.$$\n\nFeil: $\\left|S_4-\\frac{\\pi}{4}\\right|\\approx 6{,}01\\cdot 10^{-6}$.\n\n**c) Sammenlikningen.** Med **nøyaktig de samme fem funksjonsverdiene** er Simpson om lag **430 ganger** mer nøyaktig. Det eneste som skiller, er vektene.\n\n**Forklaringen fra feilleddene.**\n\n$$\\left|\\varepsilon_T\\right|\\le\\frac{b-a}{12}h^{2}\\max\\left|f''\\right|,\\qquad \\left|\\varepsilon_S\\right|\\le\\frac{b-a}{180}h^{4}\\max\\left|f^{(4)}\\right|.$$\n\nTo ting slår inn samtidig. For det første er $h^{2}=0{,}0625$ mot $h^{4}=0{,}00390625$ — en faktor 16. For det andre er nevneren 180 mot 12 — en faktor 15. Til sammen en faktor rundt 240 fra formlene alene, og resten kommer av at $\\max|f^{(4)}|$ ikke er tilsvarende større enn $\\max|f''|$ for denne funksjonen.\n\n**Den strukturelle grunnen** er presisjonsgraden: trapes er eksakt bare for førstegradspolynomer, Simpson helt opp til tredjegrad. Integranden $\\frac{1}{1+x^{2}}$ er glatt og lar seg tilnærme godt av en parabel stykkevis.",
+            "hints": [
+              "Regn funksjonsverdiene som brøker først; de blir pene her.",
+              "Trapes har $h/2$ foran og mønsteret $1,2,\\dots,2,1$; Simpson har $h/3$ og $1,4,2,\\dots,4,1$.",
+              "Se på både potensen av $h$ og nevneren i de to feilleddene."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-b-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-b-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**a)** Regn ut $I$ med Gauss–Legendre og 2 noder, med tabellen over.\n**b)** Gjør det samme med 3 noder.\n**c)** Sett opp en tabell over alle fire tilnærmingene fra oppgave 1 og 2, med antall funksjonsevalueringer og feil, og konkluder.",
+            "solution": "**Transformasjonen.** Med $a=0$, $b=1$:\n\n$$x(\\xi)=\\frac{(1-0)\\xi+(0+1)}{2}=\\frac{\\xi+1}{2},\\qquad \\frac{b-a}{2}=\\frac12.$$\n\n*Kontroll:* $\\xi=-1\\Rightarrow x=0$ ✔, $\\xi=1\\Rightarrow x=1$ ✔. **Jacobifaktoren er $\\frac12$ — den må med.**\n\n**a) To noder.** $\\xi=\\mp 0{,}5773503$ gir\n\n$$x_1=\\frac{1-0{,}5773503}{2}=0{,}2113249,\\qquad x_2=\\frac{1+0{,}5773503}{2}=0{,}7886751.$$\n\n$$f(x_1)=\\frac{1}{1+0{,}0446582}=0{,}9572509,\\qquad f(x_2)=\\frac{1}{1+0{,}6220085}=0{,}6165196.$$\n\n$$G_2=\\frac12\\left(1\\cdot 0{,}9572509+1\\cdot 0{,}6165196\\right)=\\frac12\\cdot 1{,}5737705=0{,}7868852.$$\n\nFeil: $1{,}487\\cdot 10^{-3}$.\n\n**b) Tre noder.** $\\xi=0$ og $\\xi=\\mp 0{,}7745967$ gir\n\n$$x=0{,}5,\\qquad x=\\frac{1-0{,}7745967}{2}=0{,}1127017,\\qquad x=\\frac{1+0{,}7745967}{2}=0{,}8872983.$$\n\n$$f(0{,}5)=0{,}8,\\quad f(0{,}1127017)=\\frac{1}{1{,}0127017}=0{,}9874574,\\quad f(0{,}8872983)=\\frac{1}{1{,}7872983}=0{,}5595234.$$\n\n$$G_3=\\frac12\\left(\\frac89\\cdot 0{,}8+\\frac59\\left(0{,}9874574+0{,}5595234\\right)\\right)=\\frac12\\left(0{,}7111111+\\frac59\\cdot 1{,}5469808\\right).$$\n\n$$=\\frac12\\left(0{,}7111111+0{,}8594338\\right)=\\frac12\\cdot 1{,}5705449=0{,}7852725.$$\n\nFeil: $1{,}26\\cdot 10^{-4}$.\n\n*(Regner du med flere siffer, blir $G_3\\approx 0{,}7852670$ med feil $1{,}31\\cdot 10^{-4}$. Forskjellen skyldes avrunding av nodene til sju siffer og er uten betydning for konklusjonen.)*\n\n**c) Samlet tabell.**\n\n| Metode | Evalueringer | Verdi | Feil |\n|---|---|---|---|\n| Trapes, $n=4$ | 5 | $0{,}7827941$ | $2{,}60\\cdot 10^{-3}$ |\n| Gauss, $N=2$ | **2** | $0{,}7868852$ | $1{,}49\\cdot 10^{-3}$ |\n| Gauss, $N=3$ | **3** | $0{,}7852670$ | $1{,}31\\cdot 10^{-4}$ |\n| Simpson, $n=4$ | 5 | $0{,}7853922$ | $6{,}01\\cdot 10^{-6}$ |\n\n**Konklusjon.** Simpson er best i absolutt nøyaktighet her, men bruker fem evalueringer. **Per funksjonsevaluering vinner Gauss klart:** to Gauss-punkter slår fem trapes-punkter, og tre Gauss-punkter er tjue ganger bedre enn fem trapes-punkter.\n\n**En ærlig nyanse:** at Simpson slår Gauss med tre noder her, er ikke det generelle bildet. Gauss med $N=3$ har presisjonsgrad 5 mot Simpsons 3, og for de fleste integrander vinner den. Her er integranden $\\frac{1}{1+x^2}$ nesten symmetrisk om midtpunktet på $[0,1]$, og det favoriserer Simpsons nodefordeling. **Én enkelt sammenlikning avgjør ikke hvilken metode som er best** — det er verdt å si i besvarelsen.",
+            "hints": [
+              "Transformer først, og skriv jacobifaktoren utenfor summen.",
+              "Med tre noder er vektene $8/9$ i midten og $5/9$ på hver side; kontroller at de summerer til 2.",
+              "Regn feilene som absoluttverdier og still dem opp mot antall evalueringer."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-b-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-b-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En kvadraturformel på $[0,h]$ er gitt ved\n\n$$Q(f)=h\\left(\\alpha f(0)+\\beta f(h)\\right).$$\n\n**a)** Bestem $\\alpha$ og $\\beta$ slik at presisjonsgraden blir så høy som mulig.\n**b)** Hvilken kjent regel er dette, og hva er presisjonsgraden?\n**c)** Vis ved å teste én potens til at graden ikke kan bli høyere.",
+            "solution": "**a)** Vi har to frie parametre, så vi kan stille to krav.\n\n**$f=1$:** $Q=h(\\alpha+\\beta)$, eksakt $=\\int_0^h 1\\,dx=h$:\n\n$$\\alpha+\\beta=1.$$\n\n**$f=x$:** $Q=h\\left(\\alpha\\cdot 0+\\beta h\\right)=\\beta h^{2}$, eksakt $=\\int_0^h x\\,dx=\\dfrac{h^{2}}{2}$:\n\n$$\\beta h^{2}=\\frac{h^{2}}{2}\\ \\Longrightarrow\\ \\beta=\\frac12.$$\n\nSett inn i den første: $\\alpha=\\dfrac12$.\n\n$$\\boxed{\\alpha=\\beta=\\frac12}$$\n\n**b)** Formelen blir\n\n$$Q(f)=\\frac{h}{2}\\left(f(0)+f(h)\\right),$$\n\nsom er **trapesregelen** på ett delintervall. Presisjonsgraden er **1** — den er eksakt for $1$ og $x$ etter konstruksjon.\n\n**c) Test $f=x^{2}$:**\n\n$$Q\\left(x^{2}\\right)=\\frac{h}{2}\\left(0+h^{2}\\right)=\\frac{h^{3}}{2},\\qquad \\int_0^h x^{2}dx=\\frac{h^{3}}{3}.$$\n\n$$\\frac{h^{3}}{2}\\ne\\frac{h^{3}}{3}\\qquad \\text{for } h\\ne 0.$$\n\nFormelen feiler altså på grad 2, og presisjonsgraden er nøyaktig 1. $\\blacksquare$\n\n**Hvorfor kunne den ikke blitt høyere?** Vi hadde bare to frihetsgrader ($\\alpha$ og $\\beta$), og de ble brukt opp av kravene fra $1$ og $x$. Formelen er heller **ikke symmetrisk i den forstand at den utnytter midtpunktet** — nodene ligger i endene, og de gir ingen gratis grader.\n\n**Sammenlikn med Gauss:** hadde vi også fått velge *hvor* de to nodene skulle ligge, ville vi hatt fire frihetsgrader og kunnet nå presisjonsgrad 3 — nøyaktig det Gauss–Legendre med $N=2$ gjør. **Det er hele forskjellen mellom faste og frie noder.**",
+            "hints": [
+              "To ukjente betyr at du kan stille nøyaktig to krav.",
+              "Test $f=1$ først, deretter $f=x$, og regn det eksakte integralet begge ganger.",
+              "For c): finn den første potensen der de to sidene skiller lag."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-b-flervalg",
+          "type": "text",
+          "content": "### Flervalg (treningsform, ikke eksamensform)\n\n**Eksamen i TMA4135 har aldri hatt flervalgsdel.** Spørsmålene under står her bare som en rask sluttkontroll.\n\n**F1.** En sammensatt Simpson-formel brukes med $n=6$ delintervall. Hvilket vektmønster er riktig?\n\n**A** $1,2,2,2,2,2,1$  **B** $1,4,4,4,4,4,1$  **C** $1,4,2,4,2,4,1$  **D** $4,1,2,1,2,1,4$\n\n**F2.** En kvadraturformel er eksakt for $1$, $x$, $x^{2}$, $x^{3}$ og $x^{4}$, men ikke for $x^{5}$. Presisjonsgraden er\n\n**A** 5  **B** 6  **C** 4  **D** 3\n\n**F3.** Du glemmer jacobifaktoren $\\frac{b-a}{2}$ i en Gauss-utregning på $[0,4]$. Svaret ditt blir\n\n**A** halvparten av det riktige  **B** dobbelt så stort som det riktige  **C** fire ganger for stort  **D** riktig, siden faktoren er 1\n\n**Fasit:** F1 = **C**, F2 = **C**, F3 = **A**.\n\n**Kommentar til F2:** graden er den **høyeste** som går gjennom, altså 4 — ikke 5, som er den første som feiler. Dette er den dokumenterte tellefeilen i sjangeren.\n\n**Kommentar til F3:** på $[0,4]$ er $\\frac{b-a}{2}=2$, så uten faktoren får du halvparten av riktig svar. Alternativ **D** er en nær-sann felle: den ville vært riktig hvis intervallet var akkurat 2 langt."
+        },
+        {
+          "id": "tma4135-6-prove-b-poeng",
+          "type": "text",
+          "content": "### Poeng- og tidsnotat — prøve 6.B\n\n| Delpunkt | Poeng | Tid |\n|---|---|---|\n| 1a–b) Trapes og Simpson | 3 | 10 min |\n| 1c) Forklaring ut fra feilleddene | 1 | 3 min |\n| 2a–b) Gauss med 2 og 3 noder | 3 | 12 min |\n| 2c) Sammenlikningstabell og konklusjon | 1 | 4 min |\n| 3a–c) Bestem vekter og presisjonsgrad | 2 | 6 min |\n| **Sum** | **10** | **35 min** |\n\n**Hvor poengene faktisk ligger.** 1a–b og 2a–b er ren regning og gir de fleste poengene, men de er også der tiden går. **Forklaringspunktene 1c og 2c koster fire minutter til sammen og gir to poeng** — de er de billigste på hele prøven, og de hoppes ofte over."
+        },
+        {
+          "id": "tma4135-6-prove-b-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 6.B\n\n☐ Jeg brukte riktig vektmønster i både trapes ($1,2,\\dots,2,1$) og Simpson ($1,4,2,\\dots,4,1$)\n☐ Jeg kontrollerte at vektsummen ganget med faktoren ble $b-a$\n☐ Jeg transformerte til $[-1,1]$ **og fikk med jacobifaktoren** $\\frac12$\n☐ Jeg kontrollerte at Gauss-nodene falt innenfor $[0,1]$ etter transformasjonen\n☐ Jeg forklarte forskjellen på trapes og Simpson ut fra **både** potensen av $h$ og nevneren\n☐ Jeg satte opp sammenlikningen per **funksjonsevaluering**, ikke bare per metode\n☐ Jeg testet potenser i stigende orden til én faktisk feilet\n☐ Jeg oppga presisjonsgraden som den **høyeste** som gikk gjennom\n\n**Færre enn 5 kryss?** Les [kap. 6.2](/tma4135/tma4135-6-2) på nytt, med vekt på løkke 1 og 3.\n**5–7 kryss?** Sjekk særlig jacobifaktoren og tellingen av presisjonsgrad — det er de to dyreste enkeltfeilene.\n**8 kryss?** Sjangeren sitter."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-6-prove-c",
+      "type": "collapsible",
+      "title": "Prøve 6.C — Fikspunktiterasjon med begge vilkårene (35 min)",
+      "buttonText": "Vis prøve 6.C",
+      "content": [
+        {
+          "id": "tma4135-6-prove-c-intro",
+          "type": "text",
+          "content": "**Prøve 6.C · sjanger K · 35 minutter · 10 poeng**\n\nHusk at fikspunktteoremet har **to** vilkår, og at begge må skrives ut. Teoremet skal navngis."
+        },
+        {
+          "id": "tma4135-6-prove-c-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-c-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Likningen $x^{2}-5x+3=0$ skrives på fikspunktform som\n\n$$x=g(x)=\\frac{x^{2}+3}{5}.$$\n\n**a)** Finn begge røttene til likningen eksakt, og avgjør hvilken som ligger i $[0,1]$.\n**b)** Sjekk **begge** fikspunktvilkårene på $I=[0,1]$ og finn $L$.\n**c)** Konkluder, med teoremets navn.",
+            "solution": "**a)** Abc-formelen:\n\n$$x=\\frac{5\\pm\\sqrt{25-12}}{2}=\\frac{5\\pm\\sqrt{13}}{2}.$$\n\n$$x=\\frac{5-\\sqrt{13}}{2}\\approx\\frac{5-3{,}6055513}{2}\\approx 0{,}6972244,\\qquad x=\\frac{5+\\sqrt{13}}{2}\\approx 4{,}3027756.$$\n\nBare den første ligger i $[0,1]$:\n\n$$\\boxed{r=\\frac{5-\\sqrt{13}}{2}\\approx 0{,}6972244}$$\n\n*(Kontroll av at fikspunktformen er ekvivalent: $\\frac{x^2+3}{5}=x\\Leftrightarrow x^2+3=5x\\Leftrightarrow x^2-5x+3=0$ ✔.)*\n\n**b) Vilkår (i) — kontraksjon.**\n\n$$g'(x)=\\frac{2x}{5}.$$\n\nPå $[0,1]$ er $\\left|g'(x)\\right|=\\dfrac{2x}{5}$ **voksende**, så maksimum ligger i høyre endepunkt:\n\n$$L=g'(1)=\\frac25=0{,}4<1.\\qquad ✔$$\n\n**Vilkår (ii) — $g$ avbilder $[0,1]$ inn i seg selv.**\n\n$g'\\ge 0$ på $[0,1]$, så $g$ er **voksende** der, og\n\n$$g\\left([0,1]\\right)=\\left[g(0),\\,g(1)\\right]=\\left[\\frac{0+3}{5},\\ \\frac{1+3}{5}\\right]=\\left[0{,}6,\\ 0{,}8\\right].$$\n\nOg $[0{,}6;\\ 0{,}8]\\subset[0,1]$. ✔\n\n**c) Konklusjon.** Begge vilkårene er oppfylt med $L=0{,}4$. **Etter fikspunktteoremet** har $g$ **nøyaktig ett** fikspunkt i $[0,1]$, nemlig $r=\\frac{5-\\sqrt{13}}{2}$, og iterasjonen $x_{k+1}=g(x_k)$ konvergerer mot det for **enhver** startverdi $x_0\\in[0,1]$.\n\n**Merk at bildet $[0{,}6;\\ 0{,}8]$ er strengt mindre enn $[0,1]$.** Det er ikke et krav — inklusjonen holder like fullt om bildet er hele intervallet — men det er et tegn på at kontraksjonen er kraftig.",
+            "hints": [
+              "Bruk abc-formelen og avgjør hvilken rot som ligger i intervallet.",
+              "Er $|g'|$ voksende eller avtakende på $[0,1]$? Det avgjør hvilket endepunkt som gir maksimum.",
+              "Konklusjonen må inneholde teoremets navn og gjelde for enhver startverdi i intervallet."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-c-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-c-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Fortsett med $g(x)=\\dfrac{x^{2}+3}{5}$ på $[0,1]$, $L=0{,}4$ og $x_0=0{,}5$.\n\n**a)** Regn ut $x_1$ og $\\left|x_1-x_0\\right|$.\n**b)** Bestem hvor mange iterasjoner som garanterer feil under $10^{-5}$.\n**c)** Regn de fire første iteratene og sammenlikn med den eksakte roten.",
+            "solution": "**a)**\n\n$$x_1=g(0{,}5)=\\frac{0{,}25+3}{5}=\\frac{3{,}25}{5}=0{,}65,\\qquad \\left|x_1-x_0\\right|=0{,}15.$$\n\n**b) A-priori-estimatet.**\n\n$$\\left|x_{k+1}-r\\right|\\le\\frac{L^{k+1}}{1-L}\\left|x_1-x_0\\right|=\\frac{0{,}4^{\\,k+1}}{0{,}6}\\cdot 0{,}15=0{,}25\\cdot 0{,}4^{\\,k+1}.$$\n\nKravet:\n\n$$0{,}25\\cdot 0{,}4^{\\,k+1}\\le 10^{-5}\\ \\Longleftrightarrow\\ 0{,}4^{\\,k+1}\\le 4\\cdot 10^{-5}.$$\n\nTa naturlig logaritme. Siden $\\ln 0{,}4\\approx -0{,}9162907$ er **negativ**, snur ulikheten:\n\n$$k+1\\ge\\frac{\\ln\\left(4\\cdot 10^{-5}\\right)}{\\ln 0{,}4}=\\frac{-10{,}1266}{-0{,}9162907}\\approx 11{,}05.$$\n\n**Rund oppover:**\n\n$$\\boxed{k+1=12 \\text{ iterasjoner}}$$\n\n*Kontroll:* $0{,}25\\cdot 0{,}4^{12}\\approx 4{,}19\\cdot 10^{-6}<10^{-5}$ ✔, mens $0{,}25\\cdot 0{,}4^{11}\\approx 1{,}05\\cdot 10^{-5}$ ligger **over** kravet. Avrundingen oppover var nødvendig.\n\n**c) Iteratene.**\n\n$$x_1=0{,}65,$$\n$$x_2=\\frac{0{,}65^{2}+3}{5}=\\frac{0{,}4225+3}{5}=0{,}6845,$$\n$$x_3=\\frac{0{,}6845^{2}+3}{5}=\\frac{0{,}46854+3}{5}\\approx 0{,}6937081,$$\n$$x_4=\\frac{0{,}6937081^{2}+3}{5}=\\frac{0{,}4812309+3}{5}\\approx 0{,}6962462.$$\n\n| $k$ | $x_k$ | $\\left|x_k-r\\right|$ |\n|---|---|---|\n| 1 | $0{,}65$ | $4{,}72\\cdot 10^{-2}$ |\n| 2 | $0{,}6845$ | $1{,}27\\cdot 10^{-2}$ |\n| 3 | $0{,}6937081$ | $3{,}52\\cdot 10^{-3}$ |\n| 4 | $0{,}6962462$ | $9{,}78\\cdot 10^{-4}$ |\n\n**Feilen faller med omtrent faktoren $0{,}28$ per skritt**, som er litt bedre enn den garanterte $L=0{,}4$. Det er som ventet: den faktiske krympingen nær fikspunktet er $\\left|g'(r)\\right|=\\frac{2r}{5}\\approx 0{,}279$, mens $L$ er hentet i intervallets verste punkt.\n\n**Lineær konvergens i praksis:** ett nytt korrekt siffer for hver andre iterasjon. Sammenlikn med Newton i prøve 6.D, der antall siffer dobles.",
+            "hints": [
+              "Regn $x_1$ først — estimatet trenger bare det ene skrittet.",
+              "Isoler $L^{k+1}$ og ta logaritmen; husk at ulikheten snur.",
+              "Regn iteratene med minst sju desimaler for å se mønsteret i feilene."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-c-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-c-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Den samme likningen $x^{2}-5x+3=0$ kan også skrives\n\n$$x=h(x)=5-\\frac{3}{x}.$$\n\n**a)** Vis at $h$ har de samme fikspunktene som $g$.\n**b)** Regn ut $h'$ og evaluer i begge røttene.\n**c)** Hva sier det om iterasjonen $x_{k+1}=h(x_k)$ nær hver av de to røttene? Sammenlikn med $g$.",
+            "solution": "**a)**\n\n$$5-\\frac3x=x\\ \\Longleftrightarrow\\ 5x-3=x^{2}\\ \\Longleftrightarrow\\ x^{2}-5x+3=0.$$\n\nLikningene er ekvivalente for $x\\ne 0$, så $h$ har nøyaktig de samme fikspunktene som $g$: $r_1\\approx 0{,}6972244$ og $r_2\\approx 4{,}3027756$. $\\blacksquare$\n\n**b)**\n\n$$h(x)=5-3x^{-1}\\ \\Longrightarrow\\ h'(x)=3x^{-2}=\\frac{3}{x^{2}}.$$\n\nI den lille roten:\n\n$$h'\\left(r_1\\right)=\\frac{3}{0{,}6972244^{2}}=\\frac{3}{0{,}4861219}\\approx 6{,}1712.$$\n\nI den store roten:\n\n$$h'\\left(r_2\\right)=\\frac{3}{4{,}3027756^{2}}=\\frac{3}{18{,}5138781}\\approx 0{,}1620.$$\n\n**c) Tolkningen.**\n\n**Nær $r_1\\approx 0{,}697$:** $\\left|h'\\right|\\approx 6{,}17>1$. Iterasjonen **divergerer** derfra — avstander vokser med en faktor over seks per skritt. Formen $h$ er ubrukelig for den lille roten.\n\n**Nær $r_2\\approx 4{,}303$:** $\\left|h'\\right|\\approx 0{,}162<1$. Iterasjonen **konvergerer**, og raskere enn $g$ gjorde mot $r_1$ (der faktoren var $0{,}279$).\n\n**Sammenlikning med $g$.** For $g(x)=\\frac{x^{2}+3}{5}$ er $g'(x)=\\frac{2x}{5}$, så\n\n$$g'\\left(r_1\\right)\\approx 0{,}279<1\\ \\text{(konvergerer)},\\qquad g'\\left(r_2\\right)=\\frac{2\\cdot 4{,}3027756}{5}\\approx 1{,}721>1\\ \\text{(divergerer)}.$$\n\n**De to formene er komplementære:**\n\n| Form | mot $r_1\\approx 0{,}697$ | mot $r_2\\approx 4{,}303$ |\n|---|---|---|\n| $g(x)=\\frac{x^{2}+3}{5}$ | konvergerer ($0{,}279$) | divergerer ($1{,}721$) |\n| $h(x)=5-\\frac3x$ | divergerer ($6{,}171$) | konvergerer ($0{,}162$) |\n\n**Lærdommen.** Samme likning, to omskrivinger, og hver av dem finner **sin** rot. Det er ikke tilfeldig: en likning med to røtter kan ikke ha én fikspunktform som er kontraherende i begge, med mindre grafene bøyer seg spesielt gunstig.\n\n**Praktisk konsekvens for eksamen:** oppgir oppgaven $g$, bruker du den. Må du velge selv, **regn $|g'|$ nær den roten du er ute etter** før du starter — det er ett derivasjonssteg og sparer deg for en iterasjon som aldri konvergerer.",
+            "hints": [
+              "Gang opp med $x$ og samle alt på én side.",
+              "Skriv $3/x$ som $3x^{-1}$ og bruk potensregelen.",
+              "Sammenlikn $|h'|$ med 1 i hver rot, og gjør det samme for $g$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-c-poeng",
+          "type": "text",
+          "content": "### Poeng- og tidsnotat — prøve 6.C\n\n| Delpunkt | Poeng | Tid |\n|---|---|---|\n| 1a) Røttene eksakt | 1 | 4 min |\n| 1b) **Begge** vilkårene med begrunnet maksimering | 3 | 8 min |\n| 1c) Konklusjon med teoremnavn | 1 | 2 min |\n| 2a–b) A-priori-estimatet og antall iterasjoner | 3 | 10 min |\n| 2c) Iterater og feilmønster | 1 | 5 min |\n| 3a–c) Alternativ form og konvergens i hver rot | 1 | 6 min |\n| **Sum** | **10** | **35 min** |\n\n**Hvor poengene faktisk ligger.** Delpunkt 1b er **tre poeng**, og halvparten av dem er vilkår (ii) — det som glemmes. En besvarelse som bare skriver «$|g'|\\le 0{,}4<1$» får ett av tre.\n\nDelpunkt 1c er **ett helt poeng for én setning**: «etter fikspunktteoremet …». Det er den billigste linja på hele prøven."
+        },
+        {
+          "id": "tma4135-6-prove-c-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 6.C\n\n☐ Jeg fant begge røttene og sa hvilken som lå i intervallet\n☐ Jeg sjekket vilkår (i) **og begrunnet** hvorfor maksimum lå i det endepunktet\n☐ Jeg sjekket vilkår (ii) ved å avgjøre monotonien og regne begge endepunktsverdiene\n☐ Jeg **navnga fikspunktteoremet** i konklusjonen\n☐ Jeg skrev at konvergensen gjelder for **enhver** startverdi i intervallet\n☐ Jeg brukte eksponenten $k+1$ (ikke $k$) i a-priori-estimatet\n☐ Jeg husket at ulikheten snur når jeg deler på $\\ln L$\n☐ Jeg rundet antall iterasjoner **oppover**\n☐ Jeg kontrollerte at ett skritt færre faktisk ville brutt kravet\n☐ Jeg sammenliknet den faktiske feilreduksjonen med $L$\n\n**Færre enn 6 kryss?** Les [kap. 6.3](/tma4135/tma4135-6-3) på nytt, med vekt på løkke 2 og 3.\n**6–8 kryss?** Se særlig på vilkår (ii) og avrundingen — de to dyreste feilene.\n**9–10 kryss?** Sjangeren sitter. Toppsjikt-markøren er dekket."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-6-prove-d",
+      "type": "collapsible",
+      "title": "Prøve 6.D — Rotsøking på eksamensnivå (40 min)",
+      "buttonText": "Vis prøve 6.D",
+      "content": [
+        {
+          "id": "tma4135-6-prove-d-intro",
+          "type": "text",
+          "content": "**Prøve 6.D · sjanger L · 40 minutter · 10 poeng**\n\nDette er den lengste prøven i delen og den som ligger nærmest en full eksamensoppgave. Delpunktene henger sammen: entydighetsargumentet i 1 er forutsetningen for 2 og 3.\n\n**Til slutt står to flervalgsspørsmål, merket som treningsform.**"
+        },
+        {
+          "id": "tma4135-6-prove-d-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-d-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $f(x)=x^{4}+x-3$.\n\n**a)** Vis at $f$ har nøyaktig én rot i $[1,2]$. Bruk navngitte setninger.\n**b)** Har $f$ flere reelle røtter utenfor $[1,2]$? Begrunn.",
+            "solution": "**a) Eksistens.** $f$ er et polynom og dermed kontinuerlig. Videre er\n\n$$f(1)=1+1-3=-1<0,\\qquad f(2)=16+2-3=15>0.$$\n\nFortegnene er motsatte, så **etter mellomverdisetningen** finnes minst én rot i $(1,2)$.\n\n**Entydighet på $[1,2]$.**\n\n$$f'(x)=4x^{3}+1.$$\n\nFor $x\\ge 1$ er $4x^{3}\\ge 4$, altså $f'(x)\\ge 5>0$. $f$ er derfor **strengt voksende** på $[1,2]$ og kan krysse aksen høyst én gang der.\n\n**Konklusjon:** nøyaktig én rot i $[1,2]$. $\\blacksquare$\n\n**b) Utenfor intervallet.** $f'(x)=4x^{3}+1$ er null når\n\n$$x^{3}=-\\frac14\\ \\Longleftrightarrow\\ x=-\\left(\\frac14\\right)^{1/3}\\approx -0{,}6300.$$\n\n$f'$ er negativ for $x<-0{,}63$ og positiv for $x>-0{,}63$, så $f$ har ett **globalt minimum** der. Minimumsverdien er\n\n$$f(-0{,}6300)=(-0{,}6300)^{4}+(-0{,}6300)-3\\approx 0{,}1575-0{,}6300-3\\approx -3{,}47<0.$$\n\nSiden $f\\to+\\infty$ i begge retninger og minimumsverdien er negativ, krysser $f$ aksen **nøyaktig to ganger**: én gang til venstre for $-0{,}63$ og én gang til høyre.\n\nRoten til høyre er den vi fant i $[1,2]$. Roten til venstre finner vi ved fortegnsskifte:\n\n$$f(-2)=16-2-3=11>0,\\qquad f(-1)=1-1-3=-3<0,$$\n\nså den ligger i $(-2,-1)$ — igjen **etter mellomverdisetningen**.\n\n**Svar:** $f$ har nøyaktig **to** reelle røtter: én i $(-2,-1)$ og én i $(1,2)$.\n\n**Merk hvorfor spørsmålet er verdt å stille.** Newtons metode konvergerer bare lokalt. Vet du at det finnes en rot til, vet du også at en dårlig startverdi kan sende iterasjonen mot **feil** rot. Å kartlegge røttene først er ikke pynt — det er hvordan du velger $x_0$ trygt.",
+            "hints": [
+              "Sjekk fortegnet i endepunktene og navngi setningen som gir eksistens.",
+              "Se på fortegnet til $f'$ på hele tallinja, ikke bare på $[1,2]$.",
+              "Et polynom av grad 4 med ett globalt minimum under aksen krysser den to ganger."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-d-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-d-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**a)** Gjør to Newton-skritt på $f(x)=x^{4}+x-3$ fra $x_0=1{,}2$.\n**b)** Roten er $r\\approx 1{,}1640351$. Sett opp feilene og kommenter konvergenshastigheten.",
+            "solution": "**a) Newton fra $x_0=1{,}2$.** Formelen er $x_{k+1}=x_k-\\dfrac{f(x_k)}{f'(x_k)}$ med $f'(x)=4x^{3}+1$.\n\n**Skritt 1.**\n\n$$f(1{,}2)=1{,}2^{4}+1{,}2-3=2{,}0736+1{,}2-3=0{,}2736,$$\n$$f'(1{,}2)=4\\cdot 1{,}728+1=6{,}912+1=7{,}912.$$\n\n$$x_1=1{,}2-\\frac{0{,}2736}{7{,}912}=1{,}2-0{,}0345804=1{,}1654196.$$\n\n**Skritt 2.**\n\n$$1{,}1654196^{2}=1{,}3582029,\\qquad 1{,}1654196^{4}=1{,}3582029^{2}=1{,}8447151,$$\n$$f(1{,}1654196)=1{,}8447151+1{,}1654196-3=0{,}0101347,$$\n$$1{,}1654196^{3}=1{,}5828763,\\qquad f'(1{,}1654196)=4\\cdot 1{,}5828763+1=7{,}3315051.$$\n\n$$x_2=1{,}1654196-\\frac{0{,}0101347}{7{,}3315051}=1{,}1654196-0{,}0013824=1{,}1640373.$$\n\n**Svar:** $x_1\\approx 1{,}1654196$ og $x_2\\approx 1{,}1640373$.\n\n**b) Feilene** mot $r\\approx 1{,}1640351$:\n\n| $k$ | $x_k$ | $\\left|x_k-r\\right|$ |\n|---|---|---|\n| 0 | $1{,}2$ | $3{,}6\\cdot 10^{-2}$ |\n| 1 | $1{,}1654196$ | $1{,}4\\cdot 10^{-3}$ |\n| 2 | $1{,}1640373$ | $2{,}1\\cdot 10^{-6}$ |\n\n**Kommentar.** Feilen faller fra $10^{-2}$ til $10^{-3}$ til $10^{-6}$ — antall korrekte siffer går fra 1 til 3 til 6. **Det er kvadratisk konvergens:** hvert skritt omtrent dobler antall korrekte siffer.\n\nKvadratisk konvergens betyr $\\left|x_{k+1}-r\\right|\\le C\\left|x_k-r\\right|^{2}$. Sjekker vi konstanten:\n\n$$\\frac{1{,}4\\cdot 10^{-3}}{\\left(3{,}6\\cdot 10^{-2}\\right)^{2}}\\approx 1{,}1,\\qquad \\frac{2{,}1\\cdot 10^{-6}}{\\left(1{,}4\\cdot 10^{-3}\\right)^{2}}\\approx 1{,}1.$$\n\n**Konstanten er den samme begge ganger** — det er en sterk bekreftelse på at ordenen faktisk er 2, og en fin kontroll å gjøre når du har tre iterater.\n\n**Grunnen** er at Newton er fikspunktiterasjon med $g(x)=x-\\frac{f}{f'}$, som har $g'(r)=\\frac{f(r)f''(r)}{f'(r)^{2}}=0$ fordi $f(r)=0$.",
+            "hints": [
+              "Regn $f(x_k)$ og $f'(x_k)$ hver for seg og skriv dem ned før du setter inn.",
+              "Bruk minst sju desimaler — med færre ser $x_1$ og $x_2$ nesten like ut.",
+              "For b): se på hvor mange korrekte siffer hver iterasjon gir, og regn forholdet $e_{k+1}/e_k^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-d-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-6-prove-d-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**a)** Hvor mange biseksjonsskritt trengs på $[1,2]$ for at feilen i $f(x)=x^{4}+x-3$ sin rot skal bli under $10^{-5}$?\n**b)** Gjør de tre første biseksjonsskrittene og oppgi intervallet.\n**c)** Sammenlikn arbeidsmengden med Newton fra oppgave 2, og si når du likevel ville valgt biseksjon.",
+            "solution": "**a) Tellingen.** Med $b-a=1$ og $\\text{tol}=10^{-5}$:\n\n$$k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}=\\log_2\\frac{1}{2\\cdot 10^{-5}}=\\log_2\\left(5\\cdot 10^{4}\\right)=\\frac{\\ln 50000}{\\ln 2}=\\frac{10{,}8198}{0{,}6931}\\approx 15{,}61.$$\n\n**Rund oppover:**\n\n$$\\boxed{k=16 \\text{ skritt}}$$\n\n*Kontroll:* etter 16 skritt er intervallet $2^{-16}\\approx 1{,}53\\cdot 10^{-5}$ langt, og midtpunktet ligger høyst $7{,}6\\cdot 10^{-6}<10^{-5}$ fra roten ✔.\n\n**b) De tre første skrittene.** Vi vet $f(1)=-1<0$ og $f(2)=15>0$.\n\n**Skritt 1:** $m=1{,}5$. $f(1{,}5)=5{,}0625+1{,}5-3=3{,}5625>0$. Fortegnsskifte mellom 1 og 1,5 → $[1;\\ 1{,}5]$.\n\n**Skritt 2:** $m=1{,}25$. $f(1{,}25)=2{,}4414063+1{,}25-3=0{,}6914063>0$ → $[1;\\ 1{,}25]$.\n\n**Skritt 3:** $m=1{,}125$. $f(1{,}125)=1{,}6018066+1{,}125-3=-0{,}2731934<0$ → $[1{,}125;\\ 1{,}25]$.\n\n| Skritt | $m$ | $f(m)$ | Nytt intervall | Lengde |\n|---|---|---|---|---|\n| 1 | $1{,}5$ | $+3{,}5625$ | $[1;\\ 1{,}5]$ | $0{,}5$ |\n| 2 | $1{,}25$ | $+0{,}6914$ | $[1;\\ 1{,}25]$ | $0{,}25$ |\n| 3 | $1{,}125$ | $-0{,}2732$ | $[1{,}125;\\ 1{,}25]$ | $0{,}125$ |\n\nRoten $r\\approx 1{,}16404$ ligger inne i hvert intervall ✔.\n\n**c) Sammenlikning.**\n\n| Metode | Skritt til feil $<10^{-5}$ | Evalueringer per skritt |\n|---|---|---|\n| Newton | 2 | 2 ($f$ og $f'$) |\n| Biseksjon | 16 | 1 ($f$) |\n\nNewton bruker 4 funksjonsevalueringer totalt; biseksjon bruker 16. **Newton er fire ganger billigere her**, og forspranget vokser med kravet.\n\n**Når ville jeg likevel valgt biseksjon?**\n\n1. **Når jeg må love et antall skritt på forhånd.** Biseksjonens 16 er en garanti som ikke avhenger av $f$ i det hele tatt. Newtons 2 gjelder bare fordi startverdien var god.\n2. **Når roten kan være multippel.** Er $f(r)=f'(r)=0$, faller Newton til lineær konvergens, og fordelen forsvinner.\n3. **Når $f'$ er dyr eller ukjent.** Biseksjon trenger bare fortegnet til $f$.\n4. **Når startverdien er usikker.** Vi så i oppgave 1b at $f$ har en rot til, i $(-2,-1)$. En dårlig $x_0$ kunne sendt Newton dit — eller ut i det blå.\n\n**Standardløsningen i praksis** er å kombinere: kjør noen biseksjonsskritt for å komme trygt nær, og bytt så til Newton.",
+            "hints": [
+              "Bruk $k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}$ og regn logaritmen som $\\ln X/\\ln 2$.",
+              "I hvert biseksjonsskritt: regn $f(m)$ og se hvilken halvdel som beholder fortegnsskiftet.",
+              "For c): tell funksjonsevalueringer, ikke bare skritt — Newton bruker to per skritt."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-6-prove-d-flervalg",
+          "type": "text",
+          "content": "### Flervalg (treningsform, ikke eksamensform)\n\n**Eksamen i TMA4135 har aldri hatt flervalgsdel.** Spørsmålene under er en rask sluttkontroll.\n\n**F1.** Hvilken setning bruker du for å vise at en rot **finnes** når $f$ skifter fortegn?\n\n**A** Middelverdisetningen  **B** Fikspunktteoremet  **C** Entydighetssetningen  **D** Mellomverdisetningen\n\n**F2.** Newton brukes på en **dobbel** rot. Konvergensen blir\n\n**A** lineær med faktor $1/2$  **B** kvadratisk som vanlig  **C** kubisk  **D** metoden divergerer alltid\n\n**F3.** I Jacobi-matrisen $J_F$ hører rad nummer 2 til\n\n**A** variabel nummer 2  **B** likning nummer 2  **C** startverdien  **D** determinanten\n\n**Fasit:** F1 = **D**, F2 = **A**, F3 = **B**.\n\n**Kommentar til F1:** middelverdisetningen (alternativ A) er en nær-sann felle — den brukes i kontraksjonsargumentet i [kap. 6.3](/tma4135/tma4135-6-3), ikke til å vise at en rot finnes. Navnene ligner, funksjonene er ulike.\n\n**Kommentar til F2:** ved multiplisitet $m$ er $g'(r)=1-\\frac1m$, altså $\\frac12$ for en dobbel rot."
+        },
+        {
+          "id": "tma4135-6-prove-d-poeng",
+          "type": "text",
+          "content": "### Poeng- og tidsnotat — prøve 6.D\n\n| Delpunkt | Poeng | Tid |\n|---|---|---|\n| 1a) Eksistens og entydighet på $[1,2]$ | 2 | 7 min |\n| 1b) Kartlegging av alle reelle røtter | 2 | 8 min |\n| 2a) To Newton-skritt | 2 | 10 min |\n| 2b) Feiltabell og konvergensvurdering | 1 | 4 min |\n| 3a–b) Biseksjonstelling og tre skritt | 2 | 8 min |\n| 3c) Sammenlikning og metodevalg | 1 | 3 min |\n| **Sum** | **10** | **40 min** |\n\n**Hvor poengene faktisk ligger.** Oppgave 1 er **fire poeng** — nesten halve prøven — og den inneholder ingen iterasjoner i det hele tatt. Det er argumentet som teller: to navngitte setninger og en fortegnsdrøfting.\n\n**Merk tidsbudsjettet.** Delpunktene summerer til 40 minutter, altså hele prøvetiden. Dette er den tetteste prøven i delen, og den er lagt slik med vilje: en full eksamensoppgave på 10 poeng har omtrent 24 minutter, så 40 minutter her gir deg rom til å skrive fullt ut mens du lærer sjangeren."
+        },
+        {
+          "id": "tma4135-6-prove-d-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 6.D\n\n☐ Jeg **navnga mellomverdisetningen** i eksistensargumentet\n☐ Jeg viste entydighet ved å drøfte fortegnet til $f'$, ikke bare påstå det\n☐ Jeg undersøkte om det fantes røtter **utenfor** det oppgitte intervallet\n☐ Jeg regnet $f(x_k)$ og $f'(x_k)$ hver for seg og skrev dem ned\n☐ Jeg brukte nok siffer til at Newton-konvergensen var synlig\n☐ Jeg kjente igjen kvadratisk konvergens fra sifferdoblingen\n☐ Jeg brukte $k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}$ og rundet **oppover**\n☐ Jeg valgte riktig halvdel i hvert biseksjonsskritt ved å se på fortegnet til $f(m)$\n☐ Jeg sammenliknet metodene i **funksjonsevalueringer**, ikke bare i skritt\n☐ Jeg kunne si minst to situasjoner der biseksjon er å foretrekke\n\n**Færre enn 6 kryss?** Les [kap. 6.4](/tma4135/tma4135-6-4) på nytt, med vekt på løkke 1 og 2.\n**6–8 kryss?** Sjekk særlig entydighetsargumentet — det er der de fleste poengene ligger.\n**9–10 kryss?** Hele Del 6 sitter. Gå videre til [kap. 7.1](/tma4135/tma4135-7-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-6-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-6-prove-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i kapitlene [6.1](/tma4135/tma4135-6-1) til [6.4](/tma4135/tma4135-6-4).\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | Graden i interpolasjon; antall delintervall i integrasjon |\n| $x_k$ | Node (interpolasjon/integrasjon) eller iterat (rotsøking) |\n| $f_k$ | Funksjonsverdien i node $k$ |\n| $\\ell_k(x)$ | Kardinalfunksjonen til node $k$ |\n| $f[x_0,\\dots,x_k]$ | Dividert differanse av orden $k$ |\n| $\\omega(x)$ | Nodepolynomet $\\prod_k(x-x_k)$ |\n| $\\varepsilon_n(x)$ | Interpolasjonsfeilen |\n| $\\xi$ | Mellompunkt i feilformelen; standardvariabel på $[-1,1]$ i Gauss |\n| $h$ | Nodeavstand eller steglengde |\n| $T_n$, $S_n$ | Sammensatt trapes og Simpson |\n| $w_i$ | Kvadraturvekt |\n| $N$ | Antall Gauss-noder |\n| $g$ | Iterasjonsfunksjonen i $x=g(x)$ |\n| $L$ | Kontraksjonskonstanten $\\max_I\\left\\lvert g'\\right\\rvert$ |\n| $r$ | Fikspunktet eller roten |\n| $m$ | Midtpunktet i biseksjon |\n| $J_F$ | Jacobi-matrisen |\n"
+        },
+        {
+          "id": "tma4135-6-prove-sym-form",
+          "type": "text",
+          "content": "**Formler prøvene bruker:**\n\n$$p(x)=\\sum_{k}f_k\\,\\ell_k(x),\\qquad \\ell_k(x)=\\prod_{j\\ne k}\\frac{x-x_j}{x_k-x_j}$$\nLagrange-formen. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$p(x)=f_0+\\sum_{k\\ge1}f[x_0,\\dots,x_k]\\prod_{j<k}\\left(x-x_j\\right)$$\nNewton-formen; nytt punkt legger til ett ledd. *(Står på det utdelte formelarket.)*\n\n$$\\varepsilon_n(x)=\\frac{f^{(n+1)}(\\xi)}{(n+1)!}\\,\\omega(x)$$\nInterpolasjonsfeilen. *(Står på det utdelte formelarket — tren oppslaget på riktig orden.)*\n\n$$T_n=\\frac{h}{2}\\left(f_0+2f_1+\\dots+f_n\\right),\\qquad S_n=\\frac{h}{3}\\left(f_0+4f_1+2f_2+\\dots+f_n\\right)$$\nSammensatt trapes og Simpson. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\left|\\varepsilon_T\\right|\\le\\frac{b-a}{12}h^{2}\\max\\left|f''\\right|,\\qquad \\left|\\varepsilon_S\\right|\\le\\frac{b-a}{180}h^{4}\\max\\left|f^{(4)}\\right|$$\nFeilleddene. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\int_a^b f\\,dx\\approx\\frac{b-a}{2}\\sum_i w_i f\\left(x(\\xi_i)\\right),\\qquad x(\\xi)=\\frac{(b-a)\\xi+(a+b)}{2}$$\nGauss–Legendre etter transformasjon. *(Tabellen deles ut i oppgaven; transformasjonen og jacobifaktoren må kunnes.)*\n\n$$\\text{(i) } \\left|g'\\right|\\le L<1,\\qquad \\text{(ii) } g(I)\\subseteq I$$\nFikspunktvilkårene — **begge** må vises. *(Må kunnes — står ikke på det utdelte formelarket.)*\n\n$$\\left|x_{k+1}-r\\right|\\le\\frac{L^{k+1}}{1-L}\\left|x_1-x_0\\right|$$\nA-priori-estimatet; rund antall iterasjoner **oppover**. *(Må kunnes.)*\n\n$$x_{k+1}=x_k-\\frac{f(x_k)}{f'(x_k)}$$\nNewtons metode. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$k\\ge\\log_2\\frac{b-a}{2\\,\\text{tol}}$$\nBiseksjonstellingen; rund **oppover**. *(Må kunnes.)*\n\n$$f \\text{ kontinuerlig},\\ f(a)f(b)<0\\ \\Rightarrow\\ \\exists\\, r\\in(a,b):\\ f(r)=0$$\nMellomverdisetningen. *(Må kunnes og navngis.)*\n\n**Kolliderende symboler.** Bokstaven $h$ er nodeavstand og steglengde her, men blir **romsteg** i Del 8, der tidssteget skrives $\\Delta t$ (det utdelte formelarket kaller tidssteget $k$); i Del 7 er $h$ steglengden i tid. Bokstaven $L$ er kontraksjonskonstanten her, men halvperioden i [kap. 3.1](/tma4135/tma4135-3-1). Bokstaven $r$ er roten her, men modulusen til et komplekst tall i [kap. 1.1](/tma4135/tma4135-1-1) og stabilitetstallet $\\Delta t/h^{2}$ i Del 8. Bokstaven $\\xi$ er både mellompunktet i feilformelen og standardvariabelen i Gauss-kvadratur — to ulike roller i samme del. Og $n$ er graden i interpolasjon, men antall delintervall i integrasjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

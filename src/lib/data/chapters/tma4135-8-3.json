@@ -1,0 +1,412 @@
+{
+  "id": "tma4135-8-3",
+  "courseId": "tma4135",
+  "chapterNumber": "8.3",
+  "title": "Crank–Nicolson og implisitte skjemaer",
+  "description": "Det implisitte Crank–Nicolson-skjemaet (trapes i tid), det tridiagonale systemet det gir, og hvorfor det er ubetinget stabilt.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive opp et implisitt differanseskjema for varmelikningen og forklare hvorfor den nye verdien ikke kan isoleres",
+    "sette opp Crank–Nicolson som et tridiagonalt likningssystem med riktige randbidrag i høyresiden, og løse det for hånd",
+    "utlede forsterkningsfaktoren og vise at skjemaet er stabilt for enhver verdi av stabilitetstallet",
+    "vurdere når et implisitt skjema lønner seg framfor et eksplisitt, ut fra regnearbeid og nøyaktighetskrav"
+  ],
+  "content": [
+    {
+      "id": "tma4135-8-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Crank–Nicolson er den implisitte halvdelen av sjanger P** — differansemetoder for partielle differensiallikninger, som står på **11 av 13 gjennomgåtte sett (85 %)**. Bokstavene A til S er bokas korte navn på de nitten oppgavetypene på settene, og de forklares første gang de brukes i hvert kapittel.\n\n**Crank–Nicolson eller trapesregelen i tid har eget belegg i 4 av 13 sett (31 %).** Det er nok til at metoden må sitte, og lite nok til at [kap. 8.2](/tma4135/tma4135-8-2) har høyere prioritet om du har dårlig tid.\n\n**Det som spørres om, er tre ting, og de kommer i denne rekkefølgen:**\n\n1. **«Sett opp systemet.»** Skriv skjemaet for hvert indre punkt og samle det som $A\\mathbf U^{n+1} = \\mathbf b$, med matrisen skrevet ut. Dette er hoveddelen av poengene.\n2. **«Løs for ett tidssteg.»** Et lite tridiagonalt system, som regel med to eller tre ukjente, løst for hånd.\n3. **«Forklar hvorfor skjemaet er stabilt for enhver $r$.»** Kortsvaret som skiller toppsjiktet.\n\n**Formelark-merking.**\n\n- **Crank–Nicolson-formelen står på det utdelte formelarket — tren oppslaget.** Den ligger på numerikk-siden, i formen $(2+2r)U_i^{n+1} - r\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = (2-2r)U_i^n + r\\left(U_{i+1}^n+U_{i-1}^n\\right)$. Ferdigheten er å sette inn riktig $r$ og lese av matrisen, ikke å huske formelen.\n- **Oppsettet av det tridiagonale systemet, randbidragene i høyresiden og stabilitetsargumentet må kunnes.** Arket sier ingenting om noen av delene.\n\n**Tidsbruk:** 55 minutter lesetid, fire løkker à omtrent et kvarter. Naturlig pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-8-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 8.2](/tma4135/tma4135-8-2) — det eksplisitte skjemaet, stabilitetstallet $r$ og hva ustabilitet er. Uten det kapitlet gir dette ingen mening, for hele Crank–Nicolson er et svar på problemet som ble avdekket der. Fra [kap. 8.1](/tma4135/tma4135-8-1) trengs differansekvotientene.\n\nFra tidligere matematikkemner forutsettes at du kan løse et lite lineært likningssystem med Gauss-eliminasjon eller innsetting, og at du vet hva en matrise er. Ingen kunnskap om numerisk lineær algebra kreves — systemene i dette kapitlet har to eller tre ukjente og løses for hånd.\n\nKapitlet er nyttig, men ikke nødvendig, før [kap. 8.4](/tma4135/tma4135-8-4)."
+    },
+    {
+      "id": "tma4135-8-3-motivasjon",
+      "type": "text",
+      "content": "## Regningen som gjorde stabilitetskravet uakseptabelt\n\nI [kap. 8.2](/tma4135/tma4135-8-2) endte oppgave 4 med et tall som fortjener å bli stående: for å regne fram til $t = 1$ på et gitter med tjue romlige punkter, med diffusivitet $c^2 = 9$, trengs **7200 tidssteg**. Ikke fordi vi trenger så fin oppløsning i tid — men fordi skjemaet ellers sprenger.\n\n**Det er en dårlig handel.** Vi betaler tusenvis av tidssteg for en nøyaktighet vi ikke har bruk for, bare for å kjøpe stabilitet.\n\n**Ideen som løser det, er nesten frekk:** hvis problemet er at høyresiden regnes ut på det *gamle* tidsnivået, hvorfor ikke regne den ut på det *nye*? Da får du et skjema der den ukjente står på begge sider — og det er ikke lenger en formel du kan sette inn i, men et likningssystem du må løse.\n\n**Prisen er reell, og gevinsten er større.** Ett likningssystem per tidssteg, mot fullstendig frihet i valget av $\\Delta t$. For lange kjøringer er det ikke i nærheten av å være et vanskelig valg.\n\n**Crank–Nicolson går ett skritt lenger** og tar gjennomsnittet av det gamle og det nye nivået. Det er trapesregelen brukt på tidsaksen, og det gir andre orden i tid — mot det eksplisitte skjemaets første. Du får altså både bedre nøyaktighet og ubetinget stabilitet, for prisen av å løse et lite system.\n\nKapitlet gjør fire ting: innfører den implisitte ideen i sin enkleste form, setter opp Crank–Nicolson og løser et system for hånd, viser hvorfor skjemaet er stabilt uansett $r$, og drøfter ærlig når det faktisk lønner seg."
+    },
+    {
+      "id": "tma4135-8-3-fc-notis",
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene i dette kapitlet er samtidig kortene i flashcard-bunken. Ved første gjennomlesing holder det å lese formelen og gå videre til eksempelet; tidsanslaget på 55 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-8-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Den implisitte ideen i sin enkleste form (~13 min)\n\nFør Crank–Nicolson tar vi det enkleste implisitte skjemaet. Det er lettere å forstå, det viser hele mekanismen, og det dukker opp på formelarket under navnet **bakover-Euler**."
+    },
+    {
+      "id": "tma4135-8-3-def-implisitt",
+      "type": "definition",
+      "title": "Implisitt skjema",
+      "content": "Et skjema der den ukjente verdien på det nye tidsnivået opptrer **flere steder** i samme likning, slik at den ikke kan isoleres.\n\nKonsekvensen er at alle de indre verdiene på nivå $n+1$ må finnes **samtidig**, ved å løse et lineært likningssystem. Kontrasten er det eksplisitte skjemaet i [kap. 8.2](/tma4135/tma4135-8-2), der hver ny verdi leses rett ut.\n\n**Hvorfor gjøre det vanskelig?** Fordi implisitte skjemaer ikke har noen stabilitetsgrense. Hele kapitlet er en utveksling: mer arbeid per steg, ingen grense på hvor stort steget kan være."
+    },
+    {
+      "id": "tma4135-8-3-def-bakover-euler",
+      "type": "definition",
+      "title": "Bakover-Euler-skjemaet",
+      "content": "Bruk den **baklengs** differansen i tid, slik at romleddet regnes ut på det nye nivået:\n\n$$\\frac{U_i^{n+1} - U_i^n}{\\Delta t} = c^2\\,\\frac{U_{i+1}^{n+1} - 2U_i^{n+1} + U_{i-1}^{n+1}}{h^2}.$$\n\nRyddet opp, med $r = c^2\\Delta t/h^2$:\n\n$$-r\\,U_{i-1}^{n+1} + (1+2r)\\,U_i^{n+1} - r\\,U_{i+1}^{n+1} = U_i^n.$$\n\n**Legg merke til fortegnene:** $-r$ på naboene, $+(1+2r)$ på diagonalen. Det er motsatt av det eksplisitte skjemaet, og det er ikke tilfeldig — det er nettopp fortegnsmønsteret som gjør matrisen godt oppført.\n\nSkjemaet er **ubetinget stabilt**, men bare $O(\\Delta t)$ i tid. Det står på det utdelte formelarket sammen med de andre Euler-variantene — **tren oppslaget**."
+    },
+    {
+      "id": "tma4135-8-3-be-stabilitet",
+      "type": "text",
+      "content": "**Hvorfor bakover-Euler ikke kan sprenge.** Sett inn en bølgekomponent $U_i^n = \\xi^n e^{\\mathrm{i}\\beta x_i}$. Naboleddene gir $e^{\\pm\\mathrm{i}\\beta h}$, og $e^{\\mathrm{i}\\beta h} + e^{-\\mathrm{i}\\beta h} = 2\\cos\\beta h$, så\n\n$$\\xi\\left(-2r\\cos\\beta h + 1 + 2r\\right) = 1 \\quad\\Longrightarrow\\quad \\xi = \\frac{1}{1 + 2r(1-\\cos\\beta h)}.$$\n\nMed identiteten $1 - \\cos\\theta = 2\\sin^2(\\theta/2)$:\n\n$$\\xi = \\frac{1}{1 + 4r\\sin^2\\!\\left(\\frac{\\beta h}{2}\\right)}.$$\n\nNevneren er **alltid minst 1**, uansett hvor stor $r$ er. Derfor er $0 < \\xi \\le 1$ for enhver $r$ og enhver bølgelengde: **ingen mode kan vokse**.\n\n*Intuisjon:* i det eksplisitte skjemaet ganges feilen med noe som kan være større enn 1 i tallverdi. I det implisitte **deles** den på noe som alltid er større enn 1. Divisjon kan aldri forstørre.\n\n**Sammenlign med [kap. 8.2](/tma4135/tma4135-8-2):** der var $\\xi = 1 - 4r\\sin^2(\\beta h/2)$, som stuper under $-1$ så snart $r > \\tfrac12$. Her står den samme størrelsen i nevneren i stedet for i telleren, og hele problemet forsvinner."
+    },
+    {
+      "id": "tma4135-8-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-3-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Skriv opp bakover-Euler-skjemaet for $u_t = u_{xx}$ med $h = 0{,}5$ og $\\Delta t = 0{,}25$.\n\n**a)** Hva er $r$?\n**b)** Skriv likningen for et indre punkt med tallene satt inn.\n**c)** Hvorfor kan du ikke løse den for $U_i^{n+1}$ alene?",
+        "solution": "**a)** $r = \\dfrac{\\Delta t}{h^2} = \\dfrac{0{,}25}{0{,}25} = 1$.\n\n**b)** Med $r = 1$ blir $-r = -1$ og $1+2r = 3$:\n\n$$-U_{i-1}^{n+1} + 3U_i^{n+1} - U_{i+1}^{n+1} = U_i^n.$$\n\n**c)** Fordi likningen inneholder **tre** ukjente på det nye tidsnivået: $U_{i-1}^{n+1}$, $U_i^{n+1}$ og $U_{i+1}^{n+1}$. Isolerer du $U_i^{n+1}$, står de to naboene igjen på høyre side — og de er like ukjente. Alle de indre verdiene må finnes samtidig, ved å løse systemet.\n\nLegg merke til at $r = 1$ ville vært langt over grensen $\\tfrac12$ for det eksplisitte skjemaet. Her er det helt uproblematisk.",
+        "hints": [
+          "$r = \\Delta t/h^2$ når $c^2 = 1$.",
+          "Sett tallet inn i $-rU_{i-1} + (1+2r)U_i - rU_{i+1} = U_i^n$.",
+          "Tell hvor mange verdier med øvre indeks $n+1$ som står i likningen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Crank–Nicolson og det tridiagonale systemet (~16 min)\n\nBakover-Euler er stabilt, men bare førsteordens i tid — akkurat som det eksplisitte. Crank–Nicolson fikser det med et grep du kjenner fra [kap. 6.2](/tma4135/tma4135-6-2): **trapesregelen**."
+    },
+    {
+      "id": "tma4135-8-3-def-trapes-i-tid",
+      "type": "definition",
+      "title": "Trapesregelen i tid",
+      "content": "Det eksplisitte skjemaet regner romleddet på det gamle nivået, bakover-Euler på det nye. **Crank–Nicolson tar gjennomsnittet av de to.**\n\n$$\\frac{U_i^{n+1}-U_i^n}{\\Delta t} = \\frac{c^2}{2}\\left(\\frac{\\delta^2U_i^{n+1}}{h^2} + \\frac{\\delta^2U_i^{n}}{h^2}\\right),$$\n\nder $\\delta^2U_i = U_{i+1}-2U_i+U_{i-1}$ fra [kap. 8.1](/tma4135/tma4135-8-1).\n\n**Dette er nøyaktig trapesregelen** brukt på integralet av høyresiden over ett tidssteg: gjennomsnittet av endepunktverdiene. Og det er derfra ordenen kommer — trapesregelen er andreordens, så tidsdelen blir $O(\\Delta t^2)$ i stedet for $O(\\Delta t)$.\n\n*Intuisjon:* det eksplisitte skjemaet gjetter framover fra der du står, det implisitte gjetter bakover fra der du havner. Sannheten ligger i midten, og gjennomsnittet treffer den bedre enn begge."
+    },
+    {
+      "id": "tma4135-8-3-def-cn",
+      "type": "definition",
+      "title": "Crank–Nicolson-skjemaet",
+      "content": "Ganget opp slik det står på det utdelte formelarket:\n\n$$(2+2r)\\,U_i^{n+1} - r\\left(U_{i+1}^{n+1} + U_{i-1}^{n+1}\\right) = (2-2r)\\,U_i^{n} + r\\left(U_{i+1}^{n} + U_{i-1}^{n}\\right),$$\n\nmed $r = c^2\\Delta t/h^2$ som før.\n\n**Formen er lett å huske fordi den er symmetrisk:** venstre og høyre side er speilbilder, bortsett fra at $-r$ blir $+r$ og $2+2r$ blir $2-2r$.\n\nFormelen **står på det utdelte formelarket — tren oppslaget**. Å sette den opp som et matrisesystem, med randbidragene på riktig side, **må kunnes**.\n\nDeler du på 2, får du den andre vanlige formen: $(1+r)U_i^{n+1} - \\tfrac r2\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = (1-r)U_i^n + \\tfrac r2\\left(U_{i+1}^n+U_{i-1}^n\\right)$. Begge er riktige; bruk den arket har."
+    },
+    {
+      "id": "tma4135-8-3-fig-stensil",
+      "type": "image",
+      "src": "/images/textbook/tma4135/crank-nicolson-stensil.svg",
+      "alt": "To smaa diagrammer ved siden av hverandre. Til venstre det eksplisitte skjemaet: tre blaa punkter paa nedre tidsnivaa forbundet opp til ett roedt punkt paa oevre nivaa. Til hoeyre Crank-Nicolson: tre blaa punkter paa nedre nivaa og tre roede punkter paa oevre nivaa, alle forbundet.",
+      "caption": "Forskjellen i ett bilde. Det eksplisitte skjemaet har én ukjent per likning og løses ved innsetting. Crank–Nicolson har tre, og da må alle de indre verdiene på det nye nivået finnes samtidig — det er nettopp derfor det blir et likningssystem."
+    },
+    {
+      "id": "tma4135-8-3-def-tridiagonal",
+      "type": "definition",
+      "title": "Tridiagonal matrise",
+      "content": "En matrise der bare hoveddiagonalen og de to nabodiagonalene er forskjellige fra null:\n\n$$A = \\begin{pmatrix} 2+2r & -r & & \\\\ -r & 2+2r & -r & \\\\ & -r & 2+2r & -r \\\\ & & \\ddots & \\ddots\\end{pmatrix}$$\n\nFormen kommer direkte av stensilen: hver likning knytter bare et punkt til sine to nærmeste naboer.\n\n**Hvorfor det er en god nyhet:** et tridiagonalt system med $m$ ukjente løses med omtrent $8m$ regneoperasjoner, mot $\\tfrac23 m^3$ for en full matrise. Kostnaden per tidssteg er altså proporsjonal med antall punkter, akkurat som for det eksplisitte skjemaet — bare med en større konstant.\n\nMatrisen her er i tillegg **diagonaldominant**: $|2+2r| > |-r| + |-r| = 2r$ for alle $r > 0$. Det garanterer at systemet har entydig løsning og at eliminasjonen aldri deler på noe lite."
+    },
+    {
+      "id": "tma4135-8-3-def-system",
+      "type": "definition",
+      "title": "Systemet $A\\mathbf U^{n+1} = \\mathbf b$",
+      "content": "Skriv Crank–Nicolson for hvert indre punkt $i = 1,\\dots,N-1$, og samle. Ukjentvektoren er\n\n$$\\mathbf U^{n+1} = \\left(U_1^{n+1},\\ U_2^{n+1},\\ \\dots,\\ U_{N-1}^{n+1}\\right)^{\\!\\top},$$\n\nmatrisen $A$ er den tridiagonale over, og høyresiden er hele det gamle tidsnivået:\n\n$$b_i = (2-2r)\\,U_i^{n} + r\\left(U_{i+1}^{n} + U_{i-1}^{n}\\right).$$\n\n**Ett system per tidssteg.** Matrisen $A$ er den samme hele veien — bare høyresiden endres. Det er verdt å si i en drøftingsoppgave: eliminasjonen kan gjøres én gang og gjenbrukes."
+    },
+    {
+      "id": "tma4135-8-3-def-randbidrag",
+      "type": "definition",
+      "title": "Randbidragene i høyresiden",
+      "content": "I den **første** likningen ($i = 1$) står $U_0^{n+1}$ på venstre side, og i den **siste** ($i = N-1$) står $U_N^{n+1}$. Begge er kjent fra randbetingelsen, så de flyttes over til høyresiden:\n\n$$b_1 = (2-2r)U_1^n + r\\left(U_2^n + U_0^n\\right) + r\\,U_0^{n+1},$$\n$$b_{N-1} = (2-2r)U_{N-1}^n + r\\left(U_{N-2}^n + U_N^n\\right) + r\\,U_N^{n+1}.$$\n\n**Merk at randverdien opptrer på begge tidsnivåer** — det gamle bidraget står allerede i formelen, det nye må flyttes over.\n\nVed homogene randbetingelser ($U_0 = U_N = 0$) faller begge bort, og høyresiden er den samme formelen overalt. Det er derfor de fleste eksamensoppgavene har kalde ender: da slipper man dette. **Å glemme randbidraget ved ikke-homogen rand er en av de dokumenterte feilene i sjangeren.**"
+    },
+    {
+      "id": "tma4135-8-3-eks1",
+      "type": "example",
+      "title": "Sett opp systemet og løs ett tidssteg for hånd",
+      "problem": "Løs $u_t = u_{xx}$ på $[0,1]$ med $u(0,t) = u(1,t) = 0$ og starttemperaturen\n\n$$u(x,0) = \\begin{cases} x, & 0 \\le x \\le \\tfrac12,\\\\[2pt] 1-x, & \\tfrac12 < x \\le 1,\\end{cases}$$\n\nmed Crank–Nicolson, $h = 0{,}25$ og $\\Delta t = 0{,}0625$. Sett opp $A\\mathbf U^1 = \\mathbf b$, løs, og ta ett skritt til.",
+      "solution": "**Steg 1 — regn ut $r$.**\n\n$$r = \\frac{c^2\\Delta t}{h^2} = \\frac{0{,}0625}{0{,}0625} = 1.$$\n\n**Merk hva $r = 1$ betyr:** det er dobbelt så stort som grensen $\\tfrac12$ for det eksplisitte skjemaet. Med Crank–Nicolson er det helt lovlig, og vi skal se i løkke 3 hva som skjer om man prøver det samme eksplisitt.\n\n**Steg 2 — sett inn i formelen fra arket.** Med $r = 1$ er $2+2r = 4$ og $2-2r = 0$, så **hele det gamle midtleddet faller bort**:\n\n$$4U_i^{n+1} - \\left(U_{i+1}^{n+1} + U_{i-1}^{n+1}\\right) = U_{i+1}^{n} + U_{i-1}^{n}.$$\n\nDet er en tilfeldighet ved akkurat $r = 1$, og den gjør regningen kort.\n\n**Steg 3 — startraden.** Gitterpunktene er $0;\\ 0{,}25;\\ 0{,}5;\\ 0{,}75;\\ 1$, så\n\n$$U_0^0 = 0, \\quad U_1^0 = 0{,}25, \\quad U_2^0 = 0{,}5, \\quad U_3^0 = 0{,}25, \\quad U_4^0 = 0.$$\n\n**Steg 4 — høyresiden.** For $i = 1,2,3$ er $b_i = U_{i+1}^0 + U_{i-1}^0$:\n\n$$b_1 = U_2^0 + U_0^0 = 0{,}5 + 0 = 0{,}5,$$\n$$b_2 = U_3^0 + U_1^0 = 0{,}25 + 0{,}25 = 0{,}5,$$\n$$b_3 = U_4^0 + U_2^0 = 0 + 0{,}5 = 0{,}5.$$\n\nRandbidraget på nytt tidsnivå er $r\\,U_0^{1} = 0$ og $r\\,U_4^{1} = 0$, siden randen er kald. Ingenting å legge til.\n\n**Steg 5 — systemet.**\n\n$$\\begin{pmatrix} 4 & -1 & 0\\\\ -1 & 4 & -1\\\\ 0 & -1 & 4\\end{pmatrix}\\begin{pmatrix}U_1^1\\\\ U_2^1\\\\ U_3^1\\end{pmatrix} = \\begin{pmatrix}0{,}5\\\\ 0{,}5\\\\ 0{,}5\\end{pmatrix}.$$\n\n**Steg 6 — løs.** Både data og system er symmetriske om midten, så $U_1^1 = U_3^1$. Det reduserer systemet til to likninger:\n\n$$4U_1 - U_2 = 0{,}5, \\qquad -2U_1 + 4U_2 = 0{,}5.$$\n\nFra den første: $U_2 = 4U_1 - 0{,}5$. Sett inn i den andre:\n\n$$-2U_1 + 16U_1 - 2 = 0{,}5 \\quad\\Longrightarrow\\quad 14U_1 = 2{,}5 \\quad\\Longrightarrow\\quad U_1 = \\frac{5}{28} = 0{,}178571.$$\n\n$$U_2 = 4\\cdot\\frac{5}{28} - \\frac12 = \\frac{20}{28} - \\frac{14}{28} = \\frac{6}{28} = \\frac{3}{14} = 0{,}214286.$$\n\nRad 1: $\\left(0;\\ \\tfrac{5}{28};\\ \\tfrac{3}{14};\\ \\tfrac{5}{28};\\ 0\\right)$.\n\n*Kontroll:* sett inn i den midterste likningen: $-\\tfrac{5}{28} + 4\\cdot\\tfrac{6}{28} - \\tfrac{5}{28} = \\tfrac{-5+24-5}{28} = \\tfrac{14}{28} = 0{,}5$. ✓\n\n**Steg 7 — ett skritt til.** Ny høyreside fra rad 1:\n\n$$b_1 = U_2^1 + U_0^1 = \\tfrac{6}{28} + 0 = \\tfrac{3}{14}, \\qquad b_2 = U_3^1 + U_1^1 = \\tfrac{5}{28}+\\tfrac{5}{28} = \\tfrac{5}{14}, \\qquad b_3 = \\tfrac{3}{14}.$$\n\nSamme matrise, samme symmetri:\n\n$$4U_1 - U_2 = \\tfrac{3}{14}, \\qquad -2U_1 + 4U_2 = \\tfrac{5}{14}.$$\n\n$$14U_1 = \\tfrac{12}{14} + \\tfrac{5}{14} = \\tfrac{17}{14} \\quad\\Longrightarrow\\quad U_1^2 = \\frac{17}{196} = 0{,}086735,$$\n\n$$U_2^2 = 4\\cdot\\frac{17}{196} - \\frac{3}{14} = \\frac{68}{196} - \\frac{42}{196} = \\frac{26}{196} = \\frac{13}{98} = 0{,}132653.$$\n\n**Steg 8 — kontroll mot fasiten.** Den analytiske løsningen fra [kap. 5.2](/tma4135/tma4135-5-2) er $u = \\sum_n B_n\\sin(n\\pi x)e^{-n^2\\pi^2t}$ med $B_n = \\frac{4}{n^2\\pi^2}\\sin\\frac{n\\pi}{2}$ for denne hattefunksjonen. Regnet ut ved $t = 0{,}0625$:\n\n$$u(0{,}5;\\ 0{,}0625) = 0{,}218883.$$\n\nCrank–Nicolson ga $0{,}214286$ — avvik $0{,}0046$, altså **2 %**, på et gitter med bare tre indre punkter og med et tidssteg dobbelt så stort som det eksplisitte skjemaet i det hele tatt har lov til å bruke.\n\n**Merk et ærlig forbehold:** i punktet $x = 0{,}25$ er avviket større, $0{,}1786$ mot eksakt $0{,}1545$. Startdataene har et **knekkpunkt** i $x = 0{,}5$, og et knekkpunkt bryter forutsetningen om at $u$ er deriverbar nok ganger til at $O(h^2)$-argumentet holder. Grovt gitter pluss knekk gir større feil enn ordenen alene lover."
+    },
+    {
+      "id": "tma4135-8-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-3-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv opp Crank–Nicolson-formelen med tallene satt inn for $r = 0{,}5$, og oppgi matrisen $A$ for et gitter med tre indre punkter og kalde ender.",
+        "solution": "**Fra formelarket:** $(2+2r)U_i^{n+1} - r\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = (2-2r)U_i^n + r\\left(U_{i+1}^n+U_{i-1}^n\\right)$.\n\nMed $r = 0{,}5$ er $2+2r = 3$ og $2-2r = 1$:\n\n$$3U_i^{n+1} - 0{,}5\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = U_i^n + 0{,}5\\left(U_{i+1}^n+U_{i-1}^n\\right).$$\n\nMatrisen med tre indre punkter:\n\n$$A = \\begin{pmatrix} 3 & -0{,}5 & 0\\\\ -0{,}5 & 3 & -0{,}5\\\\ 0 & -0{,}5 & 3\\end{pmatrix}.$$\n\n**Kontroll:** diagonalen skal være $2+2r$ og nabodiagonalene $-r$, og matrisen skal være symmetrisk. Alle tre stemmer.",
+        "hints": [
+          "Sett $r = 0{,}5$ inn i uttrykkene $2+2r$ og $2-2r$ først.",
+          "Diagonalen kommer fra koeffisienten foran $U_i^{n+1}$, nabodiagonalene fra koeffisienten foran naboene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-3-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger P — differansemetode for en PDE.) Bruk Crank–Nicolson på $u_t = u_{xx}$, $[0,1]$, kalde ender, med $h = 0{,}25$, $\\Delta t = 0{,}03125$ og\n\n$$u(x,0) = \\sin \\pi x.$$\n\n**a)** Regn ut $r$.\n**b)** Sett opp $A\\mathbf U^1 = \\mathbf b$ med tall.\n**c)** Løs systemet og sammenlign med den eksakte løsningen $u = e^{-\\pi^2t}\\sin\\pi x$.",
+        "solution": "**a)** $r = \\dfrac{0{,}03125}{0{,}0625} = 0{,}5$.\n\n**b)** Startraden: $U_1^0 = \\sin(0{,}25\\pi) = 0{,}707107$, $U_2^0 = 1$, $U_3^0 = 0{,}707107$, med $U_0^0 = U_4^0 = 0$.\n\nMed $r = 0{,}5$ er $2+2r = 3$, $2-2r = 1$, så $b_i = U_i^0 + 0{,}5\\left(U_{i+1}^0+U_{i-1}^0\\right)$:\n\n$$b_1 = 0{,}707107 + 0{,}5(1 + 0) = 1{,}207107,$$\n$$b_2 = 1 + 0{,}5(0{,}707107 + 0{,}707107) = 1{,}707107,$$\n$$b_3 = 0{,}707107 + 0{,}5(0 + 1) = 1{,}207107.$$\n\n$$\\begin{pmatrix} 3 & -0{,}5 & 0\\\\ -0{,}5 & 3 & -0{,}5\\\\ 0 & -0{,}5 & 3\\end{pmatrix}\\mathbf U^1 = \\begin{pmatrix}1{,}207107\\\\ 1{,}707107\\\\ 1{,}207107\\end{pmatrix}.$$\n\n**c)** Symmetri gir $U_1 = U_3$, altså\n\n$$3U_1 - 0{,}5U_2 = 1{,}207107, \\qquad -U_1 + 3U_2 = 1{,}707107.$$\n\nFra den første: $U_2 = 6U_1 - 2{,}414214$. Sett inn:\n\n$$-U_1 + 18U_1 - 7{,}242641 = 1{,}707107 \\quad\\Longrightarrow\\quad 17U_1 = 8{,}949748 \\quad\\Longrightarrow\\quad U_1 = 0{,}526456.$$\n\n$$U_2 = 6(0{,}526456) - 2{,}414214 = 0{,}744523.$$\n\n**Sammenligning.** Eksakt: $e^{-\\pi^2\\cdot 0{,}03125} = e^{-0{,}308425} = 0{,}734570$, så\n\n$$u(0{,}25;\\ \\Delta t) = 0{,}734570 \\cdot 0{,}707107 = 0{,}519419, \\qquad u(0{,}5;\\ \\Delta t) = 0{,}734570.$$\n\nAvvikene er $0{,}0070$ og $0{,}0100$, altså omkring **1,4 %**.\n\n**Til sammenligning ga det eksplisitte skjemaet med nøyaktig samme steglengder** (oppgave 6 i [kap. 8.2](/tma4135/tma4135-8-2)) $U_2^1 = 0{,}707107$, et avvik på $0{,}0275$ — nesten tre ganger så stort. Samme regnemengde per punkt, mye bedre svar. Det er andreordens tid mot førsteordens.",
+        "hints": [
+          "$r = \\Delta t/h^2$. Regn $\\sin(0{,}25\\pi)$ og $\\sin(0{,}5\\pi)$ først.",
+          "Høyresiden bruker bare gamle verdier — sett inn i $(2-2r)U_i^n + r(U_{i+1}^n+U_{i-1}^n)$ og del eventuelt på 2.",
+          "Symmetrien $U_1 = U_3$ reduserer systemet til to likninger."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Ubetinget stabilitet, og hva det er verdt (~13 min)\n\n— naturlig pausepunkt —\n\nNå til kortsvaret som skiller toppsjiktet: *hvorfor* er Crank–Nicolson stabilt for enhver $r$? Argumentet er tre linjer og bruker samme grep som i [kap. 8.2](/tma4135/tma4135-8-2)."
+    },
+    {
+      "id": "tma4135-8-3-cn-stabilitet",
+      "type": "text",
+      "content": "**Utledningen.** Sett en bølgekomponent $U_i^n = \\xi^n e^{\\mathrm{i}\\beta x_i}$ inn i skjemaet. Naboleddene gir $e^{\\mathrm{i}\\beta h}+e^{-\\mathrm{i}\\beta h} = 2\\cos\\beta h$ på begge sider:\n\n$$\\xi\\left(2+2r - 2r\\cos\\beta h\\right) = 2-2r + 2r\\cos\\beta h.$$\n\nDel alt på 2 og bruk $1-\\cos\\theta = 2\\sin^2(\\theta/2)$. Sett $s = 2r\\sin^2\\!\\left(\\frac{\\beta h}{2}\\right) \\ge 0$:\n\n$$\\xi\\,(1 + s) = 1 - s \\quad\\Longrightarrow\\quad \\boxed{\\ \\xi = \\frac{1-s}{1+s}.\\ }$$\n\n**Nå er saken avgjort.** For enhver $s \\ge 0$ er\n\n$$-1 < \\frac{1-s}{1+s} \\le 1,$$\n\nfordi telleren alltid er mindre enn nevneren i tallverdi. **Ingen mode kan vokse, uansett hvor stor $r$ er.** Skjemaet er ubetinget stabilt. $\\blacksquare$\n\n*Intuisjon:* $s$ måler hvor «hardt» diffusjonen virker på den aktuelle bølgen. Formelen $(1-s)/(1+s)$ er en gammel kjenning — den avbilder hele den positive halvaksen inn i intervallet $(-1,1]$, uansett hvor stor $s$ blir. Det er hele hemmeligheten.\n\n**Sammenlign de tre skjemaene** for samme $s$:\n\n| Skjema | $\\xi$ | Stabilitet | Orden i tid |\n|---|---|---|---|\n| Eksplisitt | $1-2s$ | krever $r \\le \\tfrac12$ | $O(\\Delta t)$ |\n| Bakover-Euler | $\\dfrac{1}{1+2s}$ | ubetinget | $O(\\Delta t)$ |\n| Crank–Nicolson | $\\dfrac{1-s}{1+s}$ | ubetinget | $O(\\Delta t^2)$ |\n\nCrank–Nicolson er den eneste som har begge deler."
+    },
+    {
+      "id": "tma4135-8-3-def-ubetinget",
+      "type": "definition",
+      "title": "Ubetinget stabilitet",
+      "content": "Et skjema er **ubetinget stabilt** dersom $|\\xi| \\le 1$ for alle bølgelengder og **alle** valg av $\\Delta t$ og $h$ — altså uten noen betingelse som knytter de to sammen.\n\nBåde bakover-Euler og Crank–Nicolson er ubetinget stabile. Det eksplisitte skjemaet er **betinget** stabilt, med betingelsen $r \\le \\tfrac12$.\n\n**Hva det betyr i praksis:** du velger tidssteget etter hvor nøyaktig du vil ha svaret, ikke etter hva skjemaet tåler. Det er nettopp den friheten det eksplisitte skjemaet ikke gir.\n\nStabilitetsargumentet **må kunnes** — formelarket har ingen stabilitetsanalyse."
+    },
+    {
+      "id": "tma4135-8-3-def-orden-cn",
+      "type": "definition",
+      "title": "Ordenen til Crank–Nicolson",
+      "content": "Avkuttingsfeilen er\n\n$$\\tau = O(\\Delta t^2) + O(h^2),$$\n\naltså andre orden i **begge** retninger.\n\n**Sammenlign med det eksplisitte skjemaet**, som er $O(\\Delta t) + O(h^2)$. Den ekstra ordenen i tid kommer av at trapesregelen er symmetrisk om midtpunktet $t_{n+1/2}$ — samme symmetriargument som i [kap. 8.1](/tma4135/tma4135-8-1): symmetriske formler får en orden gratis.\n\nKonsekvensen er praktisk: for å halvere feilen trenger du bare å redusere $\\Delta t$ med en faktor $\\sqrt 2$, ikke med en faktor 2."
+    },
+    {
+      "id": "tma4135-8-3-eks2",
+      "type": "example",
+      "title": "Samme $r$, to skjemaer: det ene gir mening, det andre ikke",
+      "problem": "Kjør både det eksplisitte skjemaet og Crank–Nicolson på hattefunksjonen fra eksempel 1, med $h = 0{,}25$, $\\Delta t = 0{,}0625$, altså $r = 1$. Sammenlign fire tidssteg.",
+      "solution": "**Det eksplisitte skjemaet med $r = 1$.** Formelen er $U_i^{n+1} = U_i^n + \\left(U_{i+1}^n - 2U_i^n + U_{i-1}^n\\right)$, som forenkles til\n\n$$U_i^{n+1} = U_{i+1}^n - U_i^n + U_{i-1}^n.$$\n\nRegn radene (alle randverdier er 0):\n\n| $n$ | $U_1$ | $U_2$ | $U_3$ | maks |\n|---|---|---|---|---|\n| 0 | 0,25 | 0,50 | 0,25 | 0,50 |\n| 1 | 0,25 | 0 | 0,25 | 0,25 |\n| 2 | $-0{,}25$ | 0,50 | $-0{,}25$ | 0,50 |\n| 3 | 0,75 | $-1{,}00$ | 0,75 | 1,00 |\n| 4 | $-1{,}75$ | 2,50 | $-1{,}75$ | 2,50 |\n\nRegn med: $U_2^1 = 0{,}25 - 0{,}5 + 0{,}25 = 0$. $U_1^2 = 0 - 0{,}25 + 0 = -0{,}25$. $U_2^3 = 0{,}25 - 0{,}5 + 0{,}25$ … nei, fra rad 2: $U_2^3 = U_3^2 - U_2^2 + U_1^2 = -0{,}25 - 0{,}5 - 0{,}25 = -1{,}00$. Og videre.\n\n**Se hva som skjer.** Allerede på rad 2 er det negative temperaturer i en oppgave der all starttemperatur var positiv og randen holdes på null. På rad 4 veksler verdiene mellom $-1{,}75$ og $+2{,}50$, og de vokser. Det er sagtannmoden fra [kap. 8.2](/tma4135/tma4135-8-2), og den vokser med faktoren $|1-4r| = 3$ per steg.\n\n**Crank–Nicolson med samme $r = 1$**, fra eksempel 1:\n\n| $n$ | $U_1$ | $U_2$ | eksakt $u(0{,}5)$ |\n|---|---|---|---|\n| 0 | 0,250000 | 0,500000 | 0,500000 |\n| 1 | 0,178571 | 0,214286 | 0,218883 |\n| 2 | 0,086735 | 0,132653 | 0,118025 |\n| 3 | 0,050292 | 0,068513 | — |\n\nAlt synker, alt er positivt, og verdiene ligger nær fasiten. **Samme steglengder, samme regnearbeid per punkt — helt ulikt resultat.**\n\n**Det er dette som menes med at ubetinget stabilitet er verdt prisen av å løse et system.** Prisen er et $3\\times 3$-system per tidssteg. Gevinsten er at svaret i det hele tatt betyr noe.\n\n**En ærlig nyansering du bør ha med i en drøftingsoppgave:** Crank–Nicolson er stabilt for enhver $r$, men det er ikke det samme som at store $r$ er *lurt*. Ser du på forsterkningsfaktoren for sagtannmoden ($s = 2r$), er\n\n$$\\xi = \\frac{1-2r}{1+2r},$$\n\nsom går mot $-1$ når $r$ blir stor. Ved $r = 50$ er $\\xi = -0{,}980$: den moden dør knapt ut, og den skifter fortegn hvert steg. Løsningen sprenger ikke, men den kan få små, langlevde svingninger som ikke finnes i virkeligheten — særlig rett etter en brå start. Bakover-Euler har ikke det problemet ($\\xi > 0$ alltid), men er til gjengjeld bare førsteordens. Ingen av metodene er best på alt."
+    },
+    {
+      "id": "tma4135-8-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-3-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Vis at forsterkningsfaktoren til Crank–Nicolson er $\\xi = \\dfrac{1-s}{1+s}$ med $s = 2r\\sin^2(\\beta h/2)$.\n**b)** Vis at $|\\xi| \\le 1$ for alle $s \\ge 0$.\n**c)** Hva går $\\xi$ mot når $r \\to \\infty$ for sagtannmoden, og hva betyr det praktisk?",
+        "solution": "**a)** Sett $U_i^n = \\xi^n e^{\\mathrm{i}\\beta x_i}$ inn i\n\n$$(2+2r)U_i^{n+1} - r\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = (2-2r)U_i^n + r\\left(U_{i+1}^n+U_{i-1}^n\\right).$$\n\nNaboleddene gir felles faktor $e^{\\mathrm{i}\\beta h}+e^{-\\mathrm{i}\\beta h} = 2\\cos\\beta h$, og $e^{\\mathrm{i}\\beta x_i}$ stryker på begge sider:\n\n$$\\xi\\left(2+2r-2r\\cos\\beta h\\right) = 2-2r+2r\\cos\\beta h.$$\n\nDel på 2 og bruk $1-\\cos\\beta h = 2\\sin^2(\\beta h/2)$:\n\n$$\\xi\\left(1 + 2r\\sin^2\\tfrac{\\beta h}{2}\\right) = 1 - 2r\\sin^2\\tfrac{\\beta h}{2},$$\n\naltså $\\xi = \\dfrac{1-s}{1+s}$ med $s = 2r\\sin^2(\\beta h/2)$. $\\blacksquare$\n\n**b)** For $s \\ge 0$ er $1+s \\ge 1 > 0$, så nevneren er positiv. Videre er\n\n$$|1-s| \\le 1+s \\quad\\Longleftrightarrow\\quad -(1+s) \\le 1-s \\le 1+s.$$\n\nHøyre ulikhet: $1-s \\le 1+s$ er $0 \\le 2s$, sant. Venstre: $-1-s \\le 1-s$ er $-1 \\le 1$, sant. Altså $|\\xi| = \\dfrac{|1-s|}{1+s} \\le 1$ for alle $s \\ge 0$, uansett hvor stor $r$ er. $\\blacksquare$\n\n**c)** Sagtannmoden har $\\sin^2(\\beta h/2) = 1$, altså $s = 2r$, og\n\n$$\\xi = \\frac{1-2r}{1+2r} \\ \\longrightarrow\\ -1 \\quad\\text{når } r \\to \\infty.$$\n\n**Praktisk betyr det:** moden dør nesten ikke ut, og den skifter fortegn for hvert tidssteg. Løsningen er fortsatt begrenset — skjemaet er stabilt — men et svært stort tidssteg kan gi vedvarende småsvingninger i den numeriske løsningen som ikke har noe fysisk motstykke.\n\n**Konklusjonen for praksis:** ubetinget stabilitet betyr at du *kan* velge $\\Delta t$ fritt, ikke at du *bør* velge det stort. Velg det etter hvilken nøyaktighet du trenger.",
+        "hints": [
+          "Sett inn $U_i^n = \\xi^n e^{\\mathrm{i}\\beta x_i}$ og se at eksponentialfaktoren stryker.",
+          "Bruk $e^{\\mathrm{i}\\theta}+e^{-\\mathrm{i}\\theta} = 2\\cos\\theta$ og deretter $1-\\cos\\theta = 2\\sin^2(\\theta/2)$.",
+          "I b): vis $|1-s| \\le 1+s$ ved å skrive ut de to ulikhetene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-3-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Sammenlign de tre skjemaene for varmelikningen på et bestemt problem: $h = 0{,}1$, $c^2 = 1$, og du skal regne fram til $t = 0{,}5$ med en nøyaktighet i tid som svarer til $\\Delta t = 0{,}02$.\n\n**a)** Hvor mange tidssteg trenger Crank–Nicolson?\n**b)** Hvor mange trenger det eksplisitte skjemaet, når stabiliteten er tatt hensyn til?\n**c)** Drøft kort hvilket skjema du ville valgt.",
+        "solution": "**a)** Crank–Nicolson har ingen stabilitetsgrense, så $\\Delta t = 0{,}02$ kan brukes direkte:\n\n$$\\text{antall steg} = \\frac{0{,}5}{0{,}02} = 25.$$\n\nHvert steg krever at et tridiagonalt system med 9 ukjente løses — omtrent $8 \\cdot 9 = 72$ operasjoner.\n\n**b)** Det eksplisitte skjemaet krever $\\Delta t \\le \\dfrac{h^2}{2c^2} = \\dfrac{0{,}01}{2} = 0{,}005$. Da blir\n\n$$\\text{antall steg} = \\frac{0{,}5}{0{,}005} = 100.$$\n\nFire ganger så mange steg som Crank–Nicolson, selv om vi bare trengte oppløsningen $\\Delta t = 0{,}02$. De ekstra 75 stegene er ren avgift for stabiliteten.\n\nHvert steg er billigere (omtrent $3 \\cdot 9 = 27$ operasjoner), så totalarbeidet er $100 \\cdot 27 = 2700$ mot Crank–Nicolsons $25 \\cdot 72 = 1800$.\n\n**c)** **Med akkurat disse tallene er forskjellen liten**, og det eksplisitte skjemaet er enklere å programmere. Det er en helt legitim konklusjon å skrive.\n\n**Men se hva som skjer når gitteret forfines.** Halverer du $h$ til $0{,}05$: Crank–Nicolson beholder 25 tidssteg og får 19 ukjente per system. Det eksplisitte må ned til $\\Delta t \\le 0{,}00125$, altså **400 tidssteg**. Forspranget vokser som $1/h^2$.\n\n**Anbefalingen:** eksplisitt for korte kjøringer på grove gitter og for hånd; Crank–Nicolson når gitteret er fint, når kjøringen er lang, eller når diffusiviteten $c^2$ er stor. Og alltid Crank–Nicolson når du trenger andre orden i tid.",
+        "hints": [
+          "I a): tidssteget er fritt valgt, så del sluttiden på det.",
+          "I b): finn først den største lovlige $\\Delta t$ fra $r \\le \\tfrac12$.",
+          "I c): sammenlign ikke bare antall steg, men også hva som skjer når $h$ halveres."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Å løse systemet, og når det lønner seg (~13 min)\n\nDet siste som gjenstår, er å se på hva «løs systemet» faktisk koster — og på et par ærlige forbehold."
+    },
+    {
+      "id": "tma4135-8-3-def-thomas",
+      "type": "definition",
+      "title": "Thomas-algoritmen for tridiagonale systemer",
+      "content": "Gauss-eliminasjon som utnytter at bare tre diagonaler er fylt. To gjennomløp:\n\n1. **Framover:** eliminer under diagonalen, én rad om gangen. Hver rad har bare ett element å eliminere.\n2. **Bakover:** finn $U_{N-1}$ fra siste likning, og sett inn oppover.\n\nKostnaden er omtrent $8m$ operasjoner for $m$ ukjente — **lineært**, ikke kubisk. En full Gauss-eliminasjon ville krevd $\\tfrac23m^3$.\n\n**På eksamen løser du systemet for hånd**, med to eller tre ukjente, og da er innsetting raskest. Algoritmen er verdt å kjenne til for drøftingsspørsmål om kostnad, men du blir ikke bedt om å utføre den. Den beslektede metoden LU-faktorisering står på formelarket som beredskap, uten å ha egen kapittelkjede i denne boka."
+    },
+    {
+      "id": "tma4135-8-3-def-nar-lonner",
+      "type": "definition",
+      "title": "Når lønner implisitt seg?",
+      "content": "Regelen er enkel: sammenlign det tidssteget **nøyaktigheten** krever med det tidssteget **stabiliteten** tillater.\n\n- Er de omtrent like store, bruk det eksplisitte skjemaet. Det er enklere og billigere per steg.\n- Krever stabiliteten et mye mindre tidssteg enn nøyaktigheten, bruk Crank–Nicolson.\n\nDet andre skjer alltid når gitteret forfines, fordi stabilitetsgrensen $\\Delta t \\le h^2/(2c^2)$ krymper som $h^2$ mens nøyaktighetskravet bare krymper som $h$ eller $h^2$ i én potens av gangen.\n\n**Tommelfingerregelen:** fint gitter, lang kjøring eller stor diffusivitet $\\Rightarrow$ implisitt."
+    },
+    {
+      "id": "tma4135-8-3-def-oscillasjoner",
+      "type": "definition",
+      "title": "Svingninger ved stor $r$",
+      "content": "Crank–Nicolson er stabilt for enhver $r$, men forsterkningsfaktoren for de korteste bølgene er **negativ** når $s > 1$, altså når $2r\\sin^2(\\beta h/2) > 1$.\n\nNegativ $\\xi$ betyr at moden skifter fortegn for hvert tidssteg. Med stor $r$ er $|\\xi|$ nær 1, så svingningen dør knapt ut.\n\n**Når merkes det?** Særlig når startdataene har et sprang eller et knekkpunkt, for da er de korteste bølgene godt representert. Symptomet er små krusninger nær spranget som blir stående.\n\n**Botemidlene** er å velge et mindre tidssteg, eller å ta de første par stegene med bakover-Euler (som har $\\xi > 0$ alltid) og deretter bytte. Det siste kalles Rannacher-oppstart og er utenfor pensum — men det er verdt å vite at fenomenet har et navn og en kur."
+    },
+    {
+      "id": "tma4135-8-3-def-samme-matrise",
+      "type": "definition",
+      "title": "Matrisen er den samme hele veien",
+      "content": "I $A\\mathbf U^{n+1} = \\mathbf b^n$ avhenger $A$ bare av $r$ — og $r$ er konstant gjennom kjøringen. Bare høyresiden endres fra steg til steg.\n\n**Praktisk konsekvens:** eliminasjonen gjøres **én gang**, og hvert tidssteg koster bare innsetting fram og tilbake. Det halverer omtrent kostnaden per steg.\n\nDette er et poeng verdt å nevne i en drøftingsoppgave om regnearbeid, og det er en av grunnene til at implisitte metoder er så mye brukt i praksis."
+    },
+    {
+      "id": "tma4135-8-3-def-generalisering",
+      "type": "definition",
+      "title": "Skjemaet på andre problemer",
+      "content": "Crank–Nicolson er ikke bundet til varmelikningen. Samme grep — trapesregelen i tid, sentraldifferanse i rom — brukes på\n\n- likninger med et kildeledd $u_t = c^2u_{xx} + f(x,t)$, der $f$ midles over de to tidsnivåene;\n- varierende koeffisient $u_t = \\left(a(x)u_x\\right)_x$, som gir andre tall på diagonalene;\n- ikke-homogene randbetingelser, som gir randbidrag i $\\mathbf b$.\n\nMatrisen forblir tridiagonal i alle tilfellene, fordi stensilen er den samme. **Det er derfor metoden er så mye brukt:** oppskriften endrer seg ikke, bare tallene."
+    },
+    {
+      "id": "tma4135-8-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-3-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger P — ikke-homogen rand.) Bruk Crank–Nicolson på $u_t = u_{xx}$ på $[0,1]$ med\n\n$$u(0,t) = 0, \\qquad u(1,t) = 2, \\qquad u(x,0) = 0 \\ \\text{ for } 0 \\le x < 1.$$\n\nGitteret er $h = \\tfrac13$ (to indre punkter) og $r = 1$.\n\n**a)** Sett opp systemet for det første tidssteget, med randbidragene på riktig plass.\n**b)** Løs det.\n**c)** Hva blir løsningen når $t \\to \\infty$, og stemmer retningen på svaret i b) med det?",
+        "solution": "**a)** Med $r = 1$ er $2+2r = 4$ og $2-2r = 0$, så skjemaet er\n\n$$4U_i^{n+1} - \\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = U_{i+1}^{n}+U_{i-1}^{n}.$$\n\nStartraden er $U_0^0 = 0$, $U_1^0 = 0$, $U_2^0 = 0$, og $U_3^0 = 2$ (randverdien i $x = 1$).\n\n**$i = 1$:** $4U_1^1 - U_2^1 - U_0^1 = U_2^0 + U_0^0$. Her er $U_0^1 = 0$, så det leddet forsvinner:\n\n$$4U_1^1 - U_2^1 = 0 + 0 = 0.$$\n\n**$i = 2$:** $4U_2^1 - U_3^1 - U_1^1 = U_3^0 + U_1^0$. Nå er $U_3^1 = 2$ **kjent**, så det flyttes over til høyresiden:\n\n$$4U_2^1 - U_1^1 = \\underbrace{2}_{U_3^0} + 0 + \\underbrace{2}_{U_3^1} = 4.$$\n\nSystemet:\n\n$$\\begin{pmatrix}4 & -1\\\\ -1 & 4\\end{pmatrix}\\begin{pmatrix}U_1^1\\\\ U_2^1\\end{pmatrix} = \\begin{pmatrix}0\\\\ 4\\end{pmatrix}.$$\n\n**Merk at randverdien opptrer to ganger i $b_2$:** én gang fra det gamle tidsnivået (den står allerede i formelens høyreside) og én gang fra det nye (flyttet over fra venstre side). **Å glemme det siste bidraget er en av de dokumenterte feilene i sjangeren.**\n\n**b)** Fra første likning: $U_2^1 = 4U_1^1$. Sett inn i den andre:\n\n$$16U_1^1 - U_1^1 = 4 \\quad\\Longrightarrow\\quad 15U_1^1 = 4 \\quad\\Longrightarrow\\quad U_1^1 = \\frac{4}{15} = 0{,}266667,$$\n\n$$U_2^1 = \\frac{16}{15} = 1{,}066667.$$\n\n*Kontroll:* $4\\cdot\\tfrac{16}{15} - \\tfrac{4}{15} = \\tfrac{64-4}{15} = 4$. ✓\n\n**c)** Når $t \\to \\infty$ nærmer løsningen seg den **stasjonære** løsningen fra [kap. 5.2](/tma4135/tma4135-5-2): den løser $w'' = 0$ med $w(0) = 0$, $w(1) = 2$, altså den rette linja\n\n$$w(x) = 2x, \\qquad w(\\tfrac13) = \\tfrac23 = 0{,}6667, \\qquad w(\\tfrac23) = \\tfrac43 = 1{,}3333.$$\n\n**Stemmer retningen?** Etter ett tidssteg er $U_1 = 0{,}267$ og $U_2 = 1{,}067$ — begge har beveget seg oppover fra 0, mot henholdsvis $0{,}667$ og $1{,}333$, og punktet nærmest den varme randen har kommet lengst. Det er akkurat som ventet: varmen kommer inn fra høyre og bruker tid på å nå fram til venstre side.\n\nMerk også at ingen verdi har passert $2$, som er den største verdien i rand- og startdataene. Det er maksimumsprinsippet, og det er en gratis kontroll.",
+        "hints": [
+          "Skriv opp likningen for hvert indre punkt for seg, og marker hvilke verdier som er kjente.",
+          "Randverdien på det NYE tidsnivået står på venstre side i formelen — flytt den over.",
+          "I c): den stasjonære løsningen av varmelikningen med faste randverdier er en rett linje."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-8-3-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis at bakover-Euler-skjemaet $-rU_{i-1}^{n+1} + (1+2r)U_i^{n+1} - rU_{i+1}^{n+1} = U_i^n$ oppfyller et **maksimumsprinsipp** for enhver $r > 0$: ingen indre verdi på det nye nivået kan være større enn den største verdien blant $U_i^n$ og randverdiene på nivå $n+1$.",
+        "solution": "**Anta det motsatte** og se hva som går galt. La $M$ være den største verdien blant alle $U_i^n$ og de to randverdiene $U_0^{n+1}$, $U_N^{n+1}$. Anta at et indre punkt har $U_j^{n+1} > M$, og velg $j$ slik at $U_j^{n+1}$ er den **største** av alle de nye verdiene.\n\nSkriv likningen i punkt $j$ på formen\n\n$$(1+2r)U_j^{n+1} = U_j^n + r\\left(U_{j-1}^{n+1} + U_{j+1}^{n+1}\\right).$$\n\n**Anslå høyresiden.** Siden $U_j^{n+1}$ er størst blant de nye, er $U_{j\\pm 1}^{n+1} \\le U_j^{n+1}$. Og $U_j^n \\le M < U_j^{n+1}$. Dermed:\n\n$$(1+2r)U_j^{n+1} = U_j^n + r\\left(U_{j-1}^{n+1}+U_{j+1}^{n+1}\\right) < U_j^{n+1} + 2r\\,U_j^{n+1} = (1+2r)U_j^{n+1}.$$\n\nVi har fått $(1+2r)U_j^{n+1} < (1+2r)U_j^{n+1}$, som er umulig. Motsigelse. $\\blacksquare$\n\n**Hvor $r > 0$ ble brukt:** i at koeffisientene $r$ foran naboene er **positive**, slik at ulikheten $U_{j\\pm1}^{n+1} \\le U_j^{n+1}$ kunne brukes med riktig retning. Dette gjelder for enhver positiv $r$ — det er ingen øvre grense, i motsetning til det eksplisitte skjemaet, der samme argument krevde $1-2r \\ge 0$.\n\n**Hvorfor dette er sterkere enn stabilitet:** maksimumsprinsippet garanterer ikke bare at løsningen holder seg begrenset, men at den aldri går utenfor det opprinnelige spennet i det hele tatt. Ingen negative temperaturer, ingen nye topper.\n\n**Og hvorfor Crank–Nicolson ikke har det:** i Crank–Nicolson er koeffisienten $2-2r$ i høyresiden negativ når $r > 1$, og da faller argumentet. Det er nettopp de svingningene som ble omtalt i løkke 4. Crank–Nicolson er stabilt, men ikke monotont; bakover-Euler er begge deler, til gjengjeld bare førsteordens.",
+        "hints": [
+          "Se på det indre punktet der den nye verdien er størst.",
+          "Flytt naboleddene over på høyre side, slik at alle koeffisienter blir positive.",
+          "Anslå hvert ledd på høyresiden med den største nye verdien, og se hva ulikheten gir."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-8-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil fortegn eller plassering i tridiagonalmatrisen.** Diagonalen skal være $2+2r$ og nabodiagonalene $-r$ — ikke omvendt, og ikke $+r$. Kontroll: matrisen skal være symmetrisk, og diagonalelementet skal være større enn summen av tallverdiene til naboene. Er det ikke det, har du skrevet feil.\n\n**Å behandle Crank–Nicolson som om det var eksplisitt.** Den nye verdien kan ikke isoleres — det er tre ukjente i hver likning. Skriver du «$U_i^{n+1} = \\dots$» med bare gamle verdier på høyre side, har du regnet noe helt annet.\n\n**Å glemme randbidragene i høyresiden.** Ved ikke-homogene randbetingelser opptrer randverdien **to** ganger i første og siste likning: én gang fra det gamle nivået, som allerede står i formelen, og én gang fra det nye, som må flyttes over fra venstre side. Oppgave 6 viser hvor lett den siste glemmes.\n\n**Å bruke det eksplisitte $r$-kravet på Crank–Nicolson.** Skriver du «$r = 1 > \\tfrac12$, altså ustabilt» om et implisitt skjema, har du misforstått hele poenget med kapitlet. Crank–Nicolson og bakover-Euler er ubetinget stabile. Si det, og si hvorfor.\n\n**Å bruke feil form av formelen.** Arket har $(2+2r)$-formen. Deler du på 2 underveis uten å gjøre det på begge sider, blir alle tallene halve. Skriv opp formelen fra arket først, uendret, og sett så inn.\n\n**Å tro at ubetinget stabilt betyr ubetinget nøyaktig.** Stort $\\Delta t$ er lovlig, men gir stor avkuttingsfeil og kan gi svingninger som ikke finnes i virkeligheten. Velg $\\Delta t$ etter nøyaktigheten du trenger."
+    },
+    {
+      "id": "tma4135-8-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Boksene under samler resten av kapitlets begreper som egne kort."
+    },
+    {
+      "id": "tma4135-8-3-def-theta",
+      "type": "definition",
+      "title": "Theta-skjemaet — de tre metodene som én familie",
+      "content": "Alle tre skjemaene i dette og forrige kapittel er samme formel med én parameter $\\theta \\in [0,1]$:\n\n$$\\frac{U_i^{n+1}-U_i^n}{\\Delta t} = \\frac{c^2}{h^2}\\left(\\theta\\,\\delta^2U_i^{n+1} + (1-\\theta)\\,\\delta^2U_i^{n}\\right).$$\n\n- $\\theta = 0$: **eksplisitt**, betinget stabilt, $O(\\Delta t)$.\n- $\\theta = \\tfrac12$: **Crank–Nicolson**, ubetinget stabilt, $O(\\Delta t^2)$.\n- $\\theta = 1$: **bakover-Euler**, ubetinget stabilt og monotont, $O(\\Delta t)$.\n\nDet generelle stabilitetskravet er $r \\le \\dfrac{1}{2(1-2\\theta)}$ for $\\theta < \\tfrac12$, og ingen betingelse for $\\theta \\ge \\tfrac12$. Halvveis er altså nøyaktig der stabilitetsgrensen forsvinner — og det er ikke tilfeldig, det er der skjemaet blir symmetrisk om midtpunktet i tid."
+    },
+    {
+      "id": "tma4135-8-3-def-diagonaldominans",
+      "type": "definition",
+      "title": "Diagonaldominans",
+      "content": "En matrise er **diagonaldominant** når hvert diagonalelement er større i tallverdi enn summen av tallverdiene til de andre elementene i samme rad.\n\nFor Crank–Nicolson-matrisen: $|2+2r| > |-r|+|-r| = 2r$, som holder for alle $r > 0$. For bakover-Euler: $|1+2r| > 2r$, samme sak.\n\n**Hvorfor det er godt nytt:** en diagonaldominant tridiagonal matrise er alltid inverterbar, systemet har entydig løsning, og Gauss-eliminasjon kan kjøres uten radbytte og uten å dele på noe nær null. Det er derfor implisitte varmeskjemaer er så robuste i praksis."
+    },
+    {
+      "id": "tma4135-8-3-def-halvsteg",
+      "type": "definition",
+      "title": "Midtpunktet $t_{n+1/2}$",
+      "content": "Crank–Nicolson kan leses som en formel sentrert i **midt mellom** de to tidsnivåene:\n\n$$\\frac{U_i^{n+1}-U_i^n}{\\Delta t} \\approx u_t\\!\\left(x_i,\\ t_{n+1/2}\\right),$$\n\nder venstre side er en **sentral** differanse om $t_{n+1/2}$ med steglengde $\\Delta t/2$ hver vei — og høyre side er gjennomsnittet av romleddet på de to nivåene, som tilnærmer verdien i midten.\n\n**Det er hele forklaringen på andre orden i tid.** Symmetri om midtpunktet gir en orden gratis, nøyaktig som for sentraldifferansen i [kap. 8.1](/tma4135/tma4135-8-1)."
+    },
+    {
+      "id": "tma4135-8-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-8-3-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på det kapitlet forutsetter: små lineære systemer og stabilitetstallet fra [kap. 8.2](/tma4135/tma4135-8-2)."
+        },
+        {
+          "id": "tma4135-8-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-3-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs systemet\n\n$$4x - y = 3, \\qquad -x + 4y = 2.$$",
+            "solution": "Fra den første: $y = 4x - 3$. Sett inn i den andre:\n\n$$-x + 16x - 12 = 2 \\quad\\Longrightarrow\\quad 15x = 14 \\quad\\Longrightarrow\\quad x = \\frac{14}{15} = 0{,}9333,$$\n\n$$y = 4\\cdot\\frac{14}{15} - 3 = \\frac{56-45}{15} = \\frac{11}{15} = 0{,}7333.$$\n\n*Kontroll:* $-\\tfrac{14}{15} + 4\\cdot\\tfrac{11}{15} = \\tfrac{-14+44}{15} = \\tfrac{30}{15} = 2$. ✓\n\nKontrollen tar ti sekunder og fanger nesten enhver regnefeil. Gjør den alltid i denne sjangeren.",
+            "hints": [
+              "Isoler én ukjent i den ene likningen og sett inn i den andre."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-3-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $r = c^2\\Delta t/h^2$ for $c^2 = 2$, $h = 0{,}2$ og $\\Delta t = 0{,}05$, og avgjør om det eksplisitte skjemaet ville vært stabilt.",
+            "solution": "$$r = \\frac{2 \\cdot 0{,}05}{0{,}04} = \\frac{0{,}1}{0{,}04} = 2{,}5.$$\n\nDet eksplisitte skjemaet ville krevd $r \\le \\tfrac12$, så **nei** — det ville vært kraftig ustabilt, med en sagtannmode som forsterkes med $|1-4r| = 9$ per tidssteg.\n\nFor Crank–Nicolson er $r = 2{,}5$ derimot helt lovlig. Det er nettopp den situasjonen der implisitt lønner seg.",
+            "hints": [
+              "Regn $h^2$ først, og husk $c^2$ i telleren."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-3-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Vis at $\\dfrac{1-s}{1+s} \\le 1$ og $\\dfrac{1-s}{1+s} > -1$ for alle $s \\ge 0$.",
+            "solution": "Nevneren $1+s$ er positiv for $s \\ge 0$, så vi kan gange opp uten å snu ulikhetene.\n\n**Øvre grense:** $1-s \\le 1+s$ er ekvivalent med $0 \\le 2s$, som holder for $s \\ge 0$. ✓\n\n**Nedre grense:** $1-s > -(1+s)$ er ekvivalent med $1-s > -1-s$, altså $1 > -1$. Holder alltid. ✓\n\nLegg merke til at den nedre grensen er **streng**: $\\xi$ kommer aldri helt ned til $-1$, uansett hvor stor $s$ blir. Den nærmer seg bare.",
+            "hints": [
+              "Gang opp med $1+s$, som er positiv når $s \\ge 0$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-8-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-8-3-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Den stasjonære løsningen av $u_t = u_{xx}$ på $[0,1]$ med $u(0,t) = a$ og $u(1,t) = b$ er den funksjonen som ikke endrer seg med tiden.\n\n**a)** Finn den.\n**b)** Hva blir den for $a = 0$ og $b = 2$?",
+            "solution": "**a)** «Endrer seg ikke med tiden» betyr $u_t = 0$, altså $u_{xx} = 0$. Integrert to ganger:\n\n$$w(x) = Ax + B.$$\n\nRandbetingelsene gir $B = a$ og $A + a = b$, altså $A = b - a$:\n\n$$w(x) = a + (b-a)x.$$\n\nDen rette linja mellom randverdiene.\n\n**b)** $w(x) = 0 + 2x = 2x$, altså $w(\\tfrac13) = \\tfrac23$ og $w(\\tfrac23) = \\tfrac43$.\n\nDette er grensen enhver numerisk løsning av det problemet må nærme seg — og dermed en gratis kontroll på at kjøringen er riktig, slik du bruker den i oppgave 6.",
+            "hints": [
+              "Sett $u_t = 0$ og løs den ordinære differensiallikningen som blir igjen.",
+              "To integrasjoner gir to konstanter, og de bestemmes av de to randverdiene."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-8-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-8-3-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $U_i^n$ | Beregnet verdi i $(x_i,t_n)$. Øvre indeks er tidsnivå, ikke potens |\n| $h$ | Romsteget. **Merk:** i Del 6 og Del 7 er $h$ steglengde i integrasjon og ODE-skritt |\n| $\\Delta t$ | Tidssteget. **Merk:** det utdelte formelarket kaller tidssteget $k$; boka bruker $\\Delta t$ fordi $k$ er separasjonskonstanten i [kap. 5.1](/tma4135/tma4135-5-1) |\n| $r$ | Stabilitetstallet $c^2\\Delta t/h^2$. **Merk:** i Del 1 er $r$ radius i polar form, i Del 6 en rot |\n| $c^2$ | Diffusiviteten. **Merk:** i [kap. 5.3](/tma4135/tma4135-5-3) er $c$ bølgefarten |\n| $A$ | Den tridiagonale koeffisientmatrisen på venstre side |\n| $\\mathbf U^{n+1}$ | Vektoren av ukjente indre verdier på det nye tidsnivået |\n| $\\mathbf b$ | Høyresiden, bygget av det gamle tidsnivået pluss randbidrag |\n| $\\xi$ | Forsterkningsfaktoren per tidssteg for én bølgekomponent |\n| $s$ | Kortskrift for $2r\\sin^2(\\beta h/2)$, alltid $\\ge 0$ |\n| $\\beta$ | Bølgetallet til komponenten |\n| $\\theta$ | Parameteren i theta-familien: 0 eksplisitt, $\\tfrac12$ Crank–Nicolson, 1 bakover-Euler |\n| $\\delta^2U_i$ | Kortskrift for $U_{i+1}-2U_i+U_{i-1}$, fra [kap. 8.1](/tma4135/tma4135-8-1) |\n| $m$ | Antall ukjente i systemet, $m = N-1$ |\n"
+        },
+        {
+          "id": "tma4135-8-3-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$-r\\,U_{i-1}^{n+1} + (1+2r)\\,U_i^{n+1} - r\\,U_{i+1}^{n+1} = U_i^n$$\nBakover-Euler-skjemaet. Euler-variantene **står på det utdelte formelarket — tren oppslaget**; oppsettet som system **må kunnes**.\n\n$$(2+2r)U_i^{n+1} - r\\left(U_{i+1}^{n+1}+U_{i-1}^{n+1}\\right) = (2-2r)U_i^{n} + r\\left(U_{i+1}^{n}+U_{i-1}^{n}\\right)$$\nCrank–Nicolson slik det står på arket. **Står på det utdelte formelarket — tren oppslaget.**\n\n$$A = \\begin{pmatrix} 2+2r & -r & \\\\ -r & 2+2r & -r\\\\ & -r & 2+2r\\end{pmatrix}$$\nDen tridiagonale matrisen for tre indre punkter. *(Må kunnes eller utledes aktivt.)*\n\n$$b_i = (2-2r)U_i^n + r\\left(U_{i+1}^n+U_{i-1}^n\\right)$$\nHøyresiden i et indre punkt. *(Må kunnes eller utledes aktivt.)*\n\n$$b_1 \\mathrel{+}= r\\,U_0^{n+1}, \\qquad b_{N-1} \\mathrel{+}= r\\,U_N^{n+1}$$\nRandbidragene som flyttes over fra venstre side ved ikke-homogen rand. *(Må kunnes eller utledes aktivt.)*\n\n$$\\xi_{\\text{eksplisitt}} = 1 - 2s, \\qquad \\xi_{\\text{bakover}} = \\frac{1}{1+2s}, \\qquad \\xi_{\\text{CN}} = \\frac{1-s}{1+s}, \\qquad s = 2r\\sin^2\\!\\frac{\\beta h}{2}$$\nForsterkningsfaktorene for de tre skjemaene. *(Må kunnes eller utledes aktivt.)*\n\n$$\\left|\\frac{1-s}{1+s}\\right| \\le 1 \\quad \\text{for alle } s \\ge 0$$\nUbetinget stabilitet for Crank–Nicolson. **Står ikke på arket — må kunnes.**\n\n$$\\tau_{\\text{CN}} = O(\\Delta t^2) + O(h^2)$$\nAvkuttingsfeilen: andre orden i begge retninger. *(Må kunnes.)*\n\n$$\\frac{U_i^{n+1}-U_i^n}{\\Delta t} = \\frac{c^2}{h^2}\\left(\\theta\\,\\delta^2U_i^{n+1} + (1-\\theta)\\,\\delta^2U_i^n\\right)$$\nTheta-familien, som rommer alle tre skjemaene. *(Bør kjennes — ikke pensum som egen sjanger.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

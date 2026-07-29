@@ -1,0 +1,122 @@
+[
+  {
+    "question": "Hva er signalet om at Fourier-transform er riktig metode for en PDE?",
+    "options": [
+      "At $x$ løper over hele $\\mathbb{R}$ uten randbetingelser",
+      "At likningen inneholder en andrederivert i $x$",
+      "At initialbetingelsen er en Gauss-funksjon",
+      "At likningen er lineær med konstante koeffisienter"
+    ],
+    "explanation": "Det er domenet som avgjør, ikke likningen. Samme varmelikning løses med transform på hele tallinja og med separasjon av variable på et endelig intervall med randbetingelser."
+  },
+  {
+    "question": "Hva blir $u_{xx}$ etter Fourier-transform i $x$?",
+    "options": [
+      "$-\\omega^2\\hat{u}$",
+      "$\\omega^2\\hat{u}$",
+      "$i\\omega\\hat{u}$",
+      "$\\frac{\\partial^2\\hat{u}}{\\partial\\omega^2}$"
+    ],
+    "explanation": "To derivasjoner gir faktoren i omega i andre, altså minus omega i andre. Uten minustegnet blir løsningen voksende i stedet for dempet, og det er fysisk meningsløst."
+  },
+  {
+    "question": "I den transformerte likningen er $\\omega$:",
+    "options": [
+      "En konstant",
+      "En variabel det deriveres etter",
+      "Alltid lik null",
+      "Et positivt heltall"
+    ],
+    "explanation": "Transformen er tatt i x, og i den resulterende likningen deriveres det bare i t. Derfor er likningen ordinær, ikke partiell — og det er hele gevinsten."
+  },
+  {
+    "question": "Hvordan skal integrasjonskonstanten skrives?",
+    "options": [
+      "$C(\\omega)$, som en funksjon av frekvensen",
+      "$C$, som et vanlig tall",
+      "$C(t)$, som en funksjon av tiden",
+      "$C(x)$, som en funksjon av stedet"
+    ],
+    "explanation": "Likningen løses separat for hver frekvens, så hver av dem har sin egen konstant. Skriver du bare C, mister du koblingen til initialbetingelsen."
+  },
+  {
+    "question": "Hvordan bestemmes $C(\\omega)$?",
+    "options": [
+      "Ved å sette $t=0$ og transformere initialbetingelsen",
+      "Ved å sette $\\omega=0$ i den transformerte likningen",
+      "Ved å kreve at løsningen er begrenset",
+      "Ved å integrere den transformerte likningen over $\\omega$"
+    ],
+    "explanation": "Ved tiden null reduseres eksponentialfaktoren til 1, så konstanten er nettopp transformen av initialdataene. Det er steg 3 i firestegsoppskriften."
+  },
+  {
+    "question": "Hva er løsningen av $u_t + cu_x = 0$ med $u(x,0)=f(x)$?",
+    "options": [
+      "$f(x-ct)$",
+      "$f(x+ct)$",
+      "$e^{-ct}f(x)$",
+      "$f(x)-ct$"
+    ],
+    "explanation": "Profilen flyttes med fart c i positiv retning uten å endre form. Alternativet med pluss svarer til likningen med motsatt fortegn foran førstederiverte."
+  },
+  {
+    "question": "Hva styrer realdelen av $\\lambda(\\omega)$ i $\\hat{u}_t = \\lambda\\hat{u}$?",
+    "options": [
+      "Dempingen av hver frekvenskomponent",
+      "Transporten av profilen langs $x$-aksen",
+      "Startamplituden",
+      "Bredden av initialpulsen"
+    ],
+    "explanation": "En negativ realdel gir eksponentiell demping. En rent imaginær lambda gir bare faseforskyvning, altså at profilen flyttes uten å dø ut."
+  },
+  {
+    "question": "Hvorfor glatter varmelikningen ut skarpe kanter?",
+    "options": [
+      "Fordi $e^{-\\omega^2 t}$ dempes raskest for høy $\\omega$",
+      "Fordi alle frekvenser dempes like mye med tiden",
+      "Fordi løsningen alltid er en Gauss-funksjon",
+      "Fordi arealet under kurven synker med tiden"
+    ],
+    "explanation": "Dempingsraten er omega i andre, så en dobling av frekvensen firedobler dempingen. Skarpe kanter er nettopp de høye frekvensene. Arealet holder seg for øvrig konstant."
+  },
+  {
+    "question": "Varmekjernen $G(x,t)$ er:",
+    "options": [
+      "$\\frac{1}{\\sqrt{4\\pi t}}e^{-x^2/(4t)}$",
+      "$\\frac{1}{\\sqrt{2\\pi t}}e^{-x^2/(2t)}$",
+      "$\\frac{1}{\\sqrt{4\\pi t}}e^{-x^2 t/4}$",
+      "$\\frac{1}{\\sqrt{2\\pi}}e^{-\\omega^2 t}$"
+    ],
+    "explanation": "Kjernen er en Gauss-kurve med areal 1 for alle t og bredde proporsjonal med rota av t. Uttrykket $\\frac{1}{\\sqrt{2\\pi}}e^{-\\omega^2 t}$ er transformen av kjernen, ikke kjernen selv."
+  },
+  {
+    "question": "Løsningen $u = f*G$ betyr at temperaturen i et punkt er:",
+    "options": [
+      "Et veid gjennomsnitt av starttemperaturen",
+      "Startverdien i det samme punktet",
+      "Summen av alle startverdiene",
+      "Startverdien i punktet forskjøvet med $t$"
+    ],
+    "explanation": "Vekten er en klokkeform sentrert i punktet, med bredde som vokser med tiden. Jo lenger du venter, jo lenger unna henter punktet informasjon."
+  },
+  {
+    "question": "Hva er siste steg i firestegsoppskriften?",
+    "options": [
+      "Å transformere tilbake og oppgi $u(x,t)$",
+      "Å oppgi $\\hat{u}(\\omega,t)$ på enklest form",
+      "Å kontrollere at $\\lambda$ er negativ",
+      "Å integrere over $\\omega$ fra null til uendelig"
+    ],
+    "explanation": "Oppgaven spør etter funksjonen, ikke transformen. Tilbaketransformasjonen gjøres ved å kjenne igjen en tabellrad med tiden gjemt inne i parameteren."
+  },
+  {
+    "question": "Hvilken kontroll bør alltid gjøres til slutt?",
+    "options": [
+      "Sette $t=0$ og sjekke initialbetingelsen",
+      "Sette $x=0$ og se om svaret er positivt",
+      "Derivere svaret med hensyn på $\\omega$",
+      "Sammenlikne med varmekjernen uansett likning"
+    ],
+    "explanation": "Kontrollen tar ti sekunder og avslører feil i både steg 3 og steg 4. Å sette inn løsningen i selve likningen er en enda sterkere kontroll, hvis du har tid."
+  }
+]

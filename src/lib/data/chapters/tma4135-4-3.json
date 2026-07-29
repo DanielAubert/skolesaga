@@ -1,0 +1,448 @@
+{
+  "id": "tma4135-4-3",
+  "courseId": "tma4135",
+  "chapterNumber": "4.3",
+  "title": "Diskret Fourier-transform (DFT)",
+  "description": "Den nye sjangeren fra kontinuasjonssettene: DFT med enhetsrøtter, aliasing og skifteegenskapen.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut den diskrete Fourier-transformen av en kort datavektor og kontrollere svaret med middelverdien",
+    "avgjøre om et gitt sett koeffisienter kan komme fra et reelt signal, ved konjugert symmetri",
+    "bevise og bruke skifteegenskapen for syklisk skift, og forklare hvorfor amplitudespekteret er uendret",
+    "gjøre rede for aliasing og lese av koeffisientene til et båndbegrenset signal uten å regne ut summer"
+  ],
+  "content": [
+    {
+      "id": "tma4135-4-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er en ny sjanger, og belegget i arkivet er tynt — det sier vi rett ut.**\n\nDen diskrete Fourier-transformen kalles **sjanger R** i denne boka. Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene på settene; **R er den diskrete Fourier-transformen**.\n\nSjangeren opptrer i **2 av 13** gjennomgåtte sett — altså 15 %. Begge forekomstene er i **kontinuasjonssett fra 2023 og 2024**, ikke i de ordinære settene. Det gir to motstridende signaler, og du fortjener begge:\n\n- **Argumentet for å prioritere den:** den er fast i de to siste settene i arkivet, den er faglig ferdig integrert i emnet, og den bygger direkte på enhetsrøttene fra [kap. 1.1](/tma4135/tma4135-1-1) og den komplekse rekka fra [kap. 3.3](/tma4135/tma4135-3-3). Kommer den, er den enkel å score på.\n- **Argumentet for ikke å bruke for mye tid:** to sett er et smalt grunnlag, og vekten på kommende ordinære sett er usikker. Har du dårlig tid, kommer denne etter Del 2, Del 3, Del 5, Del 7 og Del 8.\n\n**Vår anbefaling:** ta kapitlet, men ta det sist. Det er 55 minutter, og det er lite stoff å holde styr på.\n\n**Formelark-merking.** **DFT-en er vanligvis ikke med på det utdelte formelarket.** Hele apparatet — definisjonen, den inverse, reell-testen og skifteegenskapen — **må kunnes** eller utledes aktivt. Det eneste du henter fra arket i dette kapitlet, er de **trigonometriske identitetene**, som **står på det utdelte formelarket — tren oppslaget**; du bruker dem når du skriver om cosinus- og sinusledd til eksponentialer i avlesningsoppgaver. Til gjengjeld er det korte formler, og de er alle bygd på ett eneste objekt: den $N$-te enhetsroten $w = e^{2\\pi i/N}$ fra [kap. 1.1](/tma4135/tma4135-1-1).\n\n**Om normeringen.** Det finnes flere konvensjoner for hvor faktoren $1/N$ skal ligge. Denne boka legger den **foran DFT-en**. Andre plasseringer er like riktige, og løsningsforslagene godtar dem — **så lenge du bruker den samme konsekvent begge veier**. Si hvilken du bruker.\n\n**Tidsbruk:** 55 minutter lesetid, fire løkker med pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-4-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 1.1](/tma4135/tma4135-1-1) — de $N$ enhetsrøttene, at summen av dem er null, og regning med komplekse tall. Og [kap. 3.3](/tma4135/tma4135-3-3) — den komplekse Fourier-rekka og konjugert symmetri.\n\n**Sist du var her** — de to resultatene fra [kap. 1.1](/tma4135/tma4135-1-1) som hele kapitlet hviler på:\n\n$$w_N = e^{2\\pi i/N} \\quad\\text{oppfyller}\\quad w_N^{\\,N} = 1, \\qquad \\sum_{k=0}^{N-1} w_N^{\\,k} = 0 \\ \\ (N\\ge2).$$\n\nDen første sier at potensene av $w$ gjentar seg med periode $N$; den andre er den geometriske rekka med $q = w_N$, der telleren $w_N^{\\,N}-1$ blir null.\n\nOg fra [kap. 3.3](/tma4135/tma4135-3-3): et signal er reelt hvis og bare hvis koeffisientene har **konjugert symmetri**. Nøyaktig samme test dukker opp her, bare med endelig mange koeffisienter.\n\nDette kapitlet er ikke forutsetning for noe senere kapittel — det er en avsluttet enhet."
+    },
+    {
+      "id": "tma4135-4-3-motivasjon",
+      "type": "text",
+      "content": "## Når du bare har målepunkter\n\nEn Fourier-rekke krever en funksjon du kan integrere. En Fourier-transform krever det samme, over hele tallinja. Men det du faktisk har på en datamaskin, er **tall**: $N$ målinger, tatt med jevne mellomrom.\n\nDen diskrete Fourier-transformen er Fourier-analysen for nettopp den situasjonen. Den tar inn $N$ tall og gir ut $N$ tall — ingen integraler, bare en endelig sum. Og den er én av de mest brukte algoritmene som finnes: hver gang du ser et frekvensspekter på en skjerm, en lydfil komprimeres eller et bilde lagres som JPEG, ligger det en DFT under.\n\n**Ideen er ren gjenbruk.** I den komplekse Fourier-rekka fant vi koeffisienten ved å gange funksjonen med $e^{-inx}$ og integrere. Her ganger vi datavektoren med $w^{-jk}$ og **summerer**. Integralet er blitt en sum, og den kontinuerlige eksponentialen er blitt en potens av en enhetsrot.\n\n**Prisen for å ha bare $N$ punkter er at du bare kan skille $N$ frekvenser.** To svingninger som er raske nok, ser identiske ut i målepunktene — det heter **aliasing**, og det er grunnen til at et hjul i en film kan se ut til å gå baklengs.\n\nKapitlet gjør fire ting: definerer DFT-en og den inverse, tar reell-testen, beviser skifteegenskapen, og avslutter med aliasing og båndbegrensede signaler."
+    },
+    {
+      "id": "tma4135-4-3-fc-notis",
+      "type": "text",
+      "content": "**Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 55 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-4-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra integral til sum (~15 min)"
+    },
+    {
+      "id": "tma4135-4-3-def-samplingspunkter",
+      "type": "definition",
+      "title": "Samplingspunktene",
+      "content": "De $N$ jevnt fordelte punktene der signalet måles. På intervallet $[0,1)$ er de\n\n$$x_j = \\frac{j}{N}, \\qquad j = 0,1,\\dots,N-1.$$\n\nAvstanden mellom to nabopunkter kalles **samplingsintervallet**, her $1/N$. Jo flere punkter, jo finere oppløsning — men også jo mer regnearbeid.\n\n**Merk at $x_N$ ikke er med.** Signalet tenkes periodisk, så punktet $x_N$ er det samme som $x_0$."
+    },
+    {
+      "id": "tma4135-4-3-def-datavektor",
+      "type": "definition",
+      "title": "Datavektoren",
+      "content": "De $N$ måleverdiene, samlet i en vektor:\n\n$$f = \\left(f_0, f_1, \\dots, f_{N-1}\\right), \\qquad f_j = f(x_j).$$\n\nIndeksene løper fra 0, ikke fra 1 — det er konvensjonen i hele DFT-litteraturen, og den gjør formlene enklere.\n\n**Datavektoren tenkes periodisk:** $f_{j+N} = f_j$. Det er den antagelsen som gjør at et syklisk skift gir mening."
+    },
+    {
+      "id": "tma4135-4-3-def-enhetsrot",
+      "type": "definition",
+      "title": "Den $N$-te enhetsroten $w$",
+      "content": "Grunnbyggeklossen i hele kapitlet:\n\n$$w = e^{2\\pi i/N}.$$\n\nDen ligger på enhetssirkelen med vinkel $\\frac{2\\pi}{N}$, og potensene $w^0, w^1,\\dots,w^{N-1}$ er nøyaktig de $N$ enhetsrøttene fra [kap. 1.1](/tma4135/tma4135-1-1) — $N$ punkter jevnt fordelt rundt sirkelen.\n\n**To egenskaper brukes hele tiden:**\n\n$$w^N = 1 \\quad\\text{(potensene gjentar seg med periode } N\\text{)}, \\qquad \\overline{w} = w^{-1} = e^{-2\\pi i/N}.$$\n\nFor $N=4$ er $w = e^{i\\pi/2} = i$, og potensene er $1, i, -1, -i$."
+    },
+    {
+      "id": "tma4135-4-3-def-dft",
+      "type": "definition",
+      "title": "Den diskrete Fourier-transformen (DFT)",
+      "content": "Koeffisientene som beskriver frekvensinnholdet i datavektoren:\n\n$$c_k = \\frac{1}{N}\\sum_{j=0}^{N-1} f_j\\,w^{-jk}, \\qquad k = 0,1,\\dots,N-1.$$\n\nResultatet er en ny vektor $\\hat{c} = \\left(c_0,\\dots,c_{N-1}\\right)$ av **komplekse** tall.\n\n**Sammenlikn med den komplekse Fourier-rekka** i [kap. 3.3](/tma4135/tma4135-3-3): der var det $\\frac{1}{2L}\\int f e^{-in\\pi x/L}dx$. Her er integralet blitt en sum, $\\frac{1}{2L}$ er blitt $\\frac1N$, og $e^{-in\\pi x/L}$ er blitt $w^{-jk}$. Samme oppskrift, endelig utgave.\n\n**Merk minustegnet i eksponenten** — akkurat som i rekka og i transformen."
+    },
+    {
+      "id": "tma4135-4-3-def-normering",
+      "type": "definition",
+      "title": "Normeringskonvensjonen i DFT",
+      "content": "Valget av hvor faktoren $1/N$ skal ligge. Tre vanlige konvensjoner:\n\n| Konvensjon | DFT | Invers |\n|---|---|---|\n| **denne boka** | $\\frac1N\\sum f_j w^{-jk}$ | $\\sum c_k w^{jk}$ |\n| «fysisk» | $\\sum f_j w^{-jk}$ | $\\frac1N\\sum c_k w^{jk}$ |\n| unitær | $\\frac{1}{\\sqrt N}\\sum f_j w^{-jk}$ | $\\frac{1}{\\sqrt N}\\sum c_k w^{jk}$ |\n\n**Alle tre er riktige**, og en besvarelse som bruker en annen enn boka, er ikke feil. **Kravet er konsistens:** bruker du $\\frac1N$ foran DFT-en, skal den inverse *ikke* ha den. Skriv én setning om hvilken konvensjon du bruker — det tar fem sekunder og fjerner all tvil.\n\nBoka velger den første fordi den gir $c_0 = $ **middelverdien** av dataene, som er lett å kontrollere."
+    },
+    {
+      "id": "tma4135-4-3-def-c0",
+      "type": "definition",
+      "title": "Konstantleddet $c_0$",
+      "content": "Sett $k=0$ i definisjonen; da er $w^0 = 1$, og\n\n$$c_0 = \\frac{1}{N}\\sum_{j=0}^{N-1} f_j.$$\n\n**Dette er middelverdien av dataene.** Det er den enkleste kontrollen som finnes på et DFT-svar: regn ut gjennomsnittet av tallene i hodet og sammenlikn. Er $c_0$ noe annet, har du regnefeil.\n\nFor en reell datavektor er $c_0$ alltid reell."
+    },
+    {
+      "id": "tma4135-4-3-def-invers",
+      "type": "definition",
+      "title": "Den inverse DFT-en",
+      "content": "Veien tilbake fra koeffisienter til data:\n\n$$f_j = \\sum_{k=0}^{N-1} c_k\\,w^{jk}, \\qquad j=0,\\dots,N-1.$$\n\n**Merk:** ingen $\\frac1N$ her (den ligger i DFT-en), og **pluss** i eksponenten. Nøyaktig samme mønster som i den komplekse Fourier-rekka: minus når du finner koeffisientene, pluss når du bygger funksjonen tilbake.\n\nFormelen sier at datavektoren er en sum av $N$ rene diskrete svingninger, én for hver frekvens $k$, med vekt $c_k$."
+    },
+    {
+      "id": "tma4135-4-3-def-ortogonalitet",
+      "type": "definition",
+      "title": "Ortogonalitetsrelasjonen for enhetsrøtter",
+      "content": "Regnestykket som gjør at DFT og invers DFT virkelig er hverandres omvendte:\n\n$$\\frac{1}{N}\\sum_{j=0}^{N-1} w^{j(m-k)} = \\begin{cases} 1, & m = k \\\\ 0, & m \\ne k,\\end{cases}$$\n\nfor $m,k$ i $\\{0,\\dots,N-1\\}$.\n\n**Begrunnelse:** for $m=k$ er hvert ledd 1, og summen er $N$. For $m\\ne k$ er $q = w^{m-k}$ en enhetsrot forskjellig fra 1, og den geometriske rekka gir\n$$\\sum_{j=0}^{N-1} q^{j} = \\frac{q^N-1}{q-1} = 0,$$\nsiden $q^N = \\left(w^N\\right)^{m-k} = 1$.\n\nDette er den diskrete versjonen av ortogonaliteten til $e^{inx}$ fra [kap. 3.3](/tma4135/tma4135-3-3)."
+    },
+    {
+      "id": "tma4135-4-3-def-matrise",
+      "type": "definition",
+      "title": "DFT-matrisen $F_N$",
+      "content": "DFT-en er en lineær avbildning, så den kan skrives som en matrise:\n\n$$\\hat{c} = F_N f, \\qquad \\left(F_N\\right)_{kj} = \\frac{1}{N}\\,w^{-jk}.$$\n\nFor $N=4$, med $w=i$ og dermed $w^{-1} = -i$:\n\n$$F_4 = \\frac14\\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & -i & -1 & i \\\\ 1 & -1 & 1 & -1 \\\\ 1 & i & -1 & -i \\end{pmatrix}.$$\n\n**Nytten:** matriseformen viser at DFT-en bare er $N$ skalarprodukter, og den gjør det lett å se at transformen er lineær. På eksamen regner du som regel koeffisientene enkeltvis — matrisen er en måte å organisere regningen på, ikke et krav."
+    },
+    {
+      "id": "tma4135-4-3-eks1",
+      "type": "example",
+      "title": "DFT av en kort datavektor",
+      "problem": "Regn ut DFT-en til $f = (1,\\,0,\\,-1,\\,0)$ med $N=4$.",
+      "solution": "**Steg 1 — finn $w$.** Med $N=4$ er\n$$w = e^{2\\pi i/4} = e^{i\\pi/2} = i,$$\nog potensene er $w^0=1$, $w^1=i$, $w^2=-1$, $w^3=-i$. Vi trenger de negative potensene: $w^{-1} = -i$, $w^{-2} = -1$, $w^{-3} = i$.\n\n**Steg 2 — sett opp summen.** Formelen er $c_k = \\frac14\\sum_{j=0}^{3}f_j w^{-jk}$. Siden $f_1 = f_3 = 0$, bidrar bare $j=0$ og $j=2$:\n$$c_k = \\frac14\\left(1\\cdot w^{0} + (-1)\\cdot w^{-2k}\\right) = \\frac14\\left(1 - w^{-2k}\\right).$$\n\n**Steg 3 — regn ut for hver $k$.** Her er $w^{-2k} = (-1)^{k}$, siden $w^{-2} = -1$:\n$$c_0 = \\frac14(1-1) = 0, \\qquad c_1 = \\frac14(1+1) = \\frac12,$$\n$$c_2 = \\frac14(1-1) = 0, \\qquad c_3 = \\frac14(1+1) = \\frac12.$$\n\n**Svar:**\n$$\\hat{c} = \\left(0,\\ \\tfrac12,\\ 0,\\ \\tfrac12\\right).$$\n\n**Kontroll 1 — middelverdien.** $c_0$ skal være gjennomsnittet av $1,0,-1,0$, som er 0. Stemmer.\n\n**Kontroll 2 — invers DFT.** Bygg $f_j = \\sum_k c_k w^{jk} = \\tfrac12 w^{j}+\\tfrac12 w^{3j}$:\n$$f_0 = \\tfrac12+\\tfrac12 = 1, \\qquad f_1 = \\tfrac12 i + \\tfrac12(-i) = 0,$$\n$$f_2 = \\tfrac12(-1)+\\tfrac12(-1) = -1, \\qquad f_3 = \\tfrac12(-i)+\\tfrac12 i = 0.$$\nVi får tilbake $(1,0,-1,0)$. Stemmer.\n\n**Kontroll 3 — konjugert symmetri.** Dataene er reelle, så vi må ha $c_{N-k} = \\overline{c_k}$. Her er $c_3 = \\tfrac12 = \\overline{c_1}$, og $c_2 = 0 = \\overline{c_2}$. Stemmer.\n\n**Tolkning.** All energien ligger på $k=1$ og $k=3$, og de to hører sammen som et konjugert par. Regner du ut hva de svarer til i den inverse formelen, får du $\\cos\\left(\\frac{2\\pi j}{4}\\right)$ — altså er datavektoren nettopp én ren cosinussvingning, samplet i fire punkter. Og det stemmer: $\\cos(2\\pi j/4)$ for $j=0,1,2,3$ gir $1,0,-1,0$."
+    },
+    {
+      "id": "tma4135-4-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-3-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) La $N=4$, slik at $w = i$.\n\n**a)** Skriv opp $w^0, w^1, w^2, w^3$ og $w^4$.\n**b)** Skriv opp $w^{-1}, w^{-2}, w^{-3}$.\n**c)** Hva er $w^{10}$?",
+        "solution": "**a)** $w^0 = 1$, $w^1 = i$, $w^2 = i^2 = -1$, $w^3 = -i$, og $w^4 = 1$ igjen.\n\nPotensene gjentar seg altså med **periode 4** — det er innholdet i $w^N = 1$.\n\n**b)** Siden $w^4 = 1$, er $w^{-1} = w^3 = -i$, $w^{-2} = w^2 = -1$ og $w^{-3} = w^1 = i$.\n\nAlternativt direkte: $w^{-1} = \\overline{w} = \\overline{i} = -i$, og så videre.\n\n**c)** $10 = 2\\cdot4+2$, så $w^{10} = \\left(w^4\\right)^2 w^2 = w^2 = -1$.\n\n**Regelen:** reduser eksponenten modulo $N$. Det gjelder både positive og negative eksponenter, og det er den ene regneteknikken hele kapitlet hviler på.",
+        "hints": [
+          "$w = e^{2\\pi i/4} = i$. Regn ut potensene av $i$.",
+          "Bruk $w^N = 1$ til å gjøre om negative eksponenter til positive.",
+          "For c): del 10 på 4 og se på resten."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-3-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger R — diskret Fourier-transform.) Regn ut DFT-en til\n\n**a)** $f = (2,\\,0,\\,-2,\\,0)$\n**b)** $f = (1,\\,1,\\,1,\\,1)$\n\nog kontroller begge med middelverdien.",
+        "solution": "**a)** Dette er 2 ganger vektoren fra eksempel 1. Siden DFT-en er **lineær**, blir koeffisientene 2 ganger så store:\n$$\\hat{c} = \\left(0,\\ 1,\\ 0,\\ 1\\right).$$\n\n*Kontroll:* $c_0$ skal være gjennomsnittet av $2,0,-2,0$, som er 0. Stemmer.\n\n**b)** Her er alle $f_j = 1$:\n$$c_k = \\frac14\\sum_{j=0}^{3}w^{-jk}.$$\nFor $k=0$ er hvert ledd 1, så $c_0 = 1$. For $k\\ne0$ er $q = w^{-k}$ en enhetsrot forskjellig fra 1, og **etter ortogonalitetsrelasjonen** er summen null:\n$$c_1 = c_2 = c_3 = 0.$$\n\n$$\\hat{c} = \\left(1,\\ 0,\\ 0,\\ 0\\right).$$\n\n*Kontroll:* middelverdien av fire enere er 1. Stemmer.\n\n**Tolkning.** En konstant datavektor har all energi på frekvens 0 og ingenting på de andre — akkurat som en konstant funksjon bare har konstantledd i en Fourier-rekke. Det er samme fenomen, i endelig utgave.",
+        "hints": [
+          "For a): bruk at DFT-en er lineær, og gjenbruk eksempel 1.",
+          "For b): summen av alle enhetsrøttene er null for $k\\ne0$.",
+          "$c_0$ er alltid middelverdien av dataene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Reell-testen (~13 min)\n\nEt fast delpunkt i denne sjangeren er: «avgjør om det inverse signalet er reelt». Testen er kort, og den er nøyaktig den samme som for den komplekse Fourier-rekka."
+    },
+    {
+      "id": "tma4135-4-3-def-periodisitet",
+      "type": "definition",
+      "title": "Periodisiteten $c_{k+N} = c_k$",
+      "content": "Koeffisientene gjentar seg med periode $N$:\n\n$$c_{k+N} = \\frac1N\\sum_j f_j w^{-j(k+N)} = \\frac1N\\sum_j f_j w^{-jk}\\left(w^{-N}\\right)^{j} = c_k,$$\n\nsiden $w^{-N} = 1$.\n\n**Konsekvens:** indeksen $-k$ betyr det samme som $N-k$. Det er praktisk i reell-testen, der man ellers måtte snakke om negative indekser i en vektor som bare har indeksene $0$ til $N-1$."
+    },
+    {
+      "id": "tma4135-4-3-teo-reell",
+      "type": "theorem",
+      "title": "Reell-testen (konjugert symmetri)",
+      "content": "Datavektoren $f$ er **reell** hvis og bare hvis\n\n$$c_{N-k} = \\overline{c_k} \\qquad \\text{for alle } k = 0,1,\\dots,N-1.$$\n\nSpesielt må $c_0$ være reell (siden $c_N = c_0$).\n\n**Bevis, den ene veien.** Anta $f$ reell. Konjuger definisjonen. Siden $\\overline{f_j} = f_j$ og $\\overline{w^{-jk}} = w^{jk}$, er\n$$\\overline{c_k} = \\frac1N\\sum_j f_j\\,w^{jk} = \\frac1N\\sum_j f_j\\,w^{-j(-k)} = c_{-k} = c_{N-k},$$\nder siste likhet er periodisiteten. $\\blacksquare$\n\n**Den andre veien** følger av at den inverse DFT-en da parer sammen leddene $k$ og $N-k$ til $c_kw^{jk}+\\overline{c_k}\\,\\overline{w^{jk}} = 2\\operatorname{Re}\\left(c_kw^{jk}\\right)$, som er reelt.\n\n**Praktisk bruk.** Testen sparer deg halve regnearbeidet: for en reell datavektor trenger du bare regne ut $c_k$ for $k \\le N/2$, resten følger ved konjugering. Og motsatt: får du oppgitt en koeffisientvektor og skal avgjøre om det inverse signalet er reelt, sjekker du symmetrien i stedet for å regne ut den inverse.\n\n**Testen må kunnes** — den står ikke på formelarket."
+    },
+    {
+      "id": "tma4135-4-3-def-nyquist",
+      "type": "definition",
+      "title": "Midtfrekvensen $k = N/2$",
+      "content": "For **like** $N$ er indeksen $k=N/2$ spesiell: den er sin egen speiling, siden $N - N/2 = N/2$.\n\nReell-testen krever da at $c_{N/2} = \\overline{c_{N/2}}$, altså at **$c_{N/2}$ må være reell** for en reell datavektor.\n\nFrekvensen $k=N/2$ svarer til den raskeste svingningen $N$ punkter kan representere: annethvert punkt opp og annethvert ned. Den kalles ofte **Nyquist-frekvensen**, og den setter grensen for hva som kan måles med $N$ punkter."
+    },
+    {
+      "id": "tma4135-4-3-def-amplitude",
+      "type": "definition",
+      "title": "Amplitudespekteret $\\lvert c_k\\rvert$",
+      "content": "Absoluttverdien av koeffisientene, tegnet mot $k$.\n\nFor en reell datavektor er spekteret **speilsymmetrisk**: $\\left|c_{N-k}\\right| = \\left|\\overline{c_k}\\right| = \\left|c_k\\right|$. Derfor viser programvare som regel bare den halvparten som svarer til $k \\le N/2$ — den andre halvparten inneholder ingen ny informasjon."
+    },
+    {
+      "id": "tma4135-4-3-eks2",
+      "type": "example",
+      "title": "Er det inverse signalet reelt?",
+      "problem": "To koeffisientvektorer med $N=4$ er gitt:\n\n**a)** $\\hat{c} = \\left(1,\\ i,\\ 0,\\ -i\\right)$\n**b)** $\\hat{c} = \\left(1,\\ i,\\ 0,\\ i\\right)$\n\nAvgjør i hvert tilfelle om det inverse signalet er reelt, og finn signalet.",
+      "solution": "**a) Test symmetrien.** Vi trenger $c_{4-k} = \\overline{c_k}$:\n\n- $k=0$: $c_4 = c_0 = 1$, og $\\overline{c_0} = 1$. I orden.\n- $k=1$: $c_3 = -i$, og $\\overline{c_1} = \\overline{i} = -i$. I orden.\n- $k=2$: $c_2 = 0$, og $\\overline{c_2} = 0$. I orden. *(Merk at $k=2 = N/2$ er midtfrekvensen, og den må være reell — 0 er reell.)*\n\n**Signalet er reelt.**\n\n**Finn det.** Den inverse DFT-en er $f_j = \\sum_k c_k w^{jk}$ med $w=i$:\n$$f_0 = 1+i+0-i = 1,$$\n$$f_1 = 1 + i\\cdot i + 0 - i\\cdot i^{3} = 1 + i^2 - i(-i) = 1-1-1 = -1,$$\n$$f_2 = 1+i\\cdot i^{2}+0-i\\cdot i^{6} = 1 - i - i(-1) = 1-i+i = 1,$$\n$$f_3 = 1+i\\cdot i^{3}+0-i\\cdot i^{9} = 1 + i(-i) - i\\cdot i = 1+1+1 = 3.$$\n*(Her brukte vi $i^6 = i^4i^2 = -1$ og $i^9 = i^8 i = i$.)*\n\n$$f = (1,\\,-1,\\,1,\\,3).$$\nAlle reelle, slik testen lovet.\n\n*Kontroll:* middelverdien er $\\frac{1-1+1+3}{4} = 1 = c_0$. Stemmer.\n\n**b) Test symmetrien.** For $k=1$: $c_3 = i$, mens $\\overline{c_1} = -i$. **De er ulike**, så symmetrien brytes, og signalet er **ikke reelt**.\n\n**Finn det likevel**, som kontroll:\n$$f_0 = 1+i+0+i = 1+2i,$$\n$$f_1 = 1+i\\cdot i+0+i\\cdot i^{3} = 1-1+1 = 1,$$\n$$f_2 = 1+i\\cdot i^2+0+i\\cdot i^6 = 1-i-i = 1-2i,$$\n$$f_3 = 1+i\\cdot i^3+0+i\\cdot i^9 = 1+1-1 = 1.$$\n$$f = \\left(1+2i,\\ 1,\\ 1-2i,\\ 1\\right).$$\nTo av komponentene er komplekse. Testen stemmer.\n\n**Poenget med oppgaven.** I a) kunne vi svart «ja, reelt» på tjue sekunder uten å regne ut den inverse i det hele tatt. Det er hele nytten av testen — og det er den ferdigheten delpunktet er ute etter.\n\n**Merk forskjellen mellom de to vektorene:** bare fortegnet på $c_3$ er endret. Én fortegnsfeil er alt som skal til for å ødelegge symmetrien — og det er også derfor testen er en så god kontroll på egen regning."
+    },
+    {
+      "id": "tma4135-4-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-3-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger R.) Regn ut DFT-en til $f = (1,\\,2,\\,3,\\,4)$, og kontroller resultatet med reell-testen.",
+        "solution": "$N=4$, $w=i$, så $w^{-1}=-i$, $w^{-2}=-1$, $w^{-3}=i$.\n\n$$c_0 = \\frac14\\left(1+2+3+4\\right) = \\frac{10}{4} = \\frac52.$$\n\n$$c_1 = \\frac14\\left(1+2w^{-1}+3w^{-2}+4w^{-3}\\right) = \\frac14\\left(1-2i-3+4i\\right) = \\frac14\\left(-2+2i\\right) = -\\frac12+\\frac{i}{2}.$$\n\n$$c_2 = \\frac14\\left(1+2w^{-2}+3w^{-4}+4w^{-6}\\right) = \\frac14\\left(1-2+3-4\\right) = -\\frac12,$$\nder vi brukte $w^{-4}=1$ og $w^{-6}=w^{-2}=-1$.\n\n$$c_3 = \\frac14\\left(1+2w^{-3}+3w^{-6}+4w^{-9}\\right) = \\frac14\\left(1+2i-3-4i\\right) = -\\frac12-\\frac{i}{2},$$\nmed $w^{-9} = w^{-1} = -i$.\n\n**Svar:**\n$$\\hat{c} = \\left(\\tfrac52,\\ -\\tfrac12+\\tfrac{i}{2},\\ -\\tfrac12,\\ -\\tfrac12-\\tfrac{i}{2}\\right).$$\n\n**Kontroll 1 — middelverdien.** $\\frac{1+2+3+4}{4} = 2{,}5 = c_0$. Stemmer.\n\n**Kontroll 2 — reell-testen.** $c_3 = -\\tfrac12-\\tfrac{i}{2}$ og $\\overline{c_1} = \\overline{-\\tfrac12+\\tfrac i2} = -\\tfrac12-\\tfrac i2$. Like. Og $c_2 = -\\tfrac12$ er reell, slik midtfrekvensen må være. Stemmer — dataene er reelle, som de skal.\n\n**Arbeidsbesparelsen.** Testen betyr at $c_3$ kunne skrives ned **uten regning**, som konjugatet av $c_1$. For en reell datavektor med $N$ punkter trenger du bare regne ut omtrent halvparten av koeffisientene.",
+        "hints": [
+          "Skriv opp $w^{-1}, w^{-2}, w^{-3}$ først; reduser høyere eksponenter modulo 4.",
+          "$c_0$ er middelverdien — regn den i hodet som kontroll.",
+          "Etter reell-testen er $c_3 = \\overline{c_1}$, så den slipper du å regne."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-3-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger R.) Avgjør for hver koeffisientvektor med $N=4$ om det inverse signalet er reelt. Begrunn med reell-testen, uten å regne ut den inverse.\n\n**a)** $\\left(2,\\ 1,\\ 0,\\ 1\\right)$\n**b)** $\\left(0,\\ 1+i,\\ 3,\\ 1-i\\right)$\n**c)** $\\left(i,\\ 1,\\ 0,\\ 1\\right)$\n**d)** $\\left(1,\\ 2i,\\ 1,\\ 2i\\right)$",
+        "solution": "Testen er $c_{4-k} = \\overline{c_k}$ for $k=0,1,2,3$, som for $N=4$ betyr: $c_0$ reell, $c_2$ reell, og $c_3 = \\overline{c_1}$.\n\n**a)** $c_0 = 2$ reell ✔, $c_2 = 0$ reell ✔, $c_3 = 1 = \\overline{1} = \\overline{c_1}$ ✔. **Reelt.**\n\n**b)** $c_0 = 0$ reell ✔, $c_2 = 3$ reell ✔, $c_3 = 1-i = \\overline{1+i} = \\overline{c_1}$ ✔. **Reelt.**\n\n**c)** $c_0 = i$ er **ikke reell**. **Ikke reelt.**\n*(Konstantleddet er middelverdien av dataene; er den kompleks, kan ikke alle dataene være reelle.)*\n\n**d)** $c_0 = 1$ reell ✔, $c_2 = 1$ reell ✔, men $c_3 = 2i$ mens $\\overline{c_1} = \\overline{2i} = -2i$. **Ikke reelt.**\n\n**Oppsummert:** a) ja, b) ja, c) nei, d) nei.\n\n**Merk hva som skiller b) fra d).** I b) er $c_1$ og $c_3$ hverandres konjugerte; i d) er de like. To komplekse tall som er like, er bare hverandres konjugerte hvis de er reelle — og $2i$ er ikke det. **Det er en nær-sann felle:** symmetrien krever *konjugering*, ikke bare *likhet*.",
+        "hints": [
+          "Testen er $c_{N-k} = \\overline{c_k}$ — sjekk hver indeks for seg.",
+          "For $N=4$: $c_0$ og $c_2$ må være reelle, og $c_3$ må være konjugatet av $c_1$.",
+          "Merk forskjellen på «like» og «hverandres konjugerte»."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-3-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~28 min brukt) —\n\nDu har definisjonen, den inverse og reell-testen. Resten av kapitlet er de to egenskapene som gjør DFT-en anvendelig: skifteegenskapen og aliasing."
+    },
+    {
+      "id": "tma4135-4-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Skifteegenskapen (~14 min)\n\nDette er den ene egenskapen som er blitt bedt bevist i arkivet, så beviset er verdt å kunne — ikke bare resultatet."
+    },
+    {
+      "id": "tma4135-4-3-def-skift",
+      "type": "definition",
+      "title": "Syklisk skift",
+      "content": "Å flytte alle dataene ett hakk, med den som faller av i den ene enden satt inn i den andre:\n\n$$\\tilde{f}_j = f_{j+1}, \\qquad j=0,\\dots,N-1,$$\n\nder indeksen regnes **modulo $N$**, slik at $\\tilde{f}_{N-1} = f_N = f_0$.\n\nFor $f = (3,1,-1,1)$ er $\\tilde{f} = (1,-1,1,3)$.\n\n**Hvorfor «syklisk»?** Fordi datavektoren tenkes periodisk. Skiftet er som å rotere en tallrekke lagt rundt en sirkel."
+    },
+    {
+      "id": "tma4135-4-3-teo-skift",
+      "type": "theorem",
+      "title": "Skifteegenskapen",
+      "content": "La $\\tilde{f}_j = f_{j+1}$ (syklisk skift ett hakk fram), og la $c_k$ og $\\tilde{c}_k$ være DFT-ene til $f$ og $\\tilde{f}$. Da er\n\n$$\\tilde{c}_k = w^{k}\\,c_k, \\qquad k=0,\\dots,N-1.$$\n\n**Bevis.** Sett inn definisjonen og substituer $m = j+1$:\n$$\\tilde{c}_k = \\frac1N\\sum_{j=0}^{N-1}\\tilde{f}_j\\,w^{-jk} = \\frac1N\\sum_{j=0}^{N-1}f_{j+1}\\,w^{-jk} = \\frac1N\\sum_{m=1}^{N}f_m\\,w^{-(m-1)k}.$$\nFaktoren $w^{k}$ er uavhengig av $m$ og kan settes utenfor:\n$$\\tilde{c}_k = w^{k}\\cdot\\frac1N\\sum_{m=1}^{N}f_m\\,w^{-mk}.$$\nSummen går fra 1 til $N$ i stedet for fra 0 til $N-1$, men leddet $m=N$ er det samme som leddet $m=0$: både $f_N = f_0$ (periodisitet i dataene) og $w^{-Nk} = 1$. Summen er altså uendret, og lik $N c_k$. Dermed\n$$\\tilde{c}_k = w^{k}c_k. \\qquad \\blacksquare$$\n\n**Konsekvens.** $\\left|\\tilde{c}_k\\right| = \\left|w^k\\right|\\left|c_k\\right| = \\left|c_k\\right|$, siden $\\left|w^k\\right| = 1$. **Amplitudespekteret er upåvirket av et skift** — bare fasen endres.\n\n**Motsatt retning.** Skifter du den andre veien, $\\tilde{f}_j = f_{j-1}$, får du $\\tilde{c}_k = w^{-k}c_k$. Samme utledning, motsatt fortegn i eksponenten. **Si alltid hvilken retning du bruker** — det er der fortegnet avgjøres.\n\n**Sammenlikn med [kap. 4.1](/tma4135/tma4135-4-1):** forskyvningsregelen for den kontinuerlige transformen sier $\\widehat{f(x-b)} = e^{-ib\\omega}\\hat{f}$. Samme innhold, samme konsekvens for amplituden, endelig utgave."
+    },
+    {
+      "id": "tma4135-4-3-eks3",
+      "type": "example",
+      "title": "Skifteegenskapen på et konkret eksempel",
+      "problem": "La $f = (3,\\,1,\\,-1,\\,1)$ med $N=4$.\n\n**a)** Regn ut $\\hat{c}$.\n**b)** Regn ut DFT-en til det sykliske skiftet $\\tilde{f}_j = f_{j+1}$ direkte, og kontroller skifteegenskapen.",
+      "solution": "**a)** $w=i$, så $w^{-1}=-i$, $w^{-2}=-1$, $w^{-3}=i$.\n\n$$c_0 = \\frac14\\left(3+1-1+1\\right) = 1.$$\n$$c_1 = \\frac14\\left(3+1\\cdot(-i)+(-1)(-1)+1\\cdot i\\right) = \\frac14\\left(3-i+1+i\\right) = 1.$$\n$$c_2 = \\frac14\\left(3+1\\cdot(-1)+(-1)\\cdot 1+1\\cdot(-1)\\right) = \\frac14\\left(3-1-1-1\\right) = 0.$$\n$$c_3 = \\overline{c_1} = 1 \\qquad \\text{(etter reell-testen, siden dataene er reelle)}.$$\n\n$$\\hat{c} = \\left(1,\\ 1,\\ 0,\\ 1\\right).$$\n\n*Kontroll:* middelverdien av $3,1,-1,1$ er $\\frac{4}{4}=1 = c_0$. Stemmer.\n\n**b) Skiftet.** $\\tilde{f} = (1,\\,-1,\\,1,\\,3)$.\n\n$$\\tilde{c}_0 = \\frac14\\left(1-1+1+3\\right) = 1.$$\n$$\\tilde{c}_1 = \\frac14\\left(1+(-1)(-i)+1\\cdot(-1)+3\\cdot i\\right) = \\frac14\\left(1+i-1+3i\\right) = \\frac{4i}{4} = i.$$\n$$\\tilde{c}_2 = \\frac14\\left(1+(-1)(-1)+1\\cdot1+3\\cdot(-1)\\right) = \\frac14\\left(1+1+1-3\\right) = 0.$$\n$$\\tilde{c}_3 = \\overline{\\tilde{c}_1} = -i.$$\n\n$$\\hat{\\tilde{c}} = \\left(1,\\ i,\\ 0,\\ -i\\right).$$\n\n**Kontroll mot skifteegenskapen.** Teoremet sier $\\tilde{c}_k = w^k c_k$ med $w=i$:\n\n| $k$ | $w^k$ | $c_k$ | $w^kc_k$ | $\\tilde{c}_k$ regnet direkte |\n|---|---|---|---|---|\n| 0 | $1$ | $1$ | $1$ | $1$ |\n| 1 | $i$ | $1$ | $i$ | $i$ |\n| 2 | $-1$ | $0$ | $0$ | $0$ |\n| 3 | $-i$ | $1$ | $-i$ | $-i$ |\n\nAlle fire stemmer. $\\blacksquare$\n\n**Legg merke til amplitudene.** Før skiftet: $\\left|c_k\\right| = (1,1,0,1)$. Etter: $\\left|\\tilde{c}_k\\right| = (1,1,0,1)$. Identiske — bare fasene er endret. Det er nøyaktig det teoremet lover, og det er en gratis kontroll på at du ikke har regnefeil.\n\n**Merk også** at $\\tilde{f} = (1,-1,1,3)$ er den samme datavektoren vi fant i eksempel 2a. Det er ikke tilfeldig: koeffisientvektoren der var $(1,i,0,-i)$, som er nøyaktig $\\hat{\\tilde{c}}$ her."
+    },
+    {
+      "id": "tma4135-4-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-3-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger R.) La $f = (3,\\,0,\\,-1,\\,0)$ med $N=4$.\n\n**a)** Regn ut $\\hat{c}$.\n**b)** Bruk skifteegenskapen til å skrive opp DFT-en til $\\tilde{f}_j = f_{j+1}$, uten å regne på nytt.\n**c)** Kontroller b) ved å regne ut $\\tilde{c}_1$ direkte.",
+        "solution": "**a)** $w=i$. Bare $j=0$ og $j=2$ bidrar:\n$$c_k = \\frac14\\left(3 + (-1)w^{-2k}\\right) = \\frac14\\left(3-(-1)^k\\right).$$\n$$c_0 = \\frac{3-1}{4} = \\frac12, \\qquad c_1 = \\frac{3+1}{4} = 1, \\qquad c_2 = \\frac12, \\qquad c_3 = 1.$$\n$$\\hat{c} = \\left(\\tfrac12,\\ 1,\\ \\tfrac12,\\ 1\\right).$$\n\n*Kontroll:* middelverdien av $3,0,-1,0$ er $\\frac24 = \\tfrac12 = c_0$. Stemmer. Og reell-testen: $c_3 = 1 = \\overline{c_1}$ ✔, $c_2 = \\tfrac12$ reell ✔.\n\n**b)** **Etter skifteegenskapen** er $\\tilde{c}_k = w^k c_k = i^k c_k$:\n$$\\tilde{c}_0 = \\tfrac12, \\qquad \\tilde{c}_1 = i\\cdot 1 = i, \\qquad \\tilde{c}_2 = (-1)\\cdot\\tfrac12 = -\\tfrac12, \\qquad \\tilde{c}_3 = (-i)\\cdot 1 = -i.$$\n$$\\hat{\\tilde{c}} = \\left(\\tfrac12,\\ i,\\ -\\tfrac12,\\ -i\\right).$$\n\n**c)** Skiftet er $\\tilde{f} = (0,\\,-1,\\,0,\\,3)$. Direkte:\n$$\\tilde{c}_1 = \\frac14\\left(0+(-1)w^{-1}+0+3w^{-3}\\right) = \\frac14\\left(0+(-1)(-i)+0+3i\\right) = \\frac14\\left(i+3i\\right) = i.$$\nStemmer med b).\n\n**Kontroll av reell-testen på skiftet.** $\\tilde{c}_3 = -i = \\overline{i} = \\overline{\\tilde{c}_1}$ ✔, og $\\tilde{c}_2 = -\\tfrac12$ er reell ✔. Skiftet av en reell vektor er fortsatt reell, så testen må holde — og den gjør det.\n\n**Merk at $\\tilde{c}_2$ skiftet fortegn.** Faktoren $w^2 = -1$ snur midtfrekvensen. Det er en konsekvens verdt å legge merke til: et skift er ikke «uskyldig» for hver enkelt koeffisient, bare for amplitudene.",
+        "hints": [
+          "Bare to av leddene i summen er ulik null.",
+          "Skifteegenskapen ganger $c_k$ med $w^k = i^k$ — regn ut potensene først.",
+          "For c): skriv opp den skiftede vektoren og sett inn i definisjonen for $k=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-3-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger R — krevende, bevisoppgave.) Vis at et syklisk skift **bakover**, $\\tilde{f}_j = f_{j-1}$ (indeks modulo $N$), gir\n\n$$\\tilde{c}_k = w^{-k}\\,c_k.$$\n\nForklar deretter hvorfor amplitudespekteret er uendret i begge skiftretninger.",
+        "solution": "**Bevis.** Sett inn definisjonen og substituer $m = j-1$:\n$$\\tilde{c}_k = \\frac1N\\sum_{j=0}^{N-1}f_{j-1}\\,w^{-jk} = \\frac1N\\sum_{m=-1}^{N-2}f_m\\,w^{-(m+1)k}.$$\nFaktoren $w^{-k}$ er uavhengig av $m$ og settes utenfor:\n$$\\tilde{c}_k = w^{-k}\\cdot\\frac1N\\sum_{m=-1}^{N-2}f_m\\,w^{-mk}.$$\n\nSummen går fra $-1$ til $N-2$ i stedet for fra 0 til $N-1$. Men leddet $m=-1$ er det samme som leddet $m=N-1$: dataene er periodiske, $f_{-1}=f_{N-1}$, og $w^{-(-1)k} = w^{k} = w^{k}w^{-Nk} = w^{-(N-1)k}$, siden $w^{-Nk}=1$. Summen er altså uendret og lik $Nc_k$, og\n$$\\tilde{c}_k = w^{-k}c_k. \\qquad \\blacksquare$$\n\n**Amplituden.** I begge retninger er faktoren en potens av $w$, og $\\left|w\\right| = \\left|e^{2\\pi i/N}\\right| = 1$. Derfor er $\\left|w^{\\pm k}\\right| = 1$, og\n$$\\left|\\tilde{c}_k\\right| = \\left|w^{\\pm k}\\right|\\cdot\\left|c_k\\right| = \\left|c_k\\right|.$$\n\n**Tolkningen.** Amplitudespekteret måler **hvor mye** av hver frekvens signalet inneholder, ikke **hvor** svingningene ligger. Å rotere dataene flytter alt i tid, men endrer ikke hvor mye energi som ligger på hver frekvens. All informasjonen om posisjonen ligger i **fasene** $\\arg c_k$.\n\nDet er nøyaktig samme fenomen som forskyvningsregelen i [kap. 4.1](/tma4135/tma4135-4-1) og skifteegenskapen for Fourier-koeffisienter i [kap. 3.3](/tma4135/tma4135-3-3). Tre utgaver av samme sannhet.\n\n**Kontroll på et eksempel.** Med $f=(3,1,-1,1)$ og $\\hat{c}=(1,1,0,1)$ blir skiftet bakover $\\tilde{f} = (1,3,1,-1)$, og teoremet gir $\\tilde{c}_1 = w^{-1}c_1 = -i$. Direkte: $\\tilde{c}_1 = \\frac14\\left(1+3(-i)+1(-1)+(-1)i\\right) = \\frac14\\left(1-3i-1-i\\right) = \\frac{-4i}{4} = -i$. Stemmer.",
+        "hints": [
+          "Substituer $m=j-1$ og se hvilken faktor som kan settes utenfor summen.",
+          "Grensene forskyves — bruk periodisiteten $f_{-1}=f_{N-1}$ og $w^{-N}=1$ til å rette dem opp.",
+          "For amplituden: hva er $\\lvert w\\rvert$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Aliasing og båndbegrensede signaler (~13 min)\n\nTil slutt den ene begrensningen ved å bare ha $N$ punkter — og den ene situasjonen der DFT-en gir det eksakte svaret."
+    },
+    {
+      "id": "tma4135-4-3-def-aliasing",
+      "type": "definition",
+      "title": "Aliasing",
+      "content": "At to ulike frekvenser gir **identiske** verdier i samplingspunktene, og derfor ikke kan skilles av DFT-en.\n\nKonkret: frekvensene $m$ og $m+N$ gir samme data, siden\n$$w^{j(m+N)} = w^{jm}\\left(w^{N}\\right)^{j} = w^{jm}.$$\n\nMed $N$ punkter kan du altså bare skille $N$ frekvenser. En raskere svingning **forkles** som en langsommere — den får et «alias».\n\nHverdagseksempelet er hjul i film: filmes de med 24 bilder i sekundet, kan et hjul som roterer raskt se ut til å stå stille eller gå baklengs."
+    },
+    {
+      "id": "tma4135-4-3-def-bandbegrenset",
+      "type": "definition",
+      "title": "Båndbegrenset signal",
+      "content": "Et signal som er en endelig sum av rene svingninger med frekvenser under en grense:\n\n$$f(x) = \\sum_{m} A_m\\,e^{2\\pi i m x}, \\qquad |m| < \\frac{N}{2}.$$\n\n**Poenget:** er signalet båndbegrenset og du sampler i $N$ punkter, gir DFT-en **eksakt** de riktige koeffisientene — ingen aliasing, ingen tilnærming. Da kan du lese amplitudene rett av $\\hat{c}$.\n\nEr signalet derimot *ikke* båndbegrenset, folder de høye frekvensene seg ned på de lave, og koeffisientene blir forurenset. Det er derfor man alltid sampler «tett nok»."
+    },
+    {
+      "id": "tma4135-4-3-def-avlesning",
+      "type": "definition",
+      "title": "Avlesning av koeffisienter",
+      "content": "For et båndbegrenset signal svarer koeffisientene direkte til leddene i signalet:\n\n| Ledd i signalet | Bidrag til $\\hat{c}$ |\n|---|---|\n| konstanten $A$ | $c_0 = A$ |\n| $A\\,e^{2\\pi imj/N}$ | $c_m = A$ |\n| $A\\cos\\left(2\\pi mj/N\\right)$ | $c_m = c_{N-m} = A/2$ |\n| $A\\sin\\left(2\\pi mj/N\\right)$ | $c_m = A/(2i)$, $c_{N-m} = -A/(2i)$ |\n\n**Begrunnelse:** skriv cosinus og sinus med Eulers formler, og bruk at $e^{2\\pi imj/N}$ har DFT lik 1 i indeks $m$ og 0 ellers (ortogonalitetsrelasjonen).\n\nDette gjør at en oppgave av typen «les av koeffisientene» kan besvares **uten å regne ut en eneste sum**."
+    },
+    {
+      "id": "tma4135-4-3-def-fft",
+      "type": "definition",
+      "title": "Rask Fourier-transform (bør kjenne til)",
+      "content": "Direkte utregning av DFT-en krever $N$ summer med $N$ ledd hver, altså i størrelsesorden $N^2$ operasjoner. **Den raske Fourier-transformen (FFT)** utnytter symmetriene i potensene av $w$ til å gjøre det samme i størrelsesorden $N\\log N$ operasjoner.\n\nFor $N = 10^6$ er forskjellen mellom $10^{12}$ og rundt $2\\cdot10^{7}$ operasjoner — altså mellom umulig og øyeblikkelig.\n\n**Dette er «bør kjenne til»-stoff.** Algoritmen er ikke pensum i dette emnet, og du blir ikke bedt om å utføre den. Men navnet er verdt å kjenne, siden all praktisk bruk av DFT går gjennom den."
+    },
+    {
+      "id": "tma4135-4-3-fig-aliasing",
+      "type": "image",
+      "src": "/images/textbook/tma4135/aliasing-dft.svg",
+      "alt": "To kurver tegnet over samme intervall fra null til én. Den ene er cosinus av to pi x, tegnet med heltrukket linje, og den andre er cosinus av seks pi x, tegnet stiplet med tre ganger så mange svingninger. Fem markerte punkter i x lik null, en kvart, en halv, tre kvart og én ligger på begge kurvene.",
+      "caption": "Aliasing: $\\cos(2\\pi x)$ og $\\cos(6\\pi x)$ har nøyaktig samme verdier i de fire samplingspunktene $x_j = j/4$. En DFT med $N=4$ kan ikke skille dem — den ser bare prikkene."
+    },
+    {
+      "id": "tma4135-4-3-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: les av koeffisientene til et båndbegrenset signal",
+      "problem": "Et signal er samplet i $N=8$ punkter $x_j = j/8$, og verdiene er\n\n$$f_j = 1 + 2\\cos\\!\\left(\\frac{2\\pi j}{8}\\right) + \\cos\\!\\left(\\frac{4\\pi j}{8}\\right).$$\n\n**a)** Avgjør om signalet er båndbegrenset for $N=8$.\n**b)** Finn $\\hat{c}$ uten å regne ut noen sum.\n**c)** Kontroller svaret ved å regne ut $c_0$ og $f_0$ direkte.\n\nFør løsningen som en toppbesvarelse.",
+      "solution": "**a) Båndbegrensning.** Skriv leddene med **Eulers formler**:\n$$2\\cos\\!\\left(\\frac{2\\pi j}{8}\\right) = e^{2\\pi ij/8}+e^{-2\\pi ij/8}, \\qquad \\cos\\!\\left(\\frac{4\\pi j}{8}\\right) = \\tfrac12\\left(e^{2\\pi i\\cdot2j/8}+e^{-2\\pi i\\cdot 2j/8}\\right).$$\n\nSignalet inneholder altså frekvensene $m = 0, \\pm1, \\pm2$. Alle oppfyller $|m| < N/2 = 4$, så signalet **er båndbegrenset** for $N=8$. Ingen aliasing, og koeffisientene kan leses av eksakt.\n\n*Uttelling her: begrunnelsen er selve poenget. Å skrive at «alle frekvenser er mindre enn 4 i tallverdi» er det som gjør resten av besvarelsen gyldig.*\n\n**b) Avlesning.** **Etter ortogonalitetsrelasjonen** har leddet $e^{2\\pi imj/N}$ DFT-koeffisient 1 i indeks $m$ og 0 ellers. Med $w = e^{2\\pi i/8}$, og med negativ indeks $-m$ oversatt til $N-m$:\n\n- konstanten 1 gir $c_0 = 1$;\n- $e^{2\\pi ij/8}$ gir $c_1 = 1$, og $e^{-2\\pi ij/8}$ gir $c_{7} = 1$;\n- $\\tfrac12 e^{2\\pi i\\cdot 2j/8}$ gir $c_2 = \\tfrac12$, og $\\tfrac12 e^{-2\\pi i\\cdot2j/8}$ gir $c_{6} = \\tfrac12$.\n\nAlle øvrige er null:\n$$\\hat{c} = \\left(1,\\ 1,\\ \\tfrac12,\\ 0,\\ 0,\\ 0,\\ \\tfrac12,\\ 1\\right).$$\n\n**Kontroll av reell-testen.** Dataene er reelle, så vi må ha $c_{8-k} = \\overline{c_k}$. Her er alle koeffisientene reelle, og $c_7 = c_1 = 1$, $c_6 = c_2 = \\tfrac12$, $c_5 = c_3 = 0$, og $c_4 = 0$ er reell. Stemmer.\n\n*(At alle $c_k$ er **reelle**, henger sammen med at signalet bare består av cosinusledd — altså at det er en **like** funksjon av $j$. Samme regel som for Fourier-koeffisienter i [kap. 3.3](/tma4135/tma4135-3-3).)*\n\n**c) Kontroll ved direkte regning.**\n\n*Middelverdien.* Regn ut alle åtte $f_j$:\n$$f_0 = 1+2+1 = 4, \\quad f_1 = 1+\\sqrt2+0 = 1+\\sqrt2, \\quad f_2 = 1+0-1 = 0, \\quad f_3 = 1-\\sqrt2+0 = 1-\\sqrt2,$$\n$$f_4 = 1-2+1 = 0, \\quad f_5 = 1-\\sqrt2+0, \\quad f_6 = 1+0-1 = 0, \\quad f_7 = 1+\\sqrt2+0.$$\n*(Her er $2\\cos(2\\pi j/8) = 2\\cos(\\pi j/4)$, som for $j=1$ gir $2\\cdot\\frac{\\sqrt2}{2} = \\sqrt2$.)*\n\nSummen er $4 + 2(1+\\sqrt2) + 2(1-\\sqrt2) + 0+0+0+0 = 4+2+2 = 8$, så\n$$c_0 = \\frac{8}{8} = 1.$$\nStemmer med avlesningen.\n\n*Første datapunkt.* Den inverse DFT-en gir $f_0 = \\sum_k c_k w^{0} = \\sum_k c_k = 1+1+\\tfrac12+0+0+0+\\tfrac12+1 = 4$. Og direkte fra formelen er $f_0 = 1+2\\cos0+\\cos0 = 1+2+1 = 4$. Stemmer.\n\n**Hva sjangeren tester.** Tre ting: at du kan skrive om cosinus til eksponentialer, at du vet hvilken indeks en negativ frekvens havner på ($-m$ blir $N-m$), og at du kan begrunne båndbegrensningen. Ingen av delene krever regning — men alle tre må stå.\n\n**Og hva som skjer uten båndbegrensning.** Hadde signalet inneholdt et ledd med $m=5$, ville det gitt bidrag i indeks $5$ — men også vært umulig å skille fra $m=-3$, altså indeks 5 igjen. Da er avlesningen ikke lenger entydig, og du må si det."
+    },
+    {
+      "id": "tma4135-4-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-3-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger R.) Et signal samples i $N=4$ punkter $x_j = j/4$.\n\n**a)** Vis at $\\cos(6\\pi x)$ og $\\cos(2\\pi x)$ gir nøyaktig de samme fire måleverdiene.\n**b)** Forklar hva det betyr for DFT-en, og hvilken av de to frekvensene DFT-en «rapporterer».",
+        "solution": "**a)** Regn ut begge i punktene $x_j = j/4$ for $j=0,1,2,3$.\n\n$\\cos(2\\pi x_j) = \\cos\\left(\\frac{\\pi j}{2}\\right)$:\n$$j=0: 1, \\qquad j=1: 0, \\qquad j=2: -1, \\qquad j=3: 0.$$\n\n$\\cos(6\\pi x_j) = \\cos\\left(\\frac{3\\pi j}{2}\\right)$:\n$$j=0: 1, \\qquad j=1: \\cos\\tfrac{3\\pi}{2} = 0, \\qquad j=2: \\cos 3\\pi = -1, \\qquad j=3: \\cos\\tfrac{9\\pi}{2} = 0.$$\n\nBegge gir $(1,0,-1,0)$. Identiske.\n\n*Generelt argument:* $\\cos\\left(\\frac{3\\pi j}{2}\\right) = \\cos\\left(\\frac{\\pi j}{2}+\\pi j\\right)$, og siden $\\cos(\\theta+\\pi j) = (-1)^j\\cos\\theta$ mens $\\cos\\left(\\frac{\\pi j}{2}\\right)$ er null for odde $j$, faller forskjellen bort i alle fire punktene.\n\n**b)** DFT-en ser **bare** de fire tallene, ikke kurven de kom fra. Den kan derfor ikke skille de to frekvensene — det er nettopp **aliasing**.\n\nFra eksempel 1 vet vi at DFT-en til $(1,0,-1,0)$ er $\\left(0,\\tfrac12,0,\\tfrac12\\right)$, altså energi på indeks 1 og 3. Indeks 1 svarer til frekvensen $m=1$, og indeks 3 svarer til $m=3$, som med $N=4$ er det samme som $m=-1$.\n\n**DFT-en rapporterer altså den langsomste av de mulige frekvensene**, $\\cos(2\\pi x)$. Den raskere svingningen $\\cos(6\\pi x)$ har frekvens $m=3$, som med $N=4$ er utenfor båndet $|m|<2$ og derfor foldes ned på $m=-1$.\n\n**Praktisk konsekvens.** Vil du kunne skille en frekvens $m$, må du sample med $N > 2|m|$ punkter. Det er **samplingsteoremet** i kortform: du må ha mer enn to punkter per svingning.\n\n*(Figuren i løkke 4 viser de to kurvene sammen med de felles målepunktene.)*",
+        "hints": [
+          "Regn ut begge funksjonene i de fire punktene $x_j = j/4$ og sammenlikn.",
+          "Bruk at $\\cos$ av et helt multiplum av $\\pi$ er $\\pm1$, og at $\\cos$ av et odde multiplum av $\\pi/2$ er 0.",
+          "Hvilke indekser har energi i DFT-en, og hvilke frekvenser svarer de til?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-3-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger R — krevende.) Et signal med $N=8$ er gitt ved\n$$f_j = 3 - 4\\sin\\!\\left(\\frac{2\\pi j}{8}\\right).$$\n\n**a)** Finn $\\hat{c}$ ved avlesning.\n**b)** Kontroller svaret med reell-testen og med middelverdien.\n**c)** Hva blir $\\hat{c}$ hvis alle dataene skiftes ett hakk fram, $\\tilde{f}_j = f_{j+1}$?",
+        "solution": "**a)** Skriv sinusleddet med **Eulers formel**:\n$$-4\\sin\\!\\left(\\frac{2\\pi j}{8}\\right) = -4\\cdot\\frac{e^{2\\pi ij/8}-e^{-2\\pi ij/8}}{2i} = \\frac{-2}{i}\\left(e^{2\\pi ij/8}-e^{-2\\pi ij/8}\\right) = 2i\\left(e^{2\\pi ij/8}-e^{-2\\pi ij/8}\\right),$$\nder vi brukte $\\frac{1}{i} = -i$.\n\nSignalet er altså\n$$f_j = 3 + 2i\\,e^{2\\pi ij/8} - 2i\\,e^{-2\\pi ij/8}.$$\n\nFrekvensene er $m=0,\\pm1$, alle med $|m|<4$, så signalet er **båndbegrenset** og avlesningen er eksakt:\n$$c_0 = 3, \\qquad c_1 = 2i, \\qquad c_7 = -2i,$$\nog alle øvrige null:\n$$\\hat{c} = \\left(3,\\ 2i,\\ 0,\\ 0,\\ 0,\\ 0,\\ 0,\\ -2i\\right).$$\n\n**b) Kontroller.**\n\n*Reell-testen:* $c_0 = 3$ er reell ✔; $c_4 = 0$ er reell ✔ (midtfrekvensen); $c_7 = -2i = \\overline{2i} = \\overline{c_1}$ ✔. Testen holder, som den må for en reell datavektor.\n\n*Middelverdien:* sinusleddet summerer til null over en hel periode ($\\sum_{j=0}^{7}\\sin(2\\pi j/8) = 0$ ved symmetri), så gjennomsnittet av $f_j$ er 3. Det stemmer med $c_0 = 3$.\n\n*(At koeffisientene er **rent imaginære** for $k\\ne0$, henger sammen med at den ikke-konstante delen er et rent sinusledd — altså en odde funksjon av $j$. Samme regel som i [kap. 3.3](/tma4135/tma4135-3-3).)*\n\n**c) Etter skiftet.** **Etter skifteegenskapen** er $\\tilde{c}_k = w^k c_k$ med $w = e^{2\\pi i/8} = e^{i\\pi/4}$. Bare tre koeffisienter er ulik null:\n\n$$\\tilde{c}_0 = w^0\\cdot 3 = 3,$$\n$$\\tilde{c}_1 = w\\cdot 2i = 2i\\,e^{i\\pi/4} = 2i\\left(\\frac{\\sqrt2}{2}+\\frac{\\sqrt2}{2}i\\right) = \\sqrt2\\,i - \\sqrt2 = -\\sqrt2+\\sqrt2\\,i,$$\n$$\\tilde{c}_7 = w^{7}\\cdot(-2i) = e^{7i\\pi/4}\\cdot(-2i) = \\left(\\frac{\\sqrt2}{2}-\\frac{\\sqrt2}{2}i\\right)(-2i) = -\\sqrt2\\,i - \\sqrt2 = -\\sqrt2-\\sqrt2\\,i.$$\n\n$$\\hat{\\tilde{c}} = \\left(3,\\ -\\sqrt2+\\sqrt2 i,\\ 0,\\ 0,\\ 0,\\ 0,\\ 0,\\ -\\sqrt2-\\sqrt2 i\\right).$$\n\n**Kontroll 1 — amplituden.** $\\left|\\tilde{c}_1\\right| = \\sqrt{2+2} = 2 = \\left|c_1\\right|$ ✔. Skiftet endrer ikke amplituden, bare fasen.\n\n**Kontroll 2 — reell-testen.** $\\tilde{c}_7 = -\\sqrt2-\\sqrt2 i = \\overline{-\\sqrt2+\\sqrt2 i} = \\overline{\\tilde{c}_1}$ ✔. Skiftet av en reell vektor er reell, så testen må fortsatt holde.\n\n**Merk hvor mye arbeid skifteegenskapen sparer.** Alternativet var å skrive opp den skiftede vektoren og regne åtte summer med åtte ledd hver. Her ble det tre multiplikasjoner.",
+        "hints": [
+          "Skriv sinusleddet med Eulers formel, og pass på at $1/i = -i$.",
+          "Negativ frekvens $-m$ havner på indeks $N-m$.",
+          "For c): skifteegenskapen ganger bare $c_k$ med $w^k$ — de nulle koeffisientene forblir null."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil $1/N$-faktor eller inkonsistent konvensjon.** Legger du $\\frac1N$ foran DFT-en, skal den **ikke** stå i den inverse. Blander du, får du svar som er $N$ ganger for store eller små. Skriv én setning om hvilken konvensjon du bruker.\n\n**Feil fortegn i $w^{-jk}$.** DFT-en har **minus** i eksponenten, den inverse har pluss. Bytter du om, får du speilvendte koeffisienter — $c_k$ havner der $c_{N-k}$ skulle ligget.\n\n**Å glemme å redusere eksponenten modulo $N$.** $w^{-9}$ med $N=4$ er $w^{-1} = -i$, ikke noe nytt tall. Skriv opp potenstabellen for $w$ først; da går resten mekanisk.\n\n**Å forveksle «like» med «hverandres konjugerte» i reell-testen.** Kravet er $c_{N-k} = \\overline{c_k}$. To like komplekse tall oppfyller det bare hvis de er reelle.\n\n**Å glemme at $c_0$ og (for like $N$) $c_{N/2}$ må være reelle** når dataene er reelle. Det er de to indeksene som er sine egne speilinger.\n\n**Å glemme aliasing.** Har signalet frekvenser med $|m| \\ge N/2$, er avlesningen ikke entydig. Sjekk båndbegrensningen **før** du leser av, og si det i besvarelsen.\n\n**Å oppgi skifteretningen upresist.** Skift fram gir $w^{+k}$, skift bakover gir $w^{-k}$. Si hvilken du bruker; det er der fortegnet avgjøres.\n\n**Å ikke kontrollere med middelverdien.** $c_0$ er gjennomsnittet av dataene. Ti sekunder, og det fanger de fleste regnefeil i den mest utsatte koeffisienten."
+    },
+    {
+      "id": "tma4135-4-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-4-3-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på det [kap. 1.1](/tma4135/tma4135-1-1) og [kap. 3.3](/tma4135/tma4135-3-3) forutsetter. Bruker du mer enn ti minutter, friskt opp enhetsrøttene i [kap. 1.1](/tma4135/tma4135-1-1) løkke 3."
+        },
+        {
+          "id": "tma4135-4-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-3-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp de fire fjerderøttene av 1 på kartesisk form, og vis at summen er null.",
+            "solution": "Røttene er $w^k = e^{2\\pi ik/4} = i^k$ for $k=0,1,2,3$:\n$$1, \\quad i, \\quad -1, \\quad -i.$$\nSummen er $1+i-1-i = 0$.\n\nDette er spesialtilfellet $N=4$ av regelen fra [kap. 1.1](/tma4135/tma4135-1-1) om at summen av alle $N$ enhetsrøtter er null. Regelen er nettopp det som gjør at $c_k = 0$ for $k\\ne0$ når dataene er konstante.",
+            "hints": [
+              "$w = e^{2\\pi i/4} = i$; regn ut potensene."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-3-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\dfrac{1}{i}$, $\\dfrac{1}{2i}$ og $\\overline{e^{i\\theta}}$ for reell $\\theta$.",
+            "solution": "$$\\frac1i = \\frac{-i}{-i\\cdot i} = \\frac{-i}{1} = -i, \\qquad \\frac{1}{2i} = -\\frac{i}{2}.$$\n\n$$\\overline{e^{i\\theta}} = \\overline{\\cos\\theta+i\\sin\\theta} = \\cos\\theta-i\\sin\\theta = e^{-i\\theta}.$$\n\nDen siste brukes i beviset for reell-testen: konjugering av $w^{-jk}$ gir $w^{jk}$.",
+            "hints": [
+              "Forleng med den konjugerte av nevneren.",
+              "Bruk Eulers formel på den siste."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-3-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at $\\sum_{j=0}^{N-1}q^{j} = 0$ når $q$ er en $N$-te enhetsrot forskjellig fra 1.",
+            "solution": "Den geometriske rekka gir, for $q\\ne1$,\n$$\\sum_{j=0}^{N-1}q^{j} = \\frac{q^{N}-1}{q-1}.$$\nSiden $q$ er en $N$-te enhetsrot, er $q^{N} = 1$, så telleren er null. Nevneren er ulik null fordi $q\\ne1$. Altså er summen 0. $\\blacksquare$\n\nDette ene regnestykket er **hele** ortogonalitetsrelasjonen for DFT-en, og dermed grunnen til at den inverse transformen faktisk er den inverse.",
+            "hints": [
+              "Bruk formelen for summen av en endelig geometrisk rekke.",
+              "Hva er $q^N$ når $q$ er en $N$-te enhetsrot?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-3-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv $\\cos\\theta$ og $\\sin\\theta$ ved hjelp av $e^{i\\theta}$ og $e^{-i\\theta}$, og forklar hvorfor det er nyttig i avlesningsoppgaver.",
+            "solution": "$$\\cos\\theta = \\frac{e^{i\\theta}+e^{-i\\theta}}{2}, \\qquad \\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}.$$\n\n**Nytten:** DFT-en har rene eksponentialer som byggeklosser, og hver av dem gir bidrag i nøyaktig **én** indeks. Skriver du et cosinus- eller sinusledd om til to eksponentialer, ser du umiddelbart hvilke to indekser som får bidrag — og hvor store de er. Det er hele avlesningsteknikken i løkke 4.\n\n**Merk nevneren $2i$** i sinusformelen. Det er den som gjør at et rent sinusledd får **rent imaginære** koeffisienter.",
+            "hints": [
+              "Legg sammen og trekk fra de to formene av Eulers formel.",
+              "Hva er DFT-en til ett enkelt ledd $e^{2\\pi imj/N}$?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-4-3-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $N$ | Antall målepunkter. **Merk:** samme $N$ som antall enhetsrøtter i [kap. 1.1](/tma4135/tma4135-1-1) |\n| $j$ | Indeks for målepunktene, $j=0,\\dots,N-1$ |\n| $k$ | Indeks for frekvensene, $k=0,\\dots,N-1$ |\n| $x_j = j/N$ | Samplingspunktene |\n| $f_j$ | Måleverdien i punkt $j$; datavektoren er $f=(f_0,\\dots,f_{N-1})$ |\n| $w = e^{2\\pi i/N}$ | Den $N$-te enhetsroten. For $N=4$ er $w=i$ |\n| $c_k$ | Den $k$-te DFT-koeffisienten |\n| $\\hat{c}$ | Hele koeffisientvektoren |\n| $F_N$ | DFT-matrisen |\n| $\\tilde{f}$, $\\tilde{c}$ | Den skiftede datavektoren og dens DFT |\n| $m$ | Frekvensnummeret i et båndbegrenset signal |\n| $\\overline{z}$ | Kompleks konjugat |\n| $\\lvert c_k\\rvert$ | Amplitudespekteret |\n"
+        },
+        {
+          "id": "tma4135-4-3-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$c_k = \\frac{1}{N}\\sum_{j=0}^{N-1}f_j\\,w^{-jk}, \\qquad w = e^{2\\pi i/N}$$\nDen diskrete Fourier-transformen, i bokas konvensjon. *(Må kunnes eller utledes aktivt — står vanligvis ikke på det utdelte formelarket.)*\n\n$$f_j = \\sum_{k=0}^{N-1}c_k\\,w^{jk}$$\nDen inverse DFT-en — ingen $1/N$, og pluss i eksponenten. *(Må kunnes.)*\n\n$$c_0 = \\frac1N\\sum_{j=0}^{N-1}f_j$$\nKonstantleddet er middelverdien — den billigste kontrollen som finnes. *(Må kunnes.)*\n\n$$w^N = 1, \\qquad \\overline{w} = w^{-1}, \\qquad \\sum_{k=0}^{N-1}w^{k} = 0 \\ (N\\ge2)$$\nEnhetsrot-egenskapene fra [kap. 1.1](/tma4135/tma4135-1-1). *(Må kunnes.)*\n\n$$\\frac1N\\sum_{j=0}^{N-1}w^{j(m-k)} = \\begin{cases}1,& m=k\\\\ 0,& m\\ne k\\end{cases}$$\nOrtogonalitetsrelasjonen. *(Må kunnes eller utledes aktivt.)*\n\n$$f \\text{ reell} \\iff c_{N-k} = \\overline{c_k} \\ \\text{for alle } k$$\nReell-testen. Spesielt må $c_0$ og (for like $N$) $c_{N/2}$ være reelle. *(Må kunnes eller utledes aktivt.)*\n\n$$\\tilde{f}_j = f_{j+1} \\implies \\tilde{c}_k = w^{k}c_k, \\qquad \\tilde{f}_j = f_{j-1} \\implies \\tilde{c}_k = w^{-k}c_k$$\nSkifteegenskapen begge veier. *(Må kunnes eller utledes aktivt — beviset er blitt bedt om.)*\n\n$$c_{k+N} = c_k$$\nPeriodisiteten i koeffisientene; indeks $-k$ betyr $N-k$. *(Må kunnes.)*\n\n$$\\cos\\theta = \\frac{e^{i\\theta}+e^{-i\\theta}}{2}, \\qquad \\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}$$\nEulers formler, brukt i alle avlesningsoppgaver. *(Må kunnes.)*\n\n$$e^{2\\pi imj/N} \\ \\longrightarrow\\ c_m = 1, \\ \\text{alle andre } 0$$\nAvlesningsregelen for et båndbegrenset signal. *(Må kunnes eller utledes aktivt.)*\n\n$$\\cos A\\cos B, \\quad \\sin A\\cos B, \\quad \\cos 2A$$\nDe trigonometriske identitetene du eventuelt trenger for å skrive om et sammensatt signal. *(Står på det utdelte formelarket — tren oppslaget. Selve DFT-apparatet står derimot ikke der.)*\n\n**Kolliderende symboler:** $N$ er antall målepunkter her og antall enhetsrøtter i [kap. 1.1](/tma4135/tma4135-1-1) — det er med vilje samme bokstav, for det er samme tall. Bokstaven $k$ er frekvensindeksen her; i Del 5 er $k$ separasjonskonstanten, og i Del 8 kaller det utdelte formelarket tidssteget $k$. Bokstaven $c$ er DFT-koeffisienten her og den komplekse Fourier-koeffisienten i [kap. 3.3](/tma4135/tma4135-3-3) — også det med vilje, siden de spiller nøyaktig samme rolle; i Del 5 er $c$ derimot bølgefarten. Og $w$ er enhetsroten, ikke å forveksle med $\\omega$ (vinkelfrekvensen) i [kap. 4.1](/tma4135/tma4135-4-1) og [kap. 4.2](/tma4135/tma4135-4-2)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
