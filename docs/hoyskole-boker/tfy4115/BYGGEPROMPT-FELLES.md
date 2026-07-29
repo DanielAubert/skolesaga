@@ -128,6 +128,31 @@ Verifiser med `node scripts/hoyskolebok/quiz-lengdesjekk.mjs` før du melder fer
 - **ORDET «sensorveiledning» er FORBUDT** utenfor kap. 0.1. Arkivet har ingen —
   bruk «løsningsforslagene viser …».
 
+
+## ⚠ FLASHCARD-KVOTEN KOMMER BARE FRA `definition` PÅ TOPPNIVÅ
+
+`getFlashcardDefinitions` (src/lib/data/flashcard-definitions.ts) itererer
+`for (const block of chapter.content)` — altså **kun toppnivå** — og filtrerer
+`block.type === 'definition'`.
+
+Konsekvensen, målt og verifisert 30. juli 2026:
+
+- **`theorem`-blokker gir NULL flashcards.** Et navngitt teorem hører riktignok
+  i en `theorem`-blokk for rendringens del — men da teller det ikke mot kvoten.
+- **`definition` inne i en collapsible gir NULL flashcards.** Bare toppnivå.
+
+Dette rammer særlig Del 2–8, som har flere navngitte teoremer per kapittel enn
+Del 1. Del 1-agenten løste det ved å legge de ti teoremene som `theorem`
+(riktig rendring) og fylle kvoten med begreps- og prosedyrekort på toppnivå.
+
+**Regelen: tell kvoten som antall `definition`-blokker på toppnivå, og bare
+dem.** Sjekk med:
+
+    python3 -c "import json,glob;
+    print(sum(1 for f in glob.glob('src/lib/data/chapters/tfy4115-*.json')
+              for b in json.load(open(f,encoding='utf-8')).get('content',[])
+              if isinstance(b,dict) and b.get('type')=='definition'))"
+
 ## Quiz
 
 Skriv til `src/lib/data/quiz-staging/<id>.quiz.json`. Kvoter = skjelettets
