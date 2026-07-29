@@ -1,0 +1,392 @@
+{
+ "id": "in2010-4-3",
+ "courseId": "in2010",
+ "chapterNumber": "4.3",
+ "title": "Balanserte trær — AVL og rød-svart",
+ "description": "AVL-trær med rotasjoner (håndkjøring) og rød-svart-fargelegging — hvorfor balanse gir O(log n), og hvordan man teller rotasjoner.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne regne ut balansefaktoren til hver node i et binært søketre og avgjøre om treet er et gyldig AVL-tre",
+  "kunne håndkjøre en innsettingsrekke i et AVL-tre og oppgi antall enkle rotasjoner, rotverdien til slutt og om resultatet er gyldig",
+  "kunne kjenne igjen hvilket av de fire ubalansetilfellene som foreligger, og vite at en dobbelrotasjon består av to enkle rotasjoner",
+  "kunne begrunne hvorfor et høydebalansert søketre har logaritmisk høyde, og gjengi fargeinvariantene i et rød-svart-tre"
+ ],
+ "content": [
+  {
+   "id": "in2010-4-3-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Balanserte trær har vært på **3 av de 7 settene i arkivet (43 %)**. Det er\nsjeldnere enn heap og vanlig søketre — men når temaet først kommer, kommer det i\nén bestemt form:\n\n- **Sjanger E — håndkjøring av en datastruktur**, altså at du utfører\n  operasjonen steg for steg på papir og oppgir **kun sluttilstanden**. Du får en\n  rekke tall og skal sette dem inn i et AVL-tre.\n\nOg svaret sensor ber om, består av nøyaktig tre ting:\n\n1. **antall enkle rotasjoner** — en dobbelrotasjon teller som **to**,\n2. **rotverdien** til slutt,\n3. **er dette et gyldig AVL-tre?**\n\n**Dette er et av de to stedene der IN2010 er tyngre enn NTNUs TDT4120.** Der er\nbalanserte trær stort sett et faktapunkt du krysser av på. Her skal du kunne\n**rotere for hånd** og telle rotasjonene riktig. Kommer du fra et NTNU-pensum\neller en generisk algoritmebok, er dette et tema du systematisk undervurderer.\n(Det andre stedet er hashing, [kap. 3.1](/in2010/in2010-3-1).)\n\n**Om prioritet.** Boka merker hvert tema med ett av tre nivåer: **må sitte**\n(høyeste prioritet), **kunne**, og **kjenne til**. Balanserte trær ligger på\nnivå to — **kunne**. De kommer ikke i hvert sett, men de er billige poeng for\nden som har drillet dem, og de er ofte det som skiller en god besvarelse fra en\nmiddels. **Rød-svart-trær**, som du møter helt til slutt i kapitlet, ligger på\nnivå tre: **kjenne til**. Der holder det å kunne faktaene.\n\n**Slik er kapitlet lagt opp (55 min):** fire løkker med tidsanslag, og et\npausepunkt midtveis.\n\n| Løkke | Innhold | Tid |\n|---|---|---|\n| 1 | Hvorfor balanse — og hva et AVL-tre er | ca. 12 min |\n| 2 | De fire ubalansetilfellene og rotasjonene | ca. 16 min |\n| 3 | Rotasjonstelling gjennom en hel innsettingsrekke | ca. 17 min |\n| 4 | Rød-svart-trær — kort, og på nivå «kjenne til» | ca. 10 min |"
+  },
+  {
+   "id": "in2010-4-3-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- [kap. 4.1](/in2010/in2010-4-1) — **BST-egenskapen**, innsetting og in-order.\n  Et AVL-tre *er* et binært søketre; det eneste nye er at det holdes balansert.\n  Uten BST-egenskapen i ryggmargen gir rotasjonene ingen mening.\n- [kap. 1.1](/in2010/in2010-1-1) — hva $O(\\log n)$ betyr, og hvorfor\n  halvering gir en logaritme. Hele poenget med balanse er å holde høyden der.\n- [kap. 1.4](/in2010/in2010-1-4) — faktapunktet om at et balansert søketre kan\n  brukes som prioritetskø. Det dukker opp igjen her, nå med begrunnelsen.\n\nHar du ikke lest [kap. 4.1](/in2010/in2010-4-1), les den først. Resten av dette\nkapitlet forutsetter at du kan sette inn i et vanlig søketre uten å tenke."
+  },
+  {
+   "id": "in2010-4-3-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-4-3-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall noder i treet |\n| $h$ | høyden til treet — antall **kanter** på den lengste stien fra rota ned til et blad |\n| $h_L$, $h_R$ | høyden på venstre og på høyre subtre til én node |\n| $\\mathrm{bf}(v)$ | balansefaktoren til noden $v$, altså $h_L - h_R$ |\n| $N(h)$ | det **minste** antallet noder et AVL-tre av høyde $h$ kan ha |\n| LL, RR, LR, RL | navnene på de fire ubalansetilfellene |\n| $O(\\log n)$ | logaritmisk tid — AVL-treets kjøretid for søk, innsetting og sletting |\n| $O(n)$ | lineær tid — det ubalanserte søketreets verste tilfelle, og in-order-utskriften |\n| $O(1)$ | konstant tid — kostnaden for én rotasjon |"
+    },
+    {
+     "id": "in2010-4-3-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insert(T, x)` | setter `x` inn i AVL-treet `T` som i et vanlig søketre, og rebalanserer på vei opp igjen | $O(\\log n)$ |\n| `Search(T, x)` | følger én sti fra rota, til venstre når `x` er mindre enn nodens verdi | $O(\\log n)$ |\n| `RotateLeft(v)` | enkel venstrerotasjon om `v`: høyre barn blir ny rot i subtreet | $O(1)$ |\n| `RotateRight(v)` | enkel høyrerotasjon om `v`: venstre barn blir ny rot i subtreet | $O(1)$ |\n| `Height(v)` | høyden lagret i noden `v`; et tomt subtre har høyde $-1$ og et blad høyde $0$ | $O(1)$ |\n| `BalanceFactor(v)` | `Height(v.left)` minus `Height(v.right)` | $O(1)$ |\n| `InOrder(T)` | skriver ut alle nøklene i **sortert** rekkefølge | $O(n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathrm{bf}(v) = h_L - h_R$$\n\nBalansefaktoren: høyden på venstre subtre minus høyden på høyre subtre. Et tomt\nsubtre har høyde $-1$, så et blad får $\\mathrm{bf} = 0 - 0 = 0$.\n\n$$-1 \\le \\mathrm{bf}(v) \\le 1 \\quad \\text{for alle noder}$$\n\nAVL-kravet. Blir en balansefaktor $+2$ eller $-2$ etter en innsetting, må treet\nrebalanseres i nettopp den noden.\n\n$$N(0) = 1, \\quad N(1) = 2, \\quad N(h) = 1 + N(h-1) + N(h-2)$$\n\nDet minste antallet noder et AVL-tre av høyde $h$ kan ha: rota, pluss de to\nminste subtrærne som til sammen oppfyller AVL-kravet.\n\n$$h \\le 2\\log_2 n$$\n\nFølgen av formelen over: høyden vokser logaritmisk med antall noder. Det er hele\ngrunnen til at et AVL-tre er $O(\\log n)$ og et vanlig søketre ikke er det."
+    }
+   ]
+  },
+  {
+   "id": "in2010-4-3-t-1",
+   "type": "text",
+   "content": "## Løkke 1 — når søketreet blir en lenkeliste (ca. 12 min)\n\nEt sykkelverksted registrerer ordrene sine i et binært søketre, med ordrenummeret\nsom nøkkel. Numrene deles ut fortløpende: 1001, 1002, 1003, 1004 og så videre.\n\nSe hva som skjer. 1001 blir rot. 1002 er større, så den havner til høyre. 1003 er\nstørre enn begge, så den havner til høyre for 1002. Etter tusen ordrer er treet\nen **kjede** på tusen noder, uten en eneste forgrening til venstre.\n\nSøketreet er teknisk sett feilfritt — BST-egenskapen holder i hver eneste node —\nmen det er blitt en lenket liste med ekstra pekere. Et søk må gå gjennom hele\nkjeden, og kjøretiden er $O(n)$, ikke $O(\\log n)$.\n\nDette er ikke et konstruert uhell. **Sortert eller nesten sortert input er den\nmest hverdagslige inputen som finnes**: ordrenumre, datoer, ansiennitet,\nløpenumre. Et vanlig søketre er raskt i gjennomsnitt og katastrofalt på nettopp\nde dataene du oftest har.\n\nLøsningen er å la treet gjøre litt ekstra arbeid ved hver innsetting, slik at det\naldri får lov til å bli skjevt. Det er det et **AVL-tre** gjør."
+  },
+  {
+   "id": "in2010-4-3-def-1",
+   "type": "definition",
+   "title": "AVL-tre",
+   "content": "Et binært søketre der høydeforskjellen mellom venstre og høyre subtre er **høyst\n1 i hver eneste node** — ikke bare i rota.\n\nNavnet er etter Adelson-Velskij og Landis, som beskrev strukturen i 1962. Kravet\nkalles **høydebalanse**. Konsekvensen er at høyden alltid er $O(\\log n)$, og at\nsøk, innsetting og sletting derfor er $O(\\log n)$ i **verste** tilfelle — ikke\nbare i gjennomsnitt, som i et vanlig søketre."
+  },
+  {
+   "id": "in2010-4-3-def-2",
+   "type": "definition",
+   "title": "Balansefaktor",
+   "content": "Balansefaktoren til en node $v$ er høyden på venstre subtre minus høyden på\nhøyre subtre:\n\n$$\\mathrm{bf}(v) = h_L - h_R$$\n\nEt tomt subtre har høyde $-1$, og en bladnode har høyde $0$. AVL-kravet er at\n$\\mathrm{bf}(v)$ er $-1$, $0$ eller $+1$ i hver node. Positiv balansefaktor\nbetyr at treet lener til **venstre**, negativ at det lener til **høyre**. Blir\nden $+2$ eller $-2$ etter en innsetting, er treet ubalansert nettopp der, og det\nmå rebalanseres."
+  },
+  {
+   "id": "in2010-4-3-th-1",
+   "type": "theorem",
+   "title": "Høyden til et AVL-tre er $O(\\log n)$ — med tellingen",
+   "content": "Påstanden er lett å hevde og verdt å regne på, for det er den som gjør hele\nstrukturen interessant.\n\n**Snu spørsmålet:** i stedet for å spørre hvor høyt et tre med $n$ noder kan bli,\nspør vi hvor **få** noder et AVL-tre av høyde $h$ kan slippe unna med. Kall det\n$N(h)$. Et magert AVL-tre av høyde $h$ har en rot, ett subtre av høyde $h-1$, og\n— så magert som kravet tillater — ett subtre av høyde $h-2$:\n\n$$N(0) = 1, \\quad N(1) = 2, \\quad N(h) = 1 + N(h-1) + N(h-2)$$\n\nRegnet ut:\n\n| Høyde $h$ | Minste antall noder $N(h)$ | $2 \\cdot N(h-2)$ |\n|---|---|---|\n| 0 | 1 | - |\n| 1 | 2 | - |\n| 2 | 4 | 2 |\n| 3 | 7 | 4 |\n| 4 | 12 | 8 |\n| 5 | 20 | 14 |\n| 6 | 33 | 24 |\n| 7 | 54 | 40 |\n| 8 | 88 | 66 |\n| 9 | 143 | 108 |\n\n**Les den tredje kolonnen.** I hver rad er $N(h)$ større enn $2 \\cdot N(h-2)$:\n$4 > 2$, $7 > 4$, $12 > 8$, $20 > 14$, $33 > 24$, $54 > 40$, $88 > 66$,\n$143 > 108$. Det er ikke en tilfeldighet, det følger direkte av formelen:\n$N(h) = 1 + N(h-1) + N(h-2)$ er større enn $2 \\cdot N(h-2)$ fordi $N(h-1)$ selv\ner større enn $N(h-2)$.\n\nAntall noder **minst dobles for hver annen høyde**. Da er\n\n$$N(h) \\ge 2^{h/2}, \\quad \\text{og siden } n \\ge N(h): \\quad h \\le 2\\log_2 n$$\n\n**Konkret:** et AVL-tre med 143 noder har høyde høyst 9. Et vanlig søketre med\n143 noder kan ha høyde 142 — kjeden fra verkstedet over.\n\n**Kjøretiden følger.** Søk og innsetting følger **én** sti fra rota ned til et\nblad, og gjør konstant arbeid i hver node. Antall noder på stien er høyden pluss\nén, altså $O(h)$, og med $h \\le 2\\log_2 n$ er det $O(\\log n)$."
+  },
+  {
+   "id": "in2010-4-3-def-3",
+   "type": "definition",
+   "title": "AVL-treets kjøretider",
+   "content": "| Operasjon | AVL-tre | Vanlig BST, verste tilfelle |\n|---|---|---|\n| Søk | $O(\\log n)$ | $O(n)$ |\n| Innsetting | $O(\\log n)$ | $O(n)$ |\n| Sletting | $O(\\log n)$ | $O(n)$ |\n| Minste/største | $O(\\log n)$ | $O(n)$ |\n| In-order-utskrift | $O(n)$ | $O(n)$ |\n\nForskjellen ligger utelukkende i **verste** tilfelle. Et vanlig søketre er også\n$O(\\log n)$ når det tilfeldigvis er balansert — AVL-treet **garanterer** det.\nIn-order er $O(n)$ i begge, fordi hver node må skrives ut uansett."
+  },
+  {
+   "id": "in2010-4-3-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Er dette et gyldig AVL-tre?",
+   "problem": "Avgjør om treet under er et gyldig AVL-tre. Oppgi balansefaktoren til hver node.\n\n```text\n                    50\n         __________/ \\____\n        25                75\n   ____/ \\____             \\____\n  10          35                90\n```",
+   "solution": "**Framgangsmåten er alltid den samme: begynn nederst.** En bladnode har to tomme\nsubtrær, begge med høyde $-1$, så $\\mathrm{bf} = (-1) - (-1) = 0$.\n\n- **10** er et blad: $\\mathrm{bf} = 0$.\n- **35** er et blad: $\\mathrm{bf} = 0$.\n- **90** er et blad: $\\mathrm{bf} = 0$.\n- **25** har to bladbarn, begge med høyde 0: $\\mathrm{bf} = 0 - 0 = 0$.\n- **75** har tomt venstre subtre (høyde $-1$) og bladet 90 til høyre (høyde 0):\n  $\\mathrm{bf} = -1 - 0 = -1$.\n- **50** har venstre subtre med rot 25 (høyde 1) og høyre subtre med rot 75\n  (høyde 1): $\\mathrm{bf} = 1 - 1 = 0$.\n\nSamlet, skrevet i pre-order slik du ville lest treet ovenfra og ned:\n\n`50:+0, 25:+0, 10:+0, 35:+0, 75:-1, 90:+0`\n\n**Svar: ja, dette er et gyldig AVL-tre.** Ingen balansefaktor er utenfor\n$-1$ til $+1$.\n\n**Legg merke til node 75.** Den har bare ett barn, og likevel er den i orden:\nhøydeforskjellen er 1, som er akkurat innenfor. Det er en vanlig kilde til\ntvil — «ett barn» er ikke i seg selv et brudd.\n\n**Fellenote.** Fella her er felle **#9** i bokas feilregister — å forveksle\nBST-/AVL-balansen (som handler om **høyder**, altså opp og ned) med\nheap-egenskapen (som handler om **verdier** mellom forelder og barn). Her sier\ningen at 25 må være mindre enn 50 av balansehensyn; det følger av\nBST-egenskapen, som er en helt annen regel."
+  },
+  {
+   "id": "in2010-4-3-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-3-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger E — håndkjøring av en datastruktur, altså at du\nutfører operasjonen steg for steg på papir og oppgir sluttilstanden.) Se på dette\ntreet:\n\n```text\n              30\n         ____/ \\____\n        20          40\n   ____/\n  10\n```\n\n**a)** Oppgi balansefaktoren til hver node.\n**b)** Er dette et gyldig AVL-tre?",
+    "solution": "**a)** Start nederst, som alltid.\n\n- **10** er et blad: $\\mathrm{bf} = 0$.\n- **40** er et blad: $\\mathrm{bf} = 0$.\n- **20** har bladet 10 til venstre (høyde 0) og tomt subtre til høyre\n  (høyde $-1$): $\\mathrm{bf} = 0 - (-1) = +1$.\n- **30** har venstre subtre med rot 20 (høyde 1) og bladet 40 til høyre\n  (høyde 0): $\\mathrm{bf} = 1 - 0 = +1$.\n\nI pre-order: `30:+1, 20:+1, 10:+0, 40:+0`\n\n**b) Ja, dette er et gyldig AVL-tre.** Begge balansefaktorene som ikke er null,\ner $+1$, og det er innenfor kravet.\n\n**Merk at svaret er ja.** «Er dette et gyldig AVL-tre?» har ikke nei som\nstandardsvar — sensor blander begge deler, og et tre som *ser* skjevt ut, kan\nvære helt i orden. To noder på rad som begge lener $+1$ er lovlig; det er først\nnår **én** node kommer til $+2$ at kravet brytes. Ugyldige tilfeller drilles i\n[kap. 4.5](/in2010/in2010-4-5).",
+    "hints": [
+     "Begynn med bladene. Hva er balansefaktoren til en node uten barn?",
+     "Husk at et tomt subtre har høyde $-1$, ikke 0. Det er den vanligste regnefeilen her."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-3-t-2",
+   "type": "text",
+   "content": "## Løkke 2 — de fire ubalansetilfellene (ca. 16 min)\n\nNå til selve maskineriet.\n\nDu setter inn en ny nøkkel akkurat som i et vanlig søketre: følg stien fra rota\ntil den havner som et nytt blad. Deretter går du **tilbake oppover** langs den\nsamme stien og oppdaterer høydene. Den **første** noden du møter med\nbalansefaktor $+2$ eller $-2$, er der ubalansen sitter, og den er den eneste du\nskal gjøre noe med.\n\nHva du skal gjøre, avhenger av **hvor** den nye nøkkelen havnet i forhold til den\nnoden. Se på de to første stegene på stien nedover fra den ubalanserte noden mot\nden nye nøkkelen. Hvert steg er enten venstre (L) eller høyre (R), og de to\nbokstavene gir navnet på tilfellet:\n\n| Tilfelle | De to stegene ned mot den nye nøkkelen | Løsning | Enkle rotasjoner |\n|---|---|---|---|\n| **LL** | venstre, så venstre | én høyrerotasjon om den ubalanserte noden | **1** |\n| **RR** | høyre, så høyre | én venstrerotasjon om den ubalanserte noden | **1** |\n| **LR** | venstre, så høyre | venstrerotasjon om barnet, så høyrerotasjon om noden | **2** |\n| **RL** | høyre, så venstre | høyrerotasjon om barnet, så venstrerotasjon om noden | **2** |\n\nDe to første kalles **enkle** tilfeller — ubalansen ligger «rett ut», og én\nrotasjon retter den. De to siste kalles **doble**: den nye nøkkelen havnet i det\n**indre** subtreet, og da må det roteres to ganger.\n\n**Skriv opp den siste kolonnen og pugg den.** Det er der poengene forsvinner."
+  },
+  {
+   "id": "in2010-4-3-def-4",
+   "type": "definition",
+   "title": "Enkelrotasjon",
+   "content": "En operasjon som løfter et barn opp i forelderens plass og skyver forelderen ned\npå motsatt side, slik at høydeforskjellen jevnes ut.\n\n**Venstrerotasjon om `v`:** høyre barn blir ny rot i subtreet, `v` blir dens\nvenstre barn, og barnets gamle venstre subtre henges på `v` som nytt høyre\nsubtre. **Høyrerotasjon** er speilbildet.\n\nKjøretiden er $O(1)$ — bare tre pekere endres, uansett hvor stort treet er. Og\ndet avgjørende: **in-order-rekkefølgen er nøyaktig den samme før og etter**. En\nrotasjon flytter på formen, aldri på sorteringen. Derfor er resultatet fortsatt\net gyldig binært søketre."
+  },
+  {
+   "id": "in2010-4-3-img-1",
+   "type": "image",
+   "src": "/images/textbook/in2010/avl-enkelrotasjon.svg",
+   "alt": "Til venstre en kjede av tre noder 10, 20 og 30 der 10 er rot og hver node har sitt eneste barn til høyre, merket med balansefaktorene minus to, minus én og null. En pil merket roter peker til høyre, der det samme treet står med 20 som rot og 10 og 30 som de to barna, alle med balansefaktor null.",
+   "caption": "RR-tilfellet: ubalansen oppdages i 10, og én enkel venstrerotasjon om 10 løfter 20 opp til rot. Se etter at rekkefølgen 10, 20, 30 er den samme før og etter — en rotasjon endrer formen, ikke sorteringen."
+  },
+  {
+   "id": "in2010-4-3-th-2",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `RotateLeft`",
+   "content": "**Antagelser om representasjon.** Treet består av noder, og en node `v` har\nfeltene `v.x` (nøkkelen), `v.left`, `v.right` og `v.height`. Et tomt subtre\nskrives `tom` og har høyde `-1`. Sensor binder seg ikke til én representasjon —\nmen du må oppgi den du bruker.\n\n**Prebetingelse:** `v.right` er ikke tom. **Postbetingelse:** subtreet har samme\nin-order-rekkefølge som før, og `v.right` fra før er blitt den nye roten i\nsubtreet.\n\n```text\nProcedure RotateLeft(v)\n  Input:  node v der v.right ikke er tom\n  Output: den nye roten i subtreet etter en enkel venstrerotasjon\n  ny = v.right\n  v.right = ny.left\n  ny.left = v\n  oppdater v.height, deretter ny.height\n  return ny\n```\n\n**Grunnideen i én setning:** `ny.left` er det eneste subtreet som ligger mellom\n`v` og `ny` i sortert rekkefølge, så det er det eneste som må flyttes — og det\nkan bare henges på `v` sin høyreside.\n\n**Merk rekkefølgen på de to siste linjene.** Høyden til `v` må oppdateres\n**før** høyden til `ny`, fordi `v` nå er barn av `ny`. Bytter du om, blir\n`ny.height` regnet ut fra en foreldet verdi. Dette er et av de stedene sensor\ngir delpoeng for å ha tenkt riktig.\n\n**Kjøretid:** $O(1)$. Tre pekertilordninger og to høydeoppdateringer, uavhengig\nav $n$. Det er derfor rebalanseringen ikke gjør innsettingen dyrere enn\n$O(\\log n)$: selve nedstigningen koster $O(\\log n)$, og rotasjonen på toppen\nkoster ingenting."
+  },
+  {
+   "id": "in2010-4-3-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: RR — sett inn 10, 20, 30 i et tomt AVL-tre",
+   "problem": "Sett inn 10, 20 og 30 i denne rekkefølgen i et tomt AVL-tre. Oppgi antall enkle\nrotasjoner, rotverdien til slutt, og om resultatet er et gyldig AVL-tre.",
+   "solution": "| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 10 | ingen | - | ingen | 0 | 0 | 10 |\n| 2 | 20 | ingen | - | ingen | 0 | 0 | 10 |\n| 3 | 30 | 10 | RR | enkel venstrerotasjon om 10 | 1 | 1 | 20 |\n\n**Steg for steg.**\n\nEtter steg 1 er 10 alene, med `10:+0`.\n\nEtter steg 2 henger 20 til høyre for 10:\n\n```text\n  10\n   \\____\n        20\n```\n\nBalansefaktorene er `10:-1, 20:+0`. Fortsatt lovlig — $-1$ er innenfor.\n\nEtter steg 3 havner 30 til høyre for 20. Nå er 10 sin høyre side to nivåer høy og\nvenstre side tom, altså $\\mathrm{bf}(10) = -1 - 1 = -2$. **Ubalansen sitter i\n10.** De to stegene ned mot 30 er høyre, så høyre — altså **RR**. Én enkel\nvenstrerotasjon om 10:\n\n```text\n        20\n   ____/ \\____\n  10          30\n```\n\nBalansefaktorene er `20:+0, 10:+0, 30:+0`, og in-order er `10, 20, 30`.\n\n**Sluttilstand — dette er svaret du leverer:**\n\n- **totalt antall ENKLE rotasjoner: 1**\n- **rotverdi til slutt: 20**\n- gyldig AVL-tre: **JA**\n\n**Fellenote.** Fella her er å levere treet i stedet for de tre tallene. Sensor ber\nom antall rotasjoner, rotverdi og gyldighet — tegner du et fint tre uten å svare\npå de tre spørsmålene, får du ikke poengene."
+  },
+  {
+   "id": "in2010-4-3-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-3-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger E.) Sett inn 30, 20 og 10 i denne rekkefølgen i et tomt AVL-tre. Oppgi\nantall enkle rotasjoner, rotverdien til slutt, og om resultatet er et gyldig\nAVL-tre.",
+    "solution": "| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 30 | ingen | - | ingen | 0 | 0 | 30 |\n| 2 | 20 | ingen | - | ingen | 0 | 0 | 30 |\n| 3 | 10 | 30 | LL | enkel høyrerotasjon om 30 | 1 | 1 | 20 |\n\nEtter steg 2 henger 20 til venstre for 30, med balansefaktorene `30:+1, 20:+0`.\n\nEtter steg 3 havner 10 til venstre for 20, og $\\mathrm{bf}(30) = 1 - (-1) = +2$.\nUbalansen sitter i 30, og de to stegene ned mot 10 er venstre, så venstre —\naltså **LL**. Én enkel høyrerotasjon om 30 gir\n\n```text\n        20\n   ____/ \\____\n  10          30\n```\n\nmed balansefaktorene `20:+0, 10:+0, 30:+0` og in-order `10, 20, 30`.\n\n**Sluttilstand:**\n\n- **totalt antall ENKLE rotasjoner: 1**\n- **rotverdi til slutt: 20**\n- gyldig AVL-tre: **JA**\n\n**Sammenlign med eksempel 2.** Det var RR og dette er LL — nøyaktig speilvendt,\nog svaret er identisk. De to enkle tilfellene er samme sak sett fra hver sin\nside, og du sparer arbeid på å behandle dem som ett.",
+    "hints": [
+     "Sett inn de tre nøklene som i et vanlig søketre først, og regn deretter balansefaktoren i rota.",
+     "Nøklene kommer i synkende rekkefølge. Hvilken vei lener treet da, og hva heter det tilfellet?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-3-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-3-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) `RotateLeft` sto i pseudokode-kontrakten over. Skriv `RotateRight`,\nspeilbildet. Oppgi antagelser om representasjon og kjøretid, og forklar i én\nsetning hvorfor in-order-rekkefølgen er uendret.",
+    "solution": "**Problemet navngitt:** enkel høyrerotasjon i et binært søketre — den operasjonen\nsom retter opp LL-tilfellet.\n\n**Antagelser om representasjon:** en node `v` har feltene `v.x`, `v.left`,\n`v.right` og `v.height`. Et tomt subtre skrives `tom` og har høyde `-1`.\n\n**Prebetingelse:** `v.left` er ikke tom. **Postbetingelse:** `v.left` fra før er\nny rot i subtreet, og in-order-rekkefølgen er uendret.\n\n**Algoritmen:**\n\n```text\nProcedure RotateRight(v)\n  Input:  node v der v.left ikke er tom\n  Output: den nye roten i subtreet etter en enkel hoeyrerotasjon\n  ny = v.left\n  v.left = ny.right\n  ny.right = v\n  oppdater v.height, deretter ny.height\n  return ny\n```\n\n**Hvorfor in-order er uendret:** `ny.right` inneholder nøyaktig de nøklene som\nligger mellom `ny.x` og `v.x` i sortert rekkefølge, og den henges på `v` sin\nvenstreside — som er akkurat den plassen som i det nye subtreet leses ut mellom\n`ny` og `v`.\n\n**Kjøretid:** $O(1)$, der $n$ er antall noder i treet. Tre pekertilordninger og\nto høydeoppdateringer, uavhengig av $n$.\n\n**Poengtrapp-notat.** Full uttelling krever alle fire leddene: problemet navngitt,\nantagelser om representasjon, algoritmen, og kjøretiden med $n$ definert. Å levere\nriktig kode uten kjøretid koster typisk et helt poeng, uansett hvor riktig koden\ner.\n\n**Kan dette gjøres raskere?** Nei — $O(1)$ er så lavt som det går an å komme. Det\ner nettopp derfor rebalanseringen er gratis i asymptotisk forstand: kostnaden\nved en innsetting ligger i nedstigningen, ikke i rotasjonen.",
+    "hints": [
+     "Start med hodet: hvilken input, hvilken output, og hva antar du om noden?",
+     "Bytt systematisk om `left` og `right` i `RotateLeft` — og pass på at høydene fortsatt oppdateres nedenfra og opp."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-3-def-5",
+   "type": "definition",
+   "title": "Dobbelrotasjon",
+   "content": "Rebalanseringen som kreves når den nye nøkkelen havner i det **indre** subtreet\ntil den ubalanserte noden, altså i LR- og RL-tilfellene.\n\nDen består av **to enkle rotasjoner**: først én om barnet, som gjør tilfellet om\ntil et LL eller RR, deretter én om noden selv. I LR-tilfellet er det først en\nvenstrerotasjon om venstre barn, så en høyrerotasjon om noden.\n\n**Den teller som to.** Spør oppgaven om antall **enkle** rotasjoner, er svaret 2\nfor hver dobbelrotasjon. Dette er den enkeltfeilen som koster flest poeng på\nAVL-håndkjøringer, og den er lett å unngå når du først vet om den."
+  },
+  {
+   "id": "in2010-4-3-img-2",
+   "type": "image",
+   "src": "/images/textbook/in2010/avl-dobbelrotasjon.svg",
+   "alt": "Tre paneler ved siden av hverandre. Første panel viser 30 som rot med 10 som venstre barn og 20 som høyre barn av 10, merket med balansefaktorene pluss to, minus én og null. Andre panel viser resultatet etter en venstrerotasjon om 10: 30 som rot med 20 som venstre barn og 10 som venstre barn av 20. Tredje panel viser resultatet etter en høyrerotasjon om 30: 20 som rot med 10 og 30 som barn, alle med balansefaktor null.",
+   "caption": "LR-tilfellet i tre bilder. Den midterste figuren er nøkkelen: etter den første rotasjonen er situasjonen blitt et vanlig LL-tilfelle, som den andre rotasjonen så retter. To bilder med pil imellom er to rotasjoner — tell dem."
+  },
+  {
+   "id": "in2010-4-3-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: LR — sett inn 30, 10, 20 i et tomt AVL-tre",
+   "problem": "Sett inn 30, 10 og 20 i denne rekkefølgen i et tomt AVL-tre. Oppgi antall enkle\nrotasjoner, rotverdien til slutt, og om resultatet er et gyldig AVL-tre.",
+   "solution": "| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 30 | ingen | - | ingen | 0 | 0 | 30 |\n| 2 | 10 | ingen | - | ingen | 0 | 0 | 30 |\n| 3 | 20 | 30 | LR | dobbelrotasjon om 30: først venstrerotasjon om 10, deretter høyrerotasjon om 30 | 2 | 2 | 20 |\n\n**Steg for steg.**\n\nEtter steg 2 henger 10 til venstre for 30:\n\n```text\n        30\n   ____/\n  10\n```\n\nBalansefaktorene er `30:+1, 10:+0`.\n\nEtter steg 3: 20 er mindre enn 30, så vi går til venstre; 20 er større enn 10, så\nvi går til høyre. Nøkkelen havner som høyre barn av 10. Nå er\n$\\mathrm{bf}(30) = 1 - (-1) = +2$. **Ubalansen sitter i 30**, og de to stegene ned\nmot 20 er venstre, så høyre — altså **LR**.\n\nÉn rotasjon holder ikke her. Hadde du høyrerotert om 30 med én gang, ville 10 blitt\nrot med 20 og 30 til høyre — like skjevt, bare motsatt vei. I stedet:\n\n1. **venstrerotasjon om 10** gjør stien om til venstre, venstre — altså et vanlig\n   LL-tilfelle,\n2. **høyrerotasjon om 30** retter det.\n\nResultatet:\n\n```text\n        20\n   ____/ \\____\n  10          30\n```\n\nBalansefaktorene er `20:+0, 10:+0, 30:+0`, og in-order er `10, 20, 30`.\n\n**Sluttilstand — dette er svaret du leverer:**\n\n- **totalt antall ENKLE rotasjoner: 2**\n- **rotverdi til slutt: 20**\n- gyldig AVL-tre: **JA**\n\n**Fellenote.** Fella her er kapitlets egen, og den står ikke i det nummererte\nfeilregisteret fordi den er så spesifikk: å telle dobbelrotasjonen som **én**\nrotasjon. Sensor spør etter **enkle** rotasjoner, og en dobbel er to av dem.\nSvarer du 1 her, har du regnet helt riktig og likevel mistet poenget."
+  },
+  {
+   "id": "in2010-4-3-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Sett inn 10, 30 og 20 i denne rekkefølgen i et tomt AVL-tre.\n\n**a)** Hvilket av de fire tilfellene oppstår, og i hvilken node?\n**b)** Oppgi antall enkle rotasjoner, rotverdien til slutt, og om resultatet er\net gyldig AVL-tre.",
+    "solution": "| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 10 | ingen | - | ingen | 0 | 0 | 10 |\n| 2 | 30 | ingen | - | ingen | 0 | 0 | 10 |\n| 3 | 20 | 10 | RL | dobbelrotasjon om 10: først høyrerotasjon om 30, deretter venstrerotasjon om 10 | 2 | 2 | 20 |\n\n**a)** Etter steg 2 henger 30 til høyre for 10, med balansefaktorene `10:-1, 30:+0`.\nI steg 3 er 20 større enn 10 (gå høyre) og mindre enn 30 (gå venstre), så nøkkelen\nhavner som venstre barn av 30. Da blir $\\mathrm{bf}(10) = -1 - 1 = -2$.\n**Ubalansen sitter i 10, og tilfellet er RL** — høyre, så venstre.\n\n**b)** RL løses med en dobbelrotasjon: først en høyrerotasjon om 30, som gjør\nstien om til høyre, høyre (et vanlig RR), deretter en venstrerotasjon om 10.\nResultatet er\n\n```text\n        20\n   ____/ \\____\n  10          30\n```\n\nmed balansefaktorene `20:+0, 10:+0, 30:+0`.\n\n- **totalt antall ENKLE rotasjoner: 2**\n- **rotverdi til slutt: 20**\n- gyldig AVL-tre: **JA**\n\n**Alle fire tilfellene ender i det samme treet.** Se på eksempel 2 (RR),\noppgave 2 (LL), eksempel 3 (LR) og denne (RL): samme tre nøkler i fire\nrekkefølger, og alle fire ender med rot 20 og 10 og 30 som barn. Det er ikke\ntilfeldig — et AVL-tre med tre noder har bare én lovlig form. Det som **skiller**\nsvarene, er antall rotasjoner: 1, 1, 2, 2.",
+    "hints": [
+     "Sett inn de tre nøklene som i et vanlig søketre, og se hvilken vei stien svinger på vei ned mot 20.",
+     "Er stien to like steg (LL eller RR) eller to ulike (LR eller RL)? Antall rotasjoner følger av det."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-3-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "De fire under er hentet fra det som faktisk trekkes på AVL-oppgaver. Den første\ner den dyreste.\n\n- **Å telle en dobbelrotasjon som én rotasjon.** Spørsmålet er «hvor mange\n  **enkle** rotasjoner», og en dobbel består av to. Kontroll: legg sammen\n  kolonnen «Enkle rot. i steget» i sporingen din, og se etter om noen av\n  radene sier «dobbelrotasjon» med tallet 1 ved siden av.\n- **Å ikke oppgi rotverdien eller gyldigheten.** Svaret består av tre ting, og et\n  tegnet tre er ikke ett av dem. Skriv de tre linjene eksplisitt, også når du\n  synes de er opplagte.\n- **Å forveksle AVL-balansen med heap-egenskapen.** Dette er felle **#9** i bokas\n  feilregister. AVL-kravet handler om **høyder** — hvor dypt subtrærne går. Heapen\n  handler om **verdier** mellom forelder og barn. Et AVL-tre kan gjerne ha en\n  liten verdi under en stor; det er BST-egenskapen, ikke balansekravet, som styrer\n  verdiene.\n- **Å tro at rød-svart-trær har en annen asymptotisk høyde enn AVL-trær.** Begge\n  er $O(\\log n)$. Rød-svart-trær er litt løsere balansert og roterer sjeldnere,\n  men i $O$-forstand er de like.\n\nOg den gjennomgående, som gjelder hele boka: **å bruke $n$ uten å definere det**\n— felle **#10**. Skriver du «kjøretiden er $O(\\log n)$», si i samme setning at\n$n$ er antall noder i treet. Det koster fem ord."
+  },
+  {
+   "id": "in2010-4-3-t-3",
+   "type": "text",
+   "content": "## Løkke 3 — rotasjonstelling gjennom en hel innsettingsrekke (ca. 17 min)\n\n— naturlig pausepunkt —\n\nTre noder er en oppvarming. Eksamensoppgaven gir deg fem til ti nøkler og spør\netter totalen.\n\nDa trenger du én ting til, og det er en god nyhet: **hver innsetting utløser\nhøyst én rebalansering.** Du trenger altså ikke lete videre oppover etter at du\nhar rettet den første ubalansen — treet er ferdig balansert i samme øyeblikk.\n\nGrunnen er at rotasjonen setter subtreets høyde tilbake til det den var **før**\ninnsettingen. Og var høyden uendret der, merker ingen node lenger oppe at noe har\nskjedd. Dette gjelder ved **innsetting**; ved sletting kan flere rotasjoner\nkreves, men sletting i AVL-tre håndkjøres ikke i dette faget.\n\nArbeidsgangen per nøkkel blir derfor mekanisk:\n\n1. sett inn nøkkelen som i et vanlig søketre,\n2. gå oppover langs stien og se etter den **første** noden med balansefaktor\n   $+2$ eller $-2$,\n3. finner du en: avgjør LL / RR / LR / RL av de to stegene nedover, roter, og\n   legg 1 eller 2 til rotasjonstelleren,\n4. finner du ingen: gå videre til neste nøkkel."
+  },
+  {
+   "id": "in2010-4-3-th-3",
+   "type": "theorem",
+   "title": "Håndkjøringsformatet for AVL",
+   "content": "Sensor ber om sluttilstanden, ikke om veien dit. For AVL består sluttilstanden av\n**tre** ting, og alle tre må stå der:\n\n1. **Antall enkle rotasjoner totalt.** Dobbelrotasjon teller som **to**.\n2. **Rotverdien** etter siste innsetting.\n3. **Er dette et gyldig AVL-tre?** Svaret er ja hvis du har rebalansert korrekt\n   underveis — men spørsmålet stilles fordi noen oppgaver gir deg et ferdig tre\n   og ber deg vurdere det.\n\n**Delvis riktig gir delvis uttelling.** Får du rotverdien riktig og\nrotasjonstallet galt, får du fortsatt uttelling for rotverdien. Derfor: la aldri\nnoen av de tre linjene stå tomme, selv om du er usikker.\n\n**En kontroll som tar ti sekunder:** skriv ned in-order-utskriften av treet ditt\ntil slutt. Den skal være nøklene dine i **sortert** rekkefølge — alle sammen,\ningen mistet, ingen duplisert. Har du rotert feil, avslører in-order det nesten\nalltid."
+  },
+  {
+   "id": "in2010-4-3-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Fem stigende nøkler — 1, 2, 3, 4, 5",
+   "problem": "Sett inn 1, 2, 3, 4 og 5 i denne rekkefølgen i et tomt AVL-tre. Hvor mange enkle\nrotasjoner utføres totalt, og hva er rotverdien til slutt?",
+   "solution": "Dette er nøyaktig verkstedscasen fra starten av kapitlet: stigende nøkler, som i\net vanlig søketre ville gitt en kjede på fem noder med høyde 4.\n\n| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 1 | ingen | - | ingen | 0 | 0 | 1 |\n| 2 | 2 | ingen | - | ingen | 0 | 0 | 1 |\n| 3 | 3 | 1 | RR | enkel venstrerotasjon om 1 | 1 | 1 | 2 |\n| 4 | 4 | ingen | - | ingen | 0 | 1 | 2 |\n| 5 | 5 | 3 | RR | enkel venstrerotasjon om 3 | 1 | 2 | 2 |\n\n**Steg for steg.**\n\nEtter steg 3 er treet balansert med 2 som rot:\n\n```text\n        2\n   ____/ \\____\n  1           3\n```\n\nBalansefaktorene er `2:+0, 1:+0, 3:+0`.\n\nEtter steg 4 henger 4 til høyre for 3:\n\n```text\n        2\n   ____/ \\____\n  1           3\n               \\____\n                    4\n```\n\nBalansefaktorene er `2:-1, 1:+0, 3:-1, 4:+0`. Merk at rota nå har $-1$ — det er\nlovlig, og derfor gjøres ingenting.\n\nEtter steg 5 havner 5 til høyre for 4, og $\\mathrm{bf}(3) = -1 - 1 = -2$.\n**Ubalansen oppdages i 3**, ikke i rota: 3 er den **første** noden med $\\pm 2$ på\nvei oppover. Tilfellet er RR, og én venstrerotasjon om 3 gir\n\n```text\n        2\n   ____/ \\__________\n  1                 4\n               ____/ \\____\n              3           5\n```\n\nBalansefaktorene er `2:-1, 1:+0, 4:+0, 3:+0, 5:+0`, og in-order er `1, 2, 3, 4, 5`\n— sortert, alle fem med, ingen duplisert.\n\n**Sluttilstand — dette er svaret du leverer:**\n\n- **totalt antall ENKLE rotasjoner: 2**\n- **rotverdi til slutt: 2**\n- gyldig AVL-tre: **JA**\n\nHøyden ble 2 i stedet for 4, med to rotasjoner som pris.\n\n**Merk hvor ubalansen ble oppdaget i steg 5.** Ikke i rota, men i 3. Å lete fra\nrota og nedover i stedet for fra den nye noden og oppover er en klassisk kilde\ntil feil svar: da roterer du feil node, og både rotverdien og rotasjonstallet\nblir galt.\n\n**Fellenote.** Fella her er å tro at rota alltid er den som må roteres. Det er\nden **nederste** noden med balansefaktor $\\pm 2$ som skal rebalanseres, og etter\nden ene rotasjonen er hele treet i orden igjen."
+  },
+  {
+   "id": "in2010-4-3-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-3-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Sett inn 50, 40, 30, 20 og 10 i denne rekkefølgen i et tomt AVL-tre.\nOppgi antall enkle rotasjoner, rotverdien til slutt, og om resultatet er et gyldig\nAVL-tre.",
+    "solution": "| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 50 | ingen | - | ingen | 0 | 0 | 50 |\n| 2 | 40 | ingen | - | ingen | 0 | 0 | 50 |\n| 3 | 30 | 50 | LL | enkel høyrerotasjon om 50 | 1 | 1 | 40 |\n| 4 | 20 | ingen | - | ingen | 0 | 1 | 40 |\n| 5 | 10 | 30 | LL | enkel høyrerotasjon om 30 | 1 | 2 | 40 |\n\nEtter steg 3 er treet balansert med 40 som rot og balansefaktorene\n`40:+0, 30:+0, 50:+0`.\n\nEtter steg 4 henger 20 til venstre for 30, og balansefaktorene er\n`40:+1, 30:+1, 20:+0, 50:+0` — fortsatt lovlig.\n\nEtter steg 5 havner 10 til venstre for 20, og $\\mathrm{bf}(30) = +2$. Ubalansen\noppdages i 30, tilfellet er LL, og én høyrerotasjon om 30 gir\n\n```text\n                    40\n         __________/ \\____\n        20                50\n   ____/ \\____\n  10          30\n```\n\nmed balansefaktorene `40:+1, 20:+0, 10:+0, 30:+0` og in-order\n`10, 20, 30, 40, 50`.\n\n**Sluttilstand:**\n\n- **totalt antall ENKLE rotasjoner: 2**\n- **rotverdi til slutt: 40**\n- gyldig AVL-tre: **JA**\n\n**Sammenlign med eksempel 4.** Der var nøklene stigende og alle rotasjonene var\nvenstrerotasjoner (RR); her er de synkende og alle er høyrerotasjoner (LL).\nAntallet er det samme, 2. Rota er derimot **ikke** speilbildet av den andre: her\ner den 40, ikke 20 — merk at rota til slutt har $\\mathrm{bf} = +1$, ikke $-1$\nsom i eksempel 4, fordi fem noder ikke lar seg fordele helt symmetrisk.",
+    "hints": [
+     "Nøklene kommer i synkende rekkefølge. Hvilken vei lener treet, og hvilket av de fire tilfellene gir det?",
+     "I steg 5: gå oppover fra den nye noden og stopp ved den **første** noden med balansefaktor pluss eller minus 2."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-3-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-3-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Sett inn 5, 10, 15, 12 og 14 i denne rekkefølgen i et tomt AVL-tre.\n\n**a)** Hvilke tilfeller oppstår, og i hvilke noder?\n**b)** Oppgi antall enkle rotasjoner, rotverdien til slutt, og om resultatet er\net gyldig AVL-tre.",
+    "solution": "| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 5 | ingen | - | ingen | 0 | 0 | 5 |\n| 2 | 10 | ingen | - | ingen | 0 | 0 | 5 |\n| 3 | 15 | 5 | RR | enkel venstrerotasjon om 5 | 1 | 1 | 10 |\n| 4 | 12 | ingen | - | ingen | 0 | 1 | 10 |\n| 5 | 14 | 15 | LR | dobbelrotasjon om 15: først venstrerotasjon om 12, deretter høyrerotasjon om 15 | 2 | 3 | 10 |\n\n**a)** To ubalanser oppstår. I steg 3 er det **RR i node 5**, og i steg 5 er det\n**LR i node 15**.\n\nEtter steg 3 er treet balansert med 10 som rot og balansefaktorene\n`10:+0, 5:+0, 15:+0`.\n\nEtter steg 4 havner 12 til venstre for 15 (12 er større enn 10, mindre enn 15):\n\n```text\n        10\n   ____/ \\__________\n  5                 15\n               ____/\n              12\n```\n\nBalansefaktorene er `10:-1, 5:+0, 15:+1, 12:+0` — fortsatt lovlig.\n\nEtter steg 5 havner 14 til høyre for 12. Da er $\\mathrm{bf}(15) = 1 - (-1) = +2$,\nog stien fra 15 ned mot 14 er venstre, så høyre — altså **LR**. Dobbelrotasjon:\nførst venstrerotasjon om 12, deretter høyrerotasjon om 15.\n\n```text\n        10\n   ____/ \\__________\n  5                 14\n               ____/ \\____\n              12          15\n```\n\nBalansefaktorene er `10:-1, 5:+0, 14:+0, 12:+0, 15:+0`, og in-order er\n`5, 10, 12, 14, 15`.\n\n**b) Sluttilstand:**\n\n- **totalt antall ENKLE rotasjoner: 3**\n- **rotverdi til slutt: 10**\n- gyldig AVL-tre: **JA**\n\n**Se på totalen: 3, ikke 2.** Én enkel rotasjon i steg 3 og én dobbel i steg 5,\nog den doble teller som to. Svarer du 2, har du gjort begge rebalanseringene helt\nriktig og likevel bommet på det tallet oppgaven spurte om. Det er derfor denne\noppgaven står her.",
+    "hints": [
+     "Sett inn nøkkel for nøkkel og regn balansefaktorene på nytt etter hver innsetting.",
+     "I steg 5: er de to stegene fra den ubalanserte noden ned mot 14 like eller ulike? Antall rotasjoner følger av det."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-3-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-3-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger E, krevende.) Sett inn 15, 25, 35, 5, 10 og 20 i denne rekkefølgen i et\ntomt AVL-tre.\n\n**a)** Før en tabell med ett steg per innsetting, der du oppgir hvilken node\nubalansen oppdages i, hvilket tilfelle det er, og hvor mange enkle rotasjoner\nsteget koster.\n**b)** Oppgi antall enkle rotasjoner totalt, rotverdien til slutt, og om\nresultatet er et gyldig AVL-tre.",
+    "solution": "| Steg | Nøkkel | Ubalanse oppdaget i | Tilfelle | Rotasjon(er) | Enkle rot. i steget | Sum enkle rot. | Rot etter steget |\n|---|---|---|---|---|---|---|---|\n| 1 | 15 | ingen | - | ingen | 0 | 0 | 15 |\n| 2 | 25 | ingen | - | ingen | 0 | 0 | 15 |\n| 3 | 35 | 15 | RR | enkel venstrerotasjon om 15 | 1 | 1 | 25 |\n| 4 | 5 | ingen | - | ingen | 0 | 1 | 25 |\n| 5 | 10 | 15 | LR | dobbelrotasjon om 15: først venstrerotasjon om 5, deretter høyrerotasjon om 15 | 2 | 3 | 25 |\n| 6 | 20 | 25 | LR | dobbelrotasjon om 25: først venstrerotasjon om 10, deretter høyrerotasjon om 25 | 2 | 5 | 15 |\n\n**Steg 3.** 35 gir $\\mathrm{bf}(15) = -2$, tilfellet er RR, og én venstrerotasjon\nom 15 gir treet med rot 25 og balansefaktorene `25:+0, 15:+0, 35:+0`.\n\n**Steg 4.** 5 havner til venstre for 15. Balansefaktorene blir\n`25:+1, 15:+1, 5:+0, 35:+0` — lovlig, ingen rotasjon.\n\n**Steg 5.** 10 er større enn 5 og mindre enn 15, så den havner til høyre for 5.\nDa blir $\\mathrm{bf}(15) = +2$, og stien fra 15 ned mot 10 er venstre, så høyre:\n**LR**. Dobbelrotasjonen gir\n\n```text\n                    25\n         __________/ \\____\n        10                35\n   ____/ \\____\n  5           15\n```\n\nmed balansefaktorene `25:+1, 10:+0, 5:+0, 15:+0, 35:+0`.\n\n**Steg 6.** 20 er mindre enn 25, større enn 10 og større enn 15, så den havner\ntil høyre for 15. Nå blir $\\mathrm{bf}(25) = 2 - 0 = +2$, og stien fra 25 ned mot\n20 er venstre, så høyre: **LR** igjen. Dobbelrotasjon om 25 — først\nvenstrerotasjon om 10, deretter høyrerotasjon om 25:\n\n```text\n              15\n         ____/ \\__________\n        10                25\n   ____/             ____/ \\____\n  5                 20          35\n```\n\nBalansefaktorene er `15:+0, 10:+1, 5:+0, 25:+0, 20:+0, 35:+0`, og in-order er\n`5, 10, 15, 20, 25, 35`.\n\n**b) Sluttilstand:**\n\n- **totalt antall ENKLE rotasjoner: 5**\n- **rotverdi til slutt: 15**\n- gyldig AVL-tre: **JA**\n\n**Regnestykket: $1 + 2 + 2 = 5$.** Én enkel og to doble. Den som teller doble som\nenkle, svarer 3 og mister poenget; den som glemmer den første enkle, svarer 4.\nKontrollen er in-order-utskriften: seks nøkler, sortert, ingen mistet.\n\n**Legg merke til at rota skifter to ganger.** Fra 15 til 25 i steg 3, og tilbake\ntil 15 i steg 6. Rotverdien underveis er ikke noe du kan gjette deg til fra\nnøklene — den må håndkjøres.",
+    "hints": [
+     "Ta én nøkkel om gangen, og skriv opp balansefaktorene på nytt etter hver innsetting. Ikke hopp over de stegene der ingenting skjer.",
+     "Både steg 5 og steg 6 er samme type tilfelle. Se på om de to stegene ned mot den nye nøkkelen går samme vei eller hver sin vei."
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-3-t-4",
+   "type": "text",
+   "content": "## Løkke 4 — rød-svart-trær (ca. 10 min)\n\n**Dette avsnittet ligger på nivå «kjenne til».** Rød-svart-trær håndkjøres ikke i\nIN2010 — du blir aldri bedt om å fargelegge et tre for hånd. Det som testes, er\nnoen få faktapunkter på Del 1, og de er raskt lært. Har du dårlig tid, er dette\navsnittet det første du kan lese overfladisk.\n\nEt **rød-svart-tre** er den andre måten å holde et søketre balansert på. I stedet\nfor å telle høyder gir man hver node en farge, rød eller svart, og krever at\nfargene fordeler seg etter noen enkle regler. Reglene er indirekte nok til at\ntreet ikke er *helt* så stramt balansert som et AVL-tre — men de holder høyden på\n$O(\\log n)$ likevel.\n\nBytteforholdet er verdt å kjenne: AVL-treet er strengere balansert og gir litt\nraskere **søk**, mens rød-svart-treet roterer sjeldnere og gir litt raskere\n**innsetting og sletting**. Begge er $O(\\log n)$ på alt. Det er derfor de fleste\nstandardbiblioteker bruker rød-svart-varianten."
+  },
+  {
+   "id": "in2010-4-3-def-6",
+   "type": "definition",
+   "title": "Rød-svart-tre",
+   "content": "Et binært søketre der hver node er farget rød eller svart, og der fargene\noppfyller fargeinvariantene under.\n\nFargene er ikke data — de er bokføring som holder treet omtrent balansert.\nResultatet er at høyden er $O(\\log n)$, og at søk, innsetting og sletting er\n$O(\\log n)$ i verste tilfelle, akkurat som i et AVL-tre."
+  },
+  {
+   "id": "in2010-4-3-def-7",
+   "type": "definition",
+   "title": "Fargeinvariantene",
+   "content": "De fire reglene som gjør et farget søketre til et gyldig rød-svart-tre:\n\n1. Hver node er enten **rød** eller **svart**.\n2. Rota er **svart**.\n3. En **rød** node kan ikke ha et rødt barn — to røde noder kan altså ikke ligge\n   rett etter hverandre.\n4. Fra hver node til alle tomme plasser under den passerer man **like mange**\n   svarte noder.\n\nRegel 3 og 4 er de som gjør jobben: den lengste stien i treet kan ikke være mer\nenn dobbelt så lang som den korteste, og det er nok til å holde høyden på\n$O(\\log n)$."
+  },
+  {
+   "id": "in2010-4-3-th-4",
+   "type": "theorem",
+   "title": "AVL og rød-svart — hva som er likt og hva som skiller",
+   "content": "**Likt, og det er det som testes:**\n\n- Begge er binære søketrær med BST-egenskapen.\n- Begge garanterer høyde $O(\\log n)$.\n- Begge har $O(\\log n)$ på søk, innsetting og sletting i **verste** tilfelle.\n- Begge kan brukes som prioritetskø med samme kjøretidsorden som en heap: det\n  minste elementet ligger lengst til venstre og hentes i $O(\\log n)$.\n\n**Og det faste sant-punktet:** **hvert AVL-tre kan fargelegges slik at det blir\net gyldig rød-svart-tre.** AVL-kravet er det strengeste av de to, så et tre som\ntilfredsstiller det, tilfredsstiller også de løsere fargereglene med en passende\nfargelegging. Motsatt vei gjelder ikke: et rød-svart-tre kan være skjevere enn\nAVL-kravet tillater.\n\n**Det som skiller, i praksis og ikke i $O$-notasjon:**\n\n| | AVL-tre | Rød-svart-tre |\n|---|---|---|\n| Balansekrav | strengt (høydeforskjell høyst 1) | løsere (fargeregler) |\n| Høyde | $O(\\log n)$, lav i praksis | $O(\\log n)$, litt høyere i praksis |\n| Søk | litt raskere | litt tregere |\n| Innsetting/sletting | flere rotasjoner | færre rotasjoner |\n\nIngen av forskjellene i tabellen er asymptotiske. Påstanden «rød-svart-trær har\ndårligere asymptotisk høyde enn AVL-trær» er **usann**, og den er en fast\ndistraktor."
+  },
+  {
+   "id": "in2010-4-3-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-4-3-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger C — kjøretids- og teori-fakta, altså sant/usant-påstander som rettes\nautomatisk.) Avgjør sant eller usant, og begrunn hver med én setning.\n\n**a)** Et rød-svart-tre har $O(\\log n)$ høyde.\n**b)** Hvert AVL-tre kan fargelegges slik at det blir et gyldig rød-svart-tre.\n**c)** En dobbelrotasjon i et AVL-tre teller som én enkel rotasjon.\n**d)** Et AVL-tre kan brukes som prioritetskø med samme kjøretidsorden som en\nheap.",
+    "solution": "**a) Sant.** Fargeinvariantene sikrer at den lengste stien er høyst dobbelt så\nlang som den korteste, og det holder høyden på $O(\\log n)$ — samme orden som et\nAVL-tre, selv om balansen er løsere.\n\n**b) Sant.** AVL-kravet er strengere enn fargereglene, så et tre som er\nhøydebalansert, kan alltid farges slik at de fire invariantene holder. Motsatt\nvei gjelder ikke.\n\n**c) Usant.** En dobbelrotasjon **er** to enkle rotasjoner: én om barnet og én om\nden ubalanserte noden. Spør oppgaven om antall enkle rotasjoner, teller den som\n2. Dette er den enkeltfeilen som koster flest poeng på AVL-håndkjøringer.\n\n**d) Sant.** Høyden er $O(\\log n)$, innsetting følger én sti nedover, og det\nminste elementet ligger lengst til venstre og finnes i $O(\\log n)$. Heapen vinner\npå konstantfaktorer og minnebruk, men ikke i $O$-klasse — se\n[kap. 1.4](/in2010/in2010-1-4).\n\n**Om antigjettingen.** Tre sanne og én usann her. På eksamen skaleres\nsant/usant-summen slik at ren gjetting i snitt gir null poeng — for eksempel\n$2\\cdot\\max(n-16,\\ 0)$ av 32 riktige, der 16 riktige altså gir 0. Merk at\nregelen har to halvdeler: på de **vanlige** korte svarene, som ikke er\nstrafferammet, er ubesvart det samme som feil, og der lønner det seg alltid å\nsvare.\n\nOg merk mønsteret i en sant/usant-blokk: svarene blander alltid sant og usant. En\nblokk der alt er usant, finnes ikke.",
+    "hints": [
+     "Tre av påstandene handler om asymptotisk orden, én om en telleregel. Skill dem fra hverandre først.",
+     "For c): hva består en dobbelrotasjon faktisk av, hvis du bryter den ned i steg?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-4-3-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-4-3-def-8",
+   "type": "definition",
+   "title": "LL-tilfellet",
+   "content": "Ubalansen sitter i en node der de to første stegene ned mot den nye nøkkelen går\n**venstre, så venstre**. Balansefaktoren er $+2$.\n\nRettes med **én** enkel høyrerotasjon om den ubalanserte noden. Teller som **1**\nrotasjon. Typisk eksempel: nøkler satt inn i synkende rekkefølge."
+  },
+  {
+   "id": "in2010-4-3-def-9",
+   "type": "definition",
+   "title": "RR-tilfellet",
+   "content": "Ubalansen sitter i en node der de to første stegene ned mot den nye nøkkelen går\n**høyre, så høyre**. Balansefaktoren er $-2$.\n\nRettes med **én** enkel venstrerotasjon om den ubalanserte noden. Teller som **1**\nrotasjon. Typisk eksempel: nøkler satt inn i stigende rekkefølge."
+  },
+  {
+   "id": "in2010-4-3-def-10",
+   "type": "definition",
+   "title": "LR-tilfellet",
+   "content": "Ubalansen sitter i en node der de to første stegene går **venstre, så høyre** —\nden nye nøkkelen havnet i det indre subtreet.\n\nRettes med en **dobbelrotasjon**: først en venstrerotasjon om venstre barn (som\ngjør situasjonen om til et LL), deretter en høyrerotasjon om noden selv. Teller\nsom **2** enkle rotasjoner."
+  },
+  {
+   "id": "in2010-4-3-def-11",
+   "type": "definition",
+   "title": "RL-tilfellet",
+   "content": "Ubalansen sitter i en node der de to første stegene går **høyre, så venstre**.\n\nRettes med en **dobbelrotasjon**: først en høyrerotasjon om høyre barn (som gjør\nsituasjonen om til et RR), deretter en venstrerotasjon om noden selv. Teller som\n**2** enkle rotasjoner."
+  },
+  {
+   "id": "in2010-4-3-def-12",
+   "type": "definition",
+   "title": "Svarformatet for en AVL-håndkjøring",
+   "content": "Tre linjer, og alle tre skal stå der:\n\n1. **antall enkle rotasjoner** totalt — dobbelrotasjon teller som **to**,\n2. **rotverdien** til slutt,\n3. **er dette et gyldig AVL-tre?**\n\nDelvis riktig gir delvis uttelling, så la aldri en av linjene stå tom. Kontroll:\nin-order-utskriften av treet ditt skal være nøklene i sortert rekkefølge, alle\nmed."
+  },
+  {
+   "id": "in2010-4-3-def-13",
+   "type": "definition",
+   "title": "Høyst én rebalansering per innsetting",
+   "content": "En innsetting i et AVL-tre utløser **høyst én** rebalansering — enten én\nenkelrotasjon eller én dobbelrotasjon.\n\nGrunnen er at rotasjonen setter subtreets høyde tilbake til det den var før\ninnsettingen, så ingen node lenger oppe merker at noe har skjedd. Du kan altså\nstoppe å lete så snart du har rettet den første ubalansen. Ved **sletting**\ngjelder dette ikke — men sletting i AVL-tre håndkjøres ikke i dette faget."
+  },
+  {
+   "id": "in2010-4-3-def-14",
+   "type": "definition",
+   "title": "AVL-tre kontra rød-svart-tre",
+   "content": "Begge er balanserte binære søketrær med høyde $O(\\log n)$ og $O(\\log n)$ på søk,\ninnsetting og sletting i verste tilfelle.\n\nAVL-treet er **strengere** balansert: litt raskere søk, men flere rotasjoner ved\nendringer. Rød-svart-treet er løsere balansert: færre rotasjoner, litt høyere\ntre. Ingen av forskjellene er asymptotiske, og påstanden om at de har ulik\n$O$-høyde er en fast distraktor."
+  },
+  {
+   "id": "in2010-4-3-def-15",
+   "type": "definition",
+   "title": "Hvert AVL-tre kan fargelegges som et rød-svart-tre",
+   "content": "Fast sant-punkt på Del 1: AVL-kravet er strengere enn fargeinvariantene, så et\nhøydebalansert tre kan alltid farges slik at de fire reglene holder.\n\nMotsatt vei gjelder **ikke** — et rød-svart-tre kan være skjevere enn AVL-kravet\ntillater, fordi den lengste stien får være dobbelt så lang som den korteste."
+  },
+  {
+   "id": "in2010-4-3-def-16",
+   "type": "definition",
+   "title": "Et balansert søketre som prioritetskø",
+   "content": "Et AVL-tre gir samme kjøretidsorden som en heap for en prioritetskø: innsetting\n$O(\\log n)$, og uthenting av det minste elementet $O(\\log n)$ — det ligger\nlengst til venstre.\n\nPåstanden «et AVL-tre kan brukes som prioritetskø med samme orden som en heap» er\nderfor **sann**. Heapen vinner likevel i praksis, på konstantfaktorer og\nminnebruk, siden den er ett enkelt array uten pekere. Se\n[kap. 1.4](/in2010/in2010-1-4) og [kap. 4.4](/in2010/in2010-4-4)."
+  },
+  {
+   "id": "in2010-4-3-def-17",
+   "type": "definition",
+   "title": "AVL-balanse er ikke heap-egenskapen",
+   "content": "AVL-kravet handler om **høyder**: hvor dypt de to subtrærne til en node går.\nHeap-egenskapen handler om **verdier**: at forelderen er mindre enn eller lik\nbegge barna.\n\nÅ blande dem er felle **#9** i bokas feilregister. I et AVL-tre er det\nBST-egenskapen (venstre er mindre, høyre er større) som styrer verdiene, og\nbalansekravet sier ingenting om dem. Se [kap. 4.4](/in2010/in2010-4-4) for\nheap-siden av forvekslingen."
+  },
+  {
+   "id": "in2010-4-3-def-18",
+   "type": "definition",
+   "title": "Balanserte trær er tyngre i IN2010 enn i TDT4120",
+   "content": "Her håndkjøres AVL-rotasjoner: du får en innsettingsrekke og skal telle\nrotasjoner, oppgi rotverdi og vurdere gyldighet. Temaet har vært på **3 av 7\nsett (43 %)**.\n\nI NTNUs TDT4120 har balanserte trær mindre eksamensvekt og testes stort sett som\nfaktapunkter. Kommer du derfra, eller fra en generisk algoritmebok, undervurderer\ndu dette temaet — det er én av to slike blindsoner i faget, sammen med hashing\ni [kap. 3.1](/in2010/in2010-3-1)."
+  },
+  {
+   "id": "in2010-4-3-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kapitlet på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-4-3-rep-1",
+     "type": "text",
+     "content": "**Håndkjøringsoppskriften, fire steg per nøkkel:**\n\n1. Sett inn nøkkelen som i et vanlig søketre.\n2. Gå oppover langs stien og finn den **første** noden med balansefaktor $+2$\n   eller $-2$.\n3. Avgjør tilfellet av de to stegene ned mot den nye nøkkelen, roter, og legg\n   **1** (enkel) eller **2** (dobbel) til telleren.\n4. Ingen ubalanse: gå videre. Én rebalansering per innsetting er alltid nok.\n\n**De fire tilfellene:**\n\n| Tilfelle | Stien nedover | Rotasjon(er) | Teller som |\n|---|---|---|---|\n| LL | venstre, venstre | høyrerotasjon om noden | **1** |\n| RR | høyre, høyre | venstrerotasjon om noden | **1** |\n| LR | venstre, høyre | venstrerotasjon om barnet, så høyrerotasjon om noden | **2** |\n| RL | høyre, venstre | høyrerotasjon om barnet, så venstrerotasjon om noden | **2** |\n\n**Svaret du leverer, tre linjer:** antall enkle rotasjoner, rotverdien, og om\ntreet er et gyldig AVL-tre.\n\n**Balansefaktoren:**\n\n$$\\mathrm{bf}(v) = h_L - h_R, \\qquad -1 \\le \\mathrm{bf}(v) \\le 1$$\n\nTomt subtre har høyde $-1$; et blad har høyde $0$.\n\n**Kjøretidene:**\n\n| Operasjon | AVL-tre | Vanlig BST, verste |\n|---|---|---|\n| Søk, innsetting, sletting | $O(\\log n)$ | $O(n)$ |\n| Én rotasjon | $O(1)$ | — |\n| In-order | $O(n)$ | $O(n)$ |\n\n**Rød-svart, på nivå «kjenne til»:** fire fargeinvarianter, høyde $O(\\log n)$,\nog det faste sant-punktet at hvert AVL-tre kan fargelegges som et rød-svart-tre.\n\n**To kontroller som tar ti sekunder hver:** er in-order-utskriften sortert med\nalle nøklene? Og har du talt hver dobbelrotasjon som **to**?\n\n**Videre:** [kap. 4.4](/in2010/in2010-4-4) om heap og prioritetskø, og\n[kap. 4.5](/in2010/in2010-4-5), som er ren drill på heap- og AVL-håndkjøring.\nPrøvene ligger i [kap. 4.P](/in2010/in2010-4-prove)."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

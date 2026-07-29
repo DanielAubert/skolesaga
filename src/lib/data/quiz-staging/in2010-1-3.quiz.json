@@ -1,0 +1,202 @@
+[
+  {
+    "question": "`i = 0; while i < n: i = i + 2` — hva er kjøretiden?",
+    "options": [
+      "$O(n)$",
+      "$O(\\log n)$",
+      "$O(n/2)$",
+      "$O(n^2)$"
+    ],
+    "explanation": "Steget 2 halverer antall runder, men $1/2$ er en konstant og forsvinner. En logaritmisk faktor krever multiplikativ oppdatering, og konstanten skal ikke stå i uttrykket."
+  },
+  {
+    "question": "En ytre løkke over $n$ med en indre løkke `for j = 0 to 999` — hva er kjøretiden?",
+    "options": [
+      "$O(n)$",
+      "$O(n^2)$",
+      "$O(1000n)$",
+      "$O(n \\log n)$"
+    ],
+    "explanation": "Tusen er stort, men fortsatt en konstant, siden grensen ikke inneholder $n$. Nøsting gir kvadratisk kjøretid bare når begge løkkene vokser med inputen."
+  },
+  {
+    "question": "`i = n; while i > 1: (for j = 0 to 4: ...); i = i / 2` — hva er kjøretiden?",
+    "options": [
+      "$O(\\log n)$",
+      "$O(n)$",
+      "$O(n \\log n)$",
+      "$O(5 \\log n)$"
+    ],
+    "explanation": "Den ytre halverer og gir ca. $\\log_2 n$ runder; den indre går fem runder uansett. En nøstet struktur er ikke automatisk lineær eller kvadratisk — det avhenger av rundene."
+  },
+  {
+    "question": "`for i = 0 to n-1: (j = 0; while j < n / 2: ...; j = j + 1)` — hva er kjøretiden?",
+    "options": [
+      "$O(n^2)$",
+      "$O(n)$",
+      "$O(n \\log n)$",
+      "$O(n^2/2)$"
+    ],
+    "explanation": "Grensen `n / 2` inneholder $n$ og er derfor ikke konstant: den indre løkka går $n/2$ runder, altså $O(n)$. Nøstet med den ytre gir det $n^2/2$, og konstanten strykes."
+  },
+  {
+    "question": "`for i = 0 to n-1: for j = 0 to i-1: for k = 0 to j-1: c = c + 1` — hva er kjøretiden?",
+    "options": [
+      "$O(n^3)$",
+      "$O(n^2)$",
+      "$O(n^3/6)$",
+      "$O(n \\log n)$"
+    ],
+    "explanation": "Den innerste linja kjører én gang per trippel $k < j < i$, og det er $n(n-1)(n-2)/6$ slike. Konstanten $1/6$ krymper arbeidet, men ordenen følger antall nivåer."
+  },
+  {
+    "question": "En doblingsløkke står **foran** to nøstede løkker over $n$. Hva er kjøretiden til blokkene til sammen?",
+    "options": [
+      "$O(n^2)$",
+      "$O(n^2 \\log n)$",
+      "$O(n \\log n)$",
+      "$O(\\log n)$"
+    ],
+    "explanation": "Blokkene står etter hverandre, så kjøretidene legges sammen og det dominerende leddet overlever. Ganging hadde forutsatt nøsting, og det gir $O(n^2 \\log n)$."
+  },
+  {
+    "question": "`for i = 0 to n-1: (j = 1; while j < n: ...; j = j * 3)` — hva er kjøretiden?",
+    "options": [
+      "$O(n \\log n)$",
+      "$O(n \\log_3 n)$",
+      "$O(n)$",
+      "$O(n^2)$"
+    ],
+    "explanation": "Den indre tredobler og går ca. $\\log_3 n$ runder, men grunntallet er en konstant faktor og skrives aldri i et $O$-uttrykk. Utelates logaritmen helt, blir svaret for lavt."
+  },
+  {
+    "question": "En løkke over $n$ kaller `BinærSøk` på et sortert array i hver runde. Hva er kjøretiden?",
+    "options": [
+      "$O(n \\log n)$",
+      "$O(n)$",
+      "$O(\\log n)$",
+      "$O(n^2)$"
+    ],
+    "explanation": "Kallet arver binærsøkets $O(\\log n)$, og det gjentas $n$ ganger. Å behandle kallet som en enkelt operasjon gir $O(n)$ og bommer med en hel faktor."
+  },
+  {
+    "question": "Hva sier doblingstesten hvis antall kjøringer åttedobles når $n$ dobles?",
+    "options": [
+      "Kjøretiden er $O(n^3)$",
+      "Kjøretiden er $O(n^2)$",
+      "Kjøretiden er $O(2^n)$",
+      "Kjøretiden er $O(n \\log n)$"
+    ],
+    "explanation": "$(2n)^3 = 8n^3$, så åttedobling svarer til kubisk vekst. Firedobling svarer til $O(n^2)$, og eksponentiell vekst ville kvadrert antall kjøringer, ikke åttedoblet det."
+  },
+  {
+    "question": "`for a`, `for b`, `for d`, `for e`, `for f`, alle `= 0 to n-1` og alle nøstet — hva er kjøretiden?",
+    "options": [
+      "$O(n^5)$",
+      "$O(n^4)$",
+      "$O(5n)$",
+      "$O(n^6)$"
+    ],
+    "explanation": "Fem nøstede løkker over $n$ gir $n$ opphøyd i fem. Summen $5n$ forutsetter at løkkene står etter hverandre, ikke inni hverandre."
+  },
+  {
+    "question": "En doblende ytre løkke gjentar en trekantløkke over $n$. Hva er kjøretiden?",
+    "options": [
+      "$O(n^2 \\log n)$",
+      "$O(n^2)$",
+      "$O(n^3)$",
+      "$O(n \\log n)$"
+    ],
+    "explanation": "Trekanten er $O(n^2)$, og den gjentas ca. $\\log_2 n$ ganger. Doblingstesten viser et forholdstall mellom 4 og 8, som er akkurat der $n^2 \\log n$ hører hjemme."
+  },
+  {
+    "question": "En blokk med kjøretid $O(n \\log n)$ står foran en blokk med kjøretid $O(n^2)$. Hva blir totalen?",
+    "options": [
+      "$O(n^2)$",
+      "$O(n^3 \\log n)$",
+      "$O(n \\log n)$",
+      "$O(n^2 \\log n)$"
+    ],
+    "explanation": "Sekvens legges sammen, og vekstordningen gir $n \\log n < n^2$. De to andre høye svarene forutsetter at blokkene var nøstet, altså at den ene lå inni den andre."
+  },
+  {
+    "question": "En rekursiv prosedyre gjør ett nytt kall med argumentet **halvert**. Hva er kjøretiden?",
+    "options": [
+      "$O(\\log n)$",
+      "$O(n)$",
+      "$O(n \\log n)$",
+      "$O(2^n)$"
+    ],
+    "explanation": "Argumentkjeden $n$, $n/2$, $n/4$ ned til 1 har ca. $\\log_2 n$ ledd, og hvert kall gjør konstant arbeid. Ett kall med argumentet redusert med 1 ville gitt $O(n)$, og to kall per nivå $O(2^n)$."
+  },
+  {
+    "question": "En rekursiv prosedyre gjør ett nytt kall med argumentet redusert med 1. Hva er kjøretiden?",
+    "options": [
+      "$O(n)$",
+      "$O(\\log n)$",
+      "$O(n^2)$",
+      "$O(2^n)$"
+    ],
+    "explanation": "Kjeden $n$, $n-1$, $n-2$ ned til 0 gir $n$ kall med konstant arbeid hver. Halvering av argumentet ville gitt $O(\\log n)$, og to kall per nivå eksponentiell vekst."
+  },
+  {
+    "question": "Hva er det første steget i løsningsoppskriften for sjanger B?",
+    "options": [
+      "Å markere hver løkke og finne rekkevidden dens",
+      "Å skrive ned det $O$-uttrykket snutten minner mest om",
+      "Å telle hvor mange løkker det er i snutten",
+      "Å sjekke om koden ville kompilert uten feil"
+    ],
+    "explanation": "Rekkevidden — går løkka til $n$, til et fast tall, eller ganger den seg? — avgjør alt annet. Antall løkker sier ingenting alene, og orden gir poeng selv om koden har en syntaksfeil."
+  },
+  {
+    "question": "Hvorfor gir en oppgave uttelling selv om pseudokoden i snutten har en syntaksfeil?",
+    "options": [
+      "Fordi sensor vurderer ordenen du oppgir, ikke om koden ville kjørt",
+      "Fordi syntaksfeil alltid rettes opp automatisk før sensuren",
+      "Fordi oppgaven da tas ut av vurderingen for alle kandidater",
+      "Fordi kandidaten får velge en annen oppgave i stedet"
+    ],
+    "explanation": "Sensorveiledningene sier eksplisitt at riktig orden gir poeng uavhengig av syntaksfeil i snutten. Uklare oppgaver kan riktignok tas ut av vurderingen, men det er noe annet enn en syntaksfeil i koden."
+  },
+  {
+    "question": "`for i = 0 to n-1: for j = 0 to n-1: for k = 0 to 7: c = c + 1` — hva sier doblingstesten?",
+    "options": [
+      "Antall kjøringer firedobles, som svarer til $O(n^2)$",
+      "Antall kjøringer åttedobles, som svarer til $O(n^3)$",
+      "Antall kjøringer dobles, som svarer til $O(n)$",
+      "Antall kjøringer øker med åtte, som svarer til $O(\\log n)$"
+    ],
+    "explanation": "Bare de to ytterste løkkene vokser med $n$, så kjøretiden er kvadratisk og antall kjøringer firedobles. Den innerste går åtte runder uansett og bidrar bare med en konstant."
+  },
+  {
+    "question": "Hva er kjøretiden til `for i = 0 to n-1: for j = 0 to i-1: for k = 0 to 2: c = c + 1`?",
+    "options": [
+      "$O(n^2)$",
+      "$O(n^3)$",
+      "$O(n)$",
+      "$O(3n^2)$"
+    ],
+    "explanation": "De to ytterste danner en trekant med $n(n-1)/2$ runder, og den innerste går tre runder uansett. Tre nøstede løkker gir kubisk kjøretid bare når alle tre vokser med $n$."
+  },
+  {
+    "question": "Hvilket av disse svarene har riktig **form** for en sjanger B-oppgave?",
+    "options": [
+      "$O(n^2)$, der $n$ er antall elementer i arrayet",
+      "$O(3n^2 + 2n + 1)$, der $n$ er antall elementer i arrayet",
+      "Omtrent $n^2$ operasjoner for en typisk input",
+      "Mellom $O(n)$ og $O(n^2)$, avhengig av dataene"
+    ],
+    "explanation": "Svaret skal være ett strammest mulig uttrykk uten konstanter, med $n$ definert. Et usimplifisert uttrykk er riktig telling og feil form, og verken et anslag eller et intervall er et $O$-svar."
+  },
+  {
+    "question": "Hva bør du gjøre først når en snutt har tre blokker etter hverandre?",
+    "options": [
+      "Analysere hver blokk for seg og legge sammen til slutt",
+      "Gange sammen kjøretidene til de tre blokkene",
+      "Se bare på den første blokken, siden den kjører først",
+      "Telle det totale antallet løkker i alle tre blokkene"
+    ],
+    "explanation": "Sekvens analyseres blokk for blokk, og sumregelen beholder den verste. Ganging forutsetter nøsting, og hvilken blokk som kjører først, er uten betydning for kjøretiden."
+  }
+]

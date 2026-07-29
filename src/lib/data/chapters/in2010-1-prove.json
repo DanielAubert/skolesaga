@@ -1,0 +1,330 @@
+{
+  "id": "in2010-1-prove",
+  "courseId": "in2010",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Asymptotisk analyse og kjøretidsfakta",
+  "description": "Fire prøver som dekker Del 1: løkketelling fra kode, O-notasjon og vekstordning, kjøretids- og teorifakta, og en skalert sant/usant-blokk med poengregning.",
+  "estimatedMinutes": 110,
+  "competenceGoals": [
+    "kunne lese O-kjøretiden ut av en pseudokodesnutt under tidspress, og levere ett strammest mulig uttrykk",
+    "kunne rangere vanlige kjøretidsuttrykk etter vekst uten oppslag",
+    "kunne avgjøre de faste sant/usant-påstandene om kjøretid, heap og kompleksitetsteori og begrunne hver med én setning",
+    "kunne regne ut hva en antigjettings-skalering gir i poeng, og bruke det til å planlegge lesingen"
+  ],
+  "content": [
+    {
+      "id": "in2010-1-prove-tip-om",
+      "type": "tip",
+      "title": "Om prøvene til del 1",
+      "content": "Fire prøver som dekker hele Del 1: løkketelling (sjanger B — kjøretid fra kode,\naltså at du leser $O$-uttrykket rett ut av en snutt) og faktapunktene (sjanger C\n— kjøretids- og teorifakta, altså sant/usant på den auto-rettede delen).\n\n**Fire prøver à ca. 25, 25, 30 og 30 minutter — til sammen 110 minutter.** Du\nkan trygt dele dem over flere kvelder; én prøve per økt fungerer bedre enn å ta\nalle fire etter hverandre, fordi rettingen er der læringen skjer.\n\n| Prøve | Tema | Sjanger | Tid | Poeng |\n|---|---|---|---|---|\n| 1.A | Kode til $O$ — nøsting, halvering, sekvens | B | 25 min | 12 |\n| 1.B | $O$-notasjon og vekstordning — klassifisér og forenkl | B og C | 25 min | 12 |\n| 1.C | Kjøretids- og teorifakta med begrunnelse | C | 30 min | 12 |\n| 1.D | Antigjettings-blandet: heap, P og NP, pluss poengregning | C | 30 min | 24 |\n\n**Hvor flervalget bor:** prøve 1.B har ett statisk flervalgsspørsmål med\nsvaralternativer skrevet rett i oppgaven — det retter du selv mot fasiten. Den\ninteraktive quizen til Del 1 ligger utenfor prøvene, under «Test deg selv» for\nhvert kapittel.\n\n**To av prøvene er skalert.** Prøve 1.C og 1.D bruker antigjettings-skalering,\nslik ekte sant/usant-blokker gjør, og formelen står i oppgaveteksten. Regn ut\nterskelen din før du begynner — det er en del av øvelsen.\n\n**Slik får du mest ut av dem:** ta tida, skriv svarene på papir uten å slå opp\nnoe som helst, og åpne fasiten først når du er ferdig. Etter hver fasit står en\nselvdiagnose du krysser av i."
+    },
+    {
+      "id": "in2010-1-prove-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nAlle fire kapitlene i Del 1:\n\n- [kap. 1.1](/in2010/in2010-1-1) — $O$-notasjonen og vekstordningen.\n- [kap. 1.2](/in2010/in2010-1-2) — løkketellingsreglene.\n- [kap. 1.3](/in2010/in2010-1-3) — drillen på kode til $O$.\n- [kap. 1.4](/in2010/in2010-1-4) — faktalisten og antigjettings-strategien.\n\nHar du ikke lest dem, får du mer ut av å lese først. Prøvene er ikke en\nintroduksjon; de er en kontroll."
+    },
+    {
+      "id": "in2010-1-prove-coll-a",
+      "type": "collapsible",
+      "title": "Prøve 1.A — Kode til O-notasjon (25 min)",
+      "buttonText": "Vis prøve 1.A",
+      "content": [
+        {
+          "id": "in2010-1-prove-pa-intro",
+          "type": "text",
+          "content": "**Prøve 1.A — Kode til $O$-notasjon. 25 minutter, 12 poeng.**\n\nSeks snutter à 2 poeng. Oppgi det **strammeste** $O$-uttrykket for hver, og skriv\nén kort setning om hva som avgjør svaret. Husk å si hva $n$ er.\n\nIngen skalering på denne prøven: et feil svar og et blankt svar teller likt, så\nsvar på alle seks."
+        },
+        {
+          "id": "in2010-1-prove-pa-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pa-1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(2 poeng. Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure A1(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      for j = 0 to 19:\n          c = c + 1\n  return c\n```",
+            "solution": "**Svar: $O(n)$**, der $n$ er antall elementer i `A`.\n\nDen ytre løkka går $n$ runder; den indre går 20 runder uansett hvor stort\narrayet er. Grensen 19 inneholder ikke `n`, så den indre løkka bidrar bare med\nen konstant faktor.\n\n**Kontrolltelling:** 160 kjøringer for $n = 8$, 320 for $n = 16$ og 640 for\n$n = 32$ — eksakt dobling, altså lineært.\n\n**Poengfordeling:** 2 poeng for $O(n)$. Svarer du $O(n^2)$, gis det ikke\nuttelling — det er nettopp denne fella oppgaven tester.",
+            "hints": [
+              "Sjekk om den indre løkkas grense inneholder $n$."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pa-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pa-2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(2 poeng. Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure A2(n)\n  Input:  et heltall n\n  Output: en telling\n  c = 0\n  i = 1\n  while i < n:\n      c = c + 1\n      i = i * 4\n  return c\n```",
+            "solution": "**Svar: $O(\\log n)$**, der $n$ er tallet gitt som input.\n\nTellevariabelen firedobles hver runde: 1, 4, 16, 64. Det er en multiplikativ\noppdatering, og løkka går ca. $\\log_4 n$ runder. Grunntallet er bare en konstant\nfaktor — $\\log_4 n = \\frac{\\log_2 n}{2}$ — så svaret skrives $O(\\log n)$.\n\n**Kontrolltelling:** 2 runder for $n = 8$, 3 for $n = 32$ og 4 for $n = 128$.\nAntall runder krymper til nesten ingenting selv når $n$ vokser kraftig.\n\n**Poengfordeling:** 2 poeng for $O(\\log n)$. Et halvt poeng-trekk hvis du skriver\n$O(\\log_4 n)$ — grunntallet skal ikke stå i et $O$-uttrykk.",
+            "hints": [
+              "Skriv opp verdiene `i` tar før den passerer $n$."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pa-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pa-3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(2 poeng. Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure A3(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      j = 1\n      while j < n:\n          c = c + 1\n          j = j * 2\n  return c\n```",
+            "solution": "**Svar: $O(n \\log n)$**, der $n$ er antall elementer i `A`.\n\nDen ytre løkka går $n$ runder. Den indre dobler `j` og går derfor ca.\n$\\log_2 n$ runder, og den starter på nytt for hver runde i den ytre.\n\n**Kontrolltelling:** 24 kjøringer for $n = 8$ ($8 \\cdot 3$), 64 for $n = 16$\n($16 \\cdot 4$) og 160 for $n = 32$ ($32 \\cdot 5$). Litt over dobling per\ndobling av $n$ — signaturen til $n \\log n$.\n\n**Poengfordeling:** 2 poeng for $O(n \\log n)$. Svarer du $O(n^2)$, har du lest\n`j = j * 2` som om det sto `j = j + 1`.",
+            "hints": [
+              "Er oppdateringen i den indre løkka en addisjon eller en multiplikasjon?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pa-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pa-4-o",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(2 poeng. Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure A4(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n\n  for i = 0 to n-1:\n      for j = 0 to n-1:\n          for k = 0 to n-1:\n              c = c + 1\n\n  for i = 0 to n-1:\n      c = c + 1\n\n  return c\n```",
+            "solution": "**Svar: $O(n^3)$**, der $n$ er antall elementer i `A`.\n\nFørste blokk er tre nøstede løkker over $n$, altså $n^3$. Andre blokk er én\nløkke, altså $n$. Blokkene står **etter** hverandre, så kjøretidene legges\nsammen: $n^3 + n$, og det dominerende leddet er $n^3$.\n\n**Kontrolltelling:** 520 kjøringer for $n = 8$ (512 fra den første blokken og 8\nfra den andre) og 4112 for $n = 16$. Forholdet er 7,9 — på vei mot 8, altså\nkubisk.\n\n**Poengfordeling:** 2 poeng for $O(n^3)$. Svaret $O(n^3 + n)$ regnes som riktig\ntelling og feil form, og koster typisk et halvt poeng.",
+            "hints": [
+              "Analyser de to blokkene hver for seg, og se på innrykket for å avgjøre om de er nøstet."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pa-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pa-5-o",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(2 poeng. Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure A5(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      for j = 0 to i-1:\n          for k = 0 to 2:\n              c = c + 1\n  return c\n```",
+            "solution": "**Svar: $O(n^2)$**, der $n$ er antall elementer i `A`.\n\nDe to ytterste løkkene danner en trekant: den indre går `i` runder, og summen\nover alle rundene er $\\frac{n(n-1)}{2}$. Den innerste går tre runder uansett,\nog bidrar bare med faktoren 3.\n\n**Kontrolltelling:** 84 kjøringer for $n = 8$ (og $3 \\cdot 28 = 84$), 360 for\n$n = 16$ og 1488 for $n = 32$. Forholdet nærmer seg 4 — kvadratisk, ikke kubisk.\n\n**Poengfordeling:** 2 poeng for $O(n^2)$. Svarer du $O(n^3)$, har du telt tre\nnøstede løkker uten å se at den innerste har en fast grense.",
+            "hints": [
+              "Tell hvor mange av de tre løkkene som har en grense som vokser med $n$."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pa-6",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pa-6-o",
+            "number": "6",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(2 poeng. Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure A6(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      for j = 0 to i-1:\n          k = 1\n          while k < n:\n              c = c + 1\n              k = k * 2\n  return c\n```",
+            "solution": "**Svar: $O(n^2 \\log n)$**, der $n$ er antall elementer i `A`.\n\nDe to ytterste løkkene er en trekant, $\\frac{n(n-1)}{2}$ runder til sammen,\naltså $O(n^2)$. Den innerste dobler `k` og går ca. $\\log_2 n$ runder for hver av\ndem.\n\n**Kontrolltelling:** 84 kjøringer for $n = 8$ ($3 \\cdot 28$), 480 for $n = 16$\n($4 \\cdot 120$) og 2480 for $n = 32$ ($5 \\cdot 496$). Forholdet er 5,7 og 5,2 —\nmellom 4 og 8, som er akkurat der $n^2 \\log n$ hører hjemme.\n\n**Poengfordeling:** 2 poeng for $O(n^2 \\log n)$; 1 poeng for $O(n^2)$ eller\n$O(n^3 \\log n)$, altså riktig struktur med ett ledd feil.\n\n**Merk sammenhengen med oppgave 5:** de to snuttene er identiske bortsett fra den\ninnerste løkka. Der oppgave 5 hadde en fast grense og ga $O(n^2)$, gir en\ndoblende innerste løkke en $\\log$-faktor.",
+            "hints": [
+              "Trekanten og den innerste løkka analyseres hver for seg og ganges sammen."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pa-fasit",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.A\n\nKryss av. Alt som ikke er krysset av, er lesebestillingen din.\n\n☐ Oppga jeg **ett** uttrykk uten konstanter i alle seks svarene?\n☐ Sjekket jeg for hver løkke om grensen inneholder $n$, før jeg konkluderte?\n☐ Så jeg etter multiplikativ oppdatering (`* 2`, `* 4`) i **alle** løkkene, også\nden innerste?\n☐ Skilte jeg nøstede blokker fra blokker som står etter hverandre?\n☐ Skrev jeg én setning om hva $n$ teller, i hvert svar?\n☐ Tok jeg doblingstesten på minst ett av svarene som en kontroll?\n\n**Under 8 av 12?** Gå tilbake til [kap. 1.3](/in2010/in2010-1-3) og ta drillen én\ngang til før du går videre. Dette er den billigste poengkilden på eksamen, og den\ner ren mekanikk."
+        }
+      ]
+    },
+    {
+      "id": "in2010-1-prove-coll-b",
+      "type": "collapsible",
+      "title": "Prøve 1.B — O-notasjon og vekstordning (25 min)",
+      "buttonText": "Vis prøve 1.B",
+      "content": [
+        {
+          "id": "in2010-1-prove-pb-intro",
+          "type": "text",
+          "content": "**Prøve 1.B — $O$-notasjon og vekstordning. 25 minutter, 12 poeng.**\n\nFire oppgaver: forenkling, rangering, ett statisk flervalgsspørsmål og en\nbegrunnelsesoppgave. Ingen skalering — svar på alt.\n\nFlervalgsspørsmålet i oppgave 3 har svaralternativene skrevet rett i teksten. Noter\nbokstaven du velger for hvert delspørsmål, og sammenlign med fasiten etterpå."
+        },
+        {
+          "id": "in2010-1-prove-pb-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pb-1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(4 poeng, ett per deloppgave. Sjanger B.) Oppgi det strammeste $O$-uttrykket.\n\n**a)** $7n^3 + 200n^2 + 5000$\n**b)** $12$\n**c)** $n \\log n + 3n$\n**d)** $2^n + n^{20}$",
+            "solution": "**a)** $O(n^3)$. Kubikkleddet dominerer; 7, 200 og 5000 er konstanter.\n\n**b)** $O(1)$. Ingen avhengighet av $n$.\n\n**c)** $O(n \\log n)$. Siden $\\log n > 1$ for $n > 2$, er $n \\log n$ større enn\n$3n$ for store $n$.\n\n**d)** $O(2^n)$. Vekstordningen plasserer $2^n$ til høyre for enhver\npolynomfunksjon, også $n^{20}$. Det tar riktignok en stund — $2^n$ passerer\n$n^{20}$ først et godt stykke ute — men $O$ handler om det lange løp.\n\n**Poengfordeling:** ett poeng per riktig, uten delpoeng. Et svar som beholder\nkonstanten, for eksempel $O(7n^3)$, regnes som feil form.",
+            "hints": [
+              "Finn det leddet som vokser raskest, og stryk alt annet."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pb-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pb-2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(3 poeng. Sjanger C — kjøretids- og teorifakta.) Rangér disse seks uttrykkene fra\nsaktest til raskest voksende, og oppgi $O$-klassen for hvert.\n\n$$n^2, \\qquad 1000, \\qquad n!, \\qquad n \\log n, \\qquad \\log n, \\qquad 2^n$$",
+            "solution": "**Rangeringen, saktest først:**\n\n$$1000 \\ \\ <\\ \\ \\log n \\ \\ <\\ \\ n\\log n \\ \\ <\\ \\ n^2 \\ \\ <\\ \\ 2^n \\ \\ <\\ \\ n!$$\n\n$O$-klassene er $O(1)$, $O(\\log n)$, $O(n \\log n)$, $O(n^2)$, $O(2^n)$ og\n$O(n!)$.\n\nRekkefølgen er den samme som vekstordningen fra\n[kap. 1.1](/in2010/in2010-1-1): $1 < \\log n < n < n\\log n < n^2 < n^3 < 2^n < n!$\n— her mangler bare $n$ og $n^3$.\n\nTo ting som er verdt å kontrollere hvis du er usikker: $2^n$ er større enn ethvert\n$n^k$ for stor nok $n$, og $n!$ er større enn $2^n$, fordi faktorene i\n$1 \\cdot 2 \\cdot 3 \\cdots n$ til slutt er langt større enn 2.\n\n**Poengfordeling:** 2 poeng for riktig rekkefølge, 1 poeng for riktige\n$O$-klasser. En enkelt ombytting av to naboer koster ett poeng.",
+            "hints": [
+              "Skriv opp vekstordningen fra hukommelsen først, og plasser uttrykkene i den."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pb-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pb-3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(4 poeng, ett per delspørsmål. Statisk flervalg — noter én bokstav for hvert.)\n\n**1.** Hva er den strammeste $O$-klassen til en løkke `for i = 0 to n-1` som inni\nseg har en løkke `while j < n: j = j * 2`?\n\na) $O(n)$\nb) $O(n^2)$\nc) $O(n \\log n)$\nd) $O(\\log n)$\n\n**2.** Hvilken påstand om $O$-notasjon er **sann**?\n\na) Alt som er $O(n)$ er også $O(n^2)$\nb) Alt som er $O(n^2)$ er også $O(n)$\nc) $O(n)$ og $\\Theta(n)$ betyr det samme\nd) IN2010 bruker $o$ og $\\omega$ i oppgavetekstene\n\n**3.** En algoritme bruker $f(n) = 4n^2 + 100n$ grunnsteg. Hvilket utsagn er\n**usant**?\n\na) $f(n) = O(n^2)$\nb) $f(n) = \\Theta(n^2)$\nc) $f(n) = O(n^3)$\nd) $f(n) = O(n)$\n\n**4.** Hva er kjøretiden til to løkker som begge går over $n$ og står **etter**\nhverandre?\n\na) $O(n^2)$\nb) $O(n)$\nc) $O(n \\log n)$\nd) $O(1)$",
+            "solution": "**Fasit: 1c, 2a, 3d, 4b.**\n\n**1 — c) $O(n \\log n)$.** Den ytre gir $n$ runder, den indre dobler `j` og gir\nca. $\\log n$ runder. Alternativ b) er fella for den som leser to nøstede løkker\nuten å se oppdateringslinja.\n\n**2 — a).** $O$ er en øvre grense, og en øvre grense kan alltid gjøres slappere:\n$n \\leq n^2$. Alternativ b) er samme påstand snudd, og den er usann. Alternativ\nc) blander øvre grense med tett grense. Alternativ d) er faktafeil: IN2010 bruker\nverken $o$ eller $\\omega$.\n\n**3 — d).** $f$ er kvadratisk, og ingen fast konstant kan holde $4n^2$ under\n$c \\cdot n$ for store $n$. De tre andre er alle sanne: a) er den strammeste\nøvre grensen, b) er den tette grensen, og c) er en gyldig, men slapp, øvre\ngrense.\n\n**4 — b) $O(n)$.** Sekvens legges sammen: $n + n = 2n$, og faktoren 2 forsvinner.\nAlternativ a) er fella for den som ganger i stedet for å legge sammen.\n\n**Poengfordeling:** ett poeng per riktig bokstav.",
+            "hints": [
+              "Behandle hvert delspørsmål som en egen liten kjøretidsanalyse."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pb-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pb-4-o",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(1 poeng. Sjanger C, begrunnelse.) Er dette utsagnet sant eller usant?\n\n> «Program P er $O(n \\log n)$ og program Q er $O(n^2)$. Altså vil P alltid bruke\n> kortere tid enn Q på det samme datasettet.»\n\nBegrunn svaret, og gi et konkret talleksempel som støtter begrunnelsen.",
+            "solution": "**Usant.**\n\n$O$-klassen sier bare at det finnes en terskel $n_0$ der P havner under Q og blir\nliggende der. Den sier ingenting om hvem som er raskest før terskelen, og den\nsier ingenting om skjulte konstanter.\n\n**Talleksempel:** la P bruke $1000\\,n \\log n$ grunnsteg og Q bruke $n^2$. For\n$n = 100$ er $P \\approx 664\\,000$ og $Q = 10\\,000$ — den asymptotisk «bedre»\nalgoritmen bruker over seksti ganger så mange steg. Først et godt stykke over\n$n = 10\\,000$ tar P igjen Q, og fra da av vinner P for alltid.\n\n**Merk formuleringen som avgjør:** ordet «alltid». Hadde utsagnet sagt «for stor\nnok $n$», ville det vært sant. Slike sant/usant-punkter avgjøres ofte av ett\neneste ord, og det er derfor sensorveiledningene gjentar rådet om å lese\noppgaveteksten svært nøye.\n\n**Poengfordeling:** 1 poeng krever både riktig svar og en begrunnelse som nevner\nenten skjulte konstanter eller terskelen $n_0$. Bare «usant» uten begrunnelse gir\ningenting.",
+            "hints": [
+              "Se på ordet «alltid», og spør hva $O$ egentlig lover."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pb-fasit",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.B\n\n☐ Forenklet jeg til **ett** ledd uten konstanter i alle fire deloppgavene i 1?\n☐ Kunne jeg vekstordningen uten å slå opp?\n☐ Husket jeg at $2^n$ passerer ethvert $n^k$, og at $n!$ passerer $2^n$?\n☐ Skilte jeg øvre grense ($O$) fra tett grense ($\\Theta$) i flervalget?\n☐ Begrunnet jeg i oppgave 4 med enten skjulte konstanter eller terskelen $n_0$?\n☐ Leste jeg hvert utsagn ord for ord, og la merke til ord som «alltid» og «kan\nikke»?\n\n**Under 8 av 12?** [kap. 1.1](/in2010/in2010-1-1) er den korteste veien tilbake —\nsærlig avsnittet om at bedre asymptotikk ikke betyr færre steg."
+        }
+      ]
+    },
+    {
+      "id": "in2010-1-prove-coll-c",
+      "type": "collapsible",
+      "title": "Prøve 1.C — Kjøretids- og teorifakta (30 min)",
+      "buttonText": "Vis prøve 1.C",
+      "content": [
+        {
+          "id": "in2010-1-prove-pc-intro",
+          "type": "text",
+          "content": "**Prøve 1.C — Kjøretids- og teorifakta. 30 minutter, 12 poeng.**\n\nTolv sant/usant-påstander. Marker sant eller usant, og skriv én setnings\nbegrunnelse for hver.\n\n**Skalering:** denne prøven bruker antigjettings-skalering, slik ekte\nsant/usant-blokker gjør:\n\n$$\\text{poeng} = 2 \\cdot \\max(n - 6,\\ 0)$$\n\nder $n$ er antall riktige. **Regn ut terskelen din før du begynner:** 6 riktige\ngir 0 poeng, 7 gir 2, 9 gir 6, og alle 12 gir 12. Blankt og feil teller likt, så\ndu taper ingenting på å fylle ut — men gjetting løfter deg heller ikke, og det er\nhele poenget med konstruksjonen."
+        },
+        {
+          "id": "in2010-1-prove-pc-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pc-1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(6 poeng, ett per påstand. Sjanger C.) Marker sant eller usant, og begrunn hver\nmed én setning.\n\n**a)** Flettesortering er $O(n \\log n)$ også i verste tilfelle.\n**b)** Kvikksortering er $O(n \\log n)$ i verste tilfelle.\n**c)** Å avgjøre om et array er sortert krever minst $O(n \\log n)$.\n**d)** Binærsøk i en lenket liste med $n$ elementer er $O(\\log n)$.\n**e)** Flettesortering er in-place.\n**f)** «Lineær kjøretid» betyr $O(n)$.",
+            "solution": "**a) Sant.** Splittingen gir $\\log_2 n$ nivåer uansett input, og hvert nivå\nfletter $n$ elementer. Flettesortering har ingen dårlig input.\n\n**b) Usant.** $O(n \\log n)$ er det **forventede** tilfellet; verste tilfelle er\n$O(n^2)$, når pivoten treffer ytterst hver gang.\n\n**c) Usant.** Én gjennomgang av naboparene holder — $n-1$ sammenligninger, altså\n$O(n)$.\n\n**d) Usant.** Halveringen krever at du kan hoppe til midten i konstant tid, og i\nen lenket liste koster det $O(n)$ å komme dit.\n\n**e) Usant.** Flettingen trenger et hjelpearray, altså $O(n)$ ekstra minne.\nHeapsortering og kvikksortering er in-place; flettesortering er ikke.\n\n**f) Sant.** «Lineær» er navnet på klassen $O(n)$.\n\n**Fasitmønsteret:** to sanne og fire usanne. Ikke let etter et mønster i\nfordelingen — det finnes ikke noe.",
+            "hints": [
+              "Skill mellom verste tilfelle og forventet tilfelle i b).",
+              "For d): hva koster det å komme til midten av en lenket liste?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pc-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pc-2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(6 poeng, ett per påstand. Sjanger C.) Marker sant eller usant, og begrunn hver\nmed én setning.\n\n**a)** En $O(n^2)$-algoritme bruker alltid flere grunnsteg enn en\n$O(n \\log n)$-algoritme på samme input.\n**b)** Hvis $f(n) = O(n)$, så er $f(n) = O(n^2)$.\n**c)** $n \\log n$ vokser raskere enn $n^2$.\n**d)** En algoritme med fem nøstede løkker over $n$ er alltid $O(n^5)$.\n**e)** $2^{n+1}$ er $O(2^n)$.\n**f)** IN2010 bruker $o$ og $\\omega$ på lik linje med $O$.",
+            "solution": "**a) Usant.** $O$-klassen gjelder for stor nok $n$; skjulte konstanter kan gjøre\nden asymptotisk bedre algoritmen tregere på små input.\n\n**b) Sant.** $n \\leq n^2$ for $n \\geq 1$, så en øvre grense på $n$ er også en\nøvre grense på $n^2$ — slapp, men gyldig.\n\n**c) Usant.** Vekstordningen plasserer $n \\log n$ til venstre for $n^2$: siden\n$\\log n < n$, er $n \\log n < n \\cdot n$.\n\n**d) Usant.** Ordet «alltid» er fella. Går en av løkkene til et fast tall eller\ndobler tellevariabelen, blir svaret lavere. Det er rekkeviddene som teller, ikke\nantall løkker.\n\n**e) Sant.** $2^{n+1} = 2 \\cdot 2^n$, og faktoren 2 er en konstant.\n\n**f) Usant.** IN2010 bruker nesten utelukkende $O$; $\\Omega$ og $\\Theta$ nevnes\nkort, og $o$ og $\\omega$ brukes ikke i det hele tatt.\n\n**Poengregning for hele prøven:** legg sammen antall riktige fra begge oppgavene\nog sett inn i $2 \\cdot \\max(n - 6,\\ 0)$. Med 9 riktige av 12 får du 6 poeng; med\n11 får du 10.",
+            "hints": [
+              "Se etter ord som «alltid» — de gjør ofte et nesten-sant utsagn usant.",
+              "For e): skriv $2^{n+1}$ som et produkt."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pc-fasit",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.C\n\n☐ Regnet jeg ut min egen poengsum med formelen $2 \\cdot \\max(n - 6,\\ 0)$?\n☐ Traff jeg på begge de to påstandene om kvikksortering og flettesortering?\n☐ Husket jeg at flettesortering **ikke** er in-place?\n☐ Så jeg forskjellen på «forventet» og «verste tilfelle» der påstanden brukte det\nene ordet?\n☐ Fanget jeg ordene «alltid», «minst» og «kan ikke» der de gjorde påstanden\nusann?\n☐ Skrev jeg en faktisk begrunnelse på hver, ikke bare sant eller usant?\n\n**Fikk du 0 poeng?** Da hadde du 6 eller færre riktige, og skaleringen klipper alt\nunder terskelen. Det er ikke en straff for å svare feil — blankt hadde gitt det\nsamme. Det betyr bare at faktalisten i\n[kap. 1.4](/in2010/in2010-1-4) ikke sitter ennå, og den er kort nok til å læres\npå en kveld."
+        }
+      ]
+    },
+    {
+      "id": "in2010-1-prove-coll-d",
+      "type": "collapsible",
+      "title": "Prøve 1.D — Antigjettings-blandet: heap, P og NP (30 min)",
+      "buttonText": "Vis prøve 1.D",
+      "content": [
+        {
+          "id": "in2010-1-prove-pd-intro",
+          "type": "text",
+          "content": "**Prøve 1.D — Antigjettings-blandet. 30 minutter, 24 poeng.**\n\nDenne prøven har to deler: en skalert sant/usant-blokk på 18 påstander (18\npoeng), og en poengregningsoppgave (6 poeng) der du skal bruke skaleringen på deg\nselv.\n\n**Skalering på sant/usant-blokken:**\n\n$$\\text{poeng} = 2 \\cdot \\max(n - 9,\\ 0)$$\n\nder $n$ er antall riktige av 18. Ni riktige gir 0 poeng, 12 gir 6, 15 gir 12, og\nalle 18 gir 18.\n\nPåstandene handler om heapen og om klassene $P$ og $NP$. Alt du trenger, står i\n[kap. 1.4](/in2010/in2010-1-4); strukturene selv kommer i Del 4 og Del 7."
+        },
+        {
+          "id": "in2010-1-prove-pd-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pd-1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(9 poeng, ett per påstand. Sjanger C.) Marker sant eller usant.\n\n**a)** Et vilkårlig array med $n$ elementer kan gjøres om til en heap i $O(n)$.\n**b)** Innsetting i en heap er $O(\\log n)$ i verste tilfelle.\n**c)** Du kan finne det største elementet i en min-heap i $O(\\log n)$.\n**d)** Å lese det minste elementet i en min-heap uten å fjerne det er $O(1)$.\n**e)** Å fjerne det minste elementet i en min-heap er $O(\\log n)$.\n**f)** En min-heap blir en max-heap hvis du reverserer arrayet.\n**g)** I en min-heap er venstre barn alltid mindre enn høyre barn.\n**h)** Over halvparten av elementene i en heap ligger på det nederste nivået.\n**i)** Et balansert søketre kan brukes som prioritetskø med samme\nkjøretidsorden som en heap.",
+            "solution": "**a) Sant.** Bygger du nedenfra og opp, er halvparten av nodene blader som ikke\nflytter seg, en firedel flytter seg høyst ett nivå, og summen blir lineær. Dette\ner den vanligste distraktoren i hele faget: mange svarer $O(n \\log n)$.\n\n**b) Sant.** Det nye elementet bobler oppover høyst så mange nivåer som treet er\nhøyt, og høyden er $\\lfloor \\log_2 n \\rfloor$.\n\n**c) Usant.** Det største er et blad, men ordningen sier ikke hvilket. Du må\nsjekke alle de omtrent $n/2$ bladene, altså $O(n)$.\n\n**d) Sant.** Det minste ligger i roten, på indeks 0.\n\n**e) Sant.** Siste element flyttes opp i roten og synker ned på plass — høyst\n$\\log_2 n$ nivåer.\n\n**f) Usant.** Forelder-barn-relasjonene er bestemt av indeksformlene\n$\\lfloor (i-1)/2 \\rfloor$, $2i+1$ og $2i+2$, ikke av innholdet. Reversering\nødelegger ordningen i stedet for å snu den.\n\n**g) Usant.** Heapen ordner bare forelder mot barn, aldri søsken. Dette er felle\n**#9** — å forveksle heap-ordenen (opp-ned) med søketre-ordenen (venstre-høyre).\n\n**h) Sant.** Nivå $d$ har $2^d$ noder, og alle nivåene over til sammen har\n$2^d - 1$ — ett færre enn det nederste alene.\n\n**i) Sant.** Høyden er $O(\\log n)$, det minste ligger lengst til venstre, og\ninnsetting er $O(\\log n)$ — samme orden på begge operasjoner.\n\n**Fordeling: seks sanne, tre usanne.**",
+            "hints": [
+              "Skill mellom å lese det minste og å fjerne det.",
+              "For f): hva er det som bestemmer hvem som er forelder til hvem?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pd-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pd-2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(9 poeng, ett per påstand. Sjanger C.) Marker sant eller usant.\n\n**a)** $P \\subseteq NP$.\n**b)** Det er bevist at $P = NP$.\n**c)** Det er bevist at $P \\neq NP$.\n**d)** Alle NP-komplette problemer kan reduseres til hverandre i polynomisk tid.\n**e)** Hvis noen finner en polynomisk algoritme for ett NP-komplett problem, så\ner $P = NP$.\n**f)** $NP$ står for «ikke-polynomisk».\n**g)** Hvis $A \\leq_p B$, så er $A$ minst like vanskelig som $B$.\n**h)** Alle avgjørelsesproblemer ligger enten i $P$ eller i $NP$.\n**i)** Hvis et problem ligger i $P$, finnes det en polynomisk verifikator for\ndet.",
+            "solution": "**a) Sant.** Kan du løse problemet raskt, kan du også kontrollere et foreslått\nsvar raskt — bare løs det selv og sammenlign.\n\n**b) Usant.** Ingenting er bevist.\n\n**c) Usant.** Heller ikke denne veien. Spørsmålet er åpent.\n\n**d) Sant.** Det følger av definisjonen: alle problemer i $NP$ kan reduseres til\net hvilket som helst NP-komplett problem, og NP-komplette problemer ligger selv i\n$NP$.\n\n**e) Sant.** Alle andre $NP$-problemer kan reduseres til det, så én rask løsning\ngir raske løsninger på alle.\n\n**f) Usant.** $NP$ betyr «ikke-deterministisk polynomisk», og klassen defineres\nved at et foreslått svar kan **kontrolleres** i polynomisk tid.\n\n**g) Usant.** Retningen er motsatt: $A \\leq_p B$ gjør **$B$** minst like\nvanskelig som $A$. Dette er felle **#8** — å reversere reduksjonsretningen.\n\n**h) Usant.** Det finnes problemer utenfor $NP$, blant annet problemer som ingen\nalgoritme kan avgjøre i det hele tatt.\n\n**i) Sant.** Løs det selv i polynomisk tid og sammenlign med det foreslåtte\nsvaret — det er en polynomisk verifikator. Dette er nettopp begrunnelsen for\n$P \\subseteq NP$.\n\n**Fordeling: fem sanne, fire usanne.** Til sammen over begge oppgavene: 11 sanne\nog 7 usanne av 18.",
+            "hints": [
+              "For g): skriv ut med ord hva du kan gjøre hvis du kan løse $B$ raskt.",
+              "For f): hva er det klassen faktisk krever — å løse eller å kontrollere?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pd-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-1-prove-pd-3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(6 poeng. Poengregning under skalering.) Bruk skaleringen\n$2 \\cdot \\max(n - 9,\\ 0)$ på de 18 påstandene over.\n\n**a)** Hvor mange poeng fikk du på sant/usant-blokken?\n**b)** En medstudent svarte helt tilfeldig på alle 18. Hva er den forventede\npoengsummen hennes, og hvorfor er formelen konstruert slik?\n**c)** En annen kunne 11 påstander sikkert og lot de sju andre stå blanke. Hva\nfikk hun? Hva ville hun i snitt fått hvis hun i stedet hadde gjettet på de sju?\n**d)** Hvor mange flere påstander må du gjøre sikre for å øke poengsummen din med\nseks?",
+            "solution": "**a)** Tell dine riktige og sett inn. Fasit for de vanligste utfallene:\n\n| Riktige | Poeng |\n|---|---|\n| 9 eller færre | 0 |\n| 10 | 2 |\n| 12 | 6 |\n| 14 | 10 |\n| 15 | 12 |\n| 18 | 18 |\n\n**b)** Ni riktige i snitt, altså **0 poeng**. Formelen er konstruert nettopp for\ndet: terskelen 9 er halvparten av 18, som er hva myntkast gir i snitt på en\nsant/usant-blokk. Poenget er ikke å straffe gjetting, men å sørge for at\npoengsummen måler kunnskap og ikke flaks.\n\n**c)** Med 11 sikre og sju blanke: $2 \\cdot (11 - 9) = \\mathbf{4}$ poeng.\n\nHadde hun gjettet på de sju, ville hun i snitt truffet 3,5 av dem, altså 14,5\nriktige, som gir $2 \\cdot 5{,}5 = \\mathbf{11}$ poeng i snitt.\n\nDette er verdt å merke seg: **hun tapte ingenting på å gjette, og hun tjente i\nsnitt sju poeng.** Blankt og feil teller likt i denne skaleringen, så det finnes\ningen grunn til å la et punkt stå tomt. Det skaleringen gjør, er å flytte\nnullpunktet opp til der gjetting lander — ikke å legge en ekstra straff på feil\nsvar.\n\n**d)** Tre. Hvert riktig svar over terskelen er verdt nøyaktig 2 poeng, så seks\npoeng er tre påstander.\n\n**Konklusjonen du skal ta med til eksamensdagen, i to setninger:** fyll alltid\nut alle punktene, for et blankt punkt er verdt nøyaktig like mye som et feil. Og\nbruk lesetiden på å flytte påstander fra «tror jeg» til «sikkert», for det er\nden eneste bevegelsen som systematisk øker poengsummen.\n\n**Poengfordeling:** 1 poeng for a), 2 for b) med begrunnelse, 2 for c) med begge\nregnestykkene, 1 for d).",
+            "hints": [
+              "Sett tallene rett inn i $2 \\cdot \\max(n - 9, 0)$ for hvert delspørsmål.",
+              "For c): regn ut forventningsverdien som «sikre pluss halvparten av de gjettede»."
+            ]
+          }
+        },
+        {
+          "id": "in2010-1-prove-pd-fasit",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.D\n\n☐ Traff jeg på at det å **bygge** en heap er $O(n)$, mens innsetting er\n$O(\\log n)$?\n☐ Husket jeg at det største elementet i en min-heap koster $O(n)$ å finne?\n☐ Skilte jeg heap-ordenen (forelder mot barn) fra søketre-ordenen (venstre mot\nhøyre)?\n☐ Fikk jeg riktig retning på $A \\leq_p B$?\n☐ Svarte jeg «usant» på begge påstandene om at $P = NP$ eller $P \\neq NP$ er\nbevist?\n☐ Regnet jeg ut min egen poengsum med skaleringsformelen, i stedet for å telle\nriktige?\n☐ Fylte jeg ut **alle** punktene, også de jeg var usikker på?\n\n**Dette er den viktigste av de fire prøvene.** De 18 påstandene her er hentet fra\nden listen som faktisk gjentar seg år etter år, og hver av dem er verdt to poeng\npå et ekte sett. Er du under 12 riktige, er repetisjonskortet nederst i\n[kap. 1.4](/in2010/in2010-1-4) den korteste veien videre — det er hele\nfaktalisten på én side."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

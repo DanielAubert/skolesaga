@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er counting sorts kjøretid?",
+    "options": [
+      "$O(n + k)$",
+      "$O(n)$",
+      "$O(n \\log n)$",
+      "$O(nk)$"
+    ],
+    "explanation": "Tellingen koster $O(n)$, kumuleringen $O(k)$ og utplasseringen $O(n)$, og sumregelen gir $O(n+k)$. Å skrive bare $O(n)$ er den vanligste unøyaktigheten: med $n = 1000$ og $k = 10^9$ er algoritmen langt tregere enn en sammenligningssortering."
+  },
+  {
+    "question": "Alt du vet om $n$ elementer er at de kan sammenlignes. Hva er lavest mulig kjøretid?",
+    "options": [
+      "$O(n \\log n)$ med en sammenligningssortering",
+      "$O(n)$ med bucket sort over verdiområdet",
+      "$O(n + k)$ med counting sort på nøklene",
+      "$O(d(n+k))$ med radix sort på sifrene"
+    ],
+    "explanation": "Uten kunnskap om verdiene finnes det ingen adresse å bruke, så nedre grensen $\\Omega(n \\log n)$ gjelder fullt ut. De tre lineære alternativene er felle #5: de forutsetter alle et kjent, begrenset verdiområde som oppgaven ikke har oppgitt."
+  },
+  {
+    "question": "Hvorfor går utplasseringsløkka i counting sort bakfra gjennom inputen?",
+    "options": [
+      "For at algoritmen skal bli stabil",
+      "For at telleregisteret skal bli riktig",
+      "For at kjøretiden skal bli lineær",
+      "For at utdataarrayet skal fylles helt"
+    ],
+    "explanation": "Bakfra får det siste elementet med en gitt nøkkel den bakerste ledige plassen, så innbyrdes rekkefølge bevares. Snus løkka, blir resultatet fortsatt korrekt sortert, men ustabilt — og da kan ikke counting sort brukes som byggekloss i radix sort."
+  },
+  {
+    "question": "I hvilken rekkefølge sorterer radix sort sifrene?",
+    "options": [
+      "Minst signifikante siffer først",
+      "Mest signifikante siffer først",
+      "Alle sifrene samtidig i ett pass",
+      "Rekkefølgen har ingen betydning"
+    ],
+    "explanation": "Den siste sorteringen styrer hovedrekkefølgen, så det mest signifikante sifferet må komme sist. Sorterer du motsatt vei, ødelegger hvert pass arbeidet fra det forrige, og resultatet blir feil."
+  },
+  {
+    "question": "Hvorfor må hvert pass i radix sort være stabilt?",
+    "options": [
+      "Ellers mistes rekkefølgen fra sifrene som allerede er sortert",
+      "Ellers blir kjøretiden $O(n^2)$ i stedet for lineær i $n$",
+      "Ellers kan telleregisteret bli for stort for verdiområdet",
+      "Ellers må algoritmen sortere hvert siffer to ganger"
+    ],
+    "explanation": "Rekkefølgen fra tidligere pass overlever bare inne i en bøtte hvis passet er stabilt. Stabilitet er derfor ikke en fin egenskap her, men en betingelse for at algoritmen i det hele tatt gir riktig svar."
+  },
+  {
+    "question": "Hva er bucket sorts kjøretid i verste tilfelle?",
+    "options": [
+      "$O(n^2)$ — alle elementene kan havne i samme bøtte",
+      "$O(n)$ — den er lineær uansett hvordan verdiene ligger",
+      "$O(n \\log n)$ — bøttene sorteres med flettesortering",
+      "$O(n + k)$ — verdiområdet legges til antall elementer"
+    ],
+    "explanation": "$O(n)$ er det **forventede** tilfellet, og det forutsetter jevn fordeling. Er fordelingen skjev, faller hele arbeidet på sorteringen inne i den ene fulle bøtta, og verste tilfelle blir kvadratisk."
+  },
+  {
+    "question": "Du skal sortere $n$ personer etter alder, som er et heltall mellom 0 og 120. Beste valg?",
+    "options": [
+      "Counting sort, $O(n + k)$ med $k = 120$",
+      "Flettesortering, $O(n \\log n)$ og garantert stabil",
+      "Kvikksortering, $O(n \\log n)$ forventet og in-place",
+      "Innsettingssortering, $O(n)$ når data er nesten sortert"
+    ],
+    "explanation": "Alder er heltall i et kjent, lite område, så forutsetningen for counting sort er oppfylt og kjøretiden blir $O(n)$ siden $k$ er konstant. De tre andre er korrekte sorteringer, men ingen av dem utnytter opplysningen om verdiområdet."
+  },
+  {
+    "question": "Hvilken av disse er IKKE en forutsetning for bucket sort?",
+    "options": [
+      "At elementene kan sammenlignes to og to med hverandre",
+      "At verdiene ligger i et kjent intervall på forhånd",
+      "At verdiene er noenlunde jevnt fordelt i intervallet",
+      "At antall bøtter er omtrent like stort som antall verdier"
+    ],
+    "explanation": "Sammenlignbarhet alene er nettopp det som *ikke* holder — bucket sort trenger å vite hvor verdiene ligger for å regne ut bøttenummeret. De tre andre er reelle forutsetninger for at kjøretiden skal bli lineær."
+  },
+  {
+    "question": "Hvor stort er telleregisteret i counting sort?",
+    "options": [
+      "$k + 1$ plasser, én per mulig nøkkelverdi",
+      "$n$ plasser, én per element i inputen",
+      "$n + k$ plasser, for å romme begge deler",
+      "$\\log n$ plasser, altså én per nivå i sorteringen"
+    ],
+    "explanation": "Registeret indekseres av verdien, ikke av elementet, så det trenger én plass per mulig nøkkel. Det er nettopp derfor $k$ dukker opp i kjøretiden, og hvorfor counting sort blir ubrukelig når verdiområdet er stort."
+  },
+  {
+    "question": "Motsier de lineære sorteringene nedre grensen $\\Omega(n \\log n)$?",
+    "options": [
+      "Nei — grensen gjelder bare sammenligningsbaserte algoritmer",
+      "Ja — de sorterer beviselig raskere enn grensen tillater",
+      "Nei — de er egentlig $O(n \\log n)$ når $k$ regnes med",
+      "Ja — men bare når verdiområdet $k$ er mindre enn $n$"
+    ],
+    "explanation": "Ingen av de tre sammenligner to elementer; de bruker verdien som adresse, og faller derfor utenfor grensens rekkevidde. De «slår» ikke grensen — de er ikke omfattet av den, og prisen er forutsetningen om verdiene."
+  },
+  {
+    "question": "Radix sort på $n$ firesifrede postnumre. Hva er kjøretiden?",
+    "options": [
+      "$O(d(n + k))$ med $d = 4$ og $k = 9$, altså lineært",
+      "$O(n + k)$ med $k = 9999$, altså lineært i verdiområdet",
+      "$O(n \\log n)$ fordi hvert pass må sortere hele arrayet",
+      "$O(n^2)$ fordi sifrene må sammenlignes parvis i hvert pass"
+    ],
+    "explanation": "Fire pass, hvert et counting-pass med ti mulige sifferverdier, gir $O(d(n+k))$ som er lineært når $d$ og $k$ er konstanter. Alternativet med $k = 9999$ beskriver counting sort på hele tallet — det virker også, men telleregisteret blir unødvendig stort."
+  },
+  {
+    "question": "En algoritme bytter bare naboer, og bare når naboen foran er strengt større. Hva vet du?",
+    "options": [
+      "Den er stabil",
+      "Den er ustabil",
+      "Den er $O(n \\log n)$",
+      "Den er $O(n)$"
+    ],
+    "explanation": "To like elementer byttes aldri når betingelsen er strengt større, så innbyrdes rekkefølge overlever — det er hele stabilitetsargumentet. Kjøretid og minnebruk må leses av løkkestrukturen, ikke av byttebetingelsen."
+  },
+  {
+    "question": "Hvilke egenskaper har gnome sort?",
+    "options": [
+      "$O(n^2)$ verste, stabil og in-place",
+      "$O(n \\log n)$ verste, stabil, in-place",
+      "$O(n^2)$ verste, ustabil og in-place",
+      "$O(n^2)$ verste, stabil, ikke in-place"
+    ],
+    "explanation": "Gnome sort skyver ett element bakover med nabobytter, akkurat som innsettingssortering, og arver profilen: kvadratisk verste tilfelle, stabil fordi den bare bytter forbi strengt større, og in-place fordi den bare bruker én indeksvariabel."
+  },
+  {
+    "question": "Du skal sortere på avdeling som hovednøkkel og ansiennitet som andrenøkkel med to counting-pass. Rekkefølge?",
+    "options": [
+      "Ansiennitet først, deretter avdeling",
+      "Avdeling først, deretter ansiennitet",
+      "Begge nøklene i samme pass over dataene",
+      "Avdeling to ganger, med ansiennitet imellom"
+    ],
+    "explanation": "Den siste sorteringen styrer hovedrekkefølgen, så hovednøkkelen må sorteres sist. Passet på avdeling er stabilt og bevarer da ansiennitetsrekkefølgen som ble etablert i det første passet."
+  },
+  {
+    "question": "Når er counting sort et dårlig valg selv om nøklene er heltall?",
+    "options": [
+      "Når verdiområdet $k$ er mye større enn antallet $n$",
+      "Når elementene allerede ligger nesten ferdig sortert",
+      "Når det finnes mange elementer med nøyaktig lik nøkkel",
+      "Når resultatet må være stabilt på tvers av like nøkler"
+    ],
+    "explanation": "Kjøretiden $O(n+k)$ domineres av $k$ når verdiområdet er stort, og da er $O(n \\log n)$ raskere. Nesten sorterte data og mange like nøkler påvirker ikke counting sort i det hele tatt, og stabilitet er noe den allerede gir."
+  },
+  {
+    "question": "Hva er den avgjørende setningen sensor ser etter når du velger en lineær sortering?",
+    "options": [
+      "Begrunnelsen for at forutsetningen om verdiene er oppfylt",
+      "Selve pseudokoden for telleregisteret og utplasseringen",
+      "En sammenligning med alle de andre sorteringsalgoritmene",
+      "Et bevis for at algoritmen faktisk sorterer riktig til slutt"
+    ],
+    "explanation": "Poengtrappen belønner lavest kjøretid blant **lovlige** løsninger, og det er forutsetningen som avgjør om løsningen er lovlig. En besvarelse som skriver «counting sort, $O(n)$» uten å nevne heltall og kjent område, mister delpoenget."
+  }
+]

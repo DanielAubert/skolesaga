@@ -1,0 +1,377 @@
+{
+ "id": "in2010-5-3",
+ "courseId": "in2010",
+ "chapterNumber": "5.3",
+ "title": "Komponenter, 2-fargelegging og sykeldeteksjon",
+ "description": "Traverserings-varianter som løser klassiske problemer: finn komponenter, sjekk bipartitthet (2-fargelegging) og oppdag sykler.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne telle sammenhengende komponenter i en urettet graf med en dybde-først-traversering og begrunne kjøretiden ved løkketelling",
+  "kunne skrive 2-fargeleggingen i pseudokode og forklare hvorfor en konflikt beviser at grafen ikke er bipartitt",
+  "kunne oppdage en sykel i en urettet graf med en dybde-først-traversering, og håndtere kanten tilbake til forelderen riktig",
+  "kunne gjenkjenne komponentvis behandling fra en rot-mengde i en innpakket oppgavetekst og oppgi lavest mulig kjøretid"
+ ],
+ "content": [
+  {
+   "id": "in2010-5-3-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Tre spørsmål som ser helt forskjellige ut — «hvor mange atskilte deler består\nnettet av?», «kan disse deles i to grupper uten at to i samme gruppe er koblet\nsammen?» og «finnes det en rundtur her?» — besvares med den **samme**\ntraverseringen du allerede kan fra [kap. 5.2](/in2010/in2010-5-2). Det er hele\npoenget med kapitlet: du lærer ikke tre nye algoritmer, du lærer å kjenne igjen\ntre innpakninger av én.\n\nPå eksamen kommer de som **sjanger H — grafalgoritme i pseudokode**, altså at du\nfår problemet beskrevet i ord og skal skrive selve algoritmen, med oppgitt\nkjøretid. Sjanger H står i **hvert eneste sett**, med to eller tre oppgaver, og\nvariantene i dette kapitlet er belagt i **4 av 7 sett (57 %)**.\n\nPrioriteten er det boka kaller **«kunne»**, altså nivå 2 av tre. Nivå 1 er stoff\nsom må sitte uten oppslag (traversering, hashing, heap-håndkjøring); nivå 2 er\nstoff du skal beherske og kunne skrive ned, men som ikke er det første du pugger;\nnivå 3 er stoff du bare skal kjenne igjen. Nivå 2 er likevel høyt her: en enkelt\nsjanger H-oppgave er en av de større oppgavene i Del 2, den delen av settet der\ndu skriver pseudokode og resonnerer, og der karakteren avgjøres.\n\n**Slik er kapitlet lagt opp (50 min):**\n\n| Løkke | Innhold | Tid |\n|---|---|---|\n| 1 | Komponenttelling med DFS-full | ca. 13 min |\n| 2 | 2-fargelegging: er grafen bipartitt? | ca. 16 min |\n| 3 | Sykeldeteksjon i en urettet graf | ca. 13 min |\n| 4 | Komponentvis behandling, og de typiske feilene | ca. 8 min |"
+  },
+  {
+   "id": "in2010-5-3-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- [kap. 5.2](/in2010/in2010-5-2) — BFS og DFS. Alle tre algoritmene i dette\n  kapitlet er en traversering med noen få linjer lagt til, og du bør ha\n  `visited`-flagget og den ytre løkka i DFS-full friskt i minne.\n- [kap. 5.1](/in2010/in2010-5-1) — nabolister, grad, sti og sykel. Kjøretidene\n  her leses ut av hvor mange ganger en kant blir sett på.\n- [kap. 1.2](/in2010/in2010-1-2) — løkketelling. Det er slik $O(|V| + |E|)$\n  begrunnes, og en kjøretid uten begrunnelse gir ikke full uttelling.\n\nEr objekt- og feltnotasjonen (`v.besokt`, `v.farge`) uvant, hjelper\n[Klasser og objekter: `class`, `__init__` og `self`](/in1000/in1000-5-1) — det er\nden samme tanken: en node er et objekt med de feltene algoritmen trenger."
+  },
+  {
+   "id": "in2010-5-3-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-5-3-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | grafen: mengden noder $V$ og mengden kanter $E$ |\n| $|V|$ | antall noder i grafen |\n| $|E|$ | antall kanter i grafen |\n| $\\text{grad}(v)$ | antall kanter som møtes i noden $v$ |\n| $O(|V| + |E|)$ | lineær tid i grafens størrelse — kjøretiden til alle tre algoritmene her |\n| $O(|E|)$ | kjøretiden til én DFS fra **én** node, uten initialiseringen av alle noder |\n| $O(|V|^2)$ | kvadratisk tid — det du får hvis du starter en ny traversering fra hver node |"
+    },
+    {
+     "id": "in2010-5-3-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `DFSVisit(v)` | rekursiv dybde-først-traversering fra `v`; markerer alt nåbart som besøkt | $O(|E|)$ fra én node |\n| `CountComponents(G)` | teller sammenhengende komponenter ved å telle hvor mange ganger den ytre løkka må starte en ny DFS | $O(|V| + |E|)$ |\n| `TwoColor(G)` | avgjør om `G` er bipartitt, ved å gi hver node motsatt farge av forelderen | $O(|V| + |E|)$ |\n| `HasCycle(G)` | avgjør om den urettede grafen `G` inneholder minst én sykel | $O(|V| + |E|)$ |\n| `v.besokt` | feltet som skiller besøkte fra ubesøkte noder; uten det stopper aldri en traversering i en graf med sykel | $O(1)$ |\n| `v.farge` | feltet med tre mulige verdier: `ingen`, `rod` eller `bla` | $O(1)$ |\n\n**Formler i dette delkapitlet:**\n\n$$O(|V| + |E|)$$\n\nKjøretiden til alle tre algoritmene. Hver node initialiseres og besøkes én gang,\nog hver kant ses på nøyaktig to ganger — én gang fra hver ende.\n\n$$|E| = |V| - 1$$\n\nAntall kanter i et **tre**, altså en sammenhengende urettet graf uten sykel. Er\ngrafen sammenhengende og har flere kanter enn dette, må den ha en sykel."
+    }
+   ]
+  },
+  {
+   "id": "in2010-5-3-t-1",
+   "type": "text",
+   "content": "## Løkke 1 — hvor mange atskilte deler består nettet av? (ca. 13 min)\n\nEn kommune har lagt fiber mellom koblingsskap rundt om i bygda. Noen skap henger\nsammen i en ring, noen i en enkelt streng, og ett skap ble satt opp til et\nbyggefelt som aldri ble bygget — det står helt for seg selv. Driftsvakta stiller\ndet samme spørsmålet hver morgen: **hvor mange atskilte nett har vi egentlig?**\nRyker et skjøtepunkt, hvor langt sprer utfallet seg?\n\nTegn skapene som noder og fiberstrekkene som kanter, så er spørsmålet hvor mange\n**sammenhengende komponenter** grafen har.\n\nDu kan allerede svare. En DFS fra én node besøker nøyaktig de nodene som er\nnåbare derfra — altså nøyaktig én komponent. Det som mangler, er en ytre løkke\nsom går gjennom alle noder og starter en ny DFS hver gang den treffer en node\ningen har vært innom. Antall slike nystarter **er** antall komponenter. Det er\nDFS-full fra [kap. 5.2](/in2010/in2010-5-2) med én teller lagt på."
+  },
+  {
+   "id": "in2010-5-3-def-1",
+   "type": "definition",
+   "title": "Sammenhengende komponent",
+   "content": "En maksimal mengde noder i en urettet graf der det finnes en sti mellom hvert par.\n\n«Maksimal» betyr at du ikke kan legge til én node til uten å bryte egenskapen. En\ngraf med $|V|$ noder og ingen kanter har $|V|$ komponenter; en sammenhengende graf\nhar nøyaktig 1. En enkelt node uten naboer er en fullverdig komponent — det er den\nvanligste tellefeilen."
+  },
+  {
+   "id": "in2010-5-3-th-1",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `CountComponents`",
+   "content": "**Antagelser om representasjon.** `G` er en urettet graf gitt som nabolister:\nfor hver node `v` kan vi iterere over naboene i tid proporsjonal med graden.\nHver node `v` har feltet `v.besokt`. Vi antar ingenting om rekkefølgen på\nnodene; svaret er det samme uansett.\n\n**Prebetingelse:** ingen. **Postbetingelse:** returverdien er antall\nsammenhengende komponenter, og alle noder står med `v.besokt = sant`.\n\n```text\nProcedure CountComponents(G)\n  Input:  urettet graf G = (V, E) som nabolister\n  Output: antall sammenhengende komponenter i G\n  for hver node v i V:\n      v.besokt = usant\n  antall = 0\n  for hver node v i V:\n      if v.besokt er usant:\n          antall = antall + 1\n          DFSVisit(v)\n  return antall\n\nProcedure DFSVisit(v)\n  v.besokt = sant\n  for hver nabo u av v:\n      if u.besokt er usant:\n          DFSVisit(u)\n```\n\n**Invarianten i én setning:** etter at den ytre løkka har passert node $v$, er\nalle noder i $v$-ens komponent markert som besøkt, og telleren er økt nøyaktig én\ngang for den komponenten.\n\n**Kjøretid:** $O(|V| + |E|)$. Initialiseringsløkka er $O(|V|)$. Den ytre løkka\ngår gjennom hver node én gang, men kaller `DFSVisit` bare for noder som ennå ikke\ner besøkt — så på tvers av **alle** kallene besøkes hver node én gang og hver\nkant ses på to ganger, én gang fra hver ende. Summen blir\n$O(|V| + 2|E|)$, som forenkles til $O(|V| + |E|)$, der $|V|$ er antall noder og\n$|E|$ antall kanter.\n\n**Merk hva den ytre løkka koster.** Den er grunnen til at DFS-full er\n$O(|V| + |E|)$ og ikke $O(|E|)$: også noder uten en eneste kant må innom. Å\noppgi $O(|E|)$ her er felle **#6** — å forveksle DFS fra én node med DFS over\nhele grafen."
+  },
+  {
+   "id": "in2010-5-3-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Fibernettet med tre atskilte deler",
+   "problem": "Koblingsskapene A til G er forbundet slik nabolistene under viser. A, B og C er\nskjøtet sammen i en trekant; D, E og F henger i en streng; G er skapet ved\nbyggefeltet som aldri ble bygget.\n\n```text\nA: B, C\nB: A, C\nC: A, B\nD: E\nE: D, F\nF: E\nG: (ingen)\n```\n\nKjør `CountComponents` og oppgi hvor mange atskilte nett kommunen har.",
+   "solution": "**Sporingen av den ytre løkka.** Kolonnen «Alt besøkt?» sier om noden allerede\nvar markert da den ytre løkka kom til den.\n\n| Node i ytre løkke | Alt besøkt? | Ny komponent funnet | Teller |\n|---|---|---|---|\n| A | nei — start DFS her | A, B, C | 1 |\n| B | ja | - | 1 |\n| C | ja | - | 1 |\n| D | nei — start DFS her | D, E, F | 2 |\n| E | ja | - | 2 |\n| F | ja | - | 2 |\n| G | nei — start DFS her | G | 3 |\n\n- **antall sammenhengende komponenter: 3**\n  - komponent 1: A, B, C (3 noder)\n  - komponent 2: D, E, F (3 noder)\n  - komponent 3: G (1 noder)\n\n**Svaret er 3 atskilte nett.**\n\n**Legg merke til tre ting.** For det første at den ytre løkka besøkte alle sju\nnodene, men bare startet en ny DFS tre ganger — det er nøyaktig de tre gangene\ntelleren økte. For det andre at G, som ikke har en eneste kant, **er** en\nkomponent; å hoppe over isolerte noder er den vanligste tellefeilen. For det\ntredje at rekkefølgen på nodene i den ytre løkka ikke spiller noen rolle for\nsvaret: hadde vi begynt på G, hadde vi fått komponentene i en annen rekkefølge,\nmen fortsatt tre.\n\n**Fellenote.** Fella her er felle **#6** — å oppgi kjøretiden $O(|E|)$, som\ngjelder DFS fra **én** node, i stedet for $O(|V| + |E|)$, som gjelder når den\nytre løkka må innom alle noder. Med G i grafen ser du hvorfor: uten den ytre\nløkka hadde skapet ved byggefeltet aldri blitt talt."
+  },
+  {
+   "id": "in2010-5-3-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger H — grafalgoritme i pseudokode, altså at du får\nproblemet i ord og skal svare med algoritmen og kjøretiden. Her holder det å\nkjøre den for hånd.) Et turkart har seks hytter forbundet med merkede stier:\n\n```text\nA: B, C\nB: A, D, E\nC: A, E\nD: B, F\nE: B, C, F\nF: D, E\n```\n\n**a)** Kjør den ytre løkka i `CountComponents` for hånd og fyll ut hvilke noder\nsom er besøkt når løkka kommer til hver av dem.\n**b)** Hvor mange sammenhengende komponenter har grafen?\n**c)** Hvor mange ganger startet den ytre løkka en ny DFS?",
+    "solution": "**a)**\n\n| Node i ytre løkke | Alt besøkt? | Ny komponent funnet | Teller |\n|---|---|---|---|\n| A | nei — start DFS her | A, B, C, D, E, F | 1 |\n| B | ja | - | 1 |\n| C | ja | - | 1 |\n| D | ja | - | 1 |\n| E | ja | - | 1 |\n| F | ja | - | 1 |\n\n- **antall sammenhengende komponenter: 1**\n  - komponent 1: A, B, C, D, E, F (6 noder)\n\n**b) Én komponent.** Alle seks hyttene henger sammen: hele kartet er ett\nstinettverk.\n\n**c) Én gang.** DFS-en fra A rakk alle nodene, så de fem neste rundene i den ytre\nløkka fant bare noder som allerede var besøkt.\n\n**Poenget med oppgaven:** en graf kan se forgreinet og «oppdelt» ut når du tegner\nden, uten at den er det. Det eneste som teller, er om det finnes en sti — og det\navgjør DFS-en, ikke øyemålet.",
+    "hints": [
+     "Marker nodene som besøkt underveis, og se etter hvor den ytre løkka faktisk må starte på nytt.",
+     "Følg stiene fra A og noter hvem du får tak i før du går videre i den ytre løkka."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Et sensornett i en tunnel har åtte målepunkter forbundet med\nkabler:\n\n```text\nA: B, C\nB: A, D\nC: A, D, E\nD: B, C, F\nE: C, F\nF: D, E, G\nG: F, H\nH: G\n```\n\n**a)** Kjør den ytre løkka i `CountComponents` for hånd.\n**b)** Hvor mange komponenter har nettet?\n**c)** Grafen har $|V| = 8$ og $|E| = 9$. Hvor mange kanter ville den hatt hvis\nden var sammenhengende og uten sykel? Hva forteller differansen deg?",
+    "solution": "**a)**\n\n| Node i ytre løkke | Alt besøkt? | Ny komponent funnet | Teller |\n|---|---|---|---|\n| A | nei — start DFS her | A, B, C, D, E, F, G, H | 1 |\n| B | ja | - | 1 |\n| C | ja | - | 1 |\n| D | ja | - | 1 |\n| E | ja | - | 1 |\n| F | ja | - | 1 |\n| G | ja | - | 1 |\n| H | ja | - | 1 |\n\n- **antall sammenhengende komponenter: 1**\n  - komponent 1: A, B, C, D, E, F, G, H (8 noder)\n\n**b) Én komponent.** Hele sensornettet henger sammen, og den ytre løkka startet\nbare én DFS.\n\n**c)** En sammenhengende graf uten sykel — et **tre** — har $|E| = |V| - 1 = 7$\nkanter. Her er det 9, altså to kanter for mye. Differansen forteller at grafen\nmå inneholde minst én sykel; med to ekstra kanter finnes det faktisk to\nuavhengige rundturer i nettet. Vi kommer tilbake til hvordan du **finner** en\nslik sykel i løkke 3.\n\n**Merk resonnementet i c).** Det er et rent telleargument, og det gjelder bare\nfordi vi allerede har fastslått at grafen er sammenhengende. En graf med\n$|V| = 8$, $|E| = 9$ og tre komponenter kunne i prinsippet ha sett annerledes\nut.",
+    "hints": [
+     "Start i A og noter hvilke noder DFS-en rekker før du går videre i den ytre løkka.",
+     "For c): hvor mange kanter har et tre med 8 noder?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Driftsvakta i eksempel 1 vil ikke bare vite **hvor mange** atskilte\nnett de har, men også hvor stort det største er — det avgjør hvor mange kunder\nett enkelt utfall kan ramme.\n\nSkriv `LargestComponentSize(G)` som returnerer antall noder i den største\nsammenhengende komponenten. Oppgi antagelser om representasjon og kjøretid.",
+    "solution": "**Problemet navngitt:** dette er komponentoppdeling av en urettet graf, altså\nsamme DFS-full som `CountComponents`, men med en størrelse i stedet for en\nteller.\n\n**Antagelser om representasjon:** `G` er en urettet graf gitt som nabolister;\nhver node `v` har feltet `v.besokt`. Naboene til en node kan itereres i tid\nproporsjonal med graden.\n\n**Algoritmen:**\n\n```text\nProcedure LargestComponentSize(G)\n  Input:  urettet graf G = (V, E) som nabolister\n  Output: antall noder i den storste sammenhengende komponenten\n  for hver node v i V:\n      v.besokt = usant\n  storst = 0\n  for hver node v i V:\n      if v.besokt er usant:\n          storrelse = CountVisit(v)\n          if storrelse > storst:\n              storst = storrelse\n  return storst\n\nProcedure CountVisit(v)\n  v.besokt = sant\n  antall = 1\n  for hver nabo u av v:\n      if u.besokt er usant:\n          antall = antall + CountVisit(u)\n  return antall\n```\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall noder og $|E|$ antall kanter.\nInitialiseringen er $O(|V|)$; på tvers av alle kallene til `CountVisit` besøkes\nhver node én gang og hver kant ses på to ganger.\n\n**Kan dette gjøres raskere?** Nei. Du må i verste fall se på hver kant for å vite\nom den binder to noder sammen, så $O(|V| + |E|)$ er så lavt som det går an å\nkomme. Det er verdt å si eksplisitt i besvarelsen: sensor gir uttelling for å\nbegrunne at kjøretiden er **lavest mulig**, ikke bare for å oppgi den.\n\n**Poengtrapp-notat.** Fire ledd kreves for full uttelling: problemet navngitt,\nantagelser oppgitt, algoritmen, og kjøretid som matcher koden med $|V|$ og $|E|$\ndefinert. En besvarelse som teller riktig, men som starter en ny full\ntraversering fra hver node for å måle komponenten på nytt, havner på\n$O(|V| \\cdot (|V| + |E|))$ og faller et trinn ned på poengtrappen.",
+    "hints": [
+     "Behold den ytre løkka fra `CountComponents` — det eneste som endres, er hva den indre traverseringen returnerer.",
+     "La den rekursive prosedyren returnere et tall i stedet for ingenting, og summer opp fra barna."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-t-2",
+   "type": "text",
+   "content": "## Løkke 2 — to grupper, og ingen kant innad (ca. 16 min)\n\n— naturlig pausepunkt —\n\nEt meglingskontor skal fordele partene i en nabotvist på to møterom. Kravet er\nenkelt: **to som står mot hverandre i saken, skal ikke sitte i samme rom.** Noen\nav partene har flere motparter, og motpartsforholdene krysser hverandre.\nSpørsmålet er om en slik fordeling i det hele tatt finnes.\n\nTegn partene som noder og motpartsforholdene som kanter. Da spør vi om nodene kan\ndeles i to grupper slik at **ingen kant går innad i en gruppe**. En graf der det\ner mulig, kalles **bipartitt**, og problemet kalles **2-fargelegging**: gi hver\nnode en av to farger slik at ingen kant forbinder to like farger.\n\nFramgangsmåten er nesten pinlig enkel. Velg en startnode og gi den rødt. Gå\ngjennom naboene og gi dem blått. Deres naboer får rødt igjen. Fortsett til hele\nkomponenten er farget — og hvis du underveis møter en nabo som **allerede har\nsamme farge som deg**, finnes det ingen gyldig fordeling."
+  },
+  {
+   "id": "in2010-5-3-def-2",
+   "type": "definition",
+   "title": "Bipartitt graf",
+   "content": "En urettet graf der nodene kan deles i to grupper slik at **hver** kant går mellom\ngruppene, aldri innad i én av dem.\n\nBipartitt er det samme som **2-fargbar**: de to gruppene er de to fargene. Merk\nat grafen ikke trenger å være sammenhengende — hver komponent farges for seg, og\ngrafen er bipartitt hvis og bare hvis **alle** komponentene er det."
+  },
+  {
+   "id": "in2010-5-3-th-2",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `TwoColor`",
+   "content": "**Antagelser om representasjon.** `G` er en urettet graf gitt som nabolister.\nHver node `v` har feltet `v.farge` med tre mulige verdier: `ingen`, `rod` eller\n`bla`. Vi bruker en **kø**, altså bredde-først, slik at fargeleggingen sprer seg\nlagvis; den rekursive dybde-først-varianten er nøyaktig like riktig og bare\nbytter ut køen med kallstakken.\n\n**Prebetingelse:** ingen. **Postbetingelse:** returverdien er `sant` hvis og bare\nhvis `G` er bipartitt. Er svaret `sant`, står hver node med en farge som er\nmotsatt av alle naboene sine.\n\n```text\nProcedure TwoColor(G)\n  Input:  urettet graf G = (V, E) som nabolister\n  Output: sant hvis G er bipartitt, ellers usant\n  for hver node v i V:\n      v.farge = ingen\n  for hver node s i V:\n      if s.farge er ingen:\n          s.farge = rod\n          Ko = tom ko\n          legg s bakerst i Ko\n          while Ko er ikke tom:\n              v = ta forrest ut av Ko\n              for hver nabo u av v:\n                  if u.farge er ingen:\n                      u.farge = motsatt av v.farge\n                      legg u bakerst i Ko\n                  else if u.farge er lik v.farge:\n                      return usant\n  return sant\n```\n\n**Grunnideen i én setning, og den er hele begrunnelsen:** når startnoden først\nhar fått rødt, er **hvert eneste** senere fargevalg tvunget — en nabo av en rød\nnode kan bare bli blå — så finner algoritmen en konflikt, finnes det ingen gyldig\nfargelegging i det hele tatt, ikke bare ingen som denne kjøringen fant.\n\n**Kjøretid:** $O(|V| + |E|)$. Initialiseringen er $O(|V|)$; hver node legges i\nkøen høyst én gang, siden den får farge i samme øyeblikk, og hver kant ses på to\nganger — én gang fra hver ende.\n\n**Den ytre løkka over alle noder er ikke pynt.** Uten den farger du bare\nkomponenten du startet i, og en ikke-bipartitt komponent lenger ute i grafen blir\naldri oppdaget."
+  },
+  {
+   "id": "in2010-5-3-fig-1",
+   "type": "image",
+   "src": "/images/textbook/in2010/tofarging.svg",
+   "alt": "To urettede grafer side om side. Til venstre en sykel med seks noder der fargene veksler rødt og blått hele veien rundt, merket «BIPARTITT». Til høyre en sykel med fem noder der vekslingen ikke går opp: kanten mellom C og D forbinder to noder med samme farge, merket «IKKE bipartitt».",
+   "caption": "Se etter hva som skjer når du går rundt sykelen og veksler farge. I sykelen med seks noder (partall) møtes du selv med motsatt farge; i sykelen med fem (oddetall) møtes du med din egen. Det er hele forskjellen mellom bipartitt og ikke."
+  },
+  {
+   "id": "in2010-5-3-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Seks parter i ring — finnes fordelingen?",
+   "problem": "Seks parter i en nabotvist har motpartsforhold som danner en ring: A mot B, B mot\nC, C mot D, D mot E, E mot F, og F mot A.\n\n```text\nA: B, F\nB: A, C\nC: B, D\nD: C, E\nE: D, F\nF: A, E\n```\n\nKjør `TwoColor` fra A og avgjør om partene kan fordeles på to møterom.",
+   "solution": "**Problemet navngitt:** dette er 2-fargelegging av en urettet graf, altså\nspørsmålet om grafen er bipartitt.\n\n**Antagelser om representasjon:** nabolister; hver node har feltet `v.farge`.\n\n**Sporingen.** Køen vises etter hvert steg; noden som behandles, er tatt ut av\nkøen først.\n\n| Steg | Handling | Køen etter steget | Status |\n|---|---|---|---|\n| 1 | start i A, farge rød | `A` | OK |\n| 2 | A -> B: ufarget, gi motsatt farge (blå) | `B` | OK |\n| 3 | A -> F: ufarget, gi motsatt farge (blå) | `B, F` | OK |\n| 4 | B -> A: allerede rød, motsatt farge — ok | `F` | OK |\n| 5 | B -> C: ufarget, gi motsatt farge (rød) | `F, C` | OK |\n| 6 | F -> A: allerede rød, motsatt farge — ok | `C` | OK |\n| 7 | F -> E: ufarget, gi motsatt farge (rød) | `C, E` | OK |\n| 8 | C -> B: allerede blå, motsatt farge — ok | `E` | OK |\n| 9 | C -> D: ufarget, gi motsatt farge (blå) | `E, D` | OK |\n| 10 | E -> D: allerede blå, motsatt farge — ok | `D` | OK |\n| 11 | E -> F: allerede blå, motsatt farge — ok | `D` | OK |\n| 12 | D -> C: allerede rød, motsatt farge — ok | `(tom)` | OK |\n| 13 | D -> E: allerede rød, motsatt farge — ok | `(tom)` | OK |\n\n- **resultat: BIPARTITT.**\n- rød: A, C, E\n- blå: B, D, F\n\n**Svaret:** fordelingen finnes. Rom 1 får A, C og E; rom 2 får B, D og F. Ingen\nav de seks motpartsforholdene går innad i et rom.\n\n**Se på steg 12 og 13.** De to siste stegene sjekker kanter der begge endene\nallerede er farget. Det er der en konflikt ville dukket opp, og det er derfor\nalgoritmen ikke kan stoppe så snart alle noder har fått farge — den må se på\n**hver** kant minst én gang.\n\n**Kjøretid:** $O(|V| + |E|)$, her $6 + 6$ kanter sett fra begge ender, altså 13\nsteg i tabellen. Det stemmer med tellingen: hver av de seks nodene ble tatt ut av\nkøen én gang, og til sammen ble det gjort tolv naboinspeksjoner pluss\nstartsteget.\n\n**Fellenote.** Fella her er felle **#12** — uklar eller for lang pseudokode. Det\ner fristende å skrive fargeleggingen som en lang forklaring med mange\nspesialtilfeller; kravet er at algoritmen skal være entydig etter to\ngjennomlesninger. Kortformen «gi naboen motsatt farge, meld konflikt hvis den\nallerede har din egen» er både kortere og mer presis."
+  },
+  {
+   "id": "in2010-5-3-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) I en annen sak står partene slik: A mot B, A mot C, B mot C, C mot\nD, og D mot E.\n\n```text\nA: B, C\nB: A, C\nC: A, B, D\nD: C, E\nE: D\n```\n\n**a)** Kjør `TwoColor` fra A og oppgi sporingen steg for steg.\n**b)** Kan partene fordeles på to møterom?\n**c)** Hvilken kant avslører det, og hvorfor er akkurat den avgjørende?",
+    "solution": "**a)**\n\n| Steg | Handling | Køen etter steget | Status |\n|---|---|---|---|\n| 1 | start i A, farge rød | `A` | OK |\n| 2 | A -> B: ufarget, gi motsatt farge (blå) | `B` | OK |\n| 3 | A -> C: ufarget, gi motsatt farge (blå) | `B, C` | OK |\n| 4 | B -> A: allerede rød, motsatt farge — ok | `C` | OK |\n| 5 | B -> C: begge er blå — KONFLIKT | `C` | KONFLIKT |\n\n- **resultat: IKKE bipartitt.** Kanten B-C forbinder to noder som begge måtte få fargen blå.\n\n**b) Nei.** Fordelingen finnes ikke, og algoritmen stopper allerede i steg 5 —\nden trenger ikke se på D og E i det hele tatt.\n\n**c)** Kanten **B-C**. A, B og C danner en trekant, altså en sykel av lengde 3.\nBåde B og C er naboer av A, så begge blir tvunget til motsatt farge av A — samme\nfarge som hverandre. Kanten mellom dem forbinder dermed to like farger, og det\nskjer uansett hvilken node du starter i og hvilken farge du gir den.\n\n**Merk hva det betyr for konklusjonen.** Algoritmen har ikke bare mislyktes i å\nfinne en fordeling; den har vist at ingen finnes. Fargevalgene var **tvunget**\nhele veien, så et annet valg fantes aldri.",
+    "hints": [
+     "Start i A med rødt og skriv opp køen etter hvert eneste steg — konflikten kommer tidlig.",
+     "Se etter tre noder som alle er naboer med hverandre."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-th-3",
+   "type": "theorem",
+   "title": "Sykler av oddetallslengde er hele hindringen",
+   "content": "En urettet graf er bipartitt **hvis og bare hvis** den ikke inneholder noen sykel\nav oddetallslengde.\n\n**Hvorfor det er slik, i én setning hver vei.** Går du rundt en sykel og veksler\nfarge for hvert steg, har du etter et **partall** steg samme farge som du startet\nmed — det går opp, og ringen kan farges. Etter et **oddetall** steg har du\nmotsatt farge av deg selv, og den siste kanten i sykelen forbinder to like\nfarger; det går ikke opp uansett hvor du begynner.\n\n**Slik brukes resultatet på eksamen.** Det gir deg en øyeblikkelig test: finner\ndu en trekant, en femkant eller en hvilken som helst rundtur med et oddetall\nkanter, er svaret «ikke bipartitt», og du trenger ikke kjøre algoritmen. Motsatt\ner en graf **uten** sykel — et tre — alltid bipartitt.\n\nResultatet er kjent og kan brukes uten bevis; skisser gjerne argumentet over i én\nsetning, men bruk ikke eksamensminutter på mer enn det."
+  },
+  {
+   "id": "in2010-5-3-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Fem parter i ring — og hvorfor det ikke går opp",
+   "problem": "Samme oppgave, men nå med fem parter i ring: A mot B, B mot C, C mot D, D mot E,\nog E mot A.\n\n```text\nA: B, E\nB: A, C\nC: B, D\nD: C, E\nE: A, D\n```\n\nKjør `TwoColor` fra A. Sammenlign med eksempel 2 og forklar hva som er\nforskjellen.",
+   "solution": "**Sporingen:**\n\n| Steg | Handling | Køen etter steget | Status |\n|---|---|---|---|\n| 1 | start i A, farge rød | `A` | OK |\n| 2 | A -> B: ufarget, gi motsatt farge (blå) | `B` | OK |\n| 3 | A -> E: ufarget, gi motsatt farge (blå) | `B, E` | OK |\n| 4 | B -> A: allerede rød, motsatt farge — ok | `E` | OK |\n| 5 | B -> C: ufarget, gi motsatt farge (rød) | `E, C` | OK |\n| 6 | E -> A: allerede rød, motsatt farge — ok | `C` | OK |\n| 7 | E -> D: ufarget, gi motsatt farge (rød) | `C, D` | OK |\n| 8 | C -> B: allerede blå, motsatt farge — ok | `D` | OK |\n| 9 | C -> D: begge er rød — KONFLIKT | `D` | KONFLIKT |\n\n- **resultat: IKKE bipartitt.** Kanten C-D forbinder to noder som begge måtte få fargen rød.\n\n**Forskjellen fra eksempel 2 er ett eneste tall: ringen har fem kanter i stedet\nfor seks.** I sekskanten veksler fargene rødt–blått–rødt–blått–rødt–blått, og den\nsiste kanten lukker ringen mellom blå og rød. I femkanten veksler de\nrødt–blått–rødt–blått–rødt, og den siste kanten skal lukke ringen mellom rød og\nrød.\n\nDet er nøyaktig det figuren over viser, og nøyaktig det setningen om\noddetallssykler sier. Ringen på fem er en sykel av oddetallslengde, og én slik\nsykel holder for å ødelegge hele fargeleggingen — uansett hvor stor resten av\ngrafen er.\n\n**Kjøretid:** algoritmen stoppet etter ni steg, men i verste fall (en bipartitt\ngraf) må den se på alt: $O(|V| + |E|)$.\n\n**Fellenote.** Fella her er felle **#1** — å gjøre mer arbeid enn nødvendig. Det\ner fristende å prøve alle mulige fordelinger av nodene på to grupper for å være\nsikker. Det er $2^{|V|}$ muligheter. Den tvungne fargeleggingen avgjør det samme\ni lineær tid, og det er hele grunnen til at algoritmen finnes."
+  },
+  {
+   "id": "in2010-5-3-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Tilbake til turkartet fra oppgave 1, med de seks hyttene:\n\n```text\nA: B, C\nB: A, D, E\nC: A, E\nD: B, F\nE: B, C, F\nF: D, E\n```\n\nHyttene skal males i to farger slik at ingen sti går mellom to hytter med samme\nfarge.\n\n**a)** Kjør `TwoColor` fra A og oppgi sporingen.\n**b)** Er det mulig? Oppgi i så fall hvilke hytter som får hvilken farge.\n**c)** Grafen inneholder en sykel. Hvorfor ødelegger den ikke fargeleggingen?",
+    "solution": "**a)**\n\n| Steg | Handling | Køen etter steget | Status |\n|---|---|---|---|\n| 1 | start i A, farge rød | `A` | OK |\n| 2 | A -> B: ufarget, gi motsatt farge (blå) | `B` | OK |\n| 3 | A -> C: ufarget, gi motsatt farge (blå) | `B, C` | OK |\n| 4 | B -> A: allerede rød, motsatt farge — ok | `C` | OK |\n| 5 | B -> D: ufarget, gi motsatt farge (rød) | `C, D` | OK |\n| 6 | B -> E: ufarget, gi motsatt farge (rød) | `C, D, E` | OK |\n| 7 | C -> A: allerede rød, motsatt farge — ok | `D, E` | OK |\n| 8 | C -> E: allerede rød, motsatt farge — ok | `D, E` | OK |\n| 9 | D -> B: allerede blå, motsatt farge — ok | `E` | OK |\n| 10 | D -> F: ufarget, gi motsatt farge (blå) | `E, F` | OK |\n| 11 | E -> B: allerede blå, motsatt farge — ok | `F` | OK |\n| 12 | E -> C: allerede blå, motsatt farge — ok | `F` | OK |\n| 13 | E -> F: allerede blå, motsatt farge — ok | `F` | OK |\n| 14 | F -> D: allerede rød, motsatt farge — ok | `(tom)` | OK |\n| 15 | F -> E: allerede rød, motsatt farge — ok | `(tom)` | OK |\n\n- **resultat: BIPARTITT.**\n- rød: A, D, E\n- blå: B, C, F\n\n**b) Ja.** A, D og E males rødt; B, C og F males blått.\n\n**c)** Fordi syklene i grafen har **partall** lengde. Gå for eksempel rundt\nA-B-E-C-A: det er fire kanter, og fargene veksler rød-blå-rød-blå og lukker seg\nriktig. Det er ikke sykler i seg selv som ødelegger bipartitthet — det er sykler\nmed et oddetall kanter.\n\n**Merk stegene 8, 11, 12, 13, 14 og 15.** Alle er kanter der begge endene\nallerede var farget. De koster arbeid uten å endre noe, men de er nødvendige:\ndet er nøyaktig i en slik sjekk en konflikt ville dukket opp.",
+    "hints": [
+     "Start i A med rødt, og skriv opp køen etter hvert steg slik eksempel 2 gjør.",
+     "For c): tell antall kanter i en av rundturene i grafen."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) Seks servere skal fordeles på to serverrom. To\nservere som utveksler data direkte, må stå i **hvert sitt** rom av hensyn til\nredundans. Koblingene er:\n\n```text\nA: B, D, E\nB: A, C, E\nC: B, F\nD: A, E\nE: A, B, D, F\nF: C, E\n```\n\n**a)** Kjør `TwoColor` fra A og oppgi sporingen fram til algoritmen konkluderer.\n**b)** Er fordelingen mulig?\n**c)** Pek ut en sykel av oddetallslengde i grafen, og forklar hvorfor akkurat\nden er nok til å avgjøre saken.\n**d)** Hvilken kjøretid oppgir du, og hvorfor er ikke «algoritmen stoppet etter\nsju steg» et svar på det spørsmålet?",
+    "solution": "**a)**\n\n| Steg | Handling | Køen etter steget | Status |\n|---|---|---|---|\n| 1 | start i A, farge rød | `A` | OK |\n| 2 | A -> B: ufarget, gi motsatt farge (blå) | `B` | OK |\n| 3 | A -> D: ufarget, gi motsatt farge (blå) | `B, D` | OK |\n| 4 | A -> E: ufarget, gi motsatt farge (blå) | `B, D, E` | OK |\n| 5 | B -> A: allerede rød, motsatt farge — ok | `D, E` | OK |\n| 6 | B -> C: ufarget, gi motsatt farge (rød) | `D, E, C` | OK |\n| 7 | B -> E: begge er blå — KONFLIKT | `D, E, C` | KONFLIKT |\n\n- **resultat: IKKE bipartitt.** Kanten B-E forbinder to noder som begge måtte få fargen blå.\n\n**b) Nei.** Fordelingen er umulig.\n\n**c)** Trekanten **A-B-E-A** er en sykel av lengde 3, altså et oddetall. A er\nnabo med både B og E, så begge tvinges til motsatt farge av A — samme farge som\nhverandre — og kanten B-E forbinder dem. Ett slikt triangel er nok: setningen om\noddetallssykler sier at én sykel av oddetallslengde utelukker bipartitthet, helt\nuavhengig av hvordan resten av grafen ser ut. Legg merke til at grafen også\ninneholder firkanten A-D-E-B-A, som i seg selv ville gått fint opp; det er ikke\nantall sykler som teller, men om **noen** av dem har oddetallslengde.\n\n**d)** Kjøretiden er $O(|V| + |E|)$, der $|V|$ er antall servere og $|E|$ antall\ndirektekoblinger. At denne kjøringen stoppet etter sju steg, er et faktum om\nakkurat denne grafen og akkurat dette startpunktet — kjøretid er en påstand om\n**verste tilfelle** for vilkårlig input. En bipartitt graf gir ingen tidlig\nkonflikt, og da må algoritmen se på hver node og hver kant. Å oppgi det målte\nantallet steg i stedet for en O-grense er felle **#10**: å svare på\nkjøretidsspørsmålet uten å forholde seg til O-notasjon.",
+    "hints": [
+     "Farg A rødt og gå gjennom naboene i alfabetisk rekkefølge; noter køen etter hvert steg.",
+     "Se etter tre servere som alle er koblet direkte til hverandre."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-t-3",
+   "type": "text",
+   "content": "## Løkke 3 — finnes det en rundtur? (ca. 13 min)\n\n— naturlig pausepunkt —\n\nTilbake til turkartet. En hytteeier vil vite om det finnes en **rundtur**: en tur\nsom starter og ender i samme hytte uten å gå den samme stien to ganger. I\ngrafspråk spør hun om grafen inneholder en **sykel**.\n\nIgjen er svaret en DFS med noen få linjer lagt til. Under en DFS i en urettet\ngraf møter du før eller siden en nabo som allerede er besøkt. Det betyr at det\ngår en kant til en node du har vært innom — altså finnes det to veier dit, altså\nen sykel.\n\nMed ett unntak, og hele oppgaven henger på det: **naboen du nettopp kom fra.** I\nen urettet graf er kanten mellom deg og forelderen din en helt vanlig kant som\nkan gås begge veier. Når du står i B og ser at naboen A er besøkt, er A bare\nnoden du kom fra — det er ingen rundtur, det er den samme stien sett bakover.\nDerfor må sjekken være: en besøkt nabo som **ikke er forelderen** betyr sykel."
+  },
+  {
+   "id": "in2010-5-3-def-3",
+   "type": "definition",
+   "title": "Sykel i en urettet graf",
+   "content": "En sti som starter og ender i samme node, uten å bruke den samme kanten mer enn én\ngang, og med minst tre kanter.\n\nKravet om minst tre kanter er nettopp forelder-unntaket: å gå fra A til B og rett\ntilbake er ikke en rundtur, det er den samme kanten to ganger. En sammenhengende\nurettet graf uten sykel er et **tre**, og har da nøyaktig $|E| = |V| - 1$\nkanter."
+  },
+  {
+   "id": "in2010-5-3-th-4",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `HasCycle`",
+   "content": "**Antagelser om representasjon.** `G` er en urettet graf gitt som nabolister;\nhver node `v` har feltet `v.besokt`. Grafen er **enkel**: ingen node har en kant\ntil seg selv, og det finnes ikke to kanter mellom samme nodepar. Forelderen føres\nmed som en parameter i det rekursive kallet.\n\n**Prebetingelse:** ingen. **Postbetingelse:** returverdien er `sant` hvis og bare\nhvis `G` inneholder minst én sykel. Grafen er uendret.\n\n```text\nProcedure HasCycle(G)\n  Input:  urettet graf G = (V, E) som nabolister\n  Output: sant hvis G inneholder minst en sykel, ellers usant\n  for hver node v i V:\n      v.besokt = usant\n  for hver node v i V:\n      if v.besokt er usant:\n          if CycleVisit(v, ingen) er sant:\n              return sant\n  return usant\n\nProcedure CycleVisit(v, forelder)\n  v.besokt = sant\n  for hver nabo u av v:\n      if u.besokt er usant:\n          if CycleVisit(u, v) er sant:\n              return sant\n      else if u er ulik forelder:\n          return sant\n  return usant\n```\n\n**Invarianten i én setning:** når `CycleVisit(v, forelder)` kalles, er `v` nådd\nlangs en sti fra en startnode, og hver besøkt nabo av `v` som ikke er\n`forelder`, gir en andre vei tilbake til den stien — altså en sykel.\n\n**Kjøretid:** $O(|V| + |E|)$. Hver node besøkes én gang, hver kant ses på to\nganger, og forelder-sammenligningen er $O(1)$.\n\n**Den ytre løkka er også her nødvendig.** En sykel kan ligge i en komponent du\nikke startet i. Uten løkka over alle noder svarer algoritmen «ingen sykel» på en\ngraf som har én, bare et annet sted.\n\n**Avgrensning.** Dette er sykeldeteksjon i **urettede** grafer. I en rettet graf\nholder ikke forelder-regelen — der kan to noder peke på hverandre uten at det\nutgjør en rundtur i vanlig forstand, og en besøkt node kan ligge i en helt annen\ngren. Rettet sykeldeteksjon hører til Del 6, sammen med topologisk sortering, og\nskal ikke brukes i dette kapitlet."
+  },
+  {
+   "id": "in2010-5-3-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Et stinett uten rundtur",
+   "problem": "Seks hytter er forbundet slik:\n\n```text\nA: B, C\nB: A, D, E\nC: A, F\nD: B\nE: B\nF: C\n```\n\nKjør `HasCycle` fra A og avgjør om det finnes en rundtur.",
+   "solution": "**Sporingen.** Kolonnen «Handling» viser hvert kall og hver naboinspeksjon.\n\n| Steg | Handling | Status |\n|---|---|---|\n| 1 | besøk A (kom fra -) | - |\n| 2 | besøk B (kom fra A) | - |\n| 3 | fra B: naboen A ER forelderen — ikke sykel | - |\n| 4 | besøk D (kom fra B) | - |\n| 5 | fra D: naboen B ER forelderen — ikke sykel | - |\n| 6 | besøk E (kom fra B) | - |\n| 7 | fra E: naboen B ER forelderen — ikke sykel | - |\n| 8 | besøk C (kom fra A) | - |\n| 9 | fra C: naboen A ER forelderen — ikke sykel | - |\n| 10 | besøk F (kom fra C) | - |\n| 11 | fra F: naboen C ER forelderen — ikke sykel | - |\n\n- **inneholder sykel: NEI**\n- |V| = 6, |E| = 5 (et tre ville hatt |E| = |V| - 1 = 5)\n\n**Svaret: ingen rundtur finnes.** Hver eneste gang algoritmen møtte en besøkt\nnabo, var det forelderen — den samme stien sett bakover.\n\n**Legg merke til kanttellingen på siste linje.** Grafen er sammenhengende, har\nseks noder og fem kanter, og $|E| = |V| - 1$. Den er altså et **tre**, og et tre\nhar per definisjon ingen sykel. Det er en gratis kontrollregning som tar to\nsekunder: er grafen sammenhengende og har flere enn $|V| - 1$ kanter, **må** den\nha en sykel, og da vet du svaret før du begynner å traversere.\n\n**Fellenote.** Fella her er den klassiske i sjangeren: å regne kanten tilbake til\nforelderen som en sykel. Uten `else if u er ulik forelder` ville algoritmen\nmeldt «sykel» allerede i steg 3, på en graf som er et tre. Da svarer den «ja» på\nabsolutt hver eneste graf med minst én kant."
+  },
+  {
+   "id": "in2010-5-3-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Det er lagt én ny sti i hyttenettet fra eksempel 4, mellom E og F:\n\n```text\nA: B, C\nB: A, D, E\nC: A, F\nD: B\nE: B, F\nF: C, E\n```\n\n**a)** Kjør `HasCycle` fra A og oppgi sporingen.\n**b)** Finnes det en rundtur, og hvilken kant avslører den?\n**c)** Bekreft svaret med kanttellingen.",
+    "solution": "**a)**\n\n| Steg | Handling | Status |\n|---|---|---|\n| 1 | besøk A (kom fra -) | - |\n| 2 | besøk B (kom fra A) | - |\n| 3 | fra B: naboen A ER forelderen — ikke sykel | - |\n| 4 | besøk D (kom fra B) | - |\n| 5 | fra D: naboen B ER forelderen — ikke sykel | - |\n| 6 | besøk E (kom fra B) | - |\n| 7 | fra E: naboen B ER forelderen — ikke sykel | - |\n| 8 | besøk F (kom fra E) | - |\n| 9 | besøk C (kom fra F) | - |\n| 10 | fra C: naboen A er besøkt og er IKKE forelderen (F) | SYKEL |\n\n- **inneholder sykel: JA**\n- kanten som avslørte sykelen: C-A\n- |V| = 6, |E| = 6 (et tre ville hatt |E| = |V| - 1 = 5)\n\n**b) Ja.** Kanten **C-A** avslører den. Da algoritmen sto i C, var forelderen F,\nog naboen A var besøkt fra før — altså finnes det to ulike veier fra A til C:\nden direkte kanten, og veien A-B-E-F-C. Til sammen er det rundturen\nA-B-E-F-C-A.\n\n**c)** Grafen er sammenhengende med $|V| = 6$ og $|E| = 6$. Et tre ville hatt\n$|E| = |V| - 1 = 5$ kanter. Den ene ekstra kanten er nøyaktig den nye stien\nE-F, og en sammenhengende graf med flere enn $|V| - 1$ kanter må ha minst én\nsykel. Kanttellingen bekrefter altså svaret uten at du traverserer i det hele\ntatt.\n\n**Merk hva som gjør steg 10 riktig.** A er besøkt, men A er **ikke** forelderen\ntil C — forelderen er F. Hadde vi bare sjekket «er naboen besøkt?», ville\nalgoritmen meldt sykel allerede i steg 3.",
+    "hints": [
+     "Følg naboene i alfabetisk rekkefølge, og skriv ned hvem du kom fra i hvert kall.",
+     "For c): hvor mange kanter har et tre med seks noder?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "Fire feil koster mest i dette kapitlet, og de to første går igjen i hvert eneste\nsett.\n\n- **Å regne kanten tilbake til forelderen som en sykel.** Den vanligste feilen i\n  urettet sykeldeteksjon. Uten `else if u er ulik forelder` melder algoritmen\n  sykel på et hvilket som helst tre. **Kontrollen:** kjør algoritmen din i hodet\n  på grafen `A: B` / `B: A`. Svarer den «sykel», mangler forelder-unntaket.\n- **Å oppgi $O(|E|)$ i stedet for $O(|V| + |E|)$.** Dette er felle **#6** — å\n  forveksle DFS fra **én** node med en DFS-full som må innom alle noder. Så snart\n  algoritmen din har en ytre løkke over $V$, er kjøretiden $O(|V| + |E|)$.\n- **Å glemme den ytre løkka helt.** Da behandles bare komponenten du startet i.\n  En ikke-bipartitt komponent, eller en sykel, et annet sted i grafen blir aldri\n  oppdaget, og algoritmen svarer feil på grafer med mer enn én komponent.\n- **Å prøve alle fordelinger i stedet for å farge tvunget.** Det er $2^{|V|}$\n  muligheter, mot $O(|V| + |E|)$ for den tvungne fargeleggingen. Dette er felle\n  **#1** — full, naiv gjennomgang der én traversering holdt — og den koster fort\n  halve poengsummen på en sjanger H-oppgave, fordi sensor eksplisitt gir mer for\n  lavere kjøretid på samme oppgave.\n\nOg den stille: **å hoppe over isolerte noder når du teller komponenter.** En node\nuten kanter er en komponent. Tell nodene i komponentene dine til slutt, og\nkontroller at summen er $|V|$."
+  },
+  {
+   "id": "in2010-5-3-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) En kollega har skrevet denne prosedyren for å\navgjøre om et urettet nett inneholder en rundtur:\n\n```text\nProcedure HasCycle(G)\n  Input:  urettet graf G som nabolister\n  Output: sant hvis G inneholder en sykel\n  for hver node v i V:\n      v.besokt = usant\n  Sjekk(startnode)\n  return usant\n\nProcedure Sjekk(v)\n  v.besokt = sant\n  for hver nabo u av v:\n      if u.besokt er sant:\n          return sant\n      Sjekk(u)\n```\n\n**a)** Finn alle feilene.\n**b)** Vis konkret hva som går galt på grafen `A: B` / `B: A`.\n**c)** Skriv en korrekt versjon, med antagelser og kjøretid.",
+    "solution": "**a) Fire feil.**\n\n1. **Forelder-unntaket mangler.** `if u.besokt er sant: return sant` melder sykel\n   på kanten tilbake til noden du nettopp kom fra. Sjekken må være «besøkt **og\n   ikke forelderen**».\n2. **Returverdien fra det rekursive kallet kastes.** `Sjekk(u)` kalles uten at\n   resultatet brukes, så en sykel funnet dypt nede i rekursjonen når aldri opp\n   til den ytre prosedyren.\n3. **Den ubesøkte naboen sjekkes ikke før kallet.** `Sjekk(u)` kalles også på\n   noder som allerede er besøkt, så algoritmen kan gå i evig rekursjon.\n4. **Ingen ytre løkke over alle noder.** Bare komponenten som inneholder\n   `startnode` undersøkes; en sykel i en annen komponent blir aldri funnet. Og\n   `startnode` er aldri definert.\n\n**b) Konkret, på grafen `A: B` / `B: A`:**\n\n`Sjekk(A)` markerer A som besøkt og ser på naboen B. B er ubesøkt, så\n`if u.besokt er sant` er usant — men returverdien brukes ikke, og `Sjekk(B)`\nkalles. `Sjekk(B)` markerer B og ser på naboen A, som **er** besøkt, og\nreturnerer `sant`.\n\nDen returverdien kastes, `Sjekk(A)` faller gjennom, og ytterste prosedyre\nreturnerer `usant`. Altså: algoritmen finner en «sykel» som ikke finnes, og\nmelder likevel «ingen sykel». To feil som tilfeldigvis kansellerer hverandre på\nakkurat denne grafen — og det er verre enn én feil, fordi den ikke lar seg\noppdage ved å teste.\n\n**c) Korrekt versjon.**\n\n**Problemet navngitt:** sykeldeteksjon i en urettet graf.\n\n**Antagelser om representasjon:** `G` er en enkel urettet graf gitt som\nnabolister; hver node `v` har feltet `v.besokt`; forelderen føres med som\nparameter.\n\n```text\nProcedure HasCycle(G)\n  Input:  urettet graf G = (V, E) som nabolister\n  Output: sant hvis G inneholder minst en sykel, ellers usant\n  for hver node v i V:\n      v.besokt = usant\n  for hver node v i V:\n      if v.besokt er usant:\n          if CycleVisit(v, ingen) er sant:\n              return sant\n  return usant\n\nProcedure CycleVisit(v, forelder)\n  v.besokt = sant\n  for hver nabo u av v:\n      if u.besokt er usant:\n          if CycleVisit(u, v) er sant:\n              return sant\n      else if u er ulik forelder:\n          return sant\n  return usant\n```\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall noder og $|E|$ antall kanter.\nHver node besøkes én gang, hver kant ses på to ganger.\n\n**Kan dette gjøres raskere?** For en generell graf, nei — du må se på kantene.\nMen det finnes en snarvei når grafen er **sammenhengende**: tell kantene. Er\n$|E| > |V| - 1$, finnes det en sykel, og det avgjøres i $O(1)$ hvis tallene er\noppgitt. Snarveien sier bare **om** en sykel finnes, ikke hvor, og den krever at\ndu vet at grafen er sammenhengende — men å nevne den viser sensor at du har sett\nsammenhengen mellom trær og sykler.\n\n**Poengtrapp-notat.** Hovedmomentet er algoritmevalget og forelder-unntaket; det\ner der de fleste poengene ligger. En besvarelse med riktig idé, riktig\nforelder-unntak og riktig kjøretid, men uten den ytre løkka, får typisk trekk for\nett delmoment — ikke for hele oppgaven.",
+    "hints": [
+     "Kjør prosedyren i hodet på den minst mulige grafen: to noder og én kant.",
+     "Se på hva som skjer med verdien `Sjekk(u)` returnerer."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-t-4",
+   "type": "text",
+   "content": "## Løkke 4 — behandle grafen komponent for komponent (ca. 8 min)\n\nDen siste varianten er den mest generelle, og den dukker opp i innpakninger som\nser ut som alt annet enn grafteori.\n\nEt kjøretidsmiljø holder styr på objekter i minnet. Hvert objekt kan peke på\nandre objekter, og programmet har en **rot-mengde**: de objektene som er direkte\ntilgjengelige fra kode som kjører nå. Spørsmålet er hvilke objekter som trygt kan\nfrigjøres.\n\nSvaret er en traversering: start en DFS fra **hver** node i rot-mengden, og\nmarker alt du når. Når du er ferdig, kan alt som ikke er markert, frigjøres — det\nfinnes ingen vei dit fra noe programmet kan se.\n\nDet er det samme mønsteret som komponenttellingen, med én forskjell: den ytre\nløkka går over rot-mengden i stedet for over alle noder. Kjenner du igjen\nformuleringene «hva kan nås fra …», «hva kan trygt fjernes» eller «behandle hver\ndel for seg», er dette verktøyet."
+  },
+  {
+   "id": "in2010-5-3-def-4",
+   "type": "definition",
+   "title": "Komponentvis behandling fra en rot-mengde",
+   "content": "Mønsteret der du kjører DFS fra hver node i en oppgitt **rot-mengde**, markerer\nalt som nås, og deretter behandler de umarkerte nodene samlet.\n\nKjøretiden er $O(|V| + |E|)$ uansett hvor stor rot-mengden er, fordi hver node og\nhver kant behandles høyst én gang på tvers av alle DFS-kallene. Signalordene i en\noppgavetekst er «hva kan nås fra», «hva kan frigjøres» og «behandle hver del for\nseg»."
+  },
+  {
+   "id": "in2010-5-3-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-3-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) Et kjøretidsmiljø har $|V|$ objekter i minnet. Hvert\nobjekt kan peke på andre objekter, og pekerne er **toveis** i den forstand at\nmiljøet kan følge dem begge veier; det er totalt $|E|$ pekere. En liten\nrot-mengde $R$ er oppgitt.\n\nSkriv en algoritme som returnerer mengden objekter som trygt kan frigjøres,\naltså de som ikke kan nås fra noen node i $R$. Oppgi antagelser om representasjon\nog kjøretid, og forklar hvorfor kjøretiden er lavest mulig.",
+    "solution": "**Problemet navngitt:** dette er «hva kan nås fra en gitt mengde startnoder» i en\nurettet graf, altså komponentvis behandling fra en rot-mengde. Det er DFS-full\nmed rot-mengden som ytre løkke.\n\n**Antagelser om representasjon:** objektene er noder i en urettet graf gitt som\nnabolister; hver node `v` har feltet `v.besokt`. Rot-mengden `R` er en liste av\nnoder. Vi kan iterere over alle noder i `V` i tid $O(|V|)$.\n\n**Algoritmen:**\n\n```text\nProcedure Frigjorbare(G, R)\n  Input:  urettet graf G = (V, E) som nabolister, rot-mengde R som liste av noder\n  Output: listen over noder som ikke kan nas fra noen node i R\n  for hver node v i V:\n      v.besokt = usant\n  for hver node r i R:\n      if r.besokt er usant:\n          DFSVisit(r)\n  Frigjor = tom liste\n  for hver node v i V:\n      if v.besokt er usant:\n          legg v bakerst i Frigjor\n  return Frigjor\n\nProcedure DFSVisit(v)\n  v.besokt = sant\n  for hver nabo u av v:\n      if u.besokt er usant:\n          DFSVisit(u)\n```\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall objekter og $|E|$ antall\npekere. Initialiseringen er $O(|V|)$; på tvers av **alle** DFS-kallene fra\nrot-mengden besøkes hver node høyst én gang og hver kant ses på høyst to ganger,\nfordi `v.besokt` nullstilles bare i starten og aldri underveis. Den avsluttende\ninnsamlingen er $O(|V|)$.\n\n**Hvorfor det er lavest mulig.** Et objekt kan ikke erklæres frigjørbart uten at\nalgoritmen har utelukket hver eneste vei dit, og en vei kan gå gjennom hvilken\nsom helst peker. I verste fall må derfor hver kant ses på. Dermed er $O(|V| +\n|E|)$ en nedre grense for arbeidet, og algoritmen treffer den.\n\n**Den naive løsningen, til sammenligning.** Å spørre for hvert objekt om det er\nnåbart fra rot-mengden, med en ny traversering per objekt, gir $|V|$\ntraverseringer à $O(|V| + |E|)$, altså $O(|V| \\cdot (|V| + |E|))$. Med en million\nobjekter er forskjellen ikke akademisk. Dette er felle **#1** — full, naiv\ngjennomgang der én traversering holdt — og på eksamen er den dyr: sensor oppgir\nofte poengtrappen direkte, slik at den lineære løsningen gir full pott og den\nkvadratiske merkbart mindre på **samme** oppgave.\n\n**Poengtrapp-notat.** Hovedmomentet er å se at ett felles `besokt`-felt gjør at\nalle DFS-kallene til sammen koster like mye som **én** traversering. Det er den\ninnsikten oppgaven tester; resten er håndverk.",
+    "hints": [
+     "Hva er den ytre løkka her — alle noder, eller bare rot-mengden?",
+     "Nullstill `besokt` én gang, ikke mellom hvert kall fra rot-mengden. Tenk over hva det betyr for totalkostnaden."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-3-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-5-3-def-5",
+   "type": "definition",
+   "title": "Komponenttelling med DFS-full",
+   "content": "Antall sammenhengende komponenter er antall ganger den ytre løkka i DFS-full må\nstarte en ny traversering. Kjøretid $O(|V| + |E|)$.\n\nEgenskapen som gjør den riktig: én DFS besøker nøyaktig én komponent. Isolerte\nnoder teller som egne komponenter, og den ytre løkka er grunnen til at kjøretiden\nhar $|V|$-leddet."
+  },
+  {
+   "id": "in2010-5-3-def-6",
+   "type": "definition",
+   "title": "2-fargelegging (`TwoColor`)",
+   "content": "Avgjør om en urettet graf er bipartitt ved å gi hver node motsatt farge av den\nnoden den ble nådd fra. Kjøretid $O(|V| + |E|)$.\n\nEgenskapen som gjør den riktig: hvert fargevalg etter startnoden er **tvunget**,\nså en konflikt beviser at ingen gyldig fargelegging finnes — ikke bare at denne\nkjøringen mislyktes."
+  },
+  {
+   "id": "in2010-5-3-def-7",
+   "type": "definition",
+   "title": "Sykeldeteksjon i urettet graf (`HasCycle`)",
+   "content": "DFS der en kant til en allerede besøkt node som **ikke** er forelderen, betyr\nsykel. Kjøretid $O(|V| + |E|)$.\n\nEgenskapen som gjør den riktig: den besøkte naboen ligger på stien du kom langs,\nså kanten dit gir en andre vei — altså en rundtur. Uten forelder-unntaket svarer\nalgoritmen «sykel» på et hvilket som helst tre."
+  },
+  {
+   "id": "in2010-5-3-def-8",
+   "type": "definition",
+   "title": "Sykler av oddetallslengde",
+   "content": "En urettet graf er bipartitt hvis og bare hvis den ikke inneholder noen sykel med\net oddetall kanter.\n\nPraktisk konsekvens: ser du en trekant, er svaret «ikke bipartitt» med én gang.\nEt tre, som ikke har sykler i det hele tatt, er alltid bipartitt. Resultatet er\nkjent og kan brukes uten bevis."
+  },
+  {
+   "id": "in2010-5-3-def-9",
+   "type": "definition",
+   "title": "Forelder-unntaket",
+   "content": "I urettet sykeldeteksjon skal kanten tilbake til noden du kom fra, ikke telle som\nsykel.\n\nDet er den samme kanten sett bakover, ikke en rundtur. Testen som avslører at\nunntaket mangler: kjør algoritmen på grafen med to noder og én kant — svarer den\n«sykel», er unntaket glemt."
+  },
+  {
+   "id": "in2010-5-3-def-10",
+   "type": "definition",
+   "title": "Kanttelling i en urettet graf",
+   "content": "En traversering ser på hver kant **to** ganger, én gang fra hver ende. Summen av\nnodegradene er derfor $2|E|$.\n\nDet er denne tellingen som gir $O(|V| + 2|E|) = O(|V| + |E|)$, og den er\nbegrunnelsen sensor ber om når du oppgir kjøretiden. En O-påstand uten\nløkketelling gir ikke full uttelling."
+  },
+  {
+   "id": "in2010-5-3-def-11",
+   "type": "definition",
+   "title": "Tre (urettet)",
+   "content": "En sammenhengende urettet graf uten sykel. Har nøyaktig $|E| = |V| - 1$ kanter.\n\nTo gratis konsekvenser: et tre er alltid bipartitt, og en **sammenhengende** graf\nmed flere enn $|V| - 1$ kanter må inneholde minst én sykel. Begge er\nkontrollregninger som tar to sekunder."
+  },
+  {
+   "id": "in2010-5-3-def-12",
+   "type": "definition",
+   "title": "Den ytre løkka over alle noder",
+   "content": "Løkken som starter en ny traversering for hver node som ennå ikke er behandlet.\nDen koster $O(|V|)$ og er det som gjør DFS-full komplett.\n\nUten den behandles bare komponenten du startet i, og både en sykel og en\nikke-bipartitt del et annet sted i grafen blir usett. Alle tre algoritmene i\nkapitlet har den."
+  },
+  {
+   "id": "in2010-5-3-def-13",
+   "type": "definition",
+   "title": "Felle #6 — DFS fra én node kontra DFS-full",
+   "content": "DFS fra **én** node er $O(|E|)$; DFS-**full**, med ytre løkke over alle noder, er\n$O(|V| + |E|)$.\n\nForskjellen er initialiseringen og gjennomgangen av noder uten kanter. Har\nalgoritmen din en ytre løkke over $V$, er svaret $O(|V| + |E|)$. Dette er et\neksplisitt trekkpunkt i faget."
+  },
+  {
+   "id": "in2010-5-3-def-14",
+   "type": "definition",
+   "title": "Sjanger H — grafalgoritme i pseudokode",
+   "content": "Del 2-sjangeren der du får et problem i ord og skal skrive grafalgoritmen selv,\nmed kjøretid. I hvert eneste sett, med to eller tre oppgaver.\n\nFull uttelling krever fire ledd: problemet navngitt, antagelser om representasjon\noppgitt, algoritmen (pseudokode **eller** en klar forklaring i ord), og kjøretid\nsom matcher koden med størrelsene definert."
+  },
+  {
+   "id": "in2010-5-3-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kapitlet på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-5-3-rep-1",
+     "type": "text",
+     "content": "**Tre problemer, én traversering.**\n\n| Spørsmålet i oppgaveteksten | Verktøy | Kjøretid |\n|---|---|---|\n| «hvor mange atskilte deler?» | DFS-full, tell nystarter i ytre løkke | $O(|V| + |E|)$ |\n| «kan de deles i to grupper uten kant innad?» | 2-fargelegging, motsatt farge av forelderen | $O(|V| + |E|)$ |\n| «finnes det en rundtur?» | DFS, besøkt nabo som ikke er forelderen | $O(|V| + |E|)$ |\n| «hva kan nås fra / frigjøres?» | DFS fra rot-mengden, felles `besokt` | $O(|V| + |E|)$ |\n\n**De tre detaljene som avgjør poengene:**\n\n1. **Den ytre løkka over alle noder.** Uten den behandles bare én komponent.\n2. **Forelder-unntaket** i sykeldeteksjonen. Uten det melder algoritmen sykel på\n   ethvert tre.\n3. **Kjøretiden $O(|V| + |E|)$, ikke $O(|E|)$** — felle **#6**. Har algoritmen en\n   ytre løkke over $V$, er $|V|$-leddet med.\n\n**To gratis kontrollregninger:**\n\n- Er grafen sammenhengende og har $|E| > |V| - 1$, finnes det en sykel.\n- Finner du en trekant eller en annen rundtur med et oddetall kanter, er grafen\n  ikke bipartitt — uten å kjøre noe som helst.\n\n**Kan dette gjøres raskere?** Nei, ingen av dem. Du må se på kantene for å vite\nhvordan grafen henger sammen, så $O(|V| + |E|)$ er nedre grense. Skriv det i\nbesvarelsen: sensor gir uttelling for å begrunne at kjøretiden er **lavest\nmulig**, ikke bare for å oppgi den.\n\n**Videre:** [kap. 5.4](/in2010/in2010-5-4) tar de samme spørsmålene over i\n**rettede** grafer, der «hvem når hvem» blir et eget verktøy, og\n[kap. 5.5](/in2010/in2010-5-5) er drillen som roterer alle mønstrene."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

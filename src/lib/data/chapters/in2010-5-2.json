@@ -1,0 +1,432 @@
+{
+ "id": "in2010-5-2",
+ "courseId": "in2010",
+ "chapterNumber": "5.2",
+ "title": "BFS og DFS — traversering",
+ "description": "Bredde-først (BFS) og dybde-først (DFS) traversering, DFS-full over alle komponenter, og det faste skillet DFS fra én node O(|E|) vs. DFS-full O(|V|+|E|).",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne håndkjøre bredde-først med kø og dybde-først med kallstakk, og oppgi besøksrekkefølge, lag og ferdigrekkefølge",
+  "kunne skrive bredde-først, rekursivt dybde-først og dybde-først over hele grafen i pseudokode, med antagelser og kjøretid",
+  "kunne begrunne hvorfor dybde-først fra én node og dybde-først over hele grafen har forskjellig kjøretid, og oppgi riktig uttrykk for hver",
+  "kunne velge riktig traversering når en oppgave ber om korteste vei målt i antall kanter, og si hvorfor den andre ikke duger"
+ ],
+ "content": [
+  {
+   "id": "in2010-5-2-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette er kapitlet der Del 2 begynner for alvor.**\n\nGrafrepresentasjon og traversering står i **alle sju settene i arkivet (7 av\n7, altså 100 %)**, og de to algoritmene i dette kapitlet — bredde-først og\ndybde-først — er byggeklossene i så godt som hver eneste grafoppgave i resten\nav boka. Lærer du dem ordentlig nå, får du igjen for det seks kapitler på\nrad.\n\nKapitlet trener to sjangre:\n\n- **Sjanger H — grafalgoritmer i pseudokode**, altså at du skriver algoritmen\n  selv og oppgir kjøretiden. Denne sjangeren er på **hvert eneste sett**, med\n  2–3 oppgaver, og det er her karakteren avgjøres.\n- **Sjanger F — matrise- og tabellavkryssing**, altså at du krysser av\n  hvilken kjøretid som hører til hvilken variant.\n\n**Ett punkt veier tyngre enn alt annet i dette kapitlet**, og det er et\neksplisitt trekkpunkt i sensorenes veiledninger: dybde-først-søk fra **én**\nnode er $O(|E|)$, mens dybde-først over **hele** grafen er $O(|V| + |E|)$.\nÅ blande de to er felle **#6** i bokas feilregister — den mest lønnsomme\nenkeltfeilen å kvitte seg med i hele Del 5. Den har sin egen boks lenger\nnede, og den kommer igjen i oppgavene.\n\nDet andre faste trekkpunktet: **dybde-først gir deg en sti, men ikke den\nkorteste.** Det er bredde-først som gjør det, og bare i en uvektet graf.\n\nPrioritet: **høyeste**.\n\n**Slik er kapitlet lagt opp (55 min):** fem løkker med hvert sitt tidsanslag,\nog pausepunkter underveis. Traverseringene håndkjøres først og skrives i\npseudokode etterpå — i den rekkefølgen, fordi du skriver bedre pseudokode når\ndu har ført køen med blyant først."
+  },
+  {
+   "id": "in2010-5-2-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- [kap. 5.1](/in2010/in2010-5-1) — hele kapitlet. Du trenger nabolister,\n  grad, sti, sykel og sammenhengende komponent, og du trenger vanen med å\n  oppgi hvilken representasjon du antar.\n- [kap. 1.2](/in2010/in2010-1-2) — løkketelling. Kjøretidene her kommer av å\n  telle hvor mange ganger hver node og hver kant behandles.\n\nTo resultater fra [kap. 5.1](/in2010/in2010-5-1) brukes så tett at det er\nverdt å ha dem foran seg:\n\n- Å gå gjennom hele grafen fra nabolister koster $O(|V| + |E|)$ — leddet\n  $|V|$ er der fordi du må innom hver node, også de uten naboer.\n- Å ramse opp naboene til én node koster $O(\\text{grad}(v))$ med naboliste,\n  men $O(|V|)$ med nabomatrise. Derfor forutsetter alle kjøretidene i dette\n  kapitlet **nabolister**, og derfor sier vi det høyt hver gang."
+  },
+  {
+   "id": "in2010-5-2-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-5-2-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister\nkjøretidsuttrykk og pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | grafen: mengden noder $V$ og mengden kanter $E$ |\n| $|V|$, $|E|$ | antall noder og antall kanter |\n| $s$ | startnoden (kilden) en traversering går ut fra |\n| $u$, $v$ | to noder; $v$ er som regel en nabo av $u$ |\n| `v.besokt` | flagget som sier at noden allerede er sett; uten det går en traversering i ring |\n| `v.avstand` | antall kanter fra $s$ til $v$, som bredde-først fyller ut |\n| $\\text{grad}(v)$ | antall kanter som møter $v$ |\n| $O(|V| + |E|)$ | lineær tid i grafens størrelse — hver node og hver kant behandles én gang |\n| $O(|E|)$ | kjøretiden for dybde-først fra **én** node, uten initialisering av alle noder |\n"
+    },
+    {
+     "id": "in2010-5-2-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `BFS(G, s)` | traverserer lagvis fra `s` med en kø; fyller `v.avstand` med antall kanter fra `s` | $O(|V| + |E|)$ |\n| `DFSVisit(G, u)` | rekursivt dybde-først fra `u`; merker alt som kan nås fra `u` | $O(|E|)$ fra én node |\n| `DFSFull(G)` | initialiserer alle noder og kaller `DFSVisit` fra hver umerket node | $O(|V| + |E|)$ |\n| `DFSIterativ(G, s)` | samme rekkefølge som `DFSVisit`, men med en eksplisitt stakk i stedet for kallstakken | $O(|V| + |E|)$ |\n| `Ko.settInn(v)` og `Ko.taUt()` | legger bakerst i køen; tar ut forrest (først inn, først ut) | $O(1)$ hver |\n| `Stakk.leggPa(v)` og `Stakk.taAv()` | legger øverst; tar av øverst (sist inn, først ut) | $O(1)$ hver |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{BFS og DFS-full: } O(|V| + |E|)$$\n\nHver node behandles én gang, og hver kant ses høyst to ganger — én gang\nfra hver ende. Leddet $|V|$ kommer fra initialiseringsløkka og fra at\nhver node må innom køen eller stakken.\n\n$$\\text{DFS fra én node: } O(|E|)$$\n\nHer er det ingen løkke over alle nodene. Arbeidet er proporsjonalt med\nkantene traverseringen faktisk går langs.\n\n$$\\text{med nabomatrise i stedet: } O(|V|^2)$$\n\nFordi hver naboiterasjon da koster $O(|V|)$ i stedet for\n$O(\\text{grad}(v))$. Det er derfor antagelsen om representasjon må stå\ni besvarelsen."
+    }
+   ]
+  },
+  {
+   "id": "in2010-5-2-t-1",
+   "type": "text",
+   "content": "## Løkke 1 — bredde-først: køen og lagene (ca. 15 min)\n\nEn beskjed skal ut i et nettverk av kolleger. Du sender den til alle du\nkjenner direkte. De sender den videre til alle **de** kjenner, som ikke\nallerede har fått den. Og så videre.\n\nEtter første runde har alle som er ett ledd unna, fått beskjeden. Etter andre\nrunde alle som er to ledd unna. **Rundene er lag**, og de kommer i rekkefølge\n— det er hele ideen bak bredde-først-søk.\n\nFor at det skal virke mekanisk, trenger du to ting. Du trenger et sted å\nlegge dem som har fått beskjeden, men ikke har sendt den videre ennå — det er\n**køen**. Og du trenger å huske hvem som allerede har fått den — det er\n**merket** `v.besokt`. Uten merket sender kollegene beskjeden fram og tilbake\ntil hverandre for alltid, og programmet ditt stopper aldri."
+  },
+  {
+   "id": "in2010-5-2-def-1",
+   "type": "definition",
+   "title": "Traversering",
+   "content": "Å besøke nodene i en graf systematisk, slik at hver node som kan nås fra\nstartnoden, besøkes nøyaktig én gang.\n\nDe to traverseringene i pensum er **bredde-først** (BFS) og **dybde-først**\n(DFS). De besøker nøyaktig de samme nodene — det er bare **rekkefølgen** som\nskiller dem, og hvilke ekstra opplysninger man får på kjøpet."
+  },
+  {
+   "id": "in2010-5-2-def-2",
+   "type": "definition",
+   "title": "Merket `v.besokt`",
+   "content": "Flagget som sier at noden allerede er sett, slik at den ikke behandles igjen.\n\nUten det går enhver traversering av en graf med en sykel i uendelig løkke:\nA sender til B, B sender tilbake til A, A sender til B igjen. Merket er også\ndet som gjør at hver kant behandles et konstant antall ganger, og dermed det\nsom gir kjøretiden $O(|V| + |E|)$. Glemt merke er derfor både en\nkorrekthetsfeil og en kjøretidsfeil på samme tid."
+  },
+  {
+   "id": "in2010-5-2-def-3",
+   "type": "definition",
+   "title": "Kø (først inn, først ut)",
+   "content": "Samlingen bredde-først bruker: `Ko.settInn(v)` legger bakerst,\n`Ko.taUt()` tar ut forrest. Begge er $O(1)$.\n\nRekkefølgen «først inn, først ut» er nøyaktig det som gjør at nodene kommer\nut lagvis: alle på avstand 1 er lagt inn før noen på avstand 2, og køen\nbevarer den rekkefølgen. Bytt køen mot en stakk, og du får dybde-først i\nstedet — samme algoritme, annen samling, helt annen rekkefølge."
+  },
+  {
+   "id": "in2010-5-2-def-4",
+   "type": "definition",
+   "title": "Bredde-først-søk (BFS)",
+   "content": "Traverseringen som besøker nodene i økende avstand fra startnoden, målt i\n**antall kanter**, ved hjelp av en kø.\n\n**Kjøretid:** $O(|V| + |E|)$ med nabolister.\n**Gir på kjøpet:** korteste vei fra startnoden til alle noder den når, målt i\nantall kanter, i en **uvektet** graf.\n**Krever:** et `besokt`-merke per node, og en kø."
+  },
+  {
+   "id": "in2010-5-2-th-1",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `BFS`",
+   "content": "**Antagelser om representasjon.** Grafen `G = (V, E)` er gitt som\nnabolister; naboene til en node `u` kan ramses opp i $O(\\text{grad}(u))$.\nHver node `v` har feltene `v.besokt` og `v.avstand`. Køen støtter\n`settInn` og `taUt` i $O(1)$.\n\n**Prebetingelse:** `s` er en node i `V`.\n**Postbetingelse:** hver node som kan nås fra `s`, har `besokt = sant` og\n`avstand` lik antall kanter på den korteste veien fra `s`. Noder som ikke kan\nnås, har `besokt = usant` og `avstand = uendelig`.\n\n```text\nProcedure BFS(G, s)\n  Input:  graf G = (V, E) som nabolister, startnode s\n  Output: hver node som kan naas fra s er merket, med avstand i antall kanter\n  for hver node v i V:\n      v.besokt = usant\n      v.avstand = uendelig\n  s.besokt = sant\n  s.avstand = 0\n  Ko = tom ko\n  Ko.settInn(s)\n  while Ko er ikke tom:\n      u = Ko.taUt()\n      for hver nabo v av u:\n          if v.besokt er usant:\n              v.besokt = sant\n              v.avstand = u.avstand + 1\n              Ko.settInn(v)\n```\n\n**Invarianten i én setning:** køen inneholder til enhver tid bare noder fra\nhøyst to nabolag — først alle på avstand $d$, så alle på avstand $d+1$ — og\nderfor tas nodene ut i ikke-synkende avstand fra `s`.\n\n**Detaljen som er lett å bomme på:** noden merkes `besokt` når den **legges\ninn** i køen, ikke når den tas ut. Merker du den først ved uttak, kan den\nsamme noden legges inn flere ganger — og da er kjøretiden ikke lenger\n$O(|V| + |E|)$.\n\n**Kjøretid:** $O(|V| + |E|)$. Initialiseringsløkka er $O(|V|)$; hver node\nlegges inn og tas ut av køen nøyaktig én gang, og for hver node ramses\nnaboene opp én gang, som til sammen er $O(|E|)$ over hele grafen."
+  },
+  {
+   "id": "in2010-5-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Bredde-først med full kø-tilstand",
+   "problem": "Vannverket fra [kap. 5.1](/in2010/in2010-5-1) har åtte pumpestasjoner\n(grafen **U1**). Kjør `BFS` fra A og før køen steg for steg. Oppgi\nbesøksrekkefølgen og hvilket lag hver stasjon havner i.\n\n```text\nA: B, C\nB: A, D\nC: A, D, E\nD: B, C, F\nE: C, F\nF: D, E, G\nG: F, H\nH: G\n```",
+   "solution": "**Sporingstavlen.** Naboene tas i alfabetisk rekkefølge, så sporingen er\nentydig. «Legges i køen» er de naboene som ikke allerede var merket.\n\n| Steg | Tas ut av køen | Dybde | Legges i køen | Køen etter steget | Besøkt |\n|---|---|---|---|---|---|\n| start | - | - | - | `A` | A |\n| 1 | A | 0 | B, C | `B, C` | A, B, C |\n| 2 | B | 1 | D | `C, D` | A, B, C, D |\n| 3 | C | 1 | E | `D, E` | A, B, C, D, E |\n| 4 | D | 2 | F | `E, F` | A, B, C, D, E, F |\n| 5 | E | 2 | ingen | `F` | A, B, C, D, E, F |\n| 6 | F | 3 | G | `G` | A, B, C, D, E, F, G |\n| 7 | G | 4 | H | `H` | A, B, C, D, E, F, G, H |\n| 8 | H | 5 | ingen | `(tom)` | A, B, C, D, E, F, G, H |\n\n**Sluttsvaret — dette er det du leverer:**\n\n```text\nbesoeksrekkefolge: A -> B -> C -> D -> E -> F -> G -> H\nlag 0: A\nlag 1: B, C\nlag 2: D, E\nlag 3: F\nlag 4: G\nlag 5: H\n```\n\nAlle åtte nodene ble nådd, og ingen ble utelatt.\n\n**Se på steg 5.** E tas ut, og ingenting legges inn — F var allerede merket\ni steg 4, da D la den inn. Det er merket som gjør at F ikke havner i køen\nto ganger, og det er nøyaktig derfor kjøretiden holder seg lineær.\n\n**Se på lagene.** H ligger i lag 5, altså fem kanter fra A. Det er ikke\nbare rekkefølgen bredde-først gir deg — det er den **korteste** avstanden\nmålt i kanter, og du har den gratis i `v.avstand`.\n\n**Fellenote.** Fella her er å tro at rekkefølgen nodene legges **inn** i\nkøen er svaret. Besøksrekkefølgen er rekkefølgen de **tas ut**, og de to\nfaller bare sammen fordi køen er «først inn, først ut». Bytter du til en\nstakk, faller de fra hverandre umiddelbart."
+  },
+  {
+   "id": "in2010-5-2-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger E — håndkjøring, altså at du utfører operasjonen\nsteg for steg og oppgir sluttilstanden.) Kjør `BFS` på den samme grafen\n**U1**, men start i **F** i stedet for A.\n\n```text\nA: B, C\nB: A, D\nC: A, D, E\nD: B, C, F\nE: C, F\nF: D, E, G\nG: F, H\nH: G\n```\n\n**a)** Før sporingstavlen med køen etter hvert steg.\n**b)** Oppgi besøksrekkefølgen og lagene.\n**c)** Hvor mange kanter er det fra F til A?",
+    "solution": "**a)**\n\n| Steg | Tas ut av køen | Dybde | Legges i køen | Køen etter steget | Besøkt |\n|---|---|---|---|---|---|\n| start | - | - | - | `F` | F |\n| 1 | F | 0 | D, E, G | `D, E, G` | D, E, F, G |\n| 2 | D | 1 | B, C | `E, G, B, C` | B, C, D, E, F, G |\n| 3 | E | 1 | ingen | `G, B, C` | B, C, D, E, F, G |\n| 4 | G | 1 | H | `B, C, H` | B, C, D, E, F, G, H |\n| 5 | B | 2 | A | `C, H, A` | A, B, C, D, E, F, G, H |\n| 6 | C | 2 | ingen | `H, A` | A, B, C, D, E, F, G, H |\n| 7 | H | 2 | ingen | `A` | A, B, C, D, E, F, G, H |\n| 8 | A | 3 | ingen | `(tom)` | A, B, C, D, E, F, G, H |\n\n**b)**\n\n```text\nbesoeksrekkefolge: F -> D -> E -> G -> B -> C -> H -> A\nlag 0: F\nlag 1: D, E, G\nlag 2: B, C, H\nlag 3: A\n```\n\n**c)** Tre. A ligger i lag 3, så den korteste veien fra F til A har tre\nkanter — for eksempel F -> D -> B -> A.\n\n**Sammenlign med eksempel 1.** Samme graf, annen startnode, helt andre lag: A\nlå i lag 0 og H i lag 5 da vi startet i A; nå ligger F i lag 0 og A i lag 3.\nLagene er ikke en egenskap ved grafen — de er en egenskap ved grafen **og**\nstartnoden.\n\n**Merk steg 3.** E tas ut og legger ingenting inn, fordi begge naboene (C og\nF) allerede er merket. C ble merket i steg 2 av D.",
+    "hints": [
+     "Sett opp køen med F alene, og ta ut forrest hver gang. Naboene tas i\nalfabetisk rekkefølge.",
+     "Merk en node som besøkt i det øyeblikket du legger den **inn** i køen — ikke\nnår du tar den ut."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-th-2",
+   "type": "theorem",
+   "title": "Bredde-først gir korteste vei i antall kanter",
+   "content": "I en **uvektet** graf gir `BFS(G, s)` for hver node $v$ den korteste veien\nfra $s$ til $v$ målt i **antall kanter**. Verdien står i `v.avstand`.\n\n**Grunnen i én setning:** køen tømmes lagvis, så en node kan ikke tas ut før\nalle noder med lavere avstand er tatt ut — og den får derfor avstanden til\nden første noden som nådde den.\n\n**De to grensene du må kjenne, og som spørres om:**\n\n- **Bare i uvektet graf.** Har kantene vekter, er det ikke lenger antall\n  kanter som er interessant, og bredde-først kan gi feil svar: en vei med to\n  kanter kan være lengre enn en vei med fem. Vektet korteste vei krever andre\n  verktøy, og de kommer i Del 6.\n- **Dybde-først gjør det ikke.** Dybde-først finner en sti, men ikke\n  nødvendigvis den korteste — den går så dypt den kan før den snur, og kan\n  komme fram til en node langs en lang omvei. Å hevde at dybde-først gir\n  korteste vei, er et fast trekkpunkt."
+  },
+  {
+   "id": "in2010-5-2-def-5",
+   "type": "definition",
+   "title": "BFS-lag",
+   "content": "Mengden av noder som ligger nøyaktig $d$ kanter fra startnoden. Lag 0 er\nstartnoden alene, lag 1 er dens naboer, lag 2 er naboenes naboer som ikke\nallerede er sett, og så videre.\n\nLagene er ikke en egenskap ved grafen alene, men ved grafen **og**\nstartnoden: bytter du start, blir lagene helt andre. Kommer en oppgave med\n«innen $k$ ledd» eller «lagvis utsending», er lagene svaret."
+  },
+  {
+   "id": "in2010-5-2-fig-1",
+   "type": "image",
+   "src": "/images/textbook/in2010/bfs-lag.svg",
+   "alt": "Ni noder A til I i et rutenett på tre ganger tre, forbundet med kanter til naboene i rutenettet. Nodene er merket med hvilket bredde-først-lag de hører til når traverseringen starter i A øverst til venstre: A er lag 0; B og D er lag 1; C, E og G er lag 2; F og H er lag 3; I nederst til høyre er lag 4. Under figuren står lagene listet opp i samme rekkefølge.",
+   "caption": "Se etter at lagene brer seg utover fra A som ringer i vann, og at I — hjørnet diagonalt motsatt — ligger i lag 4. Det er den korteste avstanden målt i antall kanter, ikke i luftlinje: du må ta fire steg i rutenettet uansett hvilken vei du velger."
+  },
+  {
+   "id": "in2010-5-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Lagene i rutenettet",
+   "problem": "De ni fuktsensorene i veksthuset (grafen **U8** fra\n[kap. 5.1](/in2010/in2010-5-1)) står i et rutenett på tre ganger tre. Kjør\n`BFS` fra A, og oppgi lagene. Hvor mange kanter er det fra A til I?\n\n```text\nA: B, D\nB: A, C, E\nC: B, F\nD: A, E, G\nE: B, D, F, H\nF: C, E, I\nG: D, H\nH: E, G, I\nI: F, H\n```",
+   "solution": "**Sporingstavlen:**\n\n| Steg | Tas ut av køen | Dybde | Legges i køen | Køen etter steget | Besøkt |\n|---|---|---|---|---|---|\n| start | - | - | - | `A` | A |\n| 1 | A | 0 | B, D | `B, D` | A, B, D |\n| 2 | B | 1 | C, E | `D, C, E` | A, B, C, D, E |\n| 3 | D | 1 | G | `C, E, G` | A, B, C, D, E, G |\n| 4 | C | 2 | F | `E, G, F` | A, B, C, D, E, F, G |\n| 5 | E | 2 | H | `G, F, H` | A, B, C, D, E, F, G, H |\n| 6 | G | 2 | ingen | `F, H` | A, B, C, D, E, F, G, H |\n| 7 | F | 3 | I | `H, I` | A, B, C, D, E, F, G, H, I |\n| 8 | H | 3 | ingen | `I` | A, B, C, D, E, F, G, H, I |\n| 9 | I | 4 | ingen | `(tom)` | A, B, C, D, E, F, G, H, I |\n\n**Sluttsvaret:**\n\n```text\nbesoeksrekkefolge: A -> B -> D -> C -> E -> G -> F -> H -> I\nlag 0: A\nlag 1: B, D\nlag 2: C, E, G\nlag 3: F, H\nlag 4: I\n```\n\nDet er **fire** kanter fra A til I, og det er nøyaktig det figuren over\nviser.\n\n**Se på steg 6.** G tas ut og legger ingenting inn: naboene D og H er\nallerede merket — D fra starten, H i steg 5 av E. Det er verdt å legge\nmerke til at H fikk lag 3 fra E, ikke fra G, selv om G også er nabo. Den\n**første** noden som når H, bestemmer avstanden, og fordi køen tømmes\nlagvis, er den første også den nærmeste.\n\n**Se på lagstørrelsene:** 1, 2, 3, 2, 1. I et rutenett vokser lagene til\nmidten og krymper etterpå. Det er den samme formen som gjør bredde-først\ntil riktig verktøy for «hvor mange er innen $k$ ledd?»-oppgaver.\n\n**Fellenote.** Fella her er felle **#6** i bokas feilregister i sin\nkjøretidsform: å tro at fordi vi startet i én node, koster kjøringen\n$O(|E|)$. Denne prosedyren initialiserer **alle** nodene først, og da er\nkjøretiden $O(|V| + |E|)$ uansett hvor få noder som faktisk nås."
+  },
+  {
+   "id": "in2010-5-2-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H — grafalgoritme i pseudokode, altså at du skriver algoritmen selv\nog oppgir kjøretiden.) Skriv en prosedyre `AntallInnenLag(G, s, k)` som teller\nhvor mange noder som ligger **høyst** $k$ kanter fra `s`. Oppgi antagelser og\nkjøretid.\n\nDu skal ikke finne på en ny traversering — bygg på `BFS`.",
+    "solution": "**Problemet navngitt:** dette er «hvor mange nås innen $k$ ledd», altså et\nspørsmål om bredde-først-lagene 0 til $k$.\n\n**Antagelser om representasjon:** grafen er gitt som nabolister; hver node\n`v` har feltene `v.besokt` og `v.avstand`. Køen har `settInn` og `taUt` i\n$O(1)$.\n\n**Algoritmen:**\n\n```text\nProcedure AntallInnenLag(G, s, k)\n  Input:  graf G = (V, E) som nabolister, startnode s, heltall k >= 0\n  Output: antall noder med avstand hoyst k kanter fra s (s selv er med)\n  BFS(G, s)\n  antall = 0\n  for hver node v i V:\n      if v.besokt og v.avstand <= k:\n          antall = antall + 1\n  return antall\n```\n\n**Grunnideen i én setning:** `BFS` fyller `v.avstand` med den korteste\navstanden i antall kanter, så spørsmålet er bare å telle hvor mange av dem\nsom er små nok.\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall noder og $|E|$ antall\nkanter. `BFS` er $O(|V| + |E|)$, og telleløkka er $O(|V|)$ — summen er\nfortsatt $O(|V| + |E|)$.\n\n**Kan dette gjøres raskere?** Ikke i orden, men i praktisk arbeid: du kan la\ntraverseringen **stoppe** når den kommer til lag $k+1$, og telle underveis i\nstedet for etterpå. Da slipper du å røre noder som ligger langt unna. Verste\ntilfelle er fortsatt $O(|V| + |E|)$ — hele grafen kan ligge innenfor $k$ —\nmen på en stor graf med liten $k$ er forskjellen enorm. Den avgrensede\nvarianten er et fast eksamensmønster og drilles i\n[kap. 5.5](/in2010/in2010-5-5).\n\n**Poengtrapp-notat.** Full uttelling krever fire ledd: problemet navngitt,\nantagelsene oppgitt, algoritmen, og kjøretiden med $|V|$ og $|E|$ definert.\nEn besvarelse som bruker dybde-først i stedet, får ikke full uttelling — den\ngir riktige noder, men ikke riktige avstander.",
+    "hints": [
+     "Hvilken av de to traverseringene fyller ut avstanden i antall kanter?",
+     "Du trenger ikke å endre `BFS` i det hele tatt for å få full uttelling — du\ntrenger bare å bruke det den allerede skriver inn i `v.avstand`."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-t-2",
+   "type": "text",
+   "content": "## Løkke 2 — dybde-først med rekursjon (ca. 13 min)\n\n— naturlig pausepunkt —\n\nBytt ut beskjeden i nettverket med en person som utforsker et tunnelsystem.\nHun går inn i den første sidegangen hun ser, og i den første sidegangen der\nigjen, og fortsetter så langt hun kommer. Først når hun står i en blindvei,\nsnur hun og går tilbake til forrige veikryss for å prøve neste sidegang.\n\nDet er **dybde-først-søk**. Der bredde-først brer seg utover i ringer, borer\ndybde-først seg ned.\n\nOg legg merke til hva «gå tilbake til forrige veikryss» er: det er nøyaktig\ndet et **rekursivt kall** gjør når det returnerer. Derfor er dybde-først\nkortest og klarest skrevet rekursivt — og rekursjon er pensum i IN2010, så\ndet er formen du skal bruke. Den iterative varianten med en eksplisitt stakk\nkommer i neste løkke, og den gjør det samme."
+  },
+  {
+   "id": "in2010-5-2-def-6",
+   "type": "definition",
+   "title": "Dybde-først-søk (DFS)",
+   "content": "Traverseringen som følger én vei så langt den kan før den snur, og først da\nprøver neste ubesøkte nabo.\n\n**Kjøretid:** $O(|E|)$ fra **én** node; $O(|V| + |E|)$ når den kjøres over\nhele grafen (`DFSFull`).\n**Gir på kjøpet:** rekkefølgen kallene **returnerer** i (ferdigrekkefølgen),\nsom blir avgjørende i [kap. 5.4](/in2010/in2010-5-4).\n**Gir IKKE:** korteste vei. Det er bredde-først som gjør det."
+  },
+  {
+   "id": "in2010-5-2-def-7",
+   "type": "definition",
+   "title": "`DFSVisit`",
+   "content": "Den rekursive kjernen i dybde-først: merk noden, og kall deg selv på hver\nubesøkte nabo.\n\nKallet `DFSVisit(G, u)` merker alt som kan nås fra `u`, og ingenting annet.\nKjøretiden fra én node er $O(|E|)$ — prosedyren har ingen løkke over alle\nnoder, så arbeidet følger kantene den faktisk går langs. Skal hele grafen\ndekkes, må den kalles fra `DFSFull`, og da blir det $O(|V| + |E|)$."
+  },
+  {
+   "id": "in2010-5-2-th-3",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `DFSVisit`",
+   "content": "**Antagelser om representasjon.** Grafen `G = (V, E)` er gitt som\nnabolister; hver node `v` har feltet `v.besokt`. Naboene til `u` kan ramses\nopp i $O(\\text{grad}(u))$.\n\n**Prebetingelse:** `u.besokt` er usant, og alle noder har fått `besokt`\nsatt (det gjøres av den som kaller — se `DFSFull` under).\n**Postbetingelse:** hver node som kan nås fra `u` gjennom umerkede noder,\nhar `besokt = sant`. Ingen andre noder er endret.\n\n```text\nProcedure DFSVisit(G, u)\n  Input:  graf G = (V, E) som nabolister, node u med u.besokt = usant\n  Output: alle noder som kan naas fra u er merket besokt\n  u.besokt = sant\n  for hver nabo v av u:\n      if v.besokt er usant:\n          DFSVisit(G, v)\n```\n\n**Grunnideen i én setning:** merket settes **før** de rekursive kallene, så\nen node aldri kan bli besøkt to ganger, og traverseringen kan ikke gå i ring\nselv om grafen har sykler.\n\n**Rekursjonen har en kostnad du skal nevne:** kallstakken blir like dyp som\nden lengste veien traverseringen følger, altså $O(|V|)$ i verste fall. På en\ngraf som er en lang kjede, ligger alle nodene på stakken samtidig.\n\n**Kjøretid:** $O(|E|)$ fra én node. Prosedyren har ingen løkke over $V$;\narbeidet er å gå langs kantene, og hver kant ses høyst to ganger — én gang\nfra hver ende. Merk godt: dette er kjøretiden for **ett** kall fra **én**\nnode. Skal hele grafen dekkes, er svaret et annet — se `DFSFull`."
+  },
+  {
+   "id": "in2010-5-2-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Dybde-først med kallstakken ført steg for steg",
+   "problem": "Kjør rekursivt dybde-først fra A i vannverksgrafen **U1**, og før\nkallstakken etter hvert kall og hver retur. Oppgi besøksrekkefølgen og\nferdigrekkefølgen.\n\n```text\nA: B, C\nB: A, D\nC: A, D, E\nD: B, C, F\nE: C, F\nF: D, E, G\nG: F, H\nH: G\n```",
+   "solution": "«Kallstakken» er de `DFSVisit`-kallene som er i gang samtidig. Naboene tas\ni alfabetisk rekkefølge.\n\n| Steg | Handling | Kallstakken etter steget | Besøkt |\n|---|---|---|---|\n| 1 | kall DFSVisit(A) | `A` | A |\n| 2 | kall DFSVisit(B) | `A, B` | A, B |\n| 3 | ser på naboen A fra B — allerede besøkt, hopper over | `A, B` | A, B |\n| 4 | kall DFSVisit(D) | `A, B, D` | A, B, D |\n| 5 | ser på naboen B fra D — allerede besøkt, hopper over | `A, B, D` | A, B, D |\n| 6 | kall DFSVisit(C) | `A, B, D, C` | A, B, C, D |\n| 7 | ser på naboen A fra C — allerede besøkt, hopper over | `A, B, D, C` | A, B, C, D |\n| 8 | ser på naboen D fra C — allerede besøkt, hopper over | `A, B, D, C` | A, B, C, D |\n| 9 | kall DFSVisit(E) | `A, B, D, C, E` | A, B, C, D, E |\n| 10 | ser på naboen C fra E — allerede besøkt, hopper over | `A, B, D, C, E` | A, B, C, D, E |\n| 11 | kall DFSVisit(F) | `A, B, D, C, E, F` | A, B, C, D, E, F |\n| 12 | ser på naboen D fra F — allerede besøkt, hopper over | `A, B, D, C, E, F` | A, B, C, D, E, F |\n| 13 | ser på naboen E fra F — allerede besøkt, hopper over | `A, B, D, C, E, F` | A, B, C, D, E, F |\n| 14 | kall DFSVisit(G) | `A, B, D, C, E, F, G` | A, B, C, D, E, F, G |\n| 15 | ser på naboen F fra G — allerede besøkt, hopper over | `A, B, D, C, E, F, G` | A, B, C, D, E, F, G |\n| 16 | kall DFSVisit(H) | `A, B, D, C, E, F, G, H` | A, B, C, D, E, F, G, H |\n| 17 | ser på naboen G fra H — allerede besøkt, hopper over | `A, B, D, C, E, F, G, H` | A, B, C, D, E, F, G, H |\n| 18 | DFSVisit(H) returnerer | `A, B, D, C, E, F, G` | A, B, C, D, E, F, G, H |\n| 19 | DFSVisit(G) returnerer | `A, B, D, C, E, F` | A, B, C, D, E, F, G, H |\n| 20 | DFSVisit(F) returnerer | `A, B, D, C, E` | A, B, C, D, E, F, G, H |\n| 21 | DFSVisit(E) returnerer | `A, B, D, C` | A, B, C, D, E, F, G, H |\n| 22 | DFSVisit(C) returnerer | `A, B, D` | A, B, C, D, E, F, G, H |\n| 23 | ser på naboen F fra D — allerede besøkt, hopper over | `A, B, D` | A, B, C, D, E, F, G, H |\n| 24 | DFSVisit(D) returnerer | `A, B` | A, B, C, D, E, F, G, H |\n| 25 | DFSVisit(B) returnerer | `A` | A, B, C, D, E, F, G, H |\n| 26 | ser på naboen C fra A — allerede besøkt, hopper over | `A` | A, B, C, D, E, F, G, H |\n| 27 | DFSVisit(A) returnerer | `(tom)` | A, B, C, D, E, F, G, H |\n\n**Sluttsvaret:**\n\n```text\nbesoeksrekkefolge (naar noden foerst naas): A -> B -> D -> C -> E -> F -> G -> H\nferdigrekkefolge (naar kallet returnerer):  H -> G -> F -> E -> C -> D -> B -> A\nmaks dybde paa kallstakken: 8\n```\n\n**Sammenlign med eksempel 1**, som var bredde-først på nøyaktig den samme\ngrafen fra nøyaktig den samme noden. Der ble rekkefølgen\nA, B, C, D, E, F, G, H; her blir den A, B, D, C, E, F, G, H. Forskjellen\ner C og D som har byttet plass — og den kommer av at dybde-først følger B\nvidere til D i stedet for å gå tilbake til A for å hente C.\n\n**Se på steg 23.** Vi er tilbake i D etter at hele grenen under C er\nferdig, og D har fortsatt en nabo igjen å se på: F. Den er besøkt for\nlengst — via C og E. Det er dette som gjør at kanter kan bli sett fra\nbegge ender, og det er derfor kjøretidsargumentet sier «hver kant høyst to\nganger».\n\n**Se på maks dybde: 8.** Alle åtte nodene lå på kallstakken samtidig i\nsteg 16. Det er kostnaden ved rekursjon, og på en graf som er en lang\nkjede er den $O(|V|)$.\n\n**Fellenote.** Fella her er å forveksle besøksrekkefølgen med\nferdigrekkefølgen. De er ikke omvendte av hverandre — se selv: den ene\nslutter på H, den andre begynner på H, men midtpartiene stemmer ikke\noverens. Ferdigrekkefølgen blir avgjørende i\n[kap. 5.4](/in2010/in2010-5-4), så vend deg til å føre begge."
+  },
+  {
+   "id": "in2010-5-2-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Kjør rekursivt dybde-først fra A i veksthusgrafen **U8**, og før\nkallstakken.\n\n```text\nA: B, D\nB: A, C, E\nC: B, F\nD: A, E, G\nE: B, D, F, H\nF: C, E, I\nG: D, H\nH: E, G, I\nI: F, H\n```\n\n**a)** Oppgi besøksrekkefølgen.\n**b)** Oppgi ferdigrekkefølgen.\n**c)** Hva er den største dybden kallstakken når?\n**d)** Sammenlign med bredde-først på samme graf fra samme node (eksempel 2).\nHvilken node havner lengst unna sin plass?",
+    "solution": "Sporingen, med naboene tatt i alfabetisk rekkefølge:\n\n| Steg | Handling | Kallstakken etter steget | Besøkt |\n|---|---|---|---|\n| 1 | kall DFSVisit(A) | `A` | A |\n| 2 | kall DFSVisit(B) | `A, B` | A, B |\n| 3 | ser på naboen A fra B — allerede besøkt, hopper over | `A, B` | A, B |\n| 4 | kall DFSVisit(C) | `A, B, C` | A, B, C |\n| 5 | ser på naboen B fra C — allerede besøkt, hopper over | `A, B, C` | A, B, C |\n| 6 | kall DFSVisit(F) | `A, B, C, F` | A, B, C, F |\n| 7 | ser på naboen C fra F — allerede besøkt, hopper over | `A, B, C, F` | A, B, C, F |\n| 8 | kall DFSVisit(E) | `A, B, C, F, E` | A, B, C, E, F |\n| 9 | ser på naboen B fra E — allerede besøkt, hopper over | `A, B, C, F, E` | A, B, C, E, F |\n| 10 | kall DFSVisit(D) | `A, B, C, F, E, D` | A, B, C, D, E, F |\n| 11 | ser på naboen A fra D — allerede besøkt, hopper over | `A, B, C, F, E, D` | A, B, C, D, E, F |\n| 12 | ser på naboen E fra D — allerede besøkt, hopper over | `A, B, C, F, E, D` | A, B, C, D, E, F |\n| 13 | kall DFSVisit(G) | `A, B, C, F, E, D, G` | A, B, C, D, E, F, G |\n| 14 | ser på naboen D fra G — allerede besøkt, hopper over | `A, B, C, F, E, D, G` | A, B, C, D, E, F, G |\n| 15 | kall DFSVisit(H) | `A, B, C, F, E, D, G, H` | A, B, C, D, E, F, G, H |\n| 16 | ser på naboen E fra H — allerede besøkt, hopper over | `A, B, C, F, E, D, G, H` | A, B, C, D, E, F, G, H |\n| 17 | ser på naboen G fra H — allerede besøkt, hopper over | `A, B, C, F, E, D, G, H` | A, B, C, D, E, F, G, H |\n| 18 | kall DFSVisit(I) | `A, B, C, F, E, D, G, H, I` | A, B, C, D, E, F, G, H, I |\n| 19 | ser på naboen F fra I — allerede besøkt, hopper over | `A, B, C, F, E, D, G, H, I` | A, B, C, D, E, F, G, H, I |\n| 20 | ser på naboen H fra I — allerede besøkt, hopper over | `A, B, C, F, E, D, G, H, I` | A, B, C, D, E, F, G, H, I |\n| 21 | DFSVisit(I) returnerer | `A, B, C, F, E, D, G, H` | A, B, C, D, E, F, G, H, I |\n| 22 | DFSVisit(H) returnerer | `A, B, C, F, E, D, G` | A, B, C, D, E, F, G, H, I |\n| 23 | DFSVisit(G) returnerer | `A, B, C, F, E, D` | A, B, C, D, E, F, G, H, I |\n| 24 | DFSVisit(D) returnerer | `A, B, C, F, E` | A, B, C, D, E, F, G, H, I |\n| 25 | ser på naboen F fra E — allerede besøkt, hopper over | `A, B, C, F, E` | A, B, C, D, E, F, G, H, I |\n| 26 | ser på naboen H fra E — allerede besøkt, hopper over | `A, B, C, F, E` | A, B, C, D, E, F, G, H, I |\n| 27 | DFSVisit(E) returnerer | `A, B, C, F` | A, B, C, D, E, F, G, H, I |\n| 28 | ser på naboen I fra F — allerede besøkt, hopper over | `A, B, C, F` | A, B, C, D, E, F, G, H, I |\n| 29 | DFSVisit(F) returnerer | `A, B, C` | A, B, C, D, E, F, G, H, I |\n| 30 | DFSVisit(C) returnerer | `A, B` | A, B, C, D, E, F, G, H, I |\n| 31 | ser på naboen E fra B — allerede besøkt, hopper over | `A, B` | A, B, C, D, E, F, G, H, I |\n| 32 | DFSVisit(B) returnerer | `A` | A, B, C, D, E, F, G, H, I |\n| 33 | ser på naboen D fra A — allerede besøkt, hopper over | `A` | A, B, C, D, E, F, G, H, I |\n| 34 | DFSVisit(A) returnerer | `(tom)` | A, B, C, D, E, F, G, H, I |\n\n**a)** `A -> B -> C -> F -> E -> D -> G -> H -> I`\n\n**b)** `I -> H -> G -> D -> E -> F -> C -> B -> A`\n\n**c)** 9 — i steg 18 ligger alle ni nodene på kallstakken samtidig.\n\n**d)** Bredde-først ga `A -> B -> D -> C -> E -> G -> F -> H -> I`.\nNoden **D** flytter seg mest: den er nummer 3 i bredde-først (den er nabo av\nA) og nummer 6 i dybde-først. Dybde-først forlater A med én gang og kommer\nikke tilbake til D før den har gått hele veien rundt via C, F og E.\n\n**Merk hva som ikke endret seg:** begge traverseringene besøker alle ni\nnodene, og begge er $O(|V| + |E|)$ når hele grafen initialiseres. Valget\nmellom dem handler om hva du trenger — avstander eller ferdigrekkefølge —\nikke om hvor mye de koster.",
+    "hints": [
+     "Følg alltid den første ubesøkte naboen alfabetisk, og gå så dypt du kan før\ndu returnerer.",
+     "Før to kolonner samtidig: hva som ligger på kallstakken, og hvem som er\nbesøkt. Ferdigrekkefølgen leser du ut av returlinjene til slutt."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-t-3",
+   "type": "text",
+   "content": "## Løkke 3 — den samme traverseringen uten rekursjon (ca. 8 min)\n\nKallstakken i eksempel 3 var ikke magi. Den var en **stakk**: kall legges\nøverst, returer tas av øverst. Bytter du den ut med en stakk du styrer selv,\nfår du nøyaktig den samme traverseringen uten et eneste rekursivt kall.\n\nDet er verdt å kunne begge formene. Den rekursive er kortere og er den du bør\nskrive på eksamen; den iterative viser hva som faktisk skjer, og er svaret\nhvis en oppgave uttrykkelig ber om en variant uten rekursjon."
+  },
+  {
+   "id": "in2010-5-2-def-8",
+   "type": "definition",
+   "title": "Stakk (sist inn, først ut)",
+   "content": "Samlingen dybde-først bruker: `Stakk.leggPa(v)` legger øverst,\n`Stakk.taAv()` tar av øverst. Begge er $O(1)$.\n\nForskjellen fra en kø er hele forskjellen mellom dybde-først og\nbredde-først. Stakken gir deg alltid den **sist oppdagede** noden tilbake, og\ndet er nøyaktig «gå videre innover før du snur». Kallstakken i et rekursivt\nprogram er den samme datastrukturen, bare styrt av kjøresystemet."
+  },
+  {
+   "id": "in2010-5-2-def-9",
+   "type": "definition",
+   "title": "Iterativ dybde-først med eksplisitt stakk",
+   "content": "Varianten som erstatter rekursjonen med en stakk du styrer selv.\n\nTo detaljer skiller den fra den rekursive: naboene må legges på i **omvendt**\nrekkefølge for at den første naboen skal behandles først, og en node kan\nligge på stakken **flere ganger** samtidig. Derfor må `besokt` sjekkes én\ngang til når noden tas av. Kjøretiden er den samme, $O(|V| + |E|)$ når alle\nnoder initialiseres, og fordelen er at kallstakken ikke kan renne over på en\nsvært dyp graf."
+  },
+  {
+   "id": "in2010-5-2-th-4",
+   "type": "theorem",
+   "title": "Den iterative varianten av dybde-først",
+   "content": "**Antagelser om representasjon.** Som for `DFSVisit`: nabolister, og\n`v.besokt` per node. Stakken har `leggPa` og `taAv` i $O(1)$.\n\n**Prebetingelse:** `s` er en node i `V`.\n**Postbetingelse:** de samme nodene er merket som etter `DFSVisit(G, s)`, og\nde er besøkt i den samme rekkefølgen.\n\n```text\nProcedure DFSIterativ(G, s)\n  Input:  graf G = (V, E) som nabolister, startnode s\n  Output: alle noder som kan naas fra s er merket besokt\n  for hver node v i V:\n      v.besokt = usant\n  Stakk = tom stakk\n  Stakk.leggPa(s)\n  while Stakk er ikke tom:\n      u = Stakk.taAv()\n      if u.besokt er usant:\n          u.besokt = sant\n          for hver nabo v av u i omvendt rekkefolge:\n              if v.besokt er usant:\n                  Stakk.leggPa(v)\n```\n\n**Grunnideen i én setning:** stakken gir alltid tilbake den sist oppdagede\nnoden, og det er nøyaktig det et rekursivt kall gjør — bare at her ser du\nstakken.\n\n**Hvorfor `if u.besokt er usant` gjentas ved uttak:** en node kan bli lagt på\nstakken av flere naboer før den blir tatt av. Uten sjekken ville den blitt\nbesøkt to ganger. Dette er den eneste virkelige forskjellen mot den rekursive\nformen, og den er en fast kilde til feil.\n\n**Kjøretid:** $O(|V| + |E|)$. Initialiseringen er $O(|V|)$, og hver kant kan\nføre til høyst én legging på stakken fra hver ende, altså $O(|E|)$ leggingar\nog uttak til sammen."
+  },
+  {
+   "id": "in2010-5-2-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Samme rekkefølge, men med stakken synlig",
+   "problem": "Kjør `DFSIterativ` fra A i **U1** — den samme grafen og den samme\nstartnoden som i eksempel 3 — og før stakken etter hvert steg. Blir\nbesøksrekkefølgen den samme som med rekursjon?\n\n```text\nA: B, C\nB: A, D\nC: A, D, E\nD: B, C, F\nE: C, F\nF: D, E, G\nG: F, H\nH: G\n```",
+   "solution": "Naboene legges på i omvendt rekkefølge, slik at den første naboen tas først.\nStakken skrives fra bunnen mot toppen, så det siste navnet er øverst.\n\n| Steg | Handling | Stakken etter steget | Besøkt |\n|---|---|---|---|\n| start | - | `A` | (ingen) |\n| 1 | besøk A; legg på stakken: B, C | `C, B` | A |\n| 2 | besøk B; legg på stakken: D | `C, D` | A, B |\n| 3 | besøk D; legg på stakken: C, F | `C, F, C` | A, B, D |\n| 4 | besøk C; legg på stakken: E | `C, F, E` | A, B, C, D |\n| 5 | besøk E; legg på stakken: F | `C, F, F` | A, B, C, D, E |\n| 6 | besøk F; legg på stakken: G | `C, F, G` | A, B, C, D, E, F |\n| 7 | besøk G; legg på stakken: H | `C, F, H` | A, B, C, D, E, F, G |\n| 8 | besøk H; legg på stakken: ingen | `C, F` | A, B, C, D, E, F, G, H |\n| 9 | F tas av stakken, men er alt besøkt — hopp over | `C` | A, B, C, D, E, F, G, H |\n| 10 | C tas av stakken, men er alt besøkt — hopp over | `(tom)` | A, B, C, D, E, F, G, H |\n\n**Sluttsvaret:**\n\n```text\nbesoeksrekkefolge: A -> B -> D -> C -> E -> F -> G -> H\n```\n\n**Ja — nøyaktig den samme som i eksempel 3.** De to formene er samme\nalgoritme.\n\n**Se på steg 3.** Stakken er `C, F, C` — noden C ligger der **to ganger**.\nDen ble lagt på av A i steg 1 og av D i steg 3, og ingen av gangene var\nden besøkt ennå. I den rekursive formen kan dette ikke skje, fordi\nsjekken gjøres rett før kallet.\n\n**Se på steg 9 og 10.** Der høster vi konsekvensen: to noder tas av\nstakken og forkastes fordi de allerede er besøkt. Det er nøyaktig det\n`if u.besokt er usant` ved uttak er til for. Fjerner du den linja, blir C\nbesøkt to ganger, og en algoritme som teller eller summerer noe per node,\ngir feil svar.\n\n**Fellenote.** Fella her er å legge naboene på i **vanlig** rekkefølge og\nregne med samme resultat som med rekursjon. Da tas siste nabo først, og\nbesøksrekkefølgen blir en annen — fortsatt et gyldig dybde-først-søk, men\nikke det samme som fasiten hvis oppgaven har oppgitt en naborekkefølge."
+  },
+  {
+   "id": "in2010-5-2-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Om den iterative varianten av dybde-først:\n\n**a)** Hvorfor må naboene legges på stakken i omvendt rekkefølge?\n**b)** Hvorfor sjekkes `besokt` én gang til når noden tas av stakken, når den\nallerede ble sjekket før den ble lagt på?\n**c)** En medstudent foreslår å droppe merkingen helt og i stedet sjekke om\nnoden allerede ligger på stakken. Hva går galt?\n**d)** Hva er kjøretiden, og hvorfor er den den samme som for den rekursive\nformen?",
+    "solution": "**a)** Stakken gir tilbake den **sist** påsatte noden. Legger du naboene på i\nvanlig rekkefølge, kommer den siste naboen ut først. Vil du at den første\nnaboen skal behandles først — slik den rekursive formen gjør — må den legges\npå til slutt, altså må du gå gjennom naboene baklengs.\n\n**b)** Fordi en node kan legges på stakken av flere naboer før noen tar den\nav. I sporingen i eksempel 4 ligger C på stakken to ganger etter steg 3.\nUten sjekken ved uttak ville C blitt besøkt to ganger, og enhver telling eller\nsummering per node ville gitt feil svar.\n\n**c)** To ting. For det første er «ligger denne noden på stakken?» ikke en\n$O(1)$-operasjon på en vanlig stakk — du må lete gjennom den, og kjøretiden\nryker. For det andre er det ikke engang riktig: en node som har vært på\nstakken, blitt besøkt og tatt av, ligger ikke der lenger, men skal fortsatt\nikke besøkes på nytt. Merket er en egenskap ved noden, ikke ved stakken.\n\n**d)** $O(|V| + |E|)$, der $|V|$ er antall noder og $|E|$ antall kanter.\nInitialiseringsløkka er $O(|V|)$. Hver kant kan føre til høyst én legging på\nstakken fra hver av sine to ender, så det er $O(|E|)$ leggingar og dermed\n$O(|E|)$ uttak. Den rekursive formen gjør nøyaktig det samme arbeidet — den\nbare lar kjøresystemet holde stakken.\n\n**Merk forskjellen på hva som er dyrt.** Duplikatene på stakken øker ikke\nkjøretidsordenen; antallet er begrenset av $|E|$. Det som ville ødelagt\nkjøretiden, er å lete i stakken — altså nettopp forslaget i **c)**.",
+    "hints": [
+     "Til **a)**: skriv opp hva som skjer med naboene B og C hvis du legger på B\nførst. Hvem kommer ut av stakken først da?",
+     "Til **b)**: se på stakken etter steg 3 i eksempel 4, og tell hvor mange\nganger C står der."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-t-4",
+   "type": "text",
+   "content": "## Løkke 4 — hele grafen, og det faste kjøretidsskillet (ca. 10 min)\n\n— naturlig pausepunkt —\n\nBåde `BFS` og `DFSVisit` starter i én node og merker det de kan nå derfra.\nMen i [kap. 5.1](/in2010/in2010-5-1) så du en graf med tre atskilte biter, og\nen node uten en eneste kant. En traversering fra A ville aldri sett dem.\n\nSkal **hele** grafen dekkes, må du derfor gå over alle nodene og starte en ny\ntraversering hver gang du finner en som ikke er merket. Det er `DFSFull`.\n\nOg det er her det faste trekkpunktet i faget ligger. De to prosedyrene har\n**forskjellig kjøretid**, og forskjellen er ikke pedantisk — den er\neksplisitt påpekt i sensorenes veiledninger, og den er grunnen til at feilen\nhar fått et eget nummer i bokas feilregister."
+  },
+  {
+   "id": "in2010-5-2-def-10",
+   "type": "definition",
+   "title": "`DFSFull`",
+   "content": "Løkka som kaller `DFSVisit` fra hver node som ennå ikke er merket, slik at\n**alle** noder blir besøkt — også de som ligger i andre biter av grafen, og\nde som ikke har en eneste kant.\n\n**Kjøretid:** $O(|V| + |E|)$. Leddet $|V|$ kommer fra de to løkkene over alle\nnodene: én for å nullstille merkene, én for å starte traverseringene. Uten\n`DFSFull` dekker dybde-først bare den biten startnoden ligger i."
+  },
+  {
+   "id": "in2010-5-2-th-5",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `DFSFull`",
+   "content": "**Antagelser om representasjon.** Nabolister; `v.besokt` per node. `DFSVisit`\ner som i kontrakten over.\n\n**Prebetingelse:** ingen.\n**Postbetingelse:** hver node i `V` har `besokt = sant`, og hver node er\nbesøkt nøyaktig én gang.\n\n```text\nProcedure DFSFull(G)\n  Input:  graf G = (V, E) som nabolister\n  Output: hver node i G er besokt noeyaktig en gang\n  for hver node v i V:\n      v.besokt = usant\n  for hver node v i V:\n      if v.besokt er usant:\n          DFSVisit(G, v)\n```\n\n**Grunnideen i én setning:** hvert kall til `DFSVisit` fra den ytre løkka\nmerker nøyaktig én sammenhengende bit av grafen, og løkka fortsetter til\ningen umerkede noder er igjen.\n\n**Kjøretid:** $O(|V| + |E|)$. De to løkkene over $V$ gir $|V|$-leddet, og\nalle `DFSVisit`-kallene til sammen ser hver kant høyst to ganger, som gir\n$|E|$-leddet. Merk at det ytre `if` gjør at hver node behandles én gang, ikke\nén gang per kall.\n\n**Legg merke til én ting til:** hver gang den ytre løkka faktisk starter et\nkall, har den funnet en ny bit av grafen. Å telle hvor mange ganger det skjer\ner derfor å telle bitene — men den oppgaven hører til\n[kap. 5.3](/in2010/in2010-5-3), og der skrives den ut i sin helhet."
+  },
+  {
+   "id": "in2010-5-2-th-6",
+   "type": "theorem",
+   "title": "Det faste skillet: dybde-først fra én node mot dybde-først over hele grafen",
+   "content": "**Dette er kapitlets viktigste enkeltresultat, og det du oftest får trekk\nfor.**\n\n| Prosedyre | Hva den gjør | Kjøretid |\n|---|---|---|\n| `DFSVisit(G, u)` | merker det som kan nås fra **én** node `u` | $O(|E|)$ |\n| `DFSFull(G)` | merker **alle** noder, i alle biter av grafen | $O(|V| + |E|)$ |\n| `BFS(G, s)` | merker det som kan nås fra `s`, med avstander, og initialiserer alle noder | $O(|V| + |E|)$ |\n\n**Hvorfor forskjellen er reell.** `DFSVisit` inneholder ingen løkke over\n$V$. Den gjør bare arbeid der den faktisk går, og arbeidet følger kantene.\n`DFSFull` gjør to ting i tillegg: den nullstiller merket på **hver** node, og\nden prøver å starte fra **hver** node. Begge løkkene er $O(|V|)$, og de\nkjøres uansett hvor få kanter grafen har.\n\n**Det skarpeste eksempelet:** en graf med en million noder og **null** kanter.\nHer er $|E| = 0$. `DFSVisit` fra én node gjør nesten ingenting. `DFSFull`\nbruker likevel en million steg, fordi den må innom hver eneste node. Uten\n$|V|$-leddet ville påstanden vært at hele arbeidet er gratis.\n\n**Fellenote.** Dette er felle **#6** i bokas feilregister: å oppgi $O(|E|)$\nfor en algoritme som i virkeligheten går over alle nodene, eller\n$O(|V| + |E|)$ for et enkelt `DFSVisit`-kall. **Kontrollen som tar to\nsekunder:** har algoritmen din en løkke `for hver node v i V`? Da er $|V|$\nmed i kjøretiden. Har den det ikke, skal $|V|$ ikke stå der.\n\nOg motsatt vei, som er like viktig: å skrive $O(|V| + |E|)$ overalt «for\nsikkerhets skyld» er ikke gratis. Kjøretiden skal matche algoritmen du\nfaktisk skrev."
+  },
+  {
+   "id": "in2010-5-2-def-11",
+   "type": "definition",
+   "title": "Dybde-først fra én node — kjøretiden",
+   "content": "$O(|E|)$. `DFSVisit(G, u)` har ingen løkke over alle nodene; arbeidet er å\nfølge kantene, og hver kant ses høyst to ganger.\n\nDette gjelder **ett** kall fra **én** node, med merkene allerede initialisert\nav den som kaller. Å oppgi $O(|V| + |E|)$ her er felle #6 i den ene\nretningen."
+  },
+  {
+   "id": "in2010-5-2-def-12",
+   "type": "definition",
+   "title": "Dybde-først over hele grafen — kjøretiden",
+   "content": "$O(|V| + |E|)$. `DFSFull(G)` har to løkker over alle nodene — én for å\nnullstille merkene og én for å starte traverseringer — og de kjøres uansett\nhvor få kanter grafen har.\n\nÅ oppgi $O(|E|)$ her er felle #6 i den andre retningen, og det er den\nvarianten sensor ser oftest. Kontrollen: finnes det en løkke over $V$ i\nkoden din, skal $|V|$ stå i kjøretiden."
+  },
+  {
+   "id": "in2010-5-2-def-13",
+   "type": "definition",
+   "title": "Bredde-først — kjøretiden",
+   "content": "$O(|V| + |E|)$ med nabolister. Initialiseringen av alle noder er $O(|V|)$,\nhver node legges inn og tas ut av køen nøyaktig én gang, og naboene ramses\nopp én gang per node, som til sammen er $O(|E|)$.\n\nMed **nabomatrise** i stedet blir den $O(|V|^2)$, fordi hver naboiterasjon da\nkoster $O(|V|)$. Det er derfor antagelsen om representasjon må stå i\nbesvarelsen: den samme algoritmen har to ulike kjøretider."
+  },
+  {
+   "id": "in2010-5-2-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger F og kjøretidsfakta.) En graf har $|V| = 1\\,000\\,000$ noder og\n$|E| = 12$ kanter. Alle kantene ligger mellom de tolv første nodene; resten av\ngrafen er isolerte noder uten kanter.\n\n**a)** Omtrent hvor mange steg bruker `DFSVisit(G, A)`, der A er en av de tolv\nnodene med kanter?\n**b)** Omtrent hvor mange steg bruker `DFSFull(G)`?\n**c)** Skriv opp kjøretiden for hver av dem, og forklar hvilket ledd som\ndominerer.\n**d)** En besvarelse oppgir $O(|E|)$ for `DFSFull`. Hvor galt er det her?",
+    "solution": "**a)** Et titalls steg. `DFSVisit` fra A merker bare det som kan nås fra A,\naltså noen få av de tolv nodene, og går langs noen få kanter. De 999 988\nisolerte nodene røres ikke i det hele tatt.\n\n**b)** Rundt to millioner steg. `DFSFull` har to løkker over alle nodene: én\nfor å nullstille merkene og én for å prøve å starte en traversering fra hver.\nBegge går gjennom alle $1\\,000\\,000$ nodene.\n\n**c)** `DFSVisit`: $O(|E|)$. `DFSFull`: $O(|V| + |E|)$. Her er\n$|V| = 1\\,000\\,000$ og $|E| = 12$, så $|V|$-leddet dominerer fullstendig —\nkantene er praktisk talt gratis, og hele kostnaden ligger i å være innom hver\nnode.\n\n**d)** Svært galt, og det er nettopp derfor eksempelet er valgt. $O(|E|)$ med\n$|E| = 12$ ville betydd at prosedyren er ferdig etter et titalls steg. I\nvirkeligheten bruker den to millioner. Dette er felle **#6** i bokas\nfeilregister, og den er et eksplisitt trekkpunkt.\n\n**Kontrollen du skal gjøre hver gang:** les gjennom din egen pseudokode og se\netter linja `for hver node v i V`. Finnes den, skal $|V|$ stå i kjøretiden.\nFinnes den ikke, skal den ikke det.",
+    "hints": [
+     "Tell løkkene i hver av de to prosedyrene. Hvor mange av dem går over **alle**\nnodene?",
+     "Sett inn tallene $|V| = 1\\,000\\,000$ og $|E| = 12$ i begge uttrykkene og se\nhvor stor forskjellen blir."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) Et tunnelsystem under et fjellanlegg er kartlagt\nsom en urettet graf: nodene er kryss, kantene er tunneler. Skriv en algoritme\nsom avgjør om det finnes en vei fra kryss `s` til kryss `t`. Oppgi kjøretid.\n\nDeretter: en kollega foreslår i stedet å prøve alle mulige veier fra `s` og se\nom noen ender i `t`. Hva er galt med det forslaget?",
+    "solution": "**Problemet navngitt:** dette er et rent «kan `t` nås fra `s`?»-spørsmål,\naltså en enkelt traversering fra `s`. Ingen avstander er etterspurt, så både\ndybde-først og bredde-først duger.\n\n**Antagelser om representasjon:** grafen er gitt som nabolister; hver node\n`v` har feltet `v.besokt`.\n\n**Algoritmen:**\n\n```text\nProcedure FinnesVei(G, s, t)\n  Input:  urettet graf G = (V, E) som nabolister, nodene s og t\n  Output: sant hvis det finnes en vei fra s til t, ellers usant\n  for hver node v i V:\n      v.besokt = usant\n  DFSVisit(G, s)\n  return t.besokt\n```\n\n**Grunnideen i én setning:** `DFSVisit(G, s)` merker nøyaktig de nodene som\nkan nås fra `s`, så spørsmålet er ganske enkelt om `t` ble merket.\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall kryss og $|E|$ antall\ntunneler. Initialiseringsløkka er $O(|V|)$, og `DFSVisit` er $O(|E|)$ —\nsummen er $O(|V| + |E|)$.\n\n**Merk kjøretidsdrøftingen nøye.** Selve `DFSVisit`-kallet er $O(|E|)$, men\nprosedyren over inneholder en løkke over alle nodene, og da **skal** $|V|$\nmed. Hadde oppgaven oppgitt at merkene allerede var nullstilt, ville svaret\nvært $O(|E|)$. Å oppgi feil av de to er felle **#6**.\n\n**Hva som er galt med kollegaens forslag.** Antallet ulike veier i en graf kan\nvokse eksponentielt med antall noder — allerede en graf med noen få titalls\nkryss kan ha astronomisk mange veier. En traversering gjør det samme arbeidet\ni $O(|V| + |E|)$ fordi merket sørger for at hver node behandles **én** gang,\nuansett hvor mange veier som fører dit.\n\n**Poengtrapp-notat.** «Lavere kjøretid er mer poenggivende» er en eksplisitt\nregel i dette faget: en $O(|V| + |E|)$-løsning gir full pott her, mens\nveiopptellingen ville fått svært lite selv om den er korrekt. Full uttelling\nkrever de fire leddene: problemet navngitt, antagelsene, algoritmen og\nkjøretiden med størrelsene definert.\n\n**Kan dette gjøres raskere?** Nei. Du må i verste fall se på hele grafen for\nå konkludere at `t` ikke kan nås, og $O(|V| + |E|)$ er nøyaktig prisen på det.",
+    "hints": [
+     "Du trenger ikke å lete etter `t` underveis — det holder å traversere og se\netterpå.",
+     "Til siste del: hvor mange ulike veier kan det finnes mellom to noder i en\ngraf med sykler?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-t-5",
+   "type": "text",
+   "content": "## Løkke 5 — samme graf, to rekkefølger (ca. 9 min)\n\nTil slutt skal de to settes ved siden av hverandre på nøyaktig den samme\ngrafen, fra nøyaktig den samme noden. Det er den formen spørsmålet kommer i\npå eksamen: «oppgi besøksrekkefølgen for bredde-først og for dybde-først».\n\nPoenget er ikke å pugge to rekkefølger, men å se **hvorfor** de skiller lag:\nkøen tvinger fram lagene, stakken tvinger fram dybden."
+  },
+  {
+   "id": "in2010-5-2-fig-2",
+   "type": "image",
+   "src": "/images/textbook/in2010/bfs-dfs-rekkefolge.svg",
+   "alt": "En urettet graf med seks noder A til F og sju kanter, tegnet én gang. Under grafen står to rekkefølger for traversering fra A: bredde-først gir A, B, C, D, E, F og er merket med at den bruker en kø og går lagvis; dybde-først gir A, B, D, F, E, C og er merket med at den bruker en stakk og går dypest først.",
+   "caption": "Se etter hvor de to rekkefølgene skiller lag: begge starter A, B, men bredde-først går tilbake til C — den andre naboen til A — mens dybde-først fortsetter innover til D. C blir derfor besøkt først av bredde-først og sist av dybde-først."
+  },
+  {
+   "id": "in2010-5-2-ex-5",
+   "type": "example",
+   "title": "Eksempel 5: Begge traverseringene på grafen i figuren",
+   "problem": "Grafen i figuren over har seks noder og sju kanter. Kjør både bredde-først\nog rekursivt dybde-først fra A, og forklar hvor de to skiller lag.\n\n```text\nA: B, C\nB: A, D, E\nC: A, E\nD: B, F\nE: B, C, F\nF: D, E\n```",
+   "solution": "**Bredde-først fra A:**\n\n| Steg | Tas ut av køen | Dybde | Legges i køen | Køen etter steget | Besøkt |\n|---|---|---|---|---|---|\n| start | - | - | - | `A` | A |\n| 1 | A | 0 | B, C | `B, C` | A, B, C |\n| 2 | B | 1 | D, E | `C, D, E` | A, B, C, D, E |\n| 3 | C | 1 | ingen | `D, E` | A, B, C, D, E |\n| 4 | D | 2 | F | `E, F` | A, B, C, D, E, F |\n| 5 | E | 2 | ingen | `F` | A, B, C, D, E, F |\n| 6 | F | 3 | ingen | `(tom)` | A, B, C, D, E, F |\n\n```text\nbesoeksrekkefolge: A -> B -> C -> D -> E -> F\nlag 0: A\nlag 1: B, C\nlag 2: D, E\nlag 3: F\n```\n\n**Rekursivt dybde-først fra A:**\n\n| Steg | Handling | Kallstakken etter steget | Besøkt |\n|---|---|---|---|\n| 1 | kall DFSVisit(A) | `A` | A |\n| 2 | kall DFSVisit(B) | `A, B` | A, B |\n| 3 | ser på naboen A fra B — allerede besøkt, hopper over | `A, B` | A, B |\n| 4 | kall DFSVisit(D) | `A, B, D` | A, B, D |\n| 5 | ser på naboen B fra D — allerede besøkt, hopper over | `A, B, D` | A, B, D |\n| 6 | kall DFSVisit(F) | `A, B, D, F` | A, B, D, F |\n| 7 | ser på naboen D fra F — allerede besøkt, hopper over | `A, B, D, F` | A, B, D, F |\n| 8 | kall DFSVisit(E) | `A, B, D, F, E` | A, B, D, E, F |\n| 9 | ser på naboen B fra E — allerede besøkt, hopper over | `A, B, D, F, E` | A, B, D, E, F |\n| 10 | kall DFSVisit(C) | `A, B, D, F, E, C` | A, B, C, D, E, F |\n| 11 | ser på naboen A fra C — allerede besøkt, hopper over | `A, B, D, F, E, C` | A, B, C, D, E, F |\n| 12 | ser på naboen E fra C — allerede besøkt, hopper over | `A, B, D, F, E, C` | A, B, C, D, E, F |\n| 13 | DFSVisit(C) returnerer | `A, B, D, F, E` | A, B, C, D, E, F |\n| 14 | ser på naboen F fra E — allerede besøkt, hopper over | `A, B, D, F, E` | A, B, C, D, E, F |\n| 15 | DFSVisit(E) returnerer | `A, B, D, F` | A, B, C, D, E, F |\n| 16 | DFSVisit(F) returnerer | `A, B, D` | A, B, C, D, E, F |\n| 17 | DFSVisit(D) returnerer | `A, B` | A, B, C, D, E, F |\n| 18 | ser på naboen E fra B — allerede besøkt, hopper over | `A, B` | A, B, C, D, E, F |\n| 19 | DFSVisit(B) returnerer | `A` | A, B, C, D, E, F |\n| 20 | ser på naboen C fra A — allerede besøkt, hopper over | `A` | A, B, C, D, E, F |\n| 21 | DFSVisit(A) returnerer | `(tom)` | A, B, C, D, E, F |\n\n```text\nbesoeksrekkefolge (naar noden foerst naas): A -> B -> D -> F -> E -> C\nferdigrekkefolge (naar kallet returnerer):  C -> E -> F -> D -> B -> A\nmaks dybde paa kallstakken: 6\n```\n\n**Hvor de skiller lag: i det andre steget.** Begge har akkurat besøkt A og\nB. Bredde-først har C liggende i køen fra første steg, og køen gir den ut\nfør noe som ble oppdaget senere — så C blir nummer tre. Dybde-først går\nrett videre fra B til D, og kommer ikke tilbake til C før alt annet er\nutforsket — så C blir nummer seks, altså **sist**.\n\n**Legg merke til avstandene.** Bredde-først forteller deg at F ligger tre\nkanter fra A. Dybde-først besøkte F som nummer tre i rekkefølgen, men det\nsier ingenting om avstand — den kom dit langs A -> B -> D -> F, som\ntilfeldigvis er tre kanter, men i en annen graf kunne den kommet dit langs\nen lang omvei. **Rekkefølgen i dybde-først er ikke avstand.**\n\n**Fellenote.** Fella her er å bruke dybde-først når oppgaven ber om\nkorteste vei. Det er bredde-først som gir korteste vei, og bare målt i\nantall kanter i en uvektet graf."
+  },
+  {
+   "id": "in2010-5-2-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger E.) Kjør den **iterative** varianten av dybde-først fra A på den\nsamme grafen som i eksempel 5, og før stakken.\n\n```text\nA: B, C\nB: A, D, E\nC: A, E\nD: B, F\nE: B, C, F\nF: D, E\n```\n\n**a)** Sett opp sporingstavlen.\n**b)** Blir besøksrekkefølgen den samme som med rekursjon?\n**c)** Hvor mange ganger tas en node av stakken uten å bli besøkt, og hvorfor?",
+    "solution": "**a)** Naboene legges på i omvendt rekkefølge; stakken skrives fra bunnen mot\ntoppen.\n\n| Steg | Handling | Stakken etter steget | Besøkt |\n|---|---|---|---|\n| start | - | `A` | (ingen) |\n| 1 | besøk A; legg på stakken: B, C | `C, B` | A |\n| 2 | besøk B; legg på stakken: D, E | `C, E, D` | A, B |\n| 3 | besøk D; legg på stakken: F | `C, E, F` | A, B, D |\n| 4 | besøk F; legg på stakken: E | `C, E, E` | A, B, D, F |\n| 5 | besøk E; legg på stakken: C | `C, E, C` | A, B, D, E, F |\n| 6 | besøk C; legg på stakken: ingen | `C, E` | A, B, C, D, E, F |\n| 7 | E tas av stakken, men er alt besøkt — hopp over | `C` | A, B, C, D, E, F |\n| 8 | C tas av stakken, men er alt besøkt — hopp over | `(tom)` | A, B, C, D, E, F |\n\n```text\nbesoeksrekkefolge: A -> B -> D -> F -> E -> C\n```\n\n**b)** **Ja** — nøyaktig den samme som den rekursive varianten i eksempel 5.\nDet er samme algoritme; den eneste forskjellen er om du styrer stakken selv\neller lar kjøresystemet gjøre det.\n\n**c)** To ganger, i steg 7 og 8. Både E og C ble lagt på stakken to ganger —\nE av B i steg 2 og av F i steg 4, C av A i steg 1 og av E i steg 5 — fordi de\nikke var besøkt på det tidspunktet de ble lagt på. Det er nettopp derfor\n`besokt` må sjekkes én gang til ved uttak.\n\n**Merk hvordan duplikatene oppstår.** En node med to naboer som begge\noppdager den før den blir behandlet, havner på stakken to ganger. Antallet er\nbegrenset av $|E|$, så kjøretidsordenen påvirkes ikke — men korrektheten\ngjør det, hvis du dropper sjekken.",
+    "hints": [
+     "Legg naboene på i omvendt alfabetisk rekkefølge, så tas den første naboen\nførst.",
+     "Skriv opp hele stakken hver gang, også når det står to like navn på den."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) En kommune skal varsle innbyggere ved et\nvannbrudd. Ledningsnettet er en urettet, uvektet graf der nodene er kummer og\nkantene er ledninger. Bruddet skjer i kum `s`.\n\nSkriv en algoritme som for **hver** kum oppgir hvor mange ledninger den ligger\nunna `s`, og som melder fra om kummer som ikke kan nås i det hele tatt. Oppgi\nantagelser og kjøretid, og begrunn hvorfor kjøretiden er den lavest mulige.",
+    "solution": "**Problemet navngitt:** dette er korteste vei målt i **antall kanter** i en\nuvektet graf, fra én kilde til alle noder. Verktøyet er bredde-først.\n\n**Antagelser om representasjon:** grafen er gitt som nabolister; hver node\n`v` har feltene `v.besokt` og `v.avstand`. Køen har `settInn` og `taUt` i\n$O(1)$.\n\n**Algoritmen:**\n\n```text\nProcedure AvstandFraBrudd(G, s)\n  Input:  urettet uvektet graf G = (V, E) som nabolister, bruddnoden s\n  Output: v.avstand for hver node v; uendelig for kummer som ikke kan naas\n  for hver node v i V:\n      v.besokt = usant\n      v.avstand = uendelig\n  s.besokt = sant\n  s.avstand = 0\n  Ko = tom ko\n  Ko.settInn(s)\n  while Ko er ikke tom:\n      u = Ko.taUt()\n      for hver nabo v av u:\n          if v.besokt er usant:\n              v.besokt = sant\n              v.avstand = u.avstand + 1\n              Ko.settInn(v)\n```\n\nKummer som ikke kan nås, sitter igjen med `avstand = uendelig` og\n`besokt = usant` — de ligger i en annen bit av nettet, og ingen ekstra\ngjennomgang trengs for å finne dem.\n\n**Grunnideen i én setning:** køen tømmes lagvis, så en node tas aldri ut før\nalle noder nærmere `s` er tatt ut, og avstanden den får av den første noden\nsom når den, er derfor den korteste.\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall kummer og $|E|$ antall\nledninger. Initialiseringsløkka er $O(|V|)$; hver node legges inn og tas ut av\nkøen nøyaktig én gang; naboene ramses opp én gang per node, som over hele\ngrafen er $O(|E|)$.\n\n**Hvorfor dette er lavest mulig.** Svaret inneholder én verdi per kum, så\nenhver korrekt algoritme må skrive $|V|$ verdier. Og for å vite at en avstand\ner riktig, må hver ledning være vurdert minst én gang, altså $|E|$ arbeid.\n$O(|V| + |E|)$ er derfor både det bredde-først bruker og det problemet krever.\n\n**Poengtrapp-notat.** «Lavere kjøretid er mer poenggivende» er eksplisitt i\ndette faget, og her er trappen konkret: bredde-først gir $O(|V| + |E|)$ og\nfull pott. En løsning som kjører en egen traversering fra hver kum for å måle\navstanden til `s`, er $O(|V| \\cdot (|V| + |E|))$ og gir langt mindre — den er\nkorrekt, men den gjør det samme arbeidet $|V|$ ganger. Og en løsning som\nbruker dybde-først i stedet, får ikke uttelling for avstandene i det hele\ntatt: rekkefølgen dybde-først besøker nodene i, er ikke avstand.",
+    "hints": [
+     "Hvilken av de to traverseringene fyller ut avstander, og hvorfor er det\nnettopp køen som gjør det mulig?",
+     "Tenk på hva som skjer med noder i en annen bit av nettet hvis du lar\ninitialverdien være uendelig — trenger du en egen runde for å finne dem?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "Den første er felle **#6** i bokas feilregister, og den er den dyreste i hele\nDel 5.\n\n- **Å forveksle dybde-først fra én node med dybde-først over hele grafen.**\n  `DFSVisit(G, u)` er $O(|E|)$; `DFSFull(G)` er $O(|V| + |E|)$.\n  **Kontrollen:** står det `for hver node v i V` i pseudokoden din? Da skal\n  $|V|$ med i kjøretiden. Står det ikke, skal det ikke.\n- **Å tro at dybde-først gir korteste vei.** Den gir **en** vei. Korteste vei\n  målt i antall kanter får du av bredde-først, og bare i en **uvektet** graf.\n  Har kantene vekter, duger ingen av dem, og du må til Del 6.\n- **Å glemme `besokt`-merket.** I en graf med en sykel går traverseringen da\n  i uendelig løkke. Merket er både det som gjør algoritmen korrekt og det som\n  gjør den lineær.\n- **Å merke noden ved uttak fra køen i stedet for ved innlegging.** Da kan\n  den samme noden legges inn flere ganger, og bredde-først er ikke lenger\n  $O(|V| + |E|)$.\n- **Å droppe `besokt`-sjekken ved uttak i den iterative varianten.** Der er\n  duplikater på stakken helt normalt, og uten sjekken blir noder besøkt to\n  ganger.\n- **Å oppgi kjøretid uten å si hvilken representasjon du antar.** Med\n  nabomatrise er både bredde-først og dybde-først $O(|V|^2)$, ikke\n  $O(|V| + |E|)$. Kjøretiden er ikke en egenskap ved algoritmen alene.\n\nOg den gjennomgående: **å oppgi en kjøretid som ikke matcher pseudokoden du\nfaktisk skrev.** Les koden din én gang til med kjøretiden i hånden, og tell\nløkkene. Å bruke $n$ uten å definere det er dessuten felle **#10** — i grafer\nhar du to størrelser, $|V|$ og $|E|$, og begge skal navngis."
+  },
+  {
+   "id": "in2010-5-2-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-2-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) En kollega har levert denne prosedyren, som skal\nbesøke alle nodene i en graf:\n\n```text\nProcedure BesokAlt(G)\n  Input:  graf G = (V, E) som nabolister\n  Output: alle noder besokt\n  for hver node v i V:\n      DFSVisit(G, v)\n  Kjoeretid: O(|E|)\n```\n\nder `DFSVisit` er som i kapitlets kontrakt.\n\n**a)** Finn alle feilene.\n**b)** Vis konkret hva som går galt på grafen med nabolistene\n`A: B` og `B: A`.\n**c)** Skriv en korrekt versjon med riktig kjøretid.",
+    "solution": "**a) Tre feil.**\n\n1. **Merkene blir aldri nullstilt.** `DFSVisit` forutsetter at `v.besokt` er\n   satt for alle noder før første kall. Uten initialiseringsløkka er verdiene\n   udefinerte.\n2. **Ingen `if v.besokt er usant` foran kallet.** Løkka kaller `DFSVisit` på\n   **hver** node, også de som allerede er besøkt. `DFSVisit` setter\n   `u.besokt = sant` uten å sjekke først, så noder blir behandlet flere\n   ganger.\n3. **Kjøretiden er feil oppgitt.** Prosedyren har en løkke over alle nodene,\n   så $|V|$ skal med: den er $O(|V| + |E|)$, ikke $O(|E|)$. Dette er felle\n   **#6**.\n\n**b) Konkret, med `A: B` og `B: A`:**\n\nDen ytre løkka kaller først `DFSVisit(G, A)`. Den merker A, ser naboen B som\numerket, og kaller `DFSVisit(G, B)`, som merker B. Så langt alt vel — begge\ner besøkt.\n\nMen løkka fortsetter til neste node og kaller `DFSVisit(G, B)` **en gang\ntil**. Prosedyren setter `B.besokt = sant` på nytt uten å sjekke, ser på\nnaboen A, finner den merket, og returnerer. B er nå «besøkt» to ganger.\n\nFor en ren merking merkes du kanskje ikke forskjellen. Men skulle prosedyren\ntelle noder, summere en verdi per node eller nummerere komponenter, ville\nsvaret blitt feil. Og på en stor graf gjøres arbeidet mange ganger om igjen.\n\n**c) Korrekt versjon.**\n\n**Antagelser om representasjon:** grafen er gitt som nabolister; hver node\n`v` har feltet `v.besokt`.\n\n```text\nProcedure DFSFull(G)\n  Input:  graf G = (V, E) som nabolister\n  Output: hver node i G er besokt noeyaktig en gang\n  for hver node v i V:\n      v.besokt = usant\n  for hver node v i V:\n      if v.besokt er usant:\n          DFSVisit(G, v)\n```\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall noder og $|E|$ antall\nkanter. De to løkkene over $V$ gir $|V|$-leddet; alle `DFSVisit`-kallene til\nsammen ser hver kant høyst to ganger, som gir $|E|$-leddet.\n\n**Kan dette gjøres raskere?** Nei. Prosedyren skal besøke hver node, så\n$|V|$-leddet er uunngåelig, og for å vite hva som henger sammen med hva må\nhver kant vurderes minst én gang. $O(|V| + |E|)$ er nøyaktig prisen på\noppgaven.\n\n**Poengtrapp-notat.** De tre feilene teller ulikt hos sensor: den manglende\n`if`-sjekken er en korrekthetsfeil og veier tyngst, den manglende\ninitialiseringen nest tyngst, og den feile kjøretiden er et fast, eksplisitt\ntrekk. Å finne to av tre gir delvis uttelling — delvis uttelling er regelen i\ndette faget, så skriv ned det du ser selv om du er usikker på resten.",
+    "hints": [
+     "Sammenlign linje for linje med `DFSFull` i kapitlets kontrakt. Hva mangler\nforan kallet, og hva mangler før løkka?",
+     "Til kjøretiden: tell løkkene som går over **alle** nodene."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-2-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-5-2-def-14",
+   "type": "definition",
+   "title": "Besøksrekkefølge",
+   "content": "Rekkefølgen nodene **først nås** i, altså rekkefølgen de merkes `besokt` i.\n\nFor bredde-først er dette rekkefølgen nodene tas ut av køen; for dybde-først\ner det rekkefølgen kallene startes i. Det er dette svaret en\nhåndkjøringsoppgave som regel ber om — les oppgaveteksten nøye, for den kan\nogså be om ferdigrekkefølgen."
+  },
+  {
+   "id": "in2010-5-2-def-15",
+   "type": "definition",
+   "title": "Ferdigrekkefølge",
+   "content": "Rekkefølgen de rekursive `DFSVisit`-kallene **returnerer** i, altså\nrekkefølgen nodene blir helt ferdige i.\n\nDen er ikke det motsatte av besøksrekkefølgen — sammenlign de to i eksempel\n3, så ser du at bare endene stemmer. Ferdigrekkefølgen er ikke pynt: den er\nselve grunnlaget for algoritmen i [kap. 5.4](/in2010/in2010-5-4), så venn deg\ntil å føre begge kolonnene når du håndkjører."
+  },
+  {
+   "id": "in2010-5-2-def-16",
+   "type": "definition",
+   "title": "Rekursjonsdybden i dybde-først",
+   "content": "Hvor mange `DFSVisit`-kall som er aktive samtidig, altså hvor høy\nkallstakken blir. Den er $O(|V|)$ i verste fall.\n\nPå en graf som er en lang kjede, ligger alle nodene på stakken samtidig — i\neksempel 3 nådde dybden 8 av 8 noder. Det er den ene praktiske grunnen til å\nvelge den iterative varianten: en eksplisitt stakk kan bli like stor, men den\nsprenger ikke kjøresystemets kallstakk."
+  },
+  {
+   "id": "in2010-5-2-def-17",
+   "type": "definition",
+   "title": "Dybde-først gir en sti, ikke den korteste",
+   "content": "Dybde-først finner **en** vei fra startnoden til hver node den når, men ikke\nnødvendigvis den korteste — den går så dypt den kan før den snur, og kan\nderfor nå en node langs en lang omvei.\n\nTrenger du korteste vei målt i antall kanter, er svaret bredde-først, og bare\ni en uvektet graf. Å hevde det motsatte er et fast trekkpunkt, og det er lett\nå gjøre fordi rekkefølgen dybde-først besøker nodene i, ser ut som om den\nbetyr noe. Den gjør ikke det."
+  },
+  {
+   "id": "in2010-5-2-def-18",
+   "type": "definition",
+   "title": "Uendelig løkke uten merking",
+   "content": "En traversering uten `besokt`-merke stopper aldri i en graf med en sykel: A\nsender til B, B sender tilbake til A, og de to holder på i det uendelige.\n\nMerket er derfor ikke en optimalisering, men en betingelse for at algoritmen\ni det hele tatt terminerer. Det er også det som gjør at hver node behandles\nén gang og hver kant et konstant antall ganger, altså det som gir kjøretiden\n$O(|V| + |E|)$."
+  },
+  {
+   "id": "in2010-5-2-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kapitlet på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-5-2-rep-1",
+     "type": "text",
+     "content": "**De tre prosedyrene som må sitte hjelpemiddelfritt:**\n\n```text\nProcedure BFS(G, s)\n  for hver node v i V:\n      v.besokt = usant\n      v.avstand = uendelig\n  s.besokt = sant\n  s.avstand = 0\n  Ko = tom ko\n  Ko.settInn(s)\n  while Ko er ikke tom:\n      u = Ko.taUt()\n      for hver nabo v av u:\n          if v.besokt er usant:\n              v.besokt = sant\n              v.avstand = u.avstand + 1\n              Ko.settInn(v)\n\nProcedure DFSVisit(G, u)\n  u.besokt = sant\n  for hver nabo v av u:\n      if v.besokt er usant:\n          DFSVisit(G, v)\n\nProcedure DFSFull(G)\n  for hver node v i V:\n      v.besokt = usant\n  for hver node v i V:\n      if v.besokt er usant:\n          DFSVisit(G, v)\n```\n\n**Kjøretidstabellen — det mest spurte i kapitlet:**\n\n| Prosedyre | Kjøretid (naboliste) | Kjøretid (nabomatrise) |\n|---|---|---|\n| `DFSVisit(G, u)` fra én node | $O(|E|)$ | $O(|V|^2)$ |\n| `DFSFull(G)` | $O(|V| + |E|)$ | $O(|V|^2)$ |\n| `BFS(G, s)` | $O(|V| + |E|)$ | $O(|V|^2)$ |\n\n**Kontrollen som avgjør felle #6:** står `for hver node v i V` i koden\ndin, skal $|V|$ med i kjøretiden. Står det ikke, skal det ikke.\n\n**De to egenskapene:**\n\n- Bredde-først gir **korteste vei i antall kanter**, i en **uvektet** graf.\n- Dybde-først gir **ferdigrekkefølgen**, som du får bruk for i\n  [kap. 5.4](/in2010/in2010-5-4). Den gir **ikke** korteste vei.\n\n**Håndkjøringsoppskriften, fire steg:**\n\n1. Skriv opp nabolistene, og ta alltid naboene i den rekkefølgen oppgaven\n   oppgir (som regel alfabetisk).\n2. Før én kolonne for samlingen (køen eller stakken) og én for hvem som er\n   besøkt. Skriv hele samlingen hvert steg, ikke bare endringen.\n3. Merk noden når den **legges inn**, ikke når den tas ut — det gjelder\n   bredde-først. I den iterative dybde-først-varianten sjekker du i\n   tillegg ved uttak.\n4. Lever besøksrekkefølgen, og lagene eller ferdigrekkefølgen hvis\n   oppgaven ber om det.\n\n**Setningen som skal med i hver besvarelse:** «Jeg antar at grafen er gitt\nsom nabolister; hver node `v` har feltet `v.besokt`.» Uten den kan ikke\nkjøretiden kontrolleres — med nabomatrise er alt $O(|V|^2)$.\n\n**Videre:** [kap. 5.3](/in2010/in2010-5-3), der de samme to\ntraverseringene løser tre klassiske problemer nesten uten endringer."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

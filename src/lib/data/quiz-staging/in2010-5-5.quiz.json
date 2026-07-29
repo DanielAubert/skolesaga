@@ -1,0 +1,182 @@
+[
+ {
+  "question": "En oppgave ber deg finne alle grupper i en rettet graf der medlemmene når hverandre begge veier. Hvilket verktøy er riktig?",
+  "options": [
+   "Sterkt sammenhengende komponenter, i én kjøring",
+   "Bredde-først-søk startet fra hver eneste node",
+   "Dybde-først-søk fra én vilkårlig valgt node",
+   "Tofarging med to farger, i én traversering"
+  ],
+  "explanation": "«Når hverandre begge veier» er definisjonen på en sterkt sammenhengende komponent, og pensumalgoritmen finner alle i $O(|V| + |E|)$. Et søk fra hver node gir riktig svar, men koster $O(|V| \\cdot (|V| + |E|))$ og er felle #1. Et søk fra én node ser bare det som nås derfra, og tofarging svarer på et helt annet spørsmål."
+ },
+ {
+  "question": "En oppgave spør hvor mange noder som nås innen $k$ ledd fra en gitt node. Hvilket mønster er riktig?",
+  "options": [
+   "Bredde-først-søk som stopper ved dybde $k$",
+   "Dybde-først-søk som stopper ved dybde $k$",
+   "Bredde-først-søk over hele grafen, uten grense",
+   "Én kjøring av komponentalgoritmen for rettet graf"
+  ],
+  "explanation": "«Innen $k$ ledd» er et avstandsspørsmål, og bare bredde-først-søk garanterer at noden du tar ut av køen i runde $d$, ligger $d$ kanter unna. Dybde-først kan gi en nabo avstanden 4. Et fullt bredde-først-søk gir riktig tall, men leser hele grafen for å svare på et spørsmål om en liten del av den."
+ },
+ {
+  "question": "Hvilke kjøretider er riktige for dybde-først-søk?",
+  "options": [
+   "$O(|E|)$ fra én node, $O(|V| + |E|)$ for et fullt søk",
+   "$O(|V| + |E|)$ fra én node, $O(|E|)$ for et fullt søk",
+   "$O(|V|)$ fra én node, $O(|V| + |E|)$ for et fullt søk",
+   "$O(|E|)$ fra én node, $O(|V| \\cdot |E|)$ for et fullt søk"
+  ],
+  "explanation": "Fra én node røres bare kantene som nås derfra, altså $O(|E|)$. Et fullt søk har en ytre løkke over alle nodene, og bare det å initialisere og sjekke hver node koster $O(|V|)$ uansett hvor få kanter grafen har. Å bytte om de to er felle #6 og et eksplisitt trekkpunkt."
+ },
+ {
+  "question": "Hva er den minste mengden startnoder som til sammen når alle noder i en rettet graf?",
+  "options": [
+   "Antall komponenter med inngrad 0 i komponentgrafen",
+   "Antall komponenter med utgrad 0 i komponentgrafen",
+   "Antall komponenter med mer enn én node i grafen",
+   "Antall noder med inngrad 0 i den opprinnelige grafen"
+  ],
+  "explanation": "Ingen kant peker inn i en komponent med inngrad 0, så hver av dem må ha sin egen startnode — og siden komponentgrafen er en DAG, kan enhver annen komponent følges bakover til en av dem. Utgrad 0 er der du ender, ikke der du starter. Å telle noder i stedet for komponenter overser at hele rundturer kan mangle innkommende kanter."
+ },
+ {
+  "question": "Hva betyr det at en komponent i komponentgrafen har utgrad 0?",
+  "options": [
+   "Komponenten når ingen andre komponenter — der ender du",
+   "Komponenten nås ikke fra noen annen komponent i grafen",
+   "Komponenten består av nøyaktig én node uten noen kanter",
+   "Komponenten inneholder en rundtur innom alle sine noder"
+  ],
+  "explanation": "Utgrad 0 betyr at ingen kant går ut av komponenten, så en vandring som kommer dit, stopper der. Alternativet om at ingen når den, beskriver inngrad 0 — og forvekslingen av de to er en av de vanligste feilene i denne sjangeren. Størrelsen på komponenten og om den har rundtur, er uavhengige spørsmål."
+ },
+ {
+  "question": "I en rettet graf: hva forteller deg at det finnes en rundtur?",
+  "options": [
+   "En komponent med mer enn én node",
+   "En komponent med utgrad lik null",
+   "En komponent med inngrad lik null",
+   "En node med både inn- og utkanter"
+  ],
+  "explanation": "Ligger to noder i samme sterkt sammenhengende komponent, når hver av dem den andre, og veien fram og tilbake er en rundtur. Inn- og utgrad sier bare hvor komponenten ligger i kjeden. En node med både inn- og utkanter kan ligge midt i en ren kjede uten noen rundtur."
+ },
+ {
+  "question": "Hvorfor kan komponentgrafen aldri inneholde en sykel?",
+  "options": [
+   "En sykel mellom komponenter ville gjort dem til én komponent",
+   "En sykel mellom komponenter ville brutt kjøretiden på $O(|V| + |E|)$",
+   "En sykel mellom komponenter finnes bare i urettede grafer",
+   "En sykel mellom komponenter fjernes når kantene snus i andre gjennomløp"
+  ],
+  "explanation": "Går det en sykel mellom to komponenter, når nodene i dem hverandre begge veier, og da er de per definisjon samme komponent. Derfor er komponentgrafen alltid en DAG — det er et kjent resultat du kan bruke uten å bevise det. Kjøretiden og kantsnuingen er deler av algoritmen, ikke grunnen til at resultatet holder."
+ },
+ {
+  "question": "Hvilken traversering gir korteste vei målt i antall kanter i en uvektet graf?",
+  "options": [
+   "Bredde-først-søk",
+   "Dybde-først-søk",
+   "Tofarging",
+   "Komponenttelling"
+  ],
+  "explanation": "Bredde-først-søk tømmer ett helt lag før det begynner på neste, så noden som tas ut i runde $d$, ligger nøyaktig $d$ kanter fra start. Dybde-først følger én sti så langt den rekker og kan gi en nabo en mye større avstand. De to andre svarer på strukturspørsmål, ikke avstandsspørsmål."
+ },
+ {
+  "question": "Hva er kjøretiden for å avgjøre om en urettet graf kan tofarges?",
+  "options": [
+   "$O(|V| + |E|)$",
+   "$O(|V| \\cdot |E|)$",
+   "$O(2^{|V|})$",
+   "$O(|V|^2)$"
+  ],
+  "explanation": "Så snart startnoden har fått en farge, er alle de andre fargene tvunget, så én traversering holder — hver node farges én gang og hver kant sjekkes én gang fra hver ende. Det eksponentielle uttrykket svarer til å prøve alle fordelinger av nodene på to grupper, som er unødvendig nettopp fordi ingenting kan velges fritt."
+ },
+ {
+  "question": "Hva koster det å kjøre en full traversering fra hver node i grafen?",
+  "options": [
+   "$O(|V| \\cdot (|V| + |E|))$",
+   "$O(|V| + |E|)$",
+   "$O(|V|^2)$",
+   "$O(|E| \\log |V|)$"
+  ],
+  "explanation": "Den ytre løkka går $|V|$ ganger, og hver runde koster en full traversering på $O(|V| + |E|)$. Uttrykket $O(|V|^2)$ glemmer kantleddet og stemmer bare for grafer med svært få kanter. Dette er den naive løsningen på reachability-oppgavene, og felle #1 i bokas feilregister."
+ },
+ {
+  "question": "Hva sier poengtrappen i denne eksamensformen?",
+  "options": [
+   "Lavere kjøretid gir mer uttelling på samme oppgave",
+   "Lengre og mer detaljert pseudokode gir mer uttelling",
+   "Bare den optimale løsningen gir uttelling i det hele tatt",
+   "Kjøretiden teller ikke så lenge algoritmen er korrekt"
+  ],
+  "explanation": "Sensorveiledningene sier eksplisitt at lavere kjøretidskompleksitet er mer poenggivende, så $O(|V| + |E|)$ slår $O(|V| \\cdot (|V| + |E|))$ på nøyaktig samme oppgave. Begge er korrekte — forskjellen er poeng, ikke riktig mot galt. Delvis uttelling er regelen, så en tregere korrekt løsning gir alltid noe."
+ },
+ {
+  "question": "Hva er kjøretiden for et bredde-først-søk som er avgrenset til dybde $k$?",
+  "options": [
+   "$O(|V| + |E|)$, men søket rører bare nodene innen $k$ ledd",
+   "$O(k)$, siden søket alltid stopper etter nøyaktig $k$ runder",
+   "$O(|V| \\cdot k)$, siden hvert av de $k$ lagene koster $O(|V|)$",
+   "$O(|E|)$, siden bare kantene innen $k$ ledd blir inspisert"
+  ],
+  "explanation": "Det asymptotiske taket er det samme som for et fullt søk, for med stor nok $k$ dekkes hele grafen. Poenget med grensen er ikke ordenen, men at søket i praksis aldri ser på noder lenger unna enn $k$ ledd. Uttrykk som avhenger bare av $k$, overser at hvert lag kan inneholde mange noder."
+ },
+ {
+  "question": "Hva skjer hvis du glemmer dybdegrensen i et søk som skulle telle noder innen $k$ ledd?",
+  "options": [
+   "Algoritmen svarer på et annet spørsmål enn det som ble stilt",
+   "Algoritmen får en kjøretid som blir eksponentiell i $k$",
+   "Algoritmen stopper aldri, fordi køen aldri blir tom igjen",
+   "Algoritmen gir riktig tall, men bruker en unødvendig stakk"
+  ],
+  "explanation": "Uten grensen teller algoritmen alle noder som kan nås i det hele tatt, og tallet blir for stort. Kjøretiden endres ikke asymptotisk, og køen blir tom som før, siden hver node legges i den høyst én gang. Feilen er altså ikke ytelse, men at svaret gjelder et annet spørsmål."
+ },
+ {
+  "question": "Hvilke fire ledd skal et Del 2-svar på en grafoppgave inneholde?",
+  "options": [
+   "Problemet navngitt, antagelser, algoritme og kjøretid",
+   "Problemet navngitt, algoritme, et eksempel og en figur",
+   "Antagelser, algoritme, kjøretid og et korrekthetsbevis",
+   "Algoritme, kjøretid, minnebruk og en alternativ løsning"
+  ],
+  "explanation": "De fire leddene er uavhengige delmomenter, så en besvarelse med feil i selve algoritmen henter likevel inn flertallet av poengene hvis de tre andre står der. Korrekthetsbevis kreves ikke — én setning om grunnideen holder. Figur og minnebruk er fine tillegg, men de erstatter ingen av de fire."
+ },
+ {
+  "question": "Når kan en urettet graf ikke tofarges?",
+  "options": [
+   "Når grafen har en sykel med et odde antall kanter",
+   "Når grafen har en sykel med et jevnt antall kanter",
+   "Når grafen har flere sammenhengende komponenter",
+   "Når grafen har en node med mer enn to naboer"
+  ],
+  "explanation": "Fargene veksler langs en sykel, så de stemmer bare når du kommer tilbake til start hvis sykelen har et jevnt antall kanter. En sykel av lengde fire går fint opp; en trekant gjør det ikke. Flere komponenter og høye grader er uproblematiske — hver komponent farges for seg."
+ },
+ {
+  "question": "Hvem bestemmer hvilken grafrepresentasjon en Del 2-besvarelse bygger på?",
+  "options": [
+   "Kandidaten oppgir den selv; sensor binder seg ikke til én form",
+   "Nabomatrise er alltid forutsatt, og trenger ikke å nevnes",
+   "Naboliste er alltid forutsatt, og trenger ikke å nevnes",
+   "Den står i oppgaveteksten, og skal ikke gjentas i svaret"
+  ],
+  "explanation": "Sensor godtar nabolister, nabomatrise eller objektstil, men krever at kandidaten sier hva han antar — det er et eget delmoment som koster to linjer. Oppgaveteksten oppgir det sjelden. Å utelate antagelsene gir trekk selv når algoritmen er helt riktig."
+ },
+ {
+  "question": "Hva gjelder for pseudokode som er vanskelig å lese?",
+  "options": [
+   "En setning man ikke forstår etter to gjennomlesninger, ignoreres",
+   "Uklar pseudokode gir full uttelling så lenge ideen er riktig",
+   "Bare pseudokode teller; en forklaring i prosa gir aldri uttelling",
+   "Lengden avgjør: jo mer detaljert koden er, desto mer uttelling"
+  ],
+  "explanation": "Kravet er at løsningen er lett forståelig, entydig og presis, ikke at den følger en bestemt syntaks — dette er felle #12. Motsatt vei gjelder det samme til kandidatens fordel: en klar forklaring i vanlig prosa kan gi like mye som, eller mer enn, rotete pseudokode."
+ },
+ {
+  "question": "Hvilken representasjon passer best når algoritmen skal traversere grafen?",
+  "options": [
+   "Naboliste, fordi du itererer over naboene og ikke over alle noder",
+   "Nabomatrise, fordi kantoppslag mellom to noder koster $O(1)$",
+   "Naboliste, fordi den bruker $O(|V|^2)$ plass uansett tetthet",
+   "Nabomatrise, fordi den bruker $O(|V| + |E|)$ plass uansett tetthet"
+  ],
+  "explanation": "Med naboliste koster det $O(\\text{grad}(v))$ å gå gjennom naboene til $v$, og summen over alle noder blir $O(|V| + |E|)$. Med nabomatrise koster den samme gjennomgangen $O(|V|)$ per node, altså $O(|V|^2)$ totalt. Nabomatrisens $O(1)$-oppslag er en reell fordel, men bare når du spør om enkeltkanter — og plassangivelsene i de to siste alternativene står byttet om."
+ }
+]

@@ -1,0 +1,316 @@
+{
+  "id": "in2010-3-2",
+  "courseId": "in2010",
+  "chapterNumber": "3.2",
+  "title": "Load-faktor, rehashing og hashmap/-set som verktøy",
+  "description": "Load-faktor og når man rehasher, og hashmap/-set som Del 2-verktøyet for O(n)-løsninger.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne regne ut load-faktoren og forklare hva den sier om forventet kjøretid",
+    "kunne håndkjøre en rehashing til dobbel tabellstørrelse og forklare hvorfor de gamle indeksene ikke kan gjenbrukes",
+    "kunne velge hashmap eller hash-set som verktøy i en pseudokodebesvarelse og oppgi forventet og verste kjøretid",
+    "kunne sette opp poengtrappen for et søkeproblem og begrunne hvorfor den lineære løsningen står øverst"
+  ],
+  "content": [
+    {
+      "id": "in2010-3-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "To temaer i dette kapitlet, og de testes på hver sin måte.\n\n**Load-faktor og rehashing** kommer som **sjanger C — kjøretids- og teorifakta**,\naltså rene sant/usant-påstander i Del 1. Det faste punktet er at hashverdiene\n**endrer seg** når tabellen utvides, slik at alt må settes inn på nytt. Påstanden\n«rehashing kan gjenbruke de gamle indeksene» er usann, og den er en fast\ndistraktor.\n\n**Hashmap og hash-set som verktøy** er derimot en Del 2-ferdighet, sjanger I. Det\ner dette kapitlet som gir deg lisensen til å skrive «bruk et hash-set» i en\npseudokodebesvarelse og få $O(n)$ **forventet** der en sortering ville gitt\n$O(n \\log n)$. På poengtrappen er det ett helt trinn, og det gjelder på nesten\nhvert eneste sett.\n\nTil sammen har temaene 100 % frekvens — 7 av 7 sett.\n\nPrioritet: **høyeste**. Kapitlet er kort, men det er broen mellom håndkjøringen i\n[kap. 3.1](/in2010/in2010-3-1) og Del 2-oppgavene i\n[kap. 3.4](/in2010/in2010-3-4).\n\n**Slik er kapitlet lagt opp (45 min):** tre løkker med tidsanslag."
+    },
+    {
+      "id": "in2010-3-2-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 3.1](/in2010/in2010-3-1) — hashtabellen, $h(k) = k \\bmod N$, lineær\n  probing og forskjellen på forventet og verste kjøretid. Alt her bygger direkte\n  på det.\n- [kap. 2.2](/in2010/in2010-2-2) — sortér-og-skann-strategien, som er alternativet\n  hash-settet skal sammenlignes mot.\n\nHar du brukt en ordbok i et introkurs, kjenner du allerede grensesnittet:\n[Ordbøker](/in1000/in1000-3-2) — der er hashmap-en ferdig laget; her ser du hva\nden koster."
+    },
+    {
+      "id": "in2010-3-2-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-3-2-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $N$ | tabellstørrelsen — antall plasser i arrayet |\n| $n$ | antall nøkler som faktisk er lagret |\n| $\\alpha$ | load-faktoren, $\\alpha = n/N$ |\n| $h(k)$ | hashfunksjonen $k \\bmod N$ — merk at den avhenger av $N$ |\n| $O(1)$ | konstant tid, **forventet**, for oppslag i hashmap og hash-set |\n| $O(n)$ | lineær tid — verste tilfelle for oppslag, og kostnaden ved én rehashing |"
+        },
+        {
+          "id": "in2010-3-2-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Rehash(T)` | oppretter et nytt array med dobbelt størrelse og setter inn alle nøklene på nytt med ny `h` | $O(n + N)$ for én rehashing |\n| `Put(M, k, v)` | lagrer verdien `v` under nøkkelen `k` i hashmap-en `M`; overskriver hvis `k` finnes | $O(1)$ forventet, $O(n)$ verste |\n| `Get(M, k)` | henter verdien lagret under `k`, eller melder at nøkkelen ikke finnes | $O(1)$ forventet, $O(n)$ verste |\n| `Add(S, k)` | legger `k` i hash-settet `S`; ingen effekt hvis den allerede er der | $O(1)$ forventet, $O(n)$ verste |\n| `Contains(S, k)` | avgjør om `k` finnes i `S` | $O(1)$ forventet, $O(n)$ verste |\n\n**Formler i dette delkapitlet:**\n\n$$\\alpha = \\frac{n}{N}$$\n\nLoad-faktoren: hvor stor andel av plassene som er i bruk. Teller er antall\nnøkler, nevner er antall plasser.\n\n$$N_{\\text{ny}} = 2 \\cdot N_{\\text{gammel}}$$\n\nRehashing dobler tabellen, og fordi $N$ endrer seg, endrer **alle** hashverdier\nseg med den.\n\n$$\\text{n innsettinger med dobling: } O(n) \\text{ totalt}$$\n\nDoblingene koster $N + 2N + 4N + \\ldots$, en sum som er mindre enn det dobbelte av\nsiste ledd."
+        }
+      ]
+    },
+    {
+      "id": "in2010-3-2-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — load-faktoren: hvor full er tabellen? (ca. 12 min)\n\nKlyngedannelsen du så i [kap. 3.1](/in2010/in2010-3-1) blir raskt verre jo mer\ntabellen fylles opp. Med tre nøkler i en tabell på elleve plasser er kollisjoner\nsjeldne. Med ti nøkler i den samme tabellen er de nesten uunngåelige, og\nprobing-sekvensene blir lange.\n\nMålet på hvor full tabellen er, heter **load-faktoren**:\n\n$$\\alpha = \\frac{n}{N}$$\n\nder $n$ er antall lagrede nøkler og $N$ er antall plasser. Er $\\alpha = 0{,}5$,\ner halvparten av plassene i bruk. Er $\\alpha = 1$, er tabellen full, og ingen ny\nnøkkel får plass.\n\nRekkefølgen i brøken er verdt å låse fast: **nøkler over plasser**. Snur du\nbrøken, får du et tall over 1 så snart tabellen er mindre enn halvfull, og det\ngir ingen mening."
+    },
+    {
+      "id": "in2010-3-2-def-1",
+      "type": "definition",
+      "title": "Load-faktor",
+      "content": "$\\alpha = n/N$, der $n$ er antall lagrede nøkler og $N$ er tabellstørrelsen.\nAndelen av plassene som er i bruk.\n\nFor lukket hashing må $\\alpha \\le 1$ — tabellen kan ikke inneholde flere nøkler\nenn den har plasser. Når $\\alpha$ nærmer seg 1, blir probing-sekvensene lange og\nden forventede kjøretiden nærmer seg verste tilfelle. Typisk terskel for å utvide\ner $\\alpha$ over $0{,}5$ eller $0{,}75$."
+    },
+    {
+      "id": "in2010-3-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Load-faktor og hva den betyr",
+      "problem": "En hashtabell har $N = 7$ plasser. Regn ut load-faktoren etter at 4 nøkler er\nsatt inn, og etter at 6 er satt inn. Hva sier tallene om kjøretiden?",
+      "solution": "**Med 4 nøkler:** $\\alpha = 4/7 \\approx 0{,}571$. Litt over halvparten av\nplassene er i bruk.\n\n**Med 6 nøkler:** $\\alpha = 6/7 \\approx 0{,}857$. Bare én plass er ledig.\n\n**Hva tallene betyr.** Ved $\\alpha \\approx 0{,}57$ er det fortsatt tre ledige\nplasser spredt utover, og en ny nøkkel har god sjanse til å finne plass raskt.\nVed $\\alpha \\approx 0{,}86$ må en ny nøkkel i verste fall probe seg gjennom nesten\nhele tabellen for å finne den ene ledige plassen.\n\n**Konkret, fra tabellen i [kap. 3.1](/in2010/in2010-3-1):** der ble fem nøkler\nsatt inn i en tabell med $N = 7$, altså $\\alpha = 5/7 \\approx 0{,}714$, og\ntotalkostnaden var 13 prøver for fem innsettinger — 2,6 per innsetting. Hadde\ntabellen vært dobbelt så stor, ville de samme fem nøklene hatt langt kortere vei.\n\n**Merk hva load-faktoren ikke sier.** Den sier ingenting om **hvordan** nøklene\nligger. En tabell med $\\alpha = 0{,}5$ der alle nøklene ligger i én klynge, er\nverre enn en med $\\alpha = 0{,}7$ der de er spredt. Load-faktoren er et\ngrovmål — men det er grovmålet implementasjoner faktisk bruker, fordi det er\nbillig å holde oppdatert."
+    },
+    {
+      "id": "in2010-3-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger C — kjøretids- og teorifakta, altså rene\nsant/usant-påstander.) En hashtabell har $N = 16$ plasser og inneholder 12\nnøkler.\n\n**a)** Hva er load-faktoren?\n**b)** Kan load-faktoren i en tabell med lukket hashing bli større enn 1?\n**c)** Sant eller usant: en lav load-faktor garanterer korte probing-sekvenser.",
+        "solution": "**a)** $\\alpha = n/N = 12/16 = 0{,}75$.\n\n**b)** Nei. Med lukket hashing ligger alle nøklene i selve arrayet, så det kan\nikke være flere nøkler enn plasser. $\\alpha \\le 1$ alltid. (Med kjeding, der hver\nplass har en liste, kan $\\alpha$ godt overstige 1 — men det er ikke varianten som\nbrukes her.)\n\n**c)** **Usant.** Load-faktoren sier hvor mange plasser som er i bruk, ikke\nhvordan de ligger. Ligger alle nøklene i én sammenhengende klynge, kan\nprobing-sekvensen bli lang selv ved lav $\\alpha$. Lav load-faktor gjør korte\nsekvenser **sannsynlige**, ikke garanterte — og det er nettopp derfor kjøretiden\nalltid oppgis som $O(1)$ **forventet**.",
+        "hints": [
+          "Load-faktoren er en brøk — hva står i teller og hva i nevner?",
+          "Tenk på en tabell der alle nøklene tilfeldigvis hasher til samme plass."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-2-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — rehashing: hele tabellen bygges på nytt (ca. 16 min)\n\n— naturlig pausepunkt —\n\nNår load-faktoren blir for høy, må tabellen utvides. Og her ligger poenget som\nhar vært et sant/usant-punkt i sett etter sett.\n\nDu kan **ikke** bare lage et større array og flytte nøklene over på de samme\nindeksene.\n\nGrunnen står i hashfunksjonen: $h(k) = k \\bmod N$. Den avhenger av $N$. Dobler du\ntabellen fra 7 til 14, endres **alle** hashverdier. Nøkkelen 22 hashet til plass\n1 da $N = 7$; med $N = 14$ hasher den til plass 8. En nøkkel som ligger igjen på\nplass 1, vil aldri bli funnet av et søk som starter på plass 8.\n\nDerfor må hele tabellen bygges på nytt: opprett et nytt array, gå gjennom det\ngamle, og **sett inn hver nøkkel på nytt** med den nye hashfunksjonen."
+    },
+    {
+      "id": "in2010-3-2-def-2",
+      "type": "definition",
+      "title": "Rehashing",
+      "content": "Å opprette et nytt, større array — typisk dobbelt så stort — og **sette inn alle\nnøklene på nytt** med en hashfunksjon som bruker den nye tabellstørrelsen.\n\nNødvendig fordi $h(k) = k \\bmod N$ avhenger av $N$: når $N$ endres, endres alle\nhashverdier. De gamle indeksene kan ikke gjenbrukes, og det er hele poenget som\ntestes.\n\nKostnaden er $O(n + N)$ for én rehashing: $O(N)$ for å gå gjennom det gamle\narrayet og $O(n)$ for å sette inn nøklene på nytt."
+    },
+    {
+      "id": "in2010-3-2-th-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Rehash`",
+      "content": "**Antagelser om representasjon.** `T` er et array med `N` plasser indeksert fra 0;\nhver plass er tom eller inneholder én nøkkel. `Insert` er prosedyren fra\n[kap. 3.1](/in2010/in2010-3-1), som bruker `k mod T.length` som hashfunksjon —\naltså tabellens **egen** lengde.\n\n**Prebetingelse:** ingen. **Postbetingelse:** returverdien er en ny tabell med\ndobbelt så mange plasser, som inneholder nøyaktig de samme nøklene, hver på sin\nnye plass.\n\n```text\nProcedure Rehash(T)\n  Input:  hashtabell T som array med N plasser (indeks fra 0)\n  Output: en ny hashtabell med 2N plasser og de samme noeklene\n  N = T.length\n  ny = nytt array med 2N plasser, alle tomme\n  for i = 0 to N-1:\n      if T[i] er ikke tom:\n          Insert(ny, T[i])\n  return ny\n```\n\n**Grunnideen i én setning:** fordi `Insert` regner ut hashverdien fra tabellens\negen lengde, får hver nøkkel automatisk sin nye plass — du trenger ikke gjøre noe\nmer enn å sette dem inn på nytt.\n\n**Rekkefølgen nøklene settes inn i** er venstre mot høyre i det gamle arrayet.\nDet er en antagelse du bør oppgi, for den avgjør hvor nøkler som kolliderer i den\nnye tabellen, havner. En annen rekkefølge gir en like korrekt tabell, men en annen\nplassering — så på en håndkjøring skal du si hvilken rekkefølge du brukte.\n\n**Kjøretid:** løkka går gjennom alle $N$ plassene, og for hver av de $n$ nøklene\ngjøres én innsetting på $O(1)$ forventet. Totalt $O(n + N)$ for én rehashing."
+    },
+    {
+      "id": "in2010-3-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Rehashing fra $N = 7$ til $N = 14$",
+      "problem": "Tabellen `_, 15, 22, 8, 29, _, _` har $N = 7$ og inneholder fire nøkler, altså\n$\\alpha = 4/7 \\approx 0{,}571$. Terskelen for utvidelse er $\\alpha > 0{,}5$, så\ntabellen skal rehashes til $N = 14$. Vis hele prosessen.",
+      "solution": "**Reinnsettingsrekkefølge:** venstre mot høyre i den gamle tabellen, altså 15,\n22, 8, 29.\n\n**Nye hashverdier med $N = 14$:** $15 \\bmod 14 = 1$, $22 \\bmod 14 = 8$,\n$8 \\bmod 14 = 8$, $29 \\bmod 14 = 1$.\n\nLegg merke til hvor mye som endret seg. I den gamle tabellen hashet **alle fire**\ntil plass 1. Nå fordeler de seg på to ulike startplasser.\n\n| Steg | Nøkkel $k$ | gammel $h$ | ny $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|---|\n| 1 | 15 | 1 | 1 | `1` | `_, 15, _, _, _, _, _, _, _, _, _, _, _, _` |\n| 2 | 22 | 1 | 8 | `8` | `_, 15, _, _, _, _, _, _, 22, _, _, _, _, _` |\n| 3 | 8 | 1 | 8 | `8 -> 9` | `_, 15, _, _, _, _, _, _, 22, 8, _, _, _, _` |\n| 4 | 29 | 1 | 1 | `1 -> 2` | `_, 15, 29, _, _, _, _, _, 22, 8, _, _, _, _` |\n\n**Sluttilstand:**\n\n```text\nindeks:  0   1   2   3   4   5   6   7   8   9   10  11  12  13\nT:       _   15  29  _   _   _   _   _   22  8   _   _   _   _\n```\n\n**Ny load-faktor:** $\\alpha = 4/14 \\approx 0{,}286$.\n\n**Se på kolonnen «gammel $h$».** Alle fire var 1. Etter doblingen er to av dem 1\nog to er 8. Det er nøyaktig dette som gjør at de gamle indeksene ikke kan\ngjenbrukes: nøkkelen 22 lå på plass 2 i den gamle tabellen og skal på plass 8 i\nden nye. Hadde vi bare kopiert arrayet over, ville et søk etter 22 startet på\nplass 8, funnet den tom, og meldt «ikke funnet».\n\n**Hva vi vant.** Den gamle tabellen hadde én sammenhengende klynge på fire\nplasser; totalkostnaden for de fire innsettingene var 10 prøver. Den nye har to\nsmå klynger, og de samme fire innsettingene kostet 6 prøver. Neste innsetting blir\nbilligere, og det er hele hensikten.\n\n**Fellenote.** Fella her er å tro at rehashing er en flytteoperasjon. Den er en\n**reinnsetting**: hver nøkkel går gjennom `Insert` på nytt, med den nye\ntabellstørrelsen i hashfunksjonen."
+    },
+    {
+      "id": "in2010-3-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E og C.) En hashtabell med $N = 5$ inneholder nøklene 12, 17 og 3 slik:\n`_, _, 12, 17, 3`.\n\n**a)** Hva er load-faktoren?\n**b)** Tabellen rehashes til $N = 10$. Regn ut de nye hashverdiene, og vis\nreinnsettingen med rekkefølge venstre mot høyre i den gamle tabellen.\n**c)** Oppgi den nye tabellen og den nye load-faktoren.",
+        "solution": "**a)** $\\alpha = 3/5 = 0{,}6$.\n\n**b)** Nye hashverdier med $N = 10$: $12 \\bmod 10 = 2$, $17 \\bmod 10 = 7$,\n$3 \\bmod 10 = 3$. Reinnsettingsrekkefølgen er 12, 17, 3.\n\n| Steg | Nøkkel $k$ | gammel $h$ | ny $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|---|\n| 1 | 12 | 2 | 2 | `2` | `_, _, 12, _, _, _, _, _, _, _` |\n| 2 | 17 | 2 | 7 | `7` | `_, _, 12, _, _, _, _, 17, _, _` |\n| 3 | 3 | 3 | 3 | `3` | `_, _, 12, 3, _, _, _, 17, _, _` |\n\n**c) Ny tabell: `_, _, 12, 3, _, _, _, 17, _, _`.** Ny load-faktor:\n$\\alpha = 3/10 = 0{,}3$.\n\n**Merk at ingen kollisjoner oppsto** etter rehashingen — alle tre fikk sin egen\nhashverdi. I den gamle tabellen måtte 3-tallet forskyves fra plass 3 til plass 4,\nfordi 17 lå i veien. Nå ligger 3 på sin egen plass. Det er den konkrete gevinsten\nved å utvide.\n\n**Og merk at 17 flyttet seg fra plass 3 til plass 7.** Hadde vi kopiert arrayet i\nstedet for å reinnsette, ville 17 ligget på plass 3 mens søket startet på plass 7\n— og nøkkelen hadde vært borte.",
+        "hints": [
+          "Regn ut $k \\bmod 10$ for alle tre nøklene før du setter inn noe.",
+          "Sammenlign den nye hashverdien med den gamle for hver nøkkel — hvor mange endret seg?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-2-th-2",
+      "type": "theorem",
+      "title": "Hvorfor doblingen er billig i lengden",
+      "content": "Én rehashing koster $O(n + N)$, og det ser dyrt ut. Men den skjer sjelden, og\nregnestykket over mange innsettinger er verdt å kunne:\n\nStarter du med tabellstørrelse $N_0$ og dobler hver gang tabellen blir for full,\nhar du etter $n$ innsettinger gjort rehashinger med samlet kostnad omtrent\n\n$$N_0 + 2N_0 + 4N_0 + \\cdots + n.$$\n\nDette er en doblingsrekke, og summen er **mindre enn det dobbelte av siste ledd**\n— altså under $2n$. Fordelt på $n$ innsettinger blir det en konstant per\ninnsetting.\n\nKonklusjonen: **$n$ innsettinger i en hashtabell med dobling koster $O(n)$\ntotalt**, altså $O(1)$ per innsetting i snitt, selv om enkelte innsettinger\nutløser en dyr rehashing.\n\n**Om ordet «amortisert».** Denne typen analyse — å fordele kostnaden av en sjelden\ndyr operasjon utover mange billige — kalles amortisert analyse. Begrepet nevnes\nher bare for å avgrense det: **amortisert analyse er ikke IN2010-pensum**, og du\nblir ikke bedt om å gjøre en slik analyse. Det du skal kunne, er konklusjonen: at\ndoblingen ikke ødelegger den forventede $O(1)$-kostnaden per operasjon."
+    },
+    {
+      "id": "in2010-3-2-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — hashmap og hash-set som Del 2-verktøy (ca. 15 min)\n\nNå til den delen som gir poeng på Del 2.\n\nHashtabellen du har håndkjørt, er maskineriet. To grensesnitt bygger på det, og\nbegge har du sannsynligvis brukt før uten å tenke på kostnaden:\n\n- Et **hashmap** lagrer par av nøkkel og verdi. Du slår opp på nøkkelen og får\n  verdien. «Hvor mange ganger forekommer hvert ord i teksten?» er en\n  hashmap-oppgave.\n- Et **hash-set** lagrer bare nøkler, og svarer på ett spørsmål: finnes denne\n  her? «Har jeg sett dette elementet før?» er en hash-set-oppgave.\n\nBegge gir $O(1)$ **forventet** for innsetting, oppslag og medlemskapstest, og\n$O(n)$ i verste tilfelle. Og det er nettopp den forventede $O(1)$-en som gjør at\nen hel klasse Del 2-oppgaver kan løses i $O(n)$ i stedet for $O(n \\log n)$."
+    },
+    {
+      "id": "in2010-3-2-def-3",
+      "type": "definition",
+      "title": "Hashmap",
+      "content": "En struktur som lagrer par av **nøkkel** og **verdi**, og som slår opp verdien\ndirekte fra nøkkelen ved hjelp av hashing.\n\n`Put(M, k, v)`, `Get(M, k)` og medlemskapstest er alle $O(1)$ **forventet**,\n$O(n)$ i verste tilfelle. Typisk bruk på Del 2: telle forekomster, gruppere\nelementer, eller huske hvilken verdi som hørte til hvilken nøkkel."
+    },
+    {
+      "id": "in2010-3-2-def-4",
+      "type": "definition",
+      "title": "Hash-set",
+      "content": "En struktur som lagrer **nøkler uten verdier**, og som svarer på ett spørsmål:\nfinnes denne nøkkelen her?\n\n`Add(S, k)` og `Contains(S, k)` er $O(1)$ **forventet**, $O(n)$ i verste tilfelle.\nTypisk bruk på Del 2: «har jeg sett dette elementet før?» — altså duplikatsøk,\neller å sjekke om komplementet til et tall finnes."
+    },
+    {
+      "id": "in2010-3-2-th-3",
+      "type": "theorem",
+      "title": "Broen til Del 2: når hash-set gir $O(n)$",
+      "content": "Mønsteret er alltid det samme, og det er verdt å kunne som en form:\n\n> Går du gjennom elementene **én gang**, og trenger du for hvert element å vite om\n> du har sett noe bestemt før, kan et hash-set gjøre hvert oppslag $O(1)$\n> forventet — og hele algoritmen $O(n)$ forventet.\n\n**Sammenligningen sensor forventer:**\n\n| Strategi | Kjøretid | Forutsetning |\n|---|---|---|\n| Dobbel løkke over alle par | $O(n^2)$ | ingen |\n| Sortér og skann | $O(n \\log n)$ | elementene kan sammenlignes |\n| Hash-set | $O(n)$ **forventet**, $O(n^2)$ verste | elementene kan hashes |\n\n**Tre presiseringer som hver er verdt et delpoeng:**\n\n1. **«Forventet» må stå.** Hash-set-løsningen er $O(n)$ forventet. I verste\n   tilfelle, når alt kolliderer, koster hvert oppslag $O(n)$ og totalen blir\n   $O(n^2)$ — like dårlig som den naive løsningen.\n2. **Sortering er ikke feil.** $O(n \\log n)$ er en helt korrekt besvarelse og gir\n   uttelling. Den står bare ett trinn lavere i poengtrappen.\n3. **Bucket og radix er ikke lov** som «rask sortering» med mindre verdiområdet er\n   kjent og begrenset — felle **#5** i bokas feilregister, se\n   [kap. 2.3](/in2010/in2010-2-3).\n\nSelve algoritmene skrives ut i [kap. 3.4](/in2010/in2010-3-4)."
+    },
+    {
+      "id": "in2010-3-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Samme problem, tre kjøretider",
+      "problem": "Du har $n$ heltall i et usortert array og skal avgjøre om to av dem er like. Sett\nopp de tre lovlige strategiene med kjøretid, og si hvilken som står øverst i\npoengtrappen.",
+      "solution": "**Problemet navngitt:** duplikatsøk i en usortert mengde.\n\n**Antagelser om representasjon:** `A` er et array med $n$ heltall indeksert fra 0.\nHeltall kan hashes, og vi kan opprette nye strukturer.\n\n**Strategi 1 — dobbel løkke.** Sammenlign hvert par:\n\n```text\nfor i = 0 to n-1:\n    for j = i+1 to n-1:\n        if A[i] == A[j]:\n            return sant\nreturn usant\n```\n\nTo nøstede løkker over $n$ gir $\\frac{n(n-1)}{2}$ sammenligninger, altså\n$O(n^2)$. Korrekt, men nederst i trappen.\n\n**Strategi 2 — sortér og skann.** Sortér med flettesortering i $O(n \\log n)$, og\ngå deretter gjennom naboparene i $O(n)$. Sumregelen gir $O(n \\log n)$.\n\n**Strategi 3 — hash-set.** Gå gjennom arrayet én gang. For hvert element: finnes\ndet allerede i settet? Da har du duplikatet. Ellers legg det inn.\n\n```text\nS = tomt hash-set\nfor i = 0 to n-1:\n    if Contains(S, A[i]):\n        return sant\n    Add(S, A[i])\nreturn usant\n```\n\nÉn løkke over $n$ elementer, og hvert oppslag er $O(1)$ forventet. Totalt\n**$O(n)$ forventet**, der $n$ er antall elementer i `A`.\n\n**Poengtrappen:**\n\n| Kjøretid | Strategi | Uttelling |\n|---|---|---|\n| $O(n)$ forventet | hash-set | **full pott** |\n| $O(n \\log n)$ | sortér og skann | noe mindre |\n| $O(n^2)$ | dobbel løkke | minst |\n\n**Kan dette gjøres raskere enn $O(n)$?** Nei. Du må i verste fall se på hvert\nelement minst én gang for å kunne konkludere, så $O(n)$ er nedre grense for\nproblemet. Den setningen er verdt å skrive: den viser at du vet at du har truffet\nbunnen, og den er en del av det sensor ser etter i et Del 2-svar.\n\n**Og det ærlige forbeholdet:** i verste tilfelle, når alle nøklene kolliderer, er\nhash-set-løsningen $O(n^2)$ — nøyaktig like dårlig som den doble løkka. Det er\nderfor ordet «forventet» ikke kan utelates."
+    },
+    {
+      "id": "in2010-3-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) Avgjør sant eller usant, og begrunn hver med én setning.\n\n**a)** Rehashing kan gjenbruke de gamle indeksene direkte etter en dobling.\n**b)** Et hashmap har $O(1)$ oppslagstid i verste tilfelle.\n**c)** Load-faktoren i en tabell med lukket hashing kan være 1,5.\n**d)** Å sette inn $n$ nøkler i en hashtabell med dobling koster $O(n)$ totalt.",
+        "solution": "**a) Usant.** $h(k) = k \\bmod N$ avhenger av $N$, så alle hashverdier endrer seg\nnår tabellen dobles. Hver nøkkel må settes inn på nytt med den nye\nhashfunksjonen.\n\n**b) Usant.** $O(1)$ er **forventet** kjøretid. Verste tilfelle er $O(n)$, når alle\nnøklene ligger i én klynge. Å utelate ordet «forventet» er en fast trekkgrunn.\n\n**c) Usant.** Med lukket hashing ligger alle nøklene i selve arrayet, så\n$n \\le N$ og $\\alpha \\le 1$. (Med kjeding kan $\\alpha$ overstige 1, men det er en\nannen struktur.)\n\n**d) Sant.** Doblingene koster $N_0 + 2N_0 + 4N_0 + \\cdots$, en sum som er mindre\nenn det dobbelte av siste ledd, altså under $2n$. Fordelt på $n$ innsettinger blir\ndet konstant per innsetting.\n\n**Om antigjettingen:** tre usanne og én sann. Legg merke til at alle tre usanne\nlyder som forenklinger — «$O(1)$» uten forbehold, «gjenbruk indeksene» uten å\ntenke på $N$. Distraktorene i dette temaet lever av å stryke et forbehold.",
+        "hints": [
+          "For hver påstand: hvilket tilfelle gjelder den, og hvilken størrelse inngår i formelen?",
+          "Skriv opp $h(k) = k \\bmod N$ og spør hva som skjer når $N$ endres."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å tro at rehashing bevarer indeksene.** Den gjør ikke det: $h(k) = k \\bmod N$\n  endres når $N$ endres, og hele tabellen må bygges på nytt. Dette er kapitlets\n  hyppigste sant/usant-punkt.\n- **Å oppgi hashmap-ets verste tilfelle som $O(1)$.** Det er $O(n)$. $O(1)$ er\n  **forventet**, og ordet må stå.\n- **Å snu brøken i load-faktoren.** $\\alpha = n/N$ — nøkler over plasser. Snudd\n  gir den tall over 1 for en halvfull tabell.\n- **Å hoppe over «forventet» i et Del 2-svar.** En hash-basert løsning er $O(n)$\n  forventet og $O(n^2)$ i verste tilfelle. Skriver du bare «$O(n)$», har du oppgitt\n  en kjøretid som ikke matcher algoritmen — og det trekkes det eksplisitt for.\n- **Å bruke $n$ og $N$ om hverandre.** $n$ er antall nøkler, $N$ er antall\n  plasser. Felle **#10** i bokas feilregister er å oppgi kjøretid uten å definere\n  størrelsene; her er det to av dem, og de ligner på hverandre."
+    },
+    {
+      "id": "in2010-3-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — hashing i pseudokode, altså at du skriver prosedyren selv og oppgir\nkjøretiden.) Skriv `Rehash(T)`, som dobler tabellen og setter inn alle nøklene på\nnytt.\n\n**a)** Oppgi antagelser om representasjon.\n**b)** Skriv prosedyren.\n**c)** Oppgi kjøretiden for én rehashing, og for $n$ innsettinger med dobling\ntotalt.",
+        "solution": "**Problemet navngitt:** utvidelse av en hashtabell med lukket hashing.\n\n**a) Antagelser om representasjon:** `T` er et array med `N` plasser indeksert fra\n0; hver plass er tom eller inneholder én nøkkel. `Insert` er prosedyren fra\n[kap. 3.1](/in2010/in2010-3-1), og den regner hashverdien ut fra **tabellens egen\nlengde**, altså `k mod T.length`. Nøklene reinnsettes i rekkefølgen de står i det\ngamle arrayet, fra venstre mot høyre.\n\n**b) Algoritmen:**\n\n```text\nProcedure Rehash(T)\n  Input:  hashtabell T som array med N plasser (indeks fra 0)\n  Output: en ny hashtabell med 2N plasser og de samme noeklene\n  N = T.length\n  ny = nytt array med 2N plasser, alle tomme\n  for i = 0 to N-1:\n      if T[i] er ikke tom:\n          Insert(ny, T[i])\n  return ny\n```\n\n**c) Kjøretid.** Løkka går gjennom alle $N$ plassene, og for hver av de $n$\nnøklene gjøres én `Insert` på $O(1)$ forventet. **Én rehashing er $O(n + N)$**,\nder $n$ er antall nøkler og $N$ er den gamle tabellstørrelsen.\n\n**Over $n$ innsettinger med dobling:** $O(n)$ totalt, altså $O(1)$ per innsetting i\nsnitt. Doblingene koster $N_0 + 2N_0 + 4N_0 + \\cdots$, en sum som er mindre enn\ndet dobbelte av siste ledd.\n\n**Poengtrapp-notat.** Det som skiller full fra delvis uttelling her, er ikke\npseudokoden — den er kort — men at du sier **hvorfor** hver nøkkel må settes inn\npå nytt i stedet for kopieres. Én setning: «hashverdien avhenger av\ntabellstørrelsen, så alle indekser endrer seg når $N$ dobles».",
+        "hints": [
+          "Hvilken hashfunksjon skal brukes når nøklene settes inn i den nye tabellen?",
+          "Løkka går over alle plassene i den gamle tabellen — også de tomme."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I, krevende.) Du får et usortert array `A` med $n$ heltall og et tall\n`x`, og skal avgjøre om to elementer i `A` summerer til `x`.\n\n**a)** Skriv en løsning med hash-set. Oppgi antagelser og kjøretid.\n**b)** Hvorfor kan du ikke bare sjekke om `x - A[i]` finnes i settet **før** du\nhar lagt inn noe?\n**c)** Hva blir kjøretiden hvis alle nøklene kolliderer?",
+        "solution": "**Problemet navngitt:** finn et par som summerer til `x` i en usortert mengde.\n\n**Antagelser om representasjon:** `A` er et array med $n$ heltall indeksert fra 0.\nHeltall kan hashes, og vi kan opprette et hash-set.\n\n**a) Algoritmen:**\n\n```text\nProcedure FinnesPar(A, x)\n  Input:  array A med n heltall (indeks fra 0), maalsum x\n  Output: sant hvis to elementer i A summerer til x, ellers usant\n  S = tomt hash-set\n  for i = 0 to A.length-1:\n      if Contains(S, x - A[i]):\n          return sant\n      Add(S, A[i])\n  return usant\n```\n\n**Hvorfor det virker:** når løkka står på element `i`, inneholder `S` nøyaktig\nalle elementene med lavere indeks. Finnes komplementet `x - A[i]` blant dem, har\nvi et par. Og går løkka gjennom uten treff, er hvert mulig par sjekket én gang —\nparet $(i, j)$ med $i < j$ blir undersøkt når løkka er på $j$.\n\n**Kjøretid:** én løkke over $n$ elementer, med ett $O(1)$ forventet oppslag og én\n$O(1)$ forventet innsetting per runde. Totalt **$O(n)$ forventet**, der $n$ er\nantall elementer i `A`.\n\n**b)** Rekkefølgen inne i løkka er ikke tilfeldig. Sjekker du komplementet\n**etter** at du har lagt inn `A[i]` selv, vil et element som er nøyaktig\nhalvparten av `x` finne **seg selv** og gi et falskt treff — for eksempel `x = 10`\nog `A[i] = 5`, uten at det finnes noen annen 5-er. Ved å slå opp først og legge\ninn etterpå, inneholder settet bare elementer med **lavere indeks**, og det\nutelukker at et element pares med seg selv.\n\n**c)** $O(n^2)$. Kolliderer alle nøklene, blir hver `Contains` og hver `Add`\n$O(n)$, og med $n$ runder blir totalen kvadratisk — like dårlig som en dobbel\nløkke. Det er nettopp derfor kjøretiden må oppgis som $O(n)$ **forventet** og ikke\nbare $O(n)$.\n\n**Kan dette gjøres raskere?** Nei. Du må se på hvert element minst én gang, så\n$O(n)$ er nedre grense for problemet. Alternativet — sortér i $O(n \\log n)$ og bruk\nto pekere i $O(n)$ — er også korrekt, men står ett trinn lavere i poengtrappen.\nBegge skrives ut i [kap. 3.4](/in2010/in2010-3-4).",
+        "hints": [
+          "Hva må ligge i settet i det øyeblikket du slår opp for element nummer $i$?",
+          "Prøv algoritmen på `A = [5, 3]` med `x = 10` og se hva som skjer hvis du legger inn før du slår opp."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I, krevende.) Du får en liste med $n$ ord og skal finne det ordet som\nforekommer flest ganger.\n\n**a)** Skriv en løsning med hashmap. Oppgi antagelser og kjøretid.\n**b)** Hva ville en løsning uten hashmap kostet?\n**c)** Hva skjer med kjøretiden hvis alle ordene er forskjellige?",
+        "solution": "**Problemet navngitt:** finn det hyppigste elementet i en usortert liste — en\ntelleoppgave.\n\n**Antagelser om representasjon:** `L` er en liste med $n$ ord indeksert fra 0. Ord\nkan hashes og sammenlignes for likhet. Vi kan opprette et hashmap, og ved\nuavgjort returneres ett av de hyppigste ordene.\n\n**a) Algoritmen — to gjennomganger:**\n\n```text\nProcedure Hyppigste(L)\n  Input:  liste L med n ord, indeksert fra 0\n  Output: et ord som forekommer flest ganger i L\n  M = tomt hashmap fra ord til antall\n  for i = 0 to L.length-1:\n      if Contains(M, L[i]):\n          Put(M, L[i], Get(M, L[i]) + 1)\n      else:\n          Put(M, L[i], 1)\n\n  beste = ingenting\n  bestAntall = 0\n  for hver noekkel k i M:\n      if Get(M, k) > bestAntall:\n          bestAntall = Get(M, k)\n          beste = k\n  return beste\n```\n\n**Hvorfor det virker:** første løkke bygger en fullstendig telling; andre løkke\nfinner maksimum blant tellingene. Ingen ord kan ha høyere antall enn det som står\ni `M`, fordi hver forekomst økte telleren nøyaktig én gang.\n\n**Kjøretid:** første løkke er $n$ runder med $O(1)$ forventet per runde. Andre\nløkke går over antall **ulike** ord, som er høyst $n$. Sumregelen gir **$O(n)$\nforventet**, der $n$ er antall ord i `L`.\n\n**b)** Uten hashmap måtte du for hvert ord telle forekomstene ved å gå gjennom hele\nlista på nytt: to nøstede løkker over $n$, altså $O(n^2)$. Alternativt kunne du\nsortert lista i $O(n \\log n)$ og telt like ord som naboer i $O(n)$, altså\n$O(n \\log n)$ totalt. Begge er korrekte, og begge står lavere i poengtrappen.\n\n**c)** Ingenting endres asymptotisk. Er alle $n$ ordene forskjellige, får hashmapet\n$n$ oppføringer, første løkke gjør $n$ innsettinger, og andre løkke går over $n$\nnøkler — fortsatt $O(n)$ forventet. Det som kan endre seg er **minnebruken**: da\nlagres $n$ oppføringer i stedet for få, altså $O(n)$ ekstra minne. Det er verdt å\nnevne, fordi minnebruk er et av de to punktene en drøftingsoppgave alltid ber om.",
+        "hints": [
+          "Hva må du vite om hvert ord, og hvor mange ganger må du gå gjennom lista?",
+          "Andre løkke går over nøklene i hashmapet — hvor mange er de, i verste fall?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-2-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-3-2-def-5",
+      "type": "definition",
+      "title": "Terskelen for rehashing",
+      "content": "Grensen for load-faktoren der tabellen utvides — typisk $\\alpha$ over $0{,}5$\neller $0{,}75$.\n\nTallet er et implementasjonsvalg, ikke en naturlov, og eksamensoppgaver oppgir\ndet. Poenget er hva som skjer når terskelen krysses, ikke hvilket tall den har."
+    },
+    {
+      "id": "in2010-3-2-def-6",
+      "type": "definition",
+      "title": "Hvorfor hashverdiene endres ved dobling",
+      "content": "Fordi $h(k) = k \\bmod N$ har $N$ i seg. Nøkkelen 22 gir plass 1 når $N = 7$ og\nplass 8 når $N = 14$.\n\nKonsekvensen: de gamle indeksene er verdiløse i den nye tabellen, og hver nøkkel\nmå settes inn på nytt. Påstanden «rehashing kan gjenbruke de gamle indeksene» er\nusann, og den er kapitlets faste distraktor."
+    },
+    {
+      "id": "in2010-3-2-def-7",
+      "type": "definition",
+      "title": "Kostnaden ved én rehashing",
+      "content": "$O(n + N)$: $O(N)$ for å gå gjennom alle plassene i det gamle arrayet, og $O(n)$\nfor de $n$ innsettingene på $O(1)$ forventet hver.\n\nÉn rehashing er altså en dyr operasjon. Den skjer sjelden nok til at snittet over\nmange innsettinger likevel blir konstant."
+    },
+    {
+      "id": "in2010-3-2-def-8",
+      "type": "definition",
+      "title": "Doblingsrekkens sum",
+      "content": "$N_0 + 2N_0 + 4N_0 + \\cdots + n$ er mindre enn $2n$: i en doblingsrekke er summen\nav alle leddene under det dobbelte av det siste.\n\nDerfor koster $n$ innsettinger med dobling $O(n)$ totalt, altså $O(1)$ per\ninnsetting i snitt. Analysemetoden bak dette kalles amortisert analyse og er\n**ikke IN2010-pensum** — bare konklusjonen er det."
+    },
+    {
+      "id": "in2010-3-2-def-9",
+      "type": "definition",
+      "title": "Reinnsettingsrekkefølge",
+      "content": "Rekkefølgen nøklene settes inn i under en rehashing — vanligvis venstre mot høyre\ni det gamle arrayet.\n\nDen avgjør hvor nøkler som kolliderer i den nye tabellen havner, så den er en\nantagelse du skal oppgi i en håndkjøring. En annen rekkefølge gir en like korrekt\ntabell med andre plasseringer."
+    },
+    {
+      "id": "in2010-3-2-def-10",
+      "type": "definition",
+      "title": "Hashmap-operasjonene",
+      "content": "`Put(M, k, v)` lagrer verdien `v` under nøkkelen `k` og overskriver hvis `k`\nfinnes. `Get(M, k)` henter verdien.\n\nBegge er $O(1)$ **forventet**, $O(n)$ i verste tilfelle. Bruk på Del 2: telle\nforekomster, gruppere elementer, huske hvilken verdi som hørte til hvilken\nnøkkel."
+    },
+    {
+      "id": "in2010-3-2-def-11",
+      "type": "definition",
+      "title": "Hash-set-operasjonene",
+      "content": "`Add(S, k)` legger `k` i settet uten effekt hvis den allerede er der.\n`Contains(S, k)` avgjør medlemskap.\n\nBegge er $O(1)$ **forventet**, $O(n)$ i verste tilfelle. Bruk på Del 2: «har jeg\nsett dette før?» — duplikatsøk og komplementsøk."
+    },
+    {
+      "id": "in2010-3-2-def-12",
+      "type": "definition",
+      "title": "Hash-set-mønsteret for $O(n)$",
+      "content": "Går du gjennom elementene én gang, og trenger for hvert element å vite om du har\nsett noe bestemt før, gir et hash-set $O(1)$ forventet per oppslag og $O(n)$\nforventet totalt.\n\nDet er dette mønsteret som løfter en Del 2-besvarelse fra $O(n \\log n)$ til\n$O(n)$, og det gjelder duplikatsøk, parsøk og telleoppgaver."
+    },
+    {
+      "id": "in2010-3-2-def-13",
+      "type": "definition",
+      "title": "Poengtrappen for søkeoppgaver",
+      "content": "$O(n)$ forventet med hash-set gir full pott; $O(n \\log n)$ med sortér-og-skann gir\nnoe mindre; $O(n^2)$ med dobbel løkke gir minst.\n\nAlle tre er korrekte. Sensorveiledningene sier eksplisitt at lavere kjøretid er mer\npoenggivende på samme oppgave, så å velge struktur er å velge poeng."
+    },
+    {
+      "id": "in2010-3-2-def-14",
+      "type": "definition",
+      "title": "«Forventet» er ikke pynt",
+      "content": "En hash-basert løsning er $O(n)$ **forventet** og $O(n^2)$ i **verste** tilfelle,\nnår alle nøklene kolliderer.\n\nSkriver du bare «$O(n)$», har du oppgitt en kjøretid som ikke matcher algoritmen —\nog det trekkes det eksplisitt for. Ett ord, ett delpoeng."
+    },
+    {
+      "id": "in2010-3-2-def-15",
+      "type": "definition",
+      "title": "Hash-set kontra sortering",
+      "content": "Hash-set: $O(n)$ forventet, $O(n^2)$ verste, krever at elementene kan **hashes**.\nSortér-og-skann: $O(n \\log n)$ garantert, krever at elementene kan\n**sammenlignes**.\n\nValget mellom dem er en avveining mellom forventet fart og garanti. Ber oppgaven\nom en **garantert** kjøretid, er sorteringen det riktige svaret selv om den er\ntregere."
+    },
+    {
+      "id": "in2010-3-2-def-16",
+      "type": "definition",
+      "title": "Amortisert analyse — avgrenset bort",
+      "content": "Metoden for å fordele kostnaden av en sjelden dyr operasjon utover mange billige.\nDen forklarer hvorfor doblingen ikke ødelegger $O(1)$ per innsetting.\n\n**Ikke IN2010-pensum.** Begrepet nevnes her kun for å avgrense det: du blir aldri\nbedt om å gjøre en amortisert analyse. Konklusjonen — at $n$ innsettinger med\ndobling er $O(n)$ totalt — er derimot verdt å kunne."
+    },
+    {
+      "id": "in2010-3-2-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-3-2-rep-1",
+          "type": "text",
+          "content": "**Load-faktoren:**\n\n$$\\alpha = \\frac{n}{N} \\quad \\text{(nøkler over plasser, aldri over 1 ved lukket hashing)}$$\n\n**Rehashing i tre setninger:** når $\\alpha$ blir for høy, opprett et array med\ndobbelt størrelse og **sett inn alle nøklene på nytt**. Hashverdiene endrer seg,\nfordi $h(k) = k \\bmod N$ har $N$ i seg. De gamle indeksene kan **ikke**\ngjenbrukes.\n\n**Kostnadene:**\n\n| Operasjon | Kjøretid |\n|---|---|\n| Én rehashing | $O(n + N)$ |\n| $n$ innsettinger med dobling | $O(n)$ totalt |\n| `Get`, `Put`, `Add`, `Contains` | $O(1)$ forventet, $O(n)$ verste |\n\n**Del 2-mønsteret som gir poeng:** går du gjennom elementene én gang og trenger å\nvite «har jeg sett dette før?», gir et hash-set $O(n)$ **forventet** — ett trinn\nover sortér-og-skann på $O(n \\log n)$, og to over den doble løkka på $O(n^2)$.\n\n**Tre ting å sjekke før du leverer:** står ordet **forventet** der? Er $n$ og $N$\ndefinert hver for seg? Sa du **hvorfor** nøklene må reinnsettes, og ikke bare at\nde må det?\n\n**Videre:** [kap. 3.3](/in2010/in2010-3-3) driller håndkjøringen og\n`Insert`-prosedyren, og [kap. 3.4](/in2010/in2010-3-4) skriver ut\nDel 2-algoritmene som bruker hash-settet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

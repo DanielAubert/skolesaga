@@ -1,0 +1,444 @@
+{
+  "id": "in2010-2-1",
+  "courseId": "in2010",
+  "chapterNumber": "2.1",
+  "title": "Sammenligningsbaserte sorteringer og invarianter",
+  "description": "Bubble, Selection og Insertion sort — mekanikk, kjøretider, og de invariantene etter i iterasjoner som sensor spør om direkte.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne oppgi hvilke elementer som står garantert på endelig plass etter et gitt antall iterasjoner av boblesortering, utvalgssortering og innsettingssortering",
+    "kunne avgjøre om en sortering er stabil og om den arbeider på stedet, og begrunne svaret i én setning",
+    "kunne gjengi beste og verste kjøretid for de tre kvadratiske sorteringene hjelpemiddelfritt",
+    "kunne velge sorteringsalgoritme ut fra en oppgitt begrensning og oppgi kjøretiden som følger av valget"
+  ],
+  "content": [
+    {
+      "id": "in2010-2-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Sortering er ett av de fire temaene som har vært på **alle sju settene i arkivet\n(100 %)** — men nesten aldri slik du kanskje tror.\n\nDu blir så godt som aldri bedt om å håndkjøre en hel sortering. Du blir bedt om\n**egenskapene**: hvilke elementer som står trygt på plass etter et gitt antall\nrunder, om algoritmen er stabil, om den bruker ekstra minne, og hva kjøretiden\ner i beste og verste tilfelle.\n\n**Sjanger D — sorteringsegenskaper og valg**, altså at du krysser av sant/usant\nom en sorteringsalgoritme eller velger riktig algoritme ut fra en oppgitt\nbegrensning, er sjangeren dette kapitlet trener. Den ligger i **Del 1**, den\nauto-rettede delen av eksamen, og den er derfor underlagt\n**antigjettings-skaleringen**: poengsummen på en sant/usant-blokk skaleres slik\nat ren gjetting i snitt gir null. Halvparten riktig er ikke halve poengsummen —\ndet er ingenting. Fakta i dette kapitlet må sitte **sikkert**, ikke omtrentlig.\n\nPrioritet: **høyeste**. Dette er billige, garanterte poeng, og de tre\nalgoritmene her er de eneste sorteringene UiO faktisk ber deg redegjøre for\ndetalj for detalj.\n\n**Slik er kapitlet lagt opp (55 min i alt):** fire arbeidsløkker med tidsanslag,\nog pausepunkter merket underveis. Du kan trygt ta løkke 1 og 2 én kveld og\nløkke 3 og 4 den neste."
+    },
+    {
+      "id": "in2010-2-1-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.2](/in2010/in2010-1-2) — løkketelling. Alle kjøretidene i dette\n  kapitlet leses rett ut av to nøstede løkker, akkurat som der.\n- [kap. 1.1](/in2010/in2010-1-1) — hva $O$ betyr, og forskjellen på beste og\n  verste tilfelle.\n\nHar du aldri sett en sorteringsalgoritme kjøre, er disse et mykere første møte:\n\n- [Sortering: boblesortering, `.sort()` og gitt `sort_list`](/tdt4110/tdt4110-6-1)\n  — boblesortering konkret, med kode som faktisk kjører.\n- [Lister](/in1000/in1000-3-1) — array- og listetenkning, som er den eneste\n  datastrukturen dette kapitlet trenger.\n- [Induksjonsbevis](/r2/r2-1-6) — valgfri fordypning, hvis du vil se hvorfor et\n  invariant-argument holder helt ut."
+    },
+    {
+      "id": "in2010-2-1-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-2-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer som skal sorteres |\n| $i$ | antall fullførte iterasjoner av den ytre løkka |\n| $A$ | arrayet som sorteres, indeksert fra 0 |\n| $O(n^2)$ | kvadratisk kjøretid — to nøstede løkker over $n$ |\n| $O(n \\log n)$ | lineærlogaritmisk kjøretid |\n| $\\Omega(n \\log n)$ | nedre grense: ingen sammenligningsbasert sortering kan gjøre det bedre |\n| $\\frac{n(n-1)}{2}$ | antall par i et array med $n$ elementer — trekantsummen fra [kap. 1.2](/in2010/in2010-1-2) |"
+        },
+        {
+          "id": "in2010-2-1-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `BubbleSort(A)` | sorterer `A` stigende ved gjentatte nabobytter; de største bobler bakover | $O(n^2)$ verste og forventet, $O(n)$ beste med tidlig stopp |\n| `SelectionSort(A)` | sorterer `A` stigende ved å finne minste gjenværende og bytte det fram | $O(n^2)$ i alle tilfeller |\n| `InsertionSort(A)` | sorterer `A` stigende ved å skyve hvert nytt element inn i et ferdig sortert prefiks | $O(n^2)$ verste, $O(n)$ beste |\n| `bytt A[j] og A[j+1]` | to nabotilordninger via en hjelpevariabel | $O(1)$ |\n| `A[j+1] = A[j]` | forskyvning: kopierer ett element ett hakk til høyre | $O(1)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{n(n-1)}{2} = \\text{antall sammenligninger i utvalgssortering}$$\n\nTrekantsummen: den ytre løkka gjør $n-1$ runder, den indre stadig færre.\n\n$$\\Omega(n \\log n) \\text{ er nedre grense for enhver sammenligningsbasert sortering}$$\n\nSkisseres i dette kapitlet og tegnes ut i [kap. 2.2](/in2010/in2010-2-2).\n\n$$O(n^2) \\text{ i verste tilfelle for alle tre algoritmene her}$$\n\nForskjellen mellom dem ligger i beste tilfelle, i stabilitet og i antall\nbytter."
+        }
+      ]
+    },
+    {
+      "id": "in2010-2-1-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — å sortere ved å sammenligne (ca. 10 min)\n\nTenk på en hånd med spillkort du skal få i rekkefølge. Du kan ikke lese av\n«plassen» et kort skal ha; du kan bare holde to kort opp mot hverandre og se\nhvilket som er lavest. Alt du får vite om verden, kommer fra slike\nsammenligninger — og hvert svar er ett bit informasjon: enten er dette lavere\nenn det, eller så er det ikke.\n\nDet er nøyaktig arbeidsbetingelsen til en **sammenligningsbasert sortering**, og\nden er verdt å ta på alvor, for den er grunnen til at det finnes en grense for\nhvor rask sortering kan bli. Vi kommer tilbake til grensen i løkke 4.\n\nDe tre algoritmene i dette kapitlet — boblesortering, utvalgssortering og\ninnsettingssortering — er alle sammenligningsbaserte, alle kvadratiske i verste\ntilfelle, og alle enkle nok til at du kan skrive dem ned uten hjelpemidler. Det\ner den siste egenskapen UiO utnytter: de spør ikke om du kan implementere dem,\nmen om du vet nøyaktig hva de har utrettet halvveis."
+    },
+    {
+      "id": "in2010-2-1-def-1",
+      "type": "definition",
+      "title": "Sammenligningsbasert sortering",
+      "content": "En sortering som kun får informasjon om elementene ved å sammenligne dem to og\nto: «er $x$ mindre enn $y$?». Den ser aldri inn i selve verdien.\n\nBoblesortering, utvalgssortering, innsettingssortering, flettesortering,\nkvikksortering og heapsort er alle sammenligningsbaserte. Ingen av dem kan komme\nunder $\\Omega(n \\log n)$ sammenligninger i verste tilfelle — den grensen er\nkonsekvensen av å bare kunne stille ja/nei-spørsmål."
+    },
+    {
+      "id": "in2010-2-1-def-2",
+      "type": "definition",
+      "title": "Boblesortering",
+      "content": "Går gjennom arrayet og bytter hvert nabopar som står i feil rekkefølge. Etter én\nfull gjennomgang har det største elementet «boblet» helt ut til høyre. Gjenta på\nden delen som er igjen.\n\n$O(n^2)$ i verste og forventet tilfelle, $O(n)$ i beste tilfelle hvis du legger\ninn tidlig stopp. **Stabil** og **in-place**. Den bytter kun naboer, og det er\nnettopp derfor den er stabil."
+    },
+    {
+      "id": "in2010-2-1-th-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `BubbleSort`",
+      "content": "**Antagelser om representasjon.** `A` er et array med $n$ elementer indeksert\nfra 0. Elementene kan sammenlignes med `<` og `>`. Sorteringen skjer i selve\narrayet, uten et nytt array ved siden av.\n\n**Prebetingelse:** `A` inneholder $n$ sammenlignbare elementer i vilkårlig\nrekkefølge. **Postbetingelse:** `A` er sortert stigende og inneholder nøyaktig\nde samme elementene som før.\n\n```text\nProcedure BubbleSort(A)\n  Input:  array A med n sammenlignbare elementer, indeksert fra 0\n  Output: A sortert stigende, sortert på stedet\n  n = A.length\n  for i = 1 to n-1:\n      byttet = usant\n      for j = 0 to n-i-1:\n          if A[j] > A[j+1]:\n              bytt A[j] og A[j+1]\n              byttet = sant\n      if byttet er usant:\n          return\n```\n\n**Grunnideen i én setning:** hvert nabobytte flytter et større element ett hakk\ntil høyre, så etter runde $i$ har de $i$ største elementene funnet sin endelige\nplass bakerst og trenger aldri røres igjen.\n\n**Kjøretid:** den ytre løkka går $n-1$ runder, den indre går $n-i-1$ runder, og\nsummen er trekantsummen $\\frac{n(n-1)}{2}$, altså $O(n^2)$. Linja\n`if byttet er usant` gjør at et ferdigsortert array oppdages etter én runde: da\ner kjøretiden $O(n)$ i beste tilfelle."
+    },
+    {
+      "id": "in2010-2-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Boblesortering runde for runde",
+      "problem": "Håndkjør `BubbleSort` på `A = [8, 3, 5, 1, 9, 2]`. Skriv opp tilstanden etter\nhver runde av den ytre løkka, og si hvilke elementer som er garantert på endelig\nplass etter hver runde.",
+      "solution": "Én runde av den ytre løkka er én gjennomgang av alle naboparene som fortsatt er\ni spill.\n\n| Etter iterasjon $i$ | Tilstand | Garantert på endelig plass | Bytter i runden |\n|---|---|---|---|\n| 1 | `[3, 5, 1, 8, 2, 9]` | de 1 største, helt til høyre: `[9]` | 4 |\n| 2 | `[3, 1, 5, 2, 8, 9]` | de 2 største, helt til høyre: `[8, 9]` | 2 |\n| 3 | `[1, 3, 2, 5, 8, 9]` | de 3 største, helt til høyre: `[5, 8, 9]` | 2 |\n| 4 | `[1, 2, 3, 5, 8, 9]` | de 4 største, helt til høyre: `[3, 5, 8, 9]` | 1 |\n| 5 | `[1, 2, 3, 5, 8, 9]` | de 5 største, helt til høyre: `[2, 3, 5, 8, 9]` | 0 |\n\n**Sluttilstand: `[1, 2, 3, 5, 8, 9]`.** I alt 15 sammenligninger og 9 bytter.\n\n**Les tabellen én gang til, for dette er selve eksamensspørsmålet.** Etter runde\n2 er `[8, 9]` ferdig — ikke fordi arrayet ser sortert ut der, men fordi\nalgoritmen garanterer det. Elementene til venstre kan fortsatt flytte seg mye:\n`[3, 1, 5, 2]` blir til slutt `[1, 2, 3, 5]`.\n\n**Merk også runde 5.** Den gjorde null bytter, og med tidlig stopp ville\nalgoritmen returnert etter runde 4. Det er den lille detaljen som gir\nboblesortering $O(n)$ i beste tilfelle."
+    },
+    {
+      "id": "in2010-2-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — sorteringsegenskaper, altså at du oppgir hva en\nsorteringsalgoritme garanterer.) Boblesortering kjøres på `[6, 2, 7, 4]`.\n\n**a)** Hvor mange runder gjør den ytre løkka totalt?\n**b)** Hvilket element står garantert på endelig plass etter én runde?\n**c)** Er boblesortering stabil, når den kun bytter naboer som står i feil\nrekkefølge?",
+        "solution": "**a)** Tre runder. Den ytre løkka går fra 1 til $n-1$, og $n = 4$. Etter tre\nrunder er de tre største på plass, og da må også det siste være det.\n\n**b)** Det største elementet, altså 7, og det havner helt til høyre. Tilstanden\netter runde 1 er `[2, 6, 4, 7]`.\n\n**c)** Ja. Byttet skjer bare når `A[j] > A[j+1]` — altså **strengt** større. To\nlike elementer byttes derfor aldri, og de beholder sin innbyrdes rekkefølge.\nDette er hele begrunnelsen for at boblesortering er stabil, og den er verdt å\nkunne som én setning.",
+        "hints": [
+          "Den ytre løkka i `BubbleSort` går fra 1 til $n-1$.",
+          "Etter runde $i$ er de $i$ største ferdige — hvilken ende av arrayet ligger de i?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-1-th-2",
+      "type": "theorem",
+      "title": "Invarianten for boblesortering etter $i$ iterasjoner",
+      "content": "Etter $i$ fullførte runder av den ytre løkka i `BubbleSort` gjelder:\n\n> **De $i$ største elementene ligger på sine endelige plasser, helt til høyre i\n> arrayet, i riktig innbyrdes rekkefølge.**\n\nOm resten sier invarianten **ingenting**. De $n - i$ første elementene kan stå i\nen hvilken som helst rekkefølge.\n\nHvorfor holder det? I runde 1 sammenlignes hvert nabopar fra venstre mot høyre.\nDet største elementet vil, så snart gjennomgangen når det, vinne hver eneste\nsammenligning videre og skyves helt til enden. Samme argument gjelder det nest\nstørste i runde 2, og så videre.\n\nEn **invariant** er en påstand som er sann hver gang løkka har fullført en runde\n— uansett hvilke tall som lå i arrayet i utgangspunktet. Det er derfor du kan\nsvare på spørsmålet uten å se arrayet."
+    },
+    {
+      "id": "in2010-2-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D.) Et array med 12 elementer sorteres med boblesortering. Etter 4\nfullførte runder av den ytre løkka:\n\n**a)** Hvor mange elementer står garantert på endelig plass, og hvor i arrayet\nligger de?\n**b)** Kan du si noe om elementet på indeks 0?\n**c)** Hvor mange sammenligninger gjør den indre løkka i runde 5?",
+        "solution": "**a)** Fire elementer — de fire største — og de ligger på indeksene 8, 9, 10 og\n11, altså helt til høyre, i riktig innbyrdes rekkefølge.\n\n**b)** Nei. Invarianten sier ingenting om de $n - i = 8$ første plassene. Det\nkan tilfeldigvis stå det minste elementet der, men ingenting garanterer det.\nDette er det vanligste feilsvaret på sjanger D: å tro at «litt sortert bakfra»\nogså betyr «litt sortert forfra».\n\n**c)** Runde $i$ sammenligner naboparene fra indeks 0 til $n-i-1$, altså\n$n - i$ par. I runde 5 med $n = 12$ blir det $12 - 5 = 7$ sammenligninger.",
+        "hints": [
+          "Skriv opp indeksene 0 til 11 og marker hvilken ende som er ferdig.",
+          "Den indre løkka i runde $i$ går til `n-i-1`. Tell antall verdier `j` tar."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-1-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — utvalgssortering og de billige byttene (ca. 12 min)\n\n— naturlig pausepunkt —\n\nBoblesortering flytter elementer i mange små steg. **Utvalgssortering** (selection\nsort) gjør det motsatte: den leter først og flytter så én gang.\n\nFramgangsmåten er den du ville brukt hvis flyttingen var dyr — for eksempel hvis\nhvert «element» var en tung eske i et lager. Finn den letteste esken i hele\nlageret og sett den helt til venstre. Finn den letteste av dem som er igjen, og\nsett den ved siden av. Og så videre.\n\nPoenget er at du bare gjør **ett bytte per runde**, uansett hvor rotete arrayet\ner. Det er utvalgssorteringens ene virkelige fortrinn, og det er et fast\nsant/usant-punkt."
+    },
+    {
+      "id": "in2010-2-1-def-3",
+      "type": "definition",
+      "title": "Utvalgssortering",
+      "content": "Finner det minste elementet blant dem som ikke er ferdige, og bytter det med\nelementet på den første uferdige plassen. Gjentas $n-1$ ganger.\n\n$O(n^2)$ i **alle** tilfeller — også på et ferdigsortert array, for den må lete\ngjennom resten uansett. **In-place**, men **ikke stabil**, fordi byttet flytter\net element over lang avstand og kan hoppe forbi en lik nøkkel."
+    },
+    {
+      "id": "in2010-2-1-th-3",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `SelectionSort`",
+      "content": "**Antagelser om representasjon.** `A` er et array med $n$ sammenlignbare\nelementer indeksert fra 0. Sorteringen skjer på stedet.\n\n**Prebetingelse:** `A` inneholder $n$ elementer i vilkårlig rekkefølge.\n**Postbetingelse:** `A` er sortert stigende.\n\n```text\nProcedure SelectionSort(A)\n  Input:  array A med n sammenlignbare elementer, indeksert fra 0\n  Output: A sortert stigende, sortert på stedet\n  n = A.length\n  for i = 0 to n-2:\n      minst = i\n      for j = i+1 to n-1:\n          if A[j] < A[minst]:\n              minst = j\n      if minst er ulik i:\n          bytt A[i] og A[minst]\n```\n\n**Grunnideen i én setning:** når du har funnet det minste av de gjenværende\nelementene, kan det ikke tilhøre noen senere plass, så det kan settes endelig.\n\n**Kjøretid:** den indre løkka gjør $n-1$, så $n-2$, så $n-3$ sammenligninger og\nså videre, altså $\\frac{n(n-1)}{2}$ i alt — $O(n^2)$. Antall **bytter** er\nderimot høyst $n-1$, uansett input."
+    },
+    {
+      "id": "in2010-2-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Utvalgssortering runde for runde",
+      "problem": "Håndkjør `SelectionSort` på det samme arrayet som i eksempel 1,\n`A = [8, 3, 5, 1, 9, 2]`. Skriv opp tilstanden etter hver runde, hvilke\nelementer som er endelig plassert, og hvilket bytte som ble gjort.",
+      "solution": "| Etter iterasjon $i$ | Tilstand | Garantert på endelig plass | Bytte i runden |\n|---|---|---|---|\n| 1 | `[1, 3, 5, 8, 9, 2]` | de 1 minste, helt til venstre: `[1]` | ja: plass 0 og 3 |\n| 2 | `[1, 2, 5, 8, 9, 3]` | de 2 minste, helt til venstre: `[1, 2]` | ja: plass 1 og 5 |\n| 3 | `[1, 2, 3, 8, 9, 5]` | de 3 minste, helt til venstre: `[1, 2, 3]` | ja: plass 2 og 5 |\n| 4 | `[1, 2, 3, 5, 9, 8]` | de 4 minste, helt til venstre: `[1, 2, 3, 5]` | ja: plass 3 og 5 |\n| 5 | `[1, 2, 3, 5, 8, 9]` | de 5 minste, helt til venstre: `[1, 2, 3, 5, 8]` | ja: plass 4 og 5 |\n\n**Sluttilstand: `[1, 2, 3, 5, 8, 9]`.** I alt 15 sammenligninger og 5 bytter.\n\n**Sammenlign med eksempel 1.** Nøyaktig samme array, nøyaktig samme antall\nsammenligninger (15), men 5 bytter mot boblesorteringens 9. Og den ferdige delen\nvokser fra **motsatt ende**: utvalgssortering låser de minste til venstre, mens\nboblesortering låser de største til høyre.\n\n**Se på runde 2 og legg merke til hvor langt 2-tallet flyttet:** fra indeks 5 til\nindeks 1, i ett hopp, forbi 5, 8 og 9. Det er dette hoppet som gjør\nutvalgssortering ustabil — vi kommer tilbake til det i løkke 4."
+    },
+    {
+      "id": "in2010-2-1-th-4",
+      "type": "theorem",
+      "title": "Invarianten for utvalgssortering etter $i$ iterasjoner",
+      "content": "Etter $i$ fullførte runder av den ytre løkka i `SelectionSort` gjelder:\n\n> **De $i$ minste elementene ligger på sine endelige plasser, helt til venstre i\n> arrayet, i riktig innbyrdes rekkefølge.**\n\nOm resten sier invarianten ingenting.\n\nLegg merke til hvor lik og likevel hvor motsatt den er bobleinvarianten. Begge\nlåser $i$ elementer etter $i$ runder — men boblesortering låser de **største til\nhøyre**, utvalgssortering de **minste til venstre**. Å blande disse to er den\nenkeltfeilen som koster flest poeng på sjanger D.\n\nEt ekstra faktum som spørres om direkte: utvalgssortering gjør **minimalt antall\nbytter** av alle de tre, høyst $n-1$. Den gjør derimot alltid\n$\\frac{n(n-1)}{2}$ sammenligninger, også på et ferdigsortert array."
+    },
+    {
+      "id": "in2010-2-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Et lager har 20 pakker som skal sorteres etter vekt.\n\n**a)** Etter 6 runder med utvalgssortering — hvilke pakker står garantert\nendelig, og på hvilke indekser?\n**b)** Etter 6 runder med boblesortering — hvilke pakker står garantert endelig,\nog på hvilke indekser?\n**c)** Hvis hver flytting av en pakke er fysisk tung, men hver sammenligning er\ngratis — hvilken av de to velger du, og hvorfor?",
+        "solution": "**a)** De 6 letteste pakkene, på indeksene 0 til 5.\n\n**b)** De 6 tyngste pakkene, på indeksene 14 til 19.\n\n**c)** Utvalgssortering. Den gjør høyst $n - 1 = 19$ bytter uansett hvordan\npakkene ligger, mens boblesortering i verste tilfelle gjør\n$\\frac{n(n-1)}{2} = 190$ bytter. Begge gjør omtrent like mange\n**sammenligninger**, så når sammenligninger er gratis og flytting er dyr, er\nutvalgssortering det klare valget.\n\nMerk hva svaret **ikke** er: det er ikke at utvalgssortering er «raskere». Begge\ner $O(n^2)$, der $n$ er antall pakker. Forskjellen ligger i konstantene og i\nhvilken operasjon som koster.",
+        "hints": [
+          "Skriv ned de to invariantene ved siden av hverandre før du svarer.",
+          "Antall bytter og antall sammenligninger er to forskjellige tellinger."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-1-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — innsettingssortering og prefikset som ikke er endelig (ca. 13 min)\n\n**Innsettingssortering** (insertion sort) er den du faktisk bruker på en hånd med\nkort. Du holder en sortert vifte i venstre hånd, tar opp ett nytt kort og skyver\ndet inn på rett plass i vifta.\n\nDen viktige detaljen — og den UiO spør om oftere enn noe annet i dette kapitlet —\ner hva «rett plass i vifta» betyr. Det betyr rett plass **blant kortene du har\nsett så langt**. Neste kort du trekker, kan godt være lavere enn alle sammen, og\nda må hele vifta forskyves. Innsettingssortering plasserer altså **ingenting\nendelig** før den er helt ferdig."
+    },
+    {
+      "id": "in2010-2-1-def-4",
+      "type": "definition",
+      "title": "Innsettingssortering",
+      "content": "Bygger opp et sortert prefiks fra venstre: tar element nummer $i$ og skyver det\nbakover forbi alle større elementer i prefikset, til det finner plassen sin.\n\n$O(n^2)$ i verste tilfelle (omvendt sortert input), $O(n)$ i beste tilfelle\n(ferdigsortert input). **Stabil** og **in-place**. Den er den raskeste av de tre\nkvadratiske på nesten sorterte data, og brukes derfor ofte som «bunn» i\nbiblioteksorteringer."
+    },
+    {
+      "id": "in2010-2-1-th-5",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `InsertionSort`",
+      "content": "**Antagelser om representasjon.** `A` er et array med $n$ sammenlignbare\nelementer indeksert fra 0. Sorteringen skjer på stedet, med én hjelpevariabel.\n\n**Prebetingelse:** `A` inneholder $n$ elementer i vilkårlig rekkefølge.\n**Postbetingelse:** `A` er sortert stigende.\n\n```text\nProcedure InsertionSort(A)\n  Input:  array A med n sammenlignbare elementer, indeksert fra 0\n  Output: A sortert stigende, sortert på stedet\n  n = A.length\n  for i = 1 to n-1:\n      x = A[i]\n      j = i - 1\n      while j >= 0 and A[j] > x:\n          A[j+1] = A[j]\n          j = j - 1\n      A[j+1] = x\n```\n\n**Invarianten i én setning:** rett før runde $i$ er `A[0..i-1]` sortert\ninnbyrdes, og runden utvider det sorterte prefikset med ett element.\n\n**Kjøretid:** den ytre løkka går $n-1$ runder. Den indre `while`-løkka gjør i\nverste tilfelle $i$ forskyvninger — det skjer når arrayet er omvendt sortert —\nog summen blir $\\frac{n(n-1)}{2}$, altså $O(n^2)$. Er arrayet allerede sortert,\nstopper `while`-løkka med én gang hver runde, og totalen blir $O(n)$.\n\nMerk at `A[j] > x` er **strengt** større: elementet skyves aldri forbi et likt\nelement. Det er derfor innsettingssortering er stabil."
+    },
+    {
+      "id": "in2010-2-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Innsettingssortering — prefikset som lyver",
+      "problem": "Håndkjør `InsertionSort` på `A = [8, 3, 5, 1, 9, 2]`. Skriv opp tilstanden etter\nhver runde, og avgjør for hver runde om det sorterte prefikset også er\n**endelig** plassert.",
+      "solution": "Fasit for hele sorteringen er `[1, 2, 3, 5, 8, 9]` — den trenger vi for å kunne\navgjøre siste kolonne.\n\n| Etter iterasjon $i$ | Tilstand | Sortert prefiks | Endelig plassert? | Forskyvninger |\n|---|---|---|---|---|\n| 1 | `[3, 8, 5, 1, 9, 2]` | `[3, 8]` | **nei** | 1 |\n| 2 | `[3, 5, 8, 1, 9, 2]` | `[3, 5, 8]` | **nei** | 1 |\n| 3 | `[1, 3, 5, 8, 9, 2]` | `[1, 3, 5, 8]` | **nei** | 3 |\n| 4 | `[1, 3, 5, 8, 9, 2]` | `[1, 3, 5, 8, 9]` | **nei** | 0 |\n| 5 | `[1, 2, 3, 5, 8, 9]` | `[1, 2, 3, 5, 8, 9]` | ja — men først nå, fordi den er ferdig | 4 |\n\n**Sluttilstand: `[1, 2, 3, 5, 8, 9]`.** I alt 12 sammenligninger og 9\nforskyvninger.\n\n**Se på runde 4.** Prefikset er `[1, 3, 5, 8, 9]` — fem elementer, pent sortert.\nFasiten begynner med `[1, 2, 3, 5, 8]`. Fire av de fem står altså på feil indeks,\nog det eneste som skal til for å velte dem, er 2-tallet som ligger igjen til\nslutt. Da forskyves fire elementer på én gang.\n\n**Dette er kapitlets skarpeste sant/usant-punkt.** «Etter $i$ iterasjoner av\ninnsettingssortering står de $i$ første elementene på endelig plass» er\n**usant**. Riktig formulering er: de $i+1$ første elementene er sortert\n**innbyrdes**.\n\n**Kontrollregning.** Antall forskyvninger, 9, er det samme som antall bytter\nboblesortering brukte på det samme arrayet i eksempel 1. Det er ingen\ntilfeldighet: begge algoritmene fjerner nøyaktig ett feilstilt par per\nelementflytting, og arrayet har 9 slike par."
+    },
+    {
+      "id": "in2010-2-1-th-6",
+      "type": "theorem",
+      "title": "Invarianten for innsettingssortering etter $i$ iterasjoner",
+      "content": "Etter $i$ fullførte runder av den ytre løkka i `InsertionSort` gjelder:\n\n> **De $i+1$ første elementene er sortert innbyrdes — men ikke nødvendigvis på\n> sine endelige plasser.**\n\nSammenlign de tre invariantene, som ett samlet puggekort:\n\n| Algoritme | Etter $i$ iterasjoner | Endelig plassert? |\n|---|---|---|\n| Boblesortering | de $i$ **største** ligger helt til **høyre** | ja |\n| Utvalgssortering | de $i$ **minste** ligger helt til **venstre** | ja |\n| Innsettingssortering | de $i+1$ **første** er sortert innbyrdes | **nei** |\n\nTo av tre garanterer endelig plassering; den tredje gjør det ikke. Å vite hvilken\nsom er hvilken, er verdt et helt poeng på hvert eneste sett."
+    },
+    {
+      "id": "in2010-2-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Alle fire er dokumenterte poengtap på sjanger D.\n\n- **Å bytte om på hvilken ende som blir ferdig.** Boblesortering låser de\n  **største til høyre**; utvalgssortering låser de **minste til venstre**. Et\n  minnetriks: bobler stiger til overflaten, altså til enden av arrayet.\n- **Å tro at innsettingssortering plasserer endelig.** Den sorterer prefikset\n  innbyrdes. Et element som kommer senere, kan velte hele prefikset ett hakk. Se\n  eksempel 3, runde 4.\n- **Å påstå at utvalgssortering er stabil.** Byttet flytter et element over lang\n  avstand og kan hoppe forbi et likt element. Boblesortering og\n  innsettingssortering flytter derimot bare forbi **strengt** større elementer,\n  og er stabile.\n- **Å blande antall bytter med antall sammenligninger.** Utvalgssortering har\n  færrest **bytter** (høyst $n-1$), men like mange **sammenligninger** som\n  boblesortering ($\\frac{n(n-1)}{2}$). Spørsmålet på eksamen sier alltid hvilken\n  av de to det gjelder — les det ordet.\n\nÉn til, som gjelder hele faget: **å bruke $n$ uten å si hva det er.** Dette er\nfelle **#10** i bokas feilregister — å oppgi kjøretid eller drøfte uten å\ndefinere problemstørrelsen — og den gir eksplisitt trekk. Skriv «$n$ er antall\nelementer som skal sorteres» én gang, og du er ferdig med den."
+    },
+    {
+      "id": "in2010-2-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Arrayet `[4, 9, 2, 7, 3, 8]` sorteres med innsettingssortering.\n\n**a)** Hva er tilstanden etter 3 fullførte runder av den ytre løkka?\n**b)** Står noen av elementene i det sorterte prefikset garantert på sin endelige\nplass?\n**c)** Hvor mange forskyvninger gjorde runde 4?",
+        "solution": "**a)** `[2, 4, 7, 9, 3, 8]`. Runde 1 lot `9` ligge (den er større enn `4`),\nrunde 2 skjøv `2` helt fram, runde 3 skjøv `7` forbi `9`.\n\n**b)** Nei, ikke ett eneste. Fasiten er `[2, 3, 4, 7, 8, 9]`, og prefikset er\n`[2, 4, 7, 9]`. Bare `2` står tilfeldigvis riktig — og «tilfeldigvis riktig» er\nikke det samme som «garantert riktig», som er det invarianten handler om. Det\ngjenværende 3-tallet skyver alt fra indeks 1 og utover ett hakk til høyre.\n\n**c)** Tre. Runde 4 tar `x = 3` og skyver `9`, `7` og `4` ett hakk hver, slik at\ntilstanden blir `[2, 3, 4, 7, 9, 8]`.\n\n**Formen sensor vil ha** på a) og c) er bare arrayet og tallet — men på b) må\nbegrunnelsen med: prefikset er sortert innbyrdes, ikke endelig plassert.",
+        "hints": [
+          "Skriv opp arrayet og gjør én runde om gangen; marker hvor prefikset slutter.",
+          "En forskyvning er én kjøring av linja `A[j+1] = A[j]`."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-1-t-4",
+      "type": "text",
+      "content": "## Løkke 4 — stabilitet, in-place og grensen på $n \\log n$ (ca. 15 min)\n\n— naturlig pausepunkt —\n\nNå kommer de to egenskapene som avgjør flest sant/usant-punkter, og de er begge\nlettere enn de høres ut.\n\nTenk deg en deltakerliste fra et løp, allerede sortert alfabetisk på etternavn.\nNå vil du sortere den på **klubb**. To løpere fra samme klubb — hva skjer med den\nalfabetiske rekkefølgen mellom dem?\n\nSvarer algoritmen «den beholdes», er den **stabil**. Svarer den «det kommer an\npå», er den ustabil. Det er hele begrepet."
+    },
+    {
+      "id": "in2010-2-1-def-5",
+      "type": "definition",
+      "title": "Stabil sortering",
+      "content": "En sortering er stabil hvis elementer med **lik nøkkel** beholder sin innbyrdes\nrekkefølge fra input til output.\n\nBoblesortering, innsettingssortering, flettesortering, counting sort og radix\nsort er stabile. Utvalgssortering, heapsort og kvikksortering er det **ikke**.\n\nHvorfor det betyr noe: stabilitet lar deg sortere på flere nøkler etter\nhverandre. Sorterer du først på etternavn og deretter stabilt på klubb, er\nresultatet sortert på klubb med etternavn som andrenøkkel — gratis."
+    },
+    {
+      "id": "in2010-2-1-def-6",
+      "type": "definition",
+      "title": "In-place — sortering på stedet",
+      "content": "En sortering er in-place, altså på stedet, hvis den bruker $O(1)$ ekstra minne\nutover selve arrayet. Noen hjelpevariabler er greit; et helt nytt array av\nstørrelse $n$ er det ikke.\n\nAlle tre algoritmene i dette kapitlet er in-place. Flettesortering er det\n**ikke** — den trenger et hjelpearray på $n$ plasser til flettingen. Heapsort og\nkvikksortering regnes som in-place.\n\nTermen brukes uoversatt i faget og betyr «uten et nytt array ved siden av», ikke\n«raskt»."
+    },
+    {
+      "id": "in2010-2-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Stabilitet demonstrert på samme data",
+      "problem": "Fire deltakere står i startlista i denne rekkefølgen, med startgruppa i parentes:\n\n`Hansen(3), Berg(1), Dahl(3), Ali(2)`\n\nLista skal sorteres på startgruppe. Kjør både innsettingssortering og\nutvalgssortering, og sammenlign resultatene.",
+      "solution": "**Innsettingssortering (stabil):**\n\n`Berg(1), Ali(2), Hansen(3), Dahl(3)`\n\n**Utvalgssortering (ustabil):**\n\n`Berg(1), Ali(2), Dahl(3), Hansen(3)`\n\nBegge er **korrekt sortert** på startgruppe: 1, 2, 3, 3. Forskjellen er\nrekkefølgen mellom `Hansen` og `Dahl`, som begge har gruppe 3.\n\n**Hvorfor skjer det?** Innsettingssortering skyver `Dahl` bakover kun så lenge\nelementet foran er **strengt** større. Når den møter `Hansen(3)`, stopper den —\nog `Dahl` blir liggende etter `Hansen`, slik den lå i input.\n\nUtvalgssortering, derimot, leter opp minste gjenværende og **bytter** det inn på\nplassen. I runden som skal fylle indeks 2, finner den `Dahl(3)` som minste blant\nde gjenværende, og bytter `Hansen` ut til den plassen `Dahl` sto på. Ett langt\nhopp — og den innbyrdes rekkefølgen er borte.\n\n**Regelen du kan lene deg på:** en sortering som bare flytter elementer forbi\n**strengt større** naboer er stabil. En sortering som bytter over lang avstand,\ner det ikke.\n\n**Merk at «ustabil» ikke betyr «feil».** Utvalgssorteringens resultat er en\nfullgod sortering på startgruppe. Ustabiliteten betyr bare at du ikke kan stole\npå informasjonen som lå i den opprinnelige rekkefølgen."
+    },
+    {
+      "id": "in2010-2-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D, eksamensnivå.) En liste over 500 bøker er allerede sortert\nalfabetisk på tittel. Du vil nå ha den sortert på utgivelsesår, og innenfor hvert\når skal titlene fortsatt stå alfabetisk.\n\n**a)** Hvilken egenskap må sorteringsalgoritmen ha?\n**b)** Hvilke av de tre algoritmene i dette kapitlet kan du bruke?\n**c)** En kollega foreslår å sortere på år og deretter sortere alfabetisk på\ntittel. Hva blir resultatet?",
+        "solution": "**a)** Den må være **stabil**. Bøker med samme utgivelsesår har lik nøkkel, og\nstabilitet er nettopp garantien for at like nøkler beholder sin innbyrdes\nrekkefølge — her den alfabetiske.\n\n**b)** Boblesortering og innsettingssortering. Begge flytter kun forbi strengt\nstørre elementer. Utvalgssortering er ustabil og kan ødelegge den alfabetiske\nrekkefølgen innen et år.\n\n**c)** Feil rekkefølge på sorteringene. Den siste sorteringen er den som styrer\nhovedrekkefølgen, så resultatet blir en liste sortert alfabetisk på tittel med år\nsom andrenøkkel — det motsatte av det som var bestilt. **Regelen er å sortere på\nden minst viktige nøkkelen først** og på hovednøkkelen sist. Nettopp denne\nregelen er også maskineriet bak radix sort, som du møter i\n[kap. 2.3](/in2010/in2010-2-3).\n\n**Kjøretid:** $O(n^2)$ med disse algoritmene, der $n = 500$ er antall bøker. Med\nflettesortering fra [kap. 2.2](/in2010/in2010-2-2), som også er stabil, ville det\nblitt $O(n \\log n)$ — og på en Del 2-oppgave ville det svaret stått høyere i\npoengtrappen.",
+        "hints": [
+          "Hva skjer med to elementer som har samme nøkkel?",
+          "Hvilken av de to sorteringene bestemmer den endelige hovedrekkefølgen?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-1-t-5",
+      "type": "text",
+      "content": "### Kjøretidstabellen — puggeflaten\n\nDette er tabellen sant/usant-punktene hentes fra. Lær den som et bilde.\n\n| Algoritme | Beste | Verste | Forventet | Stabil? | In-place? | Særtrekk |\n|---|---|---|---|---|---|---|\n| Boblesortering | $O(n)$ med tidlig stopp | $O(n^2)$ | $O(n^2)$ | **ja** | ja | bytter kun naboer |\n| Utvalgssortering | $O(n^2)$ | $O(n^2)$ | $O(n^2)$ | **nei** | ja | minimalt antall bytter, høyst $n-1$ |\n| Innsettingssortering | $O(n)$ | $O(n^2)$ | $O(n^2)$ | **ja** | ja | best på nesten sorterte data |\n\nTre ting å legge merke til, fordi de alle har vært sant/usant-punkter:\n\n1. **Utvalgssortering har ingen god dag.** Den er $O(n^2)$ selv på et\n   ferdigsortert array, fordi den uansett må lete gjennom resten for å bevise at\n   den har funnet minsteverdien.\n2. **Boblesorteringens $O(n)$ krever tidlig stopp.** Uten `byttet`-flagget i\n   pseudokoden er også beste tilfelle $O(n^2)$. Sier oppgaven bare\n   «boblesortering», er det trygt å nevne begge deler.\n3. **Alle tre er in-place, bare to er stabile.** Utvalgssortering er unntaket."
+    },
+    {
+      "id": "in2010-2-1-th-7",
+      "type": "theorem",
+      "title": "Nedre grensen for sammenligningsbasert sortering",
+      "content": "Ingen sammenligningsbasert sortering kan garantere å sortere $n$ elementer med\nfærre enn omtrent $n \\log_2 n$ sammenligninger. Vi skriver det\n\n$$\\Omega(n \\log n),$$\n\nder $\\Omega$ er nedre grense — motstykket til $O$ fra\n[kap. 1.1](/in2010/in2010-1-1).\n\n**Intuisjonen, i tre setninger.** Hver sammenligning gir ett ja/nei-svar, altså\nett bit informasjon. Med $n$ elementer finnes det $n!$ mulige rekkefølger, og\nalgoritmen må kunne skille alle fra hverandre. Skal $k$ ja/nei-svar skille mellom\n$n!$ muligheter, må $2^k \\ge n!$, og det gir $k \\ge \\log_2(n!)$, som vokser som\n$n \\log n$.\n\nKonsekvensen er verdt å merke seg: flettesortering og heapsort med sine\n$O(n \\log n)$ er ikke bare «bra» — de er så gode som det i det hele tatt går an å\nbli, så lenge algoritmen bare sammenligner. Vil du under, må du slutte å\nsammenligne og begynne å utnytte hva verdiene faktisk **er**. Det er nøyaktig det\ncounting sort og radix sort gjør i [kap. 2.3](/in2010/in2010-2-3).\n\nBeviset skisseres nærmere i [kap. 2.2](/in2010/in2010-2-2), der beslutningstreet\ntegnes ut."
+    },
+    {
+      "id": "in2010-2-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Eksamensnivå — fire påstander",
+      "problem": "(Sjanger D, sant/usant med begrunnelse.) Avgjør sant eller usant, og begrunn hver\nmed én setning.\n\n**a)** Etter 3 iterasjoner av utvalgssortering står de 3 minste elementene på\nendelig plass.\n**b)** Etter 3 iterasjoner av innsettingssortering står de 3 første elementene på\nendelig plass.\n**c)** Boblesortering gjør færre bytter enn utvalgssortering på et vilkårlig\narray.\n**d)** En sammenligningsbasert sortering kan i beste tilfelle bruke $O(n)$\nsammenligninger.",
+      "solution": "**a) Sant.** Det er nøyaktig utvalgssorteringens invariant: etter $i$ runder er\nde $i$ minste endelig plassert, helt til venstre.\n\n**b) Usant.** Innsettingssortering sorterer de $i+1$ første **innbyrdes**, men et\nelement som kommer senere kan forskyve hele prefikset. Ingenting er endelig før\nalgoritmen er ferdig.\n\n**c) Usant.** Det er motsatt: utvalgssortering gjør høyst $n-1$ bytter,\nboblesortering kan gjøre opp til $\\frac{n(n-1)}{2}$. Merk fella i formuleringen —\n«færre **bytter**», ikke «færre sammenligninger». På sammenligninger er de like.\n\n**d) Sant.** Nedre grensen $\\Omega(n \\log n)$ gjelder **verste tilfelle**. I\nbeste tilfelle klarer innsettingssortering seg med $n-1$ sammenligninger på et\nferdigsortert array, altså $O(n)$.\n\n**Om antigjettingen.** Fire påstander der to er sanne og to usanne — det er\ntypisk. Gjetter du på alle fire, får du i snitt to riktige, og etter skaleringen\ner to riktige av fire verdt null. Sikkerheten er hele poenget, og den kommer fra\ntabellen og de tre invariantene, ikke fra magefølelse.\n\n**Om formen.** Sensor ber om «én setning». En setning som navngir invarianten\neller egenskapen holder; en setning som bare gjentar påstanden med motsatt\nfortegn, gjør det ikke."
+    },
+    {
+      "id": "in2010-2-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D, eksamensnivå.) For hver av situasjonene under: hvilken av de tre\nalgoritmene i dette kapitlet passer best, og hva er kjøretiden?\n\n**a)** Et array på 10 000 elementer som allerede er nesten sortert — bare noen få\nelementer står feil.\n**b)** En liste med tunge objekter der en flytting koster mye, men en\nsammenligning er billig.\n**c)** En liste sortert på fornavn som nå skal sorteres på fødselsår, med fornavn\nbeholdt som andrenøkkel.",
+        "solution": "**a) Innsettingssortering.** På nesten sorterte data stopper den indre\n`while`-løkka nesten umiddelbart hver runde, så kjøretiden nærmer seg $O(n)$, der\n$n = 10\\,000$ er antall elementer. De to andre bryr seg ikke om at arrayet er\nnesten sortert: utvalgssortering er $O(n^2)$ uansett, og boblesortering trenger\nflere runder så lenge det finnes feilstilte par.\n\n**b) Utvalgssortering.** Høyst $n-1$ bytter, uansett input. Kjøretiden er $O(n^2)$\nmålt i sammenligninger, men det var flyttingene som var dyre her.\n\n**c) Innsettingssortering eller boblesortering** — begge er stabile, og\nstabilitet er kravet når fornavnrekkefølgen skal overleve. $O(n^2)$ i verste\ntilfelle for begge.\n\n**Kan dette gjøres raskere?** Ja, i alle tre tilfellene. Med flettesortering\n($O(n \\log n)$, stabil) fra [kap. 2.2](/in2010/in2010-2-2) ville a) og c) begge\nblitt lineærlogaritmiske. På en Del 2-oppgave der du fritt velger algoritme, er\ndet $O(n \\log n)$-svaret som står øverst i poengtrappen. Her ba oppgaven\neksplisitt om de tre algoritmene i dette kapitlet.",
+        "hints": [
+          "Spør for hvert tilfelle: er det sammenligninger, flyttinger eller stabilitet som teller?",
+          "Bare én av de tre har $O(n)$ i beste tilfelle på nesten sorterte data."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D, krevende.) Påstanden under er hentet fra en tenkt besvarelse. Finn\nalle feilene, og skriv en korrekt versjon.\n\n> «Utvalgssortering er den beste av de tre fordi den er stabil og har $O(n)$ i\n> beste tilfelle. Innsettingssortering plasserer de $i$ første elementene endelig\n> etter $i$ runder, og boblesortering plasserer de $i$ minste helt til venstre.\n> Alle tre trenger et hjelpearray på $n$ plasser.»",
+        "solution": "Fem feil, og de er verdt å kunne kjenne igjen enkeltvis.\n\n1. **«Utvalgssortering … er stabil»** — usant. Den er ustabil, fordi byttet\n   flytter et element over lang avstand og kan hoppe forbi en lik nøkkel.\n2. **«… har $O(n)$ i beste tilfelle»** — usant. Utvalgssortering er $O(n^2)$ i\n   alle tilfeller. Det er innsettingssortering, og boblesortering med tidlig\n   stopp, som har $O(n)$ i beste tilfelle.\n3. **«Innsettingssortering plasserer de $i$ første endelig»** — usant. Den\n   sorterer de $i+1$ første **innbyrdes**; ingenting er endelig plassert før\n   algoritmen er ferdig.\n4. **«Boblesortering plasserer de $i$ minste helt til venstre»** — usant. Den\n   plasserer de $i$ **største** helt til **høyre**. Beskrivelsen som ble gitt, er\n   utvalgssorteringens invariant.\n5. **«Alle tre trenger et hjelpearray på $n$ plasser»** — usant. Alle tre er\n   in-place og bruker $O(1)$ ekstra minne. Det er flettesortering som trenger\n   hjelpearrayet.\n\n**Korrekt versjon:** «Alle tre er $O(n^2)$ i verste tilfelle og in-place.\nBoblesortering plasserer de $i$ største helt til høyre etter $i$ runder;\nutvalgssortering plasserer de $i$ minste helt til venstre; innsettingssortering\nsorterer de $i+1$ første innbyrdes uten å plassere dem endelig. Boblesortering og\ninnsettingssortering er stabile, utvalgssortering er det ikke.\nInnsettingssortering har $O(n)$ i beste tilfelle, det samme har boblesortering\nmed tidlig stopp, mens utvalgssortering er $O(n^2)$ uansett. Her er $n$ antall\nelementer som sorteres.»",
+        "hints": [
+          "Gå gjennom påstanden ord for ord med kjøretidstabellen ved siden av.",
+          "Sjekk hver av de tre invariantene mot hvilken algoritme de faktisk tilhører."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D, krevende.) Et array `A` har $n$ elementer, og du får vite at nøyaktig\nett element står på feil plass: det ligger helt til venstre, men skulle ligget\nhelt til høyre. Resten er sortert.\n\n**a)** Hvor mange runder må boblesortering med tidlig stopp gjøre før den\nreturnerer, og hva blir kjøretiden?\n**b)** Hvor mange forskyvninger gjør innsettingssortering totalt, og hva blir\nkjøretiden?\n**c)** Hva blir utvalgssorteringens kjøretid?",
+        "solution": "La $n$ være antall elementer i `A`. Situasjonen er for eksempel\n`[9, 1, 2, 3, 4, 5]`: det største ligger først, resten er sortert.\n\n**a)** To runder. I runde 1 sammenlignes `A[0]` med `A[1]` og de byttes, deretter\ndet nye `A[1]` med `A[2]` og de byttes — det store elementet bobler hele veien til\nenden i én gjennomgang. Runde 2 finner ingen feilstilte par, `byttet` forblir\nusant, og algoritmen returnerer. **Kjøretid $O(n)$** — to gjennomganger med\nhøyst $n$ sammenligninger hver.\n\nMerk hvor mye tidlig stopp betyr her: uten `byttet`-flagget ville algoritmen\nkjørt alle $n-1$ rundene og brukt $O(n^2)$.\n\n**b)** $n-1$ forskyvninger, én per runde. Grunnen er at innsettingssortering\narbeider forfra: prefikset `[9]` er trivielt sortert, så skyves `1` forbi `9`, så\n`2` forbi `9`, og slik fortsetter det. **Kjøretid $O(n)$.**\n\n**c)** $O(n^2)$. Utvalgssortering leter gjennom hele den gjenværende delen i hver\neneste runde, uansett hvor sortert arrayet er. Dette er det klareste eksempelet\npå at den ikke har noe beste tilfelle.\n\n**Poenget med oppgaven:** «nesten sortert» er ikke én egenskap. Boblesortering og\ninnsettingssortering utnytter den, men på hver sin måte og med hver sine\nkostnader — og utvalgssortering utnytter den ikke i det hele tatt.",
+        "hints": [
+          "Skriv opp et konkret lite array, for eksempel `[9, 1, 2, 3, 4, 5]`, og kjør noen runder.",
+          "Boblesortering med tidlig stopp: hvor mange runder går før ingen bytter skjer?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-1-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-2-1-def-7",
+      "type": "definition",
+      "title": "Invariant",
+      "content": "En påstand som er sann hver gang en løkke har fullført en runde, uansett hvilke\ndata som lå der i utgangspunktet.\n\nI sorteringssammenheng er det invarianten som lar deg svare på «hva står trygt\netter $i$ runder?» uten å se arrayet. Alle tre algoritmene i dette kapitlet har\nsin egen, og de er ikke de samme."
+    },
+    {
+      "id": "in2010-2-1-def-8",
+      "type": "definition",
+      "title": "Bobleinvarianten",
+      "content": "Etter $i$ runder av boblesortering ligger **de $i$ største** elementene på sine\nendelige plasser, helt til **høyre**.\n\nOm de $n-i$ første plassene sier invarianten ingenting."
+    },
+    {
+      "id": "in2010-2-1-def-9",
+      "type": "definition",
+      "title": "Utvalgsinvarianten",
+      "content": "Etter $i$ runder av utvalgssortering ligger **de $i$ minste** elementene på sine\nendelige plasser, helt til **venstre**.\n\nOm resten sier invarianten ingenting. Motsatt ende av bobleinvarianten — dette\nparet er verdt å pugge sammen."
+    },
+    {
+      "id": "in2010-2-1-def-10",
+      "type": "definition",
+      "title": "Innsettingsinvarianten",
+      "content": "Etter $i$ runder av innsettingssortering er **de $i+1$ første** elementene\nsortert **innbyrdes** — men ikke nødvendigvis på endelige plasser.\n\nDette er den eneste av de tre invariantene som ikke garanterer endelig\nplassering, og det er nettopp derfor den spørres om."
+    },
+    {
+      "id": "in2010-2-1-def-11",
+      "type": "definition",
+      "title": "Antall bytter i utvalgssortering",
+      "content": "Høyst $n-1$, uansett input — ett per runde, og bare når minsteelementet ikke\nallerede lå riktig.\n\nDet er utvalgssorteringens eneste garanti som slår de to andre, og den gjelder\n**bytter**, ikke sammenligninger. Boblesortering kan gjøre opp til\n$\\frac{n(n-1)}{2}$ bytter."
+    },
+    {
+      "id": "in2010-2-1-def-12",
+      "type": "definition",
+      "title": "Antall sammenligninger i utvalgssortering",
+      "content": "Alltid $\\frac{n(n-1)}{2}$, uansett input — den indre løkka går $n-1$, $n-2$,\n$n-3$ og så videre runder.\n\nDette er grunnen til at utvalgssortering er $O(n^2)$ også på et ferdigsortert\narray. Den kan ikke vite at minsteverdien er funnet før den har sett resten."
+    },
+    {
+      "id": "in2010-2-1-def-13",
+      "type": "definition",
+      "title": "Innsettingssortering på nesten sorterte data",
+      "content": "Når hvert element bare skal noen få plasser til venstre, stopper den indre\n`while`-løkka nesten med én gang, og kjøretiden nærmer seg $O(n)$.\n\nDette er grunnen til at innsettingssortering brukes som «bunn» i praktiske\nbiblioteksorteringer: flettesortering eller kvikksortering deler opp til bitene\ner små og nesten sorterte, og lar så innsettingssortering ta resten."
+    },
+    {
+      "id": "in2010-2-1-def-14",
+      "type": "definition",
+      "title": "Boblesortering med tidlig stopp",
+      "content": "Varianten som setter et flagg når en runde ikke gjorde noen bytter, og\nreturnerer da.\n\nMed flagget er beste tilfelle $O(n)$; uten flagget er også beste tilfelle\n$O(n^2)$. Nevn begge deler hvis oppgaven bare sier «boblesortering» — det koster\ningenting og dekker deg."
+    },
+    {
+      "id": "in2010-2-1-def-15",
+      "type": "definition",
+      "title": "Nabobytte og stabilitet",
+      "content": "Regelen bak alle stabilitetssvar: en sortering som **bare** flytter elementer\nforbi **strengt større** naboer, kan ikke bytte om på to like nøkler, og er\nderfor stabil.\n\nBoblesortering (`A[j] > A[j+1]`) og innsettingssortering (`A[j] > x`) oppfyller\nden. Utvalgssortering gjør det ikke, fordi den bytter over lang avstand."
+    },
+    {
+      "id": "in2010-2-1-def-16",
+      "type": "definition",
+      "title": "Nøkkel og satellittdata",
+      "content": "**Nøkkelen** er verdien det sorteres på; **satellittdataene** er alt annet\nelementet bærer med seg. En bok sortert på utgivelsesår har året som nøkkel og\ntittelen som satellittdata.\n\nStabilitet handler utelukkende om elementer med lik nøkkel og ulike\nsatellittdata. Uten satellittdata er stabilitet et tomt begrep — to like tall kan\nikke skilles."
+    },
+    {
+      "id": "in2010-2-1-def-17",
+      "type": "definition",
+      "title": "Sortering på flere nøkler",
+      "content": "Sorterer du gjentatte ganger med en **stabil** algoritme, og tar den **minst**\nviktige nøkkelen først, ender du med et resultat sortert på hovednøkkelen med de\nandre som andrenøkler.\n\nRekkefølgen er ikke intuitiv: den siste sorteringen styrer hovedrekkefølgen.\nDette prinsippet er også hele maskineriet i radix sort,\n[kap. 2.3](/in2010/in2010-2-3)."
+    },
+    {
+      "id": "in2010-2-1-def-18",
+      "type": "definition",
+      "title": "Nedre grense for sammenligningsbasert sortering",
+      "content": "$\\Omega(n \\log n)$ sammenligninger i verste tilfelle. Ingen algoritme som kun\nsammenligner elementer kan komme under.\n\nKonsekvens: $O(n \\log n)$ er optimalt for flettesortering og heapsort. Vil du\nunder, må du utnytte hva verdiene er — se counting og radix i\n[kap. 2.3](/in2010/in2010-2-3)."
+    },
+    {
+      "id": "in2010-2-1-def-19",
+      "type": "definition",
+      "title": "Beslutningstre",
+      "content": "Modellen bak nedre grensen: hver sammenligning er en node med to grener, og\nhvert blad er én mulig sluttrekkefølge.\n\nMed $n!$ mulige rekkefølger må treet ha minst $n!$ blader, og et binærtre med\n$n!$ blader har høyde minst $\\log_2(n!)$, som vokser som $n \\log n$. Høyden er\nantall sammenligninger i verste tilfelle. Tegnes ut i\n[kap. 2.2](/in2010/in2010-2-2)."
+    },
+    {
+      "id": "in2010-2-1-def-20",
+      "type": "definition",
+      "title": "Verste tilfelle for de tre kvadratiske",
+      "content": "$O(n^2)$ for alle tre. For innsettingssortering inntreffer det på **omvendt\nsortert** input; for boblesortering på det samme; for utvalgssortering på hvilken\nsom helst input.\n\nDette er det enkleste faktumet i kapitlet, og det er nettopp derfor det brukes\nsom distraktor: en påstand som er sann for alle tre, føles for lett til å være\nriktig."
+    },
+    {
+      "id": "in2010-2-1-def-21",
+      "type": "definition",
+      "title": "Beste tilfelle for de tre kvadratiske",
+      "content": "$O(n)$ for innsettingssortering (ferdigsortert input) og for boblesortering med\ntidlig stopp. $O(n^2)$ for utvalgssortering — den har ingen god dag.\n\nÅ huske hvilken av de tre som mangler et beste tilfelle, er et fast\nsant/usant-punkt."
+    },
+    {
+      "id": "in2010-2-1-def-22",
+      "type": "definition",
+      "title": "Sortert prefiks kontra endelig plassering",
+      "content": "To ulike garantier, som sjanger D spiller på hele tiden. **Sortert innbyrdes**\nbetyr at elementene står i riktig rekkefølge seg imellom. **Endelig plassert**\nbetyr at ingen senere operasjon vil flytte dem.\n\nInnsettingssortering gir det første, ikke det andre. Boblesortering og\nutvalgssortering gir begge deler, men bare for sin halvdel av arrayet."
+    },
+    {
+      "id": "in2010-2-1-def-23",
+      "type": "definition",
+      "title": "Å telle iterasjoner",
+      "content": "«Etter $i$ iterasjoner» betyr $i$ **fullførte** runder av den **ytre** løkka.\nDen indre løkka telles aldri i slike oppgaver.\n\nEr du i tvil, skriv opp de to første rundene på kladdearket og se hvor mange\nelementer som er ferdige. Da har du kalibrert tellingen og kan svare på resten\nuten å tenke."
+    },
+    {
+      "id": "in2010-2-1-def-24",
+      "type": "definition",
+      "title": "Sjanger D — sorteringsegenskaper og valg",
+      "content": "Del 1-sjangeren dette kapitlet trener: sant/usant om invarianter, stabilitet,\nin-place og kjøretid, pluss «hvilken sortering passer denne begrensningen».\n\nHar vært på 7 av 7 sett (100 %). Fordi den ligger i den auto-rettede delen med\nantigjettings-skalering, gir usikre svar null. Kjøretidstabellen og de tre\ninvariantene er det du skal kunne hjelpemiddelfritt."
+    },
+    {
+      "id": "in2010-2-1-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-2-1-rep-1",
+          "type": "text",
+          "content": "**De tre invariantene etter $i$ iterasjoner:**\n\n| Algoritme | Hva er ferdig | Hvor | Endelig? |\n|---|---|---|---|\n| Boblesortering | de $i$ største | høyre | ja |\n| Utvalgssortering | de $i$ minste | venstre | ja |\n| Innsettingssortering | de $i+1$ første, innbyrdes sortert | venstre | **nei** |\n\n**Kjøretid og egenskaper:**\n\n| Algoritme | Beste | Verste | Stabil? | In-place? |\n|---|---|---|---|---|\n| Boblesortering | $O(n)$ med tidlig stopp | $O(n^2)$ | ja | ja |\n| Utvalgssortering | $O(n^2)$ | $O(n^2)$ | nei | ja |\n| Innsettingssortering | $O(n)$ | $O(n^2)$ | ja | ja |\n\n**Tre setninger som dekker de fleste sant/usant-punktene:**\n\n1. Stabil betyr at like nøkler beholder innbyrdes rekkefølge — og en sortering\n   som bare flytter forbi strengt større naboer, er stabil.\n2. In-place betyr $O(1)$ ekstra minne; alle tre her er in-place, flettesortering\n   er det ikke.\n3. Utvalgssortering har færrest **bytter** (høyst $n-1$), men like mange\n   **sammenligninger** som boblesortering.\n\n**Og grensen alt hviler mot:** ingen sammenligningsbasert sortering kommer under\n$\\Omega(n \\log n)$ i verste tilfelle. Neste kapittel,\n[kap. 2.2](/in2010/in2010-2-2), viser algoritmene som treffer den grensen — og\n[kap. 2.3](/in2010/in2010-2-3) viser de tre som slipper unna den ved ikke å\nsammenligne i det hele tatt.\n\n**Før du går videre**, sjekk at du kan svare uten å bla: hvilken ende blir ferdig\ni boblesortering? Hvilken algoritme er ikke stabil? Hvilken har ikke noe beste\ntilfelle?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

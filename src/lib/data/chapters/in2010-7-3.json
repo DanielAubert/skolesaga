@@ -1,0 +1,359 @@
+{
+  "id": "in2010-7-3",
+  "courseId": "in2010",
+  "chapterNumber": "7.3",
+  "title": "NP-kompletthet — og hva som IKKE er IN2010-pensum",
+  "description": "P og NP, verifikator/sertifikat og reduksjonsretning — pluss en avgrensning av de tunge TDT4120-temaene (DP, maks-flyt, masterteoremet) som er fraværende i IN2010.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne skille mellom å løse et problem og å kontrollere et foreslått svar, og bruke skillet til å plassere et problem i $P$ eller $NP$",
+    "kunne skrive en verifikator i pseudokode som kontrollerer et sertifikat i polynomisk tid, inkludert den siste kanten i en rundtur",
+    "kunne begrunne hvilken vei en polynomisk reduksjon må gå for å vise at et problem er vanskelig",
+    "kunne avgrense pensum og navngi de tunge algoritmetemaene som ikke testes i dette emnet"
+  ],
+  "content": [
+    {
+      "id": "in2010-7-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "NP-stoffet er med i **4 av 7 sett (57 %)**, men frekvensen er **fallende**: det\nvar tungt i de fire eldste settene (2018 til 2021) og har vært **fraværende i de\ntre nyeste** (2022 til 2024). Sjangeren er\n\n- **Sjanger L — NP-kompletthet**, altså at du svarer på faste fakta om\n  klassene $P$ og $NP$, skriver en **verifikator** som kontrollerer et foreslått\n  svar, eller vurderer hvilken vei en **reduksjon** må gå.\n\nPrioritet: **kjenne** (nivå 3 av tre — «må sitte» er nivå 1, «kunne» er nivå 2).\nDet betyr ikke «hopp over». Det betyr at stoffet er lite, at det kan komme, og at\ndet er billig å sikre: kommer det, kommer det nesten alltid som **sant/usant på\nDel 1**, den auto-rettede delen av eksamen, og der er faktapunktene faste og få.\n\nVerifikator-oppgaven som Del 2-oppgave er belagt i **ett** sett — høsten 2020,\nsom var korona-hjemmeeksamen med alle hjelpemidler. Den formen speiler ikke\ndagens eksamen, så bruk verifikatoren først og fremst som et middel til å forstå\nhva $NP$ betyr, ikke som en oppgavetype du må regne med.\n\n**Kapitlet har en jobb til, og den er kanskje viktigere:** det siste avsnittet\nsier hvilke tunge algoritmetemaer som **ikke** er pensum i dette emnet. Leser du\nen generisk algoritmebok, eller snakker du med noen som har tatt et\nalgoritmeemne ved en annen institusjon, risikerer du å bruke uker på stoff som\naldri kommer på denne eksamen. Den avgrensningen er verdt like mye som\nNP-teorien.\n\n**Slik er kapitlet lagt opp (55 min):** fire løkker, med et pausepunkt etter\nløkke 2. C er en god og vanlig karakter, og de faste faktapunktene her er blant\nde enkleste poengene i hele faget."
+    },
+    {
+      "id": "in2010-7-3-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.4](/in2010/in2010-1-4) — der møtte du klassene $P$ og $NP$, sertifikat\n  og verifikator, og de faste sant/usant-punktene. Dette kapitlet bygger direkte\n  videre: her skal du **skrive** verifikatoren og **bruke** reduksjonsregelen.\n- [kap. 1.1](/in2010/in2010-1-1) — vekstordningen, og særlig skillet mellom\n  polynomisk vekst som $n^2$ og eksponentiell vekst som $2^n$. Hele\n  kompleksitetsteorien hviler på den ene grensen.\n- [kap. 5.1](/in2010/in2010-5-1) — grafer, nabolister og nabomatrise. Alle\n  eksemplene under er grafproblemer, og verifikatoren slår opp i en av de to\n  representasjonene.\n- [kap. 3.1](/in2010/in2010-3-1) — `mod N`-regningen. Den kommer tilbake her, i\n  den siste kanten av en rundtur."
+    },
+    {
+      "id": "in2010-7-3-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-7-3-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $P$ | klassen av problemer som kan **løses** i polynomisk tid |\n| $NP$ | klassen av problemer der et foreslått ja-svar kan **kontrolleres** i polynomisk tid |\n| $A \\leq_p B$ | «$A$ reduseres til $B$» — $B$ er minst like vanskelig som $A$ |\n| $N$ | antall noder i grafen, og dermed lengden på et sertifikat for en rundtur |\n| $k$ | antall noder i en klikk (brukes bare i klikk-oppgaven) |\n| $O(n^k)$ | polynomisk kjøretid: $k$ er en fast konstant, uavhengig av $n$ |\n| $O(2^n)$ | eksponentiell kjøretid — over grensen for polynomisk |"
+        },
+        {
+          "id": "in2010-7-3-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `ErKant(G, u, v)` | svarer om `u` og `v` er naboer i `G` | $O(1)$ med nabomatrise |\n| `VerifiserHamiltonsykel(G, C)` | sjekker om sertifikatet `C` er en rundtur innom hver node én gang | $O(N)$ kantoppslag |\n| `VerifiserKlikk(G, K, k)` | sjekker om alle par i `K` er naboer | $O(k^2)$ kantoppslag |\n| `(i + 1) mod N` | neste indeks, med tilbakehopp til 0 etter den siste | $O(1)$ |\n| `Oversett(x)` | den polynomiske omskrivningen i en reduksjon | polynomisk, per definisjon |"
+        },
+        {
+          "id": "in2010-7-3-nt-3",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$P \\subseteq NP$$\n\n$P$ ligger inne i $NP$: kan du løse et problem raskt, kan du også kontrollere et\nforeslått svar raskt — du løser det bare selv og sammenligner.\n\n$$A \\leq_p B$$\n\nReduksjonen. Les den som «$A$ er ikke vanskeligere enn $B$», og husk at det er\n$B$ som blir stemplet som den vanskelige.\n\n$$1 < \\log n < n < n \\log n < n^2 < n^3 < 2^n < n!$$\n\nVekstordningen med den ene grensen som betyr noe her: alt til og med $n^3$ er\npolynomisk, mens $2^n$ og $n!$ ikke er det."
+        }
+      ]
+    },
+    {
+      "id": "in2010-7-3-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — å finne mot å kontrollere (ca. 12 min)\n\nEn bemanningsansvarlig setter opp turnus for 40 sykepleiere. Hver har sperrede\ndatoer, noen kan ikke gå vakt sammen, og hver vakt trenger minst én med\nspesialkompetanse. Å **finne** en turnus som oppfyller alt kan ta dager.\n\nMen får hun en ferdig turnus i hånda, tar det noen minutter å **kontrollere** den:\ngå gjennom hver vakt, sjekk bemanningen, sjekk sperrene. Kontrollen er rask selv\nom letingen var langsom.\n\n**Hele kompleksitetsteorien i dette kapitlet handler om det skillet.** Det finnes\nproblemer der vi ikke kjenner noen rask måte å finne svaret på, men der enhver\nforeslått løsning kan kontrolleres raskt. Det er nettopp de problemene klassen\n$NP$ samler."
+    },
+    {
+      "id": "in2010-7-3-def-1",
+      "type": "definition",
+      "title": "Å løse mot å kontrollere",
+      "content": "**Å løse** et problem er å produsere svaret fra inndata alene. **Å kontrollere**\ner å få utlevert et foreslått svar og avgjøre om det holder.\n\nSkillet er hele grunnlaget for $P$ og $NP$: $P$ handler om å løse raskt, $NP$ om\nå kontrollere raskt. At de to skulle være det samme, er akkurat det åpne\nspørsmålet $P = NP$."
+    },
+    {
+      "id": "in2010-7-3-def-2",
+      "type": "definition",
+      "title": "Polynomisk tid",
+      "content": "Kjøretid på formen $O(n^k)$ for en **fast** konstant $k$: $O(n)$, $O(n \\log n)$,\n$O(n^2)$, $O(n^3)$ og så videre. Alt du har møtt i denne boka, ligger her.\n\nGrensen går ved eksponentiell vekst. $O(2^n)$ og $O(n!)$ er **ikke** polynomisk,\nog forskjellen er ikke akademisk: for $n = 60$ er $n^3$ rundt to hundre tusen,\nmens $2^n$ er over en trillion."
+    },
+    {
+      "id": "in2010-7-3-def-3",
+      "type": "definition",
+      "title": "Klassen NP — kontroll, ikke løsning",
+      "content": "Problemene der et foreslått **ja-svar** kan kontrolleres i polynomisk tid.\nDefinisjonen sier ingenting om hvor lang tid det tar å finne svaret.\n\nTo presiseringer som testes direkte: $NP$ betyr **ikke** «ikke-polynomisk» — det\nstår for «ikke-deterministisk polynomisk». Og $NP$ er ikke det samme som «ikke i\n$P$»: siden $P \\subseteq NP$, ligger alle de lette problemene også i $NP$."
+    },
+    {
+      "id": "in2010-7-3-th-1",
+      "type": "theorem",
+      "title": "De faste fakta om P og NP",
+      "content": "Dette er punktene som kommer på Del 1, den auto-rettede delen, når NP-stoffet\nførst kommer. De er få, og de er faste.\n\n| Påstand | Svar |\n|---|---|\n| $P \\subseteq NP$ | **sant** |\n| Finnes det en verifikator med polynomisk kjøretid, ligger problemet i $NP$ | **sant** |\n| Alle NP-komplette problemer kan reduseres til hverandre i polynomisk tid | **sant** |\n| Løser du **ett** NP-komplett problem i polynomisk tid, følger $P = NP$ | **sant** |\n| Det er bevist at $P = NP$ | **usant** |\n| Det er bevist at $P \\neq NP$ | **usant** |\n| Alle avgjørelsesproblemer ligger i $P$ eller i $NP$ | **usant** |\n| $NP$ betyr «ikke-polynomisk» | **usant** |\n\n**Merk at listen blander sant og usant omtrent likt.** Det gjør de ekte\nsant/usant-blokkene også — det finnes ikke noe mønster å lene seg på, og det er\nhele hensikten med antigjettings-skaleringen: en poengregning som skalerer\nsummen så ren gjetting i snitt gir null.\n\nDe to siste linjene er verdt et blikk til. Det finnes problemer som verken er i\n$P$ eller i $NP$ — for eksempel problemer der selv en foreslått løsning ikke kan\nkontrolleres raskt. Og «$NP$» er en forkortelse mange leser feil, med den følgen\nat de svarer «usant» på $P \\subseteq NP$."
+    },
+    {
+      "id": "in2010-7-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger L — NP-kompletthet, altså at du svarer på faste fakta\nom $P$ og $NP$, skriver en verifikator eller vurderer en reduksjonsretning.)\nMarker sant eller usant, og skriv én setnings begrunnelse for hver.\n\n**a)** Et problem i $P$ ligger også i $NP$.\n**b)** $NP$ er samlingen av problemer som ikke kan løses i polynomisk tid.\n**c)** Det er bevist at $P \\neq NP$.\n**d)** Finnes det en verifikator med polynomisk kjøretid for et problem, ligger\nproblemet i $NP$.",
+        "solution": "**a) Sant.** Kan du løse problemet i polynomisk tid, kan du også kontrollere et\nforeslått svar i polynomisk tid — du løser det selv og sammenligner. Derfor er\n$P \\subseteq NP$.\n\n**b) Usant.** $NP$ handler om **kontroll**, ikke om løsning, og forkortelsen står\nfor «ikke-deterministisk polynomisk». Siden $P \\subseteq NP$, inneholder $NP$\nogså alle de problemene som *kan* løses raskt.\n\n**c) Usant.** Spørsmålet er åpent: verken $P = NP$ eller $P \\neq NP$ er bevist.\nBegge påstandene om at noe er bevist, er derfor usanne.\n\n**d) Sant.** Det er nøyaktig definisjonen av $NP$. En polynomisk verifikator er\nikke bare et tegn på at problemet er i $NP$ — det er kravet.\n\n**Merk fasitmønsteret:** sant, usant, usant, sant. På en ekte sant/usant-blokk er\ndet ingen sammenheng mellom svarene, og en kandidat som leter etter et mønster,\nleter etter noe som ikke er der.",
+        "hints": [
+          "Spør for hvert punkt: handler påstanden om å FINNE svaret, eller om å KONTROLLERE et foreslått svar?",
+          "Punkt c): er det bevist noe som helst om forholdet mellom $P$ og $NP$?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-3-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — sertifikatet og verifikatoren (ca. 16 min)\n\nTurnusen bemanningsansvarlig fikk i hånda, er et **sertifikat**: et konkret\nforslag til svar. Prosedyren hun kjører for å kontrollere det, er en\n**verifikator**.\n\nKravet for at et problem skal ligge i $NP$, er at det finnes en verifikator med\n**polynomisk** kjøretid. Å skrive en slik prosedyre er en oppgavetype i seg selv,\nog den er lettere enn den ser ut: du skal ikke løse problemet, bare kontrollere\net ferdig forslag.\n\nDet klassiske eksempelet er **Hamiltonsykel**: finnes det en rundtur i en graf\nsom besøker hver node nøyaktig én gang og ender der den startet? Ingen kjenner\nnoen rask måte å finne en slik rundtur på. Men får du en foreslått rundtur, er\nkontrollen triviell — nesten."
+    },
+    {
+      "id": "in2010-7-3-def-4",
+      "type": "definition",
+      "title": "Sertifikatet",
+      "content": "Det foreslåtte ja-svaret som verifikatoren får utlevert sammen med inndata. For\nHamiltonsykel er det et array `C` med alle nodene i den rekkefølgen rundturen\ngår; for en klikk er det listen over nodene i klikken.\n\nSertifikatet må selv være av polynomisk størrelse. Et «sertifikat» som består av\nalle mulige rundturer, hjelper ingen — det er like stort som problemet."
+    },
+    {
+      "id": "in2010-7-3-def-5",
+      "type": "definition",
+      "title": "Verifikatorens kontrakt",
+      "content": "En prosedyre som tar inndata og et sertifikat, og returnerer **sant** eller\n**usant** — holder det foreslåtte svaret, eller gjør det ikke?\n\nDen skal **ikke** lete etter et svar. Den skal ikke prøve alternativer. Den gjør\nén gjennomgang av sertifikatet og sjekker at hvert krav i problemet er oppfylt.\nKlarer den det i polynomisk tid, ligger problemet i $NP$."
+    },
+    {
+      "id": "in2010-7-3-def-6",
+      "type": "definition",
+      "title": "Hamiltonsykel",
+      "content": "Spørsmålet om det finnes en rundtur i en graf som besøker **hver node nøyaktig\nén gang** og vender tilbake til startnoden.\n\nProblemet er NP-komplett, og det er bokas standardeksempel av to grunner:\nsertifikatet er lett å beskrive (nodene i rekkefølge), og verifikatoren er kort\nnok til å skrives ut på eksamen. Forveksle det ikke med et spenntre eller en\nkorteste vei — der finnes det raske algoritmer."
+    },
+    {
+      "id": "in2010-7-3-th-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `VerifiserHamiltonsykel`",
+      "content": "**Antagelser om representasjon.** Den urettede grafen $G = (V, E)$ er gitt som\n**nabomatrise**, slik at `ErKant(G, u, v)` er $O(1)$. $N$ er antall noder.\nSertifikatet `C` er et array med noder, indeks fra 0. Hjelpearrayet `sett` har én\nplass per node.\n\n**Prebetingelse:** ingen — verifikatoren skal tåle et hvilket som helst\nsertifikat, også et ugyldig. **Postbetingelse:** returnerer sant nøyaktig når `C`\ner en rundtur som besøker hver node én gang og lukker seg.\n\n```text\nProcedure VerifiserHamiltonsykel(G, C)\n  Input:  urettet graf G som nabomatrise med N noder,\n          sertifikat C: array med noder, indeks fra 0\n  Output: sant hvis C er en Hamiltonsykel i G, ellers usant\n\n  if lengden av C er ulik N:\n      return usant\n\n  for hver node v i V:\n      sett[v] = usant\n  for i = 0 til N-1:\n      if sett[C[i]]:\n          return usant            // samme node to ganger\n      sett[C[i]] = sant\n\n  for i = 0 til N-1:\n      u = C[i]\n      v = C[(i + 1) mod N]        // ved i = N-1 gir dette C[0]\n      if ErKant(G, u, v) er usant:\n          return usant\n\n  return sant\n```\n\n**Grunnideen i én setning:** en rundtur er nøyaktig tre ting — riktig antall\nnoder, ingen node to ganger, og en kant mellom hvert par som følger etter\nhverandre, **også mellom den siste og den første**.\n\n**Kjøretid:** tre løkker etter hverandre, hver over $N$ elementer, med $O(1)$\narbeid inni. Det gir $O(N)$ når grafen er en nabomatrise. Med nabolister koster\nhvert kantoppslag opptil $O(N)$, så verifikatoren blir $O(N^2)$ — fortsatt\npolynomisk, og det er alt definisjonen krever.\n\n**Den ene linjen alt henger på** er `C[(i + 1) mod N]`. Uten `mod N` stopper\nløkka etter det nest siste paret, og en «rundtur» som ikke lukker seg, blir\ngodkjent. Det er felle **#7** i bokas feilregister — å glemme siste kant i en\nsyklisk struktur."
+    },
+    {
+      "id": "in2010-7-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Verifikatoren kjørt på to sertifikater",
+      "problem": "En urettet graf har nodene $P$, $Q$, $R$, $S$, $T$ og kantene $P$–$Q$, $Q$–$R$,\n$R$–$S$, $S$–$T$, $T$–$P$ og $P$–$R$. Nabolistene er\n\n```text\nP: Q, R, T\nQ: P, R\nR: P, Q, S\nS: R, T\nT: P, S\n```\n\nKjør `VerifiserHamiltonsykel` på de to sertifikatene\n$C_1 = (P, Q, R, S, T)$ og $C_2 = (Q, P, R, S, T)$, og oppgi svaret for hver.",
+      "solution": "Begge sertifikatene har lengde 5, som er $N$, og begge inneholder hver node\nnøyaktig én gang. De to første kontrollene passerer altså i begge tilfeller, og\ndet er kantløkka som avgjør.\n\n**Sertifikat 1: $C_1 = (P, Q, R, S, T)$**\n\n| Steg `i` | Par `(C[i], C[(i+1) mod N])` | Er det en kant? | Status |\n|---|---|---|---|\n| 0 | `(P, Q)` | ja | fortsett |\n| 1 | `(Q, R)` | ja | fortsett |\n| 2 | `(R, S)` | ja | fortsett |\n| 3 | `(S, T)` | ja | fortsett |\n| 4 | `(T, P)` — siste par, `(i+1) mod N` gir 0 | ja | fortsett |\n\n**Svar: sant.** $C_1$ er en Hamiltonsykel. Fem kantoppslag, ett per node.\n\n**Sertifikat 2: $C_2 = (Q, P, R, S, T)$**\n\n| Steg `i` | Par `(C[i], C[(i+1) mod N])` | Er det en kant? | Status |\n|---|---|---|---|\n| 0 | `(Q, P)` | ja | fortsett |\n| 1 | `(P, R)` | ja | fortsett |\n| 2 | `(R, S)` | ja | fortsett |\n| 3 | `(S, T)` | ja | fortsett |\n| 4 | `(T, Q)` — siste par, `(i+1) mod N` gir 0 | **nei** | **avvist** |\n\n**Svar: usant.** $C_2$ er ikke en Hamiltonsykel.\n\n**Se nøye på hva som skiller de to.** $C_2$ er en helt gyldig **sti** gjennom alle\nfem nodene — $Q$ til $P$ til $R$ til $S$ til $T$, hvert steg langs en kant. Den\neneste feilen er at den ikke kommer hjem: det finnes ingen kant fra $T$ tilbake\ntil $Q$.\n\n**Fellenote.** En verifikator uten `mod N` i siste steg ville godkjent $C_2$. Den\nville sjekket parene 0 til 3, funnet alle i orden, og returnert sant. Det er\nfelle **#7**, og den er dokumentert som en av de vanligste i denne oppgavetypen —\nnettopp fordi den bare gir feil svar på de sertifikatene som ligner mest på et\nriktig svar.\n\n**Merk også hvorfor kjøretiden er poenget.** Kontrollen gjorde fem kantoppslag.\nÅ **finne** en Hamiltonsykel i samme graf ville i verste fall krevd at man prøvde\nalle rekkefølger av de fem nodene. At kontrollen er $O(N)$ mens letingen ikke har\nnoen kjent polynomisk algoritme — det er hele innholdet i påstanden «Hamiltonsykel\nligger i $NP$»."
+    },
+    {
+      "id": "in2010-7-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) Bruk samme graf som i eksempel 1: nodene $P$, $Q$, $R$, $S$, $T$ og\nkantene $P$–$Q$, $Q$–$R$, $R$–$S$, $S$–$T$, $T$–$P$, $P$–$R$.\n\n**a)** Kjør verifikatoren på sertifikatet $(P, Q, R, P, T)$. Hvilken av de tre\nkontrollene stopper den, og hvorfor?\n**b)** Kjør verifikatoren på sertifikatet $(P, R, S, T)$. Hva skjer?\n**c)** Finn selv et sertifikat som verifikatoren godkjenner, og som ikke er\n$(P, Q, R, S, T)$.",
+        "solution": "**a)** Den stopper i **den andre kontrollen** — den som sjekker at ingen node\nforekommer to ganger.\n\nGjennomgangen: `sett[P]` settes i steg 0. I steg 3 er `C[3] = P`, og `sett[P]` er\nallerede sant, så prosedyren returnerer usant med én gang.\n\nMerk at sertifikatet har riktig lengde (5) og at alle par som følger etter\nhverandre faktisk er kanter der de finnes — det er bare $S$ som mangler helt,\nmens $P$ er med to ganger. Uten distinkthetssjekken ville en slik «rundtur» kunne\nsluppet gjennom.\n\n**b)** Den stopper i **den første kontrollen**: lengden av $C$ er 4, mens $N = 5$.\nProsedyren returnerer usant uten å se på en eneste kant.\n\nDet er derfor lengdesjekken står først — den er $O(1)$ og fanger den billigste\nfeilen først.\n\n**c)** $(P, T, S, R, Q)$ virker: kantene er $P$–$T$, $T$–$S$, $S$–$R$, $R$–$Q$ og\ntil slutt $Q$–$P$ via `mod N`. Alle fem finnes i grafen.\n\nDette er den samme rundturen som i eksempel 1, gjennomkjørt i motsatt retning.\nI en urettet graf er det alltid et gyldig svar når det opprinnelige er det — noe\nsom er verdt å vite når du skal finne et sertifikat i en oppgave.\n\n**Poengfordeling-notat.** Hovedmomentet i a) og b) er å **navngi hvilken av de\ntre kontrollene** som slår til, ikke bare å svare «usant». Verifikatoren har tre\nuavhengige krav, og en besvarelse som viser at du vet hvilket som brytes, viser\nat du har forstått prosedyren.",
+        "hints": [
+          "Verifikatoren har tre kontroller i rekkefølge: lengde, ingen gjentakelse, og kanter. Gå gjennom dem i den rekkefølgen.",
+          "Del c): hva skjer hvis du leser en gyldig rundtur baklengs?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-3-def-7",
+      "type": "definition",
+      "title": "Den siste kanten i en rundtur",
+      "content": "`C[(i + 1) mod N]` — uttrykket som gjør at siste steg i løkka sammenligner den\nsiste noden med den **første**.\n\nUten `mod N` sjekker verifikatoren en sti, ikke en sykel, og godkjenner\nsertifikater som ikke lukker seg. Det er felle **#7** i bokas feilregister, og den\ngjelder like mye i alle andre sykliske gjennomganger: `(i + 1) mod N` er samme\nregning som i lineær probing i [kap. 3.1](/in2010/in2010-3-1)."
+    },
+    {
+      "id": "in2010-7-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) En **klikk** i en urettet graf er en mengde noder der **alle par**\ner naboer. Problemet CLIQUE spør: finnes det en klikk med $k$ noder?\n\n**a)** Hva er sertifikatet, og hvilke antagelser om representasjon gjør du?\n**b)** Skriv `VerifiserKlikk` i pseudokode.\n**c)** Oppgi kjøretiden, og forklar hvorfor den viser at CLIQUE ligger i $NP$.",
+        "solution": "**a) Sertifikatet** er et array `K` med de $k$ nodene som påstås å utgjøre\nklikken.\n\n**Antagelser om representasjon:** grafen $G$ er gitt som **nabomatrise**, slik at\n`ErKant(G, u, v)` er $O(1)$. Nodene er nummerert, og `sett` er et hjelpearray med\nén plass per node.\n\n**b)**\n\n```text\nProcedure VerifiserKlikk(G, K, k)\n  Input:  urettet graf G som nabomatrise,\n          sertifikat K: array med noder, indeks fra 0, og tallet k\n  Output: sant hvis nodene i K utgjor en klikk med k noder\n\n  if lengden av K er ulik k:\n      return usant\n\n  for hver node v i G:\n      sett[v] = usant\n  for i = 0 til k-1:\n      if sett[K[i]]:\n          return usant            // samme node to ganger\n      sett[K[i]] = sant\n\n  for i = 0 til k-2:\n      for j = i+1 til k-1:\n          if ErKant(G, K[i], K[j]) er usant:\n              return usant\n\n  return sant\n```\n\n**c) Kjøretid:** den doble løkka går over alle par blant $k$ noder, altså\n$k(k-1)/2$ par, hvert med ett $O(1)$-oppslag: **$O(k^2)$**. Lengdesjekken og\ndistinkthetssjekken er $O(k)$ og $O(N)$, som ikke dominerer.\n\nSiden $k$ aldri er større enn $N$, er $O(k^2)$ høyst $O(N^2)$ — **polynomisk i\nstørrelsen på inndata**. Og det er hele kravet: finnes det en verifikator med\npolynomisk kjøretid, ligger problemet i $NP$.\n\n**Merk forskjellen fra Hamiltonsykel-verifikatoren.** Her er det ingen `mod N`,\nfordi en klikk ikke er syklisk — kravet gjelder **alle par**, ikke bare de som\nfølger etter hverandre. Å kopiere rundtur-løkka hit ville sjekket $k$ av\n$k(k-1)/2$ par og godkjent nesten hva som helst.\n\n**Kan dette gjøres raskere?** Nei, og det er heller ikke poenget: det finnes\n$k(k-1)/2$ par som alle må sjekkes, så $O(k^2)$ er nedre grense for kontrollen.\nPoengtrappen gjelder ikke her — for en verifikator er kravet bare at kjøretiden\ner polynomisk.",
+        "hints": [
+          "Hva må gjelde mellom to noder i en klikk — og hvor mange par må du derfor se på?",
+          "Del c): sammenlign antall par med $k$ og med $N$. Er uttrykket $O(n^k)$ for en fast eksponent?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-3-tip-2",
+      "type": "tip",
+      "title": "Pausepunkt",
+      "content": "— naturlig pausepunkt —\n\nSå langt har du de faste faktapunktene og verifikatoren. De to siste løkkene er\nkortere: én om hvilken vei en reduksjon må gå, og én om hva du **ikke** trenger å\nlese."
+    },
+    {
+      "id": "in2010-7-3-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — reduksjonsretningen (ca. 14 min)\n\nTenk deg at du har en maskin som løser problem $B$ lynraskt. Du står med et\nproblem $A$ du ikke får til. Hvis du kan skrive om enhver $A$-oppgave til en\n$B$-oppgave — raskt — så kan du bruke maskinen til å løse $A$ også.\n\nDet er nøyaktig hva $A \\leq_p B$ betyr. Og legg merke til hva den slutningen\nsier: **$B$ er minst like vanskelig som $A$.** Maskinen som løser $B$, løser\nnemlig $A$ på kjøpet.\n\nRetningen er alt i denne sjangeren, og den er lett å snu feil vei fordi begge\nformuleringene høres fornuftige ut når du sier dem fort."
+    },
+    {
+      "id": "in2010-7-3-def-8",
+      "type": "definition",
+      "title": "Reduksjonen $A \\leq_p B$",
+      "content": "En polynomisk omskrivning som gjør enhver forekomst av problem $A$ om til en\nforekomst av problem $B$, slik at svaret blir det samme.\n\nFinnes en slik omskrivning, er $B$ **minst like vanskelig** som $A$: har du en\nrask løser for $B$, får du en rask løser for $A$ ved å skrive om først. Selve\nomskrivningen må være polynomisk, ellers forsvinner argumentet."
+    },
+    {
+      "id": "in2010-7-3-th-3",
+      "type": "theorem",
+      "title": "Reduksjonsretningen — regelen, skrevet ut begge veier",
+      "content": "**Regelen:** for å vise at et nytt problem $X$ er vanskelig, reduserer du **fra**\net kjent vanskelig problem **til** $X$. Altså: kjent-vanskelig $\\leq_p X$.\n\nSkrevet ut som resonnement:\n\n- **Riktig vei.** Vi vet at Hamiltonsykel er NP-komplett. Vi skriver om enhver\n  Hamiltonsykel-oppgave til en $X$-oppgave i polynomisk tid. Da ville en rask\n  løser for $X$ gitt en rask løser for Hamiltonsykel. Altså er $X$ minst like\n  vanskelig som Hamiltonsykel. **$X$ er vanskelig.**\n- **Feil vei.** Vi skriver om enhver $X$-oppgave til en Hamiltonsykel-oppgave.\n  Da ville en rask løser for Hamiltonsykel gitt en rask løser for $X$. Det viser\n  at $X$ **ikke er vanskeligere enn** Hamiltonsykel — altså at $X$ er *minst like\n  lett*. Om $X$ selv er vanskelig, sier det ingenting.\n\n**Huskeregelen i seks ord:** reduser **fra** det vanskelige, **til** ditt eget.\n\nAt retningen er lett å snu, er ingen unnskyldning — den er felle **#8** i bokas\nfeilregister, og det er trukket eksplisitt for den i arkivet. Til gjengjeld\ngjelder også det motsatte: en reduksjon som er **godt beskrevet**, kan gi full\nuttelling selv om kandidaten har snudd retningen, fordi resonnementet ellers\nviser forståelse. Det er sensorpraksis, ikke en oppfordring."
+    },
+    {
+      "id": "in2010-7-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Eksamensnivå — en reduksjon skrevet ut, og den samme snudd feil vei",
+      "problem": "Et vaktselskap definerer problemet **RUNDE-MED-BUDSJETT**: gitt et sett poster,\nen gangtid mellom hvert par av poster, og et tidsbudsjett $B$ — finnes det en\nrunde som besøker hver post nøyaktig én gang, ender der den startet, og bruker\ntil sammen høyst $B$?\n\nVis at RUNDE-MED-BUDSJETT er minst like vanskelig som Hamiltonsykel.",
+      "solution": "**Ledd 1 — hvilken vei.** Vi skal vise at det nye problemet er **vanskelig**, så\nvi reduserer **fra** det kjente vanskelige problemet **til** det nye:\nHamiltonsykel $\\leq_p$ RUNDE-MED-BUDSJETT.\n\n**Ledd 2 — omskrivningen.** Vi får en graf $G$ med $N$ noder og skal avgjøre om\nden har en Hamiltonsykel. Vi bygger en RUNDE-MED-BUDSJETT-forekomst slik:\n\n- hver node i $G$ blir en post,\n- for **hvert** par poster settes en gangtid: **1** hvis paret er en kant i $G$,\n  og **2** hvis det ikke er det,\n- tidsbudsjettet settes til $B = N$.\n\n**Ledd 3 — hvorfor svaret blir det samme.** En runde besøker $N$ poster og går\n$N$ strekninger. Bruker den bare strekninger som koster 1, blir totalen nøyaktig\n$N$; bruker den én eneste strekning til 2, blir totalen minst $N + 1$.\n\nAltså: det finnes en runde innenfor budsjettet $N$ **hvis og bare hvis** det\nfinnes en runde som bare bruker kanter fra $G$ — og det er nøyaktig en\nHamiltonsykel i $G$.\n\n**Ledd 4 — at omskrivningen er polynomisk.** Vi setter én gangtid per par poster,\naltså $N(N-1)/2$ tall, hvert avgjort med ett kantoppslag. Omskrivningen er\n$O(N^2)$, som er polynomisk.\n\n**Konklusjon.** Hamiltonsykel $\\leq_p$ RUNDE-MED-BUDSJETT, så\nRUNDE-MED-BUDSJETT er minst like vanskelig som Hamiltonsykel. Kunne vi løst\nRUNDE-MED-BUDSJETT i polynomisk tid, kunne vi løst Hamiltonsykel i polynomisk\ntid.\n\n---\n\n**Og her er den samme oppgaven besvart feil vei — en midtnivåbesvarelse:**\n\n> *«Jeg reduserer RUNDE-MED-BUDSJETT til Hamiltonsykel: gitt en\n> RUNDE-med-budsjett-forekomst lager jeg en graf der jeg legger inn en kant\n> nøyaktig der gangtiden er 1. Da svarer Hamiltonsykel på grafen ja hvis og bare\n> hvis det finnes en runde innenfor budsjettet. Altså er RUNDE-MED-BUDSJETT\n> vanskelig.»*\n\n**Hva som er bra nok:** omskrivningen er faktisk gjennomtenkt og korrekt\nbeskrevet — kanter der gangtiden er 1 — og kandidaten har sett sammenhengen\nmellom de to problemene. Sensorpraksis er at en godt beskrevet reduksjon gir\nuttelling selv når retningen er snudd, så dette er ikke en nullbesvarelse. Det er\nen ekte midtnivåbesvarelse.\n\n**Hva som mangler:** slutningen i siste setning følger ikke. Det som er vist, er\nRUNDE-MED-BUDSJETT $\\leq_p$ Hamiltonsykel, altså at RUNDE-MED-BUDSJETT **ikke er\nvanskeligere enn** Hamiltonsykel. Å oversette et problem til noe vanskelig gjør\nikke problemet vanskelig — du kan alltid oversette et lett problem til et\nvanskelig.\n\n**Rettelsen er én setning:** bytt om hva som er inndata og hva som konstrueres.\nStart med en Hamiltonsykel-forekomst, bygg en RUNDE-forekomst av den, som i\nbesvarelsen over. Alt annet i besvarelsen kan stå.\n\n**Poengtrapp-notat.** Hovedmomentet er retningen, og det gir mest. Deretter\nkommer konstruksjonen, så argumentet for at svaret blir det samme begge veier\n(«hvis og bare hvis»), og til slutt at omskrivningen er polynomisk. Det siste\nleddet glemmes ofte, og det er en reell del av definisjonen — en omskrivning som\nselv tar eksponentiell tid, viser ingenting."
+    },
+    {
+      "id": "in2010-7-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) Marker sant eller usant, og begrunn hver med én setning.\n\n**a)** Hvis vi reduserer vårt problem $X$ **til** et NP-komplett problem, har vi\nvist at $X$ er NP-hardt.\n**b)** Hvis $A \\leq_p B$ og $B$ kan løses i polynomisk tid, kan $A$ løses i\npolynomisk tid.\n**c)** Alle NP-komplette problemer kan reduseres til hverandre i polynomisk tid.\n**d)** En reduksjon som selv tar eksponentiell tid, er like god så lenge\nomskrivningen er korrekt.",
+        "solution": "**a) Usant.** Retningen er snudd. $X \\leq_p$ NP-komplett viser at $X$ **ikke er\nvanskeligere enn** det NP-komplette problemet — noe som gjelder for en hvilken som\nhelst oppgave i $NP$, også de helt lette. For å vise at $X$ er hardt, må du\nredusere **fra** det kjente vanskelige problemet **til** $X$. Dette er felle\n**#8**.\n\n**b) Sant.** Det er hele mekanismen i en reduksjon: skriv om $A$-forekomsten til\nen $B$-forekomst (polynomisk), løs den med $B$-løseren (polynomisk), og les av\nsvaret. To polynomiske steg etter hverandre er fortsatt polynomisk.\n\n**c) Sant.** Det følger av definisjonen av NP-komplett: hvert av dem ligger i\n$NP$, og alle problemer i $NP$ kan reduseres til hvert av dem. Derfor kan de\nogså reduseres til hverandre.\n\n**d) Usant.** Kravet «polynomisk» står i selve definisjonen. Tar omskrivningen\neksponentiell tid, faller argumentet: du kan ikke lenger si at en rask løser for\n$B$ gir en rask løser for $A$, siden oversettelsen alene ville tatt for lang tid.\n\n**Merk fasitmønsteret:** usant, sant, sant, usant. Blandet, som på en ekte\nsant/usant-blokk.\n\n**Merk også hvordan a) og b) henger sammen.** Punkt b) er den *riktige* bruken av\nen reduksjon — den overfører **letthet nedover**. Punkt a) prøver å bruke den til\nå overføre **vanskelighet oppover**, og det er nettopp det den ikke gjør i den\nretningen.",
+        "hints": [
+          "Skriv om hver påstand til formen «hvis jeg har en rask løser for …, hva får jeg da gratis?»",
+          "Punkt d): les definisjonen av reduksjon én gang til. Hvilket ord står foran «omskrivning»?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-3-def-9",
+      "type": "definition",
+      "title": "Reduksjonsretningen",
+      "content": "For å vise at et problem $X$ er vanskelig: reduser **fra** et kjent vanskelig\nproblem **til** $X$, altså kjent-vanskelig $\\leq_p X$.\n\nMotsatt vei — $X \\leq_p$ kjent-vanskelig — viser bare at $X$ ikke er vanskeligere\nenn det kjente problemet, og det gjelder for et hvilket som helst problem i $NP$.\nÅ snu retningen er felle **#8**, og den er trukket for eksplisitt."
+    },
+    {
+      "id": "in2010-7-3-def-10",
+      "type": "definition",
+      "title": "NP-hard mot NP-komplett",
+      "content": "**NP-hard:** minst like vanskelig som alle problemer i $NP$ — alle i $NP$ kan\nreduseres til det. Problemet trenger ikke selv ligge i $NP$.\n\n**NP-komplett:** NP-hard **og** i $NP$. Det er den strengeste av de to, og det er\ndenne klassen Hamiltonsykel, CLIQUE og de andre navngitte problemene tilhører."
+    },
+    {
+      "id": "in2010-7-3-def-11",
+      "type": "definition",
+      "title": "Konsekvensen av å løse ett NP-komplett problem",
+      "content": "Løser du **ett** NP-komplett problem i polynomisk tid, har du løst dem alle — og\ndermed er $P = NP$.\n\nBegrunnelsen er reduksjonene: alle problemer i $NP$ kan reduseres polynomisk til\ndet ene problemet du løste, og to polynomiske steg etter hverandre er fortsatt\npolynomisk. Dette er et fast sant/usant-punkt."
+    },
+    {
+      "id": "in2010-7-3-def-12",
+      "type": "definition",
+      "title": "CLIQUE",
+      "content": "Spørsmålet om en urettet graf har en mengde på $k$ noder der **alle par** er\nnaboer. NP-komplett.\n\nSertifikatet er de $k$ nodene, og verifikatoren sjekker alle $k(k-1)/2$ par:\n$O(k^2)$ kantoppslag. Merk at kravet gjelder alle par, ikke bare naboer i en\nrekkefølge — her finnes ingen `mod N`."
+    },
+    {
+      "id": "in2010-7-3-def-13",
+      "type": "definition",
+      "title": "Knapsack og Sudoku",
+      "content": "To andre navngitte NP-komplette problemer. **Knapsack** spør om et utvalg\ngjenstander med vekt og verdi kan gi minst en gitt verdi innenfor en vektgrense.\n**Sudoku** (generalisert til $n \\times n$) spør om et delvis utfylt brett kan\nfullføres lovlig.\n\nBegge er lette å **kontrollere** og vanskelige å **løse** — det samme mønsteret\nsom Hamiltonsykel. I dette emnet skal du kjenne navnene og mønsteret, ikke kunne\nreduksjonene mellom dem."
+    },
+    {
+      "id": "in2010-7-3-t-4",
+      "type": "text",
+      "content": "## Løkke 4 — hva som ikke er pensum her (ca. 10 min)\n\nDenne bolken er den korteste i kapitlet og kanskje den mest lønnsomme. Den\nhandler om hva du **ikke** skal lese.\n\nIN2010 er et datastruktur-tungt implementasjonsemne. Tyngdepunktet ligger på å\nhåndkjøre strukturer feilfritt og skrive presis pseudokode for graf-, tre- og\nhashing-algoritmer. Flere av de temaene som fyller kapitler i en generisk\nalgoritmebok — og som er kjernestoff i algoritmeemner ved andre institusjoner —\ner **ikke** en del av dette emnet.\n\nDet er ikke det samme som at de er uviktige i faget algoritmer. Det betyr at de\nikke testes her, og at timene er bedre brukt et annet sted."
+    },
+    {
+      "id": "in2010-7-3-tip-3",
+      "type": "tip",
+      "title": "Bør kjenne til: dette er IKKE IN2010-pensum",
+      "content": "Fem temaer som ikke testes i dette emnet. Ingen kapittel i denne boka bygger på\ndem, og de har ikke vært på noen av de sju settene i arkivet.\n\n- **Dynamisk programmering.** Teknikken med å bygge opp en tabell av delløsninger\n  — ryggsekkproblemet, lengste felles delsekvens, myntveksling. Dette er en tung\n  bolk i mange algoritmeemner, og den er fraværende her.\n- **Maks-flyt.** Flytnettverk og Ford-Fulkerson-metoden, med snitt og\n  restnettverk. Ikke pensum.\n- **Masterteoremet og rekurrensligninger.** Metoden for å løse\n  $T(n) = aT(n/b) + f(n)$. Kjøretidsanalyse i dette emnet gjøres ved\n  **løkketelling** — se [kap. 1.2](/in2010/in2010-1-2) — og rekursive algoritmer\n  analyseres ved å telle arbeidet per nivå eller si «hver node besøkes én gang».\n- **Floyd-Warshall.** Alle-par-korteste-vei ved en trippelnøstet løkke over\n  mellomnoder. Korteste vei her er BFS, Dijkstra, Bellman-Ford og\n  DAG-metoden — se [kap. 6.2](/in2010/in2010-6-2).\n- **Gale-Shapley.** Algoritmen for stabil matching mellom to grupper. Ikke\n  pensum.\n\n**Hvorfor dette står i boka:** en student som leser en generisk algoritmebok fra\nperm til perm, eller som følger et pensum fra et algoritmeemne ved en annen\ninstitusjon, kan bruke uker på nettopp disse fem. De er velskrevne, de er\nvanskelige, og de føles som kjernestoff. Her gir de null poeng.\n\n**Og motsatt vei — dette er tyngre her enn du kanskje tror:**\n\n- **Hashing med lineær probing** er med i **7 av 7 sett (100 %)**, og testes både\n  som håndkjøring og som pseudokode. I flere andre algoritmeemner er hashing et\n  faktapunkt; her er det en utførelsesferdighet. Se\n  [kap. 3.1](/in2010/in2010-3-1) og [kap. 3.3](/in2010/in2010-3-3).\n- **AVL-rotasjoner** håndkjøres, med krav om antall enkle rotasjoner og rotverdi.\n  Se [kap. 4.3](/in2010/in2010-4-3).\n\nTimene du sparer på listen over, er godt brukt på de to punktene her."
+    },
+    {
+      "id": "in2010-7-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) Du har fire kvelder igjen før eksamen og finner en algoritmebok med\ndisse fem kapitlene igjen ulest. Ranger dem etter forventet poengutbytte på\neksamen i **dette** emnet, og begrunn kort.\n\n**a)** «Flytnettverk og maks-flyt»\n**b)** «Hashtabeller: åpen adressering og lineær probing»\n**c)** «Rekurrensligninger og masterteoremet»\n**d)** «Balanserte søketrær: AVL og rød-svart»\n**e)** «Dynamisk programmering: ryggsekk og lengste felles delsekvens»",
+        "solution": "**Rangeringen: b), d) — og deretter ingenting. a), c) og e) kan du legge bort.**\n\n**b) Hashtabeller med lineær probing — høyest prioritet.** Temaet er med i\n**7 av 7 sett (100 %)**, og det testes både som håndkjøring (sett inn nøkler,\noppgi hele tabellen) og som pseudokode (skriv `Insert` med `mod N`-wraparound).\nDette er blant de sikreste poengene på hele eksamen.\n\n**d) Balanserte søketrær — nest høyest.** Balanserte trær er med i\n**3 av 7 sett (43 %)**, og AVL-rotasjoner håndkjøres. Rød-svart-trær er «bør\nkjenne til»-stoff — les AVL-delen først.\n\n**a), c) og e) — ikke pensum i dette emnet.** Ingen av de tre har vært på noen av\nde sju settene i arkivet, og ingen kapittel i denne boka bygger på dem.\nKjøretidsanalyse gjøres her ved løkketelling, ikke ved rekurrenser.\n\n**Merk hva rangeringen egentlig måler.** Ikke hvor vanskelig eller hvor interessant\nstoffet er — bare hvor sannsynlig det er at det gir poeng. De tre du legger bort,\ner ikke lettere enn de to du leser. De er bare ikke på denne eksamen.\n\n**Merk også hvorfor spørsmålet er verdt en oppgave:** de tre bortlagte temaene\nopptar typisk en fjerdedel av en generisk algoritmebok. Å vite at de kan stå\nuleste, er antakelig den enkeltopplysningen i dette kapitlet som er verdt mest\ntid.",
+        "hints": [
+          "Slå opp temafrekvensene i eksamenskartet i [kap. 0.1](/in2010/in2010-0-1) før du rangerer.",
+          "Tre av de fem står nevnt i avgrensningsboksen over. Hva sier den om dem?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-3-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å reversere reduksjonsretningen.** Å redusere ditt problem **til** noe\n  NP-komplett beviser ingenting om ditt problems vanskelighet. Reduser **fra** det\n  vanskelige. Felle **#8**, og eksplisitt trukket for i arkivet.\n- **Å glemme siste kant i rundturen.** En verifikator uten `(C[N-1], C[0])`, altså\n  uten `mod N` i siste steg, godkjenner stier som ikke lukker seg. Felle **#7**.\n- **Å tro at $P = NP$ eller $P \\neq NP$ er avgjort.** Begge påstandene om at noe\n  er bevist, er usanne. Dette er det aller enkleste punktet i bolken, og det er\n  også det som oftest kommer.\n- **Å forveksle $NP$ med «ikke i $P$».** $P \\subseteq NP$, så alle de lette\n  problemene ligger også i $NP$. Forkortelsen betyr «ikke-deterministisk\n  polynomisk», ikke «ikke-polynomisk».\n- **Å glemme at omskrivningen i en reduksjon må være polynomisk.** Det er en del\n  av definisjonen, ikke en detalj — og det er det leddet som oftest mangler i\n  ellers riktige besvarelser.\n- **Å la verifikatoren lete etter et svar.** En verifikator som prøver\n  alternativer, er ikke en verifikator. Den får sertifikatet utlevert og\n  kontrollerer det, én gjennomgang.\n- **Å kopiere rundtur-løkka inn i en klikk-verifikator.** En klikk krever at\n  **alle par** er naboer, ikke bare de som følger etter hverandre — og der finnes\n  ingen `mod N`."
+    },
+    {
+      "id": "in2010-7-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L, eksamensnivå.) En student skriver:\n\n> *«Jeg har funnet en algoritme som løser CLIQUE på grafer med under 30 noder på\n> under ett sekund. Siden CLIQUE er NP-komplett, har jeg dermed vist at\n> $P = NP$.»*\n\n**a)** Hva er galt med slutningen?\n**b)** Hva ville faktisk vært nok til å vise $P = NP$?\n**c)** Hva ville det betydd for de andre NP-komplette problemene?",
+        "solution": "**a)** Feilen ligger i «under 30 noder». En algoritme som er rask på grafer opp\ntil en fast størrelse, sier ingenting om kjøretidens **vekst**. En algoritme som\nprøver alle delmengder er $O(2^N)$, og for $N = 30$ er $2^{30}$ rundt en\nmilliard — fullt kjørbart på et sekund. For $N = 60$ er det over en trillion.\n\nKompleksitetsklassene handler om hvordan kjøretiden vokser med inndatas\nstørrelse, ikke om hvor raskt et program er på en bestemt maskin for bestemte\ninndata.\n\n**b)** En algoritme som løser CLIQUE i **polynomisk tid for alle $N$** — altså\n$O(N^k)$ for en fast $k$, med en analyse som gjelder uansett hvor stor grafen er.\nDa, og bare da, følger $P = NP$.\n\n**c)** Alle NP-komplette problemer ville falt samtidig. Hvert problem i $NP$ kan\nreduseres polynomisk til CLIQUE, så en polynomisk CLIQUE-løser gir en polynomisk\nløser for hele $NP$: skriv om (polynomisk), løs (polynomisk), les av svaret.\n\nKonkret ville Hamiltonsykel, Knapsack og generalisert Sudoku alle hatt\npolynomiske algoritmer, og skillet mellom «å finne» og «å kontrollere» ville vært\nborte.\n\n**Merk hva denne oppgaven trener.** Ikke en formel, men vanen med å spørre «for\nhvilke $n$?» hver gang noen oppgir en kjøretid. Det er den samme disiplinen som\nkreves på Del 2, der kjøretiden du oppgir, må matche algoritmen du faktisk\nskrev — og der det trekkes for å bruke $n$ uten å definere det.",
+        "hints": [
+          "Hva er $2^{30}$ omtrent, og hva er $2^{60}$? Regn dem ut før du svarer.",
+          "Del b): hvilket ord i definisjonen av $P$ mangler i studentens påstand?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) For hvert problem: er det i $P$, er det NP-komplett, eller kan det\nikke avgjøres av det som står i oppgaven? Begrunn med én setning.\n\n**a)** Finnes det en sti fra $u$ til $v$ i en urettet graf?\n**b)** Finnes det en rundtur som besøker hver node nøyaktig én gang?\n**c)** Finnes det et spenntre med totalvekt under $B$?\n**d)** Finnes det en mengde på $k$ noder der alle par er naboer?",
+        "solution": "**a) I $P$.** Ett dybde-først-søk eller bredde-først-søk fra $u$ svarer på\nspørsmålet i $O(\\lvert V \\rvert + \\lvert E \\rvert)$ — se\n[kap. 5.2](/in2010/in2010-5-2).\n\n**b) NP-komplett.** Dette er Hamiltonsykel. Merk hvor lite som skiller den fra\na): begge handler om å bevege seg langs kanter, men kravet «hver node nøyaktig én\ngang, og hjem igjen» flytter problemet over grensen.\n\n**c) I $P$.** Kjør Prim eller Kruskal, som gir det **minimale** spenntreet, og\nsammenlign totalvekten med $B$ — se [kap. 6.3](/in2010/in2010-6-3). Er ikke det\nminimale under $B$, er ingen det. Kjøretiden er\n$O((\\lvert V \\rvert + \\lvert E \\rvert)\\log \\lvert V \\rvert)$.\n\n**d) NP-komplett.** Dette er CLIQUE.\n\n**Merk mønsteret i de fire.** To av dem løses av algoritmer du allerede kan, og to\nhar ingen kjent polynomisk løsning — men alle fire er lette å **kontrollere** hvis\nnoen leverer deg et forslag. Det er derfor alle fire ligger i $NP$: også a) og c),\nsiden $P \\subseteq NP$.\n\n**Merk hvor forskjellen ligger i c).** «Under $B$» ser ut som en ekstra\nbegrensning som kunne gjort problemet vanskelig, men det gjør det ikke: å finne\ndet aller beste spenntreet er allerede billig, så terskelspørsmålet blir det\nogså. Sammenlign med b), der det å finne den beste rundturen ikke er billig.",
+        "hints": [
+          "Spør for hvert punkt: kjenner du allerede en algoritme fra boka som svarer på det?",
+          "Del c): hvis du finner det aller letteste spenntreet, hva vet du da om alle de andre?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-3-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-7-3-def-14",
+      "type": "definition",
+      "title": "De vanligste sant/usant-fellene om P og NP",
+      "content": "**Usant:** «$NP$ betyr ikke-polynomisk». «Det er bevist at $P = NP$». «Det er\nbevist at $P \\neq NP$». «Alle avgjørelsesproblemer ligger i $P$ eller $NP$».\n\n**Sant:** «$P \\subseteq NP$». «En polynomisk verifikator viser at problemet er i\n$NP$». «Alle NP-komplette problemer kan reduseres til hverandre». «Løser du ett\nNP-komplett problem i polynomisk tid, er $P = NP$».\n\nÅtte punkter, fire av hver. Det er hele Del 1-pensumet i denne bolken."
+    },
+    {
+      "id": "in2010-7-3-def-15",
+      "type": "definition",
+      "title": "Verifikatorens tre kontroller for en rundtur",
+      "content": "1. **Lengde:** har sertifikatet nøyaktig $N$ noder?\n2. **Distinkthet:** forekommer noen node to ganger?\n3. **Kanter:** er hvert par som følger etter hverandre en kant — inkludert\n   `(C[N-1], C[0])` via `(i + 1) mod N`?\n\nRekkefølgen er ikke tilfeldig: den billigste kontrollen står først. Alle tre\nkreves, og det er nummer 3 som ryker oftest."
+    },
+    {
+      "id": "in2010-7-3-def-16",
+      "type": "definition",
+      "title": "Hvorfor verifikatoren må være polynomisk",
+      "content": "Kravet for medlemskap i $NP$ er at kontrollen kan gjøres i polynomisk tid — ikke\nat den er rask i noen praktisk forstand.\n\n$O(N)$, $O(N^2)$ og $O(k^2)$ er alle gode nok. En «verifikator» som prøver alle\nrekkefølger for å se om sertifikatet passer, er derimot $O(N!)$ og viser\ningenting."
+    },
+    {
+      "id": "in2010-7-3-def-17",
+      "type": "definition",
+      "title": "Utenfor IN2010-pensum",
+      "content": "Fem temaer som ikke testes i dette emnet, og som ingen kapittel i boka bygger på:\ndynamisk programmering, maks-flyt (Ford-Fulkerson), masterteoremet og\nrekurrensligninger, Floyd-Warshall, og Gale-Shapley.\n\nDe er kjernestoff i flere andre algoritmeemner og fyller store deler av en\ngenerisk algoritmebok. Her gir de null poeng. Kjøretidsanalyse gjøres ved\nløkketelling."
+    },
+    {
+      "id": "in2010-7-3-def-18",
+      "type": "definition",
+      "title": "Tyngre her enn i en generisk algoritmebok",
+      "content": "**Hashing med lineær probing:** 7 av 7 sett (100 %), testet både som håndkjøring\nog som pseudokode med `mod N`-wraparound. **AVL-rotasjoner:** håndkjøres, med\nkrav om antall enkle rotasjoner og rotverdi.\n\nBegge undervurderes systematisk av studenter som kommer fra et annet\nalgoritmepensum, der de er faktapunkter snarere enn utførelsesferdigheter."
+    },
+    {
+      "id": "in2010-7-3-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-7-3-rep-1",
+          "type": "text",
+          "content": "**De åtte faste faktapunktene:**\n\n| Påstand | Svar |\n|---|---|\n| $P \\subseteq NP$ | sant |\n| Polynomisk verifikator gir medlemskap i $NP$ | sant |\n| Alle NP-komplette problemer reduseres til hverandre | sant |\n| Ett NP-komplett problem løst i polytid gir $P = NP$ | sant |\n| Det er bevist at $P = NP$ | usant |\n| Det er bevist at $P \\neq NP$ | usant |\n| Alle avgjørelsesproblemer er i $P$ eller $NP$ | usant |\n| $NP$ betyr «ikke-polynomisk» | usant |\n\n**Verifikatoren, som må sitte:**\n\n```text\nProcedure VerifiserHamiltonsykel(G, C)\n  if lengden av C er ulik N: return usant\n  sjekk at ingen node forekommer to ganger\n  for i = 0 til N-1:\n      if ErKant(G, C[i], C[(i + 1) mod N]) er usant:\n          return usant\n  return sant\n```\n\nKjøretid: $O(N)$ kantoppslag med nabomatrise. Den ene linjen alt henger på, er\n`(i + 1) mod N`.\n\n**Reduksjonsretningen i seks ord:** reduser **fra** det vanskelige, **til** ditt\neget. Kjent-vanskelig $\\leq_p X$ viser at $X$ er vanskelig. Motsatt vei viser\ningenting.\n\n**Avgrensningen:** dynamisk programmering, maks-flyt, masterteoremet,\nFloyd-Warshall og Gale-Shapley er ikke pensum her. Timene går til hashing\n(100 %) og AVL-håndkjøring i stedet.\n\n**Tre kontroller som tar ti sekunder hver:** har verifikatoren din `mod N` i\nsiste steg? Går reduksjonen din fra det kjente vanskelige problemet? Og har du\nsagt at omskrivningen er polynomisk?\n\n**Videre:** [kap. 7.1](/in2010/in2010-7-1) om ADT-design og\n[kap. 7.2](/in2010/in2010-7-2) om drøftingssjangeren fullfører Del 7. Deretter\nventer prøvene til delen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

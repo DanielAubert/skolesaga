@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Etter 3 fullførte iterasjoner av boblesortering på et array med 10 elementer — hva er garantert?",
+    "options": [
+      "De 3 største elementene ligger på endelig plass, helt til høyre",
+      "De 3 minste elementene ligger på endelig plass, helt til venstre",
+      "De 3 første elementene er sortert innbyrdes, men ikke endelig",
+      "De 3 største elementene er funnet, men ikke plassert ennå"
+    ],
+    "explanation": "Bobleinvarianten låser de $i$ største helt til høyre etter $i$ runder. Alternativet med de minste til venstre er utvalgssorteringens invariant, og alternativet om innbyrdes sortering er innsettingssorteringens — begge er nære distraktorer nettopp fordi de tre invariantene er så like i formen."
+  },
+  {
+    "question": "Etter 4 fullførte iterasjoner av innsettingssortering — hva gjelder for de 5 første elementene?",
+    "options": [
+      "De er sortert innbyrdes, men ikke nødvendigvis endelig plassert",
+      "De er sortert innbyrdes og står på sine endelige plasser",
+      "De er de 5 minste elementene i arrayet, endelig plassert",
+      "De er de 5 største elementene, flyttet mot venstre ende"
+    ],
+    "explanation": "Innsettingssortering utvider et sortert prefiks med ett element per runde, så etter $i$ runder er de $i+1$ første sortert innbyrdes. Et element som kommer senere kan forskyve hele prefikset, så ingenting er endelig plassert. At prefikset er «endelig» er den vanligste feilen på sjanger D."
+  },
+  {
+    "question": "Hvilken av de tre kvadratiske sorteringene er IKKE stabil?",
+    "options": [
+      "Utvalgssortering",
+      "Boblesortering",
+      "Innsettingssortering",
+      "Boblesortering med tidlig stopp"
+    ],
+    "explanation": "Utvalgssortering bytter minsteelementet over lang avstand og kan hoppe forbi en lik nøkkel. Boblesortering og innsettingssortering flytter kun forbi strengt større elementer og er derfor stabile — tidlig stopp endrer ingenting ved stabiliteten, bare kjøretiden i beste tilfelle."
+  },
+  {
+    "question": "Hva er beste tilfelle for utvalgssortering?",
+    "options": [
+      "$O(n^2)$ — den må lete gjennom resten uansett",
+      "$O(n)$ — den oppdager at arrayet allerede er sortert",
+      "$O(n \\log n)$ — den er lineærlogaritmisk på sorterte data",
+      "$O(1)$ — den returnerer uten arbeid på sorterte data"
+    ],
+    "explanation": "Utvalgssortering gjør alltid $\\frac{n(n-1)}{2}$ sammenligninger, også på et ferdigsortert array, fordi den ikke kan vite at minsteverdien er funnet før den har sett resten. At den skulle ha $O(n)$ i beste tilfelle er en distraktor som fanger den som blander den sammen med innsettingssortering."
+  },
+  {
+    "question": "Hvilken av de tre kvadratiske sorteringene gjør færrest bytter?",
+    "options": [
+      "Utvalgssortering, med høyst $n-1$ bytter uansett input",
+      "Boblesortering, som bare bytter naboer og derfor flytter minst",
+      "Innsettingssortering, som forskyver i stedet for å bytte",
+      "Alle tre gjør like mange bytter på det samme arrayet"
+    ],
+    "explanation": "Utvalgssortering gjør høyst ett bytte per runde, altså høyst $n-1$ i alt. Boblesortering kan gjøre opp til $\\frac{n(n-1)}{2}$ bytter, og innsettingssortering like mange forskyvninger — at forskyvninger ikke heter «bytter» gjør dem ikke gratis."
+  },
+  {
+    "question": "Hva betyr det at en sortering er in-place?",
+    "options": [
+      "Den bruker $O(1)$ ekstra minne utover selve arrayet",
+      "Den bevarer innbyrdes rekkefølge mellom like nøkler",
+      "Den returnerer et nytt array i stedet for å endre inputen",
+      "Den har samme kjøretid i beste og verste tilfelle"
+    ],
+    "explanation": "In-place handler om minnebruk: noen hjelpevariabler er greit, et nytt array på $n$ plasser er det ikke. Alternativet om innbyrdes rekkefølge beskriver stabilitet, som er en helt annen egenskap — de to blandes ofte fordi de nevnes i samme åndedrag."
+  },
+  {
+    "question": "En liste er sortert alfabetisk og skal nå sorteres på årstall, med alfabetisk rekkefølge beholdt innen hvert år. Hvilken egenskap kreves?",
+    "options": [
+      "Stabilitet — like nøkler må beholde innbyrdes rekkefølge",
+      "In-place — sorteringen må skje uten et nytt hjelpearray",
+      "Lineær kjøretid — ellers rekker den ikke å bevare rekkefølgen",
+      "Sammenligningsbasert — ellers ser den ikke på årstallene"
+    ],
+    "explanation": "Alle bøkene fra samme år har lik nøkkel, og stabilitet er nettopp garantien for at like nøkler beholder rekkefølgen fra input. In-place og kjøretid er reelle egenskaper, men de sier ingenting om hva som skjer med like nøkler."
+  },
+  {
+    "question": "Du skal sortere på hovednøkkel A og andrenøkkel B med en stabil sortering. Hvilken rekkefølge?",
+    "options": [
+      "Sortér på B først, deretter på A",
+      "Sortér på A først, deretter på B",
+      "Sortér på A og B samtidig i én gjennomgang",
+      "Rekkefølgen spiller ingen rolle når sorteringen er stabil"
+    ],
+    "explanation": "Den siste sorteringen styrer hovedrekkefølgen, så hovednøkkelen må komme sist. Regelen er kontraintuitiv, og den er samtidig hele maskineriet i radix sort, som sorterer på minst signifikante siffer først."
+  },
+  {
+    "question": "Hvor mange sammenligninger gjør den indre løkka i runde 5 av boblesortering på et array med 12 elementer?",
+    "options": [
+      "7",
+      "8",
+      "5",
+      "12"
+    ],
+    "explanation": "Runde $i$ sammenligner naboparene fra indeks 0 til $n-i-1$, altså $n-i$ par: $12 - 5 = 7$. Svaret 8 er den klassiske bommen med én, fordi antall par er ett mindre enn antall gjenværende elementer."
+  },
+  {
+    "question": "Hva er nedre grensen for antall sammenligninger en sammenligningsbasert sortering trenger i verste tilfelle?",
+    "options": [
+      "$\\Omega(n \\log n)$",
+      "$\\Omega(n)$",
+      "$\\Omega(n^2)$",
+      "$\\Omega(\\log n)$"
+    ],
+    "explanation": "Hver sammenligning gir ett bit informasjon, og algoritmen må kunne skille $n!$ mulige rekkefølger, som krever minst $\\log_2(n!)$ sammenligninger — det vokser som $n \\log n$. Grensen gjelder verste tilfelle; i beste tilfelle kan innsettingssortering klare seg med $O(n)$."
+  },
+  {
+    "question": "Hvilket utsagn om boblesortering er sant?",
+    "options": [
+      "Uten tidlig stopp er også beste tilfelle $O(n^2)$",
+      "Med tidlig stopp blir verste tilfelle $O(n \\log n)$",
+      "Den er ustabil fordi den bytter elementer under sorteringen",
+      "Den trenger et hjelpearray på $n$ plasser til byttene"
+    ],
+    "explanation": "Uten `byttet`-flagget kjører den alle $n-1$ rundene uansett, så beste tilfelle er også kvadratisk. Tidlig stopp forbedrer bare beste tilfelle, aldri verste, og selve byttene skjer i arrayet med én hjelpevariabel — algoritmen er både stabil og in-place."
+  },
+  {
+    "question": "Et array på 10 000 elementer er nesten sortert. Hvilken av de tre kvadratiske sorteringene bør du velge?",
+    "options": [
+      "Innsettingssortering, fordi den nærmer seg $O(n)$ på slike data",
+      "Utvalgssortering, fordi den gjør færrest bytter på slike data",
+      "Boblesortering, fordi nabobyttene er raskest på slike data",
+      "Alle tre er like gode, siden alle tre er $O(n^2)$"
+    ],
+    "explanation": "Er hvert element bare noen få plasser fra sin plass, stopper den indre `while`-løkka nesten umiddelbart, og innsettingssortering nærmer seg lineær kjøretid. Utvalgssortering merker ingenting til at arrayet er nesten sortert — den er $O(n^2)$ uansett input."
+  },
+  {
+    "question": "Hvilken av disse sorteringene er IKKE in-place?",
+    "options": [
+      "Flettesortering",
+      "Boblesortering",
+      "Utvalgssortering",
+      "Innsettingssortering"
+    ],
+    "explanation": "Flettesortering trenger et hjelpearray på $n$ plasser til selve flettingen og bruker derfor $O(n)$ ekstra minne. Alle tre kvadratiske sorteringene i dette kapitlet arbeider på stedet med bare noen få hjelpevariabler."
+  },
+  {
+    "question": "Etter 6 iterasjoner av utvalgssortering på 20 elementer — hvilke indekser er ferdige?",
+    "options": [
+      "0 til 5, med de 6 minste elementene",
+      "14 til 19, med de 6 største elementene",
+      "0 til 6, med de 7 minste elementene",
+      "0 til 5, men bare sortert innbyrdes, ikke endelig"
+    ],
+    "explanation": "Utvalgssortering fyller opp fra venstre med de minste, ett per runde, så etter 6 runder er indeksene 0 til 5 endelig plassert. Alternativet med indeks 14 til 19 er bobleinvarianten, og alternativet om «bare innbyrdes» er innsettingssorteringens svakere garanti."
+  },
+  {
+    "question": "Hvorfor er innsettingssortering stabil?",
+    "options": [
+      "Fordi den bare forskyver elementer forbi strengt større elementer",
+      "Fordi den alltid arbeider fra venstre mot høyre i arrayet",
+      "Fordi den bruker $O(1)$ ekstra minne og aldri kopierer",
+      "Fordi den har $O(n)$ i beste tilfelle på sorterte data"
+    ],
+    "explanation": "Betingelsen `A[j] > x` er strengt større, så et element skyves aldri forbi et likt element, og innbyrdes rekkefølge overlever. Retningen den arbeider i, minnebruken og kjøretiden er ekte egenskaper ved algoritmen, men ingen av dem har noe med stabilitet å gjøre."
+  },
+  {
+    "question": "Hvilken påstand om de tre kvadratiske sorteringene er usann?",
+    "options": [
+      "Alle tre har $O(n)$ i beste tilfelle på et ferdigsortert array",
+      "Alle tre er $O(n^2)$ i verste tilfelle på en vilkårlig input",
+      "Alle tre er in-place og bruker $O(1)$ ekstra minne",
+      "Alle tre er sammenligningsbaserte og bundet av $\\Omega(n \\log n)$"
+    ],
+    "explanation": "Utvalgssortering er $O(n^2)$ også på et ferdigsortert array, så påstanden om beste tilfelle gjelder bare innsettingssortering og boblesortering med tidlig stopp. De tre andre påstandene er sanne for alle tre, og de fungerer som distraktorer nettopp fordi de føles for enkle til å være riktige."
+  }
+]

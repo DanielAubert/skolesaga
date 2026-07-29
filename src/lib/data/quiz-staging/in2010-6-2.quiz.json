@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er Dijkstras forutsetning for at svaret skal bli riktig?",
+    "options": [
+      "At ingen enkeltkant har negativ vekt",
+      "At grafen ikke inneholder noen negativ sykel",
+      "At grafen er sammenhengende og har minst én sykel",
+      "At alle kantvektene er hele tall større enn null"
+    ],
+    "explanation": "Invarianten hviler på at ingen kant kan trekke fra: enhver alternativ vei må gå via en node med minst like høy avstand. «Ingen negativ sykel» er **Bellman-Fords** krav, og å blande de to er den vanligste fella i kapitlet — Dijkstra feiler på grafer helt uten sykler."
+  },
+  {
+    "question": "Hvilken algoritme gir korteste vei raskest i en **uvektet** graf?",
+    "options": [
+      "Bredde-først-søk, $O(|V| + |E|)$",
+      "Dijkstra, $O((|V| + |E|)\\log |V|)$",
+      "Bellman-Ford, $O(|V| \\cdot |E|)$",
+      "Dybde-først-søk, $O(|V| + |E|)$"
+    ],
+    "explanation": "Uten vekter er korteste vei det samme som færrest kanter, og det er nettopp det bredde-først-søket teller lagvis. Dybde-først-søk har samme kjøretid, men besøker ikke nodene i avstandsrekkefølge og gir derfor gale avstander."
+  },
+  {
+    "question": "Hva er kjøretiden til Dijkstra med binær prioritetskø?",
+    "options": [
+      "$O((|V| + |E|)\\log |V|)$",
+      "$O(|V| \\cdot |E| \\log |V|)$",
+      "$O(|V| + |E|)$",
+      "$O(|E| + |V| \\log |E|)$"
+    ],
+    "explanation": "$|V|$ uttak à $O(\\log |V|)$ pluss $|E|$ relakseringer som hver kan koste en `DecreaseKey` à $O(\\log |V|)$. Produktet $|V| \\cdot |E|$ oppstår hvis man tror den indre løkka går over alle kanter for hver node — den går over nabolista til den ene noden."
+  },
+  {
+    "question": "Grafen er en **vektet DAG**. Hvilken metode gir lavest kjøretid?",
+    "options": [
+      "Topologisk sortering, deretter én gjennomgang med relaksering",
+      "Dijkstra med binær prioritetskø over alle nodene",
+      "Bellman-Ford med $|V| - 1$ fulle relakseringsrunder",
+      "Bredde-først-søk fra kildenoden, lag for lag"
+    ],
+    "explanation": "I topologisk rekkefølge er hver node ferdig i det du kommer til den, så én gjennomgang holder: $O(|V| + |E|)$. Metoden tåler i tillegg negative vekter. Dijkstra er korrekt her (hvis vektene er ikke-negative), men tregere, og taper poengtrappen."
+  },
+  {
+    "question": "Hva er kjøretiden til Bellman-Ford?",
+    "options": [
+      "$O(|V| \\cdot |E|)$",
+      "$O(|V| + |E|)$",
+      "$O((|V| + |E|)\\log |V|)$",
+      "$O(|V|^2 \\log |E|)$"
+    ],
+    "explanation": "Alle $|E|$ kanter relakseres i hver av $|V| - 1$ runder. Det er klart tregere enn Dijkstra, og prisen for å tåle negative kantvekter."
+  },
+  {
+    "question": "Hvorfor kjører Bellman-Ford nøyaktig $|V| - 1$ runder?",
+    "options": [
+      "Fordi en korteste vei aldri har flere enn $|V| - 1$ kanter",
+      "Fordi hver runde gjør nøyaktig én node ferdig for godt",
+      "Fordi antall kanter i en sammenhengende graf er minst $|V| - 1$",
+      "Fordi prioritetskøen tømmes med én node per runde"
+    ],
+    "explanation": "Etter runde $k$ er alle korteste veier med høyst $k$ kanter funnet, og en vei med flere enn $|V| - 1$ kanter måtte besøkt en node to ganger. Bellman-Ford har ingen prioritetskø i det hele tatt."
+  },
+  {
+    "question": "Du har tre mulige utgangspunkt og én målnode. Hva gir lavest kjøretid?",
+    "options": [
+      "Én Dijkstra fra målet i den reverserte grafen",
+      "Én Dijkstra fra hvert av de tre utgangspunktene",
+      "Én bredde-først-traversering fra hvert utgangspunkt",
+      "Én Bellman-Ford-kjøring fra målnoden i grafen"
+    ],
+    "explanation": "Avstanden fra $p$ til $t$ i $G$ er den samme som fra $t$ til $p$ i $G^R$, så én kjøring gir avstanden til alle utgangspunkt samtidig. Tre kjøringer er korrekt, men koster tre ganger så mye — dette er det dokumenterte A/B-skillet på oppgavetypen."
+  },
+  {
+    "question": "Hva koster det å bygge den reverserte grafen $G^R$?",
+    "options": [
+      "$O(|V| + |E|)$ — én gjennomgang av alle nabolistene",
+      "$O(|E| \\log |V|)$ — kantene legges inn i en prioritetskø",
+      "$O(|V|^2)$ — hele nabomatrisen må transponeres",
+      "$O(|V| \\cdot |E|)$ — hver node sjekkes mot hver kant"
+    ],
+    "explanation": "Du leser hver naboliste én gang og legger kanten `u -> v` inn som `v -> u`. Ingen sortering og ingen prioritetskø trengs, så det koster ikke mer enn å lese grafen — derfor er reverseringen praktisk talt gratis."
+  },
+  {
+    "question": "Når er avstanden til en node **endelig** i Dijkstras algoritme?",
+    "options": [
+      "Når noden er tatt ut av prioritetskøen",
+      "Når noden først blir oppdaget fra en nabo",
+      "Når alle naboene til noden er relaksert",
+      "Når prioritetskøen er blitt helt tom"
+    ],
+    "explanation": "Uttaket er øyeblikket garantien slår inn: enhver annen vei dit måtte gå via en node som fortsatt ligger i køen med minst like høy avstand. Å stoppe når målnoden blir *oppdaget*, er en fast felle — verdien kan fortsatt bli lavere."
+  },
+  {
+    "question": "Hva er relaksering av kanten fra $u$ til $v$?",
+    "options": [
+      "Å sette `avstand[v]` til `avstand[u] + w(u,v)` hvis det er lavere",
+      "Å fjerne kanten fra grafen når den ikke kan inngå i noen vei",
+      "Å senke vekten på kanten til den minste vekten i grafen",
+      "Å flytte noden $v$ ut av prioritetskøen og erklære den ferdig"
+    ],
+    "explanation": "Relaksering er grunnoperasjonen i alle fire algoritmene, og koster $O(1)$. Det som skiller BFS, Dijkstra, DAG-metoden og Bellman-Ford, er utelukkende **rekkefølgen** kantene relakseres i."
+  },
+  {
+    "question": "Sant eller usant: BFS gir korteste vei i en graf der alle kanter har vekt 1.",
+    "options": [
+      "Sant — kostnaden er da nøyaktig antall kanter",
+      "Usant — vektede grafer krever alltid Dijkstra",
+      "Sant, men bare hvis grafen også er asyklisk",
+      "Usant — BFS gir bare korteste vei i urettede grafer"
+    ],
+    "explanation": "Med like vekter faller «færrest kanter» og «lavest kostnad» sammen, og det er nettopp det BFS teller. BFS virker like godt på rettede som urettede grafer, og sykler er ikke noe problem."
+  },
+  {
+    "question": "Hva skjer med noder som ikke kan nås fra startnoden i Dijkstra?",
+    "options": [
+      "De beholder $\\infty$ som avstand, og det er en del av svaret",
+      "De fjernes fra prioritetskøen uten å bli tatt med i tabellen",
+      "De får avstanden 0, siden ingen vei dit er funnet",
+      "De gir en feilmelding fordi grafen ikke er sammenhengende"
+    ],
+    "explanation": "$\\infty$ er et gyldig og påkrevd svar: sensor ber om avstanden til **alle** noder. En besvarelse som utelater de uoppnåelige nodene, har ikke oppgitt hele sluttilstanden."
+  },
+  {
+    "question": "Hva er en negativ sykel, og hva betyr den for korteste vei?",
+    "options": [
+      "En sykel med negativ totalvekt — da finnes ingen korteste vei",
+      "En sykel med minst én negativ kant — Dijkstra må da brukes",
+      "En sykel som besøkes baklengs — den kan alltid ignoreres",
+      "En sykel i den reverserte grafen — den påvirker ikke svaret"
+    ],
+    "explanation": "Hver ny runde rundt sykelen gjør veien billigere, i det uendelige, så noe minimum finnes ikke. Bellman-Ford oppdager det med én ekstra relakseringsrunde: gir runde $|V|$ fortsatt forbedringer, finnes en negativ sykel."
+  },
+  {
+    "question": "En graf har positive vekter, sykler og 500 noder. Hvilken algoritme velger du?",
+    "options": [
+      "Dijkstra, fordi ingen kant er negativ",
+      "Topologisk sortering, fordi den alltid er raskest",
+      "Bellman-Ford, fordi grafen har sykler",
+      "Bredde-først-søk, fordi antall noder er kjent"
+    ],
+    "explanation": "Syklene utelukker DAG-metoden, og vektene utelukker BFS. Bellman-Ford ville gitt riktig svar, men koster $O(|V| \\cdot |E|)$ mot Dijkstras $O((|V| + |E|)\\log |V|)$ — velg alltid den raskeste raden som passer."
+  },
+  {
+    "question": "Hva lagrer `forgjenger`-arrayet i en korteste-vei-algoritme?",
+    "options": [
+      "Noden vi kom fra da avstanden sist ble forbedret",
+      "Antall kanter på den korteste veien fram til noden",
+      "Den samlede vekten på veien fram til noden så langt",
+      "Hvilken plass noden har i prioritetskøens heap-array"
+    ],
+    "explanation": "Selve **veien** leses ut baklengs fra målet ved å følge forgjengerne, i $O(|V|)$. Uten arrayet har du bare avstandene, og oppgaver som spør «hvilken vei» krever begge deler."
+  },
+  {
+    "question": "Dijkstra kjøres uten prioritetskø, med lineær leting etter minste avstand hver runde. Hva blir kjøretiden?",
+    "options": [
+      "$O(|V|^2 + |E|)$",
+      "$O((|V| + |E|)\\log |V|)$",
+      "$O(|V| \\cdot |E|)$",
+      "$O(|V| + |E| \\log |E|)$"
+    ],
+    "explanation": "$|V|$ runder à $O(|V|)$ leting gir $O(|V|^2)$, pluss $O(|E|)$ relakseringer som nå er $O(1)$ hver. Varianten er faktisk raskere på svært tette grafer, men $O((|V| + |E|)\\log |V|)$ med binær heap er standardsvaret på eksamen."
+  }
+]

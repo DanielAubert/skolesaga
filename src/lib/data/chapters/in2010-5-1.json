@@ -1,0 +1,385 @@
+{
+ "id": "in2010-5-1",
+ "courseId": "in2010",
+ "chapterNumber": "5.1",
+ "title": "Grafrepresentasjon og grunnbegreper",
+ "description": "Grafer som `G=(V,E)`, nabolister vs. nabomatrise, rettet/urettet, vektet/uvektet, inngrad/utgrad — og hvorfor representasjonsvalg påvirker kjøretid.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne lese og skrive den samme grafen både som naboliste og som nabomatrise, og oppgi plassforbruket for begge",
+  "kunne avgjøre om en graf er enkel, om den er sammenhengende, om den inneholder en sykel og om den er et tre",
+  "kunne regne med grad, inngrad og utgrad, og bruke at gradsummen i en urettet graf er dobbelt så stor som antall kanter",
+  "kunne velge representasjon ut fra hvilke operasjoner algoritmen bruker mest, og alltid oppgi valget i en besvarelse"
+ ],
+ "content": [
+  {
+   "id": "in2010-5-1-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet er inngangsporten til den delen av eksamen som avgjør\nkarakteren.**\n\nGrafrepresentasjon og traversering har vært på **alle sju settene i arkivet\n(7 av 7, altså 100 %)**. Ingen andre temaer i faget har en sikrere plass. Og\ngrafene dukker ikke bare opp som et tema blant flere: de er materialet\n**Del 2** er laget av — den delen av eksamen der du skal skrive pseudokode\nog resonnere selv, og der karakteren i praksis avgjøres. Alt i\n[kap. 5.2](/in2010/in2010-5-2) til [kap. 5.5](/in2010/in2010-5-5) hviler på\napparatet du bygger her.\n\nSelve dette kapitlet testes to steder:\n\n- På **Del 1** — de mange små, automatisk rettede oppgavene — som\n  **sjanger F: matrise- og tabellavkryssing**, altså at du får noen grafer\n  og krysser av hvilke egenskaper hver av dem har. Er den sammenhengende?\n  Inneholder den en sykel? Er den et tre? Er den en enkel graf?\n- Som **kjøretidsfakta**: hva koster det å spørre «finnes kanten mellom $u$\n  og $v$?» i en nabomatrise, mot i en naboliste? Og hvor mye plass tar de to?\n\n**Én regel etableres her og gjelder resten av boka:** i en Del 2-besvarelse\noppgir **du** hvilken representasjon du antar. Sensor binder seg ikke til\nnabolister eller nabomatrise, men en besvarelse uten antagelsen mister\npoeng — for da kan kjøretiden du oppgir, ikke kontrolleres mot algoritmen du\nfaktisk skrev.\n\nPrioritet: **høyeste**. Dette er det kapitlet resten av Del 5 og hele Del 6\nstår på.\n\n**Slik er kapitlet lagt opp (45 min):** fire løkker med hvert sitt\ntidsanslag, og pausepunkter underveis."
+  },
+  {
+   "id": "in2010-5-1-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- [kap. 1.2](/in2010/in2010-1-2) — løkketelling. Alle kjøretidene i dette\n  kapitlet leses ut av hvor mange celler eller listeoppføringer en løkke må\n  innom.\n- [kap. 1.1](/in2010/in2010-1-1) — $O$-notasjon. Det nye her er at kjøretiden\n  avhenger av **to** størrelser samtidig, antall noder og antall kanter, og\n  ikke av én enkelt $n$. Uttrykk som $O(|V| + |E|)$ er derfor helt vanlige\n  fra nå av.\n\nEr det lenge siden du har sett objekter eller mengder, hjelper disse to:\n\n- [Klasser og objekter: `class`, `__init__` og `self`](/in1000/in1000-5-1) —\n  en node som et objekt med felter. Boka skriver `v.naboer` og senere\n  `v.visited`, og det er nøyaktig den tenkemåten.\n- [Mengdelære](/1t/1t-1-7) — mengdenotasjonen bak $G = (V, E)$. Helt\n  valgfritt: du trenger bare å vite at $V$ og $E$ er to samlinger av ting."
+  },
+  {
+   "id": "in2010-5-1-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-5-1-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister\nkjøretidsuttrykk og pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | en graf: mengden noder $V$ og mengden kanter $E$ |\n| $V$ | nodene i grafen (kalles også hjørner) |\n| $E$ | kantene i grafen |\n| $|V|$ | antall noder — den ene av grafens to størrelser |\n| $|E|$ | antall kanter — den andre |\n| $u$, $v$ | to noder |\n| $(u, v)$ | kanten mellom $u$ og $v$; i en rettet graf går den **fra** $u$ **til** $v$ |\n| $\\text{grad}(v)$ | antall kanter som møter noden $v$ |\n| $\\text{inngrad}(v)$, $\\text{utgrad}(v)$ | antall kanter inn til og ut fra $v$ i en rettet graf |\n| $O(|V| + |E|)$ | lineær tid i grafens størrelse — å se på hver node og hver kant én gang |\n| $O(|V|^2)$ | kvadratisk i antall noder — kostnaden ved å gå gjennom en hel nabomatrise |\n"
+    },
+    {
+     "id": "in2010-5-1-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `naboer(v)` | ramser opp alle nodene som deler en kant med `v` | naboliste $O(\\text{grad}(v))$; nabomatrise $O(|V|)$ |\n| `finnesKanten(u, v)` | svarer sant hvis det går en kant mellom `u` og `v` | naboliste $O(\\text{grad}(u))$; nabomatrise $O(1)$ |\n| `LeggTilKant(u, v)` | setter inn en ny kant i grafen | naboliste $O(1)$; nabomatrise $O(1)$ |\n| `LesHeleGrafen(G)` | går gjennom hver node og hver kant nøyaktig én gang | naboliste $O(|V| + |E|)$; nabomatrise $O(|V|^2)$ |\n| plassforbruk | hvor mye minne representasjonen krever | naboliste $O(|V| + |E|)$; nabomatrise $O(|V|^2)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\sum_{v \\in V} \\text{grad}(v) = 2|E|$$\n\nGradsummen i en urettet graf. Hver kant har to ender og bidrar derfor\nmed 1 til graden i hver av de to nodene sine — altså 2 til summen.\n\n$$|E| \\le \\frac{|V| \\cdot (|V| - 1)}{2}$$\n\nMaksimalt antall kanter i en **enkel** urettet graf: hvert par av noder\nkan ha høyst én kant, og det finnes så mange par.\n\n$$\\text{tre} \\iff \\text{sammenhengende og } |E| = |V| - 1$$\n\nTrekjennetegnet. Et tre henger sammen og har nøyaktig én kant mindre enn\ndet har noder. Legger du på én kant til, får du en sykel."
+    }
+   ]
+  },
+  {
+   "id": "in2010-5-1-t-1",
+   "type": "text",
+   "content": "## Løkke 1 — grafen som modell (ca. 10 min)\n\nFibernettet i en liten kommune består av fem koblingsskap, og mellom noen av\ndem er det gravd ned en kabel. Spørsmålet driftsvakta stiller klokka tre om\nnatta, er enkelt: **finnes det i det hele tatt en vei fra skap A til skap E?**\n\nFor å svare på det trenger hun ikke å vite hvor skapene står, hvor lang\nkabelen er, eller hvem som gravde den ned. Hun trenger bare to ting: hvilke\nskap finnes, og hvilke par av skap er koblet sammen.\n\nDet som blir igjen når du stryker alt annet, er en **graf**. Grafen er ikke\net bilde — den er en liste over hva som henger sammen med hva. Tegningen er\nbare en måte å se den på, og den samme grafen kan tegnes på uendelig mange\nmåter uten å bli en annen graf."
+  },
+  {
+   "id": "in2010-5-1-def-1",
+   "type": "definition",
+   "title": "Graf",
+   "content": "Et par $G = (V, E)$, der $V$ er en mengde **noder** og $E$ er en mengde\n**kanter**. Hver kant forbinder to noder.\n\nGrafens to størrelser er $|V|$ (antall noder) og $|E|$ (antall kanter), og\nalle kjøretider for grafalgoritmer oppgis i begge — for eksempel\n$O(|V| + |E|)$. Å oppgi en grafkjøretid som «$O(n)$» uten å si hva $n$ er,\ner en fast trekkgrunn."
+  },
+  {
+   "id": "in2010-5-1-def-2",
+   "type": "definition",
+   "title": "Urettet graf",
+   "content": "En graf der kantene ikke har retning: kanten $(u, v)$ er den samme som\n$(v, u)$, og du kan gå begge veier.\n\nFibernett, veinett uten enveiskjøring og vennelister er urettede. I en\nnaboliste betyr det at hver kant står **to** ganger — én gang under hver av\nde to endene."
+  },
+  {
+   "id": "in2010-5-1-def-3",
+   "type": "definition",
+   "title": "Rettet graf",
+   "content": "En graf der hver kant har en retning: $(u, v)$ går fra $u$ til $v$, og sier\ningenting om veien tilbake.\n\nLenker mellom nettsider, avhengigheter mellom programvarepakker og\nenveiskjørte gater er rettede. Her deles graden i **inngrad** og **utgrad**,\nog en naboliste inneholder hver kant nøyaktig én gang."
+  },
+  {
+   "id": "in2010-5-1-def-4",
+   "type": "definition",
+   "title": "Vektet graf",
+   "content": "En graf der hver kant i tillegg har et tall — en **vekt** — som kan bety\navstand, reisetid, kostnad eller kapasitet.\n\nEn uvektet graf er en der alle kanter teller likt. Skillet er avgjørende for\nhvilken algoritme som er riktig: i en **uvektet** graf finner en enkel\ntraversering korteste vei målt i antall kanter, mens vektede grafer krever\nandre verktøy (de kommer i Del 6). Alle grafene i Del 5 er uvektede."
+  },
+  {
+   "id": "in2010-5-1-def-5",
+   "type": "definition",
+   "title": "Enkel graf",
+   "content": "En graf uten **løkker** (en kant fra en node til seg selv) og uten\n**parallelle kanter** (to eller flere kanter mellom det samme nodeparet).\n\nNesten alt du møter på eksamen er enkelt, og det er derfor grensen\n$|E| \\le \\frac{|V| \\cdot (|V| - 1)}{2}$ gjelder. Merk at «enkel» ikke sier\nnoe som helst om grafen er sammenhengende, eller om den har sykler — det er\ntre uavhengige spørsmål, og en avkryssingsoppgave spør gjerne om alle tre på\nsamme graf."
+  },
+  {
+   "id": "in2010-5-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Fra historie til graf",
+   "problem": "Seks værstasjoner i en fjellkommune er koblet sammen med radiolinjer.\nStasjon A når B og C. Stasjon B når i tillegg D og E. Stasjon C når i\ntillegg F. Ingen andre par kan snakke direkte sammen, og alle linjene\nvirker begge veier.\n\nSkriv opp $V$, $E$, $|V|$ og $|E|$, sett opp nabolistene, og regn ut graden\ntil hver stasjon.",
+   "solution": "**Nodene:** $V = \\{A, B, C, D, E, F\\}$, altså $|V| = 6$.\n\n**Kantene** — hver linje nevnes én gang, uten retning:\n$E = \\{(A,B),\\ (A,C),\\ (B,D),\\ (B,E),\\ (C,F)\\}$, altså $|E| = 5$.\n\n**Nabolistene.** Fordi grafen er urettet, står hver linje under **begge**\nendene sine:\n\n```text\nA: B, C\nB: A, D, E\nC: A, F\nD: B\nE: B\nF: C\n```\n\nVi kaller denne grafen **U5** og kommer tilbake til den flere ganger i\nkapitlet.\n\n**Gradene:**\n\n| Node | A | B | C | D | E | F |\n|---|---|---|---|---|---|---|\n| $\\text{grad}$ | 2 | 3 | 2 | 1 | 1 | 1 |\n\n**Kontrollregningen som alltid lønner seg:** gradsummen er\n$2 + 3 + 2 + 1 + 1 + 1 = 10$, og $2|E| = 2 \\cdot 5 = 10$. Stemmer.\n\nLegg merke til at nabolistene har **10** oppføringer for **5** kanter. Det\ner ikke sløsing — det er hele poenget med en urettet naboliste, og det er\ngrunnen til at plassforbruket skrives $O(|V| + |E|)$ og ikke $O(|E|)$: du\ntrenger én listeoverskrift per node i tillegg, også for noder uten naboer.\n\n**Fellenote.** Fella her er å telle hver kant to ganger og få $|E| = 10$.\nAntall kanter er antall **linjer**, ikke antall listeoppføringer."
+  },
+  {
+   "id": "in2010-5-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger F — matrise- og tabellavkryssing, altså at du fyller\nut en tabell med grafens egenskaper.) Et vannverk har åtte pumpestasjoner\nkoblet med rør. Nabolistene er:\n\n```text\nA: B, C\nB: A, D\nC: A, D, E\nD: B, C, F\nE: C, F\nF: D, E, G\nG: F, H\nH: G\n```\n\n**a)** Hvor mange noder og hvor mange kanter har grafen?\n**b)** Sett opp graden til hver node.\n**c)** Kontrollér svaret ditt med gradsummen.",
+    "solution": "**a)** $|V| = 8$. Kantene teller du ved å ramse opp hvert par én gang:\n$(A,B), (A,C), (B,D), (C,D), (C,E), (D,F), (E,F), (F,G), (G,H)$ — altså\n$|E| = 9$.\n\n**b)**\n\n| Node | A | B | C | D | E | F | G | H |\n|---|---|---|---|---|---|---|---|---|\n| $\\text{grad}$ | 2 | 2 | 3 | 3 | 2 | 3 | 2 | 1 |\n\n**c)** Gradsummen er $2+2+3+3+2+3+2+1 = 18$, og $2|E| = 2 \\cdot 9 = 18$.\nStemmer.\n\nDenne grafen kaller vi **U1**, og den går igjen gjennom hele kapitlet.\n\n**Merk hvor billig kontrollen er.** Å telle listeoppføringene (18) og dele på\n2 gir antall kanter direkte. Får du et oddetall, har du enten glemt å skrive\nen kant under begge endene, eller så er grafen ikke urettet.",
+    "hints": [
+     "Tell hver kant én gang: står `B` under `A`, står `A` også under `B` — det er\n**én** kant, ikke to.",
+     "Graden til en node er ganske enkelt hvor mange navn som står på dens egen\nlinje i nabolisten."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-1-t-2",
+   "type": "text",
+   "content": "## Løkke 2 — grad, sti, sykel, sammenheng (ca. 12 min)\n\n— naturlig pausepunkt —\n\nNå kommer de fire begrepene som avkryssingsoppgavene er bygget av. De er\nlette å forstå og lette å blande sammen under tidspress, og det er nettopp\nderfor de spørres om.\n\nTenk igjen på fibernettet. Driftsvakta har egentlig tre ulike spørsmål:\n\n1. **Kommer jeg fram?** Det handler om **sti** og om grafen er\n   **sammenhengende**.\n2. **Finnes det en omvei jeg kan bruke hvis en kabel ryker?** Det handler om\n   **sykel**.\n3. **Hvor mange kabler har jeg egentlig råd til?** Det handler om **grad** og\n   om nettet er et **tre**.\n\nLegg merke til at et nett uten sykler er det billigste som fortsatt henger\nsammen — og samtidig det mest sårbare, siden hver eneste kabel er kritisk.\nDet er hele forskjellen på et tre og en graf med sykler, sagt på\ndriftsvaktas språk."
+  },
+  {
+   "id": "in2010-5-1-def-6",
+   "type": "definition",
+   "title": "Grad",
+   "content": "Antall kanter som møter en node, skrevet $\\text{grad}(v)$. I en naboliste er\ndet ganske enkelt lengden på nodens egen linje.\n\nGradsummen over alle noder er alltid $2|E|$ i en urettet graf, fordi hver\nkant har to ender. Bruk det som kontrollregning: får du en gradsum som er et\noddetall, har du telt feil."
+  },
+  {
+   "id": "in2010-5-1-def-7",
+   "type": "definition",
+   "title": "Inngrad og utgrad",
+   "content": "I en **rettet** graf splittes graden i to: $\\text{inngrad}(v)$ er antall\nkanter som peker inn til $v$, og $\\text{utgrad}(v)$ er antall kanter som\npeker ut fra $v$.\n\nHer er summen $\\sum \\text{inngrad}(v) = \\sum \\text{utgrad}(v) = |E|$ —\naltså $|E|$, ikke $2|E|$, fordi hver rettet kant bidrar med én inngrad og én\nutgrad. Å bruke $2|E|$-regelen på en rettet graf er en klassisk bom. Inngrad\n0 og utgrad 0 blir dessuten helt sentrale begreper i\n[kap. 5.4](/in2010/in2010-5-4)."
+  },
+  {
+   "id": "in2010-5-1-def-8",
+   "type": "definition",
+   "title": "Sti",
+   "content": "En rekke noder der hvert par etter hverandre er forbundet med en kant, og\ningen node gjentas. Lengden på stien er antall **kanter** i den, ikke antall\nnoder.\n\nEn sti fra $u$ til $v$ er svaret på «kommer jeg fram?». At det finnes en sti\nsier ingenting om at den er kortest — å finne den korteste er en egen\noppgave, og verktøyet kommer i [kap. 5.2](/in2010/in2010-5-2)."
+  },
+  {
+   "id": "in2010-5-1-def-9",
+   "type": "definition",
+   "title": "Sykel",
+   "content": "En sti som starter og ender i samme node, og som ellers ikke gjentar noen\nnode. I en urettet graf krever en sykel minst tre kanter, siden det å gå fram\nog tilbake over den samme kanten ikke teller.\n\nEn sykel betyr at det finnes minst to ulike veier mellom to av nodene — altså\nen omvei. En graf uten sykler kalles **asyklisk**."
+  },
+  {
+   "id": "in2010-5-1-def-10",
+   "type": "definition",
+   "title": "Sammenhengende graf",
+   "content": "En urettet graf der det finnes en sti mellom **hvert** par av noder.\n\nEr den ikke sammenhengende, deler den seg i flere biter. Merk at én eneste\nnode uten kanter er nok til å ødelegge sammenhengen: en graf med 500 noder\nsom alle henger sammen, pluss én ensom node, er **ikke** sammenhengende."
+  },
+  {
+   "id": "in2010-5-1-def-11",
+   "type": "definition",
+   "title": "Sammenhengende komponent",
+   "content": "En maksimal bit av grafen der alle nodene kan nå hverandre. En\nsammenhengende graf har nøyaktig én komponent; en graf med tre atskilte øyer\nhar tre.\n\nEn node helt uten kanter er en komponent for seg selv. Å **telle**\nkomponenter er en egen algoritmeoppgave, og den kommer i\n[kap. 5.3](/in2010/in2010-5-3) — her skal du bare kunne se dem."
+  },
+  {
+   "id": "in2010-5-1-def-12",
+   "type": "definition",
+   "title": "Tre (som graf)",
+   "content": "En urettet graf som er **sammenhengende** og **uten sykler**.\n\nKjennetegnet du kan regne på: et tre har nøyaktig $|E| = |V| - 1$ kanter.\nBegge kravene må være oppfylt — en graf med $|V| - 1$ kanter som ikke henger\nsammen, er ikke et tre. Legger du én kant til et tre, får du nøyaktig én\nsykel; fjerner du én kant, faller treet i to komponenter."
+  },
+  {
+   "id": "in2010-5-1-th-1",
+   "type": "theorem",
+   "title": "Gradsummen og trekjennetegnet",
+   "content": "To resultater som skal sitte uten oppslag, fordi de gjør avkryssingsoppgaver\ntil regnestykker i stedet for gjetting.\n\n**1. Gradsummen (urettet graf):**\n\n$$\\sum_{v \\in V} \\text{grad}(v) = 2|E|$$\n\nGrunnen i én setning: hver kant har to ender, og hver ende bidrar med 1 til\ngraden i sin node.\n\n**2. Trekjennetegnet:** en urettet graf er et tre hvis og bare hvis den er\nsammenhengende og $|E| = |V| - 1$.\n\nAv det følger to snarveier du kan bruke direkte:\n\n- Er grafen sammenhengende og $|E| > |V| - 1$, **må** den ha minst én sykel.\n- Er $|E| < |V| - 1$, kan grafen umulig være sammenhengende.\n\nMed en sammenhengende graf der $|E| = |V|$ har du nøyaktig én sykel: du har\nlagt én kant til et tre.\n\n**Advarsel om retningen.** Kantregelen alene beviser ingenting. En graf med\n$|V| = 6$ og $|E| = 5$ kan være et tre, men den kan like gjerne bestå av en\ntrekant og en løsrevet kjede — da har den både sykel og flere komponenter.\nDu må sjekke sammenhengen også."
+  },
+  {
+   "id": "in2010-5-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Én kabel til — og treet blir en graf med sykel",
+   "problem": "Værstasjonsnettet fra eksempel 1 (kalt **U5**) får én ny radiolinje: mellom\nE og F. Den nye grafen kaller vi **U6**.\n\nFyll ut avkryssingstabellen for begge: enkel graf? sammenhengende? har\nsykel? er et tre? Begrunn hvert svar med tall der du kan.",
+   "solution": "**U5 — nabolistene:**\n\n```text\nA: B, C\nB: A, D, E\nC: A, F\nD: B\nE: B\nF: C\n```\n\n**U6 — nabolistene, med kanten E-F lagt til under begge ender:**\n\n```text\nA: B, C\nB: A, D, E\nC: A, F\nD: B\nE: B, F\nF: C, E\n```\n\n**Regnestykkene først.** U5 har $|V| = 6$ og $|E| = 5$; U6 har $|V| = 6$ og\n$|E| = 6$. Gradsummene er 10 og 12, altså $2|E|$ i begge tilfeller.\n\n| Egenskap | U5 | U6 |\n|---|---|---|\n| Enkel graf? | ja | ja |\n| Sammenhengende? | ja | ja |\n| Har sykel? | **nei** | **ja** |\n| Er et tre? | **ja** | **nei** |\n| $|E|$ mot $|V| - 1 = 5$ | $5 = 5$ | $6 > 5$ |\n\n**Hvorfor U5 er et tre.** Den er sammenhengende — fra A når du B og C, fra\nB når du D og E, fra C når du F — og $|E| = 5 = |V| - 1$. Begge kravene er\noppfylt.\n\n**Hvorfor U6 ikke er det.** Den er fortsatt sammenhengende og fortsatt\nenkel, men nå er $|E| = 6 > |V| - 1$. Etter trekjennetegnet må den da ha\nminst én sykel, og du kan peke på den: **A -> B -> E -> F -> C -> A**, en\nsykel med fem kanter.\n\n**Legg merke til hva som IKKE endret seg.** Grafen ble ikke mindre enkel og\nikke mindre sammenhengende. De fire spørsmålene i tabellen er uavhengige,\nog en avkryssingsoppgave utnytter nettopp det: den gir deg grafer der bare\nén av kolonnene skifter verdi.\n\n**Fellenote.** Fella her er å kalle U6 et tre fordi «den ser ut som et tre\nmed en ekstra strek». Et tre har **ingen** sykler — én ekstra kant er nok\ntil å ødelegge det."
+  },
+  {
+   "id": "in2010-5-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger F.) Sju maskiner i et verksted er koblet i et internt nettverk:\n\n```text\nA: B, C\nB: A, C\nC: A, B\nD: E\nE: D, F\nF: E\nG: (ingen)\n```\n\n**a)** Hvor mange kanter har grafen?\n**b)** Er den sammenhengende? Begrunn.\n**c)** Har den en sykel? Hvis ja, skriv den opp.\n**d)** Er den et tre?",
+    "solution": "**a)** Kantene er $(A,B), (A,C), (B,C), (D,E), (E,F)$, altså $|E| = 5$.\nKontroll: gradsummen er $2+2+2+1+2+1+0 = 10 = 2 \\cdot 5$. Stemmer.\n\n**b)** **Nei.** Grafen deler seg i tre komponenter:\n$\\{A, B, C\\}$, $\\{D, E, F\\}$ og $\\{G\\}$. Det finnes ingen sti fra A til D,\nog heller ingen inn til G — G har ingen kanter i det hele tatt.\n\n**c)** **Ja:** A -> B -> C -> A, en trekant.\n\n**d)** **Nei.** Den feiler på begge krav: den er ikke sammenhengende, og den\nhar en sykel. Kantregnestykket sier det samme indirekte: $|V| - 1 = 6$, mens\n$|E| = 5$ — og en graf med færre enn $|V| - 1$ kanter kan aldri være\nsammenhengende.\n\nDenne grafen kaller vi **U2**. Legg merke til at den er den mest lærerike av\nalle kapitlets grafer, nettopp fordi den svarer «nei» på tre av fire spørsmål\n— og fordi den ensomme noden G er nok til å ødelegge sammenhengen alene.",
+    "hints": [
+     "Tegn grafen grovt på papir før du svarer. Tre biter blir synlige med én gang.",
+     "Sjekk kantregnestykket $|E|$ mot $|V| - 1$ — det avgjør ett av spørsmålene\nhelt uten tegning."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger F.) Seks rundkjøringer i en bydel er forbundet med veier, alle\ntoveiskjørte:\n\n```text\nA: B, D, E\nB: A, C, F\nC: B, D\nD: A, C\nE: A, F\nF: B, E\n```\n\n**a)** Oppgi $|V|$, $|E|$ og gradsummen, og kontrollér at de henger sammen.\n**b)** Hvor mange kanter måtte grafen hatt for å være et tre, og hvor mange\nhar den?\n**c)** Finn to ulike sykler i grafen.\n**d)** Er grafen enkel?",
+    "solution": "**a)** $|V| = 6$. Kantene er $(A,B), (A,D), (A,E), (B,C), (B,F), (C,D),\n(E,F)$, altså $|E| = 7$. Gradene er $A=3, B=3, C=2, D=2, E=2, F=2$, og\ngradsummen blir $14 = 2 \\cdot 7$. Stemmer.\n\n**b)** Et tre med 6 noder ville hatt $|V| - 1 = 5$ kanter. Grafen har 7 — to\nfor mange. Siden den er sammenhengende, garanterer trekjennetegnet da at den\nhar minst én sykel, og du kan i praksis regne med minst to uavhengige.\n\n**c)** To sykler:\n\n- **A -> B -> C -> D -> A** (fire kanter)\n- **A -> B -> F -> E -> A** (fire kanter)\n\nDe deler kanten $(A,B)$, men er likevel forskjellige sykler.\n\n**d)** **Ja.** Ingen node står oppført som sin egen nabo (ingen løkke), og\ningen linje har det samme navnet to ganger (ingen parallelle kanter).\n\nDenne grafen kaller vi **U9**.\n\n**Momentet:** de to overskytende kantene svarer til de to syklene. Det er\ningen tilfeldighet — hver kant du legger til et tre, lager nøyaktig én ny\nsykel.",
+    "hints": [
+     "Regn ut gradsummen først. Den avslører umiddelbart om du har telt kantene\nriktig.",
+     "Start i A og prøv å komme tilbake til A uten å bruke den samme kanten to\nganger."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-1-t-3",
+   "type": "text",
+   "content": "## Løkke 3 — naboliste eller nabomatrise (ca. 13 min)\n\nSå langt har vi tegnet og fortalt. Nå skal grafen inn i en maskin, og da må\nden lagres på en bestemt måte. Det finnes to måter du må kunne, og valget\nmellom dem er et av de sikreste Del 1-punktene i hele faget.\n\n**Naboliste:** for hver node lagrer du en liste over naboene dens. Det er\nnøyaktig formen vi har brukt hele veien.\n\n**Nabomatrise:** du lagrer en tabell med én rad og én kolonne per node, og\nsetter 1 i celle $(u, v)$ hvis kanten finnes, ellers 0.\n\nDe to inneholder **den samme grafen**. Forskjellen er hva som er billig."
+  },
+  {
+   "id": "in2010-5-1-fig-1",
+   "type": "image",
+   "src": "/images/textbook/in2010/graf-representasjon.svg",
+   "alt": "Samme graf vist på to måter. Til venstre en urettet graf med fem noder A til E og seks kanter, og under den nabolistene: A har naboene B og C, B har A og D, C har A, D og E, D har B, C og E, E har C og D. Til høyre den samme grafen som en nabomatrise med fem rader og fem kolonner, der hver celle er 1 hvis kanten finnes og 0 ellers. Nabolisten er merket med plass O av |V| pluss |E| og naboiterasjon O av grad(v); nabomatrisen er merket med plass O av |V| i annen og kantoppslag O av 1.",
+   "caption": "Se etter to ting: at de to sidene beskriver nøyaktig den samme grafen, og at merkelappene under dem er byttet om. Nabolisten er billig på plass og på «hvem er naboene mine»; nabomatrisen er billig på «finnes denne ene kanten». Det er hele valget, i én figur."
+  },
+  {
+   "id": "in2010-5-1-def-13",
+   "type": "definition",
+   "title": "Naboliste",
+   "content": "Grafen lagret som én liste per node, med nodens naboer i.\n\n**Plass:** $O(|V| + |E|)$ — én listeoverskrift per node, pluss én oppføring\nper kantende (i en urettet graf står hver kant to ganger, men $2|E|$ er\nfortsatt $O(|E|)$).\n**Ramse opp naboene til `v`:** $O(\\text{grad}(v))$ — du leser bare nodens\negen linje.\n**Spørre om kanten `(u, v)` finnes:** $O(\\text{grad}(u))$ — du må lete\ngjennom linja.\n\nDette er standardvalget i IN2010, og grunnen til at grafkjøretider skrives\n$O(|V| + |E|)$."
+  },
+  {
+   "id": "in2010-5-1-def-14",
+   "type": "definition",
+   "title": "Nabomatrise",
+   "content": "Grafen lagret som en tabell $M$ med $|V|$ rader og $|V|$ kolonner, der\n$M[u][v] = 1$ hvis kanten finnes og 0 ellers. I en urettet graf er tabellen\nspeilsymmetrisk om diagonalen.\n\n**Plass:** $O(|V|^2)$ — uansett hvor få kanter grafen har.\n**Spørre om kanten `(u, v)` finnes:** $O(1)$ — ett direkte oppslag.\n**Ramse opp naboene til `v`:** $O(|V|)$ — du må lese hele raden, også de\nnullene som ikke er naboer.\n\nLønner seg når grafen er **tett** (nesten alle mulige kanter finnes) og\nalgoritmen stiller mange kantspørsmål."
+  },
+  {
+   "id": "in2010-5-1-th-2",
+   "type": "theorem",
+   "title": "Kostnadstabellen for de to representasjonene",
+   "content": "Denne tabellen er ren puggeflate. Den er blitt spurt om i tabellform på\neksamen, og den skal kunne skrives ned uten oppslag.\n\n| Operasjon | Naboliste | Nabomatrise |\n|---|---|---|\n| Plass | $O(|V| + |E|)$ | $O(|V|^2)$ |\n| Finnes kanten $(u, v)$? | $O(\\text{grad}(u))$ | $O(1)$ |\n| Ramse opp naboene til $v$ | $O(\\text{grad}(v))$ | $O(|V|)$ |\n| Legg til en kant | $O(1)$ | $O(1)$ |\n| Gå gjennom hele grafen | $O(|V| + |E|)$ | $O(|V|^2)$ |\n\n**Den siste linja er den viktigste, og den er lett å bomme på.** Å gå gjennom\nhele grafen fra nabolister koster $O(|V| + |E|)$ — ikke $O(|E|)$. Leddet\n$|V|$ er der fordi du må innom **hver node**, også de som ikke har en eneste\nnabo. Grafen U2 i oppgave 2 har en node uten kanter; den ville vært usynlig\ni et rent kantregnskap. Dette leddet er kjernen i felle **#6**, som du møter\nigjen for fullt i [kap. 5.2](/in2010/in2010-5-2).\n\n**Tommelfingerregelen:** velg naboliste med mindre grafen er tett eller\nalgoritmen din i hovedsak stiller kantspørsmål. Med $|V| = 10\\,000$ noder er\nen nabomatrise 100 millioner celler, mens nabolistene tar plass i takt med\nantall kanter som faktisk finnes."
+  },
+  {
+   "id": "in2010-5-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Samme graf, begge representasjoner, og hva de koster",
+   "problem": "Ni fuktsensorer i et veksthus står i et rutenett, og hver sensor har en\nkabel til naboen rett ved siden av og rett over eller under. Grafen kaller\nvi **U8**.\n\nSkriv opp både naboliste og nabomatrise, regn ut hva hver representasjon\nkoster i plass, og avgjør hvilken du ville valgt.",
+   "solution": "**Nabolistene:**\n\n```text\nA: B, D\nB: A, C, E\nC: B, F\nD: A, E, G\nE: B, D, F, H\nF: C, E, I\nG: D, H\nH: E, G, I\nI: F, H\n```\n\n**Nabomatrisen:**\n\n```text\n       A   B   C   D   E   F   G   H   I\n   A   0   1   0   1   0   0   0   0   0\n   B   1   0   1   0   1   0   0   0   0\n   C   0   1   0   0   0   1   0   0   0\n   D   1   0   0   0   1   0   1   0   0\n   E   0   1   0   1   0   1   0   1   0\n   F   0   0   1   0   1   0   0   0   1\n   G   0   0   0   1   0   0   0   1   0\n   H   0   0   0   0   1   0   1   0   1\n   I   0   0   0   0   0   1   0   1   0\n```\n\n**Tallene.** $|V| = 9$ og $|E| = 12$. Gradsummen er\n$2+3+2+3+4+3+2+3+2 = 24 = 2 \\cdot 12$. Stemmer.\n\n| Mål | Naboliste | Nabomatrise |\n|---|---|---|\n| Lagrede tall | 24 naboangivelser + 9 listehoder | $9^2 = 81$ celler |\n| Andel som er «ingen kant» | ingen | $81 - 24 = 57$ nuller, altså 70 % |\n| Finnes kanten $(A, I)$? | les A-linja: 2 navn, ikke der | slå opp celle $(A, I)$: 0 |\n| Naboene til E | les E-linja: 4 navn | les hele E-raden: 9 celler, finn 4 ettall |\n\n**Valget:** naboliste. Grafen er **tynn** — hver sensor har høyst fire\nnaboer uansett hvor stort veksthuset blir, mens matrisen vokser med\nkvadratet av antall sensorer. Med 900 sensorer i stedet for 9 ville\nmatrisen hatt 810 000 celler, hvorav under 0,5 % ville vært ettall.\n\n**Når ville svaret vært motsatt?** Hvis algoritmen din i hovedsak spør\n«finnes akkurat denne kanten?» mange millioner ganger, og grafen er liten\neller tett. Da er $O(1)$-oppslaget verdt kvadratet.\n\n**Fellenote.** Fella her er å blande de to kolonnene i kostnadstabellen —\nå svare $O(1)$ for kantoppslag i en **naboliste**, eller $O(|V| + |E|)$\nfor plassen til en **nabomatrise**. Lær tabellen som to par: matrisen er\n«dyr plass, billig kantoppslag», lista er «billig plass, dyrt\nkantoppslag»."
+  },
+  {
+   "id": "in2010-5-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger F.) Verkstednettet **U2** fra oppgave 2 har nabolistene\n\n```text\nA: B, C\nB: A, C\nC: A, B\nD: E\nE: D, F\nF: E\nG: (ingen)\n```\n\n**a)** Skriv opp nabomatrisen.\n**b)** Hvor mange celler har matrisen, og hvor mange av dem er ettall?\n**c)** Hvor mange oppføringer har nabolistene til sammen?\n**d)** Hvilken representasjon ville du valgt, og hvorfor?",
+    "solution": "**a)**\n\n```text\n       A   B   C   D   E   F   G\n   A   0   1   1   0   0   0   0\n   B   1   0   1   0   0   0   0\n   C   1   1   0   0   0   0   0\n   D   0   0   0   0   1   0   0\n   E   0   0   0   1   0   1   0\n   F   0   0   0   0   1   0   0\n   G   0   0   0   0   0   0   0\n```\n\n**b)** $7^2 = 49$ celler. Ettallene er $2|E| = 10$ (hver kant står to ganger,\nsiden grafen er urettet). De øvrige 39 cellene er nuller — nesten 80 % av\ntabellen er tomrom.\n\n**c)** 10 naboangivelser, pluss sju listehoder. Merk rad G: den er **tom**,\nmen den må finnes. Det er nettopp derfor plassen er $O(|V| + |E|)$ og ikke\n$O(|E|)$.\n\n**d)** Naboliste. Grafen er svært tynn, og matrisen bruker 49 celler på å\nlagre 5 kanter. Det eneste argumentet for matrisen ville vært hvis du skulle\nspurt «finnes kanten $(u, v)$?» svært mange ganger og trengte $O(1)$ på hvert\nspørsmål.\n\n**Merk hva rad G og linje G lærer deg:** en node uten kanter koster plass i\nbegge representasjoner, og den er usynlig hvis du bare teller kanter. Det er\nden samme innsikten som gjør at en full gjennomgang av grafen er\n$O(|V| + |E|)$.",
+    "hints": [
+     "Matrisen er speilsymmetrisk om diagonalen fordi grafen er urettet — fyll ut\nøvre halvdel først, og speil.",
+     "Antall ettall i en urettet nabomatrise er alltid $2|E|$, ikke $|E|$."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger F.) En sosial tjeneste lagrer vennskap mellom brukere som en urettet\ngraf. Det er 200 000 brukere, og hver bruker har i snitt 30 venner.\n\n**a)** Omtrent hvor mange kanter har grafen?\n**b)** Hvor mange celler ville en nabomatrise hatt?\n**c)** Hvilken representasjon må velges, og hva mister du på valget?\n**d)** Tjenesten skal svare på «er A og B venner?» og på «hvem er vennene til\nA?». Hvilken av de to spørsmålene blir dyrere med valget ditt?",
+    "solution": "**a)** Gradsummen er $200\\,000 \\cdot 30 = 6\\,000\\,000$, og siden gradsummen\ner $2|E|$, er $|E| = 3\\,000\\,000$ kanter.\n\n**b)** $|V|^2 = 200\\,000^2 = 4 \\cdot 10^{10}$ celler — 40 milliarder. Det er\nover ti tusen ganger mer enn antallet kanter som faktisk finnes.\n\n**c)** Naboliste, uten diskusjon. Plassen blir $O(|V| + |E|)$, altså i\nstørrelsesorden 6,2 millioner oppføringer i stedet for 40 milliarder celler.\nDet du mister, er $O(1)$-kantoppslaget.\n\n**d)** «Er A og B venner?» blir dyrere: du må lete gjennom A-linja, altså\n$O(\\text{grad}(A))$ — i snitt 30 sammenligninger. «Hvem er vennene til A?»\nblir derimot **billigere** enn med matrise: $O(\\text{grad}(A))$ i stedet for\n$O(|V|)$, altså 30 i stedet for 200 000.\n\n**Momentet:** valget er ikke «hvilken er best», men «hvilke spørsmål stiller\nalgoritmen min oftest». Her stiller nesten alle grafalgoritmer spørsmålet\n«hvem er naboene», og det er derfor nabolista er standardvalget i faget.",
+    "hints": [
+     "Bruk gradsummen $\\sum \\text{grad}(v) = 2|E|$ til å komme fra «30 venner i\nsnitt» til antall kanter.",
+     "Sammenlign $|V|^2$ med $|E|$ — det er forholdet mellom dem, ikke tallene\nhver for seg, som avgjør."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-1-t-4",
+   "type": "text",
+   "content": "## Løkke 4 — regelen som gjelder resten av boka (ca. 10 min)\n\n— naturlig pausepunkt —\n\nNå kommer den ene setningen fra dette kapitlet som du skal skrive ned på\neksamen, i **hver eneste** Del 2-oppgave om grafer resten av livet ditt som\nIN2010-student.\n\nNår du blir bedt om å skrive en grafalgoritme, får du sjelden vite hvordan\ngrafen er lagret. Det er ikke en forglemmelse fra oppgavestillerens side — du\nfår velge selv. Men da må du **si hva du valgte**, for kjøretiden din henger\nhelt og holdent på det valget.\n\nSkriver du «$O(|V| + |E|)$» uten å ha sagt at du antar nabolister, har du\noppgitt et tall sensor ikke kan kontrollere: med nabomatrise ville den samme\nalgoritmen vært $O(|V|^2)$."
+  },
+  {
+   "id": "in2010-5-1-def-15",
+   "type": "definition",
+   "title": "Antagelsesregelen — kandidaten oppgir representasjonen",
+   "content": "I en Del 2-besvarelse skriver **du** hvilken representasjon du antar, og\nhvilke felter en node har. En typisk formulering er: «Grafen er gitt som\nnabolister; hver node `v` har feltet `v.naboer`.»\n\nSensor binder seg ikke til én representasjon — nabolister, nabomatrise og\nobjektstil godtas alle. Men uten antagelsen kan ikke kjøretiden din\nkontrolleres mot algoritmen, og det trekkes. Regelen koster deg én linje og\ner blant de billigste poengene i hele Del 2."
+  },
+  {
+   "id": "in2010-5-1-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Avkryssingstabellen, slik den kommer på Del 1",
+   "problem": "Fire grafer er gitt ved nabolistene sine. Kryss av for hver: er den enkel?\ner den sammenhengende? har den en sykel? er den et tre?\n\n```text\nU1:  A: B, C | B: A, D | C: A, D, E | D: B, C, F | E: C, F | F: D, E, G | G: F, H | H: G\nU5:  A: B, C | B: A, D, E | C: A, F | D: B | E: B | F: C\nU6:  A: B, C | B: A, D, E | C: A, F | D: B | E: B, F | F: C, E\nU9:  A: B, D, E | B: A, C, F | C: B, D | D: A, C | E: A, F | F: B, E\n```",
+   "solution": "**Framgangsmåten som gjør dette til fem regnestykker i stedet for fire\ntegninger:**\n\n1. Tell $|V|$ (antall linjer) og $|E|$ (gradsummen delt på 2).\n2. Sammenlign $|E|$ med $|V| - 1$.\n3. Sjekk sammenhengen ved å følge naboene fra første node.\n4. «Enkel?» leses direkte: står noen node som sin egen nabo, eller står et\n   navn to ganger på samme linje?\n\n| Graf | $|V|$ | $|E|$ | $|V| - 1$ | Enkel? | Sammenhengende? | Har sykel? | Er et tre? |\n|---|---|---|---|---|---|---|---|\n| U1 | 8 | 9 | 7 | ja | ja | ja | nei |\n| U5 | 6 | 5 | 5 | ja | ja | nei | **ja** |\n| U6 | 6 | 6 | 5 | ja | ja | ja | nei |\n| U9 | 6 | 7 | 5 | ja | ja | ja | nei |\n\n**Begrunnelsene, én linje hver:**\n\n- **U1:** $|E| = 9 > 7 = |V| - 1$, og grafen er sammenhengende, så den må\n  ha sykel. En av dem er A -> B -> D -> C -> A.\n- **U5:** $|E| = 5 = |V| - 1$ **og** sammenhengende. Begge trekravene er\n  oppfylt — dette er det eneste treet i settet.\n- **U6:** akkurat U5 med kanten E-F i tillegg. Én kant over\n  tregrensen betyr nøyaktig én sykel: A -> B -> E -> F -> C -> A.\n- **U9:** $|E| = 7$, altså to over tregrensen, og grafen henger sammen —\n  minst to sykler, blant andre A -> B -> C -> D -> A.\n\n**Legg merke til hvordan tabellen er bygget.** Alle fire grafene er enkle\nog sammenhengende; det er bare de to siste kolonnene som skiller dem. En\navkryssingsoppgave er laget nettopp slik, og den belønner den som regner\npå $|E|$ mot $|V| - 1$ framfor den som ser på tegningen og gjetter.\n\n**Fellenote.** Fella her er felle **#10** i bokas feilregister — å svare\nuten å ha definert hva størrelsene er. Skriv opp $|V|$ og $|E|$ for hver\ngraf før du krysser av, så blir tre av de fire kolonnene mekaniske."
+  },
+  {
+   "id": "in2010-5-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger F, eksamensnivå.) Fyll ut den samme avkryssingstabellen for disse to\ngrafene:\n\n```text\nU2:  A: B, C | B: A, C | C: A, B | D: E | E: D, F | F: E | G: (ingen)\nU8:  A: B, D | B: A, C, E | C: B, F | D: A, E, G | E: B, D, F, H | F: C, E, I | G: D, H | H: E, G, I | I: F, H\n```\n\nFor hver graf: $|V|$, $|E|$, enkel?, sammenhengende?, har sykel?, er et tre?\nBegrunn kolonnene «har sykel» og «er et tre» med tall.",
+    "solution": "| Graf | $|V|$ | $|E|$ | $|V| - 1$ | Enkel? | Sammenhengende? | Har sykel? | Er et tre? |\n|---|---|---|---|---|---|---|---|\n| U2 | 7 | 5 | 6 | ja | **nei** (3 komponenter) | ja | nei |\n| U8 | 9 | 12 | 8 | ja | ja | ja | nei |\n\n**U2.** Gradsummen er $2+2+2+1+2+1+0 = 10$, altså $|E| = 5$. Her er\n$|E| = 5 < 6 = |V| - 1$, og en graf med færre enn $|V| - 1$ kanter kan\n**umulig** være sammenhengende — komponentene er $\\{A, B, C\\}$,\n$\\{D, E, F\\}$ og $\\{G\\}$.\nLikevel har grafen en sykel: trekanten A -> B -> C -> A. Det er nettopp\npoenget med denne grafen: **«ingen sykel» og «ikke sammenhengende» er to helt\nuavhengige egenskaper**, og en graf kan mangle den ene og ha den andre. Og et\ntre er den ikke, fordi den feiler på begge trekravene.\n\n**U8.** Gradsummen er $2+3+2+3+4+3+2+3+2 = 24$, altså $|E| = 12$. Den er\nsammenhengende (fra A når du B og D, derfra resten), og $12 > 8$, altså fire\nkanter over tregrensen — minst fire uavhengige sykler. En av dem er\nA -> B -> E -> D -> A.\n\n**Kontrollen som avslører slurv:** gradsummene må være partall, og de må være\nnøyaktig $2|E|$. Er de ikke det, har du telt feil før du i det hele tatt\nkommer til avkryssingen.",
+    "hints": [
+     "Regn ut gradsummen for hver graf først, og del på 2 — da har du $|E|$ uten å\ntelle kanter for hånd.",
+     "Sjekk om noen node er utelatt når du følger naboene fra den første. Det\navgjør sammenhengs-kolonnen."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F og kjøretidsfakta.) Et logistikkselskap modellerer\nveinettet mellom 50 000 terminaler. Hver terminal har direkte vei til høyst\nseks andre. To ulike programmer skal skrives:\n\nProgram 1 spør, milliarder av ganger, «finnes det direkte vei mellom terminal\n$u$ og terminal $v$?». Program 2 går gjennom hele nettet én gang og gjør noe\nmed hver vei.\n\n**a)** Anslå $|E|$.\n**b)** Hva koster de to programmene med naboliste, og hva koster de med\nnabomatrise?\n**c)** Hva ville du valgt, og hvordan ville du formulert antagelsen i en\nbesvarelse?\n**d)** Finnes det en løsning som gir begge programmene det de vil ha?",
+    "solution": "**a)** Gradsummen er høyst $50\\,000 \\cdot 6 = 300\\,000$, så\n$|E| \\le 150\\,000$. Til sammenligning er $|V|^2 = 2{,}5 \\cdot 10^9$. Grafen\ner altså ekstremt tynn.\n\n**b)**\n\n| | Naboliste | Nabomatrise |\n|---|---|---|\n| Plass | $O(|V| + |E|)$, ca. 350 000 oppføringer | $O(|V|^2)$, 2,5 milliarder celler |\n| Program 1, per spørsmål | $O(\\text{grad}(u))$, høyst 6 sammenligninger | $O(1)$ |\n| Program 2, hele nettet | $O(|V| + |E|)$, ca. 200 000 steg | $O(|V|^2)$, 2,5 milliarder steg |\n\n**c) Naboliste.** Program 1 taper lite: $O(\\text{grad}(u))$ er her høyst seks\nsammenligninger, altså konstant i praksis, siden graden er begrenset av seks\nuansett hvor stort nettet blir. Program 2 og plassforbruket taper derimot\nkatastrofalt på matrisen — 2,5 milliarder celler for 150 000 kanter.\n\nFormuleringen i besvarelsen:\n\n> «Jeg antar at grafen er gitt som nabolister, der hver node `v` har feltet\n> `v.naboer` med nabonodene. Kjøretiden under er oppgitt for den\n> representasjonen; $|V|$ er antall terminaler og $|E|$ er antall veistrekk.»\n\n**d) Ja.** Behold nabolistene som grunnrepresentasjon, og legg i tillegg opp\nen hashtabell (se [kap. 3.1](/in2010/in2010-3-1)) med nodeparene som nøkler.\nDa blir kantoppslaget $O(1)$ **forventet**, plassen $O(|V| + |E|)$, og\ngjennomgangen fortsatt $O(|V| + |E|)$. Du betaler med litt ekstra minne og med\nat $O(1)$-et er forventet og ikke garantert — nabomatrisens $O(1)$ er\ngarantert.\n\n**Poengtrapp-notat.** Full uttelling krever tre ledd: tallene i **b)**,\nvalget i **c)** med begrunnelse i **hvilke operasjoner som dominerer**, og\nantagelsen skrevet ut. Å svare «naboliste, den er best» uten tall gir typisk\nhalv uttelling. Delsvaret i **d)** er den delen som skiller toppsjiktet: det\nviser at representasjon er et **valg av kostnader**, ikke et fasitsvar.",
+    "hints": [
+     "Regn ut $|V|^2$ og $|E|$ som tall før du sammenligner uttrykk — forholdet\nmellom dem avgjør alt.",
+     "Se på hva «høyst seks naboer» gjør med $O(\\text{grad}(u))$ når $|V|$ vokser."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-1-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "- **Å blande de to kolonnene i kostnadstabellen.** Nabomatrisen er «dyr\n  plass, billig kantoppslag»; nabolista er «billig plass, dyrt kantoppslag».\n  Feilen er å svare $O(1)$ for kantoppslag i en naboliste, eller\n  $O(|V| + |E|)$ for plassen til en matrise. **Kontrollen:** en matrise har\n  alltid $|V|^2$ celler, uansett hvor få kanter grafen har.\n- **Å glemme $|V|$-leddet.** Å gå gjennom hele grafen koster\n  $O(|V| + |E|)$, ikke $O(|E|)$ — du må innom hver node, også de uten\n  naboer. Dette er kimen til felle **#6** i bokas feilregister, som handler om\n  å forveksle en traversering fra én node med en traversering av hele grafen.\n  Den kommer for fullt i [kap. 5.2](/in2010/in2010-5-2), men rota er her.\n- **Å bruke gradsummen $2|E|$ på en rettet graf.** Der er summen av alle\n  inngrader $|E|$, og summen av alle utgrader $|E|$. Bare i urettede grafer\n  er gradsummen $2|E|$.\n- **Å kalle en graf med sykel et tre.** Et tre må oppfylle **begge** kravene:\n  sammenhengende **og** uten sykel, som til sammen er det samme som\n  sammenhengende **og** $|E| = |V| - 1$. Kantregnestykket alene holder ikke —\n  en trekant pluss en løsrevet kjede kan ha akkurat $|V| - 1$ kanter og\n  likevel ha både sykel og flere komponenter.\n- **Å overse den ensomme noden.** Én node uten kanter gjør grafen\n  usammenhengende, og den er usynlig hvis du bare teller kanter.\n- **Å ikke oppgi antatt representasjon i en Del 2-besvarelse.** Kjøretiden\n  din kan da ikke kontrolleres, og det trekkes. Én linje koster det.\n\nOg den gjennomgående: **å skrive «$O(n)$» om en grafalgoritme uten å si hva\n$n$ er.** Grafer har to størrelser. Bruk $|V|$ og $|E|$, og definér dem. Å\nbruke $n$ udefinert er felle **#10** i feilregisteret, og trekket er\neksplisitt."
+  },
+  {
+   "id": "in2010-5-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F.) Avgjør om hver påstand er sann eller usann, og\nbegrunn med ett regnestykke eller ett moteksempel. Svarene skal ikke være\nlike — les hver påstand for seg.\n\n**a)** En sammenhengende urettet graf med $|V| = 20$ og $|E| = 19$ er et tre.\n**b)** En urettet graf med $|V| = 20$ og $|E| = 19$ er et tre.\n**c)** En enkel urettet graf med $|V| = 6$ kan ha 16 kanter.\n**d)** I en urettet graf kan gradsummen være 15.\n**e)** Å gå gjennom hele en graf lagret som nabolister koster $O(|E|)$.",
+    "solution": "**a) Sann.** Begge trekravene er oppfylt: den er sammenhengende, og\n$|E| = 19 = |V| - 1$. Det er nøyaktig trekjennetegnet.\n\n**b) Usann.** Kantregnestykket alene holder ikke. Moteksempel: en trekant\n$\\{A, B, C\\}$ med 3 kanter, pluss en kjede av 17 noder med 16 kanter, gir\n$|V| = 20$ og $|E| = 19$ — men grafen har to komponenter og en sykel. Uten\nkravet om sammenheng er kantregelen bare et nødvendig vilkår.\n\n**c) Usann.** Maksimalt antall kanter i en enkel graf med 6 noder er\n$\\frac{6 \\cdot 5}{2} = 15$. For å få 16 måtte du hatt enten en løkke eller\nto parallelle kanter, og da er grafen ikke enkel lenger.\n\n**d) Usann.** Gradsummen er alltid $2|E|$, altså alltid et partall. 15 er\numulig i enhver urettet graf.\n\n**e) Usann.** Kostnaden er $O(|V| + |E|)$. Leddet $|V|$ er nødvendig fordi du\nmå innom hver node, også de som ikke har naboer. Moteksempel som gjør det\ntydelig: en graf med en million noder og null kanter. Da er $|E| = 0$, men\ngjennomgangen tar en million steg.\n\n**Merk at svarene er blandet:** én sann og fire usanne. På en\nsant/usant-blokk med antigjettings-skalering — der poengsummen skaleres slik\nat ren gjetting i snitt gir null — er det nettopp denne typen nesten-sanne\npåstander som skiller. Fire av de fem her er «riktig regel, feil betingelse».\n\n**Poengtrapp-notat.** Begrunnelsen teller. Et bart «usann» på **b)** gir\ndelvis uttelling; moteksempelet med trekant pluss kjede gir full.",
+    "hints": [
+     "Alle fem kan avgjøres med ett av tre verktøy: gradsummen, kantgrensen for en\nenkel graf, eller trekjennetegnet.",
+     "Til **b)** og **e)**: prøv å konstruere et moteksempel før du svarer sann."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-1-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-5-1-def-16",
+   "type": "definition",
+   "title": "Håndtrykkslemmaet — gradsummen",
+   "content": "I en urettet graf er $\\sum_{v \\in V} \\text{grad}(v) = 2|E|$.\n\nNavnet kommer av at antall håndtrykk i et rom alltid telles dobbelt hvis du\nspør hver person hvor mange hender de tok. Konsekvensene du bruker på\neksamen: gradsummen er alltid et partall, og $|E|$ finnes ved å dele den på\n2. I en **rettet** graf gjelder i stedet\n$\\sum \\text{inngrad}(v) = \\sum \\text{utgrad}(v) = |E|$."
+  },
+  {
+   "id": "in2010-5-1-def-17",
+   "type": "definition",
+   "title": "Maksimalt antall kanter i en enkel graf",
+   "content": "$|E| \\le \\frac{|V| \\cdot (|V| - 1)}{2}$ i en enkel urettet graf, fordi hvert\nnodepar kan ha høyst én kant.\n\nFor $|V| = 6$ gir det 15 kanter; for $|V| = 10$ gir det 45. En graf som\nnærmer seg denne grensen kalles **tett**, og da — og først da — kan\nnabomatrisen forsvares på plass. I en rettet enkel graf er grensen det\ndobbelte, $|V| \\cdot (|V| - 1)$."
+  },
+  {
+   "id": "in2010-5-1-def-18",
+   "type": "definition",
+   "title": "Tett og tynn graf",
+   "content": "En graf er **tett** når $|E|$ er i nærheten av $|V|^2$, og **tynn** når $|E|$\ner nærmere $|V|$.\n\nNesten alle grafer i praksis er tynne: veinett, vennelister, lenkegrafer og\navhengighetsgrafer har alle en grad som er begrenset uansett hvor store de\nblir. Det er hovedgrunnen til at naboliste er standardvalget, og til at\n$O(|V| + |E|)$ er den kjøretiden du sikter mot."
+  },
+  {
+   "id": "in2010-5-1-def-19",
+   "type": "definition",
+   "title": "Kantoppslag — finnes kanten (u, v)?",
+   "content": "Spørsmålet «går det en kant mellom disse to nodene?».\n\n**Nabomatrise:** $O(1)$ — ett direkte oppslag i celle $(u, v)$.\n**Naboliste:** $O(\\text{grad}(u))$ — du må lete gjennom `u`-linja.\n\nDette er den ene operasjonen matrisen vinner klart på, og derfor det ene\nargumentet for å velge den."
+  },
+  {
+   "id": "in2010-5-1-def-20",
+   "type": "definition",
+   "title": "Naboiterasjon — hvem er naboene til v?",
+   "content": "Å ramse opp alle nodene som deler en kant med `v`. Dette er den operasjonen\n**alle** grafalgoritmer i faget bruker mest.\n\n**Naboliste:** $O(\\text{grad}(v))$ — du leser bare nodens egen linje.\n**Nabomatrise:** $O(|V|)$ — du må lese hele raden, også alle nullene.\n\nSummert over alle noder blir det $O(|V| + |E|)$ for nabolisten og $O(|V|^2)$\nfor matrisen. Det er nøyaktig derfor kjøretidene i resten av Del 5 skrives\n$O(|V| + |E|)$, og hvorfor de blir $O(|V|^2)$ hvis du antar nabomatrise."
+  },
+  {
+   "id": "in2010-5-1-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kapitlet på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-5-1-rep-1",
+     "type": "text",
+     "content": "**Avkryssingsoppskriften, fire steg:**\n\n1. Tell $|V|$ (antall linjer i nabolisten) og gradsummen. Del gradsummen på\n   2 og få $|E|$. Er den et oddetall, har du telt feil.\n2. Sammenlign $|E|$ med $|V| - 1$: mindre betyr **ikke sammenhengende**;\n   større og sammenhengende betyr **sykel**.\n3. Følg naboene fra første node og se om du når alle. Det avgjør\n   sammenhengen.\n4. «Enkel?» leses direkte: ingen node som sin egen nabo, ingen navn to\n   ganger på samme linje.\n\n**Kostnadstabellen, som må sitte hjelpemiddelfritt:**\n\n| Operasjon | Naboliste | Nabomatrise |\n|---|---|---|\n| Plass | $O(|V| + |E|)$ | $O(|V|^2)$ |\n| Finnes kanten $(u, v)$? | $O(\\text{grad}(u))$ | $O(1)$ |\n| Naboene til $v$ | $O(\\text{grad}(v))$ | $O(|V|)$ |\n| Hele grafen én gang | $O(|V| + |E|)$ | $O(|V|^2)$ |\n\nHuskeregelen: matrisen er «dyr plass, billig kantoppslag», lista er\n«billig plass, dyrt kantoppslag».\n\n**De tre formlene:**\n\n$$\\sum_{v \\in V} \\text{grad}(v) = 2|E| \\qquad |E| \\le \\frac{|V|(|V|-1)}{2} \\qquad \\text{tre} \\iff \\text{sammenhengende og } |E| = |V| - 1$$\n\n**Setningen du skriver i hver Del 2-besvarelse:** «Jeg antar at grafen er\ngitt som nabolister; hver node `v` har feltet `v.naboer`.» Uten den kan\nikke kjøretiden din kontrolleres.\n\n**To kontroller som tar to sekunder hver:** er gradsummen et partall, og\ner den nøyaktig $2|E|$? Og: har du husket $|V|$-leddet i kjøretiden for en\nfull gjennomgang?\n\n**Videre:** [kap. 5.2](/in2010/in2010-5-2), der grafen faktisk skal\ntraverseres — med kø og med rekursjon — og der $|V|$-leddet blir et\neksplisitt trekkpunkt."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

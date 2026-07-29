@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Hva er balansefaktoren til en node i et AVL-tre?",
+  "options": [
+   "Høyden på venstre subtre minus høyden på høyre subtre",
+   "Antall noder i venstre subtre minus antall noder i høyre",
+   "Høyden på høyre subtre minus dybden til noden selv",
+   "Dybden til noden minus høyden på hele treet"
+  ],
+  "explanation": "Balansefaktoren måler **høyder**, ikke antall noder. Nodetellings-alternativet er den vanligste forvekslingen: to subtrær kan ha svært ulikt antall noder og likevel samme høyde, og da er AVL-kravet oppfylt."
+ },
+ {
+  "question": "Hvilken høyde har et tomt subtre og en bladnode når balansefaktoren regnes ut?",
+  "options": [
+   "Tomt subtre har høyde $-1$, og et blad har høyde $0$",
+   "Tomt subtre har høyde $0$, og et blad har høyde $1$",
+   "Tomt subtre har høyde $0$, og et blad har høyde $0$",
+   "Tomt subtre har høyde $1$, og et blad har høyde $-1$"
+  ],
+  "explanation": "Konvensjonen $-1$ for tomt og $0$ for blad gjør at en node med ett bladbarn får balansefaktor $\\pm 1$, altså akkurat innenfor kravet. Regner du tomt subtre som $0$, får samme node balansefaktor $0$, og du oppdager aldri en ubalanse."
+ },
+ {
+  "question": "En innsetting i et AVL-tre utløser en dobbelrotasjon. Hvor mange enkle rotasjoner skal du telle?",
+  "options": [
+   "To, fordi en dobbelrotasjon består av to enkle rotasjoner",
+   "Én, fordi hele rebalanseringen utføres i ett steg",
+   "Tre, fordi tre noder bytter plass i operasjonen",
+   "Null, fordi treet ble balansert uten rotasjon"
+  ],
+  "explanation": "En dobbelrotasjon er én rotasjon om barnet og deretter én om den ubalanserte noden. Spør oppgaven om antall **enkle** rotasjoner, teller den som 2. Alternativet «én» er den enkeltfeilen som koster flest poeng på AVL-håndkjøringer."
+ },
+ {
+  "question": "Sett inn 10, 20 og 30 i denne rekkefølgen i et tomt AVL-tre. Hva blir svaret?",
+  "options": [
+   "1 enkel rotasjon, og rotverdien blir 20",
+   "2 enkle rotasjoner, og rotverdien blir 20",
+   "1 enkel rotasjon, og rotverdien blir 30",
+   "0 rotasjoner, og rotverdien blir 10"
+  ],
+  "explanation": "Nøklene stiger, så ubalansen i 10 er RR-tilfellet, og én enkel venstrerotasjon om 10 løfter 20 til rot. Alternativet med 2 rotasjoner hører til LR og RL; alternativet med 0 rotasjoner overser at balansefaktoren i 10 ble $-2$."
+ },
+ {
+  "question": "Sett inn 30, 10 og 20 i denne rekkefølgen i et tomt AVL-tre. Hva blir svaret?",
+  "options": [
+   "2 enkle rotasjoner, og rotverdien blir 20",
+   "1 enkel rotasjon, og rotverdien blir 20",
+   "1 enkel rotasjon, og rotverdien blir 10",
+   "2 enkle rotasjoner, og rotverdien blir 30"
+  ],
+  "explanation": "20 havner i det indre subtreet, så dette er LR: først venstrerotasjon om 10, deretter høyrerotasjon om 30. Rotverdien blir 20 uansett, så det eneste som skiller riktig fra galt her, er om du teller dobbelrotasjonen som to eller som én."
+ },
+ {
+  "question": "Sett inn 1, 2, 3, 4 og 5 i denne rekkefølgen i et tomt AVL-tre. Hvor mange enkle rotasjoner utføres totalt?",
+  "options": [
+   "To — én ved innsetting av 3 og én ved innsetting av 5",
+   "Fire — hver innsetting etter den andre utløser en rotasjon",
+   "Én — bare den siste innsettingen bryter AVL-kravet",
+   "Tre — to enkle rotasjoner og deretter én dobbel"
+  ],
+  "explanation": "3 gir RR i node 1, og 5 gir RR i node 3. Innsettingen av 4 gir balansefaktor $-1$ i rota, som er lovlig, så der skjer ingenting. Alternativet «fire» kommer av å tro at hver innsetting i en stigende rekke må rotere."
+ },
+ {
+  "question": "Hva er høyden til et AVL-tre med $n$ noder, i verste tilfelle?",
+  "options": [
+   "$O(\\log n)$",
+   "$O(n)$",
+   "$O(n \\log n)$",
+   "$O(1)$"
+  ],
+  "explanation": "Det minste antallet noder i et AVL-tre av høyde $h$ minst dobles for hver annen høyde, så $n \\ge 2^{h/2}$ og dermed $h \\le 2\\log_2 n$. Svaret $O(n)$ er høyden til et **ubalansert** søketre, og det er nettopp det AVL-kravet finnes for å hindre."
+ },
+ {
+  "question": "Hva er verste kjøretid for søk i et AVL-tre, og hva er den i et vanlig binært søketre?",
+  "options": [
+   "$O(\\log n)$ i AVL-treet og $O(n)$ i det vanlige søketreet",
+   "$O(\\log n)$ i begge, siden begge er binære søketrær",
+   "$O(n)$ i AVL-treet og $O(\\log n)$ i det vanlige søketreet",
+   "$O(1)$ i AVL-treet og $O(\\log n)$ i det vanlige søketreet"
+  ],
+  "explanation": "Forskjellen ligger utelukkende i verste tilfelle: et vanlig søketre kan degenerere til en kjede med høyde $n-1$, mens AVL-kravet garanterer logaritmisk høyde. Alternativet «$O(\\log n)$ i begge» gjelder bare når det vanlige treet tilfeldigvis er balansert."
+ },
+ {
+  "question": "Den nye nøkkelen havnet i høyre subtre til venstre barn av den ubalanserte noden. Hvilket tilfelle er dette?",
+  "options": [
+   "LR — og det krever en dobbelrotasjon",
+   "LL — og det krever en enkelrotasjon",
+   "RL — og det krever en dobbelrotasjon",
+   "RR — og det krever en enkelrotasjon"
+  ],
+  "explanation": "De to stegene fra den ubalanserte noden ned mot den nye nøkkelen er venstre, så høyre — altså LR. To **ulike** steg gir alltid dobbelrotasjon; to like steg gir enkelrotasjon. RL er speilbildet, med høyre først."
+ },
+ {
+  "question": "Hvor mange rebalanseringer kan én innsetting i et AVL-tre utløse?",
+  "options": [
+   "Høyst én, enten en enkel eller en dobbel rotasjon",
+   "Én for hvert nivå på vei opp mot rota fra den nye noden",
+   "Høyst to, én på hver side av den ubalanserte noden",
+   "Like mange som treets høyde tilsier i verste tilfelle"
+  ],
+  "explanation": "Rotasjonen setter subtreets høyde tilbake til det den var før innsettingen, så ingen node lenger oppe merker at noe har skjedd. Du kan altså stoppe å lete etter at du har rettet den første ubalansen. Ved **sletting** gjelder ikke dette."
+ },
+ {
+  "question": "Hva er høyden til et rød-svart-tre med $n$ noder, sammenlignet med et AVL-tre?",
+  "options": [
+   "Begge er $O(\\log n)$, men rød-svart-treet er litt høyere i praksis",
+   "Rød-svart-treet er $O(\\log n)$, mens AVL-treet er $O(n)$",
+   "AVL-treet er $O(\\log n)$, mens rød-svart-treet er $O(n)$",
+   "Begge er $O(n \\log n)$, fordi begge må rebalanseres"
+  ],
+  "explanation": "Fargeinvariantene sikrer at den lengste stien er høyst dobbelt så lang som den korteste, og det holder høyden på $O(\\log n)$. Forskjellen mellom de to strukturene er konstantfaktorer og antall rotasjoner, aldri $O$-klasse — påstander om ulik asymptotisk høyde er faste distraktorer."
+ },
+ {
+  "question": "Hvilken av disse påstandene om AVL- og rød-svart-trær er sann?",
+  "options": [
+   "Hvert AVL-tre kan fargelegges som et gyldig rød-svart-tre",
+   "Hvert rød-svart-tre oppfyller også AVL-kravet om høydebalanse",
+   "Et rød-svart-tre har alltid færre noder enn et AVL-tre",
+   "Et AVL-tre må fargelegges før det kan brukes som søketre"
+  ],
+  "explanation": "AVL-kravet er strengere enn fargeinvariantene, så et høydebalansert tre kan alltid farges lovlig. Motsatt vei gjelder ikke: et rød-svart-tre får ha en lengste sti som er dobbelt så lang som den korteste, og det er skjevere enn AVL tillater."
+ },
+ {
+  "question": "Hva består svaret på en AVL-håndkjøring av?",
+  "options": [
+   "Antall enkle rotasjoner, rotverdien til slutt, og om treet er gyldig",
+   "Bare tegningen av treet slik det ser ut etter siste innsetting",
+   "Balansefaktoren til hver node, og hvilken node som ble rotert",
+   "Innsettingsrekkefølgen, høyden til treet, og antall blader"
+  ],
+  "explanation": "Sensor ber om de tre linjene, og delvis riktig gir delvis uttelling — så la aldri en av dem stå tom. Et pent tegnet tre uten de tre svarene gir ikke poengene, selv om treet er helt riktig."
+ },
+ {
+  "question": "Hva skjer med in-order-utskriften av et subtre når du utfører en enkelrotasjon?",
+  "options": [
+   "Den er nøyaktig den samme før og etter rotasjonen",
+   "Den snus, slik at nøklene kommer i synkende rekkefølge",
+   "De to øverste nøklene bytter plass i utskriften",
+   "Den blir usortert til høydene er oppdatert på nytt"
+  ],
+  "explanation": "En rotasjon flytter på formen, aldri på sorteringen — det er derfor resultatet fortsatt er et gyldig binært søketre. Bruk det som kontroll: skriv ut in-order til slutt, og se at alle nøklene er med i sortert rekkefølge."
+ }
+]

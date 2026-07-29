@@ -1,0 +1,122 @@
+[
+  {
+    "question": "Hvilke to strukturer bygger en mediankø?",
+    "options": [
+      "Max-heap for nedre halvdel, min-heap for øvre",
+      "Min-heap for nedre halvdel, max-heap for øvre halvdel",
+      "To min-heaper som holdes like store hele veien",
+      "En heap og et balansert søketre av samme størrelse"
+    ],
+    "explanation": "Max-heapen holder de små tallene, så toppen er det største av dem — altså medianen. Byttes de om, ligger medianen ikke lenger på skillet. To min-heaper gir ingen tilgang til det største av de små."
+  },
+  {
+    "question": "Hva er kjøretiden til `Median()` i en mediankø med to heaps?",
+    "options": [
+      "$O(1)$",
+      "$O(\\log n)$",
+      "$O(n)$",
+      "$O(n \\log n)$"
+    ],
+    "explanation": "Medianen ligger på toppen av max-heapen, altså på indeks 0, og leses uten å endre strukturen. Alternativet $O(\\log n)$ er kjøretiden for `Insert`, og $O(n)$ er det du får hvis du bruker bare én heap."
+  },
+  {
+    "question": "Hva er invarianten som gjør en mediankø riktig?",
+    "options": [
+      "Like store, eller max-heapen har ett element mer",
+      "De to heapene har alltid nøyaktig like mange elementer",
+      "Max-heapen er alltid minst dobbelt så stor som den andre",
+      "De to heapene inneholder nøyaktig de samme verdiene"
+    ],
+    "explanation": "Holder invarianten, ligger medianen alltid på toppen av max-heapen. Krav om nøyaktig like størrelser er umulig ved et oddetall elementer, og det siste alternativet beskriver kombinasjonsgrepet heap pluss hash-set."
+  },
+  {
+    "question": "Hvor mange elementer må flyttes mellom heapene per `Insert` i en mediankø?",
+    "options": [
+      "Høyst ett",
+      "Høyst to, ett hver vei",
+      "Så mange som trengs, i en løkke",
+      "Halvparten av den største heapen"
+    ],
+    "explanation": "Størrelsene endrer seg med 1 per innsetting, så avviket kan aldri bli mer enn 1 for stort. Det er nettopp derfor `Insert` er $O(\\log n)$ og ikke noe mer — balanseringen er aldri en løkke."
+  },
+  {
+    "question": "Hva er kjøretiden til `Insert` og `RemoveMin` i en bøttekø med $N$ prioritetsnivåer?",
+    "options": [
+      "$O(1)$ og $O(N)$",
+      "$O(N)$ og $O(1)$",
+      "$O(\\log N)$ og $O(\\log N)$",
+      "$O(1)$ og $O(\\log n)$"
+    ],
+    "explanation": "`Insert` er ett arrayoppslag pluss innsetting bakerst i en liste; `RemoveMin` skanner fra bøtte 0 til første ikke-tomme. Er $N$ en fast konstant, er $O(N)$ det samme som $O(1)$ — men uttrykket må skrives i $N$, ikke i $n$."
+  },
+  {
+    "question": "Når er en bøttekø et bedre valg enn en min-heap?",
+    "options": [
+      "Når antall prioritetsnivåer er fast og lite",
+      "Når antall elementer i køen er fast og lite",
+      "Når prioritetene er reelle tall i et stort område",
+      "Når elementene settes inn i sortert rekkefølge"
+    ],
+    "explanation": "Bøttekøens kjøretid avhenger av antall nivåer $N$, ikke av antall elementer $n$. Vokser antall prioritetsnivåer, eller er prioritetene vilkårlige, faller argumentet, og heapen er riktig igjen."
+  },
+  {
+    "question": "Hvilken egenskap gir en bøttekø som en min-heap ikke garanterer?",
+    "options": [
+      "Stabilitet — like prioriteter kommer ut i innsettingsrekkefølge",
+      "Garantert $O(\\log n)$ på begge operasjonene",
+      "Mulighet for å endre prioriteten til et element",
+      "Lavere minnebruk enn en array-basert heap"
+    ],
+    "explanation": "Hver bøtte er en FIFO-liste, så to elementer med samme prioritet kommer ut i den rekkefølgen de kom inn. En heap gir ingen slik garanti for like nøkler, og den bruker gjerne mindre minne enn $N$ bøtter."
+  },
+  {
+    "question": "Hva er kjøretiden for `SettInn(ord)` i et trie, når ordet har $L$ bokstaver?",
+    "options": [
+      "$O(L)$, uansett hvor mange ord som er lagret",
+      "$O(L \\log m)$, der $m$ er antall lagrede ord",
+      "$O(m)$, siden hele treet må gjennomsøkes hver gang",
+      "$O(L + m)$, én gjennomgang av hver"
+    ],
+    "explanation": "Ett steg per bokstav, enten noden finnes fra før eller lages. At kjøretiden er uavhengig av antall lagrede ord, er trie-ets definerende egenskap og selve grunnen til å velge det."
+  },
+  {
+    "question": "Hvorfor kan ikke et hashmap svare raskt på et prefikssøk?",
+    "options": [
+      "Hashverdien til prefikset er urelatert til ordets",
+      "Hashmap-oppslag er $O(\\log m)$ og dermed for tregt",
+      "Hashmap kan ikke lagre strenger, bare heltall som nøkler",
+      "Hashmap mister rekkefølgen på alle ordene ved rehashing"
+    ],
+    "explanation": "Hashfunksjonen sprer nøkler med vilje, så `sa` og `sand` havner tilfeldige steder. Prefikssøk krever derfor at hvert av de $m$ ordene sjekkes: $O(m \\cdot L)$. Hashmap-oppslag er $O(1)$ forventet og håndterer strenger fint."
+  },
+  {
+    "question": "Hvorfor trenger et trie et eget `erOrdslutt`-flagg på nodene?",
+    "options": [
+      "For å skille et helt ord fra et passert prefiks",
+      "For å vite hvilken node som er rota i treet",
+      "For å telle hvor mange ord som ligger under noden",
+      "For å hindre at det samme ordet settes inn to ganger"
+    ],
+    "explanation": "Uten flagget kan treet ikke skille «sal», som er et helt ord, fra noden man passerer på vei til «salt». Det er et kanttilfelle sensor gir delpoeng for å ha tenkt på."
+  },
+  {
+    "question": "Hvorfor er `Finnes(x)` i en min-heap $O(n)$ og ikke $O(\\log n)$?",
+    "options": [
+      "Heap-egenskapen ordner opp–ned, ikke venstre–høyre",
+      "Heapen er lagret som array og ikke som tre",
+      "Heapen er bare delvis sortert etter hver innsetting",
+      "Heapen tillater duplikater og må derfor lete videre"
+    ],
+    "explanation": "Forelderen er mindre enn begge barna, men det sies ingenting om venstre mot høyre, så du kan ikke velge én vei nedover. Å forveksle dette med søketre-egenskapen er felle #9. Array-representasjonen er ikke problemet."
+  },
+  {
+    "question": "Hva er svarformens fire ledd på en ADT-designoppgave?",
+    "options": [
+      "Strukturene, invarianten, operasjonene, kjøretid per stk.",
+      "Problemet, pseudokoden, kjøretiden, en figur av strukturen",
+      "Antagelsene, kjøretiden, minnebruken og en konklusjon",
+      "Strukturene, kjøretiden totalt, kanttilfellene, en drøfting"
+    ],
+    "explanation": "Ordene «per operasjon» står i oppgaveteksten, og én samlet kjøretid er ikke et svar. Pseudokode og figur er ikke krav i denne sjangeren, og total kjøretid gir lite når operasjonene har helt ulike profiler."
+  }
+]

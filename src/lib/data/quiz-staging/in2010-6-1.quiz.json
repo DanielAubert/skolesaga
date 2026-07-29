@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hva er kjøretiden til Kahns algoritme når noder med inngrad 0 holdes i en kø?",
+    "options": [
+      "$O(|V| + |E|)$",
+      "$O(|V| \\cdot |E|)$",
+      "$O(|V|^2)$",
+      "$O(|E| \\log |V|)$"
+    ],
+    "explanation": "Hver node tas ut av køen én gang, og hver kant behandles én gang når nabolista til dens startnode gås gjennom. Kostnadene legges sammen, ikke ganges. $O(|V| \\cdot |E|)$ er fella som oppstår når man tror den indre løkka går over *alle* kanter for hver node; $O(|V|^2)$ er det du faktisk får hvis du dropper køen og leter i inngradstabellen hver runde."
+  },
+  {
+    "question": "Kahns algoritme har gått tom for noder i køen, men rekkefølgen inneholder færre enn $|V|$ noder. Hva betyr det?",
+    "options": [
+      "Grafen har en sykel, så ingen lovlig rekkefølge finnes",
+      "Grafen er ikke sammenhengende, men rekkefølgen er lovlig",
+      "Algoritmen må kjøres på nytt fra en annen startnode",
+      "Grafen har flere lovlige topologiske rekkefølger"
+    ],
+    "explanation": "En node blir liggende igjen bare hvis inngraden aldri når null, og følger du den kjeden bakover i en endelig graf, ender du i en sykel. At grafen er usammenhengende er ikke noe problem for Kahn — alle kildenoder legges i køen fra starten, uavhengig av komponent."
+  },
+  {
+    "question": "Sant eller usant: enhver rettet graf har minst én topologisk rekkefølge.",
+    "options": [
+      "Usant — bare grafer uten sykel har en",
+      "Sant — Kahns algoritme finner alltid én slik",
+      "Sant, men bare hvis grafen er sammenhengende",
+      "Usant — bare grafer med én kildenode har en"
+    ],
+    "explanation": "En sykel $v_1 \\to v_2 \\to \\ldots \\to v_1$ krever at $v_1$ kommer både før og etter $v_2$, og det er umulig. Sammenheng spiller ingen rolle, og en DAG kan gjerne ha flere kildenoder — da blir det bare flere lovlige rekkefølger."
+  },
+  {
+    "question": "Hva er summen av inngradene til alle nodene i en rettet graf?",
+    "options": [
+      "$|E|$",
+      "$|V|$",
+      "$2|E|$",
+      "$|V| + |E|$"
+    ],
+    "explanation": "Hver kant bidrar med nøyaktig 1 til inngraden til den noden den peker på. Svaret $2|E|$ gjelder summen av gradene i en **urettet** graf, der hver kant teller i begge ender — en fast forveksling."
+  },
+  {
+    "question": "Hvorfor bruker Kahns algoritme en kø over noder med inngrad 0?",
+    "options": [
+      "Fordi leting i tabellen hver runde ville gitt $O(|V|^2)$",
+      "Fordi køen sikrer at rekkefølgen blir entydig bestemt",
+      "Fordi bare en kø kan oppdage at grafen har en sykel",
+      "Fordi en stack ville gitt en ulovlig topologisk rekkefølge"
+    ],
+    "explanation": "Køen husker hvilke noder som nettopp ble klare, så hver node legges inn og tas ut én gang. Rekkefølgen blir ikke entydig av køen — en stack gir en annen, men like lovlig rekkefølge, og sykeltesten er tellingen til slutt, ikke datastrukturen."
+  },
+  {
+    "question": "Hvorfor holder det ikke med tilstandene «besøkt» og «ikke besøkt» når du oppdager sykler med dybde-først-søk?",
+    "options": [
+      "Fordi en besøkt node kan nås via to stier uten at det finnes sykel",
+      "Fordi dybde-først-søk ikke kan oppdage sykler i det hele tatt",
+      "Fordi to tilstander gir kjøretiden $O(|V|^2)$ i stedet for lineær",
+      "Fordi noder med inngrad 0 aldri blir markert som besøkt"
+    ],
+    "explanation": "Du trenger å skille «ferdig» fra «under prosessering»: bare en node som er under prosessering, ligger på stien du står på nå, og bare da har du gått i ring. En ferdig node du møter igjen, betyr bare at to stier fører til samme sted."
+  },
+  {
+    "question": "Når har en DAG nøyaktig én lovlig topologisk rekkefølge?",
+    "options": [
+      "Når køen aldri inneholder mer enn én node samtidig",
+      "Når grafen har nøyaktig én node med inngrad 0",
+      "Når hver node har utgrad høyst 1 gjennom hele grafen",
+      "Når antall kanter er nøyaktig $|V| - 1$ i hele grafen"
+    ],
+    "explanation": "To noder i køen samtidig har ingen binding til hverandre og kan bytte plass, så da finnes minst to rekkefølger. Én kildenode er ikke nok: grafen kan forgrene seg senere, og da oppstår valget der."
+  },
+  {
+    "question": "Hvilken algoritme gir korteste vei fra én kilde i en **vektet DAG** med lavest kjøretid?",
+    "options": [
+      "Topologisk sortering, så én gjennomgang i den rekkefølgen",
+      "Dijkstras algoritme med en binær prioritetskø",
+      "Bredde-først-søk fra kilden, lag for lag",
+      "Bellman-Ford med $|V| - 1$ relakseringsrunder"
+    ],
+    "explanation": "I en DAG kan nodene tas i topologisk rekkefølge, og da er hver node ferdig når den nås: $O(|V| + |E|)$, som slår Dijkstras $O((|V|+|E|) \\log |V|)$. Bredde-først-søk gjelder bare uvektede grafer, og Bellman-Ford er den tregeste av de fire."
+  },
+  {
+    "question": "Du bytter køen i Kahns algoritme ut med en stack. Hva skjer?",
+    "options": [
+      "Du får en annen, men fullt lovlig topologisk rekkefølge",
+      "Du får en rekkefølge der noen kanter kan peke bakover",
+      "Algoritmen slutter å oppdage at grafen har en sykel",
+      "Kjøretiden stiger fra $O(|V| + |E|)$ til $O(|V|^2)$"
+    ],
+    "explanation": "Det eneste som betyr noe, er at en node først tas ut når inngraden er null — hvilken av de klare nodene du tar, er fritt. Sykeltesten er tellingen til slutt og er uavhengig av strukturen, og både kø og stack har $O(1)$ innsetting og uttak."
+  },
+  {
+    "question": "Hva koster det å bygge den reverserte grafen $G^R$, der alle kanter er snudd?",
+    "options": [
+      "$O(|V| + |E|)$ — én gjennomgang av alle nabolistene",
+      "$O(|E| \\log |E|)$ — kantene må sorteres på ny startnode",
+      "$O(|V|^2)$ — hver node må sammenlignes med alle andre",
+      "$O(|E|^2)$ — hver kant må sjekkes mot alle andre kanter"
+    ],
+    "explanation": "Du går gjennom hver naboliste én gang og legger kanten `u -> v` inn som `v -> u` i den nye. Ingen sortering og ingen sammenligning er nødvendig, så kostnaden er den samme som å lese grafen."
+  },
+  {
+    "question": "Hva kjennetegner en kildenode i en rettet graf?",
+    "options": [
+      "Den har inngrad 0 — ingen kanter peker inn til den",
+      "Den har utgrad 0 — ingen kanter peker ut fra den",
+      "Den har høyest utgrad av alle nodene i grafen",
+      "Den er den første noden i enhver topologisk rekkefølge"
+    ],
+    "explanation": "Kildenoder har inngrad 0 og er nøyaktig de nodene Kahn legger i køen fra starten. Utgrad 0 kjennetegner en **sluttnode**. En DAG kan ha flere kildenoder, og da er det flere mulige førstenoder."
+  },
+  {
+    "question": "I en avhengighetsgraf betyr kanten `u -> v` at:",
+    "options": [
+      "$u$ må være ferdig før $v$ kan starte",
+      "$v$ må være ferdig før $u$ kan starte",
+      "$u$ og $v$ kan utføres samtidig av to lag",
+      "$u$ og $v$ må utføres av det samme arbeidslaget"
+    ],
+    "explanation": "Pilen peker den veien arbeidet flyter, og en topologisk rekkefølge er nettopp en rekkefølge der alle piler peker framover. Snur du regelen, får du den omvendte rekkefølgen — teknisk sett en lovlig rekkefølge for den reverserte grafen, men galt svar på oppgaven som ble stilt."
+  },
+  {
+    "question": "Sant eller usant: en DAG kan inneholde en sykel hvis sykelen er kort nok.",
+    "options": [
+      "Usant — «asyklisk» i DAG betyr «helt uten sykel»",
+      "Sant — sykler med to noder regnes ikke som sykler",
+      "Sant — bare sykler gjennom kildenoder er forbudt",
+      "Usant — men bare når grafen også er sammenhengende"
+    ],
+    "explanation": "Forkortelsen står for «directed acyclic graph», og asyklisk betyr uten sykel i det hele tatt — også den korteste, `u -> v -> u`. Sammenheng er et helt uavhengig begrep og har ingenting med saken å gjøre."
+  },
+  {
+    "question": "En DAG har kantene `A -> C`, `B -> C` og `C -> D`. Hvor mange lovlige topologiske rekkefølger finnes?",
+    "options": [
+      "2 — $A$ og $B$ kan bytte plass innbyrdes",
+      "1 — rekkefølgen er fullt bestemt av kantene her",
+      "4 — hver av de to første kan stå to steder",
+      "6 — de tre første nodene kan stå i hvilken som helst orden"
+    ],
+    "explanation": "Både $A$ og $B$ må komme før $C$, men det er ingen binding mellom dem, så `A, B, C, D` og `B, A, C, D` er begge lovlige. $C$ og $D$ har derimot fast plass, så det blir ikke flere enn to."
+  }
+]

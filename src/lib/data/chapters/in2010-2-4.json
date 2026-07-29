@@ -1,0 +1,374 @@
+{
+  "id": "in2010-2-4",
+  "courseId": "in2010",
+  "chapterNumber": "2.4",
+  "title": "DRILL — Sorteringsegenskaper, invarianter og valg",
+  "description": "Full drill på sjanger D: invarianter etter i iterasjoner, stabilitet/in-place, kjøretider, og valg av sortering ut fra en oppgitt begrensning.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne oppgi tilstanden og de garanterte plasseringene etter et gitt antall iterasjoner for de tre kvadratiske sorteringene, uten å måtte utlede invarianten på nytt",
+    "kunne gjengi kjøretids- og egenskapstabellen for alle sju sorteringene hjelpemiddelfritt og uten opphold",
+    "kunne velge sortering ut fra en oppgitt begrensning og skrive ut forutsetningen som gjør valget lovlig",
+    "kunne lese stabilitet, minnebruk og kjøretid ut av pseudokoden til en sorteringsalgoritme du ikke har sett før"
+  ],
+  "content": [
+    {
+      "id": "in2010-2-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er drillkapitlet for **sjanger D — sorteringsegenskaper og valg**, altså\noppgavene der du krysser av sant/usant om en sortering eller velger algoritme ut\nfra en oppgitt begrensning. Sjangeren har vært på **alle sju settene (100 %)**.\n\nAlt stoffet er fra [kap. 2.1](/in2010/in2010-2-1), [kap. 2.2](/in2010/in2010-2-2)\nog [kap. 2.3](/in2010/in2010-2-3). Her øver du på **hastigheten og sikkerheten**.\nSjanger D ligger i Del 1, den auto-rettede delen, der\n**antigjettings-skaleringen** gjør at usikre svar er verdt null. En kandidat som\nmå tenke seg om i tjue sekunder per påstand, rekker ikke Del 2 — og en som gjetter\npå halvparten, får ingenting for dem.\n\nMålet med kapitlet er derfor todelt: at kjøretidstabellen og de tre invariantene\nkommer **uten opphold**, og at valg-oppgavene alltid får med **forutsetningen**\nsom gjorde valget lovlig.\n\nPrioritet: **høyeste**.\n\n**Slik er kapitlet lagt opp (80 min):** løsningsoppskriften og et gjennomarbeidet\ncase først (ca. 20 min), så tolv oppgaver i tre bolker à ca. 20 min. Bolkene er\nuavhengige — ta gjerne én bolk per kveld. Etter hver bolk står en boks som sier\nhva oppgavene testet."
+    },
+    {
+      "id": "in2010-2-4-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nHele Del 2:\n\n- [kap. 2.1](/in2010/in2010-2-1) — invariantene etter $i$ iterasjoner,\n  stabilitet og in-place.\n- [kap. 2.2](/in2010/in2010-2-2) — flettesortering, heapsort, kvikksortering og\n  nedre grensen.\n- [kap. 2.3](/in2010/in2010-2-3) — counting, radix og bucket, og forutsetningen\n  om verdiområdet.\n\nOg fra Del 1: [kap. 1.2](/in2010/in2010-1-2) om løkketelling, som er det du\nbruker når du skal lese kjøretiden ut av en ukjent sortering."
+    },
+    {
+      "id": "in2010-2-4-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-2-4-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer som skal sorteres |\n| $i$ | antall fullførte iterasjoner av den ytre løkka |\n| $k$ | størrelsen på verdiområdet (counting og bucket) |\n| $d$ | antall siffer i den lengste nøkkelen (radix) |\n| $O(n^2)$ | kvadratisk — de tre enkle sorteringene og kvikksorteringens verste tilfelle |\n| $O(n \\log n)$ | flettesortering, heapsort og kvikksortering forventet |\n| $\\Omega(n \\log n)$ | nedre grense for sammenligningsbaserte sorteringer |"
+        },
+        {
+          "id": "in2010-2-4-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `BubbleSort(A)` | nabobytter; de $i$ største låses til høyre etter $i$ runder | $O(n^2)$, $O(n)$ beste med tidlig stopp |\n| `SelectionSort(A)` | minste gjenværende byttes fram; de $i$ minste låses til venstre | $O(n^2)$ alltid |\n| `InsertionSort(A)` | nytt element skyves inn i sortert prefiks; de $i+1$ første sorteres innbyrdes | $O(n^2)$, $O(n)$ beste |\n| `MergeSort(A)` | splitt, sortér hver del, flett | $O(n \\log n)$ alltid |\n| `HeapSort(A)` | bygg heap, hent ut minste gjentatte ganger | $O(n \\log n)$ alltid |\n| `QuickSort(A)` | partisjonér om pivot, sortér hver side | $O(n \\log n)$ forventet, $O(n^2)$ verste |\n| `CountingSort(A, k)` | teller forekomster, plasserer direkte; krever heltall i $[0, k]$ | $O(n + k)$ |\n| `RadixSort(A, d)` | ett stabilt pass per siffer, minst signifikante først | $O(d(n + k))$ |\n| `BucketSort(A, m)` | fordel i bøtter, sortér hver, skjøt sammen | $O(n)$ forventet |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{n(n-1)}{2} \\text{ sammenligninger for de tre kvadratiske}$$\n\nTrekantsummen: den ytre løkka gjør $n-1$ runder, den indre stadig færre.\n\n$$\\log_2 n \\text{ nivåer} \\times O(n) \\text{ per nivå} = O(n \\log n)$$\n\nNivåtellingen bak flettesortering.\n\n$$O(n + k) \\text{ er lineær kun når } k = O(n)$$\n\nCounting sorts forbehold, som må skrives ut."
+        }
+      ]
+    },
+    {
+      "id": "in2010-2-4-th-1",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger D",
+      "content": "Sjanger D kommer i to former, og de har hver sin oppskrift. Første steg er alltid\nå se hvilken form du har.\n\n**Form 1 — egenskapsspørsmål** («er dette sant?», «hva står på plass etter $i$\nrunder?»). Her henter du et faktum, og hastigheten kommer av at faktumet er pugget.\n\n1. **Identifisér algoritmen og egenskapen.** Er det invariant, stabilitet,\n   in-place, eller kjøretid det spørres om?\n2. **Les hvilket tilfelle**, hvis det er kjøretid: beste, forventet eller verste.\n   Dette ene ordet skiller riktig fra galt i halvparten av påstandene.\n3. **Hent faktumet fra tabellen.** Ikke resonner deg fram — resonnering tar tid og\n   inviterer til feil.\n4. **Sjekk om påstanden er en av de faste fellene:** invariantene byttet om,\n   «kvikksortering $O(n \\log n)$ verste», «flettesortering in-place», «heapsort\n   stabil», «build-heap $O(n \\log n)$».\n\n**Form 2 — valg-spørsmål** («hvilken sortering passer her, og hva koster den?»).\n\n1. **Hva vet du om verdiene?** Heltall i et kjent, lite område $\\Rightarrow$ counting eller\n   radix, $O(n + k)$ eller $O(d(n+k))$. Kjent intervall og jevn fordeling $\\Rightarrow$ bucket,\n   $O(n)$ forventet. Bare «sammenlignbare» $\\Rightarrow$ **ingen** lineær sortering er lovlig.\n2. **Kreves stabilitet?** Da faller kvikksortering, heapsort og utvalgssortering\n   bort.\n3. **Er det minne- eller garantikrav?** Ikke in-place $\\Rightarrow$ flettesortering faller\n   bort. Krav om garantert $O(n \\log n)$ $\\Rightarrow$ kvikksortering faller bort.\n4. **Oppgi kjøretiden som matcher valget**, med $n$ (og $k$ eller $d$) definert.\n5. **Skriv ut forutsetningen** som gjorde et lineært valg lovlig. Det er dette\n   delmomentet som oftest glemmes, og det er poenggivende for seg selv.\n\n**Puggeflaten begge formene henter fra:**\n\n| Algoritme | Beste | Verste | Forventet | Stabil? | In-place? |\n|---|---|---|---|---|---|\n| Boblesortering | $O(n)$ med tidlig stopp | $O(n^2)$ | $O(n^2)$ | ja | ja |\n| Utvalgssortering | $O(n^2)$ | $O(n^2)$ | $O(n^2)$ | nei | ja |\n| Innsettingssortering | $O(n)$ | $O(n^2)$ | $O(n^2)$ | ja | ja |\n| Flettesortering | $O(n \\log n)$ | $O(n \\log n)$ | $O(n \\log n)$ | ja | **nei** |\n| Heapsort | $O(n \\log n)$ | $O(n \\log n)$ | $O(n \\log n)$ | **nei** | ja |\n| Kvikksortering | $O(n \\log n)$ | **$O(n^2)$** | $O(n \\log n)$ | **nei** | ja |\n| Counting sort | $O(n + k)$ | $O(n + k)$ | $O(n + k)$ | ja | nei |"
+    },
+    {
+      "id": "in2010-2-4-ex-case",
+      "type": "example",
+      "title": "Gjennomarbeidet eksamenscase med sensorkommentarer",
+      "problem": "(Eksamensnivå, sjanger D.) Et sett har denne oppgaven, verdt 6 poeng:\n\n**a)** (2 p) Arrayet `[7, 2, 9, 4, 1, 6]` sorteres. Hva er tilstanden etter 2\nfullførte iterasjoner av den ytre løkka, med henholdsvis boblesortering,\nutvalgssortering og innsettingssortering?\n\n**b)** (2 p) Marker sant eller usant: (i) heapsort er stabil; (ii) counting sort\ner $O(n)$ uansett verdiområde; (iii) innsettingssortering plasserer de $i$ første\nelementene endelig etter $i$ runder.\n\n**c)** (2 p) Du skal sortere $n$ ordrer etter leveringsdag (heltall 1 til 365),\nog ordrer fra samme dag må beholde rekkefølgen de kom inn i. Hvilken sortering\nvelger du? Oppgi kjøretiden.",
+      "solution": "**a) Håndkjøringene.**\n\n*Boblesortering:*\n\n| Etter iterasjon | Tilstand | Låst |\n|---|---|---|\n| 1 | `[2, 7, 4, 1, 6, 9]` | `[9]` til høyre |\n| 2 | `[2, 4, 1, 6, 7, 9]` | `[7, 9]` til høyre |\n\n*Utvalgssortering:*\n\n| Etter iterasjon | Tilstand | Låst |\n|---|---|---|\n| 1 | `[1, 2, 9, 4, 7, 6]` | `[1]` til venstre |\n| 2 | `[1, 2, 9, 4, 7, 6]` | `[1, 2]` til venstre |\n\n*Innsettingssortering:*\n\n| Etter iterasjon | Tilstand | Sortert prefiks |\n|---|---|---|\n| 1 | `[2, 7, 9, 4, 1, 6]` | `[2, 7]`, ikke endelig |\n| 2 | `[2, 7, 9, 4, 1, 6]` | `[2, 7, 9]`, ikke endelig |\n\n> **Sensornotat, a) — 2 poeng.** Typisk fordeling er 0,5 p per riktig tilstand og\n> 0,5 p for å oppgi hvilke elementer som er låst. Legg merke til at\n> utvalgssortering ikke gjorde noe bytte i runde 2 — 2-tallet lå allerede riktig.\n> Det er et vanlig sted å skrive feil, fordi tilstanden ser uendret ut.\n> **Delvis riktig gir delvis uttelling:** har du to av tre algoritmer riktig, får\n> du to av tre delpoeng. Aldri la et felt stå tomt.\n\n**b) Sant/usant.**\n\n**(i) Usant.** Heapsort er in-place, men ikke stabil — uttrekket flytter\nelementer over lang avstand.\n\n**(ii) Usant.** Counting sort er $O(n + k)$. Er verdiområdet stort, dominerer\n$k$, og algoritmen blir tregere enn $O(n \\log n)$.\n\n**(iii) Usant.** Innsettingssortering sorterer de $i+1$ første **innbyrdes**,\nikke endelig.\n\n> **Sensornotat, b) — 2 poeng.** Tre påstander, alle usanne, og alle tre er faste\n> distraktorer. Merk at «alle usant» **er** et mulig fasitmønster på en enkelt\n> deloppgave, selv om en hel sant/usant-blokk alltid blander. Under\n> antigjettings-skaleringen får den som gjetter på alle tre i snitt 1,5 riktige —\n> og etter skaleringen er det null. Det finnes ingen delvis kredit for å ha\n> «nesten» rett her.\n\n**c) Valget.**\n\nDette er form 2 i oppskriften. **Hva vet vi om verdiene?** Leveringsdagen er et\nheltall i et kjent område, $[1, 365]$, altså $k = 365$. **Kreves stabilitet?** Ja\n— ordrer fra samme dag skal beholde rekkefølgen.\n\n**Svar:** counting sort, som er både lineær og stabil.\n\n**Kjøretid:** $O(n + k)$ med $n$ = antall ordrer og $k = 365$. Siden $k$ er en\nkonstant, er dette $O(n)$.\n\n**Forutsetningen, skrevet ut:** leveringsdagen er et heltall i et kjent, begrenset\nområde, så counting sort er lovlig. Stabiliteten er ivaretatt fordi\nutplasseringsløkka går bakfra.\n\n> **Sensornotat, c) — 2 poeng.** Poengfordelingen er typisk 1 p for riktig\n> algoritme og 1 p for riktig kjøretid **med forutsetningen oppgitt**. En\n> besvarelse som skriver «counting sort, $O(n)$» og stopper der, får som regel\n> halv uttelling. En besvarelse som velger flettesortering og skriver\n> $O(n \\log n)$, er **korrekt** og får uttelling — men ikke full, fordi\n> poengtrappen gir mest for lavest kjøretid. En besvarelse som velger\n> kvikksortering, mister også stabilitetspoenget.\n\n**Samlet:** de 6 poengene henger på tre ting — at tabellen sitter, at du leser\nhvilket tilfelle det spørres om, og at du skriver ut forutsetningen. Ingen av\ndelene krever regning."
+    },
+    {
+      "id": "in2010-2-4-t-b1",
+      "type": "text",
+      "content": "## Bolk 1 — invarianter og håndkjøring (ca. 20 min)\n\nFem oppgaver på det som gir raskest poeng: hva står hvor etter $i$ runder."
+    },
+    {
+      "id": "in2010-2-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D.) `[3, 8, 1, 5]` sorteres med hver av de tre\nkvadratiske algoritmene.\n\n**a)** Tilstand etter 1 iterasjon med boblesortering?\n**b)** Tilstand etter 1 iterasjon med utvalgssortering?\n**c)** Tilstand etter 1 iterasjon med innsettingssortering?",
+        "solution": "**a)** `[3, 1, 5, 8]`. Runde 1 sammenligner `(3,8)` — riktig, `(8,1)` — bytt,\n`(8,5)` — bytt. 8-tallet bobler til enden.\n\n**b)** `[1, 8, 3, 5]`. Minste element er 1 på indeks 2; det byttes med indeks 0.\n\n**c)** `[3, 8, 1, 5]` — uendret. Runde 1 tar `x = 8` og sammenligner med 3.\nSiden 3 ikke er større enn 8, skjer ingen forskyvning.\n\n**Merk c).** At tilstanden er uendret er et helt riktig svar, og det er også et\nvanlig sted å tvile på seg selv. Innsettingssortering gjør ingenting i en runde\nder det nye elementet allerede er størst i prefikset.",
+        "hints": [
+          "Boblesortering sammenligner naboparene fra venstre; utvalgssortering leter opp minsteverdien.",
+          "Innsettingssortering kan gjøre null forskyvninger i en runde."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.) `[7, 2, 9, 4, 1, 6]` sorteres med utvalgssortering.\n\n**a)** Tilstand etter 3 iterasjoner?\n**b)** Hvor mange bytter er gjort etter 3 iterasjoner?\n**c)** Hvor mange sammenligninger gjør den indre løkka i iterasjon 4?",
+        "solution": "**a)** `[1, 2, 4, 9, 7, 6]`. Runde 1 byttet 1 fram fra indeks 4; runde 2 fant at\n2 allerede lå riktig; runde 3 byttet 4 fram fra indeks 3.\n\n**b)** To. Runde 2 gjorde ingen bytte, fordi minsteverdien blant de gjenværende\nallerede lå på riktig plass. Dette er den detaljen som oftest bommes.\n\n**c)** Iterasjon 4 (med `i = 3`) leter gjennom indeks 4 og 5, altså **2\nsammenligninger**. Generelt gjør iterasjon nummer $i+1$ nøyaktig $n - i - 1$\nsammenligninger.\n\n**Kontrollregning:** totalt over alle rundene blir det $5+4+3+2+1 = 15$\nsammenligninger, som er $\\frac{n(n-1)}{2}$ med $n = 6$. Stemmer.",
+        "hints": [
+          "Skriv opp arrayet og marker hvor den ferdige delen slutter etter hver runde.",
+          "Utvalgssortering gjør bytte bare når minsteverdien ikke allerede lå riktig."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.) `[7, 2, 9, 4, 1, 6]` sorteres med innsettingssortering.\n\n**a)** Tilstand etter 4 iterasjoner?\n**b)** Er noen elementer garantert endelig plassert?\n**c)** Hva ville tilstanden vært etter 4 iterasjoner med boblesortering?",
+        "solution": "**a)** `[1, 2, 4, 7, 9, 6]`. Prefikset `[1, 2, 4, 7, 9]` er sortert innbyrdes.\n\n**b)** Nei — ingen. Fasiten er `[1, 2, 4, 6, 7, 9]`, og prefikset er\n`[1, 2, 4, 7, 9]`. De tre første står tilfeldigvis riktig, men invarianten\ngaranterer det ikke, og 6-tallet som ligger igjen vil skyve både 7 og 9 ett hakk\ntil høyre. Svaret på «er noe **garantert** endelig plassert» er alltid nei for\ninnsettingssortering før den er ferdig.\n\n**c)** `[1, 2, 4, 6, 7, 9]` — ferdig sortert. Boblesortering låser de fire største\ntil høyre etter fire runder, og med bare seks elementer betyr det at hele arrayet\ner sortert. Merk at algoritmen ikke **vet** det ennå: uten tidlig stopp kjører den\nrunde 5 også.\n\n**Poenget med å sammenligne a) og c):** de to algoritmene har brukt like mange\nrunder, men står på helt ulike steder. Å svare på hvilken ende som er ferdig er\nhalve sjanger D.",
+        "hints": [
+          "Kjør én runde om gangen og noter hvor prefikset slutter.",
+          "«Garantert endelig» er et spørsmål om invarianten, ikke om hva tallene tilfeldigvis er."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.) Et array med 30 elementer sorteres.\n\n**a)** Etter 8 runder med boblesortering — hvilke indekser er garantert ferdige?\n**b)** Etter 8 runder med utvalgssortering — hvilke indekser er garantert ferdige?\n**c)** Etter 8 runder med innsettingssortering — hvor mange elementer er sortert\ninnbyrdes?\n**d)** Hvilken av de tre har gjort færrest bytter så langt, i verste tilfelle?",
+        "solution": "Her er $n = 30$.\n\n**a)** Indeks 22 til 29 — de 8 største, helt til høyre.\n\n**b)** Indeks 0 til 7 — de 8 minste, helt til venstre.\n\n**c)** Ni, altså $i + 1 = 9$. De ligger på indeks 0 til 8 og er sortert innbyrdes,\nmen ingen av dem er garantert endelig plassert.\n\n**d)** Utvalgssortering. Den gjør høyst ett bytte per runde, altså høyst 8 så\nlangt. Boblesortering kan i verste tilfelle ha gjort\n$29 + 28 + \\cdots + 22 = 204$ bytter, og innsettingssortering tilsvarende mange\nforskyvninger.\n\n**Merk formuleringen i d):** «i verste tilfelle». Uten det forbeholdet er\nspørsmålet ubesvarlig, siden boblesortering på et nesten sortert array kan ha gjort\nnull bytter.",
+        "hints": [
+          "Regn indeksene fra riktig ende: én av de tre fyller opp fra høyre.",
+          "Innsettingssortering har $i+1$ elementer i prefikset etter $i$ runder, ikke $i$."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.) Fire deltakere står i denne rekkefølgen, med\nstartgruppa i parentes:\n\n`Rud(2), Lie(1), Aas(2), Bo(1)`\n\nLista sorteres på startgruppe.\n\n**a)** Hva blir resultatet med innsettingssortering?\n**b)** Hva blir resultatet med utvalgssortering?\n**c)** Hvilken av de to ville du valgt hvis lista på forhånd var sortert\nalfabetisk og den alfabetiske rekkefølgen skulle overleve innen hver gruppe?",
+        "solution": "**a)** `Lie(1), Bo(1), Rud(2), Aas(2)`. Innsettingssortering er stabil: `Bo`\nskyves bakover kun forbi **strengt** større nøkler, så den stopper bak `Lie`, som\nhar samme gruppe.\n\n**b)** `Lie(1), Bo(1), Aas(2), Rud(2)`. Utvalgssortering er ustabil. I runden som\nskal fylle indeks 2, finner den `Aas(2)` blant de gjenværende og bytter `Rud` ut\ntil plassen `Aas` sto på — dermed byttes de to om.\n\n**c)** Innsettingssortering. Begge gir en korrekt sortering på startgruppe, men\nbare den stabile bevarer rekkefølgen mellom deltakere i samme gruppe.\n\n**Legg merke til hvor liten forskjellen ser ut**, og hvor stor den er i praksis:\nto navn har byttet plass. På en liste med tusen navn sortert på etternavn, er det\nhele den alfabetiske ordenen innen hver gruppe som forsvinner.",
+        "hints": [
+          "Sammenlign hva de to algoritmene gjør med de to elementene som har lik nøkkel.",
+          "Stabil betyr at like nøkler beholder innbyrdes rekkefølge."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-tip-signal-1",
+      "type": "tip",
+      "title": "Hva de fem første oppgavene testet",
+      "content": "Bolk 1 rullerte gjennom hele invariant-repertoaret:\n\n- **Oppgave 1** testet at du kan kjøre én runde av hver av de tre — inkludert den\n  runden som ikke gjør noe.\n- **Oppgave 2** testet utvalgssorteringens byttetelling, der runden uten bytte er\n  fella.\n- **Oppgave 3** testet skillet mellom «sortert innbyrdes» og «garantert endelig».\n- **Oppgave 4** testet invariantene i ren form, uten å måtte kjøre noe: du skulle\n  svare på indekser for $n = 30$.\n- **Oppgave 5** testet stabilitet demonstrert på data, ikke bare som påstand.\n\nKlarte du 4 og 5 uten å kjøre algoritmene i hodet, sitter invariantene. Måtte du\nkjøre dem, er det de to setningene i\n[kap. 2.1](/in2010/in2010-2-1) du skal pugge: største til høyre, minste til\nvenstre, og innbyrdes til venstre uten garanti."
+    },
+    {
+      "id": "in2010-2-4-t-b2",
+      "type": "text",
+      "content": "## Bolk 2 — egenskaper og kjøretider (ca. 20 min)\n\n— naturlig pausepunkt —\n\nFire oppgaver på tabellen. Målet er at svarene skal komme uten opphold."
+    },
+    {
+      "id": "in2010-2-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.) Fyll ut tabellen for alle sju sorteringene. Skriv\nverste kjøretid, om algoritmen er stabil, og om den er in-place.\n\n| Algoritme | Verste | Stabil? | In-place? |\n|---|---|---|---|\n| Boblesortering | | | |\n| Utvalgssortering | | | |\n| Innsettingssortering | | | |\n| Flettesortering | | | |\n| Heapsort | | | |\n| Kvikksortering | | | |\n| Counting sort | | | |",
+        "solution": "| Algoritme | Verste | Stabil? | In-place? |\n|---|---|---|---|\n| Boblesortering | $O(n^2)$ | ja | ja |\n| Utvalgssortering | $O(n^2)$ | **nei** | ja |\n| Innsettingssortering | $O(n^2)$ | ja | ja |\n| Flettesortering | $O(n \\log n)$ | ja | **nei** |\n| Heapsort | $O(n \\log n)$ | **nei** | ja |\n| Kvikksortering | **$O(n^2)$** | **nei** | ja |\n| Counting sort | $O(n + k)$ | ja | **nei** |\n\nFem celler er markert, og de fem er hele fasiten for de vanligste\nsant/usant-punktene:\n\n1. Utvalgssortering er den eneste **ustabile** blant de tre kvadratiske.\n2. Flettesortering er den eneste **ikke in-place** blant de effektive.\n3. Kvikksortering er den eneste med **kvadratisk verste tilfelle** blant de\n   effektive.\n4. Heapsort er den eneste som er både **garantert** $O(n \\log n)$ og **in-place**.\n5. Counting sort er den eneste med **$k$** i kjøretiden, og den eneste som ikke\n   sammenligner.\n\n**Test deg selv med denne tabellen tildekket i to minutter, og gjenta til den\nkommer uten opphold.** På eksamen er det snakk om sekunder per påstand.",
+        "hints": [
+          "Begynn med de tre kvadratiske: alle er $O(n^2)$ og in-place — bare stabiliteten varierer.",
+          "Blant de effektive: én er stabil, én har dårlig verste tilfelle, én er begge deler god."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C og D.) Avgjør sant eller usant med én setnings\nbegrunnelse.\n\n**a)** Utvalgssortering har $O(n)$ i beste tilfelle.\n**b)** Flettesortering er $O(n \\log n)$ også i verste tilfelle.\n**c)** Kvikksortering er in-place.\n**d)** Å bygge en heap fra et vilkårlig array er $O(n \\log n)$.\n**e)** Radix sort krever at hvert enkeltpass er stabilt.",
+        "solution": "**a) Usant.** Utvalgssortering er $O(n^2)$ i alle tilfeller — den må lete gjennom\nresten for å bevise at minsteverdien er funnet, uansett hvordan arrayet ligger.\n\n**b) Sant.** Splittingen gir alltid $\\log_2 n$ nivåer, uavhengig av hvilke tall\narrayet inneholder.\n\n**c) Sant.** Partisjoneringen bytter elementer i selve arrayet og bruker $O(1)$\nekstra minne. Merk at kvikksortering er in-place og likevel ustabil — de to\negenskapene henger ikke sammen.\n\n**d) Usant.** `BuildHeap` er $O(n)$. Selve heapsorteringen er $O(n \\log n)$, fordi\nde $n$ uttrekkene koster $O(\\log n)$ hver, og det er den blandingen som skaper\nfeilen.\n\n**e) Sant.** Rekkefølgen fra tidligere pass overlever bare inne i en bøtte hvis\npasset er stabilt. Uten stabilitet gir algoritmen feil svar.\n\n**Fordelingen:** to sanne, tre usanne. Under antigjettings-skaleringen gir det å\ngjette på alle fem i snitt 2,5 riktige — som etter skaleringen er null eller\nnegativt før den nulles.",
+        "hints": [
+          "For hver påstand: hvilket tilfelle gjelder den, og hvilken algoritme?",
+          "To av påstandene handler om egenskaper som ofte forveksles: stabil og in-place."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.) Et array `A` med $n$ elementer er **allerede sortert**.\nOppgi kjøretiden for hver algoritme på nettopp denne inputen.\n\n**a)** Innsettingssortering\n**b)** Utvalgssortering\n**c)** Flettesortering\n**d)** Kvikksortering med siste element som pivot",
+        "solution": "La $n$ være antall elementer i `A`.\n\n**a)** $O(n)$. Den indre `while`-løkka stopper umiddelbart hver runde, fordi det\nnye elementet alltid er størst i prefikset. Totalt $n-1$ sammenligninger.\n\n**b)** $O(n^2)$. Utvalgssortering leter gjennom resten hver runde, uansett.\n\n**c)** $O(n \\log n)$. Splittingen bryr seg ikke om rekkefølgen.\n\n**d)** $O(n^2)$. Pivoten er alltid det største gjenværende elementet og havner\nytterst, så hver partisjonering skreller av bare ett element. Nivåtellingen gir\n$(n-1) + (n-2) + \\cdots + 1 = \\frac{n(n-1)}{2}$.\n\n**Momentet i oppgaven:** på nettopp denne inputen er den enkleste algoritmen\n($O(n)$) raskere enn alle de effektive, og en av de effektive er like treg som de\nkvadratiske. Det viser hvorfor asymptotisk klasse er en uttalelse om **verste\neller forventet** tilfelle, ikke en garanti om hvem som vinner på hver enkelt\ninput. Samme poeng som i [kap. 1.1](/in2010/in2010-1-1).",
+        "hints": [
+          "Spør for hver algoritme: merker den at arrayet er sortert, eller ikke?",
+          "For kvikksortering: hvor havner siste element som pivot i et sortert array?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D, krevende.) Denne pseudokoden er en sortering du ikke\nhar sett før.\n\n```text\nProcedure UkjentSort(A)\n  Input:  array A med n sammenlignbare elementer, indeksert fra 0\n  Output: A sortert stigende\n  i = 0\n  while i < A.length:\n      if i == 0 or A[i-1] <= A[i]:\n          i = i + 1\n      else:\n          bytt A[i-1] og A[i]\n          i = i - 1\n```\n\n**a)** Er algoritmen stabil? Begrunn.\n**b)** Er den in-place? Begrunn.\n**c)** Hva er verste og beste kjøretid?\n**d)** Håndkjør den på `[3, 1, 2]` og tell steg.",
+        "solution": "**a) Ja, stabil.** Byttet skjer bare når `A[i-1] <= A[i]` er **usant**, altså når\nelementet foran er **strengt** større. To like elementer byttes derfor aldri om.\nDette er den generelle regelen: bare nabobytter, og bare forbi strengt større $\\Rightarrow$\nstabil.\n\n**b) Ja, in-place.** Algoritmen bruker én indeksvariabel `i` og bytter i selve\narrayet. Ingen nye arrayer opprettes, altså $O(1)$ ekstra minne.\n\n**c)** **Verste tilfelle $O(n^2)$.** På et omvendt sortert array må hvert element\nvandre helt til venstre, ett nabobytte om gangen, og summen av vandringene er\ntrekantsummen. **Beste tilfelle $O(n)$:** på et ferdigsortert array er `i == 0 or\nA[i-1] <= A[i]` sant hver gang, og pekeren går rett gjennom uten et eneste bytte.\n\n**d) Håndkjøring på `[3, 1, 2]`:**\n\n| Steg | `i` før | Handling | Tilstand etter |\n|---|---|---|---|\n| 1 | 0 | `i = 0`, gå ett fram | `[3, 1, 2]` |\n| 2 | 1 | bytt `A[0]` og `A[1]`, gå ett tilbake | `[1, 3, 2]` |\n| 3 | 0 | `i = 0`, gå ett fram | `[1, 3, 2]` |\n| 4 | 1 | `A[0] <= A[1]`, gå ett fram | `[1, 3, 2]` |\n| 5 | 2 | bytt `A[1]` og `A[2]`, gå ett tilbake | `[1, 2, 3]` |\n| 6 | 1 | `A[0] <= A[1]`, gå ett fram | `[1, 2, 3]` |\n| 7 | 2 | `A[1] <= A[2]`, gå ett fram | `[1, 2, 3]` |\n\n**Sluttilstand: `[1, 2, 3]`** etter 7 steg, 5 sammenligninger og 2 bytter.\n\n**Algoritmen heter gnome sort**, men navnet er uvesentlig. Framgangsmåten når du\nmøter en ukjent sortering er alltid: se på hva den **flytter** og **hvor langt**.\nKorte nabobytter $\\Rightarrow$ stabil. Nytt array $\\Rightarrow$ ikke in-place. Én peker som kan gå\ntilbake $\\Rightarrow$ i verste fall $n$ vandringer à $n$ steg $\\Rightarrow$ $O(n^2)$.",
+        "hints": [
+          "Se på betingelsen for bytte: er den «større» eller «større eller lik»?",
+          "Tell hvor mange nye arrayer koden oppretter."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-tip-signal-2",
+      "type": "tip",
+      "title": "Hva bolk 2 testet",
+      "content": "- **Oppgave 6** var tabellen selv, i eksamensform. Den kommer igjen som\n  matriseavkryssing (sjanger F).\n- **Oppgave 7** rullerte de fem hyppigste distraktorene: utvalgssorteringens\n  beste tilfelle, flettesorteringens garanti, kvikksorteringens minnebruk,\n  build-heap, og stabilitetskravet i radix.\n- **Oppgave 8** testet at du skiller mellom asymptotisk klasse og faktisk ytelse\n  på én bestemt input.\n- **Oppgave 9** testet framgangsmåten for en **ukjent** algoritme — den du\n  trenger når settet gir deg pseudokode uten navn.\n\nOppgave 9 er den formen som er vanskeligst å pugge seg gjennom, og den enkleste å\nlære en metode for. Metoden er tre spørsmål: hva flyttes, hvor langt, og hvor\nmange nye arrayer."
+    },
+    {
+      "id": "in2010-2-4-t-b3",
+      "type": "text",
+      "content": "## Bolk 3 — valg av sortering (ca. 20 min)\n\nTre oppgaver på form 2 av oppskriften. Her er forutsetningen like mye verdt som\nalgoritmen."
+    },
+    {
+      "id": "in2010-2-4-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.) For hver situasjon: velg sortering, oppgi kjøretiden,\nog skriv ut forutsetningen som gjør valget lovlig.\n\n**a)** $n$ eksamensbesvarelser som skal sorteres på karakter (A til F).\n**b)** $n$ flyttall som bare er kjent å kunne sammenlignes.\n**c)** $n$ ordrenumre på nøyaktig seks siffer.\n**d)** $n$ elementer der minnet er svært knapt, men kjøretiden må være garantert\n$O(n \\log n)$.",
+        "solution": "La $n$ være antall elementer.\n\n**a) Counting sort.** Karakterene kan nummereres 0 til 5, altså et kjent\nverdiområde med $k = 5$. $O(n + k) = O(n)$. **Forutsetning:** karakteren er en av\nseks kjente verdier, og de kan brukes direkte som indeks.\n\n**b) En sammenligningssortering** — flettesortering, heapsort eller\nkvikksortering. $O(n \\log n)$. **Forutsetning:** ingen. Og det er nettopp poenget:\nuten kunnskap om verdiene er ingen lineær sortering lovlig, og $O(n \\log n)$ er\nlavest mulig etter nedre grensen. Å foreslå bucket eller radix her er felle **#5**\ni bokas feilregister — lineær sortering brukt uten at forutsetningen om et kjent,\nbegrenset verdiområde er oppfylt.\n\n**c) Radix sort.** $O(d(n + k))$ med $d = 6$ og $k = 9$, altså $O(n)$.\n**Forutsetning:** ordrenumrene er heltall med et fast antall siffer. Counting sort\nville også virket, med $k = 999\\,999$, men telleregisteret blir da unødvendig\nstort med mindre $n$ er i samme størrelsesorden.\n\n**d) Heapsort.** $O(n \\log n)$ garantert, og in-place, altså $O(1)$ ekstra minne.\nFlettesortering faller på minnekravet ($O(n)$ hjelpearray), kvikksortering faller\npå garantien (verste tilfelle $O(n^2)$).\n\n**Formen sensor vil ha, tre ledd hver gang:** algoritme, forutsetning, kjøretid\nmed $n$ definert. Mangler forutsetningen, forsvinner som regel ett delpoeng.",
+        "hints": [
+          "Still det samme spørsmålet til hver situasjon: hva vet jeg om verdiene, ikke bare om rekkefølgen?",
+          "I d) er det to krav samtidig — én av de tre effektive oppfyller begge."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D, krevende.) En besvarelse lyder:\n\n> «Jeg sorterer de $n$ elementene med bucket sort, som er $O(n)$. Deretter skanner\n> jeg naboparene i $O(n)$ for å finne duplikater. Totalt $O(n)$, som er lavest\n> mulig og gir full uttelling i poengtrappen.»\n\nOppgaven sa: «Gitt et usortert array med $n$ heltall, avgjør om to av dem er\nlike.»\n\n**a)** Hva er galt?\n**b)** Hva er det høyeste **lovlige** trinnet i poengtrappen på denne oppgaven?\n**c)** Skriv en korrekt besvarelse.",
+        "solution": "**a) To feil.**\n\nFor det første: **bucket sort er ikke lovlig her.** Den krever at verdiene ligger\ni et **kjent intervall** og er noenlunde **jevnt fordelt**. Oppgaven sier bare\n«heltall» — de kan være vilkårlig store og vilkårlig fordelt. Dette er felle\n**#5**.\n\nFor det andre: **selv om bucket sort hadde vært lovlig, er $O(n)$ bare det\nforventede tilfellet.** Verste tilfelle er $O(n^2)$, når alt havner i samme bøtte.\nÅ skrive «$O(n)$» uten «forventet» er upresist.\n\nMerk hva som **ikke** er galt: sortér-og-skann-strategien i seg selv er helt\nriktig, og skanningen av naboparene er den rette måten å finne duplikater i et\nsortert array.\n\n**b)** $O(n)$ **forventet** med et hash-set. Se\n[kap. 3.4](/in2010/in2010-3-4). Det er det høyeste trinnet, og det er lovlig\nfordi et hash-set ikke stiller krav til verdiområdet.\n\n**c) Korrekt besvarelse:**\n\n«**Problemet:** duplikatsøk i en usortert mengde heltall.\n\n**Antagelser om representasjon:** `A` er et array med $n$ heltall indeksert fra 0.\nVi kan opprette nye arrayer og har tilgang til en sammenligningssortering.\n\n**Algoritme (sortér og skann):** sortér `A` med flettesortering, og gå deretter\ngjennom det sorterte arrayet og sammenlign hvert element med det neste. Er to\nnaboer like, finnes det et duplikat.\n\n```text\nProcedure HarDuplikat(A)\n  Input:  array A med n heltall, indeksert fra 0\n  Output: sant hvis to elementer er like, ellers usant\n  B = MergeSort(A)\n  for i = 0 to B.length-2:\n      if B[i] == B[i+1]:\n          return sant\n  return usant\n```\n\n**Kjøretid:** $O(n \\log n)$ for sorteringen pluss $O(n)$ for skanningen, altså\n$O(n \\log n)$, der $n$ er antall elementer i `A`.\n\n**Kan dette gjøres raskere?** Ja — med et hash-set blir det $O(n)$ forventet, og\ndet er det øverste trinnet i poengtrappen. Sortér-og-skann er trinnet under, og en\ndobbelt løkke over alle par ligger nederst på $O(n^2)$.»",
+        "hints": [
+          "Sjekk hver forutsetning bucket sort krever mot det oppgaven faktisk har oppgitt.",
+          "Er $O(n)$ bucket sorts verste eller forventede tilfelle?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-4-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D, krevende.) Du skal sortere $n$ pakker på tre nøkler:\nførst sone (8 mulige), så vektklasse (heltall 0 til 20), og til slutt\nprioritet (heltall 0 til 3). Sone er hovednøkkelen, prioritet den minst viktige.\n\n**a)** Skisser en løsning med counting sort. Oppgi rekkefølgen på passene.\n**b)** Hva er samlet kjøretid?\n**c)** Hva ville gått galt hvis ett av passene var ustabilt?\n**d)** Hvordan ville du løst det hvis sone var en tekststreng i stedet for et\ntall?",
+        "solution": "**Problemet navngitt:** sortering på tre nøkler med kjente, små verdiområder.\n\n**Antagelser om representasjon:** `A` er et array med $n$ pakker indeksert fra 0.\nHver pakke `v` har feltene `v.sone` ($0$ til $7$), `v.vektklasse` ($0$ til $20$) og\n`v.prioritet` ($0$ til $3$).\n\n**a) Tre stabile counting-pass, fra minst til mest viktig nøkkel:**\n\n```text\nProcedure SorterPakker(A)\n  Input:  array A med n pakker, hver med sone, vektklasse og prioritet\n  Output: A sortert paa sone, saa vektklasse, saa prioritet\n  A = CountingSort paa v.prioritet,  k = 3\n  A = CountingSort paa v.vektklasse, k = 20\n  A = CountingSort paa v.sone,       k = 7\n  return A\n```\n\nRekkefølgen er **prioritet, vektklasse, sone**. Den siste sorteringen styrer\nhovedrekkefølgen, så hovednøkkelen kommer sist — samme regel som i radix sort.\n\n**b) Kjøretid:** $O(n + 4) + O(n + 21) + O(n + 8) = O(n)$, der $n$ er antall\npakker. Alle tre verdiområdene er konstanter, så hvert pass er lineært, og\nsumregelen fra [kap. 1.2](/in2010/in2010-1-2) beholder $O(n)$.\n\n**Poengtrapp-notat:** alternativet er én sammenligningssortering på en sammensatt\nnøkkel, altså $O(n \\log n)$. Det er korrekt og gir uttelling, men $O(n)$ står\nhøyere — og den er bare tilgjengelig fordi alle tre nøklene har kjente, små\nverdiområder. Den setningen må stå i besvarelsen.\n\n**c)** Da ville et senere pass kunne stokke om på rekkefølgen etablert av et\ntidligere. Er sone-passet ustabilt, mister du vektklasse- og\nprioritetsrekkefølgen innen hver sone, og hele arbeidet fra de to første passene\ner bortkastet. Stabilitet er en betingelse her, ikke en bonus.\n\n**d)** Sone som tekststreng kan ikke brukes direkte som indeks i et telleregister.\nTo veier:\n\n- **Kartlegg sonene til tall.** Er de åtte sonene kjent på forhånd, gi dem numrene\n  0 til 7 i et oppslag, og bruk counting sort som over. Fortsatt $O(n)$.\n- **Bruk en stabil sammenligningssortering på siste pass.** Flettesortering er\n  stabil, så du kan kjøre de to første passene med counting sort og det siste med\n  flettesortering. Da blir totalen $O(n \\log n)$, ett trinn ned i poengtrappen.\n\nDen første veien er bedre, og forutsetningen som gjør den lovlig, er at sonene er\net **kjent, endelig** sett.",
+        "hints": [
+          "Hvilken nøkkel skal styre hovedrekkefølgen, og når sorterer du på den?",
+          "En tekststreng kan ikke være array-indeks — men kan den oversettes til et tall?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-4-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — fellekatalogen for sjanger D",
+      "content": "Samlet, i den rekkefølgen de koster mest poeng.\n\n- **Å bytte om invariantene.** Boblesortering låser de $i$ **største** til\n  **høyre**; utvalgssortering de $i$ **minste** til **venstre**;\n  innsettingssortering sorterer de $i+1$ **første innbyrdes**, uten garanti.\n- **Å foreslå bucket, counting eller radix på generelle sammenlignbare\n  elementer.** Felle **#5** i bokas feilregister. Uten kjent, begrenset\n  verdiområde er lineær sortering ikke lovlig, og svaret er feil — ikke bare\n  uheldig.\n- **Å oppgi verste der oppgaven spør om forventet, eller motsatt.** Gjelder først\n  og fremst kvikksortering: $O(n \\log n)$ forventet, $O(n^2)$ verste.\n- **Å blande stabil og in-place.** Kvikksortering er in-place og ustabil;\n  flettesortering er stabil og ikke in-place. De to egenskapene henger ikke\n  sammen.\n- **Å blande antall bytter med antall sammenligninger.** Utvalgssortering har\n  færrest bytter (høyst $n-1$), men like mange sammenligninger som boblesortering.\n- **Å hoppe over forutsetningen i et valg-svar.** «Counting sort, $O(n)$» uten å\n  nevne heltall og kjent område gir som regel halv uttelling.\n- **Å bruke $n$ eller $k$ uten å definere dem.** Felle **#10** — å oppgi kjøretid\n  uten å si hva problemstørrelsen er. Én setning holder."
+    },
+    {
+      "id": "in2010-2-4-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-2-4-def-1",
+      "type": "definition",
+      "title": "Sjanger D — sorteringsegenskaper og valg",
+      "content": "Del 1-sjangeren dette kapitlet driller: sant/usant om invarianter, stabilitet,\nin-place og kjøretid, pluss «hvilken sortering passer denne begrensningen».\n\nHar vært på 7 av 7 sett (100 %). Ligger i den auto-rettede delen med\nantigjettings-skalering, så usikre svar er verdt null."
+    },
+    {
+      "id": "in2010-2-4-def-2",
+      "type": "definition",
+      "title": "Oppskriften for egenskapsspørsmål",
+      "content": "Fire steg: **1)** identifisér algoritme og egenskap; **2)** les hvilket tilfelle\ndet spørres om; **3)** hent faktumet fra tabellen; **4)** sjekk om påstanden er en\nav de faste fellene.\n\nSteg 3 er poenget: du skal **hente**, ikke resonnere. Resonnering tar tid og\ninviterer til feil under tidspress."
+    },
+    {
+      "id": "in2010-2-4-def-3",
+      "type": "definition",
+      "title": "Oppskriften for valg-spørsmål",
+      "content": "Fem steg: **1)** hva vet du om verdiene? **2)** kreves stabilitet? **3)** er det\nminne- eller garantikrav? **4)** oppgi kjøretiden som matcher valget; **5)** skriv\nut forutsetningen.\n\nSteg 5 er delmomentet som oftest glemmes, og det er poenggivende for seg selv."
+    },
+    {
+      "id": "in2010-2-4-def-4",
+      "type": "definition",
+      "title": "De fem markerte cellene i tabellen",
+      "content": "Utvalgssortering er den eneste **ustabile** blant de kvadratiske.\nFlettesortering er den eneste **ikke in-place** blant de effektive.\nKvikksortering er den eneste med **kvadratisk verste tilfelle** blant de\neffektive. Heapsort er den eneste som er både **garantert** og **in-place**.\nCounting sort er den eneste med **$k$** i kjøretiden.\n\nDisse fem cellene dekker de fleste sant/usant-punktene i sjangeren."
+    },
+    {
+      "id": "in2010-2-4-def-5",
+      "type": "definition",
+      "title": "Å lese egenskaper ut av ukjent pseudokode",
+      "content": "Tre spørsmål: hva **flytter** algoritmen, **hvor langt**, og hvor mange **nye\narrayer** oppretter den?\n\nBare nabobytter, og bare forbi strengt større $\\Rightarrow$ **stabil**. Lange hopp $\\Rightarrow$\n**ustabil**. Ingen nye arrayer $\\Rightarrow$ **in-place**. To nøstede løkker over $n$, eller\nén peker som kan gå fram og tilbake $\\Rightarrow$ $O(n^2)$."
+    },
+    {
+      "id": "in2010-2-4-def-6",
+      "type": "definition",
+      "title": "Runden uten bytte i utvalgssortering",
+      "content": "Utvalgssortering gjør bytte bare når minsteelementet blant de gjenværende ikke\nallerede lå på riktig plass. Tilstanden ser da uendret ut, men invarianten\ngjelder likevel.\n\nDet er et av de vanligste stedene å skrive feil i en håndkjøring, fordi det er\nlett å tro at man har hoppet over en runde."
+    },
+    {
+      "id": "in2010-2-4-def-7",
+      "type": "definition",
+      "title": "Antall sammenligninger i iterasjon $i$",
+      "content": "Boblesortering: runde $i$ sammenligner naboparene fra indeks 0 til $n-i-1$, altså\n$n-i$ par. Utvalgssortering: iterasjon nummer $i+1$ gjør $n-i-1$ sammenligninger.\n\nSummen i begge tilfeller er $\\frac{n(n-1)}{2}$. Bruk den som kontrollregning når\ndu har talt rundene enkeltvis."
+    },
+    {
+      "id": "in2010-2-4-def-8",
+      "type": "definition",
+      "title": "Asymptotisk klasse er ikke en garanti per input",
+      "content": "På et ferdigsortert array bruker innsettingssortering $O(n)$ og slår alle de tre\neffektive, mens kvikksortering med ytterste pivot bruker $O(n^2)$ og er like treg\nsom de kvadratiske.\n\nEn $O$-klasse sier hva som skjer i verste eller forventet tilfelle for stor nok\n$n$ — den sier ikke hvem som vinner på én bestemt input. Dette er en fast\nsant/usant-felle fra [kap. 1.1](/in2010/in2010-1-1)."
+    },
+    {
+      "id": "in2010-2-4-def-9",
+      "type": "definition",
+      "title": "Poengtrappen blant lovlige løsninger",
+      "content": "Sensorveiledningene gir mest uttelling for lavest kjøretid på samme oppgave. Men\ntrappen gjelder **lovlige** løsninger: en $O(n)$-løsning som bryter forutsetningen\nsin, står ikke øverst — den står utenfor.\n\nDerfor er forutsetningen og kjøretiden to sider av samme delmoment."
+    },
+    {
+      "id": "in2010-2-4-def-10",
+      "type": "definition",
+      "title": "Rekkefølgen ved sortering på flere nøkler",
+      "content": "Sortér på den **minst** viktige nøkkelen først og på hovednøkkelen **sist**, med\nen stabil algoritme i hvert pass.\n\nRegelen er kontraintuitiv, den er maskineriet i radix sort, og den kommer igjen\nhver gang en oppgave har en hovednøkkel og en andrenøkkel."
+    },
+    {
+      "id": "in2010-2-4-def-11",
+      "type": "definition",
+      "title": "Delvis uttelling i en håndkjøring",
+      "content": "En håndkjøringsoppgave gir poeng per riktig deltilstand. Har du to av tre\nalgoritmer riktig, får du delpoengene for de to.\n\nKonsekvensen er praktisk: **la aldri et felt stå tomt**. En tilstand du er usikker\npå, er verdt mer enn en blank rute — på de ikke-strafferammede oppgavene er\nubesvart det samme som feil."
+    },
+    {
+      "id": "in2010-2-4-def-12",
+      "type": "definition",
+      "title": "Antigjettingens konsekvens for sjanger D",
+      "content": "På en sant/usant-blokk skaleres poengsummen slik at ren gjetting i snitt gir null.\nHalvparten riktig er ikke halve poengsummen, men ingenting.\n\nDerfor er målet i dette kapitlet **sikkerhet og hastighet**, ikke gjenkjennelse.\nMen merk motsatsen: på korte svar uten strafferamme er ubesvart det samme som\nfeil, og der lønner det seg alltid å svare."
+    },
+    {
+      "id": "in2010-2-4-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kortet du tar med til eksamen",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-2-4-rep-1",
+          "type": "text",
+          "content": "**De tre invariantene etter $i$ iterasjoner:**\n\n| Algoritme | Hva er ferdig | Hvor | Endelig? |\n|---|---|---|---|\n| Boblesortering | de $i$ største | høyre | ja |\n| Utvalgssortering | de $i$ minste | venstre | ja |\n| Innsettingssortering | de $i+1$ første, innbyrdes | venstre | **nei** |\n\n**Hele tabellen:**\n\n| Algoritme | Beste | Verste | Stabil? | In-place? |\n|---|---|---|---|---|\n| Boblesortering | $O(n)$ med tidlig stopp | $O(n^2)$ | ja | ja |\n| Utvalgssortering | $O(n^2)$ | $O(n^2)$ | nei | ja |\n| Innsettingssortering | $O(n)$ | $O(n^2)$ | ja | ja |\n| Flettesortering | $O(n \\log n)$ | $O(n \\log n)$ | ja | nei |\n| Heapsort | $O(n \\log n)$ | $O(n \\log n)$ | nei | ja |\n| Kvikksortering | $O(n \\log n)$ | $O(n^2)$ | nei | ja |\n| Counting sort | $O(n + k)$ | $O(n + k)$ | ja | nei |\n\n**Valgregelen, tre spørsmål:** Er nøklene heltall i et kjent, lite område?\nKreves stabilitet? Er det minne- eller garantikrav? Og skriv alltid ut\nforutsetningen.\n\n**Fem påstander som alltid er usanne**, og som du bør kjenne igjen på et blunk:\n\n1. «Kvikksortering er $O(n \\log n)$ i verste tilfelle.»\n2. «Flettesortering er in-place.»\n3. «Heapsort er stabil.»\n4. «Å bygge en heap tar $O(n \\log n)$.»\n5. «Innsettingssortering plasserer de $i$ første endelig etter $i$ runder.»\n\n**Og den ene som alltid er sann, men ofte glemt:** hvert pass i radix sort må\nvære stabilt.\n\n**Neste steg:** ta prøvene til Del 2 i\n[kap. 2.P](/in2010/in2010-2-prove) — fire prøver som dekker invarianter,\nkjøretider, lineær sortering og valg.\n\nHusk at C er en god og vanlig karakter. Målet med denne drillen er ikke å svare\nplettfritt på alt, men å svare **raskt og sikkert** på det du faktisk kan, slik at\ndu har tid igjen til Del 2."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

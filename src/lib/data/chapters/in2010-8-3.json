@@ -1,0 +1,249 @@
+{
+ "id": "in2010-8-3",
+ "courseId": "in2010",
+ "chapterNumber": "8.3",
+ "title": "Øvingseksamen 2 — håndkjørings- og hashing-tungt sett",
+ "description": "Komplett sett med tyngdepunkt på håndkjøring (sjanger E) og hashing/søk, men fortsatt full tredeling.",
+ "estimatedMinutes": 240,
+ "competenceGoals": [
+  "kunne håndkjøre min-heap, lineær probing, AVL-rotasjoner og Huffman-koding feilfritt og levere sluttilstanden i riktig format",
+  "kunne skrive hashing- og søkealgoritmer i pseudokode med korrekt forbehold om forventet og verste kjøretid",
+  "kunne bruke søketre-egenskapen til å beskjære et søk i stedet for å traversere hele treet",
+  "kunne drøfte to strategier med definerte størrelser, verste og forventet kjøretid, minne og en betinget konklusjon"
+ ],
+ "content": [
+  {
+   "id": "in2010-8-3-tip-1",
+   "type": "tip",
+   "title": "Slik tar du dette settet",
+   "content": "Dette er det andre av tre komplette øvingssett, og det har et bevisst\ntyngdepunkt: **håndkjøring og hashing**. Alle oppgavene er nyskrevet for denne\nboka.\n\nTyngdepunktet er ikke tilfeldig. Hashing med lineær probing har dukket opp i\n**7 av 7** av settene boka bygger på, og det testes både som håndkjøring på\nDel 1 og som pseudokode på Del 2. Håndkjøring av en datastruktur — min-heap,\nhashtabell, AVL-tre, Huffman-tre — er den sjangeren som er sikrest av alle:\nminst én kommer i hvert eneste sett, ofte to. Kommer du fra et pensum der\nhashing er et faktapunkt, undervurderer du den systematisk her. Her er den en\n**utførelsesferdighet**.\n\n**Formen:** digital skoleeksamen i Inspera, som er UiOs digitale eksamenssystem,\n**fire timer**, **ingen hjelpemidler**, karakter A til F, teller 100 prosent.\n\n**Settet har 83 poeng:**\n\n| Del | Innhold | Poeng | Anbefalt tid |\n|---|---|---|---|\n| Oppvarming | to korte definisjonsspørsmål | 2 | 5 min |\n| Del 1 | sant/usant, kode til O, fire håndkjøringer, to matriser | 35 | 90 min |\n| Del 2 | fem pseudokode- og resonnementsoppgaver | 46 | 125 min |\n\n**Legg merke til at de anbefalte tidene summerer til 5 + 90 + 125 = 220 minutter, ikke 240.**\nDe tjue som er til overs, er bevisst buffer: å lese gjennom hele settet før\ndu begynner, å komme tilbake til en oppgave du hoppet over, og å lese gjennom\nsvarene til slutt. Bruker du dem opp på den første oppgaven som setter seg fast,\nhar du ingen igjen til den siste.\n\n**Om håndkjøringene:** sensor ber om **sluttilstanden**, ikke om mellomregningen.\nMen gjør mellomregningen på kladd likevel — det er der feilene fanges. Formatet\ner fast: heapen leveres som **hele arrayet** med indeks fra 0, hashtabellen som\n**hele tabellen** med `_` for tomme plasser, AVL-treet som **antall enkle\nrotasjoner** pluss rotverdi, og Huffman som **kodelengde per symbol**.\n\n**Antigjettings-skaleringen** står i oppgave 1. Blankt og feil teller likt, så\nsvar på alt — men skaleringen er satt slik at ren gjetting i snitt gir null.\n\nSett klokka på fire timer og legg bort boka. Løsningsforslagene ligger i lukkede\nbokser under oppgavene."
+  },
+  {
+   "id": "in2010-8-3-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n| Oppgave | Tema | Kapittel |\n|---|---|---|\n| 1 | hashing-, sorterings-, tre- og Huffman-fakta | [kap. 1.4](/in2010/in2010-1-4), [kap. 3.2](/in2010/in2010-3-2) |\n| 2 | kjøretid fra kode | [kap. 1.2](/in2010/in2010-1-2), [kap. 1.3](/in2010/in2010-1-3) |\n| 3 | min-heap, `Insert` og `RemoveMin` | [kap. 4.4](/in2010/in2010-4-4), [kap. 4.5](/in2010/in2010-4-5) |\n| 4 | lineær probing med lik nøkkel og wraparound | [kap. 3.1](/in2010/in2010-3-1), [kap. 3.3](/in2010/in2010-3-3) |\n| 5 | AVL-rotasjoner | [kap. 4.3](/in2010/in2010-4-3) |\n| 6 | Huffman-koding | [kap. 6.4](/in2010/in2010-6-4) |\n| 7 | stabilitet, in-place og kjøretider | [kap. 2.1](/in2010/in2010-2-1), [kap. 2.2](/in2010/in2010-2-2), [kap. 2.4](/in2010/in2010-2-4) |\n| 8 | korteste vei og kjøretid per grafalgoritme | [kap. 6.2](/in2010/in2010-6-2), [kap. 6.5](/in2010/in2010-6-5) |\n| 9 | hash-set som Del 2-verktøy | [kap. 3.2](/in2010/in2010-3-2), [kap. 3.4](/in2010/in2010-3-4) |\n| 10 | binærsøk og modifikasjonen av det | [kap. 3.4](/in2010/in2010-3-4) |\n| 11 | søk med beskjæring i et binært søketre | [kap. 4.1](/in2010/in2010-4-1), [kap. 4.2](/in2010/in2010-4-2) |\n| 12 | komponenter og traversering | [kap. 5.2](/in2010/in2010-5-2), [kap. 5.3](/in2010/in2010-5-3) |\n| 13 | drøft to strategier | [kap. 7.2](/in2010/in2010-7-2), [kap. 2.3](/in2010/in2010-2-3) |\n\nStrategien bak Del 2-svarene er drillet i [kap. 8.1](/in2010/in2010-8-1), og\n[kap. 8.2](/in2010/in2010-8-2) er det brede settet du bør ha tatt først."
+  },
+  {
+   "id": "in2010-8-3-t-oppv",
+   "type": "text",
+   "content": "## Oppvarming (2 poeng)\n\n**Oppgave 0.** Svar med høyst fire setninger på hvert punkt.\n\n**a)** Hva er en algoritme?\n**b)** Hva er en datastruktur?"
+  },
+  {
+   "id": "in2010-8-3-t-del1",
+   "type": "text",
+   "content": "## Del 1 — auto-rettet (35 poeng)\n\n---\n\n**Oppgave 1 (10 poeng). Sant eller usant?**\n\n**Antigjettings-skalering:** blokken har 10 påstander, og poengsummen regnes som\n$2 \\cdot \\max(n - 5,\\ 0)$, der $n$ er antall riktige.\n\n**a)** I en hashtabell med lukket hashing og lineær probing skal en nøkkel som allerede ligger i tabellen, overskrives i stedet for å settes inn en gang til.\n**b)** Etter en rehashing til dobbelt så stor tabell kan de gamle indeksene gjenbrukes direkte.\n**c)** Load-faktoren er antall lagrede elementer delt på tabellstørrelsen.\n**d)** Et oppslag i en hashtabell er $O(1)$ i verste tilfelle.\n**e)** Tellesortering kan brukes på hvilke som helst elementer, så lenge de kan sammenlignes.\n**f)** Radix-sortering krever at delsorteringen på hvert siffer er stabil.\n**g)** Haugsortering er stabil.\n**h)** Ethvert AVL-tre kan fargelegges slik at det oppfyller kravene til et rød-svart-tre.\n**i)** En dobbeltrotasjon i et AVL-tre telles som to enkle rotasjoner.\n**j)** I et Huffman-tre får aldri et hyppigere symbol en lengre kode enn et sjeldnere symbol.\n\nI tillegg:\n\n**k)** Du er sikker på seks av påstandene og gjetter på de fire siste. Hvor mange\npoeng kan du forvente?\n\n---\n\n**Oppgave 2 (4 poeng). Oppgi kjøretiden.**\n\nSvar med det strammeste $O$-uttrykket. To poeng per delspørsmål.\n\n**a)**\n\n```text\nProcedure Q1(A)\n  Input:  array A med n tall, indeks fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      j = 1\n      while j < n:\n          j = j * 3\n          c = c + 1\n  return c\n```\n\n**b)**\n\n```text\nProcedure Q2(A)\n  Input:  array A med n tall, indeks fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n*n - 1:\n      j = n\n      while j > 1:\n          j = j / 2\n          c = c + 1\n  return c\n```\n\n---\n\n**Oppgave 3 (4 poeng). Håndkjøring av min-heap.**\n\nSett inn 23, 8, 41, 15, 6, 19 og 3 i denne rekkefølgen i en tom min-heap\n(array, indeks fra 0).\n\n**a)** Oppgi arrayet etter innsettingene.\n**b)** Utfør `RemoveMin` to ganger. Oppgi arrayet etter hver av dem.\n\n---\n\n**Oppgave 4 (3 poeng). Håndkjøring av lineær probing.**\n\nEn hashtabell har $N = 11$ plasser og $h(k) = k \\bmod 11$, med lineær probing.\n\nSett inn 34, 45, 23, 34, 10 og 21 i denne rekkefølgen.\n\n**a)** Oppgi **hele** tabellen, med `_` for tomme plasser.\n**b)** Hvor mange nøkler ligger i tabellen til slutt?\n**c)** Hvilken innsetting brukte wraparound?\n\n---\n\n**Oppgave 5 (3 poeng). Håndkjøring av AVL-tre.**\n\nSett inn 9, 18, 27, 36, 45 og 22 i denne rekkefølgen i et tomt AVL-tre.\n\n**a)** Hvor mange **enkle** rotasjoner utføres totalt?\n**b)** Hva er rotverdien til slutt?\n**c)** Er resultatet et gyldig AVL-tre?\n\n---\n\n**Oppgave 6 (3 poeng). Huffman-koding.**\n\nSeks symboler har frekvensene $E$ 21, $T$ 13, $A$ 8, $R$ 5, $S$ 3 og $K$ 2.\n\n**a)** Oppgi kodelengden til hvert symbol.\n**b)** Hvor mange bits trengs for å kode hele teksten?\n**c)** Hvor mange bits ville en fastlengdekode med like mange bits per symbol\nbrukt på den samme teksten?\n\n---\n\n**Oppgave 7 (4 poeng). Sorteringsegenskaper.**\n\nFyll inn tabellen. Ett poeng per rad.\n\n| Algoritme | Stabil? | På stedet? | Verste kjøretid |\n|---|---|---|---|\n| innsettingssortering | ? | ? | ? |\n| utvalgssortering | ? | ? | ? |\n| flettesortering | ? | ? | ? |\n| kvikksortering | ? | ? | ? |\n\n---\n\n**Oppgave 8 (4 poeng). Grafalgoritmer: valg og kjøretid.**\n\n**a)** For hver situasjon: hvilken algoritme finner korteste vei fra én kilde\nraskest?\n\n1. Et t-banenett der alle strekninger regnes som like lange.\n2. Et veinett med kjøretider i minutter, alle positive.\n3. En rettet asyklisk graf av arbeidsprosesser med varighet på hver kant.\n\n**b)** Oppgi kjøretiden for hver av disse fire, med binær prioritetskø der det er\nrelevant:\n\n1. dybde-først-søk over hele grafen\n2. Kahns topologiske sortering\n3. Prims algoritme\n4. Bellman-Fords algoritme"
+  },
+  {
+   "id": "in2010-8-3-t-del2",
+   "type": "text",
+   "content": "## Del 2 — pseudokode og resonnement (46 poeng)\n\nNavngi problemet, oppgi antagelser om representasjon, gi algoritmen, og oppgi\nkjøretiden med $n$ (eller $|V|$ og $|E|$) definert. Pseudokode og klar tekst gir\nlike mye uttelling.\n\n---\n\n**Oppgave 9 (10 poeng).** En avisredaksjon vil finne **det første ordet som\ngjentas** i en artikkel — altså det ordet som først forekommer for andre gang\nnår du leser teksten fra begynnelsen. Teksten er gitt som et array `T` med $n$\nord i den rekkefølgen de står.\n\n**a)** Skriv algoritmen. Oppgi antagelser og kjøretid.\n**b)** En kandidat foreslår å sortere ordene og se etter to like ved siden av\nhverandre. Hvorfor løser ikke det oppgaven?\n**c)** Sett opp poengtrappen for oppgaven.\n\n---\n\n**Oppgave 10 (8 poeng).** Et sortert array `A` inneholder $n$ måleverdier, og\nsamme verdi kan forekomme flere ganger. Du skal finne **den laveste indeksen**\nder verdien $x$ står, eller melde at $x$ ikke finnes.\n\n**a)** Skriv algoritmen, og si eksplisitt hva du har endret i forhold til\nbinærsøket slik det står i pensum.\n**b)** Oppgi kjøretiden.\n**c)** Kjør algoritmen for hånd på\n`A = 4, 4, 9, 12, 12, 12, 17, 21, 21, 30` med $x = 12$. Vis `lav`, `hoy` og\n`midt` for hvert steg.\n\n---\n\n**Oppgave 11 (10 poeng).** Et lagersystem lagrer varenumre i et binært søketre.\nNår en kunde spør etter et varenummer som ikke finnes, skal systemet foreslå det\n**nærmeste** varenummeret i treet — altså det tallet med minst absolutt\ndifferanse fra det etterspurte.\n\n**a)** Skriv algoritmen. Oppgi antagelser og kjøretid.\n**b)** En kandidat foreslår å traversere hele treet og holde det beste tallet\nunderveis. Hva er kjøretiden for det, og hvor mye mindre uttelling gir det?\n**c)** Treet er bygget ved å sette inn 55, 28, 74, 13, 39, 66, 88, 21, 33 og 47.\nHvilke noder besøker algoritmen din når kunden spør etter 42, og hva foreslår\nden?\n\n---\n\n**Oppgave 12 (10 poeng).** Et driftsmiljø har tretten servere. Nettverkskablene\nmellom dem er gitt som en urettet graf:\n\n```text\nA: B, C\nB: A, C\nC: A, B\nD: E, G\nE: D, F\nF: E, G\nG: D, F\nH: I\nI: H\nJ: K, L\nK: J, L\nL: J, K, M\nM: L\n```\n\nDriftsavdelingen vil vite hvor stor **den største sammenhengende gruppen** av\nservere er, altså hvor mange servere som henger sammen i den største klyngen.\n\n**a)** Skriv algoritmen. Oppgi antagelser og kjøretid.\n**b)** En kandidat foreslår å kjøre et bredde-først-søk fra hver server og se\nhvilken som når flest. Hva er kjøretiden for det?\n**c)** Kjør algoritmen på grafen over. Hvor mange grupper finnes, og hvor stor\ner den største?\n\n---\n\n**Oppgave 13 (8 poeng).** To ord er **anagram** hvis det ene kan skrives om til\ndet andre ved å stokke om bokstavene. Ordene består av små bokstaver fra `a` til\n`z`.\n\nSammenlign to strategier for å avgjøre om to ord av lengde $n$ er anagram:\n\n**a)** sortér begge ordene og sammenlign dem tegn for tegn\n**b)** tell forekomsten av hver bokstav i begge ordene og sammenlign tellingene\n\nDrøft **kjøretid (verste og forventet)** og **minne**, og konkludér om når hver\nstrategi lønner seg. Definér $n$."
+  },
+  {
+   "id": "in2010-8-3-tip-2",
+   "type": "tip",
+   "title": "Stopp her til du er ferdig",
+   "content": "Under ligger løsningsforslag med poengfordeling — én lukket boks per oppgave.\nDe er skrevet for denne boka, ikke hentet fra noe reelt sett og ikke fra noen\nstudentbesvarelse.\n\nEtter den siste boksen ligger en ærlig merket midtnivåbesvarelse, en\npoengoversikt og en selvdiagnose-liste."
+  },
+  {
+   "id": "in2010-8-3-los-0",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppvarming (2 poeng)",
+   "buttonText": "Vis løsningsforslag 0",
+   "content": [
+    {
+     "id": "in2010-8-3-l0",
+     "type": "text",
+     "content": "Det finnes ingen fasit her: alle rimelige svar gir full uttelling, og det\ntrekkes bare for noe direkte galt eller for blankt.\n\n**a)** «En algoritme er en presis, endelig oppskrift som tar en veldefinert\ninndata og produserer en veldefinert utdata gjennom et endelig antall entydige\nsteg, og som terminerer for all lovlig inndata.»\n\n**b)** «En datastruktur er en organisering av data sammen med operasjonene som\ner lovlige på den. Organiseringen velges ut fra hvilke operasjoner som skal\nvære raske — en hashtabell for oppslag, en min-heap for å hente ut det minste.»\n\n**Poengfordeling (2 p):** 1 p per delspørsmål.\n\n**Rådet:** maks fem minutter. Fire setninger er taket, og et lengre svar gir\nikke mer uttelling."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-1",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 1: sant/usant (10 poeng)",
+   "buttonText": "Vis løsningsforslag 1",
+   "content": [
+    {
+     "id": "in2010-8-3-l1",
+     "type": "text",
+     "content": "| Punkt | Svar | Hvorfor |\n|---|---|---|\n| **a)** | **sant** | Duplisering av en nøkkel ville gitt to plasser med samme nøkkel, og søket ville stoppet på den første. Manglende overskriving er et eksplisitt trekkpunkt. |\n| **b)** | **usant** | Med ny tabellstørrelse $N$ endres $h(k) = k \\bmod N$ for nesten alle nøkler. Alt må settes inn på nytt i den nye tabellen. |\n| **c)** | **sant** | Load-faktoren er $\\alpha = n/N$: antall lagrede elementer delt på antall plasser. |\n| **d)** | **usant** | Oppslag er $O(1)$ **forventet**. I verste tilfelle ligger alt i én klynge, og oppslaget blir $O(n)$. |\n| **e)** | **usant** | Tellesortering krever heltallsnøkler i et **kjent, begrenset** område. Vet du bare at elementene kan sammenlignes, må du bruke en sammenligningssortering. |\n| **f)** | **sant** | Radix-sortering sorterer siffer for siffer og stoler på at tidligere siffer beholder rekkefølgen sin. Med en ustabil delsortering blir resultatet galt. |\n| **g)** | **usant** | Haugsortering flytter elementer på tvers av arrayet under `RemoveMin`, og like nøkler kan bytte innbyrdes rekkefølge. Den er på stedet, men ikke stabil. |\n| **h)** | **sant** | Høydebalansen i et AVL-tre er streng nok til at en gyldig fargelegging alltid finnes. |\n| **i)** | **sant** | En dobbeltrotasjon er nettopp to enkle rotasjoner utført etter hverandre, og skal telles som to. |\n| **j)** | **sant** | Huffman slår alltid sammen de to minste frekvensene først, så et hyppigere symbol havner aldri dypere enn et sjeldnere. |\n\nFasiten er **sant** på a, c, f, h, i, j og **usant** på b, d, e, g: seks sanne og\nfire usanne.\n\n**k)** Seks sikre pluss fire gjett gir i snitt to riktige av gjettene, altså\nåtte riktige: $2 \\cdot (8 - 5) = \\mathbf{6}$ poeng. Er du uheldig og treffer null\nav gjettene, står du igjen med $2 \\cdot (6-5) = 2$ poeng. Er du heldig og treffer\nalle fire, får du $2 \\cdot (10-5) = 10$.\n\nRegnestykket viser hva skaleringen gjør: **spredningen** kommer fra gjettingen,\nmen **nivået** kommer fra de seks du kan. Å flytte seg fra seks sikre til ni\nsikre er verdt seks poeng garantert.\n\n**Poengfordeling (10 p):** 1 p per riktig påstand, skalert som oppgitt.\n\n**Punkt e) og g) er de to som oftest bommes.** Begge handler om en egenskap\nfolk husker halvveis: at tellesortering er «lineær og derfor best», og at\nhaugsortering «er som flettesortering». Begrensningen på lineær sortering og\nstabiliteten til haugsortering er faste punkter i faget."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-2",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 2: kjøretid fra kode (4 poeng)",
+   "buttonText": "Vis løsningsforslag 2",
+   "content": [
+    {
+     "id": "in2010-8-3-l2",
+     "type": "text",
+     "content": "**a) $O(n \\log n)$.**\n\nDen ytre løkken går $n$ ganger. Den indre starter på 1 og **tredobler** `j` til\nden passerer $n$, altså $\\log_3 n$ runder. Grunntallet i logaritmen forsvinner i\n$O$-notasjonen, siden $\\log_3 n = \\log_2 n / \\log_2 3$ og $\\log_2 3$ er en\nkonstant. Svaret er $O(n \\log n)$.\n\n**b) $O(n^2 \\log n)$.**\n\nDen ytre løkken går $n^2$ ganger — legg merke til at grensen er `n*n - 1`, ikke\n`n - 1`. Den indre halverer `j` fra $n$ ned til 1, altså $\\log_2 n$ runder.\nProduktet er $O(n^2 \\log n)$.\n\n**Poengfordeling (4 p):** 2 p per riktig $O$-uttrykk. Halv uttelling for riktig\ntellemåte med feil forenkling, for eksempel $O(n \\log_3 n)$ i **a)** — grunntall\nskal bort.\n\n**Fellene her er speilvendte.** I **a)** er det å tro at en ganging med tre gir\nnoe annet enn en halvering gir; begge er logaritmiske. I **b)** er det å lese\n`n*n` som `n` og svare $O(n \\log n)$. Les alltid løkkegrensen, ikke bare\nløkkehodet."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-3",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 3: min-heap (4 poeng)",
+   "buttonText": "Vis løsningsforslag 3",
+   "content": [
+    {
+     "id": "in2010-8-3-l3",
+     "type": "text",
+     "content": "**a)** Innsettingene, med sift-up mot forelderen på $\\lfloor (i-1)/2 \\rfloor$:\n\n| Steg | Operasjon | Det som skjer | Arrayet etter steget |\n|---|---|---|---|\n| 1 | `Insert 23` | ingen bytter | `23` |\n| 2 | `Insert 8` | 8 opp forbi 23 | `8, 23` |\n| 3 | `Insert 41` | ingen bytter | `8, 23, 41` |\n| 4 | `Insert 15` | 15 opp forbi 23 | `8, 15, 41, 23` |\n| 5 | `Insert 6` | 6 opp forbi 15; 6 opp forbi 8 | `6, 8, 41, 23, 15` |\n| 6 | `Insert 19` | 19 opp forbi 41 | `6, 8, 19, 23, 15, 41` |\n| 7 | `Insert 3` | 3 opp forbi 19; 3 opp forbi 6 | `3, 8, 6, 23, 15, 41, 19` |\n\n**Sluttilstand etter innsettingene:** `3, 8, 6, 23, 15, 41, 19`\n\n**b)** To `RemoveMin`:\n\n| Steg | Operasjon | Det som skjer | Arrayet etter steget |\n|---|---|---|---|\n| 1 | `RemoveMin` gir 3 | rot 3 ut, 19 opp til indeks 0; 19 ned forbi 6 | `6, 8, 19, 23, 15, 41` |\n| 2 | `RemoveMin` gir 6 | rot 6 ut, 41 opp til indeks 0; 41 ned forbi 8; 41 ned forbi 15 | `8, 15, 19, 23, 41` |\n\n**Sluttilstand:** `8, 15, 19, 23, 41`\n\n**Poengfordeling (4 p):** 2 p for **a)**, 1 p for hvert korrekt array i **b)**.\n\n**Se på steg 2 i b).** Da 41 kom til roten, hadde den barna 8 (indeks 1) og 19\n(indeks 2). Den skal ned forbi det **minste** av dem, altså 8. På neste nivå\nhadde 41 bare **ett** barn, 15 på indeks 4 — indeks 3 og 4 er barna til indeks\n1, og indeks 4 er den siste plassen i arrayet. Her må du sjekke at barnet\nfinnes før du sammenligner. Å hoppe over den sjekken er en av de eksplisitt\nnavngitte feilene i faget, og den har hatt eget takpoeng i et av settene."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-4",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 4: lineær probing (3 poeng)",
+   "buttonText": "Vis løsningsforslag 4",
+   "content": [
+    {
+     "id": "in2010-8-3-l4",
+     "type": "text",
+     "content": "Med $N = 11$ er $h(k) = k \\bmod 11$:\n$h(34) = 1$, $h(45) = 1$, $h(23) = 1$, $h(10) = 10$, $h(21) = 10$.\n\n| Steg | Nøkkel | `h(k)` | Prøvde indekser i rekkefølge | Tabellen etter steget |\n|---|---|---|---|---|\n| 1 | 34 | 1 | 1 | `_, 34, _, _, _, _, _, _, _, _, _` |\n| 2 | 45 | 1 | 1, 2 | `_, 34, 45, _, _, _, _, _, _, _, _` |\n| 3 | 23 | 1 | 1, 2, 3 | `_, 34, 45, 23, _, _, _, _, _, _, _` |\n| 4 | 34 | 1 | 1 (lik nøkkel, overskriver) | `_, 34, 45, 23, _, _, _, _, _, _, _` |\n| 5 | 10 | 10 | 10 | `_, 34, 45, 23, _, _, _, _, _, _, 10` |\n| 6 | 21 | 10 | 10, 0 | `21, 34, 45, 23, _, _, _, _, _, _, 10` |\n\n**a) Sluttilstand — hele tabellen:**\n\n`21, 34, 45, 23, _, _, _, _, _, _, 10`\n\n**b)** Fem nøkler: 34, 45, 23, 10 og 21. Den andre 34-en ble **overskrevet**, ikke\nlagt til.\n\n**c)** Innsettingen av 21. Den starter på plass 10, som er opptatt av 10, og\n`(10 + 1) mod 11 = 0` sender søket rundt til plass 0.\n\n**Poengfordeling (3 p):** 2 p for korrekt tabell, 1 p for **b)** og **c)** samlet.\n\n**Denne oppgaven tester begge de to faste fellene på én gang.** Den ene er at\nen nøkkel som allerede ligger der, skal **overskrives** — svarer du at\ntabellen inneholder seks nøkler, har du duplisert 34. Den andre er\nwraparound: uten `mod N` ville 21 havnet på indeks 11, som ikke finnes."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-5",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 5: AVL-rotasjoner (3 poeng)",
+   "buttonText": "Vis løsningsforslag 5",
+   "content": [
+    {
+     "id": "in2010-8-3-l5",
+     "type": "text",
+     "content": "| Steg | Setter inn | Rebalansering | Enkle rotasjoner i steget | Rot etter steget | Sum |\n|---|---|---|---|---|---|\n| 1 | 9 | ingen | 0 | 9 | 0 |\n| 2 | 18 | ingen | 0 | 9 | 0 |\n| 3 | 27 | enkel venstrerotasjon om 9 | 1 | 18 | 1 |\n| 4 | 36 | ingen | 0 | 18 | 1 |\n| 5 | 45 | enkel venstrerotasjon om 27 | 1 | 18 | 2 |\n| 6 | 22 | dobbeltrotasjon om 18: først høyre om 36, så venstre om 18 | 2 | 27 | 4 |\n\n**a)** **4** enkle rotasjoner totalt — to enkeltrotasjoner og én dobbeltrotasjon,\nog den siste teller som to.\n\n**b)** Rotverdien til slutt er **27**.\n\n**c)** Ja. Treet er\n\n```text\n        27\n      /    \\\n    18      36\n   /  \\       \\\n  9    22      45\n```\n\nHver node har subtrær som skiller i høyde med høyst 1: roten 27 har to subtrær\nmed høyde 1, node 18 har to blader, og node 36 har et tomt venstre subtre\n(høyde $-1$) og bladet 45 (høyde 0), som skiller med nøyaktig 1. Det er et\ngyldig AVL-tre.\n\n**Poengfordeling (3 p):** 1 p per delspørsmål.\n\n**Fellen er å svare 3 i a).** Det er tre *rebalanseringer*, men oppgaven spør\netter **enkle rotasjoner**, og dobbeltrotasjonen er to av dem. Sensor ber om\nantall enkle rotasjoner nettopp fordi svaret da avslører om du vet hva en\ndobbeltrotasjon består av."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-6",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 6: Huffman (3 poeng)",
+   "buttonText": "Vis løsningsforslag 6",
+   "content": [
+    {
+     "id": "in2010-8-3-l6",
+     "type": "text",
+     "content": "Byggingen av treet, ved gjentatt sammenslåing av de to minste frekvensene:\n\n| Steg | De to minste | Frekvenser | Ny node |\n|---|---|---|---|\n| 1 | {K} og {S} | 2 og 3 | 5 |\n| 2 | {K, S} og {R} | 5 og 5 | 10 |\n| 3 | {A} og {K, R, S} | 8 og 10 | 18 |\n| 4 | {T} og {A, K, R, S} | 13 og 18 | 31 |\n| 5 | {E} og {A, K, R, S, T} | 21 og 31 | 52 |\n\n**a) Kodelengder** — antall sammenslåinger et symbol har deltatt i, altså dybden\ni treet:\n\n| Symbol | $E$ | $T$ | $A$ | $R$ | $S$ | $K$ |\n|---|---|---|---|---|---|---|\n| Frekvens | 21 | 13 | 8 | 5 | 3 | 2 |\n| Kodelengde | 1 | 2 | 3 | 4 | 5 | 5 |\n\n**b)** Totalt antall bits er summen av frekvens ganger kodelengde:\n\n$$21 \\cdot 1 + 13 \\cdot 2 + 8 \\cdot 3 + 5 \\cdot 4 + 3 \\cdot 5 + 2 \\cdot 5 = 21 + 26 + 24 + 20 + 15 + 10 = 116$$\n\n**116 bits.**\n\n**c)** Med seks forskjellige symboler trengs 3 bits per symbol i en fastlengdekode\n(2 bits rekker bare til fire symboler). Teksten har\n$21 + 13 + 8 + 5 + 3 + 2 = 52$ tegn, altså $52 \\cdot 3 = \\mathbf{156}$ bits.\n\nHuffman sparer 40 bits, omtrent 26 prosent.\n\n**Poengfordeling (3 p):** 1 p per delspørsmål. I **a)** kreves alle seks\nlengdene riktige.\n\n**To feller.** Den ene er å gi kortest kode til det **sjeldneste** symbolet —\ndet er omvendt av hele poenget. Den andre er å svare med kodeordene (`0`,\n`10`, `110` …) når det spørres om kodelengder: kodeordene avhenger av hvilken\ngren du kaller 0 og hvilken du kaller 1, mens **lengdene** er entydige. Det er\nderfor sensor ber om lengdene."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-7",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 7: sorteringsegenskaper (4 poeng)",
+   "buttonText": "Vis løsningsforslag 7",
+   "content": [
+    {
+     "id": "in2010-8-3-l7",
+     "type": "text",
+     "content": "| Algoritme | Stabil? | På stedet? | Verste kjøretid |\n|---|---|---|---|\n| innsettingssortering | ja | ja | $O(n^2)$ |\n| utvalgssortering | nei | ja | $O(n^2)$ |\n| flettesortering | ja | nei | $O(n \\log n)$ |\n| kvikksortering | nei | ja | $O(n^2)$ |\n\n**Begrunnelsene, én linje hver:**\n\n- **Innsettingssortering** flytter et element bakover bare forbi elementer som er\n  strengt større, så like nøkler passerer aldri hverandre. Den bruker $O(1)$\n  ekstra minne, og er $O(n)$ på et ferdigsortert array.\n- **Utvalgssortering** bytter det minste gjenværende elementet med det som står\n  på plassen, og det byttet kan hoppe over en lik nøkkel. Den garanterer derimot\n  færrest **bytter**, $O(n)$.\n- **Flettesortering** trenger et hjelpearray under flettingen, så den er ikke på\n  stedet. Til gjengjeld er den $O(n \\log n)$ også i verste tilfelle.\n- **Kvikksortering** er $O(n \\log n)$ **forventet**, men $O(n^2)$ når pivoten\n  hver gang deler skjevt. Partisjoneringen flytter elementer over lange avstander\n  og ødelegger rekkefølgen mellom like nøkler.\n\n**Poengfordeling (4 p):** 1 p per rad, med alle tre kolonnene riktige.\n\n**Den vanligste forvekslingen** er å svare «forventet» der det står «verste».\nKvikksortering brukes i praksis fordi den forventede kjøretiden er god, men\nspørsmålet her er hva som skjer når det går galt."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-8",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 8: grafalgoritmer (4 poeng)",
+   "buttonText": "Vis løsningsforslag 8",
+   "content": [
+    {
+     "id": "in2010-8-3-l8",
+     "type": "text",
+     "content": "**a)**\n\n| Situasjon | Algoritme | Kjøretid |\n|---|---|---|\n| 1. t-banenett, alle strekninger like lange | bredde-først-søk (grafen er uvektet) | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| 2. veinett med positive kjøretider | Dijkstra med prioritetskø | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log\\lvert V \\rvert)$ |\n| 3. rettet asyklisk graf med varighet på kantene | topologisk sortering, deretter én gjennomgang i den rekkefølgen | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n\n**b)**\n\n| Algoritme | Kjøretid |\n|---|---|\n| dybde-først-søk over hele grafen | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| Kahns topologiske sortering | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| Prims algoritme med binær prioritetskø | $O((\\lvert V \\rvert + \\lvert E \\rvert)\\log\\lvert V \\rvert)$ |\n| Bellman-Fords algoritme | $O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$ |\n\n**Poengfordeling (4 p):** 2 p for **a)** (alle tre riktige), 2 p for **b)** (alle\nfire riktige). Halv uttelling ved én feil i hver del.\n\n**Situasjon 3 er den som skiller.** En asyklisk graf med positive vekter kan\nløses med Dijkstra, og det svaret er ikke galt — men topologisk sortering er\nraskere, og poengtrappen belønner det raskeste korrekte svaret. Den samme\nløsningen tåler dessuten negative vekter, noe Dijkstra ikke gjør.\n\n**Om Prim:** kjøretiden er den samme som Dijkstras, fordi algoritmene er\nidentiske bortsett fra én linje — Dijkstra sammenligner avstanden fra kilden,\nPrim bare vekten på kanten inn i treet."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-9",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 9: første gjentatte ord (10 poeng)",
+   "buttonText": "Vis løsningsforslag 9",
+   "content": [
+    {
+     "id": "in2010-8-3-l9",
+     "type": "text",
+     "content": "**a) Navngi problemet.** Dette er et medlemskapsspørsmål mot alt du har lest så\nlangt, stilt én gang per ord. Signalet er hash-set.\n\n**Antagelser om representasjon.** `T` er et array med $n$ ord i tekstens\nrekkefølge, indeksert fra 0. Ordene kan hashes. $n$ er antall ord i artikkelen.\n\n```text\nProcedure ForsteGjentatte(T)\n  Input:  array T med n ord i tekstens rekkefolge\n  Output: det forste ordet som forekommer for andre gang, ellers \"ingen\"\n  S = tomt hash-set\n  for i = 0 to T.length - 1:\n      if Inneholder(S, T[i]):\n          return T[i]\n      LeggTil(S, T[i])\n  return \"ingen\"\n```\n\n**Kjøretid:** $O(n)$ **forventet**. Løkken går høyst $n$ ganger, og hvert\noppslag og hver innsetting er $O(1)$ forventet. Verste tilfelle er $O(n^2)$ hvis\nalle ordene hasher til samme plass.\n\n**Minne:** $O(u)$, der $u$ er antall forskjellige ord.\n\n**Hvorfor dette er lavest mulig:** svaret kan ikke avgjøres uten å lese ordene\nfram til treffet, så $O(n)$ er en nedre grense.\n\n**b)** Fordi sortering **ødelegger rekkefølgen**, og rekkefølgen er nettopp det\noppgaven spør om. Etter sortering finner du lett *et* ord som forekommer to\nganger, men ikke hvilket av dem som gjentok seg **først** i teksten.\n\nDet lar seg redde: sortér par av (ord, posisjon), finn for hvert gjentatte ord\nden **andre** posisjonen, og ta det ordet med lavest slik posisjon. Men da har du\nbrukt $O(n \\log n)$ på å komme fram til noe hash-settet ga deg i $O(n)$ — og du\nhar lagt inn en ekstra kilde til feil.\n\n**c) Poengtrappen:**\n\n| Løsning | Kjøretid | Uttelling |\n|---|---|---|\n| hash-set, ett gjennomløp | $O(n)$ forventet | 10 p |\n| sortér par av (ord, posisjon) og finn minste andre-posisjon | $O(n \\log n)$ | 6 p |\n| for hvert ord, let etter det blant de foregående | $O(n^2)$ | 3 p |\n| sortér ordene alene og let etter to like naboer | — | 0 p |\n\nDen siste raden er ikke en treg løsning, den er en **gal** løsning: den svarer\npå et annet spørsmål. Poengtrappen gjelder bare mellom korrekte svar.\n\n**Poengfordeling (10 p):** 3 p for riktig struktur, 3 p for korrekt pseudokode\nder returen skjer **før** ordet legges inn, 1 p for antagelser, 1 p for kjøretid\nmed forbeholdet «forventet», 2 p for **b)** med den riktige begrunnelsen om\nrekkefølge.\n\n**Legg merke til rekkefølgen inne i løkken.** Sjekken må komme **før**\ninnsettingen. Legger du ordet inn først og sjekker etterpå, finner algoritmen\nat det første ordet allerede er der — for du la det jo nettopp inn selv."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-10",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 10: første forekomst med binærsøk (8 poeng)",
+   "buttonText": "Vis løsningsforslag 10",
+   "content": [
+    {
+     "id": "in2010-8-3-l10",
+     "type": "text",
+     "content": "**a) Navngi problemet.** Dette er binærsøk i et sortert array, **modifisert** på\nto måter.\n\n**Antagelser om representasjon.** `A` er et sortert array med $n$ tall, indeksert\nfra 0. Samme verdi kan forekomme flere ganger. $n$ er antall måleverdier.\n\n**Det pensums binærsøk gjør, og det jeg endrer:** binærsøket slik det står i\npensum, svarer `true` eller `false` på om $x$ finnes, og det stopper så snart det\ntreffer en forekomst. Jeg gjør to endringer. For det første **stopper jeg ikke\nved treff** — jeg fortsetter å søke i venstre halvdel, slik at jeg finner den\nlaveste indeksen. For det andre **returnerer jeg en indeks** i stedet for en\nsannhetsverdi.\n\n```text\nProcedure ForsteForekomst(A, x)\n  Input:  sortert array A med n tall (indeks fra 0), verdien x\n  Output: laveste indeks der x star, eller -1 hvis x ikke finnes\n  lav = 0\n  hoy = A.length\n  while lav < hoy:\n      midt = (lav + hoy) / 2          // heltallsdivisjon\n      if A[midt] < x:\n          lav = midt + 1\n      else:\n          hoy = midt\n  if lav < A.length and A[lav] == x:\n      return lav\n  return -1\n```\n\n**Invarianten som gjør det riktig:** gjennom hele løkken gjelder at alle\nelementer med indeks under `lav` er strengt mindre enn $x$, og alle med indeks\nfra `hoy` og oppover er minst $x$. Når `lav` og `hoy` møtes, er `lav` derfor\nnøyaktig antall elementer som er mindre enn $x$, altså den første plassen der\n$x$ kan stå.\n\n**b) Kjøretid:** $O(\\log n)$. Avstanden mellom `lav` og `hoy` halveres i hver\nrunde, og løkken stopper når den er null.\n\n**c) Håndkjøringen** på `A = 4, 4, 9, 12, 12, 12, 17, 21, 21, 30`, $x = 12$:\n\n| Steg | `lav` | `hoy` | `midt` | `A[midt]` | Avgjørelse |\n|---|---|---|---|---|---|\n| 1 | 0 | 10 | 5 | 12 | ikke mindre enn 12, så `hoy = 5` |\n| 2 | 0 | 5 | 2 | 9 | mindre enn 12, så `lav = 3` |\n| 3 | 3 | 5 | 4 | 12 | ikke mindre enn 12, så `hoy = 4` |\n| 4 | 3 | 4 | 3 | 12 | ikke mindre enn 12, så `hoy = 3` |\n\nLøkken stopper med `lav = hoy = 3`, og `A[3] = 12`. **Svaret er indeks 3.**\n\n**Poengfordeling (8 p):** 2 p for å si eksplisitt hva som er endret fra pensums\nbinærsøk, 3 p for korrekt pseudokode som ikke stopper ved første treff, 1 p for\nkjøretid, 2 p for korrekt håndkjøring.\n\n**De to poengene i a) er de billigste i hele settet, og de mistes oftest.** Å\nhevde at binærsøk «returnerer indeksen» uten å nevne at pensumvarianten\nreturnerer `true`/`false`, er et eksplisitt trekkpunkt. Én setning holder."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-11",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 11: nærmeste varenummer (10 poeng)",
+   "buttonText": "Vis løsningsforslag 11",
+   "content": [
+    {
+     "id": "in2010-8-3-l11",
+     "type": "text",
+     "content": "**a) Navngi problemet.** Dette er et søk med **beskjæring** i et binært søketre:\nnærmeste verdi finnes langs én enkelt nedstigning fra roten.\n\n**Antagelser om representasjon.** Hver node `v` har `v.x`, `v.left` og\n`v.right`, og treet oppfyller søketre-egenskapen. $n$ er antall varenumre og $h$\ner høyden på treet.\n\n```text\nProcedure Naermeste(rot, x)\n  Input:  rotnoden i et ikke-tomt binaert soeketre, verdien x\n  Output: verdien i treet med minst absolutt differanse fra x\n  best = rot.x\n  v = rot\n  while v != null:\n      if |v.x - x| < |best - x|:\n          best = v.x\n      if x < v.x:\n          v = v.left\n      else if x > v.x:\n          v = v.right\n      else:\n          return v.x                  // eksakt treff\n  return best\n```\n\n**Kjøretid:** $O(h)$. Løkken går ett skritt nedover per runde og aldri oppover,\nså antall runder er høyst høyden. I et balansert tre er det $O(\\log n)$; i et\nskjevt tre blir $h = n$.\n\n**Grunnideen i én setning, og hvorfor beskjæringen er lovlig:** går du til\nvenstre fra `v` fordi $x < v.x$, er alt i høyre subtre større enn `v.x`, og\ndermed **lenger unna** $x$ enn `v.x` selv — så det subtreet kan ikke inneholde\nnoe bedre enn den kandidaten du allerede har.\n\n**b)** Full traversering besøker hver node én gang, altså $O(n)$.\n\nEn rimelig trapp: $O(h)$ gir full pott (10 p), $O(n)$ gir omtrent halvparten\n(5 p). Begge er korrekte, og forskjellen er stor i praksis: i et balansert tre\nmed en million varenumre besøker den ene rundt tjue noder, den andre en million.\n\n**c)** Nedstigningen for $x = 42$ i treet bygget av\n55, 28, 74, 13, 39, 66, 88, 21, 33, 47:\n\n| Steg | Node | Differanse | Beste så langt | Neste retning |\n|---|---|---|---|---|\n| 1 | 55 | 13 | 55 | 42 er mindre enn 55, gå venstre |\n| 2 | 28 | 14 | 55 | 42 er større enn 28, gå høyre |\n| 3 | 39 | 3 | **39** | 42 er større enn 39, gå høyre |\n| 4 | 47 | 5 | 39 | 42 er mindre enn 47, gå venstre — tomt, stopp |\n\nAlgoritmen besøker **fire** noder: 55, 28, 39 og 47. Den foreslår **39**.\n\nKontrollen: den sorterte rekkefølgen er 13, 21, 28, 33, 39, 47, 55, 66, 74, 88.\nNaboene til 42 er 39 og 47, og 39 ligger 3 unna mens 47 ligger 5 unna. Riktig.\n\n**Poengfordeling (10 p):** 3 p for å se at én nedstigning holder, 3 p for korrekt\npseudokode som oppdaterer beste kandidat **i hver node på veien**, 1 p for\nbegrunnelsen av hvorfor beskjæringen er lovlig, 1 p for antagelser, 1 p for\nkjøretid, 1 p for riktig svar i **c)**.\n\n**Den vanligste feilen er å bare returnere den siste noden på stien.** Da ville\nsvaret her blitt 47, som er feil. Den beste kandidaten kan ligge hvor som helst\nlangs nedstigningen, og må oppdateres i hver node."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-12",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 12: største servergruppe (10 poeng)",
+   "buttonText": "Vis løsningsforslag 12",
+   "content": [
+    {
+     "id": "in2010-8-3-l12",
+     "type": "text",
+     "content": "**a) Navngi problemet.** Dette er å finne den største **sammenhengende\nkomponenten** i en urettet graf.\n\n**Antagelser om representasjon.** $G = (V, E)$ er urettet og gitt som\nnabolister. Hver node `v` har et `v.besokt`-flagg. $|V|$ er antall servere og\n$|E|$ antall kabler.\n\n```text\nProcedure StorsteGruppe(G)\n  Input:  urettet graf G = (V, E) gitt som nabolister\n  Output: antall noder i den storste sammenhengende komponenten\n  for hver node v i V:\n      v.besokt = false\n  storst = 0\n  for hver node v i V:\n      if not v.besokt:\n          n = TellKomponent(v)\n          if n > storst:\n              storst = n\n  return storst\n\nProcedure TellKomponent(v)\n  Input:  en ubesoekt node v\n  Output: antall noder i komponenten til v\n  v.besokt = true\n  antall = 1\n  for hver nabo u av v:\n      if not u.besokt:\n          antall = antall + TellKomponent(u)\n  return antall\n```\n\n**Kjøretid:** $O(|V| + |E|)$. Den ytre løkken går gjennom alle nodene, men\n`TellKomponent` starter bare i noder som ikke alt er besøkt. Til sammen besøkes\nhver node nøyaktig én gang og hver kant to ganger, én gang fra hver ende.\n\n**Grunnideen i én setning:** når traverseringen først har startet i en node, når\nden hele komponenten — og alt den ikke når, hører til en annen komponent, som\nden ytre løkken plukker opp senere.\n\n**b)** Et bredde-først-søk fra **hver** node er $|V|$ traverseringer à\n$O(|V| + |E|)$, altså $O(|V| \\cdot (|V| + |E|))$. Med tretten servere merkes det\nikke; med en million gjør det det. Dette er den navngitte fellen «full eller\nnaiv gjennomgang der én kjøring holdt», og den koster typisk halve poengsummen.\n\n**c)** Traverseringen deler de tretten serverne i **fire** grupper:\n\n| Gruppe | Servere | Antall |\n|---|---|---|\n| 1 | A, B, C | 3 |\n| 2 | D, E, F, G | **4** |\n| 3 | H, I | 2 |\n| 4 | J, K, L, M | **4** |\n\nDen største gruppen har **4** servere. To grupper er like store, og algoritmen\nreturnerer bare størrelsen, ikke hvilken — det er også det oppgaven spør om.\n\n**Poengfordeling (10 p):** 3 p for å se at én traversering over alle komponentene\nholder, 3 p for korrekt pseudokode med besøksflagg og telling, 1 p for\nantagelser, 1 p for kjøretid, 2 p for riktig svar i **c)** (både antall grupper\nog største størrelse).\n\n**Besøksflagget er ikke pynt.** Uten det går traverseringen i evig løkke så\nsnart grafen har en sykel — og gruppe 1 er en trekant.\n\n---\n\n**Den samme besvarelsen uten pseudokode — denne gir også full uttelling, fordi\nkravet er entydighet, ikke syntaks:**\n\n«Jeg merker alle serverne som ubesøkte. Så går jeg gjennom serverne i tur og\norden, og hver gang jeg treffer en som ennå ikke er besøkt, starter jeg et\ndybde-først-søk derfra. Det søket markerer hele klyngen som besøkt og teller\nhvor mange servere den inneholder. Tallet sammenligner jeg med det største jeg\nhar sett så langt. Når den ytre gjennomgangen er ferdig, har hver server vært\nbesøkt nøyaktig én gang, og jeg sitter igjen med størrelsen på den største\nklyngen. Grafen er gitt som nabolister, og siden hver server behandles én gang\nog hver kabel to ganger — én gang fra hver ende — er kjøretiden\n$O(|V| + |E|)$, der $|V|$ er antall servere og $|E|$ antall kabler.»\n\nProsaversjonen sier nøyaktig det samme som pseudokoden: den navngir strukturen,\nsier hva som initialiseres, forklarer hvorfor den ytre løkken ikke gjør\ndobbeltarbeid, og regner ut kjøretiden ledd for ledd. Det er presisjonen som gir\nuttelling, ikke formen."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-los-13",
+   "type": "collapsible",
+   "title": "Løsningsforslag — Oppgave 13: anagram, to strategier (8 poeng)",
+   "buttonText": "Vis løsningsforslag 13",
+   "content": [
+    {
+     "id": "in2010-8-3-l13",
+     "type": "text",
+     "content": "**Definisjon av størrelsene.** La $n$ være lengden på hvert av de to ordene\n(er de ulikt lange, kan de umulig være anagram, og svaret er nei etter én\nsammenligning). La $K = 26$ være antall mulige bokstaver.\n\n**a) Sortér begge ordene og sammenlign.**\n\n| Størrelse | Verdi |\n|---|---|\n| Kjøretid, forventet | $O(n \\log n)$ |\n| Kjøretid, verste | $O(n \\log n)$ med flettesortering; $O(n^2)$ hvis kvikksortering brukes |\n| Minne | $O(n)$ for flettesortering, $O(1)$ ekstra hvis en sortering på stedet brukes |\n\nSorteringen dominerer; sammenligningen etterpå er $O(n)$. Strategien virker for\n**alle** sammenlignbare tegn, ikke bare små bokstaver.\n\n**b) Tell forekomsten av hver bokstav.**\n\n| Størrelse | Verdi |\n|---|---|\n| Kjøretid, forventet | $O(n + K)$ |\n| Kjøretid, verste | $O(n + K)$ — **garantert**, ikke bare forventet |\n| Minne | $O(K)$, altså to arrayer med 26 plasser |\n\nGå gjennom det første ordet og tell opp i et array `C1` med 26 plasser; gjør det\nsamme for det andre ordet i `C2`; sammenlign de 26 tallene. Med $K = 26$ som en\nfast konstant er dette **lineært i $n$**.\n\nMerk at dette er tellesortering i forkledning, og at den avgjørende\nforutsetningen er den samme: tegnene må komme fra et **kjent, begrenset**\nalfabet. Brukes strategien på vilkårlige unicode-tegn, blir $K$ over en million,\nog tellearrayet er ikke lenger gratis — da må tellingen gjøres i et hashmap, som\ngir $O(n)$ forventet, $O(n^2)$ verste og $O(u)$ minne.\n\n**Kanttilfeller.** Er ordene korte, for eksempel $n = 5$, er $K = 26$ det\ndominerende leddet, og sorteringen kan faktisk være raskest i praksis — for fem\ntegn er $n \\log n$ omtrent 12 operasjoner mot 26 for nullstillingen av\ntellearrayet. Skal svært mange ordpar sjekkes, kan tellearrayet gjenbrukes ved å\nnullstille bare de 26 plassene mellom hvert par, og da forsvinner ulempen.\n\n**Konklusjon.** Tellestrategien når alfabetet er kjent og lite, altså i denne\noppgaven: $O(n + K)$ er garantert, og den slår $O(n \\log n)$ for alt annet enn\nhelt korte ord. Sorteringsstrategien når tegnmengden er ukjent eller stor, eller\nnår du ikke kan anta noe om alfabetet — den koster en logaritmisk faktor, men\nstiller ingen krav.\n\n**Poengfordeling (8 p):** 1 p for å definere $n$ **og** $K$, 3 p for korrekte\nkjøretider for begge strategier (verste og forventet), 2 p for minnedrøftingen,\n2 p for en betinget konklusjon som sier når hver strategi lønner seg.\n\n**Det som skiller full pott her, er å nevne forutsetningen.** Å svare\n«tellearray, fordi det er $O(n)$» uten å si at det krever et kjent, begrenset\nalfabet, er den samme feilen som å foreslå bøttesortering på generelle\nelementer. Med forutsetningen på plass er svaret riktig og raskt; uten den er\ndet bare raskt."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-coll-midt",
+   "type": "collapsible",
+   "title": "Én midtnivåbesvarelse, ærlig merket — hva skiller den fra full pott?",
+   "buttonText": "Vis midtnivåbesvarelsen",
+   "content": [
+    {
+     "id": "in2010-8-3-midt-1",
+     "type": "text",
+     "content": "Under står en besvarelse på **oppgave 11** som ville fått **6 av 10 poeng**. Den\ner skrevet for denne boka som et realistisk midtsjiktssvar, og er verken en ekte\nstudentbesvarelse eller hentet fra en sensorveiledning.\n\nDette er en god besvarelse. Den viser at kandidaten kan søketrær og kan skrive\npseudokode. Den lander i midtsjiktet, og C er en god og vanlig karakter.\n\n---\n\n**Kandidatens svar på oppgave 11:**\n\n«Jeg går gjennom hele treet med en in-order-traversering og holder styr på\nhvilken verdi som har vært nærmest $x$ så langt.\n\n```text\nProcedure Naermeste(v, x)\n  if v == null:\n      return\n  Naermeste(v.left, x)\n  if |v.x - x| < |best - x|:\n      best = v.x\n  Naermeste(v.right, x)\n```\n\nKjøretiden er $O(n)$ fordi jeg besøker alle nodene.\n\nPå treet i c) blir svaret 39.»\n\n---\n\n**Hva som er bra nok:**\n\n- Algoritmen er **korrekt**. Den finner riktig svar, også i **c)**.\n- Kjøretiden er riktig oppgitt for den koden som faktisk er skrevet. Det er\n  viktigere enn mange tror: en riktig kjøretid for en treg algoritme gir langt\n  mer enn en gal kjøretid for en rask.\n- Pseudokoden er kort og lesbar.\n\n**Det som mangler, med margnotat:**\n\n| Mangler | Koster | Hvorfor |\n|---|---|---|\n| **Bruker ikke søketre-egenskapen.** Traverseringen går til begge sider i hver node. | −3 p | Dette er kjernen i oppgaven. Går du til venstre fordi $x < v.x$, kan ingenting i høyre subtre være nærmere. Å hoppe over det subtreet gjør $O(n)$ om til $O(h)$. Dette er den mest kostbare enkeltfeilen i faget: full gjennomgang der beskjæring var mulig. |\n| **Ingen antagelser om representasjon.** | −1 p | Hvilke felt har en node? Er treet et gyldig søketre? Sensor binder seg ikke til representasjonen. |\n| **`best` er ikke initialisert.** | 0 p, men risikabelt | Variabelen brukes i sammenligningen før den er satt. Sensor tolker som regel dette i kandidatens favør, men det er unødvendig å be om velvilje. |\n\n**Veien fra 6 til 10 poeng er to linjer kode:** bytt de to ubetingede rekursive\nkallene mot ett betinget kall som velger side ut fra om $x$ er mindre eller\nstørre enn `v.x`. Alt annet i besvarelsen kan stå.\n\n**Og det generelle mønsteret:** kandidaten stilte aldri spørsmålet «kan dette\ngjøres raskere?». Det er ett spørsmål, det tar ti sekunder, og på denne oppgaven\nvar det verdt fire poeng."
+    }
+   ]
+  },
+  {
+   "id": "in2010-8-3-t-etter",
+   "type": "text",
+   "content": "## Poengoversikt og selvdiagnose\n\n| Del | Oppgave | Poeng |\n|---|---|---|\n| Oppvarming | 0 | 2 |\n| Del 1 | 1 sant/usant (skalert) | 10 |\n| Del 1 | 2 kjøretid fra kode | 4 |\n| Del 1 | 3 min-heap | 4 |\n| Del 1 | 4 lineær probing | 3 |\n| Del 1 | 5 AVL-rotasjoner | 3 |\n| Del 1 | 6 Huffman | 3 |\n| Del 1 | 7 sorteringsegenskaper | 4 |\n| Del 1 | 8 grafalgoritmer | 4 |\n| Del 2 | 9 første gjentatte ord | 10 |\n| Del 2 | 10 første forekomst med binærsøk | 8 |\n| Del 2 | 11 nærmeste varenummer | 10 |\n| Del 2 | 12 største servergruppe | 10 |\n| Del 2 | 13 anagram | 8 |\n| **Sum** | | **83** |\n\nMerk at Del 1 er tyngre her enn i [kap. 8.2](/in2010/in2010-8-2): 35 poeng mot\n28, og fire av dem er håndkjøringer. Det er bevisst. Håndkjøringene er de\npoengene som er **helt** i din kontroll — de krever ingen idé, bare at du gjør\ndet samme som strukturen gjør, uten å ta snarveier.\n\n---\n\n### Selvdiagnose\n\n☐ Oppga du **hele** hashtabellen i oppgave 4, med `_` for de tomme plassene?\n\n☐ Ble den andre 34-en **overskrevet** i stedet for lagt til på nytt?\n\n☐ Sank elementet i `RemoveMin` mot det **minste** barnet — og sjekket du at\nbarnet finnes før du sammenlignet?\n\n☐ Telte du dobbeltrotasjonen som **to** enkle rotasjoner i oppgave 5?\n\n☐ Oppga du **kodelengder** og ikke kodeord i oppgave 6?\n\n☐ Svarte du «verste» der det sto verste, og ikke «forventet», i oppgave 7?\n\n☐ Skrev du eksplisitt hva du hadde endret i binærsøket i oppgave 10?\n\n☐ Brukte du søketre-egenskapen til å hoppe over et subtre i oppgave 11, eller\ntraverserte du hele treet?\n\n☐ Oppga du kjøretid på **alle** fem Del 2-oppgavene, og matcher hver av dem\nkoden du faktisk skrev?\n\n☐ Sto forbeholdet «forventet» der du skrev $O(1)$ eller $O(n)$ om hashing?\n\n☐ Definerte du både $n$ og $K$ i oppgave 13, og konkluderte du **betinget**?\n\n**Neste steg:** [kap. 8.4](/in2010/in2010-8-4) er det grafmodellerings-tunge\ntopp-settet. Ta det på en egen kveld."
+  }
+ ],
+ "exercises": []
+}

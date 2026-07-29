@@ -1,0 +1,336 @@
+{
+  "id": "in2010-7-1",
+  "courseId": "in2010",
+  "chapterNumber": "7.1",
+  "title": "ADT-design — mediankø, bøttekø og trie",
+  "description": "Å velge og kombinere strukturer til en abstrakt datatype — mediankø (to heaps), bøttekø (array av lister) og trie — med kjøretid per operasjon.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne designe en mediankø med to heaps, formulere invarianten og oppgi kjøretid per operasjon",
+    "kunne velge bøttekø framfor heap når antall prioritetsnivåer er fast og lite, og begrunne valget",
+    "kunne forklare hvorfor et trie gir prefikssøk som et hashmap ikke gir, og hva det koster i minne",
+    "kunne kombinere to strukturer når ingen enkeltstruktur gir alle operasjonene billig"
+  ],
+  "content": [
+    {
+      "id": "in2010-7-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "ADT-design er med i **3 av 7 sett (43 %)**, og andelen er **økende** — de tre\nforekomstene ligger i de nyeste settene. Sjangeren er\n\n- **Sjanger J — designskisse med kjøretid**, altså at du velger og kombinerer\n  datastrukturer for å støtte et sett operasjoner, beskriver løsningen og oppgir\n  kjøretiden **per operasjon**.\n\nDette er ikke en oppgave der du skriver mye kode. Det er en oppgave der du\n**velger**, og der begrunnelsen er svaret. Tre design går igjen: mediankøen (to\nheaps), bøttekøen (array av lister) og trie-et (prefikstre).\n\nPrioritet: **kunne** (nivå 2 av tre — «må sitte» er nivå 1, «kjenne til» er\nnivå 3). Sjangeren er en av dem som skiller toppsjiktet, fordi den krever at du\nkjenner kjøretidene til strukturene fra Del 3 og Del 4 godt nok til å sette dem\nsammen på nytt.\n\nEn ting er verdt å si med én gang: **det finnes sjelden ett riktig svar.** Sensor\nvurderer om løsningen virker og om kjøretiden du oppgir, stemmer med den. En\nheap-basert løsning som gir $O(\\log n)$ der en array-basert gir $O(1)$, er\nkorrekt — den gir bare færre poeng.\n\n**Slik er kapitlet lagt opp (50 min):** fire løkker med teori, gjennomkjørt\neksempel og oppgaver, med et pausepunkt etter løkke 2."
+    },
+    {
+      "id": "in2010-7-1-t-forkunn",
+      "type": "text",
+      "content": "## Sist du var her — forkunnskaper i kortform\n\nTre resultater fra tidligere deler er hele byggematerialet her. De står ferdig\noppfrisket:\n\n**1. Min-heapen er et array med indeks fra 0.** Forelder til $i$ er\n$\\lfloor (i-1)/2 \\rfloor$, barna er $2i+1$ og $2i+2$. `Insert` og `RemoveMin`\nkoster $O(\\log n)$; **å lese toppen uten å fjerne den er $O(1)$**. Å bygge en heap\nfra et array er $O(n)$, ikke $O(n \\log n)$. Se\n[kap. 4.4](/in2010/in2010-4-4).\n\n**2. En max-heap er samme struktur med snudd ordning.** Forelderen er **større**\nenn begge barna, så toppen er det største elementet. Alt annet er identisk.\n\n**3. Hashmap og hash-set er $O(1)$ forventet, $O(n)$ verste.** Ordet «forventet» er\nobligatorisk. Se [kap. 3.2](/in2010/in2010-3-2). Har du brukt en ordbok i et\nprogram, er det denne strukturen: [Ordbøker](/in1000/in1000-3-2).\n\nFra [kap. 4.1](/in2010/in2010-4-1) trengs også at et binært søketre gir sortert\nrekkefølge ved in-order-traversering."
+    },
+    {
+      "id": "in2010-7-1-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-7-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer som er lagret i strukturen |\n| $N$ | antall **prioritetsnivåer** i en bøttekø — et fast tall, uavhengig av $n$ |\n| $L$ | lengden på en søkestreng eller et prefiks |\n| $O(1)$ | konstant tid — uavhengig av hvor mye som er lagret |\n| $O(\\log n)$ | tiden en heap-operasjon tar |\n| $O(1)$ forventet | hashmap-oppslag; verste tilfelle er $O(n)$ |"
+        },
+        {
+          "id": "in2010-7-1-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Heap.Insert(x)` | legger inn `x` og gjenoppretter heap-egenskapen | $O(\\log n)$ |\n| `Heap.RemoveMin()` | fjerner og returnerer toppen | $O(\\log n)$ |\n| `Heap.Topp()` | leser toppen **uten** å fjerne den | $O(1)$ |\n| `Mediankø.Insert(x)` | setter inn og holder de to heapene balansert | $O(\\log n)$ |\n| `Mediankø.Median()` | leser toppen av max-heapen | $O(1)$ |\n| `Bottekø.Insert(x, p)` | legger `x` bakerst i bøtte `p` | $O(1)$ |\n| `Bottekø.RemoveMin()` | skanner til første ikke-tomme bøtte og tar første element | $O(N)$ |\n| `Trie.Sett inn(ord)` | følger eller lager én node per bokstav | $O(L)$ |\n| `Trie.Prefikssok(p)` | finner noden for prefikset `p` | $O(L)$ |"
+        },
+        {
+          "id": "in2010-7-1-nt-3",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$\\lvert \\text{nedre} \\rvert = \\lvert \\text{øvre} \\rvert \\quad \\text{eller} \\quad \\lvert \\text{nedre} \\rvert = \\lvert \\text{øvre} \\rvert + 1$$\n\nMediankøens invariant. Holder den, ligger medianen alltid på toppen av max-heapen,\nog `Median()` er $O(1)$.\n\n$$O(N) = O(1) \\quad \\text{når } N \\text{ er konstant}$$\n\nBøttekøens kjøretid. Er antall prioritetsnivåer et fast tall som ikke vokser med\n$n$, er en skanning gjennom alle bøttene konstant tid — uansett hvor mange\nelementer som ligger i dem."
+        }
+      ]
+    },
+    {
+      "id": "in2010-7-1-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — hva oppgaven egentlig ber om (ca. 8 min)\n\nEn **abstrakt datatype** er et sett operasjoner med en kontrakt, uten at det er\nsagt hvordan de skal implementeres. «En struktur som støtter `Insert(x)` og\n`Median()`» er en abstrakt datatype; en max-heap er en implementasjon.\n\nEksamensoppgaven gir deg alltid det første og ber om det andre. Formen er fast:\n\n> «Design en datastruktur som støtter operasjonene … effektivt. Beskriv\n> strukturen og oppgi kjøretiden per operasjon.»\n\nDet er ordet **per operasjon** som er nøkkelen. Du skal ikke oppgi én samlet\nkjøretid — du skal gå gjennom operasjon for operasjon og si hva hver av dem koster.\nEn besvarelse som sier «$O(\\log n)$» uten å spesifisere hva, mister poeng selv om\nløsningen er riktig."
+    },
+    {
+      "id": "in2010-7-1-def-1",
+      "type": "definition",
+      "title": "Abstrakt datatype (ADT)",
+      "content": "Et sett operasjoner med en beskrevet oppførsel, uten at implementasjonen er\nfastlagt.\n\nEn prioritetskø er en ADT: den lover `Insert` og `RemoveMin`. En min-heap er en\n**implementasjon** av den ADT-en; et AVL-tre er en annen. Å skille de to nivåene\ner hele poenget med sjangeren — oppgaven gir deg kontrakten, du velger\nimplementasjonen."
+    },
+    {
+      "id": "in2010-7-1-th-1",
+      "type": "theorem",
+      "title": "Svarformen på en ADT-design-oppgave",
+      "content": "Fire ledd, i denne rekkefølgen. Dette er sensors faktiske krav, og mangler ett av\ndem, trekkes det.\n\n1. **Hvilke strukturer bruker du, og hva lagrer hver av dem?** «To heaps: en\n   max-heap med den nedre halvdelen av tallene, en min-heap med den øvre.»\n2. **Hva er invarianten?** Den regelen som må holde etter hver operasjon, og som\n   gjør at operasjonene blir billige. «De to heapene er like store, eller max-heapen\n   har ett element mer.»\n3. **Hver operasjon, steg for steg**, og hvordan invarianten gjenopprettes.\n4. **Kjøretid per operasjon**, med $n$ definert.\n\n**Og til slutt spørsmålet som gir det siste poenget:** kan noen av operasjonene\ngjøres raskere? Ofte kan én av dem senkes fra $O(\\log n)$ til $O(1)$ ved å lagre\nlitt ekstra — og det er nettopp den forbedringen poengtrappen belønner."
+    },
+    {
+      "id": "in2010-7-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger J — ADT-design, altså at du velger og kombinerer\nstrukturer og oppgir kjøretiden per operasjon.) En struktur skal støtte\n`Insert(x)` og `HentMinste()`, der `HentMinste` fjerner og returnerer det minste\nelementet.\n\n**a)** Hvilken kjent struktur løser dette direkte?\n**b)** Oppgi kjøretiden per operasjon.\n**c)** Hva ville en usortert liste gitt i stedet?",
+        "solution": "**a)** En **min-heap**. Det er nøyaktig kontrakten den er laget for — en\nprioritetskø.\n\n**b)** `Insert` er $O(\\log n)$, og `HentMinste` er $O(\\log n)$ (uttak av toppen\npluss down-heap). Vil du bare **lese** minsteverdien uten å fjerne den, er det\n$O(1)$, siden den ligger på indeks 0.\n\n**c)** En usortert liste gir `Insert` i $O(1)$ — bare legg elementet bakerst — men\n`HentMinste` blir $O(n)$, siden du må lete gjennom alt.\n\n**Sammenligningen er selve poenget i sjangeren:** to strukturer, to helt\nforskjellige kjøretidsprofiler. Hvilken som er best, avhenger av hvilken operasjon\nsom utføres oftest. Sier oppgaven ingenting om det, er heapen det trygge valget,\nfordi den ikke har noen $O(n)$-operasjon i det hele tatt.",
+        "hints": [
+          "Hvilken struktur har «hent det minste» som sin definerende operasjon?",
+          "Del c): hvor mange elementer må du se på for å finne det minste i en usortert liste?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-1-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — mediankøen: to heaps som møtes på midten (ca. 15 min)\n\nNå en oppgave der ingen enkelt struktur holder.\n\nEt vaktsystem tar imot responstider fortløpende, og skal til enhver tid kunne\noppgi **medianen** — det midterste tallet når alle er sortert. Operasjonene er\n`Insert(x)` og `Median()`.\n\nEn sortert liste gir `Median()` i $O(1)$, men `Insert` blir $O(n)$ fordi alt bak\ninnsettingspunktet må flyttes. En min-heap gir `Insert` i $O(\\log n)$, men\nmedianen ligger et sted midt i arrayet, uten fast plass — å finne den koster\n$O(n)$.\n\n**Trikset er å bruke to heaps.** Del tallene i to like store halvdeler: den nedre\nhalvdelen i en **max-heap** (så det største av de små ligger på toppen), og den\nøvre halvdelen i en **min-heap** (så det minste av de store ligger på toppen). Da\nligger medianen alltid på toppen av max-heapen — rett ved skillet."
+    },
+    {
+      "id": "in2010-7-1-def-2",
+      "type": "definition",
+      "title": "Mediankø",
+      "content": "En struktur som støtter `Insert(x)` i $O(\\log n)$ og `Median()` i $O(1)$,\nimplementert med **to heaps**: en max-heap for den nedre halvdelen og en min-heap\nfor den øvre.\n\nInvarianten er at max-heapen har like mange elementer som min-heapen, eller\nnøyaktig ett mer. Da er medianen alltid toppen av max-heapen."
+    },
+    {
+      "id": "in2010-7-1-img-1",
+      "type": "image",
+      "src": "/images/textbook/in2010/mediankoe-to-heaps.svg",
+      "alt": "To binære trær side om side. Til venstre en max-heap med 14 på toppen og barna 12 og 9, og 3 under 12; arrayet er 14, 12, 9, 3. Til høyre en min-heap med 17 på toppen og barna 21 og 25; arrayet er 17, 21, 25. Medianen er toppen av max-heapen, altså 14.",
+      "caption": "Mediankøen etter de sju innsettingene i eksempel 1. Max-heapen holder de fire minste tallene, min-heapen de tre største, og medianen 14 ligger akkurat på skillet — på toppen av max-heapen."
+    },
+    {
+      "id": "in2010-7-1-th-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Mediankø`",
+      "content": "**Antagelser om representasjon.** `nedre` er en **max-heap** og `ovre` er en\n**min-heap**, begge implementert som array med indeks fra 0 (se\n[kap. 4.4](/in2010/in2010-4-4)). Begge støtter `Insert` og `RemoveTopp` i\n$O(\\log n)$, og `Topp` i $O(1)$. Størrelsen på en heap leses i $O(1)$.\n\n**Invariant (må holde etter hver operasjon):**\nalle tall i `nedre` er mindre enn eller lik alle tall i `ovre`, og\n$\\lvert \\text{nedre} \\rvert = \\lvert \\text{ovre} \\rvert$ eller\n$\\lvert \\text{nedre} \\rvert = \\lvert \\text{ovre} \\rvert + 1$.\n\n```text\nProcedure Insert(x)\n  Input:  et tall x\n  Output: strukturen inneholder x, og invarianten holder\n  if nedre er tom or x <= nedre.Topp():\n      nedre.Insert(x)\n  else:\n      ovre.Insert(x)\n  // gjenopprett balansen — hoyst én flytting\n  if storrelsen paa nedre > storrelsen paa ovre + 1:\n      ovre.Insert(nedre.RemoveTopp())\n  else if storrelsen paa ovre > storrelsen paa nedre:\n      nedre.Insert(ovre.RemoveTopp())\n\nProcedure Median()\n  Input:  ingenting\n  Output: medianen av alle innsatte tall\n  return nedre.Topp()\n```\n\n**Hvorfor invarianten gir medianen:** er de to like store, er `nedre.Topp()` det\nstørste av den nedre halvdelen — altså det nedre av de to midterste tallene. Har\n`nedre` ett element mer, er toppen der det midterste tallet. I begge tilfeller er\n`Median()` bare et oppslag.\n\n**Kjøretid:** `Insert` er $O(\\log n)$ — én heap-innsetting, pluss høyst én\nflytting som er ett uttak og én innsetting, alle $O(\\log n)$. `Median()` er\n$O(1)$, siden toppen av en heap ligger på indeks 0.\n\n**Merk at balanseringen aldri trenger mer enn én flytting.** Størrelsene endrer\nseg med 1 per innsetting, så avviket kan aldri bli mer enn 1 for stort."
+    },
+    {
+      "id": "in2010-7-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Håndkjøring av mediankøen",
+      "problem": "Responstidene 14, 9, 21, 3, 17, 12 og 25 kommer inn i denne rekkefølgen. Vis\ntilstanden til begge heapene etter hver innsetting, og oppgi medianen underveis.",
+      "solution": "Heapene vises som **array med indeks fra 0**. I max-heapen ligger det største\nelementet på indeks 0; i min-heapen ligger det minste der.\n\n| Steg | Sett inn | Rebalansering | Nedre (max-heap, array) | Øvre (min-heap, array) | Median etter steget |\n|---|---|---|---|---|---|\n| 1 | 14 | — | `14` | `tom` | 14 |\n| 2 | 9 | 14 flyttes fra nedre til øvre | `9` | `14` | 9 |\n| 3 | 21 | 14 flyttes fra øvre til nedre | `14, 9` | `21` | 14 |\n| 4 | 3 | 14 flyttes fra nedre til øvre | `9, 3` | `14, 21` | 9 |\n| 5 | 17 | 14 flyttes fra øvre til nedre | `14, 3, 9` | `17, 21` | 14 |\n| 6 | 12 | 14 flyttes fra nedre til øvre | `12, 3, 9` | `14, 21, 17` | 12 |\n| 7 | 25 | 14 flyttes fra øvre til nedre | `14, 12, 9, 3` | `17, 21, 25` | 14 |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nnedre (max-heap):  14, 12, 9, 3\novre  (min-heap):  17, 21, 25\nMedian:            14\n```\n\n**Kontrollen:** sorter alle sju tallene — 3, 9, 12, 14, 17, 21, 25. Det midterste\ner 14. Stemmer.\n\n**Se på steg 5.** Tallet 17 er større enn `nedre.Topp()` (som er 9 der), så det går\ni `ovre`. Da blir `ovre` større enn `nedre`, og 14 flyttes tilbake ned. Det er\nbalanseringen i arbeid: ett tall over skillet per innsetting, høyst.\n\n**Se på hvordan medianen beveger seg:** 14, 9, 14, 9, 14, 12, 14. Den hopper opp\nog ned, som den skal — med et partall elementer velger denne implementasjonen det\nnedre av de to midterste. Sier oppgaven at medianen av et partall skal være\ngjennomsnittet av de to midterste, leser du bare **begge** toppene og deler på to.\nDet er fortsatt $O(1)$.\n\n**Fellenote.** Fella her er å bruke **én** heap. Med bare en min-heap ligger\nmedianen et vilkårlig sted i arrayet, og du må lete gjennom alt: $O(n)$ i stedet\nfor $O(1)$. Det er en korrekt løsning som taper poengtrappen."
+    },
+    {
+      "id": "in2010-7-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — håndkjøring, altså at du utfører operasjonene steg for steg og oppgir\nsluttilstanden.) Tallene 7, 2, 11, 4 og 9 settes inn i en mediankø i denne\nrekkefølgen.\n\n**a)** Vis begge heapene etter hver innsetting.\n**b)** Oppgi medianen til slutt, og kontrollér den mot den sorterte rekken.\n**c)** Hvor mange elementer flyttes mellom heapene til sammen?",
+        "solution": "**a)**\n\n| Steg | Sett inn | Rebalansering | Nedre (max-heap, array) | Øvre (min-heap, array) | Median etter steget |\n|---|---|---|---|---|---|\n| 1 | 7 | — | `7` | `tom` | 7 |\n| 2 | 2 | 7 flyttes fra nedre til øvre | `2` | `7` | 2 |\n| 3 | 11 | 7 flyttes fra øvre til nedre | `7, 2` | `11` | 7 |\n| 4 | 4 | 7 flyttes fra nedre til øvre | `4, 2` | `7, 11` | 4 |\n| 5 | 9 | 7 flyttes fra øvre til nedre | `7, 2, 4` | `9, 11` | 7 |\n\n**b) Sluttilstand: `nedre = 7, 2, 4`, `ovre = 9, 11`, median 7.**\n\nKontroll: sortert er tallene 2, 4, 7, 9, 11. Det midterste er 7. Stemmer.\n\n**c)** Tre flyttinger, i steg 2, 3 og 5. I steg 4 var balansen allerede riktig\netter innsettingen, så ingen flytting var nødvendig.\n\n**Merk at hver flytting er én `RemoveTopp` og én `Insert`, begge $O(\\log n)$.**\nDet er derfor `Insert` totalt er $O(\\log n)$ og ikke noe mer: antallet flyttinger\nper innsetting er høyst én, aldri en løkke.",
+        "hints": [
+          "Sammenlign det nye tallet med toppen av max-heapen for å avgjøre hvilken heap det skal i.",
+          "Etter innsettingen: er max-heapen fortsatt like stor som eller nøyaktig én større enn min-heapen?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-1-tip-2",
+      "type": "tip",
+      "title": "Pausepunkt",
+      "content": "— naturlig pausepunkt —\n\nMediankøen er den vanligste ADT-designoppgaven. De to neste — bøttekøen og trie-et\n— er kortere, men de tester noe annet: at du tør å velge en **enklere** struktur\nenn den du kan best."
+    },
+    {
+      "id": "in2010-7-1-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — bøttekøen: når heapen er overkill (ca. 12 min)\n\nNå en oppgave der den opplagte løsningen gir færre poeng enn den enkle.\n\nEt meldingssystem behandler meldinger etter prioritet. Prioritetene er hele tall\nfra 0 til 9 — **et fast, lite antall nivåer**, uavhengig av hvor mange meldinger\nsom ligger i køen. Operasjonene er `Insert(melding, prioritet)` og `RemoveMin()`,\nsom tar den viktigste ventende meldingen.\n\nEn min-heap løser dette: $O(\\log n)$ per operasjon. Men se på forutsetningen én\ngang til: **bare ti prioritetsnivåer.** Da trenger du ingen heap. Lag et array med\nti bøtter, én per prioritet, og la hver bøtte være en lenket liste med meldingene\npå det nivået."
+    },
+    {
+      "id": "in2010-7-1-def-3",
+      "type": "definition",
+      "title": "Bøttekø",
+      "content": "En prioritetskø for et **fast, lite antall** prioritetsnivåer $N$: et array med\n$N$ bøtter, der bøtte $p$ er en lenket liste med alle elementer av prioritet $p$.\n\n`Insert` er $O(1)$ — legg elementet bakerst i riktig bøtte. `RemoveMin` skanner\nfra bøtte 0 til første ikke-tomme og tar det første elementet der: $O(N)$, som er\n$O(1)$ når $N$ er konstant.\n\nFordelen mot en heap er at begge operasjonene blir konstante i stedet for\n$O(\\log n)$. Forutsetningen er at $N$ er fast og lite — vokser antall\nprioritetsnivåer med $n$, faller argumentet."
+    },
+    {
+      "id": "in2010-7-1-th-3",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Bøttekø`",
+      "content": "**Antagelser om representasjon.** `botter` er et array med `N` plasser, indeksert\nfra 0 til `N-1`, der hver plass er en lenket liste med $O(1)$ innsetting bakerst\nog $O(1)$ uttak forrest. Prioritetene er heltall i `0..N-1`, og `N` er et fast\ntall som **ikke** vokser med antall elementer.\n\n**Prebetingelse:** `0 <= p < N`. **Postbetingelse for `RemoveMin`:** returnerer et\nelement med lavest prioritet blant dem som ligger i køen, eller melder at køen er\ntom.\n\n```text\nProcedure Insert(x, p)\n  Input:  element x med prioritet p, der 0 <= p < N\n  Output: x ligger bakerst i botte p\n  botter[p].leggTilBakerst(x)\n\nProcedure RemoveMin()\n  Input:  ingenting\n  Output: et element med lavest prioritet, eller melding om at koen er tom\n  for p = 0 til N-1:\n      if botter[p] er ikke tom:\n          return botter[p].taUtForrest()\n  return «koen er tom»\n```\n\n**Grunnideen i én setning:** når prioritetene er få og kjente på forhånd, trenger\ndu ikke sortere dem — du kan gi hver sin plass og slå opp direkte.\n\n**Kjøretid:** `Insert` er $O(1)$ — ett arrayoppslag og én innsetting bakerst i en\nlenket liste. `RemoveMin` er $O(N)$ i verste tilfelle, som er $O(1)$ når $N$ er\nkonstant. Merk at kjøretiden ikke avhenger av $n$, altså hvor mange elementer som\nligger i køen — bare av antall **nivåer**.\n\n**Bonusen som er verdt å nevne:** køen er **stabil**. To elementer med samme\nprioritet kommer ut i den rekkefølgen de ble satt inn, fordi hver bøtte er en\nFIFO-liste. Det gir en heap deg ikke uten videre."
+    },
+    {
+      "id": "in2010-7-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Håndkjøring av bøttekøen",
+      "problem": "Et meldingssystem har prioritetsnivåene 0 til 4, der 0 er viktigst. Utfør denne\nsekvensen og vis køens tilstand etter hvert steg:\n\n`Insert(M4, 3)`, `Insert(M1, 0)`, `Insert(M7, 3)`, `RemoveMin()`,\n`Insert(M2, 1)`, `RemoveMin()`, `RemoveMin()`, `RemoveMin()`,\n`RemoveMin()`.",
+      "solution": "Kolonnen til høyre viser bare de **ikke-tomme** bøttene, med innholdet i hver.\n\n| Steg | Operasjon | Returnerer | Ikke-tomme bøtter etter |\n|---|---|---|---|\n| 1 | `Insert(M4, prioritet 3)` | — | `3: [M4]` |\n| 2 | `Insert(M1, prioritet 0)` | — | `0: [M1]; 3: [M4]` |\n| 3 | `Insert(M7, prioritet 3)` | — | `0: [M1]; 3: [M4, M7]` |\n| 4 | `RemoveMin()` | `M1` (prioritet 0) | `3: [M4, M7]` |\n| 5 | `Insert(M2, prioritet 1)` | — | `1: [M2]; 3: [M4, M7]` |\n| 6 | `RemoveMin()` | `M2` (prioritet 1) | `3: [M4, M7]` |\n| 7 | `RemoveMin()` | `M4` (prioritet 3) | `3: [M7]` |\n| 8 | `RemoveMin()` | `M7` (prioritet 3) | `alle bøtter tomme` |\n| 9 | `RemoveMin()` | køen er tom | `alle bøtter tomme` |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nUttaksrekkefolge: M1, M2, M4, M7, deretter «koen er tom»\nAlle botter tomme\n```\n\n**Se på steg 7 og 8.** Både `M4` og `M7` har prioritet 3, og de kommer ut i den\nrekkefølgen de ble satt inn. Det er **stabiliteten** — hver bøtte er en FIFO-liste.\nEn min-heap ville ikke gitt noen garanti om innbyrdes rekkefølge for like nøkler.\n\n**Se på steg 4.** `RemoveMin` skanner fra bøtte 0, finner `M1` med én gang, og\nreturnerer. I steg 6 må den skanne forbi bøtte 0 (nå tom) og finner `M2` i bøtte 1.\nSkanningen kan i verste fall gå gjennom alle fem bøttene — men fem er et fast tall.\n\n**Sammenligning med en heap.** En min-heap ville gitt samme uttaksrekkefølge for\nprioritetene (men ikke nødvendigvis for `M4` og `M7` innbyrdes), til $O(\\log n)$\nper operasjon i stedet for $O(1)$. Med mange meldinger og få nivåer er bøttekøen\nklart raskere.\n\n**Fellenote.** Fella her er å gripe til heapen fordi oppgaven sier\n«prioritetskø». Les forutsetningen: **er antall prioritetsnivåer fast og lite?**\nEr svaret ja, er bøttekøen det øverste trinnet i poengtrappen, og en heap-basert\nløsning gir mindre."
+    },
+    {
+      "id": "in2010-7-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J.) En kølapp-app i et venterom har tre hastegrader: akutt (0), vanlig\n(1) og lav (2). Systemet skal støtte `Insert(pasient, hastegrad)` og `NesteInn()`.\n\n**a)** Foreslå en struktur og oppgi kjøretid per operasjon.\n**b)** Hvorfor er en min-heap et dårligere valg her?\n**c)** Hva ville skjedd med argumentet ditt hvis hastegraden i stedet var et\ntall mellom 0 og 1 000 000?",
+        "solution": "**a) Strukturene:** et array med tre bøtter, én per hastegrad, der hver bøtte er en\nlenket liste (FIFO).\n\n*Invariant:* alle pasienter med hastegrad $p$ ligger i bøtte $p$, i den rekkefølgen\nde kom inn.\n\n*Operasjonene:*\n\n- `Insert(pasient, hastegrad)`: legg pasienten bakerst i bøtte `hastegrad`.\n  **$O(1)$.**\n- `NesteInn()`: skann fra bøtte 0 og ta første pasient i første ikke-tomme bøtte.\n  **$O(N) = O(3) = O(1)$**, siden $N = 3$ er fast.\n\n**b)** En min-heap gir $O(\\log n)$ per operasjon i stedet for $O(1)$, der $n$ er\nantall ventende pasienter. Den løser et vanskeligere problem enn det som er\nstilt — den takler vilkårlige prioriteter — og betaler for den fleksibiliteten\nuten å trenge den.\n\nI tillegg gir heapen ingen garanti for at to pasienter med samme hastegrad\nbehandles i ankomstrekkefølge. Bøttekøen gjør det automatisk, og i et venterom er\ndet en egenskap man faktisk vil ha.\n\n**c)** Da faller argumentet. Med en million bøtter ville `NesteInn()` i verste fall\nskanne gjennom en million tomme plasser for å finne én pasient. Det er $O(N)$ med\nen $N$ som er **stor**, og da er $O(\\log n)$ fra heapen langt bedre.\n\n**Regelen:** bøttekøen lønner seg når antall **nivåer** er lite og fast. Er det\nstort, eller vokser det med antall elementer, bruk heap.\n\n**Poengtrapp-notat.** Hovedmomentet er å se at nivåene er få og faste, og å velge\nbøttekøen. En heap-basert besvarelse er korrekt og gir delvis uttelling — men\ndeloppgave c) er der du viser at du har forstått **hvorfor** valget ble som det\nble, og den er ofte verdt like mye som a).",
+        "hints": [
+          "Hvor mange forskjellige hastegrader finnes det, og vokser antallet med antall pasienter?",
+          "Del c): hva må `NesteInn()` gjøre hvis de laveste bøttene er tomme?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-1-t-4",
+      "type": "text",
+      "content": "## Løkke 4 — trie-et: strukturen som kjenner prefikser (ca. 12 min)\n\nDen tredje faste ADT-oppgaven handler om **autocomplete**: du skriver noen\nbokstaver, og systemet skal finne alle ord som begynner slik.\n\nEt hashmap løser oppslaget «finnes dette ordet?» i $O(1)$ forventet. Men det løser\n**ikke** «hvilke ord begynner med `sa`?» — hashverdien til `sa` har ingen\nsammenheng med hashverdien til `sand`. Du måtte gått gjennom alle ordene og sjekket\nhver enkelt: $O(\\text{antall ord})$.\n\nTrie-et lagrer ordene bokstav for bokstav i et tre, slik at alle ord med samme\nprefiks havner i samme subtre."
+    },
+    {
+      "id": "in2010-7-1-def-4",
+      "type": "definition",
+      "title": "Trie (prefikstre)",
+      "content": "Et tre der hver kant er merket med en bokstav, og veien fra rota til en node\nstaver et prefiks. Noder som avslutter et helt ord, er merket.\n\n`Sett inn` og `Finn` koster $O(L)$, der $L$ er ordets lengde — **uavhengig av hvor\nmange ord som er lagret**. Et prefikssøk finner noden for prefikset i $O(L)$, og\nalle ordene under den ligger i subtreet.\n\nPrisen er minne: hver bokstav i hvert ord kan bli en egen node, med plass til alle\nmulige barn."
+    },
+    {
+      "id": "in2010-7-1-img-2",
+      "type": "image",
+      "src": "/images/textbook/in2010/trie-prefikstre.svg",
+      "alt": "Et prefikstre for ordene sal, salt, sang og sand. Fra rota går en kant merket s til en node, videre en kant merket a. Fra a-noden går en kant merket l til en node som er markert som ordslutt, og videre en kant merket t til en ny ordslutt-node. Fra a-noden går også en kant merket n til en node, og fra den kanter merket g og d til hver sin ordslutt-node.",
+      "caption": "Prefikstre for ordene sal, salt, sang og sand. Alle ord som begynner på «sa», ligger i subtreet under a-noden — det er hele poenget. Merk at «sal» både er et helt ord og et prefiks av «salt», og at noden derfor må ha et eget ordslutt-merke."
+    },
+    {
+      "id": "in2010-7-1-th-4",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Trie`",
+      "content": "**Antagelser om representasjon.** Hver node har et kart `barn` fra bokstav til\nnode (et lite array eller et hashmap), og et flagg `erOrdslutt`. Rota representerer\ndet tomme prefikset. $L$ er lengden på ordet eller prefikset.\n\n**Postbetingelse for `SettInn`:** ordet finnes i treet, og `erOrdslutt` er satt på\nden siste noden.\n\n```text\nProcedure SettInn(rot, ord)\n  Input:  rota i et trie, og et ord\n  Output: ordet er lagret i treet\n  v = rot\n  for hver bokstav b i ord:\n      if v.barn har ingen oppfoering for b:\n          v.barn[b] = ny tom node\n      v = v.barn[b]\n  v.erOrdslutt = sant\n\nProcedure FinnPrefiks(rot, p)\n  Input:  rota i et trie, og et prefiks p\n  Output: noden som svarer til p, eller «ingen»\n  v = rot\n  for hver bokstav b i p:\n      if v.barn har ingen oppfoering for b:\n          return «ingen»\n      v = v.barn[b]\n  return v\n```\n\n**Grunnideen i én setning:** alle ord med samme prefiks deler den samme veien ned\nfra rota, så prefikset peker rett på subtreet som inneholder dem.\n\n**Kjøretid:** `SettInn` og `FinnPrefiks` er $O(L)$ — ett steg per bokstav,\nuavhengig av hvor mange ord treet inneholder. Å liste **alle** ordene under et\nprefiks koster i tillegg tid proporsjonal med antall treff, siden hvert av dem må\nskrives ut.\n\n**Hvorfor `erOrdslutt` er nødvendig:** uten flagget kan treet ikke skille «sal» —\nsom er et helt ord — fra en node som bare er passert på vei til «salt». Det er et\nkanttilfelle sensor gir delpoeng for å ha tenkt på."
+    },
+    {
+      "id": "in2010-7-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — autocomplete",
+      "problem": "Et søkefelt skal foreslå ord mens brukeren skriver. Ordlista har $m$ ord, og det\nlengste er $L$ bokstaver. Design en struktur som støtter `SettInn(ord)` og\n`Forslag(prefiks)`, som gir alle ord med det gitte prefikset.\n\nSammenlign med en hashmap-basert løsning, på kjøretid og minne.",
+      "solution": "**Strukturene.** Et **trie**: hver node har et kart fra bokstav til barnenode, og\net flagg `erOrdslutt`.\n\n**Invariant.** Veien fra rota til en node staver nøyaktig det prefikset noden\nrepresenterer, og `erOrdslutt` er satt nøyaktig på de nodene som avslutter et\nlagret ord.\n\n**Operasjonene.**\n\n- `SettInn(ord)`: følg eller lag én node per bokstav; sett `erOrdslutt` på den\n  siste. **$O(L)$.**\n- `Forslag(prefiks)`: følg prefikset ned fra rota. Finnes ikke veien, er svaret\n  tomt. Ellers: traversér subtreet under noden og samle alle ordslutt-noder.\n  **$O(L + k)$**, der $k$ er antall treff.\n\n**Kjøretiden er uavhengig av $m$.** Å ha en million ord i treet gjør ikke oppslaget\ntregere — bare treet større. Det er den avgjørende egenskapen.\n\n**Sammenligning med hashmap.**\n\n| | Trie | Hashmap |\n|---|---|---|\n| `SettInn(ord)` | $O(L)$ | $O(L)$ forventet (hashing leser hele ordet) |\n| «finnes ordet?» | $O(L)$ | $O(L)$ forventet, $O(m \\cdot L)$ verste |\n| `Forslag(prefiks)` | $O(L + k)$ | $O(m \\cdot L)$ — må sjekke **hvert** ord |\n| Minne | én node per unik prefiksbokstav | ett oppslag per ord |\n\n**Konklusjonen, skarpt formulert:** for autocomplete er trie-et det riktige\nvalget. Hashmap-et er like raskt på eksakte oppslag, men på prefikssøk må det gå\ngjennom hele ordlista, og det er forskjellen mellom $O(L + k)$ og\n$O(m \\cdot L)$ — altså mellom «uavhengig av ordlistas størrelse» og «lineær i\nden».\n\n**Prisen er minne.** Et trie bruker mer plass enn et hashmap, fordi hver bokstav i\nhvert unikt prefiks blir en node med plass til barn. Er ordlista liten, eller\ngjøres det bare eksakte oppslag, er hashmap-et bedre. Er prefikssøk hovedbruken,\ner trie-et det verdt.\n\n**Poengtrapp-notat.** Full uttelling krever tre ting: strukturen beskrevet,\nkjøretid **per operasjon**, og en sammenligning som ender i en konklusjon — ikke\nbare «det kommer an på». En besvarelse som foreslår hashmap og oppgir\n$O(m \\cdot L)$ for prefikssøket, er korrekt og ærlig, og gir delvis uttelling. En\nsom foreslår hashmap og påstår at prefikssøk er $O(1)$, er derimot feil, og det er\nen dyrere feil enn å velge feil struktur."
+    },
+    {
+      "id": "in2010-7-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J.) Et system skal støtte `Insert(x)`, `Median()` og i tillegg\n`FjernMedian()`, som fjerner og returnerer medianen.\n\n**a)** Kan mediankøen fra løkke 2 utvides til å støtte `FjernMedian()`?\n**b)** Oppgi kjøretiden for alle tre operasjonene.\n**c)** Hva må gjøres etter at medianen er fjernet?",
+        "solution": "**a)** Ja, og utvidelsen er liten. Medianen ligger på toppen av max-heapen, så\n`FjernMedian()` er `nedre.RemoveTopp()`.\n\n**b)**\n\n- `Insert(x)`: $O(\\log n)$ — én heap-innsetting og høyst én flytting.\n- `Median()`: $O(1)$ — les toppen av max-heapen.\n- `FjernMedian()`: $O(\\log n)$ — ett uttak fra max-heapen, pluss høyst én flytting\n  for å gjenopprette balansen.\n\n**c)** Invarianten må gjenopprettes. Etter uttaket har `nedre` ett element færre,\nså hvis `ovre` nå er større enn `nedre`, flyttes toppen av `ovre` ned:\n\n```text\nProcedure FjernMedian()\n  Input:  ingenting\n  Output: medianen, som ogsaa fjernes fra strukturen\n  m = nedre.RemoveTopp()\n  if storrelsen paa ovre > storrelsen paa nedre:\n      nedre.Insert(ovre.RemoveTopp())\n  return m\n```\n\nDet er nøyaktig samme balanseringssjekk som i `Insert` — bare den ene halvdelen av\nden, siden `nedre` er den eneste som kan bli for liten her.\n\n**Merk hvor lite som skal til.** Hele styrken ved to-heaps-designet er at\ninvarianten gjør alle tre operasjonene enkle. Når du først har formulert\ninvarianten presist, skriver operasjonene seg nesten selv — og det er derfor\npunkt 2 i svarformen er så viktig.",
+        "hints": [
+          "Hvor ligger medianen i strukturen, og hva koster det å fjerne akkurat det elementet?",
+          "Hvilken av de to heapene ble mindre, og hva må da eventuelt flyttes?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å bruke én heap til mediankøen.** Med bare én heap ligger medianen et\n  vilkårlig sted i arrayet, og du må lete: $O(n)$ i stedet for $O(1)$. Korrekt\n  løsning, men den taper poengtrappen.\n- **Å glemme å holde de to heapene balansert.** Uten balanseringen er ikke toppen\n  av max-heapen medianen, og hele designet faller sammen. Invarianten er svaret —\n  skriv den ned først.\n- **Å velge heap der bøttekø er raskere.** Er antall prioritetsnivåer et fast, lite\n  tall, gir bøttekøen $O(1)$ mot heapens $O(\\log n)$. Les forutsetningen i\n  oppgaveteksten før du velger.\n- **Å ikke oppgi kjøretid per operasjon.** Sjangeren spør eksplisitt om det. Én\n  samlet kjøretid er ikke et svar, og «$O(\\log n)$» uten å si for hvilken\n  operasjon, gir lite.\n- **Å påstå at et hashmap gir raskt prefikssøk.** Det gjør det ikke:\n  hashverdien til `sa` har ingen sammenheng med hashverdien til `sand`. Å ikke se\n  det er en dyrere feil enn å velge feil struktur, fordi kjøretiden da er direkte\n  gal.\n- **Å glemme ordslutt-merket i et trie.** Uten det kan strukturen ikke skille et\n  helt ord fra et prefiks som bare passeres på veien.\n\nOg den gjennomgående: **å ikke definere $n$.** I dette kapitlet er $n$ antall\nlagrede elementer, $N$ antall prioritetsnivåer og $L$ lengden på et ord — tre helt\nforskjellige størrelser. Å bruke dem om hverandre er felle **#10**, og det trekkes\neksplisitt for det."
+    },
+    {
+      "id": "in2010-7-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger J, krevende.) En struktur skal støtte tre operasjoner på en samling\nheltall: `Insert(x)`, `Finnes(x)` og `HentMinste()` (som fjerner og returnerer det\nminste).\n\n**a)** Hvorfor holder det ikke med bare en min-heap?\n**b)** Foreslå en kombinasjon av strukturer, og oppgi kjøretid per operasjon.\n**c)** Hva er invarianten, og hva må gjøres i hver operasjon for å holde den?",
+        "solution": "**a)** En min-heap gir `Insert` og `HentMinste` i $O(\\log n)$, men `Finnes(x)` blir\n$O(n)$: heap-egenskapen sier bare at forelderen er mindre enn **begge** barna, og\nden sier ingenting om venstre mot høyre. Du kan derfor ikke søke deg nedover mot et\nbestemt tall — du må lete gjennom hele arrayet.\n\nDette er felle **#9** i bokas feilregister sett fra en ny vinkel: å forveksle\nheap-egenskapen (opp–ned) med søketre-egenskapen (venstre–høyre). Det er nettopp\nden venstre–høyre-ordningen som mangler i en heap, og som er det som gjør søk\nraskt i et søketre.\n\n**b) Strukturene:** en **min-heap** for tallene, og et **hash-set** med de samme\ntallene ved siden av.\n\n*Operasjonene:*\n\n- `Insert(x)`: legg `x` i heapen **og** i hash-settet. $O(\\log n)$ — heapen\n  dominerer, hash-innsettingen er $O(1)$ forventet.\n- `Finnes(x)`: slå opp i hash-settet. **$O(1)$ forventet**, $O(n)$ verste.\n- `HentMinste()`: ta toppen av heapen og fjern den samme verdien fra hash-settet.\n  $O(\\log n)$.\n\n**c) Invarianten:** heapen og hash-settet inneholder **nøyaktig de samme**\nverdiene, til enhver tid.\n\nDet er den som må gjenopprettes i hver operasjon: `Insert` legger inn begge steder,\nog `HentMinste` fjerner begge steder. Glemmer du det andre steget i `HentMinste`,\nvil `Finnes` svare «ja» på et tall som er tatt ut — en feil som er lett å overse\nfordi begge strukturene hver for seg ser riktige ut.\n\n**Merk hva du betaler:** minnebruken dobles, siden hvert tall lagres to steder.\nDet er den klassiske avveiningen i ADT-design — mer minne mot lavere kjøretid — og\nå nevne den eksplisitt er verdt et delpoeng.\n\n**Kan dette gjøres raskere?** `Finnes` er allerede $O(1)$ forventet, og\n`HentMinste` kan ikke bli bedre enn $O(\\log n)$ i en sammenligningsbasert struktur.\nEt alternativ er et **balansert søketre** (se [kap. 4.3](/in2010/in2010-4-3)), som\ngir alle tre operasjonene i $O(\\log n)$ garantert — altså dårligere forventet\n`Finnes`, men uten $O(n)$-risikoen i verste tilfelle. Begge svar gir full\nuttelling så lenge kjøretidene stemmer med valget.",
+        "hints": [
+          "Hva må du gjøre for å finne et bestemt tall i en heap, og hvorfor kan du ikke søke deg nedover?",
+          "Ingen enkeltstruktur gir både $O(1)$-oppslag og billig uttak av minsteverdien. Hva om du bruker to?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-1-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-7-1-def-5",
+      "type": "definition",
+      "title": "Mediankøens invariant",
+      "content": "$$\\lvert \\text{nedre} \\rvert = \\lvert \\text{øvre} \\rvert \\quad \\text{eller} \\quad \\lvert \\text{nedre} \\rvert = \\lvert \\text{øvre} \\rvert + 1$$\n\nAlle tall i max-heapen `nedre` er mindre enn eller lik alle tall i min-heapen\n`øvre`. Holder invarianten, ligger medianen alltid på toppen av `nedre`, og\n`Median()` er $O(1)$."
+    },
+    {
+      "id": "in2010-7-1-def-6",
+      "type": "definition",
+      "title": "Hvorfor to heaps og ikke én",
+      "content": "I én min-heap ligger medianen et vilkårlig sted i arrayet — heap-egenskapen ordner\nopp–ned, ikke venstre–høyre. Å finne medianen koster $O(n)$.\n\nMed to heaps ligger medianen alltid akkurat på skillet mellom dem, og\n`Median()` blir et oppslag på indeks 0."
+    },
+    {
+      "id": "in2010-7-1-def-7",
+      "type": "definition",
+      "title": "Mediankøens kjøretider",
+      "content": "`Insert` $O(\\log n)$ — én heap-innsetting pluss høyst én flytting mellom heapene.\n`Median()` $O(1)$ — les toppen av max-heapen.\n`FjernMedian()` $O(\\log n)$ — ett uttak pluss høyst én flytting.\n\nBalanseringen trenger aldri mer enn **én** flytting, fordi størrelsene endrer seg\nmed 1 av gangen."
+    },
+    {
+      "id": "in2010-7-1-def-8",
+      "type": "definition",
+      "title": "Bøttekø",
+      "content": "Array med $N$ bøtter, én per prioritetsnivå; hver bøtte er en FIFO-liste.\n\n`Insert` $O(1)$; `RemoveMin` $O(N)$, som er $O(1)$ når $N$ er en fast konstant.\nForutsetningen er at antall **nivåer** er lite og ikke vokser med antall\nelementer."
+    },
+    {
+      "id": "in2010-7-1-def-9",
+      "type": "definition",
+      "title": "Bøttekø mot heap",
+      "content": "Er antall prioritetsnivåer fast og lite: bøttekø, $O(1)$ per operasjon.\nEr prioritetene vilkårlige eller mange: heap, $O(\\log n)$.\n\nBøttekøen er i tillegg **stabil** — like prioriteter kommer ut i\ninnsettingsrekkefølge — noe en heap ikke garanterer."
+    },
+    {
+      "id": "in2010-7-1-def-10",
+      "type": "definition",
+      "title": "Trie (prefikstre)",
+      "content": "Tre der hver kant er en bokstav, og veien fra rota staver et prefiks. Noder som\navslutter et ord, har flagget `erOrdslutt`.\n\n`SettInn` og `Finn` er $O(L)$ der $L$ er ordets lengde — **uavhengig av hvor mange\nord som er lagret**. Prefikssøk er $O(L + k)$ med $k$ treff."
+    },
+    {
+      "id": "in2010-7-1-def-11",
+      "type": "definition",
+      "title": "Hvorfor hashmap ikke gir prefikssøk",
+      "content": "Hashverdien til `sa` har ingen sammenheng med hashverdien til `sand`. Et hashmap\nkan bare svare på eksakte oppslag.\n\nPrefikssøk i et hashmap krever å gå gjennom **hvert** ord i lista:\n$O(m \\cdot L)$ med $m$ ord. Det er hele grunnen til at trie-et finnes."
+    },
+    {
+      "id": "in2010-7-1-def-12",
+      "type": "definition",
+      "title": "Trie mot hashmap",
+      "content": "Eksakt oppslag: begge $O(L)$ (hashmap forventet).\nPrefikssøk: trie $O(L + k)$, hashmap $O(m \\cdot L)$.\nMinne: trie bruker mer — én node per unik prefiksbokstav.\n\nEr prefikssøk hovedbruken, er trie-et det verdt. Gjøres bare eksakte oppslag, er\nhashmap-et enklere og lettere."
+    },
+    {
+      "id": "in2010-7-1-def-13",
+      "type": "definition",
+      "title": "Svarformen på en ADT-oppgave",
+      "content": "1. Hvilke strukturer, og hva lagrer hver av dem.\n2. Invarianten som må holde etter hver operasjon.\n3. Hver operasjon, steg for steg, og hvordan invarianten gjenopprettes.\n4. **Kjøretid per operasjon**, med $n$ definert.\n\nOrdene «per operasjon» står i oppgaveteksten. Én samlet kjøretid er ikke et\nsvar."
+    },
+    {
+      "id": "in2010-7-1-def-14",
+      "type": "definition",
+      "title": "Heap-egenskapen gir ikke søk",
+      "content": "En heap ordner **opp–ned**: forelderen er mindre enn begge barna. Den sier\ningenting om venstre mot høyre.\n\nDerfor er `Finnes(x)` i en heap $O(n)$ — du kan ikke søke deg nedover. Å forveksle\ndette med søketre-egenskapen (venstre subtre, node, høyre subtre) er felle\n**#9**."
+    },
+    {
+      "id": "in2010-7-1-def-15",
+      "type": "definition",
+      "title": "Å kombinere to strukturer",
+      "content": "Standardgrepet når ingen enkeltstruktur gir alle operasjonene billig: hold de\nsamme dataene i to strukturer samtidig, én per operasjonstype.\n\nPrisen er dobbelt minnebruk, og kravet er en invariant om at strukturene til enhver\ntid inneholder det samme. Glemmer du å oppdatere begge i **hver** operasjon, blir\nfeilen usynlig helt til noe svarer galt."
+    },
+    {
+      "id": "in2010-7-1-def-16",
+      "type": "definition",
+      "title": "Å velge enklere enn du kan",
+      "content": "Den vanligste tapte poengen i ADT-sjangeren er å gripe til den mektigste\nstrukturen du kjenner — heapen — når oppgaveteksten har gitt deg en forutsetning\nsom gjør noe enklere raskere.\n\nLes alltid etter begrensningene: **få faste prioritetsnivåer** gir bøttekø,\n**kjent lite verdiområde** gir tellearray, **prefikssøk** gir trie."
+    },
+    {
+      "id": "in2010-7-1-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-7-1-rep-1",
+          "type": "text",
+          "content": "**De tre faste designene:**\n\n| Problem | Struktur | Kjøretider |\n|---|---|---|\n| Median til enhver tid | to heaps (max for nedre, min for øvre) | `Insert` $O(\\log n)$, `Median` $O(1)$ |\n| Prioritetskø med få faste nivåer | array av $N$ FIFO-bøtter | `Insert` $O(1)$, `RemoveMin` $O(N) = O(1)$ |\n| Autocomplete / prefikssøk | trie (prefikstre) | `SettInn` $O(L)$, `Forslag` $O(L + k)$ |\n\n**Svarformen, fire ledd:**\n\n1. Strukturene, og hva hver lagrer.\n2. Invarianten.\n3. Operasjonene, steg for steg.\n4. Kjøretid **per operasjon**, med $n$ definert.\n\n**Mediankøens `Insert`, som må sitte:**\n\n```text\nProcedure Insert(x)\n  Input:  et tall x\n  Output: strukturen inneholder x, og invarianten holder\n  if nedre er tom or x <= nedre.Topp():\n      nedre.Insert(x)\n  else:\n      ovre.Insert(x)\n  if storrelsen paa nedre > storrelsen paa ovre + 1:\n      ovre.Insert(nedre.RemoveTopp())\n  else if storrelsen paa ovre > storrelsen paa nedre:\n      nedre.Insert(ovre.RemoveTopp())\n```\n\n**Tre kontroller som tar ti sekunder hver:** oppga du kjøretid for **hver**\noperasjon? Skrev du ned invarianten? Og har du lest etter en forutsetning i\noppgaveteksten som gjør en enklere struktur raskere?\n\n**Videre:** [kap. 7.2](/in2010/in2010-7-2) om drøftingssjangeren, der du skal\nsammenligne to slike valg og konkludere."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hvilken av disse algoritmene finner **ikke** et minimalt spenntre?",
+    "options": [
+      "Dybde-først-søk fra en vilkårlig startnode",
+      "Kruskal med union-find og sortert kantliste",
+      "Prim med binær prioritetskø over nodene",
+      "Borůvka, der hver komponent tar sin letteste utkant"
+    ],
+    "explanation": "Dybde-først-søk finner *et* spenntre, men leser aldri kantvektene, så det kan umulig minimere summen av dem. De tre andre er alle grådige MST-algoritmer, og gir samme totalvekt på samme graf."
+  },
+  {
+    "question": "Hvor mange kanter har et spenntre over $|V|$ noder?",
+    "options": [
+      "$|V| - 1$",
+      "$|V|$",
+      "$|V| + 1$",
+      "$2|V| - 1$"
+    ],
+    "explanation": "Færre kanter gjør at noe henger løst; flere gir en sykel, og en sykel kan alltid gjøres billigere ved å fjerne den dyreste kanten i den. Bruk dette som kontrollregning etter enhver håndkjøring."
+  },
+  {
+    "question": "Hva er kjøretiden til Prim med binær prioritetskø?",
+    "options": [
+      "$O((|V| + |E|)\\log |V|)$",
+      "$O(|E| \\log |E|)$",
+      "$O(|V| + |E|)$",
+      "$O(|V|^2 \\cdot |E|)$"
+    ],
+    "explanation": "$|V|$ kall på `RemoveMin` og opptil $|E|$ kall på `DecreaseKey`, hvert $O(\\log |V|)$. $O(|E| \\log |E|)$ er Kruskals kjøretid, der sorteringen av kantene dominerer."
+  },
+  {
+    "question": "Hva dominerer kjøretiden til Kruskals algoritme?",
+    "options": [
+      "Sorteringen av hele kantlista, $O(|E| \\log |E|)$",
+      "Oppslagene i union-find-strukturen, $O(|E| \\log |V|)$",
+      "Gjennomgangen av nabolistene, $O(|V| + |E|)$",
+      "Uttakene fra prioritetskøen, $O(|V| \\log |V|)$"
+    ],
+    "explanation": "Union-find-operasjonene er så nær konstante at de forsvinner i sammenligning med sorteringen. Kruskal bruker ingen prioritetskø i det hele tatt — den sorterer kantlista én gang og går gjennom den."
+  },
+  {
+    "question": "Hva er forskjellen mellom Prim og Dijkstra i selve pseudokoden?",
+    "options": [
+      "Prim tester på `vekt`, Dijkstra på `avstand[u] + vekt`",
+      "Prim bruker en kø, mens Dijkstra bruker en prioritetskø",
+      "Prim går over kantlista, mens Dijkstra går over nabolistene",
+      "Prim starter i alle noder, mens Dijkstra starter i én node"
+    ],
+    "explanation": "Alt annet er likt — samme prioritetskø, samme løkkestruktur, samme `DecreaseKey`. Nøkkelen i Prim er vekten på kanten inn til treet; i Dijkstra er den avstanden fra startnoden. Bytter du om, løser du et annet problem uten at det synes."
+  },
+  {
+    "question": "Du har bygget et minimalt spenntre og skal finne veien mellom to noder **i treet**. Hva velger du?",
+    "options": [
+      "Bredde-først-søk i det ferdige treet, $O(|V|)$",
+      "Dijkstra i treet, $O((|V| + |E|)\\log |V|)$",
+      "Prim på nytt fra den ene noden, $O(|E| \\log |V|)$",
+      "Bellman-Ford i treet, $O(|V| \\cdot |E|)$"
+    ],
+    "explanation": "Et tre har ingen sykler, så mellom to noder finnes nøyaktig én sti — det er ingenting å minimere, og en traversering holder. Dijkstra er både tregere og bruker vekter som måler byggekostnad, ikke reiseavstand."
+  },
+  {
+    "question": "Når er det minimale spenntreet i en graf entydig?",
+    "options": [
+      "Når alle kantvektene i grafen er forskjellige",
+      "Når grafen er komplett og sammenhengende",
+      "Når antall kanter er nøyaktig $|V| - 1$ fra før",
+      "Når alle kantvektene er positive heltall"
+    ],
+    "explanation": "Med forskjellige vekter er hvert grådige valg entydig bestemt, og alle korrekte algoritmer ender på samme tre. Er noen vekter like, kan det finnes flere minimale spenntrær — men de har alltid samme totalvekt."
+  },
+  {
+    "question": "Sant eller usant: et minimalt spenntre kan aldri inneholde den tyngste kanten i grafen.",
+    "options": [
+      "Usant — er kanten eneste forbindelse til en node, må den med",
+      "Sant — den tyngste kanten kan alltid byttes ut med en lettere",
+      "Sant — grådige algoritmer velger aldri den dyreste kanten",
+      "Usant — men bare når grafen inneholder en negativ kantvekt"
+    ],
+    "explanation": "En node med bare én kant har ikke noe valg, uansett hvor dyr kanten er. Kantvekter i et spenntreproblem er byggekostnader og er alltid ikke-negative, så negative vekter er ikke poenget her."
+  },
+  {
+    "question": "Hva gjør union-find-strukturen i Kruskals algoritme?",
+    "options": [
+      "Avgjør om to noder allerede ligger i samme komponent",
+      "Sorterer kantene etter vekt før gjennomgangen starter",
+      "Holder styr på hvilken kant som er lettest i hver runde",
+      "Regner ut totalvekten på spenntreet underveis"
+    ],
+    "explanation": "`Find(u)` og `Find(v)` gir samme svar nøyaktig når kanten ville laget en sykel, og da forkastes den. Sorteringen skjer én gang før løkka og er en helt separat operasjon."
+  },
+  {
+    "question": "En oppgave sier at alle punkter kan kobles til alle. Hva blir Prims kjøretid?",
+    "options": [
+      "$O(|V|^2 \\log |V|)$",
+      "$O(|V| \\log |V|)$",
+      "$O(|V|^3)$",
+      "$O(|V|^2)$"
+    ],
+    "explanation": "I en komplett graf er $|E| = |V|(|V|-1)/2$, altså $O(|V|^2)$ kanter. Satt inn i $O((|V| + |E|)\\log |V|)$ gir det $O(|V|^2 \\log |V|)$ — en formulering som er dokumentert i arkivet."
+  },
+  {
+    "question": "Hvordan modellerer du en forbindelse som allerede finnes og er gratis å bruke?",
+    "options": [
+      "Som en kant med vekten 0 i den samme grafen",
+      "Ved å fjerne begge endenodene fra grafen først",
+      "Som en kant med negativ vekt, slik at den prioriteres",
+      "Ved å slå de to nodene sammen til én node med dobbel vekt"
+    ],
+    "explanation": "En 0-kant er alltid den letteste tilgjengelige, så enhver MST-algoritme tar den med hvis den kan. Negative vekter er unødvendig og gir ingen ekstra effekt, siden 0 allerede er minimum."
+  },
+  {
+    "question": "Sant eller usant: Prim og Kruskal kan gi trær med ulik totalvekt på samme graf.",
+    "options": [
+      "Usant — begge finner et minimalt tre, med samme sum",
+      "Sant — Prim er grådig fra én node, Kruskal fra alle",
+      "Sant — men bare når grafen ikke er sammenhengende",
+      "Usant — de velger alltid nøyaktig de samme kantene"
+    ],
+    "explanation": "Alle minimale spenntrær i en graf har per definisjon samme totalvekt. Er noen vekter like, kan de to algoritmene velge forskjellige kanter — så det siste alternativet er også galt, bare på en annen måte."
+  },
+  {
+    "question": "Hvilket problem løser Dijkstras algoritme, sammenlignet med Prims?",
+    "options": [
+      "Avstand fra én node til alle andre, ikke billigst nett",
+      "Billigst mulig nett fra én node, ikke avstand til alle",
+      "Antall komponenter i grafen, ikke summen av kantvektene",
+      "Rekkefølgen nodene kan besøkes i, ikke kantene som velges"
+    ],
+    "explanation": "Dijkstra minimerer $|V| - 1$ avstander hver for seg, målt fra én bestemt node; Prim minimerer **summen** av de $|V| - 1$ kantene. De to trærne faller sjelden sammen, og ingen av dem løser det andre problemet."
+  },
+  {
+    "question": "Hva er ideen i Borůvkas algoritme?",
+    "options": [
+      "Hver komponent velger sin egen letteste utkant, i runder",
+      "Hver node velger sin letteste kant, og det gjentas én gang",
+      "Kantene sorteres, og hver annen kant tas med i treet",
+      "Treet vokser fra to startnoder samtidig, til de møtes"
+    ],
+    "explanation": "Antall komponenter minst halveres hver runde, så det trengs $O(\\log |V|)$ runder à $O(|E|)$ arbeid. På eksamen skal du kunne krysse av at Borůvka finner et minimalt spenntre — du blir ikke bedt om å håndkjøre den."
+  }
+]

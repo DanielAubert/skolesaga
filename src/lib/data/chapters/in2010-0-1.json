@@ -1,0 +1,307 @@
+{
+  "id": "in2010-0-1",
+  "courseId": "in2010",
+  "chapterNumber": "0.1",
+  "title": "Eksamenskartet — slik testes IN2010",
+  "description": "Eksamensformen (digital firetimers hjelpemiddelfri tredeling i Inspera), antigjettings-skaleringen, poengtrappen, temafrekvensene, sjangerkatalogen A–L og lesestrategien som styrer hele boka.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "kunne gjøre rede for hvordan IN2010-eksamen er bygd opp, og hva hver av de tre delene krever av deg",
+    "kunne regne ut hva en antigjettings-skalering på en sant/usant-blokk betyr for din egen poengsum",
+    "kunne forklare hvorfor et algoritmevalg med lavere kjøretid gir flere poeng enn et tregere valg på samme oppgave",
+    "kunne legge en leseplan for boka ut fra hvor ofte hvert tema faktisk har kommet på eksamen"
+  ],
+  "content": [
+    {
+      "id": "in2010-0-1-t-1",
+      "type": "text",
+      "content": "# Slik testes IN2010\n\nIN2010 Algoritmer og datastrukturer handler om to ting: å velge riktig\ndatastruktur, og å skrive den algoritmen som løser oppgaven raskest mulig.\nEksamen tester nøyaktig det — men den gjør det på tre helt forskjellige måter\ni løpet av de samme fire timene.\n\nDu skal kunne **fakta sikkert**, uten å slå opp: hvor lang tid en operasjon\ntar, hvilke sorteringer som er stabile, hva en heap kan og ikke kan gjøre.\nDu skal kunne **utføre en struktur for hånd**: sette inn seks tall i en\nhashtabell og skrive opp hele tabellen etterpå, feilfritt. Og du skal kunne\n**skrive en algoritme selv**, i pseudokode, for et problem du ikke har sett\nfør — og oppgi hvor lang tid den bruker.\n\nDen gode nyheten er at settet har sett nesten likt ut hvert år siden 2021.\nDette kapitlet viser deg hvordan det ser ut, hva som gir poeng, og i hvilken\nrekkefølge du bør lese resten av boka. Det er verdt de 35 minuttene."
+    },
+    {
+      "id": "in2010-0-1-tip-1",
+      "type": "tip",
+      "title": "Slik leser du denne boka",
+      "content": "Tre praktiske ting før vi går inn i detaljene.\n\n**Karakterskalaen.** Faget vurderes med bokstavkarakterer fra **A til F**, der\nA er best og F betyr ikke bestått. Det finnes ingen deleksamen og ingen mappe:\nén skriftlig eksamen avgjør hele karakteren. **C er en god og vanlig\nkarakter** — den betyr at du behersker faget. Boka er skrevet for å få deg\ntrygt gjennom og et hakk høyere, ikke for å jage plettfrihet.\n\n**Oppgavetypene har hver sin bokstav.** Boka bruker tolv bokstaver, **A til\nL**, som navn på de oppgavetypene som faktisk går igjen. Det er ikke offisielle\nUiO-koder — det er bokas egen sortering, laget for at du skal kjenne igjen en\noppgave og huske oppskriften. Hver gang en bokstav brukes i et kapittel,\nskrives den ut i klartekst første gang, slik: «sjanger E — håndkjøring, altså\nat du utfører operasjonen steg for steg og oppgir sluttilstanden». Hele lista\nstår i sjangerkortet lenger nede i dette kapitlet.\n\n**Feilene har numre.** Boka nummererer de tolv vanligste feilene, fra **#1** til\n**#12**. Nummeret er en snarvei, ikke en gåte: hver gang et nummer brukes,\nstår forklaringen i parentes rett ved, slik: «(#3 — down-heap uten å sjekke at\nbarnet finnes)». Hele registeret står samlet i dette kapitlet, med henvisning\ntil hvilken del av boka som forebygger hver feil.\n\n**Og en beroligende ting:** hver algoritme forklares der den brukes. Du trenger\nikke huske en algoritme fra et tidligere kapittel for å komme videre — den\ngjentas i kortform der den dukker opp igjen."
+    },
+    {
+      "id": "in2010-0-1-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-0-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer i det du jobber med (du må selv si hva $n$ teller) |\n| $O(g(n))$ | «vokser ikke raskere enn $g(n)$» — den øvre grensen for kjøretid |\n| $O(1)$ | konstant tid: like raskt uansett hvor stor inputen er |\n| $O(n)$ | lineær tid: dobler du inputen, dobler du omtrent arbeidet |\n| $O(n \\log n)$ | typisk for en god sortering |\n| $O(n^2)$ | kvadratisk: dobler du inputen, firedobler du arbeidet |\n| $\\log n$ | toerlogaritmen: hvor mange ganger du kan halvere $n$ før du er nede i 1 |\n| $\\max(a,\\ b)$ | den største av de to tallene |"
+        },
+        {
+          "id": "in2010-0-1-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Procedure Navn(a, b)` | hodet i bokas pseudokode: navn og parametre, med `Input:`- og `Output:`-linjer under | — |\n| `A[i]` | element nummer `i` i arrayet `A`; **første element er `A[0]`** | $O(1)$ |\n| `for i = 0 to n-1` | løkke som går gjennom alle $n$ indeksene | $n$ runder |\n| `while j < n: j = j * 2` | halveringsløkke motsatt vei — dobler seg opp mot `n` | ca. $\\log n$ runder |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{poeng} = 2 \\cdot \\max(n - 16,\\ 0)$$\n\nAntigjettings-skaleringen fra et av settene: $n$ er antall riktige av 32, og\n16 riktige gir null poeng.\n\n$$1 < \\log n < n < n\\log n < n^2 < n^3 < 2^n < n!$$\n\nVekstordningen: jo lenger til høyre, jo verre skalerer algoritmen. Alt til\nvenstre er å foretrekke på eksamen, og det er hele poenget med poengtrappen\nlenger nede."
+        }
+      ]
+    },
+    {
+      "id": "in2010-0-1-t-2",
+      "type": "text",
+      "content": "## Eksamensformen\n\nVurderingen er **én digital skoleeksamen på fire timer, som teller 100 prosent**.\n\nDen avholdes i **Inspera**, som er UiOs digitale eksamenssystem: du sitter på et\neksamenslokale med en maskin som er låst til eksamensverktøyet, og skriver\nsvarene rett inn i nettleseren.\n\nFire faste trekk du må planlegge etter:\n\n- **Ingen hjelpemidler.** Ingen bok, ingen notater, ingen kalkulator, intet\n  oppslagsverk. Alt du skal bruke, må ligge i hodet.\n- **Ingen håndskrift.** Også pseudokoden skrives inn i Inspera. Du kan ikke\n  laste opp et fotografert ark, og du kan ikke tegne et tre og levere bildet.\n  Dette er verdt å øve på: en algoritme du «ser for deg», må ut i tekst.\n- **Karakter A til F**, og de obligatoriske innleveringene i emnet må være\n  godkjent for at du skal få gå opp. De gir ingen karakterpoeng i seg selv.\n- **Engelsk oversettelse følger alltid med** settet, så et vanskelig norsk\n  begrep kan du kontrollere mot den engelske teksten."
+    },
+    {
+      "id": "in2010-0-1-t-3",
+      "type": "text",
+      "content": "## De tre delene av settet\n\nSettet har hatt samme tredeling hvert eneste år siden 2021:\n\n| Del av settet | Hva det er | Vekt |\n|---|---|---|\n| **Oppvarmingen** | «Hva er en algoritme?» og «Hva er en datastruktur?», maks fire setninger på hver. Det finnes ikke noe fasitsvar — alle rimelige svar gir full uttelling | **2 poeng** (faste gratispoeng) |\n| **Del 1** | Mange små spørsmål som rettes automatisk: sant/usant om kjøretid, sortering, heap, hashing, grafer og litt kompleksitetsteori, pluss noen korte svar (ett tall, ett uttrykk) og små håndkjøringer | typisk **20–35 poeng** |\n| **Del 2** | Fem til sju større oppgaver à 8–12 poeng der du skal skrive pseudokode og resonnere. De stiger i vanskelighet, og de siste én til to er nesten alltid åpen grafmodellering | **her avgjøres karakteren** |\n\nAt Del 1 er **auto-rettet** betyr at en maskin sammenligner svaret ditt med en\nfasit. Det har to konsekvenser: du får ingen delpoeng for et nesten-riktig\nsvar, og formatet må være akkurat som oppgaven ber om. Del 2 leses derimot av\net menneske, og der er delpoeng regelen snarere enn unntaket.\n\nOppvarmingen er verdt et lite råd allerede nå: **skriv noe**. To poeng er to\npoeng, og det eneste som ikke gir uttelling, er blankt eller noe direkte galt."
+    },
+    {
+      "id": "in2010-0-1-t-4",
+      "type": "text",
+      "content": "## Antigjettings-skaleringen\n\nSant/usant-blokkene på Del 1 er skalert slik at **ren gjetting i snitt gir\nnull**. Det er dette boka kaller **antigjettings-skalering**, og det er den\nmest særpregede mekanismen i faget.\n\nSlik har det sett ut i de settene boka bygger på:\n\n| År | Skalering på sant/usant | Hva det betyr |\n|---|---|---|\n| 2019 | ett minuspoeng for feil **eller** ubesvart på et par flervalgspunkter | feil og blankt teller likt |\n| 2021 | ett minuspoeng for feil **eller** ubesvart; summen kan ikke gå under null | feil og blankt teller likt |\n| 2023 | $2 \\cdot \\max(n - 16,\\ 0)$, der $n$ er antall riktige av 32 | 16 riktige gir 0 poeng |\n| 2024 | $2 \\cdot \\max(n - 11,\\ 0)$, der $n$ er antall riktige av 22 | 11 riktige gir 0 poeng |\n\nLes 2023-formelen sakte. Med 32 sant/usant-punkter vil en som kaster mynt og\nkron treffe rundt 16 av dem — og 16 riktige gir nøyaktig **null poeng**.\nKunnskapen din begynner altså å telle først over halvparten. Med 24 sikre er du\npå 16 poeng, med 30 sikre på 28.\n\n**Den andre halvdelen av regelen er like viktig:** på de **vanlige korte\nsvarene** — der du skal skrive et uttrykk, et tall eller en kort liste — gjøres\ndet **ingen forskjell på feil svar og blankt svar**. Der taper du ingenting på\nå skrive det beste du kommer på, og du kan bare tjene. La derfor aldri et kort\nsvar stå tomt.\n\nOg for ordens skyld, siden mange tror det motsatte: i alle de skaleringene som\ner dokumentert over, teller et feil kryss nøyaktig like mye som et blankt —\naltså ingenting ekstra i minus. Skaleringen straffer deg ikke for å fylle ut;\nden sørger for at **du ikke kan bløffe deg til poeng**. Poengsummen din på Del\n1 blir omtrent nøyaktig så stor som mengden fakta du kan sikkert. Det er derfor\nfaktakapitlet [kap. 1.4](/in2010/in2010-1-4) har høyeste prioritet i hele boka."
+    },
+    {
+      "id": "in2010-0-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-0-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — les av formelen i tabellen over.) En sant/usant-blokk har 32\npunkter og skaleres med $2 \\cdot \\max(n - 16,\\ 0)$, der $n$ er antall riktige.\n\n**a)** Hvor mange må du ha riktige før du tjener ditt første poeng?\n**b)** Hvor mange poeng får du med 24 riktige?\n**c)** Hva sier dette om å svare på en sant/usant-blokk der du er helt blank?",
+        "solution": "**a)** Med $n = 16$ blir $\\max(16 - 16,\\ 0) = 0$, altså 0 poeng. Med $n = 17$\nblir det $2 \\cdot 1 = 2$ poeng. Du må altså ha **17 riktige** før blokken gir\nuttelling i det hele tatt — og det første poenget kommer i et sprang på to.\n\n**b)** $2 \\cdot (24 - 16) = 2 \\cdot 8 = \\mathbf{16}$ poeng.\n\n**c)** At de 16 første riktige svarene er «gratis» for alle, også for den som\ngjetter. Å gjette på et punkt gjør deg ikke fattigere — feil og blankt teller\nlikt — men et gjettet punkt løfter deg heller ikke systematisk: over en hel\nblokk jevner myntkastene seg ut mot terskelen. Det eneste som flytter deg\noppover, er punkter du kan **sikkert**. Derfor er strategien i dette faget ikke\n«gjett smart», men «lær faktaene kaldt».",
+        "hints": [
+          "Sett tallene rett inn i formelen, og husk at $\\max(a, 0)$ aldri blir negativ.",
+          "Prøv $n = 16$ og $n = 17$ og se hva som skjer i overgangen."
+        ]
+      }
+    },
+    {
+      "id": "in2010-0-1-t-5",
+      "type": "text",
+      "content": "## Poengtrappen: lavere kjøretid er mer poeng\n\nDen andre store mekanismen ligger på Del 2, og den er skrevet rett ut i\nsensorveiledningene år etter år: **«lavere kjøretidskompleksitet er mer\npoenggivende.»**\n\nEn **poengtrapp** betyr at samme oppgave har flere riktige svar med ulik\nuttelling. Et typisk mønster ser slik ut:\n\n| Løsningen din | Uttelling på oppgaven |\n|---|---|\n| $O(n)$ — den beste kjente | full pott |\n| $O(n \\log n)$ — riktig, men tregere | et godt stykke mindre |\n| $O(n^2)$ — den naive | minst, men **ikke** null |\n\nLegg merke til den siste linja: en treg løsning som virker, gir fortsatt poeng.\nDet betyr at du **aldri** skal levere blankt på en Del 2-oppgave. Skriv den\nnaive løsningen, si at den er $O(n^2)$, og fortsett.\n\nMen det betyr også det motsatte: å finne det raskere svaret er ikke pynt, det\ner poeng. Hele boka er bygd rundt spørsmålet «kan dette gjøres raskere?», og\n[kap. 1.1](/in2010/in2010-1-1) til [kap. 1.4](/in2010/in2010-1-4) gir deg\napparatet til å svare på det."
+    },
+    {
+      "id": "in2010-0-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-0-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Refleksjon over poengtrappen.) En Del 2-oppgave er verdt 8 poeng og har den\nvanlige trappen: den beste løsningen er $O(n)$, en mellomløsning er\n$O(n \\log n)$, og den naive er $O(n^2)$.\n\nDu har 25 minutter igjen og to oppgaver du ikke har rørt. Du ser med én gang\nden naive $O(n^2)$-løsningen på denne, og aner at det finnes noe bedre, men vet\nikke hva.\n\n**a)** Hva gjør du de neste fem minuttene?\n**b)** Hva ville det kostet deg å hoppe over oppgaven helt?",
+        "solution": "**a)** Skriv ned den naive løsningen først, kort og tydelig, og oppgi at den er\n$O(n^2)$ med en setning om hvorfor (for eksempel «to nøstede løkker, hver over\nalle $n$ elementene»). Det tar to–tre minutter og sikrer det nederste trinnet i\ntrappen. Skriv gjerne en setning til: «en raskere løsning ville trolig unngå å\ngå gjennom alle par ved å bruke en hjelpestruktur» — sensor gir uttelling for\nriktig grunnidé, og du har ikke tapt noe på å si den høyt.\n\nDeretter går du videre til den andre urørte oppgaven. En sikker $O(n^2)$-pott\npå begge er nesten alltid bedre enn en perfekt løsning på den ene og blankt på\nden andre.\n\n**b)** Alt. En ubesvart Del 2-oppgave gir null, mens den naive løsningen gir det\nnederste trinnet — ofte to til tre poeng av åtte. På et sett med sju\nDel 2-oppgaver er forskjellen mellom «leverte noe på alle» og «leverte perfekt\npå fire» ofte en hel karakter.\n\n**Merk deg mønsteret:** poengtrappen belønner at du kjenner den raske\nalgoritmen, men den straffer ikke at du starter med den trege. Rekkefølgen din\npå eksamensdagen bør derfor være: sikre bunnen overalt først, klatre etterpå.",
+        "hints": [
+          "Tenk på hva trappen sier om et tregt, men korrekt svar.",
+          "Regn på hva to halve oppgaver gir mot én hel og én blank."
+        ]
+      }
+    },
+    {
+      "id": "in2010-0-1-t-6",
+      "type": "text",
+      "content": "## Håndkjøring er en egen ferdighet\n\nEt sted mellom fakta og pseudokode ligger den ferdigheten som overrasker flest:\n**håndkjøring**. Det betyr at du utfører en algoritme steg for steg på papir —\neller i hodet — og oppgir hvordan strukturen ser ut når du er ferdig.\n\nTypiske oppdrag: sett inn seks tall i en min-heap og skriv opp arrayet; sett\ninn fem nøkler i en hashtabell med lineær probing og skriv opp **hele**\ntabellen; sett inn i et AVL-tre og oppgi hvor mange rotasjoner det tok.\n\nDet er verdt å si tydelig: **å kunne algoritmen er ikke det samme som å kunne\nutføre den.** De fleste som mister poeng her, vet utmerket godt hva en heap er.\nDe bommer på ett steg midt i, og fordi oppgaven bare spør etter sluttilstanden,\ner hele svaret galt. Derfor har boka egne drillkapitler for nettopp dette, og\nderfor er hver eneste sporingstabell i boka regnet ut av et program som\nfaktisk utfører algoritmen — ikke skrevet fra hukommelsen."
+    },
+    {
+      "id": "in2010-0-1-t-7",
+      "type": "text",
+      "content": "## Hva som faktisk kommer\n\nTabellen under er telt i eksamensarkivet: for hvert tema står det i hvor mange\nav de sju settene temaet dukket opp i minst én oppgave.\n\n| Tema | Sett | Andel |\n|---|---|---|\n| Kjøretidsanalyse fra kode, og asymptotisk notasjon | 7 av 7 | **100 %** |\n| Kjøretids- og teorifakta (sant/usant) | 7 av 7 | **100 %** |\n| Sortering: stabilitet, in-place, invarianter, lineær sortering | 7 av 7 | **100 %** |\n| Hashing og lukket hashing (lineær probing) | 7 av 7 | **100 %** |\n| Grafrepresentasjon og traversering (bredde- og dybdeførst) | 7 av 7 | **100 %** |\n| Korteste vei og avstander | 7 av 7 | **100 %** |\n| Binære søketrær og tre-rekursjon | 6 av 7 | 86 % |\n| Heap og prioritetskø | 6 av 7 | 86 % |\n| Topologisk sortering og sykeldeteksjon | 5 av 7 | 71 % |\n| Huffman-koding | 4–5 av 7 | ca. 64 % |\n| Kompleksitetsteori (P og NP) | 4 av 7 | 57 %, fallende |\n| Minimale spenntrær | 4 av 7 | 57 % |\n| Drøft to strategier | 4 av 7 | 57 %, stigende |\n| Sterkt sammenhengende komponenter og komponentgraf | 3 av 7 | 43 % |\n| Balanserte trær (AVL og rød-svart) | 3 av 7 | 43 % |\n| Design av abstrakt datatype | 3 av 7 | 43 %, stigende |\n| Binærsøk og søk i sortert data | 3 av 7 | 43 % |\n\nSeks temaer er altså i praksis garantert. Det er der leseplanen din begynner.\n\nLike nyttig er **det som ikke kommer**. Dynamisk programmering, maks-flyt,\nmasterteoremet og rekurrensligninger, alle-til-alle korteste vei og stabil\nmatching er **ikke IN2010-pensum**. Møter du dem i en generisk algoritmebok,\nkan du med god samvittighet la dem ligge. Kjøretid regnes ut i dette faget ved\nå telle løkker, ikke ved masterteorem."
+    },
+    {
+      "id": "in2010-0-1-t-8",
+      "type": "text",
+      "content": "### Hvor tallene kommer fra\n\nFrekvenstallene i denne boka er telt i UiO-arkivet for IN2010 høst 2018 til\nhøst 2024: sju oppgavesett med tilhørende **offisielle sensorveiledninger**.\nEn **sensorveiledning** er dokumentet sensorene får utlevert; her inneholder de\nløsningsforslag med eksplisitt poengfordeling, og de er hovedkilden til alt\nboka sier om hva som gir uttelling.\n\nI tillegg er de tre settene fra forgjengeremnet INF2220 (2015 til 2017) med\nløsningsforslag skummet for formhistorikk — de krevde **Java** og alle\nhjelpemidler, og speiler ikke dagens eksamen. Høsten 2020 var eksamen\nhjemmeeksamen med alle hjelpemidler på grunn av korona, og er markert særskilt;\nden er en fin oppgavebank, men ikke representativ for formen. Prosentene over\ngjelder de sju IN2010-settene. Et nytt sett kan endre bildet.\n\n**Om innholdet i boka:** alle oppgaver, tall, grafer og historier er\nnyskrevne. Modellbesvarelsene er skrevet for denne boka — de er ikke ekte\nstudentbesvarelser, og de er ikke hentet fra en sensorveiledning.\nSensorveiledningene fra en offentlig utdanningsinstitusjon er fritt\ntilgjengelige, og analysen bygger lovlig på dem, men ingen oppgavetekst og\nintet løsningsforslag er gjengitt ordrett. Boka er heller ikke offisiell eller\ntilknyttet UiO, og den lover ingen bestemt karakter."
+    },
+    {
+      "id": "in2010-0-1-t-9",
+      "type": "text",
+      "content": "## Sensors seks metaregler\n\nSensorveiledningene gjentar de samme seks reglene nesten ordrett hvert år. Lær\ndem — de er gratis poeng for den som følger dem.\n\n1. **Les oppgaveteksten svært nøye.** Dette er det mest gjentatte rådet. Svar\n   på nøyaktig det som spørres om, ikke på det du helst ville blitt spurt om.\n2. **Oppgi kjøretiden, og la den matche algoritmen du faktisk skrev.** Det\n   trekkes for manglende kjøretid, for feil kjøretid, og for å bruke $n$ uten å\n   si hva $n$ er. «$n$ er antall noder i grafen» er nok — men det må stå.\n3. **Lavere kjøretid gir mer poeng.** Poengtrappen over.\n4. **En klar forklaring på vanlig norsk kan gi like mye som pseudokode.**\n   Kravet er at svaret er lett forståelig, entydig og presist — ikke at\n   syntaksen er pen. Motsatt: en setning sensor ikke forstår etter to\n   gjennomlesninger, blir ignorert.\n5. **Oppgi antagelsene dine om representasjon.** Du bestemmer selv om grafen er\n   gitt som nabolister eller nabomatrise, og du kan anta at en node har de\n   feltene du trenger — men du må skrive hva du antar.\n6. **Delvis uttelling er regelen.** Poengene er fordelt per delmoment, og\n   hovedmomentet — hvilken algoritme du velger og grunnideen bak — kommer\n   først. Skriv derfor grunnideen i klartekst før du går løs på detaljene."
+    },
+    {
+      "id": "in2010-0-1-t-10",
+      "type": "text",
+      "content": "## Sjangerkortet: de tolv oppgavetypene på én side\n\nDette er kortet du bør kunne før du går inn i eksamenslokalet. Hver linje er én\noppgavetype, med oppskriften i én setning.\n\n| Kode | Oppgavetypen | Oppskrift i én setning | Typisk vekt | Vanligste tabbe |\n|---|---|---|---|---|\n| **A** | Oppvarming | Forklar «algoritme» og «datastruktur» med egne ord, maks fire setninger | 2 p, hvert sett | å la den stå blank |\n| **B** | Kjøretid fra kode | Tell løkkene: nøsting ganges, sekvens legges sammen, halvering gir en $\\log$-faktor | 100 % av settene | å telle en konstant indre løkke som $O(n)$ |\n| **C** | Kjøretids- og teorifakta | Sant eller usant, avgjort på faktakunnskap | 100 % | å gjette i en skalert blokk |\n| **D** | Sorteringsegenskaper | Stabil? På stedet? Hva er garantert etter $i$ runder? | 100 % | å blande hvilken sortering som plasserer hva |\n| **E** | Håndkjøring | Utfør operasjonene og oppgi **kun** sluttilstanden i riktig format | minst 1 per sett, 2 p | å levere treet når det ble spurt om arrayet |\n| **F** | Matriseavkryssing | Koble egenskap til algoritme rad for rad | 4 av 7 sett, 2 p | å bruke samme algoritme i alle rader |\n| **G** | Tre-algoritme i pseudokode | Skriv en rekursiv prosedyre som beskjærer det den ikke trenger å besøke | 86 % | full traversering der beskjæring var mulig |\n| **H** | Grafalgoritme i pseudokode | Gjenkjenn problemet, kall en pensumalgoritme, oppgi kjøretiden | 2–3 per sett | å kjøre algoritmen én gang per startnode |\n| **I** | Hashing eller søk i pseudokode | Bruk hashtabell eller sortert struktur og få kjøretiden ned | ca. 7 av 7 | å gå utenfor tabellen fordi rest-regningen mangler |\n| **J** | Design av datatype | Kombiner to kjente strukturer, forklar hver operasjon, oppgi kjøretid | 3 av 7, stigende | å foreslå én struktur der to trengs |\n| **K** | Drøft to strategier | Sammenlign kjøretid i verste og forventet tilfelle, og minnebruk; konkludér | 4 av 7, stigende | å drøfte uten å definere $n$ |\n| **L** | Kompleksitetsteori | Faktaspørsmål om P og NP, verifikator og reduksjonsretning | 4 av 7, fallende | å redusere feil vei |\n\nDe første seks (A til F) hører hjemme på oppvarmingen og Del 1; de seks siste\n(G til L) er Del 2, bortsett fra L, som dukker opp begge steder."
+    },
+    {
+      "id": "in2010-0-1-t-11",
+      "type": "text",
+      "content": "## Feilregisteret: de tolv feilene som koster mest\n\nBoka bruker disse numrene gjennomgående. Du trenger ikke pugge dem — de\nforklares hver gang de nevnes — men det er nyttig å se dem samlet én gang.\n\n| # | Feilen | Forebygges i |\n|---|---|---|\n| **#1** | Å traversere alt når du kunne hoppet over det meste — for eksempel å gå gjennom hele treet når bare et intervall var etterspurt, eller å kjøre søket én gang per startnode i stedet for én gang totalt | Del 4, Del 5, Del 6 og Del 8 |\n| **#2** | Kvadratisk løsning der en lineær fantes — å regne høyden på nytt i hver node i stedet for å regne den én gang på vei opp | Del 4 og Del 8 |\n| **#3** | Å flytte et element nedover i en heap uten å sjekke om barnet i det hele tatt finnes | Del 4 |\n| **#4** | Å påstå at binærsøk gir deg posisjonen, når den varianten du har lært bare svarer ja eller nei — den må endres først | Del 3 |\n| **#5** | Å bruke en lineær sortering på elementer du bare vet er sammenlignbare; de krever et kjent og begrenset verdiområde | Del 2 og Del 3 |\n| **#6** | Å blande kjøretiden for et søk fra én node med kjøretiden for et søk som dekker hele grafen | Del 5 |\n| **#7** | Å glemme den siste kanten i noe sirkulært — den som lukker runden fra siste tilbake til første | Del 3 og Del 7 |\n| **#8** | Å snu retningen i en reduksjon, og dermed bevise ingenting | Del 7 |\n| **#9** | Å blande søketre-ordenen (venstre mindre, høyre større) med heap-ordenen (forelder mindre enn begge barn) | Del 4 |\n| **#10** | Å bruke $n$ i en drøfting uten å si hva $n$ teller, eller å drøfte uten å nevne kjøretid i det hele tatt | Del 7 og Del 8 |\n| **#11** | Å la en hashtabell-søking gå utenfor tabellen, eller å legge inn en nøkkel to ganger i stedet for å overskrive | Del 3 |\n| **#12** | Å skrive så langt og uklart at sensor ikke forstår algoritmen etter to gjennomlesninger | Del 5 og Del 8 |"
+    },
+    {
+      "id": "in2010-0-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — de som gjøres før du har rørt en algoritme",
+      "content": "Dette kapitlet handler om form, og feilene her er formfeil. De koster like mye\nsom en gal kjøretid.\n\n- **Å gjette seg gjennom en skalert sant/usant-blokk.** Skaleringen er nettopp\n  konstruert for at det ikke skal virke: en blokk besvart med myntkast lander\n  rundt null — på 2023-formelen gir ren gjetting i snitt 2,2 poeng av 32 mulige. Tida er bedre brukt på de faktaene du kan gjøre sikre.\n- **Å la et kort svar stå blankt.** På de vanlige korte svarene teller blankt\n  akkurat som feil. Skriv det beste du har.\n- **Å velge en tregere algoritme enn nødvendig på Del 2.** Det er ikke en liten\n  stilfeil — poengtrappen er skrevet inn i rettingen.\n- **Å tro at gamle sett viser dagens form.** Settene fra forgjengeremnet\n  INF2220 krevde Java og tillot alle hjelpemidler, og hjemmeeksamenen i 2020\n  hadde alle hjelpemidler. Bruk dem som oppgavebank, ikke som mal.\n- **Å skrive lang, uklar pseudokode.** Sensorveiledningene sier det rett ut: en\n  setning som ikke er forståelig etter to gjennomlesninger, blir ignorert. Kort\n  og entydig slår langt og imponerende.\n- **Å hoppe over oppvarmingen** fordi den «bare» er to poeng. To poeng er\n  omtrent en hel håndkjøringsoppgave, og her er alle rimelige svar riktige."
+    },
+    {
+      "id": "in2010-0-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-0-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Prioritering.) Du har fem kvelder igjen til eksamen og rekker fem temaer. Under\nstår sju kandidater med andelen sett de har dukket opp i.\n\nSortering (100 %), sterkt sammenhengende komponenter (43 %), hashing med\nlineær probing (100 %), Huffman-koding (64 %), kjøretid fra kode (100 %),\nbalanserte trær (43 %), heap-håndkjøring (86 %).\n\n**a)** Hvilke fem velger du, og hvorfor?\n**b)** Hvorfor er ikke andelen alene nok til å bestemme rekkefølgen?",
+        "solution": "**a)** Kjøretid fra kode, sortering, hashing, heap-håndkjøring, og deretter\ngrafdelen som sortering og hashing ikke dekker. De tre første er 100 % og\nligger på Del 1, der svarene er korte og poengene raske. Heap-håndkjøring er\n86 % og gir to poeng for et par minutters mekanisk arbeid. Det femte valget\navhenger av deg: sterkt sammenhengende komponenter er bare 43 %, men når det\nkommer, er det en stor Del 2-oppgave.\n\n**b)** Fordi andelen måler **bredde**, ikke **vekt**. Et tema som dukker opp i\nalle sju settene kan være ett poeng hver gang, mens et tema i tre sett kan være\nen tolvpoengs Del 2-oppgave når det først kommer. Andelen forteller hvor sikkert\ndu får bruk for stoffet; poengfordelingen i settet forteller hvor mye det er\nverdt. Del 1-temaene er den sikre bunnen, Del 2-temaene er der karakteren\nflytter seg.\n\nEn rimelig lesning: bruk de tre første kveldene på 100 %-temaene fordi de er\ngarantert og billige, og de to siste på den grafalgoritmen du er dårligst på,\nfordi det er der de store poengene ligger.",
+        "hints": [
+          "Skill mellom hvor ofte et tema kommer og hvor mye det er verdt når det kommer.",
+          "Hvilke av disse temaene hører til den auto-rettede delen, og hvilke til den store skrivedelen?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-0-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-0-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kildekritikk.) En medstudent har lastet ned et sett fra forgjengeremnet\nINF2220 fra 2016 og et IN2010-sett fra høsten 2020, og øver på begge som om de\nvar vanlige eksamenssett.\n\n**a)** Hva er problemet med hvert av dem?\n**b)** Hva kan de likevel brukes til?",
+        "solution": "**a)** INF2220-settet fra 2016 er fra en annen epoke: det tillot **alle\nhjelpemidler**, og oppgavene krevde **Java-kode**, ikke pseudokode. Det testet\ndessuten temaer som ikke lenger er pensum. Trener du mot det, trener du på feil\nformat og delvis på feil stoff.\n\nSettet fra høsten 2020 er et IN2010-sett, men det var **hjemmeeksamen med alle\nhjelpemidler** på grunn av korona. Oppgavene er derfor bredere og formulert\nunder en helt annen forutsetning: at du kan slå opp. Dagens eksamen er\nhjelpemiddelfri, og det er nettopp det som gjør faktakunnskapen på Del 1 så\navgjørende.\n\n**b)** Begge er utmerkede **oppgavebanker**. Et grafproblem er et grafproblem,\nog det er lærerikt å løse et gammelt problem med dagens verktøy — så lenge du\ngjør det **uten oppslag** og skriver svaret som pseudokode med oppgitt\nkjøretid. Det du ikke skal bruke dem til, er å anslå hvor mye tid du får, hvor\nlangt svaret skal være, eller hvilke temaer som kommer.",
+        "hints": [
+          "Se på hvilke hjelpemidler som var tillatt, og hvilket språk svaret skulle skrives i.",
+          "Skill mellom oppgavens faglige innhold og eksamenens format."
+        ]
+      }
+    },
+    {
+      "id": "in2010-0-1-tip-2",
+      "type": "tip",
+      "title": "Lite tid? Slik prioriterer du",
+      "content": "Hele boka er 42 kapitler: 2 570 minutter med kapittelstoff pluss 785 minutter\nprøver, til sammen **3 355 minutter, altså rundt 56 timer**. Av dette er 720\nminutter de tre firetimers øvingseksamenene.\n\n**Anslagene er lesetid.** Den som faktisk håndkjører på papir og skriver\npseudokoden selv, bør regne omtrent **halvannen gang** så lang tid. Det er\nbrukt tid, ikke bortkastet tid: det er nettopp den treningen eksamen måler.\n\n**Hurtigruta — fire til fem dager.** Hvis du er sent ute, les i denne\nrekkefølgen og hopp over begrepsbankene:\n\n| Dag | Innhold | Ca. |\n|---|---|---|\n| 1 | Dette kapitlet, så hele Del 1 (asymptotikk, løkketelling, faktabanken) | 4 t |\n| 2 | Del 2 (sortering) og Del 3 (hashing, med håndkjøringsdrillen) | 5 t |\n| 3 | Del 4 (søketre, heap og håndkjøringsdrillen) og starten av Del 5 (grafer) | 5 t |\n| 4 | Resten av Del 5, Del 6 (korteste vei) og strategidrillen i Del 8 | 4 t |\n| 5 | Én øvingseksamen på tid, uten oppslag, og gjennomgang av det du bommet på | 5 t |\n\n**Deltidsruta — 10 til 12 uker à rundt fem timer.** Én del i uka, prøvene til\ndelen samme uke mens stoffet er ferskt, og de tre øvingseksamenene fordelt på\n**tre ulike kvelder** i de siste tre ukene. Ikke stable dem til slutt: hele\npoenget er at du rekker å lære av sett nummer én før du tar sett nummer to.\n\n**Og en advarsel som er viktigere her enn i de fleste fag:** det er fristende å\nlese mye og skrive lite. Det virker ikke i IN2010. Eksamen er hjelpemiddelfri\nog krever at du **håndkjører strukturer på papir** og **skriver pseudokode uten\nå kunne slå opp**. Minst én av øvingseksamenene skal tas på tid, uten en eneste\noppslagsbok, før eksamensdagen."
+    },
+    {
+      "id": "in2010-0-1-coll-minimum",
+      "type": "collapsible",
+      "title": "Det du må kunne uten oppslag",
+      "buttonText": "Vis minimumslista",
+      "content": [
+        {
+          "id": "in2010-0-1-min-1",
+          "type": "text",
+          "content": "Dette er lista over det som må ligge i hodet på eksamensdagen, fordi du ikke\nkan slå det opp. Alt sammen forklares grundig senere i boka — her står det bare\nsamlet, så du ser omfanget. Det er kortere enn du frykter.\n\n**Vekstordningen.** Rekkefølgen fra best til verst:\n\n$$1 < \\log n < n < n\\log n < n^2 < n^3 < 2^n < n!$$\n\n**Løkketellingen.** Nøstede løkker ganges sammen, løkker etter hverandre legges\nsammen, en løkke som dobler eller halverer tellevariabelen gir en\n$\\log n$-faktor, og en indre løkke til et fast tall endrer ingenting."
+        },
+        {
+          "id": "in2010-0-1-min-2",
+          "type": "text",
+          "content": "**Heap-indeksene, med indeks fra 0.** Ligger elementet på indeks $i$, er\nforelderen på $\\lfloor (i-1)/2 \\rfloor$ og barna på $2i+1$ og $2i+2$.\n\nMerk deg dette hvis du har lest en annen algoritmebok: mange bøker indekserer\nfra 1 og får andre formler. IN2010 bruker **indeks fra 0**, og det er den\nkonvensjonen hele denne boka følger.\n\n**Hashformelen.** Med tabellstørrelse $N$ havner nøkkelen $k$ på plass\n$h(k) = k \\bmod N$, og ved kollisjon prøver du neste plass — der «neste» er\n`(i + 1) mod N`, slik at du havner på plass 0 igjen etter siste plass."
+        },
+        {
+          "id": "in2010-0-1-min-3",
+          "type": "text",
+          "content": "**Kjøretidstabellene.** Tre tabeller som gjentas samlet gjennom boka:\n\n| Sortering | Verste | Stabil? | På stedet? |\n|---|---|---|---|\n| Boblesortering | $O(n^2)$ | ja | ja |\n| Innsettingssortering | $O(n^2)$ | ja | ja |\n| Utvalgssortering | $O(n^2)$ | nei | ja |\n| Flettesortering | $O(n \\log n)$ | ja | nei |\n| Heapsortering | $O(n \\log n)$ | nei | ja |\n| Kvikksortering | $O(n^2)$, forventet $O(n \\log n)$ | nei | ja |\n| Tellesortering | $O(n + k)$ | ja | nei |\n\n| Datastruktur | Oppslag | Innsetting | Merknad |\n|---|---|---|---|\n| Sortert array | $O(\\log n)$ | $O(n)$ | binærsøk krever sortert |\n| Hashtabell | $O(1)$ forventet | $O(1)$ forventet | $O(n)$ i verste tilfelle |\n| Balansert søketre | $O(\\log n)$ | $O(\\log n)$ | gir også sortert rekkefølge |\n| Min-heap | minste i $O(1)$ | $O(\\log n)$ | bygges fra array i $O(n)$ |\n\n| Grafalgoritme | Kjøretid |\n|---|---|\n| Bredde- eller dybdeførst over hele grafen | $O(|V| + |E|)$ |\n| Topologisk sortering | $O(|V| + |E|)$ |\n| Sterkt sammenhengende komponenter | $O(|V| + |E|)$ |\n| Dijkstra eller Prim med prioritetskø | $O((|V|+|E|)\\log |V|)$ |\n| Bellman-Ford | $O(|V| \\cdot |E|)$ |\n\n**Korteste vei etter graftype.** Uvektet graf gir bredde-først; vektet graf uten\nsykler gir topologisk sortering; ingen negative kanter gir Dijkstra; negative\nkanter, men ingen negative sykler, gir Bellman-Ford. Fire tilfeller, fire svar\n— dette er en fast avkryssingsoppgave."
+        }
+      ]
+    },
+    {
+      "id": "in2010-0-1-t-12",
+      "type": "text",
+      "content": "## Hva du kan vente deg på neste sett\n\nUt fra de sju settene er dette et rimelig anslag for et vanlig sett:\n\n**Oppvarming:** to poeng for å forklare «algoritme» og «datastruktur».\n\n**Del 1:** én til to oppgaver der du leser kjøretiden ut av kode; to til tre\npunkter om sorteringsegenskaper og kjøretidsfakta; én til to håndkjøringer, mest\nsannsynlig en heap og en hashtabell, muligens et AVL-tre eller Huffman-koder;\nen avkryssingsmatrise om korteste vei; og noen faktapunkter om grafer.\n\n**Del 2:** to til tre grafalgoritmer i pseudokode, der minst én handler om\nkomponenter, topologisk sortering, minimalt spenntre eller korteste vei; én\ntre-algoritme; én oppgave om hashing eller søk; muligens én designoppgave og én\ndrøfting. Kompleksitetsteori kan dukke opp på Del 1, eller være helt fraværende.\n\n**De siste én til to oppgavene er nesten alltid åpen grafmodellering** — en\nhistorie som skal oversettes til en graf og en pensumalgoritme. Det er der\ntoppkarakterene skilles, og det er derfor boka bruker en hel del på grafer og\net helt drillkapittel på å velge den algoritmen som gir lavest kjøretid."
+    },
+    {
+      "id": "in2010-0-1-t-13",
+      "type": "text",
+      "content": "## Leseplanen for resten av boka\n\nBoka har ni deler. Her er de, med tidsanslag og hvilken prioritet de har.\n\n| Del | Innhold | Minutter | Prioritet |\n|---|---|---|---|\n| 0 | Eksamenskartet (dette kapitlet) | 35 | les først |\n| 1 | Asymptotisk analyse og kjøretidsfakta | 340 | **må sitte** |\n| 2 | Sortering og stabilitet | 340 | **må sitte** |\n| 3 | Hashing og søk | 345 | **må sitte** |\n| 4 | Trær: søketrær, balanserte trær og heap | 415 | **må sitte** (håndkjøring) |\n| 5 | Grafer: representasjon, traversering og komponenter | 415 | **må sitte** |\n| 6 | Korteste vei, spenntrær og grådighet | 395 | bør kunne |\n| 7 | Datastruktur-design, drøfting og kompleksitetsteori | 260 | bør kjenne til |\n| 8 | Eksamenstrening, med tre komplette øvingssett | 810 | de siste ukene |\n\nRekkefølgen er ikke tilfeldig: hver del bruker den forrige. Kjøretidsapparatet\ni Del 1 trengs for hvert eneste svar senere, heapen i Del 4 brukes både av\nHuffman og av Prim i Del 6, og grafgrunnlaget i Del 5 er forutsetningen for\nhele Del 6.\n\nDe tre siste delene er ikke mindre viktige, men de er **differensierende**\nsnarere enn garanterte: Del 6 og Del 7 er der du henter de siste poengene når\nbunnen sitter. Sitter ikke bunnen, gir Del 1 til Del 5 mer igjen per time.\n\nNeste steg er [kap. 1.1](/in2010/in2010-1-1), som gir deg selve språket:\nhva $O(n \\log n)$ egentlig betyr, og hva det ikke betyr."
+    },
+    {
+      "id": "in2010-0-1-t-14",
+      "type": "text",
+      "content": "### Begrepene du trenger for å lese resten\n\nBegrepsbanken under er flashcard- og repetisjonsstoff — den gjentar det du\nnettopp har lest. Hopp trygt over den ved førstegangslesing; tidsanslaget for\nkapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in2010-0-1-def-1",
+      "type": "definition",
+      "title": "Digital skoleeksamen i Inspera",
+      "content": "Eksamensformen i IN2010: fire timer på et eksamenslokale, med svarene skrevet\nrett inn i UiOs digitale eksamenssystem. Teller 100 prosent, karakter A til F.\nOgså pseudokode skrives inn som tekst — ingenting kan lastes opp håndskrevet."
+    },
+    {
+      "id": "in2010-0-1-def-2",
+      "type": "definition",
+      "title": "Hjelpemiddelfri eksamen",
+      "content": "At ingen bok, ingen notater og intet oppslagsverk er tillatt. Konsekvensen for\nlesingen: kjøretider, sorteringsegenskaper og indeksformler må pugges, fordi de\nikke kan slås opp underveis."
+    },
+    {
+      "id": "in2010-0-1-def-3",
+      "type": "definition",
+      "title": "Oppvarmingen",
+      "content": "De to faste innledningsspørsmålene «Hva er en algoritme?» og «Hva er en\ndatastruktur?», maks fire setninger på hver. Verdt **2 poeng**, og det finnes\nikke noe fasitsvar: alle rimelige svar gir full uttelling. Tapes bare ved å\nsvare blankt eller direkte galt."
+    },
+    {
+      "id": "in2010-0-1-def-4",
+      "type": "definition",
+      "title": "Del 1 — den auto-rettede delen",
+      "content": "Mange små spørsmål som rettes av maskin: sant/usant, korte uttrykk og små\nhåndkjøringer. Typisk 20 til 35 poeng. Ingen delpoeng og ingen skjønn — svaret\ner riktig eller galt, og formatet må være som oppgaven ber om."
+    },
+    {
+      "id": "in2010-0-1-def-5",
+      "type": "definition",
+      "title": "Del 2 — pseudokode og resonnement",
+      "content": "Fem til sju større oppgaver à 8 til 12 poeng der du skal skrive algoritmen selv\nog begrunne den. Rettes av et menneske, med delpoeng per delmoment. Her\navgjøres karakteren, og de siste oppgavene er nesten alltid åpen\ngrafmodellering."
+    },
+    {
+      "id": "in2010-0-1-def-6",
+      "type": "definition",
+      "title": "Antigjettings-skalering",
+      "content": "At poengsummen på en sant/usant-blokk skaleres slik at ren gjetting i snitt gir\nnull — for eksempel $2 \\cdot \\max(n - 16,\\ 0)$ av 32 punkter, der 16 riktige gir\n0 poeng. Blankt og feil teller likt, så skaleringen straffer ikke at du fyller\nut; den sørger for at bare sikker kunnskap konverteres til poeng."
+    },
+    {
+      "id": "in2010-0-1-def-7",
+      "type": "definition",
+      "title": "Poengtrappen",
+      "content": "Sensors faste regel om at **lavere kjøretid gir mer poeng på samme oppgave**:\nen $O(n)$-løsning gir full pott, $O(n \\log n)$ mindre, $O(n^2)$ minst — men\nikke null. Derfor lønner det seg alltid å levere den trege løsningen framfor\ningenting, og alltid å lete etter den raske."
+    },
+    {
+      "id": "in2010-0-1-def-8",
+      "type": "definition",
+      "title": "Delvis uttelling",
+      "content": "At poengene på en Del 2-oppgave er fordelt per delmoment, med algoritmevalget og\ngrunnideen som det tyngste momentet. Praktisk konsekvens: skriv grunnideen i\nklartekst først, detaljene etterpå."
+    },
+    {
+      "id": "in2010-0-1-def-9",
+      "type": "definition",
+      "title": "Sensorveiledning",
+      "content": "Dokumentet sensorene får utlevert sammen med settet. I IN2010 inneholder de\nløsningsforslag med eksplisitt poengfordeling per delmoment, og de er\nhovedkilden til alt denne boka sier om hva som gir uttelling. Sju stykker\nforeligger, ett for hvert sett fra 2018 til 2024."
+    },
+    {
+      "id": "in2010-0-1-def-10",
+      "type": "definition",
+      "title": "Håndkjøring",
+      "content": "Å utføre en algoritme steg for steg for hånd og oppgi hvordan strukturen ser ut\ntil slutt — for eksempel hele hashtabellen eller hele heap-arrayet. Egen\nferdighet, egen oppgavetype, minst én per sett, typisk 2 poeng. Å kunne\nalgoritmen er ikke det samme som å kunne utføre den."
+    },
+    {
+      "id": "in2010-0-1-def-11",
+      "type": "definition",
+      "title": "Pseudokode i IN2010",
+      "content": "Bokas og fagets kodespråk: generisk, selvforklarende kode med et\n`Procedure`-hode og linjer for `Input:` og `Output:`, skrevet med navn som\n`RemoveMin` og `DFSVisit`. Verken Java, Python eller en bestemt læreboks\nnavnekonvensjon. Arrayindeksering starter på 0."
+    },
+    {
+      "id": "in2010-0-1-def-12",
+      "type": "definition",
+      "title": "Kjøretid som matcher algoritmen",
+      "content": "Sensorkravet om at den kjøretiden du oppgir, skal stemme med koden du faktisk\nskrev — og at $n$ skal være definert. Det trekkes både for manglende kjøretid,\nfor feil kjøretid og for et udefinert $n$."
+    },
+    {
+      "id": "in2010-0-1-def-13",
+      "type": "definition",
+      "title": "Antagelser om representasjon",
+      "content": "De forutsetningene du selv velger og skriver ned: at grafen er gitt som\nnabolister, at en node har feltene `v.left` og `v.right`, at heapen ligger i et\narray. Sensor binder seg ikke til én representasjon, men krever at du oppgir\nhvilken du bruker."
+    },
+    {
+      "id": "in2010-0-1-def-14",
+      "type": "definition",
+      "title": "Sjangerkatalogen A til L",
+      "content": "Bokas navn på de tolv oppgavetypene som går igjen: A oppvarming, B kjøretid fra\nkode, C kjøretidsfakta, D sorteringsegenskaper, E håndkjøring, F\nmatriseavkryssing, G tre-algoritme, H grafalgoritme, I hashing og søk, J\ndatatypedesign, K drøfting, L kompleksitetsteori. A til F hører til\noppvarmingen og Del 1, G til L til Del 2."
+    },
+    {
+      "id": "in2010-0-1-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet i ti setninger",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-0-1-rep-1",
+          "type": "text",
+          "content": "1. Eksamen er én digital firetimers skoleeksamen i Inspera, hjelpemiddelfri, og\n   teller hele karakteren.\n2. Settet har tre deler: oppvarming på 2 gratispoeng, en auto-rettet Del 1 med\n   mange små spørsmål, og en Del 2 med fem til sju store pseudokodeoppgaver.\n3. Sant/usant-blokkene på Del 1 er skalert slik at ren gjetting i snitt gir\n   null; bare sikker faktakunnskap gir poeng.\n4. På de vanlige korte svarene teller blankt akkurat som feil, så der svarer du\n   alltid.\n5. Poengtrappen er eksplisitt: lavere kjøretid gir mer poeng på samme oppgave,\n   men en treg og korrekt løsning gir alltid mer enn ingenting.\n6. Kjøretiden du oppgir må matche algoritmen du skrev, og du må si hva $n$ er.\n7. En klar forklaring på vanlig norsk kan gi like mye som pseudokode; en uklar\n   forklaring gir ingenting.\n8. Seks temaer kom i alle sju settene: kjøretid fra kode, kjøretidsfakta,\n   sortering, hashing, grafrepresentasjon og korteste vei.\n9. Dynamisk programmering, maks-flyt, masterteoremet og alle-til-alle korteste\n   vei er ikke pensum, og kjøretid regnes ut ved å telle løkker.\n10. Håndkjøring er en egen ferdighet: du må kunne utføre strukturene på papir,\n    ikke bare gjenkjenne dem."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

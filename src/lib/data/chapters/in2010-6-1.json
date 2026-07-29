@@ -1,0 +1,361 @@
+{
+  "id": "in2010-6-1",
+  "courseId": "in2010",
+  "chapterNumber": "6.1",
+  "title": "Topologisk sortering og DAG-egenskaper",
+  "description": "Topologisk sortering med Kahns algoritme (inngrad-0-kø) og sykeldeteksjon i rettet graf — det foretrukne verktøyet for avhengighetsproblemer.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne håndkjøre Kahns algoritme på en rettet graf og oppgi rekkefølgen, eller melde at grafen er syklisk",
+    "kunne skrive topologisk sortering i pseudokode med inngradstabell, kø og sykelsjekk",
+    "kunne begrunne kjøretiden ved løkketelling, og forklare hvorfor den er en sum og ikke et produkt",
+    "kunne gjenkjenne at et avhengighetsproblem skal løses med topologisk sortering, og oppgi lavest mulig kjøretid"
+  ],
+  "content": [
+    {
+      "id": "in2010-6-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Topologisk sortering er med i **5 av de 7 settene i arkivet (71 %)**, og den kommer\ni to former:\n\n- **Sjanger H — grafalgoritme i pseudokode**, altså at du selv skriver algoritmen\n  og oppgir kjøretiden. Innpakningen er nesten alltid den samme: et sett\n  **avhengigheter**, og spørsmålet «i hvilken rekkefølge kan dette gjøres — eller\n  er det umulig?»\n- **Sjanger F — matriseavkryssing**, altså at du krysser av hvilken algoritme som\n  passer hvilken graftype. Der dukker topologisk sortering opp som svaret på\n  «korteste vei i en **vektet DAG**», som du møter i\n  [kap. 6.2](/in2010/in2010-6-2).\n\nDet er verdt å merke seg **mønsteret**, for det er halve jobben på eksamen: ser du\nordene «avhengigheter», «må gjøres før», «installasjonsrekkefølge» eller «finnes\ndet en sirkulær avhengighet?», er svaret topologisk sortering. Du trenger ikke\noppfinne noe — du skal gjenkjenne, skrive ned Kahns algoritme og oppgi\n$O(|V| + |E|)$.\n\nPrioritet: **kunne** (nivå 2 av tre — «må sitte» er nivå 1, «kjenne til» er\nnivå 3). Det betyr at du skal kunne utføre og skrive algoritmen sikkert, men at\ndette ikke er et av de fire temaene som kommer i hvert eneste sett.\n\n**Slik er kapitlet lagt opp (45 min):** tre løkker med teori, gjennomkjørt\neksempel og oppgaver, og et pausepunkt etter løkke 2."
+    },
+    {
+      "id": "in2010-6-1-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 5.1](/in2010/in2010-5-1) — grafnotasjonen $G = (V, E)$, nabolister og\n  begrepet **inngrad** (hvor mange kanter som peker *inn* til en node).\n- [kap. 5.2](/in2010/in2010-5-2) — BFS og DFS. Kahns algoritme har samme form som\n  en BFS: en kø, ett element av gangen.\n- [kap. 1.2](/in2010/in2010-1-2) — løkketelling. Kjøretiden $O(|V| + |E|)$ leses\n  ut av at hver node og hver kant berøres én gang.\n\nHar du ikke jobbet med nøstede strukturer i kode før, er\n[Nøstede lister og ordbøker](/in1000/in1000-8-1) et mykt sted å begynne — en\nnaboliste er akkurat det: en liste av lister."
+    },
+    {
+      "id": "in2010-6-1-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-6-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | en graf med nodemengden $V$ og kantmengden $E$ |\n| $\\lvert V \\rvert$ | antall noder |\n| $\\lvert E \\rvert$ | antall kanter |\n| $u \\to v$ | en **rettet** kant fra $u$ til $v$ — «$u$ må komme før $v$» |\n| `inngrad[v]` | antall kanter som peker inn til $v$ |\n| `utgrad[v]` | antall kanter som peker ut fra $v$ |\n| $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | lineær tid i grafens størrelse — Kahns kjøretid |\n| $O(\\lvert V \\rvert^2)$ | kvadratisk tid — det du får hvis du leter etter inngrad-0-noder på nytt hver runde |"
+        },
+        {
+          "id": "in2010-6-1-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `BeregnInngrader(G)` | teller for hver node hvor mange kanter som peker inn til den | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| `TopologiskSortering(G)` | returnerer en lovlig rekkefølge, eller melder at grafen har en sykel | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |\n| `Ko.leggTil(v)` / `Ko.taUt()` | legger en node bakerst i køen / tar ut den fremste | $O(1)$ |\n| `ErDAG(G)` | avgjør om grafen er asyklisk — samme kjøring som over, du ser bare på antallet | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ |"
+        },
+        {
+          "id": "in2010-6-1-nt-3",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$\\sum_{v \\in V} \\text{inngrad}(v) = |E|$$\n\nSummen av alle inngrader er antall kanter — hver kant bidrar med nøyaktig 1 til\ninngraden til den noden den peker på. Det er kontrollregningen du bruker når du\nhar fylt ut inngradstabellen for hånd.\n\n$$O(|V|) + O(|E|) = O(|V| + |E|)$$\n\nKahn gjør ett stykke arbeid per node (ta den ut av køen) og ett per kant (senke\nnaboens inngrad). Arbeidet legges sammen, ikke ganges — derfor plusstegn."
+        }
+      ]
+    },
+    {
+      "id": "in2010-6-1-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — huset som må bygges i riktig rekkefølge (ca. 12 min)\n\nEt modulbygg settes opp av åtte arbeidslag. Grunnmuren må stå før gulvmodulene\nkan legges, gulvmodulene før heissjakten kan reises, og fasadekledningen kan først\nkomme når både taket og heissjakten er ferdige. Ingen av lagene bryr seg om noe\nannet enn sine egne forutsetninger.\n\nSpørsmålet byggelederen sitter med, er ikke vanskelig å formulere: **finnes det en\nrekkefølge der hvert lag kan gjøre jobben sin uten å vente på noe som ikke er\ngjort?** Og hvis den finnes — hvordan finner vi den, uten å prøve oss fram?\n\nDette er et grafproblem. Hvert arbeidslag er en node, og en pil fra $u$ til $v$\nbetyr «$u$ må være ferdig før $v$ kan starte». Da er spørsmålet: kan nodene stilles\nopp på en linje slik at **alle pilene peker framover**?"
+    },
+    {
+      "id": "in2010-6-1-def-1",
+      "type": "definition",
+      "title": "DAG (rettet asyklisk graf)",
+      "content": "En **rettet** graf uten sykler: du kan aldri følge pilene fra en node og komme\ntilbake til den samme noden igjen.\n\nForkortelsen kommer fra engelsk «directed acyclic graph». Ordet **asyklisk** betyr\nnettopp «uten sykel». Enhver avhengighetsstruktur som faktisk lar seg gjennomføre,\ner en DAG — og motsatt: er den ikke en DAG, finnes det en gruppe oppgaver som alle\nventer på hverandre."
+    },
+    {
+      "id": "in2010-6-1-def-2",
+      "type": "definition",
+      "title": "Topologisk rekkefølge",
+      "content": "En rekkefølge på nodene i en rettet graf der **hver kant peker framover**: går det\nen kant fra $u$ til $v$, kommer $u$ før $v$ i rekkefølgen.\n\nLegg merke til at rekkefølgen sjelden er entydig. Har to noder ingen\navhengighet mellom seg, kan de stå i hvilken som helst innbyrdes rekkefølge, og\nbegge svarene er like riktige. Sensor godtar **enhver** lovlig rekkefølge."
+    },
+    {
+      "id": "in2010-6-1-def-3",
+      "type": "definition",
+      "title": "Inngrad",
+      "content": "Antall kanter som peker **inn** til en node. Utgraden er tilsvarende antall kanter\nsom peker **ut**.\n\nInngraden er hele nøkkelen til topologisk sortering: en node med inngrad 0 har\ningenting foran seg og kan gjøres med det samme. Summen av alle inngrader er\n$|E|$ — hver kant teller én gang."
+    },
+    {
+      "id": "in2010-6-1-th-1",
+      "type": "theorem",
+      "title": "Topologisk rekkefølge finnes hvis og bare hvis grafen er en DAG",
+      "content": "En rettet graf har en topologisk rekkefølge **nøyaktig når** den ikke har noen\nsykel.\n\nDen ene veien er lett å se: har grafen en sykel $v_1 \\to v_2 \\to \\ldots \\to v_1$,\nmåtte $v_1$ kommet før $v_2$, som måtte kommet før $v_1$. Det er umulig.\n\nDen andre veien er selve algoritmen: Kahns metode **konstruerer** en rekkefølge så\nlenge grafen er asyklisk, og stopper med noder til overs hvis den ikke er det. Du\ntrenger ikke bevise dette på eksamen, men du skal kunne bruke begge retningene:\n«ingen lovlig rekkefølge» og «grafen har en sykel» er det samme utsagnet."
+    },
+    {
+      "id": "in2010-6-1-img-1",
+      "type": "image",
+      "src": "/images/textbook/in2010/dag-montering.svg",
+      "alt": "Rettet graf med åtte noder A til H. A peker til B og C; B peker til D og G; C peker til D og E; D peker til F; E peker til F; G peker til H; F peker til H. Under hver node står nodens inngrad.",
+      "caption": "Avhengighetsgrafen for modulbygget. A (grunnmuren) er den eneste noden med inngrad 0, så den må starte. Tallene under nodene er inngradene — de er hele arbeidsgrunnlaget for Kahns algoritme."
+    },
+    {
+      "id": "in2010-6-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Kahns algoritme på modulbygget",
+      "problem": "Arbeidslagene er $A$ = grunnmur, $B$ = gulvmoduler, $C$ = bæresøyler,\n$D$ = veggmoduler, $E$ = trapperom, $F$ = tak, $G$ = heissjakt og\n$H$ = fasadekledning. Avhengighetene er\n\n`A -> B`, `A -> C`, `B -> D`, `C -> D`, `C -> E`, `D -> F`, `E -> F`, `B -> G`,\n`G -> H`, `F -> H`.\n\nFinn en lovlig rekkefølge, eller vis at ingen finnes.",
+      "solution": "**Steg 0 — inngradstabellen.** Tell hvor mange piler som peker inn til hver node:\n\n`A=0, B=1, C=1, D=2, E=1, F=2, G=1, H=2`\n\nKontrollregning: summen er $0+1+1+2+1+2+1+2 = 10$, og grafen har 10 kanter. Stemmer.\n\nBare $A$ har inngrad 0, så køen starter som `A`.\n\n**Sporingen.** Køen holdes i alfabetisk rekkefølge her, slik at sporingen er\nmulig å gjenskape nøyaktig. Det er ikke et krav i algoritmen — enhver rekkefølge i\nkøen gir en lovlig topologisk rekkefølge.\n\n| Steg | Plukket | Naboers inngrad senkes | Inngrader etter | Kø etter | Rekkefølge så langt |\n|---|---|---|---|---|---|\n| 1 | A | `B: 1 -> 0`, `C: 1 -> 0` | `A=0, B=0, C=0, D=2, E=1, F=2, G=1, H=2` | `B, C` | `A` |\n| 2 | B | `D: 2 -> 1`, `G: 1 -> 0` | `A=0, B=0, C=0, D=1, E=1, F=2, G=0, H=2` | `C, G` | `A, B` |\n| 3 | C | `D: 1 -> 0`, `E: 1 -> 0` | `A=0, B=0, C=0, D=0, E=0, F=2, G=0, H=2` | `D, E, G` | `A, B, C` |\n| 4 | D | `F: 2 -> 1` | `A=0, B=0, C=0, D=0, E=0, F=1, G=0, H=2` | `E, G` | `A, B, C, D` |\n| 5 | E | `F: 1 -> 0` | `A=0, B=0, C=0, D=0, E=0, F=0, G=0, H=2` | `F, G` | `A, B, C, D, E` |\n| 6 | F | `H: 2 -> 1` | `A=0, B=0, C=0, D=0, E=0, F=0, G=0, H=1` | `G` | `A, B, C, D, E, F` |\n| 7 | G | `H: 1 -> 0` | `A=0, B=0, C=0, D=0, E=0, F=0, G=0, H=0` | `H` | `A, B, C, D, E, F, G` |\n| 8 | H | ingen | `A=0, B=0, C=0, D=0, E=0, F=0, G=0, H=0` | `tom` | `A, B, C, D, E, F, G, H` |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nA, B, C, D, E, F, G, H\n```\n\nAlle 8 nodene ble prosessert, så grafen er en DAG, og rekkefølgen er lovlig.\n\n**Kontrollen som tar ti sekunder:** gå gjennom hver kant og sjekk at venstre node\nstår før høyre i svaret ditt. `A -> B`: ja. `B -> G`: ja. `F -> H`: ja. Alle ti\nkanter peker framover.\n\n**Fellenote.** Fella her er å tro at rekkefølgen er entydig. Prøv å plukke $C$ før\n$B$ i steg 2 — begge har inngrad 0 der — og du får `A, C, B, E, D, F, G, H`, som er\nlike riktig. Sensor sjekker at kantene peker framover, ikke at du traff «fasiten»."
+    },
+    {
+      "id": "in2010-6-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger H — grafalgoritme, altså at du gjenkjenner problemet og\nbruker riktig algoritme.) En rettet graf har nodene $P, Q, R, S$ og kantene\n`P -> R`, `Q -> R`, `R -> S`.\n\n**a)** Skriv opp inngraden til hver node.\n**b)** Hvilke noder kan Kahns algoritme starte med?\n**c)** Skriv opp to forskjellige lovlige topologiske rekkefølger.",
+        "solution": "**a)** `P=0, Q=0, R=2, S=1`. Kontroll: summen er 3, og grafen har 3 kanter.\n\n**b)** $P$ og $Q$ — begge har inngrad 0. Begge legges i køen fra starten, og\nalgoritmen kan ta dem i hvilken som helst rekkefølge.\n\n**c)** `P, Q, R, S` og `Q, P, R, S`. Begge er riktige: den eneste bindingen mellom\n$P$ og $Q$ er at begge må komme før $R$, og den holder i begge svarene.\n\n$R$ og $S$ har derimot fast plass — $R$ kan ikke komme før både $P$ og $Q$ er\ntatt, og $S$ kan ikke komme før $R$.",
+        "hints": [
+          "Inngraden til en node er antall piler som peker **inn** til den. Tegn grafen og tell pilspissene.",
+          "Hvor mange noder har ingenting foran seg? De kan alle gjøres først."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-1-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — algoritmen skrevet ned (ca. 15 min)\n\nSporingen i eksempel 1 er hele algoritmen. Nå skal den skrives ned slik du må\nkunne den på eksamen: som en `Procedure` med input, output og oppgitt kjøretid.\n\nMetoden heter **Kahns algoritme** etter Arthur Kahn, som beskrev den i 1962. Ideen\ner den samme som byggelederens: gjør alt som *kan* gjøres nå, og se hva som blir\nklart av det."
+    },
+    {
+      "id": "in2010-6-1-th-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `TopologiskSortering`",
+      "content": "**Antagelser om representasjon.** Grafen $G = (V, E)$ er gitt som **nabolister**:\n`G.naboer(v)` gir alle noder `w` med en kant `v -> w`, og en gjennomgang av alle\nnabolister koster $O(|V| + |E|)$ til sammen. `inngrad` er et array indeksert på\nnode. Køen er en vanlig kø med $O(1)$ innsetting og uttak.\n\n**Prebetingelse:** ingen — algoritmen virker på enhver rettet graf.\n**Postbetingelse:** returverdien er enten en lovlig topologisk rekkefølge med alle\n$|V|$ nodene, eller meldingen «syklisk».\n\n```text\nProcedure TopologiskSortering(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: en liste med alle nodene i topologisk rekkefolge,\n          eller meldingen «syklisk» hvis ingen slik rekkefolge finnes\n  for hver v i V:\n      inngrad[v] = 0\n  for hver v i V:\n      for hver w i G.naboer(v):\n          inngrad[w] = inngrad[w] + 1\n  Ko = tom ko\n  for hver v i V:\n      if inngrad[v] er 0:\n          Ko.leggTil(v)\n  rekkefolge = tom liste\n  while Ko er ikke tom:\n      v = Ko.taUt()\n      rekkefolge.leggTilBakerst(v)\n      for hver w i G.naboer(v):\n          inngrad[w] = inngrad[w] - 1\n          if inngrad[w] er 0:\n              Ko.leggTil(w)\n  if lengden av rekkefolge er ulik |V|:\n      return «syklisk»\n  return rekkefolge\n```\n\n**Grunnideen i én setning:** en node kan trygt plasseres i rekkefølgen så snart\nalt som må komme før den, allerede er plassert — og det ser du på at inngraden er\nfalt til null.\n\n**Kjøretid:** $O(|V| + |E|)$. Tell løkkene: den første går over alle noder,\n$O(|V|)$. Den andre går over alle nabolister, altså hver kant én gang,\n$O(|E|)$. Den tredje går over alle noder igjen, $O(|V|)$. `while`-løkka tar hver\nnode ut av køen **nøyaktig én gang** (en node legges i køen bare når inngraden når\nnull, og den når null bare én gang), og for hver av dem gås nabolisten gjennom én\ngang — til sammen $O(|V|)$ uttak og $O(|E|)$ kantbehandlinger. Summen er\n$O(|V| + |E|)$, ikke et produkt: løkkene står etter hverandre, ikke inni\nhverandre."
+    },
+    {
+      "id": "in2010-6-1-t-3",
+      "type": "text",
+      "content": "Legg merke til hvorfor **køen** er der. Uten den måtte du lete gjennom hele\ninngradstabellen etter en null hver eneste runde — $|V|$ runder à $O(|V|)$ leting,\naltså $O(|V|^2)$. Køen husker hvem som ble klar, og det er hele forskjellen\nmellom en lineær og en kvadratisk løsning.\n\nMerk også at det står **kø**, ikke stack. Begge virker. En stack gir en annen\nlovlig rekkefølge, ikke en gal en. Skriver du `stack` i besvarelsen din, er det\nriktig så lenge du er konsekvent."
+    },
+    {
+      "id": "in2010-6-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvorfor $O(|V| + |E|)$ og ikke $O(|V| \\cdot |E|)$",
+      "problem": "En medstudent hevder at Kahns algoritme er $O(|V| \\cdot |E|)$, «fordi\n`while`-løkka går over alle nodene, og inni den går vi gjennom kantene». Vis at\ndet er feil, ved å telle nøyaktig hvor mange ganger hver linje utføres på\nmodulbygget fra eksempel 1.",
+      "solution": "**Feilen ligger i ordet «kantene».** Den indre løkka går ikke gjennom *alle*\nkantene for hver node — den går gjennom nabolista til **nettopp den noden** som\nble tatt ut.\n\n**Tellingen for modulbygget** ($|V| = 8$, $|E| = 10$):\n\n| Node tatt ut | Antall naboer | Kantbehandlinger |\n|---|---|---|\n| A | 2 (B, C) | 2 |\n| B | 2 (D, G) | 2 |\n| C | 2 (D, E) | 2 |\n| D | 1 (F) | 1 |\n| E | 1 (F) | 1 |\n| F | 1 (H) | 1 |\n| G | 1 (H) | 1 |\n| H | 0 | 0 |\n| **Sum** | | **10** |\n\nSummen er 10 — nøyaktig $|E|$. Det er ikke tilfeldig: hver kant `v -> w` ligger i\nnøyaktig én naboliste (nemlig $v$ sin), og den lista gås gjennom nøyaktig én gang,\nden gangen $v$ tas ut av køen.\n\n**Konklusjonen:** `while`-løkka koster $O(|V|)$ uttak **pluss** $O(|E|)$\nkantbehandlinger, ikke $O(|V|)$ ganger $O(|E|)$. Kjøretiden er $O(|V| + |E|)$.\n\n**Dette er et generelt mønster** som går igjen i hele grafdelen av faget: når en\nløkke over noder inneholder en løkke over *den nodens* naboer, blir summen\n$O(|V| + |E|)$ — ikke et produkt. Samme argument gir kjøretiden til BFS, DFS og\nkomponentsøk i [kap. 5.2](/in2010/in2010-5-2).\n\n**Poengtrapp-notat.** På eksamen er det å oppgi $O(|V| \\cdot |E|)$ her et rent\ntap: kjøretiden matcher ikke algoritmen du faktisk ga, og det er en av de tre\ntingene sensorveiledningene nevner eksplisitt at det trekkes for."
+    },
+    {
+      "id": "in2010-6-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) En rettet graf har nodene $A$ til $F$ og kantene\n`A -> C`, `B -> C`, `C -> D`, `C -> E`, `D -> F`, `E -> F`.\n\n**a)** Skriv opp inngradstabellen, og kontrollér den mot antall kanter.\n**b)** Håndkjør Kahns algoritme og oppgi rekkefølgen. Bruk alfabetisk rekkefølge i\nkøen.\n**c)** Hvor mange forskjellige lovlige topologiske rekkefølger har denne grafen?",
+        "solution": "**a)** `A=0, B=0, C=2, D=1, E=1, F=2`. Summen er 6, og grafen har 6 kanter.\n\n**b)**\n\n| Steg | Plukket | Naboers inngrad senkes | Inngrader etter | Kø etter | Rekkefølge så langt |\n|---|---|---|---|---|---|\n| 1 | A | `C: 2 -> 1` | `A=0, B=0, C=1, D=1, E=1, F=2` | `B` | `A` |\n| 2 | B | `C: 1 -> 0` | `A=0, B=0, C=0, D=1, E=1, F=2` | `C` | `A, B` |\n| 3 | C | `D: 1 -> 0`, `E: 1 -> 0` | `A=0, B=0, C=0, D=0, E=0, F=2` | `D, E` | `A, B, C` |\n| 4 | D | `F: 2 -> 1` | `A=0, B=0, C=0, D=0, E=0, F=1` | `E` | `A, B, C, D` |\n| 5 | E | `F: 1 -> 0` | `A=0, B=0, C=0, D=0, E=0, F=0` | `F` | `A, B, C, D, E` |\n| 6 | F | ingen | `A=0, B=0, C=0, D=0, E=0, F=0` | `tom` | `A, B, C, D, E, F` |\n\n**Sluttilstand: `A, B, C, D, E, F`**\n\n**c)** Fire. Både $A$ og $B$ må komme før $C$, men de kan bytte plass innbyrdes (2\nmuligheter), og både $D$ og $E$ må komme etter $C$ og før $F$, og de kan også bytte\nplass (2 muligheter). $2 \\cdot 2 = 4$:\n\n`A, B, C, D, E, F`, `A, B, C, E, D, F`, `B, A, C, D, E, F` og `B, A, C, E, D, F`\n\n**Momentet:** to noder kan bytte plass nøyaktig når det ikke går noen sti mellom\ndem i noen retning. Det er hele friheten i en topologisk rekkefølge.",
+        "hints": [
+          "Tell pilspissene som peker inn til hver node — det er inngraden.",
+          "Når to noder ligger i køen samtidig, er begge rekkefølger lovlige. Hvor mange ganger skjer det?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-1-tip-2",
+      "type": "tip",
+      "title": "Pausepunkt",
+      "content": "— naturlig pausepunkt —\n\nDu har nå metoden og kjøretiden. Resten av kapitlet handler om det som gjør\ntopologisk sortering til en *eksamensoppgave*: hva algoritmen svarer når det\n**ikke** finnes noen rekkefølge, og hvordan du kjenner igjen at det er dette\nverktøyet oppgaven ber om."
+    },
+    {
+      "id": "in2010-6-1-t-4",
+      "type": "text",
+      "content": "## Løkke 3 — når det ikke finnes noen rekkefølge (ca. 12 min)\n\nHalvparten av eksamensoppgavene på dette temaet spør ikke bare om rekkefølgen. De\nspør: **finnes det en i det hele tatt?** Formuleringen er gjerne «meld fra hvis en\nsirkulær avhengighet gjør det umulig».\n\nDet gode med Kahns algoritme er at du får svaret gratis. Du trenger ikke en egen\nsykeldeteksjon — du trenger bare å telle."
+    },
+    {
+      "id": "in2010-6-1-th-3",
+      "type": "theorem",
+      "title": "Sykeldeteksjon: tell hvor mange noder som ble prosessert",
+      "content": "Kjør Kahns algoritme til køen er tom. Hvis rekkefølgen inneholder **færre enn\n$|V|$ noder**, har grafen en sykel, og ingen topologisk rekkefølge finnes.\n\n**Hvorfor det stemmer:** en node blir liggende igjen bare hvis inngraden aldri når\nnull, altså hvis den har en forgjenger som selv aldri ble tatt ut. Følger du den\nkjeden bakover i en endelig graf, må du før eller siden komme tilbake til en node\ndu har vært innom — og det er en sykel.\n\n**Bonusen:** nodene som ble liggende igjen, er nøyaktig de nodene som ligger på\neller nedstrøms for en sykel. Du kan altså peke på hvor problemet er, ikke bare si\nat det finnes. Det er verdt et delpoeng når oppgaven ber om at algoritmen skal\n«melde fra»."
+    },
+    {
+      "id": "in2010-6-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: En syklisk avhengighet i et rørsystem",
+      "problem": "Et anlegg pumper væske gjennom seks trinn. Trinn $A$ mater $B$ og $E$, $B$ mater\n$C$, $C$ mater $D$, $D$ mater **tilbake** til $B$ (en returledning som ble koblet\nfeil), og $E$ mater $F$.\n\nKantene er `A -> B`, `B -> C`, `C -> D`, `D -> B`, `A -> E`, `E -> F`.\n\nKan trinnene settes i drift i en rekkefølge der hvert trinn har væske når det\nstarter? Håndkjør Kahns algoritme.",
+      "solution": "**Inngradstabellen:** `A=0, B=2, C=1, D=1, E=1, F=1`. Summen er 6, og grafen har 6\nkanter. Bare $A$ har inngrad 0.\n\n| Steg | Plukket | Naboers inngrad senkes | Inngrader etter | Kø etter | Rekkefølge så langt |\n|---|---|---|---|---|---|\n| 1 | A | `B: 2 -> 1`, `E: 1 -> 0` | `A=0, B=1, C=1, D=1, E=0, F=1` | `E` | `A` |\n| 2 | E | `F: 1 -> 0` | `A=0, B=1, C=1, D=1, E=0, F=0` | `F` | `A, E` |\n| 3 | F | ingen | `A=0, B=1, C=1, D=1, E=0, F=0` | `tom` | `A, E, F` |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nsyklisk — ingen topologisk rekkefolge finnes\n```\n\n**Tellingen som avgjør:** algoritmen prosesserte 3 noder ($A$, $E$, $F$), men\ngrafen har 6. Siden $3 \\neq 6$, er grafen ikke en DAG.\n\n**Hvor sykelen er.** Nodene som ble liggende igjen, er $B$, $C$ og $D$ — med\ninngradene `B=1, C=1, D=1` når køen gikk tom. Ingen av dem nådde null, fordi\n$B$ venter på $D$, $D$ venter på $C$, og $C$ venter på $B$. Det er sykelen\n`B -> C -> D -> B`, altså returledningen.\n\n**Merk at $E$ og $F$ ble prosessert helt normalt.** En sykel ett sted i grafen\nødelegger ikke for resten — men den gjør at hele grafen mangler en topologisk\nrekkefølge, fordi rekkefølgen må inneholde **alle** nodene.\n\n**Fellenote.** Den vanligste feilen her er å levere `A, E, F` som svar. Det er\nikke en topologisk rekkefølge av grafen — det er tre noder av seks. Algoritmen\nskal **melde fra**, og en besvarelse som ikke sjekker antallet, mister som regel\net helt delpoeng selv om pseudokoden ellers er riktig."
+    },
+    {
+      "id": "in2010-6-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) Fem oppgaver i et prosjekt har avhengighetene\n`A -> B`, `B -> C`, `C -> E`, `E -> B`, `A -> D`, `D -> E`.\n\n**a)** Håndkjør Kahns algoritme og oppgi hva den svarer.\n**b)** Hvilke noder ble liggende igjen, og hva forteller det deg?\n**c)** Én kant må fjernes for at rekkefølgen skal bli mulig. Hvilken, og hva blir\nrekkefølgen da?",
+        "solution": "**a)** Inngradstabellen er `A=0, B=2, C=1, D=1, E=2`. Summen er 6, og grafen har 6\nkanter.\n\n| Steg | Plukket | Naboers inngrad senkes | Inngrader etter | Kø etter | Rekkefølge så langt |\n|---|---|---|---|---|---|\n| 1 | A | `B: 2 -> 1`, `D: 1 -> 0` | `A=0, B=1, C=1, D=0, E=2` | `D` | `A` |\n| 2 | D | `E: 2 -> 1` | `A=0, B=1, C=1, D=0, E=1` | `tom` | `A, D` |\n\nAlgoritmen prosesserte 2 noder av 5. Svaret er **«syklisk»** — ingen lovlig\nrekkefølge finnes.\n\n**b)** $B$, $C$ og $E$ ble liggende igjen. De ligger på sykelen\n`B -> C -> E -> B`: $B$ venter på $E$, $E$ venter på $C$, og $C$ venter på $B$.\nIngen av de tre kan noensinne nå inngrad 0.\n\n**c)** Fjern én av de tre kantene i sykelen. Fjerner du `E -> B`, blir\ninngradstabellen `A=0, B=1, C=1, D=1, E=2`, og Kahn gir rekkefølgen\n`A, B, C, D, E`. Kontroll: alle fem gjenværende kanter peker framover.\n\nDe to andre valgene virker også: fjerner du `B -> C` får du `A, B, D, C, E`\n— nei, kontrollér: uten `B -> C` er inngradene `A=0, B=2, C=0, D=1, E=2`, og\n$B$ venter fortsatt på $E$ som venter på $C$ som nå er fri. Kahn gir\n`A, C, D, E, B`. Også lovlig. Poenget er at det holder å bryte sykelen **ett**\nsted.",
+        "hints": [
+          "Regn ut inngradene først, og se hvor mange noder som starter med inngrad 0.",
+          "Når køen går tom: sammenlign antall prosesserte noder med $|V|$."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å ikke melde fra om sykelen.** Kjører du Kahn uten å sammenligne lengden på\n  rekkefølgen med $|V|$, leverer du en ufullstendig liste som om den var et svar.\n  Oppgaveteksten ber nesten alltid eksplisitt om at algoritmen skal si fra. Dette\n  er felle **#1** i bokas feilregister i sin generelle form — å ikke gjøre den\n  jobben oppgaven faktisk ber om.\n- **Å bruke DFS uten tilstander til å oppdage sykler.** En vanlig DFS med bare\n  «besøkt / ikke besøkt» kan **ikke** skille en sykel fra en node du når på to\n  ulike stier. Du trenger tre tilstander, se avsnittet under.\n- **Å anta at en topologisk rekkefølge finnes.** «Sortér oppgavene topologisk og\n  utfør dem» er ikke et svar hvis grafen kan ha en sykel. Skriv sjekken.\n- **Å oppgi $O(|V| \\cdot |E|)$ eller $O(|V|^2)$.** Med kø er Kahn\n  $O(|V| + |E|)$. Kvadratisk blir den bare hvis du leter etter inngrad-0-noder på\n  nytt hver runde — og da har du faktisk skrevet en tregere algoritme, som koster\n  poeng i poengtrappen.\n- **Å blande retningen.** `u -> v` betyr «$u$ først». Snur du regelen, får du en\n  rekkefølge der alle kantene peker bakover — teknisk sett den omvendte\n  topologiske rekkefølgen, men galt svar på oppgaven som ble stilt.\n\nOg den gjennomgående: **å ikke definere hva $n$ er.** I grafoppgaver skriver du\n$|V|$ og $|E|$, ikke $n$. Bruker du likevel $n$, må du si hva det står for. Det er\nfelle **#10** — kjøretid oppgitt uten at størrelsene er definert."
+    },
+    {
+      "id": "in2010-6-1-t-5",
+      "type": "text",
+      "content": "## Løkke 4 — de to alternativene, og hva sensor egentlig ser etter (ca. 10 min)\n\nKahn er ikke den eneste veien. To alternativer nevnes i pensum, og begge kan gi\nfull uttelling hvis de er presist beskrevet.\n\n**DFS med tre tilstander.** Gi hver node en av tilstandene *uoppdaget*, *under\nprosessering* og *ferdig*. Gjør en dybde-først-traversering; møter du en node som\ner **under prosessering**, har du funnet en sykel. Er alle ferdige, gir nodene i\nomvendt rekkefølge av når de ble *ferdige*, en topologisk rekkefølge. Kjøretiden\ner den samme, $O(|V| + |E|)$.\n\nGrunnen til at de tre tilstandene er nødvendige: en node som er *ferdig*, kan du\ngodt møte på nytt — det betyr bare at to stier fører til samme sted. En node som\ner *under prosessering*, ligger derimot på stien du står på akkurat nå, og da har\ndu gått i ring.\n\n**Sterkt sammenhengende komponenter.** En rettet graf har en sykel hvis og bare\nhvis minst én sterkt sammenhengende komponent inneholder mer enn én node. Det\ngir en sykel-test i $O(|V| + |E|)$, og du får i tillegg vite hvilke noder som\nhenger sammen. Se [kap. 5.4](/in2010/in2010-5-4).\n\n**Kan dette gjøres raskere?** Nei. Du må se på hver kant minst én gang for å vite\nat den peker riktig vei, så $O(|V| + |E|)$ er nedre grense for problemet. Alle tre\nmetodene treffer den. Når tre metoder har samme kjøretid, velger du den du kan\nskrive presist — og det er poenget sensorveiledningene gjentar: en klar forklaring\ner verdt mer enn en uklar pseudokode."
+    },
+    {
+      "id": "in2010-6-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — installasjonsrekkefølge med feilmelding",
+      "problem": "Et system skal installere $n$ programpakker. Hver pakke kan kreve at andre pakker\ner installert først. Skriv en algoritme som enten gir en installasjonsrekkefølge,\neller melder at kravene er umulige å oppfylle. Oppgi antagelser og kjøretid, og si\nhvorfor kjøretiden ikke kan bli lavere.",
+      "solution": "**Problemet navngitt.** Dette er en avhengighetsstruktur der noe må komme før noe\nannet, og spørsmålet er om det finnes en lovlig rekkefølge. Det er **topologisk\nsortering**, og sykeltesten er innebygd.\n\n**Antagelser om representasjon.** Pakkene er nodene i en rettet graf\n$G = (V, E)$ med $|V| = n$ pakker; en kant `p -> q` betyr at `p` må installeres før\n`q`. Grafen er gitt som nabolister, slik at `G.naboer(p)` gir alle pakker som\nventer på `p`. Antall avhengigheter er $|E|$.\n\n**Algoritmen.**\n\n```text\nProcedure Installasjonsrekkefolge(G)\n  Input:  rettet graf G = (V, E) over pakker; kant p -> q betyr «p foer q»\n  Output: en installasjonsrekkefolge, eller meldingen «sirkulaer avhengighet»\n  for hver v i V:\n      inngrad[v] = 0\n  for hver v i V:\n      for hver w i G.naboer(v):\n          inngrad[w] = inngrad[w] + 1\n  Ko = tom ko\n  for hver v i V:\n      if inngrad[v] er 0:\n          Ko.leggTil(v)\n  rekkefolge = tom liste\n  while Ko er ikke tom:\n      v = Ko.taUt()\n      rekkefolge.leggTilBakerst(v)\n      for hver w i G.naboer(v):\n          inngrad[w] = inngrad[w] - 1\n          if inngrad[w] er 0:\n              Ko.leggTil(w)\n  if lengden av rekkefolge er ulik |V|:\n      return «sirkulaer avhengighet», og de gjenvaerende nodene\n  return rekkefolge\n```\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V| = n$ er antall pakker og $|E|$ er antall\navhengigheter. Hver node tas ut av køen én gang, og hver kant behandles én gang.\n\n**Hvorfor dette er lavest mulig.** Enhver korrekt algoritme må lese hver\navhengighet minst én gang — en avhengighet den ikke har sett, kan være den som\ngjør rekkefølgen umulig. Det gir $\\Omega(|V| + |E|)$ som nedre grense, og Kahn\ntreffer den. Det er derfor dette svaret ligger øverst i poengtrappen: en løsning\nsom prøver seg fram med permutasjoner, eller som leter gjennom inngradstabellen\nhver runde ($O(|V|^2)$), er korrekt, men tregere — og «lavere kjøretid er mer\npoenggivende» er den mest gjentatte poengregelen i faget.\n\n**Det siste delpoenget** ligger i returlinja: at algoritmen ikke bare svarer\n«umulig», men også peker på **hvilke** pakker som inngår i den sirkulære\navhengigheten. Det er gratis — det er nettopp nodene som ble liggende igjen."
+    },
+    {
+      "id": "in2010-6-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — matriseavkryssing, altså at du kobler egenskap til algoritme.) Sett\nkryss for hvert utsagn: sant eller usant?\n\n**a)** Enhver rettet graf har minst én topologisk rekkefølge.\n**b)** En DAG kan ha flere forskjellige topologiske rekkefølger.\n**c)** Kahns algoritme er $O(|V| + |E|)$ når køen er en vanlig kø.\n**d)** Hvis Kahns algoritme prosesserer alle nodene, er grafen en DAG.\n**e)** En urettet graf kan sorteres topologisk.",
+        "solution": "**a) Usant.** Bare grafer uten sykel har en topologisk rekkefølge. En rettet graf\nmed en sykel har ingen.\n\n**b) Sant.** Noder uten avhengighet mellom seg kan stå i hvilken som helst\ninnbyrdes rekkefølge. Modulbygget i eksempel 1 har flere lovlige svar.\n\n**c) Sant.** Hver node tas ut av køen én gang, og hver kant behandles én gang.\n\n**d) Sant.** Dette er sykeldeteksjonen brukt motsatt vei: alle noder prosessert\nbetyr at ingen inngrad ble hengende over null, og det betyr ingen sykel.\n\n**e) Usant.** Topologisk sortering forutsetter **retning** på kantene — hele\nbegrepet «kommer før» krever at kanten peker et sted. En urettet kant mellom $u$\nog $v$ ville krevd både at $u$ kommer før $v$ og omvendt.\n\n**Merk fasitmønsteret:** to usanne og tre sanne. På en ekte sant/usant-blokk med\nantigjettings-skalering er det en dårlig idé å tro at svarene fordeler seg jevnt —\nmen det er en enda dårligere idé å gjette. Her skal alle fem sitte sikkert.",
+        "hints": [
+          "Tenk gjennom hva som skjer med en graf som har en sykel, punkt for punkt.",
+          "Punkt e): hva betyr «kommer før» hvis kanten ikke peker noen vei?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) Skriv `ErDAG(G)` — en prosedyre som returnerer `sant` hvis den\nrettede grafen `G` er asyklisk, og `usant` ellers. Oppgi antagelser om\nrepresentasjon og kjøretid.\n\nForklar til slutt med én setning hvorfor du ikke trenger å lete etter selve\nsykelen for å svare.",
+        "solution": "**Problemet navngitt.** Sykeldeteksjon i en rettet graf. Den billigste veien er å\nkjøre topologisk sortering og telle.\n\n**Antagelser om representasjon.** $G = (V, E)$ som nabolister; `inngrad` er et\narray indeksert på node; køen har $O(1)$ innsetting og uttak.\n\n**Algoritmen.**\n\n```text\nProcedure ErDAG(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: sant hvis G ikke har noen sykel, usant ellers\n  for hver v i V:\n      inngrad[v] = 0\n  for hver v i V:\n      for hver w i G.naboer(v):\n          inngrad[w] = inngrad[w] + 1\n  Ko = tom ko\n  for hver v i V:\n      if inngrad[v] er 0:\n          Ko.leggTil(v)\n  antall = 0\n  while Ko er ikke tom:\n      v = Ko.taUt()\n      antall = antall + 1\n      for hver w i G.naboer(v):\n          inngrad[w] = inngrad[w] - 1\n          if inngrad[w] er 0:\n              Ko.leggTil(w)\n  return antall er lik |V|\n```\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall noder og $|E|$ antall kanter.\nHver node tas ut én gang og hver kant behandles én gang; løkkene står etter\nhverandre, så kostnadene legges sammen.\n\n**Hvorfor du slipper å finne sykelen:** antallet prosesserte noder er allerede et\nfullstendig svar — når det er mindre enn $|V|$, *må* det finnes en sykel blant de\ngjenværende, og når det er likt $|V|$, kan det ikke finnes noen.\n\n**Poengtrapp-notat.** Full uttelling krever fire ledd: problemet navngitt,\nantagelsene oppgitt, algoritmen, og kjøretiden med $|V|$ og $|E|$ definert. En\nbesvarelse som bruker rekursiv DFS med tre tilstander i stedet, er like riktig og\ngir like mye — men da må de tre tilstandene faktisk stå der. En DFS med bare\n«besøkt / ikke besøkt» er galt svar, ikke bare et svakere svar.",
+        "hints": [
+          "Du trenger ikke returnere rekkefølgen — bare tellingen. Hva kan du da fjerne fra `TopologiskSortering`?",
+          "Sammenlign antallet prosesserte noder med $|V|$ helt til slutt."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger H, krevende.) En DAG kan ha mange lovlige topologiske rekkefølger. Skriv\nen algoritme som avgjør om rekkefølgen er **entydig**, altså om det finnes\nnøyaktig én.\n\n**a)** Formulér betingelsen for entydighet i én setning.\n**b)** Skriv algoritmen i pseudokode, og oppgi kjøretiden.\n**c)** Sjekk betingelsen på grafen med kantene `A -> B`, `B -> C`, `C -> D`,\n`A -> C`, `B -> D`.",
+        "solution": "**a) Betingelsen.** Rekkefølgen er entydig hvis og bare hvis køen aldri inneholder\nmer enn **én** node samtidig gjennom hele kjøringen.\n\nBegrunnelsen er kort: ligger to noder i køen samtidig, har ingen av dem noen\nbinding til den andre, og de kan bytte plass — altså finnes minst to lovlige\nrekkefølger. Ligger det aldri mer enn én, var hvert steg tvunget.\n\n**b) Algoritmen.**\n\n**Antagelser om representasjon:** $G = (V, E)$ som nabolister, `inngrad` som array,\nkø med $O(1)$ operasjoner.\n\n```text\nProcedure EntydigTopologiskRekkefolge(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: sant hvis G er en DAG med noeyaktig én topologisk rekkefolge\n  beregn inngrad[v] for alle v som i TopologiskSortering\n  Ko = alle v med inngrad[v] lik 0\n  antall = 0\n  while Ko er ikke tom:\n      if Ko inneholder mer enn ett element:\n          return usant\n      v = Ko.taUt()\n      antall = antall + 1\n      for hver w i G.naboer(v):\n          inngrad[w] = inngrad[w] - 1\n          if inngrad[w] er 0:\n              Ko.leggTil(w)\n  return antall er lik |V|\n```\n\n**Kjøretid:** $O(|V| + |E|)$ — nøyaktig som Kahn. Sjekken av køstørrelsen er\n$O(1)$ per runde og endrer ikke orden.\n\n**c)** Inngradstabellen er `A=0, B=1, C=2, D=2`. Summen er 5, og grafen har 5\nkanter.\n\n| Steg | Plukket | Naboers inngrad senkes | Inngrader etter | Kø etter | Rekkefølge så langt |\n|---|---|---|---|---|---|\n| 1 | A | `B: 1 -> 0`, `C: 2 -> 1` | `A=0, B=0, C=1, D=2` | `B` | `A` |\n| 2 | B | `C: 1 -> 0`, `D: 2 -> 1` | `A=0, B=0, C=0, D=1` | `C` | `A, B` |\n| 3 | C | `D: 1 -> 0` | `A=0, B=0, C=0, D=0` | `D` | `A, B, C` |\n| 4 | D | ingen | `A=0, B=0, C=0, D=0` | `tom` | `A, B, C, D` |\n\nKøen inneholder aldri mer enn ett element, og alle fire nodene ble prosessert.\nRekkefølgen `A, B, C, D` er derfor **entydig**.\n\n**Momentet:** entydighet betyr at grafen inneholder en sti gjennom **alle** nodene\n— her `A -> B -> C -> D`. Det er en fin sammenheng å kunne: en DAG har entydig\ntopologisk rekkefølge nøyaktig når den har en hamiltonsk sti. Den observasjonen\nkommer tilbake i [kap. 7.3](/in2010/in2010-7-3), i en helt annen sammenheng.",
+        "hints": [
+          "Tenk på hva det betyr at to noder ligger i køen samtidig.",
+          "Du trenger ikke telle rekkefølger — du trenger bare å oppdage det første valget."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-6-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger H, krevende.) I et byggeprosjekt med $|V|$ oppgaver og $|E|$\navhengigheter vil prosjektlederen vite, for **én bestemt** oppgave $t$, hvor mange\nandre oppgaver som må være ferdige før $t$ kan starte — direkte eller indirekte.\n\n**a)** En kollega foreslår: «kjør en søking fra hver node og se om den når $t$».\nHva blir kjøretiden?\n**b)** Gi en løsning med lavere kjøretid, og oppgi den.\n**c)** Hvor mange er svaret for oppgave $F$ i modulbygget fra eksempel 1?",
+        "solution": "**a)** En full traversering fra én node koster $O(|V| + |E|)$, og kollegaen kjører\nden fra alle $|V|$ nodene. Det gir $O(|V| \\cdot (|V| + |E|))$. Korrekt, men langt\nfra optimalt — dette er felle **#1**: å søke fra *hver* node der én kjøring holder.\n\n**b) Problemet navngitt:** dette er «hvem kan nå $t$», altså hvilke noder det går\nen sti fra, til $t$. Det er reachability — hvem som kan nås fra hvem — sett\nbaklengs.\n\n**Antagelser om representasjon:** $G = (V, E)$ som nabolister. Vi antar at vi også\nkan bygge den **reverserte** grafen $G^R$, der hver kant `u -> v` er snudd til\n`v -> u`. Det koster én gjennomgang av alle nabolistene, $O(|V| + |E|)$.\n\n**Algoritmen:**\n\n```text\nProcedure AntallForutsetninger(G, t)\n  Input:  rettet graf G = (V, E) som nabolister, en node t\n  Output: antall noder som har en sti til t\n  bygg G_R = G med alle kanter snudd\n  gjor én dybde-forst-traversering fra t i G_R,\n      og merk hver node den besoeker\n  return antall merkede noder minus 1     // t selv teller ikke med\n```\n\n**Kjøretid:** $O(|V| + |E|)$. Å snu grafen koster én gjennomgang av alle\nnabolistene, og traverseringen besøker hver node og hver kant én gang. Her er\n$|V|$ antall oppgaver og $|E|$ antall avhengigheter.\n\n**Poengtrappen:** $O(|V| + |E|)$ mot kollegaens $O(|V| \\cdot (|V| + |E|))$ — det\ner forskjellen på øverste og nederste trinn på en typisk Del 2-oppgave.\n\n**c)** I modulbygget når følgende noder fram til $F$: $D$ og $E$ direkte;\n$B$ og $C$ via $D$ og $E$; og $A$ via begge. $G$ og $H$ når **ikke** $F$ — $G$\ngår til $H$, og $H$ er nedstrøms for $F$.\n\nSvaret er **5** oppgaver: $A$, $B$, $C$, $D$ og $E$.",
+        "hints": [
+          "Hva koster én traversering, og hvor mange ganger foreslår kollegaen å gjøre den?",
+          "Spørsmålet «hvem når $t$» er det samme som «hvem når $t$ i grafen med alle piler snudd»."
+        ]
+      }
+    },
+    {
+      "id": "in2010-6-1-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-6-1-def-4",
+      "type": "definition",
+      "title": "Kahns algoritme",
+      "content": "Topologisk sortering ved hjelp av inngrader: legg alle noder med inngrad 0 i en\nkø, ta ut én av gangen, legg den i rekkefølgen, og senk inngraden til alle naboene\ndens. Når en nabos inngrad når 0, legges den i køen.\n\nKjøretid $O(|V| + |E|)$. Melder «syklisk» hvis færre enn $|V|$ noder ble\nprosessert."
+    },
+    {
+      "id": "in2010-6-1-def-5",
+      "type": "definition",
+      "title": "Sykel i rettet graf",
+      "content": "En sti som følger pilene og ender der den startet. En rettet graf med sykel har\n**ingen** topologisk rekkefølge.\n\nTest i $O(|V| + |E|)$: kjør Kahn og sammenlign antall prosesserte noder med $|V|$.\nAlternativt: DFS med tre tilstander, eller en SCC-kjøring der en komponent med mer\nenn én node avslører sykelen."
+    },
+    {
+      "id": "in2010-6-1-def-6",
+      "type": "definition",
+      "title": "DFS med tre tilstander",
+      "content": "Sykeldeteksjon ved dybde-først-søk der hver node er *uoppdaget*, *under\nprosessering* eller *ferdig*. Møter søket en node som er **under prosessering**,\nfinnes en sykel.\n\nKjøretid $O(|V| + |E|)$. To tilstander er ikke nok: en *ferdig* node kan nås fra\nto ulike stier uten at det finnes noen sykel."
+    },
+    {
+      "id": "in2010-6-1-def-7",
+      "type": "definition",
+      "title": "Kildenode og sluttnode",
+      "content": "En **kildenode** har inngrad 0 — ingenting peker inn til den. En **sluttnode** har\nutgrad 0 — den peker ikke videre.\n\nEnhver ikke-tom DAG har minst én av hver. Kahns algoritme starter alltid i\nkildenodene, og de siste nodene i rekkefølgen er alltid sluttnoder."
+    },
+    {
+      "id": "in2010-6-1-def-8",
+      "type": "definition",
+      "title": "Hvorfor køen gjør Kahn lineær",
+      "content": "Uten kø må du lete gjennom inngradstabellen etter en node med inngrad 0 hver\nrunde: $|V|$ runder à $O(|V|)$ leting gir $O(|V|^2)$.\n\nKøen husker hvilke noder som nettopp ble klare, så hver node legges inn og tas ut\nnøyaktig én gang. Det er forskjellen mellom $O(|V|^2)$ og $O(|V| + |E|)$ — og\nmellom nederste og øverste trinn i poengtrappen."
+    },
+    {
+      "id": "in2010-6-1-def-9",
+      "type": "definition",
+      "title": "Kø eller stack i Kahns algoritme",
+      "content": "Begge virker, og begge gir en lovlig topologisk rekkefølge — de gir bare\nforskjellige rekkefølger.\n\nKøen gir en «bredde-først»-aktig rekkefølge, stacken en «dybde-først»-aktig. Sensor\ngodtar enhver lovlig rekkefølge, så velg den du klarer å skrive konsekvent."
+    },
+    {
+      "id": "in2010-6-1-def-10",
+      "type": "definition",
+      "title": "Entydig topologisk rekkefølge",
+      "content": "Rekkefølgen er entydig nøyaktig når køen aldri inneholder mer enn én node\nsamtidig.\n\nLigger to noder i køen på samme tid, har de ingen binding til hverandre og kan\nbytte plass, og da finnes minst to lovlige rekkefølger. Testen koster ingenting\nekstra: $O(|V| + |E|)$."
+    },
+    {
+      "id": "in2010-6-1-def-11",
+      "type": "definition",
+      "title": "Reversert graf",
+      "content": "Grafen $G^R$ der hver kant `u -> v` er snudd til `v -> u`. Å bygge den koster\n$O(|V| + |E|)$ — én gjennomgang av alle nabolistene.\n\nDen er verktøyet når spørsmålet er snudd: «hvem kan nå $t$» i $G$ er det samme som\n«hvem kan nås fra $t$» i $G^R$, og det svares med **én** traversering i stedet for\n$|V|$. Trikset kommer igjen i [kap. 6.2](/in2010/in2010-6-2) med Dijkstra."
+    },
+    {
+      "id": "in2010-6-1-def-12",
+      "type": "definition",
+      "title": "Kjøretiden $O(|V| + |E|)$ — hva den betyr",
+      "content": "Lineær i grafens **størrelse**, ikke i antall noder alene. En graf med mange\nkanter koster mer enn en med få, selv om nodeantallet er likt.\n\nMønsteret dukker opp hver gang en løkke over nodene inneholder en løkke over\n*den nodens* naboer: summen av alle nabolistene er $|E|$, ikke $|V| \\cdot |E|$.\nSamme argument gir kjøretiden til BFS, DFS, topologisk sortering og\nkomponentsøk."
+    },
+    {
+      "id": "in2010-6-1-def-13",
+      "type": "definition",
+      "title": "Vektet DAG og korteste vei",
+      "content": "I en **vektet** DAG finner du korteste vei ved først å sortere topologisk, og så\ngå gjennom nodene i den rekkefølgen og oppdatere avstandene.\n\nKjøretiden er $O(|V| + |E|)$ — raskere enn Dijkstra, og metoden takler til og med\nnegative kantvekter. Dette er én av de fire radene i korteste-vei-matrisen i\n[kap. 6.2](/in2010/in2010-6-2)."
+    },
+    {
+      "id": "in2010-6-1-def-14",
+      "type": "definition",
+      "title": "Mønstergjenkjenning: når er svaret topologisk sortering?",
+      "content": "Når oppgaveteksten bruker ord som **avhengighet**, «må gjøres før»,\n«installasjonsrekkefølge», «forutsetning» eller «sirkulær».\n\nDa skal du gjenkjenne, ikke oppfinne: skriv Kahn, oppgi $O(|V| + |E|)$, og legg\ntil sykelsjekken. Mønsteret er dokumentert i 5 av 7 sett i arkivet."
+    },
+    {
+      "id": "in2010-6-1-def-15",
+      "type": "definition",
+      "title": "Summen av inngrader",
+      "content": "$$\\sum_{v \\in V} \\text{inngrad}(v) = |E|$$\n\nHver kant bidrar med nøyaktig 1 til inngraden til noden den peker på. Bruk det som\nkontrollregning når du har fylt ut inngradstabellen for hånd — stemmer ikke summen\nmed antall kanter, har du telt feil, og hele håndkjøringen blir gal."
+    },
+    {
+      "id": "in2010-6-1-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-6-1-rep-1",
+          "type": "text",
+          "content": "**Håndkjøringsoppskriften, fire steg:**\n\n1. Regn ut inngraden til **alle** nodene først. Kontrollér at summen er $|E|$.\n2. Legg alle noder med inngrad 0 i køen.\n3. Ta ut én om gangen, legg den bakerst i rekkefølgen, og senk inngraden til hver\n   nabo. Når en nabos inngrad når 0, legg den i køen.\n4. Sammenlign lengden på rekkefølgen med $|V|$. Er den kortere: **meld sykel**.\n\n**Pseudokoden, som må sitte hjelpemiddelfritt:**\n\n```text\nProcedure TopologiskSortering(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: topologisk rekkefolge, eller «syklisk»\n  beregn inngrad[v] for alle v\n  Ko = alle v med inngrad[v] lik 0\n  rekkefolge = tom liste\n  while Ko er ikke tom:\n      v = Ko.taUt()\n      rekkefolge.leggTilBakerst(v)\n      for hver w i G.naboer(v):\n          inngrad[w] = inngrad[w] - 1\n          if inngrad[w] er 0:\n              Ko.leggTil(w)\n  if lengden av rekkefolge er ulik |V|:\n      return «syklisk»\n  return rekkefolge\n```\n\n**Kjøretidene:**\n\n| Metode | Kjøretid | Merknad |\n|---|---|---|\n| Kahn med kø | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | standardsvaret |\n| Kahn uten kø (leting hver runde) | $O(\\lvert V \\rvert^2)$ | korrekt, men taper poengtrappen |\n| DFS med tre tilstander | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | gir også sykeldeteksjon |\n| SCC-basert sykeltest | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | se [kap. 5.4](/in2010/in2010-5-4) |\n\n**To kontroller som tar ti sekunder hver:** stemmer summen av inngradene med\nantall kanter? Og peker alle kantene framover i rekkefølgen du leverte?\n\n**Videre:** [kap. 6.2](/in2010/in2010-6-2) bruker topologisk sortering til korteste\nvei i en vektet DAG, og [kap. 6.5](/in2010/in2010-6-5) driller\nmønstergjenkjenningen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

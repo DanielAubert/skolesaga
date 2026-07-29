@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Hvor mye plass krever en nabomatrise for en graf med $|V|$ noder og $|E|$ kanter?",
+  "options": [
+   "$O(|V|^2)$",
+   "$O(|V| + |E|)$",
+   "$O(|E|)$",
+   "$O(|V| \\cdot |E|)$"
+  ],
+  "explanation": "Matrisen har én celle per nodepar, altså $|V|^2$ celler, uansett hvor få kanter grafen har. $O(|V| + |E|)$ er nabolistens plass, og de to blandes ofte. $O(|E|)$ glemmer at hver node må ha en plass selv om den ikke har naboer."
+ },
+ {
+  "question": "Hva koster spørsmålet «finnes kanten mellom $u$ og $v$?» i en nabomatrise?",
+  "options": [
+   "$O(1)$",
+   "$O(\\text{grad}(u))$",
+   "$O(|V|)$",
+   "$O(|V| + |E|)$"
+  ],
+  "explanation": "Du slår opp celle $(u, v)$ direkte. $O(\\text{grad}(u))$ er kostnaden i en **naboliste**, der du må lete gjennom linja, og $O(|V|)$ er kostnaden ved å lese en hel matriserad. Kantoppslaget er den ene operasjonen matrisen vinner klart på."
+ },
+ {
+  "question": "Hva koster det å ramse opp alle naboene til én node $v$ i en naboliste?",
+  "options": [
+   "$O(\\text{grad}(v))$",
+   "$O(|V|)$",
+   "$O(1)$",
+   "$O(|V| + |E|)$"
+  ],
+  "explanation": "Du leser nodens egen linje, som har nøyaktig $\\text{grad}(v)$ oppføringer. $O(|V|)$ er kostnaden i en nabomatrise, der du må lese hele raden inkludert alle nullene. Dette er operasjonen alle grafalgoritmer bruker mest, og grunnen til at naboliste er standardvalget."
+ },
+ {
+  "question": "Hva koster det å gå gjennom hele grafen én gang når den er lagret som nabolister?",
+  "options": [
+   "$O(|V| + |E|)$",
+   "$O(|E|)$",
+   "$O(|V|)$",
+   "$O(|V| \\cdot |E|)$"
+  ],
+  "explanation": "Du må innom hver node, også de uten en eneste nabo, og deretter langs hver kant. Svaret $O(|E|)$ er den vanligste fellen: en graf med en million noder og null kanter ville da vært gratis å gå gjennom, men den koster en million steg."
+ },
+ {
+  "question": "En urettet graf har 9 kanter. Hva er summen av gradene til alle nodene?",
+  "options": [
+   "18",
+   "9",
+   "81",
+   "10"
+  ],
+  "explanation": "Hver kant har to ender og bidrar med 1 til graden i hver av dem, så gradsummen er $2|E| = 18$. Svaret 9 glemmer dobbelttellingen. Bruk regelen som kontroll: en gradsum som er et oddetall betyr alltid at du har telt feil."
+ },
+ {
+  "question": "Hvor mange kanter har et tre med 12 noder?",
+  "options": [
+   "11",
+   "12",
+   "13",
+   "24"
+  ],
+  "explanation": "Et tre har nøyaktig $|E| = |V| - 1$ kanter, altså 11. Svaret 12 svarer til en sammenhengende graf med nøyaktig én sykel, og 24 forveksler kantantallet med gradsummen $2|E|$."
+ },
+ {
+  "question": "En sammenhengende urettet graf har $|V| = 10$ og $|E| = 10$. Hva vet du sikkert?",
+  "options": [
+   "Den har nøyaktig én sykel",
+   "Den har nøyaktig to sykler",
+   "Den er et tre",
+   "Den har minst tre komponenter"
+  ],
+  "explanation": "Et tre med 10 noder ville hatt 9 kanter. Den ene ekstra kanten lager nøyaktig én sykel. Treet er utelukket fordi kantantallet er for høyt, og flere komponenter er utelukket fordi grafen er oppgitt som sammenhengende."
+ },
+ {
+  "question": "Hvilken av disse gjør at en graf **ikke** er enkel?",
+  "options": [
+   "En kant fra en node til seg selv",
+   "En node som ikke har noen kanter",
+   "En sykel gjennom fire noder",
+   "To noder med nøyaktig samme naboer"
+  ],
+  "explanation": "En enkel graf har verken løkker (kant fra en node til seg selv) eller parallelle kanter. En isolert node, en sykel og to noder med like nabolister er alle helt vanlige i enkle grafer — «enkel», «sammenhengende» og «uten sykel» er tre uavhengige egenskaper."
+ },
+ {
+  "question": "I en rettet graf med $|E|$ kanter — hva er summen av alle inngradene?",
+  "options": [
+   "$|E|$",
+   "$2|E|$",
+   "$|V|$",
+   "$|E| / 2$"
+  ],
+  "explanation": "Hver rettet kant bidrar med nøyaktig én inngrad og én utgrad, så begge summene er $|E|$. Svaret $2|E|$ er regelen for **urettede** grafer, der hver kant teller i to noders grad — å bruke den på en rettet graf er en klassisk bom."
+ },
+ {
+  "question": "Hva skiller en sti fra en sykel i en urettet graf?",
+  "options": [
+   "En sykel starter og ender i samme node",
+   "En sykel kan gjenta noder underveis",
+   "En sti må gå gjennom alle nodene",
+   "En sti kan bare ha én kant"
+  ],
+  "explanation": "En sykel er en sti som ender der den startet, uten å gjenta noen annen node. En sti kan være så kort eller lang den vil og trenger ikke å dekke alle noder, og verken sti eller sykel gjentar noder underveis."
+ },
+ {
+  "question": "Grafen har nabolistene `A: B, C`; `B: A, C`; `C: A, B`; `D: E`; `E: D, F`; `F: E`; `G: (ingen)`. Hvor mange sammenhengende komponenter har den?",
+  "options": [
+   "3",
+   "2",
+   "1",
+   "7"
+  ],
+  "explanation": "Bitene er $\\{A, B, C\\}$, $\\{D, E, F\\}$ og $\\{G\\}$. Den ensomme noden G er en komponent for seg selv, og det er nettopp den som er lett å overse — men den er nok til at grafen ikke er sammenhengende."
+ },
+ {
+  "question": "Når er nabomatrise et fornuftig valg framfor naboliste?",
+  "options": [
+   "Når grafen er tett og algoritmen stiller mange kantspørsmål",
+   "Når grafen er tynn og algoritmen ramser opp naboer ofte",
+   "Når grafen har mange noder uten kanter i det hele tatt",
+   "Når grafen er urettet og alle nodene har lav grad"
+  ],
+  "explanation": "Matrisen betaler $|V|^2$ i plass og får $O(1)$ på kantoppslag igjen, så den lønner seg bare når kantene er mange og kantspørsmålene dominerer. I alle de tre andre tilfellene er grafen tynn, og da sløser matrisen bort nesten hele plassen på nuller."
+ },
+ {
+  "question": "Hva må stå i en besvarelse der du skriver en grafalgoritme i pseudokode?",
+  "options": [
+   "Hvilken representasjon av grafen du antar",
+   "Et bevis for at algoritmen terminerer",
+   "En tegning av grafen algoritmen kjøres på",
+   "Hvor mange linjer pseudokoden er på"
+  ],
+  "explanation": "Sensor binder seg ikke til én representasjon, men uten antagelsen kan kjøretiden din ikke kontrolleres: den samme algoritmen er $O(|V| + |E|)$ med naboliste og $O(|V|^2)$ med nabomatrise. De tre andre kreves ikke, og en tegning erstatter uansett ikke antagelsen."
+ },
+ {
+  "question": "Hva er det største antallet kanter en enkel urettet graf med 6 noder kan ha?",
+  "options": [
+   "15",
+   "30",
+   "36",
+   "12"
+  ],
+  "explanation": "Hvert nodepar kan ha høyst én kant, og antall par er $\\frac{6 \\cdot 5}{2} = 15$. Svaret 30 glemmer å dele på 2 og teller hvert par to ganger, og 36 er $|V|^2$, altså antall celler i nabomatrisen inkludert diagonalen."
+ }
+]

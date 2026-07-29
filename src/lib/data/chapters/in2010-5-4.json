@@ -1,0 +1,370 @@
+{
+ "id": "in2010-5-4",
+ "courseId": "in2010",
+ "chapterNumber": "5.4",
+ "title": "SCC og komponentgraf (kondensasjon) — UiO-signatur",
+ "description": "Sterkt sammenhengende komponenter (SCC) og komponentgrafen — UiOs signaturverktøy for reachability-resonnement, der komponentgrafen alltid er en DAG.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne forklare hva en sterkt sammenhengende komponent er, og hvordan komponentgrafen bygges ved å krympe hver komponent til én node",
+  "kunne beskrive de to dybde-først-gjennomløpene som finner komponentene, og begrunne kjøretiden ved løkketelling",
+  "kunne oversette et spørsmål om hvem som kan nås fra hvem til inngrad eller utgrad i komponentgrafen, og oppgi det minste antallet startnoder",
+  "kunne begrunne hvorfor den lineære løsningen slår den som traverserer fra hver enkelt node, og hva den forskjellen betyr for uttellingen"
+ ],
+ "content": [
+  {
+   "id": "in2010-5-4-tip-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette er kapitlet der toppkarakterene skilles.\n\nSterkt sammenhengende komponenter, forkortet **SCC**, og **komponentgrafen** er\nbelagt i **3 av 7 sett (43 %)** — lavere enn traversering, som er i alle sju. Men\nfrekvensen forteller ikke hele historien. SCC er UiOs signaturverktøy, og det\nkommer aldri som «finn de sterkt sammenhengende komponentene». Det kommer som en\noppgavetekst om nettsider, om gater eller om et bytte-nettverk, der du selv må se\nat spørsmålet handler om **hvem som kan nå hvem**. Klarer du det, er resten\nmekanisk. Klarer du det ikke, skriver du en løsning som er kvadratisk der den\nkunne vært lineær, og mister halve poengsummen på den ene oppgaven som skiller\nsjiktene.\n\nSjangeren er **H — grafalgoritme i pseudokode**, altså at du får problemet\nbeskrevet i ord og skal skrive algoritmen selv, med oppgitt kjøretid. Sjanger H\nstår i hvert eneste sett med to eller tre oppgaver, og SCC-oppgaven er som regel\nen av de siste og tyngste.\n\nPrioriteten er **«kunne»**, nivå 2 av tre: stoff du skal beherske og kunne skrive\nned, uten at det er det første du pugger. Men det er nivå 2 med høyest\ndifferensiering i hele grafdelen — det er her forskjellen mellom en god og en\nutmerket besvarelse blir synlig.\n\n**Tre setninger er hele kapitlet.** Lærer du bare disse, har du det viktigste:\n\n1. **Finn rundturer** — grupper der alle når hverandre — er SCC-er med mer enn én\n   node.\n2. **Minste startmengde** — færrest mulig noder å starte fra for å nå alt — er\n   antall komponenter med **inngrad 0** i komponentgrafen.\n3. **Hvor alt ender opp** er komponentene med **utgrad 0**.\n\nAlt sammen i $O(|V| + |E|)$.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| Løkke | Innhold | Tid |\n|---|---|---|\n| 1 | SCC, komponentgrafen og algoritmen | ca. 14 min |\n| 2 | Inngrad 0: den minste startmengden | ca. 18 min |\n| 3 | Utgrad 0: hvor alt ender opp | ca. 15 min |\n| 4 | Poengtrappen, og hva du ikke skal bruke tid på | ca. 8 min |"
+  },
+  {
+   "id": "in2010-5-4-t-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger rett oppå traverseringen, så her er de tre resultatene du\ntrenger, ferdig oppfrisket. Trenger du mer enn oppfriskningen, står de i sin\nhelhet i [kap. 5.2](/in2010/in2010-5-2) og [kap. 5.1](/in2010/in2010-5-1).\n\n**1. DFS-full koster $O(|V| + |E|)$.** Med en ytre løkke over alle noder og et\nfelles `besokt`-felt besøkes hver node én gang og hver kant ses på én gang per\nretning. Én DFS fra **én** node koster $O(|E|)$; forskjellen er initialiseringen\nog nodene uten kanter, og å blande dem er felle **#6**.\n\n**2. Den ytre løkka er det som gjør en traversering komplett.** Uten den\nbehandles bare komponenten du startet i. I dette kapitlet kjører vi to\ngjennomløp, og begge har en slik ytre løkke.\n\n**3. I en rettet graf har hver node inngrad og utgrad.** Inngrad er antall kanter\n**inn** til noden, utgrad antall kanter **ut** fra den. Hele kapitlet handler om\nde to tallene, men målt på komponenter i stedet for på enkeltnoder.\n\nFra [kap. 5.3](/in2010/in2010-5-3) tar vi med tanken om at komponenter kan telles\nmed én traversering — her blir den bare litt mer krevende, fordi kantene har\nretning. Og fra [kap. 1.2](/in2010/in2010-1-2): kjøretider begrunnes ved\nløkketelling, ikke ved påstand."
+  },
+  {
+   "id": "in2010-5-4-coll-notasjon",
+   "type": "collapsible",
+   "title": "Notasjons- og pseudokodeliste",
+   "buttonText": "Vis notasjon og pseudokode",
+   "content": [
+    {
+     "id": "in2010-5-4-nt-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | den rettede grafen: noder $V$ og rettede kanter $E$ |\n| $|V|$, $|E|$ | antall noder og antall kanter |\n| $G_R$ | den **snudde** grafen: samme noder, alle kanter snudd |\n| $K_1, K_2, \\ldots$ | komponentene, altså SCC-ene, nummerert i den rekkefølgen de finnes |\n| $\\text{inngrad}(K)$ | antall kanter inn til komponenten $K$ i komponentgrafen |\n| $\\text{utgrad}(K)$ | antall kanter ut fra komponenten $K$ i komponentgrafen |\n| $O(|V| + |E|)$ | lineær tid — kjøretiden til hele SCC-maskineriet |\n| $O(|V| \\cdot (|V| + |E|))$ | kjøretiden hvis du i stedet traverserer fra **hver** node |"
+    },
+    {
+     "id": "in2010-5-4-nt-2",
+     "type": "text",
+     "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `StronglyConnectedComponents(G)` | returnerer SCC-ene i den rettede grafen `G`, hver som en mengde noder | $O(|V| + |E|)$ |\n| `DFSFerdig(v, Ferdig)` | DFS i `G` som legger hver node bakerst i `Ferdig` når kallet returnerer | $O(|V| + |E|)$ samlet |\n| `SamleVisit(v, G_R, K)` | DFS i den snudde grafen som samler alt den når, i mengden `K` | $O(|V| + |E|)$ samlet |\n| `Reverse(G)` | bygger `G_R` ved å snu hver kant | $O(|V| + |E|)$ |\n| `MinimumStartSet(G)` | antall noder man minst må starte fra for å nå alle noder i `G` | $O(|V| + |E|)$ |\n| `v.komp` | nummeret på komponenten noden `v` havnet i | $O(1)$ |\n\n**Formler i dette delkapitlet:**\n\n$$O(|V| + |E|)$$\n\nKjøretiden til hele opplegget: to DFS-gjennomløp, én snuing av grafen og én\ngjennomgang av kantene for å bygge komponentgrafen. Fire lineære pass er\nfremdeles lineært.\n\n$$O(|V| \\cdot (|V| + |E|))$$\n\nKjøretiden hvis du i stedet spør «hvem når jeg herfra?» med en ny traversering\nfor **hver** node. Det er den naive løsningen, og den koster deg poeng.\n\n$$\\text{minste startmengde} = \\text{antall komponenter med inngrad } 0$$\n\nKjerneformelen i kapitlet. Én node fra hver slik komponent er nok, og færre går\nikke."
+    }
+   ]
+  },
+  {
+   "id": "in2010-5-4-t-1",
+   "type": "text",
+   "content": "## Løkke 1 — hvem kan nå hverandre begge veier? (ca. 14 min)\n\nEt bysentrum har lagt om til enveiskjøring. Et budfirma vil vite hvilke kryss som\nhenger sammen **begge veier**: fra hvilke kryss kan bilen kjøre til et annet kryss\nog tilbake igjen, uten å bryte skiltingen?\n\nDet er ikke det samme som at gatene «henger sammen». Ser du bort fra retningene,\ner hele sentrum ett nett. Men med retningene kan du fint komme deg fra torget til\nhavna uten å kunne kjøre tilbake. Nettopp den forskjellen er hele kapitlet, og\ndet er derfor urettede komponenter fra [kap. 5.3](/in2010/in2010-5-3) ikke svarer\npå spørsmålet.\n\nVi trenger et begrep for «gruppene som henger sammen begge veier». Det heter\n**sterkt sammenhengende komponent**, forkortet SCC, og hverdagsversjonen er:\n*hvem kan nå hverandre begge veier?*"
+  },
+  {
+   "id": "in2010-5-4-def-1",
+   "type": "definition",
+   "title": "Sterkt sammenhengende komponent (SCC)",
+   "content": "En maksimal mengde noder i en **rettet** graf der det finnes en rettet vei fra hver\nnode til hver av de andre — begge veier, for hvert par.\n\n«Maksimal» betyr at du ikke kan legge til én node til uten å ødelegge\negenskapen. En enkelt node uten noen rundtur er en fullverdig SCC med bare seg\nselv i, og det er den vanligste misforståelsen: SCC betyr ikke «stor gruppe». En\nSCC med **mer enn én** node betyr derimot at det finnes en rundtur gjennom alle\nnodene i den."
+  },
+  {
+   "id": "in2010-5-4-def-2",
+   "type": "definition",
+   "title": "Komponentgraf (kondensasjon)",
+   "content": "Grafen du får ved å krympe hver SCC til én enkelt node, og beholde en kant fra\nkomponent $K_i$ til $K_j$ hvis det finnes minst én kant fra en node i $K_i$ til en\nnode i $K_j$.\n\nOrdet **kondensasjon** brukes om det samme: grafen er «fortettet». Poenget er at\nalt som er rundt og rotete i den opprinnelige grafen, er borte — det som blir\nigjen, er den rene retningsstrukturen mellom gruppene. Komponentgrafen bygges i\n$O(|V| + |E|)$ ved å gå gjennom kantene én gang."
+  },
+  {
+   "id": "in2010-5-4-th-1",
+   "type": "theorem",
+   "title": "Komponentgrafen er alltid en DAG",
+   "content": "Komponentgrafen til en hvilken som helst rettet graf inneholder **ingen** rettede\nsykler. Den er alltid en **DAG**, som er standardforkortelsen for en rettet\nasyklisk graf, altså en rettet graf uten rundturer.\n\n**Intuisjonen i én setning:** hadde det gått en rundtur mellom to komponenter,\nville alle nodene i begge nådd hverandre begge veier, og da hadde de per\ndefinisjon vært **én** komponent, ikke to.\n\n**Dette er kjent stoff, og det skal du ikke bevise på eksamen.** Resultatet kan\nbrukes fritt som en kjent egenskap. Å bruke ti minutter av en firetimers eksamen\npå å bevise det, er ti minutter tatt fra oppgaver som gir poeng — og\nsensorveiledningene forventer det ikke. Sett gjerne av én linje til intuisjonen\nover, ikke mer.\n\nKonsekvensen du faktisk bruker: i en DAG finnes det alltid minst én komponent\nmed **inngrad 0** og minst én med **utgrad 0**. Det er de to tallene resten av\nkapitlet handler om."
+  },
+  {
+   "id": "in2010-5-4-th-2",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: `StronglyConnectedComponents`",
+   "content": "**Antagelser om representasjon.** `G` er en rettet graf gitt som nabolister:\n`v`-ens naboliste inneholder nodene `v` peker **på**. Hver node `v` har feltet\n`v.besokt`. Vi kan bygge den snudde grafen `G_R` ved å gå gjennom alle kanter én\ngang.\n\n**Prebetingelse:** ingen. **Postbetingelse:** returverdien er en liste av\nmengder, der hver mengde er én SCC, og hver node ligger i nøyaktig én av dem.\n\n```text\nProcedure StronglyConnectedComponents(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: liste med SCC-ene i G, hver som en mengde noder\n  for hver node v i V:\n      v.besokt = usant\n  Ferdig = tom liste\n  for hver node v i V:\n      if v.besokt er usant:\n          DFSFerdig(v, Ferdig)\n  G_R = G med alle kanter snudd\n  for hver node v i V:\n      v.besokt = usant\n  Komponenter = tom liste\n  for hver node v i Ferdig i OMVENDT rekkefolge:\n      if v.besokt er usant:\n          K = tom mengde\n          SamleVisit(v, G_R, K)\n          legg K bakerst i Komponenter\n  return Komponenter\n```\n\n**Grunnideen i én setning:** rekkefølgen nodene blir **ferdige** i under det\nførste gjennomløpet, sier hvilken komponent som ligger «først» i grafen, og\nstarter du så en DFS i den **snudde** grafen fra den siste som ble ferdig, kan du\nbare nå noder i din egen komponent — så alt den samler inn, er nøyaktig én SCC.\n\n**Kjøretid:** $O(|V| + |E|)$. Gjennomløp 1 er en DFS-full, altså\n$O(|V| + |E|)$; å snu grafen er én gjennomgang av alle kanter, $O(|V| + |E|)$;\ngjennomløp 2 er en ny DFS-full, $O(|V| + |E|)$. Tre lineære pass etter hverandre\ner fremdeles lineært.\n\n**På eksamen holder det som regel å beskrive ideen i ord** — to DFS-gjennomløp,\ndet andre i den snudde grafen i synkende ferdigrekkefølge — sammen med\nkjøretiden. Kravet er at forklaringen er entydig og presis, ikke at den er\nsyntaktisk pseudokode."
+  },
+  {
+   "id": "in2010-5-4-th-3",
+   "type": "theorem",
+   "title": "Pseudokode-kontrakt: hjelpeprosedyrene",
+   "content": "De to gjennomløpene er hver sin lille DFS. Den eneste forskjellen fra en vanlig\n`DFSVisit` er hva de noterer underveis.\n\n```text\nProcedure DFSFerdig(v, Ferdig)\n  Input:  node v i G, listen Ferdig\n  Output: alle noder som nas fra v er besokt, og lagt i Ferdig i ferdigrekkefolge\n  v.besokt = sant\n  for hver nabo u av v i G:\n      if u.besokt er usant:\n          DFSFerdig(u, Ferdig)\n  legg v bakerst i Ferdig\n\nProcedure SamleVisit(v, G_R, K)\n  Input:  node v, den snudde grafen G_R, mengden K under oppbygging\n  Output: alle noder som nas fra v i G_R er lagt i K\n  v.besokt = sant\n  legg v i K\n  for hver nabo u av v i G_R:\n      if u.besokt er usant:\n          SamleVisit(u, G_R, K)\n```\n\n**Legg merke til den ene linja som gjør hele forskjellen:** i `DFSFerdig` legges\nnoden i `Ferdig` **etter** løkka, ikke før. En node blir «ferdig» først når alle\nutveier fra den er utforsket. Legger du den inn før løkka, får du\nbesøksrekkefølgen i stedet, og hele algoritmen slutter å virke.\n\n**Kjøretid:** samlet over alle kallene er begge $O(|V| + |E|)$ — hver node\nbesøkes én gang og hver kant følges én gang, akkurat som i en vanlig DFS-full.\n\n**Rekursjonsdybde:** $O(|V|)$ i verste fall, når grafen er én lang kjede. Det er\nverdt en setning i besvarelsen; en iterativ variant med eksplisitt stakk gjør\nnøyaktig det samme."
+  },
+  {
+   "id": "in2010-5-4-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Enveiskjørt sentrum — tre grupper på rad",
+   "problem": "Åtte kryss i et sentrum er forbundet med enveiskjørte gater. Nabolistene viser\nhvilke kryss du kan kjøre **til** fra hvert kryss:\n\n```text\nA: B\nB: C\nC: A, D\nD: E\nE: D, F\nF: G\nG: H\nH: F\n```\n\nKjør `StronglyConnectedComponents`, bygg komponentgrafen, og svar på hvilke\ngrupper av kryss som henger sammen begge veier.",
+   "solution": "**Problemet navngitt:** dette er «hvem når hvem begge veier» i en rettet graf,\naltså sterkt sammenhengende komponenter. Antagelser: grafen er gitt som\nnabolister, og naboene besøkes i alfabetisk rekkefølge, slik at kjøringen blir\nentydig.\n\n**Gjennomløp 1 — DFS over $G$, noter ferdigrekkefølgen:**\n\n| Hendelse | Node | Ferdignummer |\n|---|---|---|\n| ny DFS-start (ytre løkke) | A | - |\n| besøker | A | - |\n| besøker | B | - |\n| besøker | C | - |\n| besøker | D | - |\n| besøker | E | - |\n| besøker | F | - |\n| besøker | G | - |\n| besøker | H | - |\n| **ferdig** (kallet returnerer) | **H** | **1** |\n| **ferdig** (kallet returnerer) | **G** | **2** |\n| **ferdig** (kallet returnerer) | **F** | **3** |\n| **ferdig** (kallet returnerer) | **E** | **4** |\n| **ferdig** (kallet returnerer) | **D** | **5** |\n| **ferdig** (kallet returnerer) | **C** | **6** |\n| **ferdig** (kallet returnerer) | **B** | **7** |\n| **ferdig** (kallet returnerer) | **A** | **8** |\n\n- ferdigrekkefølge (først ferdig først): H, G, F, E, D, C, B, A\n- SYNKENDE ferdigrekkefølge (den gjennomløp 2 bruker): A, B, C, D, E, F, G, H\n\n**Den snudde grafen $G_R$:**\n\n```text\nA: C\nB: A\nC: B\nD: C, E\nE: D\nF: E, H\nG: F\nH: G\n```\n\n**Gjennomløp 2 — DFS i $G_R$ i synkende ferdigrekkefølge:**\n\n| Nr. | Startnode | Noder samlet inn | = SCC |\n|---|---|---|---|\n| 1 | A | A, B, C | K1 |\n| 2 | D | D, E | K2 |\n| 3 | F | F, G, H | K3 |\n\n- **antall SCC: 3**\n  - K1 = {A, B, C} (3 noder)\n  - K2 = {D, E} (2 noder)\n  - K3 = {F, G, H} (3 noder)\n\n**Komponentgrafen (kondensasjonen):**\n\n```text\nK1 = {A, B, C}: K2\nK2 = {D, E}: K3\nK3 = {F, G, H}: (ingen utkanter)\n```\n\n| Komponent | Noder | Inngrad | Utgrad |\n|---|---|---|---|\n| K1 | A, B, C | 0 | 1 |\n| K2 | D, E | 1 | 1 |\n| K3 | F, G, H | 1 | 0 |\n\n- **komponenter med inngrad 0 (minste startmengde): 1 — K1 = {A, B, C}**\n- **komponenter med utgrad 0: 1 — K3 = {F, G, H}**\n- komponenter med mer enn en node (= det finnes en rundtur): 3 — {A, B, C}; {D, E}; {F, G, H}\n- er komponentgrafen en DAG: JA\n\n**Svaret budfirmaet skal ha:** tre grupper henger sammen begge veier — kryssene\nA, B og C; kryssene D og E; kryssene F, G og H. Innenfor hver gruppe kommer du\nalltid tilbake dit du startet. Mellom gruppene går trafikken bare én vei.\n\n**Kontroll — hvem nås fra hvem:**\n\n| Startnode | Når disse nodene | Antall |\n|---|---|---|\n| A | A, B, C, D, E, F, G, H | 8 |\n| B | A, B, C, D, E, F, G, H | 8 |\n| C | A, B, C, D, E, F, G, H | 8 |\n| D | D, E, F, G, H | 5 |\n| E | D, E, F, G, H | 5 |\n| F | F, G, H | 3 |\n| G | F, G, H | 3 |\n| H | F, G, H | 3 |\n\n- velger vi EN node fra hver inngrad-0-komponent (A), når vi 8 av 8 noder: ALLE\n\n**Les kontrolltabellen én gang til.** Alle nodene i samme SCC har nøyaktig samme\nrad — de når det samme, fordi de når hverandre. Det er hele grunnen til at\nkomponentgrafen er et brukbart svar på reachability-spørsmål: åtte spørsmål er\nredusert til tre.\n\n**Kjøretid:** $O(|V| + |E|)$, her $|V| = 8$ og $|E| = 10$.\n\n**Fellenote.** Fella her er felle **#1** — naiv full traversering der én kjøring\nholdt. Åtte separate DFS-er, én fra hvert kryss, ville gitt den samme\nkontrolltabellen på $O(|V| \\cdot (|V| + |E|))$. Én SCC-kjøring gir den på\n$O(|V| + |E|)$."
+  },
+  {
+   "id": "in2010-5-4-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger H — grafalgoritme i pseudokode, altså at du får\nproblemet i ord og skal svare med algoritmen og kjøretiden. Her holder det å lese\nav strukturen.) Et varslingssystem har fem enheter. Hver enhet varsler videre til\nenhetene i sin naboliste, og varsler går bare én vei:\n\n```text\nA: B, C\nB: D\nC: D\nD: E\nE: (ingen)\n```\n\n**a)** Finnes det noen rundtur i dette systemet?\n**b)** Hvor mange sterkt sammenhengende komponenter har grafen, og hvilke noder\nligger i hver?\n**c)** Hva er den minste mengden enheter du må varsle for at alle skal få\nbeskjed?",
+    "solution": "**a) Nei.** Ingen kant peker «bakover»: A varsler B og C, som varsler D, som\nvarsler E, og E varsler ingen. Du kommer aldri tilbake dit du startet. Grafen er\nallerede en DAG.\n\n**b)** Kjøringen, for ordens skyld:\n\n**Gjennomløp 1 — ferdigrekkefølge:**\n\n| Hendelse | Node | Ferdignummer |\n|---|---|---|\n| ny DFS-start (ytre løkke) | A | - |\n| besøker | A | - |\n| besøker | B | - |\n| besøker | D | - |\n| besøker | E | - |\n| **ferdig** (kallet returnerer) | **E** | **1** |\n| **ferdig** (kallet returnerer) | **D** | **2** |\n| **ferdig** (kallet returnerer) | **B** | **3** |\n| besøker | C | - |\n| **ferdig** (kallet returnerer) | **C** | **4** |\n| **ferdig** (kallet returnerer) | **A** | **5** |\n\n- ferdigrekkefølge (først ferdig først): E, D, B, C, A\n- SYNKENDE ferdigrekkefølge (den gjennomløp 2 bruker): A, C, B, D, E\n\n**Den snudde grafen $G_R$:**\n\n```text\nA: (ingen)\nB: A\nC: A\nD: B, C\nE: D\n```\n\n**Gjennomløp 2:**\n\n| Nr. | Startnode | Noder samlet inn | = SCC |\n|---|---|---|---|\n| 1 | A | A | K1 |\n| 2 | C | C | K2 |\n| 3 | B | B | K3 |\n| 4 | D | D | K4 |\n| 5 | E | E | K5 |\n\n- **antall SCC: 5**\n  - K1 = {A} (1 node)\n  - K2 = {C} (1 node)\n  - K3 = {B} (1 node)\n  - K4 = {D} (1 node)\n  - K5 = {E} (1 node)\n\n**Fem komponenter — én per node.** Det er hele poenget med oppgaven: «SCC»\nbetyr ikke «stor gruppe». Har grafen ingen rundturer, er hver node sin egen\nkomponent, og komponentgrafen er da bare grafen selv.\n\n| Komponent | Noder | Inngrad | Utgrad |\n|---|---|---|---|\n| K1 | A | 0 | 2 |\n| K2 | C | 1 | 1 |\n| K3 | B | 1 | 1 |\n| K4 | D | 2 | 1 |\n| K5 | E | 1 | 0 |\n\n- **komponenter med inngrad 0 (minste startmengde): 1 — K1 = {A}**\n- **komponenter med utgrad 0: 1 — K5 = {E}**\n- komponenter med mer enn en node (= det finnes en rundtur): 0 — ingen\n\n**c) Én enhet: A.** Den er den eneste komponenten med inngrad 0, og\nkontrolltabellen bekrefter at alt nås derfra:\n\n| Startnode | Når disse nodene | Antall |\n|---|---|---|\n| A | A, B, C, D, E | 5 |\n| B | B, D, E | 3 |\n| C | C, D, E | 3 |\n| D | D, E | 2 |\n| E | E | 1 |\n\n- velger vi EN node fra hver inngrad-0-komponent (A), når vi 5 av 5 noder: ALLE",
+    "hints": [
+     "Se etter en kant som peker bakover i systemet — finnes ingen, kan det ikke være noen rundtur.",
+     "En node som ingen peker på, må du varsle selv. Hvor mange slike finnes her?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Fire påstander om sterkt sammenhengende komponenter. Avgjør om hver\ner sann eller usann, og begrunn med én setning.\n\n**a)** En rettet graf der alle nodene henger sammen når du ser bort fra\nretningene, har alltid nøyaktig én SCC.\n**b)** En SCC kan bestå av bare én node.\n**c)** Komponentgrafen kan inneholde en rettet sykel hvis den opprinnelige grafen\nhar mange sykler.\n**d)** Hvis to noder ligger i samme SCC, når de nøyaktig de samme nodene i resten\nav grafen.",
+    "solution": "**a) Usann.** Det er nettopp forskjellen mellom **svakt** og **sterkt**\nsammenhengende. Ser du bort fra retningene og grafen henger sammen, er den svakt\nsammenhengende — men trafikken kan likevel gå bare én vei, slik enveiskjøringen i\neksempel 1 viser: der er hele grafen svakt sammenhengende, men den har tre\nSCC-er.\n\n**b) Sann.** En node uten noen rundtur er en fullverdig SCC med bare seg selv i.\nI en graf helt uten rundturer er hver eneste node sin egen SCC, som i oppgave 1.\n\n**c) Usann.** Komponentgrafen er **alltid** en DAG, uansett hvor mange sykler den\nopprinnelige grafen har. Hadde det gått en rundtur mellom to komponenter, ville\nalle nodene i begge nådd hverandre begge veier — og da ville de vært én\nkomponent, ikke to. Merk at dette er kjent stoff du kan bruke uten å bevise det.\n\n**d) Sann.** Ligger $u$ og $v$ i samme SCC, når $u$ alt $v$ når (gå først til\n$v$, så videre) og omvendt. Det er derfor kontrolltabellen i eksempel 1 har\nidentiske rader for alle noder i samme komponent, og det er hele grunnen til at\nkomponentgrafen kan erstatte den opprinnelige grafen i reachability-spørsmål.\n\n**Merk hvordan d) sparer arbeid.** Åtte spørsmål om «hvem når jeg?» ble til tre\nspørsmål om komponenter. Det er den innsikten alle oppgavene i resten av kapitlet\nhviler på.",
+    "hints": [
+     "To av påstandene handler om forskjellen mellom «henger sammen» og «henger sammen begge veier».",
+     "For c): hva ville det betydd for de to komponentene om det gikk en rundtur mellom dem?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-t-2",
+   "type": "text",
+   "content": "## Løkke 2 — den minste startmengden (ca. 18 min)\n\n— naturlig pausepunkt —\n\nNå kommer den oppgaveformen som faktisk står i settene. Den ser slik ut:\n\n> Et nettsted består av sider som lenker til hverandre. Alle lenkene er\n> enveiskjørte: at side A lenker til side B, betyr ikke at B lenker tilbake.\n> **Hvor få sider må du legge inn i menyen for at en besøkende skal kunne komme\n> seg til hver eneste side ved å klikke seg videre?**\n\nIngen steder står ordet «komponent». Det står ikke «SCC», og det står ikke\n«graf». Jobben din er å se at dette er et spørsmål om **hvem som kan nås fra\nhvem**, og at svaret ligger i komponentgrafen.\n\nTenk gjennom hvorfor. Ligger to sider i samme SCC, spiller det ingen rolle\nhvilken av dem du velger — de når nøyaktig det samme. Så valget står egentlig\nmellom **komponenter**, ikke mellom sider. Og i komponentgrafen, som er en DAG,\nfinnes det komponenter ingen kant peker inn i. Dem kan du umulig nå utenfra, så\nhver av dem må du starte i. Alle andre komponenter kan du følge en kant bakover\nfra, og til slutt havner du i en komponent uten innkommende kanter.\n\nDet gir svaret, og det er verdt å lære ordrett: **antall noder du minst må starte\nfra, er antall komponenter med inngrad 0 i komponentgrafen.**"
+  },
+  {
+   "id": "in2010-5-4-th-4",
+   "type": "theorem",
+   "title": "De tre reachability-mønstrene",
+   "content": "Tre spørsmål dekker så godt som alle SCC-oppgavene. «Reachability» betyr her\nganske enkelt **hvem som kan nås fra hvem**.\n\n**1. «Finn gruppene der alle når hverandre» — rundturer.** Svaret er SCC-ene med\n**mer enn én node**. Signalord i oppgaveteksten: rundtur, sirkel, «kommer tilbake\ntil», «kan bytte med hverandre», gjensidig.\n\n**2. «Hvor få må jeg starte fra for å nå alt?» — startmengden.** Svaret er\n**antall komponenter med inngrad 0** i komponentgrafen, og én vilkårlig node fra\nhver av dem er et gyldig valg. Signalord: «minste antall», «hvor få sider i\nmenyen», «hvor mange må varsles først».\n\n**Hvorfor tallet er riktig, begge veier.** Det er nok: fra en komponent med\ninngrad 0 kan du følge kanter framover, og siden komponentgrafen er en DAG uten\nrundturer, når du til slutt alt som ligger nedstrøms — og hver eneste komponent\nhar en vei bakover til minst én inngrad-0-komponent. Og færre går ikke: en\nkomponent med inngrad 0 kan per definisjon ikke nås fra noen annen komponent, så\nden må ha en startnode i seg selv.\n\n**3. «Hvem ender alt opp i?» — slukene.** Svaret er komponentene med **utgrad 0**.\nEr det nøyaktig **én** slik komponent, nås den fra samtlige noder i grafen, og da\nhar du funnet gruppen «alle andre til slutt kommer fram til». Er det flere, finnes\ningen slik gruppe. Signalord: «hvor havner alt», «hvilke sider kan man ikke komme\nseg videre fra».\n\n**Speilbildet, som ofte spørres om i samme oppgave:** finnes det **én** node som\nnår alle andre? Ja, hvis og bare hvis komponentgrafen har nøyaktig **én**\nkomponent med inngrad 0 — da er hvilken som helst node i den et gyldig svar.\n\n**Kjøretid for alle tre:** $O(|V| + |E|)$. Du kjører SCC én gang, bygger\nkomponentgrafen med én gjennomgang av kantene, og teller inngrader og utgrader."
+  },
+  {
+   "id": "in2010-5-4-fig-1",
+   "type": "image",
+   "src": "/images/textbook/in2010/scc-komponentgraf.svg",
+   "alt": "Til venstre en rettet graf med åtte noder der fire par er ringet inn som komponentene K1 = {C, D}, K2 = {A, B}, K3 = {E, F} og K4 = {G, H}. Til høyre den samme grafen kondensert til fire noder K1 til K4, med kanter fra K1 og K2 inn til K3 og videre fra K3 til K4. K1 og K2 er merket «inngrad 0», K4 er merket «utgrad 0», og under står «alltid en DAG — ingen sykler igjen».",
+   "caption": "Se på høyre side: det er to komponenter ingen kant peker inn i. Det tallet — to — er svaret på «hvor få må jeg starte fra». Legg også merke til at alle rundturene fra venstre side er borte i kondensasjonen."
+  },
+  {
+   "id": "in2010-5-4-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Nettstedet — hvor få sider må ligge i menyen?",
+   "problem": "Et nettsted har åtte sider. Nabolistene viser hvilke sider hver side lenker\n**til**:\n\n```text\nA: B, E\nB: A\nC: D, E\nD: C\nE: F, G\nF: E\nG: H\nH: G\n```\n\nHvor få sider må ligge i menyen for at en besøkende skal kunne klikke seg videre\ntil hver eneste side? Oppgi algoritmen, svaret og kjøretiden.",
+   "solution": "**Problemet navngitt:** dette er reachability i en rettet graf — «hvor få\nstartpunkter trengs for å nå alt». Verktøyet er SCC pluss komponentgrafen, og\nsvaret er antall komponenter med inngrad 0.\n\n**Antagelser om representasjon:** nabolister der `v`-ens liste inneholder sidene\n`v` lenker til; naboene besøkes i alfabetisk rekkefølge.\n\n**Gjennomløp 1 — DFS over $G$, noter ferdigrekkefølgen:**\n\n| Hendelse | Node | Ferdignummer |\n|---|---|---|\n| ny DFS-start (ytre løkke) | A | - |\n| besøker | A | - |\n| besøker | B | - |\n| **ferdig** (kallet returnerer) | **B** | **1** |\n| besøker | E | - |\n| besøker | F | - |\n| **ferdig** (kallet returnerer) | **F** | **2** |\n| besøker | G | - |\n| besøker | H | - |\n| **ferdig** (kallet returnerer) | **H** | **3** |\n| **ferdig** (kallet returnerer) | **G** | **4** |\n| **ferdig** (kallet returnerer) | **E** | **5** |\n| **ferdig** (kallet returnerer) | **A** | **6** |\n| ny DFS-start (ytre løkke) | C | - |\n| besøker | C | - |\n| besøker | D | - |\n| **ferdig** (kallet returnerer) | **D** | **7** |\n| **ferdig** (kallet returnerer) | **C** | **8** |\n\n- ferdigrekkefølge (først ferdig først): B, F, H, G, E, A, D, C\n- SYNKENDE ferdigrekkefølge (den gjennomløp 2 bruker): C, D, A, E, G, H, F, B\n\n**Den snudde grafen $G_R$:**\n\n```text\nA: B\nB: A\nC: D\nD: C\nE: A, C, F\nF: E\nG: E, H\nH: G\n```\n\n**Gjennomløp 2 — DFS i $G_R$ i synkende ferdigrekkefølge:**\n\n| Nr. | Startnode | Noder samlet inn | = SCC |\n|---|---|---|---|\n| 1 | C | C, D | K1 |\n| 2 | A | A, B | K2 |\n| 3 | E | E, F | K3 |\n| 4 | G | G, H | K4 |\n\n- **antall SCC: 4**\n  - K1 = {C, D} (2 noder)\n  - K2 = {A, B} (2 noder)\n  - K3 = {E, F} (2 noder)\n  - K4 = {G, H} (2 noder)\n\n**Komponentgrafen (kondensasjonen):**\n\n```text\nK1 = {C, D}: K3\nK2 = {A, B}: K3\nK3 = {E, F}: K4\nK4 = {G, H}: (ingen utkanter)\n```\n\n| Komponent | Noder | Inngrad | Utgrad |\n|---|---|---|---|\n| K1 | C, D | 0 | 1 |\n| K2 | A, B | 0 | 1 |\n| K3 | E, F | 2 | 1 |\n| K4 | G, H | 1 | 0 |\n\n- **komponenter med inngrad 0 (minste startmengde): 2 — K1 = {C, D}, K2 = {A, B}**\n- **komponenter med utgrad 0: 1 — K4 = {G, H}**\n- komponenter med mer enn en node (= det finnes en rundtur): 4 — {C, D}; {A, B}; {E, F}; {G, H}\n- er komponentgrafen en DAG: JA\n\n**Svaret: to sider må ligge i menyen.** For eksempel C og A — eller D og B, det\nspiller ingen rolle hvilken av de to i hver komponent du velger.\n\n**Kontroll — hvem nås fra hvem:**\n\n| Startnode | Når disse nodene | Antall |\n|---|---|---|\n| A | A, B, E, F, G, H | 6 |\n| B | A, B, E, F, G, H | 6 |\n| C | C, D, E, F, G, H | 6 |\n| D | C, D, E, F, G, H | 6 |\n| E | E, F, G, H | 4 |\n| F | E, F, G, H | 4 |\n| G | G, H | 2 |\n| H | G, H | 2 |\n\n- velger vi EN node fra hver inngrad-0-komponent (C, A), når vi 8 av 8 noder: ALLE\n\n**Se hva kontrolltabellen sier om hvorfor ÉN side ikke holder.** Ingen enkeltrad\nhar 8. Den beste enkeltsiden når seks av åtte, og de to som mangler, ligger i den\nandre inngrad-0-komponenten — dit går det ingen lenke utenfra i det hele tatt.\nDet er den konkrete versjonen av argumentet «en komponent med inngrad 0 kan ikke\nnås utenfra, så den må ha en startnode i seg selv».\n\n**Kjøretid:** $O(|V| + |E|)$, her $|V| = 8$ og $|E| = 11$. To DFS-gjennomløp,\nén snuing av grafen og én gjennomgang av kantene for å telle inngrader — fire\nlineære pass.\n\n**Fellenote.** Fella her er felle **#1** — å teste hver side for seg med en ny\ntraversering. Det gir riktig svar på $O(|V| \\cdot (|V| + |E|))$, og på en oppgave\nder sensor oppgir at lavere kjøretid gir mer uttelling, koster det merkbart. Den\nnest vanligste er å telle **utgrad** 0 i stedet for inngrad 0 og svare «én» — les\nspørsmålet en gang til før du teller."
+  },
+  {
+   "id": "in2010-5-4-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) En varekjede har ni sentrallagre. Et lager kan sende varer videre\ntil lagrene i sin naboliste, men ikke motsatt vei:\n\n```text\nA: B\nB: C\nC: D\nD: B, E\nE: I\nF: C, G\nG: H\nH: F\nI: E\n```\n\n**a)** Finn alle sterkt sammenhengende komponentene.\n**b)** Sett opp komponentgrafen med inngrad og utgrad per komponent.\n**c)** Hvor få lagre må få en leveranse utenfra for at varer skal kunne nå alle\nni? Hvilke?",
+    "solution": "**Problemet navngitt:** reachability i en rettet graf — SCC pluss komponentgraf.\n**Antagelser:** nabolister, naboene besøkes i alfabetisk rekkefølge.\n\n**a) Gjennomløp 1 — ferdigrekkefølgen:**\n\n| Hendelse | Node | Ferdignummer |\n|---|---|---|\n| ny DFS-start (ytre løkke) | A | - |\n| besøker | A | - |\n| besøker | B | - |\n| besøker | C | - |\n| besøker | D | - |\n| besøker | E | - |\n| besøker | I | - |\n| **ferdig** (kallet returnerer) | **I** | **1** |\n| **ferdig** (kallet returnerer) | **E** | **2** |\n| **ferdig** (kallet returnerer) | **D** | **3** |\n| **ferdig** (kallet returnerer) | **C** | **4** |\n| **ferdig** (kallet returnerer) | **B** | **5** |\n| **ferdig** (kallet returnerer) | **A** | **6** |\n| ny DFS-start (ytre løkke) | F | - |\n| besøker | F | - |\n| besøker | G | - |\n| besøker | H | - |\n| **ferdig** (kallet returnerer) | **H** | **7** |\n| **ferdig** (kallet returnerer) | **G** | **8** |\n| **ferdig** (kallet returnerer) | **F** | **9** |\n\n- ferdigrekkefølge (først ferdig først): I, E, D, C, B, A, H, G, F\n- SYNKENDE ferdigrekkefølge (den gjennomløp 2 bruker): F, G, H, A, B, C, D, E, I\n\n**Den snudde grafen $G_R$:**\n\n```text\nA: (ingen)\nB: A, D\nC: B, F\nD: C\nE: D, I\nF: H\nG: F\nH: G\nI: E\n```\n\n**Gjennomløp 2 — DFS i $G_R$ i synkende ferdigrekkefølge:**\n\n| Nr. | Startnode | Noder samlet inn | = SCC |\n|---|---|---|---|\n| 1 | F | F, G, H | K1 |\n| 2 | A | A | K2 |\n| 3 | B | B, C, D | K3 |\n| 4 | E | E, I | K4 |\n\n- **antall SCC: 4**\n  - K1 = {F, G, H} (3 noder)\n  - K2 = {A} (1 node)\n  - K3 = {B, C, D} (3 noder)\n  - K4 = {E, I} (2 noder)\n\n**b) Komponentgrafen (kondensasjonen):**\n\n```text\nK1 = {F, G, H}: K3\nK2 = {A}: K3\nK3 = {B, C, D}: K4\nK4 = {E, I}: (ingen utkanter)\n```\n\n| Komponent | Noder | Inngrad | Utgrad |\n|---|---|---|---|\n| K1 | F, G, H | 0 | 1 |\n| K2 | A | 0 | 1 |\n| K3 | B, C, D | 2 | 1 |\n| K4 | E, I | 1 | 0 |\n\n- **komponenter med inngrad 0 (minste startmengde): 2 — K1 = {F, G, H}, K2 = {A}**\n- **komponenter med utgrad 0: 1 — K4 = {E, I}**\n- komponenter med mer enn en node (= det finnes en rundtur): 3 — {F, G, H}; {B, C, D}; {E, I}\n- er komponentgrafen en DAG: JA\n\n**c) To lagre.** Ett fra hver inngrad-0-komponent: for eksempel **F** (eller G\neller H) og **A**. Kontrolltabellen bekrefter at det holder, og at ingen enkelt\nlager holder alene:\n\n| Startnode | Når disse nodene | Antall |\n|---|---|---|\n| A | A, B, C, D, E, I | 6 |\n| B | B, C, D, E, I | 5 |\n| C | B, C, D, E, I | 5 |\n| D | B, C, D, E, I | 5 |\n| E | E, I | 2 |\n| F | B, C, D, E, F, G, H, I | 8 |\n| G | B, C, D, E, F, G, H, I | 8 |\n| H | B, C, D, E, F, G, H, I | 8 |\n| I | E, I | 2 |\n\n- velger vi EN node fra hver inngrad-0-komponent (F, A), når vi 9 av 9 noder: ALLE\n\n**Merk raden for F.** Den når åtte av ni — alt unntatt A. Og A er nettopp den\nandre komponenten med inngrad 0: ingen kant peker inn til A i det hele tatt.\nLegg også merke til at $A$ er en SCC med bare **én** node, og likevel en av de to\nsom må ha leveranse. Størrelsen på komponenten har ingenting med saken å gjøre;\ndet er inngraden som teller.\n\n**Kjøretid:** $O(|V| + |E|)$, med $|V| = 9$ og $|E| = 11$.",
+    "hints": [
+     "Kjør gjennomløp 1 først og skriv ned ferdignummeret hvert kall får når det returnerer.",
+     "Når du har komponentene, gå gjennom kantene én gang og noter hvilke som krysser mellom to ulike komponenter."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Skriv `MinimumStartSet(G)`, som returnerer det minste antallet noder\nman må starte i for å nå alle noder i en rettet graf `G`. Du kan bruke\n`StronglyConnectedComponents(G)` som en ferdig byggekloss.\n\nOppgi antagelser om representasjon, kjøretid, og én setning om hvorfor tallet er\nriktig.",
+    "solution": "**Problemet navngitt:** minste startmengde i en rettet graf. Verktøyet er SCC\npluss komponentgrafen, og svaret er antall komponenter med inngrad 0.\n\n**Antagelser om representasjon:** `G` er en rettet graf gitt som nabolister; hver\nnode `v` har feltet `v.komp`, som fylles med nummeret på komponenten den havner\ni. `StronglyConnectedComponents(G)` returnerer komponentene som en liste av\nmengder, i $O(|V| + |E|)$.\n\n**Algoritmen:**\n\n```text\nProcedure MinimumStartSet(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: minste antall noder man ma starte i for a na alle noder i G\n  Komponenter = StronglyConnectedComponents(G)\n  for hver komponent K i Komponenter:\n      K.inngrad = 0\n      for hver node v i K:\n          v.komp = K\n  for hver node v i V:\n      for hver nabo u av v:\n          if v.komp er ulik u.komp:\n              u.komp.inngrad = u.komp.inngrad + 1\n  antall = 0\n  for hver komponent K i Komponenter:\n      if K.inngrad er 0:\n          antall = antall + 1\n  return antall\n```\n\n**Hvorfor tallet er riktig, i én setning hver vei:** en komponent med inngrad 0\nkan ikke nås fra noen annen komponent, så den må ha en startnode i seg selv — og\nmotsatt har hver eneste komponent en vei bakover til minst én inngrad-0-komponent,\nsiden komponentgrafen er en DAG og du derfor aldri går i ring når du følger\nkanter bakover.\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall noder og $|E|$ antall kanter.\nSCC-kallet er $O(|V| + |E|)$; merkingen av `v.komp` går gjennom hver node én\ngang; kantløkka ser på hver kant én gang; opptellingen til slutt går gjennom\nkomponentene, som er høyst $|V|$ stykker.\n\n**En detalj verdt en setning:** her telles kanter, ikke distinkte naboer, så to\nkanter mellom de samme komponentene gir inngrad 2. For testen «er inngraden 0?»\nspiller det ingen rolle, og å bygge en duplikatfri komponentgraf ville kostet mer\nuten å endre svaret.\n\n**Kan dette gjøres raskere?** Nei. Du må se på hver kant for å vite hvilke\nkomponenter som har innkommende kanter, så $O(|V| + |E|)$ er nedre grense.\n\n**Poengtrapp-notat.** Hovedmomentet er å navngi problemet som reachability og\nvelge SCC pluss komponentgraf; det gir mest uttelling. Deretter kommer korrekt\ntelling av inngrad 0, og til slutt kjøretiden med størrelsene definert. En\nbesvarelse som i stedet kjører en traversering fra hver node og prøver seg fram,\nlander på $O(|V| \\cdot (|V| + |E|))$ og faller et trinn ned på poengtrappen selv\nom svaret er riktig.",
+    "hints": [
+     "Etter SCC-kallet trenger du å vite hvilken komponent hver node ligger i — sett et felt på noden.",
+     "Gå gjennom kantene én gang: hvilke av dem krysser mellom to ulike komponenter?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Bruk resultatet ditt fra oppgave 3, altså varekjeden med de ni\nsentrallagrene.\n\n**a)** Hvilke grupper av lagre kan sende varer til hverandre begge veier?\n**b)** Ett av de ni lagrene ligger i en komponent helt alene. Hvilket, og hva\nbetyr det praktisk?\n**c)** Er det riktig å si at «det finnes tre rundturer i systemet»? Begrunn.",
+    "solution": "**a)** Gruppene som når hverandre begge veier, er SCC-ene med **mer enn én node**:\n\n- {F, G, H}\n- {B, C, D}\n- {E, I}\n\nInnenfor hver av dem finnes det en rettet rundtur, så varer kan sirkulere fritt.\nMellom gruppene går det bare én vei.\n\n**b) Lageret A.** Det er en SCC med bare seg selv i, og det betyr at A ikke ligger\npå noen rundtur: sender A varer videre, kommer de aldri tilbake. Praktisk sett er\nA et rent utgangspunkt i kjeden — det kan levere til alle de andre gruppene, men\ningen kan levere til A.\n\n**c) Ja, med en presisering.** Det finnes tre **komponenter** med mer enn én node,\nog hver av dem inneholder minst én rundtur — så «tre rundturer» er en riktig\noppsummering av strukturen. Men det er ikke det samme som at det finnes nøyaktig\ntre lukkede turer i grafen: en komponent med tre noder kan inneholde flere ulike\nrundturer. Det SCC-analysen gir deg, er **hvor** rundturene er, ikke hvor mange\ndistinkte turer som finnes.\n\n**Merk hvor lite ekstra arbeid dette var.** Alle tre svarene er lest rett av\nresultatet fra oppgave 3, uten en eneste ny traversering. Det er derfor det lønner\nseg å kjøre SCC først og stille spørsmålene etterpå: den ene kjøringen på\n$O(|V| + |E|)$ besvarer hele familien av reachability-spørsmål.",
+    "hints": [
+     "Se på komponentlista fra oppgave 3 og skill mellom komponenter med én node og med flere.",
+     "For c): tenk over forskjellen mellom «hvor rundturene er» og «hvor mange rundturer det finnes»."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-t-3",
+   "type": "text",
+   "content": "## Løkke 3 — hvor alt ender opp (ca. 15 min)\n\n— naturlig pausepunkt —\n\nSnu spørsmålet. I stedet for «hvor må jeg starte for å nå alt?» spør vi «hvor\nhavner alt til slutt?».\n\nEt saksbehandlingssystem videresender saker mellom kontorer. Noen kontorer sender\nvidere, noen sender fram og tilbake seg imellom, og noen sender ikke videre i det\nhele tatt — der blir saken liggende. Ledelsen vil vite hvor sakene ender opp.\n\nI komponentgrafen er svaret en komponent med **utgrad 0**: en gruppe du ikke\nkommer deg ut av. Og siden komponentgrafen er en DAG, finnes det alltid minst én\nslik. Følger du kanter framover, kan du ikke gå i ring, så du må før eller siden\nstoppe et sted.\n\n**Er det nøyaktig én komponent med utgrad 0, når alle noder i grafen den.**\nArgumentet er det samme, speilvendt: start hvor som helst, følg kanter framover,\nog du stopper i en utgrad-0-komponent — og finnes det bare én, er det den. Er det\n**flere**, finnes det ingen gruppe «alt ender i»: hvilken du havner i, avhenger av\nhvor du startet.\n\nDette er felle-paret du må holde fra hverandre, og det er verdt å skrive det opp\npå arket før du begynner å telle:\n\n| Spørsmålet i oppgaveteksten | Tell |\n|---|---|\n| «hvor få må jeg starte fra for å nå alt?» | komponenter med **inngrad 0** |\n| «finnes det én som når alle andre?» | ja, hvis det er nøyaktig **én** inngrad-0-komponent |\n| «hvor ender alt opp?» | komponenter med **utgrad 0** |\n| «finnes det én alle andre kommer fram til?» | ja, hvis det er nøyaktig **én** utgrad-0-komponent |"
+  },
+  {
+   "id": "in2010-5-4-def-3",
+   "type": "definition",
+   "title": "Inngrad 0 i komponentgrafen",
+   "content": "En komponent som ingen kant peker inn til. Den kan ikke nås fra noen annen del av\ngrafen.\n\nAntall slike komponenter er **den minste startmengden**: så mange noder må du\nminst starte fra for å nå alt, og én vilkårlig node fra hver av dem holder. Er det\nnøyaktig én, finnes det én enkelt node som når samtlige andre."
+  },
+  {
+   "id": "in2010-5-4-def-4",
+   "type": "definition",
+   "title": "Utgrad 0 i komponentgrafen",
+   "content": "En komponent uten utgående kanter — en gruppe du ikke kommer deg ut av igjen. I en\nDAG finnes det alltid minst én.\n\nEr det nøyaktig **én** slik komponent, nås den fra hver eneste node i grafen: den\ner der alt ender opp. Er det flere, finnes ingen slik gruppe. Å forveksle\nutgrad 0 med inngrad 0 er den vanligste enkeltfeilen i SCC-oppgaver."
+  },
+  {
+   "id": "in2010-5-4-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Saksflyten — to steder saken kan bli liggende",
+   "problem": "Ni kontorer videresender saker slik nabolistene viser. En kant fra X til Y betyr\nat kontor X kan sende en sak videre til kontor Y:\n\n```text\nA: B\nB: C, H\nC: A, D\nD: E, G\nE: F\nF: D\nG: (ingen)\nH: I\nI: H\n```\n\n**a)** Finn SCC-ene og komponentgrafen.\n**b)** Hvor kan en sak ende opp?\n**c)** Finnes det ett kontor alle saker til slutt havner hos?",
+   "solution": "**Problemet navngitt:** reachability i en rettet graf — SCC pluss komponentgraf,\nog deretter avlesning av utgrad 0.\n\n**Gjennomløp 1 — DFS over $G$, noter ferdigrekkefølgen:**\n\n| Hendelse | Node | Ferdignummer |\n|---|---|---|\n| ny DFS-start (ytre løkke) | A | - |\n| besøker | A | - |\n| besøker | B | - |\n| besøker | C | - |\n| besøker | D | - |\n| besøker | E | - |\n| besøker | F | - |\n| **ferdig** (kallet returnerer) | **F** | **1** |\n| **ferdig** (kallet returnerer) | **E** | **2** |\n| besøker | G | - |\n| **ferdig** (kallet returnerer) | **G** | **3** |\n| **ferdig** (kallet returnerer) | **D** | **4** |\n| **ferdig** (kallet returnerer) | **C** | **5** |\n| besøker | H | - |\n| besøker | I | - |\n| **ferdig** (kallet returnerer) | **I** | **6** |\n| **ferdig** (kallet returnerer) | **H** | **7** |\n| **ferdig** (kallet returnerer) | **B** | **8** |\n| **ferdig** (kallet returnerer) | **A** | **9** |\n\n- ferdigrekkefølge (først ferdig først): F, E, G, D, C, I, H, B, A\n- SYNKENDE ferdigrekkefølge (den gjennomløp 2 bruker): A, B, H, I, C, D, G, E, F\n\n**Den snudde grafen $G_R$:**\n\n```text\nA: C\nB: A\nC: B\nD: C, F\nE: D\nF: E\nG: D\nH: B, I\nI: H\n```\n\n**Gjennomløp 2 — DFS i $G_R$ i synkende ferdigrekkefølge:**\n\n| Nr. | Startnode | Noder samlet inn | = SCC |\n|---|---|---|---|\n| 1 | A | A, B, C | K1 |\n| 2 | H | H, I | K2 |\n| 3 | D | D, E, F | K3 |\n| 4 | G | G | K4 |\n\n- **antall SCC: 4**\n  - K1 = {A, B, C} (3 noder)\n  - K2 = {H, I} (2 noder)\n  - K3 = {D, E, F} (3 noder)\n  - K4 = {G} (1 node)\n\n**a) Komponentgrafen (kondensasjonen):**\n\n```text\nK1 = {A, B, C}: K2 -> K3\nK2 = {H, I}: (ingen utkanter)\nK3 = {D, E, F}: K4\nK4 = {G}: (ingen utkanter)\n```\n\n| Komponent | Noder | Inngrad | Utgrad |\n|---|---|---|---|\n| K1 | A, B, C | 0 | 2 |\n| K2 | H, I | 1 | 0 |\n| K3 | D, E, F | 1 | 1 |\n| K4 | G | 1 | 0 |\n\n- **komponenter med inngrad 0 (minste startmengde): 1 — K1 = {A, B, C}**\n- **komponenter med utgrad 0: 2 — K2 = {H, I}, K4 = {G}**\n- komponenter med mer enn en node (= det finnes en rundtur): 3 — {A, B, C}; {H, I}; {D, E, F}\n- er komponentgrafen en DAG: JA\n\n**b) To steder.** En sak kan bli liggende hos H og I, som sender fram og tilbake\nmellom seg og ikke videre, eller hos G, som ikke sender videre i det hele tatt.\nDet er de to komponentene med utgrad 0.\n\n**c) Nei.** Fordi det er **to** utgrad-0-komponenter, finnes det ikke ett kontor\nalle saker havner hos. Hvor saken ender, avhenger av hvilken vei den ble sendt\nfra K1: gikk den til H, kommer den aldri til G, og omvendt. Kontrolltabellen\nviser det direkte:\n\n| Startnode | Når disse nodene | Antall |\n|---|---|---|\n| A | A, B, C, D, E, F, G, H, I | 9 |\n| B | A, B, C, D, E, F, G, H, I | 9 |\n| C | A, B, C, D, E, F, G, H, I | 9 |\n| D | D, E, F, G | 4 |\n| E | D, E, F, G | 4 |\n| F | D, E, F, G | 4 |\n| G | G | 1 |\n| H | H, I | 2 |\n| I | H, I | 2 |\n\n- velger vi EN node fra hver inngrad-0-komponent (A), når vi 9 av 9 noder: ALLE\n\n**Merk kontrasten mellom b) og c).** Det er **én** komponent med inngrad 0, så ett\nenkelt kontor — A, B eller C — kan nå samtlige ni. Men det er **to** med utgrad 0,\nså det finnes ikke noe enkelt kontor som samtlige ni når. De to spørsmålene er speilbilder,\nog de har ulike svar i den samme grafen. Det er nettopp derfor forvekslingen er\nså dyr.\n\n**Kjøretid:** $O(|V| + |E|)$, her $|V| = 9$ og $|E| = 11$.\n\n**Fellenote.** Fella her er å svare på c) ved å lete etter en node med utgrad 0 i\nden **opprinnelige** grafen. Her ville du funnet G og trodd du var i mål — men H\nog I har begge utgående kanter og er likevel et endepunkt, fordi kantene deres\nbare peker på hverandre. Spørsmålet skal alltid stilles i **komponentgrafen**."
+  },
+  {
+   "id": "in2010-5-4-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger H.) Fortsett på saksflyten fra eksempel 3.\n\n**a)** Hvorfor er ikke G alene svaret på «hvor ender alt opp?», selv om G er det\neneste kontoret uten utgående kant?\n**b)** Ledelsen vil endre systemet slik at det finnes **ett** sted alle saker\nhavner. Foreslå én enkelt ny videresending, altså én ny rettet kant, som gjør\ndet, og forklar hvorfor den virker.\n**c)** Hva skjer med antall SCC-er hvis du i stedet legger til kanten fra G\ntilbake til A?",
+    "solution": "**a)** Fordi H og I danner en gruppe man ikke kommer seg ut av, selv om begge har\nutgående kanter. H peker på I og I peker på H, og ingen av kantene forlater\ngruppen. I komponentgrafen har komponenten {H, I} derfor utgrad 0, akkurat som\n{G}. Å lete etter noder uten utgående kanter i den opprinnelige grafen finner bare\ndet ene av de to endepunktene.\n\n**b) Legg til kanten fra I til G** (eller fra H til G). Da får komponenten {H, I}\nutgrad 1, og den eneste komponenten med utgrad 0 blir {G}. Med nøyaktig én\nutgrad-0-komponent følger det at hver node i grafen når G: start hvor som helst,\nfølg kanter framover, og siden komponentgrafen fortsatt er en DAG, må du stoppe i\nen utgrad-0-komponent — og nå finnes det bare én.\n\nKanten fra G til I ville **ikke** virket. Da hadde {G} fått utgrad 1 og {H, I}\nbeholdt utgrad 0, så endepunktet hadde bare byttet plass — det ville fortsatt\nvært nøyaktig ett, men saker som gikk til H fra før, ville aldri nådd G. Begge\nretninger gir altså ett endepunkt; poenget er hvilket.\n\n**c)** Kanten fra G til A lager en rundtur: A når G gjennom B, C, D, og G ville\nnå A direkte. Da smelter K1 = {A, B, C}, K3 = {D, E, F} og K4 = {G} sammen til\n**én** SCC med sju noder, mens {H, I} står igjen som før. Antall SCC-er går fra 4\ntil 2.\n\n**Merk hva det betyr for startmengden.** Den nye storkomponenten har fortsatt\ninngrad 0, og {H, I} nås fra den, så minste startmengde er fremdeles 1. Men\nutgrad-0-komponenten er nå {H, I} alene — grafen har fått ett entydig endepunkt,\nog det var ikke det ledelsen ba om.",
+    "hints": [
+     "Se på komponentgrafen fra eksempel 3, ikke på den opprinnelige grafen.",
+     "For b): hvilken av de to utgrad-0-komponentene må få en utgående kant, og hvor må den peke?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-t-4",
+   "type": "text",
+   "content": "## Løkke 4 — poengtrappen, og hva du ikke skal bruke tid på (ca. 8 min)\n\nTo ting avgjør uttellingen på en SCC-oppgave, og begge handler om tidsbruk.\n\n**Det første er poengtrappen.** Sensorveiledningene sier det ofte rett ut: lavere\nkjøretid gir mer uttelling på **samme** oppgave. En SCC-oppgave har alltid en naiv\nløsning som virker — kjør en DFS fra hver node og noter hvem den når. Den er\n$O(|V| \\cdot (|V| + |E|))$ og gir riktig svar. Den lineære løsningen gir samme\nsvar på $O(|V| + |E|)$. Sensor gir mer for den siste, og på en graf med en million\nnoder er forskjellen ikke akademisk.\n\n**Det andre er hva du ikke skal skrive.** At komponentgrafen er en DAG, er kjent\nstoff. Du skal ikke bevise det. Du skal heller ikke skrive ut Kosarajus algoritme\ni detalj hvis oppgaven bare spør om et tall — det holder å si «kjør SCC, bygg\nkomponentgrafen, tell komponenter med inngrad 0, $O(|V| + |E|)$». Minutter brukt\npå et unødvendig bevis er minutter tatt fra de siste oppgavene i Del 2.\n\n**Sjekklista på 30 sekunder, før du forlater en SCC-oppgave:**\n\n- Har jeg navngitt problemet som reachability og sagt hvilket verktøy jeg bruker?\n- Har jeg oppgitt hva jeg antar om representasjonen?\n- Teller jeg **inngrad** 0 eller **utgrad** 0 — og er det det spørsmålet ba om?\n- Har jeg oppgitt kjøretiden, og er $|V|$ og $|E|$ definert?\n- Har jeg sagt at $O(|V| + |E|)$ er lavest mulig, og hvorfor?"
+  },
+  {
+   "id": "in2010-5-4-warn-1",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "De fire feilene under står for det meste av poengtapet i denne sjangeren.\n\n- **Å traversere fra hver node i stedet for å kjøre SCC én gang.** Dette er felle\n  **#1** — naiv full traversering der én kjøring holdt. Løsningen er riktig, men\n  $O(|V| \\cdot (|V| + |E|))$ i stedet for $O(|V| + |E|)$, og poengtrappen er\n  eksplisitt: den koster deg typisk halve uttellingen på oppgaven.\n- **Å bevise at komponentgrafen er en DAG.** Resultatet er kjent og kan brukes\n  fritt. Beviset gir ingen ekstra poeng, og det tar tid du trenger andre steder.\n  Én setning med intuisjonen holder mer enn nok.\n- **Å forveksle inngrad 0 med utgrad 0.** Inngrad 0 svarer på «hvor må jeg\n  starte»; utgrad 0 svarer på «hvor ender alt opp». **Kontrollen:** les spørsmålet\n  én gang til og spør deg om du leter etter et startpunkt eller et endepunkt.\n- **Å tro at SCC er det samme som «henger sammen».** En graf kan være svakt\n  sammenhengende — den henger sammen når du ser bort fra retningene — og likevel\n  ha mange SCC-er. Eksempel 1 er nettopp det: ett sammenhengende gatenett, tre\n  SCC-er.\n\nOg den stille: **å oppgi kjøretiden $O(|E|)$ fordi «det er én DFS».** Det er to\nDFS-full-gjennomløp med ytre løkker, pluss en snuing av grafen. Riktig svar er\n$O(|V| + |E|)$, og å bruke $|V|$ og $|E|$ uten å definere dem er felle **#10**."
+  },
+  {
+   "id": "in2010-5-4-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) En kollega løser oppgaven «finn det minste antallet\nsider man må legge i menyen for å nå alle sider» slik:\n\n> «Jeg kjører en DFS fra hver side og noterer hvor mange sider den når. Så velger\n> jeg den siden som når flest. Er det fortsatt sider igjen som ikke nås, velger\n> jeg den som når flest av dem, og fortsetter til alt er dekket. Kjøretiden er\n> $O(|E|)$, siden DFS er $O(|E|)$.»\n\n**a)** Hvilken kjøretid har framgangsmåten faktisk?\n**b)** Gir den alltid riktig svar?\n**c)** Skriv den lineære løsningen, med alle fire leddene sensor ser etter, og\nforklar hvorfor den er lavest mulig.",
+    "solution": "**a) $O(|V| \\cdot (|V| + |E|))$ for bare det første steget.** En DFS-full er\n$O(|V| + |E|)$, ikke $O(|E|)$ — det er felle **#6**, å forveksle DFS fra én node\nmed en traversering som må innom alle noder. Gjør du det $|V|$ ganger, blir det\n$O(|V| \\cdot (|V| + |E|))$. Og siden framgangsmåten gjentar seg for hver runde med\nudekkede sider, kan totalen bli verre enn det igjen.\n\n**b) Nei, ikke nødvendigvis.** «Velg den som når flest, så den som når flest av\nresten» er en grådig framgangsmåte, og den er ikke garantert å gi færrest mulig\nstartsider. Den kan i tillegg velge en side som **kan nås utenfra**, altså en\nside som ligger i en komponent med inngrad større enn 0 — og da er valget\nbortkastet, fordi den siden ville blitt nådd uansett. Riktig svar er alltid å\nstarte i komponentene ingen kan nå.\n\n**c) Den lineære løsningen.**\n\n**Problemet navngitt:** dette er reachability i en rettet graf — «hvor få\nstartpunkter trengs for å nå alt». Verktøyet er sterkt sammenhengende komponenter\nog komponentgrafen.\n\n**Antagelser om representasjon:** `G` er en rettet graf gitt som nabolister der\n`v`-ens liste inneholder sidene `v` lenker til; hver node har feltet `v.komp`.\n\n**Algoritmen, i ord:** kjør `StronglyConnectedComponents(G)`. Merk hver node med\nkomponenten sin. Gå gjennom alle kanter én gang, og for hver kant som går mellom\n**to ulike** komponenter, øk inngraden til komponenten kanten peker inn i. Tell\ntil slutt komponentene med inngrad 0. Det tallet er svaret, og én vilkårlig side\nfra hver slik komponent er et gyldig menyvalg.\n\n```text\nProcedure MinimumStartSet(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: minste antall sider som ma ligge i menyen\n  Komponenter = StronglyConnectedComponents(G)\n  for hver komponent K i Komponenter:\n      K.inngrad = 0\n      for hver node v i K:\n          v.komp = K\n  for hver node v i V:\n      for hver nabo u av v:\n          if v.komp er ulik u.komp:\n              u.komp.inngrad = u.komp.inngrad + 1\n  antall = 0\n  for hver komponent K i Komponenter:\n      if K.inngrad er 0:\n          antall = antall + 1\n  return antall\n```\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall sider og $|E|$ antall lenker.\nSCC-kallet er lineært, kantløkka ser på hver lenke én gang, og opptellingen går\ngjennom høyst $|V|$ komponenter.\n\n**Hvorfor det er lavest mulig:** svaret avhenger av om det finnes en lenke inn til\nhver enkelt gruppe, og en slik lenke kan være hvilken som helst av de $|E|$\nlenkene. I verste fall må hver av dem ses på, så $O(|V| + |E|)$ er nedre grense —\nog algoritmen treffer den.\n\n**Poengtrapp-notat.** Hovedmomentet er å se at spørsmålet er reachability, og at\nvalget står mellom **komponenter** og ikke mellom enkeltsider; det gir mest\nuttelling. Deretter kommer inngrad-0-tellingen, og til slutt kjøretiden med\nstørrelsene definert. Kollegaens svar er ikke verdiløst — grunnideen «start der du\nikke kan nås fra» er ikke der, men en DFS-basert løsning viser at problemet er\nforstått, og delvis uttelling er regelen. Den taper på kjøretidstrinnet, ikke på\nalt.",
+    "hints": [
+     "Hva koster én DFS-full, og hva koster det å gjøre den én gang per node?",
+     "Tenk over om en side som allerede kan nås fra en annen side, noen gang bør velges."
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) En kommune driver et bytte-nettverk for\nettromsleiligheter. En rettet kant fra X til Y betyr at beboeren i X er villig til\nå flytte inn i Y.\n\nSkriv en algoritme som finner **alle grupper der beboerne kan bytte innbyrdes**,\naltså grupper der hver beboer kan nå hver av de andre langs villighetskantene.\nOppgi antagelser, kjøretid, og forklar hvorfor grupper med bare én beboer ikke\nskal være med i svaret.\n\nForklar til slutt hva svaret hadde blitt hvis nettverket ikke hadde inneholdt en\neneste rundtur.",
+    "solution": "**Problemet navngitt:** «finn gruppene der alle når hverandre» er definisjonen på\nsterkt sammenhengende komponenter. Innpakningen er et bytte-nettverk, men\nspørsmålet er reachability begge veier.\n\n**Antagelser om representasjon:** `G` er en rettet graf gitt som nabolister, der\n`v`-ens liste inneholder leilighetene beboeren i `v` er villig til å flytte inn i.\n`StronglyConnectedComponents(G)` returnerer komponentene i $O(|V| + |E|)$.\n\n**Algoritmen:**\n\n```text\nProcedure Byttegrupper(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: alle grupper der beboerne kan bytte innbyrdes\n  Komponenter = StronglyConnectedComponents(G)\n  Grupper = tom liste\n  for hver komponent K i Komponenter:\n      if K har mer enn en node:\n          legg K bakerst i Grupper\n  return Grupper\n```\n\n**Hvorfor komponenter med bare én node holdes utenfor:** en SCC med én node betyr\nat beboeren ikke ligger på noen rundtur. Hun kan kanskje flytte inn hos en annen,\nmen da blir hennes egen leilighet stående tom — det er ingen bytte, det er en\nflytting. Et bytte krever at kjeden lukker seg, altså en rettet rundtur, og det\ner nøyaktig det en SCC med mer enn én node garanterer.\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall leiligheter og $|E|$ antall\nvillighetsrelasjoner. SCC-kallet er lineært, og filtreringen går gjennom\nkomponentene, som er høyst $|V|$ stykker.\n\n**Hvis nettverket ikke inneholdt en eneste rundtur:** da ville hver eneste node\nvært sin egen SCC, alle komponentene hatt nøyaktig én node, og algoritmen ville\nreturnert **den tomme lista**. Det er et helt riktig svar: uten en rundtur finnes\ndet ingen mulige bytter. Grafen ville selv vært en DAG, og komponentgrafen ville\nvært identisk med grafen.\n\n**Kan dette gjøres raskere?** Nei. Du må se på hver villighetsrelasjon for å vite\nom den inngår i en rundtur, så $O(|V| + |E|)$ er nedre grense.\n\n**Poengtrapp-notat.** Hovedmomentet er å oversette «kan bytte innbyrdes» til\n«sterkt sammenhengende komponent» — det er der de fleste poengene ligger.\nFiltreringen på mer enn én node er det andre delmomentet, og kjøretiden det\ntredje. En besvarelse som sjekker hvert par av beboere med to traverseringer,\nlander på $O(|V|^2 \\cdot (|V| + |E|))$ og faller flere trinn ned på\npoengtrappen.",
+    "hints": [
+     "Oversett «alle kan nå hverandre» til det begrepet kapitlet handler om.",
+     "Hva betyr det for et bytte at en gruppe bare inneholder én person?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in2010-5-4-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H.) Samme nettsted som i eksempel 2, men nå spør\nredaktøren om noe annet: **finnes det én enkelt side som en besøkende kan starte\npå og derfra nå hver eneste andre side?** Og hvis ikke — hva er det minste\nantallet lenker man må legge til for at det skal bli mulig?\n\n**a)** Svar på begge spørsmålene for nettstedet i eksempel 2.\n**b)** Formulér den generelle regelen for når svaret på det første spørsmålet er\nja.\n**c)** Skriv algoritmen som avgjør det, med kjøretid.",
+    "solution": "**a) Nei, det finnes ingen slik side.** Komponentgrafen i eksempel 2 har **to**\nkomponenter med inngrad 0: K1 = {C, D} og K2 = {A, B}. Ingen av dem kan nås\nutenfra, så uansett hvilken side du velger, ligger den utenfor minst én av dem.\nKontrolltabellen bekrefter det: den beste enkeltsiden når seks av åtte.\n\n**Én lenke er nok** for å fikse det. Legger du inn en lenke fra en side i K2 til\nen side i K1 — for eksempel fra A til C — får K1 inngrad 1, og K2 blir den eneste\nkomponenten med inngrad 0. Da når A hver eneste side. Motsatt retning, fra C til\nA, virker like godt og gjør C til utgangspunktet.\n\n**b) Den generelle regelen:** det finnes én node som når alle andre **hvis og bare\nhvis** komponentgrafen har nøyaktig **én** komponent med inngrad 0. Da er hvilken\nsom helst node i den komponenten et gyldig svar.\n\nBegrunnelsen begge veier: har grafen to eller flere inngrad-0-komponenter, kan\ningen node ligge i begge, og en komponent med inngrad 0 kan ikke nås utenfra — så\ndet finnes ingen slik node. Har den nøyaktig én, kan du fra en hvilken som helst\nnode følge kanter bakover, og siden komponentgrafen er en DAG, kan du ikke gå i\nring; du må ende i en inngrad-0-komponent, og det finnes bare én — altså når den\nalt.\n\n**c) Algoritmen.**\n\n**Problemet navngitt:** reachability i en rettet graf — finnes det en node som når\nalle? Verktøyet er SCC pluss komponentgrafen.\n\n**Antagelser om representasjon:** nabolister; hver node har feltet `v.komp`.\n\n```text\nProcedure FinnesEnSomNaarAlle(G)\n  Input:  rettet graf G = (V, E) som nabolister\n  Output: en node som naar alle andre, eller ingen hvis den ikke finnes\n  Komponenter = StronglyConnectedComponents(G)\n  for hver komponent K i Komponenter:\n      K.inngrad = 0\n      for hver node v i K:\n          v.komp = K\n  for hver node v i V:\n      for hver nabo u av v:\n          if v.komp er ulik u.komp:\n              u.komp.inngrad = u.komp.inngrad + 1\n  Kilder = tom liste\n  for hver komponent K i Komponenter:\n      if K.inngrad er 0:\n          legg K bakerst i Kilder\n  if Kilder har noyaktig en komponent:\n      return en vilkarlig node i den komponenten\n  return ingen\n```\n\n**Kjøretid:** $O(|V| + |E|)$, der $|V|$ er antall sider og $|E|$ antall lenker.\nAlle fire pass — SCC, merking, kantgjennomgang og opptelling — er lineære.\n\n**Hvorfor det er lavest mulig:** svaret kan avhenge av en hvilken som helst av de\n$|E|$ lenkene, så alle må ses på i verste fall.\n\n**Poengtrapp-notat.** Hovedmomentet er regelen i b): «nøyaktig én\ninngrad-0-komponent». Å svare med en algoritme som prøver hver node som startnode\nog traverserer, gir riktig svar på $O(|V| \\cdot (|V| + |E|))$ og faller et trinn\nned. Legg merke til at algoritmen over er den samme som `MinimumStartSet`, med én\nlinje endret til slutt — det er verdt å si i besvarelsen, for det viser at du har\nsett at de to spørsmålene er samme spørsmål.",
+    "hints": [
+     "Se på hvor mange komponenter i eksempel 2 som ingen kant peker inn til.",
+     "Tenk på hva som skjer når du følger kanter bakover i en DAG — hvor må du ende?"
+    ]
+   }
+  },
+  {
+   "id": "in2010-5-4-t-bank",
+   "type": "text",
+   "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in2010-5-4-def-5",
+   "type": "definition",
+   "title": "SCC-algoritmen — to DFS-gjennomløp",
+   "content": "Kjør en DFS-full over $G$ og noter **ferdigrekkefølgen**; snu så alle kanter, og\nkjør en ny DFS-full i den snudde grafen i **synkende** ferdigrekkefølge. Hver\nDFS-start i andre gjennomløp samler inn nøyaktig én SCC. Kjøretid\n$O(|V| + |E|)$.\n\nEgenskapen som gjør den riktig: fra den siste noden som ble ferdig, kan du i den\nsnudde grafen bare nå noder i din egen komponent."
+  },
+  {
+   "id": "in2010-5-4-def-6",
+   "type": "definition",
+   "title": "Ferdigrekkefølge",
+   "content": "Rekkefølgen nodene blir **ferdige** i under en DFS: en node er ferdig når kallet\nreturnerer, altså når alle utveier fra den er utforsket.\n\nDet er ikke det samme som besøksrekkefølgen. I pseudokoden er forskjellen én\nlinje: noden legges i lista **etter** naboløkka, ikke før. Bytter du om på det,\nslutter SCC-algoritmen å virke."
+  },
+  {
+   "id": "in2010-5-4-def-7",
+   "type": "definition",
+   "title": "Den snudde grafen $G_R$",
+   "content": "Samme noder som $G$, men hver kant snudd: går det en kant fra $u$ til $v$ i $G$,\ngår den fra $v$ til $u$ i $G_R$. Bygges i $O(|V| + |E|)$ ved én gjennomgang av\nkantene.\n\nNøkkelegenskapen: $G$ og $G_R$ har nøyaktig de **samme** SCC-ene, siden «når\nhverandre begge veier» er symmetrisk. Det er derfor det er trygt å lete i den\nsnudde grafen."
+  },
+  {
+   "id": "in2010-5-4-def-8",
+   "type": "definition",
+   "title": "Komponentgrafen er en DAG",
+   "content": "Kondensasjonen av en hvilken som helst rettet graf er alltid en rettet asyklisk\ngraf — en DAG, altså uten rundturer.\n\nKonsekvensen du bruker: det finnes alltid minst én komponent med inngrad 0 og\nminst én med utgrad 0. Resultatet er **kjent** og skal ikke bevises på eksamen;\nén setning med intuisjonen er nok."
+  },
+  {
+   "id": "in2010-5-4-def-9",
+   "type": "definition",
+   "title": "Rundtur og SCC-størrelse",
+   "content": "En SCC med **mer enn én** node betyr at det finnes en rettet rundtur gjennom\nnodene i den. En SCC med **én** node betyr at noden ikke ligger på noen rundtur.\n\nDerfor: spørsmålet «finn alle grupper der alle nås av alle» besvares med\nSCC-ene av størrelse minst 2. I en graf helt uten rundturer er hver node sin egen\nSCC, og svaret er den tomme lista."
+  },
+  {
+   "id": "in2010-5-4-def-10",
+   "type": "definition",
+   "title": "Sterkt kontra svakt sammenhengende",
+   "content": "**Sterkt** sammenhengende: det finnes en rettet vei begge veier mellom hvert par\nnoder. **Svakt** sammenhengende: grafen henger sammen når du ser bort fra\nretningene.\n\nEn svakt sammenhengende graf kan ha mange SCC-er — et enveiskjørt gatenett er det\nklassiske eksempelet. Å blande de to er en fast trekkgrunn."
+  },
+  {
+   "id": "in2010-5-4-def-11",
+   "type": "definition",
+   "title": "Naiv reachability",
+   "content": "Å svare på «hvem når hvem» med en ny DFS-full fra **hver** node. Kjøretid\n$O(|V| \\cdot (|V| + |E|))$.\n\nSvaret blir riktig, men det er felle **#1**: full, naiv traversering der én\nSCC-kjøring på $O(|V| + |E|)$ ga det samme. På en oppgave med eksplisitt\npoengtrapp koster det typisk halve uttellingen."
+  },
+  {
+   "id": "in2010-5-4-def-12",
+   "type": "definition",
+   "title": "Poengtrappen på SCC-oppgaver",
+   "content": "Sensor oppgir ofte at lavere kjøretid gir mer uttelling på **samme** oppgave: den\nlineære løsningen gir full pott, den kvadratiske merkbart mindre.\n\nPraktisk konsekvens: skriv alltid én setning om hvorfor $O(|V| + |E|)$ er lavest\nmulig — du må se på hver kant. Delvis uttelling er regelen, så en riktig, men\ntreg løsning taper på ett trinn, ikke på alt."
+  },
+  {
+   "id": "in2010-5-4-def-13",
+   "type": "definition",
+   "title": "Feltet `v.komp`",
+   "content": "Nummeret eller referansen til komponenten noden `v` havnet i. Settes med én\ngjennomgang av komponentlista, i $O(|V|)$.\n\nDet er dette feltet som gjør komponentgrafen billig å bygge: en kant fra `v` til\n`u` krysser mellom komponenter hvis og bare hvis `v.komp` er ulik `u.komp`, og\ndet avgjøres i $O(1)$ per kant."
+  },
+  {
+   "id": "in2010-5-4-def-14",
+   "type": "definition",
+   "title": "Sjanger H — grafalgoritme i pseudokode",
+   "content": "Del 2-sjangeren der du får et problem i ord og skal skrive grafalgoritmen selv,\nmed kjøretid. I hvert eneste sett, med to eller tre oppgaver; SCC-oppgaven er\ngjerne blant de siste og tyngste.\n\nFull uttelling krever fire ledd: problemet navngitt, antagelser om representasjon\noppgitt, algoritmen (pseudokode **eller** en klar forklaring i ord), og kjøretid\nsom matcher koden med størrelsene definert."
+  },
+  {
+   "id": "in2010-5-4-coll-rep",
+   "type": "collapsible",
+   "title": "Repetisjon — kapitlet på ett kort",
+   "buttonText": "Vis oppsummering",
+   "content": [
+    {
+     "id": "in2010-5-4-rep-1",
+     "type": "text",
+     "content": "**Oppskriften, fem steg, som skal sitte hjelpemiddelfritt:**\n\n1. **Navngi problemet:** «dette er reachability i en rettet graf, altså hvem som\n   kan nås fra hvem».\n2. **Oppgi antagelsene:** nabolister, `v.komp`-felt.\n3. **Kjør SCC** — to DFS-gjennomløp, det andre i den snudde grafen i synkende\n   ferdigrekkefølge.\n4. **Bygg komponentgrafen** med én gjennomgang av kantene, og tell inngrad og\n   utgrad per komponent.\n5. **Les av svaret** i tabellen under, og oppgi $O(|V| + |E|)$ med $|V|$ og $|E|$\n   definert.\n\n**Avlesningstabellen:**\n\n| Spørsmålet i oppgaveteksten | Svaret |\n|---|---|\n| «finn grupper der alle når hverandre» | SCC-ene med mer enn én node |\n| «hvor få må jeg starte fra for å nå alt?» | antall komponenter med inngrad 0 |\n| «finnes det én som når alle andre?» | ja, hvis nøyaktig én komponent har inngrad 0 |\n| «hvor ender alt opp?» | komponentene med utgrad 0 |\n| «finnes det én alle kommer fram til?» | ja, hvis nøyaktig én komponent har utgrad 0 |\n\n**Kjøretidene, som er hele poengtrappen:**\n\n| Framgangsmåte | Kjøretid |\n|---|---|\n| SCC, komponentgraf og opptelling | $O(|V| + |E|)$ |\n| DFS-full fra hver node | $O(|V| \\cdot (|V| + |E|))$ |\n\n**Tre ting du ikke skal bruke tid på:** å bevise at komponentgrafen er en DAG (det\ner kjent), å skrive ut Kosarajus algoritme i detalj når oppgaven bare vil ha et\ntall, og å lete etter noder uten utgående kanter i den **opprinnelige** grafen —\nspørsmålet stilles alltid i komponentgrafen.\n\n**Kan dette gjøres raskere?** Nei. Svaret kan avhenge av en hvilken som helst\nkant, så alle må ses på i verste fall, og $O(|V| + |E|)$ treffer den grensen.\nSkriv det i besvarelsen — sensor gir uttelling for begrunnelsen, ikke bare for\ntallet.\n\n**Videre:** [kap. 5.5](/in2010/in2010-5-5) er drillen der mønstrene fra hele Del 5\nroteres, og [prøvene til del 5](/in2010/in2010-5-prove) har et eget\nSCC-reachability-sett."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

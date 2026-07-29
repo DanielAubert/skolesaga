@@ -1,0 +1,350 @@
+{
+  "id": "in2010-2-3",
+  "courseId": "in2010",
+  "chapterNumber": "2.3",
+  "title": "Lineær sortering — bucket, counting og radix",
+  "description": "Når du kan sortere i lineær tid — og den faste fellen at bucket/counting/radix krever et kjent, begrenset verdiområde.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne kjøre counting sort på et lite array og forklare hvorfor utplasseringen går bakfra",
+    "kunne forklare hvorfor radix sort sorterer på minst signifikante siffer først, og hvorfor hvert pass må være stabilt",
+    "kunne avgjøre om en oppgitt situasjon tillater lineær sortering, og oppgi forutsetningen som gjør valget lovlig",
+    "kunne lese egenskapene stabil, på stedet og kjøretid ut av pseudokoden til en sorteringsalgoritme du ikke har sett før"
+  ],
+  "content": [
+    {
+      "id": "in2010-2-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet handler like mye om **når du ikke kan bruke** de lineære\nsorteringene som om hvordan de virker.\n\n**Sjanger D — sorteringsegenskaper og valg** har vært på alle sju settene\n(100 %), og de to punktene som går igjen er: «kjent, lite verdiområde $\\Rightarrow$ lineær\nsortering er mulig» og «bucket, counting og radix kan **ikke** brukes når alt vi\nvet er at elementene er sammenlignbare». Det siste er felle **#5** i bokas\nfeilregister — lineær sortering foreslått uten at forutsetningen om et kjent,\nbegrenset verdiområde er oppfylt — og den er den dyreste feilen i hele Del 2 av\nboka, fordi den ser ut som et smart svar og er et ugyldig svar.\n\nDu blir ikke bedt om å implementere counting sort fra bunnen på eksamen. Du blir\nbedt om å **velge riktig** og å **oppgi forutsetningen**. Én setning om\nverdiområdet er ofte forskjellen mellom full og halv uttelling.\n\nPrioritet: **høyeste**. Dette er den siste biten av Del 2-tabellen, og den er den\nmest misforståtte.\n\n**Slik er kapitlet lagt opp (45 min):** tre løkker med tidsanslag."
+    },
+    {
+      "id": "in2010-2-3-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 2.2](/in2010/in2010-2-2) — nedre grensen $\\Omega(n \\log n)$ for\n  sammenligningsbaserte sorteringer. Hele dette kapitlet handler om algoritmene\n  som slipper unna den, og hvorfor de får lov.\n- [kap. 2.1](/in2010/in2010-2-1) — stabilitet, som counting sort og radix sort\n  er helt avhengige av.\n- [kap. 1.2](/in2010/in2010-1-2) — løkketelling, som gir kjøretidene direkte."
+    },
+    {
+      "id": "in2010-2-3-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-2-3-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer som skal sorteres |\n| $k$ | størrelsen på verdiområdet — nøklene ligger i $[0, k]$ |\n| $d$ | antall siffer i den lengste nøkkelen (radix sort) |\n| $O(n + k)$ | counting sorts kjøretid: lineær i antall elementer **pluss** verdiområdet |\n| $O(d(n + k))$ | radix sorts kjøretid: ett counting-pass per siffer |\n| $C$ | telleregisteret — `C[v]` er antall forekomster av verdien $v$ |\n| $P$ | det kumulative registeret — `P[v]` er antall elementer med verdi høyst $v$ |"
+        },
+        {
+          "id": "in2010-2-3-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `CountingSort(A, k)` | sorterer heltallsnøkler i det kjente området $[0, k]$ stabilt, uten å sammenligne | $O(n + k)$ |\n| `RadixSort(A, d)` | sorterer $d$-sifrede heltall ved ett stabilt counting-pass per siffer, minst signifikante først | $O(d(n + k))$ |\n| `BucketSort(A, m)` | fordeler verdier fra et kjent intervall i $m$ bøtter, sorterer hver bøtte og skjøter dem sammen | $O(n)$ forventet ved jevn fordeling |\n| `C[x] = C[x] + 1` | teller opp én forekomst av verdien `x` | $O(1)$ |\n| `P[v] = P[v] + P[v-1]` | bygger kumulativ sum, slik at `P[v]` blir siste ledige indeks for verdien `v` | $O(1)$ per verdi |\n\n**Formler i dette delkapitlet:**\n\n$$O(n + k) \\text{ — lineært når } k = O(n)$$\n\nCounting sort er bare lineær så lenge verdiområdet ikke er større enn antall\nelementer.\n\n$$O(d(n + k)) \\text{ — lineært når } d \\text{ og } k \\text{ er konstanter}$$\n\nRadix sort gjør ett stabilt pass per siffer.\n\n$$\\Omega(n \\log n) \\text{ gjelder ikke her}$$\n\nFordi ingen av de tre sammenligner to elementer med hverandre."
+        }
+      ]
+    },
+    {
+      "id": "in2010-2-3-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — counting sort: å telle i stedet for å sammenligne (ca. 16 min)\n\nTenk deg at du skal stille 800 elever på rekke etter hvilket klassetrinn de går\npå — 1 til 10. Du ville ikke sammenlignet dem to og to. Du ville ropt opp\ntrinnene i rekkefølge, og latt hvert trinn stille seg der det hører hjemme.\n\nDet er hele ideen. Du bruker ikke sammenligninger, du bruker **verdien selv som\nen adresse**. Og fordi du aldri sammenligner, gjelder ikke nedre grensen fra\n[kap. 2.2](/in2010/in2010-2-2).\n\nPrisen står i eksempelet: du måtte vite på forhånd at trinnene var 1 til 10. Uten\nden kunnskapen finnes det ingen rekker å stille seg i. **Counting sort krever et\nkjent, begrenset verdiområde**, og det er nettopp forutsetningen sensor ser etter\ni besvarelsen din."
+    },
+    {
+      "id": "in2010-2-3-def-1",
+      "type": "definition",
+      "title": "Counting sort",
+      "content": "Sorterer $n$ heltallsnøkler fra et **kjent** område $[0, k]$ ved å telle hvor\nmange det er av hver verdi, gjøre tellingene kumulative, og plassere hvert\nelement direkte på sin indeks.\n\n$O(n + k)$ i alle tilfeller. **Stabil**, men **ikke in-place** — den trenger et\ntelleregister på $k+1$ plasser og et utdataarray på $n$ plasser.\n\nDen er lineær kun så lenge $k$ ikke vokser raskere enn $n$. Med $n = 1000$\nelementer og $k = 10^9$ er $O(n + k)$ katastrofalt mye verre enn $O(n \\log n)$."
+    },
+    {
+      "id": "in2010-2-3-th-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `CountingSort`",
+      "content": "**Antagelser om representasjon.** `A` er et array med $n$ elementer indeksert fra\n0. Hvert element har en heltallsnøkkel i det **kjente** området $[0, k]$. Vi kan\nopprette nye arrayer.\n\n**Prebetingelse:** alle nøkler ligger i $[0, k]$, og $k$ er kjent på forhånd.\n**Postbetingelse:** returverdien er et nytt array med de samme elementene, sortert\nstigende på nøkkel, og elementer med lik nøkkel står i samme innbyrdes rekkefølge\nsom i `A`.\n\n```text\nProcedure CountingSort(A, k)\n  Input:  array A med n elementer med heltallsnoekler i [0, k]\n  Output: et nytt sortert array, stabilt sortert paa noekkel\n  C = nytt array med k+1 plasser, alle satt til 0\n  for i = 0 to A.length-1:\n      C[A[i]] = C[A[i]] + 1\n\n  for v = 1 to k:\n      C[v] = C[v] + C[v-1]\n\n  ut = nytt array med A.length plasser\n  for i = A.length-1 down to 0:\n      C[A[i]] = C[A[i]] - 1\n      ut[C[A[i]]] = A[i]\n  return ut\n```\n\n**Grunnideen i én setning:** etter den kumulative summeringen forteller `C[v]`\nhvor mange elementer som har nøkkel høyst $v$, og det tallet er nøyaktig én mer\nenn den siste indeksen verdien $v$ skal ha i resultatet.\n\n**Stabiliteten ligger i ett ord: `down to`.** Den siste løkka går **bakfra**\ngjennom `A`. Da får det siste elementet med en gitt nøkkel den siste ledige\nplassen, det nest siste får plassen foran, og innbyrdes rekkefølge bevares. Snur\ndu løkka, mister du stabiliteten — og dermed også muligheten til å bruke counting\nsort som byggekloss i radix sort.\n\n**Kjøretid:** første løkke $O(n)$, andre løkke $O(k)$, tredje løkke $O(n)$.\nSumregelen gir $O(n + k)$."
+    },
+    {
+      "id": "in2010-2-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Counting sort steg for steg",
+      "problem": "Sortér `A = [4, 1, 3, 4, 0, 2, 1]` med counting sort. Verdiområdet er kjent:\nalle nøkler ligger i $[0, 4]$, altså $k = 4$. Vis telleregisteret, den kumulative\nsummen og utplasseringen.",
+      "solution": "**Steg 1 — tell forekomstene.** `C[v]` er antall elementer med verdi $v$:\n\n| $v$ | 0 | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|---|\n| `C[v]` | 1 | 2 | 1 | 1 | 2 |\n\nSummen er 7, som er antall elementer. Det er en fin kontroll.\n\n**Steg 2 — gjør tellingen kumulativ.** Nå er `P[v]` antall elementer med verdi\nhøyst $v$:\n\n| $v$ | 0 | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|---|\n| `P[v]` | 1 | 3 | 4 | 5 | 7 |\n\nLes det slik: det finnes tre elementer med verdi høyst 1, så de to 1-tallene må\nhavne på indeks 1 og 2.\n\n**Steg 3 — plassér ut, bakfra.**\n\n| Steg | Element $x$ | `P[x]` før | Plasseres på indeks | `ut` etter steget |\n|---|---|---|---|---|\n| 1 | 1 | 3 | 2 | `[_, _, 1, _, _, _, _]` |\n| 2 | 2 | 4 | 3 | `[_, _, 1, 2, _, _, _]` |\n| 3 | 0 | 1 | 0 | `[0, _, 1, 2, _, _, _]` |\n| 4 | 4 | 7 | 6 | `[0, _, 1, 2, _, _, 4]` |\n| 5 | 3 | 5 | 4 | `[0, _, 1, 2, 3, _, 4]` |\n| 6 | 1 | 2 | 1 | `[0, 1, 1, 2, 3, _, 4]` |\n| 7 | 4 | 6 | 5 | `[0, 1, 1, 2, 3, 4, 4]` |\n\n**Sluttilstand: `[0, 1, 1, 2, 3, 4, 4]`.**\n\n**Se på steg 1 og 6.** Begge plasserer et 1-tall. Steg 1 tar det **siste**\n1-tallet i inputen og gir det den **bakerste** av de to plassene. Det er hele\nmekanismen bak stabiliteten, og den er usynlig så lenge du sorterer rene tall —\nden betyr noe først når hvert element bærer med seg mer enn nøkkelen.\n\n**Kjøretiden, etterregnet.** Tellingen: 7 steg. Kumuleringen: 4 steg.\nUtplasseringen: 7 steg. Til sammen 18 grunnsteg, altså $n + k + n$ med $n = 7$ og\n$k+1 = 5$ — nøyaktig $O(n + k)$."
+    },
+    {
+      "id": "in2010-2-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — sorteringsvalg, altså at du velger algoritme ut fra\nen oppgitt begrensning.) Et array inneholder $n$ heltall, og alle ligger mellom 0\nog 5.\n\n**a)** Bygg telleregisteret `C` for `A = [2, 5, 3, 2, 5, 1]`.\n**b)** Hvilken indeks får det **første** 2-tallet i det sorterte resultatet?\n**c)** Er counting sort in-place?",
+        "solution": "**a)** Verdiområdet er $[0, 5]$, altså seks plasser:\n\n| $v$ | 0 | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|---|\n| `C[v]` | 0 | 1 | 2 | 1 | 0 | 2 |\n\nSummen er 6, som stemmer med antall elementer.\n\n**b)** Indeks 1. Den kumulative summen gir `P[1] = 1`, altså ett element med verdi\nhøyst 1, så 2-tallene starter på indeks 1. Det første 2-tallet i inputen får den\nfremste av de to plassene, fordi counting sort er stabil.\n\n**c)** Nei. Den trenger et telleregister på $k+1$ plasser og et utdataarray på $n$\nplasser, altså $O(n + k)$ ekstra minne. Dette er en av to egenskaper som skiller\nden fra de kvadratiske sorteringene — den andre er at den er lineær.",
+        "hints": [
+          "Telleregisteret har én plass per mulig verdi, ikke én per element.",
+          "Kumuler tellingene og se hvor mange elementer som ligger foran 2-tallene."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Du skal sortere $n$ personer etter alder. Alderen er et helt tall\nmellom 0 og 120.\n\n**a)** Hvilken sortering gir lavest kjøretid, og hva er den?\n**b)** Ville svaret endret seg hvis nøklene i stedet var vilkårlige desimaltall?\n**c)** Ville svaret endret seg hvis $n = 20$?",
+        "solution": "La $n$ være antall personer.\n\n**a) Counting sort**, med $k = 120$. Kjøretiden er $O(n + k) = O(n + 120)$, og\nsiden 120 er en konstant, er dette $O(n)$. Forutsetningen er oppfylt og skal\nskrives ut: alderen er et **heltall** i et **kjent, begrenset** område.\n\n**b) Ja.** Vilkårlige desimaltall kan ikke brukes som indeks i et telleregister —\ndet finnes uendelig mange mulige verdier, og counting sort forutsetter heltall i\net endelig område. Da må du tilbake til en sammenligningssortering, altså\n$O(n \\log n)$ med flettesortering, heapsort eller kvikksortering. Bucket sort kan\nbrukes hvis desimaltallene er kjent å ligge i et bestemt intervall og er noenlunde\njevnt fordelt — men da må også den forutsetningen oppgis.\n\n**c) I praksis ja, asymptotisk nei.** Med $n = 20$ og $k = 120$ er $k$ seks ganger\nstørre enn $n$, og counting sort bruker mer arbeid på å gå gjennom det tomme\ntelleregisteret enn på selve dataene. Asymptotisk er det fortsatt $O(n)$, siden\n$k$ er en konstant, men på eksamen er det verdt å nevne at counting sort lønner\nseg først når $k$ er sammenlignbar med $n$ eller mindre.\n\n**Poengtrapp-notat:** $O(n)$ står over $O(n \\log n)$ på nøyaktig denne oppgaven.\nMen trinnet gjelder bare hvis du **oppgir forutsetningen**. En besvarelse som\nskriver «counting sort, $O(n)$» uten å nevne heltall og kjent område, mister\ndelpoenget for forutsetningen.",
+        "hints": [
+          "Er nøklene heltall, og kjenner du grensene for dem?",
+          "Sammenlign $k$ med $n$: hvor mye koster det å gå gjennom telleregisteret?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-3-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — radix sort: ett siffer om gangen (ca. 14 min)\n\n— naturlig pausepunkt —\n\nCounting sort blir ubrukelig når verdiområdet er stort. Postnumre går fra 0000 til\n9999 — det er ti tusen mulige verdier, og skal du sortere femti postnumre, er\ntelleregisteret to hundre ganger større enn dataene.\n\n**Radix sort** løser det ved å sortere **ett siffer om gangen**. Hvert siffer har\nbare ti mulige verdier, så hvert pass er en counting sort med $k = 9$. Fire pass\nsenere er hele tallet sortert.\n\nRekkefølgen er det som overrasker: du sorterer på **minst** signifikante siffer\nførst. Og det virker bare fordi hvert pass er **stabilt** — den regelen fra\n[kap. 2.1](/in2010/in2010-2-1) om at den siste sorteringen styrer\nhovedrekkefølgen, er hele maskineriet her."
+    },
+    {
+      "id": "in2010-2-3-def-2",
+      "type": "definition",
+      "title": "Radix sort",
+      "content": "Sorterer $d$-sifrede heltall ved å gjøre ett **stabilt** sorteringspass per\nsiffer, fra minst til mest signifikante siffer.\n\n$O(d(n + k))$, der $d$ er antall siffer og $k$ er antall mulige sifferverdier\n(10 for desimaltall). Lineær når $d$ og $k$ er konstanter. **Stabil**, men\n**ikke in-place**.\n\nKravet er at nøklene er heltall med et kjent, begrenset antall siffer. Stabiliteten\ni hvert pass er ikke en bonus — den er en forutsetning for at algoritmen i det hele\ntatt virker."
+    },
+    {
+      "id": "in2010-2-3-th-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `RadixSort`",
+      "content": "**Antagelser om representasjon.** `A` er et array med $n$ ikke-negative heltall,\nalle med høyst $d$ siffer i base 10. `d` er kjent på forhånd.\n\n**Prebetingelse:** alle nøkler er ikke-negative heltall med høyst $d$ siffer.\n**Postbetingelse:** `A` er sortert stigende.\n\n```text\nProcedure RadixSort(A, d)\n  Input:  array A med n ikke-negative heltall, hvert med hoeyst d siffer\n  Output: A sortert stigende\n  for s = 0 to d-1:\n      sorter A stabilt paa siffer nummer s, regnet fra hoeyre\n      (bruk CountingSort med k = 9 paa sifferverdien)\n  return A\n```\n\n**Grunnideen i én setning:** etter passet på siffer $s$ er arrayet sortert på de\n$s+1$ minst signifikante sifrene, fordi det nye passet ordner på det nye sifferet\nog stabiliteten bevarer rekkefølgen fra alle de forrige.\n\n**Hvorfor minst signifikante siffer først?** Fordi den **siste** sorteringen\nstyrer hovedrekkefølgen. Sorterer du på hundrerne til slutt, er hundrerne\nhovednøkkelen — og innen hver hundrergruppe står tallene fortsatt sortert på\ntierne og enerne fra de tidligere passene. Sorterer du motsatt vei, ødelegger det\nsiste passet alt arbeidet fra det forrige.\n\n**Kjøretid:** $d$ pass, hvert et counting-pass på $O(n + k)$ med $k = 9$. Totalt\n$O(d(n + k))$. Er $d$ og $k$ konstanter, er det $O(n)$."
+    },
+    {
+      "id": "in2010-2-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Radix sort, tre pass",
+      "problem": "Sortér `A = [329, 457, 657, 839, 436, 720]` med radix sort. Alle tallene har tre\nsiffer, så $d = 3$. Vis bøttene og rekkefølgen etter hvert pass.",
+      "solution": "**Pass 1 — sorterer på enerne:**\n\n| Bøtte | Innhold (i rekkefølgen de kom) |\n|---|---|\n| 0 | 720 |\n| 6 | 436 |\n| 7 | 457, 657 |\n| 9 | 329, 839 |\n\nRekkefølge etter passet: `[720, 436, 457, 657, 329, 839]`\n\n**Pass 2 — sorterer på tierne:**\n\n| Bøtte | Innhold (i rekkefølgen de kom) |\n|---|---|\n| 2 | 720, 329 |\n| 3 | 436, 839 |\n| 5 | 457, 657 |\n\nRekkefølge etter passet: `[720, 329, 436, 839, 457, 657]`\n\n**Pass 3 — sorterer på hundrerne:**\n\n| Bøtte | Innhold (i rekkefølgen de kom) |\n|---|---|\n| 3 | 329 |\n| 4 | 436, 457 |\n| 6 | 657 |\n| 7 | 720 |\n| 8 | 839 |\n\nRekkefølge etter passet: `[329, 436, 457, 657, 720, 839]`\n\n**Sluttilstand: `[329, 436, 457, 657, 720, 839]`.**\n\n**Se på bøtte 2 i pass 2:** der ligger `720` foran `329`, og begge har tieren 2.\nRekkefølgen mellom dem ble ikke bestemt i dette passet — den ble arvet fra pass 1,\nder `720` (ener 0) kom før `329` (ener 9). Det er nettopp dette som gjør at\nalgoritmen virker: **rekkefølgen fra forrige pass overlever inne i hver bøtte**,\nfordi passet er stabilt.\n\n**Prøv å ødelegge den.** Hadde pass 2 vært ustabilt og lagt `329` foran `720` i\nbøtte 2, ville arbeidet fra pass 1 vært tapt — og siden pass 3 bare ser på\nhundrerne, ville `720` og `329` fortsatt kommet i den ødelagte rekkefølgen inne i\nhver hundrergruppe. Stabilitet er ikke en fin egenskap her; det er en betingelse.\n\n**Kjøretiden, etterregnet.** Tre pass, hvert på $O(n + 10)$ med $n = 6$. Totalt\n$3 \\cdot 16 = 48$ grunnsteg i størrelsesorden — altså $O(d(n + k))$ med $d = 3$\nog $k = 9$."
+    },
+    {
+      "id": "in2010-2-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Sortér `A = [53, 89, 15, 47, 32]` med radix sort. Alle tall har to\nsiffer.\n\n**a)** Vis rekkefølgen etter pass 1.\n**b)** Vis rekkefølgen etter pass 2.\n**c)** Hva er kjøretiden uttrykt ved $n$, $d$ og $k$?",
+        "solution": "**a) Pass 1, enerne:**\n\n| Bøtte | Innhold |\n|---|---|\n| 2 | 32 |\n| 3 | 53 |\n| 5 | 15 |\n| 7 | 47 |\n| 9 | 89 |\n\nRekkefølge etter passet: `[32, 53, 15, 47, 89]`\n\n**b) Pass 2, tierne:**\n\n| Bøtte | Innhold |\n|---|---|\n| 1 | 15 |\n| 3 | 32 |\n| 4 | 47 |\n| 5 | 53 |\n| 8 | 89 |\n\nRekkefølge etter passet: `[15, 32, 47, 53, 89]` — ferdig sortert.\n\n**c)** $O(d(n + k))$ med $n = 5$ elementer, $d = 2$ siffer og $k = 9$ som største\nsifferverdi. Er $d$ og $k$ konstanter, er dette $O(n)$.\n\n**Merk hvorfor det ikke er nok å sortere bare på tierne.** To tall med samme\ntiersiffer, for eksempel 53 og 57, ville stått i vilkårlig rekkefølge uten\nenerpasset. Det er nettopp fordi enerpasset kom først, og fordi tierpasset er\nstabilt, at de kommer riktig.",
+        "hints": [
+          "Skriv opp de ti bøttene 0 til 9 og legg hvert tall i bøtta som svarer til sifferet.",
+          "Tøm bøttene i rekkefølge 0, 1, 2 og oppover, og behold rekkefølgen inne i hver bøtte."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-3-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — bucket sort, og den avgjørende begrensningen (ca. 15 min)\n\n**Bucket sort** er den tredje varianten, og den er den løseste av dem. Ideen: hvis\ndu vet at verdiene ligger jevnt fordelt i et kjent intervall, del intervallet i\n$m$ like store bøtter, kast hvert element i sin bøtte, sortér hver bøtte for seg,\nog skjøt bøttene sammen i rekkefølge.\n\nEr fordelingen jevn, får hver bøtte omtrent $n/m$ elementer, og med $m \\approx n$\ner hver bøtte så liten at sorteringen inne i den er nesten gratis. Da blir totalen\n$O(n)$ **forventet**.\n\nEr fordelingen skjev — alle elementene i én bøtte — degenererer det til å sortere\nhele arrayet med den indre sorteringen, altså $O(n^2)$ med innsettingssortering.\nDerfor står det «forventet» og ikke «verste» i tabellen."
+    },
+    {
+      "id": "in2010-2-3-def-3",
+      "type": "definition",
+      "title": "Bucket sort",
+      "content": "Fordeler $n$ verdier fra et **kjent intervall** i $m$ like store bøtter, sorterer\nhver bøtte for seg, og skjøter bøttene sammen i rekkefølge.\n\n$O(n)$ **forventet** ved jevn fordeling og $m \\approx n$. $O(n^2)$ i verste\ntilfelle, når alt havner i samme bøtte. **Ikke in-place**; stabil hvis den indre\nsorteringen er stabil.\n\nForutsetningen er dobbel: verdiene må ligge i et kjent intervall, **og** de må\nvære noenlunde jevnt fordelt. Den andre delen glemmes ofte."
+    },
+    {
+      "id": "in2010-2-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Bucket sort på verdier i $[0, 1)$",
+      "problem": "Sortér `A = [0.42, 0.17, 0.81, 0.35, 0.68, 0.11]` med bucket sort og fem bøtter.\nVerdiene er kjent å ligge i intervallet $[0, 1)$.",
+      "solution": "Bøtte nummer for en verdi $x$ er $\\lfloor x \\cdot 5 \\rfloor$.\n\n| Bøtte | Intervall | Innhold |\n|---|---|---|\n| 0 | $[0{,}0,\\ 0{,}2)$ | 0,17 og 0,11 |\n| 1 | $[0{,}2,\\ 0{,}4)$ | 0,35 |\n| 2 | $[0{,}4,\\ 0{,}6)$ | 0,42 |\n| 3 | $[0{,}6,\\ 0{,}8)$ | 0,68 |\n| 4 | $[0{,}8,\\ 1{,}0)$ | 0,81 |\n\nSortér innholdet i hver bøtte — her er det bare bøtte 0 som har mer enn ett\nelement, og innsettingssortering på to elementer er én sammenligning. Skjøt så\nbøttene sammen i rekkefølge:\n\n**Sluttilstand: `[0.11, 0.17, 0.35, 0.42, 0.68, 0.81]`.**\n\n**Hva som gjorde dette lineært:** fordelingen var jevn, så ingen bøtte fikk mer\nenn to elementer. Den totale kostnaden ble å regne ut fem bøttenumre, gjøre én\nsammenligning, og skjøte sammen — altså $O(n)$.\n\n**Hva som ville ødelagt det:** hadde alle seks verdiene ligget mellom 0,80 og\n0,85, ville alle havnet i bøtte 4, og hele arbeidet ville falt på\ninnsettingssorteringen inne i den ene bøtta. Da er vi tilbake på $O(n^2)$.\n\n**Og hva som ville gjort algoritmen ugyldig:** hvis du ikke visste at verdiene lå\ni $[0, 1)$. Uten det intervallet finnes det ingen måte å regne ut bøttenummeret\npå."
+    },
+    {
+      "id": "in2010-2-3-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Den første er felle **#5** i bokas feilregister, og den er den dyreste i hele\nDel 2.\n\n- **Å foreslå bucket, counting eller radix når alt du vet er at elementene er\n  sammenlignbare.** De tre omgår $\\Omega(n \\log n)$ nettopp fordi de **ikke**\n  sammenligner — de bruker verdien som adresse. Det forutsetter at du vet noe om\n  verdiene: heltall i et kjent område, et fast antall siffer, eller et kjent\n  intervall. Sier oppgaven bare «elementene kan sammenlignes», er svaret\n  $O(n \\log n)$, og et lineært svar er **feil**, ikke bare uheldig.\n- **Å glemme heltallskravet i counting sort.** Vilkårlige desimaltall kan ikke\n  brukes som indeks i et telleregister.\n- **Å oppgi counting sort som $O(n)$ uten å nevne $k$.** Kjøretiden er $O(n + k)$.\n  Med $n = 1000$ og $k = 10^9$ er den langt tregere enn $O(n \\log n)$. Skriv\n  $O(n + k)$ og legg til at den er lineær når $k = O(n)$.\n- **Å sortere fra mest signifikante siffer i radix sort.** Da ødelegger hvert\n  pass arbeidet fra det forrige. Minst signifikante siffer først, og hvert pass\n  må være stabilt.\n- **Å blande «stabil» med «sortert riktig».** Alle disse tre gir korrekt sortert\n  resultat. Stabilitet handler bare om rekkefølgen mellom **like** nøkler.\n\nOg den gjennomgående: **å bruke $n$ og $k$ uten å definere dem.** Dette er felle\n**#10** — å oppgi kjøretid uten å si hva problemstørrelsen er. Én setning:\n«$n$ er antall elementer, $k$ er størrelsen på verdiområdet.»"
+    },
+    {
+      "id": "in2010-2-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D, eksamensnivå.) For hver situasjon: kan du bruke en lineær sortering?\nHvis ja, hvilken og hva blir kjøretiden. Hvis nei, hvorfor ikke.\n\n**a)** $n$ elementer der du bare vet at de kan sammenlignes med hverandre.\n**b)** $n$ produkter som skal sorteres etter én av 12 kategorier.\n**c)** $n$ postnumre, som alle har fire siffer.\n**d)** $n$ målinger som er kjent å ligge jevnt fordelt mellom 0 og 100.",
+        "solution": "La $n$ være antall elementer.\n\n**a) Nei.** «Kan sammenlignes» er all informasjonen du har, og da finnes det ingen\nverdi å bruke som adresse. Nedre grensen $\\Omega(n \\log n)$ gjelder, og svaret er\nen sammenligningssortering: flettesortering, heapsort eller kvikksortering,\n$O(n \\log n)$. Å foreslå bucket eller radix her er felle #5.\n\n**b) Ja — counting sort.** Kategoriene er et kjent, lite verdiområde med $k = 11$\nhvis vi nummererer dem 0 til 11. $O(n + k) = O(n + 12) = O(n)$.\n\n**c) Ja — radix sort.** Postnumre er heltall med $d = 4$ siffer og $k = 9$ som\nstørste sifferverdi. $O(d(n + k)) = O(4(n + 10)) = O(n)$. Counting sort ville også\nvirket, med $k = 9999$, men det telleregisteret er unødvendig stort med mindre $n$\ner i samme størrelsesorden.\n\n**d) Ja — bucket sort.** Både det kjente intervallet $[0, 100]$ og den jevne\nfordelingen er oppgitt, og begge trengs. $O(n)$ forventet. Merk at «forventet» må\nmed: er fordelingen likevel skjev, degenererer den til $O(n^2)$.\n\n**Formen sensor vil ha:** algoritmen, forutsetningen som gjør den lovlig, og\nkjøretiden med $n$ og $k$ definert. Tre ting, og forutsetningen er den som oftest\nglemmes.",
+        "hints": [
+          "Still ett spørsmål til hver situasjon: hva vet jeg om verdiene, ikke bare om rekkefølgen?",
+          "Er nøklene heltall? Er området kjent? Er det lite nok?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Avgjør sant eller usant, og begrunn hver med én setning.\n\n**a)** Counting sort er raskere enn flettesortering på ethvert array.\n**b)** Radix sort krever at hvert enkeltpass er stabilt.\n**c)** Bucket sort har $O(n)$ i verste tilfelle.\n**d)** De tre lineære sorteringene motsier nedre grensen $\\Omega(n \\log n)$.",
+        "solution": "**a) Usant.** Counting sort er $O(n + k)$. Er verdiområdet stort — for eksempel\n$n = 1000$ elementer med nøkler opp til en milliard — dominerer $k$ fullstendig,\nog flettesorteringens $O(n \\log n)$ er mye raskere.\n\n**b) Sant.** Hvert pass må bevare rekkefølgen fra alle de forrige passene. Er ett\npass ustabilt, ødelegges arbeidet fra sifrene under, og resultatet blir feil.\n\n**c) Usant.** $O(n)$ er det **forventede** tilfellet ved jevn fordeling. Havner\nalle elementene i samme bøtte, faller alt arbeidet på den indre sorteringen, og\nverste tilfelle er $O(n^2)$.\n\n**d) Usant.** Grensen gjelder kun **sammenligningsbaserte** algoritmer. Ingen av\nde tre sammenligner to elementer med hverandre — de bruker verdien som adresse —\nog derfor faller de utenfor grensens rekkevidde. Prisen er forutsetningen om\nverdiområdet.\n\n**Om antigjettingen.** Tre usanne og én sann. Legg merke til at alle tre usanne\ner formulert som forenklinger av noe sant: counting sort **er** ofte raskere,\nbucket sort **er** ofte $O(n)$, og de lineære sorteringene **omgår** riktignok\ngrensen. Distraktorene lever av å stryke forbeholdet.",
+        "hints": [
+          "For hver påstand: hvilket tilfelle gjelder den, og hvilken forutsetning bygger den på?",
+          "Sjekk hva nedre grensen faktisk sier at den gjelder for."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-3-t-4",
+      "type": "text",
+      "content": "### Et sideblikk: gnome sort\n\nEksamen har brukt et lite grep som er verdt å kjenne igjen: du får en ukjent\nsorteringsalgoritme i pseudokode og skal si noe om egenskapene dens. Du forventes\nikke å ha sett den før — du forventes å **gjenkjenne slektskapet**.\n\n**Gnome sort** er skoleeksempelet. Den går gjennom arrayet med én peker: står\nnaboparet riktig, går den ett skritt fram; står det feil, bytter den og går ett\nskritt **tilbake**.\n\n```text\nProcedure GnomeSort(A)\n  Input:  array A med n sammenlignbare elementer, indeksert fra 0\n  Output: A sortert stigende, sortert paa stedet\n  i = 0\n  while i < A.length:\n      if i == 0 or A[i-1] <= A[i]:\n          i = i + 1\n      else:\n          bytt A[i-1] og A[i]\n          i = i - 1\n```\n\nSlektskapet er med innsettingssortering: begge skyver ett element bakover til det\nfinner plassen sin. Forskjellen er at gnome sort bruker bytter i stedet for\nforskyvninger, og derfor gjør flere sammenligninger. Egenskapene arves: $O(n^2)$\nverste, $O(n)$ beste på et ferdigsortert array, **stabil** (den bytter bare når\ndet foran er **strengt** større) og **in-place**.\n\nFramgangsmåten når du møter en ukjent algoritme er alltid den samme: se på hva den\n**flytter** og **hvor langt**. Korte nabobytter betyr stabil; lange hopp betyr\nustabil. Ett nytt array betyr ikke in-place."
+    },
+    {
+      "id": "in2010-2-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Gnome sort håndkjørt",
+      "problem": "Håndkjør `GnomeSort` på `A = [4, 2, 5, 1]` og tell steg, sammenligninger og\nbytter.",
+      "solution": "| Steg | `i` før | Handling | Tilstand etter |\n|---|---|---|---|\n| 1 | 0 | `i = 0`, gå ett fram | `[4, 2, 5, 1]` |\n| 2 | 1 | bytt `A[0]` og `A[1]`, gå ett tilbake | `[2, 4, 5, 1]` |\n| 3 | 0 | `i = 0`, gå ett fram | `[2, 4, 5, 1]` |\n| 4 | 1 | `A[0] <= A[1]`, gå ett fram | `[2, 4, 5, 1]` |\n| 5 | 2 | `A[1] <= A[2]`, gå ett fram | `[2, 4, 5, 1]` |\n| 6 | 3 | bytt `A[2]` og `A[3]`, gå ett tilbake | `[2, 4, 1, 5]` |\n| 7 | 2 | bytt `A[1]` og `A[2]`, gå ett tilbake | `[2, 1, 4, 5]` |\n| 8 | 1 | bytt `A[0]` og `A[1]`, gå ett tilbake | `[1, 2, 4, 5]` |\n| 9 | 0 | `i = 0`, gå ett fram | `[1, 2, 4, 5]` |\n| 10 | 1 | `A[0] <= A[1]`, gå ett fram | `[1, 2, 4, 5]` |\n| 11 | 2 | `A[1] <= A[2]`, gå ett fram | `[1, 2, 4, 5]` |\n| 12 | 3 | `A[2] <= A[3]`, gå ett fram | `[1, 2, 4, 5]` |\n\n**Sluttilstand: `[1, 2, 4, 5]`.** 12 steg, 9 sammenligninger, 4 bytter.\n\n**Se på steg 6 til 8:** 1-tallet vandrer fra indeks 3 til indeks 0, ett nabobytte\nom gangen. Det er nøyaktig det innsettingssortering gjør med forskyvninger, bare\nmed en peker som går fram og tilbake i stedet for to nøstede løkker.\n\n**Egenskapene, lest av tabellen:** algoritmen bytter bare naboer, og bare når det\nforan er strengt større — altså **stabil**. Den bruker én indeksvariabel og ingen\nnye arrayer — altså **in-place**. Verste tilfelle er $O(n^2)$, fordi hvert element\ni verste fall må vandre hele veien.\n\n**Merk sammenligningstellingen.** Innsettingssortering brukte 5 sammenligninger på\ndet tilsvarende arrayet i [kap. 2.1](/in2010/in2010-2-1); gnome sort bruker 9 her,\nfordi hvert skritt tilbake koster en ny sammenligning når pekeren går fram igjen.\nSamme $O$-klasse, høyere konstant."
+    },
+    {
+      "id": "in2010-2-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D, krevende.) En kollega har skrevet dette forslaget til en Del\n2-besvarelse:\n\n> «Vi skal sortere $n$ elementer som bare er kjent å være sammenlignbare. Jeg\n> velger radix sort fordi den er $O(n)$ og dermed står øverst i poengtrappen. Den\n> er også in-place, så minnebruken er $O(1)$.»\n\n**a)** Hvilke tre feil inneholder forslaget?\n**b)** Skriv en korrekt besvarelse med algoritme, forutsetning og kjøretid.\n**c)** Under hvilken tilleggsopplysning hadde radix sort vært riktig?",
+        "solution": "**a) Tre feil:**\n\n1. **Radix sort er ikke lovlig her.** Den krever heltallsnøkler med et kjent,\n   begrenset antall siffer. «Bare sammenlignbare» gir ingen sifre å sortere på.\n   Dette er felle **#5**.\n2. **Kjøretiden er ikke $O(n)$ uten forbehold.** Radix sort er $O(d(n + k))$, og\n   den er lineær bare når $d$ og $k$ er konstanter.\n3. **Radix sort er ikke in-place.** Hvert pass bruker bøtter eller et\n   utdataarray, altså $O(n + k)$ ekstra minne.\n\nEt fjerde punkt er verdt å nevne: poengtrappen belønner lavest kjøretid **blant\nlovlige løsninger**. En ugyldig $O(n)$-løsning står ikke øverst i trappen — den\nstår utenfor den.\n\n**b) Korrekt besvarelse:**\n\n«**Problemet:** sortere $n$ elementer der den eneste tilgjengelige operasjonen er\nsammenligning.\n\n**Antagelser om representasjon:** `A` er et array med $n$ elementer indeksert fra\n0, og to elementer kan sammenlignes med `<`. Vi kan opprette nye arrayer.\n\n**Algoritme:** flettesortering. Splitt arrayet på midten, sortér hver halvdel\nrekursivt, og flett de to sorterte halvdelene ved gjentatte ganger å ta det minste\nav de to første elementene.\n\n**Kjøretid:** $O(n \\log n)$ i alle tilfeller, der $n$ er antall elementer i `A`.\nSplittingen gir $\\log_2 n$ nivåer, og hvert nivå fletter $n$ elementer. Dette er\n**lavest mulig** for en sammenligningsbasert sortering, siden nedre grensen er\n$\\Omega(n \\log n)$.»\n\n**c)** Hvis oppgaven hadde sagt at elementene er **ikke-negative heltall med\nhøyst $d$ siffer**, der $d$ er en konstant. Da er radix sort lovlig og gir\n$O(d(n + k)) = O(n)$ — og da står den faktisk øverst i poengtrappen.",
+        "hints": [
+          "Sjekk hver påstand mot forutsetningen for algoritmen, ikke bare mot kjøretidstabellen.",
+          "Hvilken sortering er lovlig når alt du vet er at elementene kan sammenlignes?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D, krevende.) Du skal sortere $n$ ansatte etter to nøkler: først\navdeling (12 mulige), og innen hver avdeling etter ansiennitetsår (et heltall\nmellom 0 og 40).\n\n**a)** Skisser en løsning som bruker counting sort, og oppgi rekkefølgen på\nsorteringene.\n**b)** Hva er samlet kjøretid?\n**c)** Hvorfor ville løsningen brutt sammen hvis counting sort ikke var stabil?",
+        "solution": "**Problemet navngitt:** sortering på to nøkler, med avdeling som hovednøkkel.\n\n**Antagelser om representasjon:** `A` er et array med $n$ ansatte indeksert fra 0.\nHver ansatt `v` har feltene `v.avdeling` (heltall $0$ til $11$) og `v.ansiennitet`\n(heltall $0$ til $40$).\n\n**a) Algoritmen — to counting-pass, i denne rekkefølgen:**\n\n```text\nProcedure SorterAnsatte(A)\n  Input:  array A med n ansatte, hver med avdeling i [0,11] og ansiennitet i [0,40]\n  Output: A sortert paa avdeling, og innen hver avdeling paa ansiennitet\n  A = CountingSort paa noekkelen v.ansiennitet, k = 40\n  A = CountingSort paa noekkelen v.avdeling,    k = 11\n  return A\n```\n\n**Ansiennitet først, avdeling sist.** Den siste sorteringen styrer\nhovedrekkefølgen — samme regel som i radix sort, og samme regel som i\n[kap. 2.1](/in2010/in2010-2-1).\n\n**b) Kjøretid:** $O(n + 41) + O(n + 12) = O(n)$, der $n$ er antall ansatte. Begge\nverdiområdene er konstanter, så begge pass er lineære, og sumregelen fra\n[kap. 1.2](/in2010/in2010-1-2) gir $O(n)$ totalt.\n\n**Poengtrapp-notat:** alternativet er å sortere med en sammenligningssortering på\nen sammensatt nøkkel, altså $O(n \\log n)$. Det er korrekt og gir uttelling, men\n$O(n)$-løsningen står over — og den er bare tilgjengelig fordi begge nøklene har\nkjente, små verdiområder. Den setningen skal stå i besvarelsen.\n\n**c)** Da ville avdelingssorteringen kunne stokke om på ansiennitetsrekkefølgen\ninnen hver avdeling, og hele arbeidet fra første pass ville vært bortkastet.\nStabilitet er det som gjør at rekkefølgen fra én sortering overlever den neste.\nDet er også grunnen til at `CountingSort` går **bakfra** i utplasseringsløkka.",
+        "hints": [
+          "Hvilken av de to nøklene skal styre hovedrekkefølgen — og når sorterer du på den?",
+          "Hva skjer med rekkefølgen fra første pass hvis andre pass flytter like nøkler om?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-3-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-2-3-def-4",
+      "type": "definition",
+      "title": "Lineær sortering",
+      "content": "Fellesnavnet på counting sort, radix sort og bucket sort: sorteringer som ikke\nsammenligner elementer, men bruker verdien som adresse.\n\nDe kommer under $\\Omega(n \\log n)$ fordi grensen bare gjelder\nsammenligningsbaserte algoritmer. Prisen er alltid en forutsetning om verdiene:\nheltall i et kjent område, et fast antall siffer, eller et kjent intervall med\njevn fordeling."
+    },
+    {
+      "id": "in2010-2-3-def-5",
+      "type": "definition",
+      "title": "Kjent, begrenset verdiområde",
+      "content": "Forutsetningen alle tre lineære sorteringene hviler på: du må vite på forhånd\nhvilke verdier nøklene kan ha, og området må være lite nok til at det kan\nadresseres.\n\nSier oppgaven bare at elementene «kan sammenlignes», er forutsetningen **ikke**\noppfylt, og et lineært svar er feil. Dette er felle **#5** i bokas feilregister."
+    },
+    {
+      "id": "in2010-2-3-def-6",
+      "type": "definition",
+      "title": "Telleregisteret C",
+      "content": "Arrayet counting sort bygger, med én plass per mulig verdi: `C[v]` er antall\nelementer med nøkkel $v$.\n\nStørrelsen er $k+1$, ikke $n$. Det er derfor kjøretiden er $O(n + k)$ og ikke\n$O(n)$ — og derfor counting sort blir ubrukelig når verdiområdet er stort."
+    },
+    {
+      "id": "in2010-2-3-def-7",
+      "type": "definition",
+      "title": "Kumulativ sum i counting sort",
+      "content": "Andre pass gjør `C[v] = C[v] + C[v-1]`, slik at `C[v]` blir antall elementer med\nnøkkel **høyst** $v$.\n\nDet tallet er nøyaktig én mer enn den siste indeksen verdien $v$ skal ha i\nresultatet, og det er dette som lar algoritmen plassere hvert element direkte\nuten å søke."
+    },
+    {
+      "id": "in2010-2-3-def-8",
+      "type": "definition",
+      "title": "Bakfra-løkka i counting sort",
+      "content": "Utplasseringen går fra siste til første element i inputen. Det er dette ene\nvalget som gjør counting sort **stabil**.\n\nGår løkka forfra i stedet, snus rekkefølgen mellom like nøkler — og da kan ikke\ncounting sort brukes som byggekloss i radix sort. Detaljen er liten og\nkonsekvensen er stor."
+    },
+    {
+      "id": "in2010-2-3-def-9",
+      "type": "definition",
+      "title": "Counting sorts kjøretid",
+      "content": "$O(n + k)$ i alle tilfeller, der $n$ er antall elementer og $k$ er størrelsen på\nverdiområdet.\n\nLineær **når $k = O(n)$**. Med $n = 1000$ og $k = 10^9$ er den langt tregere enn\n$O(n \\log n)$. Å skrive «$O(n)$» uten å nevne $k$ er en av kapitlets vanligste\nunøyaktigheter."
+    },
+    {
+      "id": "in2010-2-3-def-10",
+      "type": "definition",
+      "title": "Radix sorts pass-rekkefølge",
+      "content": "Minst signifikante siffer **først**, mest signifikante **sist**.\n\nGrunnen er at den siste sorteringen styrer hovedrekkefølgen. Sorterer du motsatt\nvei, ødelegger hvert pass arbeidet fra det forrige, og resultatet blir feil."
+    },
+    {
+      "id": "in2010-2-3-def-11",
+      "type": "definition",
+      "title": "Stabilitet som betingelse i radix sort",
+      "content": "Hvert enkeltpass i radix sort **må** være stabilt. Det er ikke en ønsket\negenskap, men en betingelse for at algoritmen skal virke i det hele tatt.\n\nEr ett pass ustabilt, mister arrayet rekkefølgen fra sifrene under, og de senere\npassene kan ikke gjenopprette den."
+    },
+    {
+      "id": "in2010-2-3-def-12",
+      "type": "definition",
+      "title": "Radix sorts kjøretid",
+      "content": "$O(d(n + k))$, der $d$ er antall siffer og $k$ er antall mulige sifferverdier\n(9 i base 10).\n\nLineær når $d$ og $k$ er konstanter. Fordelen over counting sort er at\ntelleregisteret bare trenger 10 plasser i stedet for hele verdiområdet — derfor\ner radix riktig valg for postnumre og lignende."
+    },
+    {
+      "id": "in2010-2-3-def-13",
+      "type": "definition",
+      "title": "Bucket sorts doble forutsetning",
+      "content": "Verdiene må ligge i et **kjent intervall**, og de må være noenlunde **jevnt\nfordelt**.\n\nDen første trengs for å regne ut bøttenummeret; den andre trengs for at bøttene\nskal bli små. Uten den andre degenererer algoritmen til $O(n^2)$, og det er den\ndelen som oftest glemmes."
+    },
+    {
+      "id": "in2010-2-3-def-14",
+      "type": "definition",
+      "title": "Bucket sorts kjøretid",
+      "content": "$O(n)$ **forventet** ved jevn fordeling og omtrent like mange bøtter som\nelementer. $O(n^2)$ i verste tilfelle, når alt havner i samme bøtte.\n\nOrdet «forventet» må med. En påstand om at bucket sort er $O(n)$ i verste tilfelle\ner usann."
+    },
+    {
+      "id": "in2010-2-3-def-15",
+      "type": "definition",
+      "title": "Gnome sort",
+      "content": "En sortering med én peker: står naboparet riktig, gå ett fram; står det feil,\nbytt og gå ett tilbake.\n\n$O(n^2)$ verste, $O(n)$ beste, **stabil** og **in-place** — samme profil som\ninnsettingssortering, men med flere sammenligninger. Den er bokas eksempel på en\nukjent algoritme du skal kunne plassere ved å se på hva den flytter."
+    },
+    {
+      "id": "in2010-2-3-def-16",
+      "type": "definition",
+      "title": "Å gjenkjenne en ukjent sortering",
+      "content": "Framgangsmåten når eksamen gir deg pseudokode du aldri har sett: se på hva\nalgoritmen **flytter** og **hvor langt**.\n\nBare nabobytter, og bare når naboen er strengt større $\\Rightarrow$ stabil. Lange hopp $\\Rightarrow$\nustabil. Nytt array $\\Rightarrow$ ikke in-place. To nøstede løkker over $n$ $\\Rightarrow$ $O(n^2)$. Du\ntrenger ikke kjenne navnet for å svare på egenskapene."
+    },
+    {
+      "id": "in2010-2-3-def-17",
+      "type": "definition",
+      "title": "Nedre grensens rekkevidde",
+      "content": "$\\Omega(n \\log n)$ gjelder **verste tilfelle** for **sammenligningsbaserte**\nsorteringer.\n\nDe tre lineære sorteringene motsier den ikke — de faller utenfor, fordi de bruker\nverdien som adresse i stedet for å sammenligne. Å si at counting sort «slår»\ngrensen, er upresist: den er ikke omfattet av den."
+    },
+    {
+      "id": "in2010-2-3-def-18",
+      "type": "definition",
+      "title": "Valgregelen for sortering",
+      "content": "Tre spørsmål, i rekkefølge. **1)** Er nøklene heltall i et kjent, lite område?\nDa counting eller radix, $O(n + k)$ eller $O(d(n+k))$. **2)** Kreves stabilitet?\nDa ikke kvikksortering eller heapsort. **3)** Ellers: en sammenligningssortering,\n$O(n \\log n)$.\n\nOg alltid: skriv ut forutsetningen som gjorde valget lovlig. Det er den setningen\nsensor leter etter."
+    },
+    {
+      "id": "in2010-2-3-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-2-3-rep-1",
+          "type": "text",
+          "content": "**De tre lineære sorteringene:**\n\n| Algoritme | Kjøretid | Forutsetning | Stabil? | In-place? |\n|---|---|---|---|---|\n| Counting sort | $O(n + k)$ | heltallsnøkler i kjent område $[0, k]$ | ja | nei |\n| Radix sort | $O(d(n + k))$ | heltall med høyst $d$ siffer | ja | nei |\n| Bucket sort | $O(n)$ forventet | kjent intervall **og** jevn fordeling | ja, hvis indre sortering er det | nei |\n\n**Valgregelen, tre spørsmål:**\n\n1. Er nøklene heltall i et kjent, lite område? $\\Rightarrow$ counting eller radix.\n2. Kreves stabilitet? $\\Rightarrow$ ikke kvikksortering, ikke heapsort.\n3. Ellers $\\Rightarrow$ sammenligningssortering, $O(n \\log n)$.\n\n**Den ene setningen som må stå i besvarelsen:** hvorfor forutsetningen er oppfylt.\n«Alderen er et heltall mellom 0 og 120, altså et kjent og begrenset verdiområde,\nså counting sort er lovlig og gir $O(n + k)$ med $k = 120$.»\n\n**Felle #5, kort:** «alt vi vet er at elementene kan sammenlignes» $\\Rightarrow$ lineær\nsortering er **ikke** lov. Da er $O(n \\log n)$ det raskeste mulige, og et lineært\nsvar er feil, ikke bare uheldig.\n\n**Tre ting å sjekke før du leverer:** oppga du forutsetningen? Skrev du $k$ (eller\n$d$) og ikke bare $n$? Sa du «forventet» der det gjelder?\n\n**Videre:** [kap. 2.4](/in2010/in2010-2-4) driller hele Del 2 — invariantene,\negenskapstabellen og valgregelen — i eksamensform."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
