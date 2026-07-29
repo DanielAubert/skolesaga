@@ -1,4 +1,4 @@
-# Autonom byggekjøring — tdt4110 + med1100
+# Autonom byggekjøring — tdt4110, med1100, tma4135, in2010
 
 **Startet:** 28. juli 2026. Produkteier på ferie, sjekker inn via remote.
 **Oppdateres av:** byggelederen (hovedøkta), etter hver fullførte fase.
@@ -15,10 +15,26 @@ og undervises til høsten — belegg i valgnotatet nederst.
 | Steg 0 — skjelettport | ✅ OK (39 kap) | ✅ OK (50 kap) |
 | Steg 0 — BOKCONFIG.json | ✅ | ✅ |
 | Steg 0 — BYGGEKONTRAKT.md | ✅ 1 409 linjer | ✅ 1 515 linjer |
-| Steg 1 — byggebølge | ⏳ 27/47 filer · Del 0–4 ✅ | ⏳ 16/63 filer · Del 0–1 ✅ |
-| Steg 2 — wiring | — | — |
-| Steg 3 — verifisering | — | — |
+| Steg 1 — byggebølge | ✅ 47/47 | ⏳ 57/63 · Del 14 kjører |
+| Steg 2 — wiring | ✅ BOKPORT OK | — |
+| Steg 3 — verifisering | ⏳ 2 redaktører ute | — |
 | Steg 4 — sluttport + deploy | — | — |
+
+### Bok 3 og 4 — startet 29. juli
+
+| Fase | `tma4135` (NTNU) | `in2010` (UiO) |
+|---|---|---|
+| Steg 0 — skjelettport | ✅ 36 kap | ✅ 35 kap |
+| Steg 0 — BYGGEKONTRAKT | ⏳ | ⏳ |
+| Steg 0 — BOKCONFIG | — | — |
+
+Begge er rene høstfag, målt mot arkivets filnavn: `tma4135` har 42 oppgavesett
+og 44 løsningsforslag, alle høst; `in2010` har 17 oppgavesett og **14 ekte
+sensorveiledninger**, alle høst. Det siste er uvanlig — de fleste emner har bare
+faglærerskrevne løsningsforslag, som er vernet materiale.
+
+`fys1120` ble vurdert og forkastet: 3. semester tilsier høst, men arkivets
+filnavn viser rene våreksamener.
 
 Tegnforklaring: ✅ ferdig · ⏳ pågår · ⛔ blokkert · — ikke startet
 
