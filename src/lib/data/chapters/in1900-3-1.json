@@ -1,373 +1,373 @@
 {
- "id": "in1900-3-1",
- "courseId": "in1900",
- "chapterNumber": "3.1",
- "title": "Testfunksjoner og assert",
- "description": "Skrive testfunksjoner med `assert abs(expected - computed) < tol` — kravet som følger nesten hver kodeskriving-oppgave.",
- "estimatedMinutes": 40,
- "competenceGoals": [
-  "kunne bruke en påstandssjekk i koden til å stoppe programmet med en presis beskjed når noe ikke stemmer",
-  "kunne forklare hvorfor to flyttall som matematisk er like sjelden er nøyaktig like i Python, og hva du gjør i stedet",
-  "kunne skrive en testfunksjon i den formen sensor forventer: fasit, beregnet verdi, toleranse og feilmelding",
-  "kunne velge en toleranse som passer til metodens nøyaktighet, og teste flere punkter i samme testfunksjon"
- ],
- "content": [
-  {
-   "id": "in1900-3-1-tip-vinkel",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "**Dette er kapitlet som gir deg gratispoeng.** Å skrive en liten testfunksjon er den enkleste oppgavetypen i hele emnet, og den kommer igjen og igjen.\n\nI IN1900 er det to eksamener. **Midtveiseksamen** i oktober er en digital flervalgseksamen som teller 25 prosent, og **den avsluttende eksamenen** i desember er fire timer, teller 75 prosent, og består for det meste av **fritekst-koding**: du skriver Python-kode rett inn i et tekstfelt, uten hjelpemidler og uten å kunne kjøre den.\n\nPå den avsluttende eksamenen ser bildet slik ut:\n\n- **I 7 av de 8 nyere settene (88 prosent)** er «skriv en testfunksjon» et selvstendig delkrav som gir poeng for seg selv.\n- Den står nesten alltid som **del-b** — altså andre deloppgave — på en oppgave i **sjanger F**. Sjanger F er bokas kode for oppgaven «skriv en funksjon som regner ut en sum eller en rekke, og skriv en testfunksjon til den». Selve rekkedelen tar vi i [kap. 3.2](/in1900/in1900-3-2); testdelen tar vi her.\n- Sjanger F er i **hvert eneste sett (100 prosent)** og er verdt 4–6 poeng.\n\nPrioriteten er derfor den høyeste boka opererer med. Boka bruker tre nivåer: **må sitte** (nivå 1), **kunne** (nivå 2) og **kjenne til** (nivå 3). Testfunksjoner er nivå 1, og de er samtidig det billigste nivå 1-stoffet som finnes: mønsteret er fem linjer langt og endrer seg aldri.\n\nEn ting til, om **delpoeng**: sensor gir poeng for deler av en løsning. Klarer du ikke rekken i del-a, kan du fortsatt få full uttelling på testfunksjonen i del-b — du skriver bare testen for funksjonen slik den *skulle* ha vært. De offisielle løsningsforslagene er tydelige på at deloppgaver kan løses uavhengig."
-  },
-  {
-   "id": "in1900-3-1-forkunn",
-   "type": "text",
-   "content": "## Forkunnskaper\n\nDu trenger fire ting fra Del 1:\n\n- **Funksjoner** fra [kap. 1.6](/in1900/in1900-1-6): hvordan du skriver `def`, hva `return` gjør, og at en funksjon uten `return` gir `None`. Hele dette kapitlet handler om å teste funksjoner du selv har skrevet.\n- **Flyttall** fra [kap. 1.1](/in1900/in1900-1-1), særlig setningen om at flyttall er tilnærminger. Den setningen er hele grunnen til at dette kapitlet finnes.\n- **F-strenger** fra [kap. 1.4](/in1900/in1900-1-4), fordi feilmeldingen i en test skal vise tallene.\n- **Løkker** fra [kap. 1.3](/in1900/in1900-1-3), inkludert `zip`, når vi tester flere punkter i samme testfunksjon.\n\nKapitlet er delt i fire løkker med tidsanslag, og du kan lese det i én økt på tre kvarter."
-  },
-  {
-   "id": "in1900-3-1-txt-lokke1",
-   "type": "text",
-   "content": "## Løkke 1 — å be programmet stoppe når noe er galt (~10 min)\n\nEt laboratorium logger konsentrasjonen av et legemiddel i blodet. Programmet som behandler loggen forventer fire målinger per døgn. Kommer det bare tre, regner programmet videre og gir et svar som ser helt fornuftig ut — men som er feil.\n\nDet er den farligste typen feil: den som ikke gir feilmelding. Python har en innebygd måte å si «her stoller jeg på at noe er sant, og hvis det ikke er det, skal du stoppe med en gang». Setningen heter `assert`, og ordet betyr «å påstå».\n\nEn `assert` er altså en **påstand du plasserer i koden**. Er påstanden sann, skjer ingenting, og programmet fortsetter som om linja ikke var der. Er den usann, stopper programmet umiddelbart."
-  },
-  {
-   "id": "in1900-3-1-def-assert",
-   "type": "definition",
-   "title": "`assert uttrykk`",
-   "content": "Sjekker at `uttrykk` er sant. Er det sant, skjer ingenting — programmet går videre til neste linje. Er det usant, avbrytes programmet med en feil som heter `AssertionError`.\n\nUttrykket skal være noe som gir sant eller usant: en sammenligning som `x > 0`, en likhet som `len(v) == 4`, eller et boolsk uttrykk med `and`/`or`. Det er ingen parenteser rundt uttrykket, og ingen kolon etterpå — `assert` er en setning, ikke en funksjon.\n\n```python\nalder = 25\nassert alder > 0\nprint('Alderen er gyldig')\n```\n\n**Utskrift:**\n```\nAlderen er gyldig\n```"
-  },
-  {
-   "id": "in1900-3-1-def-assert-msg",
-   "type": "definition",
-   "title": "`assert uttrykk, melding`",
-   "content": "Samme sjekk, men med en tekst som blir vist hvis påstanden er usann. Meldingen står etter et komma og er en vanlig streng — gjerne en f-streng, slik at den kan vise tallene som ikke stemte.\n\nDette er formen boka og de offisielle løsningsforslagene bruker. Grunnen er praktisk: en test som feiler uten melding forteller deg bare *at* noe er galt, mens en test med melding forteller deg *hva* som var galt.\n\n```python\nantall_maalinger = 3\nassert antall_maalinger == 4, 'Vi ventet fire målinger'\nprint('Denne linja kjøres aldri')\n```\n\n**Utskrift:** ingen — programmet stopper på `assert`-linja, og siste linje i feilmeldingen er:\n\n```\nAssertionError: Vi ventet fire målinger\n```"
-  },
-  {
-   "id": "in1900-3-1-def-assertionerror",
-   "type": "definition",
-   "title": "`AssertionError`",
-   "content": "Navnet på feilen `assert` utløser når påstanden er usann. En **exception** er en feil som avbryter programmet; `AssertionError` er én av dem, på linje med `ValueError` og `IndexError` fra [kap. 2.2](/in1900/in1900-2-2).\n\nTo ting er verdt å merke seg. For det første kjøres **ingenting** av det som står etter en `assert` som feiler — heller ikke resten av linjene i funksjonen. For det andre er teksten du ga etter kommaet det eneste som skiller en nyttig feilmelding fra en ubrukelig: uten melding står det bare `AssertionError` og ingenting mer."
-  },
-  {
-   "id": "in1900-3-1-ex-1",
-   "type": "example",
-   "title": "Eksempel 1: en påstand som holder, og en som ikke gjør det",
-   "problem": "Et program leser inn antall dyr som er talt opp i to ruter i et feltforsøk, og krever at begge tallene er positive. Hva skjer når begge er positive, og hva skjer når det ene er null?",
-   "solution": "\nFørst tilfellet der påstanden holder:\n\n```python\nrute_a = 12\nrute_b = 7\nassert rute_a > 0 and rute_b > 0, 'begge rutene må ha minst ett dyr'\nprint('Sum:', rute_a + rute_b)\n```\n\n**Utskrift:**\n```\nSum: 19\n```\n\nDen andre kjøringen er identisk, men med `rute_b = 0`. Da er `rute_a > 0 and rute_b > 0` usant, `assert` avbryter, og `print`-linja nås aldri.\n\n**Utskrift:** ingen — siste linje i feilmeldingen er:\n\n```\nAssertionError: begge rutene må ha minst ett dyr\n```\n\nLegg merke til at det ikke står noe om *hvilken* rute som var tom. Vil du vite det, må meldingen inneholde tallene, og da bruker du en f-streng: `f'rute_a = {rute_a}, rute_b = {rute_b}'`. Det er nøyaktig det testfunksjonene senere i kapitlet gjør."
-  },
-  {
-   "id": "in1900-3-1-o1",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1900-3-1-o1",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innstegsoppgave, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\ndef dobbel(x):\n    return 2*x\n\ndef test_dobbel():\n    expected = 8\n    computed = dobbel(4)\n    tol = 1e-10\n    assert abs(expected - computed) < tol, 'feil i dobbel'\n\ntest_dobbel()\nprint('Ferdig')\n```",
-    "solution": "**Sporingstavle**\n\n| Steg | Verdi | Kommentar |\n|---|---|---|\n| `test_dobbel()` kalles | — | funksjonen begynner å kjøre |\n| `expected` | 8 | verdien vi mener er riktig |\n| `computed = dobbel(4)` | 8 | verdien funksjonen faktisk gir |\n| `abs(8 - 8)` | 0 | avviket |\n| `0 < 1e-10` | sant | påstanden holder |\n| `assert` | — | gjør ingenting, går videre |\n| `print('Ferdig')` | — | skriver `Ferdig` |\n\nEn `assert` som holder er helt stille. Det er grunnen til at en testfunksjon som går gjennom, ikke skriver noe i det hele tatt.\n\n**Utskrift:**\n```\nFerdig\n```\n\nFellenote: mange venter seg et `True` eller en «OK»-melding fra `assert`-linja. `assert` returnerer ingenting og skriver ingenting — den enten tier eller stopper programmet.",
-    "hints": [
-     "Regn ut `abs(expected - computed)` først, og sammenlign med toleransen.",
-     "Hva skriver en `assert` ut når påstanden er sann?"
-    ]
-   }
-  },
-  {
-   "id": "in1900-3-1-o2",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1900-3-1-o2",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Midtveisnivå, sjanger A — kodesporing med `assert`.) Hva skriver programmet ut, og hva skjer helt til slutt?\n\n```python\nverdier = [2, 4, 6]\ns = 0\nfor v in verdier:\n    s += v\n    print(s, end=' ')\nassert s == 10, 'summen ble ikke 10'\nprint('ferdig')\n```",
-    "solution": "**Sporingstavle**\n\n| Runde | `v` | `s` etter | Skriver |\n|---|---|---|---|\n| 1 | 2 | 2 | `2 ` |\n| 2 | 4 | 6 | `6 ` |\n| 3 | 6 | 12 | `12 ` |\n\nLøkka går tre runder og skriver alt på **samme linje**, fordi `end=' '` bytter ut linjeskiftet med et mellomrom. Etter løkka er `s` lik 12, og påstanden `s == 10` er usann.\n\n**Utskrift:**\n```\n2 6 12 \n```\n\nDeretter stopper programmet, og `print('ferdig')` kjøres aldri. Siste linje i feilmeldingen er:\n\n```\nAssertionError: summen ble ikke 10\n```\n\nTo feller på én gang: at `end=' '` samler de tre tallene på én linje med et avsluttende mellomrom (dette er felle **#16 — utskriftsdetaljer som `end` blir oversett**), og at alt etter en `assert` som feiler blir hoppet over.",
-    "hints": [
-     "Skriv opp verdien av `s` etter hver runde i løkka før du ser på `assert`-linja.",
-     "Hva gjør `end=' '` med linjeskiftet?"
-    ]
-   }
-  },
-  {
-   "id": "in1900-3-1-txt-lokke2",
-   "type": "text",
-   "content": "## Løkke 2 — hvorfor du aldri sammenligner flyttall med likhetstegn (~10 min)\n\nNå kommer den ene faglige innsikten i kapitlet. Alt annet er håndverk.\n\nEt flyttall i Python lagres med et endelig antall siffer i totallsystemet. De fleste desimaltall kan ikke skrives eksakt slik, på samme måte som en tredel ikke kan skrives eksakt som et desimaltall. Derfor er hvert flyttall en **tilnærming**, og små avrundingsfeil hoper seg opp gjennom en utregning.\n\nDet gir et resultat som overrasker alle første gang:\n\n```python\nprint(0.1 + 0.2)\nprint(0.1 + 0.2 == 0.3)\nprint(abs(0.1 + 0.2 - 0.3) < 1e-10)\n```\n\n**Utskrift:**\n```\n0.30000000000000004\nFalse\nTrue\n```\n\nSummen er ikke $0{,}3$, men $0{,}3$ pluss omtrent $5\\cdot 10^{-17}$. Det er en helt ubetydelig forskjell fysisk sett — og en helt avgjørende forskjell for `==`, som krever at hvert eneste siffer stemmer."
-  },
-  {
-   "id": "in1900-3-1-def-float-likhet",
-   "type": "definition",
-   "title": "Flyttall og likhetstegnet `==`",
-   "content": "To flyttall som matematisk er like, er sjelden **nøyaktig** like i Python. `==` sammenligner bit for bit og gir `False` allerede ved et avvik i siste siffer. Derfor er `==` mellom to utregnede flyttall nesten alltid et feilsvar, og aldri noe du skal skrive i en test.\n\nDet gjelder også uttrykk som matematisk er identiske: kvadratroten av 2, opphøyd i andre, blir ikke nøyaktig 2.\n\n```python\nfrom math import sqrt\nprint(sqrt(2)**2)\nprint(sqrt(2)**2 == 2)\nprint(abs(sqrt(2)**2 - 2) < 1e-10)\n```\n\n**Utskrift:**\n```\n2.0000000000000004\nFalse\nTrue\n```\n\nMerk at `==` er helt greit mellom **heltall**: `4 == 4` er `True` og vil alltid være det. Regelen gjelder flyttall."
-  },
-  {
-   "id": "in1900-3-1-warn-eq",
-   "type": "warning",
-   "title": "Typiske feil: `==` på flyttall i en test",
-   "content": "Dette er **feil #11 i feilkatalogen** — å bruke `==` på flyttall i en testfunksjon i stedet for `abs(...) < tol`. Feilkatalogen er bokas nummererte register over de feilene som går igjen; hver feil har et nummer du kan slå opp.\n\nFeilen er lumsk fordi den ofte *virker* på små eksempler. Regner du ut $2 \\cdot 3$ som flyttall, får du nøyaktig $6{,}0$, og `==` gir `True`. Så snart det er en kvadratrot, en eksponentialfunksjon eller en sum av mange ledd inne i bildet, slår den til.\n\nPå eksamen er den lett å oppdage for sensor og koster hele testpoenget, fordi den viser at kandidaten ikke har forstått hvorfor testen skrives med toleranse. De offisielle løsningsforslagene skriver alltid `assert abs(expected - computed) < tol`.\n\nTo tilleggsfeller i samme familie:\n\n- **Å glemme `abs`.** `expected - computed < tol` er sant for et hvilket som helst negativt avvik, uansett hvor stort. Testen slipper da gjennom kode som er grovt feil.\n- **Å snu ulikheten.** `abs(expected - computed) > tol` tester at svaret er *galt*."
-  },
-  {
-   "id": "in1900-3-1-ex-2",
-   "type": "example",
-   "title": "Eksempel 2: to formler som er matematisk like, men ikke like i maskinen",
-   "problem": "Konsentrasjonen av et legemiddel i blodet halveres hver femte time og starter på 40 mg/l. Modellen kan skrives både som $c(t) = 40 e^{-t\\ln 2/5}$ og som $c(t) = 40 \\cdot 0{,}5^{t/5}$. Er de to like i Python?",
-   "solution": "\nMatematisk er de identiske, siden $0{,}5^{t/5} = e^{(t/5)\\ln 0{,}5} = e^{-t \\ln 2/5}$. Vi lar funksjonen bruke den første formen og regner fasiten med den andre.\n\n```python\nfrom math import exp, log\n\ndef konsentrasjon(t):\n    return 40.0*exp(-log(2)*t/5.0)\n\nfasit = 40.0*0.5**(3.0/5.0)\nprint(konsentrasjon(3.0))\nprint(fasit)\nprint(konsentrasjon(3.0) == fasit)\nprint(abs(konsentrasjon(3.0) - fasit) < 1e-10)\n```\n\n**Utskrift:**\n```\n26.390158215457888\n26.390158215457884\nFalse\nTrue\n```\n\nDe to tallene er like i femten siffer og skiller seg i det sekstende. Avviket er om lag $4 \\cdot 10^{-15}$, altså rundt en hundretusendel av en milliarddel av et milligram per liter. Ingen måleinstrument i verden kan skille dem.\n\nLikevel svarer `==` at de er forskjellige. Det er nøyaktig denne situasjonen en testfunksjon havner i hver eneste gang: du regner fasiten på én måte og koden på en annen, og de to veiene gir ørsmå avvik.\n\n**Sensorpoenget:** en test som krever eksakt likhet vil melde feil på riktig kode. En test som godtar et avvik på $10^{-10}$ melder feil bare når koden faktisk er gal."
-  },
-  {
-   "id": "in1900-3-1-def-abs-tol",
-   "type": "definition",
-   "title": "`abs(expected - computed) < tol`",
-   "content": "Standardformen for å sammenligne to flyttall. `expected` er verdien du mener er riktig, `computed` er den funksjonen faktisk gir, og `abs` gjør differansen positiv uansett hvilken vei avviket går. Er avviket mindre enn toleransen `tol`, regner vi de to som like.\n\nNavnene `expected`, `computed` og `tol` er de som brukes i de offisielle løsningsforslagene, og boka bruker dem gjennomgående. Bruk dem du også — sensor leser mange besvarelser, og gjenkjennelige navn gjør koden lettere å gi poeng for.\n\n```python\nexpected = 0.3\ncomputed = 0.1 + 0.2\ntol = 1e-10\nprint(abs(expected - computed) < tol)\n```\n\n**Utskrift:**\n```\nTrue\n```"
-  },
-  {
-   "id": "in1900-3-1-def-tol",
-   "type": "definition",
-   "title": "`tol` — toleransen",
-   "content": "Den største forskjellen du godtar mellom fasit og beregnet verdi. Toleransen skrives i eksponentform: `1e-10` betyr $10^{-10}$, og `1e-4` betyr $10^{-4}$.\n\nValget styres av **hvor nøyaktig metoden din er**, ikke av hvor nøyaktig du ønsker at den skal være:\n\n| Situasjon | Fornuftig `tol` |\n|---|---|\n| Eksakt formel, bare avrundingsfeil (fasit fra `math`) | `1e-10` til `1e-14` |\n| Rekke summert med mange ledd | `1e-8` til `1e-10` |\n| Rekke summert med få ledd, eller en grov numerisk metode | `1e-4` til `1e-6` |\n\nTo ytterpunkter er begge gale. En toleranse på `0` er det samme som `==` og vil feile på riktig kode. En toleranse på `1e-2` slipper gjennom kode med reelle feil. Er du i tvil på eksamen, er `1e-10` det trygge valget for eksakte formler — og skriv én setning om hvorfor du valgte en løsere toleranse hvis metoden er grov. Den setningen gir uttelling."
-  },
-  {
-   "id": "in1900-3-1-o3",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1900-3-1-o3",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F — testfunksjonsdelen. Sjanger F er «skriv en sum eller rekke, og skriv en testfunksjon til den»; her er det bare testdelen.) Funksjonen under regner ut arealet av en sirkel.\n\n```python\nfrom math import pi\n\ndef areal(r):\n    return pi*r**2\n```\n\n**a)** Skriv en testfunksjon som sjekker `areal` for $r = 2$, med en fasit du kan regne ut for hånd.\n\n**b)** Forklar i én setning hvorfor du ikke skriver `assert areal(2.0) == 12.566` i stedet.",
-    "solution": "**a)** For $r = 2$ er arealet $\\pi \\cdot 2^2 = 4\\pi$. Det er en eksakt fasit vi kan skrive rett inn, siden `pi` er tilgjengelig fra `math`:\n\n```python\nfrom math import pi\n\ndef areal(r):\n    return pi*r**2\n\ndef test_areal():\n    expected = 4*pi\n    computed = areal(2.0)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_areal()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\n**b)** Fordi `12.566` er en avrundet verdi av $4\\pi \\approx 12{,}566370614$, og et likhetstegn krever at hvert siffer stemmer — testen ville feilet på helt riktig kode. Med `abs(...) < tol` sammenligner du mot den eksakte verdien `4*pi` og godtar bare avrundingsstøy.\n\n**Hva gir uttelling (3 poeng):** 1 poeng for en testfunksjon uten argumenter med riktig navn, 1 for `expected` regnet ut fra en kjent verdi, 1 for `assert abs(expected - computed) < tol` med melding. Kaller du ikke `test_areal()` til slutt, mister du ingenting — sensor ser etter at funksjonen finnes og er riktig.",
-    "hints": [
-     "Hvilken $r$-verdi gir et areal du kan skrive eksakt med `pi`?",
-     "Testfunksjonen skal ikke ta argumenter og ikke returnere noe."
-    ]
-   }
-  },
-  {
-   "id": "in1900-3-1-txt-lokke3",
-   "type": "text",
-   "content": "## Løkke 3 — mønsteret sensor forventer (~12 min)\n\nNå har du alle bitene. Det som gjenstår er å sette dem sammen i den faste rekkefølgen, og å lære den utenat. Fem linjer, alltid de samme, uansett hvilken funksjon som skal testes.\n\nAt mønsteret er så fast er gode nyheter under tidspress: du kan skrive testfunksjonen først, før du har løst resten av oppgaven, og fylle inn tallene etterpå."
-  },
-  {
-   "id": "in1900-3-1-thm-idiom",
-   "type": "theorem",
-   "title": "Testfunksjon-idiomet",
-   "content": "Slik ser en testfunksjon ut i denne boka, og slik ser den ut i de offisielle løsningsforslagene:\n\n```python\ndef test_navn():\n    expected = 2.0\n    computed = 1.0 + 1.0\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n```\n\nDe fem linjene, i rekkefølge:\n\n1. **`def test_navn():`** — navnet er `test_` etterfulgt av navnet på funksjonen som testes. **Ingen argumenter.**\n2. **`expected = ...`** — fasiten, regnet ut på en annen måte enn koden gjør det: for hånd, fra en kjent eksakt verdi, eller fra `math`.\n3. **`computed = ...`** — resultatet fra funksjonen du tester.\n4. **`tol = ...`** — toleransen, valgt etter hvor nøyaktig metoden er.\n5. **`assert abs(expected - computed) < tol, msg`** — selve sjekken, med en melding som viser begge tallene.\n\nTre ting testfunksjonen **ikke** gjør: den tar ingen argumenter, den returnerer ingenting, og den skriver ingenting ut. En testfunksjon som går gjennom, er helt taus. Skriver den `'Testen er OK'`, er det ikke feil, men det er heller ikke det sensor ser etter — og på flere av de offisielle løsningsforslagene står funksjonen uten en eneste `print`."
-  },
-  {
-   "id": "in1900-3-1-def-test-navn",
-   "type": "definition",
-   "title": "`def test_f():` — navn og signatur",
-   "content": "En testfunksjon heter `test_` pluss navnet på det som testes: `test_areal` tester `areal`, `test_exp_rekke` tester `exp_rekke`. Den har **tomme parenteser** — ingen argumenter — fordi alt den trenger står inne i den selv.\n\nGrunnen til navnekonvensjonen er dobbel: den gjør det åpenbart for sensor hva funksjonen tester, og den er den samme konvensjonen profesjonelle testverktøy bruker. I dette emnet trenger du ikke noe testverktøy — en `assert` inne i en funksjon er alt som kreves, og det er også alt de offisielle løsningsforslagene bruker.\n\nSkal testen sjekke flere verdier, legger du dem inn **inne i** funksjonen, ikke som argumenter. Gjør du `def test_areal(r, expected):`, har du skrevet en helt vanlig funksjon, og oppgaven ba om en testfunksjon."
-  },
-  {
-   "id": "in1900-3-1-ex-3",
-   "type": "example",
-   "title": "Eksempel 3: testfunksjonen i full bredde, og hva som skjer når den feiler",
-   "problem": "Skriv en testfunksjon for `konsentrasjon(t)` fra eksempel 2. Bruk at konsentrasjonen skal være halvert, altså 20 mg/l, etter fem timer. Vis også hva testen skriver hvis den blir kalt med feil tidspunkt.",
-   "solution": "\nFasiten er kjent uten regning: halveringstiden er fem timer, og startverdien er 40, så etter fem timer skal svaret være 20.\n\n```python\nfrom math import exp, log\n\ndef konsentrasjon(t):\n    return 40.0*exp(-log(2)*t/5.0)\n\ndef test_konsentrasjon():\n    expected = 20.0\n    computed = konsentrasjon(5.0)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_konsentrasjon()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\nBytter vi `konsentrasjon(5.0)` med `konsentrasjon(4.0)` — altså tester mot feil tidspunkt — er avviket stort, og testen stopper programmet. Siste linje i feilmeldingen er:\n\n```\nAssertionError: ventet 20.0, fikk 22.9739670999407\n```\n\nDet er hele poenget med f-strengen i `msg`: du ser med én gang både hva du ventet og hva du fikk, og kan avgjøre om det er koden eller fasiten som er gal. Uten meldingen hadde det bare stått `AssertionError`.\n\n**Margnotat om uttelling:** de tre tingene sensor krysser av for er (1) at funksjonen er en funksjon uten argumenter, (2) at fasiten er begrunnet og ikke bare gjentar koden, og (3) at sammenligningen bruker `abs` og en toleranse. Punkt 2 er verdt å dvele ved: skriver du `expected = 40.0*exp(-log(2)*5.0/5.0)`, har du bare skrevet av koden, og testen ville gått gjennom selv om formelen var feil. En test som gjentar koden tester ingenting."
-  },
-  {
-   "id": "in1900-3-1-o4",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1900-3-1-o4",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger O — «finn feilen».) Sjanger O er oppgavetypen «hva er galt i dette programmet?». Testfunksjonen under skal sjekke at `snitt` regner ut gjennomsnittet riktig, men den er skrevet på tre uheldige måter. Finn feilene, si hva hver av dem fører til, og skriv den rettede testfunksjonen.\n\n```text\ndef snitt(a, b):\n    return (a + b)/2\n\ndef test_snitt(a, b):\n    computed = snitt(a, b)\n    expected = (a + b)/2\n    assert computed == expected\n```",
-    "solution": "**Tre feil:**\n\n1. **Testfunksjonen tar argumenter.** `def test_snitt(a, b):` er en vanlig funksjon. En testfunksjon skal kunne kalles som `test_snitt()` uten noe mer, og velger sine egne testverdier inne i seg selv.\n2. **Fasiten gjentar koden.** `expected = (a + b)/2` er nøyaktig det samme uttrykket som står inne i `snitt`. Testen vil derfor gå gjennom selv om formelen er feil — skrev du `(a + b)/3` begge steder, ville testen fortsatt vært stille. Fasiten må komme fra en **uavhengig** kilde: håndregning på konkrete tall.\n3. **`==` på flyttall, uten toleranse og uten melding.** Dette er feil **#11 — likhetstegn på flyttall i stedet for `abs(...) < tol`**. Divisjonen `/` gir alltid flyttall, så testen kan feile på riktig kode. Og uten melding får du bare `AssertionError` når den feiler.\n\n**Rettet kode:**\n\n```python\ndef snitt(a, b):\n    return (a + b)/2\n\ndef test_snitt():\n    expected = 3.5\n    computed = snitt(2.0, 5.0)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_snitt()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\nFasiten 3,5 er regnet for hånd: halvparten av 2 pluss 5 er 3,5. Det er en helt annen vei til svaret enn koden tar, og derfor tester den noe.\n\n**Hva gir uttelling (4 poeng):** 1 poeng per feil du navngir, 1 for den rettede koden. Navngir du bare to av tre feil, får du 3 av 4 — delvis riktig svar teller.",
-    "hints": [
-     "Se først på parenteslista i `def test_snitt(...)`.",
-     "Sammenlign uttrykket i `expected` med uttrykket inne i `snitt`. Hva ville skjedd hvis begge var feil på samme måte?"
-    ]
-   }
-  },
-  {
-   "id": "in1900-3-1-o5",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1900-3-1-o5",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F — valg av toleranse.) En student tester en funksjon som summerer 6 ledd av en rekke og treffer den eksakte verdien med et avvik på om lag $3 \\cdot 10^{-5}$.\n\n**a)** Hva skjer med `tol = 1e-10`?\n\n**b)** Hvilken toleranse er fornuftig, og hvordan begrunner du valget i én setning?\n\n**c)** Hvorfor er `tol = 1e-2` et dårlig valg selv om testen da går gjennom?",
-    "solution": "**a)** Testen feiler. Avviket $3 \\cdot 10^{-5}$ er om lag hundre tusen milliarder ganger større enn toleransen $10^{-10}$, så `abs(expected - computed) < tol` er usant, og programmet stopper med `AssertionError`. Koden er ikke gal — det er testen som stiller et krav metoden ikke kan innfri med seks ledd.\n\n**b)** Et fornuftig valg er `tol = 1e-4`. Begrunnelsen skrives rett i koden som en kommentar, og det er den ene legitime bruken av kommentarer i dette faget:\n\n```python\ntol = 1e-4  # rekken er kuttet etter 6 ledd, så avviket er av størrelsen 1e-5\n```\n\n**Utskrift:** ingen (programmet skriver ikke ut noe)\n\nRegelen er at toleransen skal ligge like over det avviket metoden faktisk har — ikke ved maskinens nøyaktighet, og ikke så høyt at den slipper alt gjennom.\n\n**c)** Fordi en toleranse på $10^{-2}$ også ville sluppet gjennom kode med en reell feil: en glemt faktor på ett av leddene, eller en av-én-feil i antall ledd, gir ofte et avvik i tredje eller fjerde desimal. Testen ville da vært stille selv om funksjonen var gal, og en test som aldri feiler er ikke en test.\n\n**Hva gir uttelling (3 poeng):** 1 for at testen feiler i a) med begrunnelse, 1 for et tall i området `1e-4` til `1e-6` i b), 1 for poenget i c) om at en for løs toleranse skjuler reelle feil.",
-    "hints": [
-     "Sammenlign størrelsen på avviket med størrelsen på toleransen før du svarer.",
-     "Toleransen skal passe til metodens nøyaktighet, ikke til ditt ønske om nøyaktighet."
-    ]
-   }
-  },
-  {
-   "id": "in1900-3-1-txt-lokke4",
-   "type": "text",
-   "content": "## Løkke 4 — flere punkter i én test (~8 min)\n\nEn test som sjekker ett punkt kan være heldig. En funksjon som ganger med feil konstant kan tilfeldigvis treffe i akkurat det punktet du valgte — for eksempel gir enhver funksjon riktig svar i $t = 0$ hvis begge sider er null der.\n\nDerfor tester vi gjerne to eller tre punkter i samme testfunksjon. Det koster tre linjer ekstra og er noe sensor legger merke til.\n\nDu kan skrive punktene rett etter hverandre, eller legge dem i to lister og gå gjennom dem med `zip` fra [kap. 1.3](/in1900/in1900-1-3). Den siste formen er den korteste når det er mer enn to punkter."
-  },
-  {
-   "id": "in1900-3-1-def-fasit-math",
-   "type": "definition",
-   "title": "Fasit hentet fra `math`",
-   "content": "Den vanligste kilden til `expected` er `math`-modulens egne funksjoner: `exp`, `log`, `sin`, `cos`, `sinh`, `atanh` og `sqrt`. Skal du teste din egen tilnærming til $\\sinh x$, er `sinh(0.5)` fra `math` en uavhengig fasit, siden den er regnet ut på en helt annen måte enn din rekke.\n\nImporten skrives alltid `from math import sinh` — altså modulen først. Formen `import sinh from math` finnes ikke i Python og er feil **#10 — importsetningen skrevet i feil rekkefølge**.\n\nDen andre vanlige kilden er en verdi du kan regne eksakt for hånd: halveringstid, en pytagoreisk trekant, eller et punkt der funksjonen har en kjent verdi som $0$, $1$ eller $\\pi/6$.\n\n```python\nfrom math import sinh\nprint(sinh(0.5))\n```\n\n**Utskrift:**\n```\n0.5210953054937474\n```"
-  },
-  {
-   "id": "in1900-3-1-ex-4",
-   "type": "example",
-   "title": "Eksempel 4: tre punkter i én testfunksjon",
-   "problem": "Test `konsentrasjon(t)` i tre punkter samtidig: ved start, etter én halveringstid og etter to. Bruk to lister og `zip`.",
-   "solution": "\nDe tre fasitverdiene kan alle regnes i hodet: 40 ved start, halvparten etter fem timer, og halvparten igjen etter ti.\n\n```python\nfrom math import exp, log\n\ndef konsentrasjon(t):\n    return 40.0*exp(-log(2)*t/5.0)\n\ndef test_konsentrasjon():\n    tider = [0.0, 5.0, 10.0]\n    fasit = [40.0, 20.0, 10.0]\n    tol = 1e-10\n    for t, expected in zip(tider, fasit):\n        computed = konsentrasjon(t)\n        msg = f't = {t}: ventet {expected}, fikk {computed}'\n        assert abs(expected - computed) < tol, msg\n\ntest_konsentrasjon()\nprint('Alle tre punktene stemmer')\n```\n\n**Utskrift:**\n```\nAlle tre punktene stemmer\n```\n\nTre detaljer som gir uttelling. `zip` parer de to listene element for element og stopper ved den korteste, så listene må være like lange — er `fasit` kortere, testes de siste tidene aldri i stillhet. Meldingen inneholder `t`, slik at du ser hvilket punkt som feilet. Og `assert` står **inne i** løkka, så den første feilen stopper programmet.\n\nMerk at punktet $t = 0$ alene er en svak test: der er `exp(0)` lik 1 og svaret 40 uansett hva som står i eksponenten. Det er nettopp derfor vi tar med to punkter til."
-  },
-  {
-   "id": "in1900-3-1-o6",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1900-3-1-o6",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger F — testfunksjon med flere punkter.) Funksjonen `hypotenus(a, b)` skal regne ut lengden av hypotenusen i en rettvinklet trekant.\n\n**a)** Skriv funksjonen.\n\n**b)** Skriv én testfunksjon som sjekker den mot tre pytagoreiske tripler, altså tre trekanter der alle sidene er hele tall.\n\n**c)** Hvorfor er slike tripler en spesielt god fasit her?",
-    "solution": "**a)** og **b)** i samme program:\n\n```python\nfrom math import sqrt\n\ndef hypotenus(a, b):\n    return sqrt(a**2 + b**2)\n\ndef test_hypotenus():\n    punkter = [(3.0, 4.0, 5.0), (5.0, 12.0, 13.0), (8.0, 15.0, 17.0)]\n    tol = 1e-10\n    for a, b, expected in punkter:\n        computed = hypotenus(a, b)\n        msg = f'a = {a}, b = {b}: ventet {expected}, fikk {computed}'\n        assert abs(expected - computed) < tol, msg\n\ntest_hypotenus()\nprint('Alle tre trekantene stemmer')\n```\n\n**Utskrift:**\n```\nAlle tre trekantene stemmer\n```\n\nHer er hver test lagret som en tuppel med tre tall, og `for a, b, expected in punkter:` pakker den ut i tre variabler i ett jafs — utpakkingen fra [kap. 1.6](/in1900/in1900-1-6).\n\n**c)** Fordi fasiten da er et **helt tall du kjenner uavhengig av koden**. Du trenger verken `math` eller en kalkulator for å vite at trekanten med kateter 3 og 4 har hypotenus 5. Fasiten kommer altså ikke fra samme utregning som koden, og testen tester derfor virkelig noe. At `sqrt` likevel gir et flyttall med avrundingsstøy, er nettopp derfor toleransen står der.\n\n**Hva gir uttelling (5 poeng):** 1 for funksjonen, 1 for en testfunksjon uten argumenter, 1 for tre punkter, 1 for `abs(...) < tol` med melding, 1 for begrunnelsen i c). Skriver du tre separate `assert`-linjer i stedet for løkka, er det like riktig og gir full uttelling — løkka er bare kortere.",
-    "hints": [
-     "Start med `sqrt` fra `math`, og pass på at kvadratene ligger inne i roten.",
-     "Legg de tre trekantene i en liste av tupler, og pakk dem ut i løkkehodet."
-    ]
-   }
-  },
-  {
-   "id": "in1900-3-1-o7",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1900-3-1-o7",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger F — del-b slik den står på et reelt sett.) En bakteriekultur vokser etter modellen $B(t) = B_0 e^{rt}$, der $B_0$ er startbestanden og $r$ er veksttakten per time. Funksjonen er skrevet slik:\n\n```python\nfrom math import exp\n\ndef bestand(t, B0, r):\n    return B0*exp(r*t)\n```\n\n**a)** Skriv en testfunksjon som sjekker bestanden i to punkter: ett der du kjenner svaret uten å regne, og ett der du henter fasiten fra `math`.\n\n**b)** Begge sjekkene ville gått gjennom selv om `exp(r*t)` var byttet ut med `exp(r*t*t)`. Forklar hvorfor, og si hva det lærer deg om valg av testpunkter.",
-    "solution": "**a)** Ved $t = 0$ er $e^{0} = 1$, så bestanden er nøyaktig $B_0$ — det er punktet du kjenner uten regning. Ved $t = 1$ blir fasiten $B_0 e^{r}$, hentet fra `math`:\n\n```python\nfrom math import exp\n\ndef bestand(t, B0, r):\n    return B0*exp(r*t)\n\ndef test_bestand():\n    tol = 1e-10\n    expected = 500.0\n    computed = bestand(0.0, 500.0, 0.4)\n    msg = f't = 0: ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n    expected = 500.0*exp(0.4)\n    computed = bestand(1.0, 500.0, 0.4)\n    msg = f't = 1: ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_bestand()\nprint('Begge punktene stemmer')\n```\n\n**Utskrift:**\n```\nBegge punktene stemmer\n```\n\n**b)** Fordi begge testpunktene er punkter der $t$ og $t^2$ er like. Ved $t = 0$ er $r \\cdot t = 0$ og $r \\cdot t \\cdot t = 0$, så begge uttrykk gir $e^0 = 1$ og svaret 500. Ved $t = 1$ er $r \\cdot t = 0{,}4$ og $r \\cdot t \\cdot t = 0{,}4$, så begge gir samme tall igjen. Kjører du de to variantene side om side, ser du det direkte:\n\n```python\nfrom math import exp\n\ndef bestand(t, B0, r):\n    return B0*exp(r*t)\n\ndef gal(t, B0, r):\n    return B0*exp(r*t*t)\n\nfor t in [0.0, 1.0, 2.0]:\n    print(t, bestand(t, 500.0, 0.4), gal(t, 500.0, 0.4))\n```\n\n**Utskrift:**\n```\n0.0 500.0 500.0\n1.0 745.9123488206352 745.9123488206352\n2.0 1112.770464246234 2476.5162121975573\n```\n\nLærdommen: **et testpunkt der uttrykket kollapser — der en faktor blir null eller én — tester mindre enn det ser ut som.** Velg derfor minst ett punkt der ingenting forsvinner. Legger du til $t = 2$, avslører testen den gale varianten med en gang.\n\n**Hva gir uttelling (5 poeng):** 1 for testfunksjon uten argumenter, 1 for punktet $t = 0$ med begrunnet fasit, 1 for punktet der fasiten hentes fra `math`, 1 for `abs(...) < tol` med melding begge steder, 1 for resonnementet i b). Sensor belønner riktig struktur selv om du velger andre tall enn 500 og 0,4.",
-    "hints": [
-     "Hvilken $t$-verdi gjør eksponenten null, uansett hva $r$ er?",
-     "Til b): prøv å sette inn tallene i det gale uttrykket og se hvilke punkter som likevel gir riktig svar."
-    ]
-   }
-  },
-  {
-   "id": "in1900-3-1-warn-samlet",
-   "type": "warning",
-   "title": "Typiske feil i dette kapitlet — samlet",
-   "content": "Fem feil, i den rekkefølgen de oftest dukker opp i besvarelser:\n\n1. **#11 — `==` på flyttall.** Skriv alltid `assert abs(expected - computed) < tol`. Dette er den ene feilen som koster hele testpoenget.\n2. **Glemt `abs`.** `expected - computed < tol` er sant for alle negative avvik, uansett størrelse.\n3. **Testfunksjonen tar argumenter eller returnerer noe.** Den skal kunne kalles som `test_f()` og skal verken returnere eller skrive ut.\n4. **Fasiten gjentar koden.** Er `expected` det samme uttrykket som funksjonen bruker, tester du ingenting. Hent fasiten fra håndregning, fra en kjent eksakt verdi, eller fra `math`.\n5. **For stram toleranse for en grov metode.** En rekke med få ledd treffer ikke på ti desimaler. Velg toleransen etter metoden, og skriv én kommentar om hvorfor.\n\nOg en huskeregel som er verdt et poeng: når oppgaven sier «skriv en testfunksjon», er det **funksjonen** som skal skrives. Løse `assert`-linjer utenfor en funksjon er ikke en testfunksjon."
-  },
-  {
-   "id": "in1900-3-1-api",
-   "type": "collapsible",
-   "title": "API- og konstruksjonsliste",
-   "buttonText": "Vis API og konstruksjoner",
-   "content": [
+  "id": "in1900-3-1",
+  "courseId": "in1900",
+  "chapterNumber": "3.1",
+  "title": "Testfunksjoner og assert",
+  "description": "Skrive testfunksjoner med assert abs(expected - computed) < tol — kravet som følger nesten hver kodeskriving-oppgave.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne bruke en påstandssjekk i koden til å stoppe programmet med en presis beskjed når noe ikke stemmer",
+    "kunne forklare hvorfor to flyttall som matematisk er like sjelden er nøyaktig like i Python, og hva du gjør i stedet",
+    "kunne skrive en testfunksjon i den formen sensor forventer: fasit, beregnet verdi, toleranse og feilmelding",
+    "kunne velge en toleranse som passer til metodens nøyaktighet, og teste flere punkter i samme testfunksjon"
+  ],
+  "content": [
     {
-     "id": "in1900-3-1-api-txt",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `assert uttrykk` | Er uttrykket sant, skjer ingenting. Er det usant, stopper programmet med `AssertionError`. Ingen parenteser, ingen kolon. |\n| `assert uttrykk, melding` | Samme, men meldingen vises i feilen. Bokas standardform. |\n| `AssertionError` | Feiltypen `assert` utløser. Alt etter den avbrutte linja kjøres aldri. |\n| `abs(x)` | Tallverdien uten fortegn. Gjør avviket positivt uansett retning. |\n| `abs(expected - computed) < tol` | Standardsammenligningen mellom to flyttall. Erstatter `==`. |\n| `tol` | Toleransen, skrevet i eksponentform: `1e-10` er $10^{-10}$. Velges etter metodens nøyaktighet. |\n| `expected` | Fasiten, regnet ut uavhengig av koden som testes. |\n| `computed` | Verdien funksjonen faktisk gir. |\n| `msg` | Feilmeldingen, som f-streng med begge tallene: `f'ventet {expected}, fikk {computed}'`. |\n| `def test_f():` | Testfunksjon: navnet er `test_` pluss det som testes, ingen argumenter, ingen retur, ingen utskrift. |\n| `from math import exp, log, sqrt, sinh, pi` | Henter fasitkilder fra `math`. Modulen står **først** i importsetningen. |\n| `zip(a, b)` | Parer to lister element for element og stopper ved den **korteste**. Brukes til flere testpunkter. |\n| `for a, b, c in liste_av_tupler:` | Pakker ut tre verdier per element i løkkehodet. |\n| `1e-10` | Eksponentform for et flyttall: sifferet, `e`, og tierpotensen. |\n\n**Formler i dette delkapitlet:**\n\nTestkriteriet er ulikheten\n\n$$|E - C| < \\text{tol}$$\n\nder $E$ er den forventede verdien og $C$ den beregnede. Modellen som brukes som gjennomgangseksempel er halveringsmodellen\n\n$$c(t) = c_0 e^{-t\\ln 2 / T_{1/2}}, \\qquad c(T_{1/2}) = \\frac{c_0}{2}$$\n\nmed $c_0 = 40$ mg/l og halveringstid $T_{1/2} = 5$ timer."
-    }
-   ]
-  },
-  {
-   "id": "in1900-3-1-txt-bank",
-   "type": "text",
-   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
-  },
-  {
-   "id": "in1900-3-1-bank-1",
-   "type": "definition",
-   "title": "Testfunksjon",
-   "content": "En funksjon uten argumenter som sjekker at en annen funksjon gir riktig svar. Den regner ut en fasit på en uavhengig måte, henter det beregnede svaret fra funksjonen, og bruker `assert` med en toleranse. Den returnerer ingenting og skriver ingenting ut — den enten tier eller stopper programmet."
-  },
-  {
-   "id": "in1900-3-1-bank-2",
-   "type": "definition",
-   "title": "Forventet og beregnet verdi",
-   "content": "`expected` er fasiten: verdien du på forhånd vet er riktig, funnet ved håndregning, fra en kjent eksakt verdi eller fra `math`. `computed` er det funksjonen din faktisk returnerer. Kommer de to fra samme utregning, tester ikke testen noe som helst."
-  },
-  {
-   "id": "in1900-3-1-bank-3",
-   "type": "definition",
-   "title": "Absolutt feil",
-   "content": "Tallet `abs(expected - computed)` — hvor langt det beregnede svaret ligger fra fasiten, uten hensyn til fortegn. Dette er størrelsen testen sammenligner med toleransen. Uten `abs` slipper ethvert negativt avvik gjennom, uansett hvor stort det er."
-  },
-  {
-   "id": "in1900-3-1-bank-4",
-   "type": "definition",
-   "title": "Hva en testfunksjon ikke gjør",
-   "content": "Den tar ikke argumenter, den returnerer ikke noe, og den skriver ikke ut noe når alt er i orden. Testverdiene velges inne i funksjonen. En «testfunksjon» med parametere er bare en vanlig funksjon, og oppgaven er ikke besvart."
-  },
-  {
-   "id": "in1900-3-1-bank-5",
-   "type": "definition",
-   "title": "Feilmeldingen `msg`",
-   "content": "Teksten etter kommaet i `assert`. Skrives som f-streng med begge tallene, for eksempel `f'ventet {expected}, fikk {computed}'`. Uten den står det bare `AssertionError` når testen feiler, og du vet ikke om det er koden eller fasiten som er gal."
-  },
-  {
-   "id": "in1900-3-1-bank-6",
-   "type": "definition",
-   "title": "Flere punkter i én testfunksjon",
-   "content": "Legg testverdiene i lister og gå gjennom dem med `zip`, eller skriv `assert`-linjene rett etter hverandre. Begge deler gir full uttelling. Minst to punkter anbefales, og minst ett av dem skal være et punkt der ingen faktor i uttrykket blir null eller én."
-  },
-  {
-   "id": "in1900-3-1-bank-7",
-   "type": "definition",
-   "title": "Hvorfor toleransen aldri er null",
-   "content": "Fordi flyttall er tilnærminger. To matematisk like uttrykk regnet langs ulike veier gir avvik i siste siffer, typisk av størrelsen $10^{-16}$. En toleranse på 0 er det samme som `==` og vil melde feil på helt riktig kode."
-  },
-  {
-   "id": "in1900-3-1-bank-8",
-   "type": "definition",
-   "title": "Testfunksjonen som del-b på eksamen",
-   "content": "På den avsluttende eksamenen står «skriv en testfunksjon» nesten alltid som andre deloppgave på en oppgave i sjanger F, altså rekke- og sumoppgaven. Den kan besvares selv om du ikke fikk til del-a: skriv testen for funksjonen slik den skulle ha vært, så gir den full uttelling for seg selv."
-  },
-  {
-   "id": "in1900-3-1-rep",
-   "type": "collapsible",
-   "title": "Repetisjonsoppgaver",
-   "buttonText": "Vis repetisjonsoppgaver",
-   "content": [
-    {
-     "id": "in1900-3-1-rep-1",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-3-1-r1",
-      "number": "R1",
-      "type": "classic",
-      "difficulty": "lett",
-      "task": "(Fra [kap. 1.1](/in1900/in1900-1-1).) Hva skriver `print(0.1 + 0.2)` ut, og hvorfor er det ikke `0.3`?",
-      "solution": "Det skriver `0.30000000000000004`. Flyttall lagres i totallsystemet med et endelig antall siffer, og verken $0{,}1$ eller $0{,}2$ kan skrives eksakt slik. Summen av de to tilnærmingene blir derfor litt større enn $0{,}3$. Dette er hele grunnen til at testfunksjoner bruker toleranse i stedet for `==`.",
-      "hints": [
-       "Flyttall er tilnærminger, ikke eksakte verdier."
-      ]
-     }
+      "id": "in1900-3-1-tip-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet som gir deg gratispoeng.** Å skrive en liten testfunksjon er den enkleste oppgavetypen i hele emnet, og den kommer igjen og igjen.\n\nI IN1900 er det to eksamener. **Midtveiseksamen** i oktober er en digital flervalgseksamen som teller 25 prosent, og **den avsluttende eksamenen** i desember er fire timer, teller 75 prosent, og består for det meste av **fritekst-koding**: du skriver Python-kode rett inn i et tekstfelt, uten hjelpemidler og uten å kunne kjøre den.\n\nPå den avsluttende eksamenen ser bildet slik ut:\n\n- **I 7 av de 8 nyere settene (88 prosent)** er «skriv en testfunksjon» et selvstendig delkrav som gir poeng for seg selv.\n- Den står nesten alltid som **del-b** — altså andre deloppgave — på en oppgave i **sjanger F**. Sjanger F er bokas kode for oppgaven «skriv en funksjon som regner ut en sum eller en rekke, og skriv en testfunksjon til den». Selve rekkedelen tar vi i [kap. 3.2](/in1900/in1900-3-2); testdelen tar vi her.\n- Sjanger F er i **hvert eneste sett (100 prosent)** og er verdt 4–6 poeng.\n\nPrioriteten er derfor den høyeste boka opererer med. Boka bruker tre nivåer: **må sitte** (nivå 1), **kunne** (nivå 2) og **kjenne til** (nivå 3). Testfunksjoner er nivå 1, og de er samtidig det billigste nivå 1-stoffet som finnes: mønsteret er fem linjer langt og endrer seg aldri.\n\nEn ting til, om **delpoeng**: sensor gir poeng for deler av en løsning. Klarer du ikke rekken i del-a, kan du fortsatt få full uttelling på testfunksjonen i del-b — du skriver bare testen for funksjonen slik den *skulle* ha vært. De offisielle løsningsforslagene er tydelige på at deloppgaver kan løses uavhengig."
     },
     {
-     "id": "in1900-3-1-rep-2",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-3-1-r2",
-      "number": "R2",
-      "type": "classic",
-      "difficulty": "lett",
-      "task": "(Fra [kap. 1.6](/in1900/in1900-1-6).) Hva returnerer en funksjon som ikke har noen `return`-setning?",
-      "solution": "Den returnerer `None`. Det er nettopp tilfellet for en testfunksjon: den har ingen `return`, så `test_f()` gir `None` — og det er meningen. Testfunksjonen kommuniserer ved å stoppe programmet, ikke ved å returnere et svar.",
-      "hints": [
-       "Se på hva Python gjør når funksjonskroppen tar slutt uten `return`."
-      ]
-     }
+      "id": "in1900-3-1-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDu trenger fire ting fra Del 1:\n\n- **Funksjoner** fra [kap. 1.6](/in1900/in1900-1-6): hvordan du skriver `def`, hva `return` gjør, og at en funksjon uten `return` gir `None`. Hele dette kapitlet handler om å teste funksjoner du selv har skrevet.\n- **Flyttall** fra [kap. 1.1](/in1900/in1900-1-1), særlig setningen om at flyttall er tilnærminger. Den setningen er hele grunnen til at dette kapitlet finnes.\n- **F-strenger** fra [kap. 1.4](/in1900/in1900-1-4), fordi feilmeldingen i en test skal vise tallene.\n- **Løkker** fra [kap. 1.3](/in1900/in1900-1-3), inkludert `zip`, når vi tester flere punkter i samme testfunksjon.\n\nKapitlet er delt i fire løkker med tidsanslag, og du kan lese det i én økt på tre kvarter."
     },
     {
-     "id": "in1900-3-1-rep-3",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-3-1-r3",
-      "number": "R3",
-      "type": "classic",
-      "difficulty": "middels",
-      "task": "(Fra [kap. 1.3](/in1900/in1900-1-3) og [kap. 1.4](/in1900/in1900-1-4).) Hvor mange runder går `for a, b in zip([1, 2, 3], [10, 20]):`, og hva skriver `f'ventet {2.5}, fikk {2.5}'` ut?",
-      "solution": "Løkka går **to** runder, fordi `zip` stopper ved den korteste sekvensen — tallet 3 blir aldri brukt. F-strengen gir teksten `ventet 2.5, fikk 2.5`: krøllparentesene byttes ut med verdiene, og alt annet står som det står. Begge deler brukes i testfunksjoner med flere punkter, og den første er en grunn til å passe på at fasitlista er like lang som verdilista.",
-      "hints": [
-       "`zip` stopper ved den korteste av sekvensene."
+      "id": "in1900-3-1-txt-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — å be programmet stoppe når noe er galt (~10 min)\n\nEt laboratorium logger konsentrasjonen av et legemiddel i blodet. Programmet som behandler loggen forventer fire målinger per døgn. Kommer det bare tre, regner programmet videre og gir et svar som ser helt fornuftig ut — men som er feil.\n\nDet er den farligste typen feil: den som ikke gir feilmelding. Python har en innebygd måte å si «her stoller jeg på at noe er sant, og hvis det ikke er det, skal du stoppe med en gang». Setningen heter `assert`, og ordet betyr «å påstå».\n\nEn `assert` er altså en **påstand du plasserer i koden**. Er påstanden sann, skjer ingenting, og programmet fortsetter som om linja ikke var der. Er den usann, stopper programmet umiddelbart."
+    },
+    {
+      "id": "in1900-3-1-def-assert",
+      "type": "definition",
+      "title": "`assert uttrykk`",
+      "content": "Sjekker at `uttrykk` er sant. Er det sant, skjer ingenting — programmet går videre til neste linje. Er det usant, avbrytes programmet med en feil som heter `AssertionError`.\n\nUttrykket skal være noe som gir sant eller usant: en sammenligning som `x > 0`, en likhet som `len(v) == 4`, eller et boolsk uttrykk med `and`/`or`. Det er ingen parenteser rundt uttrykket, og ingen kolon etterpå — `assert` er en setning, ikke en funksjon.\n\n```python\nalder = 25\nassert alder > 0\nprint('Alderen er gyldig')\n```\n\n**Utskrift:**\n```\nAlderen er gyldig\n```"
+    },
+    {
+      "id": "in1900-3-1-def-assert-msg",
+      "type": "definition",
+      "title": "`assert uttrykk, melding`",
+      "content": "Samme sjekk, men med en tekst som blir vist hvis påstanden er usann. Meldingen står etter et komma og er en vanlig streng — gjerne en f-streng, slik at den kan vise tallene som ikke stemte.\n\nDette er formen boka og de offisielle løsningsforslagene bruker. Grunnen er praktisk: en test som feiler uten melding forteller deg bare *at* noe er galt, mens en test med melding forteller deg *hva* som var galt.\n\n```python\nantall_maalinger = 3\nassert antall_maalinger == 4, 'Vi ventet fire målinger'\nprint('Denne linja kjøres aldri')\n```\n\n**Utskrift:** ingen — programmet stopper på `assert`-linja, og siste linje i feilmeldingen er:\n\n```\nAssertionError: Vi ventet fire målinger\n```"
+    },
+    {
+      "id": "in1900-3-1-def-assertionerror",
+      "type": "definition",
+      "title": "`AssertionError`",
+      "content": "Navnet på feilen `assert` utløser når påstanden er usann. En **exception** er en feil som avbryter programmet; `AssertionError` er én av dem, på linje med `ValueError` og `IndexError` fra [kap. 2.2](/in1900/in1900-2-2).\n\nTo ting er verdt å merke seg. For det første kjøres **ingenting** av det som står etter en `assert` som feiler — heller ikke resten av linjene i funksjonen. For det andre er teksten du ga etter kommaet det eneste som skiller en nyttig feilmelding fra en ubrukelig: uten melding står det bare `AssertionError` og ingenting mer."
+    },
+    {
+      "id": "in1900-3-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: en påstand som holder, og en som ikke gjør det",
+      "problem": "Et program leser inn antall dyr som er talt opp i to ruter i et feltforsøk, og krever at begge tallene er positive. Hva skjer når begge er positive, og hva skjer når det ene er null?",
+      "solution": "\nFørst tilfellet der påstanden holder:\n\n```python\nrute_a = 12\nrute_b = 7\nassert rute_a > 0 and rute_b > 0, 'begge rutene må ha minst ett dyr'\nprint('Sum:', rute_a + rute_b)\n```\n\n**Utskrift:**\n```\nSum: 19\n```\n\nDen andre kjøringen er identisk, men med `rute_b = 0`. Da er `rute_a > 0 and rute_b > 0` usant, `assert` avbryter, og `print`-linja nås aldri.\n\n**Utskrift:** ingen — siste linje i feilmeldingen er:\n\n```\nAssertionError: begge rutene må ha minst ett dyr\n```\n\nLegg merke til at det ikke står noe om *hvilken* rute som var tom. Vil du vite det, må meldingen inneholde tallene, og da bruker du en f-streng: `f'rute_a = {rute_a}, rute_b = {rute_b}'`. Det er nøyaktig det testfunksjonene senere i kapitlet gjør."
+    },
+    {
+      "id": "in1900-3-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-3-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\ndef dobbel(x):\n    return 2*x\n\ndef test_dobbel():\n    expected = 8\n    computed = dobbel(4)\n    tol = 1e-10\n    assert abs(expected - computed) < tol, 'feil i dobbel'\n\ntest_dobbel()\nprint('Ferdig')\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | Verdi | Kommentar |\n|---|---|---|\n| `test_dobbel()` kalles | — | funksjonen begynner å kjøre |\n| `expected` | 8 | verdien vi mener er riktig |\n| `computed = dobbel(4)` | 8 | verdien funksjonen faktisk gir |\n| `abs(8 - 8)` | 0 | avviket |\n| `0 < 1e-10` | sant | påstanden holder |\n| `assert` | — | gjør ingenting, går videre |\n| `print('Ferdig')` | — | skriver `Ferdig` |\n\nEn `assert` som holder er helt stille. Det er grunnen til at en testfunksjon som går gjennom, ikke skriver noe i det hele tatt.\n\n**Utskrift:**\n```\nFerdig\n```\n\nFellenote: mange venter seg et `True` eller en «OK»-melding fra `assert`-linja. `assert` returnerer ingenting og skriver ingenting — den enten tier eller stopper programmet.",
+        "hints": [
+          "Regn ut `abs(expected - computed)` først, og sammenlign med toleransen.",
+          "Hva skriver en `assert` ut når påstanden er sann?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-3-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-3-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing med `assert`.) Hva skriver programmet ut, og hva skjer helt til slutt?\n\n```python\nverdier = [2, 4, 6]\ns = 0\nfor v in verdier:\n    s += v\n    print(s, end=' ')\nassert s == 10, 'summen ble ikke 10'\nprint('ferdig')\n```",
+        "solution": "**Sporingstavle**\n\n| Runde | `v` | `s` etter | Skriver |\n|---|---|---|---|\n| 1 | 2 | 2 | `2 ` |\n| 2 | 4 | 6 | `6 ` |\n| 3 | 6 | 12 | `12 ` |\n\nLøkka går tre runder og skriver alt på **samme linje**, fordi `end=' '` bytter ut linjeskiftet med et mellomrom. Etter løkka er `s` lik 12, og påstanden `s == 10` er usann.\n\n**Utskrift:**\n```\n2 6 12 \n```\n\nDeretter stopper programmet, og `print('ferdig')` kjøres aldri. Siste linje i feilmeldingen er:\n\n```\nAssertionError: summen ble ikke 10\n```\n\nTo feller på én gang: at `end=' '` samler de tre tallene på én linje med et avsluttende mellomrom (dette er felle **#16 — utskriftsdetaljer som `end` blir oversett**), og at alt etter en `assert` som feiler blir hoppet over.",
+        "hints": [
+          "Skriv opp verdien av `s` etter hver runde i løkka før du ser på `assert`-linja.",
+          "Hva gjør `end=' '` med linjeskiftet?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-3-1-txt-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — hvorfor du aldri sammenligner flyttall med likhetstegn (~10 min)\n\nNå kommer den ene faglige innsikten i kapitlet. Alt annet er håndverk.\n\nEt flyttall i Python lagres med et endelig antall siffer i totallsystemet. De fleste desimaltall kan ikke skrives eksakt slik, på samme måte som en tredel ikke kan skrives eksakt som et desimaltall. Derfor er hvert flyttall en **tilnærming**, og små avrundingsfeil hoper seg opp gjennom en utregning.\n\nDet gir et resultat som overrasker alle første gang:\n\n```python\nprint(0.1 + 0.2)\nprint(0.1 + 0.2 == 0.3)\nprint(abs(0.1 + 0.2 - 0.3) < 1e-10)\n```\n\n**Utskrift:**\n```\n0.30000000000000004\nFalse\nTrue\n```\n\nSummen er ikke $0{,}3$, men $0{,}3$ pluss omtrent $5\\cdot 10^{-17}$. Det er en helt ubetydelig forskjell fysisk sett — og en helt avgjørende forskjell for `==`, som krever at hvert eneste siffer stemmer."
+    },
+    {
+      "id": "in1900-3-1-def-float-likhet",
+      "type": "definition",
+      "title": "Flyttall og likhetstegnet `==`",
+      "content": "To flyttall som matematisk er like, er sjelden **nøyaktig** like i Python. `==` sammenligner bit for bit og gir `False` allerede ved et avvik i siste siffer. Derfor er `==` mellom to utregnede flyttall nesten alltid et feilsvar, og aldri noe du skal skrive i en test.\n\nDet gjelder også uttrykk som matematisk er identiske: kvadratroten av 2, opphøyd i andre, blir ikke nøyaktig 2.\n\n```python\nfrom math import sqrt\nprint(sqrt(2)**2)\nprint(sqrt(2)**2 == 2)\nprint(abs(sqrt(2)**2 - 2) < 1e-10)\n```\n\n**Utskrift:**\n```\n2.0000000000000004\nFalse\nTrue\n```\n\nMerk at `==` er helt greit mellom **heltall**: `4 == 4` er `True` og vil alltid være det. Regelen gjelder flyttall."
+    },
+    {
+      "id": "in1900-3-1-warn-eq",
+      "type": "warning",
+      "title": "Typiske feil: `==` på flyttall i en test",
+      "content": "Dette er **feil #11 i feilkatalogen** — å bruke `==` på flyttall i en testfunksjon i stedet for `abs(...) < tol`. Feilkatalogen er bokas nummererte register over de feilene som går igjen; hver feil har et nummer du kan slå opp.\n\nFeilen er lumsk fordi den ofte *virker* på små eksempler. Regner du ut $2 \\cdot 3$ som flyttall, får du nøyaktig $6{,}0$, og `==` gir `True`. Så snart det er en kvadratrot, en eksponentialfunksjon eller en sum av mange ledd inne i bildet, slår den til.\n\nPå eksamen er den lett å oppdage for sensor og koster hele testpoenget, fordi den viser at kandidaten ikke har forstått hvorfor testen skrives med toleranse. De offisielle løsningsforslagene skriver alltid `assert abs(expected - computed) < tol`.\n\nTo tilleggsfeller i samme familie:\n\n- **Å glemme `abs`.** `expected - computed < tol` er sant for et hvilket som helst negativt avvik, uansett hvor stort. Testen slipper da gjennom kode som er grovt feil.\n- **Å snu ulikheten.** `abs(expected - computed) > tol` tester at svaret er *galt*."
+    },
+    {
+      "id": "in1900-3-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: to formler som er matematisk like, men ikke like i maskinen",
+      "problem": "Konsentrasjonen av et legemiddel i blodet halveres hver femte time og starter på 40 mg/l. Modellen kan skrives både som $c(t) = 40 e^{-t\\ln 2/5}$ og som $c(t) = 40 \\cdot 0{,}5^{t/5}$. Er de to like i Python?",
+      "solution": "\nMatematisk er de identiske, siden $0{,}5^{t/5} = e^{(t/5)\\ln 0{,}5} = e^{-t \\ln 2/5}$. Vi lar funksjonen bruke den første formen og regner fasiten med den andre.\n\n```python\nfrom math import exp, log\n\ndef konsentrasjon(t):\n    return 40.0*exp(-log(2)*t/5.0)\n\nfasit = 40.0*0.5**(3.0/5.0)\nprint(konsentrasjon(3.0))\nprint(fasit)\nprint(konsentrasjon(3.0) == fasit)\nprint(abs(konsentrasjon(3.0) - fasit) < 1e-10)\n```\n\n**Utskrift:**\n```\n26.390158215457888\n26.390158215457884\nFalse\nTrue\n```\n\nDe to tallene er like i femten siffer og skiller seg i det sekstende. Avviket er om lag $4 \\cdot 10^{-15}$, altså rundt en hundretusendel av en milliarddel av et milligram per liter. Ingen måleinstrument i verden kan skille dem.\n\nLikevel svarer `==` at de er forskjellige. Det er nøyaktig denne situasjonen en testfunksjon havner i hver eneste gang: du regner fasiten på én måte og koden på en annen, og de to veiene gir ørsmå avvik.\n\n**Sensorpoenget:** en test som krever eksakt likhet vil melde feil på riktig kode. En test som godtar et avvik på $10^{-10}$ melder feil bare når koden faktisk er gal."
+    },
+    {
+      "id": "in1900-3-1-def-abs-tol",
+      "type": "definition",
+      "title": "`abs(expected - computed) < tol`",
+      "content": "Standardformen for å sammenligne to flyttall. `expected` er verdien du mener er riktig, `computed` er den funksjonen faktisk gir, og `abs` gjør differansen positiv uansett hvilken vei avviket går. Er avviket mindre enn toleransen `tol`, regner vi de to som like.\n\nNavnene `expected`, `computed` og `tol` er de som brukes i de offisielle løsningsforslagene, og boka bruker dem gjennomgående. Bruk dem du også — sensor leser mange besvarelser, og gjenkjennelige navn gjør koden lettere å gi poeng for.\n\n```python\nexpected = 0.3\ncomputed = 0.1 + 0.2\ntol = 1e-10\nprint(abs(expected - computed) < tol)\n```\n\n**Utskrift:**\n```\nTrue\n```"
+    },
+    {
+      "id": "in1900-3-1-def-tol",
+      "type": "definition",
+      "title": "`tol` — toleransen",
+      "content": "Den største forskjellen du godtar mellom fasit og beregnet verdi. Toleransen skrives i eksponentform: `1e-10` betyr $10^{-10}$, og `1e-4` betyr $10^{-4}$.\n\nValget styres av **hvor nøyaktig metoden din er**, ikke av hvor nøyaktig du ønsker at den skal være:\n\n| Situasjon | Fornuftig `tol` |\n|---|---|\n| Eksakt formel, bare avrundingsfeil (fasit fra `math`) | `1e-10` til `1e-14` |\n| Rekke summert med mange ledd | `1e-8` til `1e-10` |\n| Rekke summert med få ledd, eller en grov numerisk metode | `1e-4` til `1e-6` |\n\nTo ytterpunkter er begge gale. En toleranse på `0` er det samme som `==` og vil feile på riktig kode. En toleranse på `1e-2` slipper gjennom kode med reelle feil. Er du i tvil på eksamen, er `1e-10` det trygge valget for eksakte formler — og skriv én setning om hvorfor du valgte en løsere toleranse hvis metoden er grov. Den setningen gir uttelling."
+    },
+    {
+      "id": "in1900-3-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-3-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — testfunksjonsdelen. Sjanger F er «skriv en sum eller rekke, og skriv en testfunksjon til den»; her er det bare testdelen.) Funksjonen under regner ut arealet av en sirkel.\n\n```python\nfrom math import pi\n\ndef areal(r):\n    return pi*r**2\n```\n\n**a)** Skriv en testfunksjon som sjekker `areal` for $r = 2$, med en fasit du kan regne ut for hånd.\n\n**b)** Forklar i én setning hvorfor du ikke skriver `assert areal(2.0) == 12.566` i stedet.",
+        "solution": "**a)** For $r = 2$ er arealet $\\pi \\cdot 2^2 = 4\\pi$. Det er en eksakt fasit vi kan skrive rett inn, siden `pi` er tilgjengelig fra `math`:\n\n```python\nfrom math import pi\n\ndef areal(r):\n    return pi*r**2\n\ndef test_areal():\n    expected = 4*pi\n    computed = areal(2.0)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_areal()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\n**b)** Fordi `12.566` er en avrundet verdi av $4\\pi \\approx 12{,}566370614$, og et likhetstegn krever at hvert siffer stemmer — testen ville feilet på helt riktig kode. Med `abs(...) < tol` sammenligner du mot den eksakte verdien `4*pi` og godtar bare avrundingsstøy.\n\n**Hva gir uttelling (3 poeng):** 1 poeng for en testfunksjon uten argumenter med riktig navn, 1 for `expected` regnet ut fra en kjent verdi, 1 for `assert abs(expected - computed) < tol` med melding. Kaller du ikke `test_areal()` til slutt, mister du ingenting — sensor ser etter at funksjonen finnes og er riktig.",
+        "hints": [
+          "Hvilken $r$-verdi gir et areal du kan skrive eksakt med `pi`?",
+          "Testfunksjonen skal ikke ta argumenter og ikke returnere noe."
+        ]
+      }
+    },
+    {
+      "id": "in1900-3-1-txt-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — mønsteret sensor forventer (~12 min)\n\nNå har du alle bitene. Det som gjenstår er å sette dem sammen i den faste rekkefølgen, og å lære den utenat. Fem linjer, alltid de samme, uansett hvilken funksjon som skal testes.\n\nAt mønsteret er så fast er gode nyheter under tidspress: du kan skrive testfunksjonen først, før du har løst resten av oppgaven, og fylle inn tallene etterpå."
+    },
+    {
+      "id": "in1900-3-1-thm-idiom",
+      "type": "theorem",
+      "title": "Testfunksjon-idiomet",
+      "content": "Slik ser en testfunksjon ut i denne boka, og slik ser den ut i de offisielle løsningsforslagene:\n\n```python\ndef test_navn():\n    expected = 2.0\n    computed = 1.0 + 1.0\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n```\n\nDe fem linjene, i rekkefølge:\n\n1. **`def test_navn():`** — navnet er `test_` etterfulgt av navnet på funksjonen som testes. **Ingen argumenter.**\n2. **`expected = ...`** — fasiten, regnet ut på en annen måte enn koden gjør det: for hånd, fra en kjent eksakt verdi, eller fra `math`.\n3. **`computed = ...`** — resultatet fra funksjonen du tester.\n4. **`tol = ...`** — toleransen, valgt etter hvor nøyaktig metoden er.\n5. **`assert abs(expected - computed) < tol, msg`** — selve sjekken, med en melding som viser begge tallene.\n\nTre ting testfunksjonen **ikke** gjør: den tar ingen argumenter, den returnerer ingenting, og den skriver ingenting ut. En testfunksjon som går gjennom, er helt taus. Skriver den `'Testen er OK'`, er det ikke feil, men det er heller ikke det sensor ser etter — og på flere av de offisielle løsningsforslagene står funksjonen uten en eneste `print`."
+    },
+    {
+      "id": "in1900-3-1-def-test-navn",
+      "type": "definition",
+      "title": "`def test_f():` — navn og signatur",
+      "content": "En testfunksjon heter `test_` pluss navnet på det som testes: `test_areal` tester `areal`, `test_exp_rekke` tester `exp_rekke`. Den har **tomme parenteser** — ingen argumenter — fordi alt den trenger står inne i den selv.\n\nGrunnen til navnekonvensjonen er dobbel: den gjør det åpenbart for sensor hva funksjonen tester, og den er den samme konvensjonen profesjonelle testverktøy bruker. I dette emnet trenger du ikke noe testverktøy — en `assert` inne i en funksjon er alt som kreves, og det er også alt de offisielle løsningsforslagene bruker.\n\nSkal testen sjekke flere verdier, legger du dem inn **inne i** funksjonen, ikke som argumenter. Gjør du `def test_areal(r, expected):`, har du skrevet en helt vanlig funksjon, og oppgaven ba om en testfunksjon."
+    },
+    {
+      "id": "in1900-3-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: testfunksjonen i full bredde, og hva som skjer når den feiler",
+      "problem": "Skriv en testfunksjon for `konsentrasjon(t)` fra eksempel 2. Bruk at konsentrasjonen skal være halvert, altså 20 mg/l, etter fem timer. Vis også hva testen skriver hvis den blir kalt med feil tidspunkt.",
+      "solution": "\nFasiten er kjent uten regning: halveringstiden er fem timer, og startverdien er 40, så etter fem timer skal svaret være 20.\n\n```python\nfrom math import exp, log\n\ndef konsentrasjon(t):\n    return 40.0*exp(-log(2)*t/5.0)\n\ndef test_konsentrasjon():\n    expected = 20.0\n    computed = konsentrasjon(5.0)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_konsentrasjon()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\nBytter vi `konsentrasjon(5.0)` med `konsentrasjon(4.0)` — altså tester mot feil tidspunkt — er avviket stort, og testen stopper programmet. Siste linje i feilmeldingen er:\n\n```\nAssertionError: ventet 20.0, fikk 22.9739670999407\n```\n\nDet er hele poenget med f-strengen i `msg`: du ser med én gang både hva du ventet og hva du fikk, og kan avgjøre om det er koden eller fasiten som er gal. Uten meldingen hadde det bare stått `AssertionError`.\n\n**Margnotat om uttelling:** de tre tingene sensor krysser av for er (1) at funksjonen er en funksjon uten argumenter, (2) at fasiten er begrunnet og ikke bare gjentar koden, og (3) at sammenligningen bruker `abs` og en toleranse. Punkt 2 er verdt å dvele ved: skriver du `expected = 40.0*exp(-log(2)*5.0/5.0)`, har du bare skrevet av koden, og testen ville gått gjennom selv om formelen var feil. En test som gjentar koden tester ingenting."
+    },
+    {
+      "id": "in1900-3-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-3-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger O — «finn feilen».) Sjanger O er oppgavetypen «hva er galt i dette programmet?». Testfunksjonen under skal sjekke at `snitt` regner ut gjennomsnittet riktig, men den er skrevet på tre uheldige måter. Finn feilene, si hva hver av dem fører til, og skriv den rettede testfunksjonen.\n\n```text\ndef snitt(a, b):\n    return (a + b)/2\n\ndef test_snitt(a, b):\n    computed = snitt(a, b)\n    expected = (a + b)/2\n    assert computed == expected\n```",
+        "solution": "**Tre feil:**\n\n1. **Testfunksjonen tar argumenter.** `def test_snitt(a, b):` er en vanlig funksjon. En testfunksjon skal kunne kalles som `test_snitt()` uten noe mer, og velger sine egne testverdier inne i seg selv.\n2. **Fasiten gjentar koden.** `expected = (a + b)/2` er nøyaktig det samme uttrykket som står inne i `snitt`. Testen vil derfor gå gjennom selv om formelen er feil — skrev du `(a + b)/3` begge steder, ville testen fortsatt vært stille. Fasiten må komme fra en **uavhengig** kilde: håndregning på konkrete tall.\n3. **`==` på flyttall, uten toleranse og uten melding.** Dette er feil **#11 — likhetstegn på flyttall i stedet for `abs(...) < tol`**. Divisjonen `/` gir alltid flyttall, så testen kan feile på riktig kode. Og uten melding får du bare `AssertionError` når den feiler.\n\n**Rettet kode:**\n\n```python\ndef snitt(a, b):\n    return (a + b)/2\n\ndef test_snitt():\n    expected = 3.5\n    computed = snitt(2.0, 5.0)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_snitt()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\nFasiten 3,5 er regnet for hånd: halvparten av 2 pluss 5 er 3,5. Det er en helt annen vei til svaret enn koden tar, og derfor tester den noe.\n\n**Hva gir uttelling (4 poeng):** 1 poeng per feil du navngir, 1 for den rettede koden. Navngir du bare to av tre feil, får du 3 av 4 — delvis riktig svar teller.",
+        "hints": [
+          "Se først på parenteslista i `def test_snitt(...)`.",
+          "Sammenlign uttrykket i `expected` med uttrykket inne i `snitt`. Hva ville skjedd hvis begge var feil på samme måte?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-3-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-3-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — valg av toleranse.) En student tester en funksjon som summerer 6 ledd av en rekke og treffer den eksakte verdien med et avvik på om lag $3 \\cdot 10^{-5}$.\n\n**a)** Hva skjer med `tol = 1e-10`?\n\n**b)** Hvilken toleranse er fornuftig, og hvordan begrunner du valget i én setning?\n\n**c)** Hvorfor er `tol = 1e-2` et dårlig valg selv om testen da går gjennom?",
+        "solution": "**a)** Testen feiler. Avviket $3 \\cdot 10^{-5}$ er om lag hundre tusen milliarder ganger større enn toleransen $10^{-10}$, så `abs(expected - computed) < tol` er usant, og programmet stopper med `AssertionError`. Koden er ikke gal — det er testen som stiller et krav metoden ikke kan innfri med seks ledd.\n\n**b)** Et fornuftig valg er `tol = 1e-4`. Begrunnelsen skrives rett i koden som en kommentar, og det er den ene legitime bruken av kommentarer i dette faget:\n\n```python\ntol = 1e-4  # rekken er kuttet etter 6 ledd, så avviket er av størrelsen 1e-5\n```\n\n**Utskrift:** ingen (programmet skriver ikke ut noe)\n\nRegelen er at toleransen skal ligge like over det avviket metoden faktisk har — ikke ved maskinens nøyaktighet, og ikke så høyt at den slipper alt gjennom.\n\n**c)** Fordi en toleranse på $10^{-2}$ også ville sluppet gjennom kode med en reell feil: en glemt faktor på ett av leddene, eller en av-én-feil i antall ledd, gir ofte et avvik i tredje eller fjerde desimal. Testen ville da vært stille selv om funksjonen var gal, og en test som aldri feiler er ikke en test.\n\n**Hva gir uttelling (3 poeng):** 1 for at testen feiler i a) med begrunnelse, 1 for et tall i området `1e-4` til `1e-6` i b), 1 for poenget i c) om at en for løs toleranse skjuler reelle feil.",
+        "hints": [
+          "Sammenlign størrelsen på avviket med størrelsen på toleransen før du svarer.",
+          "Toleransen skal passe til metodens nøyaktighet, ikke til ditt ønske om nøyaktighet."
+        ]
+      }
+    },
+    {
+      "id": "in1900-3-1-txt-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — flere punkter i én test (~8 min)\n\nEn test som sjekker ett punkt kan være heldig. En funksjon som ganger med feil konstant kan tilfeldigvis treffe i akkurat det punktet du valgte — for eksempel gir enhver funksjon riktig svar i $t = 0$ hvis begge sider er null der.\n\nDerfor tester vi gjerne to eller tre punkter i samme testfunksjon. Det koster tre linjer ekstra og er noe sensor legger merke til.\n\nDu kan skrive punktene rett etter hverandre, eller legge dem i to lister og gå gjennom dem med `zip` fra [kap. 1.3](/in1900/in1900-1-3). Den siste formen er den korteste når det er mer enn to punkter."
+    },
+    {
+      "id": "in1900-3-1-def-fasit-math",
+      "type": "definition",
+      "title": "Fasit hentet fra `math`",
+      "content": "Den vanligste kilden til `expected` er `math`-modulens egne funksjoner: `exp`, `log`, `sin`, `cos`, `sinh`, `atanh` og `sqrt`. Skal du teste din egen tilnærming til $\\sinh x$, er `sinh(0.5)` fra `math` en uavhengig fasit, siden den er regnet ut på en helt annen måte enn din rekke.\n\nImporten skrives alltid `from math import sinh` — altså modulen først. Formen `import sinh from math` finnes ikke i Python og er feil **#10 — importsetningen skrevet i feil rekkefølge**.\n\nDen andre vanlige kilden er en verdi du kan regne eksakt for hånd: halveringstid, en pytagoreisk trekant, eller et punkt der funksjonen har en kjent verdi som $0$, $1$ eller $\\pi/6$.\n\n```python\nfrom math import sinh\nprint(sinh(0.5))\n```\n\n**Utskrift:**\n```\n0.5210953054937474\n```"
+    },
+    {
+      "id": "in1900-3-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: tre punkter i én testfunksjon",
+      "problem": "Test `konsentrasjon(t)` i tre punkter samtidig: ved start, etter én halveringstid og etter to. Bruk to lister og `zip`.",
+      "solution": "\nDe tre fasitverdiene kan alle regnes i hodet: 40 ved start, halvparten etter fem timer, og halvparten igjen etter ti.\n\n```python\nfrom math import exp, log\n\ndef konsentrasjon(t):\n    return 40.0*exp(-log(2)*t/5.0)\n\ndef test_konsentrasjon():\n    tider = [0.0, 5.0, 10.0]\n    fasit = [40.0, 20.0, 10.0]\n    tol = 1e-10\n    for t, expected in zip(tider, fasit):\n        computed = konsentrasjon(t)\n        msg = f't = {t}: ventet {expected}, fikk {computed}'\n        assert abs(expected - computed) < tol, msg\n\ntest_konsentrasjon()\nprint('Alle tre punktene stemmer')\n```\n\n**Utskrift:**\n```\nAlle tre punktene stemmer\n```\n\nTre detaljer som gir uttelling. `zip` parer de to listene element for element og stopper ved den korteste, så listene må være like lange — er `fasit` kortere, testes de siste tidene aldri i stillhet. Meldingen inneholder `t`, slik at du ser hvilket punkt som feilet. Og `assert` står **inne i** løkka, så den første feilen stopper programmet.\n\nMerk at punktet $t = 0$ alene er en svak test: der er `exp(0)` lik 1 og svaret 40 uansett hva som står i eksponenten. Det er nettopp derfor vi tar med to punkter til."
+    },
+    {
+      "id": "in1900-3-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-3-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — testfunksjon med flere punkter.) Funksjonen `hypotenus(a, b)` skal regne ut lengden av hypotenusen i en rettvinklet trekant.\n\n**a)** Skriv funksjonen.\n\n**b)** Skriv én testfunksjon som sjekker den mot tre pytagoreiske tripler, altså tre trekanter der alle sidene er hele tall.\n\n**c)** Hvorfor er slike tripler en spesielt god fasit her?",
+        "solution": "**a)** og **b)** i samme program:\n\n```python\nfrom math import sqrt\n\ndef hypotenus(a, b):\n    return sqrt(a**2 + b**2)\n\ndef test_hypotenus():\n    punkter = [(3.0, 4.0, 5.0), (5.0, 12.0, 13.0), (8.0, 15.0, 17.0)]\n    tol = 1e-10\n    for a, b, expected in punkter:\n        computed = hypotenus(a, b)\n        msg = f'a = {a}, b = {b}: ventet {expected}, fikk {computed}'\n        assert abs(expected - computed) < tol, msg\n\ntest_hypotenus()\nprint('Alle tre trekantene stemmer')\n```\n\n**Utskrift:**\n```\nAlle tre trekantene stemmer\n```\n\nHer er hver test lagret som en tuppel med tre tall, og `for a, b, expected in punkter:` pakker den ut i tre variabler i ett jafs — utpakkingen fra [kap. 1.6](/in1900/in1900-1-6).\n\n**c)** Fordi fasiten da er et **helt tall du kjenner uavhengig av koden**. Du trenger verken `math` eller en kalkulator for å vite at trekanten med kateter 3 og 4 har hypotenus 5. Fasiten kommer altså ikke fra samme utregning som koden, og testen tester derfor virkelig noe. At `sqrt` likevel gir et flyttall med avrundingsstøy, er nettopp derfor toleransen står der.\n\n**Hva gir uttelling (5 poeng):** 1 for funksjonen, 1 for en testfunksjon uten argumenter, 1 for tre punkter, 1 for `abs(...) < tol` med melding, 1 for begrunnelsen i c). Skriver du tre separate `assert`-linjer i stedet for løkka, er det like riktig og gir full uttelling — løkka er bare kortere.",
+        "hints": [
+          "Start med `sqrt` fra `math`, og pass på at kvadratene ligger inne i roten.",
+          "Legg de tre trekantene i en liste av tupler, og pakk dem ut i løkkehodet."
+        ]
+      }
+    },
+    {
+      "id": "in1900-3-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-3-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — del-b slik den står på et reelt sett.) En bakteriekultur vokser etter modellen $B(t) = B_0 e^{rt}$, der $B_0$ er startbestanden og $r$ er veksttakten per time. Funksjonen er skrevet slik:\n\n```python\nfrom math import exp\n\ndef bestand(t, B0, r):\n    return B0*exp(r*t)\n```\n\n**a)** Skriv en testfunksjon som sjekker bestanden i to punkter: ett der du kjenner svaret uten å regne, og ett der du henter fasiten fra `math`.\n\n**b)** Begge sjekkene ville gått gjennom selv om `exp(r*t)` var byttet ut med `exp(r*t*t)`. Forklar hvorfor, og si hva det lærer deg om valg av testpunkter.",
+        "solution": "**a)** Ved $t = 0$ er $e^{0} = 1$, så bestanden er nøyaktig $B_0$ — det er punktet du kjenner uten regning. Ved $t = 1$ blir fasiten $B_0 e^{r}$, hentet fra `math`:\n\n```python\nfrom math import exp\n\ndef bestand(t, B0, r):\n    return B0*exp(r*t)\n\ndef test_bestand():\n    tol = 1e-10\n    expected = 500.0\n    computed = bestand(0.0, 500.0, 0.4)\n    msg = f't = 0: ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n    expected = 500.0*exp(0.4)\n    computed = bestand(1.0, 500.0, 0.4)\n    msg = f't = 1: ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_bestand()\nprint('Begge punktene stemmer')\n```\n\n**Utskrift:**\n```\nBegge punktene stemmer\n```\n\n**b)** Fordi begge testpunktene er punkter der $t$ og $t^2$ er like. Ved $t = 0$ er $r \\cdot t = 0$ og $r \\cdot t \\cdot t = 0$, så begge uttrykk gir $e^0 = 1$ og svaret 500. Ved $t = 1$ er $r \\cdot t = 0{,}4$ og $r \\cdot t \\cdot t = 0{,}4$, så begge gir samme tall igjen. Kjører du de to variantene side om side, ser du det direkte:\n\n```python\nfrom math import exp\n\ndef bestand(t, B0, r):\n    return B0*exp(r*t)\n\ndef gal(t, B0, r):\n    return B0*exp(r*t*t)\n\nfor t in [0.0, 1.0, 2.0]:\n    print(t, bestand(t, 500.0, 0.4), gal(t, 500.0, 0.4))\n```\n\n**Utskrift:**\n```\n0.0 500.0 500.0\n1.0 745.9123488206352 745.9123488206352\n2.0 1112.770464246234 2476.5162121975573\n```\n\nLærdommen: **et testpunkt der uttrykket kollapser — der en faktor blir null eller én — tester mindre enn det ser ut som.** Velg derfor minst ett punkt der ingenting forsvinner. Legger du til $t = 2$, avslører testen den gale varianten med en gang.\n\n**Hva gir uttelling (5 poeng):** 1 for testfunksjon uten argumenter, 1 for punktet $t = 0$ med begrunnet fasit, 1 for punktet der fasiten hentes fra `math`, 1 for `abs(...) < tol` med melding begge steder, 1 for resonnementet i b). Sensor belønner riktig struktur selv om du velger andre tall enn 500 og 0,4.",
+        "hints": [
+          "Hvilken $t$-verdi gjør eksponenten null, uansett hva $r$ er?",
+          "Til b): prøv å sette inn tallene i det gale uttrykket og se hvilke punkter som likevel gir riktig svar."
+        ]
+      }
+    },
+    {
+      "id": "in1900-3-1-warn-samlet",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet — samlet",
+      "content": "Fem feil, i den rekkefølgen de oftest dukker opp i besvarelser:\n\n1. **#11 — `==` på flyttall.** Skriv alltid `assert abs(expected - computed) < tol`. Dette er den ene feilen som koster hele testpoenget.\n2. **Glemt `abs`.** `expected - computed < tol` er sant for alle negative avvik, uansett størrelse.\n3. **Testfunksjonen tar argumenter eller returnerer noe.** Den skal kunne kalles som `test_f()` og skal verken returnere eller skrive ut.\n4. **Fasiten gjentar koden.** Er `expected` det samme uttrykket som funksjonen bruker, tester du ingenting. Hent fasiten fra håndregning, fra en kjent eksakt verdi, eller fra `math`.\n5. **For stram toleranse for en grov metode.** En rekke med få ledd treffer ikke på ti desimaler. Velg toleransen etter metoden, og skriv én kommentar om hvorfor.\n\nOg en huskeregel som er verdt et poeng: når oppgaven sier «skriv en testfunksjon», er det **funksjonen** som skal skrives. Løse `assert`-linjer utenfor en funksjon er ikke en testfunksjon."
+    },
+    {
+      "id": "in1900-3-1-api",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-3-1-api-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `assert uttrykk` | Er uttrykket sant, skjer ingenting. Er det usant, stopper programmet med `AssertionError`. Ingen parenteser, ingen kolon. |\n| `assert uttrykk, melding` | Samme, men meldingen vises i feilen. Bokas standardform. |\n| `AssertionError` | Feiltypen `assert` utløser. Alt etter den avbrutte linja kjøres aldri. |\n| `abs(x)` | Tallverdien uten fortegn. Gjør avviket positivt uansett retning. |\n| `abs(expected - computed) < tol` | Standardsammenligningen mellom to flyttall. Erstatter `==`. |\n| `tol` | Toleransen, skrevet i eksponentform: `1e-10` er $10^{-10}$. Velges etter metodens nøyaktighet. |\n| `expected` | Fasiten, regnet ut uavhengig av koden som testes. |\n| `computed` | Verdien funksjonen faktisk gir. |\n| `msg` | Feilmeldingen, som f-streng med begge tallene: `f'ventet {expected}, fikk {computed}'`. |\n| `def test_f():` | Testfunksjon: navnet er `test_` pluss det som testes, ingen argumenter, ingen retur, ingen utskrift. |\n| `from math import exp, log, sqrt, sinh, pi` | Henter fasitkilder fra `math`. Modulen står **først** i importsetningen. |\n| `zip(a, b)` | Parer to lister element for element og stopper ved den **korteste**. Brukes til flere testpunkter. |\n| `for a, b, c in liste_av_tupler:` | Pakker ut tre verdier per element i løkkehodet. |\n| `1e-10` | Eksponentform for et flyttall: sifferet, `e`, og tierpotensen. |\n\n**Formler i dette delkapitlet:**\n\nTestkriteriet er ulikheten\n\n$$|E - C| < \\text{tol}$$\n\nder $E$ er den forventede verdien og $C$ den beregnede. Modellen som brukes som gjennomgangseksempel er halveringsmodellen\n\n$$c(t) = c_0 e^{-t\\ln 2 / T_{1/2}}, \\qquad c(T_{1/2}) = \\frac{c_0}{2}$$\n\nmed $c_0 = 40$ mg/l og halveringstid $T_{1/2} = 5$ timer."
+        }
       ]
-     }
+    },
+    {
+      "id": "in1900-3-1-txt-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-3-1-bank-1",
+      "type": "definition",
+      "title": "Testfunksjon",
+      "content": "En funksjon uten argumenter som sjekker at en annen funksjon gir riktig svar. Den regner ut en fasit på en uavhengig måte, henter det beregnede svaret fra funksjonen, og bruker `assert` med en toleranse. Den returnerer ingenting og skriver ingenting ut — den enten tier eller stopper programmet."
+    },
+    {
+      "id": "in1900-3-1-bank-2",
+      "type": "definition",
+      "title": "Forventet og beregnet verdi",
+      "content": "`expected` er fasiten: verdien du på forhånd vet er riktig, funnet ved håndregning, fra en kjent eksakt verdi eller fra `math`. `computed` er det funksjonen din faktisk returnerer. Kommer de to fra samme utregning, tester ikke testen noe som helst."
+    },
+    {
+      "id": "in1900-3-1-bank-3",
+      "type": "definition",
+      "title": "Absolutt feil",
+      "content": "Tallet `abs(expected - computed)` — hvor langt det beregnede svaret ligger fra fasiten, uten hensyn til fortegn. Dette er størrelsen testen sammenligner med toleransen. Uten `abs` slipper ethvert negativt avvik gjennom, uansett hvor stort det er."
+    },
+    {
+      "id": "in1900-3-1-bank-4",
+      "type": "definition",
+      "title": "Hva en testfunksjon ikke gjør",
+      "content": "Den tar ikke argumenter, den returnerer ikke noe, og den skriver ikke ut noe når alt er i orden. Testverdiene velges inne i funksjonen. En «testfunksjon» med parametere er bare en vanlig funksjon, og oppgaven er ikke besvart."
+    },
+    {
+      "id": "in1900-3-1-bank-5",
+      "type": "definition",
+      "title": "Feilmeldingen `msg`",
+      "content": "Teksten etter kommaet i `assert`. Skrives som f-streng med begge tallene, for eksempel `f'ventet {expected}, fikk {computed}'`. Uten den står det bare `AssertionError` når testen feiler, og du vet ikke om det er koden eller fasiten som er gal."
+    },
+    {
+      "id": "in1900-3-1-bank-6",
+      "type": "definition",
+      "title": "Flere punkter i én testfunksjon",
+      "content": "Legg testverdiene i lister og gå gjennom dem med `zip`, eller skriv `assert`-linjene rett etter hverandre. Begge deler gir full uttelling. Minst to punkter anbefales, og minst ett av dem skal være et punkt der ingen faktor i uttrykket blir null eller én."
+    },
+    {
+      "id": "in1900-3-1-bank-7",
+      "type": "definition",
+      "title": "Hvorfor toleransen aldri er null",
+      "content": "Fordi flyttall er tilnærminger. To matematisk like uttrykk regnet langs ulike veier gir avvik i siste siffer, typisk av størrelsen $10^{-16}$. En toleranse på 0 er det samme som `==` og vil melde feil på helt riktig kode."
+    },
+    {
+      "id": "in1900-3-1-bank-8",
+      "type": "definition",
+      "title": "Testfunksjonen som del-b på eksamen",
+      "content": "På den avsluttende eksamenen står «skriv en testfunksjon» nesten alltid som andre deloppgave på en oppgave i sjanger F, altså rekke- og sumoppgaven. Den kan besvares selv om du ikke fikk til del-a: skriv testen for funksjonen slik den skulle ha vært, så gir den full uttelling for seg selv."
+    },
+    {
+      "id": "in1900-3-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1900-3-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-3-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.1](/in1900/in1900-1-1).) Hva skriver `print(0.1 + 0.2)` ut, og hvorfor er det ikke `0.3`?",
+            "solution": "Det skriver `0.30000000000000004`. Flyttall lagres i totallsystemet med et endelig antall siffer, og verken $0{,}1$ eller $0{,}2$ kan skrives eksakt slik. Summen av de to tilnærmingene blir derfor litt større enn $0{,}3$. Dette er hele grunnen til at testfunksjoner bruker toleranse i stedet for `==`.",
+            "hints": [
+              "Flyttall er tilnærminger, ikke eksakte verdier."
+            ]
+          }
+        },
+        {
+          "id": "in1900-3-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-3-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.6](/in1900/in1900-1-6).) Hva returnerer en funksjon som ikke har noen `return`-setning?",
+            "solution": "Den returnerer `None`. Det er nettopp tilfellet for en testfunksjon: den har ingen `return`, så `test_f()` gir `None` — og det er meningen. Testfunksjonen kommuniserer ved å stoppe programmet, ikke ved å returnere et svar.",
+            "hints": [
+              "Se på hva Python gjør når funksjonskroppen tar slutt uten `return`."
+            ]
+          }
+        },
+        {
+          "id": "in1900-3-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-3-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.3](/in1900/in1900-1-3) og [kap. 1.4](/in1900/in1900-1-4).) Hvor mange runder går `for a, b in zip([1, 2, 3], [10, 20]):`, og hva skriver `f'ventet {2.5}, fikk {2.5}'` ut?",
+            "solution": "Løkka går **to** runder, fordi `zip` stopper ved den korteste sekvensen — tallet 3 blir aldri brukt. F-strengen gir teksten `ventet 2.5, fikk 2.5`: krøllparentesene byttes ut med verdiene, og alt annet står som det står. Begge deler brukes i testfunksjoner med flere punkter, og den første er en grunn til å passe på at fasitlista er like lang som verdilista.",
+            "hints": [
+              "`zip` stopper ved den korteste av sekvensene."
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }
