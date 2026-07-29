@@ -1,0 +1,387 @@
+{
+  "id": "in2010-1-4",
+  "courseId": "in2010",
+  "chapterNumber": "1.4",
+  "title": "Kjøretids- og teori-fakta — sant/usant og antigjettings-strategi",
+  "description": "De faste sant/usant-sannhetene sensor forventer sikkert (kjøretid, heap, sortering, P/NP) — kjernen i Del 1s antigjettings-regime, der usikkerhet straffes til null.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne avgjøre de faste sant/usant-påstandene om kjøretid, heap og kompleksitetsteori, og begrunne hver med én setning",
+    "kunne regne ut hva en gitt antigjettings-skalering gir i poeng for et bestemt antall sikre svar",
+    "kunne forklare hvorfor det å bygge en heap er lineært, mens innsetting og uthenting er logaritmiske",
+    "kunne skille reduksjonsretningen i $A \\leq_p B$ og si hvilket problem som er vanskeligst"
+  ],
+  "content": [
+    {
+      "id": "in2010-1-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet er der Del 1-poengene faktisk hentes.\n\n**Sjanger C — kjøretids- og teorifakta**, altså sant/usant-punkter om hvor raskt\nnoe går og hva en struktur kan, har kommet i **alle sju settene (100 %)**, og som\nregel med flere punkter i hvert sett. Punktene er korte, de rettes automatisk, og\nde er skalert mot gjetting.\n\nDet siste er hele poenget. **Antigjettings-skaleringen** — at summen på en\nsant/usant-blokk regnes om slik at ren gjetting i snitt gir null — betyr at\nhalvveis kunnskap konverteres til halvveis ingenting. Faktaene her må derfor\nsitte **sikkert**, ikke bare kjennes igjen. Prioritet: **høyeste**.\n\n**Et forbehold om rekkefølgen.** Kapitlet samler faktaene, og noen av dem handler\nom strukturer du ennå ikke har møtt: heapen, det balanserte søketreet, klassene\nP og NP. Alt du trenger for å forstå påstandene, står i dette kapitlet. Selve\nstrukturene — hvordan du håndkjører en heap, hvordan et AVL-tre roterer, hvordan\nen reduksjon settes opp — kommer i Del 4 og Del 7. Du taper ingenting på å lære\nfaktaene først; på eksamen står de nettopp som løsrevne påstander."
+    },
+    {
+      "id": "in2010-1-4-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.1](/in2010/in2010-1-1) — $O$-notasjonen, vekstordningen, og den faste\n  fella om at bedre asymptotikk ikke betyr færre steg.\n- [kap. 1.2](/in2010/in2010-1-2) — løkketellingen. Flere av faktaene her\n  begrunnes ved å telle løkker, og du bør kunne følge begrunnelsen.\n\nIngenting annet forutsettes. Strukturene som nevnes underveis, introduseres i\nden grad påstandene krever det."
+    },
+    {
+      "id": "in2010-1-4-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-1-4-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer i strukturen |\n| $O(1)$ | konstant tid |\n| $O(\\log n)$ | logaritmisk tid — én halvering per steg |\n| $O(n)$ | lineær tid |\n| $O(n \\log n)$ | kjøretiden til en effektiv sammenligningssortering |\n| $\\lfloor (i-1)/2 \\rfloor$ | indeksen til forelderen når heapen ligger i et array med indeks fra 0 |\n| $2i+1$ og $2i+2$ | indeksene til de to barna |\n| $P$ | problemene som kan løses i polynomisk tid |\n| $NP$ | problemene der et forslag til ja-svar kan kontrolleres i polynomisk tid |\n| $P \\subseteq NP$ | alt i $P$ ligger også i $NP$ |\n| $A \\leq_p B$ | $A$ kan reduseres til $B$ i polynomisk tid |\n| $2 \\cdot \\max(n - k,\\ 0)$ | formen antigjettings-skaleringen har hatt |"
+        },
+        {
+          "id": "in2010-1-4-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insert(H, x)` | setter `x` inn i heapen `H` og gjenoppretter ordningen | $O(\\log n)$ |\n| `Min(H)` | leser det minste elementet i en min-heap uten å fjerne det | $O(1)$ |\n| `RemoveMin(H)` | fjerner og returnerer det minste elementet | $O(\\log n)$ |\n| `ByggHeap(A)` | gjør et vilkårlig array om til en heap | $O(n)$ |\n| `BinærSøk(A, x)` | halverer søkeområdet i et **sortert array**; svarer `true`/`false` | $O(\\log n)$ |\n| `IsSorted(A)` | sjekker naboparene én gang | $O(n)$ |\n| `Flettesortering(A)` | splitter, sorterer hver halvdel og fletter | $O(n \\log n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{poeng} = 2 \\cdot \\max(n - k,\\ 0)$$\n\nAntigjettings-skaleringen. $n$ er antall riktige, og $k$ er terskelen — halve\nantall punkter, slik at myntkast i snitt lander på null.\n\n$$\\text{antall noder på nivå } d = 2^d$$\n\nEt fullt binærtre dobler antall noder for hvert nivå. Derfor ligger over\nhalvparten av elementene på det nederste nivået alene."
+        }
+      ]
+    },
+    {
+      "id": "in2010-1-4-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — hva skaleringen faktisk gjør med deg (ca. 10 min)\n\nTenk deg en sant/usant-blokk med 32 påstander, skalert med\n$2 \\cdot \\max(n - 16,\\ 0)$, der $n$ er antall riktige. Slik ser regnskapet ut:\n\n| Riktige | Poeng |\n|---|---|\n| 16 | 0 |\n| 17 | 2 |\n| 20 | 8 |\n| 24 | 16 |\n| 28 | 24 |\n| 32 | 32 |\n\nDe 16 første riktige svarene gir ingenting. Det er nettopp meningen: en som\nkaster mynt og kron på alle 32 lander i snitt på 16, og skal etter denne\nkonstruksjonen ende på null.\n\n**Hva betyr det i praksis?** Tre ting, og det er verdt å ha dem klart for seg før\ndu sitter i eksamenslokalet:\n\n1. **Blankt og feil teller likt.** I alle skaleringene som er brukt — både\n   $2 \\cdot \\max(n-16,\\ 0)$-formen og den eldre «minus ett for feil eller\n   ubesvart»-formen — er det ingen ekstra straff for å svare feil framfor å la\n   være. Du blir altså ikke fattigere av å fylle ut.\n2. **Men gjetting løfter deg ikke.** Over en hel blokk jevner myntkastene seg ut\n   mot terskelen. Det som flytter poengsummen din, er utelukkende punkter du kan\n   **sikkert**.\n3. **Konsekvensen for lesingen:** hvert faktum du gjør sikkert, er verdt to\n   poeng, og du kjenner dem alle på forhånd. Det er den beste\n   avkastningen per lest minutt i hele faget.\n\n**Og den andre halvdelen av regelen:** på de **vanlige korte svarene** — der du\nskal skrive et $O$-uttrykk, et tall eller en kort liste — er det ingen skalering\ni det hele tatt, og ubesvart teller som feil. Der svarer du alltid, uansett hvor\nusikker du er."
+    },
+    {
+      "id": "in2010-1-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger C — kjøretids- og teorifakta, altså sant/usant-punkter\npå den auto-rettede delen.) En sant/usant-blokk har 22 punkter og skaleres med\n$2 \\cdot \\max(n - 11,\\ 0)$.\n\n**a)** Hvor mange poeng får du med 11 riktige? Med 14? Med 20?\n**b)** Du kan 15 av påstandene sikkert. Hva er poengsummen din hvis du bare\nsvarer på dem?\n**c)** Hva er den høyeste poengsummen blokken kan gi?",
+        "solution": "**a)** Med 11 riktige: $2 \\cdot \\max(11 - 11,\\ 0) = 0$ poeng. Med 14:\n$2 \\cdot 3 = 6$ poeng. Med 20: $2 \\cdot 9 = 18$ poeng.\n\n**b)** $2 \\cdot (15 - 11) = \\mathbf{8}$ poeng.\n\n**c)** Alle 22 riktige gir $2 \\cdot (22 - 11) = \\mathbf{22}$ poeng — like mange\npoeng som det er påstander.\n\n**Legg merke til hvor bratt trappen er.** Fra 15 sikre til 20 sikre går du fra 8\ntil 18 poeng: fem faktapunkter er verdt ti poeng. Det er omtrent en hel\nDel 2-oppgave, for et par timers lesing.",
+        "hints": [
+          "Sett tallene rett inn i formelen $2 \\cdot \\max(n - 11, 0)$.",
+          "Husk at $\\max(a, 0)$ aldri blir negativ."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — kjøretidsfaktaene (ca. 12 min)\n\nFørste bolk er de reneste kjøretidspåstandene. De begrunnes alle med telling, så\ndu kan rekonstruere dem hvis du blir i tvil under eksamen."
+    },
+    {
+      "id": "in2010-1-4-def-1",
+      "type": "definition",
+      "title": "Flettesortering er O(n log n)",
+      "content": "Flettesortering splitter arrayet i to halvdeler, sorterer hver halvdel og fletter\ndem sammen. Splittingen kan gjøres $\\log_2 n$ ganger før bitene har ett element,\nog hvert nivå koster $O(n)$ å flette.\n\n$$\\log_2 n \\text{ nivåer} \\times O(n) \\text{ per nivå} = O(n \\log n)$$\n\nDette gjelder **verste tilfelle**, ikke bare forventet. Det er en av de få\nsorteringene der de to sammenfaller, og det er derfor den brukes som referanse."
+    },
+    {
+      "id": "in2010-1-4-def-2",
+      "type": "definition",
+      "title": "Å sjekke om et array er sortert er O(n)",
+      "content": "Gå gjennom arrayet én gang og sammenlign hvert element med det neste. Er alle\nnaboparene i orden, er hele arrayet sortert. Det tar $n - 1$ sammenligninger,\naltså $O(n)$.\n\nFaktumet dukker opp som sant/usant-punkt, og det brukes som byggekloss i\nDel 2-løsninger: «sortér i $O(n \\log n)$ og skann i $O(n)$» er en fullt lovlig\nstrategi der den lineære løsningen ikke finnes."
+    },
+    {
+      "id": "in2010-1-4-def-3",
+      "type": "definition",
+      "title": "Binærsøk krever direkte indeksering",
+      "content": "Binærsøk hopper til midten av søkeområdet, kaster halvparten, og gjentar — derfor\n$O(\\log n)$. Men det forutsetter at du kan hoppe til et vilkårlig element i\nkonstant tid.\n\nI et **array** koster `A[i]` $O(1)$, så binærsøk er $O(\\log n)$. I en **lenket\nliste** må du følge pekerne fra starten for å komme til midten, og det koster\n$O(n)$ per hopp — da er binærsøk ikke bare unyttig, det er tregere enn å skanne\nlisten. Derfor: binærsøk er raskere på array enn på lenket liste."
+    },
+    {
+      "id": "in2010-1-4-def-4",
+      "type": "definition",
+      "title": "Kvikksortering er kvadratisk i verste tilfelle",
+      "content": "Kvikksortering deler arrayet om et pivotelement. Treffer pivoten omtrent midt på\nhver gang, blir det $\\log n$ nivåer og $O(n \\log n)$ totalt — det forventede\ntilfellet.\n\nMen treffer pivoten hver gang ytterst (for eksempel om arrayet allerede er\nsortert og du velger første element), blir det $n$ nivåer, og kjøretiden blir\n$O(n^2)$. Påstanden «kvikksortering er $O(n \\log n)$ i verste tilfelle» er\nderfor **usann**, og den er en fast distraktor."
+    },
+    {
+      "id": "in2010-1-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fire kjøretidspåstander",
+      "problem": "Marker sant eller usant, og begrunn hvert svar med én setning.\n\n**a)** Flettesortering er $O(n \\log n)$ også i verste tilfelle.\n**b)** Binærsøk i en lenket liste med $n$ elementer er $O(\\log n)$.\n**c)** Å avgjøre om et array er sortert krever minst $O(n \\log n)$.\n**d)** En algoritme med kjøretid $O(n)$ kan ikke ha kjøretid $O(n^2)$.",
+      "solution": "**a) Sant.** Splittingen gir $\\log_2 n$ nivåer uansett hvordan dataene ser ut,\nog hvert nivå fletter $n$ elementer. Flettesortering har ingen dårlig input.\n\n**b) Usant.** Binærsøket trenger å hoppe til midten i konstant tid, og i en\nlenket liste koster det $O(n)$ å komme dit. Selve halveringen gir $\\log n$ hopp,\nmen hvert hopp er dyrt — resultatet blir $O(n)$ i beste fall, og du er like godt\ntjent med å skanne listen.\n\n**c) Usant.** Én gjennomgang av naboparene holder, altså $O(n)$. Fella er å\ntenke «noe med sortering, altså $n \\log n$» — men her skal ingenting sorteres,\nbare kontrolleres.\n\n**d) Usant.** $O$ er en øvre grense, og øvre grenser kan gjøres slappere: alt\nsom er $O(n)$ er også $O(n^2)$. Utsagnet høres fornuftig ut, og det er nettopp\nderfor det står på eksamen.\n\n**Sensorblikket:** i (a) er det ordet «også i verste tilfelle» som avgjør, i (b)\ner det «lenket liste», i (c) er det «minst», og i (d) er det «kan ikke». Les\nsant/usant-punkter ord for ord — det er det mest gjentatte rådet i\nsensorveiledningene."
+    },
+    {
+      "id": "in2010-1-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C.) Sant eller usant? Begrunn med én setning hver.\n\n**a)** «Lineær kjøretid» betyr $O(n)$.\n**b)** En $O(n \\log n)$-algoritme bruker alltid færre grunnsteg enn en\n$O(n^2)$-algoritme på samme input.\n**c)** Kvikksortering har $O(n \\log n)$ i verste tilfelle.",
+        "solution": "**a) Sant.** «Lineær» er navnet på klassen $O(n)$: arbeidet vokser i takt med\ninputen.\n\n**b) Usant.** $O$-klassen sier bare hva som skjer for store nok $n$; en skjult\nkonstant kan gjøre den asymptotisk bedre algoritmen tregere på små input. Dette\ner den faste fella fra [kap. 1.1](/in2010/in2010-1-1), og den har dukket opp i\nflere sett.\n\n**c) Usant.** Kvikksortering er $O(n \\log n)$ **forventet**, men $O(n^2)$ i\nverste tilfelle, når pivoten treffer dårlig hver gang.\n\nLegg merke til at to av tre er usanne her. På en ekte sant/usant-blokk er\nfordelingen blandet, og du skal aldri anta at «de fleste er sanne» eller\nomvendt.",
+        "hints": [
+          "Skill mellom det asymptotiske utsagnet og en påstand om konkrete tall.",
+          "For c): hva skjer hvis pivoten alltid treffer det minste elementet?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — heap-faktaene (ca. 15 min)\n\n— naturlig pausepunkt —\n\nHeapen er den strukturen som oftest dukker opp som faktapunkt på Del 1. Her får\ndu akkurat så mye av den som faktaene krever; hele strukturen, med håndkjøring og\npseudokode, kommer i Del 4.\n\n**Hverdagsankeret:** tenk på en akuttmottakskø der pasientene ikke tas i\nankomstrekkefølge, men etter alvorlighetsgrad. Du trenger å få tak i den mest\nakutte raskt, og du trenger å kunne legge til nye pasienter raskt. Du trenger\n**ikke** å ha hele køen sortert. En heap er strukturen som gir deg nøyaktig det."
+    },
+    {
+      "id": "in2010-1-4-def-5",
+      "type": "definition",
+      "title": "Min-heap",
+      "content": "Et binærtre som fylles nivå for nivå fra venstre (kalt **strukturkravet**), og\nder hver node er mindre enn eller lik begge barna sine (**ordningskravet**).\n\nTreet lagres i et array uten pekere: roten på indeks 0, og for elementet på\nindeks $i$ er forelderen på $\\lfloor (i-1)/2 \\rfloor$ og barna på $2i+1$ og\n$2i+2$. Merk indekseringen fra 0 — andre bøker starter på 1 og får andre\nformler."
+    },
+    {
+      "id": "in2010-1-4-def-6",
+      "type": "definition",
+      "title": "Heap-egenskapen er opp-ned, ikke venstre-høyre",
+      "content": "I en heap gjelder ordningen mellom **forelder og barn**: forelderen er mindre enn\neller lik begge barna i en min-heap. Det er ingen ordning mellom søsken, og ingen\nordning venstre mot høyre.\n\nDette skiller heapen fra søketreet, der ordningen nettopp er venstre mot høyre.\nÅ blande de to er felle **#9** i bokas register — å forveksle søketre-ordenen med\nheap-ordenen."
+    },
+    {
+      "id": "in2010-1-4-def-7",
+      "type": "definition",
+      "title": "Det minste i en min-heap ligger i roten",
+      "content": "Ordningskravet gjelder hele veien nedover, så ingen node kan være mindre enn\nroten. Å **lese** det minste er derfor $O(1)$: du slår opp på indeks 0.\n\nÅ **fjerne** det er dyrere, $O(\\log n)$, fordi strukturen må gjenopprettes\netterpå."
+    },
+    {
+      "id": "in2010-1-4-def-8",
+      "type": "definition",
+      "title": "Største element i en min-heap er O(n)",
+      "content": "Ordningskravet sier ingenting om hvor det største elementet ligger, annet enn at\ndet må være et blad. Men en heap med $n$ elementer har omtrent $n/2$ blader, og\ndu må sjekke alle.\n\nDerfor er påstanden «du kan finne det største elementet i en min-heap i\n$O(\\log n)$» **usann** — det koster $O(n)$. Dette er et av de hyppigste\nsant/usant-punktene i faget."
+    },
+    {
+      "id": "in2010-1-4-def-9",
+      "type": "definition",
+      "title": "Innsetting i en heap er O(log n)",
+      "content": "Det nye elementet legges bakerst i arrayet og bobler oppover mot roten så lenge\ndet er mindre enn forelderen sin. Antall steg er høyden på treet.\n\nEt binærtre med $n$ noder som fylles nivå for nivå har høyde\n$\\lfloor \\log_2 n \\rfloor$, så innsetting er $O(\\log n)$ — også i verste\ntilfelle."
+    },
+    {
+      "id": "in2010-1-4-def-10",
+      "type": "definition",
+      "title": "Å bygge en heap fra et array er O(n)",
+      "content": "Det ser ut som $n$ innsettinger à $O(\\log n)$, altså $O(n \\log n)$. Men bygger du\nnedenfra og opp, gjør de fleste nodene nesten ingenting: halvparten er blader og\nflytter seg ikke i det hele tatt, en firedel flytter seg høyst ett nivå, og så\nvidere. Summen blir $O(n)$.\n\nPåstanden «å bygge en heap fra et vilkårlig array tar $O(n \\log n)$» er derfor\n**usann** — den er den vanligste distraktoren på hele Del 1."
+    },
+    {
+      "id": "in2010-1-4-th-1",
+      "type": "theorem",
+      "title": "Over halvparten av elementene ligger nederst",
+      "content": "Et binærtre som fylles nivå for nivå har $2^d$ noder på nivå $d$: 1 i roten, 2 på\nnivå 1, 4 på nivå 2, 8 på nivå 3.\n\nSummen av alle nivåene **over** det nederste er\n$1 + 2 + 4 + \\cdots + 2^{d-1} = 2^d - 1$, altså **ett færre** enn antall noder på\ndet nederste nivået alene.\n\n**Konsekvensene som testes:**\n\n- Over halvparten av elementene ligger på det nederste nivået.\n- De to nederste nivåene inneholder til sammen omtrent tre firedeler av alle\n  elementene.\n- Høyden vokser bare logaritmisk: en heap med en million elementer har høyde 19.\n\nDet er dette som gjør det billig å bygge en heap nedenfra: de fleste nodene har\nknapt noe å flytte seg."
+    },
+    {
+      "id": "in2010-1-4-def-11",
+      "type": "definition",
+      "title": "En min-heap blir ikke en max-heap av å reversere arrayet",
+      "content": "Å snu arrayet snur ikke forelder-barn-relasjonene, for de er bestemt av\nindeksformlene $\\lfloor (i-1)/2 \\rfloor$, $2i+1$ og $2i+2$ — ikke av innholdet.\nEtter reversering peker formlene på helt andre elementer, og ordningskravet\ngjelder ingen vei.\n\nPåstanden er derfor **usann**, og den er en fast distraktor. Vil du ha en\nmax-heap, må du bygge den med motsatt sammenligning."
+    },
+    {
+      "id": "in2010-1-4-def-12",
+      "type": "definition",
+      "title": "Et balansert søketre kan brukes som prioritetskø",
+      "content": "Et balansert søketre — for eksempel et AVL-tre — holder høyden på $O(\\log n)$.\nDet minste elementet ligger lengst til venstre og finnes i $O(\\log n)$, og\ninnsetting er $O(\\log n)$.\n\nPåstanden «et AVL-tre kan brukes som prioritetskø med samme orden som en heap»\ner derfor **sann**. Heapen vinner likevel i praksis, på konstantfaktorer og\nminnebruk — men ikke i $O$-klasse."
+    },
+    {
+      "id": "in2010-1-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Seks heap-påstander",
+      "problem": "Marker sant eller usant med én setnings begrunnelse.\n\n**a)** Et vilkårlig array kan gjøres om til en heap i $O(n)$.\n**b)** Innsetting i en heap er $O(\\log n)$ i verste tilfelle.\n**c)** Du kan finne det største elementet i en min-heap i $O(\\log n)$.\n**d)** En min-heap blir en max-heap hvis du reverserer arrayet.\n**e)** Et AVL-tre kan brukes som prioritetskø med samme kjøretidsorden som en\nheap.\n**f)** I en min-heap er venstre barn alltid mindre enn høyre barn.",
+      "solution": "**a) Sant.** Bygger du nedenfra og opp, gjør halvparten av nodene ingenting,\nen firedel flytter seg høyst ett nivå, og summen blir lineær.\n\n**b) Sant.** Elementet bobler oppover høyst så mange nivåer som treet er høyt, og\nhøyden er $\\lfloor \\log_2 n \\rfloor$.\n\n**c) Usant.** Det største elementet er et blad, men ordningen sier ikke hvilket.\nDu må sjekke alle de omtrent $n/2$ bladene, altså $O(n)$.\n\n**d) Usant.** Forelder-barn-relasjonene er bestemt av indeksene, ikke av\ninnholdet. Reversering ødelegger ordningen i stedet for å snu den.\n\n**e) Sant.** Høyden er $O(\\log n)$, det minste ligger lengst til venstre, og\ninnsetting er $O(\\log n)$ — samme orden som heapen på begge operasjoner.\n\n**f) Usant.** Heapen ordner bare forelder mot barn, aldri søsken mot hverandre.\nDette er felle **#9** — å forveksle heap-ordenen (opp-ned) med søketre-ordenen\n(venstre-høyre).\n\n**Fasitmønsteret er verdt å merke seg:** tre sanne og tre usanne. En ekte\nsant/usant-blokk blander, og en kandidat som svarer «usant» på alt fordi «det\npleier å være fella», lander på terskelen og får null."
+    },
+    {
+      "id": "in2010-1-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) Sant eller usant? Begrunn hvert svar med én setning.\n\n**a)** I en min-heap med $n$ elementer ligger over halvparten av elementene på\ndet nederste nivået.\n**b)** Å lese ut det minste elementet i en min-heap uten å fjerne det er\n$O(\\log n)$.\n**c)** Høyden til en heap med en million elementer er under 25.",
+        "solution": "**a) Sant.** Nivå $d$ har $2^d$ noder, og summen av alle nivåene over det\nnederste er $2^d - 1$ — altså ett færre enn det nederste nivået alene har.\n\n**b) Usant.** Det minste ligger alltid i roten, på indeks 0, så det er $O(1)$ å\nlese det. Det er å **fjerne** det som koster $O(\\log n)$. Denne distraktoren\nutnytter at de to operasjonene ofte nevnes i samme åndedrag.\n\n**c) Sant.** Høyden er $\\lfloor \\log_2 n \\rfloor$, og $2^{20}$ er litt over en\nmillion, så høyden er 19.\n\n**Merk hvordan (b) er konstruert:** påstanden er *nesten* sann, og den bruker et\nriktig tall ($O(\\log n)$) om feil operasjon. Slike nær-sanne distraktorer er\nregelen på Del 1, og de er grunnen til at gjenkjenning ikke holder.",
+        "hints": [
+          "For a): skriv opp hvor mange noder det er på hvert nivå i et tre med fire nivåer.",
+          "For b): skill mellom å lese det minste og å fjerne det."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-t-4",
+      "type": "text",
+      "content": "## Løkke 4 — P- og NP-faktaene (ca. 10 min)\n\nDen siste bolken er kompleksitetsteori. Den har vært på retur — den var tung i\nsettene fra 2018 til 2021 og fraværende i de tre ferskeste — men når den kommer,\nkommer den som lettjente sant/usant-poeng. Det er noen få setninger, og de er\nverdt å kunne.\n\n**Hverdagsankeret:** noen problemer er lette å **kontrollere** selv om de er\nvanskelige å **løse**. Å finne en rundtur som besøker hver by nøyaktig én gang i\net stort veinett er en beryktet vanskelig oppgave. Men får du en foreslått rute i\nhånden, tar det bare noen minutter å sjekke om den faktisk er lovlig. Det er\nskillet hele teorien handler om."
+    },
+    {
+      "id": "in2010-1-4-def-13",
+      "type": "definition",
+      "title": "Klassen P",
+      "content": "Problemene som kan **løses** av en algoritme med polynomisk kjøretid — altså\n$O(n^k)$ for en fast $k$: $O(n)$, $O(n^2)$, $O(n^3)$ og så videre.\n\nAlt du har møtt i denne boka så langt, ligger i $P$. Grensen går ved\neksponentiell tid som $O(2^n)$, som ikke er polynomisk."
+    },
+    {
+      "id": "in2010-1-4-def-14",
+      "type": "definition",
+      "title": "Klassen NP",
+      "content": "Problemene der et foreslått ja-svar kan **kontrolleres** i polynomisk tid. Får du\nutlevert en løsning, kan du sjekke om den holder, raskt — selv om du ikke vet\nhvordan du skulle funnet den.\n\nMerk at $NP$ ikke betyr «ikke-polynomisk». Det står for «ikke-deterministisk\npolynomisk», og definisjonen handler om kontroll, ikke om løsning."
+    },
+    {
+      "id": "in2010-1-4-def-15",
+      "type": "definition",
+      "title": "Sertifikat og verifikator",
+      "content": "Et **sertifikat** er det foreslåtte svaret — for eksempel en konkret rundtur. En\n**verifikator** er prosedyren som kontrollerer det.\n\nKravet for at et problem skal være i $NP$, er at det finnes en verifikator med\npolynomisk kjøretid. Å skrive en slik verifikator er en oppgavetype i seg selv,\nog den kommer i Del 7."
+    },
+    {
+      "id": "in2010-1-4-th-2",
+      "type": "theorem",
+      "title": "P ligger inne i NP",
+      "content": "$$P \\subseteq NP$$\n\nBegrunnelsen er kort: kan du **løse** problemet i polynomisk tid, kan du også\nkontrollere et foreslått svar i polynomisk tid — du løser det bare selv og\nsammenligner. Alt i $P$ er derfor også i $NP$.\n\nPåstanden «$P \\subseteq NP$» er dermed **sann**, og den er et fast punkt."
+    },
+    {
+      "id": "in2010-1-4-def-16",
+      "type": "definition",
+      "title": "NP-komplett",
+      "content": "De vanskeligste problemene i $NP$: et problem er NP-komplett hvis det ligger i\n$NP$, og alle andre problemer i $NP$ kan reduseres til det i polynomisk tid.\n\nTo konsekvenser som testes direkte: alle NP-komplette problemer er\npolynomtidsreduserbare til hverandre (**sant**), og løser du **ett** av dem i\npolynomisk tid, har du løst dem alle — altså $P = NP$ (**sant**)."
+    },
+    {
+      "id": "in2010-1-4-def-17",
+      "type": "definition",
+      "title": "Polynomisk reduksjon",
+      "content": "$A \\leq_p B$ betyr at problem $A$ kan gjøres om til problem $B$ med en\npolynomisk omskrivning. Da er $B$ **minst like vanskelig** som $A$: kan du løse\n$B$ raskt, kan du løse $A$ raskt.\n\nRetningen er alt. Skal du vise at et nytt problem er vanskelig, reduserer du\n**fra** et kjent vanskelig problem **til** ditt. Å gjøre det motsatt beviser\ningenting — det er felle **#8** i bokas register."
+    },
+    {
+      "id": "in2010-1-4-def-18",
+      "type": "definition",
+      "title": "Statusen til P mot NP",
+      "content": "Det er **ikke bevist** at $P = NP$, og det er **ikke bevist** at\n$P \\neq NP$. Spørsmålet er åpent.\n\nBegge påstandene «det er bevist at $P = NP$» og «det er bevist at $P \\neq NP$»\ner derfor **usanne**. Dette er det enkleste punktet i hele bolken, og det er\nogså det som oftest kommer."
+    },
+    {
+      "id": "in2010-1-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Fem påstander om P og NP",
+      "problem": "Marker sant eller usant med én setnings begrunnelse.\n\n**a)** $P \\subseteq NP$.\n**b)** Det er bevist at $P \\neq NP$.\n**c)** Alle NP-komplette problemer kan reduseres til hverandre i polynomisk tid.\n**d)** Hvis noen finner en polynomisk algoritme for ett NP-komplett problem, så\ner $P = NP$.\n**e)** Alle avgjørelsesproblemer ligger enten i $P$ eller i $NP$.",
+      "solution": "**a) Sant.** Kan du løse et problem raskt, kan du også kontrollere et foreslått\nsvar raskt — bare løs det selv og sammenlign.\n\n**b) Usant.** Ingenting er bevist noen av veiene. Spørsmålet er åpent, og det er\net av de mest kjente åpne problemene i faget.\n\n**c) Sant.** Det følger av definisjonen: alle problemer i $NP$ kan reduseres til\net hvilket som helst NP-komplett problem, og NP-komplette problemer ligger selv i\n$NP$.\n\n**d) Sant.** Alle andre $NP$-problemer kan reduseres til det i polynomisk tid, så\nen rask løsning på ett gir en rask løsning på alle.\n\n**e) Usant.** Det finnes problemer utenfor $NP$ — for eksempel problemer der\nselv ikke et foreslått svar kan kontrolleres raskt, og problemer som ikke kan\navgjøres av noen algoritme i det hele tatt. $P$ og $NP$ dekker ikke alt.\n\n**Sensorblikket:** fire av disse fem har dukket opp i ulike innpakninger, og\nformuleringene varierer knapt fra år til år. Dette er den delen av pensum der\npugging faktisk lønner seg mest per minutt."
+    },
+    {
+      "id": "in2010-1-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) Sant eller usant? Begrunn hvert svar med én setning.\n\n**a)** Hvis $A \\leq_p B$, så er $A$ minst like vanskelig som $B$.\n**b)** Å vise at ditt problem kan reduseres **til** et NP-komplett problem,\nbeviser at ditt problem er NP-komplett.\n**c)** $NP$ står for «ikke-polynomisk».",
+        "solution": "**a) Usant.** Retningen er motsatt: $A \\leq_p B$ betyr at **$B$** er minst like\nvanskelig som $A$, siden en rask løsning på $B$ gir en rask løsning på $A$.\n\n**b) Usant.** Det viser bare at ditt problem ikke er verre enn det NP-komplette,\nog det er ingen nyhet — alle problemer i $NP$ kan reduseres til et NP-komplett\nproblem. For å vise at ditt problem er vanskelig, må du redusere **fra** det\nkjente vanskelige problemet til ditt. Dette er felle **#8** — å reversere\nreduksjonsretningen.\n\n**c) Usant.** $NP$ betyr «ikke-deterministisk polynomisk», og klassen defineres\nved at et foreslått svar kan **kontrolleres** i polynomisk tid. Navnet lurer\nmange, og derfor spørres det om.\n\nAlle tre er usanne her — men det er fordi de er valgt for å trene\nreduksjonsretningen. På et ekte sett vil fordelingen være blandet.",
+        "hints": [
+          "Skriv ned hva pilen i $A \\leq_p B$ betyr med ord: hva kan du gjøre hvis du kan løse $B$?",
+          "Spør hvilken vei du må gå for at reduksjonen skal si noe nytt om problemet ditt."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Alle disse er punkter der en distraktor er bygget nettopp for å fange den usikre\nkandidaten.\n\n- **Å tro at det å bygge en heap er $O(n \\log n)$.** Det er $O(n)$ når du bygger\n  nedenfra og opp. Dette er den enkeltdistraktoren som fanger flest.\n- **Å tro at du får det største elementet ut av en min-heap i $O(\\log n)$.** Det\n  koster $O(n)$ — ordningen sier ingenting om hvor det største bladet ligger.\n- **Å forveksle heap-ordenen med søketre-ordenen.** Heap ordner forelder mot\n  barn, søketre ordner venstre mot høyre. Dette er felle **#9** i bokas register.\n- **Å tro at kvikksortering er $O(n \\log n)$ i verste tilfelle.** Det er\n  forventet kjøretid; verste er $O(n^2)$.\n- **Å tro at binærsøk hjelper i en lenket liste.** Halveringen krever at du kan\n  hoppe til midten i konstant tid.\n- **Å snu reduksjonsretningen.** $A \\leq_p B$ gjør $B$ til den vanskeligste.\n  Dette er felle **#8**.\n- **Å påstå at $P = NP$ eller $P \\neq NP$ er bevist.** Ingen av delene.\n- **Å gjette seg gjennom blokken.** Skaleringen er konstruert nettopp for at det\n  ikke skal virke."
+    },
+    {
+      "id": "in2010-1-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C, blandet.) Sant eller usant? Begrunn hvert svar med én setning.\n\n**a)** Å bygge en heap av et array med $n$ elementer tar $O(n \\log n)$.\n**b)** Flettesortering er in-place, altså at den klarer seg med konstant\nekstra minne.\n**c)** Å hente ut det minste elementet i en min-heap og fjerne det er\n$O(\\log n)$.\n**d)** Et array med $n$ elementer kan sjekkes for om det er sortert i $O(n)$.",
+        "solution": "**a) Usant.** Bygger du nedenfra og opp, blir det $O(n)$: halvparten av nodene er\nblader som ikke flytter seg, en firedel flytter seg høyst ett nivå, og summen er\nlineær.\n\n**b) Usant.** Flettesortering trenger et hjelpearray for flettingen og bruker\nderfor $O(n)$ ekstra minne. (Heapsortering og kvikksortering er in-place;\nflettesortering er ikke.)\n\n**c) Sant.** Det minste ligger i roten, men når du fjerner det, må siste element\nflyttes opp og synke ned på plass — høyst så mange nivåer som treet er høyt,\naltså $O(\\log n)$.\n\n**d) Sant.** Én gjennomgang av naboparene, $n - 1$ sammenligninger.\n\n**Merk (a) og (c) sammen:** begge handler om heapen, begge har $\\log$ i seg, og\nbare den ene er sann. Det er slik Del 1 er konstruert — nære påstander som skiller\nseg på ett ord eller én operasjon.",
+        "hints": [
+          "For a): hvor mange av nodene i et binærtre er blader?",
+          "For b): trenger flettingen et sted å legge det ferdig flettede?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Poengregning under skalering.) En sant/usant-blokk har 18 punkter og skaleres\nmed $2 \\cdot \\max(n - 9,\\ 0)$.\n\nDu går gjennom blokken og finner at du kan 12 av påstandene sikkert. Av de\nresterende seks er du «ganske sikker» på tre og helt blank på tre.\n\n**a)** Hva får du hvis du bare svarer på de 12 sikre?\n**b)** Anta at du treffer på to av de tre du er ganske sikker på, og på\nhalvparten av de blanke. Hva blir poengsummen?\n**c)** Hva sier dette om hvor du bør bruke lesetiden din?",
+        "solution": "**a)** $2 \\cdot (12 - 9) = \\mathbf{6}$ poeng.\n\n**b)** To riktige av de ganske sikre og halvannen av de blanke gir i snitt\n$12 + 2 + 1{,}5 = 15{,}5$ riktige, altså\n$2 \\cdot (15{,}5 - 9) = \\mathbf{13}$ poeng i snitt.\n\nMerk at du ikke taper noe på å fylle ut de blanke — blankt og feil teller likt —\nmen merk også hvor lite de blanke bidro: 1,5 poeng av 13. Det aller meste kom\nfra de 12 du kunne.\n\n**c)** På å gjøre flere påstander **sikre**. Hvert faktum du løfter fra «ganske\nsikker» til «sikker» er verdt to poeng, garantert, og du kjenner hele listen på\nforhånd — den står i dette kapitlet. Å trene på å gjette bedre er derimot\nverdiløst: skaleringen er konstruert for at det ikke skal betale seg.\n\n**En liten realisme til slutt:** hadde du kunnet alle 18, ville du fått\n$2 \\cdot 9 = 18$ poeng. Forskjellen mellom 12 sikre og 18 sikre er 12 poeng — på\net sett der Del 1 typisk er 20 til 35 poeng totalt.",
+        "hints": [
+          "Sett tallene inn i formelen og regn ut hver av situasjonene for seg.",
+          "Sammenlign hvor mange poeng som kom fra sikre svar og hvor mange fra gjettede."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger C, eksamensnivå.) Marker sant eller usant, og begrunn hvert svar med én\nsetning.\n\n**a)** Hvis et problem ligger i $P$, finnes det en polynomisk verifikator for\ndet.\n**b)** I et binærtre som fylles nivå for nivå, inneholder de to nederste nivåene\ntil sammen mer enn to tredeler av nodene.\n**c)** En min-heap med $n$ elementer har alltid nøyaktig\n$\\lfloor \\log_2 n \\rfloor$ nivåer.\n**d)** Et balansert søketre kan gjøre både innsetting og uthenting av minste\nelement i $O(\\log n)$.",
+        "solution": "**a) Sant.** Ligger problemet i $P$, kan du løse det selv i polynomisk tid og\nsammenligne med det foreslåtte svaret — det er en polynomisk verifikator. Dette\ner nettopp begrunnelsen for $P \\subseteq NP$.\n\n**b) Sant.** Er det nederste nivået fullt, har det $2^d$ noder og nivået over\n$2^{d-1}$, mens alle nivåene over dem til sammen har $2^{d-1} - 1$. De to\nnederste utgjør da omtrent tre firedeler, som er mer enn to tredeler.\n\n**c) Usant** — påstanden bommer på ordet «nivåer». Høyden, altså antall kanter\nfra rot til dypeste blad, er $\\lfloor \\log_2 n \\rfloor$; antall **nivåer** er én\nmer enn det. En heap med 8 elementer har høyde 3 og fire nivåer.\n\n**d) Sant.** Høyden er $O(\\log n)$, innsettingen følger én sti nedover, og det\nminste elementet ligger lengst til venstre — begge operasjoner er $O(\\log n)$.\nDet er dette som gjør et AVL-tre til en gyldig prioritetskø.\n\n**Om (c):** dette er den mest ubehagelige typen distraktor — riktig tall, feil\nbegrep. Sensor er ikke ute etter å lure deg for lurendes skyld, men presise\nbegreper er en del av faget. Les hvert ord.",
+        "hints": [
+          "For b): skriv opp antall noder per nivå i et fullt tre med fire nivåer og legg sammen.",
+          "For c): tell nivåene og kantene i et lite tre og se om tallene er de samme."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger C, eksamensnivå — blandet fra hele Del 1.) Marker sant eller usant med\nén setnings begrunnelse.\n\n**a)** En algoritme med tre nøstede løkker over $n$ elementer er alltid\n$O(n^3)$.\n**b)** $n \\log n = O(n^2)$.\n**c)** Å bygge en heap og deretter fjerne det minste elementet gjentatte ganger\nsorterer arrayet i $O(n \\log n)$.\n**d)** Det er bevist at $P = NP$.",
+        "solution": "**a) Usant.** Ordet «alltid» er fella. Går en av løkkene til et fast tall, eller\ndobler den tellevariabelen, er svaret lavere — for eksempel $O(n^2)$ eller\n$O(n^2 \\log n)$. Det er rekkeviddene som teller, ikke antall løkker.\n\n**b) Sant.** $\\log n \\leq n$ for $n \\geq 1$, så $n \\log n \\leq n^2$. En slapp,\nmen gyldig, øvre grense.\n\n**c) Sant.** Byggingen koster $O(n)$, og de $n$ uthentingene koster $O(\\log n)$\nhver, altså $O(n \\log n)$ til sammen — det dominerende leddet. Dette er\nheapsortering, og kjøretiden er riktig.\n\n**d) Usant.** Ingenting er bevist noen av veiene.\n\n**Legg merke til hvordan (c) er bygget:** den kombinerer to fakta du har lært\nhver for seg (bygging er $O(n)$, uthenting er $O(\\log n)$) og krever at du legger\ndem sammen riktig. Det er den vanligste formen for et vanskelig\nDel 1-faktapunkt — ikke ny kunnskap, men to gamle satt sammen.",
+        "hints": [
+          "For a): finnes det en snutt med tre nøstede løkker som ikke er kubisk?",
+          "For c): regn ut kostnaden for byggingen og for de $n$ uthentingene hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-4-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C, formsjekk.) Du har svart på en sant/usant-blokk og fått\npoengsummen 0, selv om du er sikker på at du hadde en del riktige.\n\n**a)** Hvordan kan det ha seg?\n**b)** Hva ville du gjort annerledes til neste gang?",
+        "solution": "**a)** Fordi skaleringen klipper alt under terskelen til null. Med formen\n$2 \\cdot \\max(n - 16,\\ 0)$ og 32 påstander gir 16 riktige nøyaktig 0 poeng, og\ndet gjør 14 og 12 også — $\\max$-leddet kan ikke bli negativt. Du kan altså ha\nhatt halvparten riktig og likevel stå igjen med ingenting.\n\nDet er ikke en straff for å svare feil; blankt hadde gitt det samme. Det er\nkonstruksjonens måte å si at halvparten riktig er nøyaktig hva ren gjetting gir.\n\n**b)** Ikke svart annerledes — **lest** annerledes. Poengsummen på en slik blokk\ner praktisk talt lik antall påstander du kan sikkert, minus terskelen. Veien\noppover går gjennom å gjøre flere av faktaene i dette kapitlet sikre, ikke\ngjennom taktikk i eksamenslokalet.\n\nEn konkret plan: gå gjennom begrepsbanken nedenfor og del påstandene i tre\nbunker — «sikker», «tror jeg» og «aner ikke». Bunke to og tre er\nlesebestillingen din, og de er korte.",
+        "hints": [
+          "Regn ut hva formelen gir for 16, 14 og 12 riktige av 32.",
+          "Spør hva som er den eneste variabelen du faktisk kan påvirke før eksamen."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-4-t-5",
+      "type": "text",
+      "content": "### Begrepsbank — faktalisten du skal kunne sikkert\n\nBegrepsbanken under er flashcard- og repetisjonsstoff — den gjentar det du\nnettopp har lest. Hopp trygt over den ved førstegangslesing; tidsanslaget for\nkapitlet gjelder kjernestoffet.\n\nMen kom tilbake til den. I dette kapitlet er begrepsbanken ikke pynt: den **er**\npensumet for sjanger C, og hvert kort er verdt to poeng på en skalert blokk."
+    },
+    {
+      "id": "in2010-1-4-def-19",
+      "type": "definition",
+      "title": "Sjanger C — kjøretids- og teorifakta",
+      "content": "Oppgavetypen der du skal markere sant eller usant på korte påstander om\nkjøretid, datastrukturer og kompleksitetsteori. Har kommet i alle sju settene,\nsom regel med flere punkter per sett.\n\nRettes automatisk og er skalert mot gjetting, så gjenkjenning holder ikke —\nfaktaene må sitte sikkert."
+    },
+    {
+      "id": "in2010-1-4-def-20",
+      "type": "definition",
+      "title": "Terskelen i en skalert blokk",
+      "content": "Antallet riktige som gir null poeng, typisk halvparten av påstandene: 16 av 32,\n11 av 22, 9 av 18. Formen er $2 \\cdot \\max(n - k,\\ 0)$, der $k$ er terskelen.\n\nPraktisk regel: poengsummen din er omtrent «antall du kan sikkert, minus\nterskelen, ganger to». Det er også den eneste størrelsen du kan påvirke før\neksamen."
+    },
+    {
+      "id": "in2010-1-4-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — hele faktalisten på ett kort",
+      "buttonText": "Vis faktalisten",
+      "content": [
+        {
+          "id": "in2010-1-4-rep-1",
+          "type": "text",
+          "content": "**Kjøretid**\n\n| Påstand | Svar |\n|---|---|\n| Flettesortering er $O(n \\log n)$, også verste tilfelle | sant |\n| Kvikksortering er $O(n \\log n)$ i verste tilfelle | usant, det er $O(n^2)$ |\n| Å sjekke om et array er sortert er $O(n)$ | sant |\n| Binærsøk er raskere på array enn på lenket liste | sant |\n| Bedre $O$ betyr færre steg for all input | usant |\n| Noe som er $O(n)$ kan ikke være $O(n^2)$ | usant |\n\n**Heap**\n\n| Påstand | Svar |\n|---|---|\n| Et array kan bygges til heap i $O(n)$ | sant |\n| Innsetting er $O(\\log n)$ i verste tilfelle | sant |\n| Å lese det minste i en min-heap er $O(1)$ | sant |\n| Å fjerne det minste er $O(\\log n)$ | sant |\n| Du finner det største i en min-heap i $O(\\log n)$ | usant, det er $O(n)$ |\n| Over halvparten av elementene ligger nederst | sant |\n| En min-heap blir max-heap av å reversere arrayet | usant |\n| Et balansert søketre kan brukes som prioritetskø | sant |\n| Venstre barn er alltid mindre enn høyre barn | usant |\n\n**P og NP**\n\n| Påstand | Svar |\n|---|---|\n| $P \\subseteq NP$ | sant |\n| Alle NP-komplette problemer kan reduseres til hverandre | sant |\n| Én polynomisk løsning på et NP-komplett problem gir $P = NP$ | sant |\n| Det er bevist at $P = NP$ | usant |\n| Det er bevist at $P \\neq NP$ | usant |\n| Alle avgjørelsesproblemer ligger i $P$ eller $NP$ | usant |\n| $A \\leq_p B$ gjør $A$ vanskeligst | usant, $B$ er vanskeligst |\n\n**Og strategien i tre setninger:** på skalerte sant/usant-blokker teller blankt\nog feil likt, så du taper ingenting på å fylle ut — men gjetting løfter deg\nheller ikke, fordi skaleringen er bygget for at halvparten riktig skal gi null.\nPå de vanlige korte svarene er det ingen skalering, og der svarer du alltid.\nPoengsummen din er summen av det du kan sikkert.\n\nMed dette er Del 1 ferdig. Prøvekapitlet\n[Prøver til del 1](/in2010/in2010-1-prove) har fire prøver som tester hele\ndelen, inkludert en full skalert blokk med poengregning."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

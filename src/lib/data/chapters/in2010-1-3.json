@@ -1,0 +1,404 @@
+{
+  "id": "in2010-1-3",
+  "courseId": "in2010",
+  "chapterNumber": "1.3",
+  "title": "DRILL — Kode → O-notasjon",
+  "description": "Systematisk drill i sjanger B: les O-kjøretiden ut av pseudokode med nøstede løkker, halvering og sekvens — de garanterte Del 1-poengene.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne bestemme rekkevidden til hver løkke i en pseudokodesnutt og skille konstante grenser fra grenser som vokser med $n$",
+    "kunne gange for nøsting og legge sammen for sekvens, og lande på ett strammest mulig O-uttrykk",
+    "kunne kontrollere svaret med spørsmålet «hva skjer når $n$ dobles?»",
+    "kunne analysere en enkel rekursiv prosedyre ved å telle kall og nivåer, uten rekurrensligninger"
+  ],
+  "content": [
+    {
+      "id": "in2010-1-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet er ren drill på **sjanger B — kjøretid fra kode**, altså at du\nfår en pseudokodesnutt og skal svare med ett $O$-uttrykk. Sjangeren har kommet i\n**alle sju settene (100 %)**, ofte med én til to oppgaver per sett, og den ligger\npå Del 1, som rettes automatisk.\n\nDet gjør den til den mest forutsigbare poengkilden på hele eksamen: du trenger\nikke kjenne igjen noen algoritme, du trenger ikke huske noen kjøretid, du\ntrenger bare å telle riktig. Prioritet: **høyeste**.\n\n**To ting fra sensorveiledningene, gjentatt:** riktig orden gir poeng **selv om\nkoden har en syntaksfeil**, og svaret skal være det **strammeste** uttrykket —\nett ledd, ingen konstanter.\n\n**Slik bruker du kapitlet.** Femten oppgaver, ca. fem minutter hver. Du får mest\nigjen for å skrive svaret ned på et ark **før** du åpner fasiten, og for å ta\nkontrollen «hva skjer når $n$ dobles?» hver eneste gang. Kapitlet tar rundt 80\nminutter, og det er helt greit å dele det over to kvelder — det står et\npausepunkt underveis."
+    },
+    {
+      "id": "in2010-1-3-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.1](/in2010/in2010-1-1) — hva $O$ betyr, vekstordningen og regelen om\n  det dominerende leddet.\n- [kap. 1.2](/in2010/in2010-1-2) — de fire løkketellingsreglene. Denne drillen\n  bruker dem og forklarer dem ikke på nytt.\n\nSitter selve løkkelesingen løst, kan du varme opp med\n[Løkker: for, while og range](/in1000/in1000-1-3) eller\n[DRILL — Kodesporing: «hva skrives ut?»](/in1000/in1000-4-1), som trener det\nmekaniske blikket på kode."
+    },
+    {
+      "id": "in2010-1-3-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-1-3-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | problemstørrelsen — antall elementer koden arbeider på |\n| $O(n^k)$ | $k$ løkker over $n$, nøstet inni hverandre |\n| $\\log n$ | toerlogaritmen: antall halveringer fra $n$ ned til 1 |\n| $\\log_3 n$ | antall tredelinger fra $n$ ned til 1 — samme $O$-klasse som $\\log n$ |\n| $\\lfloor x \\rfloor$ | $x$ rundet nedover til nærmeste heltall |"
+        },
+        {
+          "id": "in2010-1-3-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `for i = 0 to n-1:` | $n$ runder | $n$ runder |\n| `for j = i to n-1:` | starter der ytre løkke står, $n - i$ runder | trekantsum totalt |\n| `for j = 0 to i-1:` | den andre trekantformen, $i$ runder | trekantsum totalt |\n| `while i < n: i = i + 2` | steg på 2, altså ca. $n/2$ runder | fortsatt $O(n)$ |\n| `while j < n: j = j * 2` | doblingsløkke | ca. $\\log_2 n$ runder |\n| `while j < n: j = j * 3` | tredoblingsløkke | ca. $\\log_3 n$ runder, også $O(\\log n)$ |\n| `while i > 1: i = i / 2` | halveringsløkke | ca. $\\log_2 n$ runder |\n| `LogSøk(A, x)` | prosedyre som halverer søkeområdet | $O(\\log n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$$\n\nTrekantsummen. Den er $O(n^2)$, fordi $\\frac{1}{2}$ er en konstant.\n\n$$k \\text{ nøstede løkker over } n \\ \\Longrightarrow\\ O(n^k)$$\n\nProduktregelen.\n\n$$O(f) + O(g) = O(\\max(f,\\ g))$$\n\nSumregelen for kode etter kode."
+        }
+      ]
+    },
+    {
+      "id": "in2010-1-3-th-1",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger B",
+      "content": "Fem steg. Følg dem i rekkefølge, hver gang, også når svaret virker åpenbart.\n\n**Steg 1 — marker hver løkke, og skriv rekkevidden i margen.** For hver løkke,\nstill nøyaktig ett spørsmål: hvor mange runder går den? Tre svar er mulige:\n\n- grensen inneholder $n$ (også `n/2`, `n-1`, `2n`) gir $n$ runder;\n- grensen er et fast tall (10, 100, 1000) gir konstant, stryk den;\n- tellevariabelen **ganges eller deles** gir ca. $\\log n$ runder.\n\n**Steg 2 — gang sammen innenfra og ut.** Start med den innerste løkka, gang med\nnivået over, og fortsett utover. Skriv ett produkt per blokk.\n\n**Steg 3 — legg sammen for sekvens.** Blokker som står etter hverandre (samme\ninnrykk, ikke inni hverandre) legges sammen.\n\n**Steg 4 — behold det dominerende leddet og stryk konstantene.** Bruk\nvekstordningen $1 < \\log n < n < n\\log n < n^2 < n^3 < 2^n < n!$. Svaret skal\nvære **ett** uttrykk.\n\n**Steg 5 — kontrollér med doblingstesten, og si hva $n$ er.** Spør: hva skjer\nmed antall kjøringer når $n$ dobles? Uendret betyr $O(1)$, ett steg til betyr\n$O(\\log n)$, dobling betyr $O(n)$, firedobling betyr $O(n^2)$, åttedobling\nbetyr $O(n^3)$. Skriv til slutt én setning om hva $n$ teller — det trekkes\neksplisitt for et udefinert $n$.\n\n**Fellekatalogen** disse fem stegene fanger: konstant indre løkke lest som\n$O(n)$ (steg 1); oversett dobling eller halvering (steg 1); sekvensielle løkker\nganget i stedet for lagt sammen (steg 3); usimplifisert svar (steg 4)."
+    },
+    {
+      "id": "in2010-1-3-ex-case",
+      "type": "example",
+      "title": "Gjennomarbeidet eksamenscase med sensorkommentarer",
+      "problem": "Oppgi kjøretiden til denne prosedyren. Snutten er skrevet i eksamensformat: et\n`Procedure`-hode, en kort beskrivelse, og resten er din jobb.\n\n```text\nProcedure Sammenstill(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n\n  for i = 0 to n-1:\n      for j = 0 to 99:\n          c = c + 1\n\n  for i = 0 to n-1:\n      p = 1\n      while p < n:\n          c = c + 1\n          p = p * 2\n\n  for i = 0 to n-1:\n      for j = i to n-1:\n          c = c + 1\n\n  return c\n```",
+      "solution": "**Steg 1 — marker løkkene.**\n\nBlokk 1: ytre `for i` går til `n-1`, altså $n$ runder. Indre `for j` går til 99\n— fast tall, konstant. *Sensorkommentar: her sitter det første poenget. En\nkandidat som skriver $O(n^2)$ for denne blokken, har lest grensen 99 som om det\nsto $n$.*\n\nBlokk 2: ytre `for i` gir $n$ runder. Indre `while p < n` med `p = p * 2` er en\ndoblingsløkke, ca. $\\log_2 n$ runder. *Sensorkommentar: oppdateringslinja står\nnederst, og det er der de fleste tellefeilene oppstår. Les den før du\nkonkluderer.*\n\nBlokk 3: trekantløkke — den indre starter på `i` og går til `n-1`, altså\n$n - i$ runder.\n\n**Steg 2 — gang innenfra og ut.**\n\n- Blokk 1: $n \\cdot 100 = 100n$.\n- Blokk 2: $n \\cdot \\log_2 n$.\n- Blokk 3: $n + (n-1) + \\cdots + 1 = \\frac{n(n+1)}{2}$.\n\n**Steg 3 — sekvens.** De tre blokkene står etter hverandre:\n\n$$100n + n\\log n + \\frac{n(n+1)}{2}$$\n\n**Steg 4 — dominerende ledd.** Vekstordningen gir\n$n < n \\log n < n^2$, så trekantsummen dominerer.\n\n**Svar: $O(n^2)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5 — doblingstesten.** For $n = 8$ kjører de tre blokkene henholdsvis 800,\n24 og 36 ganger. For $n = 16$: 1600, 64 og 136. Totalt går vi fra 860 til 1800\n— litt over dobling foreløpig, men blokk 3 firedobler seg og tar over. For\n$n = 128$ er tallene 12 800, 896 og 8256, og fra da av er det trekanten som\nstyrer. Det stemmer med $O(n^2)$.\n\n**Sensors poengfordeling, slik mønsteret pleier å se ut på en slik oppgave:**\nhovedmomentet er riktig orden — det er der de fleste poengene ligger. Deretter\ngis det uttelling for at du sier hvorfor den konstante løkka ikke teller, og for\nat $n$ er definert. Å skrive svaret som $O(100n + n\\log n + \\frac{n^2+n}{2})$\nregnes som riktig telling og feil form: det koster som regel ett poeng.\n\n**Modellsvaret, slik du bør skrive det på fire linjer:**\n\n«Første blokk: ytre løkke $n$ runder, indre løkke fast antall (100) — bidrar\n$O(n)$. Andre blokk: ytre $n$ runder, indre dobler `p` og gir ca. $\\log n$\nrunder — bidrar $O(n \\log n)$. Tredje blokk: trekantløkke, $\\frac{n(n+1)}{2}$\nrunder — bidrar $O(n^2)$. Blokkene står etter hverandre, så det dominerende\nleddet gjelder: **$O(n^2)$**, der $n$ er antall elementer i arrayet.»"
+    },
+    {
+      "id": "in2010-1-3-t-1",
+      "type": "text",
+      "content": "## Oppgavene (ca. 5 min hver)\n\nSkriv svaret ned før du åpner fasiten. Sett gjerne opp de fem stegene i margen\nde første gangene — etter fem oppgaver går det av seg selv."
+    },
+    {
+      "id": "in2010-1-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger B — kjøretid fra kode, altså at du leser $O$-uttrykket rett ut av\nsnutten.) Oppgi kjøretiden.\n\n```text\nProcedure AnnenHver(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: summen av annethvert tall\n  n = A.length\n  s = 0\n  i = 0\n  while i < n:\n      s = s + A[i]\n      i = i + 2\n  return s\n```",
+        "solution": "**Steg 1.** Én løkke. Tellevariabelen `i` øker med 2 hver runde og stopper ved\n`n`, så løkka går ca. $n/2$ runder.\n\n**Steg 4.** $\\frac{n}{2}$ er $n$ ganget med konstanten $\\frac{1}{2}$, og\nkonstanter forsvinner.\n\n**Svar: $O(n)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5 — doblingstesten.** Kjøringene er 4 for $n = 8$, 8 for $n = 16$ og 16\nfor $n = 32$: eksakt dobling, altså lineært.\n\n**Momentet:** et **additivt** steg større enn 1 endrer ikke ordenen. Det som\nendrer ordenen, er å gange eller dele tellevariabelen.",
+        "hints": [
+          "Tell hvor mange verdier `i` tar før den passerer `n`.",
+          "Er $n/2$ en annen $O$-klasse enn $n$?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure Rammer(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      for j = 0 to 999:\n          c = c + 1\n  return c\n```",
+        "solution": "**Steg 1.** Ytre løkke: $n$ runder. Indre løkke: til 999, altså 1000 runder —\net fast tall som ikke inneholder `n`.\n\n**Steg 2.** $n \\cdot 1000 = 1000n$.\n\n**Steg 4.** Konstanten 1000 forsvinner.\n\n**Svar: $O(n)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5.** Kjøringene er 8000 for $n = 8$, 16 000 for $n = 16$ og 32 000 for\n$n = 32$. Dobling hver gang — lineært, tross det store tallet.\n\n**Momentet:** tusen er mye, men det er fortsatt en konstant. Selv om snutten\ngjør 8000 operasjoner på et array med åtte elementer, er den $O(n)$ — og på et\narray med en million elementer taper den stort mot en $O(n^2)$-snutt med liten\nkonstant. Det er hele poenget med at $O$ måler vekst, ikke arbeidsmengde.",
+        "hints": [
+          "Står det $n$ i den indre løkkas grense?",
+          "Hva skjer med antall kjøringer når du dobler $n$?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure Ramse(n)\n  Input:  et heltall n\n  Output: en telling\n  c = 0\n  i = 0\n  while i < n * n:\n      c = c + 1\n      i = i + 1\n  return c\n```",
+        "solution": "**Steg 1.** Én eneste løkke — men se på grensen: den er `n * n`, ikke `n`.\nTellevariabelen øker med 1 om gangen, så løkka går $n^2$ runder.\n\n**Svar: $O(n^2)$**, der $n$ er tallet gitt som input.\n\n**Steg 5.** Kjøringene er 64 for $n = 8$, 256 for $n = 16$ og 1024 for $n = 32$\n— firedobling, altså kvadratisk.\n\n**Momentet:** antall **løkker** i koden sier ingenting. Det er antall **runder**\nsom teller. Én løkke kan være $O(n^2)$, og to nøstede løkker kan være $O(n)$ —\nbegge deler har du nå sett.",
+        "hints": [
+          "Ikke tell løkker; les hva grensen faktisk er.",
+          "Hvor mange verdier tar `i` før den når `n * n`?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure Halvveis(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      j = 0\n      while j < n / 2:\n          c = c + 1\n          j = j + 1\n  return c\n```",
+        "solution": "**Steg 1.** Ytre: $n$ runder. Indre: går til `n / 2`, med steg på 1 — altså\n$n/2$ runder. Grensen inneholder `n`, så den er **ikke** konstant.\n\n**Steg 2.** $n \\cdot \\frac{n}{2} = \\frac{n^2}{2}$.\n\n**Steg 4.** Konstanten $\\frac{1}{2}$ forsvinner.\n\n**Svar: $O(n^2)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5.** Kjøringene er 32 for $n = 8$, 128 for $n = 16$ og 512 for $n = 32$\n— firedobling.\n\n**Fella her** er å behandle `n / 2` som om det var et fast tall fordi det står\net 2-tall i uttrykket. Testen er enkel: inneholder grensen `n`, vokser løkka med\ninputen.",
+        "hints": [
+          "Spør om grensen vokser når $n$ vokser.",
+          "Hvor mange runder går den indre løkka når $n$ er 100?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure Nedtelling(n)\n  Input:  et heltall n\n  Output: en telling\n  c = 0\n  i = n\n  while i > 1:\n      for j = 0 to 4:\n          c = c + 1\n      i = i / 2\n  return c\n```",
+        "solution": "**Steg 1.** Ytre løkke: `i` starter på `n` og **halveres** hver runde til den\ner nede i 1 — ca. $\\log_2 n$ runder. Indre løkke: fem runder, fast tall.\n\n**Steg 2.** $\\log_2 n \\cdot 5$.\n\n**Steg 4.** Konstanten 5 forsvinner.\n\n**Svar: $O(\\log n)$**, der $n$ er tallet gitt som input.\n\n**Steg 5.** Kjøringene er 15 for $n = 8$, 20 for $n = 16$, 25 for $n = 32$ og 30\nfor $n = 64$. Hver dobling av $n$ legger til nøyaktig 5 — altså ett rundeledd\ntil i den ytre løkka. Det er signaturen til $O(\\log n)$.\n\n**Momentet:** her er begge løkkene «små». En nøstet struktur trenger overhodet\nikke være kvadratisk — det avhenger utelukkende av hvor mange runder hver løkke\ngår.",
+        "hints": [
+          "Skriv opp verdiene `i` tar for $n = 32$.",
+          "Hvor mange runder går den indre løkka, og avhenger det tallet av $n$?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-tip-signal",
+      "type": "tip",
+      "title": "Hva de fem første oppgavene testet",
+      "content": "Alle fem handlet om **steg 1** i oppskriften: å lese rekkevidden riktig.\n\n- Oppgave 1: additivt steg større enn 1 endrer ikke ordenen.\n- Oppgave 2: en stor konstant er fortsatt en konstant.\n- Oppgave 3: grensen kan inneholde $n^2$ selv om det bare er én løkke.\n- Oppgave 4: `n / 2` er ikke et fast tall.\n- Oppgave 5: en halverende ytre løkke gir $\\log n$, ikke $n$.\n\nBommet du på én av dem, er det verdt å gå tilbake til\n[kap. 1.2](/in2010/in2010-1-2) før du fortsetter — resten av drillen bygger på\nat rekkevidden sitter."
+    },
+    {
+      "id": "in2010-1-3-t-2",
+      "type": "text",
+      "content": "— naturlig pausepunkt (du har brukt ca. 35 minutter) —\n\nResten av oppgavene kombinerer flere nivåer. Framgangsmåten er den samme; det\neneste nye er at du må holde tunga rett i munnen når du ganger sammen."
+    },
+    {
+      "id": "in2010-1-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure Trekant(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      for j = 0 to i-1:\n          c = c + 1\n  return c\n```",
+        "solution": "**Steg 1.** Ytre: $n$ runder. Indre: går til `i-1`, altså $i$ runder — antall\nrunder avhenger av hvor den ytre står.\n\n**Steg 2.** Summen over alle rundene er\n$0 + 1 + 2 + \\cdots + (n-1) = \\frac{n(n-1)}{2}$.\n\n**Steg 4.** Konstanten $\\frac{1}{2}$ forsvinner, og $n^2 - n$ domineres av\n$n^2$.\n\n**Svar: $O(n^2)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5.** Kjøringene er 28 for $n = 8$ (og $\\frac{8 \\cdot 7}{2} = 28$), 120\nfor $n = 16$ og 496 for $n = 32$. Forholdet nærmer seg 4.\n\n**Momentet:** en trekantløkke gjør omtrent **halvparten** så mye arbeid som to\nfulle løkker, men den er i samme $O$-klasse. På en Del 2-oppgave gir den derfor\nikke bedre uttelling enn den fulle doble løkka — skal du opp et trinn i\npoengtrappen, må ordenen ned, ikke konstanten.",
+        "hints": [
+          "Hvor mange runder går den indre løkka når `i` er 0, 1, 2 og 3?",
+          "Legg sammen alle rundene og bruk trekantsummen."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure TreNivaa(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      for j = 0 to n-1:\n          for k = 0 to 7:\n              c = c + 1\n  return c\n```",
+        "solution": "**Steg 1.** Ytre: $n$. Midterste: $n$. Innerste: åtte runder, fast tall.\n\n**Steg 2.** $n \\cdot n \\cdot 8 = 8n^2$.\n\n**Steg 4.** Konstanten 8 forsvinner.\n\n**Svar: $O(n^2)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5.** Kjøringene er 512 for $n = 8$, 2048 for $n = 16$ og 8192 for\n$n = 32$ — firedobling, altså kvadratisk, ikke kubisk.\n\n**Momentet:** tre nøstede løkker er ikke automatisk $O(n^3)$. Det er tre løkker\n**over $n$** som gir $O(n^3)$. Tell rekkevidder, ikke innrykk.",
+        "hints": [
+          "Hvilke av de tre løkkene har en grense som inneholder $n$?",
+          "Gang bare sammen rekkeviddene som vokser."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) Oppgi kjøretiden, og svar også på om det gjør noen forskjell at\ntellevariabelen ganges med 3 og ikke med 2.\n\n```text\nProcedure Tredeling(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      j = 1\n      while j < n:\n          c = c + 1\n          j = j * 3\n  return c\n```",
+        "solution": "**Steg 1.** Ytre: $n$ runder. Indre: `j` går 1, 3, 9, 27 og så videre — den\ntredobles, og går derfor ca. $\\log_3 n$ runder.\n\n**Steg 2.** $n \\cdot \\log_3 n$.\n\n**Steg 4.** Her er poenget: $\\log_3 n = \\frac{\\log_2 n}{\\log_2 3}$, og\n$\\log_2 3$ er en konstant på ca. 1,58. Grunntallet i logaritmen er altså bare en\nkonstant faktor, og forsvinner i $O$.\n\n**Svar: $O(n \\log n)$**, der $n$ er antall elementer i `A`.\n\n**Gjør det noen forskjell?** Ikke for $O$-klassen. I praksis går den indre løkka\nfærre runder med 3 enn med 2 — for $n = 32$ er det fire runder mot fem — men\nforskjellen er en konstant faktor.\n\n**Steg 5.** Kjøringene er 16 for $n = 8$ (to runder inni, `j` tar verdiene 1 og\n3), 48 for $n = 16$ (tre runder), 128 for $n = 32$ (fire runder) og 640 for\n$n = 128$ (fem runder). Ikke eksakt dobling, men litt over — signaturen til\n$n \\log n$.\n\n**Momentet:** grunntallet i en logaritme skrives aldri i et $O$-uttrykk. Det er\nderfor boka og eksamen skriver $O(\\log n)$ uten å presisere basen.",
+        "hints": [
+          "Skriv opp verdiene `j` tar for $n = 100$.",
+          "Hvordan skriver du om $\\log_3 n$ til noe med $\\log_2 n$?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) Oppgi kjøretiden. Her kalles en annen prosedyre inni løkka.\n\n```text\nProcedure SjekkAlle(A)\n  Input:  array A med n tall, indeksert fra 0, sortert stigende\n  Output: antall tall i A som også finnes i A (trivielt n, men tell arbeidet)\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      if BinærSøk(A, A[i]):\n          c = c + 1\n  return c\n```\n\nAnta at `BinærSøk(A, x)` er den vanlige varianten som halverer søkeområdet og\nsvarer `true` eller `false`, med kjøretid $O(\\log n)$ på et sortert array med\n$n$ elementer.",
+        "solution": "**Antagelse.** `BinærSøk` er $O(\\log n)$, som oppgitt.\n\n**Steg 1.** Løkka går $n$ runder.\n\n**Steg 2.** Hver runde koster ikke $O(1)$, men $O(\\log n)$, fordi linja\n**kaller** en prosedyre og arver dens kjøretid. Totalt $n \\cdot \\log n$.\n\n**Svar: $O(n \\log n)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5.** Teller vi grunnstegene i binærsøket, får vi 24 for $n = 8$\n($8 \\cdot 3$), 64 for $n = 16$ ($16 \\cdot 4$) og 160 for $n = 32$\n($32 \\cdot 5$). Litt over dobling per dobling av $n$.\n\n**Momentet, og det er et av de viktigste i kapitlet:** en linje som kaller en\nprosedyre er **ikke** $O(1)$. Å overse dette er den vanligste kilden til at et\nsvar bommer med en hel faktor. Spør alltid om linja er en operasjon eller et\nkall — og hvis det er et kall, hva det koster.",
+        "hints": [
+          "Hva koster den ene linja inni løkka?",
+          "Gang kostnaden per runde med antall runder."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) Oppgi kjøretiden.\n\n```text\nProcedure ToBlokker(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n\n  p = 1\n  while p < n:\n      c = c + 1\n      p = p * 2\n\n  for i = 0 to n-1:\n      for j = 0 to n-1:\n          c = c + 1\n\n  return c\n```",
+        "solution": "**Steg 1 og 2.** Blokk 1 er en doblingsløkke: ca. $\\log_2 n$ runder. Blokk 2 er\nto nøstede løkker over $n$: $n^2$ runder.\n\n**Steg 3 — sekvens.** De står etter hverandre, så vi legger sammen:\n$\\log n + n^2$.\n\n**Steg 4.** Vekstordningen gir $\\log n < n^2$, så kvadratleddet dominerer.\n\n**Svar: $O(n^2)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5.** Kjøringene er 67 for $n = 8$ (3 fra blokk 1 og 64 fra blokk 2), 260\nfor $n = 16$ og 1029 for $n = 32$. Firedobling — bidraget fra doblingsløkka\nforsvinner i støyen.\n\n**Momentet:** en billig blokk foran en dyr blokk er bortkastet oppmerksomhet.\nSe etter den dyreste blokken først; ofte kan du avgjøre hele svaret på den\nalene.",
+        "hints": [
+          "Analyser hver blokk for seg før du setter dem sammen.",
+          "Står blokkene inni hverandre, eller etter hverandre?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-t-3",
+      "type": "text",
+      "content": "### De fem siste (ca. 25 min)\n\nDisse er på det nivået de tyngste sjanger B-oppgavene har ligget. Ta dem gjerne\nmed klokke: fem minutter hver, og skriv begrunnelsen i tre setninger slik\nmodellsvaret i sensor-casen viste."
+    },
+    {
+      "id": "in2010-1-3-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger B, eksamensnivå.) Oppgi kjøretiden.\n\n```text\nProcedure Femdobbel(n)\n  Input:  et heltall n\n  Output: en telling\n  c = 0\n  for a = 0 to n-1:\n      for b = 0 to n-1:\n          for d = 0 to n-1:\n              for e = 0 to n-1:\n                  for f = 0 to n-1:\n                      c = c + 1\n  return c\n```",
+        "solution": "**Steg 1 og 2.** Fem løkker, alle over $n$, alle nøstet. Produktregelen gir\n$n \\cdot n \\cdot n \\cdot n \\cdot n = n^5$.\n\n**Svar: $O(n^5)$**, der $n$ er tallet gitt som input.\n\n**Steg 5.** Kjøringene er 1024 for $n = 4$, 32 768 for $n = 8$ og 1 048 576 for\n$n = 16$. Hver dobling av $n$ ganger tallet med 32, altså med $2^5$ — nøyaktig\nsignaturen til $n^5$.\n\n**Momentet:** dette er den enkleste av de vanskelige oppgavene, og den er tatt\nmed fordi en snutt med fem nivåer *ser* skremmende ut. Regelen er den samme som\nmed to: tell rekkevidder, gang sammen. Ikke la antall linjer forstyrre deg.",
+        "hints": [
+          "Tell hvor mange av løkkene som har en grense med $n$ i seg.",
+          "Bruk produktregelen direkte."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger B, eksamensnivå.) Oppgi kjøretiden.\n\n```text\nProcedure Trippeltrekant(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  for i = 0 to n-1:\n      for j = 0 to i-1:\n          for k = 0 to j-1:\n              c = c + 1\n  return c\n```",
+        "solution": "**Steg 1.** Tre nøstede løkker, men hver av de to indre er begrenset av nivået\nover: `j` går til `i-1` og `k` går til `j-1`.\n\n**Steg 2.** Den innerste linja kjører nøyaktig én gang for hver trippel\n$k < j < i$. Antall slike tripler blant $n$ indekser er\n$\\frac{n(n-1)(n-2)}{6}$.\n\n**Steg 4.** Det dominerende leddet er $\\frac{n^3}{6}$, og konstanten\n$\\frac{1}{6}$ forsvinner.\n\n**Svar: $O(n^3)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5.** Kjøringene er 56 for $n = 8$ (og\n$\\frac{8 \\cdot 7 \\cdot 6}{6} = 56$), 560 for $n = 16$ og 4960 for $n = 32$.\nForholdet er 10 og 8,9, på vei ned mot 8 — signaturen til $n^3$.\n\n**Momentet:** en trekant i to nivåer ga $O(n^2)$, og i tre nivåer gir den\n$O(n^3)$. Konstanten blir mindre for hvert nivå ($\\frac{1}{2}$, så\n$\\frac{1}{6}$), men ordenen følger antall nivåer. Slik er det alltid: en\nkonstant kan aldri redde en orden.",
+        "hints": [
+          "Hver kjøring svarer til ett valg av tre ulike indekser i stigende rekkefølge.",
+          "Sammenlign med den doble trekantløkka i oppgave 6, og se hva som endrer seg."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger B, eksamensnivå.) Oppgi kjøretiden.\n\n```text\nProcedure Lagvis(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n  p = 1\n  while p < n:\n      for i = 0 to n-1:\n          for j = i to n-1:\n              c = c + 1\n      p = p * 2\n  return c\n```",
+        "solution": "**Steg 1.** Tre nivåer. Ytterst: doblingsløkke, ca. $\\log_2 n$ runder. Deretter\nen trekantløkke, som til sammen gjør $\\frac{n(n+1)}{2}$ runder.\n\n**Steg 2.** Hele trekanten kjøres på nytt for hver runde i den ytre løkka:\n\n$$\\log_2 n \\cdot \\frac{n(n+1)}{2}$$\n\n**Steg 4.** Konstanten $\\frac{1}{2}$ forsvinner, og $n^2 + n$ domineres av\n$n^2$.\n\n**Svar: $O(n^2 \\log n)$**, der $n$ er antall elementer i `A`.\n\n**Steg 5.** Kjøringene er 108 for $n = 8$ ($3 \\cdot 36$), 544 for $n = 16$\n($4 \\cdot 136$) og 2640 for $n = 32$ ($5 \\cdot 528$). Forholdet er ca. 5,0 og\n4,9 — mer enn 4 (som ville vært $n^2$) og mindre enn 8 (som ville vært $n^3$).\nAkkurat der $n^2 \\log n$ hører hjemme.\n\n**Momentet:** doblingstesten skiller $n^2 \\log n$ fra naboene sine. Havner\nforholdstallet mellom 4 og 8 og kryper langsomt oppover, er det en\n$\\log$-faktor med i bildet.",
+        "hints": [
+          "Analyser trekanten som én enhet først, og spør hvor mange ganger den gjentas.",
+          "Hva er forholdstallet du forventer mellom $n = 16$ og $n = 32$ hvis svaret hadde vært rent kvadratisk?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger B, eksamensnivå.) Oppgi kjøretiden, og si hvilken av de to blokkene som\navgjør svaret.\n\n```text\nProcedure Todelt(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: en telling\n  n = A.length\n  c = 0\n\n  for i = 0 to n-1:\n      m = n\n      while m > 1:\n          c = c + 1\n          m = m / 2\n\n  for i = 0 to n-1:\n      for j = 0 to n-1:\n          c = c + 1\n\n  return c\n```",
+        "solution": "**Steg 1 og 2.** Blokk 1: ytre løkke $n$ runder, indre halveringsløkke ca.\n$\\log_2 n$ runder — til sammen $n \\log n$. Blokk 2: to fulle løkker over $n$ —\n$n^2$.\n\n**Steg 3.** Sekvens: $n \\log n + n^2$.\n\n**Steg 4.** Vekstordningen gir $n \\log n < n^2$, så den andre blokken dominerer.\n\n**Svar: $O(n^2)$**, der $n$ er antall elementer i `A`. **Blokk 2 avgjør svaret.**\n\n**Steg 5.** Kjøringene er 88 for $n = 8$ (24 fra blokk 1 og 64 fra blokk 2), 320\nfor $n = 16$ (64 og 256) og 1184 for $n = 32$ (160 og 1024). Legg merke til\nhvordan blokk 1 sin andel krymper: fra 27 prosent til 14 prosent.\n\n**Kan dette gjøres raskere?** Blokk 1 er allerede billig; det er blokk 2 som\nkoster. Skulle du forbedre prosedyren, er det den doble løkka du må angripe —\nog det er nettopp den vurderingen poengtrappen på Del 2 belønner. Å optimalisere\nblokk 1 ville vært bortkastet arbeid, uansett hvor mye penere det ble.",
+        "hints": [
+          "Regn ut hver blokk for seg, og sammenlign leddene med vekstordningen.",
+          "Hvilket ledd vokser raskest når $n$ blir stor?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-1-3-o15",
+        "number": "15",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger B, rekursjonsvariant.) Oppgi kjøretiden for hver av de to prosedyrene,\nog forklar forskjellen med én setning.\n\n**a)**\n```text\nProcedure Ned(n)\n  Input:  et heltall n\n  Output: ingenting; gjør et fast arbeid per kall\n  if n <= 1:\n      return\n  gjør et fast stykke arbeid\n  Ned(n / 2)\n```\n\n**b)**\n```text\nProcedure Steg(n)\n  Input:  et heltall n\n  Output: ingenting; gjør et fast arbeid per kall\n  if n <= 0:\n      return\n  gjør et fast stykke arbeid\n  Steg(n - 1)\n```",
+        "solution": "**a)** Hvert kall gjør **ett** nytt kall med halvparten av argumentet. Kjedene av\nargumenter er $n$, $n/2$, $n/4$ og så videre ned til 1 — altså ca. $\\log_2 n$\nkall, hvert med konstant arbeid.\n\n**Svar: $O(\\log n)$.** Kontrolltelling: antall kall er 4 for $n = 8$, 5 for\n$n = 16$, 6 for $n = 32$ og 7 for $n = 64$ — ett kall til per dobling.\n\n**b)** Hvert kall gjør ett nytt kall med argumentet redusert med 1: $n$, $n-1$,\n$n-2$ og så videre ned til 0 — altså $n$ kall.\n\n**Svar: $O(n)$.** Kontrolltelling: 8 kall for $n = 8$, 16 for $n = 16$, 32 for\n$n = 32$ — eksakt dobling.\n\n**Forskjellen i én setning:** den ene **halverer** problemet i hvert kall og\ntrenger derfor bare $\\log n$ nivåer, mens den andre **trekker fra 1** og trenger\n$n$ nivåer.\n\n**Merk:** analysen er ren telling — hvor mange kall blir det, og hva koster\nhvert kall? Rekurrensligninger og de generelle teoremene for å løse dem er ikke\nIN2010-pensum, og du skal aldri sette opp en rekurrens for å svare på en slik\noppgave. Kontrasten til\nden doble rekursjonen i [kap. 1.2](/in2010/in2010-1-2), der hvert kall gjorde\n**to** nye kall og totalen ble $O(2^n)$, er verdt å ha i bakhodet: det er antall\nkall per nivå og antall nivåer som bestemmer alt.",
+        "hints": [
+          "Skriv opp argumentkjeden for $n = 64$ i begge prosedyrene.",
+          "Tell hvor mange kall det ble i hver av dem."
+        ]
+      }
+    },
+    {
+      "id": "in2010-1-3-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — fellekatalogen for sjanger B",
+      "content": "Samlet, slik at du kan lese den rett før eksamen.\n\n- **Konstant indre løkke lest som $O(n)$.** `for j = 0 to 999` er 1000 runder,\n  ikke $n$. Test: står det `n` i grensen?\n- **Oversett dobling eller halvering.** `j = j * 2` og `m = m / 2` gir\n  $\\log n$ runder. Oppdateringslinja står ofte nederst i løkka.\n- **Sekvensielle blokker ganget i stedet for lagt sammen.** Se på innrykket:\n  inni betyr gang, etter betyr legg sammen.\n- **Antall løkker forvekslet med antall runder.** Én løkke til `n * n` er\n  $O(n^2)$; tre nøstede løkker der to er konstante, er $O(n)$.\n- **En linje som kaller en prosedyre behandlet som $O(1)$.** Kallet arver\n  kjøretiden til det det kaller.\n- **Usimplifisert svar.** $O(8n^2 + n)$ er riktig regnet og feil levert. Ett\n  ledd, ingen konstanter.\n- **`n` uten definisjon.** Dette er felle **#10** i bokas register — å oppgi\n  kjøretid eller drøfte uten å si hva problemstørrelsen teller. Én setning\n  holder.\n- **Å hoppe over oppgaven fordi koden ser rar ut.** Riktig orden gir poeng selv\n  om snutten ikke ville kompilert. Svar alltid."
+    },
+    {
+      "id": "in2010-1-3-t-4",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken under er flashcard- og repetisjonsstoff — den gjentar det du\nnettopp har lest. Hopp trygt over den ved førstegangslesing; tidsanslaget for\nkapitlet gjelder oppgavene."
+    },
+    {
+      "id": "in2010-1-3-def-1",
+      "type": "definition",
+      "title": "Sjanger B — kjøretid fra kode",
+      "content": "Oppgavetypen der du får en pseudokodesnutt og skal svare med ett $O$-uttrykk.\nHar kommet i alle sju settene, ofte to ganger per sett, og ligger på den\nauto-rettede Del 1.\n\nKrever ingen algoritmekunnskap — bare telling. Riktig orden gir poeng selv om\nkoden har en syntaksfeil."
+    },
+    {
+      "id": "in2010-1-3-def-2",
+      "type": "definition",
+      "title": "Femstegsoppskriften",
+      "content": "1. Marker hver løkke og finn rekkevidden. 2. Gang sammen innenfra og ut.\n3. Legg sammen for sekvens. 4. Behold det dominerende leddet og stryk\nkonstantene. 5. Kontroller med doblingstesten, og si hva $n$ er.\n\nFølg den også når svaret virker åpenbart — de fleste tellefeilene oppstår i steg\n1, der det går fortest."
+    },
+    {
+      "id": "in2010-1-3-def-3",
+      "type": "definition",
+      "title": "Doblingstesten",
+      "content": "Kontrollen som tar fem sekunder: hva skjer med antall kjøringer når $n$ dobles?\n\nUendret gir $O(1)$; ett steg til gir $O(\\log n)$; dobling gir $O(n)$; litt over\ndobling gir $O(n \\log n)$; firedobling gir $O(n^2)$; åttedobling gir $O(n^3)$.\nPasser ikke svaret ditt med testen, har du telt feil."
+    },
+    {
+      "id": "in2010-1-3-def-4",
+      "type": "definition",
+      "title": "Rekkevidde med n i seg",
+      "content": "En løkkegrense som inneholder problemstørrelsen — `n`, `n-1`, `n/2`, `n*n`,\n`2n`. Da vokser løkka med inputen, og den teller med i $O$-uttrykket.\n\nMotsatt: en grense som er et rent tall (10, 99, 1000) gir en konstant, uansett\nhvor stort tallet er."
+    },
+    {
+      "id": "in2010-1-3-def-5",
+      "type": "definition",
+      "title": "Multiplikativ oppdatering",
+      "content": "At tellevariabelen ganges eller deles i hver runde: `j = j * 2`, `j = j * 3`,\n`m = m / 2`. Løkka går da ca. $\\log n$ runder.\n\nGrunntallet spiller ingen rolle for $O$-klassen: $\\log_3 n$ og $\\log_2 n$\nskiller seg bare med en konstant faktor, og skrives begge $O(\\log n)$."
+    },
+    {
+      "id": "in2010-1-3-def-6",
+      "type": "definition",
+      "title": "Additiv oppdatering",
+      "content": "At tellevariabelen økes med et fast tall: `i = i + 1`, `i = i + 2`, `i = i + 3`.\nLøkka går da $n$, $n/2$ eller $n/3$ runder — alle $O(n)$.\n\nEt større steg endrer altså bare konstanten, aldri ordenen. Dette er den\nvanligste forvekslingen med multiplikativ oppdatering."
+    },
+    {
+      "id": "in2010-1-3-def-7",
+      "type": "definition",
+      "title": "Trekantsum",
+      "content": "$1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$, altså $O(n^2)$. Antall runder i en\nløkke der den indre grensen følger den ytre løkkevariabelen.\n\nTre nivåer med samme mønster gir $\\frac{n(n-1)(n-2)}{6}$, altså $O(n^3)$:\nkonstanten krymper, men ordenen følger antall nivåer."
+    },
+    {
+      "id": "in2010-1-3-def-8",
+      "type": "definition",
+      "title": "Kall arver kjøretid",
+      "content": "En linje som kaller en annen prosedyre er ikke $O(1)$ — den koster det den\nkalte prosedyren koster. Et $O(\\log n)$-kall inne i en løkke over $n$ gir\n$O(n \\log n)$, ikke $O(n)$.\n\nDen vanligste kilden til at et ellers riktig svar bommer med en hel faktor."
+    },
+    {
+      "id": "in2010-1-3-def-9",
+      "type": "definition",
+      "title": "Ett uttrykk, ingen konstanter",
+      "content": "Svarformen sensor krever: det strammeste $O$-uttrykket, med ett ledd og uten\nkonstantfaktorer. $O(n^2)$, ikke $O(8n^2 + n)$ og ikke $O(n^3)$.\n\nBåde et usimplifisert og et unødvendig slapt svar koster poeng, selv om begge\ner «sanne»."
+    },
+    {
+      "id": "in2010-1-3-def-10",
+      "type": "definition",
+      "title": "Løkketelling framfor rekurrensligninger",
+      "content": "IN2010 analyserer kjøretid — også for rekursive prosedyrer — ved å telle arbeid\nog nivåer. Rekurrensligninger, substitusjonsmetoden og de generelle teoremene\nfor å løse slike ligninger er **ikke pensum**.\n\nFor rekursjon er spørsmålet alltid det samme: hvor mange kall gjør hvert kall,\nhvor mange nivåer blir det, og hva koster hvert kall?"
+    },
+    {
+      "id": "in2010-1-3-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kortet du tar med til eksamen",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-1-3-rep-1",
+          "type": "text",
+          "content": "| Ser du dette | Bidrag |\n|---|---|\n| `for i = 0 to n-1` | $n$ runder |\n| `i = i + 2` (eller + 3) | fortsatt $O(n)$ runder |\n| `for j = 0 to 99` | konstant, stryk den |\n| `while j < n: j = j * 2` | ca. $\\log n$ runder |\n| `while m > 1: m = m / 2` | ca. $\\log n$ runder |\n| `for j = i to n-1` | trekant, $O(n^2)$ totalt |\n| `while i < n * n` | $n^2$ runder, med bare én løkke |\n| et prosedyrekall inni løkka | gang med prosedyrens kjøretid |\n| to blokker etter hverandre | legg sammen, behold den verste |\n\n**Doblingstesten:** uendret er $O(1)$, ett steg til er $O(\\log n)$, dobling er\n$O(n)$, litt over dobling er $O(n \\log n)$, firedobling er $O(n^2)$,\nåttedobling er $O(n^3)$, kvadrering er $O(2^n)$.\n\n**Og alltid til slutt:** ett uttrykk, ingen konstanter, og én setning om hva\n$n$ teller.\n\nNeste kapittel, [kap. 1.4](/in2010/in2010-1-4), tar den andre 100 %-sjangeren på\nDel 1: faktapunktene du må kunne sikkert fordi de er skalert mot gjetting."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
