@@ -1,4 +1,4 @@
-# Autonom byggekjøring — tdt4110, med1100, tma4135, in2010
+# Autonom byggekjøring — seks høyskolebøker
 
 **Startet:** 28. juli 2026. Produkteier på ferie, sjekker inn via remote.
 **Oppdateres av:** byggelederen (hovedøkta), etter hver fullførte fase.
@@ -10,16 +10,19 @@ og undervises til høsten — belegg i valgnotatet nederst.
 
 ## Status
 
-| Fase | `tdt4110` | `med1100` | `tma4135` | `in2010` |
-|---|---|---|---|---|
-| Steg 0 | ✅ | ✅ | ✅ | ✅ |
-| Steg 1 — byggebølge | ✅ 47/47 | ✅ 63/63 | ⏳ 9/36 | ⏳ 6/42 |
-| Steg 2 — wiring | ✅ | ✅ | — | — |
-| Steg 3 — verifisering | ✅ | ⏳ 2 redaktører | — | — |
-| Steg 4 — sluttport + deploy | ⏳ | — | — | — |
+| Bok | Lærested | Filer | Steg 0 | 1 | 2 | 3 |
+|---|---|---|---|---|---|---|
+| `tdt4110` | NTNU | 47/47 | ✅ | ✅ | ✅ | ✅ |
+| `med1100` | UiO | 63/63 | ✅ | ✅ | ✅ | ✅ |
+| `in2010` | UiO | 42/42 | ✅ | ✅ | ✅ | — |
+| `tma4135` | NTNU | 44/44 | ✅ | ✅ | ✅ | — |
+| `ma1301` | NTNU | 0/39 | ✅ | ⏳ | — | — |
+| `tfy4115` | NTNU | 0/48 | ✅ | ⏳ | — | — |
 
-**tdt4110 er reelt ferdig** — bygget, wiret, verifisert, alle porter grønne og
-deterministiske. Gjenstår kun statustavle i README + push.
+**Fire bøker er wiret og live: 196 kapitler, 2 479 quiz, 2 629 flashcards.**
+
+De to første har vært gjennom verifiseringsbølgen. `in2010` og `tma4135` venter
+på den.
 
 ---
 
