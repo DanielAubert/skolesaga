@@ -130,10 +130,74 @@ uten å ha lest Del 6.
 
 ---
 
+### V8 — JSON-fella: enkel backslash blir kontrolltegn
+
+**Observert 29. juli i tma4135.** Del 5-agenten skrev tittelen
+
+    Likevektsløsningen når $t \to \infty$
+
+med ENKEL backslash i JSON-kilden. JSON tolker `\t` som tabulator, så leseren
+fikk `$t<TAB>o \infty$` — en ødelagt overskrift.
+
+`sjekk-latex.py` fanger den som «KONTROLLTEGN \t (TAB)», men bare hvis noen
+kjører porten. Del 3+4-agenten fant den i en annen agents fil under sin egen
+kjøring, og meldte den framfor å redigere.
+
+**Utsatte LaTeX-kommandoer:** `\to`, `\times`, `\theta`, `\tau`, `\nabla`,
+`\neq`, `\beta`, `\rho` — alt som starter med `t`, `n`, `b`, `r`, `f`, `v`.
+
+**Motgiften er å ikke skrive JSON for hånd.** `json.dump` escaper riktig av seg
+selv. Regelen er lagt inn i tma4135s byggeprompter; den bør inn i alle
+kodefag-/mattefag-kontrakter.
+
+---
+
 ## Lukkede punkter
 
-**V1** (med1100 «Felle N» mot E-registeret) — venter fortsatt på med1100s
-verifiseringsbølge.
+**V1** (med1100 «Felle N» mot E-registeret) — LUKKET 29. juli, **alternativ (a)**.
+Del 0s løfte er sant (registeret finnes og er nummerert E1–E26), så det er ikke
+formuleringen som skal mykes opp — det er kollisjonen «Felle 1» mot «felle E1»
+som må navngis. De fire «Typiske feil»-boksene i 1.1–1.4 har fått én felles
+åpningssetning som sier at fellene er kapittellokale og at nummereringen ikke har
+noe med E-kodene å gjøre. Del 2–7 har ikke samme sprik (kontrollert: kun Del 1
+bruker «Felle N» uten E-kode). **Til Del 8–14-verifikatoren:** samme mønster
+finnes i 9.1–9.3 og 10.1–10.4 (6–7 «Felle N» per kapittel) — vurder samme notis.
+
+**V4** (med1100 4.3 oppgave 2 ber om OR før odds er innført) — LUKKET 29. juli.
+Lest som en student uten forkunnskap holder ikke marginen: løkke 1 gir riktignok
+`OR = ad/bc` i regneprosedyren og i Eksempel 1, men **ordet «odds» er aldri
+forklart der** — og «odds» står eksplisitt på kontraktens liste over termer som
+skal glosses ved første bruk. Oppgaven er derfor **flyttet bak løkke 2**, rett
+etter Eksempel 2. Teorien er urørt. Oppgavenumrene står fortsatt i stigende
+rekkefølge (1, 2, 3 …), og den ene framoverpekeren i fasiten («vi tallfester det
+i neste løkke») er snudd til en bakoverpeker.
+
+### V7 — ⚠ ÅPEN: CanMEDS-rollen «forvalter» i Del 2 (krever kildeavgjørelse)
+
+**Funnet 29. juli, ikke rettet — bevisst.** Kap. 2.1 tilskriver eksplisitt de sju
+legerollene til **CanMEDS**, og lister: medisinsk ekspert · kommunikator ·
+samarbeider · **leder** · helseforkjemper · akademiker · **forvalter**.
+
+Ingen CanMEDS-versjon har både «leder» og «forvalter»: 2005 har *Manager*, 2015
+erstattet den med *Leader*. Og **begge versjoner har *Professional* /
+«profesjonell»**, som boka ikke nevner i det hele tatt. Rollen «forvalter» ser ut
+til å være den gamle Manager-rollen, som altså er doblet med «leder», mens den
+sjuende rollen mangler.
+
+**Hvorfor det ikke er rettet her:** rettingen er ikke kirurgisk. «Forvalter»
+opptrer 20 steder i `med1100-2-1`, 6 i `med1100-2-prove` — og **11 ganger i den
+wirete quizen** `src/lib/data/quiz-data-med1100.ts`. Retter man bare
+kapittelfilene, får man en ny og verre inkonsistens mot quizen. Og valget krever
+et kildesvar verifikatoren ikke har: hvilken rolleliste MED1100 faktisk
+underviser.
+
+**Til byggelederen:** avklar mot pensum/emnesiden, og gjør så endringen samlet i
+kapittelfiler + quiz. Berørte blokker i 2.1: `nokkelfakta-tekst` (rolletabell +
+CanMEDS-raden), `rolle-intro`, `def-canmeds`, `def-rolle-forvalter`,
+`def-rolle-helseforkjemper`, `rolle-kobling`, `ex-2`, `oppg-4-e`, `oppg-8-e`,
+`warning-feil` pkt. 4, `repetisjon-tekst` pkt. 4–5; i 2.P: `forkunnskaper`,
+`p1`-oppgave 4, `p4`-selvdiagnose. Temaet er en gjenganger (legens roller: rundt
+12 av 16 sittinger), så det haster.
 
 **V2** (tdt4110 kap. 1.4 tagget kjørbar Python som ```text) — LUKKET 29. juli.
 Verifikatoren fant 28 slike blokker i åtte filer, ikke sju i én. 851 → 880
