@@ -21,7 +21,7 @@
   {
    "id": "tdt4110-1-prove-t-2",
    "type": "text",
-   "content": "**Forkunnskaper:** hele Del 1 — [kap. 1.1](/tdt4110/tdt4110-1-1), [kap. 1.2](/tdt4110/tdt4110-1-2), [kap. 1.3](/tdt4110/tdt4110-1-3) og [kap. 1.4](/tdt4110/tdt4110-1-4).\n\nHar du lest kapitlene, er du klar. Har du bare lest noen av dem, kan du ta prøvene enkeltvis etter hvert som du blir ferdig: 1.A hører til kap. 1.1, 1.B til kap. 1.2, 1.C til kap. 1.3 og 1.D til kap. 1.4.\n\nEtter hver prøve står en avkryssbar selvdiagnose. Bruk den — den peker rett på hvilket delkapittel du bør lese om igjen."
+   "content": "**Forkunnskaper:** hele Del 1 — [kap. 1.1](/tdt4110/tdt4110-1-1), [kap. 1.2](/tdt4110/tdt4110-1-2), [kap. 1.3](/tdt4110/tdt4110-1-3) og [kap. 1.4](/tdt4110/tdt4110-1-4).\n\nHar du lest kapitlene, er du klar. Har du bare lest noen av dem, kan du ta prøvene enkeltvis etter hvert som du blir ferdig: 1.A hører til [kap. 1.1](/tdt4110/tdt4110-1-1), 1.B til [kap. 1.2](/tdt4110/tdt4110-1-2), 1.C til [kap. 1.3](/tdt4110/tdt4110-1-3) og 1.D til [kap. 1.4](/tdt4110/tdt4110-1-4).\n\nEtter hver prøve står en avkryssbar selvdiagnose. Bruk den — den peker rett på hvilket delkapittel du bør lese om igjen."
   },
   {
    "id": "tdt4110-1-prove-coll-5",
@@ -592,7 +592,7 @@
       "number": "4",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(1 poeng. Sjanger B — kodesporing.) Brukeren skriver `9`. Hva skriver programmet ut?\n\n```text\nsvar = input('Tall: ')\nprint(svar * 3)\nprint(int(svar) * 3)\n```\n\nGjerdet er merket `text` fordi blokken venter på at noen skriver noe.",
+      "task": "(1 poeng. Sjanger B — kodesporing.) Brukeren skriver `9`. Hva skriver programmet ut?\n\n```python\nsvar = input('Tall: ')\nprint(svar * 3)\nprint(int(svar) * 3)\n```",
       "solution": "`svar` er en **tekst**. Tekst ganget med et heltall gjentar teksten.\n\n**Kjøring:**\n```\nTall: 9\n999\n27\n```\n\nFørste linje er ledeteksten med brukerens svar bak. Deretter `999`, som er teksten gjentatt tre ganger, og `27`, som er tallet ganget med tre.\n\nDette er felle **#1** — glemt omgjøring fra tekst til tall.",
       "hints": [
        "Hvilken datatype har `svar` rett etter `input`?",
@@ -608,7 +608,7 @@
       "number": "5",
       "type": "classic",
       "difficulty": "middels",
-      "task": "(1 poeng. Sjanger B.) Brukeren skriver `-4`, deretter `0`, deretter `3`. Hvor mange ganger vises ledeteksten, og hva returnerer funksjonen?\n\n```text\ndef les():\n    svar = input('Antall: ')\n    while not svar.isdigit():\n        svar = input('Antall: ')\n    return int(svar)\n```\n\nGjerdet er merket `text` fordi blokken venter på input.",
+      "task": "(1 poeng. Sjanger B.) Brukeren skriver `-4`, deretter `0`, deretter `3`. Hvor mange ganger vises ledeteksten, og hva returnerer funksjonen?\n\n```python\ndef les():\n    svar = input('Antall: ')\n    while not svar.isdigit():\n        svar = input('Antall: ')\n    return int(svar)\n```",
       "solution": "| Svar | `.isdigit()` | `not ...` | Hva skjer |\n|---|---|---|---|\n| `-4` | `False` — minustegnet | sann | spør på nytt |\n| `0` | `True` | usann | løkka stopper |\n| `3` | — | — | leses aldri |\n\nLedeteksten vises **to** ganger, og funksjonen returnerer `0`.\n\nNullen slipper gjennom fordi den eneste testen er `.isdigit()`. Skulle antallet vært minst 1, måtte betingelsen hatt `or int(svar) < 1` i tillegg. Det tredje svaret leses aldri — funksjonen var ferdig.",
       "hints": [
        "Regn ut `.isdigit()` for hvert svar etter tur.",
@@ -640,7 +640,7 @@
       "number": "7",
       "type": "classic",
       "difficulty": "middels",
-      "task": "(1 poeng. Sjanger B.) Brukeren skriver `5`, `8` og deretter en blank linje. Hva skriver programmet ut?\n\n```text\ntotal = 0\nsvar = input('Tall (blank avslutter): ')\nwhile svar != '':\n    total += int(svar)\n    svar = input('Tall (blank avslutter): ')\nprint(total)\n```\n\nGjerdet er merket `text` fordi blokken venter på input.",
+      "task": "(1 poeng. Sjanger B.) Brukeren skriver `5`, `8` og deretter en blank linje. Hva skriver programmet ut?\n\n```python\ntotal = 0\nsvar = input('Tall (blank avslutter): ')\nwhile svar != '':\n    total += int(svar)\n    svar = input('Tall (blank avslutter): ')\nprint(total)\n```",
       "solution": "| Svar | `svar != ''`? | `total` etterpå |\n|---|---|---|\n| `5` | ja | 5 |\n| `8` | ja | 13 |\n| blank linje | nei — stopp | 13 |\n\n**Kjøring:**\n```\nTall (blank avslutter): 5\nTall (blank avslutter): 8\nTall (blank avslutter): \n13\n```\n\nLegg merke til at konverteringen står **inne** i løkka, etter at sentinelen er utelukket. Sto `int(...)` rundt `input`, ville programmet stoppet med `ValueError` på den blanke linja.",
       "hints": [
        "Sett opp en rad per svar og hold styr på akkumulatoren.",
@@ -656,7 +656,7 @@
       "number": "8",
       "type": "classic",
       "difficulty": "vanskelig",
-      "task": "(1 poeng. Sjanger B.) Hva er galt med denne funksjonen, og hva skjer når brukeren skriver `x`?\n\n```text\ndef les_poeng():\n    svar = input('Poeng: ')\n    while not svar.isdigit():\n        print('Skriv et helt tall.')\n    return int(svar)\n```\n\nGjerdet er merket `text` fordi blokken både venter på input og har en feil som gjør at den aldri stopper.\n\nSvar med **én setning**.",
+      "task": "(1 poeng. Sjanger B.) Hva er galt med denne funksjonen, og hva skjer når brukeren skriver `x`?\n\n```python\ndef les_poeng():\n    svar = input('Poeng: ')\n    while not svar.isdigit():\n        print('Skriv et helt tall.')\n    return int(svar)\n```\n\nSvar med **én setning**.",
       "solution": "Programmet skriver feilmeldingen om og om igjen uten stans, fordi ingenting inne i løkka endrer `svar`.\n\nRettelsen er én linje: `svar = input('Poeng: ')` inne i løkka, etter feilmeldingen.\n\nDette er felle **#8** i sin reneste form. Kontrollen som avslører den på to sekunder: pek på linja inne i løkka som endrer verdien betingelsen leser. Finnes den ikke, går løkka for alltid.\n\n**Merk at fasiten er én setning.** Faget vurderer konsishet eksplisitt — uklare eller unødig lange svar trekker ned. En forklaring som går linje for linje gjennom hele funksjonen, ville fått mindre uttelling selv om den var korrekt.",
       "hints": [
        "Let etter linja inne i løkka som endrer verdien `while`-betingelsen leser.",
@@ -672,7 +672,7 @@
       "number": "9",
       "type": "classic",
       "difficulty": "vanskelig",
-      "task": "(1 poeng. Sjanger B.) Funksjonen leser et klokkeslett på formen `TT:MM`. Brukeren skriver `9:15`, deretter `09:15`. Hva returnerer funksjonen, og hvorfor ble det første svaret avvist?\n\n```text\ndef les_klokkeslett():\n    svar = input('Klokkeslett (TT:MM): ')\n    while len(svar) != 5 or svar[2] != ':':\n        print('Skriv klokkeslettet som TT:MM.')\n        svar = input('Klokkeslett (TT:MM): ')\n    return svar\n```\n\nGjerdet er merket `text` fordi blokken venter på input.",
+      "task": "(1 poeng. Sjanger B.) Funksjonen leser et klokkeslett på formen `TT:MM`. Brukeren skriver `9:15`, deretter `09:15`. Hva returnerer funksjonen, og hvorfor ble det første svaret avvist?\n\n```python\ndef les_klokkeslett():\n    svar = input('Klokkeslett (TT:MM): ')\n    while len(svar) != 5 or svar[2] != ':':\n        print('Skriv klokkeslettet som TT:MM.')\n        svar = input('Klokkeslett (TT:MM): ')\n    return svar\n```",
       "solution": "| Svar | `len(svar)` | Er tegn nummer 2 et kolon? | Godtas? |\n|---|---|---|---|\n| `9:15` | 4 | tegnet på plass 2 er `1` | nei |\n| `09:15` | 5 | ja | ja |\n\nFunksjonen returnerer teksten `09:15`.\n\nDet første svaret ble avvist fordi det manglet nullen foran timetallet: teksten har bare fire tegn, og lengdetesten slår til med én gang. Fordi `or` kortslutter, blir `svar[2]` aldri sjekket for det svaret — noe som er like greit, for indeksen ville vært lovlig her, men kunne gitt feilmelding på en enda kortere tekst.\n\n`svar[2]` betyr tegn nummer to, og plassnummereringen starter på null: `0`, `9`, `:`. Indeksering av tekst gjennomgås grundig i Del 3.",
       "hints": [
        "Tell tegnene i hver av de to tekstene.",

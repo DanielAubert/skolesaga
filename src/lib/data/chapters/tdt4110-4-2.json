@@ -102,7 +102,7 @@
    "id": "tdt4110-4-2-thm-tabell-til-fil",
    "type": "theorem",
    "title": "Kodemønster: skriv 2D-tabell til fil",
-   "content": "```text\ndef lagre_tabell(tabell, filnavn):\n    f = open(filnavn, 'w')\n    for rad in tabell:\n        felt = []\n        for verdi in rad:\n            felt.append(str(verdi))\n        f.write(';'.join(felt) + '\\n')\n    f.close()\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\nFem faste deler:\n\n1. **`open` med `'w'`** før løkka.\n2. **En løkke per rad**, ikke per felt.\n3. **`str()` på hvert felt** — tabellen inneholder tall etter konverteringen ved innlesing.\n4. **`';'.join(felt) + '\\n'`** — separator mellom feltene, linjeskift etter linja.\n5. **`close`** etter løkka.\n\nFunksjonen returnerer ingenting. Det er riktig: den har en **virkning** (fila blir til), ikke en verdi."
+   "content": "```python\ndef lagre_tabell(tabell, filnavn):\n    f = open(filnavn, 'w')\n    for rad in tabell:\n        felt = []\n        for verdi in rad:\n            felt.append(str(verdi))\n        f.write(';'.join(felt) + '\\n')\n    f.close()\n```\n\n**Utskrift:** ingen — blokken definerer bare funksjonen.\n\nFem faste deler:\n\n1. **`open` med `'w'`** før løkka.\n2. **En løkke per rad**, ikke per felt.\n3. **`str()` på hvert felt** — tabellen inneholder tall etter konverteringen ved innlesing.\n4. **`';'.join(felt) + '\\n'`** — separator mellom feltene, linjeskift etter linja.\n5. **`close`** etter løkka.\n\nFunksjonen returnerer ingenting. Det er riktig: den har en **virkning** (fila blir til), ikke en verdi."
   },
   {
    "id": "tdt4110-4-2-ex-2",
@@ -257,8 +257,8 @@
     "number": "5",
     "type": "classic",
     "difficulty": "lett",
-    "task": "(Sjanger I — lagring, nivå «bør kjenne til».) Denne koden er ment å lagre en liste og hente den tilbake, men har to feil:\n\n```text\nimport pickle\n\ndata = [3, 1, 4]\nf = open('tall.pkl', 'w')\npickle.dump(f, data)\nf.close()\n```\n\n**a)** Hvilke to feil er det?\n\n**b)** Skriv koden riktig, og hent lista tilbake for å vise at den kom uendret ut.",
-    "solution": "**a)** To feil, begge i de faste detaljene:\n\n1. Modusen er `'w'` der den skal være `'wb'` — `pickle` skriver byte, ikke tekst.\n2. Argumentene i `dump` står i motsatt rekkefølge. Det er **objektet først, fila etterpå**.\n\n**b)** Rettet, og med rundturen som kontroll:\n\n```python\nimport pickle\n\ndata = [3, 1, 4]\nf = open('tall.pkl', 'wb')\npickle.dump(data, f)\nf.close()\n\nf = open('tall.pkl', 'rb')\nhentet = pickle.load(f)\nf.close()\n\nprint(hentet)\nprint(hentet == data)\n```\n\n**Utskrift:**\n```\n[3, 1, 4]\nTrue\n```\n\nKodeblokken i oppgaven er merket som ikke-kjørbar, siden den stopper med `TypeError` slik den står.",
+    "task": "(Sjanger I — lagring, nivå «bør kjenne til».) Denne koden er ment å lagre en liste og hente den tilbake, men har to feil:\n\n```python\nimport pickle\n\ndata = [3, 1, 4]\nf = open('tall.pkl', 'w')\npickle.dump(f, data)\nf.close()\n```\n\n**a)** Hvilke to feil er det?\n\n**b)** Skriv koden riktig, og hent lista tilbake for å vise at den kom uendret ut.",
+    "solution": "**a)** To feil, begge i de faste detaljene:\n\n1. Modusen er `'w'` der den skal være `'wb'` — `pickle` skriver byte, ikke tekst.\n2. Argumentene i `dump` står i motsatt rekkefølge. Det er **objektet først, fila etterpå**.\n\n**b)** Rettet, og med rundturen som kontroll:\n\n```python\nimport pickle\n\ndata = [3, 1, 4]\nf = open('tall.pkl', 'wb')\npickle.dump(data, f)\nf.close()\n\nf = open('tall.pkl', 'rb')\nhentet = pickle.load(f)\nf.close()\n\nprint(hentet)\nprint(hentet == data)\n```\n\n**Utskrift:**\n```\n[3, 1, 4]\nTrue\n```\n\nKoden i oppgaven er gyldig Python, men den stopper med `TypeError` slik den står.",
     "hints": [
      "Se på modusbokstaven først: hva skiller en binærfil fra en tekstfil?",
      "Slå opp rekkefølgen i `dump` — hva er det første argumentet?"

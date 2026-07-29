@@ -69,7 +69,12 @@ for sti, s, i_oppgaveboks in strenger(d):
         p = os.path.join(datadir, "_snutt.py")
         open(p, "w", encoding="utf-8").write(kode)
         try:
+            # stdin MÅ kobles fra: uten dette arver snutten terminalens stdin,
+            # og en blokk med input() henger til timeouten og meldes «KJØRER FOR
+            # EVIG» — mens den samme fila går grønt når porten kjøres fra et
+            # skript med stdin på EOF. sjekk-sporing.py gjør det samme.
             r = subprocess.run([sys.executable, "_snutt.py"], cwd=datadir,
+                               stdin=subprocess.DEVNULL,
                                capture_output=True, text=True, timeout=15)
         except subprocess.TimeoutExpired:
             feil.append(f"{sti}: KJØRER FOR EVIG (uendelig løkke?) — bruk ```text-tagg"

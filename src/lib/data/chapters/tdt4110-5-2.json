@@ -143,31 +143,31 @@
   {
    "id": "tdt4110-5-2-def-fakultet",
    "title": "Fakultet",
-   "content": "Produktet av alle heltallene opp til `n`: $5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120$.\n\n```text\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n```\n\nGrunntilfellet er `n <= 1` og gir 1. Vokser fort: `fakultet(10)` er over tre millioner. Blandes ofte med potens på eksamen — fakultet ganger med et **synkende** tall, potens ganger med det **samme** tallet hver gang.",
+   "content": "Produktet av alle heltallene opp til `n`: $5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120$.\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n```\n\nGrunntilfellet er `n <= 1` og gir 1. Vokser fort: `fakultet(10)` er over tre millioner. Blandes ofte med potens på eksamen — fakultet ganger med et **synkende** tall, potens ganger med det **samme** tallet hver gang.",
    "type": "definition"
   },
   {
    "id": "tdt4110-5-2-def-gcd",
    "title": "Største felles divisor — Euklids algoritme",
-   "content": "Det største tallet som deler begge tallene. Euklids observasjon er at største felles divisor av `a` og `b` er den samme som av `b` og resten `a % b`.\n\n```text\ndef sfd(a, b):\n    if b == 0:\n        return a\n    return sfd(b, a % b)\n```\n\nGrunntilfellet er `b == 0`, og svaret er da `a`. På eksamen står funksjonen ofte under navnet `gcd` (engelsk for *greatest common divisor*) eller med et intetsigende navn som `myst`, og oppgaven spør hva den regner ut.",
+   "content": "Det største tallet som deler begge tallene. Euklids observasjon er at største felles divisor av `a` og `b` er den samme som av `b` og resten `a % b`.\n\n```python\ndef sfd(a, b):\n    if b == 0:\n        return a\n    return sfd(b, a % b)\n```\n\nGrunntilfellet er `b == 0`, og svaret er da `a`. På eksamen står funksjonen ofte under navnet `gcd` (engelsk for *greatest common divisor*) eller med et intetsigende navn som `myst`, og oppgaven spør hva den regner ut.",
    "type": "definition"
   },
   {
    "id": "tdt4110-5-2-def-fib",
    "title": "Fibonacci-tallene",
-   "content": "Rekka 0, 1, 1, 2, 3, 5, 8, 13 …, der hvert tall er summen av de to foregående.\n\n```text\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n```\n\nTo grunntilfeller i ett: `fib(0)` er 0 og `fib(1)` er 1, og begge dekkes av `if n <= 1: return n`. Dette er den eneste klassikeren med **to** rekursive kall i samme uttrykk, og derfor den mest krevende å spore.",
+   "content": "Rekka 0, 1, 1, 2, 3, 5, 8, 13 …, der hvert tall er summen av de to foregående.\n\n```python\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n```\n\nTo grunntilfeller i ett: `fib(0)` er 0 og `fib(1)` er 1, og begge dekkes av `if n <= 1: return n`. Dette er den eneste klassikeren med **to** rekursive kall i samme uttrykk, og derfor den mest krevende å spore.",
    "type": "definition"
   },
   {
    "id": "tdt4110-5-2-def-tverrsum",
    "title": "Tverrsum",
-   "content": "Summen av sifrene i et positivt heltall: tverrsummen av 915 er 9 + 1 + 5 = 15.\n\n```text\ndef tverrsum(n):\n    if n == 0:\n        return 0\n    return n % 10 + tverrsum(n // 10)\n```\n\nBygger på at `n % 10` er siste siffer og `n // 10` er tallet uten det. Grunntilfellet er `n == 0`, som er det du sitter igjen med når alle sifrene er brukt opp.",
+   "content": "Summen av sifrene i et positivt heltall: tverrsummen av 915 er 9 + 1 + 5 = 15.\n\n```python\ndef tverrsum(n):\n    if n == 0:\n        return 0\n    return n % 10 + tverrsum(n // 10)\n```\n\nBygger på at `n % 10` er siste siffer og `n // 10` er tallet uten det. Grunntilfellet er `n == 0`, som er det du sitter igjen med når alle sifrene er brukt opp.",
    "type": "definition"
   },
   {
    "id": "tdt4110-5-2-def-potens",
    "title": "Rekursiv potens",
-   "content": "`grunntall` opphøyd i `eksponent`, regnet ved å gange grunntallet med seg selv én gang mindre for hvert steg.\n\n```text\ndef potens(g, e):\n    if e == 0:\n        return 1\n    return g * potens(g, e - 1)\n```\n\nGrunntilfellet er `e == 0` og gir 1, fordi ethvert tall opphøyd i null er 1. Merk at det er **eksponenten** som telles ned, mens grunntallet står stille — det er forskjellen fra fakultet, der tallet som ganges selv blir mindre.",
+   "content": "`grunntall` opphøyd i `eksponent`, regnet ved å gange grunntallet med seg selv én gang mindre for hvert steg.\n\n```python\ndef potens(g, e):\n    if e == 0:\n        return 1\n    return g * potens(g, e - 1)\n```\n\nGrunntilfellet er `e == 0` og gir 1, fordi ethvert tall opphøyd i null er 1. Merk at det er **eksponenten** som telles ned, mens grunntallet står stille — det er forskjellen fra fakultet, der tallet som ganges selv blir mindre.",
    "type": "definition"
   },
   {
@@ -179,7 +179,7 @@
   {
    "id": "tdt4110-5-2-ex-gcd",
    "title": "Eksempel 3: den navnløse funksjonen på eksamen",
-   "problem": "Dette er en typisk oppgaveform: en rekursiv funksjon uten sigende navn. Hva returnerer `myst(84, 36)`, og hva regner funksjonen ut?\n\n```text\ndef myst(a, b):\n    if b == 0:\n        return a\n    return myst(b, a % b)\n```",
+   "problem": "Dette er en typisk oppgaveform: en rekursiv funksjon uten sigende navn. Hva returnerer `myst(84, 36)`, og hva regner funksjonen ut?\n\n```python\ndef myst(a, b):\n    if b == 0:\n        return a\n    return myst(b, a % b)\n```",
    "solution": "**Kall-stakken utover:**\n\n```text\nmyst(84, 36)  ->  84 % 36 er 12  ->  myst(36, 12)\nmyst(36, 12)  ->  36 % 12 er 0   ->  myst(12, 0)\nmyst(12, 0)   ->  grunntilfellet: 12\n```\n\n**Foldingen innover.** Her er den kort: ingen av kallene gjør noe med svaret som kommer tilbake — de returnerer det uendret. Svaret fra bunnen bobler rett opp:\n\n```text\nmyst(12, 0)  = 12\nmyst(36, 12) = 12\nmyst(84, 36) = 12\n```\n\n```python\ndef myst(a, b):\n    if b == 0:\n        return a\n    return myst(b, a % b)\n\nprint(myst(84, 36))\nprint(myst(36, 84))\n```\n\n**Utskrift:**\n```\n12\n12\n```\n\n**Hva regner den ut?** Største felles divisor — det største tallet som deler begge. 12 deler både 84 og 36, og ingen større gjør det.\n\n*Margnotat:* legg merke til `myst(36, 84)` i det andre kallet. Med argumentene i «feil» rekkefølge gir første steg `myst(84, 36 % 84)`, altså `myst(84, 36)` — funksjonen ordner rekkefølgen selv i én ekstra runde. Det er et yndet oppfølgingsspørsmål.\n\n*Margnotat 2:* spørres du «forklar med én setning hva funksjonen gjør», er svaret «Returnerer største felles divisor av `a` og `b`.» Den sjangeren driller du i [kap. 5.3](/tdt4110/tdt4110-5-3).",
    "type": "example"
   },
@@ -251,7 +251,7 @@
   {
    "id": "tdt4110-5-2-def-liste-rek",
    "title": "Rekursjon over lister og strenger",
-   "content": "Det samme mønsteret virker på sekvenser: det første elementet behandles direkte, og resten sendes videre som `x[1:]`.\n\n```text\ndef total(x):\n    if len(x) == 0:\n        return 0\n    return x[0] + total(x[1:])\n```\n\nGrunntilfellet er den tomme sekvensen, og `x[1:]` er «alt unntatt det første» — et utsnitt du kjenner fra [kap. 3.1](/tdt4110/tdt4110-3-1). Merk at `x[1:]` lager en ny liste for hvert kall; det er greit på eksamensstørrelser, men er grunnen til at en løkke er raskere i praksis.",
+   "content": "Det samme mønsteret virker på sekvenser: det første elementet behandles direkte, og resten sendes videre som `x[1:]`.\n\n```python\ndef total(x):\n    if len(x) == 0:\n        return 0\n    return x[0] + total(x[1:])\n```\n\nGrunntilfellet er den tomme sekvensen, og `x[1:]` er «alt unntatt det første» — et utsnitt du kjenner fra [kap. 3.1](/tdt4110/tdt4110-3-1). Merk at `x[1:]` lager en ny liste for hvert kall; det er greit på eksamensstørrelser, men er grunnen til at en løkke er raskere i praksis.",
    "type": "definition"
   },
   {
@@ -318,7 +318,7 @@
     "number": "8",
     "type": "classic",
     "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger J — rekursjon, feilsøking.) Funksjonen under skal regne ut fakultet, men den virker ikke. Hva skjer når du kaller `fakultet(4)`, og hva er den minste endringen som retter feilen?\n\n```text\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n + 1)\n```\n\nBlokken er merket som ikke-kjørbar fordi den med vilje inneholder en feil.",
+    "task": "(Eksamensnivå, sjanger J — rekursjon, feilsøking.) Funksjonen under skal regne ut fakultet, men den virker ikke. Hva skjer når du kaller `fakultet(4)`, og hva er den minste endringen som retter feilen?\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n + 1)\n```",
     "solution": "**Hva skjer.** Argumentet vokser i stedet for å synke:\n\n```text\nfakultet(4)  ->  4 * fakultet(5)\nfakultet(5)  ->  5 * fakultet(6)\nfakultet(6)  ->  6 * fakultet(7)\n…\n```\n\nTesten `n <= 1` blir aldri sann, kall-stakken vokser til Python når grensen sin, og programmet avbrytes med `RecursionError: maximum recursion depth exceeded`.\n\n**Den minste endringen** er å bytte `n + 1` med `n - 1`, så argumentet nærmer seg grunntilfellet:\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n\nprint(fakultet(4))\n```\n\n**Utskrift:**\n```\n24\n```\n\n**Fellenote:** dette er feilkode **#10** i sin reneste form. Legg merke til at grunntilfellet i den ødelagte koden er helt riktig — feilen ligger i steget. Når du feilsøker rekursjon, sjekk alltid begge deler: finnes det en utgang, og går argumentet mot den?",
     "hints": [
      "Skriv opp de tre første kallene med argumentene, og se hvilken vei tallet beveger seg.",
