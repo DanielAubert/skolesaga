@@ -1,0 +1,122 @@
+[
+  {
+    "question": "Hva er det eksplisitt trukne feilgrepet i en drøftingsoppgave?",
+    "options": [
+      "Å bruke $n$ uten å si hva $n$ står for",
+      "Å bruke flere symboler enn $n$ i samme svar",
+      "Å skrive svaret som prosa i stedet for pseudokode",
+      "Å oppgi minnebruken før kjøretiden i svaret"
+    ],
+    "explanation": "Uten en definisjon av $n$ kan ingen kjøretid etterprøves, og det er felle #10 i bokas feilregister. Å bruke flere symboler er derimot ofte påkrevd — $n$, $u$ og $k$ er tre forskjellige tall. Prosa er den forventede formen i denne sjangeren, og rekkefølgen mellom tid og minne er fri."
+  },
+  {
+    "question": "Du teller unike verdier ved å legge alle $n$ forekomstene i et hash-set. Hva er kjøretiden i verste tilfelle?",
+    "options": [
+      "$O(n^2)$",
+      "$O(n)$",
+      "$O(n \\log n)$",
+      "$O(1)$"
+    ],
+    "explanation": "Hasher alle nøklene til samme plass, blir hvert innlegg et lineært søk, og $n$ innlegg gir $O(n^2)$. $O(n)$ er den forventede kjøretiden, ikke den verste — å oppgi den som verste er nettopp den usikkerheten antigjettingen straffer."
+  },
+  {
+    "question": "Du teller unike verdier med et tellearray over et verdiområde med $k$ mulige verdier. Hva er kjøretiden?",
+    "options": [
+      "$O(n + k)$",
+      "$O(n)$",
+      "$O(k)$",
+      "$O(n \\cdot k)$"
+    ],
+    "explanation": "Ett pass gjennom de $n$ forekomstene, og ett pass gjennom de $k$ plassene for å nullstille og telle opp. Begge leddene må med: det er $k$-leddet som gjør strategien sårbar når verdiområdet er stort."
+  },
+  {
+    "question": "Når er tellearrayet et bedre valg enn hash-settet?",
+    "options": [
+      "Når verdiområdet $k$ er lite i forhold til antall forekomster $n$",
+      "Når antall unike verdier $u$ er lite i forhold til antall forekomster $n$",
+      "Når verdiområdet $k$ ikke er kjent på forhånd",
+      "Når forekomstene allerede ligger sortert etter verdi"
+    ],
+    "explanation": "Terskelen går på $k$ mot $n$: er $k$ lite, forsvinner $k$-leddet, og du får garanterte kjøretider i stedet for forventede. Et lite $u$ taler tvert imot for hash-settet, som bare lagrer de verdiene som forekommer. Er $k$ ukjent, kan arrayet ikke allokeres i det hele tatt."
+  },
+  {
+    "question": "Hvordan skal kjøretiden for et oppslag i et hashmap oppgis presist?",
+    "options": [
+      "$O(1)$ forventet, og $O(n)$ i verste tilfelle",
+      "$O(1)$ garantert, uavhengig av hashfunksjonen",
+      "$O(\\log n)$ forventet, og $O(n)$ i verste tilfelle",
+      "$O(1)$ i verste tilfelle, og $O(\\log n)$ forventet"
+    ],
+    "explanation": "Ordet «forventet» er ikke en forkortelse man kan sløyfe — uten det er påstanden feil, siden alle nøkler kan kollidere. Alternativet «$O(1)$ garantert» er nettopp den upresise formen som gir trekk på en drøftingsoppgave."
+  },
+  {
+    "question": "Hvor mange bokstavsammenligninger kan et prefikssøk i et hashmap med $m$ ord og ordlengde $L$ koste?",
+    "options": [
+      "$O(m \\cdot L)$, siden hvert ord må sjekkes",
+      "$O(L)$, siden bare prefikset hashes",
+      "$O(\\log m)$, siden oppslaget er et binærsøk",
+      "$O(m + L)$, siden ordlista skannes én gang"
+    ],
+    "explanation": "Hashverdien til `sa` har ingen sammenheng med hashverdien til `sand`, så et hashmap kan bare svare på eksakte oppslag. Prefikssøk krever at hvert av de $m$ ordene sjekkes. Alternativet $O(L)$ er trie-ets kjøretid, ikke hashmapets."
+  },
+  {
+    "question": "Hvilken struktur bruker mest minne til en ordliste, og er den likevel riktig valg for autocomplete?",
+    "options": [
+      "Trie bruker mest, og er riktig når prefikssøk er hovedoperasjonen",
+      "Hashmap bruker mest, og er riktig når prefikssøk er hovedoperasjonen",
+      "Trie bruker mest, og er derfor feil valg uansett bruksmønster",
+      "Begge bruker like mye, så valget avgjøres bare av kjøretiden"
+    ],
+    "explanation": "Et trie lager én node per unik prefiksbokstav og bruker derfor mer plass enn ett hashmap-oppslag per ord. Det vinner likevel når prefikssøk utføres ofte, fordi $O(L + t)$ er uavhengig av ordlistas størrelse. Å velge den mest minnekrevende strategien bevisst er en sterkere besvarelse enn å påstå at den vinner på alt."
+  },
+  {
+    "question": "En glissen graf med $\\lvert V \\rvert$ noder og $\\lvert E \\rvert$ kanter skal lagres. Hva er minnebruken til en naboliste mot en nabomatrise?",
+    "options": [
+      "$O(\\lvert V \\rvert + \\lvert E \\rvert)$ mot $O(\\lvert V \\rvert^2)$",
+      "$O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$ mot $O(\\lvert V \\rvert^2)$",
+      "$O(\\lvert E \\rvert)$ mot $O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$",
+      "$O(\\lvert V \\rvert^2)$ mot $O(\\lvert V \\rvert + \\lvert E \\rvert)$"
+    ],
+    "explanation": "Nabolista lagrer én oppføring per node og én per kant; matrisen lagrer én celle per nodepar, uansett hvor få kanter som finnes. Siste alternativ er de samme uttrykkene med strukturene byttet om — les hvilken kolonne som gjelder hvilken struktur."
+  },
+  {
+    "question": "En drøfting ender med setningen «hvilken som er best, kommer an på situasjonen». Hva mangler?",
+    "options": [
+      "Betingelsen som avgjør — hvilken størrelse valget henger på",
+      "En pseudokode-skisse av begge strategiene",
+      "En begrunnelse for hvorfor begge strategiene er korrekte",
+      "En oversikt over hvilke kanttilfeller som ikke er relevante"
+    ],
+    "explanation": "Sensor vet at det kommer an på; spørsmålet er på hva. En konklusjon navngir terskelen, for eksempel «velg tellearrayet når $k$ er i samme størrelsesorden som $n$ eller mindre». Pseudokode er ikke påkrevd i denne sjangeren."
+  },
+  {
+    "question": "Kan en sortering med $O(n^2)$ verste kjøretid være det beste valget framfor en med $O(n \\log n)$?",
+    "options": [
+      "Ja, hvis oppgaveteksten sier at inndata er nesten sortert",
+      "Nei, en lavere øvre grense er alltid det mest poenggivende valget",
+      "Ja, men bare hvis den kvadratiske sorteringen også er stabil",
+      "Nei, med mindre den kvadratiske sorteringen sorterer på stedet"
+    ],
+    "explanation": "Beste tilfelle er relevant når teksten gjør det relevant: gnome sort er $O(n)$ på nesten sortert inndata og gjorde 9 sammenligninger mot flettesorteringens 12 på åtte tall. Stabilitet og in-place er egne akser og avgjør ikke dette spørsmålet alene."
+  },
+  {
+    "question": "En logg har 200 000 skanninger av 3 500 forskjellige varer, og varenummer kan være 0 til 999 999. Hva er $n$, $u$ og $k$?",
+    "options": [
+      "$n = 200\\,000$, $u = 3\\,500$, $k = 1\\,000\\,000$",
+      "$n = 3\\,500$, $u = 200\\,000$, $k = 1\\,000\\,000$",
+      "$n = 200\\,000$, $u = 1\\,000\\,000$, $k = 3\\,500$",
+      "$n = 1\\,000\\,000$, $u = 3\\,500$, $k = 200\\,000$"
+    ],
+    "explanation": "$n$ er antall forekomster du leser gjennom, $u$ antall unike verdier blant dem, og $k$ hvor mange verdier som er mulige i det hele tatt. De tre er sjelden i nærheten av hverandre, og å bytte om på dem gjør hele regnestykket uleselig."
+  },
+  {
+    "question": "Hva er kravet til en drøfting skrevet i løpende prosa?",
+    "options": [
+      "At den er entydig og refererer til $O$-notasjon",
+      "At den følger en fast disposisjon med overskrifter",
+      "At den suppleres med pseudokode for begge strategiene",
+      "At den holder seg innenfor et bestemt antall setninger"
+    ],
+    "explanation": "Sensorkravet er «lett forståelig, entydig og presist» — en setning man ikke forstår etter to gjennomlesninger, ignoreres. En tekst uten $O$-notasjon svarer ikke på oppgaven, mens verken overskrifter, pseudokode eller lengdebegrensninger er krav."
+  }
+]

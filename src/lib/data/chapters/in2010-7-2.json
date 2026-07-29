@@ -1,0 +1,303 @@
+{
+  "id": "in2010-7-2",
+  "courseId": "in2010",
+  "chapterNumber": "7.2",
+  "title": "Drøft to strategier",
+  "description": "Sjangeren «sammenlign to fremgangsmåter» — kjøretid (verste + forventet) og minne, med definert `n` og en klar konklusjon om når hver lønner seg.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne definere hva $n$ står for i en drøftingsoppgave, og navngi de andre størrelsene som kjøretiden avhenger av",
+    "kunne oppgi både verste og forventet kjøretid for to strategier, og sammenligne minnebruken deres",
+    "kunne kjenne igjen kanttilfellene som avgjør sammenligningen — stort verdiområde, kollisjoner og ferdig ordnet inndata",
+    "kunne konkludere med en betingelse i stedet for å stanse ved «det kommer an på»"
+  ],
+  "content": [
+    {
+      "id": "in2010-7-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Drøftingsoppgaven er med i **4 av 7 sett (57 %)**, og andelen er **økende** —\nalle fire forekomstene ligger i settene fra 2020 til 2023. Sjangeren er\n\n- **Sjanger K — drøft to strategier**, altså at du får utlevert to\n  fremgangsmåter for det samme problemet og skal sammenligne dem på **kjøretid**\n  og **minnebruk**, og deretter si når hver av dem lønner seg.\n\nEtt av de fire settene er høsten 2020, som var korona-hjemmeeksamen med alle\nhjelpemidler. Den formen speiler ikke dagens eksamen, men oppgavetypen gjør det —\nden kom igjen i tre ordinære sett etterpå.\n\n**Dette er den ene Del 2-oppgaven der du skriver prosa i stedet for pseudokode.**\nSensorveiledningene omtaler den som oppgaven der sensor må bruke mest skjønn, og\ndet betyr to ting for deg: en velskrevet, presis tekst gir full uttelling, og en\ntekst uten $O$-notasjon gir nesten ingenting. Friheten gjelder formen, ikke\ninnholdet.\n\nPrioritet: **kunne** (nivå 2 av tre — «må sitte» er nivå 1, «kjenne til» er\nnivå 3). Sjangeren er lett å undervurdere fordi den ser ut som en gratis\nskriveoppgave. Den er det motsatte: det er her de fleste taper poeng på noe så\nenkelt som å ikke si hva $n$ betyr.\n\n**Slik er kapitlet lagt opp (45 min):** tre løkker med teori, gjennomkjørt\neksempel og oppgaver. C er en god og vanlig karakter, og en drøfting som treffer\nalle fire leddene under, er godt over det nivået."
+    },
+    {
+      "id": "in2010-7-2-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet sammenligner strukturer du allerede kjenner — det lærer deg ingen\nny algoritme, bare hvordan du skriver om dem.\n\n- [kap. 1.1](/in2010/in2010-1-1) — $O$-notasjonen og vekstordningen. Hele\n  drøftingen føres i dette språket.\n- [kap. 3.2](/in2010/in2010-3-2) — hashmap og hash-set, og hvorfor ordet\n  «forventet» aldri kan sløyfes. Har du brukt en ordbok i et program, er det\n  denne strukturen: [Ordbøker](/in1000/in1000-3-2).\n- [kap. 2.3](/in2010/in2010-2-3) — counting sort og tellearrayet, og\n  forutsetningen om et kjent, begrenset verdiområde.\n- [kap. 7.1](/in2010/in2010-7-1) — trie og hashmap, som er ett av de faste\n  sammenligningsparene.\n\nFra [kap. 1.2](/in2010/in2010-1-2) trengs løkketellingen, som er måten du\nfaktisk kommer fram til kjøretidene du skal sammenligne."
+    },
+    {
+      "id": "in2010-7-2-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-7-2-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall **forekomster** i inndata — det du leser gjennom |\n| $u$ | antall **unike** verdier blant de $n$ forekomstene |\n| $k$ | størrelsen på **verdiområdet**: hvor mange forskjellige verdier som er mulige |\n| $m$ | antall ord i en ordliste (brukes bare i trie-sammenligningen) |\n| $L$ | lengden på ett ord eller ett prefiks |\n| $O$ | øvre grense for kjøretid |\n\nMerk at $n$, $u$ og $k$ er tre **forskjellige** tall. En logg med 200 000\nskanninger av 3 500 forskjellige varer, der varenummer kan være hva som helst\nfra 0 til 999 999, har $n = 200\\,000$, $u = 3\\,500$ og $k = 1\\,000\\,000$. Å\nblande dem er den vanligste feilen i hele sjangeren."
+        },
+        {
+          "id": "in2010-7-2-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `HashSet.Insert(x)` | legger `x` inn hvis den ikke er der fra før | $O(1)$ forventet, $O(n)$ verste |\n| `HashSet.Finnes(x)` | svarer ja eller nei | $O(1)$ forventet, $O(n)$ verste |\n| `Tellearray[v] = sant` | merker at verdien `v` er sett | $O(1)$ garantert |\n| `Nullstill(A, k)` | setter alle `k` plassene i `A` til usant | $O(k)$ |\n| `Sorter(A)` | sammenligningsbasert sortering av `n` elementer | $O(n \\log n)$ |\n| `Trie.Prefikssok(p)` | finner noden for prefikset `p` | $O(L)$ |\n| `Hashmap.Slaa opp(ord)` | eksakt oppslag | $O(L)$ forventet |"
+        },
+        {
+          "id": "in2010-7-2-nt-3",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$O(n + k)$$\n\nTellearrayets kjøretid: ett pass gjennom de $n$ forekomstene, pluss ett pass\ngjennom de $k$ plassene i arrayet. Begge må med — det er det andre leddet som\ngjør strategien sårbar.\n\n$$O(n) \\text{ forventet}, \\quad O(n^2) \\text{ verste}$$\n\nHash-settets to kjøretider. Den verste inntreffer hvis alle nøklene havner på\nsamme plass; da degenererer hvert oppslag til et lineært søk.\n\n$$1 < \\log n < n < n \\log n < n^2 < n^3 < 2^n < n!$$\n\nVekstordningen. Den avgjør hvilken av to kjøretider som er størst når $n$ blir\nstor nok, og er derfor det siste ordet i enhver drøfting."
+        }
+      ]
+    },
+    {
+      "id": "in2010-7-2-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — hva sensor faktisk ber om (ca. 8 min)\n\nEn bomstasjon skal vite om et kjøretøy har passert før i dag. To måter å gjøre\ndet på:\n\n**Den ene** er å føre en liste over registreringsnumrene som har passert, og slå\nopp i den ved hver passering. **Den andre** er å ha en tavle med én lampe for\nhvert mulige registreringsnummer, og tenne lampen når bilen kjører forbi.\n\nBegge virker. Den første bruker plass bare på de bilene som faktisk har kommet;\nden andre bruker plass på alle biler som *kunne* kommet, men svarer til gjengjeld\nuten å lete. Det er hele drøftingssjangeren i ett bilde: **tid mot minne, og\nhvilken av dem som er knapp i akkurat denne situasjonen.**\n\nEksamensoppgaven kommer i én av to former. Enten får du to strategier utlevert og\nskal sammenligne dem, eller så får du ett problem og skal foreslå to og velge.\nOrdlyden er nesten alltid en variant av: «Sammenlign de to fremgangsmåtene på\nkjøretid og minnebruk. Når lønner hver av dem seg?»"
+    },
+    {
+      "id": "in2010-7-2-def-1",
+      "type": "definition",
+      "title": "Drøftingsoppgaven (sjanger K)",
+      "content": "En Del 2-oppgave der du sammenligner to fremgangsmåter for det samme problemet\npå **kjøretid** og **minnebruk**, og konkluderer om når hver av dem lønner seg.\n\nSvaret er løpende tekst, ikke pseudokode. Kravet er at teksten er presis og\nrefererer til $O$-notasjon: en drøfting uten en eneste kjøretid er ikke en\ndrøfting, den er en mening."
+    },
+    {
+      "id": "in2010-7-2-th-1",
+      "type": "theorem",
+      "title": "Løsningsoppskrift: de fire leddene i en drøfting",
+      "content": "Fire ledd, i denne rekkefølgen. De er sensors faktiske krav, og mangler ett av\ndem, trekkes det.\n\n1. **Definér $n$ — og alle andre bokstaver du bruker.** «La $n$ være antall\n   skanninger i loggen, $u$ antall forskjellige varenummer blant dem, og $k$\n   antall mulige varenummer.» Dette er ett eneste kort avsnitt, og det er det\n   billigste poenget i hele sjangeren.\n2. **Oppgi for hver strategi: verste kjøretid, forventet kjøretid og\n   minnebruk.** Alle tre. Å oppgi bare forventet er halvt svar, og forventet uten\n   ordet «forventet» er feil svar.\n3. **Nevn kanttilfellene.** Hva skjer når $k$ er enormt? Når alle nøklene\n   kolliderer? Når inndata allerede er ordnet? Det er i kanttilfellene de to\n   strategiene skiller lag, og det er derfor de er verdt poeng.\n4. **Konkludér.** Én til tre setninger som sier hvilken strategi du velger, og\n   under hvilken betingelse den andre overtar.\n\n**Om ledd 4, som er det som skiller besvarelsene:** en drøfting som ender i «det\nkommer an på», har stanset ett skritt for tidlig. Sensor vet at det kommer an på\n— spørsmålet er *på hva*. Skriv betingelsen: «Velg tellearrayet når $k$ er i\nsamme størrelsesorden som $n$ eller mindre; over det er hash-settet raskere og\nbruker mindre minne.» Det er en konklusjon."
+    },
+    {
+      "id": "in2010-7-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger K — drøft to strategier, altså at du sammenligner to\nfremgangsmåter på kjøretid og minne og konkluderer.) For hver oppgavetekst: si\nhva $n$ er, og hvilke andre størrelser som må navngis.\n\n**a)** «Du skal telle hvor mange forskjellige varenummer som forekommer i en\nlagerlogg.»\n**b)** «Du skal finne alle ord i en ordliste som begynner med et gitt prefiks.»\n**c)** «Du skal sjekke om to av tallene i et array summerer til $S$.»",
+        "solution": "**a)** $n$ er **antall linjer i loggen**, altså antall forekomster. Du trenger i\ntillegg $u$ for antall forskjellige varenummer og $k$ for hvor mange varenummer\nsom er mulige i det hele tatt.\n\nMerk at det ikke er opplagt hva $n$ skulle være her — det kunne like gjerne vært\nantall forskjellige varer. Nettopp derfor må du si det.\n\n**b)** $n$ er ikke godt nok alene. Navngi **$m$** for antall ord i ordlista og\n**$L$** for lengden på prefikset (eller det lengste ordet). Kjøretidene i denne\noppgaven avhenger av begge, og en besvarelse med bare ett symbol kan ikke skille\n$O(L)$ fra $O(m \\cdot L)$.\n\n**c)** $n$ er **antall tall i arrayet**. Her er $n$ nok, siden $S$ er ett enkelt\ntall og ikke påvirker kjøretiden.\n\n**Poenget med oppgaven:** i to av tre tilfeller holder det ikke med én bokstav.\nÅ bruke $n$ om flere forskjellige størrelser i samme besvarelse er felle **#10**\ni bokas feilregister — å bruke $n$ uten å definere det — og det er trukket for\neksplisitt i arkivet.",
+        "hints": [
+          "Spør: hva er det jeg leser gjennom, og hvor mange ganger?",
+          "Del b): er «antall ord» og «lengden på et ord» det samme tallet?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-2-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — hash-set mot tellearray (ca. 16 min)\n\nDette er det vanligste paret i sjangeren, og det er verdt å kunne kaldt.\n\nEt lagersystem logger hver skanning av et varenummer. Du skal finne ut **hvor\nmange forskjellige varenummer** som forekommer i loggen. To strategier:\n\n**Strategi 1 — hash-set.** Gå gjennom loggen én gang og legg hvert varenummer i\net hash-set. Settet ignorerer duplikater, så antall unike er størrelsen på settet\ntil slutt.\n\n**Strategi 2 — tellearray.** Lag et array med én plass per mulige varenummer,\nsett alle til usant, gå gjennom loggen og sett plassen til sant. Tell til slutt\nhvor mange plasser som er sanne.\n\nBegge er korrekte. Forskjellen ligger i hva de koster, og den forskjellen kan gå\nbegge veier."
+    },
+    {
+      "id": "in2010-7-2-def-2",
+      "type": "definition",
+      "title": "Hash-set-profilen",
+      "content": "**Tid:** $O(n)$ forventet for å lese gjennom $n$ forekomster, siden hvert\ninnlegg er $O(1)$ forventet. **Verste tilfelle er $O(n^2)$**, hvis alle nøklene\nhasher til samme plass og hvert innlegg degenererer til et lineært søk.\n\n**Minne:** $O(u)$ — bare de $u$ verdiene som faktisk forekommer, lagres.\n\nStyrken er at strukturen ikke bryr seg om hvor stort verdiområdet er. Svakheten\ner at både tidsgarantien og minnebruken er *forventninger*, ikke garantier."
+    },
+    {
+      "id": "in2010-7-2-def-3",
+      "type": "definition",
+      "title": "Tellearray-profilen",
+      "content": "**Tid:** $O(n + k)$ garantert — ett pass gjennom de $n$ forekomstene, og ett\npass gjennom de $k$ plassene for å nullstille og for å telle opp til slutt.\n\n**Minne:** $O(k)$ — én plass per **mulige** verdi, uansett hvor få som brukes.\n\nStyrken er at alt er garantert: ingen «forventet», ingen kollisjoner, ett\narrayoppslag per forekomst. Svakheten står i begge uttrykkene: $k$. Forutsetningen\ner at verdiområdet er kjent og begrenset, som er felle **#5** i bokas\nfeilregister når den glemmes."
+    },
+    {
+      "id": "in2010-7-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Full drøfting av lagerloggen",
+      "problem": "Et lagersystem har en logg med 200 000 skanninger. Varenumrene er heltall fra 0\ntil 999 999, og 3 500 forskjellige varer forekommer i loggen.\n\nSammenlign hash-set og tellearray på kjøretid (verste og forventet) og minne, og\nkonkludér. Sammenlign deretter med et system der «varenumrene» i stedet er\nsensorkoder fra 0 til 255.",
+      "solution": "**Ledd 1 — definisjoner.** La $n$ være antall skanninger i loggen, $u$ antall\nforskjellige varenummer som forekommer, og $k$ størrelsen på verdiområdet, altså\nhvor mange varenummer som er mulige. I det første tilfellet er\n$n = 200\\,000$, $u = 3\\,500$ og $k = 1\\,000\\,000$.\n\n**Ledd 2 — kjøretid og minne.**\n\n| | Hash-set | Tellearray |\n|---|---|---|\n| Forventet tid | $O(n)$ | $O(n + k)$ |\n| Verste tid | $O(n^2)$ | $O(n + k)$ — samme, garantert |\n| Minne | $O(u)$ | $O(k)$ |\n| Grunnoperasjoner her | 200 000 | 1 200 000 |\n| Minneceller her | 3 500 oppføringer | 1 000 000 plasser |\n\nTallene i de to nederste radene er de to uttrykkene regnet ut for $n = 200\\,000$,\n$u = 3\\,500$ og $k = 1\\,000\\,000$: tellearrayet gjør **seks ganger** så mange\ngrunnoperasjoner, og trenger rundt **286 ganger** så mange lagringsplasser.\n\n**Ledd 3 — kanttilfeller.**\n\n- **Stort verdiområde.** Her er $k$ fem ganger så stort som $n$. Da dominerer\n  $k$-leddet, og tellearrayet betaler for en million varenummer for å telle\n  3 500.\n- **Alt kolliderer.** Hash-settets $O(n^2)$ inntreffer bare hvis hashfunksjonen\n  er dårlig tilpasset dataene. Med tallnøkler og en fornuftig funksjon er det en\n  teoretisk mulighet, ikke en praktisk.\n- **Ukjent verdiområde.** Vet du ikke $k$ på forhånd, er tellearrayet ikke\n  bare tregt — det er umulig. Hash-settet trenger ingen slik forutsetning.\n\n**Ledd 4 — konklusjon.** **Velg hash-settet her.** Det er seks ganger raskere og\ntrenger under en halv prosent så mange lagringsplasser, og den eneste ulempen — $O(n^2)$ i verste\ntilfelle — forutsetter en kollisjonskatastrofe som ikke inntreffer med\nheltallsnøkler.\n\n**Det andre tilfellet snur konklusjonen.** Med sensorkoder fra 0 til 255 er\n$k = 256$ og $u = 240$:\n\n| | Hash-set | Tellearray |\n|---|---|---|\n| Grunnoperasjoner | 200 000 | 200 256 |\n| Minneceller | 240 oppføringer | 256 plasser |\n\nNå er de to praktisk talt like på papiret — men tellearrayet gjør ett\narrayoppslag der hash-settet gjør en hashberegning og en kollisjonssjekk, og det\nhar ingen $O(n^2)$ i verste tilfelle. **Velg tellearrayet når $k$ er i samme\nstørrelsesorden som $n$ eller mindre.**\n\n**Terskelen, sagt i én setning:** sammenlign $k$ med $n$. Er $k$ vesentlig større\nenn $n$, vinner hash-settet; er $k$ mindre enn eller omtrent lik $n$, vinner\ntellearrayet, og da med garanterte kjøretider i tillegg.\n\n**Poengtrapp-notat.** Hovedmomentet er terskelen: at valget avhenger av $k$ mot\n$n$, ikke av hvilken struktur som er «finest». Den innsikten alene gir mest.\nDeretter kommer de tre kjøretidene, minnebruken, og til slutt kanttilfellene. En\nbesvarelse som bare sier «hash-set er $O(1)$, altså raskest», har hoppet over\nbåde ordet «forventet» og hele $k$-aksen, og lander lavt."
+    },
+    {
+      "id": "in2010-7-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) En nettbutikk vil vite hvor mange forskjellige kunder som har\nhandlet i løpet av et døgn. Loggen har 4 000 000 ordrelinjer. Kunde-id er et\nheltall fra 0 til 50 000 000 (alle kunder som noen gang er registrert), og rundt\n120 000 forskjellige kunder handlet dette døgnet.\n\nSammenlign hash-set og tellearray etter de fire leddene, og konkludér.",
+        "solution": "**Ledd 1.** La $n = 4\\,000\\,000$ være antall ordrelinjer, $u = 120\\,000$ antall\nforskjellige kunder som handlet, og $k = 50\\,000\\,001$ størrelsen på\nverdiområdet for kunde-id.\n\n**Ledd 2.**\n\n| | Hash-set | Tellearray |\n|---|---|---|\n| Forventet tid | $O(n)$, altså rundt 4 millioner operasjoner | $O(n + k)$, altså rundt 54 millioner |\n| Verste tid | $O(n^2)$ | $O(n + k)$, garantert |\n| Minne | $O(u)$, rundt 120 000 oppføringer | $O(k)$, over 50 millioner plasser |\n\n**Ledd 3 — kanttilfeller.** Verdiområdet er over tolv ganger så stort som\ninndata, og bare 0,24 prosent av kundene handlet. Tellearrayet må likevel\nnullstille og gå gjennom alle 50 millioner plassene. Hash-settets verste\ntilfelle krever at nesten alle kunde-id-ene hasher likt, som ikke skjer med en\nfornuftig hashfunksjon på heltall.\n\n**Ledd 4 — konklusjon.** **Hash-settet, klart.** Det gjør under en tidel av\narbeidet og trenger under en fjerdedels prosent så mange lagringsplasser. Tellearrayet ville bare vært\nriktig valg hvis kunde-id-ene var tett pakket i et lite område — for eksempel\nhvis oppgaven gjaldt de 200 butikkene i stedet for kundene.\n\n**Merk hva som er den avgjørende observasjonen:** ikke at hash-settet er «raskt»,\nmen at $k$ er mye større enn $n$. Det er den setningen som gir poengene.",
+        "hints": [
+          "Skriv opp $n$, $u$ og $k$ som tre tall før du sammenligner noe som helst.",
+          "Sammenlign $k$ med $n$: hvilket av de to leddene i $O(n + k)$ dominerer?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: En midtnivåbesvarelse på samme oppgave — hva som mangler",
+      "problem": "Under står en besvarelse på oppgave 2 som ligger rundt karakteren B. Den er\nkorrekt, og den ville fått uttelling. Les den, og finn ut hva som skiller den fra\nbesvarelsen i eksempel 1.\n\n> *«Hash-settet er raskest, med $O(1)$ per innlegg og $O(n)$ totalt.\n> Tellearrayet må sette av plass til alle mulige kunde-id-er, som er veldig mange\n> her, så det bruker mye mer minne. Jeg velger hash-settet.»*",
+      "solution": "**Hva som er bra nok:** besvarelsen velger riktig strategi, den refererer til\n$O$-notasjon, og den peker på minnet som den avgjørende forskjellen. Det er\nhovedmomentet, og hovedmomentet gir mest. Dette er en ekte B — ikke en\nnødløsning.\n\n**Hva som mangler til A, punkt for punkt:**\n\n- **$n$ er ikke definert.** «$O(n)$ totalt» — $n$ er hva? Ordrelinjer eller\n  kunder? Dette er felle **#10**, og det er det eneste punktet i hele sjangeren\n  som er dokumentert med et eksplisitt trekk i arkivet.\n- **Ordet «forventet» mangler.** «$O(1)$ per innlegg» er feil slik det står.\n  Hash-settet er $O(1)$ **forventet**; verste tilfelle er $O(n)$ per innlegg.\n- **Verste tilfelle er ikke nevnt for noen av strategiene.** Oppgaven ber om\n  begge, og tellearrayets garanterte $O(n + k)$ er faktisk et argument i\n  tellearrayets favør som besvarelsen taper ved å hoppe over det.\n- **«Veldig mange» er ikke et tall.** $k$ er over 50 millioner mot $n$ på 4\n  millioner. Å skrive forholdet ut er det som gjør konklusjonen etterprøvbar.\n- **Konklusjonen mangler betingelsen.** «Jeg velger hash-settet» er et valg, ikke\n  en konklusjon. Den blir en konklusjon når du legger til når det motsatte ville\n  gjeldt: «…men hadde id-ene ligget tett i et lite område, ville tellearrayet\n  vært bedre, fordi $k$-leddet da forsvinner.»\n\n**Merk hva som IKKE er feil i besvarelsen.** Den er kortfattet, den bruker\nhverdagsspråk, og den skriver ingen pseudokode. Alt det er helt greit i denne\nsjangeren. Det som trekker, er de fem manglene over, og fire av dem koster deg\nunder ett minutt å rette opp."
+    },
+    {
+      "id": "in2010-7-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å bruke $n$ uten å definere det.** Felle **#10**, og den dyreste i denne\n  sjangeren fordi den rammer hele besvarelsen: har du ikke sagt hva $n$ er, kan\n  sensor ikke etterprøve en eneste kjøretid du oppgir. Skriv definisjonene som\n  første avsnitt, alltid.\n- **Å ikke referere til $O$-notasjon i det hele tatt.** En tekst som sier at «den\n  ene er raskere når det er mye data», svarer ikke på oppgaven. Sjangeren er\n  åpen i formen, ikke i innholdet.\n- **Å oppgi bare forventet kjøretid — eller bare verste.** For hash-baserte\n  strukturer er begge en del av svaret, og forskjellen mellom dem ($O(n)$ mot\n  $O(n^2)$) er ofte selve poenget i kanttilfelle-avsnittet.\n- **Å sløyfe ordet «forventet».** «Hashmap er $O(1)$» er ikke en forkortelse, det\n  er en feil påstand.\n- **Å glemme minneaksen.** Oppgaven ber om kjøretid **og** minne. To strategier\n  med samme kjøretid kan skille lag fullstendig på minne — det er nettopp\n  tellearrayets situasjon.\n- **Å stanse ved «det kommer an på».** Uten betingelsen er det ikke en\n  konklusjon. Skriv terskelen: «når $k$ er større enn $n$ …».\n- **Å blande $n$, $u$ og $k$.** Tre forskjellige tall, tre forskjellige\n  bokstaver. Denne feilen ser liten ut og gjør hele regnestykket uleselig."
+    },
+    {
+      "id": "in2010-7-2-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — en ukjent sortering mot en du kan (ca. 14 min)\n\n— naturlig pausepunkt —\n\nDen andre faste varianten er at du får utlevert **pseudokode du aldri har sett**,\nog skal sammenligne den med en sortering fra pensum. Poenget er ikke om du\nkjenner navnet. Poenget er om du kan lese hva algoritmen flytter, telle løkkene,\nog plassere den.\n\nFramgangsmåten fra [kap. 2.3](/in2010/in2010-2-3) gjelder: se på hva som flyttes\nog hvor langt. Bare nabobytter gir stabilitet; ingen ekstra array gir in-place;\nen peker som kan gå bakover gjør at antall gjennomløp avhenger av hvor uordnet\ninndata er.\n\nHer sammenligner vi **gnome sort** — én peker som går fram når naboparet står\nriktig, og bytter og går ett steg tilbake når det står feil — med\n**flettesortering**, som deler i to, sorterer hver halvdel og fletter."
+    },
+    {
+      "id": "in2010-7-2-def-4",
+      "type": "definition",
+      "title": "Verste, forventet og beste kjøretid",
+      "content": "**Verste** er garantien: ingen input kan være tregere. **Forventet** er\ngjennomsnittet over tilfeldig input, og brukes der strukturen har en\ntilfeldighetskomponent, som hashing. **Beste** er den gunstigste inputen.\n\nI en drøfting er verste og forventet obligatoriske. **Beste tilfelle nevnes bare\nnår det er relevant** — men når det er relevant, er det avgjørende: en\n$O(n^2)$-sortering med $O(n)$ beste tilfelle slår en $O(n \\log n)$-sortering på\ndata som allerede er nesten ordnet."
+    },
+    {
+      "id": "in2010-7-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — gnome sort mot flettesortering",
+      "problem": "Et system mottar 8 målinger av gangen og skal sortere dem. Sammenlign gnome sort\nog flettesortering på kjøretid (verste, beste og forventet), minne og stabilitet.\nKonkludér.\n\nMåledataene kommer fra en sensor som leverer nesten sortert: hver ny måling er\nsom regel litt større enn den forrige, men to og to bytter av og til plass.",
+      "solution": "**Ledd 1 — definisjoner.** La $n$ være antall målinger som sorteres av gangen,\nher $n = 8$. Alle kjøretider under er målt i antall sammenligninger og bytter,\nsom er de to operasjonene begge algoritmene bruker.\n\n**Ledd 2 — kjøretid, minne og stabilitet.**\n\n| | Gnome sort | Flettesortering |\n|---|---|---|\n| Verste tid | $O(n^2)$ | $O(n \\log n)$ |\n| Beste tid | $O(n)$ | $O(n \\log n)$ |\n| Forventet tid | $O(n^2)$ | $O(n \\log n)$ |\n| Minne | $O(1)$ — in-place | $O(n)$ — trenger et hjelpearray |\n| Stabil | ja | ja |\n\nDe fire radene øverst er telt på fire konkrete inndata med $n = 8$:\n\n| Inndata (8 tall) | Gnome: sammenligninger | Gnome: bytter | Flettesortering: sammenligninger |\n|---|---|---|---|\n| allerede sortert | 7 | 0 | 12 |\n| nesten sortert (ett par byttet om) | 9 | 1 | 12 |\n| tilfeldig | 33 | 14 | 17 |\n| motsatt sortert | 56 | 28 | 12 |\n\n**Les den tabellen én gang til.** På allerede sortert og nesten sortert input\ngjør gnome sort **færre** sammenligninger enn flettesortering. På motsatt sortert\ninput gjør den nesten fem ganger så mange.\n\n**Ledd 3 — kanttilfeller.** Gnome sorts antall bytter er nøyaktig antall par som\nstår i feil rekkefølge. På motsatt sortert input er det $n(n-1)/2$, altså 28 for\n$n = 8$ og 2 016 for $n = 64$ — kvadratisk vekst, målt og ikke gjettet. På\nallerede sortert input er det 0 bytter og $n - 1$ sammenligninger, altså rent\nlineært. Flettesortering gjør omtrent like mye arbeid uansett; det er både dens\nstyrke og dens svakhet.\n\n**Ledd 4 — konklusjon, og den er ikke den opplagte.** For **dette** systemet\nvelger jeg **gnome sort**. To grunner, som begge følger av oppgaveteksten:\ninndata er beskrevet som nesten sortert, og det er nøyaktig gnome sorts beste\ntilfelle, der den er $O(n)$ mot flettesorteringens $O(n \\log n)$. Og $n = 8$ er\nlite og fast, så den asymptotiske forskjellen får aldri virke — men\nflettesorteringens hjelpearray koster minne i hver eneste runde.\n\n**Men konklusjonen snur straks forutsetningen gjør det.** Kan dataene komme i\nvilkårlig rekkefølge, eller kan $n$ vokse, er flettesortering det riktige valget:\n$O(n \\log n)$ garantert slår $O(n^2)$ forventet, og forskjellen blir grov fort.\nGnome sort er valgbar her **bare** fordi oppgaveteksten sier både «8 målinger» og\n«nesten sortert».\n\n**Poengtrapp-notat.** Det som gir mest, er å knytte valget til en **navngitt\nforutsetning i oppgaveteksten**. En besvarelse som velger flettesortering fordi\n$O(n \\log n)$ er bedre enn $O(n^2)$, er ikke feil — den er korrekt og får god\nuttelling — men den har oversett at oppgaven har fortalt deg noe om inndata, og\ndet er akkurat den lesningen sensorveiledningene etterspør når de gjentar «les\noppgaveteksten svært nøye»."
+    },
+    {
+      "id": "in2010-7-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Et søkefelt i en app skal foreslå ord mens brukeren skriver.\nOrdlista har 300 000 ord, og det lengste er 24 bokstaver. Sammenlign et **trie**\nog et **hashmap** på kjøretid og minne for de to operasjonene `SettInn(ord)` og\n`Forslag(prefiks)`, og konkludér.",
+        "solution": "**Ledd 1.** La $m = 300\\,000$ være antall ord i ordlista, $L$ lengden på et ord\neller et prefiks (høyst 24), og $t$ antall treff et prefikssøk gir.\n\n**Ledd 2.**\n\n| | Trie | Hashmap |\n|---|---|---|\n| `SettInn(ord)` | $O(L)$ garantert | $O(L)$ forventet (hele ordet må hashes) |\n| Eksakt oppslag | $O(L)$ garantert | $O(L)$ forventet, $O(m \\cdot L)$ verste |\n| `Forslag(prefiks)` | $O(L + t)$ | $O(m \\cdot L)$ — hvert ord må sjekkes |\n| Minne | én node per unik prefiksbokstav — mest | ett oppslag per ord — minst |\n\n**Ledd 3 — kanttilfeller.** Med $m = 300\\,000$ betyr $O(m \\cdot L)$ i verste\nfall 7,2 millioner bokstavsammenligninger for **ett** tastetrykk, og brukeren\ntaster på nytt for hver bokstav. Trie-ets $O(L + t)$ er høyst 24 steg pluss\ntreffene, **uavhengig av hvor mange ord lista har**. Motsatt vei: skulle appen\nbare svare «finnes dette ordet?», forsvinner hele trie-fordelen, og hashmapet\nbruker klart minst minne.\n\n**Ledd 4 — konklusjon.** **Trie.** Prefikssøk er hovedoperasjonen, den utføres\nved hvert tastetrykk, og der er forskjellen mellom «uavhengig av ordlistas\nstørrelse» og «lineær i den». Merkostnaden i minne betales én gang; kostnaden i\ntid betales ved hvert tastetrykk.\n\n**Hadde oppgaven sagt** at appen bare slår opp hele ord, ville hashmapet vært\nriktig: like rask oppslagstid, mindre minne, enklere kode.\n\n**Merk hvordan minneaksen behandles.** Trie-et taper på minne og vinner likevel.\nÅ si det rett ut — «jeg velger den strategien som bruker mest minne, fordi\noperasjonen som utføres oftest, er den den er rask på» — er en sterkere\nbesvarelse enn å late som om trie-et vinner på alt.",
+        "hints": [
+          "Skriv opp hvilken operasjon som utføres oftest i praksis. Det er den som skal veie tyngst.",
+          "Hva har hashverdien til `sa` med hashverdien til `sand` å gjøre?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Et program skal avgjøre om to av tallene i et array summerer til et\ngitt tall $S$. Sammenlign:\n\n**a)** Sortér arrayet, og gå deretter gjennom det med to pekere, én fra hver\nende.\n**b)** Gå gjennom arrayet én gang, og slå opp i et hash-set om komplementet\n$S - x$ er sett før.\n\nOppgi kjøretid (verste og forventet) og minne for hver, og konkludér.",
+        "solution": "**Ledd 1.** La $n$ være antall tall i arrayet. $S$ er ett enkelt tall og\npåvirker ikke kjøretiden.\n\n**Ledd 2.**\n\n| | **a)** Sortér og to pekere | **b)** Hash-set |\n|---|---|---|\n| Forventet tid | $O(n \\log n)$ — sorteringen dominerer | $O(n)$ |\n| Verste tid | $O(n \\log n)$ garantert | $O(n^2)$ |\n| Minne | $O(1)$ i tillegg, hvis sorteringen er in-place | $O(n)$ — settet kan vokse til $n$ oppføringer |\n\nEtter sorteringen er to-peker-gjennomgangen $O(n)$: er summen for stor, flytt\nhøyre peker innover; er den for liten, flytt venstre. Sorteringen er altså det\ndyre leddet, og den kan ikke unngås i strategi a).\n\n**Ledd 3 — kanttilfeller.** Hash-settets $O(n^2)$ krever at nesten alle tallene\nkolliderer, som ikke skjer med en fornuftig hashfunksjon på heltall. Strategi a)\nhar ingen slik risiko, men bruker $O(n \\log n)$ **alltid**, også på inndata der\nsvaret finnes med én gang. Er arrayet allerede sortert, faller sorteringsleddet\nbort, og a) blir $O(n)$ med $O(1)$ minne — da er den best på begge akser.\n\n**Ledd 4 — konklusjon.** **Velg hash-settet.** Poengtrappen er eksplisitt her:\n$O(n)$ forventet er ett trinn over $O(n \\log n)$, og på denne oppgavetypen er\ndet den laveste kjøretiden som er oppnåelig. Prisen er $O(n)$ minne.\n\n**Unntaket er verdt én setning:** er minnet knapt, eller er arrayet allerede\nsortert, er a) det riktige valget — da koster den $O(1)$ ekstra minne og er like\nrask.",
+        "hints": [
+          "Hva koster hvert av de to leddene i strategi a) — sorteringen og gjennomgangen?",
+          "Hvilken av de to har en kjøretid som kan bli dårligere enn den oppgitte, og under hvilken betingelse?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger K, eksamensnivå.) En graf over 40 000 nettsider og lenkene mellom dem\nskal lagres. Sammenlign **naboliste** og **nabomatrise** på minnebruk og på\nkjøretiden for de to operasjonene «finnes det en lenke fra $u$ til $v$?» og «list\nalle lenker ut fra $u$».\n\nKonkludér for to tilfeller: et nettsted der hver side lenker til rundt 20 andre,\nog et lite, tett nettverk der nesten alle sider lenker til nesten alle.",
+        "solution": "**Ledd 1.** La $|V|$ være antall sider og $|E|$ antall lenker. I det første\ntilfellet er $|V| = 40\\,000$ og $|E| \\approx 800\\,000$, siden hver side har\nrundt 20 utlenker.\n\n**Ledd 2.**\n\n| | Naboliste | Nabomatrise |\n|---|---|---|\n| Minne | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | $O(\\lvert V \\rvert^2)$ |\n| «finnes lenke fra $u$ til $v$?» | $O(\\text{utgrad}(u))$ | $O(1)$ |\n| «list alle lenker ut fra $u$» | $O(\\text{utgrad}(u))$ — optimalt | $O(\\lvert V \\rvert)$ — hele raden må skannes |\n| Traversering av hele grafen | $O(\\lvert V \\rvert + \\lvert E \\rvert)$ | $O(\\lvert V \\rvert^2)$ |\n\n**Ledd 3 — kanttilfeller, med tall.** I det første tilfellet er\n$|V| + |E| \\approx 840\\,000$ mot $|V|^2 = 1{,}6$ milliarder — nabomatrisen\nbruker nesten to tusen ganger så mye minne, og over 99,9 prosent av cellene er\nnuller. Motsatt: i et tett nettverk der $|E|$ nærmer seg $|V|^2$, er de to\nuttrykkene i samme størrelsesorden, og matrisen gir i tillegg $O(1)$ på\nlenkesjekken.\n\n**Ledd 4 — konklusjon.** **For nettsider: naboliste, uten forbehold.** Ekte\nlenkegrafer er svært glisne, minnet er den knappe ressursen, og alle\ngrafalgoritmene i pensum traverserer grafen framfor å slå opp enkeltkanter — og\ntraverseringen er $O(|V| + |E|)$ med lister mot $O(|V|^2)$ med matrise.\n\n**For det lille, tette nettverket: nabomatrise.** Der er $|E|$ i samme\nstørrelsesorden som $|V|^2$, så minneargumentet forsvinner, og du får $O(1)$ på\nkantoppslaget i tillegg.\n\n**Terskelen:** sammenlign $|E|$ med $|V|^2$. Er $|E|$ mye mindre — grafen er\nglissen — velg lister. Er $|E|$ i nærheten av $|V|^2$ — grafen er tett — velg\nmatrise. Det er én setning, og den er hele svaret.",
+        "hints": [
+          "Regn ut $|V| + |E|$ og $|V|^2$ som to tall før du sammenligner noe.",
+          "Hvilken av de to operasjonene bruker grafalgoritmene i boka faktisk mest — enkeltoppslag eller gjennomgang av naboene?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-2-tip-2",
+      "type": "tip",
+      "title": "Signalordene som forteller deg hvilken vei drøftingen skal",
+      "content": "Oppgaveteksten inneholder nesten alltid den forutsetningen som avgjør svaret.\nDisse fem er verdt å lese etter, og de dukket opp i oppgavene over:\n\n- **«heltall fra 0 til …»** eller **«et fast, kjent område»** — verdiområdet $k$\n  er oppgitt. Sammenlign $k$ med $n$; er $k$ lite, er tellearray eller counting\n  sort i spill.\n- **«nesten sortert»** eller **«kommer i tilnærmet rekkefølge»** — beste tilfelle\n  er relevant, og en $O(n^2)$-sortering kan slå en $O(n \\log n)$-sortering.\n- **«prefiks»**, **«begynner med»** eller **«mens brukeren skriver»** — trie mot\n  hashmap.\n- **«minnet er knapt»** eller **«kjører på en liten enhet»** — minneaksen veier\n  tyngst, og in-place-egenskapen blir et argument.\n- **«hver side lenker til rundt …»** — grafen er glissen, og nabolister vinner.\n\nStår ingen slik forutsetning i teksten, må du **selv** si hvilken du antar:\n«Jeg antar at verdiområdet ikke er kjent på forhånd.» Da er drøftingen fortsatt\netterprøvbar, og sensor kan følge resonnementet ditt."
+    },
+    {
+      "id": "in2010-7-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-7-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Les denne besvarelsen på en drøftingsoppgave om å finne duplikater\ni et array, og pek ut nøyaktig hva som mangler.\n\n> *«Med et hash-set går det i $O(1)$, mens sortering går i $O(n \\log n)$.\n> Hash-settet er derfor best. Sortering bruker mindre minne.»*\n\n**a)** Hvilke av de fire leddene i oppskriften er dekket?\n**b)** Skriv om besvarelsen så den treffer alle fire.",
+        "solution": "**a)** Bare deler av ledd 2 er dekket, og det med feil. Gjennomgangen:\n\n- **Ledd 1 (definér $n$):** mangler helt. $n$ brukes i «$O(n \\log n)$» uten at\n  det er sagt hva det er.\n- **Ledd 2 (verste, forventet, minne):** «$O(1)$» er feil — det er kjøretiden for\n  **ett** oppslag, ikke for å gå gjennom hele arrayet, som er $O(n)$ forventet.\n  Ordet «forventet» mangler, verste tilfelle mangler, og minnepåstanden står uten\n  uttrykk.\n- **Ledd 3 (kanttilfeller):** mangler helt.\n- **Ledd 4 (konklusjon):** «er derfor best» er en påstand uten betingelse.\n\n**b) Omskrevet:**\n\n> La $n$ være antall elementer i arrayet.\n>\n> **Hash-set:** gå gjennom arrayet én gang og legg hvert element i et hash-set;\n> finnes elementet fra før, er det et duplikat. $O(n)$ forventet, $O(n^2)$ verste\n> hvis alt kolliderer. Minne: $O(n)$, siden settet i verste fall må holde alle\n> elementene.\n>\n> **Sortering:** sortér arrayet og se etter to like naboer. $O(n \\log n)$\n> garantert, både verste og forventet. Minne: $O(1)$ i tillegg hvis sorteringen\n> er in-place.\n>\n> **Kanttilfeller:** hash-settets $O(n^2)$ forutsetter at nesten alle elementene\n> hasher likt, som ikke skjer med en fornuftig hashfunksjon. Er arrayet allerede\n> sortert, faller sorteringens dyre ledd bort, og strategien blir $O(n)$ med\n> $O(1)$ minne.\n>\n> **Konklusjon:** velg hash-settet — $O(n)$ forventet er ett trinn lavere enn\n> $O(n \\log n)$, og på denne oppgavetypen er det den laveste oppnåelige\n> kjøretiden. Er minnet knapt, eller er arrayet allerede sortert, velg\n> sorteringen.\n\n**Merk hvor lite lengre den omskrevne er.** Den er rundt tre ganger så lang som\noriginalen og tar kanskje fire minutter ekstra å skrive — og den er forskjellen\nmellom en besvarelse som så vidt gir uttelling, og en som gir full pott.",
+        "hints": [
+          "Gå gjennom de fire leddene i oppskriften ett for ett og kryss av hva som står i teksten.",
+          "Er «$O(1)$» kjøretiden for én operasjon eller for hele gjennomgangen av arrayet?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-7-2-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-7-2-def-5",
+      "type": "definition",
+      "title": "De fire leddene i en drøfting",
+      "content": "1. Definér $n$ og alle andre bokstaver du bruker.\n2. Oppgi **verste** kjøretid, **forventet** kjøretid og **minnebruk** for hver\n   strategi.\n3. Nevn kanttilfellene der strategiene skiller lag.\n4. Konkludér med en **betingelse**, ikke bare et valg.\n\nMangler ett ledd, trekkes det. Ledd 1 er det billigste poenget i hele faget."
+    },
+    {
+      "id": "in2010-7-2-def-6",
+      "type": "definition",
+      "title": "Å definere $n$ — og de andre bokstavene",
+      "content": "$n$ er **ikke** et selvforklarende symbol. I samme oppgave kan det være antall\nforekomster i inndata, antall unike verdier, antall ord i en ordliste eller\nantall noder i en graf.\n\nBruk $n$ for det du leser gjennom, $u$ for antall unike, $k$ for verdiområdets\nstørrelse, $m$ for antall elementer i en oppslagsstruktur og $|V|$, $|E|$ for\ngrafer. Å bruke $n$ uten definisjon er felle **#10** og er trukket for\neksplisitt."
+    },
+    {
+      "id": "in2010-7-2-def-7",
+      "type": "definition",
+      "title": "Valget mellom hash-set og tellearray",
+      "content": "Sammenlign $k$ (verdiområdets størrelse) med $n$ (antall forekomster).\n\n**$k$ mye større enn $n$:** hash-set. $O(n)$ forventet mot $O(n + k)$, og $O(u)$\nminne mot $O(k)$.\n**$k$ mindre enn eller omtrent lik $n$:** tellearray. Samme kjøretid i praksis,\nmen **garantert** i stedet for forventet, og med rene arrayoppslag.\n\nEr $k$ ukjent, faller tellearrayet bort helt — det kan ikke allokeres."
+    },
+    {
+      "id": "in2010-7-2-def-8",
+      "type": "definition",
+      "title": "Minnebruk som egen akse",
+      "content": "Oppgaven ber om kjøretid **og** minne. To strategier med samme kjøretid kan\nskille lag fullstendig på minne, og den beste besvarelsen sier rett ut når den\nvelger den mest minnekrevende strategien og hvorfor.\n\nFaste par å kunne: tellearray $O(k)$ mot hash-set $O(u)$; nabomatrise $O(|V|^2)$\nmot naboliste $O(|V| + |E|)$; flettesortering $O(n)$ hjelpeplass mot en in-place\nsortering $O(1)$."
+    },
+    {
+      "id": "in2010-7-2-def-9",
+      "type": "definition",
+      "title": "Kanttilfellene som gir delpoeng",
+      "content": "De fire som går igjen:\n\n- **stort verdiområde** — $k$-leddet i $O(n + k)$ tar over,\n- **alt kolliderer** — hash-strukturens $O(n)$ blir $O(n^2)$,\n- **ferdig ordnet input** — beste tilfelle slår inn, og en $O(n^2)$-sortering kan\n  vinne,\n- **ukjent verdiområde** — de lineære sorteringene og tellearrayet er ikke\n  lovlige i det hele tatt.\n\nÅ nevne minst ett relevant kanttilfelle er det som skiller en beskrivelse fra en\ndrøfting."
+    },
+    {
+      "id": "in2010-7-2-def-10",
+      "type": "definition",
+      "title": "Konklusjonskravet",
+      "content": "En drøfting som ender i «det kommer an på», har stanset ett skritt for tidlig.\nSensor vet at det kommer an på — spørsmålet er **på hva**.\n\nKonklusjonen skal navngi terskelen: «Velg tellearrayet når $k$ er i samme\nstørrelsesorden som $n$ eller mindre.» Én setning, med en størrelse i, er nok."
+    },
+    {
+      "id": "in2010-7-2-def-11",
+      "type": "definition",
+      "title": "Beste tilfelle som drøftingsargument",
+      "content": "Verste og forventet kjøretid er obligatoriske. **Beste** nevnes bare når\noppgaveteksten gjør den relevant — men da avgjør den ofte saken.\n\nSier oppgaven at inndata er «nesten sortert», er en sortering med $O(n)$ beste\ntilfelle et sterkere valg enn en garantert $O(n \\log n)$-sortering. Telt på\n8 nesten sorterte tall: 9 sammenligninger mot 12."
+    },
+    {
+      "id": "in2010-7-2-def-12",
+      "type": "definition",
+      "title": "Signalordene i oppgaveteksten",
+      "content": "«Heltall fra 0 til …» peker på $k$ og dermed på tellearray eller counting sort.\n«Nesten sortert» peker på beste tilfelle. «Prefiks» eller «mens brukeren skriver»\npeker på trie. «Minnet er knapt» flytter vekten til minneaksen. «Hver node har\nrundt … naboer» sier at grafen er glissen.\n\nStår ingen slik forutsetning, **anta** en og skriv antagelsen ned. Da er\ndrøftingen fortsatt etterprøvbar."
+    },
+    {
+      "id": "in2010-7-2-def-13",
+      "type": "definition",
+      "title": "Hvorfor prosa kan gi full uttelling",
+      "content": "I denne sjangeren skrives svaret i løpende tekst, ikke pseudokode. Kravet er at\nteksten er «lett forståelig, entydig og presis» — og en setning sensor ikke\nforstår etter to gjennomlesninger, blir ignorert.\n\nFriheten gjelder **formen**, ikke innholdet: uten $O$-notasjon og uten definerte\nsymboler er teksten en mening, ikke en drøfting."
+    },
+    {
+      "id": "in2010-7-2-def-14",
+      "type": "definition",
+      "title": "Poengtrappen i en drøfting",
+      "content": "Hovedmomentet — den observasjonen som avgjør sammenligningen — gir mest, og\nskal derfor stå først. I hash-set mot tellearray er det forholdet mellom $k$ og\n$n$; i trie mot hashmap er det at prefikssøk ikke kan gjøres med hashverdier.\n\nDeretter kommer kjøretidene, så minnet, så kanttilfellene. Rekkefølgen er ikke\ntilfeldig: får du dårlig tid, har du allerede skrevet det som teller mest."
+    },
+    {
+      "id": "in2010-7-2-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-7-2-rep-1",
+          "type": "text",
+          "content": "**De fire leddene, som er hele sjangeren:**\n\n1. Definér $n$ (og $u$, $k$, $m$, $L$, $|V|$, $|E|$ — alt du bruker).\n2. Verste kjøretid, forventet kjøretid og minne for **hver** strategi.\n3. Kanttilfeller: stort $k$, alt kolliderer, ferdig ordnet input, ukjent\n   verdiområde.\n4. Konklusjon med **betingelse**.\n\n**De faste parene:**\n\n| Par | Terskelen som avgjør |\n|---|---|\n| Hash-set mot tellearray | $k$ mot $n$: stort $k$ gir hash-set, lite $k$ gir tellearray |\n| Trie mot hashmap | er prefikssøk hovedoperasjonen? Ja gir trie |\n| Ukjent sortering mot flettesortering | sier teksten at inndata er nesten sortert? |\n| Hash-set mot sortering | er minnet knapt, eller er arrayet allerede sortert? |\n| Naboliste mot nabomatrise | $\\lvert E \\rvert$ mot $\\lvert V \\rvert^2$: glissen gir lister, tett gir matrise |\n\n**De tre kontrollene som tar ti sekunder hver:** står det et avsnitt øverst som\nsier hva $n$ er? Står ordet «forventet» der du har brukt en hash-basert struktur?\nOg ender siste avsnitt i en betingelse, ikke i «det kommer an på»?\n\n**Videre:** [kap. 7.3](/in2010/in2010-7-3) om NP-kompletthet — og om hvilke tunge\ntemaer du trygt kan la ligge."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

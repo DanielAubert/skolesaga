@@ -1,0 +1,272 @@
+{
+  "id": "in2010-7-prove",
+  "courseId": "in2010",
+  "chapterNumber": "7.P",
+  "title": "Prøver til del 7: Datastruktur-design, drøfting og NP-teori",
+  "description": "Fire prøver med full fasit: mediankø og bøttekø håndkjørt med kjøretid per operasjon, drøfting av to strategier med definert n, P/NP-fakta og verifikator, og reduksjonsretning med avgrensning av pensum.",
+  "estimatedMinutes": 110,
+  "competenceGoals": [
+    "kunne håndkjøre en mediankø og en bøttekø og oppgi sluttilstanden i det formatet eksamen krever",
+    "kunne skrive en drøfting som treffer alle fire leddene sensor krever, og som ender i en betingelse",
+    "kunne skrive en verifikator med korrekt behandling av den siste kanten i en rundtur",
+    "kunne avgjøre hvilken vei en reduksjon må gå, og hvilke temaer som ikke er pensum i emnet"
+  ],
+  "content": [
+    {
+      "id": "in2010-7-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til del 7",
+      "content": "**4 prøver à ~28 min** (30 + 30 + 25 + 25 minutter, 110 minutter i alt). Prøvene\ndekker hele Del 7 — datastruktur-design, drøftingssjangeren, P og NP,\nverifikatoren, reduksjonsretningen og avgrensningen av pensum. Alle oppgaver er\nnyskrevne og satt i eksamens sjangre, og løsningsforslagene viser formen sensor\nforventer, med poengfordeling per delmoment.\n\n- **Prøve 7.A (30 min):** Datastruktur-design — mediankø med to heaps, bøttekø og\n  trie, med kjøretid per operasjon (sjanger J — ADT-design, altså at du velger og\n  kombinerer strukturer). Dekker [kap. 7.1](/in2010/in2010-7-1).\n- **Prøve 7.B (30 min):** Drøft to strategier — definér $n$, oppgi verste og\n  forventet kjøretid pluss minne, konkludér (sjanger K — drøft to strategier).\n  Dekker [kap. 7.2](/in2010/in2010-7-2).\n- **Prøve 7.C (25 min):** P og NP, sertifikat og verifikator (sjanger C —\n  kjøretids- og teorifakta, og L — NP-kompletthet). Dekker\n  [kap. 7.3](/in2010/in2010-7-3). Her ligger en **sant/usant-blokk med\n  antigjettings-skalering**.\n- **Prøve 7.D (25 min):** Reduksjonsretning og avgrensning av pensum (sjanger L).\n  Dekker [kap. 7.3](/in2010/in2010-7-3). Her ligger **fem flervalgsspørsmål inline\n  i prøven**, med bokstavsvar i fasiten.\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og uten oppslag. Eksamen er\nen firetimers digital skoleeksamen i Inspera — UiOs digitale eksamenssystem —\n**uten hjelpemidler**. Du skriver alt, også pseudokode, rett inn i Inspera, og du\nfår ikke slå opp en eneste kjøretid.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** De fem\nflervalgsspørsmålene står **inline i prøve 7.D**; den interaktive quizen til\nkapitlene 7.1 til 7.3 er den store flervalgsbanken, og den tas separat.\n\nÅpne fasiten først når du er ferdig, og bruk selvdiagnose-lista nederst i hver\nprøve. Husk at C er en god og vanlig karakter — målet er ikke plettfrie svar, men\nå levere alle delmomentene: strukturen valgt, antagelsene oppgitt, kjøretiden per\noperasjon, og en konklusjon med en betingelse i."
+    },
+    {
+      "id": "in2010-7-prove-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 7: [kap. 7.1](/in2010/in2010-7-1) om ADT-design med\nmediankø, bøttekø og trie; [kap. 7.2](/in2010/in2010-7-2) om drøftingssjangeren\nog de fire leddene; og [kap. 7.3](/in2010/in2010-7-3) om $P$, $NP$, verifikatoren,\nreduksjonsretningen og avgrensningen av pensum.\n\nFra tidligere deler trengs $O$-notasjonen ([kap. 1.1](/in2010/in2010-1-1)), de\nfaste P/NP-punktene ([kap. 1.4](/in2010/in2010-1-4)), hashmap og hash-set\n([kap. 3.2](/in2010/in2010-3-2)), min-heapen som array med indeks fra 0\n([kap. 4.4](/in2010/in2010-4-4)) og grafrepresentasjonene\n([kap. 5.1](/in2010/in2010-5-1))."
+    },
+    {
+      "id": "in2010-7-prove-coll-A",
+      "type": "collapsible",
+      "title": "Prøve 7.A — Datastruktur-design: mediankø, bøttekø og trie (30 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in2010-7-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 7.A — datastruktur-design (30 minutter).** Tre oppgaver, alle sjanger J\n— ADT-design, altså at du velger og kombinerer datastrukturer og oppgir\nkjøretiden **per operasjon**. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller 9 p, oppgave 2 teller 7 p, oppgave 3 teller\n9 p — 25 poeng i alt.\n\nHusk svarformen sensor krever på denne sjangeren: hvilke strukturer, hva\ninvarianten er, hva hver operasjon gjør, og kjøretid per operasjon med $n$\ndefinert."
+        },
+        {
+          "id": "in2010-7-prove-A-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-A-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J — ADT-design.) Et vaktsystem tar imot responstider fortløpende og skal\ntil enhver tid kunne oppgi medianen. Tallene 23, 8, 31, 15, 6 og 19 kommer inn i\ndenne rekkefølgen.\n\n**a)** Vis begge heapene som **array med indeks fra 0** etter hver innsetting, og\noppgi medianen underveis.\n**b)** Oppgi sluttilstanden, og kontrollér medianen mot den sorterte rekken.\n**c)** Utfør deretter `FjernMedian()` to ganger og vis strukturen etter hver.\n**d)** Oppgi kjøretiden for `Insert`, `Median()` og `FjernMedian()`.",
+            "solution": "**a)** `nedre` er en max-heap (største element på indeks 0), `ovre` er en\nmin-heap (minste element på indeks 0).\n\n| Steg | Sett inn | Rebalansering | Nedre (max-heap, array) | Øvre (min-heap, array) | Median etter steget |\n|---|---|---|---|---|---|\n| 1 | 23 | — | `23` | `tom` | 23 |\n| 2 | 8 | 23 flyttes fra nedre til øvre | `8` | `23` | 8 |\n| 3 | 31 | 23 flyttes fra øvre til nedre | `23, 8` | `31` | 23 |\n| 4 | 15 | 23 flyttes fra nedre til øvre | `15, 8` | `23, 31` | 15 |\n| 5 | 6 | — | `15, 8, 6` | `23, 31` | 15 |\n| 6 | 19 | — | `15, 8, 6` | `19, 31, 23` | 15 |\n\n**b) Sluttilstand — dette er svaret du leverer:**\n\n```text\nnedre (max-heap):  15, 8, 6\novre  (min-heap):  19, 31, 23\nMedian:            15\n```\n\nKontroll: sortert er tallene 6, 8, 15, 19, 23, 31. Med et partall elementer velger\ndenne implementasjonen det nedre av de to midterste, altså 15. Stemmer.\n\n**Se på steg 5 og 6.** Der var balansen allerede riktig etter innsettingen, så\ningen flytting var nødvendig. I steg 6 gikk 19 i `ovre` fordi 19 er større enn\n`nedre.Topp()`, som da var 15 — og etter innsettingen sto det 3 mot 3, som er\nlovlig.\n\n**c)**\n\n| Steg | Operasjon | Returnerer | Rebalansering | Nedre (max-heap) | Øvre (min-heap) |\n|---|---|---|---|---|---|\n| 1 | `FjernMedian()` | 15 | 19 flyttes fra øvre til nedre | `19, 6, 8` | `23, 31` |\n| 2 | `FjernMedian()` | 19 | — | `8, 6` | `23, 31` |\n\nEtter det første uttaket sto det 2 mot 3, så toppen av `ovre` måtte ned. Etter det\nandre sto det 2 mot 2, som er lovlig, og ingen flytting trengtes.\n\nKontroll: de gjenværende tallene er 6, 8, 23, 31. Medianen ville nå vært 8, altså\ntoppen av `nedre`. Stemmer.\n\n**d)**\n\n- `Insert(x)`: **$O(\\log n)$** — én heap-innsetting, pluss høyst én flytting som\n  er ett uttak og én innsetting.\n- `Median()`: **$O(1)$** — les toppen av max-heapen, indeks 0.\n- `FjernMedian()`: **$O(\\log n)$** — ett uttak fra max-heapen, pluss høyst én\n  flytting.\n\nHer er $n$ antall responstider som ligger i strukturen.\n\n**Poengfordeling (9 p):** 4 p for sporingen i a) med delvis uttelling per rad, 1 p\nfor sluttilstanden med kontroll, 2 p for c), 2 p for de tre kjøretidene.\n\n**Fellenote.** Fella her er å bruke **én** heap. Med bare en min-heap ligger\nmedianen et vilkårlig sted i arrayet, og du må lete gjennom alt: $O(n)$ i stedet\nfor $O(1)$. Det er en korrekt løsning som taper poengtrappen — den lavere\nkjøretiden er den mer poenggivende.\n\n**Margnote om delvis uttelling:** en delvis riktig sporing gir delvis uttelling\nper rad. Det siste poenget henger på at du leverer **arrayene**, ikke trærne, og\nat indekseringen starter på 0.",
+            "hints": [
+              "Sammenlign det nye tallet med toppen av max-heapen for å avgjøre hvilken heap det skal i.",
+              "Etter hver innsetting: er max-heapen fortsatt like stor som eller nøyaktig én større enn min-heapen?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-7-prove-A-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-A-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J.) Et driftssystem behandler jobber etter hastegrad. Hastegradene er\nhele tall fra 0 til 3, der 0 er viktigst, og antallet nivåer endrer seg aldri.\n\n**a)** Foreslå en struktur, og oppgi kjøretid per operasjon.\n**b)** Utfør denne sekvensen og vis køens tilstand etter hvert steg:\n`Insert(J3, 2)`, `Insert(J1, 0)`, `Insert(J8, 2)`, `Insert(J5, 1)`,\n`RemoveMin()`, `RemoveMin()`, `Insert(J2, 3)`, `RemoveMin()`, `RemoveMin()`,\n`RemoveMin()`, `RemoveMin()`.\n**c)** Hvorfor er en min-heap et dårligere valg her?",
+            "solution": "**a) Strukturen:** en **bøttekø** — et array med $N = 4$ bøtter, én per\nhastegrad, der hver bøtte er en lenket liste som legger til bakerst og tar ut\nforrest.\n\n*Invariant:* alle jobber med hastegrad $p$ ligger i bøtte $p$, i den rekkefølgen\nde kom inn.\n\n*Kjøretid:* `Insert` er **$O(1)$** — ett arrayoppslag og én innsetting bakerst.\n`RemoveMin` er **$O(N)$**, som er **$O(1)$** når $N = 4$ er fast. Merk at\nkjøretiden ikke avhenger av $n$, altså hvor mange jobber som ligger i køen.\n\n**b)**\n\n| Steg | Operasjon | Returnerer | Bøtter skannet | Ikke-tomme bøtter etter |\n|---|---|---|---|---|\n| 1 | `Insert(J3, hastegrad 2)` | — | — | `2: [J3]` |\n| 2 | `Insert(J1, hastegrad 0)` | — | — | `0: [J1]; 2: [J3]` |\n| 3 | `Insert(J8, hastegrad 2)` | — | — | `0: [J1]; 2: [J3, J8]` |\n| 4 | `Insert(J5, hastegrad 1)` | — | — | `0: [J1]; 1: [J5]; 2: [J3, J8]` |\n| 5 | `RemoveMin()` | `J1` (hastegrad 0) | 1 | `1: [J5]; 2: [J3, J8]` |\n| 6 | `RemoveMin()` | `J5` (hastegrad 1) | 2 | `2: [J3, J8]` |\n| 7 | `Insert(J2, hastegrad 3)` | — | — | `2: [J3, J8]; 3: [J2]` |\n| 8 | `RemoveMin()` | `J3` (hastegrad 2) | 3 | `2: [J8]; 3: [J2]` |\n| 9 | `RemoveMin()` | `J8` (hastegrad 2) | 3 | `3: [J2]` |\n| 10 | `RemoveMin()` | `J2` (hastegrad 3) | 4 | `alle bøtter tomme` |\n| 11 | `RemoveMin()` | køen er tom | 4 | `alle bøtter tomme` |\n\n**Sluttilstand — dette er svaret du leverer:**\n\n```text\nUttaksrekkefolge: J1, J5, J3, J8, J2, deretter «koen er tom»\nAlle botter tomme\n```\n\n**Se på steg 8 og 9.** `J3` og `J8` har samme hastegrad, og de kommer ut i den\nrekkefølgen de ble satt inn. Det er **stabiliteten** — hver bøtte er en FIFO-liste.\n\n**Se på kolonnen «bøtter skannet».** Den vokser etter hvert som de laveste bøttene\ntømmes, men den når aldri over 4. Det er nettopp derfor $O(N)$ er $O(1)$ her.\n\n**c)** En min-heap gir $O(\\log n)$ per operasjon i stedet for $O(1)$, der $n$ er\nantall ventende jobber. Den løser et vanskeligere problem enn det som er stilt —\nden takler vilkårlige prioriteter — og betaler for fleksibiliteten uten å trenge\nden. I tillegg gir heapen ingen garanti for at to jobber med samme hastegrad\nbehandles i ankomstrekkefølge.\n\n**Poengfordeling (7 p):** 2 p for strukturen med kjøretid per operasjon, 3 p for\nsporingen, 2 p for c).\n\n**Fella som testes:** å gripe til heapen fordi oppgaven sier «prioritet». Les\nforutsetningen: er antall **nivåer** fast og lite? Er svaret ja, er bøttekøen det\nøverste trinnet i poengtrappen.",
+            "hints": [
+              "Hvor mange forskjellige hastegrader finnes det, og vokser antallet med antall jobber?",
+              "Del b): `RemoveMin` starter alltid på bøtte 0. Hvor mange bøtter må den forbi hver gang?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-7-prove-A-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-A-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger J, eksamensnivå.) Et søkefelt skal støtte tre operasjoner på en ordliste\nmed $m$ ord, der det lengste har $L$ bokstaver:\n\n- `SettInn(ord)`\n- `FinnesOrd(ord)` — er dette nøyaktig ordet lagret?\n- `AntallMedPrefiks(p)` — **hvor mange** lagrede ord som begynner med `p`\n\n**a)** Navngi strukturen, oppgi antagelser og skriv invarianten.\n**b)** Beskriv de tre operasjonene, og skriv `AntallMedPrefiks` i pseudokode.\n**c)** Oppgi kjøretiden per operasjon, med symbolene definert.\n**d)** Hva ville et hashmap kostet på den tredje operasjonen?",
+            "solution": "**a) Strukturen:** et **trie**, utvidet med en teller i hver node.\n\n**Antagelser om representasjon:** hver node har et kart `barn` fra bokstav til\nnode, et flagg `erOrdslutt`, og et heltall `antall`. Rota representerer det tomme\nprefikset. Ord settes inn høyst én gang hver.\n\n**Invariant:** for hver node er `antall` lik antall lagrede ord som har nodens\nprefiks som prefiks. Rota har derfor `antall` lik $m$.\n\n**b)**\n\n- `SettInn(ord)`: følg eller lag én node per bokstav, og **øk `antall` med 1 i\n  hver node du passerer**, inkludert rota. Sett `erOrdslutt` på den siste.\n- `FinnesOrd(ord)`: følg bokstavene ned. Stopper veien, er svaret nei. Ellers er\n  svaret verdien av `erOrdslutt` i sluttnoden.\n- `AntallMedPrefiks(p)`: følg prefikset ned og les av `antall`.\n\n```text\nProcedure AntallMedPrefiks(rot, p)\n  Input:  rota i et trie med teller, og et prefiks p\n  Output: antall lagrede ord som begynner med p\n  v = rot\n  for hver bokstav b i p:\n      if v.barn har ingen oppfoering for b:\n          return 0\n      v = v.barn[b]\n  return v.antall\n```\n\n**c) Kjøretid**, der $L$ er lengden på ordet eller prefikset og $m$ antall lagrede\nord:\n\n- `SettInn(ord)`: **$O(L)$** — ett steg og én telleroppdatering per bokstav.\n- `FinnesOrd(ord)`: **$O(L)$**.\n- `AntallMedPrefiks(p)`: **$O(L)$**.\n\nAlle tre er **uavhengige av $m$**. Det er hele poenget: en million ord i lista\ngjør ikke oppslaget tregere, bare treet større.\n\n**Merk hvorfor telleren er nødvendig.** Uten den måtte `AntallMedPrefiks` gå\ngjennom hele subtreet under prefiksnoden og telle ordslutt-merker, altså\n$O(L + t)$ der $t$ er antall treff. Med telleren blir det $O(L)$ — ett ekstra\nfelt per node kjøper deg $t$-leddet.\n\n**d)** Et hashmap måtte gått gjennom **hvert** av de $m$ ordene og sjekket om det\nbegynner med `p`: **$O(m \\cdot L)$**. Hashverdien til `sa` har ingen sammenheng\nmed hashverdien til `sand`, så det finnes ingen snarvei.\n\nTil gjengjeld ville hashmapet gitt `FinnesOrd` i $O(L)$ forventet og brukt mindre\nminne.\n\n**Poengfordeling (9 p):** 2 p for å velge trie (hovedmomentet), 2 p for telleren\nog invarianten, 2 p for pseudokoden, 2 p for de tre kjøretidene med symbolene\ndefinert, 1 p for sammenligningen i d).\n\n**Kan dette gjøres raskere?** Nei. `AntallMedPrefiks` må minst lese prefikset,\naltså $L$ tegn, så $O(L)$ er nedre grense. Med telleren er den nådd.\n\n**Selvdiagnose etter prøve 7.A**\n\n☐ Leverte du heapene som **arrayer med indeks fra 0**, ikke som trær?\n\n☐ Kontrollerte du medianen mot den sorterte rekken?\n\n☐ Oppga du kjøretid for **hver enkelt** operasjon, ikke én samlet?\n\n☐ Skrev du ned invarianten før du beskrev operasjonene?\n\n☐ Leste du etter forutsetningen i oppgaveteksten — «hele tall fra 0 til 3»,\n«antallet nivåer endrer seg aldri» — før du valgte struktur?\n\n☐ Definerte du hva $n$, $m$ og $L$ står for?",
+            "hints": [
+              "Hvilken struktur fra Del 7 gir prefikssøk, og hva må du legge til i hver node for å slippe å telle treffene?",
+              "Del b): hvilke noder passeres når du setter inn ett ord, og hva har de til felles?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-7-prove-coll-B",
+      "type": "collapsible",
+      "title": "Prøve 7.B — Drøft to strategier (30 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in2010-7-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 7.B — drøft to strategier (30 minutter).** Tre oppgaver, alle sjanger K —\ndrøft to strategier, altså at du sammenligner to fremgangsmåter på kjøretid og\nminne og konkluderer. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller 8 p, oppgave 2 teller 8 p, oppgave 3 teller\n6 p — 22 poeng i alt.\n\nSvaret skrives i løpende tekst, ikke pseudokode. Men teksten skal treffe de fire\nleddene: definér $n$, oppgi verste og forventet kjøretid pluss minne for hver\nstrategi, nevn kanttilfellene, og konkludér med en **betingelse**."
+        },
+        {
+          "id": "in2010-7-prove-B-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-B-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger K.) En værstasjon logger 5 000 000 målinger i døgnet. Hver måling er\nmerket med en sensorkode, som er et heltall fra 0 til 1023. I løpet av døgnet\nforekommer 900 forskjellige sensorkoder.\n\nDu skal telle hvor mange forskjellige sensorkoder som forekommer. Sammenlign\n\n**a)** et hash-set, og\n**b)** et tellearray indeksert på sensorkode,\n\npå kjøretid (verste og forventet) og minne. Konkludér.",
+            "solution": "**Ledd 1 — definisjoner.** La $n = 5\\,000\\,000$ være antall målinger i loggen,\n$u = 900$ antall forskjellige sensorkoder som forekommer, og $k = 1024$ størrelsen\npå verdiområdet, altså hvor mange sensorkoder som er mulige.\n\n**Ledd 2 — kjøretid og minne.**\n\n| | **a)** Hash-set | **b)** Tellearray |\n|---|---|---|\n| Forventet tid | $O(n)$ | $O(n + k)$ |\n| Verste tid | $O(n^2)$ | $O(n + k)$ — samme, garantert |\n| Minne | $O(u)$, altså 900 oppføringer | $O(k)$, altså 1 024 plasser |\n| Grunnoperasjoner her | 5 000 000 | 5 001 024 |\n\n**Ledd 3 — kanttilfeller.** $k$ er her bare 1 024 mot $n$ på fem millioner, altså\nen femtusendel. $k$-leddet forsvinner praktisk talt: de to strategiene gjør 5,000\nog 5,001 millioner grunnoperasjoner. Minnet er også nesten likt — 1 024 plasser\nmot 900 oppføringer. Hash-settets $O(n^2)$ forutsetter at nesten alle\nsensorkodene hasher til samme plass, som ikke skjer med en fornuftig\nhashfunksjon; tellearrayet har ingen slik risiko i det hele tatt.\n\n**Ledd 4 — konklusjon.** **Velg tellearrayet.** Når $k$ er så lite i forhold til\n$n$, er de to like raske på papiret — men tellearrayet gjør ett rent\narrayoppslag der hash-settet gjør en hashberegning og en kollisjonssjekk, og det\nhar **garanterte** kjøretider i stedet for forventede. Verdiområdet er dessuten\noppgitt i oppgaveteksten, så forutsetningen for et tellearray er oppfylt.\n\n**Terskelen:** velg tellearrayet når $k$ er i samme størrelsesorden som $n$ eller\nmindre. Her er $k$ under en promille av $n$, så valget er ikke i nærheten av\ntvilsomt.\n\n**Poengfordeling (8 p):** 1 p for definisjonene, 3 p for de tre kjøretidene og\nminnet, 2 p for kanttilfellene, 2 p for konklusjonen med terskelen.\n\n**Fella som testes:** å velge hash-settet fordi det «er $O(1)$». Det er $O(1)$\n**forventet** per operasjon, og setningen mangler både ordet «forventet» og en\nsammenligning med $k$. Å bruke $n$ uten å definere det er felle **#10** i bokas\nfeilregister, og det er trukket for eksplisitt i arkivet.",
+            "hints": [
+              "Skriv opp $n$, $u$ og $k$ som tre tall før du sammenligner noe som helst.",
+              "Regn ut $n + k$ og sammenlign med $n$. Hvor mye legger $k$-leddet egentlig til?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-7-prove-B-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-B-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger K, eksamensnivå.) Samme værstasjon logger også 5 000 000 økt-id-er i\ndøgnet. En økt-id er et 32-bits heltall, altså et tall fra 0 til 4 294 967 295, og\n380 000 forskjellige økt-id-er forekommer.\n\n**a)** Sammenlign hash-set og tellearray på kjøretid og minne for denne oppgaven.\n**b)** Hvorfor blir konklusjonen en annen enn i oppgave 1?\n**c)** Formulér i én setning terskelen som avgjør begge oppgavene.",
+            "solution": "**a) Ledd 1 — definisjoner.** La $n = 5\\,000\\,000$ være antall loggførte økter,\n$u = 380\\,000$ antall forskjellige økt-id-er, og $k = 4\\,294\\,967\\,296$\nstørrelsen på verdiområdet.\n\n**Ledd 2 — kjøretid og minne.**\n\n| | Hash-set | Tellearray |\n|---|---|---|\n| Forventet tid | $O(n)$ | $O(n + k)$ |\n| Verste tid | $O(n^2)$ | $O(n + k)$, garantert |\n| Minne | $O(u)$, altså 380 000 oppføringer | $O(k)$, altså over 4,29 milliarder plasser |\n| Grunnoperasjoner her | 5 000 000 | rundt 4,3 milliarder |\n\n**Ledd 3 — kanttilfeller.** $k$ er her rundt **859 ganger** så stort som $n$.\nTellearrayet må nullstille og gå gjennom over fire milliarder plasser for å telle\n380 000 verdier — over 99,99 prosent av arbeidet er på tomme plasser. I minne er\nforholdet enda grovere: over elleve tusen ganger så mange celler som hash-settet\ntrenger oppføringer. Hash-settets $O(n^2)$ er fortsatt en teoretisk mulighet, ikke\nen praktisk.\n\n**Ledd 4 — konklusjon.** **Velg hash-settet, uten forbehold.** Det gjør under en\nåttehundredel av arbeidet og bruker en brøkdel av minnet. Tellearrayet er her\nikke bare tregere — det er i praksis ikke allokerbart på en vanlig maskin.\n\n**b)** Fordi $k$ har byttet størrelsesorden i forhold til $n$. I oppgave 1 var\n$k = 1024$, altså mye **mindre** enn $n$, og $k$-leddet i $O(n + k)$ forsvant. Her\ner $k$ mye **større** enn $n$, og $k$-leddet dominerer fullstendig.\n\nMerk at $n$ er nøyaktig det samme i de to oppgavene, og at $u$ bare har vokst med\nen faktor på rundt 420. Det er verdiområdet alene som snur konklusjonen — og det\ner derfor $k$ må navngis som en egen størrelse.\n\n**c) Terskelen:** *Sammenlign $k$ med $n$: er $k$ i samme størrelsesorden som $n$\neller mindre, velg tellearrayet og få garanterte kjøretider; er $k$ vesentlig\nstørre, velg hash-settet.*\n\n**Poengfordeling (8 p):** 3 p for tabellen med begge kjøretidene og minnet, 2 p\nfor kanttilfellene med tall, 2 p for b), 1 p for terskelen i c).\n\n**Merk at deloppgave c) er den som skiller besvarelsene.** En kandidat som svarer\nriktig på a) og b) uten å kunne formulere terskelen, har regnet riktig på to\ntilfeller. En som kan terskelen, har forstått sjangeren og klarer også det tredje\ntilfellet hun aldri har sett.",
+            "hints": [
+              "Regn ut $k$ delt på $n$ i begge oppgavene før du svarer på b).",
+              "Del c): hvilken av de tre størrelsene $n$, $u$ og $k$ er den eneste som er forskjellig mellom de to oppgavene?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-7-prove-B-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-B-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger K.) En kandidat har besvart oppgave 2 slik:\n\n> *«Hash-settet er raskest siden oppslag er $O(1)$. Tellearrayet trenger et\n> kjempestort array, som blir for mye minne. Jeg velger hash-settet.»*\n\n**a)** Hvilke av de fire leddene i svarformen er dekket, og hvilke mangler?\n**b)** Pek ut den ene faktiske feilen i teksten.\n**c)** Skriv om besvarelsen så den treffer alle fire leddene.",
+            "solution": "**a)** Besvarelsen er korrekt i sin konklusjon og velger riktig strategi. Det er\nhovedmomentet, og hovedmomentet gir mest — dette er en ekte midtnivåbesvarelse,\nikke en nullbesvarelse. Gjennomgangen ledd for ledd:\n\n- **Ledd 1 (definér $n$):** mangler helt. Verken $n$, $u$ eller $k$ er navngitt.\n- **Ledd 2 (verste, forventet, minne):** delvis. Minnet er nevnt, men uten\n  uttrykk; verste tilfelle er ikke nevnt for noen av strategiene.\n- **Ledd 3 (kanttilfeller):** mangler.\n- **Ledd 4 (konklusjon):** et valg er tatt, men uten betingelse — det står ikke\n  når det motsatte ville gjeldt.\n\n**b) Feilen:** «oppslag er $O(1)$» mangler ordet **forventet**. Slik det står, er\npåstanden gal: verste tilfelle for ett oppslag er $O(n)$. Dette er ikke en\nforkortelse man kan tillate seg — det er nettopp den upresisheten sjangeren\ntester.\n\nI tillegg er «$O(1)$» kjøretiden for **ett** oppslag, mens oppgaven gjelder å gå\ngjennom hele loggen, som er $O(n)$ forventet.\n\n**c) Omskrevet:**\n\n> La $n = 5\\,000\\,000$ være antall loggførte økter, $u = 380\\,000$ antall\n> forskjellige økt-id-er, og $k = 4\\,294\\,967\\,296$ størrelsen på verdiområdet.\n>\n> **Hash-set:** ett innlegg per økt, hvert $O(1)$ forventet, altså $O(n)$\n> forventet totalt. Verste tilfelle er $O(n^2)$, hvis nesten alle id-ene hasher\n> til samme plass. Minne: $O(u)$, altså rundt 380 000 oppføringer.\n>\n> **Tellearray:** $O(n + k)$ garantert, både verste og forventet — ett pass over\n> loggen og ett over arrayet. Minne: $O(k)$, altså over 4,29 milliarder plasser.\n>\n> **Kanttilfeller:** $k$ er rundt 859 ganger større enn $n$, så $k$-leddet\n> dominerer fullstendig, og nesten alt arbeidet går på tomme plasser. Hash-settets\n> $O(n^2)$ forutsetter en kollisjonskatastrofe som ikke inntreffer med\n> heltallsnøkler.\n>\n> **Konklusjon:** velg hash-settet — det gjør under en åttehundredel av arbeidet\n> og bruker en brøkdel av minnet. Hadde verdiområdet vært lite, for eksempel\n> sensorkoder fra 0 til 1023, ville tellearrayet vært bedre, fordi $k$-leddet da\n> forsvinner og kjøretidene blir garanterte.\n\n**Merk hvor lite lengre den omskrevne er.** Den tar kanskje fire minutter ekstra\nå skrive, og den er forskjellen mellom en besvarelse som så vidt gir uttelling og\nen som gir full pott.\n\n**Poengfordeling (6 p):** 2 p for gjennomgangen i a), 1 p for å finne feilen i\nb), 3 p for omskrivningen.\n\n**Selvdiagnose etter prøve 7.B**\n\n☐ Står det et avsnitt aller først som sier hva $n$, $u$ og $k$ er?\n\n☐ Oppga du **både** verste og forventet kjøretid for hver strategi?\n\n☐ Står ordet «forventet» der du har brukt en hash-basert struktur?\n\n☐ Behandlet du minne som en egen akse, ikke bare som en fotnote?\n\n☐ Ender konklusjonen i en **betingelse**, ikke i «det kommer an på»?\n\n☐ Refererte du til $O$-notasjon i det hele tatt?",
+            "hints": [
+              "Gå gjennom de fire leddene i svarformen ett for ett og kryss av hva som faktisk står i teksten.",
+              "Del b): er «$O(1)$» en fullstendig kjøretidspåstand for et hashmap-oppslag?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-7-prove-coll-C",
+      "type": "collapsible",
+      "title": "Prøve 7.C — P, NP og verifikatoren (25 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in2010-7-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 7.C — P, NP og verifikatoren (25 minutter).** Tre oppgaver, sjanger C og\nL. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller 8 p (før skalering), oppgave 2 teller 8 p,\noppgave 3 teller 4 p — 20 poeng i alt.\n\nOppgave 1 er en **sant/usant-blokk med antigjettings-skalering**. Les\nskaleringsregelen i oppgaveteksten før du svarer, og regn ut terskelen."
+        },
+        {
+          "id": "in2010-7-prove-C-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-C-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger C — kjøretids- og teorifakta, sant/usant.) Marker sant eller usant for\nhvert utsagn.\n\n**Antigjettings-skalering:** poengsummen på denne blokken regnes som\n$2 \\cdot \\max(n - 4, 0)$, der $n$ er antall riktige av 8. Ren gjetting gir i\nsnitt 4 riktige og dermed **0 poeng**. Regn selv ut hvor mange du må ha sikkert\nriktige for å tjene ditt første poeng.\n\n**a)** $P \\subseteq NP$.\n**b)** $NP$ er samlingen av problemer som ikke kan løses i polynomisk tid.\n**c)** Finnes det en verifikator med polynomisk kjøretid for et problem, ligger\nproblemet i $NP$.\n**d)** Det er bevist at $P \\neq NP$.\n**e)** Alle NP-komplette problemer kan reduseres til hverandre i polynomisk tid.\n**f)** Alle avgjørelsesproblemer ligger enten i $P$ eller i $NP$.\n**g)** Løser du ett NP-komplett problem i polynomisk tid, følger $P = NP$.\n**h)** Et NP-hardt problem må selv ligge i $NP$.",
+            "solution": "**Fasit: a) sant, b) usant, c) sant, d) usant, e) sant, f) usant, g) sant,\nh) usant.**\n\n**a) Sant.** Kan du løse problemet raskt, kan du kontrollere et foreslått svar\nraskt — du løser det bare selv og sammenligner.\n\n**b) Usant.** $NP$ handler om **kontroll**, ikke om løsning, og forkortelsen står\nfor «ikke-deterministisk polynomisk». Siden $P \\subseteq NP$, inneholder $NP$\nogså alle de lette problemene.\n\n**c) Sant.** Det er selve definisjonen av $NP$.\n\n**d) Usant.** Verken $P = NP$ eller $P \\neq NP$ er bevist. Spørsmålet er åpent.\n\n**e) Sant.** Følger av definisjonen: hvert NP-komplett problem ligger i $NP$, og\nalle problemer i $NP$ kan reduseres til hvert av dem.\n\n**f) Usant.** Det finnes problemer som verken er i $P$ eller i $NP$ — blant annet\nproblemer der selv et foreslått svar ikke kan kontrolleres raskt.\n\n**g) Sant.** Alle problemer i $NP$ reduseres polynomisk til det ene, og to\npolynomiske steg etter hverandre er fortsatt polynomisk.\n\n**h) Usant.** NP-hard krever bare at alt i $NP$ kan reduseres til problemet.\nLegger du til at problemet selv ligger i $NP$, får du NP-**komplett**, som er den\nstrengere klassen.\n\n**Poengregningen:** med skaleringen $2 \\cdot \\max(n - 4, 0)$ gir 4 riktige 0\npoeng, 5 riktige 2 poeng, 6 riktige 4 poeng, 7 riktige 6 poeng og alle 8 riktige\n8 poeng. Du må altså ha **minst 5** sikkert riktige for å tjene noe som helst.\n\n**Merk samtidig den andre halvdelen av regelen:** på de vanlige korte svarene i\nDel 1 gjøres det **ingen** forskjell på feil og ubesvart. Der lønner det seg\nalltid å svare, uansett hvor usikker du er. Skaleringen gjelder bare\nsant/usant-blokkene.\n\n**Poengfordeling (8 p):** 1 p per riktig, deretter skalert som over.\n\n**Merk fasitmønsteret:** sant, usant, sant, usant, sant, usant, sant, usant. Her\nfalt det tilfeldigvis vekselvis — på en ekte blokk finnes det ikke noe mønster, og\nen kandidat som teller opp hvor mange «sant» hun har svart, bruker en strategi som\nikke virker.",
+            "hints": [
+              "Spør for hvert punkt: handler påstanden om å FINNE svaret, eller om å KONTROLLERE et foreslått svar?",
+              "Punkt h): hvilket av de to begrepene NP-hard og NP-komplett er det strengeste?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-7-prove-C-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-C-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger L — NP-kompletthet, altså at du svarer på fakta om $P$ og $NP$, skriver\nen verifikator eller vurderer en reduksjonsretning.) En urettet graf har nodene\n$A$, $B$, $C$, $D$, $E$, $F$ med nabolistene\n\n```text\nA: B, C, F\nB: A, C, E\nC: A, B, D, F\nD: C, E\nE: B, D, F\nF: A, C, E\n```\n\n**a)** Skriv en verifikator som avgjør om et sertifikat $C$ er en Hamiltonsykel i\ngrafen. Oppgi antagelser om representasjon og kjøretid.\n**b)** Kjør verifikatoren på sertifikatet $(A, B, C, D, E, F)$ og vis hvert steg.\n**c)** Kjør den på $(B, A, C, D, E, F)$ og vis hvert steg.\n**d)** Hva er forskjellen mellom de to sertifikatene?",
+            "solution": "**a) Problemet navngitt:** dette er en verifikator for Hamiltonsykel — den skal\n**ikke** lete etter en rundtur, bare kontrollere et ferdig forslag.\n\n**Antagelser om representasjon:** grafen er gitt som **nabomatrise**, slik at\n`ErKant(G, u, v)` er $O(1)$. $N = 6$ er antall noder. Sertifikatet `C` er et array\nmed noder, indeks fra 0. `sett` er et hjelpearray med én plass per node.\n\n```text\nProcedure VerifiserHamiltonsykel(G, C)\n  Input:  urettet graf G som nabomatrise med N noder,\n          sertifikat C: array med noder, indeks fra 0\n  Output: sant hvis C er en Hamiltonsykel i G, ellers usant\n\n  if lengden av C er ulik N:\n      return usant\n\n  for hver node v i G:\n      sett[v] = usant\n  for i = 0 til N-1:\n      if sett[C[i]]:\n          return usant\n      sett[C[i]] = sant\n\n  for i = 0 til N-1:\n      if ErKant(G, C[i], C[(i + 1) mod N]) er usant:\n          return usant\n\n  return sant\n```\n\n**Kjøretid:** tre løkker etter hverandre over $N$ elementer, hver med $O(1)$\narbeid: **$O(N)$**. Med nabolister i stedet for matrise koster hvert kantoppslag\nopptil $O(N)$, så verifikatoren blir $O(N^2)$ — fortsatt polynomisk, som er alt\ndefinisjonen av $NP$ krever.\n\n**b) Sertifikatet $(A, B, C, D, E, F)$.** Lengden er 6, som er $N$, og alle seks\nnodene forekommer nøyaktig én gang. Kantløkka:\n\n| Steg `i` | Par `(C[i], C[(i+1) mod N])` | Er det en kant? | Status |\n|---|---|---|---|\n| 0 | `(A, B)` | ja | fortsett |\n| 1 | `(B, C)` | ja | fortsett |\n| 2 | `(C, D)` | ja | fortsett |\n| 3 | `(D, E)` | ja | fortsett |\n| 4 | `(E, F)` | ja | fortsett |\n| 5 | `(F, A)` — siste par, `(i+1) mod N` gir 0 | ja | fortsett |\n\n**Svar: sant.** Sertifikatet er en Hamiltonsykel. Seks kantoppslag.\n\n**c) Sertifikatet $(B, A, C, D, E, F)$.** Lengden og distinktheten er også her i\norden.\n\n| Steg `i` | Par `(C[i], C[(i+1) mod N])` | Er det en kant? | Status |\n|---|---|---|---|\n| 0 | `(B, A)` | ja | fortsett |\n| 1 | `(A, C)` | ja | fortsett |\n| 2 | `(C, D)` | ja | fortsett |\n| 3 | `(D, E)` | ja | fortsett |\n| 4 | `(E, F)` | ja | fortsett |\n| 5 | `(F, B)` — siste par, `(i+1) mod N` gir 0 | **nei** | **avvist** |\n\n**Svar: usant.**\n\n**d)** Sertifikatet i c) er en helt gyldig **sti** gjennom alle seks nodene — hvert\nsteg går langs en kant. Den eneste feilen er at den ikke kommer hjem: det finnes\ningen kant mellom $F$ og $B$.\n\n**Fellenote.** En verifikator uten `mod N` i siste steg ville sjekket parene 0 til\n4, funnet alt i orden, og godkjent sertifikatet i c). Det er felle **#7** i bokas\nfeilregister — å glemme siste kant i en syklisk struktur — og den gir bare feil\nsvar på nettopp de sertifikatene som ligner mest på et riktig svar.\n\n**Poengfordeling (8 p):** 1 p for antagelsene, 3 p for pseudokoden (hvorav 1 p for\n`mod N`), 2 p for de to sporingene, 1 p for kjøretiden, 1 p for d).\n\n**Margnote om delvis uttelling:** en delvis riktig sporing gir uttelling per rad.\nDet siste poenget henger på siste rad — den med `mod N`.",
+            "hints": [
+              "Verifikatoren har tre krav: riktig lengde, ingen node to ganger, og en kant mellom hvert par som følger etter hverandre.",
+              "Del c): sjekk det siste paret spesielt. Hvilke noder sammenlignes når `i` er $N-1$?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-7-prove-C-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-C-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger L, kortsvar.) Svar med høyst tre setninger på hvert punkt.\n\n**a)** Hva er forskjellen på et sertifikat og en verifikator?\n**b)** Hvorfor viser en verifikator med kjøretid $O(N^2)$ at problemet ligger i\n$NP$, mens en med kjøretid $O(N!)$ ikke gjør det?",
+            "solution": "**a)** Sertifikatet er **data**: det foreslåtte ja-svaret, for eksempel nodene i\nrundturens rekkefølge. Verifikatoren er **prosedyren** som kontrollerer det.\n\nSertifikatet får du utlevert; verifikatoren skriver du.\n\n**b)** Kravet i definisjonen av $NP$ er at kontrollen skal kunne gjøres i\n**polynomisk** tid, altså $O(N^k)$ for en fast $k$. $O(N^2)$ oppfyller det;\n$O(N!)$ gjør det ikke.\n\nEn «verifikator» med $O(N!)$ prøver dessuten typisk alle rekkefølger — den leter\netter et svar i stedet for å kontrollere det den har fått, og da er den ingen\nverifikator.\n\n**Poengfordeling (4 p):** 2 p per deloppgave, med 1 p for hovedmomentet i hver\n(data mot prosedyre; polynomisk mot ikke-polynomisk).\n\n**Merk at dette er et typisk Del 1-kortsvar.** Her gjelder **ingen**\nantigjettings-skalering, så ubesvart teller som feil — svar alltid, også når du er\nusikker.\n\n**Selvdiagnose etter prøve 7.C**\n\n☐ Regnet du ut terskelen $2 \\cdot \\max(n - 4, 0)$ før du begynte å gjette?\n\n☐ Blandet svarene dine sant og usant, eller falt du for å svare det samme mange\nganger på rad?\n\n☐ Har verifikatoren din `(i + 1) mod N` i siste steg?\n\n☐ Sjekket verifikatoren din **alle tre** kravene — lengde, ingen gjentakelse,\nkanter?\n\n☐ Oppga du antagelser om representasjon, og matcher kjøretiden den\nrepresentasjonen?\n\n☐ Husker du at $NP$ handler om å kontrollere, ikke om å løse?",
+            "hints": [
+              "Det ene er noe du får utlevert, det andre er noe du kjører.",
+              "Punkt b): hvilket ord i definisjonen av $NP$ setter grensen for hvor lang tid kontrollen får ta?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-7-prove-coll-D",
+      "type": "collapsible",
+      "title": "Prøve 7.D — Reduksjonsretning og avgrensning (25 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in2010-7-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 7.D — reduksjonsretning og avgrensning (25 minutter).** Tre oppgaver,\nsjanger L. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller 8 p, oppgave 2 teller 5 p, oppgave 3 teller\n7 p — 20 poeng i alt.\n\nOppgave 2 er en flervalgsblokk. Der gjelder ingen antigjettings-skalering, så\n**svar på alle fem** — ubesvart teller som feil."
+        },
+        {
+          "id": "in2010-7-prove-D-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-D-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger L, eksamensnivå.) Et transportselskap definerer problemet\n**RUNDE-MED-BUDSJETT**: gitt et sett poster, en kjøretid mellom hvert par av\nposter, og et tidsbudsjett $B$ — finnes det en runde som besøker hver post\nnøyaktig én gang, ender der den startet, og bruker til sammen høyst $B$?\n\n**a)** Du skal vise at RUNDE-MED-BUDSJETT er minst like vanskelig som\nHamiltonsykel. Hvilken vei må reduksjonen gå, og hvorfor?\n**b)** Gjennomfør reduksjonen: beskriv omskrivningen og forklar hvorfor svaret blir\ndet samme.\n**c)** Vis at omskrivningen er polynomisk.\n**d)** En kandidat skriver: «Jeg reduserer RUNDE-MED-BUDSJETT til Hamiltonsykel og\nhar dermed vist at RUNDE-MED-BUDSJETT er vanskelig.» Hva er galt, og hvor mye av\nbesvarelsen kan reddes?",
+            "solution": "**a)** Reduksjonen må gå **fra** Hamiltonsykel **til** RUNDE-MED-BUDSJETT, altså\nHamiltonsykel $\\leq_p$ RUNDE-MED-BUDSJETT.\n\nBegrunnelsen: klarer vi å skrive om enhver Hamiltonsykel-oppgave til en\nRUNDE-oppgave i polynomisk tid, ville en rask løser for RUNDE gitt en rask løser\nfor Hamiltonsykel. Altså er RUNDE minst like vanskelig som Hamiltonsykel — som er\nnøyaktig det vi skulle vise.\n\n**b) Omskrivningen.** Vi får en graf $G$ med $N$ noder og skal avgjøre om den har\nen Hamiltonsykel. Vi bygger en RUNDE-MED-BUDSJETT-forekomst slik:\n\n- hver node i $G$ blir en post,\n- for **hvert** par poster settes en kjøretid: **1** hvis paret er en kant i $G$,\n  og **2** hvis det ikke er det,\n- tidsbudsjettet settes til $B = N$.\n\n**Hvorfor svaret blir det samme:** en runde besøker $N$ poster og kjører $N$\nstrekninger. Bruker den bare strekninger som koster 1, blir totalen nøyaktig $N$;\nbruker den én eneste strekning til 2, blir totalen minst $N + 1$, altså over\nbudsjettet.\n\nDet finnes derfor en runde innenfor budsjettet $N$ **hvis og bare hvis** det\nfinnes en runde som bare bruker kanter fra $G$ — og det er nøyaktig en\nHamiltonsykel i $G$.\n\n**c)** Vi setter én kjøretid per par poster, altså $N(N-1)/2$ tall, hvert avgjort\nmed ett kantoppslag i $G$. Omskrivningen er $O(N^2)$, som er polynomisk. Dermed er\nkravet i definisjonen av $\\leq_p$ oppfylt.\n\n**d) Feilen:** retningen er snudd. Det kandidaten har vist, er\nRUNDE-MED-BUDSJETT $\\leq_p$ Hamiltonsykel, altså at RUNDE **ikke er\nvanskeligere enn** Hamiltonsykel. Det sier ingenting om at RUNDE selv er\nvanskelig — du kan alltid oversette et helt lett problem til et vanskelig. Dette\ner felle **#8** i bokas feilregister.\n\n**Hva som kan reddes:** mye. Er omskrivningen selv gjennomtenkt og korrekt\nbeskrevet — kanter der kjøretiden er 1 — viser besvarelsen at kandidaten har sett\nsammenhengen mellom de to problemene, og sensorpraksis er at en godt beskrevet\nreduksjon gir uttelling selv når retningen er snudd. Rettelsen er dessuten én\nsetning: bytt om hva som er inndata og hva som konstrueres.\n\n**Poengfordeling (8 p):** 3 p for retningen med begrunnelse (hovedmomentet, gir\nmest), 2 p for konstruksjonen, 2 p for «hvis og bare hvis»-argumentet, 1 p for at\nomskrivningen er polynomisk.\n\n**Merk hvilket ledd som oftest glemmes:** det siste. At omskrivningen må være\npolynomisk, er en del av definisjonen, ikke en detalj — uten det faller hele\nargumentet, siden en oversettelse som selv tar for lang tid, ikke gir noen rask\nløser.",
+            "hints": [
+              "Skriv om spørsmålet til: «hvis jeg hadde en lynrask løser for det nye problemet, hva ville jeg da fått gratis?»",
+              "Del b): hvor mange strekninger kjører en runde innom $N$ poster, og hva blir totalen hvis alle koster 1?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-7-prove-D-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-D-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger L, flervalg.) Kryss av for **ett** riktig alternativ per spørsmål.\n\n**1.** Hva betyr $A \\leq_p B$?\na) At $A$ er minst like vanskelig som $B$\nb) At $B$ er minst like vanskelig som $A$\nc) At $A$ og $B$ er nøyaktig like vanskelige\nd) At $A$ og $B$ har samme verifikator\n\n**2.** Hva viser en verifikator med polynomisk kjøretid?\na) At problemet ligger i $P$\nb) At problemet er NP-hardt\nc) At problemet er NP-komplett\nd) At problemet ligger i $NP$\n\n**3.** Hvilken linje sikrer at en rundtur-verifikator sjekker den siste kanten?\na) `v = C[(i + 1) mod N]`\nb) `v = C[i + 1]`\nc) `v = C[N - 1]`\nd) `v = C[0]`\n\n**4.** Hvor mange par må sjekkes for å bekrefte en klikk med $k$ noder?\na) $k$\nb) $k - 1$\nc) $k(k-1)/2$\nd) $2^k$\n\n**5.** Hva følger hvis noen løser Hamiltonsykel i polynomisk tid?\na) At Hamiltonsykel ikke var NP-komplett likevel\nb) At $P = NP$\nc) At bare Hamiltonsykel får en rask løsning\nd) At alle problemer i $NP$ blir NP-komplette",
+            "solution": "**Fasit: 1b, 2d, 3a, 4c, 5b.**\n\n**1. b) At $B$ er minst like vanskelig som $A$.** Har du en rask løser for $B$,\nfår du en rask løser for $A$ ved å skrive om først — så vanskeligheten sitter i\n$B$. Alternativ a) er den snudde lesningen, som er felle **#8**, og c) ville krevd\nreduksjon begge veier.\n\n**2. d) At problemet ligger i $NP$.** Det er selve definisjonen. En polynomisk\nverifikator sier ingenting om hardhet, og heller ikke noe om medlemskap i $P$ —\ndet ville krevd en polynomisk **løser**.\n\n**3. a) `v = C[(i + 1) mod N]`.** Ved `i = N-1` gir uttrykket indeks 0, altså den\nførste noden. Uten `mod N` kontrollerer prosedyren en sti i stedet for en sykel.\n\n**4. c) $k(k-1)/2$.** En klikk krever at **alle par** er naboer, ikke bare de som\nfølger etter hverandre. Alternativ a) er antall par i en rundtur, og b) er antall\nkanter i et spenntre.\n\n**5. b) At $P = NP$.** Hamiltonsykel er NP-komplett, så alle problemer i $NP$ kan\nreduseres polynomisk til det. To polynomiske steg etter hverandre er fortsatt\npolynomisk, så hele $NP$ ville falt sammen med $P$.\n\n**Poengfordeling (5 p):** 1 p per riktig svar.\n\n**Merk fasitmønsteret:** b, d, a, c, b. Bokstavene er stokket med vilje. På en ekte\nDel 1-blokk er det ingen sammenheng mellom svarene, og en kandidat som «ser et\nmønster», ser noe som ikke er der.",
+            "hints": [
+              "Spørsmål 1: skriv om påstanden til «hvis jeg kan løse … raskt, hva får jeg da gratis?»",
+              "Spørsmål 4: hvor mange par kan du danne av $k$ elementer når rekkefølgen ikke teller?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-7-prove-D-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-7-prove-D-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger L.) Under står sju temaer, beskrevet uten navn. For hvert: er det pensum\ni dette emnet? Svar ja eller nei, og begrunn med én setning.\n\n**a)** En metode for å løse kjøretidslikninger på formen\n$T(n) = a \\cdot T(n/b) + f(n)$ for rekursive algoritmer.\n**b)** Å sette inn nøkler i en hashtabell med åpen adressering og oppgi hele\ntabellen etterpå.\n**c)** En teknikk som bygger opp en tabell av delløsninger, brukt blant annet på\nryggsekkproblemet.\n**d)** Å finne korteste avstand mellom **alle** par av noder ved en trippelnøstet\nløkke over mellomnoder.\n**e)** Å rotere et binært søketre for å gjenopprette balansen, og oppgi antall\nenkle rotasjoner.\n**f)** Å finne den største mengden enheter som kan sendes gjennom et nettverk med\nkapasiteter på kantene.\n**g)** Å stemple en rettet graf med en rekkefølge der alle kanter peker framover.",
+            "solution": "**Fasit: a) nei, b) ja, c) nei, d) nei, e) ja, f) nei, g) ja.**\n\n**a) Nei.** Kjøretidsanalyse i dette emnet gjøres ved **løkketelling** — se\n[kap. 1.2](/in2010/in2010-1-2). Rekursive algoritmer analyseres ved å telle\narbeidet per nivå eller si «hver node besøkes én gang». Rekurrensligninger er ikke\npensum.\n\n**b) Ja, og med høyeste prioritet.** Dette er lineær probing, som er med i\n**7 av 7 sett (100 %)** og testes både som håndkjøring og som pseudokode. Se\n[kap. 3.1](/in2010/in2010-3-1) og [kap. 3.3](/in2010/in2010-3-3).\n\n**c) Nei.** Ikke pensum, og ingen kapittel i boka bygger på teknikken.\n\n**d) Nei.** Korteste vei i dette emnet er bredde-først-søk, Dijkstra, Bellman-Ford\nog DAG-metoden — se [kap. 6.2](/in2010/in2010-6-2). Alle-par-varianten med\ntrippelnøstet løkke er ikke pensum.\n\n**e) Ja.** Dette er AVL-rotasjoner, med i **3 av 7 sett (43 %)**, og\nsluttilstanden leveres som antall **enkle** rotasjoner pluss rotverdi — en\ndobbelrotasjon teller som to. Se [kap. 4.3](/in2010/in2010-4-3).\n\n**f) Nei.** Flytproblemer i nettverk er ikke pensum i dette emnet.\n\n**g) Ja.** Dette er topologisk sortering, med i **5 av 7 sett (71 %)**. Se\n[kap. 6.1](/in2010/in2010-6-1).\n\n**Merk hvorfor temaene her er beskrevet og ikke navngitt.** Navnene på de fire\nsom ikke er pensum, står samlet i avgrensningsboksen i\n[kap. 7.3](/in2010/in2010-7-3). Poenget med å beskrive dem i stedet er at det er\n**beskrivelsen** du møter når du blar i en generisk algoritmebok eller i et\nforelesningsnotat fra et annet emne — og det er den du må kjenne igjen for å\nkunne bla videre.\n\n**Poengfordeling (7 p):** 1 p per rad, med halv uttelling uten begrunnelse.\n\n**Merk fasitmønsteret:** nei, ja, nei, nei, ja, nei, ja — fire nei og tre ja, i\nblandet rekkefølge.\n\n**Merk hva denne oppgaven egentlig er verdt.** De fire temaene du svarte nei på,\nopptar typisk en fjerdedel av en generisk algoritmebok. Å vite at de kan stå\nuleste, er antakelig den enkeltopplysningen i hele Del 7 som er verdt mest tid.\n\n**Selvdiagnose etter prøve 7.D**\n\n☐ Skrev du reduksjonen som «fra det kjente vanskelige, til mitt eget»?\n\n☐ Sa du eksplisitt at omskrivningen er polynomisk?\n\n☐ Argumenterte du **begge veier** — «hvis og bare hvis» — for at svaret blir det\nsamme?\n\n☐ Svarte du på alle fem flervalgene, også de du var usikker på?\n\n☐ Kan du navngi de temaene som **ikke** er pensum, uten å slå opp?\n\n☐ Vet du hvilke to temaer som er tyngre i dette emnet enn i en generisk\nalgoritmebok?",
+            "hints": [
+              "Slå opp avgrensningsboksen i [kap. 7.3](/in2010/in2010-7-3) etter at du har svart, ikke før.",
+              "Tre av de sju beskriver noe du har håndkjørt eller skrevet pseudokode for tidligere i boka."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
