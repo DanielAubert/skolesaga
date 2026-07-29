@@ -524,12 +524,24 @@ Rekkefølgen i kapitlet: **«Er dette boka di?»-boksen først** (§0), deretter
 Kildenoten i kap. 0.1, alle «N av M sett»-påstander og enhver omtale av
 grunnlaget skal beskrive arkivet **nøyaktig slik det er**:
 
-- Grunnlaget er **TMA4135/TMA4130-arkivet: 26 PDF-er (12 oppgavesett + 14
-  løsningsforslag)**, destillert til **13 velkarakteriserte eksamenssett
-  H2015–Kont2024** i `EKSAMENSANALYSE.md`. **Nevneren i alle frekvenstall er
-  13.**
-- Arkivet inneholder **kun høsteksamener og kontinuasjonseksamener** — emnet
-  har ikke våreksamen, så det finnes ingen vårsett å savne.
+- Arkivet er **56 unike filer: 29 oppgavesett og 27 løsningsforslag**
+  (`ARKIVKONTROLL.md`, målt 29. juli 2026). De ligger i to grupper: de nyere
+  settene 2015–2024 under `NTNU/TMA4135/`, og 30 eldre filer 2003–2014 under
+  søsteremnene TMA4123/TMA4125/TMA4130 med den gamle navnekonvensjonen
+  (`tma4135_05h.pdf`) — Matematikk 4-serien har byttet emnekode flere ganger.
+- **Frekvensgrunnlaget er de 13 velkarakteriserte settene H2015–Kont2024** som
+  `EKSAMENSANALYSE.md` faktisk har gjennomgått. **Nevneren i alle frekvenstall
+  er 13** — «12 av 13 sett», aldri «av 29» eller «av 56».
+- **De eldre settene (2003–2014) inngår IKKE i frekvenstallene** — de er ikke
+  gjennomgått i analysen, og pensum har drevet over tjue år. De skal likevel
+  nevnes i kildenoten, fordi de finnes og fordi de gir dekning for én reell
+  påstand: **oppgavetradisjonen i dette emnet er gammel og stabil**. Formuler
+  det omtrent slik: «Arkivet rekker tilbake til 2003; frekvenstallene bygger på
+  de 13 settene fra 2015 og framover, som er gjennomgått oppgave for oppgave,
+  mens de eldre settene viser at oppgavetradisjonen har ligget fast lenge.»
+  Ikke bruk de eldre settene som belegg for noe konkret tema eller tall.
+- Arkivet inneholder **kun høst- og kontinuasjonseksamener** — emnet har aldri
+  hatt våreksamen, så det finnes ingen vårsett å savne. Det kan sies rett ut.
 - **Forbehold som SKAL med:** ingen 2021-sett i arkivet; `Matte4D-2016H-LF`,
   `-2016Kont`/`-2016Kont-LF` og `-2017Kont-LF` er skannede/håndskrevne og lot
   seg ikke tekstutvinne, så for disse settene bygger analysen på
@@ -538,22 +550,25 @@ grunnlaget skal beskrive arkivet **nøyaktig slik det er**:
   (DFT, innfelt RK-par, Gauss–Legendre) er konsentrert i 2022–2024 og har tynt
   belegg.
 - **Bruk ALDRI ordet «sensorveiledning»** som kildetype. Arkivet består av
-  oppgavesett og **løsningsforslag** (offisielle fasiter, flere med intern
-  poengfordeling). Metaregler om retting formuleres som «løsningsforslagene
-  viser/krever …», aldri «sensor sier …» når belegget er et løsningsforslag.
-  Der boka bruker ordet «sensorkrav», skal det være tydelig at kravet er lest
-  ut av oppgaveinstruksen og fasitpraksisen.
+  oppgavesett og **løsningsforslag** — alle 27 er interne, faglærerskrevne og
+  opphavsrettslig vernede fasiter (flere med intern poengfordeling). De er
+  fasitkilde, aldri gjengitt. Metaregler om retting formuleres som
+  «løsningsforslagene viser/krever …», aldri «sensor sier …» når belegget er et
+  løsningsforslag. Der boka bruker ordet «sensorkrav», skal det være tydelig at
+  kravet er lest ut av oppgaveinstruksen og fasitpraksisen.
 - **Modellbesvarelser er nyskrevne** og skal alltid omtales slik — aldri som
   ekte studentbesvarelser.
 - Frekvenstall = telte belegg: hver «N av M sett»-påstand skal stemme eksakt
   med skjelettets tall. Ikke oppfinn nye prosenter.
 
-> **Merknad til byggelederen (ikke innhold i boka):** kø-/promptmateriale har
-> oppgitt arkivet til «86 filer (42 oppgavesett + 44 løsningsforslag)». Det
-> stemmer ikke med hverken `EKSAMENSANALYSE.md` §8 eller arkivmappa, som begge
-> viser 26 PDF-er. Tallene over er de verifiserte. Skulle arkivet senere
-> utvides, må EKSAMENSANALYSE.md oppdateres FØR kildenoten endres — kildenoten
-> følger arkivet, ikke omvendt.
+> **Merknad til byggelederen (ikke innhold i boka):** tre tall har vært i
+> omløp — 86 (søk i filsti, ikke filnavn), 26 (bare mappa `NTNU/TMA4135/`) og
+> det korrekte **56 unike filer**, deduplisert på filnavn på tvers av mapper i
+> `ARKIVKONTROLL.md`. `EKSAMENSANALYSE.md` §8 sier fortsatt 26 og skal
+> oppdateres med arkivkontrollen som kilde, slik at analysen og kildenoten ikke
+> motsier hverandre. **Frekvensnevneren 13 endres uansett ikke** — den følger
+> hva analysen har gjennomgått, ikke hvor mange filer som finnes. Kildenoten
+> følger analysen; analysen følger arkivet.
 
 ---
 
@@ -778,9 +793,10 @@ automatisk av plattformen; ved wiring registreres boka på institusjon `ntnu`).
     ikke bokas egne nyanser som «galt».
 21. **Hints** utfylt på alle `exercise` (unntatt den merkede kalde banken i
     9.1); første hint røper aldri konklusjonen.
-22. **Frekvenstall** = skjelettets telte belegg med nevner 13; kildenoten
-    følger §12 (26 filer, oppgavesett + løsningsforslag, ingen
-    «sensorveiledning», forbeholdene med).
+22. **Frekvenstall** = skjelettets telte belegg med nevner 13 (aldri «av 29»
+    eller «av 56»); kildenoten følger §12 (56 unike filer, 29 oppgavesett + 27
+    løsningsforslag, eldre sett 2003–2014 nevnt men utenfor frekvensgrunnlaget,
+    ingen «sensorveiledning», forbeholdene med).
 23. **Alle tallsvar numerisk etterregnet** med `python3` (§13.3); all
     Python-kode faktisk kjørt (§13.5).
 24. **Figurkrav:** hver «skissér/tegn»-forespørsel i oppgave, eksempel eller

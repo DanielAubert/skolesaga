@@ -280,6 +280,24 @@ Basert på den svært stabile malen: **8–10 poengvektede oppgaver over 4 timer
 
 ---
 
+
+> **ARKIVKONTROLL 29. juli 2026 — dette avsnittet undervurderte arkivet.**
+> Analysen så bare i `NTNU/TMA4135/` (26 filer). En full opptelling på filnavn
+> gir **56 unike filer: 29 oppgavesett og 27 løsningsforslag**. De 30 øvrige
+> ligger under søsteremnene `TMA4123/`, `TMA4125/` og `TMA4130/` med den eldre
+> navnekonvensjonen `tma4135_05h.pdf`, fordi NTNUs Matematikk 4-serie har byttet
+> emnekode flere ganger. De dekker 2003–2014; mappa over har 2015–2024.
+>
+> **Alle 56 er høst eller kontinuasjon. Emnet har aldri hatt våreksamen.**
+>
+> Frekvensnevneren i boka forblir likevel **13** — settene denne analysen
+> faktisk har gjennomgått. De eldre er ikke analysert, og pensum har drevet over
+> tjue år, så de skal ikke telles. De nevnes i kildegrunnlaget som dekning for
+> at oppgavetradisjonen er gammel og stabil, aldri som belegg for et konkret
+> tema eller tall.
+>
+> Full utregning: `docs/hoyskole-boker/tma4135/ARKIVKONTROLL.md`.
+
 ## 8. Kildeliste
 
 Alle filer ligger i `/Users/danielandreasaubert/Desktop/Eksamner/NTNU/TMA4135/` (~26 PDF-er).
