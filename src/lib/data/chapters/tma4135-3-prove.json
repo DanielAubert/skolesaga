@@ -1,0 +1,348 @@
+{
+  "id": "tma4135-3-prove",
+  "courseId": "tma4135",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Fourier-rekker",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: reell rekke med symmetri, halvintervall-utvidelse med skisse og midling, kompleks form med broen til $a_n$ og $b_n$, og en full eksamensoppgave med tallrekkesum. Fire prøver à 30–45 min — kan tas som separate økter.",
+  "estimatedMinutes": 140,
+  "competenceGoals": [
+    "løse fulle Fourier-rekke-oppgaver under tidspress, med begrunnet symmetri og markerte tabelloppslag",
+    "utvide en funksjon fra et halvintervall, skissere utvidelsen over flere perioder og behandle midlingen i hvert sprang",
+    "veksle sikkert mellom kompleks og reell form, og bruke konjugert symmetri som kontroll",
+    "føre en flertrinns eksamensoppgave der delpunktene bygger på hverandre, og isolere en tallrekkesum til slutt"
+  ],
+  "content": [
+    {
+      "id": "tma4135-3-prove-om-provene",
+      "type": "tip",
+      "title": "Om prøvene til del 3",
+      "content": "**Fire prøver à 30–45 minutter, til sammen 140 minutter.**\n\n- **Prøve 3.A (35 min, 35 poeng):** reell rekke med symmetriutnyttelse og delvis integrasjon.\n- **Prøve 3.B (30 min, 30 poeng):** halvintervall-utvidelse, skisse og midling i sprang.\n- **Prøve 3.C (30 min, 30 poeng):** kompleks Fourier-rekke og broen til $a_n$ og $b_n$.\n- **Prøve 3.D (45 min, 45 poeng):** full Fourier-oppgave på eksamensnivå, med skisse og tallrekkesum.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Hver enkelt er kort nok til å passe på slutten av en leseøkt, og de bygger ikke på hverandre.\n\n**Om tempoet.** Ett poeng per minutt er raskere enn eksamenstakten, som ligger på rundt 24 minutter per oppgave på 10 poeng. Det er med vilje: her er hver oppgave rendyrket på én ferdighet, uten den lesetiden en full eksamensoppgave krever. Minuttene per deloppgave er oppgitt i oppgaveteksten og summerer seg til den deklarerte tiden.\n\n**Hver prøve avsluttes med fire raske spørsmål med svaralternativer.** De ligger nederst i prøven, teller ikke poeng, og er en **treningsform** — settene i dette emnet har aldri hatt en avkryssingsdel.\n\n**Slik bruker du prøvene:** ta dem på tid, uten fasit og uten kapitlene oppslått. Du har lov til å bruke kalkulator, og du skal late som du har det utdelte formelarket foran deg — når du trenger en reduksjonsformel, noter «fra formelarket» og bruk den. Skriv fullstendige svar med utregning og med **navnet på metoden** du bruker; det er en del av kravet om at alle svar skal begrunnes. Åpne løsningsforslaget først etterpå, og kryss av i selvdiagnosen.\n\n**Formelark-merking.** **Reduksjonsformlene for $\\int x^n\\cos ax\\,dx$ og $\\int x^n\\sin ax\\,dx$ og de trigonometriske identitetene står på det utdelte formelarket — tren oppslaget.** Alt annet i Del 3 — koeffisientintegralene, symmetriregelen, utvidelsesreglene, konvergensteoremet og broformlene — **må kunnes** eller utledes aktivt.\n\n**Karakterrealisme.** Får du de mekaniske delpunktene til å sitte — riktig $L$, riktig paritet, riktige integraler — ligger du på et solid C, som er en god og vanlig karakter. Forskjellen opp mot A i denne delen ligger i tre ting: at symmetrien blir *begrunnet*, at midlingen i sprang blir *behandlet*, og at tallrekkesummen faktisk blir *isolert* til slutt.\n\nAlle oppgavene er nyskrevne for denne boka."
+    },
+    {
+      "id": "tma4135-3-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 3.1](/tma4135/tma4135-3-1) (koeffisientintegralene, symmetriregelen, delvis integrasjon), [kap. 3.2](/tma4135/tma4135-3-2) (halvintervall-utvidelser, konvergensteoremet, midling, tallrekkesummer) og [kap. 3.3](/tma4135/tma4135-3-3) (kompleks form og broformlene). [Kap. 3.4](/tma4135/tma4135-3-4) er ikke nødvendig, men gir god trening før prøvene.\n\nFra tidligere matematikkemner trengs bestemt integral og delvis integrasjon. Ingenting utover det."
+    },
+    {
+      "id": "tma4135-3-prove-intro",
+      "type": "text",
+      "content": "Under ligger de fire prøvene, hver i sin egen boks du kan åpne når du er klar. Løsningsforslagene er ført som toppbesvarelser: hvert mellomsteg er med, metodenavnet er skrevet ut, tabelloppslagene er markert, og kontrollregningen står der. Det er den føringen som gir full uttelling — ikke et riktig sluttsvar alene."
+    },
+    {
+      "id": "tma4135-3-prove-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 3.A — Reell rekke med symmetri og delvis integrasjon (35 min)",
+      "buttonText": "Vis prøve 3.A",
+      "content": [
+        {
+          "id": "tma4135-3-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 3.A — Reell rekke med symmetri og delvis integrasjon.** 35 minutter, 35 poeng. Kalkulator tillatt. Du kan bruke reduksjonsformlene som om du hadde formelarket foran deg — noter hvilken rad du bruker.\n\nTidsbudsjett: oppgave 1 ~14 min (14 poeng), oppgave 2 ~12 min (12 poeng), oppgave 3 ~9 min (9 poeng)."
+        },
+        {
+          "id": "tma4135-3-prove-A-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(14 poeng, ~14 min) La $f(x) = x^2-2$ på $[-2,2]$, utvidet periodisk med periode 4.\n\n**a)** Avgjør om $f$ er like, odde eller ingen av delene, og si hvilke koeffisienter som dermed er null. (3 poeng)\n**b)** Finn Fourier-rekka til $f$. (8 poeng)\n**c)** Kontroller rekka ved å sette inn $x=2$. (3 poeng)",
+            "solution": "**a)** Sett inn $-x$: $(-x)^2-2 = x^2-2 = f(x)$. Funksjonen er **like**. Etter symmetriregelen er derfor $b_n = 0$ for alle $n$, og vi trenger bare $a_0$ og $a_n$.\n\nHalvperioden er $L=2$ (perioden er 4), så argumentet i rekka blir $\\frac{n\\pi x}{2}$.\n\n**b) Konstantleddet.** Med den halverte formelen for like funksjoner:\n$$a_0 = \\frac{1}{2}\\int_0^2\\left(x^2-2\\right)dx = \\frac12\\left[\\frac{x^3}{3}-2x\\right]_0^2 = \\frac12\\left(\\frac83-4\\right) = \\frac12\\cdot\\left(-\\frac43\\right) = -\\frac23.$$\n\n*Rimelighetssjekk:* $x^2-2$ går fra $-2$ til $2$ på $[0,2]$, og $-\\tfrac23$ ligger innenfor. Bra.\n\n**Cosinuskoeffisientene.**\n$$a_n = \\frac{2}{2}\\int_0^2\\left(x^2-2\\right)\\cos\\frac{n\\pi x}{2}\\,dx = \\int_0^2 x^2\\cos\\frac{n\\pi x}{2}\\,dx - 2\\int_0^2\\cos\\frac{n\\pi x}{2}\\,dx.$$\n\nDet siste integralet er $2\\left[\\frac{2\\sin(n\\pi x/2)}{n\\pi}\\right]_0^2 = \\frac{4\\sin n\\pi}{n\\pi} = 0$.\n\nDet første, **fra reduksjonsformelen på det utdelte formelarket** med $a = \\frac{n\\pi}{2}$:\n$$\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a}+\\frac{2x\\cos ax}{a^2}-\\frac{2\\sin ax}{a^3}.$$\nI $x=2$ er $\\sin n\\pi = 0$, så første og tredje ledd forsvinner; midtleddet gir\n$$\\frac{2\\cdot 2\\cos n\\pi}{\\left(n\\pi/2\\right)^2} = \\frac{4(-1)^n\\cdot 4}{n^2\\pi^2} = \\frac{16(-1)^n}{n^2\\pi^2}.$$\nI $x=0$ er alt null. Altså\n$$a_n = \\frac{16(-1)^n}{n^2\\pi^2}.$$\n\n**Rekka.**\n$$x^2-2 = -\\frac23+\\frac{16}{\\pi^2}\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{n^2}\\cos\\frac{n\\pi x}{2}, \\qquad -2\\le x\\le 2.$$\nSkrevet ut: $-\\tfrac23 - \\frac{16}{\\pi^2}\\cos\\frac{\\pi x}{2}+\\frac{4}{\\pi^2}\\cos\\pi x - \\frac{16}{9\\pi^2}\\cos\\frac{3\\pi x}{2}+\\cdots$\n\n**c) Kontroll i $x=2$.** Venstre side er $4-2 = 2$. I rekka er $\\cos\\left(\\frac{n\\pi\\cdot 2}{2}\\right) = \\cos n\\pi = (-1)^n$, så $(-1)^n\\cos n\\pi = 1$ for alle $n$:\n$$-\\frac23+\\frac{16}{\\pi^2}\\sum_{n=1}^{\\infty}\\frac{1}{n^2} = -\\frac23+\\frac{16}{\\pi^2}\\cdot\\frac{\\pi^2}{6} = -\\frac23+\\frac83 = 2.$$\nStemmer.\n\n*(Her brukte vi den kjente summen $\\sum 1/n^2 = \\pi^2/6$. Kjenner du den ikke igjen, kan du snu regnestykket og bruke kontrollen til å **utlede** den — det er nettopp delpunkt (c) i mange eksamensoppgaver.)*",
+            "hints": [
+              "Sett inn $-x$ og sammenlikn. Hva sier symmetriregelen da om $b_n$?",
+              "$L=2$, så argumentet er $n\\pi x/2$ og $a = n\\pi/2$ i reduksjonsformelen. Husk at $a^2 = n^2\\pi^2/4$.",
+              "Konstantleddet $-2$ bidrar ikke til $a_n$ for $n\\ge1$ — bare til $a_0$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-A-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~12 min) La $f(x) = x+x^2$ på $[-\\pi,\\pi]$ med periode $2\\pi$.\n\n**a)** Forklar hvorfor $f$ verken er like eller odde, og beskriv hvordan du likevel kan halvere arbeidet. (4 poeng)\n**b)** Finn Fourier-rekka. (8 poeng)",
+            "solution": "**a)** $f(-x) = -x+x^2$, som verken er $f(x)$ eller $-f(x)$. Funksjonen er altså **ingen av delene**.\n\n**Men den kan splittes.** Skriv $f = g+h$ med $g(x)=x$ (odde) og $h(x)=x^2$ (like). Fourier-koeffisienter er **lineære**: koeffisientene til en sum er summen av koeffisientene. Derfor er\n\n- den odde delen $g$ ansvarlig for **alle** $b_n$, og bidrar ingenting til $a_0$ og $a_n$;\n- den like delen $h$ ansvarlig for $a_0$ og **alle** $a_n$, og bidrar ingenting til $b_n$.\n\nVi kan altså regne to halve oppgaver i stedet for én hel — og hver av dem har symmetri å utnytte.\n\n**b)** Halvperiode $L=\\pi$, argument $nx$.\n\n**Fra den like delen $x^2$:**\n$$a_0 = \\frac{1}{\\pi}\\int_0^{\\pi}x^2\\,dx = \\frac{\\pi^2}{3}.$$\n$$a_n = \\frac{2}{\\pi}\\int_0^{\\pi}x^2\\cos nx\\,dx.$$\n**Fra reduksjonsformelen på det utdelte formelarket** med $a=n$: i $x=\\pi$ forsvinner begge sinusleddene, og midtleddet gir $\\frac{2\\pi(-1)^n}{n^2}$; i $x=0$ er alt null. Altså\n$$a_n = \\frac{2}{\\pi}\\cdot\\frac{2\\pi(-1)^n}{n^2} = \\frac{4(-1)^n}{n^2}.$$\n\n**Fra den odde delen $x$:**\n$$b_n = \\frac{2}{\\pi}\\int_0^{\\pi}x\\sin nx\\,dx.$$\n**Fra søsterformelen på arket:** $\\left[-\\frac{x\\cos nx}{n}+\\frac{\\sin nx}{n^2}\\right]_0^{\\pi} = -\\frac{\\pi(-1)^n}{n}$, så\n$$b_n = \\frac{2}{\\pi}\\cdot\\left(-\\frac{\\pi(-1)^n}{n}\\right) = \\frac{2(-1)^{n+1}}{n}.$$\n\n**Rekka.**\n$$x+x^2 = \\frac{\\pi^2}{3}+\\sum_{n=1}^{\\infty}\\left(\\frac{4(-1)^n}{n^2}\\cos nx+\\frac{2(-1)^{n+1}}{n}\\sin nx\\right), \\qquad -\\pi<x<\\pi.$$\n\n**Kontroll i $x=\\pi/2$.** Venstre side: $\\frac{\\pi}{2}+\\frac{\\pi^2}{4} \\approx 1{,}5708+2{,}4674 = 4{,}0382$.\nHøyre side: cosinusleddene har $\\cos\\frac{n\\pi}{2}$, som er 0 for odde $n$ og $(-1)^{n/2}$ for like; sinusleddene har $\\sin\\frac{n\\pi}{2}$, som er 0 for like $n$. Med $n=2k$ i cosinusdelen: $\\frac{4}{4k^2}(-1)^{2k}(-1)^k = \\frac{(-1)^k}{k^2}$, og $\\sum_k\\frac{(-1)^k}{k^2} = -\\frac{\\pi^2}{12}$. Med $n=2m+1$ i sinusdelen: $\\frac{2(-1)^m}{2m+1}$, og summen er $2\\cdot\\frac{\\pi}{4} = \\frac{\\pi}{2}$.\nTil sammen: $\\frac{\\pi^2}{3}-\\frac{\\pi^2}{12}+\\frac{\\pi}{2} = \\frac{\\pi^2}{4}+\\frac{\\pi}{2} \\approx 4{,}0382$. Stemmer.\n\n**Alternativ metode.** Du kan også regne alle tre integralene direkte over $[-\\pi,\\pi]$ uten å splitte. Det gir samme svar, men tar rundt dobbelt så lang tid og har dobbelt så mange fortegn å bomme på. **Begge veier gir full uttelling — men si hvilken du bruker.**",
+            "hints": [
+              "Kan $f$ skrives som en odde funksjon pluss en like funksjon?",
+              "Fourier-koeffisienter er lineære: koeffisienten til en sum er summen av koeffisientene.",
+              "Behandle $x$ og $x^2$ hver for seg, og bruk symmetriregelen på hver av dem."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-A-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(9 poeng, ~9 min) Ta rekka fra oppgave 1.\n\n**a)** Hva konvergerer rekka mot i $x=2$? Begrunn. (3 poeng)\n**b)** Hva konvergerer den mot i $x=5$? (3 poeng)\n**c)** Anslå, uten å regne, hvor raskt koeffisientene faller, og begrunn anslaget mot svaret i oppgave 1b. (3 poeng)",
+            "solution": "**a)** Den periodiske utvidelsen av $x^2-2$ med periode 4 møter seg selv i $x=2$: fra venstre kommer $f(2^-) = 2$, og fra høyre kommer $f(-2^+) = 2$, siden $(-2)^2-2 = 2$. Nivåene er like, så utvidelsen er **kontinuerlig** i $x=2$ — det er en knekk, ikke et sprang.\n\n**Etter konvergensteoremet** gir rekka derfor funksjonsverdien: **2**.\n\n**b)** Perioden er 4, så $f(5) = f(5-4) = f(1) = 1-2 = -1$. Punktet $x=1$ ligger i det indre av grunnintervallet, der utvidelsen er kontinuerlig. Rekka gir **$-1$**.\n\n**c)** Utvidelsen er **kontinuerlig med knekk** (den henger sammen i $x=\\pm2$, men den deriverte hopper fra $+4$ til $-4$ der). Etter tommelfingerregelen faller koeffisientene da som $1/n^2$.\n\nDet stemmer med svaret i 1b, der $a_n = \\frac{16(-1)^n}{n^2\\pi^2}$ — nevneren har $n^2$.\n\n*Hadde utvidelsen hatt et sprang, ville fallet vært $1/n$; hadde både funksjonen og den deriverte vært kontinuerlige, ville det vært $1/n^3$ eller raskere.*",
+            "hints": [
+              "Sjekk om nivåene møtes i $x=2$: hva er $f(2)$ og hva er $f(-2)$?",
+              "For b): bruk periodisiteten til å flytte $x=5$ inn i grunnintervallet.",
+              "For c): sprang gir $1/n$, knekk gir $1/n^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-A-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\nKryss av ett svar på hver. Dette er en treningsform boka bruker for rask selvkontroll — settene i dette emnet har ingen slik del.\n\n**1.** En funksjon er gitt på $[-3,3]$ med periode 6. Hva er argumentet i Fourier-rekka? **a)** $3n\\pi x$ · **b)** $6n\\pi x$ · **c)** $\\dfrac{n\\pi x}{3}$ · **d)** $\\dfrac{n\\pi x}{6}$\n\n**2.** Hvilken nevner har formelen for $a_0$? **a)** $2L$ · **b)** $L$ · **c)** $\\pi$ · **d)** $n\\pi$\n\n**3.** Funksjonen $f(x)=x^3+x$ på $[-\\pi,\\pi]$ er: **a)** like · **b)** verken like eller odde · **c)** periodisk med periode $\\pi$ · **d)** odde\n\n**4.** Koeffisientene til en periodisk utvidelse med sprang faller typisk som: **a)** $1/n^3$ · **b)** $1/n$ · **c)** $1/n^2$ · **d)** konstant"
+        },
+        {
+          "id": "tma4135-3-prove-A-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1c · 2a · 3d · 4b.**\n\n**1c:** perioden er 6, så halvperioden er $L=3$, og argumentet er $\\frac{n\\pi x}{L} = \\frac{n\\pi x}{3}$. Alternativ **d** bruker perioden i stedet for halvperioden — en nær-sann felle som gir feil frekvens i alle ledd.\n**2a:** $a_0 = \\frac{1}{2L}\\int_{-L}^{L}f\\,dx$. Alternativ **b** er nevneren i $a_n$ og $b_n$, og forveksling av de to gir konstantledd som er dobbelt eller halvparten så stort.\n**3d:** både $x^3$ og $x$ er odde, og en sum av odde funksjoner er odde. Alternativ **b** ville vært riktig hvis det sto $x^3+x^2$.\n**4b:** sprang gir $1/n$. Alternativ **c** hører til en kontinuerlig utvidelse med knekk, som i oppgave 1."
+        },
+        {
+          "id": "tma4135-3-prove-A-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 3.A\n\nKryss av det du faktisk gjorde, ikke det du kunne ha gjort.\n\n☐ Jeg skrev ned halvperioden $L$ før jeg gjorde noe annet.\n\n☐ Jeg **begrunnet** pariteten med én linje ($f(-x)=f(x)$), ikke bare påsto den.\n\n☐ Jeg brukte den halverte formelen med faktor $2/L$ der symmetrien tillot det.\n\n☐ Jeg noterte hvilken reduksjonsformel jeg slo opp, og hvilken $a$ jeg satte inn.\n\n☐ Jeg sjekket at $a^2 = n^2\\pi^2/4$ da $a = n\\pi/2$ — altså at jeg ikke mistet en faktor 4.\n\n☐ Jeg kontrollerte rekka ved å sette inn en verdi, og fikk funksjonsverdien.\n\n☐ I oppgave 2 splittet jeg funksjonen i en odde og en like del i stedet for å regne alt direkte.\n\n☐ Jeg begrunnet konvergensverdiene med kontinuitet eller midling, ikke bare skrev tallet.\n\n**Færre enn fem kryss?** Les [kap. 3.1](/tma4135/tma4135-3-1) løkke 2 og 3 på nytt, og gjør oppgave 5 og 7 der før du går videre til prøve 3.B."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-3-prove-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 3.B — Halvintervall-utvidelse, skisse og midling (30 min)",
+      "buttonText": "Vis prøve 3.B",
+      "content": [
+        {
+          "id": "tma4135-3-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 3.B — Halvintervall-utvidelse, skisse og midling.** 30 minutter, 30 poeng. Kalkulator tillatt.\n\nTidsbudsjett: oppgave 1 ~16 min (16 poeng), oppgave 2 ~8 min (8 poeng), oppgave 3 ~6 min (6 poeng).\n\nDenne prøven tester den varianten som oftest står som delpunkt (a) og (b) på eksamen: utvid, skissér, og si hva rekka gir i sprangene."
+        },
+        {
+          "id": "tma4135-3-prove-B-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(16 poeng, ~16 min) En funksjon er gitt ved $f(x) = 2-x$ for $0 \\le x \\le 2$.\n\n**a)** Utvid $f$ til en **odde** funksjon $g$ med periode 4, skriv opp $g$ på $[-2,0]$, og skissér $g$ på $[-4,4]$. Marker sprangene og verdien rekka konvergerer mot i hvert av dem. (6 poeng)\n**b)** Finn Fourier-rekka til $g$. (10 poeng)",
+            "solution": "**a) Utvidelsen.** Den odde utvidelsen er definert ved $g(x) = -f(-x)$ for $x<0$:\n$$g(x) = -\\left(2-(-x)\\right) = -(2+x), \\qquad -2<x<0,$$\nog $g(x) = 2-x$ på $(0,2)$, gjentatt med periode 4.\n\n*Kontroll av at $g$ faktisk er odde:* for $0<x<2$ er $g(-x) = -(2+(-x)) = -(2-x) = -g(x)$. Stemmer.\n\n**Sprangene.** I $x=0$ er $g(0^+) = 2$ og $g(0^-) = -2$, altså et sprang med springhøyde $-4$. **Etter konvergensteoremet** gir rekka $\\tfrac12\\left(2+(-2)\\right) = 0$ der. Ved periodisitet gjentar det samme spranget seg i $x=\\pm4$.\n\nI $x=\\pm2$ er derimot $g(2^-) = 0$ og $g(2^+) = g(-2^+) = -(2+(-2)) = 0$: utvidelsen er **kontinuerlig** der, med verdien 0. Ingen midling å gjøre.\n\n*(Skissen ligger under.)*\n\n**b) Rekka.** $g$ er odde, så $a_0 = 0$ og $a_n = 0$ for alle $n$. Halvperioden er $L=2$, argument $\\frac{n\\pi x}{2}$:\n$$b_n = \\frac{2}{2}\\int_0^2 (2-x)\\sin\\frac{n\\pi x}{2}\\,dx = 2\\int_0^2\\sin\\frac{n\\pi x}{2}\\,dx - \\int_0^2 x\\sin\\frac{n\\pi x}{2}\\,dx.$$\n\n*Første integral:*\n$$2\\left[-\\frac{2\\cos(n\\pi x/2)}{n\\pi}\\right]_0^2 = \\frac{4\\left(1-(-1)^n\\right)}{n\\pi}.$$\n\n*Andre integral,* **fra reduksjonsformelen på det utdelte formelarket** med $a=\\frac{n\\pi}{2}$:\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}.$$\nI $x=2$ er $\\sin n\\pi = 0$, så bare første ledd bidrar: $-\\frac{2(-1)^n}{n\\pi/2} = -\\frac{4(-1)^n}{n\\pi}$. I $x=0$ er alt null. Med minustegnet foran integralet blir bidraget $+\\frac{4(-1)^n}{n\\pi}$.\n\n*Til sammen:*\n$$b_n = \\frac{4\\left(1-(-1)^n\\right)}{n\\pi}+\\frac{4(-1)^n}{n\\pi} = \\frac{4-4(-1)^n+4(-1)^n}{n\\pi} = \\frac{4}{n\\pi}.$$\n\nAlle $n$ bidrar, og koeffisientene er så enkle som de kan bli:\n$$g(x) = \\frac{4}{\\pi}\\sum_{n=1}^{\\infty}\\frac{1}{n}\\sin\\frac{n\\pi x}{2}.$$\n\n**Kontroll i $x=1$.** Venstre side er $2-1 = 1$. Høyre side: $\\sin\\frac{n\\pi}{2}$ er $1,0,-1,0,\\dots$, så summen blir $\\frac{4}{\\pi}\\left(1-\\tfrac13+\\tfrac15-\\cdots\\right) = \\frac{4}{\\pi}\\cdot\\frac{\\pi}{4} = 1$. Stemmer.\n\n**Merk fallet $1/n$.** Utvidelsen hopper i $x=0$, og da faller koeffisientene sakte. Hadde vi valgt den **like** utvidelsen i stedet, ville vi fått en kontinuerlig trekantbølge og koeffisienter som $1/n^2$ — samme funksjon på $[0,2]$, helt ulik konvergens.",
+            "hints": [
+              "Odde utvidelse: $g(x) = -f(-x)$ for $x<0$. Sett inn og forenkle.",
+              "Sjekk om nivåene møtes i $x=2$ — er det sprang eller ikke?",
+              "Del integralet i konstanten 2 og leddet $-x$, og slå opp $\\int x\\sin ax\\,dx$ med $a=n\\pi/2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-B-fig",
+          "type": "image",
+          "src": "/images/textbook/tma4135/fourier-utvidelse-prove-3b.svg",
+          "alt": "Graf over den odde periodiske utvidelsen med periode fire av funksjonen to minus x på intervallet null til to. Kurven faller fra to til minus to over hver periode, med loddrette sprang i null og i plus og minus fire. Prikker på x-aksen markerer midlingsverdien null i sprangene.",
+          "caption": "Fasitskissen til oppgave 1a: den odde utvidelsen tegnet over to hele perioder. Sprangene ligger i $x=0$ og $x=\\pm4$, alle med midlingsverdi 0; i $x=\\pm2$ er utvidelsen kontinuerlig med verdien 0."
+        },
+        {
+          "id": "tma4135-3-prove-B-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~8 min) Bruk rekka fra oppgave 1 og angi hva den konvergerer mot i punktene $x=0$, $x=1$, $x=2$, $x=3$ og $x=4$. Begrunn hvert svar. (Ett poeng per punkt for tallet, ett per punkt for begrunnelsen — bortsett fra $x=1$, som gir ett poeng.)",
+            "solution": "Utvidelsen $g$ er $2-x$ på $(0,2)$ og $-(2+x)$ på $(-2,0)$, gjentatt med periode 4.\n\n- **$x=0$:** **sprang.** $g(0^+)=2$, $g(0^-)=-2$. **Etter konvergensteoremet** gir rekka $\\tfrac12(2-2) = \\mathbf{0}$. *(Rekka er også null her uansett, siden $\\sin 0 = 0$ i hvert ledd.)*\n- **$x=1$:** kontinuerlig, funksjonsverdi $2-1=1$. Rekka gir **1**.\n- **$x=2$:** $g(2^-)=0$ og $g(2^+)=g(-2^+)=0$. **Kontinuerlig** med verdien 0, så rekka gir **0**. *(Også her stemmer det direkte: $\\sin\\left(\\frac{n\\pi\\cdot2}{2}\\right)=\\sin n\\pi = 0$.)*\n- **$x=3$:** ligger i det indre av neste periode. Ved periodisitet er $g(3)=g(3-4)=g(-1) = -(2+(-1)) = -1$. Kontinuerlig, så rekka gir **$-1$**.\n- **$x=4$:** samme som $x=0$ ved periodisitet: **sprang**, og rekka gir **0**.\n\n**Legg merke til at tre av de fem svarene er 0, men av tre ulike grunner:** i $x=0$ og $x=4$ er det midling mellom $2$ og $-2$; i $x=2$ er funksjonen faktisk 0. **Det er begrunnelsen som gir uttelling**, ikke tallet — fem riktige nuller uten forklaring gir omtrent halv poengsum.",
+            "hints": [
+              "Tegn utvidelsen og finn de to ensidige grensene i hvert punkt før du midler.",
+              "Bruk periodisiteten til å flytte $x=3$ og $x=4$ inn i grunnintervallet.",
+              "Husk at et punkt kan gi 0 både fordi funksjonen er 0 og fordi midlingen er 0 — si hvilken."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-B-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(6 poeng, ~6 min) Samme funksjon $f(x)=2-x$ på $[0,2]$, men nå med **like** utvidelse og periode 4.\n\n**a)** Beskriv i ord hvordan den like utvidelsen ser ut, og si om den har sprang. (3 poeng)\n**b)** Hvilken av de to utvidelsene gir raskest konvergerende rekke, og hvorfor? (3 poeng)",
+            "solution": "**a)** Den like utvidelsen er $f_{\\text{like}}(x) = 2-|x|$ på $[-2,2]$, gjentatt med periode 4. Grafisk er det en **trekantbølge**: den topper seg på 2 i $x=0$, faller lineært til 0 i $x=\\pm2$, og speiler seg videre.\n\n**Ingen sprang.** I $x=0$ møter kurven seg selv på nivå 2 (knekk), og i $x=\\pm2$ møter den neste periode på nivå 0 — også der uten hopp, fordi $f(2)=0$. Utvidelsen er kontinuerlig overalt, og rekka gir funksjonsverdien i hvert punkt.\n\n**b)** Den **like** utvidelsen konvergerer raskest.\n\nBegrunnelsen er kontinuitet: den odde utvidelsen har et sprang med høyde 4 i $x=0$, og sprang gir koeffisienter som faller som $1/n$ — vi så det i oppgave 1, der $b_n = \\frac{4}{n\\pi}$. Den like utvidelsen er kontinuerlig med bare knekk, og gir koeffisienter som faller som $1/n^2$.\n\n*For å sette tall på det:* med 10 ledd er restleddet i den odde rekka av størrelsesorden $1/10$, mens det i den like rekka er av størrelsesorden $1/100$.\n\n**Praktisk konsekvens:** står du fritt til å velge utvidelse, velg den som gir kontinuerlig periodisk utvidelse. I Del 5 står du sjelden fritt — der er det randbetingelsene som bestemmer speilingen.",
+            "hints": [
+              "Den like utvidelsen av $2-x$ er $2-|x|$ — tegn den.",
+              "Sjekk begge endene: møtes nivåene i $x=0$ og i $x=\\pm2$?",
+              "Sprang gir $1/n$, knekk gir $1/n^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-B-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\n**1.** Den odde utvidelsen av $f$ på $[0,L]$ har sprang i $x=0$ hvis og bare hvis: **a)** $f$ er ulineær · **b)** $f(0)\\ne0$ · **c)** $f(L)\\ne0$ · **d)** aldri\n\n**2.** Fourier-rekka i et sprang konvergerer mot: **a)** høyregrensen · **b)** venstregrensen · **c)** funksjonsverdien · **d)** gjennomsnittet av de to ensidige grensene\n\n**3.** En sinusrekke er automatisk null i: **a)** $x=0$ og $x=L$ · **b)** bare $x=0$ · **c)** bare $x=L$ · **d)** ingen punkter\n\n**4.** Gibbs-fenomenets oversving nærmer seg, som andel av springhøyden: **a)** 0 % · **b)** 50 % · **c)** ca. 9 % · **d)** ca. 18 %"
+        },
+        {
+          "id": "tma4135-3-prove-B-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1b · 2d · 3a · 4c.**\n\n**1b:** den odde utvidelsen krever $g(0^-) = -g(0^+) = -f(0)$, så det oppstår et hopp med mindre $f(0)=0$. Alternativ **c** handler om endepunktet $x=L$, der samme resonnement gir sprang hvis $f(L)\\ne0$ — riktig observasjon, men feil punkt.\n**2d:** midlingsverdien $\\tfrac12\\left(f(x^+)+f(x^-)\\right)$. Alternativ **c** er den hyppigste enkeltfeilen i hele Fourier-blokken.\n**3a:** hvert ledd $\\sin\\frac{n\\pi x}{L}$ er null både i $x=0$ og i $x=L$, der argumentet er $n\\pi$.\n**4c:** oversvinget går mot omtrent 9 % av springhøyden. Alternativ **d** er tallet regnet av *halve* springhøyden — nær sant, men målt mot feil størrelse."
+        },
+        {
+          "id": "tma4135-3-prove-B-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 3.B\n\n☐ Jeg skrev opp den utvidede funksjonen som **formel** på $[-L,0]$, ikke bare tegnet den.\n\n☐ Jeg kontrollerte at utvidelsen faktisk er odde ved å sette inn $-x$.\n\n☐ Jeg tegnet **minst to hele perioder**, ikke bare grunnintervallet.\n\n☐ Jeg satte en tydelig markering i hvert sprang, på midlingsverdien.\n\n☐ Jeg sjekket **begge** endepunktene ($x=0$ og $x=L$) for sprang, ikke bare det ene.\n\n☐ Jeg oppga begge ensidige grenser før jeg midlet.\n\n☐ Jeg begrunnet hvorfor tre av svarene i oppgave 2 ble 0, med tre ulike grunner.\n\n☐ Jeg koblet fallhastigheten $1/n$ til at utvidelsen hopper.\n\n**Færre enn fem kryss?** Les [kap. 3.2](/tma4135/tma4135-3-2) løkke 1 til 3 på nytt, og gjør oppgave 4 og 5 der før du går videre til prøve 3.C."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-3-prove-prove-C",
+      "type": "collapsible",
+      "title": "Prøve 3.C — Kompleks Fourier-rekke og broen til $a_n$, $b_n$ (30 min)",
+      "buttonText": "Vis prøve 3.C",
+      "content": [
+        {
+          "id": "tma4135-3-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 3.C — Kompleks Fourier-rekke og broen til $a_n$, $b_n$.** 30 minutter, 30 poeng. Kalkulator tillatt.\n\nTidsbudsjett: oppgave 1 ~15 min (15 poeng), oppgave 2 ~8 min (8 poeng), oppgave 3 ~7 min (7 poeng)."
+        },
+        {
+          "id": "tma4135-3-prove-C-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(15 poeng, ~15 min) La $f(x) = \\cosh x$ på $[-\\pi,\\pi]$, utvidet periodisk med periode $2\\pi$. Husk at $\\cosh x = \\tfrac12\\left(e^{x}+e^{-x}\\right)$.\n\n**a)** Begrunn hvorfor den komplekse formen er raskere enn den reelle her. (2 poeng)\n**b)** Finn de komplekse Fourier-koeffisientene $c_n$. (8 poeng)\n**c)** Utled $a_n$ og $b_n$ fra $c_n$, og kontroller mot pariteten til $f$. (5 poeng)",
+            "solution": "**a)** Integranden er en sum av eksponentialfunksjoner. Ganges den med $e^{-inx}$, blir hvert ledd **én** eksponential, og integralet er ferdig på én linje. Den reelle veien ville krevd delvis integrasjon to ganger for $a_n$ — og i tillegg for $b_n$, hvis vi ikke først hadde brukt symmetri.\n\n**b)** Halvperioden er $L=\\pi$, så\n$$c_n = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}\\cosh x\\,e^{-inx}\\,dx = \\frac{1}{2}\\left[\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}e^{x}e^{-inx}\\,dx+\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}e^{-x}e^{-inx}\\,dx\\right].$$\n\n*Første integral.*\n$$\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}e^{(1-in)x}\\,dx = \\frac{1}{2\\pi}\\left[\\frac{e^{(1-in)x}}{1-in}\\right]_{-\\pi}^{\\pi} = \\frac{e^{\\pi}e^{-in\\pi}-e^{-\\pi}e^{in\\pi}}{2\\pi\\left(1-in\\right)}.$$\nMed $e^{-in\\pi} = e^{in\\pi} = (-1)^n$ blir dette\n$$\\frac{(-1)^n\\left(e^{\\pi}-e^{-\\pi}\\right)}{2\\pi\\left(1-in\\right)} = \\frac{(-1)^n\\sinh\\pi}{\\pi\\left(1-in\\right)}.$$\n\n*Andre integral,* på samme måte med $-(1+in)$ i eksponenten:\n$$\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}e^{-(1+in)x}\\,dx = \\frac{(-1)^n\\sinh\\pi}{\\pi\\left(1+in\\right)}.$$\n\n*Summen, halvert:*\n$$c_n = \\frac{(-1)^n\\sinh\\pi}{2\\pi}\\left(\\frac{1}{1-in}+\\frac{1}{1+in}\\right) = \\frac{(-1)^n\\sinh\\pi}{2\\pi}\\cdot\\frac{(1+in)+(1-in)}{1+n^2} = \\frac{(-1)^n\\sinh\\pi}{\\pi\\left(1+n^2\\right)}.$$\n\n*Kontroll av $c_0$:* formelen gir $\\frac{\\sinh\\pi}{\\pi} \\approx 3{,}676$. Direkte: $\\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi}\\cosh x\\,dx = \\frac{1}{2\\pi}\\cdot 2\\sinh\\pi = \\frac{\\sinh\\pi}{\\pi}$. Stemmer.\n\n**Rekka.**\n$$\\cosh x = \\frac{\\sinh\\pi}{\\pi}\\sum_{n=-\\infty}^{\\infty}\\frac{(-1)^n}{1+n^2}e^{inx}, \\qquad -\\pi<x<\\pi.$$\n\n**c)** Koeffisientene er **reelle**, så $\\operatorname{Im}c_n = 0$. **Etter broformelen** for reell $f$:\n$$a_n = 2\\operatorname{Re}(c_n) = \\frac{2(-1)^n\\sinh\\pi}{\\pi\\left(1+n^2\\right)}, \\qquad b_n = -2\\operatorname{Im}(c_n) = 0, \\qquad a_0 = c_0 = \\frac{\\sinh\\pi}{\\pi}.$$\n\n**Kontroll mot pariteten.** $\\cosh(-x) = \\cosh x$, så $f$ er **like** — og en like funksjon skal ha $b_n=0$. Det stemmer. Regelen fra [kap. 3.3](/tma4135/tma4135-3-3) sier også at en reell, like funksjon har **rent reelle** $c_n$, og det er nettopp det vi fikk. To uavhengige kontroller peker samme vei.\n\n**Reell form:**\n$$\\cosh x = \\frac{\\sinh\\pi}{\\pi}+\\frac{2\\sinh\\pi}{\\pi}\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{1+n^2}\\cos nx.$$\n\n*Numerisk kontroll i $x=0$:* venstre side er 1. Høyre side: $\\frac{\\sinh\\pi}{\\pi}\\left(1+2\\sum_{n\\ge1}\\frac{(-1)^n}{1+n^2}\\right)$. Summen er $\\tfrac{-1}{2}+\\tfrac{1}{5}-\\tfrac1{10}+\\tfrac1{17}-\\cdots \\approx -0{,}3639$, så uttrykket blir $3{,}676\\cdot\\left(1-0{,}7279\\right) \\approx 1{,}000$. Stemmer.",
+            "hints": [
+              "Skriv $\\cosh x$ som en sum av to eksponentialfunksjoner og behandle dem hver for seg.",
+              "Slå sammen $e^{x}$ og $e^{-inx}$ til $e^{(1-in)x}$ — da er integralet elementært.",
+              "Legg de to brøkene $\\frac{1}{1-in}$ og $\\frac{1}{1+in}$ sammen over felles nevner."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-C-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~8 min) En $2\\pi$-periodisk funksjon har komplekse Fourier-koeffisienter\n\n$$c_0 = -1, \\qquad c_n = \\frac{2i(-1)^{n+1}}{n} \\ \\ (n\\ne0).$$\n\n**a)** Avgjør om funksjonen er reell. (3 poeng)\n**b)** Finn $a_n$ og $b_n$, og identifiser funksjonen ved å sammenlikne med kjente rekker. (5 poeng)",
+            "solution": "**a)** Testen er $c_{-n} = \\overline{c_n}$ for alle $n$, inkludert $n=0$.\n\nFor $n=0$: $c_0 = -1$ er reell, så $\\overline{c_0} = c_0$. I orden.\n\nFor $n\\ne0$:\n$$\\overline{c_n} = \\overline{\\frac{2i(-1)^{n+1}}{n}} = -\\frac{2i(-1)^{n+1}}{n}, \\qquad c_{-n} = \\frac{2i(-1)^{-n+1}}{-n} = -\\frac{2i(-1)^{n+1}}{n},$$\nder vi brukte $(-1)^{-n+1} = (-1)^{n+1}$. De er like, så **funksjonen er reell**.\n\n**b)** Alle $c_n$ for $n\\ne0$ er **rent imaginære**, så $\\operatorname{Re}c_n = 0$ og\n$$a_n = 2\\operatorname{Re}(c_n) = 0, \\qquad b_n = -2\\operatorname{Im}(c_n) = -\\frac{4(-1)^{n+1}}{n} = \\frac{4(-1)^{n}}{n},$$\nog $a_0 = c_0 = -1$.\n\n**Identifikasjon.** Sagtannen $f(x)=x$ på $[-\\pi,\\pi]$ har $b_n = \\frac{2(-1)^{n+1}}{n}$ (fra [kap. 3.1](/tma4135/tma4135-3-1)). Her er $b_n = \\frac{4(-1)^n}{n} = -2\\cdot\\frac{2(-1)^{n+1}}{n}$, altså **minus to ganger** sagtannens koeffisienter. Med konstantleddet $-1$ i tillegg:\n$$f(x) = -1-2x, \\qquad -\\pi<x<\\pi,$$\nutvidet periodisk med periode $2\\pi$.\n\n**Kontroll.** Middelverdien av $-1-2x$ over $[-\\pi,\\pi]$ er $-1$ (leddet $-2x$ er odde og bidrar ikke), som stemmer med $c_0 = -1$. Og siden den ikke-konstante delen er odde, skal alle $a_n$ for $n\\ge1$ være null — det stemmer også.",
+            "hints": [
+              "Testen for reell funksjon er $c_{-n} = \\overline{c_n}$; husk å sjekke $n=0$ også.",
+              "Rent imaginære $c_n$ gir $a_n = 0$. Bruk $b_n = -2\\operatorname{Im}(c_n)$.",
+              "Sammenlikn $b_n$ med sagtannens koeffisienter $2(-1)^{n+1}/n$ — hvilken faktor skiller?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-C-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(7 poeng, ~7 min) Svar kort og begrunn hvert svar med én setning.\n\n**a)** En reell funksjon er **odde**. Hva kan du si om $c_n$? (2 poeng)\n**b)** Hvorfor har den komplekse rekka en sum over negative $n$? (2 poeng)\n**c)** En student regner ut $c_n$ med $e^{+inx}$ i integralet i stedet for $e^{-inx}$. Hva får hun? (3 poeng)",
+            "solution": "**a)** Alle $c_n$ er **rent imaginære**, og $c_{-n} = -c_n$.\n\n*Begrunnelse:* en odde funksjon har $a_n=0$ og $a_0=0$, og broformelen $c_n = \\tfrac12(a_n-ib_n)$ gir da $c_n = -\\tfrac{i}{2}b_n$, som er rent imaginær siden $b_n$ er reell.\n\n**b)** Fordi hvert reelle ledd $a_n\\cos\\frac{n\\pi x}{L}+b_n\\sin\\frac{n\\pi x}{L}$ **spaltes i to** komplekse ledd når man setter inn Eulers formler — ett med $e^{+in\\pi x/L}$ og ett med $e^{-in\\pi x/L}$. De negative indeksene er ikke nye frekvenser, bare den andre halvparten av leddene man allerede hadde.\n\n**c)** Hun får $c_{-n}$ i stedet for $c_n$ — altså koeffisientene til den **speilvendte** funksjonen $f(-x)$.\n\n*Begrunnelse:* å bytte fortegn i eksponenten er nøyaktig det samme som å bytte fortegn på indeksen i formelen. For en **like** funksjon merker hun ingenting, siden $c_{-n}=c_n$ der. For en **odde** funksjon får hun alle fortegn snudd, og den reelle rekka kommer ut med $-b_n$ i stedet for $b_n$.\n\n*Praktisk kontroll:* sjekk alltid $c_1$ mot $b_1$ med broformelen $b_1 = -2\\operatorname{Im}(c_1)$. Er fortegnet motsatt av det du forventer fra en skisse av funksjonen, har du sannsynligvis byttet eksponent.",
+            "hints": [
+              "For a): bruk broformelen $c_n = \\frac{a_n-ib_n}{2}$ når $a_n=0$.",
+              "For b): tenk på utledningen med Eulers formler — hvor mange ledd blir hvert reelle ledd til?",
+              "For c): sammenlikn formelen for $c_n$ og formelen for $c_{-n}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-C-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\n**1.** I den komplekse Fourier-rekka har integralet for $c_n$ eksponenten: **a)** $+inx$ · **b)** $+in\\pi x$ · **c)** $-in\\pi x/L^2$ · **d)** $-in\\pi x/L$\n\n**2.** For en reell funksjon gjelder: **a)** $c_{-n}=c_n$ · **b)** $c_n$ er alltid reell · **c)** $c_{-n}=\\overline{c_n}$ · **d)** $c_0=0$\n\n**3.** Broformelen for $b_n$ er: **a)** $2\\operatorname{Re}(c_n)$ · **b)** $-2\\operatorname{Im}(c_n)$ · **c)** $2\\operatorname{Im}(c_n)$ · **d)** $\\lvert c_n\\rvert$\n\n**4.** Nevneren i Eulers formel for $\\sin\\theta$ er: **a)** $2i$ · **b)** $2$ · **c)** $i$ · **d)** $-2i$"
+        },
+        {
+          "id": "tma4135-3-prove-C-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1d · 2c · 3b · 4a.**\n\n**1d:** $c_n = \\frac{1}{2L}\\int_{-L}^{L}f e^{-in\\pi x/L}dx$ — minus i eksponenten, og $L$ i første potens. Alternativ **a** er riktig bare i spesialtilfellet $L=\\pi$, og da med feil fortegn.\n**2c:** konjugert symmetri. Alternativ **a** gjelder for reelle **like** funksjoner, ikke for alle reelle.\n**3b:** minustegnet er avgjørende. Alternativ **a** er formelen for $a_n$, og **c** er samme formel uten minus — den vanligste fortegnsfeilen i broen.\n**4a:** $\\sin\\theta = \\frac{e^{i\\theta}-e^{-i\\theta}}{2i}$. Alternativ **b** gir et rent imaginært svar der det skulle vært reelt."
+        },
+        {
+          "id": "tma4135-3-prove-C-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 3.C\n\n☐ Jeg skrev $e^{-in\\pi x/L}$ i integralet og $e^{+in\\pi x/L}$ i rekka, ikke omvendt.\n\n☐ Jeg regnet ut $c_0$ **separat** og kontrollerte det mot middelverdien.\n\n☐ Jeg forlenget med den konjugerte nevneren for å skille real- og imaginærdel.\n\n☐ Jeg brukte $b_n = -2\\operatorname{Im}(c_n)$ **med** minustegnet.\n\n☐ Jeg kontrollerte konjugert symmetri $c_{-n}=\\overline{c_n}$.\n\n☐ Jeg koblet formen på $c_n$ (reell / rent imaginær) til pariteten til funksjonen.\n\n☐ Jeg begrunnet valget av kompleks form med at integranden er en eksponentialfunksjon.\n\n☐ Jeg kontrollerte minst ett resultat numerisk eller mot en kjent rekke.\n\n**Færre enn fem kryss?** Les [kap. 3.3](/tma4135/tma4135-3-3) løkke 1 og 2 på nytt, og gjør oppgave 3 og 4 der før du går videre til prøve 3.D."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-3-prove-prove-D",
+      "type": "collapsible",
+      "title": "Prøve 3.D — Full Fourier-oppgave med tallrekkesum (45 min)",
+      "buttonText": "Vis prøve 3.D",
+      "content": [
+        {
+          "id": "tma4135-3-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 3.D — Full Fourier-oppgave med tallrekkesum.** 45 minutter, 45 poeng. Kalkulator tillatt.\n\nDette er en **eksamensnivå-oppgave**: ett sammenhengende problem med fem delpunkter som bygger på hverandre, akkurat som en oppgave på settet. Delpunktene er koblet — du skal bruke resultatet fra (b) i (d) og (e). **Feilforplantning tolereres:** regner du riktig videre med en feil mellomverdi, gir det fortsatt uttelling i de senere delpunktene.\n\nTidsbudsjett: (a) ~6 min, (b) ~14 min, (c) ~7 min, (d) ~8 min, (e) ~10 min."
+        },
+        {
+          "id": "tma4135-3-prove-D-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-3-prove-o1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(45 poeng, ~45 min) En funksjon er gitt ved $f(x) = x^2$ for $0 \\le x \\le 1$.\n\n**a)** Utvid $f$ til en **odde** funksjon $g$ med periode 2. Skriv opp $g$ på $[-1,0]$, og skissér $g$ på $[-3,3]$ med sprangene markert. (6 poeng)\n\n**b)** Vis at Fourier-rekka til $g$ har koeffisientene\n$$b_n = \\frac{2(-1)^{n+1}}{n\\pi}+\\frac{4\\left((-1)^n-1\\right)}{n^3\\pi^3}.$$\n(14 poeng)\n\n**c)** Skriv rekka med bare de leddene som faktisk bidrar, delt i odde og like $n$. (7 poeng)\n\n**d)** Hva konvergerer rekka mot i $x=0$, $x=1$ og $x=2$? Begrunn hvert svar. (8 poeng)\n\n**e)** Sett inn $x=\\tfrac12$ og bruk at $\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1} = \\frac{\\pi}{4}$ til å vise at\n$$\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{(2m+1)^3} = \\frac{\\pi^3}{32}.$$\n(10 poeng)",
+            "solution": "**a) Utvidelsen og skissen.** *(~6 min)*\n\nHalvperioden er $L=1$, så perioden blir 2. Den odde utvidelsen er $g(x) = -f(-x)$ for $x<0$:\n$$g(x) = -(-x)^2 = -x^2, \\qquad -1<x<0,$$\nog $g(x) = x^2$ på $(0,1)$, gjentatt med periode 2.\n\n*Kontroll av at $g$ er odde:* for $0<x<1$ er $g(-x) = -(-x)^2 = -x^2 = -g(x)$. Stemmer.\n\n**Sprangene.** I $x=0$ er $g(0^+) = 0$ og $g(0^-) = 0$: **kontinuerlig**, ingen sprang. I $x=1$ er $g(1^-) = 1$, mens $g(1^+) = g(-1^+) = -(-1)^2 = -1$: **sprang** med springhøyde $-2$, og midlingsverdi 0. Det samme gjentar seg i alle odde heltall.\n\n*(Skissen ligger under. Legg merke til at buene er parabelbiter, ikke rette linjer.)*\n\n**b) Koeffisientene.** *(~14 min)*\n\n$g$ er odde, så $a_0 = 0$ og $a_n = 0$ for alle $n$. Med den halverte formelen og $L=1$:\n$$b_n = 2\\int_0^1 x^2\\sin n\\pi x\\,dx.$$\n\n**Fra reduksjonsformelen på det utdelte formelarket** med $a = n\\pi$:\n$$\\int x^2\\sin ax\\,dx = -\\frac{x^2\\cos ax}{a}+\\frac{2x\\sin ax}{a^2}+\\frac{2\\cos ax}{a^3}.$$\n\n*Sett inn $x=1$*, der $\\sin n\\pi = 0$ og $\\cos n\\pi = (-1)^n$:\n$$-\\frac{(-1)^n}{n\\pi}+0+\\frac{2(-1)^n}{n^3\\pi^3}.$$\n\n*Sett inn $x=0$*, der $\\cos 0 = 1$ og $\\sin 0 = 0$:\n$$0+0+\\frac{2}{n^3\\pi^3}.$$\n\n*Differansen, ganget med 2:*\n$$b_n = 2\\left(-\\frac{(-1)^n}{n\\pi}+\\frac{2(-1)^n}{n^3\\pi^3}-\\frac{2}{n^3\\pi^3}\\right) = \\frac{2(-1)^{n+1}}{n\\pi}+\\frac{4\\left((-1)^n-1\\right)}{n^3\\pi^3},$$\nsom var det vi skulle vise. $\\blacksquare$\n\n*Numerisk kontroll:* $b_1 = \\frac{2}{\\pi}-\\frac{8}{\\pi^3} \\approx 0{,}6366-0{,}2580 = 0{,}3786$, og $b_2 = -\\frac{1}{\\pi} \\approx -0{,}3183$. Regner du integralet $2\\int_0^1 x^2\\sin\\pi x\\,dx$ numerisk, får du $0{,}3786$. Stemmer.\n\n**c) Rekka delt i odde og like $n$.** *(~7 min)*\n\nFor **like** $n$ er $(-1)^n-1 = 0$, så det siste leddet forsvinner, og $(-1)^{n+1} = -1$:\n$$b_n = -\\frac{2}{n\\pi}, \\qquad n \\text{ like}.$$\n\nFor **odde** $n$ er $(-1)^n-1 = -2$ og $(-1)^{n+1} = 1$:\n$$b_n = \\frac{2}{n\\pi}-\\frac{8}{n^3\\pi^3}, \\qquad n \\text{ odde}.$$\n\nRekka:\n$$g(x) = \\sum_{m=0}^{\\infty}\\left(\\frac{2}{(2m+1)\\pi}-\\frac{8}{(2m+1)^3\\pi^3}\\right)\\sin\\left((2m+1)\\pi x\\right) - \\sum_{k=1}^{\\infty}\\frac{1}{k\\pi}\\sin\\left(2k\\pi x\\right),$$\nder vi i den siste summen har satt $n=2k$, slik at $-\\frac{2}{n\\pi} = -\\frac{1}{k\\pi}$.\n\n**d) Konvergensverdier.** *(~8 min)*\n\n- **$x=0$:** utvidelsen er **kontinuerlig** her ($g(0^+)=g(0^-)=0$), så **etter konvergensteoremet** gir rekka funksjonsverdien **0**. *(Rekka er også null direkte, siden $\\sin 0 = 0$.)*\n- **$x=1$:** **sprang.** $g(1^-)=1$ og $g(1^+)=-1$. **Etter konvergensteoremet** gir rekka\n  $$\\frac{1+(-1)}{2} = \\mathbf{0}.$$\n  *Ikke 1.* Det stemmer direkte: hvert ledd har $\\sin(n\\pi\\cdot1) = \\sin n\\pi = 0$.\n- **$x=2$:** ved periodisitet er dette samme punkt som $x=0$: **kontinuerlig**, og rekka gir **0**.\n\n*Tre nuller, men av to ulike grunner — i $x=1$ er det midling, i de to andre er funksjonen faktisk null. Begrunnelsen er det som gir uttelling.*\n\n**e) Tallrekkesummen.** *(~10 min)*\n\nUtvidelsen er kontinuerlig i $x=\\tfrac12$, med verdien $g(\\tfrac12) = \\left(\\tfrac12\\right)^2 = \\tfrac14$. **Etter konvergensteoremet** gir rekka dermed $\\tfrac14$ der.\n\nSett inn $x=\\tfrac12$. Da er $\\sin\\frac{n\\pi}{2}$ **null for like $n$**, så hele den andre summen faller bort. For $n = 2m+1$ er $\\sin\\frac{(2m+1)\\pi}{2} = (-1)^m$. Altså\n$$\\frac14 = \\sum_{m=0}^{\\infty}\\left(\\frac{2}{(2m+1)\\pi}-\\frac{8}{(2m+1)^3\\pi^3}\\right)(-1)^m = \\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1}-\\frac{8}{\\pi^3}\\sum_{m=0}^{\\infty}\\frac{(-1)^m}{(2m+1)^3}.$$\n\nDen første summen er oppgitt til $\\frac{\\pi}{4}$, så\n$$\\frac14 = \\frac{2}{\\pi}\\cdot\\frac{\\pi}{4}-\\frac{8}{\\pi^3}S = \\frac12-\\frac{8}{\\pi^3}S,$$\nder $S$ er summen vi er ute etter. Løs:\n$$\\frac{8}{\\pi^3}S = \\frac12-\\frac14 = \\frac14 \\quad\\Longrightarrow\\quad S = \\frac{\\pi^3}{32}. \\qquad \\blacksquare$$\n\n**Kontroll.** $\\pi^3/32 \\approx 0{,}96895$. Delsummen $1-\\tfrac1{27}+\\tfrac1{125}-\\tfrac1{343}+\\tfrac1{729} = 0{,}96907$. Rekka alternerer tett rundt riktig verdi. Stemmer.\n\n**Tidsregnskap.** 6+14+7+8+10 = 45 minutter, som deklarert. Merk at (b) er den dyre delen — to innsettinger i en tre-leddet reduksjonsformel. Blir du sittende fast der, hopp til (d), som kan besvares uten (b) og (c).\n\n**Hva som skiller nivåene i denne oppgaven.** Å få (a) og (b) til er de mekaniske delpunktene, og de bærer et solid resultat. Det som løfter besvarelsen, er tre ting: at midlingen i $x=1$ er behandlet med begge ensidige grenser skrevet ut, at (c) faktisk skiller odde og like $n$ i stedet for å la $(-1)^n$ stå, og at (e) ender med summen **isolert** på én side.",
+            "hints": [
+              "Odde utvidelse: $g(x) = -f(-x)$ for $x<0$. Hva blir $-(-x)^2$?",
+              "Slå opp $\\int x^2\\sin ax\\,dx$ på formelarket og sett $a = n\\pi$. Husk begge grensene — også $x=0$ gir et bidrag her, fra $\\cos 0 = 1$.",
+              "I (c): uttrykkene $(-1)^n-1$ og $(-1)^{n+1}$ oppfører seg ulikt for odde og like $n$. Skriv ut begge tilfellene.",
+              "I (e): sett inn $x=1/2$ og se hvilke ledd som overlever. Hva er $\\sin\\frac{n\\pi}{2}$ for like $n$?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-3-prove-D-fig",
+          "type": "image",
+          "src": "/images/textbook/tma4135/periodisk-utvidelse-prove-3d.svg",
+          "alt": "Graf over tre perioder av den odde periodiske utvidelsen med periode to av funksjonen x i andre på intervallet null til én. Kurven består av parabelbiter som stiger fra minus én til én og hopper ned igjen i hvert odde heltall. Prikker på x-aksen markerer midlingsverdien null i sprangene.",
+          "caption": "Fasitskissen til delpunkt (a): den odde utvidelsen av $x^2$ på $[0,1]$, tegnet over tre perioder. Utvidelsen er kontinuerlig i $x=0$ og $x=\\pm2$, og har sprang med midlingsverdi 0 i alle odde heltall."
+        },
+        {
+          "id": "tma4135-3-prove-D-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\n**1.** For hvilke $n$ er $\\sin\\frac{n\\pi}{2} = 0$? **a)** like $n$ · **b)** odde $n$ · **c)** alle $n$ · **d)** ingen $n$\n\n**2.** Reduksjonsformelen $\\int x^2\\sin ax\\,dx$ gir i $x=0$ bidraget: **a)** $0$ · **b)** $\\dfrac{2}{a^3}$ · **c)** $-\\dfrac{1}{a}$ · **d)** $\\dfrac{2}{a^2}$\n\n**3.** Den odde utvidelsen av $f$ på $[0,L]$ har sprang i $x=L$ når: **a)** aldri · **b)** $f'(L)\\ne0$ · **c)** $f(L)\\ne0$ · **d)** $f(0)\\ne0$\n\n**4.** Delpunkt (e) krever at du først sjekker: **a)** at $b_n>0$ · **b)** at rekka er endelig · **c)** at $L=1$ · **d)** at utvidelsen er kontinuerlig i innsettingspunktet"
+        },
+        {
+          "id": "tma4135-3-prove-D-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1a · 2b · 3c · 4d.**\n\n**1a:** $\\sin\\frac{n\\pi}{2}$ er 0 for $n=2,4,6,\\dots$ og $\\pm1$ for odde $n$. Alternativ **b** har det motsatt — det er $\\cos\\frac{n\\pi}{2}$ som er null for odde $n$.\n**2b:** i $x=0$ forsvinner de to første leddene ($x^2$ og $x$ som faktorer), men det siste leddet $\\frac{2\\cos ax}{a^3}$ gir $\\frac{2}{a^3}$. Alternativ **a** er den vanligste feilen i denne oppgaven — nedre grense ser ut som den skal bli null, men gjør det ikke her.\n**3c:** i $x=L$ møter $f(L^-)$ neste periodes $-f(L^-)$, så det blir sprang med mindre $f(L)=0$. Alternativ **d** gjelder spranget i $x=0$, som er riktig observasjon om feil punkt.\n**4d:** rekka gir funksjonsverdien bare der utvidelsen er kontinuerlig; i et sprang gir den midlingsverdien, og da må du bruke den i stedet."
+        },
+        {
+          "id": "tma4135-3-prove-D-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 3.D\n\n☐ Jeg skrev opp den odde utvidelsen som **formel** på $[-1,0]$, og kontrollerte at den er odde.\n\n☐ Jeg tegnet parabelbiter, ikke rette linjer, i skissen.\n\n☐ Jeg sjekket **begge** endepunktene for sprang og fant at bare $x=\\pm1$ hopper.\n\n☐ Jeg satte inn **begge** grensene i reduksjonsformelen — også $x=0$, som gir et bidrag her.\n\n☐ Jeg skilte odde og like $n$ i delpunkt (c) i stedet for å la $(-1)^n$ stå.\n\n☐ Jeg begrunnet konvergensverdien i $x=1$ med begge ensidige grenser og midlingen.\n\n☐ Jeg sjekket kontinuiteten i $x=\\tfrac12$ før jeg satte inn funksjonsverdien.\n\n☐ Jeg **isolerte** tallrekkesummen til slutt, i stedet for å stoppe ved likningen.\n\n☐ Jeg gjorde en tallkontroll av sluttsvaret mot en kort delsum.\n\n**Færre enn seks kryss?** Gjenta [kap. 3.4](/tma4135/tma4135-3-4) oppgave 8 og 12, og les løkke 4 i [kap. 3.2](/tma4135/tma4135-3-2) på nytt. Denne prøven er den tyngste i Del 3 — det er normalt å måtte ta den to ganger."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-3-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-3-prove-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 3.1](/tma4135/tma4135-3-1), [kap. 3.2](/tma4135/tma4135-3-2) og [kap. 3.3](/tma4135/tma4135-3-3).\n\n| Symbol | Betydning |\n|---|---|\n| $L$ | Halvperioden; perioden er $2L$ |\n| $a_0$ | Konstantleddet, altså middelverdien over en periode |\n| $a_n$, $b_n$ | Cosinus- og sinuskoeffisientene i den reelle rekka |\n| $c_n$ | Den komplekse Fourier-koeffisienten |\n| $g$ | Den utvidede, periodiske funksjonen |\n| $f(x^+)$, $f(x^-)$ | Høyre- og venstregrense i punktet $x$ |\n| $a$ | Faktoren i reduksjonsformlene; her alltid $a = n\\pi/L$ |\n| $m$ | Løpeindeks for odde ledd, $n = 2m+1$ |\n| $k$ | Løpeindeks for like ledd, $n = 2k$ |\n| $\\operatorname{Re}$, $\\operatorname{Im}$ | Realdel og imaginærdel |\n| $\\overline{z}$ | Kompleks konjugat |\n| $\\sinh$, $\\cosh$ | Hyperbolsk sinus og cosinus, $\\tfrac12\\left(e^{x}\\mp e^{-x}\\right)$ |\n"
+        },
+        {
+          "id": "tma4135-3-prove-sym-form",
+          "type": "text",
+          "content": "**Formler brukt i disse prøvene:**\n\n$$a_0 = \\frac{1}{2L}\\int_{-L}^{L}f\\,dx, \\qquad a_n = \\frac{1}{L}\\int_{-L}^{L}f\\cos\\frac{n\\pi x}{L}\\,dx, \\qquad b_n = \\frac{1}{L}\\int_{-L}^{L}f\\sin\\frac{n\\pi x}{L}\\,dx$$\nKoeffisientintegralene — nevner $2L$ i den første, $L$ i de to andre. *(Må kunnes eller utledes aktivt.)*\n\n$$f \\text{ odde}: \\ a_0=a_n=0, \\ b_n = \\frac{2}{L}\\int_0^L f\\sin\\frac{n\\pi x}{L}\\,dx$$\n$$f \\text{ like}: \\ b_n=0, \\ a_0 = \\frac1L\\int_0^L f\\,dx, \\ a_n = \\frac{2}{L}\\int_0^L f\\cos\\frac{n\\pi x}{L}\\,dx$$\nSymmetriregelen, brukt i alle fire prøvene. *(Må kunnes eller utledes aktivt.)*\n\n$$g(x) = -f(-x) \\ (x<0) \\quad\\text{odde utvidelse}, \\qquad g(x) = f(-x) \\ (x<0) \\quad\\text{like utvidelse}$$\nHalvintervall-utvidelsene, brukt i prøve 3.B og 3.D. *(Må kunnes eller utledes aktivt.)*\n\n$$\\text{rekka}(x_0) = \\frac{f(x_0^+)+f(x_0^-)}{2}$$\nKonvergensteoremet med midling i sprang, brukt i 3.A oppgave 3, 3.B oppgave 2 og 3.D delpunkt (d). *(Må kunnes eller utledes aktivt.)*\n\n$$c_n = \\frac{1}{2L}\\int_{-L}^{L}f e^{-in\\pi x/L}\\,dx, \\qquad a_n = 2\\operatorname{Re}(c_n), \\qquad b_n = -2\\operatorname{Im}(c_n), \\qquad a_0 = c_0$$\nDen komplekse formen og broformlene, brukt i prøve 3.C. *(Må kunnes eller utledes aktivt.)*\n\n$$f \\text{ reell} \\iff c_{-n} = \\overline{c_n}$$\nKonjugert symmetri. *(Må kunnes eller utledes aktivt.)*\n\n$$\\int x\\cos ax\\,dx = \\frac{x\\sin ax}{a}+\\frac{\\cos ax}{a^2}, \\qquad \\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a}+\\frac{\\sin ax}{a^2}$$\n$$\\int x^2\\cos ax\\,dx = \\frac{x^2\\sin ax}{a}+\\frac{2x\\cos ax}{a^2}-\\frac{2\\sin ax}{a^3}$$\n$$\\int x^2\\sin ax\\,dx = -\\frac{x^2\\cos ax}{a}+\\frac{2x\\sin ax}{a^2}+\\frac{2\\cos ax}{a^3}$$\nReduksjonsformlene, brukt i alle prøvene. *(Står på det utdelte formelarket — tren oppslaget, og sett $a = n\\pi/L$.)*\n\n$$\\sin n\\pi = 0, \\qquad \\cos n\\pi = (-1)^n, \\qquad e^{\\pm in\\pi} = (-1)^n$$\nVerdiene som forenkler grensene. *(Må kunnes.)*\n\n$$\\sum_{n=1}^{\\infty}\\frac{1}{n^2} = \\frac{\\pi^2}{6}, \\qquad \\sum_{m=0}^{\\infty}\\frac{(-1)^m}{2m+1} = \\frac{\\pi}{4}, \\qquad \\sum_{m=0}^{\\infty}\\frac{(-1)^m}{(2m+1)^3} = \\frac{\\pi^3}{32}$$\nTallrekkesummene som brukes eller utledes i prøvene. *(Utledes fra en Fourier-rekke ved innsetting — ikke puggestoff.)*\n\n**Kolliderende symboler:** $L$ er halvperioden i hele Del 3; i Del 6 er $L$ kontraksjonskonstanten i fikspunktteoremet. Bokstaven $c$ er her den komplekse koeffisienten $c_n$; i Del 5 er $c$ bølgefarten. Bokstaven $a$ er faktoren $n\\pi/L$ i reduksjonsformlene; i Del 2 er $a$ forskyvningen i andreforskyvningsteoremet. Bokstavene $m$ og $k$ er bare løpeindekser her; i Del 5 er $k$ separasjonskonstanten."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

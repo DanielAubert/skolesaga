@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hvordan er konvolusjonen $(g*y)(t)$ definert?",
+    "options": [
+      "Integralet av $g(\\tau)y(t-\\tau)$ fra $0$ til $t$",
+      "Integralet av $g(\\tau)y(\\tau)$ fra $0$ til $t$",
+      "Produktet $g(t)\\,y(t)$ i hvert punkt",
+      "Integralet av $g(\\tau)y(t-\\tau)$ fra $0$ til uendelig"
+    ],
+    "explanation": "Grensene går fra null til t, integranden er et produkt, og argumentene summerer til t. Det siste er kjennetegnet: den ene faktoren har tau, den andre t minus tau."
+  },
+  {
+    "question": "Hvilket av disse er **ikke** en konvolusjon?",
+    "options": [
+      "$\\int_0^t \\tau\\,y(\\tau)\\,d\\tau$",
+      "$\\int_0^t y(\\tau)\\,d\\tau$",
+      "$\\int_0^t e^{t-\\tau}y(\\tau)\\,d\\tau$",
+      "$\\int_0^t \\sin(t-\\tau)y(\\tau)\\,d\\tau$"
+    ],
+    "explanation": "I det første har begge faktorene argument tau, så summen blir ikke t. Det andre ser ikke ut som et produkt, men er konvolusjonen mellom konstantfunksjonen én og y, og er derfor en konvolusjon."
+  },
+  {
+    "question": "Hva sier konvolusjonsteoremet?",
+    "options": [
+      "$\\mathcal{L}\\{g*y\\} = G(s)\\,Y(s)$",
+      "$\\mathcal{L}\\{g\\cdot y\\} = G(s)\\,Y(s)$",
+      "$\\mathcal{L}\\{g*y\\} = G(s) + Y(s)$",
+      "$\\mathcal{L}\\{g*y\\} = G(s)/Y(s)$"
+    ],
+    "explanation": "Konvolusjon i tidsplanet svarer til vanlig multiplikasjon i s-planet. Alternativet med et vanlig produkt på venstre side er den grunnleggende misforståelsen: transformen av et produkt er ikke produktet av transformene."
+  },
+  {
+    "question": "Hva er $\\mathcal{L}\\left\\{\\int_0^t y(\\tau)\\,d\\tau\\right\\}$?",
+    "options": [
+      "$Y(s)/s$",
+      "$sY(s)$",
+      "$Y(s) - y(0)$",
+      "$Y(s)/s^2$"
+    ],
+    "explanation": "Integralet er konvolusjonen mellom konstantfunksjonen én og y, og transformen av én er én delt på s. Regelen er speilbildet av derivasjonsregelen: derivere er å gange med s, integrere er å dele på s."
+  },
+  {
+    "question": "Er konvolusjonen kommutativ?",
+    "options": [
+      "Ja — rekkefølgen spiller ingen rolle",
+      "Nei — den første funksjonen må alltid være kjernen",
+      "Bare når begge funksjonene er positive overalt",
+      "Bare når begge funksjonene er polynomer i $t$"
+    ],
+    "explanation": "Et variabelskifte i integralet viser at de to rekkefølgene gir samme resultat. Praktisk betyr det at du kan la integrasjonsvariabelen sitte på den faktoren som er lettest å regne på."
+  },
+  {
+    "question": "Hva er $(1 * t^2)(t)$?",
+    "options": [
+      "$t^3/3$",
+      "$t^2$",
+      "$t^3$",
+      "$2t^3/3$"
+    ],
+    "explanation": "Integralet av tau i annen fra null til t er t i tredje delt på tre. Merk at konstantfunksjonen én ikke er en enhet for konvolusjon — den integrerer. Kontroll: produktet av transformene er to delt på s i fjerde."
+  },
+  {
+    "question": "Hvorfor kan et integralledd gjøre et førsteordens system svingende?",
+    "options": [
+      "Fordi det hever graden i nevneren til $Y(s)$ med én",
+      "Fordi det gjør likningen ikke-lineær",
+      "Fordi det gir en ekstra startverdi å bestemme",
+      "Fordi det innfører komplekse koeffisienter"
+    ],
+    "explanation": "Integralet gir en faktor én delt på s, og etter multiplikasjon med s er graden i nevneren hevet med én. Et andregradsuttrykk med negativ diskriminant gir en dempet svingning. Systemet har fått hukommelse."
+  },
+  {
+    "question": "Hva er $\\mathcal{L}^{-1}\\{F(s)G(s)\\}$ når produktet ikke står i tabellen?",
+    "options": [
+      "Konvolusjonen $(f*g)(t)$",
+      "Det vanlige produktet $f(t)g(t)$",
+      "Summen $f(t)+g(t)$ av de to inversene",
+      "Integralet av $f$ ganget med $g$ i null"
+    ],
+    "explanation": "Konvolusjonsteoremet lest baklengs gir konvolusjonen. Metoden brukes når nevneren ikke lar seg faktorisere, for eksempel ved en dobbel irredusibel faktor, eller når oppgaven ber om svaret som et integral."
+  },
+  {
+    "question": "Hva signaliserer en dobbel irredusibel faktor $\\left(s^2+\\omega^2\\right)^2$?",
+    "options": [
+      "Resonans — et ledd med $t$ ganget på en svingning",
+      "Demping — svaret dør ut raskere enn med en enkel faktor",
+      "To atskilte frekvenser som opptrer i det samme svaret",
+      "At brøken må deles ut med polynomdivisjon aller først"
+    ],
+    "explanation": "Den inverse inneholder et ledd med t ganget på cosinus, og faktoren t betyr at amplituden vokser lineært. Fysisk dytter pådraget i takt med systemets egen frekvens hele veien."
+  },
+  {
+    "question": "Hva skal du skrive i besvarelsen når du transformerer et integralledd?",
+    "options": [
+      "At du bruker konvolusjonsteoremet, med navnet skrevet ut",
+      "At integralet forsvinner ved vanlig regning",
+      "At integralet deriveres bort før transformen",
+      "At integralet er null fordi grensene faller sammen"
+    ],
+    "explanation": "Instruksen på hvert sett krever at tenkemåten framgår, og løsningsforslagene i arkivet skriver teoremnavnet ut. Setningen koster ti sekunder og er et eksplisitt krav i denne oppgavetypen."
+  },
+  {
+    "question": "Når virker snarveien «deriver likningen for å bli kvitt integralet»?",
+    "options": [
+      "Bare når kjernen er konstant",
+      "Alltid, uansett hvordan kjernen ser ut",
+      "Bare når kjernen er en eksponentialfunksjon",
+      "Aldri, siden derivasjon ikke fjerner integraler"
+    ],
+    "explanation": "Er kjernen konstant, gir derivasjon et vanlig ledd med y. Er den ikke konstant, får du kjernen i null ganger y pluss et nytt integral med den deriverte kjernen — og en ekstra derivert på kjøpet."
+  },
+  {
+    "question": "Hva er kjernen i $\\displaystyle\\int_0^t e^{-3(t-\\tau)}y(\\tau)\\,d\\tau$?",
+    "options": [
+      "$g(t)=e^{-3t}$, med $G(s)=1/(s+3)$",
+      "$g(t)=e^{3t}$, med $G(s)=1/(s-3)$",
+      "$g(t)=e^{-3\\tau}$, med $G(s)=1/(s+3)$",
+      "$g(t)=-3$, med $G(s)=-3/s$"
+    ],
+    "explanation": "Kjernen er den kjente funksjonen, uttrykt i sin egen variabel: e opphøyd i minus tre t. Transformen slås opp i tabellen. Kjernen skal aldri skrives med tau, siden tau bare er integrasjonsvariabelen."
+  },
+  {
+    "question": "Hvorfor trenger en ren integrallikning ingen oppgitt startverdi?",
+    "options": [
+      "Fordi integralet er null ved $t=0$ og gir $y(0)$",
+      "Fordi startverdien alltid er null i slike likninger",
+      "Fordi integrallikninger ikke har entydige løsninger",
+      "Fordi konvolusjonsteoremet fjerner behovet for den"
+    ],
+    "explanation": "Setter du t lik null, faller grensene sammen og integralet blir null. Da leser du y i null rett av høyresiden. En integro-differensiallikning har derimot en derivert og trenger startverdien for derivasjonsregelen."
+  },
+  {
+    "question": "Hva er det første ryddegrepet etter at du har transformert en integro-differensiallikning?",
+    "options": [
+      "Gang hele likningen med fellesnevneren",
+      "Sett opp ansatsen for delbrøkoppspaltingen",
+      "Faktoriser telleren i høyresidens transform",
+      "Del begge sider på startverdien"
+    ],
+    "explanation": "En transformert integro-differensiallikning har typisk både et ledd med s ganger Y og et med Y delt på s. Ganger du opp, står det et rent polynom foran Y, og resten er vanlig algebra."
+  },
+  {
+    "question": "Hvilken vei bør du velge til den inverse når nevneren lar seg faktorisere?",
+    "options": [
+      "Delbrøkoppspalting, som gir et lukket uttrykk",
+      "Konvolusjon, siden den metoden alltid virker",
+      "Kvadratkomplettering, uansett hva diskriminanten er",
+      "Polynomdivisjon, for å redusere graden i telleren"
+    ],
+    "explanation": "Delbrøkoppspalting gir svaret uten integrasjon og går raskest. Konvolusjonsveien er reservert for tilfeller der nevneren ikke lar seg spalte, eller der oppgaven eksplisitt ber om et integraluttrykk."
+  },
+  {
+    "question": "Hva er den typiske feilen i denne oppgavetypen?",
+    "options": [
+      "Å ikke se konvolusjonsstrukturen i det hele tatt",
+      "Å regne konvolusjonsintegralet med feil grenser",
+      "Å bruke feil transformrad for kjernen",
+      "Å glemme å faktorisere nevneren til slutt"
+    ],
+    "explanation": "Feilen er ikke en regnefeil, men at studenten ikke kjenner igjen strukturen og i stedet prøver å derivere seg ut av integralet. Gjenkjenningen er derfor viktigere enn regningen i denne sjangeren."
+  }
+]

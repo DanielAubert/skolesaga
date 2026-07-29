@@ -1,0 +1,461 @@
+{
+  "id": "tma4135-5-3",
+  "courseId": "tma4135",
+  "chapterNumber": "5.3",
+  "title": "Bølgeligningen og d'Alemberts formel",
+  "description": "Bølgeligningen på $\\mathbb{R}$: d'Alemberts formel for initialverdiproblemet og variabelskiftet som gjør bølgeligningen til $u_{yz}=0$.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "lese av bølgefarten riktig og skrive den generelle løsningen som en venstregående pluss en høyregående bølge",
+    "gjennomføre variabelskiftet til karakteristiske koordinater og utlede normalformen",
+    "bruke og navngi d'Alemberts formel, med riktig halvering, riktig faktor foran integralet og riktige grenser",
+    "avgjøre hvilke deler av linja som kan være påvirket ved en gitt tid, og løse bølgeligningen på et endelig intervall som stående bølger"
+  ],
+  "content": [
+    {
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Bølgeligningen står på 10 av 13 gjennomgåtte sett — 77 %.** Sammen med verifikasjonsoppgaven i [kap. 5.4](/tma4135/tma4135-5-4) utgjør den det som er mest særegent for nettopp Matematikk 4D: fra 2018 er eksamen felles for to emner, og den ene oppgaven som har en egen 4D-variant, handler nesten alltid om bølger eller om å verifisere en PDE-løsning.\n\n**Oppgavene merkes med bokstaven H.** Boka bruker bokstavene A til S som korte navn på de nitten oppgavetypene som går igjen på settene; **H er bølge, d'Alembert og verifikasjon**. Bokstaven forklares første gang den brukes i hvert kapittel.\n\n**To varianter går igjen.** Den ene er ren bruk av d'Alemberts formel: du får en startposisjon og en starthastighet, og skal skrive ned løsningen. Den andre er variabelskiftet som gjør bølgeligningen om til $u_{yz} = 0$ og dermed forklarer *hvorfor* formelen ser ut som den gjør. Begge dekkes her, og begge er korte oppgaver — det er sjelden mer enn ti minutters arbeid, men de er dyre å bomme på fordi feilen forplanter seg til hele svaret.\n\n**Formelark-merking.** Eksamen har hjelpemiddelkode C, med utdelt formelark og eget A5-ark. **d'Alemberts formel står ikke alltid på det utdelte arket** — regn med at den **må kunnes** og navngis, og skriv den på ditt eget A5-ark. Trigonometriske identiteter og reduksjonsformlene **står på det utdelte formelarket, så tren oppslaget**; dem får du bruk for når integralleddet skal regnes ut.\n\n**Tidsbruk:** 60 minutter lesetid i fire løkker à omtrent et kvarter. Pausepunktet er markert etter løkke 2.",
+      "id": "tma4135-5-3-eksamensvinkel"
+    },
+    {
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 5.1](/tma4135/tma4135-5-1) — derfra trenger du separasjonsansatsen og de tre $k$-tilfellene, som brukes i siste løkke. De tre første løkkene kan leses uten.\n\nFra tidligere matematikkemner forutsettes: kjerneregelen for funksjoner av sammensatte argumenter, partiell derivasjon, og analysens fundamentalteorem (at $\\frac{d}{db}\\int_a^b g(s)\\,ds = g(b)$). Trenger du å friske opp det siste, ligger det en oppgave om det i repetisjonsboksen nederst.\n\nKapitlet er forutsetning for [kap. 5.4](/tma4135/tma4135-5-4) og [kap. 5.5](/tma4135/tma4135-5-5).",
+      "id": "tma4135-5-3-forkunnskaper"
+    },
+    {
+      "type": "text",
+      "content": "## Et rykk i et langt tau\n\nStrekk et langt tau mellom to hender og gi det ett kjapt rykk oppover på midten. Det som skjer, er ikke at bulen blir stående og dø ut, slik varme gjør. Bulen deler seg i to, og de to halvdelene løper hver sin vei langs tauet med den samme farten, uten å forandre form.\n\nDet er hele innholdet i **d'Alemberts formel**, og det er også hele forskjellen mellom bølge- og varmelikningen. Varmelikningen har én tidsderivert og glatter ut; bølgeligningen har to og transporterer.\n\nForskjellen ligger i én bokstav. Varme: $u_t = c^2u_{xx}$. Bølge: $u_{tt} = c^2u_{xx}$. Det ekstra tidsleddet gjør at systemet får treghet — det svinger i stedet for å legge seg til ro, og signalene beveger seg med en bestemt endelig fart $c$ i stedet for å merkes overalt med én gang.\n\nJean le Rond d'Alembert fant løsningen i 1747, og han fant den ikke ved å gjette et produkt, men ved å bytte koordinater slik at likningen ble triviell. Det grepet er verdt å kunne, både fordi det spørres om direkte og fordi det gjør formelen lett å huske: den er ikke et magisk uttrykk, den er to bølger som løper hver sin vei.\n\nKapitlet gjør fire ting: bytter koordinater og finner den generelle løsningen, bruker den til å utlede d'Alemberts formel, regner eksempler med både startposisjon og starthastighet, og setter til slutt inn to faste ender igjen for å få stående bølger.",
+      "id": "tma4135-5-3-motivasjon"
+    },
+    {
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Ved første gjennomlesing holder det å lese formelen og gå videre til eksempelet; tidsanslaget på 60 minutter gjelder kjernestoffet.",
+      "id": "tma4135-5-3-fc-notis"
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 1 — Koordinatskiftet som gjør likningen triviell (~16 min)\n\nVi begynner ikke med formelen, men med grepet som produserer den. Da blir formelen noe du kan gjenskape i stedet for å pugge.",
+      "id": "tma4135-5-3-lokke1"
+    },
+    {
+      "type": "definition",
+      "title": "Bølgeligningen",
+      "content": "Likningen som beskriver hvordan en forstyrrelse forplanter seg med fast fart:\n\n$$u_{tt} = c^2 u_{xx}.$$\n\nHer er $u(x,t)$ utslaget i punktet $x$ ved tiden $t$ — høyden på et tau, trykket i en luftsøyle, spenningen i en kabel.\n\n**Sammenlikn med varmelikningen** $u_t = c^2u_{xx}$: eneste forskjell er at venstresiden er dobbeltderivert. Den ene bokstaven er forskjellen mellom et system som svinger og et som dør ut.",
+      "id": "tma4135-5-3-def-bolgeligningen"
+    },
+    {
+      "type": "definition",
+      "title": "Bølgefarten $c$",
+      "content": "Konstanten i bølgeligningen, med enhet lengde per tid. Den sier hvor raskt en forstyrrelse forplanter seg langs $x$-aksen.\n\nStår det $u_{tt} = 16u_{xx}$, er $c^2 = 16$, altså $c = 4$. **Ikke 16.** Å ta kvadratroten er det aller første du gjør, og å glemme det er den vanligste enkeltfeilen i sjanger H.\n\n**Merk:** i [kap. 5.1](/tma4135/tma4135-5-1) og [kap. 5.2](/tma4135/tma4135-5-2) står $c^2$ for diffusiviteten i varmelikningen. Samme bokstav, ulik fysisk rolle — men i begge tilfeller er det tallet foran $u_{xx}$.",
+      "id": "tma4135-5-3-def-bolgefart"
+    },
+    {
+      "type": "definition",
+      "title": "Initialposisjonen $f(x)$",
+      "content": "Utslaget ved starttidspunktet:\n\n$$u(x,0) = f(x).$$\n\nFor et tau: formen tauet har i det øyeblikket du slipper det.",
+      "id": "tma4135-5-3-def-initialposisjon"
+    },
+    {
+      "type": "definition",
+      "title": "Initialhastigheten $g(x)$",
+      "content": "Farten hvert punkt har ved starttidspunktet:\n\n$$u_t(x,0) = g(x).$$\n\nBølgeligningen er av andre orden i tid, og trenger derfor **to** initialbetingelser — akkurat som Newtons andre lov trenger både startposisjon og startfart. Varmelikningen, som er av første orden i tid, klarer seg med én.\n\nFor et tau: $g \\equiv 0$ betyr at du holder tauet i ro i en gitt form og slipper det. En $g$ som ikke er null, betyr at du i tillegg gir det et rykk.",
+      "id": "tma4135-5-3-def-initialhastighet"
+    },
+    {
+      "type": "definition",
+      "title": "Initialverdiproblemet på hele linja",
+      "content": "Problemet\n\n$$u_{tt} = c^2u_{xx}, \\qquad x \\in \\mathbb{R},\\; t > 0, \\qquad u(x,0) = f(x),\\; u_t(x,0) = g(x).$$\n\nLegg merke til at det **ikke er randbetingelser** her — $x$ løper over hele tallinja, og det finnes ingen ender. Det er nettopp derfor problemet har en lukket løsningsformel i stedet for en uendelig rekke.\n\nHar du derimot to faste ender, er du tilbake i separasjon av variable; det er tema i siste løkke.",
+      "id": "tma4135-5-3-def-ivp-linja"
+    },
+    {
+      "type": "definition",
+      "title": "Karakteristiske koordinater",
+      "content": "De to nye variablene\n\n$$y = x + ct, \\qquad z = x - ct.$$\n\nDe er valgt slik at bølgeligningen blir så enkel som mulig. Geometrisk er linjene $y = \\text{konstant}$ og $z = \\text{konstant}$ nettopp banene et signal følger når det beveger seg med fart $c$ mot venstre eller mot høyre.\n\n**Merk bokstavvalget:** her er $y$ og $z$ *koordinater*, ikke funksjoner. I Del 2 er $y(t)$ den ukjente funksjonen i en differensiallikning. Samme bokstav, helt ulik rolle.",
+      "id": "tma4135-5-3-def-karakteristiske"
+    },
+    {
+      "type": "definition",
+      "title": "Normalformen $u_{yz} = 0$",
+      "content": "Det bølgeligningen blir til i karakteristiske koordinater:\n\n$$u_{tt} - c^2u_{xx} = -4c^2\\,u_{yz} \\quad\\Longrightarrow\\quad u_{tt} = c^2u_{xx} \\;\\Longleftrightarrow\\; u_{yz} = 0.$$\n\nDenne likningen kan integreres direkte, og det er hele poenget med koordinatskiftet: en likning som var vanskelig i $(x,t)$, er triviell i $(y,z)$.",
+      "id": "tma4135-5-3-def-normalform"
+    },
+    {
+      "type": "definition",
+      "title": "Høyregående bølge",
+      "content": "En funksjon av formen $\\psi(x - ct)$.\n\nDen beholder formen sin og flytter seg mot **høyre** med fart $c$: verdien i punktet $x$ ved tiden $t$ er den samme som verdien i $x - ct$ ved tiden 0. Toppen har altså flyttet seg $ct$ enheter til høyre.\n\nMinustegnet betyr høyre. Det er lett å bytte om, og verdt å kontrollere hver gang ved å spørre: hvor må $x$ være ved tiden $t$ for at $x - ct$ skal ha samme verdi som ved start?",
+      "id": "tma4135-5-3-def-hoyregaende"
+    },
+    {
+      "type": "definition",
+      "title": "Venstregående bølge",
+      "content": "En funksjon av formen $\\phi(x + ct)$.\n\nDen flytter seg mot **venstre** med fart $c$, av samme grunn med motsatt fortegn.\n\nDen generelle løsningen av bølgeligningen på hele linja er summen av én av hver:\n\n$$u(x,t) = \\phi(x + ct) + \\psi(x - ct).$$",
+      "id": "tma4135-5-3-def-venstregaende"
+    },
+    {
+      "type": "example",
+      "title": "Koordinatskiftet og den generelle løsningen",
+      "problem": "Vis at substitusjonen $y = x + ct$, $z = x - ct$ gjør bølgeligningen $u_{tt} = c^2u_{xx}$ om til $u_{yz} = 0$, og integrer opp for å finne den generelle løsningen.",
+      "solution": "**Steg 1 — kjerneregelen.** Vi tenker på $u$ som en funksjon av $y$ og $z$, som igjen avhenger av $x$ og $t$. Siden $y_x = z_x = 1$:\n\n$$u_x = u_y\\,y_x + u_z\\,z_x = u_y + u_z.$$\n\nDeriverer vi en gang til, med samme regel anvendt på hvert ledd:\n\n$$u_{xx} = \\left(u_{yy} + u_{yz}\\right) + \\left(u_{zy} + u_{zz}\\right) = u_{yy} + 2u_{yz} + u_{zz},$$\n\nder vi brukte at blandede partielle deriverte er like, $u_{yz} = u_{zy}$.\n\n**Steg 2 — samme i $t$.** Nå er $y_t = c$ og $z_t = -c$:\n\n$$u_t = c\\,u_y - c\\,u_z = c\\left(u_y - u_z\\right),$$\n\n$$u_{tt} = c\\left[c\\left(u_{yy} - u_{yz}\\right) - c\\left(u_{zy} - u_{zz}\\right)\\right] = c^2\\left(u_{yy} - 2u_{yz} + u_{zz}\\right).$$\n\n**Steg 3 — sett inn.**\n\n$$u_{tt} - c^2u_{xx} = c^2\\left(u_{yy} - 2u_{yz} + u_{zz}\\right) - c^2\\left(u_{yy} + 2u_{yz} + u_{zz}\\right) = -4c^2\\,u_{yz}.$$\n\nSiden $c \\ne 0$, er $u_{tt} = c^2u_{xx}$ **ekvivalent med** $u_{yz} = 0$. Legg merke til at de to kompliserte leddene $u_{yy}$ og $u_{zz}$ kansellerer nøyaktig — det er hele grunnen til at akkurat dette koordinatvalget virker.\n\n**Steg 4 — integrer.** Likningen $u_{yz} = 0$ sier at $\\dfrac{\\partial}{\\partial y}\\left(u_z\\right) = 0$, altså at $u_z$ ikke avhenger av $y$:\n\n$$u_z = h(z)$$\n\nfor en funksjon $h$. Integrer med hensyn på $z$, og husk at «integrasjonskonstanten» nå kan være en vilkårlig funksjon av $y$:\n\n$$u = \\int h(z)\\,dz + \\phi(y) = \\psi(z) + \\phi(y).$$\n\n**Steg 5 — tilbake til $x$ og $t$.**\n\n$$u(x,t) = \\phi(x + ct) + \\psi(x - ct),$$\n\nder $\\phi$ og $\\psi$ er vilkårlige to ganger deriverbare funksjoner.\n\n**Kontroll ved innsetting.** Med $\\phi$ og $\\psi$ vilkårlige:\n\n$$u_{tt} = c^2\\phi''(x+ct) + c^2\\psi''(x-ct), \\qquad u_{xx} = \\phi''(x+ct) + \\psi''(x-ct).$$\n\nAltså $u_{tt} = c^2u_{xx}$ for alle valg av $\\phi$ og $\\psi$. Oppfylt.\n\n**Tolkningen.** Enhver løsning av bølgeligningen på hele linja er summen av én bølge som løper mot venstre og én som løper mot høyre, begge med fart $c$ og begge med uforandret form. Det er en påstand om fysikk, og den følger av tre linjers kjerneregel.",
+      "id": "tma4135-5-3-eks1"
+    },
+    {
+      "id": "tma4135-5-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-3-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Les av bølgefarten $c$ og skriv opp formen på den generelle løsningen.\n\n**a)** $u_{tt} = 25u_{xx}$\n**b)** $u_{tt} = u_{xx}$\n**c)** $4u_{tt} = u_{xx}$",
+        "solution": "**a)** $c^2 = 25$, altså $c = 5$:\n$$u = \\phi(x + 5t) + \\psi(x - 5t).$$\n\n**b)** $c^2 = 1$, altså $c = 1$:\n$$u = \\phi(x + t) + \\psi(x - t).$$\n\n**c)** Del først på 4 for å få likningen på standardform: $u_{tt} = \\tfrac14 u_{xx}$, altså $c^2 = \\tfrac14$ og $c = \\tfrac12$:\n$$u = \\phi\\!\\left(x + \\tfrac{t}{2}\\right) + \\psi\\!\\left(x - \\tfrac{t}{2}\\right).$$\n\n**Merk c) særskilt:** står det noe annet enn 1 foran $u_{tt}$, må du dele først. Gjør du ikke det, leser du av $c^2 = 1$ og får halvparten så rask bølge — eller dobbelt så rask, avhengig av hvilken vei du bommer.",
+        "hints": [
+          "Standardformen er $u_{tt} = c^2u_{xx}$ med tallet 1 foran $u_{tt}$.",
+          "Farten er kvadratroten av tallet foran $u_{xx}$, ikke tallet selv."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-3-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis ved direkte innsetting at $u(x,t) = \\psi(x - 3t)$ oppfyller $u_{tt} = 9u_{xx}$ for enhver to ganger deriverbar funksjon $\\psi$. Beskriv deretter med ord hvordan grafen beveger seg.",
+        "solution": "**Innsetting.** Skriv $s = x - 3t$. Kjerneregelen gir\n\n$$u_t = \\psi'(s)\\cdot(-3) = -3\\psi'(s), \\qquad u_{tt} = -3\\psi''(s)\\cdot(-3) = 9\\psi''(s),$$\n\n$$u_x = \\psi'(s)\\cdot 1 = \\psi'(s), \\qquad u_{xx} = \\psi''(s).$$\n\nAltså $u_{tt} = 9\\psi''(s) = 9u_{xx}$. Oppfylt for enhver $\\psi$.\n\n**Bevegelsen.** Ved $t = 0$ er $u(x,0) = \\psi(x)$. Ved tiden $t$ er $u(x,t) = \\psi(x - 3t)$, og den verdien som lå i punktet $s$ ved start, finnes nå i punktet $x = s + 3t$.\n\nGrafen er altså **den samme kurven forskjøvet $3t$ enheter mot høyre** — den beholder formen fullstendig og flytter seg med fart 3 mot høyre.\n\n**Kontroll av retningen:** har $\\psi$ en topp i $s = 0$, ligger toppen ved $t = 1$ der $x - 3 = 0$, altså i $x = 3$. Den har flyttet seg til høyre. Riktig.",
+        "hints": [
+          "Sett $s = x - 3t$ og bruk kjerneregelen. Hva er $\\partial s/\\partial t$?",
+          "For retningen: finn ut hvor toppen ligger ved $t = 1$ hvis den lå i $x = 0$ ved $t = 0$."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 2 — d'Alemberts formel (~15 min)\n\nDen generelle løsningen har to ukjente funksjoner. Initialbetingelsene gir to likninger. Løser vi dem, faller formelen ut — og den er verdt å utlede minst én gang, fordi utledningen forklarer hvor både halvparten og integralet kommer fra.",
+      "id": "tma4135-5-3-lokke2"
+    },
+    {
+      "type": "theorem",
+      "title": "d'Alemberts formel",
+      "content": "**Setning.** Løsningen av initialverdiproblemet\n\n$$u_{tt} = c^2u_{xx}, \\qquad x \\in \\mathbb{R}, \\qquad u(x,0) = f(x), \\qquad u_t(x,0) = g(x)$$\n\ner\n\n$$u(x,t) = \\tfrac12\\Big(f(x+ct) + f(x-ct)\\Big) + \\frac{1}{2c}\\int_{x-ct}^{x+ct} g(s)\\,ds.$$\n\n**Bevis.** Fra løkke 1 vet vi at $u = \\phi(x+ct) + \\psi(x-ct)$. Sett $t = 0$:\n\n$$\\phi(x) + \\psi(x) = f(x). \\tag{1}$$\n\nDeriver $u$ med hensyn på $t$ og sett $t = 0$:\n\n$$u_t = c\\phi'(x+ct) - c\\psi'(x-ct) \\quad\\Longrightarrow\\quad c\\left(\\phi'(x) - \\psi'(x)\\right) = g(x).$$\n\nIntegrer fra et fast punkt $x_0$ til $x$:\n\n$$\\phi(x) - \\psi(x) = \\frac{1}{c}\\int_{x_0}^{x} g(s)\\,ds + K, \\tag{2}$$\n\nder $K$ er en konstant. Legger vi $(1)$ og $(2)$ sammen og deler på 2:\n\n$$\\phi(x) = \\tfrac12 f(x) + \\frac{1}{2c}\\int_{x_0}^x g(s)\\,ds + \\tfrac{K}{2}.$$\n\nTrekker vi $(2)$ fra $(1)$ og deler på 2:\n\n$$\\psi(x) = \\tfrac12 f(x) - \\frac{1}{2c}\\int_{x_0}^x g(s)\\,ds - \\tfrac{K}{2}.$$\n\nSett nå $x + ct$ inn i $\\phi$ og $x - ct$ inn i $\\psi$, og legg sammen. Konstantene $K/2$ kansellerer, og de to integralene slås sammen til ett:\n\n$$\\frac{1}{2c}\\int_{x_0}^{x+ct} g - \\frac{1}{2c}\\int_{x_0}^{x-ct} g = \\frac{1}{2c}\\int_{x-ct}^{x+ct} g.$$\n\nResultatet er formelen. Legg merke til at $x_0$ forsvant — svaret avhenger ikke av hvor vi begynte å integrere.\n\n**Kontroll.** At formelen oppfyller likningen, følger av at den er på formen $\\phi(x+ct) + \\psi(x-ct)$. At den treffer initialbetingelsene, sjekkes direkte: ved $t = 0$ blir første ledd $\\tfrac12(f(x)+f(x)) = f(x)$ og integralet null. Og\n\n$$u_t = \\tfrac{c}{2}\\left(f'(x+ct) - f'(x-ct)\\right) + \\tfrac12\\left(g(x+ct) + g(x-ct)\\right)$$\n\netter analysens fundamentalteorem, som i $t = 0$ gir $0 + \\tfrac12(g(x)+g(x)) = g(x)$. Begge oppfylt.\n\n**Formelen står ikke alltid på det utdelte formelarket — den må kunnes og navngis.** Skriv «etter d'Alemberts formel» i besvarelsen; det er et av de metodenavnene fasitene alltid har med.",
+      "id": "tma4135-5-3-teo-dalembert"
+    },
+    {
+      "type": "definition",
+      "title": "Midlingsleddet",
+      "content": "Første halvdel av d'Alemberts formel:\n\n$$\\tfrac12\\Big(f(x+ct) + f(x-ct)\\Big).$$\n\nDette er bidraget fra **startposisjonen**: startformen deles i to like halvdeler, den ene løper mot venstre, den andre mot høyre. Faktoren $\\tfrac12$ er ikke en tilfeldighet — den er nettopp halveringen, og en løsning der startpulsen beholder full høyde, er feil.",
+      "id": "tma4135-5-3-def-midlingsledd"
+    },
+    {
+      "type": "definition",
+      "title": "Impulsleddet",
+      "content": "Andre halvdel av d'Alemberts formel:\n\n$$\\frac{1}{2c}\\int_{x-ct}^{x+ct} g(s)\\,ds.$$\n\nDette er bidraget fra **starthastigheten**. Det er et gjennomsnitt av $g$ over intervallet mellom de to karakteristikkene, ganget med intervallengden delt på $2c$.\n\nTre ting går galt her, i denne rekkefølgen av hyppighet: å glemme faktoren $\\tfrac{1}{2c}$, å bruke $x \\pm t$ som grenser i stedet for $x \\pm ct$, og å bytte om øvre og nedre grense. Er $g \\equiv 0$, forsvinner hele leddet — og det er det vanligste tilfellet på eksamen.",
+      "id": "tma4135-5-3-def-impulsledd"
+    },
+    {
+      "type": "definition",
+      "title": "Karakteristikker",
+      "content": "Linjene $x + ct = \\text{konstant}$ og $x - ct = \\text{konstant}$ i $(x,t)$-planet.\n\nLangs disse linjene er de to bølgekomponentene konstante. De er banene informasjonen følger: en forstyrrelse i punktet $x_0$ ved $t = 0$ merkes bare langs de to karakteristikkene ut fra $(x_0, 0)$.",
+      "id": "tma4135-5-3-def-karakteristikker"
+    },
+    {
+      "type": "definition",
+      "title": "Avhengighetsområdet",
+      "content": "Intervallet $[x - ct,\\; x + ct]$ på $x$-aksen.\n\nVerdien $u(x,t)$ avhenger **bare** av initialdataene i dette intervallet — av $f$ i de to endepunktene og av $g$ i hele intervallet. Alt som skjer utenfor, har ikke rukket fram.\n\nDet er en fysisk viktig egenskap, og den skiller bølgeligningen skarpt fra varmelikningen: der merkes en forstyrrelse overalt umiddelbart, om enn svakt. Snur du på det, får du **påvirkningsområdet**: en startforstyrrelse i $[a,b]$ kan ved tiden $t$ bare merkes i $[a - ct,\\; b + ct]$.",
+      "id": "tma4135-5-3-def-avhengighetsomraade"
+    },
+    {
+      "type": "example",
+      "title": "En startpuls uten fart: pulsen deler seg i to",
+      "problem": "Løs\n\n$$u_{tt} = 4u_{xx}, \\qquad x \\in \\mathbb{R}, \\qquad u(x,0) = e^{-x^2}, \\qquad u_t(x,0) = 0,$$\n\nog beskriv løsningen som to bølger.",
+      "solution": "**Steg 1 — les av farten.** $c^2 = 4$, så $c = 2$. (Ikke 4.)\n\n**Steg 2 — bruk d'Alemberts formel.** Med $g \\equiv 0$ faller integralleddet bort:\n\n$$u(x,t) = \\tfrac12\\Big(f(x + 2t) + f(x - 2t)\\Big) = \\tfrac12\\left(e^{-(x+2t)^2} + e^{-(x-2t)^2}\\right).$$\n\n**Steg 3 — kontroll ved innsetting i likningen.** Sett $A = e^{-(x+2t)^2}$ og $B = e^{-(x-2t)^2}$. Begge er funksjoner av henholdsvis $x + 2t$ og $x - 2t$, så etter løkke 1 oppfyller begge bølgeligningen med $c = 2$, og dermed også halve summen. Skrevet ut for $B$, med $s = x - 2t$: $B = e^{-s^2}$ gir $B_t = -2\\cdot(-2s)e^{-s^2}\\cdot 1 = 4se^{-s^2}$ og $B_{tt} = 4\\left(1 - 2s^2\\right)e^{-s^2}\\cdot(-2)\\cdot(-1)$; enklere er å bruke at $B_{tt} = 4B_{ss}$ og $B_{xx} = B_{ss}$, altså $B_{tt} = 4B_{xx}$. Oppfylt.\n\n**Steg 4 — kontroll av initialbetingelsene.** Ved $t = 0$:\n\n$$u(x,0) = \\tfrac12\\left(e^{-x^2} + e^{-x^2}\\right) = e^{-x^2}. \\quad \\text{Oppfylt.}$$\n\nOg\n\n$$u_t = \\tfrac12\\left(-2(x+2t)\\cdot 2\\,e^{-(x+2t)^2} + (-2)(x-2t)\\cdot(-2)\\,e^{-(x-2t)^2}\\right),$$\n\nsom i $t = 0$ blir $\\tfrac12\\left(-4xe^{-x^2} + 4xe^{-x^2}\\right) = 0$. Oppfylt.\n\n**Beskrivelsen.** Startpulsen har toppverdi 1 i $x = 0$. Ved tiden $t$ har den delt seg i to identiske pulser med toppverdi $\\tfrac12$, den ene med topp i $x = -2t$ og den andre i $x = 2t$. De løper fra hverandre med fart 2 hver vei, altså med en innbyrdes fart på 4, og hver av dem beholder formen sin nøyaktig.\n\n**Den setningen sensor ser etter:** «etter d'Alemberts formel med $c = 2$ og $g \\equiv 0$ blir løsningen halve startpulsen forskjøvet hver sin vei». Selve regningen er tre linjer; navnet på metoden og tolkningen er resten av poengene.",
+      "id": "tma4135-5-3-eks2"
+    },
+    {
+      "type": "image",
+      "src": "/images/textbook/tma4135/dalembert-to-bolger.svg",
+      "alt": "Tre grafer under hverandre for tidene 0, 1,2 og 2,6. Oeverst en enkelt puls med toppverdi 1 i origo. I de to neste har pulsen delt seg i to like store pulser med halv hoeyde, som beveger seg lenger og lenger fra hverandre. Stiplede kurver viser de to halvpulsene hver for seg.",
+      "caption": "Startpulsen deler seg i to like halvdeler som løper hver sin vei med fart $c$. Den blå heltrukne kurven er $u(x,t)$; de to stiplede er $\\tfrac12 f(x+ct)$ og $\\tfrac12 f(x-ct)$ hver for seg. Så lenge halvdelene overlapper, er summen større enn hver av dem.",
+      "id": "tma4135-5-3-fig-dalembert"
+    },
+    {
+      "id": "tma4135-5-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-3-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H — d'Alembert.) Løs\n\n$$u_{tt} = 9u_{xx}, \\qquad u(x,0) = \\cos x, \\qquad u_t(x,0) = 0,$$\n\nog skriv svaret som ett produkt ved hjelp av en identitet fra det utdelte formelarket.",
+        "solution": "**Farten.** $c^2 = 9$, altså $c = 3$.\n\n**d'Alemberts formel** med $g \\equiv 0$:\n\n$$u(x,t) = \\tfrac12\\Big(\\cos(x + 3t) + \\cos(x - 3t)\\Big).$$\n\n**Forenkling.** **Fra sumformlene på det utdelte formelarket:**\n\n$$\\cos A + \\cos B = 2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}.$$\n\nMed $A = x + 3t$ og $B = x - 3t$ er $\\frac{A+B}{2} = x$ og $\\frac{A-B}{2} = 3t$:\n\n$$u(x,t) = \\tfrac12\\cdot 2\\cos x\\cos 3t = \\cos x\\,\\cos 3t.$$\n\n**Kontroll ved innsetting.**\n\n$$u_{tt} = -9\\cos x\\cos 3t, \\qquad u_{xx} = -\\cos x\\cos 3t \\;\\Rightarrow\\; 9u_{xx} = -9\\cos x\\cos 3t.$$\n\nLike, så likningen er oppfylt.\n\n**Kontroll av initialbetingelsene.** $u(x,0) = \\cos x\\cdot 1 = \\cos x$. Oppfylt. Og $u_t = -3\\cos x\\sin 3t$, som i $t = 0$ er 0. Oppfylt.\n\n**Tolkning.** Formen $\\cos x\\cos 3t$ er en **stående bølge**: profilen $\\cos x$ står i ro og bare amplituden pulserer. To motgående bølger med samme form og samme amplitude gir alltid en stående bølge — det er samme fenomen som når to bølger i et badekar møtes.",
+        "hints": [
+          "Ta kvadratroten av 9 først.",
+          "Med $u_t(x,0) = 0$ forsvinner hele integralleddet.",
+          "Slå opp sumformelen for $\\cos A + \\cos B$ på formelarket."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-3-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H.) Løs\n\n$$u_{tt} = u_{xx}, \\qquad u(x,0) = 0, \\qquad u_t(x,0) = x^2,$$\n\nog kontroller svaret ved innsetting.",
+        "solution": "**Farten.** $c = 1$.\n\n**d'Alemberts formel** med $f \\equiv 0$: bare integralleddet står igjen.\n\n$$u(x,t) = \\frac{1}{2}\\int_{x-t}^{x+t} s^2\\,ds = \\frac{1}{2}\\left[\\frac{s^3}{3}\\right]_{x-t}^{x+t} = \\frac{(x+t)^3 - (x-t)^3}{6}.$$\n\n**Skriv ut.** Utvid begge kuber:\n\n$$(x+t)^3 = x^3 + 3x^2t + 3xt^2 + t^3, \\qquad (x-t)^3 = x^3 - 3x^2t + 3xt^2 - t^3.$$\n\nDifferansen er $6x^2t + 2t^3$, så\n\n$$u(x,t) = \\frac{6x^2t + 2t^3}{6} = x^2 t + \\frac{t^3}{3}.$$\n\n**Kontroll — likningen.**\n\n$$u_t = x^2 + t^2, \\qquad u_{tt} = 2t; \\qquad u_x = 2xt, \\qquad u_{xx} = 2t.$$\n\nAltså $u_{tt} = 2t = u_{xx}$. Oppfylt.\n\n**Kontroll — initialbetingelsene.** $u(x,0) = 0$. Oppfylt. Og $u_t(x,0) = x^2 + 0 = x^2$. Oppfylt.\n\n**Merk hvorfor svaret vokser uten grense.** Starthastigheten $x^2$ er ubegrenset, og alle punkter langt ute beveger seg svært raskt. Det er matematisk uproblematisk, men det er en god påminnelse om at d'Alemberts formel ikke forutsetter at noe dør ut — i motsetning til varmelikningen holder bølgeligningen på alt den får.",
+        "hints": [
+          "Med $u(x,0) = 0$ forsvinner midlingsleddet, og bare integralet står igjen.",
+          "Grensene er $x - ct$ og $x + ct$, her med $c = 1$.",
+          "Utvid $(x+t)^3$ og $(x-t)^3$ og se hvilke ledd som kansellerer."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå formelen og utledningen. Det er nok til å løse den vanligste H-oppgaven. Tar du en pause her, skriv først ned d'Alemberts formel fra hukommelsen — særlig faktoren $\\tfrac1{2c}$ og grensene $x \\pm ct$.",
+      "id": "tma4135-5-3-pause1"
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 3 — Når begge initialdataene er med (~14 min)\n\nDe to leddene i formelen er uavhengige, så en oppgave med både startform og starthastighet er bare de to foregående oppgavene lagt sammen. Men den er dyrere å bomme på, fordi et fortegn i integralleddet ødelegger alt.",
+      "id": "tma4135-5-3-lokke3"
+    },
+    {
+      "type": "example",
+      "title": "Bare fart, ingen startform",
+      "problem": "Løs\n\n$$u_{tt} = c^2u_{xx}, \\qquad u(x,0) = 0, \\qquad u_t(x,0) = \\frac{1}{1+x^2},$$\n\nfor en generell bølgefart $c > 0$.",
+      "solution": "**d'Alemberts formel** med $f \\equiv 0$:\n\n$$u(x,t) = \\frac{1}{2c}\\int_{x-ct}^{x+ct}\\frac{ds}{1+s^2}.$$\n\nDen antideriverte til $1/(1+s^2)$ er $\\arctan s$, så\n\n$$u(x,t) = \\frac{1}{2c}\\Big[\\arctan s\\Big]_{x-ct}^{x+ct} = \\frac{1}{2c}\\Big(\\arctan(x+ct) - \\arctan(x - ct)\\Big).$$\n\n**Kontroll — initialbetingelsene.** Ved $t = 0$ er de to argumentene like, så differansen er null: $u(x,0) = 0$. Oppfylt.\n\nFor $u_t$ bruker vi analysens fundamentalteorem på hver grense:\n\n$$u_t = \\frac{1}{2c}\\left(\\frac{c}{1+(x+ct)^2} + \\frac{c}{1+(x-ct)^2}\\right) = \\frac{1}{2}\\left(\\frac{1}{1+(x+ct)^2} + \\frac{1}{1+(x-ct)^2}\\right),$$\n\nsom i $t = 0$ gir $\\tfrac12\\left(\\frac{1}{1+x^2} + \\frac{1}{1+x^2}\\right) = \\frac{1}{1+x^2}$. Oppfylt.\n\n**Kontroll — likningen.** Uttrykket er en funksjon av $x + ct$ pluss en funksjon av $x - ct$ (den siste med minustegn), altså på formen $\\phi(x+ct) + \\psi(x-ct)$. Etter løkke 1 oppfyller enhver slik funksjon bølgeligningen. Oppfylt.\n\n**Legg merke til grensen.** Når $t \\to \\infty$ går $\\arctan(x + ct) \\to \\pi/2$ og $\\arctan(x - ct) \\to -\\pi/2$, så\n\n$$u(x,t) \\;\\longrightarrow\\; \\frac{1}{2c}\\cdot\\pi = \\frac{\\pi}{2c}.$$\n\nHele tauet ender opp løftet til en fast høyde. Det er riktig: vi ga det en oppadrettet fart overalt og ingen kraft som trekker det tilbake.",
+      "id": "tma4135-5-3-eks3"
+    },
+    {
+      "type": "example",
+      "title": "Eksamensnivå: både startform og starthastighet",
+      "problem": "**Eksamensoppgave.** Betrakt\n\n$$u_{tt} = 9u_{xx}, \\qquad x \\in \\mathbb{R}, \\qquad u(x,0) = \\sin x, \\qquad u_t(x,0) = \\cos x.$$\n\n**a)** Skriv opp d'Alemberts formel og les av bølgefarten.\n**b)** Regn ut løsningen og forenkle den så langt som mulig.\n**c)** Kontroller at svaret oppfyller både differensiallikningen og begge initialbetingelsene.",
+      "solution": "**a) Formelen og farten.** **Etter d'Alemberts formel** er\n\n$$u(x,t) = \\tfrac12\\Big(f(x+ct) + f(x-ct)\\Big) + \\frac{1}{2c}\\int_{x-ct}^{x+ct}g(s)\\,ds.$$\n\nHer er $c^2 = 9$, altså $c = 3$, og $f(x) = \\sin x$, $g(x) = \\cos x$.\n\n**b) Regningen.**\n\n*Midlingsleddet.* **Fra sumformlene på det utdelte formelarket:** $\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$. Med $A = x+3t$, $B = x-3t$:\n\n$$\\tfrac12\\Big(\\sin(x+3t) + \\sin(x-3t)\\Big) = \\tfrac12\\cdot 2\\sin x\\cos 3t = \\sin x\\cos 3t.$$\n\n*Impulsleddet.*\n\n$$\\frac{1}{6}\\int_{x-3t}^{x+3t}\\cos s\\,ds = \\frac{1}{6}\\Big[\\sin s\\Big]_{x-3t}^{x+3t} = \\frac{\\sin(x+3t) - \\sin(x-3t)}{6}.$$\n\n**Fra differanseformelen på arket:** $\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$, altså\n\n$$\\frac{2\\cos x\\sin 3t}{6} = \\frac{\\cos x\\sin 3t}{3}.$$\n\n**Til sammen:**\n\n$$\\boxed{u(x,t) = \\sin x\\,\\cos 3t + \\tfrac13\\cos x\\,\\sin 3t.}$$\n\n**c) Kontrollen.**\n\n*Differensiallikningen.*\n\n$$u_t = -3\\sin x\\sin 3t + \\cos x\\cos 3t, \\qquad u_{tt} = -9\\sin x\\cos 3t - 3\\cos x\\sin 3t.$$\n\n$$u_x = \\cos x\\cos 3t - \\tfrac13\\sin x\\sin 3t, \\qquad u_{xx} = -\\sin x\\cos 3t - \\tfrac13\\cos x\\sin 3t.$$\n\n$$9u_{xx} = -9\\sin x\\cos 3t - 3\\cos x\\sin 3t = u_{tt}. \\quad\\text{Oppfylt.}$$\n\n*Initialposisjonen.* $u(x,0) = \\sin x\\cdot 1 + \\tfrac13\\cos x\\cdot 0 = \\sin x$. Oppfylt.\n\n*Initialhastigheten.* $u_t(x,0) = -3\\sin x\\cdot 0 + \\cos x\\cdot 1 = \\cos x$. Oppfylt.\n\n**Hva som gir uttelling.** Delpunkt a) er gratis hvis formelen sitter — men den må skrives **riktig**, med $\\tfrac1{2c}$ og $x \\pm ct$. Delpunkt b) er der forenklingene ligger: du får full uttelling for det uforenklede uttrykket, men sumformlene fra arket gjør svaret mye penere og gjør kontrollen i c) langt raskere. Og delpunkt c) er poeng nesten ingen tar seg tid til, selv om det er ren mekanikk og avslører enhver fortegnsfeil du måtte ha gjort.\n\n**Kontroll av rimeligheten:** faktoren $\\tfrac13$ foran det andre leddet er $1/c$, akkurat som formelen krever. Får du 1 eller 3 der, har du sannsynligvis mistet eller doblet en $c$.",
+      "id": "tma4135-5-3-eks4"
+    },
+    {
+      "id": "tma4135-5-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-3-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H.) Løs\n\n$$u_{tt} = 4u_{xx}, \\qquad u(x,0) = \\sin x, \\qquad u_t(x,0) = 2\\cos x,$$\n\nforenkle svaret, og kommenter hva slags bølge du får.",
+        "solution": "**Farten.** $c^2 = 4$, altså $c = 2$.\n\n**Midlingsleddet.** Med sumformelen fra det utdelte formelarket:\n\n$$\\tfrac12\\Big(\\sin(x+2t) + \\sin(x-2t)\\Big) = \\sin x\\cos 2t.$$\n\n**Impulsleddet.**\n\n$$\\frac{1}{4}\\int_{x-2t}^{x+2t}2\\cos s\\,ds = \\frac{1}{2}\\Big[\\sin s\\Big]_{x-2t}^{x+2t} = \\frac{\\sin(x+2t) - \\sin(x-2t)}{2} = \\frac{2\\cos x\\sin 2t}{2} = \\cos x\\sin 2t.$$\n\n**Til sammen:**\n\n$$u(x,t) = \\sin x\\cos 2t + \\cos x\\sin 2t = \\sin(x + 2t),$$\n\nder siste steg er additionsformelen $\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$ fra formelarket.\n\n**Kontroll ved innsetting.** $u = \\sin(x+2t)$ gir $u_{tt} = -4\\sin(x+2t)$ og $u_{xx} = -\\sin(x+2t)$, altså $4u_{xx} = u_{tt}$. Oppfylt. Initialbetingelsene: $u(x,0) = \\sin x$ oppfylt, og $u_t = 2\\cos(x+2t)$ gir $u_t(x,0) = 2\\cos x$. Oppfylt.\n\n**Kommentar.** Svaret er en **ren venstregående bølge** — hele løsningen har formen $\\phi(x + 2t)$, uten noen høyregående komponent. Det er ingen tilfeldighet: initialdataene var akkurat slik at $\\psi$-delen ble null. Fysisk svarer det til at du både former tauet og gir det nøyaktig den farten som skal til for at pulsen bare skal gå én vei.\n\nDet er verdt å legge merke til, fordi det er en variant sensorene liker: en oppgave der svaret kollapser til én enkelt forskjøvet funksjon, er nesten alltid konstruert slik med vilje.",
+        "hints": [
+          "Ta kvadratroten av 4 først, og bruk $c = 2$ både i argumentene og i faktoren foran integralet.",
+          "Slå opp sumformlene for $\\sin A + \\sin B$ og $\\sin A - \\sin B$.",
+          "Til slutt: kjenner du igjen $\\sin x\\cos 2t + \\cos x\\sin 2t$?"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 4 — To faste ender gir stående bølger (~15 min)\n\nSett to faste ender på tauet — en gitarstreng — og d'Alemberts formel er ikke lenger nok alene: bølgene reflekteres. Da er vi tilbake i separasjon av variable, med nøyaktig det samme romproblemet som i [kap. 5.1](/tma4135/tma4135-5-1) og en ny tidsfaktor.",
+      "id": "tma4135-5-3-lokke4"
+    },
+    {
+      "type": "definition",
+      "title": "Stående bølge",
+      "content": "En løsning på formen\n\n$$u(x,t) = F(x)\\,G(t),$$\n\nder romprofilen $F$ står i ro og bare amplituden $G$ varierer med tida.\n\nKjennetegnet er at bølgen ikke *ser ut* til å bevege seg — den bare pulserer. Men den er likevel summen av to motgående vandrebølger, noe du så direkte i oppgave 3, der $\\tfrac12(\\cos(x+3t) + \\cos(x-3t))$ ble til $\\cos x\\cos 3t$.",
+      "id": "tma4135-5-3-def-staaende"
+    },
+    {
+      "type": "definition",
+      "title": "Tidsfaktoren for bølgeligningen",
+      "content": "Separasjonen $u = FG$ av $u_{tt} = c^2u_{xx}$ gir (se [kap. 5.1](/tma4135/tma4135-5-1))\n\n$$F'' + kF = 0, \\qquad G'' + c^2kG = 0.$$\n\nMed en positiv egenverdi $k_n = (n\\pi/L)^2$ blir tidsfaktoren en ren svingning:\n\n$$G_n(t) = a_n\\cos\\frac{cn\\pi t}{L} + b_n\\sin\\frac{cn\\pi t}{L}.$$\n\n**Kontrast til varmelikningen**, som ga $e^{-c^2k_nt}$. Varme dør ut; en ideell streng svinger for alltid. Forskjellen ligger utelukkende i at $G$-likningen er av andre orden.",
+      "id": "tma4135-5-3-def-tidsfaktor-bolge"
+    },
+    {
+      "type": "definition",
+      "title": "Moden $n$ og dens frekvens",
+      "content": "Den $n$-te stående bølgen på $[0,L]$ med faste ender:\n\n$$u_n(x,t) = \\sin\\frac{n\\pi x}{L}\\left(a_n\\cos\\frac{cn\\pi t}{L} + b_n\\sin\\frac{cn\\pi t}{L}\\right).$$\n\nVinkelfrekvensen er $\\omega_n = \\dfrac{cn\\pi}{L}$, altså proporsjonal med $n$. Moden svinger med perioden $2L/(cn)$.\n\n**Merk kontrasten til varmelikningen igjen:** der var dempingsraten proporsjonal med $n^2$. Her er frekvensen proporsjonal med $n$. Den forskjellen er grunnen til at en streng gir en harmonisk klang med rene overtoner, mens en varmeprofil bare glattes ut.",
+      "id": "tma4135-5-3-def-mode-frekvens"
+    },
+    {
+      "type": "definition",
+      "title": "Grunntonen og overtonene",
+      "content": "Moden $n = 1$ kalles **grunntonen**; den har lavest frekvens $\\omega_1 = c\\pi/L$ og ingen nullpunkter inne i intervallet. Modene $n = 2, 3, 4, \\dots$ kalles **overtoner** og har frekvenser som er hele multipler av grunntonens.\n\nDet er derfor en gitarstreng gir én bestemt tone: alle modene svinger med frekvenser $\\omega_1, 2\\omega_1, 3\\omega_1, \\dots$, og øret oppfatter dem som én tone med klangfarge. Kortere streng eller høyere strekk gir større $c/L$ og dermed lysere tone.",
+      "id": "tma4135-5-3-def-grunntone"
+    },
+    {
+      "type": "definition",
+      "title": "Refleksjon i en fast ende",
+      "content": "Når en bølge på et endelig intervall når en fast ende, snus den opp ned og går tilbake.\n\nMatematisk beskrives dette ved å utvide initialdataene **odde** om randpunktet og deretter periodisk med periode $2L$, og så bruke d'Alemberts formel på hele linja. Den odde utvidelsen sørger automatisk for at $u = 0$ i randpunktene til alle tider — samme utvidelsestriks som i [kap. 3.2](/tma4135/tma4135-3-2).\n\nDu trenger sjelden å gjøre dette i praksis på eksamen: separasjon av variable gir samme svar og er den forventede metoden. Men sammenhengen er verdt å kjenne, fordi den forklarer hvorfor egenfunksjonene ved faste ender blir nettopp sinuser.",
+      "id": "tma4135-5-3-def-odde-refleksjon"
+    },
+    {
+      "id": "tma4135-5-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-3-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger H — utledning.) Gjennomfør variabelskiftet selv, for generell $c > 0$.\n\n**a)** Sett $y = x + ct$ og $z = x - ct$, og vis ved kjerneregelen at $u_{xx} = u_{yy} + 2u_{yz} + u_{zz}$ og $u_{tt} = c^2\\left(u_{yy} - 2u_{yz} + u_{zz}\\right)$.\n**b)** Konkluder at bølgeligningen er ekvivalent med $u_{yz} = 0$.\n**c)** Integrer opp og skriv den generelle løsningen.",
+        "solution": "**a)** Vi har $y_x = 1$, $z_x = 1$, $y_t = c$, $z_t = -c$.\n\n*Romderivasjon.* Kjerneregelen gir\n\n$$u_x = u_y\\,y_x + u_z\\,z_x = u_y + u_z.$$\n\nDeriver på nytt, og bruk kjerneregelen på hvert av leddene $u_y$ og $u_z$ (som selv er funksjoner av $y$ og $z$):\n\n$$u_{xx} = \\left(u_{yy}y_x + u_{yz}z_x\\right) + \\left(u_{zy}y_x + u_{zz}z_x\\right) = u_{yy} + u_{yz} + u_{zy} + u_{zz}.$$\n\nSiden blandede partielle deriverte er like, $u_{yz} = u_{zy}$, blir dette\n\n$$u_{xx} = u_{yy} + 2u_{yz} + u_{zz}.$$\n\n*Tidsderivasjon.*\n\n$$u_t = u_y\\,y_t + u_z\\,z_t = c\\,u_y - c\\,u_z,$$\n\n$$u_{tt} = c\\left(u_{yy}\\cdot c + u_{yz}\\cdot(-c)\\right) - c\\left(u_{zy}\\cdot c + u_{zz}\\cdot(-c)\\right) = c^2\\left(u_{yy} - 2u_{yz} + u_{zz}\\right).$$\n\n**b)** Trekk fra:\n\n$$u_{tt} - c^2u_{xx} = c^2\\left(u_{yy} - 2u_{yz} + u_{zz}\\right) - c^2\\left(u_{yy} + 2u_{yz} + u_{zz}\\right) = -4c^2u_{yz}.$$\n\nSiden $c > 0$, er $-4c^2 \\ne 0$, og dermed\n\n$$u_{tt} = c^2u_{xx} \\quad\\Longleftrightarrow\\quad u_{yz} = 0.$$\n\n**c)** Skriv $u_{yz} = \\dfrac{\\partial}{\\partial y}\\left(u_z\\right) = 0$. Da avhenger $u_z$ ikke av $y$, altså $u_z = h(z)$ for en funksjon $h$. Integrer med hensyn på $z$; integrasjonskonstanten kan nå være en vilkårlig funksjon av $y$:\n\n$$u(y,z) = \\psi(z) + \\phi(y), \\qquad \\psi(z) = \\int h(z)\\,dz.$$\n\nTilbake i de opprinnelige variablene:\n\n$$u(x,t) = \\phi(x + ct) + \\psi(x - ct).$$\n\n**Kontroll.** $u_{tt} = c^2\\phi'' + c^2\\psi''$ og $u_{xx} = \\phi'' + \\psi''$, så $u_{tt} = c^2u_{xx}$ for alle to ganger deriverbare $\\phi$ og $\\psi$. Oppfylt.\n\n**Merk hvorfor akkurat dette koordinatvalget virker:** kryssleddet $u_{yz}$ har motsatt fortegn i de to uttrykkene, mens $u_{yy}$ og $u_{zz}$ har samme. Derfor kansellerer de to «vanskelige» leddene, og bare kryssleddet blir igjen.",
+        "hints": [
+          "Skriv opp de fire partielle deriverte $y_x$, $z_x$, $y_t$, $z_t$ først — de er alle konstanter.",
+          "Når du deriverer $u_y$ på nytt, er $u_y$ selv en funksjon av $y$ og $z$; bruk kjerneregelen igjen.",
+          "I c): «konstanten» ved integrasjon med hensyn på $z$ kan avhenge av $y$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-3-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger H — endelig intervall.) En streng er festet i begge ender:\n\n$$u_{tt} = 4u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = 3\\sin 2x, \\qquad u_t(x,0) = 0.$$\n\n**a)** Finn løsningen ved separasjon av variable.\n**b)** Angi perioden til svingningen, og skriv løsningen som to motgående vandrebølger.",
+        "solution": "**a) Separasjon.** Med $u = FG$ blir $FG'' = 4F''G$, altså\n\n$$\\frac{G''}{4G} = \\frac{F''}{F} = -k \\quad\\Longrightarrow\\quad F'' + kF = 0, \\qquad G'' + 4kG = 0,$$\n\nmed $F(0) = F(\\pi) = 0$. Romproblemet er nøyaktig det samme som i [kap. 5.1](/tma4135/tma4135-5-1): tilfellene $k = 0$ og $k < 0$ gir bare den trivielle løsningen, og $k = p^2 > 0$ gir $F = B\\sin px$ med $\\sin p\\pi = 0$, altså\n\n$$k_n = n^2, \\qquad F_n(x) = \\sin nx.$$\n\nTidsfaktoren: $G'' + 4n^2G = 0$ gir $G_n = a_n\\cos 2nt + b_n\\sin 2nt$.\n\n**Superposisjon:**\n\n$$u(x,t) = \\sum_{n=1}^{\\infty}\\sin(nx)\\left(a_n\\cos 2nt + b_n\\sin 2nt\\right).$$\n\n**Match initialbetingelsene.** Ved $t = 0$: $u(x,0) = \\sum a_n\\sin nx = 3\\sin 2x$, så $a_2 = 3$ og alle andre $a_n = 0$.\n\nDeriver: $u_t = \\sum\\sin(nx)\\left(-2na_n\\sin 2nt + 2nb_n\\cos 2nt\\right)$, som i $t = 0$ gir $\\sum 2nb_n\\sin nx = 0$, altså alle $b_n = 0$.\n\n**Svar:**\n\n$$u(x,t) = 3\\sin(2x)\\cos(4t).$$\n\n**Kontroll.** $u_{tt} = -48\\sin(2x)\\cos(4t)$ og $u_{xx} = -12\\sin(2x)\\cos 4t$, så $4u_{xx} = -48\\sin(2x)\\cos 4t = u_{tt}$. Oppfylt. Randen: $\\sin 0 = \\sin 2\\pi = 0$. Oppfylt. Initialbetingelsene: $u(x,0) = 3\\sin 2x$ og $u_t = -12\\sin(2x)\\sin 4t$, som er null i $t = 0$. Begge oppfylt.\n\n**b) Perioden.** Tidsfaktoren er $\\cos 4t$, med vinkelfrekvens $\\omega = 4$ og periode\n\n$$T = \\frac{2\\pi}{\\omega} = \\frac{\\pi}{2}.$$\n\n**Som to vandrebølger.** **Fra produktformelen på det utdelte formelarket:** $\\sin A\\cos B = \\tfrac12\\left(\\sin(A+B) + \\sin(A-B)\\right)$. Med $A = 2x$, $B = 4t$:\n\n$$u = 3\\sin 2x\\cos 4t = \\tfrac32\\Big(\\sin(2x + 4t) + \\sin(2x - 4t)\\Big) = \\tfrac32\\Big(\\sin 2(x + 2t) + \\sin 2(x - 2t)\\Big).$$\n\nDet er nøyaktig én venstregående og én høyregående bølge med fart $c = 2$, som det skal være. **Stående bølge og to motgående vandrebølger er to beskrivelser av det samme.**",
+        "hints": [
+          "Romproblemet er identisk med varmetilfellet — bare $G$-likningen er ny.",
+          "To initialbetingelser gir to sett koeffisienter: $a_n$ fra $u(x,0)$ og $b_n$ fra $u_t(x,0)$.",
+          "For b): slå opp produktformelen for $\\sin A\\cos B$ på formelarket."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-3-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger H — avhengighet og påvirkning.) En streng på hele tallinja ligger i ro, men får en starthastighet $g$ som er null utenfor intervallet $[-1,1]$. Bølgefarten er $c = 3$.\n\n**a)** Hvilket område på $x$-aksen kan være i bevegelse ved tiden $t = 2$?\n**b)** Hva er $u(10, 2)$? Begrunn uten å regne.\n**c)** Fra hvilket tidspunkt kan punktet $x = 10$ tidligst merke noe?",
+        "solution": "**a)** Etter d'Alemberts formel er\n\n$$u(x,t) = \\frac{1}{2c}\\int_{x-ct}^{x+ct}g(s)\\,ds$$\n\n(midlingsleddet forsvinner, siden $f \\equiv 0$). Uttrykket er forskjellig fra null bare når integrasjonsintervallet $[x - 3t,\\; x + 3t]$ overlapper med $[-1,1]$, der $g$ lever.\n\nVed $t = 2$ er intervallet $[x - 6,\\; x + 6]$. Det overlapper med $[-1,1]$ nøyaktig når\n\n$$x - 6 \\le 1 \\quad\\text{og}\\quad x + 6 \\ge -1 \\quad\\Longleftrightarrow\\quad -7 \\le x \\le 7.$$\n\n**Påvirkningsområdet er $[-7,\\,7]$.** Generelt: startdata på $[a,b]$ kan ved tiden $t$ bare merkes i $[a - ct,\\; b + ct]$.\n\n**b)** Punktet $x = 10$ ligger utenfor $[-7,7]$. Avhengighetsområdet er $[10 - 6,\\; 10 + 6] = [4, 16]$, og der er $g \\equiv 0$, så integralet er null:\n\n$$u(10, 2) = 0.$$\n\nIngen regning nødvendig — det følger av at forstyrrelsen ikke har rukket fram.\n\n**c)** Punktet $x = 10$ merker noe først når avhengighetsområdet $[10 - 3t,\\; 10 + 3t]$ berører $[-1,1]$, altså når\n\n$$10 - 3t \\le 1 \\quad\\Longleftrightarrow\\quad t \\ge 3.$$\n\nDet tidligste tidspunktet er $t = 3$. Det stemmer med den fysiske tolkningen: den nærmeste delen av forstyrrelsen ligger i $x = 1$, avstanden er 9, og med fart 3 tar det 3 tidsenheter.\n\n**Dette er den skarpeste kontrasten til varmelikningen.** En varmeforstyrrelse i $[-1,1]$ merkes i $x = 10$ for enhver $t > 0$ — svakt, men merkbart. En bølgeforstyrrelse merkes ikke i det hele tatt før $t = 3$. Endelig utbredelsesfart er en egenskap ved bølgeligningen, ikke ved varmelikningen.",
+        "hints": [
+          "Skriv opp d'Alemberts formel og spør: for hvilke $x$ er integralet forskjellig fra null?",
+          "Integrasjonsintervallet er $[x - ct,\\; x + ct]$. Når overlapper det med $[-1,1]$?",
+          "For c): hvor langt er det fra den nærmeste kanten av forstyrrelsen til $x = 10$, og hvor lang tid tar det med fart 3?"
+        ]
+      }
+    },
+    {
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å bruke $x \\pm t$ i stedet for $x \\pm ct$.** Dette er den vanligste feilen i hele sjanger H, og den ødelegger både argumentene i midlingsleddet og grensene i integralet. Skriv ned $c$ på egen linje aller først: «$c^2 = 16$, altså $c = 4$».\n\n**Å forveksle $c$ med $c^2$.** Står det $u_{tt} = 9u_{xx}$, er farten 3, ikke 9. Og står det et tall foran $u_{tt}$, må du dele først.\n\n**Å glemme faktoren $\\tfrac{1}{2c}$ foran integralet.** Ikke $\\tfrac12$, ikke $\\tfrac1c$, men $\\tfrac1{2c}$. En rask kontroll: sett $g = $ konstant og se om $u_t(x,0)$ blir riktig — med feil faktor blir den det ikke.\n\n**Å bytte om integrasjonsgrensene.** Nedre grense er $x - ct$, øvre er $x + ct$. Bytter du, får du feil fortegn på hele impulsleddet.\n\n**Å glemme halveringen i midlingsleddet.** En startpuls med toppverdi 1 gir to pulser med toppverdi $\\tfrac12$. Beholder svaret ditt full høyde i begge, har du mistet faktoren.\n\n**Å blande $u_t$ og $u_{tt}$.** Varmelikningen har én tidsderivert og trenger én initialbetingelse; bølgeligningen har to og trenger to. Får du oppgitt både $u(x,0)$ og $u_t(x,0)$, er det en bølgeligning — sjekk at du leser riktig likning.\n\n**Å bruke d'Alemberts formel på et endelig intervall uten videre.** Formelen er utledet for hele tallinja. Har du to faste ender, skal du separere variable, ikke sette inn i formelen. (Det finnes en refleksjonsvariant, men den er ikke den forventede metoden her.)\n\n**Å ikke navngi formelen.** Skriv «etter d'Alemberts formel». Løsningsforslagene gjør det, instruksen på settet krever begrunnelse, og det koster fire ord.",
+      "id": "tma4135-5-3-typiske-feil"
+    },
+    {
+      "id": "tma4135-5-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-5-3-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter. Bruker du mer enn ti minutter til sammen, er det verdt å friske opp kjerneregelen før du går videre til [kap. 5.4](/tma4135/tma4135-5-4)."
+        },
+        {
+          "id": "tma4135-5-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-3-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver med hensyn på $t$, med $c$ konstant.\n\n**a)** $h(x + ct)$\n**b)** $h(x - ct)$\n**c)** $h(x - ct)$ to ganger med hensyn på $t$",
+            "solution": "**a)** Kjerneregelen: den indre deriverte av $x + ct$ med hensyn på $t$ er $c$, så\n$$\\frac{\\partial}{\\partial t}h(x+ct) = c\\,h'(x+ct).$$\n\n**b)** Her er den indre deriverte $-c$:\n$$\\frac{\\partial}{\\partial t}h(x-ct) = -c\\,h'(x-ct).$$\n\n**c)** Deriver b) på nytt; den indre deriverte er $-c$ igjen:\n$$\\frac{\\partial^2}{\\partial t^2}h(x-ct) = (-c)\\cdot(-c)\\,h''(x-ct) = c^2h''(x-ct).$$\n\n**Legg merke til at fortegnet forsvinner** ved dobbeltderivasjon — det er derfor både høyre- og venstregående bølger oppfyller den *samme* likningen.",
+            "hints": [
+              "Kjerneregelen: ytre derivert ganger indre derivert."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-3-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\displaystyle\\frac{d}{dt}\\int_{x-ct}^{x+ct}g(s)\\,ds$ ved hjelp av analysens fundamentalteorem.",
+            "solution": "Begge grensene avhenger av $t$. Fundamentalteoremet gir, med fortegn etter hvilken grense det gjelder og kjerneregelen på hver:\n\n$$\\frac{d}{dt}\\int_{a(t)}^{b(t)}g(s)\\,ds = g(b(t))\\,b'(t) - g(a(t))\\,a'(t).$$\n\nHer er $b(t) = x + ct$ med $b' = c$, og $a(t) = x - ct$ med $a' = -c$:\n\n$$\\frac{d}{dt}\\int_{x-ct}^{x+ct}g(s)\\,ds = c\\,g(x+ct) + c\\,g(x-ct).$$\n\nDeler du på $2c$, får du $\\tfrac12\\left(g(x+ct) + g(x-ct)\\right)$ — nettopp det leddet som gjør at d'Alemberts formel treffer $u_t(x,0) = g(x)$.",
+            "hints": [
+              "Begge grensene avhenger av $t$ — bruk regelen med to ledd.",
+              "Den nedre grensen gir et minustegn, og dens deriverte er selv negativ."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-3-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv om ved hjelp av sumformlene på det utdelte formelarket.\n\n**a)** $\\cos(A) + \\cos(B)$\n**b)** $\\sin(A) - \\sin(B)$\n**c)** Bruk a) på $\\cos(x+5t) + \\cos(x-5t)$.",
+            "solution": "**a)** $$\\cos A + \\cos B = 2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}.$$\n\n**b)** $$\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}.$$\n\n**c)** Med $A = x + 5t$ og $B = x - 5t$ er $\\frac{A+B}{2} = x$ og $\\frac{A-B}{2} = 5t$:\n\n$$\\cos(x+5t) + \\cos(x-5t) = 2\\cos x\\cos 5t.$$\n\n**Disse formlene står på det utdelte formelarket — tren oppslaget.** De brukes i nesten hver eneste d'Alembert-oppgave for å gjøre svaret om til et pent produkt.",
+            "hints": [
+              "Slå dem opp under sum- og differanseformler; de kalles også produktformler."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-3-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Fra [kap. 5.1](/tma4135/tma4135-5-1): finn egenverdier og egenfunksjoner for $F'' + kF = 0$ på $[0,L]$ med $F(0) = F(L) = 0$, og skriv opp den tilhørende tidsfaktoren for **bølge**ligningen $u_{tt} = c^2u_{xx}$.",
+            "solution": "Fra [kap. 5.1](/tma4135/tma4135-5-1) forkastes $k = 0$ og $k < 0$, mens $k = p^2 > 0$ gir $F = B\\sin px$ med $\\sin pL = 0$, altså\n\n$$k_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{L}, \\qquad n = 1,2,3,\\dots$$\n\nTidsfaktoren for bølgeligningen løser $G'' + c^2k_nG = 0$, som er en ren svingningslikning fordi $c^2k_n > 0$:\n\n$$G_n(t) = a_n\\cos\\frac{cn\\pi t}{L} + b_n\\sin\\frac{cn\\pi t}{L}.$$\n\n**Sammenlikn med varmelikningen**, som ga $G_n = e^{-c^2k_nt}$: samme $F_n$, helt ulik $G_n$.",
+            "hints": [
+              "Romproblemet er identisk med varmetilfellet.",
+              "$G'' + \\omega^2 G = 0$ har løsningen $a\\cos\\omega t + b\\sin\\omega t$. Hva er $\\omega$ her?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-3-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-3-oR5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at $u(x,t) = \\sin(x - 4t)$ oppfyller $u_{tt} = 16u_{xx}$, og avgjør hvilken vei bølgen går og hvor fort.",
+            "solution": "Sett $s = x - 4t$.\n\n$$u_t = -4\\cos s, \\qquad u_{tt} = -16\\sin s = -16u,$$\n$$u_x = \\cos s, \\qquad u_{xx} = -\\sin s = -u.$$\n\nAltså $16u_{xx} = -16u = u_{tt}$. Oppfylt.\n\n**Retning og fart.** Argumentet har formen $x - ct$ med $c = 4$, altså en **høyregående** bølge med fart 4.\n\n*Kontroll:* toppen av $\\sin s$ ligger der $s = \\pi/2$. Ved $t = 0$ er den i $x = \\pi/2$; ved $t = 1$ er den der $x - 4 = \\pi/2$, altså $x = \\pi/2 + 4$. Den har flyttet seg 4 enheter til høyre på én tidsenhet. Riktig.",
+            "hints": [
+              "Sett $s = x - 4t$ og bruk kjerneregelen.",
+              "Minustegn i argumentet betyr høyre; les farten som tallet foran $t$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-5-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-5-3-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $u(x,t)$ | Utslaget i punktet $x$ ved tiden $t$ |\n| $c$ | Bølgefarten, altså kvadratroten av tallet foran $u_{xx}$. **Merk:** i [kap. 5.1](/tma4135/tma4135-5-1) er $c^2$ diffusiviteten i varmelikningen, og $c_n$ i Del 3 er en kompleks Fourier-koeffisient |\n| $f(x)$ | Initialposisjonen, $u(x,0)$ |\n| $g(x)$ | Initialhastigheten, $u_t(x,0)$ |\n| $\\phi$ | Den venstregående bølgeprofilen, funksjon av $x + ct$ |\n| $\\psi$ | Den høyregående bølgeprofilen, funksjon av $x - ct$ |\n| $y$, $z$ | Karakteristiske koordinater, $y = x + ct$ og $z = x - ct$. **Merk:** i Del 2 er $y(t)$ den ukjente funksjonen i en differensiallikning — her er $y$ en koordinat |\n| $s$ | Integrasjonsvariabel i impulsleddet |\n| $\\mathbb{R}$ | Hele tallinja — problemet har ingen ender |\n| $F(x)$, $G(t)$ | Rom- og tidsfaktor i separasjonsansatsen, som i [kap. 5.1](/tma4135/tma4135-5-1) |\n| $k_n$ | Egenverdien, brukt bare i Del 5 |\n| $\\omega_n$ | Vinkelfrekvensen til mode $n$, lik $cn\\pi/L$ |\n| $L$ | Lengden på det endelige intervallet. **Merk:** i Del 3 er $L$ halvperioden |\n"
+        },
+        {
+          "id": "tma4135-5-3-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$u_{tt} = c^2u_{xx}$$\nBølgeligningen. *(Må kunnes.)*\n\n$$y = x + ct, \\qquad z = x - ct \\qquad\\Longrightarrow\\qquad u_{yz} = 0$$\nKarakteristiske koordinater og normalformen. *(Må kunnes eller utledes aktivt.)*\n\n$$u_{tt} - c^2u_{xx} = -4c^2\\,u_{yz}$$\nIdentiteten koordinatskiftet gir. *(Må kunnes eller utledes aktivt.)*\n\n$$u(x,t) = \\phi(x + ct) + \\psi(x - ct)$$\nDen generelle løsningen på hele linja: én venstregående og én høyregående bølge. *(Må kunnes eller utledes aktivt.)*\n\n$$u(x,t) = \\tfrac12\\Big(f(x+ct) + f(x-ct)\\Big) + \\frac{1}{2c}\\int_{x-ct}^{x+ct}g(s)\\,ds$$\n**d'Alemberts formel.** *(Må kunnes og navngis — den står ikke alltid på det utdelte formelarket. Sett den på ditt eget A5-ark.)*\n\n$$[x - ct,\\; x + ct]$$\nAvhengighetsområdet: $u(x,t)$ avhenger bare av initialdataene her. *(Må kunnes.)*\n\n$$[a - ct,\\; b + ct]$$\nPåvirkningsområdet til startdata på $[a,b]$. *(Må kunnes.)*\n\n$$G'' + c^2kG = 0 \\;\\Longrightarrow\\; G_n(t) = a_n\\cos\\frac{cn\\pi t}{L} + b_n\\sin\\frac{cn\\pi t}{L}$$\nTidsfaktoren ved separasjon på et endelig intervall. *(Må kunnes eller utledes aktivt.)*\n\n$$u_n(x,t) = \\sin\\frac{n\\pi x}{L}\\left(a_n\\cos\\frac{cn\\pi t}{L} + b_n\\sin\\frac{cn\\pi t}{L}\\right)$$\nDen $n$-te stående bølgen med faste ender. *(Må kunnes eller utledes aktivt.)*\n\n$$\\cos A + \\cos B = 2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n$$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\sin A\\cos B = \\tfrac12\\left(\\sin(A+B) + \\sin(A-B)\\right)$$\nSum-, differanse- og produktformlene som forenkler d'Alembert-svar. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\frac{d}{dt}\\int_{a(t)}^{b(t)}g(s)\\,ds = g(b)\\,b'(t) - g(a)\\,a'(t)$$\nAnalysens fundamentalteorem med bevegelige grenser — brukt i utledningen og i kontrollen. *(Må kunnes.)*\n\n**Kolliderende symboler:** $c$ er her bølgefarten; i [kap. 5.1](/tma4135/tma4135-5-1) og [kap. 5.2](/tma4135/tma4135-5-2) er $c^2$ diffusiviteten, og i Del 3 er $c_n$ en kompleks Fourier-koeffisient. $y$ og $z$ er her koordinater, mens $y(t)$ i Del 2 er den ukjente funksjonen i en differensiallikning. $F$ og $G$ er rom- og tidsfaktor, mens $F(s)$ i Del 2 er Laplace-transformen og $g$ her er initialhastigheten. $L$ er intervallengden; i Del 3 er $L$ halvperioden, i Del 6 kontraksjonskonstanten. Og $k$ er, som i hele Del 5, separasjonskonstanten."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

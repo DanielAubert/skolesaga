@@ -1,0 +1,447 @@
+{
+  "id": "tma4135-5-2",
+  "courseId": "tma4135",
+  "chapterNumber": "5.2",
+  "title": "Superposisjon, Fourier-matching og ikke-homogene problemer",
+  "description": "Superponer egenløsningene, match initialbetingelsen ved å lese av Fourier-koeffisienter, og reduser ikke-homogene problemer via en stasjonær løsning.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "superponere produktløsningene til en rekke og forklare hvorfor det krever lineær likning og homogene randbetingelser",
+    "bestemme koeffisientene ved direkte avlesing når initialdataene er en sum av egenfunksjoner, og ved koeffisientintegral ellers",
+    "redusere et problem med faste randtemperaturer eller et konstant kildeledd til et homogent problem ved hjelp av en stasjonær løsning",
+    "lese av grensen når tiden går mot uendelig, og kontrollere den mot den bevarte middelverdien ved isolerte ender"
+  ],
+  "content": [
+    {
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er andre halvdel av den store separasjonsoppgaven — sjanger G, som står på 12 av 13 gjennomgåtte sett (92 %).** Bokstavene A til S er bokas korte navn på de nitten oppgavetypene som går igjen; **G er separasjon av variable**, og den er verdt 14–20 poeng.\n\n[Kap. 5.1](/tma4135/tma4135-5-1) ga deg egenverdiene og egenfunksjonene. Her legger vi dem sammen og treffer initialbetingelsen. **Det er her flest studenter mister poeng** — ikke fordi matematikken er tyngre, men fordi to feller ligger tett i tett: å regne et koeffisientintegral når svaret kunne leses av direkte, og å glemme å trekke fra den stasjonære løsningen når randbetingelsene ikke er null.\n\n**Tre delspørsmål går igjen:** «finn løsningen som oppfyller $u(x,0) = \\dots$», «hva nærmer løsningen seg når $t \\to \\infty$», og «reduser problemet med ikke-homogene randbetingelser til et homogent». Alle tre er dekket her.\n\n**Formelark-merking.** Eksamen har hjelpemiddelkode C, så du har det utdelte formelarket og ditt eget A5-ark. Fra arket henter du **reduksjonsformlene for delvis integrasjon** og de **trigonometriske identitetene** — de **står på det utdelte formelarket, så tren oppslaget**, og du får bruk for begge. Selve superposisjonen, koeffisientformlene og reduksjonsgrepet $v = u - w$ **må kunnes** eller utledes aktivt.\n\n**Tidsbruk:** 60 minutter lesetid i fire løkker à omtrent et kvarter. Med håndskriving blir det halvannen time. Pausepunktet er markert etter løkke 2.",
+      "id": "tma4135-5-2-eksamensvinkel"
+    },
+    {
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 5.1](/tma4135/tma4135-5-1) (ansatsen, de tre $k$-tilfellene, egenverdier og egenfunksjoner) og [kap. 3.1](/tma4135/tma4135-3-1) (Fourier-koeffisientene og symmetriregelen). Er du usikker på halvintervall-utvidelser, gir [kap. 3.2](/tma4135/tma4135-3-2) den siste biten — men du kommer langt uten.\n\nFra tidligere matematikkemner trengs bestemt integral og delvis integrasjon.\n\nKapitlet er forutsetning for [kap. 5.5](/tma4135/tma4135-5-5).",
+      "id": "tma4135-5-2-forkunnskaper"
+    },
+    {
+      "type": "text",
+      "content": "## Én mode er ikke nok\n\nI [kap. 5.1](/tma4135/tma4135-5-1) fant vi at varmelikningen på en stang med kalde ender har løsningene\n\n$$u_n(x,t) = \\sin\\frac{n\\pi x}{L}\\,e^{-c^2k_nt}, \\qquad n = 1,2,3,\\dots$$\n\nDet er fine løsninger, men de har et problem: hver av dem starter med en helt bestemt temperaturprofil, nemlig en ren sinusbue. En ekte stang starter ikke slik. Den starter kanskje glovarm i midten og kald i endene, eller varm i den ene halvdelen og kald i den andre.\n\n**Redningen er at likningen er lineær.** Legger du sammen to løsninger, får du en ny løsning. Legger du sammen uendelig mange med hver sin vekt, får du fortsatt en løsning — og nå har du nok frihetsgrader til å treffe hvilken som helst rimelig starttemperatur.\n\nMen hvordan finner du vektene? Der har du allerede svaret: **det er nøyaktig et Fourier-koeffisientproblem**. Egenfunksjonene $\\sin(n\\pi x/L)$ er de samme funksjonene som bygger en Fourier-sinusrekke, og vektene er de samme koeffisientene. Hele Del 3 var forberedelse til dette øyeblikket.\n\nKapitlet gjør fire ting: superponerer og leser av koeffisientene når det går raskt, regner koeffisientintegralet når det ikke går, håndterer ender som ikke holdes på null, og avslutter med grensen $t \\to \\infty$.",
+      "id": "tma4135-5-2-motivasjon"
+    },
+    {
+      "type": "text",
+      "content": "**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene under er samtidig kortene i flashcard-bunken. Ved første gjennomlesing holder det å lese formelen og gå videre til eksempelet; tidsanslaget på 60 minutter gjelder kjernestoffet.",
+      "id": "tma4135-5-2-fc-notis"
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 1 — Superposisjon og den gratis avlesningen (~14 min)\n\nFørste halvdel av jobben er ren bokføring: skriv summen. Andre halvdel er å finne vektene, og noen ganger er de gratis.",
+      "id": "tma4135-5-2-lokke1"
+    },
+    {
+      "type": "definition",
+      "title": "Superposisjonsprinsippet",
+      "content": "Er $u_1$ og $u_2$ begge løsninger av en **lineær, homogen** partiell differensiallikning med **homogene** randbetingelser, så er også\n\n$$B_1u_1 + B_2u_2$$\n\nen løsning, for alle konstanter $B_1$, $B_2$. Det samme gjelder en uendelig sum, så lenge den konvergerer pent nok.\n\nGrunnen er at både derivasjon og randbetingelsene er lineære operasjoner. Er $u_1(0,t) = 0$ og $u_2(0,t) = 0$, er også summen null i $x = 0$ — og det er nettopp derfor randbetingelsene *må* være homogene før du superponerer.",
+      "id": "tma4135-5-2-def-superposisjon"
+    },
+    {
+      "type": "definition",
+      "title": "Egenfunksjonsutvikling",
+      "content": "Å skrive en gitt funksjon som en sum av egenfunksjonene til randverdiproblemet:\n\n$$f(x) = \\sum_{n=1}^{\\infty} B_n F_n(x).$$\n\nVed Dirichlet-rand er $F_n(x) = \\sin(n\\pi x/L)$, og utviklingen er da nøyaktig en **Fourier-sinusrekke**. Ved Neumann-rand er den en Fourier-cosinusrekke med et konstantledd.",
+      "id": "tma4135-5-2-def-egenfunksjonsutvikling"
+    },
+    {
+      "type": "definition",
+      "title": "Den formelle løsningen",
+      "content": "Summen av alle produktløsningene, med én vekt per mode:\n\n$$u(x,t) = \\sum_{n=1}^{\\infty} B_n\\,F_n(x)\\,G_n(t).$$\n\nOrdet «formell» betyr at vi skriver rekka først og bekymrer oss for konvergensen etterpå. For de initialdataene som dukker opp på eksamen — stykkevis glatte funksjoner — konvergerer den, og de eksponentielle faktorene $e^{-c^2k_nt}$ gjør den svært godt oppført for alle $t > 0$.\n\n**Merk hva som er hva:** $F_n$ og $G_n$ er kjent fra [kap. 5.1](/tma4135/tma4135-5-1); det eneste som gjenstår, er $B_n$.",
+      "id": "tma4135-5-2-def-formell-losning"
+    },
+    {
+      "type": "definition",
+      "title": "Direkte avlesing av koeffisientene",
+      "content": "Er initialbetingelsen allerede en **endelig sum av egenfunksjoner**, trenger du ikke integrere. Da leser du av koeffisientene ved å sammenlikne ledd for ledd.\n\nEr for eksempel $u(x,0) = 5\\sin 3x - 2\\sin 7x$ på $[0,\\pi]$ med Dirichlet-rand, er $B_3 = 5$, $B_7 = -2$, og alle andre $B_n = 0$.\n\nDette er ikke en snarvei du «kan ta hvis du vil» — det er den riktige metoden når den er mulig, og fasitene bruker den. **Å regne integralet i stedet er en tidsfelle som gir samme svar for tre ganger arbeidet.**",
+      "id": "tma4135-5-2-def-direkte-avlesing"
+    },
+    {
+      "type": "example",
+      "title": "Avlesing: en initialtemperatur som allerede er en sum av moder",
+      "problem": "Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = 3\\sin x - \\sin 4x.$$",
+      "solution": "**Steg 1 — hent egenfunksjonene.** Fra [kap. 5.1](/tma4135/tma4135-5-1), Dirichlet-rand på $[0,\\pi]$ med $c^2 = 1$:\n\n$$k_n = n^2, \\qquad F_n(x) = \\sin nx, \\qquad G_n(t) = e^{-n^2t}.$$\n\n**Steg 2 — superponer.**\n\n$$u(x,t) = \\sum_{n=1}^{\\infty} B_n\\sin(nx)\\,e^{-n^2t}.$$\n\n**Steg 3 — sett $t = 0$ og sammenlikn.** Da forsvinner alle eksponentialene, og\n\n$$u(x,0) = \\sum_{n=1}^{\\infty}B_n\\sin nx \\;\\overset{!}{=}\\; 3\\sin x - \\sin 4x.$$\n\nSammenlikner vi ledd for ledd, ser vi at $B_1 = 3$, $B_4 = -1$, og alle andre $B_n = 0$. **Ingen integraler.**\n\n**Svar:**\n\n$$u(x,t) = 3\\sin(x)\\,e^{-t} - \\sin(4x)\\,e^{-16t}.$$\n\n**Kontroll — sett inn i likningen.**\n\n$$u_t = -3\\sin(x)e^{-t} + 16\\sin(4x)e^{-16t},$$\n$$u_{xx} = -3\\sin(x)e^{-t} + 16\\sin(4x)e^{-16t}.$$\n\nDe er identiske, så $u_t = u_{xx}$ er oppfylt.\n\n**Kontroll — randbetingelsene.** $u(0,t) = 0$ fordi $\\sin 0 = \\sin 0 = 0$. Og $u(\\pi,t) = 3\\sin(\\pi)e^{-t} - \\sin(4\\pi)e^{-16t} = 0$. Begge oppfylt.\n\n**Kontroll — initialbetingelsen.** $u(x,0) = 3\\sin x - \\sin 4x$. Oppfylt.\n\n**Observasjon som er verdt poeng.** Leddet med $n = 4$ dør ut som $e^{-16t}$, altså seksten ganger raskere i eksponenten enn $n = 1$-leddet. Allerede ved $t = 0{,}3$ er det andre leddet under en prosent av det første. **Etter kort tid er en varmeprofil praktisk talt alltid en ren grunnmode.**",
+      "id": "tma4135-5-2-eks1"
+    },
+    {
+      "id": "tma4135-5-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-2-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Egenfunksjonene på $[0,\\pi]$ med Dirichlet-rand er $\\sin nx$, og likningen er $u_t = u_{xx}$. Skriv ned løsningen direkte for hver initialbetingelse.\n\n**a)** $u(x,0) = 7\\sin 2x$\n**b)** $u(x,0) = \\sin x + \\sin 5x$\n**c)** $u(x,0) = -4\\sin 3x$",
+        "solution": "Løsningen er $u = \\sum B_n\\sin(nx)e^{-n^2t}$, og $B_n$ leses rett av.\n\n**a)** $B_2 = 7$, resten null:\n$$u(x,t) = 7\\sin(2x)\\,e^{-4t}.$$\n\n**b)** $B_1 = B_5 = 1$:\n$$u(x,t) = \\sin(x)\\,e^{-t} + \\sin(5x)\\,e^{-25t}.$$\n\n**c)** $B_3 = -4$:\n$$u(x,t) = -4\\sin(3x)\\,e^{-9t}.$$\n\n**Kontroll for a):** $u_t = -28\\sin(2x)e^{-4t}$ og $u_{xx} = -28\\sin(2x)e^{-4t}$. Like — oppfylt. Randen: $\\sin 0 = 0$, $\\sin 2\\pi = 0$. Oppfylt. Initialbetingelsen: $u(x,0) = 7\\sin 2x$. Oppfylt.\n\n**Regelen å ta med seg:** eksponenten er $-n^2 t$, der $n$ er tallet inni sinusen — ikke koeffisienten foran.",
+        "hints": [
+          "Sammenlikn $u(x,0) = \\sum B_n\\sin nx$ med den oppgitte funksjonen ledd for ledd.",
+          "Til hvert ledd $\\sin nx$ hører faktoren $e^{-n^2t}$, siden $k_n = n^2$ og $c^2 = 1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-2-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Initialbetingelsen ser ikke ut som en sum av egenfunksjoner, men er det. Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = \\sin x\\cos x.$$\n\nBruk en trigonometrisk identitet fra det utdelte formelarket.",
+        "solution": "**Steg 1 — bruk identiteten.** **Fra de trigonometriske identitetene på det utdelte formelarket:**\n\n$$\\sin\\theta\\cos\\theta = \\tfrac12\\sin 2\\theta.$$\n\nMed $\\theta = x$:\n\n$$u(x,0) = \\sin x\\cos x = \\tfrac12\\sin 2x.$$\n\nDet *er* en egenfunksjon, med $n = 2$.\n\n**Steg 2 — les av.** $B_2 = \\tfrac12$, alle andre null.\n\n**Svar:**\n\n$$u(x,t) = \\tfrac12\\sin(2x)\\,e^{-4t}.$$\n\n**Kontroll.** $u_t = -2\\sin(2x)e^{-4t}$ og $u_{xx} = -2\\sin(2x)e^{-4t}$ — like, så likningen er oppfylt. Randen: $\\sin 0 = \\sin 2\\pi = 0$. Oppfylt. Initialbetingelsen: $u(x,0) = \\tfrac12\\sin 2x = \\sin x\\cos x$. Oppfylt.\n\n**Poenget med oppgaven.** Regnet du i stedet koeffisientintegralet $B_n = \\tfrac2\\pi\\int_0^\\pi \\sin x\\cos x\\sin nx\\,dx$, ville du fått samme svar — etter tre produktformler og en god del arbeid. **Se alltid etter en identitet før du integrerer.** Kandidatene er $\\sin\\theta\\cos\\theta$, $\\cos^2\\theta$, $\\sin^2\\theta$ og $\\sin(a\\pm b)$-utvidelsene; alle står på arket.",
+        "hints": [
+          "Slå opp dobbeltvinkelformelen for sinus på formelarket.",
+          "Når initialbetingelsen er skrevet om, er den én enkelt egenfunksjon. Hvilken $n$?"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 2 — Når integralet må regnes (~16 min)\n\nEr initialdataene noe annet enn en endelig sum av egenfunksjoner — et polynom, en konstant, en stykkevis lineær profil — må koeffisientene regnes ut. Da er du tilbake i Del 3, med de samme formlene.",
+      "id": "tma4135-5-2-lokke2"
+    },
+    {
+      "type": "definition",
+      "title": "Fourier-matching",
+      "content": "Å bestemme koeffisientene $B_n$ ved å kreve at rekka treffer initialbetingelsen:\n\n$$u(x,0) = \\sum_n B_n F_n(x) = f(x).$$\n\nNavnet sier hva det er: du *matcher* rekka mot en gitt funksjon, og verktøyet er Fourier-koeffisienter. Det finnes to veier — direkte avlesing når $f$ allerede er en sum av egenfunksjoner, ellers koeffisientintegralet.",
+      "id": "tma4135-5-2-def-fourier-matching"
+    },
+    {
+      "type": "definition",
+      "title": "Koeffisientene ved Dirichlet-rand",
+      "content": "For $F_n(x) = \\sin(n\\pi x/L)$ på $[0,L]$:\n\n$$B_n = \\frac{2}{L}\\int_0^L f(x)\\,\\sin\\frac{n\\pi x}{L}\\,dx.$$\n\nDette er nøyaktig koeffisientformelen for en **Fourier-sinusrekke** fra [kap. 3.2](/tma4135/tma4135-3-2) — den du får ved å utvide $f$ odde til $[-L,L]$. Du trenger altså ikke utlede noe nytt her; du gjenbruker Del 3.\n\nLegg merke til faktoren $2/L$, ikke $1/L$: den kommer av halveringen ved odde utvidelse.",
+      "id": "tma4135-5-2-def-Bn-dirichlet"
+    },
+    {
+      "type": "definition",
+      "title": "Koeffisientene ved Neumann-rand",
+      "content": "For $F_0 = 1$ og $F_n(x) = \\cos(n\\pi x/L)$ på $[0,L]$:\n\n$$A_0 = \\frac{1}{L}\\int_0^L f(x)\\,dx, \\qquad A_n = \\frac{2}{L}\\int_0^L f(x)\\cos\\frac{n\\pi x}{L}\\,dx.$$\n\nDet er koeffisientene i **Fourier-cosinusrekka**, altså den like halvintervall-utvidelsen fra [kap. 3.2](/tma4135/tma4135-3-2).\n\n$A_0$ er middelverdien av $f$, og den har faktoren $1/L$ — ikke $2/L$ som de andre. Det er den samme nevnerfellen som i [kap. 3.1](/tma4135/tma4135-3-1).",
+      "id": "tma4135-5-2-def-An-neumann"
+    },
+    {
+      "type": "definition",
+      "title": "Sinusrekka på halvintervall",
+      "content": "Egenfunksjonene $\\sin(n\\pi x/L)$ lever på $[0,L]$, men Fourier-teorien er bygget for symmetriske intervaller. Broen er den **odde periodiske utvidelsen**: utvid $f$ fra $[0,L]$ til $[-L,L]$ ved $f(-x) = -f(x)$, og deretter periodisk med periode $2L$.\n\nDa blir alle cosinusledd null, og koeffisientene i den rene sinusrekka er nøyaktig $B_n$ over. Det er derfor formelen har en faktor 2 og bare integrerer over halve intervallet — hele apparatet står i [kap. 3.2](/tma4135/tma4135-3-2).",
+      "id": "tma4135-5-2-def-halvintervall"
+    },
+    {
+      "type": "example",
+      "title": "Koeffisientintegralet: en parabelformet starttemperatur",
+      "problem": "Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = x(\\pi - x).$$",
+      "solution": "**Steg 1 — egenfunksjoner.** Dirichlet-rand på $[0,\\pi]$ gir $F_n = \\sin nx$, $k_n = n^2$, $G_n = e^{-n^2t}$ (fra [kap. 5.1](/tma4135/tma4135-5-1)).\n\n**Steg 2 — kan koeffisientene leses av?** Nei: $x(\\pi - x)$ er et andregradspolynom, ikke en sum av sinuser. Integralet må regnes.\n\n**Steg 3 — koeffisientintegralet.**\n\n$$B_n = \\frac{2}{\\pi}\\int_0^{\\pi} x(\\pi - x)\\sin nx\\,dx = \\frac{2}{\\pi}\\left(\\pi\\int_0^\\pi x\\sin nx\\,dx - \\int_0^\\pi x^2\\sin nx\\,dx\\right).$$\n\n**Fra reduksjonsformlene på det utdelte formelarket**, med $a = n$:\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a} + \\frac{\\sin ax}{a^2},$$\n$$\\int x^2\\sin ax\\,dx = -\\frac{x^2\\cos ax}{a} + \\frac{2x\\sin ax}{a^2} + \\frac{2\\cos ax}{a^3}.$$\n\nFørste integral mellom 0 og $\\pi$: siden $\\sin n\\pi = 0$ faller sinusleddet bort i begge ender, og vi står igjen med $-\\frac{\\pi\\cos n\\pi}{n} = -\\frac{\\pi(-1)^n}{n}$.\n\nAndre integral: sinusleddet faller bort igjen, og vi får\n\n$$\\left[-\\frac{x^2\\cos nx}{n} + \\frac{2\\cos nx}{n^3}\\right]_0^{\\pi} = -\\frac{\\pi^2(-1)^n}{n} + \\frac{2(-1)^n}{n^3} - \\frac{2}{n^3}.$$\n\nTil sammen:\n\n$$B_n = \\frac{2}{\\pi}\\left(-\\frac{\\pi^2(-1)^n}{n} + \\frac{\\pi^2(-1)^n}{n} - \\frac{2(-1)^n}{n^3} + \\frac{2}{n^3}\\right) = \\frac{4\\left(1 - (-1)^n\\right)}{\\pi n^3}.$$\n\n**Steg 4 — les av mønsteret.** For **like** $n$ er $1 - (-1)^n = 0$, så alle partallsledd forsvinner. For **odde** $n$ er det 2, altså\n\n$$B_n = \\frac{8}{\\pi n^3}, \\qquad n \\text{ odde}.$$\n\n**Svar:**\n\n$$u(x,t) = \\frac{8}{\\pi}\\sum_{m=0}^{\\infty}\\frac{1}{(2m+1)^3}\\,\\sin\\!\\left((2m+1)x\\right)e^{-(2m+1)^2 t}.$$\n\n**Kontroll — hvert ledd oppfyller likningen.** For ett ledd $\\sin(nx)e^{-n^2t}$ er $u_t = -n^2u$ og $u_{xx} = -n^2u$; like, så $u_t = u_{xx}$. Randen: $\\sin 0 = \\sin n\\pi = 0$. Oppfylt for hvert ledd, og dermed for summen.\n\n**Kontroll — treffer initialbetingelsen.** Sett $t = 0$ og $x = \\pi/2$. Venstre side: $\\frac\\pi2\\cdot\\frac\\pi2 = \\frac{\\pi^2}{4} \\approx 2{,}4674$. Høyre side: $\\frac{8}{\\pi}\\left(1 - \\frac{1}{27} + \\frac{1}{125} - \\frac{1}{343} + \\cdots\\right)$, der fortegnene kommer fra $\\sin((2m+1)\\pi/2) = 1, -1, 1, \\dots$ De fire første leddene gir $\\frac{8}{\\pi}\\cdot 0{,}96922 = 2{,}4681$; tar du med flere, kryper det mot $2{,}4674$. Stemmer.\n\n**Symmetrien det lønner seg å se.** Funksjonen $x(\\pi - x)$ er symmetrisk om midtpunktet $x = \\pi/2$. Egenfunksjonene med like $n$ er *antisymmetriske* om midtpunktet, så de kan ikke bidra — og det er grunnen til at bare odde ledd overlever. **Nevn dette i besvarelsen; det er et fullgodt argument for at partallsleddene er null, og det halverer arbeidet hvis du ser det først.**",
+      "id": "tma4135-5-2-eks2"
+    },
+    {
+      "id": "tma4135-5-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-2-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G.) Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < 2, \\qquad u(0,t) = u(2,t) = 0, \\qquad u(x,0) = \\sin(\\pi x) - 3\\sin(2\\pi x).$$\n\nPass særlig på hvilke moder initialbetingelsen svarer til.",
+        "solution": "**Steg 1 — egenfunksjoner.** Dirichlet på $[0,2]$, altså $L = 2$:\n\n$$k_n = \\frac{n^2\\pi^2}{4}, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{2}, \\qquad G_n(t) = e^{-n^2\\pi^2t/4}.$$\n\n**Steg 2 — hvilke $n$?** Her er fella. Egenfunksjonene er $\\sin(n\\pi x/2)$, ikke $\\sin(n\\pi x)$. Vi må skrive initialdataene på riktig form:\n\n$$\\sin(\\pi x) = \\sin\\frac{2\\pi x}{2} \\;\\Rightarrow\\; n = 2, \\qquad \\sin(2\\pi x) = \\sin\\frac{4\\pi x}{2} \\;\\Rightarrow\\; n = 4.$$\n\n**Steg 3 — les av.** $B_2 = 1$ og $B_4 = -3$, alle andre null.\n\n**Svar.** Med $k_2 = \\pi^2$ og $k_4 = 4\\pi^2$:\n\n$$u(x,t) = \\sin(\\pi x)\\,e^{-\\pi^2 t} - 3\\sin(2\\pi x)\\,e^{-4\\pi^2 t}.$$\n\n**Kontroll ved innsetting.**\n\n$$u_t = -\\pi^2\\sin(\\pi x)e^{-\\pi^2t} + 12\\pi^2\\sin(2\\pi x)e^{-4\\pi^2t},$$\n$$u_{xx} = -\\pi^2\\sin(\\pi x)e^{-\\pi^2t} + 12\\pi^2\\sin(2\\pi x)e^{-4\\pi^2t}.$$\n\nLike — likningen er oppfylt. Randen: $\\sin 0 = 0$, og i $x = 2$ er $\\sin 2\\pi = \\sin 4\\pi = 0$. Oppfylt. Initialbetingelsen: $u(x,0) = \\sin\\pi x - 3\\sin 2\\pi x$. Oppfylt.\n\n**Tabben å unngå:** å tro at $\\sin(\\pi x)$ er mode nummer 1 og gi den faktoren $e^{-\\pi^2t/4}$. Skriv alltid initialdataene på formen $\\sin(n\\pi x/L)$ og les $n$ derfra.",
+        "hints": [
+          "Skriv egenfunksjonene med riktig $L$ først: her er $L = 2$.",
+          "Skriv om $\\sin(\\pi x)$ slik at det står på formen $\\sin(n\\pi x/2)$ — hvilken $n$ gir det?",
+          "Eksponenten er $-k_n t$ med $k_n = (n\\pi/L)^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-2-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G.) En stang med kalde ender har jevn starttemperatur. Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = 1.$$\n\nKommenter til slutt hvorfor rekka ikke kan konvergere mot 1 i endepunktene.",
+        "solution": "**Steg 1 — egenfunksjoner.** $F_n = \\sin nx$, $k_n = n^2$, $G_n = e^{-n^2t}$.\n\n**Steg 2 — koeffisientene.** Initialdataene er konstanten 1, altså ingen sum av sinuser. Integralet må regnes:\n\n$$B_n = \\frac{2}{\\pi}\\int_0^{\\pi}1\\cdot\\sin nx\\,dx = \\frac{2}{\\pi}\\left[-\\frac{\\cos nx}{n}\\right]_0^{\\pi} = \\frac{2}{\\pi}\\cdot\\frac{1 - \\cos n\\pi}{n} = \\frac{2\\left(1 - (-1)^n\\right)}{\\pi n}.$$\n\nFor like $n$ er dette null; for odde $n$ er det $\\dfrac{4}{\\pi n}$.\n\n**Svar:**\n\n$$u(x,t) = \\frac{4}{\\pi}\\sum_{m=0}^{\\infty}\\frac{1}{2m+1}\\,\\sin\\!\\left((2m+1)x\\right)e^{-(2m+1)^2t}.$$\n\n**Kontroll ved innsetting.** Hvert ledd $\\sin(nx)e^{-n^2t}$ har $u_t = -n^2u = u_{xx}$, og er null i $x = 0$ og $x = \\pi$. Både likningen og begge randbetingelsene er oppfylt ledd for ledd.\n\n**Kontroll av initialbetingelsen.** Sett $t = 0$, $x = \\pi/2$: rekka blir $\\frac{4}{\\pi}(1 - \\tfrac13 + \\tfrac15 - \\cdots) = \\frac{4}{\\pi}\\cdot\\frac{\\pi}{4} = 1$. Stemmer.\n\n**Om endepunktene.** Hvert eneste ledd i rekka er null i $x = 0$ og $x = \\pi$, så summen er null der — men initialbetingelsen sier 1. Det er ingen feil: det er et **sprang** mellom randbetingelsen og initialbetingelsen, og etter konvergensteoremet fra [kap. 3.2](/tma4135/tma4135-3-2) konvergerer rekka i et sprang mot **middelverdien** $\\tfrac12(0 + 1) = \\tfrac12$.\n\nFysisk er det uproblematisk: for enhver $t > 0$ er løsningen glatt, og temperaturen faller bratt men kontinuerlig fra midten mot de kalde endene. Bare i det ene øyeblikket $t = 0$ er dataene motstridende.",
+        "hints": [
+          "Integralet er det enkleste av alle: $\\int_0^\\pi\\sin nx\\,dx$.",
+          "Uttrykket $1 - (-1)^n$ er 0 for like $n$ og 2 for odde. Skriv svaret med bare odde ledd.",
+          "For siste del: hva er verdien av hvert ledd i rekka når $x = 0$?"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nNå kan du superponere og matche. Det er nok til å løse en standard G-oppgave fra ende til annen. Resten av kapitlet handler om de to variantene som gjør oppgaven dyrere: ender som ikke er null, og likninger med et kildeledd. Tar du en pause her, skriv først ned de to koeffisientformlene fra hukommelsen.",
+      "id": "tma4135-5-2-pause1"
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 3 — Når endene ikke holdes på null (~15 min)\n\nSuperposisjon krever homogene randbetingelser. Holdes den ene enden på 20 grader, er de ikke homogene, og metoden bryter sammen på første linje. Løsningen er å trekke fra en fast profil først.",
+      "id": "tma4135-5-2-lokke3"
+    },
+    {
+      "type": "definition",
+      "title": "Ikke-homogen randbetingelse",
+      "content": "En randbetingelse med noe annet enn null på høyre side, for eksempel\n\n$$u(0,t) = T_0, \\qquad u(L,t) = T_1,$$\n\nder $T_0$ og $T_1$ er konstanter.\n\nSlike kan **ikke** superponeres direkte: legger du sammen to løsninger som begge er $T_0$ i venstre ende, blir summen $2T_0$. Derfor må problemet gjøres om før du gjør noe annet.",
+      "id": "tma4135-5-2-def-ikke-homogen-rand"
+    },
+    {
+      "type": "definition",
+      "title": "Den stasjonære løsningen $w(x)$",
+      "content": "Den tidsuavhengige løsningen som oppfyller likningen og de gitte randbetingelsene. Setter du $u_t = 0$ i varmelikningen, står det igjen\n\n$$w'' = 0 \\quad\\Longrightarrow\\quad w(x) = Ax + B,$$\n\nog $A$, $B$ bestemmes av randverdiene. For $w(0) = T_0$ og $w(L) = T_1$:\n\n$$w(x) = T_0 + \\frac{T_1 - T_0}{L}\\,x.$$\n\nFysisk er $w$ den lineære temperaturfordelingen stanga ender opp med etter lang tid: varmen strømmer jevnt fra den varme til den kalde enden.",
+      "id": "tma4135-5-2-def-stasjonaer"
+    },
+    {
+      "type": "definition",
+      "title": "Reduksjonen $v = u - w$",
+      "content": "Grepet som gjør problemet homogent. Sett\n\n$$v(x,t) = u(x,t) - w(x).$$\n\nDa er $v_t = u_t$ (fordi $w$ ikke avhenger av $t$) og $v_{xx} = u_{xx} - w''= u_{xx}$ (fordi $w'' = 0$), så $v$ oppfyller **samme** varmelikning. Men på randen er\n\n$$v(0,t) = T_0 - T_0 = 0, \\qquad v(L,t) = T_1 - T_1 = 0,$$\n\naltså homogent. Og initialbetingelsen blir $v(x,0) = f(x) - w(x)$.\n\nLøs $v$ med metoden fra løkke 1 og 2, og legg $w$ tilbake til slutt: $u = v + w$. **Hele grepet må kunnes** — det står ikke på noe formelark.",
+      "id": "tma4135-5-2-def-reduksjon"
+    },
+    {
+      "type": "example",
+      "title": "En kald og en varm ende: reduksjon i praksis",
+      "problem": "En stang på $[0,1]$ starter iskald. Ved $t = 0$ settes høyre ende på 5 grader mens venstre holdes på 0. Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < 1, \\qquad u(0,t) = 0, \\qquad u(1,t) = 5, \\qquad u(x,0) = 0,$$\n\nog finn grensen når $t \\to \\infty$.",
+      "solution": "**Steg 1 — finn den stasjonære løsningen.** Sett $u_t = 0$: da er $w'' = 0$, så $w = Ax + B$. Randverdiene $w(0) = 0$ og $w(1) = 5$ gir $B = 0$ og $A = 5$:\n\n$$w(x) = 5x.$$\n\n**Steg 2 — reduser.** Sett $v = u - w$. Da er\n\n$$v_t = u_t = u_{xx} = v_{xx} \\quad (\\text{siden } w'' = 0),$$\n\n$$v(0,t) = 0 - 0 = 0, \\qquad v(1,t) = 5 - 5 = 0,$$\n\n$$v(x,0) = u(x,0) - w(x) = 0 - 5x = -5x.$$\n\nNå er randbetingelsene homogene, og vi er tilbake i standardproblemet.\n\n**Steg 3 — løs for $v$.** Dirichlet på $[0,1]$: $F_n = \\sin(n\\pi x)$, $k_n = n^2\\pi^2$, $G_n = e^{-n^2\\pi^2t}$. Koeffisientene:\n\n$$B_n = 2\\int_0^1(-5x)\\sin(n\\pi x)\\,dx = -10\\int_0^1 x\\sin(n\\pi x)\\,dx.$$\n\n**Fra reduksjonsformelen på det utdelte formelarket** med $a = n\\pi$:\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a} + \\frac{\\sin ax}{a^2}.$$\n\nMellom 0 og 1: sinusleddet er null i begge ender ($\\sin n\\pi = 0$, $\\sin 0 = 0$), og vi står igjen med $-\\frac{\\cos n\\pi}{n\\pi} = \\frac{(-1)^{n+1}}{n\\pi}$. Altså\n\n$$B_n = -10\\cdot\\frac{(-1)^{n+1}}{n\\pi} = \\frac{10(-1)^n}{n\\pi}.$$\n\n**Steg 4 — sett sammen igjen.**\n\n$$u(x,t) = 5x + \\frac{10}{\\pi}\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{n}\\,\\sin(n\\pi x)\\,e^{-n^2\\pi^2 t}.$$\n\n**Kontroll — likningen.** Leddet $5x$ har $u_t = 0$ og $u_{xx} = 0$, så det oppfyller likningen. Hvert rekkeledd har $u_t = -n^2\\pi^2u = u_{xx}$. Oppfylt.\n\n**Kontroll — randbetingelsene.** I $x = 0$: $5\\cdot 0 = 0$ og alle sinusledd er null, så $u(0,t) = 0$. Oppfylt. I $x = 1$: $5\\cdot 1 = 5$ og $\\sin n\\pi = 0$ for alle $n$, så $u(1,t) = 5$. Oppfylt.\n\n**Kontroll — initialbetingelsen.** Numerisk med 400 ledd i $x = 0{,}5$ og $t = 10^{-4}$ gir $u \\approx 3\\cdot 10^{-16}$, altså null. Oppfylt.\n\n**Grensen $t \\to \\infty$.** Alle rekkeleddene har faktoren $e^{-n^2\\pi^2t}$, som går mot null. Igjen står\n\n$$u(x,t) \\;\\longrightarrow\\; 5x.$$\n\nDen stasjonære løsningen er nettopp det stanga nærmer seg. **Det er derfor $w$ kalles stasjonær — den er både verktøyet og svaret på siste delspørsmål.**",
+      "id": "tma4135-5-2-eks3"
+    },
+    {
+      "type": "image",
+      "src": "/images/textbook/tma4135/varmeprofil-mot-likevekt.svg",
+      "alt": "Graf over intervallet fra 0 til 1 med fire kurver. Tre temperaturprofiler for tidene 0,002, 0,02 og 0,10 stiger fra null i venstre ende til fem i hoeyre ende, stadig naermere en prikket rett linje fra origo til punktet (1,5).",
+      "caption": "Løsningen fra eksempelet, tegnet ved tre tidspunkter. Randverdien 5 er oppfylt i høyre ende hele veien; det er inne i stanga varmen bruker tid på å komme fram. Den prikkede linja er den stasjonære løsningen $w(x) = 5x$.",
+      "id": "tma4135-5-2-fig-likevekt"
+    },
+    {
+      "id": "tma4135-5-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-2-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — ikke-homogen rand.) Løs\n\n$$u_t = 4u_{xx}, \\qquad 0 < x < 1, \\qquad u(0,t) = 10, \\qquad u(1,t) = 2, \\qquad u(x,0) = 10,$$\n\nog angi likevektstemperaturen i midtpunktet $x = \\tfrac12$.",
+        "solution": "**Steg 1 — stasjonær løsning.** $w'' = 0$ gir $w = Ax + B$; med $w(0) = 10$ og $w(1) = 2$ er $B = 10$ og $A = -8$:\n\n$$w(x) = 10 - 8x.$$\n\n**Steg 2 — reduser.** $v = u - w$ oppfyller $v_t = 4v_{xx}$ med $v(0,t) = v(1,t) = 0$ og\n\n$$v(x,0) = 10 - (10 - 8x) = 8x.$$\n\n**Steg 3 — koeffisientene.** Dirichlet på $[0,1]$: $F_n = \\sin n\\pi x$, $k_n = n^2\\pi^2$, og tidsfaktoren $G_n = e^{-4n^2\\pi^2t}$ (husk $c^2 = 4$).\n\n$$B_n = 2\\int_0^1 8x\\sin(n\\pi x)\\,dx = 16\\cdot\\frac{(-1)^{n+1}}{n\\pi},$$\n\nder vi brukte **reduksjonsformelen fra det utdelte formelarket** med $a = n\\pi$, som gir $\\int_0^1 x\\sin(n\\pi x)\\,dx = \\frac{(-1)^{n+1}}{n\\pi}$.\n\n**Svar:**\n\n$$u(x,t) = 10 - 8x + \\frac{16}{\\pi}\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n}\\,\\sin(n\\pi x)\\,e^{-4n^2\\pi^2 t}.$$\n\n**Kontroll.** Leddet $10 - 8x$ har både $u_t = 0$ og $u_{xx} = 0$, så det oppfyller likningen. Hvert rekkeledd har $u_t = -4n^2\\pi^2 u$ og $4u_{xx} = -4n^2\\pi^2u$ — like. Randen: i $x = 0$ gir $10 - 0 = 10$ og alle sinusledd null; i $x = 1$ gir $10 - 8 = 2$ og $\\sin n\\pi = 0$. Begge oppfylt.\n\n**Likevekt.** Alle rekkeledd dør ut, så $u \\to w(x) = 10 - 8x$, og i midtpunktet:\n\n$$w(\\tfrac12) = 10 - 4 = 6.$$\n\n**Rimelighetssjekk:** 6 ligger midt mellom randverdiene 10 og 2, som det skal for en lineær profil.",
+        "hints": [
+          "Sett $u_t = 0$ og løs $w'' = 0$ med de to randverdiene.",
+          "$v(x,0) = u(x,0) - w(x)$ — regn ut differansen før du integrerer.",
+          "Faktoren $c^2 = 4$ hører hjemme i tidsfaktoren, ikke i egenverdiene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-2-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G.) En stang holdes på samme temperatur i begge ender. Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 2, \\qquad u(x,0) = 2 + 5\\sin 3x.$$\n\n**a)** Finn løsningen.\n**b)** Hvor lang tid tar det før avviket fra likevekt er under én prosent av startavviket?",
+        "solution": "**a) Stasjonær løsning.** $w'' = 0$ med $w(0) = w(\\pi) = 2$ gir $w = Ax + B$ med $B = 2$ og $A\\pi = 0$, altså\n\n$$w(x) = 2 \\quad (\\text{konstant}).$$\n\n**Reduser.** $v = u - 2$ oppfyller $v_t = v_{xx}$ med $v(0,t) = v(\\pi,t) = 0$ og\n\n$$v(x,0) = 2 + 5\\sin 3x - 2 = 5\\sin 3x.$$\n\nDet er én ren egenfunksjon — **koeffisientene leses av**: $B_3 = 5$, resten null. Med $k_3 = 9$:\n\n$$v(x,t) = 5\\sin(3x)\\,e^{-9t} \\quad\\Longrightarrow\\quad u(x,t) = 2 + 5\\sin(3x)\\,e^{-9t}.$$\n\n**Kontroll.** $u_t = -45\\sin(3x)e^{-9t}$ og $u_{xx} = -45\\sin(3x)e^{-9t}$ — like, så likningen er oppfylt. Randen: $u(0,t) = 2 + 0 = 2$ og $u(\\pi,t) = 2 + 5\\sin 3\\pi\\,e^{-9t} = 2$. Oppfylt. Initialbetingelsen: $u(x,0) = 2 + 5\\sin 3x$. Oppfylt.\n\n**b)** Avviket fra likevekt er $|u - 2| = 5|\\sin 3x|e^{-9t}$, altså proporsjonalt med $e^{-9t}$. Vi vil ha\n\n$$e^{-9t} \\le 0{,}01 \\quad\\Longrightarrow\\quad -9t \\le \\ln 0{,}01 = -4{,}6052 \\quad\\Longrightarrow\\quad t \\ge \\frac{4{,}6052}{9} \\approx 0{,}512.$$\n\nEtter omtrent $t = 0{,}51$ er avviket under én prosent.\n\n**Merk grepet i a):** at $w$ er konstant her er ikke en tilfeldighet, men følger av at begge randverdiene er like. Reduksjonen er likevel nødvendig — uten den ville $v(x,0)$ inneholdt et konstantledd 2 som ingen sinusrekke kan gjengi pent.",
+        "hints": [
+          "Er randverdiene like i begge ender, hva slags rett linje blir $w$?",
+          "Etter reduksjonen er $v(x,0)$ en ren sinus — ingen integraler nødvendig.",
+          "For b): avviket er en konstant ganger $e^{-k_3 t}$. Løs ulikheten for $t$."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Løkke 4 — Kildeledd, langtidsgrenser og en eksamensoppgave (~15 min)\n\nSiste variant: en likning med et ledd som produserer varme hele tiden, og spørsmålet om hva som skjer til slutt. Begge deler dukker opp som avsluttende delpunkt i G-oppgaven.",
+      "id": "tma4135-5-2-lokke4"
+    },
+    {
+      "type": "definition",
+      "title": "Ikke-homogen varmelikning",
+      "content": "En varmelikning med et **kildeledd** som ikke avhenger av tida:\n\n$$u_t = c^2u_{xx} + \\alpha.$$\n\nFysisk: stanga varmes opp innenfra med konstant effekt, for eksempel av en elektrisk strøm.\n\nGrepet er det samme som ved ikke-homogen rand: finn først en stasjonær løsning $w$, altså en som oppfyller $c^2w'' + \\alpha = 0$ og randbetingelsene, og sett $v = u - w$. Da faller kildeleddet bort, og $v$ oppfyller den homogene likningen.",
+      "id": "tma4135-5-2-def-kildeledd"
+    },
+    {
+      "type": "definition",
+      "title": "Stasjonær løsning med kildeledd",
+      "content": "Med $u_t = 0$ i $u_t = c^2u_{xx} + \\alpha$ blir kravet $c^2w'' + \\alpha = 0$, altså $w'' = -\\alpha/c^2$. To integrasjoner gir en parabel:\n\n$$w(x) = -\\frac{\\alpha}{2c^2}x^2 + Ax + B,$$\n\nder $A$ og $B$ bestemmes av randbetingelsene. Med $w(0) = w(L) = 0$ blir resultatet\n\n$$w(x) = \\frac{\\alpha}{2c^2}\\,x(L - x).$$\n\nLegg merke til at profilen buer **oppover** når $\\alpha > 0$: midten blir varmest, siden varmen der har lengst vei ut.",
+      "id": "tma4135-5-2-def-stasjonaer-kilde"
+    },
+    {
+      "type": "definition",
+      "title": "Likevektsløsningen når $t \to \\infty$",
+      "content": "Grensen løsningen nærmer seg etter lang tid. Alle moder med $k_n > 0$ har faktoren $e^{-c^2k_nt}$, som går mot null. Igjen står bare det som ikke er dempet:\n\n- ved **Dirichlet-rand**: den stasjonære løsningen $w(x)$ (som er null hvis randbetingelsene er null);\n- ved **Neumann-rand**: konstanten $A_0$, altså middelverdien av initialtemperaturen.\n\nEt delspørsmål av typen «hva nærmer $u$ seg når $t \\to \\infty$» er derfor nesten alltid gratis poeng — svaret er ett ledd i rekka du allerede har skrevet.",
+      "id": "tma4135-5-2-def-likevekt"
+    },
+    {
+      "type": "definition",
+      "title": "Den dominerende moden",
+      "content": "Leddet med lavest egenverdi, altså $n = 1$ (eller $n = 0$ ved Neumann-rand).\n\nFordi $k_n$ vokser som $n^2$, dør ledd nummer $n$ ut som $e^{-c^2n^2\\pi^2t/L^2}$. Forholdet mellom ledd 2 og ledd 1 er\n\n$$\\frac{e^{-c^2k_2t}}{e^{-c^2k_1t}} = e^{-c^2(k_2-k_1)t},$$\n\nsom synker eksponentielt. Etter kort tid ser enhver løsning ut som én ren grunnmode ganger en avtakende faktor — det er derfor varmeprofiler alltid ser glatte og enkle ut.",
+      "id": "tma4135-5-2-def-dominerende-mode"
+    },
+    {
+      "type": "definition",
+      "title": "Bevart middelverdi ved Neumann-rand",
+      "content": "For en isolert stang ($u_x = 0$ i begge ender) er middeltemperaturen konstant i tid:\n\n$$\\frac{d}{dt}\\int_0^L u\\,dx = c^2\\int_0^L u_{xx}\\,dx = c^2\\left[u_x\\right]_0^L = 0.$$\n\nMed andre ord: ingen varme slipper ut, så det totale varmeinnholdet holder seg. Det er nøyaktig derfor $A_0$-leddet ikke dør ut, og det gir deg en gratis kontroll: **grensen når $t \\to \\infty$ må være middelverdien av $u(x,0)$.**",
+      "id": "tma4135-5-2-def-bevart-middel"
+    },
+    {
+      "type": "definition",
+      "title": "Oppskrift: hele varmeproblemet i seks steg",
+      "content": "1. Er randbetingelsene ikke-homogene, eller er det et kildeledd? Finn $w$ og sett $v = u - w$.\n2. Sett $v = F(x)G(t)$ og separer med $F''/F = -k$.\n3. Behandl alle tre $k$-tilfellene og finn egenverdier og egenfunksjoner.\n4. Løs $t$-likningen for hver egenverdi.\n5. Superponer, og bestem koeffisientene ved å matche $v(x,0)$ — les av hvis mulig, ellers koeffisientintegral.\n6. Legg $w$ tilbake, kontroller ved innsetting, og les av grensen når $t \\to \\infty$.\n\nDenne rekkefølgen er hele G-sjangeren. Den drilles fra ende til annen i [kap. 5.5](/tma4135/tma4135-5-5).",
+      "id": "tma4135-5-2-def-oppskrift"
+    },
+    {
+      "type": "example",
+      "title": "Eksamensnivå: isolert stang, trig-identitet og langtidsgrense",
+      "problem": "**Eksamensoppgave.** En isolert stang har starttemperatur $u(x,0) = 4 + 6\\cos^2 x$. Løs\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u_x(0,t) = u_x(\\pi,t) = 0, \\qquad u(x,0) = 4 + 6\\cos^2 x.$$\n\n**a)** Skriv initialbetingelsen som en sum av egenfunksjoner.\n**b)** Finn løsningen.\n**c)** Bestem grensen når $t \\to \\infty$, og kontroller den mot middelverdien av initialtemperaturen.",
+      "solution": "**a) Skriv om initialdataene.** **Fra de trigonometriske identitetene på det utdelte formelarket:**\n\n$$\\cos^2\\theta = \\tfrac12\\left(1 + \\cos 2\\theta\\right).$$\n\nMed $\\theta = x$:\n\n$$u(x,0) = 4 + 6\\cdot\\tfrac12(1 + \\cos 2x) = 4 + 3 + 3\\cos 2x = 7 + 3\\cos 2x.$$\n\nEgenfunksjonene ved Neumann-rand på $[0,\\pi]$ er $F_0 = 1$ og $F_n = \\cos nx$ (fra [kap. 5.1](/tma4135/tma4135-5-1)). Initialbetingelsen er altså allerede en sum av egenfunksjoner: konstanten 7 og moden $n = 2$ med vekt 3.\n\n**b) Løsningen.** Egenverdiene er $k_0 = 0$ og $k_n = n^2$, med tidsfaktorer $G_0 = 1$ og $G_n = e^{-n^2t}$. Superposisjon:\n\n$$u(x,t) = A_0 + \\sum_{n=1}^{\\infty}A_n\\cos(nx)\\,e^{-n^2t}.$$\n\nFra a) leser vi av $A_0 = 7$, $A_2 = 3$, alle andre null. Med $k_2 = 4$:\n\n$$\\boxed{u(x,t) = 7 + 3\\cos(2x)\\,e^{-4t}.}$$\n\n**Kontroll — likningen.**\n\n$$u_t = -12\\cos(2x)e^{-4t}, \\qquad u_{xx} = -12\\cos(2x)e^{-4t}.$$\n\nLike, så $u_t = u_{xx}$ er oppfylt.\n\n**Kontroll — randbetingelsene.** $u_x = -6\\sin(2x)e^{-4t}$. I $x = 0$: $\\sin 0 = 0$. I $x = \\pi$: $\\sin 2\\pi = 0$. Begge oppfylt.\n\n**Kontroll — initialbetingelsen.** $u(x,0) = 7 + 3\\cos 2x = 4 + 6\\cos^2x$, som er nettopp det oppgitte. Oppfylt.\n\n**c) Grensen.** Leddet $3\\cos(2x)e^{-4t}$ går mot null, så\n\n$$u(x,t) \\;\\longrightarrow\\; 7 \\qquad \\text{når } t \\to \\infty.$$\n\n*Kontroll mot middelverdien.* Stanga er isolert, så middeltemperaturen er bevart:\n\n$$\\frac{1}{\\pi}\\int_0^{\\pi}\\left(4 + 6\\cos^2x\\right)dx = \\frac{1}{\\pi}\\left(4\\pi + 6\\cdot\\frac{\\pi}{2}\\right) = 4 + 3 = 7.$$\n\nGrensen stemmer med middelverdien, som den må.\n\n**Hva som gir uttelling.** Delpunkt a) er verdt like mye som b) her, fordi identiteten er selve nøkkelen: uten den ser initialdataene ikke ut som en egenfunksjonssum, og en student som går rett på koeffisientintegralet bruker ti minutter ekstra på å komme til samme sted. Delpunkt c) er gratis hvis du kjenner regelen om at Neumann-rand bevarer middelverdien — og kontrollen med integralet tar ett minutt og sikrer poenget.",
+      "id": "tma4135-5-2-eks4"
+    },
+    {
+      "id": "tma4135-5-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-2-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G — kildeledd.) En stang på $[0,1]$ med kalde ender varmes jevnt innenfra. Løs\n\n$$u_t = u_{xx} + 2, \\qquad 0 < x < 1, \\qquad u(0,t) = u(1,t) = 0, \\qquad u(x,0) = 0,$$\n\nog finn likevektstemperaturen i midtpunktet.",
+        "solution": "**Steg 1 — stasjonær løsning.** Sett $u_t = 0$: $w'' + 2 = 0$, altså $w'' = -2$. To integrasjoner:\n\n$$w(x) = -x^2 + Ax + B.$$\n\nRandbetingelsene $w(0) = 0$ gir $B = 0$, og $w(1) = -1 + A = 0$ gir $A = 1$:\n\n$$w(x) = x(1 - x).$$\n\n*Kontroll:* $w'' = -2$, så $w'' + 2 = 0$. Og $w(0) = w(1) = 0$. Riktig.\n\n**Steg 2 — reduser.** $v = u - w$ gir $v_t = u_t = u_{xx} + 2 = (v_{xx} + w'') + 2 = v_{xx}$, altså den homogene likningen. Randbetingelsene er fortsatt null, og\n\n$$v(x,0) = 0 - x(1-x) = -x(1-x).$$\n\n**Steg 3 — koeffisientene.** Dirichlet på $[0,1]$: $F_n = \\sin n\\pi x$, $k_n = n^2\\pi^2$.\n\n$$B_n = 2\\int_0^1\\left(-x(1-x)\\right)\\sin(n\\pi x)\\,dx = -2\\int_0^1\\left(x - x^2\\right)\\sin(n\\pi x)\\,dx.$$\n\n**Fra reduksjonsformlene på det utdelte formelarket** med $a = n\\pi$ regnes de to integralene ut; resultatet er\n\n$$B_n = \\frac{4\\left((-1)^n - 1\\right)}{n^3\\pi^3},$$\n\naltså $B_n = -\\dfrac{8}{n^3\\pi^3}$ for odde $n$ og 0 for like $n$.\n\n**Svar:**\n\n$$u(x,t) = x(1-x) - \\frac{8}{\\pi^3}\\sum_{m=0}^{\\infty}\\frac{1}{(2m+1)^3}\\sin\\!\\left((2m+1)\\pi x\\right)e^{-(2m+1)^2\\pi^2t}.$$\n\n**Kontroll — likningen.** Leddet $x(1-x)$ har $u_t = 0$ og $u_{xx} = -2$, så $u_{xx} + 2 = 0 = u_t$. Oppfylt. Hvert rekkeledd har $u_t = -n^2\\pi^2u = u_{xx}$, og bidrar ikke til kildeleddet. Oppfylt.\n\n**Kontroll — randen.** $x(1-x)$ er null i begge ender, og $\\sin 0 = \\sin n\\pi = 0$. Oppfylt.\n\n**Kontroll — initialbetingelsen.** Numerisk med 600 ledd i $x = 0{,}5$ og $t = 10^{-6}$ gir $u \\approx 6\\cdot 10^{-6}$, altså null. Oppfylt.\n\n**Likevekt i midtpunktet.** Alle rekkeledd dør ut, så $u \\to w(x) = x(1-x)$, og\n\n$$w(\\tfrac12) = \\tfrac12\\cdot\\tfrac12 = 0{,}25.$$\n\n**Rimelighetssjekk:** profilen buer oppover med maksimum på midten, som den skal når stanga varmes jevnt og bare kan kvitte seg med varmen gjennom endene.",
+        "hints": [
+          "Sett $u_t = 0$ og løs $w'' = -2$ med de to randbetingelsene.",
+          "Sjekk at $v = u - w$ virkelig oppfyller den homogene likningen — hvor blir kildeleddet av?",
+          "Del koeffisientintegralet i $\\int x\\sin$ og $\\int x^2\\sin$, og slå opp begge reduksjonsformlene."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-5-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-5-2-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G — dominerende mode.) Betrakt\n\n$$u_t = u_{xx}, \\qquad 0 < x < \\pi, \\qquad u(0,t) = u(\\pi,t) = 0, \\qquad u(x,0) = \\sin x + \\sin 2x.$$\n\n**a)** Finn løsningen.\n**b)** Hvor lang tid går det før andre ledd er under én prosent av det første, målt som forholdet mellom amplitudene?\n**c)** Forklar hvorfor svaret i b) ikke avhenger av koeffisientene foran sinusene.",
+        "solution": "**a)** Koeffisientene leses av: $B_1 = B_2 = 1$, med $k_1 = 1$ og $k_2 = 4$:\n\n$$u(x,t) = \\sin(x)\\,e^{-t} + \\sin(2x)\\,e^{-4t}.$$\n\n*Kontroll:* $u_t = -\\sin(x)e^{-t} - 4\\sin(2x)e^{-4t}$ og $u_{xx} = -\\sin(x)e^{-t} - 4\\sin(2x)e^{-4t}$ — like. Randen: $\\sin 0 = 0$, $\\sin\\pi = \\sin 2\\pi = 0$. Initialbetingelsen: $u(x,0) = \\sin x + \\sin 2x$. Alt oppfylt.\n\n**b)** Amplitudene er $e^{-t}$ og $e^{-4t}$, og forholdet er\n\n$$\\frac{e^{-4t}}{e^{-t}} = e^{-3t}.$$\n\nKravet $e^{-3t} \\le 0{,}01$ gir\n\n$$-3t \\le \\ln 0{,}01 = -4{,}6052 \\quad\\Longrightarrow\\quad t \\ge \\frac{4{,}6052}{3} \\approx 1{,}535.$$\n\nEtter omtrent $t = 1{,}54$ er andre mode under en prosent av den første.\n\n**c)** Fordi forholdet mellom to eksponentialer bare avhenger av **differansen** i eksponentene, ikke av konstantene foran. Med generelle koeffisienter $B_1$ og $B_2$ blir forholdet\n\n$$\\frac{|B_2|e^{-4t}}{|B_1|e^{-t}} = \\frac{|B_2|}{|B_1|}\\,e^{-3t},$$\n\nog siden $e^{-3t}$ synker eksponentielt, blir forholdet lite etter omtrent samme tid uansett hvor stor $|B_2|/|B_1|$ er — bare litt forskjøvet. Var for eksempel $B_2 = 100B_1$, ville kravet blitt $100e^{-3t} \\le 0{,}01$, altså $t \\ge \\ln(10^4)/3 \\approx 3{,}07$: nesten dobbelt så lenge, men fortsatt kort.\n\n**Det generelle poenget:** dempingsraten er en egenskap ved likningen og geometrien, ikke ved starttilstanden. Det er derfor «etter kort tid ser alt ut som grunnmoden» er en pålitelig tommelfingerregel.",
+        "hints": [
+          "Koeffisientene kan leses av — ingen integraler her.",
+          "Skriv forholdet mellom de to leddenes tidsfaktorer som én eksponential.",
+          "Ta logaritmen på begge sider av ulikheten, og pass på at ulikhetstegnet snur når du deler på et negativt tall."
+        ]
+      }
+    },
+    {
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å regne et koeffisientintegral når svaret kunne leses av.** Er $u(x,0)$ allerede en endelig sum av egenfunksjoner, er koeffisientene gratis. Dette er den vanligste tidsfella i sjangeren, og den koster fem til ti minutter på en oppgave der tida er knapp. Se alltid etter en trigonometrisk identitet først — $\\cos^2$, $\\sin^2$ og $\\sin\\theta\\cos\\theta$ skjuler ofte en ren egenfunksjon.\n\n**Å superponere med ikke-homogene randbetingelser.** Er $u(0,t) = 10$, kan du ikke legge sammen løsninger — summen får randverdi 20. Finn $w$ og sett $v = u - w$ **først**, før du gjør noe annet. Dette er en feil som ødelegger hele oppgaven, ikke bare ett delpunkt.\n\n**Å bruke feil egenfunksjonsbasis ved Neumann-rand.** Isolerte ender gir cosinuser *og* et konstantledd. Bruker du sinuser, treffer du aldri initialbetingelsen, og du mister leddet som overlever grensen.\n\n**Å glemme konstantleddet $A_0$.** Ved Neumann-rand er det ofte det viktigste leddet i hele svaret, siden det er det eneste som ikke dør ut. Og husk at $A_0$ har faktoren $1/L$, ikke $2/L$.\n\n**Å lese $n$ feil når intervallet ikke er $[0,\\pi]$.** Egenfunksjonene er $\\sin(n\\pi x/L)$. Står det $\\sin(\\pi x)$ på et intervall med $L = 2$, er det mode $n = 2$, ikke $n = 1$. Skriv alltid initialdataene på formen $\\sin(n\\pi x/L)$ før du leser av.\n\n**Å putte $c^2$ inn i egenverdiene.** Diffusiviteten hører hjemme i eksponenten $e^{-c^2k_nt}$, aldri i $k_n$ selv.\n\n**Å svare på $t \\to \\infty$-spørsmålet uten å se på hvilke ledd som overlever.** Ved Dirichlet-rand med nullrand går alt mot null; med ikke-homogen rand går det mot $w(x)$; ved Neumann-rand går det mot middelverdien. Tre ulike svar — les av hvilken situasjon du er i.\n\n**Å hoppe over kontrollen.** Å sette den ferdige løsningen inn i likningen, i begge randbetingelsene *og* i initialbetingelsen tar tre minutter og fanger nesten alt. På eksamen gir selve kontrollen dessuten uttelling.",
+      "id": "tma4135-5-2-typiske-feil"
+    },
+    {
+      "id": "tma4135-5-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-5-2-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på det kapitlet forutsetter — fire fra Del 3 og én fra [kap. 5.1](/tma4135/tma4135-5-1). Bruker du mer enn ti minutter, er det verdt å lese [kap. 3.1](/tma4135/tma4135-3-1) på nytt før du går videre til [kap. 5.3](/tma4135/tma4135-5-3)."
+        },
+        {
+          "id": "tma4135-5-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-2-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\displaystyle\\int_0^1 x\\sin(n\\pi x)\\,dx$ for et vilkårlig heltall $n \\ge 1$.",
+            "solution": "**Fra reduksjonsformelen på det utdelte formelarket** med $a = n\\pi$:\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a} + \\frac{\\sin ax}{a^2}.$$\n\nMellom 0 og 1: sinusleddet er null i begge ender, siden $\\sin n\\pi = 0$ og $\\sin 0 = 0$. Igjen står\n\n$$\\left[-\\frac{x\\cos n\\pi x}{n\\pi}\\right]_0^1 = -\\frac{\\cos n\\pi}{n\\pi} = \\frac{(-1)^{n+1}}{n\\pi}.$$\n\nDette integralet dukker opp i nesten hver eneste oppgave med lineære initialdata — det er verdt å kjenne igjen.",
+            "hints": [
+              "Slå opp reduksjonsformelen for $\\int x\\sin ax\\,dx$ og sett $a = n\\pi$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-2-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv om ved hjelp av identiteter fra det utdelte formelarket:\n\n**a)** $\\cos^2 3x$\n**b)** $\\sin^2 x$\n**c)** $\\sin 4x\\cos 4x$",
+            "solution": "**a)** $\\cos^2\\theta = \\tfrac12(1 + \\cos 2\\theta)$ med $\\theta = 3x$:\n$$\\cos^2 3x = \\tfrac12 + \\tfrac12\\cos 6x.$$\n\n**b)** $\\sin^2\\theta = \\tfrac12(1 - \\cos 2\\theta)$:\n$$\\sin^2 x = \\tfrac12 - \\tfrac12\\cos 2x.$$\n\n**c)** $\\sin\\theta\\cos\\theta = \\tfrac12\\sin 2\\theta$ med $\\theta = 4x$:\n$$\\sin 4x\\cos 4x = \\tfrac12\\sin 8x.$$\n\nI alle tre tilfellene har vi gjort om et produkt eller en potens til en **sum av rene svingninger** — nøyaktig det formatet egenfunksjonsutviklingen krever.",
+            "hints": [
+              "Alle tre er dobbeltvinkelformler. Slå dem opp på arket og sett inn."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-2-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En funksjon $f$ på $[0,3]$ skal utvikles i egenfunksjonene $\\sin(n\\pi x/3)$. Skriv opp koeffisientformelen, og forklar hvor faktoren foran integralet kommer fra.",
+            "solution": "$$B_n = \\frac{2}{3}\\int_0^3 f(x)\\sin\\frac{n\\pi x}{3}\\,dx.$$\n\nHer er $L = 3$, så faktoren er $2/L = 2/3$.\n\n**Hvor faktoren kommer fra:** rekka er den odde periodiske utvidelsen av $f$ til $[-3,3]$. Fourier-sinuskoeffisienten over hele det symmetriske intervallet er $\\frac1L\\int_{-L}^{L}$, og siden integranden er odde ganger odde, altså like, er den lik $\\frac{2}{L}\\int_0^L$. Det er samme halvering som i [kap. 3.1](/tma4135/tma4135-3-1).",
+            "hints": [
+              "Hva er $L$ her, og hvilken faktor hører til sinusrekka på halvintervall?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-2-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn den rette linja $w(x)$ som oppfyller $w'' = 0$ med\n\n**a)** $w(0) = 3$, $w(4) = 11$\n**b)** $w(0) = -2$, $w(5) = -2$\n**c)** $w(1) = 0$, $w(3) = 8$",
+            "solution": "Generelt er $w = Ax + B$.\n\n**a)** $B = 3$; $4A + 3 = 11$ gir $A = 2$. Altså $w(x) = 3 + 2x$.\n\n**b)** $B = -2$; $5A - 2 = -2$ gir $A = 0$. Altså $w(x) = -2$, en konstant. Like randverdier gir alltid konstant $w$.\n\n**c)** $A + B = 0$ og $3A + B = 8$. Trekker vi fra: $2A = 8$, altså $A = 4$ og $B = -4$. Altså $w(x) = 4x - 4 = 4(x-1)$.\n\n*Kontroll av c):* $w(1) = 0$ og $w(3) = 8$. Riktig.",
+            "hints": [
+              "Sett inn de to punktene i $w = Ax + B$ og løs et lineært system med to ukjente."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-5-2-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-5-2-oR5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Fra [kap. 5.1](/tma4135/tma4135-5-1): skriv opp egenverdier, egenfunksjoner og tidsfaktorer for varmelikningen $u_t = 3u_{xx}$ på $[0,2]$ med\n\n**a)** $u(0,t) = u(2,t) = 0$\n**b)** $u_x(0,t) = u_x(2,t) = 0$",
+            "solution": "**a) Dirichlet-rand.** Med $L = 2$:\n\n$$k_n = \\frac{n^2\\pi^2}{4}, \\qquad F_n(x) = \\sin\\frac{n\\pi x}{2}, \\qquad G_n(t) = e^{-3n^2\\pi^2 t/4}, \\qquad n \\ge 1.$$\n\n**b) Neumann-rand.** Samme egenverdier, cosinuser i stedet, pluss konstantleddet:\n\n$$k_0 = 0,\\; F_0 = 1,\\; G_0 = 1; \\qquad k_n = \\frac{n^2\\pi^2}{4},\\; F_n(x) = \\cos\\frac{n\\pi x}{2},\\; G_n(t) = e^{-3n^2\\pi^2t/4}.$$\n\nLegg merke til at faktoren 3 bare står i tidsfaktoren, ikke i egenverdiene.",
+            "hints": [
+              "Egenverdiene er $(n\\pi/L)^2$ uansett randtype; det er egenfunksjonene og starttellingen som skiller.",
+              "Hvor i uttrykket hører diffusivitetskonstanten hjemme?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-5-2-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $u(x,t)$ | Den ukjente løsningen, typisk temperatur |\n| $f(x)$ | Initialtemperaturen, altså $u(x,0)$ |\n| $F_n(x)$ | Den $n$-te egenfunksjonen fra [kap. 5.1](/tma4135/tma4135-5-1) |\n| $G_n(t)$ | Den tilhørende tidsfaktoren, $e^{-c^2k_nt}$ |\n| $k_n$ | Den $n$-te egenverdien. **Merk:** $k$ er separasjonskonstanten, brukt bare i Del 5 |\n| $B_n$ | Vekten foran mode $n$ ved Dirichlet-rand |\n| $A_0$, $A_n$ | Vektene ved Neumann-rand: konstantledd og cosinusledd |\n| $w(x)$ | Den stasjonære løsningen — tidsuavhengig, oppfyller randbetingelsene |\n| $v(x,t)$ | Den reduserte løsningen $u - w$, med homogene randbetingelser |\n| $\\alpha$ | Styrken på kildeleddet i $u_t = c^2u_{xx} + \\alpha$ |\n| $c^2$ | Diffusivitetskonstanten. **Merk:** i [kap. 5.3](/tma4135/tma4135-5-3) er $c$ bølgefarten |\n| $L$ | Intervallengden. **Merk:** i Del 3 er $L$ halvperioden, i Del 6 kontraksjonskonstanten |\n| $T_0$, $T_1$ | Faste randtemperaturer i venstre og høyre ende |\n"
+        },
+        {
+          "id": "tma4135-5-2-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$u(x,t) = \\sum_{n=1}^{\\infty}B_n F_n(x)G_n(t)$$\nSuperposisjon — den formelle løsningen. *(Må kunnes eller utledes aktivt.)*\n\n$$B_n = \\frac{2}{L}\\int_0^L f(x)\\sin\\frac{n\\pi x}{L}\\,dx$$\nKoeffisientene ved Dirichlet-rand, altså Fourier-sinusrekka. *(Må kunnes eller utledes aktivt — se [kap. 3.2](/tma4135/tma4135-3-2).)*\n\n$$A_0 = \\frac1L\\int_0^L f(x)\\,dx, \\qquad A_n = \\frac{2}{L}\\int_0^L f(x)\\cos\\frac{n\\pi x}{L}\\,dx$$\nKoeffisientene ved Neumann-rand. Legg merke til $1/L$ i konstantleddet. *(Må kunnes eller utledes aktivt.)*\n\n$$w(x) = T_0 + \\frac{T_1 - T_0}{L}x$$\nStasjonær løsning ved faste randtemperaturer. *(Må kunnes eller utledes aktivt.)*\n\n$$w'' = -\\frac{\\alpha}{c^2} \\;\\Longrightarrow\\; w(x) = \\frac{\\alpha}{2c^2}x(L-x) \\quad (\\text{med } w(0) = w(L) = 0)$$\nStasjonær løsning med konstant kildeledd. *(Må kunnes eller utledes aktivt.)*\n\n$$v = u - w \\;\\Longrightarrow\\; v_t = c^2v_{xx}, \\quad v = 0 \\text{ på randen}, \\quad v(x,0) = f(x) - w(x)$$\nReduksjonen som gjør problemet homogent. *(Må kunnes eller utledes aktivt.)*\n\n$$u(x,t) \\to w(x) \\;\\; (\\text{Dirichlet}), \\qquad u(x,t) \\to A_0 \\;\\; (\\text{Neumann}), \\qquad t \\to \\infty$$\nLangtidsgrensene. *(Må kunnes.)*\n\n$$\\int x\\sin ax\\,dx = -\\frac{x\\cos ax}{a} + \\frac{\\sin ax}{a^2}, \\qquad \\int x^2\\sin ax\\,dx = -\\frac{x^2\\cos ax}{a} + \\frac{2x\\sin ax}{a^2} + \\frac{2\\cos ax}{a^3}$$\nReduksjonsformlene for koeffisientintegralene. *(Står på det utdelte formelarket — tren oppslaget, og sett $a = n\\pi/L$.)*\n\n$$\\cos^2\\theta = \\tfrac12(1+\\cos 2\\theta), \\qquad \\sin^2\\theta = \\tfrac12(1-\\cos 2\\theta), \\qquad \\sin\\theta\\cos\\theta = \\tfrac12\\sin 2\\theta$$\nDobbeltvinkelidentitetene som avslører en skjult egenfunksjon. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\sin n\\pi = 0, \\qquad \\cos n\\pi = (-1)^n$$\nDe to verdiene som rydder opp i hvert eneste koeffisientintegral. *(Må kunnes.)*\n\n**Kolliderende symboler:** $L$ er her intervallengden; i Del 3 er $L$ halvperioden i en Fourier-rekke, og i Del 6 kontraksjonskonstanten i fikspunktteoremet. $c$ er her kvadratroten av diffusiviteten, mens $c$ i [kap. 5.3](/tma4135/tma4135-5-3) er bølgefarten og $c_n$ i Del 3 en kompleks Fourier-koeffisient. $F$ er her romfaktoren $F_n(x)$; i Del 2 er $F(s)$ Laplace-transformen. Bokstaven $A$ opptrer her både som koeffisient $A_n$ og som integrasjonskonstant i $w = Ax + B$ — les den av sammenhengen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

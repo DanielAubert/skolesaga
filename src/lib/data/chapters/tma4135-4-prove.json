@@ -1,0 +1,348 @@
+{
+  "id": "tma4135-4-prove",
+  "courseId": "tma4135",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Fourier-transform og DFT",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: transformutregning og integrallikning, transform brukt på en partiell differensiallikning, diskret Fourier-transform, og en blandet oppgave på eksamensnivå. Fire prøver à 30–40 min — kan tas som separate økter.",
+  "estimatedMinutes": 140,
+  "competenceGoals": [
+    "regne ut Fourier-transformer fra tabellen under tidspress, med riktig parameter og markert oppslag",
+    "løse en integrallikning av konvolusjonstype hele veien fram til funksjonen, med riktig normeringsfaktor",
+    "gjennomføre firestegsoppskriften for en partiell differensiallikning på hele tallinja og tolke leddene",
+    "regne ut en diskret Fourier-transform, kontrollere den med reell-testen og bruke skifteegenskapen"
+  ],
+  "content": [
+    {
+      "id": "tma4135-4-prove-om-provene",
+      "type": "tip",
+      "title": "Om prøvene til del 4",
+      "content": "**Fire prøver à 30–40 minutter, til sammen 140 minutter.**\n\n- **Prøve 4.A (35 min, 35 poeng):** Fourier-transform-utregning fra tabellen, og en integrallikning.\n- **Prøve 4.B (35 min, 35 poeng):** Fourier-transform brukt på en partiell differensiallikning på hele $\\mathbb{R}$.\n- **Prøve 4.C (30 min, 30 poeng):** diskret Fourier-transform — koeffisienter, reell-test og skifteegenskap.\n- **Prøve 4.D (40 min, 40 poeng):** blandet transformoppgave på eksamensnivå, der delpunktene bygger på hverandre.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** De bygger ikke på hverandre, og 4.C kan tas helt for seg.\n\n**Om tempoet.** Ett poeng per minutt er raskere enn eksamenstakten, som ligger på rundt 24 minutter per oppgave på 10 poeng. Det er med vilje: her er hver oppgave rendyrket på én ferdighet. Minuttene per deloppgave er oppgitt i oppgaveteksten og summerer seg til den deklarerte tiden.\n\n**Hver prøve avsluttes med fire raske spørsmål med svaralternativer.** De ligger nederst i prøven, teller ikke poeng, og er en **treningsform** — settene i dette emnet har aldri hatt en avkryssingsdel.\n\n**Slik bruker du prøvene:** ta dem på tid, uten fasit og uten kapitlene oppslått. Kalkulator er tillatt. Du skal late som du har det utdelte formelarket foran deg — når du trenger en transformrad, noter «fra formelarket» og bruk den. Skriv fullstendige svar med **navnet på regelen** du bruker; det er en del av kravet om at alle svar skal begrunnes.\n\n**Formelark-merking.** **Transformtabellen — Gauss-paret, $e^{-a\\lvert x\\rvert}$, $1/(x^2+a^2)$ og boksfunksjonen — står på det utdelte formelarket, så tren oppslaget.** Alt annet i Del 4 **må kunnes**: derivasjonsregelen, konvolusjonsteoremet med sin $\\sqrt{2\\pi}$-faktor, firestegsoppskriften for en partiell differensiallikning, og hele DFT-apparatet.\n\n**Om prøve 4.C.** Den diskrete transformen er en **ny sjanger med tynt arkivbelegg** — 2 av 13 gjennomgåtte sett, begge kontinuasjonssett. Prøven er tatt med fordi sjangeren er fast i de to siste settene, ikke fordi frekvensen er høy. Har du dårlig tid, er det denne prøven du bør ta sist.\n\n**Karakterrealisme.** Får du de mekaniske delpunktene til å sitte — riktig tabellrad, riktig $a$, riktig oppsett av den transformerte likningen — ligger du på et solid C, som er en god og vanlig karakter. Forskjellen opp mot A ligger i tre ting: at $\\sqrt{2\\pi}$-faktoren er med, at du **transformerer tilbake** i stedet for å stoppe ved $\\hat{f}$, og at du kontrollerer svaret.\n\nAlle oppgavene er nyskrevne for denne boka."
+    },
+    {
+      "id": "tma4135-4-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 4.1](/tma4135/tma4135-4-1) (transformen, tabellen, derivasjons- og konvolusjonsregelen), [kap. 4.2](/tma4135/tma4135-4-2) (firestegsoppskriften for en partiell differensiallikning) og [kap. 4.3](/tma4135/tma4135-4-3) (den diskrete transformen).\n\nFra Del 1 og Del 3 trengs [kap. 1.1](/tma4135/tma4135-1-1) — Eulers formel, enhetsrøtter og regning med komplekse tall — og [kap. 3.3](/tma4135/tma4135-3-3) for konjugert symmetri.\n\nFra tidligere matematikkemner: uegentlige integraler, delvis integrasjon, og løsning av $y'=\\lambda y$."
+    },
+    {
+      "id": "tma4135-4-prove-intro",
+      "type": "text",
+      "content": "Under ligger de fire prøvene, hver i sin egen boks du kan åpne når du er klar. Løsningsforslagene er ført som toppbesvarelser: hvert mellomsteg er med, regelnavnet er skrevet ut, tabelloppslagene er markert, og kontrollregningen står der. Det er den føringen som gir full uttelling — ikke et riktig sluttsvar alene."
+    },
+    {
+      "id": "tma4135-4-prove-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 4.A — Fourier-transform-utregning og integrallikning (35 min)",
+      "buttonText": "Vis prøve 4.A",
+      "content": [
+        {
+          "id": "tma4135-4-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 4.A — Fourier-transform-utregning og integrallikning.** 35 minutter, 35 poeng.\n\nTidsbudsjett: oppgave 1 ~13 min (13 poeng), oppgave 2 ~14 min (14 poeng), oppgave 3 ~8 min (8 poeng)."
+        },
+        {
+          "id": "tma4135-4-prove-A-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(13 poeng, ~13 min) Bruk transformtabellen og reglene til å finne $\\hat{f}(\\omega)$ for hver av funksjonene. Oppgi hvilken rad eller regel du bruker.\n\n**a)** $f(x) = e^{-5x^2}$ (3 poeng)\n**b)** $f(x) = e^{-3|x|}$ (3 poeng)\n**c)** $f(x) = \\dfrac{2}{x^2+9}$ (3 poeng)\n**d)** $f(x) = e^{-(x-2)^2}$ (4 poeng)",
+            "solution": "**a)** **Fra Gauss-raden på det utdelte formelarket**, $e^{-ax^2}\\leftrightarrow\\frac{1}{\\sqrt{2a}}e^{-\\omega^2/(4a)}$, med $a=5$:\n$$\\hat{f}(\\omega) = \\frac{1}{\\sqrt{10}}\\,e^{-\\omega^2/20}.$$\n\n*Kontroll i $\\omega=0$:* $\\frac{1}{\\sqrt{2\\pi}}\\int e^{-5x^2}dx = \\frac{1}{\\sqrt{2\\pi}}\\sqrt{\\frac{\\pi}{5}} = \\frac{1}{\\sqrt{10}}$. Stemmer.\n\n**b)** **Fra raden $e^{-a\\lvert x\\rvert}\\leftrightarrow\\sqrt{\\frac2\\pi}\\frac{a}{a^2+\\omega^2}$** med $a=3$:\n$$\\hat{f}(\\omega) = \\sqrt{\\frac{2}{\\pi}}\\cdot\\frac{3}{9+\\omega^2}.$$\n\n**c)** **Fra raden $\\frac{1}{x^2+a^2}\\leftrightarrow\\sqrt{\\frac\\pi2}\\frac{e^{-a\\lvert\\omega\\rvert}}{a}$** med $a=3$, ganget med 2 **etter lineariteten**:\n$$\\hat{f}(\\omega) = 2\\sqrt{\\frac{\\pi}{2}}\\cdot\\frac{e^{-3\\lvert\\omega\\rvert}}{3} = \\frac{2}{3}\\sqrt{\\frac{\\pi}{2}}\\,e^{-3\\lvert\\omega\\rvert}.$$\n\n**d)** Dette er $g(x-2)$ med $g(x)=e^{-x^2}$. **Fra Gauss-raden** med $a=1$ er $\\hat{g}(\\omega) = \\frac{1}{\\sqrt2}e^{-\\omega^2/4}$, og **etter forskyvningsregelen** $\\widehat{g(x-b)} = e^{-ib\\omega}\\hat{g}$ med $b=2$:\n$$\\hat{f}(\\omega) = \\frac{e^{-2i\\omega}}{\\sqrt2}\\,e^{-\\omega^2/4}.$$\n\n*Kontroll:* $\\left|\\hat{f}(\\omega)\\right| = \\frac{1}{\\sqrt2}e^{-\\omega^2/4} = \\left|\\hat{g}(\\omega)\\right|$, siden $\\left|e^{-2i\\omega}\\right| = 1$. Forskyvning endrer ikke amplituden. Stemmer.\n\n**Merk skillet mellom a) og b).** I a) står $x$ i **andre potens**, i b) i **absoluttverdi** — to helt ulike rader. Det er den vanligste feilen i denne oppgavetypen, og den ene tingen du bør sjekke først.",
+            "hints": [
+              "Se etter om $x$ står i andre potens, i absoluttverdi, eller i en nevner.",
+              "Les av $a$ fra funksjonen og sett den inn på **alle** stedene $a$ opptrer.",
+              "For d): skriv $f$ som $g(x-b)$ og bruk forskyvningsregelen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-A-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(14 poeng, ~14 min) Løs integrallikningen\n$$\\int_{-\\infty}^{\\infty} e^{-\\frac12(x-t)^2}\\,f(t)\\,dt = e^{-x^2/4}, \\qquad x\\in\\mathbb{R}.$$\n\n**a)** Forklar hvorfor venstre side er en konvolusjon, og skriv den som $g*f$. (3 poeng)\n**b)** Transformer likningen og løs for $\\hat{f}$. (6 poeng)\n**c)** Finn $f$, og kontroller svaret ved innsetting. (5 poeng)",
+            "solution": "**a)** Argumentet i den kjente funksjonen er $x-t$, og integralet går over hele $\\mathbb{R}$. Det er nøyaktig definisjonen av konvolusjonen $(g*f)(x) = \\int g(x-t)f(t)\\,dt$ med\n$$g(x) = e^{-x^2/2}.$$\nLikningen er altså $g*f = h$ med $h(x) = e^{-x^2/4}$.\n\n**b)** **Etter konvolusjonsteoremet** er $\\widehat{g*f} = \\sqrt{2\\pi}\\,\\hat{g}\\hat{f}$, så\n$$\\sqrt{2\\pi}\\,\\hat{g}(\\omega)\\,\\hat{f}(\\omega) = \\hat{h}(\\omega).$$\n\n**Fra Gauss-raden på det utdelte formelarket:**\n\n- $g(x)=e^{-x^2/2}$ har $a=\\tfrac12$, altså $\\frac{1}{\\sqrt{2a}} = 1$ og $\\frac{1}{4a} = \\tfrac12$:\n  $$\\hat{g}(\\omega) = e^{-\\omega^2/2}.$$\n- $h(x)=e^{-x^2/4}$ har $a=\\tfrac14$, altså $\\frac{1}{\\sqrt{2a}} = \\sqrt2$ og $\\frac{1}{4a} = 1$:\n  $$\\hat{h}(\\omega) = \\sqrt2\\,e^{-\\omega^2}.$$\n\nLøs for $\\hat{f}$:\n$$\\hat{f}(\\omega) = \\frac{\\sqrt2\\,e^{-\\omega^2}}{\\sqrt{2\\pi}\\,e^{-\\omega^2/2}} = \\frac{\\sqrt2}{\\sqrt{2\\pi}}\\,e^{-\\omega^2/2} = \\frac{1}{\\sqrt{\\pi}}\\,e^{-\\omega^2/2}.$$\n\n*(Konstanten: $\\frac{\\sqrt2}{\\sqrt{2\\pi}} = \\frac{1}{\\sqrt{\\pi}}$. Eksponenten: $-1+\\tfrac12 = -\\tfrac12$.)*\n\n**c)** Vi leter i Gauss-raden etter en $a$ som gir $e^{-\\omega^2/2}$, altså $\\frac{1}{4a} = \\tfrac12$ og $a = \\tfrac12$. Da er $\\frac{1}{\\sqrt{2a}} = 1$, så\n$$e^{-x^2/2} \\ \\longleftrightarrow\\ e^{-\\omega^2/2}.$$\n**Etter lineariteten** er derfor\n$$\\boxed{f(x) = \\frac{1}{\\sqrt{\\pi}}\\,e^{-x^2/2}.}$$\n\n**Kontroll ved innsetting.**\n$$\\int_{-\\infty}^{\\infty}e^{-\\frac12(x-t)^2}\\cdot\\frac{1}{\\sqrt\\pi}e^{-t^2/2}\\,dt = \\frac{1}{\\sqrt\\pi}\\int e^{-\\frac12\\left[(x-t)^2+t^2\\right]}dt.$$\nFullfør kvadratet: $(x-t)^2+t^2 = 2t^2-2xt+x^2 = 2\\left(t-\\tfrac{x}{2}\\right)^2+\\tfrac{x^2}{2}$, så eksponenten er $-\\left(t-\\tfrac x2\\right)^2-\\tfrac{x^2}{4}$. Da:\n$$= \\frac{1}{\\sqrt\\pi}e^{-x^2/4}\\int e^{-u^2}du = \\frac{1}{\\sqrt\\pi}e^{-x^2/4}\\cdot\\sqrt\\pi = e^{-x^2/4}.$$\nNøyaktig høyresiden. Stemmer.\n\n**De tre stedene folk mister poeng her:** glemt $\\sqrt{2\\pi}$ i konvolusjonsteoremet, feil $a$ i en av de tre Gauss-oppslagene, eller stanset ved $\\hat{f}$ uten å transformere tilbake.",
+            "hints": [
+              "Sammenlikn integralet med definisjonen $(g*f)(x) = \\int g(x-t)f(t)dt$.",
+              "Slå opp Gauss-raden tre ganger — for $g$, for $h$ og til slutt baklengs for $f$.",
+              "Husk faktoren $\\sqrt{2\\pi}$ når du deler i steg b)."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-A-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~8 min) La $f$ ha transform $\\hat{f}(\\omega)$. Skriv opp transformen av hvert uttrykk, uttrykt ved $\\hat{f}$, og oppgi regelen du bruker.\n\n**a)** $f''(x) - f(x)$ (2 poeng)\n**b)** $f(3x)$ (2 poeng)\n**c)** $f(x)*f(x)$ (2 poeng)\n**d)** $f(x+4)$ (2 poeng)",
+            "solution": "**a)** **Etter andrederivert-regelen** $\\widehat{f''} = -\\omega^2\\hat{f}$ og lineariteten:\n$$\\left(-\\omega^2-1\\right)\\hat{f}(\\omega).$$\nMerk minustegnet: $(i\\omega)^2 = -\\omega^2$.\n\n**b)** **Etter skaleringsregelen** $\\widehat{f(cx)} = \\frac{1}{|c|}\\hat{f}\\!\\left(\\frac{\\omega}{c}\\right)$ med $c=3$:\n$$\\frac13\\,\\hat{f}\\!\\left(\\frac{\\omega}{3}\\right).$$\nBåde faktoren og argumentet må endres.\n\n**c)** **Etter konvolusjonsteoremet:**\n$$\\sqrt{2\\pi}\\,\\hat{f}(\\omega)^2.$$\n\n**d)** **Etter forskyvningsregelen** $\\widehat{f(x-b)} = e^{-ib\\omega}\\hat{f}$ med $b=-4$:\n$$e^{4i\\omega}\\,\\hat{f}(\\omega).$$\nPositiv eksponent, fordi forskyvningen går mot **venstre**.\n\n**Fellestrekk ved alle fire:** ingen integraler. Når reglene sitter, er transformoppgaver ren oversettelse — og hele vanskeligheten flytter seg til å velge riktig regel og få fortegnene riktige.",
+            "hints": [
+              "Skriv opp de fire reglene først, og bruk dem én om gangen.",
+              "For b): faktoren $1/|c|$ og argumentet $\\omega/c$ hører sammen.",
+              "For d): $f(x+4) = f(x-(-4))$ — hva blir da $b$?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-A-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\n**1.** I bokas konvensjon er faktoren foran transformintegralet: **a)** $\\frac{1}{\\sqrt{2\\pi}}$ · **b)** $\\frac{1}{2\\pi}$ · **c)** $1$ · **d)** $\\sqrt{2\\pi}$\n\n**2.** Konvolusjonsteoremet i denne konvensjonen sier $\\widehat{f*g} = $ **a)** $\\hat{f}\\hat{g}$ · **b)** $2\\pi\\hat{f}\\hat{g}$ · **c)** $\\frac{1}{\\sqrt{2\\pi}}\\hat{f}\\hat{g}$ · **d)** $\\sqrt{2\\pi}\\hat{f}\\hat{g}$\n\n**3.** $\\widehat{f''}(\\omega)$ er lik: **a)** $\\omega^2\\hat{f}$ · **b)** $-\\omega^2\\hat{f}$ · **c)** $i\\omega\\hat{f}$ · **d)** $-i\\omega\\hat{f}$\n\n**4.** Transformen av $e^{-4x^2}$ har eksponenten: **a)** $-\\omega^2/16$ · **b)** $-\\omega^2/4$ · **c)** $-4\\omega^2$ · **d)** $-\\omega^2/8$"
+        },
+        {
+          "id": "tma4135-4-prove-A-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1a · 2d · 3b · 4a.**\n\n**1a:** boka og det utdelte arket bruker den symmetriske konvensjonen med $\\frac{1}{\\sqrt{2\\pi}}$ **begge veier**. Alternativ **b** er faktoren i den konvensjonen der hele $2\\pi$ legges på den inverse transformen — like riktig i seg selv, men da må konvolusjonsteoremet skrives annerledes.\n**2d:** faktoren $\\sqrt{2\\pi}$ følger av at normeringen er delt likt. Alternativ **a** er formen i den «fysiske» konvensjonen, og er den vanligste kilden til konstantfeil.\n**3b:** $(i\\omega)^2 = -\\omega^2$. Alternativ **a** mangler minustegnet og gir en løsning som vokser i stedet for å dempes.\n**4a:** med $a=4$ er $\\frac{1}{4a} = \\frac{1}{16}$. Alternativ **b** svarer til $a=1$, altså at man har glemt firetallet."
+        },
+        {
+          "id": "tma4135-4-prove-A-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 4.A\n\n☐ Jeg sjekket om $x$ sto i andre potens, i absoluttverdi eller i en nevner, før jeg valgte rad.\n\n☐ Jeg satte $a$ inn på **alle** stedene den opptrer i tabellraden.\n\n☐ Jeg kontrollerte minst ett svar i $\\omega=0$ mot arealet under kurven.\n\n☐ Jeg begrunnet at venstre side i integrallikningen er en konvolusjon.\n\n☐ Jeg hadde med faktoren $\\sqrt{2\\pi}$ i konvolusjonsteoremet.\n\n☐ Jeg **transformerte tilbake** og oppga $f$, ikke bare $\\hat{f}$.\n\n☐ Jeg kontrollerte sluttsvaret ved innsetting eller i $\\omega=0$.\n\n☐ Jeg skrev navnet på hver regel jeg brukte i oppgave 3.\n\n**Færre enn fem kryss?** Les [kap. 4.1](/tma4135/tma4135-4-1) løkke 2 og 4 på nytt, og gjør oppgave 6 og 8 der før du går videre til prøve 4.B."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-4-prove-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 4.B — Fourier-transform for en PDE på hele $\\mathbb{R}$ (35 min)",
+      "buttonText": "Vis prøve 4.B",
+      "content": [
+        {
+          "id": "tma4135-4-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 4.B — Fourier-transform for en partiell differensiallikning på hele $\\mathbb{R}$.** 35 minutter, 35 poeng.\n\nTidsbudsjett: oppgave 1 ~20 min (20 poeng), oppgave 2 ~9 min (9 poeng), oppgave 3 ~6 min (6 poeng)."
+        },
+        {
+          "id": "tma4135-4-prove-B-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(20 poeng, ~20 min) Løs\n$$u_t = 3u_{xx}, \\qquad x\\in\\mathbb{R},\\ t>0, \\qquad u(x,0) = e^{-2x^2}.$$\n\n**a)** Transformer likningen i $x$ og skriv opp ODE-en i $t$. Forklar hvorfor $\\omega$ er en konstant i den. (5 poeng)\n**b)** Løs ODE-en og bestem integrasjonskonstanten fra initialbetingelsen. (7 poeng)\n**c)** Transformer tilbake og finn $u(x,t)$. (6 poeng)\n**d)** Kontroller svaret. (2 poeng)",
+            "solution": "**a)** **Etter oversettelsesreglene** er $\\widehat{u_{xx}} = -\\omega^2\\hat{u}$, mens tidsderivasjonen går uendret gjennom transformen:\n$$\\frac{\\partial\\hat{u}}{\\partial t}(\\omega,t) = -3\\omega^2\\,\\hat{u}(\\omega,t).$$\n\n**Hvorfor $\\omega$ er konstant:** transformen er tatt med hensyn på $x$ alene, og $\\omega$ er den nye variabelen som har erstattet $x$. I den transformerte likningen deriveres det bare med hensyn på $t$; $\\omega$ er en parameter som følger med som et fast tall. Likningen er derfor **ordinær**, ikke partiell — og det er hele gevinsten ved transformen.\n\n**b)** For hver fast $\\omega$ er dette $y' = \\lambda y$ med $\\lambda = -3\\omega^2$:\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{-3\\omega^2 t}.$$\n\n**Merk at konstanten er en funksjon av $\\omega$**, siden likningen er løst separat for hver frekvens.\n\nSett $t=0$: $C(\\omega) = \\hat{u}(\\omega,0)$, som er transformen av $e^{-2x^2}$. **Fra Gauss-raden på det utdelte formelarket** med $a=2$: $\\frac{1}{\\sqrt{2a}} = \\frac12$ og $\\frac{1}{4a} = \\frac18$, så\n$$C(\\omega) = \\frac12\\,e^{-\\omega^2/8}.$$\nAltså\n$$\\hat{u}(\\omega,t) = \\frac12\\,e^{-\\omega^2\\left(3t+\\frac18\\right)}.$$\n\n**c)** Vi trenger Gauss-raden med $\\frac{1}{4a} = 3t+\\tfrac18 = \\frac{24t+1}{8}$, altså\n$$a = \\frac{2}{24t+1}.$$\nMed den $a$-en er $\\frac{1}{\\sqrt{2a}} = \\frac{1}{\\sqrt{4/(24t+1)}} = \\frac{\\sqrt{24t+1}}{2}$, så\n$$e^{-2x^2/(24t+1)} \\ \\longleftrightarrow\\ \\frac{\\sqrt{24t+1}}{2}\\,e^{-\\omega^2\\left(3t+\\frac18\\right)}.$$\nVår $\\hat{u}$ er $\\frac12$ ganger eksponentialen, altså $\\frac{1}{\\sqrt{24t+1}}$ ganger transformen over. **Etter lineariteten:**\n$$\\boxed{u(x,t) = \\frac{1}{\\sqrt{24t+1}}\\,e^{-2x^2/(24t+1)}.}$$\n\n**d) Kontroller.**\n\n*Initialbetingelsen:* $u(x,0) = \\frac{1}{\\sqrt1}e^{-2x^2} = e^{-2x^2}$. Stemmer.\n\n*Likningen:* deriverer man, får man\n$$u_t = \\frac{48x^2-12(24t+1)}{(24t+1)^{5/2}}\\,e^{-2x^2/(24t+1)}, \\qquad 3u_{xx} = \\frac{48x^2-12(24t+1)}{(24t+1)^{5/2}}\\,e^{-2x^2/(24t+1)}.$$\nDe er like, så $u_t = 3u_{xx}$. Stemmer.\n\n*Plausibilitet:* pulsen brer seg ut som $\\sqrt{24t+1}$ og toppen synker med samme faktor, slik at arealet holder seg konstant. Med diffusivitet 3 skjer det tre ganger raskere enn for $u_t=u_{xx}$ med samme startpuls — som forventet.",
+            "hints": [
+              "Faktoren 3 følger med gjennom hele oppskriften, også inn i eksponenten.",
+              "Startpulsen har $a=2$, ikke $a=1$ — sett inn på begge stedene i Gauss-raden.",
+              "I steg c): sett $\\frac{1}{4a}$ lik hele parentesen og løs for $a$, og bruk samme $a$ i $\\frac{1}{\\sqrt{2a}}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-B-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(9 poeng, ~9 min) Løs\n$$u_t = 2u_x, \\qquad x\\in\\mathbb{R},\\ t>0, \\qquad u(x,0) = f(x),$$\nfor en vilkårlig $f$ med Fourier-transform, og tolk svaret. Kontroller deretter med $f(x)=e^{-x^2}$.",
+            "solution": "**Steg 1 — transformer.** **Etter derivasjonsregelen** er $\\widehat{u_x} = i\\omega\\hat{u}$, så\n$$\\frac{\\partial\\hat{u}}{\\partial t} = 2i\\omega\\,\\hat{u}.$$\n\n**Steg 2 — løs.**\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{2i\\omega t}.$$\n\n**Steg 3 — konstanten.** Ved $t=0$ er $C(\\omega) = \\hat{f}(\\omega)$, altså\n$$\\hat{u}(\\omega,t) = e^{2i\\omega t}\\,\\hat{f}(\\omega).$$\n\n**Steg 4 — tilbake.** **Etter forskyvningsregelen** $\\widehat{f(x-b)} = e^{-ib\\omega}\\hat{f}$ med $b = -2t$:\n$$u(x,t) = f(x+2t).$$\n\n**Tolkning.** Initialprofilen flyttes **mot venstre** med fart 2, uten at formen endres. Det er transportlikningen: $u_x$ flytter, mens det er $u_{xx}$ som glatter — og her finnes ingen andrederivert.\n\nI frekvensdomenet ser man det direkte: $\\lambda(\\omega) = 2i\\omega$ er **rent imaginær**, så $\\left|\\hat{u}\\right| = \\left|\\hat{f}\\right|$ for alle $t$. Ingen frekvens dempes; bare fasene endres.\n\n**Kontroll med $f(x)=e^{-x^2}$.** Formelen gir $u = e^{-(x+2t)^2}$. Da er\n$$u_t = -4(x+2t)e^{-(x+2t)^2}, \\qquad u_x = -2(x+2t)e^{-(x+2t)^2},$$\nså $2u_x = -4(x+2t)e^{-(x+2t)^2} = u_t$. Stemmer. Og $u(x,0)=e^{-x^2}$ ✔.",
+            "hints": [
+              "Bare ett ledd på høyre side — hvilken faktor gir $u_x$ etter transformasjon?",
+              "Er $\\lambda(\\omega)$ reell eller imaginær? Det avgjør om løsningen dempes eller bare flyttes.",
+              "Kjenn igjen $e^{-ib\\omega}\\hat f$ som transformen av $f(x-b)$; her er $b$ negativ."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-B-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(6 poeng, ~6 min) For hvert av problemene: avgjør om Fourier-transform i $x$ er riktig metode, og begrunn med ett kjennetegn.\n\n**a)** $u_t = u_{xx}$, $x\\in\\mathbb{R}$, $u(x,0)=e^{-x^2}$\n**b)** $u_t = u_{xx}$, $0<x<2$, $u(0,t)=u(2,t)=0$, $u(x,0)=\\sin\\frac{\\pi x}{2}$\n**c)** $u_t = u_x - u$, $x\\in\\mathbb{R}$, $u(x,0)=\\frac{1}{1+x^2}$",
+            "solution": "**a) Ja.** Kjennetegnet: $x$ løper over hele $\\mathbb{R}$, det finnes **ingen randbetingelser**, bare en initialbetingelse. Da er transformintegralet veldefinert, og hele problemet lar seg oversette.\n\n**b) Nei.** Kjennetegnet: domenet er det **endelige** intervallet $(0,2)$, og det er gitt betingelser i to bestemte punkter. Fourier-transformen integrerer over hele $\\mathbb{R}$ og kjenner ikke punktene $x=0$ og $x=2$ etter transformasjonen — randbetingelsene lar seg ikke uttrykke. Her hører **separasjon av variable** hjemme, som er tema i Del 5.\n\n**c) Ja.** Kjennetegnet er det samme som i a): hele $\\mathbb{R}$, ingen randbetingelser. Initialbetingelsen $\\frac{1}{1+x^2}$ er dessuten absolutt integrerbar, og transformen står ferdig i tabellen — **fra raden $\\frac{1}{x^2+a^2}\\leftrightarrow\\sqrt{\\frac\\pi2}\\frac{e^{-a\\lvert\\omega\\rvert}}{a}$** med $a=1$ er $\\hat{u}(\\omega,0) = \\sqrt{\\frac\\pi2}e^{-\\lvert\\omega\\rvert}$.\n\n**Regelen i én setning:** se på hva som står **etter** likningen. Står det $x\\in\\mathbb{R}$ og bare én betingelse på $t=0$, er det transform. Står det $0<x<L$ med to betingelser i endene, er det separasjon.",
+            "hints": [
+              "Se på domenet for $x$, ikke på selve likningen.",
+              "Kan en betingelse i punktet $x=0$ uttrykkes etter at $x$ er byttet ut med $\\omega$?",
+              "Sjekk også at initialbetingelsen er absolutt integrerbar."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-B-fig",
+          "type": "image",
+          "src": "/images/textbook/tma4135/varmekjerne-utsmoring.svg",
+          "alt": "Tre kurver over samme akse som viser løsningen av varmelikningen ved tre tidspunkter. Ved tid null er kurven høy og smal, deretter blir den lavere og bredere. Arealet under alle tre kurvene er det samme.",
+          "caption": "Formen på svaret i oppgave 1: en Gauss-puls som brer seg ut og synker, med konstant areal. Den tegnede løsningen er $u = e^{-x^2/(4t+1)}/\\sqrt{4t+1}$; med diffusivitet 3 og startpuls $e^{-2x^2}$ er formen den samme, bare med $24t+1$ i stedet for $4t+1$."
+        },
+        {
+          "id": "tma4135-4-prove-B-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\n**1.** I den transformerte likningen $\\hat{u}_t = \\lambda(\\omega)\\hat{u}$ er $\\omega$: **a)** en variabel det deriveres etter · **b)** en konstant · **c)** alltid null · **d)** et heltall\n\n**2.** Integrasjonskonstanten skrives: **a)** $C(\\omega)$ · **b)** $C$ · **c)** $C(t)$ · **d)** $C(x)$\n\n**3.** Realdelen av $\\lambda(\\omega)$ styrer: **a)** transporten · **b)** amplituden ved $t=0$ · **c)** dempingen · **d)** halvperioden\n\n**4.** Løsningen av $u_t+cu_x=0$ med $u(x,0)=f(x)$ er: **a)** $f(x+ct)$ · **b)** $e^{-ct}f(x)$ · **c)** $f(ct-x)$ · **d)** $f(x-ct)$"
+        },
+        {
+          "id": "tma4135-4-prove-B-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1b · 2a · 3c · 4d.**\n\n**1b:** transformen er tatt i $x$, og i den resulterende likningen deriveres det bare i $t$. Alternativ **a** er nettopp misforståelsen som gjør at man tror likningen fortsatt er partiell.\n**2a:** likningen løses separat for hver frekvens, så hver $\\omega$ har sin egen konstant. Alternativ **b** mister koblingen til initialbetingelsen.\n**3c:** en negativ realdel gir eksponentiell demping; en rent imaginær $\\lambda$ gir bare faseforskyvning, altså transport. Alternativ **a** bytter om på de to.\n**4d:** profilen flyttes med fart $c$ i **positiv** retning. Alternativ **a** har riktig form, men feil retning — det svarer til $u_t - cu_x = 0$."
+        },
+        {
+          "id": "tma4135-4-prove-B-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 4.B\n\n☐ Jeg skrev $-\\omega^2$ (med minus) for $u_{xx}$.\n\n☐ Jeg sa eksplisitt at $\\omega$ er en **konstant** i den transformerte likningen.\n\n☐ Jeg skrev integrasjonskonstanten som $C(\\omega)$, ikke som $C$.\n\n☐ Jeg bestemte $C(\\omega)$ ved å transformere initialbetingelsen, med riktig $a$.\n\n☐ Jeg **transformerte tilbake** og oppga $u(x,t)$, ikke bare $\\hat{u}$.\n\n☐ I steg 4 satte jeg $\\frac{1}{4a}$ lik hele parentesen og brukte samme $a$ i $\\frac{1}{\\sqrt{2a}}$.\n\n☐ Jeg kontrollerte ved å sette $t=0$ og få initialbetingelsen tilbake.\n\n☐ Jeg begrunnet metodevalget i oppgave 3 med **domenet**, ikke med likningen.\n\n**Færre enn fem kryss?** Les [kap. 4.2](/tma4135/tma4135-4-2) løkke 1 og 2 på nytt, og gjør oppgave 3 og 4 der før du går videre til prøve 4.C."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-4-prove-prove-C",
+      "type": "collapsible",
+      "title": "Prøve 4.C — DFT: koeffisienter, reell-test og skifteegenskap (30 min)",
+      "buttonText": "Vis prøve 4.C",
+      "content": [
+        {
+          "id": "tma4135-4-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 4.C — Diskret Fourier-transform.** 30 minutter, 30 poeng.\n\nTidsbudsjett: oppgave 1 ~12 min (12 poeng), oppgave 2 ~10 min (10 poeng), oppgave 3 ~8 min (8 poeng).\n\n**Merk:** dette er den nye sjangeren med tynt arkivbelegg — 2 av 13 gjennomgåtte sett, begge kontinuasjonssett. Prøven er tatt med fordi sjangeren er fast i de to siste settene, men den bør prioriteres etter de andre prøvene i boka.\n\n**Konvensjon:** boka legger faktoren $\\frac1N$ foran DFT-en. Bruker du en annen, si det — og bruk den konsekvent begge veier."
+        },
+        {
+          "id": "tma4135-4-prove-C-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~12 min) La $f = (2,\\,1,\\,0,\\,1)$ med $N=4$.\n\n**a)** Skriv opp $w$ og potensene $w^{-1}, w^{-2}, w^{-3}$. (2 poeng)\n**b)** Regn ut $\\hat{c}$. (6 poeng)\n**c)** Kontroller svaret med middelverdien og med reell-testen. (4 poeng)",
+            "solution": "**a)** Med $N=4$ er\n$$w = e^{2\\pi i/4} = e^{i\\pi/2} = i,$$\nog siden $w^4=1$:\n$$w^{-1} = w^3 = -i, \\qquad w^{-2} = w^2 = -1, \\qquad w^{-3} = w^1 = i.$$\n\n**b)** Formelen er $c_k = \\frac14\\sum_{j=0}^{3}f_jw^{-jk}$.\n\n$$c_0 = \\frac14\\left(2+1+0+1\\right) = 1.$$\n\n$$c_1 = \\frac14\\left(2 + 1\\cdot(-i) + 0\\cdot(-1) + 1\\cdot i\\right) = \\frac14\\left(2-i+i\\right) = \\frac12.$$\n\n$$c_2 = \\frac14\\left(2+1\\cdot(-1)+0\\cdot 1+1\\cdot(-1)\\right) = \\frac14\\left(2-1-1\\right) = 0.$$\n\n$$c_3 = \\frac14\\left(2+1\\cdot i+0\\cdot(-1)+1\\cdot(-i)\\right) = \\frac14\\left(2+i-i\\right) = \\frac12.$$\n\n$$\\hat{c} = \\left(1,\\ \\tfrac12,\\ 0,\\ \\tfrac12\\right).$$\n\n*(For $c_2$ trengs $w^{-2\\cdot2} = w^{-4} = 1$ og $w^{-2\\cdot3} = w^{-6} = w^{-2} = -1$ — reduser alltid eksponenten modulo 4.)*\n\n**c) Kontroller.**\n\n*Middelverdien:* gjennomsnittet av $2,1,0,1$ er $\\frac44 = 1$, og det er nettopp $c_0$. Stemmer.\n\n*Reell-testen:* dataene er reelle, så vi må ha $c_{4-k} = \\overline{c_k}$. Her er $c_3 = \\tfrac12 = \\overline{\\tfrac12} = \\overline{c_1}$ ✔, og $c_2 = 0$ er reell, slik midtfrekvensen må være ✔, og $c_0 = 1$ er reell ✔. Testen holder.\n\n*(At **alle** koeffisientene ble reelle, henger sammen med at datavektoren er symmetrisk: $f_1 = f_3$. Det svarer til en «like» funksjon, og en like funksjon har reelle koeffisienter — samme regel som i [kap. 3.3](/tma4135/tma4135-3-3).)*",
+            "hints": [
+              "$w = e^{2\\pi i/4} = i$. Skriv opp potenstabellen først.",
+              "Reduser alltid eksponenten modulo 4 før du setter inn.",
+              "$c_0$ er middelverdien — regn den i hodet som kontroll."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-C-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o2",
+            "number": 2,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(10 poeng, ~10 min) Ta $f$ og $\\hat{c}$ fra oppgave 1.\n\n**a)** Bruk skifteegenskapen til å finne DFT-en til $\\tilde{f}_j = f_{j+1}$, uten å regne på nytt. (4 poeng)\n**b)** Kontroller ett av svarene ved direkte utregning. (3 poeng)\n**c)** Sammenlikn amplitudespektrene før og etter skiftet, og forklar. (3 poeng)",
+            "solution": "**a)** **Etter skifteegenskapen** er $\\tilde{c}_k = w^k c_k$ med $w = i$:\n$$\\tilde{c}_0 = 1\\cdot 1 = 1, \\qquad \\tilde{c}_1 = i\\cdot\\tfrac12 = \\tfrac{i}{2},$$\n$$\\tilde{c}_2 = (-1)\\cdot 0 = 0, \\qquad \\tilde{c}_3 = (-i)\\cdot\\tfrac12 = -\\tfrac{i}{2}.$$\n$$\\hat{\\tilde{c}} = \\left(1,\\ \\tfrac{i}{2},\\ 0,\\ -\\tfrac{i}{2}\\right).$$\n\n**b) Kontroll.** Den skiftede vektoren er $\\tilde{f} = (1,\\,0,\\,1,\\,2)$. Regn ut $\\tilde{c}_1$ direkte:\n$$\\tilde{c}_1 = \\frac14\\left(1+0\\cdot(-i)+1\\cdot(-1)+2\\cdot i\\right) = \\frac14\\left(1-1+2i\\right) = \\frac{2i}{4} = \\frac{i}{2}.$$\nStemmer med a).\n\n*Ekstra kontroll av $\\tilde{c}_0$:* middelverdien av $1,0,1,2$ er $\\frac44 = 1$ ✔.\n\n**c) Amplitudespektrene.**\n\nFør skiftet: $\\left|c_k\\right| = \\left(1,\\ \\tfrac12,\\ 0,\\ \\tfrac12\\right)$.\nEtter skiftet: $\\left|\\tilde{c}_k\\right| = \\left(1,\\ \\tfrac12,\\ 0,\\ \\tfrac12\\right)$.\n\n**De er identiske.** Forklaringen: skiftet ganger hver koeffisient med $w^k$, og $\\left|w^k\\right| = \\left|e^{2\\pi ik/N}\\right| = 1$. En faktor av absoluttverdi 1 endrer fasen, ikke amplituden.\n\n**Tolkningen:** amplitudespekteret måler **hvor mye** av hver frekvens datavektoren inneholder, ikke **hvor** svingningene ligger. Å rotere dataene flytter alt i tid, men energien per frekvens er den samme. All informasjon om posisjonen ligger i fasene $\\arg c_k$.\n\n*Merk også at reell-testen fortsatt holder etter skiftet:* $\\tilde{c}_3 = -\\tfrac i2 = \\overline{\\tfrac i2} = \\overline{\\tilde{c}_1}$ ✔. Den skiftede vektoren er jo også reell.",
+            "hints": [
+              "Skifteegenskapen ganger $c_k$ med $w^k = i^k$ — skriv opp potensene først.",
+              "For b): skriv opp $\\tilde f$ eksplisitt og sett inn i definisjonen for én indeks.",
+              "For c): hva er $\\lvert w^k\\rvert$?"
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-C-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o3",
+            "number": 3,
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~8 min) Et signal er samplet i $N=8$ punkter, og verdiene er\n$$f_j = 2 - 3\\cos\\!\\left(\\frac{4\\pi j}{8}\\right).$$\n\n**a)** Avgjør om signalet er båndbegrenset for $N=8$, og begrunn. (3 poeng)\n**b)** Les av $\\hat{c}$ uten å regne ut noen sum. (5 poeng)",
+            "solution": "**a)** Skriv cosinusleddet med **Eulers formel**. Merk at $\\frac{4\\pi j}{8} = \\frac{2\\pi\\cdot 2j}{8}$, altså frekvens $m=2$:\n$$-3\\cos\\!\\left(\\frac{2\\pi\\cdot 2j}{8}\\right) = -\\frac32\\left(e^{2\\pi i\\cdot 2j/8}+e^{-2\\pi i\\cdot 2j/8}\\right).$$\n\nSignalet inneholder frekvensene $m = 0, \\pm2$. Alle oppfyller $|m| < N/2 = 4$, så signalet **er båndbegrenset** for $N=8$. Avlesningen blir derfor eksakt — ingen aliasing.\n\n**b)** **Etter avlesningsregelen** gir leddet $Ae^{2\\pi imj/N}$ bidraget $c_m = A$, og en negativ frekvens $-m$ havner på indeks $N-m$:\n\n- konstanten 2 gir $c_0 = 2$;\n- $-\\tfrac32 e^{2\\pi i\\cdot2j/8}$ gir $c_2 = -\\tfrac32$;\n- $-\\tfrac32 e^{-2\\pi i\\cdot2j/8}$ gir $c_{8-2} = c_6 = -\\tfrac32$.\n\nAlle øvrige er null:\n$$\\hat{c} = \\left(2,\\ 0,\\ -\\tfrac32,\\ 0,\\ 0,\\ 0,\\ -\\tfrac32,\\ 0\\right).$$\n\n**Kontroller.**\n\n*Middelverdien:* cosinusleddet summerer til null over en hel periode, så gjennomsnittet av $f_j$ er 2 — som stemmer med $c_0 = 2$.\n\n*Reell-testen:* $c_6 = -\\tfrac32 = \\overline{c_2}$ ✔; $c_0 = 2$ og $c_4 = 0$ er begge reelle ✔. Testen holder, som den må for en reell datavektor.\n\n*(At alle koeffisientene er **reelle**, henger sammen med at signalet bare består av et konstantledd og et cosinusledd — altså en «like» funksjon av $j$.)*\n\n**Vanlig felle:** å plassere bidraget på indeks 4 fordi det står $4\\pi$ i argumentet. Frekvensnummeret er $m=2$, ikke 4 — skriv alltid om til formen $\\frac{2\\pi m j}{N}$ først.",
+            "hints": [
+              "Skriv argumentet på formen $\\frac{2\\pi m j}{N}$ og les av $m$.",
+              "Bruk Eulers formel til å dele cosinusleddet i to eksponentialer.",
+              "Negativ frekvens $-m$ havner på indeks $N-m$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-C-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\n**1.** For $N=6$ er $w$ lik: **a)** $e^{i\\pi/6}$ · **b)** $6$ · **c)** $e^{2\\pi i/6}$ · **d)** $e^{-2\\pi i/6}$\n\n**2.** Reell-testen for en reell datavektor sier: **a)** alle $c_k$ er reelle · **b)** $c_{N-k}=c_k$ · **c)** $c_k = 0$ for odde $k$ · **d)** $c_{N-k}=\\overline{c_k}$\n\n**3.** $c_0$ er alltid lik: **a)** største verdi i $f$ · **b)** null · **c)** middelverdien av $f$ · **d)** summen av alle $f_j$\n\n**4.** Et syklisk skift ett hakk fram ganger $c_k$ med: **a)** $w^{k}$ · **b)** $w^{-k}$ · **c)** $w^{j}$ · **d)** $N$"
+        },
+        {
+          "id": "tma4135-4-prove-C-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1c · 2d · 3c · 4a.**\n\n**1c:** enhetsroten er $e^{2\\pi i/N}$, med $N$ i nevneren under $2\\pi$. Alternativ **a** har $\\pi$ i stedet for $2\\pi$ og gir en tolvterot, ikke en sjetterot.\n**2d:** kravet er **konjugert** symmetri. Alternativ **b** ser nesten riktig ut, men gjelder bare når alle koeffisientene tilfeldigvis er reelle.\n**3c:** i bokas konvensjon ligger $\\frac1N$ foran, så $c_0$ er gjennomsnittet. Alternativ **d** er svaret i den «fysiske» konvensjonen uten $\\frac1N$ — riktig der, feil her.\n**4a:** skift **fram** gir positiv eksponent. Alternativ **b** hører til skift bakover; retningen må oppgis for at fortegnet skal være entydig."
+        },
+        {
+          "id": "tma4135-4-prove-C-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 4.C\n\n☐ Jeg skrev opp $w$ og potenstabellen før jeg begynte å regne.\n\n☐ Jeg reduserte alle eksponenter modulo $N$.\n\n☐ Jeg brukte **minus** i eksponenten i DFT-en og pluss i den inverse.\n\n☐ Jeg kontrollerte $c_0$ mot middelverdien av dataene.\n\n☐ Jeg kontrollerte med reell-testen $c_{N-k}=\\overline{c_k}$, og sjekket at $c_0$ og $c_{N/2}$ er reelle.\n\n☐ Jeg brukte skifteegenskapen i stedet for å regne DFT-en på nytt.\n\n☐ Jeg skrev argumentet på formen $\\frac{2\\pi m j}{N}$ før jeg leste av frekvensnummeret.\n\n☐ Jeg begrunnet båndbegrensningen før jeg leste av koeffisientene.\n\n**Færre enn fem kryss?** Les [kap. 4.3](/tma4135/tma4135-4-3) løkke 1 til 3 på nytt, og gjør oppgave 3, 5 og 8 der før du går videre til prøve 4.D."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-4-prove-prove-D",
+      "type": "collapsible",
+      "title": "Prøve 4.D — Blandet transformoppgave på eksamensnivå (40 min)",
+      "buttonText": "Vis prøve 4.D",
+      "content": [
+        {
+          "id": "tma4135-4-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 4.D — Blandet transformoppgave.** 40 minutter, 40 poeng.\n\nDette er en **eksamensnivå-oppgave** som kombinerer de tre sjangrene i Del 4: transformutregning, transform brukt på en partiell differensiallikning, og den diskrete transformen. Delpunktene er koblet — resultatet fra (a) brukes i (b). **Feilforplantning tolereres:** regner du riktig videre med en feil mellomverdi, gir det fortsatt uttelling i de senere delpunktene.\n\nTidsbudsjett: (a) ~7 min, (b) ~15 min, (c) ~11 min, (d) ~7 min."
+        },
+        {
+          "id": "tma4135-4-prove-D-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-prove-o1",
+            "number": 1,
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(40 poeng, ~40 min)\n\n**a)** Finn Fourier-transformen av $f(x) = e^{-4x^2}$, og kontroller svaret i $\\omega=0$. (7 poeng)\n\n**b)** Løs\n$$u_t = u_{xx} - u, \\qquad x\\in\\mathbb{R},\\ t>0, \\qquad u(x,0) = e^{-4x^2},$$\nog tolk de to leddene på høyresiden. (15 poeng)\n\n**c)** La $g = (1,\\,3,\\,1,\\,-1)$ være en datavektor med $N=4$. Regn ut DFT-en $\\hat{c}$, kontroller med reell-testen, og finn DFT-en til det sykliske skiftet $\\tilde{g}_j = g_{j+1}$. (11 poeng)\n\n**d)** Forklar kort hva de tre delpunktene har til felles, og hva som skiller den diskrete transformen fra den kontinuerlige. (7 poeng)",
+            "solution": "**a) Transformen av $e^{-4x^2}$.** *(~7 min)*\n\n**Fra Gauss-raden på det utdelte formelarket**, $e^{-ax^2}\\leftrightarrow\\frac{1}{\\sqrt{2a}}e^{-\\omega^2/(4a)}$, med $a=4$:\n$$\\hat{f}(\\omega) = \\frac{1}{\\sqrt{8}}\\,e^{-\\omega^2/16} = \\frac{1}{2\\sqrt2}\\,e^{-\\omega^2/16}.$$\n\n**Kontroll i $\\omega=0$.** Formelen gir $\\frac{1}{2\\sqrt2}\\approx 0{,}3536$. Direkte:\n$$\\hat{f}(0) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}e^{-4x^2}dx = \\frac{1}{\\sqrt{2\\pi}}\\sqrt{\\frac{\\pi}{4}} = \\frac{1}{2}\\cdot\\frac{\\sqrt\\pi}{\\sqrt{2\\pi}} = \\frac{1}{2\\sqrt2}.$$\nStemmer.\n\n**b) Løs likningen.** *(~15 min)*\n\n**Steg 1 — transformer i $x$.** Leddet $u_{xx}$ blir $-\\omega^2\\hat{u}$, og leddet $-u$ blir $-\\hat{u}$:\n$$\\frac{\\partial\\hat{u}}{\\partial t} = \\left(-\\omega^2-1\\right)\\hat{u}.$$\nHer er $\\omega$ en **konstant**; likningen er en ordinær differensiallikning i $t$.\n\n**Steg 2 — løs ODE-en.**\n$$\\hat{u}(\\omega,t) = C(\\omega)\\,e^{-\\left(\\omega^2+1\\right)t} = C(\\omega)\\,e^{-t}\\,e^{-\\omega^2 t}.$$\n\n**Steg 3 — bestem $C(\\omega)$.** Ved $t=0$ er $C(\\omega) = \\hat{f}(\\omega)$, som vi fant i a):\n$$\\hat{u}(\\omega,t) = e^{-t}\\cdot\\frac{1}{2\\sqrt2}\\,e^{-\\omega^2\\left(t+\\frac{1}{16}\\right)}.$$\n\n**Steg 4 — transformer tilbake.** Faktoren $e^{-t}$ er uavhengig av $\\omega$ og går rett gjennom **etter lineariteten**. For resten trengs Gauss-raden med\n$$\\frac{1}{4a} = t+\\frac{1}{16} = \\frac{16t+1}{16} \\quad\\Longrightarrow\\quad a = \\frac{4}{16t+1}.$$\nMed den $a$-en er $\\frac{1}{\\sqrt{2a}} = \\frac{1}{\\sqrt{8/(16t+1)}} = \\frac{\\sqrt{16t+1}}{2\\sqrt2}$, altså\n$$e^{-4x^2/(16t+1)} \\ \\longleftrightarrow\\ \\frac{\\sqrt{16t+1}}{2\\sqrt2}\\,e^{-\\omega^2\\left(t+\\frac1{16}\\right)}.$$\nVår $\\hat{u}$ har konstanten $\\frac{1}{2\\sqrt2}$, som er $\\frac{1}{\\sqrt{16t+1}}$ ganger den over. Dermed\n$$\\boxed{u(x,t) = \\frac{e^{-t}}{\\sqrt{16t+1}}\\,e^{-4x^2/(16t+1)}.}$$\n\n**Kontroll 1 — initialbetingelsen.** $u(x,0) = \\frac{1}{1}e^{-4x^2} = e^{-4x^2}$. Stemmer.\n\n**Kontroll 2 — likningen.** Skriv $u = e^{-t}v$ med $v = \\frac{1}{\\sqrt{16t+1}}e^{-4x^2/(16t+1)}$, som løser $v_t = v_{xx}$. Da er\n$$u_t = -e^{-t}v+e^{-t}v_t, \\qquad u_{xx}-u = e^{-t}v_{xx}-e^{-t}v = e^{-t}v_t-e^{-t}v = u_t.$$\nStemmer.\n\n**Tolkning av de to leddene.**\n\n- **$u_{xx}$ glatter ut.** Det gir faktoren $\\frac{1}{\\sqrt{16t+1}}e^{-4x^2/(16t+1)}$: pulsen brer seg ut, toppen synker, og arealet under den delen holder seg konstant. I frekvensdomenet er dette faktoren $e^{-\\omega^2t}$, som demper **høye frekvenser raskest**.\n- **$-u$ er et tap.** Det gir faktoren $e^{-t}$: hele profilen krymper mot null med fast rate, likt for alle $x$. I frekvensdomenet er dette faktoren $e^{-t}$, som demper **alle frekvenser like mye**.\n\n**c) DFT av $g=(1,3,1,-1)$.** *(~11 min)*\n\n$N=4$, $w = i$, og $w^{-1}=-i$, $w^{-2}=-1$, $w^{-3}=i$.\n\n$$c_0 = \\frac14\\left(1+3+1-1\\right) = 1.$$\n$$c_1 = \\frac14\\left(1+3(-i)+1(-1)+(-1)(i)\\right) = \\frac14\\left(1-3i-1-i\\right) = \\frac{-4i}{4} = -i.$$\n$$c_2 = \\frac14\\left(1+3(-1)+1(1)+(-1)(-1)\\right) = \\frac14\\left(1-3+1+1\\right) = 0.$$\n$$c_3 = \\overline{c_1} = i \\qquad \\text{(etter reell-testen)}.$$\n\n$$\\hat{c} = \\left(1,\\ -i,\\ 0,\\ i\\right).$$\n\n**Kontroller.**\n*Middelverdien:* $\\frac{1+3+1-1}{4} = 1 = c_0$ ✔.\n*Reell-testen:* $c_3 = i = \\overline{-i} = \\overline{c_1}$ ✔; $c_0 = 1$ og $c_2 = 0$ er reelle ✔.\n*Direkte utregning av $c_3$ som ekstra kontroll:* $\\frac14\\left(1+3i+1(-1)+(-1)(-i)\\right) = \\frac14\\left(1+3i-1+i\\right) = i$ ✔.\n\n**Skiftet.** $\\tilde{g} = (3,\\,1,\\,-1,\\,1)$. **Etter skifteegenskapen** er $\\tilde{c}_k = w^kc_k = i^kc_k$:\n$$\\tilde{c}_0 = 1, \\qquad \\tilde{c}_1 = i\\cdot(-i) = 1, \\qquad \\tilde{c}_2 = (-1)\\cdot 0 = 0, \\qquad \\tilde{c}_3 = (-i)\\cdot i = 1.$$\n$$\\hat{\\tilde{c}} = \\left(1,\\ 1,\\ 0,\\ 1\\right).$$\n\n*Kontroll:* middelverdien av $3,1,-1,1$ er $\\frac44 = 1 = \\tilde{c}_0$ ✔. Og amplitudene er $(1,1,0,1)$ både før og etter, siden $\\left|-i\\right| = \\left|1\\right| = 1$ ✔.\n\n**d) Fellestrekk og forskjeller.** *(~7 min)*\n\n**Felles for alle tre.** Alle tre delpunktene bygger på **samme idé**: bryt signalet opp i rene svingninger, gjør noe enkelt med hver frekvens for seg, og sett sammen igjen. I a) er oppspaltingen selve svaret. I b) er det derivasjon som blir til multiplikasjon, slik at en partiell differensiallikning blir til en ordinær. I c) er det den endelige utgaven, med $N$ frekvenser i stedet for et kontinuum.\n\nI alle tre tilfellene har transformen **minus** i eksponenten og den inverse **pluss**, og i alle tre gjelder **konjugert symmetri** for reelle signaler.\n\n**Det som skiller den diskrete transformen.**\n\n1. **Endelig mange frekvenser.** Med $N$ målepunkter finnes bare $N$ koeffisienter, og de gjentar seg periodisk: $c_{k+N}=c_k$. Den kontinuerlige transformen har et helt kontinuum av frekvenser.\n2. **Aliasing.** Fordi $w^{jN}=1$, kan frekvensene $m$ og $m+N$ ikke skilles. Det finnes ingen tilsvarende begrensning i den kontinuerlige transformen, som ser alle frekvenser.\n3. **Sum i stedet for integral.** DFT-en er en endelig sum og kan regnes ut eksakt på en datamaskin. Den kontinuerlige transformen krever et integral, som sjelden lar seg regne ut i lukket form uten tabell.\n\n**Ærlig merknad om vekten.** Den diskrete transformen er en **ny sjanger** i dette emnet: den opptrer i 2 av 13 gjennomgåtte sett, begge kontinuasjonssett fra de siste årene. Den skal beherskes, men de to første delpunktene i denne oppgaven representerer sjangre med klart høyere frekvens.\n\n**Tidsregnskap:** 7+15+11+7 = 40 minutter, som deklarert. Delpunkt (b) er det dyre; blir du sittende fast i steg 4 der, hopp til (c), som er helt uavhengig.",
+            "hints": [
+              "For a): les av $a$ fra $e^{-4x^2}$ og sett inn på begge stedene i Gauss-raden.",
+              "For b): leddet $-u$ blir bare $-\\hat u$ og gir en faktor $e^{-t}$ som er uavhengig av $\\omega$.",
+              "For b) steg 4: sett $\\frac{1}{4a}$ lik hele parentesen $t+\\frac1{16}$ og løs for $a$.",
+              "For c): etter reell-testen slipper du å regne ut $c_3$ — det er konjugatet av $c_1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-prove-D-fig",
+          "type": "image",
+          "src": "/images/textbook/tma4135/aliasing-dft.svg",
+          "alt": "To kurver over intervallet fra null til én. Den ene er cosinus av to pi x, den andre er cosinus av seks pi x med tre ganger så mange svingninger. Fem markerte punkter i null, en kvart, en halv, tre kvart og én ligger på begge kurvene.",
+          "caption": "Illustrasjon til delpunkt (d): to signaler som er umulige å skille med fire målepunkter. Aliasing er den ene begrensningen den diskrete transformen har, og den kontinuerlige ikke har."
+        },
+        {
+          "id": "tma4135-4-prove-D-hurtig",
+          "type": "text",
+          "content": "### Hurtigsjekk (treningsform, teller ikke poeng)\n\n**1.** Leddet $-u$ i en partiell differensiallikning gir en faktor i løsningen som: **a)** demper alle frekvenser like mye · **b)** demper bare høye frekvenser · **c)** flytter profilen · **d)** øker amplituden\n\n**2.** Med $N$ målepunkter kan du skille: **a)** uendelig mange frekvenser · **b)** $N$ frekvenser · **c)** $2N$ frekvenser · **d)** én frekvens\n\n**3.** Transformen av $e^{-4x^2}$ har konstanten: **a)** $\\frac{1}{2\\sqrt2}$ · **b)** $\\frac12$ · **c)** $\\frac{1}{\\sqrt2}$ · **d)** $2\\sqrt2$\n\n**4.** Konjugert symmetri gjelder: **a)** bare for den kontinuerlige transformen · **b)** bare for DFT-en · **c)** bare for Fourier-rekker · **d)** for alle tre, når signalet er reelt"
+        },
+        {
+          "id": "tma4135-4-prove-D-hurtigfasit",
+          "type": "text",
+          "content": "**Fasit hurtigsjekk: 1a · 2b · 3a · 4d.**\n\n**1a:** faktoren blir $e^{-t}$, uavhengig av $\\omega$, så alle frekvenser dempes med samme rate. Alternativ **b** beskriver leddet $u_{xx}$, som gir $e^{-\\omega^2 t}$ — nær sant, men det er den andre effekten.\n**2b:** koeffisientene gjentar seg med periode $N$, så frekvensene $m$ og $m+N$ er ikke til å skille. Alternativ **a** gjelder den kontinuerlige transformen.\n**3a:** med $a=4$ er $\\frac{1}{\\sqrt{2a}} = \\frac{1}{\\sqrt8} = \\frac{1}{2\\sqrt2}$. Alternativ **b** svarer til $a=2$.\n**4d:** at et reelt signal har konjugert symmetriske koeffisienter, gjelder for Fourier-rekka, den kontinuerlige transformen og DFT-en. Det er den samme sannheten i tre utgaver."
+        },
+        {
+          "id": "tma4135-4-prove-D-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 4.D\n\n☐ Jeg leste av riktig $a$ i Gauss-raden og satte den inn begge steder.\n\n☐ Jeg kontrollerte transformen i $\\omega=0$ mot arealet under kurven.\n\n☐ Jeg skrev $-\\omega^2$ (med minus) for $u_{xx}$ og $-\\hat u$ for leddet $-u$.\n\n☐ Jeg skrev integrasjonskonstanten som $C(\\omega)$ og bestemte den fra initialdata.\n\n☐ Jeg transformerte tilbake til $u(x,t)$ og satte $t=0$ som kontroll.\n\n☐ Jeg **tolket** de to leddene i (b) — ikke bare regnet.\n\n☐ Jeg brukte reell-testen til å slippe å regne ut $c_3$.\n\n☐ Jeg brukte skifteegenskapen i stedet for å regne DFT-en på nytt.\n\n☐ Jeg svarte på (d) med både fellestrekk og minst to konkrete forskjeller.\n\n**Færre enn seks kryss?** Gjenta [kap. 4.2](/tma4135/tma4135-4-2) oppgave 5 og [kap. 4.3](/tma4135/tma4135-4-3) oppgave 5 og 8. Denne prøven er den tyngste i Del 4 — det er normalt å måtte ta den to ganger."
+        }
+      ]
+    },
+    {
+      "id": "tma4135-4-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-4-prove-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 4.1](/tma4135/tma4135-4-1), [kap. 4.2](/tma4135/tma4135-4-2) og [kap. 4.3](/tma4135/tma4135-4-3).\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat{f}(\\omega)$ | Fourier-transformen av $f$ |\n| $\\omega$ | Vinkelfrekvensen, den kontinuerlige frekvensvariabelen |\n| $a$ | Parameteren i transformradene. **Merk:** i Del 2 er $a$ forskyvningen i andreforskyvningsteoremet |\n| $b$ | Forskyvningen i forskyvningsregelen |\n| $c$ | Skaleringsfaktoren og farten i transportlikningen. **Merk:** i Del 5 er $c$ bølgefarten |\n| $(f*g)$ | Konvolusjonen, integrert over hele $\\mathbb{R}$ |\n| $u(x,t)$ | Den ukjente funksjonen i en partiell differensiallikning |\n| $\\hat{u}(\\omega,t)$ | Transformen av $u$ i $x$-variabelen |\n| $C(\\omega)$ | Integrasjonskonstanten i den transformerte likningen — en funksjon av $\\omega$ |\n| $N$ | Antall målepunkter i DFT-en |\n| $j$, $k$ | Indeks for punkter hhv. frekvenser i DFT-en |\n| $w = e^{2\\pi i/N}$ | Den $N$-te enhetsroten. Ikke å forveksle med $\\omega$ |\n| $c_k$ | Den $k$-te DFT-koeffisienten |\n| $\\overline{z}$ | Kompleks konjugat |\n"
+        },
+        {
+          "id": "tma4135-4-prove-sym-form",
+          "type": "text",
+          "content": "**Formler brukt i disse prøvene:**\n\n$$\\hat{f}(\\omega) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}f(x)e^{-i\\omega x}\\,dx, \\qquad f(x) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}\\hat{f}(\\omega)e^{i\\omega x}\\,d\\omega$$\nTransformen og den inverse, i arkets konvensjon. *(Må kunnes.)*\n\n$$e^{-ax^2} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{2a}}e^{-\\omega^2/(4a)}, \\qquad e^{-a\\lvert x\\rvert} \\ \\longleftrightarrow\\ \\sqrt{\\frac2\\pi}\\frac{a}{a^2+\\omega^2}$$\n$$\\frac{1}{x^2+a^2} \\ \\longleftrightarrow\\ \\sqrt{\\frac\\pi2}\\frac{e^{-a\\lvert\\omega\\rvert}}{a}, \\qquad \\mathbf{1}_{\\lvert x\\rvert<a} \\ \\longleftrightarrow\\ \\sqrt{\\frac2\\pi}\\frac{\\sin(a\\omega)}{\\omega}$$\nTransformtabellen. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\widehat{f'} = i\\omega\\hat{f}, \\qquad \\widehat{f''} = -\\omega^2\\hat{f}$$\nDerivasjonsregelen — merk minustegnet. *(Må kunnes eller utledes aktivt.)*\n\n$$\\widehat{f*g} = \\sqrt{2\\pi}\\,\\hat{f}\\hat{g}$$\nKonvolusjonsteoremet med konvensjonens faktor. *(Må kunnes eller utledes aktivt.)*\n\n$$\\widehat{f(x-b)} = e^{-ib\\omega}\\hat{f}, \\qquad \\widehat{f(cx)} = \\frac{1}{\\lvert c\\rvert}\\hat{f}\\!\\left(\\frac{\\omega}{c}\\right)$$\nForskyvnings- og skaleringsregelen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{\\partial\\hat{u}}{\\partial t} = \\lambda(\\omega)\\hat{u} \\quad\\Longrightarrow\\quad \\hat{u} = C(\\omega)e^{\\lambda(\\omega)t}, \\qquad C(\\omega) = \\hat{f}(\\omega)$$\nFirestegsoppskriften for en partiell differensiallikning på $\\mathbb{R}$. *(Må kunnes eller utledes aktivt.)*\n\n$$c_k = \\frac1N\\sum_{j=0}^{N-1}f_jw^{-jk}, \\qquad f_j = \\sum_{k=0}^{N-1}c_kw^{jk}, \\qquad w = e^{2\\pi i/N}$$\nDen diskrete transformen og den inverse, i bokas konvensjon. *(Må kunnes — står vanligvis ikke på arket.)*\n\n$$c_{N-k} = \\overline{c_k} \\iff f \\text{ reell}, \\qquad \\tilde{f}_j = f_{j+1} \\implies \\tilde{c}_k = w^kc_k$$\nReell-testen og skifteegenskapen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\int_{-\\infty}^{\\infty}e^{-ax^2}dx = \\sqrt{\\frac{\\pi}{a}}$$\nGauss-integralet, brukt i alle kontroller i $\\omega=0$. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n**Kolliderende symboler:** $w$ er enhetsroten i DFT-en, mens $\\omega$ er vinkelfrekvensen i den kontinuerlige transformen — de er beslektede, men ikke det samme, og de skrives ulikt med vilje. Bokstaven $c$ er både skaleringsfaktor og DFT-koeffisient her, og bølgefart i Del 5. Bokstaven $a$ er transformparameteren; i Del 2 er den forskyvningen i andreforskyvningsteoremet. Bokstaven $k$ er frekvensindeksen i DFT-en; i Del 5 er $k$ separasjonskonstanten, og i Del 8 kaller arket tidssteget $k$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

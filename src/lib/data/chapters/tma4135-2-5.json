@@ -1,0 +1,331 @@
+{
+  "id": "tma4135-2-5",
+  "courseId": "tma4135",
+  "chapterNumber": "2.5",
+  "title": "Drill — Laplace-sjangeren fra ende til annen",
+  "description": "Sjangerdrill på hele A/B/C-komplekset: fra oppgitt likning til ferdig $y(t)$ i A-besvarelsesform, med sensor-margnotater.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "klassifisere en Laplace-oppgave som ren likning, integralledd eller trappe- og impulslast på få sekunder, og velge riktig vei ut fra det",
+    "føre en hel oppgave fra likning til eksakt svar etter oppskriftens sju skritt, med teoremnavn og tabelloppslag skrevet ut",
+    "velge den raskeste av flere honorerte metoder og nevne alternativet, slik løsningsforslagene i arkivet gjør",
+    "kontrollere hvert svar på under et halvt minutt, med startverdier, en innsatt $s$-verdi eller spranget i den deriverte"
+  ],
+  "content": [
+    {
+      "id": "tma4135-2-5-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Nitti minutter som dekker den blokken som åpner nesten hvert eneste sett.**\n\nLaplace-blokken står på **13 av 13 sett** i frekvensgrunnlaget, og den ligger nesten alltid som oppgave 1 og 2. Blokken består av tre varianter, og dette kapitlet driller alle tre om hverandre:\n\n| Bokas kode | Oppgavetypen skrevet ut | Belegg |\n|---|---|---|\n| **A** | Løs en vanlig differensiallikning med oppgitte startverdier ved hjelp av Laplace-transform | 13 av 13 sett |\n| **B** | Likning der den ukjente står inne i et integral (konvolusjon) | 7 av 13 sett |\n| **C** | Pådraget slås av og på (trapp), eller er et støt (puls) | 5 av 13 sett |\n\nBokstavene er bokas egne forkortelser for oppgavetypene, ikke noe NTNU bruker; hele listen står i [kap. 0.1](/tma4135/tma4135-0-1).\n\n**Hva drillen faktisk trener.** Ikke tabellen — den ligger foran deg på det utdelte formelarket, siden eksamen har hjelpemiddelkode C. Drillen trener **å se hvilken variant du har, velge riktig vei og føre den**. En student som kan tabellen utenat, men bruker fem minutter på å bestemme seg for om integralleddet er en konvolusjon, taper mer enn hun vinner.\n\n**Slik bruker du kapitlet.** Tolv oppgaver, alle på eksamensnivå og alle nyskrevne. Regn dem med penn og med formelarket ditt tilgjengelig, på tid. Anslaget er **90 minutter lesetid**, men gjør du alle oppgavene skikkelig, går det lenger — og det er meningen. **Kapitlet kan trygt deles over flere økter**; det er markert to naturlige pausepunkter.\n\n**Tidsbudsjett-realisme.** På eksamen har du rundt 24 minutter per oppgave på 10 poeng. Bruker du mer enn det på en av oppgavene her i starten, er det et signal om hvilket delkapittel du bør lese om igjen — ikke om at du kommer til å stryke."
+    },
+    {
+      "id": "tma4135-2-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 2 — [kap. 2.1](/tma4135/tma4135-2-1), [kap. 2.2](/tma4135/tma4135-2-2), [kap. 2.3](/tma4135/tma4135-2-3) og [kap. 2.4](/tma4135/tma4135-2-4). Fra [kap. 1.1](/tma4135/tma4135-1-1) trengs komplekse tall til den ene oppgaven som ber om den komplekse veien.\n\n### Sist du var her\n\nDe fem formlene under er hele apparatet. Ingen av dem forklares på nytt i dette kapitlet.\n\n**Derivasjonsregelen** — motoren, og den **må kunnes eller utledes aktivt**:\n$$\\mathcal{L}\\{y'\\} = sY - y(0), \\qquad \\mathcal{L}\\{y''\\} = s^2Y - s\\,y(0) - y'(0).$$\n\n**Kvadratkomplettering og måltabellformene** — restleddet er $\\omega^2$, ikke $\\omega$:\n$$s^2+ps+q = \\left(s+\\tfrac{p}{2}\\right)^2 + \\left(q-\\tfrac{p^2}{4}\\right), \\qquad \\frac{s-a}{(s-a)^2+\\omega^2} \\leftrightarrow e^{at}\\cos\\omega t, \\qquad \\frac{\\omega}{(s-a)^2+\\omega^2} \\leftrightarrow e^{at}\\sin\\omega t.$$\n\n**Andreforskyvningsteoremet** — og rekkefølgen «finn $f$ først, forskyv sist»:\n$$\\mathcal{L}\\{f(t-a)u(t-a)\\} = e^{-as}F(s), \\qquad \\mathcal{L}\\{\\delta(t-a)\\} = e^{-as}.$$\n\n**Konvolusjonsteoremet** — som skal navngis i besvarelsen:\n$$(g*y)(t) = \\int_0^{t}g(\\tau)y(t-\\tau)\\,d\\tau, \\qquad \\mathcal{L}\\{g*y\\} = G(s)Y(s).$$\n\n**Tildekkingsmetoden** — for enkle reelle poler:\n$$A_k = \\left.\\frac{N(s)}{\\prod_{j\\ne k}(s-r_j)}\\right|_{s=r_k}.$$\n\nAlle transformparene i tabellen **står på det utdelte formelarket — tren oppslaget**. De fem formlene over gjør det bare delvis, og de tre siste linjene i listen — «finn $f$ først», konvolusjonsteoremet og tildekkingsmetoden — **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-5-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften — sju skritt\n\nDette er algoritmen for hele Laplace-blokken. Den er den samme for alle tre variantene; det er bare skritt 3 og 6 som slår inn av og til.\n\n**1. Klassifiser.** Se på likningen i tre sekunder og avgjør hvilken av tre den er:\n   - **ren likning** (bare $y$ og deriverte),\n   - **integro-differensiallikning eller integrallikning** (den ukjente står inne i et integral fra $0$ til $t$),\n   - **trappe- eller impulslast** (høyresiden inneholder en klammeparentes, en $u(t-a)$ eller en $\\delta(t-a)$).\n\n**2. Transformer og bruk derivasjonsregelen med startverdiene satt inn med det samme.** Ikke til slutt. Startverdiene skal inn i denne linja.\n\n**3. Ved integralledd:** kjenn igjen konvolusjonen og **navngi konvolusjonsteoremet** — integralet blir $G(s)Y(s)$.\n   **Ved trappelast:** skriv $f$ som en sum av trappeledd **før** du transformerer. Koeffisientene er spranghøydene.\n\n**4. Løs algebraisk for $Y(s)$.** Gang opp med fellesnevneren tidlig, samle alle $Y$-leddene, faktoriser ut $Y$.\n\n**5. Transformer tilbake via delbrøkoppspalting og/eller kvadratkomplettering.** Faktoriser nevneren først; regn ut diskriminanten på hvert andregradsledd. Velg den raskeste veien, og **nevn at den andre finnes** — arkivets løsningsforslag honorerer begge.\n\n**6. Ved eksponentialfaktor $e^{-as}$:** dekk den til, finn den inverse av det som blir igjen **helt ferdig**, og forskyv **til slutt**: $g(t-a)u(t-a)$.\n\n**7. Oppgi svaret som eksakt uttrykk**, og kontroller: startverdiene, og enten innsetting i likningen eller en $s$-verdi i oppspaltingen.\n\n**Instruksen som styrer føringen.** På hvert sett står den samme setningen: alle svar skal begrunnes med nok mellomregning til at tenkemåten klart framgår. I praksis betyr det fire ting, og de er de samme i hver eneste oppgave under:\n- skriv derivasjonsregelen med startverdiene satt inn (skritt 2),\n- **bær teoremnavnet** der du bruker et: «etter andreforskyvningsteoremet …», «etter konvolusjonsteoremet …»,\n- **marker tabelloppslagene**: «fra tabellen på formelarket …»,\n- vis faktoriseringen og oppspaltingen, ikke bare resultatet."
+    },
+    {
+      "id": "tma4135-2-5-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase med margnotater",
+      "problem": "Et dempet system får et konstant pådrag som slås av etter tre tidsenheter:\n$$y'' + 2y' + 5y = f(t), \\qquad y(0)=0,\\ y'(0)=0, \\qquad f(t) = \\begin{cases} 4, & 0 \\le t < 3, \\\\ 0, & t \\ge 3.\\end{cases}$$\nFinn $y(t)$, og skriv svaret både som én formel og på hvert intervall.",
+      "solution": "**Skritt 1 — klassifiser.** Høyresiden er gitt med klammeparentes og hopper ved $t=3$. Dette er en **trappelast**, altså variant C. Ingen integralledd, så konvolusjonsteoremet er ikke aktuelt her.\n\n> *Margnotat:* dette skrittet skal ta tre sekunder og gir null poeng i seg selv — men velger du feil vei her, taper du oppgaven. Se etter klammeparentes, $u(t-a)$ eller $\\delta(t-a)$ på høyresiden.\n\n**Skritt 3 (kommer før 2 i denne varianten) — skriv $f$ som trappeledd.** Start på $4$; ved $t=3$ hopper funksjonen fra $4$ til $0$, altså **ned $4$**:\n$$f(t) = 4 - 4u(t-3).$$\n*Kontroll:* ved $t=1$ er $f=4$; ved $t=5$ er $f=4-4=0$. Stemmer med klammeparentesen.\n\n> *Margnotat:* koeffisienten er **spranghøyden** $-4$, ikke den nye verdien $0$. Kontrollen med ett punkt per intervall koster ti sekunder og fanger feilen.\n\n**Skritt 2 — transformer.** Begge startverdiene er null, så $\\mathcal{L}\\{y''\\}=s^2Y$ og $\\mathcal{L}\\{2y'\\}=2sY$. Fra tabellen på formelarket er $\\mathcal{L}\\{u(t-3)\\}=e^{-3s}/s$:\n$$\\left(s^2+2s+5\\right)Y = \\frac{4}{s} - \\frac{4e^{-3s}}{s}.$$\n\n> *Margnotat:* skriv derivasjonsregelen ut selv når startverdiene er null. Det viser at du vet at leddene finnes, og det er nettopp «nok mellomregning til at tenkemåten framgår».\n\n**Skritt 4 — løs for $Y$.**\n$$Y(s) = \\frac{4}{s\\left(s^2+2s+5\\right)} - e^{-3s}\\cdot\\frac{4}{s\\left(s^2+2s+5\\right)}.$$\nLegg merke til at **begge** leddene har samme brøk. Vi finner den inverse **én gang** og bruker den to ganger.\n\n> *Margnotat:* dette er det som gjør rektangelpulser billige. Ser du to ledd med samme brøk og ulik eksponentialfaktor, regn én gang.\n\n**Skritt 5 — invers av den felles brøken.** Kall den $G(s) = 4/\\left(s\\left(s^2+2s+5\\right)\\right)$.\n\n*Faktoriser nevneren.* Diskriminanten til $s^2+2s+5$ er $4-20 = -16 < 0$: **irredusibel**. Nevneren er altså én reell rot og én irredusibel faktor, og ansatsen blir\n$$\\frac{4}{s\\left(s^2+2s+5\\right)} = \\frac{A}{s} + \\frac{Bs+C}{s^2+2s+5}.$$\n\n*Tildekking for $A$:*\n$$A = \\left.\\frac{4}{s^2+2s+5}\\right|_{s=0} = \\frac{4}{5}.$$\n\n*Resten.* Gang opp og sett inn $A$:\n$$4 - \\frac45\\left(s^2+2s+5\\right) = -\\frac45 s^2 - \\frac85 s = -\\frac45 s(s+2) = (Bs+C)s,$$\naltså $Bs+C = -\\tfrac45(s+2)$, det vil si $B = -\\tfrac45$ og $C=-\\tfrac85$.\n\n*Kvadratkompletter:* $s^2+2s+5 = (s+1)^2+4$, altså demping $e^{-t}$ og $\\omega = 2$. Telleren i nevnerens språk: $s+2 = (s+1)+1$, og konstanten $1$ må skrives som $\\tfrac12\\cdot 2$ for å treffe sinusraden:\n$$G(s) = \\frac{4}{5}\\cdot\\frac1s - \\frac45\\cdot\\frac{s+1}{(s+1)^2+4} - \\frac25\\cdot\\frac{2}{(s+1)^2+4}.$$\n\n*Fra tabellen på formelarket:*\n$$g(t) = \\frac45 - \\frac45 e^{-t}\\cos 2t - \\frac25 e^{-t}\\sin 2t.$$\n\n> *Margnotat:* her ligger flest poeng i hele oppgaven. Skriv ansatsen ned eksplisitt, si at $A$ kom fra tildekking, vis kvadratkompletteringen som eget steg, og skriv «fra tabellen». Et riktig $g(t)$ uten disse linjene gir ikke full uttelling.\n>\n> *Alternativ vei, verdt én linje i besvarelsen:* den irredusible faktoren kunne også vært behandlet med kompleks delbrøkoppspalting på polparet $-1\\pm 2i$ ([kap. 2.2](/tma4135/tma4135-2-2)). Kvadratkomplettering er raskest her, men begge er honorert.\n\n*Kontroll av oppspaltingen ved $s=1$:* venstre side gir $4/(1\\cdot 8) = 0{,}5$; høyre side gir $\\tfrac45 - \\tfrac45\\cdot\\tfrac{3}{8} - \\tfrac25\\cdot\\tfrac{2}{8} = 0{,}8 - 0{,}3 - 0{,}1 = 0{,}4$. Hm — la oss regne én gang til på det midterste leddet: ved $s=1$ er $(s+1)/((s+1)^2+4) = 2/8 = 0{,}25$, ikke $3/8$. Da blir høyre side $0{,}8 - \\tfrac45\\cdot 0{,}25 - \\tfrac25\\cdot 0{,}25 = 0{,}8-0{,}2-0{,}1 = 0{,}5$. Stemmer.\n\n> *Margnotat:* dette er hvordan kontrollen skal brukes — den fanget en innsettingsfeil på fem sekunder. Gjør den, også når du er sikker.\n\n**Skritt 6 — forskyv til slutt. Etter andreforskyvningsteoremet** blir det andre leddet $g(t-3)u(t-3)$:\n$$y(t) = g(t) - g(t-3)\\,u(t-3),$$\naltså skrevet ut:\n$$y(t) = \\frac45\\Big(1 - e^{-t}\\cos 2t\\Big) - \\frac25 e^{-t}\\sin 2t - \\left[\\frac45\\Big(1-e^{-(t-3)}\\cos 2(t-3)\\Big) - \\frac25 e^{-(t-3)}\\sin 2(t-3)\\right]u(t-3).$$\n\n**Skritt 7 — svaret på hvert intervall.**\n$$y(t) = \\begin{cases} \\dfrac45 - \\dfrac45 e^{-t}\\cos 2t - \\dfrac25 e^{-t}\\sin 2t, & 0 \\le t < 3, \\\\[10pt] \\dfrac45 e^{-(t-3)}\\cos 2(t-3) + \\dfrac25 e^{-(t-3)}\\sin 2(t-3) - \\dfrac45 e^{-t}\\cos 2t - \\dfrac25 e^{-t}\\sin 2t, & t \\ge 3.\\end{cases}$$\nKonstantleddet $\\tfrac45$ faller bort for $t\\ge 3$: $\\tfrac45 - \\tfrac45 = 0$.\n\n**Kontroll ved skjøten $t=3$.** Ovenfra: $\\tfrac45 - \\tfrac45 e^{-3}\\cos 6 - \\tfrac25 e^{-3}\\sin 6$. Nedenfra, med $t-3=0$: $\\tfrac45\\cdot 1 + 0 - \\tfrac45 e^{-3}\\cos 6 - \\tfrac25 e^{-3}\\sin 6$. **Samme uttrykk.** Løsningen er kontinuerlig, som den skal være når pådraget bare hopper endelig.\n\n**Kontroll av likningen for $t>3$.** Der er høyresiden null, og de gjenværende leddene er alle av formen $e^{-\\alpha}\\cos$ eller $e^{-\\alpha}\\sin$ med demping $1$ og frekvens $2$ — nøyaktig røttene $-1\\pm 2i$ i $s^2+2s+5$. Alle slike ledd løser den homogene likningen. Stemmer.\n\n**Fysisk lesning av svaret.** Fram til $t=3$ krøller systemet seg inn mot det nye likevektsnivået $\\tfrac45$ med dempede svingninger. Når kraften slås av, faller det tilbake mot null igjen. Det er nøyaktig hva et dempet fjærsystem gjør når du dytter og slipper.\n\n**Poengfordeling i en slik oppgave.** Fordelingen under er en realistisk anslag basert på hvordan tilsvarende oppgaver er bygd opp:\n- trappeleddoppdelingen: rundt en femdel,\n- transformen med derivasjonsregelen: en femdel,\n- oppspaltingen og kvadratkompletteringen: to femdeler — dette er tyngdepunktet,\n- forskyvningen og sluttsvaret: en femdel.\n\nDen som stopper etter $G(s)$ har fortsatt over halve uttellingen. Det er verdt å huske når tiden er knapp: **skriv ned det du har kommet fram til, selv om du ikke rekker siste skritt.**"
+    },
+    {
+      "id": "tma4135-2-5-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nNå er det din tur. Tolv oppgaver, som roterer mellom de tre variantene. De er ikke sortert etter type — det er med vilje, for på eksamen står det ikke hvilken variant du har.\n\n**Anbefalt økt:** oppgave 1–6 (~45 min), pause, deretter 7–12 (~45 min)."
+    },
+    {
+      "id": "tma4135-2-5-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Klassifiser hver likning etter oppskriftens skritt 1, og skriv ned **første grep** — altså hva du skriver på arket før du regner noe. Du skal ikke løse dem.\n\n**a)** $y'' + 3y' + 2y = e^{-t}$, $y(0)=1$, $y'(0)=0$\n**b)** $y(t) = t^2 + \\displaystyle\\int_0^t \\cos(t-\\tau)y(\\tau)\\,d\\tau$\n**c)** $y'' + y = 3u(t-2)$, $y(0)=y'(0)=0$\n**d)** $y' + y = \\delta(t-1)$, $y(0)=0$\n**e)** $y'(t) + 4\\displaystyle\\int_0^t y(\\tau)\\,d\\tau = \\sin t$, $y(0)=2$",
+        "solution": "**a) Ren likning.** Første grep: skriv $\\mathcal{L}\\{y''\\} = s^2Y - s\\cdot 1 - 0$ og $\\mathcal{L}\\{3y'\\}=3(sY-1)$, altså sett inn startverdiene med én gang.\n\n**b) Integrallikning.** Første grep: konstater at argumentene $(t-\\tau)$ og $\\tau$ summerer til $t$, og skriv «integralleddet er en konvolusjon med kjerne $g(t)=\\cos t$; **etter konvolusjonsteoremet** er transformen $G(s)Y(s)$ med $G(s)=s/(s^2+1)$».\n\n**c) Trappelast.** Første grep: slå opp $\\mathcal{L}\\{u(t-2)\\}=e^{-2s}/s$ og noter at $a=2$ — den skal du bruke helt til slutt, ikke nå.\n\n**d) Impulslast.** Første grep: slå opp $\\mathcal{L}\\{\\delta(t-1)\\}=e^{-s}$ og noter $a=1$.\n\n**e) Integro-differensiallikning.** Første grep: integralleddet er $1*y$, altså $Y(s)/s$; og startverdien $y(0)=2$ kommer inn gjennom $\\mathcal{L}\\{y'\\}=sY-2$. Gang hele likningen med $s$ når du har transformert.\n\n**Poenget med oppgaven.** Alle fem tar under ti sekunder å klassifisere, og klassifiseringen bestemmer hele veien videre. På eksamen er dette det første du gjør på hver oppgave — før du i det hele tatt slår opp i tabellen.",
+        "hints": [
+          "Se på høyresiden: klammeparentes, $u(t-a)$ eller $\\delta(t-a)$ betyr trappe- eller impulslast.",
+          "Se etter et integral fra $0$ til $t$ med den ukjente inni — det betyr konvolusjon."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y'' + 2y' + 10y = 0$ med $y(0)=0$ og $y'(0)=6$.",
+        "solution": "**Klassifiser:** ren likning, ingen last. Rett på skritt 2.\n\n**Transformer med startverdiene satt inn.** $\\mathcal{L}\\{y''\\} = s^2Y - s\\cdot 0 - 6 = s^2Y - 6$, og $\\mathcal{L}\\{2y'\\}=2sY$:\n$$s^2Y - 6 + 2sY + 10Y = 0 \\quad\\Longrightarrow\\quad \\left(s^2+2s+10\\right)Y = 6.$$\n\n**Løs for $Y$:**\n$$Y(s) = \\frac{6}{s^2+2s+10}.$$\n\n**Kvadratkompletter.** Diskriminanten er $4-40 = -36 < 0$, altså irredusibel. Halvparten av $2$ er $1$:\n$$s^2+2s+10 = (s+1)^2 + 9,$$\nmed demping $e^{-t}$ og $\\omega = 3$. Telleren er en ren konstant, så bare sinusraden er aktuell, og den krever telleren $\\omega = 3$:\n$$Y(s) = 2\\cdot\\frac{3}{(s+1)^2+9}.$$\n\n**Fra tabellen på formelarket:**\n$$y(t) = 2e^{-t}\\sin 3t.$$\n\n**Kontroll.** $y(0)=0$. Videre er $y' = -2e^{-t}\\sin 3t + 6e^{-t}\\cos 3t$, som gir $y'(0)=6$. Og polene $-1\\pm 3i$ er røttene i $s^2+2s+10$, så uttrykket løser den homogene likningen.\n\n**Tidsanslag:** dette skal sitte på under fem minutter. Går det lenger, er det kvadratkompletteringen som må drilles — les [kap. 2.2](/tma4135/tma4135-2-2) løkke 4 om igjen.",
+        "hints": [
+          "Regn ut diskriminanten før du velger teknikk.",
+          "Telleren må bli nøyaktig $\\omega$ for at leddet skal treffe sinusraden."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y'' - 3y' + 2y = e^{3t}$ med $y(0)=0$ og $y'(0)=0$.",
+        "solution": "**Klassifiser:** ren likning med et vanlig pådrag.\n\n**Transformer.** Begge startverdiene er null, og fra tabellen er $\\mathcal{L}\\{e^{3t}\\}=1/(s-3)$:\n$$\\left(s^2-3s+2\\right)Y = \\frac{1}{s-3}.$$\n\n**Faktoriser og løs for $Y$.** Diskriminanten er $9-8=1>0$, og $s^2-3s+2 = (s-1)(s-2)$:\n$$Y(s) = \\frac{1}{(s-3)(s-1)(s-2)}.$$\n\n**Tildekking** — tre forskjellige reelle poler:\n$$A_{s=3} = \\frac{1}{(3-1)(3-2)} = \\frac12, \\qquad A_{s=1} = \\frac{1}{(1-3)(1-2)} = \\frac12, \\qquad A_{s=2} = \\frac{1}{(2-3)(2-1)} = -1.$$\n\n**Fra tabellen på formelarket:**\n$$y(t) = \\frac12 e^{3t} + \\frac12 e^{t} - e^{2t}.$$\n\n**Kontroll ved $s=0$:** venstre side gir $\\dfrac{1}{(-3)(-1)(-2)} = -\\dfrac16$; høyre side gir $\\dfrac{1/2}{-3} + \\dfrac{1/2}{-1} + \\dfrac{-1}{-2} = -\\dfrac16 - \\dfrac12 + \\dfrac12 = -\\dfrac16$. Stemmer.\n\n**Kontroll av startverdiene:** $y(0) = \\tfrac12+\\tfrac12-1 = 0$. Og $y' = \\tfrac32 e^{3t} + \\tfrac12 e^{t} - 2e^{2t}$ gir $y'(0) = \\tfrac32+\\tfrac12-2 = 0$. Begge stemmer.\n\n**Merk:** startverdiene er null, men svaret har tre ledd — de er ikke null hver for seg, bare summen. Det er en god påminnelse om at kontrollen må gjøres på hele uttrykket.",
+        "hints": [
+          "Nevneren blir et produkt av tre førstegradsfaktorer. Faktoriser før du spalter.",
+          "Tildekking på hver av de tre polene — de er alle enkle og reelle."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{s-4}{s^2+6s+13}\\right\\}$.",
+        "solution": "**Klassifiser:** ren invers-oppgave; den dukker opp som et delpunkt i nesten hver Laplace-oppgave.\n\n**Diskriminanten** er $36-52 = -16 < 0$, altså irredusibel. Kvadratkomplettering: halvparten av $6$ er $3$,\n$$s^2+6s+13 = (s+3)^2+4,$$\nmed demping $e^{-3t}$ og $\\omega = 2$.\n\n**Telleren i nevnerens språk:**\n$$s-4 = (s+3) - 3 - 4 = (s+3) - 7.$$\n\n**Del opp og juster.** Sinusleddet krever telleren $\\omega = 2$, så $7 = \\tfrac72\\cdot 2$:\n$$\\frac{s-4}{(s+3)^2+4} = \\frac{s+3}{(s+3)^2+4} - \\frac72\\cdot\\frac{2}{(s+3)^2+4}.$$\n\n**Fra tabellen på formelarket:**\n$$\\mathcal{L}^{-1}\\left\\{\\frac{s-4}{s^2+6s+13}\\right\\} = e^{-3t}\\cos 2t - \\frac72 e^{-3t}\\sin 2t.$$\n\n**Kontroll.** Ved $t=0$ er svaret $1$. Gradforskjellen mellom teller og nevner er én, med ledende koeffisienter $1$ og $1$ — altså $y(0)=1$. Stemmer.\n\n**Den vanligste feilen her** er å skrive $s-4 = (s+3)-4$. Nei: du la til $3$ inne i parentesen, så du må trekke fra $3$ utenfor i tillegg. Kontroller ved å gange ut: $(s+3)-7 = s-4$. Riktig.",
+        "hints": [
+          "Kvadratkompletter først, og noter $a$ og $\\omega$ før du rører telleren.",
+          "Gang ut omskrivingen av telleren for å kontrollere at du får tilbake det du startet med."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y'(t) + \\displaystyle\\int_0^{t} y(\\tau)\\,d\\tau = t$ med $y(0)=0$.",
+        "solution": "**Klassifiser:** integro-differensiallikning. Integralleddet er $1*y$.\n\n**Transformer. Etter konvolusjonsteoremet** (spesialtilfellet med kjerne $g=1$) er $\\mathcal{L}\\left\\{\\int_0^t y\\right\\} = Y(s)/s$. Med $y(0)=0$ er $\\mathcal{L}\\{y'\\}=sY$, og fra tabellen er $\\mathcal{L}\\{t\\}=1/s^2$:\n$$sY + \\frac{Y}{s} = \\frac{1}{s^2}.$$\n\n**Gang opp med $s$** for å rydde:\n$$s^2Y + Y = \\frac1s \\quad\\Longrightarrow\\quad \\left(s^2+1\\right)Y = \\frac1s \\quad\\Longrightarrow\\quad Y(s) = \\frac{1}{s\\left(s^2+1\\right)}.$$\n\n**Spalt opp.** Ansats $A/s + (Bs+C)/(s^2+1)$; tildekking gir $A = \\left.1/(s^2+1)\\right|_{s=0} = 1$. Gang opp og sett inn:\n$$1 - \\left(s^2+1\\right) = -s^2 = (Bs+C)s,$$\naltså $B=-1$, $C=0$. Da er\n$$Y(s) = \\frac1s - \\frac{s}{s^2+1} \\quad\\Longrightarrow\\quad y(t) = 1 - \\cos t.$$\n\n**Kontroll — sett inn i den opprinnelige likningen.** $y' = \\sin t$, og\n$$\\int_0^t\\left(1-\\cos\\tau\\right)d\\tau = t - \\sin t.$$\nSummen er $\\sin t + t - \\sin t = t$. Stemmer. Og $y(0) = 1-1 = 0$.\n\n**Merk:** likningen var førsteordens, men svaret svinger. Det er integralleddet som gjør systemet andreordens — hukommelsen gir svingningen ([kap. 2.4](/tma4135/tma4135-2-4)).",
+        "hints": [
+          "Integralleddet blir $Y(s)/s$. Gang hele likningen med $s$ etterpå.",
+          "Nevneren $s(s^2+1)$ har én reell rot og én irredusibel faktor — bruk lineær teller over den siste."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y' + 2y = f(t)$ med $y(0)=0$, der $f(t)=0$ for $0\\le t<1$ og $f(t)=4$ for $t\\ge 1$.",
+        "solution": "**Klassifiser:** trappelast, variant C.\n\n**Skriv $f$ som trappeledd.** Start på $0$; spranget ved $t=1$ er $4-0 = 4$:\n$$f(t) = 4u(t-1).$$\n*Kontroll:* ved $t=0{,}5$ er $f=0$; ved $t=2$ er $f=4$. Stemmer.\n\n**Transformer.** Med $y(0)=0$, og $\\mathcal{L}\\{u(t-1)\\}=e^{-s}/s$ fra tabellen på formelarket:\n$$sY + 2Y = \\frac{4e^{-s}}{s} \\quad\\Longrightarrow\\quad Y(s) = e^{-s}\\cdot\\frac{4}{s(s+2)}.$$\n\n**Dekk til eksponentialfaktoren.** Her er $a=1$, og $G(s) = 4/\\left(s(s+2)\\right)$.\n\n**Finn $g$ ved tildekking:**\n$$A = \\left.\\frac{4}{s+2}\\right|_{s=0} = 2, \\qquad B = \\left.\\frac{4}{s}\\right|_{s=-2} = -2,$$\naltså $G(s) = \\dfrac2s - \\dfrac{2}{s+2}$ og\n$$g(t) = 2 - 2e^{-2t}.$$\n\n**Forskyv til slutt. Etter andreforskyvningsteoremet:**\n$$y(t) = \\left(2 - 2e^{-2(t-1)}\\right)u(t-1).$$\n\n**Kontroll.** Ved $t=1$ er $y = 2-2 = 0$ — kontinuerlig, som det skal være. For $t>1$: $y' = 4e^{-2(t-1)}$ og $2y = 4 - 4e^{-2(t-1)}$, altså $y'+2y = 4$. Stemmer.\n\n**Tidsanslag:** rundt seks minutter. Går det vesentlig lenger, er det skritt 6 som må drilles — les [kap. 2.3](/tma4135/tma4135-2-3) løkke 3 om igjen.",
+        "hints": [
+          "Skriv lasten som ett trappeledd før du transformerer.",
+          "Finn den inverse av $4/(s(s+2))$ helt ferdig, og forskyv **etterpå**."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-pause2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nHalvveis. De seks siste oppgavene er tyngre, og to av dem er kjedet slik reelle eksamensoppgaver er."
+    },
+    {
+      "id": "tma4135-2-5-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y'' + 6y' + 9y = \\delta(t-2)$ med $y(0)=0$ og $y'(0)=0$, og finn spranget i den deriverte ved $t=2$.",
+        "solution": "**Klassifiser:** impulslast, variant C.\n\n**Transformer.** Med null startverdier og $\\mathcal{L}\\{\\delta(t-2)\\}=e^{-2s}$ fra tabellen på formelarket:\n$$\\left(s^2+6s+9\\right)Y = e^{-2s}.$$\n\n**Faktoriser nevneren.** Diskriminanten er $36-36=0$: en **dobbel** rot i $s=-3$, altså $s^2+6s+9 = (s+3)^2$:\n$$Y(s) = e^{-2s}\\cdot\\frac{1}{(s+3)^2}.$$\n\n**Dekk til $e^{-2s}$** ($a=2$) og finn den inverse av resten. Fra $\\mathcal{L}\\{t^ne^{at}\\}=n!/(s-a)^{n+1}$ med $n=1$ og $a=-3$:\n$$f(t) = te^{-3t}.$$\n\n**Forskyv til slutt. Etter andreforskyvningsteoremet** byttes hver $t$ i $f$ med $t-2$:\n$$y(t) = (t-2)e^{-3(t-2)}\\,u(t-2).$$\n\n**Spranget i den deriverte.** For $t>2$ er\n$$y' = e^{-3(t-2)} - 3(t-2)e^{-3(t-2)},$$\nsom gir $y'(2^+) = 1 - 0 = 1$. Fra venstre er $y'=0$. **Spranget er $1$** — nøyaktig impulsens styrke, som det generelle argumentet i [kap. 2.3](/tma4135/tma4135-2-3) sier.\n\n**Kontroll av $y$ selv:** $y(2)=0$ fra begge sider. Løsningen er kontinuerlig; det er farten som endres brått.\n\n**Merk formen.** Den doble rota gir en faktor $(t-2)$, ikke to eksponentialledd. Systemet er kritisk dempet — det svinger ikke, men går tilbake mot null så raskt det kan.",
+        "hints": [
+          "Regn ut diskriminanten. Hva slags rot har $s^2+6s+9$?",
+          "En dobbel rot gir en faktor $t$ i den inverse. Forskyv **etter** at du har funnet den."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{s+5}{s^2+4s+20}\\right\\}$ på **begge** de honorerte måtene, og si hvilken du ville brukt på eksamen.\n\n**a)** Ved kvadratkomplettering.\n**b)** Ved kompleks delbrøkoppspalting på polparet.",
+        "solution": "**a) Kvadratkomplettering.** Diskriminanten er $16-80 = -64 < 0$. Halvparten av $4$ er $2$:\n$$s^2+4s+20 = (s+2)^2+16,$$\nmed demping $e^{-2t}$ og $\\omega = 4$. Telleren: $s+5 = (s+2)+3$, og konstanten $3$ skrives $\\tfrac34\\cdot 4$:\n$$\\frac{s+5}{(s+2)^2+16} = \\frac{s+2}{(s+2)^2+16} + \\frac34\\cdot\\frac{4}{(s+2)^2+16}.$$\nFra tabellen på formelarket:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{s+5}{s^2+4s+20}\\right\\} = e^{-2t}\\cos 4t + \\frac34 e^{-2t}\\sin 4t.$$\n\n**b) Kompleks delbrøkoppspalting.** Røttene er $s = -2\\pm 4i$ (samme tall som kvadratkompletteringen ga). Med ansatsen\n$$\\frac{s+5}{s^2+4s+20} = \\frac{A}{s-(-2+4i)} + \\frac{\\bar A}{s-(-2-4i)}$$\ngir tildekking\n$$A = \\frac{(-2+4i)+5}{(-2+4i)-(-2-4i)} = \\frac{3+4i}{8i} = \\frac{(3+4i)(-i)}{8} = \\frac{4-3i}{8} = \\frac12 - \\frac38 i.$$\nDe to leddene er konjugerte, så summen er to ganger realdelen av det første ([kap. 2.2](/tma4135/tma4135-2-2)):\n$$y(t) = 2\\,\\operatorname{Re}\\!\\left(\\left(\\tfrac12 - \\tfrac38 i\\right)e^{(-2+4i)t}\\right) = 2e^{-2t}\\left(\\tfrac12\\cos 4t + \\tfrac38\\sin 4t\\right) = e^{-2t}\\cos 4t + \\frac34 e^{-2t}\\sin 4t.$$\n\n**Samme svar.**\n\n**Hvilken på eksamen?** Kvadratkomplettering. Den tok fire linjer mot seks, og den holder seg i de reelle tallene hele veien. Men skriv gjerne én linje om at den komplekse veien finnes — arkivets løsningsforslag viser begge, og begge honoreres. Formuleringen kan være: *«Her bruker jeg kvadratkomplettering, som er raskest. Alternativt kunne polparet $-2\\pm 4i$ vært behandlet med kompleks delbrøkoppspalting, som gir samme svar.»*\n\n**Kontroll som virker på begge:** realdelen av $A$ er halve cosinus-koeffisienten ($\\tfrac12$ mot $1$), og minus imaginærdelen er halve sinus-koeffisienten ($\\tfrac38$ mot $\\tfrac34$). Stemmer.",
+        "hints": [
+          "I a): fullfør kvadratet, og skriv telleren ved hjelp av $(s+2)$.",
+          "I b): tildekking fungerer på komplekse poler også — sett inn $s=-2+4i$ i det som blir igjen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs integrallikningen $y(t) = e^{-t} + \\displaystyle\\int_0^{t}(t-\\tau)\\,y(\\tau)\\,d\\tau$.",
+        "solution": "**Klassifiser:** integrallikning. Kjernen er $g(t)=t$, og argumentene summerer til $t$.\n\n**Transformer. Etter konvolusjonsteoremet** er integralleddet $G(s)Y(s)$ med $G(s)=\\mathcal{L}\\{t\\}=1/s^2$, og fra tabellen er $\\mathcal{L}\\{e^{-t}\\}=1/(s+1)$:\n$$Y = \\frac{1}{s+1} + \\frac{Y}{s^2}.$$\n\n**Løs for $Y$.** Samle:\n$$Y\\left(1 - \\frac{1}{s^2}\\right) = \\frac{1}{s+1} \\quad\\Longrightarrow\\quad Y\\cdot\\frac{s^2-1}{s^2} = \\frac{1}{s+1}.$$\nAltså\n$$Y(s) = \\frac{s^2}{(s+1)\\left(s^2-1\\right)} = \\frac{s^2}{(s+1)(s-1)(s+1)} = \\frac{s^2}{(s+1)^2(s-1)}.$$\n\n**Merk den doble faktoren.** Faktoren $(s+1)$ dukket opp både fra høyresiden og fra $s^2-1$. Ansatsen må derfor ha **to** ledd for den:\n$$\\frac{s^2}{(s+1)^2(s-1)} = \\frac{A}{s-1} + \\frac{B}{s+1} + \\frac{C}{(s+1)^2}.$$\n\n**Tildekking der den virker:**\n$$A = \\left.\\frac{s^2}{(s+1)^2}\\right|_{s=1} = \\frac{1}{4}, \\qquad C = \\left.\\frac{s^2}{s-1}\\right|_{s=-1} = \\frac{1}{-2} = -\\frac12.$$\n\n**Siste koeffisient.** Gang opp og sammenlign koeffisienten foran $s^2$:\n$$s^2 = A(s+1)^2 + B(s+1)(s-1) + C(s-1) \\quad\\Longrightarrow\\quad 1 = A + B,$$\naltså $B = 1 - \\tfrac14 = \\tfrac34$.\n\n*Kontroll av konstantleddet:* $A - B - C = \\tfrac14 - \\tfrac34 + \\tfrac12 = 0$, som stemmer med at venstresiden ikke har noe konstantledd.\n\n**Fra tabellen på formelarket:**\n$$y(t) = \\frac14 e^{t} + \\frac34 e^{-t} - \\frac12 te^{-t}.$$\n\n**Kontroll.** Ved $t=0$: $y(0) = \\tfrac14+\\tfrac34 = 1$. Setter vi $t=0$ i den opprinnelige likningen, er integralet null, så $y(0)=e^{0}=1$. Stemmer.\n\n**Merk hva som var vanskelig.** Ikke transformen — den tok to linjer. Det var at nevneren fikk en **dobbel** faktor etter at brøkene ble satt sammen, slik at ansatsen trengte tre ledd og ikke to. Faktoriser alltid nevneren **helt** før du setter opp ansatsen.",
+        "hints": [
+          "Kjernen er $g(t)=t$, med transform $1/s^2$.",
+          "Faktoriser $s^2-1$ og se etter faktorer som gjentar seg. Hvor mange ledd trenger ansatsen da?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Denne oppgaven er kjedet slik eksamensoppgaver ofte er — bruk svaret fra ett punkt i det neste.\n\n**a)** Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{1}{(s-2)\\left(s^2+1\\right)}\\right\\}$.\n**b)** Bruk resultatet fra a) til å løse $y'' + y = e^{2t}$ med $y(0)=0$ og $y'(0)=0$.\n**c)** Systemet i b) får i tillegg en enhetsimpuls ved $t=\\pi$. Finn den nye løsningen.",
+        "solution": "**a)** Nevneren har én reell rot og én irredusibel faktor. Ansats:\n$$\\frac{1}{(s-2)\\left(s^2+1\\right)} = \\frac{A}{s-2} + \\frac{Bs+C}{s^2+1}.$$\nTildekking: $A = \\left.\\dfrac{1}{s^2+1}\\right|_{s=2} = \\dfrac15$. Gang opp og sett inn $A$:\n$$1 - \\frac15\\left(s^2+1\\right) = \\frac{4-s^2}{5} = \\frac{(2-s)(2+s)}{5} = (Bs+C)(s-2),$$\naltså $Bs+C = -\\dfrac{s+2}{5}$, det vil si $B=-\\tfrac15$ og $C=-\\tfrac25$. Da er\n$$\\frac{1}{(s-2)\\left(s^2+1\\right)} = \\frac{1/5}{s-2} - \\frac15\\cdot\\frac{s}{s^2+1} - \\frac25\\cdot\\frac{1}{s^2+1},$$\nog fra tabellen på formelarket:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{(s-2)\\left(s^2+1\\right)}\\right\\} = \\frac15\\left(e^{2t} - \\cos t - 2\\sin t\\right).$$\n*Kontroll ved $s=0$:* venstre gir $\\dfrac{1}{-2} = -0{,}5$; høyre gir $\\dfrac{1/5}{-2} - 0 - \\dfrac25 = -0{,}1-0{,}4 = -0{,}5$. Stemmer.\n\n**b)** Transformer likningen. Med null startverdier er $\\mathcal{L}\\{y''\\}=s^2Y$, og fra tabellen er $\\mathcal{L}\\{e^{2t}\\}=1/(s-2)$:\n$$\\left(s^2+1\\right)Y = \\frac{1}{s-2} \\quad\\Longrightarrow\\quad Y(s) = \\frac{1}{(s-2)\\left(s^2+1\\right)}.$$\nDette er **nøyaktig** brøken fra a), så\n$$y(t) = \\frac15\\left(e^{2t} - \\cos t - 2\\sin t\\right).$$\n*Kontroll:* $y(0) = \\tfrac15(1-1-0) = 0$; $y' = \\tfrac15\\left(2e^{2t}+\\sin t - 2\\cos t\\right)$ gir $y'(0) = \\tfrac15(2+0-2) = 0$. Og $y'' = \\tfrac15\\left(4e^{2t}+\\cos t+2\\sin t\\right)$, så $y''+y = \\tfrac15\\cdot 5e^{2t} = e^{2t}$. Alle tre stemmer.\n\n**c)** Den nye likningen er $y'' + y = e^{2t} + \\delta(t-\\pi)$, fortsatt med null startverdier. Etter linearitet transformeres høyresiden ledd for ledd, med $\\mathcal{L}\\{\\delta(t-\\pi)\\}=e^{-\\pi s}$:\n$$\\left(s^2+1\\right)Y = \\frac{1}{s-2} + e^{-\\pi s} \\quad\\Longrightarrow\\quad Y(s) = \\underbrace{\\frac{1}{(s-2)\\left(s^2+1\\right)}}_{\\text{som i b)}} + e^{-\\pi s}\\cdot\\frac{1}{s^2+1}.$$\n\nDet nye leddet: dekk til $e^{-\\pi s}$ ($a=\\pi$), og fra sinusraden er den inverse av $1/(s^2+1)$ lik $\\sin t$. **Etter andreforskyvningsteoremet:**\n$$\\mathcal{L}^{-1}\\left\\{e^{-\\pi s}\\cdot\\frac{1}{s^2+1}\\right\\} = \\sin(t-\\pi)\\,u(t-\\pi) = -\\sin t\\cdot u(t-\\pi),$$\nder vi brukte $\\sin(t-\\pi) = -\\sin t$.\n\n**Den nye løsningen:**\n$$y(t) = \\frac15\\left(e^{2t} - \\cos t - 2\\sin t\\right) - \\sin t\\cdot u(t-\\pi).$$\n\n**Kontroll ved $t=\\pi$.** Det nye leddet er $-\\sin\\pi = 0$, så $y$ er kontinuerlig. Den deriverte av det nye leddet er $-\\cos t$, som ved $t=\\pi$ gir $+1$ — altså et sprang på $1$ i farten, nøyaktig impulsens styrke.\n\n**Hva kjedingen lærer deg.** Delpunktene i reelle sett er koblet med vilje: a) er den tunge regningen, b) er ett skritt, c) er ett skritt til. Klarer du ikke a), skal du likevel gjøre b) og c) **med det uttrykket du har** — feilforplantning tolereres, og et riktig ført c) med feil verdi fra a) gir fortsatt uttelling.",
+        "hints": [
+          "I a): sett opp ansatsen med lineær teller over $s^2+1$, og bruk tildekking for $A$.",
+          "I c): høyresiden får ett ledd til. Transformer det for seg, og forskyv det til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs $y'' + 4y = \\delta(t-1) + u(t-3)$ med $y(0)=0$ og $y'(0)=0$. Skriv svaret på hvert av de tre intervallene.",
+        "solution": "**Klassifiser:** blandet last — både et støt og en trapp. Etter linearitet behandles de hver for seg.\n\n**Transformer.** Med null startverdier, og fra tabellen på formelarket $\\mathcal{L}\\{\\delta(t-1)\\}=e^{-s}$ og $\\mathcal{L}\\{u(t-3)\\}=e^{-3s}/s$:\n$$\\left(s^2+4\\right)Y = e^{-s} + \\frac{e^{-3s}}{s} \\quad\\Longrightarrow\\quad Y(s) = e^{-s}\\cdot\\frac{1}{s^2+4} + e^{-3s}\\cdot\\frac{1}{s\\left(s^2+4\\right)}.$$\n\n**To ledd, to forskyvninger. Behandle dem hver for seg.**\n\n*Første ledd:* $a=1$, og sinusraden med $\\omega = 2$ krever telleren $2$, så\n$$f_1(t) = \\frac12\\sin 2t.$$\n\n*Andre ledd:* $a=3$, og brøken $1/\\left(s\\left(s^2+4\\right)\\right)$ spaltes med ansats $A/s + (Bs+C)/(s^2+4)$. Tildekking gir $A = \\tfrac14$; gang opp og sett inn:\n$$1 - \\frac14\\left(s^2+4\\right) = -\\frac{s^2}{4} = (Bs+C)s,$$\naltså $B=-\\tfrac14$, $C=0$, og\n$$f_2(t) = \\frac14\\left(1 - \\cos 2t\\right).$$\n\n**Forskyv hvert ledd med sin egen $a$. Etter andreforskyvningsteoremet:**\n$$y(t) = \\frac12\\sin\\!\\big(2(t-1)\\big)\\,u(t-1) + \\frac14\\Big(1 - \\cos\\!\\big(2(t-3)\\big)\\Big)u(t-3).$$\n\n**På hvert intervall:**\n$$y(t) = \\begin{cases} 0, & 0\\le t<1, \\\\[6pt] \\dfrac12\\sin\\!\\big(2(t-1)\\big), & 1 \\le t < 3, \\\\[8pt] \\dfrac12\\sin\\!\\big(2(t-1)\\big) + \\dfrac14\\Big(1-\\cos\\!\\big(2(t-3)\\big)\\Big), & t \\ge 3.\\end{cases}$$\n\n**Kontroll ved $t=1$.** $y$ går fra $0$ til $\\tfrac12\\sin 0 = 0$ — kontinuerlig. Den deriverte hopper fra $0$ til $\\cos 0 = 1$, altså impulsens styrke. Riktig.\n\n**Kontroll ved $t=3$.** Det nye leddet er $\\tfrac14(1-\\cos 0) = 0$, og dets deriverte er $\\tfrac12\\sin 0 = 0$. Verken $y$ eller $y'$ hopper — riktig, siden en trapp bare gir sprang i **pådraget**, ikke i løsningen.\n\n**Kontroll av likningen på det midterste intervallet.** Der er $y = \\tfrac12\\sin 2(t-1)$, så $y'' = -2\\sin 2(t-1) = -4y$, altså $y''+4y=0$. Riktig, siden høyresiden er null mellom $t=1$ og $t=3$.\n\n**Merk arbeidsdelingen.** Hvert ledd i pådraget gir sitt eget ledd i $Y(s)$ med sin egen eksponentialfaktor, og hvert av dem inverteres og forskyves for seg. Det er ren linearitet, og det gjelder uansett hvor mange sprang og støt lasten har.",
+        "hints": [
+          "Transformer hvert ledd på høyresiden for seg, og hold de to eksponentialfaktorene fra hverandre.",
+          "Hvert ledd har sin egen $a$. Finn den inverse av hver brøk helt ferdig før du forskyver."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-5-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs integrallikningen $y(t) = t + \\displaystyle\\int_0^{t}\\sin(t-\\tau)\\,y(\\tau)\\,d\\tau$, og kontroller svaret ved innsetting.",
+        "solution": "**Klassifiser:** integrallikning med kjerne $g(t) = \\sin t$.\n\n**Transformer. Etter konvolusjonsteoremet** er integralleddet $G(s)Y(s)$ med $G(s)=1/\\left(s^2+1\\right)$, og fra tabellen er $\\mathcal{L}\\{t\\}=1/s^2$:\n$$Y = \\frac{1}{s^2} + \\frac{Y}{s^2+1}.$$\n\n**Løs for $Y$.** Samle og sett på felles nevner:\n$$Y\\left(1 - \\frac{1}{s^2+1}\\right) = \\frac{1}{s^2} \\quad\\Longrightarrow\\quad Y\\cdot\\frac{s^2}{s^2+1} = \\frac{1}{s^2} \\quad\\Longrightarrow\\quad Y(s) = \\frac{s^2+1}{s^4}.$$\n\n**Del telleren ledd for ledd** — her trengs ingen ansats:\n$$Y(s) = \\frac{1}{s^2} + \\frac{1}{s^4}.$$\n\n**Fra tabellen på formelarket.** Potensraden er $n!/s^{n+1}$: med $n=1$ gir $1/s^2$ leddet $t$; med $n=3$ krever raden telleren $3! = 6$, så $1/s^4 = \\tfrac16\\cdot 6/s^4$ gir $t^3/6$:\n$$y(t) = t + \\frac{t^3}{6}.$$\n\n**Kontroll ved innsetting.** Vi må vise at integralet er lik $t^3/6$. Med $y(\\tau) = \\tau + \\tau^3/6$ deler vi i to konvolusjoner.\n\n*Første:* $(\\tau * \\sin)(t)$. Transformen er $\\dfrac{1}{s^2}\\cdot\\dfrac{1}{s^2+1}$, og delbrøkoppspalting i $s^2$ gir $\\dfrac{1}{s^2} - \\dfrac{1}{s^2+1}$, altså $t - \\sin t$.\n\n*Andre:* $(\\tau^3 * \\sin)(t)$. Transformen er $\\dfrac{6}{s^4}\\cdot\\dfrac{1}{s^2+1}$; samme oppspalting gir $\\dfrac{6}{s^4} - \\dfrac{6}{s^2} + \\dfrac{6}{s^2+1}$, altså $t^3 - 6t + 6\\sin t$. Med faktoren $\\tfrac16$ foran blir bidraget $\\tfrac{t^3}{6} - t + \\sin t$.\n\n*Summen:*\n$$\\left(t - \\sin t\\right) + \\left(\\frac{t^3}{6} - t + \\sin t\\right) = \\frac{t^3}{6}.$$\nHøyresiden i likningen blir dermed $t + t^3/6 = y(t)$. Stemmer.\n\n**Merk snarveien.** Brøken $\\left(s^2+1\\right)/s^4$ trengte ingen delbrøkoppspalting — telleren kunne bare deles ledd for ledd. Se etter det før du setter opp en ansats; det sparer flere minutter i en oppgave der du uansett er presset på tid.\n\n**Merk også kontrollformen.** Å kontrollere en integrallikning ved innsetting krever at du regner ut en konvolusjon. Går det for tregt på eksamen, kan du i stedet kontrollere **i $s$-planet**: sett $Y(s)$ inn i den transformerte likningen og se at den går opp. Det tar femten sekunder.",
+        "hints": [
+          "Kjernen er $\\sin t$, med transform $1/(s^2+1)$.",
+          "Etter at du har samlet $Y$-leddene: se om telleren kan deles ledd for ledd i stedet for å sette opp en ansats."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-5-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Dette er hele feilkatalogen for Laplace-blokken samlet. Gå gjennom lista etter hver økt og kryss av det du faktisk gjorde.\n\n**1. Feil forskyvningsteorem.** Eksponentialfaktor $e^{-as}$ **utenfor** brøken betyr andreforskyvning (tid). Forskjøvet argument $s-a$ **inne i** brøken betyr første (demping). To sekunders sjekk.\n\n**2. Å glemme å forskyve argumentet.** Å gange med $u(t-a)$ er bare halve jobben. **Hver** $t$ i $f$ skal byttes med $t-a$ — også de i eksponenter og inne i sinus- og cosinusargumenter.\n\n**3. Manglende ledd i $\\mathcal{L}\\{y''\\}$.** Regelen har tre ledd: $s^2Y - s\\,y(0) - y'(0)$. Det midterste ryker oftest. Skriv regelen med bokstaver først, tall etterpå.\n\n**4. Feil $\\omega$ etter kvadratkomplettering.** Restleddet er $\\omega^2$. Er nevneren $(s+3)^2+4$, er $\\omega = 2$, ikke $4$.\n\n**5. Uttilpasset teller.** Sinusraden krever nøyaktig $\\omega$; cosinusraden krever nøyaktig $s-a$. Har du $7$ og $\\omega = 2$, må du skrive $7 = \\tfrac72\\cdot 2$.\n\n**6. Glemt ledd ved multippel pol.** $(s-r)^2$ i nevneren krever **to** ledd i ansatsen. Symptomet på at du glemte det, er at det mangler en faktor $t$ i svaret.\n\n**7. Ubegrunnet tabelloppslag.** Instruksen krever at tenkemåten framgår. Skriv «fra tabellen på formelarket …» ved hvert oppslag. Det koster tre ord.\n\n**8. Glemt teoremnavn.** «Etter andreforskyvningsteoremet …», «etter konvolusjonsteoremet …». Arkivets løsningsforslag skriver dem ut, og det skal du også.\n\n**9. Ikke sett konvolusjonsstrukturen.** Et integral fra $0$ til $t$ med den ukjente inni: sjekk om argumentene summerer til $t$ **før** du prøver noe annet. Å derivere seg ut virker bare når kjernen er konstant.\n\n**10. Feil spranghøyder i trappeleddoppdelingen.** Koeffisientene er **differansene**, ikke funksjonsverdiene. Kontroller med ett punkt i hvert intervall.\n\n**11. Startverdiene satt inn for sent.** De skal inn i skritt 2, samtidig med derivasjonsregelen — ikke presses inn i sluttsvaret.\n\n**12. Ingen kontroll.** Hver eneste oppgave i dette kapitlet har minst én kontroll som tar under et halvt minutt: sett inn en $s$-verdi i oppspaltingen, sjekk startverdiene, eller regn ut spranget i $y'$ ved en impuls. **Tiden du bruker på kontrollen, tjener du inn på oppgaven du slipper å gjøre om.**"
+    },
+    {
+      "id": "tma4135-2-5-kortbunken",
+      "type": "text",
+      "content": "## Kortbunken — oppskrifter og formler for Del 2\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** Dette er ikke ny teori, men Del 2 komprimert til ti kort du kan bla gjennom kvelden før eksamen. De egner seg også som utgangspunkt for ditt eget A5-ark; verkstedet for det arket er [kap. 0.1](/tma4135/tma4135-0-1) sitt motstykke i eksamenstreningsdelen."
+    },
+    {
+      "id": "tma4135-2-5-kort-oppskrift",
+      "type": "definition",
+      "title": "Oppskrift: Laplace-blokken i sju skritt",
+      "content": "1. **Klassifiser:** ren likning / integralledd / trappe- eller impulslast.\n2. **Transformer** med derivasjonsregelen, startverdier inn med det samme.\n3. Ved integralledd: **konvolusjonsteoremet**, navngitt. Ved trappelast: skriv $f$ som trappeledd først.\n4. **Løs for $Y(s)$** — gang opp med fellesnevneren tidlig.\n5. **Invers** via delbrøk og/eller kvadratkomplettering; nevn den alternative veien.\n6. Ved $e^{-as}$: finn $f$ **helt ferdig**, forskyv **til slutt**.\n7. **Eksakt svar** + kontroll."
+    },
+    {
+      "id": "tma4135-2-5-kort-derivasjon",
+      "type": "definition",
+      "title": "Kort: derivasjonsregelen",
+      "content": "$$\\mathcal{L}\\{y'\\} = sY - y(0)$$\n$$\\mathcal{L}\\{y''\\} = s^2Y - s\\,y(0) - y'(0)$$\n$$\\mathcal{L}\\{y'''\\} = s^3Y - s^2y(0) - s\\,y'(0) - y''(0)$$\n\n**Kontroll:** antall startverdi-ledd er lik derivasjonsordenen, og $s$-potensen faller med én for hvert ledd.\n\n**Snarvei:** parentesen foran $Y$ er alltid likningens venstreside med $y''\\to s^2$, $y'\\to s$, $y\\to 1$.\n\n**Må kunnes eller utledes aktivt** — regelen står ikke på arket."
+    },
+    {
+      "id": "tma4135-2-5-kort-tabellen",
+      "type": "definition",
+      "title": "Kort: transformparene du slår opp",
+      "content": "$$\\mathcal{L}\\{t^n\\} = \\frac{n!}{s^{n+1}}, \\qquad \\mathcal{L}\\{e^{at}\\} = \\frac{1}{s-a}, \\qquad \\mathcal{L}\\{t^ne^{at}\\} = \\frac{n!}{(s-a)^{n+1}}$$\n$$\\mathcal{L}\\{\\cos\\omega t\\} = \\frac{s}{s^2+\\omega^2}, \\qquad \\mathcal{L}\\{\\sin\\omega t\\} = \\frac{\\omega}{s^2+\\omega^2}$$\n$$\\mathcal{L}\\{\\cosh at\\} = \\frac{s}{s^2-a^2}, \\qquad \\mathcal{L}\\{\\sinh at\\} = \\frac{a}{s^2-a^2}$$\n\n**Alle sammen står på det utdelte formelarket — tren oppslaget.** Kortet er her for gjenkjenningsfarten, ikke for pugging.\n\n**Huskeregelen:** cosinus har $s$ i telleren, sinus har $\\omega$. Pluss i nevneren gir svingning, minus gir vekst."
+    },
+    {
+      "id": "tma4135-2-5-kort-invers",
+      "type": "definition",
+      "title": "Kort: metodevalg for den inverse",
+      "content": "1. Er brøken **ekte**? Hvis ikke, del ut.\n2. **Faktoriser nevneren** så langt du kommer med reelle røtter.\n3. Enkel rot: ett ledd. **Dobbel rot: to ledd**, og en faktor $t$ i svaret.\n4. Andregradsledd igjen: **regn ut diskriminanten**. Negativ betyr kvadratkomplettering.\n5. Koeffisienter: **tildekking** der det går, lineært system ellers.\n6. **Juster tellerne** til nøyaktig det tabellen krever.\n7. Les av, og **kontroller med en $s$-verdi**.\n\n$$s^2+ps+q = \\left(s+\\tfrac{p}{2}\\right)^2 + \\left(q - \\tfrac{p^2}{4}\\right)$$\n\n**Må kunnes eller utledes aktivt.**"
+    },
+    {
+      "id": "tma4135-2-5-kort-maltabell",
+      "type": "definition",
+      "title": "Kort: måltabellformene etter kvadratkomplettering",
+      "content": "$$\\frac{s-a}{(s-a)^2+\\omega^2} \\;\\leftrightarrow\\; e^{at}\\cos\\omega t, \\qquad \\frac{\\omega}{(s-a)^2+\\omega^2} \\;\\leftrightarrow\\; e^{at}\\sin\\omega t$$\n\n**Begge står på det utdelte formelarket — tren oppslaget.**\n\n**Kravene er nøyaktige:** cosinusformen krever nøyaktig $s-a$ i telleren, sinusformen nøyaktig $\\omega$. Alt annet må skrives om.\n\n**Lesning før regning:** $a$ er dempingen og $\\omega$ frekvensen, og begge er realdel og imaginærdel av polparet. Du vet hvordan svaret ser ut før du har regnet én koeffisient."
+    },
+    {
+      "id": "tma4135-2-5-kort-forskyvning",
+      "type": "definition",
+      "title": "Kort: de to forskyvningsteoremene side om side",
+      "content": "**Første** — eksponentialfaktor i tid gir forskyvning i $s$:\n$$\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a).$$\n\n**Andre** — forskyvning i tid gir eksponentialfaktor i $s$:\n$$\\mathcal{L}\\{f(t-a)u(t-a)\\} = e^{-as}F(s).$$\n\n**Kjennetegnet:** faktor $e^{-as}$ **utenfor** brøken betyr andre. Argumentet $s-a$ **inne i** brøken betyr første.\n\n**Rekkefølgen som må sitte:** finn $f$ først, forskyv sist. Begge teoremene **står på det utdelte formelarket — tren oppslaget**; rekkefølgen gjør det ikke."
+    },
+    {
+      "id": "tma4135-2-5-kort-trappe",
+      "type": "definition",
+      "title": "Kort: trappeledd og impuls",
+      "content": "**Oppdeling** — koeffisientene er spranghøydene:\n$$f = f_1 + (f_2-f_1)u(t-a_1) + (f_3-f_2)u(t-a_2) + \\dots$$\n\n**Transformene:**\n$$\\mathcal{L}\\{u(t-a)\\} = \\frac{e^{-as}}{s}, \\qquad \\mathcal{L}\\{(t-a)u(t-a)\\} = \\frac{e^{-as}}{s^2}, \\qquad \\mathcal{L}\\{\\delta(t-a)\\} = e^{-as}.$$\n\n**Kontrollene:** ett punkt per intervall i oppdelingen; og i svaret er $y$ alltid kontinuerlig, mens $y'$ hopper med impulsens styrke ved en $\\delta$.\n\nTransformene **står på det utdelte formelarket — tren oppslaget**; oppdelingen **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-5-kort-konvolusjon",
+      "type": "definition",
+      "title": "Kort: konvolusjon",
+      "content": "$$(g*y)(t) = \\int_0^{t}g(\\tau)\\,y(t-\\tau)\\,d\\tau, \\qquad \\mathcal{L}\\{g*y\\} = G(s)\\,Y(s)$$\n\n**Gjenkjenning:** grenser fra $0$ til $t$, produkt av to funksjoner, og argumentene summerer til $t$.\n\n**Spesialtilfellet du bruker oftest:** $\\displaystyle\\mathcal{L}\\left\\{\\int_0^t y\\right\\} = \\frac{Y(s)}{s}$.\n\n**Baklengs:** $\\mathcal{L}^{-1}\\{FG\\} = (f*g)(t)$ — brukes når produktet ikke står i tabellen.\n\n**Konvolusjonsteoremet skal navngis i besvarelsen.** Det står ofte ikke på arket og **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-5-kort-kontroller",
+      "type": "definition",
+      "title": "Kort: kontrollene som tar under et halvt minutt",
+      "content": "**På oppspaltingen:** sett inn en $s$-verdi som ikke er en pol (helst $s=0$ eller $s=1$) på begge sider.\n\n**På svaret, startverdier:** sett $t=0$ i $y$ og $y'$ og sammenlign med det oppgaven ga.\n\n**På svaret, gradregelen:** er gradforskjellen mellom teller og nevner minst to, er $y(0)=0$. Er den nøyaktig én, er $y(0)$ forholdet mellom de ledende koeffisientene.\n\n**Ved en trappelast:** regn ut løsningen fra begge sider av skjøten — $y$ skal være kontinuerlig.\n\n**Ved en impuls:** deriver svaret og sjekk at spranget i $y'$ er lik impulsens styrke.\n\n**På transformen:** $F(s)\\to 0$ når $s\\to\\infty$. Gjør den ikke det, er noe galt."
+    },
+    {
+      "id": "tma4135-2-5-kort-foring",
+      "type": "definition",
+      "title": "Kort: føringen som gir uttelling",
+      "content": "Instruksen på hvert sett: alle svar skal begrunnes med nok mellomregning til at tenkemåten klart framgår. Fire vaner dekker det i denne blokken:\n\n1. **Skriv derivasjonsregelen ut** med startverdiene satt inn — også når de er null.\n2. **Bær teoremnavnet:** «etter andreforskyvningsteoremet …», «etter konvolusjonsteoremet …».\n3. **Marker oppslaget:** «fra tabellen på formelarket …».\n4. **Vis faktoriseringen og ansatsen**, ikke bare koeffisientene.\n\nOg to ting til som er verdt poeng:\n- **Nevn den alternative metoden** der sjangeren har to. Én linje holder.\n- **Skriv ned det du har**, selv om du ikke rekker siste skritt. En stoppet oppgave med riktig $Y(s)$ og korrekt ansats har fortsatt over halve uttellingen."
+    },
+    {
+      "id": "tma4135-2-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-2-5-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her er innført i [kap. 2.1](/tma4135/tma4135-2-1) til [kap. 2.4](/tma4135/tma4135-2-4).\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathcal{L}\\{f\\}$, $\\mathcal{L}^{-1}\\{F\\}$ | Laplace-transformen og den inverse |\n| $F(s)$, $G(s)$, $Y(s)$ | Transformerte funksjoner |\n| $s$ | Variabelen i det transformerte planet |\n| $y(0)$, $y'(0)$ | Startverdiene |\n| $a$ | Vekstrate i $e^{at}$, demping i et polpar, **eller** forskyvningstidspunkt i $u(t-a)$ |\n| $\\omega$ | Frekvensen i $\\sin\\omega t$ og $\\cos\\omega t$ |\n| $u(t-a)$ | Enhetssprangfunksjonen |\n| $\\delta(t-a)$ | Dirac-delta |\n| $g*y$ | Konvolusjonen |\n| $\\tau$ | Integrasjonsvariabelen i konvolusjonen |\n| $A$, $B$, $C$ | Tellerne i en delbrøkoppspalting |\n| $\\bar A$ | Det komplekse konjugatet av $A$ |\n| $p^2-4q$ | Diskriminanten til $s^2+ps+q$ |\n| $n!$ | Fakultet |\n\n**Kolliderende symboler i dette kapitlet:** bokstaven $a$ har **to** betydninger i Del 2 — dempingen i $e^{at}$ og et polpar, og forskyvningstidspunktet i $u(t-a)$. Begge opptrer i oppgave 6, 7 og 11, og teksten der sier hvilken som menes. Stjernen $*$ betyr alltid konvolusjon, aldri vanlig multiplikasjon. Bokstaven $u$ er sprangfunksjonen; i PDE-delene senere i boka er $u(x,t)$ den ukjente funksjonen. Og $r$ brukes ikke her i det hele tatt — i [kap. 2.2](/tma4135/tma4135-2-2) betegnet den en rot i nevneren."
+        },
+        {
+          "id": "tma4135-2-5-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$\\mathcal{L}\\{y'\\} = sY - y(0), \\qquad \\mathcal{L}\\{y''\\} = s^2Y - s\\,y(0) - y'(0)$$\nDerivasjonsregelen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{t^n\\} = \\frac{n!}{s^{n+1}}, \\qquad \\mathcal{L}\\{e^{at}\\} = \\frac{1}{s-a}, \\qquad \\mathcal{L}\\{t^ne^{at}\\} = \\frac{n!}{(s-a)^{n+1}}$$\nPotens- og eksponentialradene. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{\\cos\\omega t\\} = \\frac{s}{s^2+\\omega^2}, \\qquad \\mathcal{L}\\{\\sin\\omega t\\} = \\frac{\\omega}{s^2+\\omega^2}$$\nTrigonometriske rader. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{\\cosh at\\} = \\frac{s}{s^2-a^2}, \\qquad \\mathcal{L}\\{\\sinh at\\} = \\frac{a}{s^2-a^2}$$\nHyperbolske rader. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$s^2+ps+q = \\left(s+\\tfrac{p}{2}\\right)^2 + \\left(q-\\tfrac{p^2}{4}\\right)$$\nKvadratkomplettering. *(Må kunnes eller utledes aktivt.)*\n\n$$\\frac{s-a}{(s-a)^2+\\omega^2} \\leftrightarrow e^{at}\\cos\\omega t, \\qquad \\frac{\\omega}{(s-a)^2+\\omega^2} \\leftrightarrow e^{at}\\sin\\omega t$$\nMåltabellformene. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$A_k = \\left.\\frac{N(s)}{\\prod_{j\\ne k}(s-r_j)}\\right|_{s=r_k}$$\nTildekkingsmetoden. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a)$$\nFørsteforskyvningsteoremet. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{f(t-a)u(t-a)\\} = e^{-as}F(s)$$\nAndreforskyvningsteoremet. *(Står på det utdelte formelarket — tren oppslaget; rekkefølgen «finn $f$ først, forskyv sist» må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{u(t-a)\\} = \\frac{e^{-as}}{s}, \\qquad \\mathcal{L}\\{\\delta(t-a)\\} = e^{-as}$$\nSprang og impuls. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$f = f_1 + (f_2-f_1)u(t-a_1) + (f_3-f_2)u(t-a_2) + \\dots$$\nTrappeleddoppdeling. *(Må kunnes eller utledes aktivt.)*\n\n$$(g*y)(t) = \\int_0^{t}g(\\tau)y(t-\\tau)\\,d\\tau, \\qquad \\mathcal{L}\\{g*y\\} = G(s)Y(s)$$\nKonvolusjonen og konvolusjonsteoremet — skal navngis. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\left\\{\\int_0^t y(\\tau)\\,d\\tau\\right\\} = \\frac{Y(s)}{s}$$\nRegelen for et rent integral. *(Må kunnes eller utledes aktivt.)*\n\n$$y(t) = 2\\,\\operatorname{Re}\\!\\left(A\\,e^{(a+bi)t}\\right)$$\nKompleks delbrøkoppspalting tilbake til et reelt svar. *(Må kunnes eller utledes aktivt.)*\n\n$$y'(a^+) - y'(a^-) = k$$\nSpranget i den deriverte ved impulsen $k\\,\\delta(t-a)$. *(Må kunnes eller utledes aktivt.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

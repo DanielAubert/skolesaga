@@ -1,0 +1,487 @@
+{
+  "id": "tma4135-4-1",
+  "courseId": "tma4135",
+  "chapterNumber": "4.1",
+  "title": "Fourier-transformen — tabell, derivasjons- og konvolusjonsregel",
+  "description": "Fourier-transformen $\\hat{f}(\\omega)$, tabellen på formelarket og reglene som gjør at man sjelden integrerer fra bunn: derivasjon og konvolusjon.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "regne ut en Fourier-transform ved å kjenne igjen riktig rad på det utdelte formelarket og sette inn riktig parameter",
+    "bruke linearitet, forskyvning, skalering og derivasjonsregelen til å transformere sammensatte uttrykk uten å integrere",
+    "gjenkjenne en konvolusjon og bruke konvolusjonsteoremet med riktig normeringsfaktor",
+    "løse en integrallikning ved å transformere, løse algebraisk for transformen og lese tabellen baklengs"
+  ],
+  "content": [
+    {
+      "id": "tma4135-4-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Fourier-transformen står på 10 av 13 gjennomgåtte sett — 77 %.** Den opptrer i to former: som ren utregning av en transform, og som verktøy for å løse en **integrallikning**. Begge deler dekkes her.\n\nOppgavetypen kalles **sjanger E** i denne boka. Boka bruker bokstavene $A$ til $S$ som korte navn på de nitten oppgavetypene som går igjen på settene; **E er Fourier-transform-utregning**. Sjanger F, som bruker transformen på en partiell differensiallikning, er tema i [kap. 4.2](/tma4135/tma4135-4-2), og sjanger R, den diskrete transformen, i [kap. 4.3](/tma4135/tma4135-4-3).\n\nPrioriteten er **høy** — like under de fire søylene, men høyt nok til at kapitlet må sitte.\n\n**Det avgjørende her er ikke å integrere, men å slå opp riktig og bruke reglene.** Fire transformpar står ferdig på det utdelte formelarket, og tre regler — linearitet, derivasjon og konvolusjon — gjør at nesten alle oppgaver kan løses uten et eneste integral fra bunn.\n\n**Formelark-merking.** **Transformtabellen står på det utdelte formelarket — tren oppslaget.** Det gjelder Gauss-paret, $e^{-a|x|}$, $1/(x^2+a^2)$ og boksfunksjonen. Derimot **må kunnes**: derivasjonsregelen, konvolusjonsteoremet med sin $\\sqrt{2\\pi}$-faktor, og hele manøvren i en integrallikning — gjenkjenn konvolusjonen, transformer til et produkt, løs for $\\hat{f}$, og transformer tilbake.\n\n**Én ting til om konvensjonen.** Det finnes flere måter å normere Fourier-transformen på. Denne boka bruker den samme som det utdelte arket, med $1/\\sqrt{2\\pi}$ **begge veier**. Hold den konsekvent gjennom hele besvarelsen; blander du konvensjoner, får du feil faktorer, og det ser ut som regnefeil selv om metoden er riktig.\n\n**Tidsbruk:** 60 minutter lesetid, fire løkker med pausepunkt etter løkke 2."
+    },
+    {
+      "id": "tma4135-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 3.3](/tma4135/tma4135-3-3) — den komplekse Fourier-rekka, koeffisienten $c_n$ og konjugert symmetri. Og [kap. 1.1](/tma4135/tma4135-1-1) for Eulers formel og regning med komplekse tall.\n\nFra tidligere matematikkemner forutsettes: uegentlig integral over hele tallinja, delvis integrasjon, og at du kan integrere $e^{kx}$. Gauss-integralet $\\int_{-\\infty}^{\\infty}e^{-x^2}dx = \\sqrt{\\pi}$ brukes noen ganger; det er verdt å kjenne, men det står også på arket.\n\n**Sist du var her** — den ene formelen fra [kap. 3.3](/tma4135/tma4135-3-3) som alt bygger på:\n\n$$c_n = \\frac{1}{2L}\\int_{-L}^{L}f(x)e^{-in\\pi x/L}\\,dx.$$\n\nLegg merke til strukturen: gang funksjonen med en kompleks eksponential med **minus** i eksponenten, og integrer. Fourier-transformen er nøyaktig det samme, med integralet over hele $\\mathbb{R}$ og en kontinuerlig frekvens i stedet for et heltall.\n\nKapitlet er forutsetning for [kap. 4.2](/tma4135/tma4135-4-2) og [kap. 4.3](/tma4135/tma4135-4-3)."
+    },
+    {
+      "id": "tma4135-4-1-motivasjon",
+      "type": "text",
+      "content": "## Når signalet ikke gjentar seg\n\nEn Fourier-rekke krever at funksjonen er periodisk. Men et lydsignal fra en dør som smeller, et jordskjelvutslag eller en temperaturpuls som brer seg langs en stav gjentar seg ikke — de skjer én gang og dør ut.\n\nTenk deg likevel at du lar perioden vokse. Med $L=10$ ligger frekvensene i rekka tett; med $L=100$ ligger de tettere; med $L\\to\\infty$ smelter de sammen til et **kontinuum**. Summen over $n$ blir et integral over en kontinuerlig variabel $\\omega$, og koeffisientfølgen $c_n$ blir en funksjon $\\hat{f}(\\omega)$.\n\nDet er hele ideen. **Fourier-transformen er Fourier-rekka for funksjoner som ikke gjentar seg**, og den gjør nøyaktig det samme: den svarer på spørsmålet «hvor mye av hver frekvens ligger i dette signalet?»\n\nFor eksamen er nytten helt konkret. Transformen gjør **derivasjon til multiplikasjon** — $f'$ blir til $i\\omega\\hat{f}$ — og den gjør **konvolusjon til produkt**. Begge deler forvandler vanskelige problemer til enkle. En partiell differensiallikning i to variable blir til en ordinær differensiallikning i én ([kap. 4.2](/tma4135/tma4135-4-2)), og en integrallikning blir til en helt vanlig likning du kan løse med algebra.\n\nKapitlet gjør fire ting: definerer transformen med arkets konvensjon, går gjennom de fire tabellparene, tar derivasjonsregelen, og avslutter med konvolusjon og en integrallikning på eksamensnivå."
+    },
+    {
+      "id": "tma4135-4-1-fc-notis",
+      "type": "text",
+      "content": "**Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.** Definisjonsboksene er samtidig kortene i flashcard-bunken. Tidsanslaget på 60 minutter gjelder kjernestoffet."
+    },
+    {
+      "id": "tma4135-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Definisjonen og konvensjonen (~14 min)"
+    },
+    {
+      "id": "tma4135-4-1-def-overgang",
+      "type": "definition",
+      "title": "Overgangen fra Fourier-rekke til Fourier-transform",
+      "content": "Lar du halvperioden $L$ vokse mot uendelig i den komplekse Fourier-rekka, skjer tre ting samtidig:\n\n- frekvensene $\\frac{n\\pi}{L}$ ligger stadig tettere og går over i en **kontinuerlig** variabel $\\omega$;\n- summen over $n$ går over i et **integral** over $\\omega$;\n- koeffisientfølgen $c_n$ går over i en **funksjon** $\\hat{f}(\\omega)$.\n\nDette er ikke et bevis, men det er den riktige måten å huske slektskapet på: transformen er rekka uten kravet om periodisitet."
+    },
+    {
+      "id": "tma4135-4-1-def-transform",
+      "type": "definition",
+      "title": "Fourier-transformen $\\hat{f}(\\omega)$",
+      "content": "Frekvensinnholdet i en funksjon, målt for hver enkelt frekvens:\n\n$$\\hat{f}(\\omega) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty} f(x)\\,e^{-i\\omega x}\\,dx.$$\n\nResultatet er en **kompleks** funksjon av den reelle variabelen $\\omega$. Skrivemåten $\\hat{f}$ leses «$f$ hatt». Noen bøker skriver $F(\\omega)$ eller $\\mathcal{F}\\{f\\}$ i stedet; boka holder seg til hatten hele veien, siden $F$ er opptatt av Laplace-transformen i Del 2."
+    },
+    {
+      "id": "tma4135-4-1-def-invers",
+      "type": "definition",
+      "title": "Den inverse Fourier-transformen",
+      "content": "Veien tilbake fra frekvens til funksjon:\n\n$$f(x) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}\\hat{f}(\\omega)\\,e^{i\\omega x}\\,d\\omega.$$\n\n**Merk symmetrien:** samme faktor $\\frac{1}{\\sqrt{2\\pi}}$ begge veier, og eneste forskjell er fortegnet i eksponenten — minus fram, pluss tilbake. Det gjør at en tabellrad kan leses i **begge retninger**, og det er halve nytten av tabellen."
+    },
+    {
+      "id": "tma4135-4-1-def-konvensjon",
+      "type": "definition",
+      "title": "Normeringskonvensjonen",
+      "content": "Valget av hvor faktoren $2\\pi$ skal ligge. Denne boka bruker arkets **symmetriske** konvensjon med $\\frac{1}{\\sqrt{2\\pi}}$ begge veier.\n\nAndre bøker legger hele $\\frac{1}{2\\pi}$ på den inverse transformen, eller flytter $2\\pi$ inn i eksponenten. Alle er like riktige, men **de gir ulike tabellverdier**.\n\n**Praktisk regel:** velg én konvensjon og hold den gjennom hele besvarelsen. Bruker du tabellen på det utdelte arket, bruker du arkets konvensjon — og da må også konvolusjonsteoremets $\\sqrt{2\\pi}$ være med."
+    },
+    {
+      "id": "tma4135-4-1-def-omega",
+      "type": "definition",
+      "title": "Vinkelfrekvensen $\\omega$",
+      "content": "Variabelen i frekvensdomenet, målt i radianer per lengde- eller tidsenhet.\n\nStore $|\\omega|$ svarer til raske svingninger, små $|\\omega|$ til langsomme. At $\\hat{f}(\\omega)$ er stor for en bestemt $\\omega$, betyr at signalet inneholder mye av nettopp den svingningen.\n\n**Merk:** $\\omega$ er en reell variabel som løper over hele $\\mathbb{R}$ — også negative verdier, av samme grunn som den komplekse Fourier-rekka summerer over negative $n$."
+    },
+    {
+      "id": "tma4135-4-1-def-domener",
+      "type": "definition",
+      "title": "Tidsdomene og frekvensdomene",
+      "content": "To beskrivelser av samme objekt. **Tidsdomenet** (eller stedsdomenet) er $f(x)$: hvordan signalet ser ut punkt for punkt. **Frekvensdomenet** er $\\hat{f}(\\omega)$: hvor mye av hver frekvens signalet inneholder.\n\nTransformen flytter deg mellom dem uten tap av informasjon — den inverse transformen bringer deg tilbake. Hele strategien i Del 4 er å flytte problemet til frekvensdomenet, der det er lett, og deretter komme tilbake."
+    },
+    {
+      "id": "tma4135-4-1-def-integrerbar",
+      "type": "definition",
+      "title": "Absolutt integrerbar funksjon",
+      "content": "Kravet som sikrer at transformintegralet finnes:\n\n$$\\int_{-\\infty}^{\\infty}|f(x)|\\,dx < \\infty.$$\n\nFunksjonen må altså dø ut raskt nok i begge retninger. Alle funksjonene i dette emnet — $e^{-ax^2}$, $e^{-a|x|}$, $1/(x^2+a^2)$ og boksfunksjoner — oppfyller kravet. En konstant funksjon eller $\\sin x$ gjør det ikke, og har derfor ingen vanlig Fourier-transform."
+    },
+    {
+      "id": "tma4135-4-1-def-linearitet",
+      "type": "definition",
+      "title": "Linearitet av transformen",
+      "content": "Transformen respekterer sum og skalering:\n\n$$\\widehat{\\alpha f+\\beta g}(\\omega) = \\alpha\\hat{f}(\\omega)+\\beta\\hat{g}(\\omega)$$\n\nfor konstanter $\\alpha,\\beta$.\n\nDette er den mest brukte regelen av alle, og den er den enkleste: kjenner du transformen til to byggeklosser, kjenner du den til enhver lineærkombinasjon. Sammen med tabellen dekker den overraskende mange oppgaver."
+    },
+    {
+      "id": "tma4135-4-1-eks1",
+      "type": "example",
+      "title": "Boksfunksjonen regnet ut fra bunn",
+      "problem": "La $f(x) = 1$ for $|x|<a$ og $f(x)=0$ ellers, der $a>0$. Finn $\\hat{f}(\\omega)$ direkte fra definisjonen, og sammenlikn med raden på formelarket.",
+      "solution": "**Sett opp integralet.** Funksjonen er null utenfor $[-a,a]$, så\n$$\\hat{f}(\\omega) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-a}^{a}e^{-i\\omega x}\\,dx.$$\n\n**Regn ut for $\\omega\\ne0$.**\n$$\\int_{-a}^{a}e^{-i\\omega x}\\,dx = \\left[\\frac{e^{-i\\omega x}}{-i\\omega}\\right]_{-a}^{a} = \\frac{e^{-i\\omega a}-e^{i\\omega a}}{-i\\omega} = \\frac{e^{i\\omega a}-e^{-i\\omega a}}{i\\omega}.$$\n**Etter Eulers formel** er $e^{i\\theta}-e^{-i\\theta} = 2i\\sin\\theta$, så telleren er $2i\\sin(\\omega a)$ og\n$$\\int_{-a}^{a}e^{-i\\omega x}\\,dx = \\frac{2i\\sin(\\omega a)}{i\\omega} = \\frac{2\\sin(\\omega a)}{\\omega}.$$\nAltså\n$$\\hat{f}(\\omega) = \\frac{2\\sin(\\omega a)}{\\sqrt{2\\pi}\\,\\omega} = \\sqrt{\\frac{2}{\\pi}}\\cdot\\frac{\\sin(a\\omega)}{\\omega}.$$\n\n*(Regnestykket $\\frac{2}{\\sqrt{2\\pi}} = \\sqrt{\\frac{4}{2\\pi}} = \\sqrt{\\frac{2}{\\pi}}$ er verdt å gjøre én gang og huske formen på.)*\n\n**Tilfellet $\\omega=0$.** Da er integranden konstant lik 1, og $\\hat{f}(0) = \\frac{2a}{\\sqrt{2\\pi}} = a\\sqrt{\\frac{2}{\\pi}}$. Det stemmer med grensen av uttrykket over, siden $\\frac{\\sin(a\\omega)}{\\omega}\\to a$ når $\\omega\\to0$. Funksjonen har altså ingen singularitet i null, selv om formelen ser slik ut.\n\n**Sammenlikning med arket.** Dette er nøyaktig raden\n$$\\mathbf{1}_{|x|<a} \\ \\longleftrightarrow\\ \\sqrt{\\frac{2}{\\pi}}\\,\\frac{\\sin(a\\omega)}{\\omega},$$\nsom **står på det utdelte formelarket — tren oppslaget.** På eksamen skal du ikke gjøre denne regningen; du skal kjenne igjen boksen og lese av raden. Men å ha gjort den én gang er det som gjør at du husker hvor faktorene kommer fra.\n\n**Legg merke til én ting til.** Boksen er skarpt avgrenset i $x$, men transformen strekker seg ut over hele $\\omega$-aksen og dør bare ut som $1/\\omega$. **Skarpe kanter koster bredt frekvensinnhold** — samme prinsipp som at et sprang i en Fourier-rekke gir koeffisienter som faller som $1/n$."
+    },
+    {
+      "id": "tma4135-4-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — rent tabelloppslag.) Bruk Gauss-raden på formelarket,\n\n$$e^{-ax^2} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{2a}}\\,e^{-\\omega^2/(4a)},$$\n\ntil å skrive opp transformen av:\n\n**a)** $f(x) = e^{-3x^2}$\n**b)** $f(x) = e^{-x^2/2}$\n**c)** $f(x) = 5e^{-x^2}$",
+        "solution": "**a)** Her er $a=3$:\n$$\\hat{f}(\\omega) = \\frac{1}{\\sqrt{6}}\\,e^{-\\omega^2/12}.$$\n\n**b)** Skriv $e^{-x^2/2} = e^{-ax^2}$ med $a=\\tfrac12$. Da er $\\frac{1}{\\sqrt{2a}} = \\frac{1}{\\sqrt{1}} = 1$ og $\\frac{1}{4a} = \\frac12$:\n$$\\hat{f}(\\omega) = e^{-\\omega^2/2}.$$\n**Denne funksjonen er sin egen transform** — det er en kjent kuriositet, og den er verdt å legge merke til fordi den dukker opp i Del 4 og i statistikk.\n\n**c)** **Etter lineariteten** ganges bare transformen med 5. Med $a=1$:\n$$\\hat{f}(\\omega) = \\frac{5}{\\sqrt2}\\,e^{-\\omega^2/4}.$$\n\n**Kontroll du alltid kan gjøre.** Sett $\\omega=0$: da skal $\\hat{f}(0) = \\frac{1}{\\sqrt{2\\pi}}\\int f\\,dx$, altså arealet under kurven delt på $\\sqrt{2\\pi}$. For c): $\\int 5e^{-x^2}dx = 5\\sqrt{\\pi}$, så $\\hat{f}(0) = \\frac{5\\sqrt\\pi}{\\sqrt{2\\pi}} = \\frac{5}{\\sqrt2}$. Det stemmer med formelen. Denne kontrollen tar femten sekunder og fanger de fleste faktorfeil.",
+        "hints": [
+          "Skriv funksjonen på formen $e^{-ax^2}$ og les av $a$.",
+          "For b): $x^2/2 = ax^2$ gir $a = 1/2$. Sett inn i begge stedene $a$ opptrer.",
+          "For c): konstanten går rett gjennom transformen, etter lineariteten."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De fire tabellparene og de tre strukturreglene (~16 min)\n\nDette er kapitlets viktigste side. Fire par og tre regler dekker alt du blir bedt om å transformere på eksamen."
+    },
+    {
+      "id": "tma4135-4-1-def-gauss",
+      "type": "definition",
+      "title": "Gauss-paret",
+      "content": "$$e^{-ax^2} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{2a}}\\,e^{-\\omega^2/(4a)}, \\qquad a>0.$$\n\n**Står på det utdelte formelarket — tren oppslaget.**\n\nLegg merke til at en Gauss-funksjon transformeres til en ny Gauss-funksjon, og at **bredden snus**: stor $a$ (smal kurve i $x$) gir liten $\\frac{1}{4a}$ i eksponenten, altså bred kurve i $\\omega$. Smalt i det ene domenet betyr bredt i det andre."
+    },
+    {
+      "id": "tma4135-4-1-def-eabs",
+      "type": "definition",
+      "title": "Paret $e^{-a|x|}$",
+      "content": "$$e^{-a|x|} \\ \\longleftrightarrow\\ \\sqrt{\\frac{2}{\\pi}}\\,\\frac{a}{a^2+\\omega^2}, \\qquad a>0.$$\n\n**Står på det utdelte formelarket — tren oppslaget.**\n\nFunksjonen har en knekk i origo, og transformen dør ut som $1/\\omega^2$ — tregere enn Gauss-parets eksponentielle fall, men raskere enn boksens $1/\\omega$. Igjen: jo skarpere kanter, jo bredere spektrum."
+    },
+    {
+      "id": "tma4135-4-1-def-lorentz",
+      "type": "definition",
+      "title": "Paret $1/(x^2+a^2)$",
+      "content": "$$\\frac{1}{x^2+a^2} \\ \\longleftrightarrow\\ \\sqrt{\\frac{\\pi}{2}}\\,\\frac{e^{-a|\\omega|}}{a}, \\qquad a>0.$$\n\n**Står på det utdelte formelarket — tren oppslaget.**\n\nDette er forrige rad lest **baklengs**, opp til konstanter — det er den symmetriske konvensjonen som gjør at tabellen kan brukes begge veier. Legg merke til absoluttverdien i eksponenten: transformen har en knekk i $\\omega=0$, akkurat som $e^{-a|x|}$ har det i $x=0$."
+    },
+    {
+      "id": "tma4135-4-1-def-boks",
+      "type": "definition",
+      "title": "Boksfunksjonen og dens transform",
+      "content": "$$\\mathbf{1}_{|x|<a} \\ \\longleftrightarrow\\ \\sqrt{\\frac{2}{\\pi}}\\,\\frac{\\sin(a\\omega)}{\\omega}, \\qquad a>0,$$\n\nder $\\mathbf{1}_{|x|<a}$ er funksjonen som er 1 på $(-a,a)$ og 0 ellers.\n\n**Står på det utdelte formelarket — tren oppslaget.**\n\nVerdien i $\\omega=0$ er $a\\sqrt{2/\\pi}$, som er grensen av uttrykket. Transformen dør ut sakte, som $1/\\omega$, og skifter fortegn uendelig mange ganger."
+    },
+    {
+      "id": "tma4135-4-1-def-forskyvning",
+      "type": "definition",
+      "title": "Forskyvningsregelen i $x$",
+      "content": "Flytter du funksjonen sidelengs, endres bare fasen:\n\n$$\\widehat{f(x-b)}(\\omega) = e^{-i b\\omega}\\,\\hat{f}(\\omega).$$\n\n**Utledning:** substituer $u = x-b$ i integralet; faktoren $e^{-i\\omega b}$ er konstant og kan settes utenfor.\n\n**Konsekvens:** $\\left|\\widehat{f(x-b)}\\right| = \\left|\\hat{f}\\right|$ — amplitudespekteret merker ikke forskyvning. Samme fenomen som skifteegenskapen for Fourier-koeffisienter i [kap. 3.3](/tma4135/tma4135-3-3), og for den diskrete transformen i [kap. 4.3](/tma4135/tma4135-4-3)."
+    },
+    {
+      "id": "tma4135-4-1-def-skalering",
+      "type": "definition",
+      "title": "Skaleringsregelen",
+      "content": "Strekker du funksjonen i $x$, klemmes transformen sammen i $\\omega$:\n\n$$\\widehat{f(cx)}(\\omega) = \\frac{1}{|c|}\\,\\hat{f}\\!\\left(\\frac{\\omega}{c}\\right), \\qquad c\\ne0.$$\n\n**Utledning:** substituer $u = cx$; både $dx$ og eksponenten endres, og faktoren $1/|c|$ kommer fra $dx = du/|c|$.\n\nDette er det presise uttrykket for «smalt i det ene domenet, bredt i det andre». Gauss-paret er et spesialtilfelle: en større $a$ klemmer funksjonen sammen og brer transformen ut."
+    },
+    {
+      "id": "tma4135-4-1-def-xmult",
+      "type": "definition",
+      "title": "Regelen for multiplikasjon med $x$",
+      "content": "Å gange med $x$ i det ene domenet svarer til å derivere i det andre:\n\n$$\\widehat{x f(x)}(\\omega) = i\\,\\frac{d}{d\\omega}\\hat{f}(\\omega).$$\n\n**Utledning:** deriver definisjonsintegralet med hensyn på $\\omega$ under integraltegnet. Da kommer det ned en faktor $-ix$, og multiplikasjon med $i$ retter opp fortegnet.\n\nRegelen er speilbildet av derivasjonsregelen, og den brukes til å transformere ledd som $xe^{-x^2}$ uten å integrere."
+    },
+    {
+      "id": "tma4135-4-1-eks2",
+      "type": "example",
+      "title": "To tabelloppslag med riktig $a$",
+      "problem": "Bruk formelarket til å finne transformen av\n\n**a)** $f(x) = e^{-2|x|}$\n**b)** $g(x) = \\dfrac{1}{x^2+4}$\n\nog forklar hvordan de to radene henger sammen.",
+      "solution": "**a)** Sammenlikn med raden $e^{-a|x|}\\leftrightarrow\\sqrt{\\tfrac2\\pi}\\,\\tfrac{a}{a^2+\\omega^2}$. Her er $a=2$:\n$$\\hat{f}(\\omega) = \\sqrt{\\frac{2}{\\pi}}\\cdot\\frac{2}{4+\\omega^2} = \\frac{2\\sqrt2}{\\sqrt\\pi\\left(4+\\omega^2\\right)}.$$\n\n*Kontroll i $\\omega=0$:* formelen gir $\\sqrt{2/\\pi}\\cdot\\tfrac12 \\approx 0{,}3989$. Direkte: $\\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}e^{-2|x|}dx = \\frac{1}{\\sqrt{2\\pi}}\\cdot 2\\cdot\\frac12 = \\frac{1}{\\sqrt{2\\pi}} \\approx 0{,}3989$. Stemmer.\n\n**b)** Sammenlikn med raden $\\frac{1}{x^2+a^2}\\leftrightarrow\\sqrt{\\tfrac\\pi2}\\,\\tfrac{e^{-a|\\omega|}}{a}$. Her er $a^2 = 4$, altså $a=2$:\n$$\\hat{g}(\\omega) = \\sqrt{\\frac{\\pi}{2}}\\cdot\\frac{e^{-2|\\omega|}}{2}.$$\n\n*Kontroll i $\\omega=0$:* formelen gir $\\tfrac12\\sqrt{\\pi/2}\\approx 0{,}6267$. Direkte: $\\frac{1}{\\sqrt{2\\pi}}\\int\\frac{dx}{x^2+4} = \\frac{1}{\\sqrt{2\\pi}}\\cdot\\frac{\\pi}{2} \\approx 0{,}6267$. Stemmer.\n\n**Hvordan radene henger sammen.** Se på formene: den første tar en funksjon med **knekk i $x$** til en funksjon som dør ut som $1/\\omega^2$; den andre tar en funksjon som dør ut som $1/x^2$ til en funksjon med **knekk i $\\omega$**. Det er samme par lest i hver sin retning.\n\nGrunnen er symmetrien i konvensjonen: transformen og den inverse transformen har samme faktor og bare motsatt fortegn i eksponenten. Derfor gjelder **dualiteten** at hvis $f\\leftrightarrow\\hat{f}$, så er $\\hat{f}(x)$ transformen av $f(-\\omega)$, opp til konstanter. **Praktisk nytte:** trenger du en transform som ikke står i tabellen, sjekk om den *inverse* står der.\n\n**Den vanligste feilen i denne oppgavetypen** er å blande de to radene — å behandle $e^{-a|x|}$ som om den var $e^{-ax^2}$. Se etter: står $x$ i **absoluttverdi** eller i **andre potens**? Det avgjør hvilken rad du skal på."
+    },
+    {
+      "id": "tma4135-4-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger E — Fourier-transform-utregning.) Bruk formelarket til å finne transformen av\n\n**a)** boksfunksjonen som er 1 på $(-2,2)$ og 0 ellers,\n**b)** $f(x) = e^{-|x|}$,\n**c)** $f(x) = \\dfrac{3}{x^2+1}$.",
+        "solution": "**a)** Raden for boksen med $a=2$:\n$$\\hat{f}(\\omega) = \\sqrt{\\frac{2}{\\pi}}\\cdot\\frac{\\sin 2\\omega}{\\omega}.$$\nVerdien i $\\omega=0$ er grensen $2\\sqrt{2/\\pi}$.\n\n**b)** Raden for $e^{-a|x|}$ med $a=1$:\n$$\\hat{f}(\\omega) = \\sqrt{\\frac{2}{\\pi}}\\cdot\\frac{1}{1+\\omega^2}.$$\n\n**c)** Raden for $\\frac{1}{x^2+a^2}$ med $a=1$, ganget med 3 **etter lineariteten**:\n$$\\hat{f}(\\omega) = 3\\sqrt{\\frac{\\pi}{2}}\\,e^{-|\\omega|}.$$\n\n**Kontroll av b) i $\\omega=0$:** formelen gir $\\sqrt{2/\\pi}\\approx 0{,}7979$, og direkte $\\frac{1}{\\sqrt{2\\pi}}\\int e^{-|x|}dx = \\frac{2}{\\sqrt{2\\pi}} = \\sqrt{2/\\pi}$. Stemmer.\n\n**Merk kontrasten mellom a) og b).** Boksen har skarpe kanter og en transform som dør ut som $1/\\omega$; $e^{-|x|}$ har bare en knekk og dør ut som $1/\\omega^2$. Jo glattere funksjon, jo raskere dør transformen — nøyaktig samme prinsipp som for Fourier-koeffisienter i [kap. 3.1](/tma4135/tma4135-3-1).",
+        "hints": [
+          "Finn først hvilken rad funksjonen matcher: boks, absoluttverdi eller kvadrat i nevneren.",
+          "Les av $a$ fra funksjonen, og sett inn på **alle** stedene $a$ opptrer i transformen.",
+          "Konstanter foran går rett gjennom, etter lineariteten."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E.) Finn transformen av $f(x) = e^{-(x-3)^2}$ ved å kombinere Gauss-raden med forskyvningsregelen, og kontroller resultatet i $\\omega=0$.",
+        "solution": "**Kjenn igjen strukturen.** Dette er $g(x-3)$ der $g(x) = e^{-x^2}$.\n\n**Steg 1 — transformen av $g$.** Gauss-raden med $a=1$:\n$$\\hat{g}(\\omega) = \\frac{1}{\\sqrt2}\\,e^{-\\omega^2/4}.$$\n\n**Steg 2 — forskyvningsregelen.** Med $b=3$:\n$$\\hat{f}(\\omega) = e^{-3i\\omega}\\,\\hat{g}(\\omega) = \\frac{e^{-3i\\omega}}{\\sqrt2}\\,e^{-\\omega^2/4}.$$\n\n**Kontroll i $\\omega=0$.** Formelen gir $\\frac{1}{\\sqrt2} \\approx 0{,}7071$. Direkte: $\\hat{f}(0) = \\frac{1}{\\sqrt{2\\pi}}\\int e^{-(x-3)^2}dx = \\frac{\\sqrt\\pi}{\\sqrt{2\\pi}} = \\frac{1}{\\sqrt2}$, siden en forskyvning ikke endrer arealet under kurven. Stemmer.\n\n**Kontroll av amplituden.** $\\left|\\hat{f}(\\omega)\\right| = \\left|e^{-3i\\omega}\\right|\\cdot\\frac{e^{-\\omega^2/4}}{\\sqrt2} = \\frac{e^{-\\omega^2/4}}{\\sqrt2}$, siden $\\left|e^{i\\theta}\\right|=1$ for reell $\\theta$. Amplitudespekteret er altså **uendret** av forskyvningen — bare fasen er blitt en lineær funksjon av $\\omega$. Det er akkurat det forskyvningsregelen lover.\n\n**Alternativ vei.** Du kan også regne integralet direkte med substitusjonen $u = x-3$. Det gir samme svar og tar omtrent like lang tid her, men skalerer dårligere: forskyvningsregelen virker for enhver $f$, ikke bare for Gauss-funksjoner. **Si hvilken metode du bruker; begge gir full uttelling.**",
+        "hints": [
+          "Skriv $f(x)$ som $g(x-b)$ og identifiser $g$ og $b$.",
+          "Slå opp $\\hat{g}$ på formelarket, og gang deretter med faseleddet fra forskyvningsregelen.",
+          "Kontroller i $\\omega=0$: forskyvning endrer ikke arealet under kurven."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (~30 min brukt) —\n\nDu har definisjonen, de fire tabellparene og tre strukturregler. Resten av kapitlet er de to reglene som gjør transformen til et regneverktøy: derivasjon og konvolusjon."
+    },
+    {
+      "id": "tma4135-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Derivasjonsregelen (~14 min)\n\nDette er den ene regelen som forklarer hvorfor Fourier-transformen løser differensiallikninger i det hele tatt."
+    },
+    {
+      "id": "tma4135-4-1-teo-derivasjon",
+      "type": "theorem",
+      "title": "Derivasjonsregelen",
+      "content": "La $f$ være deriverbar og absolutt integrerbar, med $f(x)\\to0$ når $|x|\\to\\infty$. Da er\n\n$$\\widehat{f'}(\\omega) = i\\omega\\,\\hat{f}(\\omega).$$\n\n**Bevis.** Bruk delvis integrasjon på definisjonsintegralet, med $u = e^{-i\\omega x}$ og $dv = f'(x)dx$:\n$$\\widehat{f'}(\\omega) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}f'(x)e^{-i\\omega x}\\,dx = \\frac{1}{\\sqrt{2\\pi}}\\left(\\Big[f(x)e^{-i\\omega x}\\Big]_{-\\infty}^{\\infty} + i\\omega\\int_{-\\infty}^{\\infty}f(x)e^{-i\\omega x}\\,dx\\right).$$\nRandleddet forsvinner fordi $f\\to0$ og $\\left|e^{-i\\omega x}\\right|=1$. Det som står igjen, er $i\\omega\\hat{f}(\\omega)$. $\\blacksquare$\n\n**Intuisjon:** en ren svingning $e^{i\\omega x}$ blir ganget med $i\\omega$ når den deriveres. Transformen bryter funksjonen opp i slike svingninger, og da må derivasjon bli til multiplikasjon med $i\\omega$ på hver av dem.\n\n**Regelen må kunnes** — den står ikke på formelarket. Den er selve grunnen til at en partiell differensiallikning blir til en ordinær differensiallikning i [kap. 4.2](/tma4135/tma4135-4-2)."
+    },
+    {
+      "id": "tma4135-4-1-def-dobbelderivert",
+      "type": "definition",
+      "title": "Andrederivert-regelen",
+      "content": "Bruk derivasjonsregelen to ganger:\n\n$$\\widehat{f''}(\\omega) = i\\omega\\,\\widehat{f'}(\\omega) = (i\\omega)^2\\hat{f}(\\omega) = -\\omega^2\\,\\hat{f}(\\omega).$$\n\n**Merk fortegnet:** $(i\\omega)^2 = i^2\\omega^2 = -\\omega^2$, altså **minus**. Dette er den enkeltdetaljen som oftest går galt i [kap. 4.2](/tma4135/tma4135-4-2), der $u_{xx}$ i varmelikningen skal bli til $-\\omega^2\\hat{u}$.\n\nGenerelt gir $n$ derivasjoner faktoren $(i\\omega)^n$."
+    },
+    {
+      "id": "tma4135-4-1-eks3",
+      "type": "example",
+      "title": "Gauss-raden utledet med derivasjonsregelen",
+      "problem": "Gauss-paret står på formelarket, men det er lærerikt å se hvor det kommer fra. Utled $\\hat{f}$ for $f(x)=e^{-x^2}$ ved å bruke at $f$ tilfredsstiller differensiallikningen $f'(x) = -2x f(x)$.",
+      "solution": "**Steg 1 — transformer likningen.** Venstre side, **etter derivasjonsregelen**:\n$$\\widehat{f'}(\\omega) = i\\omega\\,\\hat{f}(\\omega).$$\nHøyre side, **etter regelen for multiplikasjon med $x$**:\n$$\\widehat{-2xf}(\\omega) = -2\\cdot i\\,\\frac{d\\hat{f}}{d\\omega} = -2i\\,\\hat{f}'(\\omega).$$\n\nLikningen $f' = -2xf$ blir dermed til\n$$i\\omega\\hat{f}(\\omega) = -2i\\,\\hat{f}'(\\omega).$$\n\n**Steg 2 — løs ODE-en i $\\omega$.** Del på $-2i$:\n$$\\hat{f}'(\\omega) = -\\frac{\\omega}{2}\\,\\hat{f}(\\omega).$$\nDette er en separabel førsteordens likning med løsning\n$$\\hat{f}(\\omega) = C\\,e^{-\\omega^2/4}.$$\n\n**Steg 3 — bestem konstanten.** Sett $\\omega=0$ i definisjonen:\n$$C = \\hat{f}(0) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}e^{-x^2}\\,dx = \\frac{\\sqrt\\pi}{\\sqrt{2\\pi}} = \\frac{1}{\\sqrt2},$$\nder vi brukte Gauss-integralet $\\int e^{-x^2}dx = \\sqrt\\pi$.\n\n**Resultat.**\n$$\\widehat{e^{-x^2}}(\\omega) = \\frac{1}{\\sqrt2}\\,e^{-\\omega^2/4}.$$\nDet er nøyaktig Gauss-raden på arket med $a=1$. Stemmer.\n\n**Hva du skal ta med deg.** Ikke selve utledningen — den står på arket. Men **mønsteret**: en likning i $x$-domenet ble til en likning i $\\omega$-domenet, og den var enklere. Nøyaktig det samme grepet, med to variable i stedet for én, er hele [kap. 4.2](/tma4135/tma4135-4-2).\n\n**Legg også merke til at Gauss-funksjonen er nesten sin egen transform.** For $a=\\tfrac12$, altså $f(x)=e^{-x^2/2}$, blir $\\hat{f}(\\omega) = e^{-\\omega^2/2}$ — eksakt samme funksjon. Det er den symmetriske konvensjonen som gjør dette mulig."
+    },
+    {
+      "id": "tma4135-4-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E.) Finn transformen av $f(x) = x\\,e^{-x^2}$ på to måter:\n\n**a)** med regelen for multiplikasjon med $x$,\n**b)** ved å skrive $f$ som en konstant ganger den deriverte av noe kjent.",
+        "solution": "**a)** Gauss-raden med $a=1$ gir $\\widehat{e^{-x^2}}(\\omega) = \\frac{1}{\\sqrt2}e^{-\\omega^2/4}$. **Etter regelen for multiplikasjon med $x$:**\n$$\\widehat{xe^{-x^2}}(\\omega) = i\\,\\frac{d}{d\\omega}\\left(\\frac{1}{\\sqrt2}e^{-\\omega^2/4}\\right) = i\\cdot\\frac{1}{\\sqrt2}\\cdot\\left(-\\frac{\\omega}{2}\\right)e^{-\\omega^2/4} = -\\frac{i\\omega}{2\\sqrt2}\\,e^{-\\omega^2/4}.$$\n\n**b)** Observer at $\\frac{d}{dx}e^{-x^2} = -2xe^{-x^2}$, altså $xe^{-x^2} = -\\tfrac12\\frac{d}{dx}e^{-x^2}$. **Etter derivasjonsregelen** og lineariteten:\n$$\\widehat{xe^{-x^2}}(\\omega) = -\\frac12\\,\\widehat{\\left(e^{-x^2}\\right)'}(\\omega) = -\\frac12\\cdot i\\omega\\cdot\\frac{1}{\\sqrt2}e^{-\\omega^2/4} = -\\frac{i\\omega}{2\\sqrt2}\\,e^{-\\omega^2/4}.$$\n\nSamme svar. **Begge metoder er gyldige og gir full uttelling** — men b) er raskere når funksjonen tilfeldigvis er en derivert, og a) virker alltid.\n\n**Kontroll.** $f$ er en **odde** reell funksjon. Da skal transformen være **rent imaginær** — akkurat som en odde funksjon har rent imaginære Fourier-koeffisienter ([kap. 3.3](/tma4135/tma4135-3-3)). Svaret er $-\\frac{i\\omega}{2\\sqrt2}e^{-\\omega^2/4}$, som er rent imaginært for reelle $\\omega$. Stemmer.\n\n*En til:* $\\hat{f}(0) = 0$, som det må være, siden $\\int xe^{-x^2}dx = 0$ for en odde integrand.",
+        "hints": [
+          "For a): slå opp $\\widehat{e^{-x^2}}$ og deriver med hensyn på $\\omega$.",
+          "For b): hva er $\\frac{d}{dx}e^{-x^2}$? Kan $xe^{-x^2}$ skrives ved hjelp av den?",
+          "Kontroll: en odde reell funksjon har rent imaginær transform."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E.) La $f$ ha transform $\\hat{f}(\\omega)$. Skriv opp transformen av hvert av uttrykkene, uttrykt ved $\\hat{f}$:\n\n**a)** $f''(x)$\n**b)** $f(x-5)$\n**c)** $f(2x)$\n**d)** $f'(x) + 4f(x)$\n**e)** $f(x-1) - f(x+1)$",
+        "solution": "**a)** **Etter andrederivert-regelen:** $-\\omega^2\\hat{f}(\\omega)$. Merk minustegnet.\n\n**b)** **Etter forskyvningsregelen** med $b=5$: $e^{-5i\\omega}\\hat{f}(\\omega)$.\n\n**c)** **Etter skaleringsregelen** med $c=2$: $\\tfrac12\\hat{f}\\!\\left(\\tfrac{\\omega}{2}\\right)$.\n\n**d)** **Etter derivasjonsregelen og lineariteten:** $\\left(i\\omega+4\\right)\\hat{f}(\\omega)$.\n\n**e)** **Etter forskyvningsregelen** to ganger, med $b=1$ og $b=-1$:\n$$e^{-i\\omega}\\hat{f}(\\omega)-e^{i\\omega}\\hat{f}(\\omega) = \\left(e^{-i\\omega}-e^{i\\omega}\\right)\\hat{f}(\\omega) = -2i\\sin\\omega\\cdot\\hat{f}(\\omega),$$\nder vi brukte **Eulers formel** $e^{i\\theta}-e^{-i\\theta} = 2i\\sin\\theta$ i siste steg.\n\n**Poenget med oppgaven.** Alle fem er ren regelbruk — ingen integraler. Det er slik en Fourier-transform-oppgave skal føles når reglene sitter: du oversetter mekanisk, og all vanskeligheten flytter seg til å velge riktig regel.\n\n*Legg merke til d):* å derivere og legge til en konstant ganger funksjonen blir til å **gange** med et polynom i $i\\omega$. Det er nettopp grunnen til at differensiallikninger blir til algebraiske likninger.",
+        "hints": [
+          "Skriv opp de tre reglene først, og bruk dem én om gangen.",
+          "For c): faktoren $1/|c|$ og argumentet $\\omega/c$ hører sammen — begge må med.",
+          "For e): trekk sammen de to faseleddene med Eulers formel."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Konvolusjon og integrallikninger (~16 min)\n\nNå kommer sjangerens andre halvdel: oppgaven der en ukjent funksjon står inne i et integral, og transformen løser det opp."
+    },
+    {
+      "id": "tma4135-4-1-def-konvolusjon",
+      "type": "definition",
+      "title": "Konvolusjonen $(f*g)$",
+      "content": "En måte å blande to funksjoner på, der den ene glir over den andre:\n\n$$(f*g)(x) = \\int_{-\\infty}^{\\infty}f(t)\\,g(x-t)\\,dt.$$\n\nHverdagsbildet: $g$ er et **glidende vindu**, og for hver $x$ veier du opp funksjonen $f$ med vinduet sentrert i $x$. Ei uskarp linse, en ekkoklang i et rom og et glidende gjennomsnitt av måledata er alle konvolusjoner.\n\n**Merk:** i Fourier-sammenheng går integralet over **hele** $\\mathbb{R}$. Laplace-konvolusjonen i Del 2 går fra 0 til $t$, fordi funksjonene der er null for negative argumenter. Det er samme idé, ulike grenser."
+    },
+    {
+      "id": "tma4135-4-1-def-konv-egenskaper",
+      "type": "definition",
+      "title": "Konvolusjonens regneregler",
+      "content": "Konvolusjon oppfører seg som multiplikasjon:\n\n$$f*g = g*f, \\qquad f*(g+h) = f*g+f*h, \\qquad (f*g)*h = f*(g*h).$$\n\nDen første følger av substitusjonen $u = x-t$ i integralet, og den er nyttig i praksis: du kan la den enkleste av de to funksjonene være den som forskyves."
+    },
+    {
+      "id": "tma4135-4-1-teo-konvolusjon",
+      "type": "theorem",
+      "title": "Konvolusjonsteoremet",
+      "content": "For funksjoner der begge transformene finnes:\n\n$$\\widehat{f*g}(\\omega) = \\sqrt{2\\pi}\\,\\hat{f}(\\omega)\\,\\hat{g}(\\omega).$$\n\n**Konvolusjon i det ene domenet er produkt i det andre.**\n\n**Bevis (skisse).** Sett inn definisjonen og bytt om integrasjonsrekkefølgen:\n$$\\widehat{f*g}(\\omega) = \\frac{1}{\\sqrt{2\\pi}}\\int\\!\\!\\int f(t)g(x-t)e^{-i\\omega x}\\,dt\\,dx = \\frac{1}{\\sqrt{2\\pi}}\\int f(t)\\left(\\int g(x-t)e^{-i\\omega x}\\,dx\\right)dt.$$\nDet indre integralet er, **etter forskyvningsregelen**, lik $e^{-i\\omega t}\\sqrt{2\\pi}\\,\\hat{g}(\\omega)$. Satt inn:\n$$\\widehat{f*g}(\\omega) = \\hat{g}(\\omega)\\int f(t)e^{-i\\omega t}\\,dt = \\hat{g}(\\omega)\\cdot\\sqrt{2\\pi}\\,\\hat{f}(\\omega). \\qquad \\blacksquare$$\n\n**Faktoren $\\sqrt{2\\pi}$ hører til denne konvensjonen** og er ikke universell. Den **må kunnes** — teoremet står ikke på formelarket. Å glemme faktoren er den vanligste feilen i sjangeren, og den gir et svar som er riktig opp til en konstant, altså feil.\n\n**Navnet skal bæres i besvarelsen:** «etter konvolusjonsteoremet er $\\widehat{f*g} = \\sqrt{2\\pi}\\,\\hat f\\,\\hat g$»."
+    },
+    {
+      "id": "tma4135-4-1-def-integrallikning",
+      "type": "definition",
+      "title": "Integrallikning av konvolusjonstype",
+      "content": "En likning der den ukjente funksjonen står inne i et konvolusjonsintegral:\n\n$$\\int_{-\\infty}^{\\infty}g(x-t)\\,f(t)\\,dt = h(x),$$\n\nmed $g$ og $h$ kjente og $f$ ukjent. Kortform: $g*f = h$.\n\n**Løsningsoppskriften i fire steg:**\n\n1. **Kjenn igjen konvolusjonen** — argumentet må være $x-t$, og integralet må gå over hele $\\mathbb{R}$.\n2. **Transformer begge sider.** Venstre side blir $\\sqrt{2\\pi}\\,\\hat{g}\\hat{f}$ etter konvolusjonsteoremet.\n3. **Løs algebraisk** for $\\hat{f} = \\dfrac{\\hat{h}}{\\sqrt{2\\pi}\\,\\hat{g}}$.\n4. **Transformer tilbake** ved å kjenne igjen $\\hat{f}$ som en rad i tabellen, lest baklengs.\n\n**Hele manøvren må kunnes** — bare tabelloppslagene i steg 2 og 4 står på arket."
+    },
+    {
+      "id": "tma4135-4-1-def-symmetri",
+      "type": "definition",
+      "title": "Symmetriregler for transformen",
+      "content": "For en **reell** funksjon $f$:\n\n$$\\hat{f}(-\\omega) = \\overline{\\hat{f}(\\omega)} \\qquad \\text{(konjugert symmetri)}.$$\n\nVidere:\n\n- $f$ reell og **like** $\\Rightarrow$ $\\hat{f}$ reell og like;\n- $f$ reell og **odde** $\\Rightarrow$ $\\hat{f}$ rent imaginær og odde.\n\nDette er nøyaktig de samme reglene som for de komplekse Fourier-koeffisientene i [kap. 3.3](/tma4135/tma4135-3-3), og de er en gratis kontroll: får du en kompleks transform av en reell, like funksjon, har du regnefeil."
+    },
+    {
+      "id": "tma4135-4-1-def-amplitude",
+      "type": "definition",
+      "title": "Amplitudespekteret $\\lvert\\hat{f}(\\omega)\\rvert$",
+      "content": "Absoluttverdien av transformen, tegnet mot $\\omega$.\n\nDen forteller hvor mye energi signalet har på hver frekvens, og den er **upåvirket av forskyvning** i $x$ — bare fasen $\\arg\\hat{f}$ endres. Det er derfor to lyder som er identiske bortsett fra når de starter, har samme amplitudespekter."
+    },
+    {
+      "id": "tma4135-4-1-def-avtaking",
+      "type": "definition",
+      "title": "Avtaking for store $\\omega$",
+      "content": "For enhver absolutt integrerbar $f$ går transformen mot null:\n\n$$\\hat{f}(\\omega)\\to 0 \\qquad \\text{når } |\\omega|\\to\\infty.$$\n\n**Hvor raskt** avhenger av hvor glatt $f$ er:\n\n| $f$ er … | $\\hat{f}$ dør ut som … |\n|---|---|\n| stykkevis konstant med sprang (boks) | $1/\\omega$ |\n| kontinuerlig med knekk ($e^{-a\\lvert x\\rvert}$) | $1/\\omega^2$ |\n| glatt ($e^{-ax^2}$) | raskere enn enhver potens |\n\nSamme mønster som for Fourier-koeffisienter i [kap. 3.1](/tma4135/tma4135-3-1), og like nyttig som plausibilitetssjekk."
+    },
+    {
+      "id": "tma4135-4-1-eks4",
+      "type": "example",
+      "title": "Eksamensnivå: en integrallikning løst med Fourier-transform",
+      "problem": "Løs integrallikningen\n$$\\int_{-\\infty}^{\\infty} e^{-2(x-t)^2}\\,f(t)\\,dt = e^{-x^2}, \\qquad x\\in\\mathbb{R},$$\nfor den ukjente funksjonen $f$.\n\nFør løsningen som en toppbesvarelse.",
+      "solution": "**Steg 1 — kjenn igjen konvolusjonen.** Argumentet i den kjente funksjonen er $x-t$, og integralet går over hele $\\mathbb{R}$. Venstre side er altså $(g*f)(x)$ med\n$$g(x) = e^{-2x^2}.$$\nLikningen er $g*f = h$ med $h(x) = e^{-x^2}$.\n\n*Uttelling her: å skrive setningen «venstre side er konvolusjonen $g*f$» er et eget poeng. Uten den ser resten av besvarelsen ubegrunnet ut.*\n\n**Steg 2 — transformer begge sider.** **Etter konvolusjonsteoremet:**\n$$\\sqrt{2\\pi}\\,\\hat{g}(\\omega)\\,\\hat{f}(\\omega) = \\hat{h}(\\omega).$$\n\n**Fra Gauss-raden på det utdelte formelarket** med $a=2$ og $a=1$:\n$$\\hat{g}(\\omega) = \\frac{1}{\\sqrt{4}}\\,e^{-\\omega^2/8} = \\frac12 e^{-\\omega^2/8}, \\qquad \\hat{h}(\\omega) = \\frac{1}{\\sqrt2}\\,e^{-\\omega^2/4}.$$\n\n**Steg 3 — løs for $\\hat{f}$.**\n$$\\hat{f}(\\omega) = \\frac{\\hat{h}(\\omega)}{\\sqrt{2\\pi}\\,\\hat{g}(\\omega)} = \\frac{\\frac{1}{\\sqrt2}e^{-\\omega^2/4}}{\\sqrt{2\\pi}\\cdot\\frac12 e^{-\\omega^2/8}} = \\frac{2}{\\sqrt2\\sqrt{2\\pi}}\\,e^{-\\omega^2/4+\\omega^2/8} = \\frac{1}{\\sqrt{\\pi}}\\,e^{-\\omega^2/8}.$$\n\n*(Regnestykket på konstanten: $\\frac{2}{\\sqrt2\\cdot\\sqrt{2\\pi}} = \\frac{2}{\\sqrt{4\\pi}} = \\frac{2}{2\\sqrt\\pi} = \\frac{1}{\\sqrt\\pi}$. Og eksponenten: $-\\tfrac14+\\tfrac18 = -\\tfrac18$.)*\n\n**Steg 4 — transformer tilbake.** Vi leter i tabellen etter en rad med $e^{-\\omega^2/8}$ på høyresiden. Gauss-raden gir $e^{-\\omega^2/(4a)}$, så $4a = 8$, altså $a=2$:\n$$e^{-2x^2} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{4}}e^{-\\omega^2/8} = \\frac12 e^{-\\omega^2/8}.$$\nVår $\\hat{f}$ er $\\frac{1}{\\sqrt\\pi}e^{-\\omega^2/8} = \\frac{2}{\\sqrt\\pi}\\cdot\\frac12 e^{-\\omega^2/8}$. **Etter lineariteten** er derfor\n$$\\boxed{f(x) = \\frac{2}{\\sqrt{\\pi}}\\,e^{-2x^2}.}$$\n\n**Kontroll ved innsetting.** Sett $f$ tilbake i integralet:\n$$\\int_{-\\infty}^{\\infty}e^{-2(x-t)^2}\\cdot\\frac{2}{\\sqrt\\pi}e^{-2t^2}\\,dt = \\frac{2}{\\sqrt\\pi}\\int e^{-2\\left[(x-t)^2+t^2\\right]}dt.$$\nFullfør kvadratet i eksponenten: $(x-t)^2+t^2 = 2t^2-2xt+x^2 = 2\\left(t-\\tfrac{x}{2}\\right)^2+\\tfrac{x^2}{2}$. Da er\n$$= \\frac{2}{\\sqrt\\pi}e^{-x^2}\\int e^{-4u^2}\\,du = \\frac{2}{\\sqrt\\pi}e^{-x^2}\\cdot\\frac{\\sqrt\\pi}{2} = e^{-x^2}.$$\nNøyaktig høyresiden. Stemmer.\n\n*Uttelling her: kontrollen er ikke påkrevd, men den er billig og den fanger faktorfeil. Rekker du den, ta den med.*\n\n**De tre stedene folk mister poeng i denne sjangeren:**\n\n1. **Glemt $\\sqrt{2\\pi}$** i konvolusjonsteoremet. Svaret blir riktig funksjon med feil konstant.\n2. **Feil $a$ i Gauss-raden.** Er eksponenten $-2x^2$, er $a=2$ — ikke $\\tfrac12$ og ikke $4$.\n3. **Stoppet ved $\\hat{f}$.** Oppgaven spør etter $f$, ikke etter transformen. Siste steg er å lese tabellen baklengs."
+    },
+    {
+      "id": "tma4135-4-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — krevende.) Løs integrallikningen\n$$\\int_{-\\infty}^{\\infty}e^{-(x-t)^2}f(t)\\,dt = e^{-x^2/2}.$$",
+        "solution": "**Steg 1.** Venstre side er konvolusjonen $g*f$ med $g(x)=e^{-x^2}$; høyresiden kaller vi $h(x)=e^{-x^2/2}$.\n\n**Steg 2.** **Etter konvolusjonsteoremet** er $\\sqrt{2\\pi}\\,\\hat{g}\\hat{f} = \\hat{h}$. **Fra Gauss-raden på formelarket:**\n$$\\hat{g}(\\omega) = \\frac{1}{\\sqrt2}e^{-\\omega^2/4} \\quad (a=1), \\qquad \\hat{h}(\\omega) = e^{-\\omega^2/2} \\quad (a=\\tfrac12).$$\n*(For $a=\\tfrac12$ er $\\frac{1}{\\sqrt{2a}} = 1$ og $\\frac{1}{4a} = \\tfrac12$.)*\n\n**Steg 3.**\n$$\\hat{f}(\\omega) = \\frac{e^{-\\omega^2/2}}{\\sqrt{2\\pi}\\cdot\\frac{1}{\\sqrt2}e^{-\\omega^2/4}} = \\frac{\\sqrt2}{\\sqrt{2\\pi}}\\,e^{-\\omega^2/2+\\omega^2/4} = \\frac{1}{\\sqrt\\pi}\\,e^{-\\omega^2/4}.$$\n\n**Steg 4.** Vi trenger raden med $e^{-\\omega^2/4}$, altså $4a=4$ og $a=1$: $e^{-x^2}\\leftrightarrow\\frac{1}{\\sqrt2}e^{-\\omega^2/4}$. Siden $\\frac{1}{\\sqrt\\pi} = \\sqrt2\\cdot\\frac{1}{\\sqrt{2\\pi}}$... enklere: skriv $\\hat{f} = \\frac{\\sqrt2}{\\sqrt\\pi}\\cdot\\frac{1}{\\sqrt2}e^{-\\omega^2/4}$, så\n$$f(x) = \\frac{\\sqrt2}{\\sqrt\\pi}\\,e^{-x^2} = \\sqrt{\\frac{2}{\\pi}}\\,e^{-x^2}.$$\n\n**Kontroll ved innsetting.**\n$$\\int e^{-(x-t)^2}\\sqrt{\\tfrac2\\pi}e^{-t^2}dt = \\sqrt{\\tfrac2\\pi}\\,e^{-x^2/2}\\int e^{-2u^2}du = \\sqrt{\\tfrac2\\pi}\\cdot\\sqrt{\\tfrac{\\pi}{2}}\\,e^{-x^2/2} = e^{-x^2/2},$$\nder vi brukte $(x-t)^2+t^2 = 2\\left(t-\\tfrac{x}{2}\\right)^2+\\tfrac{x^2}{2}$ og $\\int e^{-2u^2}du = \\sqrt{\\pi/2}$. Stemmer.\n\n**Merk hvor kort selve løsningen er** når du har reglene: fire linjer. All vanskeligheten ligger i å holde styr på konstantene — og der er kontrollen i $\\omega=0$ eller ved innsetting pengene verdt.",
+        "hints": [
+          "Kjenn igjen venstre side som en konvolusjon $g*f$, og identifiser $g$.",
+          "Transformer begge sider; husk faktoren $\\sqrt{2\\pi}$ i konvolusjonsteoremet.",
+          "Løs for $\\hat{f}$ og les Gauss-raden baklengs. Hvilken $a$ gir $e^{-\\omega^2/4}$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E.) La $B(x)$ være boksfunksjonen som er 1 på $\\left(-\\tfrac12,\\tfrac12\\right)$ og 0 ellers.\n\n**a)** Finn $\\hat{B}(\\omega)$ fra formelarket.\n**b)** Bruk konvolusjonsteoremet til å finne transformen av $T = B*B$.\n**c)** Det kan vises at $T$ er «trekantfunksjonen» $T(x) = 1-|x|$ for $|x|<1$ og 0 ellers. Kontroller svaret i b) mot dette ved å regne ut $\\hat{T}(0)$ på to måter.",
+        "solution": "**a)** Boksraden med $a=\\tfrac12$:\n$$\\hat{B}(\\omega) = \\sqrt{\\frac{2}{\\pi}}\\cdot\\frac{\\sin(\\omega/2)}{\\omega}.$$\n\n**b)** **Etter konvolusjonsteoremet:**\n$$\\hat{T}(\\omega) = \\sqrt{2\\pi}\\,\\hat{B}(\\omega)^2 = \\sqrt{2\\pi}\\cdot\\frac{2}{\\pi}\\cdot\\frac{\\sin^2(\\omega/2)}{\\omega^2} = \\frac{2\\sqrt2}{\\sqrt\\pi}\\cdot\\frac{\\sin^2(\\omega/2)}{\\omega^2}.$$\n\nMed identiteten $1-\\cos\\omega = 2\\sin^2(\\omega/2)$ **fra det utdelte formelarket** kan dette også skrives\n$$\\hat{T}(\\omega) = \\sqrt{\\frac{2}{\\pi}}\\cdot\\frac{1-\\cos\\omega}{\\omega^2}.$$\n\n**c)** **Første måte — fra formelen i b).** Grensen når $\\omega\\to0$: bruk $\\sin(\\omega/2)\\approx\\omega/2$, så $\\frac{\\sin^2(\\omega/2)}{\\omega^2}\\to\\frac14$, og\n$$\\hat{T}(0) = \\frac{2\\sqrt2}{\\sqrt\\pi}\\cdot\\frac14 = \\frac{\\sqrt2}{2\\sqrt\\pi} = \\frac{1}{\\sqrt{2\\pi}}.$$\n\n**Andre måte — direkte fra definisjonen.** $\\hat{T}(0) = \\frac{1}{\\sqrt{2\\pi}}\\int T(x)\\,dx$, og arealet under trekanten med grunnlinje 2 og høyde 1 er $\\tfrac12\\cdot2\\cdot1 = 1$. Altså\n$$\\hat{T}(0) = \\frac{1}{\\sqrt{2\\pi}}.$$\n\nDe to måtene gir samme svar. Stemmer.\n\n**Hva oppgaven illustrerer.** Konvolusjon **glatter ut**: to skarpe bokser blir til en trekant uten sprang. Og glattingen ses i frekvensdomenet — boksens transform dør ut som $1/\\omega$, mens trekantens dør ut som $1/\\omega^2$. **Konvolusjon i $x$ er multiplikasjon i $\\omega$, og et produkt av to funksjoner som dør ut, dør ut dobbelt så fort.**",
+        "hints": [
+          "For a): boksen er 1 på et intervall av halvbredde $a=1/2$.",
+          "For b): konvolusjonsteoremet gir $\\sqrt{2\\pi}$ ganger produktet — her ganger $\\hat{B}$ med seg selv.",
+          "For c): $\\hat{T}(0)$ er arealet under $T$ delt på $\\sqrt{2\\pi}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — krevende.) En funksjon $f$ er reell og oppfyller $\\hat{f}(\\omega) = \\dfrac{1}{1+\\omega^2}$.\n\n**a)** Finn $f$. (Bruk tabellen baklengs.)\n**b)** Avgjør uten videre regning om $f$ er like eller odde, og begrunn.\n**c)** Finn transformen av $f'$ og av $f(x)*f(x)$.",
+        "solution": "**a)** Fra raden $e^{-a|x|}\\leftrightarrow\\sqrt{\\tfrac2\\pi}\\,\\tfrac{a}{a^2+\\omega^2}$ med $a=1$:\n$$e^{-|x|} \\ \\longleftrightarrow\\ \\sqrt{\\frac{2}{\\pi}}\\cdot\\frac{1}{1+\\omega^2}.$$\nVår $\\hat{f}$ er $\\frac{1}{1+\\omega^2}$, altså $\\sqrt{\\pi/2}$ ganger den transformen. **Etter lineariteten:**\n$$f(x) = \\sqrt{\\frac{\\pi}{2}}\\,e^{-|x|}.$$\n\n*Kontroll i $\\omega=0$:* $\\hat{f}(0) = 1$, og direkte $\\frac{1}{\\sqrt{2\\pi}}\\int\\sqrt{\\tfrac\\pi2}e^{-|x|}dx = \\frac{1}{\\sqrt{2\\pi}}\\cdot\\sqrt{\\tfrac\\pi2}\\cdot 2 = \\frac{2}{\\sqrt{2\\pi}}\\cdot\\frac{\\sqrt\\pi}{\\sqrt2} = \\frac{2\\sqrt\\pi}{2\\sqrt\\pi} = 1$. Stemmer.\n\n**b)** $\\hat{f}$ er **reell og like** (den avhenger bare av $\\omega^2$). Etter symmetrireglene betyr det at $f$ er **reell og like** — og det stemmer, siden $e^{-|x|}$ er speilsymmetrisk om $y$-aksen. Konklusjonen kunne altså trekkes før vi regnet ut $f$ i det hele tatt.\n\n**c)** **Etter derivasjonsregelen:**\n$$\\widehat{f'}(\\omega) = i\\omega\\,\\hat{f}(\\omega) = \\frac{i\\omega}{1+\\omega^2}.$$\n*Kontroll:* $f$ er like, så $f'$ er odde, og en odde reell funksjon skal ha rent imaginær transform. Svaret er rent imaginært. Stemmer. *(Merk at $f$ har knekk i origo, så $f'$ har et sprang der — men transformen finnes likevel.)*\n\n**Etter konvolusjonsteoremet:**\n$$\\widehat{f*f}(\\omega) = \\sqrt{2\\pi}\\,\\hat{f}(\\omega)^2 = \\frac{\\sqrt{2\\pi}}{\\left(1+\\omega^2\\right)^2}.$$\n*Kontroll av avtakingen:* $f*f$ er glattere enn $f$ (konvolusjon glatter), og transformen dør ut som $1/\\omega^4$ i stedet for $1/\\omega^2$. Det stemmer med regelen om at glattere funksjon gir raskere avtaking.",
+        "hints": [
+          "For a): hvilken tabellrad har $1+\\omega^2$ i nevneren? Les den baklengs og juster konstanten.",
+          "For b): hva sier symmetrireglene når $\\hat{f}$ er reell og like?",
+          "For c): to regelbruk, ingen integraler. Husk $\\sqrt{2\\pi}$ i konvolusjonsteoremet."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-4-1-o9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E.) En student skriver: «Siden $\\widehat{f*g} = \\hat{f}\\hat{g}$, blir svaret …». Forklar hva som er galt, og hva konsekvensen blir i praksis.",
+        "solution": "**Feilen:** faktoren $\\sqrt{2\\pi}$ mangler. **Etter konvolusjonsteoremet** i denne bokas konvensjon er\n$$\\widehat{f*g}(\\omega) = \\sqrt{2\\pi}\\,\\hat{f}(\\omega)\\,\\hat{g}(\\omega).$$\n\n**Hvorfor faktoren finnes.** Den er en konsekvens av at normeringen $\\frac{1}{\\sqrt{2\\pi}}$ er lagt begge veier. I andre konvensjoner — for eksempel den der hele $\\frac{1}{2\\pi}$ ligger på den inverse transformen — er konvolusjonsteoremet faktisk $\\widehat{f*g} = \\hat{f}\\hat{g}$ uten faktor. Studenten har altså sannsynligvis lest teoremet i en annen konvensjon enn den arket bruker.\n\n**Konsekvensen i praksis.** I en integrallikning kommer faktoren inn i steg 3, der man deler:\n$$\\hat{f} = \\frac{\\hat{h}}{\\sqrt{2\\pi}\\,\\hat{g}}.$$\nUten $\\sqrt{2\\pi}$ blir svaret $\\sqrt{2\\pi} \\approx 2{,}5066$ ganger for stort. **Funksjonsformen blir riktig, men konstanten feil** — og det er en type feil som er lett å overse, fordi svaret «ser riktig ut».\n\n**Hvordan du fanger den.** Sett $\\omega=0$ i den transformerte likningen, eller sett løsningen tilbake i integrallikningen og regn ut venstre side. Begge kontrollene avslører en gal konstant umiddelbart.\n\n**Regelen å ta med seg:** velg konvensjon én gang — arkets — og bruk **alle** formlene i den samme konvensjonen. Å blande er verre enn å velge «feil», for en konsekvent gal konvensjon gir i det minste et konsekvent svar.",
+        "hints": [
+          "Sammenlikn med teoremet slik det er formulert i dette kapitlet.",
+          "Tenk på hvor faktoren kommer fra: hvordan er normeringen fordelt i denne konvensjonen?",
+          "Hva skjer med sluttsvaret hvis en konstant faktor mangler i et mellomsteg?"
+        ]
+      }
+    },
+    {
+      "id": "tma4135-4-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil $\\sqrt{2\\pi}$-faktor.** Konvensjonene er forskjellige fra bok til bok. Denne boka og det utdelte arket bruker $\\frac{1}{\\sqrt{2\\pi}}$ begge veier, og da **skal** konvolusjonsteoremet ha $\\sqrt{2\\pi}$. Blander du konvensjoner, blir svaret riktig funksjon med feil konstant.\n\n**Feil rad i tabellen.** $e^{-ax^2}$ og $e^{-a|x|}$ ser like ut i farten, men gir helt ulike transformer. Se etter om $x$ står i **andre potens** eller i **absoluttverdi** før du slår opp.\n\n**Feil $a$.** Er funksjonen $e^{-2x^2}$, er $a=2$ — og da er $\\frac{1}{\\sqrt{2a}} = \\frac12$ og eksponenten $-\\frac{\\omega^2}{8}$. Sett $a$ inn på **alle** stedene den opptrer, ikke bare det første.\n\n**Glemt minustegnet i $\\widehat{f''} = -\\omega^2\\hat{f}$.** Kvadratet av $i\\omega$ er $-\\omega^2$. Denne ene detaljen velter hele [kap. 4.2](/tma4135/tma4135-4-2) hvis den går galt.\n\n**Stoppet ved $\\hat{f}$.** En integrallikning spør etter $f$, ikke etter transformen. Siste steg er alltid å lese tabellen baklengs.\n\n**Ikke gjenkjent konvolusjonen.** Skal konvolusjonsteoremet brukes, må argumentet være $x-t$ og integralet gå over **hele** $\\mathbb{R}$. Står det $x+t$, eller går integralet fra 0 til $x$, er det ikke en Fourier-konvolusjon.\n\n**Ingen kontroll.** Sett $\\omega=0$: da skal $\\hat{f}(0)$ være arealet under $f$ delt på $\\sqrt{2\\pi}$. Femten sekunder, og den fanger nesten alle konstantfeil."
+    },
+    {
+      "id": "tma4135-4-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-4-1-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver på det kapitlet forutsetter fra [kap. 1.1](/tma4135/tma4135-1-1) og [kap. 3.3](/tma4135/tma4135-3-3). Bruker du mer enn ti minutter, friskt opp komplekse tall før du går videre til [kap. 4.2](/tma4135/tma4135-4-2)."
+        },
+        {
+          "id": "tma4135-4-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-1-oR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\left|e^{i\\theta}\\right|$ for reell $\\theta$, og forklar hvorfor det er nyttig i dette kapitlet.",
+            "solution": "**Etter Eulers formel** er $e^{i\\theta} = \\cos\\theta+i\\sin\\theta$, så\n$$\\left|e^{i\\theta}\\right| = \\sqrt{\\cos^2\\theta+\\sin^2\\theta} = 1.$$\n\n**Nytten:** faseleddet $e^{-ib\\omega}$ fra forskyvningsregelen har absoluttverdi 1, og påvirker derfor ikke amplitudespekteret. Det er hele grunnen til at en forskjøvet funksjon har samme $\\left|\\hat{f}\\right|$ som originalen.",
+            "hints": [
+              "Bruk Eulers formel og den trigonometriske grunnidentiteten."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-1-oR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv $e^{i\\theta}-e^{-i\\theta}$ og $e^{i\\theta}+e^{-i\\theta}$ ved hjelp av $\\sin\\theta$ og $\\cos\\theta$.",
+            "solution": "$$e^{i\\theta}+e^{-i\\theta} = 2\\cos\\theta, \\qquad e^{i\\theta}-e^{-i\\theta} = 2i\\sin\\theta.$$\n\nDisse er Eulers formler skrevet baklengs. Den andre brukes i eksempel 1 for å få $\\sin(a\\omega)$ ut av boksintegralet, og i oppgave 5e for å trekke sammen to faseledd.",
+            "hints": [
+              "Legg sammen og trekk fra $e^{i\\theta} = \\cos\\theta+i\\sin\\theta$ og $e^{-i\\theta}=\\cos\\theta-i\\sin\\theta$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-1-oR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\int_{-\\infty}^{\\infty}e^{-2x^2}\\,dx$ ved å bruke at $\\int_{-\\infty}^{\\infty}e^{-x^2}\\,dx = \\sqrt{\\pi}$.",
+            "solution": "Substituer $u = \\sqrt2\\,x$, slik at $du = \\sqrt2\\,dx$:\n$$\\int_{-\\infty}^{\\infty}e^{-2x^2}\\,dx = \\int_{-\\infty}^{\\infty}e^{-u^2}\\,\\frac{du}{\\sqrt2} = \\frac{\\sqrt\\pi}{\\sqrt2} = \\sqrt{\\frac{\\pi}{2}}.$$\n\n**Generelt:** $\\int e^{-ax^2}dx = \\sqrt{\\pi/a}$. Denne formelen brukes i hver eneste kontroll av et Gauss-oppslag — det er den som gir arealet under kurven.",
+            "hints": [
+              "Substituer slik at eksponenten blir $-u^2$.",
+              "Husk at substitusjonen også endrer $dx$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-4-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-4-1-oR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Fullfør kvadratet i $2(x-t)^2+2t^2$, uttrykt som et kvadrat i $t$ pluss et ledd uten $t$.",
+            "solution": "Gang ut og samle:\n$$2(x-t)^2+2t^2 = 2x^2-4xt+2t^2+2t^2 = 4t^2-4xt+2x^2.$$\nTrekk ut faktoren 4 fra $t$-leddene og fullfør:\n$$4\\left(t^2-xt\\right)+2x^2 = 4\\left(t-\\frac{x}{2}\\right)^2-4\\cdot\\frac{x^2}{4}+2x^2 = 4\\left(t-\\frac{x}{2}\\right)^2+x^2.$$\n\n**Kontroll for $x=0$:** venstre side blir $2t^2+2t^2 = 4t^2$, høyre side $4t^2+0$. Stemmer.\n\nDette er nøyaktig regningen som trengs for å kontrollere svaret i eksempel 4 ved innsetting.",
+            "hints": [
+              "Gang ut alt først, og samle leddene med $t^2$, $t$ og konstant.",
+              "Trekk ut koeffisienten foran $t^2$ før du fullfører kvadratet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-4-1-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat{f}(\\omega)$ | Fourier-transformen av $f$; en kompleks funksjon av reell $\\omega$ |\n| $\\omega$ | Vinkelfrekvensen, den kontinuerlige frekvensvariabelen |\n| $x$ | Variabelen i tids- eller stedsdomenet |\n| $a$ | Parameteren i tabellradene. **Merk:** i Del 2 er $a$ forskyvningen i andreforskyvningsteoremet |\n| $b$ | Forskyvningen i forskyvningsregelen |\n| $c$ | Skaleringsfaktoren. **Merk:** i Del 5 er $c$ bølgefarten |\n| $(f*g)$ | Konvolusjonen av $f$ og $g$, integrert over hele $\\mathbb{R}$ |\n| $\\mathbf{1}_{\\lvert x\\rvert<a}$ | Boksfunksjonen: 1 på $(-a,a)$, 0 ellers |\n| $\\overline{z}$ | Kompleks konjugat |\n| $\\lvert\\hat{f}(\\omega)\\rvert$ | Amplitudespekteret |\n| $\\mathbb{R}$ | Mengden av reelle tall |\n| $t$ | Integrasjonsvariabel i konvolusjonen. **Merk:** i Del 4.2 og Del 5 er $t$ tiden |\n"
+        },
+        {
+          "id": "tma4135-4-1-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$\\hat{f}(\\omega) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}f(x)e^{-i\\omega x}\\,dx$$\nFourier-transformen, arkets konvensjon. *(Må kunnes eller utledes aktivt.)*\n\n$$f(x) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}\\hat{f}(\\omega)e^{i\\omega x}\\,d\\omega$$\nDen inverse transformen — samme faktor, motsatt fortegn i eksponenten. *(Må kunnes.)*\n\n$$e^{-ax^2} \\ \\longleftrightarrow\\ \\frac{1}{\\sqrt{2a}}e^{-\\omega^2/(4a)}$$\nGauss-paret. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$e^{-a\\lvert x\\rvert} \\ \\longleftrightarrow\\ \\sqrt{\\frac{2}{\\pi}}\\,\\frac{a}{a^2+\\omega^2}$$\n*(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\frac{1}{x^2+a^2} \\ \\longleftrightarrow\\ \\sqrt{\\frac{\\pi}{2}}\\,\\frac{e^{-a\\lvert\\omega\\rvert}}{a}$$\n*(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathbf{1}_{\\lvert x\\rvert<a} \\ \\longleftrightarrow\\ \\sqrt{\\frac{2}{\\pi}}\\,\\frac{\\sin(a\\omega)}{\\omega}$$\nBoksfunksjonen. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\widehat{f'}(\\omega) = i\\omega\\hat{f}(\\omega), \\qquad \\widehat{f''}(\\omega) = -\\omega^2\\hat{f}(\\omega)$$\nDerivasjonsregelen — merk minustegnet i den andre. *(Må kunnes eller utledes aktivt.)*\n\n$$\\widehat{f*g}(\\omega) = \\sqrt{2\\pi}\\,\\hat{f}(\\omega)\\hat{g}(\\omega), \\qquad (f*g)(x) = \\int_{-\\infty}^{\\infty}f(t)g(x-t)\\,dt$$\nKonvolusjonsteoremet med konvensjonens faktor. *(Må kunnes eller utledes aktivt.)*\n\n$$\\widehat{f(x-b)}(\\omega) = e^{-ib\\omega}\\hat{f}(\\omega), \\qquad \\widehat{f(cx)}(\\omega) = \\frac{1}{\\lvert c\\rvert}\\hat{f}\\!\\left(\\frac{\\omega}{c}\\right)$$\nForskyvnings- og skaleringsregelen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\widehat{xf(x)}(\\omega) = i\\,\\frac{d}{d\\omega}\\hat{f}(\\omega)$$\nMultiplikasjon med $x$. *(Må kunnes eller utledes aktivt.)*\n\n$$f \\text{ reell} \\implies \\hat{f}(-\\omega) = \\overline{\\hat{f}(\\omega)}$$\nKonjugert symmetri — samme regel som for $c_n$ i [kap. 3.3](/tma4135/tma4135-3-3). *(Må kunnes.)*\n\n$$\\int_{-\\infty}^{\\infty}e^{-ax^2}\\,dx = \\sqrt{\\frac{\\pi}{a}}$$\nGauss-integralet, brukt i alle kontrollregninger. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$1-\\cos\\omega = 2\\sin^2\\!\\left(\\frac{\\omega}{2}\\right)$$\nTrigonometrisk identitet brukt i oppgave 7. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n**Kolliderende symboler:** $a$ er tabellparameteren her; i Del 2 er $a$ forskyvningen i andreforskyvningsteoremet, og i Del 6 et intervallendepunkt. Bokstaven $c$ er skaleringsfaktoren her, bølgefarten i Del 5 og nodevektoren i en Butcher-tabell i Del 7. Bokstaven $t$ er integrasjonsvariabel i konvolusjonen her, men tiden i [kap. 4.2](/tma4135/tma4135-4-2) og i Del 5. Og $\\hat{f}$ er Fourier-transformen; Laplace-transformen skrives $F(s)$ i Del 2, nettopp for å holde de to fra hverandre."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

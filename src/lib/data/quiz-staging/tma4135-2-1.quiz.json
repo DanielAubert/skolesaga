@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Hva er Laplace-transformen av en funksjon $f(t)$?",
+    "options": [
+      "Integralet av $e^{-st}f(t)$ fra $0$ til uendelig",
+      "Integralet av $e^{st}f(t)$ fra $0$ til uendelig",
+      "Integralet av $e^{-st}f(t)$ over hele tallinja",
+      "Den deriverte av $f$ ganget med faktoren $e^{-st}$"
+    ],
+    "explanation": "Definisjonen er integralet av e opphøyd i minus s t, ganget med f av t, fra null til uendelig. Fortegnet i eksponenten er negativt for at integralet skal konvergere, og nedre grense er null fordi transformen bare ser på tiden fra start og framover."
+  },
+  {
+    "question": "Hvorfor har $e^{t^2}$ ingen Laplace-transform?",
+    "options": [
+      "Den vokser fortere enn enhver eksponentialfunksjon",
+      "Den er ikke kontinuerlig i noe punkt på aksen",
+      "Den er negativ for store verdier av variabelen",
+      "Den er ikke definert for negative verdier av $t$"
+    ],
+    "explanation": "Kravet om eksponentiell orden sier at funksjonen til slutt må vokse langsommere enn en eksponentialfunksjon M ganger e opphøyd i c t. Kvadratet i eksponenten vokser fortere enn enhver slik funksjon, så dempefaktoren taper kappløpet uansett hvor stor s er."
+  },
+  {
+    "question": "Hva er $\\mathcal{L}\\{t^4\\}$?",
+    "options": [
+      "$\\dfrac{24}{s^5}$",
+      "$\\dfrac{4}{s^5}$",
+      "$\\dfrac{24}{s^4}$",
+      "$\\dfrac{4!}{s^4}$"
+    ],
+    "explanation": "Potensraden er n fakultet delt på s opphøyd i n pluss én. Med n lik fire er telleren fire fakultet, altså 24, og nevneren er s i femte. Alternativene med s i fjerde bruker feil eksponent, og telleren 4 forveksler n med n fakultet."
+  },
+  {
+    "question": "Hva er $\\mathcal{L}\\{\\sin 6t\\}$?",
+    "options": [
+      "$\\dfrac{6}{s^2+36}$",
+      "$\\dfrac{s}{s^2+36}$",
+      "$\\dfrac{1}{s^2+36}$",
+      "$\\dfrac{6}{s^2-36}$"
+    ],
+    "explanation": "Sinusraden har omega i telleren, altså 6. Alternativet med s i telleren er cosinusraden, alternativet med 1 glemmer omega-faktoren, og alternativet med minus i nevneren er den hyperbolske raden."
+  },
+  {
+    "question": "Hva skiller $\\mathcal{L}\\{\\cos\\omega t\\}$ fra $\\mathcal{L}\\{\\cosh at\\}$?",
+    "options": [
+      "Fortegnet i nevneren: pluss mot minus",
+      "Telleren: $s$ i den ene og $\\omega$ i den andre",
+      "Eksponenten i nevneren: kvadrat mot første potens",
+      "Konstanten foran: den ene har en faktor $2$"
+    ],
+    "explanation": "Begge har s i telleren. Forskjellen er at cosinus gir s i annen pluss omega i annen, mens hyperbolsk cosinus gir s i annen minus a i annen. Pluss gir svingninger, minus gir vekst og demping."
+  },
+  {
+    "question": "Hva er $\\mathcal{L}\\{y''\\}$ uttrykt ved $Y$?",
+    "options": [
+      "$s^2Y - s\\,y(0) - y'(0)$",
+      "$s^2Y - y(0) - y'(0)$",
+      "$s^2Y + s\\,y(0) + y'(0)$",
+      "$s^2Y - y'(0) - y''(0)$"
+    ],
+    "explanation": "Regelen har tre ledd, og startverdien y i null skal ha en faktor s foran seg. Alternativet uten den faktoren er den vanligste feilen. Alternativet med pluss har riktige ledd, men feil fortegn på begge."
+  },
+  {
+    "question": "En funksjon har $y(0)=0$ og $y'(0)=-5$. Hva blir $\\mathcal{L}\\{y''\\}$?",
+    "options": [
+      "$s^2Y + 5$",
+      "$s^2Y - 5$",
+      "$s^2Y - 5s$",
+      "$s^2Y + 5s$"
+    ],
+    "explanation": "Leddet er minus y merket i null, altså minus minus fem, som blir pluss fem. Alternativet med minus fem glemmer at to minustegn gir pluss. Alternativene med en s-faktor blander sammen de to startverdileddene."
+  },
+  {
+    "question": "Hvilken egenskap gjør at du kan transformere en likning ledd for ledd?",
+    "options": [
+      "Lineariteten til integralet i definisjonen",
+      "At transformen alltid gir en rasjonal funksjon",
+      "At transformen er entydig for kontinuerlige funksjoner",
+      "At faktoren $e^{-st}$ går mot null når $t$ vokser"
+    ],
+    "explanation": "Linearitet betyr at transformen av en sum er summen av transformene, og at konstanter kan settes utenfor. Den følger direkte av at integralet er lineært. Entydighet er en annen egenskap, som brukes ved tabelloppslag baklengs."
+  },
+  {
+    "question": "Gjelder $\\mathcal{L}\\{f\\cdot g\\} = F(s)\\,G(s)$?",
+    "options": [
+      "Nei — produktet svarer til konvolusjonen, ikke til produktet",
+      "Ja — det følger direkte av lineariteten til integralet",
+      "Ja, men bare når begge funksjonene er positive",
+      "Nei — transformen av et produkt er alltid null"
+    ],
+    "explanation": "Transformen av et vanlig produkt er ikke produktet av transformene. Det er konvolusjonen, altså integralet av g av tau ganger y av t minus tau, som svarer til produktet i s-planet. Dette er konvolusjonsteoremet."
+  },
+  {
+    "question": "Hva er første skritt i fireskrittsoppskriften for Laplace-metoden?",
+    "options": [
+      "Transformer hvert ledd i likningen",
+      "Faktoriser nevneren i uttrykket for $Y$",
+      "Finn den generelle løsningen av likningen",
+      "Bestem konstantene fra startverdiene"
+    ],
+    "explanation": "Oppskriften er: transformer, sett inn startverdiene med det samme, løs algebraisk for Y, og transformer tilbake. Å bestemme konstanter til slutt hører til den klassiske løsningsmetoden, ikke til denne."
+  },
+  {
+    "question": "Når skal startverdiene settes inn i Laplace-metoden?",
+    "options": [
+      "Samtidig med at derivasjonsregelen brukes",
+      "Etter at $Y(s)$ er spaltet opp i delbrøker",
+      "Helt til slutt, når $y(t)$ er funnet",
+      "Bare når de er forskjellige fra null"
+    ],
+    "explanation": "Hele gevinsten ved metoden er at startverdiene bygges inn i den algebraiske likningen fra første linje. Setter du dem inn senere, har du mistet fordelen og risikerer å regne feil på konstantene."
+  },
+  {
+    "question": "Hva er $\\mathcal{L}\\{e^{2t}\\cos 3t\\}$?",
+    "options": [
+      "$\\dfrac{s-2}{(s-2)^2+9}$",
+      "$\\dfrac{s}{(s-2)^2+9}$",
+      "$\\dfrac{s+2}{(s+2)^2+9}$",
+      "$\\dfrac{3}{(s-2)^2+9}$"
+    ],
+    "explanation": "Førsteforskyvningsteoremet sier at hver eneste s i F skal byttes med s minus a, også den i telleren. Alternativet med s alene i telleren er den vanligste feilen. Alternativet med tre i telleren er sinusraden."
+  },
+  {
+    "question": "Hva sier førsteforskyvningsteoremet?",
+    "options": [
+      "Å gange med $e^{at}$ forskyver argumentet til $s-a$",
+      "Å forskyve tiden gir en faktor $e^{-as}$ i $s$-planet",
+      "Å derivere svarer til å gange transformen med $s$",
+      "Å integrere svarer til å dele transformen på $s$"
+    ],
+    "explanation": "Teoremet sier at transformen av e opphøyd i a t ganger f av t er F av s minus a. Svaret om at forskyvning i tid gir en faktor e opphøyd i minus a s, beskriver derimot andreforskyvningsteoremet — der havner eksponentialfaktoren utenfor brøken."
+  },
+  {
+    "question": "Hva er $\\mathcal{L}\\{t^2e^{-3t}\\}$?",
+    "options": [
+      "$\\dfrac{2}{(s+3)^3}$",
+      "$\\dfrac{2}{(s-3)^3}$",
+      "$\\dfrac{2}{(s+3)^2}$",
+      "$\\dfrac{1}{(s+3)^3}$"
+    ],
+    "explanation": "Start med to delt på s i tredje, og bytt s med s minus a der a er minus tre, altså s pluss tre. Alternativet med minus i parentesen har feil fortegn på a, og alternativet med kvadrat har feil eksponent."
+  },
+  {
+    "question": "Hvordan finner du telleren $A$ over faktoren $(s-3)$ ved tildekking?",
+    "options": [
+      "Dekk til faktoren og sett $s=3$ i resten",
+      "Dekk til faktoren og sett $s=-3$ i resten",
+      "Deriver hele brøken og sett inn $s=3$",
+      "Gang opp med hele nevneren og sett $s=0$"
+    ],
+    "explanation": "Tildekking betyr at du fjerner faktoren fra brøken og setter inn den s-verdien som gjør faktoren null. For s minus tre er det s lik tre. Fortegnet er en klassisk felle: faktoren s pluss tre har rot minus tre."
+  },
+  {
+    "question": "Hva slags funksjon er $Y(s)$ når likningen har konstante koeffisienter?",
+    "options": [
+      "En rasjonal funksjon, altså en brøk mellom polynomer",
+      "Alltid et polynom av samme grad som likningen",
+      "En eksponentialfunksjon med en polynomfaktor",
+      "En sum av sinus- og cosinusledd i variabelen $s$"
+    ],
+    "explanation": "Både venstresiden og de vanlige høyresidene gir polynomer eller brøker mellom polynomer. Derfor blir Y alltid rasjonal, og det er nettopp grunnen til at delbrøkoppspalting alltid virker som siste skritt."
+  },
+  {
+    "question": "Hva forteller polene til $Y(s)$ deg før du har regnet ferdig?",
+    "options": [
+      "Hvilken form leddene i svaret får",
+      "Hvor store koeffisientene i svaret blir",
+      "Hvilke startverdier likningen må ha hatt",
+      "Om brøken er ekte eller uekte"
+    ],
+    "explanation": "Reelle poler gir eksponentialledd, et rent imaginært par gir rene svingninger, og et komplekst par a pluss minus b i gir dempede svingninger. Koeffisientene må du regne ut, men formen leser du rett ut av nevneren."
+  },
+  {
+    "question": "Hva må gjelde for $F(s)$ når $s$ går mot uendelig?",
+    "options": [
+      "Den må gå mot null",
+      "Den må gå mot en konstant større enn null",
+      "Den må vokse over alle grenser",
+      "Den må skifte fortegn minst én gang"
+    ],
+    "explanation": "For enhver funksjon av eksponentiell orden går transformen mot null. I praksis betyr det at telleren må ha lavere grad enn nevneren. Ender du med noe som går mot en konstant, har du regnet feil et sted."
+  },
+  {
+    "question": "Hvorfor driller boka metodevalg framfor å pugge transformtabellen?",
+    "options": [
+      "Fordi hjelpemiddelkode C gir et utdelt formelark med tabellen",
+      "Fordi tabellen er for lang til at noen kan lære den utenat",
+      "Fordi tabellen endres fra ett eksamenssett til det neste",
+      "Fordi kalkulatoren regner ut transformene automatisk"
+    ],
+    "explanation": "Eksamen har hjelpemiddelkode C, som betyr at et formelark deles ut sammen med oppgavesettet. Tabellen ligger altså foran deg. Ferdigheten som gir uttelling, er å se hvilken rad en oppgave hører til og føre regningen fram."
+  },
+  {
+    "question": "Hvilken av disse må du kunne eller utlede aktivt, uten å slå opp?",
+    "options": [
+      "Derivasjonsregelen $\\mathcal{L}\\{y'\\}=sY-y(0)$",
+      "Transformparet $\\mathcal{L}\\{t^n\\}=n!/s^{n+1}$",
+      "Transformparet $\\mathcal{L}\\{\\sin\\omega t\\}$",
+      "Transformparet $\\mathcal{L}\\{\\cosh at\\}$"
+    ],
+    "explanation": "Alle transformparene står på det utdelte formelarket, så dem skal du trene på å slå opp. Derivasjonsregelen står ikke der, og uten den finnes det ingen Laplace-metode for differensiallikninger."
+  },
+  {
+    "question": "Hva blir parentesen foran $Y$ når du transformerer $y''+5y'-6y$?",
+    "options": [
+      "$s^2+5s-6$",
+      "$s^2+5s+6$",
+      "$s^2-5s-6$",
+      "$2s+5-6$"
+    ],
+    "explanation": "Parentesen er likningens venstreside med y dobbeltmerket erstattet av s i annen, y merket av s, og y av én. Fortegnene følger med uendret. Dette er også likningens karakteristiske uttrykk, og det gir en rask kontroll."
+  },
+  {
+    "question": "Hvordan kan du utlede $\\mathcal{L}\\{\\cos\\omega t\\}$ fra sinusraden?",
+    "options": [
+      "Bruk derivasjonsregelen på $f(t)=\\sin\\omega t$",
+      "Bruk førsteforskyvningsteoremet med $a=\\omega$",
+      "Deriver transformen av sinus med hensyn på $s$",
+      "Sett $s=\\omega$ i transformen av sinus"
+    ],
+    "explanation": "Med f lik sinus omega t er f i null lik null, og den deriverte er omega ganger cosinus omega t. Derivasjonsregelen gir da s ganger sinustransformen, og deler du på omega, står cosinusraden der."
+  }
+]

@@ -1,0 +1,525 @@
+{
+  "id": "tma4135-2-3",
+  "courseId": "tma4135",
+  "chapterNumber": "2.3",
+  "title": "Forskyvningsteoremene, Heaviside og Dirac",
+  "description": "Stykkevis og impulsdrevet last: andreforskyvningsteoremet for trappefunksjoner og Dirac-delta — «finn $f$ først, forskyv sist».",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "skrive en stykkevis definert last som én formel bygd av enhetssprangfunksjoner, og kontrollere oppdelingen punkt for punkt",
+    "bruke andreforskyvningsteoremet begge veier, med rekkefølgen «finn $f$ først, forskyv sist» ført eksplisitt",
+    "skille andreforskyvningsteoremet fra førsteforskyvningsteoremet ut fra hvor eksponentialfaktoren står",
+    "løse likninger med trappelast og med Dirac-impuls, og kontrollere svaret ved å se på hva som er kontinuerlig og hva som hopper ved påslagstidspunktet"
+  ],
+  "content": [
+    {
+      "id": "tma4135-2-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er oppgavetypen der metoden slår alle alternativer — og der flest mister poeng på én bestemt måte.**\n\nBoka kaller denne oppgavetypen **C**: en Laplace-oppgave der pådraget slås av og på (en trapp) eller er et støt (en puls). Bokstavene er bare bokas forkortelser for oppgavetypene; hele listen står i [kap. 0.1](/tma4135/tma4135-0-1). Type C dukker opp i **5 av 13 sett** i frekvensgrunnlaget, som en variant inne i den faste Laplace-blokken oppgave 1–2. Kombinert med typene A og B er Laplace-blokken på **13 av 13 sett**.\n\n**Toppsjikt-markøren i dette kapitlet er andreforskyvningsteoremet brukt riktig.** Det er ikke nok å kjenne formelen — den skal brukes i **riktig rekkefølge**: finn $f(t)$ først, forskyv sist. Løsningsforslagene i arkivet fører den rekkefølgen eksplisitt, og en besvarelse som hopper over den, får sjelden full uttelling selv med riktig sluttsvar.\n\n**Formelark-merking.** Begge de sentrale radene —\n$$f(t-a)u(t-a) \\leftrightarrow e^{-as}F(s), \\qquad \\delta(t-a) \\leftrightarrow e^{-as}$$\n— **står på det utdelte formelarket — tren oppslaget**. Det som **må kunnes eller utledes aktivt**, er to ting arket ikke sier noe om: hvordan du deler en stykkevis funksjon opp i trappeledd før du transformerer, og at inversveien går «finn $f$ først, forskyv sist»."
+    },
+    {
+      "id": "tma4135-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 2.1](/tma4135/tma4135-2-1) — tabellen, derivasjonsregelen og førsteforskyvningsteoremet. [Kap. 2.2](/tma4135/tma4135-2-2) — delbrøkoppspalting og kvadratkomplettering; du trenger begge for å finne den funksjonen du skal forskyve.\n\nEllers forutsettes at du kan lese en stykkevis definert funksjon og tegne grafen dens. Kapitlet er forutsetning for drillen i [kap. 2.5](/tma4135/tma4135-2-5)."
+    },
+    {
+      "id": "tma4135-2-3-motivasjon",
+      "type": "text",
+      "content": "## Når pådraget slås av og på\n\nEn termostat skrur på varmen klokka seks og av klokka ti. En bryter slutter en krets. Et slag treffer en klokke. Alle tre er pådrag som **ikke** er glatte funksjoner — de hopper, eller de varer så kort at varigheten ikke betyr noe, bare styrken.\n\nDen klassiske løsningsmetoden takler slikt dårlig. Du må dele tidsaksen i biter, løse likningen på hver bit for seg, og deretter lime løsningene sammen ved å kreve at funksjonen og den deriverte er kontinuerlige i skjøtene. For tre bryterslag blir det fire delproblemer og seks limbetingelser.\n\nLaplace-transformen gjør dette i **én** regning. Du skriver pådraget som en sum av trappeledd, transformerer hele greia på én gang, løser for $Y(s)$, og transformerer tilbake. Limingen skjer av seg selv — trappefunksjonene bærer den.\n\nPrisen er én ny regel, og en rekkefølge du må holde styr på. Det er hele kapitlet.\n\n**Tidsplan for kapitlet (~60 min lesetid):** fem løkker, med et naturlig pausepunkt etter løkke 3. Anslaget gjelder lesing; regner du oppgavene med penn, kan du gange med rundt 1,5."
+    },
+    {
+      "id": "tma4135-2-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Enhetssprangfunksjonen (~10 min)\n\nAlt i kapitlet bygger på én eneste byggekloss: funksjonen som er null til et gitt tidspunkt og én etterpå."
+    },
+    {
+      "id": "tma4135-2-3-def-heaviside",
+      "type": "definition",
+      "title": "Enhetssprangfunksjonen (Heaviside-funksjonen)",
+      "content": "Bryteren i matematisk form: den er av fram til tidspunktet $a$, og på deretter.\n\n$$u(t-a) = \\begin{cases} 0, & t < a, \\\\ 1, & t \\ge a.\\end{cases}$$\n\nVi skriver den $u(t-a)$, med liten $u$, gjennom hele boka — det er samme notasjon som på det utdelte formelarket. Tallet $a$ er **påslagstidspunktet**, og det er alltid ikke-negativt i denne sammenhengen.\n\nNavnet kommer fra Oliver Heaviside, som innførte den for å regne på telegrafkabler. Verdien akkurat i $t=a$ har ingen betydning for noe integral, og forskjellige bøker setter den til $0$, $1$ eller $\\tfrac12$."
+    },
+    {
+      "id": "tma4135-2-3-fig-sprang",
+      "type": "image",
+      "src": "/images/textbook/tma4135/laplace-enhetssprang.svg",
+      "alt": "To grafer: øverst enhetssprangfunksjonen u(t − 2), som er null fram til t = 2 og deretter én. Nederst differansen u(t − 2) − u(t − 5), en puls som er én mellom t = 2 og t = 5 og null ellers.",
+      "caption": "Enhetssprangfunksjonen slår på ved $t=a$ og blir stående. Trekker du to slike fra hverandre, får du en puls som varer et bestemt tidsrom — byggeklossen for enhver stykkevis konstant last."
+    },
+    {
+      "id": "tma4135-2-3-def-avskjaering",
+      "type": "definition",
+      "title": "Å slå på og av med to sprang",
+      "content": "Grepet som gir en puls av endelig varighet: trekk to sprang fra hverandre.\n\n$$u(t-a) - u(t-b) = \\begin{cases} 1, & a \\le t < b, \\\\ 0, & ellers,\\end{cases} \\qquad a < b.$$\n\nGanger du en funksjon med dette, «klipper» du ut den delen av den som ligger mellom $a$ og $b$ og setter resten til null. Uttrykket $f(t)\\left(u(t-a)-u(t-b)\\right)$ er altså $f$ på intervallet $[a,b)$ og null utenfor.\n\n**Dette er hele oppdelingsteknikken i én linje.** Enhver stykkevis definert funksjon kan skrives som en sum av slike biter — og dermed transformeres."
+    },
+    {
+      "id": "tma4135-2-3-def-transform-sprang",
+      "type": "definition",
+      "title": "Transformen av selve sprangfunksjonen",
+      "content": "Den enkleste raden i kapitlet:\n\n$$\\mathcal{L}\\{u(t-a)\\} = \\frac{e^{-as}}{s}, \\qquad a \\ge 0.$$\n\nFor $a=0$ gir den $\\mathcal{L}\\{1\\}=1/s$, som stemmer med tabellen fra [kap. 2.1](/tma4135/tma4135-2-1).\n\n**Merk hvor faktoren $e^{-as}$ havner:** i telleren, som en faktor foran hele transformen. Ser du en eksponentialfaktor $e^{-as}$ i et uttrykk i $s$, er det alltid et varsel om en tidsforskyvning — aldri om en eksponentialfunksjon i $t$. Den forveksles med $\\mathcal{L}\\{e^{at}\\}=1/(s-a)$ oftere enn noen annen rad. Raden **står på det utdelte formelarket — tren oppslaget**."
+    },
+    {
+      "id": "tma4135-2-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ren gjengivelse — skriv opp transformen.\n\n**a)** $\\mathcal{L}\\{u(t-4)\\}$\n**b)** $\\mathcal{L}\\{3u(t-1)\\}$\n**c)** $\\mathcal{L}\\{u(t-2) - u(t-5)\\}$",
+        "solution": "**a)** Fra tabellen: $\\mathcal{L}\\{u(t-a)\\}=e^{-as}/s$ med $a=4$:\n$$\\mathcal{L}\\{u(t-4)\\} = \\frac{e^{-4s}}{s}.$$\n\n**b)** Konstanten blir stående etter linearitet:\n$$\\mathcal{L}\\{3u(t-1)\\} = \\frac{3e^{-s}}{s}.$$\n\n**c)** Ledd for ledd:\n$$\\mathcal{L}\\{u(t-2)-u(t-5)\\} = \\frac{e^{-2s}}{s} - \\frac{e^{-5s}}{s} = \\frac{e^{-2s}-e^{-5s}}{s}.$$\n\nDette er transformen av pulsen i figuren over — den som er $1$ mellom $t=2$ og $t=5$.\n\n**Merk formen på svarene.** Alle tre har en eksponentialfaktor $e^{-as}$ i **telleren**, ikke i nevneren. Det er signaturen til en tidsforskyvning.",
+        "hints": [
+          "Raden er $\\mathcal{L}\\{u(t-a)\\}=e^{-as}/s$ — les av $a$ fra parentesen.",
+          "I c): transformer hvert av de to leddene for seg."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Å skrive en stykkevis funksjon som trappeledd (~14 min)\n\nDette er skrittet **før** transformen, og det er der halvparten av arbeidet ligger. Du får en funksjon beskrevet med klammeparentes, og du skal ha den som én formel.\n\n**Oppskriften er en teleskopsum.** Start med verdien på det første intervallet. For hvert sprang, legg til **differansen** ganger et sprang på det stedet:\n\n$$f(t) = f_1 + (f_2-f_1)u(t-a_1) + (f_3-f_2)u(t-a_2) + \\dots$$\n\n**Intuisjon:** hvert ledd korrigerer det forrige. Du «reparerer» funksjonen ved hvert hoppepunkt, og reparasjonen er nøyaktig hoppets størrelse."
+    },
+    {
+      "id": "tma4135-2-3-def-trappeledd",
+      "type": "definition",
+      "title": "Trappeleddoppdeling",
+      "content": "Å skrive en stykkevis definert funksjon som **én** formel bygd av sprangfunksjoner.\n\nRegelen: begynn med uttrykket som gjelder på det første intervallet, og legg for hvert bruddpunkt $a$ til\n\n$$\\left(\\text{nytt uttrykk} - \\text{gammelt uttrykk}\\right)\\cdot u(t-a).$$\n\nEr $f$ lik $1$ til $t=2$, så $4$ til $t=6$, og $0$ etterpå, blir det\n\n$$f(t) = 1 + (4-1)u(t-2) + (0-4)u(t-6) = 1 + 3u(t-2) - 4u(t-6).$$\n\nTeknikken **må kunnes eller utledes aktivt** — den står ikke på formelarket, og den er første halvdel av hver eneste oppgave av denne typen.\n\n**Kontrollen som alltid virker:** velg ett $t$ i hvert intervall og regn ut. Ved $t=3$: $1+3 = 4$. Ved $t=7$: $1+3-4 = 0$. Stemmer."
+    },
+    {
+      "id": "tma4135-2-3-fig-trapp",
+      "type": "image",
+      "src": "/images/textbook/tma4135/laplace-heaviside-trappelast.svg",
+      "alt": "Graf av en stykkevis konstant last: verdien 1 fra t = 0 til t = 2, verdien 4 fra t = 2 til t = 6, og verdien 0 etter t = 6. Spranghøydene +3 og −4 er markert.",
+      "caption": "Lasten $f(t)=1+3u(t-2)-4u(t-6)$ tegnet før transform. Legg merke til at koeffisientene i formelen er **spranghøydene**, ikke funksjonsverdiene: $+3$ ved $t=2$ og $-4$ ved $t=6$."
+    },
+    {
+      "id": "tma4135-2-3-eks-1",
+      "type": "example",
+      "title": "Fra klammeparentes til én formel",
+      "problem": "En last er gitt ved\n$$f(t) = \\begin{cases} 1, & 0 \\le t < 2, \\\\ 4, & 2 \\le t < 6, \\\\ 0, & t \\ge 6.\\end{cases}$$\nSkriv $f$ ved hjelp av sprangfunksjoner og finn $\\mathcal{L}\\{f\\}$.",
+      "solution": "**Steg 1 — trappeleddoppdeling.** Start med verdien på det første intervallet, $1$. Ved $t=2$ hopper funksjonen fra $1$ til $4$, altså **opp $3$**. Ved $t=6$ hopper den fra $4$ til $0$, altså **ned $4$**:\n$$f(t) = 1 + 3u(t-2) - 4u(t-6).$$\n\n**Kontroll — ett punkt i hvert intervall.**\nVed $t=1$: bare første ledd er aktivt, $f=1$.\nVed $t=3$: $1+3 = 4$.\nVed $t=7$: $1+3-4 = 0$.\nAlle tre stemmer med klammeparentesen.\n\n**Steg 2 — transformer.** Etter linearitet og raden $\\mathcal{L}\\{u(t-a)\\}=e^{-as}/s$ fra tabellen på formelarket:\n$$\\mathcal{L}\\{f\\} = \\frac1s + \\frac{3e^{-2s}}{s} - \\frac{4e^{-6s}}{s} = \\frac{1 + 3e^{-2s} - 4e^{-6s}}{s}.$$\n\n**Merk hva koeffisientene er.** De er $1$, $3$ og $-4$ — spranghøydene, ikke funksjonsverdiene $1$, $4$ og $0$. Å skrive $1 + 4u(t-2)$ i stedet for $1+3u(t-2)$ er den vanligste feilen i dette skrittet, og den er lett å oppdage med kontrollen over."
+    },
+    {
+      "id": "tma4135-2-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv hver funksjon ved hjelp av sprangfunksjoner, og kontroller med ett punkt per intervall.\n\n**a)** $f(t) = 5$ for $0\\le t < 3$, og $f(t)=0$ for $t\\ge 3$.\n**b)** $g(t) = 2$ for $0\\le t < 1$, $g(t)=-1$ for $1\\le t<4$, og $g(t)=3$ for $t\\ge 4$.",
+        "solution": "**a)** Start på $5$, og spranget ved $t=3$ er $0-5 = -5$:\n$$f(t) = 5 - 5u(t-3).$$\nKontroll: ved $t=1$ er $f=5$; ved $t=4$ er $f=5-5=0$. Stemmer.\n\nTransformen blir $\\mathcal{L}\\{f\\} = \\dfrac{5}{s} - \\dfrac{5e^{-3s}}{s} = \\dfrac{5\\left(1-e^{-3s}\\right)}{s}$.\n\n**b)** Start på $2$. Spranget ved $t=1$ er $-1-2 = -3$; spranget ved $t=4$ er $3-(-1) = 4$:\n$$g(t) = 2 - 3u(t-1) + 4u(t-4).$$\nKontroll: ved $t=0{,}5$ er $g=2$; ved $t=2$ er $g=2-3=-1$; ved $t=5$ er $g=2-3+4=3$. Alle stemmer.\n\nTransformen blir $\\mathcal{L}\\{g\\} = \\dfrac{2 - 3e^{-s} + 4e^{-4s}}{s}$.",
+        "hints": [
+          "Koeffisienten foran hvert sprang er **differansen** mellom ny og gammel verdi, ikke den nye verdien.",
+          "Sjekk alltid med ett punkt i hvert intervall før du transformerer."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Andreforskyvningsteoremet (~14 min)\n\nNå kommer regelen som gir kapitlet navnet. Den forteller hva som skjer med transformen når en funksjon **forskyves i tid** og slås på først ved $t=a$.\n\n**Utledningen** er ett variabelskifte. Skriv definisjonen for $f(t-a)u(t-a)$. Sprangfunksjonen gjør at integranden er null under $t=a$, så integralet starter der:\n\n$$\\mathcal{L}\\{f(t-a)u(t-a)\\} = \\int_a^{\\infty} e^{-st}f(t-a)\\,dt.$$\n\nSett $\\tau = t-a$, altså $t = \\tau + a$ og $dt = d\\tau$. Da blir grensene $0$ til $\\infty$:\n\n$$= \\int_0^{\\infty} e^{-s(\\tau+a)}f(\\tau)\\,d\\tau = e^{-as}\\int_0^{\\infty}e^{-s\\tau}f(\\tau)\\,d\\tau = e^{-as}F(s).$$\n\n**Intuisjon:** å skyve en funksjon $a$ enheter ut i tid koster nøyaktig én faktor $e^{-as}$ i $s$-planet. Forskyvning i tid gir en eksponentialfaktor; sammenlign med **første** forskyvning i [kap. 2.1](/tma4135/tma4135-2-1), der en eksponentialfaktor i tid ga en forskyvning i $s$. De to reglene er speilbilder av hverandre, og det er nettopp derfor de forveksles."
+    },
+    {
+      "id": "tma4135-2-3-thm-andreforskyvning",
+      "type": "theorem",
+      "title": "Andreforskyvningsteoremet",
+      "content": "La $f$ ha transformen $F(s)$, og la $a \\ge 0$. Da er\n\n$$\\mathcal{L}\\{f(t-a)\\,u(t-a)\\} = e^{-as}F(s).$$\n\n**Legg merke til hva venstresiden krever.** Både funksjonen **og** sprangfunksjonen skal ha argumentet $t-a$ — samme $a$ begge steder. Uttrykket $f(t)u(t-a)$ passer *ikke* rett inn i teoremet; da må du først skrive $f(t)$ om ved hjelp av $t-a$.\n\n**Den omvendte veien** er den som brukes oftest, og den er kilden til de fleste feilene:\n\n$$\\mathcal{L}^{-1}\\left\\{e^{-as}F(s)\\right\\} = f(t-a)\\,u(t-a).$$\n\nI ord: **finn $f(t)$ av $F(s)$ først, og forskyv sist.** Du skal aldri prøve å invertere $e^{-as}F(s)$ i ett jafs. Teoremet **står på det utdelte formelarket — tren oppslaget**, men rekkefølgen i bruken **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-3-def-finn-f-forst",
+      "type": "definition",
+      "title": "Regelen «finn $f$ først, forskyv sist»",
+      "content": "Arbeidsrekkefølgen for enhver invers transform med en eksponentialfaktor. Tre skritt, alltid i denne rekkefølgen:\n\n1. **Dekk til** faktoren $e^{-as}$ og noter $a$.\n2. **Finn $f(t) = \\mathcal{L}^{-1}\\{F(s)\\}$** med teknikkene fra [kap. 2.2](/tma4135/tma4135-2-2) — delbrøk, kvadratkomplettering, det som trengs.\n3. **Bytt hver $t$ i $f$ med $t-a$**, og gang hele greia med $u(t-a)$.\n\nSkritt 3 er to handlinger, og folk gjør bare den ene: de finner $f$ og ganger med $u(t-a)$, men glemmer å forskyve argumentet. Resultatet $f(t)u(t-a)$ er galt — det riktige er $f(t-a)u(t-a)$.\n\nRegelen **må kunnes eller utledes aktivt**."
+    },
+    {
+      "id": "tma4135-2-3-eks-2",
+      "type": "example",
+      "title": "Forskyvning begge veier",
+      "problem": "**a)** Finn $\\mathcal{L}\\{t^2u(t-1)\\}$.\n**b)** Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{e^{-3s}}{s^2+4}\\right\\}$.",
+      "solution": "**a)** Her passer ikke uttrykket rett inn i teoremet: sprangfunksjonen har argument $t-1$, men $t^2$ har argument $t$. **Vi må skrive $t^2$ ved hjelp av $t-1$.** Sett $\\tau = t-1$, altså $t = \\tau+1$:\n$$t^2 = (\\tau+1)^2 = \\tau^2 + 2\\tau + 1 = (t-1)^2 + 2(t-1) + 1.$$\n\nNå er hvert ledd på formen «funksjon av $t-1$», og **etter andreforskyvningsteoremet** med $a=1$ transformerer vi ledd for ledd. Fra tabellen på formelarket er $\\mathcal{L}\\{t^2\\}=2/s^3$, $\\mathcal{L}\\{t\\}=1/s^2$ og $\\mathcal{L}\\{1\\}=1/s$:\n$$\\mathcal{L}\\{t^2u(t-1)\\} = e^{-s}\\left(\\frac{2}{s^3} + \\frac{2}{s^2} + \\frac1s\\right).$$\n\n**Kontroll av omskrivingen:** gang ut $(t-1)^2+2(t-1)+1 = t^2-2t+1+2t-2+1 = t^2$. Stemmer.\n\n**b)** Her går vi motsatt vei. **Steg 1:** dekk til $e^{-3s}$, altså $a=3$, og se på det som blir igjen:\n$$F(s) = \\frac{1}{s^2+4}.$$\n\n**Steg 2 — finn $f$.** Sinusraden krever telleren $\\omega = 2$, så vi skriver $1 = \\tfrac12\\cdot 2$:\n$$f(t) = \\mathcal{L}^{-1}\\left\\{\\frac12\\cdot\\frac{2}{s^2+4}\\right\\} = \\frac12\\sin 2t.$$\n\n**Steg 3 — forskyv.** **Etter andreforskyvningsteoremet** byttes hver $t$ i $f$ med $t-3$, og hele uttrykket ganges med $u(t-3)$:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{e^{-3s}}{s^2+4}\\right\\} = \\frac12\\sin\\!\\big(2(t-3)\\big)\\,u(t-3).$$\n\n**Legg merke til parentesen:** argumentet er $2(t-3)$, ikke $2t-3$. Å gange inn feil er en klassisk fortegns- og fasefeil, og den gir en løsning som starter på feil sted i svingningen.\n\n**Kontroll:** ved $t=3$ er svaret $\\tfrac12\\sin 0 = 0$, og løsningen starter altså glatt fra null i det øyeblikket den slås på. Det er slik det skal være."
+    },
+    {
+      "id": "tma4135-2-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn transformen.\n\n**a)** $\\mathcal{L}\\{u(t-2)(t-2)^3\\}$\n**b)** $\\mathcal{L}\\{e^{t}u(t-2)\\}$\n**c)** $\\mathcal{L}\\{t\\,u(t-3)\\}$",
+        "solution": "**a)** Uttrykket står allerede på teoremets form, med $f(t)=t^3$ og $a=2$. Fra tabellen er $\\mathcal{L}\\{t^3\\}=6/s^4$, så **etter andreforskyvningsteoremet**:\n$$\\mathcal{L}\\{u(t-2)(t-2)^3\\} = \\frac{6e^{-2s}}{s^4}.$$\n\n**b)** Her har eksponentialfunksjonen argument $t$, ikke $t-2$. Skriv den om:\n$$e^{t} = e^{(t-2)+2} = e^{2}\\,e^{t-2}.$$\nKonstanten $e^2$ er bare et tall og blir stående utenfor. Med $f(t)=e^{t}$, altså $F(s)=1/(s-1)$, og $a=2$:\n$$\\mathcal{L}\\{e^{t}u(t-2)\\} = \\frac{e^{2}e^{-2s}}{s-1}.$$\nMerk at $e^2$ og $e^{-2s}$ er to helt forskjellige ting — det første er et tall, det andre er forskyvningsfaktoren.\n\n**c)** Skriv $t = (t-3)+3$:\n$$t\\,u(t-3) = (t-3)u(t-3) + 3u(t-3).$$\nFra tabellen er $\\mathcal{L}\\{t\\}=1/s^2$ og $\\mathcal{L}\\{1\\}=1/s$, så\n$$\\mathcal{L}\\{t\\,u(t-3)\\} = e^{-3s}\\left(\\frac{1}{s^2} + \\frac{3}{s}\\right).$$\n\n**Fellesregelen i b) og c):** står funksjonen med argument $t$ mens sprangfunksjonen har $t-a$, må du skrive funksjonen om i $t-a$ først. Det er alltid mulig, og for polynomer gjør du det ved å sette $t = (t-a)+a$ og gange ut.",
+        "hints": [
+          "Sjekk først om funksjonen og sprangfunksjonen har **samme** argument. Har de ikke det, skriv om.",
+          "For polynomer: sett $t=(t-a)+a$ og gang ut. For eksponentialfunksjoner: bruk potensregelen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn den inverse transformen. Skriv opp $a$ og $F(s)$ hver for seg før du forskyver.\n\n**a)** $\\dfrac{e^{-2s}\\,s}{s^2+9}$\n**b)** $\\dfrac{e^{-s}}{s^2+2s+5}$",
+        "solution": "**a)** **Steg 1:** $a = 2$ og $F(s) = s/(s^2+9)$.\n**Steg 2:** fra tabellen på formelarket er cosinusraden $s/(s^2+\\omega^2)$ med $\\omega = 3$, altså $f(t)=\\cos 3t$.\n**Steg 3 — etter andreforskyvningsteoremet** byttes $t$ med $t-2$:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{e^{-2s}s}{s^2+9}\\right\\} = \\cos\\!\\big(3(t-2)\\big)\\,u(t-2).$$\n\n**b)** **Steg 1:** $a = 1$ og $F(s) = 1/\\left(s^2+2s+5\\right)$.\n**Steg 2:** nevneren har diskriminant $4-20 = -16 < 0$, så vi kvadratkompletterer ([kap. 2.2](/tma4135/tma4135-2-2)): $s^2+2s+5 = (s+1)^2+4$, altså $a_{\\text{demp}} = -1$ og $\\omega = 2$. Sinusraden krever telleren $2$:\n$$F(s) = \\frac12\\cdot\\frac{2}{(s+1)^2+4} \\quad\\Longrightarrow\\quad f(t) = \\frac12 e^{-t}\\sin 2t.$$\n**Steg 3 — forskyv.** Hver $t$ i $f$ byttes med $t-1$:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{e^{-s}}{s^2+2s+5}\\right\\} = \\frac12 e^{-(t-1)}\\sin\\!\\big(2(t-1)\\big)\\,u(t-1).$$\n\n**Merk:** *hver* $t$ — også den i eksponenten. Å skrive $e^{-t}$ i stedet for $e^{-(t-1)}$ er feil med en konstant faktor $e$, og det er en feil som ikke synes med mindre du kontrollerer.\n\n**Kontroll av b):** ved $t=1$ er svaret null, som det skal være når løsningen slås på der.",
+        "hints": [
+          "Dekk til eksponentialfaktoren først og noter $a$. Regn så helt ferdig med det som er igjen.",
+          "I b): kvadratkompletter nevneren før du gjør noe med forskyvningen."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-pause",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå begge halvdelene: du kan skrive et stykkevis pådrag som trappeledd, og du kan forskyve begge veier. Resten av kapitlet setter det sammen til hele likninger, og legger til én pådragstype til."
+    },
+    {
+      "id": "tma4135-2-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Hele likningen med en trappelast (~12 min)\n\nNå er alt på plass. Oppskriften er den samme fireskrittsoppskriften fra [kap. 2.1](/tma4135/tma4135-2-1), med ett ekstra skritt i hver ende: skriv lasten som trappeledd før du transformerer, og forskyv til slutt."
+    },
+    {
+      "id": "tma4135-2-3-def-oppskrift-heaviside",
+      "type": "definition",
+      "title": "Oppskrift: likning med trappelast",
+      "content": "Seks skritt, i denne rekkefølgen:\n\n1. **Skriv pådraget** $f(t)$ som en sum av trappeledd.\n2. **Transformer** likningen med derivasjonsregelen og sett inn startverdiene.\n3. **Løs for $Y(s)$.** Resultatet får formen $Y(s) = e^{-as}G(s) + \\dots$, med én eksponentialfaktor per sprang.\n4. **Dekk til hver eksponentialfaktor** og noter dens $a$.\n5. **Finn den inverse av det som blir igjen** — delbrøk og kvadratkomplettering ([kap. 2.2](/tma4135/tma4135-2-2)).\n6. **Forskyv til slutt:** hvert ledd blir $g(t-a)u(t-a)$.\n\nOppskriften **må kunnes eller utledes aktivt**. Skritt 4–6 er andreforskyvningsteoremet brukt i riktig rekkefølge, og de er der uttellingen ligger."
+    },
+    {
+      "id": "tma4135-2-3-eks-3",
+      "type": "example",
+      "title": "En kraft som slås på ved $t=2$",
+      "problem": "Løs $y'' + 9y = 3u(t-2)$ med $y(0)=0$ og $y'(0)=0$.",
+      "solution": "**Skritt 1–2 — transformer.** Startverdiene er null, så $\\mathcal{L}\\{y''\\}=s^2Y$. Høyresiden: fra tabellen på formelarket er $\\mathcal{L}\\{3u(t-2)\\}=3e^{-2s}/s$. Likningen blir\n$$s^2Y + 9Y = \\frac{3e^{-2s}}{s}.$$\n\n**Skritt 3 — løs for $Y$:**\n$$Y(s) = \\frac{3e^{-2s}}{s\\left(s^2+9\\right)} = e^{-2s}\\cdot\\underbrace{\\frac{3}{s\\left(s^2+9\\right)}}_{G(s)}.$$\n\n**Skritt 4 — noter forskyvningen.** Her er $a = 2$, og resten er $G(s) = 3/\\left(s(s^2+9)\\right)$.\n\n**Skritt 5 — finn $g(t)$.** Ansats med én reell rot og en irredusibel faktor:\n$$\\frac{3}{s\\left(s^2+9\\right)} = \\frac{A}{s} + \\frac{Bs+C}{s^2+9}.$$\nTildekking: $A = \\left.3/(s^2+9)\\right|_{s=0} = 3/9 = 1/3$. Gang opp og sett inn $A$:\n$$3 - \\tfrac13\\left(s^2+9\\right) = -\\tfrac13 s^2 = (Bs+C)s,$$\naltså $B = -1/3$ og $C=0$. Da er\n$$G(s) = \\frac{1}{3}\\cdot\\frac1s - \\frac13\\cdot\\frac{s}{s^2+9} \\quad\\Longrightarrow\\quad g(t) = \\frac13\\left(1 - \\cos 3t\\right).$$\n\n**Kontroll av oppspaltingen ved $s=1$:** venstre gir $3/(1\\cdot 10) = 0{,}3$; høyre gir $\\tfrac13 - \\tfrac13\\cdot\\tfrac{1}{10} = 0{,}3\\overline{3} - 0{,}0\\overline{3} = 0{,}3$. Stemmer.\n\n**Skritt 6 — forskyv til slutt. Etter andreforskyvningsteoremet:**\n$$y(t) = \\frac13\\Big(1 - \\cos\\!\\big(3(t-2)\\big)\\Big)\\,u(t-2).$$\n\nI ord: ingenting skjer før $t=2$; deretter svinger systemet om det nye likevektsnivået $1/3$ med amplitude $1/3$.\n\n**Kontroll — sett inn i likningen for $t>2$.** Med $\\theta = 3(t-2)$ er $y = \\tfrac13(1-\\cos\\theta)$, så\n$$y'' = \\tfrac13\\cdot 9\\cos\\theta = 3\\cos\\theta, \\qquad 9y = 3 - 3\\cos\\theta,$$\nog $y''+9y = 3$. Stemmer med høyresiden for $t>2$. Startverdiene: $y$ og $y'$ er identisk null for $t<2$, og ved $t=2$ er både $y=0$ og $y'=0$ — løsningen kobles glatt på."
+    },
+    {
+      "id": "tma4135-2-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y' + 2y = 4u(t-1)$ med $y(0)=0$.",
+        "solution": "**Transformer.** Med $y(0)=0$ er $\\mathcal{L}\\{y'\\}=sY$, og fra tabellen er $\\mathcal{L}\\{4u(t-1)\\}=4e^{-s}/s$:\n$$sY + 2Y = \\frac{4e^{-s}}{s} \\quad\\Longrightarrow\\quad Y(s) = e^{-s}\\cdot\\frac{4}{s(s+2)}.$$\n\n**Noter forskyvningen:** $a=1$, og $G(s) = 4/\\left(s(s+2)\\right)$.\n\n**Finn $g$ ved tildekking:**\n$$A = \\left.\\frac{4}{s+2}\\right|_{s=0} = 2, \\qquad B = \\left.\\frac{4}{s}\\right|_{s=-2} = -2,$$\naltså $G(s) = \\dfrac2s - \\dfrac{2}{s+2}$ og\n$$g(t) = 2 - 2e^{-2t}.$$\n\n**Forskyv til slutt. Etter andreforskyvningsteoremet:**\n$$y(t) = \\left(2 - 2e^{-2(t-1)}\\right)u(t-1).$$\n\n**Kontroll.** For $t>1$: $y' = 4e^{-2(t-1)}$ og $2y = 4 - 4e^{-2(t-1)}$, så $y'+2y = 4$. Stemmer. Ved $t=1$ er $y = 2-2 = 0$, så løsningen starter fra null.\n\n**Tolkning:** systemet krøller seg mot det nye nivået $2$ med tidskonstant $1/2$, men først fra $t=1$.",
+        "hints": [
+          "Transformer høyresiden med raden $\\mathcal{L}\\{u(t-a)\\}=e^{-as}/s$.",
+          "Dekk til $e^{-s}$, finn den inverse av resten helt ferdig, og forskyv **etterpå**."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs $y' + y = 2 - 2u(t-3)$ med $y(0)=0$. Oppgi svaret som én formel, og skriv også opp hva $y$ er på hvert av de to intervallene.",
+        "solution": "**Transformer.** Høyresiden er $2 - 2u(t-3)$, altså et pådrag som står på med styrke $2$ fram til $t=3$ og deretter er av:\n$$sY + Y = \\frac2s - \\frac{2e^{-3s}}{s} \\quad\\Longrightarrow\\quad Y(s) = \\frac{2}{s(s+1)} - e^{-3s}\\cdot\\frac{2}{s(s+1)}.$$\n\n**Finn $g$ for den felles brøken.** Tildekking:\n$$A = \\left.\\frac{2}{s+1}\\right|_{s=0} = 2, \\qquad B = \\left.\\frac{2}{s}\\right|_{s=-1} = -2,$$\naltså $g(t) = 2 - 2e^{-t}$.\n\n**Sett sammen.** Det første leddet har ingen forskyvning; det andre har $a=3$, så **etter andreforskyvningsteoremet**:\n$$y(t) = \\left(2-2e^{-t}\\right) - \\left(2 - 2e^{-(t-3)}\\right)u(t-3).$$\n\n**På hvert intervall:**\n$$y(t) = \\begin{cases} 2 - 2e^{-t}, & 0 \\le t < 3, \\\\[4pt] 2e^{-(t-3)} - 2e^{-t}, & t \\ge 3.\\end{cases}$$\nFor $t\\ge 3$ falt konstantleddet bort: $2 - 2 = 0$.\n\n**Kontroll ved skjøten $t=3$.** Ovenfra: $2-2e^{-3} \\approx 1{,}9004$. Nedenfra samme uttrykk. Fra det andre uttrykket: $2e^{0}-2e^{-3} = 2 - 2e^{-3}$. Samme tall — løsningen er kontinuerlig, som den skal være når pådraget bare hopper.\n\n**Kontroll av likningen for $t>3$:** $y = 2e^{-(t-3)}-2e^{-t}$ gir $y' = -2e^{-(t-3)}+2e^{-t} = -y$, altså $y'+y = 0$. Det stemmer, siden pådraget er av der.\n\n**Tolkning:** systemet lader opp mot $2$ til $t=3$, og faller så mot null igjen — nøyaktig oppførselen til en kondensator som lades og utlades.",
+        "hints": [
+          "Pådraget er et rektangel: skriv det som differansen mellom to sprang, og transformer hvert ledd.",
+          "Begge leddene har **samme** brøk $2/(s(s+1))$. Finn den inverse én gang, og bruk den to ganger — én uforskjøvet og én forskjøvet."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Dirac-delta: et støt uten varighet (~10 min)\n\nEn hammer treffer en klokke. Kraften varer i mikrosekunder, men den er stor. Til slutt er det ikke varigheten eller styrken hver for seg som betyr noe for utslaget — det er **produktet**, altså den totale impulsen.\n\nMatematisk modellerer vi dette som en grense: en puls med varighet $\\varepsilon$ og høyde $1/\\varepsilon$, slik at arealet alltid er $1$, og så lar vi $\\varepsilon\\to 0$. Grensen er ikke en vanlig funksjon — den er null overalt bortsett fra i ett punkt, og har likevel areal $1$ — men den oppfører seg som en funksjon i alle regnestykkene vi bruker den i."
+    },
+    {
+      "id": "tma4135-2-3-def-dirac",
+      "type": "definition",
+      "title": "Dirac-delta",
+      "content": "Modellen for et øyeblikkelig støt ved tidspunktet $a$, skrevet $\\delta(t-a)$.\n\nDen er ikke en funksjon i vanlig forstand, men et **grensetilfelle** av stadig smalere og høyere pulser med areal $1$. De to egenskapene vi bruker, er\n\n$$\\int_0^{\\infty}\\delta(t-a)\\,dt = 1 \\qquad \\text{og} \\qquad \\int_0^{\\infty}\\delta(t-a)f(t)\\,dt = f(a),$$\n\nfor $a > 0$. Den andre kalles **silingsegenskapen**: integralet plukker ut funksjonsverdien i det ene punktet der deltaen sitter.\n\nFysisk tolkning: $\\delta$ er en **impuls**, ikke en kraft. Enheten er kraft ganger tid. Et slag, et spenningsspiss, en kollisjon."
+    },
+    {
+      "id": "tma4135-2-3-def-transform-dirac",
+      "type": "definition",
+      "title": "Transformen av Dirac-delta",
+      "content": "Den korteste raden på hele formelarket:\n\n$$\\mathcal{L}\\{\\delta(t-a)\\} = e^{-as}, \\qquad a \\ge 0.$$\n\nDen følger direkte av silingsegenskapen: sett $f(t)=e^{-st}$ i integralet, og du får $e^{-as}$.\n\n**Sammenlign med sprangfunksjonen:** $\\mathcal{L}\\{u(t-a)\\}=e^{-as}/s$. Deltaen mangler nevneren $s$ — som den skal, siden $u$ er integralet av $\\delta$, og integrasjon svarer til å dele på $s$.\n\nRaden **står på det utdelte formelarket — tren oppslaget**. Merk at $\\mathcal{L}\\{\\delta(t-a)\\}$ **ikke** går mot null når $s\\to\\infty$ for $a=0$; det er et av tegnene på at $\\delta$ ikke er en vanlig funksjon."
+    },
+    {
+      "id": "tma4135-2-3-def-impulsrespons",
+      "type": "definition",
+      "title": "Impulsrespons",
+      "content": "Systemets svar på et enkelt støt — løsningen av likningen med $\\delta(t-a)$ på høyresiden og null startverdier.\n\nDen forteller alt om systemets egen dynamikk: hvilke frekvenser det svinger med, og hvor fort svingningene dør ut. Grunnen er at transformen av $\\delta$ er en ren eksponentialfaktor, så $Y(s)$ blir $e^{-as}$ delt på likningens karakteristiske uttrykk — altså systemet uten noe fra pådraget.\n\n**Praktisk konsekvens du kan se i svaret:** et støt gir et **sprang i den deriverte**, ikke i funksjonen selv. Løsningen er kontinuerlig ved $t=a$, men knekker."
+    },
+    {
+      "id": "tma4135-2-3-eks-4",
+      "type": "example",
+      "title": "Et støt på en svingende masse",
+      "problem": "Løs $y'' + 4y = \\delta(t-\\pi)$ med $y(0)=0$ og $y'(0)=0$, og forklar hva som skjer ved $t=\\pi$.",
+      "solution": "**Transformer.** Startverdiene er null, og fra tabellen på formelarket er $\\mathcal{L}\\{\\delta(t-\\pi)\\}=e^{-\\pi s}$:\n$$s^2Y + 4Y = e^{-\\pi s} \\quad\\Longrightarrow\\quad Y(s) = e^{-\\pi s}\\cdot\\frac{1}{s^2+4}.$$\n\n**Noter forskyvningen:** $a = \\pi$, og $F(s) = 1/\\left(s^2+4\\right)$.\n\n**Finn $f$.** Sinusraden med $\\omega = 2$ krever telleren $2$:\n$$f(t) = \\frac12\\sin 2t.$$\n\n**Forskyv. Etter andreforskyvningsteoremet:**\n$$y(t) = \\frac12\\sin\\!\\big(2(t-\\pi)\\big)\\,u(t-\\pi).$$\n\n**Forenkling.** Siden $\\sin$ har periode $2\\pi$, er $\\sin(2t-2\\pi) = \\sin 2t$, så for $t \\ge \\pi$ er\n$$y(t) = \\frac12\\sin 2t.$$\nLøsningen er altså null fram til $t=\\pi$, og deretter en ren svingning med amplitude $\\tfrac12$.\n\n**Hva som skjer ved $t=\\pi$.** Regn ut de ensidige grensene:\n- $y$ selv: fra venstre $0$, fra høyre $\\tfrac12\\sin 2\\pi = 0$. **Kontinuerlig.**\n- $y'$: fra venstre $0$, fra høyre $\\cos 2\\pi = 1$. **Sprang på $1$.**\n\nStøtet gir altså massen en øyeblikkelig fartsendring på $1$, mens posisjonen ikke rekker å endre seg. Det er nøyaktig det en impuls gjør fysisk: den overfører bevegelsesmengde, ikke forflytning. Spranghøyden er lik impulsens styrke — her $1$.\n\n**Kontroll.** For $t>\\pi$ er $y = \\tfrac12\\sin 2t$, så $y'' = -2\\sin 2t = -4y$, altså $y''+4y=0$. Riktig: høyresiden er null overalt utenom det ene punktet."
+    },
+    {
+      "id": "tma4135-2-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $y'' + 6y' + 9y = \\delta(t-2)$ med $y(0)=0$ og $y'(0)=0$.",
+        "solution": "**Transformer.** Med null startverdier og $\\mathcal{L}\\{\\delta(t-2)\\}=e^{-2s}$ fra tabellen:\n$$\\left(s^2+6s+9\\right)Y = e^{-2s} \\quad\\Longrightarrow\\quad Y(s) = e^{-2s}\\cdot\\frac{1}{(s+3)^2}.$$\nNevneren er et fullstendig kvadrat — diskriminanten er $36-36=0$, altså en **dobbel** rot i $s=-3$.\n\n**Finn $f$.** Fra $\\mathcal{L}\\{t^ne^{at}\\}=n!/(s-a)^{n+1}$ med $n=1$ og $a=-3$:\n$$f(t) = te^{-3t}.$$\n\n**Forskyv. Etter andreforskyvningsteoremet** med $a=2$ byttes hver $t$ ut med $t-2$:\n$$y(t) = (t-2)e^{-3(t-2)}\\,u(t-2).$$\n\n**Kontroll.** Ved $t=2$ er $y=0$ — kontinuerlig. Den deriverte for $t>2$ er\n$$y' = e^{-3(t-2)} - 3(t-2)e^{-3(t-2)},$$\nsom gir $y'(2^+) = 1$: et sprang på $1$ i farten, altså impulsens styrke. Riktig oppførsel.\n\n**Merk formen:** den doble rota gir en faktor $(t-2)$, ikke to eksponentialledd — se [kap. 2.2](/tma4135/tma4135-2-2). Systemet er kritisk dempet: det svinger ikke, men går tilbake mot null så raskt det kan.",
+        "hints": [
+          "Faktoriser nevneren først. Hva slags rot har $s^2+6s+9$?",
+          "En dobbel rot gir en faktor $t$ i den inverse. Forskyv **etter** at du har funnet den."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs $y'' + 2y' + 5y = \\delta(t-1)$ med $y(0)=0$ og $y'(0)=0$. Vis at løsningen er kontinuerlig ved $t=1$, men at den deriverte har et sprang, og finn spranghøyden.",
+        "solution": "**Transformer.** Med null startverdier og $\\mathcal{L}\\{\\delta(t-1)\\}=e^{-s}$:\n$$\\left(s^2+2s+5\\right)Y = e^{-s} \\quad\\Longrightarrow\\quad Y(s) = e^{-s}\\cdot\\frac{1}{s^2+2s+5}.$$\n\n**Finn $f$.** Diskriminanten er $4-20 = -16 < 0$, så vi kvadratkompletterer: $s^2+2s+5 = (s+1)^2+4$, altså demping $e^{-t}$ og $\\omega = 2$. Sinusraden krever telleren $2$:\n$$f(t) = \\frac12 e^{-t}\\sin 2t.$$\n\n**Forskyv. Etter andreforskyvningsteoremet** med $a=1$:\n$$y(t) = \\frac12 e^{-(t-1)}\\sin\\!\\big(2(t-1)\\big)\\,u(t-1).$$\n\n**Kontinuitet ved $t=1$.** Fra venstre er $y=0$. Fra høyre er $y(1^+) = \\tfrac12 e^{0}\\sin 0 = 0$. Like — løsningen er kontinuerlig.\n\n**Sprang i den deriverte.** For $t>1$, med $\\theta = 2(t-1)$:\n$$y' = -\\frac12 e^{-(t-1)}\\sin\\theta + e^{-(t-1)}\\cos\\theta.$$\nVed $t=1^+$ blir dette $-0 + 1\\cdot 1 = 1$. Fra venstre er $y'=0$. **Spranghøyden er $1$** — nøyaktig impulsens styrke.\n\n**Hvorfor spranghøyden alltid blir styrken.** Integrer likningen over et lite intervall $[1-\\varepsilon, 1+\\varepsilon]$. Leddene $2y'$ og $5y$ bidrar med noe som går mot null når $\\varepsilon\\to 0$ (de er begrensede), mens $\\int y''\\,dt = y'(1+\\varepsilon)-y'(1-\\varepsilon)$ og $\\int\\delta(t-1)\\,dt = 1$. I grensen står det igjen\n$$y'(1^+) - y'(1^-) = 1.$$\nDet er det generelle argumentet, og det gjelder for enhver andreordens likning med $\\delta$ på høyresiden: **spranget i den deriverte er lik impulsens styrke, uansett hva koeffisientene er.**\n\n**Tolkning:** systemet står stille, får et slag ved $t=1$, og svinger seg deretter dempet inn mot null igjen.",
+        "hints": [
+          "Kvadratkompletter nevneren, finn $f$ helt ferdig, og forskyv til slutt.",
+          "For spranghøyden: regn ut $y'$ for $t>1$ og sett inn $t=1$. Sammenlign med at $y'=0$ til venstre."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs $y'' + y = 1 - u(t-\\pi)$ med $y(0)=0$ og $y'(0)=0$. Skriv svaret både som én formel og som en klammeparentes med to intervaller.",
+        "solution": "**Tolk pådraget.** Uttrykket $1-u(t-\\pi)$ er en rektangelpuls: $1$ på $[0,\\pi)$ og $0$ etterpå. Kraften står på i akkurat én halvperiode av systemets egen svingning.\n\n**Transformer.** Med null startverdier:\n$$s^2Y + Y = \\frac1s - \\frac{e^{-\\pi s}}{s} \\quad\\Longrightarrow\\quad Y(s) = \\frac{1}{s\\left(s^2+1\\right)} - e^{-\\pi s}\\cdot\\frac{1}{s\\left(s^2+1\\right)}.$$\n\n**Finn den felles inverse.** Ansats:\n$$\\frac{1}{s\\left(s^2+1\\right)} = \\frac{A}{s} + \\frac{Bs+C}{s^2+1}.$$\nTildekking gir $A = \\left.1/(s^2+1)\\right|_{s=0} = 1$. Gang opp og sett inn:\n$$1 - \\left(s^2+1\\right) = -s^2 = (Bs+C)s,$$\naltså $B=-1$, $C=0$. Da er\n$$\\frac{1}{s\\left(s^2+1\\right)} = \\frac1s - \\frac{s}{s^2+1} \\quad\\Longrightarrow\\quad g(t) = 1 - \\cos t.$$\n\n**Sett sammen. Etter andreforskyvningsteoremet** på det andre leddet, med $a=\\pi$:\n$$y(t) = \\left(1-\\cos t\\right) - \\Big(1 - \\cos(t-\\pi)\\Big)u(t-\\pi).$$\n\n**Forenkle for $t\\ge\\pi$.** Siden $\\cos(t-\\pi) = -\\cos t$:\n$$y(t) = 1-\\cos t - 1 - \\cos t = -2\\cos t.$$\n\n**Som klammeparentes:**\n$$y(t) = \\begin{cases} 1 - \\cos t, & 0\\le t < \\pi, \\\\[4pt] -2\\cos t, & t \\ge \\pi.\\end{cases}$$\n\n**Kontroll ved skjøten $t=\\pi$.** Ovenfra: $1-\\cos\\pi = 1+1 = 2$. Nedenfra: $-2\\cos\\pi = 2$. Like. Og de deriverte: $\\sin\\pi = 0$ mot $2\\sin\\pi = 0$. Begge null — løsningen er glatt, som den skal være når pådraget bare har et endelig sprang (ingen $\\delta$).\n\n**Kontroll av likningen for $t>\\pi$:** $y=-2\\cos t$ gir $y''=2\\cos t = -y$, altså $y''+y=0$. Riktig, siden pådraget er av der.\n\n**Legg merke til fysikken.** Amplituden **doblet** seg da kraften ble slått av. Kraften sto på i nøyaktig én halv egenperiode og dyttet i takt med bevegelsen hele veien — det er resonans i miniatyr. Hadde pulsen vart en hel periode, ville systemet endt i ro igjen.",
+        "hints": [
+          "Skriv høyresiden som $1 - u(t-\\pi)$ og transformer ledd for ledd.",
+          "Begge leddene deler samme brøk. Finn dens inverse én gang, og bruk andreforskyvningsteoremet bare på det andre leddet."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4135-2-3-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et system får både et støt og en last: løs $y'' + 4y = \\delta(t-1) + u(t-3)$ med $y(0)=0$ og $y'(0)=0$.",
+        "solution": "**Transformer.** Fra tabellen på formelarket er $\\mathcal{L}\\{\\delta(t-1)\\}=e^{-s}$ og $\\mathcal{L}\\{u(t-3)\\}=e^{-3s}/s$:\n$$\\left(s^2+4\\right)Y = e^{-s} + \\frac{e^{-3s}}{s} \\quad\\Longrightarrow\\quad Y(s) = e^{-s}\\cdot\\frac{1}{s^2+4} + e^{-3s}\\cdot\\frac{1}{s\\left(s^2+4\\right)}.$$\n\n**To ledd, to forskyvninger — behandle dem hver for seg.**\n\n*Første ledd:* $a=1$ og $F_1(s)=1/\\left(s^2+4\\right)$, altså $f_1(t)=\\tfrac12\\sin 2t$.\n\n*Andre ledd:* $a=3$ og $F_2(s)=1/\\left(s\\left(s^2+4\\right)\\right)$. Ansats $A/s + (Bs+C)/(s^2+4)$ med tildekking $A = 1/4$; gang opp og sett inn:\n$$1 - \\tfrac14\\left(s^2+4\\right) = -\\tfrac14 s^2 = (Bs+C)s,$$\naltså $B=-1/4$, $C=0$. Da er $f_2(t) = \\tfrac14\\left(1-\\cos 2t\\right)$.\n\n**Forskyv hvert ledd med sin egen $a$. Etter andreforskyvningsteoremet:**\n$$y(t) = \\frac12\\sin\\!\\big(2(t-1)\\big)\\,u(t-1) + \\frac14\\Big(1-\\cos\\!\\big(2(t-3)\\big)\\Big)u(t-3).$$\n\n**Som klammeparentes:**\n$$y(t) = \\begin{cases} 0, & 0 \\le t < 1, \\\\[4pt] \\tfrac12\\sin\\!\\big(2(t-1)\\big), & 1 \\le t < 3, \\\\[4pt] \\tfrac12\\sin\\!\\big(2(t-1)\\big) + \\tfrac14\\Big(1-\\cos\\!\\big(2(t-3)\\big)\\Big), & t \\ge 3.\\end{cases}$$\n\n**Kontroll ved $t=1$:** $y$ går fra $0$ til $\\tfrac12\\sin 0 = 0$ — kontinuerlig; $y'$ hopper fra $0$ til $\\cos 0 = 1$, altså impulsens styrke. Riktig.\n\n**Kontroll ved $t=3$:** det nye leddet er $\\tfrac14(1-\\cos 0)=0$, og dets deriverte er $\\tfrac12\\sin 0 = 0$. Ingen av delene hopper — riktig, siden $u$ bare gir et sprang i **pådraget**, ikke i løsningen.\n\n**Merk arbeidsdelingen.** Hvert ledd i pådraget gir sitt eget ledd i $Y(s)$ med sin egen eksponentialfaktor, og hvert av dem inverteres og forskyves for seg. Det er linearitet, og den gjelder uansett hvor mange sprang og støt pådraget har.",
+        "hints": [
+          "Transformer hvert ledd på høyresiden for seg, og hold de to eksponentialfaktorene fra hverandre.",
+          "Hvert ledd har sin egen $a$. Finn den inverse av hver brøk helt ferdig før du forskyver."
+        ]
+      }
+    },
+    {
+      "id": "tma4135-2-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å bruke første i stedet for andre forskyvningsteorem.** Dette er den vanligste feilen i hele Del 2. De to reglene er speilbilder:\n\n| | Regel | Hva som skjer |\n|---|---|---|\n| **Første** ([kap. 2.1](/tma4135/tma4135-2-1)) | $\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a)$ | eksponentialfaktor i **tid** gir forskyvning i **$s$** |\n| **Andre** (her) | $\\mathcal{L}\\{f(t-a)u(t-a)\\} = e^{-as}F(s)$ | forskyvning i **tid** gir eksponentialfaktor i **$s$** |\n\n**Kjennetegnet:** ser du en faktor $e^{-as}$ **utenfor** brøken, er det andreforskyvning. Ser du $s-a$ **inne i** brøken, er det første. Det tar to sekunder å sjekke og sparer en hel oppgave.\n\n**Å glemme å forskyve argumentet.** Du finner $f(t)$ riktig, ganger med $u(t-a)$ — og skriver $f(t)u(t-a)$. Det riktige er $f(t-a)u(t-a)$. **Hver** $t$ i $f$ skal byttes, også de i eksponenter og inne i sinus- og cosinusargumenter.\n\n**Å gange inn i argumentet.** $\\sin\\!\\big(2(t-3)\\big)$ er ikke $\\sin(2t-3)$. Sett parentes, og gang eventuelt ut riktig: $2(t-3) = 2t-6$.\n\n**Feil koeffisienter i trappeleddoppdelingen.** Koeffisienten foran hvert sprang er **differansen** mellom ny og gammel verdi, ikke den nye verdien. Kontrollen er alltid den samme: velg ett $t$ i hvert intervall og regn ut.\n\n**Å transformere $t^2u(t-1)$ som om det var $(t-1)^2u(t-1)$.** Har funksjonen argument $t$ mens sprangfunksjonen har $t-a$, må funksjonen skrives om i $t-a$ **først**. For polynomer: sett $t=(t-a)+a$ og gang ut.\n\n**Å forveksle $e^{-as}$ med $\\mathcal{L}\\{e^{at}\\}$.** Faktoren $e^{-3s}$ betyr en tidsforskyvning på $3$; brøken $1/(s-3)$ betyr en eksponentialfunksjon $e^{3t}$. De ser like ut i farten og betyr helt forskjellige ting.\n\n**Å tro at et støt gir et sprang i $y$.** Det gir et sprang i $y'$. Løsningen selv er kontinuerlig ved $t=a$; det er farten som endres brått. Får du et sprang i $y$, har du regnet feil.\n\n**Å prøve å invertere $e^{-as}F(s)$ i ett jafs.** Det finnes ingen snarvei. Dekk til faktoren, finn $f$ helt ferdig, forskyv til slutt."
+    },
+    {
+      "id": "tma4135-2-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n**Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing.** De siste kortene samler opp begrepene og de mest brukte kontrollene. Tidsanslaget på 60 minutter gjelder kjernestoffet foran."
+    },
+    {
+      "id": "tma4135-2-3-def-stykkevis-last",
+      "type": "definition",
+      "title": "Stykkevis konstant og stykkevis lineær last",
+      "content": "De to pådragsformene som dekker nesten alle oppgaver av denne typen.\n\n**Stykkevis konstant:** verdien er et fast tall på hvert intervall, og trappeleddene får konstante koeffisienter, som $1+3u(t-2)-4u(t-6)$.\n\n**Stykkevis lineær (rampe):** verdien vokser lineært på et intervall. Byggeklossen er **rampefunksjonen** $(t-a)u(t-a)$, som er null til $t=a$ og stiger med stigningstall $1$ etterpå. Fra tabellen: $\\mathcal{L}\\{(t-a)u(t-a)\\} = e^{-as}/s^2$.\n\nEn rampe som stiger fra $t=1$ og flater ut ved $t=3$, skrives $(t-1)u(t-1) - (t-3)u(t-3)$. Kontroll ved $t=4$: $3 - 1 = 2$, altså den konstante sluttverdien. Stemmer."
+    },
+    {
+      "id": "tma4135-2-3-def-tidsforskyvning-signatur",
+      "type": "definition",
+      "title": "Signaturen til en tidsforskyvning",
+      "content": "Kjennetegnet du leter etter i et uttrykk i $s$: en faktor $e^{-as}$ med **negativ** eksponent og $a>0$, som står som en ren faktor.\n\nSer du den, vet du tre ting med én gang: (i) svaret inneholder $u(t-a)$; (ii) svaret er identisk null for $t<a$; og (iii) du skal bruke andreforskyvningsteoremet, ikke det første.\n\n**Motsatt vei:** har uttrykket **ingen** slik faktor, er svaret aktivt fra $t=0$, og du trenger ikke sprangfunksjoner i det hele tatt."
+    },
+    {
+      "id": "tma4135-2-3-def-kontinuitet-losning",
+      "type": "definition",
+      "title": "Hva som er kontinuerlig og hva som hopper",
+      "content": "Regelen som lar deg kontrollere svaret uten å regne på nytt, for en andreordens likning:\n\n| Pådrag ved $t=a$ | $y$ | $y'$ |\n|---|---|---|\n| glatt | kontinuerlig | kontinuerlig |\n| sprang, som $u(t-a)$ | kontinuerlig | kontinuerlig (men $y''$ hopper) |\n| impuls, som $\\delta(t-a)$ | kontinuerlig | **hopper** |\n\n**Bruk:** sett inn $t=a$ i svaret ditt fra begge sider. Hopper $y$ selv, har du regnet feil — uansett pådrag. Hopper $y'$ uten at det er en $\\delta$ i likningen, har du også regnet feil."
+    },
+    {
+      "id": "tma4135-2-3-def-spranghoyde-impuls",
+      "type": "definition",
+      "title": "Spranghøyden er impulsens styrke",
+      "content": "Sammenhengen som gjør Dirac-oppgaver kontrollerbare. For en andreordens likning $y''+py'+qy = k\\,\\delta(t-a)$ med null startverdier gjelder\n\n$$y'(a^+) - y'(a^-) = k.$$\n\nArgumentet: integrer likningen over $[a-\\varepsilon, a+\\varepsilon]$. Leddene $py'$ og $qy$ er begrensede og bidrar med null i grensen, mens $\\int y''\\,dt$ er spranget i $y'$ og $\\int k\\delta\\,dt = k$.\n\n**Praktisk:** deriver svaret ditt, sett inn $t=a$, og sjekk at du får $k$. Sjekken er uavhengig av hvor rotete resten av regningen var, og den fanger både faktorfeil og glemte forskyvninger."
+    },
+    {
+      "id": "tma4135-2-3-def-silingsegenskapen",
+      "type": "definition",
+      "title": "Silingsegenskapen",
+      "content": "Den ene regneregelen for Dirac-delta som brukes i praksis:\n\n$$\\int_0^{\\infty}\\delta(t-a)\\,f(t)\\,dt = f(a), \\qquad a>0.$$\n\nIntegralet «siler ut» funksjonsverdien i det ene punktet der deltaen sitter, og glemmer alt annet.\n\n**Direkte følge:** setter du $f(t)=e^{-st}$, får du $\\mathcal{L}\\{\\delta(t-a)\\}=e^{-as}$. Hele transformraden er én linje med denne egenskapen — derfor er den verdt å kunne, selv om selve raden **står på det utdelte formelarket — tren oppslaget**."
+    },
+    {
+      "id": "tma4135-2-3-def-omskriving-argument",
+      "type": "definition",
+      "title": "Omskriving til $t-a$",
+      "content": "Manøveren som gjør et uttrykk klart for andreforskyvningsteoremet når funksjonen og sprangfunksjonen har forskjellige argumenter.\n\n**For polynomer:** sett $t = (t-a)+a$ og gang ut.\n$$t^2 = \\big((t-1)+1\\big)^2 = (t-1)^2 + 2(t-1) + 1.$$\n\n**For eksponentialfunksjoner:** bruk potensregelen og trekk ut en konstant.\n$$e^{t} = e^{(t-2)+2} = e^{2}e^{t-2}.$$\n\n**For sinus og cosinus:** bruk sumformlene, som **står på det utdelte formelarket — tren oppslaget**.\n$$\\cos t = \\cos\\big((t-\\pi)+\\pi\\big) = -\\cos(t-\\pi).$$\n\nManøveren **må kunnes eller utledes aktivt**, og kontrollen er alltid den samme: gang ut igjen og se at du får tilbake det du startet med."
+    },
+    {
+      "id": "tma4135-2-3-def-teleskop",
+      "type": "definition",
+      "title": "Teleskopsummen bak trappeleddene",
+      "content": "Hvorfor differansene, og ikke verdiene, er koeffisientene.\n\nSkriv funksjonen som en sum av rektangler: $f = f_1\\left(u(t)-u(t-a_1)\\right) + f_2\\left(u(t-a_1)-u(t-a_2)\\right) + \\dots$ Samler du leddene etter hvilken sprangfunksjon de inneholder, står det igjen\n\n$$f = f_1 + (f_2-f_1)u(t-a_1) + (f_3-f_2)u(t-a_2) + \\dots$$\n\nDe to formene er identiske; den andre er kortere å transformere fordi hver sprangfunksjon bare opptrer én gang. Utledningen er verdt å ha sett én gang — da husker du hvorfor det er differanser, og gjetter ikke feil under press."
+    },
+    {
+      "id": "tma4135-2-3-def-rampe",
+      "type": "definition",
+      "title": "Rampefunksjonen",
+      "content": "Byggeklossen for en last som stiger jevnt i stedet for å hoppe:\n\n$$(t-a)\\,u(t-a) = \\begin{cases} 0, & t<a, \\ t-a, & t\\ge a.\\end{cases}$$\n\nDen er null til $t=a$ og stiger deretter med stigningstall $1$. Transformen følger direkte av andreforskyvningsteoremet med $f(t)=t$:\n\n$$\\mathcal{L}\\{(t-a)u(t-a)\\} = \\frac{e^{-as}}{s^2}.$$\n\n**Merk forskjellen fra $t\\,u(t-a)$.** Rampen starter på null i $a$; uttrykket $t\\,u(t-a)$ hopper opp til verdien $a$ i det samme øyeblikket. De to er ikke like, og bare den første står rett på teoremets form."
+    },
+    {
+      "id": "tma4135-2-3-def-rektangelpuls",
+      "type": "definition",
+      "title": "Rektangelpuls",
+      "content": "En last som står på med konstant styrke i et bestemt tidsrom og deretter er av:\n\n$$k\\left(u(t-a) - u(t-b)\\right), \\qquad a<b.$$\n\nTransformen blir $\\dfrac{k\\left(e^{-as}-e^{-bs}\\right)}{s}$.\n\n**Hvorfor den er verdt et eget kort:** dette er den vanligste lastformen i oppgaver av denne typen, og den gir alltid **to** eksponentialfaktorer i $Y(s)$ — én per kant. Ser du to slike faktorer med **samme** brøk bak seg, har du en rektangelpuls, og du kan gjenbruke den samme inverse to ganger med hver sin forskyvning."
+    },
+    {
+      "id": "tma4135-2-3-def-periodisk-transform",
+      "type": "definition",
+      "title": "Transformen av en periodisk last",
+      "content": "Snarveien når pådraget gjentar seg i det uendelige med periode $T$. I stedet for uendelig mange trappeledd regner du bare på én periode:\n\n$$\\mathcal{L}\\{f\\} = \\frac{1}{1-e^{-sT}}\\int_0^{T} e^{-st}f(t)\\,dt, \\qquad f(t+T)=f(t).$$\n\nNevneren $1-e^{-sT}$ er summen av den geometriske rekka som alle de gjentatte kopiene utgjør.\n\nFormelen **står som regel på det utdelte formelarket — tren oppslaget**. Den brukes sjelden i dette emnet, men er verdt å kjenne igjen: ser du en nevner med $1-e^{-sT}$, er lasten periodisk, og du skal ikke lete etter noen delbrøkoppspalting av den faktoren."
+    },
+    {
+      "id": "tma4135-2-3-def-kausalitet",
+      "type": "definition",
+      "title": "Kausalitet — ingenting skjer før pådraget",
+      "content": "Egenskapen som gjør at du kan lese starttidspunktet rett ut av svaret.\n\nEr hele $Y(s)$ ganget med $e^{-as}$, er $y(t)$ **identisk null** for $t<a$. Systemet kan ikke reagere før noe skjer. Det høres selvsagt ut, men det er en av de mest brukbare kontrollene du har: setter du inn en $t$-verdi mindre enn $a$ i svaret ditt og får noe annet enn null, har du mistet en sprangfunksjon underveis.\n\nMotsatt: har $Y(s)$ **ett** ledd uten eksponentialfaktor og **ett** med, er løsningen aktiv fra $t=0$ og får et ekstra bidrag fra $t=a$."
+    },
+    {
+      "id": "tma4135-2-3-def-tilbake-til-klammer",
+      "type": "definition",
+      "title": "Fra én formel tilbake til klammeparentes",
+      "content": "Siste skritt når oppgaven ber om svaret «på hvert intervall».\n\nGå gjennom intervallene i rekkefølge. På $[0,a_1)$ er alle sprangfunksjonene null, så bare de uforskjøvede leddene står igjen. På $[a_1,a_2)$ slår det første leddet inn, og så videre. Forenkle hvert intervall for seg — ofte faller ledd bort.\n\n$$\\left(1-\\cos t\\right) - \\left(1-\\cos(t-\\pi)\\right)u(t-\\pi) \\;=\\; \\begin{cases} 1-\\cos t, & 0\\le t<\\pi, \\ -2\\cos t, & t\\ge\\pi.\\end{cases}$$\n\n**Kontrollen som hører til:** regn ut begge uttrykkene i skjøtepunktet og se at de gir samme verdi. Gjør de ikke det, har du en fortegns- eller forskyvningsfeil."
+    },
+    {
+      "id": "tma4135-2-3-def-impuls-vs-kraft",
+      "type": "definition",
+      "title": "Impuls kontra vedvarende kraft",
+      "content": "Forskjellen på $\\delta(t-a)$ og $u(t-a)$, sagt fysisk — og hvorfor svarene ser så forskjellige ut.\n\n**$u(t-a)$ er en kraft** som slås på og blir stående. Den flytter systemets likevekt, og løsningen legger seg til å svinge om et **nytt nivå**.\n\n**$\\delta(t-a)$ er en impuls** — kraft ganget med tid, overført i ett øyeblikk. Den endrer ikke likevekten, men gir systemet en fartsendring, og løsningen svinger om det **gamle nivået** med ny amplitude.\n\n**Kjennetegn i svaret:** et konstantledd som dukker opp etter $t=a$ (som $\\tfrac13$ i eksempel 3) betyr at pådraget var en kraft. Ingen konstantledd, bare endret amplitude, betyr impuls."
+    },
+    {
+      "id": "tma4135-2-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4135-2-3-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver på forkunnskapene fra [kap. 2.1](/tma4135/tma4135-2-1) og [kap. 2.2](/tma4135/tma4135-2-2). Bruker du mer enn ti minutter til sammen, er det verdt en runde til før du går videre til [kap. 2.4](/tma4135/tma4135-2-4)."
+        },
+        {
+          "id": "tma4135-2-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-3-r1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Avgjør for hvert uttrykk om det er **første** eller **andre** forskyvningsteorem som er i bruk.\n\n**a)** $\\dfrac{s+2}{(s+2)^2+9}$\n**b)** $\\dfrac{e^{-4s}}{s^2}$\n**c)** $\\dfrac{2}{(s-5)^3}$\n**d)** $e^{-s}\\cdot\\dfrac{s}{s^2+1}$",
+            "solution": "**a)** Første. Argumentet er forskjøvet **inne i** brøken ($s\\to s+2$), som svarer til en faktor $e^{-2t}$ i tid. Den inverse er $e^{-2t}\\cos 3t$.\n\n**b)** Andre. Faktoren $e^{-4s}$ står **utenfor**, som svarer til en forskyvning i tid. Den inverse er $(t-4)u(t-4)$.\n\n**c)** Første. $s\\to s-5$ inne i brøken. Den inverse er $t^2e^{5t}$.\n\n**d)** Andre. Den inverse er $\\cos(t-1)\\,u(t-1)$.\n\n**Regelen i én setning:** eksponentialfaktor utenfor betyr tid; forskjøvet argument inne betyr $s$.",
+            "hints": [
+              "Se etter en faktor $e^{-as}$ som står **utenfor** brøken.",
+              "Se etter $s-a$ eller $s+a$ **inne i** brøken."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-3-r2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv om slik at alle argumenter er $t-2$.\n\n**a)** $t$\n**b)** $t^2+1$\n**c)** $e^{3t}$",
+            "solution": "**a)** $t = (t-2)+2$.\n\n**b)** $t^2+1 = \\big((t-2)+2\\big)^2 + 1 = (t-2)^2 + 4(t-2) + 4 + 1 = (t-2)^2+4(t-2)+5$.\nKontroll: gang ut igjen — $t^2-4t+4+4t-8+5 = t^2+1$. Stemmer.\n\n**c)** $e^{3t} = e^{3(t-2)+6} = e^{6}e^{3(t-2)}$. Konstanten $e^6$ blir stående utenfor.",
+            "hints": [
+              "Sett $t=(t-2)+2$ og gang ut.",
+              "Kontroller alltid ved å gange ut igjen."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-3-r3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn den inverse Laplace-transformen uten forskyvning, som forberedelse til å bruke andreforskyvningsteoremet.\n\n**a)** $\\dfrac{1}{s^2+16}$\n**b)** $\\dfrac{1}{s(s+4)}$",
+            "solution": "**a)** Sinusraden med $\\omega = 4$ krever telleren $4$, så $1 = \\tfrac14\\cdot 4$:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{s^2+16}\\right\\} = \\frac14\\sin 4t.$$\n\n**b)** Tildekking: $A = \\left.1/(s+4)\\right|_{s=0} = \\tfrac14$ og $B = \\left.1/s\\right|_{s=-4} = -\\tfrac14$, altså\n$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{s(s+4)}\\right\\} = \\frac14\\left(1 - e^{-4t}\\right).$$\nKontroll ved $s=1$: venstre gir $1/5 = 0{,}2$; høyre gir $\\tfrac14 - \\tfrac14\\cdot\\tfrac15 = 0{,}25-0{,}05 = 0{,}2$. Stemmer.",
+            "hints": [
+              "I a): hva krever sinusraden i telleren?",
+              "I b): to enkle reelle poler — tildekking."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-3-r4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En last er $h(t)=0$ for $0\\le t<1$, $h(t)=t-1$ for $1\\le t<3$, og $h(t)=2$ for $t\\ge 3$. Skriv $h$ med sprangfunksjoner og finn $\\mathcal{L}\\{h\\}$.",
+            "solution": "**Trappeleddoppdeling.** Start på $0$. Ved $t=1$ går uttrykket fra $0$ til $t-1$, altså en differanse på $(t-1)$. Ved $t=3$ går det fra $t-1$ til $2$, altså en differanse på $2-(t-1) = -(t-3)$:\n$$h(t) = (t-1)u(t-1) - (t-3)u(t-3).$$\n\n**Kontroll:** ved $t=2$ er $h = 1$, som stemmer med $t-1=1$. Ved $t=4$ er $h = 3-1 = 2$. Stemmer.\n\n**Transformer.** Begge leddene står allerede på teoremets form, med $f(t)=t$ og $\\mathcal{L}\\{t\\}=1/s^2$:\n$$\\mathcal{L}\\{h\\} = \\frac{e^{-s}}{s^2} - \\frac{e^{-3s}}{s^2} = \\frac{e^{-s}-e^{-3s}}{s^2}.$$\n\nDette er standardformen for en **rampe** som stiger på ett intervall og flater ut etterpå — verdt å kjenne igjen.",
+            "hints": [
+              "Differansen ved $t=3$ er $2-(t-1)$. Skriv den om ved hjelp av $(t-3)$.",
+              "Begge leddene har $f(t)=t$, som gir $F(s)=1/s^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4135-2-3-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4135-2-3-r5",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn $\\mathcal{L}^{-1}\\left\\{\\dfrac{e^{-2s}(s+3)}{s^2+6s+13}\\right\\}$.",
+            "solution": "**Steg 1:** $a=2$ og $F(s) = (s+3)/\\left(s^2+6s+13\\right)$.\n\n**Steg 2 — finn $f$.** Diskriminanten er $36-52 = -16 < 0$, så kvadratkomplettering: $s^2+6s+13 = (s+3)^2+4$. Telleren er allerede nøyaktig $s+3$, altså cosinusformen med demping $e^{-3t}$ og $\\omega = 2$:\n$$f(t) = e^{-3t}\\cos 2t.$$\n\n**Steg 3 — forskyv. Etter andreforskyvningsteoremet** byttes hver $t$ med $t-2$:\n$$\\mathcal{L}^{-1}\\left\\{\\frac{e^{-2s}(s+3)}{s^2+6s+13}\\right\\} = e^{-3(t-2)}\\cos\\!\\big(2(t-2)\\big)\\,u(t-2).$$\n\n**Kontroll:** ved $t=2$ er svaret $1\\cdot 1 = 1$. Sjekk mot $F$: $sF(s)\\to 1$ når $s\\to\\infty$, altså $f(0)=1$. Stemmer.",
+            "hints": [
+              "Dekk til $e^{-2s}$ først. Kvadratkompletter så nevneren.",
+              "Husk at **hver** $t$ i $f$ skal byttes — også den i eksponenten."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4135-2-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4135-2-3-sym-tab",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $u(t-a)$ | Enhetssprangfunksjonen: $0$ for $t<a$, $1$ for $t\\ge a$ |\n| $\\delta(t-a)$ | Dirac-delta: et støt av total styrke $1$ ved $t=a$ |\n| $a$ | Tidspunktet der pådraget slås på eller støtet treffer |\n| $e^{-as}$ | Forskyvningsfaktoren i $s$-planet |\n| $f(t-a)$ | Funksjonen $f$ forskjøvet $a$ enheter ut i tid |\n| $F(s)$, $G(s)$, $Y(s)$ | Transformerte funksjoner |\n| $y(a^-)$, $y(a^+)$ | De ensidige grensene like før og like etter $t=a$ |\n| $k$ | Styrken til en impuls $k\\,\\delta(t-a)$ |\n| $\\omega$ | Frekvensen i $\\sin\\omega t$ og $\\cos\\omega t$ |\n| $\\tau$ | Hjelpevariabelen i utledningen av andreforskyvningsteoremet |\n\n**Kolliderende symboler i dette kapitlet:** bokstaven $a$ er **forskyvningstidspunktet** her, mens den i [kap. 2.1](/tma4135/tma4135-2-1) og [kap. 2.2](/tma4135/tma4135-2-2) var vekstraten i $e^{at}$ og dempingen i et polpar. Begge betydningene opptrer i oppgave 4b og 8 i dette kapitlet, og der skiller teksten dem eksplisitt. Bokstaven $u$ er sprangfunksjonen her; i PDE-delene senere i boka er $u(x,t)$ selve den ukjente funksjonen. Og $\\tau$ er en integrasjonsvariabel her, som den også blir i [kap. 2.4](/tma4135/tma4135-2-4)."
+        },
+        {
+          "id": "tma4135-2-3-sym-form",
+          "type": "text",
+          "content": "**Formler i dette kapitlet:**\n\n$$u(t-a) = \\begin{cases} 0, & t<a \\\\ 1, & t\\ge a\\end{cases}$$\nEnhetssprangfunksjonen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{u(t-a)\\} = \\frac{e^{-as}}{s}$$\nTransformen av sprangfunksjonen. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$\\mathcal{L}\\{f(t-a)\\,u(t-a)\\} = e^{-as}F(s)$$\nAndreforskyvningsteoremet. *(Står på det utdelte formelarket — tren oppslaget; rekkefølgen «finn $f$ først, forskyv sist» må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}^{-1}\\left\\{e^{-as}F(s)\\right\\} = f(t-a)\\,u(t-a)$$\nDen omvendte veien. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a)$$\nFørsteforskyvningsteoremet, gjengitt her for kontrasten. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$f = f_1 + (f_2-f_1)u(t-a_1) + (f_3-f_2)u(t-a_2) + \\dots$$\nTrappeleddoppdeling — koeffisientene er spranghøydene. *(Må kunnes eller utledes aktivt.)*\n\n$$u(t-a) - u(t-b) = 1 \\text{ på } [a,b), \\ 0 \\text{ ellers}$$\nRektangelpulsen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{(t-a)u(t-a)\\} = \\frac{e^{-as}}{s^2}$$\nRampefunksjonen. *(Står på det utdelte formelarket — tren oppslaget, som spesialtilfelle av andreforskyvningen.)*\n\n$$\\int_0^{\\infty}\\delta(t-a)f(t)\\,dt = f(a)$$\nSilingsegenskapen. *(Må kunnes eller utledes aktivt.)*\n\n$$\\mathcal{L}\\{\\delta(t-a)\\} = e^{-as}$$\nTransformen av Dirac-delta. *(Står på det utdelte formelarket — tren oppslaget.)*\n\n$$y'(a^+) - y'(a^-) = k$$\nSpranget i den deriverte er lik impulsens styrke i $k\\,\\delta(t-a)$. *(Må kunnes eller utledes aktivt.)*\n\n$$t = (t-a) + a, \\qquad e^{ct} = e^{ca}e^{c(t-a)}$$\nOmskriving til argumentet $t-a$. *(Må kunnes eller utledes aktivt.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
