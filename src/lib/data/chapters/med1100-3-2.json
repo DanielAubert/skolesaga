@@ -1,0 +1,382 @@
+{
+  "id": "med1100-3-2",
+  "courseId": "med1100",
+  "chapterNumber": "3.2",
+  "title": "Studiedesign og bias",
+  "description": "Kohort, tverrsnitt, kasus-kontroll, RCT og økologisk design — og systematiske feilkilder (seleksjon, informasjon, konfundering).",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne gjenkjenne studiedesignet i en beskrivelse ut fra hva deltakerne er valgt ut på og hvilken vei tiden går",
+    "kunne koble riktig effektmål til riktig design og regne ut relativ risiko, oddsforhold, prevalensforhold og risikodifferanse med vist utregning",
+    "kunne vise numerisk når oddsforholdet ligger nær den relative risikoen, og skrive betingelsen ut i stedet for å påstå tilnærmingen generelt",
+    "kunne skille seleksjonsbias, informasjonsbias og konfundering fra hverandre og forklare hvordan hver av dem virker",
+    "kunne forklare hvorfor randomisering også håndterer ukjente bakgrunnsfaktorer, og hva statistisk justering ikke klarer"
+  ],
+  "content": [
+    {
+      "id": "med1100-3-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hvilken eksamen trener du her?** **Blokk 1** — den digitale eksamenen (i **Inspera**, UiOs digitale eksamenssystem) på rundt fem timer. MED1100 har tre **blokkeksamener**: tre separate eksamensdager med helt ulikt format, som alle må bestås hver for seg. Dette kapitlet hører til **samfunnsmedisin**, som teller **20 %** av blokk 1.\n\n**Hvor ofte kommer det?** Telt i de 16 lesbare **sittingene** av blokk 1 fra 2021 til 2026 (én «sitting» = én gjennomføring, ordinær eller utsatt):\n\n- **Studiedesign: rundt 13 av 16 sittinger.** Nest sikrest i seksjonen, etter testegenskapene.\n- **Systematiske feilkilder (seleksjon, informasjon, konfundering): rundt 10 av 16 sittinger.**\n\n**I hvilken form?** Tre sjangre:\n\n- **B1-MC** — flervalgsspørsmålet: fire alternativer, «velg ett», av og til «velg TO». Rettes automatisk. Typisk: gjenkjenn designet i en beskrivelse, eller pek ut hvilken type feilkilde som er i spill.\n- **B1-KORT** — kortsvar på én til tre setninger, rettet manuelt.\n- **B1-ESS** — samfunnsmedisin-essayet: **definisjon + konkret eksempel + oppramsing**, ofte maks en halv side. Det kommer to slike essay i hver sitting, og de er hentet fra denne seksjonen.\n\n**Hva ser sensor etter?** Tre ting går igjen: at du kobler **riktig effektmål til riktig design**, at du kan navngi feilkilden **og** si hvordan den virker, og at du bruker fagets varsomme språk — en assosiasjon er ikke en årsak, og et ikke-signifikant funn er ikke det samme som ingen effekt.\n\n**Hvordan rettes det?** Blokk 1 har **ingen dokumentert minuspoeng**. **Svar alltid.** Vurderingen er **bestått / ikke bestått**; emnet har ingen karakterskala.\n\n**Tid:** kapitlet er delt i tre løkker på omtrent 15, 17 og 18 minutter. Resten av tidsanslaget er innledning og repetisjon."
+    },
+    {
+      "id": "med1100-3-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/med1100/med1100-3-1). To ting derfra brukes direkte, og her er de ferdig oppfrisket:\n\n**1. 2×2-tabellen.** Den samme firfeltstabellen kommer tilbake her, men med nye etiketter: nå står **eksponering** i kolonnene og **utfall** i radene, i stedet for sannhet og testsvar. Prinsippet er det samme — hvilken vei du leser tabellen, avgjør hvilket mål du får.\n\n**2. Prevalens.** Andelen i en befolkning som har tilstanden på et gitt tidspunkt, altså forekomsten før noe annet er gjort. I dette kapitlet møter du søskenbegrepet **insidens** (nye tilfeller over tid), og skillet mellom de to avgjør hvilket effektmål et design kan gi.\n\n**Fra [kap. 0.2](/med1100/med1100-0-2):** blokk 1 har ingen minuspoeng — svar alltid. Og spørreordtrappen gjelder i essayene: *nevn* = oppramsing · *beskriv* = hva som skjer, i rekkefølge · *forklar* = hvorfor det skjer · *gjør rede for* = beskriv + forklar + sett i sammenheng.\n\nDe nye begrepene — *kohort*, *kasus-kontroll*, *tverrsnitt*, *randomisert kontrollert studie*, *konfundering*, *bias* — innføres fra grunnen av under."
+    },
+    {
+      "id": "med1100-3-2-nokkelfakta",
+      "type": "collapsible",
+      "title": "Nøkkelfakta- og formelliste",
+      "buttonText": "Vis nøkkelfakta og formler",
+      "content": [
+        {
+          "id": "med1100-3-2-nokkelfakta-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $a$ | eksponerte med utfall | personer |\n| $b$ | eksponerte uten utfall | personer |\n| $c$ | ueksponerte med utfall | personer |\n| $d$ | ueksponerte uten utfall | personer |\n| RR | relativ risiko (risikoforhold) | forholdstall, uten enhet |\n| OR | oddsforhold | forholdstall, uten enhet |\n| PR | prevalensforhold | forholdstall, uten enhet |\n| RD | risikodifferanse | andel (0–1) eller prosentpoeng |\n\nTabellen leses slik i dette kapitlet:\n\n|  | Eksponert | Ueksponert |\n|---|---|---|\n| **Med utfall** | $a$ | $c$ |\n| **Uten utfall** | $b$ | $d$ |\n\n**Formler i dette kapitlet:**\n\n$$\\text{RR} = \\frac{a/(a+b)}{c/(c+d)}$$\n\nForholdet mellom risikoen i de to gruppene. *Bruksbetingelse:* krever at du kjenner **risikoen**, altså andelen som utvikler utfallet — det gjør du bare når gruppene er valgt ut på **eksponering** og fulgt over tid. Altså: kohortstudier og randomiserte forsøk.\n\n$$\\text{OR} = \\frac{a \\cdot d}{b \\cdot c}$$\n\nForholdet mellom oddsen i de to gruppene. *Bruksbetingelse:* kan regnes i alle designene, og er **det eneste** som gir mening i en kasus-kontroll-studie, der forskeren selv har bestemt hvor mange syke og friske som er med.\n\n$$\\text{PR} = \\frac{a/(a+b)}{c/(c+d)}$$\n\nRegnes som RR, men på **prevalens** i stedet for risiko. *Bruksbetingelse:* tverrsnittsstudier, der alt er målt på ett tidspunkt og ingen har vært fulgt over tid. Regnestykket ser likt ut; navnet og tolkningen er forskjellige — og å kalle det RR er felle **E1**.\n\n$$\\text{RD} = \\frac{a}{a+b} - \\frac{c}{c+d}$$\n\nDifferansen i risiko mellom gruppene. *Bruksbetingelse:* som RR — krever kohort eller forsøk. Nyttig fordi den sier noe om **størrelsen** i absolutte tall, ikke bare forholdet.\n\n**Tilnærmingen som stadig testes:** $\\text{OR} \\approx \\text{RR}$ **bare når utfallet er sjeldent**. Ved risiko på 1 prosent avviker OR fra RR med rundt 1 prosent; ved 20 prosent med over 30 prosent. Vi regner det ut i Eksempel 2.\n\n**Merk om hjelpemidlene:** blokk 1 har **formelsamling og statistiske tabeller** på pulten. Formlene over er ikke pugge-stoff — det du må kunne, er å **velge riktig mål til riktig design** og å tolke tallet i klartekst.\n\n**De fem designene i kortform**\n\n1. **Kohort** — velg ut på eksponering, følg framover, mål insidens → RR, RD.\n2. **Kasus-kontroll** — velg ut på utfall, se bakover på eksponering → OR.\n3. **Tverrsnitt** — mål alt på én gang → prevalens, PR.\n4. **Randomisert kontrollert studie (RCT)** — forskeren fordeler eksponeringen tilfeldig → RR, RD.\n5. **Økologisk** — data på gruppenivå, ikke på individnivå → fare for økologisk feilslutning.\n\n**Feilkildene i kortform**\n\n- **Seleksjonsbias** — hvem som kom med i studien, er skjevt.\n- **Informasjonsbias** — det som ble målt eller husket, er skjevt.\n- **Konfundering** — en tredje faktor forklarer hele eller deler av sammenhengen."
+        }
+      ]
+    },
+    {
+      "id": "med1100-3-2-oversikt",
+      "type": "text",
+      "content": "To undersøkelser stiller samme spørsmål og får motsatt svar. Den ene fant at folk som trener mye, har mindre plager. Den andre fant ingen forskjell. Begge er utført redelig. Forskjellen ligger ikke i tallene, men i **hvordan de ble samlet inn**: hvem som ble spurt, når de ble spurt, og hva som ellers skilte gruppene.\n\n**Studiedesign er læren om nettopp det.** Designet avgjør hvilke spørsmål tallene kan svare på — og hvilke de aldri kan svare på, uansett hvor mange deltakere som er med.\n\nKapitlet tar tre ting, i denne rekkefølgen: **de fem designene** og hva hvert av dem kan og ikke kan, **effektmålene** som hører til hvert design, og **de systematiske feilkildene** som gjør at et tall kan være riktig regnet ut og likevel villedende.\n\n**Et språklig varsel med en gang, fordi det gir poeng i hver eneste essayoppgave:** en studie som finner at to ting henger sammen, har funnet en **assosiasjon**. Å skrive at den har «bevist» en årsak, er nesten alltid for sterkt — og det er nettopp den varsomheten sensor ser etter.\n\n> Denne boka forbereder deg til eksamen i MED1100. Den handler om **det friske mennesket** og om mekanismer — ikke om å stille diagnoser, velge behandling eller gi råd. Ingen av regnestykkene, verdiene eller mekanismene her skal brukes på en virkelig pasient eller på deg selv. Klinisk vurdering læres senere i studiet, under veiledning."
+    },
+    {
+      "id": "med1100-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De fem designene (~15 min)"
+    },
+    {
+      "id": "med1100-3-2-def-kohort",
+      "type": "definition",
+      "title": "Kohortstudie",
+      "content": "En gruppe personer velges ut etter **eksponering** — noen er eksponert for det man vil undersøke, andre ikke — og følges **framover i tid** for å se hvem som utvikler utfallet.\n\n**Det designet kan:** måle **insidens** (nye tilfeller over tid) i begge gruppene, og dermed regne ut **relativ risiko** og **risikodifferanse**. Rekkefølgen i tid er kjent, siden eksponeringen er registrert før utfallet inntraff.\n\n**Det designet koster:** tid og deltakere. Er utfallet sjeldent, må kohorten være enorm for at noen i det hele tatt skal få det.\n\n**Skilles fra kasus-kontroll ved utvelgelsen:** her velges folk på *eksponering*, der på *utfall*."
+    },
+    {
+      "id": "med1100-3-2-def-kasuskontroll",
+      "type": "definition",
+      "title": "Kasus-kontroll-studie",
+      "content": "En gruppe som **har** utfallet (kasus) sammenlignes med en gruppe som ikke har det (kontroller), og man ser **bakover** på hvem som var eksponert.\n\n**Det designet kan:** undersøke sjeldne utfall effektivt, fordi forskeren samler kasusene i stedet for å vente på dem. Målet som kan regnes ut, er **oddsforholdet (OR)**.\n\n**Det designet ikke kan:** gi risiko eller insidens. Forskeren har jo selv bestemt hvor mange syke og friske som er med — andelen syke i studien sier derfor ingenting om andelen syke i befolkningen. Å regne RR her er en av de sikreste måtene å tape poeng på.\n\n**Sårbarheten:** informasjon om fortiden må hentes i ettertid, og da er hukommelsen en feilkilde (se recall bias)."
+    },
+    {
+      "id": "med1100-3-2-def-tverrsnitt",
+      "type": "definition",
+      "title": "Tverrsnittsstudie",
+      "content": "Eksponering og utfall måles hos alle deltakerne på **samme tidspunkt** — et øyeblikksbilde.\n\n**Det designet kan:** gi **prevalens** og **prevalensforhold (PR)**, raskt og billig.\n\n**Det designet ikke kan:** si hva som kom først. Er det eksponeringen som førte til utfallet, eller er det utfallet som endret eksponeringen? Tverrsnittet ser begge deler samtidig og kan ikke skille dem.\n\n**Språkregelen som gir poeng:** i et tverrsnitt skriver du **prevalens** og **PR**, ikke risiko og RR. Å bruke risikospråk om et tverrsnitt er felle **E1** — å forveksle effektmålene eller bruke risikospråk der prevalensspråk kreves."
+    },
+    {
+      "id": "med1100-3-2-def-rct",
+      "type": "definition",
+      "title": "Randomisert kontrollert studie (RCT)",
+      "content": "Et forsøk der **forskeren fordeler eksponeringen tilfeldig** mellom deltakerne, i stedet for å observere hvem som er eksponert fra før.\n\n**Det designet kan, og som ingen observasjonsstudie kan:** balansere **også ukjente** bakgrunnsforskjeller mellom gruppene. Når fordelingen er tilfeldig og gruppene store nok, blir alt annet enn eksponeringen jevnt fordelt — også faktorer ingen har tenkt på å måle. Det er derfor randomisering er det sterkeste vernet mot konfundering.\n\n**Begrensningene:** ikke alt kan randomiseres, verken praktisk eller etisk, og deltakerne i et forsøk er sjelden helt like dem behandlingen senere skal brukes på."
+    },
+    {
+      "id": "med1100-3-2-def-okologisk",
+      "type": "definition",
+      "title": "Økologisk studie",
+      "content": "En studie der data er samlet på **gruppenivå** — land, kommuner, årskull — og ikke på enkeltpersoner. For eksempel: gjennomsnittlig inntak av noe i tjue land, sammenlignet med forekomsten av en tilstand i de samme tjue landene.\n\n**Styrken:** rask og billig, og nyttig for å generere hypoteser.\n\n**Svakheten, som har et eget navn — den økologiske feilslutningen:** en sammenheng på gruppenivå trenger ikke gjelde for enkeltpersoner. At land med høyt gjennomsnittlig inntak har høyere forekomst, betyr ikke at det er de samme *personene* som har høyt inntak og som får tilstanden. Data på gruppenivå kan ikke koble eksponering og utfall i samme individ."
+    },
+    {
+      "id": "med1100-3-2-mek-design",
+      "type": "text",
+      "content": "### Mekanismekjede: gjenkjenn designet i tre spørsmål\n\nNesten alle B1-MC-oppgavene i denne sjangeren løses av tre spørsmål, stilt i denne rekkefølgen:\n\n1. **Er eksponeringen fordelt av forskeren?** Ja → **RCT**. Nei → gå videre.\n2. **Er data på individnivå?** Nei, bare gruppegjennomsnitt → **økologisk studie**. Ja → gå videre.\n3. **Hva ble deltakerne valgt ut på?**\n   - Valgt på **eksponering**, fulgt framover → **kohort**.\n   - Valgt på **utfall**, sett bakover → **kasus-kontroll**.\n   - Ingen av delene, alt målt samtidig → **tverrsnitt**.\n\nOg så følger effektmålet automatisk:\n\n| Design | Utvalgt på | Tidsretning | Effektmål |\n|---|---|---|---|\n| Kohort | eksponering | framover | RR, RD |\n| RCT | fordelt av forsker | framover | RR, RD |\n| Kasus-kontroll | utfall | bakover | OR |\n| Tverrsnitt | ingen av delene | ett tidspunkt | PR |\n| Økologisk | grupper | varierer | korrelasjon på gruppenivå |\n\n**Merk sammenhengen:** koblingen er ikke en huskeliste, den følger av logikken. Du kan bare regne ut en risiko hvis du har fulgt en gruppe fram til utfallet — og det gjør du bare i de to øverste."
+    },
+    {
+      "id": "med1100-3-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjenkjenn designet (B1-MC, eksamensnivå)",
+      "problem": "*(Alle beskrivelser er oppdiktede.)* Avgjør designet i hver av de fire beskrivelsene, og si hvilket effektmål som kan brukes.\n\n**a)** Forskere identifiserer 200 personer som har fått en bestemt tilstand, og 200 uten den, og spør begge grupper hva de har vært utsatt for de siste ti årene.\n\n**b)** 1 000 personer uten tilstanden deles i to grupper etter om de har et bestemt kosthold, og følges i seks år.\n\n**c)** Alle ansatte i en bedrift fyller ut et skjema på én dag, om både arbeidsforhold og plager.\n\n**d)** Forskere sammenligner gjennomsnittlig saltforbruk og forekomst av en tilstand i 24 land.",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Kasus-kontroll.** Deltakerne er valgt ut på **utfallet** (200 med, 200 uten), og eksponeringen kartlegges bakover i tid. Effektmål: **OR**. Ikke RR — antallet syke er bestemt av forskeren, så andelen syke i studien sier ingenting om risikoen i befolkningen.\n\n**b) Kohortstudie.** Deltakerne er valgt ut på **eksponeringen** (kosthold) og følges **framover** til utfallet eventuelt inntreffer. Effektmål: **RR** og **RD**. Merk at eksponeringen er observert, ikke fordelt av forskeren — det er derfor det ikke er en RCT.\n\n**c) Tverrsnittsstudie.** Alt måles på **samme tidspunkt**, og ingen er valgt ut på verken eksponering eller utfall. Effektmål: **prevalens** og **PR**. Legg merke til at designet ikke kan si om arbeidsforholdene kom før plagene — begge deler er registrert samtidig.\n\n**d) Økologisk studie.** Data er på **gruppenivå** (land), ikke individnivå. Man kan beskrive en sammenheng mellom gjennomsnitt, men ikke koble eksponering og utfall i samme person — faren er den **økologiske feilslutningen**.\n\n**Regelen som løste alle fire:** spør først om forskeren fordelte eksponeringen, så om data er på individnivå, og til slutt hva deltakerne ble valgt ut på. Effektmålet følger av svaret."
+    },
+    {
+      "id": "med1100-3-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg, B1-KORT — kortsvarsoppgaven i blokk 1.) Forklar med egne ord forskjellen på en kohortstudie og en kasus-kontroll-studie, og si hvilket effektmål som hører til hver av dem.",
+        "solution": "I en **kohortstudie** velges deltakerne ut etter **eksponering** — noen er eksponert, andre ikke — og de følges **framover i tid** for å se hvem som utvikler utfallet. Fordi man kjenner hvor mange i hver gruppe som utvikler utfallet, kan man regne ut **risiko**, og dermed **relativ risiko (RR)** og **risikodifferanse (RD)**.\n\nI en **kasus-kontroll-studie** velges deltakerne ut etter **utfall** — noen har tilstanden, andre ikke — og man ser **bakover** på hvem som var eksponert. Effektmålet er **oddsforholdet (OR)**.\n\n**Hovedforskjellen i én setning:** kohorten går fra årsak til virkning, kasus-kontroll går fra virkning til årsak — og bare den første kan si hvor stor risikoen faktisk er.",
+        "hints": [
+          "Spør hva deltakerne ble valgt ut på i hvert av designene.",
+          "Effektmålet følger av om du kan regne ut en risiko, altså om du har fulgt en gruppe fram til utfallet."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — «velg ett».) En undersøkelse måler samtidig hvor mye deltakerne sitter i løpet av en arbeidsdag og hvor mange som har ryggplager. Alt registreres på ett tidspunkt.\n\nHvilken formulering er mest presis når resultatene skal beskrives?\n\n**A)** Prevalensen av ryggplager var høyere blant dem som satt mye, med et prevalensforhold på 1,8.\n**B)** Risikoen for å utvikle ryggplager var 1,8 ganger høyere blant dem som satt mye.\n**C)** De som satt mye, hadde 80 prosent økt insidens av ryggplager i løpet av studieperioden.\n**D)** Stillesitting ga 1,8 ganger så høy sannsynlighet for å pådra seg ryggplager.",
+        "solution": "**Riktig: A.**\n\nDesignet er et **tverrsnitt** — alt måles på ett tidspunkt. Da har man **prevalens**, ikke risiko, og det riktige effektmålet er **prevalensforholdet (PR)**. A bruker begge ordene korrekt.\n\n**B, C og D er alle varianter av samme feil (felle E1 — risikospråk der prevalensspråk kreves):**\n\n- **B** bruker «risiko», som forutsetter at man har fulgt personer fram til utfallet. Det er ikke gjort her.\n- **C** bruker «insidens» og «i løpet av studieperioden», men studien har ingen periode — den er et øyeblikksbilde.\n- **D** sier «pådra seg», altså en hendelse over tid, og legger i tillegg inn en årsakspåstand («ga»).\n\n**Merk den språklige regelen:** ord som *risiko*, *insidens*, *utvikle* og *pådra seg* forutsetter alle en tidsakse. Har designet ingen tidsakse, kan ingen av dem brukes — uansett hvor pent tallet ser ut.",
+        "hints": [
+          "Se etter ord i alternativene som forutsetter at noe har skjedd over tid.",
+          "Hvilket effektmål kan i det hele tatt regnes ut når alt er målt på én dag?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-KORT.) En forsker vil undersøke en tilstand som rammer omtrent 1 av 20 000 personer i året. Hun vurderer enten en kohortstudie eller en kasus-kontroll-studie.\n\nForklar hvilket design som er best egnet her, og hva som er prisen for det valget.",
+        "solution": "Merk spørreordet «forklar»: det kreves en begrunnelse, ikke bare et valg.\n\n**Kasus-kontroll er best egnet.** Grunnen er forekomsten: skal en kohortstudie få nok tilfeller til å kunne sammenligne noe som helst, må den følge titusenvis av personer i mange år — med en insidens på 1 per 20 000 per år ville en kohort på 20 000 personer gi omtrent ett tilfelle i året. En kasus-kontroll-studie samler i stedet dem som allerede har fått tilstanden, og finner en sammenligningsgruppe. Da er antallet kasus bestemt av forskeren, ikke av ventetiden.\n\n**Prisen for valget, i tre punkter:**\n\n1. **Effektmålet begrenses til OR.** Risiko og insidens kan ikke regnes ut, fordi andelen syke i studien er bestemt av designet og ikke av befolkningen.\n2. **Eksponeringen må hentes fra fortiden**, som regel ved spørsmål eller registre. Da er hukommelsen en feilkilde: den som har fått en tilstand, leter ofte grundigere etter mulige årsaker i sin egen fortid enn den som er frisk (recall bias).\n3. **Valget av kontroller er krevende.** Kontrollene skal komme fra den samme befolkningen som kasusene, ellers oppstår seleksjonsbias.\n\n**Presiseringen som er verdt et poeng:** siden utfallet her er svært sjeldent, vil OR ligge svært nær RR — så det begrensede effektmålet er i praksis lite tap i akkurat dette tilfellet.",
+        "hints": [
+          "Regn ut omtrent hvor mange tilfeller en kohort på for eksempel 20 000 personer ville gitt på ett år.",
+          "Prisen har både med hvilket effektmål du får, og med hvordan opplysningene om fortiden samles inn."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Effektmålene, og når OR ligner RR (~17 min)"
+    },
+    {
+      "id": "med1100-3-2-def-rr",
+      "type": "definition",
+      "title": "Relativ risiko (RR)",
+      "content": "Forholdet mellom risikoen i den eksponerte og den ueksponerte gruppen:\n\n$$\\text{RR} = \\frac{a/(a+b)}{c/(c+d)}$$\n\n**Tolkning:** RR $= 2$ betyr at risikoen er dobbelt så høy blant de eksponerte. RR $= 1$ betyr ingen forskjell.\n\n**Bruksbetingelse:** krever at risikoen kan regnes ut, altså at deltakerne er valgt på eksponering og fulgt fram til utfallet — kohort eller randomisert forsøk. **Skilles fra OR ved nevneren i hver gruppe:** RR deler på *alle* i gruppen, OR deler på dem *uten* utfallet."
+    },
+    {
+      "id": "med1100-3-2-def-or",
+      "type": "definition",
+      "title": "Oddsforhold (OR)",
+      "content": "Forholdet mellom oddsen for utfall i de to gruppene. Odds er antall med utfall delt på antall uten:\n\n$$\\text{OR} = \\frac{a/b}{c/d} = \\frac{a \\cdot d}{b \\cdot c}$$\n\n**Tolkning:** OR $= 1{,}4$ betyr at oddsen for utfallet er 1,4 ganger så høy blant de eksponerte. Merk at det er *oddsen*, ikke risikoen — og det bør stå i tolkningssetningen.\n\n**Bruksbetingelse:** kan regnes i alle designene, og er det eneste gyldige målet i en kasus-kontroll-studie. OR er alltid lenger fra 1 enn RR når begge kan regnes ut — de nærmer seg hverandre bare når utfallet er sjeldent (felle **E2**)."
+    },
+    {
+      "id": "med1100-3-2-def-pr",
+      "type": "definition",
+      "title": "Prevalensforhold (PR)",
+      "content": "Forholdet mellom prevalensen i de to gruppene, regnet på nøyaktig samme måte som RR, men på et **øyeblikksbilde** i stedet for på hendelser over tid.\n\n**Bruksbetingelse:** tverrsnittsstudier. Regnestykket er identisk med RR, men tolkningen er ikke: PR sier hvor mye vanligere tilstanden **er** i den ene gruppen, ikke hvor mye oftere den **oppstår**.\n\n**Hvorfor navnet betyr noe:** å kalle et prevalensforhold for relativ risiko er felle **E1**, og det er en av de mest brukte fellene i seksjonen — nettopp fordi regnestykket ser likt ut."
+    },
+    {
+      "id": "med1100-3-2-def-rd",
+      "type": "definition",
+      "title": "Risikodifferanse (RD)",
+      "content": "Differansen i risiko mellom gruppene, ikke forholdet:\n\n$$\\text{RD} = \\frac{a}{a+b} - \\frac{c}{c+d}$$\n\n**Hvorfor målet trengs ved siden av RR:** et forholdstall skjuler hvor stort utslaget er i absolutte tall. En dobling fra 0,001 til 0,002 og en dobling fra 0,20 til 0,40 gir begge RR $= 2$, men RD er henholdsvis 0,001 og 0,20 — altså to helt ulike situasjoner.\n\n**Bruksbetingelse:** som RR, krever kohort eller forsøk. Oppgis i andel eller prosentpoeng."
+    },
+    {
+      "id": "med1100-3-2-th-effektmal",
+      "type": "theorem",
+      "title": "Regneprosedyre: fra 2×2-tabell til effektmål",
+      "content": "Fire trinn, og trinn 1 er det som avgjør om resten blir riktig:\n\n1. **Avgjør designet først.** Kohort eller forsøk → RR (og gjerne RD). Kasus-kontroll → OR. Tverrsnitt → PR. Er du usikker på designet, er du usikker på hvilket regnestykke som gir mening.\n2. **Sett opp tabellen med eksponering i kolonnene og utfall i radene**, slik at $a$ er eksponerte med utfall.\n3. **Regn ut målet.**\n   $$\\text{RR} = \\frac{a/(a+b)}{c/(c+d)}, \\qquad \\text{OR} = \\frac{a \\cdot d}{b \\cdot c}, \\qquad \\text{PR} = \\frac{a/(a+b)}{c/(c+d)}$$\n4. **Skriv tolkningen i klartekst, med riktig ord.** «Risikoen er 2,0 ganger så høy blant de eksponerte» (RR) · «oddsen er 2,7 ganger så høy» (OR) · «prevalensen er 2,0 ganger så høy», eventuelt «tilstanden er dobbelt så vanlig» (PR).\n\n**Enhet:** RR, OR og PR er forholdstall uten enhet. RD er en andel eller prosentpoeng.\n\n**Sensorkravet:** tolkningssetningen i trinn 4 er obligatorisk. Et effektmål uten tolkning er felle **E12** — å svare på et lavere nivå enn spørsmålet ber om."
+    },
+    {
+      "id": "med1100-3-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Regn RR og OR — og finn ut når de ligner hverandre (B1-STAT)",
+      "problem": "*(Oppdiktede tall.)* En kohort på 1 000 personer følges i fem år. Blant de **400 eksponerte** utvikler **36** utfallet; blant de **600 ueksponerte** utvikler **27** det.\n\n**a)** Sett opp tabellen og regn ut RR og RD.\n\n**b)** Regn også ut OR, og forklar hvorfor de to tallene ikke er like.\n\n**c)** Undersøk numerisk når OR ligger nær RR. Bruk tre tenkte tilfeller der risikoen i den ueksponerte gruppen er 1, 5 og 20 prosent, og risikoen i den eksponerte gruppen er nøyaktig dobbelt så høy.",
+      "solution": "**Full-pott-besvarelse. B1-STAT er statistikkoppgaven i blokk 1, der vist utregning kreves.**\n\n**a) Tabell, RR og RD.**\n\n|  | Eksponert | Ueksponert |\n|---|---|---|\n| **Med utfall** | $a = 36$ | $c = 27$ |\n| **Uten utfall** | $b = 364$ | $d = 573$ |\n| **Sum** | 400 | 600 |\n\n$$\\text{risiko}_{\\text{eksponert}} = \\frac{36}{400} = 0{,}090, \\qquad \\text{risiko}_{\\text{ueksponert}} = \\frac{27}{600} = 0{,}045$$\n$$\\text{RR} = \\frac{0{,}090}{0{,}045} = 2{,}0$$\n$$\\text{RD} = 0{,}090 - 0{,}045 = 0{,}045 = 4{,}5 \\text{ prosentpoeng}$$\n\n**Tolkning:** risikoen for utfallet i løpet av de fem årene er **dobbelt så høy** blant de eksponerte. I absolutte tall er forskjellen 4,5 prosentpoeng, altså 45 ekstra tilfeller per 1 000 eksponerte over fem år.\n\n**b) OR.**\n$$\\text{OR} = \\frac{a \\cdot d}{b \\cdot c} = \\frac{36 \\cdot 573}{364 \\cdot 27} = \\frac{20\\,628}{9\\,828} = 2{,}10$$\n\n**Hvorfor OR $>$ RR:** OR har antall *uten* utfall i nevneren i hver gruppe, mens RR har *hele* gruppen. Når noen får utfallet, krymper nevneren i OR, og krympingen er størst i den gruppen som har flest tilfeller — den eksponerte. Derfor blir OR alltid trukket lenger bort fra 1 enn RR. Her er avstanden liten (2,10 mot 2,00), fordi utfallet er relativt sjeldent.\n\n— naturlig pausepunkt —\n\n**c) Når ligner OR på RR? Tre tilfeller, alle med RR nøyaktig 2.**\n\n**Tilfelle 1: risiko 1 prosent mot 2 prosent.**\n$$\\text{OR} = \\frac{0{,}02/0{,}98}{0{,}01/0{,}99} = \\frac{0{,}020408}{0{,}010101} = 2{,}020$$\n\n**Tilfelle 2: risiko 5 prosent mot 10 prosent.**\n$$\\text{OR} = \\frac{0{,}10/0{,}90}{0{,}05/0{,}95} = \\frac{0{,}11111}{0{,}052632} = 2{,}111$$\n\n**Tilfelle 3: risiko 20 prosent mot 40 prosent.**\n$$\\text{OR} = \\frac{0{,}40/0{,}60}{0{,}20/0{,}80} = \\frac{0{,}66667}{0{,}25} = 2{,}667$$\n\n| Risiko ueksponert | Risiko eksponert | RR | OR | Avvik |\n|---|---|---|---|---|\n| 1 prosent | 2 prosent | 2,00 | 2,02 | 1,0 prosent |\n| 5 prosent | 10 prosent | 2,00 | 2,11 | 5,6 prosent |\n| 20 prosent | 40 prosent | 2,00 | 2,67 | 33,3 prosent |\n\n**Konklusjonen, presist formulert — og legg merke til at den har en betingelse, ikke en generell påstand:** OR ligger nær RR **når utfallet er sjeldent**. Ved en risiko på 1 prosent er avviket rundt 1 prosent og uten praktisk betydning; ved 5 prosent er det rundt 6 prosent; ved 20 prosent er OR over 30 prosent høyere enn RR og kan ikke tolkes som om det var en relativ risiko.\n\n**Det du skal skrive i et svar, er altså aldri «OR er omtrent lik RR», men «OR er omtrent lik RR når utfallet er sjeldent — her er risikoen X prosent, og tilnærmingen holder/holder ikke».** Å bruke tilnærmingen uten betingelsen er felle **E2**."
+    },
+    {
+      "id": "med1100-3-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) *(Oppdiktede tall.)* I en kasus-kontroll-studie er **200 kasus** og **200 kontroller** inkludert. Blant kasusene var **80** eksponert; blant kontrollene var **40** eksponert.\n\n**a)** Sett opp tabellen og regn ut oddsforholdet.\n\n**b)** Forklar hvorfor relativ risiko ikke kan regnes ut her.",
+        "solution": "**a) Tabell og OR.**\n\n|  | Eksponert | Ueksponert |\n|---|---|---|\n| **Kasus** | $a = 80$ | $c = 120$ |\n| **Kontroll** | $b = 40$ | $d = 160$ |\n\n$$\\text{OR} = \\frac{a \\cdot d}{b \\cdot c} = \\frac{80 \\cdot 160}{40 \\cdot 120} = \\frac{12\\,800}{4\\,800} = 2{,}67$$\n\n**Tolkning:** oddsen for å ha vært eksponert er omtrent **2,7 ganger så høy** blant kasusene som blant kontrollene. (I en kasus-kontroll-studie er det denne veien tabellen leses — og OR er symmetrisk, så tallet er det samme om du snur på det.)\n\n**b) Hvorfor RR ikke lar seg regne ut.**\n\nRelativ risiko krever at man kjenner **andelen som utvikler utfallet** i hver eksponeringsgruppe. Her er antallet kasus og kontroller bestemt av **forskeren** — hun valgte 200 av hver. Hadde hun valgt 200 kasus og 800 kontroller, ville «andelen syke blant de eksponerte» i studien blitt en helt annen, uten at noe i virkeligheten hadde endret seg.\n\nAndelen syke i materialet er altså et resultat av designet, ikke av naturen. Derfor er enhver risiko regnet ut av dette materialet meningsløs, og OR er det eneste målet som er upåvirket av hvor mange kontroller som ble valgt.\n\n**Presiseringen som gir det siste poenget:** er utfallet sjeldent i befolkningen, ligger OR likevel nær den RR man ikke kan regne ut — og det er nettopp derfor kasus-kontroll-designet er nyttig for sjeldne tilstander.",
+        "hints": [
+          "Sett opp tabellen med eksponering i kolonnene, og pass på at a er kasus som var eksponert.",
+          "Del b): spør deg hva som ville skjedd med «andelen syke» i studien hvis forskeren hadde valgt dobbelt så mange kontroller."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — «velg ett».) I en kohortstudie er risikoen 40 prosent i den eksponerte gruppen og 20 prosent i den ueksponerte. En kollega rapporterer oddsforholdet på 2,67 og skriver at «risikoen er 2,67 ganger så høy».\n\nHva er den mest presise innvendingen?\n\n**A)** OR overvurderer RR her, siden utfallet er hyppig — RR er 2,0, ikke 2,67.\n**B)** OR og RR er alltid like store, så tallet 2,67 må skyldes en regnefeil.\n**C)** OR kan ikke regnes ut i en kohortstudie, bare i kasus-kontroll-studier.\n**D)** Innvendingen er unødvendig, siden OR og RR alltid kan brukes om hverandre.",
+        "solution": "**Riktig: A.**\n\nRisikoene er 0,40 og 0,20, så $\\text{RR} = 0{,}40/0{,}20 = 2{,}0$. Oddsforholdet er\n$$\\text{OR} = \\frac{0{,}40/0{,}60}{0{,}20/0{,}80} = \\frac{0{,}6667}{0{,}25} = 2{,}67$$\n\nTallet 2,67 er altså riktig regnet ut — men det er et **oddsforhold**, og med et så hyppig utfall (20 og 40 prosent) ligger det langt fra RR. Å beskrive det som «risikoen er 2,67 ganger så høy» overdriver med rundt 33 prosent. Dette er felle **E2**: å bruke tilnærmingen OR ≈ RR uten å sjekke betingelsen om at utfallet må være sjeldent.\n\n**B er galt:** OR og RR er bare like når risikoen er svært lav; ellers ligger OR alltid lenger fra 1.\n\n**C er galt:** OR kan regnes ut i alle designene. Det er RR som ikke kan regnes ut i en kasus-kontroll-studie — alternativet har snudd regelen.\n\n**D er galt:** det er nettopp denne sammenblandingen som er feilen.\n\n**Det som ville vært riktig formulering:** «oddsen for utfallet er 2,67 ganger så høy blant de eksponerte, mens den relative risikoen er 2,0».",
+        "hints": [
+          "Regn ut RR selv fra de to risikoene før du vurderer alternativene.",
+          "Sjekk betingelsen for at OR skal ligne RR: hvor sjeldent er utfallet her?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Systematiske feilkilder og konfundering (~18 min)\n\nEt effektmål kan være riktig regnet ut og likevel villedende. Grunnene deles i tre familier, og eksamen tester at du kan navngi riktig familie **og** si hvordan den virker. Bare navnet gir halv uttelling."
+    },
+    {
+      "id": "med1100-3-2-def-bias",
+      "type": "definition",
+      "title": "Systematisk skjevhet (bias)",
+      "content": "En feil i måten data er samlet inn eller analysert på, som gjør at resultatet konsekvent trekker i én retning.\n\n**Skilles fra tilfeldig variasjon:** tilfeldig variasjon jevner seg ut når studien blir større; **bias gjør det ikke**. En skjev studie med en million deltakere er like skjev som en med tusen — den er bare mer presist skjev. Det er derfor det aldri hjelper å «samle mer data» mot bias."
+    },
+    {
+      "id": "med1100-3-2-def-seleksjonsbias",
+      "type": "definition",
+      "title": "Seleksjonsbias",
+      "content": "Skjevhet som oppstår i **hvem som kom med** i studien, eller hvem som ble værende i den. De som er med, skiller seg systematisk fra dem undersøkelsen skulle si noe om.\n\nTo vanlige former:\n\n- **Selvseleksjon:** deltakelse er frivillig, og de som melder seg, er ikke som dem som lar være. Frivillige til en studie om aktivitet er ofte mer aktive fra før.\n- **Frafall:** de som forsvinner underveis, gjør det sjelden tilfeldig — ofte er det nettopp de med dårligst forløp som slutter å møte opp.\n\n**Kjennetegn i en oppgave:** noe i teksten sier hvordan deltakerne ble rekruttert, eller at en del av dem ikke fullførte."
+    },
+    {
+      "id": "med1100-3-2-def-informasjonsbias",
+      "type": "definition",
+      "title": "Informasjonsbias",
+      "content": "Skjevhet i **det som ble målt eller registrert**, ikke i hvem som deltok. Måleinstrumentet, spørsmålet eller hukommelsen gir systematisk feil verdi i den ene gruppen.\n\n**Recall bias** er den viktigste varianten: den som har fått en tilstand, leter grundigere i egen fortid etter mulige årsaker enn den som er frisk, og husker derfor mer. Det gjør at eksponeringen ser hyppigere ut blant kasusene enn den var — en fast svakhet ved kasus-kontroll-designet.\n\n**Kjennetegn i en oppgave:** noe sier hvordan opplysningene ble innhentet — spørreskjema i ettertid, ulikt måleutstyr, intervjuer som visste hvem som var syk."
+    },
+    {
+      "id": "med1100-3-2-def-konfundering",
+      "type": "definition",
+      "title": "Konfundering",
+      "content": "En **tredje faktor** som henger sammen både med eksponeringen og med utfallet, og som ikke ligger på veien mellom dem. Den gjør at det ser ut som eksponeringen virker, når den egentlige forklaringen ligger et annet sted.\n\n**De tre kravene til en konfunder:** den må (1) være knyttet til eksponeringen, (2) være en selvstendig årsak til utfallet, og (3) ikke være et mellomledd i årsakskjeden fra eksponering til utfall. Faller ett av kravene bort, er det ikke konfundering.\n\n**Skilles fra bias ved at** konfundering ikke er en innsamlingsfeil — dataene kan være perfekt innsamlet. Det er en **tolkningsfeil**, og den kan i motsetning til bias justeres for i analysen, forutsatt at faktoren er målt."
+    },
+    {
+      "id": "med1100-3-2-def-randomisering",
+      "type": "definition",
+      "title": "Randomisering",
+      "content": "Tilfeldig fordeling av eksponering mellom deltakerne, gjort av forskeren.\n\n**Hvorfor det virker mot konfundering — og hvorfor ingen annen metode kan det samme:** når fordelingen er tilfeldig og gruppene store nok, blir alle bakgrunnsforskjeller jevnt fordelt mellom gruppene. Ikke bare de forskjellene forskeren har tenkt på og målt, men også **de ukjente**. Statistisk justering kan bare korrigere for faktorer noen har målt; randomisering håndterer også dem ingen har tenkt på."
+    },
+    {
+      "id": "med1100-3-2-def-blinding",
+      "type": "definition",
+      "title": "Blinding",
+      "content": "At deltakerne, og helst også de som måler utfallet, ikke vet hvilken gruppe deltakeren tilhører.\n\n**Hvilken feilkilde den motvirker:** informasjonsbias. Vet den som vurderer utfallet hvem som fikk hva, kan vurderingen påvirkes systematisk — ofte uten at noen mener å gjøre noe galt. Blinding beskytter altså målingen, mens randomisering beskytter fordelingen. **De to løser hver sin type problem**, og en studie kan ha den ene uten den andre."
+    },
+    {
+      "id": "med1100-3-2-def-reliabilitet",
+      "type": "definition",
+      "title": "Reliabilitet",
+      "content": "Hvor **repeterbar** en måling er: gir samme instrument samme svar når målingen gjentas under like forhold?\n\n**Skilles fra validitet ved hva som feiler:** en klokke som går ti minutter for fort er svært reliabel — den viser konsekvent det samme — men den er ikke valid. Reliabilitet handler om spredning, validitet om treffsikkerhet."
+    },
+    {
+      "id": "med1100-3-2-def-validitet",
+      "type": "definition",
+      "title": "Validitet",
+      "content": "Hvor godt målingen eller studien faktisk fanger det den skal.\n\n- **Intern validitet:** er resultatet riktig for dem som var med i studien? Bias og konfundering truer denne.\n- **Ekstern validitet (generaliserbarhet):** gjelder resultatet også for andre enn dem som var med?\n\n**Rekkefølgen betyr noe:** uten intern validitet er ekstern validitet uinteressant. Et galt svar blir ikke bedre av å overføres til flere."
+    },
+    {
+      "id": "med1100-3-2-mek-bias",
+      "type": "text",
+      "content": "### Mekanismekjeder: hvordan de to viktigste feilkildene oppstår\n\n**Kjede 1 — hvorfor randomisering fjerner konfundering, også den ukjente:**\n\n1. Konfundering krever at en tredje faktor er **ulikt fordelt** mellom de to gruppene.\n2. Ved randomisering avgjøres gruppetilhørighet av tilfeldigheten alene — ingenting ved personen påvirker hvor hun havner.\n3. Da er alle personkjennetegn i utgangspunktet jevnt fordelt mellom gruppene, i gjennomsnitt.\n4. Det gjelder også kjennetegn ingen har målt eller tenkt på, siden tilfeldigheten ikke vet hva som er målt.\n5. Er gruppene store nok, blir gjenstående skjevhet tilfeldig og liten — og dermed er kravet i trinn 1 ikke oppfylt.\n\n**Merk begrensningen i trinn 5:** i små studier kan tilfeldigheten gi skjeve grupper likevel. Randomisering fjerner ikke konfundering i den enkelte studien med garanti; den fjerner den systematiske tendensen.\n\n**Kjede 2 — hvordan seleksjon oppstår ved frivillig deltakelse:**\n\n1. Et tilbud om deltakelse går ut til en befolkning.\n2. De som takker ja, skiller seg fra dem som takker nei — de er ofte mer interesserte, friskere, mer ressurssterke eller mer plaget, avhengig av tema.\n3. Studiegruppen er dermed ikke lenger et bilde av befolkningen.\n4. Både forekomsten **og** sammenhengen mellom eksponering og utfall kan bli forskjøvet.\n5. Skjevheten blir ikke mindre av flere deltakere, siden hver ny deltaker er valgt ut på samme skjeve måte.\n\nTrinn 5 er poenget som skiller bias fra tilfeldig variasjon, og det er verdt å skrive eksplisitt i et essaysvar."
+    },
+    {
+      "id": "med1100-3-2-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i denne seksjonen",
+      "content": "**1. Felle E1 — feil effektmål til designet.** Kohort og forsøk gir RR og RD, kasus-kontroll gir OR, tverrsnitt gir PR. Å skrive «risiko» om et tverrsnitt er den vanligste enkeltfeilen, fordi regnestykket for PR ser ut som RR.\n\n**2. Felle E2 — å bruke OR ≈ RR uten betingelsen.** Tilnærmingen holder bare ved sjeldent utfall. Skriv alltid betingelsen ut, og sjekk den mot tallene i oppgaven.\n\n**3. Felle E8 — å overse selvseleksjon.** Står det at deltakelsen var frivillig, at gruppen ble rekruttert via en annonse, eller at en del falt fra, er seleksjonsbias i spill. Og den forsvinner ikke av flere deltakere.\n\n**4. Å blande bias og konfundering.** Bias er en feil i **innsamlingen**. Konfundering er en tredje faktor i **virkeligheten**, som gjør tolkningen feil selv når innsamlingen er perfekt. Bare det siste kan justeres for i analysen.\n\n**5. Å blande reliabilitet og validitet.** Reliabilitet = samme svar hver gang. Validitet = riktig svar. En systematisk feilkalibrert måling er reliabel og ikke valid.\n\n**6. Felle E5 — å behandle avhengige observasjoner som uavhengige.** Fire målinger på samme person, eller flere personer i samme husholdning, er ikke fire uavhengige observasjoner. Behandles de som det, blir usikkerheten kunstig liten.\n\n**7. Å skrive at en observasjonsstudie har «bevist» en årsakssammenheng.** Den har funnet en **assosiasjon**. Bruk fagets varsomme språk — sensor premierer det.\n\n**8. Felle E12 — å navngi feilkilden uten å forklare hvordan den virker.** «Det er seleksjonsbias» er et halvt svar. Skriv hvem som ble valgt skjevt, og hvilken vei det trekker resultatet."
+    },
+    {
+      "id": "med1100-3-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Samfunnsmedisin-essayet om konfundering (B1-ESS)",
+      "problem": "**Oppgave:** Gjør rede for hva konfundering er. Gi ett konkret eksempel, og nevn tre måter konfundering kan håndteres på.\n\n*(Maks en halv side. B1-ESS er samfunnsmedisin-essayet i blokk 1: definisjon, konkret eksempel og oppramsing — akkurat det oppgaveteksten ber om, i den rekkefølgen.)*",
+      "solution": "Her følger **to** nyskrevne besvarelser fra Skolesaga, som viser nivåforskjellen. Ingen av dem er hentet fra et virkelig eksamenssvar.\n\n---\n\n**Besvarelse 1 — bestått på marginen (ærlig merket):**\n\n> «Konfundering er når en tredje faktor forstyrrer sammenhengen mellom eksponering og utfall. For eksempel kan alder være en konfunder. Man kan håndtere det med randomisering, stratifisering og justering i analysen.»\n\n**Margnotat — hva som var bra nok:** definisjonen treffer kjernen (en tredje faktor), eksempelet er en reell konfunder, og alle tre håndteringsmåtene er riktige. Oppgaven ba om definisjon, eksempel og tre punkter, og alle tre delene er levert. Det er derfor besvarelsen holder.\n\n**Margnotat — hva som gjør den marginal:** «forstyrrer» er upresist — definisjonen sier ikke *hvordan* faktoren må henge sammen med de to andre, og uten det skiller den ikke konfundering fra et mellomledd i årsakskjeden. Eksempelet «alder kan være en konfunder» er ikke konkret: det står ikke hvilken eksponering og hvilket utfall, og da vises det ikke at kandidaten forstår kravene. Håndteringspunktene er navn uten forklaring. Spørreordet var «gjør rede for», som er øverste trinn — dette svaret ligger nærmere «nevn».\n\n---\n\n**Besvarelse 2 — full pott:**\n\n> **Definisjon.** Konfundering foreligger når en tredje faktor er knyttet til eksponeringen, samtidig er en selvstendig årsak til utfallet, og ikke er et mellomledd i årsakskjeden mellom dem. Faktoren gjør at det observeres en sammenheng mellom eksponering og utfall som helt eller delvis skyldes noe annet enn eksponeringen selv.\n>\n> **Konkret eksempel.** En observasjonsstudie finner at personer som drikker mye kaffe, oftere har en bestemt lungetilstand. Røyking er her en mulig konfunder: røykere drikker i gjennomsnitt mer kaffe (knyttet til eksponeringen), røyking er en selvstendig årsak til lungetilstanden (uavhengig årsak), og røyking ligger ikke på veien fra kaffe til lunge (ikke mellomledd). Sammenhengen mellom kaffe og lungetilstand kan derfor helt eller delvis skyldes røyking.\n>\n> **Tre måter å håndtere det på.**\n> 1. **Randomisering i design:** tilfeldig fordeling gjør at også ukjente bakgrunnsfaktorer blir jevnt fordelt mellom gruppene. Dette er den eneste metoden som håndterer faktorer ingen har målt.\n> 2. **Restriksjon eller matching i design:** man inkluderer bare én kategori (for eksempel bare ikke-røykere), eller parer deltakerne på faktoren. Prisen er redusert generaliserbarhet, eventuelt et mer komplisert design.\n> 3. **Stratifisering eller justering i analysen:** man analyserer gruppene separat eller legger faktoren inn i en statistisk modell. Prisen er at metoden bare virker på faktorer som faktisk er målt.\n\n**Hva som skiller de to:** besvarelse 2 gir de tre kravene i definisjonen, viser at eksempelet oppfyller alle tre, og sier hva hver håndteringsmåte koster. Legg særlig merke til det siste punktet: **å si hva en metode ikke klarer, er ofte det som løfter et svar mest** — det viser at forskjellen mellom design og analyse er forstått.\n\n**Konklusjonen, skarpt formulert:** de tre metodene er ikke likeverdige. Randomisering er kvalitativt sterkere enn de to andre, fordi den alene håndterer ukjente konfundere — og det er nettopp derfor et randomisert forsøk står i en annen klasse enn en aldri så godt justert observasjonsstudie."
+    },
+    {
+      "id": "med1100-3-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg, B1-KORT.) Forklar forskjellen på reliabilitet og validitet, og gi ett eksempel på en måling som har det ene, men ikke det andre.",
+        "solution": "**Reliabilitet** er hvor repeterbar målingen er: gir den samme svar når den gjentas under like forhold? Det handler om spredning.\n\n**Validitet** er hvor godt målingen treffer det den skal måle. Det handler om treffsikkerhet.\n\n**Eksempel på reliabel, men ikke valid måling:** en vekt som er kalibrert to kilo for høyt. Den gir nøyaktig samme svar hver gang du veier den samme gjenstanden — altså høy reliabilitet — men alle svarene er systematisk to kilo feil, altså lav validitet.\n\n**Poenget:** en måling kan ikke være valid uten å være noenlunde reliabel, men den kan godt være reliabel uten å være valid. Systematisk feil er nettopp den kombinasjonen.",
+        "hints": [
+          "Tenk på et måleinstrument som er stilt feil, men som er svært stabilt.",
+          "Den ene av de to handler om spredning, den andre om avstand til sannheten."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — «velg ett».) *(Oppdiktet studie.)* En undersøkelse rekrutterer deltakere gjennom en annonse rettet mot personer som er interessert i kosthold. Blant de 1 200 som melder seg, finner forskerne at et bestemt kosthold henger sammen med færre plager.\n\nHvilken feilkilde er mest åpenbart i spill, og hvorfor hjelper det ikke å rekruttere flere?\n\n**A)** Seleksjonsbias ved selvseleksjon — skjevheten gjentas for hver nye deltaker.\n**B)** Informasjonsbias ved recall — deltakerne husker kostholdet sitt upresist.\n**C)** Konfundering ved alder — de som svarer på annonser, er ofte eldre.\n**D)** Tilfeldig variasjon — usikkerheten er for stor med bare 1 200 deltakere.",
+        "solution": "**Riktig: A.**\n\nDeltakerne har **valgt seg selv inn**, og utvalget består av personer som allerede er interessert i kosthold. De skiller seg trolig systematisk fra befolkningen både i kosthold og i andre helsevaner, og dermed kan både forekomsten og sammenhengen være forskjøvet. Dette er felle **E8** — å overse selvseleksjon.\n\n**Hvorfor flere deltakere ikke hjelper:** hver ny deltaker rekrutteres på nøyaktig samme skjeve måte. Utvalget blir større, men ikke mindre skjevt — det blir bare mer presist skjevt. Det er akkurat dette som skiller **bias** fra **tilfeldig variasjon**: tilfeldig variasjon jevner seg ut med økende antall, systematisk skjevhet gjør det ikke.\n\n**B er en reell bekymring, men ikke den mest åpenbare:** teksten sier ingenting om hvordan kostholdet ble kartlagt. Rekrutteringsmåten er derimot beskrevet eksplisitt.\n\n**C er galt som formulert:** vi vet ingenting om alderssammensetningen, og påstanden om at annonselesere er eldre er ubegrunnet. Konfundering krever at faktoren faktisk er knyttet både til eksponering og utfall.\n\n**D er galt, og er selve motsatsen til svaret:** 1 200 deltakere gir god presisjon. Problemet er ikke usikkerhet, men retning.",
+        "hints": [
+          "Se etter hva teksten faktisk beskriver om hvordan deltakerne kom med.",
+          "Spør deg om feilen ville blitt mindre med 12 000 deltakere i stedet for 1 200."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-KORT.) En observasjonsstudie finner at personer som bruker en bestemt type sko på jobb, har færre knesmerter. Forskerne konkluderer med at skoene forebygger knesmerter.\n\n**a)** Nevn to grunner til at konklusjonen er for sterk.\n\n**b)** Foreslå ett design som ville gitt et sikrere svar, og forklar hvorfor.",
+        "solution": "**a) To grunner.** Merk spørreordet «nevn» — kort form holder her, men de to grunnene må være av ulik type for å telle som to.\n\n1. **Konfundering.** De som velger denne typen sko, kan skille seg fra andre på måter som selv påvirker knesmerter — for eksempel type arbeidsoppgaver, alder eller aktivitetsnivå. Sammenhengen kan da helt eller delvis skyldes den tredje faktoren.\n2. **Omvendt årsaksretning.** Det kan like gjerne være knesmertene som styrte skovalget: den som allerede har vondt, bytter til sko som er mer skånsomme. Da er utfallet årsak til eksponeringen, ikke omvendt.\n\n*(En tredje mulig grunn, om oppgaven hadde bedt om flere: en observasjonsstudie viser en assosiasjon, og ordet «forebygger» er en årsakspåstand.)*\n\n**b) Et sikrere design: en randomisert kontrollert studie.**\n\n**Forklaringen:** når forskeren fordeler skotypen tilfeldig, avgjøres gruppetilhørigheten av tilfeldigheten alene. Da blir bakgrunnsfaktorer — også de ingen har målt eller tenkt på — jevnt fordelt mellom gruppene, slik at konfundering ikke kan forklare en eventuell forskjell. Samtidig løses spørsmålet om årsaksretning: eksponeringen er tildelt før utfallet oppstår, så knesmertene kan umulig ha bestemt hvilken sko deltakeren fikk.\n\n**Presiseringen som løfter svaret:** randomiseringen sikrer den **interne** validiteten. Om resultatet gjelder utenfor studien — den **eksterne** validiteten — avhenger fortsatt av hvem som ble inkludert.",
+        "hints": [
+          "De to grunnene i a) bør være av ulik type: én om en tredje faktor, én om rekkefølgen i tid.",
+          "I b): hvilket design fjerner både problemet med ukjente bakgrunnsforskjeller og problemet med hva som kom først?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-3-2-oppg-9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-ESS — samfunnsmedisin-essayet, maks en halv side.) Gjør rede for forskjellen på seleksjonsbias, informasjonsbias og konfundering. Gi ett konkret eksempel på hver, og forklar hvilken av dem som kan justeres for i analysen.",
+        "solution": "**Full-pott-besvarelse.** Merk spørreordet: «gjør rede for» = beskriv + forklar + sett i sammenheng. Det holder ikke å definere de tre.\n\n**Seleksjonsbias** oppstår i **hvem som er med** i studien, eller hvem som blir værende. De inkluderte skiller seg systematisk fra dem studien skal si noe om.\n*Eksempel:* en undersøkelse om treningsvaner rekrutterer via et treningssenter. Deltakerne er langt mer aktive enn befolkningen, og både forekomsten og sammenhengene i materialet blir forskjøvet.\n\n**Informasjonsbias** oppstår i **det som er målt eller registrert**, uansett hvem som deltok.\n*Eksempel:* i en kasus-kontroll-studie intervjues både syke og friske om hva de spiste for ti år siden. De syke har lett grundigere i egen fortid og husker mer (recall bias), slik at eksponeringen ser hyppigere ut i kasusgruppen enn den var.\n\n**Konfundering** er ikke en innsamlingsfeil i det hele tatt. Dataene kan være perfekt samlet inn, men en **tredje faktor** er knyttet til eksponeringen, er en selvstendig årsak til utfallet, og er ikke et mellomledd mellom dem.\n*Eksempel:* en sammenheng mellom kaffe og en lungetilstand som helt eller delvis skyldes at røykere drikker mer kaffe.\n\n— naturlig pausepunkt —\n\n**Sammenhengen mellom de tre, som er selve poenget:** de to første er feil som er **bygget inn i dataene** i det øyeblikket de ble samlet inn. Ingen analyse kan ta dem ut igjen, fordi den informasjonen som skulle til, aldri ble registrert. Konfundering er derimot et **tolkningsproblem**: virkeligheten er kompleks, men dataene er riktige.\n\n**Svaret på siste ledd, skarpt:** **bare konfundering kan justeres for i analysen** — ved stratifisering, matching eller statistisk modellering — og bare når faktoren faktisk er målt. Seleksjons- og informasjonsbias må forebygges i designet; er de først der, kan de i beste fall diskuteres, ikke korrigeres.\n\n**Og den siste presiseringen:** heller ikke justering for konfundering er noen garanti, siden den bare virker på det som er målt. Det er derfor randomisering står i en egen klasse: den håndterer også de faktorene ingen har tenkt på.",
+        "hints": [
+          "Del de tre etter hvor feilen oppstår: i hvem som er med, i hva som ble målt, eller i virkeligheten selv.",
+          "Til siste ledd: hvilken av de tre har en feil som ikke ligger i selve datainnsamlingen?",
+          "Husk å si hva justeringen IKKE klarer — det er ofte der de siste poengene ligger."
+        ]
+      }
+    },
+    {
+      "id": "med1100-3-2-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "med1100-3-2-def-prospektiv",
+      "type": "definition",
+      "title": "Prospektiv og retrospektiv datainnsamling",
+      "content": "**Prospektiv:** opplysningene registreres **før** utfallet har inntruffet, slik at ingen vet hvem som kommer til å bli syk. Dette beskytter mot recall bias.\n\n**Retrospektiv:** opplysningene hentes **etter** at utfallet er kjent, fra hukommelse eller eksisterende registre.\n\n**Merk at dette ikke er det samme som designet:** en kohortstudie kan være både prospektiv og retrospektiv (den siste ved bruk av gamle registre), mens en kasus-kontroll-studie nesten alltid er retrospektiv. Det er tidspunktet for **registreringen** som avgjør ordet, ikke utvelgelsen av deltakere."
+    },
+    {
+      "id": "med1100-3-2-def-assosiasjon",
+      "type": "definition",
+      "title": "Assosiasjon og årsak",
+      "content": "En **assosiasjon** er en statistisk sammenheng: to størrelser opptrer sammen oftere enn tilfeldigheten skulle tilsi. En **årsakssammenheng** krever mer — blant annet riktig tidsrekkefølge, at alternative forklaringer er utelukket, og helst at sammenhengen gjenfinnes i ulike materialer.\n\n**Hvorfor skillet gir poeng:** en observasjonsstudie kan påvise en assosiasjon, men den kan sjelden alene fastslå en årsak. Å skrive at en studie har «vist at X gir Y» er derfor nesten alltid for sterkt. Skriv heller «det ble funnet en sammenheng mellom X og Y», og si hva som eventuelt kunne forklare den ellers."
+    },
+    {
+      "id": "med1100-3-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis kontrollpunkter",
+      "content": [
+        {
+          "id": "med1100-3-2-repetisjon-tekst",
+          "type": "text",
+          "content": "Seks kontrollpunkter. To henter fra kapitlet foran.\n\n1. **Hvilke tre spørsmål avgjør designet?** (Er eksponeringen fordelt av forskeren? Er data på individnivå? Hva ble deltakerne valgt ut på?)\n2. **Koble design til effektmål.** (Kohort og RCT → RR og RD · kasus-kontroll → OR · tverrsnitt → PR · økologisk → sammenheng på gruppenivå.)\n3. **Når ligner OR på RR — og hvorfor er det ikke en generell regel?** (Bare ved sjeldent utfall. Ved 1 prosent risiko er avviket rundt 1 prosent, ved 20 prosent over 30 prosent.)\n4. **Hva skiller bias fra konfundering?** (Bias er en feil i innsamlingen og kan ikke justeres bort. Konfundering er en tredje faktor i virkeligheten og kan justeres for — hvis den er målt.)\n5. **Hvorfor virker randomisering også mot ukjente konfundere?** (Fordi tilfeldigheten fordeler alle personkjennetegn jevnt, også dem ingen har målt.)\n6. **Hva skiller reliabilitet fra validitet?** (Repeterbarhet mot treffsikkerhet — en feilkalibrert vekt er reliabel og ikke valid.)\n\n**Fra [kap. 3.1](/med1100/med1100-3-1):** 2×2-tabellen leses ulikt avhengig av hva du vil vite, og prevalens er forekomsten på et tidspunkt.\n\n**Og strategipunktet for hele blokk 1:** ingen minuspoeng — svar alltid. I fritekst: navngi feilkilden **og** forklar hvordan den virker."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

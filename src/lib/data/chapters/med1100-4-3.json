@@ -1,0 +1,375 @@
+{
+  "id": "med1100-4-3",
+  "courseId": "med1100",
+  "chapterNumber": "4.3",
+  "title": "2×2-tabeller: kji-kvadrat, OR, RR og PR",
+  "description": "Kji-kvadrattest for en 2×2-tabell, og beregning/tolkning av odds ratio, relativ risiko, prevalensratio og risikodifferanse — inkludert når OR tilnærmer RR/PR.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne sette opp en 2×2-tabell med eksponering i radene og regne ut risiko, relativ risiko, odds ratio, prevalensratio og risikodifferanse med vist utregning",
+    "kunne begrunne med tall når odds ratio kan brukes som tilnærming til relativ risiko, og når den ikke kan det",
+    "kunne utføre en kji-kvadrattest på en 2×2-tabell, sjekke forutsetningen om forventede celletall og kontrollere svaret med en z-test",
+    "kunne avgjøre hvilket effektmål et studiedesign tillater, og skrive tolkningen med riktig verb og riktig referansegruppe"
+  ],
+  "content": [
+    {
+      "id": "med1100-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hvilken eksamen trener du her?** **Blokk 1** — den digitale eksamenen (i **Inspera**, UiOs digitale eksamenssystem) på rundt fem timer, der **statistikkseksjonen teller 40 prosent**. MED1100 har tre **blokkeksamener**: tre separate eksamensdager med ulikt format, som alle må bestås hver for seg.\n\n**Hvor ofte kommer det?** **2×2-tabell med kji-kvadrattest er observert i rundt 12 av de 16 lesbare sittingene** av blokk 1 fra 2021 til 2026 (én «sitting» = én gjennomføring, ordinær eller utsatt), og **effektmålene odds ratio, relativ risiko, prevalensratio og risikodifferanse med tolkning i rundt 12 av 16**. Sammen med konfidensintervallet og hypotesetesten utgjør dette de tre temaene som praktisk talt alltid er med.\n\n**I hvilken form?** **B1-STAT** — statistikkoppgaven i blokk 1, besvart i fritekst med vist utregning. Den klassiske formen er: *her er en tabell med to rader og to kolonner — regn ut effektmålene, test om sammenhengen er statistisk sikker, og tolk tallene i klartekst.* I tillegg kommer **B1-MC** — flervalgsspørsmålet med fire alternativer: *hvilket effektmål kan du regne ut fra dette designet?* og *når er odds ratio omtrent lik relativ risiko?*\n\n**Hva sensor ser etter, konkret.** Tre ting, i tillegg til riktig regning: at du plasserer tallene riktig i tabellen, at du **tolker effektmålet i ord** — «oddsen er 1,4 ganger så høy i den eksponerte gruppen» — og at du sier noe om **når tilnærmingen mellom målene holder**. Et bart tall er ikke et ferdig svar; det er **felle E12**, altså å svare på et lavere nivå enn spørreordet ber om.\n\n**Hjelpemidler.** **Enkel kalkulator** (Citizen SR-270X eller Casio FX-82EX), **statistiske tabeller** og **utdelt formelsamling**. Formelen for kji-kvadrat, verdien 3,84 og definisjonene av odds ratio og relativ risiko ligger foran deg. Det du trenes på her, er å sette tallene på rett plass og tolke resultatet — ikke å huske formlene.\n\n**Hvordan rettes det?** **Ingen minuspoeng i blokk 1 — svar alltid.** Riktig framgangsmåte premieres over eksakt tallsvar, og en regnefeil som forplanter seg trekkes ikke to ganger. Det gjelder også her: har du satt opp tabellen riktig og valgt riktig mål, står du støtt selv om siste desimal glapp. **Alternative korrekte metoder godtas** — du kan teste en 2×2 med kji-kvadrat *eller* med en z-test for to andeler, og begge gir samme svar. Vurderingen er **bestått / ikke bestått**.\n\n**Tid:** kapitlet er delt i fire løkker på omtrent 14, 16, 16 og 11 minutter, med pausepunkter i de lange fasitene. Regner du eksemplene selv med kalkulator — og det bør du — legg på rundt halvparten."
+    },
+    {
+      "id": "med1100-4-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på tre ting, alle fra denne boka. Her er de, ferdig oppfrisket.\n\n**Fra [kap. 3.1](/med1100/med1100-3-1): tabellen med to rader og to kolonner.** Du bygde en 2×2-tabell der kolonnene var sannheten (syk / frisk) og radene var testsvaret. Her bruker vi samme tabellform til noe annet: kolonnene blir **utfallet** (syk / frisk) og radene blir **eksponeringen** (eksponert / ikke eksponert). Regelen fra 3.1 gjelder fortsatt — **det avgjørende er hvilken vei du leser, og hva som står i nevneren.**\n\n**Fra [kap. 4.1](/med1100/med1100-4-1): nullverdien.** Et konfidensintervall for en **differanse** vurderes mot **0**. Et intervall for et **forholdstall** vurderes mot **1**, fordi et forholdstall på 1 betyr at gruppene er like. Begge deler brukes her, side om side.\n\n**Fra [kap. 4.2](/med1100/med1100-4-2): føringen og beslutningsregelen.** Hypotesetesten føres i seks trinn — parameter, hypoteser, forutsetninger, teststatistikk, sammenligning med kritisk verdi, konklusjon i klartekst. Beslutningsregelen er den samme her, bare med en annen teststatistikk og en annen kritisk verdi. Og «behold $H_0$» betyr fortsatt **ikke påvist**, ikke *vist at det ikke finnes* (**felle E4**).\n\n**Fra videregående, om du har hatt det:** [Betinget sannsynlighet (Matematikk S1 5.2)](/s1/s1-5-2) er den nærmeste parallellen til hvordan risiko leses ut av en tabell. Har du det ikke, trenger du det ikke — alt innføres under.\n\nDe nye begrepene — *eksponering*, *odds*, *odds ratio*, *relativ risiko*, *prevalensratio* og *kji-kvadrat* — er alle nye her og forklares fra grunnen av."
+    },
+    {
+      "id": "med1100-4-3-nokkelfakta",
+      "type": "collapsible",
+      "title": "Nøkkelfakta- og formelliste",
+      "buttonText": "Vis nøkkelfakta og formler",
+      "content": [
+        {
+          "id": "med1100-4-3-nokkelfakta-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Tabelloppsettet som alt regnes fra**\n\n|  | Utfall til stede | Utfall fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | $a$ | $b$ | $a+b$ |\n| **Ikke eksponert** | $c$ | $d$ | $c+d$ |\n| **Sum kolonne** | $a+c$ | $b+d$ | $N$ |\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $a, b, c, d$ | antall personer i hver celle | personer |\n| $N$ | totalt antall i tabellen, $a+b+c+d$ | personer |\n| $\\chi^2$ | kji-kvadrat-teststatistikken | ingen |\n| $O$ og $E$ | observert og forventet antall i en celle | personer |\n| RR | relativ risiko | forholdstall (nullverdi 1) |\n| OR | odds ratio | forholdstall (nullverdi 1) |\n| PR | prevalensratio | forholdstall (nullverdi 1) |\n| RD | risikodifferanse | andel / prosentpoeng (nullverdi 0) |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Risiko i eksponert gruppe:}\\qquad R_1 = \\frac{a}{a+b}, \\qquad \\text{Risiko i ueksponert:}\\qquad R_0 = \\frac{c}{c+d}$$\n\nLeses **bortover i raden**. *Bruksbetingelse:* forutsetter at radsummene er de gruppene som ble fulgt — altså et design der man starter med eksponeringen og ser hva som skjer.\n\n$$\\text{Relativ risiko:}\\qquad \\text{RR} = \\frac{a/(a+b)}{c/(c+d)}$$\n\n*Tolkning:* «risikoen er RR ganger så høy i den eksponerte gruppen». *Bruksbetingelse:* krever at risiko kan regnes, altså at man har fulgt grupper over tid.\n\n$$\\text{Odds ratio:}\\qquad \\text{OR} = \\frac{a/b}{c/d} = \\frac{ad}{bc}$$\n\n*Tolkning:* «oddsen er OR ganger så høy i den eksponerte gruppen». *Bruksbetingelse:* kan regnes fra **alle** 2×2-design, også der risiko ikke kan regnes. Det er nettopp derfor OR finnes.\n\n$$\\text{Prevalensratio:}\\qquad \\text{PR} = \\frac{a/(a+b)}{c/(c+d)}$$\n\nSamme regnestykke som RR, men brukt på en **tverrsnittsundersøkelse**, der man måler forekomst på ett tidspunkt i stedet for å følge grupper. Navnet skifter fordi tolkningen skifter: PR handler om hvor mange som **har** tilstanden, ikke om hvor mange som **får** den.\n\n$$\\text{Risikodifferanse:}\\qquad \\text{RD} = \\frac{a}{a+b} - \\frac{c}{c+d}$$\n\n*Tolkning:* «X flere per hundre i den eksponerte gruppen». Nullverdien er **0**.\n\n$$\\chi^2 = \\frac{N(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$$\n\nSnarveiformelen for en 2×2. *Bruksbetingelse:* **alle forventede celletall må være minst 5**. Kritisk verdi ved **1 frihetsgrad og 5 prosent nivå er 3,84**.\n\n$$\\chi^2 = \\sum \\frac{(O-E)^2}{E}, \\qquad E = \\frac{\\text{radsum} \\cdot \\text{kolonnesum}}{N}$$\n\nDen generelle formen. Gir nøyaktig samme tall for en 2×2, og er den du bruker hvis oppgaven ber om forventede celletall.\n\n**Kritiske verdier fra tabellen**\n\n| Test | Kritisk verdi (5 prosent) | Kritisk verdi (1 prosent) |\n|---|---|---|\n| $\\chi^2$ med 1 frihetsgrad | **3,84** | 6,63 |\n| Tosidig $z$-test for to andeler | **1,96** | 2,576 |\n\n**Sammenhengen som er verdt å kunne:** $\\chi^2 = z^2$ ved 1 frihetsgrad, og $3{,}84 = 1{,}96^2$. Testene er identiske — derfor godtas begge veier.\n\n**Merk om hjelpemidlene:** i blokk 1 ligger **formelsamlingen og de statistiske tabellene på pulten**. Formlene over er ikke pugg. Det du trenes på, er å plassere tallene riktig, velge et mål designet faktisk tillater, og skrive tolkningssetningen.\n\n**Faste kontraster som skiller riktig fra nesten riktig**\n\n- **RR og OR er ikke samme tall.** De er nær hverandre bare når utfallet er sjeldent — se tabellen i Løkke 2.\n- **RD er en subtraksjon, RR og OR er divisjoner.** Nullverdien er 0 for den første, 1 for de to andre.\n- **Prevalens er antall som HAR**, insidens er antall som FÅR. Derfor heter det PR i et tverrsnitt og RR i en oppfølgingsstudie.\n- **Kji-kvadrat sier om sammenhengen er statistisk sikker**, ikke hvor sterk den er. Styrken leser du av effektmålet."
+        }
+      ]
+    },
+    {
+      "id": "med1100-4-3-oversikt",
+      "type": "text",
+      "content": "To grupper, to mulige utfall, fire tall. Det er hele datagrunnlaget for et enormt antall medisinske studier — og for en av de sikreste oppgavetypene i blokk 1.\n\nTenk deg at du leser en overskrift: «dobbelt så høy risiko». Det høres dramatisk ut. Men to ganger *hva*? Går risikoen fra 1 til 2 per tusen, er den dobbelt så høy og likevel ubetydelig for de fleste. Går den fra 20 til 40 prosent, er det noe helt annet. **Samme forholdstall, helt ulik betydning** — og det er nettopp derfor eksamen krever at du regner ut både et forholdstall og en differanse, og tolker begge.\n\nKapitlet gir deg fire effektmål og én test:\n\n- **Relativ risiko (RR)** — hvor mange ganger så stor risikoen er.\n- **Odds ratio (OR)** — hvor mange ganger så stor *oddsen* er. Ligner RR, men er ikke det samme.\n- **Prevalensratio (PR)** — samme regnestykke som RR, brukt på et tverrsnitt.\n- **Risikodifferanse (RD)** — hvor mange flere per hundre.\n- **Kji-kvadrattesten** — svarer på om forskjellen er statistisk sikker i det hele tatt.\n\nOg den ene innsikten som går igjen i eksamensoppgavene, og som du skal kunne **vise med tall og ikke bare påstå**: OR ligger nær RR bare når utfallet er sjeldent. Ved vanlige utfall spriker de kraftig, og å bytte dem om er **felle E1** — bokas mest grunnleggende statistikkfeil."
+    },
+    {
+      "id": "med1100-4-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Tabellen, risikoen og relativ risiko (~14 min)\n\nAlt i dette kapitlet regnes fra fire tall. Får du dem på rett plass, er resten mekanikk. Får du dem på feil plass, er hvert eneste svar galt — derfor bruker vi litt tid på oppsettet først."
+    },
+    {
+      "id": "med1100-4-3-def-2x2-eksponering",
+      "type": "definition",
+      "title": "2×2-tabellen for eksponering og utfall",
+      "content": "Oppstillingen der **radene er eksponeringen** (var personen utsatt for det vi undersøker?) og **kolonnene er utfallet** (fikk personen tilstanden?):\n\n|  | Utfall til stede | Utfall fraværende |\n|---|---|---|\n| **Eksponert** | $a$ | $b$ |\n| **Ikke eksponert** | $c$ | $d$ |\n\n**Regelen som avgjør alt:** risiko leses **bortover i raden** — av alle eksponerte, hvor mange fikk utfallet? Det er $a/(a+b)$. Leser du nedover i kolonnen i stedet, har du regnet ut noe helt annet: andelen av de syke som var eksponert, som ikke er en risiko i det hele tatt.\n\n**Ordet «eksponering»** betyr her ganske enkelt den egenskapen eller påvirkningen vi undersøker — det kan være hva som helst som deler befolkningen i to grupper.\n\n**Den vanligste oppsettsfeilen:** å bytte om rader og kolonner. Kontrollen tar fem sekunder: radsummen $a+b$ skal være **alle eksponerte**, uansett utfall. Stemmer ikke det, står tabellen feil vei."
+    },
+    {
+      "id": "med1100-4-3-def-risiko",
+      "type": "definition",
+      "title": "Risiko (og insidens)",
+      "content": "Andelen i en gruppe som får utfallet i løpet av perioden man følger dem: $R = a/(a+b)$ for de eksponerte.\n\n**Det som skiller risiko fra prevalens:** risiko handler om hvor mange som **får** tilstanden i en periode; prevalens om hvor mange som **har** den på et tidspunkt. Skillet er ikke pedanteri — det avgjør hvilket effektmål du har lov til å regne ut, og det er hele grunnen til at PR finnes ved siden av RR.\n\n**Enhet:** en andel mellom 0 og 1, ofte oppgitt i prosent. Er risikoen $0{,}30$, sier vi «30 prosent», eller «30 per hundre»."
+    },
+    {
+      "id": "med1100-4-3-def-rr",
+      "type": "definition",
+      "title": "Relativ risiko (RR)",
+      "content": "Forholdet mellom risikoen i de to gruppene:\n\n$$\\text{RR} = \\frac{a/(a+b)}{c/(c+d)}$$\n\n**Tolkningen, som SKAL skrives ut:** «risikoen er RR ganger så høy blant de eksponerte». Er $\\text{RR} = 2{,}0$, er risikoen dobbelt så høy. Er $\\text{RR} = 0{,}6$, er den 40 prosent lavere.\n\n**Nullverdien er 1.** Et konfidensintervall for RR som dekker 1, betyr at forskjellen ikke er påvist.\n\n**Bruksbetingelsen:** RR krever at du **kan regne risiko**, altså at radsummene er grupper du har fulgt over tid. Er tallene hentet slik at du selv har bestemt hvor mange syke og hvor mange friske som skulle med i studien, er $a/(a+b)$ ikke en risiko i det hele tatt, og RR kan ikke regnes ut. Da må du bruke OR."
+    },
+    {
+      "id": "med1100-4-3-def-rd",
+      "type": "definition",
+      "title": "Risikodifferanse (RD)",
+      "content": "Forskjellen mellom de to risikoene: $\\text{RD} = a/(a+b) - c/(c+d)$, oppgitt i **prosentpoeng**.\n\n**Tolkningen:** «det er RD flere tilfeller per hundre blant de eksponerte». Er risikoen 30 mot 15 prosent, er $\\text{RD} = 15$ prosentpoeng.\n\n**Nullverdien er 0**, ikke 1 — differansen er en subtraksjon.\n\n**Hvorfor den alltid bør stå ved siden av RR:** forholdstallet alene skjuler størrelsen. En dobling fra 0,1 til 0,2 prosent gir $\\text{RR} = 2{,}0$ og $\\text{RD} = 0{,}1$ prosentpoeng; en dobling fra 30 til 60 prosent gir samme RR og $\\text{RD} = 30$ prosentpoeng. **Samme forholdstall, tre hundre ganger så stor absolutt forskjell.** Sensor ser etter kandidater som oppgir begge, og det er en av de billigste måtene å løfte et svar på."
+    },
+    {
+      "id": "med1100-4-3-th-tabell",
+      "type": "theorem",
+      "title": "Regneprosedyre: fra tabell til effektmål",
+      "content": "Fem trinn. Bruk dem hver gang, også når tabellen ser enkel ut.\n\n1. **Sett opp tabellen med eksponeringen i radene.** Skriv den av på kladdearket med $a$, $b$, $c$, $d$ på plass, og kontroller at $a+b$ er **alle eksponerte** og $a+c$ er **alle med utfallet**.\n2. **Regn radsummene og totalen.** $a+b$, $c+d$ og $N = a+b+c+d$. Dette tar fem sekunder og avslører en avskrivningsfeil før den forplanter seg til fire effektmål.\n3. **Regn de to risikoene bortover i radene.**\n   $$R_1 = \\frac{a}{a+b}, \\qquad R_0 = \\frac{c}{c+d}$$\n4. **Regn effektmålene.**\n   $$\\text{RR} = \\frac{R_1}{R_0}, \\qquad \\text{RD} = R_1 - R_0, \\qquad \\text{OR} = \\frac{ad}{bc}$$\n5. **Tolk hvert mål i ord**, med riktig verb: risikoen er **RR ganger så høy**, det er **RD flere per hundre**, oddsen er **OR ganger så høy**.\n\n**Merk enheten:** RR, OR og PR er **forholdstall uten enhet** og sammenlignes med 1. RD er en **andel eller prosentpoeng** og sammenlignes med 0. Å skrive «RR = 2,0 prosent» er en enhetsfeil som umiddelbart viser at målet ikke er forstått.\n\n**Merk designet:** trinn 3 forutsetter at radsummene er grupper som ble fulgt. Er de ikke det, hopp til OR — som er det eneste målet som alltid lar seg regne."
+    },
+    {
+      "id": "med1100-4-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fra tabell til fire effektmål (B1-STAT)",
+      "problem": "I en tenkt oppfølgingsstudie følges 400 personer, 200 eksponerte og 200 ikke-eksponerte. Utfallet inntreffer hos 60 av de eksponerte og 30 av de ikke-eksponerte.\n\n**a)** Sett opp 2×2-tabellen.\n\n**b)** Regn ut risiko i hver gruppe, RR, RD og OR, og tolk hvert mål i ord.\n\n*Alle tall er konstruerte for regningens skyld.*",
+      "solution": "**Full-pott-besvarelse. Vist utregning, med tolkning av hvert mål.**\n\n**a) Tabellen.**\n\n|  | Utfall til stede | Utfall fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | 60 | 140 | 200 |\n| **Ikke eksponert** | 30 | 170 | 200 |\n| **Sum kolonne** | 90 | 310 | 400 |\n\nKontroll: $60+140+30+170 = 400$. Radsummene er 200 og 200, altså de gruppene som ble fulgt. Tabellen står riktig vei.\n\n**b) Effektmålene.**\n\n**Risiko i hver gruppe** (bortover i radene):\n$$R_1 = \\frac{60}{200} = 0{,}300 \\quad (30{,}0 \\text{ prosent}), \\qquad R_0 = \\frac{30}{200} = 0{,}150 \\quad (15{,}0 \\text{ prosent})$$\n\n**Relativ risiko:**\n$$\\text{RR} = \\frac{0{,}300}{0{,}150} = 2{,}00$$\n\n*Tolkning:* risikoen er **dobbelt så høy** blant de eksponerte som blant de ikke-eksponerte.\n\n**Risikodifferanse:**\n$$\\text{RD} = 0{,}300 - 0{,}150 = 0{,}150 \\quad (15{,}0 \\text{ prosentpoeng})$$\n\n*Tolkning:* det er **15 flere tilfeller per hundre** blant de eksponerte.\n\n**Odds ratio:**\n$$\\text{OR} = \\frac{ad}{bc} = \\frac{60 \\cdot 170}{140 \\cdot 30} = \\frac{10\\,200}{4\\,200} = 2{,}43$$\n\n*Tolkning:* **oddsen** for utfallet er **2,43 ganger så høy** blant de eksponerte.\n\n— naturlig pausepunkt —\n\n**Det som er verdt å legge merke til her, og som er selve eksamenspoenget:** $\\text{RR} = 2{,}00$, men $\\text{OR} = 2{,}43$. De er **ikke** like, og avviket er over 20 prosent. Grunnen er at utfallet ikke er sjeldent — 30 og 15 prosent er høye risikoer. Vi viser tallmessig hvorfor i Løkke 2.\n\n**Formuleringsfellen som koster mest her:** å skrive «risikoen er 2,43 ganger så høy» om odds ratio. Det er **felle E1**, altså å forveksle OR og RR, og den er blant de hyppigst påpekte feilene i statistikkdelen. **OR handler om odds, RR om risiko** — og når utfallet er vanlig, er de langt fra det samme tallet.\n\n**Og den nødvendige varsomheten:** at risikoen er dobbelt så høy blant de eksponerte, sier ingenting om at eksponeringen er årsaken. En observert sammenheng kan skyldes at gruppene skiller seg på andre måter samtidig. Det er en faglig vurdering utenfor regnestykket."
+    },
+    {
+      "id": "med1100-4-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-3-oppg-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, B1-KORT — kortsvarsoppgaven i blokk 1.) I en 2×2-tabell står eksponeringen i radene og utfallet i kolonnene.\n\n**a)** Forklar med dine egne ord hvorfor risiko må leses bortover i raden og ikke nedover i kolonnen.\n\n**b)** Hvilken kontroll kan du gjøre på fem sekunder for å sjekke at du har satt tabellen riktig vei?",
+        "solution": "**a) Hvorfor bortover.** Risiko betyr «av dem som var eksponert, hvor mange fikk utfallet?». Nevneren må derfor være **alle eksponerte** — altså radsummen $a+b$. Leser du nedover i kolonnen i stedet, får du $a/(a+c)$, som er andelen av dem med utfallet som var eksponert. Det er et helt annet spørsmål, og svaret på det avhenger blant annet av hvor mange eksponerte studien tilfeldigvis inkluderte.\n\n**b) Kontrollen.** Sjekk at radsummen $a+b$ er **alle eksponerte, uansett utfall**, og at kolonnesummen $a+c$ er **alle med utfallet, uansett eksponering**. Stemmer ikke det, står tabellen feil vei, og alt du regner videre blir galt.\n\n**Merk:** dette er samme retningsregel som i [kap. 3.1](/med1100/med1100-3-1), der sensitivitet ble lest nedover og PPV bortover. Feilen er den samme i begge kapitler: å regne med feil nevner.",
+        "hints": [
+          "Skriv ut spørsmålet risiko svarer på, i ord, med ordet «av alle …» først.",
+          "Hva må stå i nevneren for at brøken skal svare på nettopp det spørsmålet?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-3-oppg-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving, B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) I en tenkt oppfølgingsstudie følges 200 eksponerte og 200 ikke-eksponerte. Utfallet inntreffer hos 24 eksponerte og 10 ikke-eksponerte.\n\nSett opp tabellen og regn ut risiko i hver gruppe, RR, RD og OR. Tolk RR og RD i ord.",
+        "solution": "**Tabellen.**\n\n|  | Utfall til stede | Utfall fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | 24 | 176 | 200 |\n| **Ikke eksponert** | 10 | 190 | 200 |\n| **Sum kolonne** | 34 | 366 | 400 |\n\nKontroll: $24+176+10+190 = 400$. ✓\n\n**Risiko i hver gruppe.**\n$$R_1 = \\frac{24}{200} = 0{,}120 \\quad (12{,}0 \\text{ prosent}), \\qquad R_0 = \\frac{10}{200} = 0{,}050 \\quad (5{,}0 \\text{ prosent})$$\n\n**Effektmålene.**\n$$\\text{RR} = \\frac{0{,}120}{0{,}050} = 2{,}40$$\n$$\\text{RD} = 0{,}120 - 0{,}050 = 0{,}070 \\quad (7{,}0 \\text{ prosentpoeng})$$\n$$\\text{OR} = \\frac{24 \\cdot 190}{176 \\cdot 10} = \\frac{4\\,560}{1\\,760} = 2{,}59$$\n\n**Tolkning.** Risikoen er **2,4 ganger så høy** blant de eksponerte som blant de ikke-eksponerte, og det er **7 flere tilfeller per hundre** i den eksponerte gruppen.\n\n**Merk avviket mellom målene:** $\\text{OR} = 2{,}59$ mot $\\text{RR} = 2{,}40$, altså 8 prosent forskjell. Utfallet er sjeldnere her enn i Eksempel 1 (12 og 5 prosent mot 30 og 15), og avviket er derfor mindre. Det er nettopp mønsteret vi skal tallfeste i neste løkke.",
+        "hints": [
+          "Fyll inn tabellen først, og kontroller at radsummene er de to gruppene som ble fulgt.",
+          "Odds ratio regnes som produktet av de to diagonalene delt på hverandre, ikke fra risikoene."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Odds, odds ratio og når tilnærmingen holder (~16 min)\n\nOdds ratio er det målet som forvirrer flest, og som samtidig er umulig å komme utenom — det er det eneste effektmålet som lar seg regne fra alle 2×2-design. Her tar vi det fra bunnen, og vi **regner ut** hvor godt tilnærmingen til RR faktisk holder, i stedet for å påstå det."
+    },
+    {
+      "id": "med1100-4-3-def-odds",
+      "type": "definition",
+      "title": "Odds",
+      "content": "Forholdet mellom antallet som får utfallet og antallet som ikke får det: $\\text{odds} = a/b$ i den eksponerte gruppen.\n\n**Kontrasten til risiko:** risiko er «av alle», odds er «for mot imot». Får 30 av 200 utfallet, er risikoen $30/200 = 0{,}15$ og oddsen $30/170 = 0{,}176$. Ulike nevnere, ulike tall.\n\n**Sammenhengen:** $\\text{odds} = R/(1-R)$. Når risikoen er liten, er $1-R$ nær 1, og da er odds omtrent lik risiko. Er risikoen 1 prosent, er oddsen $0{,}0101$ — nesten identisk. Er risikoen 50 prosent, er oddsen $1{,}00$ — dobbelt så stor som risikoen.\n\n**Det er hele hemmeligheten bak «OR ligner RR ved sjelden sykdom»:** når begge risikoene er små, er begge odds nesten lik sine risikoer, og da er forholdet mellom dem også nesten likt."
+    },
+    {
+      "id": "med1100-4-3-def-or",
+      "type": "definition",
+      "title": "Odds ratio (OR)",
+      "content": "Forholdet mellom oddsen i de to gruppene:\n\n$$\\text{OR} = \\frac{a/b}{c/d} = \\frac{ad}{bc}$$\n\nFormen $ad/bc$ kalles «kryssproduktet»: gang de to tallene på hoveddiagonalen, del på produktet av de to andre.\n\n**Tolkningen, som SKAL skrives ut:** «oddsen for utfallet er OR ganger så høy blant de eksponerte». Merk ordet **odds** — å si «risikoen» her er **felle E1**.\n\n**Nullverdien er 1.**\n\n**Hvorfor OR finnes i det hele tatt, og hvorfor eksamen bryr seg:** OR kan regnes ut fra **enhver** 2×2-tabell, også fra design der man har valgt hvor mange med og uten utfallet som skulle inkluderes. I slike design er $a/(a+b)$ ikke en risiko, og RR er meningsløs — men kryssproduktet $ad/bc$ gir fortsatt riktig svar. Det er den egenskapen som gjør OR til epidemiologiens arbeidshest.\n\n**Prisen for den fleksibiliteten:** OR er alltid **lenger fra 1** enn RR er. Er RR over 1, er OR større; er RR under 1, er OR mindre. OR overdriver derfor alltid sammenhengen litt — og ved vanlige utfall mye."
+    },
+    {
+      "id": "med1100-4-3-th-or-rr",
+      "type": "theorem",
+      "title": "Regneprosedyre: avgjør om OR kan brukes som tilnærming til RR",
+      "content": "Spørsmålet «når er $\\text{OR} \\approx \\text{RR}$?» kommer igjen og igjen, og svaret skal ikke påstås — det skal begrunnes. Tre trinn:\n\n1. **Finn risikoen i den ueksponerte gruppen**, $R_0 = c/(c+d)$. Det er den som avgjør.\n2. **Vurder størrelsen:**\n   - $R_0$ under omtrent 5 prosent → OR og RR ligger nær hverandre, og tilnærmingen er brukbar.\n   - $R_0$ mellom 5 og 10 prosent → merkbart avvik, si det eksplisitt.\n   - $R_0$ over omtrent 10 prosent → tilnærmingen holder ikke, og OR må tolkes som odds ratio og ikke noe annet.\n3. **Skriv betingelsen ut i svaret**, ikke bare konklusjonen: «siden risikoen i referansegruppen er 15 prosent, er utfallet ikke sjeldent, og OR på 2,43 kan ikke leses som en dobling av risikoen».\n\n**Sammenhengen som forklarer det hele:**\n$$\\text{OR} = \\text{RR} \\cdot \\frac{1-R_0}{1-R_1}$$\nEr begge risikoene små, er brøken nær 1 og $\\text{OR} \\approx \\text{RR}$. Vokser risikoene, vokser brøken, og OR trekkes bort fra RR.\n\n**Felle E2** er å bruke tilnærmingen uten å sjekke betingelsen. Den er egen feilkode fordi den er så vanlig — og fordi den alltid gir samme retning på feilen: sammenhengen framstilles som sterkere enn den er."
+    },
+    {
+      "id": "med1100-4-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvor godt holder tilnærmingen? Regnet ut ved tre prevalensnivåer (B1-STAT)",
+      "problem": "En påstand som stadig gjentas, er at «odds ratio er omtrent lik relativ risiko når sykdommen er sjelden».\n\nVis med tall hvor godt påstanden holder. Bruk en fast relativ risiko på 2,0 og la risikoen i referansegruppen være henholdsvis 1, 5 og 20 prosent.",
+      "solution": "**Full-pott-besvarelse. Betingelsen skrives ut, ikke bare konklusjonen.**\n\nMed $\\text{RR} = 2{,}0$ er $R_1 = 2R_0$. Odds ratio blir\n$$\\text{OR} = \\frac{R_1/(1-R_1)}{R_0/(1-R_0)}$$\n\n**Ved $R_0 = 1$ prosent** ($R_1 = 2$ prosent):\n$$\\text{OR} = \\frac{0{,}02/0{,}98}{0{,}01/0{,}99} = \\frac{0{,}020408}{0{,}010101} = 2{,}02$$\n\n**Ved $R_0 = 5$ prosent** ($R_1 = 10$ prosent):\n$$\\text{OR} = \\frac{0{,}10/0{,}90}{0{,}05/0{,}95} = \\frac{0{,}111111}{0{,}052632} = 2{,}11$$\n\n**Ved $R_0 = 20$ prosent** ($R_1 = 40$ prosent):\n$$\\text{OR} = \\frac{0{,}40/0{,}60}{0{,}20/0{,}80} = \\frac{0{,}666667}{0{,}250000} = 2{,}67$$\n\n**Oppsummert:**\n\n| Risiko i referansegruppen | RR | OR | Avvik |\n|---|---|---|---|\n| 1 prosent | 2,00 | 2,02 | 1 prosent |\n| 5 prosent | 2,00 | 2,11 | 5,6 prosent |\n| 20 prosent | 2,00 | 2,67 | 33 prosent |\n\n— naturlig pausepunkt —\n\n**Konklusjonen, med betingelsen skrevet ut.** Påstanden holder — men bare betinget. Ved en risiko på 1 prosent i referansegruppen er avviket 1 prosent, og OR kan trygt leses som RR. Ved 5 prosent er avviket rundt 6 prosent, altså merkbart, men fortsatt lite nok til at retningen og størrelsesordenen er den samme. **Ved 20 prosent er avviket en tredel**, og da er det direkte misvisende å omtale $\\text{OR} = 2{,}67$ som «nesten en dobling av risikoen» — den sanne doblingen er 2,00.\n\n**Retningen på feilen er alltid den samme:** OR ligger **lenger fra 1** enn RR. En OR overdriver derfor alltid sammenhengen når den leses som en risikoforholdsverdi, og overdrivelsen vokser med hvor vanlig utfallet er.\n\n**Formuleringen som gir uttelling på eksamen:** «Tilnærmingen $\\text{OR} \\approx \\text{RR}$ forutsetter at utfallet er sjeldent, i praksis under rundt 5 prosent i referansegruppen. Her er risikoen 20 prosent, så tilnærmingen holder ikke, og OR må tolkes som en odds ratio.» Legg merke til at betingelsen står **først** — det er den sensor ser etter, og det er nettopp fravær av den som er felle E2.\n\n**Merk også hva oppgaven ikke kunne vært:** vi kan ikke be noen «vise at OR er lik RR», for det er den ikke. Vi kan bare vise **når** avviket er lite nok til å ignorere, og det er en helt annen — og ærligere — oppgave."
+    },
+    {
+      "id": "med1100-4-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-3-oppg-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) I en tenkt studie med et sjeldent utfall følges 10 000 eksponerte og 10 000 ikke-eksponerte. Utfallet inntreffer hos 60 eksponerte og 30 ikke-eksponerte.\n\n**a)** Regn ut RR og OR.\n\n**b)** Vurder om OR kan brukes som tilnærming til RR her, og begrunn med betingelsen.\n\n**c)** Regn også ut risikodifferansen, og forklar hvorfor den gir et annet inntrykk enn RR.",
+        "solution": "**a) Effektmålene.**\n\n|  | Utfall til stede | Utfall fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | 60 | 9 940 | 10 000 |\n| **Ikke eksponert** | 30 | 9 970 | 10 000 |\n\n$$R_1 = \\frac{60}{10\\,000} = 0{,}0060 \\quad (0{,}60 \\text{ prosent}), \\qquad R_0 = \\frac{30}{10\\,000} = 0{,}0030 \\quad (0{,}30 \\text{ prosent})$$\n$$\\text{RR} = \\frac{0{,}0060}{0{,}0030} = 2{,}00$$\n$$\\text{OR} = \\frac{60 \\cdot 9\\,970}{9\\,940 \\cdot 30} = \\frac{598\\,200}{298\\,200} = 2{,}01$$\n\n**b) Holder tilnærmingen?**\n\nJa. Risikoen i referansegruppen er $0{,}30$ prosent, altså langt under 5 prosent-grensen. Avviket mellom OR og RR er $2{,}01$ mot $2{,}00$, under en halv prosent. Her kan OR trygt leses som «risikoen er dobbelt så høy».\n\n**Sammenlign med Eksempel 1**, der de samme forholdstallene ga $\\text{RR} = 2{,}00$ og $\\text{OR} = 2{,}43$ — fordi risikoene der var 30 og 15 prosent i stedet for 0,60 og 0,30. Det er utelukkende hvor sjeldent utfallet er som skiller de to situasjonene.\n\n**c) Risikodifferansen.**\n$$\\text{RD} = 0{,}0060 - 0{,}0030 = 0{,}0030 \\quad (0{,}30 \\text{ prosentpoeng}, \\text{ altså } 3 \\text{ per tusen})$$\n\n**Hvorfor inntrykket er så ulikt.** RR sier «dobbelt så høy risiko», som høres dramatisk ut. RD sier «tre flere tilfeller per tusen personer», som høres beskjedent ut. **Begge er riktige, og de beskriver samme data.**\n\nForskjellen ligger i at forholdstallet ikke bærer informasjon om utgangspunktet. En dobling av noe som nesten aldri skjer, er fortsatt noe som nesten aldri skjer. Derfor krever gode besvarelser at begge oppgis — og derfor er det den absolutte forskjellen som betyr mest når man skal vurdere hvor mye et funn har å si i praksis.",
+        "hints": [
+          "Regn risikoene først, og se på hvor små de er før du vurderer tilnærmingen.",
+          "Del c): sammenlign hva de to tallene faktisk sier — det ene om et forhold, det andre om et antall per hundre."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Kji-kvadrattesten (~16 min)\n\nEffektmålene sier hvor **stor** sammenhengen er. Testen sier om den er **statistisk sikker**. De to spørsmålene er uavhengige av hverandre, og en fullstendig besvarelse svarer på begge."
+    },
+    {
+      "id": "med1100-4-3-def-kji",
+      "type": "definition",
+      "title": "Kji-kvadrattesten ($\\chi^2$)",
+      "content": "Testen som avgjør om fordelingen i en 2×2-tabell avviker mer fra det man ville ventet ved ren tilfeldighet enn slingringsmonnet tilsier.\n\n**Hypotesene:** $H_0$ = ingen sammenheng mellom eksponering og utfall (de to variablene er uavhengige) mot $H_a$ = det er en sammenheng.\n\n**Snarveiformelen for en 2×2:**\n$$\\chi^2 = \\frac{N(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$$\n\nLegg merke til $ad-bc$ i telleren: er kryssproduktene like, er $\\chi^2 = 0$ og det er ingen sammenheng i det hele tatt. Kvadreringen gjør at fortegnet forsvinner — testen sier **om** det er en sammenheng, ikke hvilken vei.\n\n**Kritisk verdi: 3,84** ved 1 frihetsgrad og 5 prosent nivå. Er $\\chi^2 > 3{,}84$, forkastes $H_0$.\n\n**Forutsetning:** alle **forventede** celletall må være minst 5. Merk «forventede» — det er ikke de observerte tallene som må være over 5."
+    },
+    {
+      "id": "med1100-4-3-def-forventet",
+      "type": "definition",
+      "title": "Forventet antall ($E$)",
+      "content": "Antallet man ville ventet i en celle **hvis $H_0$ var sann**, altså hvis eksponering og utfall var helt uavhengige:\n\n$$E = \\frac{\\text{radsum} \\cdot \\text{kolonnesum}}{N}$$\n\nMed dette kan $\\chi^2$ også regnes i sin generelle form:\n$$\\chi^2 = \\sum \\frac{(O-E)^2}{E}$$\nsummert over alle fire cellene, der $O$ er observert antall.\n\n**De to formene gir nøyaktig samme tall** for en 2×2. Snarveiformelen er raskere; denne er den du bruker når oppgaven ber om forventede celletall, eller når tabellen er større enn 2×2.\n\n**Praktisk nytte:** ved å sammenligne $O$ og $E$ celle for celle ser du **hvor** avviket sitter — hvilken celle som har flere enn ventet. Det er ofte det tolkningsleddet oppgaven faktisk er ute etter."
+    },
+    {
+      "id": "med1100-4-3-def-frihetsgrad-2x2",
+      "type": "definition",
+      "title": "Frihetsgrad i en 2×2-tabell",
+      "content": "En 2×2-tabell har **1 frihetsgrad**, og derfor er den kritiske verdien alltid 3,84 ved 5 prosent nivå.\n\n**Hvorfor bare én:** når radsummene og kolonnesummene er gitt, holder det å kjenne **ett** celletall — de tre andre følger av subtraksjon. Bare én av de fire cellene kan velges fritt.\n\n**Den generelle regelen** for større tabeller er $(\\text{rader}-1) \\cdot (\\text{kolonner}-1)$, som for en 2×2 gir $1 \\cdot 1 = 1$.\n\n**Kritiske $\\chi^2$-verdier ved 1 frihetsgrad:** 3,84 ved 5 prosent, 6,63 ved 1 prosent."
+    },
+    {
+      "id": "med1100-4-3-def-y-test",
+      "type": "definition",
+      "title": "Y-testen (z-test for to andeler)",
+      "content": "Alternativet til kji-kvadrat på en 2×2: regn differansen mellom de to andelene, del på standardfeilen, og sammenlign med 1,96.\n\n**Sammenhengen mellom de to testene:** $\\chi^2 = z^2$. Er $\\chi^2 = 12{,}90$, er $z = \\sqrt{12{,}90} = 3{,}59$. Og terskelverdiene henger sammen på samme måte: $3{,}84 = 1{,}96^2$.\n\n**De gir derfor alltid identisk konklusjon**, og sensorveiledningen i blokk 1-settene H25 og V26 godtar begge veier. Velg den du har best kontroll på under tidspress.\n\n**Når den ene er å foretrekke:** z-formen gir deg fortegnet, altså **hvilken** gruppe som ligger høyest, og den lar seg lett utvide til et konfidensintervall for differansen. Kji-kvadrat er raskere å regne fra rene celletall."
+    },
+    {
+      "id": "med1100-4-3-th-kji",
+      "type": "theorem",
+      "title": "Regneprosedyre: kji-kvadrattest på en 2×2",
+      "content": "Seks trinn, i samme form som hypotesetesten i [kap. 4.2](/med1100/med1100-4-2).\n\n1. **Definer det som testes, i ord.** «Vi tester om det er en sammenheng mellom eksponering og utfall.»\n2. **Skriv hypotesene.**\n   $$H_0: \\text{ingen sammenheng} \\qquad \\text{mot} \\qquad H_a: \\text{det er en sammenheng}$$\n3. **Sjekk forutsetningen.** Alle forventede celletall minst 5. Regn dem om oppgaven ber om det, eller kontroller grovt: er alle radsummer og kolonnesummer romslige, er betingelsen som regel oppfylt.\n4. **Regn teststatistikken.**\n   $$\\chi^2 = \\frac{N(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$$\n   Regn $ad-bc$ **først**, og kvadrer etterpå. Nevneren er produktet av alle fire marginalsummene.\n5. **Sammenlign med 3,84** (1 frihetsgrad, 5 prosent).\n6. **Konkluder i klartekst — og oppgi effektmålet ved siden av.** Testen sier bare om sammenhengen er statistisk sikker. **Hvor sterk** den er, står i RR, OR eller RD, og et fullstendig svar har med begge deler.\n\n**Regnetips for kalkulatoren:** tallene i telleren blir raskt store. $N(ad-bc)^2$ kan komme opp i milliarder, og en enkel kalkulator går da over i eksponentform. Det er helt greit — men skriv mellomregningen på arket, slik at en tastefeil kan spores.\n\n**Kontroll av størrelsesorden:** en $\\chi^2$-verdi på under 1 betyr «ingenting å se her», rundt 4 er akkurat på grensen, og over 10 er en tydelig sammenheng. Får du 4 000, har du sannsynligvis glemt en marginalsum i nevneren."
+    },
+    {
+      "id": "med1100-4-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Kji-kvadrattest med full føring (B1-STAT, eksamensnivå)",
+      "problem": "Bruk tabellen fra Eksempel 1:\n\n|  | Utfall til stede | Utfall fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | 60 | 140 | 200 |\n| **Ikke eksponert** | 30 | 170 | 200 |\n| **Sum kolonne** | 90 | 310 | 400 |\n\n**a)** Test på 5 prosent nivå om det er en sammenheng mellom eksponering og utfall.\n\n**b)** Regn ut de forventede celletallene og vis at den generelle formelen gir samme svar.\n\n**c)** Utfør testen som en z-test i stedet, og forklar hvorfor de to gir samme konklusjon.",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Kji-kvadrattesten.**\n\n**Trinn 1 — det som testes.** Vi tester om det er en sammenheng mellom eksponeringen og utfallet i denne befolkningen.\n\n**Trinn 2 — hypotesene.**\n$$H_0: \\text{eksponering og utfall er uavhengige} \\qquad \\text{mot} \\qquad H_a: \\text{det er en sammenheng}$$\n\n**Trinn 3 — forutsetningen.** Marginalsummene er 200, 200, 90 og 310, alle romslige; forventede celletall regnes i del b) og er 45, 155, 45 og 155 — alle godt over 5. Betingelsen holder.\n\n**Trinn 4 — teststatistikken.**\n$$ad - bc = 60 \\cdot 170 - 140 \\cdot 30 = 10\\,200 - 4\\,200 = 6\\,000$$\n$$\\chi^2 = \\frac{400 \\cdot 6\\,000^2}{200 \\cdot 200 \\cdot 90 \\cdot 310} = \\frac{400 \\cdot 36\\,000\\,000}{1\\,116\\,000\\,000} = \\frac{14\\,400\\,000\\,000}{1\\,116\\,000\\,000} = 12{,}90$$\n\n**Trinn 5 — sammenligning.** Kritisk verdi ved 1 frihetsgrad og 5 prosent nivå er **3,84**. Siden $12{,}90 > 3{,}84$, forkastes $H_0$.\n\n**Trinn 6 — konklusjon i klartekst.** Det er en **statistisk signifikant sammenheng** mellom eksponering og utfall på 5 prosent nivå. Sammenhengens **styrke** leser vi av effektmålene fra Eksempel 1: risikoen er dobbelt så høy blant de eksponerte ($\\text{RR} = 2{,}00$), og det er 15 flere tilfeller per hundre ($\\text{RD} = 15$ prosentpoeng).\n\n— naturlig pausepunkt —\n\n**b) De forventede celletallene.**\n\n$$E_{\\text{eksponert, utfall}} = \\frac{200 \\cdot 90}{400} = 45{,}0 \\qquad E_{\\text{eksponert, ikke utfall}} = \\frac{200 \\cdot 310}{400} = 155{,}0$$\n$$E_{\\text{ikke eksponert, utfall}} = \\frac{200 \\cdot 90}{400} = 45{,}0 \\qquad E_{\\text{ikke eksponert, ikke utfall}} = \\frac{200 \\cdot 310}{400} = 155{,}0$$\n\n|  | Utfall til stede | Utfall fraværende |\n|---|---|---|\n| **Eksponert** | 60 observert (45,0 forventet) | 140 observert (155,0 forventet) |\n| **Ikke eksponert** | 30 observert (45,0 forventet) | 170 observert (155,0 forventet) |\n\n$$\\chi^2 = \\frac{(60-45)^2}{45} + \\frac{(140-155)^2}{155} + \\frac{(30-45)^2}{45} + \\frac{(170-155)^2}{155}$$\n$$= \\frac{225}{45} + \\frac{225}{155} + \\frac{225}{45} + \\frac{225}{155} = 5{,}000 + 1{,}452 + 5{,}000 + 1{,}452 = 12{,}90$$\n\nSamme svar, som seg hør og bør. **Og her ser du noe snarveiformelen skjulte:** avviket er 15 personer i hver celle, men bidraget til $\\chi^2$ er over tre ganger så stort i de små cellene som i de store. Det er logikken i testen — et avvik på 15 av forventede 45 er langt mer oppsiktsvekkende enn 15 av forventede 155.\n\n**c) Samme test som z-test.**\n\n$$z = \\sqrt{\\chi^2} = \\sqrt{12{,}90} = 3{,}59$$\n\nKritisk verdi er 1,96. Siden $3{,}59 > 1{,}96$, forkastes $H_0$ — samme konklusjon.\n\n**Hvorfor de alltid stemmer overens:** ved 1 frihetsgrad er $\\chi^2$-fordelingen nøyaktig kvadratet av standardnormalfordelingen. Derfor er $\\chi^2 = z^2$, og terskelverdiene henger sammen på samme måte: $1{,}96^2 = 3{,}8416 \\approx 3{,}84$. De to testene er den samme testen i to forkledninger, og **begge godtas**.\n\n**Hva du vinner på z-formen:** fortegnet. $z = +3{,}59$ sier at det er den eksponerte gruppen som ligger høyest, mens $\\chi^2$ bare sier at gruppene er ulike. Og z-formen leder rett videre til et konfidensintervall for differansen, slik du regnet det i [kap. 4.1](/med1100/med1100-4-1)."
+    },
+    {
+      "id": "med1100-4-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-3-oppg-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) I en tenkt studie følges 200 eksponerte og 200 ikke-eksponerte. Utfallet inntreffer hos 45 eksponerte og 30 ikke-eksponerte.\n\n**a)** Utfør en kji-kvadrattest på 5 prosent nivå.\n\n**b)** Regn ut RR og OR.\n\n**c)** Konkluder i klartekst, og kommenter hvor sikker konklusjonen er.",
+        "solution": "**a) Kji-kvadrattesten.**\n\n|  | Utfall til stede | Utfall fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | 45 | 155 | 200 |\n| **Ikke eksponert** | 30 | 170 | 200 |\n| **Sum kolonne** | 75 | 325 | 400 |\n\n$$H_0: \\text{ingen sammenheng} \\qquad \\text{mot} \\qquad H_a: \\text{det er en sammenheng}$$\n\n$$ad - bc = 45 \\cdot 170 - 155 \\cdot 30 = 7\\,650 - 4\\,650 = 3\\,000$$\n$$\\chi^2 = \\frac{400 \\cdot 3\\,000^2}{200 \\cdot 200 \\cdot 75 \\cdot 325} = \\frac{400 \\cdot 9\\,000\\,000}{975\\,000\\,000} = \\frac{3\\,600\\,000\\,000}{975\\,000\\,000} = 3{,}69$$\n\nKritisk verdi er 3,84. Siden $3{,}69 < 3{,}84$, **beholdes $H_0$**.\n\n**b) Effektmålene.**\n$$R_1 = \\frac{45}{200} = 0{,}225, \\qquad R_0 = \\frac{30}{200} = 0{,}150$$\n$$\\text{RR} = \\frac{0{,}225}{0{,}150} = 1{,}50, \\qquad \\text{OR} = \\frac{45 \\cdot 170}{155 \\cdot 30} = \\frac{7\\,650}{4\\,650} = 1{,}65$$\n\n**c) Konklusjon i klartekst, med forbehold.**\n\nSammenhengen er **ikke statistisk signifikant** på 5 prosent nivå. Vi kan ikke utelukke at eksponering og utfall er uavhengige.\n\n**Presiseringen som kreves:** dette betyr **ikke** at det ikke er noen sammenheng (**felle E4**). Punktestimatet er en relativ risiko på 1,50 — altså 50 prosent høyere risiko blant de eksponerte — og det er ikke et lite tall. Testen sier bare at et utvalg på 400 ikke er stort nok til å skille denne forskjellen fra tilfeldig variasjon.\n\n**Hvor knapt det var:** $3{,}69$ mot terskelen $3{,}84$. Tilsvarende $z = \\sqrt{3{,}69} = 1{,}92$, mot terskelen 1,96. Med noen få flere tilfeller i den eksponerte gruppen ville konklusjonen snudd. Et resultat så nær grensen bør omtales som **uavklart**, ikke som negativt — og det beste hadde vært å oppgi konfidensintervallet for differansen, som ville vist hvor bredt spennet av forenlige verdier faktisk er.\n\n**Merk kontrasten til Eksempel 3:** der var $\\chi^2 = 12{,}90$ og konklusjonen klar. Her, med et litt svakere effektmål og samme utvalgsstørrelse, faller testen så vidt under. Det illustrerer hvor sterkt teststatistikken avhenger av både effektstørrelse og utvalg.",
+        "hints": [
+          "Regn $ad-bc$ først og kvadrer etterpå — det holder mellomregningen ryddig.",
+          "Nevneren er produktet av alle fire marginalsummene, altså begge radsummene og begge kolonnesummene.",
+          "Del c): se hvor nær teststatistikken ligger terskelen før du formulerer konklusjonen."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Hvilket mål hører til hvilket design, og hvordan tolkningen skrives (~11 min)\n\nDet siste leddet er det som skiller et regnet svar fra et ferdig svar: å velge et mål designet faktisk tillater, og å formulere tolkningen med riktig verb."
+    },
+    {
+      "id": "med1100-4-3-def-pr",
+      "type": "definition",
+      "title": "Prevalensratio (PR)",
+      "content": "Samme regnestykke som relativ risiko, men brukt på en **tverrsnittsundersøkelse** — en studie som måler hvor mange som **har** tilstanden på ett tidspunkt, uten å følge noen over tid:\n\n$$\\text{PR} = \\frac{a/(a+b)}{c/(c+d)}$$\n\n**Tolkningen:** «prevalensen er PR ganger så høy blant de eksponerte», eller «forekomsten er 84 prosent høyere» om $\\text{PR} = 1{,}84$.\n\n**Hvorfor navnet skifter når regnestykket ikke gjør det:** fordi tolkningen skifter. RR sier noe om hvor mange som **får** tilstanden i en periode; PR sier hvor mange som **har** den nå. Å kalle det relativ risiko i et tverrsnitt er å påstå noe om utvikling over tid som designet ikke kan si noe om — og det er en variant av **felle E1**, altså å bruke risikospråk der designet ikke tillater det.\n\n**Den praktiske regelen:** står ordet «tverrsnitt», «på ett tidspunkt» eller «forekomst» i oppgaveteksten, heter målet PR."
+    },
+    {
+      "id": "med1100-4-3-def-design-mal",
+      "type": "definition",
+      "title": "Hvilket effektmål hører til hvilket design",
+      "content": "En kort oversikt som løser en hel oppgavetype:\n\n| Studien har … | Kan regne | Kan ikke regne |\n|---|---|---|\n| fulgt eksponerte og ueksponerte over tid | RR, RD, OR | — |\n| målt forekomst på ett tidspunkt (tverrsnitt) | PR, RD, OR | RR |\n| startet med personer som har og ikke har utfallet | **kun OR** | RR, PR, RD |\n\n**Hvorfor den siste raden ser sånn ut:** velger forskeren selv hvor mange med og uten utfallet som skal med, bestemmer forskeren dermed også kolonnesummene. Da er $a/(a+b)$ ikke en risiko, men et kunstig tall som avhenger av studiedesignet. **Odds ratio er upåvirket av dette** — kryssproduktet $ad/bc$ gir samme svar uansett hvordan man har trukket utvalget, og det er nettopp derfor OR er epidemiologiens arbeidshest.\n\n**Fellen (E1):** å regne ut RR fra en tabell der risiko ikke kan regnes. Tallet kommer ut av kalkulatoren uansett — det er derfor feilen er så lett å gjøre, og derfor du må se på **designet** før du velger mål."
+    },
+    {
+      "id": "med1100-4-3-def-tolkningsspraket",
+      "type": "definition",
+      "title": "Tolkningsspråket per effektmål",
+      "content": "Hvert mål har sitt verb, og feil verb er en faglig feil — ikke en språklig detalj.\n\n| Mål | Formuleringen som er riktig |\n|---|---|\n| RR = 2,0 | «risikoen er dobbelt så høy blant de eksponerte» |\n| OR = 2,43 | «**oddsen** er 2,43 ganger så høy blant de eksponerte» |\n| PR = 1,84 | «**prevalensen** er 84 prosent høyere blant de eksponerte» |\n| RD = 15 prosentpoeng | «det er 15 flere tilfeller **per hundre** blant de eksponerte» |\n| $\\chi^2$ = 12,90 | «sammenhengen er statistisk signifikant på 5 prosent nivå» |\n\n**Regelen for å gjøre om et forholdstall til prosent:** trekk fra 1 og gang med 100. $\\text{RR} = 1{,}84$ gir «84 prosent høyere». $\\text{RR} = 0{,}75$ gir «25 prosent lavere». Å skrive «84 prosent» der tallet er $1{,}84$ er en tallesefeil som endrer utsagnet fullstendig.\n\n**Og setningen som mangler oftest:** hvilken gruppe som er sammenligningsgrunnlaget. «Dobbelt så høy» — som hva? Uten referansegruppen er tolkningen ikke ferdig."
+    },
+    {
+      "id": "med1100-4-3-advarsel",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "**1. Felle E1 — å forveksle OR og RR.** «Risikoen er 2,43 ganger så høy» om en odds ratio er galt. OR handler om odds, RR om risiko, og ved vanlige utfall er de langt fra samme tall. Skriv riktig verb.\n\n**2. Felle E1, variant — risikospråk i et tverrsnitt.** Har studien målt forekomst på ett tidspunkt, kan den ikke si noe om hvem som *fikk* tilstanden. Da heter målet PR, og tolkningen handler om forekomst.\n\n**3. Felle E2 — å bruke tilnærmingen $\\text{OR} \\approx \\text{RR}$ uten å sjekke betingelsen.** Regn risikoen i referansegruppen først. Over rundt 10 prosent holder ikke tilnærmingen, og over 20 prosent er den direkte misvisende.\n\n**4. Feil celleplassering.** Bytter du om rader og kolonner, blir alle fire målene gale. Kontroll: er radsummen $a+b$ alle eksponerte?\n\n**5. Å regne kji-kvadrat uten å sjekke forventede celletall.** Kravet er at alle **forventede** tall er minst 5 — ikke de observerte.\n\n**6. Felle E4 — å lese et ikke-signifikant resultat som «ingen sammenheng».** En $\\chi^2$ på 3,69 mot terskelen 3,84 betyr **uavklart**, ikke negativt. Oppgi effektmålet og gjerne et konfidensintervall ved siden av.\n\n**7. Felle E3 — å lese signifikans som styrke.** Kji-kvadrattesten sier ingenting om hvor sterk sammenhengen er. Med et stort nok utvalg blir en RR på 1,03 signifikant. Styrken står i effektmålet, ikke i teststatistikken.\n\n**8. Felle E12 — å levere tallene uten tolkning.** «$\\text{OR} = 2{,}43$» er ikke et ferdig svar. Skriv setningen som sier hva det betyr, med riktig verb og med referansegruppen nevnt.\n\n**9. Å tolke en sammenheng som en årsak.** At risikoen er dobbelt så høy blant de eksponerte, betyr ikke at eksponeringen forårsaker utfallet. Gruppene kan skille seg på mange måter samtidig. Et forbehold om dette koster én setning og hører hjemme i tolkningen.\n\n**10. Å ikke svare.** Blokk 1 har ingen minuspoeng. Rekker du bare å sette opp tabellen og skrive formlene, gjør det."
+    },
+    {
+      "id": "med1100-4-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Tverrsnitt, prevalensratio og hele tolkningen (B1-STAT, eksamensnivå)",
+      "problem": "En tenkt tverrsnittsundersøkelse kartlegger forekomsten av en tilstand i to grupper på ett tidspunkt. Blant 420 eksponerte har 84 tilstanden; blant 500 ikke-eksponerte har 50 den.\n\n**a)** Sett opp tabellen og regn ut prevalens i hver gruppe, PR, RD og OR.\n\n**b)** Test om sammenhengen er statistisk signifikant.\n\n**c)** Skriv en samlet tolkning slik den bør stå i en besvarelse, med de forbeholdene som hører til.\n\n*Alle tall er konstruerte.*",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Tabellen og målene.**\n\n|  | Tilstand til stede | Tilstand fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | 84 | 336 | 420 |\n| **Ikke eksponert** | 50 | 450 | 500 |\n| **Sum kolonne** | 134 | 786 | 920 |\n\nKontroll: $84+336+50+450 = 920$. ✓\n\n**Prevalens i hver gruppe:**\n$$P_1 = \\frac{84}{420} = 0{,}200 \\quad (20{,}0 \\text{ prosent}), \\qquad P_0 = \\frac{50}{500} = 0{,}100 \\quad (10{,}0 \\text{ prosent})$$\n\n**Prevalensratio** — merk navnet, siden dette er et tverrsnitt:\n$$\\text{PR} = \\frac{0{,}200}{0{,}100} = 2{,}00$$\n\n**Prevalensdifferanse (risikodifferansens tverrsnittsvariant):**\n$$\\text{RD} = 0{,}200 - 0{,}100 = 0{,}100 \\quad (10{,}0 \\text{ prosentpoeng})$$\n\n**Odds ratio:**\n$$\\text{OR} = \\frac{84 \\cdot 450}{336 \\cdot 50} = \\frac{37\\,800}{16\\,800} = 2{,}25$$\n\n— naturlig pausepunkt —\n\n**b) Kji-kvadrattesten.**\n\n$$H_0: \\text{ingen sammenheng} \\qquad \\text{mot} \\qquad H_a: \\text{det er en sammenheng}$$\n\n$$ad - bc = 84 \\cdot 450 - 336 \\cdot 50 = 37\\,800 - 16\\,800 = 21\\,000$$\n$$\\chi^2 = \\frac{920 \\cdot 21\\,000^2}{420 \\cdot 500 \\cdot 134 \\cdot 786} = \\frac{920 \\cdot 441\\,000\\,000}{22\\,108\\,200\\,000} = \\frac{405\\,720\\,000\\,000}{22\\,108\\,200\\,000} = 18{,}34$$\n\nKritisk verdi er 3,84. Siden $18{,}34 \\gg 3{,}84$, forkastes $H_0$ klart. (Tilsvarende $z = \\sqrt{18{,}34} = 4{,}28$, godt over 1,96.)\n\n**c) Samlet tolkning, slik den bør stå.**\n\n> Undersøkelsen er et tverrsnitt og måler hvor mange som **har** tilstanden på ett tidspunkt. Effektmålet er derfor en **prevalensratio**, ikke en relativ risiko.\n>\n> Forekomsten er 20,0 prosent blant de eksponerte mot 10,0 prosent blant de ikke-eksponerte. **Prevalensen er dobbelt så høy blant de eksponerte** ($\\text{PR} = 2{,}00$), og i absolutte tall er det **10 flere tilfeller per hundre** ($\\text{RD} = 10$ prosentpoeng). Sammenhengen er statistisk signifikant på 5 prosent nivå ($\\chi^2 = 18{,}34$ mot kritisk verdi 3,84).\n>\n> Odds ratio er 2,25, altså merkbart høyere enn prevalensratioen på 2,00. Det skyldes at tilstanden ikke er sjelden — forekomsten i referansegruppen er 10 prosent — og OR kan derfor **ikke** leses som en dobling av forekomsten her.\n>\n> To forbehold hører med. For det første kan et tverrsnitt ikke si noe om rekkefølgen i tid: vi vet ikke om eksponeringen kom før tilstanden. For det andre kan de to gruppene skille seg på andre måter samtidig, slik at sammenhengen ikke uten videre kan tolkes som en årsakssammenheng.\n\n**Det som gjør dette til et fullstendig svar:** designet er identifisert og målet er valgt deretter · både forholdstall og absolutt forskjell er oppgitt · testen er gjennomført og sammenlignet med riktig kritisk verdi · avviket mellom OR og PR er forklart med betingelsen · og forbeholdene er nevnt uten at konklusjonen blir vag. Det siste er verdt å merke seg: **konklusjonen er skarp** — forekomsten er dobbelt så høy, og forskjellen er sikker — mens forbeholdene gjelder tolkningen av *hvorfor*."
+    },
+    {
+      "id": "med1100-4-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-3-oppg-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) En tenkt studie starter med 200 personer som har en tilstand og 200 som ikke har den, og kartlegger i etterkant hvem som var eksponert.\n\nHvilket effektmål kan regnes ut fra dette designet?\n\nA. Relativ risiko.\nB. Prevalensratio.\nC. Odds ratio.\nD. Risikodifferanse.\n\nVelg ett, og begrunn hvorfor de andre ikke lar seg regne.",
+        "solution": "**Riktig svar: C — odds ratio.**\n\n**Begrunnelsen.** Her har forskeren selv bestemt at 200 skulle ha tilstanden og 200 ikke ha den. Kolonnesummene er altså fastsatt av designet, ikke av naturen. Da er $a/(a+b)$ ikke en risiko i det hele tatt — den avhenger av hvor mange av hver type forskeren valgte å inkludere. Hadde man tatt med 400 uten tilstanden i stedet for 200, ville alle radandelene endret seg, uten at noe i virkeligheten var annerledes.\n\n**Odds ratio er upåvirket av dette.** Kryssproduktet $ad/bc$ gir samme svar uansett hvordan utvalget er trukket, og det er nettopp den egenskapen som gjør OR uunnværlig i denne studieformen.\n\n**Hvorfor de andre ikke går:**\n\n- **A (RR)** krever at man kan regne risiko, altså at radsummene er grupper som ble fulgt.\n- **B (PR)** krever at tallene gjenspeiler den faktiske forekomsten i befolkningen. Det gjør de ikke når man har valgt 200 av hver.\n- **D (RD)** er en forskjell mellom to risikoer, og hvis ingen av dem kan regnes, kan heller ikke differansen.\n\n**Regelen å ta med seg:** se på **hva som ble bestemt på forhånd**. Er kolonnesummene fastsatt av designet, er OR det eneste målet du kan bruke.\n\n**Og husk:** blokk 1 har ingen minuspoeng. Er du usikker, kryss likevel av.",
+        "hints": [
+          "Spør deg hva forskeren bestemte på forhånd: radsummene eller kolonnesummene?",
+          "Hvilket av målene endrer seg ikke om man inkluderer dobbelt så mange uten tilstanden?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-3-oppg-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B1-KORT — kortsvarsoppgaven i blokk 1.) En artikkel rapporterer $\\text{OR} = 1{,}84$ for en sammenheng der forekomsten i referansegruppen er 25 prosent. En kandidat skriver: «Risikoen er 84 prosent høyere blant de eksponerte.»\n\nRett opp setningen, og forklar i to til tre setninger hvorfor den er misvisende.",
+        "solution": "**Den rettede setningen.** «Oddsen for utfallet er 1,84 ganger så høy blant de eksponerte som blant de ikke-eksponerte.»\n\n**Hvorfor kandidatens setning er misvisende — to feil i én.**\n\n**Feil 1 (felle E1):** ordet «risikoen». Målet er en odds ratio, og odds er ikke risiko. Riktig verb er «oddsen».\n\n**Feil 2 (felle E2):** å behandle OR som om den var RR. Forekomsten i referansegruppen er 25 prosent, altså langt over den grensen på rundt 5 prosent der tilnærmingen holder. Ved så høy forekomst ligger OR merkbart lenger fra 1 enn den tilsvarende relative risikoen gjør, og å lese 1,84 som «84 prosent høyere risiko» **overdriver sammenhengen**.\n\n**Den ene setningen som ville reddet svaret:** «Siden forekomsten i referansegruppen er 25 prosent, er utfallet ikke sjeldent, og OR kan ikke tolkes som en relativ risiko.» Det er nøyaktig det leddet sensor ser etter.",
+        "hints": [
+          "To ting er galt i setningen — det ene er et ord, det andre er en betingelse som ikke er sjekket.",
+          "Hva er grenseverdien for forekomst der tilnærmingen mellom de to målene begynner å svikte?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-3-oppg-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT — full oppgave.) I en tenkt oppfølgingsstudie følges 200 eksponerte og 200 ikke-eksponerte. Utfallet inntreffer hos 72 eksponerte og 45 ikke-eksponerte.\n\n**a)** Sett opp tabellen og regn ut RR, RD og OR.\n\n**b)** Utfør en kji-kvadrattest på 5 prosent nivå, og kontroller svaret med en z-test.\n\n**c)** Gjør rede for hvorfor OR og RR spriker her, og hva det betyr for hvordan resultatet skal formuleres.",
+        "solution": "**a) Tabellen og effektmålene.**\n\n|  | Utfall til stede | Utfall fraværende | Sum rad |\n|---|---|---|---|\n| **Eksponert** | 72 | 128 | 200 |\n| **Ikke eksponert** | 45 | 155 | 200 |\n| **Sum kolonne** | 117 | 283 | 400 |\n\nKontroll: $72+128+45+155 = 400$. ✓\n\n$$R_1 = \\frac{72}{200} = 0{,}360 \\quad (36{,}0 \\text{ prosent}), \\qquad R_0 = \\frac{45}{200} = 0{,}225 \\quad (22{,}5 \\text{ prosent})$$\n$$\\text{RR} = \\frac{0{,}360}{0{,}225} = 1{,}60$$\n$$\\text{RD} = 0{,}360 - 0{,}225 = 0{,}135 \\quad (13{,}5 \\text{ prosentpoeng})$$\n$$\\text{OR} = \\frac{72 \\cdot 155}{128 \\cdot 45} = \\frac{11\\,160}{5\\,760} = 1{,}94$$\n\n— naturlig pausepunkt —\n\n**b) Testen.**\n\n$$H_0: \\text{ingen sammenheng} \\qquad \\text{mot} \\qquad H_a: \\text{det er en sammenheng}$$\n\n$$ad - bc = 72 \\cdot 155 - 128 \\cdot 45 = 11\\,160 - 5\\,760 = 5\\,400$$\n$$\\chi^2 = \\frac{400 \\cdot 5\\,400^2}{200 \\cdot 200 \\cdot 117 \\cdot 283} = \\frac{400 \\cdot 29\\,160\\,000}{1\\,324\\,440\\,000} = \\frac{11\\,664\\,000\\,000}{1\\,324\\,440\\,000} = 8{,}81$$\n\nKritisk verdi 3,84. Siden $8{,}81 > 3{,}84$, forkastes $H_0$: sammenhengen er statistisk signifikant på 5 prosent nivå.\n\n**Kontroll med z-test:** $z = \\sqrt{8{,}81} = 2{,}97$, som er godt over 1,96. Samme konklusjon, som forventet siden $\\chi^2 = z^2$ ved 1 frihetsgrad.\n\n**c) Hvorfor OR og RR spriker.** Merk spørreordet: «gjør rede for» = beskriv, forklar og sett i sammenheng.\n\n**Beskrivelsen.** $\\text{RR} = 1{,}60$ mens $\\text{OR} = 1{,}94$ — et avvik på over 20 prosent. OR ligger, som alltid når RR er over 1, **lenger fra 1** enn RR.\n\n**Forklaringen.** Sammenhengen er\n$$\\text{OR} = \\text{RR} \\cdot \\frac{1-R_0}{1-R_1} = 1{,}60 \\cdot \\frac{0{,}775}{0{,}640} = 1{,}60 \\cdot 1{,}211 = 1{,}94$$\nBrøken $(1-R_0)/(1-R_1)$ er 1,21 her, fordi risikoene — 22,5 og 36,0 prosent — er høye. Ved sjeldne utfall er begge nevnerne nær 1, brøken nær 1, og de to målene faller sammen. Her er utfallet alt annet enn sjeldent.\n\n**Sammenhengen med resten av kapitlet.** Dette er samme mønster som tabellen i Eksempel 2: avviket var 1 prosent ved 1 prosent risiko, 5,6 prosent ved 5 prosent risiko, og 33 prosent ved 20 prosent risiko. Her, ved 22,5 prosent, er avviket 21 prosent — akkurat der mønsteret forutsier.\n\n**Hva det betyr for formuleringen, konkret og skarpt:** resultatet skal rapporteres som **«risikoen er 1,6 ganger så høy blant de eksponerte, og det er 13,5 flere tilfeller per hundre»**. Odds ratio på 1,94 kan oppgis i tillegg, men den skal da uttrykkelig omtales som en **odds** ratio. Å skrive «nesten dobbelt så høy risiko» ville vært å hente tallet fra OR og verbet fra RR — og det ville overdrevet sammenhengen med rundt 20 prosent. Med et utfall som forekommer hos over en femdel av de ikke-eksponerte, er det ingen unnskyldning for å bruke de to målene om hverandre.",
+        "hints": [
+          "Del a): regn risikoene bortover i radene før du regner noen av effektmålene.",
+          "Del b): $ad-bc$ først, kvadrer etterpå, og bruk alle fire marginalsummene i nevneren.",
+          "Del c): se på hvor store risikoene er, og sammenlign med tabellen fra Eksempel 2."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-3-oppg-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT.) En kandidat leverer følgende besvarelse på en tverrsnittsundersøkelse der 20 prosent av de eksponerte og 10 prosent av de ikke-eksponerte har en tilstand:\n\n> «Relativ risiko er 2,0. Risikoen for å få tilstanden er altså dobbelt så høy blant de eksponerte. Kji-kvadrat ble 18,3, som er over 3,84, så sammenhengen er sterk. Eksponeringen er derfor en viktig årsak til tilstanden.»\n\nFinn de fire feilene, oppgi feilkoden der den finnes, og skriv om avsnittet slik det burde stått.",
+        "solution": "**De fire feilene.**\n\n**Feil 1 — feil mål for designet. Felle E1.** Dette er et **tverrsnitt**: det måler hvor mange som **har** tilstanden på ett tidspunkt. Da heter målet **prevalensratio**, ikke relativ risiko. Regnestykket er det samme, men navnet og tolkningen er ikke.\n\n**Feil 2 — risikospråk der designet ikke tillater det. Felle E1, variant.** «Risikoen for å **få** tilstanden» påstår noe om utvikling over tid. Et tverrsnitt kan ikke si noe om hvem som fikk noe når — bare hvem som har det nå.\n\n**Feil 3 — signifikans lest som styrke. Felle E3.** «Over 3,84, så sammenhengen er sterk» blander to helt ulike spørsmål. Kji-kvadrat sier om sammenhengen er **statistisk sikker**; hvor **sterk** den er, står i effektmålet. Med et stort nok utvalg blir også en prevalensratio på 1,05 signifikant.\n\n**Feil 4 — sammenheng lest som årsak.** «Eksponeringen er derfor en viktig årsak» følger ikke av noe i regnestykket. Et tverrsnitt kan ikke engang fastslå at eksponeringen kom først i tid, og gruppene kan skille seg på andre måter samtidig.\n\n— naturlig pausepunkt —\n\n**Avsnittet skrevet om.**\n\n> Undersøkelsen er et tverrsnitt, så effektmålet er en **prevalensratio**: $\\text{PR} = 0{,}20/0{,}10 = 2{,}00$. **Forekomsten av tilstanden er dobbelt så høy blant de eksponerte som blant de ikke-eksponerte**, og i absolutte tall er det **10 flere tilfeller per hundre** ($\\text{RD} = 10$ prosentpoeng).\n>\n> Kji-kvadrattesten gir $\\chi^2 = 18{,}3$ mot kritisk verdi 3,84 ved 1 frihetsgrad, så sammenhengen er **statistisk signifikant** på 5 prosent nivå. Det betyr at forskjellen med stor sannsynlighet er reell — ikke at den er sterk. Styrken leser vi av prevalensratioen, og en dobling av forekomsten er i seg selv en betydelig forskjell.\n>\n> Undersøkelsen kan ikke avgjøre om eksponeringen er en årsak. Et tverrsnitt måler alt på ett tidspunkt og kan ikke fastslå rekkefølgen i tid, og de to gruppene kan skille seg på andre måter som selv påvirker forekomsten.\n\n**Legg merke til hva som IKKE ble svekket i omskrivingen:** konklusjonen er fortsatt skarp — forekomsten er dobbelt så høy, og forskjellen er statistisk sikker. Det som falt bort, var påstanden om årsak, som aldri fulgte av tallene i utgangspunktet. Presisjon er ikke det samme som forbeholdenhet.",
+        "hints": [
+          "Start med å identifisere designet — det avgjør hvilket effektmål som er lov.",
+          "Les hver setning og spør: følger denne påstanden av tallene, eller legger den til noe?",
+          "To av feilene handler om ord (mål og verb), to om hva som kan sluttes fra en test."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-3-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "med1100-4-3-bb-marginalsummer",
+      "type": "definition",
+      "title": "Marginalsummer",
+      "content": "Rad- og kolonnesummene i tabellen: $a+b$, $c+d$, $a+c$, $b+d$, og totalen $N$.\n\n**Hvorfor de er verdt fem sekunder:** de inngår i nevneren i kji-kvadratformelen, i formelen for forventede celletall, og i alle risikoene. En avskrivningsfeil i én celle rammer flere av dem samtidig — og oppdages umiddelbart hvis du kontrollerer at $(a+b)+(c+d) = (a+c)+(b+d) = N$.\n\n**Og en dypere pointe:** hvilke marginalsummer som var **bestemt på forhånd av forskeren**, avgjør hvilke effektmål du har lov til å regne. Radsummene fastsatt → OR, RR og RD kan regnes. Kolonnesummene fastsatt → bare OR."
+    },
+    {
+      "id": "med1100-4-3-bb-ki-or",
+      "type": "definition",
+      "title": "Konfidensintervall for OR og RR",
+      "content": "Forholdstall er ikke symmetrisk fordelt — de kan ikke bli negative, men kan bli vilkårlig store — og derfor regnes konfidensintervallet for OR og RR på logaritmisk skala og gjøres om tilbake til slutt.\n\nResultatet er et intervall som er **usymmetrisk om punktestimatet**: et OR på 2,4 kan for eksempel ha intervallet fra 1,5 til 3,9, der det er lengre opp enn ned.\n\n**Det du må kunne:** at nullverdien er **1**, og at et intervall som dekker 1 betyr «ikke signifikant» — nøyaktig samme konklusjon som testen gir. Selve utregningen på logskala er stoff du bør **kjenne til**, ikke noe du forventes å utføre for hånd."
+    },
+    {
+      "id": "med1100-4-3-bb-sammenheng-arsak",
+      "type": "definition",
+      "title": "Sammenheng og årsak",
+      "content": "Alle effektmålene i kapitlet måler **sammenheng** — at to ting opptrer sammen oftere enn tilfeldig. Ingen av dem måler **årsak**.\n\n**Tre grunner til at en sammenheng kan finnes uten at det er en årsakssammenheng:** gruppene skiller seg på noe annet som selv påvirker utfallet · rekkefølgen i tid er ukjent (særlig i tverrsnitt) · de som havnet i den eksponerte gruppen kan ha gjort det av grunner som selv henger sammen med utfallet.\n\n**Formuleringen som hører hjemme i tolkningen:** «sammenhengen er statistisk sikker, men designet kan ikke avgjøre om eksponeringen er årsaken». Én setning, og den viser en varsomhet sensor premierer — det er nettopp den varsomheten faget forsøker å lære bort."
+    },
+    {
+      "id": "med1100-4-3-bb-kji-styrke",
+      "type": "definition",
+      "title": "Hva kji-kvadrat IKKE sier",
+      "content": "Teststatistikken avhenger av **to** ting samtidig: hvor sterk sammenhengen er, og hvor mange personer som er med.\n\n**Konsekvensen:** en svak sammenheng i et enormt materiale gir høy $\\chi^2$, og en sterk sammenheng i et lite materiale gir lav. Teststatistikkens størrelse er derfor **ikke** et mål på hvor sterk sammenhengen er — den er et mål på hvor sikker vi er på at den finnes.\n\n**I praksis:** skriv aldri «$\\chi^2 = 25$, altså en sterk sammenheng». Skriv «$\\chi^2 = 25$, altså statistisk signifikant» og oppgi effektmålet ved siden av. Å blande de to er **felle E3**."
+    },
+    {
+      "id": "med1100-4-3-bb-tommelfingerregler",
+      "type": "definition",
+      "title": "Tommelfingerregler for kontroll av eget svar",
+      "content": "Fire raske kontroller som fanger de fleste regnefeil i denne sjangeren:\n\n1. **Ligger RR og OR på samme side av 1?** Det skal de alltid gjøre. Får du $\\text{RR} = 1{,}6$ og $\\text{OR} = 0{,}8$, har du bommet på en celle.\n2. **Er OR lenger fra 1 enn RR?** Det skal den alltid være. Er den nærmere, er noe galt.\n3. **Ligger $\\chi^2$ i et rimelig område?** Under 1 er «ingenting», rundt 4 er grensen, over 10 er tydelig. Får du 4 000, mangler det en marginalsum i nevneren.\n4. **Stemmer $\\sqrt{\\chi^2}$ med en z-verdi du kan kjenne igjen?** Er $\\chi^2 = 3{,}69$, er $z = 1{,}92$ — like under 1,96, akkurat som $3{,}69$ er like under $3{,}84$. Konsistent."
+    },
+    {
+      "id": "med1100-4-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis kontrollpunkter",
+      "content": [
+        {
+          "id": "med1100-4-3-repetisjon-tekst",
+          "type": "text",
+          "content": "Seks kontrollpunkter. Klarer du dem uten å bla opp, er kapitlet i boks.\n\n1. **Hvilken vei leses risiko i tabellen, og hvorfor?** (Bortover i raden — nevneren må være alle eksponerte, altså radsummen.)\n2. **Hva er forskjellen på RR, OR, PR og RD?** (RR: forhold mellom risikoer. OR: forhold mellom odds, $ad/bc$. PR: samme regnestykke som RR, brukt på et tverrsnitt. RD: differansen, i prosentpoeng. Nullverdi 1 for de tre første, 0 for den siste.)\n3. **Når er $\\text{OR} \\approx \\text{RR}$ — og hva er avviket ved 20 prosent risiko?** (Når utfallet er sjeldent, i praksis under rundt 5 prosent. Ved 20 prosent risiko og RR lik 2 er OR 2,67, altså 33 prosent avvik.)\n4. **Hvilket effektmål kan alltid regnes, uansett design?** (Odds ratio — kryssproduktet er upåvirket av hvordan utvalget er trukket.)\n5. **Hva er kritisk verdi for kji-kvadrat, og hvor mange frihetsgrader har en 2×2?** (3,84 ved 1 frihetsgrad og 5 prosent nivå. Én frihetsgrad, fordi de tre andre cellene følger når marginalsummene er gitt.)\n6. **Hva sier testen som effektmålet ikke sier, og omvendt?** (Testen sier om sammenhengen er statistisk sikker. Effektmålet sier hvor sterk den er. Et fullstendig svar har begge.)\n\n**Og de tre fellene som koster mest her:** å bytte om OR og RR (E1), å bruke tilnærmingen uten å sjekke om utfallet er sjeldent (E2), og å lese en signifikant test som en sterk sammenheng (E3). Blokk 1 har ingen minuspoeng — svar alltid, og skriv alltid tolkningen med riktig verb.\n\n**Fra de forrige kapitlene, som dette bygger på:** i [kap. 3.1](/med1100/med1100-3-1) lærte du å lese en 2×2-tabell riktig vei, i [kap. 4.1](/med1100/med1100-4-1) å sette et konfidensintervall rundt en andel og en differanse, og i [kap. 4.2](/med1100/med1100-4-2) å føre en hypotesetest i seks trinn. Her er alle tre satt sammen. I [kap. 4.4](/med1100/med1100-4-4) snur vi spørsmålet: hvor mange må vi undersøke for i det hele tatt å kunne påvise en forskjell av en gitt størrelse?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

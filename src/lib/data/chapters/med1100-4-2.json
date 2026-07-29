@@ -1,0 +1,416 @@
+{
+  "id": "med1100-4-2",
+  "courseId": "med1100",
+  "chapterNumber": "4.2",
+  "title": "Hypotesetesting, z- og t-test",
+  "description": "Formell hypotesetest med eksplisitte hypoteser på 5 %-nivå, ett-proporsjons z-test, ett-/to-utvalgs og parret t-test, og p-verdien — med konklusjon i klartekst.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "kunne føre en hypotesetest i seks trinn med parameteren definert i ord, eksplisitte hypoteser, vist teststatistikk og konklusjon i klartekst",
+    "kunne velge riktig test ut fra om data er antall eller målinger, én eller to grupper, og avhengige eller uavhengige observasjoner",
+    "kunne regne ut en ett-proporsjons z-test og de tre t-testene, med riktige frihetsgrader og riktig kritisk verdi fra tabellen",
+    "kunne tolke en p-verdi presist, og skille «ikke påvist» fra «vist at det ikke finnes»"
+  ],
+  "content": [
+    {
+      "id": "med1100-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hvilken eksamen trener du her?** **Blokk 1** — den digitale eksamenen (i **Inspera**, UiOs digitale eksamenssystem) på rundt fem timer, der **statistikkseksjonen alene teller 40 prosent**. MED1100 har tre **blokkeksamener**: tre separate eksamensdager med ulikt format, som alle må bestås hver for seg.\n\n**Hvor ofte kommer det?** **Hypotesetest med eksplisitte hypoteser er observert i rundt 15 av de 16 lesbare sittingene** av blokk 1 fra 2021 til 2026 (én «sitting» = én gjennomføring, ordinær eller utsatt). **t-testen** i en av sine former er med i rundt 11 av 16, og **p-verdien** i rundt 9 av 16. Sammen med konfidensintervallet i [kap. 4.1](/med1100/med1100-4-1) er dette selve ryggraden i statistikkdelen.\n\n**I hvilken form?** Nesten alltid **B1-STAT** — statistikkoppgaven i blokk 1: en regne- og resonnementoppgave i fritekst der føringen er en del av svaret. Kravet er ufravikelig og eksplisitt: **skriv H₀ og Hₐ, vis teststørrelsen, sammenlign med kritisk verdi, og konkluder i ord.** I tillegg kommer **B1-MC** — flervalgsspørsmålet med fire alternativer: *hvilken test passer her, parret eller uavhengig?* er den klassiske.\n\n**Hjelpemidler — og hva det betyr.** Du har **enkel kalkulator** (Citizen SR-270X eller Casio FX-82EX), **statistiske tabeller** og **utdelt formelsamling**. Formlene for teststørrelsene, verdien 1,96 og hele t-tabellen ligger foran deg. Det du blir testet på, er derfor ikke hukommelse, men tre andre ting: **å velge riktig test**, **å sjekke forutsetningene**, og **å konkludere presist i ord**. Å velge parret der oppgaven krever uavhengig — eller motsatt — er en feil formelsamlingen ikke redder deg fra.\n\n**Hvordan rettes det?** **Ingen minuspoeng i blokk 1 — svar alltid.** Riktig framgangsmåte premieres over eksakt tallsvar, og en regnefeil som forplanter seg trekkes ikke to ganger. Har du satt opp hypotesene riktig og valgt riktig test, har du sikret uttelling selv om kalkulatoren sier noe rart. Vurderingen er **bestått / ikke bestått**.\n\n**Tid:** kapitlet er delt i fire løkker på omtrent 16, 18, 14 og 14 minutter, med pausepunkter i de lange fasitene. Resten går til begrepsbank og repetisjon. Fører du eksemplene selv med kalkulator og t-tabell ved siden av — slik eksamen faktisk er — legg på rundt halvparten."
+    },
+    {
+      "id": "med1100-4-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på det forrige, og du trenger tre ting derfra ferdig oppfrisket.\n\n**Fra [kap. 4.1](/med1100/med1100-4-1): standardfeil og kritisk verdi.** Standardfeilen er standardavviket til estimatet: $\\text{SE} = \\sqrt{\\hat p(1-\\hat p)/n}$ for en andel og $\\text{SE} = s/\\sqrt n$ for et gjennomsnitt. Den kritiske verdien for tosidig 5 prosent er **1,96** fra normalfordelingen, eller en **$t$-verdi** fra tabellen med $\\text{df} = n-1$ når standardavviket er estimert fra utvalget. Alt dette bruker du igjen her, i en litt annen innpakning.\n\n**Fra [kap. 4.1](/med1100/med1100-4-1): nullverdien.** Et 95 prosent konfidensintervall som dekker 0 (for en differanse) betyr «ikke signifikant på 5 prosent nivå». Det er **nøyaktig samme konklusjon** som en tosidig test på 5 prosent nivå gir. Test og intervall er to sider av samme sak, og det poenget kommer tilbake i Løkke 4.\n\n**Fra [kap. 3.1](/med1100/med1100-3-1): andeler i grupper.** Du bygde 2×2-tabeller og regnet ut andeler. Her tester vi om en slik andel avviker fra en verdi vi hadde forventet.\n\n**Fra [kap. 0.2](/med1100/med1100-0-2): føringen som gir uttelling.** Statistikkoppgaver i blokk 1 føres i seks steg — parameter, hypoteser, forutsetninger, innsetting, sammenligning, konklusjon i klartekst. Å hoppe over hypotesene eller konklusjonen er **felle E12**, altså å svare på et lavere nivå enn spørreordet ber om.\n\n**Har du hatt hypotesetesting før?** Da er [Hypotesetesting (Matematikk S2 5.2)](/s2/s2-5-2) den nærmeste parallellen, og [Normalfordelingen (Matematikk S1 6.3)](/s1/s1-6-3) gir bakgrunnen for de kritiske verdiene. Har du det ikke, trenger du det ikke: alt innføres fra grunnen av under."
+    },
+    {
+      "id": "med1100-4-2-nokkelfakta",
+      "type": "collapsible",
+      "title": "Nøkkelfakta- og formelliste",
+      "buttonText": "Vis nøkkelfakta og formler",
+      "content": [
+        {
+          "id": "med1100-4-2-nokkelfakta-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $H_0$ | nullhypotesen — påstanden om ingen effekt eller ingen forskjell | — |\n| $H_a$ | alternativhypotesen — det vi åpner for i stedet | — |\n| $\\alpha$ | signifikansnivået, som regel 0,05 | andel |\n| $p_0$ | den andelen $H_0$ påstår er den riktige | andel (0–1) |\n| $X$ | observert antall med egenskapen | personer |\n| $Z$ | teststatistikk som sammenlignes med normalfordelingen | ingen |\n| $t$ | teststatistikk som sammenlignes med $t$-fordelingen | ingen |\n| $\\bar d$ | gjennomsnittlig differanse i en parret test | målingens enhet |\n| $s_d$ | standardavviket til differansene i en parret test | målingens enhet |\n| $s_p$ | felles («pooled») standardavvik i en to-utvalgs $t$-test | målingens enhet |\n| df | frihetsgrader | ingen |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Ett-proporsjons } Z\\text{-test:}\\qquad Z = \\frac{X - np_0}{\\sqrt{np_0(1-p_0)}}$$\n\nTeller: observert antall minus forventet antall under $H_0$. Nevner: standardavviket til antallet under $H_0$. *Bruksbetingelse:* $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$. Merk at det er $p_0$ — hypotesens andel — som brukes i nevneren, ikke den observerte andelen.\n\n$$\\text{Ett-utvalgs } t\\text{-test:}\\qquad t = \\frac{\\bar x - \\mu_0}{s/\\sqrt n}, \\qquad \\text{df} = n-1$$\n\n*Bruksbetingelse:* uavhengige observasjoner, og målingene rimelig symmetrisk fordelt. Ved store utvalg er kravet svakt.\n\n$$\\text{To-utvalgs } t\\text{-test:}\\qquad t = \\frac{\\bar x_1 - \\bar x_2}{s_p\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}}, \\qquad s_p^2 = \\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}$$\n\nmed $\\text{df} = n_1 + n_2 - 2$. *Bruksbetingelse:* de to gruppene må bestå av **ulike, uavhengige personer**, og spredningen i gruppene skal være noenlunde lik.\n\n$$\\text{Parret } t\\text{-test:}\\qquad t = \\frac{\\bar d}{s_d/\\sqrt n}, \\qquad \\text{df} = n-1$$\n\nder $n$ er antall **par**. *Bruksbetingelse:* observasjonene hører sammen to og to — samme person målt før og etter, eller matchede par. Å bruke to-utvalgstesten på parrede data er **felle E5**.\n\n$$\\text{Tosidig } p\\text{-verdi:}\\qquad p = 2 \\cdot P(\\text{teststatistikk mer ekstrem enn observert i én hale})$$\n\n*Bruksbetingelse:* faktoren 2 gjelder tosidige tester, som er standarden. Å glemme den er **felle E11**, og den halverer p-verdien slik at et ikke-signifikant funn ser signifikant ut.\n\n**Kritiske verdier fra tabellen**\n\n| Test og nivå | Kritisk verdi |\n|---|---|\n| Tosidig $Z$-test, 5 prosent | 1,96 |\n| Tosidig $Z$-test, 1 prosent | 2,576 |\n| Tosidig $t$-test, 5 prosent, df = 9 | 2,262 |\n| Tosidig $t$-test, 5 prosent, df = 15 | 2,131 |\n| Tosidig $t$-test, 5 prosent, df = 19 | 2,093 |\n| Tosidig $t$-test, 5 prosent, df = 24 | 2,064 |\n| Tosidig $t$-test, 5 prosent, df = 40 | 2,021 |\n| Tosidig $t$-test, 5 prosent, df = 60 | 2,000 |\n| Tosidig $t$-test, 5 prosent, df = 120 | 1,980 |\n\n**Merk om hjelpemidlene:** i blokk 1 ligger **formelsamlingen og de statistiske tabellene på pulten**. Ingenting over er pugg. Det du trenes på, er å velge riktig test, sjekke forutsetningene og skrive konklusjonen — og det er tre ting formelsamlingen ikke kan gjøre for deg.\n\n**Beslutningsregelen i to linjer**\n\n- $|{\\text{teststatistikk}}| >$ kritisk verdi  ⟶  **forkast $H_0$**, funnet er signifikant.\n- $|{\\text{teststatistikk}}| \\le$ kritisk verdi  ⟶  **behold $H_0$**, funnet er ikke signifikant.\n\nEkvivalent med p-verdien: $p < \\alpha$ gir forkast, $p \\ge \\alpha$ gir behold. De to veiene gir alltid samme svar.\n\n**Faste kontraster som skiller riktig fra nesten riktig**\n\n- «Behold $H_0$» betyr **ikke påvist**, ikke **vist at det ikke finnes**.\n- «Signifikant» betyr **trolig reell**, ikke **stor** eller **viktig**.\n- Parret test brukes når de samme individene måles to ganger. To-utvalgstesten brukes når det er to ulike grupper mennesker."
+        }
+      ]
+    },
+    {
+      "id": "med1100-4-2-oversikt",
+      "type": "text",
+      "content": "To grupper får ulike resultater i en undersøkelse. Den ene gruppen ligger litt høyere enn den andre. Spørsmålet som avgjør om funnet betyr noe i det hele tatt, er alltid det samme: **kunne denne forskjellen like gjerne oppstått av ren tilfeldighet?**\n\nHypotesetesten er den formelle måten å svare på det. Logikken er lånt fra rettssalen, og den er verdt å ha i bakhodet gjennom hele kapitlet: vi **antar uskyld** — at det ikke er noen forskjell — og spør hvor rart det observerte resultatet ville vært om den antakelsen stemte. Er det rart nok, forkaster vi antakelsen. Er det ikke rart nok, blir antakelsen stående — og legg merke til at det ikke er det samme som å ha bevist den.\n\nKapitlet gir deg fire tester som alle følger nøyaktig samme oppskrift, og som skilles bare av hva slags data du har:\n\n- **$Z$-testen for en andel** — når du teller hvor mange av $n$ som har en egenskap.\n- **Ett-utvalgs $t$-test** — når du har ett gjennomsnitt og en verdi å sammenligne det med.\n- **To-utvalgs $t$-test** — når du har to ulike grupper mennesker.\n- **Parret $t$-test** — når du har de **samme** personene målt to ganger.\n\nDet siste skillet er viktigere enn det ser ut. Vi skal se et datasett der den parrede testen gir en klart signifikant konklusjon og den uavhengige testen gir ingenting — på nøyaktig de samme tallene."
+    },
+    {
+      "id": "med1100-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hypotesene, teststatistikken og beslutningsregelen (~16 min)\n\nAlle fire testene har samme skjelett. Lærer du skjelettet én gang, er resten et spørsmål om hvilken formel du slår opp."
+    },
+    {
+      "id": "med1100-4-2-def-h0",
+      "type": "definition",
+      "title": "Nullhypotesen ($H_0$)",
+      "content": "Påstanden om at det **ikke** er noen effekt, ingen forskjell eller ingen endring — den vi antar er sann til det motsatte er vist.\n\nDen skrives alltid med **likhetstegn** og med parameteren definert i ord ved siden av: «$H_0: p = 0{,}20$, der $p$ er den sanne andelen i befolkningen».\n\n**Det som skiller $H_0$ fra en vanlig antakelse:** $H_0$ er ikke det vi tror på, men det vi **prøver å felle**. Hele testen er bygd som et forsøk på å vise at $H_0$ er urimelig i lys av data. Klarer vi ikke det, sier vi ikke at $H_0$ er sann — vi sier at vi ikke fikk felt den.\n\n**Sensorkravet:** hypotesene skal skrives eksplisitt, både symbolsk og med parameteren definert i ord. Dette er det aller første poenget i en B1-STAT-oppgave, og det er gratis."
+    },
+    {
+      "id": "med1100-4-2-def-ha",
+      "type": "definition",
+      "title": "Alternativhypotesen ($H_a$)",
+      "content": "Det vi åpner for hvis $H_0$ felles. Skrives med ulikhetstegn: «$H_a: p \\ne 0{,}20$».\n\n**Tosidig er standarden.** Med $\\ne$ regner du med avvik i begge retninger, og det er dette du skal bruke om ikke oppgaven eksplisitt sier noe annet. En **ensidig** hypotese ($>$ eller $<$) krever at retningen var bestemt **på forhånd**, av faglige grunner — ikke fordi dataene pekte den veien. Å velge side etter å ha sett resultatet er en form for juks som halverer p-verdien gratis.\n\n**Det som skiller $H_a$ fra en konklusjon:** $H_a$ formuleres før du regner. Konklusjonen kommer etterpå."
+    },
+    {
+      "id": "med1100-4-2-def-alfa",
+      "type": "definition",
+      "title": "Signifikansnivå ($\\alpha$)",
+      "content": "Grensen for hvor usannsynlig det observerte resultatet må være under $H_0$ før vi forkaster den. I medisin er standarden $\\alpha = 0{,}05$, altså 5 prosent.\n\n**Hva tallet faktisk er:** sannsynligheten for å forkaste en sann $H_0$ — altså for å slå fast en forskjell som ikke finnes. Setter vi $\\alpha = 0{,}05$, godtar vi at én av tjue sanne nullhypoteser vil bli feilaktig forkastet.\n\n**Det som skiller $\\alpha$ fra p-verdien:** $\\alpha$ velges **før** du ser data og er en terskel. p-verdien regnes **fra** data og er et resultat. Å sette $\\alpha$ etter å ha sett p-verdien er sirkelslutning."
+    },
+    {
+      "id": "med1100-4-2-def-teststatistikk",
+      "type": "definition",
+      "title": "Teststatistikk",
+      "content": "Ett tall som måler **hvor mange standardfeil** det observerte resultatet ligger fra det $H_0$ forutsier.\n\nFormen er alltid den samme, uansett hvilken av de fire testene du bruker:\n\n$$\\text{teststatistikk} = \\frac{\\text{observert} - \\text{forventet under } H_0}{\\text{standardfeil}}$$\n\n**Derfor er tallet enhetsløst**, og derfor kan samme kritiske verdi brukes på helt ulike målinger. En teststatistikk på 2,6 betyr at observasjonen ligger 2,6 standardfeil unna det $H_0$ forutsa — og det er langt nok til å være mistenkelig.\n\n**Fortegnet betyr retning, ikke styrke.** Ved tosidig test ser du på tallverdien."
+    },
+    {
+      "id": "med1100-4-2-def-kritisk-omraade",
+      "type": "definition",
+      "title": "Kritisk verdi og forkastningsområde",
+      "content": "**Kritisk verdi** er terskelen teststatistikken sammenlignes med: 1,96 for en tosidig $Z$-test på 5 prosent nivå, eller den tilsvarende $t$-verdien fra tabellen.\n\n**Forkastningsområdet** er de verdiene av teststatistikken som fører til at $H_0$ forkastes — de to halene, hver med 2,5 prosent av arealet ved tosidig 5 prosent test.\n\n**Beslutningsregelen:** ligger teststatistikken i forkastningsområdet (tallverdien er større enn kritisk verdi), forkastes $H_0$. Ellers beholdes den.\n\n**Den vanligste operative feilen her:** å sammenligne en $t$-verdi med 1,96 når frihetsgradene er få. Ved 15 frihetsgrader er terskelen 2,131, og en teststatistikk på 2,05 er da **ikke** signifikant selv om den passerer 1,96. Det er **felle E6**."
+    },
+    {
+      "id": "med1100-4-2-th-prosedyre",
+      "type": "theorem",
+      "title": "Regneprosedyre: hypotesetest i seks trinn",
+      "content": "Denne prosedyren dekker alle fire testene i kapitlet. Følg den i rekkefølge, hver gang — det er den som gir uttellingen, ikke sluttallet.\n\n1. **Definer parameteren i ord.** «La $p$ være den sanne andelen i befolkningen» eller «la $\\mu$ være den sanne forventningen». Ett kort ledd, og det er poenggivende.\n2. **Skriv hypotesene, symbolsk og i ord.**\n   $$H_0: p = p_0 \\qquad \\text{mot} \\qquad H_a: p \\ne p_0$$\n   Tosidig om ikke annet er oppgitt.\n3. **Velg test og sjekk forutsetningene.** Er dataene antall (andel) eller målinger (gjennomsnitt)? Er gruppene uavhengige eller parrede? Er $np_0 \\ge 5$, eller er utvalget stort nok? Skriv det ned.\n4. **Regn teststatistikken med tall.** Sett inn og vis mellomregningen. Ikke bare sluttallet — det er felle E22 i naboblokken og gir tap her også.\n5. **Sammenlign med kritisk verdi (eller finn p-verdien).** Oppgi hvilken verdi du sammenligner med og hvor mange frihetsgrader du har brukt.\n6. **Konkluder i klartekst, knyttet til problemstillingen.** Ikke «$H_0$ forkastes», men «andelen er signifikant høyere enn de 20 prosentene som var forventet, på 5 prosent nivå». Uten dette leddet er svaret uferdig — **felle E12**.\n\n**Merk:** trinn 1, 2, 3 og 6 inneholder ingen regning i det hele tatt, og de utgjør fire av seks poenggivende ledd. Rekker du ikke å fullføre regnestykket, skal du likevel skrive dem — blokk 1 har ingen minuspoeng, og delvis føring gir uttelling."
+    },
+    {
+      "id": "med1100-4-2-fig-1",
+      "type": "image",
+      "src": "/images/textbook/med1100/hypotesetest.svg",
+      "alt": "Klokkeformet fordelingskurve sentrert om null, med de to ytterste halene skravert som forkastningsområde. Stiplede loddrette streker ved minus 1,96 og pluss 1,96 markerer de kritiske verdiene, og hver hale er merket med 2,5 prosent. En heltrukken loddrett strek ved 2,60, til høyre for den kritiske verdien, markerer den observerte teststatistikken.",
+      "caption": "Beslutningsregelen tegnet: fordelingen til teststatistikken under $H_0$, med forkastningsområdet skravert utenfor $\\pm 1{,}96$. Teststatistikken fra Eksempel 1 ligger på $2{,}60$ og faller dermed i forkastningsområdet. Skjematisk figur — arealene er ikke i målestokk."
+    },
+    {
+      "id": "med1100-4-2-def-z-andel",
+      "type": "definition",
+      "title": "Ett-proporsjons $Z$-test",
+      "content": "Testen som brukes når data er et **antall av $n$** og $H_0$ oppgir en bestemt andel $p_0$:\n\n$$Z = \\frac{X - np_0}{\\sqrt{np_0(1-p_0)}}$$\n\nTelleren er observert antall minus forventet antall under $H_0$. Nevneren er standardavviket til antallet **under $H_0$**.\n\n**Den detaljen som ofte gjøres feil:** i nevneren står $p_0$ — hypotesens andel — ikke den observerte $\\hat p$. Testen spør hvor rart resultatet er *gitt at $H_0$ er sann*, og da skal all regning under rottegnet skje i $H_0$-verdenen. (I konfidensintervallet i [kap. 4.1](/med1100/med1100-4-1) er det motsatt: der finnes ingen hypotese, så der brukes $\\hat p$.)\n\n**Forutsetning:** $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$. **Kritisk verdi:** 1,96 ved tosidig 5 prosent."
+    },
+    {
+      "id": "med1100-4-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Ett-proporsjons Z-test med full føring (B1-STAT)",
+      "problem": "I en tenkt befolkning har en egenskap tidligere forekommet hos 20 prosent. I et nytt utvalg på 300 personer finner man egenskapen hos 78.\n\nTest på 5 prosent nivå om andelen har endret seg. Før svaret slik en B1-STAT-oppgave krever.\n\n*Alle tall er konstruerte.*",
+      "solution": "**Full-pott-besvarelse. Seks trinn.**\n\n**Trinn 1 — parameteren.** La $p$ være den sanne andelen med egenskapen i befolkningen i dag.\n\n**Trinn 2 — hypotesene.**\n$$H_0: p = 0{,}20 \\qquad \\text{mot} \\qquad H_a: p \\ne 0{,}20$$\nTosidig, siden oppgaven spør om andelen «har endret seg» og ikke oppgir noen retning på forhånd.\n\n**Trinn 3 — test og forutsetninger.** Data er et antall av $n$, så vi bruker ett-proporsjons $Z$-test. Forutsetningen: $np_0 = 300 \\cdot 0{,}20 = 60$ og $n(1-p_0) = 240$, begge langt over 5. Observasjonene er uavhengige personer. Testen kan brukes.\n\n**Trinn 4 — teststatistikken.**\n$$Z = \\frac{X - np_0}{\\sqrt{np_0(1-p_0)}} = \\frac{78 - 60}{\\sqrt{300 \\cdot 0{,}20 \\cdot 0{,}80}} = \\frac{18}{\\sqrt{48}} = \\frac{18}{6{,}928} = 2{,}60$$\n\n**Trinn 5 — sammenligning.** Kritisk verdi ved tosidig 5 prosent nivå er 1,96. Siden $|2{,}60| > 1{,}96$, ligger teststatistikken i forkastningsområdet. (Tilsvarende p-verdi er omtrent 0,009 — vi regner den ut i Løkke 4.)\n\n**Trinn 6 — konklusjon i klartekst.** Vi forkaster $H_0$. Andelen i utvalget er $78/300 = 26{,}0$ prosent, og dette er **signifikant høyere** enn de 20 prosentene som var forventet, på 5 prosent signifikansnivå. Med andre ord: en så stor økning ville vært lite sannsynlig om den sanne andelen fortsatt var 20 prosent.\n\n— naturlig pausepunkt —\n\n**Presiseringen som løfter besvarelsen:** at forskjellen er signifikant sier at den trolig er reell, ikke at den er stor eller betydningsfull. Vi snakker om en økning fra 20 til 26 prosent. Om seks prosentpoeng betyr noe faglig, er et helt annet spørsmål enn det testen svarer på — og å blande de to er **felle E3**, altså å forveksle statistisk signifikans med relevans.\n\n**Kontrollen som er verdt å ta:** forventet antall under $H_0$ var 60, vi observerte 78. Er 18 flere «mye»? Standardavviket er rundt 7, så 18 er omtrent to og en halv slike — det stemmer med $Z = 2{,}60$. Får du en $Z$ på 25, har du sannsynligvis satt inn en andel der det skulle stått et antall."
+    },
+    {
+      "id": "med1100-4-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, B1-KORT — kortsvarsoppgaven i blokk 1.) En undersøkelse skal teste om gjennomsnittet i en gruppe avviker fra verdien 7,0.\n\n**a)** Skriv opp $H_0$ og $H_a$, både symbolsk og med parameteren definert i ord.\n\n**b)** Forklar i én setning hvorfor $H_0$ alltid skrives med likhetstegn.",
+        "solution": "**a) Hypotesene.**\n\nLa $\\mu$ være den sanne forventningen i populasjonen gruppen er hentet fra.\n$$H_0: \\mu = 7{,}0 \\qquad \\text{mot} \\qquad H_a: \\mu \\ne 7{,}0$$\n\nTosidig, fordi oppgaven bare spør om et avvik og ikke oppgir noen retning.\n\n**b) Hvorfor likhetstegn.** Fordi $H_0$ må være presis nok til at man kan regne ut hvor sannsynlig det observerte resultatet er *hvis den er sann* — og det krever én bestemt tallverdi å regne fra. «$\\mu \\ne 7{,}0$» peker på uendelig mange verdier og kan man ikke regne noen fordeling fra.\n\n**Merk formen:** parameteren defineres i ord ved siden av symbolet. Det er dette leddet mange hopper over, og det koster et gratispoeng i hver eneste B1-STAT-oppgave.",
+        "hints": [
+          "Hvilken av de to hypotesene må du kunne regne en sannsynlighet ut fra?",
+          "Se på formen i regneprosedyrens trinn 1 og 2 — parameteren defineres i ord først, symbolene kommer etterpå."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving, B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) I en tenkt befolkning har en egenskap tidligere forekommet hos 25 prosent. I et nytt utvalg på 400 personer finnes den hos 118.\n\nTest på 5 prosent nivå om andelen har endret seg. Før svaret i seks trinn.",
+        "solution": "**Trinn 1 — parameteren.** La $p$ være den sanne andelen i befolkningen nå.\n\n**Trinn 2 — hypotesene.**\n$$H_0: p = 0{,}25 \\qquad \\text{mot} \\qquad H_a: p \\ne 0{,}25$$\n\n**Trinn 3 — test og forutsetninger.** Ett-proporsjons $Z$-test. $np_0 = 400 \\cdot 0{,}25 = 100$ og $n(1-p_0) = 300$; begge over 5.\n\n**Trinn 4 — teststatistikken.**\n$$Z = \\frac{118 - 100}{\\sqrt{400 \\cdot 0{,}25 \\cdot 0{,}75}} = \\frac{18}{\\sqrt{75}} = \\frac{18}{8{,}660} = 2{,}08$$\n\n**Trinn 5 — sammenligning.** Kritisk verdi er 1,96. Siden $|2{,}08| > 1{,}96$, forkastes $H_0$. (Tosidig p-verdi er omtrent 0,038.)\n\n**Trinn 6 — konklusjon i klartekst.** Andelen i utvalget er $118/400 = 29{,}5$ prosent, signifikant høyere enn de 25 prosentene som var forventet, på 5 prosent nivå.\n\n**Merk hvor knapt det er:** $2{,}08$ mot terskelen $1{,}96$. Hadde det vært to personer færre med egenskapen, ville $Z$ blitt $16/8{,}66 = 1{,}85$ og konklusjonen motsatt. Det er et godt argument for også å oppgi konfidensintervallet, som viser hvor presist estimatet faktisk er.",
+        "hints": [
+          "Regn først forventet antall under $H_0$: det er $n$ ganget med $p_0$.",
+          "I nevneren står hypotesens andel $p_0$, ikke den observerte andelen."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — t-testene: ett utvalg og to grupper (~18 min)\n\nMåler du noe kontinuerlig i stedet for å telle, bytter du ut $Z$ med $t$ og henter kritisk verdi fra $t$-tabellen. Alt annet i prosedyren står uendret."
+    },
+    {
+      "id": "med1100-4-2-def-t-ett",
+      "type": "definition",
+      "title": "Ett-utvalgs $t$-test",
+      "content": "Testen som sammenligner **ett gjennomsnitt** med en oppgitt verdi $\\mu_0$:\n\n$$t = \\frac{\\bar x - \\mu_0}{s/\\sqrt n}, \\qquad \\text{df} = n-1$$\n\nTelleren er avviket fra det $H_0$ hevder; nevneren er standardfeilen til gjennomsnittet.\n\n**Når den brukes:** når du har målt én gruppe og vil sammenligne med en kjent referanse — en tidligere målt verdi, en oppgitt standard, en fastsatt grense.\n\n**Det som skiller den fra $Z$-testen:** her er standardavviket **estimert fra de samme dataene**, og derfor hentes kritisk verdi fra $t$-tabellen på riktig df-rad. Ved store utvalg er $t$ nær 1,96 og forskjellen forsvinner."
+    },
+    {
+      "id": "med1100-4-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Ett-utvalgs t-test rett på grensen (B1-STAT)",
+      "problem": "En kontinuerlig måling er gjort hos 16 personer i et tenkt datasett. Gjennomsnittet er $\\bar x = 138{,}5$ enheter og standardavviket $s = 12{,}0$ enheter. En tidligere undersøkelse i samme befolkning ga verdien 132 enheter.\n\nTest på 5 prosent nivå om gjennomsnittet avviker fra 132.\n\n*Tallene er konstruerte og skal ikke leses som en normalverdi for noen faktisk måling.*",
+      "solution": "**Full-pott-besvarelse.**\n\n**Trinn 1 — parameteren.** La $\\mu$ være den sanne forventningen i befolkningen i dag.\n\n**Trinn 2 — hypotesene.**\n$$H_0: \\mu = 132 \\qquad \\text{mot} \\qquad H_a: \\mu \\ne 132$$\n\n**Trinn 3 — test og forutsetninger.** Data er kontinuerlige målinger på én gruppe, og standardavviket er estimert fra utvalget: ett-utvalgs $t$-test. Personene er uavhengige. Utvalget er lite ($n = 16$), så vi må bruke $t$-tabellen og ikke 1,96.\n\n**Trinn 4 — teststatistikken.**\n$$\\text{SE} = \\frac{s}{\\sqrt n} = \\frac{12{,}0}{\\sqrt{16}} = \\frac{12{,}0}{4} = 3{,}00\\ \\text{enheter}$$\n$$t = \\frac{\\bar x - \\mu_0}{\\text{SE}} = \\frac{138{,}5 - 132}{3{,}00} = \\frac{6{,}5}{3{,}00} = 2{,}167$$\n\n**Trinn 5 — sammenligning.** $\\text{df} = 16 - 1 = 15$. Kritisk $t$-verdi ved tosidig 5 prosent og 15 frihetsgrader er **2,131**. Siden $2{,}167 > 2{,}131$, ligger teststatistikken **så vidt** i forkastningsområdet. (Tosidig p-verdi er omtrent 0,047.)\n\n**Trinn 6 — konklusjon i klartekst.** Vi forkaster $H_0$: gjennomsnittet på 138,5 enheter er signifikant høyere enn referanseverdien 132, på 5 prosent nivå.\n\n— naturlig pausepunkt —\n\n**Det som gjør dette eksempelet verdt å studere.** Hadde vi brukt 1,96 i stedet for 2,131, hadde vi fått samme konklusjon — men av feil grunn, og med en margin som så mye tryggere ut enn den er. Og hadde utvalget vært på 10 i stedet for 16, ville kritisk verdi vært 2,262 ved 9 frihetsgrader, og **samme teststatistikk på 2,167 ville gitt motsatt konklusjon**.\n\nDet er hele poenget med felle E6: ved lave frihetsgrader er avstanden mellom 1,96 og riktig $t$-verdi stor nok til å snu svaret. Oppgi alltid df, og les riktig rad.\n\n**Og den nødvendige varsomheten:** med en p-verdi på 0,047 er dette et funn som knapt passerer terskelen. Et resultat som ligger så nær grensen bør omtales som nettopp det — «så vidt signifikant på 5 prosent nivå» — og ikke som et fast etablert faktum. En terskel på 0,05 er en konvensjon, ikke en naturlov."
+    },
+    {
+      "id": "med1100-4-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Innøving, B1-STAT.) En måling er gjort hos 25 personer i et tenkt datasett. Gjennomsnittet er $\\bar x = 76{,}4$ enheter og standardavviket $s = 8{,}0$ enheter. Referanseverdien er 72 enheter.\n\nTest på 5 prosent nivå om gjennomsnittet avviker fra referanseverdien. Oppgi frihetsgradene eksplisitt.",
+        "solution": "**Trinn 1 — parameteren.** La $\\mu$ være den sanne forventningen i befolkningen.\n\n**Trinn 2 — hypotesene.**\n$$H_0: \\mu = 72 \\qquad \\text{mot} \\qquad H_a: \\mu \\ne 72$$\n\n**Trinn 3 — test og forutsetninger.** Ett-utvalgs $t$-test; kontinuerlige målinger på én gruppe, $s$ estimert fra utvalget, uavhengige personer.\n\n**Trinn 4 — teststatistikken.**\n$$\\text{SE} = \\frac{8{,}0}{\\sqrt{25}} = \\frac{8{,}0}{5} = 1{,}60\\ \\text{enheter}$$\n$$t = \\frac{76{,}4 - 72}{1{,}60} = \\frac{4{,}4}{1{,}60} = 2{,}75$$\n\n**Trinn 5 — sammenligning.** $\\text{df} = 24$, kritisk verdi 2,064. Siden $2{,}75 > 2{,}064$, forkastes $H_0$. (Tosidig p-verdi er omtrent 0,011.)\n\n**Trinn 6 — konklusjon.** Gjennomsnittet på 76,4 enheter er signifikant høyere enn referanseverdien 72, på 5 prosent nivå.\n\n**Merk marginen:** her er $2{,}75$ godt over terskelen $2{,}064$, i motsetning til Eksempel 2. Et funn med denne marginen er vesentlig mer robust mot små endringer i data.",
+        "hints": [
+          "Regn standardfeilen først: $s$ delt på kvadratroten av $n$.",
+          "Frihetsgradene er $n-1$; finn den raden i tabellen før du konkluderer."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-def-t-to",
+      "type": "definition",
+      "title": "To-utvalgs $t$-test",
+      "content": "Testen som sammenligner gjennomsnittene i **to ulike grupper mennesker**:\n\n$$t = \\frac{\\bar x_1 - \\bar x_2}{s_p\\sqrt{\\dfrac{1}{n_1}+\\dfrac{1}{n_2}}}, \\qquad s_p^2 = \\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}$$\n\nmed $\\text{df} = n_1 + n_2 - 2$.\n\n$s_p$ kalles det **felles standardavviket** og er et vektet gjennomsnitt av spredningen i de to gruppene — vektet slik at den største gruppen teller mest, siden den bærer mest informasjon.\n\n**Forutsetninger:** gruppene består av **ulike, uavhengige personer**, og spredningen i dem er noenlunde lik. Er den ene gruppens standardavvik mer enn omtrent dobbelt så stort som den andres, holder ikke den siste forutsetningen, og det bør nevnes.\n\n**Det som skiller den fra den parrede testen:** her er det to grupper mennesker. I den parrede er det én gruppe målt to ganger."
+    },
+    {
+      "id": "med1100-4-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: To-utvalgs t-test (B1-STAT)",
+      "problem": "To uavhengige grupper på 25 personer hver er målt i et tenkt datasett.\n\n- Gruppe 1: $\\bar x_1 = 118$ enheter, $s_1 = 14$ enheter.\n- Gruppe 2: $\\bar x_2 = 110$ enheter, $s_2 = 12$ enheter.\n\nTest på 5 prosent nivå om gjennomsnittene er forskjellige.",
+      "solution": "**Full-pott-besvarelse.**\n\n**Trinn 1 — parameteren.** La $\\mu_1$ og $\\mu_2$ være de sanne forventningene i de to populasjonene.\n\n**Trinn 2 — hypotesene.**\n$$H_0: \\mu_1 = \\mu_2 \\qquad \\text{mot} \\qquad H_a: \\mu_1 \\ne \\mu_2$$\n\n**Trinn 3 — test og forutsetninger.** To uavhengige grupper med kontinuerlige målinger: to-utvalgs $t$-test. Standardavvikene er 14 og 12, altså rimelig like, så forutsetningen om lik spredning holder.\n\n**Trinn 4 — teststatistikken.**\n\nFørst det felles standardavviket:\n$$s_p^2 = \\frac{24 \\cdot 14^2 + 24 \\cdot 12^2}{25+25-2} = \\frac{24 \\cdot 196 + 24 \\cdot 144}{48} = \\frac{4\\,704 + 3\\,456}{48} = \\frac{8\\,160}{48} = 170{,}0$$\n$$s_p = \\sqrt{170{,}0} = 13{,}04\\ \\text{enheter}$$\n\nSå standardfeilen til differansen:\n$$\\text{SE} = 13{,}04 \\cdot \\sqrt{\\frac{1}{25}+\\frac{1}{25}} = 13{,}04 \\cdot \\sqrt{0{,}08} = 13{,}04 \\cdot 0{,}2828 = 3{,}688\\ \\text{enheter}$$\n\nOg teststatistikken:\n$$t = \\frac{118 - 110}{3{,}688} = \\frac{8{,}0}{3{,}688} = 2{,}17$$\n\n**Trinn 5 — sammenligning.** $\\text{df} = 25 + 25 - 2 = 48$. Tabellen har ikke alltid rad 48; nærmeste lavere er 40, med kritisk verdi 2,021. Siden $2{,}17 > 2{,}021$, forkastes $H_0$. (Med eksakt df 48 er kritisk verdi 2,011, og konklusjonen den samme. Tosidig p-verdi er omtrent 0,035.)\n\n**Trinn 6 — konklusjon i klartekst.** Gruppe 1 har et gjennomsnitt som ligger 8,0 enheter over gruppe 2, og forskjellen er statistisk signifikant på 5 prosent nivå.\n\n**Merk regelen for tabellrader:** står ikke din df i tabellen, velg **nærmeste lavere** rad. Da blir kritisk verdi litt for høy og testen litt for streng — den forsiktige feilen. Å runde oppover ville gjort testen for liberal, og det er den feilen du ikke vil gjøre.\n\n**Og forbeholdet:** at forskjellen er påvist, sier ingenting om hvorfor den finnes. To grupper kan skille seg på mange måter samtidig, og en test av gjennomsnittene kan ikke skille effekten av det man målte fra effekten av alt annet gruppene skiller seg på."
+    },
+    {
+      "id": "med1100-4-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) To uavhengige grupper på 30 personer hver er målt i et tenkt datasett.\n\n- Gruppe 1: $\\bar x_1 = 52{,}4$ enheter, $s_1 = 9{,}0$ enheter.\n- Gruppe 2: $\\bar x_2 = 48{,}9$ enheter, $s_2 = 8{,}0$ enheter.\n\nUtfør en to-utvalgs $t$-test på 5 prosent nivå og konkluder i klartekst.",
+        "solution": "**Trinn 1 og 2 — parameter og hypoteser.** La $\\mu_1$ og $\\mu_2$ være de sanne forventningene.\n$$H_0: \\mu_1 = \\mu_2 \\qquad \\text{mot} \\qquad H_a: \\mu_1 \\ne \\mu_2$$\n\n**Trinn 3 — test og forutsetninger.** To uavhengige grupper, kontinuerlige målinger, standardavvik 9,0 og 8,0 er rimelig like: to-utvalgs $t$-test.\n\n**Trinn 4 — teststatistikken.**\n$$s_p^2 = \\frac{29 \\cdot 81 + 29 \\cdot 64}{58} = \\frac{2\\,349 + 1\\,856}{58} = \\frac{4\\,205}{58} = 72{,}50$$\n$$s_p = \\sqrt{72{,}50} = 8{,}515\\ \\text{enheter}$$\n$$\\text{SE} = 8{,}515 \\cdot \\sqrt{\\frac{1}{30}+\\frac{1}{30}} = 8{,}515 \\cdot 0{,}2582 = 2{,}199\\ \\text{enheter}$$\n$$t = \\frac{52{,}4 - 48{,}9}{2{,}199} = \\frac{3{,}5}{2{,}199} = 1{,}59$$\n\n**Trinn 5 — sammenligning.** $\\text{df} = 30 + 30 - 2 = 58$. Nærmeste tabellrad er 40 (kritisk verdi 2,021); med rad 60 er verdien 2,000. Uansett hvilken vi bruker: $1{,}59$ er godt under terskelen, så $H_0$ beholdes. (Tosidig p-verdi er omtrent 0,12.)\n\n**Trinn 6 — konklusjon i klartekst.** Forskjellen på 3,5 enheter er **ikke statistisk signifikant** på 5 prosent nivå. Vi kan ikke utelukke at gruppene har samme forventning.\n\n**Den presiseringen som kreves:** dette betyr ikke at gruppene er like. Med 30 personer i hver gruppe og et standardavvik rundt 8,5 er studien rett og slett ikke stor nok til å avgjøre en forskjell på 3,5 enheter. Å skrive «det er ingen forskjell» ville vært **felle E4**.",
+        "hints": [
+          "Regn $s_p^2$ først — det er et vektet gjennomsnitt av de to variansene.",
+          "Frihetsgradene er $n_1 + n_2 - 2$. Står ikke raden i tabellen, velg nærmeste lavere."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Parret t-test: når observasjonene hører sammen (~14 min)\n\nNå kommer det enkeltvalget som oftest skiller et riktig fra et galt svar i denne sjangeren. Det handler ikke om regning, men om å se **hvem** tallene kommer fra."
+    },
+    {
+      "id": "med1100-4-2-def-avhengige",
+      "type": "definition",
+      "title": "Avhengige observasjoner",
+      "content": "Observasjoner som hører sammen to og to, slik at den ene bærer informasjon om den andre.\n\nDe to vanligste formene: **samme person målt før og etter**, og **matchede par** (to personer koblet sammen på alder, kjønn eller andre kjennetegn).\n\n**Hvorfor det er avgjørende:** hos parrede data forsvinner all variasjon *mellom* personer når du regner differansen for hvert par. Igjen står bare den endringen du faktisk er ute etter. Det gjør testen langt mer følsom — og det er derfor det er så dyrt å bruke feil test.\n\n**Felle E5** er å behandle avhengige observasjoner som uavhengige. Feilen går alltid samme vei: den store variasjonen mellom personer blir liggende igjen i nevneren, teststatistikken blir for liten, og en reell effekt forsvinner i støyen.\n\n**Kjennetegnet du ser etter i oppgaveteksten:** ordene «før og etter», «hos de samme», «gjentatt måling», eller at de to gruppene har **nøyaktig like mange** og er listet parvis."
+    },
+    {
+      "id": "med1100-4-2-def-t-parret",
+      "type": "definition",
+      "title": "Parret $t$-test",
+      "content": "Testen for avhengige observasjoner. Grepet er å regne **differansen for hvert par** og så kjøre en helt vanlig ett-utvalgs $t$-test på differansene:\n\n$$t = \\frac{\\bar d}{s_d/\\sqrt n}, \\qquad \\text{df} = n-1$$\n\nder $\\bar d$ er gjennomsnittet av differansene, $s_d$ er standardavviket **til differansene**, og $n$ er antall **par**, ikke antall målinger.\n\n**Hypotesene formuleres i differansen:** $H_0: \\mu_d = 0$ mot $H_a: \\mu_d \\ne 0$, der $\\mu_d$ er den sanne gjennomsnittlige endringen.\n\n**Den vanligste tellefeilen:** å bruke antall målinger i stedet for antall par. Ti personer målt to ganger gir 20 målinger, men $n = 10$ og $\\text{df} = 9$."
+    },
+    {
+      "id": "med1100-4-2-th-velg-test",
+      "type": "theorem",
+      "title": "Regneprosedyre: velg riktig test på tre spørsmål",
+      "content": "Før du regner noe som helst, still tre spørsmål til oppgaveteksten. De avgjør hvilken formel du slår opp.\n\n1. **Er data antall eller målinger?**\n   Antall av $n$ med en egenskap → **$Z$-test for andel**. Kontinuerlige målinger → en $t$-test.\n2. **Hvor mange grupper er det?**\n   Én gruppe mot en fast referanseverdi → **ett-utvalgs $t$-test**. To grupper → gå til spørsmål 3.\n3. **Er de to gruppene de samme personene?**\n   Ja, eller matchede par → **parret $t$-test** på differansene. Nei, ulike personer → **to-utvalgs $t$-test**.\n\n**Skriv svaret på spørsmål 3 eksplisitt i besvarelsen.** «Siden det er de samme personene som er målt to ganger, er observasjonene avhengige, og jeg bruker parret $t$-test» er ett av leddene sensor ser etter — og det viser at du har sett hva slags data du sitter med.\n\n**Kontrollen som avslører feilvalget:** har de to «gruppene» nøyaktig like mange personer og er listet ved siden av hverandre par for par, er det nesten alltid parrede data."
+    },
+    {
+      "id": "med1100-4-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Samme data, to tester, motsatt konklusjon (B1-STAT, eksamensnivå)",
+      "problem": "Ti personer i et tenkt datasett er målt to ganger, med samme metode ved begge anledninger:\n\n| Person | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| **Første måling** | 7,2 | 6,8 | 8,1 | 7,5 | 6,9 | 8,4 | 7,0 | 7,8 | 6,5 | 7,9 |\n| **Andre måling** | 6,9 | 6,4 | 7,6 | 7,1 | 6,7 | 7,9 | 6,8 | 7,2 | 6,2 | 7,4 |\n\n**a)** Utfør riktig test på 5 prosent nivå og konkluder.\n\n**b)** En kandidat behandler de to radene som to uavhengige grupper og får $t = 1{,}50$, altså ikke signifikant. Forklar hvorfor de to analysene gir så ulikt svar, og hvilken som er riktig.\n\n*Tallene er konstruerte.*",
+      "solution": "**a) Riktig test og konklusjon.**\n\n**Trinn 1 — parameteren.** La $\\mu_d$ være den sanne gjennomsnittlige endringen fra første til andre måling.\n\n**Trinn 2 — hypotesene.**\n$$H_0: \\mu_d = 0 \\qquad \\text{mot} \\qquad H_a: \\mu_d \\ne 0$$\n\n**Trinn 3 — test og forutsetninger.** Det er **de samme ti personene** som er målt to ganger, så observasjonene er avhengige og skal analyseres parvis: **parret $t$-test**. $n = 10$ par.\n\n**Trinn 4 — teststatistikken.**\n\nDifferansene (første minus andre måling):\n\n| Person | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| $d$ | 0,3 | 0,4 | 0,5 | 0,4 | 0,2 | 0,5 | 0,2 | 0,6 | 0,3 | 0,5 |\n\n$$\\bar d = \\frac{3{,}9}{10} = 0{,}390, \\qquad s_d = 0{,}137$$\n$$\\text{SE} = \\frac{s_d}{\\sqrt{n}} = \\frac{0{,}137}{\\sqrt{10}} = \\frac{0{,}137}{3{,}162} = 0{,}0433$$\n$$t = \\frac{\\bar d}{\\text{SE}} = \\frac{0{,}390}{0{,}0433} = 9{,}00$$\n\n**Trinn 5 — sammenligning.** $\\text{df} = 10 - 1 = 9$, kritisk verdi 2,262. Siden $9{,}00 \\gg 2{,}262$, forkastes $H_0$ klart. (Tosidig p-verdi under 0,001.)\n\n**Trinn 6 — konklusjon i klartekst.** Målingen falt i gjennomsnitt 0,39 enheter fra første til andre gang, og nedgangen er sterkt statistisk signifikant på 5 prosent nivå. Alle ti personene gikk ned, og alle med et beløp mellom 0,2 og 0,6 enheter.\n\n— naturlig pausepunkt —\n\n**b) Hvorfor de to analysene spriker så voldsomt.**\n\nSe på tallene. Personene er **svært forskjellige fra hverandre**: første måling spenner fra 6,5 til 8,4, altså nesten to hele enheter. Men **endringen** hos hver enkelt er påfallende lik: alle differansene ligger mellom 0,2 og 0,6.\n\n- Den **parrede** testen ser bare på differansene. Standardavviket den regner med er $s_d = 0{,}137$ — spredningen i *endringen*.\n- Den **uavhengige** testen ser på to skyer av tall og må ta høyde for hele spredningen mellom personer: felles standardavvik blir omtrent $0{,}58$, altså mer enn fire ganger så stort.\n\nNevneren i den uavhengige testen blir dermed mange ganger større, og den samme reelle endringen på 0,39 enheter forsvinner i støyen fra individforskjellene. Derfor $t = 1{,}50$ i stedet for $t = 9{,}00$.\n\n**Hvilken som er riktig:** den **parrede**. Den uavhengige testen bryter en forutsetning — at observasjonene er uavhengige — og det er nettopp **felle E5**. Feilen er ikke bare teknisk: den fører til at en åpenbart reell endring blir erklært «ikke påvist».\n\n**Det som gjør denne fellen dyr:** den går alltid samme vei. Å bruke uavhengig test på parrede data **skjuler** effekter, aldri motsatt. En kandidat som gjør dette feilvalget vil derfor typisk konkludere med «ingen effekt påvist» — og da har vedkommende i tillegg gode sjanser til å begå felle E4 i konklusjonssetningen.\n\n**Kontrollen som ville avslørt det på fem sekunder:** ti tall i hver rad, listet person for person, og hver eneste person gikk ned. Er det de samme individene? Da er det parret."
+    },
+    {
+      "id": "med1100-4-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) I hvilket av disse tenkte oppleggene skal det brukes **parret** $t$-test?\n\nA. To grupper på 40 personer hver, hentet fra hvert sitt distrikt, måles én gang hver.\n\nB. Førti personer måles én gang i januar og én gang i juni, og endringen skal undersøkes.\n\nC. Førti personer måles én gang, og gjennomsnittet skal sammenlignes med en oppgitt referanseverdi.\n\nD. Antall personer med en egenskap telles i et utvalg på 40 og sammenlignes med en kjent andel.\n\nVelg ett, og begrunn valget ved å si hvilken test som hører til hvert av de andre.",
+        "solution": "**Riktig svar: B.**\n\n**Begrunnelsen.** I B er det de **samme** førti personene som måles to ganger. Observasjonene hører sammen parvis, og differansen for hver person fjerner all variasjon mellom individer. Det er nettopp definisjonen på parrede data.\n\n**Hva de andre krever:**\n\n- **A:** to ulike grupper mennesker → **to-utvalgs $t$-test**, med $\\text{df} = 40+40-2 = 78$.\n- **C:** ett gjennomsnitt mot en fast referanseverdi → **ett-utvalgs $t$-test**, med $\\text{df} = 39$.\n- **D:** et antall av $n$ mot en kjent andel → **ett-proporsjons $Z$-test**, med kritisk verdi 1,96.\n\n**Kjennetegnet du leter etter i teksten:** ordene «de samme», «før og etter», «gjentatt måling» — eller at de to tallrekkene har nøyaktig like mange verdier og er listet person for person.\n\n**Og husk:** blokk 1 har ingen minuspoeng. Er du usikker mellom A og B, kryss likevel av.",
+        "hints": [
+          "Still deg de tre spørsmålene fra prosedyren: antall eller målinger, én eller to grupper, samme personer eller ikke.",
+          "Se etter om det er de samme individene som opptrer to ganger i datasettet."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Innøving, B1-STAT.) I et tenkt datasett er 16 personer målt før og etter en periode. Gjennomsnittlig differanse er $\\bar d = 3{,}6$ enheter, og standardavviket til differansene er $s_d = 6{,}4$ enheter.\n\nUtfør riktig test på 5 prosent nivå og konkluder i klartekst.",
+        "solution": "**Trinn 1 — parameteren.** La $\\mu_d$ være den sanne gjennomsnittlige endringen.\n\n**Trinn 2 — hypotesene.**\n$$H_0: \\mu_d = 0 \\qquad \\text{mot} \\qquad H_a: \\mu_d \\ne 0$$\n\n**Trinn 3 — test og forutsetninger.** Samme personer målt to ganger → avhengige observasjoner → **parret $t$-test** med $n = 16$ par.\n\n**Trinn 4 — teststatistikken.**\n$$\\text{SE} = \\frac{s_d}{\\sqrt n} = \\frac{6{,}4}{\\sqrt{16}} = \\frac{6{,}4}{4} = 1{,}60\\ \\text{enheter}$$\n$$t = \\frac{3{,}6}{1{,}60} = 2{,}25$$\n\n**Trinn 5 — sammenligning.** $\\text{df} = 16 - 1 = 15$, kritisk verdi 2,131. Siden $2{,}25 > 2{,}131$, forkastes $H_0$.\n\n**Trinn 6 — konklusjon i klartekst.** Målingen økte i gjennomsnitt 3,6 enheter, og økningen er statistisk signifikant på 5 prosent nivå.\n\n**Merk marginen igjen:** $2{,}25$ mot $2{,}131$ er en knapp passering. Standardavviket til differansene er nesten dobbelt så stort som selve differansen, så endringen er langt fra lik hos alle — i motsetning til datasettet i Eksempel 4. Det er verdt å nevne i svaret.",
+        "hints": [
+          "Antall par er 16, ikke 32 — frihetsgradene følger av antall par.",
+          "Standardavviket som skal brukes, er det til differansene, ikke til de opprinnelige målingene."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — p-verdien, og de to tolkningene som koster mest (~14 min)\n\nKritisk verdi gir deg ja eller nei. p-verdien gir deg det samme svaret, men med en gradering — og den er derfor det som rapporteres i litteraturen. Den er også den størrelsen som feiltolkes oftest."
+    },
+    {
+      "id": "med1100-4-2-def-p-verdi",
+      "type": "definition",
+      "title": "p-verdi",
+      "content": "Sannsynligheten for å få et resultat **minst like ekstremt** som det observerte, **gitt at $H_0$ er sann**.\n\nBeslutningsregelen: $p < \\alpha$ gir forkast, $p \\ge \\alpha$ gir behold. Med $\\alpha = 0{,}05$ er dette nøyaktig samme konklusjon som å sammenligne teststatistikken med kritisk verdi — to veier til samme svar.\n\n**Det p-verdien IKKE er**, og her ligger de fleste feilene:\n\n- Den er **ikke** sannsynligheten for at $H_0$ er sann. Den er en sannsynlighet regnet **under** antakelsen om at $H_0$ er sann.\n- Den er **ikke** et mål på hvor stor effekten er. En bitteliten effekt gir en bitteliten p-verdi hvis utvalget er stort nok.\n- Den sier **ingenting** om hvor sannsynlig det er at funnet lar seg gjenta.\n\n**Den ærlige lesemåten:** en p-verdi på 0,01 betyr «hadde $H_0$ vært sann, ville et resultat så ekstremt som dette forekommet i én av hundre gjentakelser»."
+    },
+    {
+      "id": "med1100-4-2-def-tosidig",
+      "type": "definition",
+      "title": "Tosidig og ensidig p-verdi",
+      "content": "En **tosidig** test regner med avvik i begge retninger, og p-verdien er derfor **dobbelt** så stor som halesannsynligheten i den ene retningen:\n\n$$p_{\\text{tosidig}} = 2 \\cdot p_{\\text{ensidig}}$$\n\n**Felle E11** er å glemme faktoren 2. Feilen halverer p-verdien og gjør et ikke-signifikant funn til et signifikant — det er den ene feilretningen man virkelig ikke vil ha.\n\n**Når er ensidig lov?** Bare når retningen var bestemt av faglige grunner **før** dataene ble sett, og det bør sies eksplisitt. Å velge ensidig etter å ha sett hvilken vei tallene pekte, er å halvere terskelen i etterkant.\n\n**Standarden i medisin er tosidig.** Bruk det om ikke oppgaven sier noe annet."
+    },
+    {
+      "id": "med1100-4-2-def-type1",
+      "type": "definition",
+      "title": "Type I-feil",
+      "content": "Å forkaste en $H_0$ som faktisk er sann — altså å slå fast en forskjell som ikke finnes. En **falsk alarm**.\n\nSannsynligheten for dette er nøyaktig $\\alpha$, signifikansnivået. Med 5 prosent nivå aksepterer vi at én av tjue sanne nullhypoteser vil bli feilaktig forkastet.\n\n**Konsekvensen som går igjen på eksamen:** tester du mange hypoteser i samme datasett, hoper de falske alarmene seg opp. Tjue uavhengige tester på 5 prosent nivå gir rundt 64 prosent sjanse for minst én falsk positiv, selv om ingenting er sant. Det er **felle E9**, og det er hele grunnen til at multippel testing må korrigeres for — se [kap. 4.5](/med1100/med1100-4-5)."
+    },
+    {
+      "id": "med1100-4-2-def-type2",
+      "type": "definition",
+      "title": "Type II-feil",
+      "content": "Å beholde en $H_0$ som faktisk er falsk — altså å overse en forskjell som virkelig finnes. Sannsynligheten kalles $\\beta$.\n\n**Den vanligste årsaken:** for lite utvalg. Er standardfeilen stor, må effekten være enorm før teststatistikken passerer terskelen.\n\n**Motstykket er styrken**, $1-\\beta$: sannsynligheten for å påvise en effekt som faktisk er der. Det er styrken som styrer hvor stort utvalg en studie trenger, og den regningen er tema i [kap. 4.4](/med1100/med1100-4-4).\n\n**Koblingen til feilkodene:** en studie med lav styrke som konkluderer «ingen effekt» begår i praksis **felle E4** — den forveksler *ikke påvist* med *fraværende*."
+    },
+    {
+      "id": "med1100-4-2-def-forkast-behold",
+      "type": "definition",
+      "title": "«Forkast $H_0$» og «behold $H_0$»",
+      "content": "**Forkast $H_0$** betyr: data er dårlig forenlige med at det ikke er noen forskjell, så vi konkluderer med at det trolig er en. Funnet er **signifikant**.\n\n**Behold $H_0$** betyr: data er ikke urimelige under antakelsen om ingen forskjell. Vi har **ikke påvist** noe. Legg merke til at vi aldri sier «$H_0$ er sann» eller «vi aksepterer $H_0$» — testen er ikke i stand til å bevise fravær.\n\n**Analogien som holder hele veien:** en frifinnelse i retten betyr «ikke bevist», ikke «bevist uskyldig». Hypotesetesten er bygd på nøyaktig samme asymmetri, og det er derfor **felle E4** — å lese «behold» som «det finnes ingen forskjell» — er en logisk feil og ikke bare en språklig unøyaktighet.\n\n**Den formuleringen som alltid er trygg:** «vi kan ikke utelukke at det ikke er noen forskjell», eventuelt med tillegget «studien kan ha vært for liten til å avgjøre det»."
+    },
+    {
+      "id": "med1100-4-2-def-test-ki",
+      "type": "definition",
+      "title": "Samsvaret mellom test og konfidensintervall",
+      "content": "En tosidig test på 5 prosent nivå og et 95 prosent konfidensintervall gir **alltid** samme konklusjon:\n\n- Dekker intervallet nullverdien → testen beholder $H_0$.\n- Dekker det den ikke → testen forkaster $H_0$.\n\n**Hvorfor intervallet likevel er det bedre svaret:** testen gir bare ja eller nei. Intervallet gir i tillegg **størrelsen** på effekten og **presisjonen** i estimatet. Det er derfor moderne medisinsk litteratur rapporterer intervaller, og ofte bare p-verdien i tillegg.\n\n**Praktisk nytte i blokk 1:** ber en oppgave om både et intervall og en test, kan du bruke det ene som kontroll på det andre. Spriker de, har du regnet feil et sted."
+    },
+    {
+      "id": "med1100-4-2-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Fra teststatistikk til p-verdi — og hva den ikke betyr (B1-STAT)",
+      "problem": "En tosidig test gir teststatistikken $Z = 2{,}60$ (som i Eksempel 1).\n\n**a)** Finn den tosidige p-verdien fra normalfordelingstabellen, og konkluder.\n\n**b)** En kandidat leser av 0,0047 i tabellen og rapporterer det som p-verdien. Hva har gått galt?\n\n**c)** En annen kandidat skriver: «p = 0,009 betyr at det er 0,9 prosent sannsynlighet for at hypotesen om ingen endring er riktig.» Rett opp formuleringen.",
+      "solution": "**a) p-verdien.**\n\nFra normalfordelingstabellen: sannsynligheten for at $Z$ overstiger 2,60 er omtrent $0{,}0047$ — det er **halesannsynligheten i én retning**.\n\nTesten er tosidig, så:\n$$p = 2 \\cdot 0{,}0047 = 0{,}0094 \\approx 0{,}009$$\n\n**Konklusjon:** $p = 0{,}009 < 0{,}05$, så $H_0$ forkastes på 5 prosent nivå. Dette stemmer med sammenligningen i Eksempel 1, der $|2{,}60| > 1{,}96$ ga samme svar. **De to veiene gir alltid samme konklusjon** — bruk gjerne den ene som kontroll på den andre.\n\n**b) Kandidatens feil.**\n\nKandidaten har rapportert **halesannsynligheten i én retning** som om den var p-verdien, altså glemt å gange med 2. Det er **felle E11**.\n\nHer endrer det ikke konklusjonen, siden begge tall er under 0,05. Men feilen går i den farlige retningen: den **halverer** p-verdien. Ved en teststatistikk på 1,80 ville ensidig gitt $0{,}036$ (ser signifikant ut) mens riktig tosidig p er $0{,}072$ (ikke signifikant). Da snur konklusjonen, og den snur feil vei.\n\n— naturlig pausepunkt —\n\n**c) Den feilaktige formuleringen.**\n\nKandidaten har snudd betingelsen. p-verdien er sannsynligheten for **dataene gitt $H_0$**, ikke sannsynligheten for **$H_0$ gitt dataene**. Det er nøyaktig samme forveksling som mellom sensitivitet og PPV i [kap. 3.1](/med1100/med1100-3-1) — betinget sannsynlighet lest baklengs — og den er like gal her.\n\n**Riktig formulering:** «Hvis den sanne andelen fortsatt hadde vært 20 prosent, ville et avvik minst så stort som det vi observerte forekommet i under 1 prosent av gjentatte undersøkelser. Det taler mot at andelen er uendret.»\n\n**Hvorfor presisjonen er verdt bryet:** en test kan ikke gi sannsynligheten for at en hypotese er sann — den regner alltid *under* hypotesen. Det er en grense ved metoden selv, ikke en formuleringsdetalj, og sensor ser etter at kandidaten har forstått forskjellen."
+    },
+    {
+      "id": "med1100-4-2-advarsel",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "**1. Felle E5 — å behandle avhengige observasjoner som uavhengige.** Samme personer målt to ganger krever parret test. Feilvalget etterlater all variasjon mellom individer i nevneren, gjør teststatistikken for liten, og skjuler reelle effekter. Kontrollspørsmålet: *er det de samme menneskene?*\n\n**2. Felle E6 — å bruke 1,96 der en $t$-verdi kreves.** Ved 15 frihetsgrader er terskelen 2,131, ved 9 er den 2,262. På små utvalg snur dette konklusjonen. Oppgi alltid df.\n\n**3. Felle E11 — å glemme faktor 2 i den tosidige p-verdien.** Tabellen gir én hale. Ganger du ikke med 2, halveres p-verdien, og et ikke-signifikant funn ser signifikant ut.\n\n**4. Felle E4 — å lese «behold $H_0$» som «ingen forskjell».** Testen kan ikke bevise fravær. Skriv «ikke påvist», og nevn om studien kan ha vært for liten.\n\n**5. Felle E3 — å lese «signifikant» som «viktig».** Med stort nok utvalg blir enhver bitteliten forskjell signifikant. Signifikans handler om hvorvidt forskjellen er reell, ikke om hvor stor den er. Oppgi derfor alltid størrelsen på effekten ved siden av konklusjonen.\n\n**6. Å bruke $\\hat p$ i stedet for $p_0$ i nevneren i $Z$-testen.** Under $H_0$ regnes alt fra hypotesens verdi. (Motsatt i konfidensintervallet, der ingen hypotese finnes og $\\hat p$ brukes — de to er ikke inkonsekvente, de svarer på ulike spørsmål.)\n\n**7. Å velge ensidig test etter å ha sett dataene.** Retningen må være bestemt på forhånd og av faglige grunner. Ellers har du halvert terskelen i etterkant.\n\n**8. Å hoppe over hypotesene eller konklusjonssetningen.** Fire av seks ledd i føringen inneholder ingen regning, og de er alle poenggivende. Å droppe dem er **felle E12** — å svare på et lavere nivå enn spørreordet ber om.\n\n**9. Å ikke svare.** Blokk 1 har ingen minuspoeng. Rekker du bare trinn 1–3, skriv dem."
+    },
+    {
+      "id": "med1100-4-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B1-KORT — kortsvarsoppgaven i blokk 1.) To studier tester samme spørsmål på 5 prosent nivå. Studie A får $p = 0{,}049$, studie B får $p = 0{,}051$.\n\nForklar i tre til fire setninger hva forskjellen mellom de to resultatene faktisk er, og hva den ikke er.",
+        "solution": "**Svaret.** Formelt gir de motsatt konklusjon: studie A forkaster $H_0$ og studie B beholder den, siden terskelen ligger på 0,05. Reelt er forskjellen mellom de to resultatene forsvinnende liten — de sier omtrent nøyaktig det samme om data.\n\n**Hva forskjellen ikke er:** den er ikke en forskjell mellom «effekt» og «ingen effekt». Terskelen 0,05 er en konvensjon, ikke en naturlov, og to p-verdier på hver sin side av den er ikke kvalitativt ulike funn.\n\n**Det som ville avklart saken:** konfidensintervallene. Ligger de to studienes intervaller over hverandre, er resultatene i praksis like, og da er det den kunstige terskelen — ikke dataene — som skaper uenigheten. Derfor rapporteres intervaller framfor bare p-verdier i medisinsk litteratur.\n\n**Og den nødvendige presiseringen:** studie B har ikke vist at det ikke er noen effekt. Den har akkurat ikke påvist en (felle E4).",
+        "hints": [
+          "Regn ut hvor mye teststatistikkene skiller seg fra hverandre når p-verdiene er 0,049 og 0,051.",
+          "Hva ville et konfidensintervall fortalt deg som p-verdien ikke gjør?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT — full oppgave med tolkningsledd.) I et tenkt datasett måles 20 personer, og gjennomsnittet er $\\bar x = 6{,}85$ enheter med standardavvik $s = 0{,}90$ enheter. Referanseverdien er 6,40 enheter.\n\n**a)** Utfør riktig test på 5 prosent nivå, med full føring.\n\n**b)** Regn ut et 95 prosent konfidensintervall for forventningen, og vis at det gir samme konklusjon som testen.\n\n**c)** Gjør rede for hvorfor de to alltid stemmer overens, og hvorfor intervallet likevel er det svaret sensor foretrekker.",
+        "solution": "**a) Testen.**\n\n**Trinn 1 — parameteren.** La $\\mu$ være den sanne forventningen i befolkningen.\n\n**Trinn 2 — hypotesene.**\n$$H_0: \\mu = 6{,}40 \\qquad \\text{mot} \\qquad H_a: \\mu \\ne 6{,}40$$\n\n**Trinn 3 — test og forutsetninger.** Kontinuerlige målinger på én gruppe, $s$ estimert fra utvalget, uavhengige personer: ett-utvalgs $t$-test. $n = 20$ er lite, så $t$-tabellen skal brukes.\n\n**Trinn 4 — teststatistikken.**\n$$\\text{SE} = \\frac{0{,}90}{\\sqrt{20}} = \\frac{0{,}90}{4{,}472} = 0{,}2012\\ \\text{enheter}$$\n$$t = \\frac{6{,}85 - 6{,}40}{0{,}2012} = \\frac{0{,}45}{0{,}2012} = 2{,}24$$\n\n**Trinn 5 — sammenligning.** $\\text{df} = 19$, kritisk verdi 2,093. Siden $2{,}24 > 2{,}093$, forkastes $H_0$. (Tosidig p-verdi omtrent 0,038.)\n\n**Trinn 6 — konklusjon.** Gjennomsnittet på 6,85 enheter er signifikant høyere enn referanseverdien 6,40, på 5 prosent nivå.\n\n— naturlig pausepunkt —\n\n**b) Konfidensintervallet.**\n$$\\text{margin} = 2{,}093 \\cdot 0{,}2012 = 0{,}421\\ \\text{enheter}$$\n$$\\text{KI}_{95} = 6{,}85 \\pm 0{,}42 = [\\,6{,}43,\\ 7{,}27\\,]\\ \\text{enheter}$$\n\nReferanseverdien **6,40 ligger utenfor** intervallet, som starter på 6,43. Samme konklusjon som testen: avviket er signifikant på 5 prosent nivå.\n\n**c) Hvorfor de alltid stemmer overens, og hvorfor intervallet foretrekkes.** Merk spørreordet: «gjør rede for» = beskriv, forklar og sett i sammenheng.\n\n**Beskrivelsen.** Testen forkaster når $|\\bar x - \\mu_0| > t \\cdot \\text{SE}$. Intervallet er $\\bar x \\pm t \\cdot \\text{SE}$. Verdien $\\mu_0$ faller utenfor intervallet i nøyaktig de samme tilfellene. Det er samme ulikhet skrevet på to måter.\n\n**Forklaringen.** Begge bruker samme estimat, samme standardfeil og samme kritiske verdi. Det eneste som skiller dem, er hva som står på hver side av ulikhetstegnet: testen spør «er avviket stort nok?», intervallet spør «hvilke verdier er forenlige med data?». Svaret er det samme fordi regnestykket er det samme.\n\n**Sammenhengen, og hvorfor intervallet er bedre.** Testen leverer én bit informasjon: ja eller nei. Intervallet leverer tre: **retningen** (gjennomsnittet ligger over referansen), **størrelsen** (mellom 0,03 og 0,87 enheter over) og **presisjonen** (intervallet er bredt, så størrelsen er dårlig bestemt). Her ser vi noe testen skjulte fullstendig: nedre grense er 6,43, altså så vidt over referanseverdien. Funnet er signifikant, men helt forenlig med et avvik som er nesten null.\n\n**Konklusjonen, veid og skarp:** testen sier «ja, avviket er trolig reelt». Intervallet sier i tillegg «men vi vet nesten ikke hvor stort det er, og den nedre enden er så liten at den neppe betyr noe». Det er nettopp derfor svaret skal inneholde intervallet — og hvorfor en besvarelse som stopper ved «$p < 0{,}05$» får mindre uttelling enn en som viser begge deler.",
+        "hints": [
+          "Del a): frihetsgradene er $n-1$; slå opp den raden før du sammenligner.",
+          "Del b): bruk samme $t$-verdi som i testen — det er nøkkelen til at de to stemmer overens.",
+          "Del c): skriv opp testens ulikhet og intervallets uttrykk ved siden av hverandre og se hva som er felles."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-2-oppg-9-e",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT.) En tenkt studie måler samme størrelse hos 12 personer to ganger. Kandidaten skriver følgende besvarelse:\n\n> «Gjennomsnitt første gang: 44,2. Gjennomsnitt andre gang: 41,8. Jeg har brukt to-utvalgs t-test og fått t = 1,20. Siden 1,20 er mindre enn 1,96, er det ingen forskjell mellom målingene.»\n\n**a)** Finn de tre feilene i besvarelsen, og oppgi feilkoden for hver av dem der den finnes.\n\n**b)** Skriv om de to siste setningene slik de burde stått, forutsatt at riktig test faktisk ga $t = 3{,}40$ med 11 frihetsgrader.",
+        "solution": "**a) De tre feilene.**\n\n**Feil 1 — feil test valgt. Felle E5.** Det er de **samme tolv personene** som er målt to ganger, altså avhengige observasjoner. Riktig test er **parret $t$-test** på differansene, ikke to-utvalgs. Feilvalget lar all variasjon mellom personer bli stående i nevneren og gjør teststatistikken for liten — akkurat slik som i Eksempel 4.\n\n**Feil 2 — feil kritisk verdi. Felle E6.** Med $n = 12$ par er $\\text{df} = 11$, og kritisk verdi er **2,201**, ikke 1,96. Kandidaten har brukt normalfordelingens verdi på et lite utvalg.\n\n**Feil 3 — feil konklusjonsspråk. Felle E4.** «Det er ingen forskjell» følger ikke av at $H_0$ beholdes. Riktig er «forskjellen er ikke påvist». I tillegg mangler hele føringen: parameteren er ikke definert, hypotesene står ikke skrevet, forutsetningene er ikke vurdert, og det er ingen klartekst-tolkning knyttet til problemstillingen — som til sammen er **felle E12**.\n\n— naturlig pausepunkt —\n\n**b) De to setningene skrevet om.**\n\n> «Siden det er de samme tolv personene som er målt to ganger, er observasjonene avhengige, og jeg bruker parret $t$-test på differansene. Med $\\bar d$ som gjennomsnittlig endring tester jeg $H_0: \\mu_d = 0$ mot $H_a: \\mu_d \\ne 0$. Teststatistikken blir $t = 3{,}40$ med $\\text{df} = 12 - 1 = 11$, og kritisk verdi ved tosidig 5 prosent er 2,201. Siden $3{,}40 > 2{,}201$, forkastes $H_0$: målingen falt i gjennomsnitt 2,4 enheter fra første til andre gang, og nedgangen er statistisk signifikant på 5 prosent nivå. Hvor stor endringen er, bør leses av konfidensintervallet — signifikansen alene sier bare at den trolig er reell.»\n\n**Legg merke til hvor mye som snudde:** samme data, samme personer — men riktig test ga $t = 3{,}40$ i stedet for $1{,}20$, og konklusjonen gikk fra «ingen forskjell» til en klart signifikant nedgang. Feil testvalg er ikke en detalj i denne sjangeren; det er hele svaret.",
+        "hints": [
+          "Se først på hvem tallene kommer fra: er det tolv personer eller tjuefire?",
+          "Sjekk deretter hvilken kritisk verdi som hører til det antallet frihetsgrader.",
+          "Til slutt: les konklusjonssetningen ordrett og spør om den påstår mer enn en test kan vise."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-2-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "med1100-4-2-bb-df-to",
+      "type": "definition",
+      "title": "Frihetsgrader i de tre $t$-testene",
+      "content": "| Test | Frihetsgrader |\n|---|---|\n| Ett-utvalgs $t$-test | $n-1$ |\n| Parret $t$-test | $n-1$, der $n$ = antall **par** |\n| To-utvalgs $t$-test | $n_1+n_2-2$ |\n\n**Tellefellen i den parrede:** tolv personer målt to ganger gir 24 målinger, men $n = 12$ og $\\text{df} = 11$.\n\n**Tabellregelen:** står ikke din df i tabellen, velg **nærmeste lavere** rad. Da blir kritisk verdi litt for høy og testen litt for streng — den forsiktige feilen."
+    },
+    {
+      "id": "med1100-4-2-bb-forutsetninger",
+      "type": "definition",
+      "title": "Forutsetningene som skal nevnes",
+      "content": "Hver test har forutsetninger, og å skrive dem ned er et poenggivende ledd som tar én linje:\n\n- **$Z$-test for andel:** $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$; uavhengige observasjoner.\n- **Ett-utvalgs $t$-test:** uavhengige observasjoner; målingene rimelig symmetrisk fordelt (svakt krav ved store $n$).\n- **To-utvalgs $t$-test:** to uavhengige grupper; noenlunde lik spredning i dem.\n- **Parret $t$-test:** parene uavhengige av hverandre; differansene rimelig symmetrisk fordelt.\n\n**Den forutsetningen som brytes oftest**, og som ingen formelsamling kan redde deg fra, er uavhengigheten (felle E5)."
+    },
+    {
+      "id": "med1100-4-2-bb-effektstorrelse",
+      "type": "definition",
+      "title": "Effektstørrelse",
+      "content": "Hvor stor forskjellen er, målt i den enheten data har — for eksempel 8,0 enheter i Eksempel 3, eller 6 prosentpoeng i Eksempel 1.\n\n**Hvorfor den må stå i svaret:** teststatistikken og p-verdien sier bare om forskjellen trolig er reell. De sier ingenting om størrelse, fordi begge vokser med utvalget. To studier med identisk effektstørrelse kan gi $p = 0{,}30$ og $p = 0{,}0001$ bare fordi den ene er større.\n\n**Formuleringen som viser at du har skjønt det:** «forskjellen er 8,0 enheter og er statistisk signifikant på 5 prosent nivå» — begge deler, i samme setning."
+    },
+    {
+      "id": "med1100-4-2-bb-multippel",
+      "type": "definition",
+      "title": "Multippel testing i en hypotesetest-sammenheng",
+      "content": "Jo flere tester du kjører i samme datasett, jo større er sjansen for minst én falsk positiv, selv om ingen av nullhypotesene er falske.\n\nMed $m$ uavhengige tester på 5 prosent nivå er sannsynligheten for minst én falsk alarm $1 - 0{,}95^m$: rundt 23 prosent ved 5 tester, 40 prosent ved 10, og 64 prosent ved 20.\n\n**Grepet** er å stramme terskelen, for eksempel med Bonferroni-korreksjon ($\\alpha/m$). Temaet hører til [kap. 4.5](/med1100/med1100-4-5), men fellen — **E9** — dukker like gjerne opp i en oppgave om hypotesetesting: en studie som rapporterer det ene signifikante funnet av tjue undersøkte, har ikke funnet noe som helst."
+    },
+    {
+      "id": "med1100-4-2-bb-praktisk-rekkefolge",
+      "type": "definition",
+      "title": "Rekkefølgen som sparer tid under eksamen",
+      "content": "En praktisk arbeidsvane for B1-STAT-oppgaver, når klokka går:\n\n1. **Skriv trinn 1 og 2 med en gang** — parameter og hypoteser. De krever ingen regning og gir uttelling uansett hva som skjer videre.\n2. **Skriv hvilken test du velger og hvorfor.** Ett ledd, ett poeng.\n3. **Regn.** Her kan kalkulatoren svikte deg, men de tre første leddene står allerede.\n4. **Skriv konklusjonen i klartekst** før du går videre til neste oppgave — den glemmes lettest når man har det travelt, og den er obligatorisk.\n\n**Begrunnelsen:** fire av seks ledd i føringen inneholder ingen regning. Blokk 1 har ingen minuspoeng, så det finnes ingen grunn til å levere en tom oppgave."
+    },
+    {
+      "id": "med1100-4-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis kontrollpunkter",
+      "content": [
+        {
+          "id": "med1100-4-2-repetisjon-tekst",
+          "type": "text",
+          "content": "Seks kontrollpunkter. Klarer du dem uten å bla opp, er kapitlet i boks.\n\n1. **Hva er de seks trinnene i føringen?** (Definer parameteren · skriv $H_0$ og $H_a$ · velg test og sjekk forutsetninger · regn teststatistikken · sammenlign med kritisk verdi eller finn p · konkluder i klartekst.)\n2. **Hvilke tre spørsmål avgjør hvilken test du skal bruke?** (Antall eller målinger? Én gruppe eller to? Samme personer eller ulike?)\n3. **Hva er teststatistikken, uttrykt generelt?** (Observert minus forventet under $H_0$, delt på standardfeilen — altså hvor mange standardfeil unna observasjonen ligger.)\n4. **Hvilken andel står i nevneren i $Z$-testen for en andel?** ($p_0$ fra hypotesen, ikke den observerte $\\hat p$ — under $H_0$ regnes alt fra hypotesens verdi.)\n5. **Hva betyr «behold $H_0$»?** (Ikke påvist — ikke «vist at det ikke finnes». Studien kan ha vært for liten.)\n6. **Hva er den tosidige p-verdien når tabellen gir halesannsynligheten 0,0047?** ($2 \\cdot 0{,}0047 = 0{,}0094$. Å glemme faktoren 2 er felle E11.)\n\n**Og de tre fellene som koster mest her:** uavhengig test på parrede data (E5), 1,96 der tabellen krever en $t$-verdi (E6), og «ikke signifikant» lest som «ingen effekt» (E4). Blokk 1 har ingen minuspoeng — svar alltid, og skriv alltid konklusjonen i ord.\n\n**Fra forrige kapittel, som dette bygger på:** i [kap. 4.1](/med1100/med1100-4-1) regnet du konfidensintervaller. Nå vet du at et 95 prosent intervall og en tosidig test på 5 prosent nivå alltid gir samme konklusjon — og at intervallet i tillegg forteller deg hvor stor effekten er. I [kap. 4.3](/med1100/med1100-4-3) møter du testen som brukes når data står i en 2×2-tabell."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

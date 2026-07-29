@@ -1,0 +1,364 @@
+{
+  "id": "med1100-4-5",
+  "courseId": "med1100",
+  "chapterNumber": "4.5",
+  "title": "Anvendte metoder — flokkimmunitet, overlevelse og regresjon",
+  "description": "Det «anvendte» statistikktemaet som rullerer per sitting: R₀/flokkimmunitet, Kaplan-Meier-overlevelse, lineær regresjon/korrelasjon, og multippel testing.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne regne ut flokkimmunitetsterskel og effektivt reproduksjonstall, og tolke tallene mot terskelen 1 med modellforbeholdet nevnt",
+    "kunne bygge en levetidstabell og regne kumulativ overlevelse med Kaplan-Meier, og forklare hva sensurering gjør med regnestykket",
+    "kunne tolke en regresjonskoeffisient med enhet og konfidensintervall, og skille bratthet fra tetthet i en punktsky",
+    "kunne regne ut hvor stor risikoen for falske positive blir ved mange tester, og bruke en Bonferroni-korrigert terskel"
+  ],
+  "content": [
+    {
+      "id": "med1100-4-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hvilken eksamen trener du her?** **Blokk 1** — den digitale eksamenen (i **Inspera**, UiOs digitale eksamenssystem) på rundt fem timer, der **statistikkseksjonen teller 40 prosent**. MED1100 har tre **blokkeksamener**: tre separate eksamensdager med ulikt format, som alle må bestås hver for seg.\n\n**Hvor ofte kommer det — og hvorfor du må kunne alle fire temaene.** Dette kapitlet dekker det **anvendte** statistikktemaet, og det som er spesielt med det, er at **ett av temaene rullerer inn på hver sitting**, men ikke alltid det samme. Telt i de 16 lesbare sittingene av blokk 1 fra 2021 til 2026 (én «sitting» = én gjennomføring, ordinær eller utsatt):\n\n- **Reproduksjonstall og flokkimmunitet: rundt 6 av 16**\n- **Kaplan-Meier og sensurering: rundt 6 av 16**\n- **Lineær regresjon og korrelasjon: rundt 6 av 16**\n- **Statistisk mot klinisk signifikans: rundt 5 av 16**\n- **Multippel testing og Bonferroni: rundt 3 av 16**\n\nIngen av dem er sikre hver for seg. Til sammen er det så godt som sikkert at **minst ett** kommer. Derfor må alle fire dekkes — det er derfor dette kapitlet finnes.\n\n**I hvilken form?** Både **B1-STAT** — statistikkoppgaven i fritekst med vist utregning — og **B1-MC**, flervalgsspørsmålet med fire alternativer og «velg ett». Regresjons- og korrelasjonsspørsmålene kommer oftest som flervalg, mens flokkimmunitet og Kaplan-Meier gjerne kommer som regneoppgaver med tolkningsledd.\n\n**Hjelpemidler.** **Enkel kalkulator** (Citizen SR-270X eller Casio FX-82EX), **statistiske tabeller** og **utdelt formelsamling**. Formelen for kritisk vaksinasjonsdekning og oppsettet for en levetidstabell ligger foran deg. Det du trenes på, er å **lese av riktig tall og tolke det** — særlig hva sensurering gjør med regnestykket, og hva en regresjonskoeffisient faktisk sier.\n\n**Hvordan rettes det?** **Ingen minuspoeng i blokk 1 — svar alltid.** Riktig framgangsmåte premieres over eksakt tallsvar. Vurderingen er **bestått / ikke bestått**.\n\n**Tid:** kapitlet er delt i fire løkker på omtrent 13, 18, 15 og 10 minutter, med pausepunkter i de lange fasitene. Regner du eksemplene selv, legg på rundt halvparten."
+    },
+    {
+      "id": "med1100-4-5-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette er det siste statistikkapitlet, og det henter fra alle de foregående. Fire ting, ferdig oppfrisket.\n\n**Fra [kap. 4.1](/med1100/med1100-4-1): konfidensintervall og nullverdi.** Formen er $\\text{estimat} \\pm 1{,}96 \\cdot \\text{SE}$. Nullverdien er **0** for differanser og koeffisienter, og **1** for forholdstall. Regresjonskoeffisienter rapporteres alltid med intervall, og du vurderer dem mot 0.\n\n**Fra [kap. 4.2](/med1100/med1100-4-2): p-verdi og type I-feil.** $p < 0{,}05$ gir forkast. Sannsynligheten for falsk alarm er nøyaktig $\\alpha$, og det er nettopp dette som hoper seg opp når man tester mange hypoteser samtidig — grunnlaget for hele siste løkke i kapitlet.\n\n**Fra [kap. 4.2](/med1100/med1100-4-2) og [kap. 4.4](/med1100/med1100-4-4): signifikans mot relevans.** **Felle E3** er å lese «signifikant» som «viktig». Med stort nok utvalg blir enhver forskjell signifikant. Dette temaet kommer igjen som egen oppgavetype her.\n\n**Fra [kap. 4.3](/med1100/med1100-4-3): sammenheng er ikke årsak.** Alle effektmål måler samvariasjon. Det gjelder også regresjonskoeffisienter, og det er en av de sikreste tolkningsfellene i hele statistikkdelen.\n\n**Har du hatt regresjon før?** [Lineær regresjon (Matematikk S1 7.1)](/s1/s1-7-1) og [Korrelasjon og kausalitet (Matematikk S1 7.2)](/s1/s1-7-2) er de nærmeste parallellene. Har du det ikke, trenger du det ikke — alt innføres under.\n\nDe nye begrepene — *reproduksjonstall*, *mottakelig andel*, *flokkimmunitetsterskel*, *sensurering*, *risikomengde*, *Kaplan-Meier-estimat*, *regresjonskoeffisient*, *korrelasjonskoeffisient* og *Bonferroni-korreksjon* — forklares fra grunnen av."
+    },
+    {
+      "id": "med1100-4-5-nokkelfakta",
+      "type": "collapsible",
+      "title": "Nøkkelfakta- og formelliste",
+      "buttonText": "Vis nøkkelfakta og formler",
+      "content": [
+        {
+          "id": "med1100-4-5-nokkelfakta-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $R_0$ | grunnleggende reproduksjonstall — antall nye tilfeller ett tilfelle gir i en helt mottakelig befolkning | antall |\n| $R_{\\text{eff}}$ | effektivt reproduksjonstall i den befolkningen man faktisk har | antall |\n| $S$ | andelen av befolkningen som er mottakelig | andel (0–1) |\n| $r$ | antall under risiko på et gitt tidspunkt i en levetidstabell | personer |\n| $d$ | antall hendelser på det tidspunktet | personer |\n| $S(t)$ | kumulativ overlevelse fram til tid $t$ | andel (0–1) |\n| $\\beta$ | regresjonskoeffisient — endring i $Y$ per enhets økning i $X$ | $Y$-enhet per $X$-enhet |\n| $\\rho$ | korrelasjonskoeffisient | mellom $-1$ og $1$, uten enhet |\n| $m$ | antall tester utført i samme materiale | antall |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Effektivt reproduksjonstall:}\\qquad R_{\\text{eff}} = R_0 \\cdot S$$\n\n*Tolkning:* er $R_{\\text{eff}} > 1$, vokser antallet tilfeller; er den under 1, dør utbruddet ut. *Bruksbetingelse:* forutsetter jevn blanding i befolkningen — i virkeligheten er kontaktmønstre ujevne, og modellen er en forenkling.\n\n$$\\text{Flokkimmunitetsterskel:}\\qquad V_c = 1 - \\frac{1}{R_0}$$\n\nAndelen som må være immun for at $R_{\\text{eff}}$ skal falle under 1. *Bruksbetingelse:* samme forenkling som over. Merk at terskelen **stiger** med $R_0$ og aldri når 100 prosent.\n\n$$\\text{Kaplan-Meier:}\\qquad S(t) = \\prod_{t_i \\le t}\\left(1 - \\frac{d_i}{r_i}\\right)$$\n\nProduktet av overlevelsesandelene ved hvert hendelsestidspunkt. *Bruksbetingelse:* sensurering må være **uavhengig** av utfallet — de som forsvinner ut av studien skal ikke gjøre det av grunner som henger sammen med hvordan det går med dem.\n\n$$\\text{Regresjon:}\\qquad Y = \\alpha + \\beta X$$\n\n*Tolkning av $\\beta$:* «$Y$ endrer seg med $\\beta$ enheter per enhets økning i $X$». Rapporteres med konfidensintervall, og vurderes mot nullverdien **0**.\n\n$$\\text{Bonferroni-korreksjon:}\\qquad \\alpha_{\\text{korrigert}} = \\frac{\\alpha}{m}$$\n\n*Bruksbetingelse:* konservativ, altså streng — den holder falsk-positiv-raten nede, men på bekostning av styrke.\n\n$$P(\\text{minst én falsk positiv}) = 1 - (1-\\alpha)^m$$\n\n**Nyttige tallverdier**\n\n| Størrelse | Verdi |\n|---|---|\n| $V_c$ ved $R_0 = 2$ | 50 prosent |\n| $V_c$ ved $R_0 = 4$ | 75 prosent |\n| $V_c$ ved $R_0 = 5$ | 80 prosent |\n| $V_c$ ved $R_0 = 12$ | 91,7 prosent |\n| $P(\\text{minst én falsk positiv})$ ved 10 tester | 40 prosent |\n| $P(\\text{minst én falsk positiv})$ ved 20 tester | 64 prosent |\n\n**Merk om hjelpemidlene:** i blokk 1 ligger **formelsamlingen og de statistiske tabellene på pulten**. Ingenting over er pugg. Det du trenes på, er å lese av riktig tall, håndtere sensurering riktig, og skrive tolkningen.\n\n**Faste kontraster som skiller riktig fra nesten riktig**\n\n- **Regresjonskoeffisienten sier hvor bratt sammenhengen er.** **Korrelasjonskoeffisienten sier hvor tett punktene ligger om linja.** De er uavhengige av hverandre — dette er **felle E7**.\n- **Sensurert er ikke det samme som død eller frisk.** En sensurert person forsvinner ut av regnestykket uten at utfallet er kjent.\n- **$R_0$ er en egenskap ved smittestoffet og befolkningen sammen**, ikke ved smittestoffet alene.\n- **Signifikans er ikke relevans** (felle E3), og **mange tester gir falske funn av seg selv** (felle E9)."
+        }
+      ]
+    },
+    {
+      "id": "med1100-4-5-oversikt",
+      "type": "text",
+      "content": "De fire foregående kapitlene har gitt deg verktøyene: intervaller, tester, tabeller og styrke. Dette kapitlet setter dem i arbeid på fire konkrete spørsmål som medisinsk statistikk faktisk stilles:\n\n- **Hvor stor andel må være immun før et utbrudd stopper av seg selv?** Det er én formel, og den er blant de enkleste i hele faget — men tolkningen krever presisjon.\n- **Hvordan regner man overlevelse når noen forsvinner ut av studien underveis?** Dette er Kaplan-Meier, og det er den mest mekaniske av oppgavene her når systemet først sitter.\n- **Hva sier en regresjonskoeffisient — og hva sier en korrelasjonskoeffisient?** To tall som beskriver samme punktsky, men helt ulike egenskaper ved den.\n- **Hva skjer når man tester tjue hypoteser i samme datasett?** Svaret er nedslående, og det er nettopp poenget.\n\nDet som binder dem sammen, er at alle fire handler om **hvordan tall skal leses**. Ingen av dem sier noe om hva noen bør gjøre.\n\n> Denne boka forbereder deg til eksamen i MED1100. Den handler om **det friske mennesket** og om mekanismer — ikke om å stille diagnoser, velge behandling eller gi råd. Ingen av regnestykkene, verdiene eller mekanismene her skal brukes på en virkelig pasient eller på deg selv. Klinisk vurdering læres senere i studiet, under veiledning.\n\nDet er verdt å si tydelig for akkurat dette kapitlet: modellene under er **regnemodeller**. En flokkimmunitetsterskel er et tall som følger av en forenklet modell, og en overlevelseskurve er en beskrivelse av hva som skjedde i et datasett. Hva som bør gjøres med den kunnskapen, er en helt annen vurdering, den gjøres av andre, og den ligger utenfor dette kapitlet."
+    },
+    {
+      "id": "med1100-4-5-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Reproduksjonstall og flokkimmunitetsterskelen (~13 min)\n\nVi begynner med den korteste formelen i hele boka — og med hvorfor et tall som ser så enkelt ut, likevel må tolkes med varsomhet."
+    },
+    {
+      "id": "med1100-4-5-def-r0",
+      "type": "definition",
+      "title": "Grunnleggende reproduksjonstall ($R_0$)",
+      "content": "Det gjennomsnittlige antallet nye tilfeller ett smittsomt tilfelle gir opphav til i en befolkning der **alle** er mottakelige.\n\n$R_0$ bygges opp av tre ting: hvor mange kontakter en person har per tidsenhet, hvor sannsynlig smitte er ved hver kontakt, og hvor lenge personen er smittsom.\n\n**Den avgjørende presiseringen:** $R_0$ er **ikke** en egenskap ved smittestoffet alene. Kontaktraten avhenger av hvordan folk lever, og derfor kan samme smittestoff ha ulik $R_0$ i ulike befolkninger og til ulike tider. Å omtale $R_0$ som en fast konstant for et smittestoff er en presisjonsfeil.\n\n**Terskelen som betyr alt:** er $R_0 > 1$, kan utbruddet vokse. Er den under 1, dør det ut av seg selv.\n\n**Enhet:** et antall, uten benevning — «hvert tilfelle gir i gjennomsnitt 4 nye»."
+    },
+    {
+      "id": "med1100-4-5-def-reff",
+      "type": "definition",
+      "title": "Effektivt reproduksjonstall ($R_{\\text{eff}}$)",
+      "content": "Det antallet nye tilfeller hvert tilfelle faktisk gir i den befolkningen man har — der bare en andel $S$ fortsatt er mottakelig:\n\n$$R_{\\text{eff}} = R_0 \\cdot S$$\n\n**Tolkningen:** kontakter med personer som allerede er immune, fører ikke til nye tilfeller. Er halvparten immune, er bare halvparten av kontaktene «produktive», og reproduksjonstallet halveres.\n\n**Terskelen:** $R_{\\text{eff}} < 1$ betyr at utbruddet skrumper. Det er dette hele flokkimmunitetsregningen sikter mot.\n\n**Det som skiller $R_0$ fra $R_{\\text{eff}}$:** $R_0$ er et hypotetisk utgangspunkt der ingen er immune. $R_{\\text{eff}}$ er den virkelige situasjonen. Å bruke $R_0$ der oppgaven spør etter $R_{\\text{eff}}$ er en av de vanligste feilene i denne sjangeren."
+    },
+    {
+      "id": "med1100-4-5-def-mottakelig",
+      "type": "definition",
+      "title": "Mottakelig andel ($S$)",
+      "content": "Andelen av befolkningen som fortsatt kan bli smittet — altså de som verken er immune fra før eller på annen måte beskyttet.\n\nEr andelen immune $V$, er $S = 1 - V$.\n\n**Hvorfor den er den eneste størrelsen man kan påvirke:** $R_0$ ligger fast for en gitt befolkning og et gitt smittestoff. Skal $R_{\\text{eff}}$ ned under 1, må $S$ ned — enten ved at flere blir immune, eller ved at kontaktmønsteret endres slik at $R_0$ selv synker.\n\n**Merk forenklingen:** formelen forutsetter at de immune er **jevnt fordelt** i befolkningen. Er de samlet i noen grupper og fraværende i andre, kan utbrudd fortsatt løpe i de gruppene der $S$ er høy, selv om gjennomsnittet ser trygt ut. Det er en forenkling det er verdt å nevne i et tolkningssvar."
+    },
+    {
+      "id": "med1100-4-5-th-flokk",
+      "type": "theorem",
+      "title": "Regneprosedyre: kritisk vaksinasjonsdekning",
+      "content": "Fire trinn.\n\n1. **Skriv betingelsen som skal oppfylles.** Utbruddet dør ut når $R_{\\text{eff}} < 1$, altså når $R_0 \\cdot S < 1$.\n2. **Løs for $S$.**\n   $$S < \\frac{1}{R_0}$$\n   Den mottakelige andelen må altså være mindre enn én delt på reproduksjonstallet.\n3. **Gjør om til immun andel.** Siden $V = 1 - S$:\n   $$V_c = 1 - \\frac{1}{R_0}$$\n   Dette er **flokkimmunitetsterskelen**, også kalt kritisk vaksinasjonsdekning.\n4. **Tolk i klartekst, med prosent.** «Med $R_0 = 5$ må minst 80 prosent være immune for at utbruddet skal dø ut av seg selv.»\n\n**Merk at terskelen aldri når 100 prosent.** Uansett hvor stor $R_0$ er, er $1/R_0$ et positivt tall, så $V_c$ er alltid under 1. Ved $R_0 = 12$ er terskelen 91,7 prosent; ved $R_0 = 20$ er den 95 prosent.\n\n**Merk retningen:** høyere $R_0$ gir høyere terskel. Det er den ene sammenhengen flervalgsspørsmålene tester oftest.\n\n**Og merk hva formelen ikke er:** den er resultatet av en forenklet modell som forutsetter jevn blanding i befolkningen. Tallet er en regnestørrelse, ikke en garanti, og et fullstendig svar sier det."
+    },
+    {
+      "id": "med1100-4-5-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Flokkimmunitetsterskel ved tre reproduksjonstall (B1-STAT)",
+      "problem": "Et tenkt smittsomt agens har $R_0 = 12$ i en gitt befolkning. To andre tenkte agens har $R_0 = 4$ og $R_0 = 1{,}8$.\n\n**a)** Regn ut flokkimmunitetsterskelen for alle tre.\n\n**b)** For agenset med $R_0 = 12$: hva er $R_{\\text{eff}}$ dersom 80 prosent av befolkningen er immune?\n\n**c)** Tolk resultatet i del b) i klartekst.\n\n*Alle reproduksjonstall er konstruerte for regningens skyld.*",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Flokkimmunitetsterskelen.**\n\n$$V_c = 1 - \\frac{1}{R_0}$$\n\n**Ved $R_0 = 12$:**\n$$V_c = 1 - \\frac{1}{12} = 1 - 0{,}0833 = 0{,}9167 \\quad (91{,}7 \\text{ prosent})$$\n\n**Ved $R_0 = 4$:**\n$$V_c = 1 - \\frac{1}{4} = 0{,}750 \\quad (75{,}0 \\text{ prosent})$$\n\n**Ved $R_0 = 1{,}8$:**\n$$V_c = 1 - \\frac{1}{1{,}8} = 1 - 0{,}5556 = 0{,}4444 \\quad (44{,}4 \\text{ prosent})$$\n\n**Sammenstilt:**\n\n| $R_0$ | $V_c$ |\n|---|---|\n| 1,8 | 44,4 prosent |\n| 4 | 75,0 prosent |\n| 12 | 91,7 prosent |\n\n**Mønsteret:** terskelen stiger bratt med $R_0$ i begynnelsen og flater deretter ut. Fra $R_0 = 1{,}8$ til $R_0 = 4$ stiger den 30 prosentpoeng; fra 4 til 12 stiger den bare 17 til.\n\n— naturlig pausepunkt —\n\n**b) Effektivt reproduksjonstall ved 80 prosent immunitet.**\n\nMottakelig andel: $S = 1 - 0{,}80 = 0{,}20$.\n$$R_{\\text{eff}} = R_0 \\cdot S = 12 \\cdot 0{,}20 = 2{,}4$$\n\n**c) Tolkning i klartekst.**\n\nMed 80 prosent immune gir hvert tilfelle fortsatt i gjennomsnitt **2,4 nye tilfeller**. Siden $R_{\\text{eff}} = 2{,}4 > 1$, kan utbruddet fortsatt vokse — 80 prosent er ikke nok når $R_0$ er 12, fordi terskelen ligger på 91,7 prosent.\n\n**Det som gjør denne tolkningen fullstendig:** at man sammenligner med **terskelen 1**, ikke med $R_0$, og at man knytter tallet til terskelverdien fra del a). En besvarelse som bare skriver «$R_{\\text{eff}} = 2{,}4$» har levert et tall uten svar — **felle E12**.\n\n**Forbeholdet som hører til, og som løfter svaret.** Modellen forutsetter at befolkningen blander seg **jevnt**, og at de immune er spredt utover. I virkeligheten er kontaktmønstre klumpete. Er de immune ujevnt fordelt, kan utbrudd løpe i grupper der den mottakelige andelen er høy, selv når gjennomsnittet i befolkningen ligger over terskelen. Tallet 91,7 prosent er derfor en modellstørrelse — presis innenfor modellen, og en forenkling utenfor den.\n\n*Dette er en regnemodell for hvordan smittetall utvikler seg, ikke en anbefaling om noe som helst.*"
+    },
+    {
+      "id": "med1100-4-5-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-5-oppg-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, B1-KORT — kortsvarsoppgaven i blokk 1.)\n\n**a)** Forklar med dine egne ord forskjellen på $R_0$ og $R_{\\text{eff}}$.\n\n**b)** Hva betyr det at $R_{\\text{eff}}$ er nøyaktig 1?",
+        "solution": "**a) Forskjellen.** $R_0$ er antall nye tilfeller ett tilfelle gir i en befolkning der **alle** er mottakelige — et hypotetisk utgangspunkt. $R_{\\text{eff}}$ er antallet i den befolkningen man **faktisk** har, der en del allerede er immune. Sammenhengen er $R_{\\text{eff}} = R_0 \\cdot S$, der $S$ er den mottakelige andelen.\n\n**b) Når $R_{\\text{eff}} = 1$.** Da erstatter hvert tilfelle nøyaktig seg selv: antall nye tilfeller holder seg konstant over tid. Utbruddet verken vokser eller skrumper. Det er akkurat denne balansen flokkimmunitetsterskelen er definert ut fra — terskelen er den immunandelen som får $R_{\\text{eff}}$ ned til 1.\n\n**Merk:** 1 er terskelen, ikke 0. Et $R_{\\text{eff}}$ på 0,9 betyr at utbruddet skrumper, ikke at det er borte.",
+        "hints": [
+          "Hva er forskjellen på hvor mange som *kan* smittes og hvor mange som *faktisk* kan smittes?",
+          "Del b): hva skjer med antall tilfeller over tid når hvert tilfelle gir nøyaktig ett nytt?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-5-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-5-oppg-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving, B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) Et tenkt smittsomt agens har $R_0 = 5$.\n\n**a)** Regn ut flokkimmunitetsterskelen.\n\n**b)** Hva blir $R_{\\text{eff}}$ dersom 65 prosent er immune? Tolk svaret.",
+        "solution": "**a) Terskelen.**\n$$V_c = 1 - \\frac{1}{R_0} = 1 - \\frac{1}{5} = 1 - 0{,}20 = 0{,}80 \\quad (80{,}0 \\text{ prosent})$$\n\nMinst 80 prosent må være immune for at $R_{\\text{eff}}$ skal falle under 1.\n\n**b) Effektivt reproduksjonstall ved 65 prosent immunitet.**\n\nMottakelig andel: $S = 1 - 0{,}65 = 0{,}35$.\n$$R_{\\text{eff}} = 5 \\cdot 0{,}35 = 1{,}75$$\n\n**Tolkning:** hvert tilfelle gir fortsatt i gjennomsnitt 1,75 nye tilfeller. Siden $1{,}75 > 1$, kan antallet tilfeller vokse. En immunandel på 65 prosent ligger under terskelen på 80 prosent, og resultatet er konsistent med det.\n\n**Kontroll:** ved nøyaktig 80 prosent immunitet skulle $R_{\\text{eff}} = 5 \\cdot 0{,}20 = 1{,}0$ — akkurat på terskelen. ✓",
+        "hints": [
+          "Formelen for terskelen er 1 minus én delt på reproduksjonstallet.",
+          "Del b): finn den mottakelige andelen først, og sammenlign svaret med terskelen 1, ikke med $R_0$."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-5-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Overlevelsesanalyse: Kaplan-Meier og sensurering (~18 min)\n\nNeste tema handler om et problem som oppstår i praktisk talt alle studier som følger folk over tid: **ikke alle følges like lenge**. Noen flytter, noen trekker seg, og noen er fortsatt med når studien avsluttes. Hva gjør man med dem?"
+    },
+    {
+      "id": "med1100-4-5-def-sensurering",
+      "type": "definition",
+      "title": "Sensurering",
+      "content": "At en person forsvinner ut av oppfølgingen **uten at utfallet har inntruffet** — og uten at man vet hva som skjedde etterpå.\n\n**De tre vanligste grunnene:** personen var fortsatt hendelsesfri da studien ble avsluttet · personen trakk seg · kontakten ble brutt.\n\n**Det avgjørende:** en sensurert person er **verken** en som fikk utfallet eller en som med sikkerhet unngikk det. Vi vet bare at utfallet ikke hadde inntruffet fram til det tidspunktet vedkommende forsvant. Den informasjonen er verdifull, og Kaplan-Meier-metoden er nettopp konstruert for å bruke den i stedet for å kaste den.\n\n**Forutsetningen som må nevnes:** sensureringen må være **uavhengig av utfallet**. Forsvinner folk ut av studien nettopp fordi det går dårlig med dem, blir overlevelseskurven systematisk for optimistisk — og da hjelper ingen regnemetode.\n\n**Merkingen på en kurve:** sensurerte observasjoner markeres med små kryss eller streker på kurven. Det er derfor «hvor mange kryss er det på kurven» er et spørsmål som faktisk gir mening."
+    },
+    {
+      "id": "med1100-4-5-def-risikomengde",
+      "type": "definition",
+      "title": "Risikomengden ($r$)",
+      "content": "Antall personer som fortsatt er under observasjon og **ennå ikke har fått utfallet**, rett før et gitt tidspunkt.\n\n**Slik oppdateres den:** ved hvert hendelsestidspunkt trekkes de som fikk utfallet fra. Ved hvert sensureringstidspunkt trekkes de sensurerte fra. Begge deler reduserer $r$, men bare hendelser påvirker overlevelseskurven.\n\n**Hvorfor den er nøkkelen til hele metoden:** det er $r$ som gjør at en sensurert person «teller» så lenge vedkommende faktisk ble fulgt. Personen inngår i risikomengden fram til sensureringen og forsvinner deretter — og bidrar dermed med den informasjonen som finnes, verken mer eller mindre.\n\n**Den vanligste tellefeilen:** å glemme å trekke fra de sensurerte før neste hendelse. Da blir $r$ for stor, faktoren $1 - d/r$ for nær 1, og overlevelsen systematisk overvurdert."
+    },
+    {
+      "id": "med1100-4-5-def-km",
+      "type": "definition",
+      "title": "Kaplan-Meier-estimatet",
+      "content": "Overlevelsesfunksjonen regnet som et **produkt** av betingede overlevelsesandeler:\n\n$$S(t) = \\prod_{t_i \\le t}\\left(1 - \\frac{d_i}{r_i}\\right)$$\n\nI ord: ved hvert tidspunkt der noe skjedde, regnes andelen som overlevde **det tidspunktet**, og alle disse andelene ganges sammen.\n\n**Hvorfor det er et produkt og ikke en sum:** å overleve fram til tid $t$ betyr å overleve hvert eneste hendelsestidspunkt underveis. Sannsynligheter for at flere ting skjer etter hverandre, multipliseres.\n\n**Formen på kurven:** en **trapp**. Den faller loddrett ved hvert hendelsestidspunkt og ligger flat mellom dem. Sensureringer gir ingen fall — de vises bare som merker på kurven, men de gjør de neste fallene større, fordi $r$ er mindre.\n\n**Det som skiller Kaplan-Meier fra den naive andelen:** den naive regningen «antall hendelser delt på antall inkluderte» behandler sensurerte som om de var fulgt hele veien uten hendelse, og overvurderer derfor overlevelsen."
+    },
+    {
+      "id": "med1100-4-5-th-km",
+      "type": "theorem",
+      "title": "Regneprosedyre: bygg en levetidstabell",
+      "content": "Seks trinn. Dette er den mest mekaniske oppgaven i kapitlet — men bare hvis tabellen føres ryddig.\n\n1. **Sorter alle observasjonene etter tid.** Hendelser og sensureringer om hverandre, i stigende rekkefølge.\n2. **Sett opp en tabell med kolonnene:** tidspunkt · antall under risiko $r$ · antall hendelser $d$ · antall sensurerte · faktoren $1 - d/r$ · kumulativ $S(t)$.\n3. **Start med $r$ lik alle inkluderte og $S = 1{,}000$.**\n4. **Gå gjennom tidspunktene i rekkefølge.**\n   - Ved en **hendelse**: regn $1 - d/r$, gang inn i $S$, og trekk $d$ fra $r$.\n   - Ved en **sensurering**: ingen ny faktor, $S$ står uendret — men trekk de sensurerte fra $r$ før neste tidspunkt.\n5. **Les av det som spørres om.** Overlevelse ved et bestemt tidspunkt er $S$ på den siste raden før eller på det tidspunktet.\n6. **Tolk i klartekst, med prosent og tidsangivelse.** «Estimert overlevelse etter 20 måneder er 52,5 prosent.»\n\n**Merk rekkefølgen i trinn 4:** faktoren regnes med den $r$ som gjaldt **rett før** hendelsen. Trekker du fra først og regner etterpå, blir alle faktorene gale.\n\n**Kontrollen som fanger de fleste feil:** $S$ skal være ikke-stigende, alle faktorer skal ligge mellom 0 og 1, og til slutt skal summen av hendelser, sensureringer og gjenværende være lik antall inkluderte."
+    },
+    {
+      "id": "med1100-4-5-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Kaplan-Meier fra rådata, med sensurering (B1-STAT, eksamensnivå)",
+      "problem": "Ti personer følges i en tenkt studie. Utfallet inntreffer ved 3, 8, 14 og 20 måneder. To personer sensureres, ved 5 og 11 måneder. De fire siste er fortsatt hendelsesfrie når studien avsluttes etter 24 måneder.\n\n**a)** Sett opp levetidstabellen og regn ut kumulativ overlevelse.\n\n**b)** Hva er estimert overlevelse etter 20 måneder?\n\n**c)** En kandidat regner i stedet «4 hendelser av 10, altså 60 prosent overlevelse». Forklar hvorfor det gir et annet svar, og hvilket som er riktig.\n\n*Alle tall er konstruerte.*",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Levetidstabellen.**\n\n| Tid (mnd) | Under risiko $r$ | Hendelser $d$ | Sensurert | Faktor $1 - d/r$ | Kumulativ $S(t)$ |\n|---|---|---|---|---|---|\n| 3 | 10 | 1 | 0 | $1 - 1/10 = 0{,}900$ | $0{,}900$ |\n| 5 | 9 | 0 | 1 | — | $0{,}900$ |\n| 8 | 8 | 1 | 0 | $1 - 1/8 = 0{,}875$ | $0{,}900 \\cdot 0{,}875 = 0{,}7875$ |\n| 11 | 7 | 0 | 1 | — | $0{,}7875$ |\n| 14 | 6 | 1 | 0 | $1 - 1/6 = 0{,}8333$ | $0{,}7875 \\cdot 0{,}8333 = 0{,}65625$ |\n| 20 | 5 | 1 | 0 | $1 - 1/5 = 0{,}800$ | $0{,}65625 \\cdot 0{,}800 = 0{,}525$ |\n| 24 | 4 | 0 | 4 | — | $0{,}525$ |\n\n**Kontroll:** 4 hendelser + 2 sensurert underveis + 4 sensurert ved studieslutt $= 10$ personer. ✓ Og $S$ faller monotont fra 1,000 til 0,525. ✓\n\n**b) Overlevelse etter 20 måneder.**\n\n$$S(20) = 0{,}525 \\quad (52{,}5 \\text{ prosent})$$\n\n**Tolkning i klartekst:** estimert andel som fortsatt er hendelsesfri etter 20 måneder, er **52,5 prosent**.\n\n— naturlig pausepunkt —\n\n**c) Hvorfor den naive regningen gir noe annet.**\n\nKandidatens regnestykke gir $1 - 4/10 = 0{,}60$, altså 60 prosent — **høyere** enn Kaplan-Meier-estimatet på 52,5 prosent.\n\n**Grunnen.** Den naive metoden behandler de to som ble sensurert ved 5 og 11 måneder som om de hadde vært fulgt hele veien uten at noe skjedde. Men vi **vet ikke** hva som skjedde med dem etter at de forsvant. Ved å telle dem som «overlevere» tilfører man informasjon man ikke har, og resultatet blir systematisk for optimistisk.\n\n**Hva Kaplan-Meier gjør i stedet.** Metoden lar de sensurerte telle **så lenge de faktisk ble fulgt**, og lar dem forsvinne ut av risikomengden etterpå. Personen som ble sensurert ved 5 måneder inngår derfor i risikomengden ved hendelsen på 3 måneder (der $r = 10$), men ikke ved hendelsen på 8 måneder (der $r = 8$). Det er nettopp derfor $r$ krymper raskere enn antall hendelser skulle tilsi — og derfor hvert påfølgende fall i kurven blir større.\n\n**Hvilket som er riktig:** **Kaplan-Meier-estimatet på 52,5 prosent.** Den naive andelen er bare korrekt i det spesialtilfellet der ingen er sensurert.\n\n**Forutsetningen som må nevnes:** metoden krever at sensureringen er **uavhengig av utfallet**. Forsvant de to nettopp fordi det gikk dårlig med dem, er også 52,5 prosent for optimistisk — og det er en svakhet ingen regnemetode kan reparere. Det er derfor studier rapporterer hvor mange som ble sensurert og hvorfor."
+    },
+    {
+      "id": "med1100-4-5-fig-1",
+      "type": "image",
+      "src": "/images/textbook/med1100/kaplan-meier.svg",
+      "alt": "Trappeformet overlevelseskurve som starter på 1,00 og faller i fire trinn ved 3, 8, 14 og 20 måneder, ned til 0,525. To små kryss på de flate partiene ved 5 og 11 måneder markerer sensurerte observasjoner, og et tredje kryss ved 24 måneder markerer de fire som fortsatt var hendelsesfrie ved studieslutt. Loddrett akse viser kumulativ overlevelse fra 0 til 1, vannrett akse viser tid i måneder.",
+      "caption": "Kaplan-Meier-kurven fra Eksempel 2. Kurven faller bare ved hendelser, og krysset ved 5 og 11 måneder markerer sensurerte observasjoner — de gir ingen fall, men gjør de neste fallene større fordi risikomengden $r$ blir mindre. Skjematisk figur — aksene er ikke i målestokk."
+    },
+    {
+      "id": "med1100-4-5-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-5-oppg-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Innøving, B1-STAT.) Åtte personer følges i en tenkt studie. Utfallet inntreffer ved 2, 6 og 9 måneder. To personer sensureres, ved 4 og 7 måneder. De tre siste er hendelsesfrie ved studieslutt.\n\nSett opp levetidstabellen og regn ut kumulativ overlevelse ved 9 måneder.",
+        "solution": "**Levetidstabellen.**\n\n| Tid (mnd) | Under risiko $r$ | Hendelser $d$ | Sensurert | Faktor $1 - d/r$ | Kumulativ $S(t)$ |\n|---|---|---|---|---|---|\n| 2 | 8 | 1 | 0 | $1 - 1/8 = 0{,}875$ | $0{,}875$ |\n| 4 | 7 | 0 | 1 | — | $0{,}875$ |\n| 6 | 6 | 1 | 0 | $1 - 1/6 = 0{,}8333$ | $0{,}875 \\cdot 0{,}8333 = 0{,}7292$ |\n| 7 | 5 | 0 | 1 | — | $0{,}7292$ |\n| 9 | 4 | 1 | 0 | $1 - 1/4 = 0{,}750$ | $0{,}7292 \\cdot 0{,}750 = 0{,}5469$ |\n\n**Kontroll:** 3 hendelser + 2 sensurert underveis + 3 hendelsesfrie ved slutt $= 8$ personer. ✓\n\n**Svar:** estimert overlevelse ved 9 måneder er $S(9) = 0{,}547$, altså **54,7 prosent**.\n\n**Sammenlign med den naive regningen:** $1 - 3/8 = 0{,}625$, altså 62,5 prosent — for optimistisk, fordi den behandler de to sensurerte som om de var fulgt hele veien.\n\n**Merk hvordan risikomengden faller raskere enn hendelsene:** fra 8 til 7 til 6 til 5 til 4, mens bare tre hendelser har inntruffet. Differansen er de to sensurerte, og det er nettopp det som gjør de siste fallene større.",
+        "hints": [
+          "Sorter alle tidspunktene i rekkefølge først, både hendelser og sensureringer.",
+          "Regn faktoren med den risikomengden som gjaldt rett før hendelsen, og trekk fra etterpå.",
+          "Sensureringer gir ingen faktor, men de reduserer risikomengden til neste rad."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-5-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Regresjon og korrelasjon: to tall om samme punktsky (~15 min)\n\nTredje tema er det som oftest kommer som flervalg, og det som oftest besvares galt. Regresjonskoeffisienten og korrelasjonskoeffisienten beskriver samme datasett, men to helt forskjellige egenskaper ved det."
+    },
+    {
+      "id": "med1100-4-5-def-regresjon",
+      "type": "definition",
+      "title": "Lineær regresjon og regresjonskoeffisienten",
+      "content": "Å tilpasse en rett linje $Y = \\alpha + \\beta X$ til et datasett, der $\\beta$ er linjens **stigningstall**.\n\n**Tolkningen, som SKAL skrives ut:** «$Y$ endrer seg med $\\beta$ enheter for hver enhets økning i $X$». Er $\\beta = 0{,}42$ enheter per år, betyr det at $Y$ i gjennomsnitt er 0,42 enheter høyere per år ekstra i $X$.\n\n**Enheten:** $\\beta$ har **enhet** — $Y$-enhet per $X$-enhet. Det er en av de sikreste måtene å skille den fra korrelasjonskoeffisienten, som er enhetsløs.\n\n**Nullverdien er 0.** Et konfidensintervall for $\\beta$ som dekker 0, betyr at sammenhengen ikke er påvist. Koeffisienter rapporteres derfor alltid med intervall, aldri alene.\n\n**Det $\\beta$ ikke sier:** hvor godt linja passer. Et bratt stigningstall kan tilhøre en punktsky som ligger spredt utover som en gresslette."
+    },
+    {
+      "id": "med1100-4-5-def-korrelasjon",
+      "type": "definition",
+      "title": "Korrelasjonskoeffisienten",
+      "content": "Et tall mellom $-1$ og $+1$ som måler hvor **tett** punktene ligger om en rett linje.\n\n- $+1$: alle punkter ligger nøyaktig på en stigende linje.\n- $0$: ingen lineær sammenheng.\n- $-1$: alle punkter ligger nøyaktig på en fallende linje.\n\n**Ingen enhet**, og ingen informasjon om hvor bratt linja er.\n\n**Det som skiller korrelasjon fra regresjon — dette er felle E7:** de er **uavhengige av hverandre**. Man kan ha en bratt linje med spredte punkter (stor $\\beta$, lav korrelasjon) og en nesten flat linje med punkter som ligger som på en snor (liten $\\beta$, korrelasjon nær 1). De svarer på to helt ulike spørsmål: **hvor mye** endrer $Y$ seg, og **hvor forutsigbart** endrer den seg.\n\n**Fortegnet er felles:** $\\beta$ og korrelasjonen har alltid samme fortegn, siden begge peker på om linja stiger eller faller."
+    },
+    {
+      "id": "med1100-4-5-th-tolk-regresjon",
+      "type": "theorem",
+      "title": "Regneprosedyre: tolk en regresjonskoeffisient",
+      "content": "Regresjonsoppgavene i blokk 1 er sjelden regneoppgaver — de er **tolkningsoppgaver**. Fem trinn.\n\n1. **Les av koeffisienten og enheten.** «$\\beta = 0{,}42$ enheter per år.»\n2. **Skriv tolkningen som en endring per enhet.** «$Y$ er i gjennomsnitt 0,42 enheter høyere per år ekstra i $X$.» Merk «i gjennomsnitt» — regresjonslinja beskriver en tendens, ikke hva som skjer med hver enkelt.\n3. **Se på konfidensintervallet, ikke bare på koeffisienten.** Dekker det 0, er sammenhengen ikke påvist. Er det smalt, er størrelsen godt bestemt; er det bredt, er den det ikke.\n4. **Vurder relevansen separat fra signifikansen.** En koeffisient kan være statistisk sikker og likevel så liten at den ikke betyr noe (**felle E3**).\n5. **Legg til årsaksforbeholdet.** En regresjonskoeffisient måler samvariasjon. At $Y$ er høyere når $X$ er høyere, betyr ikke at $X$ forårsaker det.\n\n**Merk skillet fra korrelasjon:** blir du spurt om **hvor sterk** sammenhengen er i betydningen *hvor tett punktene ligger*, er svaret korrelasjonskoeffisienten. Blir du spurt om **hvor mye** $Y$ endrer seg, er svaret $\\beta$. Å svare med feil tall er felle E7, og det er den vanligste feilen i denne sjangeren."
+    },
+    {
+      "id": "med1100-4-5-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Fire tolkningsspørsmål om samme regresjon (B1-STAT / B1-MC)",
+      "problem": "En tenkt studie rapporterer en lineær regresjon der en måling $Y$ (i enheter) er regressert på en variabel $X$ (i år):\n\n**Regresjonskoeffisient $\\beta = 0{,}42$ enheter per år, 95 prosent konfidensintervall fra 0,15 til 0,69, $p = 0{,}003$. Korrelasjonskoeffisienten er 0,21.**\n\n**a)** Tolk koeffisienten i klartekst.\n\n**b)** Er sammenhengen statistisk signifikant?\n\n**c)** En kandidat sier: «Korrelasjonen er bare 0,21, så koeffisienten på 0,42 må være feil.» Rett opp.\n\n**d)** Kan vi si at $X$ forårsaker endringen i $Y$?\n\n*Alle tall er konstruerte.*",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Tolkning av koeffisienten.**\n\n$Y$ er i gjennomsnitt **0,42 enheter høyere per år ekstra i $X$**. Over ti år tilsvarer det $10 \\cdot 0{,}42 = 4{,}2$ enheter.\n\nLegg merke til tre ting i formuleringen: **«i gjennomsnitt»** (linja beskriver en tendens, ikke enkeltpersoner), **enheten** (enheter per år), og at det er en **endring per enhet** — ikke en total.\n\n**b) Signifikans.**\n\nJa. Konfidensintervallet går fra 0,15 til 0,69 og **dekker ikke 0**, som er nullverdien for en koeffisient. Det stemmer med $p = 0{,}003 < 0{,}05$.\n\n**Men merk bredden:** intervallet strekker seg fra 0,15 til 0,69, altså en faktor 4,6 fra nedre til øvre grense. Sammenhengen er påvist, men **størrelsen er dårlig bestemt** — data er forenlige med både en beskjeden og en ganske betydelig endring per år. Det bør stå i svaret.\n\n— naturlig pausepunkt —\n\n**c) Kandidatens forveksling — felle E7.**\n\nKandidaten har blandet sammen to helt ulike tall.\n\n- **Koeffisienten 0,42** sier hvor **bratt** linja er: hvor mye $Y$ endrer seg per enhet $X$.\n- **Korrelasjonen 0,21** sier hvor **tett** punktene ligger om linja: hvor forutsigbar sammenhengen er.\n\nDe er **uavhengige størrelser**, og det er ikke det minste motsetningsfullt at den ene er stor og den andre liten. Her betyr kombinasjonen: det finnes en reell, oppadgående tendens på 0,42 enheter per år, men spredningen rundt linja er stor, så man kan ikke forutsi en enkeltpersons $Y$-verdi særlig godt ut fra $X$.\n\n**Bildet som gjør det tydelig:** tenk deg to punktskyer. Den ene ligger som perler på en snor langs en nesten flat linje — høy korrelasjon, lite stigningstall. Den andre er en bred vifte som likevel peker tydelig oppover — lav korrelasjon, stort stigningstall. Begge er helt vanlige, og de svarer på hvert sitt spørsmål.\n\n**d) Årsak?**\n\nNei. En regresjonskoeffisient måler **samvariasjon**. At $Y$ er høyere når $X$ er høyere, kan skyldes at $X$ påvirker $Y$, at $Y$ påvirker $X$, eller at begge henger sammen med noe tredje som ikke er med i modellen.\n\n**Konklusjonen, veid og skarp:** studien har vist en statistisk sikker, positiv samvariasjon på 0,42 enheter per år, med betydelig usikkerhet om størrelsen og med stor spredning om linja. Den har **ikke** vist at $X$ forårsaker noe, og den kan ikke brukes til å forutsi enkeltpersoner. Det er tre separate begrensninger, og alle tre følger av tallene som er oppgitt."
+    },
+    {
+      "id": "med1100-4-5-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-5-oppg-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) To datasett beskriver sammenhengen mellom en variabel $X$ og en måling $Y$.\n\n- Datasett 1: regresjonskoeffisient 3,0 enheter per enhet $X$, korrelasjonskoeffisient 0,25.\n- Datasett 2: regresjonskoeffisient 0,4 enheter per enhet $X$, korrelasjonskoeffisient 0,88.\n\nHvilket utsagn er riktig?\n\nA. Datasett 1 har den bratteste sammenhengen, datasett 2 den tetteste.\nB. Datasett 2 har både den bratteste og den tetteste sammenhengen.\nC. Datasett 1 må inneholde en regnefeil, siden tallene ikke passer sammen.\nD. Datasettene er ikke sammenlignbare uten at utvalgsstørrelsen oppgis.\n\nVelg ett, og begrunn.",
+        "solution": "**Riktig svar: A — datasett 1 har den bratteste sammenhengen, datasett 2 den tetteste.**\n\n**Begrunnelsen.** Regresjonskoeffisienten måler **bratthet**: hvor mye $Y$ endrer seg per enhet $X$. Datasett 1 har 3,0 mot 0,4, altså den klart bratteste linja. Korrelasjonskoeffisienten måler **tetthet**: hvor nær punktene ligger linja. Datasett 2 har 0,88 mot 0,25, altså den klart tetteste skyen.\n\n**Hvorfor de andre er feil:**\n\n- **B** forutsetter at de to målene henger sammen. Det gjør de ikke — å ha den bratteste linja gir ingen fordel i tetthet.\n- **C** er den klassiske utgaven av **felle E7**: å tro at en høy koeffisient og en lav korrelasjon er selvmotsigende. Det er de ikke. En bratt linje gjennom en vid punktsky er en helt vanlig situasjon.\n- **D** blander inn presisjon i estimatene, som er et tredje spørsmål. Utvalgsstørrelsen påvirker konfidensintervallene, men den endrer ikke hva de to koeffisientene måler.\n\n**Bildet å ha i hodet:** korrelasjon handler om hvor bred viften er, regresjon om hvilken vei den peker og hvor bratt.\n\n**Og husk:** blokk 1 har ingen minuspoeng. Er du usikker mellom A og B, kryss likevel av.",
+        "hints": [
+          "Hvilket av de to tallene har en enhet, og hvilket har det ikke?",
+          "Kan en linje være bratt samtidig som punktene ligger spredt rundt den?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-5-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Multippel testing og signifikans mot relevans (~10 min)\n\nDet siste temaet er kort å regne på og langt å tenke over: hva skjer med troverdigheten når man tester mange hypoteser i det samme datasettet?"
+    },
+    {
+      "id": "med1100-4-5-def-multippel",
+      "type": "definition",
+      "title": "Multippel testing",
+      "content": "Å utføre mange hypotesetester i samme materiale, slik at sannsynligheten for **minst én** falsk positiv hoper seg opp.\n\nMed $m$ uavhengige tester på 5 prosent nivå:\n$$P(\\text{minst én falsk positiv}) = 1 - 0{,}95^m$$\n\n| Antall tester $m$ | Sannsynlighet for minst én falsk positiv |\n|---|---|\n| 5 | 23 prosent |\n| 10 | 40 prosent |\n| 20 | 64 prosent |\n| 40 | 87 prosent |\n\n**Hva tabellen faktisk sier:** kjører man tjue tester i et datasett der **ingenting** er sant, får man med 64 prosents sannsynlighet minst ett «signifikant» funn. Rapporterer man så bare det ene, ser det ut som en oppdagelse.\n\n**Dette er felle E9.** Kjennetegnet du ser etter i en oppgave: en studie som har målt mange utfall eller sammenlignet mange undergrupper, og rapporterer det ene som kom ut under 0,05."
+    },
+    {
+      "id": "med1100-4-5-def-bonferroni",
+      "type": "definition",
+      "title": "Bonferroni-korreksjon",
+      "content": "Det enkleste grepet mot multippel testing: del signifikansnivået på antall tester.\n\n$$\\alpha_{\\text{korrigert}} = \\frac{\\alpha}{m}$$\n\nMed 20 tester blir terskelen $0{,}05/20 = 0{,}0025$ i stedet for 0,05. Ekvivalent kan man gange p-verdiene med $m$ og sammenligne med 0,05.\n\n**Egenskapen:** korreksjonen er **konservativ**, altså streng. Den holder sannsynligheten for minst én falsk positiv under 5 prosent, men til en pris: **styrken faller**, og reelle funn kan bli oversett. Ved svært mange tester blir terskelen så streng at nesten ingenting passerer.\n\n**Det du bør kunne si i et svar:** at korreksjonen finnes, hva den gjør, og at prisen er lavere styrke. At det finnes mindre strenge alternativer, er **kjenne-til-stoff** og ikke et krav.\n\n**Den viktigste enkeltregelen:** hypotesene bør bestemmes **før** man ser dataene. En analyse som velger hva den vil teste etter å ha sett hvilke sammenligninger som ser lovende ut, er ikke reddet av noen korreksjon."
+    },
+    {
+      "id": "med1100-4-5-def-signifikans-relevans",
+      "type": "definition",
+      "title": "Statistisk signifikans mot klinisk relevans",
+      "content": "To spørsmål som ofte forveksles, og som eksamen tester nettopp fordi de forveksles.\n\n- **Statistisk signifikans** svarer på: er forskjellen trolig **reell**, eller kunne den skyldes tilfeldig variasjon? Avhenger av **både** effektstørrelse og utvalg.\n- **Klinisk relevans** svarer på: er forskjellen **stor nok til å bety noe**? Avhenger av effektstørrelsen og av hva som står på spill — aldri av utvalget.\n\n**De fire kombinasjonene, og hvordan hver skal omtales:**\n\n| | Signifikant | Ikke signifikant |\n|---|---|---|\n| **Stor effekt** | et solid funn | for lite utvalg — uavklart |\n| **Liten effekt** | reell, men trolig uten betydning | ingenting påvist |\n\n**Felle E3** er å lese signifikans som relevans. Med et enormt utvalg blir en forskjell på 0,1 prosentpoeng signifikant.\n\n**Formuleringen som viser at forskjellen sitter:** «forskjellen er statistisk signifikant, men størrelsen er 0,3 prosentpoeng, og om det har praktisk betydning er et faglig spørsmål regnestykket ikke svarer på»."
+    },
+    {
+      "id": "med1100-4-5-advarsel",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "**1. Felle E7 — å forveksle korrelasjon og regresjon.** Regresjonskoeffisienten sier hvor **bratt** sammenhengen er og har enhet. Korrelasjonskoeffisienten sier hvor **tett** punktene ligger og er enhetsløs. De er uavhengige, og en bratt linje med lav korrelasjon er helt vanlig.\n\n**2. Felle E9 — å glemme multippel testing.** Tjue tester på 5 prosent nivå gir 64 prosent sjanse for minst én falsk positiv selv når ingenting er sant. En studie som rapporterer det ene signifikante funnet av tjue, har ikke funnet noe.\n\n**3. Felle E3 — å lese signifikans som relevans.** Store utvalg gjør alt signifikant. Oppgi alltid effektstørrelsen ved siden av konklusjonen.\n\n**4. Å regne feil på flokkimmunitetsterskelen.** Formelen er $1 - 1/R_0$, ikke $1/R_0$ og ikke $1 - R_0$. Kontroll: svaret skal ligge mellom 0 og 1, og stige når $R_0$ stiger.\n\n**5. Å sammenligne $R_{\\text{eff}}$ med $R_0$ i stedet for med 1.** Terskelen for om et utbrudd vokser eller skrumper, er alltid **1**.\n\n**6. Å behandle sensurerte som overlevere.** Den naive andelen «hendelser delt på inkluderte» overvurderer overlevelsen systematisk. Bruk Kaplan-Meier når noen er sensurert.\n\n**7. Å glemme å trekke sensurerte fra risikomengden.** Da blir $r$ for stor ved neste hendelse, og overlevelsen igjen for optimistisk.\n\n**8. Å tolke en regresjonskoeffisient som en årsakssammenheng.** Koeffisienten måler samvariasjon. Forbeholdet koster én setning.\n\n**9. Å oppgi en koeffisient uten konfidensintervall.** Et punktestimat alene sier ingenting om presisjonen, og nullverdien for en koeffisient er 0.\n\n**10. Felle E12 — å levere tallet uten tolkning.** «$R_{\\text{eff}} = 2{,}4$» eller «$S(20) = 0{,}525$» er ikke ferdige svar. Skriv hva de betyr.\n\n**11. Å ikke svare.** Blokk 1 har ingen minuspoeng. Rekker du bare halve levetidstabellen, lever den."
+    },
+    {
+      "id": "med1100-4-5-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-5-oppg-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) En tenkt studie undersøker 15 ulike utfall i samme datasett, hvert med en test på 5 prosent nivå. Ett av dem kommer ut med $p = 0{,}03$, og studien rapporterer dette som et signifikant funn.\n\n**a)** Regn ut sannsynligheten for å få minst én falsk positiv blant 15 tester når ingen av nullhypotesene er falske.\n\n**b)** Hva ville Bonferroni-korrigert terskel vært, og ville funnet holdt?\n\n**c)** Formuler en kort, presis kommentar til studiens rapportering.",
+        "solution": "**a) Sannsynligheten for minst én falsk positiv.**\n$$P = 1 - 0{,}95^{15} = 1 - 0{,}4633 = 0{,}537 \\quad (53{,}7 \\text{ prosent})$$\n\nMed 15 uavhengige tester på 5 prosent nivå er det altså **over 50 prosent sjanse** for minst ett «signifikant» funn selv om ingenting i det hele tatt er sant.\n\n**b) Bonferroni-korrigert terskel.**\n$$\\alpha_{\\text{korrigert}} = \\frac{0{,}05}{15} = 0{,}0033$$\n\nFunnets p-verdi er $0{,}03$, som er **langt over** den korrigerte terskelen på $0{,}0033$. Funnet ville altså **ikke** holdt.\n\nEkvivalent regnet den andre veien: $0{,}03 \\cdot 15 = 0{,}45$, som er godt over 0,05.\n\n**c) Kommentaren.**\n\n> Studien har utført 15 tester i samme materiale. Sannsynligheten for å få minst ett resultat under 0,05 ved ren tilfeldighet er da 54 prosent, altså mer sannsynlig enn ikke. Funnet med $p = 0{,}03$ holder ikke mot en Bonferroni-korrigert terskel på 0,0033, og kan ikke rapporteres som et etablert funn. Det bør omtales som en **hypotesegenererende observasjon** som må undersøkes i en ny studie der nettopp denne hypotesen er bestemt på forhånd.\n\n**Det som gjør kommentaren presis og ikke bare avvisende:** den sier hva funnet **kan** brukes til — å formulere en hypotese for neste studie — i stedet for bare å slå fast at det ikke holder. Det er den formen sensor ser etter: et forbehold som er konkret nok til å peke videre.",
+        "hints": [
+          "Del a): sannsynligheten for ingen falske positive er 0,95 opphøyd i antall tester.",
+          "Del b): del signifikansnivået på antall tester, og sammenlign med p-verdien.",
+          "Del c): si hva funnet kan brukes til, ikke bare hva det ikke viser."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-5-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-5-oppg-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B1-KORT — kortsvarsoppgaven i blokk 1.) To tenkte studier rapporterer hver sitt funn:\n\n- Studie A: forskjell på 0,3 prosentpoeng, $p < 0{,}001$, 80 000 deltakere.\n- Studie B: forskjell på 12 prosentpoeng, $p = 0{,}09$, 60 deltakere.\n\nForklar i fire til fem setninger hva hver av dem faktisk har vist.",
+        "solution": "**Studie A.** Forskjellen er statistisk sikker — med 80 000 deltakere blir standardfeilen bitteliten, og selv en forskjell på 0,3 prosentpoeng passerer terskelen med god margin. Men størrelsen er tre tilfeller per tusen. Studien har altså vist at forskjellen med stor sannsynlighet er **reell**, ikke at den har praktisk betydning. Å lese den lave p-verdien som et uttrykk for at funnet er viktig, er felle E3.\n\n**Studie B.** Forskjellen er stor — 12 prosentpoeng — men ikke statistisk signifikant, fordi 60 deltakere gir så stor usikkerhet at et slikt utslag godt kan skyldes tilfeldig variasjon. Studien har **ikke påvist** noe, men den har heller ikke utelukket en betydelig forskjell. Å lese den som «ingen effekt» er felle E4.\n\n**Det som skiller dem, oppsummert:** studie A har presisjon uten størrelse; studie B har størrelse uten presisjon. **Konfidensintervallene ville avslørt begge deler umiddelbart** — studie A ville hatt et smalt intervall rundt et lite tall, studie B et bredt intervall som dekker både null og en stor forskjell. Det er derfor intervaller rapporteres framfor p-verdier alene.",
+        "hints": [
+          "Se på utvalgsstørrelsen ved siden av p-verdien i begge studiene.",
+          "Hvilken av de to har vist noe om størrelsen på forskjellen, og hvilken om sikkerheten?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-5-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-5-oppg-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT — full oppgave.) Tolv personer følges i en tenkt studie. Utfallet inntreffer ved 4, 7, 13 og 18 måneder. Én person sensureres ved 10 måneder, og én ved 15 måneder. De seks siste er hendelsesfrie ved studieslutt etter 20 måneder.\n\n**a)** Sett opp levetidstabellen og regn ut kumulativ overlevelse ved 18 måneder.\n\n**b)** Sammenlign med den naive andelen, og forklar avviket.\n\n**c)** Gjør rede for hvilken forutsetning Kaplan-Meier-metoden hviler på, og hva som skjer hvis den brytes.",
+        "solution": "**a) Levetidstabellen.**\n\n| Tid (mnd) | Under risiko $r$ | Hendelser $d$ | Sensurert | Faktor $1 - d/r$ | Kumulativ $S(t)$ |\n|---|---|---|---|---|---|\n| 4 | 12 | 1 | 0 | $1 - 1/12 = 0{,}9167$ | $0{,}9167$ |\n| 7 | 11 | 1 | 0 | $1 - 1/11 = 0{,}9091$ | $0{,}9167 \\cdot 0{,}9091 = 0{,}8333$ |\n| 10 | 10 | 0 | 1 | — | $0{,}8333$ |\n| 13 | 9 | 1 | 0 | $1 - 1/9 = 0{,}8889$ | $0{,}8333 \\cdot 0{,}8889 = 0{,}7407$ |\n| 15 | 8 | 0 | 1 | — | $0{,}7407$ |\n| 18 | 7 | 1 | 0 | $1 - 1/7 = 0{,}8571$ | $0{,}7407 \\cdot 0{,}8571 = 0{,}6349$ |\n| 20 | 6 | 0 | 6 | — | $0{,}6349$ |\n\n**Kontroll:** 4 hendelser + 2 sensurert underveis + 6 hendelsesfrie ved slutt $= 12$. ✓ $S$ faller monotont. ✓\n\n**Svar:** $S(18) = 0{,}635$, altså **63,5 prosent** estimert overlevelse ved 18 måneder.\n\n— naturlig pausepunkt —\n\n**b) Sammenligning med den naive andelen.**\n\nNaiv regning: $1 - 4/12 = 0{,}667$, altså **66,7 prosent**.\n\n**Avviket er 3,2 prosentpoeng**, og den naive metoden ligger som alltid **høyest**.\n\n**Forklaringen.** Den naive andelen behandler de to sensurerte som om de var fulgt gjennom hele perioden uten hendelse. Vi vet bare at det ikke hadde skjedd noe fram til 10 og 15 måneder. Kaplan-Meier lar dem telle så lenge de faktisk ble fulgt — de inngår i risikomengden ved hendelsene før sensureringen, men ikke etter — og gir dermed et estimat som bruker akkurat den informasjonen som finnes.\n\n**Merk at avviket her er lite** fordi bare to av tolv er sensurert, og fordi de sensureres sent. Er mange sensurert tidlig, blir forskjellen mye større. I Eksempel 2 var avviket 7,5 prosentpoeng med to av ti sensurert tidligere i forløpet.\n\n**c) Forutsetningen, og hva som skjer om den brytes.** Merk spørreordet: «gjør rede for» = beskriv, forklar og sett i sammenheng.\n\n**Beskrivelsen.** Metoden forutsetter **uavhengig sensurering**: det at en person forsvinner ut av oppfølgingen, skal ikke henge sammen med hvordan det ville gått med vedkommende. En person som sensureres fordi studien avsluttes, oppfyller dette. En person som forsvinner nettopp fordi tilstanden forverret seg, gjør det ikke.\n\n**Forklaringen.** Regnestykket bruker de gjenværende i risikomengden som representanter for dem som forsvant. Faktoren $1 - d/r$ sier «av dem vi fortsatt følger, klarte denne andelen seg gjennom dette tidspunktet», og den anvendes deretter på hele den gjenværende gruppen — inkludert dem vi mistet av syne. Er de vi mistet systematisk dårligere stilt enn dem vi fortsatt følger, blir hver eneste faktor for høy, og feilen **multipliseres oppover gjennom hele kurven**.\n\n**Sammenhengen med resten av statistikkdelen.** Dette er samme grunnproblem som selvseleksjon i studiedesign og som skjevt frafall i [kap. 4.4](/med1100/med1100-4-4): en systematisk skjevhet som **ikke** blir mindre av at man samler mer data. I [kap. 4.1](/med1100/med1100-4-1) så vi det samme: et stort, skjevt utvalg gir bare et presist mål på feil størrelse.\n\n**Konklusjonen, skarpt formulert:** Kaplan-Meier løser problemet med **ulik oppfølgingstid** på en elegant måte, og den er klart å foretrekke over den naive andelen når noen er sensurert. Men den løser ikke problemet med **skjev sensurering**, og den kan ikke oppdage det heller — kurven ser like pen ut. Derfor rapporterer gode studier hvor mange som ble sensurert, når, og av hvilken grunn. Uten den informasjonen kan leseren ikke vurdere om estimatet er til å stole på.",
+        "hints": [
+          "Sorter alle seks tidspunktene i rekkefølge før du begynner, og marker hvilke som er hendelser.",
+          "Regn hver faktor med risikomengden som gjaldt rett før hendelsen.",
+          "Del c): tenk på hva regnestykket antar om dem som forsvant, og hva som skjer hvis den antakelsen er gal."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-5-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-5-oppg-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT.) Et tenkt smittsomt agens har $R_0 = 3$ i en gitt befolkning.\n\n**a)** Regn ut flokkimmunitetsterskelen.\n\n**b)** I befolkningen er 55 prosent immune. Regn ut $R_{\\text{eff}}$ og tolk.\n\n**c)** En kandidat skriver: «Siden $R_{\\text{eff}} = 1{,}35$ er mindre enn $R_0 = 3$, er utbruddet under kontroll.» Rett opp.\n\n**d)** Gjør rede for hvilke forenklinger modellen bygger på, og hva de betyr for hvordan terskelen skal tolkes.",
+        "solution": "**a) Terskelen.**\n$$V_c = 1 - \\frac{1}{3} = 1 - 0{,}3333 = 0{,}6667 \\quad (66{,}7 \\text{ prosent})$$\n\n**b) Effektivt reproduksjonstall.**\n\nMottakelig andel: $S = 1 - 0{,}55 = 0{,}45$.\n$$R_{\\text{eff}} = 3 \\cdot 0{,}45 = 1{,}35$$\n\n**Tolkning:** hvert tilfelle gir i gjennomsnitt 1,35 nye tilfeller. Siden $1{,}35 > 1$, kan antallet tilfeller fortsatt vokse. Immunandelen på 55 prosent ligger under terskelen på 66,7 prosent, og de to regnestykkene stemmer overens.\n\n**c) Kandidatens feil.**\n\nKandidaten sammenligner med **feil terskel**. Det avgjørende er ikke om $R_{\\text{eff}}$ er mindre enn $R_0$ — det er den alltid så lenge noen er immune. Det avgjørende er om $R_{\\text{eff}}$ er under **1**.\n\nHer er $R_{\\text{eff}} = 1{,}35 > 1$, altså kan utbruddet fortsatt vokse. Konklusjonen er motsatt av kandidatens.\n\n**Riktig formulering:** «$R_{\\text{eff}} = 1{,}35$, altså over terskelen 1. Hvert tilfelle gir i gjennomsnitt mer enn ett nytt, og antallet tilfeller kan derfor fortsatt øke.»\n\n— naturlig pausepunkt —\n\n**d) Forenklingene i modellen.** Merk spørreordet: «gjør rede for» = beskriv, forklar og sett i sammenheng.\n\n**Beskrivelsen — tre forenklinger.**\n\n1. **Jevn blanding.** Modellen antar at alle har like stor sjanse for å møte alle. I virkeligheten møter folk hverandre i grupper, og kontaktmønstre er svært ujevne.\n2. **Jevn fordeling av immunitet.** Modellen bruker gjennomsnittet for hele befolkningen. I virkeligheten kan de immune være samlet noen steder og fraværende andre.\n3. **Konstant $R_0$.** Modellen behandler $R_0$ som en fast størrelse, mens den i praksis avhenger av kontaktmønstre som endrer seg over tid.\n\n**Forklaringen på hvorfor det betyr noe.** Særlig forenkling 1 og 2 virker sammen. Er de immune ujevnt fordelt, kan den mottakelige andelen være høy i noen grupper selv når gjennomsnittet ligger over terskelen. I de gruppene er det **lokale** $R_{\\text{eff}}$ som gjelder, ikke det nasjonale gjennomsnittet, og der kan utbrudd fortsatt løpe. Terskelen på 66,7 prosent er altså en betingelse for gjennomsnittet i en idealisert befolkning — ikke en garanti i en virkelig.\n\n**Sammenhengen med resten av kapitlet.** Dette er samme type problem som skjev sensurering i Kaplan-Meier og som systematisk skjevhet i [kap. 4.1](/med1100/med1100-4-1): når forutsetningen om at gjennomsnittet representerer alle svikter, blir regnestykket presist og likevel misvisende.\n\n**Konklusjonen, veid og skarp:** formelen $V_c = 1 - 1/R_0$ er riktig innenfor modellen, og terskelen på 66,7 prosent er det tallet modellen gir. Men den er en **modellstørrelse**, ikke en fasit om virkeligheten, og et fullstendig svar sier begge deler. Å oppgi tallet uten forbeholdet er ufullstendig; å avvise tallet fordi modellen er forenklet, er å kaste det eneste kvantitative holdepunktet man har.\n\n*Dette gjelder hvordan smittetall regnes og tolkes. Hva som eventuelt bør gjøres, er en helt annen vurdering som ligger utenfor regnestykket.*",
+        "hints": [
+          "Del a): formelen er 1 minus én delt på reproduksjonstallet.",
+          "Del c): hvilken verdi er terskelen for at et utbrudd vokser eller skrumper?",
+          "Del d): tenk på hva som skjer hvis de immune er ujevnt fordelt i befolkningen."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-5-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "med1100-4-5-bb-overlevelsesanalyse",
+      "type": "definition",
+      "title": "Overlevelsesanalyse",
+      "content": "Samlebetegnelsen på metoder som analyserer **tid til en hendelse** — ikke bare om hendelsen skjedde, men når.\n\n**Hva som gjør den nødvendig:** i studier som følger folk over tid, følges ikke alle like lenge. En enkel andel «hvor mange fikk utfallet» ignorerer både tidsaspektet og ulik oppfølgingstid.\n\n**Hendelsen trenger ikke være død.** Metoden brukes på et hvilket som helst entydig definert utfall som inntreffer på et tidspunkt. Ordet «overlevelse» er en historisk arv fra der metodene først ble utviklet.\n\n**Det du må kunne i blokk 1:** lese og bygge en levetidstabell, forstå hva sensurering gjør, og tolke en trappekurve. Regresjonsmodeller for overlevelsesdata er **kjenne-til-stoff**."
+    },
+    {
+      "id": "med1100-4-5-bb-median-overlevelse",
+      "type": "definition",
+      "title": "Medianoverlevelse",
+      "content": "Det tidspunktet der Kaplan-Meier-kurven krysser $0{,}50$ — altså tiden det tar før halvparten har fått utfallet.\n\n**Slik leses den av:** følg den vannrette linja ved $S = 0{,}50$ til den treffer trappekurven, og les av tiden.\n\n**Hvorfor den brukes framfor gjennomsnittet:** gjennomsnittlig tid til hendelse kan ikke regnes ut når noen fortsatt er hendelsesfrie ved studieslutt — man vet ikke hvor lang deres tid ble. Medianen krever bare at kurven faktisk har kommet ned til 0,50.\n\n**Når den ikke kan oppgis:** ender kurven over 0,50, er medianen **ikke nådd**. Det er et helt legitimt svar, og det er riktigere enn å gjette. I Eksempel 2 endte kurven på 0,525, altså så vidt over — medianen var ikke nådd innen 24 måneder."
+    },
+    {
+      "id": "med1100-4-5-bb-konfunder",
+      "type": "definition",
+      "title": "Konfunder",
+      "content": "En tredje faktor som henger sammen med **både** det man undersøker og utfallet, og som derfor kan skape en tilsynelatende sammenheng mellom dem.\n\n**Hvorfor den hører hjemme her:** det er den vanligste grunnen til at en regresjonskoeffisient ikke kan leses som en årsakssammenheng. Er en faktor utelatt fra modellen, kan hele koeffisienten skyldes den.\n\n**Det som skiller en konfunder fra tilfeldig variasjon:** tilfeldig variasjon blir mindre med større utvalg. En konfunder blir det ikke — den gir en **systematisk** skjevhet som består uansett hvor mange man måler.\n\n**Formuleringen i et tolkningssvar:** «sammenhengen kan skyldes at gruppene skiller seg på andre kjennetegn som selv påvirker utfallet»."
+    },
+    {
+      "id": "med1100-4-5-bb-p-jakt",
+      "type": "definition",
+      "title": "Å velge hypotese etter å ha sett dataene",
+      "content": "Å bestemme hvilke sammenligninger man vil rapportere **etter** å ha sett hvilke som ser lovende ut.\n\n**Hvorfor det er verre enn vanlig multippel testing:** ved multippel testing kan man i det minste telle hvor mange tester som ble gjort, og korrigere for det. Har man derimot valgt hypotesen ut fra dataene, er antallet «tester» i praksis ukjent — alle sammenligninger man kunne ha gjort, teller med.\n\n**Konsekvensen:** p-verdien som rapporteres, betyr ikke det den utgir seg for. Terskelen på 0,05 forutsetter at hypotesen var bestemt uavhengig av data.\n\n**Grepet:** hypotesene fastsettes på forhånd. Funn som dukket opp underveis, rapporteres som **hypotesegenererende** og må bekreftes i en ny studie. Det er den formuleringen sensor ser etter når en oppgave ber om en vurdering av et overraskende funn."
+    },
+    {
+      "id": "med1100-4-5-bb-oppsummering-fire",
+      "type": "definition",
+      "title": "De fire anvendte temaene på ett kort",
+      "content": "| Tema | Formelen | Det som må stå i tolkningen |\n|---|---|---|\n| Flokkimmunitet | $V_c = 1 - 1/R_0$, $R_{\\text{eff}} = R_0 \\cdot S$ | sammenlign $R_{\\text{eff}}$ med **1**, og nevn modellforenklingen |\n| Kaplan-Meier | $S(t) = \\prod (1 - d_i/r_i)$ | sensurering gir ingen fall, men mindre $r$; forutsetter uavhengig sensurering |\n| Regresjon og korrelasjon | $Y = \\alpha + \\beta X$ | $\\beta$ = bratthet med enhet, korrelasjon = tetthet uten enhet (E7) |\n| Multippel testing | $\\alpha/m$; $1 - 0{,}95^m$ | mange tester gir falske funn av seg selv (E9) |\n\n**Det som er felles for alle fire:** ingen av dem sier noe om årsak, og alle fire krever en tolkningssetning i klartekst for å være ferdige svar."
+    },
+    {
+      "id": "med1100-4-5-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis kontrollpunkter",
+      "content": [
+        {
+          "id": "med1100-4-5-repetisjon-tekst",
+          "type": "text",
+          "content": "Seks kontrollpunkter. Klarer du dem uten å bla opp, er kapitlet i boks.\n\n1. **Hva er formelen for flokkimmunitetsterskelen, og hva blir den ved $R_0 = 4$?** ($V_c = 1 - 1/R_0$, altså 75 prosent.)\n2. **Hva skal $R_{\\text{eff}}$ sammenlignes med?** (Med **1**, ikke med $R_0$. Over 1 kan utbruddet vokse, under 1 skrumper det.)\n3. **Hva gjør en sensurering i en Kaplan-Meier-tabell?** (Gir ingen ny faktor og intet fall i kurven, men reduserer risikomengden til neste hendelse — slik at de påfølgende fallene blir større.)\n4. **Hvorfor er den naive andelen «hendelser delt på inkluderte» for optimistisk?** (Fordi den behandler sensurerte som om de var fulgt hele veien uten hendelse.)\n5. **Hva skiller regresjonskoeffisienten fra korrelasjonskoeffisienten?** (Koeffisienten måler bratthet og har enhet; korrelasjonen måler tetthet og er enhetsløs. De er uavhengige — felle E7.)\n6. **Hva er sannsynligheten for minst én falsk positiv ved 20 tester på 5 prosent nivå?** ($1 - 0{,}95^{20} = 64$ prosent. Bonferroni-korrigert terskel blir $0{,}05/20 = 0{,}0025$.)\n\n**Og de tre fellene som koster mest her:** å forveksle korrelasjon og regresjon (E7), å glemme multippel testing (E9), og å lese signifikans som relevans (E3). Blokk 1 har ingen minuspoeng — svar alltid, og skriv alltid tolkningen.\n\n**Del 4 er nå ferdig.** Du har konfidensintervaller ([kap. 4.1](/med1100/med1100-4-1)), hypotesetester ([kap. 4.2](/med1100/med1100-4-2)), 2×2-tabeller med effektmål og kji-kvadrat ([kap. 4.3](/med1100/med1100-4-3)), utvalgsstørrelse og styrke ([kap. 4.4](/med1100/med1100-4-4)) — og de fire anvendte temaene her. Test hele delen på [Prøver til del 4](/med1100/med1100-4-prove), der de fire prøvene speiler blokk 1s form i miniatyr."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

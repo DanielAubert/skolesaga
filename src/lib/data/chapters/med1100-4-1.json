@@ -1,0 +1,370 @@
+{
+  "id": "med1100-4-1",
+  "courseId": "med1100",
+  "chapterNumber": "4.1",
+  "title": "Konfidensintervall for andel og gjennomsnitt",
+  "description": "95 %-konfidensintervall for en andel og for et gjennomsnitt (og for risikodifferanse) — den aller hyppigste statistikkoppgaven, med tolkning av om intervallet dekker 0.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne regne ut et 95 prosent konfidensintervall for en andel med vist utregning, sjekket forutsetning og tolkning i klartekst",
+    "kunne regne ut et konfidensintervall for et gjennomsnitt med riktig t-verdi og riktige frihetsgrader, og begrunne når 1,96 ikke holder",
+    "kunne regne ut og tolke et konfidensintervall for forskjellen mellom to andeler, og avgjøre om det dekker nullverdien",
+    "kunne forklare hva som styrer bredden på et intervall, og skille statistisk signifikans fra klinisk relevans"
+  ],
+  "content": [
+    {
+      "id": "med1100-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hvilken eksamen trener du her?** **Blokk 1** — den digitale eksamenen (i **Inspera**, UiOs digitale eksamenssystem) på rundt fem timer. MED1100 har tre **blokkeksamener**: tre separate eksamensdager med helt ulikt format, som alle må bestås hver for seg. Dette kapitlet hører til seksjonen **statistikk**, som alene teller **40 prosent** av blokk 1 — den største enkeltposten i hele modulen.\n\n**Hvor ofte kommer det?** **Konfidensintervall for en andel eller et gjennomsnitt er observert i rundt 15 av de 16 lesbare sittingene** av blokk 1 fra 2021 til 2026 (én «sitting» = én gjennomføring av eksamen, enten ordinær eller utsatt). Det er den hyppigste enkeltoppgaven i hele faget. Regner du med å møte den, regner du riktig.\n\n**I hvilken form?** Nesten alltid som **B1-STAT** — statistikkoppgaven i blokk 1: en regne- og resonnementoppgave du besvarer i fritekst. Her kreves **vist utregning**, og et svar som bare oppgir sluttallet får ikke full uttelling. Formen er stabil: *regn ut et 95 prosent konfidensintervall, og tolk det.* I tillegg dukker temaet opp som **B1-MC** — flervalgsspørsmålet med fire alternativer og «velg ett», rettet automatisk: hvilken kritisk verdi hører til 95 prosent, og hva betyr det at et intervall dekker null.\n\n**Hjelpemidler — og hva det betyr for hva du skal kunne.** I blokk 1 har du **enkel kalkulator** (av typen Citizen SR-270X eller Casio FX-82EX), **statistiske tabeller** og en **utdelt formelsamling**. Både formelen for konfidensintervall og verdien 1,96 ligger altså foran deg på pulten. Du skal ikke bruke ett minutt på å pugge dem. Det du må trene på, er noe annet: å **velge riktig formel, sette inn riktige tall, holde orden på om du regner med andeler eller antall — og skrive tolkningssetningen**. Det er der poengene faktisk ligger.\n\n**Hvordan rettes det?** Blokk 1 har **ingen dokumentert minuspoeng** — **svar alltid**, også på et flervalg du er usikker på, og selv om du bare rekker halve regnestykket. På fritekstoppgavene premieres riktig framgangsmåte over eksakt tallsvar: en regnefeil som forplanter seg videre trekkes ikke to ganger. Vurderingen er **bestått / ikke bestått**; emnet har ingen karakterskala.\n\n**Tid:** kapitlet er delt i tre løkker på omtrent 15, 18 og 20 minutter. Resten av tidsanslaget går til innledning, begrepsbank og repetisjon. Regner du eksemplene selv med kalkulator underveis — og det bør du, siden det er nettopp den ferdigheten som testes — legg på rundt halvparten til."
+    },
+    {
+      "id": "med1100-4-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på to ting fra boka og ett begrep fra videregående. Her er alt sammen, ferdig oppfrisket.\n\n**Fra [kap. 3.1](/med1100/med1100-3-1): andeler i en befolkning.** Du satte opp 2×2-tabeller og regnet ut andeler som sensitivitet og PPV. Alle disse var **punktestimater** — ett tall, regnet ut fra ett utvalg. Det kapitlet sa ingenting om hvor sikkert det tallet er. Det er nettopp det dette kapitlet handler om.\n\n**Fra [kap. 0.2](/med1100/med1100-0-2): føringsstandarden i blokk 1.** Regnesvar føres i seks steg: definer parameteren → skriv hypotesene der oppgaven ber om en test → sjekk forutsetningene → sett inn med tall → regn → **konkluder i klartekst**. Et riktig tall uten tolkningssetning er et halvferdig svar, og det har et navn i feilkoderegisteret: **felle E12 — å svare på et lavere nivå enn spørreordet ber om, eller å droppe klartekst-tolkningen**.\n\n**Fra videregående: normalfordelingen og sentralgrensesetningen.** Poenget du trenger, i to setninger: gjennomsnitt og andeler regnet ut fra store nok utvalg er tilnærmet **normalfordelt** rundt den sanne verdien, uansett hvordan enkeltmålingene selv er fordelt. Og i en normalfordeling ligger **95 prosent av verdiene innenfor 1,96 standardavvik fra midten**. Det er hele grunnlaget for tallet 1,96, som kommer til å gå igjen i alt du gjør her. Trenger du en grundigere gjennomgang: [Normalfordelingen (Matematikk S1 6.3)](/s1/s1-6-3) og [Normalfordeling og sentralgrensesetningen (Matematikk S2 4.3)](/s2/s2-4-3). Har du hatt estimering før, er [Estimering (Matematikk S2 5.1)](/s2/s2-5-1) den nærmeste parallellen til dette kapitlet.\n\nDe nye begrepene — *punktestimat*, *standardfeil*, *konfidensintervall*, *frihetsgrader* og *t-fordeling* — innføres fra grunnen av under. Du trenger ingen forkunnskap om dem."
+    },
+    {
+      "id": "med1100-4-1-nokkelfakta",
+      "type": "collapsible",
+      "title": "Nøkkelfakta- og formelliste",
+      "buttonText": "Vis nøkkelfakta og formler",
+      "content": [
+        {
+          "id": "med1100-4-1-nokkelfakta-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler i dette kapitlet**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $n$ | antall observasjoner i utvalget | personer (eller målinger) |\n| $X$ | antall i utvalget med egenskapen | personer |\n| $\\hat p$ | andelen i **utvalget** — punktestimatet | andel (0–1) |\n| $p$ | den sanne andelen i **populasjonen** — den ukjente vi jakter på | andel (0–1) |\n| $\\bar x$ | gjennomsnittet i utvalget | målingens enhet |\n| $\\mu$ | den sanne forventningen i populasjonen | målingens enhet |\n| $s$ | standardavviket i utvalget | målingens enhet |\n| $\\text{SE}$ | standardfeilen til estimatet | samme enhet som estimatet |\n| $z$ | kritisk verdi fra standardnormalfordelingen | ingen |\n| $t$ | kritisk verdi fra $t$-fordelingen, med frihetsgrader oppgitt | ingen |\n| df | frihetsgrader | ingen |\n| RD | risikodifferanse (forskjell mellom to andeler) | andel (0–1) |\n\n**Formler i dette kapitlet:**\n\n$$\\text{KI}_{95} \\text{ for en andel:}\\qquad \\hat p \\pm 1{,}96 \\cdot \\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$$\n\nPunktestimatet pluss/minus 1,96 standardfeil. *Bruksbetingelse:* normaltilnærmingen krever at **både $n\\hat p \\ge 5$ og $n(1-\\hat p) \\ge 5$**. Er utvalget lite eller andelen ekstrem, holder den ikke, og intervallet kan strekke seg utenfor 0 og 1 — et sikkert tegn på at du har brukt formelen utenfor gyldighetsområdet.\n\n$$\\text{KI}_{95} \\text{ for et gjennomsnitt:}\\qquad \\bar x \\pm t \\cdot \\frac{s}{\\sqrt n}, \\qquad \\text{df} = n-1$$\n\n*Bruksbetingelse:* bruk $t$-verdien fra tabellen med $n-1$ frihetsgrader. Ved store utvalg (fra rundt 100 og oppover) er $t$ så nær 1,96 at du trygt kan bruke 1,96 — men ved små utvalg er forskjellen stor nok til å endre konklusjonen, og det er **felle E6: å bruke 1,96 der en $t$-verdi kreves**.\n\n$$\\text{KI}_{95} \\text{ for en risikodifferanse:}\\qquad (\\hat p_1 - \\hat p_2) \\pm 1{,}96 \\cdot \\sqrt{\\frac{\\hat p_1(1-\\hat p_1)}{n_1} + \\frac{\\hat p_2(1-\\hat p_2)}{n_2}}$$\n\n*Bruksbetingelse:* de to gruppene må være **uavhengige**. Er de samme personer målt to ganger, er observasjonene avhengige, og denne formelen gir for bredt intervall (felle E5).\n\n**Kritiske verdier fra tabellen**\n\n| Konfidensnivå | Kritisk $z$-verdi (tosidig) |\n|---|---|\n| 90 prosent | 1,645 |\n| **95 prosent** | **1,96** (faktor 2 godtas som tilnærming) |\n| 99 prosent | 2,576 |\n\n**Kritiske $t$-verdier, tosidig 5 prosent** (de du oftest trenger; hele tabellen får du utdelt)\n\n| df | 9 | 14 | 15 | 19 | 24 | 29 | 40 | 60 | 120 | stor df |\n|---|---|---|---|---|---|---|---|---|---|---|\n| $t$ | 2,262 | 2,145 | 2,131 | 2,093 | 2,064 | 2,045 | 2,021 | 2,000 | 1,980 | 1,96 |\n\n**Merk om hjelpemidlene:** i blokk 1 ligger **formelsamlingen og de statistiske tabellene på pulten**. Ingen av formlene eller verdiene over er noe du må memorere. Det du må kunne, er å velge riktig formel, lese riktig rad i $t$-tabellen, og skrive tolkningssetningen. Boka lister dem her fordi du trenger oversikten mens du trener — ikke fordi du skal pugge dem.\n\n**Faste kontraster som skiller riktig fra nesten riktig**\n\n- Standardavvik ($s$) beskriver **spredningen mellom enkeltpersoner**. Standardfeil ($\\text{SE}$) beskriver **usikkerheten i estimatet**. De er ikke det samme, og bare den siste krymper når utvalget vokser.\n- Et 95 prosent konfidensintervall sier noe om **hvor den sanne verdien trolig ligger** — ikke om hvor 95 prosent av personene ligger.\n- Et intervall for en **differanse** vurderes mot **0**. Et intervall for et **forholdstall** (som odds ratio eller relativ risiko, [kap. 4.3](/med1100/med1100-4-3)) vurderes mot **1**."
+        }
+      ]
+    },
+    {
+      "id": "med1100-4-1-oversikt",
+      "type": "text",
+      "content": "En meningsmåling forteller at 27 prosent støtter et forslag, «med en feilmargin på 3 prosentpoeng». Alle vet omtrent hva den siste setningen betyr, men få kan si hvor tallet 3 kommer fra — eller hvorfor det blir mindre hvis du spør flere.\n\nDet er nøyaktig den regningen dette kapitlet handler om, og den er hyppigere på eksamen i MED1100 enn noe annet enkelttema. Grunnen er enkel: **all medisinsk forskning måler noe på et utvalg og trekker en slutning om alle**. Måler du en andel hos 400 personer, får du ett tall. Måler du hos 400 andre, får du et litt annet. Konfidensintervallet er verktøyet som gjør denne slingringen til noe du kan skrive ned, regne på og tolke — i stedet for noe du bare aner.\n\nKapitlet gir deg tre versjoner av samme regnestykke: konfidensintervall for **en andel**, for **et gjennomsnitt**, og for **forskjellen mellom to andeler**. Alle tre har samme form — *estimat pluss/minus kritisk verdi ganger standardfeil* — og når du ser at det er samme skjelett hver gang, blir resten innsetting.\n\nOg så det ene som sensor faktisk ser etter, og som skiller et halvferdig fra et ferdig svar: **tolkningssetningen**. Et regnet intervall som står alene på arket er ikke et svar på oppgaven. Det du må skrive, er hva intervallet betyr for spørsmålet som ble stilt."
+    },
+    {
+      "id": "med1100-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Punktestimat, standardfeil og intervallet for en andel (~15 min)\n\nVi starter med det aller vanligste: du har telt hvor mange i et utvalg som har en egenskap, og skal si noe om hvor stor andelen er i befolkningen utvalget er hentet fra."
+    },
+    {
+      "id": "med1100-4-1-def-punktestimat",
+      "type": "definition",
+      "title": "Punktestimat",
+      "content": "Ett enkelt tall, regnet ut fra utvalget, som brukes som beste gjetning på en ukjent størrelse i populasjonen.\n\nAndelen i utvalget skrives $\\hat p$ («p-hatt»), og hatten betyr nettopp *estimat*. Den sanne, ukjente andelen i populasjonen skrives $p$ uten hatt. Skillet er ikke pedanteri: hele kapitlet handler om avstanden mellom de to.\n\n**Det som skiller punktestimat fra intervallestimat:** punktestimatet er ett tall og bærer ingen informasjon om usikkerhet. Konfidensintervallet er et helt spenn av tall, og *er* usikkerhetsangivelsen."
+    },
+    {
+      "id": "med1100-4-1-def-standardfeil",
+      "type": "definition",
+      "title": "Standardfeil (SE)",
+      "content": "Standardavviket til selve estimatet — altså hvor mye $\\hat p$ (eller $\\bar x$) ville sprikt hvis du gjentok hele undersøkelsen på nye utvalg av samme størrelse.\n\nFor en andel: $\\text{SE} = \\sqrt{\\dfrac{\\hat p(1-\\hat p)}{n}}$. For et gjennomsnitt: $\\text{SE} = \\dfrac{s}{\\sqrt n}$.\n\n**Det som skiller standardfeil fra standardavvik:** standardavviket $s$ beskriver hvor ulike **enkeltpersonene** er, og krymper ikke om du måler flere. Standardfeilen beskriver hvor presist **estimatet** er, og krymper som $1/\\sqrt n$. Firedobler du utvalget, halveres standardfeilen. Denne ene setningen forklarer nesten alle oppgaver om «hvor mange må vi undersøke»."
+    },
+    {
+      "id": "med1100-4-1-def-ki",
+      "type": "definition",
+      "title": "Konfidensintervall (95 prosent)",
+      "content": "Et intervall regnet ut fra utvalget, konstruert slik at metoden treffer den sanne populasjonsverdien i 95 prosent av tilfellene om den brukes om og om igjen.\n\nFormen er alltid den samme:\n\n$$\\text{estimat} \\pm (\\text{kritisk verdi}) \\cdot (\\text{standardfeil})$$\n\n**Den presise lesemåten, og den upresise.** Presist: «hadde vi gjentatt undersøkelsen mange ganger, ville 95 prosent av intervallene vi lagde inneholdt den sanne verdien». I praksis, og fullt akseptabelt som eksamenssvar: «vi er 95 prosent sikre på at den sanne andelen ligger mellom disse grensene».\n\n**Det som er direkte galt:** «95 prosent av personene ligger innenfor intervallet». Det er en påstand om spredningen mellom individer, og den har ingenting med konfidensintervallet å gjøre. Denne feillesningen er en gjenganger."
+    },
+    {
+      "id": "med1100-4-1-def-kritisk-verdi",
+      "type": "definition",
+      "title": "Kritisk verdi 1,96",
+      "content": "Tallet som avgrenser de midterste 95 prosentene av standardnormalfordelingen: mellom $-1{,}96$ og $+1{,}96$ ligger 95 prosent av arealet, og 2,5 prosent stikker ut i hver hale.\n\nDerfor er 1,96 den kritiske verdien for et **tosidig 95 prosent** konfidensintervall — og for en tosidig test på 5 prosent nivå ([kap. 4.2](/med1100/med1100-4-2)). Det er samme tall i to forkledninger.\n\n**Faktor 2 godtas.** Under tidspress kan du regne med 2 i stedet for 1,96. Forskjellen er rundt 2 prosent på marginen, og det endrer sjelden konklusjonen. Si i så fall at du har brukt tilnærmingen — da er det et bevisst valg, ikke en slurvefeil.\n\n**Andre nivåer:** 1,645 for 90 prosent, 2,576 for 99 prosent. Legg merke til retningen: **høyere sikkerhet gir bredere intervall**. Du kan ikke få begge deler av samme datasett."
+    },
+    {
+      "id": "med1100-4-1-def-normalbetingelse",
+      "type": "definition",
+      "title": "Normaltilnærmingsbetingelsen",
+      "content": "Regelen som avgjør om formelen for et konfidensintervall for en andel i det hele tatt gjelder: **både $n\\hat p \\ge 5$ og $n(1-\\hat p) \\ge 5$**.\n\nI ord: du må ha minst fem personer i hver av de to gruppene — minst fem med egenskapen og minst fem uten. Med $n = 400$ og $\\hat p = 0{,}24$ er $n\\hat p = 96$ og $n(1-\\hat p) = 304$, og betingelsen er godt oppfylt.\n\n**Hvorfor den finnes:** formelen bygger på at fordelingen til $\\hat p$ er tilnærmet normal. Er andelen svært liten eller svært stor, er den ikke det — den er skjev — og intervallet kan da strekke seg under 0 eller over 1. Ser du en nedre grense på $-0{,}04$, er det ikke en regnefeil du har gjort; det er formelen som er brukt utenfor gyldighetsområdet, og det skal du si i svaret."
+    },
+    {
+      "id": "med1100-4-1-th-ki-andel",
+      "type": "theorem",
+      "title": "Regneprosedyre: 95 prosent konfidensintervall for en andel",
+      "content": "Den klassiske B1-STAT-oppgaven gir deg et antall og et utvalg. Fem trinn, i denne rekkefølgen:\n\n1. **Regn punktestimatet.**\n   $$\\hat p = \\frac{X}{n}$$\n   der $X$ er antallet med egenskapen og $n$ er utvalgsstørrelsen.\n2. **Sjekk forutsetningen.** Er $n\\hat p \\ge 5$ og $n(1-\\hat p) \\ge 5$? Skriv det ned — det er et poenggivende ledd, og det tar én linje.\n3. **Regn standardfeilen.**\n   $$\\text{SE} = \\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$$\n   Kvadratroten er over **hele** brøken. Å glemme den er den vanligste regnefeilen i sjangeren, og den gir et absurd bredt intervall.\n4. **Regn feilmarginen og legg den til og fra.**\n   $$\\text{margin} = 1{,}96 \\cdot \\text{SE}, \\qquad \\text{KI} = \\hat p \\pm \\text{margin}$$\n5. **Tolk i klartekst.** Én setning som svarer på oppgavens spørsmål, med prosent og med hva intervallet dekker eller ikke dekker.\n\n**Merk enheten:** $\\hat p$, SE, margin og grensene er alle **andeler mellom 0 og 1**. Vil du oppgi svaret i prosent, ganger du med 100 helt til slutt — ikke underveis, for da får du 1,96 ganger et prosenttall og en margin som er hundre ganger for stor."
+    },
+    {
+      "id": "med1100-4-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Konfidensintervall for en andel (B1-STAT)",
+      "problem": "I en tenkt undersøkelse ble 400 førsteårsstudenter spurt om et forhold ved studiehverdagen. 96 av dem svarte ja.\n\nRegn ut et 95 prosent konfidensintervall for andelen i hele årskullet, og tolk det.\n\n*Alle tall i dette eksempelet er konstruert for regningens skyld.*",
+      "solution": "**Full-pott-besvarelse. Vist utregning, med enheter og tolkning.**\n\n**Trinn 1 — punktestimatet.**\n$$\\hat p = \\frac{96}{400} = 0{,}24$$\nAltså 24 prosent i utvalget.\n\n**Trinn 2 — forutsetningen.** $n\\hat p = 96$ og $n(1-\\hat p) = 304$. Begge er godt over 5, så normaltilnærmingen holder.\n\n**Trinn 3 — standardfeilen.**\n$$\\text{SE} = \\sqrt{\\frac{0{,}24 \\cdot 0{,}76}{400}} = \\sqrt{\\frac{0{,}1824}{400}} = \\sqrt{0{,}000456} = 0{,}0214$$\n\n**Trinn 4 — margin og grenser.**\n$$\\text{margin} = 1{,}96 \\cdot 0{,}0214 = 0{,}0419$$\n$$\\text{KI}_{95} = 0{,}24 \\pm 0{,}042 = [\\,0{,}198,\\ 0{,}282\\,]$$\n\n**Trinn 5 — tolkning i klartekst.** Andelen i utvalget er 24 prosent, og vi er 95 prosent sikre på at den sanne andelen i hele årskullet ligger mellom **19,8 prosent og 28,2 prosent**. Intervallet er altså rundt 8 prosentpoeng bredt — undersøkelsen sier tydelig at andelen ikke er verken 10 eller 35 prosent, men den skiller ikke mellom 20 og 27.\n\n**Kontrollen som er verdt fem sekunder:** grensene skal ligge symmetrisk rundt punktestimatet, og begge skal ligge mellom 0 og 1. Her: $0{,}24 - 0{,}198 = 0{,}042$ og $0{,}282 - 0{,}24 = 0{,}042$. Symmetrisk, og begge grensene er lovlige andeler."
+    },
+    {
+      "id": "med1100-4-1-fig-1",
+      "type": "image",
+      "src": "/images/textbook/med1100/ki-akse.svg",
+      "alt": "Figuren har to vannrette tallakser. Den øverste viser et konfidensintervall for en andel: punktestimatet 0,240 som en fylt sirkel midt på en strek som går fra 0,198 til 0,282, med to piler som markerer feilmarginen 0,042 ut til hver side. Den nederste viser et konfidensintervall for en differanse, fra minus 0,003 til 0,123 med estimatet 0,060, og en stiplet loddrett linje ved nullverdien null som intervallet krysser.",
+      "caption": "Øverst: konfidensintervallet fra Eksempel 1, med punktestimatet $\\hat p = 0{,}24$ og feilmarginen $1{,}96 \\cdot \\text{SE} = 0{,}042$ ut til hver side. Nederst: intervallet for risikodifferansen i Eksempel 3, som krysser nullverdien 0 og derfor ikke er signifikant. Skjematisk figur — aksene er ikke i målestokk."
+    },
+    {
+      "id": "med1100-4-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-1-oppg-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, B1-KORT — kortsvarsoppgaven i blokk 1, der du svarer med noen få setninger.) En medstudent leser resultatet fra Eksempel 1 og sier: «Så 95 prosent av studentene i kullet ligger mellom 19,8 og 28,2 prosent.»\n\n**a)** Forklar med dine egne ord hva som er galt med den setningen.\n\n**b)** Skriv den riktige tolkningen i én setning.",
+        "solution": "**a) Hva som er galt.** Setningen blander sammen to helt forskjellige ting: spredningen **mellom personer** og usikkerheten i **estimatet**. En enkeltstudent har ikke en «andel» i det hele tatt — hver student svarte enten ja eller nei. Tallet 24 prosent er en egenskap ved gruppen, ikke ved individene, og intervallet handler om hvor presist vi har truffet gruppens sanne andel.\n\n**b) Riktig tolkning.** Vi er 95 prosent sikre på at den sanne andelen i hele årskullet ligger mellom 19,8 og 28,2 prosent.\n\n*Merk formen:* en riktig tolkningssetning nevner alltid (i) hvilken størrelse intervallet gjelder, (ii) hvilken populasjon, og (iii) tallgrensene. Mangler ett av leddene, er svaret uferdig.",
+        "hints": [
+          "Spør deg selv hva tallet 24 prosent egentlig er en egenskap ved: enkeltpersonen eller gruppen?",
+          "Standardavvik beskriver spredning mellom personer. Standardfeil beskriver usikkerhet i et estimat. Hvilken av dem inngår i formelen?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-1-oppg-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving, B1-STAT — statistikkoppgaven i blokk 1, der vist utregning kreves.) I et tenkt utvalg på 250 personer har 40 en gitt egenskap.\n\nRegn ut et 95 prosent konfidensintervall for andelen, og tolk det i klartekst.",
+        "solution": "**Trinn 1 — punktestimatet.**\n$$\\hat p = \\frac{40}{250} = 0{,}16$$\n\n**Trinn 2 — forutsetningen.** $n\\hat p = 40$ og $n(1-\\hat p) = 210$; begge over 5. Normaltilnærmingen holder.\n\n**Trinn 3 — standardfeilen.**\n$$\\text{SE} = \\sqrt{\\frac{0{,}16 \\cdot 0{,}84}{250}} = \\sqrt{\\frac{0{,}1344}{250}} = \\sqrt{0{,}0005376} = 0{,}0232$$\n\n**Trinn 4 — margin og grenser.**\n$$\\text{margin} = 1{,}96 \\cdot 0{,}0232 = 0{,}0454$$\n$$\\text{KI}_{95} = 0{,}16 \\pm 0{,}045 = [\\,0{,}115,\\ 0{,}205\\,]$$\n\n**Trinn 5 — tolkning.** Andelen i utvalget er 16 prosent, og vi er 95 prosent sikre på at den sanne andelen i populasjonen ligger mellom **11,5 prosent og 20,5 prosent**.\n\n**Kontroll:** symmetrisk om 0,16, og begge grensene ligger mellom 0 og 1.",
+        "hints": [
+          "Start med å regne ut andelen, og kontroller forutsetningen før du går videre.",
+          "Kvadratroten går over hele brøken $\\hat p(1-\\hat p)/n$ — ikke bare over telleren."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Intervall for et gjennomsnitt, og når 1,96 ikke holder (~18 min)\n\nMåler du noe kontinuerlig — en konsentrasjon, en høyde, et blodtrykk — er estimatet et gjennomsnitt i stedet for en andel. Skjelettet er nøyaktig det samme, men to ting endrer seg: standardfeilen regnes fra standardavviket, og den kritiske verdien hentes fra $t$-tabellen i stedet for å være 1,96."
+    },
+    {
+      "id": "med1100-4-1-def-standardavvik",
+      "type": "definition",
+      "title": "Standardavvik i utvalget ($s$)",
+      "content": "Et mål på hvor mye enkeltmålingene i utvalget sprer seg rundt gjennomsnittet, i samme enhet som målingene selv.\n\nI dette kapitlet får du alltid $s$ oppgitt, eller du leser det av en tabell — du skal ikke regne det ut for hånd på eksamen.\n\n**Det som skiller $s$ fra SE:** $s$ er spredningen mellom personer og endrer seg ikke systematisk når utvalget vokser. Måler du 20 eller 2 000 personer, er folk like forskjellige. $\\text{SE} = s/\\sqrt n$ derimot krymper med utvalget, fordi gjennomsnittet av mange målinger er mer stabilt enn én enkelt måling."
+    },
+    {
+      "id": "med1100-4-1-def-t-fordeling",
+      "type": "definition",
+      "title": "$t$-fordelingen",
+      "content": "Fordelingen som erstatter standardnormalfordelingen når standardavviket er **estimert fra utvalget** i stedet for kjent på forhånd.\n\nDen ser ut som normalfordelingen, men har tykkere haler — den innrømmer at også $s$ er beheftet med usikkerhet. Derfor er de kritiske $t$-verdiene alltid **større** enn 1,96, og intervallene blir bredere.\n\n**Hvor mye større avhenger av utvalget:** ved 15 frihetsgrader er $t = 2{,}131$, ved 60 er den 2,000, og ved svært mange nærmer den seg 1,96. Ved store utvalg er forskjellen ubetydelig; ved små er den avgjørende. Å bruke 1,96 der tabellen krever 2,131, er **felle E6**."
+    },
+    {
+      "id": "med1100-4-1-def-frihetsgrader",
+      "type": "definition",
+      "title": "Frihetsgrader (df)",
+      "content": "Tallet som forteller hvilken rad du skal lese i $t$-tabellen. For et konfidensintervall om ett gjennomsnitt er $\\text{df} = n - 1$.\n\n**Hvorfor $n-1$ og ikke $n$:** når du har regnet ut gjennomsnittet fra de $n$ målingene, er én bit informasjon allerede «brukt opp» — de $n-1$ første avvikene bestemmer det siste. Du trenger ikke kunne begrunnelsen på eksamen, men du må kunne finne riktig rad.\n\n**Den praktiske regelen:** står ikke din df i tabellen, velg **nærmeste lavere** rad. Da blir intervallet marginalt for bredt, noe som er den forsiktige feilen å gjøre — aldri motsatt."
+    },
+    {
+      "id": "med1100-4-1-def-feilmargin",
+      "type": "definition",
+      "title": "Feilmargin",
+      "content": "Halve bredden av konfidensintervallet: $\\text{margin} = (\\text{kritisk verdi}) \\cdot \\text{SE}$. Det er dette tallet som står bak formuleringen «pluss/minus 3 prosentpoeng» i en meningsmåling.\n\n**De tre tingene den avhenger av**, og som forklarer nesten alle oppgaver om intervallbredde:\n\n1. **Utvalgsstørrelsen $n$** — margin krymper som $1/\\sqrt n$. Vil du halvere marginen, må du **firedoble** utvalget.\n2. **Spredningen** ($s$ eller $\\hat p(1-\\hat p)$) — mer variasjon gir bredere intervall.\n3. **Konfidensnivået** — vil du være 99 i stedet for 95 prosent sikker, må intervallet bli bredere.\n\nDu kan justere alle tre, men du kan ikke få et smalt intervall, høy sikkerhet og et lite utvalg samtidig."
+    },
+    {
+      "id": "med1100-4-1-th-ki-gjennomsnitt",
+      "type": "theorem",
+      "title": "Regneprosedyre: 95 prosent konfidensintervall for et gjennomsnitt",
+      "content": "Fem trinn — samme skjelett som for andelen, med to bytter:\n\n1. **Hent estimatet.** Gjennomsnittet $\\bar x$ er oppgitt eller regnet ut.\n2. **Finn frihetsgradene.** $\\text{df} = n - 1$.\n3. **Slå opp den kritiske $t$-verdien** i tabellen, tosidig 5 prosent, på riktig df-rad.\n4. **Regn standardfeilen og marginen.**\n   $$\\text{SE} = \\frac{s}{\\sqrt n}, \\qquad \\text{margin} = t \\cdot \\text{SE}, \\qquad \\text{KI} = \\bar x \\pm \\text{margin}$$\n5. **Tolk i klartekst, med enhet.** Gjennomsnitt har alltid en enhet, og et svar uten enhet er ikke ferdig.\n\n**Når kan du droppe $t$ og bruke 1,96?** Når df er stor — fra rundt 100 og oppover er forskjellen under 2 prosent. Ved $n$ under 30 skal du bruke tabellen. Er du i tvil: bruk $t$. Den er aldri feil, mens 1,96 er feil på små utvalg."
+    },
+    {
+      "id": "med1100-4-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Konfidensintervall for et gjennomsnitt (B1-STAT)",
+      "problem": "I et tenkt datasett er en konsentrasjon målt hos 25 personer. Gjennomsnittet er $\\bar x = 5{,}60\\,\\text{mmol/L}$ og standardavviket $s = 0{,}80\\,\\text{mmol/L}$.\n\nRegn ut et 95 prosent konfidensintervall for den sanne forventningen, og vis hva som hadde skjedd om du hadde brukt 1,96 i stedet for $t$.\n\n*Tallene er konstruerte og skal ikke leses som en normalverdi for noen faktisk måling.*",
+      "solution": "**Full-pott-besvarelse.**\n\n**Trinn 1 — estimatet.** $\\bar x = 5{,}60\\,\\text{mmol/L}$.\n\n**Trinn 2 — frihetsgrader.** $\\text{df} = 25 - 1 = 24$.\n\n**Trinn 3 — kritisk verdi.** Fra $t$-tabellen, tosidig 5 prosent, 24 frihetsgrader: $t = 2{,}064$.\n\n**Trinn 4 — standardfeil, margin og grenser.**\n$$\\text{SE} = \\frac{0{,}80}{\\sqrt{25}} = \\frac{0{,}80}{5} = 0{,}160\\,\\text{mmol/L}$$\n$$\\text{margin} = 2{,}064 \\cdot 0{,}160 = 0{,}330\\,\\text{mmol/L}$$\n$$\\text{KI}_{95} = 5{,}60 \\pm 0{,}330 = [\\,5{,}27,\\ 5{,}93\\,]\\,\\text{mmol/L}$$\n\n**Trinn 5 — tolkning i klartekst.** Gjennomsnittet i utvalget er $5{,}60\\,\\text{mmol/L}$, og vi er 95 prosent sikre på at den sanne forventningen i populasjonen ligger mellom $5{,}27$ og $5{,}93\\,\\text{mmol/L}$.\n\n— naturlig pausepunkt —\n\n**Kontrasten: hva om vi hadde brukt 1,96?**\n$$\\text{margin}_{1{,}96} = 1{,}96 \\cdot 0{,}160 = 0{,}314\\,\\text{mmol/L}, \\qquad \\text{KI} = [\\,5{,}29,\\ 5{,}91\\,]\\,\\text{mmol/L}$$\n\nForskjellen er $0{,}016\\,\\text{mmol/L}$ i hver ende — rundt 5 prosent for smalt intervall. Her endrer det ingen konklusjon, men det illustrerer retningen: **1,96 gir alltid et for smalt intervall når df er lav**, altså en for optimistisk framstilling av hvor sikre vi er. Ved 9 frihetsgrader ($n = 10$) er $t = 2{,}262$, og da er avviket 15 prosent — stort nok til å flytte en grense over eller under en verdi som betyr noe.\n\n**Det sensor ser etter her:** at du oppga df, at du hentet $t$ fra tabellen i stedet for å bruke 1,96 refleksmessig, og at grensene har enhet."
+    },
+    {
+      "id": "med1100-4-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-1-oppg-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Innøving, B1-STAT.) En kontinuerlig måling er gjort hos 16 personer i et tenkt datasett. Gjennomsnittet er $\\bar x = 7{,}40$ enheter og standardavviket $s = 1{,}20$ enheter.\n\nRegn ut et 95 prosent konfidensintervall for forventningen. Oppgi frihetsgradene eksplisitt.",
+        "solution": "**Trinn 1 — estimatet.** $\\bar x = 7{,}40$ enheter.\n\n**Trinn 2 — frihetsgrader.** $\\text{df} = 16 - 1 = 15$.\n\n**Trinn 3 — kritisk verdi.** Fra $t$-tabellen ved 15 frihetsgrader, tosidig 5 prosent: $t = 2{,}131$.\n\n**Trinn 4 — standardfeil, margin og grenser.**\n$$\\text{SE} = \\frac{1{,}20}{\\sqrt{16}} = \\frac{1{,}20}{4} = 0{,}300$$\n$$\\text{margin} = 2{,}131 \\cdot 0{,}300 = 0{,}639$$\n$$\\text{KI}_{95} = 7{,}40 \\pm 0{,}64 = [\\,6{,}76,\\ 8{,}04\\,]\\ \\text{enheter}$$\n\n**Trinn 5 — tolkning.** Vi er 95 prosent sikre på at den sanne forventningen ligger mellom **6,76 og 8,04 enheter**.\n\n**Merk:** hadde du brukt 1,96 her, ville marginen blitt $0{,}588$ og intervallet $[6{,}81,\\ 7{,}99]$ — for smalt, og et typisk utslag av felle E6.",
+        "hints": [
+          "Frihetsgradene for ett gjennomsnitt er $n-1$. Slå opp den raden i $t$-tabellen før du regner.",
+          "$\\sqrt{16} = 4$, så standardfeilen blir et rundt tall her."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-1-oppg-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B1-MC — flervalgsspørsmålet i blokk 1, «velg ett».) En forskergruppe har regnet ut et 95 prosent konfidensintervall for et gjennomsnitt basert på 100 personer, og synes intervallet er for bredt. De vil **halvere bredden**.\n\nHvilket av disse tiltakene oppnår det, gitt at spredningen i populasjonen er den samme?\n\nA. Doble utvalget til 200 personer.\nB. Firedoble utvalget til 400 personer.\nC. Gå fra 95 til 99 prosent konfidensnivå.\nD. Gå fra 95 til 90 prosent konfidensnivå.\n\nVelg ett, og begrunn med formelen.",
+        "solution": "**Riktig svar: B — firedoble utvalget til 400 personer.**\n\n**Begrunnelsen.** Bredden er $2 \\cdot t \\cdot s/\\sqrt n$, altså proporsjonal med $1/\\sqrt n$. Skal bredden halveres, må $\\sqrt n$ dobles, og da må $n$ firedobles:\n$$\\frac{s}{\\sqrt{400}} = \\frac{s}{20} = \\frac{1}{2} \\cdot \\frac{s}{10} = \\frac{1}{2} \\cdot \\frac{s}{\\sqrt{100}}$$\n\n**Hvorfor de andre ikke holder:**\n\n- **A** dobler $n$, som deler bredden på $\\sqrt 2 \\approx 1{,}41$ — en reduksjon på rundt 29 prosent, ikke 50.\n- **C** gir motsatt effekt: 99 prosent krever kritisk verdi 2,576 i stedet for 1,96, og gjør intervallet **bredere**.\n- **D** gjør riktignok intervallet smalere (1,645 i stedet for 1,96), men bare med rundt 16 prosent — og du har kjøpt det ved å senke sikkerheten, ikke ved å skaffe mer informasjon.\n\n**Tolkningen som hører til:** presisjon koster kvadratisk. Det er nettopp denne sammenhengen som gjør utvalgsstørrelsesberegningene i [kap. 4.4](/med1100/med1100-4-4) til det de er.\n\n**Og husk:** blokk 1 har ingen minuspoeng. Er du usikker mellom A og B, skal du likevel krysse av — blankt er garantert null.",
+        "hints": [
+          "Skriv opp bredden som et uttrykk i $n$, og se hvor $n$ står.",
+          "Kritisk verdi og utvalgsstørrelse påvirker bredden på helt ulike måter — den ene lineært, den andre gjennom en kvadratrot."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Intervall for en forskjell, og tolkningen som gir poeng (~20 min)\n\nDe fleste medisinske spørsmål handler ikke om ett tall, men om en **forskjell**: er andelen ulik i to grupper? Da regner du et konfidensintervall for differansen — og får i tillegg noe verdifullt: intervallet svarer også på om forskjellen er statistisk sikker, uten at du trenger å gjøre en egen test."
+    },
+    {
+      "id": "med1100-4-1-def-risikodifferanse",
+      "type": "definition",
+      "title": "Risikodifferanse (RD)",
+      "content": "Forskjellen mellom to andeler: $\\text{RD} = \\hat p_1 - \\hat p_2$, oppgitt i **prosentpoeng** når den skrives i prosent.\n\nEr andelen 15 prosent i den ene gruppen og 9 prosent i den andre, er risikodifferansen 6 prosentpoeng.\n\n**Det som skiller risikodifferanse fra relativ risiko:** differansen er en **subtraksjon** og sier hvor mange flere per hundre. Relativ risiko ([kap. 4.3](/med1100/med1100-4-3)) er en **divisjon** og sier hvor mange ganger så mange. En differanse på 6 prosentpoeng kan bety en dobling (fra 6 til 12 prosent) eller en økning på 12 prosent (fra 50 til 56) — tallet alene sier det ikke. Derfor oppgir gode besvarelser gjerne begge.\n\n**Prosent eller prosentpoeng:** dette er en presisjonsfelle. Å skrive «6 prosent forskjell» når du mener 6 prosentpoeng er upresist språk, og i et medisinfag er upresist språk en faglig feil."
+    },
+    {
+      "id": "med1100-4-1-def-dekker-null",
+      "type": "definition",
+      "title": "Å dekke nullverdien",
+      "content": "Kontrollen som gjør et konfidensintervall til en konklusjon: ligger den verdien som betyr «ingen forskjell» inne i intervallet?\n\n- For en **differanse** (risikodifferanse, forskjell mellom gjennomsnitt) er nullverdien **0**.\n- For et **forholdstall** (relativ risiko, odds ratio — [kap. 4.3](/med1100/med1100-4-3)) er nullverdien **1**, fordi et forholdstall på 1 betyr at gruppene er like.\n\n**Regelen:** dekker intervallet nullverdien, kan vi ikke utelukke at det ikke er noen forskjell — funnet er **ikke statistisk signifikant** på 5 prosent nivå. Dekker det den ikke, er forskjellen signifikant.\n\n**Den avgjørende presiseringen** (og **felle E4**, som er å tolke et ikke-signifikant funn som bevis for at det ikke er noen effekt): «ikke signifikant» betyr *ikke påvist*, ikke *fraværende*. Et bredt intervall som dekker 0 er som regel et tegn på at utvalget var for lite til å avgjøre saken — ikke at saken er avgjort."
+    },
+    {
+      "id": "med1100-4-1-th-ki-differanse",
+      "type": "theorem",
+      "title": "Regneprosedyre: 95 prosent konfidensintervall for en risikodifferanse",
+      "content": "Seks trinn. Merk at standardfeilen nå har to ledd, ett fra hver gruppe:\n\n1. **Regn de to andelene.** $\\hat p_1 = X_1/n_1$ og $\\hat p_2 = X_2/n_2$.\n2. **Regn differansen.** $\\text{RD} = \\hat p_1 - \\hat p_2$. Bestem deg for hvilken gruppe som er «gruppe 1», og hold på det — bytter du underveis, skifter hele intervallet fortegn.\n3. **Sjekk forutsetningene.** Minst fem i hver av de fire cellene, og gruppene må være **uavhengige**.\n4. **Regn standardfeilen til differansen.**\n   $$\\text{SE} = \\sqrt{\\frac{\\hat p_1(1-\\hat p_1)}{n_1} + \\frac{\\hat p_2(1-\\hat p_2)}{n_2}}$$\n   Legg merke til at det er **variansene** som adderes, ikke standardfeilene. Å legge sammen de to SE-ene direkte gir et for stort tall.\n5. **Regn margin og grenser.** $\\text{margin} = 1{,}96 \\cdot \\text{SE}$, og $\\text{KI} = \\text{RD} \\pm \\text{margin}$.\n6. **Tolk i klartekst — og si om intervallet dekker 0.**\n\n**Merk enheten:** differansen oppgis i **prosentpoeng** når du går til prosent. Grensene kan godt være negative, og det er helt normalt: en negativ nedre grense betyr bare at intervallet strekker seg over på den andre siden av «ingen forskjell»."
+    },
+    {
+      "id": "med1100-4-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Konfidensintervall for en forskjell — og et intervall som dekker 0 (B1-STAT)",
+      "problem": "I en tenkt undersøkelse følges to uavhengige grupper på 200 personer hver. I gruppe 1 inntreffer utfallet hos 30 personer, i gruppe 2 hos 18.\n\n**a)** Regn ut risikodifferansen med 95 prosent konfidensintervall.\n\n**b)** Tolk resultatet.\n\n*Alle tall er konstruerte.*",
+      "solution": "**a) Regningen.**\n\n**Trinn 1 — andelene.**\n$$\\hat p_1 = \\frac{30}{200} = 0{,}150, \\qquad \\hat p_2 = \\frac{18}{200} = 0{,}090$$\n\n**Trinn 2 — differansen.**\n$$\\text{RD} = 0{,}150 - 0{,}090 = 0{,}060 \\quad (6{,}0 \\text{ prosentpoeng})$$\n\n**Trinn 3 — forutsetningene.** Cellene inneholder 30, 170, 18 og 182 personer; alle godt over 5. Gruppene er uavhengige (ulike personer). Betingelsene holder.\n\n**Trinn 4 — standardfeilen.**\n$$\\text{SE} = \\sqrt{\\frac{0{,}150 \\cdot 0{,}850}{200} + \\frac{0{,}090 \\cdot 0{,}910}{200}} = \\sqrt{\\frac{0{,}1275}{200} + \\frac{0{,}0819}{200}}$$\n$$= \\sqrt{0{,}0006375 + 0{,}0004095} = \\sqrt{0{,}001047} = 0{,}0324$$\n\n**Trinn 5 — margin og grenser.**\n$$\\text{margin} = 1{,}96 \\cdot 0{,}0324 = 0{,}0634$$\n$$\\text{KI}_{95} = 0{,}060 \\pm 0{,}063 = [\\,-0{,}003,\\ 0{,}123\\,]$$\n\nI prosentpoeng: fra $-0{,}3$ til $+12{,}3$ prosentpoeng.\n\n— naturlig pausepunkt —\n\n**b) Tolkningen i klartekst.**\n\nUtfallet inntraff hos 15,0 prosent i gruppe 1 mot 9,0 prosent i gruppe 2, en forskjell på 6,0 prosentpoeng i gruppe 1s disfavør. Det 95 prosent konfidensintervallet strekker seg fra $-0{,}3$ til $12{,}3$ prosentpoeng og **dekker 0**. Vi kan derfor ikke utelukke at det ikke er noen reell forskjell mellom gruppene, og funnet er **ikke statistisk signifikant** på 5 prosent nivå.\n\n**Den presiseringen som gir uttelling, og som mange hopper over:** dette er ikke det samme som at gruppene er like. Intervallet er svært bredt — det er forenlig med alt fra en ørliten forskjell den andre veien til en forskjell på over 12 prosentpoeng. Det riktige å skrive er at undersøkelsen **er for liten til å avgjøre spørsmålet**, ikke at den har vist at det ikke er noen forskjell. Å skrive det siste er felle E4.\n\n**Legg merke til hvor nære det var:** nedre grense er $-0{,}003$. Med noen flere personer i utvalget, eller ett utfall mer eller mindre, kunne konklusjonen snudd. Det er et godt argument for å oppgi intervallet i stedet for bare å si «ikke signifikant» — intervallet viser hvor knapt det var."
+    },
+    {
+      "id": "med1100-4-1-advarsel",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "**1. Å glemme kvadratroten i standardfeilen.** Formelen er $\\sqrt{\\hat p(1-\\hat p)/n}$, ikke $\\hat p(1-\\hat p)/n$. Uten roten blir SE for liten når brøken er under 1 — og da blir intervallet absurd smalt. Kontroll: SE for en andel ligger nesten alltid mellom 0,005 og 0,05 for utvalg i hundretallsklassen. Får du 0,0005, har du glemt roten.\n\n**2. Felle E6 — å bruke 1,96 der en $t$-verdi kreves.** Ved $n = 16$ er $t = 2{,}131$, ikke 1,96. Ved lave frihetsgrader er avviket stort nok til å flytte en grense. Regelen: gjennomsnitt med lite utvalg → alltid $t$-tabellen, og oppgi df i svaret.\n\n**3. Å tolke intervallet som spredning mellom personer.** «95 prosent av pasientene ligger her» er en helt annen påstand og er feil. Intervallet handler om usikkerheten i estimatet.\n\n**4. Felle E12 — å levere tallene uten tolkningssetning.** «$[0{,}198,\\ 0{,}282]$» er ikke et ferdig svar i blokk 1. Sensor ser etter setningen som sier hva intervallet betyr for spørsmålet som ble stilt. Skriv den, hver gang, også når du er sikker på at det er åpenbart.\n\n**5. Felle E4 — å lese «dekker 0» som «ingen effekt».** Et intervall som dekker nullverdien betyr at forskjellen ikke er påvist. Er intervallet bredt, betyr det som regel at utvalget var for lite. Skriv «kan ikke utelukke at det ikke er noen forskjell», ikke «det er ingen forskjell».\n\n**6. Felle E3 — å forveksle statistisk signifikans med klinisk relevans.** Med et meget stort utvalg blir standardfeilen bitteliten, og selv en forskjell på et halvt prosentpoeng kan gi et intervall som ikke dekker 0. Signifikans sier at forskjellen trolig er reell — ikke at den er stor nok til å bety noe. Og motsatt kan et klart relevant funn være ikke-signifikant i en for liten studie.\n\n**7. Å blande andeler og prosent midt i regningen.** Gang med 100 helt til slutt. Setter du inn 24 i stedet for 0,24, blir alt hundre ganger galt.\n\n**8. Å ikke svare.** Blokk 1 har ingen minuspoeng. Rekker du bare å regne $\\hat p$ og skrive formelen, skriv det — delvis føring gir uttelling, blankt gir ingenting."
+    },
+    {
+      "id": "med1100-4-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Full eksamensoppgave med begge intervalltypene (B1-STAT, eksamensnivå)",
+      "problem": "I en tenkt tverrsnittsundersøkelse blant 1 200 personer rapporterer 384 en gitt egenskap.\n\n**a)** Regn ut et 95 prosent konfidensintervall for andelen, og tolk det.\n\n**b)** En tidligere undersøkelse i samme befolkning fant en andel på 36 prosent. Er den verdien forenlig med dine data? Begrunn ut fra intervallet.\n\n**c)** Forskergruppen ønsker en feilmargin på høyst 1,5 prosentpoeng. Omtrent hvor mange må de undersøke?\n\n*Alle tall er konstruerte for oppgavens skyld.*",
+      "solution": "**Full-pott-besvarelse.**\n\n**a) Konfidensintervallet.**\n\n**Punktestimat:**\n$$\\hat p = \\frac{384}{1\\,200} = 0{,}320$$\n\n**Forutsetning:** $n\\hat p = 384$ og $n(1-\\hat p) = 816$; begge langt over 5.\n\n**Standardfeil:**\n$$\\text{SE} = \\sqrt{\\frac{0{,}320 \\cdot 0{,}680}{1\\,200}} = \\sqrt{\\frac{0{,}2176}{1\\,200}} = \\sqrt{0{,}00018133} = 0{,}01347$$\n\n**Margin og grenser:**\n$$\\text{margin} = 1{,}96 \\cdot 0{,}01347 = 0{,}0264$$\n$$\\text{KI}_{95} = 0{,}320 \\pm 0{,}026 = [\\,0{,}294,\\ 0{,}346\\,]$$\n\n**Tolkning:** andelen i utvalget er 32,0 prosent, og vi er 95 prosent sikre på at den sanne andelen i befolkningen ligger mellom **29,4 og 34,6 prosent**.\n\n*Med faktor 2 i stedet for 1,96:* margin $= 0{,}0269$, intervall $[0{,}293,\\ 0{,}347]$. Forskjellen er under et halvt prosentpoeng, og tilnærmingen er fullt brukbar her — si i så fall at du har brukt den.\n\n— naturlig pausepunkt —\n\n**b) Er 36 prosent forenlig med dataene?**\n\nNei. Verdien $0{,}36$ ligger **utenfor** intervallet $[0{,}294,\\ 0{,}346]$, som strekker seg opp til 34,6 prosent. Data er altså ikke godt forenlige med at den sanne andelen fortsatt er 36 prosent; forskjellen er statistisk signifikant på 5 prosent nivå.\n\n**Presiseringen som skiller et fullstendig svar fra et halvt:** dette betyr at avviket trolig er reelt, men ikke at det er stort. Vi snakker om en forskjell på i underkant av 4 prosentpoeng. Om den forskjellen har noen praktisk betydning, er et faglig spørsmål som tallene ikke svarer på — det er nettopp skillet mellom statistisk signifikans og relevans (felle E3).\n\n**c) Nødvendig utvalg for margin 1,5 prosentpoeng.**\n\nVi krever $1{,}96 \\cdot \\text{SE} \\le 0{,}015$, altså $\\text{SE} \\le 0{,}00765$. Med $\\hat p = 0{,}32$:\n$$\\frac{0{,}2176}{n} \\le 0{,}00765^2 = 0{,}0000586 \\quad \\Longrightarrow \\quad n \\ge \\frac{0{,}2176}{0{,}0000586} \\approx 3\\,715$$\n\nRundet opp: **omtrent 3 700 personer**, altså rundt tre ganger så mange som i dag.\n\n**Kontroll av størrelsesorden:** vi vil ha marginen ned fra 2,64 til 1,5 prosentpoeng, en faktor på $2{,}64/1{,}5 = 1{,}76$. Siden marginen krymper som $1/\\sqrt n$, må $n$ ganges med $1{,}76^2 = 3{,}1$: $1\\,200 \\cdot 3{,}1 = 3\\,720$. Samme svar to veier — det er kontrollen verdt å ta med.\n\n**Konklusjonen, veid og skarp:** dagens utvalg gir god nok presisjon til å slå fast at andelen ligger et sted i trettiårene, og til å avvise 36 prosent. Vil man i tillegg kunne skille 32 fra 33 prosent, kreves et vesentlig større og dyrere utvalg — og den prisen bør bare betales hvis den forskjellen faktisk har konsekvenser. Presisjon er ikke gratis, og det er ikke alltid den er verdt det."
+    },
+    {
+      "id": "med1100-4-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-1-oppg-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, B1-STAT.) To uavhengige grupper på 150 personer hver følges i en tenkt undersøkelse. Utfallet inntreffer hos 30 personer i gruppe 1 og hos 12 personer i gruppe 2.\n\n**a)** Regn ut risikodifferansen med 95 prosent konfidensintervall.\n\n**b)** Konkluder i klartekst.",
+        "solution": "**a) Regningen.**\n\n**Andelene:**\n$$\\hat p_1 = \\frac{30}{150} = 0{,}200, \\qquad \\hat p_2 = \\frac{12}{150} = 0{,}080$$\n\n**Differansen:**\n$$\\text{RD} = 0{,}200 - 0{,}080 = 0{,}120 \\quad (12{,}0 \\text{ prosentpoeng})$$\n\n**Forutsetninger:** cellene inneholder 30, 120, 12 og 138 personer; alle over 5, og gruppene er uavhengige.\n\n**Standardfeil:**\n$$\\text{SE} = \\sqrt{\\frac{0{,}200 \\cdot 0{,}800}{150} + \\frac{0{,}080 \\cdot 0{,}920}{150}} = \\sqrt{0{,}0010667 + 0{,}0004907} = \\sqrt{0{,}0015573} = 0{,}0395$$\n\n**Margin og grenser:**\n$$\\text{margin} = 1{,}96 \\cdot 0{,}0395 = 0{,}0773$$\n$$\\text{KI}_{95} = 0{,}120 \\pm 0{,}077 = [\\,0{,}043,\\ 0{,}197\\,]$$\n\n**b) Konklusjon i klartekst.** Utfallet inntraff hos 20,0 prosent i gruppe 1 mot 8,0 prosent i gruppe 2 — en forskjell på 12,0 prosentpoeng. Konfidensintervallet går fra 4,3 til 19,7 prosentpoeng og **dekker ikke 0**. Forskjellen er derfor statistisk signifikant på 5 prosent nivå: vi kan med rimelig sikkerhet si at andelen er høyere i gruppe 1.\n\n**Presiseringen:** intervallet er fortsatt bredt. Data er forenlige med alt fra en beskjeden forskjell på fire prosentpoeng til en betydelig på nesten tjue. At forskjellen er påvist, betyr ikke at vi vet hvor stor den er.",
+        "hints": [
+          "Variansene adderes, ikke standardfeilene — legg sammen de to brøkene under samme rottegn.",
+          "Sammenlign intervallet med 0 til slutt, og skriv hva det betyr for spørsmålet."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-1-oppg-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(B1-KORT — kortsvarsoppgaven i blokk 1.) To studier undersøker det samme spørsmålet. Begge finner en risikodifferanse på 5 prosentpoeng.\n\n- Studie A: 95 prosent konfidensintervall fra $-1$ til $11$ prosentpoeng.\n- Studie B: 95 prosent konfidensintervall fra $4{,}5$ til $5{,}5$ prosentpoeng.\n\nForklar i tre til fire setninger hva som skiller de to resultatene, og hvilket du ville stolt mest på.",
+        "solution": "**Svaret.** Begge studiene gir samme punktestimat, men helt ulik presisjon. Studie A har et bredt intervall som dekker 0, og har derfor ikke påvist noen forskjell: data er forenlige med alt fra en liten forskjell den motsatte veien til en betydelig forskjell på elleve prosentpoeng. Studie B har et smalt intervall som ikke dekker 0, og har både påvist forskjellen og bestemt størrelsen på den ganske presist.\n\n**Hvilken jeg ville stolt mest på:** studie B, fordi den smale marginen viser at estimatet hviler på langt mer informasjon — typisk et mye større utvalg eller mindre spredning i målingene.\n\n**Den presiseringen som løfter svaret:** studie A har ikke vist at det ikke er noen forskjell. Den har vist at den var for liten til å avgjøre saken (felle E4). Punktestimatet på 5 prosentpoeng er faktisk det samme i begge — det er sikkerheten, ikke funnet, som skiller dem.",
+        "hints": [
+          "Se på bredden på de to intervallene før du ser på om de dekker 0.",
+          "Hva kan du si om utvalgsstørrelsene når marginen i den ene er tolv ganger mindre enn i den andre?"
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-1-oppg-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT — full oppgave med tolkningsledd.) I en tenkt undersøkelse er en kontinuerlig måling gjort hos 10 personer. Gjennomsnittet er $\\bar x = 118{,}0$ enheter og standardavviket $s = 9{,}0$ enheter.\n\n**a)** Regn ut et 95 prosent konfidensintervall for forventningen.\n\n**b)** En kandidat leverer intervallet $[112{,}4,\\ 123{,}6]$. Hvilken feil har vedkommende gjort, og hvor stort utslag gir den?\n\n**c)** Gjør rede for hvorfor det er nettopp ved små utvalg at valget mellom $t$ og 1,96 betyr noe.",
+        "solution": "**a) Regningen.**\n\n**Frihetsgrader:** $\\text{df} = 10 - 1 = 9$.\n**Kritisk verdi:** fra $t$-tabellen ved 9 frihetsgrader, tosidig 5 prosent: $t = 2{,}262$.\n\n$$\\text{SE} = \\frac{9{,}0}{\\sqrt{10}} = \\frac{9{,}0}{3{,}1623} = 2{,}846\\ \\text{enheter}$$\n$$\\text{margin} = 2{,}262 \\cdot 2{,}846 = 6{,}44\\ \\text{enheter}$$\n$$\\text{KI}_{95} = 118{,}0 \\pm 6{,}44 = [\\,111{,}6,\\ 124{,}4\\,]\\ \\text{enheter}$$\n\n**Tolkning:** vi er 95 prosent sikre på at den sanne forventningen ligger mellom 111,6 og 124,4 enheter.\n\n— naturlig pausepunkt —\n\n**b) Kandidatens feil.**\n\nKandidaten har brukt **1,96 i stedet for $t = 2{,}262$** — altså felle E6.\n$$1{,}96 \\cdot 2{,}846 = 5{,}58 \\quad \\Longrightarrow \\quad [\\,112{,}4,\\ 123{,}6\\,]$$\n\nDet stemmer nøyaktig med det innleverte intervallet. Utslaget er $6{,}44 - 5{,}58 = 0{,}86$ enheter i hver ende, altså et intervall som er **rundt 13 prosent for smalt**. Feilen går alltid samme vei: den framstiller resultatet som mer presist enn det er.\n\n**c) Hvorfor det bare betyr noe ved små utvalg.** Merk spørreordet: «gjør rede for» = beskriv, forklar og sett i sammenheng.\n\n**Beskrivelsen.** De kritiske $t$-verdiene faller mot 1,96 etter hvert som frihetsgradene øker: 2,262 ved 9 df, 2,131 ved 15, 2,064 ved 24, 2,021 ved 40, 2,000 ved 60, 1,980 ved 120. Ved 9 frihetsgrader ligger $t$ 15 prosent over 1,96; ved 120 er avviket 1 prosent.\n\n**Forklaringen.** $t$-fordelingen finnes fordi standardavviket $s$ er **estimert fra de samme dataene**, ikke kjent på forhånd. Med få observasjoner er $s$ i seg selv et usikkert tall, og $t$-fordelingens tykkere haler er nettopp prisen for den ekstra usikkerheten. Med mange observasjoner er $s$ nesten like god som et kjent standardavvik, og da er det ingenting igjen å kompensere for.\n\n**Sammenhengen.** Dette er samme mønster som går igjen i hele kapitlet: alt som gjør estimatet mer usikkert — lite utvalg, stor spredning, høyt krav til sikkerhet — gjør intervallet bredere. $t$-korreksjonen er bare enda en kilde til usikkerhet som må betales for i bredde.\n\n**Konklusjonen, skarpt formulert:** ved $n$ under 30 skal du alltid bruke tabellen. Over 100 kan du trygt bruke 1,96 og si at du gjør det. Og siden $t$ aldri er feil, mens 1,96 er feil på små utvalg, er den sikre vanen å bruke $t$ hver gang.",
+        "hints": [
+          "Frihetsgradene er $n-1$; slå opp den raden før du regner noe som helst.",
+          "Del b): prøv å regne intervallet på nytt med en annen kritisk verdi og se hvilken som treffer kandidatens tall.",
+          "Del c): tenk på hvor tallet $s$ kommer fra, og hvor mye du vet om det når du bare har ti målinger."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "med1100-4-1-oppg-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, B1-STAT.) To tenkte studier undersøker om en forskjell finnes mellom to grupper.\n\n- Studie 1 har 60 personer i hver gruppe og finner en risikodifferanse på 8 prosentpoeng, 95 prosent konfidensintervall fra $-4$ til $20$ prosentpoeng.\n- Studie 2 har 12 000 personer i hver gruppe og finner en risikodifferanse på 0,4 prosentpoeng, 95 prosent konfidensintervall fra $0{,}1$ til $0{,}7$ prosentpoeng.\n\n**a)** Hvilken av studiene har et statistisk signifikant funn på 5 prosent nivå? Begrunn.\n\n**b)** En kandidat skriver: «Studie 1 viser at det ikke er noen forskjell, mens studie 2 viser at forskjellen er viktig.» Rett opp begge påstandene, og oppgi hvilke feilkoder de svarer til.\n\n**c)** Hvilken av de to studiene ville du bygget en faglig vurdering på? Begrunn og konkluder.",
+        "solution": "**a) Signifikans.**\n\n**Studie 2** har et signifikant funn: intervallet $[0{,}1;\\ 0{,}7]$ prosentpoeng dekker ikke nullverdien 0.\n\n**Studie 1** har det ikke: intervallet $[-4;\\ 20]$ dekker 0, og forskjellen er derfor ikke påvist på 5 prosent nivå.\n\n**b) De to påstandene.**\n\n**«Studie 1 viser at det ikke er noen forskjell» — felle E4.** Riktig formulering: studie 1 har **ikke påvist** noen forskjell. Intervallet strekker seg fra 4 prosentpoeng den ene veien til 20 den andre, og er dermed forenlig med både ingen forskjell og en stor forskjell. Studien er rett og slett for liten til å avgjøre spørsmålet. «Ikke påvist» og «vist at det ikke finnes» er to helt forskjellige utsagn, og bare det første følger av dataene.\n\n**«Studie 2 viser at forskjellen er viktig» — felle E3.** Riktig formulering: studie 2 har vist at forskjellen med stor sannsynlighet er **reell**, men størrelsen er 0,4 prosentpoeng — fire tilfeller per tusen. Om det er viktig, er et faglig spørsmål om hva utfallet er og hva et tiltak koster, ikke et statistisk spørsmål. Med 12 000 i hver gruppe blir standardfeilen så liten at selv en ubetydelig forskjell blir signifikant. Statistisk signifikans er ikke det samme som relevans.\n\n— naturlig pausepunkt —\n\n**c) Hvilken studie å bygge på.**\n\n**Konklusjonen, veid og skarp:** studie 2, uten særlig tvil — men ikke fordi funnet er «viktigere», og heller ikke ukritisk.\n\n**Begrunnelsen.** Studie 2 gir et **presist** svar: den sanne forskjellen ligger mellom 0,1 og 0,7 prosentpoeng, og det er nok til å planlegge ut fra. Studie 1 gir knapt informasjon i det hele tatt — den utelukker verken null eller en stor effekt, og et estimat med den bredden kan ikke bære en beslutning uansett hvilken vei den peker.\n\n**Forbeholdet som hører med.** De to studiene har ulike estimater (8 mot 0,4 prosentpoeng), og studie 1s brede intervall dekker faktisk ikke studie 2s. Det kan tyde på at de to studiene ikke måler helt det samme, eller at gruppene skiller seg. Med den usikkerheten studie 1 har, er en slik uenighet likevel helt forventet, og det er ikke grunnlag for å tro at de er uforenlige.\n\n**Og det som ikke følger av noen av dem:** ingen av studiene sier noe om hva som bør gjøres i en konkret situasjon. Det er en faglig vurdering utenfor regnestykket.",
+        "hints": [
+          "Del a): sjekk om hvert intervall dekker nullverdien for en differanse.",
+          "Del b): to av de tolv feilkodene i blokk 1 handler om nettopp disse to feiltolkningene — en om ikke-signifikante funn, en om signifikans mot relevans.",
+          "Del c): sammenlign bredden på intervallene, ikke størrelsen på punktestimatene."
+        ]
+      }
+    },
+    {
+      "id": "med1100-4-1-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "med1100-4-1-bb-populasjon",
+      "type": "definition",
+      "title": "Populasjon og utvalg",
+      "content": "**Populasjonen** er hele gruppen du vil si noe om — alle det gjelder. **Utvalget** er de du faktisk har målt.\n\nStatistikkens hele poeng er å bruke utvalget til å si noe om populasjonen. Størrelser i populasjonen skrives med greske eller ubehattede bokstaver ($p$, $\\mu$, $\\sigma$) og er ukjente; størrelser i utvalget skrives med latinske eller behattede ($\\hat p$, $\\bar x$, $s$) og er regnet ut fra data.\n\n**Fellen:** å skrive $p$ når du mener $\\hat p$. Det ser ut som en skrivefeil, men det er en tankefeil — de to er ikke samme tall."
+    },
+    {
+      "id": "med1100-4-1-bb-sentralgrense",
+      "type": "definition",
+      "title": "Sentralgrensesetningen",
+      "content": "Regelen som gjør alt i dette kapitlet mulig: gjennomsnittet av mange uavhengige målinger er tilnærmet **normalfordelt**, uansett hvordan enkeltmålingene selv er fordelt — bare utvalget er stort nok.\n\nDet samme gjelder en andel, som jo bare er gjennomsnittet av en rekke nuller og enere.\n\n**Hvorfor du trenger den:** den er begrunnelsen for at du får bruke 1,96 fra normalfordelingen selv når du ikke aner hvordan de underliggende målingene ser ut. Uten den ville hvert eneste konfidensintervall krevd kunnskap om fordelingen i befolkningen."
+    },
+    {
+      "id": "med1100-4-1-bb-konfidensniva",
+      "type": "definition",
+      "title": "Konfidensnivå",
+      "content": "Andelen av gjentatte undersøkelser der metoden ville truffet den sanne verdien: 90, 95 eller 99 prosent. Kritisk verdi er henholdsvis 1,645, 1,96 og 2,576.\n\n**Byttehandelen:** høyere konfidensnivå gir bredere intervall. Du kan velge å være nesten sikker på et vagt utsagn, eller ganske sikker på et presist — men ikke begge deler uten å samle mer data. **95 prosent er standarden** i medisinsk litteratur, og er det du skal bruke om ikke oppgaven sier noe annet."
+    },
+    {
+      "id": "med1100-4-1-bb-bredde",
+      "type": "definition",
+      "title": "Bredden på et konfidensintervall",
+      "content": "$\\text{bredde} = 2 \\cdot (\\text{kritisk verdi}) \\cdot \\text{SE}$ — altså to feilmarginer.\n\n**Den praktiske regelen som løser flest oppgaver:** bredden er proporsjonal med $1/\\sqrt n$. Firedobler du utvalget, halveres bredden. Vil du ha en tidel så bred margin, trenger du hundre ganger så mange.\n\n**Hva bredden forteller deg faglig:** et smalt intervall betyr at studien har bestemt størrelsen presist. Et bredt betyr at den knapt har bestemt den i det hele tatt — uansett hvor pent punktestimatet ser ut."
+    },
+    {
+      "id": "med1100-4-1-bb-signifikans",
+      "type": "definition",
+      "title": "Statistisk signifikans lest av et intervall",
+      "content": "Et 95 prosent konfidensintervall og en tosidig test på 5 prosent nivå gir alltid samme konklusjon: **dekker intervallet nullverdien, er funnet ikke signifikant.**\n\nDerfor kan du svare på «er forskjellen signifikant?» uten å gjøre en egen test, så lenge du har intervallet. Det er ofte den raskeste veien under tidspress i blokk 1.\n\n**Og hvorfor intervallet er det beste svaret:** en test gir deg bare ja eller nei. Intervallet gir deg i tillegg **størrelsen** og **presisjonen**. Sensor premierer den som oppgir intervallet framfor den som bare oppgir en konklusjon."
+    },
+    {
+      "id": "med1100-4-1-bb-praesisjon-vs-riktighet",
+      "type": "definition",
+      "title": "Presisjon og systematisk skjevhet",
+      "content": "**Presisjon** er hvor smalt intervallet er — den styres av utvalgsstørrelsen og spredningen, og forbedres ved å samle mer data.\n\n**Systematisk skjevhet** er noe helt annet: at målemetoden eller utvalget konsekvent bommer i én retning, for eksempel fordi de som svarte skiller seg fra dem som ikke svarte.\n\n**Den avgjørende forskjellen, og et yndet resonnementsspørsmål:** konfidensintervallet tar bare høyde for tilfeldig variasjon. Er utvalget skjevt, blir et stort utvalg bare et **presist mål på feil størrelse** — intervallet blir smalt og selvsikkert rundt et tall som er galt. Mer data hjelper mot upresishet, aldri mot skjevhet."
+    },
+    {
+      "id": "med1100-4-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis kontrollpunkter",
+      "content": [
+        {
+          "id": "med1100-4-1-repetisjon-tekst",
+          "type": "text",
+          "content": "Seks kontrollpunkter. Klarer du dem uten å bla opp, er kapitlet i boks.\n\n1. **Hva er den generelle formen på et konfidensintervall?** (Estimat pluss/minus kritisk verdi ganger standardfeil. Samme skjelett for andel, gjennomsnitt og differanse.)\n2. **Hvilken kritisk verdi hører til 95 prosent, og hvor kommer den fra?** (1,96, fordi de midterste 95 prosentene av standardnormalfordelingen ligger mellom $-1{,}96$ og $+1{,}96$. Faktor 2 godtas som tilnærming.)\n3. **Når bruker du $t$ i stedet for 1,96 — og hvilken rad leser du?** (Ved gjennomsnitt der $s$ er estimert fra utvalget, særlig ved lite utvalg. Raden er $\\text{df} = n-1$. Ved store utvalg er $t$ nær 1,96.)\n4. **Hva er forutsetningen for intervallet for en andel?** ($n\\hat p \\ge 5$ og $n(1-\\hat p) \\ge 5$ — minst fem i hver gruppe.)\n5. **Hvordan avgjør du signifikans fra et intervall?** (Dekker det nullverdien — 0 for differanser, 1 for forholdstall — er funnet ikke signifikant på 5 prosent nivå.)\n6. **Hva må ALLTID stå til slutt i et B1-STAT-svar?** (Tolkningssetningen i klartekst, med enhet: hva intervallet betyr for spørsmålet som ble stilt.)\n\n**Og de to fellene som koster mest her:** å skrive «ikke signifikant» som om det betydde «ingen forskjell» (E4), og å levere tallene uten tolkningssetning (E12). Blokk 1 har ingen minuspoeng — skriv alltid noe, og skriv alltid tolkningen.\n\n**Fra forrige kapittel, som dette bygger på:** i [kap. 3.1](/med1100/med1100-3-1) regnet du andeler i en 2×2-tabell uten å si noe om usikkerheten i dem. Nå kan du sette et intervall rundt hver av dem — og i [kap. 4.3](/med1100/med1100-4-3) skal du teste om forskjellen mellom dem er reell."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

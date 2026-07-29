@@ -1,0 +1,376 @@
+{
+ "id": "med1100-6-4",
+ "courseId": "med1100",
+ "chapterNumber": "6.4",
+ "title": "Konsentrasjons-, doserings- og osmolaritetsregning",
+ "description": "Farmakologisk doseregning (mg/kg), molaritet↔masse (mM→mg/mL) og osmolaritet — minst én slik regneoppgave er garantert hver sitting.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne konvertere mellom masse-, volum- og stoffmengdeenheter og skrive konverteringen som et eget, kontrollerbart ledd",
+  "kunne regne fra dose per kilo til masse og videre til volum, med enhetene ført gjennom hele utregningen",
+  "kunne gå begge veier mellom molaritet og masse per volum ved hjelp av molar masse",
+  "kunne regne ut osmolaritet ved å telle osmotisk aktive partikler, også for blandinger"
+ ],
+ "content": [
+  {
+   "id": "med1100-6-4-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet trener blokk 2.** MED1100 har tre **blokkeksamener** — tre separate eksamener med hvert sitt format, som alle må bestås hver for seg. Vurderingen er **bestått / ikke bestått**.\n\n- **Form:** blokk 2 er **skriftlig, seks timer (09–15)**, med enkel kalkulator som eneste hjelpemiddel.\n- **Hvor i settet:** en konsentrasjons- eller doseringsoppgave er talt i **14 av 14 leste sittinger**. Vekttallet er lavt — **2–3** av 100 — men oppgaven er **garantert**, og den er blant de raskeste poengene i hele settet. Den ligger gjerne som en deloppgave inne i en større oppgave.\n- **Sjangeren:** **B2-REGN** — regneoppgaven, der utregningen skal vises og enhetene være riktige. **Enhetskonvertering er poenggivende**, altså et moment sensor teller for seg.\n- **Retting:** manuell, **moment for moment**. Delpoeng gis for fornuftig resonnement selv ved feil sluttsvar.\n- **Ingen rutenett her.** Dette kapitlet har ingen avkryssingstabell, så minuspoengregelen kommer ikke i spill i selve regneoppgaven. (Møter du et rutenett andre steder i blokk 2, gjelder fortsatt regelen fra [kap. 0.2](/med1100/med1100-0-2): riktig kryss gir pluss, feil kryss gir like mye minus, blankt gir null — **blankt slår gjetting**.)\n- **Hva sensor ser etter:** at **enhetene** er ført gjennom hele regnestykket, og at **konverteringen står som eget ledd**. Å gjøre omregningen i hodet og bare skrive sluttsvaret er felle **E22**, og det koster et moment du allerede hadde gjort deg fortjent til."
+  },
+  {
+   "id": "med1100-6-4-forbehold",
+   "type": "warning",
+   "title": "Dette er regnetrening, ikke doseringsanvisning",
+   "content": "Denne boka forbereder deg til eksamen i MED1100. Den handler om **det friske mennesket** og om mekanismer — ikke om å stille diagnoser, velge behandling eller gi råd. Ingen av regnestykkene, verdiene eller mekanismene her skal brukes på en virkelig pasient eller på deg selv. Klinisk vurdering læres senere i studiet, under veiledning.\n\nDet er verdt å si dette ekstra tydelig i **akkurat dette** kapitlet. Regnestykkene ser ut som doseringsregning, og de bruker enheter du kjenner igjen fra virkelige legemidler. Men det de tester, er **enhetskonvertering og forholdsregning i eksamensformat** — ikke hvor mye noen skal ha av noe.\n\nDerfor er alle stoffene i dette kapitlet **oppdiktede**, kalt «stoff X» og lignende, og alle molare masser og konsentrasjoner er **konstruerte undervisningsverdier** valgt for at regnestykkene skal gå opp. Alle personene i oppgavene er oppdiktede. Ingen tallverdi her er hentet fra et virkelig legemiddel, og ingen av dem sier noe om hva noe legemiddel skal doseres til."
+  },
+  {
+   "id": "med1100-6-4-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 6.1](/med1100/med1100-6-1) og på retteregelen i [kap. 0.2](/med1100/med1100-0-2). De tre tingene du trenger, står ferdig oppfrisket her:\n\n1. **Fra [kap. 0.2](/med1100/med1100-0-2): kravet om vist utregning.** I blokk 2 er utregningen ikke en forberedelse til svaret — den **er** svaret. Et sluttsvar uten utregning er felle **E22**, og det koster selv når tallet er riktig.\n2. **Fra [kap. 6.1](/med1100/med1100-6-1): mmol og mol.** En **millimol** (mmol) er en tusendel av en mol. Alle stoffmengder i Del 6 er oppgitt i mmol eller mol, og omregningen mellom dem er nøyaktig den samme tusendelen du bruker mellom gram og milligram.\n3. **Grunnrelasjonen mellom masse, stoffmengde og molar masse:**\n\n$$m = n \\cdot M$$\n\nder $m$ er masse (g), $n$ er stoffmengde (mol) og $M$ er molar masse (g/mol). Alt i dette kapitlet er varianter av denne ene sammenhengen, satt sammen med et volum.\n\nRegningen her er ren forholdsregning — du trenger ingen matematikk utover brøk og potenser av ti. Det som gjør oppgaven vanskelig i praksis, er **enhetene**, ikke regnestykket."
+  },
+  {
+   "id": "med1100-6-4-nokkelfakta",
+   "type": "collapsible",
+   "title": "Nøkkelfakta- og formelliste",
+   "buttonText": "Vis nøkkelfakta og formler",
+   "content": [
+    {
+     "id": "med1100-6-4-nokkelfakta-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, utvidet med normalverdier, latinske navn og mekanismekjeder.\n\n**Symboler:**\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $m$ | masse | g, mg, µg |\n| $n$ | stoffmengde | mol, mmol |\n| $M$ | molar masse | g/mol |\n| $V$ | volum | L, mL |\n| $c$ | konsentrasjon | mol/L (M), mmol/L (mM), mg/mL, g/L |\n| — | osmolaritet | osmol/L |\n\n**Enhetstrappen — den samme faktoren hele veien:**\n\n$$1\\,\\text{g} = 1000\\,\\text{mg} = 10^{6}\\,\\mu\\text{g}, \\qquad 1\\,\\text{L} = 1000\\,\\text{mL}, \\qquad 1\\,\\text{mol} = 1000\\,\\text{mmol}$$\n\n**Formler i dette kapitlet:**\n\n$$m = n \\cdot M$$\n\nMasse fra stoffmengde og molar masse. **Bruksbetingelse:** enhetene må stemme — mol med g/mol gir g; mmol med g/mol gir mg.\n\n$$\\text{dose (mg)} = \\text{dose per kilo (mg/kg)} \\cdot \\text{kroppsvekt (kg)}$$\n\n**Bruksbetingelse:** vekten må være i kg. Er den oppgitt i gram — for eksempel for et forsøksdyr — konverter først.\n\n$$V = \\frac{\\text{dose (mg)}}{c\\,(\\text{mg/mL})}$$\n\nVolum fra dose og konsentrasjon. **Bruksbetingelse:** dosen og konsentrasjonen må ha samme masseenhet. Er dosen i µg og konsentrasjonen i mg/mL, konverter først.\n\n$$c\\,(\\text{g/L}) = c\\,(\\text{mol/L}) \\cdot M\\,(\\text{g/mol})$$\n\nog den praktiske varianten:\n\n$$c\\,(\\text{mM}) \\cdot M\\,(\\text{g/mol}) = c\\,(\\text{mg/L})$$\n\n**Merk den nyttige identiteten:** $1\\,\\text{g/L} = 1\\,\\text{mg/mL}$. De to enhetene er samme tall, fordi både teller og nevner ganges med tusen.\n\n$$c_1 V_1 = c_2 V_2$$\n\nFortynningslikningen. **Bruksbetingelse:** stoffmengden er uendret, bare volumet endres. Gjelder ikke hvis stoff tilsettes eller fjernes.\n\n$$\\text{osmolaritet} = c \\cdot (\\text{antall osmotisk aktive partikler per formelenhet})$$\n\n**Bruksbetingelse:** forutsetter fullstendig oppløsning av saltet.\n\n**Antall osmotisk aktive partikler — tabellen som må sitte:**\n\n| Stoff | Partikler per formelenhet | Hvorfor |\n|---|---|---|\n| glukose | **1** | løses ikke opp i ioner |\n| urea | **1** | løses ikke opp i ioner |\n| NaCl | **2** | gir Na⁺ og Cl⁻ |\n| KCl | **2** | gir K⁺ og Cl⁻ |\n| CaCl₂ | **3** | gir Ca²⁺ og to Cl⁻ |\n\n**Molare masser brukt i dette kapitlet** (standardverdier, avrundet):\n\n| Stoff | $M$ (g/mol) |\n|---|---|\n| NaCl | 58,44 |\n| KCl | 74,55 |\n| glukose | 180,16 |\n\n**Regneprosedyre — de tre trinnene som gjelder alle oppgavene:**\n\n1. **Konverter ALT til én enhetsfamilie først.** Skriv konverteringen som eget ledd — den er poenggivende.\n2. **Sett inn i riktig formel** med tallene skrevet ut.\n3. **Oppgi svaret med enhet**, og med to–tre gjeldende siffer.\n\n**Bør kjenne til, ikke pugge:** forskjellen mellom osmolaritet (per liter løsning) og osmolalitet (per kilo løsningsmiddel), og korreksjonen for at ioner i virkelige løsninger ikke oppfører seg helt uavhengig av hverandre. Oppgave-varianten i blokk 2 regner med fullstendig oppløsning og bruker osmolaritet. Trenger du skillet senere, står det i pensumboka i fysiologi."
+    }
+   ]
+  },
+  {
+   "id": "med1100-6-4-oversikt",
+   "type": "text",
+   "content": "En løsning kan beskrives på minst fire måter: hvor mange gram stoff det er per liter, hvor mange mol det er per liter, hvor mange milligram det er per milliliter, og hvor mange partikler løsningen inneholder. Alle fire beskriver **den samme** løsningen — de er bare ulike måter å telle på.\n\nDet er nettopp derfor denne oppgavetypen er så forutsigbar, og samtidig så lett å bomme på. Regnestykket er alltid en forholdsregning, og feilene kommer nesten aldri av matematikken. De kommer av at et tall er i milligram mens et annet er i gram.\n\nKapitlet bygger opp fire ferdigheter i tur: å konvertere mellom enheter, å regne dose og volum, å gå mellom molaritet og masse, og å telle osmotisk aktive partikler. Til slutt settes de sammen i en oppgave som bruker alle fire."
+  },
+  {
+   "id": "med1100-6-4-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — Enheter og konvertering (~12 min)"
+  },
+  {
+   "id": "med1100-6-4-def-enhetstrappen",
+   "type": "definition",
+   "title": "Enhetstrappen",
+   "content": "Alle enhetene i dette kapitlet henger sammen med **samme faktor: tusen**.\n\n$$1\\,\\text{g} = 1000\\,\\text{mg}, \\qquad 1\\,\\text{mg} = 1000\\,\\mu\\text{g}, \\qquad 1\\,\\text{L} = 1000\\,\\text{mL}, \\qquad 1\\,\\text{mol} = 1000\\,\\text{mmol}$$\n\n**Regelen som fjerner all tvil om retning:** går du til en **mindre** enhet, blir **tallet større**. 2 g er 2000 mg. Går du til en større enhet, blir tallet mindre. 500 mg er 0,5 g.\n\n**Den tryggeste metoden er å skrive konverteringen som en brøk som forkorter bort enheten du vil kvitte deg med:**\n\n$$2{,}5\\,\\text{g} \\cdot \\frac{1000\\,\\text{mg}}{1\\,\\text{g}} = 2500\\,\\text{mg}$$\n\nDa ser du selv at gram forkortes bort og milligram står igjen. Setter du brøken feil vei, står feil enhet igjen, og du oppdager det umiddelbart."
+  },
+  {
+   "id": "med1100-6-4-def-konsentrasjon",
+   "type": "definition",
+   "title": "Konsentrasjon",
+   "content": "Mengde stoff per volum. Mengden kan telles på to måter, og det gir to familier av konsentrasjonsenheter:\n\n**Masse per volum:** g/L, mg/mL, µg/mL. Brukes når du vet hvor mange gram stoff det er.\n\n**Stoffmengde per volum:** mol/L (skrives også M), mmol/L (skrives også mM). Brukes når du vet hvor mange molekyler — altså hvor mange mol — det er.\n\n**Broen mellom de to familiene er den molare massen.** Uten den kommer du ikke fra mM til mg/mL, og en oppgave som ber om det uten å oppgi molar masse, kan ikke løses.\n\n**Den nyttige identiteten:**\n\n$$1\\,\\text{g/L} = 1\\,\\text{mg/mL}$$\n\nBegge ledd ganges med tusen, så tallet er det samme. Å kunne dette sparer et konverteringstrinn i nesten hver eneste oppgave."
+  },
+  {
+   "id": "med1100-6-4-def-molar-masse",
+   "type": "definition",
+   "title": "Molar masse ($M$)",
+   "content": "Massen av én mol av stoffet, i **gram per mol**.\n\nDen binder sammen masse og stoffmengde:\n\n$$m = n \\cdot M$$\n\n**Den praktiske enhetsregelen:** samme tallverdi gjelder også ett hakk ned på trappen. Har et stoff molar masse 250 g/mol, så veier\n\n- 1 mol 250 g,\n- 1 mmol 250 mg,\n- 1 µmol 250 µg.\n\nGrunnen er at både stoffmengden og massen deles på tusen samtidig. Det er verdt å merke seg, fordi de fleste oppgavene i medisin opererer i mmol og mg — ikke i mol og gram."
+  },
+  {
+   "id": "med1100-6-4-th-konvertering",
+   "type": "theorem",
+   "title": "Regneprosedyre: konverter før du regner",
+   "content": "Tre trinn. De gjelder **alle** oppgavene i dette kapitlet.\n\n1. **Skriv opp alt du har fått oppgitt, med enhet.** Se etter om noe er i en annen enhetsfamilie enn resten.\n2. **Konverter til én felles enhet, og skriv konverteringen som eget ledd** — med brøken som forkorter bort den gamle enheten. Dette leddet er **poenggivende**, og det er det leddet som oftest hoppes over.\n3. **Sett inn i formelen og regn**, med enhetene skrevet med gjennom hele utregningen. Oppgi svaret med enhet og to–tre gjeldende siffer.\n\n**Kontrollen som fanger nesten alle feil:** se på enhetene i sluttsvaret. Kommer det ut mL når oppgaven spurte om mg, har du gjort noe galt — og du ser det uten å regne om igjen.\n\n**Hvorfor konverteringsleddet skal stå:** sensorveiledningene som ligger i blokk 2-settene (2022h–2025h), markerer enhetskonvertering som et eget poeng. Gjør du den i hodet og skriver bare sluttsvaret, får du ikke det poenget selv om svaret er riktig — og det er nettopp felle **E22**."
+  },
+  {
+   "id": "med1100-6-4-eks-1",
+   "type": "example",
+   "title": "Eksempel 1: Konverteringen som eget ledd",
+   "problem": "**Oppgave (blokk 2-format, 3 vekttall).** Et hetteglass inneholder **2,0 mL** av en løsning med konsentrasjonen **500 µg/mL** av et oppdiktet stoff X (konstruerte undervisningsverdier).\n\n**a)** Hvor mange mikrogram stoff X er det i hetteglasset?\n**b)** Hvor mange milligram er det?\n\nVis utregningen.",
+   "solution": "**Full-pott-besvarelse**\n\n**a) Mengde i mikrogram.**\n\n**Oppsett:** $V = 2{,}0\\,\\text{mL}$ og $c = 500\\,\\mu\\text{g/mL}$. Begge har mL i seg, så ingen konvertering er nødvendig her.\n\n$$m = c \\cdot V = 500\\,\\frac{\\mu\\text{g}}{\\text{mL}} \\cdot 2{,}0\\,\\text{mL} = 1000\\,\\mu\\text{g}$$\n\nLegg merke til at **mL forkortes bort**, og at det som står igjen, er µg. Det er slik du ser at oppsettet er riktig.\n\n**b) Samme mengde i milligram.**\n\n**Konverteringsledd:**\n\n$$1000\\,\\mu\\text{g} \\cdot \\frac{1\\,\\text{mg}}{1000\\,\\mu\\text{g}} = 1{,}0\\,\\text{mg}$$\n\n**Svar:** hetteglasset inneholder $1000\\,\\mu\\text{g}$, altså $1{,}0\\,\\text{mg}$ stoff X.\n\n**Tolkning i klartekst:** de to svarene er **den samme mengden**, bare talt i to ulike enheter. Det er verdt å si eksplisitt, fordi det er nettopp den innsikten oppgavetypen tester.\n\n---\n\n**Slik ville sensor telt momentene (3 vekttall):**\n\n- **Må-punkter:** riktig oppsett $m = c \\cdot V$ med tallene skrevet ut; riktig svar i a) med enhet.\n- **Pluss-punkter:** konverteringsleddet i b) **skrevet som eget ledd** med brøken; at enhetene forkortes synlig i utregningen.\n- **Feller:** **felle E22** — å skrive «1 mg» uten å vise hvordan man kom dit; å oppgi svaret uten enhet; å bytte retning på konverteringen og få $10^6$ mg.\n- **Merk hvor lite arbeid dette er:** to linjer. Tre poeng er ikke mye av hundre, men det er de raskeste tre poengene i settet, og de krever ingen faglig vurdering — bare disiplin med enheter."
+  },
+  {
+   "id": "med1100-6-4-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, B2-REGN — regneoppgaven i blokk 2, der utregningen skal vises.) Konverter, og vis konverteringen som eget ledd.\n\n**a)** 0,75 g til milligram.\n**b)** 250 µg til milligram.\n**c)** 1,5 L til milliliter.\n**d)** 4,0 mmol til mol.",
+    "solution": "**a)**\n\n$$0{,}75\\,\\text{g} \\cdot \\frac{1000\\,\\text{mg}}{1\\,\\text{g}} = 750\\,\\text{mg}$$\n\n**b)**\n\n$$250\\,\\mu\\text{g} \\cdot \\frac{1\\,\\text{mg}}{1000\\,\\mu\\text{g}} = 0{,}25\\,\\text{mg}$$\n\n**c)**\n\n$$1{,}5\\,\\text{L} \\cdot \\frac{1000\\,\\text{mL}}{1\\,\\text{L}} = 1500\\,\\text{mL}$$\n\n**d)**\n\n$$4{,}0\\,\\text{mmol} \\cdot \\frac{1\\,\\text{mol}}{1000\\,\\text{mmol}} = 4{,}0 \\cdot 10^{-3}\\,\\text{mol}$$\n\n**Kontroller retningen hver gang:** går du til en **mindre** enhet (g → mg, L → mL), blir **tallet større**. Går du til en større enhet (µg → mg, mmol → mol), blir tallet mindre. To av oppgavene over går hver vei.",
+    "hints": [
+     "Skriv konverteringen som en brøk, og sjekk at den gamle enheten forkortes bort.",
+     "Går du til en mindre enhet, skal tallet bli større. Stemmer det for svaret ditt?"
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) En løsning av det oppdiktede stoffet Y har konsentrasjonen **12 mg/mL** (konstruert undervisningsverdi).\n\n**a)** Hva er konsentrasjonen i g/L?\n**b)** Hvor mange milligram er det i 25 mL av løsningen?\n**c)** Hvor mange milliliter må du ta ut for å få 300 mg?\n\nVis utregningen.",
+    "solution": "**a) Konsentrasjonen i g/L.**\n\n$$12\\,\\frac{\\text{mg}}{\\text{mL}} \\cdot \\frac{1\\,\\text{g}}{1000\\,\\text{mg}} \\cdot \\frac{1000\\,\\text{mL}}{1\\,\\text{L}} = 12\\,\\text{g/L}$$\n\n**Svar: 12 g/L.** Tallet er uendret, fordi både teller og nevner ganges med tusen. Dette er identiteten $1\\,\\text{g/L} = 1\\,\\text{mg/mL}$, og den er verdt å kunne — den sparer et konverteringstrinn i nesten hver oppgave.\n\n**b) Mengde i 25 mL.**\n\n$$m = c \\cdot V = 12\\,\\frac{\\text{mg}}{\\text{mL}} \\cdot 25\\,\\text{mL} = 300\\,\\text{mg}$$\n\n**c) Volum som gir 300 mg.**\n\n$$V = \\frac{m}{c} = \\frac{300\\,\\text{mg}}{12\\,\\text{mg/mL}} = 25\\,\\text{mL}$$\n\n**Merk at b) og c) er samme regnestykke snudd.** Har du regnet det ene, kan du kontrollere det andre gratis — og hvis de to ikke stemmer overens, vet du at det ligger en feil et sted.",
+    "hints": [
+     "I a): hva skjer med tallet når både teller og nevner ganges med tusen?",
+     "I b) og c): den ene formelen er den andre snudd. Sett opp begge og se at de gir samme par av tall."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — Doseregning og volum (~13 min)"
+  },
+  {
+   "id": "med1100-6-4-def-dose-per-kilo",
+   "type": "definition",
+   "title": "Dose per kilo",
+   "content": "En dose oppgitt som **mengde per kilo kroppsvekt** — for eksempel mg/kg. Selve dosen finner du ved å gange med vekten:\n\n$$\\text{dose (mg)} = \\text{dose per kilo (mg/kg)} \\cdot \\text{kroppsvekt (kg)}$$\n\n**Enhetskontrollen:** kg forkortes bort, og mg står igjen. Får du noe annet, har du satt opp regnestykket feil.\n\n**Fellen som ligger i oppgaveteksten:** vekten må være i **kg**. Er den oppgitt i gram — noe som forekommer for forsøksdyr — må du konvertere først, og det konverteringsleddet er poenggivende.\n\n**Husk innrammingen:** dette er en enhetskonverteringsoppgave i eksamensformat. Oppgaven er «regn ut hvor mange milligram som svarer til den oppgitte dosen per kilo», ikke «hvor mye skal noen ha»."
+  },
+  {
+   "id": "med1100-6-4-def-volumregning",
+   "type": "definition",
+   "title": "Volum fra dose og konsentrasjon",
+   "content": "Når dosen er kjent i milligram, og løsningen har en kjent konsentrasjon i mg/mL, finner du volumet ved å dele:\n\n$$V = \\frac{\\text{dose (mg)}}{c\\,(\\text{mg/mL})}$$\n\n**Enhetskontrollen:** mg forkortes bort, og mL står igjen.\n\n**Bruksbetingelsen:** dosen og konsentrasjonen må ha **samme masseenhet**. Er dosen i µg og konsentrasjonen i mg/mL, må du konvertere først — og det er nettopp der de fleste feilene oppstår.\n\n**Tenkemåten som gjør formelen selvforklarende:** konsentrasjonen sier hvor mange milligram som ligger i hver milliliter. Trenger du et bestemt antall milligram, spør du: hvor mange slike milliliter må jeg ha? Det er en ren delingsoppgave."
+  },
+  {
+   "id": "med1100-6-4-th-dose",
+   "type": "theorem",
+   "title": "Regneprosedyre: fra dose per kilo til volum",
+   "content": "Fire trinn.\n\n1. **Sjekk enhetene på alt.** Vekt i kg? Dose per kilo i mg/kg? Konsentrasjon i mg/mL? Konverter det som ikke stemmer, og **skriv konverteringen som eget ledd**.\n2. **Regn dosen:**\n   $$\\text{dose} = \\text{dose per kilo} \\cdot \\text{vekt}$$\n3. **Regn volumet:**\n   $$V = \\frac{\\text{dose}}{c}$$\n4. **Oppgi svaret med enhet**, og med to–tre gjeldende siffer.\n\n**Kontrollregning:** gang volumet du fant med konsentrasjonen. Får du dosen tilbake, stemmer regnestykket. Det tar ti sekunder og fanger nesten enhver feil.\n\n**Merk at dette er to regnestykker, ikke ett.** Del dem tydelig, og oppgi mellomsvaret (dosen i mg) som et eget ledd med enhet. Det er et moment i seg selv, og du får det selv om det siste trinnet skulle bli feil — sensor trekker ikke for følgefeil."
+  },
+  {
+   "id": "med1100-6-4-eks-2",
+   "type": "example",
+   "title": "Eksempel 2: Dose og volum, ført med alle ledd",
+   "problem": "**Oppgave (blokk 2-format, 4 vekttall).** I et oppdiktet regneeksempel skal det oppdiktede stoffet X gis i en mengde svarende til **4,0 mg per kilo kroppsvekt**. Personen i eksempelet veier **70 kg**. Løsningen som er tilgjengelig, har konsentrasjonen **20 mg/mL** (alle verdier er konstruerte undervisningsverdier).\n\n**a)** Hvor mange milligram svarer dosen til?\n**b)** Hvor mange milliliter av løsningen svarer det til?\n\nVis utregningen.",
+   "solution": "**Full-pott-besvarelse**\n\n**Enhetssjekk først:** vekten er i kg, dosen per kilo er i mg/kg, og konsentrasjonen er i mg/mL. Alt er i samme enhetsfamilie, så ingen konvertering er nødvendig. **Det er verdt å skrive at du har sjekket** — det viser at leddet ikke er glemt, men vurdert.\n\n**a) Dosen i milligram.**\n\n$$\\text{dose} = 4{,}0\\,\\frac{\\text{mg}}{\\text{kg}} \\cdot 70\\,\\text{kg} = 280\\,\\text{mg}$$\n\nLegg merke til at **kg forkortes bort**, og at mg står igjen.\n\n**b) Volumet i milliliter.**\n\n$$V = \\frac{280\\,\\text{mg}}{20\\,\\frac{\\text{mg}}{\\text{mL}}} = 14\\,\\text{mL}$$\n\nHer forkortes **mg** bort, og mL står igjen.\n\n**Kontrollregning:**\n\n$$14\\,\\text{mL} \\cdot 20\\,\\frac{\\text{mg}}{\\text{mL}} = 280\\,\\text{mg} \\quad \\checkmark$$\n\n**Svar:** dosen svarer til **280 mg**, som er **14 mL** av løsningen.\n\n**Tolkning i klartekst:** de to svarene beskriver den samme mengden stoff — én gang talt i masse, én gang talt i volum av den bestemte løsningen. Hadde løsningen vært dobbelt så konsentrert, ville massen vært den samme, men volumet halvert.\n\n---\n\n**Slik ville sensor telt momentene (4 vekttall):**\n\n- **Må-punkter:** riktig dose i mg **med enhet**; riktig volum i mL **med enhet**; begge utregningene vist.\n- **Pluss-punkter:** enhetssjekken nevnt eksplisitt; enhetene ført med gjennom utregningen slik at forkortingen er synlig; kontrollregningen.\n- **Feller:** **felle E22** — å oppgi 14 mL uten å vise de to trinnene; å hoppe over mellomsvaret 280 mg og dermed miste et moment; å blande masseenheter, for eksempel å regne med dosen i µg og konsentrasjonen i mg/mL.\n- **Merk hva som gir uttelling selv ved feil:** hadde deloppgave b) blitt regnet galt, ville a) fortsatt stått. Sensorveiledningene som ligger i blokk 2-settene (2022h–2025h), sier eksplisitt at det ikke skal trekkes for følgefeil — og det er nettopp derfor mellomsvar skal skrives ut."
+  },
+  {
+   "id": "med1100-6-4-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) I et oppdiktet regneeksempel skal det oppdiktede stoffet Z gis i en mengde svarende til **15 mg per kilo kroppsvekt**. Personen i eksempelet veier **62 kg**, og løsningen har konsentrasjonen **100 mg/mL** (konstruerte undervisningsverdier).\n\n**a)** Regn ut mengden i milligram.\n**b)** Regn ut volumet i milliliter.\n**c)** Kontroller svaret ditt, og skriv kontrollregningen.",
+    "solution": "**Enhetssjekk:** vekt i kg, dose per kilo i mg/kg, konsentrasjon i mg/mL — alt i samme enhetsfamilie. Ingen konvertering nødvendig.\n\n**a) Mengden i milligram.**\n\n$$15\\,\\frac{\\text{mg}}{\\text{kg}} \\cdot 62\\,\\text{kg} = 930\\,\\text{mg}$$\n\n**b) Volumet.**\n\n$$V = \\frac{930\\,\\text{mg}}{100\\,\\frac{\\text{mg}}{\\text{mL}}} = 9{,}3\\,\\text{mL}$$\n\n**c) Kontrollregning.**\n\n$$9{,}3\\,\\text{mL} \\cdot 100\\,\\frac{\\text{mg}}{\\text{mL}} = 930\\,\\text{mg} \\quad \\checkmark$$\n\nKontrollen gir tilbake mengden fra deloppgave a), så regnestykket stemmer.\n\n**Svar:** 930 mg, som svarer til 9,3 mL av løsningen.\n\n**Merk at svaret i b) ikke er et helt tall.** Det er helt normalt, og du skal ikke runde til 9 mL bare fordi det ser penere ut. Oppgi to gjeldende siffer, slik som her.",
+    "hints": [
+     "Regn dosen først, som eget ledd med enhet — så volumet.",
+     "Sjekk at kg forkortes bort i første trinn og mg i andre.",
+     "Kontrollen er å gange volumet med konsentrasjonen igjen."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) Et oppdiktet forsøksdyr veier **250 g**. I regneeksempelet skal det gis en mengde av det oppdiktede stoffet W svarende til **8,0 mg per kilo kroppsvekt**, fra en løsning med konsentrasjonen **500 µg/mL** (konstruerte undervisningsverdier).\n\n**a)** Hvor mange milligram svarer dosen til? Vis konverteringen av vekten som eget ledd.\n**b)** Hvor mange milliliter svarer det til? Vis konverteringen av konsentrasjonen som eget ledd.",
+    "solution": "**a) Mengden i milligram.**\n\n**Konverteringsledd — vekten må være i kg:**\n\n$$250\\,\\text{g} \\cdot \\frac{1\\,\\text{kg}}{1000\\,\\text{g}} = 0{,}250\\,\\text{kg}$$\n\n**Utregning:**\n\n$$8{,}0\\,\\frac{\\text{mg}}{\\text{kg}} \\cdot 0{,}250\\,\\text{kg} = 2{,}0\\,\\text{mg}$$\n\n**b) Volumet.**\n\n**Konverteringsledd — konsentrasjonen må ha samme masseenhet som dosen:**\n\n$$500\\,\\frac{\\mu\\text{g}}{\\text{mL}} \\cdot \\frac{1\\,\\text{mg}}{1000\\,\\mu\\text{g}} = 0{,}500\\,\\frac{\\text{mg}}{\\text{mL}}$$\n\n**Utregning:**\n\n$$V = \\frac{2{,}0\\,\\text{mg}}{0{,}500\\,\\frac{\\text{mg}}{\\text{mL}}} = 4{,}0\\,\\text{mL}$$\n\n**Kontrollregning:**\n\n$$4{,}0\\,\\text{mL} \\cdot 0{,}500\\,\\frac{\\text{mg}}{\\text{mL}} = 2{,}0\\,\\text{mg} \\quad \\checkmark$$\n\n**Svar:** 2,0 mg, som svarer til 4,0 mL av løsningen.\n\n**Poenget med denne oppgaven:** den har **to** konverteringsledd, ett i hver deloppgave, og begge er poenggivende for seg. Hopper du over dem, mister du to momenter selv om sluttsvaret skulle bli riktig. Og gjør du konverteringen feil vei ett av stedene, blir svaret feil med en faktor tusen — en feil som er lett å oppdage hvis du fører enhetene med, og nesten umulig å oppdage hvis du ikke gjør det.",
+    "hints": [
+     "To ting må konverteres i denne oppgaven, ikke bare ett. Finn begge før du regner.",
+     "Vekten er oppgitt i gram, men dosen er per kilo.",
+     "Konsentrasjonen er i µg/mL, men dosen kommer ut i mg. De må møtes i samme enhet."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — Fra molaritet til masse (~12 min)"
+  },
+  {
+   "id": "med1100-6-4-def-molaritet",
+   "type": "definition",
+   "title": "Molaritet",
+   "content": "Konsentrasjon oppgitt som **stoffmengde per volum**:\n\n$$1\\,\\text{M} = 1\\,\\text{mol/L}, \\qquad 1\\,\\text{mM} = 1\\,\\text{mmol/L} = 10^{-3}\\,\\text{M}$$\n\n**Hvorfor molaritet brukes ved siden av masse per volum:** molaritet teller **antall molekyler**, ikke masse. To løsninger med samme molaritet inneholder like mange oppløste molekyler per liter, selv om molekylene har helt ulik vekt — og det er antallet som avgjør kjemien og osmosen.\n\nBlodprøvesvar i Norge oppgis derfor stort sett i mmol/L: det er antallet som er fysiologisk interessant."
+  },
+  {
+   "id": "med1100-6-4-def-mm-til-mg-ml",
+   "type": "definition",
+   "title": "Fra molaritet til masse per volum",
+   "content": "Broen mellom de to konsentrasjonsfamiliene går alltid gjennom den molare massen:\n\n$$c\\,(\\text{g/L}) = c\\,(\\text{mol/L}) \\cdot M\\,(\\text{g/mol})$$\n\n**Enhetskontrollen:** mol forkortes bort, og g/L står igjen.\n\n**Den praktiske varianten**, som er den du oftest trenger:\n\n$$c\\,(\\text{mM}) \\cdot M\\,(\\text{g/mol}) = c\\,(\\text{mg/L})$$\n\nOg videre, siden $1\\,\\text{g/L} = 1\\,\\text{mg/mL}$:\n\n$$c\\,(\\text{mM}) \\cdot M\\,(\\text{g/mol}) \\;/\\; 1000 = c\\,(\\text{mg/mL})$$\n\n**Merk hvilken vei du går:** skal du **fra** molaritet **til** masse, **ganger** du med molar masse. Skal du andre veien, **deler** du. Feil retning gir et svar som er feil med kvadratet av den molare massen, og det er alltid åpenbart galt — bruk størrelsesordenen som kontroll."
+  },
+  {
+   "id": "med1100-6-4-eks-3",
+   "type": "example",
+   "title": "Eksempel 3: Fra mM til mg/mL",
+   "problem": "**Oppgave (blokk 2-format, 4 vekttall).** En løsning av et oppdiktet stoff har konsentrasjonen **25 mM**. Stoffet har molar masse **250 g/mol** (konstruerte undervisningsverdier).\n\n**a)** Hva er konsentrasjonen i g/L?\n**b)** Hva er den i mg/mL?\n**c)** Hvor mange milligram er det i 40 mL av løsningen?\n\nVis utregningen.",
+   "solution": "**Full-pott-besvarelse**\n\n**a) Konsentrasjonen i g/L.**\n\n**Konverteringsledd — mM til mol/L:**\n\n$$25\\,\\text{mM} = 25\\,\\text{mmol/L} \\cdot \\frac{1\\,\\text{mol}}{1000\\,\\text{mmol}} = 0{,}025\\,\\text{mol/L}$$\n\n**Utregning:**\n\n$$c = 0{,}025\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 250\\,\\frac{\\text{g}}{\\text{mol}} = 6{,}25\\,\\text{g/L}$$\n\nLegg merke til at **mol forkortes bort**, og at g/L står igjen.\n\n**b) Konsentrasjonen i mg/mL.**\n\n$$6{,}25\\,\\text{g/L} = 6{,}25\\,\\text{mg/mL}$$\n\nTallet er uendret, fordi $1\\,\\text{g/L} = 1\\,\\text{mg/mL}$ — både teller og nevner ganges med tusen.\n\n**c) Mengde i 40 mL.**\n\n$$m = c \\cdot V = 6{,}25\\,\\frac{\\text{mg}}{\\text{mL}} \\cdot 40\\,\\text{mL} = 250\\,\\text{mg}$$\n\n**Kontroll av størrelsesordenen:** 40 mL er 0,040 L, og stoffmengden der er $0{,}025 \\cdot 0{,}040 = 1{,}0 \\cdot 10^{-3}$ mol, altså 1,0 mmol. Med molar masse 250 g/mol veier 1,0 mmol nettopp 250 mg. $\\checkmark$\n\n**Svar:** 6,25 g/L, som er 6,25 mg/mL, og 40 mL inneholder 250 mg.\n\n---\n\n**Slik ville sensor telt momentene (4 vekttall):**\n\n- **Må-punkter:** konverteringen fra mM til mol/L **som eget ledd**; riktig bruk av molar masse; riktige svar med enhet i alle tre deloppgavene.\n- **Pluss-punkter:** at identiteten $1\\,\\text{g/L} = 1\\,\\text{mg/mL}$ brukes og forklares; kontrollen av størrelsesordenen via stoffmengden.\n- **Feller:** å **dele** på molar masse i stedet for å gange — sjekk retningen ved å se om mol forkortes bort; å glemme faktoren tusen mellom mM og M; **felle E22** — å hoppe over konverteringsleddet.\n- **Merk at kontrollen i c) er en helt uavhengig vei til samme svar.** Den går via stoffmengden i stedet for via konsentrasjonen, og nettopp derfor fanger den feil som en gjentakelse av samme regnestykke ikke ville fanget."
+  },
+  {
+   "id": "med1100-6-4-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) En løsning av et oppdiktet stoff har konsentrasjonen **8,0 mM**, og stoffet har molar masse **125 g/mol** (konstruerte undervisningsverdier).\n\n**a)** Hva er konsentrasjonen i mg/mL?\n**b)** Hvor mange milligram er det i 15 mL?\n**c)** Hvor mange millimol er det i de samme 15 mL? Regn det ut på en annen måte enn i b), og kontroller at de to svarene er forenlige.",
+    "solution": "**a) Konsentrasjonen i mg/mL.**\n\n$$8{,}0\\,\\text{mM} = 0{,}0080\\,\\text{mol/L}$$\n\n$$c = 0{,}0080\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 125\\,\\frac{\\text{g}}{\\text{mol}} = 1{,}0\\,\\text{g/L} = 1{,}0\\,\\text{mg/mL}$$\n\n**b) Mengde i 15 mL.**\n\n$$m = 1{,}0\\,\\frac{\\text{mg}}{\\text{mL}} \\cdot 15\\,\\text{mL} = 15\\,\\text{mg}$$\n\n**c) Stoffmengde i de samme 15 mL — regnet via molariteten.**\n\n$$n = c \\cdot V = 8{,}0\\,\\frac{\\text{mmol}}{\\text{L}} \\cdot 0{,}015\\,\\text{L} = 0{,}12\\,\\text{mmol}$$\n\n**Kontroll av at de to svarene er forenlige:**\n\n$$0{,}12\\,\\text{mmol} \\cdot 125\\,\\frac{\\text{mg}}{\\text{mmol}} = 15\\,\\text{mg} \\quad \\checkmark$$\n\nDe to veiene gir samme masse, så regnestykkene henger sammen.\n\n**Merk enhetsregelen som brukes i kontrollen:** molar masse 125 g/mol betyr også 125 **mg per mmol**. Både stoffmengden og massen deles på tusen samtidig, så tallverdien er den samme. Det er en av de mest arbeidsbesparende reglene i hele kapitlet.",
+    "hints": [
+     "Konverter mM til mol/L før du ganger med molar masse.",
+     "I c): regn stoffmengden direkte fra molariteten og volumet — ikke via massen.",
+     "Molar masse i g/mol er samme tall som mg/mmol. Det gjør kontrollen enkel."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) Du har en stamløsning av et oppdiktet stoff med konsentrasjonen **50 mg/mL**, og skal lage 500 mL av en løsning som inneholder til sammen **250 mg** av stoffet (konstruerte undervisningsverdier).\n\n**a)** Hvor mange milliliter av stamløsningen trenger du?\n**b)** Hva blir konsentrasjonen i den ferdige løsningen, i mg/mL?\n**c)** Vis at svaret i b) også følger av fortynningslikningen $c_1 V_1 = c_2 V_2$.",
+    "solution": "**a) Volum av stamløsningen.**\n\n$$V_1 = \\frac{m}{c_1} = \\frac{250\\,\\text{mg}}{50\\,\\frac{\\text{mg}}{\\text{mL}}} = 5{,}0\\,\\text{mL}$$\n\n**b) Konsentrasjonen i den ferdige løsningen.**\n\n$$c_2 = \\frac{m}{V_2} = \\frac{250\\,\\text{mg}}{500\\,\\text{mL}} = 0{,}50\\,\\text{mg/mL}$$\n\n**c) Samme svar fra fortynningslikningen.**\n\n$$c_1 V_1 = c_2 V_2$$\n\n$$50\\,\\frac{\\text{mg}}{\\text{mL}} \\cdot 5{,}0\\,\\text{mL} = c_2 \\cdot 500\\,\\text{mL}$$\n\n$$250\\,\\text{mg} = c_2 \\cdot 500\\,\\text{mL} \\;\\Longrightarrow\\; c_2 = 0{,}50\\,\\text{mg/mL} \\quad \\checkmark$$\n\n**Hva fortynningslikningen egentlig sier:** venstre og høyre side er **samme masse** — 250 mg — bare uttrykt gjennom to ulike par av konsentrasjon og volum. Stoffmengden er uendret; det er bare volumet som har økt.\n\n**Bruksbetingelsen** er nettopp dette: likningen gjelder når **ingenting tilsettes eller fjernes** av selve stoffet. Blandes to løsninger som begge inneholder stoffet, må du legge sammen massene i stedet.",
+    "hints": [
+     "I a): hvor mange milliliter må til for å få 250 mg, når hver milliliter inneholder 50 mg?",
+     "I b): den samme massen er nå fordelt på et større volum.",
+     "I c): begge sider av likningen er den samme massen. Regn ut begge og se."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — Osmolaritet (~14 min)"
+  },
+  {
+   "id": "med1100-6-4-lokke4-intro",
+   "type": "text",
+   "content": "Til slutt en regning som ligner de andre, men som har et ekstra trinn: du må telle **partikler**, ikke molekyler. Det er dette ene trinnet som gjør osmolaritetsoppgaven til en fast felle, og som gjør den lett når du først har sett den."
+  },
+  {
+   "id": "med1100-6-4-def-osmolaritet",
+   "type": "definition",
+   "title": "Osmolaritet",
+   "content": "Konsentrasjonen av **osmotisk aktive partikler** per liter løsning, målt i **osmol/L**.\n\n**Hvorfor partikler og ikke molekyler:** osmose drives av **antall** oppløste partikler, ikke av hva slags partikler de er, og ikke av hvor mye de veier. Et natriumion og et glukosemolekyl teller like mye osmotisk, selv om de er svært ulike.\n\n$$\\text{osmolaritet} = c \\cdot (\\text{antall partikler per formelenhet})$$\n\n**Bruksbetingelsen:** formelen forutsetter at saltet løses fullstendig opp i ionene sine. Det er den forutsetningen oppgavene i blokk 2 regner med.\n\n**Ved en blanding legger du sammen bidragene fra hvert stoff.** Hvert stoff bidrar med sin egen konsentrasjon ganget med sitt eget partikkeltall."
+  },
+  {
+   "id": "med1100-6-4-def-partikkeltall",
+   "type": "definition",
+   "title": "Osmotisk aktive partikler per formelenhet",
+   "content": "Hvor mange løse partikler ett molekyl eller én formelenhet gir når det løses i vann:\n\n| Stoff | Partikler | Hvorfor |\n|---|---|---|\n| **glukose** | **1** | løses ikke opp i ioner — molekylet blir hele |\n| **urea** | **1** | samme grunn |\n| **NaCl** | **2** | gir Na⁺ og Cl⁻ |\n| **KCl** | **2** | gir K⁺ og Cl⁻ |\n| **CaCl₂** | **3** | gir Ca²⁺ og **to** Cl⁻ |\n\n**Regelen er enkel: tell atomene i formelen som blir til frie ioner.** CaCl₂ har ett kalsium og to klorider, altså tre partikler.\n\n**Den faste fellen** er å glemme faktoren for saltene og regne osmolariteten lik molariteten. Da får du halvparten for NaCl og en tredel for CaCl₂. Glukose er derimot **den ene** der de to tallene faktisk er like — og nettopp derfor er glukose det stoffet som lurer flest til å tro at regelen ikke finnes."
+  },
+  {
+   "id": "med1100-6-4-th-osmolaritet",
+   "type": "theorem",
+   "title": "Regneprosedyre: regn ut osmolariteten",
+   "content": "Fire trinn.\n\n1. **Finn molariteten** til hvert stoff. Er konsentrasjonen oppgitt i gram per liter, går veien via molar masse:\n   $$c\\,(\\text{mol/L}) = \\frac{c\\,(\\text{g/L})}{M\\,(\\text{g/mol})}$$\n2. **Finn partikkeltallet** for hvert stoff — 1 for glukose og urea, 2 for NaCl og KCl, 3 for CaCl₂.\n3. **Gang molaritet med partikkeltall** for hvert stoff.\n4. **Legg sammen bidragene**, og oppgi svaret i **osmol/L** med to–tre gjeldende siffer.\n\n**Kontroll av størrelsesordenen:** en løsning som skal ligne kroppens egne væsker, ligger rundt 0,3 osmol/L. Får du 0,03 eller 3, har du sannsynligvis bommet på en faktor ti et sted — og da er det verdt å se på konverteringene før du går videre.\n\n**Merk enheten:** osmol/L, ikke mol/L. Enheten forteller at du har telt partikler og ikke formelenheter, og å skrive den riktig er et moment i seg selv."
+  },
+  {
+   "id": "med1100-6-4-eks-4",
+   "type": "example",
+   "title": "Eksempel 4: Full oppgave på eksamensnivå",
+   "problem": "**Oppgave (blokk 2, 7 vekttall).** Molare masser: NaCl 58,44 g/mol, glukose 180,16 g/mol.\n\n**a)** En natriumkloridløsning inneholder **9,0 g NaCl per liter**. Regn ut molariteten og osmolariteten. Vis utregningen.\n**b)** En glukoseløsning inneholder **50 g glukose per liter**. Regn ut molariteten og osmolariteten.\n**c)** Hva blir osmolariteten i en løsning som inneholder både **0,10 mol/L NaCl** og **0,050 mol/L glukose**?\n**d)** Forklar hvorfor forholdet mellom molaritet og osmolaritet er forskjellig i a) og b).",
+   "solution": "**Full-pott-besvarelse**\n\n**a) Natriumkloridløsningen.**\n\n**Molaritet:**\n\n$$c = \\frac{9{,}0\\,\\text{g/L}}{58{,}44\\,\\text{g/mol}} = 0{,}154\\,\\text{mol/L}$$\n\n**Osmolaritet** — NaCl gir **to** partikler, Na⁺ og Cl⁻:\n\n$$0{,}154\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 2 = 0{,}308 \\approx 0{,}31\\,\\text{osmol/L}$$\n\n**b) Glukoseløsningen.**\n\n**Molaritet:**\n\n$$c = \\frac{50\\,\\text{g/L}}{180{,}16\\,\\text{g/mol}} = 0{,}278\\,\\text{mol/L}$$\n\n**Osmolaritet** — glukose løses **ikke** opp i ioner, så partikkeltallet er **1**:\n\n$$0{,}278\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 1 = 0{,}278 \\approx 0{,}28\\,\\text{osmol/L}$$\n\n— naturlig pausepunkt —\n\n**c) Blandingen.**\n\nHvert stoff bidrar med sin egen konsentrasjon ganget med sitt eget partikkeltall:\n\n$$\\text{NaCl: } 0{,}10\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 2 = 0{,}20\\,\\text{osmol/L}$$\n\n$$\\text{glukose: } 0{,}050\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 1 = 0{,}050\\,\\text{osmol/L}$$\n\n$$\\text{sum} = 0{,}20 + 0{,}050 = 0{,}25\\,\\text{osmol/L}$$\n\n**d) Hvorfor forholdet er forskjellig.**\n\nOsmolariteten teller **partikler**, ikke formelenheter.\n\n**NaCl er et salt** og løses fullstendig opp i to ioner, Na⁺ og Cl⁻. Hver formelenhet gir altså to osmotisk aktive partikler, og osmolariteten blir **dobbelt** så høy som molariteten.\n\n**Glukose er ikke et salt.** Molekylet løses opp i vann, men det spaltes ikke i ioner — det blir værende hele. Hvert molekyl gir én partikkel, og osmolariteten er **lik** molariteten.\n\n**Hvorfor det spiller noen rolle:** osmose drives av antall partikler, uansett hva partiklene er. To løsninger med samme molaritet, men ulikt partikkeltall, har derfor helt forskjellig osmotisk effekt.\n\n**Kontroll av størrelsesordenen:** svarene i a) og b) ligger begge rundt 0,3 osmol/L, altså i samme område som kroppens egne væsker. Det er en rimelig størrelsesorden, og det bekrefter at ingen faktor på ti har gått tapt underveis.\n\n---\n\n**Slik ville sensor telt momentene (7 vekttall):**\n\n- **Må-punkter:** riktig molaritet i a) og b) med utregning; faktor 2 for NaCl og faktor 1 for glukose; riktig sum i c); alle svar med enheten **osmol/L**. Til sammen omtrent fem av de sju poengene.\n- **Pluss-punkter:** forklaringen i d) om at osmolaritet teller partikler; at bidragene i en blanding legges sammen hver for seg; kontrollen av størrelsesordenen.\n- **Feller:** å glemme faktor 2 for NaCl — den vanligste enkeltfeilen i denne oppgavetypen; å gange glukose med 2 «for sikkerhets skyld»; å oppgi svaret i mol/L i stedet for osmol/L; **felle E22** — sluttsvar uten vist utregning.\n- **Tidsbruk:** 7 poeng av 100 over seks timer svarer til rundt 25 minutter. Utregningen over tar seks–åtte minutter for hånd. Differansen er lesing av oppgaveteksten og gjennomlesing — og på en regneoppgave er gjennomlesingen særlig verdt tiden, fordi enhetsfeil er lette å se når man leser med friske øyne.\n\n---\n\n**Til sammenligning: en besvarelse som er bestått på marginen**\n\n> «a) 9 delt på 58,44 er 0,154 mol/L. Osmolaritet 0,31.\n> b) 50 delt på 180,16 er 0,278 mol/L. Osmolaritet 0,278.\n> c) 0,25.\n> d) Fordi NaCl blir til to ioner og glukose ikke gjør det.»\n\n**Hva som er bra nok her:** alle fire tallene er riktige, faktoren 2 er brukt riktig på NaCl og ikke på glukose, og forklaringen i d) treffer kjernen. Det er nok til uttelling på flertallet av må-punktene, og besvarelsen er over streken.\n\n**Hva som mangler:** enhetene, nesten overalt. Osmolaritetene står uten osmol/L, og i c) står bare et tall uten noen utregning bak. Enheter og vist utregning er poenggivende for seg i blokk 2, så denne besvarelsen lander rundt fire–fem av sju: bestått på marginen. Det som mangler, ville tatt tretti sekunder å skrive."
+  },
+  {
+   "id": "med1100-6-4-advarsel-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "De tre dyreste i dette kapitlet:\n\n- **Felle E22 — sluttsvar uten vist utregning, eller glemt enhetskonvertering.** I blokk 2 er **enhetskonvertering poenggivende** for seg. Gjør du omregningen i hodet og skriver bare svaret, mister du et moment du allerede hadde gjort deg fortjent til. Skriv konverteringen som en egen linje, hver gang.\n- **Å glemme faktoren for antall partikler i osmolaritetsregning.** NaCl gir **2**, CaCl₂ gir **3**, glukose gir **1**. Den vanligste varianten er å regne osmolariteten lik molariteten fordi det stemte sist — og sist var stoffet glukose.\n- **Å blande masseenheter i samme regnestykke.** Dose i µg og konsentrasjon i mg/mL gir et svar som er tusen ganger feil. Kuren er å føre enhetene med gjennom hele utregningen, slik at du **ser** at de forkortes riktig.\n\nTo til, uten egen kode:\n\n- **Å gange når du skulle delt med molar masse.** Skal du **fra** molaritet **til** masse, ganger du. Kontrollen er enhetene: mol skal forkortes bort.\n- **Å runde for tidlig.** Rund først i sluttsvaret, og oppgi to–tre gjeldende siffer. Runder du underveis, forplanter avviket seg — og på en oppgave med tre ledd kan sluttsvaret bomme merkbart."
+  },
+  {
+   "id": "med1100-6-4-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) Molar masse for KCl er 74,55 g/mol.\n\n**a)** En løsning inneholder **7,45 g KCl per liter**. Regn ut molariteten.\n**b)** Regn ut osmolariteten. Begrunn faktoren du bruker.\n**c)** Hva ville osmolariteten vært om det samme stoffmengdenivået i stedet var CaCl₂? Begrunn.",
+    "solution": "**a) Molariteten.**\n\n$$c = \\frac{7{,}45\\,\\text{g/L}}{74{,}55\\,\\text{g/mol}} = 0{,}0999 \\approx 0{,}100\\,\\text{mol/L}$$\n\n**b) Osmolariteten.**\n\nKCl er et salt og løses fullstendig opp i **to** ioner, K⁺ og Cl⁻. Partikkeltallet er derfor 2:\n\n$$0{,}100\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 2 = 0{,}200\\,\\text{osmol/L}$$\n\n**c) Med CaCl₂ i stedet.**\n\nCaCl₂ gir **tre** partikler: ett Ca²⁺ og **to** Cl⁻. Ved samme molaritet blir osmolariteten derfor:\n\n$$0{,}100\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 3 = 0{,}300\\,\\text{osmol/L}$$\n\n**Begrunnelsen:** osmolariteten teller partikler, ikke formelenheter. Antallet finner du ved å telle hvilke ioner formelen faller fra hverandre i — og senkeskriften **2** i CaCl₂ betyr to kloridioner, ikke ett.\n\n**Merk hvor stor forskjellen er:** samme molaritet, halvannen gang så høy osmolaritet. Det er nettopp derfor partikkeltallet må telles og ikke antas.",
+    "hints": [
+     "Del masse per liter på molar masse for å få molariteten.",
+     "Hvor mange ioner faller KCl fra hverandre i? Og CaCl₂?",
+     "Senkeskriften i formelen forteller hvor mange av hvert ion du får."
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(B2-REGN — regneoppgaven i blokk 2.) En blandet løsning inneholder **0,080 mol/L NaCl**, **0,020 mol/L KCl** og **0,030 mol/L glukose**.\n\n**a)** Regn ut osmolariteten. Vis bidraget fra hvert stoff for seg.\n**b)** Hvilket av de tre stoffene bidrar mest, og hvorfor?\n**c)** Kontroller om størrelsesordenen er rimelig sammenlignet med kroppens egne væsker.",
+    "solution": "**a) Osmolariteten.**\n\n**NaCl** — 2 partikler:\n\n$$0{,}080 \\cdot 2 = 0{,}160\\,\\text{osmol/L}$$\n\n**KCl** — 2 partikler:\n\n$$0{,}020 \\cdot 2 = 0{,}040\\,\\text{osmol/L}$$\n\n**Glukose** — 1 partikkel:\n\n$$0{,}030 \\cdot 1 = 0{,}030\\,\\text{osmol/L}$$\n\n**Sum:**\n\n$$0{,}160 + 0{,}040 + 0{,}030 = 0{,}230\\,\\text{osmol/L}$$\n\n**b) NaCl bidrar mest**, med 0,160 av 0,230 osmol/L — altså rundt 70 prosent.\n\n**Hvorfor:** to grunner virker sammen. NaCl har den **høyeste molariteten** av de tre, og det har i tillegg **partikkeltall 2**, slik at bidraget dobles. Glukose har nesten samme molaritet som KCl, men bidrar bare halvparten så mye, fordi det ikke spaltes i ioner.\n\n**c) Kontroll av størrelsesordenen.**\n\n0,230 osmol/L er i samme område som kroppens egne væsker, som ligger rundt 0,3 osmol/L. Størrelsesordenen er altså rimelig, og det bekrefter at ingen faktor på ti eller tusen har gått tapt i konverteringene.\n\nHadde svaret kommet ut på 0,023 eller 2,3, ville det vært et tydelig varsel om en enhetsfeil — og da er det raskere å gå tilbake og se på konverteringene enn å regne hele oppgaven om igjen.",
+    "hints": [
+     "Regn bidraget fra hvert stoff for seg før du summerer — det er også slik sensor teller momentene.",
+     "Glukose har et annet partikkeltall enn de to saltene.",
+     "I c): hvilken størrelsesorden ligger kroppens egne væsker i?"
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "med1100-6-4-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, B2-REGN — regneoppgaven i blokk 2.) Et oppdiktet regneeksempel: en løsning skal inneholde det oppdiktede stoffet Q i konsentrasjonen **2,0 mM**. Stoffet har molar masse **300 g/mol**. Du har en stamløsning på **15 mg/mL** (konstruerte undervisningsverdier).\n\n**a)** Hva er målkonsentrasjonen i mg/mL?\n**b)** Hvor mange milliliter stamløsning trengs for å lage **250 mL** av den ferdige løsningen? Vis utregningen på to måter.\n**c)** Løsningen skal i tillegg inneholde 0,050 mol/L NaCl. Hva blir det samlede bidraget til osmolariteten fra stoff Q og NaCl til sammen?",
+    "solution": "**a) Målkonsentrasjonen i mg/mL.**\n\n**Konverteringsledd:**\n\n$$2{,}0\\,\\text{mM} = 0{,}0020\\,\\text{mol/L}$$\n\n**Utregning:**\n\n$$c = 0{,}0020\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 300\\,\\frac{\\text{g}}{\\text{mol}} = 0{,}60\\,\\text{g/L} = 0{,}60\\,\\text{mg/mL}$$\n\n**b) Volum stamløsning — to veier til samme svar.**\n\n**Vei 1, via massen:** den ferdige løsningen skal inneholde\n\n$$m = 0{,}60\\,\\frac{\\text{mg}}{\\text{mL}} \\cdot 250\\,\\text{mL} = 150\\,\\text{mg}$$\n\nog det volumet stamløsning som inneholder 150 mg, er\n\n$$V_1 = \\frac{150\\,\\text{mg}}{15\\,\\frac{\\text{mg}}{\\text{mL}}} = 10\\,\\text{mL}$$\n\n**Vei 2, via fortynningslikningen:**\n\n$$c_1 V_1 = c_2 V_2 \\;\\Longrightarrow\\; V_1 = \\frac{c_2 V_2}{c_1} = \\frac{0{,}60\\,\\frac{\\text{mg}}{\\text{mL}} \\cdot 250\\,\\text{mL}}{15\\,\\frac{\\text{mg}}{\\text{mL}}} = 10\\,\\text{mL} \\quad \\checkmark$$\n\n**Svar:** 10 mL stamløsning, fylt opp til 250 mL.\n\n**Merk at de to veiene ikke er samme regnestykke skrevet to ganger.** Vei 1 går via massen som mellomsvar; vei 2 hopper over den. Nettopp derfor fanger de opp ulike feil — en feil i mellomsvaret ville gitt to ulike resultater.\n\n**c) Samlet osmolaritet fra de to stoffene.**\n\n**Stoff Q** — det er ikke oppgitt at det spaltes i ioner, så partikkeltallet er **1**:\n\n$$0{,}0020\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 1 = 0{,}0020\\,\\text{osmol/L}$$\n\n**NaCl** — 2 partikler:\n\n$$0{,}050\\,\\frac{\\text{mol}}{\\text{L}} \\cdot 2 = 0{,}100\\,\\text{osmol/L}$$\n\n**Sum:**\n\n$$0{,}0020 + 0{,}100 = 0{,}102\\,\\text{osmol/L}$$\n\n**Tolkning i klartekst:** stoff Q bidrar med under **2 prosent** av den samlede osmolariteten, til tross for at det er stoffet løsningen er laget for. Grunnen er at 2,0 mM er en svært lav konsentrasjon sammenlignet med 0,050 mol/L, altså 50 mM — og at NaCl i tillegg teller dobbelt.\n\n**Poenget med deloppgave c):** osmolariteten domineres nesten alltid av de stoffene som finnes i **høy** konsentrasjon og som **spaltes i ioner**. Et stoff kan være løsningens hele hensikt og likevel være osmotisk ubetydelig.",
+    "hints": [
+     "I a): konverter mM til mol/L, gang med molar masse, og bruk at 1 g/L = 1 mg/mL.",
+     "I b): den ene veien går via massen i den ferdige løsningen, den andre rett gjennom fortynningslikningen.",
+     "I c): hvilket av de to stoffene spaltes i ioner, og hvilket gjør det ikke?"
+    ]
+   }
+  },
+  {
+   "id": "med1100-6-4-begrepsbank-intro",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "med1100-6-4-bb-fortynning",
+   "type": "definition",
+   "title": "Fortynningslikningen",
+   "content": "$$c_1 V_1 = c_2 V_2$$\n\nSammenhengen mellom konsentrasjon og volum før og etter en fortynning.\n\n**Hva den egentlig sier:** begge sider er den **samme massen** stoff, bare uttrykt gjennom to ulike par av konsentrasjon og volum. Stoffmengden er uendret; det er bare volumet som har økt.\n\n**Bruksbetingelsen:** ingenting av selve stoffet tilsettes eller fjernes. Blander du to løsninger som **begge** inneholder stoffet, må du legge sammen massene i stedet — likningen gjelder ikke da."
+  },
+  {
+   "id": "med1100-6-4-bb-gjeldende-siffer",
+   "type": "definition",
+   "title": "Gjeldende siffer",
+   "content": "Antallet siffer som faktisk bærer informasjon i et tall.\n\n**Regelen i blokk 2:** oppgi sluttsvaret med **to–tre gjeldende siffer**. Mellomregninger kan gjerne ha ett siffer mer, slik at avrundingen ikke forplanter seg.\n\n**Rund alltid til slutt.** Runder du underveis i en oppgave med flere ledd, kan sluttsvaret bomme merkbart — og sensor ser at mellomsvarene ikke henger sammen.\n\n**Ikke rund bort informasjon som er oppgitt.** Er en verdi gitt som 9,0 g, har den to gjeldende siffer, og svaret bør ikke oppgis med fem."
+  },
+  {
+   "id": "med1100-6-4-bb-osmose-kort",
+   "type": "definition",
+   "title": "Osmose (kort, i denne sammenhengen)",
+   "content": "Vann som beveger seg gjennom en membran fra siden med **lav** osmolaritet mot siden med **høy** osmolaritet — altså fra der det er mest vann til der det er minst.\n\nDet er dette som gjør osmolariteten interessant i det hele tatt: den forteller hvilken vei vann vil bevege seg mellom to rom.\n\n**Merk at det er antallet partikler som teller, ikke hva de er.** Et natriumion og et glukosemolekyl drar like mye vann. Det er nettopp derfor partikkeltallet må telles og ikke antas.\n\nMembrantransport og osmose behandles grundig i Del 9; her trenger du bare å vite hva tallet du regner ut, brukes til."
+  },
+  {
+   "id": "med1100-6-4-bb-enhetsforkorting",
+   "type": "definition",
+   "title": "Enhetsforkorting som kontroll",
+   "content": "Metoden som fanger flest feil i hele dette kapitlet: **skriv enhetene med gjennom hele utregningen**, og se etter at de forkortes slik de skal.\n\n$$4{,}0\\,\\frac{\\text{mg}}{\\cancel{\\text{kg}}} \\cdot 70\\,\\cancel{\\text{kg}} = 280\\,\\text{mg}$$\n\nKommer det ut mg når oppgaven spurte om mg, er oppsettet riktig. Kommer det ut mg·kg, har du ganget når du skulle delt.\n\n**Hvorfor metoden er så effektiv:** den kontrollerer oppsettet **før** du regner, og den virker like godt om tallene er store eller små. Å skrive enhetene med koster to sekunder per linje, og det er den billigste forsikringen i hele blokk 2."
+  },
+  {
+   "id": "med1100-6-4-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjon",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "med1100-6-4-repetisjon-tekst",
+     "type": "text",
+     "content": "Seks kontrollpunkter. Klarer du dem uten å bla opp, sitter kapitlet.\n\n1. **Regn ut dosen i mg for 6,0 mg per kilo til 55 kg, og volumet fra en løsning på 25 mg/mL.** ($6{,}0 \\cdot 55 = 330$ mg; $330/25 = 13{,}2$ mL.)\n2. **Hva er 40 mM av et stoff med molar masse 200 g/mol, i mg/mL?** ($0{,}040 \\cdot 200 = 8{,}0$ g/L $= 8{,}0$ mg/mL.)\n3. **Hvor mange osmotisk aktive partikler gir NaCl, CaCl₂ og glukose?** (2, 3 og 1.)\n4. **Hva er osmolariteten til 9,0 g NaCl per liter?** ($9{,}0/58{,}44 = 0{,}154$ mol/L, ganget med 2 gir 0,31 osmol/L.)\n5. **Hvorfor skal konverteringen skrives som eget ledd?** (Fordi enhetskonvertering er poenggivende i blokk 2 — gjør du den i hodet, mister du et moment du allerede hadde gjort deg fortjent til. Det er felle E22.)\n6. **Fra [kap. 0.2](/med1100/med1100-0-2): hva gjør sensor med en følgefeil i deloppgave b) når a) er riktig?** (Trekker ikke for den. Derfor skal mellomsvar alltid skrives ut med enhet — de står selv om det siste trinnet ryker.)"
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
