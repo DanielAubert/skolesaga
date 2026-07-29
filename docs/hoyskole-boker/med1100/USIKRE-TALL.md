@@ -269,3 +269,67 @@ Blokk 3-tallene er gjengitt som «N av N leste sittinger» og er **ikke** regnet
 til prosent eller til en felles nevner, siden flere blokk 3-filer er delvise
 seksjonsuttrekk (§B5). Boka omtaler ingen sensorveiledning for blokk 3, jf.
 kildereglene punkt 2.
+
+---
+
+## Del 13 (thoraksanatomi)
+
+**Ingen usikre tall i Del 13.** Kapitlene 13.1, 13.2, 13.3 og 13.P inneholder
+ingen normalverdi, dose eller prosentandel fra virkeligheten. Ingen kapittelfil
+i Del 13 bruker standardforbeholdet, fordi anatomiske navn, nivåer og
+retningsforhold er standard fagstoff (§M2).
+
+### Belagte fakta i Del 13 (brukt UTEN forbehold)
+
+| Kapittel | Verdi / påstand | Belegg |
+|---|---|---|
+| 13.1 | Ictus cordis i **4.–5. intercostalrom i medioklavikulærlinjen** | Oppgitt slik i skjelettets faktakontrakt for 13.1 og gjengitt ORDRETT som et spenn. Distraktorene i quiz og prøve ligger klart utenfor spennet (2. og 7. intercostalrom, aksillærlinjen), slik at fasiten ikke hviler på om det er 4. eller 5. rom. |
+| 13.1 | Ledningsrekkefølgen sinusknute → AV-knute → His → crus dextrum/sinistrum → Purkinje | Standard fysiologi- og anatomipensum. |
+| 13.1 | Klaffenes bladtall (tricuspidalis tre, mitralis to) og at kun seilklaffene har chordae tendineae og mm. papillares | Standard anatomipensum. |
+| 13.2 | **n. phrenicus C3–C5**, motorisk til diafragma, **ventralt for radix pulmonis**; n. vagus **dorsalt** | Standard anatomipensum, og oppgitt slik i skjelettets faktakontrakt for 13.2 (n. phrenicus 4/4). |
+| 13.2 | **Angulus sterni = T4/T5**, med bifurcatio tracheae, aortabuens to ender og mediastinum-skillet i samme plan | Standard anatomipensum. |
+| 13.2 | Aortabuens tre grener i rekkefølge; nn. splanchnici fra ca. T5–T9 (major), T10–T11 (minor), T12 (imus) | Standard anatomipensum. Splanchnicus-nivåene står kun i prosa som «omtrent», er ikke fasit i quiz eller prøve. |
+| 13.3 | Diafragmas åpninger **T8** (v. cava inferior) · **T10** (oesophagus) · **T12** (aorta, ductus thoracicus, v. azygos) | Standard anatomipensum, og oppgitt slik i skjelettets faktakontrakt for 13.3. |
+| 13.3 | Rolig inspirasjon = diaphragma + mm. intercostales externi; **rolig ekspirasjon uten aktiv muskel** | Standard fysiologipensum, og skjelettets faktakontrakt for 13.3. |
+| 13.3 | Dermatom **T4 = papilla mammaria**, T10 = navlen; nn. intercostales T1–T11 | Standard anatomipensum. |
+| 13.3 | Kapillærtypene og deres typiske organer (kontinuerlig · fenestrert · sinusoid) | Standard histologipensum. |
+
+### Bevisst UTELATTE tall i Del 13
+
+| Kapittel | Hva som er utelatt | Begrunnelse |
+|---|---|---|
+| 13.1 | **Prosentandelen med høyre-, venstre- og balansert koronardominans** | Andelene oppgis ulikt i ulike fremstillinger. Boka skriver «hos de aller fleste» og «høyredominans er klart vanligst», og sier eksplisitt at ingen prosentandel brukes som fasit. Definisjonen «Koronardominans» og oppgave 6 i 13.1 gjør nettopp variasjonen til poenget: et alternativ som sier «alltid», er galt. |
+| 13.1 | Diafragmas andel av tidevolumet ved rolig pust | Ingen tallverdi brukt; boka skriver «hovedmuskelen». |
+| 13.3 | Eksakte ribbeinsnivåer for lungens og pleuras nedre grenser | Boka oppgir bare **tommelfingerregelen** «pleura ligger omtrent to ribbein lavere enn lungen», eksplisitt merket som tommelfingerregel, og bruker den ikke som fasit. |
+| 13.3 | Væskemengden i cavitas pleuralis | Ingen tallverdi brukt; boka skriver «en liten mengde». |
+
+### Frekvenstall i Del 13
+
+Tatt **ORDRETT** fra `SKJELETT.md` §3 og ikke omregnet (§B5). Blokk 3 har
+varierende nevner, og tallene er gjengitt som «N av N leste sittinger der temaet
+er observerbart» — aldri som prosent av 7 og aldri under en felles nevner:
+
+| Kapittel | Påstand i boka | Skjelettets Eksamensbelegg |
+|---|---|---|
+| 13.1 | «3 av 3 leste sittinger» (kransarterie ↔ forsyningsområde) · «2 av 2» (apex/ictus cordis) | Koronararterier og forsyningsområder **3/3**; ictus/apex cordis-projeksjon **2/2** |
+| 13.2 | «4 av 4 leste sittinger» (n. phrenicus) | **n. phrenicus 4/4** |
+| 13.3 | «3 av 3 leste sittinger» (respirasjonsmusklene) | Respirasjonsmuskler **3/3** |
+| 13.1–13.3 | «anatomi i thorax er rundt 30 prosent av blokk 3»; «banken er på rundt 90–110 spørsmål» | Skjelettets §2 og §1 (blokk 3-seksjonsvekter og bankstørrelse) |
+
+Boka omtaler **ingen sensorveiledning for blokk 3**, jf. kildereglene punkt 2.
+
+### Navnehåndtering i Del 13 (§T1)
+
+Skjelettet omtaler «ductus botalli» og «ductus cardiacus» samlet som
+fantasinavn-distraktorer. Boka skiller mellom dem, fordi de ikke er samme sak:
+
+- **«Ductus cardiacus»** finnes ikke i den anatomiske navnelisten — omtalt som et
+  konstruert navn.
+- **«Ductus arteriosus (Botalli)»** er et **ekte** fosterkar mellom aortabuen og
+  truncus pulmonalis, som etter fødselen blir til **lig. arteriosum**. Boka
+  omtaler det som et ekte navn brukt som feil svar på et lymfespørsmål, ikke som
+  et oppdiktet navn.
+
+Begge er brukt som eksplisitt merkede distraktorer, alltid med det korrekte
+navnet (**ductus thoracicus**) skrevet ut i samme åndedrag, slik §T1 krever.
+Ingen latinske navn er funnet på.
