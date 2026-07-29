@@ -1,0 +1,362 @@
+{
+  "id": "in2010-3-3",
+  "courseId": "in2010",
+  "chapterNumber": "3.3",
+  "title": "DRILL — Linear-probing håndkjøring og insert-pseudokode",
+  "description": "Full drill på sjanger E (håndkjør linear-probing-innsetting, oppgi hele tabellen) og I (skriv insert-prosedyren korrekt).",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne håndkjøre en innsettingsrekke i en hashtabell med lineær probing feilfritt, inkludert wraparound og gjentatt nøkkel",
+    "kunne levere sluttilstanden i eksamensformatet: hele tabellen, kommaseparert, med tomme plasser markert",
+    "kunne skrive innsettings- og søkeprosedyren i pseudokode med korrekt kjøretid for både forventet og verste tilfelle",
+    "kunne kjenne igjen og rette de to detaljene i probing-løkka som sensor trekker for"
+  ],
+  "content": [
+    {
+      "id": "in2010-3-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er drillkapitlet for de to hashing-sjangrene, og begge har vært på **alle\nsju settene (100 %)**:\n\n- **Sjanger E — håndkjøring**, altså at du utfører innsettingene steg for steg og\n  oppgir **hele** tabellen som sluttilstand.\n- **Sjanger I — hashing i pseudokode**, altså at du skriver `Insert` eller\n  `Contains` selv og oppgir kjøretiden.\n\n**Si det som det er: dette er tyngre enn i et generisk algoritmepensum.** Ved\nNTNUs TDT4120 er hashing et faktapunkt i under halvparten av settene. Her er det\nen **utførelsesferdighet** som testes i hvert eneste sett, på to måter samtidig.\nKommer du fra en generisk algoritmebok, har du sannsynligvis lest hashing som et\nkapittel om «forventet $O(1)$» og gått videre. Det holder ikke her.\n\nDen gode nyheten: håndkjøring er den mest **mekaniske** ferdigheten i hele faget.\nDet finnes ingen innsikt å få — det finnes en oppskrift, og den kan trenes til den\ner feilfri. Det er nettopp det dette kapitlet er til for.\n\nPrioritet: **høyeste**.\n\n**Slik er kapitlet lagt opp (80 min):** oppskriften og et sensor-kommentert case\nførst (ca. 20 min), så tolv oppgaver i tre bolker à ca. 20 min. Bolkene er\nuavhengige — ta gjerne én per kveld. Etter hver bolk står en boks som sier hva\noppgavene testet."
+    },
+    {
+      "id": "in2010-3-3-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 3.1](/in2010/in2010-3-1) — hashtabellen, $h(k) = k \\bmod N$, lineær\n  probing, wraparound og overskriving ved lik nøkkel. Alt du driller her, er\n  derfra.\n- [kap. 3.2](/in2010/in2010-3-2) — load-faktor og rehashing, som brukes i de siste\n  oppgavene.\n\nOg fra Del 1: [kap. 1.2](/in2010/in2010-1-2) om løkketelling, som gir kjøretidene\ni pseudokodeoppgavene."
+    },
+    {
+      "id": "in2010-3-3-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-3-3-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $N$ | tabellstørrelsen — plassene er $0$ til $N-1$ |\n| $n$ | antall nøkler som er lagret |\n| $h(k) = k \\bmod N$ | hashfunksjonen — startplassen for nøkkelen $k$ |\n| `_` | markerer en tom plass når tabellen gjengis |\n| $\\alpha = n/N$ | load-faktoren |\n| $O(1)$ | konstant tid — **forventet** kostnad for innsetting og oppslag |\n| $O(n)$ | lineær tid — **verste** kostnad, når alt ligger i én klynge |"
+        },
+        {
+          "id": "in2010-3-3-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insert(T, k)` | setter `k` inn; overskriver hvis `k` allerede finnes; wraparound med `mod N` | $O(1)$ forventet, $O(n)$ verste |\n| `Contains(T, k)` | følger samme probing-sekvens; svarer usant ved første tomme plass | $O(1)$ forventet, $O(n)$ verste |\n| `Rehash(T)` | dobler tabellen og setter inn alle nøklene på nytt med ny `h` | $O(n + N)$ per rehashing |\n| `(i + 1) mod N` | probing-steget, med wraparound fra `N-1` til `0` | $O(1)$ |\n\n**Formler i dette delkapitlet:**\n\n$$h(k) = k \\bmod N$$\n\nStartplassen. Regn den ut for **alle** nøklene før du setter inn noe.\n\n$$i_{\\text{neste}} = (i + 1) \\bmod N$$\n\nProbing-steget. `mod N` er hele forskjellen mellom en gyldig og en ugyldig\nsporing.\n\n$$\\alpha = \\frac{n}{N}$$\n\nLoad-faktoren, som avgjør når tabellen skal utvides."
+        }
+      ]
+    },
+    {
+      "id": "in2010-3-3-th-1",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger E og I",
+      "content": "To oppskrifter, én for hver sjanger. Første steg er å se hvilken du har.\n\n**Sjanger E — håndkjøring.** Du får nøkler, en tabellstørrelse og en\nhashfunksjon, og skal levere sluttilstanden.\n\n1. **Tegn tabellen først.** Skriv indeksene $0$ til $N-1$ på én linje og la det\n   være plass under hver. Nå kan du ikke miste tellingen.\n2. **Regn ut $h(k)$ for ALLE nøklene**, i en egen linje, før du setter inn noe.\n   Dette ene grepet fjerner de fleste regnefeilene, og det gir deg et regnestykke\n   å kontrollere mot etterpå.\n3. **Sett inn én om gangen.** Er plassen opptatt av en **annen** nøkkel, gå til\n   $(i+1) \\bmod N$. Er den opptatt av **samme** nøkkel, skriv over og stopp.\n4. **Skriv opp probing-sekvensen** for hver nøkkel mens du går. Det koster tre\n   sekunder og gir delvis uttelling hvis sluttilstanden blir feil.\n5. **Lever hele tabellen**, kommaseparert, med `_` for tomme plasser.\n\n**Sjanger I — pseudokode.** Du skal skrive prosedyren og oppgi kjøretiden.\n\n1. **Navngi problemet:** «innsetting i hashtabell med lukket hashing og lineær\n   probing».\n2. **Oppgi antagelser om representasjon:** array med `N` plasser fra 0, hver plass\n   tom eller med én nøkkel, `h(k) = k mod N`, tabellen ikke full.\n3. **Skriv algoritmen.** De to detaljene som gir poeng, ligger begge i\n   `while`-linja: `mod N` i oppdateringen og `and T[i] er ulik k` i betingelsen.\n4. **Oppgi kjøretiden** som matcher koden: $O(1)$ **forventet**, $O(n)$ **verste**,\n   med $n$ definert som antall lagrede nøkler.\n\n**De to kontrollene som tar to sekunder hver, og som fanger nesten alt:**\n\n- **Er noen indeks i sporingen din større enn $N-1$?** Da har du glemt `mod N`.\n- **Stemmer antall nøkler i tabellen med antall ULIKE nøkler du fikk utdelt?** Er\n  det flere, har du duplisert en nøkkel i stedet for å overskrive."
+    },
+    {
+      "id": "in2010-3-3-ex-case",
+      "type": "example",
+      "title": "Gjennomarbeidet eksamenscase med sensorkommentarer",
+      "problem": "(Eksamensnivå, sjanger E og I.) Et sett har denne oppgaven, verdt 6 poeng:\n\n**a)** (3 p) Sett inn nøklene 31, 20, 42, 9, 53 og 64 i denne rekkefølgen i en tom\nhashtabell med $N = 11$ og $h(k) = k \\bmod 11$, med lineær probing. Oppgi hele\ntabellen.\n\n**b)** (2 p) Skriv `Insert(T, k)` i pseudokode, og oppgi kjøretiden.\n\n**c)** (1 p) Hva er load-faktoren etter innsettingene, og hva sier antall prøver om\nhvor godt hashfunksjonen fungerte her?",
+      "solution": "**a) Håndkjøringen.**\n\n**Steg 2 i oppskriften først — regn ut alle hashverdiene:**\n\n$31 = 2 \\cdot 11 + 9$, $20 = 1 \\cdot 11 + 9$, $42 = 3 \\cdot 11 + 9$,\n$9 = 0 \\cdot 11 + 9$, $53 = 4 \\cdot 11 + 9$, $64 = 5 \\cdot 11 + 9$.\n\n**Alle seks gir $h(k) = 9$.** Det er en opplysning verdt å ha før du begynner: du\nvet nå at dette blir én lang klynge, og at wraparound kommer i spill, siden 9 er\nnest siste plass.\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 31 | 9 | `9` | `_, _, _, _, _, _, _, _, _, 31, _` |\n| 2 | 20 | 9 | `9 -> 10` | `_, _, _, _, _, _, _, _, _, 31, 20` |\n| 3 | 42 | 9 | `9 -> 10 -> 0` | `42, _, _, _, _, _, _, _, _, 31, 20` |\n| 4 | 9 | 9 | `9 -> 10 -> 0 -> 1` | `42, 9, _, _, _, _, _, _, _, 31, 20` |\n| 5 | 53 | 9 | `9 -> 10 -> 0 -> 1 -> 2` | `42, 9, 53, _, _, _, _, _, _, 31, 20` |\n| 6 | 64 | 9 | `9 -> 10 -> 0 -> 1 -> 2 -> 3` | `42, 9, 53, 64, _, _, _, _, _, 31, 20` |\n\n**Sluttilstand:**\n\n```text\nindeks:  0   1   2   3   4   5   6   7   8   9   10\nT:       42  9   53  64  _   _   _   _   _   31  20\n```\n\nPå én linje: `42, 9, 53, 64, _, _, _, _, _, 31, 20`\n\n> **Sensornotat, a) — 3 poeng.** Typisk fordeling: 1 p for riktige hashverdier,\n> 1 p for riktig probing med wraparound, 1 p for at hele tabellen er oppgitt med\n> tomme plasser markert.\n>\n> **Delvis riktig tilstand gir delvis uttelling.** Har du riktig sekvens men\n> bommer på én plassering, får du som regel to av tre poeng. Det siste poenget\n> henger på to ting: at **ingen indeks er utenfor $0$ til $10$**, og at tabellen\n> er levert **hel**, ikke som en liste over hvor nøklene havnet.\n>\n> Steg 3 er der poenget vinnes eller tapes: fra plass 10 går sekvensen til plass\n> 0, ikke til plass 11.\n\n**b) Pseudokoden.**\n\n**Problemet:** innsetting i hashtabell med lukket hashing og lineær probing.\n\n**Antagelser om representasjon:** `T` er et array med `N` plasser indeksert fra 0;\nhver plass er tom eller inneholder én nøkkel; `h(k) = k mod N`; tabellen er ikke\nfull.\n\n```text\nProcedure Insert(T, k)\n  Input:  hashtabell T som array med N plasser (indeks fra 0), noekkel k\n  Output: T med k satt inn; lik noekkel overskrives i stedet for aa dupliseres\n  N = T.length\n  i = k mod N\n  while T[i] er ikke tom and T[i] er ulik k:\n      i = (i + 1) mod N\n  T[i] = k\n```\n\n**Kjøretid:** $O(1)$ **forventet**, $O(n)$ i **verste** tilfelle, der $n$ er antall\nnøkler i tabellen.\n\n> **Sensornotat, b) — 2 poeng.** 1 p for korrekt løkke med **begge** detaljene\n> (`mod N` og sjekken for lik nøkkel), 1 p for kjøretiden med **begge** tilfellene.\n>\n> En besvarelse med riktig kode men uten kjøretid får 1 p. En som skriver\n> «$O(1)$» uten «forventet», mister som regel et halvt. En som glemmer `mod N`,\n> mister kodepoenget helt — det er felle **#11**, probing som går utenfor\n> $0$ til $N-1$.\n\n**c) Load-faktor og prøvetelling.**\n\n$\\alpha = n/N = 6/11 \\approx 0{,}545$.\n\nAntall prøver: $1 + 2 + 3 + 4 + 5 + 6 = 21$, altså 3,5 per innsetting.\n\nMed en hashfunksjon som spredte nøklene jevnt, ville snittet ligget nær 1. Her ga\n**alle seks nøklene samme hashverdi**, og tabellen degenererte til et lineært søk.\nDet er nøyaktig verste tilfelle $O(n)$, og det illustrerer hvorfor kjøretiden\n$O(1)$ alltid må ha ordet «forventet» foran seg.\n\n> **Sensornotat, c) — 1 poeng.** Løsningen får poenget for load-faktoren alene;\n> observasjonen om prøvetallet er det som skiller en god besvarelse fra en\n> tilstrekkelig. Merk at nøklene her er valgt slik at de alle er $9$ modulo $11$ —\n> et eksamenssett gjør sjelden det ved et uhell.\n\n**Margnotat om delvis uttelling.** Denne oppgaven er verdt 6 poeng, og du kan få\n4 av dem uten å ha en eneste feilfri tabell: pseudokoden, kjøretiden og\nload-faktoren er alle uavhengige av at håndkjøringen stemmer. **La aldri en\ndeloppgave stå tom.**"
+    },
+    {
+      "id": "in2010-3-3-t-b1",
+      "type": "text",
+      "content": "## Bolk 1 — grunnleggende håndkjøring (ca. 20 min)\n\nFire oppgaver som bygger opp fra ingen kollisjoner til full klynge. Bruk\noppskriften hver gang, også når oppgaven ser triviell ut — det er vanen du skal\nha på eksamensdagen."
+    },
+    {
+      "id": "in2010-3-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger E — håndkjøring, altså at du utfører innsettingene steg\nfor steg og oppgir sluttilstanden.) $N = 7$, $h(k) = k \\bmod 7$. Sett inn 8, 16, 3\nog 11 i denne rekkefølgen.\n\n**a)** Regn ut $h(k)$ for alle fire først.\n**b)** Oppgi hele tabellen.\n**c)** Hvor mange prøver kostet innsettingene til sammen?",
+        "solution": "**a)** $8 \\bmod 7 = 1$, $16 \\bmod 7 = 2$, $3 \\bmod 7 = 3$, $11 \\bmod 7 = 4$.\nFire ulike hashverdier — ingen kollisjoner.\n\n**b)**\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 8 | 1 | `1` | `_, 8, _, _, _, _, _` |\n| 2 | 16 | 2 | `2` | `_, 8, 16, _, _, _, _` |\n| 3 | 3 | 3 | `3` | `_, 8, 16, 3, _, _, _` |\n| 4 | 11 | 4 | `4` | `_, 8, 16, 3, 11, _, _` |\n\n**Sluttilstand: `_, 8, 16, 3, 11, _, _`**\n\n**c)** Fire prøver — én per innsetting. Det er det beste som er mulig, og det er\nhva «forventet $O(1)$» ser ut som i praksis.\n\n**Merk at tabellen ser ut som en klynge**, med fire nøkler på rad. Men det er den\nikke: hver nøkkel ligger på sin **egen** hashverdi. En klynge er nøkler som har\nblitt forskjøvet, og her er ingen forskjøvet. Forskjellen betyr noe for hva som\nskjer med neste innsetting.",
+        "hints": [
+          "Regn ut alle fire hashverdiene i en egen linje før du setter inn noe.",
+          "Sammenlign hashverdiene: kolliderer noen av dem?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger E.) $N = 7$, $h(k) = k \\bmod 7$. Sett inn 14, 21, 28 og 35.\n\n**a)** Regn ut $h(k)$ for alle fire.\n**b)** Oppgi hele tabellen.\n**c)** Sammenlign antall prøver med oppgave 1. Hva forklarer forskjellen?",
+        "solution": "**a)** Alle fire er multipler av 7, så $h(k) = 0$ for alle: $14 = 2 \\cdot 7$,\n$21 = 3 \\cdot 7$, $28 = 4 \\cdot 7$, $35 = 5 \\cdot 7$.\n\n**b)**\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 14 | 0 | `0` | `14, _, _, _, _, _, _` |\n| 2 | 21 | 0 | `0 -> 1` | `14, 21, _, _, _, _, _` |\n| 3 | 28 | 0 | `0 -> 1 -> 2` | `14, 21, 28, _, _, _, _` |\n| 4 | 35 | 0 | `0 -> 1 -> 2 -> 3` | `14, 21, 28, 35, _, _, _` |\n\n**Sluttilstand: `14, 21, 28, 35, _, _, _`**\n\n**c)** $1 + 2 + 3 + 4 = 10$ prøver, mot 4 i oppgave 1. Sluttilstandene ser nesten\nlike ut — fire nøkler på rad — men kostnaden er 2,5 ganger så høy.\n\nForskjellen er at **alle fire nøklene her kolliderte**. Hver ny nøkkel måtte gå\ngjennom hele klyngen de forrige hadde bygget. I oppgave 1 hadde hver nøkkel sin\negen plass.\n\n**Momentet:** en hashfunksjon som gir samme verdi for mange nøkler er en dårlig\nhashfunksjon, uansett hvor pen tabellen ser ut til slutt. Legg merke til at\n$k \\bmod 7$ er dårlig for **nettopp disse** nøklene, fordi de alle er multipler av\n7 — ikke fordi funksjonen er dårlig i seg selv.",
+        "hints": [
+          "Hva har 14, 21, 28 og 35 til felles når du deler dem på 7?",
+          "Tell prøvene for hver innsetting og legg dem sammen."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.) $N = 10$, $h(k) = k \\bmod 10$. Sett inn 19, 29, 39 og\n5.\n\n**a)** Oppgi hele tabellen.\n**b)** Hvilke av innsettingene brukte wraparound?\n**c)** Hvorfor havnet ikke 5 i klyngen?",
+        "solution": "Hashverdiene: $19 \\bmod 10 = 9$, $29 \\bmod 10 = 9$, $39 \\bmod 10 = 9$,\n$5 \\bmod 10 = 5$.\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 19 | 9 | `9` | `_, _, _, _, _, _, _, _, _, 19` |\n| 2 | 29 | 9 | `9 -> 0` | `29, _, _, _, _, _, _, _, _, 19` |\n| 3 | 39 | 9 | `9 -> 0 -> 1` | `29, 39, _, _, _, _, _, _, _, 19` |\n| 4 | 5 | 5 | `5` | `29, 39, _, _, _, 5, _, _, _, 19` |\n\n**a) Sluttilstand: `29, 39, _, _, _, 5, _, _, _, 19`**\n\n**b)** Innsettingene av 29 og 39. Begge startet på plass 9, som er siste plass, og\ngikk videre til $(9+1) \\bmod 10 = 0$.\n\n**c)** Fordi $5 \\bmod 10 = 5$, og plass 5 var ledig. Klyngen ligger på indeks 9, 0\nog 1 — den strekker seg ikke bort til plass 5. Klyngedannelse rammer bare nøkler\nsom hasher **inn i** klyngen.\n\n**Merk hvordan klyngen ser ut på papiret:** to nøkler helt til venstre og én helt\ntil høyre. Det ser ut som to grupper, men det er én sammenhengende klynge, fordi\ntabellen er en ring. Å tegne den som en sirkel én gang er en god investering.",
+        "hints": [
+          "Regn ut hashverdiene først — tre av dem er like.",
+          "Fra plass 9 i en tabell med $N = 10$: hva er $(9+1) \\bmod 10$?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.) $N = 9$, $h(k) = k \\bmod 9$. Sett inn 21, 30, 21 og 12\ni denne rekkefølgen.\n\n**a)** Oppgi hele tabellen.\n**b)** Hvor mange nøkler ligger i tabellen til slutt?\n**c)** Hva ville tabellen sett ut som hvis `Insert` ikke hadde sjekket for lik\nnøkkel?",
+        "solution": "Hashverdiene: $21 \\bmod 9 = 3$, $30 \\bmod 9 = 3$, $21 \\bmod 9 = 3$,\n$12 \\bmod 9 = 3$. Alle fire.\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 21 | 3 | `3` | `_, _, _, 21, _, _, _, _, _` |\n| 2 | 30 | 3 | `3 -> 4` | `_, _, _, 21, 30, _, _, _, _` |\n| 3 | 21 | 3 | `3` | `_, _, _, 21, 30, _, _, _, _` |\n| 4 | 12 | 3 | `3 -> 4 -> 5` | `_, _, _, 21, 30, 12, _, _, _` |\n\n**a) Sluttilstand: `_, _, _, 21, 30, 12, _, _, _`**\n\n**b)** Tre. Den gjentatte 21-eren overskrev seg selv på plass 3 og teller ikke som\nen ny nøkkel.\n\n**c)** Da ville steg 3 gått forbi plass 3 og 4 og lagt en ny 21-er på plass 5.\nSteg 4 måtte da videre til plass 6:\n\n`_, _, _, 21, 30, 21, 12, _, _`\n\nFire nøkler i tabellen, hvorav én er en utilgjengelig kopi — et søk etter 21 ville\nfunnet den første og aldri sett den andre. Og klyngen er blitt ett hakk lengre,\nslik at alle senere innsettinger blir dyrere.\n\n**Kontrollen som fanger dette:** stemmer antall nøkler i tabellen med antall\n**ulike** nøkler du fikk utdelt? Du fikk fire nøkler, men bare tre ulike. Står det\nfire i tabellen din, har du duplisert.",
+        "hints": [
+          "Merk deg hvilke av de fire nøklene som er den samme.",
+          "Hva sier løkkebetingelsen skal skje når plassen inneholder nøyaktig nøkkelen du setter inn?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-tip-signal-1",
+      "type": "tip",
+      "title": "Hva bolk 1 testet",
+      "content": "De fire oppgavene rullerte grunnmekanikken:\n\n- **Oppgave 1** testet det enkleste tilfellet — ingen kollisjoner — og at du\n  likevel bruker oppskriften.\n- **Oppgave 2** testet full klynge fra plass 0, og at du ser forskjellen mellom en\n  tabell som *ser* klumpete ut og en som *er* det.\n- **Oppgave 3** testet wraparound over slutten av tabellen, som er felle **#11**.\n- **Oppgave 4** testet overskriving ved lik nøkkel, som er den andre halvdelen av\n  samme felle.\n\nKlarte du 3 og 4 uten å nøle, sitter de to detaljene som gir flest poeng.\nBommet du på en av dem, er de to kontrollene fra oppskriften verdt å gjøre til en\nvane: **ingen indeks over $N-1$**, og **antall nøkler = antall ulike nøkler**."
+    },
+    {
+      "id": "in2010-3-3-t-b2",
+      "type": "text",
+      "content": "## Bolk 2 — søk, større tabeller og rehashing (ca. 20 min)\n\n— naturlig pausepunkt —\n\nFire oppgaver som utvider repertoaret: søk i en ferdig tabell, større $N$, og en\nrehashing."
+    },
+    {
+      "id": "in2010-3-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.) $N = 9$, $h(k) = k \\bmod 9$. Sett inn 18, 27, 4, 13 og\n22.\n\n**a)** Oppgi hele tabellen.\n**b)** Hva er load-faktoren etterpå?\n**c)** Hvor mange klynger har tabellen?",
+        "solution": "Hashverdiene: $18 \\bmod 9 = 0$, $27 \\bmod 9 = 0$, $4 \\bmod 9 = 4$,\n$13 \\bmod 9 = 4$, $22 \\bmod 9 = 4$.\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 18 | 0 | `0` | `18, _, _, _, _, _, _, _, _` |\n| 2 | 27 | 0 | `0 -> 1` | `18, 27, _, _, _, _, _, _, _` |\n| 3 | 4 | 4 | `4` | `18, 27, _, _, 4, _, _, _, _` |\n| 4 | 13 | 4 | `4 -> 5` | `18, 27, _, _, 4, 13, _, _, _` |\n| 5 | 22 | 4 | `4 -> 5 -> 6` | `18, 27, _, _, 4, 13, 22, _, _` |\n\n**a) Sluttilstand: `18, 27, _, _, 4, 13, 22, _, _`**\n\n**b)** $\\alpha = 5/9 \\approx 0{,}556$.\n\n**c)** To: én på indeks 0 til 1, og én på indeks 4 til 6. De er atskilt av de\ntomme plassene 2 og 3.\n\n**Hvorfor to klynger er bedre enn én lang av samme totallengde:** en ny nøkkel som\nhasher til plass 2 eller 3, finner plassen ledig med én gang. Hadde alle fem\nnøklene ligget i én blokk fra 0 til 4, ville en nøkkel med $h(k) = 2$ måttet\nprobe seg helt ut til plass 5. Totalt antall prøver her ble 9, mot 15 hvis alle\nfem hadde kollidert.",
+        "hints": [
+          "Regn ut alle fem hashverdiene først — de fordeler seg på to startplasser.",
+          "En klynge er en sammenhengende rekke fylte plasser."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E og I.) Bruk tabellen fra oppgave 5:\n`18, 27, _, _, 4, 13, 22, _, _` med $N = 9$.\n\n**a)** Søk etter 13. Hvilke indekser prøves?\n**b)** Søk etter 31. Hvilke indekser prøves, og hva blir svaret?\n**c)** Søk etter 8. Hvilke indekser prøves, og hva blir svaret?\n**d)** Hvorfor er søket i c) så mye kortere enn i b)?",
+        "solution": "**a)** $13 \\bmod 9 = 4$. Sekvensen er `4 -> 5`, og nøkkelen finnes på plass 5. To\nprøver.\n\n**b)** $31 \\bmod 9 = 4$. Sekvensen er `4 -> 5 -> 6 -> 7`. Plass 7 er tom, så svaret\ner **ikke funnet**. Fire prøver.\n\n**c)** $8 \\bmod 9 = 8$. Plass 8 er tom med én gang, så svaret er **ikke funnet**.\nÉn prøve.\n\n**d)** Fordi 31 hasher inn i en klynge og må gjennom hele den før den treffer en\ntom plass, mens 8 hasher til en plass som er ledig fra første stund.\n\n**Momentet:** kostnaden ved et **mislykket** søk avhenger helt av hvor i tabellen\ndu starter. Det er derfor klyngedannelse er dyrt: den gjør ikke bare innsettinger\ndyrere, men også søk etter nøkler som ikke finnes.\n\nMerk også at søket i b) kan avsluttes på plass 7. Hadde 31 vært satt inn, ville\n`Insert` fulgt nøyaktig samme sekvens og stoppet på plass 7 som første ledige. Er\nplassen tom, kan nøkkelen ikke finnes noe sted. Argumentet forutsetter at\ningenting er slettet fra tabellen.",
+        "hints": [
+          "Regn ut hashverdien og følg nøyaktig samme sekvens som `Insert` ville gjort.",
+          "Søket stopper på første tomme plass — hvorfor er det nok?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.) $N = 13$, $h(k) = k \\bmod 13$. Sett inn 27, 40, 14, 53\nog 1.\n\n**a)** Oppgi hele tabellen.\n**b)** Hvor mange prøver kostet det til sammen?\n**c)** Tabellen har 13 plasser og bare 5 nøkler. Hvorfor ble det likevel så mange\nprøver?",
+        "solution": "Hashverdiene: $27 = 2 \\cdot 13 + 1$, $40 = 3 \\cdot 13 + 1$, $14 = 1 \\cdot 13 + 1$,\n$53 = 4 \\cdot 13 + 1$, $1 = 0 \\cdot 13 + 1$. **Alle fem gir $h(k) = 1$.**\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 27 | 1 | `1` | `_, 27, _, _, _, _, _, _, _, _, _, _, _` |\n| 2 | 40 | 1 | `1 -> 2` | `_, 27, 40, _, _, _, _, _, _, _, _, _, _` |\n| 3 | 14 | 1 | `1 -> 2 -> 3` | `_, 27, 40, 14, _, _, _, _, _, _, _, _, _` |\n| 4 | 53 | 1 | `1 -> 2 -> 3 -> 4` | `_, 27, 40, 14, 53, _, _, _, _, _, _, _, _` |\n| 5 | 1 | 1 | `1 -> 2 -> 3 -> 4 -> 5` | `_, 27, 40, 14, 53, 1, _, _, _, _, _, _, _` |\n\n**a) Sluttilstand: `_, 27, 40, 14, 53, 1, _, _, _, _, _, _, _`**\n\n**b)** $1 + 2 + 3 + 4 + 5 = 15$ prøver, altså 3 per innsetting.\n\n**c)** Fordi load-faktoren ikke er hele historien. Her er\n$\\alpha = 5/13 \\approx 0{,}385$ — tabellen er under halvfull, og åtte plasser står\ntomme. Likevel er kostnaden høy, fordi **alle fem nøklene hashet til samme\nplass**.\n\n**Momentet:** en romslig tabell hjelper ikke hvis hashfunksjonen er dårlig for\nakkurat de nøklene du har. Løsningen på dette er ikke rehashing — det ville bare\ngitt en større tabell med samme problem — men en bedre hashfunksjon. Det er\nforskjellen mellom å ha for lite plass og å ha feil fordeling.",
+        "hints": [
+          "Regn ut $k \\bmod 13$ for alle fem nøklene. Legg merke til hva de har til felles.",
+          "Sammenlign load-faktoren med antall prøver — sier den ene noe om den andre?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E, krevende.) Tabellen `14, 21, 28, 35, _, _, _` med\n$N = 7$ er resultatet fra oppgave 2. Terskelen for rehashing er $\\alpha > 0{,}5$.\n\n**a)** Er terskelen overskredet?\n**b)** Rehash tabellen til $N = 14$. Regn ut de nye hashverdiene og vis\nreinnsettingen, med rekkefølge venstre mot høyre i den gamle tabellen.\n**c)** Oppgi den nye tabellen, den nye load-faktoren og antall prøver.",
+        "solution": "**a)** $\\alpha = 4/7 \\approx 0{,}571 > 0{,}5$. Ja, terskelen er overskredet.\n\n**b)** Nye hashverdier med $N = 14$: $14 \\bmod 14 = 0$, $21 \\bmod 14 = 7$,\n$28 \\bmod 14 = 0$, $35 \\bmod 14 = 7$.\n\nLegg merke til hva som skjedde: i den gamle tabellen hashet alle fire til plass 0.\nNå fordeler de seg to og to på plass 0 og plass 7.\n\n| Steg | Nøkkel $k$ | gammel $h$ | ny $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|---|\n| 1 | 14 | 0 | 0 | `0` | `14, _, _, _, _, _, _, _, _, _, _, _, _, _` |\n| 2 | 21 | 0 | 7 | `7` | `14, _, _, _, _, _, _, 21, _, _, _, _, _, _` |\n| 3 | 28 | 0 | 0 | `0 -> 1` | `14, 28, _, _, _, _, _, 21, _, _, _, _, _, _` |\n| 4 | 35 | 0 | 7 | `7 -> 8` | `14, 28, _, _, _, _, _, 21, 35, _, _, _, _, _` |\n\n**c) Ny tabell:**\n\n```text\nindeks:  0   1   2   3   4   5   6   7   8   9   10  11  12  13\nT:       14  28  _   _   _   _   _   21  35  _   _   _   _   _\n```\n\n**Ny load-faktor:** $\\alpha = 4/14 \\approx 0{,}286$.\n\n**Antall prøver ved reinnsettingen:** $1 + 1 + 2 + 2 = 6$, mot 10 da de samme fire\nnøklene ble satt inn i den gamle tabellen. Klyngen på fire er blitt til to klynger\npå to.\n\n**Hvorfor de gamle indeksene ikke kunne gjenbrukes:** 21 lå på plass 1 i den gamle\ntabellen og skal på plass 7 i den nye. Hadde vi kopiert arrayet over, ville et søk\netter 21 startet på plass 7, funnet den tom, og meldt «ikke funnet».",
+        "hints": [
+          "Regn ut $k \\bmod 14$ for alle fire nøklene før du setter inn noe.",
+          "Sammenlign hver nøkkels gamle og nye hashverdi — hvor mange endret seg?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-tip-signal-2",
+      "type": "tip",
+      "title": "Hva bolk 2 testet",
+      "content": "- **Oppgave 5** testet at du ser hvor klyngegrensene går, og hvorfor to korte\n  klynger er bedre enn én lang.\n- **Oppgave 6** testet `Contains` på alle tre utfallene: funnet, ikke funnet etter\n  lang probing, og ikke funnet med én gang.\n- **Oppgave 7** testet at load-faktor og faktisk kostnad er to forskjellige ting.\n  Det er et poeng en drøftingsoppgave gjerne ber om.\n- **Oppgave 8** testet rehashing med korrekt reinnsetting, og hvorfor de gamle\n  indeksene er verdiløse.\n\nOppgave 7 er den som oftest overrasker: en tabell som er under halvfull kan\nlikevel oppføre seg som verste tilfelle, hvis hashfunksjonen er dårlig for nettopp\nde nøklene."
+    },
+    {
+      "id": "in2010-3-3-t-b3",
+      "type": "text",
+      "content": "## Bolk 3 — pseudokode og kanttilfeller (ca. 20 min)\n\nFire oppgaver på sjanger I. Her er formen like viktig som innholdet: problemet\nnavngitt, antagelser oppgitt, algoritmen, og kjøretiden som matcher."
+    },
+    {
+      "id": "in2010-3-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I — hashing i pseudokode, altså at du skriver prosedyren\nselv og oppgir kjøretiden.) Skriv `Insert(T, k)` for lukket hashing med lineær\nprobing.\n\n**a)** Oppgi antagelser om representasjon.\n**b)** Skriv prosedyren.\n**c)** Oppgi kjøretiden, og forklar hvorfor den har to tilfeller.",
+        "solution": "**Problemet navngitt:** innsetting i en hashtabell med lukket hashing og lineær\nprobing.\n\n**a) Antagelser om representasjon:** `T` er et array med `N` plasser indeksert fra\n0. Hver plass er enten tom eller inneholder én heltallsnøkkel. Hashfunksjonen er\n`h(k) = k mod N`. Vi antar at tabellen ikke er full, og at ingen nøkler er\nslettet.\n\n**b) Algoritmen:**\n\n```text\nProcedure Insert(T, k)\n  Input:  hashtabell T som array med N plasser (indeks fra 0), noekkel k\n  Output: T med k satt inn; lik noekkel overskrives i stedet for aa dupliseres\n  N = T.length\n  i = k mod N\n  while T[i] er ikke tom and T[i] er ulik k:\n      i = (i + 1) mod N\n  T[i] = k\n```\n\n**c) Kjøretid:** $O(1)$ **forventet**, $O(n)$ i **verste** tilfelle, der $n$ er\nantall nøkler i tabellen.\n\n**Hvorfor to tilfeller:** kostnaden er lengden på probing-sekvensen, og den\navhenger helt av hvordan nøklene ligger. Sprer hashfunksjonen dem jevnt, er\nsekvensen kort uansett hvor mange nøkler som er lagret — det er det forventede\ntilfellet. Havner alle i én sammenhengende klynge, må løkka gjennom hele, og\nstrukturen er ikke bedre enn et lineært søk i en usortert liste.\n\n**Poengtrapp-notat:** full uttelling krever alle fire leddene — problem navngitt,\nantagelser, algoritme, kjøretid med begge tilfellene og $n$ definert. Riktig kode\nuten kjøretid gir typisk halv uttelling; «$O(1)$» uten «forventet» koster som\nregel et halvt poeng til.",
+        "hints": [
+          "Skriv hodet først: hvilken input, hvilken output, og hva antar du om `T`?",
+          "Løkka skal stoppe på to slags plasser — hvilke to?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I.) Skriv `Contains(T, k)`, som avgjør om nøkkelen `k`\nfinnes i tabellen.\n\n**a)** Skriv prosedyren.\n**b)** Hvorfor kan søket avsluttes på en tom plass?\n**c)** Hva skjer hvis tabellen er full og nøkkelen ikke finnes? Hvordan sikrer du\nat prosedyren terminerer?",
+        "solution": "**Problemet navngitt:** medlemskapstest i en hashtabell med lineær probing.\n\n**Antagelser om representasjon:** `T` er et array med `N` plasser indeksert fra 0;\nhver plass er tom eller inneholder én nøkkel; `h(k) = k mod N`; ingen nøkler er\nslettet.\n\n**a) Algoritmen:**\n\n```text\nProcedure Contains(T, k)\n  Input:  hashtabell T som array med N plasser (indeks fra 0), noekkel k\n  Output: sant hvis k finnes i T, ellers usant\n  N = T.length\n  i = k mod N\n  antall = 0\n  while T[i] er ikke tom and antall < N:\n      if T[i] er lik k:\n          return sant\n      i = (i + 1) mod N\n      antall = antall + 1\n  return usant\n```\n\n**b)** Fordi `Insert` fulgte nøyaktig samme sekvens. Hadde `k` vært satt inn,\nville den stoppet på den første ledige plassen i sekvensen — altså denne eller en\ntidligere. Møter søket en tom plass uten å ha funnet `k`, kan nøkkelen ikke finnes\nnoe sted.\n\nForutsetningen i argumentet er at **ingenting er slettet**. Tømmer du en plass\nmidt i en klynge, blir nøkler lenger ute i sekvensen usynlige — det er derfor\nlukket hashing markerer slettede plasser i stedet for å tømme dem.\n\n**c)** Er tabellen full, er ingen plass tom, og løkkas første betingelse blir\naldri usann. Uten en teller ville probingen gå rundt i ring for alltid.\n\n`antall < N` løser det: etter $N$ prøver har sekvensen vært innom hver plass\nnøyaktig én gang, og da er svaret sikkert «ikke funnet».\n\n**Momentet:** dette er et **kanttilfelle**, og sensor gir eksplisitt delpoeng for å\nha tenkt på det. En besvarelse uten telleren er ikke gal på hovedideen, men den\nhar en løkke som ikke terminerer i ett tilfelle — og det er nøyaktig den typen\ndetalj som skiller full fra nesten full uttelling.\n\n**Kjøretid:** $O(1)$ forventet, $O(n)$ verste, der $n$ er antall nøkler i\ntabellen.",
+        "hints": [
+          "Søket følger samme sekvens som innsettingen — hvor stoppet innsettingen?",
+          "Hva skjer med `while`-løkka hvis ingen plass i tabellen er tom?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I, krevende.) En besvarelse har levert dette:\n\n```text\nProcedure Insert(T, k)\n  Input:  hashtabell T, noekkel k\n  Output: T med k satt inn\n  i = k mod T.length\n  while T[i] er ikke tom:\n      i = i + 1\n      if i == T.length:\n          i = 0\n  T[i] = k\n  Kjoeretid: O(1)\n```\n\n**a)** Er wraparound håndtert riktig?\n**b)** Hvilke feil gjenstår?\n**c)** Vis konkret hva som går galt med $N = 6$, tabellen `_, 13, 19, _, _, _` og\nnøkkelen 13.",
+        "solution": "**a) Ja, faktisk.** `if i == T.length: i = 0` gjør nøyaktig det samme som\n`i = (i + 1) mod N` når `i` økes med 1 om gangen. Formen er mer omstendelig, men\nden er korrekt, og en besvarelse skal ikke trekkes for å skrive det slik.\n\nDette er verdt å merke seg: **det er innholdet i kontrakten som teller, ikke\nsyntaksen.** En klar, entydig løsning gir uttelling selv om den ikke ser ut som\nfasiten.\n\n**b) To feil gjenstår.**\n\n1. **Ingen sjekk for lik nøkkel.** Løkkebetingelsen stopper bare på tom plass, så\n   en nøkkel som allerede finnes, blir duplisert. Dette er andre halvdel av felle\n   **#11** i bokas feilregister.\n2. **Kjøretiden er feil oppgitt.** `O(1)` uten forbehold er ikke riktig: den er\n   $O(1)$ **forventet** og $O(n)$ i **verste** tilfelle.\n\n**c) Konkret, med $N = 6$ og `T = _, 13, 19, _, _, _`:**\n\n$13 \\bmod 6 = 1$. Plass 1 inneholder allerede 13, men løkka ser bare at plassen er\n«ikke tom» og går videre. Plass 2 er opptatt av 19, så videre til plass 3, som er\ntom. Der legges 13 inn:\n\n`_, 13, 19, 13, _, _`\n\nTabellen har nå **to** 13-ere. Et søk etter 13 starter på plass 1, finner den\nførste og returnerer — den andre kopien er permanent utilgjengelig, og plassen den\ntar er tapt. I tillegg er klyngen blitt ett hakk lengre, så alle senere\ninnsettinger med $h(k)$ mellom 1 og 3 blir dyrere.\n\n**Riktig oppførsel:** løkka skulle stoppet på plass 1, fordi `T[1]` er nøyaktig\nnøkkelen som settes inn, og `T[1] = 13` ville latt tabellen stå uendret.\n\n**Rettelsen er ett ledd i betingelsen:**\n\n```text\n  while T[i] er ikke tom and T[i] er ulik k:\n```\n\n**Kjøretid, korrekt oppgitt:** $O(1)$ forventet, $O(n)$ verste, der $n$ er antall\nnøkler i tabellen.",
+        "hints": [
+          "Sjekk wraparound-håndteringen for seg — er den faktisk gal, eller bare uvanlig skrevet?",
+          "Kjør prosedyren i hodet med en nøkkel som allerede ligger i tabellen."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-3-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E og I, krevende.) $N = 5$, $h(k) = k \\bmod 5$. Sett inn\n10, 15, 20 og 25.\n\n**a)** Oppgi hele tabellen og load-faktoren.\n**b)** Hva skjer hvis du nå prøver å sette inn nøkkelen 30 med `Insert` fra\n[kap. 3.1](/in2010/in2010-3-1)?\n**c)** Hva skjer hvis du prøver å sette inn 30 og tabellen i tillegg er helt full?\n**d)** Hvordan bør en robust implementasjon håndtere dette?",
+        "solution": "Hashverdiene: alle fire er multipler av 5, så $h(k) = 0$ for alle.\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 10 | 0 | `0` | `10, _, _, _, _` |\n| 2 | 15 | 0 | `0 -> 1` | `10, 15, _, _, _` |\n| 3 | 20 | 0 | `0 -> 1 -> 2` | `10, 15, 20, _, _` |\n| 4 | 25 | 0 | `0 -> 1 -> 2 -> 3` | `10, 15, 20, 25, _` |\n\n**a) Sluttilstand: `10, 15, 20, 25, _`.** Load-faktor\n$\\alpha = 4/5 = 0{,}8$.\n\n**b)** $30 \\bmod 5 = 0$. Sekvensen blir `0 -> 1 -> 2 -> 3 -> 4`, og plass 4 er\ntom, så 30 havner der: `10, 15, 20, 25, 30`. Fem prøver — verste mulige for denne\ntabellen, og $\\alpha$ blir 1.\n\n**c)** Da er ingen plass tom, og `while T[i] er ikke tom and T[i] er ulik k`\nstopper aldri. Sekvensen går rundt og rundt: 0, 1, 2, 3, 4, 0, 1 og videre i det\nuendelige. Prosedyren **terminerer ikke**.\n\nMerk at prebetingelsen i pseudokode-kontrakten sa nettopp dette: «tabellen er ikke\nfull». Prosedyren er korrekt gitt sin prebetingelse — problemet oppstår når\nprebetingelsen brytes.\n\n**d)** To grep, og begge er verdt å nevne i en besvarelse:\n\n1. **Sjekk load-faktoren før innsetting**, og rehash når $\\alpha$ overstiger\n   terskelen. Med en terskel på $0{,}5$ ville tabellen her blitt utvidet lenge før\n   den ble full. Dette er den normale løsningen, se\n   [kap. 3.2](/in2010/in2010-3-2).\n2. **Legg inn en teller i løkka**, som i `Contains`: har du prøvd $N$ plasser uten\n   å finne en ledig, er tabellen full, og prosedyren melder fra i stedet for å\n   henge.\n\n**Momentet:** en `Insert` uten en av disse to er ikke gal på hovedideen, men den\nhar et kanttilfelle som ikke terminerer. Sensor gir delpoeng for å ha sett det —\nog hovedmomentet, altså riktig probing og riktig overskriving, gir uansett mest.",
+        "hints": [
+          "Regn ut hashverdiene: hva har 10, 15, 20 og 25 til felles modulo 5?",
+          "Se på løkkebetingelsen i `Insert` og spør når den kan bli usann."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-3-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — fellekatalogen for sjanger E og I",
+      "content": "Samlet, i den rekkefølgen de koster mest poeng. De to første er begge felle\n**#11** i bokas feilregister — probing som går utenfor $0$ til $N-1$, eller som\nikke overskriver en lik nøkkel.\n\n- **Manglende `mod N` i probing-steget.** Når klyngen når plass $N-1$, må neste\n  plass være 0. **Kontrollen:** ingen indeks i sporingen din skal være større enn\n  $N-1$.\n- **Manglende sjekk for lik nøkkel.** Løkkebetingelsen må ha `and T[i] er ulik k`.\n  **Kontrollen:** antall nøkler i tabellen skal stemme med antall **ulike** nøkler\n  du fikk utdelt.\n- **Å levere bare de innsatte nøklene.** Sensor ber om **hele** tabellen med `_`\n  for tomme plasser. De tomme plassene er en del av svaret.\n- **Regnefeil i $h(k)$.** $22 \\bmod 7$ er 1, ikke 3. Regn ut alle hashverdiene i en\n  egen linje **først** — det er det enkleste grepet i hele kapitlet, og det fanger\n  flest feil.\n- **$O(1)$ uten «forventet».** Kjøretiden må matche algoritmen: $O(1)$ forventet,\n  $O(n)$ verste. Begge skal med.\n- **Manglende kanttilfelle i `Contains`.** Uten telleren `antall < N` terminerer\n  ikke løkka i en full tabell.\n- **$n$ og $N$ brukt om hverandre.** $N$ er tabellstørrelsen, $n$ er antall lagrede\n  nøkler. Å bruke dem uten å definere dem er felle **#10**.\n\n**Og den viktigste vanen:** skriv ned probing-sekvensen for hver nøkkel mens du\ngår. Blir sluttilstanden feil, viser sekvensen at metoden var riktig — og delvis\nriktig gir delvis uttelling."
+    },
+    {
+      "id": "in2010-3-3-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-3-3-def-1",
+      "type": "definition",
+      "title": "Håndkjøringsoppskriften for linear probing",
+      "content": "Fem steg: **1)** tegn tabellen med indeksene $0$ til $N-1$; **2)** regn ut $h(k)$\nfor **alle** nøklene før du setter inn noe; **3)** sett inn én om gangen med\n$(i+1) \\bmod N$ ved kollisjon og overskriving ved lik nøkkel; **4)** noter\nprobing-sekvensen underveis; **5)** lever hele tabellen med `_` for tomme plasser.\n\nSteg 2 er det som fanger flest feil, og steg 4 er det som sikrer delvis uttelling\nnår sluttilstanden likevel blir gal."
+    },
+    {
+      "id": "in2010-3-3-def-2",
+      "type": "definition",
+      "title": "De to kontrollene",
+      "content": "**Kontroll 1:** er noen indeks i sporingen større enn $N-1$? Da er `mod N` glemt.\n**Kontroll 2:** stemmer antall nøkler i tabellen med antall **ulike** nøkler du\nfikk utdelt? Er det flere, er en nøkkel duplisert.\n\nTil sammen fanger de begge halvdelene av felle **#11**, og de tar to sekunder\nhver."
+    },
+    {
+      "id": "in2010-3-3-def-3",
+      "type": "definition",
+      "title": "Delvis uttelling på en håndkjøring",
+      "content": "Sjanger E gir poeng per delmoment: riktige hashverdier, riktig probing med\nwraparound, og hele tabellen levert med tomme plasser markert.\n\nDerfor er det verdt å skrive ned probing-sekvensen selv om du er usikker på\nsluttilstanden, og derfor skal ingen deloppgave stå tom. Det siste poenget henger\ntypisk på wraparound og på formatet."
+    },
+    {
+      "id": "in2010-3-3-def-4",
+      "type": "definition",
+      "title": "Klynge kontra tilfeldig naboskap",
+      "content": "Fire nøkler på rad i tabellen betyr ikke nødvendigvis en klynge. En **klynge** er\nnøkler som har blitt **forskjøvet** fordi plassen deres var opptatt.\n\nLigger fire nøkler på rad, hver på sin egen hashverdi, er kostnaden 1 prøve per\ninnsetting. Ligger de på rad fordi alle fire hashet til den første plassen, er\nkostnaden 10. Sluttilstanden ser lik ut; kostnaden gjør det ikke."
+    },
+    {
+      "id": "in2010-3-3-def-5",
+      "type": "definition",
+      "title": "Load-faktor er ikke hele historien",
+      "content": "En tabell kan være under halvfull og likevel oppføre seg som verste tilfelle, hvis\nalle nøklene hasher til samme plass.\n\nLøsningen på det er ikke en større tabell — det ville gitt samme problem med mer\nplass — men en bedre hashfunksjon. Skillet mellom «for lite plass» og «feil\nfordeling» er et poeng en drøftingsoppgave gjerne ber om."
+    },
+    {
+      "id": "in2010-3-3-def-6",
+      "type": "definition",
+      "title": "Kostnaden ved et mislykket søk",
+      "content": "Et søk etter en nøkkel som ikke finnes, koster like mye som lengden på\nprobing-sekvensen fra $h(k)$ til første tomme plass.\n\nDerfor er klyngedannelse dyrt på to måter: den gjør innsettinger dyrere, og den\ngjør mislykkede søk dyrere for enhver nøkkel som hasher inn i klyngen."
+    },
+    {
+      "id": "in2010-3-3-def-7",
+      "type": "definition",
+      "title": "Termineringsvilkåret i `Contains`",
+      "content": "Telleren `antall < N` sikrer at søket stopper etter $N$ prøver, selv i en full\ntabell der ingen plass er tom.\n\nUten den går probingen rundt i ring for alltid. Dette er et kanttilfelle sensor\ngir eksplisitt delpoeng for å ha håndtert."
+    },
+    {
+      "id": "in2010-3-3-def-8",
+      "type": "definition",
+      "title": "Prebetingelsen «tabellen er ikke full»",
+      "content": "`Insert` slik den er skrevet i boka, forutsetter at minst én plass er tom.\nEr tabellen full og nøkkelen ikke finnes, terminerer ikke løkka.\n\nProsedyren er korrekt **gitt sin prebetingelse**. En robust implementasjon\nrehasher før tabellen fylles opp, eller legger inn en teller som melder fra. Å\nnevne dette er verdt et delpoeng."
+    },
+    {
+      "id": "in2010-3-3-def-9",
+      "type": "definition",
+      "title": "Form kontra innhold i pseudokode",
+      "content": "Sensor krever at løsningen er lett forståelig, entydig og presis — ikke at den\nser ut som en bestemt fasit. En wraparound skrevet som `if i == N: i = 0` er like\nriktig som `(i + 1) mod N`.\n\nDet motsatte gjelder også: en løsning som er teknisk riktig, men uklar, kan bli\nignorert. Felle **#12** i bokas feilregister er nettopp uklar eller unødig lang\npseudokode."
+    },
+    {
+      "id": "in2010-3-3-def-10",
+      "type": "definition",
+      "title": "Firestegsformen på et sjanger I-svar",
+      "content": "**1)** Navngi problemet. **2)** Oppgi antagelser om representasjon. **3)** Skriv\nalgoritmen. **4)** Oppgi kjøretiden som matcher koden, med $n$ definert.\n\nAlle fire er poenggivende hver for seg. Riktig kode uten kjøretid gir typisk halv\nuttelling — og for hashing må kjøretiden ha **begge** tilfellene, forventet og\nverste."
+    },
+    {
+      "id": "in2010-3-3-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kortet du tar med til eksamen",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-3-3-rep-1",
+          "type": "text",
+          "content": "**Håndkjøring, fem steg:**\n\n1. Tegn tabellen med indeksene $0$ til $N-1$.\n2. Regn ut $h(k) = k \\bmod N$ for **alle** nøklene først.\n3. Sett inn én om gangen: opptatt av **annen** nøkkel $\\Rightarrow$ $(i+1) \\bmod N$; opptatt\n   av **samme** nøkkel $\\Rightarrow$ skriv over og stopp.\n4. Noter probing-sekvensen underveis.\n5. Lever **hele** tabellen, kommaseparert, med `_` for tomme plasser.\n\n**Pseudokoden, som må sitte uten oppslag:**\n\n```text\nProcedure Insert(T, k)\n  Input:  hashtabell T som array med N plasser (indeks fra 0), noekkel k\n  Output: T med k satt inn; lik noekkel overskrives\n  N = T.length\n  i = k mod N\n  while T[i] er ikke tom and T[i] er ulik k:\n      i = (i + 1) mod N\n  T[i] = k\n```\n\n```text\nProcedure Contains(T, k)\n  Input:  hashtabell T som array med N plasser (indeks fra 0), noekkel k\n  Output: sant hvis k finnes i T, ellers usant\n  N = T.length\n  i = k mod N\n  antall = 0\n  while T[i] er ikke tom and antall < N:\n      if T[i] er lik k:\n          return sant\n      i = (i + 1) mod N\n      antall = antall + 1\n  return usant\n```\n\n**Kjøretidene:** $O(1)$ **forventet**, $O(n)$ **verste**. Begge, hver gang.\n\n**De to kontrollene, to sekunder hver:**\n\n- Er noen indeks i sporingen større enn $N-1$? Da mangler `mod N`.\n- Stemmer antall nøkler med antall **ulike** nøkler du fikk? Ellers er en\n  duplisert.\n\n**Og husk hva du kan få poeng for selv om håndkjøringen svikter:** pseudokoden,\nkjøretiden og load-faktoren er uavhengige delmomenter. C er en god og vanlig\nkarakter, og den nås av den som leverer alle delmomentene sine — ikke av den som\nhar én feilfri tabell og tre blanke ruter.\n\n**Neste steg:** [kap. 3.4](/in2010/in2010-3-4) bruker hash-settet i\nDel 2-algoritmer, og [kap. 3.P](/in2010/in2010-3-prove) har fire prøver på hele\nDel 3."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

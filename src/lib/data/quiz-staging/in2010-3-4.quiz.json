@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hva returnerer binærsøket som er pensum i IN2010?",
+    "options": [
+      "Sant eller usant",
+      "Indeksen til verdien",
+      "Antall sammenligninger",
+      "Verdien selv, eller null"
+    ],
+    "explanation": "Pensums variant er en medlemskapstest. Vil du ha indeksen, må `return sant` endres til `return midt` — og modifikasjonen må nevnes, ellers er det felle #4 som gir eksplisitt trekk."
+  },
+  {
+    "question": "Hva er binærsøkets kjøretid på et sortert array med $n$ elementer?",
+    "options": [
+      "$O(\\log n)$",
+      "$O(n)$",
+      "$O(n \\log n)$",
+      "$O(1)$"
+    ],
+    "explanation": "Hver runde halverer søkeintervallet, så antall runder er antall halveringer fra $n$ ned til 1. Kontrollen er at én dobling av $n$ gir nøyaktig én ekstra sammenligning."
+  },
+  {
+    "question": "Hvorfor er binærsøk raskere på et array enn på en lenket liste?",
+    "options": [
+      "Fordi arrayet gir direkte indeksering til midtelementet",
+      "Fordi arrayet alltid er sortert, mens lista ikke er det",
+      "Fordi lista bruker mer minne per element enn arrayet",
+      "Fordi lista må sorteres på nytt før hvert enkelt søk"
+    ],
+    "explanation": "Å nå midten i et array er $O(1)$, mens en lenket liste krever at du følger pekere fra starten, altså $O(n)$. Da forsvinner hele fordelen ved halveringen, og søket blir like tregt som et lineært søk."
+  },
+  {
+    "question": "Når konkluderer binærsøk at verdien ikke finnes?",
+    "options": [
+      "Når `lav > hoy`, altså når intervallet er tomt",
+      "Når det har sammenlignet med alle elementene i arrayet",
+      "Når `midt` når enten første eller siste indeks",
+      "Når `A[midt]` er større enn verdien det letes etter"
+    ],
+    "explanation": "Algoritmen har ikke sett på alle elementene — den har utelukket dem, og et tomt intervall betyr at verdien ikke kan ligge noe sted. Det er nettopp denne utelukkingen som gir $O(\\log n)$ i stedet for $O(n)$."
+  },
+  {
+    "question": "Usortert array med $n$ heltall. Hva er lavest mulig kjøretid for å finne et duplikat?",
+    "options": [
+      "$O(n)$ forventet, med et hash-set over elementene",
+      "$O(n \\log n)$, ved å sortere og skanne",
+      "$O(n^2)$, ved å sammenligne alle par",
+      "$O(\\log n)$, ved binærsøk etter hvert element"
+    ],
+    "explanation": "Ett gjennomløp med $O(1)$ forventet oppslag gir lineær forventet kjøretid, og $O(n)$ er samtidig nedre grense siden hvert element må leses minst én gang. De to neste alternativene er korrekte løsninger, men lavere i poengtrappen."
+  },
+  {
+    "question": "Hvorfor står ordet «forventet» i kjøretiden til en hash-basert løsning?",
+    "options": [
+      "Fordi verste tilfelle er $O(n^2)$ når alt kolliderer",
+      "Fordi hashfunksjonen velges tilfeldig ved hver kjøring",
+      "Fordi kjøretiden avhenger av hvor stor tabellen er",
+      "Fordi løsningen bare virker på heltall og ikke på tekst"
+    ],
+    "explanation": "Kolliderer alle nøklene, koster hvert oppslag $O(n)$, og med $n$ runder blir totalen kvadratisk — like dårlig som en dobbel løkke. Kjøretiden må matche algoritmen, og et manglende forbehold gir trekk."
+  },
+  {
+    "question": "I parsøket med hash-set: hvorfor må oppslaget komme før innsettingen?",
+    "options": [
+      "Ellers kan et element bli paret med seg selv i settet",
+      "Ellers blir kjøretiden $O(n^2)$ i stedet for $O(n)$",
+      "Ellers vil settet vokse ut over $n$ elementer",
+      "Ellers finner algoritmen paret to ganger på rad"
+    ],
+    "explanation": "Med $x = 10$ og `A[i] = 5` ville et sett som allerede inneholder 5-eren gi et falskt treff på komplementet. Slår du opp først, inneholder settet bare elementer med lavere indeks."
+  },
+  {
+    "question": "Sortert array. Hva er beste kjøretid for å finne to elementer som summerer til $x$?",
+    "options": [
+      "$O(n)$ garantert, med to pekere fra hver sin ende",
+      "$O(n)$ forventet, med et hash-set",
+      "$O(n \\log n)$, ved binærsøk etter hvert komplement",
+      "$O(n^2)$, ved å sjekke alle par systematisk"
+    ],
+    "explanation": "To pekere utnytter sorteringen og gir lineær kjøretid uten hashingens verstetilfelle. Hash-settet virker også, men dets $O(n)$ er bare forventet — på et sortert array er to pekere strengt bedre."
+  },
+  {
+    "question": "Hva er argumentet for at to-peker-teknikken er korrekt?",
+    "options": [
+      "Hver flytting utelukker alle par den pekeren kunne inngått i",
+      "Pekerne møtes alltid nøyaktig i midten av arrayet",
+      "Summen av de to pekerne er monotont voksende",
+      "Hvert element blir sammenlignet med alle de andre"
+    ],
+    "explanation": "Er summen for liten, er `A[j]` allerede den største muligheten for `A[i]`, så `A[i]` kan ikke inngå i noe par i intervallet. Hver flytting fjerner dermed en hel rad av kandidater, og $n$ steg holder i stedet for $n^2$."
+  },
+  {
+    "question": "Hvor mange steg bruker to-peker-teknikken i verste tilfelle?",
+    "options": [
+      "Høyst $n$ — hvert steg flytter én peker",
+      "Høyst $n^2$ — alle par må sjekkes",
+      "Høyst $\\log n$ — intervallet halveres hvert steg",
+      "Høyst $n \\log n$ — sorteringen dominerer"
+    ],
+    "explanation": "Pekerne starter i hver sin ende og beveger seg bare mot hverandre, så de kan til sammen flytte høyst $n$ ganger før de møtes. Sorteringen er ikke med i regnestykket når arrayet allerede er sortert."
+  },
+  {
+    "question": "Hva er galt med å foreslå radix sort i «sortér og skann» på et generelt array?",
+    "options": [
+      "Radix krever heltall med kjent, begrenset antall siffer",
+      "Radix er ustabil og ødelegger rekkefølgen mellom like nøkler",
+      "Radix er $O(n \\log n)$ og gir ingen forbedring her",
+      "Radix kan ikke brukes sammen med en etterfølgende skanning"
+    ],
+    "explanation": "Uten et kjent verdiområde er ikke antall siffer en konstant, og kjøretiden $O(d(n+k))$ er ikke lineær. Dette er felle #5 — en lineær løsning som bryter forutsetningen sin, står utenfor poengtrappen og ikke øverst i den."
+  },
+  {
+    "question": "Du skal gjøre ETT oppslag i et usortert array. Hva er beste strategi?",
+    "options": [
+      "Lineært søk gjennom arrayet, $O(n)$",
+      "Sortér først og binærsøk, $O(n \\log n)$",
+      "Bygg et hash-set og slå opp, $O(n)$ forventet",
+      "Binærsøk direkte, $O(\\log n)$"
+    ],
+    "explanation": "Du må lese hvert element i verste fall, så $O(n)$ er nedre grense og lineært søk treffer den. Sortering og hash-bygging lønner seg først når du skal gjøre mange oppslag i det samme arrayet."
+  },
+  {
+    "question": "Oppgaven krever en GARANTERT kjøretid for duplikatsøk i et usortert array. Hva velger du?",
+    "options": [
+      "Sortér med flettesortering og skann, $O(n \\log n)$",
+      "Hash-set, $O(n)$ forventet og raskest i praksis",
+      "Dobbel løkke, $O(n^2)$ men helt forutsigbar",
+      "Binærsøk etter hvert element, $O(n \\log n)$"
+    ],
+    "explanation": "Hash-løsningen er $O(n^2)$ i verste tilfelle og gir derfor ingen garanti, mens flettesortering er $O(n \\log n)$ i alle tilfeller. Kravet om garanti gjør den asymptotisk tregere løsningen til den riktige."
+  },
+  {
+    "question": "Hvilken setning løfter et Del 2-svar på en søkeoppgave?",
+    "options": [
+      "At $O(n)$ er lavest mulig fordi hvert element må leses",
+      "At algoritmen er testet på flere ulike inputarrayer",
+      "At pseudokoden følger nøyaktig samme form som i pensum",
+      "At løsningen bruker minst mulig ekstra minne underveis"
+    ],
+    "explanation": "Sensor ser etter at kandidaten vet at hun har truffet bunnen av poengtrappen, og begrunnelsen er kort: et element du aldri leste, kunne vært svaret. Minnebruk er relevant i en drøftingsoppgave, men det er ikke det poengtrappen måler."
+  }
+]

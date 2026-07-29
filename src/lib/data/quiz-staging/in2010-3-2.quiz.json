@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hva er load-faktoren $\\alpha$?",
+    "options": [
+      "Antall lagrede nøkler delt på antall plasser",
+      "Antall plasser delt på antall lagrede nøkler",
+      "Antall kollisjoner delt på antall innsettinger",
+      "Antall prøver delt på antall plasser i tabellen"
+    ],
+    "explanation": "$\\alpha = n/N$ måler hvor stor andel av plassene som er i bruk, og den ligger derfor mellom 0 og 1 ved lukket hashing. Snur du brøken, får du et tall over 1 så snart tabellen er mindre enn halvfull."
+  },
+  {
+    "question": "Kan rehashing gjenbruke de gamle indeksene etter en dobling?",
+    "options": [
+      "Nei — $h(k) = k \\bmod N$ endres når $N$ endres",
+      "Ja — indeksene er uavhengige av tabellstørrelsen",
+      "Ja — så lenge den nye størrelsen er et multiplum av den gamle",
+      "Nei — men bare hvis tabellen inneholder kollisjoner fra før"
+    ],
+    "explanation": "Hashfunksjonen har $N$ i seg, så nøkkelen 22 gir plass 1 når $N = 7$ og plass 8 når $N = 14$. Hver nøkkel må settes inn på nytt, og påstanden om gjenbruk er kapitlets faste distraktor."
+  },
+  {
+    "question": "Hva koster én rehashing av en tabell med $N$ plasser og $n$ nøkler?",
+    "options": [
+      "$O(n + N)$",
+      "$O(1)$",
+      "$O(n \\log n)$",
+      "$O(n \\cdot N)$"
+    ],
+    "explanation": "Løkka går gjennom alle $N$ plassene, og hver av de $n$ nøklene settes inn på $O(1)$ forventet. Det ser dyrt ut, men rehashinger skjer sjelden nok til at snittet per innsetting likevel er konstant."
+  },
+  {
+    "question": "Hva koster $n$ innsettinger i en hashtabell som dobler seg ved behov?",
+    "options": [
+      "$O(n)$ totalt",
+      "$O(n \\log n)$ totalt",
+      "$O(n^2)$ totalt",
+      "$O(n \\log n)$ forventet, $O(n^2)$ verste"
+    ],
+    "explanation": "Doblingene koster $N_0 + 2N_0 + 4N_0$ og videre, og i en doblingsrekke er summen under det dobbelte av siste ledd. Fordelt på $n$ innsettinger gir det konstant kostnad per innsetting."
+  },
+  {
+    "question": "Hva er verste kjøretid for et oppslag i et hashmap?",
+    "options": [
+      "$O(n)$",
+      "$O(1)$",
+      "$O(\\log n)$",
+      "$O(n \\log n)$"
+    ],
+    "explanation": "Ligger alle nøklene i én klynge, må probing-sekvensen gjennom hele, og strukturen er ikke bedre enn et lineært søk. $O(1)$ er det **forventede** tilfellet, og å utelate det ordet er en fast trekkgrunn."
+  },
+  {
+    "question": "Kan load-faktoren i en tabell med lukket hashing bli 1,5?",
+    "options": [
+      "Nei — alle nøkler ligger i arrayet, så $n \\le N$",
+      "Ja — så lenge probing-sekvensen finner ledige plasser",
+      "Ja — men bare rett før en rehashing utløses",
+      "Nei — fordi hashfunksjonen ikke tillater verdier over 1"
+    ],
+    "explanation": "Med lukket hashing ligger hver nøkkel i selve arrayet, så det kan ikke være flere nøkler enn plasser. Med kjeding, der hver plass peker til en liste, kan $\\alpha$ godt overstige 1 — men det er en annen struktur."
+  },
+  {
+    "question": "Hvilket verktøy gir $O(n)$ forventet på «finnes det to like elementer?»",
+    "options": [
+      "Et hash-set",
+      "En sortering med flettesortering",
+      "En dobbel løkke over alle par",
+      "Et binærsøk i den usorterte lista"
+    ],
+    "explanation": "Ett gjennomløp med $O(1)$ forventet oppslag per element gir lineær forventet kjøretid. Sortering gir $O(n \\log n)$ og dobbel løkke $O(n^2)$ — begge korrekte, men ett og to trinn lavere i poengtrappen."
+  },
+  {
+    "question": "Hvorfor må ordet «forventet» stå når du oppgir $O(1)$ for et hashoppslag?",
+    "options": [
+      "Fordi verste tilfelle er $O(n)$ når alt kolliderer",
+      "Fordi hashfunksjonen bruker tilfeldige tall internt",
+      "Fordi kjøretiden avhenger av hvor stor tabellen er",
+      "Fordi $O(1)$ bare gjelder for oppslag, ikke innsetting"
+    ],
+    "explanation": "Kjøretiden må matche algoritmen du faktisk ga, og en hashtabell har to ulike kjøretider avhengig av hvordan nøklene ligger. Sensor trekker eksplisitt for kjøretid oppgitt uten det nødvendige forbeholdet."
+  },
+  {
+    "question": "En tabell med $N = 8$ inneholder 6 nøkler. Hva er load-faktoren?",
+    "options": [
+      "0,75",
+      "1,33",
+      "0,60",
+      "0,80"
+    ],
+    "explanation": "$\\alpha = n/N = 6/8 = 0{,}75$. Svaret 1,33 er den snudde brøken $N/n$ — og at det er over 1 burde alene avsløre at brøken står feil vei."
+  },
+  {
+    "question": "I hvilken rekkefølge settes nøklene inn under en rehashing?",
+    "options": [
+      "Venstre mot høyre i det gamle arrayet",
+      "Sortert stigende etter nøkkelverdi",
+      "I den rekkefølgen de opprinnelig ble satt inn",
+      "Etter synkende antall prøver ved forrige innsetting"
+    ],
+    "explanation": "Løkka går over indeksene i det gamle arrayet, så rekkefølgen følger plasseringene der. Den opprinnelige innsettingsrekkefølgen er ikke lagret noe sted, og rekkefølgen bør oppgis som en antagelse i en håndkjøring."
+  },
+  {
+    "question": "Hva er forskjellen på et hashmap og et hash-set?",
+    "options": [
+      "Hashmap lagrer nøkkel og verdi, hash-set bare nøkler",
+      "Hashmap er sortert, hash-set er usortert internt",
+      "Hashmap bruker probing, hash-set bruker kjeding",
+      "Hashmap er $O(1)$ forventet, hash-set er $O(\\log n)$"
+    ],
+    "explanation": "Begge bygger på samme hashtabell og har samme kjøretider; forskjellen er kun hva som lagres. Hash-set svarer på «finnes denne?», hashmap på «hvilken verdi hører til denne?»."
+  },
+  {
+    "question": "Når er sortér-og-skann det riktige svaret fremfor hash-set?",
+    "options": [
+      "Når oppgaven krever en garantert kjøretid",
+      "Når elementene er heltall i et kjent verdiområde",
+      "Når antall elementer er svært stort",
+      "Når det finnes mange duplikater blant elementene"
+    ],
+    "explanation": "Hash-set gir $O(n)$ forventet, men $O(n^2)$ i verste tilfelle, mens flettesortering gir $O(n \\log n)$ garantert i alle tilfeller. Ber oppgaven om en garanti, er den tregere løsningen den riktige."
+  },
+  {
+    "question": "En hashtabell med $N = 7$ og nøklene 15, 22, 8, 29 rehashes til $N = 14$. Hva blir $h(22)$?",
+    "options": [
+      "8",
+      "1",
+      "22",
+      "2"
+    ],
+    "explanation": "$22 = 1 \\cdot 14 + 8$, så resten er 8. Svaret 1 er den gamle hashverdien med $N = 7$ — nettopp den fella rehashing handler om, siden alle hashverdiene endrer seg med $N$."
+  },
+  {
+    "question": "Hva er amortisert analyse i IN2010-sammenheng?",
+    "options": [
+      "Et begrep som nevnes for å avgrenses bort fra pensum",
+      "Metoden du skal bruke for å analysere rehashing på eksamen",
+      "Et krav i alle Del 2-oppgaver om hashtabeller",
+      "En variant av løkketelling for rekursive algoritmer"
+    ],
+    "explanation": "Metoden forklarer hvorfor doblinger ikke ødelegger $O(1)$ per innsetting, men du blir aldri bedt om å gjennomføre en slik analyse. Konklusjonen — at $n$ innsettinger med dobling koster $O(n)$ totalt — er derimot verdt å kunne."
+  }
+]

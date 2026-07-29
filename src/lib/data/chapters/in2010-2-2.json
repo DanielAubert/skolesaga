@@ -1,0 +1,394 @@
+{
+  "id": "in2010-2-2",
+  "courseId": "in2010",
+  "chapterNumber": "2.2",
+  "title": "Effektive sorteringer og nedre grense",
+  "description": "Merge, Heap og Quick sort som O(n log n)-sorteringer (Quick O(n²) verste) — hva de brukes til på Del 2 (sortér-så-skann), ikke håndkjøring.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne gjengi beste, verste og forventet kjøretid for flettesortering, heapsort og kvikksortering, og si hvilke av dem som er stabile og hvilke som arbeider på stedet",
+    "kunne begrunne kjøretiden til flettesortering og kvikksortering ved å telle nivåer og arbeid per nivå",
+    "kunne skissere hvorfor ingen sammenligningsbasert sortering kommer under en nedre grense på n log n, med beslutningstreet som argument",
+    "kunne velge effektiv sortering ut fra et oppgitt krav om stabilitet, minnebruk eller garantert kjøretid, og oppgi kjøretiden som følger"
+  ],
+  "content": [
+    {
+      "id": "in2010-2-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "De tre effektive sorteringene testes på **to** måter, og begge har vært på alle\nsju settene (100 %).\n\n**Sjanger D — sorteringsegenskaper og valg** (sant/usant om stabilitet, in-place\nog kjøretid) og **sjanger C — kjøretids- og teorifakta** (rene faktapåstander)\nplukker begge fra den samme tabellen. Det klart hyppigste enkeltpunktet er\nkvikksorteringens verste tilfelle: $O(n^2)$, ikke $O(n \\log n)$.\n\nDen andre bruken er viktigere for karakteren. På **Del 2** — der du skriver\npseudokode — er «sortér i $O(n \\log n)$ og skann i $O(n)$» en helt lovlig\nstrategi når ingen lineær løsning finnes. Da må du kunne si hvilken sortering du\nbruker og hva den koster. Det er nettopp dette som gjør kapitlet til mer enn\npuggestoff.\n\nDu blir **ikke** bedt om å håndkjøre flettesortering eller kvikksortering på\neksamen — heapstrukturen håndkjøres derimot, og den bygges opp i Del 4. Her\nhandler det om egenskaper, kjøretid og valg.\n\nPrioritet: **høyeste**. Tabellen nederst i kapitlet er ren poengvaluta på Del 1.\n\n**Slik er kapitlet lagt opp (50 min):** fire løkker med tidsanslag og et\npausepunkt underveis."
+    },
+    {
+      "id": "in2010-2-2-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 2.1](/in2010/in2010-2-1) — stabilitet, in-place og de tre invariantene.\n  Alle begrepene brukes videre her uten ny forklaring.\n- [kap. 1.2](/in2010/in2010-1-2) — løkketelling. Kjøretidene under regnes ut ved\n  å telle **nivåer** og arbeid per nivå, som er den samme tellingen.\n- [kap. 1.1](/in2010/in2010-1-1) — $O$, $\\Omega$ og forskjellen mellom verste og\n  forventet tilfelle.\n\nVil du se boblesortering kjøre som ekte kode først:\n[Sortering: boblesortering, `.sort()` og gitt `sort_list`](/tdt4110/tdt4110-6-1)."
+    },
+    {
+      "id": "in2010-2-2-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-2-2-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer som skal sorteres |\n| $O(n \\log n)$ | lineærlogaritmisk kjøretid — $\\log n$ nivåer med $O(n)$ arbeid per nivå |\n| $O(n^2)$ | kvadratisk kjøretid — kvikksorteringens verste tilfelle |\n| $\\Omega(n \\log n)$ | nedre grense for enhver sammenligningsbasert sortering |\n| $\\log_2 n$ | antall halveringer fra $n$ ned til 1 |\n| $n!$ | antall mulige rekkefølger av $n$ ulike elementer |"
+        },
+        {
+          "id": "in2010-2-2-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `MergeSort(A)` | splitter `A` i to, sorterer hver del rekursivt og fletter dem | $O(n \\log n)$ i **alle** tilfeller |\n| `Merge(V, H)` | fletter to ferdig sorterte arrayer til ett sortert array | $O(m)$ der $m$ er samlet lengde |\n| `QuickSort(A, lav, høy)` | partisjonerer om en pivot og sorterer hver side rekursivt | $O(n \\log n)$ forventet, $O(n^2)$ verste |\n| `Partition(A, lav, høy)` | flytter alt mindre enn pivoten til venstre for den, og returnerer pivotens endelige indeks | $O(m)$ der $m$ er lengden på biten |\n| `HeapSort(A)` | bygger en heap av `A` og henter ut minste element gjentatte ganger | $O(n \\log n)$ i alle tilfeller |\n| `BuildHeap(A)` | gjør et vilkårlig array om til en heap | $O(n)$ — **ikke** $O(n \\log n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\log_2 n \\text{ nivåer} \\times O(n) \\text{ arbeid per nivå} = O(n \\log n)$$\n\nNivåtellingen som gir flettesorteringens kjøretid.\n\n$$(n-1) + (n-2) + \\cdots + 1 = \\frac{n(n-1)}{2} = O(n^2)$$\n\nKvikksorteringens verste tilfelle: hver partisjonering skreller av bare ett\nelement.\n\n$$2^k \\ge n! \\ \\Longrightarrow\\ k \\ge \\log_2(n!) = \\Omega(n \\log n)$$\n\nNedre grensen, lest ut av beslutningstreet."
+        }
+      ]
+    },
+    {
+      "id": "in2010-2-2-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — flettesortering og nivåtellingen (ca. 14 min)\n\nTenk deg to bunker med søknader, hver allerede sortert på dato. Å slå dem sammen\ntil én sortert bunke er lett: se på det øverste arket i hver bunke, ta det\neldste, gjenta. Du går gjennom hvert ark nøyaktig én gang.\n\nDet er hele ideen bak **flettesortering** (merge sort). Del arrayet i to,\nsortér hver halvdel — med samme metode — og flett de to sorterte halvdelene\nsammen.\n\nDet avgjørende for kjøretiden er ikke rekursjonen i seg selv, men **hvor mange\nganger et array på $n$ elementer kan halveres før bitene har ett element**. Det\ner $\\log_2 n$ ganger. Og på hvert nivå gjør flettingen til sammen $O(n)$\narbeid, fordi hvert element passerer gjennom nøyaktig én fletting per nivå.\n\n$\\log_2 n$ nivåer, $O(n)$ arbeid per nivå. Det gir $O(n \\log n)$. Legg merke til\nat dette er ren telling — vi setter ikke opp noen ligning."
+    },
+    {
+      "id": "in2010-2-2-def-1",
+      "type": "definition",
+      "title": "Flettesortering",
+      "content": "Splitter arrayet i to halvdeler, sorterer hver halvdel rekursivt og fletter de\nto sorterte halvdelene sammen.\n\n$O(n \\log n)$ i **alle** tilfeller — beste, forventet og verste. **Stabil**, men\n**ikke in-place**: flettingen trenger et hjelpearray på $n$ plasser.\n\nDen brukes som referansealgoritme fordi den er den eneste av de tre effektive som\nkombinerer garantert $O(n \\log n)$ med stabilitet."
+    },
+    {
+      "id": "in2010-2-2-th-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `MergeSort` og `Merge`",
+      "content": "**Antagelser om representasjon.** `A` er et array med $n$ sammenlignbare\nelementer indeksert fra 0. Vi har lov til å opprette nye arrayer.\n\n**Prebetingelse:** `A` inneholder $n$ elementer i vilkårlig rekkefølge.\n**Postbetingelse:** returverdien er et nytt array med de samme elementene, sortert\nstigende.\n\n```text\nProcedure MergeSort(A)\n  Input:  array A med n sammenlignbare elementer, indeksert fra 0\n  Output: et sortert array med de samme elementene\n  if A.length <= 1:\n      return A\n  m = A.length / 2\n  venstre = MergeSort(A[0 .. m-1])\n  hoyre   = MergeSort(A[m .. A.length-1])\n  return Merge(venstre, hoyre)\n```\n\nFlettingen er den delen som gjør arbeidet, og den er verdt å kunne skrive:\n\n```text\nProcedure Merge(V, H)\n  Input:  to sorterte arrayer V og H\n  Output: ett sortert array med alle elementene fra V og H\n  ut = tomt array\n  i = 0\n  j = 0\n  while i < V.length and j < H.length:\n      if V[i] <= H[j]:\n          legg V[i] bakerst i ut\n          i = i + 1\n      else:\n          legg H[j] bakerst i ut\n          j = j + 1\n  legg resten av V (fra i) bakerst i ut\n  legg resten av H (fra j) bakerst i ut\n  return ut\n```\n\n**Grunnideen i én setning:** to sorterte biter kan flettes ved å alltid ta det\nminste av de to første elementene, fordi det ikke kan finnes noe mindre lenger\nbak i en sortert bit.\n\n**Kjøretid:** `Merge` går gjennom hvert element én gang, altså $O(m)$ for samlet\nlengde $m$. Splittingen gir $\\log_2 n$ nivåer, og på hvert nivå flettes til\nsammen $n$ elementer. Totalt $O(n \\log n)$, i alle tilfeller.\n\n**Stabiliteten ligger i ett tegn:** `V[i] <= H[j]`. Fordi *venstre* vinner ved\nlikhet, beholder like elementer sin innbyrdes rekkefølge. Bytter du til `<`,\nslutter flettesortering å være stabil."
+    },
+    {
+      "id": "in2010-2-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Flettesortering nivå for nivå",
+      "problem": "Kjør `MergeSort` på `A = [8, 3, 5, 1, 9, 2]`. Vis splittefasen og flettefasen,\nog tell antall sammenligninger.",
+      "solution": "**Splittefasen** — hvert nivå halverer bitene:\n\n| Nivå | Biter |\n|---|---|\n| 0 | `[8, 3, 5, 1, 9, 2]` |\n| 1 | `[8, 3, 5]`   `[1, 9, 2]` |\n| 2 | `[8]`   `[3, 5]`   `[1]`   `[9, 2]` |\n| 3 | `[3]`   `[5]`   `[9]`   `[2]` |\n\n**Flettefasen** — nedenfra og opp:\n\n| Nivå | Venstre | Høyre | Flettet | Sammenligninger |\n|---|---|---|---|---|\n| 2 | `[3]` | `[5]` | `[3, 5]` | 1 |\n| 2 | `[9]` | `[2]` | `[2, 9]` | 1 |\n| 1 | `[8]` | `[3, 5]` | `[3, 5, 8]` | 2 |\n| 1 | `[1]` | `[2, 9]` | `[1, 2, 9]` | 1 |\n| 0 | `[3, 5, 8]` | `[1, 2, 9]` | `[1, 2, 3, 5, 8, 9]` | 5 |\n\n**Sluttilstand: `[1, 2, 3, 5, 8, 9]`.** I alt 10 sammenligninger.\n\n**Sammenlign med [kap. 2.1](/in2010/in2010-2-1):** de kvadratiske sorteringene\nbrukte 12 til 15 sammenligninger på nøyaktig det samme arrayet. Med seks\nelementer er forskjellen liten. Med en million elementer er den ca. 20 millioner\nmot ca. 500 milliarder.\n\n**Kontrollregning av nivåtellingen.** Arrayet har 6 elementer, og $\\log_2 6$\nligger mellom 2 og 3 — vi fikk tre flettenivåer, som stemmer. På hvert nivå ble\ndet flettet til sammen 6 elementer eller færre. Så $3 \\times 6 = 18$ er et tak,\nog vi brukte 10 sammenligninger. Det er nettopp $O(n \\log n)$.\n\n**Merk hjelpearrayet.** `Merge` bygger et nytt `ut`-array. Det er derfor\nflettesortering ikke er in-place, og det er et fast sant/usant-punkt."
+    },
+    {
+      "id": "in2010-2-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger C — kjøretids- og teorifakta, altså rene\nsant/usant-påstander om algoritmer.) Avgjør sant eller usant.\n\n**a)** Flettesortering er $O(n \\log n)$ også i verste tilfelle.\n**b)** Flettesortering er in-place.\n**c)** Flettesortering er stabil.",
+        "solution": "**a) Sant.** Splittingen gir alltid $\\log_2 n$ nivåer, uansett hvordan\nelementene ligger, og hvert nivå koster $O(n)$. Flettesortering har ikke noe\ndårlig tilfelle.\n\n**b) Usant.** `Merge` bygger et nytt array, så algoritmen bruker $O(n)$ ekstra\nminne. Dette er den vanligste feilen om flettesortering.\n\n**c) Sant.** Sammenligningen `V[i] <= H[j]` lar venstre bit vinne ved likhet, så\nlike elementer beholder innbyrdes rekkefølge.\n\n**Merk fordelingen:** sant, usant, sant. På eksamen blander sant/usant-blokkene\nalltid begge svarene — en blokk der alt er usant, finnes ikke.",
+        "hints": [
+          "Tell nivåene i splittefasen: avhenger antallet av hvordan tallene ligger?",
+          "Ser du et nytt array bli opprettet noe sted i pseudokoden?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-2-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — heapsort, kort og presist (ca. 8 min)\n\n**Heapsort** får en kort omtale her og full behandling i Del 4, der selve\nheap-strukturen bygges og håndkjøres. Det du trenger for Del 1 nå, er de tre\nlinjene i tabellen.\n\nIdeen: gjør arrayet om til en **heap** — en struktur der du alltid kan plukke ut\ndet minste elementet raskt — og plukk deretter ut elementene ett for ett.\nUttrekket koster $O(\\log n)$ og gjøres $n$ ganger, altså $O(n \\log n)$.\n\nEtt tall her er lett å bomme på, og det er et fast sant/usant-punkt: å **bygge**\nheapen fra et vilkårlig array koster $O(n)$, ikke $O(n \\log n)$. Det er selve\nuttrekksfasen som koster logaritmisk per element."
+    },
+    {
+      "id": "in2010-2-2-def-2",
+      "type": "definition",
+      "title": "Heapsort",
+      "content": "Bygger en heap av arrayet og henter ut det minste elementet gjentatte ganger til\nheapen er tom.\n\n$O(n \\log n)$ i **alle** tilfeller. **In-place** — heapen ligger i selve arrayet\n— men **ikke stabil**, fordi uttrekket flytter elementer over lang avstand.\n\nStrukturen og håndkjøringen hører hjemme i Del 4; her trengs bare kjøretiden og\nde to egenskapene."
+    },
+    {
+      "id": "in2010-2-2-def-3",
+      "type": "definition",
+      "title": "Å bygge en heap er lineært",
+      "content": "`BuildHeap` gjør et vilkårlig array om til en heap i $O(n)$ — ikke\n$O(n \\log n)$.\n\nGrunnen er at de fleste nodene ligger nær bunnen og derfor har kort vei å synke.\nDette er en fast distraktor på sant/usant: påstanden «å bygge en heap fra et\nvilkårlig array tar $O(n \\log n)$» er **usann**. Selve heapsorteringen er\n$O(n \\log n)$ likevel, fordi de $n$ uttrekkene koster $O(\\log n)$ hver."
+    },
+    {
+      "id": "in2010-2-2-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — kvikksortering og de to kjøretidene (ca. 14 min)\n\n— naturlig pausepunkt —\n\n**Kvikksortering** (quicksort) angriper problemet fra motsatt kant av\nflettesortering. Der flettesortering deler blindt på midten og gjør arbeidet i\nflettingen, gjør kvikksortering **alt** arbeidet i delingen — og trenger ingen\nfletting i det hele tatt.\n\nMetoden heter **partisjonering**: velg ett element som **pivot**, og still om\narrayet slik at alt som er mindre enn pivoten havner til venstre for den, og alt\nsom er større havner til høyre. Da står pivoten på sin endelige plass, og du kan\nsortere de to sidene hver for seg.\n\nHer ligger både styrken og svakheten. Deler pivoten omtrent på midten hver gang,\nfår du $\\log_2 n$ nivåer og $O(n \\log n)$. Havner pivoten ytterst hver gang,\nskreller du av bare ett element per nivå — og da får du $n$ nivåer og $O(n^2)$."
+    },
+    {
+      "id": "in2010-2-2-def-4",
+      "type": "definition",
+      "title": "Kvikksortering",
+      "content": "Velger et pivotelement, partisjonerer arrayet slik at alt mindre står til\nvenstre for pivoten og alt større til høyre, og sorterer så hver side rekursivt.\n\n$O(n \\log n)$ **forventet**, $O(n^2)$ i **verste** tilfelle. **In-place** og\n**ikke stabil**.\n\nVerste tilfelle inntreffer når pivoten systematisk havner ytterst — for eksempel\nhvis du alltid velger siste element og arrayet allerede er sortert. Påstanden\n«kvikksortering er $O(n \\log n)$ i verste tilfelle» er **usann**, og den er\nkapitlets hyppigste distraktor."
+    },
+    {
+      "id": "in2010-2-2-def-5",
+      "type": "definition",
+      "title": "Pivot",
+      "content": "Elementet en partisjonering deler om. Alt mindre enn pivoten legges til venstre\nfor den, alt større til høyre, og pivoten står deretter på sin endelige plass.\n\nValget av pivot avgjør kvikksorteringens kjøretid. Siste element er det enkleste\nvalget, men gir $O(n^2)$ på allerede sorterte data. Et tilfeldig valgt element,\neller medianen av tre, gjør verste tilfelle usannsynlig — men fjerner det ikke."
+    },
+    {
+      "id": "in2010-2-2-th-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Partition`",
+      "content": "**Antagelser om representasjon.** `A` er et array indeksert fra 0. Vi\npartisjonerer delen fra indeks `lav` til og med `høy`, og bruker `A[høy]` som\npivot. Sorteringen skjer på stedet.\n\n**Prebetingelse:** `lav <= høy`. **Postbetingelse:** pivoten står på indeksen som\nreturneres; alt til venstre for den er mindre, alt til høyre er større eller lik.\n\n```text\nProcedure Partition(A, lav, hoy)\n  Input:  array A, og indeksene lav og hoy som avgrenser biten\n  Output: indeksen der pivoten A[hoy] havnet, med alt mindre til venstre\n  pivot = A[hoy]\n  i = lav\n  for j = lav to hoy-1:\n      if A[j] < pivot:\n          bytt A[i] og A[j]\n          i = i + 1\n  bytt A[i] og A[hoy]\n  return i\n```\n\nSelve sorteringen er da tre linjer:\n\n```text\nProcedure QuickSort(A, lav, hoy)\n  Input:  array A og indeksene lav og hoy\n  Output: A[lav..hoy] sortert stigende, sortert på stedet\n  if lav < hoy:\n      p = Partition(A, lav, hoy)\n      QuickSort(A, lav, p-1)\n      QuickSort(A, p+1, hoy)\n```\n\n**Invarianten i én setning:** rett før hver runde av `for`-løkka er alt i\n`A[lav..i-1]` mindre enn pivoten, og alt i `A[i..j-1]` er større eller lik.\n\n**Kjøretid:** én partisjonering av en bit med $m$ elementer koster $m-1$\nsammenligninger, altså $O(m)$. Deler pivoten omtrent på midten, blir det\n$\\log_2 n$ nivåer med $O(n)$ arbeid hver — $O(n \\log n)$. Havner pivoten ytterst\nhver gang, blir det $n-1$ nivåer med $n-1, n-2, \\ldots$ sammenligninger, altså\n$\\frac{n(n-1)}{2}$ — $O(n^2)$."
+    },
+    {
+      "id": "in2010-2-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Én partisjonering, steg for steg",
+      "problem": "Partisjonér `A = [7, 2, 9, 4, 1, 6]` med `A[høy] = 6` som pivot. Vis hvert steg\nav `for`-løkka, og oppgi hvor pivoten havner.",
+      "solution": "| `j` | `A[j]` før | `A[j] < 6`? | Handling | Array etter | `i` etter |\n|---|---|---|---|---|---|\n| 0 | 7 | nei | la stå | `[7, 2, 9, 4, 1, 6]` | 0 |\n| 1 | 2 | ja | bytt plass 0 og 1 | `[2, 7, 9, 4, 1, 6]` | 1 |\n| 2 | 9 | nei | la stå | `[2, 7, 9, 4, 1, 6]` | 1 |\n| 3 | 4 | ja | bytt plass 1 og 3 | `[2, 4, 9, 7, 1, 6]` | 2 |\n| 4 | 1 | ja | bytt plass 2 og 4 | `[2, 4, 1, 7, 9, 6]` | 3 |\n| — | — | — | bytt pivoten inn på plass 3 | `[2, 4, 1, 6, 9, 7]` | 3 |\n\n**Sluttilstand: `[2, 4, 1, 6, 9, 7]`.** Pivoten 6 står nå endelig på indeks 3.\nVenstre del er `[2, 4, 1]`, høyre del er `[9, 7]`. Partisjoneringen brukte 5\nsammenligninger, altså $n-1$.\n\n**Legg merke til to ting.**\n\nFor det første: venstre og høyre del er **ikke sortert**. Partisjonering\ngaranterer bare at alle til venstre er mindre enn pivoten. Sorteringen skjer når\n`QuickSort` kalles rekursivt på hver side.\n\nFor det andre: pivoten 6 havnet nesten midt i arrayet, som er heldig. Delingen\nble 3 mot 2, og da får vi det gode tilfellet. Neste eksempel viser det motsatte.\n\n**Om stabiliteten.** Byttet `bytt A[i] og A[j]` flytter et element over lang\navstand — akkurat som i utvalgssortering, og med samme konsekvens.\nKvikksortering er ustabil."
+    },
+    {
+      "id": "in2010-2-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D.) Partisjonér `A = [3, 8, 5, 2, 7]` med siste element som pivot.\n\n**a)** Hvilken indeks havner pivoten på?\n**b)** Hvordan ser arrayet ut rett etter partisjoneringen?\n**c)** Hvor mange sammenligninger brukte partisjoneringen?",
+        "solution": "Pivoten er `A[4] = 7`.\n\n| `j` | `A[j]` før | `A[j] < 7`? | Handling | Array etter | `i` etter |\n|---|---|---|---|---|---|\n| 0 | 3 | ja | bytt plass 0 og 0 | `[3, 8, 5, 2, 7]` | 1 |\n| 1 | 8 | nei | la stå | `[3, 8, 5, 2, 7]` | 1 |\n| 2 | 5 | ja | bytt plass 1 og 2 | `[3, 5, 8, 2, 7]` | 2 |\n| 3 | 2 | ja | bytt plass 2 og 3 | `[3, 5, 2, 8, 7]` | 3 |\n| — | — | — | bytt pivoten inn på plass 3 | `[3, 5, 2, 7, 8]` | 3 |\n\n**a)** Indeks 3.\n\n**b)** `[3, 5, 2, 7, 8]`.\n\n**c)** Fire, altså $n - 1$ med $n = 5$. Hvert element unntatt pivoten\nsammenlignes nøyaktig én gang.\n\nLegg merke til at venstre del `[3, 5, 2]` fortsatt er usortert — det er helt som\ndet skal være.",
+        "hints": [
+          "Pivoten er siste element. Skriv den opp først, så du ikke mister den av syne.",
+          "`i` peker på første plass som ennå ikke er fylt med noe mindre enn pivoten."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Verste tilfelle — hvorfor $O(n^2)$",
+      "problem": "Hvorfor blir kvikksortering med siste element som pivot $O(n^2)$ på et array som\nallerede er sortert? Vis regnestykket for $n = 8$.",
+      "solution": "Partisjonér `A = [1, 2, 3, 4, 5]` med `A[høy] = 5` som pivot:\n\n| `j` | `A[j]` før | `A[j] < 5`? | Handling | Array etter | `i` etter |\n|---|---|---|---|---|---|\n| 0 | 1 | ja | bytt plass 0 og 0 | `[1, 2, 3, 4, 5]` | 1 |\n| 1 | 2 | ja | bytt plass 1 og 1 | `[1, 2, 3, 4, 5]` | 2 |\n| 2 | 3 | ja | bytt plass 2 og 2 | `[1, 2, 3, 4, 5]` | 3 |\n| 3 | 4 | ja | bytt plass 3 og 3 | `[1, 2, 3, 4, 5]` | 4 |\n| — | — | — | bytt pivoten inn på plass 4 | `[1, 2, 3, 4, 5]` | 4 |\n\nPivoten havnet **helt til høyre**. Venstre del har fire elementer, høyre del er\ntom. Neste kall får altså bare ett element færre, ikke halvparten.\n\n**Nivåtellingen for $n = 8$:**\n\n| Nivå | Største bit | Arbeid på nivået |\n|---|---|---|\n| 0 | 8 | 7 sammenligninger |\n| 1 | 7 | 6 sammenligninger |\n| 2 | 6 | 5 sammenligninger |\n| 3 | 5 | 4 sammenligninger |\n| 4 | 4 | 3 sammenligninger |\n| 5 | 3 | 2 sammenligninger |\n| 6 | 2 | 1 sammenligning |\n\nSju nivåer, og summen er $7+6+5+4+3+2+1 = 28$ sammenligninger. Det er\n$\\frac{n(n-1)}{2}$ med $n = 8$ — trekantsummen fra\n[kap. 1.2](/in2010/in2010-1-2), altså $O(n^2)$.\n\n**Sammenlign med flettesortering på samme $n$:** fire nivåer med 8 elementer\nhver, altså høyst 32 elementbevegelser, men bare tre flettenivåer med reelt\narbeid. For $n = 8$ er forskjellen liten. For $n = 1\\,000\\,000$ er den forskjellen\nmellom sekunder og dager.\n\n**Dette er kapitlets viktigste enkeltfaktum.** Kvikksortering er $O(n \\log n)$\n**forventet** og $O(n^2)$ **verste**. Skriver du bare «$O(n \\log n)$» uten å\nnevne hvilket tilfelle, er svaret ufullstendig."
+    },
+    {
+      "id": "in2010-2-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C og D.) Avgjør sant eller usant, og begrunn hver med én setning.\n\n**a)** Kvikksortering har $O(n \\log n)$ i verste tilfelle.\n**b)** Heapsort er stabil.\n**c)** Flettesortering trenger $O(n)$ ekstra minne.\n**d)** Å bygge en heap fra et vilkårlig array tar $O(n \\log n)$.",
+        "solution": "**a) Usant.** Verste tilfelle er $O(n^2)$, og det inntreffer når pivoten\nsystematisk havner ytterst — for eksempel siste element som pivot på et\nferdigsortert array. $O(n \\log n)$ er det **forventede** tilfellet.\n\n**b) Usant.** Uttrekket fra heapen flytter elementer over lang avstand og kan\nbytte om på like nøkler. Heapsort er in-place, men ustabil.\n\n**c) Sant.** `Merge` bygger et nytt array, så flettesortering er ikke in-place.\n\n**d) Usant.** `BuildHeap` er $O(n)$. De fleste nodene ligger nær bunnen og har\nkort vei å synke. Selve heapsorteringen er likevel $O(n \\log n)$, fordi de $n$\nuttrekkene koster $O(\\log n)$ hver.\n\n**Om antigjettingen.** Tre av fire er usanne her, og alle fire er blant de\nhyppigst brukte distraktorene. Merk deg mønsteret: distraktorene lyder alltid som\nen litt for pen versjon av sannheten.",
+        "hints": [
+          "For hver påstand: hvilket tilfelle snakker vi om — beste, forventet eller verste?",
+          "Bytter algoritmen bare naboer, eller flytter den over lang avstand?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-2-t-4",
+      "type": "text",
+      "content": "## Løkke 4 — nedre grensen, tegnet ut (ca. 14 min)\n\nNå kan vi gjøre ferdig det [kap. 2.1](/in2010/in2010-2-1) bare skisserte: hvorfor\n$O(n \\log n)$ ikke bare er bra, men **optimalt** for en sammenligningsbasert\nsortering.\n\nTenk på algoritmen som en person som skal gjette hvilken av rekkefølgene input\nhar, og som bare får stille ja/nei-spørsmål av typen «er $x$ mindre enn $y$?».\nHvert spørsmål deler mulighetene i to. Alle mulige spørsmålsrekker danner til\nsammen et **beslutningstre**: en node per spørsmål, to grener ut, og ett blad per\nmulig sluttrekkefølge."
+    },
+    {
+      "id": "in2010-2-2-def-6",
+      "type": "definition",
+      "title": "Beslutningstre for sortering",
+      "content": "En modell av en sammenligningsbasert sortering: hver indre node er én\nsammenligning, hver gren er svaret (ja eller nei), og hvert blad er én mulig\nsluttrekkefølge.\n\nAntall sammenligninger i **verste tilfelle** er høyden på treet — den lengste\nveien fra rot til blad. Treet må ha minst $n!$ blader for å kunne skille alle\nrekkefølger, og et binærtre med $n!$ blader har høyde minst $\\log_2(n!)$."
+    },
+    {
+      "id": "in2010-2-2-th-3",
+      "type": "theorem",
+      "title": "Nedre grensen: $\\Omega(n \\log n)$",
+      "content": "**Påstand.** Enhver sammenligningsbasert sortering bruker minst\n$\\Omega(n \\log n)$ sammenligninger i verste tilfelle.\n\n**Bevisskissen, i fire steg — dette er den formen sensor ber om:**\n\n1. **Tell mulighetene.** $n$ ulike elementer kan stå i $n!$ ulike rekkefølger.\n   Algoritmen må kunne ende opp med hver av dem, avhengig av input.\n2. **Tell informasjonen.** Hver sammenligning gir ett ja/nei-svar. Med $k$\n   sammenligninger finnes det høyst $2^k$ ulike svarsekvenser, altså høyst $2^k$\n   ulike blader.\n3. **Sett dem opp mot hverandre.** For å skille alle $n!$ rekkefølger må\n   $2^k \\ge n!$, altså $k \\ge \\log_2(n!)$.\n4. **Forenkl.** $\\log_2(n!)$ vokser som $n \\log n$. En rask måte å se det på: mer\n   enn halvparten av faktorene i $n!$ er større enn $n/2$, så\n   $n! > (n/2)^{n/2}$, og logaritmen av det er $\\frac{n}{2}\\log_2\\frac{n}{2}$,\n   som er $\\Omega(n \\log n)$.\n\n**Hva grensen gjelder.** Verste tilfelle, og bare for algoritmer som **kun**\nsammenligner. Beste tilfelle kan godt være $O(n)$ — innsettingssortering på et\nferdigsortert array bruker $n-1$ sammenligninger.\n\n**Hva grensen ikke gjelder.** Algoritmer som ser på **verdiene** i stedet for å\nsammenligne dem. Counting sort, radix sort og bucket sort i\n[kap. 2.3](/in2010/in2010-2-3) kommer under grensen nettopp fordi de ikke er\nsammenligningsbaserte. De betaler for det med en antagelse om verdiområdet."
+    },
+    {
+      "id": "in2010-2-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Beslutningstreet for tre elementer",
+      "problem": "Tegn ut beslutningstreet for å sortere tre ulike elementer $a$, $b$ og $c$, og\nsjekk at høyden stemmer med formelen.",
+      "solution": "Med tre elementer finnes det $3! = 6$ mulige rekkefølger, altså seks blader.\nHer er alle veiene gjennom treet, med den beste spørsmålsstrategien:\n\n| Blad | Sluttrekkefølge | Sammenligninger på veien | Antall |\n|---|---|---|---|\n| 1 | $a < b < c$ | $a<b$? ja; $a<c$? ja; $b<c$? ja | 3 |\n| 2 | $a < c < b$ | $a<b$? ja; $a<c$? ja; $b<c$? nei | 3 |\n| 3 | $c < a < b$ | $a<b$? ja; $a<c$? nei | 2 |\n| 4 | $b < a < c$ | $a<b$? nei; $a<c$? ja | 2 |\n| 5 | $b < c < a$ | $a<b$? nei; $a<c$? nei; $b<c$? ja | 3 |\n| 6 | $c < b < a$ | $a<b$? nei; $a<c$? nei; $b<c$? nei | 3 |\n\n**Seks blader, største dybde 3.**\n\n**Kontroll mot formelen.** Nedre grensen sier at høyden må være minst\n$\\log_2(3!) = \\log_2 6 \\approx 2{,}58$, og siden antall sammenligninger er et\nhelt tall, minst 3. Treet vårt har høyde nøyaktig 3 — grensen er altså **stram**\nher.\n\n**Legg merke til bladene 3 og 4.** De nås med bare to sammenligninger. Nedre\ngrensen sier ikke at *hver* input krever tre sammenligninger, bare at **den\nverste** gjør det. Det er nettopp derfor grensen gjelder verste tilfelle og ikke\nbeste.\n\n**Prøv formen** hvis dette kommer som en Del 2-oppgave: «Det finnes $n!$ mulige\nrekkefølger. Hver sammenligning gir ett bit, så $k$ sammenligninger skiller høyst\n$2^k$ tilfeller. Da må $2^k \\ge n!$, altså $k \\ge \\log_2(n!) = \\Omega(n \\log n)$.»\nTre setninger, og alle de tre momentene sensor teller er med."
+    },
+    {
+      "id": "in2010-2-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C, eksamensnivå.) Nedre grensen sier $\\Omega(n \\log n)$.\n\n**a)** Hvor mange sammenligninger trenger et beslutningstre minst for å sortere\n4 ulike elementer?\n**b)** Motsier det nedre grensen at innsettingssortering bruker $n-1$\nsammenligninger på et ferdigsortert array?\n**c)** Motsier det nedre grensen at counting sort kan sortere i $O(n + k)$?",
+        "solution": "**a)** $4! = 24$ mulige rekkefølger, så treet trenger minst 24 blader. Et\nbinærtre med høyde $h$ har høyst $2^h$ blader, og $2^4 = 16 < 24 \\le 32 = 2^5$.\nAltså minst **5 sammenligninger** i verste tilfelle.\n\n**b)** Nei. Grensen gjelder **verste tilfelle**, og sier ingenting om beste\ntilfelle. Innsettingssortering bruker $O(n^2)$ i verste tilfelle, og det er godt\nover grensen.\n\n**c)** Nei. Grensen gjelder bare sammenligningsbaserte algoritmer. Counting sort\nsammenligner aldri to elementer — den bruker verdien som indeks i et telleregister\nog forutsetter derfor at verdiene ligger i et kjent, begrenset område. Se\n[kap. 2.3](/in2010/in2010-2-3).\n\n**Momentet i alle tre:** en nedre grense har alltid en presis rekkevidde. Å sitere\ngrensen uten å si hva den gjelder for, er halve svaret.",
+        "hints": [
+          "Hvor mange blader trenger treet, og hvor høyt må et binærtre være for å ha så mange?",
+          "Grensen har to forbehold: hvilket tilfelle, og hvilken type algoritme?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-2-t-5",
+      "type": "text",
+      "content": "### Kjøretidstabellen for alle sju sorteringene\n\nDette er bokas viktigste puggeflate for Del 1. De tre øverste er fra\n[kap. 2.1](/in2010/in2010-2-1), de tre neste er dette kapitlet, og counting sort\nkommer i [kap. 2.3](/in2010/in2010-2-3).\n\n| Algoritme | Beste | Verste | Forventet | Stabil? | In-place? |\n|---|---|---|---|---|---|\n| Boblesortering | $O(n)$ med tidlig stopp | $O(n^2)$ | $O(n^2)$ | ja | ja |\n| Utvalgssortering | $O(n^2)$ | $O(n^2)$ | $O(n^2)$ | nei | ja |\n| Innsettingssortering | $O(n)$ | $O(n^2)$ | $O(n^2)$ | ja | ja |\n| **Flettesortering** | $O(n \\log n)$ | $O(n \\log n)$ | $O(n \\log n)$ | **ja** | **nei** |\n| **Heapsort** | $O(n \\log n)$ | $O(n \\log n)$ | $O(n \\log n)$ | nei | ja |\n| **Kvikksortering** | $O(n \\log n)$ | $O(n^2)$ | $O(n \\log n)$ | nei | ja |\n| Counting sort | $O(n + k)$ | $O(n + k)$ | $O(n + k)$ | ja | nei |\n\nTre observasjoner som dekker de fleste sant/usant-punktene:\n\n1. **Bare kvikksortering har ulikt verste og forventet tilfelle** blant de tre\n   effektive. Det er derfor den er den hyppigste distraktoren.\n2. **Bare flettesortering er både $O(n \\log n)$ garantert og stabil** — og prisen\n   er at den ikke er in-place.\n3. **Counting sort er den eneste under $n \\log n$**, og den er der bare fordi den\n   ikke sammenligner. Merk $k$: den er lineær i $n + k$, ikke i $n$ alene."
+    },
+    {
+      "id": "in2010-2-2-t-6",
+      "type": "text",
+      "content": "### Del 2-bruken: «sortér og skann»\n\nDette er grunnen til at kapitlet betyr noe utover Del 1.\n\nPå en Del 2-oppgave — der du skal skrive pseudokode og oppgi kjøretid — dukker\ndet stadig opp problemer av typen «finnes det to like elementer?» eller «finnes\ndet to elementer som summerer til $x$?». På et **usortert** array har du to\nlovlige veier:\n\n- **Sortér i $O(n \\log n)$ og skann i $O(n)$.** Totalt $O(n \\log n)$.\n- **Bruk et hash-set i $O(n)$ forventet.** Se\n  [kap. 3.2](/in2010/in2010-3-2) og [kap. 3.4](/in2010/in2010-3-4).\n\nBegge er riktige. Men de gir **ulikt antall poeng**, fordi sensorveiledningene er\neksplisitte på at lavere kjøretid er mer poenggivende — den regelen kalles\n**poengtrappen** i denne boka. Den lineære løsningen står øverst.\n\nTo ting du **ikke** kan gjøre, og som begge gir trekk:\n\n- Bruke bucket sort eller radix sort som «raskere sortering» når alt du vet er at\n  elementene kan sammenlignes. De krever et kjent, begrenset verdiområde — se\n  [kap. 2.3](/in2010/in2010-2-3).\n- Skrive $O(n \\log n)$ uten å si hvilken sortering du bruker. Kjøretiden må matche\n  algoritmen du faktisk oppga."
+    },
+    {
+      "id": "in2010-2-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem dokumenterte poengtap, i synkende rekkefølge etter hvor ofte de dukker opp.\n\n- **Å oppgi $O(n \\log n)$ som kvikksorteringens verste tilfelle.** Verste er\n  $O(n^2)$; $O(n \\log n)$ er forventet. Skriv alltid hvilket tilfelle du snakker\n  om.\n- **Å tro at flettesortering er in-place.** Den trenger $O(n)$ ekstra minne til\n  flettingen. Dette er den vanligste feilen om flettesortering.\n- **Å tro at heapsort er stabil.** Den er in-place, men ikke stabil — de to\n  egenskapene forveksles fordi de nevnes sammen.\n- **Å påstå at `BuildHeap` er $O(n \\log n)$.** Den er $O(n)$. Selve\n  heapsorteringen er $O(n \\log n)$, og det er den blandingen som skaper feilen.\n- **Å bruke $n$ uten å definere det.** Felle **#10** i bokas feilregister — å\n  oppgi kjøretid eller drøfte uten å si hva problemstørrelsen er. Én setning\n  holder.\n\nOg én til, som gjelder Del 2: **å foreslå bucket eller radix på generelle\nsammenlignbare elementer.** Det er felle **#5** — lineær sortering brukt uten at\nforutsetningen om et kjent, begrenset verdiområde er oppfylt."
+    },
+    {
+      "id": "in2010-2-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D, eksamensnivå.) Velg sortering for hver situasjon, og oppgi\nkjøretiden.\n\n**a)** 2 millioner poster som skal sorteres på dato, og rekkefølgen mellom poster\nmed samme dato må bevares.\n**b)** Et innebygd system med svært lite minne, der ekstra arrayer ikke er mulig,\nmen kjøretiden må være garantert $O(n \\log n)$.\n**c)** Generell sortering av tall der du bare bryr deg om forventet ytelse, og\nminnebruken skal være lav.",
+        "solution": "La $n$ være antall elementer som skal sorteres.\n\n**a) Flettesortering.** Kravet om at rekkefølgen mellom like datoer bevares, er\net krav om **stabilitet**, og av de effektive sorteringene er bare\nflettesortering stabil. $O(n \\log n)$ i alle tilfeller. Prisen er $O(n)$ ekstra\nminne — akseptabelt her, siden oppgaven ikke sa noe om minne.\n\n**b) Heapsort.** Den er in-place, altså $O(1)$ ekstra minne, og garantert\n$O(n \\log n)$ også i verste tilfelle. Flettesortering faller på minnekravet;\nkvikksortering faller på garantien, siden verste tilfelle er $O(n^2)$.\n\n**c) Kvikksortering.** $O(n \\log n)$ forventet, in-place, og i praksis lavere\nkonstantfaktor enn de to andre. Verste tilfelle er $O(n^2)$, men oppgaven ba bare\nom forventet ytelse.\n\n**Momentet:** de tre effektive sorteringene har hver sin unike kombinasjon —\nstabil, garantert, eller in-place-med-lav-konstant. Oppgaveteksten sier alltid\nhvilken av de tre egenskapene som er kravet. Les den setningen først.",
+        "hints": [
+          "Se etter det ene ordet i hver situasjon som utelukker to av de tre.",
+          "Bare én av de tre er stabil, og bare én har et dårlig verste tilfelle."
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C og D.) Et array på $n$ elementer er **allerede sortert**.\n\n**a)** Hva er kjøretiden til flettesortering på det?\n**b)** Hva er kjøretiden til kvikksortering med siste element som pivot?\n**c)** Hva er kjøretiden til heapsort?\n**d)** Hva sier dette om påstanden «effektive sorteringer er alltid raskere enn\nkvadratiske»?",
+        "solution": "**a)** $O(n \\log n)$. Flettesortering deler blindt på midten og bryr seg ikke om\nhvordan elementene ligger. Den har ingen god dag og ingen dårlig dag.\n\n**b)** $O(n^2)$. Pivoten havner ytterst hver gang, så hver partisjonering skreller\nav bare ett element. Dette er nøyaktig verste tilfelle, og det inntreffer på den\nmest hverdagslige inputen som finnes.\n\n**c)** $O(n \\log n)$. Som flettesortering er heapsort upåvirket av rekkefølgen.\n\n**d)** Påstanden er usann. På et ferdigsortert array bruker innsettingssortering\n$O(n)$ — bedre enn alle tre effektive — og kvikksortering med uheldig pivotvalg\nbruker $O(n^2)$, altså like dårlig som de kvadratiske. Asymptotisk klasse er en\nuttalelse om **verste eller forventet tilfelle for stor nok $n$**, ikke en\ngaranti om at én algoritme alltid slår en annen på hver eneste input. Dette er\nogså et fast sant/usant-punkt fra [kap. 1.1](/in2010/in2010-1-1).",
+        "hints": [
+          "Bryr splittingen i flettesortering seg om hvilke tall som ligger hvor?",
+          "Hvor havner siste element som pivot når arrayet allerede er sortert?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D, krevende — Del 2-form.) Du får et **usortert** array `A` med $n$\nheltall og skal avgjøre om det finnes to like elementer.\n\n**a)** Skriv en løsning som bruker sortering. Oppgi antagelser og kjøretid.\n**b)** En medstudent foreslår å bruke radix sort «fordi den er lineær». Hva er\nproblemet?\n**c)** Hva er det høyeste trinnet i poengtrappen på denne oppgaven?",
+        "solution": "**Problemet navngitt:** dette er duplikatsøk i en usortert mengde.\n\n**Antagelser om representasjon:** `A` er et array med $n$ heltall indeksert fra 0.\nVi kan opprette nye arrayer.\n\n**a) Algoritmen:**\n\n```text\nProcedure HarDuplikat(A)\n  Input:  array A med n heltall, indeksert fra 0\n  Output: sant hvis to elementer er like, ellers usant\n  B = MergeSort(A)\n  for i = 0 to B.length-2:\n      if B[i] == B[i+1]:\n          return sant\n  return usant\n```\n\n**Kjøretid:** sorteringen er $O(n \\log n)$ og skanningen er $O(n)$. Sumregelen\nbeholder det største leddet, så totalt $O(n \\log n)$, der $n$ er antall elementer\ni `A`.\n\n**Hvorfor virker det:** i et sortert array står to like elementer alltid ved siden\nav hverandre, så det holder å se på naboparene.\n\n**b)** Radix sort krever at nøklene er heltall med et **kjent, begrenset** antall\nsiffer. Oppgaven sier bare «heltall» — de kan være vilkårlig store, og da er\nantall siffer $d$ ikke en konstant. Å kalle den «lineær» uten å oppgi\nforutsetningen er felle **#5** i bokas feilregister. Er derimot verdiområdet\noppgitt, for eksempel «alle tall er mellom 0 og 1000», er radix eller counting\nsort helt lovlig og gir $O(n + k)$.\n\n**c) Poengtrappen.** Det høyeste trinnet er **$O(n)$ forventet** med et hash-set:\ngå gjennom arrayet, slå opp hvert element i settet, returner sant ved første\ntreff. Den løsningen skrives ut i [kap. 3.4](/in2010/in2010-3-4). Sorteringen over\ner trinnet under, og en dobbelt løkke som sammenligner alle par er $O(n^2)$ og\nligger nederst. Alle tre er korrekte; de gir ulikt antall poeng.",
+        "hints": [
+          "Hva står ved siden av hverandre i et sortert array hvis to elementer er like?",
+          "Hvilken forutsetning har radix sort som en generell sammenligningssortering ikke har?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-2-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger C, krevende.) Avgjør sant eller usant, og begrunn.\n\n**a)** Hvis en sortering er $O(n \\log n)$ i verste tilfelle, kan den ikke være\nsammenligningsbasert.\n**b)** Nedre grensen $\\Omega(n \\log n)$ gjelder også for counting sort.\n**c)** En sammenligningsbasert sortering kan avgjøre om et array allerede er\nsortert i $O(n)$.\n**d)** Kvikksortering kan gjøres til $O(n \\log n)$ i verste tilfelle ved å velge\npivoten tilfeldig.",
+        "solution": "**a) Usant.** Det er motsatt vei: $\\Omega(n \\log n)$ er en **nedre** grense, så\n$O(n \\log n)$ er nøyaktig så godt en sammenligningsbasert sortering kan bli.\nFlettesortering og heapsort er begge sammenligningsbaserte og treffer grensen.\n\n**b) Usant.** Counting sort sammenligner aldri to elementer — den bruker verdien\nsom indeks. Grensen gjelder kun sammenligningsbaserte algoritmer, og counting sort\ner $O(n + k)$.\n\n**c) Sant.** Gå gjennom arrayet og sammenlign hvert nabopar: $n - 1$\nsammenligninger, altså $O(n)$. Å **avgjøre** om noe er sortert er en helt annen\noppgave enn å **sortere**, og nedre grensen sier ingenting om den.\n\n**d) Usant, men nesten.** Tilfeldig pivotvalg gjør verste tilfelle\n**usannsynlig**, ikke umulig — uflaks kan fortsatt gi $O(n^2)$. Forventet\nkjøretid blir $O(n \\log n)$ uansett input, og det er en reell forbedring, men\nverste tilfelle er uendret. Dette er den nære distraktoren i dette settet:\npåstanden er nesten riktig, og forskjellen mellom «forventet» og «verste» er hele\npoenget.",
+        "hints": [
+          "Hvilken vei peker en nedre grense — er den et tak eller et gulv?",
+          "Skiller påstanden mellom forventet og verste tilfelle?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-2-2-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-2-2-def-7",
+      "type": "definition",
+      "title": "Fletting",
+      "content": "Operasjonen som slår to **ferdig sorterte** arrayer sammen til ett sortert array\nved gjentatte ganger å ta det minste av de to første elementene.\n\n$O(m)$ der $m$ er samlet lengde: hvert element flyttes nøyaktig én gang.\nFlettingen er stabil hvis venstre bit vinner ved likhet — det er hele\nbegrunnelsen for at flettesortering er stabil."
+    },
+    {
+      "id": "in2010-2-2-def-8",
+      "type": "definition",
+      "title": "Nivåtelling",
+      "content": "Fagets måte å analysere en algoritme som deler problemet opp: tell hvor mange\nnivåer delingen gir, og hvor mye arbeid som gjøres på hvert nivå. Gang sammen.\n\nFlettesortering: $\\log_2 n$ nivåer, $O(n)$ per nivå, altså $O(n \\log n)$.\nKvikksortering i verste tilfelle: $n-1$ nivåer med avtakende arbeid, altså\n$O(n^2)$. Metoden erstatter rekurrensligninger, som ikke er IN2010-pensum."
+    },
+    {
+      "id": "in2010-2-2-def-9",
+      "type": "definition",
+      "title": "Partisjonering",
+      "content": "Å stille om en del av arrayet slik at alt som er mindre enn pivoten står til\nvenstre for den og alt større til høyre. Pivoten står deretter på sin endelige\nplass.\n\n$O(m)$ sammenligninger for en bit med $m$ elementer — én per element unntatt\npivoten. Delene er **ikke** sortert etterpå; det skjer i de rekursive kallene."
+    },
+    {
+      "id": "in2010-2-2-def-10",
+      "type": "definition",
+      "title": "Kvikksorteringens verste tilfelle",
+      "content": "$O(n^2)$, og det inntreffer når pivoten systematisk havner ytterst — for eksempel\nnår siste element velges som pivot på et allerede sortert array.\n\nDette er bokas hyppigste sant/usant-distraktor. Påstanden «kvikksortering er\n$O(n \\log n)$ i verste tilfelle» er **usann**."
+    },
+    {
+      "id": "in2010-2-2-def-11",
+      "type": "definition",
+      "title": "Forventet kontra verste kjøretid",
+      "content": "**Forventet** er gjennomsnittet over inputene (eller over de tilfeldige valgene\nalgoritmen gjør). **Verste** er det dårligste som kan skje.\n\nKvikksortering er den eneste av de sju sorteringene der de to er forskjellige:\n$O(n \\log n)$ forventet, $O(n^2)$ verste. Oppgaveteksten sier alltid hvilken av\nde to den spør om."
+    },
+    {
+      "id": "in2010-2-2-def-12",
+      "type": "definition",
+      "title": "Tilfeldig pivotvalg",
+      "content": "Å velge pivoten tilfeldig i stedet for alltid å ta siste element. Gjør verste\ntilfelle **usannsynlig**, men ikke umulig.\n\nForventet kjøretid blir $O(n \\log n)$ for **enhver** input, og det er en reell\nforbedring. Verste tilfelle er fortsatt $O(n^2)$ — den nyansen er en fast\ndistraktor."
+    },
+    {
+      "id": "in2010-2-2-def-13",
+      "type": "definition",
+      "title": "Flettesortering er ikke in-place",
+      "content": "`Merge` bygger et nytt array, så flettesortering bruker $O(n)$ ekstra minne.\n\nDet er den eneste av de sju sorteringene der stabilitet og garantert\n$O(n \\log n)$ kommer sammen — og minnebruken er prisen. Heapsort er in-place, men\nustabil; kvikksortering er in-place, men har $O(n^2)$ verste."
+    },
+    {
+      "id": "in2010-2-2-def-14",
+      "type": "definition",
+      "title": "Heapsort er in-place men ustabil",
+      "content": "Heapen ligger i selve arrayet, så heapsort bruker $O(1)$ ekstra minne. Uttrekket\nflytter derimot elementer over lang avstand, så algoritmen er ikke stabil.\n\nKombinasjonen «in-place og garantert $O(n \\log n)$» er unik for heapsort, og det\ner nettopp den kombinasjonen som gjør den til riktig svar når minnet er knapt og\ngarantien kreves."
+    },
+    {
+      "id": "in2010-2-2-def-15",
+      "type": "definition",
+      "title": "Merge sort i verste tilfelle",
+      "content": "$O(n \\log n)$, likt beste og forventet. Splittingen gir alltid $\\log_2 n$\nnivåer, uansett hvilke tall arrayet inneholder.\n\nDet er dette som gjør flettesortering til referansealgoritmen i faget: den har\nverken en god eller en dårlig dag, og kjøretiden kan siteres uten forbehold."
+    },
+    {
+      "id": "in2010-2-2-def-16",
+      "type": "definition",
+      "title": "Sortér-og-skann-strategien",
+      "content": "Del 2-mønsteret: står du med et usortert array og trenger en egenskap som er lett\nå se i sortert rekkefølge, sortér i $O(n \\log n)$ og skann i $O(n)$. Totalt\n$O(n \\log n)$.\n\nFullt lovlig og gir god uttelling — men står ett trinn under den lineære\nhash-baserte løsningen i poengtrappen. Se\n[kap. 3.4](/in2010/in2010-3-4)."
+    },
+    {
+      "id": "in2010-2-2-def-17",
+      "type": "definition",
+      "title": "Poengtrappen for sorteringsvalg",
+      "content": "Sensorveiledningene sier eksplisitt at lavere kjøretid er mer poenggivende på\nsamme oppgave. På et duplikatsøk gir $O(n)$ forventet med hash-set full pott,\n$O(n \\log n)$ med sortering noe mindre, og en dobbelt løkke på $O(n^2)$ minst.\n\nAlle tre er korrekte løsninger. Å velge riktig algoritme er å velge poeng."
+    },
+    {
+      "id": "in2010-2-2-def-18",
+      "type": "definition",
+      "title": "Beslutningstrehøyde",
+      "content": "Antall sammenligninger en sammenligningsbasert sortering bruker i **verste**\ntilfelle er høyden på beslutningstreet — den lengste veien fra rot til blad.\n\nMed $n!$ blader er høyden minst $\\log_2(n!)$. For $n = 3$ gir det minst 3\nsammenligninger, for $n = 4$ minst 5."
+    },
+    {
+      "id": "in2010-2-2-def-19",
+      "type": "definition",
+      "title": "Rekkevidden til en nedre grense",
+      "content": "$\\Omega(n \\log n)$ gjelder **verste tilfelle** og **kun sammenligningsbaserte**\nalgoritmer.\n\nDerfor motsier verken innsettingssorteringens $O(n)$ i beste tilfelle, counting\nsorts $O(n + k)$, eller den lineære sjekken av om et array er sortert, grensen.\nÅ sitere grensen uten å oppgi rekkevidden er halve svaret."
+    },
+    {
+      "id": "in2010-2-2-def-20",
+      "type": "definition",
+      "title": "Sjanger C — kjøretids- og teorifakta",
+      "content": "Del 1-sjangeren der du krysser av sant/usant på rene faktapåstander om\nkjøretider, sorteringsegenskaper, heap, hashing og P/NP.\n\nHar vært på 7 av 7 sett (100 %). Kombinert med antigjettings-skaleringen betyr\ndet at kjøretidstabellen må sitte hjelpemiddelfritt: den som er usikker på\nhalvparten, ender på null."
+    },
+    {
+      "id": "in2010-2-2-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-2-2-rep-1",
+          "type": "text",
+          "content": "**De tre effektive sorteringene:**\n\n| Algoritme | Verste | Forventet | Stabil? | In-place? | Unik styrke |\n|---|---|---|---|---|---|\n| Flettesortering | $O(n \\log n)$ | $O(n \\log n)$ | **ja** | nei | garantert **og** stabil |\n| Heapsort | $O(n \\log n)$ | $O(n \\log n)$ | nei | **ja** | garantert **og** in-place |\n| Kvikksortering | **$O(n^2)$** | $O(n \\log n)$ | nei | ja | lav konstantfaktor i praksis |\n\n**Nivåtellingen, i to linjer:**\n\n$$\\log_2 n \\text{ nivåer} \\times O(n) \\text{ per nivå} = O(n \\log n)$$\n\n$$n-1 \\text{ nivåer med avtakende arbeid} = \\frac{n(n-1)}{2} = O(n^2)$$\n\nDen første er flettesortering, den andre er kvikksortering med pivoten ytterst.\n\n**Nedre grensen i tre setninger:** det finnes $n!$ mulige rekkefølger; $k$\nsammenligninger skiller høyst $2^k$ tilfeller; altså $2^k \\ge n!$, som gir\n$k \\ge \\log_2(n!) = \\Omega(n \\log n)$. Grensen gjelder verste tilfelle og bare\nsammenligningsbaserte algoritmer.\n\n**Tre feil å sjekke for før du leverer:** sa du hvilket **tilfelle** kjøretiden\ngjelder? Blandet du **stabil** og **in-place**? Sa du hva $n$ er?\n\n**Videre:** [kap. 2.3](/in2010/in2010-2-3) viser de tre sorteringene som kommer\n**under** $n \\log n$ — og nøyaktig hva de må anta om dataene for å få lov."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,316 @@
+{
+  "id": "in2010-3-4",
+  "courseId": "in2010",
+  "chapterNumber": "3.4",
+  "title": "Søk i pseudokode — binærsøk, finn duplikat og finn par",
+  "description": "De faste Del 2-søkeoppgavene: modifisert binærsøk til indeks, finn duplikat, og finn par som summerer til x — der valget mellom hash og sortering avgjør poengtrappen.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne skrive binærsøk i pseudokode og si eksplisitt hva som må endres for at det skal returnere en indeks",
+    "kunne løse duplikat- og parsøk med hash-set og oppgi kjøretiden med det nødvendige forbeholdet om forventet tilfelle",
+    "kunne bruke to-peker-teknikken på et sortert array og begrunne hvorfor hver flytting utelukker en hel rad av mulige par",
+    "kunne sette opp poengtrappen for en søkeoppgave og begrunne hvorfor den valgte løsningen er lavest mulig"
+  ],
+  "content": [
+    {
+      "id": "in2010-3-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er et **Del 2-kapittel**, altså den delen av eksamen der du skriver\npseudokode og resonnerer, og der karakteren avgjøres.\n\n**Sjanger I — hashing og søk i pseudokode** har vært på så godt som alle sju\nsettene. De tre oppgavetypene som går igjen er nøyaktig de tre dette kapitlet\ndekker: **modifisert binærsøk**, **finn duplikat** og **finn par som summerer til\n$x$**.\n\nDet som gjør kapitlet spesielt, er at **poengtrappen er eksplisitt her**.\nSensorveiledningene sier rett ut at lavere kjøretid gir mer uttelling på samme\noppgave: en $O(n)$-løsning gir full pott, $O(n \\log n)$ gir noe mindre, og en\ndobbel løkke på $O(n^2)$ gir minst. Alle tre er **korrekte**. Å velge riktig\nverktøy er å velge poeng.\n\nÉn fast trekkgrunn er verdt å kjenne på forhånd: **pensums binærsøk returnerer\nsant eller usant, ikke en indeks.** Hevder du at det returnerer en indeks uten å\nnevne at det må modifiseres, trekkes det. Det er felle **#4** i bokas\nfeilregister.\n\nPrioritet: **høyeste**. Dette er de billigste Del 2-poengene i hele faget, fordi\nalgoritmene er korte og mønstrene gjentar seg.\n\n**Slik er kapitlet lagt opp (55 min):** fire løkker med tidsanslag og et\npausepunkt underveis."
+    },
+    {
+      "id": "in2010-3-4-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 3.2](/in2010/in2010-3-2) — hash-set og hashmap, og hvorfor de gir $O(n)$\n  **forventet**. Halvparten av kapitlet hviler på det.\n- [kap. 2.2](/in2010/in2010-2-2) — sortér-og-skann-strategien og\n  $O(n \\log n)$-sorteringene, som er alternativet til hash.\n- [kap. 2.3](/in2010/in2010-2-3) — hvorfor bucket og radix **ikke** er lov på\n  generelle elementer. Den avgrensningen er en fast trekkgrunn her.\n- [kap. 1.2](/in2010/in2010-1-2) — løkketelling, som gir kjøretidene.\n\nEr binærsøk ferskt:\n[Søking: sekvensielt søk og binærsøk](/tdt4110/tdt4110-6-2) viser det som\nkjørende kode i et roligere tempo. Og [Lister](/in1000/in1000-3-1) hvis\narray-indeksering trenger en oppfriskning."
+    },
+    {
+      "id": "in2010-3-4-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "in2010-3-4-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer i arrayet |\n| $x$ | verdien det søkes etter, eller målsummen i parsøket |\n| `lav`, `hoy` | grensene for søkeintervallet i binærsøk, begge inklusive |\n| `midt` | midtpunktet, regnet ut som heltallsdivisjonen `(lav + hoy) / 2` |\n| $O(\\log n)$ | binærsøkets kjøretid — antall halveringer fra $n$ ned til 1 |\n| $O(n)$ **forventet** | hash-baserte løsninger; $O(n^2)$ i verste tilfelle |\n| $O(n \\log n)$ | sortér-og-skann-alternativet, garantert |"
+        },
+        {
+          "id": "in2010-3-4-nt-2",
+          "type": "text",
+          "content": "| Operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `BinarySearch(A, x)` | avgjør om `x` finnes i det **sorterte** arrayet `A`; returnerer sant eller usant | $O(\\log n)$ |\n| `BinarySearchIndex(A, x)` | modifisert variant som returnerer indeksen til `x`, eller `-1` | $O(\\log n)$ |\n| `HarDuplikat(A)` | avgjør om to elementer i `A` er like | $O(n)$ forventet med hash-set |\n| `FinnesPar(A, x)` | avgjør om to elementer summerer til `x` | $O(n)$ forventet, eller $O(n)$ på sortert array med to pekere |\n| `Contains(S, k)` | medlemskapstest i et hash-set | $O(1)$ forventet, $O(n)$ verste |\n| `Add(S, k)` | legger en nøkkel i et hash-set | $O(1)$ forventet, $O(n)$ verste |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{midt} = \\left\\lfloor \\frac{\\text{lav} + \\text{hoy}}{2} \\right\\rfloor$$\n\nMidtpunktet i binærsøk. Heltallsdivisjon, så resultatet er alltid en gyldig\nindeks.\n\n$$\\log_2 n \\text{ halveringer fra } n \\text{ ned til } 1$$\n\nBinærsøkets kjøretid: hvert steg kaster halvparten av det som er igjen.\n\n$$O(n) \\text{ forventet} \\ <\\ O(n \\log n) \\ <\\ O(n^2)$$\n\nPoengtrappen for søkeoppgavene i dette kapitlet."
+        }
+      ]
+    },
+    {
+      "id": "in2010-3-4-t-1",
+      "type": "text",
+      "content": "## Løkke 1 — binærsøk, og det ene ordet som gir trekk (ca. 14 min)\n\nDu leter etter et navn i en telefonkatalog. Du slår ikke opp på side 1 og\nbegynner å lese — du slår opp på midten, ser hvilken halvdel navnet må være i, og\ngjentar. Hvert oppslag halverer det som er igjen.\n\nDet er **binærsøk**, og det krever at dataene er **sortert**. Uten sortering er\ndet ingen «halvdel navnet må være i», og algoritmen er verdiløs.\n\nKjøretiden leses rett ut av halveringen, akkurat som i\n[kap. 1.2](/in2010/in2010-1-2): antall ganger du kan halvere $n$ før du står igjen\nmed ett element, er $\\log_2 n$. Derfor er binærsøk $O(\\log n)$.\n\nSå kommer detaljen som er verdt et poeng i hvert sett den dukker opp: **den\nvarianten av binærsøk som er pensum, returnerer sant eller usant — ikke en\nindeks.** Skal du ha indeksen, må algoritmen modifiseres, og du må **si at du gjør\ndet**."
+    },
+    {
+      "id": "in2010-3-4-def-1",
+      "type": "definition",
+      "title": "Binærsøk",
+      "content": "Søker etter en verdi i et **sortert** array ved å sammenligne med midtelementet\nog kaste den halvdelen verdien ikke kan ligge i. Gjentas til verdien er funnet\neller intervallet er tomt.\n\n$O(\\log n)$, der $n$ er antall elementer. Krever sortert input og direkte\nindeksering — derfor virker det på et array, men ikke på en lenket liste, der du\nikke kan hoppe til midten uten å gå gjennom halve lista."
+    },
+    {
+      "id": "in2010-3-4-th-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `BinarySearch`",
+      "content": "**Antagelser om representasjon.** `A` er et **sortert** array med $n$ elementer\nindeksert fra 0, og elementene kan sammenlignes. Vi har direkte indeksering,\naltså at `A[i]` er $O(1)$.\n\n**Prebetingelse:** `A` er sortert stigende. **Postbetingelse:** returverdien er\n`sant` hvis og bare hvis `x` finnes i `A`; `A` er uendret.\n\n```text\nProcedure BinarySearch(A, x)\n  Input:  sortert array A med n elementer (indeks fra 0), verdi x\n  Output: sant hvis x finnes i A, ellers usant\n  lav = 0\n  hoy = A.length - 1\n  while lav <= hoy:\n      midt = (lav + hoy) / 2\n      if A[midt] er lik x:\n          return sant\n      if A[midt] < x:\n          lav = midt + 1\n      else:\n          hoy = midt - 1\n  return usant\n```\n\nHer er `/` heltallsdivisjon, så `midt` er alltid en gyldig indeks.\n\n**Invarianten i én setning:** hvis `x` finnes i `A`, ligger den alltid i\nintervallet fra `lav` til `hoy` — og intervallet halveres i hver runde.\n\n**Kjøretid:** hver runde halverer antall gjenværende elementer, så løkka går\n$\\log_2 n$ runder, og hver runde gjør konstant arbeid. $O(\\log n)$, der $n$ er\nantall elementer i `A`.\n\n**Merk hva prosedyren returnerer: sant eller usant.** Trenger du **indeksen**,\nmå du endre `return sant` til `return midt` og `return usant` til `return -1`.\nModifikasjonen er triviell — men den må **nevnes**, og det er nettopp det som er\nfelle **#4** i bokas feilregister: å hevde at pensums binærsøk gir en indeks uten\nå si at det må modifiseres."
+    },
+    {
+      "id": "in2010-3-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Binærsøk kjørt to ganger",
+      "problem": "Det sorterte arrayet er `A = [2, 5, 9, 12, 17, 23, 31, 40]` med $n = 8$. Kjør\nbinærsøk etter 23 og etter 20, og tell sammenligningene.",
+      "solution": "**Søk etter 23:**\n\n| Steg | `lav` | `hoy` | `midt` | `A[midt]` | Sammenligning | Nytt intervall |\n|---|---|---|---|---|---|---|\n| 1 | 0 | 7 | 3 | 12 | mindre enn `x`, gå til høyre | `lav = 4`, `hoy = 7` |\n| 2 | 4 | 7 | 5 | 23 | lik `x` — funnet | stopp |\n\n**Funnet på indeks 5 etter 2 sammenligninger.**\n\n**Søk etter 20:**\n\n| Steg | `lav` | `hoy` | `midt` | `A[midt]` | Sammenligning | Nytt intervall |\n|---|---|---|---|---|---|---|\n| 1 | 0 | 7 | 3 | 12 | mindre enn `x`, gå til høyre | `lav = 4`, `hoy = 7` |\n| 2 | 4 | 7 | 5 | 23 | større enn `x`, gå til venstre | `lav = 4`, `hoy = 4` |\n| 3 | 4 | 4 | 4 | 17 | mindre enn `x`, gå til høyre | `lav = 5`, `hoy = 4` |\n| 4 | 5 | 4 | — | — | `lav > hoy`, intervallet er tomt | ikke funnet |\n\n**Ikke funnet, etter 3 sammenligninger.**\n\n**Kontrollregning av kjøretiden.** Med $n = 8$ er $\\log_2 8 = 3$, og det verste\nsøket brukte nøyaktig 3 sammenligninger. Doblet vi arrayet til 16 elementer, ville\ndet verste søket brukt 4. Det er signaturen til $O(\\log n)$: **én ekstra\nsammenligning per dobling av $n$**.\n\n**Merk steg 3 i det andre søket.** Intervallet er nede i ett element, `lav = hoy\n= 4`. Etter sammenligningen blir `lav = 5` og `hoy = 4`, altså `lav > hoy`, og\nløkka avsluttes. Det er slik algoritmen konkluderer at verdien ikke finnes — ikke\nved å ha sett på alle elementene, men ved at intervallet der den kunne ligget, er\ntomt.\n\n**Om returverdien.** Begge søkene svarte `sant` eller `usant`. Skulle vi hatt\nindeksen 5 i det første søket, måtte prosedyren returnert `midt` i stedet — en\nmodifikasjon som må nevnes eksplisitt i en besvarelse."
+    },
+    {
+      "id": "in2010-3-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger I — søk i pseudokode, altså at du skriver eller sporer\nen søkealgoritme og oppgir kjøretiden.) Det sorterte arrayet er\n`A = [1, 4, 6, 8, 11, 15, 19]`.\n\n**a)** Kjør binærsøk etter 4. Hvilke indekser blir `midt`?\n**b)** Hvor mange sammenligninger brukte søket?\n**c)** Hva returnerer pensums binærsøk her — indeksen 1, eller noe annet?",
+        "solution": "**a)**\n\n| Steg | `lav` | `hoy` | `midt` | `A[midt]` | Sammenligning | Nytt intervall |\n|---|---|---|---|---|---|---|\n| 1 | 0 | 6 | 3 | 8 | større enn `x`, gå til venstre | `lav = 0`, `hoy = 2` |\n| 2 | 0 | 2 | 1 | 4 | lik `x` — funnet | stopp |\n\n`midt` blir 3 og deretter 1.\n\n**b)** To sammenligninger.\n\n**c)** **`sant`** — ikke indeksen. Pensums binærsøk returnerer en sannhetsverdi.\nVil du ha indeksen 1, må du modifisere prosedyren til å returnere `midt` ved treff\nog `-1` når intervallet er tomt.\n\nModifikasjonen er triviell, men den må nevnes. Å skrive «binærsøk gir meg indeksen\ni $O(\\log n)$» uten forbeholdet er felle **#4** i bokas feilregister — å hevde at\nbinærsøk returnerer indeks uten å nevne at det må modifiseres.",
+        "hints": [
+          "Regn ut `midt` som heltallsdivisjonen av `lav + hoy`.",
+          "Se nøye på hva `return`-linjene i pseudokode-kontrakten faktisk gir tilbake."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-4-t-2",
+      "type": "text",
+      "content": "## Løkke 2 — finn duplikat: tre lovlige svar, tre ulike poengsummer (ca. 13 min)\n\n— naturlig pausepunkt —\n\nNå til mønsteret som gir flest Del 2-poeng i hele Del 3.\n\n**Oppgaven:** gitt et usortert array med $n$ elementer, finnes det to som er like?\n\nDet finnes tre korrekte løsninger, og de gir ulikt antall poeng. Dette er\npoengtrappen i sin reneste form, og den er verdt å kunne som en form du kan\nskrive ned på tretti sekunder."
+    },
+    {
+      "id": "in2010-3-4-th-2",
+      "type": "theorem",
+      "title": "Finn duplikat — de tre trinnene i poengtrappen",
+      "content": "**Antagelser om representasjon.** `A` er et array med $n$ elementer indeksert fra\n0. Elementene kan sammenlignes for likhet, og for hash-løsningen også hashes. Vi\nkan opprette nye strukturer.\n\n**Trinn 3, nederst — dobbel løkke, $O(n^2)$.** Sammenlign hvert par:\n\n```text\nfor i = 0 to n-1:\n    for j = i+1 to n-1:\n        if A[i] er lik A[j]:\n            return sant\nreturn usant\n```\n\nTo nøstede løkker gir $\\frac{n(n-1)}{2}$ sammenligninger. Korrekt, og gir\nuttelling — men minst.\n\n**Trinn 2 — sortér og skann, $O(n \\log n)$.** I et sortert array står to like\nelementer alltid ved siden av hverandre:\n\n```text\nB = MergeSort(A)\nfor i = 0 to B.length-2:\n    if B[i] er lik B[i+1]:\n        return sant\nreturn usant\n```\n\n$O(n \\log n)$ for sorteringen pluss $O(n)$ for skanningen; sumregelen gir\n$O(n \\log n)$. **Garantert**, uansett input.\n\n**Trinn 1, øverst — hash-set, $O(n)$ forventet.** Gå gjennom én gang og husk hva\ndu har sett:\n\n```text\nProcedure HarDuplikat(A)\n  Input:  array A med n elementer, indeksert fra 0\n  Output: sant hvis to elementer i A er like, ellers usant\n  S = tomt hash-set\n  for i = 0 to A.length-1:\n      if Contains(S, A[i]):\n          return sant\n      Add(S, A[i])\n  return usant\n```\n\nÉn løkke over $n$ elementer, med $O(1)$ **forventet** per oppslag. Totalt\n**$O(n)$ forventet**, $O(n^2)$ i verste tilfelle når alt kolliderer.\n\n**Er $O(n)$ lavest mulig?** Ja. Du må se på hvert element minst én gang for å\nkunne konkludere, så ingen algoritme kan komme under $O(n)$. **Skriv den\nsetningen** — den viser at du vet at du har truffet bunnen, og den er en del av\ndet sensor ser etter.\n\n**Én ting du ikke kan gjøre:** foreslå bucket eller radix sort som «rask\nsortering» når alt du vet er at elementene kan sammenlignes. Det er felle **#5** i\nbokas feilregister, og et lineært svar som bryter forutsetningen sin, står ikke\nøverst i trappen — det står utenfor den. Se\n[kap. 2.3](/in2010/in2010-2-3)."
+    },
+    {
+      "id": "in2010-3-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hash-set-løsningen kjørt",
+      "problem": "Kjør `HarDuplikat` på `A = [14, 3, 9, 22, 3, 7]` og vis settet etter hvert steg.",
+      "solution": "| Steg | Element | Allerede i settet? | Settet etter steget |\n|---|---|---|---|\n| 1 | 14 | nei | `{14}` |\n| 2 | 3 | nei | `{14, 3}` |\n| 3 | 9 | nei | `{14, 3, 9}` |\n| 4 | 22 | nei | `{14, 3, 9, 22}` |\n| 5 | 3 | **ja** — duplikat funnet | `{14, 3, 9, 22}` |\n\n**Returnerer `sant` etter 5 av 6 elementer.**\n\n**Legg merke til at løkka stoppet før den var ferdig.** Det er ikke en detalj:\nalgoritmen returnerer så snart svaret er sikkert. I verste tilfelle — ingen\nduplikater — går den gjennom alle $n$ elementene, og det er den kjøretiden vi\noppgir.\n\n**Kjøretid:** én løkke over $n$ elementer, med ett `Contains` og ett `Add` per\nrunde, hver på $O(1)$ forventet. Totalt **$O(n)$ forventet**, der $n$ er antall\nelementer i `A`.\n\n**Og det ærlige forbeholdet:** i verste tilfelle, når alle elementene hasher til\nsamme plass, koster hvert oppslag $O(n)$, og totalen blir $O(n^2)$ — nøyaktig like\ndårlig som den doble løkka. Det er derfor ordet «forventet» ikke kan utelates.\n\n**Sammenlign med sortér-og-skann på samme data.** Flettesortering ville gitt\n`[3, 3, 7, 9, 14, 22]`, og skanningen ville funnet de to 3-erne som naboer på\nindeks 0 og 1. Korrekt svar, $O(n \\log n)$ — ett trinn lavere i poengtrappen, men\nmed en **garanti** hash-løsningen ikke har."
+    },
+    {
+      "id": "in2010-3-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) Gitt et **usortert** array `A` med $n$ heltall, skriv en algoritme\nsom avgjør om to elementer er like.\n\n**a)** Navngi problemet og oppgi antagelser om representasjon.\n**b)** Skriv algoritmen som gir lavest kjøretid.\n**c)** Oppgi kjøretiden, og forklar hvorfor den er lavest mulig.\n**d)** Hva ville du svart hvis oppgaven i tillegg krevde en **garantert**\nkjøretid?",
+        "solution": "**a) Problemet:** duplikatsøk i en usortert mengde.\n\n**Antagelser om representasjon:** `A` er et array med $n$ heltall indeksert fra 0.\nHeltall kan hashes og sammenlignes for likhet, og vi kan opprette et hash-set.\n\n**b) Algoritmen:**\n\n```text\nProcedure HarDuplikat(A)\n  Input:  array A med n heltall, indeksert fra 0\n  Output: sant hvis to elementer i A er like, ellers usant\n  S = tomt hash-set\n  for i = 0 to A.length-1:\n      if Contains(S, A[i]):\n          return sant\n      Add(S, A[i])\n  return usant\n```\n\n**Hvorfor det virker:** når løkka står på element `i`, inneholder `S` nøyaktig\nalle elementene med lavere indeks. Finnes `A[i]` blant dem, har vi et duplikat.\n\n**c) Kjøretid:** $O(n)$ **forventet**, der $n$ er antall elementer i `A`. Én løkke\nover $n$ elementer, med $O(1)$ forventet per oppslag og innsetting.\n\n**Hvorfor lavest mulig:** du må se på hvert element minst én gang for å kunne\nkonkludere, ellers kan et element du ikke så, ha vært duplikatet. $O(n)$ er derfor\nnedre grense for problemet, og hash-løsningen treffer den.\n\n**d) Da ville jeg valgt sortér og skann.** Flettesortering gir $O(n \\log n)$ i\n**alle** tilfeller, mens hash-løsningen er $O(n^2)$ i verste tilfelle når alt\nkolliderer. Kravet om garanti gjør den tregere løsningen til den riktige — og det\ner verdt å si eksplisitt i besvarelsen at valget er en avveining mellom forventet\nfart og garanti.",
+        "hints": [
+          "Hva må du huske om hvert element du allerede har sett?",
+          "Hvor mange ganger må du minst se på hvert element for å kunne svare?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-4-t-3",
+      "type": "text",
+      "content": "## Løkke 3 — finn par som summerer til $x$ (ca. 14 min)\n\nDen tredje faste oppgavetypen, og den har to gode løsninger avhengig av om arrayet\ner **sortert** eller ikke.\n\n**Oppgaven:** finnes det to elementer i `A` som summerer til $x$?\n\nEr arrayet **usortert**, er hash-settet svaret igjen — men med en vri: i stedet\nfor å spørre «har jeg sett dette elementet før?», spør du «har jeg sett\n**komplementet** $x - A[i]$ før?».\n\nEr arrayet **sortert**, finnes det en løsning uten hash i det hele tatt, og den\ner penere: **to pekere**, én fra hver ende."
+    },
+    {
+      "id": "in2010-3-4-def-2",
+      "type": "definition",
+      "title": "To-peker-teknikken",
+      "content": "En metode for **sorterte** arrayer: sett én peker helt til venstre og én helt til\nhøyre, og flytt dem mot hverandre ut fra summen.\n\nEr summen for liten, flytt venstre peker fram — det er den eneste måten å øke\nsummen på. Er den for stor, flytt høyre peker tilbake. Hver flytting utelukker\nalle par den pekeren kunne inngått i, og hvert steg flytter én peker, så løkka\ngjør høyst $n$ steg. $O(n)$, **garantert**."
+    },
+    {
+      "id": "in2010-3-4-th-3",
+      "type": "theorem",
+      "title": "Finn par — to lovlige veier",
+      "content": "**Antagelser om representasjon.** `A` er et array med $n$ heltall indeksert fra 0.\nFor hash-varianten må elementene kunne hashes; for to-peker-varianten må `A` være\n**sortert**.\n\n**Vei 1 — usortert array, hash-set, $O(n)$ forventet:**\n\n```text\nProcedure FinnesPar(A, x)\n  Input:  array A med n heltall (indeks fra 0), maalsum x\n  Output: sant hvis to elementer i A summerer til x, ellers usant\n  S = tomt hash-set\n  for i = 0 to A.length-1:\n      if Contains(S, x - A[i]):\n          return sant\n      Add(S, A[i])\n  return usant\n```\n\n**Rekkefølgen inne i løkka er ikke tilfeldig.** Du slår opp **først** og legger\ninn **etterpå**. Gjør du det motsatt, vil et element som er nøyaktig halvparten av\n$x$ finne seg selv og gi et falskt treff — for eksempel $x = 10$ og `A[i] = 5`\nuten at det finnes noen annen 5-er.\n\n**Vei 2 — sortert array, to pekere, $O(n)$ garantert:**\n\n```text\nProcedure FinnesParSortert(A, x)\n  Input:  sortert array A med n heltall (indeks fra 0), maalsum x\n  Output: sant hvis to elementer i A summerer til x, ellers usant\n  i = 0\n  j = A.length - 1\n  while i < j:\n      sum = A[i] + A[j]\n      if sum er lik x:\n          return sant\n      if sum < x:\n          i = i + 1\n      else:\n          j = j - 1\n  return usant\n```\n\n**Invarianten i én setning:** ethvert par som summerer til $x$ ligger alltid innenfor\n`i` til `j` — for når `A[i] + A[j] < x`, kan `A[i]` ikke pares med noe innenfor\nintervallet i det hele tatt, siden `A[j]` er den største muligheten.\n\n**Kjøretid:** hvert steg flytter én peker, og de kan flytte høyst $n$ ganger til\nsammen. $O(n)$, **garantert** — ikke bare forventet.\n\n**Poengtrappen for denne oppgaven:**\n\n| Situasjon | Beste løsning | Kjøretid |\n|---|---|---|\n| Sortert array | to pekere | $O(n)$ **garantert** |\n| Usortert array | hash-set | $O(n)$ **forventet** |\n| Usortert, garanti kreves | sortér og bruk to pekere | $O(n \\log n)$ |\n| Naiv | dobbel løkke over alle par | $O(n^2)$ |\n\nMerk den tredje raden: sorterer du selv for å kunne bruke to pekere, koster\nsorteringen $O(n \\log n)$, og den dominerer. Du får garantien, men mister\nlineariteten."
+    },
+    {
+      "id": "in2010-3-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: To pekere kjørt på et sortert array",
+      "problem": "Det sorterte arrayet er `A = [2, 5, 9, 12, 17, 23, 31, 40]`. Finnes det to\nelementer som summerer til $x = 40$?",
+      "solution": "| Steg | `i` | `j` | `A[i]` | `A[j]` | Sum | Handling |\n|---|---|---|---|---|---|---|\n| 1 | 0 | 7 | 2 | 40 | 42 | større enn `x`, flytt `j` tilbake |\n| 2 | 0 | 6 | 2 | 31 | 33 | mindre enn `x`, flytt `i` fram |\n| 3 | 1 | 6 | 5 | 31 | 36 | mindre enn `x`, flytt `i` fram |\n| 4 | 2 | 6 | 9 | 31 | 40 | lik `x` — **paret (9, 31) funnet** |\n\n**Returnerer `sant` etter 4 steg.**\n\n**Se på steg 1.** Summen $2 + 40 = 42$ er for stor. Vi flytter `j` tilbake — og\ndet som skjer da, er at vi utelukker **alle** par som inneholder 40. Hvorfor? Fordi\n2 er det minste elementet i intervallet, så $2 + 40$ er den **minste** summen 40\nkan inngå i. Er den allerede for stor, kan 40 ikke være med i noe par.\n\nDet er hele argumentet bak metoden, og det er verdt å skrive i en besvarelse:\nhver flytting utelukker en hel rad eller kolonne av mulige par, og derfor holder\ndet med $n$ steg i stedet for $n^2$.\n\n**Kontrollkjøring der svaret er nei.** På `A = [1, 3, 4, 7, 10, 14]` med\n$x = 20$:\n\n| Steg | `i` | `j` | `A[i]` | `A[j]` | Sum | Handling |\n|---|---|---|---|---|---|---|\n| 1 | 0 | 5 | 1 | 14 | 15 | mindre enn `x`, flytt `i` fram |\n| 2 | 1 | 5 | 3 | 14 | 17 | mindre enn `x`, flytt `i` fram |\n| 3 | 2 | 5 | 4 | 14 | 18 | mindre enn `x`, flytt `i` fram |\n| 4 | 3 | 5 | 7 | 14 | 21 | større enn `x`, flytt `j` tilbake |\n| 5 | 3 | 4 | 7 | 10 | 17 | mindre enn `x`, flytt `i` fram |\n| 6 | 4 | 4 | — | — | — | `i` og `j` møtes — **ingen par finnes** |\n\n**Returnerer `usant` etter 5 steg.** Med $n = 6$ er det under $n$ steg, som\nstemmer med at hvert steg flytter én peker og pekerne til sammen kan flytte høyst\n$n$ ganger.\n\n**Poengtrapp-notat.** På et **sortert** array er to pekere det øverste trinnet, og\ndet er strengt bedre enn hash-løsningen, fordi $O(n)$ her er **garantert** og ikke\nbare forventet. Det er verdt å si eksplisitt: «siden arrayet allerede er sortert,\ngir to pekere $O(n)$ garantert, uten hashingens verstetilfelle»."
+    },
+    {
+      "id": "in2010-3-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) Gitt et **usortert** array `A` med $n$ heltall og et tall `x`, skriv\nen algoritme som avgjør om to elementer summerer til `x`.\n\n**a)** Navngi problemet, oppgi antagelser og skriv algoritmen.\n**b)** Oppgi kjøretiden og begrunn hvorfor den er lavest mulig.\n**c)** Hvorfor må oppslaget komme **før** innsettingen i løkka?",
+        "solution": "**a) Problemet:** finn et par som summerer til `x` i en usortert mengde.\n\n**Antagelser om representasjon:** `A` er et array med $n$ heltall indeksert fra 0.\nHeltall kan hashes, og vi kan opprette et hash-set.\n\n```text\nProcedure FinnesPar(A, x)\n  Input:  array A med n heltall (indeks fra 0), maalsum x\n  Output: sant hvis to elementer i A summerer til x, ellers usant\n  S = tomt hash-set\n  for i = 0 to A.length-1:\n      if Contains(S, x - A[i]):\n          return sant\n      Add(S, A[i])\n  return usant\n```\n\n**Hvorfor det virker:** når løkka står på element `j`, inneholder `S` alle\nelementene med lavere indeks. Finnes komplementet `x - A[j]` blant dem, har vi\nparet. Og hvert par $(i, j)$ med $i < j$ blir undersøkt nøyaktig én gang — når\nløkka er på $j$.\n\n**b) Kjøretid:** $O(n)$ **forventet**, der $n$ er antall elementer i `A`. Én løkke\nover $n$ elementer, med $O(1)$ forventet per oppslag og innsetting.\n\n**Lavest mulig** fordi du må se på hvert element minst én gang: et element du\naldri leste, kunne vært halvparten av paret. $O(n)$ er nedre grense for problemet.\n\n**c)** Fordi et element ellers kan pares med **seg selv**. Med $x = 10$ og\n`A = [5, 3]`: legger du inn `5` først og slår opp etterpå, finner du at\n$10 - 5 = 5$ ligger i settet — men det er den samme 5-eren, ikke et par. Ved å slå\nopp først inneholder settet bare elementer med **lavere indeks**, og et element\nkan ikke pares med seg selv.\n\n**Verste tilfelle:** $O(n^2)$ når alle nøklene kolliderer i hashtabellen. Derfor\nstår ordet «forventet» i kjøretiden.",
+        "hints": [
+          "Hva er komplementet til `A[i]` når målsummen er `x`?",
+          "Prøv algoritmen på `A = [5, 3]` med `x = 10` og se hva som skjer hvis du legger inn før du slår opp."
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-4-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å hevde at binærsøk returnerer en indeks.** Pensums variant returnerer sant\n  eller usant. Skal du ha indeksen, må prosedyren modifiseres — og du må **si**\n  det. Dette er felle **#4** i bokas feilregister, og den gir eksplisitt trekk.\n- **Å bruke binærsøk på et usortert array.** Uten sortering finnes det ingen\n  halvdel å kaste. Nevn alltid at forutsetningen er oppfylt.\n- **Å foreslå bucket eller radix sort i «sortér og skann».** De krever et kjent,\n  begrenset verdiområde. Felle **#5** — se [kap. 2.3](/in2010/in2010-2-3).\n- **Å skrive $O(n)$ uten «forventet» på en hash-løsning.** Verste tilfelle er\n  $O(n^2)$. Kjøretiden må matche algoritmen du faktisk ga.\n- **Å legge inn i hash-settet før oppslaget i parsøket.** Da kan et element pares\n  med seg selv. Slå opp først, legg inn etterpå.\n- **Å bruke en dobbel løkke der en lineær løsning finnes.** $O(n^2)$ er korrekt og\n  gir uttelling, men det er nederste trinn i poengtrappen. Å velge verktøy er å\n  velge poeng.\n- **Å bruke $n$ uten å definere det.** Felle **#10** — å oppgi kjøretid uten å si\n  hva problemstørrelsen er. Én setning holder: «$n$ er antall elementer i `A`»."
+    },
+    {
+      "id": "in2010-3-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) Du får et **sortert** array `A` med $n$ heltall og et tall `x`.\n\n**a)** Skriv en algoritme som finner et par som summerer til `x`, uten å bruke\nhashing.\n**b)** Oppgi kjøretiden, og si hvorfor den er strengt bedre enn\nhash-løsningen her.\n**c)** Hva ville du gjort hvis arrayet var usortert og du måtte ha en garantert\nkjøretid?",
+        "solution": "**a) Problemet:** finn et par som summerer til `x` i et sortert array.\n\n**Antagelser om representasjon:** `A` er et **sortert** array med $n$ heltall\nindeksert fra 0.\n\n```text\nProcedure FinnesParSortert(A, x)\n  Input:  sortert array A med n heltall (indeks fra 0), maalsum x\n  Output: sant hvis to elementer i A summerer til x, ellers usant\n  i = 0\n  j = A.length - 1\n  while i < j:\n      sum = A[i] + A[j]\n      if sum er lik x:\n          return sant\n      if sum < x:\n          i = i + 1\n      else:\n          j = j - 1\n  return usant\n```\n\n**Hvorfor det virker:** er summen for liten, er `A[i]` for liten til å kunne\npares med noe i intervallet — `A[j]` er allerede den største muligheten. Er den\nfor stor, gjelder det motsatte for `A[j]`. Hver flytting utelukker altså en hel\nrad av mulige par.\n\n**b) Kjøretid:** $O(n)$, der $n$ er antall elementer i `A`. Hvert steg flytter én\npeker, og de kan flytte høyst $n$ ganger til sammen.\n\n**Strengt bedre enn hash-løsningen** fordi denne $O(n)$-en er **garantert**, mens\nhash-løsningens er **forventet** med $O(n^2)$ i verste tilfelle. Den bruker heller\nikke ekstra minne: to indeksvariabler mot et hash-set med opptil $n$ elementer.\n\n**c)** Da ville jeg sortert først med flettesortering, $O(n \\log n)$, og deretter\nbrukt to pekere, $O(n)$. Sumregelen gir **$O(n \\log n)$ garantert**.\n\nDet er ett trinn lavere i poengtrappen enn hash-løsningens $O(n)$ forventet — men\ndet er prisen for en garanti. Sier oppgaven «garantert», er dette riktig svar;\nsier den ingenting, står hash-løsningen øverst.",
+        "hints": [
+          "Hva vet du om summen når du står med det minste og det største elementet?",
+          "Hvor mange ganger til sammen kan de to pekerne flytte seg?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I, krevende.) En besvarelse lyder:\n\n> «Jeg bruker binærsøk til å finne indeksen til hvert komplement `x - A[i]`. Det\n> gir $O(\\log n)$ per element og $O(n \\log n)$ totalt, som er lavest mulig for et\n> usortert array.»\n\n**a)** Finn feilene.\n**b)** Under hvilken forutsetning ville strategien vært riktig?\n**c)** Skriv en korrekt besvarelse for det usorterte tilfellet.",
+        "solution": "**a) Tre feil.**\n\n1. **Binærsøk krever et sortert array.** Oppgaven sier usortert, så algoritmen kan\n   ikke brukes uten å sortere først — og den sorteringen er ikke nevnt.\n2. **Binærsøk returnerer ikke en indeks.** Pensums variant gir sant eller usant.\n   Skal du ha indeksen, må prosedyren modifiseres, og det må nevnes. Felle\n   **#4**.\n3. **$O(n \\log n)$ er ikke lavest mulig her.** Med hash-set blir det $O(n)$\n   forventet. Påstanden «lavest mulig» er feil, og den koster mer enn den\n   manglende sorteringen — den viser at kandidaten ikke så det øverste trinnet i\n   poengtrappen.\n\n**b)** Hvis arrayet **var sortert**. Da er strategien lovlig: for hvert element,\nbinærsøk etter komplementet. Kjøretiden blir $O(n \\log n)$ — men selv da er den\nikke optimal, fordi to pekere gir $O(n)$ garantert på et sortert array. Strategien\ner altså korrekt, men to trinn under det beste.\n\n**c) Korrekt besvarelse for det usorterte tilfellet:**\n\n«**Problemet:** finn et par som summerer til `x` i en usortert mengde heltall.\n\n**Antagelser om representasjon:** `A` er et array med $n$ heltall indeksert fra 0.\nHeltall kan hashes, og vi kan opprette et hash-set.\n\n**Algoritme:** gå gjennom arrayet én gang. For hvert element, sjekk om\nkomplementet `x - A[i]` allerede ligger i settet. Gjør det det, har vi paret.\nEllers legges `A[i]` inn og løkka går videre.\n\n```text\nProcedure FinnesPar(A, x)\n  Input:  array A med n heltall (indeks fra 0), maalsum x\n  Output: sant hvis to elementer i A summerer til x, ellers usant\n  S = tomt hash-set\n  for i = 0 to A.length-1:\n      if Contains(S, x - A[i]):\n          return sant\n      Add(S, A[i])\n  return usant\n```\n\n**Kjøretid:** $O(n)$ **forventet**, der $n$ er antall elementer i `A`. Verste\ntilfelle er $O(n^2)$, når alle nøklene kolliderer i hashtabellen.\n\n**Hvorfor dette er lavest mulig:** enhver korrekt algoritme må lese hvert element\nminst én gang, så $O(n)$ er nedre grense for problemet.»\n\n**Merk at denne besvarelsen er skrevet uten pseudokode-perfeksjon i første\navsnitt** — den forklarer algoritmen i klart språk før koden. Sensor godtar begge\nformer: kravet er at løsningen er lett forståelig, entydig og presis, ikke at den\nhar en bestemt syntaks.",
+        "hints": [
+          "Sjekk hver forutsetning binærsøk krever mot det oppgaven faktisk oppgir.",
+          "Er $O(n \\log n)$ virkelig det beste som er mulig på et usortert array?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in2010-3-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I, krevende.) Du får et **sortert** array `A` med $n$ heltall og en\nverdi `x`, og skal returnere **indeksen** til `x`, eller $-1$ hvis den ikke\nfinnes.\n\n**a)** Skriv algoritmen, og si eksplisitt hva du endrer fra pensums binærsøk.\n**b)** Oppgi kjøretiden.\n**c)** Hvorfor virker ikke denne algoritmen på en lenket liste?\n**d)** Hva ville du gjort hvis `A` var usortert og du skulle finne indeksen?",
+        "solution": "**a) Problemet:** finn indeksen til en verdi i et sortert array.\n\n**Antagelser om representasjon:** `A` er et **sortert** array med $n$ heltall\nindeksert fra 0, med direkte indeksering, altså `A[i]` i $O(1)$.\n\n**Modifikasjonen, sagt eksplisitt:** pensums `BinarySearch` returnerer sant eller\nusant. Jeg endrer `return sant` til `return midt`, og `return usant` til\n`return -1`. Selve søkelogikken er uendret.\n\n```text\nProcedure BinarySearchIndex(A, x)\n  Input:  sortert array A med n heltall (indeks fra 0), verdi x\n  Output: indeksen til x i A, eller -1 hvis x ikke finnes\n  lav = 0\n  hoy = A.length - 1\n  while lav <= hoy:\n      midt = (lav + hoy) / 2\n      if A[midt] er lik x:\n          return midt\n      if A[midt] < x:\n          lav = midt + 1\n      else:\n          hoy = midt - 1\n  return -1\n```\n\nHer er `/` heltallsdivisjon.\n\n**b) Kjøretid:** $O(\\log n)$, der $n$ er antall elementer i `A`. Hver runde\nhalverer intervallet, så løkka går $\\log_2 n$ runder med konstant arbeid hver.\n\n**c)** Fordi binærsøk krever **direkte indeksering**: du må kunne hoppe til\nmidtelementet i $O(1)$. I en lenket liste må du følge pekere fra starten, og å nå\nmidten koster $O(n)$. Da blir hele søket $O(n)$ — like dårlig som å lete lineært\nfra begynnelsen, og du har ingenting igjen for halveringen.\n\nDette er også et fast sant/usant-punkt: «binærsøk er raskere på et array enn på en\nlenket liste» er **sant**, og begrunnelsen er direkte indeksering.\n\n**d)** Da faller binærsøk bort. To muligheter:\n\n- **Lineært søk:** gå gjennom arrayet og returner første indeks der `A[i]` er lik\n  `x`. $O(n)$, og det er **lavest mulig** — uten sortering må du i verste fall\n  lese hvert element.\n- **Sortér først og bruk binærsøk:** $O(n \\log n)$ for sorteringen. Det er\n  **verre**, og i tillegg ville indeksene i det sorterte arrayet ikke lenger svare\n  til plasseringen i originalen.\n\n**Poengtrapp-notat:** her er den enkleste løsningen den beste. Å foreslå sortering\npluss binærsøk på et usortert array for **ett** oppslag er et klassisk feilvalg —\ndet lønner seg først når du skal gjøre **mange** oppslag i det samme arrayet.",
+        "hints": [
+          "Hva må endres i `return`-linjene, og hva kan stå urørt?",
+          "Hva koster det å nå midtelementet i en lenket liste?"
+        ]
+      }
+    },
+    {
+      "id": "in2010-3-4-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in2010-3-4-def-3",
+      "type": "definition",
+      "title": "Binærsøkets forutsetninger",
+      "content": "To krav: arrayet må være **sortert**, og det må ha **direkte indeksering** slik at\n`A[i]` er $O(1)$.\n\nUten sortering finnes det ingen halvdel å kaste. Uten direkte indeksering — for\neksempel i en lenket liste — koster det $O(n)$ å nå midten, og hele fordelen\nforsvinner. Derfor er «binærsøk er raskere på array enn på lenket liste» sant."
+    },
+    {
+      "id": "in2010-3-4-def-4",
+      "type": "definition",
+      "title": "Returverdien fra pensums binærsøk",
+      "content": "`sant` eller `usant`, **ikke** en indeks.\n\nVil du ha indeksen, endrer du `return sant` til `return midt` og `return usant`\ntil `return -1`. Modifikasjonen er triviell, men den må **nevnes** — å hevde at\nbinærsøk gir en indeks uten forbeholdet er felle **#4** og gir eksplisitt trekk."
+    },
+    {
+      "id": "in2010-3-4-def-5",
+      "type": "definition",
+      "title": "Binærsøkets kjøretid",
+      "content": "$O(\\log n)$: hver runde halverer intervallet, så antall runder er antall\nhalveringer fra $n$ ned til 1.\n\nKontrollen: én ekstra sammenligning per **dobling** av $n$. Med $n = 8$ er verste\ntilfelle 3 sammenligninger, med $n = 16$ er det 4."
+    },
+    {
+      "id": "in2010-3-4-def-6",
+      "type": "definition",
+      "title": "Terminering ved tomt intervall",
+      "content": "Binærsøk konkluderer «ikke funnet» når `lav > hoy`, altså når intervallet der\nverdien kunne ligget, er tomt.\n\nAlgoritmen har da **ikke** sett på alle elementene — den har utelukket dem. Det er\nforskjellen mellom binærsøk og lineært søk, og den er hele grunnen til $O(\\log n)$."
+    },
+    {
+      "id": "in2010-3-4-def-7",
+      "type": "definition",
+      "title": "Duplikatsøk med hash-set",
+      "content": "Gå gjennom arrayet én gang; for hvert element, sjekk om det allerede ligger i\nsettet, og legg det ellers inn.\n\n$O(n)$ **forventet**, $O(n^2)$ i verste tilfelle. Dette er øverste trinn i\npoengtrappen for duplikatoppgaven, og $O(n)$ er samtidig nedre grense for\nproblemet, siden hvert element må leses minst én gang."
+    },
+    {
+      "id": "in2010-3-4-def-8",
+      "type": "definition",
+      "title": "Duplikatsøk ved sortering",
+      "content": "Sortér i $O(n \\log n)$ og skann naboparene i $O(n)$ — i et sortert array står to\nlike elementer alltid ved siden av hverandre.\n\nTotalt $O(n \\log n)$, og **garantert**. Ett trinn under hash-løsningen i\npoengtrappen, men riktig svar når oppgaven krever en garanti."
+    },
+    {
+      "id": "in2010-3-4-def-9",
+      "type": "definition",
+      "title": "Komplement-oppslaget i parsøket",
+      "content": "I stedet for å spørre «har jeg sett dette elementet før?», spør du «har jeg sett\n$x - A[i]$ før?».\n\nDet er hele forskjellen mellom duplikatsøk og parsøk, og strukturen er ellers\nidentisk: ett gjennomløp med $O(1)$ forventet oppslag per element."
+    },
+    {
+      "id": "in2010-3-4-def-10",
+      "type": "definition",
+      "title": "Oppslag før innsetting",
+      "content": "I parsøket må `Contains` komme **før** `Add` i løkka.\n\nMotsatt rekkefølge lar et element pares med seg selv: med $x = 10$ og `A[i] = 5`\nville settet inneholde 5-eren når komplementet slås opp, og gi et falskt treff.\nSlår du opp først, inneholder settet bare elementer med lavere indeks."
+    },
+    {
+      "id": "in2010-3-4-def-11",
+      "type": "definition",
+      "title": "To-peker-invarianten",
+      "content": "Ethvert par som summerer til $x$ ligger innenfor `i` til `j`.\n\nArgumentet: er `A[i] + A[j] < x`, kan `A[i]` ikke pares med noe i intervallet, for\n`A[j]` er den største muligheten. Hver flytting utelukker altså en hel rad av\nmulige par, og derfor holder $n$ steg i stedet for $n^2$."
+    },
+    {
+      "id": "in2010-3-4-def-12",
+      "type": "definition",
+      "title": "To pekere kontra hash-set",
+      "content": "To pekere: $O(n)$ **garantert**, $O(1)$ ekstra minne, men krever **sortert**\narray. Hash-set: $O(n)$ **forventet**, $O(n)$ ekstra minne, virker på usortert.\n\nPå et sortert array er to pekere strengt bedre. På et usortert er hash-settet\nraskest — med mindre oppgaven krever en garanti, og da må du sortere først og\nbetale $O(n \\log n)$."
+    },
+    {
+      "id": "in2010-3-4-def-13",
+      "type": "definition",
+      "title": "Poengtrappen for søkeoppgaver",
+      "content": "$O(n)$ øverst, $O(n \\log n)$ i midten, $O(n^2)$ nederst. Alle tre er korrekte\nløsninger; de gir ulikt antall poeng på samme oppgave.\n\nSensorveiledningene sier dette eksplisitt. Å velge riktig verktøy er å velge\npoeng — og trappen gjelder bare **lovlige** løsninger: en $O(n)$-løsning som\nbryter forutsetningen sin, står utenfor trappen."
+    },
+    {
+      "id": "in2010-3-4-def-14",
+      "type": "definition",
+      "title": "«Er dette lavest mulig?»",
+      "content": "Setningen som avslutter et godt Del 2-svar. For alle tre oppgavetypene i dette\nkapitlet er $O(n)$ nedre grense, fordi hvert element må leses minst én gang.\n\nÅ skrive den setningen viser at du vet at du har truffet bunnen, og den er en del\nav det sensor ser etter i et fullt svar."
+    },
+    {
+      "id": "in2010-3-4-def-15",
+      "type": "definition",
+      "title": "Firestegsformen på et Del 2-svar",
+      "content": "**1)** Navngi problemet og velg verktøy. **2)** Oppgi antagelser om\nrepresentasjon. **3)** Skriv algoritmen — pseudokode **eller** klar\nnaturlig-språk-forklaring. **4)** Oppgi kjøretiden som matcher koden, med $n$\ndefinert, og si om den er lavest mulig.\n\nAlle fire er poenggivende. Mangler kjøretiden, trekkes det; er den oppgitt uten\ndet nødvendige forbeholdet «forventet», trekkes det også."
+    },
+    {
+      "id": "in2010-3-4-def-16",
+      "type": "definition",
+      "title": "Når lineært søk er det riktige svaret",
+      "content": "Skal du gjøre **ett** oppslag i et usortert array, er lineært søk $O(n)$ — og det\ner lavest mulig.\n\nÅ sortere først for å kunne binærsøke koster $O(n \\log n)$ og er dårligere. Det\nlønner seg først når du skal gjøre **mange** oppslag i det samme arrayet, slik at\nsorteringskostnaden fordeles."
+    },
+    {
+      "id": "in2010-3-4-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — kapitlet på ett kort",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "in2010-3-4-rep-1",
+          "type": "text",
+          "content": "**De tre oppgavetypene og svarene deres:**\n\n| Oppgave | Sortert array | Usortert array |\n|---|---|---|\n| Finn en verdi | binærsøk, $O(\\log n)$ | lineært søk, $O(n)$ |\n| Finn duplikat | skann naboparene, $O(n)$ | hash-set, $O(n)$ forventet |\n| Finn par som summerer til $x$ | to pekere, $O(n)$ garantert | hash-set, $O(n)$ forventet |\n\n**Poengtrappen:** $O(n)$ øverst, $O(n \\log n)$ i midten, $O(n^2)$ nederst — alle\nkorrekte, ulikt betalt.\n\n**De to faste trekkgrunnene i dette kapitlet:**\n\n1. **Felle #4:** å hevde at pensums binærsøk returnerer en **indeks**. Det gjør\n   det ikke — det returnerer sant eller usant, og modifikasjonen må nevnes.\n2. **Å skrive $O(n)$ uten «forventet»** på en hash-løsning. Verste tilfelle er\n   $O(n^2)$.\n\n**Firestegsformen på hvert svar:** navngi problemet, oppgi antagelser, skriv\nalgoritmen, oppgi kjøretiden med $n$ definert — og legg til om den er lavest\nmulig.\n\n**Og den ene setningen som løfter et svar:** «du må lese hvert element minst én\ngang, så $O(n)$ er lavest mulig for dette problemet».\n\n**Videre:** [kap. 3.P](/in2010/in2010-3-prove) har fire prøver på hele Del 3.\nDeretter tar Del 4 deg videre til søketrær — den andre måten å holde data søkbare\npå."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "question": "$N = 7$. Sett inn 14, 21, 28. Hva blir tabellen?",
+    "options": [
+      "`14, 21, 28, _, _, _, _`",
+      "`_, 14, 21, 28, _, _, _`",
+      "`14, _, 21, _, 28, _, _`",
+      "`_, _, 14, 21, 28, _, _`"
+    ],
+    "explanation": "Alle tre er multipler av 7, så alle hasher til plass 0, og klyngen bygges fra plass 0 og utover. Distraktorene svarer til å starte klyngen på plass 1 eller 2, eller til å hoppe over plasser i probingen."
+  },
+  {
+    "question": "$N = 10$, tabellen har 19 på plass 9. Hvor havner 29?",
+    "options": [
+      "Plass 0",
+      "Plass 10",
+      "Plass 8",
+      "Innsettingen mislykkes"
+    ],
+    "explanation": "$29 \\bmod 10 = 9$, plassen er opptatt, og $(9+1) \\bmod 10 = 0$. Svaret «plass 10» er felle #11 — en indeks utenfor det gyldige området $0$ til $N-1$."
+  },
+  {
+    "question": "Hvilken kontroll avslører at du har glemt `mod N` i en håndkjøring?",
+    "options": [
+      "Om noen indeks i sporingen er større enn $N-1$",
+      "Om antall nøkler stemmer med antall utdelte nøkler",
+      "Om load-faktoren har blitt større enn 1",
+      "Om noen plass i tabellen står tom til slutt"
+    ],
+    "explanation": "Uten `mod N` løper indeksen ut av arrayet så snart en klynge når enden, og det ser du direkte i sporingen. Kontrollen med antall nøkler avslører den andre halvdelen av felle #11, nemlig manglende overskriving."
+  },
+  {
+    "question": "Hvilken kontroll avslører at du har duplisert en nøkkel?",
+    "options": [
+      "Om antall nøkler i tabellen er flere enn antall ulike nøkler",
+      "Om noen indeks i sporingen er større enn $N-1$",
+      "Om klyngen strekker seg over kanten av tabellen",
+      "Om load-faktoren er høyere enn terskelen for rehashing"
+    ],
+    "explanation": "En hashtabell skal ha hver nøkkel nøyaktig én gang, så fikk du fire nøkler hvorav to like, skal det stå tre i tabellen. Kontrollen med indeks over $N-1$ fanger den andre halvdelen av felle #11."
+  },
+  {
+    "question": "$N = 9$. Tabellen inneholder 21 på plass 3. Du setter inn 21 igjen. Hva skjer?",
+    "options": [
+      "21 skrives over på plass 3, tabellen er uendret",
+      "En ny 21-er legges på første ledige plass etter 3",
+      "Innsettingen avvises og tabellen står urørt",
+      "21 flyttes til plassen som svarer til $h(21)$"
+    ],
+    "explanation": "Løkkebetingelsen `T[i] er ikke tom and T[i] er ulik k` blir usann i andre ledd med én gang, så løkka stopper og verdien skrives over. Å legge inn en ny kopi er andre halvdel av felle #11 og gir en utilgjengelig duplikat."
+  },
+  {
+    "question": "Hva er første steg i håndkjøringsoppskriften etter at du har tegnet tabellen?",
+    "options": [
+      "Regne ut $h(k)$ for alle nøklene før du setter inn noe",
+      "Sette inn den første nøkkelen på plassen dens",
+      "Regne ut load-faktoren for den ferdige tabellen",
+      "Bestemme om tabellen må rehashes underveis"
+    ],
+    "explanation": "Å regne ut alle hashverdiene i en egen linje først fjerner de fleste regnefeilene og gir et regnestykke å kontrollere mot etterpå. Det er det enkleste enkeltgrepet i hele kapitlet."
+  },
+  {
+    "question": "$N = 13$, fem nøkler satt inn, alle med $h(k) = 1$. Hva er $\\alpha$?",
+    "options": [
+      "Omtrent 0,385",
+      "Omtrent 0,714",
+      "1,0",
+      "Omtrent 2,6"
+    ],
+    "explanation": "$\\alpha = n/N = 5/13 \\approx 0{,}385$ — tabellen er under halvfull. At kostnaden likevel blir 15 prøver viser at load-faktoren ikke sier noe om hvordan nøklene ligger."
+  },
+  {
+    "question": "En tabell er under halvfull, men alle innsettinger kostet mange prøver. Hva er årsaken?",
+    "options": [
+      "Hashfunksjonen gir samme verdi for mange av nøklene",
+      "Tabellen burde vært rehashet til dobbel størrelse",
+      "Probing-sekvensen mangler wraparound med `mod N`",
+      "Load-faktoren har passert terskelen for utvidelse"
+    ],
+    "explanation": "Klyngedannelse skyldes at nøklene hasher til samme sted, ikke at det er for lite plass. En større tabell ville gitt samme problem, så løsningen er en bedre hashfunksjon."
+  },
+  {
+    "question": "Hvordan skal sluttilstanden leveres på en sjanger E-oppgave?",
+    "options": [
+      "Hele tabellen med tomme plasser markert",
+      "Bare de plassene som fikk en nøkkel",
+      "Nøklene i den rekkefølgen de ble satt inn",
+      "Antall prøver per nøkkel og til slutt totalen"
+    ],
+    "explanation": "De tomme plassene er en del av svaret, fordi de viser at probing-sekvensen ble fulgt riktig. Å bare liste nøklene er felle #11 og gir sterkt redusert uttelling."
+  },
+  {
+    "question": "Hvorfor står telleren `antall < N` i `Contains`?",
+    "options": [
+      "For at søket skal terminere i en full tabell",
+      "For at søket ikke skal gå utenfor arrayet",
+      "For at kjøretiden skal bli $O(1)$ forventet",
+      "For at slettede plasser skal hoppes over"
+    ],
+    "explanation": "Er ingen plass tom, blir løkkas første betingelse aldri usann, og probingen går rundt i ring for alltid. Sensor gir eksplisitt delpoeng for å ha håndtert dette kanttilfellet."
+  },
+  {
+    "question": "Hva skjer hvis du kaller `Insert` på en helt full tabell med en ny nøkkel?",
+    "options": [
+      "Løkka terminerer ikke — prebetingelsen er brutt",
+      "Nøkkelen overskriver den første plassen i sekvensen",
+      "Tabellen rehashes automatisk til dobbel størrelse",
+      "Prosedyren returnerer uten å endre tabellen"
+    ],
+    "explanation": "Ingen plass er tom og ingen inneholder nøkkelen, så løkkebetingelsen forblir sann i det uendelige. Prosedyren er korrekt gitt sin prebetingelse «tabellen er ikke full» — en robust implementasjon rehasher før den fylles opp."
+  },
+  {
+    "question": "Er `if i == N: i = 0` en akseptabel erstatning for `i = (i + 1) mod N`?",
+    "options": [
+      "Ja — den gjør det samme og er like presis",
+      "Nei — sensor krever den nøyaktige modulo-formen",
+      "Nei — den håndterer ikke klynger over kanten",
+      "Ja — men bare når tabellstørrelsen er et primtall"
+    ],
+    "explanation": "Kravet er at løsningen er lett forståelig, entydig og presis — ikke at den ser ut som en bestemt fasit. En besvarelse skal ikke trekkes for en korrekt, men mer omstendelig, formulering."
+  },
+  {
+    "question": "$N = 9$, tabellen er `18, 27, _, _, 4, 13, 22, _, _`. Søk etter 31 — hvor mange plasser prøves?",
+    "options": [
+      "Fire",
+      "To",
+      "Én",
+      "Fem"
+    ],
+    "explanation": "$31 \\bmod 9 = 4$, og sekvensen 4, 5, 6, 7 stopper på plass 7, som er tom, med svaret «ikke funnet». Et mislykket søk koster like mye som veien fra $h(k)$ til første tomme plass."
+  },
+  {
+    "question": "Samme tabell. Søk etter 8 — hvor mange plasser prøves?",
+    "options": [
+      "Én",
+      "To",
+      "Fire",
+      "Ni"
+    ],
+    "explanation": "$8 \\bmod 9 = 8$, og plass 8 er tom med én gang, så søket avsluttes umiddelbart. Kostnaden ved et mislykket søk avhenger helt av om du starter inne i en klynge eller utenfor."
+  },
+  {
+    "question": "Hvilke to detaljer i `Insert`-løkka trekker sensor for hvis de mangler?",
+    "options": [
+      "`mod N` i oppdateringen og sjekken for lik nøkkel",
+      "Startverdien `k mod N` og returverdien fra prosedyren",
+      "Antagelsene om representasjon og kjøretidsanslaget",
+      "Løkketypen `while` og tilordningen `T[i] = k`"
+    ],
+    "explanation": "Begge sitter i `while`-linja og utgjør hver sin halvdel av felle #11 — probing utenfor $0$ til $N-1$, og duplisering av en nøkkel som allerede finnes. De to er de dyreste enkeltfeilene i hele Del 3."
+  },
+  {
+    "question": "Hvilken kjøretid skal oppgis for `Insert` i en hashtabell?",
+    "options": [
+      "$O(1)$ forventet og $O(n)$ verste",
+      "$O(1)$ i alle tilfeller, uten forbehold",
+      "$O(\\log n)$ forventet og $O(n)$ verste",
+      "$O(n)$ forventet og $O(n^2)$ verste"
+    ],
+    "explanation": "Kostnaden er lengden på probing-sekvensen, og den er kort når nøklene sprer seg og lang når de klumper seg. Å skrive $O(1)$ uten «forventet» er en kjøretid som ikke matcher algoritmen, og det trekkes det for."
+  },
+  {
+    "question": "Fire nøkler ligger på rad i tabellen, hver på sin egen hashverdi. Er det en klynge?",
+    "options": [
+      "Nei — ingen av dem er forskjøvet fra plassen sin",
+      "Ja — fire fylte plasser på rad er per definisjon en klynge",
+      "Ja — men bare hvis tabellen er mer enn halvfull",
+      "Nei — en klynge må strekke seg over kanten av tabellen"
+    ],
+    "explanation": "En klynge består av nøkler som har blitt forskjøvet fordi plassen deres var opptatt, og kostnaden her var én prøve per innsetting. Sluttilstanden ser lik ut som en ekte klynge, men kostnaden gjør det ikke."
+  },
+  {
+    "question": "Hva kan du få uttelling for selv om håndkjøringen din blir feil?",
+    "options": [
+      "Pseudokoden, kjøretiden og load-faktoren i de andre deloppgavene",
+      "Ingenting — deloppgavene bygger på hverandre i denne sjangeren",
+      "Bare hashverdiene, som teller som halve håndkjøringspoenget",
+      "Bare probing-sekvensen, som erstatter sluttilstanden"
+    ],
+    "explanation": "Delmomentene i en hashing-oppgave er uavhengige: pseudokode og kjøretid kan være riktige selv om tabellen er feil. Derfor skal ingen deloppgave stå tom, og derfor er det verdt å notere probing-sekvensen underveis."
+  }
+]

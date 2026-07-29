@@ -1,0 +1,272 @@
+{
+  "id": "in2010-3-prove",
+  "courseId": "in2010",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Hashing og søk",
+  "description": "Fire prøver med full fasit: håndkjøring av linear probing, load-faktor og rehashing, Insert og Contains i pseudokode, og søkeoppgavene der poengtrappen avgjør.",
+  "estimatedMinutes": 110,
+  "competenceGoals": [
+    "kunne håndkjøre en innsettingsrekke med lineær probing og levere hele tabellen i eksamensformatet",
+    "kunne svare sikkert på sant/usant om load-faktor, rehashing og hashkjøretider under antigjettings-skalering",
+    "kunne skrive innsettings- og søkeprosedyren i pseudokode fra hukommelsen, med begge kjøretidstilfellene oppgitt",
+    "kunne velge mellom hash-set, to pekere og sortering i en søkeoppgave, og begrunne valget med poengtrappen"
+  ],
+  "content": [
+    {
+      "id": "in2010-3-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til del 3",
+      "content": "**4 prøver à ~28 min** (25 + 25 + 30 + 30 minutter, 110 minutter i alt). Prøvene\ndekker hele Del 3 — håndkjøring av linear probing, load-faktor og rehashing,\n`Insert`-prosedyren i pseudokode, og Del 2-søkeoppgavene der poengtrappen avgjør.\nAlle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser\nformen sensor forventer, med margnotater om hva som gir uttelling.\n\n- **Prøve 3.A (25 min):** Linear-probing håndkjøring — oppgi hele tabellen\n  (sjanger E). Dekker [kap. 3.1](/in2010/in2010-3-1) og\n  [kap. 3.3](/in2010/in2010-3-3).\n- **Prøve 3.B (25 min):** Load-faktor, rehashing og hashmap-fakta (sjanger C, med\n  fem flervalg **inline i prøven**). Dekker [kap. 3.2](/in2010/in2010-3-2).\n- **Prøve 3.C (30 min):** Skriv `Insert` og `Contains` i pseudokode, med kjøretid\n  (sjanger I). Dekker [kap. 3.1](/in2010/in2010-3-1) og\n  [kap. 3.3](/in2010/in2010-3-3).\n- **Prøve 3.D (30 min):** Finn duplikat og finn par — velg lavest kjøretid,\n  sortert mot usortert (sjanger I). Dekker\n  [kap. 3.4](/in2010/in2010-3-4).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og uten oppslag. Eksamen er\nen firetimers digital skoleeksamen i Inspera **uten hjelpemidler** — du skriver\nalt, også pseudokode, rett inn i Inspera, og du får aldri se en tabell underveis.\nÅ håndkjøre en hashtabell på papir og skrive `Insert` fra hukommelsen er\nferdigheter som bare øves på én måte.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** De fem\nflervalgsspørsmålene står **inline i prøve 3.B**, med bokstavsvar i fasiten; den\ninteraktive quizen til kapitlene 3.1 til 3.4 er den store flervalgsbanken, og den\ntas separat.\n\nÅpne fasiten først når du er ferdig, og bruk selvdiagnose-lista nederst i hver\nprøve. Husk at C er en god og vanlig karakter — målet er ikke plettfrie tabeller,\nmen å levere alle delmomentene."
+    },
+    {
+      "id": "in2010-3-prove-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 3: [kap. 3.1](/in2010/in2010-3-1) om hashtabellen,\n$h(k) = k \\bmod N$, lineær probing og wraparound; [kap. 3.2](/in2010/in2010-3-2)\nom load-faktor, rehashing og hashmap/hash-set; drillen i\n[kap. 3.3](/in2010/in2010-3-3); og [kap. 3.4](/in2010/in2010-3-4) om binærsøk,\nduplikatsøk og parsøk.\n\nFra tidligere deler trengs $O$-notasjonen og skillet mellom forventet og verste\ntilfelle ([kap. 1.1](/in2010/in2010-1-1)), løkketellingen\n([kap. 1.2](/in2010/in2010-1-2)) og sortér-og-skann-strategien\n([kap. 2.2](/in2010/in2010-2-2))."
+    },
+    {
+      "id": "in2010-3-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 3.A — Linear-probing håndkjøring (25 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in2010-3-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 3.A — håndkjøring (25 minutter).** Tre oppgaver, alle sjanger E. Ingen\nhjelpemidler.\n\nPoengfordeling: oppgave 1 teller 7 p, oppgave 2 teller 7 p, oppgave 3 teller\n6 p — 20 poeng i alt.\n\nBruk oppskriften: tegn tabellen, regn ut **alle** hashverdiene først, noter\nprobing-sekvensen underveis, og lever **hele** tabellen."
+        },
+        {
+          "id": "in2010-3-prove-A-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-A-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger E — håndkjøring, altså at du utfører innsettingene steg for steg og\noppgir sluttilstanden.) $N = 7$, $h(k) = k \\bmod 7$. Sett inn 20, 27, 6, 13 og 34\ni denne rekkefølgen.\n\n**a)** Regn ut $h(k)$ for alle fem nøklene.\n**b)** Oppgi hele tabellen, med tomme plasser markert.\n**c)** Hvor mange prøver kostet innsettingene til sammen?\n**d)** Hva er load-faktoren etterpå?",
+            "solution": "**a)** $20 \\bmod 7 = 6$, $27 \\bmod 7 = 6$, $6 \\bmod 7 = 6$, $13 \\bmod 7 = 6$,\n$34 \\bmod 7 = 6$. **Alle fem gir 6.**\n\nDet er en opplysning verdt å ha før du begynner: dette blir én lang klynge, og\nsiden 6 er siste plass, kommer wraparound i spill allerede fra andre innsetting.\n\n**b)**\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 20 | 6 | `6` | `_, _, _, _, _, _, 20` |\n| 2 | 27 | 6 | `6 -> 0` | `27, _, _, _, _, _, 20` |\n| 3 | 6 | 6 | `6 -> 0 -> 1` | `27, 6, _, _, _, _, 20` |\n| 4 | 13 | 6 | `6 -> 0 -> 1 -> 2` | `27, 6, 13, _, _, _, 20` |\n| 5 | 34 | 6 | `6 -> 0 -> 1 -> 2 -> 3` | `27, 6, 13, 34, _, _, 20` |\n\n**Sluttilstand:**\n\n```text\nindeks:  0   1   2   3   4   5   6\nT:       27  6   13  34  _   _   20\n```\n\nPå én linje: `27, 6, 13, 34, _, _, 20`\n\n**c)** $1 + 2 + 3 + 4 + 5 = 15$ prøver, altså 3 per innsetting.\n\n**d)** $\\alpha = 5/7 \\approx 0{,}714$.\n\n**Poengfordeling (7 p):** 1 p for riktige hashverdier, 3 p for probing-sekvensene\n(delvis uttelling per rad), 1 p for at hele tabellen er oppgitt med tomme plasser\nmarkert, 1 p for prøvetellingen, 1 p for load-faktoren.\n\n**Fella som testes:** wraparound fra plass 6 til plass 0. Skriver du «plass 7» noe\nsted, er det felle **#11** — probing utenfor $0$ til $N-1$. **Kontrollen:** ingen\nindeks i sporingen skal være større enn 6.",
+            "hints": [
+              "Regn ut alle fem hashverdiene i en egen linje før du setter inn noe.",
+              "Fra plass 6 i en tabell med $N = 7$: hva er $(6+1) \\bmod 7$?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-3-prove-A-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-A-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger E.) $N = 10$, $h(k) = k \\bmod 10$. Sett inn 28, 38, 48 og 9.\n\n**a)** Oppgi hele tabellen.\n**b)** Hvilke innsettinger brukte wraparound?\n**c)** Hvorfor havnet 9 på plass 1 og ikke på plass 9?",
+            "solution": "Hashverdiene: $28 \\bmod 10 = 8$, $38 \\bmod 10 = 8$, $48 \\bmod 10 = 8$,\n$9 \\bmod 10 = 9$.\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 28 | 8 | `8` | `_, _, _, _, _, _, _, _, 28, _` |\n| 2 | 38 | 8 | `8 -> 9` | `_, _, _, _, _, _, _, _, 28, 38` |\n| 3 | 48 | 8 | `8 -> 9 -> 0` | `48, _, _, _, _, _, _, _, 28, 38` |\n| 4 | 9 | 9 | `9 -> 0 -> 1` | `48, 9, _, _, _, _, _, _, 28, 38` |\n\n**a) Sluttilstand: `48, 9, _, _, _, _, _, _, 28, 38`**\n\n**b)** Innsettingene av 48 og 9. Begge gikk fra plass 9 til plass 0.\n\n**c)** Fordi plass 9 var opptatt av 38, som havnet der etter en kollisjon i steg\n2, og plass 0 var opptatt av 48 fra steg 3. Nøkkelen 9 måtte derfor probe seg til\nplass 1.\n\n**Dette er primær klyngedannelse i sin reneste form:** 9-tallet kolliderte ikke\nmed noen nøkkel som hadde samme hashverdi. Det ble forskjøvet fordi tre andre\nnøkler, som alle hashet til 8, hadde bygget en klynge som strakte seg over plass 9\nog 0.\n\n**Poengfordeling (7 p):** 3 p for probing-sekvensene, 2 p for hele tabellen med\ntomme plasser, 1 p for b), 1 p for c) med henvisning til klyngedannelsen.\n\n**Merk hvordan klyngen ser ut på papiret:** to nøkler helt til venstre og to helt\ntil høyre. Det er én sammenhengende klynge — tabellen er en ring.",
+            "hints": [
+              "Regn ut hashverdiene først: tre av fire er like.",
+              "Følg probing-sekvensen for 9-tallet plass for plass og se hva som allerede ligger der."
+            ]
+          }
+        },
+        {
+          "id": "in2010-3-prove-A-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-A-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger E.) $N = 11$, $h(k) = k \\bmod 11$. Sett inn 35, 46, 35 og 2 i denne\nrekkefølgen.\n\n**a)** Oppgi hele tabellen.\n**b)** Hvor mange nøkler ligger i tabellen til slutt?\n**c)** Hva ville tabellen sett ut som hvis `Insert` manglet sjekken for lik\nnøkkel?",
+            "solution": "Hashverdiene: $35 \\bmod 11 = 2$, $46 \\bmod 11 = 2$, $35 \\bmod 11 = 2$,\n$2 \\bmod 11 = 2$. Alle fire.\n\n| Steg | Nøkkel $k$ | $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|\n| 1 | 35 | 2 | `2` | `_, _, 35, _, _, _, _, _, _, _, _` |\n| 2 | 46 | 2 | `2 -> 3` | `_, _, 35, 46, _, _, _, _, _, _, _` |\n| 3 | 35 | 2 | `2` | `_, _, 35, 46, _, _, _, _, _, _, _` |\n| 4 | 2 | 2 | `2 -> 3 -> 4` | `_, _, 35, 46, 2, _, _, _, _, _, _` |\n\n**a) Sluttilstand: `_, _, 35, 46, 2, _, _, _, _, _, _`**\n\n**b)** Tre. Den gjentatte 35-eren overskrev seg selv på plass 2.\n\n**c)** Da ville steg 3 behandlet plass 2 og 3 som opptatt og lagt en ny 35-er på\nplass 4. Steg 4 måtte da videre til plass 5:\n\n`_, _, 35, 46, 35, 2, _, _, _, _, _`\n\nFire nøkler, hvorav én er en utilgjengelig kopi — et søk etter 35 starter på plass\n2, finner den første og ser aldri den andre. I tillegg er klyngen blitt ett hakk\nlengre, så alle senere innsettinger blir dyrere.\n\n**Poengfordeling (6 p):** 3 p for tabellen med riktig håndtering av steg 3, 1 p\nfor antall nøkler, 2 p for c) med både den feilaktige tabellen og konsekvensen.\n\n**Kontrollen som fanger dette:** du fikk fire nøkler, men bare tre **ulike**.\nStår det fire i tabellen din, har du duplisert — andre halvdel av felle **#11**.\n\n**Selvdiagnose etter prøve 3.A**\n\n☐ Regnet du ut **alle** hashverdiene før du satte inn noe?\n\n☐ Er noen indeks i sporingen din større enn $N-1$?\n\n☐ Stemmer antall nøkler i tabellen med antall **ulike** nøkler du fikk?\n\n☐ Leverte du **hele** tabellen, med `_` for tomme plasser?\n\n☐ Noterte du probing-sekvensen underveis, så du får delvis uttelling hvis\nsluttilstanden svikter?\n\n☐ Lot du noen deloppgave stå tom?",
+            "hints": [
+              "Merk deg hvilke av de fire nøklene som er den samme.",
+              "Hva skal `Insert` gjøre når plassen inneholder nøyaktig nøkkelen du setter inn?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-3-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 3.B — Load-faktor, rehashing og hashfakta (25 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in2010-3-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 3.B — load-faktor og rehashing (25 minutter).** Tre oppgaver: én\nsant/usant-blokk med antigjettings-skalering, fem flervalg **inline i prøven**, og\nén rehashing. Ingen hjelpemidler.\n\nPoengfordeling: oppgave 1 teller opptil 10 p (skalert), oppgave 2 teller 5 p,\noppgave 3 teller 7 p."
+        },
+        {
+          "id": "in2010-3-prove-B-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-B-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger C — kjøretids- og teorifakta, altså rene sant/usant-påstander.)\n\n**Antigjettings-skalering:** blokken har 6 påstander, og poengsummen regnes som\n$2 \\cdot \\max(n - 3,\\ 0)$ der $n$ er antall riktige. Regn ut hvor mange du må ha\nsikkert riktige før du tjener ett poeng, og hva det betyr for påstander du er i\ntvil om.\n\nMarker sant eller usant, og begrunn hver med én setning.\n\n**a)** Rehashing kan gjenbruke de gamle indeksene etter en dobling.\n**b)** Et hashmap har $O(1)$ oppslagstid i verste tilfelle.\n**c)** Load-faktoren i en tabell med lukket hashing kan overstige 1.\n**d)** Å sette inn $n$ nøkler i en hashtabell med dobling koster $O(n)$ totalt.\n**e)** Et søk i en hashtabell kan avsluttes på den første tomme plassen.\n**f)** Binærsøk er raskere på et array enn på en lenket liste.",
+            "solution": "**Terskelen først.** Med skaleringen $2 \\cdot \\max(n - 3,\\ 0)$ gir 3 riktige\nnull. Du må ha **4 riktige** for å tjene 2 poeng, og 6 riktige gir\n$2 \\cdot 3 = 6$ poeng. Gjetter du på alle seks, får du i snitt 3 riktige, altså\n**null**.\n\nMen merk motsatsen: på oppgave 2 og 3 i denne prøven finnes ingen strafferamme, og\nder er ubesvart det samme som feil. Der lønner det seg alltid å svare.\n\n**a) Usant.** $h(k) = k \\bmod N$ avhenger av $N$, så alle hashverdier endrer seg\nved en dobling. Hver nøkkel må settes inn på nytt.\n\n**b) Usant.** $O(1)$ er **forventet**. Verste tilfelle er $O(n)$, når alle\nnøklene ligger i én klynge.\n\n**c) Usant.** Med lukket hashing ligger alle nøklene i selve arrayet, så\n$n \\le N$ og $\\alpha \\le 1$.\n\n**d) Sant.** Doblingene koster $N_0 + 2N_0 + 4N_0$ og videre — en doblingsrekke\nder summen er under det dobbelte av siste ledd, altså under $2n$.\n\n**e) Sant.** Hadde nøkkelen vært satt inn, ville `Insert` fulgt samme sekvens og\nstoppet på den første ledige plassen. Argumentet forutsetter at ingenting er\nslettet.\n\n**f) Sant.** Binærsøk krever direkte indeksering for å nå midtelementet i $O(1)$;\ni en lenket liste koster det $O(n)$, og hele fordelen ved halveringen forsvinner.\n\n**Fasitmønsteret: usant, usant, usant, sant, sant, sant.** Tre av hver — en\nsant/usant-blokk blander alltid.\n\n**Poengfordeling (opptil 10 p):** 1 p per riktig markering (6 p) pluss opptil 4 p\nfor begrunnelsene, før skaleringen. Begrunnelsen leses av sensor og er ikke\nauto-rettet — en setning som bare gjentar påstanden med motsatt fortegn, gir ikke\nuttelling.",
+            "hints": [
+              "Sett $2(n-3) > 0$ og løs for $n$ før du begynner på påstandene.",
+              "For hver påstand: hvilket tilfelle gjelder den, og hvilken forutsetning bygger den på?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-3-prove-B-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-B-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger C, flervalg — den auto-rettede formen, der du krysser av ett alternativ.)\nVelg det ene riktige alternativet i hvert spørsmål.\n\n**a)** En tabell har $N = 16$ plasser og 12 nøkler. Hva er load-faktoren?\n&nbsp;&nbsp;A) 1,33 &nbsp;&nbsp; B) 0,60 &nbsp;&nbsp; C) 0,75 &nbsp;&nbsp;\nD) 0,80\n\n**b)** Hva koster én rehashing av en tabell med $N$ plasser og $n$ nøkler?\n&nbsp;&nbsp;A) $O(n + N)$ &nbsp;&nbsp; B) $O(1)$ &nbsp;&nbsp;\nC) $O(n \\log n)$ &nbsp;&nbsp; D) $O(n \\cdot N)$\n\n**c)** Hvilken struktur svarer på «har jeg sett dette elementet før?»\n&nbsp;&nbsp;A) Et sortert array &nbsp;&nbsp; B) En prioritetskø &nbsp;&nbsp;\nC) Et binærtre &nbsp;&nbsp; D) Et hash-set\n\n**d)** $N = 7$ og nøkkelen 22 rehashes til $N = 14$. Hva blir den nye $h(22)$?\n&nbsp;&nbsp;A) 1 &nbsp;&nbsp; B) 8 &nbsp;&nbsp; C) 2 &nbsp;&nbsp; D) 22\n\n**e)** Hva er verste kjøretid for `Contains` i et hash-set?\n&nbsp;&nbsp;A) $O(1)$ &nbsp;&nbsp; B) $O(\\log n)$ &nbsp;&nbsp;\nC) $O(n)$ &nbsp;&nbsp; D) $O(n^2)$",
+            "solution": "**Fasit: a) C, b) A, c) D, d) B, e) C.**\n\n**a) C — 0,75.** $\\alpha = n/N = 12/16$. Alternativ A er den snudde brøken\n$N/n = 1{,}33$, og at den er over 1 burde alene avsløre at den står feil vei.\n\n**b) A — $O(n + N)$.** Løkka går gjennom alle $N$ plassene, og hver av de $n$\nnøklene settes inn på $O(1)$ forventet.\n\n**c) D — et hash-set.** Medlemskapstest i $O(1)$ forventet. Et sortert array gir\n$O(\\log n)$ med binærsøk, som er tregere og krever sortering først.\n\n**d) B — 8.** $22 = 1 \\cdot 14 + 8$. Alternativ A er den **gamle** hashverdien med\n$N = 7$ — nettopp den fella rehashing handler om.\n\n**e) C — $O(n)$.** Ligger alle nøklene i én klynge, må probing-sekvensen gjennom\nhele. $O(1)$ er det forventede tilfellet.\n\n**Poengfordeling (5 p):** 1 p per riktig. Ingen begrunnelse kreves, og det er\ningen strafferamme — la aldri et flervalg stå ubesvart.\n\n**Legg merke til fasitbokstavene: C, A, D, B, C.** De er stokket med vilje. Å lete\netter mønstre i fasitbokstavene er bortkastet tid.",
+            "hints": [
+              "I a): sjekk hvilken vei brøken skal stå ved å spørre om svaret kan bli over 1.",
+              "I d): regn ut $22 \\bmod 14$, ikke $22 \\bmod 7$."
+            ]
+          }
+        },
+        {
+          "id": "in2010-3-prove-B-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-B-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger E og C.) En hashtabell med $N = 9$ inneholder nøklene 17, 26 og 35 slik:\n`26, 35, _, _, _, _, _, _, 17`.\n\n**a)** Hva er load-faktoren?\n**b)** Tabellen rehashes til $N = 18$. Regn ut de nye hashverdiene og vis\nreinnsettingen, med rekkefølge venstre mot høyre i den gamle tabellen.\n**c)** Oppgi den nye tabellen og den nye load-faktoren.\n**d)** Hvorfor kunne ikke nøklene bare kopieres over på de samme indeksene?",
+            "solution": "**a)** $\\alpha = 3/9 \\approx 0{,}333$.\n\n**b)** Reinnsettingsrekkefølgen er 26, 35, 17 — venstre mot høyre i den gamle\ntabellen.\n\nNye hashverdier med $N = 18$: $26 \\bmod 18 = 8$, $35 \\bmod 18 = 17$,\n$17 \\bmod 18 = 17$.\n\n| Steg | Nøkkel $k$ | gammel $h$ | ny $h(k)$ | Prøvde indekser | Tabell etter steget |\n|---|---|---|---|---|---|\n| 1 | 26 | 8 | 8 | `8` | plass 8 får 26 |\n| 2 | 35 | 8 | 17 | `17` | plass 17 får 35 |\n| 3 | 17 | 8 | 17 | `17 -> 0` | plass 0 får 17 |\n\n**c) Ny tabell:**\n\n```text\nindeks:  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17\nT:       17  _   _   _   _   _   _   _   26  _   _   _   _   _   _   _   _   35\n```\n\nPå én linje: `17, _, _, _, _, _, _, _, 26, _, _, _, _, _, _, _, _, 35`\n\n**Ny load-faktor:** $\\alpha = 3/18 \\approx 0{,}167$.\n\n**d)** Fordi hashfunksjonen $h(k) = k \\bmod N$ har $N$ i seg. Alle tre nøklene\nhashet til plass 8 i den gamle tabellen; i den nye hasher 26 til plass 8 mens 35\nog 17 hasher til plass 17. Hadde vi kopiert arrayet over, ville 35 ligget på plass\n1 mens et søk startet på plass 17 — og nøkkelen hadde vært utilgjengelig.\n\n**Poengfordeling (7 p):** 1 p for load-faktoren, 2 p for de nye hashverdiene, 2 p\nfor reinnsettingen med wraparound i steg 3, 1 p for den nye tabellen, 1 p for d).\n\n**Merk steg 3:** $17 \\bmod 18 = 17$, som er **siste** plass i den nye tabellen.\nDen er opptatt av 35, så sekvensen går til $(17+1) \\bmod 18 = 0$. Wraparound er i\nspill også etter en rehashing.\n\n**Selvdiagnose etter prøve 3.B**\n\n☐ Regnet du ut terskelen i antigjettings-blokken **før** du begynte å svare?\n\n☐ Skrev du «forventet» der kjøretiden krevde det?\n\n☐ Sto brøken $\\alpha = n/N$ riktig vei?\n\n☐ Regnet du de nye hashverdiene med den **nye** $N$-en?\n\n☐ Håndterte du wraparound også i den nye tabellen?\n\n☐ Svarte du på alle flervalgene? Der finnes ingen strafferamme.",
+            "hints": [
+              "Regn $k \\bmod 18$ for alle tre nøklene før du setter inn noe.",
+              "Plass 17 er siste plass i en tabell med $N = 18$. Hva kommer etter den?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-3-prove-C",
+      "type": "collapsible",
+      "title": "Prøve 3.C — Insert og Contains i pseudokode (30 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in2010-3-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 3.C — pseudokode (30 minutter).** Tre oppgaver, alle sjanger I. Ingen\nhjelpemidler, og du skriver pseudokoden fra hukommelsen — som på eksamen.\n\nPoengfordeling: oppgave 1 teller 7 p, oppgave 2 teller 7 p, oppgave 3 teller\n6 p — 20 poeng i alt.\n\nHusk firestegsformen: navngi problemet, oppgi antagelser om representasjon, skriv\nalgoritmen, oppgi kjøretiden som matcher."
+        },
+        {
+          "id": "in2010-3-prove-C-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-C-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger I — hashing i pseudokode, altså at du skriver prosedyren selv og oppgir\nkjøretiden.) Skriv `Insert(T, k)` for en hashtabell med lukket hashing og lineær\nprobing.\n\n**a)** Navngi problemet og oppgi antagelser om representasjon.\n**b)** Skriv prosedyren.\n**c)** Oppgi kjøretiden med begge tilfellene.\n**d)** Pek på de to detaljene i løkka som sensor trekker for hvis de mangler, og\nsi hva som går galt uten hver av dem.",
+            "solution": "**a) Problemet:** innsetting i en hashtabell med lukket hashing og lineær\nprobing.\n\n**Antagelser om representasjon:** `T` er et array med `N` plasser indeksert fra 0.\nHver plass er enten tom eller inneholder én heltallsnøkkel. Hashfunksjonen er\n`h(k) = k mod N`. Tabellen er ikke full, og ingen nøkler er slettet.\n\n**b)**\n\n```text\nProcedure Insert(T, k)\n  Input:  hashtabell T som array med N plasser (indeks fra 0), noekkel k\n  Output: T med k satt inn; lik noekkel overskrives i stedet for aa dupliseres\n  N = T.length\n  i = k mod N\n  while T[i] er ikke tom and T[i] er ulik k:\n      i = (i + 1) mod N\n  T[i] = k\n```\n\n**c) Kjøretid:** $O(1)$ **forventet**, $O(n)$ i **verste** tilfelle, der $n$ er\nantall nøkler i tabellen. Kostnaden er lengden på probing-sekvensen: kort når\nhashfunksjonen sprer nøklene, lang når alt ligger i én klynge.\n\n**d) De to detaljene, begge i `while`-linja:**\n\n1. **`mod N` i oppdateringen `i = (i + 1) mod N`.** Uten den løper indeksen\n   utenfor arrayet så snart en klynge når plass $N-1$. Med $N = 5$ og en full\n   klynge fra plass 3 ville `i` blitt 5, som ikke finnes. Dette er felle **#11**.\n2. **`and T[i] er ulik k` i betingelsen.** Uten den stopper løkka bare på tom\n   plass, og en nøkkel som allerede finnes, dupliseres. Duplikatet er\n   utilgjengelig for alle senere søk, og klyngen blir ett hakk lengre for alle som\n   kommer etter.\n\n**Poengfordeling (7 p):** 1 p for problem og antagelser, 3 p for prosedyren (1 p\nfor grunnstrukturen, 1 p for `mod N`, 1 p for sjekken av lik nøkkel), 1 p for\nkjøretiden med begge tilfellene, 2 p for d) med konsekvensene forklart.\n\n**Margnotat om form:** en wraparound skrevet som `if i == N: i = 0` er like\nkorrekt som `(i + 1) mod N`, og skal ikke trekkes. Kravet er at løsningen er lett\nforståelig, entydig og presis — ikke at den ser ut som en bestemt fasit.",
+            "hints": [
+              "Skriv hodet først: hvilken input, hvilken output, og hva antar du om `T`?",
+              "Løkka skal stoppe på to slags plasser — hvilke to, og hva skjer hvis den bare stopper på den ene?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-3-prove-C-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-C-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger I.) Skriv `Contains(T, k)`, som avgjør om en nøkkel finnes i tabellen.\n\n**a)** Skriv prosedyren.\n**b)** Hvorfor kan søket avsluttes på den første tomme plassen? Hvilken\nforutsetning hviler argumentet på?\n**c)** Hva skjer hvis tabellen er full og nøkkelen ikke finnes, og hvordan sikrer\ndu at prosedyren terminerer?\n**d)** Oppgi kjøretiden.",
+            "solution": "**Problemet:** medlemskapstest i en hashtabell med lineær probing.\n\n**Antagelser om representasjon:** `T` er et array med `N` plasser indeksert fra 0;\nhver plass er tom eller inneholder én nøkkel; `h(k) = k mod N`.\n\n**a)**\n\n```text\nProcedure Contains(T, k)\n  Input:  hashtabell T som array med N plasser (indeks fra 0), noekkel k\n  Output: sant hvis k finnes i T, ellers usant\n  N = T.length\n  i = k mod N\n  antall = 0\n  while T[i] er ikke tom and antall < N:\n      if T[i] er lik k:\n          return sant\n      i = (i + 1) mod N\n      antall = antall + 1\n  return usant\n```\n\n**b)** Fordi `Insert` fulgte nøyaktig samme probing-sekvens. Hadde `k` blitt satt\ninn, ville den stoppet på den første ledige plassen i sekvensen — altså denne\neller en tidligere. Møter søket en tom plass uten treff, kan nøkkelen ikke finnes.\n\n**Forutsetningen:** at **ingenting er slettet** fra tabellen. Tømmer du en plass\nmidt i en klynge, blir nøkler lenger ute i sekvensen usynlige. Det er derfor lukket\nhashing markerer slettede plasser i stedet for å tømme dem.\n\n**c)** Er tabellen full, er ingen plass tom, og løkkas første betingelse blir aldri\nusann. Uten en teller ville probingen gå rundt i ring for alltid.\n\nTelleren `antall < N` løser det: etter $N$ prøver har sekvensen vært innom hver\nplass nøyaktig én gang, og svaret er sikkert «ikke funnet».\n\n**d) Kjøretid:** $O(1)$ **forventet**, $O(n)$ i **verste** tilfelle, der $n$ er\nantall nøkler i tabellen.\n\n**Poengfordeling (7 p):** 3 p for prosedyren (1 p for grunnstrukturen, 1 p for\n`mod N`, 1 p for telleren), 2 p for b) med forutsetningen nevnt, 1 p for c), 1 p\nfor kjøretiden.\n\n**Margnotat:** kanttilfellet i c) er et delmoment sensor gir eksplisitt uttelling\nfor. En besvarelse uten telleren er ikke gal på hovedideen, men den har en løkke\nsom ikke terminerer i ett tilfelle — nettopp den typen detalj som skiller full fra\nnesten full uttelling. **Hovedmomentet, altså riktig probing, gir uansett mest.**",
+            "hints": [
+              "Søket følger samme sekvens som innsettingen — hvor stoppet innsettingen?",
+              "Hva skjer med `while`-løkka hvis ingen plass i tabellen er tom?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-3-prove-C-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-C-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger I, krevende.) En besvarelse har levert dette:\n\n```text\nProcedure Insert(T, k)\n  Input:  hashtabell T, noekkel k\n  Output: T med k satt inn\n  i = k mod T.length\n  while T[i] er ikke tom:\n      i = i + 1\n  T[i] = k\n  Kjoeretid: O(1)\n```\n\n**a)** Finn alle feilene.\n**b)** Vis konkret hva som går galt med $N = 6$, tabellen `17, 5, 23, _, _, 11` og\nnøkkelen 29.\n**c)** Skriv en korrekt versjon med kjøretid.",
+            "solution": "**a) Tre feil.**\n\n1. **Manglende `mod N` i oppdateringen.** `i = i + 1` løper utenfor arrayet så\n   snart en klynge når plass $N-1$. Felle **#11**.\n2. **Manglende sjekk for lik nøkkel.** Løkka stopper bare på tom plass, så en\n   nøkkel som allerede finnes, dupliseres. Andre halvdel av samme felle.\n3. **Kjøretiden er feil oppgitt.** `O(1)` uten forbehold er ikke riktig: den er\n   $O(1)$ **forventet** og $O(n)$ i **verste** tilfelle.\n\n**b) Konkret, med $N = 6$ og `T = 17, 5, 23, _, _, 11`:**\n\n$29 \\bmod 6 = 5$. Plass 5 er opptatt av 11, så løkka går til $i = 6$.\n\n**Men plass 6 finnes ikke** — tabellen har plassene 0 til 5. Med `mod N` ville\nneste plass vært $(5+1) \\bmod 6 = 0$, som er opptatt av 17, deretter plass 1\n(opptatt av 5), deretter plass 2 (opptatt av 23), og til slutt plass 3, som er tom.\nDer ville 29 havnet: `17, 5, 23, 29, _, 11`.\n\nUten `mod N` skriver prosedyren utenfor arrayet. På en håndkjøring gir det et svar\nsensor ikke kan gi poeng for; i en implementasjon gir det en feilmelding eller en\nstille overskriving av minne som tilhører noe annet.\n\n**c) Korrekt versjon:**\n\n**Problemet:** innsetting i hashtabell med lukket hashing og lineær probing.\n\n**Antagelser om representasjon:** `T` er et array med `N` plasser indeksert fra 0;\nhver plass er tom eller inneholder én nøkkel; `h(k) = k mod N`; tabellen er ikke\nfull.\n\n```text\nProcedure Insert(T, k)\n  Input:  hashtabell T som array med N plasser (indeks fra 0), noekkel k\n  Output: T med k satt inn; lik noekkel overskrives\n  N = T.length\n  i = k mod N\n  while T[i] er ikke tom and T[i] er ulik k:\n      i = (i + 1) mod N\n  T[i] = k\n```\n\n**Kjøretid:** $O(1)$ forventet, $O(n)$ verste, der $n$ er antall nøkler i\ntabellen.\n\n**Poengfordeling (6 p):** 3 p for å finne alle tre feilene (1 p hver), 2 p for den\nkonkrete gjennomgangen i b), 1 p for den korrekte versjonen med kjøretid.\n\n**Selvdiagnose etter prøve 3.C**\n\n☐ Navnga du problemet og oppga antagelser **før** pseudokoden?\n\n☐ Har `while`-linja begge detaljene — `mod N` og sjekken for lik nøkkel?\n\n☐ Oppga du **begge** kjøretidstilfellene, forventet og verste?\n\n☐ Definerte du hva $n$ er?\n\n☐ Nevnte du kanttilfellet med full tabell?\n\n☐ Skrev du kjøretiden slik at den matcher koden du faktisk ga?",
+            "hints": [
+              "Se på løkkebetingelsen og oppdateringslinja hver for seg — det er én feil i hver.",
+              "Med $N = 6$: hvilke indekser finnes, og hvor havner `i` etter én runde fra plass 5?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "in2010-3-prove-D",
+      "type": "collapsible",
+      "title": "Prøve 3.D — Finn duplikat og finn par, med poengtrapp (30 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in2010-3-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 3.D — søkeoppgavene (30 minutter).** Tre oppgaver, alle sjanger I. Ingen\nhjelpemidler.\n\nPoengfordeling: oppgave 1 teller 6 p, oppgave 2 teller 7 p, oppgave 3 teller\n7 p — 20 poeng i alt.\n\nHer er poengtrappen eksplisitt: lavest kjøretid gir mest uttelling på samme\noppgave. Men trappen gjelder bare **lovlige** løsninger — skriv alltid ut\nforutsetningen."
+        },
+        {
+          "id": "in2010-3-prove-D-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-D-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger I.) Det sorterte arrayet er `A = [3, 7, 11, 14, 18, 21, 26, 30, 35]`.\n\n**a)** Kjør binærsøk etter 30. Vis `lav`, `hoy` og `midt` for hvert steg.\n**b)** Hvor mange sammenligninger brukte søket, og hva er kjøretiden generelt?\n**c)** Hva returnerer pensums binærsøk her? Hva må endres for å få indeksen?",
+            "solution": "**a)**\n\n| Steg | `lav` | `hoy` | `midt` | `A[midt]` | Sammenligning | Nytt intervall |\n|---|---|---|---|---|---|---|\n| 1 | 0 | 8 | 4 | 18 | mindre enn `x`, gå til høyre | `lav = 5`, `hoy = 8` |\n| 2 | 5 | 8 | 6 | 26 | mindre enn `x`, gå til høyre | `lav = 7`, `hoy = 8` |\n| 3 | 7 | 8 | 7 | 30 | lik `x` — funnet | stopp |\n\n**b)** Tre sammenligninger. Kjøretiden er $O(\\log n)$, der $n$ er antall elementer\ni `A` — hver runde halverer intervallet.\n\n**Kontrollregning:** med $n = 9$ er $\\log_2 9$ litt over 3, og verste søk her\nbruker 4 sammenligninger. Tre er altså innenfor.\n\n**c)** Pensums binærsøk returnerer **`sant`**, ikke indeksen 7. For å få indeksen\nmå `return sant` endres til `return midt` og `return usant` til `return -1`.\nSøkelogikken er uendret.\n\nÅ hevde at binærsøk gir indeksen uten å nevne modifikasjonen er felle **#4** i\nbokas feilregister og gir eksplisitt trekk.\n\n**Poengfordeling (6 p):** 3 p for sporingstabellen (1 p per steg), 1 p for antall\nsammenligninger, 1 p for kjøretiden med $n$ definert, 1 p for c) med\nmodifikasjonen nevnt.",
+            "hints": [
+              "Regn `midt` som heltallsdivisjonen av `lav + hoy`.",
+              "Se nøye på hva `return`-linjene i pensums binærsøk faktisk gir tilbake."
+            ]
+          }
+        },
+        {
+          "id": "in2010-3-prove-D-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-D-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger I, eksamensnivå.) Gitt et **usortert** array `A` med $n$ heltall, avgjør\nom to av dem er like.\n\n**a)** Sett opp poengtrappen: hvilke kjøretider er mulige, og hvilken står øverst?\n**b)** Skriv løsningen som står øverst. Oppgi antagelser og kjøretid.\n**c)** Kjør algoritmen på `A = [31, 12, 45, 12]` og vis tilstanden etter hvert\nsteg.\n**d)** Hva ville du svart hvis oppgaven krevde en **garantert** kjøretid?",
+            "solution": "**Problemet navngitt:** duplikatsøk i en usortert mengde heltall.\n\n**a) Poengtrappen:**\n\n| Kjøretid | Løsning | Uttelling |\n|---|---|---|\n| $O(n)$ forventet | hash-set: slå opp hvert element, returner sant ved treff | **full pott** |\n| $O(n \\log n)$ | sortér med flettesortering og skann naboparene | noe mindre |\n| $O(n^2)$ | dobbel løkke over alle par | minst |\n\nAlle tre er **korrekte**. Sensorveiledningene sier eksplisitt at lavere kjøretid\ngir mer uttelling på samme oppgave.\n\n**b) Antagelser om representasjon:** `A` er et array med $n$ heltall indeksert fra\n0. Heltall kan hashes, og vi kan opprette et hash-set.\n\n```text\nProcedure HarDuplikat(A)\n  Input:  array A med n heltall, indeksert fra 0\n  Output: sant hvis to elementer i A er like, ellers usant\n  S = tomt hash-set\n  for i = 0 to A.length-1:\n      if Contains(S, A[i]):\n          return sant\n      Add(S, A[i])\n  return usant\n```\n\n**Kjøretid:** $O(n)$ **forventet**, der $n$ er antall elementer i `A`. Verste\ntilfelle er $O(n^2)$ når alle nøklene kolliderer.\n\n**Hvorfor $O(n)$ er lavest mulig:** du må lese hvert element minst én gang — et\nelement du aldri så, kunne vært duplikatet.\n\n**c)**\n\n| Steg | Element | Allerede i settet? | Settet etter steget |\n|---|---|---|---|\n| 1 | 31 | nei | `{31}` |\n| 2 | 12 | nei | `{31, 12}` |\n| 3 | 45 | nei | `{31, 12, 45}` |\n| 4 | 12 | **ja** — duplikat funnet | `{31, 12, 45}` |\n\n**Returnerer `sant` etter fjerde element.**\n\n**d)** Da ville jeg sortert med flettesortering og skannet naboparene:\n$O(n \\log n)$ i **alle** tilfeller. Hash-løsningen gir ingen garanti, siden verste\ntilfelle er kvadratisk. Kravet om garanti gjør den asymptotisk tregere løsningen\ntil den riktige — og det er verdt å si eksplisitt at valget er en avveining mellom\nforventet fart og garanti.\n\n**Poengfordeling (7 p):** 2 p for poengtrappen med alle tre trinnene, 2 p for\nalgoritmen med antagelser, 1 p for kjøretiden med «forventet», 1 p for\ngjennomkjøringen, 1 p for d).",
+            "hints": [
+              "Hva må du huske om hvert element du allerede har sett?",
+              "Hvilken av de tre løsningene har en kjøretid som gjelder i alle tilfeller?"
+            ]
+          }
+        },
+        {
+          "id": "in2010-3-prove-D-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in2010-3-prove-D-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger I, eksamensnivå.) To varianter av samme problem: finn to elementer som\nsummerer til $x$.\n\n**a)** Arrayet `A = [4, 6, 11, 15, 19, 25]` er **sortert**, og $x = 26$. Skriv\nalgoritmen som gir lavest kjøretid, og kjør den.\n**b)** Oppgi kjøretiden, og si hvorfor den er strengt bedre enn hash-løsningen\nher.\n**c)** Hva ville du gjort hvis arrayet var **usortert**?\n**d)** En besvarelse foreslår å sortere det usorterte arrayet og deretter bruke to\npekere. Er det riktig? Hvor står det i poengtrappen?",
+            "solution": "**Problemet navngitt:** finn et par som summerer til $x$ i et sortert array.\n\n**a) Antagelser om representasjon:** `A` er et **sortert** array med $n$ heltall\nindeksert fra 0.\n\n```text\nProcedure FinnesParSortert(A, x)\n  Input:  sortert array A med n heltall (indeks fra 0), maalsum x\n  Output: sant hvis to elementer i A summerer til x, ellers usant\n  i = 0\n  j = A.length - 1\n  while i < j:\n      sum = A[i] + A[j]\n      if sum er lik x:\n          return sant\n      if sum < x:\n          i = i + 1\n      else:\n          j = j - 1\n  return usant\n```\n\n**Gjennomkjøring med $x = 26$:**\n\n| Steg | `i` | `j` | `A[i]` | `A[j]` | Sum | Handling |\n|---|---|---|---|---|---|---|\n| 1 | 0 | 5 | 4 | 25 | 29 | større enn `x`, flytt `j` tilbake |\n| 2 | 0 | 4 | 4 | 19 | 23 | mindre enn `x`, flytt `i` fram |\n| 3 | 1 | 4 | 6 | 19 | 25 | mindre enn `x`, flytt `i` fram |\n| 4 | 2 | 4 | 11 | 19 | 30 | større enn `x`, flytt `j` tilbake |\n| 5 | 2 | 3 | 11 | 15 | 26 | lik `x` — **paret (11, 15) funnet** |\n\n**Returnerer `sant` etter 5 steg.**\n\n**b) Kjøretid:** $O(n)$, der $n$ er antall elementer i `A`. Hvert steg flytter én\npeker, og de kan til sammen flytte høyst $n$ ganger før de møtes.\n\n**Strengt bedre enn hash-løsningen** fordi denne $O(n)$-en er **garantert**, mens\nhash-løsningens er **forventet** med $O(n^2)$ i verste tilfelle. Den bruker heller\nikke ekstra minne: to indeksvariabler mot et hash-set med opptil $n$ elementer.\n\n**Hvorfor teknikken er korrekt:** er summen for liten, er `A[j]` allerede den\nstørste muligheten for `A[i]`, så `A[i]` kan ikke inngå i noe par i intervallet.\nHver flytting utelukker en hel rad av kandidater.\n\n**c)** Da ville jeg brukt hash-set: gå gjennom arrayet én gang, og for hvert\nelement sjekke om komplementet $x - A[i]$ ligger i settet.\n\n```text\nProcedure FinnesPar(A, x)\n  Input:  array A med n heltall (indeks fra 0), maalsum x\n  Output: sant hvis to elementer i A summerer til x, ellers usant\n  S = tomt hash-set\n  for i = 0 to A.length-1:\n      if Contains(S, x - A[i]):\n          return sant\n      Add(S, A[i])\n  return usant\n```\n\n$O(n)$ **forventet**. Merk at oppslaget må komme **før** innsettingen, ellers kan\net element pares med seg selv — med $x = 10$ og `A[i] = 5` ville settet gitt et\nfalskt treff.\n\n**d) Ja, det er riktig — men ikke optimalt.** Sorteringen koster $O(n \\log n)$ og\ndominerer de $O(n)$ stegene med to pekere, så totalen blir $O(n \\log n)$. Det er\nett trinn under hash-løsningens $O(n)$ forventet.\n\n**Men:** kreves en **garantert** kjøretid, er dette det riktige svaret, siden\nhash-løsningen er $O(n^2)$ i verste tilfelle. Poengtrappen belønner lavest kjøretid\nblant løsninger som oppfyller oppgavens krav — og «garantert» er et krav.\n\n**Poengfordeling (7 p):** 2 p for to-peker-algoritmen, 1 p for gjennomkjøringen,\n1 p for kjøretiden med begrunnelsen «garantert», 2 p for c) med riktig rekkefølge\ni løkka, 1 p for d).\n\n**Selvdiagnose etter prøve 3.D**\n\n☐ Navnga du problemet og oppga antagelser før hver algoritme?\n\n☐ Skrev du «forventet» der løsningen var hash-basert?\n\n☐ Slo du opp **før** du la inn i settet i parsøket?\n\n☐ Sa du om kjøretiden er **garantert** eller **forventet**, der det skilte\nløsningene?\n\n☐ Nevnte du at pensums binærsøk må modifiseres for å gi en indeks?\n\n☐ Skrev du én setning om hvorfor kjøretiden er lavest mulig?\n\n☐ Definerte du hva $n$ er?",
+            "hints": [
+              "Hva vet du om summen når du står med det minste og det største elementet?",
+              "I c): hva er komplementet til `A[i]`, og når må du slå det opp?"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

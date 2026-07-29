@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hva er kvikksorteringens kjøretid i verste tilfelle?",
+    "options": [
+      "$O(n^2)$",
+      "$O(n \\log n)$",
+      "$O(n)$",
+      "$O(\\log n)$"
+    ],
+    "explanation": "Havner pivoten ytterst hver gang, skrelles bare ett element av per nivå, og summen blir $\\frac{n(n-1)}{2}$. $O(n \\log n)$ er det **forventede** tilfellet — å oppgi det som verste er den hyppigste enkeltfeilen i hele kapitlet."
+  },
+  {
+    "question": "Hvilken av de tre effektive sorteringene er stabil?",
+    "options": [
+      "Flettesortering",
+      "Heapsort",
+      "Kvikksortering",
+      "Ingen av dem"
+    ],
+    "explanation": "Flettingen lar venstre bit vinne ved likhet (`V[i] <= H[j]`), så like elementer beholder innbyrdes rekkefølge. Heapsort og kvikksortering flytter begge elementer over lang avstand og er derfor ustabile."
+  },
+  {
+    "question": "Hvilken av de tre effektive sorteringene er IKKE in-place?",
+    "options": [
+      "Flettesortering",
+      "Heapsort",
+      "Kvikksortering",
+      "Alle tre er in-place"
+    ],
+    "explanation": "`Merge` bygger et nytt array og bruker derfor $O(n)$ ekstra minne. Heapen i heapsort ligger i selve arrayet, og kvikksortering partisjonerer på stedet — begge er in-place."
+  },
+  {
+    "question": "Hva koster det å bygge en heap fra et vilkårlig array?",
+    "options": [
+      "$O(n)$",
+      "$O(n \\log n)$",
+      "$O(\\log n)$",
+      "$O(n^2)$"
+    ],
+    "explanation": "De fleste nodene ligger nær bunnen og har kort vei å synke, så byggingen er lineær. $O(n \\log n)$ er en fast distraktor, og den er kjøretiden til hele heapsorteringen — der $n$ uttrekk koster $O(\\log n)$ hver."
+  },
+  {
+    "question": "Hvorfor er flettesortering $O(n \\log n)$?",
+    "options": [
+      "Splittingen gir $\\log n$ nivåer, og hvert nivå fletter $O(n)$",
+      "Flettingen bruker $\\log n$ sammenligninger per element i arrayet",
+      "Hver rekursjon halverer antall sammenligninger som gjenstår",
+      "Rekursjonsdybden er $n$, og hvert nivå koster $\\log n$"
+    ],
+    "explanation": "Kjøretiden leses ved nivåtelling: antall halveringer fra $n$ til 1 er $\\log_2 n$, og på hvert nivå passerer alle $n$ elementene gjennom én fletting. De tre andre bytter om på hvilken størrelse som er nivåtallet og hvilken som er arbeidet per nivå."
+  },
+  {
+    "question": "Hva garanterer én partisjonering i kvikksortering?",
+    "options": [
+      "Pivoten står på sin endelige plass, med alt mindre til venstre",
+      "Begge sidene av pivoten er ferdig sortert etter operasjonen",
+      "Arrayet er delt i to like store deler rundt pivoten",
+      "De minste elementene står på sine endelige plasser til venstre"
+    ],
+    "explanation": "Partisjonering garanterer kun pivotens endelige plass og at alt mindre ligger til venstre for den. Sidene er fortsatt usorterte, og de er sjelden like store — nettopp den ubalansen er kilden til det kvadratiske verstetilfellet."
+  },
+  {
+    "question": "Hvor mange sammenligninger bruker én partisjonering av en bit med $m$ elementer?",
+    "options": [
+      "$m - 1$",
+      "$m$",
+      "$m \\log m$",
+      "$\\frac{m(m-1)}{2}$"
+    ],
+    "explanation": "Løkka går fra `lav` til `hoy-1` og sammenligner hvert element unntatt pivoten med pivoten. $\\frac{m(m-1)}{2}$ er den samlede kostnaden over alle nivåene i verste tilfelle, ikke kostnaden for én partisjonering."
+  },
+  {
+    "question": "Nedre grensen $\\Omega(n \\log n)$ gjelder for:",
+    "options": [
+      "verste tilfelle for sammenligningsbaserte sorteringer",
+      "alle tilfeller for alle sorteringsalgoritmer som finnes",
+      "forventet tilfelle for sorteringer som bruker rekursjon",
+      "verste tilfelle for alle sorteringer, også counting sort"
+    ],
+    "explanation": "Grensen har to forbehold: den gjelder verste tilfelle, og bare algoritmer som utelukkende sammenligner elementer. Derfor motsier verken innsettingssorteringens $O(n)$ i beste tilfelle eller counting sorts $O(n+k)$ den."
+  },
+  {
+    "question": "Hvorfor kan ikke en sammenligningsbasert sortering komme under $n \\log n$?",
+    "options": [
+      "Den må skille $n!$ rekkefølger, og $k$ ja/nei-svar skiller høyst $2^k$",
+      "Den må lese alle $n$ elementene $\\log n$ ganger for å bli sikker",
+      "Hver sammenligning koster $\\log n$ tid å utføre på et array",
+      "Rekursjon gir alltid minst $\\log n$ nivåer med $n$ arbeid hver"
+    ],
+    "explanation": "Argumentet er informasjonsteoretisk: $2^k \\ge n!$ gir $k \\ge \\log_2(n!)$, som vokser som $n \\log n$. De tre andre forveksler grensen med kjøretiden til en konkret algoritme, og de forklarer ikke hvorfor ingen annen algoritme kan gjøre det bedre."
+  },
+  {
+    "question": "Hvor mange sammenligninger trengs minst for å sortere 4 ulike elementer i verste tilfelle?",
+    "options": [
+      "5",
+      "4",
+      "6",
+      "3"
+    ],
+    "explanation": "Treet må ha minst $4! = 24$ blader, og et binærtre med høyde 4 har høyst 16 blader mens høyde 5 gir 32. Svaret 4 er den vanlige bommen for den som setter høyden lik antall elementer i stedet for å regne på antall blader."
+  },
+  {
+    "question": "Et array er allerede sortert. Hva er flettesorteringens kjøretid på det?",
+    "options": [
+      "$O(n \\log n)$ — splittingen bryr seg ikke om rekkefølgen",
+      "$O(n)$ — den oppdager at arrayet allerede er sortert",
+      "$O(n^2)$ — sorterte data er verstetilfellet for fletting",
+      "$O(\\log n)$ — den trenger bare å bekrefte hvert nivå"
+    ],
+    "explanation": "Splittingen deler blindt på midten, så antall nivåer er $\\log_2 n$ uansett hvordan tallene ligger. Flettesortering har verken en god eller en dårlig dag — det er kvikksortering som får $O(n^2)$ på nettopp denne inputen."
+  },
+  {
+    "question": "Du skal sortere 2 millioner poster på dato, og rekkefølgen mellom like datoer må bevares. Hva velger du?",
+    "options": [
+      "Flettesortering, fordi den er stabil og garantert $O(n \\log n)$",
+      "Heapsort, fordi den er in-place og garantert $O(n \\log n)$",
+      "Kvikksortering, fordi konstantfaktoren i praksis er svært lav her",
+      "Utvalgssortering, fordi den gjør færrest bytter på store data"
+    ],
+    "explanation": "Kravet om bevart rekkefølge mellom like nøkler er et krav om stabilitet, og bare flettesortering av de effektive er stabil. Heapsort og kvikksortering er raske nok, men begge er ustabile, og utvalgssortering er dessuten $O(n^2)$."
+  },
+  {
+    "question": "Hva gjør tilfeldig pivotvalg med kvikksorteringens verste tilfelle?",
+    "options": [
+      "Ingenting — verste tilfelle er fortsatt $O(n^2)$, bare usannsynlig",
+      "Det senker verste tilfelle til $O(n \\log n)$ for enhver input",
+      "Det senker verste tilfelle til $O(n)$ når arrayet er nesten sortert",
+      "Det hever forventet kjøretid, men senker verste tilfelle"
+    ],
+    "explanation": "Tilfeldig pivot gjør forventet kjøretid $O(n \\log n)$ for enhver input, men uflaks kan fortsatt gi den ubalanserte delingen. Distraktoren som sier $O(n \\log n)$ verste er nær sann og fanger nettopp den som ikke skiller forventet fra verste."
+  },
+  {
+    "question": "Du står med et usortert array og skal finne to like elementer. Hvilket svar står øverst i poengtrappen?",
+    "options": [
+      "$O(n)$ forventet med et hash-set over elementene",
+      "$O(n \\log n)$ ved å sortere og skanne naboparene",
+      "$O(n^2)$ ved å sammenligne alle par i en dobbel løkke",
+      "$O(n + k)$ ved å bruke radix sort på elementene"
+    ],
+    "explanation": "Sensorveiledningene gir mest uttelling for lavest kjøretid på samme oppgave, og hash-set gir $O(n)$ forventet. Radix-alternativet er ikke lovlig her: det krever et kjent, begrenset verdiområde, som oppgaven ikke oppgir."
+  }
+]
