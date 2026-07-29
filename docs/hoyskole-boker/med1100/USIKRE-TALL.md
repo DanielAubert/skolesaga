@@ -333,3 +333,63 @@ fantasinavn-distraktorer. Boka skiller mellom dem, fordi de ikke er samme sak:
 Begge er brukt som eksplisitt merkede distraktorer, alltid med det korrekte
 navnet (**ductus thoracicus**) skrevet ut i samme åndedrag, slik §T1 krever.
 Ingen latinske navn er funnet på.
+
+---
+
+## Del 14 (eksamenstrening og de tre øvingseksamenene)
+
+Del 14 innfører **ingen nye normalverdier eller prevalenser**. Alle tallverdier i
+kapitlene er (a) nyskrevne regnekalibreringer valgt for at regnestykkene skal gå
+opp, (b) rene matematiske konstanter, eller (c) frekvenstall tatt ordrett fra
+`SKJELETT.md` og `EKSAMENSANALYSE.md`. Under står hvordan §M4-listens verdier er
+håndtert der de kunne ha kommet inn.
+
+### Verdier fra §M4-lista som er BEVISST HOLDT UTE av Del 14
+
+| Kapittel | Verdi som ikke er brukt | Håndtering |
+|---|---|---|
+| 14.4 | **~99 %** reabsorpsjon av filtrert vann | Oppgave 5 i seksjon 1 spør i stedet **hvor** mesteparten reabsorberes (proksimale tubulus), som er belagt kvalitativt fagstoff. Ingen prosentandel oppgitt, verken i oppgave eller fasit. |
+| 14.4 | **~85 %** offentlig andel av helsefinansieringen · **~74 %** ikke-smittsomme sykdommers andel av global død | Ingen av tallene er brukt. Samfunnsmedisin-seksjonen spør om **ansvarsfordelingen** (kommune, fylkeskommune, helseforetak) og om **gradienten**, som er kvalitative og belagte forhold. |
+| 14.6 | **Nøytrofil halveringstid < 1 døgn** | Spørsmål 52 er skrevet om til å spørre etter den tidligste gjenkjennelige forløperen i granulocyttrekken (myeloblast), som er belagt morfologi. Ingen kinetikktall brukt eller antydet. |
+| 14.6 | **CO₂-transportens fordeling ~10 / ~20 / ~70 %** | Spørsmål 54 spør kun etter **rangeringen** — at bikarbonat er den klart største transportformen — og fasiten sier eksplisitt at «de nøyaktige prosentandelene for de tre transportformene oppgis noe ulikt i ulike framstillinger, og boka bruker dem derfor ikke som fasit». |
+| 14.6 | **Prosentandelen med høyre-, venstre- og balansert koronardominans** | Spørsmål 17 gjør nettopp variasjonen til poenget: fasiten sier at boka bevisst ikke oppgir noen prosentandel, og at et alternativ som sier «alltid», derfor er galt. Samme håndtering som i kap. 13.1. |
+| 14.5 | **Eksakte ATP-tall per NADH og FADH₂** | Fasiten til oppgave G1 oppgir antall acetyl-CoA, FADH₂ og NADH (ren støkiometri), men markerer eksplisitt at eksakte ATP-tall «oppgis ulikt i ulike framstillinger» og er utenfor kravet. Ingen ATP-totalsum brukt som fasit. |
+
+### Verdier som ER brukt, og hvorfor de er belagt
+
+| Kapittel | Verdi | Belegg / begrunnelse |
+|---|---|---|
+| 14.1, 14.4 | $1{,}96$ · $3{,}84$ · $t$-verdier ($2{,}145$ ved 14 df, $2{,}131$ ved 15, $2{,}064$ ved 24, $2{,}074$ ved 22, $2{,}030$ ved 35, $2{,}021$ ved 40) · $k \approx 7{,}9$ og $\approx 10{,}5$ | Standard statistiske tabellverdier, oppgitt i EKSAMENSANALYSE.md §6. Alle er dessuten **utdelt** i blokk 1, jf. §B1. |
+| 14.2, 14.5 | Konstanten **61 mV** i den forenklede Nernst-likningen | Samme belegg som i kap. 9.1: $2{,}303\,RT/F$ ved 310 K gir 61,5 mV, som pensum runder til 61. |
+| 14.2 | Forskyvningen **18,4 mV** i $E_\text{K}$ ved dobling av ytre kaliumkonsentrasjon | **Ren aritmetikk**, ikke en fysiologisk normalverdi: $61\ \text{mV}\cdot\log_{10}(2) = 18{,}36\ \text{mV}$, etterregnet med python3. Oppgave 6c) beviser dessuten at forskyvningen er uavhengig av utgangskonsentrasjonene. Som i kap. 9.1 gjelder tallet **kun likevektspotensialet**; oppgaven presiserer eksplisitt at membranpotensialet i en levende celle flytter seg noe mindre. |
+| 14.2, 14.5 | Ionekonsentrasjoner ($[\text{K}^+]$ 4,0–4,5 ute / 135–140 inne; $[\text{Na}^+]$ 145 ute / 12 inne, mmol/L) | Standard lærebokverdier for ekstra- og intracellulær ionesammensetning, brukt som **regnekalibrering**. Ingen av dem er fasit i quiz eller flashcard; fasiten er det utregnede potensialet. |
+| 14.4 | Normal arteriell blod-pH **7,35–7,45** | Belagt i standard fysiologipensum, jf. oppføringen for kap. 1.2. Brukt i fasiten til oppgave 3 i seksjon 1. |
+| 14.1, 14.2, 14.3 | Frekvenstall («rundt 15 av 16», «14 av 14», «4 av 4 leste sittinger») | Tatt **ordrett** fra `EKSAMENSANALYSE.md` §2 og `SKJELETT.md`, med riktig nevner per blokk (16 / 14 / varierende), aldri omregnet til prosent. Se tabellen under. |
+
+### Frekvenstall i Del 14 — kontroll mot kildene
+
+Nevnerne er blokk-spesifikke (§B5) og er ikke slått sammen eller omregnet.
+
+| Kapittel | Påstand i boka | Belegg |
+|---|---|---|
+| 14.1 | KI ~15/16 · hypotesetest ~15/16 · 2×2 med kji-kvadrat ~12/16 · OR/RR/PR ~12/16 · t-test ~11/16 · utvalgsstørrelse/styrke ~10/16 | EKSAMENSANALYSE.md §2, blokk 1, Statistikk |
+| 14.2 | Histologi/EM 14/14 · metabolisme 14/14 · arvegang 14/14 · cellesignalering 14/14 · konsentrasjonsregning 14/14 · membrantransport ~14/14 · enzymkinetikk ~13/14 · apoptose ~13/14 · embryologi ~13/14 | EKSAMENSANALYSE.md §2, blokk 2-tabellen |
+| 14.3, 14.6 | T-celleutvikling 4/4 · n. phrenicus 4/4 · kimsenter 3/3 · NK-celler 3/3 · koronararterier 3/3 · respirasjonsmuskler 3/3 · antibiotikamekanismer 3/3 · pneumokokk-kapsel 3/3 · komplement 2/2 · apex cordis 2/2 | EKSAMENSANALYSE.md §2, blokk 3 |
+| 14.4 | Fire seksjoner 20/20/20/40 % · 37–48 oppgaver siden 2024 · statistikkdelen vokst fra 8 til 10 oppgaver | EKSAMENSANALYSE.md §1, blokk 1 |
+| 14.5 | 6 t (09–15) på alle 14 leste sittinger · 9–12 oppgaver A–I/J/L · **vekttallsum eksakt 100** · de tre tyngste blokkene 40–50 av 100 | EKSAMENSANALYSE.md §1, blokk 2. Settets egen sum er etterregnet: $10+8+9+12+16+8+15+12+10 = 100$. |
+| 14.6 | Bank på ~90–110 spm · seksjonsvekter ~30/30/25/15 % · velg-ett 75–85 % · numrene hopper | EKSAMENSANALYSE.md §1 og §2, blokk 3 |
+
+### Én påstand som er merket som antatt, ikke fastslått
+
+| Kapittel | Påstand | Håndtering |
+|---|---|---|
+| 14.3, 14.6 | Om **begge** kryssene må være riktige for uttelling på en velg-to-oppgave i blokk 3 | Omtalt som **antatt konvensjon** i både kapitlets tip, definisjonen «Velg-to-oppgaven» og Sensorblikket, med eksplisitt tillegg om at det ligger i plattformoppsettet og ikke er oppgitt i settene. Er ikke fasit noe sted. Samme håndtering som i kap. 0.1 og 0.2. |
+
+### Kildepåstander i Del 14
+
+Alle omtaler av sensorveiledninger er **blokk-scopet**: «sensorveiledningene som
+ligger i blokk 2-settene fra høsten 2022 til høsten 2025» og «sensorveiledningen
+i blokk 1-settene fra høsten 2025 og våren 2026». Blokk 3-kapitlene (14.3 og
+14.6) sier eksplisitt at **blokk 3-settene ikke har innebygd sensorveiledning**,
+og at alle riktige svar der er Skolesagas egne, faglig begrunnede svar på
+Skolesagas egne, nyskrevne spørsmål.
