@@ -260,6 +260,44 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  in2010: {
+    courseId: 'in2010',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for informatikk',
+    sammendrag:
+      'Boka er kalibrert mot IN2010s eksamensarkiv ved UiO: sju sittinger fra høsten 2018 til høsten 2024, hver med sin egen offisielle sensorveiledning. Det er uvanlig fullstendig dekning — én veiledning per år, uten hull. I tillegg tre sett fra forgjengeremnet INF2220 (2015–2017). Emnet har aldri hatt våreksamen. Sjangerkatalogen A–L, feilkatalogen og temavektingen er utledet av settene og veiledningene selv.',
+    eksamenssett: [
+      {
+        tittel: '7 sittinger (H2018 – H2024)',
+        detalj:
+          'Fire timers digital eksamen i Inspera, hjelpemiddelfri, tredelt. Disse sju er frekvensnevneren i boka: står det «N av 7 sett», er det disse. Antigjettings-skaleringen på sant/usant-blokken varierer mellom år, og boka gjengir hver dokumentert variant framfor å oppgi én regel som om den var fast.',
+      },
+      {
+        tittel: '3 sett fra forgjengeren INF2220 (H2015 – H2017)',
+        detalj:
+          'Emnet het INF2220 til og med 2017 og brukte da Java i oppgavene. Disse settene er lest for form- og temaregistrering, men teller IKKE i frekvensnevneren: kodespråket er byttet til generisk pseudokode, og Java-oppgavene er derfor ikke representative for dagens eksamen.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '7 offisielle sensorveiledninger (H2018 – H2024)',
+        detalj:
+          'Én per sitting, uten hull. Sensorveiledninger fra offentlige institusjoner er fri etter åndsverkloven § 14, og de er kilden til poengtrappen boka bygger på — at en tregere korrekt algoritme gir mindre uttelling enn en raskere, hva som kreves av en pseudokodebesvarelse, og hvordan håndkjøring vurderes. Alt innhold i boka er likevel nyskrevet.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for IN2010',
+        detalj:
+          'Brukt til å fastslå eksamensform, hjelpemiddelstatus og pensumramme, og til avgrensningen i kap. 7.3 mot temaer som ikke er IN2010-pensum.',
+      },
+    ],
+    forbehold: [
+      'De tre INF2220-settene har faglærerskrevne løsningsforslag, ikke sensorveiledninger. De er opphavsrettslig vernet og brukes kun som fasitkilde, aldri gjengitt.',
+      'Kodespråket i boka er UiOs egen pseudokodekonvensjon med Procedure-hoder og array-indeksering fra 0. Det avviker fra CLRS-notasjonen, som indekserer fra 1 og brukes i mange lærebøker og ved NTNU. Boka sier dette eksplisitt der forskjellen kan skape forvirring.',
+      'Antigjettings-skaleringen er dokumentert for fire av de sju årene. Boka gjengir de fire, og oppgir ikke en fast formel for de tre andre.',
+    ],
+    analysedato: 'juli 2026',
+  },
   med1100: {
     courseId: 'med1100',
     institusjon: 'Universitetet i Oslo (UiO) — Det medisinske fakultet',
