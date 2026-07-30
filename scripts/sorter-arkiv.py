@@ -86,6 +86,21 @@ MÅNED_RX = r'(' + '|'.join(sorted(MÅNED, key=len, reverse=True)) + r')(?![a-z]
 # egne oppgaver, og en bok som slår dem sammen med ordinær eksamen teller feil.
 KONT = re.compile(r'(?i)(?<![a-z])(kont|konte|utsatt|sommer|summer|august|aug)(?![a-z])')
 
+# ⚠ SENSORVEILEDNING OG LØSNINGSFORSLAG ER IKKE DET SAMME, juridisk.
+# Prosjektets regler (docs/juridisk-kartlegging-losningsforslag.md, håndhevet
+# 6. juli 2026 da 343 filer ble slettet fra storage):
+#
+#   · sensorveiledning fra offentlig institusjon  → LOV å hoste
+#   · tredjeparts løsningsforslag                 → IKKE lov å hoste
+#     (lov å lenke til eksternt, og lov å bruke som referanse lokalt)
+#
+# Ett samlebegrep «losning» skjuler nettopp den forskjellen. 3 307
+# løsningsforslag sto som fritt institusjonsmateriale før dette skillet kom
+# inn — samme kategori som de 343 som måtte slettes.
+SENSORVEILEDNING = re.compile(
+    r'(?i)sensor[\s_.\-]*(veiledning|veiledninger|rettleiing|rettleiingar'
+    r'|veiled|guide|vegleiing)|sensurveiledning'
+    r'|(?<![a-z])(vurderingskriterier|grading[\s_.\-]*guidelines?)(?![a-z])')
 LØSNING = re.compile(
     r'(?i)(?<![a-z])(lf|losning|l\xf8sning|losningsforslag|l\xf8sningsforslag'
     r'|solution|solutions|sol|fasit|facit|answers?|corrige|corrig\xe9|sensur'
@@ -344,15 +359,18 @@ def _sesong(mnd, kont):
 def finn_type(navn):
     if PENSUM.search(navn):
         return 'pensum'
+    # Sensorveiledning FØRST: den er lov å hoste, løsningsforslag er det ikke.
+    if SENSORVEILEDNING.search(navn):
+        return 'sensorveiledning'
     m = EKS_SUFFIKS.match(navn)
     if m:
-        return 'losning' if m.group(1).lower() == 'l' else 'oppgave'
+        return 'losningsforslag' if m.group(1).lower() == 'l' else 'oppgave'
     if LIFERAY_LF.match(navn):
-        return 'losning'
+        return 'losningsforslag'
     if LIFERAY_OPPG.match(navn):
         return 'oppgave'
     if LØSNING.search(navn):
-        return 'losning'
+        return 'losningsforslag'
     return 'oppgave'
 
 
@@ -420,6 +438,20 @@ PERSONLIG_STI = re.compile(r'/~[A-Za-z0-9._-]+/')
 def bruksklasse(mappe, kilde_url, typ, undermappe=''):
     if typ in ('pensum', 'temanotat'):
         return 'internt-referanse'
+    # ⚠ VERKEN LØSNINGSFORSLAG ELLER SENSORVEILEDNING DELES.
+    #
+    # De to er juridisk ulike, og skillet er derfor bevart i `type`:
+    #   · sensorveiledning fra offentlig institusjon — LOV å hoste
+    #   · tredjeparts løsningsforslag               — IKKE lov å hoste
+    #     (prosjektet slettet 343 slike fra storage 6. juli 2026)
+    #
+    # Men produkteier har bestemt at INGEN av dem deles. Det er et
+    # produktvalg, ikke en juridisk tvang, og det er strengere enn loven
+    # krever. Skillet i `type` står likevel, fordi valget kan endres — og
+    # fordi en sensorveiledning og et løsningsforslag er ulike kilder når vi
+    # kontrollerer våre egne, nyskrevne løsninger.
+    if typ in ('losningsforslag', 'sensorveiledning'):
+        return 'internt-referanse'
     if undermappe and UNDERMAPPE_INTERN.search(undermappe):
         return 'internt-referanse'
     if mappe.upper() in PERSONLIG_MAPPE:
@@ -462,8 +494,9 @@ def md5(sti):
 # «MA1201/2007h.pdf» ER et løsningsforslag, «MidtSem_UtenFasit15.pdf» er det
 # ikke. En slik verifisert type skal alltid slå vår egen navnegjetting.
 MANIFEST_TYPE = {
-    'losningsforslag': 'losning',
-    'l\xf8sningsforslag': 'losning',
+    'losningsforslag': 'losningsforslag',
+    'l\xf8sningsforslag': 'losningsforslag',
+    'sensorveiledning': 'sensorveiledning',
     'oppgave': 'oppgave',
     'temanotat': 'temanotat',   # forelesningsstoff — teller ikke som eksamenssett
 }
@@ -514,30 +547,30 @@ def selvtest():
     """Faktiske filnavn fra arkivet. Feiler testen, er parseren gal — ikke dataene."""
     saker = [
         ('tma4115aug04.pdf',                       'TMA4115', 2004, 'K', 'oppgave'),
-        ('lftma4110des10.pdf',                     'TMA4110', 2010, 'H', 'losning'),
+        ('lftma4110des10.pdf',                     'TMA4110', 2010, 'H', 'losningsforslag'),
         ('tma4110h13eng.pdf',                      'TMA4110', 2013, 'H', 'oppgave'),
-        ('MAT111_2003_h_fasit_eksamen.pdf',        'MAT111',  2003, 'H', 'losning'),
+        ('MAT111_2003_h_fasit_eksamen.pdf',        'MAT111',  2003, 'H', 'losningsforslag'),
         ('MAT111_2004_v_pensum.pdf',               'MAT111',  2004, 'V', 'pensum'),
         ('E_TFY4165_181219.pdf',                   'TFY4165', 2018, 'H', 'oppgave'),
         ('tma4110_2022h_nb.pdf',                   'TMA4110', 2022, 'H', 'oppgave'),
         ('TMA4110_host_2019_nynorsk.pdf',          'TMA4110', 2019, 'H', 'oppgave'),
         ('v2013english.pdf',                       None,      2013, 'V', 'oppgave'),
-        ('tma4115v16_english_solutions.pdf',       'TMA4115', 2016, 'V', 'losning'),
+        ('tma4115v16_english_solutions.pdf',       'TMA4115', 2016, 'V', 'losningsforslag'),
         ('kont2014nor.pdf',                        None,      2014, 'K', 'oppgave'),
         ('tma4115juni14.pdf',                      'TMA4115', 2014, 'V', 'oppgave'),
         ('E-74306-23mai1998.pdf',                  None,      1998, 'V', 'oppgave'),
-        ('2015-kont-solution2.pdf',                None,      2015, 'K', 'losning'),
+        ('2015-kont-solution2.pdf',                None,      2015, 'K', 'losningsforslag'),
         # Runde to: mønstre indekseringen selv avdekket som utolkbare.
-        ('lf-2012-12-13.pdf',                      None,      2012, 'H', 'losning'),
-        ('2023-11-28-lf.pdf',                      None,      2023, 'H', 'losning'),
-        ('lf_ma1102_20140527_b.pdf',               'MA1102',  2014, 'V', 'losning'),
+        ('lf-2012-12-13.pdf',                      None,      2012, 'H', 'losningsforslag'),
+        ('2023-11-28-lf.pdf',                      None,      2023, 'H', 'losningsforslag'),
+        ('lf_ma1102_20140527_b.pdf',               'MA1102',  2014, 'V', 'losningsforslag'),
         ('eksAug13e.pdf',                          None,      2013, 'K', 'oppgave'),
         ('eksNov17n.pdf',                          None,      2017, 'H', 'oppgave'),
-        ('lf-eksamh2012.pdf',                      None,      2012, 'H', 'losning'),
+        ('lf-eksamh2012.pdf',                      None,      2012, 'H', 'losningsforslag'),
         ('2016hb.pdf',                             None,      2016, 'H', 'oppgave'),
-        ('tma4125-30-35-k19-lf.pdf',               'TMA4125', 2019, 'K', 'losning'),
+        ('tma4125-30-35-k19-lf.pdf',               'TMA4125', 2019, 'K', 'losningsforslag'),
         ('TMA4125-30-2005-hoest-m2.pdf',           'TMA4125', 2005, 'H', 'oppgave'),
-        ('lfTMA4130k04.pdf',                       'TMA4130', 2004, 'K', 'losning'),
+        ('lfTMA4130k04.pdf',                       'TMA4130', 2004, 'K', 'losningsforslag'),
         # Kontrollsaker mot falske treff: «design» og «master» inneholder
         # månedsnavn, «main2019» ligner en emnekode.
         ('kursdesign-master-2019.pdf',             None,      2019, None, 'oppgave'),
@@ -545,23 +578,29 @@ def selvtest():
         ('TMA4135-04h.pdf',                        'TMA4135', 2004, 'H', 'oppgave'),
         ('TMA4135-05k.pdf',                        'TMA4135', 2005, 'K', 'oppgave'),
         ('SIF5017k03.pdf',                         'SIF5017', 2003, 'K', 'oppgave'),
-        ('L_TFY4165_181219.pdf',                   'TFY4165', 2018, 'H', 'losning'),
+        ('L_TFY4165_181219.pdf',                   'TFY4165', 2018, 'H', 'losningsforslag'),
         ('E_TFY4165_181219.pdf',                   'TFY4165', 2018, 'H', 'oppgave'),
-        ('L-74306-23mai1998.pdf',                  None,      1998, 'V', 'losning'),
-        ('eksAug09l.pdf',                          None,      2009, 'K', 'losning'),
+        ('L-74306-23mai1998.pdf',                  None,      1998, 'V', 'losningsforslag'),
+        ('eksAug09l.pdf',                          None,      2009, 'K', 'losningsforslag'),
         ('eksAug10b.pdf',                          None,      2010, 'K', 'oppgave'),
         ('eks14Aug08b.pdf',                        None,      2008, 'K', 'oppgave'),
         ('eksNov17n.pdf',                          None,      2017, 'H', 'oppgave'),
+        # Sensorveiledning er IKKE løsningsforslag — den ene er lov å
+        # hoste, den andre ikke. Blandes de, hoster vi noe vi ikke kan.
+        ('ECON1310-H2025-sensorveiledning.pdf',    'ECON1310', 2025, 'H', 'sensorveiledning'),
+        ('sensorrettleiing-ara1010-v22.pdf',       'ARA1010',  2022, 'V', 'sensorveiledning'),
+        ('tdt4237-2016-sensorguide.pdf',           'TDT4237',  2016, None, 'sensorveiledning'),
+        ('lftma4110des10.pdf',                     'TMA4110',  2010, 'H', 'losningsforslag'),
         # Runde fire: mønstre indeksen fortsatt sto uten termin på.
         ('eksamen-2013k-no.pdf',                   None,      2013, 'K', 'oppgave'),
         ('tma4100_2025k.pdf',                      'TMA4100', 2025, 'K', 'oppgave'),
         ('tma4115kont16_nynorsk.pdf',              'TMA4115', 2016, 'K', 'oppgave'),
         ('eksamenma1301h06.pdf',                   'MA1301',  2006, 'H', 'oppgave'),
-        ('lfeksamenma1301h04.pdf',                 'MA1301',  2004, 'H', 'losning'),
+        ('lfeksamenma1301h04.pdf',                 'MA1301',  2004, 'H', 'losningsforslag'),
         ('2004june.pdf',                           None,      2004, 'V', 'oppgave'),
         ('midtsem_2004h1.pdf',                     None,      2004, 'H', 'oppgave'),
-        ('sensorveiledning-jap1501-hosten-2025.pdf','JAP1501', 2025, 'H', 'losning'),
-        ('kin1503-sensorveiledning-varen-2026.pdf', None,      2026, 'V', 'losning'),
+        ('sensorveiledning-jap1501-hosten-2025.pdf','JAP1501', 2025, 'H', 'sensorveiledning'),
+        ('kin1503-sensorveiledning-varen-2026.pdf', None,      2026, 'V', 'sensorveiledning'),
     ]
     feil = 0
     for navn, kode, år, ses, typ in saker:
@@ -699,7 +738,10 @@ def main():
                 or not r['termin']):
             continue
         t = term[(r['emnekode'], r['termin'])]
-        t[r['type']] += 1
+        # Begge teller som fasit for VÅRT formål (kontrollere egne løsninger),
+        # men de holdes adskilt fordi bare den ene kan hostes.
+        t['losning' if r['type'] in ('sensorveiledning', 'losningsforslag')
+          else r['type']] += 1
         if r['sprak']:
             t['sprak'].add(r['sprak'])
 
