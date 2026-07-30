@@ -464,19 +464,44 @@ MANIFEST_TYPE = {
 }
 
 
+# ⚠ ET MANIFEST SOM OPPGIR EN TYPE, SIER IKKE DERMED HVORDAN DEN VET DET.
+# Manifestet for de andre lærestedene har 1 363 innholdsverifiserte rader og
+# 938 som bare er utledet av filnavnet (534 ikke-PDF, 404 skannede PDF-er uten
+# tekstlag). Behandler vi alle likt, påstår indeksen at 938 filer er verifisert
+# når de ikke er det — nøyaktig den feilklassen vi har brukt kvelden på å luke
+# ut. Kolonnen `type_kilde` avgjør; mangler den, sier vi «uspesifisert» framfor
+# å anta det beste.
+#
+# Unntaket er mattewiki-manifestet: rapporten derfra sier eksplisitt at ALLE
+# 1 938 filene ble klassifisert på nytt med pdftotext på førstesidene, og at 49
+# skiftet kategori. Det er dokumentert, derfor oppført her.
+INNHOLDSVERIFISERTE_MANIFEST = {'MANIFEST-mattewiki.csv'}
+
+
 def manifest():
-    """(kode, filnavn) → (kilde_url, verifisert type eller '')."""
+    """(kode, filnavn) → (kilde_url, type, type_kilde)."""
     m = {}
     for f in glob.glob(os.path.join(ROT, 'MANIFEST*.csv')):
+        base = os.path.basename(f)
         with open(f, encoding='utf-8') as fh:
             for r in csv.DictReader(fh):
                 nøkkel = (r['emnekode'].upper(), r['filnavn'])
                 typ = MANIFEST_TYPE.get((r.get('type') or '').strip().lower(), '')
                 url = r.get('kilde_url', '')
+                kolonne = (r.get('type_kilde') or '').strip().lower()
+                if kolonne == 'innhold':
+                    kilde = 'pdf-verifisert'
+                elif kolonne == 'filnavn':
+                    kilde = 'manifest-filnavn'
+                elif base in INNHOLDSVERIFISERTE_MANIFEST:
+                    kilde = 'pdf-verifisert'
+                else:
+                    kilde = 'manifest-uspesifisert'
                 # Flere manifester dekker samme fil. Behold den raden som
                 # faktisk bærer informasjon framfor å la den siste vinne.
-                gml_url, gml_typ = m.get(nøkkel, ('', ''))
-                m[nøkkel] = (url or gml_url, typ or gml_typ)
+                gml = m.get(nøkkel, ('', '', ''))
+                m[nøkkel] = (url or gml[0], typ or gml[1],
+                             kilde if typ else gml[2])
     return m
 
 
@@ -579,7 +604,8 @@ def main():
                 sti = os.path.join(rot, fn)
                 if not os.path.isfile(sti) or fn.startswith('.'):
                     continue
-                url, verifisert_type = man.get((mappe.upper(), fn), ('', ''))
+                url, verifisert_type, type_kilde_manifest = man.get(
+                    (mappe.upper(), fn), ('', '', ''))
                 ekte = ekte_filnavn(mappe, fn, url)
                 h = md5(sti)
                 # ⚠ DEDUPLISER PER EMNE, ikke globalt. TMA4240 og TMA4245 deler
@@ -615,7 +641,7 @@ def main():
                     'termin': ('%d%s' % (år, ses)) if år and ses else '',
                     # Verifisert mot PDF-teksten slår vår navnegjetting.
                     'type': verifisert_type or finn_type(ekte),
-                    'type_kilde': 'pdf-verifisert' if verifisert_type else 'filnavn',
+                    'type_kilde': type_kilde_manifest if verifisert_type else 'filnavn',
                     'bruksklasse': bruksklasse(
                         mappe, url, verifisert_type or finn_type(ekte),
                         undermappe),
