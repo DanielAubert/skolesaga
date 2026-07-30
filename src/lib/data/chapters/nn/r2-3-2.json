@@ -1,1 +1,971 @@
-{"id":"r2-3-2","courseId":"r2","chapterNumber":"3.2","title":"Delvis integrasjon","description":"Lèt oss integrere produkt av funksjonar ved å bruke produktregelen baklengs.","estimatedMinutes":75,"competenceGoals":["meistre teknikken delvis integrasjon","velje rett u og v' i delvis integrasjon","bruke gjentatt delvis integrasjon","løyse sirkulær delvis integrasjon","bruke delvis integrasjon på bestemte integral","kombinere delvis integrasjon med andre teknikkar"],"content":[{"id":"r2-3-2-text-1","type":"text","content":"## Innleiing\n\nI førre kapittel lærte vi substitusjon, som er kjerneregelen baklengs. No skal vi lære ein annan viktig integrasjonsteknikk: **delvis integrasjon**.\n\nDelvis integrasjon blir brukt når vi skal integrere eit *produkt* av to funksjonar, til dømes $x \\cdot e^x$ eller $x \\cdot \\sin(x)$.\n\nIdéen er å bruke **produktregelen for derivasjon baklengs**. Lat oss først hugse produktregelen:\n\n$$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$\n\nViss vi integrerer begge sider, får vi:\n\n$$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nVed å omorganisere denne likninga, kan vi utleie formelen for delvis integrasjon."},{"id":"r2-3-2-text-2","type":"text","content":"## Utleiing av formelen\n\nVi startar med produktregelen:\n\n$$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$\n\nIntegrerer vi begge sider med omsyn på $x$:\n\n$$\\int (u \\cdot v)' \\, dx = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nVenstre side er berre $u \\cdot v$ (integralet av den deriverte gir tilbake funksjonen):\n\n$$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nNo løyser vi for $\\int u \\cdot v' \\, dx$:\n\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\nDette er formelen for delvis integrasjon!"},{"id":"r2-3-2-def-1","type":"definition","title":"Delvis integrasjon","content":"Lat $u = u(x)$ og $v = v(x)$ vere deriverbare funksjonar. Då gjeld:\n\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\nEller med differensialnotasjon ($dv = v' \\, dx$ og $du = u' \\, dx$):\n\n$$\\int u \\, dv = u \\cdot v - \\int v \\, du$$\n\n**Merk:** Målet er at integralet på høgre side ($\\int u' \\cdot v \\, dx$) skal vere enklare å løyse enn det opphavlege integralet."},{"id":"r2-3-2-ex-1","type":"example","title":"Eksempel 1: Integrere $x \\cdot e^x$","problem":"Finn $\\displaystyle\\int x \\cdot e^x \\, dx$.","solution":"**Løysing:**\n\nVi bruker delvis integrasjon med:\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\nSet inn i formelen $\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$:\n\n$$\\int x \\cdot e^x \\, dx = x \\cdot e^x - \\int 1 \\cdot e^x \\, dx$$\n\n$$= x \\cdot e^x - e^x + C$$\n\n$$= e^x(x - 1) + C$$\n\n**Sjekk ved derivasjon:**\n$(e^x(x-1))' = e^x(x-1) + e^x \\cdot 1 = e^x \\cdot x - e^x + e^x = x \\cdot e^x$ ✓"},{"id":"r2-3-2-exercise-1","type":"exercise","exercise":{"id":"r2-3-2-task-1","number":"3.2.1","type":"classic","difficulty":"medium","task":"Bruk delvis integrasjon til å finne integrala.","subTasks":[{"label":"a","task":"$\\displaystyle\\int x \\cdot e^{2x} \\, dx$","solution":"Lat $u = x$ og $v' = e^{2x}$, så $u' = 1$ og $v = \\frac{1}{2}e^{2x}$. Då får vi $\\int x \\cdot e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\int \\frac{1}{2}e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x} + C = \\frac{e^{2x}}{4}(2x - 1) + C$"},{"label":"b","task":"$\\displaystyle\\int x \\cdot e^{-x} \\, dx$","solution":"Lat $u = x$ og $v' = e^{-x}$, så $u' = 1$ og $v = -e^{-x}$. Då får vi $\\int x \\cdot e^{-x} \\, dx = -x \\cdot e^{-x} - \\int (-e^{-x}) \\, dx = -x \\cdot e^{-x} - e^{-x} + C = -e^{-x}(x + 1) + C$"},{"label":"c","task":"$\\displaystyle\\int 2x \\cdot e^x \\, dx$","solution":"Lat $u = 2x$ og $v' = e^x$, så $u' = 2$ og $v = e^x$. Då får vi $\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2e^x \\, dx = 2x \\cdot e^x - 2e^x + C = 2e^x(x - 1) + C$"}],"solution":"a) $\\frac{e^{2x}}{4}(2x - 1) + C$, b) $-e^{-x}(x + 1) + C$, c) $2e^x(x - 1) + C$","hints":["Vel $u$ som den funksjonen som blir enklare når du deriverer","Vel $v'$ som den funksjonen du enkelt kan integrere","Hugs å sjekke svaret ved å derivere!"]}},{"id":"r2-3-2-text-3","type":"text","content":"## Val av $u$ og $v'$: LIATE-regelen\n\nDet viktigaste ved delvis integrasjon er å velje rett $u$ og $v'$. Målet er at det nye integralet $\\int u' \\cdot v \\, dx$ skal vere *enklare* enn det opphavlege.\n\nEi nyttig hugseregel er **LIATE** (eller LIPET på norsk), som gir prioritetsrekkjefølgje for val av $u$:\n\n| Prioritet | Type funksjon | Eksempel |\n|-----------|---------------|-----------|\n| 1 | **L**ogaritmar | $\\ln x$, $\\log x$ |\n| 2 | **I**nverse trigonometriske | $\\arcsin x$, $\\arctan x$ |\n| 3 | **A**lgebraiske (polynom) | $x$, $x^2$, $x^3$ |\n| 4 | **T**rigonometriske | $\\sin x$, $\\cos x$ |\n| 5 | **E**ksponentialfunksjonar | $e^x$, $2^x$ |\n\nFunksjonar høgt på lista blir valde som $u$, medan funksjonar lågt på lista blir valde som $v'$."},{"id":"r2-3-2-tip-1","type":"tip","content":"**Kvifor fungerer LIATE?**\n\n- Logaritmar og inverse trigonometriske funksjonar er vanskelege å integrere, men enkle å derivere.\n- Polynom blir enklare når dei blir deriverte ($x^3 \\to 3x^2 \\to 6x \\to 6 \\to 0$).\n- Eksponentialfunksjonar forandrar seg ikkje når dei blir integrerte eller deriverte.\n\nDerfor: Vel funksjonar som blir *enklare* ved derivasjon som $u$."},{"id":"r2-3-2-ex-2","type":"example","title":"Eksempel 2: Integrere $x \\cdot \\sin(x)$","problem":"Finn $\\displaystyle\\int x \\cdot \\sin(x) \\, dx$.","solution":"**Løysing:**\n\nIfølgje LIATE-regelen: $x$ (algebraisk) har høgare prioritet enn $\\sin(x)$ (trigonometrisk).\n\nVi vel:\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\nDelvis integrasjon gir:\n\n$$\\int x \\cdot \\sin(x) \\, dx = x \\cdot (-\\cos(x)) - \\int 1 \\cdot (-\\cos(x)) \\, dx$$\n\n$$= -x \\cos(x) + \\int \\cos(x) \\, dx$$\n\n$$= -x \\cos(x) + \\sin(x) + C$$\n\n**Sjekk:** $(-x\\cos(x) + \\sin(x))' = -\\cos(x) + x\\sin(x) + \\cos(x) = x\\sin(x)$ ✓"},{"id":"r2-3-2-exercise-2","type":"exercise","exercise":{"id":"r2-3-2-task-2","number":"3.2.2","type":"classic","difficulty":"medium","task":"Bruk delvis integrasjon og LIATE-regelen til å finne integrala.","subTasks":[{"label":"a","task":"$\\displaystyle\\int x \\cdot \\cos(x) \\, dx$","solution":"Lat $u = x$, $v' = \\cos(x)$. Då $u' = 1$, $v = \\sin(x)$. Integralet blir $x\\sin(x) - \\int \\sin(x) \\, dx = x\\sin(x) + \\cos(x) + C$"},{"label":"b","task":"$\\displaystyle\\int x \\cdot \\cos(2x) \\, dx$","solution":"Lat $u = x$, $v' = \\cos(2x)$. Då $u' = 1$, $v = \\frac{1}{2}\\sin(2x)$. Integralet blir $\\frac{x}{2}\\sin(2x) - \\int \\frac{1}{2}\\sin(2x) \\, dx = \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$"},{"label":"c","task":"$\\displaystyle\\int x \\cdot \\sin(3x) \\, dx$","solution":"Lat $u = x$, $v' = \\sin(3x)$. Då $u' = 1$, $v = -\\frac{1}{3}\\cos(3x)$. Integralet blir $-\\frac{x}{3}\\cos(3x) + \\int \\frac{1}{3}\\cos(3x) \\, dx = -\\frac{x}{3}\\cos(3x) + \\frac{1}{9}\\sin(3x) + C$"}],"solution":"a) $x\\sin(x) + \\cos(x) + C$, b) $\\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$, c) $-\\frac{x}{3}\\cos(3x) + \\frac{1}{9}\\sin(3x) + C$","hints":["Vel alltid polynomet ($x$) som $u$ når du har eit produkt av polynom og trigonometrisk funksjon","Hugs å bruke kjerneregelen når du integrerer trigonometriske funksjonar med argument $ax$"]}},{"id":"r2-3-2-ex-3","type":"example","title":"Eksempel 3: Integrere $\\ln(x)$","problem":"Finn $\\displaystyle\\int \\ln(x) \\, dx$.","solution":"**Løysing:**\n\nHer har vi tilsynelatande berre éin funksjon, men vi kan skrive $\\ln(x) = \\ln(x) \\cdot 1$.\n\nIfølgje LIATE: Logaritmar har høgast prioritet, så $u = \\ln(x)$.\n\nVi vel:\n- $u = \\ln(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{x}$\n- $v' = 1 \\quad \\Rightarrow \\quad v = x$\n\nDelvis integrasjon gir:\n\n$$\\int \\ln(x) \\, dx = \\ln(x) \\cdot x - \\int \\frac{1}{x} \\cdot x \\, dx$$\n\n$$= x \\ln(x) - \\int 1 \\, dx$$\n\n$$= x \\ln(x) - x + C$$\n\n$$= x(\\ln(x) - 1) + C$$\n\n**Sjekk:** $(x\\ln(x) - x)' = \\ln(x) + x \\cdot \\frac{1}{x} - 1 = \\ln(x) + 1 - 1 = \\ln(x)$ ✓"},{"id":"r2-3-2-exercise-3","type":"exercise","exercise":{"id":"r2-3-2-task-3","number":"3.2.3","type":"classic","difficulty":"medium","task":"Finn integrala ved å bruke delvis integrasjon.","subTasks":[{"label":"a","task":"$\\displaystyle\\int x \\cdot \\ln(x) \\, dx$","solution":"Lat $u = \\ln(x)$, $v' = x$. Då $u' = \\frac{1}{x}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\ln(x) - \\int \\frac{x^2}{2} \\cdot \\frac{1}{x} \\, dx = \\frac{x^2}{2}\\ln(x) - \\frac{1}{2}\\int x \\, dx = \\frac{x^2}{2}\\ln(x) - \\frac{x^2}{4} + C = \\frac{x^2}{4}(2\\ln(x) - 1) + C$"},{"label":"b","task":"$\\displaystyle\\int x^2 \\cdot \\ln(x) \\, dx$","solution":"Lat $u = \\ln(x)$, $v' = x^2$. Då $u' = \\frac{1}{x}$, $v = \\frac{x^3}{3}$. Integralet blir $\\frac{x^3}{3}\\ln(x) - \\int \\frac{x^3}{3} \\cdot \\frac{1}{x} \\, dx = \\frac{x^3}{3}\\ln(x) - \\frac{1}{3}\\int x^2 \\, dx = \\frac{x^3}{3}\\ln(x) - \\frac{x^3}{9} + C = \\frac{x^3}{9}(3\\ln(x) - 1) + C$"},{"label":"c","task":"$\\displaystyle\\int \\ln(2x) \\, dx$","solution":"Lat $u = \\ln(2x)$, $v' = 1$. Då $u' = \\frac{1}{x}$, $v = x$. Integralet blir $x\\ln(2x) - \\int x \\cdot \\frac{1}{x} \\, dx = x\\ln(2x) - x + C = x(\\ln(2x) - 1) + C$"}],"solution":"a) $\\frac{x^2}{4}(2\\ln(x) - 1) + C$, b) $\\frac{x^3}{9}(3\\ln(x) - 1) + C$, c) $x(\\ln(2x) - 1) + C$","hints":["Logaritmar har høgast prioritet i LIATE, så vel alltid $u = \\ln(\\cdot)$","Hugs at $(\\ln(x))' = \\frac{1}{x}$"]}},{"id":"r2-3-2-text-4","type":"text","content":"## Gjentatt delvis integrasjon\n\nNokre gonger må vi bruke delvis integrasjon fleire gonger for å løyse eit integral. Dette skjer typisk når vi har eit polynom av grad 2 eller høgare ganga med ein eksponential- eller trigonometrisk funksjon.\n\nTil dømes krev $\\int x^2 \\cdot e^x \\, dx$ to rundar med delvis integrasjon fordi $x^2$ må deriverast to gonger for å bli ein konstant."},{"id":"r2-3-2-ex-4","type":"example","title":"Eksempel 4: Gjentatt delvis integrasjon","problem":"Finn $\\displaystyle\\int x^2 \\cdot e^x \\, dx$.","solution":"**Løysing:**\n\n**Første runde:**\n- $u = x^2 \\quad \\Rightarrow \\quad u' = 2x$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\n$$\\int x^2 \\cdot e^x \\, dx = x^2 \\cdot e^x - \\int 2x \\cdot e^x \\, dx$$\n\n**Andre runde** (på $\\int 2x \\cdot e^x \\, dx$):\n- $u = 2x \\quad \\Rightarrow \\quad u' = 2$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\n$$\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2 \\cdot e^x \\, dx = 2x \\cdot e^x - 2e^x$$\n\n**Set saman:**\n\n$$\\int x^2 \\cdot e^x \\, dx = x^2 \\cdot e^x - (2x \\cdot e^x - 2e^x) + C$$\n\n$$= x^2 e^x - 2x e^x + 2e^x + C$$\n\n$$= e^x(x^2 - 2x + 2) + C$$\n\n**Sjekk:** $(e^x(x^2 - 2x + 2))' = e^x(x^2 - 2x + 2) + e^x(2x - 2) = e^x(x^2 - 2x + 2 + 2x - 2) = x^2 e^x$ ✓"},{"id":"r2-3-2-text-8","type":"text","content":"## Tabellarisk delvis integrasjon\n\nNår vi har eit polynom ganga med $e^x$ eller ein trigonometrisk funksjon, kan vi bruke ein **tabellarisk metode** som gjer utrekninga meir oversiktleg.\n\nVi set opp ein tabell med tre kolonnar:\n1. **Forteikn**: Vekslande $+$ og $-$\n2. **Deriverte av $u$**: Deriver til du når 0\n3. **Integral av $v'$**: Integrer like mange gonger\n\nSvaret får vi ved å multiplisere diagonalt og summere."},{"id":"r2-3-2-ex-8","type":"example","title":"Eksempel 8: Tabellarisk metode","problem":"Bruk tabellarisk metode til å finne $\\displaystyle\\int x^3 \\cdot e^{2x} \\, dx$.","solution":"**Løysing:**\n\nVi set opp tabellen med $u = x^3$ (deriverer) og $v' = e^{2x}$ (integrerer):\n\n| Forteikn | Deriverte av $u$ | Integral av $v'$ |\n|---------|------------------|-------------------|\n| $+$ | $x^3$ | $e^{2x}$ |\n| $-$ | $3x^2$ | $\\frac{1}{2}e^{2x}$ |\n| $+$ | $6x$ | $\\frac{1}{4}e^{2x}$ |\n| $-$ | $6$ | $\\frac{1}{8}e^{2x}$ |\n| $+$ | $0$ | $\\frac{1}{16}e^{2x}$ |\n\nMultipliserer diagonalt (rad 1 med rad 2, rad 2 med rad 3, osv.) og summerer:\n\n$$\\int x^3 \\cdot e^{2x} \\, dx = (+)x^3 \\cdot \\frac{1}{2}e^{2x} + (-)3x^2 \\cdot \\frac{1}{4}e^{2x} + (+)6x \\cdot \\frac{1}{8}e^{2x} + (-)6 \\cdot \\frac{1}{16}e^{2x} + C$$\n\n$$= \\frac{e^{2x}}{2}x^3 - \\frac{3e^{2x}}{4}x^2 + \\frac{6e^{2x}}{8}x - \\frac{6e^{2x}}{16} + C$$\n\n$$= \\frac{e^{2x}}{16}(8x^3 - 12x^2 + 12x - 6) + C$$\n\n$$= \\frac{e^{2x}}{8}(4x^3 - 6x^2 + 6x - 3) + C$$"},{"id":"r2-3-2-exercise-4","type":"exercise","exercise":{"id":"r2-3-2-task-4","number":"3.2.4","type":"classic","difficulty":"vanskelig","task":"Bruk gjentatt delvis integrasjon (eller tabellarisk metode) til å finne integrala.","subTasks":[{"label":"a","task":"$\\displaystyle\\int x^2 \\cdot \\cos(x) \\, dx$","solution":"Første runde: $u = x^2$, $v' = \\cos(x)$ gir $x^2\\sin(x) - \\int 2x\\sin(x) \\, dx$. Andre runde: $u = 2x$, $v' = \\sin(x)$ gir $-2x\\cos(x) + \\int 2\\cos(x) \\, dx = -2x\\cos(x) + 2\\sin(x)$. Totalt: $x^2\\sin(x) + 2x\\cos(x) - 2\\sin(x) + C$"},{"label":"b","task":"$\\displaystyle\\int x^2 \\cdot e^{-x} \\, dx$","solution":"Første runde: $u = x^2$, $v' = e^{-x}$ gir $-x^2 e^{-x} + \\int 2x e^{-x} \\, dx$. Andre runde: $u = 2x$, $v' = e^{-x}$ gir $-2x e^{-x} + \\int 2e^{-x} \\, dx = -2x e^{-x} - 2e^{-x}$. Totalt: $-x^2 e^{-x} - 2x e^{-x} - 2e^{-x} + C = -e^{-x}(x^2 + 2x + 2) + C$"},{"label":"c","task":"$\\displaystyle\\int x^3 \\cdot e^x \\, dx$","solution":"Tre rundar med delvis integrasjon gir: $e^x(x^3 - 3x^2 + 6x - 6) + C$"},{"label":"d","task":"$\\displaystyle\\int x^2 \\cdot \\sin(2x) \\, dx$","solution":"To rundar: $-\\frac{x^2}{2}\\cos(2x) + \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$"}],"solution":"a) $x^2\\sin(x) + 2x\\cos(x) - 2\\sin(x) + C$, b) $-e^{-x}(x^2 + 2x + 2) + C$, c) $e^x(x^3 - 3x^2 + 6x - 6) + C$, d) $-\\frac{x^2}{2}\\cos(2x) + \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$","hints":["Polynom av grad $n$ krev $n$ rundar med delvis integrasjon","Hald orden på forteikna - det er lett å gjere feil!","Prøv tabellarisk metode for c) og d)"]}},{"id":"r2-3-2-text-5","type":"text","content":"## Sirkulær delvis integrasjon\n\nNokre gonger leier delvis integrasjon oss i ein sirkel - vi endar opp med det same integralet vi starta med! Dette skjer typisk med produkt av eksponential- og trigonometriske funksjonar, til dømes $\\int e^x \\sin(x) \\, dx$.\n\nLøysinga er å setje opp ei likning der integralet vi søkjer etter er det ukjende, og deretter løyse for dette ukjende."},{"id":"r2-3-2-thm-1","type":"theorem","title":"Sirkulær delvis integrasjon","content":"Viss vi etter to rundar med delvis integrasjon endar opp med det opphavlege integralet $I$, kan vi setje opp likninga:\n\n$$I = (\\text{mellomresultat}) \\pm I$$\n\nog løyse for $I$:\n\n$$2I = (\\text{mellomresultat}) \\quad \\Rightarrow \\quad I = \\frac{\\text{mellomresultat}}{2}$$\n\n**Viktig:** Pass på forteiknet framføre $I$ på høgre side - det avheng av vala av $u$ og $v'$."},{"id":"r2-3-2-ex-5","type":"example","title":"Eksempel 5: Sirkulær delvis integrasjon","problem":"Finn $\\displaystyle\\int e^x \\cdot \\sin(x) \\, dx$.","solution":"**Løysing:**\n\nLat $I = \\int e^x \\sin(x) \\, dx$.\n\n**Første runde:**\n- $u = e^x \\quad \\Rightarrow \\quad u' = e^x$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\n$$I = -e^x \\cos(x) - \\int (-\\cos(x)) \\cdot e^x \\, dx = -e^x \\cos(x) + \\int e^x \\cos(x) \\, dx$$\n\n**Andre runde** (på $\\int e^x \\cos(x) \\, dx$):\n- $u = e^x \\quad \\Rightarrow \\quad u' = e^x$\n- $v' = \\cos(x) \\quad \\Rightarrow \\quad v = \\sin(x)$\n\n$$\\int e^x \\cos(x) \\, dx = e^x \\sin(x) - \\int e^x \\sin(x) \\, dx = e^x \\sin(x) - I$$\n\n**Set saman:**\n\n$$I = -e^x \\cos(x) + e^x \\sin(x) - I$$\n\n$$2I = e^x(\\sin(x) - \\cos(x))$$\n\n$$I = \\frac{e^x(\\sin(x) - \\cos(x))}{2} + C$$\n\n**Sjekk:** $\\left(\\frac{e^x(\\sin x - \\cos x)}{2}\\right)' = \\frac{e^x(\\sin x - \\cos x) + e^x(\\cos x + \\sin x)}{2} = \\frac{2e^x \\sin x}{2} = e^x \\sin x$ ✓"},{"id":"r2-3-2-exercise-5","type":"exercise","exercise":{"id":"r2-3-2-task-5","number":"3.2.5","type":"classic","difficulty":"vanskelig","task":"Bruk sirkulær delvis integrasjon til å finne integrala.","subTasks":[{"label":"a","task":"$\\displaystyle\\int e^x \\cdot \\cos(x) \\, dx$","solution":"Lat $I = \\int e^x \\cos(x) \\, dx$. Etter to rundar: $I = e^x \\sin(x) + e^x \\cos(x) - I$, så $2I = e^x(\\sin(x) + \\cos(x))$, og $I = \\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$"},{"label":"b","task":"$\\displaystyle\\int e^{2x} \\cdot \\sin(x) \\, dx$","solution":"Lat $I = \\int e^{2x} \\sin(x) \\, dx$. Etter to rundar: $I = -e^{2x}\\cos(x) + 2e^{2x}\\sin(x) - 4I$, så $5I = e^{2x}(2\\sin(x) - \\cos(x))$, og $I = \\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$"},{"label":"c","task":"$\\displaystyle\\int e^{-x} \\cdot \\cos(2x) \\, dx$","solution":"Lat $I = \\int e^{-x} \\cos(2x) \\, dx$. Etter to rundar får vi $5I = e^{-x}(2\\sin(2x) - \\cos(2x))$, så $I = \\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$"}],"solution":"a) $\\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$, b) $\\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$, c) $\\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$","hints":["Sett opp $I$ for det ukjende integralet før du startar","Når du ser $I$ dukke opp igjen, sett opp ei likning og løys for $I$","For b) og c): Pass på koeffisientane når du bruker kjerneregelen"]}},{"id":"r2-3-2-thm-2","type":"theorem","title":"Generell formel for $\\int e^{ax} \\sin(bx) \\, dx$ og $\\int e^{ax} \\cos(bx) \\, dx$","content":"For konstantar $a$ og $b$ gjeld:\n\n$$\\int e^{ax} \\sin(bx) \\, dx = \\frac{e^{ax}(a\\sin(bx) - b\\cos(bx))}{a^2 + b^2} + C$$\n\n$$\\int e^{ax} \\cos(bx) \\, dx = \\frac{e^{ax}(a\\cos(bx) + b\\sin(bx))}{a^2 + b^2} + C$$\n\n**Merk:** Desse formlane kan utleiast ved sirkulær delvis integrasjon, men er nyttige å ha tilgjengelege for å spare tid."},{"id":"r2-3-2-text-6","type":"text","content":"## Bestemt integral med delvis integrasjon\n\nNår vi bruker delvis integrasjon på eit bestemt integral, har vi to tilnærmingar:\n\n**Metode 1:** Finn først det ubestemte integralet, og evaluer deretter ved grensene.\n\n**Metode 2:** Bruk formelen for delvis integrasjon direkte med grenser:\n\n$$\\int_a^b u \\cdot v' \\, dx = \\Big[u \\cdot v\\Big]_a^b - \\int_a^b u' \\cdot v \\, dx$$\n\nMetode 2 kan vere meir effektiv fordi vi slepp å halde styr på integrasjonskonstanten."},{"id":"r2-3-2-ex-6","type":"example","title":"Eksempel 6: Bestemt integral","problem":"Rekn ut $\\displaystyle\\int_0^1 x \\cdot e^x \\, dx$.","solution":"**Løysing:**\n\nVi bruker formelen $\\int_a^b u \\cdot v' \\, dx = [u \\cdot v]_a^b - \\int_a^b u' \\cdot v \\, dx$.\n\nMed $u = x$, $u' = 1$, $v' = e^x$, $v = e^x$:\n\n$$\\int_0^1 x \\cdot e^x \\, dx = \\Big[x \\cdot e^x\\Big]_0^1 - \\int_0^1 1 \\cdot e^x \\, dx$$\n\n$$= \\Big[x \\cdot e^x\\Big]_0^1 - \\Big[e^x\\Big]_0^1$$\n\n$$= (1 \\cdot e^1 - 0 \\cdot e^0) - (e^1 - e^0)$$\n\n$$= e - 0 - e + 1$$\n\n$$= 1$$"},{"id":"r2-3-2-exercise-6","type":"exercise","exercise":{"id":"r2-3-2-task-6","number":"3.2.6","type":"classic","difficulty":"medium","task":"Rekn ut dei bestemte integrala ved hjelp av delvis integrasjon.","subTasks":[{"label":"a","task":"$\\displaystyle\\int_0^{\\pi} x \\cdot \\sin(x) \\, dx$","solution":"$[−x\\cos(x)]_0^{\\pi} + \\int_0^{\\pi} \\cos(x) \\, dx = (-\\pi \\cdot (-1) - 0) + [\\sin(x)]_0^{\\pi} = \\pi + 0 = \\pi$","expressionAnswer":"pi"},{"label":"b","task":"$\\displaystyle\\int_1^e \\ln(x) \\, dx$","solution":"$[x\\ln(x)]_1^e - \\int_1^e 1 \\, dx = (e \\cdot 1 - 1 \\cdot 0) - [x]_1^e = e - (e - 1) = 1$","answer":1},{"label":"c","task":"$\\displaystyle\\int_0^2 x \\cdot e^{-x} \\, dx$","solution":"$[-x e^{-x}]_0^2 + \\int_0^2 e^{-x} \\, dx = (-2e^{-2} - 0) + [-e^{-x}]_0^2 = -2e^{-2} + (-e^{-2} + 1) = 1 - 3e^{-2}$","expressionAnswer":"1-3e^(-2)"},{"label":"d","task":"$\\displaystyle\\int_1^e x \\cdot \\ln(x) \\, dx$","solution":"$[\\frac{x^2}{2}\\ln(x)]_1^e - \\int_1^e \\frac{x}{2} \\, dx = (\\frac{e^2}{2} - 0) - [\\frac{x^2}{4}]_1^e = \\frac{e^2}{2} - \\frac{e^2 - 1}{4} = \\frac{e^2 + 1}{4}$","expressionAnswer":"(e^2+1)/4"}],"solution":"a) $\\pi$, b) $1$, c) $1 - 3e^{-2} \\approx 0{,}594$, d) $\\frac{e^2 + 1}{4} \\approx 2{,}097$","hints":["Bruk formelen $[u \\cdot v]_a^b - \\int_a^b u' \\cdot v \\, dx$","Evaluer $[\\cdot]_a^b$ tyder: sett inn øvre grense minus nedre grense","For b): Hugs at $\\ln(1) = 0$ og $\\ln(e) = 1$"]}},{"id":"r2-3-2-text-9","type":"text","content":"## Inverse trigonometriske funksjonar\n\nInverse trigonometriske funksjonar som $\\arcsin(x)$, $\\arccos(x)$ og $\\arctan(x)$ er vanskelege å integrere direkte, men enkle å derivere. Derfor vel vi alltid desse som $u$ i delvis integrasjon.\n\nViktige deriverte:\n- $(\\arcsin(x))' = \\frac{1}{\\sqrt{1-x^2}}$\n- $(\\arccos(x))' = -\\frac{1}{\\sqrt{1-x^2}}$\n- $(\\arctan(x))' = \\frac{1}{1+x^2}$"},{"id":"r2-3-2-ex-9","type":"example","title":"Eksempel 9: Integrere $\\arctan(x)$","problem":"Finn $\\displaystyle\\int \\arctan(x) \\, dx$.","solution":"**Løysing:**\n\nVi skriv $\\arctan(x) = \\arctan(x) \\cdot 1$ og bruker delvis integrasjon.\n\n- $u = \\arctan(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{1+x^2}$\n- $v' = 1 \\quad \\Rightarrow \\quad v = x$\n\n$$\\int \\arctan(x) \\, dx = x \\cdot \\arctan(x) - \\int x \\cdot \\frac{1}{1+x^2} \\, dx$$\n\nFor det gjenverande integralet bruker vi substitusjon $t = 1 + x^2$, $dt = 2x \\, dx$:\n\n$$\\int \\frac{x}{1+x^2} \\, dx = \\frac{1}{2} \\int \\frac{1}{t} \\, dt = \\frac{1}{2} \\ln|t| = \\frac{1}{2} \\ln(1+x^2)$$\n\nDermed:\n\n$$\\int \\arctan(x) \\, dx = x \\cdot \\arctan(x) - \\frac{1}{2}\\ln(1+x^2) + C$$"},{"id":"r2-3-2-exercise-8","type":"exercise","exercise":{"id":"r2-3-2-task-8","number":"3.2.8","type":"classic","difficulty":"vanskelig","task":"Finn integrala som involverer inverse trigonometriske funksjonar.","subTasks":[{"label":"a","task":"$\\displaystyle\\int \\arcsin(x) \\, dx$","solution":"Lat $u = \\arcsin(x)$, $v' = 1$. Då $u' = \\frac{1}{\\sqrt{1-x^2}}$, $v = x$. Integralet blir $x\\arcsin(x) - \\int \\frac{x}{\\sqrt{1-x^2}} \\, dx$. Med substitusjon $t = 1-x^2$: $\\int \\frac{x}{\\sqrt{1-x^2}} \\, dx = -\\sqrt{1-x^2}$. Svar: $x\\arcsin(x) + \\sqrt{1-x^2} + C$"},{"label":"b","task":"$\\displaystyle\\int x \\cdot \\arctan(x) \\, dx$","solution":"Lat $u = \\arctan(x)$, $v' = x$. Då $u' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Svar: $\\frac{x^2+1}{2}\\arctan(x) - \\frac{x}{2} + C$"},{"label":"c","task":"$\\displaystyle\\int_0^1 \\arctan(x) \\, dx$","solution":"$[x\\arctan(x) - \\frac{1}{2}\\ln(1+x^2)]_0^1 = (1 \\cdot \\frac{\\pi}{4} - \\frac{1}{2}\\ln 2) - 0 = \\frac{\\pi}{4} - \\frac{\\ln 2}{2}$","expressionAnswer":"pi/4-ln(2)/2"}],"solution":"a) $x\\arcsin(x) + \\sqrt{1-x^2} + C$, b) $\\frac{x^2+1}{2}\\arctan(x) - \\frac{x}{2} + C$, c) $\\frac{\\pi}{4} - \\frac{\\ln 2}{2} \\approx 0{,}439$","hints":["Inverse trigonometriske funksjonar har høgast prioritet i LIATE","Du må ofte kombinere delvis integrasjon med substitusjon","For a) bruk substitusjon $t = 1-x^2$ på det gjenverande integralet"]}},{"id":"r2-3-2-ex-7","type":"example","title":"Eksempel 7: Kombinere teknikkar","problem":"Finn $\\displaystyle\\int x^2 \\cdot \\sin(x) \\, dx$.","solution":"**Løysing:**\n\nDette krev to rundar med delvis integrasjon.\n\n**Første runde:**\n- $u = x^2 \\quad \\Rightarrow \\quad u' = 2x$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\n$$\\int x^2 \\sin(x) \\, dx = -x^2 \\cos(x) - \\int (-\\cos(x)) \\cdot 2x \\, dx$$\n$$= -x^2 \\cos(x) + 2\\int x \\cos(x) \\, dx$$\n\n**Andre runde** (på $\\int x \\cos(x) \\, dx$):\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = \\cos(x) \\quad \\Rightarrow \\quad v = \\sin(x)$\n\n$$\\int x \\cos(x) \\, dx = x \\sin(x) - \\int \\sin(x) \\, dx = x \\sin(x) + \\cos(x)$$\n\n**Set saman:**\n\n$$\\int x^2 \\sin(x) \\, dx = -x^2 \\cos(x) + 2(x \\sin(x) + \\cos(x)) + C$$\n$$= -x^2 \\cos(x) + 2x \\sin(x) + 2\\cos(x) + C$$\n$$= (2 - x^2)\\cos(x) + 2x\\sin(x) + C$$"},{"id":"r2-3-2-warning-1","type":"warning","title":"Vanlege feil ved delvis integrasjon","content":"**1. Feil val av $u$ og $v'$:**\nViss du vel feil, får du eit vanskelegare integral. Bruk LIATE-regelen!\n\n**2. Gløymer forteikn:**\nVer nøye med minusteiknet i formelen: $\\int u \\cdot v' \\, dx = uv \\mathbf{-} \\int u' \\cdot v \\, dx$\n\n**3. Gløymer integrasjonskonstanten:**\nHugs alltid $+ C$ på slutten av ubestemte integral.\n\n**4. Feil ved sirkulær integrasjon:**\nPass på at integralet $I$ dukkar opp med rett forteikn når du set opp likninga.\n\n**5. Stoppar for tidleg:**\nVed gjentatt delvis integrasjon, hald fram til polynomet er derivert til 0."},{"id":"r2-3-2-exercise-7","type":"exercise","exercise":{"id":"r2-3-2-task-7","number":"3.2.7","type":"classic","difficulty":"vanskelig","task":"Løys desse utfordrande integrala.","subTasks":[{"label":"a","task":"$\\displaystyle\\int (\\ln(x))^2 \\, dx$","solution":"Lat $u = (\\ln x)^2$, $v' = 1$. Då $u' = \\frac{2\\ln x}{x}$, $v = x$. Første runde gir $x(\\ln x)^2 - 2\\int \\ln x \\, dx$. Vi veit at $\\int \\ln x \\, dx = x\\ln x - x$. Totalt: $x(\\ln x)^2 - 2(x\\ln x - x) + C = x(\\ln x)^2 - 2x\\ln x + 2x + C = x((\\ln x)^2 - 2\\ln x + 2) + C$"},{"label":"b","task":"$\\displaystyle\\int x \\cdot \\arctan(x) \\, dx$","solution":"Lat $u = \\arctan(x)$, $v' = x$. Då $u' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Då får vi $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}(x - \\arctan(x)) + C = \\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$"},{"label":"c","task":"$\\displaystyle\\int_0^{\\pi/2} x^2 \\cdot \\cos(x) \\, dx$","solution":"To rundar gir $[x^2 \\sin x + 2x\\cos x - 2\\sin x]_0^{\\pi/2} = (\\frac{\\pi^2}{4} \\cdot 1 + 0 - 2) - 0 = \\frac{\\pi^2}{4} - 2$","expressionAnswer":"pi^2/4-2"}],"solution":"a) $x((\\ln x)^2 - 2\\ln x + 2) + C$, b) $\\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$, c) $\\frac{\\pi^2}{4} - 2$","hints":["For a): Du må bruke delvis integrasjon to gonger","For b): Inverse trigonometriske funksjonar har høg prioritet i LIATE","For c): Bruk resultatet frå gjentatt delvis integrasjon"]}},{"id":"r2-3-2-text-10","type":"text","content":"## Bruksområde for delvis integrasjon\n\nDelvis integrasjon har mange praktiske bruksområde:\n\n**1. Fysikk - Arbeid og energi:**\nArbeidet utført av ein variabel kraft $F(x)$ over ei strekning er $W = \\int F(x) \\, dx$. Når krafta er eit produkt av funksjonar, bruker vi delvis integrasjon.\n\n**2. Sannsynsrekning:**\nForventningsverdi og varians av kontinuerlege sannsynsfordelingar krev ofte delvis integrasjon.\n\n**3. Fourier-analyse:**\nUtrekning av Fourier-koeffisientar involverer integral av typen $\\int f(x) \\sin(nx) \\, dx$ og $\\int f(x) \\cos(nx) \\, dx$.\n\n**4. Differensiallikningar:**\nLøysing av visse differensiallikningar krev delvis integrasjon."},{"id":"r2-3-2-ex-10","type":"example","title":"Eksempel 10: Gjennomsnittsverdi","problem":"Finn gjennomsnittsverdien til funksjonen $f(x) = x \\cdot e^{-x}$ på intervallet $[0, 2]$.","solution":"**Løysing:**\n\nGjennomsnittsverdien på $[a, b]$ er gitt ved:\n\n$$\\bar{f} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx$$\n\nVi må først rekne ut $\\int_0^2 x \\cdot e^{-x} \\, dx$.\n\nMed delvis integrasjon ($u = x$, $v' = e^{-x}$):\n\n$$\\int_0^2 x \\cdot e^{-x} \\, dx = \\Big[-x e^{-x}\\Big]_0^2 + \\int_0^2 e^{-x} \\, dx$$\n\n$$= (-2e^{-2} - 0) + \\Big[-e^{-x}\\Big]_0^2$$\n\n$$= -2e^{-2} + (-e^{-2} + 1)$$\n\n$$= 1 - 3e^{-2}$$\n\nGjennomsnittsverdien blir:\n\n$$\\bar{f} = \\frac{1}{2-0}(1 - 3e^{-2}) = \\frac{1 - 3e^{-2}}{2} \\approx 0{,}297$$"},{"id":"r2-3-2-text-11","type":"text","content":"## Eksamensrelevante oppgåver\n\nPå eksamen i R2 kjem delvis integrasjon ofte i kombinasjon med andre emne. Typiske oppgåver:\n\n- Finn areal avgrensa av grafar der integralet krev delvis integrasjon\n- Rekn ut volum av omdreiingslekamar\n- Finn gjennomsnittsverdiar\n- Løys differensiallikningar\n- Rekn ut forventningsverdi i sannsynsrekning"},{"id":"r2-3-2-exercise-9","type":"exercise","exercise":{"id":"r2-3-2-task-9","number":"3.2.9","type":"classic","difficulty":"vanskelig","task":"Løys desse eksamensrelevante oppgåvene.","subTasks":[{"label":"a","task":"Finn arealet av området avgrensa av $y = x \\cdot e^{-x}$, $x$-aksen, $x = 0$ og $x = 2$.","solution":"Arealet er $\\int_0^2 x \\cdot e^{-x} \\, dx = 1 - 3e^{-2} \\approx 0{,}594$ (sjå eksempel 10)","expressionAnswer":"1-3e^(-2)"},{"label":"b","task":"Finn volumet når området under $y = \\ln(x)$ frå $x = 1$ til $x = e$ blir rotert om $x$-aksen.","solution":"Volumet er $V = \\pi \\int_1^e (\\ln x)^2 \\, dx$. Med delvis integrasjon to gonger: $\\int (\\ln x)^2 \\, dx = x((\\ln x)^2 - 2\\ln x + 2)$. Evaluert: $V = \\pi[x((\\ln x)^2 - 2\\ln x + 2)]_1^e = \\pi(e(1-2+2) - 1(0-0+2)) = \\pi(e - 2)$","expressionAnswer":"pi*(e-2)"},{"label":"c","task":"Vis at $\\displaystyle\\int_0^{\\pi/2} \\sin^2(x) \\, dx = \\frac{\\pi}{4}$ ved delvis integrasjon.","solution":"Skriv $\\sin^2(x) = \\sin(x) \\cdot \\sin(x)$. Lat $u = \\sin(x)$, $v' = \\sin(x)$, så $u' = \\cos(x)$, $v = -\\cos(x)$. Då: $\\int \\sin^2 x \\, dx = -\\sin x \\cos x + \\int \\cos^2 x \\, dx = -\\sin x \\cos x + \\int (1-\\sin^2 x) \\, dx$. Dette gir $2\\int \\sin^2 x \\, dx = x - \\sin x \\cos x$, så $\\int \\sin^2 x \\, dx = \\frac{x - \\sin x \\cos x}{2}$. Evaluert: $[\\frac{x - \\sin x \\cos x}{2}]_0^{\\pi/2} = \\frac{\\pi/2 - 0}{2} = \\frac{\\pi}{4}$"}],"solution":"a) $1 - 3e^{-2} \\approx 0{,}594$, b) $\\pi(e - 2) \\approx 2{,}26$, c) Sjå fullstendig løysing","hints":["For a): Dette er eit standard areal-integral","For b): Volum ved rotasjon om $x$-aksen: $V = \\pi \\int_a^b (f(x))^2 \\, dx$","For c): Du får eit sirkulært integral - løys for $\\int \\sin^2 x \\, dx$"]}},{"id":"r2-3-2-exercise-10","type":"exercise","exercise":{"id":"r2-3-2-task-10","number":"3.2.10","type":"classic","difficulty":"vanskelig","task":"Blanda oppgåver - vel rett integrasjonsteknikk.","subTasks":[{"label":"a","task":"$\\displaystyle\\int x^2 \\cdot e^{x^3} \\, dx$","solution":"Dette er IKKJE delvis integrasjon! Bruk substitusjon $u = x^3$: $\\int x^2 \\cdot e^{x^3} \\, dx = \\frac{1}{3} e^{x^3} + C$"},{"label":"b","task":"$\\displaystyle\\int x \\cdot \\sqrt{1+x^2} \\, dx$","solution":"Substitusjon $u = 1 + x^2$: $\\int x \\cdot \\sqrt{1+x^2} \\, dx = \\frac{1}{3}(1+x^2)^{3/2} + C$"},{"label":"c","task":"$\\displaystyle\\int x \\cdot \\ln(x^2) \\, dx$","solution":"Skriv om: $\\ln(x^2) = 2\\ln(x)$. Bruk delvis integrasjon: $\\int 2x\\ln(x) \\, dx = x^2\\ln(x) - \\frac{x^2}{2} + C$"},{"label":"d","task":"$\\displaystyle\\int e^x \\cdot \\sin(e^x) \\, dx$","solution":"Substitusjon $u = e^x$: $\\int e^x \\cdot \\sin(e^x) \\, dx = -\\cos(e^x) + C$"}],"solution":"a) $\\frac{1}{3}e^{x^3} + C$, b) $\\frac{1}{3}(1+x^2)^{3/2} + C$, c) $x^2\\ln(x) - \\frac{x^2}{2} + C$, d) $-\\cos(e^x) + C$","hints":["Ikkje alt som ser ut som delvis integrasjon er det!","Sjå etter om den deriverte av ein indre funksjon står utanfor","Forenkle først viss mogleg (som i oppgåve c)"]}},{"id":"r2-3-2-note-1","type":"note","content":"**Når skal du bruke delvis integrasjon?**\n\nBruk delvis integrasjon når:\n1. Du har eit produkt av to *ulike* funksjonstypar\n2. Substitusjon ikkje fungerer\n3. Ein av funksjonane blir enklare ved derivasjon\n\nBruk substitusjon når:\n1. Du ser den deriverte av ein indre funksjon\n2. Integranden har forma $f(g(x)) \\cdot g'(x)$\n\n**Tips:** Prøv substitusjon først - det er ofte raskare!"},{"id":"r2-3-2-text-7","type":"text","content":"## Oppsummering\n\n**Formelen for delvis integrasjon:**\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\n**LIATE-regelen for val av $u$:**\n1. Logaritmar\n2. Inverse trigonometriske\n3. Algebraiske (polynom)\n4. Trigonometriske\n5. Eksponentialfunksjonar\n\n**Spesielle tilfelle:**\n- Polynom av grad $n$ krev $n$ rundar med delvis integrasjon\n- Produkt av $e^x$ og trigonometriske funksjonar gir sirkulær delvis integrasjon\n- $\\int \\ln(x) \\, dx = x(\\ln(x) - 1) + C$ er eit viktig resultat\n\n**Hugs:**\n- Sjekk alltid svaret ved derivasjon\n- Ikkje gløym integrasjonskonstanten $C$\n- Vurder om substitusjon er enklare før du startar med delvis integrasjon"},{"id":"r2-3-2-formula-1","type":"formula","title":"Viktige integral frå delvis integrasjon","latex":"\\begin{aligned}\n\\int x \\cdot e^{ax} \\, dx &= \\frac{e^{ax}}{a^2}(ax - 1) + C \\\\[0.5em]\n\\int x \\cdot \\sin(ax) \\, dx &= \\frac{\\sin(ax) - ax\\cos(ax)}{a^2} + C \\\\[0.5em]\n\\int x \\cdot \\cos(ax) \\, dx &= \\frac{\\cos(ax) + ax\\sin(ax)}{a^2} + C \\\\[0.5em]\n\\int \\ln(x) \\, dx &= x(\\ln(x) - 1) + C \\\\[0.5em]\n\\int x \\cdot \\ln(x) \\, dx &= \\frac{x^2}{4}(2\\ln(x) - 1) + C \\\\[0.5em]\n\\int e^{ax} \\sin(bx) \\, dx &= \\frac{e^{ax}(a\\sin(bx) - b\\cos(bx))}{a^2 + b^2} + C \\\\[0.5em]\n\\int e^{ax} \\cos(bx) \\, dx &= \\frac{e^{ax}(a\\cos(bx) + b\\sin(bx))}{a^2 + b^2} + C \\\\[0.5em]\n\\int \\arctan(x) \\, dx &= x\\arctan(x) - \\frac{1}{2}\\ln(1+x^2) + C \\\\[0.5em]\n\\int \\arcsin(x) \\, dx &= x\\arcsin(x) + \\sqrt{1-x^2} + C\n\\end{aligned}","description":"Desse resultata er nyttige å hugse og kan brukast direkte i utrekningar."},{"id":"r2-3-2-formula-2","type":"formula","title":"Generelle formlar for polynom","latex":"\\begin{aligned}\n\\int x^n \\cdot e^x \\, dx &= e^x \\sum_{k=0}^{n} (-1)^{n-k} \\frac{n!}{k!} x^k + C \\\\[1em]\n\\text{For } n = 1: \\quad &e^x(x - 1) + C \\\\\n\\text{For } n = 2: \\quad &e^x(x^2 - 2x + 2) + C \\\\\n\\text{For } n = 3: \\quad &e^x(x^3 - 3x^2 + 6x - 6) + C\n\\end{aligned}","description":"Legg merke til mønsteret: koeffisientane er fakultetar med vekslande forteikn."},{"id":"r2-3-2-repetisjon","type":"collapsible","title":"Repetisjonsoppgåver","buttonText":"Vis repetisjonsoppgåver","content":[{"id":"r2-3-2-rep-1","type":"exercise","exercise":{"id":"r2-3-2-rep-ex-1","number":"R1","type":"classic","difficulty":"lett","task":"Integrer med delvis integrasjon.","subTasks":[{"label":"a","task":"$\\int x e^x \\, dx$","solution":"Med $u = x$, $v' = e^x$: $xe^x - \\int e^x \\, dx = (x-1)e^x + C$"},{"label":"b","task":"$\\int x \\sin x \\, dx$","solution":"Med $u = x$, $v' = \\sin x$: $-x\\cos x + \\int \\cos x \\, dx = -x\\cos x + \\sin x + C$"},{"label":"c","task":"$\\int x \\cos x \\, dx$","solution":"$x\\sin x - \\int \\sin x \\, dx = x\\sin x + \\cos x + C$"},{"label":"d","task":"$\\int 2x e^x \\, dx$","solution":"$2\\int x e^x\\,dx = 2(x-1)e^x + C$"}],"solution":"a) $(x-1)e^x+C$  b) $-x\\cos x+\\sin x+C$  c) $x\\sin x+\\cos x+C$  d) $2(x-1)e^x+C$","hideInlineSolution":true,"hints":["Formelen: $\\int u v' \\, dx = uv - \\int u' v \\, dx$. Vel $u = x$."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"r2-3-2-rep-2","type":"exercise","exercise":{"id":"r2-3-2-rep-ex-2","number":"R2","type":"classic","difficulty":"medium","task":"Integrer logaritmen.","subTasks":[{"label":"a","task":"$\\int \\ln x \\, dx$","solution":"Med $u = \\ln x$, $v' = 1$: $x\\ln x - \\int x \\cdot \\frac{1}{x} \\, dx = x\\ln x - x + C$"},{"label":"b","task":"$\\int x \\ln x \\, dx$","solution":"Med $u = \\ln x$, $v' = x$: $\\frac{x^2}{2}\\ln x - \\int \\frac{x}{2}\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$"}],"solution":"a) $x\\ln x - x + C$  b) $\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}+C$","hideInlineSolution":true,"hints":["Vel $u = \\ln x$, sidan logaritmen blir enklare ved derivasjon."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"r2-3-2-rep-3","type":"exercise","exercise":{"id":"r2-3-2-rep-ex-3","number":"R3","type":"classic","difficulty":"medium","task":"Gjentatt delvis integrasjon: $\\int x^2 e^x \\, dx$.","subTasks":[{"label":"a","task":"Utfør første delvise integrasjon.","solution":"$u = x^2$, $v' = e^x$: $x^2 e^x - \\int 2x e^x \\, dx$"},{"label":"b","task":"Fullfør utrekninga.","solution":"$\\int 2x e^x \\, dx = 2(x-1)e^x$, så $\\int x^2 e^x \\, dx = x^2 e^x - 2(x-1)e^x + C = (x^2 - 2x + 2)e^x + C$"}],"solution":"$(x^2-2x+2)e^x+C$","hideInlineSolution":true,"hints":["Bruk delvis integrasjon to gonger."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"r2-3-2-rep-4","type":"exercise","exercise":{"id":"r2-3-2-rep-ex-4","number":"R4","type":"classic","difficulty":"medium","task":"Rekn ut dei bestemte integrala.","subTasks":[{"label":"a","task":"$\\int_0^1 x e^x \\, dx$","solution":"$[(x-1)e^x]_0^1 = 0 - (-1) = 1$","answer":1},{"label":"b","task":"$\\int_1^e \\ln x \\, dx$","solution":"$[x\\ln x - x]_1^e = (e - e) - (0 - 1) = 1$","answer":1},{"label":"c","task":"$\\int_0^{\\pi} x \\sin x \\, dx$. Oppgi eksakt svar.","solution":"$[-x\\cos x + \\sin x]_0^{\\pi} = (\\pi + 0) - 0 = \\pi$","expressionAnswer":"pi"},{"label":"d","task":"$\\int_0^1 x e^{2x} \\, dx$. Oppgi eksakt svar.","solution":"Med $u = x$, $v' = e^{2x}$: $\\left[\\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x}\\right]_0^1 = \\frac{e^2}{4} - \\left(-\\frac{1}{4}\\right) = \\frac{e^2 + 1}{4}$","expressionAnswer":"(e^2+1)/4"}],"solution":"a) 1  b) 1  c) $\\pi$  d) $\\frac{e^2+1}{4}$","hideInlineSolution":true,"hints":["Bruk antideriverte frå R1 og R2."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"r2-3-2-rep-5","type":"exercise","exercise":{"id":"r2-3-2-rep-ex-5","number":"R5","type":"classic","difficulty":"vanskelig","task":"Sirkulær delvis integrasjon: $\\int e^x \\sin x \\, dx$.","subTasks":[{"label":"a","task":"Bruk delvis integrasjon to gonger og vis at integralet dukkar opp igjen på høgre side.","solution":"$I = \\int e^x \\sin x \\, dx = e^x \\sin x - \\int e^x \\cos x \\, dx = e^x \\sin x - \\left(e^x \\cos x + \\int e^x \\sin x \\, dx\\right) = e^x(\\sin x - \\cos x) - I$"},{"label":"b","task":"Løys likninga og finn integralet.","solution":"$2I = e^x(\\sin x - \\cos x)$, så $I = \\frac{e^x(\\sin x - \\cos x)}{2} + C$"},{"label":"c","task":"Bruk resultatet til å rekne ut $\\int_0^{\\pi} e^x \\sin x \\, dx$. Oppgi eksakt svar.","solution":"$\\left[\\frac{e^x(\\sin x - \\cos x)}{2}\\right]_0^{\\pi} = \\frac{e^{\\pi}(0+1)}{2} - \\frac{1 \\cdot (0-1)}{2} = \\frac{e^{\\pi} + 1}{2}$","expressionAnswer":"(e^pi+1)/2"}],"solution":"a) sjå utrekning  b) $\\frac{e^x(\\sin x - \\cos x)}{2}+C$  c) $\\frac{e^{\\pi}+1}{2}$","hideInlineSolution":true,"hints":["Flytt integralet over på venstre side og løys som ei likning."],"allowsUpload":true,"allowsCanvasDrawing":true}}]}],"exercises":[],"_meta":{"sourceHash":"4569fccad280b934","translatedAt":"2026-06-20T01:01:02.210Z","model":"claude-code-agent","strings":224,"tm":{"e29bcbe902cf0bb8":"Delvis integrasjon","4dcca355792e1db0":"Lèt oss integrere produkt av funksjonar ved å bruke produktregelen baklengs.","43bc500d80f8975a":"meistre teknikken delvis integrasjon","a8daa0d35b28c872":"velje rett u og v' i delvis integrasjon","24cb26721491bb06":"bruke gjentatt delvis integrasjon","ae9413f5da0ef20f":"løyse sirkulær delvis integrasjon","d3e2e1cd94a727d5":"bruke delvis integrasjon på bestemte integral","aaba21b9eb829b4c":"kombinere delvis integrasjon med andre teknikkar","6e27017f7fcfe70b":"## Innleiing\n\nI førre kapittel lærte vi substitusjon, som er kjerneregelen baklengs. No skal vi lære ein annan viktig integrasjonsteknikk: **delvis integrasjon**.\n\nDelvis integrasjon blir brukt når vi skal integrere eit *produkt* av to funksjonar, til dømes $x \\cdot e^x$ eller $x \\cdot \\sin(x)$.\n\nIdéen er å bruke **produktregelen for derivasjon baklengs**. Lat oss først hugse produktregelen:\n\n$$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$\n\nViss vi integrerer begge sider, får vi:\n\n$$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nVed å omorganisere denne likninga, kan vi utleie formelen for delvis integrasjon.","6b95f82c616f3674":"## Utleiing av formelen\n\nVi startar med produktregelen:\n\n$$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$\n\nIntegrerer vi begge sider med omsyn på $x$:\n\n$$\\int (u \\cdot v)' \\, dx = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nVenstre side er berre $u \\cdot v$ (integralet av den deriverte gir tilbake funksjonen):\n\n$$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nNo løyser vi for $\\int u \\cdot v' \\, dx$:\n\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\nDette er formelen for delvis integrasjon!","d5137d536e5fe465":"Lat $u = u(x)$ og $v = v(x)$ vere deriverbare funksjonar. Då gjeld:\n\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\nEller med differensialnotasjon ($dv = v' \\, dx$ og $du = u' \\, dx$):\n\n$$\\int u \\, dv = u \\cdot v - \\int v \\, du$$\n\n**Merk:** Målet er at integralet på høgre side ($\\int u' \\cdot v \\, dx$) skal vere enklare å løyse enn det opphavlege integralet.","2feedd698bce13ea":"Eksempel 1: Integrere $x \\cdot e^x$","c3fb1cd72138e102":"Finn $\\displaystyle\\int x \\cdot e^x \\, dx$.","c7b8fc62a74ce01c":"**Løysing:**\n\nVi bruker delvis integrasjon med:\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\nSet inn i formelen $\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$:\n\n$$\\int x \\cdot e^x \\, dx = x \\cdot e^x - \\int 1 \\cdot e^x \\, dx$$\n\n$$= x \\cdot e^x - e^x + C$$\n\n$$= e^x(x - 1) + C$$\n\n**Sjekk ved derivasjon:**\n$(e^x(x-1))' = e^x(x-1) + e^x \\cdot 1 = e^x \\cdot x - e^x + e^x = x \\cdot e^x$ ✓","b61caa9f0d33e497":"Bruk delvis integrasjon til å finne integrala.","cc18b4a5cf74517a":"$\\displaystyle\\int x \\cdot e^{2x} \\, dx$","411569e78d0e8532":"Lat $u = x$ og $v' = e^{2x}$, så $u' = 1$ og $v = \\frac{1}{2}e^{2x}$. Då får vi $\\int x \\cdot e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\int \\frac{1}{2}e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x} + C = \\frac{e^{2x}}{4}(2x - 1) + C$","490a884401876e23":"$\\displaystyle\\int x \\cdot e^{-x} \\, dx$","502b9b103515237c":"Lat $u = x$ og $v' = e^{-x}$, så $u' = 1$ og $v = -e^{-x}$. Då får vi $\\int x \\cdot e^{-x} \\, dx = -x \\cdot e^{-x} - \\int (-e^{-x}) \\, dx = -x \\cdot e^{-x} - e^{-x} + C = -e^{-x}(x + 1) + C$","d1ab9f7db80eee78":"$\\displaystyle\\int 2x \\cdot e^x \\, dx$","2d7cfe420fac5ec2":"Lat $u = 2x$ og $v' = e^x$, så $u' = 2$ og $v = e^x$. Då får vi $\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2e^x \\, dx = 2x \\cdot e^x - 2e^x + C = 2e^x(x - 1) + C$","1ca131c394c9cd08":"a) $\\frac{e^{2x}}{4}(2x - 1) + C$, b) $-e^{-x}(x + 1) + C$, c) $2e^x(x - 1) + C$","0cd6cc9cd06ff15a":"Vel $u$ som den funksjonen som blir enklare når du deriverer","e3cbfc6faccfcbef":"Vel $v'$ som den funksjonen du enkelt kan integrere","6085f3a501526510":"Hugs å sjekke svaret ved å derivere!","2f37bb27fd090ec3":"## Val av $u$ og $v'$: LIATE-regelen\n\nDet viktigaste ved delvis integrasjon er å velje rett $u$ og $v'$. Målet er at det nye integralet $\\int u' \\cdot v \\, dx$ skal vere *enklare* enn det opphavlege.\n\nEi nyttig hugseregel er **LIATE** (eller LIPET på norsk), som gir prioritetsrekkjefølgje for val av $u$:\n\n| Prioritet | Type funksjon | Eksempel |\n|-----------|---------------|-----------|\n| 1 | **L**ogaritmar | $\\ln x$, $\\log x$ |\n| 2 | **I**nverse trigonometriske | $\\arcsin x$, $\\arctan x$ |\n| 3 | **A**lgebraiske (polynom) | $x$, $x^2$, $x^3$ |\n| 4 | **T**rigonometriske | $\\sin x$, $\\cos x$ |\n| 5 | **E**ksponentialfunksjonar | $e^x$, $2^x$ |\n\nFunksjonar høgt på lista blir valde som $u$, medan funksjonar lågt på lista blir valde som $v'$.","dda76994fdc83db9":"**Kvifor fungerer LIATE?**\n\n- Logaritmar og inverse trigonometriske funksjonar er vanskelege å integrere, men enkle å derivere.\n- Polynom blir enklare når dei blir deriverte ($x^3 \\to 3x^2 \\to 6x \\to 6 \\to 0$).\n- Eksponentialfunksjonar forandrar seg ikkje når dei blir integrerte eller deriverte.\n\nDerfor: Vel funksjonar som blir *enklare* ved derivasjon som $u$.","86accfae2a2c841c":"Eksempel 2: Integrere $x \\cdot \\sin(x)$","37858fd8ab8d616b":"Finn $\\displaystyle\\int x \\cdot \\sin(x) \\, dx$.","4c6f2da65b4d8b38":"**Løysing:**\n\nIfølgje LIATE-regelen: $x$ (algebraisk) har høgare prioritet enn $\\sin(x)$ (trigonometrisk).\n\nVi vel:\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\nDelvis integrasjon gir:\n\n$$\\int x \\cdot \\sin(x) \\, dx = x \\cdot (-\\cos(x)) - \\int 1 \\cdot (-\\cos(x)) \\, dx$$\n\n$$= -x \\cos(x) + \\int \\cos(x) \\, dx$$\n\n$$= -x \\cos(x) + \\sin(x) + C$$\n\n**Sjekk:** $(-x\\cos(x) + \\sin(x))' = -\\cos(x) + x\\sin(x) + \\cos(x) = x\\sin(x)$ ✓","b488fcaf6d95e72f":"Bruk delvis integrasjon og LIATE-regelen til å finne integrala.","295e4a48108faa0e":"$\\displaystyle\\int x \\cdot \\cos(x) \\, dx$","ec0007b76d7451f8":"Lat $u = x$, $v' = \\cos(x)$. Då $u' = 1$, $v = \\sin(x)$. Integralet blir $x\\sin(x) - \\int \\sin(x) \\, dx = x\\sin(x) + \\cos(x) + C$","d60d4f35315d3ff4":"$\\displaystyle\\int x \\cdot \\cos(2x) \\, dx$","f14568b2027a548d":"Lat $u = x$, $v' = \\cos(2x)$. Då $u' = 1$, $v = \\frac{1}{2}\\sin(2x)$. Integralet blir $\\frac{x}{2}\\sin(2x) - \\int \\frac{1}{2}\\sin(2x) \\, dx = \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$","81b31ac59d5fe929":"$\\displaystyle\\int x \\cdot \\sin(3x) \\, dx$","79098b0d81a1f1b2":"Lat $u = x$, $v' = \\sin(3x)$. Då $u' = 1$, $v = -\\frac{1}{3}\\cos(3x)$. Integralet blir $-\\frac{x}{3}\\cos(3x) + \\int \\frac{1}{3}\\cos(3x) \\, dx = -\\frac{x}{3}\\cos(3x) + \\frac{1}{9}\\sin(3x) + C$","3a7aa2027ae5c133":"a) $x\\sin(x) + \\cos(x) + C$, b) $\\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$, c) $-\\frac{x}{3}\\cos(3x) + \\frac{1}{9}\\sin(3x) + C$","cc2e1ca7f663bceb":"Vel alltid polynomet ($x$) som $u$ når du har eit produkt av polynom og trigonometrisk funksjon","bfd15ec9365be404":"Hugs å bruke kjerneregelen når du integrerer trigonometriske funksjonar med argument $ax$","0677c930df42ad38":"Eksempel 3: Integrere $\\ln(x)$","e8ce50dade048163":"Finn $\\displaystyle\\int \\ln(x) \\, dx$.","24106d7e42b6aaba":"**Løysing:**\n\nHer har vi tilsynelatande berre éin funksjon, men vi kan skrive $\\ln(x) = \\ln(x) \\cdot 1$.\n\nIfølgje LIATE: Logaritmar har høgast prioritet, så $u = \\ln(x)$.\n\nVi vel:\n- $u = \\ln(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{x}$\n- $v' = 1 \\quad \\Rightarrow \\quad v = x$\n\nDelvis integrasjon gir:\n\n$$\\int \\ln(x) \\, dx = \\ln(x) \\cdot x - \\int \\frac{1}{x} \\cdot x \\, dx$$\n\n$$= x \\ln(x) - \\int 1 \\, dx$$\n\n$$= x \\ln(x) - x + C$$\n\n$$= x(\\ln(x) - 1) + C$$\n\n**Sjekk:** $(x\\ln(x) - x)' = \\ln(x) + x \\cdot \\frac{1}{x} - 1 = \\ln(x) + 1 - 1 = \\ln(x)$ ✓","631f46a98ec3be07":"Finn integrala ved å bruke delvis integrasjon.","ba54617808b21c86":"$\\displaystyle\\int x \\cdot \\ln(x) \\, dx$","2a7b8db81cc7c80d":"Lat $u = \\ln(x)$, $v' = x$. Då $u' = \\frac{1}{x}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\ln(x) - \\int \\frac{x^2}{2} \\cdot \\frac{1}{x} \\, dx = \\frac{x^2}{2}\\ln(x) - \\frac{1}{2}\\int x \\, dx = \\frac{x^2}{2}\\ln(x) - \\frac{x^2}{4} + C = \\frac{x^2}{4}(2\\ln(x) - 1) + C$","702c09745ab36e95":"$\\displaystyle\\int x^2 \\cdot \\ln(x) \\, dx$","55750945930c7fb6":"Lat $u = \\ln(x)$, $v' = x^2$. Då $u' = \\frac{1}{x}$, $v = \\frac{x^3}{3}$. Integralet blir $\\frac{x^3}{3}\\ln(x) - \\int \\frac{x^3}{3} \\cdot \\frac{1}{x} \\, dx = \\frac{x^3}{3}\\ln(x) - \\frac{1}{3}\\int x^2 \\, dx = \\frac{x^3}{3}\\ln(x) - \\frac{x^3}{9} + C = \\frac{x^3}{9}(3\\ln(x) - 1) + C$","5102450cb91bc4f8":"$\\displaystyle\\int \\ln(2x) \\, dx$","0af1101c198e849a":"Lat $u = \\ln(2x)$, $v' = 1$. Då $u' = \\frac{1}{x}$, $v = x$. Integralet blir $x\\ln(2x) - \\int x \\cdot \\frac{1}{x} \\, dx = x\\ln(2x) - x + C = x(\\ln(2x) - 1) + C$","9e83b9e343cf1e27":"a) $\\frac{x^2}{4}(2\\ln(x) - 1) + C$, b) $\\frac{x^3}{9}(3\\ln(x) - 1) + C$, c) $x(\\ln(2x) - 1) + C$","15177eff6ba1e579":"Logaritmar har høgast prioritet i LIATE, så vel alltid $u = \\ln(\\cdot)$","415191cb0510aedc":"Hugs at $(\\ln(x))' = \\frac{1}{x}$","e3f808e0b718a462":"## Gjentatt delvis integrasjon\n\nNokre gonger må vi bruke delvis integrasjon fleire gonger for å løyse eit integral. Dette skjer typisk når vi har eit polynom av grad 2 eller høgare ganga med ein eksponential- eller trigonometrisk funksjon.\n\nTil dømes krev $\\int x^2 \\cdot e^x \\, dx$ to rundar med delvis integrasjon fordi $x^2$ må deriverast to gonger for å bli ein konstant.","e6a57aadafcc4a5d":"Eksempel 4: Gjentatt delvis integrasjon","152329c7760a628d":"Finn $\\displaystyle\\int x^2 \\cdot e^x \\, dx$.","aa0d8e6864b88efa":"**Løysing:**\n\n**Første runde:**\n- $u = x^2 \\quad \\Rightarrow \\quad u' = 2x$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\n$$\\int x^2 \\cdot e^x \\, dx = x^2 \\cdot e^x - \\int 2x \\cdot e^x \\, dx$$\n\n**Andre runde** (på $\\int 2x \\cdot e^x \\, dx$):\n- $u = 2x \\quad \\Rightarrow \\quad u' = 2$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\n$$\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2 \\cdot e^x \\, dx = 2x \\cdot e^x - 2e^x$$\n\n**Set saman:**\n\n$$\\int x^2 \\cdot e^x \\, dx = x^2 \\cdot e^x - (2x \\cdot e^x - 2e^x) + C$$\n\n$$= x^2 e^x - 2x e^x + 2e^x + C$$\n\n$$= e^x(x^2 - 2x + 2) + C$$\n\n**Sjekk:** $(e^x(x^2 - 2x + 2))' = e^x(x^2 - 2x + 2) + e^x(2x - 2) = e^x(x^2 - 2x + 2 + 2x - 2) = x^2 e^x$ ✓","5667015fe6ba4df6":"## Tabellarisk delvis integrasjon\n\nNår vi har eit polynom ganga med $e^x$ eller ein trigonometrisk funksjon, kan vi bruke ein **tabellarisk metode** som gjer utrekninga meir oversiktleg.\n\nVi set opp ein tabell med tre kolonnar:\n1. **Forteikn**: Vekslande $+$ og $-$\n2. **Deriverte av $u$**: Deriver til du når 0\n3. **Integral av $v'$**: Integrer like mange gonger\n\nSvaret får vi ved å multiplisere diagonalt og summere.","04aac7b1f4b4c8af":"Eksempel 8: Tabellarisk metode","6ff060690700d061":"Bruk tabellarisk metode til å finne $\\displaystyle\\int x^3 \\cdot e^{2x} \\, dx$.","8478fb8fcc662301":"**Løysing:**\n\nVi set opp tabellen med $u = x^3$ (deriverer) og $v' = e^{2x}$ (integrerer):\n\n| Forteikn | Deriverte av $u$ | Integral av $v'$ |\n|---------|------------------|-------------------|\n| $+$ | $x^3$ | $e^{2x}$ |\n| $-$ | $3x^2$ | $\\frac{1}{2}e^{2x}$ |\n| $+$ | $6x$ | $\\frac{1}{4}e^{2x}$ |\n| $-$ | $6$ | $\\frac{1}{8}e^{2x}$ |\n| $+$ | $0$ | $\\frac{1}{16}e^{2x}$ |\n\nMultipliserer diagonalt (rad 1 med rad 2, rad 2 med rad 3, osv.) og summerer:\n\n$$\\int x^3 \\cdot e^{2x} \\, dx = (+)x^3 \\cdot \\frac{1}{2}e^{2x} + (-)3x^2 \\cdot \\frac{1}{4}e^{2x} + (+)6x \\cdot \\frac{1}{8}e^{2x} + (-)6 \\cdot \\frac{1}{16}e^{2x} + C$$\n\n$$= \\frac{e^{2x}}{2}x^3 - \\frac{3e^{2x}}{4}x^2 + \\frac{6e^{2x}}{8}x - \\frac{6e^{2x}}{16} + C$$\n\n$$= \\frac{e^{2x}}{16}(8x^3 - 12x^2 + 12x - 6) + C$$\n\n$$= \\frac{e^{2x}}{8}(4x^3 - 6x^2 + 6x - 3) + C$$","80778e5851a27481":"Bruk gjentatt delvis integrasjon (eller tabellarisk metode) til å finne integrala.","dc92a095bfcc24a4":"$\\displaystyle\\int x^2 \\cdot \\cos(x) \\, dx$","ffad5e75fc38301a":"Første runde: $u = x^2$, $v' = \\cos(x)$ gir $x^2\\sin(x) - \\int 2x\\sin(x) \\, dx$. Andre runde: $u = 2x$, $v' = \\sin(x)$ gir $-2x\\cos(x) + \\int 2\\cos(x) \\, dx = -2x\\cos(x) + 2\\sin(x)$. Totalt: $x^2\\sin(x) + 2x\\cos(x) - 2\\sin(x) + C$","6c19d6a97d71020c":"$\\displaystyle\\int x^2 \\cdot e^{-x} \\, dx$","9e4088dd487bb6cb":"Første runde: $u = x^2$, $v' = e^{-x}$ gir $-x^2 e^{-x} + \\int 2x e^{-x} \\, dx$. Andre runde: $u = 2x$, $v' = e^{-x}$ gir $-2x e^{-x} + \\int 2e^{-x} \\, dx = -2x e^{-x} - 2e^{-x}$. Totalt: $-x^2 e^{-x} - 2x e^{-x} - 2e^{-x} + C = -e^{-x}(x^2 + 2x + 2) + C$","17b167cbe4dfd36a":"$\\displaystyle\\int x^3 \\cdot e^x \\, dx$","8a30ec2c1931e9d8":"Tre rundar med delvis integrasjon gir: $e^x(x^3 - 3x^2 + 6x - 6) + C$","7b07a189e1744251":"$\\displaystyle\\int x^2 \\cdot \\sin(2x) \\, dx$","005fab5e911f0c1e":"To rundar: $-\\frac{x^2}{2}\\cos(2x) + \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$","34b7c31f3f7c871a":"a) $x^2\\sin(x) + 2x\\cos(x) - 2\\sin(x) + C$, b) $-e^{-x}(x^2 + 2x + 2) + C$, c) $e^x(x^3 - 3x^2 + 6x - 6) + C$, d) $-\\frac{x^2}{2}\\cos(2x) + \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$","7310c68211346f54":"Polynom av grad $n$ krev $n$ rundar med delvis integrasjon","75de70e915e3c4e5":"Hald orden på forteikna - det er lett å gjere feil!","f4682b6e3edd5e35":"Prøv tabellarisk metode for c) og d)","6ff5f39300733dbe":"## Sirkulær delvis integrasjon\n\nNokre gonger leier delvis integrasjon oss i ein sirkel - vi endar opp med det same integralet vi starta med! Dette skjer typisk med produkt av eksponential- og trigonometriske funksjonar, til dømes $\\int e^x \\sin(x) \\, dx$.\n\nLøysinga er å setje opp ei likning der integralet vi søkjer etter er det ukjende, og deretter løyse for dette ukjende.","27e0448894156d7f":"Sirkulær delvis integrasjon","3cf70c55ffcf4c67":"Viss vi etter to rundar med delvis integrasjon endar opp med det opphavlege integralet $I$, kan vi setje opp likninga:\n\n$$I = (\\text{mellomresultat}) \\pm I$$\n\nog løyse for $I$:\n\n$$2I = (\\text{mellomresultat}) \\quad \\Rightarrow \\quad I = \\frac{\\text{mellomresultat}}{2}$$\n\n**Viktig:** Pass på forteiknet framføre $I$ på høgre side - det avheng av vala av $u$ og $v'$.","1bfb29b8644ce036":"Eksempel 5: Sirkulær delvis integrasjon","f6712879e70f1184":"Finn $\\displaystyle\\int e^x \\cdot \\sin(x) \\, dx$.","4d2adf0f1c9e77fe":"**Løysing:**\n\nLat $I = \\int e^x \\sin(x) \\, dx$.\n\n**Første runde:**\n- $u = e^x \\quad \\Rightarrow \\quad u' = e^x$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\n$$I = -e^x \\cos(x) - \\int (-\\cos(x)) \\cdot e^x \\, dx = -e^x \\cos(x) + \\int e^x \\cos(x) \\, dx$$\n\n**Andre runde** (på $\\int e^x \\cos(x) \\, dx$):\n- $u = e^x \\quad \\Rightarrow \\quad u' = e^x$\n- $v' = \\cos(x) \\quad \\Rightarrow \\quad v = \\sin(x)$\n\n$$\\int e^x \\cos(x) \\, dx = e^x \\sin(x) - \\int e^x \\sin(x) \\, dx = e^x \\sin(x) - I$$\n\n**Set saman:**\n\n$$I = -e^x \\cos(x) + e^x \\sin(x) - I$$\n\n$$2I = e^x(\\sin(x) - \\cos(x))$$\n\n$$I = \\frac{e^x(\\sin(x) - \\cos(x))}{2} + C$$\n\n**Sjekk:** $\\left(\\frac{e^x(\\sin x - \\cos x)}{2}\\right)' = \\frac{e^x(\\sin x - \\cos x) + e^x(\\cos x + \\sin x)}{2} = \\frac{2e^x \\sin x}{2} = e^x \\sin x$ ✓","f3889e190a12f8cb":"Bruk sirkulær delvis integrasjon til å finne integrala.","cfa77738c0dc4a76":"$\\displaystyle\\int e^x \\cdot \\cos(x) \\, dx$","4334b6eca5125a0b":"Lat $I = \\int e^x \\cos(x) \\, dx$. Etter to rundar: $I = e^x \\sin(x) + e^x \\cos(x) - I$, så $2I = e^x(\\sin(x) + \\cos(x))$, og $I = \\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$","0b8e711b29954b0c":"$\\displaystyle\\int e^{2x} \\cdot \\sin(x) \\, dx$","d8acb9afc0475a7a":"Lat $I = \\int e^{2x} \\sin(x) \\, dx$. Etter to rundar: $I = -e^{2x}\\cos(x) + 2e^{2x}\\sin(x) - 4I$, så $5I = e^{2x}(2\\sin(x) - \\cos(x))$, og $I = \\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$","966dda0907a3d5ee":"$\\displaystyle\\int e^{-x} \\cdot \\cos(2x) \\, dx$","d4733e7e7e676291":"Lat $I = \\int e^{-x} \\cos(2x) \\, dx$. Etter to rundar får vi $5I = e^{-x}(2\\sin(2x) - \\cos(2x))$, så $I = \\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$","95d34b209b804150":"a) $\\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$, b) $\\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$, c) $\\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$","d6999ed20542e87c":"Sett opp $I$ for det ukjende integralet før du startar","bb9f68890805f804":"Når du ser $I$ dukke opp igjen, sett opp ei likning og løys for $I$","61e7178f2eefef78":"For b) og c): Pass på koeffisientane når du bruker kjerneregelen","030e99304f5b345e":"Generell formel for $\\int e^{ax} \\sin(bx) \\, dx$ og $\\int e^{ax} \\cos(bx) \\, dx$","a6fd1a34df1ea4df":"For konstantar $a$ og $b$ gjeld:\n\n$$\\int e^{ax} \\sin(bx) \\, dx = \\frac{e^{ax}(a\\sin(bx) - b\\cos(bx))}{a^2 + b^2} + C$$\n\n$$\\int e^{ax} \\cos(bx) \\, dx = \\frac{e^{ax}(a\\cos(bx) + b\\sin(bx))}{a^2 + b^2} + C$$\n\n**Merk:** Desse formlane kan utleiast ved sirkulær delvis integrasjon, men er nyttige å ha tilgjengelege for å spare tid.","83eb000fb9115ea1":"## Bestemt integral med delvis integrasjon\n\nNår vi bruker delvis integrasjon på eit bestemt integral, har vi to tilnærmingar:\n\n**Metode 1:** Finn først det ubestemte integralet, og evaluer deretter ved grensene.\n\n**Metode 2:** Bruk formelen for delvis integrasjon direkte med grenser:\n\n$$\\int_a^b u \\cdot v' \\, dx = \\Big[u \\cdot v\\Big]_a^b - \\int_a^b u' \\cdot v \\, dx$$\n\nMetode 2 kan vere meir effektiv fordi vi slepp å halde styr på integrasjonskonstanten.","b2d73924fd198c4a":"Eksempel 6: Bestemt integral","b8f61b7ebe082ab5":"Rekn ut $\\displaystyle\\int_0^1 x \\cdot e^x \\, dx$.","ab349108e2671ae5":"**Løysing:**\n\nVi bruker formelen $\\int_a^b u \\cdot v' \\, dx = [u \\cdot v]_a^b - \\int_a^b u' \\cdot v \\, dx$.\n\nMed $u = x$, $u' = 1$, $v' = e^x$, $v = e^x$:\n\n$$\\int_0^1 x \\cdot e^x \\, dx = \\Big[x \\cdot e^x\\Big]_0^1 - \\int_0^1 1 \\cdot e^x \\, dx$$\n\n$$= \\Big[x \\cdot e^x\\Big]_0^1 - \\Big[e^x\\Big]_0^1$$\n\n$$= (1 \\cdot e^1 - 0 \\cdot e^0) - (e^1 - e^0)$$\n\n$$= e - 0 - e + 1$$\n\n$$= 1$$","7790bded76a224f2":"Rekn ut dei bestemte integrala ved hjelp av delvis integrasjon.","e6f90bbae903d3e7":"$\\displaystyle\\int_0^{\\pi} x \\cdot \\sin(x) \\, dx$","fab459780090dc3b":"$[−x\\cos(x)]_0^{\\pi} + \\int_0^{\\pi} \\cos(x) \\, dx = (-\\pi \\cdot (-1) - 0) + [\\sin(x)]_0^{\\pi} = \\pi + 0 = \\pi$","0e1b6770de735721":"$\\displaystyle\\int_1^e \\ln(x) \\, dx$","0abb7daaffeb9f15":"$[x\\ln(x)]_1^e - \\int_1^e 1 \\, dx = (e \\cdot 1 - 1 \\cdot 0) - [x]_1^e = e - (e - 1) = 1$","29fb863557fb9620":"$\\displaystyle\\int_0^2 x \\cdot e^{-x} \\, dx$","f1cfd7948b3c5eaf":"$[-x e^{-x}]_0^2 + \\int_0^2 e^{-x} \\, dx = (-2e^{-2} - 0) + [-e^{-x}]_0^2 = -2e^{-2} + (-e^{-2} + 1) = 1 - 3e^{-2}$","b31245ba41ca492d":"$\\displaystyle\\int_1^e x \\cdot \\ln(x) \\, dx$","878a0f3e82848036":"$[\\frac{x^2}{2}\\ln(x)]_1^e - \\int_1^e \\frac{x}{2} \\, dx = (\\frac{e^2}{2} - 0) - [\\frac{x^2}{4}]_1^e = \\frac{e^2}{2} - \\frac{e^2 - 1}{4} = \\frac{e^2 + 1}{4}$","9de9204b0fef9299":"a) $\\pi$, b) $1$, c) $1 - 3e^{-2} \\approx 0{,}594$, d) $\\frac{e^2 + 1}{4} \\approx 2{,}097$","854dc2d21792f4e0":"Bruk formelen $[u \\cdot v]_a^b - \\int_a^b u' \\cdot v \\, dx$","2db3a1039886a350":"Evaluer $[\\cdot]_a^b$ tyder: sett inn øvre grense minus nedre grense","daca0421bfde6848":"For b): Hugs at $\\ln(1) = 0$ og $\\ln(e) = 1$","56ac31be63e6e279":"## Inverse trigonometriske funksjonar\n\nInverse trigonometriske funksjonar som $\\arcsin(x)$, $\\arccos(x)$ og $\\arctan(x)$ er vanskelege å integrere direkte, men enkle å derivere. Derfor vel vi alltid desse som $u$ i delvis integrasjon.\n\nViktige deriverte:\n- $(\\arcsin(x))' = \\frac{1}{\\sqrt{1-x^2}}$\n- $(\\arccos(x))' = -\\frac{1}{\\sqrt{1-x^2}}$\n- $(\\arctan(x))' = \\frac{1}{1+x^2}$","1d69f94360bcff7f":"Eksempel 9: Integrere $\\arctan(x)$","c36c36e74f5bd53a":"Finn $\\displaystyle\\int \\arctan(x) \\, dx$.","5a93ffaa99c19d04":"**Løysing:**\n\nVi skriv $\\arctan(x) = \\arctan(x) \\cdot 1$ og bruker delvis integrasjon.\n\n- $u = \\arctan(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{1+x^2}$\n- $v' = 1 \\quad \\Rightarrow \\quad v = x$\n\n$$\\int \\arctan(x) \\, dx = x \\cdot \\arctan(x) - \\int x \\cdot \\frac{1}{1+x^2} \\, dx$$\n\nFor det gjenverande integralet bruker vi substitusjon $t = 1 + x^2$, $dt = 2x \\, dx$:\n\n$$\\int \\frac{x}{1+x^2} \\, dx = \\frac{1}{2} \\int \\frac{1}{t} \\, dt = \\frac{1}{2} \\ln|t| = \\frac{1}{2} \\ln(1+x^2)$$\n\nDermed:\n\n$$\\int \\arctan(x) \\, dx = x \\cdot \\arctan(x) - \\frac{1}{2}\\ln(1+x^2) + C$$","28dd02b5cfe7be3f":"Finn integrala som involverer inverse trigonometriske funksjonar.","92eede0609aca168":"$\\displaystyle\\int \\arcsin(x) \\, dx$","399231701123a2c3":"Lat $u = \\arcsin(x)$, $v' = 1$. Då $u' = \\frac{1}{\\sqrt{1-x^2}}$, $v = x$. Integralet blir $x\\arcsin(x) - \\int \\frac{x}{\\sqrt{1-x^2}} \\, dx$. Med substitusjon $t = 1-x^2$: $\\int \\frac{x}{\\sqrt{1-x^2}} \\, dx = -\\sqrt{1-x^2}$. Svar: $x\\arcsin(x) + \\sqrt{1-x^2} + C$","a162455587f2072e":"$\\displaystyle\\int x \\cdot \\arctan(x) \\, dx$","2bebf725a82d249b":"Lat $u = \\arctan(x)$, $v' = x$. Då $u' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Svar: $\\frac{x^2+1}{2}\\arctan(x) - \\frac{x}{2} + C$","759f6e6f2a8cf272":"$\\displaystyle\\int_0^1 \\arctan(x) \\, dx$","2fc38c1fb4d6a5de":"$[x\\arctan(x) - \\frac{1}{2}\\ln(1+x^2)]_0^1 = (1 \\cdot \\frac{\\pi}{4} - \\frac{1}{2}\\ln 2) - 0 = \\frac{\\pi}{4} - \\frac{\\ln 2}{2}$","34ac07a6ee890d17":"a) $x\\arcsin(x) + \\sqrt{1-x^2} + C$, b) $\\frac{x^2+1}{2}\\arctan(x) - \\frac{x}{2} + C$, c) $\\frac{\\pi}{4} - \\frac{\\ln 2}{2} \\approx 0{,}439$","0b2b54b5c0dd322d":"Inverse trigonometriske funksjonar har høgast prioritet i LIATE","35c7768ad5428c9e":"Du må ofte kombinere delvis integrasjon med substitusjon","ac647939bf6fa775":"For a) bruk substitusjon $t = 1-x^2$ på det gjenverande integralet","724486e96a742d97":"Eksempel 7: Kombinere teknikkar","bfb330327dfbcc0c":"Finn $\\displaystyle\\int x^2 \\cdot \\sin(x) \\, dx$.","5a5fd6e82dbe0a93":"**Løysing:**\n\nDette krev to rundar med delvis integrasjon.\n\n**Første runde:**\n- $u = x^2 \\quad \\Rightarrow \\quad u' = 2x$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\n$$\\int x^2 \\sin(x) \\, dx = -x^2 \\cos(x) - \\int (-\\cos(x)) \\cdot 2x \\, dx$$\n$$= -x^2 \\cos(x) + 2\\int x \\cos(x) \\, dx$$\n\n**Andre runde** (på $\\int x \\cos(x) \\, dx$):\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = \\cos(x) \\quad \\Rightarrow \\quad v = \\sin(x)$\n\n$$\\int x \\cos(x) \\, dx = x \\sin(x) - \\int \\sin(x) \\, dx = x \\sin(x) + \\cos(x)$$\n\n**Set saman:**\n\n$$\\int x^2 \\sin(x) \\, dx = -x^2 \\cos(x) + 2(x \\sin(x) + \\cos(x)) + C$$\n$$= -x^2 \\cos(x) + 2x \\sin(x) + 2\\cos(x) + C$$\n$$= (2 - x^2)\\cos(x) + 2x\\sin(x) + C$$","8426fa8d19279ea2":"Vanlege feil ved delvis integrasjon","fdf26a7af0fb878b":"**1. Feil val av $u$ og $v'$:**\nViss du vel feil, får du eit vanskelegare integral. Bruk LIATE-regelen!\n\n**2. Gløymer forteikn:**\nVer nøye med minusteiknet i formelen: $\\int u \\cdot v' \\, dx = uv \\mathbf{-} \\int u' \\cdot v \\, dx$\n\n**3. Gløymer integrasjonskonstanten:**\nHugs alltid $+ C$ på slutten av ubestemte integral.\n\n**4. Feil ved sirkulær integrasjon:**\nPass på at integralet $I$ dukkar opp med rett forteikn når du set opp likninga.\n\n**5. Stoppar for tidleg:**\nVed gjentatt delvis integrasjon, hald fram til polynomet er derivert til 0.","29c47ef6666378b1":"Løys desse utfordrande integrala.","6c5608bb8d19abae":"$\\displaystyle\\int (\\ln(x))^2 \\, dx$","822f6361b014482b":"Lat $u = (\\ln x)^2$, $v' = 1$. Då $u' = \\frac{2\\ln x}{x}$, $v = x$. Første runde gir $x(\\ln x)^2 - 2\\int \\ln x \\, dx$. Vi veit at $\\int \\ln x \\, dx = x\\ln x - x$. Totalt: $x(\\ln x)^2 - 2(x\\ln x - x) + C = x(\\ln x)^2 - 2x\\ln x + 2x + C = x((\\ln x)^2 - 2\\ln x + 2) + C$","63176bd2ac63ce0f":"Lat $u = \\arctan(x)$, $v' = x$. Då $u' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Då får vi $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}(x - \\arctan(x)) + C = \\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$","d6d4cb1fa2195e28":"$\\displaystyle\\int_0^{\\pi/2} x^2 \\cdot \\cos(x) \\, dx$","fb6d36880dd9a18f":"To rundar gir $[x^2 \\sin x + 2x\\cos x - 2\\sin x]_0^{\\pi/2} = (\\frac{\\pi^2}{4} \\cdot 1 + 0 - 2) - 0 = \\frac{\\pi^2}{4} - 2$","dc4b1a317a249cae":"a) $x((\\ln x)^2 - 2\\ln x + 2) + C$, b) $\\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$, c) $\\frac{\\pi^2}{4} - 2$","9949e2a6382cfde5":"For a): Du må bruke delvis integrasjon to gonger","9211c7b1aa775f4d":"For b): Inverse trigonometriske funksjonar har høg prioritet i LIATE","a0df342aac23cbf7":"For c): Bruk resultatet frå gjentatt delvis integrasjon","e7f3cdfea12b0579":"## Bruksområde for delvis integrasjon\n\nDelvis integrasjon har mange praktiske bruksområde:\n\n**1. Fysikk - Arbeid og energi:**\nArbeidet utført av ein variabel kraft $F(x)$ over ei strekning er $W = \\int F(x) \\, dx$. Når krafta er eit produkt av funksjonar, bruker vi delvis integrasjon.\n\n**2. Sannsynsrekning:**\nForventningsverdi og varians av kontinuerlege sannsynsfordelingar krev ofte delvis integrasjon.\n\n**3. Fourier-analyse:**\nUtrekning av Fourier-koeffisientar involverer integral av typen $\\int f(x) \\sin(nx) \\, dx$ og $\\int f(x) \\cos(nx) \\, dx$.\n\n**4. Differensiallikningar:**\nLøysing av visse differensiallikningar krev delvis integrasjon.","8d322c49147f5669":"Eksempel 10: Gjennomsnittsverdi","9ebdc1aa1033ae45":"Finn gjennomsnittsverdien til funksjonen $f(x) = x \\cdot e^{-x}$ på intervallet $[0, 2]$.","9668b78aa3c839d6":"**Løysing:**\n\nGjennomsnittsverdien på $[a, b]$ er gitt ved:\n\n$$\\bar{f} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx$$\n\nVi må først rekne ut $\\int_0^2 x \\cdot e^{-x} \\, dx$.\n\nMed delvis integrasjon ($u = x$, $v' = e^{-x}$):\n\n$$\\int_0^2 x \\cdot e^{-x} \\, dx = \\Big[-x e^{-x}\\Big]_0^2 + \\int_0^2 e^{-x} \\, dx$$\n\n$$= (-2e^{-2} - 0) + \\Big[-e^{-x}\\Big]_0^2$$\n\n$$= -2e^{-2} + (-e^{-2} + 1)$$\n\n$$= 1 - 3e^{-2}$$\n\nGjennomsnittsverdien blir:\n\n$$\\bar{f} = \\frac{1}{2-0}(1 - 3e^{-2}) = \\frac{1 - 3e^{-2}}{2} \\approx 0{,}297$$","0372d809add3a9e1":"## Eksamensrelevante oppgåver\n\nPå eksamen i R2 kjem delvis integrasjon ofte i kombinasjon med andre emne. Typiske oppgåver:\n\n- Finn areal avgrensa av grafar der integralet krev delvis integrasjon\n- Rekn ut volum av omdreiingslekamar\n- Finn gjennomsnittsverdiar\n- Løys differensiallikningar\n- Rekn ut forventningsverdi i sannsynsrekning","9c864c09ba1e00b7":"Løys desse eksamensrelevante oppgåvene.","9dcad82977fa0643":"Finn arealet av området avgrensa av $y = x \\cdot e^{-x}$, $x$-aksen, $x = 0$ og $x = 2$.","58a9b28d8fb23d10":"Arealet er $\\int_0^2 x \\cdot e^{-x} \\, dx = 1 - 3e^{-2} \\approx 0{,}594$ (sjå eksempel 10)","2458fe5f101e67f1":"Finn volumet når området under $y = \\ln(x)$ frå $x = 1$ til $x = e$ blir rotert om $x$-aksen.","3a4844dacc35f006":"Volumet er $V = \\pi \\int_1^e (\\ln x)^2 \\, dx$. Med delvis integrasjon to gonger: $\\int (\\ln x)^2 \\, dx = x((\\ln x)^2 - 2\\ln x + 2)$. Evaluert: $V = \\pi[x((\\ln x)^2 - 2\\ln x + 2)]_1^e = \\pi(e(1-2+2) - 1(0-0+2)) = \\pi(e - 2)$","78e0d87102ea4bc8":"Vis at $\\displaystyle\\int_0^{\\pi/2} \\sin^2(x) \\, dx = \\frac{\\pi}{4}$ ved delvis integrasjon.","8be2badd04a94d10":"Skriv $\\sin^2(x) = \\sin(x) \\cdot \\sin(x)$. Lat $u = \\sin(x)$, $v' = \\sin(x)$, så $u' = \\cos(x)$, $v = -\\cos(x)$. Då: $\\int \\sin^2 x \\, dx = -\\sin x \\cos x + \\int \\cos^2 x \\, dx = -\\sin x \\cos x + \\int (1-\\sin^2 x) \\, dx$. Dette gir $2\\int \\sin^2 x \\, dx = x - \\sin x \\cos x$, så $\\int \\sin^2 x \\, dx = \\frac{x - \\sin x \\cos x}{2}$. Evaluert: $[\\frac{x - \\sin x \\cos x}{2}]_0^{\\pi/2} = \\frac{\\pi/2 - 0}{2} = \\frac{\\pi}{4}$","42117d7ab83228e9":"a) $1 - 3e^{-2} \\approx 0{,}594$, b) $\\pi(e - 2) \\approx 2{,}26$, c) Sjå fullstendig løysing","77fee9cc6807670c":"For a): Dette er eit standard areal-integral","1da4a0ff55190730":"For b): Volum ved rotasjon om $x$-aksen: $V = \\pi \\int_a^b (f(x))^2 \\, dx$","c607ab74f062176a":"For c): Du får eit sirkulært integral - løys for $\\int \\sin^2 x \\, dx$","98e95367044ff3c2":"Blanda oppgåver - vel rett integrasjonsteknikk.","ac3c22fe558709cf":"$\\displaystyle\\int x^2 \\cdot e^{x^3} \\, dx$","601b4d4e086c0b3b":"Dette er IKKJE delvis integrasjon! Bruk substitusjon $u = x^3$: $\\int x^2 \\cdot e^{x^3} \\, dx = \\frac{1}{3} e^{x^3} + C$","cd27439ad4417157":"$\\displaystyle\\int x \\cdot \\sqrt{1+x^2} \\, dx$","f0b8ba6bc1ccaf14":"Substitusjon $u = 1 + x^2$: $\\int x \\cdot \\sqrt{1+x^2} \\, dx = \\frac{1}{3}(1+x^2)^{3/2} + C$","bfc921e70e662dd8":"$\\displaystyle\\int x \\cdot \\ln(x^2) \\, dx$","f8ad96466a1c312f":"Skriv om: $\\ln(x^2) = 2\\ln(x)$. Bruk delvis integrasjon: $\\int 2x\\ln(x) \\, dx = x^2\\ln(x) - \\frac{x^2}{2} + C$","d14bf65f8fd100ff":"$\\displaystyle\\int e^x \\cdot \\sin(e^x) \\, dx$","32be79c151ffb38b":"Substitusjon $u = e^x$: $\\int e^x \\cdot \\sin(e^x) \\, dx = -\\cos(e^x) + C$","81df2136fdbbe399":"a) $\\frac{1}{3}e^{x^3} + C$, b) $\\frac{1}{3}(1+x^2)^{3/2} + C$, c) $x^2\\ln(x) - \\frac{x^2}{2} + C$, d) $-\\cos(e^x) + C$","0859a33f92b6015a":"Ikkje alt som ser ut som delvis integrasjon er det!","fafd35675fb1d855":"Sjå etter om den deriverte av ein indre funksjon står utanfor","225fc12bce275702":"Forenkle først viss mogleg (som i oppgåve c)","a5afbdf1633b37c2":"**Når skal du bruke delvis integrasjon?**\n\nBruk delvis integrasjon når:\n1. Du har eit produkt av to *ulike* funksjonstypar\n2. Substitusjon ikkje fungerer\n3. Ein av funksjonane blir enklare ved derivasjon\n\nBruk substitusjon når:\n1. Du ser den deriverte av ein indre funksjon\n2. Integranden har forma $f(g(x)) \\cdot g'(x)$\n\n**Tips:** Prøv substitusjon først - det er ofte raskare!","2fbb79eda6d1b3b5":"## Oppsummering\n\n**Formelen for delvis integrasjon:**\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\n**LIATE-regelen for val av $u$:**\n1. Logaritmar\n2. Inverse trigonometriske\n3. Algebraiske (polynom)\n4. Trigonometriske\n5. Eksponentialfunksjonar\n\n**Spesielle tilfelle:**\n- Polynom av grad $n$ krev $n$ rundar med delvis integrasjon\n- Produkt av $e^x$ og trigonometriske funksjonar gir sirkulær delvis integrasjon\n- $\\int \\ln(x) \\, dx = x(\\ln(x) - 1) + C$ er eit viktig resultat\n\n**Hugs:**\n- Sjekk alltid svaret ved derivasjon\n- Ikkje gløym integrasjonskonstanten $C$\n- Vurder om substitusjon er enklare før du startar med delvis integrasjon","f68a496166b68532":"Viktige integral frå delvis integrasjon","994d067f5db62899":"Desse resultata er nyttige å hugse og kan brukast direkte i utrekningar.","0a70e6dda77aed2a":"Generelle formlar for polynom","24f8145098d024f2":"Legg merke til mønsteret: koeffisientane er fakultetar med vekslande forteikn.","f0db7f3333b88fb5":"Repetisjonsoppgåver","cc813884c5a66fe6":"Vis repetisjonsoppgåver","1f41ca98bc558f80":"Integrer med delvis integrasjon.","945352621c029374":"$\\int x e^x \\, dx$","8fe88da19e8f4055":"Med $u = x$, $v' = e^x$: $xe^x - \\int e^x \\, dx = (x-1)e^x + C$","b32ac33953ecb12c":"$\\int x \\sin x \\, dx$","e5ccc1c6ce9131c0":"Med $u = x$, $v' = \\sin x$: $-x\\cos x + \\int \\cos x \\, dx = -x\\cos x + \\sin x + C$","249c04750925cb4b":"$\\int x \\cos x \\, dx$","f5daf33dd751a3c5":"$x\\sin x - \\int \\sin x \\, dx = x\\sin x + \\cos x + C$","00e78c9cf94a0741":"$\\int 2x e^x \\, dx$","deb1155f14ea5577":"$2\\int x e^x\\,dx = 2(x-1)e^x + C$","bbca7c09fb47ec78":"a) $(x-1)e^x+C$  b) $-x\\cos x+\\sin x+C$  c) $x\\sin x+\\cos x+C$  d) $2(x-1)e^x+C$","572c43ac56f939c5":"Formelen: $\\int u v' \\, dx = uv - \\int u' v \\, dx$. Vel $u = x$.","024866b9b41b3ef3":"Integrer logaritmen.","b75386c70c1a8ead":"$\\int \\ln x \\, dx$","eb920889c1787366":"Med $u = \\ln x$, $v' = 1$: $x\\ln x - \\int x \\cdot \\frac{1}{x} \\, dx = x\\ln x - x + C$","32b7f3ee0f4be907":"$\\int x \\ln x \\, dx$","9c15f1cf93e7e606":"Med $u = \\ln x$, $v' = x$: $\\frac{x^2}{2}\\ln x - \\int \\frac{x}{2}\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$","17dbc6979fb70a5c":"a) $x\\ln x - x + C$  b) $\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}+C$","e219d1f86de311a7":"Vel $u = \\ln x$, sidan logaritmen blir enklare ved derivasjon.","086f6b83a16087fd":"Gjentatt delvis integrasjon: $\\int x^2 e^x \\, dx$.","0738135a2ad17b2d":"Utfør første delvise integrasjon.","378fd3b65a51bbf5":"$u = x^2$, $v' = e^x$: $x^2 e^x - \\int 2x e^x \\, dx$","c5b15b1ccb9c809d":"Fullfør utrekninga.","8ec9722717057bb6":"$\\int 2x e^x \\, dx = 2(x-1)e^x$, så $\\int x^2 e^x \\, dx = x^2 e^x - 2(x-1)e^x + C = (x^2 - 2x + 2)e^x + C$","02fae51c9eb029fe":"$(x^2-2x+2)e^x+C$","2badb66201e20f38":"Bruk delvis integrasjon to gonger.","5e8c52b282b6e628":"Rekn ut dei bestemte integrala.","ec35fe45cb90550a":"$\\int_0^1 x e^x \\, dx$","4942bb5025caa009":"$[(x-1)e^x]_0^1 = 0 - (-1) = 1$","42292edf621d5c84":"$\\int_1^e \\ln x \\, dx$","aa51b3ffab86106c":"$[x\\ln x - x]_1^e = (e - e) - (0 - 1) = 1$","398d216a2af383b7":"$\\int_0^{\\pi} x \\sin x \\, dx$. Oppgi eksakt svar.","fe791d65f07957f9":"$[-x\\cos x + \\sin x]_0^{\\pi} = (\\pi + 0) - 0 = \\pi$","16aaf1c031514e15":"$\\int_0^1 x e^{2x} \\, dx$. Oppgi eksakt svar.","365e8555fabb1179":"Med $u = x$, $v' = e^{2x}$: $\\left[\\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x}\\right]_0^1 = \\frac{e^2}{4} - \\left(-\\frac{1}{4}\\right) = \\frac{e^2 + 1}{4}$","b6ad0e9c2b795313":"a) 1  b) 1  c) $\\pi$  d) $\\frac{e^2+1}{4}$","f79672e0503e7e35":"Bruk antideriverte frå R1 og R2.","fc4e78a85f668edc":"Sirkulær delvis integrasjon: $\\int e^x \\sin x \\, dx$.","d98f0045ad91a814":"Bruk delvis integrasjon to gonger og vis at integralet dukkar opp igjen på høgre side.","4ce9c4544aa0ce73":"$I = \\int e^x \\sin x \\, dx = e^x \\sin x - \\int e^x \\cos x \\, dx = e^x \\sin x - \\left(e^x \\cos x + \\int e^x \\sin x \\, dx\\right) = e^x(\\sin x - \\cos x) - I$","ed970ebabe031474":"Løys likninga og finn integralet.","abd444757da43564":"$2I = e^x(\\sin x - \\cos x)$, så $I = \\frac{e^x(\\sin x - \\cos x)}{2} + C$","a6aa105aef0a1482":"Bruk resultatet til å rekne ut $\\int_0^{\\pi} e^x \\sin x \\, dx$. Oppgi eksakt svar.","bf3c5e16b90cf132":"$\\left[\\frac{e^x(\\sin x - \\cos x)}{2}\\right]_0^{\\pi} = \\frac{e^{\\pi}(0+1)}{2} - \\frac{1 \\cdot (0-1)}{2} = \\frac{e^{\\pi} + 1}{2}$","919df35167fa6cf1":"a) sjå utrekning  b) $\\frac{e^x(\\sin x - \\cos x)}{2}+C$  c) $\\frac{e^{\\pi}+1}{2}$","e1c9d89e110e9dde":"Flytt integralet over på venstre side og løys som ei likning."}}}
+{
+  "id": "r2-3-2",
+  "courseId": "r2",
+  "chapterNumber": "3.2",
+  "title": "Delvis integrasjon",
+  "description": "Lèt oss integrere produkt av funksjonar ved å bruke produktregelen baklengs.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "meistre teknikken delvis integrasjon",
+    "velje rett u og v' i delvis integrasjon",
+    "bruke gjentatt delvis integrasjon",
+    "løyse sirkulær delvis integrasjon",
+    "bruke delvis integrasjon på bestemte integral",
+    "kombinere delvis integrasjon med andre teknikkar"
+  ],
+  "content": [
+    {
+      "id": "r2-3-2-text-1",
+      "type": "text",
+      "content": "## Innleiing\n\nI førre kapittel lærte vi substitusjon, som er kjerneregelen baklengs. No skal vi lære ein annan viktig integrasjonsteknikk: **delvis integrasjon**.\n\nDelvis integrasjon blir brukt når vi skal integrere eit *produkt* av to funksjonar, til dømes $x \\cdot e^x$ eller $x \\cdot \\sin(x)$.\n\nIdéen er å bruke **produktregelen for derivasjon baklengs**. Lat oss først hugse produktregelen:\n\n$$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$\n\nViss vi integrerer begge sider, får vi:\n\n$$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nVed å omorganisere denne likninga, kan vi utleie formelen for delvis integrasjon."
+    },
+    {
+      "id": "r2-3-2-text-2",
+      "type": "text",
+      "content": "## Utleiing av formelen\n\nVi startar med produktregelen:\n\n$$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$\n\nIntegrerer vi begge sider med omsyn på $x$:\n\n$$\\int (u \\cdot v)' \\, dx = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nVenstre side er berre $u \\cdot v$ (integralet av den deriverte gir tilbake funksjonen):\n\n$$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nNo løyser vi for $\\int u \\cdot v' \\, dx$:\n\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\nDette er formelen for delvis integrasjon!"
+    },
+    {
+      "id": "r2-3-2-def-1",
+      "type": "definition",
+      "title": "Delvis integrasjon",
+      "content": "Lat $u = u(x)$ og $v = v(x)$ vere deriverbare funksjonar. Då gjeld:\n\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\nEller med differensialnotasjon ($dv = v' \\, dx$ og $du = u' \\, dx$):\n\n$$\\int u \\, dv = u \\cdot v - \\int v \\, du$$\n\n**Merk:** Målet er at integralet på høgre side ($\\int u' \\cdot v \\, dx$) skal vere enklare å løyse enn det opphavlege integralet."
+    },
+    {
+      "id": "r2-3-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Integrere $x \\cdot e^x$",
+      "problem": "Finn $\\displaystyle\\int x \\cdot e^x \\, dx$.",
+      "solution": "**Løysing:**\n\nVi bruker delvis integrasjon med:\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\nSet inn i formelen $\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$:\n\n$$\\int x \\cdot e^x \\, dx = x \\cdot e^x - \\int 1 \\cdot e^x \\, dx$$\n\n$$= x \\cdot e^x - e^x + C$$\n\n$$= e^x(x - 1) + C$$\n\n**Sjekk ved derivasjon:**\n$(e^x(x-1))' = e^x(x-1) + e^x \\cdot 1 = e^x \\cdot x - e^x + e^x = x \\cdot e^x$ ✓"
+    },
+    {
+      "id": "r2-3-2-exercise-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-1",
+        "number": "3.2.1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk delvis integrasjon til å finne integrala.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int x \\cdot e^{2x} \\, dx$",
+            "solution": "Lat $u = x$ og $v' = e^{2x}$, så $u' = 1$ og $v = \\frac{1}{2}e^{2x}$. Då får vi $\\int x \\cdot e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\int \\frac{1}{2}e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x} + C = \\frac{e^{2x}}{4}(2x - 1) + C$"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int x \\cdot e^{-x} \\, dx$",
+            "solution": "Lat $u = x$ og $v' = e^{-x}$, så $u' = 1$ og $v = -e^{-x}$. Då får vi $\\int x \\cdot e^{-x} \\, dx = -x \\cdot e^{-x} - \\int (-e^{-x}) \\, dx = -x \\cdot e^{-x} - e^{-x} + C = -e^{-x}(x + 1) + C$"
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int 2x \\cdot e^x \\, dx$",
+            "solution": "Lat $u = 2x$ og $v' = e^x$, så $u' = 2$ og $v = e^x$. Då får vi $\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2e^x \\, dx = 2x \\cdot e^x - 2e^x + C = 2e^x(x - 1) + C$"
+          }
+        ],
+        "solution": "a) $\\frac{e^{2x}}{4}(2x - 1) + C$, b) $-e^{-x}(x + 1) + C$, c) $2e^x(x - 1) + C$",
+        "hints": [
+          "Vel $u$ som den funksjonen som blir enklare når du deriverer",
+          "Vel $v'$ som den funksjonen du enkelt kan integrere",
+          "Hugs å sjekke svaret ved å derivere!"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-text-3",
+      "type": "text",
+      "content": "## Val av $u$ og $v'$: LIATE-regelen\n\nDet viktigaste ved delvis integrasjon er å velje rett $u$ og $v'$. Målet er at det nye integralet $\\int u' \\cdot v \\, dx$ skal vere *enklare* enn det opphavlege.\n\nEi nyttig hugseregel er **LIATE** (eller LIPET på norsk), som gir prioritetsrekkjefølgje for val av $u$:\n\n| Prioritet | Type funksjon | Eksempel |\n|-----------|---------------|-----------|\n| 1 | **L**ogaritmar | $\\ln x$, $\\log x$ |\n| 2 | **I**nverse trigonometriske | $\\arcsin x$, $\\arctan x$ |\n| 3 | **A**lgebraiske (polynom) | $x$, $x^2$, $x^3$ |\n| 4 | **T**rigonometriske | $\\sin x$, $\\cos x$ |\n| 5 | **E**ksponentialfunksjonar | $e^x$, $2^x$ |\n\nFunksjonar høgt på lista blir valde som $u$, medan funksjonar lågt på lista blir valde som $v'$."
+    },
+    {
+      "id": "r2-3-2-tip-1",
+      "type": "tip",
+      "content": "**Kvifor fungerer LIATE?**\n\n- Logaritmar og inverse trigonometriske funksjonar er vanskelege å integrere, men enkle å derivere.\n- Polynom blir enklare når dei blir deriverte ($x^3 \\to 3x^2 \\to 6x \\to 6 \\to 0$).\n- Eksponentialfunksjonar forandrar seg ikkje når dei blir integrerte eller deriverte.\n\nDerfor: Vel funksjonar som blir *enklare* ved derivasjon som $u$."
+    },
+    {
+      "id": "r2-3-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Integrere $x \\cdot \\sin(x)$",
+      "problem": "Finn $\\displaystyle\\int x \\cdot \\sin(x) \\, dx$.",
+      "solution": "**Løysing:**\n\nIfølgje LIATE-regelen: $x$ (algebraisk) har høgare prioritet enn $\\sin(x)$ (trigonometrisk).\n\nVi vel:\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\nDelvis integrasjon gir:\n\n$$\\int x \\cdot \\sin(x) \\, dx = x \\cdot (-\\cos(x)) - \\int 1 \\cdot (-\\cos(x)) \\, dx$$\n\n$$= -x \\cos(x) + \\int \\cos(x) \\, dx$$\n\n$$= -x \\cos(x) + \\sin(x) + C$$\n\n**Sjekk:** $(-x\\cos(x) + \\sin(x))' = -\\cos(x) + x\\sin(x) + \\cos(x) = x\\sin(x)$ ✓"
+    },
+    {
+      "id": "r2-3-2-exercise-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-2",
+        "number": "3.2.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk delvis integrasjon og LIATE-regelen til å finne integrala.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int x \\cdot \\cos(x) \\, dx$",
+            "solution": "Lat $u = x$, $v' = \\cos(x)$. Då $u' = 1$, $v = \\sin(x)$. Integralet blir $x\\sin(x) - \\int \\sin(x) \\, dx = x\\sin(x) + \\cos(x) + C$"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int x \\cdot \\cos(2x) \\, dx$",
+            "solution": "Lat $u = x$, $v' = \\cos(2x)$. Då $u' = 1$, $v = \\frac{1}{2}\\sin(2x)$. Integralet blir $\\frac{x}{2}\\sin(2x) - \\int \\frac{1}{2}\\sin(2x) \\, dx = \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$"
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int x \\cdot \\sin(3x) \\, dx$",
+            "solution": "Lat $u = x$, $v' = \\sin(3x)$. Då $u' = 1$, $v = -\\frac{1}{3}\\cos(3x)$. Integralet blir $-\\frac{x}{3}\\cos(3x) + \\int \\frac{1}{3}\\cos(3x) \\, dx = -\\frac{x}{3}\\cos(3x) + \\frac{1}{9}\\sin(3x) + C$"
+          }
+        ],
+        "solution": "a) $x\\sin(x) + \\cos(x) + C$, b) $\\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$, c) $-\\frac{x}{3}\\cos(3x) + \\frac{1}{9}\\sin(3x) + C$",
+        "hints": [
+          "Vel alltid polynomet ($x$) som $u$ når du har eit produkt av polynom og trigonometrisk funksjon",
+          "Hugs å bruke kjerneregelen når du integrerer trigonometriske funksjonar med argument $ax$"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Integrere $\\ln(x)$",
+      "problem": "Finn $\\displaystyle\\int \\ln(x) \\, dx$.",
+      "solution": "**Løysing:**\n\nHer har vi tilsynelatande berre éin funksjon, men vi kan skrive $\\ln(x) = \\ln(x) \\cdot 1$.\n\nIfølgje LIATE: Logaritmar har høgast prioritet, så $u = \\ln(x)$.\n\nVi vel:\n- $u = \\ln(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{x}$\n- $v' = 1 \\quad \\Rightarrow \\quad v = x$\n\nDelvis integrasjon gir:\n\n$$\\int \\ln(x) \\, dx = \\ln(x) \\cdot x - \\int \\frac{1}{x} \\cdot x \\, dx$$\n\n$$= x \\ln(x) - \\int 1 \\, dx$$\n\n$$= x \\ln(x) - x + C$$\n\n$$= x(\\ln(x) - 1) + C$$\n\n**Sjekk:** $(x\\ln(x) - x)' = \\ln(x) + x \\cdot \\frac{1}{x} - 1 = \\ln(x) + 1 - 1 = \\ln(x)$ ✓"
+    },
+    {
+      "id": "r2-3-2-exercise-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-3",
+        "number": "3.2.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Finn integrala ved å bruke delvis integrasjon.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int x \\cdot \\ln(x) \\, dx$",
+            "solution": "Lat $u = \\ln(x)$, $v' = x$. Då $u' = \\frac{1}{x}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\ln(x) - \\int \\frac{x^2}{2} \\cdot \\frac{1}{x} \\, dx = \\frac{x^2}{2}\\ln(x) - \\frac{1}{2}\\int x \\, dx = \\frac{x^2}{2}\\ln(x) - \\frac{x^2}{4} + C = \\frac{x^2}{4}(2\\ln(x) - 1) + C$"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int x^2 \\cdot \\ln(x) \\, dx$",
+            "solution": "Lat $u = \\ln(x)$, $v' = x^2$. Då $u' = \\frac{1}{x}$, $v = \\frac{x^3}{3}$. Integralet blir $\\frac{x^3}{3}\\ln(x) - \\int \\frac{x^3}{3} \\cdot \\frac{1}{x} \\, dx = \\frac{x^3}{3}\\ln(x) - \\frac{1}{3}\\int x^2 \\, dx = \\frac{x^3}{3}\\ln(x) - \\frac{x^3}{9} + C = \\frac{x^3}{9}(3\\ln(x) - 1) + C$"
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int \\ln(2x) \\, dx$",
+            "solution": "Lat $u = \\ln(2x)$, $v' = 1$. Då $u' = \\frac{1}{x}$, $v = x$. Integralet blir $x\\ln(2x) - \\int x \\cdot \\frac{1}{x} \\, dx = x\\ln(2x) - x + C = x(\\ln(2x) - 1) + C$"
+          }
+        ],
+        "solution": "a) $\\frac{x^2}{4}(2\\ln(x) - 1) + C$, b) $\\frac{x^3}{9}(3\\ln(x) - 1) + C$, c) $x(\\ln(2x) - 1) + C$",
+        "hints": [
+          "Logaritmar har høgast prioritet i LIATE, så vel alltid $u = \\ln(\\cdot)$",
+          "Hugs at $(\\ln(x))' = \\frac{1}{x}$"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-text-4",
+      "type": "text",
+      "content": "## Gjentatt delvis integrasjon\n\nNokre gonger må vi bruke delvis integrasjon fleire gonger for å løyse eit integral. Dette skjer typisk når vi har eit polynom av grad 2 eller høgare ganga med ein eksponential- eller trigonometrisk funksjon.\n\nTil dømes krev $\\int x^2 \\cdot e^x \\, dx$ to rundar med delvis integrasjon fordi $x^2$ må deriverast to gonger for å bli ein konstant."
+    },
+    {
+      "id": "r2-3-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Gjentatt delvis integrasjon",
+      "problem": "Finn $\\displaystyle\\int x^2 \\cdot e^x \\, dx$.",
+      "solution": "**Løysing:**\n\n**Første runde:**\n- $u = x^2 \\quad \\Rightarrow \\quad u' = 2x$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\n$$\\int x^2 \\cdot e^x \\, dx = x^2 \\cdot e^x - \\int 2x \\cdot e^x \\, dx$$\n\n**Andre runde** (på $\\int 2x \\cdot e^x \\, dx$):\n- $u = 2x \\quad \\Rightarrow \\quad u' = 2$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\n$$\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2 \\cdot e^x \\, dx = 2x \\cdot e^x - 2e^x$$\n\n**Set saman:**\n\n$$\\int x^2 \\cdot e^x \\, dx = x^2 \\cdot e^x - (2x \\cdot e^x - 2e^x) + C$$\n\n$$= x^2 e^x - 2x e^x + 2e^x + C$$\n\n$$= e^x(x^2 - 2x + 2) + C$$\n\n**Sjekk:** $(e^x(x^2 - 2x + 2))' = e^x(x^2 - 2x + 2) + e^x(2x - 2) = e^x(x^2 - 2x + 2 + 2x - 2) = x^2 e^x$ ✓"
+    },
+    {
+      "id": "r2-3-2-text-8",
+      "type": "text",
+      "content": "## Tabellarisk delvis integrasjon\n\nNår vi har eit polynom ganga med $e^x$ eller ein trigonometrisk funksjon, kan vi bruke ein **tabellarisk metode** som gjer utrekninga meir oversiktleg.\n\nVi set opp ein tabell med tre kolonnar:\n1. **Forteikn**: Vekslande $+$ og $-$\n2. **Deriverte av $u$**: Deriver til du når 0\n3. **Integral av $v'$**: Integrer like mange gonger\n\nSvaret får vi ved å multiplisere diagonalt og summere."
+    },
+    {
+      "id": "r2-3-2-ex-8",
+      "type": "example",
+      "title": "Eksempel 8: Tabellarisk metode",
+      "problem": "Bruk tabellarisk metode til å finne $\\displaystyle\\int x^3 \\cdot e^{2x} \\, dx$.",
+      "solution": "**Løysing:**\n\nVi set opp tabellen med $u = x^3$ (deriverer) og $v' = e^{2x}$ (integrerer):\n\n| Forteikn | Deriverte av $u$ | Integral av $v'$ |\n|---------|------------------|-------------------|\n| $+$ | $x^3$ | $e^{2x}$ |\n| $-$ | $3x^2$ | $\\frac{1}{2}e^{2x}$ |\n| $+$ | $6x$ | $\\frac{1}{4}e^{2x}$ |\n| $-$ | $6$ | $\\frac{1}{8}e^{2x}$ |\n| $+$ | $0$ | $\\frac{1}{16}e^{2x}$ |\n\nMultipliserer diagonalt (rad 1 med rad 2, rad 2 med rad 3, osv.) og summerer:\n\n$$\\int x^3 \\cdot e^{2x} \\, dx = (+)x^3 \\cdot \\frac{1}{2}e^{2x} + (-)3x^2 \\cdot \\frac{1}{4}e^{2x} + (+)6x \\cdot \\frac{1}{8}e^{2x} + (-)6 \\cdot \\frac{1}{16}e^{2x} + C$$\n\n$$= \\frac{e^{2x}}{2}x^3 - \\frac{3e^{2x}}{4}x^2 + \\frac{6e^{2x}}{8}x - \\frac{6e^{2x}}{16} + C$$\n\n$$= \\frac{e^{2x}}{16}(8x^3 - 12x^2 + 12x - 6) + C$$\n\n$$= \\frac{e^{2x}}{8}(4x^3 - 6x^2 + 6x - 3) + C$$"
+    },
+    {
+      "id": "r2-3-2-exercise-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-4",
+        "number": "3.2.4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bruk gjentatt delvis integrasjon (eller tabellarisk metode) til å finne integrala.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int x^2 \\cdot \\cos(x) \\, dx$",
+            "solution": "Første runde: $u = x^2$, $v' = \\cos(x)$ gir $x^2\\sin(x) - \\int 2x\\sin(x) \\, dx$. Andre runde: $u = 2x$, $v' = \\sin(x)$ gir $-2x\\cos(x) + \\int 2\\cos(x) \\, dx = -2x\\cos(x) + 2\\sin(x)$. Totalt: $x^2\\sin(x) + 2x\\cos(x) - 2\\sin(x) + C$"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int x^2 \\cdot e^{-x} \\, dx$",
+            "solution": "Første runde: $u = x^2$, $v' = e^{-x}$ gir $-x^2 e^{-x} + \\int 2x e^{-x} \\, dx$. Andre runde: $u = 2x$, $v' = e^{-x}$ gir $-2x e^{-x} + \\int 2e^{-x} \\, dx = -2x e^{-x} - 2e^{-x}$. Totalt: $-x^2 e^{-x} - 2x e^{-x} - 2e^{-x} + C = -e^{-x}(x^2 + 2x + 2) + C$"
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int x^3 \\cdot e^x \\, dx$",
+            "solution": "Tre rundar med delvis integrasjon gir: $e^x(x^3 - 3x^2 + 6x - 6) + C$"
+          },
+          {
+            "label": "d",
+            "task": "$\\displaystyle\\int x^2 \\cdot \\sin(2x) \\, dx$",
+            "solution": "To rundar: $-\\frac{x^2}{2}\\cos(2x) + \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$"
+          }
+        ],
+        "solution": "a) $x^2\\sin(x) + 2x\\cos(x) - 2\\sin(x) + C$, b) $-e^{-x}(x^2 + 2x + 2) + C$, c) $e^x(x^3 - 3x^2 + 6x - 6) + C$, d) $-\\frac{x^2}{2}\\cos(2x) + \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$",
+        "hints": [
+          "Polynom av grad $n$ krev $n$ rundar med delvis integrasjon",
+          "Hald orden på forteikna - det er lett å gjere feil!",
+          "Prøv tabellarisk metode for c) og d)"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-text-5",
+      "type": "text",
+      "content": "## Sirkulær delvis integrasjon\n\nNokre gonger leier delvis integrasjon oss i ein sirkel - vi endar opp med det same integralet vi starta med! Dette skjer typisk med produkt av eksponential- og trigonometriske funksjonar, til dømes $\\int e^x \\sin(x) \\, dx$.\n\nLøysinga er å setje opp ei likning der integralet vi søkjer etter er det ukjende, og deretter løyse for dette ukjende."
+    },
+    {
+      "id": "r2-3-2-thm-1",
+      "type": "theorem",
+      "title": "Sirkulær delvis integrasjon",
+      "content": "Viss vi etter to rundar med delvis integrasjon endar opp med det opphavlege integralet $I$, kan vi setje opp likninga:\n\n$$I = (\\text{mellomresultat}) \\pm I$$\n\nog løyse for $I$:\n\n$$2I = (\\text{mellomresultat}) \\quad \\Rightarrow \\quad I = \\frac{\\text{mellomresultat}}{2}$$\n\n**Viktig:** Pass på forteiknet framføre $I$ på høgre side - det avheng av vala av $u$ og $v'$."
+    },
+    {
+      "id": "r2-3-2-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Sirkulær delvis integrasjon",
+      "problem": "Finn $\\displaystyle\\int e^x \\cdot \\sin(x) \\, dx$.",
+      "solution": "**Løysing:**\n\nLat $I = \\int e^x \\sin(x) \\, dx$.\n\n**Første runde:**\n- $u = e^x \\quad \\Rightarrow \\quad u' = e^x$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\n$$I = -e^x \\cos(x) - \\int (-\\cos(x)) \\cdot e^x \\, dx = -e^x \\cos(x) + \\int e^x \\cos(x) \\, dx$$\n\n**Andre runde** (på $\\int e^x \\cos(x) \\, dx$):\n- $u = e^x \\quad \\Rightarrow \\quad u' = e^x$\n- $v' = \\cos(x) \\quad \\Rightarrow \\quad v = \\sin(x)$\n\n$$\\int e^x \\cos(x) \\, dx = e^x \\sin(x) - \\int e^x \\sin(x) \\, dx = e^x \\sin(x) - I$$\n\n**Set saman:**\n\n$$I = -e^x \\cos(x) + e^x \\sin(x) - I$$\n\n$$2I = e^x(\\sin(x) - \\cos(x))$$\n\n$$I = \\frac{e^x(\\sin(x) - \\cos(x))}{2} + C$$\n\n**Sjekk:** $\\left(\\frac{e^x(\\sin x - \\cos x)}{2}\\right)' = \\frac{e^x(\\sin x - \\cos x) + e^x(\\cos x + \\sin x)}{2} = \\frac{2e^x \\sin x}{2} = e^x \\sin x$ ✓"
+    },
+    {
+      "id": "r2-3-2-exercise-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-5",
+        "number": "3.2.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bruk sirkulær delvis integrasjon til å finne integrala.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int e^x \\cdot \\cos(x) \\, dx$",
+            "solution": "Lat $I = \\int e^x \\cos(x) \\, dx$. Etter to rundar: $I = e^x \\sin(x) + e^x \\cos(x) - I$, så $2I = e^x(\\sin(x) + \\cos(x))$, og $I = \\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int e^{2x} \\cdot \\sin(x) \\, dx$",
+            "solution": "Lat $I = \\int e^{2x} \\sin(x) \\, dx$. Etter to rundar: $I = -e^{2x}\\cos(x) + 2e^{2x}\\sin(x) - 4I$, så $5I = e^{2x}(2\\sin(x) - \\cos(x))$, og $I = \\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$"
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int e^{-x} \\cdot \\cos(2x) \\, dx$",
+            "solution": "Lat $I = \\int e^{-x} \\cos(2x) \\, dx$. Etter to rundar får vi $5I = e^{-x}(2\\sin(2x) - \\cos(2x))$, så $I = \\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$"
+          }
+        ],
+        "solution": "a) $\\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$, b) $\\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$, c) $\\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$",
+        "hints": [
+          "Sett opp $I$ for det ukjende integralet før du startar",
+          "Når du ser $I$ dukke opp igjen, sett opp ei likning og løys for $I$",
+          "For b) og c): Pass på koeffisientane når du bruker kjerneregelen"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-thm-2",
+      "type": "theorem",
+      "title": "Generell formel for $\\int e^{ax} \\sin(bx) \\, dx$ og $\\int e^{ax} \\cos(bx) \\, dx$",
+      "content": "For konstantar $a$ og $b$ gjeld:\n\n$$\\int e^{ax} \\sin(bx) \\, dx = \\frac{e^{ax}(a\\sin(bx) - b\\cos(bx))}{a^2 + b^2} + C$$\n\n$$\\int e^{ax} \\cos(bx) \\, dx = \\frac{e^{ax}(a\\cos(bx) + b\\sin(bx))}{a^2 + b^2} + C$$\n\n**Merk:** Desse formlane kan utleiast ved sirkulær delvis integrasjon, men er nyttige å ha tilgjengelege for å spare tid."
+    },
+    {
+      "id": "r2-3-2-text-6",
+      "type": "text",
+      "content": "## Bestemt integral med delvis integrasjon\n\nNår vi bruker delvis integrasjon på eit bestemt integral, har vi to tilnærmingar:\n\n**Metode 1:** Finn først det ubestemte integralet, og evaluer deretter ved grensene.\n\n**Metode 2:** Bruk formelen for delvis integrasjon direkte med grenser:\n\n$$\\int_a^b u \\cdot v' \\, dx = \\Big[u \\cdot v\\Big]_a^b - \\int_a^b u' \\cdot v \\, dx$$\n\nMetode 2 kan vere meir effektiv fordi vi slepp å halde styr på integrasjonskonstanten."
+    },
+    {
+      "id": "r2-3-2-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: Bestemt integral",
+      "problem": "Rekn ut $\\displaystyle\\int_0^1 x \\cdot e^x \\, dx$.",
+      "solution": "**Løysing:**\n\nVi bruker formelen $\\int_a^b u \\cdot v' \\, dx = [u \\cdot v]_a^b - \\int_a^b u' \\cdot v \\, dx$.\n\nMed $u = x$, $u' = 1$, $v' = e^x$, $v = e^x$:\n\n$$\\int_0^1 x \\cdot e^x \\, dx = \\Big[x \\cdot e^x\\Big]_0^1 - \\int_0^1 1 \\cdot e^x \\, dx$$\n\n$$= \\Big[x \\cdot e^x\\Big]_0^1 - \\Big[e^x\\Big]_0^1$$\n\n$$= (1 \\cdot e^1 - 0 \\cdot e^0) - (e^1 - e^0)$$\n\n$$= e - 0 - e + 1$$\n\n$$= 1$$"
+    },
+    {
+      "id": "r2-3-2-exercise-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-6",
+        "number": "3.2.6",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Rekn ut dei bestemte integrala ved hjelp av delvis integrasjon.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int_0^{\\pi} x \\cdot \\sin(x) \\, dx$",
+            "solution": "$[−x\\cos(x)]_0^{\\pi} + \\int_0^{\\pi} \\cos(x) \\, dx = (-\\pi \\cdot (-1) - 0) + [\\sin(x)]_0^{\\pi} = \\pi + 0 = \\pi$",
+            "expressionAnswer": "pi"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int_1^e \\ln(x) \\, dx$",
+            "solution": "$[x\\ln(x)]_1^e - \\int_1^e 1 \\, dx = (e \\cdot 1 - 1 \\cdot 0) - [x]_1^e = e - (e - 1) = 1$",
+            "answer": 1
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int_0^2 x \\cdot e^{-x} \\, dx$",
+            "solution": "$[-x e^{-x}]_0^2 + \\int_0^2 e^{-x} \\, dx = (-2e^{-2} - 0) + [-e^{-x}]_0^2 = -2e^{-2} + (-e^{-2} + 1) = 1 - 3e^{-2}$",
+            "expressionAnswer": "1-3e^(-2)"
+          },
+          {
+            "label": "d",
+            "task": "$\\displaystyle\\int_1^e x \\cdot \\ln(x) \\, dx$",
+            "solution": "$[\\frac{x^2}{2}\\ln(x)]_1^e - \\int_1^e \\frac{x}{2} \\, dx = (\\frac{e^2}{2} - 0) - [\\frac{x^2}{4}]_1^e = \\frac{e^2}{2} - \\frac{e^2 - 1}{4} = \\frac{e^2 + 1}{4}$",
+            "expressionAnswer": "(e^2+1)/4"
+          }
+        ],
+        "solution": "a) $\\pi$, b) $1$, c) $1 - 3e^{-2} \\approx 0{,}594$, d) $\\frac{e^2 + 1}{4} \\approx 2{,}097$",
+        "hints": [
+          "Bruk formelen $[u \\cdot v]_a^b - \\int_a^b u' \\cdot v \\, dx$",
+          "Evaluer $[\\cdot]_a^b$ tyder: sett inn øvre grense minus nedre grense",
+          "For b): Hugs at $\\ln(1) = 0$ og $\\ln(e) = 1$"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-text-9",
+      "type": "text",
+      "content": "## Inverse trigonometriske funksjonar\n\nInverse trigonometriske funksjonar som $\\arcsin(x)$, $\\arccos(x)$ og $\\arctan(x)$ er vanskelege å integrere direkte, men enkle å derivere. Derfor vel vi alltid desse som $u$ i delvis integrasjon.\n\nViktige deriverte:\n- $(\\arcsin(x))' = \\frac{1}{\\sqrt{1-x^2}}$\n- $(\\arccos(x))' = -\\frac{1}{\\sqrt{1-x^2}}$\n- $(\\arctan(x))' = \\frac{1}{1+x^2}$"
+    },
+    {
+      "id": "r2-3-2-ex-9",
+      "type": "example",
+      "title": "Eksempel 9: Integrere $\\arctan(x)$",
+      "problem": "Finn $\\displaystyle\\int \\arctan(x) \\, dx$.",
+      "solution": "**Løysing:**\n\nVi skriv $\\arctan(x) = \\arctan(x) \\cdot 1$ og bruker delvis integrasjon.\n\n- $u = \\arctan(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{1+x^2}$\n- $v' = 1 \\quad \\Rightarrow \\quad v = x$\n\n$$\\int \\arctan(x) \\, dx = x \\cdot \\arctan(x) - \\int x \\cdot \\frac{1}{1+x^2} \\, dx$$\n\nFor det gjenverande integralet bruker vi substitusjon $t = 1 + x^2$, $dt = 2x \\, dx$:\n\n$$\\int \\frac{x}{1+x^2} \\, dx = \\frac{1}{2} \\int \\frac{1}{t} \\, dt = \\frac{1}{2} \\ln|t| = \\frac{1}{2} \\ln(1+x^2)$$\n\nDermed:\n\n$$\\int \\arctan(x) \\, dx = x \\cdot \\arctan(x) - \\frac{1}{2}\\ln(1+x^2) + C$$"
+    },
+    {
+      "id": "r2-3-2-exercise-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-8",
+        "number": "3.2.8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn integrala som involverer inverse trigonometriske funksjonar.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int \\arcsin(x) \\, dx$",
+            "solution": "Lat $u = \\arcsin(x)$, $v' = 1$. Då $u' = \\frac{1}{\\sqrt{1-x^2}}$, $v = x$. Integralet blir $x\\arcsin(x) - \\int \\frac{x}{\\sqrt{1-x^2}} \\, dx$. Med substitusjon $t = 1-x^2$: $\\int \\frac{x}{\\sqrt{1-x^2}} \\, dx = -\\sqrt{1-x^2}$. Svar: $x\\arcsin(x) + \\sqrt{1-x^2} + C$"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int x \\cdot \\arctan(x) \\, dx$",
+            "solution": "Lat $u = \\arctan(x)$, $v' = x$. Då $u' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Svar: $\\frac{x^2+1}{2}\\arctan(x) - \\frac{x}{2} + C$"
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int_0^1 \\arctan(x) \\, dx$",
+            "solution": "$[x\\arctan(x) - \\frac{1}{2}\\ln(1+x^2)]_0^1 = (1 \\cdot \\frac{\\pi}{4} - \\frac{1}{2}\\ln 2) - 0 = \\frac{\\pi}{4} - \\frac{\\ln 2}{2}$",
+            "expressionAnswer": "pi/4-ln(2)/2"
+          }
+        ],
+        "solution": "a) $x\\arcsin(x) + \\sqrt{1-x^2} + C$, b) $\\frac{x^2+1}{2}\\arctan(x) - \\frac{x}{2} + C$, c) $\\frac{\\pi}{4} - \\frac{\\ln 2}{2} \\approx 0{,}439$",
+        "hints": [
+          "Inverse trigonometriske funksjonar har høgast prioritet i LIATE",
+          "Du må ofte kombinere delvis integrasjon med substitusjon",
+          "For a) bruk substitusjon $t = 1-x^2$ på det gjenverande integralet"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-ex-7",
+      "type": "example",
+      "title": "Eksempel 7: Kombinere teknikkar",
+      "problem": "Finn $\\displaystyle\\int x^2 \\cdot \\sin(x) \\, dx$.",
+      "solution": "**Løysing:**\n\nDette krev to rundar med delvis integrasjon.\n\n**Første runde:**\n- $u = x^2 \\quad \\Rightarrow \\quad u' = 2x$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\n$$\\int x^2 \\sin(x) \\, dx = -x^2 \\cos(x) - \\int (-\\cos(x)) \\cdot 2x \\, dx$$\n$$= -x^2 \\cos(x) + 2\\int x \\cos(x) \\, dx$$\n\n**Andre runde** (på $\\int x \\cos(x) \\, dx$):\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = \\cos(x) \\quad \\Rightarrow \\quad v = \\sin(x)$\n\n$$\\int x \\cos(x) \\, dx = x \\sin(x) - \\int \\sin(x) \\, dx = x \\sin(x) + \\cos(x)$$\n\n**Set saman:**\n\n$$\\int x^2 \\sin(x) \\, dx = -x^2 \\cos(x) + 2(x \\sin(x) + \\cos(x)) + C$$\n$$= -x^2 \\cos(x) + 2x \\sin(x) + 2\\cos(x) + C$$\n$$= (2 - x^2)\\cos(x) + 2x\\sin(x) + C$$"
+    },
+    {
+      "id": "r2-3-2-warning-1",
+      "type": "warning",
+      "title": "Vanlege feil ved delvis integrasjon",
+      "content": "**1. Feil val av $u$ og $v'$:**\nViss du vel feil, får du eit vanskelegare integral. Bruk LIATE-regelen!\n\n**2. Gløymer forteikn:**\nVer nøye med minusteiknet i formelen: $\\int u \\cdot v' \\, dx = uv \\mathbf{-} \\int u' \\cdot v \\, dx$\n\n**3. Gløymer integrasjonskonstanten:**\nHugs alltid $+ C$ på slutten av ubestemte integral.\n\n**4. Feil ved sirkulær integrasjon:**\nPass på at integralet $I$ dukkar opp med rett forteikn når du set opp likninga.\n\n**5. Stoppar for tidleg:**\nVed gjentatt delvis integrasjon, hald fram til polynomet er derivert til 0."
+    },
+    {
+      "id": "r2-3-2-exercise-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-7",
+        "number": "3.2.7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys desse utfordrande integrala.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int (\\ln(x))^2 \\, dx$",
+            "solution": "Lat $u = (\\ln x)^2$, $v' = 1$. Då $u' = \\frac{2\\ln x}{x}$, $v = x$. Første runde gir $x(\\ln x)^2 - 2\\int \\ln x \\, dx$. Vi veit at $\\int \\ln x \\, dx = x\\ln x - x$. Totalt: $x(\\ln x)^2 - 2(x\\ln x - x) + C = x(\\ln x)^2 - 2x\\ln x + 2x + C = x((\\ln x)^2 - 2\\ln x + 2) + C$"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int x \\cdot \\arctan(x) \\, dx$",
+            "solution": "Lat $u = \\arctan(x)$, $v' = x$. Då $u' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Då får vi $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}(x - \\arctan(x)) + C = \\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$"
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int_0^{\\pi/2} x^2 \\cdot \\cos(x) \\, dx$",
+            "solution": "To rundar gir $[x^2 \\sin x + 2x\\cos x - 2\\sin x]_0^{\\pi/2} = (\\frac{\\pi^2}{4} \\cdot 1 + 0 - 2) - 0 = \\frac{\\pi^2}{4} - 2$",
+            "expressionAnswer": "pi^2/4-2"
+          }
+        ],
+        "solution": "a) $x((\\ln x)^2 - 2\\ln x + 2) + C$, b) $\\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$, c) $\\frac{\\pi^2}{4} - 2$",
+        "hints": [
+          "For a): Du må bruke delvis integrasjon to gonger",
+          "For b): Inverse trigonometriske funksjonar har høg prioritet i LIATE",
+          "For c): Bruk resultatet frå gjentatt delvis integrasjon"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-text-10",
+      "type": "text",
+      "content": "## Bruksområde for delvis integrasjon\n\nDelvis integrasjon har mange praktiske bruksområde:\n\n**1. Fysikk - Arbeid og energi:**\nArbeidet utført av ein variabel kraft $F(x)$ over ei strekning er $W = \\int F(x) \\, dx$. Når krafta er eit produkt av funksjonar, bruker vi delvis integrasjon.\n\n**2. Sannsynsrekning:**\nForventningsverdi og varians av kontinuerlege sannsynsfordelingar krev ofte delvis integrasjon.\n\n**3. Fourier-analyse:**\nUtrekning av Fourier-koeffisientar involverer integral av typen $\\int f(x) \\sin(nx) \\, dx$ og $\\int f(x) \\cos(nx) \\, dx$.\n\n**4. Differensiallikningar:**\nLøysing av visse differensiallikningar krev delvis integrasjon."
+    },
+    {
+      "id": "r2-3-2-ex-10",
+      "type": "example",
+      "title": "Eksempel 10: Gjennomsnittsverdi",
+      "problem": "Finn gjennomsnittsverdien til funksjonen $f(x) = x \\cdot e^{-x}$ på intervallet $[0, 2]$.",
+      "solution": "**Løysing:**\n\nGjennomsnittsverdien på $[a, b]$ er gitt ved:\n\n$$\\bar{f} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx$$\n\nVi må først rekne ut $\\int_0^2 x \\cdot e^{-x} \\, dx$.\n\nMed delvis integrasjon ($u = x$, $v' = e^{-x}$):\n\n$$\\int_0^2 x \\cdot e^{-x} \\, dx = \\Big[-x e^{-x}\\Big]_0^2 + \\int_0^2 e^{-x} \\, dx$$\n\n$$= (-2e^{-2} - 0) + \\Big[-e^{-x}\\Big]_0^2$$\n\n$$= -2e^{-2} + (-e^{-2} + 1)$$\n\n$$= 1 - 3e^{-2}$$\n\nGjennomsnittsverdien blir:\n\n$$\\bar{f} = \\frac{1}{2-0}(1 - 3e^{-2}) = \\frac{1 - 3e^{-2}}{2} \\approx 0{,}297$$"
+    },
+    {
+      "id": "r2-3-2-text-11",
+      "type": "text",
+      "content": "## Eksamensrelevante oppgåver\n\nPå eksamen i R2 kjem delvis integrasjon ofte i kombinasjon med andre emne. Typiske oppgåver:\n\n- Finn areal avgrensa av grafar der integralet krev delvis integrasjon\n- Rekn ut volum av omdreiingslekamar\n- Finn gjennomsnittsverdiar\n- Løys differensiallikningar\n- Rekn ut forventningsverdi i sannsynsrekning"
+    },
+    {
+      "id": "r2-3-2-exercise-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-9",
+        "number": "3.2.9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys desse eksamensrelevante oppgåvene.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn arealet av området avgrensa av $y = x \\cdot e^{-x}$, $x$-aksen, $x = 0$ og $x = 2$.",
+            "solution": "Arealet er $\\int_0^2 x \\cdot e^{-x} \\, dx = 1 - 3e^{-2} \\approx 0{,}594$ (sjå eksempel 10)",
+            "expressionAnswer": "1-3e^(-2)"
+          },
+          {
+            "label": "b",
+            "task": "Finn volumet når området under $y = \\ln(x)$ frå $x = 1$ til $x = e$ blir rotert om $x$-aksen.",
+            "solution": "Volumet er $V = \\pi \\int_1^e (\\ln x)^2 \\, dx$. Med delvis integrasjon to gonger: $\\int (\\ln x)^2 \\, dx = x((\\ln x)^2 - 2\\ln x + 2)$. Evaluert: $V = \\pi[x((\\ln x)^2 - 2\\ln x + 2)]_1^e = \\pi(e(1-2+2) - 1(0-0+2)) = \\pi(e - 2)$",
+            "expressionAnswer": "pi*(e-2)"
+          },
+          {
+            "label": "c",
+            "task": "Vis at $\\displaystyle\\int_0^{\\pi/2} \\sin^2(x) \\, dx = \\frac{\\pi}{4}$ ved delvis integrasjon.",
+            "solution": "Skriv $\\sin^2(x) = \\sin(x) \\cdot \\sin(x)$. Lat $u = \\sin(x)$, $v' = \\sin(x)$, så $u' = \\cos(x)$, $v = -\\cos(x)$. Då: $\\int \\sin^2 x \\, dx = -\\sin x \\cos x + \\int \\cos^2 x \\, dx = -\\sin x \\cos x + \\int (1-\\sin^2 x) \\, dx$. Dette gir $2\\int \\sin^2 x \\, dx = x - \\sin x \\cos x$, så $\\int \\sin^2 x \\, dx = \\frac{x - \\sin x \\cos x}{2}$. Evaluert: $[\\frac{x - \\sin x \\cos x}{2}]_0^{\\pi/2} = \\frac{\\pi/2 - 0}{2} = \\frac{\\pi}{4}$"
+          }
+        ],
+        "solution": "a) $1 - 3e^{-2} \\approx 0{,}594$, b) $\\pi(e - 2) \\approx 2{,}26$, c) Sjå fullstendig løysing",
+        "hints": [
+          "For a): Dette er eit standard areal-integral",
+          "For b): Volum ved rotasjon om $x$-aksen: $V = \\pi \\int_a^b (f(x))^2 \\, dx$",
+          "For c): Du får eit sirkulært integral - løys for $\\int \\sin^2 x \\, dx$"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-exercise-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-2-task-10",
+        "number": "3.2.10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Blanda oppgåver - vel rett integrasjonsteknikk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$\\displaystyle\\int x^2 \\cdot e^{x^3} \\, dx$",
+            "solution": "Dette er IKKJE delvis integrasjon! Bruk substitusjon $u = x^3$: $\\int x^2 \\cdot e^{x^3} \\, dx = \\frac{1}{3} e^{x^3} + C$"
+          },
+          {
+            "label": "b",
+            "task": "$\\displaystyle\\int x \\cdot \\sqrt{1+x^2} \\, dx$",
+            "solution": "Substitusjon $u = 1 + x^2$: $\\int x \\cdot \\sqrt{1+x^2} \\, dx = \\frac{1}{3}(1+x^2)^{3/2} + C$"
+          },
+          {
+            "label": "c",
+            "task": "$\\displaystyle\\int x \\cdot \\ln(x^2) \\, dx$",
+            "solution": "Skriv om: $\\ln(x^2) = 2\\ln(x)$. Bruk delvis integrasjon: $\\int 2x\\ln(x) \\, dx = x^2\\ln(x) - \\frac{x^2}{2} + C$"
+          },
+          {
+            "label": "d",
+            "task": "$\\displaystyle\\int e^x \\cdot \\sin(e^x) \\, dx$",
+            "solution": "Substitusjon $u = e^x$: $\\int e^x \\cdot \\sin(e^x) \\, dx = -\\cos(e^x) + C$"
+          }
+        ],
+        "solution": "a) $\\frac{1}{3}e^{x^3} + C$, b) $\\frac{1}{3}(1+x^2)^{3/2} + C$, c) $x^2\\ln(x) - \\frac{x^2}{2} + C$, d) $-\\cos(e^x) + C$",
+        "hints": [
+          "Ikkje alt som ser ut som delvis integrasjon er det!",
+          "Sjå etter om den deriverte av ein indre funksjon står utanfor",
+          "Forenkle først viss mogleg (som i oppgåve c)"
+        ]
+      }
+    },
+    {
+      "id": "r2-3-2-note-1",
+      "type": "note",
+      "content": "**Når skal du bruke delvis integrasjon?**\n\nBruk delvis integrasjon når:\n1. Du har eit produkt av to *ulike* funksjonstypar\n2. Substitusjon ikkje fungerer\n3. Ein av funksjonane blir enklare ved derivasjon\n\nBruk substitusjon når:\n1. Du ser den deriverte av ein indre funksjon\n2. Integranden har forma $f(g(x)) \\cdot g'(x)$\n\n**Tips:** Prøv substitusjon først - det er ofte raskare!"
+    },
+    {
+      "id": "r2-3-2-text-7",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Formelen for delvis integrasjon:**\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\n**LIATE-regelen for val av $u$:**\n1. Logaritmar\n2. Inverse trigonometriske\n3. Algebraiske (polynom)\n4. Trigonometriske\n5. Eksponentialfunksjonar\n\n**Spesielle tilfelle:**\n- Polynom av grad $n$ krev $n$ rundar med delvis integrasjon\n- Produkt av $e^x$ og trigonometriske funksjonar gir sirkulær delvis integrasjon\n- $\\int \\ln(x) \\, dx = x(\\ln(x) - 1) + C$ er eit viktig resultat\n\n**Hugs:**\n- Sjekk alltid svaret ved derivasjon\n- Ikkje gløym integrasjonskonstanten $C$\n- Vurder om substitusjon er enklare før du startar med delvis integrasjon"
+    },
+    {
+      "id": "r2-3-2-formula-1",
+      "type": "formula",
+      "title": "Viktige integral frå delvis integrasjon",
+      "latex": "\\begin{aligned}\n\\int x \\cdot e^{ax} \\, dx &= \\frac{e^{ax}}{a^2}(ax - 1) + C \\\\[0.5em]\n\\int x \\cdot \\sin(ax) \\, dx &= \\frac{\\sin(ax) - ax\\cos(ax)}{a^2} + C \\\\[0.5em]\n\\int x \\cdot \\cos(ax) \\, dx &= \\frac{\\cos(ax) + ax\\sin(ax)}{a^2} + C \\\\[0.5em]\n\\int \\ln(x) \\, dx &= x(\\ln(x) - 1) + C \\\\[0.5em]\n\\int x \\cdot \\ln(x) \\, dx &= \\frac{x^2}{4}(2\\ln(x) - 1) + C \\\\[0.5em]\n\\int e^{ax} \\sin(bx) \\, dx &= \\frac{e^{ax}(a\\sin(bx) - b\\cos(bx))}{a^2 + b^2} + C \\\\[0.5em]\n\\int e^{ax} \\cos(bx) \\, dx &= \\frac{e^{ax}(a\\cos(bx) + b\\sin(bx))}{a^2 + b^2} + C \\\\[0.5em]\n\\int \\arctan(x) \\, dx &= x\\arctan(x) - \\frac{1}{2}\\ln(1+x^2) + C \\\\[0.5em]\n\\int \\arcsin(x) \\, dx &= x\\arcsin(x) + \\sqrt{1-x^2} + C\n\\end{aligned}",
+      "description": "Desse resultata er nyttige å hugse og kan brukast direkte i utrekningar."
+    },
+    {
+      "id": "r2-3-2-formula-2",
+      "type": "formula",
+      "title": "Generelle formlar for polynom",
+      "latex": "\\begin{aligned}\n\\int x^n \\cdot e^x \\, dx &= e^x \\sum_{k=0}^{n} (-1)^{n-k} \\frac{n!}{k!} x^k + C \\\\[1em]\n\\text{For } n = 1: \\quad &e^x(x - 1) + C \\\\\n\\text{For } n = 2: \\quad &e^x(x^2 - 2x + 2) + C \\\\\n\\text{For } n = 3: \\quad &e^x(x^3 - 3x^2 + 6x - 6) + C\n\\end{aligned}",
+      "description": "Legg merke til mønsteret: koeffisientane er fakultetar med vekslande forteikn."
+    },
+    {
+      "id": "r2-3-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgåver",
+      "buttonText": "Vis repetisjonsoppgåver",
+      "content": [
+        {
+          "id": "r2-3-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "r2-3-2-rep-ex-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Integrer med delvis integrasjon.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "$\\int x e^x \\, dx$",
+                "solution": "Med $u = x$, $v' = e^x$: $xe^x - \\int e^x \\, dx = (x-1)e^x + C$"
+              },
+              {
+                "label": "b",
+                "task": "$\\int x \\sin x \\, dx$",
+                "solution": "Med $u = x$, $v' = \\sin x$: $-x\\cos x + \\int \\cos x \\, dx = -x\\cos x + \\sin x + C$"
+              },
+              {
+                "label": "c",
+                "task": "$\\int x \\cos x \\, dx$",
+                "solution": "$x\\sin x - \\int \\sin x \\, dx = x\\sin x + \\cos x + C$"
+              },
+              {
+                "label": "d",
+                "task": "$\\int 2x e^x \\, dx$",
+                "solution": "$2\\int x e^x\\,dx = 2(x-1)e^x + C$"
+              }
+            ],
+            "solution": "a) $(x-1)e^x+C$  b) $-x\\cos x+\\sin x+C$  c) $x\\sin x+\\cos x+C$  d) $2(x-1)e^x+C$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Formelen: $\\int u v' \\, dx = uv - \\int u' v \\, dx$. Vel $u = x$."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "r2-3-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "r2-3-2-rep-ex-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "medium",
+            "task": "Integrer logaritmen.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "$\\int \\ln x \\, dx$",
+                "solution": "Med $u = \\ln x$, $v' = 1$: $x\\ln x - \\int x \\cdot \\frac{1}{x} \\, dx = x\\ln x - x + C$"
+              },
+              {
+                "label": "b",
+                "task": "$\\int x \\ln x \\, dx$",
+                "solution": "Med $u = \\ln x$, $v' = x$: $\\frac{x^2}{2}\\ln x - \\int \\frac{x}{2}\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$"
+              }
+            ],
+            "solution": "a) $x\\ln x - x + C$  b) $\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}+C$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Vel $u = \\ln x$, sidan logaritmen blir enklare ved derivasjon."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "r2-3-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "r2-3-2-rep-ex-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "medium",
+            "task": "Gjentatt delvis integrasjon: $\\int x^2 e^x \\, dx$.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Utfør første delvise integrasjon.",
+                "solution": "$u = x^2$, $v' = e^x$: $x^2 e^x - \\int 2x e^x \\, dx$"
+              },
+              {
+                "label": "b",
+                "task": "Fullfør utrekninga.",
+                "solution": "$\\int 2x e^x \\, dx = 2(x-1)e^x$, så $\\int x^2 e^x \\, dx = x^2 e^x - 2(x-1)e^x + C = (x^2 - 2x + 2)e^x + C$"
+              }
+            ],
+            "solution": "$(x^2-2x+2)e^x+C$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Bruk delvis integrasjon to gonger."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "r2-3-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "r2-3-2-rep-ex-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "medium",
+            "task": "Rekn ut dei bestemte integrala.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "$\\int_0^1 x e^x \\, dx$",
+                "solution": "$[(x-1)e^x]_0^1 = 0 - (-1) = 1$",
+                "answer": 1
+              },
+              {
+                "label": "b",
+                "task": "$\\int_1^e \\ln x \\, dx$",
+                "solution": "$[x\\ln x - x]_1^e = (e - e) - (0 - 1) = 1$",
+                "answer": 1
+              },
+              {
+                "label": "c",
+                "task": "$\\int_0^{\\pi} x \\sin x \\, dx$. Oppgi eksakt svar.",
+                "solution": "$[-x\\cos x + \\sin x]_0^{\\pi} = (\\pi + 0) - 0 = \\pi$",
+                "expressionAnswer": "pi"
+              },
+              {
+                "label": "d",
+                "task": "$\\int_0^1 x e^{2x} \\, dx$. Oppgi eksakt svar.",
+                "solution": "Med $u = x$, $v' = e^{2x}$: $\\left[\\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x}\\right]_0^1 = \\frac{e^2}{4} - \\left(-\\frac{1}{4}\\right) = \\frac{e^2 + 1}{4}$",
+                "expressionAnswer": "(e^2+1)/4"
+              }
+            ],
+            "solution": "a) 1  b) 1  c) $\\pi$  d) $\\frac{e^2+1}{4}$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Bruk antideriverte frå R1 og R2."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "r2-3-2-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "r2-3-2-rep-ex-5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Sirkulær delvis integrasjon: $\\int e^x \\sin x \\, dx$.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Bruk delvis integrasjon to gonger og vis at integralet dukkar opp igjen på høgre side.",
+                "solution": "$I = \\int e^x \\sin x \\, dx = e^x \\sin x - \\int e^x \\cos x \\, dx = e^x \\sin x - \\left(e^x \\cos x + \\int e^x \\sin x \\, dx\\right) = e^x(\\sin x - \\cos x) - I$"
+              },
+              {
+                "label": "b",
+                "task": "Løys likninga og finn integralet.",
+                "solution": "$2I = e^x(\\sin x - \\cos x)$, så $I = \\frac{e^x(\\sin x - \\cos x)}{2} + C$"
+              },
+              {
+                "label": "c",
+                "task": "Bruk resultatet til å rekne ut $\\int_0^{\\pi} e^x \\sin x \\, dx$. Oppgi eksakt svar.",
+                "solution": "$\\left[\\frac{e^x(\\sin x - \\cos x)}{2}\\right]_0^{\\pi} = \\frac{e^{\\pi}(0+1)}{2} - \\frac{1 \\cdot (0-1)}{2} = \\frac{e^{\\pi} + 1}{2}$",
+                "expressionAnswer": "(e^pi+1)/2"
+              }
+            ],
+            "solution": "a) sjå utrekning  b) $\\frac{e^x(\\sin x - \\cos x)}{2}+C$  c) $\\frac{e^{\\pi}+1}{2}$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Flytt integralet over på venstre side og løys som ei likning."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "4569fccad280b934",
+    "translatedAt": "2026-06-20T01:01:02.210Z",
+    "model": "claude-code-agent",
+    "strings": 224,
+    "tm": {
+      "e29bcbe902cf0bb8": "Delvis integrasjon",
+      "4dcca355792e1db0": "Lèt oss integrere produkt av funksjonar ved å bruke produktregelen baklengs.",
+      "43bc500d80f8975a": "meistre teknikken delvis integrasjon",
+      "a8daa0d35b28c872": "velje rett u og v' i delvis integrasjon",
+      "24cb26721491bb06": "bruke gjentatt delvis integrasjon",
+      "ae9413f5da0ef20f": "løyse sirkulær delvis integrasjon",
+      "d3e2e1cd94a727d5": "bruke delvis integrasjon på bestemte integral",
+      "aaba21b9eb829b4c": "kombinere delvis integrasjon med andre teknikkar",
+      "6e27017f7fcfe70b": "## Innleiing\n\nI førre kapittel lærte vi substitusjon, som er kjerneregelen baklengs. No skal vi lære ein annan viktig integrasjonsteknikk: **delvis integrasjon**.\n\nDelvis integrasjon blir brukt når vi skal integrere eit *produkt* av to funksjonar, til dømes $x \\cdot e^x$ eller $x \\cdot \\sin(x)$.\n\nIdéen er å bruke **produktregelen for derivasjon baklengs**. Lat oss først hugse produktregelen:\n\n$$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$\n\nViss vi integrerer begge sider, får vi:\n\n$$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nVed å omorganisere denne likninga, kan vi utleie formelen for delvis integrasjon.",
+      "6b95f82c616f3674": "## Utleiing av formelen\n\nVi startar med produktregelen:\n\n$$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$\n\nIntegrerer vi begge sider med omsyn på $x$:\n\n$$\\int (u \\cdot v)' \\, dx = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nVenstre side er berre $u \\cdot v$ (integralet av den deriverte gir tilbake funksjonen):\n\n$$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$\n\nNo løyser vi for $\\int u \\cdot v' \\, dx$:\n\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\nDette er formelen for delvis integrasjon!",
+      "d5137d536e5fe465": "Lat $u = u(x)$ og $v = v(x)$ vere deriverbare funksjonar. Då gjeld:\n\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\nEller med differensialnotasjon ($dv = v' \\, dx$ og $du = u' \\, dx$):\n\n$$\\int u \\, dv = u \\cdot v - \\int v \\, du$$\n\n**Merk:** Målet er at integralet på høgre side ($\\int u' \\cdot v \\, dx$) skal vere enklare å løyse enn det opphavlege integralet.",
+      "2feedd698bce13ea": "Eksempel 1: Integrere $x \\cdot e^x$",
+      "c3fb1cd72138e102": "Finn $\\displaystyle\\int x \\cdot e^x \\, dx$.",
+      "c7b8fc62a74ce01c": "**Løysing:**\n\nVi bruker delvis integrasjon med:\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\nSet inn i formelen $\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$:\n\n$$\\int x \\cdot e^x \\, dx = x \\cdot e^x - \\int 1 \\cdot e^x \\, dx$$\n\n$$= x \\cdot e^x - e^x + C$$\n\n$$= e^x(x - 1) + C$$\n\n**Sjekk ved derivasjon:**\n$(e^x(x-1))' = e^x(x-1) + e^x \\cdot 1 = e^x \\cdot x - e^x + e^x = x \\cdot e^x$ ✓",
+      "b61caa9f0d33e497": "Bruk delvis integrasjon til å finne integrala.",
+      "cc18b4a5cf74517a": "$\\displaystyle\\int x \\cdot e^{2x} \\, dx$",
+      "411569e78d0e8532": "Lat $u = x$ og $v' = e^{2x}$, så $u' = 1$ og $v = \\frac{1}{2}e^{2x}$. Då får vi $\\int x \\cdot e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\int \\frac{1}{2}e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x} + C = \\frac{e^{2x}}{4}(2x - 1) + C$",
+      "490a884401876e23": "$\\displaystyle\\int x \\cdot e^{-x} \\, dx$",
+      "502b9b103515237c": "Lat $u = x$ og $v' = e^{-x}$, så $u' = 1$ og $v = -e^{-x}$. Då får vi $\\int x \\cdot e^{-x} \\, dx = -x \\cdot e^{-x} - \\int (-e^{-x}) \\, dx = -x \\cdot e^{-x} - e^{-x} + C = -e^{-x}(x + 1) + C$",
+      "d1ab9f7db80eee78": "$\\displaystyle\\int 2x \\cdot e^x \\, dx$",
+      "2d7cfe420fac5ec2": "Lat $u = 2x$ og $v' = e^x$, så $u' = 2$ og $v = e^x$. Då får vi $\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2e^x \\, dx = 2x \\cdot e^x - 2e^x + C = 2e^x(x - 1) + C$",
+      "1ca131c394c9cd08": "a) $\\frac{e^{2x}}{4}(2x - 1) + C$, b) $-e^{-x}(x + 1) + C$, c) $2e^x(x - 1) + C$",
+      "0cd6cc9cd06ff15a": "Vel $u$ som den funksjonen som blir enklare når du deriverer",
+      "e3cbfc6faccfcbef": "Vel $v'$ som den funksjonen du enkelt kan integrere",
+      "6085f3a501526510": "Hugs å sjekke svaret ved å derivere!",
+      "2f37bb27fd090ec3": "## Val av $u$ og $v'$: LIATE-regelen\n\nDet viktigaste ved delvis integrasjon er å velje rett $u$ og $v'$. Målet er at det nye integralet $\\int u' \\cdot v \\, dx$ skal vere *enklare* enn det opphavlege.\n\nEi nyttig hugseregel er **LIATE** (eller LIPET på norsk), som gir prioritetsrekkjefølgje for val av $u$:\n\n| Prioritet | Type funksjon | Eksempel |\n|-----------|---------------|-----------|\n| 1 | **L**ogaritmar | $\\ln x$, $\\log x$ |\n| 2 | **I**nverse trigonometriske | $\\arcsin x$, $\\arctan x$ |\n| 3 | **A**lgebraiske (polynom) | $x$, $x^2$, $x^3$ |\n| 4 | **T**rigonometriske | $\\sin x$, $\\cos x$ |\n| 5 | **E**ksponentialfunksjonar | $e^x$, $2^x$ |\n\nFunksjonar høgt på lista blir valde som $u$, medan funksjonar lågt på lista blir valde som $v'$.",
+      "dda76994fdc83db9": "**Kvifor fungerer LIATE?**\n\n- Logaritmar og inverse trigonometriske funksjonar er vanskelege å integrere, men enkle å derivere.\n- Polynom blir enklare når dei blir deriverte ($x^3 \\to 3x^2 \\to 6x \\to 6 \\to 0$).\n- Eksponentialfunksjonar forandrar seg ikkje når dei blir integrerte eller deriverte.\n\nDerfor: Vel funksjonar som blir *enklare* ved derivasjon som $u$.",
+      "86accfae2a2c841c": "Eksempel 2: Integrere $x \\cdot \\sin(x)$",
+      "37858fd8ab8d616b": "Finn $\\displaystyle\\int x \\cdot \\sin(x) \\, dx$.",
+      "4c6f2da65b4d8b38": "**Løysing:**\n\nIfølgje LIATE-regelen: $x$ (algebraisk) har høgare prioritet enn $\\sin(x)$ (trigonometrisk).\n\nVi vel:\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\nDelvis integrasjon gir:\n\n$$\\int x \\cdot \\sin(x) \\, dx = x \\cdot (-\\cos(x)) - \\int 1 \\cdot (-\\cos(x)) \\, dx$$\n\n$$= -x \\cos(x) + \\int \\cos(x) \\, dx$$\n\n$$= -x \\cos(x) + \\sin(x) + C$$\n\n**Sjekk:** $(-x\\cos(x) + \\sin(x))' = -\\cos(x) + x\\sin(x) + \\cos(x) = x\\sin(x)$ ✓",
+      "b488fcaf6d95e72f": "Bruk delvis integrasjon og LIATE-regelen til å finne integrala.",
+      "295e4a48108faa0e": "$\\displaystyle\\int x \\cdot \\cos(x) \\, dx$",
+      "ec0007b76d7451f8": "Lat $u = x$, $v' = \\cos(x)$. Då $u' = 1$, $v = \\sin(x)$. Integralet blir $x\\sin(x) - \\int \\sin(x) \\, dx = x\\sin(x) + \\cos(x) + C$",
+      "d60d4f35315d3ff4": "$\\displaystyle\\int x \\cdot \\cos(2x) \\, dx$",
+      "f14568b2027a548d": "Lat $u = x$, $v' = \\cos(2x)$. Då $u' = 1$, $v = \\frac{1}{2}\\sin(2x)$. Integralet blir $\\frac{x}{2}\\sin(2x) - \\int \\frac{1}{2}\\sin(2x) \\, dx = \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$",
+      "81b31ac59d5fe929": "$\\displaystyle\\int x \\cdot \\sin(3x) \\, dx$",
+      "79098b0d81a1f1b2": "Lat $u = x$, $v' = \\sin(3x)$. Då $u' = 1$, $v = -\\frac{1}{3}\\cos(3x)$. Integralet blir $-\\frac{x}{3}\\cos(3x) + \\int \\frac{1}{3}\\cos(3x) \\, dx = -\\frac{x}{3}\\cos(3x) + \\frac{1}{9}\\sin(3x) + C$",
+      "3a7aa2027ae5c133": "a) $x\\sin(x) + \\cos(x) + C$, b) $\\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$, c) $-\\frac{x}{3}\\cos(3x) + \\frac{1}{9}\\sin(3x) + C$",
+      "cc2e1ca7f663bceb": "Vel alltid polynomet ($x$) som $u$ når du har eit produkt av polynom og trigonometrisk funksjon",
+      "bfd15ec9365be404": "Hugs å bruke kjerneregelen når du integrerer trigonometriske funksjonar med argument $ax$",
+      "0677c930df42ad38": "Eksempel 3: Integrere $\\ln(x)$",
+      "e8ce50dade048163": "Finn $\\displaystyle\\int \\ln(x) \\, dx$.",
+      "24106d7e42b6aaba": "**Løysing:**\n\nHer har vi tilsynelatande berre éin funksjon, men vi kan skrive $\\ln(x) = \\ln(x) \\cdot 1$.\n\nIfølgje LIATE: Logaritmar har høgast prioritet, så $u = \\ln(x)$.\n\nVi vel:\n- $u = \\ln(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{x}$\n- $v' = 1 \\quad \\Rightarrow \\quad v = x$\n\nDelvis integrasjon gir:\n\n$$\\int \\ln(x) \\, dx = \\ln(x) \\cdot x - \\int \\frac{1}{x} \\cdot x \\, dx$$\n\n$$= x \\ln(x) - \\int 1 \\, dx$$\n\n$$= x \\ln(x) - x + C$$\n\n$$= x(\\ln(x) - 1) + C$$\n\n**Sjekk:** $(x\\ln(x) - x)' = \\ln(x) + x \\cdot \\frac{1}{x} - 1 = \\ln(x) + 1 - 1 = \\ln(x)$ ✓",
+      "631f46a98ec3be07": "Finn integrala ved å bruke delvis integrasjon.",
+      "ba54617808b21c86": "$\\displaystyle\\int x \\cdot \\ln(x) \\, dx$",
+      "2a7b8db81cc7c80d": "Lat $u = \\ln(x)$, $v' = x$. Då $u' = \\frac{1}{x}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\ln(x) - \\int \\frac{x^2}{2} \\cdot \\frac{1}{x} \\, dx = \\frac{x^2}{2}\\ln(x) - \\frac{1}{2}\\int x \\, dx = \\frac{x^2}{2}\\ln(x) - \\frac{x^2}{4} + C = \\frac{x^2}{4}(2\\ln(x) - 1) + C$",
+      "702c09745ab36e95": "$\\displaystyle\\int x^2 \\cdot \\ln(x) \\, dx$",
+      "55750945930c7fb6": "Lat $u = \\ln(x)$, $v' = x^2$. Då $u' = \\frac{1}{x}$, $v = \\frac{x^3}{3}$. Integralet blir $\\frac{x^3}{3}\\ln(x) - \\int \\frac{x^3}{3} \\cdot \\frac{1}{x} \\, dx = \\frac{x^3}{3}\\ln(x) - \\frac{1}{3}\\int x^2 \\, dx = \\frac{x^3}{3}\\ln(x) - \\frac{x^3}{9} + C = \\frac{x^3}{9}(3\\ln(x) - 1) + C$",
+      "5102450cb91bc4f8": "$\\displaystyle\\int \\ln(2x) \\, dx$",
+      "0af1101c198e849a": "Lat $u = \\ln(2x)$, $v' = 1$. Då $u' = \\frac{1}{x}$, $v = x$. Integralet blir $x\\ln(2x) - \\int x \\cdot \\frac{1}{x} \\, dx = x\\ln(2x) - x + C = x(\\ln(2x) - 1) + C$",
+      "9e83b9e343cf1e27": "a) $\\frac{x^2}{4}(2\\ln(x) - 1) + C$, b) $\\frac{x^3}{9}(3\\ln(x) - 1) + C$, c) $x(\\ln(2x) - 1) + C$",
+      "15177eff6ba1e579": "Logaritmar har høgast prioritet i LIATE, så vel alltid $u = \\ln(\\cdot)$",
+      "415191cb0510aedc": "Hugs at $(\\ln(x))' = \\frac{1}{x}$",
+      "e3f808e0b718a462": "## Gjentatt delvis integrasjon\n\nNokre gonger må vi bruke delvis integrasjon fleire gonger for å løyse eit integral. Dette skjer typisk når vi har eit polynom av grad 2 eller høgare ganga med ein eksponential- eller trigonometrisk funksjon.\n\nTil dømes krev $\\int x^2 \\cdot e^x \\, dx$ to rundar med delvis integrasjon fordi $x^2$ må deriverast to gonger for å bli ein konstant.",
+      "e6a57aadafcc4a5d": "Eksempel 4: Gjentatt delvis integrasjon",
+      "152329c7760a628d": "Finn $\\displaystyle\\int x^2 \\cdot e^x \\, dx$.",
+      "aa0d8e6864b88efa": "**Løysing:**\n\n**Første runde:**\n- $u = x^2 \\quad \\Rightarrow \\quad u' = 2x$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\n$$\\int x^2 \\cdot e^x \\, dx = x^2 \\cdot e^x - \\int 2x \\cdot e^x \\, dx$$\n\n**Andre runde** (på $\\int 2x \\cdot e^x \\, dx$):\n- $u = 2x \\quad \\Rightarrow \\quad u' = 2$\n- $v' = e^x \\quad \\Rightarrow \\quad v = e^x$\n\n$$\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2 \\cdot e^x \\, dx = 2x \\cdot e^x - 2e^x$$\n\n**Set saman:**\n\n$$\\int x^2 \\cdot e^x \\, dx = x^2 \\cdot e^x - (2x \\cdot e^x - 2e^x) + C$$\n\n$$= x^2 e^x - 2x e^x + 2e^x + C$$\n\n$$= e^x(x^2 - 2x + 2) + C$$\n\n**Sjekk:** $(e^x(x^2 - 2x + 2))' = e^x(x^2 - 2x + 2) + e^x(2x - 2) = e^x(x^2 - 2x + 2 + 2x - 2) = x^2 e^x$ ✓",
+      "5667015fe6ba4df6": "## Tabellarisk delvis integrasjon\n\nNår vi har eit polynom ganga med $e^x$ eller ein trigonometrisk funksjon, kan vi bruke ein **tabellarisk metode** som gjer utrekninga meir oversiktleg.\n\nVi set opp ein tabell med tre kolonnar:\n1. **Forteikn**: Vekslande $+$ og $-$\n2. **Deriverte av $u$**: Deriver til du når 0\n3. **Integral av $v'$**: Integrer like mange gonger\n\nSvaret får vi ved å multiplisere diagonalt og summere.",
+      "04aac7b1f4b4c8af": "Eksempel 8: Tabellarisk metode",
+      "6ff060690700d061": "Bruk tabellarisk metode til å finne $\\displaystyle\\int x^3 \\cdot e^{2x} \\, dx$.",
+      "8478fb8fcc662301": "**Løysing:**\n\nVi set opp tabellen med $u = x^3$ (deriverer) og $v' = e^{2x}$ (integrerer):\n\n| Forteikn | Deriverte av $u$ | Integral av $v'$ |\n|---------|------------------|-------------------|\n| $+$ | $x^3$ | $e^{2x}$ |\n| $-$ | $3x^2$ | $\\frac{1}{2}e^{2x}$ |\n| $+$ | $6x$ | $\\frac{1}{4}e^{2x}$ |\n| $-$ | $6$ | $\\frac{1}{8}e^{2x}$ |\n| $+$ | $0$ | $\\frac{1}{16}e^{2x}$ |\n\nMultipliserer diagonalt (rad 1 med rad 2, rad 2 med rad 3, osv.) og summerer:\n\n$$\\int x^3 \\cdot e^{2x} \\, dx = (+)x^3 \\cdot \\frac{1}{2}e^{2x} + (-)3x^2 \\cdot \\frac{1}{4}e^{2x} + (+)6x \\cdot \\frac{1}{8}e^{2x} + (-)6 \\cdot \\frac{1}{16}e^{2x} + C$$\n\n$$= \\frac{e^{2x}}{2}x^3 - \\frac{3e^{2x}}{4}x^2 + \\frac{6e^{2x}}{8}x - \\frac{6e^{2x}}{16} + C$$\n\n$$= \\frac{e^{2x}}{16}(8x^3 - 12x^2 + 12x - 6) + C$$\n\n$$= \\frac{e^{2x}}{8}(4x^3 - 6x^2 + 6x - 3) + C$$",
+      "80778e5851a27481": "Bruk gjentatt delvis integrasjon (eller tabellarisk metode) til å finne integrala.",
+      "dc92a095bfcc24a4": "$\\displaystyle\\int x^2 \\cdot \\cos(x) \\, dx$",
+      "ffad5e75fc38301a": "Første runde: $u = x^2$, $v' = \\cos(x)$ gir $x^2\\sin(x) - \\int 2x\\sin(x) \\, dx$. Andre runde: $u = 2x$, $v' = \\sin(x)$ gir $-2x\\cos(x) + \\int 2\\cos(x) \\, dx = -2x\\cos(x) + 2\\sin(x)$. Totalt: $x^2\\sin(x) + 2x\\cos(x) - 2\\sin(x) + C$",
+      "6c19d6a97d71020c": "$\\displaystyle\\int x^2 \\cdot e^{-x} \\, dx$",
+      "9e4088dd487bb6cb": "Første runde: $u = x^2$, $v' = e^{-x}$ gir $-x^2 e^{-x} + \\int 2x e^{-x} \\, dx$. Andre runde: $u = 2x$, $v' = e^{-x}$ gir $-2x e^{-x} + \\int 2e^{-x} \\, dx = -2x e^{-x} - 2e^{-x}$. Totalt: $-x^2 e^{-x} - 2x e^{-x} - 2e^{-x} + C = -e^{-x}(x^2 + 2x + 2) + C$",
+      "17b167cbe4dfd36a": "$\\displaystyle\\int x^3 \\cdot e^x \\, dx$",
+      "8a30ec2c1931e9d8": "Tre rundar med delvis integrasjon gir: $e^x(x^3 - 3x^2 + 6x - 6) + C$",
+      "7b07a189e1744251": "$\\displaystyle\\int x^2 \\cdot \\sin(2x) \\, dx$",
+      "005fab5e911f0c1e": "To rundar: $-\\frac{x^2}{2}\\cos(2x) + \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$",
+      "34b7c31f3f7c871a": "a) $x^2\\sin(x) + 2x\\cos(x) - 2\\sin(x) + C$, b) $-e^{-x}(x^2 + 2x + 2) + C$, c) $e^x(x^3 - 3x^2 + 6x - 6) + C$, d) $-\\frac{x^2}{2}\\cos(2x) + \\frac{x}{2}\\sin(2x) + \\frac{1}{4}\\cos(2x) + C$",
+      "7310c68211346f54": "Polynom av grad $n$ krev $n$ rundar med delvis integrasjon",
+      "75de70e915e3c4e5": "Hald orden på forteikna - det er lett å gjere feil!",
+      "f4682b6e3edd5e35": "Prøv tabellarisk metode for c) og d)",
+      "6ff5f39300733dbe": "## Sirkulær delvis integrasjon\n\nNokre gonger leier delvis integrasjon oss i ein sirkel - vi endar opp med det same integralet vi starta med! Dette skjer typisk med produkt av eksponential- og trigonometriske funksjonar, til dømes $\\int e^x \\sin(x) \\, dx$.\n\nLøysinga er å setje opp ei likning der integralet vi søkjer etter er det ukjende, og deretter løyse for dette ukjende.",
+      "27e0448894156d7f": "Sirkulær delvis integrasjon",
+      "3cf70c55ffcf4c67": "Viss vi etter to rundar med delvis integrasjon endar opp med det opphavlege integralet $I$, kan vi setje opp likninga:\n\n$$I = (\\text{mellomresultat}) \\pm I$$\n\nog løyse for $I$:\n\n$$2I = (\\text{mellomresultat}) \\quad \\Rightarrow \\quad I = \\frac{\\text{mellomresultat}}{2}$$\n\n**Viktig:** Pass på forteiknet framføre $I$ på høgre side - det avheng av vala av $u$ og $v'$.",
+      "1bfb29b8644ce036": "Eksempel 5: Sirkulær delvis integrasjon",
+      "f6712879e70f1184": "Finn $\\displaystyle\\int e^x \\cdot \\sin(x) \\, dx$.",
+      "4d2adf0f1c9e77fe": "**Løysing:**\n\nLat $I = \\int e^x \\sin(x) \\, dx$.\n\n**Første runde:**\n- $u = e^x \\quad \\Rightarrow \\quad u' = e^x$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\n$$I = -e^x \\cos(x) - \\int (-\\cos(x)) \\cdot e^x \\, dx = -e^x \\cos(x) + \\int e^x \\cos(x) \\, dx$$\n\n**Andre runde** (på $\\int e^x \\cos(x) \\, dx$):\n- $u = e^x \\quad \\Rightarrow \\quad u' = e^x$\n- $v' = \\cos(x) \\quad \\Rightarrow \\quad v = \\sin(x)$\n\n$$\\int e^x \\cos(x) \\, dx = e^x \\sin(x) - \\int e^x \\sin(x) \\, dx = e^x \\sin(x) - I$$\n\n**Set saman:**\n\n$$I = -e^x \\cos(x) + e^x \\sin(x) - I$$\n\n$$2I = e^x(\\sin(x) - \\cos(x))$$\n\n$$I = \\frac{e^x(\\sin(x) - \\cos(x))}{2} + C$$\n\n**Sjekk:** $\\left(\\frac{e^x(\\sin x - \\cos x)}{2}\\right)' = \\frac{e^x(\\sin x - \\cos x) + e^x(\\cos x + \\sin x)}{2} = \\frac{2e^x \\sin x}{2} = e^x \\sin x$ ✓",
+      "f3889e190a12f8cb": "Bruk sirkulær delvis integrasjon til å finne integrala.",
+      "cfa77738c0dc4a76": "$\\displaystyle\\int e^x \\cdot \\cos(x) \\, dx$",
+      "4334b6eca5125a0b": "Lat $I = \\int e^x \\cos(x) \\, dx$. Etter to rundar: $I = e^x \\sin(x) + e^x \\cos(x) - I$, så $2I = e^x(\\sin(x) + \\cos(x))$, og $I = \\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$",
+      "0b8e711b29954b0c": "$\\displaystyle\\int e^{2x} \\cdot \\sin(x) \\, dx$",
+      "d8acb9afc0475a7a": "Lat $I = \\int e^{2x} \\sin(x) \\, dx$. Etter to rundar: $I = -e^{2x}\\cos(x) + 2e^{2x}\\sin(x) - 4I$, så $5I = e^{2x}(2\\sin(x) - \\cos(x))$, og $I = \\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$",
+      "966dda0907a3d5ee": "$\\displaystyle\\int e^{-x} \\cdot \\cos(2x) \\, dx$",
+      "d4733e7e7e676291": "Lat $I = \\int e^{-x} \\cos(2x) \\, dx$. Etter to rundar får vi $5I = e^{-x}(2\\sin(2x) - \\cos(2x))$, så $I = \\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$",
+      "95d34b209b804150": "a) $\\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$, b) $\\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$, c) $\\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$",
+      "d6999ed20542e87c": "Sett opp $I$ for det ukjende integralet før du startar",
+      "bb9f68890805f804": "Når du ser $I$ dukke opp igjen, sett opp ei likning og løys for $I$",
+      "61e7178f2eefef78": "For b) og c): Pass på koeffisientane når du bruker kjerneregelen",
+      "030e99304f5b345e": "Generell formel for $\\int e^{ax} \\sin(bx) \\, dx$ og $\\int e^{ax} \\cos(bx) \\, dx$",
+      "a6fd1a34df1ea4df": "For konstantar $a$ og $b$ gjeld:\n\n$$\\int e^{ax} \\sin(bx) \\, dx = \\frac{e^{ax}(a\\sin(bx) - b\\cos(bx))}{a^2 + b^2} + C$$\n\n$$\\int e^{ax} \\cos(bx) \\, dx = \\frac{e^{ax}(a\\cos(bx) + b\\sin(bx))}{a^2 + b^2} + C$$\n\n**Merk:** Desse formlane kan utleiast ved sirkulær delvis integrasjon, men er nyttige å ha tilgjengelege for å spare tid.",
+      "83eb000fb9115ea1": "## Bestemt integral med delvis integrasjon\n\nNår vi bruker delvis integrasjon på eit bestemt integral, har vi to tilnærmingar:\n\n**Metode 1:** Finn først det ubestemte integralet, og evaluer deretter ved grensene.\n\n**Metode 2:** Bruk formelen for delvis integrasjon direkte med grenser:\n\n$$\\int_a^b u \\cdot v' \\, dx = \\Big[u \\cdot v\\Big]_a^b - \\int_a^b u' \\cdot v \\, dx$$\n\nMetode 2 kan vere meir effektiv fordi vi slepp å halde styr på integrasjonskonstanten.",
+      "b2d73924fd198c4a": "Eksempel 6: Bestemt integral",
+      "b8f61b7ebe082ab5": "Rekn ut $\\displaystyle\\int_0^1 x \\cdot e^x \\, dx$.",
+      "ab349108e2671ae5": "**Løysing:**\n\nVi bruker formelen $\\int_a^b u \\cdot v' \\, dx = [u \\cdot v]_a^b - \\int_a^b u' \\cdot v \\, dx$.\n\nMed $u = x$, $u' = 1$, $v' = e^x$, $v = e^x$:\n\n$$\\int_0^1 x \\cdot e^x \\, dx = \\Big[x \\cdot e^x\\Big]_0^1 - \\int_0^1 1 \\cdot e^x \\, dx$$\n\n$$= \\Big[x \\cdot e^x\\Big]_0^1 - \\Big[e^x\\Big]_0^1$$\n\n$$= (1 \\cdot e^1 - 0 \\cdot e^0) - (e^1 - e^0)$$\n\n$$= e - 0 - e + 1$$\n\n$$= 1$$",
+      "7790bded76a224f2": "Rekn ut dei bestemte integrala ved hjelp av delvis integrasjon.",
+      "e6f90bbae903d3e7": "$\\displaystyle\\int_0^{\\pi} x \\cdot \\sin(x) \\, dx$",
+      "fab459780090dc3b": "$[−x\\cos(x)]_0^{\\pi} + \\int_0^{\\pi} \\cos(x) \\, dx = (-\\pi \\cdot (-1) - 0) + [\\sin(x)]_0^{\\pi} = \\pi + 0 = \\pi$",
+      "0e1b6770de735721": "$\\displaystyle\\int_1^e \\ln(x) \\, dx$",
+      "0abb7daaffeb9f15": "$[x\\ln(x)]_1^e - \\int_1^e 1 \\, dx = (e \\cdot 1 - 1 \\cdot 0) - [x]_1^e = e - (e - 1) = 1$",
+      "29fb863557fb9620": "$\\displaystyle\\int_0^2 x \\cdot e^{-x} \\, dx$",
+      "f1cfd7948b3c5eaf": "$[-x e^{-x}]_0^2 + \\int_0^2 e^{-x} \\, dx = (-2e^{-2} - 0) + [-e^{-x}]_0^2 = -2e^{-2} + (-e^{-2} + 1) = 1 - 3e^{-2}$",
+      "b31245ba41ca492d": "$\\displaystyle\\int_1^e x \\cdot \\ln(x) \\, dx$",
+      "878a0f3e82848036": "$[\\frac{x^2}{2}\\ln(x)]_1^e - \\int_1^e \\frac{x}{2} \\, dx = (\\frac{e^2}{2} - 0) - [\\frac{x^2}{4}]_1^e = \\frac{e^2}{2} - \\frac{e^2 - 1}{4} = \\frac{e^2 + 1}{4}$",
+      "9de9204b0fef9299": "a) $\\pi$, b) $1$, c) $1 - 3e^{-2} \\approx 0{,}594$, d) $\\frac{e^2 + 1}{4} \\approx 2{,}097$",
+      "854dc2d21792f4e0": "Bruk formelen $[u \\cdot v]_a^b - \\int_a^b u' \\cdot v \\, dx$",
+      "2db3a1039886a350": "Evaluer $[\\cdot]_a^b$ tyder: sett inn øvre grense minus nedre grense",
+      "daca0421bfde6848": "For b): Hugs at $\\ln(1) = 0$ og $\\ln(e) = 1$",
+      "56ac31be63e6e279": "## Inverse trigonometriske funksjonar\n\nInverse trigonometriske funksjonar som $\\arcsin(x)$, $\\arccos(x)$ og $\\arctan(x)$ er vanskelege å integrere direkte, men enkle å derivere. Derfor vel vi alltid desse som $u$ i delvis integrasjon.\n\nViktige deriverte:\n- $(\\arcsin(x))' = \\frac{1}{\\sqrt{1-x^2}}$\n- $(\\arccos(x))' = -\\frac{1}{\\sqrt{1-x^2}}$\n- $(\\arctan(x))' = \\frac{1}{1+x^2}$",
+      "1d69f94360bcff7f": "Eksempel 9: Integrere $\\arctan(x)$",
+      "c36c36e74f5bd53a": "Finn $\\displaystyle\\int \\arctan(x) \\, dx$.",
+      "5a93ffaa99c19d04": "**Løysing:**\n\nVi skriv $\\arctan(x) = \\arctan(x) \\cdot 1$ og bruker delvis integrasjon.\n\n- $u = \\arctan(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{1+x^2}$\n- $v' = 1 \\quad \\Rightarrow \\quad v = x$\n\n$$\\int \\arctan(x) \\, dx = x \\cdot \\arctan(x) - \\int x \\cdot \\frac{1}{1+x^2} \\, dx$$\n\nFor det gjenverande integralet bruker vi substitusjon $t = 1 + x^2$, $dt = 2x \\, dx$:\n\n$$\\int \\frac{x}{1+x^2} \\, dx = \\frac{1}{2} \\int \\frac{1}{t} \\, dt = \\frac{1}{2} \\ln|t| = \\frac{1}{2} \\ln(1+x^2)$$\n\nDermed:\n\n$$\\int \\arctan(x) \\, dx = x \\cdot \\arctan(x) - \\frac{1}{2}\\ln(1+x^2) + C$$",
+      "28dd02b5cfe7be3f": "Finn integrala som involverer inverse trigonometriske funksjonar.",
+      "92eede0609aca168": "$\\displaystyle\\int \\arcsin(x) \\, dx$",
+      "399231701123a2c3": "Lat $u = \\arcsin(x)$, $v' = 1$. Då $u' = \\frac{1}{\\sqrt{1-x^2}}$, $v = x$. Integralet blir $x\\arcsin(x) - \\int \\frac{x}{\\sqrt{1-x^2}} \\, dx$. Med substitusjon $t = 1-x^2$: $\\int \\frac{x}{\\sqrt{1-x^2}} \\, dx = -\\sqrt{1-x^2}$. Svar: $x\\arcsin(x) + \\sqrt{1-x^2} + C$",
+      "a162455587f2072e": "$\\displaystyle\\int x \\cdot \\arctan(x) \\, dx$",
+      "2bebf725a82d249b": "Lat $u = \\arctan(x)$, $v' = x$. Då $u' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Svar: $\\frac{x^2+1}{2}\\arctan(x) - \\frac{x}{2} + C$",
+      "759f6e6f2a8cf272": "$\\displaystyle\\int_0^1 \\arctan(x) \\, dx$",
+      "2fc38c1fb4d6a5de": "$[x\\arctan(x) - \\frac{1}{2}\\ln(1+x^2)]_0^1 = (1 \\cdot \\frac{\\pi}{4} - \\frac{1}{2}\\ln 2) - 0 = \\frac{\\pi}{4} - \\frac{\\ln 2}{2}$",
+      "34ac07a6ee890d17": "a) $x\\arcsin(x) + \\sqrt{1-x^2} + C$, b) $\\frac{x^2+1}{2}\\arctan(x) - \\frac{x}{2} + C$, c) $\\frac{\\pi}{4} - \\frac{\\ln 2}{2} \\approx 0{,}439$",
+      "0b2b54b5c0dd322d": "Inverse trigonometriske funksjonar har høgast prioritet i LIATE",
+      "35c7768ad5428c9e": "Du må ofte kombinere delvis integrasjon med substitusjon",
+      "ac647939bf6fa775": "For a) bruk substitusjon $t = 1-x^2$ på det gjenverande integralet",
+      "724486e96a742d97": "Eksempel 7: Kombinere teknikkar",
+      "bfb330327dfbcc0c": "Finn $\\displaystyle\\int x^2 \\cdot \\sin(x) \\, dx$.",
+      "5a5fd6e82dbe0a93": "**Løysing:**\n\nDette krev to rundar med delvis integrasjon.\n\n**Første runde:**\n- $u = x^2 \\quad \\Rightarrow \\quad u' = 2x$\n- $v' = \\sin(x) \\quad \\Rightarrow \\quad v = -\\cos(x)$\n\n$$\\int x^2 \\sin(x) \\, dx = -x^2 \\cos(x) - \\int (-\\cos(x)) \\cdot 2x \\, dx$$\n$$= -x^2 \\cos(x) + 2\\int x \\cos(x) \\, dx$$\n\n**Andre runde** (på $\\int x \\cos(x) \\, dx$):\n- $u = x \\quad \\Rightarrow \\quad u' = 1$\n- $v' = \\cos(x) \\quad \\Rightarrow \\quad v = \\sin(x)$\n\n$$\\int x \\cos(x) \\, dx = x \\sin(x) - \\int \\sin(x) \\, dx = x \\sin(x) + \\cos(x)$$\n\n**Set saman:**\n\n$$\\int x^2 \\sin(x) \\, dx = -x^2 \\cos(x) + 2(x \\sin(x) + \\cos(x)) + C$$\n$$= -x^2 \\cos(x) + 2x \\sin(x) + 2\\cos(x) + C$$\n$$= (2 - x^2)\\cos(x) + 2x\\sin(x) + C$$",
+      "8426fa8d19279ea2": "Vanlege feil ved delvis integrasjon",
+      "fdf26a7af0fb878b": "**1. Feil val av $u$ og $v'$:**\nViss du vel feil, får du eit vanskelegare integral. Bruk LIATE-regelen!\n\n**2. Gløymer forteikn:**\nVer nøye med minusteiknet i formelen: $\\int u \\cdot v' \\, dx = uv \\mathbf{-} \\int u' \\cdot v \\, dx$\n\n**3. Gløymer integrasjonskonstanten:**\nHugs alltid $+ C$ på slutten av ubestemte integral.\n\n**4. Feil ved sirkulær integrasjon:**\nPass på at integralet $I$ dukkar opp med rett forteikn når du set opp likninga.\n\n**5. Stoppar for tidleg:**\nVed gjentatt delvis integrasjon, hald fram til polynomet er derivert til 0.",
+      "29c47ef6666378b1": "Løys desse utfordrande integrala.",
+      "6c5608bb8d19abae": "$\\displaystyle\\int (\\ln(x))^2 \\, dx$",
+      "822f6361b014482b": "Lat $u = (\\ln x)^2$, $v' = 1$. Då $u' = \\frac{2\\ln x}{x}$, $v = x$. Første runde gir $x(\\ln x)^2 - 2\\int \\ln x \\, dx$. Vi veit at $\\int \\ln x \\, dx = x\\ln x - x$. Totalt: $x(\\ln x)^2 - 2(x\\ln x - x) + C = x(\\ln x)^2 - 2x\\ln x + 2x + C = x((\\ln x)^2 - 2\\ln x + 2) + C$",
+      "63176bd2ac63ce0f": "Lat $u = \\arctan(x)$, $v' = x$. Då $u' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Då får vi $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}(x - \\arctan(x)) + C = \\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$",
+      "d6d4cb1fa2195e28": "$\\displaystyle\\int_0^{\\pi/2} x^2 \\cdot \\cos(x) \\, dx$",
+      "fb6d36880dd9a18f": "To rundar gir $[x^2 \\sin x + 2x\\cos x - 2\\sin x]_0^{\\pi/2} = (\\frac{\\pi^2}{4} \\cdot 1 + 0 - 2) - 0 = \\frac{\\pi^2}{4} - 2$",
+      "dc4b1a317a249cae": "a) $x((\\ln x)^2 - 2\\ln x + 2) + C$, b) $\\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$, c) $\\frac{\\pi^2}{4} - 2$",
+      "9949e2a6382cfde5": "For a): Du må bruke delvis integrasjon to gonger",
+      "9211c7b1aa775f4d": "For b): Inverse trigonometriske funksjonar har høg prioritet i LIATE",
+      "a0df342aac23cbf7": "For c): Bruk resultatet frå gjentatt delvis integrasjon",
+      "e7f3cdfea12b0579": "## Bruksområde for delvis integrasjon\n\nDelvis integrasjon har mange praktiske bruksområde:\n\n**1. Fysikk - Arbeid og energi:**\nArbeidet utført av ein variabel kraft $F(x)$ over ei strekning er $W = \\int F(x) \\, dx$. Når krafta er eit produkt av funksjonar, bruker vi delvis integrasjon.\n\n**2. Sannsynsrekning:**\nForventningsverdi og varians av kontinuerlege sannsynsfordelingar krev ofte delvis integrasjon.\n\n**3. Fourier-analyse:**\nUtrekning av Fourier-koeffisientar involverer integral av typen $\\int f(x) \\sin(nx) \\, dx$ og $\\int f(x) \\cos(nx) \\, dx$.\n\n**4. Differensiallikningar:**\nLøysing av visse differensiallikningar krev delvis integrasjon.",
+      "8d322c49147f5669": "Eksempel 10: Gjennomsnittsverdi",
+      "9ebdc1aa1033ae45": "Finn gjennomsnittsverdien til funksjonen $f(x) = x \\cdot e^{-x}$ på intervallet $[0, 2]$.",
+      "9668b78aa3c839d6": "**Løysing:**\n\nGjennomsnittsverdien på $[a, b]$ er gitt ved:\n\n$$\\bar{f} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx$$\n\nVi må først rekne ut $\\int_0^2 x \\cdot e^{-x} \\, dx$.\n\nMed delvis integrasjon ($u = x$, $v' = e^{-x}$):\n\n$$\\int_0^2 x \\cdot e^{-x} \\, dx = \\Big[-x e^{-x}\\Big]_0^2 + \\int_0^2 e^{-x} \\, dx$$\n\n$$= (-2e^{-2} - 0) + \\Big[-e^{-x}\\Big]_0^2$$\n\n$$= -2e^{-2} + (-e^{-2} + 1)$$\n\n$$= 1 - 3e^{-2}$$\n\nGjennomsnittsverdien blir:\n\n$$\\bar{f} = \\frac{1}{2-0}(1 - 3e^{-2}) = \\frac{1 - 3e^{-2}}{2} \\approx 0{,}297$$",
+      "0372d809add3a9e1": "## Eksamensrelevante oppgåver\n\nPå eksamen i R2 kjem delvis integrasjon ofte i kombinasjon med andre emne. Typiske oppgåver:\n\n- Finn areal avgrensa av grafar der integralet krev delvis integrasjon\n- Rekn ut volum av omdreiingslekamar\n- Finn gjennomsnittsverdiar\n- Løys differensiallikningar\n- Rekn ut forventningsverdi i sannsynsrekning",
+      "9c864c09ba1e00b7": "Løys desse eksamensrelevante oppgåvene.",
+      "9dcad82977fa0643": "Finn arealet av området avgrensa av $y = x \\cdot e^{-x}$, $x$-aksen, $x = 0$ og $x = 2$.",
+      "58a9b28d8fb23d10": "Arealet er $\\int_0^2 x \\cdot e^{-x} \\, dx = 1 - 3e^{-2} \\approx 0{,}594$ (sjå eksempel 10)",
+      "2458fe5f101e67f1": "Finn volumet når området under $y = \\ln(x)$ frå $x = 1$ til $x = e$ blir rotert om $x$-aksen.",
+      "3a4844dacc35f006": "Volumet er $V = \\pi \\int_1^e (\\ln x)^2 \\, dx$. Med delvis integrasjon to gonger: $\\int (\\ln x)^2 \\, dx = x((\\ln x)^2 - 2\\ln x + 2)$. Evaluert: $V = \\pi[x((\\ln x)^2 - 2\\ln x + 2)]_1^e = \\pi(e(1-2+2) - 1(0-0+2)) = \\pi(e - 2)$",
+      "78e0d87102ea4bc8": "Vis at $\\displaystyle\\int_0^{\\pi/2} \\sin^2(x) \\, dx = \\frac{\\pi}{4}$ ved delvis integrasjon.",
+      "8be2badd04a94d10": "Skriv $\\sin^2(x) = \\sin(x) \\cdot \\sin(x)$. Lat $u = \\sin(x)$, $v' = \\sin(x)$, så $u' = \\cos(x)$, $v = -\\cos(x)$. Då: $\\int \\sin^2 x \\, dx = -\\sin x \\cos x + \\int \\cos^2 x \\, dx = -\\sin x \\cos x + \\int (1-\\sin^2 x) \\, dx$. Dette gir $2\\int \\sin^2 x \\, dx = x - \\sin x \\cos x$, så $\\int \\sin^2 x \\, dx = \\frac{x - \\sin x \\cos x}{2}$. Evaluert: $[\\frac{x - \\sin x \\cos x}{2}]_0^{\\pi/2} = \\frac{\\pi/2 - 0}{2} = \\frac{\\pi}{4}$",
+      "42117d7ab83228e9": "a) $1 - 3e^{-2} \\approx 0{,}594$, b) $\\pi(e - 2) \\approx 2{,}26$, c) Sjå fullstendig løysing",
+      "77fee9cc6807670c": "For a): Dette er eit standard areal-integral",
+      "1da4a0ff55190730": "For b): Volum ved rotasjon om $x$-aksen: $V = \\pi \\int_a^b (f(x))^2 \\, dx$",
+      "c607ab74f062176a": "For c): Du får eit sirkulært integral - løys for $\\int \\sin^2 x \\, dx$",
+      "98e95367044ff3c2": "Blanda oppgåver - vel rett integrasjonsteknikk.",
+      "ac3c22fe558709cf": "$\\displaystyle\\int x^2 \\cdot e^{x^3} \\, dx$",
+      "601b4d4e086c0b3b": "Dette er IKKJE delvis integrasjon! Bruk substitusjon $u = x^3$: $\\int x^2 \\cdot e^{x^3} \\, dx = \\frac{1}{3} e^{x^3} + C$",
+      "cd27439ad4417157": "$\\displaystyle\\int x \\cdot \\sqrt{1+x^2} \\, dx$",
+      "f0b8ba6bc1ccaf14": "Substitusjon $u = 1 + x^2$: $\\int x \\cdot \\sqrt{1+x^2} \\, dx = \\frac{1}{3}(1+x^2)^{3/2} + C$",
+      "bfc921e70e662dd8": "$\\displaystyle\\int x \\cdot \\ln(x^2) \\, dx$",
+      "f8ad96466a1c312f": "Skriv om: $\\ln(x^2) = 2\\ln(x)$. Bruk delvis integrasjon: $\\int 2x\\ln(x) \\, dx = x^2\\ln(x) - \\frac{x^2}{2} + C$",
+      "d14bf65f8fd100ff": "$\\displaystyle\\int e^x \\cdot \\sin(e^x) \\, dx$",
+      "32be79c151ffb38b": "Substitusjon $u = e^x$: $\\int e^x \\cdot \\sin(e^x) \\, dx = -\\cos(e^x) + C$",
+      "81df2136fdbbe399": "a) $\\frac{1}{3}e^{x^3} + C$, b) $\\frac{1}{3}(1+x^2)^{3/2} + C$, c) $x^2\\ln(x) - \\frac{x^2}{2} + C$, d) $-\\cos(e^x) + C$",
+      "0859a33f92b6015a": "Ikkje alt som ser ut som delvis integrasjon er det!",
+      "fafd35675fb1d855": "Sjå etter om den deriverte av ein indre funksjon står utanfor",
+      "225fc12bce275702": "Forenkle først viss mogleg (som i oppgåve c)",
+      "a5afbdf1633b37c2": "**Når skal du bruke delvis integrasjon?**\n\nBruk delvis integrasjon når:\n1. Du har eit produkt av to *ulike* funksjonstypar\n2. Substitusjon ikkje fungerer\n3. Ein av funksjonane blir enklare ved derivasjon\n\nBruk substitusjon når:\n1. Du ser den deriverte av ein indre funksjon\n2. Integranden har forma $f(g(x)) \\cdot g'(x)$\n\n**Tips:** Prøv substitusjon først - det er ofte raskare!",
+      "2fbb79eda6d1b3b5": "## Oppsummering\n\n**Formelen for delvis integrasjon:**\n$$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$\n\n**LIATE-regelen for val av $u$:**\n1. Logaritmar\n2. Inverse trigonometriske\n3. Algebraiske (polynom)\n4. Trigonometriske\n5. Eksponentialfunksjonar\n\n**Spesielle tilfelle:**\n- Polynom av grad $n$ krev $n$ rundar med delvis integrasjon\n- Produkt av $e^x$ og trigonometriske funksjonar gir sirkulær delvis integrasjon\n- $\\int \\ln(x) \\, dx = x(\\ln(x) - 1) + C$ er eit viktig resultat\n\n**Hugs:**\n- Sjekk alltid svaret ved derivasjon\n- Ikkje gløym integrasjonskonstanten $C$\n- Vurder om substitusjon er enklare før du startar med delvis integrasjon",
+      "f68a496166b68532": "Viktige integral frå delvis integrasjon",
+      "994d067f5db62899": "Desse resultata er nyttige å hugse og kan brukast direkte i utrekningar.",
+      "0a70e6dda77aed2a": "Generelle formlar for polynom",
+      "24f8145098d024f2": "Legg merke til mønsteret: koeffisientane er fakultetar med vekslande forteikn.",
+      "f0db7f3333b88fb5": "Repetisjonsoppgåver",
+      "cc813884c5a66fe6": "Vis repetisjonsoppgåver",
+      "1f41ca98bc558f80": "Integrer med delvis integrasjon.",
+      "945352621c029374": "$\\int x e^x \\, dx$",
+      "8fe88da19e8f4055": "Med $u = x$, $v' = e^x$: $xe^x - \\int e^x \\, dx = (x-1)e^x + C$",
+      "b32ac33953ecb12c": "$\\int x \\sin x \\, dx$",
+      "e5ccc1c6ce9131c0": "Med $u = x$, $v' = \\sin x$: $-x\\cos x + \\int \\cos x \\, dx = -x\\cos x + \\sin x + C$",
+      "249c04750925cb4b": "$\\int x \\cos x \\, dx$",
+      "f5daf33dd751a3c5": "$x\\sin x - \\int \\sin x \\, dx = x\\sin x + \\cos x + C$",
+      "00e78c9cf94a0741": "$\\int 2x e^x \\, dx$",
+      "deb1155f14ea5577": "$2\\int x e^x\\,dx = 2(x-1)e^x + C$",
+      "bbca7c09fb47ec78": "a) $(x-1)e^x+C$  b) $-x\\cos x+\\sin x+C$  c) $x\\sin x+\\cos x+C$  d) $2(x-1)e^x+C$",
+      "572c43ac56f939c5": "Formelen: $\\int u v' \\, dx = uv - \\int u' v \\, dx$. Vel $u = x$.",
+      "024866b9b41b3ef3": "Integrer logaritmen.",
+      "b75386c70c1a8ead": "$\\int \\ln x \\, dx$",
+      "eb920889c1787366": "Med $u = \\ln x$, $v' = 1$: $x\\ln x - \\int x \\cdot \\frac{1}{x} \\, dx = x\\ln x - x + C$",
+      "32b7f3ee0f4be907": "$\\int x \\ln x \\, dx$",
+      "9c15f1cf93e7e606": "Med $u = \\ln x$, $v' = x$: $\\frac{x^2}{2}\\ln x - \\int \\frac{x}{2}\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$",
+      "17dbc6979fb70a5c": "a) $x\\ln x - x + C$  b) $\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}+C$",
+      "e219d1f86de311a7": "Vel $u = \\ln x$, sidan logaritmen blir enklare ved derivasjon.",
+      "086f6b83a16087fd": "Gjentatt delvis integrasjon: $\\int x^2 e^x \\, dx$.",
+      "0738135a2ad17b2d": "Utfør første delvise integrasjon.",
+      "378fd3b65a51bbf5": "$u = x^2$, $v' = e^x$: $x^2 e^x - \\int 2x e^x \\, dx$",
+      "c5b15b1ccb9c809d": "Fullfør utrekninga.",
+      "8ec9722717057bb6": "$\\int 2x e^x \\, dx = 2(x-1)e^x$, så $\\int x^2 e^x \\, dx = x^2 e^x - 2(x-1)e^x + C = (x^2 - 2x + 2)e^x + C$",
+      "02fae51c9eb029fe": "$(x^2-2x+2)e^x+C$",
+      "2badb66201e20f38": "Bruk delvis integrasjon to gonger.",
+      "5e8c52b282b6e628": "Rekn ut dei bestemte integrala.",
+      "ec35fe45cb90550a": "$\\int_0^1 x e^x \\, dx$",
+      "4942bb5025caa009": "$[(x-1)e^x]_0^1 = 0 - (-1) = 1$",
+      "42292edf621d5c84": "$\\int_1^e \\ln x \\, dx$",
+      "aa51b3ffab86106c": "$[x\\ln x - x]_1^e = (e - e) - (0 - 1) = 1$",
+      "398d216a2af383b7": "$\\int_0^{\\pi} x \\sin x \\, dx$. Oppgi eksakt svar.",
+      "fe791d65f07957f9": "$[-x\\cos x + \\sin x]_0^{\\pi} = (\\pi + 0) - 0 = \\pi$",
+      "16aaf1c031514e15": "$\\int_0^1 x e^{2x} \\, dx$. Oppgi eksakt svar.",
+      "365e8555fabb1179": "Med $u = x$, $v' = e^{2x}$: $\\left[\\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x}\\right]_0^1 = \\frac{e^2}{4} - \\left(-\\frac{1}{4}\\right) = \\frac{e^2 + 1}{4}$",
+      "b6ad0e9c2b795313": "a) 1  b) 1  c) $\\pi$  d) $\\frac{e^2+1}{4}$",
+      "f79672e0503e7e35": "Bruk antideriverte frå R1 og R2.",
+      "fc4e78a85f668edc": "Sirkulær delvis integrasjon: $\\int e^x \\sin x \\, dx$.",
+      "d98f0045ad91a814": "Bruk delvis integrasjon to gonger og vis at integralet dukkar opp igjen på høgre side.",
+      "4ce9c4544aa0ce73": "$I = \\int e^x \\sin x \\, dx = e^x \\sin x - \\int e^x \\cos x \\, dx = e^x \\sin x - \\left(e^x \\cos x + \\int e^x \\sin x \\, dx\\right) = e^x(\\sin x - \\cos x) - I$",
+      "ed970ebabe031474": "Løys likninga og finn integralet.",
+      "abd444757da43564": "$2I = e^x(\\sin x - \\cos x)$, så $I = \\frac{e^x(\\sin x - \\cos x)}{2} + C$",
+      "a6aa105aef0a1482": "Bruk resultatet til å rekne ut $\\int_0^{\\pi} e^x \\sin x \\, dx$. Oppgi eksakt svar.",
+      "bf3c5e16b90cf132": "$\\left[\\frac{e^x(\\sin x - \\cos x)}{2}\\right]_0^{\\pi} = \\frac{e^{\\pi}(0+1)}{2} - \\frac{1 \\cdot (0-1)}{2} = \\frac{e^{\\pi} + 1}{2}$",
+      "919df35167fa6cf1": "a) sjå utrekning  b) $\\frac{e^x(\\sin x - \\cos x)}{2}+C$  c) $\\frac{e^{\\pi}+1}{2}$",
+      "e1c9d89e110e9dde": "Flytt integralet over på venstre side og løys som ei likning."
+    }
+  }
+}

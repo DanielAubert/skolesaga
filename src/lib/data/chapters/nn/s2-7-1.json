@@ -1,1 +1,789 @@
-{"id":"s2-7-1","courseId":"s2","chapterNumber":"7.1","title":"Aritmetiske følgjer og rekkjer","description":"Lær om aritmetiske følgjer, eksplisitt formel for det n-te leddet, og sum av aritmetisk rekkje.","estimatedMinutes":55,"competenceGoals":["gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering","rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar"],"content":[{"id":"s2-7-1-intro","type":"text","content":"## Kva er ei følgje?\n\nEi **følgje** er ei ordna liste med tal som følgjer eit bestemt mønster. Vi skriv følgja som $a_1, a_2, a_3, \\ldots$ der $a_n$ står for det $n$-te leddet.\n\nI dette kapittelet skal vi studere **aritmetiske følgjer**, der differansen mellom kvart ledd og det føregåande er konstant. Denne konstante differansen kallar vi $d$. Aritmetiske følgjer dukkar opp i mange samanhengar, til dømes i lineær vekst, avdrag på serielån og nummerering."},{"id":"s2-7-1-def-1","type":"definition","title":"Aritmetisk følgje","content":"Ei **aritmetisk følgje** er ei talrekkje der differansen mellom kvart ledd og det føregåande er konstant:\n\n$$a_{n+1} - a_n = d \\quad \\text{for alle } n \\geq 1$$\n\nHer er $d$ den **faste differansen**. Følgja er voksande dersom $d > 0$ og avtakande dersom $d < 0$.\n\n**Døme:**\n- $2, 5, 8, 11, 14, \\ldots$ har $d = 3$\n- $20, 17, 14, 11, \\ldots$ har $d = -3$"},{"id":"s2-7-1-def-2","type":"definition","title":"Eksplisitt formel for aritmetisk følgje","content":"Det $n$-te leddet i ei aritmetisk følgje med første ledd $a_1$ og differanse $d$ er gitt ved:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nDenne formelen lèt oss rekne ut eit vilkårleg ledd direkte utan å kjenne alle dei føregåande ledda."},{"id":"s2-7-1-example-1","type":"example","title":"Finn formel og bestemte ledd","problem":"Ei aritmetisk følgje har $a_1 = 4$ og $d = 3$. Finn det 20. leddet og det $n$-te leddet.","solution":"Vi bruker formelen $a_n = a_1 + (n-1) \\cdot d$.\n\n**Det $n$-te leddet:**\n$$a_n = 4 + (n-1) \\cdot 3 = 4 + 3n - 3 = 3n + 1$$\n\n**Det 20. leddet:**\n$$a_{20} = 3 \\cdot 20 + 1 = 61$$\n\n**Kontroll:** Dei første ledda er $4, 7, 10, 13, \\ldots$ som stemmer med $a_n = 3n + 1$."},{"id":"s2-7-1-text-rekker","type":"text","content":"## Frå følgjer til rekkjer\n\nNår vi legg saman ledda i ei følgje, får vi ei **rekkje**. Summen av dei $n$ første ledda i ei aritmetisk følgje kallar vi $S_n$:\n\n$$S_n = a_1 + a_2 + a_3 + \\cdots + a_n$$\n\nGauss oppdaga som barn ein elegant formel for denne summen. Trikset er å skrive summen to gonger - éin gong forlengs og éin gong baklengs - og leggje dei saman. Då blir kvart par lik $a_1 + a_n$, og det er $n$ slike par."},{"id":"s2-7-1-theorem-1","type":"theorem","title":"Sum av aritmetisk rekkje","content":"Summen av dei $n$ første ledda i ei aritmetisk følgje er:\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\n**Bevis:** Skriv summen forlengs og baklengs:\n$$S_n = a_1 + (a_1 + d) + \\cdots + a_n$$\n$$S_n = a_n + (a_n - d) + \\cdots + a_1$$\nLegg saman: $2S_n = n(a_1 + a_n)$, altså $S_n = \\frac{n(a_1 + a_n)}{2}$."},{"id":"s2-7-1-fig-aritmetisk-rekke-gauss","type":"image","src":"/images/content/s2/s2-7-1-aritmetisk-rekke-gauss.svg","alt":"Eit rektangel med 5 gonger 6 ruter, delt i to like store trappeforma halvdelar. Den eine halvdelen består av kolonnar med 1, 2, 3, 4 og 5 ruter.","caption":"To kopiar av trappa $1+2+3+4+5$ fyller til saman eit rektangel på $5 \\times 6$. Difor er summen $\\frac{5 \\cdot 6}{2} = 15$, og generelt $S_n = \\frac{n(a_1 + a_n)}{2}$."},{"id":"s2-7-1-example-2","type":"example","title":"Rekn ut sum av aritmetisk rekkje","problem":"Finn summen $S_{50}$ av dei 50 første ledda i følgja $3, 7, 11, 15, \\ldots$","solution":"Vi identifiserer $a_1 = 3$ og $d = 4$.\n\n**Finn $a_{50}$:**\n$$a_{50} = 3 + (50-1) \\cdot 4 = 3 + 196 = 199$$\n\n**Rekn ut summen:**\n$$S_{50} = \\frac{50}{2}(a_1 + a_{50}) = 25 \\cdot (3 + 199) = 25 \\cdot 202 = 5050$$\n\n**Alternativ metode:**\n$$S_{50} = \\frac{50}{2}(2 \\cdot 3 + 49 \\cdot 4) = 25 \\cdot (6 + 196) = 25 \\cdot 202 = 5050$$"},{"id":"s2-7-1-def-3","type":"definition","title":"Summeteiknet (sigma-notasjon)","content":"Vi bruker den greske bokstaven sigma ($\\Sigma$) for å skrive summar kompakt:\n\n$$\\sum_{k=1}^{n} a_k = a_1 + a_2 + a_3 + \\cdots + a_n$$\n\nHer er $k$ **summeindeksen**, $1$ er **nedre grense** og $n$ er **øvre grense**.\n\n**Døme:** $\\sum_{k=1}^{5} (2k+1) = 3 + 5 + 7 + 9 + 11 = 35$"},{"id":"s2-7-1-text-anvendelser","type":"text","content":"## Bruk av aritmetiske rekkjer\n\nAritmetiske rekkjer dukkar opp i mange praktiske samanhengar:\n\n- **Serielån:** Avdraga er like store, og terminbeløpet avtek med ein fast differanse\n- **Lineær vekst:** Talet på nye kundar per månad aukar med eit fast tal\n- **Trappemønster:** Talet på blokker i ein trappefigur med jamt aukande rader\n\nNøkkelen er å identifisere at differansen mellom etterfølgjande verdiar er konstant. Då kan du bruke formlane for aritmetiske følgjer og rekkjer."},{"id":"s2-7-1-example-3","type":"example","title":"Praktisk bruk: møtesal med rader","problem":"Ein møtesal har rader med stolar. Første rad har 12 stolar, og kvar rad har 2 stolar meir enn raden framanfor. Det er 20 rader totalt. Kor mange stolar er det i salen?","solution":"Dette er ei aritmetisk rekkje med $a_1 = 12$, $d = 2$ og $n = 20$.\n\n**Tal på stolar i siste rad:**\n$$a_{20} = 12 + (20-1) \\cdot 2 = 12 + 38 = 50$$\n\n**Totalt tal på stolar:**\n$$S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$$\n\nDet er **620 stolar** i salen."},{"id":"s2-7-1-ex-block-1","type":"exercise","exercise":{"id":"s2-7-1-ex-1","number":"1","type":"classic","difficulty":"lett","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Avgjer om følgja $5, 9, 13, 17, 21, \\ldots$ er aritmetisk. Bestem i så fall $d$.","solution":"Differansen mellom kvart ledd: $9-5 = 4$, $13-9 = 4$, $17-13 = 4$. Differansen er konstant, så følgja er aritmetisk med $d = 4$.","answer":4},{"label":"b","task":"Finn det 30. leddet i følgja frå oppgåve a).","solution":"$a_{30} = 5 + (30-1) \\cdot 4 = 5 + 116 = 121$","answer":121}],"hints":["Sjekk om differansen mellom naboledd er konstant."]}},{"id":"s2-7-1-ex-block-2","type":"exercise","exercise":{"id":"s2-7-1-ex-2","number":"2","type":"classic","difficulty":"lett","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Ei aritmetisk følgje har $a_1 = 100$ og $d = -7$. Finn ein formel for $a_n$.","solution":"$a_n = 100 + (n-1)(-7) = 100 - 7n + 7 = 107 - 7n$","expressionAnswer":["107 - 7n","100 + (n-1)*(-7)"]},{"label":"b","task":"For kva verdi av $n$ er $a_n = 2$?","solution":"$107 - 7n = 2 \\Rightarrow 7n = 105 \\Rightarrow n = 15$","answer":15}],"hints":["Løys $100 - 7(n-1) = 2$ for $n$."]}},{"id":"s2-7-1-ex-block-3","type":"exercise","exercise":{"id":"s2-7-1-ex-3","number":"3","type":"classic","difficulty":"lett","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Finn summen $1 + 2 + 3 + \\cdots + 100$.","solution":"$S_{100} = \\frac{100}{2}(1 + 100) = 50 \\cdot 101 = 5050$","answer":5050},{"label":"b","task":"Finn summen $2 + 4 + 6 + \\cdots + 200$.","solution":"Aritmetisk rekkje med $a_1 = 2$, $d = 2$, $a_n = 200 \\Rightarrow n = 100$. $S_{100} = \\frac{100}{2}(2 + 200) = 50 \\cdot 202 = 10\\,100$","answer":10100}],"hints":["Bruk $S_n = \\frac{n}{2}(a_1 + a_n)$."]}},{"id":"s2-7-1-ex-block-4","type":"exercise","exercise":{"id":"s2-7-1-ex-4","number":"4","type":"classic","difficulty":"lett","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Skriv ut dei fem første ledda i følgja gitt ved $a_n = 3n - 2$.","solution":"$a_1 = 1$, $a_2 = 4$, $a_3 = 7$, $a_4 = 10$, $a_5 = 13$. Følgja er $1, 4, 7, 10, 13$."},{"label":"b","task":"Vis at følgja i a) er aritmetisk og bestem $d$.","solution":"$a_{n+1} - a_n = 3(n+1) - 2 - (3n - 2) = 3n + 3 - 2 - 3n + 2 = 3$. Differansen er konstant lik $d = 3$, så følgja er aritmetisk.","answer":3}],"hints":["Rekn ut $a_{n+1} - a_n$ for generell $n$."]}},{"id":"s2-7-1-ex-block-5","type":"exercise","exercise":{"id":"s2-7-1-ex-5","number":"5","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"I ei aritmetisk følgje er $a_3 = 14$ og $a_7 = 30$. Finn $a_1$ og $d$.","solution":"$a_7 - a_3 = 4d \\Rightarrow 30 - 14 = 4d \\Rightarrow d = 4$. $a_3 = a_1 + 2d \\Rightarrow 14 = a_1 + 8 \\Rightarrow a_1 = 6$."},{"label":"b","task":"Finn $S_{20}$ for følgja i a).","solution":"$a_{20} = 6 + 19 \\cdot 4 = 82$. $S_{20} = \\frac{20}{2}(6 + 82) = 10 \\cdot 88 = 880$.","answer":880}],"hints":["$a_7 - a_3 = 4d$."]}},{"id":"s2-7-1-ex-block-6","type":"exercise","exercise":{"id":"s2-7-1-ex-6","number":"6","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Rekn ut $\\sum_{k=1}^{40}(3k + 2)$.","solution":"Dette er ei aritmetisk rekkje med $a_1 = 5$, $d = 3$, $n = 40$. $a_{40} = 3 \\cdot 40 + 2 = 122$. $S_{40} = \\frac{40}{2}(5 + 122) = 20 \\cdot 127 = 2540$.","answer":2540}],"hints":["Del opp: $3\\sum k + \\sum 2$."]}},{"id":"s2-7-1-ex-block-7","type":"exercise","exercise":{"id":"s2-7-1-ex-7","number":"7","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Summen av dei $n$ første ledda i ei aritmetisk rekkje er $S_n = 2n^2 + 3n$. Finn $a_1$ og $d$.","solution":"$a_1 = S_1 = 2 + 3 = 5$. $a_2 = S_2 - S_1 = (8+6) - 5 = 9$. $d = a_2 - a_1 = 9 - 5 = 4$."},{"label":"b","task":"Finn ein formel for $a_n$.","solution":"$a_n = S_n - S_{n-1} = (2n^2 + 3n) - (2(n-1)^2 + 3(n-1)) = 2n^2 + 3n - 2n^2 + 4n - 2 - 3n + 3 = 4n + 1$.","expressionAnswer":"4n + 1"}],"hints":["$a_1 = S_1$ og $a_n = S_n - S_{n-1}$."]}},{"id":"s2-7-1-ex-block-8","type":"exercise","exercise":{"id":"s2-7-1-ex-8","number":"8","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Eit amfiteater har 30 rader. Første rad har 20 sete, og kvar rad har 3 sete meir enn den føregåande. Finn det totale talet på sete.","solution":"Aritmetisk rekkje med $a_1 = 20$, $d = 3$, $n = 30$. $a_{30} = 20 + 29 \\cdot 3 = 107$. $S_{30} = \\frac{30}{2}(20 + 107) = 15 \\cdot 127 = 1905$ sete.","answer":1905}],"hints":["Siste rad: $a_{30} = 20 + 29 \\cdot 3$; sum med $S_n = \\frac{n}{2}(a_1 + a_n)$."]}},{"id":"s2-7-1-ex-block-9","type":"exercise","exercise":{"id":"s2-7-1-ex-9","number":"9","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Tre tal i ei aritmetisk følgje har sum 27 og produkt 504. Finn tala.","solution":"Lat tala vere $a-d$, $a$, $a+d$. Sum: $3a = 27 \\Rightarrow a = 9$. Produkt: $(9-d) \\cdot 9 \\cdot (9+d) = 504 \\Rightarrow 9(81 - d^2) = 504 \\Rightarrow 81 - d^2 = 56 \\Rightarrow d^2 = 25 \\Rightarrow d = \\pm 5$. Tala er $4, 9, 14$ (eller $14, 9, 4$)."}],"hints":["Skriv tala som $a - d$, $a$, $a + d$ — summen gir $a$ direkte."]}},{"id":"s2-7-1-ex-block-10","type":"exercise","exercise":{"id":"s2-7-1-ex-10","number":"10","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Vis at summen av dei $n$ første oddetala er $n^2$.","solution":"Dei $n$ første oddetala er $1, 3, 5, \\ldots, (2n-1)$. Dette er ei aritmetisk rekkje med $a_1 = 1$, $a_n = 2n-1$. $S_n = \\frac{n}{2}(1 + 2n - 1) = \\frac{n \\cdot 2n}{2} = n^2$."}],"hints":["Oddetala er $1, 3, 5, \\ldots, 2n-1$ med $a_1 = 1$ og $d = 2$."]}},{"id":"s2-7-1-ex-block-11","type":"exercise","exercise":{"id":"s2-7-1-ex-11","number":"11","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"I ei aritmetisk følgje er $S_{10} = 200$ og $S_{20} = 800$. Finn $a_1$ og $d$.","solution":"$S_{10} = \\frac{10}{2}(2a_1 + 9d) = 5(2a_1 + 9d) = 200 \\Rightarrow 2a_1 + 9d = 40$. $S_{20} = \\frac{20}{2}(2a_1 + 19d) = 10(2a_1 + 19d) = 800 \\Rightarrow 2a_1 + 19d = 80$. Trekk frå: $10d = 40 \\Rightarrow d = 4$. Då $2a_1 = 40 - 36 = 4 \\Rightarrow a_1 = 2$."},{"label":"b","task":"Finn $S_{30}$ for følgja i a).","solution":"$S_{30} = \\frac{30}{2}(2 \\cdot 2 + 29 \\cdot 4) = 15(4 + 116) = 15 \\cdot 120 = 1800$.","answer":1800}],"hints":["Sett opp to likningar frå sumformelen og løys systemet."]}},{"id":"s2-7-1-ex-block-12","type":"exercise","exercise":{"id":"s2-7-1-ex-12","number":"12","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Ei bedrift planlegg å auke produksjonen lineært. I januar blir det produsert 500 einingar, og produksjonen aukar med 30 einingar per månad. Finn total produksjon for heile året.","solution":"Aritmetisk rekkje med $a_1 = 500$, $d = 30$, $n = 12$. $a_{12} = 500 + 11 \\cdot 30 = 830$. $S_{12} = \\frac{12}{2}(500 + 830) = 6 \\cdot 1330 = 7980$ einingar.","answer":7980},{"label":"b","task":"Etter kor mange månader har bedrifta produsert totalt 10\\,000 einingar?","solution":"$S_n = \\frac{n}{2}(2 \\cdot 500 + (n-1) \\cdot 30) = \\frac{n}{2}(1000 + 30n - 30) = \\frac{n}{2}(970 + 30n) = 15n^2 + 485n$. Sett $15n^2 + 485n = 10\\,000$. $15n^2 + 485n - 10\\,000 = 0$. $3n^2 + 97n - 2000 = 0$. $n = \\frac{-97 + \\sqrt{9409 + 24000}}{6} = \\frac{-97 + \\sqrt{33409}}{6} \\approx \\frac{-97 + 182{,}8}{6} \\approx 14{,}3$. Etter 15 månader.","answer":15}],"hints":["Månadsproduksjonen er aritmetisk; samla produksjon er summen."]}},{"id":"s2-7-1-ex-block-13","type":"exercise","exercise":{"id":"s2-7-1-ex-13","number":"13","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Finn verdien av $\\sum_{k=1}^{n} k = 1 + 2 + 3 + \\cdots + n$ uttrykt ved $n$.","solution":"Aritmetisk rekkje med $a_1 = 1$, $a_n = n$. $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$.","expressionAnswer":["n*(n+1)/2","n*(n+1)/2","(n^2+n)/2"]},{"label":"b","task":"Bruk resultatet i a) til å finne $\\sum_{k=1}^{n}(2k-1)$.","solution":"$\\sum_{k=1}^{n}(2k-1) = 2\\sum_{k=1}^{n} k - \\sum_{k=1}^{n} 1 = 2 \\cdot \\frac{n(n+1)}{2} - n = n^2 + n - n = n^2$.","expressionAnswer":"n^2"}],"hints":["Bruk Gauss-trikset: par første og siste ledd."]}},{"id":"s2-7-1-ex-block-14","type":"exercise","exercise":{"id":"s2-7-1-ex-14","number":"14","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Vis at dersom $a$, $b$ og $c$ er tre etterfølgjande ledd i ei aritmetisk følgje, så er $b = \\frac{a+c}{2}$.","solution":"Sidan $b - a = c - b = d$, får vi $2b = a + c$, altså $b = \\frac{a+c}{2}$. Vi kallar $b$ det **aritmetiske middelet** av $a$ og $c$."}],"hints":["Uttrykk $a$ og $c$ ved $b$ og $d$."]}},{"id":"s2-7-1-oppsummering","type":"text","content":"## Oppsummering\n\n**Aritmetisk følgje:** Differansen $d = a_{n+1} - a_n$ er konstant.\n\n**Eksplisitt formel:** $a_n = a_1 + (n-1)d$\n\n**Sum av aritmetisk rekkje:**\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}(2a_1 + (n-1)d)$$\n\n**Tips for oppgåveløysing:**\n- Identifiser $a_1$ og $d$ frå oppgåveteksten\n- Bruk den eksplisitte formelen for å finne enkeltledd\n- Bruk sumformelen for å finne summen av fleire ledd\n- Sjekk svaret ved å rekne ut dei første ledda manuelt"},{"id":"s2-7-1-repetisjon","type":"collapsible","title":"Repetisjonsoppgåver","buttonText":"Vis repetisjonsoppgåver","content":[{"id":"s2-7-1-rep-1","type":"exercise","exercise":{"id":"s2-7-1-rep-ex-1","number":"R1","type":"classic","difficulty":"lett","task":"Følgja $3, 7, 11, 15, \\ldots$ er aritmetisk.","subTasks":[{"label":"a","task":"Finn differansen $d$.","solution":"$d = 7 - 3 = 4$","answer":4},{"label":"b","task":"Finn $a_{10}$.","solution":"$a_{10} = 3 + 9 \\cdot 4 = 39$","answer":39},{"label":"c","task":"Finn $a_{25}$.","solution":"$a_{25} = 3 + 24 \\cdot 4 = 99$","answer":99}],"solution":"a) $4$  b) $39$  c) $99$","hideInlineSolution":true,"hints":["$a_n = a_1 + (n-1)d$."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"s2-7-1-rep-2","type":"exercise","exercise":{"id":"s2-7-1-rep-ex-2","number":"R2","type":"classic","difficulty":"lett","task":"Summar av aritmetiske rekkjer.","subTasks":[{"label":"a","task":"Rekn ut $1 + 2 + 3 + \\cdots + 50$.","solution":"$S_{50} = \\frac{50 \\cdot 51}{2} = 1275$","answer":1275},{"label":"b","task":"Ei aritmetisk rekkje har $a_1 = 5$ og $d = 3$. Finn $S_{20}$.","solution":"$S_{20} = \\frac{20}{2}\\big(2 \\cdot 5 + 19 \\cdot 3\\big) = 10 \\cdot 67 = 670$","answer":670},{"label":"c","task":"Rekn ut $2 + 4 + 6 + \\cdots + 100$.","solution":"$S = \\frac{50}{2}(2 + 100) = 2550$","answer":2550}],"solution":"a) $1275$  b) $670$  c) $2550$","hideInlineSolution":true,"hints":["$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\big(2a_1 + (n-1)d\\big)$."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"s2-7-1-rep-3","type":"exercise","exercise":{"id":"s2-7-1-rep-ex-3","number":"R3","type":"classic","difficulty":"medium","task":"I ei aritmetisk følgje er $a_3 = 11$ og $a_7 = 23$.","subTasks":[{"label":"a","task":"Finn $d$.","solution":"$a_7 - a_3 = 4d = 12$ gir $d = 3$","answer":3},{"label":"b","task":"Finn $a_1$.","solution":"$a_1 = a_3 - 2d = 11 - 6 = 5$","answer":5},{"label":"c","task":"Finn $S_{15}$.","solution":"$S_{15} = \\frac{15}{2}\\big(2 \\cdot 5 + 14 \\cdot 3\\big) = \\frac{15}{2} \\cdot 52 = 390$","answer":390}],"solution":"a) $3$  b) $5$  c) $390$","hideInlineSolution":true,"hints":["Mellom $a_3$ og $a_7$ ligg 4 differansar."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"s2-7-1-rep-4","type":"exercise","exercise":{"id":"s2-7-1-rep-ex-4","number":"R4","type":"classic","difficulty":"medium","task":"Eit amfiteater har 25 rader. Første rad har 18 sete, og kvar rad har 2 sete meir enn den framanfor.","subTasks":[{"label":"a","task":"Kor mange sete har bakarste rad?","solution":"$a_{25} = 18 + 24 \\cdot 2 = 66$","answer":66},{"label":"b","task":"Kor mange sete har amfiet totalt?","solution":"$S_{25} = \\frac{25}{2}(18 + 66) = 25 \\cdot 42 = 1050$","answer":1050},{"label":"c","task":"Kva rad har 40 sete?","solution":"$18 + 2(n-1) = 40$ gir $n = 12$","answer":12}],"solution":"a) $66$  b) $1050$  c) rad $12$","hideInlineSolution":true,"hints":["Seta per rad dannar ei aritmetisk følgje."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"s2-7-1-rep-5","type":"exercise","exercise":{"id":"s2-7-1-rep-ex-5","number":"R5","type":"classic","difficulty":"vanskelig","task":"Samansette oppgåver.","subTasks":[{"label":"a","task":"Rekn ut $\\sum_{k=1}^{30}(2k + 5)$.","solution":"$2\\sum k + \\sum 5 = 2 \\cdot \\frac{30 \\cdot 31}{2} + 150 = 930 + 150 = 1080$","answer":1080},{"label":"b","task":"Ei bedrift produserer 500 einingar første månad og aukar med 20 einingar kvar månad. Etter kor mange heile månader passerer samla produksjon 10 000 einingar?","solution":"$S_n = \\frac{n}{2}\\big(1000 + 20(n-1)\\big) = 10n^2 + 490n$. $10n^2 + 490n \\geq 10\\,000$ gir $n^2 + 49n - 1000 \\geq 0$, og $n = \\frac{-49 + \\sqrt{6401}}{2} \\approx 15{,}5$. Første heile månad: $n = 16$ (kontroll: $S_{15} = 9600$, $S_{16} = 10\\,400$)","answer":16},{"label":"c","task":"Vis at dersom $a$, $b$, $c$ er tre etterfølgjande ledd i ei aritmetisk følgje, er $b = \\frac{a + c}{2}$.","solution":"Med differanse $d$: $b = a + d$ og $c = b + d$. Då er $a + c = (b - d) + (b + d) = 2b$, altså $b = \\frac{a+c}{2}$ — kvart ledd er gjennomsnittet av nabolagsledda."}],"solution":"a) $1080$  b) $16$ månader  c) $b$ er gjennomsnittet av nabolagsledda","hideInlineSolution":true,"hints":["Del summen i ein $k$-del og ein konstantdel.","Sett opp ulikskap for summen og løys andregradslikninga."],"allowsUpload":true,"allowsCanvasDrawing":true}}]}],"exercises":[],"_meta":{"sourceHash":"3ccbda9ec66996f0","translatedAt":"2026-06-20T09:32:20.447Z","model":"claude-code-agent","strings":147,"tm":{"189f37132cfabb55":"Aritmetiske følgjer og rekkjer","68f7226cf70f2795":"Lær om aritmetiske følgjer, eksplisitt formel for det n-te leddet, og sum av aritmetisk rekkje.","1106d08617dcc28d":"gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering","cdaf2b60f863d0ce":"rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar","dc455e32c46c86fa":"## Kva er ei følgje?\n\nEi **følgje** er ei ordna liste med tal som følgjer eit bestemt mønster. Vi skriv følgja som $a_1, a_2, a_3, \\ldots$ der $a_n$ står for det $n$-te leddet.\n\nI dette kapittelet skal vi studere **aritmetiske følgjer**, der differansen mellom kvart ledd og det føregåande er konstant. Denne konstante differansen kallar vi $d$. Aritmetiske følgjer dukkar opp i mange samanhengar, til dømes i lineær vekst, avdrag på serielån og nummerering.","6836f8af4c872ad1":"Aritmetisk følgje","060be32ce82d0dba":"Ei **aritmetisk følgje** er ei talrekkje der differansen mellom kvart ledd og det føregåande er konstant:\n\n$$a_{n+1} - a_n = d \\quad \\text{for alle } n \\geq 1$$\n\nHer er $d$ den **faste differansen**. Følgja er voksande dersom $d > 0$ og avtakande dersom $d < 0$.\n\n**Døme:**\n- $2, 5, 8, 11, 14, \\ldots$ har $d = 3$\n- $20, 17, 14, 11, \\ldots$ har $d = -3$","339bb01e6a135677":"Eksplisitt formel for aritmetisk følgje","4d249b57c854735a":"Det $n$-te leddet i ei aritmetisk følgje med første ledd $a_1$ og differanse $d$ er gitt ved:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nDenne formelen lèt oss rekne ut eit vilkårleg ledd direkte utan å kjenne alle dei føregåande ledda.","ea6ed83f4a6f85fe":"Finn formel og bestemte ledd","e35a19673cad2a7a":"Ei aritmetisk følgje har $a_1 = 4$ og $d = 3$. Finn det 20. leddet og det $n$-te leddet.","b3bd74c0bdc44e41":"Vi bruker formelen $a_n = a_1 + (n-1) \\cdot d$.\n\n**Det $n$-te leddet:**\n$$a_n = 4 + (n-1) \\cdot 3 = 4 + 3n - 3 = 3n + 1$$\n\n**Det 20. leddet:**\n$$a_{20} = 3 \\cdot 20 + 1 = 61$$\n\n**Kontroll:** Dei første ledda er $4, 7, 10, 13, \\ldots$ som stemmer med $a_n = 3n + 1$.","97105caee77af19f":"## Frå følgjer til rekkjer\n\nNår vi legg saman ledda i ei følgje, får vi ei **rekkje**. Summen av dei $n$ første ledda i ei aritmetisk følgje kallar vi $S_n$:\n\n$$S_n = a_1 + a_2 + a_3 + \\cdots + a_n$$\n\nGauss oppdaga som barn ein elegant formel for denne summen. Trikset er å skrive summen to gonger - éin gong forlengs og éin gong baklengs - og leggje dei saman. Då blir kvart par lik $a_1 + a_n$, og det er $n$ slike par.","fdaac854e983e3af":"Sum av aritmetisk rekkje","c8ae8215329df73a":"Summen av dei $n$ første ledda i ei aritmetisk følgje er:\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\n**Bevis:** Skriv summen forlengs og baklengs:\n$$S_n = a_1 + (a_1 + d) + \\cdots + a_n$$\n$$S_n = a_n + (a_n - d) + \\cdots + a_1$$\nLegg saman: $2S_n = n(a_1 + a_n)$, altså $S_n = \\frac{n(a_1 + a_n)}{2}$.","08771b92de208d0d":"Rekn ut sum av aritmetisk rekkje","fd885972712f30c9":"Finn summen $S_{50}$ av dei 50 første ledda i følgja $3, 7, 11, 15, \\ldots$","189972f1380ec867":"Vi identifiserer $a_1 = 3$ og $d = 4$.\n\n**Finn $a_{50}$:**\n$$a_{50} = 3 + (50-1) \\cdot 4 = 3 + 196 = 199$$\n\n**Rekn ut summen:**\n$$S_{50} = \\frac{50}{2}(a_1 + a_{50}) = 25 \\cdot (3 + 199) = 25 \\cdot 202 = 5050$$\n\n**Alternativ metode:**\n$$S_{50} = \\frac{50}{2}(2 \\cdot 3 + 49 \\cdot 4) = 25 \\cdot (6 + 196) = 25 \\cdot 202 = 5050$$","946003d311696d42":"Summeteiknet (sigma-notasjon)","e7b95b11ccefb258":"Vi bruker den greske bokstaven sigma ($\\Sigma$) for å skrive summar kompakt:\n\n$$\\sum_{k=1}^{n} a_k = a_1 + a_2 + a_3 + \\cdots + a_n$$\n\nHer er $k$ **summeindeksen**, $1$ er **nedre grense** og $n$ er **øvre grense**.\n\n**Døme:** $\\sum_{k=1}^{5} (2k+1) = 3 + 5 + 7 + 9 + 11 = 35$","37e3fe27331173d9":"## Bruk av aritmetiske rekkjer\n\nAritmetiske rekkjer dukkar opp i mange praktiske samanhengar:\n\n- **Serielån:** Avdraga er like store, og terminbeløpet avtek med ein fast differanse\n- **Lineær vekst:** Talet på nye kundar per månad aukar med eit fast tal\n- **Trappemønster:** Talet på blokker i ein trappefigur med jamt aukande rader\n\nNøkkelen er å identifisere at differansen mellom etterfølgjande verdiar er konstant. Då kan du bruke formlane for aritmetiske følgjer og rekkjer.","dc6a3157b2ebae0c":"Praktisk bruk: møtesal med rader","dd7ab37c34a2b818":"Ein møtesal har rader med stolar. Første rad har 12 stolar, og kvar rad har 2 stolar meir enn raden framanfor. Det er 20 rader totalt. Kor mange stolar er det i salen?","f42b376857600d93":"Dette er ei aritmetisk rekkje med $a_1 = 12$, $d = 2$ og $n = 20$.\n\n**Tal på stolar i siste rad:**\n$$a_{20} = 12 + (20-1) \\cdot 2 = 12 + 38 = 50$$\n\n**Totalt tal på stolar:**\n$$S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$$\n\nDet er **620 stolar** i salen.","0b8fb02075a0f346":"Løys oppgåvene:","8c3b908efc902165":"Avgjer om følgja $5, 9, 13, 17, 21, \\ldots$ er aritmetisk. Bestem i så fall $d$.","875795830f9fc07f":"Differansen mellom kvart ledd: $9-5 = 4$, $13-9 = 4$, $17-13 = 4$. Differansen er konstant, så følgja er aritmetisk med $d = 4$.","e85ccd6634fdced3":"Finn det 30. leddet i følgja frå oppgåve a).","c4ac7fbd2d662f61":"$a_{30} = 5 + (30-1) \\cdot 4 = 5 + 116 = 121$","6444bc61d5bff7ac":"Sjekk om differansen mellom naboledd er konstant.","e0cc90a245a88462":"Ei aritmetisk følgje har $a_1 = 100$ og $d = -7$. Finn ein formel for $a_n$.","f1fd7fe5e6580fe2":"$a_n = 100 + (n-1)(-7) = 100 - 7n + 7 = 107 - 7n$","fefef58e67f22cb1":"For kva verdi av $n$ er $a_n = 2$?","4bcf5797ae0a5df9":"$107 - 7n = 2 \\Rightarrow 7n = 105 \\Rightarrow n = 15$","aec93d86c3b95046":"Løys $100 - 7(n-1) = 2$ for $n$.","d007e183e70e314d":"Finn summen $1 + 2 + 3 + \\cdots + 100$.","a7fa4f5a822043c3":"$S_{100} = \\frac{100}{2}(1 + 100) = 50 \\cdot 101 = 5050$","07ae6bb5dc191665":"Finn summen $2 + 4 + 6 + \\cdots + 200$.","f2037cc13a8eaaee":"Aritmetisk rekkje med $a_1 = 2$, $d = 2$, $a_n = 200 \\Rightarrow n = 100$. $S_{100} = \\frac{100}{2}(2 + 200) = 50 \\cdot 202 = 10\\,100$","b9cee9d4cf6f6cdb":"Bruk $S_n = \\frac{n}{2}(a_1 + a_n)$.","e3ba106b813d3055":"Skriv ut dei fem første ledda i følgja gitt ved $a_n = 3n - 2$.","93e2c125d2a3701b":"$a_1 = 1$, $a_2 = 4$, $a_3 = 7$, $a_4 = 10$, $a_5 = 13$. Følgja er $1, 4, 7, 10, 13$.","19665ad704e07a8d":"Vis at følgja i a) er aritmetisk og bestem $d$.","a69794ffc308083c":"$a_{n+1} - a_n = 3(n+1) - 2 - (3n - 2) = 3n + 3 - 2 - 3n + 2 = 3$. Differansen er konstant lik $d = 3$, så følgja er aritmetisk.","e55a70b7db0e4e69":"Rekn ut $a_{n+1} - a_n$ for generell $n$.","79f6e052f518a4ab":"I ei aritmetisk følgje er $a_3 = 14$ og $a_7 = 30$. Finn $a_1$ og $d$.","220e6e6a389c20fb":"$a_7 - a_3 = 4d \\Rightarrow 30 - 14 = 4d \\Rightarrow d = 4$. $a_3 = a_1 + 2d \\Rightarrow 14 = a_1 + 8 \\Rightarrow a_1 = 6$.","2b5df31035a55a58":"Finn $S_{20}$ for følgja i a).","5fc7de4f42b4c951":"$a_{20} = 6 + 19 \\cdot 4 = 82$. $S_{20} = \\frac{20}{2}(6 + 82) = 10 \\cdot 88 = 880$.","00b812c43af13aca":"$a_7 - a_3 = 4d$.","571511e2cf0f8d83":"Rekn ut $\\sum_{k=1}^{40}(3k + 2)$.","26f875478a83589a":"Dette er ei aritmetisk rekkje med $a_1 = 5$, $d = 3$, $n = 40$. $a_{40} = 3 \\cdot 40 + 2 = 122$. $S_{40} = \\frac{40}{2}(5 + 122) = 20 \\cdot 127 = 2540$.","087f48381c466b52":"Del opp: $3\\sum k + \\sum 2$.","2bc9148684cd3d58":"Summen av dei $n$ første ledda i ei aritmetisk rekkje er $S_n = 2n^2 + 3n$. Finn $a_1$ og $d$.","a1d2da78d121d44a":"$a_1 = S_1 = 2 + 3 = 5$. $a_2 = S_2 - S_1 = (8+6) - 5 = 9$. $d = a_2 - a_1 = 9 - 5 = 4$.","b455703b8d2088a5":"Finn ein formel for $a_n$.","847a2f59fbafe198":"$a_n = S_n - S_{n-1} = (2n^2 + 3n) - (2(n-1)^2 + 3(n-1)) = 2n^2 + 3n - 2n^2 + 4n - 2 - 3n + 3 = 4n + 1$.","e52ecf18fc5c5dcb":"$a_1 = S_1$ og $a_n = S_n - S_{n-1}$.","da36f974305a85d9":"Eit amfiteater har 30 rader. Første rad har 20 sete, og kvar rad har 3 sete meir enn den føregåande. Finn det totale talet på sete.","4be5b0a9cbdadd29":"Aritmetisk rekkje med $a_1 = 20$, $d = 3$, $n = 30$. $a_{30} = 20 + 29 \\cdot 3 = 107$. $S_{30} = \\frac{30}{2}(20 + 107) = 15 \\cdot 127 = 1905$ sete.","768a88c7393070a9":"Siste rad: $a_{30} = 20 + 29 \\cdot 3$; sum med $S_n = \\frac{n}{2}(a_1 + a_n)$.","cef335c3dbc973b6":"Tre tal i ei aritmetisk følgje har sum 27 og produkt 504. Finn tala.","64a2c86e29ac24ab":"Lat tala vere $a-d$, $a$, $a+d$. Sum: $3a = 27 \\Rightarrow a = 9$. Produkt: $(9-d) \\cdot 9 \\cdot (9+d) = 504 \\Rightarrow 9(81 - d^2) = 504 \\Rightarrow 81 - d^2 = 56 \\Rightarrow d^2 = 25 \\Rightarrow d = \\pm 5$. Tala er $4, 9, 14$ (eller $14, 9, 4$).","5484fe5d6667f4db":"Skriv tala som $a - d$, $a$, $a + d$ — summen gir $a$ direkte.","940510bf5553e700":"Vis at summen av dei $n$ første oddetala er $n^2$.","8ffc4ee94f63292c":"Dei $n$ første oddetala er $1, 3, 5, \\ldots, (2n-1)$. Dette er ei aritmetisk rekkje med $a_1 = 1$, $a_n = 2n-1$. $S_n = \\frac{n}{2}(1 + 2n - 1) = \\frac{n \\cdot 2n}{2} = n^2$.","e9c669edf8df103a":"Oddetala er $1, 3, 5, \\ldots, 2n-1$ med $a_1 = 1$ og $d = 2$.","14b1923bb3e44d14":"I ei aritmetisk følgje er $S_{10} = 200$ og $S_{20} = 800$. Finn $a_1$ og $d$.","a1dbc69c49629339":"$S_{10} = \\frac{10}{2}(2a_1 + 9d) = 5(2a_1 + 9d) = 200 \\Rightarrow 2a_1 + 9d = 40$. $S_{20} = \\frac{20}{2}(2a_1 + 19d) = 10(2a_1 + 19d) = 800 \\Rightarrow 2a_1 + 19d = 80$. Trekk frå: $10d = 40 \\Rightarrow d = 4$. Då $2a_1 = 40 - 36 = 4 \\Rightarrow a_1 = 2$.","719e0137af939d38":"Finn $S_{30}$ for følgja i a).","89c47eac661fc42a":"$S_{30} = \\frac{30}{2}(2 \\cdot 2 + 29 \\cdot 4) = 15(4 + 116) = 15 \\cdot 120 = 1800$.","f09f3091e1bd8200":"Sett opp to likningar frå sumformelen og løys systemet.","01e53046a49d6c3c":"Ei bedrift planlegg å auke produksjonen lineært. I januar blir det produsert 500 einingar, og produksjonen aukar med 30 einingar per månad. Finn total produksjon for heile året.","9f446c7aa23f9e44":"Aritmetisk rekkje med $a_1 = 500$, $d = 30$, $n = 12$. $a_{12} = 500 + 11 \\cdot 30 = 830$. $S_{12} = \\frac{12}{2}(500 + 830) = 6 \\cdot 1330 = 7980$ einingar.","8e20552bc116a7d4":"Etter kor mange månader har bedrifta produsert totalt 10\\,000 einingar?","27fe67762165ae0c":"$S_n = \\frac{n}{2}(2 \\cdot 500 + (n-1) \\cdot 30) = \\frac{n}{2}(1000 + 30n - 30) = \\frac{n}{2}(970 + 30n) = 15n^2 + 485n$. Sett $15n^2 + 485n = 10\\,000$. $15n^2 + 485n - 10\\,000 = 0$. $3n^2 + 97n - 2000 = 0$. $n = \\frac{-97 + \\sqrt{9409 + 24000}}{6} = \\frac{-97 + \\sqrt{33409}}{6} \\approx \\frac{-97 + 182{,}8}{6} \\approx 14{,}3$. Etter 15 månader.","8c5cbe85de9ec9ce":"Månadsproduksjonen er aritmetisk; samla produksjon er summen.","bc6ef3e03f67da3f":"Finn verdien av $\\sum_{k=1}^{n} k = 1 + 2 + 3 + \\cdots + n$ uttrykt ved $n$.","2b01b2e4357021ed":"Aritmetisk rekkje med $a_1 = 1$, $a_n = n$. $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$.","13d569d861bf3785":"Bruk resultatet i a) til å finne $\\sum_{k=1}^{n}(2k-1)$.","02d52c4024a190e0":"$\\sum_{k=1}^{n}(2k-1) = 2\\sum_{k=1}^{n} k - \\sum_{k=1}^{n} 1 = 2 \\cdot \\frac{n(n+1)}{2} - n = n^2 + n - n = n^2$.","8db05f5cdb6109c0":"Bruk Gauss-trikset: par første og siste ledd.","dc3af69d38c69125":"Vis at dersom $a$, $b$ og $c$ er tre etterfølgjande ledd i ei aritmetisk følgje, så er $b = \\frac{a+c}{2}$.","0f294a751ea7f2e7":"Sidan $b - a = c - b = d$, får vi $2b = a + c$, altså $b = \\frac{a+c}{2}$. Vi kallar $b$ det **aritmetiske middelet** av $a$ og $c$.","918f41f633173a85":"Uttrykk $a$ og $c$ ved $b$ og $d$.","140d2b13c530549a":"## Oppsummering\n\n**Aritmetisk følgje:** Differansen $d = a_{n+1} - a_n$ er konstant.\n\n**Eksplisitt formel:** $a_n = a_1 + (n-1)d$\n\n**Sum av aritmetisk rekkje:**\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}(2a_1 + (n-1)d)$$\n\n**Tips for oppgåveløysing:**\n- Identifiser $a_1$ og $d$ frå oppgåveteksten\n- Bruk den eksplisitte formelen for å finne enkeltledd\n- Bruk sumformelen for å finne summen av fleire ledd\n- Sjekk svaret ved å rekne ut dei første ledda manuelt","f0db7f3333b88fb5":"Repetisjonsoppgåver","cc813884c5a66fe6":"Vis repetisjonsoppgåver","dedb5e6ab4ba1104":"Følgja $3, 7, 11, 15, \\ldots$ er aritmetisk.","52ed6b1c88185909":"Finn differansen $d$.","dda8a18e89bd1f00":"$d = 7 - 3 = 4$","4d0e50af419468d3":"Finn $a_{10}$.","64e783a5438ea065":"$a_{10} = 3 + 9 \\cdot 4 = 39$","eb3a2a9ee644bdf3":"Finn $a_{25}$.","b132e6c07bf5b4e0":"$a_{25} = 3 + 24 \\cdot 4 = 99$","c8ac1398c0c893fb":"a) $4$  b) $39$  c) $99$","b4888a1b1fa2ae44":"$a_n = a_1 + (n-1)d$.","23f33c84003de748":"Summar av aritmetiske rekkjer.","0d5e231e5728ed2d":"Rekn ut $1 + 2 + 3 + \\cdots + 50$.","1507fac1a37eba37":"$S_{50} = \\frac{50 \\cdot 51}{2} = 1275$","5f2de51c9376668a":"Ei aritmetisk rekkje har $a_1 = 5$ og $d = 3$. Finn $S_{20}$.","2efc5046502257bb":"$S_{20} = \\frac{20}{2}\\big(2 \\cdot 5 + 19 \\cdot 3\\big) = 10 \\cdot 67 = 670$","995de8d0fb612797":"Rekn ut $2 + 4 + 6 + \\cdots + 100$.","25dde887d0270838":"$S = \\frac{50}{2}(2 + 100) = 2550$","c5abb4649fe84f75":"a) $1275$  b) $670$  c) $2550$","178d66d0f97c906f":"$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\big(2a_1 + (n-1)d\\big)$.","35280d276a4f6f48":"I ei aritmetisk følgje er $a_3 = 11$ og $a_7 = 23$.","3e7484548e1da2e7":"Finn $d$.","2445c3f290ac7a33":"$a_7 - a_3 = 4d = 12$ gir $d = 3$","82de0eb72c67a2dd":"Finn $a_1$.","d6181eea66855335":"$a_1 = a_3 - 2d = 11 - 6 = 5$","85543e2aa61db7bf":"Finn $S_{15}$.","218f2ae3c40e9c14":"$S_{15} = \\frac{15}{2}\\big(2 \\cdot 5 + 14 \\cdot 3\\big) = \\frac{15}{2} \\cdot 52 = 390$","4c5db6bc5183f90e":"a) $3$  b) $5$  c) $390$","0906d6091365a5c0":"Mellom $a_3$ og $a_7$ ligg 4 differansar.","394702fd739d8a93":"Eit amfiteater har 25 rader. Første rad har 18 sete, og kvar rad har 2 sete meir enn den framanfor.","98ed8b4f658fd3bf":"Kor mange sete har bakarste rad?","2244fb677a5e1f60":"$a_{25} = 18 + 24 \\cdot 2 = 66$","9d40f32a789462cc":"Kor mange sete har amfiet totalt?","8ef010607d9555f7":"$S_{25} = \\frac{25}{2}(18 + 66) = 25 \\cdot 42 = 1050$","b6115e58efc6b778":"Kva rad har 40 sete?","705505994c0d0aac":"$18 + 2(n-1) = 40$ gir $n = 12$","319daec1c8ee7ab5":"a) $66$  b) $1050$  c) rad $12$","1edcb831f4545935":"Seta per rad dannar ei aritmetisk følgje.","d1efb45c75f849c9":"Samansette oppgåver.","df10939f32886485":"Rekn ut $\\sum_{k=1}^{30}(2k + 5)$.","f6329794e7ddc91d":"$2\\sum k + \\sum 5 = 2 \\cdot \\frac{30 \\cdot 31}{2} + 150 = 930 + 150 = 1080$","4260c281b707d9fa":"Ei bedrift produserer 500 einingar første månad og aukar med 20 einingar kvar månad. Etter kor mange heile månader passerer samla produksjon 10 000 einingar?","9065b88ba6f4025d":"$S_n = \\frac{n}{2}\\big(1000 + 20(n-1)\\big) = 10n^2 + 490n$. $10n^2 + 490n \\geq 10\\,000$ gir $n^2 + 49n - 1000 \\geq 0$, og $n = \\frac{-49 + \\sqrt{6401}}{2} \\approx 15{,}5$. Første heile månad: $n = 16$ (kontroll: $S_{15} = 9600$, $S_{16} = 10\\,400$)","f1e0c739f508ff6a":"Vis at dersom $a$, $b$, $c$ er tre etterfølgjande ledd i ei aritmetisk følgje, er $b = \\frac{a + c}{2}$.","f11c6878e4f7203e":"Med differanse $d$: $b = a + d$ og $c = b + d$. Då er $a + c = (b - d) + (b + d) = 2b$, altså $b = \\frac{a+c}{2}$ — kvart ledd er gjennomsnittet av nabolagsledda.","1941308959450955":"a) $1080$  b) $16$ månader  c) $b$ er gjennomsnittet av nabolagsledda","a47d7d326e0d69d0":"Del summen i ein $k$-del og ein konstantdel.","ff1516c9c48e29c3":"Sett opp ulikskap for summen og løys andregradslikninga."}}}
+{
+  "id": "s2-7-1",
+  "courseId": "s2",
+  "chapterNumber": "7.1",
+  "title": "Aritmetiske følgjer og rekkjer",
+  "description": "Lær om aritmetiske følgjer, eksplisitt formel for det n-te leddet, og sum av aritmetisk rekkje.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering",
+    "rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar"
+  ],
+  "content": [
+    {
+      "id": "s2-7-1-intro",
+      "type": "text",
+      "content": "## Kva er ei følgje?\n\nEi **følgje** er ei ordna liste med tal som følgjer eit bestemt mønster. Vi skriv følgja som $a_1, a_2, a_3, \\ldots$ der $a_n$ står for det $n$-te leddet.\n\nI dette kapittelet skal vi studere **aritmetiske følgjer**, der differansen mellom kvart ledd og det føregåande er konstant. Denne konstante differansen kallar vi $d$. Aritmetiske følgjer dukkar opp i mange samanhengar, til dømes i lineær vekst, avdrag på serielån og nummerering."
+    },
+    {
+      "id": "s2-7-1-def-1",
+      "type": "definition",
+      "title": "Aritmetisk følgje",
+      "content": "Ei **aritmetisk følgje** er ei talrekkje der differansen mellom kvart ledd og det føregåande er konstant:\n\n$$a_{n+1} - a_n = d \\quad \\text{for alle } n \\geq 1$$\n\nHer er $d$ den **faste differansen**. Følgja er voksande dersom $d > 0$ og avtakande dersom $d < 0$.\n\n**Døme:**\n- $2, 5, 8, 11, 14, \\ldots$ har $d = 3$\n- $20, 17, 14, 11, \\ldots$ har $d = -3$"
+    },
+    {
+      "id": "s2-7-1-def-2",
+      "type": "definition",
+      "title": "Eksplisitt formel for aritmetisk følgje",
+      "content": "Det $n$-te leddet i ei aritmetisk følgje med første ledd $a_1$ og differanse $d$ er gitt ved:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nDenne formelen lèt oss rekne ut eit vilkårleg ledd direkte utan å kjenne alle dei føregåande ledda."
+    },
+    {
+      "id": "s2-7-1-example-1",
+      "type": "example",
+      "title": "Finn formel og bestemte ledd",
+      "problem": "Ei aritmetisk følgje har $a_1 = 4$ og $d = 3$. Finn det 20. leddet og det $n$-te leddet.",
+      "solution": "Vi bruker formelen $a_n = a_1 + (n-1) \\cdot d$.\n\n**Det $n$-te leddet:**\n$$a_n = 4 + (n-1) \\cdot 3 = 4 + 3n - 3 = 3n + 1$$\n\n**Det 20. leddet:**\n$$a_{20} = 3 \\cdot 20 + 1 = 61$$\n\n**Kontroll:** Dei første ledda er $4, 7, 10, 13, \\ldots$ som stemmer med $a_n = 3n + 1$."
+    },
+    {
+      "id": "s2-7-1-text-rekker",
+      "type": "text",
+      "content": "## Frå følgjer til rekkjer\n\nNår vi legg saman ledda i ei følgje, får vi ei **rekkje**. Summen av dei $n$ første ledda i ei aritmetisk følgje kallar vi $S_n$:\n\n$$S_n = a_1 + a_2 + a_3 + \\cdots + a_n$$\n\nGauss oppdaga som barn ein elegant formel for denne summen. Trikset er å skrive summen to gonger - éin gong forlengs og éin gong baklengs - og leggje dei saman. Då blir kvart par lik $a_1 + a_n$, og det er $n$ slike par."
+    },
+    {
+      "id": "s2-7-1-theorem-1",
+      "type": "theorem",
+      "title": "Sum av aritmetisk rekkje",
+      "content": "Summen av dei $n$ første ledda i ei aritmetisk følgje er:\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\n**Bevis:** Skriv summen forlengs og baklengs:\n$$S_n = a_1 + (a_1 + d) + \\cdots + a_n$$\n$$S_n = a_n + (a_n - d) + \\cdots + a_1$$\nLegg saman: $2S_n = n(a_1 + a_n)$, altså $S_n = \\frac{n(a_1 + a_n)}{2}$."
+    },
+    {
+      "id": "s2-7-1-fig-aritmetisk-rekke-gauss",
+      "type": "image",
+      "src": "/images/content/s2/s2-7-1-aritmetisk-rekke-gauss.svg",
+      "alt": "Eit rektangel med 5 gonger 6 ruter, delt i to like store trappeforma halvdelar. Den eine halvdelen består av kolonnar med 1, 2, 3, 4 og 5 ruter.",
+      "caption": "To kopiar av trappa $1+2+3+4+5$ fyller til saman eit rektangel på $5 \\times 6$. Difor er summen $\\frac{5 \\cdot 6}{2} = 15$, og generelt $S_n = \\frac{n(a_1 + a_n)}{2}$."
+    },
+    {
+      "id": "s2-7-1-example-2",
+      "type": "example",
+      "title": "Rekn ut sum av aritmetisk rekkje",
+      "problem": "Finn summen $S_{50}$ av dei 50 første ledda i følgja $3, 7, 11, 15, \\ldots$",
+      "solution": "Vi identifiserer $a_1 = 3$ og $d = 4$.\n\n**Finn $a_{50}$:**\n$$a_{50} = 3 + (50-1) \\cdot 4 = 3 + 196 = 199$$\n\n**Rekn ut summen:**\n$$S_{50} = \\frac{50}{2}(a_1 + a_{50}) = 25 \\cdot (3 + 199) = 25 \\cdot 202 = 5050$$\n\n**Alternativ metode:**\n$$S_{50} = \\frac{50}{2}(2 \\cdot 3 + 49 \\cdot 4) = 25 \\cdot (6 + 196) = 25 \\cdot 202 = 5050$$"
+    },
+    {
+      "id": "s2-7-1-def-3",
+      "type": "definition",
+      "title": "Summeteiknet (sigma-notasjon)",
+      "content": "Vi bruker den greske bokstaven sigma ($\\Sigma$) for å skrive summar kompakt:\n\n$$\\sum_{k=1}^{n} a_k = a_1 + a_2 + a_3 + \\cdots + a_n$$\n\nHer er $k$ **summeindeksen**, $1$ er **nedre grense** og $n$ er **øvre grense**.\n\n**Døme:** $\\sum_{k=1}^{5} (2k+1) = 3 + 5 + 7 + 9 + 11 = 35$"
+    },
+    {
+      "id": "s2-7-1-text-anvendelser",
+      "type": "text",
+      "content": "## Bruk av aritmetiske rekkjer\n\nAritmetiske rekkjer dukkar opp i mange praktiske samanhengar:\n\n- **Serielån:** Avdraga er like store, og terminbeløpet avtek med ein fast differanse\n- **Lineær vekst:** Talet på nye kundar per månad aukar med eit fast tal\n- **Trappemønster:** Talet på blokker i ein trappefigur med jamt aukande rader\n\nNøkkelen er å identifisere at differansen mellom etterfølgjande verdiar er konstant. Då kan du bruke formlane for aritmetiske følgjer og rekkjer."
+    },
+    {
+      "id": "s2-7-1-example-3",
+      "type": "example",
+      "title": "Praktisk bruk: møtesal med rader",
+      "problem": "Ein møtesal har rader med stolar. Første rad har 12 stolar, og kvar rad har 2 stolar meir enn raden framanfor. Det er 20 rader totalt. Kor mange stolar er det i salen?",
+      "solution": "Dette er ei aritmetisk rekkje med $a_1 = 12$, $d = 2$ og $n = 20$.\n\n**Tal på stolar i siste rad:**\n$$a_{20} = 12 + (20-1) \\cdot 2 = 12 + 38 = 50$$\n\n**Totalt tal på stolar:**\n$$S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$$\n\nDet er **620 stolar** i salen."
+    },
+    {
+      "id": "s2-7-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Avgjer om følgja $5, 9, 13, 17, 21, \\ldots$ er aritmetisk. Bestem i så fall $d$.",
+            "solution": "Differansen mellom kvart ledd: $9-5 = 4$, $13-9 = 4$, $17-13 = 4$. Differansen er konstant, så følgja er aritmetisk med $d = 4$.",
+            "answer": 4
+          },
+          {
+            "label": "b",
+            "task": "Finn det 30. leddet i følgja frå oppgåve a).",
+            "solution": "$a_{30} = 5 + (30-1) \\cdot 4 = 5 + 116 = 121$",
+            "answer": 121
+          }
+        ],
+        "hints": [
+          "Sjekk om differansen mellom naboledd er konstant."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Ei aritmetisk følgje har $a_1 = 100$ og $d = -7$. Finn ein formel for $a_n$.",
+            "solution": "$a_n = 100 + (n-1)(-7) = 100 - 7n + 7 = 107 - 7n$",
+            "expressionAnswer": [
+              "107 - 7n",
+              "100 + (n-1)*(-7)"
+            ]
+          },
+          {
+            "label": "b",
+            "task": "For kva verdi av $n$ er $a_n = 2$?",
+            "solution": "$107 - 7n = 2 \\Rightarrow 7n = 105 \\Rightarrow n = 15$",
+            "answer": 15
+          }
+        ],
+        "hints": [
+          "Løys $100 - 7(n-1) = 2$ for $n$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn summen $1 + 2 + 3 + \\cdots + 100$.",
+            "solution": "$S_{100} = \\frac{100}{2}(1 + 100) = 50 \\cdot 101 = 5050$",
+            "answer": 5050
+          },
+          {
+            "label": "b",
+            "task": "Finn summen $2 + 4 + 6 + \\cdots + 200$.",
+            "solution": "Aritmetisk rekkje med $a_1 = 2$, $d = 2$, $a_n = 200 \\Rightarrow n = 100$. $S_{100} = \\frac{100}{2}(2 + 200) = 50 \\cdot 202 = 10\\,100$",
+            "answer": 10100
+          }
+        ],
+        "hints": [
+          "Bruk $S_n = \\frac{n}{2}(a_1 + a_n)$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv ut dei fem første ledda i følgja gitt ved $a_n = 3n - 2$.",
+            "solution": "$a_1 = 1$, $a_2 = 4$, $a_3 = 7$, $a_4 = 10$, $a_5 = 13$. Følgja er $1, 4, 7, 10, 13$."
+          },
+          {
+            "label": "b",
+            "task": "Vis at følgja i a) er aritmetisk og bestem $d$.",
+            "solution": "$a_{n+1} - a_n = 3(n+1) - 2 - (3n - 2) = 3n + 3 - 2 - 3n + 2 = 3$. Differansen er konstant lik $d = 3$, så følgja er aritmetisk.",
+            "answer": 3
+          }
+        ],
+        "hints": [
+          "Rekn ut $a_{n+1} - a_n$ for generell $n$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "I ei aritmetisk følgje er $a_3 = 14$ og $a_7 = 30$. Finn $a_1$ og $d$.",
+            "solution": "$a_7 - a_3 = 4d \\Rightarrow 30 - 14 = 4d \\Rightarrow d = 4$. $a_3 = a_1 + 2d \\Rightarrow 14 = a_1 + 8 \\Rightarrow a_1 = 6$."
+          },
+          {
+            "label": "b",
+            "task": "Finn $S_{20}$ for følgja i a).",
+            "solution": "$a_{20} = 6 + 19 \\cdot 4 = 82$. $S_{20} = \\frac{20}{2}(6 + 82) = 10 \\cdot 88 = 880$.",
+            "answer": 880
+          }
+        ],
+        "hints": [
+          "$a_7 - a_3 = 4d$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Rekn ut $\\sum_{k=1}^{40}(3k + 2)$.",
+            "solution": "Dette er ei aritmetisk rekkje med $a_1 = 5$, $d = 3$, $n = 40$. $a_{40} = 3 \\cdot 40 + 2 = 122$. $S_{40} = \\frac{40}{2}(5 + 122) = 20 \\cdot 127 = 2540$.",
+            "answer": 2540
+          }
+        ],
+        "hints": [
+          "Del opp: $3\\sum k + \\sum 2$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Summen av dei $n$ første ledda i ei aritmetisk rekkje er $S_n = 2n^2 + 3n$. Finn $a_1$ og $d$.",
+            "solution": "$a_1 = S_1 = 2 + 3 = 5$. $a_2 = S_2 - S_1 = (8+6) - 5 = 9$. $d = a_2 - a_1 = 9 - 5 = 4$."
+          },
+          {
+            "label": "b",
+            "task": "Finn ein formel for $a_n$.",
+            "solution": "$a_n = S_n - S_{n-1} = (2n^2 + 3n) - (2(n-1)^2 + 3(n-1)) = 2n^2 + 3n - 2n^2 + 4n - 2 - 3n + 3 = 4n + 1$.",
+            "expressionAnswer": "4n + 1"
+          }
+        ],
+        "hints": [
+          "$a_1 = S_1$ og $a_n = S_n - S_{n-1}$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Eit amfiteater har 30 rader. Første rad har 20 sete, og kvar rad har 3 sete meir enn den føregåande. Finn det totale talet på sete.",
+            "solution": "Aritmetisk rekkje med $a_1 = 20$, $d = 3$, $n = 30$. $a_{30} = 20 + 29 \\cdot 3 = 107$. $S_{30} = \\frac{30}{2}(20 + 107) = 15 \\cdot 127 = 1905$ sete.",
+            "answer": 1905
+          }
+        ],
+        "hints": [
+          "Siste rad: $a_{30} = 20 + 29 \\cdot 3$; sum med $S_n = \\frac{n}{2}(a_1 + a_n)$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Tre tal i ei aritmetisk følgje har sum 27 og produkt 504. Finn tala.",
+            "solution": "Lat tala vere $a-d$, $a$, $a+d$. Sum: $3a = 27 \\Rightarrow a = 9$. Produkt: $(9-d) \\cdot 9 \\cdot (9+d) = 504 \\Rightarrow 9(81 - d^2) = 504 \\Rightarrow 81 - d^2 = 56 \\Rightarrow d^2 = 25 \\Rightarrow d = \\pm 5$. Tala er $4, 9, 14$ (eller $14, 9, 4$)."
+          }
+        ],
+        "hints": [
+          "Skriv tala som $a - d$, $a$, $a + d$ — summen gir $a$ direkte."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at summen av dei $n$ første oddetala er $n^2$.",
+            "solution": "Dei $n$ første oddetala er $1, 3, 5, \\ldots, (2n-1)$. Dette er ei aritmetisk rekkje med $a_1 = 1$, $a_n = 2n-1$. $S_n = \\frac{n}{2}(1 + 2n - 1) = \\frac{n \\cdot 2n}{2} = n^2$."
+          }
+        ],
+        "hints": [
+          "Oddetala er $1, 3, 5, \\ldots, 2n-1$ med $a_1 = 1$ og $d = 2$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "I ei aritmetisk følgje er $S_{10} = 200$ og $S_{20} = 800$. Finn $a_1$ og $d$.",
+            "solution": "$S_{10} = \\frac{10}{2}(2a_1 + 9d) = 5(2a_1 + 9d) = 200 \\Rightarrow 2a_1 + 9d = 40$. $S_{20} = \\frac{20}{2}(2a_1 + 19d) = 10(2a_1 + 19d) = 800 \\Rightarrow 2a_1 + 19d = 80$. Trekk frå: $10d = 40 \\Rightarrow d = 4$. Då $2a_1 = 40 - 36 = 4 \\Rightarrow a_1 = 2$."
+          },
+          {
+            "label": "b",
+            "task": "Finn $S_{30}$ for følgja i a).",
+            "solution": "$S_{30} = \\frac{30}{2}(2 \\cdot 2 + 29 \\cdot 4) = 15(4 + 116) = 15 \\cdot 120 = 1800$.",
+            "answer": 1800
+          }
+        ],
+        "hints": [
+          "Sett opp to likningar frå sumformelen og løys systemet."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Ei bedrift planlegg å auke produksjonen lineært. I januar blir det produsert 500 einingar, og produksjonen aukar med 30 einingar per månad. Finn total produksjon for heile året.",
+            "solution": "Aritmetisk rekkje med $a_1 = 500$, $d = 30$, $n = 12$. $a_{12} = 500 + 11 \\cdot 30 = 830$. $S_{12} = \\frac{12}{2}(500 + 830) = 6 \\cdot 1330 = 7980$ einingar.",
+            "answer": 7980
+          },
+          {
+            "label": "b",
+            "task": "Etter kor mange månader har bedrifta produsert totalt 10 000 einingar?",
+            "solution": "$S_n = \\frac{n}{2}(2 \\cdot 500 + (n-1) \\cdot 30) = \\frac{n}{2}(1000 + 30n - 30) = \\frac{n}{2}(970 + 30n) = 15n^2 + 485n$. Sett $15n^2 + 485n = 10\\,000$. $15n^2 + 485n - 10\\,000 = 0$. $3n^2 + 97n - 2000 = 0$. $n = \\frac{-97 + \\sqrt{9409 + 24000}}{6} = \\frac{-97 + \\sqrt{33409}}{6} \\approx \\frac{-97 + 182{,}8}{6} \\approx 14{,}3$. Etter 15 månader.",
+            "answer": 15
+          }
+        ],
+        "hints": [
+          "Månadsproduksjonen er aritmetisk; samla produksjon er summen."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn verdien av $\\sum_{k=1}^{n} k = 1 + 2 + 3 + \\cdots + n$ uttrykt ved $n$.",
+            "solution": "Aritmetisk rekkje med $a_1 = 1$, $a_n = n$. $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$.",
+            "expressionAnswer": [
+              "n*(n+1)/2",
+              "n*(n+1)/2",
+              "(n^2+n)/2"
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Bruk resultatet i a) til å finne $\\sum_{k=1}^{n}(2k-1)$.",
+            "solution": "$\\sum_{k=1}^{n}(2k-1) = 2\\sum_{k=1}^{n} k - \\sum_{k=1}^{n} 1 = 2 \\cdot \\frac{n(n+1)}{2} - n = n^2 + n - n = n^2$.",
+            "expressionAnswer": "n^2"
+          }
+        ],
+        "hints": [
+          "Bruk Gauss-trikset: par første og siste ledd."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-ex-block-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-ex-14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at dersom $a$, $b$ og $c$ er tre etterfølgjande ledd i ei aritmetisk følgje, så er $b = \\frac{a+c}{2}$.",
+            "solution": "Sidan $b - a = c - b = d$, får vi $2b = a + c$, altså $b = \\frac{a+c}{2}$. Vi kallar $b$ det **aritmetiske middelet** av $a$ og $c$."
+          }
+        ],
+        "hints": [
+          "Uttrykk $a$ og $c$ ved $b$ og $d$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Aritmetisk følgje:** Differansen $d = a_{n+1} - a_n$ er konstant.\n\n**Eksplisitt formel:** $a_n = a_1 + (n-1)d$\n\n**Sum av aritmetisk rekkje:**\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}(2a_1 + (n-1)d)$$\n\n**Tips for oppgåveløysing:**\n- Identifiser $a_1$ og $d$ frå oppgåveteksten\n- Bruk den eksplisitte formelen for å finne enkeltledd\n- Bruk sumformelen for å finne summen av fleire ledd\n- Sjekk svaret ved å rekne ut dei første ledda manuelt"
+    },
+    {
+      "id": "s2-7-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgåver",
+      "buttonText": "Vis repetisjonsoppgåver",
+      "content": [
+        {
+          "id": "s2-7-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-1-rep-ex-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Følgja $3, 7, 11, 15, \\ldots$ er aritmetisk.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Finn differansen $d$.",
+                "solution": "$d = 7 - 3 = 4$",
+                "answer": 4
+              },
+              {
+                "label": "b",
+                "task": "Finn $a_{10}$.",
+                "solution": "$a_{10} = 3 + 9 \\cdot 4 = 39$",
+                "answer": 39
+              },
+              {
+                "label": "c",
+                "task": "Finn $a_{25}$.",
+                "solution": "$a_{25} = 3 + 24 \\cdot 4 = 99$",
+                "answer": 99
+              }
+            ],
+            "solution": "a) $4$  b) $39$  c) $99$",
+            "hideInlineSolution": true,
+            "hints": [
+              "$a_n = a_1 + (n-1)d$."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "s2-7-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-1-rep-ex-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Summar av aritmetiske rekkjer.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Rekn ut $1 + 2 + 3 + \\cdots + 50$.",
+                "solution": "$S_{50} = \\frac{50 \\cdot 51}{2} = 1275$",
+                "answer": 1275
+              },
+              {
+                "label": "b",
+                "task": "Ei aritmetisk rekkje har $a_1 = 5$ og $d = 3$. Finn $S_{20}$.",
+                "solution": "$S_{20} = \\frac{20}{2}\\big(2 \\cdot 5 + 19 \\cdot 3\\big) = 10 \\cdot 67 = 670$",
+                "answer": 670
+              },
+              {
+                "label": "c",
+                "task": "Rekn ut $2 + 4 + 6 + \\cdots + 100$.",
+                "solution": "$S = \\frac{50}{2}(2 + 100) = 2550$",
+                "answer": 2550
+              }
+            ],
+            "solution": "a) $1275$  b) $670$  c) $2550$",
+            "hideInlineSolution": true,
+            "hints": [
+              "$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\big(2a_1 + (n-1)d\\big)$."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "s2-7-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-1-rep-ex-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "medium",
+            "task": "I ei aritmetisk følgje er $a_3 = 11$ og $a_7 = 23$.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Finn $d$.",
+                "solution": "$a_7 - a_3 = 4d = 12$ gir $d = 3$",
+                "answer": 3
+              },
+              {
+                "label": "b",
+                "task": "Finn $a_1$.",
+                "solution": "$a_1 = a_3 - 2d = 11 - 6 = 5$",
+                "answer": 5
+              },
+              {
+                "label": "c",
+                "task": "Finn $S_{15}$.",
+                "solution": "$S_{15} = \\frac{15}{2}\\big(2 \\cdot 5 + 14 \\cdot 3\\big) = \\frac{15}{2} \\cdot 52 = 390$",
+                "answer": 390
+              }
+            ],
+            "solution": "a) $3$  b) $5$  c) $390$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Mellom $a_3$ og $a_7$ ligg 4 differansar."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "s2-7-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-1-rep-ex-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "medium",
+            "task": "Eit amfiteater har 25 rader. Første rad har 18 sete, og kvar rad har 2 sete meir enn den framanfor.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Kor mange sete har bakarste rad?",
+                "solution": "$a_{25} = 18 + 24 \\cdot 2 = 66$",
+                "answer": 66
+              },
+              {
+                "label": "b",
+                "task": "Kor mange sete har amfiet totalt?",
+                "solution": "$S_{25} = \\frac{25}{2}(18 + 66) = 25 \\cdot 42 = 1050$",
+                "answer": 1050
+              },
+              {
+                "label": "c",
+                "task": "Kva rad har 40 sete?",
+                "solution": "$18 + 2(n-1) = 40$ gir $n = 12$",
+                "answer": 12
+              }
+            ],
+            "solution": "a) $66$  b) $1050$  c) rad $12$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Seta per rad dannar ei aritmetisk følgje."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "s2-7-1-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-1-rep-ex-5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Samansette oppgåver.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Rekn ut $\\sum_{k=1}^{30}(2k + 5)$.",
+                "solution": "$2\\sum k + \\sum 5 = 2 \\cdot \\frac{30 \\cdot 31}{2} + 150 = 930 + 150 = 1080$",
+                "answer": 1080
+              },
+              {
+                "label": "b",
+                "task": "Ei bedrift produserer 500 einingar første månad og aukar med 20 einingar kvar månad. Etter kor mange heile månader passerer samla produksjon 10 000 einingar?",
+                "solution": "$S_n = \\frac{n}{2}\\big(1000 + 20(n-1)\\big) = 10n^2 + 490n$. $10n^2 + 490n \\geq 10\\,000$ gir $n^2 + 49n - 1000 \\geq 0$, og $n = \\frac{-49 + \\sqrt{6401}}{2} \\approx 15{,}5$. Første heile månad: $n = 16$ (kontroll: $S_{15} = 9600$, $S_{16} = 10\\,400$)",
+                "answer": 16
+              },
+              {
+                "label": "c",
+                "task": "Vis at dersom $a$, $b$, $c$ er tre etterfølgjande ledd i ei aritmetisk følgje, er $b = \\frac{a + c}{2}$.",
+                "solution": "Med differanse $d$: $b = a + d$ og $c = b + d$. Då er $a + c = (b - d) + (b + d) = 2b$, altså $b = \\frac{a+c}{2}$ — kvart ledd er gjennomsnittet av nabolagsledda."
+              }
+            ],
+            "solution": "a) $1080$  b) $16$ månader  c) $b$ er gjennomsnittet av nabolagsledda",
+            "hideInlineSolution": true,
+            "hints": [
+              "Del summen i ein $k$-del og ein konstantdel.",
+              "Sett opp ulikskap for summen og løys andregradslikninga."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3ccbda9ec66996f0",
+    "translatedAt": "2026-06-20T09:32:20.447Z",
+    "model": "claude-code-agent",
+    "strings": 147,
+    "tm": {
+      "189f37132cfabb55": "Aritmetiske følgjer og rekkjer",
+      "68f7226cf70f2795": "Lær om aritmetiske følgjer, eksplisitt formel for det n-te leddet, og sum av aritmetisk rekkje.",
+      "1106d08617dcc28d": "gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering",
+      "cdaf2b60f863d0ce": "rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar",
+      "dc455e32c46c86fa": "## Kva er ei følgje?\n\nEi **følgje** er ei ordna liste med tal som følgjer eit bestemt mønster. Vi skriv følgja som $a_1, a_2, a_3, \\ldots$ der $a_n$ står for det $n$-te leddet.\n\nI dette kapittelet skal vi studere **aritmetiske følgjer**, der differansen mellom kvart ledd og det føregåande er konstant. Denne konstante differansen kallar vi $d$. Aritmetiske følgjer dukkar opp i mange samanhengar, til dømes i lineær vekst, avdrag på serielån og nummerering.",
+      "6836f8af4c872ad1": "Aritmetisk følgje",
+      "060be32ce82d0dba": "Ei **aritmetisk følgje** er ei talrekkje der differansen mellom kvart ledd og det føregåande er konstant:\n\n$$a_{n+1} - a_n = d \\quad \\text{for alle } n \\geq 1$$\n\nHer er $d$ den **faste differansen**. Følgja er voksande dersom $d > 0$ og avtakande dersom $d < 0$.\n\n**Døme:**\n- $2, 5, 8, 11, 14, \\ldots$ har $d = 3$\n- $20, 17, 14, 11, \\ldots$ har $d = -3$",
+      "339bb01e6a135677": "Eksplisitt formel for aritmetisk følgje",
+      "4d249b57c854735a": "Det $n$-te leddet i ei aritmetisk følgje med første ledd $a_1$ og differanse $d$ er gitt ved:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nDenne formelen lèt oss rekne ut eit vilkårleg ledd direkte utan å kjenne alle dei føregåande ledda.",
+      "ea6ed83f4a6f85fe": "Finn formel og bestemte ledd",
+      "e35a19673cad2a7a": "Ei aritmetisk følgje har $a_1 = 4$ og $d = 3$. Finn det 20. leddet og det $n$-te leddet.",
+      "b3bd74c0bdc44e41": "Vi bruker formelen $a_n = a_1 + (n-1) \\cdot d$.\n\n**Det $n$-te leddet:**\n$$a_n = 4 + (n-1) \\cdot 3 = 4 + 3n - 3 = 3n + 1$$\n\n**Det 20. leddet:**\n$$a_{20} = 3 \\cdot 20 + 1 = 61$$\n\n**Kontroll:** Dei første ledda er $4, 7, 10, 13, \\ldots$ som stemmer med $a_n = 3n + 1$.",
+      "97105caee77af19f": "## Frå følgjer til rekkjer\n\nNår vi legg saman ledda i ei følgje, får vi ei **rekkje**. Summen av dei $n$ første ledda i ei aritmetisk følgje kallar vi $S_n$:\n\n$$S_n = a_1 + a_2 + a_3 + \\cdots + a_n$$\n\nGauss oppdaga som barn ein elegant formel for denne summen. Trikset er å skrive summen to gonger - éin gong forlengs og éin gong baklengs - og leggje dei saman. Då blir kvart par lik $a_1 + a_n$, og det er $n$ slike par.",
+      "fdaac854e983e3af": "Sum av aritmetisk rekkje",
+      "c8ae8215329df73a": "Summen av dei $n$ første ledda i ei aritmetisk følgje er:\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\n**Bevis:** Skriv summen forlengs og baklengs:\n$$S_n = a_1 + (a_1 + d) + \\cdots + a_n$$\n$$S_n = a_n + (a_n - d) + \\cdots + a_1$$\nLegg saman: $2S_n = n(a_1 + a_n)$, altså $S_n = \\frac{n(a_1 + a_n)}{2}$.",
+      "08771b92de208d0d": "Rekn ut sum av aritmetisk rekkje",
+      "fd885972712f30c9": "Finn summen $S_{50}$ av dei 50 første ledda i følgja $3, 7, 11, 15, \\ldots$",
+      "189972f1380ec867": "Vi identifiserer $a_1 = 3$ og $d = 4$.\n\n**Finn $a_{50}$:**\n$$a_{50} = 3 + (50-1) \\cdot 4 = 3 + 196 = 199$$\n\n**Rekn ut summen:**\n$$S_{50} = \\frac{50}{2}(a_1 + a_{50}) = 25 \\cdot (3 + 199) = 25 \\cdot 202 = 5050$$\n\n**Alternativ metode:**\n$$S_{50} = \\frac{50}{2}(2 \\cdot 3 + 49 \\cdot 4) = 25 \\cdot (6 + 196) = 25 \\cdot 202 = 5050$$",
+      "946003d311696d42": "Summeteiknet (sigma-notasjon)",
+      "e7b95b11ccefb258": "Vi bruker den greske bokstaven sigma ($\\Sigma$) for å skrive summar kompakt:\n\n$$\\sum_{k=1}^{n} a_k = a_1 + a_2 + a_3 + \\cdots + a_n$$\n\nHer er $k$ **summeindeksen**, $1$ er **nedre grense** og $n$ er **øvre grense**.\n\n**Døme:** $\\sum_{k=1}^{5} (2k+1) = 3 + 5 + 7 + 9 + 11 = 35$",
+      "37e3fe27331173d9": "## Bruk av aritmetiske rekkjer\n\nAritmetiske rekkjer dukkar opp i mange praktiske samanhengar:\n\n- **Serielån:** Avdraga er like store, og terminbeløpet avtek med ein fast differanse\n- **Lineær vekst:** Talet på nye kundar per månad aukar med eit fast tal\n- **Trappemønster:** Talet på blokker i ein trappefigur med jamt aukande rader\n\nNøkkelen er å identifisere at differansen mellom etterfølgjande verdiar er konstant. Då kan du bruke formlane for aritmetiske følgjer og rekkjer.",
+      "dc6a3157b2ebae0c": "Praktisk bruk: møtesal med rader",
+      "dd7ab37c34a2b818": "Ein møtesal har rader med stolar. Første rad har 12 stolar, og kvar rad har 2 stolar meir enn raden framanfor. Det er 20 rader totalt. Kor mange stolar er det i salen?",
+      "f42b376857600d93": "Dette er ei aritmetisk rekkje med $a_1 = 12$, $d = 2$ og $n = 20$.\n\n**Tal på stolar i siste rad:**\n$$a_{20} = 12 + (20-1) \\cdot 2 = 12 + 38 = 50$$\n\n**Totalt tal på stolar:**\n$$S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$$\n\nDet er **620 stolar** i salen.",
+      "0b8fb02075a0f346": "Løys oppgåvene:",
+      "8c3b908efc902165": "Avgjer om følgja $5, 9, 13, 17, 21, \\ldots$ er aritmetisk. Bestem i så fall $d$.",
+      "875795830f9fc07f": "Differansen mellom kvart ledd: $9-5 = 4$, $13-9 = 4$, $17-13 = 4$. Differansen er konstant, så følgja er aritmetisk med $d = 4$.",
+      "e85ccd6634fdced3": "Finn det 30. leddet i følgja frå oppgåve a).",
+      "c4ac7fbd2d662f61": "$a_{30} = 5 + (30-1) \\cdot 4 = 5 + 116 = 121$",
+      "6444bc61d5bff7ac": "Sjekk om differansen mellom naboledd er konstant.",
+      "e0cc90a245a88462": "Ei aritmetisk følgje har $a_1 = 100$ og $d = -7$. Finn ein formel for $a_n$.",
+      "f1fd7fe5e6580fe2": "$a_n = 100 + (n-1)(-7) = 100 - 7n + 7 = 107 - 7n$",
+      "fefef58e67f22cb1": "For kva verdi av $n$ er $a_n = 2$?",
+      "4bcf5797ae0a5df9": "$107 - 7n = 2 \\Rightarrow 7n = 105 \\Rightarrow n = 15$",
+      "aec93d86c3b95046": "Løys $100 - 7(n-1) = 2$ for $n$.",
+      "d007e183e70e314d": "Finn summen $1 + 2 + 3 + \\cdots + 100$.",
+      "a7fa4f5a822043c3": "$S_{100} = \\frac{100}{2}(1 + 100) = 50 \\cdot 101 = 5050$",
+      "07ae6bb5dc191665": "Finn summen $2 + 4 + 6 + \\cdots + 200$.",
+      "f2037cc13a8eaaee": "Aritmetisk rekkje med $a_1 = 2$, $d = 2$, $a_n = 200 \\Rightarrow n = 100$. $S_{100} = \\frac{100}{2}(2 + 200) = 50 \\cdot 202 = 10\\,100$",
+      "b9cee9d4cf6f6cdb": "Bruk $S_n = \\frac{n}{2}(a_1 + a_n)$.",
+      "e3ba106b813d3055": "Skriv ut dei fem første ledda i følgja gitt ved $a_n = 3n - 2$.",
+      "93e2c125d2a3701b": "$a_1 = 1$, $a_2 = 4$, $a_3 = 7$, $a_4 = 10$, $a_5 = 13$. Følgja er $1, 4, 7, 10, 13$.",
+      "19665ad704e07a8d": "Vis at følgja i a) er aritmetisk og bestem $d$.",
+      "a69794ffc308083c": "$a_{n+1} - a_n = 3(n+1) - 2 - (3n - 2) = 3n + 3 - 2 - 3n + 2 = 3$. Differansen er konstant lik $d = 3$, så følgja er aritmetisk.",
+      "e55a70b7db0e4e69": "Rekn ut $a_{n+1} - a_n$ for generell $n$.",
+      "79f6e052f518a4ab": "I ei aritmetisk følgje er $a_3 = 14$ og $a_7 = 30$. Finn $a_1$ og $d$.",
+      "220e6e6a389c20fb": "$a_7 - a_3 = 4d \\Rightarrow 30 - 14 = 4d \\Rightarrow d = 4$. $a_3 = a_1 + 2d \\Rightarrow 14 = a_1 + 8 \\Rightarrow a_1 = 6$.",
+      "2b5df31035a55a58": "Finn $S_{20}$ for følgja i a).",
+      "5fc7de4f42b4c951": "$a_{20} = 6 + 19 \\cdot 4 = 82$. $S_{20} = \\frac{20}{2}(6 + 82) = 10 \\cdot 88 = 880$.",
+      "00b812c43af13aca": "$a_7 - a_3 = 4d$.",
+      "571511e2cf0f8d83": "Rekn ut $\\sum_{k=1}^{40}(3k + 2)$.",
+      "26f875478a83589a": "Dette er ei aritmetisk rekkje med $a_1 = 5$, $d = 3$, $n = 40$. $a_{40} = 3 \\cdot 40 + 2 = 122$. $S_{40} = \\frac{40}{2}(5 + 122) = 20 \\cdot 127 = 2540$.",
+      "087f48381c466b52": "Del opp: $3\\sum k + \\sum 2$.",
+      "2bc9148684cd3d58": "Summen av dei $n$ første ledda i ei aritmetisk rekkje er $S_n = 2n^2 + 3n$. Finn $a_1$ og $d$.",
+      "a1d2da78d121d44a": "$a_1 = S_1 = 2 + 3 = 5$. $a_2 = S_2 - S_1 = (8+6) - 5 = 9$. $d = a_2 - a_1 = 9 - 5 = 4$.",
+      "b455703b8d2088a5": "Finn ein formel for $a_n$.",
+      "847a2f59fbafe198": "$a_n = S_n - S_{n-1} = (2n^2 + 3n) - (2(n-1)^2 + 3(n-1)) = 2n^2 + 3n - 2n^2 + 4n - 2 - 3n + 3 = 4n + 1$.",
+      "e52ecf18fc5c5dcb": "$a_1 = S_1$ og $a_n = S_n - S_{n-1}$.",
+      "da36f974305a85d9": "Eit amfiteater har 30 rader. Første rad har 20 sete, og kvar rad har 3 sete meir enn den føregåande. Finn det totale talet på sete.",
+      "4be5b0a9cbdadd29": "Aritmetisk rekkje med $a_1 = 20$, $d = 3$, $n = 30$. $a_{30} = 20 + 29 \\cdot 3 = 107$. $S_{30} = \\frac{30}{2}(20 + 107) = 15 \\cdot 127 = 1905$ sete.",
+      "768a88c7393070a9": "Siste rad: $a_{30} = 20 + 29 \\cdot 3$; sum med $S_n = \\frac{n}{2}(a_1 + a_n)$.",
+      "cef335c3dbc973b6": "Tre tal i ei aritmetisk følgje har sum 27 og produkt 504. Finn tala.",
+      "64a2c86e29ac24ab": "Lat tala vere $a-d$, $a$, $a+d$. Sum: $3a = 27 \\Rightarrow a = 9$. Produkt: $(9-d) \\cdot 9 \\cdot (9+d) = 504 \\Rightarrow 9(81 - d^2) = 504 \\Rightarrow 81 - d^2 = 56 \\Rightarrow d^2 = 25 \\Rightarrow d = \\pm 5$. Tala er $4, 9, 14$ (eller $14, 9, 4$).",
+      "5484fe5d6667f4db": "Skriv tala som $a - d$, $a$, $a + d$ — summen gir $a$ direkte.",
+      "940510bf5553e700": "Vis at summen av dei $n$ første oddetala er $n^2$.",
+      "8ffc4ee94f63292c": "Dei $n$ første oddetala er $1, 3, 5, \\ldots, (2n-1)$. Dette er ei aritmetisk rekkje med $a_1 = 1$, $a_n = 2n-1$. $S_n = \\frac{n}{2}(1 + 2n - 1) = \\frac{n \\cdot 2n}{2} = n^2$.",
+      "e9c669edf8df103a": "Oddetala er $1, 3, 5, \\ldots, 2n-1$ med $a_1 = 1$ og $d = 2$.",
+      "14b1923bb3e44d14": "I ei aritmetisk følgje er $S_{10} = 200$ og $S_{20} = 800$. Finn $a_1$ og $d$.",
+      "a1dbc69c49629339": "$S_{10} = \\frac{10}{2}(2a_1 + 9d) = 5(2a_1 + 9d) = 200 \\Rightarrow 2a_1 + 9d = 40$. $S_{20} = \\frac{20}{2}(2a_1 + 19d) = 10(2a_1 + 19d) = 800 \\Rightarrow 2a_1 + 19d = 80$. Trekk frå: $10d = 40 \\Rightarrow d = 4$. Då $2a_1 = 40 - 36 = 4 \\Rightarrow a_1 = 2$.",
+      "719e0137af939d38": "Finn $S_{30}$ for følgja i a).",
+      "89c47eac661fc42a": "$S_{30} = \\frac{30}{2}(2 \\cdot 2 + 29 \\cdot 4) = 15(4 + 116) = 15 \\cdot 120 = 1800$.",
+      "f09f3091e1bd8200": "Sett opp to likningar frå sumformelen og løys systemet.",
+      "01e53046a49d6c3c": "Ei bedrift planlegg å auke produksjonen lineært. I januar blir det produsert 500 einingar, og produksjonen aukar med 30 einingar per månad. Finn total produksjon for heile året.",
+      "9f446c7aa23f9e44": "Aritmetisk rekkje med $a_1 = 500$, $d = 30$, $n = 12$. $a_{12} = 500 + 11 \\cdot 30 = 830$. $S_{12} = \\frac{12}{2}(500 + 830) = 6 \\cdot 1330 = 7980$ einingar.",
+      "8e20552bc116a7d4": "Etter kor mange månader har bedrifta produsert totalt 10 000 einingar?",
+      "27fe67762165ae0c": "$S_n = \\frac{n}{2}(2 \\cdot 500 + (n-1) \\cdot 30) = \\frac{n}{2}(1000 + 30n - 30) = \\frac{n}{2}(970 + 30n) = 15n^2 + 485n$. Sett $15n^2 + 485n = 10\\,000$. $15n^2 + 485n - 10\\,000 = 0$. $3n^2 + 97n - 2000 = 0$. $n = \\frac{-97 + \\sqrt{9409 + 24000}}{6} = \\frac{-97 + \\sqrt{33409}}{6} \\approx \\frac{-97 + 182{,}8}{6} \\approx 14{,}3$. Etter 15 månader.",
+      "8c5cbe85de9ec9ce": "Månadsproduksjonen er aritmetisk; samla produksjon er summen.",
+      "bc6ef3e03f67da3f": "Finn verdien av $\\sum_{k=1}^{n} k = 1 + 2 + 3 + \\cdots + n$ uttrykt ved $n$.",
+      "2b01b2e4357021ed": "Aritmetisk rekkje med $a_1 = 1$, $a_n = n$. $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$.",
+      "13d569d861bf3785": "Bruk resultatet i a) til å finne $\\sum_{k=1}^{n}(2k-1)$.",
+      "02d52c4024a190e0": "$\\sum_{k=1}^{n}(2k-1) = 2\\sum_{k=1}^{n} k - \\sum_{k=1}^{n} 1 = 2 \\cdot \\frac{n(n+1)}{2} - n = n^2 + n - n = n^2$.",
+      "8db05f5cdb6109c0": "Bruk Gauss-trikset: par første og siste ledd.",
+      "dc3af69d38c69125": "Vis at dersom $a$, $b$ og $c$ er tre etterfølgjande ledd i ei aritmetisk følgje, så er $b = \\frac{a+c}{2}$.",
+      "0f294a751ea7f2e7": "Sidan $b - a = c - b = d$, får vi $2b = a + c$, altså $b = \\frac{a+c}{2}$. Vi kallar $b$ det **aritmetiske middelet** av $a$ og $c$.",
+      "918f41f633173a85": "Uttrykk $a$ og $c$ ved $b$ og $d$.",
+      "140d2b13c530549a": "## Oppsummering\n\n**Aritmetisk følgje:** Differansen $d = a_{n+1} - a_n$ er konstant.\n\n**Eksplisitt formel:** $a_n = a_1 + (n-1)d$\n\n**Sum av aritmetisk rekkje:**\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}(2a_1 + (n-1)d)$$\n\n**Tips for oppgåveløysing:**\n- Identifiser $a_1$ og $d$ frå oppgåveteksten\n- Bruk den eksplisitte formelen for å finne enkeltledd\n- Bruk sumformelen for å finne summen av fleire ledd\n- Sjekk svaret ved å rekne ut dei første ledda manuelt",
+      "f0db7f3333b88fb5": "Repetisjonsoppgåver",
+      "cc813884c5a66fe6": "Vis repetisjonsoppgåver",
+      "dedb5e6ab4ba1104": "Følgja $3, 7, 11, 15, \\ldots$ er aritmetisk.",
+      "52ed6b1c88185909": "Finn differansen $d$.",
+      "dda8a18e89bd1f00": "$d = 7 - 3 = 4$",
+      "4d0e50af419468d3": "Finn $a_{10}$.",
+      "64e783a5438ea065": "$a_{10} = 3 + 9 \\cdot 4 = 39$",
+      "eb3a2a9ee644bdf3": "Finn $a_{25}$.",
+      "b132e6c07bf5b4e0": "$a_{25} = 3 + 24 \\cdot 4 = 99$",
+      "c8ac1398c0c893fb": "a) $4$  b) $39$  c) $99$",
+      "b4888a1b1fa2ae44": "$a_n = a_1 + (n-1)d$.",
+      "23f33c84003de748": "Summar av aritmetiske rekkjer.",
+      "0d5e231e5728ed2d": "Rekn ut $1 + 2 + 3 + \\cdots + 50$.",
+      "1507fac1a37eba37": "$S_{50} = \\frac{50 \\cdot 51}{2} = 1275$",
+      "5f2de51c9376668a": "Ei aritmetisk rekkje har $a_1 = 5$ og $d = 3$. Finn $S_{20}$.",
+      "2efc5046502257bb": "$S_{20} = \\frac{20}{2}\\big(2 \\cdot 5 + 19 \\cdot 3\\big) = 10 \\cdot 67 = 670$",
+      "995de8d0fb612797": "Rekn ut $2 + 4 + 6 + \\cdots + 100$.",
+      "25dde887d0270838": "$S = \\frac{50}{2}(2 + 100) = 2550$",
+      "c5abb4649fe84f75": "a) $1275$  b) $670$  c) $2550$",
+      "178d66d0f97c906f": "$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\big(2a_1 + (n-1)d\\big)$.",
+      "35280d276a4f6f48": "I ei aritmetisk følgje er $a_3 = 11$ og $a_7 = 23$.",
+      "3e7484548e1da2e7": "Finn $d$.",
+      "2445c3f290ac7a33": "$a_7 - a_3 = 4d = 12$ gir $d = 3$",
+      "82de0eb72c67a2dd": "Finn $a_1$.",
+      "d6181eea66855335": "$a_1 = a_3 - 2d = 11 - 6 = 5$",
+      "85543e2aa61db7bf": "Finn $S_{15}$.",
+      "218f2ae3c40e9c14": "$S_{15} = \\frac{15}{2}\\big(2 \\cdot 5 + 14 \\cdot 3\\big) = \\frac{15}{2} \\cdot 52 = 390$",
+      "4c5db6bc5183f90e": "a) $3$  b) $5$  c) $390$",
+      "0906d6091365a5c0": "Mellom $a_3$ og $a_7$ ligg 4 differansar.",
+      "394702fd739d8a93": "Eit amfiteater har 25 rader. Første rad har 18 sete, og kvar rad har 2 sete meir enn den framanfor.",
+      "98ed8b4f658fd3bf": "Kor mange sete har bakarste rad?",
+      "2244fb677a5e1f60": "$a_{25} = 18 + 24 \\cdot 2 = 66$",
+      "9d40f32a789462cc": "Kor mange sete har amfiet totalt?",
+      "8ef010607d9555f7": "$S_{25} = \\frac{25}{2}(18 + 66) = 25 \\cdot 42 = 1050$",
+      "b6115e58efc6b778": "Kva rad har 40 sete?",
+      "705505994c0d0aac": "$18 + 2(n-1) = 40$ gir $n = 12$",
+      "319daec1c8ee7ab5": "a) $66$  b) $1050$  c) rad $12$",
+      "1edcb831f4545935": "Seta per rad dannar ei aritmetisk følgje.",
+      "d1efb45c75f849c9": "Samansette oppgåver.",
+      "df10939f32886485": "Rekn ut $\\sum_{k=1}^{30}(2k + 5)$.",
+      "f6329794e7ddc91d": "$2\\sum k + \\sum 5 = 2 \\cdot \\frac{30 \\cdot 31}{2} + 150 = 930 + 150 = 1080$",
+      "4260c281b707d9fa": "Ei bedrift produserer 500 einingar første månad og aukar med 20 einingar kvar månad. Etter kor mange heile månader passerer samla produksjon 10 000 einingar?",
+      "9065b88ba6f4025d": "$S_n = \\frac{n}{2}\\big(1000 + 20(n-1)\\big) = 10n^2 + 490n$. $10n^2 + 490n \\geq 10\\,000$ gir $n^2 + 49n - 1000 \\geq 0$, og $n = \\frac{-49 + \\sqrt{6401}}{2} \\approx 15{,}5$. Første heile månad: $n = 16$ (kontroll: $S_{15} = 9600$, $S_{16} = 10\\,400$)",
+      "f1e0c739f508ff6a": "Vis at dersom $a$, $b$, $c$ er tre etterfølgjande ledd i ei aritmetisk følgje, er $b = \\frac{a + c}{2}$.",
+      "f11c6878e4f7203e": "Med differanse $d$: $b = a + d$ og $c = b + d$. Då er $a + c = (b - d) + (b + d) = 2b$, altså $b = \\frac{a+c}{2}$ — kvart ledd er gjennomsnittet av nabolagsledda.",
+      "1941308959450955": "a) $1080$  b) $16$ månader  c) $b$ er gjennomsnittet av nabolagsledda",
+      "a47d7d326e0d69d0": "Del summen i ein $k$-del og ein konstantdel.",
+      "ff1516c9c48e29c3": "Sett opp ulikskap for summen og løys andregradslikninga."
+    }
+  }
+}

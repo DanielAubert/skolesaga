@@ -38,6 +38,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 KTRL = {7: r"\a (BEL)", 8: r"\b (BS)", 9: r"\t (TAB)", 11: r"\v (VT)",
         12: r"\f (FF)", 13: r"\r (CR)"}
 
+# LaTeX-kommandoer som ALDRI gir mening utenfor $...$. Står de bart i prosaen,
+# rendres de ikke — leseren ser «300\,\text{K}» bokstavelig.
+# ⚠ ENKEL backslash: strengene er PARSET fra JSON, så «\\text» i fila er «\text»
+# her. Mønsteret matchet først dobbel backslash og ga 12 000 falske treff.
+RA_LATEX = re.compile(
+    r"\\(?:text|mathrm|frac|dfrac|tfrac|sqrt|cdot|times|alpha|beta|gamma|delta"
+    r"|theta|lambda|rho|sigma|tau|omega|Delta|Omega|approx|leq|geq|neq"
+    r"|infty|lfloor|lceil|quad|qquad)\b"
+    r"|\\[,;!]")
+
 # Kjente LaTeX-kommandoer, brukt av sjekk 0 (enkel backslash i quiz-TS).
 # Lista er bevisst konservativ: bare navn som ALDRI er noe annet enn LaTeX.
 # `n` står IKKE her — `\n` er ekte linjeskift i kodeeksempler. En blank regel
@@ -291,6 +301,48 @@ def main():
                     avvik.append(
                         f"LINJESKIFT I INLINE-MATTE i {navn}{sti}: {t[a:b+1][:70]!r} "
                         f"(rendrerens /\\$([^$\\n]+?)\\$/ matcher ikke → rå LaTeX til leseren)")
+
+    # 5c. RÅ LaTeX UTENFOR MATTE. En LaTeX-kommando utenfor $...$ rendres ikke —
+    #     leseren ser «300\\,\\text{K}» bokstavelig. Funnet 30. juli 2026 av en
+    #     byggeagent som rendret 437 tekstfelt gjennom den EKTE
+    #     LatexRenderer-komponenten og fant to temperaturer med enheten utenfor
+    #     dollartegnene.
+    #
+    #     ⚠ Denne MÅ stå utenfor «ubalansert $»-sløyfa. Den hopper over felt uten
+    #     `$`, og rå LaTeX står nettopp oftest i felt som ikke har matte i det
+    #     hele tatt — der var porten helt blind.
+    #     Felt som ER matte per definisjon rendres uten $-tegn og skal hoppes
+    #     over: `latex`, `expressionAnswer`, `formula`. Uten dette utgjorde de
+    #     over 300 av 391 treff — alle legitime.
+    MATTEFELT = ("latex", "expressionAnswer", "formula", "equation",
+                 "correctExpression", "answerExpression",
+                 # sign-diagram-blokker: `factors[].label` og `resultLabel` er
+                 # matte som rendres uten $-tegn, akkurat som `latex`.
+                 "resultLabel", "expression")
+    for navn, sti, s_felt in alle:
+        siste = sti.rsplit(".", 1)[-1].split("[")[0]
+        if siste in MATTEFELT:
+            continue
+        if siste == "label" and ".factors" in sti:
+            continue
+        for felt in enkeltfelt(navn, s_felt):
+            if "\\" not in felt:
+                continue
+            grunn = re.sub(r"```[\s\S]*?```", "", felt)
+            grunn = re.sub(r"`[^`\n]*`", "", grunn)
+            grunn = re.sub(r"\\\$", "\x00\x00", grunn)
+            mk = list(grunn)
+            for tr in re.finditer(r"\$\$[\s\S]*?\$\$", grunn):
+                for i in range(tr.start(), tr.end()):
+                    mk[i] = "\x00"
+            dp = [i for i, c in enumerate("".join(mk)) if c == "$"]
+            for a, b in zip(dp[0::2], dp[1::2]):
+                for i in range(a, b + 1):
+                    mk[i] = "\x00"
+            for tr in RA_LATEX.finditer("".join(mk)):
+                avvik.append(
+                    f"RÅ LaTeX UTENFOR MATTE i {navn}{sti}: {tr.group(0)!r} "
+                    f"(rendres ikke — leseren ser kommandoen bokstavelig)")
 
     # 6. PROSA SATT SOM MATTE. Punkt 5 fanger bare oddetall $. To valutabeløp på
     #    samme linje er PARTALL og slipper gjennom — men rendreren parrer dem og

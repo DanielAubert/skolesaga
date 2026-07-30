@@ -1,1 +1,715 @@
-{"id":"s2-7-2","courseId":"s2","chapterNumber":"7.2","title":"Geometriske følgjer og rekkjer","description":"Lær om geometriske følgjer, kvotienten mellom ledd, og sum av endeleg geometrisk rekkje.","estimatedMinutes":55,"competenceGoals":["gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering","rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar"],"content":[{"id":"s2-7-2-intro","type":"text","content":"## Frå addisjon til multiplikasjon\n\nI førre kapittel såg vi på aritmetiske følgjer der vi la til eit fast tal for å kome til neste ledd. I ei **geometrisk følgje** multipliserer vi i staden med eit fast tal. Geometriske følgjer modellerer eksponentiell vekst og er heilt sentrale i økonomi (renter, lån, investeringar)."},{"id":"s2-7-2-def-1","type":"definition","title":"Geometrisk følgje","content":"Ei **geometrisk følgje** er ei talrekkje der forholdet (kvotienten) mellom kvart ledd og det føregåande er konstant:\n\n$$\\frac{a_{n+1}}{a_n} = k \\quad \\text{for alle } n \\geq 1, \\ a_n \\neq 0$$\n\nHer er $k$ den **faste kvotienten** (også kalla fellesforholdet).\n\n**Døme:**\n- $2, 6, 18, 54, \\ldots$ har $k = 3$\n- $100, 50, 25, 12{,}5, \\ldots$ har $k = \\frac{1}{2}$\n- $1, -2, 4, -8, 16, \\ldots$ har $k = -2$"},{"id":"s2-7-2-fig-geometrisk-folge","type":"image","src":"/images/content/s2/s2-7-2-geometrisk-folge.svg","alt":"Ei rekkje søyler som minkar frå venstre mot høgre, frå 100 ned til om lag 41. Mellom kvar søyle står det gonger 0,8.","caption":"I ei geometrisk følgje er kvart ledd det førre leddet ganga med kvotienten $k$. Her er $a_1 = 100$ og $k = 0{,}8$, så det femte leddet blir $100 \\cdot 0{,}8^4 \\approx 41$."},{"id":"s2-7-2-def-2","type":"definition","title":"Eksplisitt formel for geometrisk følgje","content":"Det $n$-te leddet i ei geometrisk følgje med første ledd $a_1$ og kvotient $k$ er:\n\n$$a_n = a_1 \\cdot k^{n-1}$$\n\nMerk likskapen med eksponentiell vekst: $f(x) = a \\cdot b^x$."},{"id":"s2-7-2-example-1","type":"example","title":"Finn formel og bestemte ledd","problem":"Ei geometrisk følgje har $a_1 = 5$ og $k = 2$. Finn $a_{10}$ og ein formel for $a_n$.","solution":"**Det $n$-te leddet:**\n$$a_n = 5 \\cdot 2^{n-1}$$\n\n**Det 10. leddet:**\n$$a_{10} = 5 \\cdot 2^{9} = 5 \\cdot 512 = 2560$$\n\n**Kontroll:** Dei første ledda er $5, 10, 20, 40, 80, \\ldots$ som stemmer med $a_n = 5 \\cdot 2^{n-1}$."},{"id":"s2-7-2-text-sum","type":"text","content":"## Sum av geometrisk rekkje\n\nFor å finne summen av ei geometrisk rekkje bruker vi eit elegant triks. Vi multipliserer summen $S_n$ med kvotienten $k$ og trekkjer frå:\n\n$$S_n = a_1 + a_1 k + a_1 k^2 + \\cdots + a_1 k^{n-1}$$\n$$k \\cdot S_n = a_1 k + a_1 k^2 + \\cdots + a_1 k^n$$\n\nNesten alle ledd kansellerer, og vi står att med ein enkel formel."},{"id":"s2-7-2-theorem-1","type":"theorem","title":"Sum av endeleg geometrisk rekkje","content":"Summen av dei $n$ første ledda i ei geometrisk følgje med $k \\neq 1$ er:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\n**Bevis:** Lat $S_n = a_1 + a_1k + a_1k^2 + \\cdots + a_1k^{n-1}$.\n\nMultipliser med $k$: $kS_n = a_1k + a_1k^2 + \\cdots + a_1k^n$.\n\nTrekk frå: $kS_n - S_n = a_1k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$.\n\nDermed: $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$."},{"id":"s2-7-2-example-2","type":"example","title":"Rekn ut sum av geometrisk rekkje","problem":"Finn summen $S_8$ av dei 8 første ledda i følgja $3, 6, 12, 24, \\ldots$","solution":"Vi identifiserer $a_1 = 3$ og $k = 2$.\n\n$$S_8 = 3 \\cdot \\frac{2^8 - 1}{2 - 1} = 3 \\cdot \\frac{256 - 1}{1} = 3 \\cdot 255 = 765$$\n\n**Kontroll:** $3 + 6 + 12 + 24 + 48 + 96 + 192 + 384 = 765$ ✓"},{"id":"s2-7-2-def-3","type":"definition","title":"Vekstfaktor og prosentvis endring","content":"I økonomiske samanhengar er kvotienten $k$ ofte ein **vekstfaktor**:\n\n- **Vekst på $p\\%$:** $k = 1 + \\frac{p}{100}$\n- **Reduksjon på $p\\%$:** $k = 1 - \\frac{p}{100}$\n\n**Døme:** Ei investering som veks $5\\%$ per år har $k = 1{,}05$. Etter $n$ år er verdien $a_n = a_1 \\cdot 1{,}05^{n-1}$."},{"id":"s2-7-2-text-anvendelser","type":"text","content":"## Geometriske rekkjer i økonomi\n\nGeometriske rekkjer er heilt sentrale i finansmatematikk:\n\n- **Samansett rente:** Innskot som veks med fast rentesats\n- **Regelmessig sparing:** Faste innskot med renter gir ei geometrisk rekkje\n- **Avskriving:** Verdien av utstyr som synk med fast prosent\n\nVi skal utforske desse økonomiske bruksområda grundig i kapittel 7.4."},{"id":"s2-7-2-example-3","type":"example","title":"Praktisk bruk: bakterievekst","problem":"Ein bakteriekultur doblar seg kvar time. Det er 500 bakteriar ved start. Finn det totale talet på bakteriar som har eksistert i løpet av dei første 10 timane.","solution":"Talet på bakteriar per time dannar ei geometrisk følgje med $a_1 = 500$ og $k = 2$.\n\n**Tal etter 10 timar:**\n$$a_{10} = 500 \\cdot 2^{9} = 500 \\cdot 512 = 256\\,000$$\n\n**Totalt tal som har eksistert (sum):**\n$$S_{10} = 500 \\cdot \\frac{2^{10} - 1}{2 - 1} = 500 \\cdot (1024 - 1) = 500 \\cdot 1023 = 511\\,500$$\n\nTotalt har $511\\,500$ bakteriar eksistert i løpet av dei 10 timane."},{"id":"s2-7-2-ex-block-1","type":"exercise","exercise":{"id":"s2-7-2-ex-1","number":"1","type":"classic","difficulty":"lett","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Avgjer om følgja $4, 12, 36, 108, \\ldots$ er geometrisk. Bestem i så fall $k$.","solution":"$\\frac{12}{4} = 3$, $\\frac{36}{12} = 3$, $\\frac{108}{36} = 3$. Kvotienten er konstant, så følgja er geometrisk med $k = 3$.","answer":3},{"label":"b","task":"Finn det 8. leddet i følgja frå oppgåve a).","solution":"$a_8 = 4 \\cdot 3^{7} = 4 \\cdot 2187 = 8748$","answer":8748}],"hints":["Sjekk om forholdet mellom naboledd er konstant."]}},{"id":"s2-7-2-ex-block-2","type":"exercise","exercise":{"id":"s2-7-2-ex-2","number":"2","type":"classic","difficulty":"lett","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Ei geometrisk følgje har $a_1 = 1000$ og $k = 0{,}5$. Finn $a_5$.","solution":"$a_5 = 1000 \\cdot 0{,}5^{4} = 1000 \\cdot 0{,}0625 = 62{,}5$","answer":62.5},{"label":"b","task":"Finn $S_5$ for følgja i a).","solution":"$S_5 = 1000 \\cdot \\frac{0{,}5^5 - 1}{0{,}5 - 1} = 1000 \\cdot \\frac{-0{,}96875}{-0{,}5} = 1000 \\cdot 1{,}9375 = 1937{,}5$","answer":1937.5}],"hints":["$a_5 = a_1k^4$ og $S_5 = a_1\\frac{k^5-1}{k-1}$."]}},{"id":"s2-7-2-ex-block-3","type":"exercise","exercise":{"id":"s2-7-2-ex-3","number":"3","type":"classic","difficulty":"lett","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Skriv ut dei fem første ledda i følgja gitt ved $a_n = 3 \\cdot 2^n$.","solution":"$a_1 = 6$, $a_2 = 12$, $a_3 = 24$, $a_4 = 48$, $a_5 = 96$."},{"label":"b","task":"Vis at følgja i a) er geometrisk og bestem $k$.","solution":"$\\frac{a_{n+1}}{a_n} = \\frac{3 \\cdot 2^{n+1}}{3 \\cdot 2^n} = 2$. Kvotienten er konstant lik $k = 2$, så følgja er geometrisk.","answer":2}],"hints":["Rekn ut $\\frac{a_{n+1}}{a_n}$."]}},{"id":"s2-7-2-ex-block-4","type":"exercise","exercise":{"id":"s2-7-2-ex-4","number":"4","type":"classic","difficulty":"lett","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Finn summen $1 + 3 + 9 + 27 + \\cdots + 3^9$.","solution":"Geometrisk rekkje med $a_1 = 1$, $k = 3$, $n = 10$. $S_{10} = 1 \\cdot \\frac{3^{10} - 1}{3 - 1} = \\frac{59049 - 1}{2} = \\frac{59048}{2} = 29524$.","answer":29524}],"hints":["Geometrisk rekkje med $a_1 = 1$, $k = 3$ og 10 ledd."]}},{"id":"s2-7-2-ex-block-5","type":"exercise","exercise":{"id":"s2-7-2-ex-5","number":"5","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"I ei geometrisk følgje er $a_2 = 6$ og $a_5 = 162$. Finn $a_1$ og $k$.","solution":"$a_5 = a_2 \\cdot k^3 \\Rightarrow 162 = 6 \\cdot k^3 \\Rightarrow k^3 = 27 \\Rightarrow k = 3$. $a_2 = a_1 \\cdot k \\Rightarrow 6 = 3a_1 \\Rightarrow a_1 = 2$."},{"label":"b","task":"Finn $S_8$ for følgja i a).","solution":"$S_8 = 2 \\cdot \\frac{3^8 - 1}{3 - 1} = 2 \\cdot \\frac{6561 - 1}{2} = 6560$.","answer":6560}],"hints":["$\\frac{a_5}{a_2} = k^3$."]}},{"id":"s2-7-2-ex-block-6","type":"exercise","exercise":{"id":"s2-7-2-ex-6","number":"6","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Ei maskin kostar 200\\,000 kr og mistar $20\\%$ av verdien sin kvart år. Kva er verdien etter 5 år?","solution":"$k = 1 - 0{,}20 = 0{,}80$. $a_6 = 200\\,000 \\cdot 0{,}80^5 = 200\\,000 \\cdot 0{,}32768 = 65\\,536$ kr. (Her er $a_1$ verdien ved start, $a_6$ etter 5 år.)","answer":65536},{"label":"b","task":"Etter kor mange heile år er verdien under 50\\,000 kr?","solution":"$200\\,000 \\cdot 0{,}80^n < 50\\,000 \\Rightarrow 0{,}80^n < 0{,}25 \\Rightarrow n \\ln(0{,}80) < \\ln(0{,}25) \\Rightarrow n > \\frac{\\ln(0{,}25)}{\\ln(0{,}80)} \\approx \\frac{-1{,}386}{-0{,}223} \\approx 6{,}21$. Etter 7 heile år.","answer":7}],"hints":["Verdi etter $n$ år: $200\\,000 \\cdot 0{,}8^n$; bruk logaritmar eller prøving."]}},{"id":"s2-7-2-ex-block-7","type":"exercise","exercise":{"id":"s2-7-2-ex-7","number":"7","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Finn summen $\\sum_{k=0}^{7} 5 \\cdot 2^k$.","solution":"$\\sum_{k=0}^{7} 5 \\cdot 2^k = 5 \\cdot \\sum_{k=0}^{7} 2^k = 5 \\cdot \\frac{2^8 - 1}{2 - 1} = 5 \\cdot 255 = 1275$.","answer":1275}],"hints":["Konstanten blir sett utanfor: $5\\sum_{k=0}^{7}2^k$."]}},{"id":"s2-7-2-ex-block-8","type":"exercise","exercise":{"id":"s2-7-2-ex-8","number":"8","type":"classic","difficulty":"medium","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Eit smittestoff spreier seg slik at talet på smitta blir tredobla kvar veke. I veke 1 er det 10 smitta. Kor mange er smitta totalt etter 6 veker?","solution":"$S_6 = 10 \\cdot \\frac{3^6 - 1}{3 - 1} = 10 \\cdot \\frac{729 - 1}{2} = 10 \\cdot 364 = 3640$ smitta totalt.","answer":3640}],"hints":["Tal på smitta i veke $n$: $10 \\cdot 3^{n-1}$."]}},{"id":"s2-7-2-ex-block-9","type":"exercise","exercise":{"id":"s2-7-2-ex-9","number":"9","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Tre tal i ei geometrisk følgje har sum 21 og produkt 216. Finn tala.","solution":"Lat tala vere $\\frac{a}{k}$, $a$, $ak$. Produkt: $\\frac{a}{k} \\cdot a \\cdot ak = a^3 = 216 \\Rightarrow a = 6$. Sum: $\\frac{6}{k} + 6 + 6k = 21 \\Rightarrow \\frac{6}{k} + 6k = 15 \\Rightarrow 6 + 6k^2 = 15k \\Rightarrow 6k^2 - 15k + 6 = 0 \\Rightarrow 2k^2 - 5k + 2 = 0 \\Rightarrow (2k-1)(k-2) = 0$. $k = 2$ eller $k = \\frac{1}{2}$. Tala er $3, 6, 12$."}],"hints":["Skriv tala som $\\frac{b}{k}, b, bk$ — produktet gir $b^3$."]}},{"id":"s2-7-2-ex-block-10","type":"exercise","exercise":{"id":"s2-7-2-ex-10","number":"10","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Vis at dersom $a$, $b$ og $c$ er tre etterfølgjande ledd i ei geometrisk følgje, så er $b^2 = ac$.","solution":"Sidan $\\frac{b}{a} = \\frac{c}{b} = k$, har vi $b = ak$ og $c = bk = ak^2$. Då er $ac = a \\cdot ak^2 = a^2k^2 = (ak)^2 = b^2$."}],"hints":["Bruk at $\\frac{b}{a} = \\frac{c}{b} = k$."]}},{"id":"s2-7-2-ex-block-11","type":"exercise","exercise":{"id":"s2-7-2-ex-11","number":"11","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"Ei investering på 50\\,000 kr veks $8\\%$ per år. Etter kor mange år er investeringa verdt meir enn 100\\,000 kr?","solution":"$50\\,000 \\cdot 1{,}08^n > 100\\,000 \\Rightarrow 1{,}08^n > 2 \\Rightarrow n > \\frac{\\ln 2}{\\ln 1{,}08} \\approx \\frac{0{,}693}{0{,}077} \\approx 9{,}01$. Etter 10 år.","answer":10},{"label":"b","task":"Kva er den totale verdiskapinga (sum av verdiar ved slutten av kvart år) dei første 10 åra?","solution":"Verdien ved slutten av år $n$ er $50\\,000 \\cdot 1{,}08^n$. $S = \\sum_{n=1}^{10} 50\\,000 \\cdot 1{,}08^n = 50\\,000 \\cdot 1{,}08 \\cdot \\frac{1{,}08^{10} - 1}{1{,}08 - 1} = 54\\,000 \\cdot \\frac{2{,}1589 - 1}{0{,}08} \\approx 54\\,000 \\cdot 14{,}487 \\approx 782\\,268$ kr.","answer":[782268,782274,782274.3731589933]}],"hints":["Løys $1{,}08^n \\geq 2$ med logaritmar."]}},{"id":"s2-7-2-ex-block-12","type":"exercise","exercise":{"id":"s2-7-2-ex-12","number":"12","type":"classic","difficulty":"vanskelig","task":"Løys oppgåvene:","subTasks":[{"label":"a","task":"I ei geometrisk rekkje er $S_3 = 7$ og $S_6 = 63$. Finn $k$ og $a_1$.","solution":"$S_6 = S_3 + a_1 k^3 \\cdot \\frac{k^3 - 1}{k-1}$. Alternativt: $\\frac{S_6}{S_3} = \\frac{a_1(k^6-1)/(k-1)}{a_1(k^3-1)/(k-1)} = \\frac{k^6-1}{k^3-1} = \\frac{(k^3-1)(k^3+1)}{k^3-1} = k^3 + 1$. $\\frac{63}{7} = 9 = k^3 + 1 \\Rightarrow k^3 = 8 \\Rightarrow k = 2$. $S_3 = a_1 \\cdot \\frac{8-1}{1} = 7a_1 = 7 \\Rightarrow a_1 = 1$."}],"hints":["$\\frac{S_6}{S_3} = 1 + k^3$."]}},{"id":"s2-7-2-oppsummering","type":"text","content":"## Oppsummering\n\n**Geometrisk følgje:** Kvotienten $k = \\frac{a_{n+1}}{a_n}$ er konstant.\n\n**Eksplisitt formel:** $a_n = a_1 \\cdot k^{n-1}$\n\n**Sum av endeleg geometrisk rekkje ($k \\neq 1$):**\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\n**Samanheng med eksponentiell vekst:**\n- Vekst på $p\\%$: $k = 1 + \\frac{p}{100}$\n- Geometriske følgjer modellerer multiplikativ (eksponentiell) endring\n\n**Skilnad mellom aritmetisk og geometrisk:**\n- Aritmetisk: vi **legg til** ein fast verdi $d$ (lineær vekst)\n- Geometrisk: vi **multipliserer** med ein fast verdi $k$ (eksponentiell vekst)"},{"id":"s2-7-2-repetisjon","type":"collapsible","title":"Repetisjonsoppgåver","buttonText":"Vis repetisjonsoppgåver","content":[{"id":"s2-7-2-rep-1","type":"exercise","exercise":{"id":"s2-7-2-rep-ex-1","number":"R1","type":"classic","difficulty":"lett","task":"Følgja $2, 6, 18, 54, \\ldots$ er geometrisk.","subTasks":[{"label":"a","task":"Finn kvotienten $k$.","solution":"$k = \\frac{6}{2} = 3$","answer":3},{"label":"b","task":"Finn $a_6$.","solution":"$a_6 = 2 \\cdot 3^5 = 486$","answer":486},{"label":"c","task":"Kva ledd er lik 1458?","solution":"$2 \\cdot 3^{n-1} = 1458$ gir $3^{n-1} = 729 = 3^6$, så $n = 7$","answer":7}],"solution":"a) $3$  b) $486$  c) $n = 7$","hideInlineSolution":true,"hints":["$a_n = a_1 \\cdot k^{n-1}$."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"s2-7-2-rep-2","type":"exercise","exercise":{"id":"s2-7-2-rep-ex-2","number":"R2","type":"classic","difficulty":"lett","task":"Ei geometrisk følgje har $a_1 = 1000$ og $k = 0{,}5$.","subTasks":[{"label":"a","task":"Finn $a_5$.","solution":"$a_5 = 1000 \\cdot 0{,}5^4 = 62{,}5$","answer":62.5},{"label":"b","task":"Finn $S_5$.","solution":"$S_5 = 1000 \\cdot \\frac{1 - 0{,}5^5}{1 - 0{,}5} = 2000\\left(1 - \\frac{1}{32}\\right) = 1937{,}5$","answer":1937.5}],"solution":"a) $62{,}5$  b) $1937{,}5$","hideInlineSolution":true,"hints":["$S_n = a_1\\frac{k^n - 1}{k - 1}$."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"s2-7-2-rep-3","type":"exercise","exercise":{"id":"s2-7-2-rep-ex-3","number":"R3","type":"classic","difficulty":"medium","task":"I ei geometrisk følgje er $a_2 = 6$ og $a_5 = 48$.","subTasks":[{"label":"a","task":"Finn $k$.","solution":"$\\frac{a_5}{a_2} = k^3 = 8$ gir $k = 2$","answer":2},{"label":"b","task":"Finn $a_1$.","solution":"$a_1 = \\frac{a_2}{k} = 3$","answer":3},{"label":"c","task":"Finn $S_6$.","solution":"$S_6 = 3 \\cdot \\frac{2^6 - 1}{2 - 1} = 3 \\cdot 63 = 189$","answer":189},{"label":"d","task":"Finn $a_8$.","solution":"$a_8 = 3 \\cdot 2^7 = 384$","answer":384}],"solution":"a) $2$  b) $3$  c) $189$  d) $384$","hideInlineSolution":true,"hints":["Mellom $a_2$ og $a_5$ ligg tre multiplikasjonar med $k$."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"s2-7-2-rep-4","type":"exercise","exercise":{"id":"s2-7-2-rep-ex-4","number":"R4","type":"classic","difficulty":"medium","task":"Ei maskin kostar 200 000 kr og taper 20 % av verdien kvart år.","subTasks":[{"label":"a","task":"Kva er verdien etter 3 år?","solution":"$200\\,000 \\cdot 0{,}8^3 = 200\\,000 \\cdot 0{,}512 = 102\\,400$ kr","answer":102400},{"label":"b","task":"Etter kor mange heile år er verdien under 50 000 kr?","solution":"$0{,}8^n < 0{,}25$. $0{,}8^6 = 0{,}262 > 0{,}25$ og $0{,}8^7 = 0{,}210 < 0{,}25$: etter $7$ år","answer":7},{"label":"c","task":"Kor stort er verditapet i kroner det første året?","solution":"$200\\,000 \\cdot 0{,}2 = 40\\,000$ kr","answer":40000}],"solution":"a) $102\\,400$ kr  b) $7$ år  c) $40\\,000$ kr","hideInlineSolution":true,"hints":["Vekstfaktoren ved 20 % tap er $0{,}8$."],"allowsUpload":true,"allowsCanvasDrawing":true}},{"id":"s2-7-2-rep-5","type":"exercise","exercise":{"id":"s2-7-2-rep-ex-5","number":"R5","type":"classic","difficulty":"vanskelig","task":"Summar og ukjende.","subTasks":[{"label":"a","task":"Rekn ut $\\sum_{k=0}^{9} 4 \\cdot 2^k$.","solution":"$4 \\cdot \\frac{2^{10} - 1}{2 - 1} = 4 \\cdot 1023 = 4092$","answer":4092},{"label":"b","task":"Tre tal i ei geometrisk følgje har sum 14 og produkt 64. Finn tala, og oppgi det største.","solution":"Skriv tala $\\frac{b}{k}, b, bk$: produktet er $b^3 = 64$, så $b = 4$. Summen: $\\frac{4}{k} + 4 + 4k = 14$ gir $4k^2 - 10k + 4 = 0$, $k = 2$ eller $k = \\frac{1}{2}$. Tala er $2, 4, 8$. Største: $8$","answer":8},{"label":"c","task":"I ei geometrisk rekkje er $S_3 = 7$ og $S_6 = 63$. Finn $k$.","solution":"$S_6 = S_3 + k^3S_3$, så $\\frac{S_6}{S_3} = 1 + k^3 = 9$ gir $k^3 = 8$ og $k = 2$","answer":2}],"solution":"a) $4092$  b) $2, 4, 8$ — største er $8$  c) $k = 2$","hideInlineSolution":true,"hints":["Sett midtleddet til $b$ — produktet gir $b$ direkte.","Ledd 4–6 er $k^3$ gonger ledd 1–3."],"allowsUpload":true,"allowsCanvasDrawing":true}}]}],"exercises":[],"_meta":{"sourceHash":"c3327d0fffcecf6e","translatedAt":"2026-06-20T09:32:20.449Z","model":"claude-code-agent","strings":133,"tm":{"a259d4ba299a8c54":"Geometriske følgjer og rekkjer","30719b984be0059b":"Lær om geometriske følgjer, kvotienten mellom ledd, og sum av endeleg geometrisk rekkje.","1106d08617dcc28d":"gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering","cdaf2b60f863d0ce":"rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar","7398c89b14ac186a":"## Frå addisjon til multiplikasjon\n\nI førre kapittel såg vi på aritmetiske følgjer der vi la til eit fast tal for å kome til neste ledd. I ei **geometrisk følgje** multipliserer vi i staden med eit fast tal. Geometriske følgjer modellerer eksponentiell vekst og er heilt sentrale i økonomi (renter, lån, investeringar).","f3cc09c7fc885389":"Geometrisk følgje","03615286da1a95f3":"Ei **geometrisk følgje** er ei talrekkje der forholdet (kvotienten) mellom kvart ledd og det føregåande er konstant:\n\n$$\\frac{a_{n+1}}{a_n} = k \\quad \\text{for alle } n \\geq 1, \\ a_n \\neq 0$$\n\nHer er $k$ den **faste kvotienten** (også kalla fellesforholdet).\n\n**Døme:**\n- $2, 6, 18, 54, \\ldots$ har $k = 3$\n- $100, 50, 25, 12{,}5, \\ldots$ har $k = \\frac{1}{2}$\n- $1, -2, 4, -8, 16, \\ldots$ har $k = -2$","bde180ba5f9e0d6b":"Eksplisitt formel for geometrisk følgje","4732964ae0393894":"Det $n$-te leddet i ei geometrisk følgje med første ledd $a_1$ og kvotient $k$ er:\n\n$$a_n = a_1 \\cdot k^{n-1}$$\n\nMerk likskapen med eksponentiell vekst: $f(x) = a \\cdot b^x$.","ea6ed83f4a6f85fe":"Finn formel og bestemte ledd","1ffb1ed3b01abd02":"Ei geometrisk følgje har $a_1 = 5$ og $k = 2$. Finn $a_{10}$ og ein formel for $a_n$.","b98a8f85ac49dc69":"**Det $n$-te leddet:**\n$$a_n = 5 \\cdot 2^{n-1}$$\n\n**Det 10. leddet:**\n$$a_{10} = 5 \\cdot 2^{9} = 5 \\cdot 512 = 2560$$\n\n**Kontroll:** Dei første ledda er $5, 10, 20, 40, 80, \\ldots$ som stemmer med $a_n = 5 \\cdot 2^{n-1}$.","b5b27c0129484c6d":"## Sum av geometrisk rekkje\n\nFor å finne summen av ei geometrisk rekkje bruker vi eit elegant triks. Vi multipliserer summen $S_n$ med kvotienten $k$ og trekkjer frå:\n\n$$S_n = a_1 + a_1 k + a_1 k^2 + \\cdots + a_1 k^{n-1}$$\n$$k \\cdot S_n = a_1 k + a_1 k^2 + \\cdots + a_1 k^n$$\n\nNesten alle ledd kansellerer, og vi står att med ein enkel formel.","947168e5a3e8d759":"Sum av endeleg geometrisk rekkje","7167530ab57efec7":"Summen av dei $n$ første ledda i ei geometrisk følgje med $k \\neq 1$ er:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\n**Bevis:** Lat $S_n = a_1 + a_1k + a_1k^2 + \\cdots + a_1k^{n-1}$.\n\nMultipliser med $k$: $kS_n = a_1k + a_1k^2 + \\cdots + a_1k^n$.\n\nTrekk frå: $kS_n - S_n = a_1k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$.\n\nDermed: $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$.","601d577dbf5fabe0":"Rekn ut sum av geometrisk rekkje","be1ef52d94ba1a34":"Finn summen $S_8$ av dei 8 første ledda i følgja $3, 6, 12, 24, \\ldots$","8ae3423f30dac693":"Vi identifiserer $a_1 = 3$ og $k = 2$.\n\n$$S_8 = 3 \\cdot \\frac{2^8 - 1}{2 - 1} = 3 \\cdot \\frac{256 - 1}{1} = 3 \\cdot 255 = 765$$\n\n**Kontroll:** $3 + 6 + 12 + 24 + 48 + 96 + 192 + 384 = 765$ ✓","c205735aad15feb4":"Vekstfaktor og prosentvis endring","d94a2ea95059c7b8":"I økonomiske samanhengar er kvotienten $k$ ofte ein **vekstfaktor**:\n\n- **Vekst på $p\\%$:** $k = 1 + \\frac{p}{100}$\n- **Reduksjon på $p\\%$:** $k = 1 - \\frac{p}{100}$\n\n**Døme:** Ei investering som veks $5\\%$ per år har $k = 1{,}05$. Etter $n$ år er verdien $a_n = a_1 \\cdot 1{,}05^{n-1}$.","038d14fa2b77d575":"## Geometriske rekkjer i økonomi\n\nGeometriske rekkjer er heilt sentrale i finansmatematikk:\n\n- **Samansett rente:** Innskot som veks med fast rentesats\n- **Regelmessig sparing:** Faste innskot med renter gir ei geometrisk rekkje\n- **Avskriving:** Verdien av utstyr som synk med fast prosent\n\nVi skal utforske desse økonomiske bruksområda grundig i kapittel 7.4.","02c0dd2eff906814":"Praktisk bruk: bakterievekst","862520a918d0dac6":"Ein bakteriekultur doblar seg kvar time. Det er 500 bakteriar ved start. Finn det totale talet på bakteriar som har eksistert i løpet av dei første 10 timane.","710500432f949684":"Talet på bakteriar per time dannar ei geometrisk følgje med $a_1 = 500$ og $k = 2$.\n\n**Tal etter 10 timar:**\n$$a_{10} = 500 \\cdot 2^{9} = 500 \\cdot 512 = 256\\,000$$\n\n**Totalt tal som har eksistert (sum):**\n$$S_{10} = 500 \\cdot \\frac{2^{10} - 1}{2 - 1} = 500 \\cdot (1024 - 1) = 500 \\cdot 1023 = 511\\,500$$\n\nTotalt har $511\\,500$ bakteriar eksistert i løpet av dei 10 timane.","0b8fb02075a0f346":"Løys oppgåvene:","5ec4a52deb7edcc2":"Avgjer om følgja $4, 12, 36, 108, \\ldots$ er geometrisk. Bestem i så fall $k$.","9073146facb020f4":"$\\frac{12}{4} = 3$, $\\frac{36}{12} = 3$, $\\frac{108}{36} = 3$. Kvotienten er konstant, så følgja er geometrisk med $k = 3$.","7680eb6ec4833f15":"Finn det 8. leddet i følgja frå oppgåve a).","b4e0a761d33189c5":"$a_8 = 4 \\cdot 3^{7} = 4 \\cdot 2187 = 8748$","a8c3d48633c1cea9":"Sjekk om forholdet mellom naboledd er konstant.","2577c3657fe857ba":"Ei geometrisk følgje har $a_1 = 1000$ og $k = 0{,}5$. Finn $a_5$.","46e8d650b3b2d875":"$a_5 = 1000 \\cdot 0{,}5^{4} = 1000 \\cdot 0{,}0625 = 62{,}5$","2a23dc5ee5be4fab":"Finn $S_5$ for følgja i a).","f1ae305c7cc15e11":"$S_5 = 1000 \\cdot \\frac{0{,}5^5 - 1}{0{,}5 - 1} = 1000 \\cdot \\frac{-0{,}96875}{-0{,}5} = 1000 \\cdot 1{,}9375 = 1937{,}5$","9d40c3304a60c5b3":"$a_5 = a_1k^4$ og $S_5 = a_1\\frac{k^5-1}{k-1}$.","83409fb4b79f8632":"Skriv ut dei fem første ledda i følgja gitt ved $a_n = 3 \\cdot 2^n$.","6bba245f004d5728":"$a_1 = 6$, $a_2 = 12$, $a_3 = 24$, $a_4 = 48$, $a_5 = 96$.","f5f71bed867f955e":"Vis at følgja i a) er geometrisk og bestem $k$.","0fbc5710ec2b73f9":"$\\frac{a_{n+1}}{a_n} = \\frac{3 \\cdot 2^{n+1}}{3 \\cdot 2^n} = 2$. Kvotienten er konstant lik $k = 2$, så følgja er geometrisk.","043b283925d519fb":"Rekn ut $\\frac{a_{n+1}}{a_n}$.","44ef1891a14fdf14":"Finn summen $1 + 3 + 9 + 27 + \\cdots + 3^9$.","cb6c16c94462ac21":"Geometrisk rekkje med $a_1 = 1$, $k = 3$, $n = 10$. $S_{10} = 1 \\cdot \\frac{3^{10} - 1}{3 - 1} = \\frac{59049 - 1}{2} = \\frac{59048}{2} = 29524$.","299e06196e33f69b":"Geometrisk rekkje med $a_1 = 1$, $k = 3$ og 10 ledd.","12254cee48dc745d":"I ei geometrisk følgje er $a_2 = 6$ og $a_5 = 162$. Finn $a_1$ og $k$.","ad30f6385fca999d":"$a_5 = a_2 \\cdot k^3 \\Rightarrow 162 = 6 \\cdot k^3 \\Rightarrow k^3 = 27 \\Rightarrow k = 3$. $a_2 = a_1 \\cdot k \\Rightarrow 6 = 3a_1 \\Rightarrow a_1 = 2$.","10c73f1111223773":"Finn $S_8$ for følgja i a).","46d6c54205e8f7c1":"$S_8 = 2 \\cdot \\frac{3^8 - 1}{3 - 1} = 2 \\cdot \\frac{6561 - 1}{2} = 6560$.","d166640e34af441f":"$\\frac{a_5}{a_2} = k^3$.","edaaf18d8c68cb1d":"Ei maskin kostar 200\\,000 kr og mistar $20\\%$ av verdien sin kvart år. Kva er verdien etter 5 år?","53246d22bc5725a9":"$k = 1 - 0{,}20 = 0{,}80$. $a_6 = 200\\,000 \\cdot 0{,}80^5 = 200\\,000 \\cdot 0{,}32768 = 65\\,536$ kr. (Her er $a_1$ verdien ved start, $a_6$ etter 5 år.)","2df3da0608ae4131":"Etter kor mange heile år er verdien under 50\\,000 kr?","8faf2f63fdc2fc1c":"$200\\,000 \\cdot 0{,}80^n < 50\\,000 \\Rightarrow 0{,}80^n < 0{,}25 \\Rightarrow n \\ln(0{,}80) < \\ln(0{,}25) \\Rightarrow n > \\frac{\\ln(0{,}25)}{\\ln(0{,}80)} \\approx \\frac{-1{,}386}{-0{,}223} \\approx 6{,}21$. Etter 7 heile år.","9933d2118f8d8c6c":"Verdi etter $n$ år: $200\\,000 \\cdot 0{,}8^n$; bruk logaritmar eller prøving.","b1d3e2812b114c44":"Finn summen $\\sum_{k=0}^{7} 5 \\cdot 2^k$.","2c70fba7a8c42ced":"$\\sum_{k=0}^{7} 5 \\cdot 2^k = 5 \\cdot \\sum_{k=0}^{7} 2^k = 5 \\cdot \\frac{2^8 - 1}{2 - 1} = 5 \\cdot 255 = 1275$.","27a49aa6bec13957":"Konstanten blir sett utanfor: $5\\sum_{k=0}^{7}2^k$.","e4124844655309c4":"Eit smittestoff spreier seg slik at talet på smitta blir tredobla kvar veke. I veke 1 er det 10 smitta. Kor mange er smitta totalt etter 6 veker?","33ba04c17981fbeb":"$S_6 = 10 \\cdot \\frac{3^6 - 1}{3 - 1} = 10 \\cdot \\frac{729 - 1}{2} = 10 \\cdot 364 = 3640$ smitta totalt.","c0e16545cf47e901":"Tal på smitta i veke $n$: $10 \\cdot 3^{n-1}$.","156d713c664657d7":"Tre tal i ei geometrisk følgje har sum 21 og produkt 216. Finn tala.","b79d204dc32cbf8d":"Lat tala vere $\\frac{a}{k}$, $a$, $ak$. Produkt: $\\frac{a}{k} \\cdot a \\cdot ak = a^3 = 216 \\Rightarrow a = 6$. Sum: $\\frac{6}{k} + 6 + 6k = 21 \\Rightarrow \\frac{6}{k} + 6k = 15 \\Rightarrow 6 + 6k^2 = 15k \\Rightarrow 6k^2 - 15k + 6 = 0 \\Rightarrow 2k^2 - 5k + 2 = 0 \\Rightarrow (2k-1)(k-2) = 0$. $k = 2$ eller $k = \\frac{1}{2}$. Tala er $3, 6, 12$.","b779979109302505":"Skriv tala som $\\frac{b}{k}, b, bk$ — produktet gir $b^3$.","1587c4684b70c573":"Vis at dersom $a$, $b$ og $c$ er tre etterfølgjande ledd i ei geometrisk følgje, så er $b^2 = ac$.","fb84fa077aca99b3":"Sidan $\\frac{b}{a} = \\frac{c}{b} = k$, har vi $b = ak$ og $c = bk = ak^2$. Då er $ac = a \\cdot ak^2 = a^2k^2 = (ak)^2 = b^2$.","0645a69e71740fd2":"Bruk at $\\frac{b}{a} = \\frac{c}{b} = k$.","0c3658f2a5de9635":"Ei investering på 50\\,000 kr veks $8\\%$ per år. Etter kor mange år er investeringa verdt meir enn 100\\,000 kr?","d5ea5176acdbfe62":"$50\\,000 \\cdot 1{,}08^n > 100\\,000 \\Rightarrow 1{,}08^n > 2 \\Rightarrow n > \\frac{\\ln 2}{\\ln 1{,}08} \\approx \\frac{0{,}693}{0{,}077} \\approx 9{,}01$. Etter 10 år.","48eb7fa2584d37a0":"Kva er den totale verdiskapinga (sum av verdiar ved slutten av kvart år) dei første 10 åra?","c3eba870120fe757":"Verdien ved slutten av år $n$ er $50\\,000 \\cdot 1{,}08^n$. $S = \\sum_{n=1}^{10} 50\\,000 \\cdot 1{,}08^n = 50\\,000 \\cdot 1{,}08 \\cdot \\frac{1{,}08^{10} - 1}{1{,}08 - 1} = 54\\,000 \\cdot \\frac{2{,}1589 - 1}{0{,}08} \\approx 54\\,000 \\cdot 14{,}487 \\approx 782\\,268$ kr.","bc9e911da48974a0":"Løys $1{,}08^n \\geq 2$ med logaritmar.","eabf3cad466d8882":"I ei geometrisk rekkje er $S_3 = 7$ og $S_6 = 63$. Finn $k$ og $a_1$.","ed54f08563c94750":"$S_6 = S_3 + a_1 k^3 \\cdot \\frac{k^3 - 1}{k-1}$. Alternativt: $\\frac{S_6}{S_3} = \\frac{a_1(k^6-1)/(k-1)}{a_1(k^3-1)/(k-1)} = \\frac{k^6-1}{k^3-1} = \\frac{(k^3-1)(k^3+1)}{k^3-1} = k^3 + 1$. $\\frac{63}{7} = 9 = k^3 + 1 \\Rightarrow k^3 = 8 \\Rightarrow k = 2$. $S_3 = a_1 \\cdot \\frac{8-1}{1} = 7a_1 = 7 \\Rightarrow a_1 = 1$.","f0b1d3bc86d56e15":"$\\frac{S_6}{S_3} = 1 + k^3$.","e55f33ef56848d78":"## Oppsummering\n\n**Geometrisk følgje:** Kvotienten $k = \\frac{a_{n+1}}{a_n}$ er konstant.\n\n**Eksplisitt formel:** $a_n = a_1 \\cdot k^{n-1}$\n\n**Sum av endeleg geometrisk rekkje ($k \\neq 1$):**\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\n**Samanheng med eksponentiell vekst:**\n- Vekst på $p\\%$: $k = 1 + \\frac{p}{100}$\n- Geometriske følgjer modellerer multiplikativ (eksponentiell) endring\n\n**Skilnad mellom aritmetisk og geometrisk:**\n- Aritmetisk: vi **legg til** ein fast verdi $d$ (lineær vekst)\n- Geometrisk: vi **multipliserer** med ein fast verdi $k$ (eksponentiell vekst)","f0db7f3333b88fb5":"Repetisjonsoppgåver","cc813884c5a66fe6":"Vis repetisjonsoppgåver","335fc4a072f2d8db":"Følgja $2, 6, 18, 54, \\ldots$ er geometrisk.","57ee4f44cfac975c":"Finn kvotienten $k$.","e51753ff933f2653":"$k = \\frac{6}{2} = 3$","e5138076f08de71f":"Finn $a_6$.","7c56ec03918ca494":"$a_6 = 2 \\cdot 3^5 = 486$","6bc26aeec6f1aee4":"Kva ledd er lik 1458?","a475922e94446c47":"$2 \\cdot 3^{n-1} = 1458$ gir $3^{n-1} = 729 = 3^6$, så $n = 7$","5d2a0502d91b22ec":"a) $3$  b) $486$  c) $n = 7$","dbbeb5eb2e222ea3":"$a_n = a_1 \\cdot k^{n-1}$.","29e931da1e562e8e":"Ei geometrisk følgje har $a_1 = 1000$ og $k = 0{,}5$.","d3e3c93ba4cf23dc":"Finn $a_5$.","a246e9e0b7062e17":"$a_5 = 1000 \\cdot 0{,}5^4 = 62{,}5$","4045da6c5aab5224":"Finn $S_5$.","8a7def4a63b29332":"$S_5 = 1000 \\cdot \\frac{1 - 0{,}5^5}{1 - 0{,}5} = 2000\\left(1 - \\frac{1}{32}\\right) = 1937{,}5$","b428eb4b65b33b8c":"a) $62{,}5$  b) $1937{,}5$","acbf61025daffff2":"$S_n = a_1\\frac{k^n - 1}{k - 1}$.","d2acadba209882fe":"I ei geometrisk følgje er $a_2 = 6$ og $a_5 = 48$.","65ed11d1b8683cdd":"Finn $k$.","2451d0f24feb4eff":"$\\frac{a_5}{a_2} = k^3 = 8$ gir $k = 2$","82de0eb72c67a2dd":"Finn $a_1$.","1ed1d1eacf0b2a65":"$a_1 = \\frac{a_2}{k} = 3$","9b89d269ab387cd3":"Finn $S_6$.","f878c3ad963ebbbe":"$S_6 = 3 \\cdot \\frac{2^6 - 1}{2 - 1} = 3 \\cdot 63 = 189$","8cea927201a38ad2":"Finn $a_8$.","ea9bde8ef4aff28d":"$a_8 = 3 \\cdot 2^7 = 384$","919088d21762c985":"a) $2$  b) $3$  c) $189$  d) $384$","e037c2931002fab8":"Mellom $a_2$ og $a_5$ ligg tre multiplikasjonar med $k$.","eef1d5a99274cb40":"Ei maskin kostar 200 000 kr og taper 20 % av verdien kvart år.","8bff8a1c3fd88825":"Kva er verdien etter 3 år?","1413d8bb6eba650d":"$200\\,000 \\cdot 0{,}8^3 = 200\\,000 \\cdot 0{,}512 = 102\\,400$ kr","b01e47cd465a5edc":"Etter kor mange heile år er verdien under 50 000 kr?","012bf758a0a87b70":"$0{,}8^n < 0{,}25$. $0{,}8^6 = 0{,}262 > 0{,}25$ og $0{,}8^7 = 0{,}210 < 0{,}25$: etter $7$ år","d900b77b60bc6de9":"Kor stort er verditapet i kroner det første året?","550b5160916f2869":"$200\\,000 \\cdot 0{,}2 = 40\\,000$ kr","0737613fe11950aa":"a) $102\\,400$ kr  b) $7$ år  c) $40\\,000$ kr","8fe41941db21dea1":"Vekstfaktoren ved 20 % tap er $0{,}8$.","c838086179c5e2af":"Summar og ukjende.","43a9be13089e08a2":"Rekn ut $\\sum_{k=0}^{9} 4 \\cdot 2^k$.","403a4d60e9d7c1bb":"$4 \\cdot \\frac{2^{10} - 1}{2 - 1} = 4 \\cdot 1023 = 4092$","70f5cc6a2cfd8c18":"Tre tal i ei geometrisk følgje har sum 14 og produkt 64. Finn tala, og oppgi det største.","3c741735bfcccc9e":"Skriv tala $\\frac{b}{k}, b, bk$: produktet er $b^3 = 64$, så $b = 4$. Summen: $\\frac{4}{k} + 4 + 4k = 14$ gir $4k^2 - 10k + 4 = 0$, $k = 2$ eller $k = \\frac{1}{2}$. Tala er $2, 4, 8$. Største: $8$","37b43c2165b25d59":"I ei geometrisk rekkje er $S_3 = 7$ og $S_6 = 63$. Finn $k$.","2d44a5cc25e1e119":"$S_6 = S_3 + k^3S_3$, så $\\frac{S_6}{S_3} = 1 + k^3 = 9$ gir $k^3 = 8$ og $k = 2$","70295a7710b5243d":"a) $4092$  b) $2, 4, 8$ — største er $8$  c) $k = 2$","4c56fbd852e3036b":"Sett midtleddet til $b$ — produktet gir $b$ direkte.","2bf88193910a9c77":"Ledd 4–6 er $k^3$ gonger ledd 1–3."}}}
+{
+  "id": "s2-7-2",
+  "courseId": "s2",
+  "chapterNumber": "7.2",
+  "title": "Geometriske følgjer og rekkjer",
+  "description": "Lær om geometriske følgjer, kvotienten mellom ledd, og sum av endeleg geometrisk rekkje.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering",
+    "rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar"
+  ],
+  "content": [
+    {
+      "id": "s2-7-2-intro",
+      "type": "text",
+      "content": "## Frå addisjon til multiplikasjon\n\nI førre kapittel såg vi på aritmetiske følgjer der vi la til eit fast tal for å kome til neste ledd. I ei **geometrisk følgje** multipliserer vi i staden med eit fast tal. Geometriske følgjer modellerer eksponentiell vekst og er heilt sentrale i økonomi (renter, lån, investeringar)."
+    },
+    {
+      "id": "s2-7-2-def-1",
+      "type": "definition",
+      "title": "Geometrisk følgje",
+      "content": "Ei **geometrisk følgje** er ei talrekkje der forholdet (kvotienten) mellom kvart ledd og det føregåande er konstant:\n\n$$\\frac{a_{n+1}}{a_n} = k \\quad \\text{for alle } n \\geq 1, \\ a_n \\neq 0$$\n\nHer er $k$ den **faste kvotienten** (også kalla fellesforholdet).\n\n**Døme:**\n- $2, 6, 18, 54, \\ldots$ har $k = 3$\n- $100, 50, 25, 12{,}5, \\ldots$ har $k = \\frac{1}{2}$\n- $1, -2, 4, -8, 16, \\ldots$ har $k = -2$"
+    },
+    {
+      "id": "s2-7-2-fig-geometrisk-folge",
+      "type": "image",
+      "src": "/images/content/s2/s2-7-2-geometrisk-folge.svg",
+      "alt": "Ei rekkje søyler som minkar frå venstre mot høgre, frå 100 ned til om lag 41. Mellom kvar søyle står det gonger 0,8.",
+      "caption": "I ei geometrisk følgje er kvart ledd det førre leddet ganga med kvotienten $k$. Her er $a_1 = 100$ og $k = 0{,}8$, så det femte leddet blir $100 \\cdot 0{,}8^4 \\approx 41$."
+    },
+    {
+      "id": "s2-7-2-def-2",
+      "type": "definition",
+      "title": "Eksplisitt formel for geometrisk følgje",
+      "content": "Det $n$-te leddet i ei geometrisk følgje med første ledd $a_1$ og kvotient $k$ er:\n\n$$a_n = a_1 \\cdot k^{n-1}$$\n\nMerk likskapen med eksponentiell vekst: $f(x) = a \\cdot b^x$."
+    },
+    {
+      "id": "s2-7-2-example-1",
+      "type": "example",
+      "title": "Finn formel og bestemte ledd",
+      "problem": "Ei geometrisk følgje har $a_1 = 5$ og $k = 2$. Finn $a_{10}$ og ein formel for $a_n$.",
+      "solution": "**Det $n$-te leddet:**\n$$a_n = 5 \\cdot 2^{n-1}$$\n\n**Det 10. leddet:**\n$$a_{10} = 5 \\cdot 2^{9} = 5 \\cdot 512 = 2560$$\n\n**Kontroll:** Dei første ledda er $5, 10, 20, 40, 80, \\ldots$ som stemmer med $a_n = 5 \\cdot 2^{n-1}$."
+    },
+    {
+      "id": "s2-7-2-text-sum",
+      "type": "text",
+      "content": "## Sum av geometrisk rekkje\n\nFor å finne summen av ei geometrisk rekkje bruker vi eit elegant triks. Vi multipliserer summen $S_n$ med kvotienten $k$ og trekkjer frå:\n\n$$S_n = a_1 + a_1 k + a_1 k^2 + \\cdots + a_1 k^{n-1}$$\n$$k \\cdot S_n = a_1 k + a_1 k^2 + \\cdots + a_1 k^n$$\n\nNesten alle ledd kansellerer, og vi står att med ein enkel formel."
+    },
+    {
+      "id": "s2-7-2-theorem-1",
+      "type": "theorem",
+      "title": "Sum av endeleg geometrisk rekkje",
+      "content": "Summen av dei $n$ første ledda i ei geometrisk følgje med $k \\neq 1$ er:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\n**Bevis:** Lat $S_n = a_1 + a_1k + a_1k^2 + \\cdots + a_1k^{n-1}$.\n\nMultipliser med $k$: $kS_n = a_1k + a_1k^2 + \\cdots + a_1k^n$.\n\nTrekk frå: $kS_n - S_n = a_1k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$.\n\nDermed: $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$."
+    },
+    {
+      "id": "s2-7-2-example-2",
+      "type": "example",
+      "title": "Rekn ut sum av geometrisk rekkje",
+      "problem": "Finn summen $S_8$ av dei 8 første ledda i følgja $3, 6, 12, 24, \\ldots$",
+      "solution": "Vi identifiserer $a_1 = 3$ og $k = 2$.\n\n$$S_8 = 3 \\cdot \\frac{2^8 - 1}{2 - 1} = 3 \\cdot \\frac{256 - 1}{1} = 3 \\cdot 255 = 765$$\n\n**Kontroll:** $3 + 6 + 12 + 24 + 48 + 96 + 192 + 384 = 765$ ✓"
+    },
+    {
+      "id": "s2-7-2-def-3",
+      "type": "definition",
+      "title": "Vekstfaktor og prosentvis endring",
+      "content": "I økonomiske samanhengar er kvotienten $k$ ofte ein **vekstfaktor**:\n\n- **Vekst på $p\\%$:** $k = 1 + \\frac{p}{100}$\n- **Reduksjon på $p\\%$:** $k = 1 - \\frac{p}{100}$\n\n**Døme:** Ei investering som veks $5\\%$ per år har $k = 1{,}05$. Etter $n$ år er verdien $a_n = a_1 \\cdot 1{,}05^{n-1}$."
+    },
+    {
+      "id": "s2-7-2-text-anvendelser",
+      "type": "text",
+      "content": "## Geometriske rekkjer i økonomi\n\nGeometriske rekkjer er heilt sentrale i finansmatematikk:\n\n- **Samansett rente:** Innskot som veks med fast rentesats\n- **Regelmessig sparing:** Faste innskot med renter gir ei geometrisk rekkje\n- **Avskriving:** Verdien av utstyr som synk med fast prosent\n\nVi skal utforske desse økonomiske bruksområda grundig i kapittel 7.4."
+    },
+    {
+      "id": "s2-7-2-example-3",
+      "type": "example",
+      "title": "Praktisk bruk: bakterievekst",
+      "problem": "Ein bakteriekultur doblar seg kvar time. Det er 500 bakteriar ved start. Finn det totale talet på bakteriar som har eksistert i løpet av dei første 10 timane.",
+      "solution": "Talet på bakteriar per time dannar ei geometrisk følgje med $a_1 = 500$ og $k = 2$.\n\n**Tal etter 10 timar:**\n$$a_{10} = 500 \\cdot 2^{9} = 500 \\cdot 512 = 256\\,000$$\n\n**Totalt tal som har eksistert (sum):**\n$$S_{10} = 500 \\cdot \\frac{2^{10} - 1}{2 - 1} = 500 \\cdot (1024 - 1) = 500 \\cdot 1023 = 511\\,500$$\n\nTotalt har $511\\,500$ bakteriar eksistert i løpet av dei 10 timane."
+    },
+    {
+      "id": "s2-7-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Avgjer om følgja $4, 12, 36, 108, \\ldots$ er geometrisk. Bestem i så fall $k$.",
+            "solution": "$\\frac{12}{4} = 3$, $\\frac{36}{12} = 3$, $\\frac{108}{36} = 3$. Kvotienten er konstant, så følgja er geometrisk med $k = 3$.",
+            "answer": 3
+          },
+          {
+            "label": "b",
+            "task": "Finn det 8. leddet i følgja frå oppgåve a).",
+            "solution": "$a_8 = 4 \\cdot 3^{7} = 4 \\cdot 2187 = 8748$",
+            "answer": 8748
+          }
+        ],
+        "hints": [
+          "Sjekk om forholdet mellom naboledd er konstant."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Ei geometrisk følgje har $a_1 = 1000$ og $k = 0{,}5$. Finn $a_5$.",
+            "solution": "$a_5 = 1000 \\cdot 0{,}5^{4} = 1000 \\cdot 0{,}0625 = 62{,}5$",
+            "answer": 62.5
+          },
+          {
+            "label": "b",
+            "task": "Finn $S_5$ for følgja i a).",
+            "solution": "$S_5 = 1000 \\cdot \\frac{0{,}5^5 - 1}{0{,}5 - 1} = 1000 \\cdot \\frac{-0{,}96875}{-0{,}5} = 1000 \\cdot 1{,}9375 = 1937{,}5$",
+            "answer": 1937.5
+          }
+        ],
+        "hints": [
+          "$a_5 = a_1k^4$ og $S_5 = a_1\\frac{k^5-1}{k-1}$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv ut dei fem første ledda i følgja gitt ved $a_n = 3 \\cdot 2^n$.",
+            "solution": "$a_1 = 6$, $a_2 = 12$, $a_3 = 24$, $a_4 = 48$, $a_5 = 96$."
+          },
+          {
+            "label": "b",
+            "task": "Vis at følgja i a) er geometrisk og bestem $k$.",
+            "solution": "$\\frac{a_{n+1}}{a_n} = \\frac{3 \\cdot 2^{n+1}}{3 \\cdot 2^n} = 2$. Kvotienten er konstant lik $k = 2$, så følgja er geometrisk.",
+            "answer": 2
+          }
+        ],
+        "hints": [
+          "Rekn ut $\\frac{a_{n+1}}{a_n}$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn summen $1 + 3 + 9 + 27 + \\cdots + 3^9$.",
+            "solution": "Geometrisk rekkje med $a_1 = 1$, $k = 3$, $n = 10$. $S_{10} = 1 \\cdot \\frac{3^{10} - 1}{3 - 1} = \\frac{59049 - 1}{2} = \\frac{59048}{2} = 29524$.",
+            "answer": 29524
+          }
+        ],
+        "hints": [
+          "Geometrisk rekkje med $a_1 = 1$, $k = 3$ og 10 ledd."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "I ei geometrisk følgje er $a_2 = 6$ og $a_5 = 162$. Finn $a_1$ og $k$.",
+            "solution": "$a_5 = a_2 \\cdot k^3 \\Rightarrow 162 = 6 \\cdot k^3 \\Rightarrow k^3 = 27 \\Rightarrow k = 3$. $a_2 = a_1 \\cdot k \\Rightarrow 6 = 3a_1 \\Rightarrow a_1 = 2$."
+          },
+          {
+            "label": "b",
+            "task": "Finn $S_8$ for følgja i a).",
+            "solution": "$S_8 = 2 \\cdot \\frac{3^8 - 1}{3 - 1} = 2 \\cdot \\frac{6561 - 1}{2} = 6560$.",
+            "answer": 6560
+          }
+        ],
+        "hints": [
+          "$\\frac{a_5}{a_2} = k^3$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Ei maskin kostar 200 000 kr og mistar $20\\%$ av verdien sin kvart år. Kva er verdien etter 5 år?",
+            "solution": "$k = 1 - 0{,}20 = 0{,}80$. $a_6 = 200\\,000 \\cdot 0{,}80^5 = 200\\,000 \\cdot 0{,}32768 = 65\\,536$ kr. (Her er $a_1$ verdien ved start, $a_6$ etter 5 år.)",
+            "answer": 65536
+          },
+          {
+            "label": "b",
+            "task": "Etter kor mange heile år er verdien under 50 000 kr?",
+            "solution": "$200\\,000 \\cdot 0{,}80^n < 50\\,000 \\Rightarrow 0{,}80^n < 0{,}25 \\Rightarrow n \\ln(0{,}80) < \\ln(0{,}25) \\Rightarrow n > \\frac{\\ln(0{,}25)}{\\ln(0{,}80)} \\approx \\frac{-1{,}386}{-0{,}223} \\approx 6{,}21$. Etter 7 heile år.",
+            "answer": 7
+          }
+        ],
+        "hints": [
+          "Verdi etter $n$ år: $200\\,000 \\cdot 0{,}8^n$; bruk logaritmar eller prøving."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn summen $\\sum_{k=0}^{7} 5 \\cdot 2^k$.",
+            "solution": "$\\sum_{k=0}^{7} 5 \\cdot 2^k = 5 \\cdot \\sum_{k=0}^{7} 2^k = 5 \\cdot \\frac{2^8 - 1}{2 - 1} = 5 \\cdot 255 = 1275$.",
+            "answer": 1275
+          }
+        ],
+        "hints": [
+          "Konstanten blir sett utanfor: $5\\sum_{k=0}^{7}2^k$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Eit smittestoff spreier seg slik at talet på smitta blir tredobla kvar veke. I veke 1 er det 10 smitta. Kor mange er smitta totalt etter 6 veker?",
+            "solution": "$S_6 = 10 \\cdot \\frac{3^6 - 1}{3 - 1} = 10 \\cdot \\frac{729 - 1}{2} = 10 \\cdot 364 = 3640$ smitta totalt.",
+            "answer": 3640
+          }
+        ],
+        "hints": [
+          "Tal på smitta i veke $n$: $10 \\cdot 3^{n-1}$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Tre tal i ei geometrisk følgje har sum 21 og produkt 216. Finn tala.",
+            "solution": "Lat tala vere $\\frac{a}{k}$, $a$, $ak$. Produkt: $\\frac{a}{k} \\cdot a \\cdot ak = a^3 = 216 \\Rightarrow a = 6$. Sum: $\\frac{6}{k} + 6 + 6k = 21 \\Rightarrow \\frac{6}{k} + 6k = 15 \\Rightarrow 6 + 6k^2 = 15k \\Rightarrow 6k^2 - 15k + 6 = 0 \\Rightarrow 2k^2 - 5k + 2 = 0 \\Rightarrow (2k-1)(k-2) = 0$. $k = 2$ eller $k = \\frac{1}{2}$. Tala er $3, 6, 12$."
+          }
+        ],
+        "hints": [
+          "Skriv tala som $\\frac{b}{k}, b, bk$ — produktet gir $b^3$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at dersom $a$, $b$ og $c$ er tre etterfølgjande ledd i ei geometrisk følgje, så er $b^2 = ac$.",
+            "solution": "Sidan $\\frac{b}{a} = \\frac{c}{b} = k$, har vi $b = ak$ og $c = bk = ak^2$. Då er $ac = a \\cdot ak^2 = a^2k^2 = (ak)^2 = b^2$."
+          }
+        ],
+        "hints": [
+          "Bruk at $\\frac{b}{a} = \\frac{c}{b} = k$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Ei investering på 50 000 kr veks $8\\%$ per år. Etter kor mange år er investeringa verdt meir enn 100 000 kr?",
+            "solution": "$50\\,000 \\cdot 1{,}08^n > 100\\,000 \\Rightarrow 1{,}08^n > 2 \\Rightarrow n > \\frac{\\ln 2}{\\ln 1{,}08} \\approx \\frac{0{,}693}{0{,}077} \\approx 9{,}01$. Etter 10 år.",
+            "answer": 10
+          },
+          {
+            "label": "b",
+            "task": "Kva er den totale verdiskapinga (sum av verdiar ved slutten av kvart år) dei første 10 åra?",
+            "solution": "Verdien ved slutten av år $n$ er $50\\,000 \\cdot 1{,}08^n$. $S = \\sum_{n=1}^{10} 50\\,000 \\cdot 1{,}08^n = 50\\,000 \\cdot 1{,}08 \\cdot \\frac{1{,}08^{10} - 1}{1{,}08 - 1} = 54\\,000 \\cdot \\frac{2{,}1589 - 1}{0{,}08} \\approx 54\\,000 \\cdot 14{,}487 \\approx 782\\,268$ kr.",
+            "answer": [
+              782268,
+              782274,
+              782274.3731589933
+            ]
+          }
+        ],
+        "hints": [
+          "Løys $1{,}08^n \\geq 2$ med logaritmar."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-ex-block-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-ex-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løys oppgåvene:",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "I ei geometrisk rekkje er $S_3 = 7$ og $S_6 = 63$. Finn $k$ og $a_1$.",
+            "solution": "$S_6 = S_3 + a_1 k^3 \\cdot \\frac{k^3 - 1}{k-1}$. Alternativt: $\\frac{S_6}{S_3} = \\frac{a_1(k^6-1)/(k-1)}{a_1(k^3-1)/(k-1)} = \\frac{k^6-1}{k^3-1} = \\frac{(k^3-1)(k^3+1)}{k^3-1} = k^3 + 1$. $\\frac{63}{7} = 9 = k^3 + 1 \\Rightarrow k^3 = 8 \\Rightarrow k = 2$. $S_3 = a_1 \\cdot \\frac{8-1}{1} = 7a_1 = 7 \\Rightarrow a_1 = 1$."
+          }
+        ],
+        "hints": [
+          "$\\frac{S_6}{S_3} = 1 + k^3$."
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Geometrisk følgje:** Kvotienten $k = \\frac{a_{n+1}}{a_n}$ er konstant.\n\n**Eksplisitt formel:** $a_n = a_1 \\cdot k^{n-1}$\n\n**Sum av endeleg geometrisk rekkje ($k \\neq 1$):**\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\n**Samanheng med eksponentiell vekst:**\n- Vekst på $p\\%$: $k = 1 + \\frac{p}{100}$\n- Geometriske følgjer modellerer multiplikativ (eksponentiell) endring\n\n**Skilnad mellom aritmetisk og geometrisk:**\n- Aritmetisk: vi **legg til** ein fast verdi $d$ (lineær vekst)\n- Geometrisk: vi **multipliserer** med ein fast verdi $k$ (eksponentiell vekst)"
+    },
+    {
+      "id": "s2-7-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgåver",
+      "buttonText": "Vis repetisjonsoppgåver",
+      "content": [
+        {
+          "id": "s2-7-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-2-rep-ex-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Følgja $2, 6, 18, 54, \\ldots$ er geometrisk.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Finn kvotienten $k$.",
+                "solution": "$k = \\frac{6}{2} = 3$",
+                "answer": 3
+              },
+              {
+                "label": "b",
+                "task": "Finn $a_6$.",
+                "solution": "$a_6 = 2 \\cdot 3^5 = 486$",
+                "answer": 486
+              },
+              {
+                "label": "c",
+                "task": "Kva ledd er lik 1458?",
+                "solution": "$2 \\cdot 3^{n-1} = 1458$ gir $3^{n-1} = 729 = 3^6$, så $n = 7$",
+                "answer": 7
+              }
+            ],
+            "solution": "a) $3$  b) $486$  c) $n = 7$",
+            "hideInlineSolution": true,
+            "hints": [
+              "$a_n = a_1 \\cdot k^{n-1}$."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "s2-7-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-2-rep-ex-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Ei geometrisk følgje har $a_1 = 1000$ og $k = 0{,}5$.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Finn $a_5$.",
+                "solution": "$a_5 = 1000 \\cdot 0{,}5^4 = 62{,}5$",
+                "answer": 62.5
+              },
+              {
+                "label": "b",
+                "task": "Finn $S_5$.",
+                "solution": "$S_5 = 1000 \\cdot \\frac{1 - 0{,}5^5}{1 - 0{,}5} = 2000\\left(1 - \\frac{1}{32}\\right) = 1937{,}5$",
+                "answer": 1937.5
+              }
+            ],
+            "solution": "a) $62{,}5$  b) $1937{,}5$",
+            "hideInlineSolution": true,
+            "hints": [
+              "$S_n = a_1\\frac{k^n - 1}{k - 1}$."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "s2-7-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-2-rep-ex-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "medium",
+            "task": "I ei geometrisk følgje er $a_2 = 6$ og $a_5 = 48$.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Finn $k$.",
+                "solution": "$\\frac{a_5}{a_2} = k^3 = 8$ gir $k = 2$",
+                "answer": 2
+              },
+              {
+                "label": "b",
+                "task": "Finn $a_1$.",
+                "solution": "$a_1 = \\frac{a_2}{k} = 3$",
+                "answer": 3
+              },
+              {
+                "label": "c",
+                "task": "Finn $S_6$.",
+                "solution": "$S_6 = 3 \\cdot \\frac{2^6 - 1}{2 - 1} = 3 \\cdot 63 = 189$",
+                "answer": 189
+              },
+              {
+                "label": "d",
+                "task": "Finn $a_8$.",
+                "solution": "$a_8 = 3 \\cdot 2^7 = 384$",
+                "answer": 384
+              }
+            ],
+            "solution": "a) $2$  b) $3$  c) $189$  d) $384$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Mellom $a_2$ og $a_5$ ligg tre multiplikasjonar med $k$."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "s2-7-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-2-rep-ex-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "medium",
+            "task": "Ei maskin kostar 200 000 kr og taper 20 % av verdien kvart år.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Kva er verdien etter 3 år?",
+                "solution": "$200\\,000 \\cdot 0{,}8^3 = 200\\,000 \\cdot 0{,}512 = 102\\,400$ kr",
+                "answer": 102400
+              },
+              {
+                "label": "b",
+                "task": "Etter kor mange heile år er verdien under 50 000 kr?",
+                "solution": "$0{,}8^n < 0{,}25$. $0{,}8^6 = 0{,}262 > 0{,}25$ og $0{,}8^7 = 0{,}210 < 0{,}25$: etter $7$ år",
+                "answer": 7
+              },
+              {
+                "label": "c",
+                "task": "Kor stort er verditapet i kroner det første året?",
+                "solution": "$200\\,000 \\cdot 0{,}2 = 40\\,000$ kr",
+                "answer": 40000
+              }
+            ],
+            "solution": "a) $102\\,400$ kr  b) $7$ år  c) $40\\,000$ kr",
+            "hideInlineSolution": true,
+            "hints": [
+              "Vekstfaktoren ved 20 % tap er $0{,}8$."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        },
+        {
+          "id": "s2-7-2-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "s2-7-2-rep-ex-5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Summar og ukjende.",
+            "subTasks": [
+              {
+                "label": "a",
+                "task": "Rekn ut $\\sum_{k=0}^{9} 4 \\cdot 2^k$.",
+                "solution": "$4 \\cdot \\frac{2^{10} - 1}{2 - 1} = 4 \\cdot 1023 = 4092$",
+                "answer": 4092
+              },
+              {
+                "label": "b",
+                "task": "Tre tal i ei geometrisk følgje har sum 14 og produkt 64. Finn tala, og oppgi det største.",
+                "solution": "Skriv tala $\\frac{b}{k}, b, bk$: produktet er $b^3 = 64$, så $b = 4$. Summen: $\\frac{4}{k} + 4 + 4k = 14$ gir $4k^2 - 10k + 4 = 0$, $k = 2$ eller $k = \\frac{1}{2}$. Tala er $2, 4, 8$. Største: $8$",
+                "answer": 8
+              },
+              {
+                "label": "c",
+                "task": "I ei geometrisk rekkje er $S_3 = 7$ og $S_6 = 63$. Finn $k$.",
+                "solution": "$S_6 = S_3 + k^3S_3$, så $\\frac{S_6}{S_3} = 1 + k^3 = 9$ gir $k^3 = 8$ og $k = 2$",
+                "answer": 2
+              }
+            ],
+            "solution": "a) $4092$  b) $2, 4, 8$ — største er $8$  c) $k = 2$",
+            "hideInlineSolution": true,
+            "hints": [
+              "Sett midtleddet til $b$ — produktet gir $b$ direkte.",
+              "Ledd 4–6 er $k^3$ gonger ledd 1–3."
+            ],
+            "allowsUpload": true,
+            "allowsCanvasDrawing": true
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "c3327d0fffcecf6e",
+    "translatedAt": "2026-06-20T09:32:20.449Z",
+    "model": "claude-code-agent",
+    "strings": 133,
+    "tm": {
+      "a259d4ba299a8c54": "Geometriske følgjer og rekkjer",
+      "30719b984be0059b": "Lær om geometriske følgjer, kvotienten mellom ledd, og sum av endeleg geometrisk rekkje.",
+      "1106d08617dcc28d": "gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering",
+      "cdaf2b60f863d0ce": "rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar",
+      "7398c89b14ac186a": "## Frå addisjon til multiplikasjon\n\nI førre kapittel såg vi på aritmetiske følgjer der vi la til eit fast tal for å kome til neste ledd. I ei **geometrisk følgje** multipliserer vi i staden med eit fast tal. Geometriske følgjer modellerer eksponentiell vekst og er heilt sentrale i økonomi (renter, lån, investeringar).",
+      "f3cc09c7fc885389": "Geometrisk følgje",
+      "03615286da1a95f3": "Ei **geometrisk følgje** er ei talrekkje der forholdet (kvotienten) mellom kvart ledd og det føregåande er konstant:\n\n$$\\frac{a_{n+1}}{a_n} = k \\quad \\text{for alle } n \\geq 1, \\ a_n \\neq 0$$\n\nHer er $k$ den **faste kvotienten** (også kalla fellesforholdet).\n\n**Døme:**\n- $2, 6, 18, 54, \\ldots$ har $k = 3$\n- $100, 50, 25, 12{,}5, \\ldots$ har $k = \\frac{1}{2}$\n- $1, -2, 4, -8, 16, \\ldots$ har $k = -2$",
+      "bde180ba5f9e0d6b": "Eksplisitt formel for geometrisk følgje",
+      "4732964ae0393894": "Det $n$-te leddet i ei geometrisk følgje med første ledd $a_1$ og kvotient $k$ er:\n\n$$a_n = a_1 \\cdot k^{n-1}$$\n\nMerk likskapen med eksponentiell vekst: $f(x) = a \\cdot b^x$.",
+      "ea6ed83f4a6f85fe": "Finn formel og bestemte ledd",
+      "1ffb1ed3b01abd02": "Ei geometrisk følgje har $a_1 = 5$ og $k = 2$. Finn $a_{10}$ og ein formel for $a_n$.",
+      "b98a8f85ac49dc69": "**Det $n$-te leddet:**\n$$a_n = 5 \\cdot 2^{n-1}$$\n\n**Det 10. leddet:**\n$$a_{10} = 5 \\cdot 2^{9} = 5 \\cdot 512 = 2560$$\n\n**Kontroll:** Dei første ledda er $5, 10, 20, 40, 80, \\ldots$ som stemmer med $a_n = 5 \\cdot 2^{n-1}$.",
+      "b5b27c0129484c6d": "## Sum av geometrisk rekkje\n\nFor å finne summen av ei geometrisk rekkje bruker vi eit elegant triks. Vi multipliserer summen $S_n$ med kvotienten $k$ og trekkjer frå:\n\n$$S_n = a_1 + a_1 k + a_1 k^2 + \\cdots + a_1 k^{n-1}$$\n$$k \\cdot S_n = a_1 k + a_1 k^2 + \\cdots + a_1 k^n$$\n\nNesten alle ledd kansellerer, og vi står att med ein enkel formel.",
+      "947168e5a3e8d759": "Sum av endeleg geometrisk rekkje",
+      "7167530ab57efec7": "Summen av dei $n$ første ledda i ei geometrisk følgje med $k \\neq 1$ er:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\n**Bevis:** Lat $S_n = a_1 + a_1k + a_1k^2 + \\cdots + a_1k^{n-1}$.\n\nMultipliser med $k$: $kS_n = a_1k + a_1k^2 + \\cdots + a_1k^n$.\n\nTrekk frå: $kS_n - S_n = a_1k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$.\n\nDermed: $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$.",
+      "601d577dbf5fabe0": "Rekn ut sum av geometrisk rekkje",
+      "be1ef52d94ba1a34": "Finn summen $S_8$ av dei 8 første ledda i følgja $3, 6, 12, 24, \\ldots$",
+      "8ae3423f30dac693": "Vi identifiserer $a_1 = 3$ og $k = 2$.\n\n$$S_8 = 3 \\cdot \\frac{2^8 - 1}{2 - 1} = 3 \\cdot \\frac{256 - 1}{1} = 3 \\cdot 255 = 765$$\n\n**Kontroll:** $3 + 6 + 12 + 24 + 48 + 96 + 192 + 384 = 765$ ✓",
+      "c205735aad15feb4": "Vekstfaktor og prosentvis endring",
+      "d94a2ea95059c7b8": "I økonomiske samanhengar er kvotienten $k$ ofte ein **vekstfaktor**:\n\n- **Vekst på $p\\%$:** $k = 1 + \\frac{p}{100}$\n- **Reduksjon på $p\\%$:** $k = 1 - \\frac{p}{100}$\n\n**Døme:** Ei investering som veks $5\\%$ per år har $k = 1{,}05$. Etter $n$ år er verdien $a_n = a_1 \\cdot 1{,}05^{n-1}$.",
+      "038d14fa2b77d575": "## Geometriske rekkjer i økonomi\n\nGeometriske rekkjer er heilt sentrale i finansmatematikk:\n\n- **Samansett rente:** Innskot som veks med fast rentesats\n- **Regelmessig sparing:** Faste innskot med renter gir ei geometrisk rekkje\n- **Avskriving:** Verdien av utstyr som synk med fast prosent\n\nVi skal utforske desse økonomiske bruksområda grundig i kapittel 7.4.",
+      "02c0dd2eff906814": "Praktisk bruk: bakterievekst",
+      "862520a918d0dac6": "Ein bakteriekultur doblar seg kvar time. Det er 500 bakteriar ved start. Finn det totale talet på bakteriar som har eksistert i løpet av dei første 10 timane.",
+      "710500432f949684": "Talet på bakteriar per time dannar ei geometrisk følgje med $a_1 = 500$ og $k = 2$.\n\n**Tal etter 10 timar:**\n$$a_{10} = 500 \\cdot 2^{9} = 500 \\cdot 512 = 256\\,000$$\n\n**Totalt tal som har eksistert (sum):**\n$$S_{10} = 500 \\cdot \\frac{2^{10} - 1}{2 - 1} = 500 \\cdot (1024 - 1) = 500 \\cdot 1023 = 511\\,500$$\n\nTotalt har $511\\,500$ bakteriar eksistert i løpet av dei 10 timane.",
+      "0b8fb02075a0f346": "Løys oppgåvene:",
+      "5ec4a52deb7edcc2": "Avgjer om følgja $4, 12, 36, 108, \\ldots$ er geometrisk. Bestem i så fall $k$.",
+      "9073146facb020f4": "$\\frac{12}{4} = 3$, $\\frac{36}{12} = 3$, $\\frac{108}{36} = 3$. Kvotienten er konstant, så følgja er geometrisk med $k = 3$.",
+      "7680eb6ec4833f15": "Finn det 8. leddet i følgja frå oppgåve a).",
+      "b4e0a761d33189c5": "$a_8 = 4 \\cdot 3^{7} = 4 \\cdot 2187 = 8748$",
+      "a8c3d48633c1cea9": "Sjekk om forholdet mellom naboledd er konstant.",
+      "2577c3657fe857ba": "Ei geometrisk følgje har $a_1 = 1000$ og $k = 0{,}5$. Finn $a_5$.",
+      "46e8d650b3b2d875": "$a_5 = 1000 \\cdot 0{,}5^{4} = 1000 \\cdot 0{,}0625 = 62{,}5$",
+      "2a23dc5ee5be4fab": "Finn $S_5$ for følgja i a).",
+      "f1ae305c7cc15e11": "$S_5 = 1000 \\cdot \\frac{0{,}5^5 - 1}{0{,}5 - 1} = 1000 \\cdot \\frac{-0{,}96875}{-0{,}5} = 1000 \\cdot 1{,}9375 = 1937{,}5$",
+      "9d40c3304a60c5b3": "$a_5 = a_1k^4$ og $S_5 = a_1\\frac{k^5-1}{k-1}$.",
+      "83409fb4b79f8632": "Skriv ut dei fem første ledda i følgja gitt ved $a_n = 3 \\cdot 2^n$.",
+      "6bba245f004d5728": "$a_1 = 6$, $a_2 = 12$, $a_3 = 24$, $a_4 = 48$, $a_5 = 96$.",
+      "f5f71bed867f955e": "Vis at følgja i a) er geometrisk og bestem $k$.",
+      "0fbc5710ec2b73f9": "$\\frac{a_{n+1}}{a_n} = \\frac{3 \\cdot 2^{n+1}}{3 \\cdot 2^n} = 2$. Kvotienten er konstant lik $k = 2$, så følgja er geometrisk.",
+      "043b283925d519fb": "Rekn ut $\\frac{a_{n+1}}{a_n}$.",
+      "44ef1891a14fdf14": "Finn summen $1 + 3 + 9 + 27 + \\cdots + 3^9$.",
+      "cb6c16c94462ac21": "Geometrisk rekkje med $a_1 = 1$, $k = 3$, $n = 10$. $S_{10} = 1 \\cdot \\frac{3^{10} - 1}{3 - 1} = \\frac{59049 - 1}{2} = \\frac{59048}{2} = 29524$.",
+      "299e06196e33f69b": "Geometrisk rekkje med $a_1 = 1$, $k = 3$ og 10 ledd.",
+      "12254cee48dc745d": "I ei geometrisk følgje er $a_2 = 6$ og $a_5 = 162$. Finn $a_1$ og $k$.",
+      "ad30f6385fca999d": "$a_5 = a_2 \\cdot k^3 \\Rightarrow 162 = 6 \\cdot k^3 \\Rightarrow k^3 = 27 \\Rightarrow k = 3$. $a_2 = a_1 \\cdot k \\Rightarrow 6 = 3a_1 \\Rightarrow a_1 = 2$.",
+      "10c73f1111223773": "Finn $S_8$ for følgja i a).",
+      "46d6c54205e8f7c1": "$S_8 = 2 \\cdot \\frac{3^8 - 1}{3 - 1} = 2 \\cdot \\frac{6561 - 1}{2} = 6560$.",
+      "d166640e34af441f": "$\\frac{a_5}{a_2} = k^3$.",
+      "edaaf18d8c68cb1d": "Ei maskin kostar 200 000 kr og mistar $20\\%$ av verdien sin kvart år. Kva er verdien etter 5 år?",
+      "53246d22bc5725a9": "$k = 1 - 0{,}20 = 0{,}80$. $a_6 = 200\\,000 \\cdot 0{,}80^5 = 200\\,000 \\cdot 0{,}32768 = 65\\,536$ kr. (Her er $a_1$ verdien ved start, $a_6$ etter 5 år.)",
+      "2df3da0608ae4131": "Etter kor mange heile år er verdien under 50 000 kr?",
+      "8faf2f63fdc2fc1c": "$200\\,000 \\cdot 0{,}80^n < 50\\,000 \\Rightarrow 0{,}80^n < 0{,}25 \\Rightarrow n \\ln(0{,}80) < \\ln(0{,}25) \\Rightarrow n > \\frac{\\ln(0{,}25)}{\\ln(0{,}80)} \\approx \\frac{-1{,}386}{-0{,}223} \\approx 6{,}21$. Etter 7 heile år.",
+      "9933d2118f8d8c6c": "Verdi etter $n$ år: $200\\,000 \\cdot 0{,}8^n$; bruk logaritmar eller prøving.",
+      "b1d3e2812b114c44": "Finn summen $\\sum_{k=0}^{7} 5 \\cdot 2^k$.",
+      "2c70fba7a8c42ced": "$\\sum_{k=0}^{7} 5 \\cdot 2^k = 5 \\cdot \\sum_{k=0}^{7} 2^k = 5 \\cdot \\frac{2^8 - 1}{2 - 1} = 5 \\cdot 255 = 1275$.",
+      "27a49aa6bec13957": "Konstanten blir sett utanfor: $5\\sum_{k=0}^{7}2^k$.",
+      "e4124844655309c4": "Eit smittestoff spreier seg slik at talet på smitta blir tredobla kvar veke. I veke 1 er det 10 smitta. Kor mange er smitta totalt etter 6 veker?",
+      "33ba04c17981fbeb": "$S_6 = 10 \\cdot \\frac{3^6 - 1}{3 - 1} = 10 \\cdot \\frac{729 - 1}{2} = 10 \\cdot 364 = 3640$ smitta totalt.",
+      "c0e16545cf47e901": "Tal på smitta i veke $n$: $10 \\cdot 3^{n-1}$.",
+      "156d713c664657d7": "Tre tal i ei geometrisk følgje har sum 21 og produkt 216. Finn tala.",
+      "b79d204dc32cbf8d": "Lat tala vere $\\frac{a}{k}$, $a$, $ak$. Produkt: $\\frac{a}{k} \\cdot a \\cdot ak = a^3 = 216 \\Rightarrow a = 6$. Sum: $\\frac{6}{k} + 6 + 6k = 21 \\Rightarrow \\frac{6}{k} + 6k = 15 \\Rightarrow 6 + 6k^2 = 15k \\Rightarrow 6k^2 - 15k + 6 = 0 \\Rightarrow 2k^2 - 5k + 2 = 0 \\Rightarrow (2k-1)(k-2) = 0$. $k = 2$ eller $k = \\frac{1}{2}$. Tala er $3, 6, 12$.",
+      "b779979109302505": "Skriv tala som $\\frac{b}{k}, b, bk$ — produktet gir $b^3$.",
+      "1587c4684b70c573": "Vis at dersom $a$, $b$ og $c$ er tre etterfølgjande ledd i ei geometrisk følgje, så er $b^2 = ac$.",
+      "fb84fa077aca99b3": "Sidan $\\frac{b}{a} = \\frac{c}{b} = k$, har vi $b = ak$ og $c = bk = ak^2$. Då er $ac = a \\cdot ak^2 = a^2k^2 = (ak)^2 = b^2$.",
+      "0645a69e71740fd2": "Bruk at $\\frac{b}{a} = \\frac{c}{b} = k$.",
+      "0c3658f2a5de9635": "Ei investering på 50 000 kr veks $8\\%$ per år. Etter kor mange år er investeringa verdt meir enn 100 000 kr?",
+      "d5ea5176acdbfe62": "$50\\,000 \\cdot 1{,}08^n > 100\\,000 \\Rightarrow 1{,}08^n > 2 \\Rightarrow n > \\frac{\\ln 2}{\\ln 1{,}08} \\approx \\frac{0{,}693}{0{,}077} \\approx 9{,}01$. Etter 10 år.",
+      "48eb7fa2584d37a0": "Kva er den totale verdiskapinga (sum av verdiar ved slutten av kvart år) dei første 10 åra?",
+      "c3eba870120fe757": "Verdien ved slutten av år $n$ er $50\\,000 \\cdot 1{,}08^n$. $S = \\sum_{n=1}^{10} 50\\,000 \\cdot 1{,}08^n = 50\\,000 \\cdot 1{,}08 \\cdot \\frac{1{,}08^{10} - 1}{1{,}08 - 1} = 54\\,000 \\cdot \\frac{2{,}1589 - 1}{0{,}08} \\approx 54\\,000 \\cdot 14{,}487 \\approx 782\\,268$ kr.",
+      "bc9e911da48974a0": "Løys $1{,}08^n \\geq 2$ med logaritmar.",
+      "eabf3cad466d8882": "I ei geometrisk rekkje er $S_3 = 7$ og $S_6 = 63$. Finn $k$ og $a_1$.",
+      "ed54f08563c94750": "$S_6 = S_3 + a_1 k^3 \\cdot \\frac{k^3 - 1}{k-1}$. Alternativt: $\\frac{S_6}{S_3} = \\frac{a_1(k^6-1)/(k-1)}{a_1(k^3-1)/(k-1)} = \\frac{k^6-1}{k^3-1} = \\frac{(k^3-1)(k^3+1)}{k^3-1} = k^3 + 1$. $\\frac{63}{7} = 9 = k^3 + 1 \\Rightarrow k^3 = 8 \\Rightarrow k = 2$. $S_3 = a_1 \\cdot \\frac{8-1}{1} = 7a_1 = 7 \\Rightarrow a_1 = 1$.",
+      "f0b1d3bc86d56e15": "$\\frac{S_6}{S_3} = 1 + k^3$.",
+      "e55f33ef56848d78": "## Oppsummering\n\n**Geometrisk følgje:** Kvotienten $k = \\frac{a_{n+1}}{a_n}$ er konstant.\n\n**Eksplisitt formel:** $a_n = a_1 \\cdot k^{n-1}$\n\n**Sum av endeleg geometrisk rekkje ($k \\neq 1$):**\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\n**Samanheng med eksponentiell vekst:**\n- Vekst på $p\\%$: $k = 1 + \\frac{p}{100}$\n- Geometriske følgjer modellerer multiplikativ (eksponentiell) endring\n\n**Skilnad mellom aritmetisk og geometrisk:**\n- Aritmetisk: vi **legg til** ein fast verdi $d$ (lineær vekst)\n- Geometrisk: vi **multipliserer** med ein fast verdi $k$ (eksponentiell vekst)",
+      "f0db7f3333b88fb5": "Repetisjonsoppgåver",
+      "cc813884c5a66fe6": "Vis repetisjonsoppgåver",
+      "335fc4a072f2d8db": "Følgja $2, 6, 18, 54, \\ldots$ er geometrisk.",
+      "57ee4f44cfac975c": "Finn kvotienten $k$.",
+      "e51753ff933f2653": "$k = \\frac{6}{2} = 3$",
+      "e5138076f08de71f": "Finn $a_6$.",
+      "7c56ec03918ca494": "$a_6 = 2 \\cdot 3^5 = 486$",
+      "6bc26aeec6f1aee4": "Kva ledd er lik 1458?",
+      "a475922e94446c47": "$2 \\cdot 3^{n-1} = 1458$ gir $3^{n-1} = 729 = 3^6$, så $n = 7$",
+      "5d2a0502d91b22ec": "a) $3$  b) $486$  c) $n = 7$",
+      "dbbeb5eb2e222ea3": "$a_n = a_1 \\cdot k^{n-1}$.",
+      "29e931da1e562e8e": "Ei geometrisk følgje har $a_1 = 1000$ og $k = 0{,}5$.",
+      "d3e3c93ba4cf23dc": "Finn $a_5$.",
+      "a246e9e0b7062e17": "$a_5 = 1000 \\cdot 0{,}5^4 = 62{,}5$",
+      "4045da6c5aab5224": "Finn $S_5$.",
+      "8a7def4a63b29332": "$S_5 = 1000 \\cdot \\frac{1 - 0{,}5^5}{1 - 0{,}5} = 2000\\left(1 - \\frac{1}{32}\\right) = 1937{,}5$",
+      "b428eb4b65b33b8c": "a) $62{,}5$  b) $1937{,}5$",
+      "acbf61025daffff2": "$S_n = a_1\\frac{k^n - 1}{k - 1}$.",
+      "d2acadba209882fe": "I ei geometrisk følgje er $a_2 = 6$ og $a_5 = 48$.",
+      "65ed11d1b8683cdd": "Finn $k$.",
+      "2451d0f24feb4eff": "$\\frac{a_5}{a_2} = k^3 = 8$ gir $k = 2$",
+      "82de0eb72c67a2dd": "Finn $a_1$.",
+      "1ed1d1eacf0b2a65": "$a_1 = \\frac{a_2}{k} = 3$",
+      "9b89d269ab387cd3": "Finn $S_6$.",
+      "f878c3ad963ebbbe": "$S_6 = 3 \\cdot \\frac{2^6 - 1}{2 - 1} = 3 \\cdot 63 = 189$",
+      "8cea927201a38ad2": "Finn $a_8$.",
+      "ea9bde8ef4aff28d": "$a_8 = 3 \\cdot 2^7 = 384$",
+      "919088d21762c985": "a) $2$  b) $3$  c) $189$  d) $384$",
+      "e037c2931002fab8": "Mellom $a_2$ og $a_5$ ligg tre multiplikasjonar med $k$.",
+      "eef1d5a99274cb40": "Ei maskin kostar 200 000 kr og taper 20 % av verdien kvart år.",
+      "8bff8a1c3fd88825": "Kva er verdien etter 3 år?",
+      "1413d8bb6eba650d": "$200\\,000 \\cdot 0{,}8^3 = 200\\,000 \\cdot 0{,}512 = 102\\,400$ kr",
+      "b01e47cd465a5edc": "Etter kor mange heile år er verdien under 50 000 kr?",
+      "012bf758a0a87b70": "$0{,}8^n < 0{,}25$. $0{,}8^6 = 0{,}262 > 0{,}25$ og $0{,}8^7 = 0{,}210 < 0{,}25$: etter $7$ år",
+      "d900b77b60bc6de9": "Kor stort er verditapet i kroner det første året?",
+      "550b5160916f2869": "$200\\,000 \\cdot 0{,}2 = 40\\,000$ kr",
+      "0737613fe11950aa": "a) $102\\,400$ kr  b) $7$ år  c) $40\\,000$ kr",
+      "8fe41941db21dea1": "Vekstfaktoren ved 20 % tap er $0{,}8$.",
+      "c838086179c5e2af": "Summar og ukjende.",
+      "43a9be13089e08a2": "Rekn ut $\\sum_{k=0}^{9} 4 \\cdot 2^k$.",
+      "403a4d60e9d7c1bb": "$4 \\cdot \\frac{2^{10} - 1}{2 - 1} = 4 \\cdot 1023 = 4092$",
+      "70f5cc6a2cfd8c18": "Tre tal i ei geometrisk følgje har sum 14 og produkt 64. Finn tala, og oppgi det største.",
+      "3c741735bfcccc9e": "Skriv tala $\\frac{b}{k}, b, bk$: produktet er $b^3 = 64$, så $b = 4$. Summen: $\\frac{4}{k} + 4 + 4k = 14$ gir $4k^2 - 10k + 4 = 0$, $k = 2$ eller $k = \\frac{1}{2}$. Tala er $2, 4, 8$. Største: $8$",
+      "37b43c2165b25d59": "I ei geometrisk rekkje er $S_3 = 7$ og $S_6 = 63$. Finn $k$.",
+      "2d44a5cc25e1e119": "$S_6 = S_3 + k^3S_3$, så $\\frac{S_6}{S_3} = 1 + k^3 = 9$ gir $k^3 = 8$ og $k = 2$",
+      "70295a7710b5243d": "a) $4092$  b) $2, 4, 8$ — største er $8$  c) $k = 2$",
+      "4c56fbd852e3036b": "Sett midtleddet til $b$ — produktet gir $b$ direkte.",
+      "2bf88193910a9c77": "Ledd 4–6 er $k^3$ gonger ledd 1–3."
+    }
+  }
+}

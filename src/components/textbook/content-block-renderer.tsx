@@ -780,7 +780,12 @@ function FormulaBlock({
         </div>
         {description && (
           <p className="text-sm text-muted-foreground text-center mt-2">
-            {description}
+            {/* Måtte gjennom LatexRenderer. Sto som ren {description}, så
+                «Initialbetingelsene $\vec{v}_0$ må kjennes» viste kommandoen
+                bokstavelig for leseren. Målt 30. juli 2026: 92 av 196
+                formelblokker har matte i description, i fysikk2 (64), 8 (20),
+                2py, 1t og bi-okonomi. `inline` fordi teksten står i en <p>. */}
+            <LatexRenderer content={description} inline />
           </p>
         )}
       </CardContent>
