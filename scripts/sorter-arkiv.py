@@ -386,7 +386,12 @@ def finn_sprak(navn):
 # ⚠ Uansett klasse: bøkenes modellbesvarelser er NYSKREVNE. Vi gjengir aldri
 # et løsningsforslag ordrett. Klassen styrer hvor forsiktige vi må være, ikke
 # om vi kan kopiere.
-PERSONLIG_VERT = re.compile(r'(?i)(^|[./])folk\.[a-z]+\.no|[a-z]+\.folk\.[a-z]+\.no')
+# ⚠ «folk» kan stå hvor som helst i vertsnavnet. Mønsteret krevde først
+# folk.<ett ord>.no, og slapp da gjennom `folk.idi.ntnu.no` — 13 TDT4125-filer
+# fra en personlig side ble klassifisert som institusjonsarkiv. Nok en variant:
+# `www.idi.ntnu.no/~alfw/` ligger på en INSTITUSJONELL vert, så vertsnavnet
+# alene er ikke nok — det er `/~` i stien som avslører den.
+PERSONLIG_VERT = re.compile(r'(?i)(^|\.)folk\.')
 # Mapper der ALT stammer fra en personlig side, også når manifestraden mangler.
 PERSONLIG_MAPPE = {'PROG1001', 'PROG1003'}
 
@@ -640,7 +645,15 @@ def main():
                     'sesong': ses or '',
                     'termin': ('%d%s' % (år, ses)) if år and ses else '',
                     # Verifisert mot PDF-teksten slår vår navnegjetting.
-                    'type': verifisert_type or finn_type(ekte),
+                    # ⚠ MEN undermappa slår begge: ligger fila i
+                    # «forelesningsnotater/» eller «ovinger-og-losninger/», er
+                    # den ikke et eksamenssett uansett hva navnet eller
+                    # manifestet sier. Manifestskjemaet har bare «oppgave» og
+                    # «losningsforslag», så 98 forelesningsnotater kom inn som
+                    # «oppgave» — og 60 av dem ble talt som EKSAMENSTERMINER.
+                    'type': ('temanotat'
+                             if undermappe and UNDERMAPPE_INTERN.search(undermappe)
+                             else verifisert_type or finn_type(ekte)),
                     'type_kilde': type_kilde_manifest if verifisert_type else 'filnavn',
                     'bruksklasse': bruksklasse(
                         mappe, url, verifisert_type or finn_type(ekte),
