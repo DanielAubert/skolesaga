@@ -84,7 +84,12 @@ MÅNED_RX = r'(' + '|'.join(sorted(MÅNED, key=len, reverse=True)) + r')(?![a-z]
 
 # Kontinuasjonseksamen er en EGEN termin, ikke en variant av vår/høst. Den har
 # egne oppgaver, og en bok som slår dem sammen med ordinær eksamen teller feil.
-KONT = re.compile(r'(?i)(?<![a-z])(kont|konte|utsatt|sommer|summer|august|aug)(?![a-z])')
+# «resit» og «deferred» er de engelske ordene for det samme. NTNU og UiO
+# skriver dem i engelskspråklige filnavn — «SØK1011_V23_EXAM_RESIT_norsk.pdf»
+# er kontinuasjonseksamenen høsten etter vårens ordinære, og uten ordet her
+# ble den talt som en ANDRE fil på vårterminen framfor som en egen termin.
+KONT = re.compile(r'(?i)(?<![a-z])(kont|konte|utsatt|sommer|summer|august|aug'
+                  r'|resit|re-sit|deferred)(?![a-z])')
 
 # ⚠ SENSORVEILEDNING OG LØSNINGSFORSLAG ER IKKE DET SAMME, juridisk.
 # Prosjektets regler (docs/juridisk-kartlegging-losningsforslag.md, håndhevet
@@ -258,8 +263,10 @@ def finn_termin(navn):
     # «k» må med: «eksamen-2013k-no», «tma4100_2025k», «SIF501X-2001-k».
     # (?!\d{2}) i stedet for (?![0-9]) slik at «midtsem_2004h1» (høst, del 1)
     # treffer, men «h13» fortsatt overlates til sesong-først-mønsteret.
-    m = re.search(r'(?<!\d)(\d{4})[\s_.\-]?(v|h|k)(?!\d{2})', n)
-    if m:
+    # ⚠ finditer, IKKE search. Se forklaringen ved «h13»-mønsteret nedenfor:
+    # et første treff med et umulig årstall skal ikke stoppe letingen etter
+    # det neste treffet i SAMME navn.
+    for m in re.finditer(r'(?<!\d)(\d{4})[\s_.\-]?(v|h|k)(?!\d{2})', n):
         å = firesifret(m.group(1))
         if å:
             s_ = 'K' if (kont or m.group(2) == 'k') else m.group(2).upper()
@@ -308,12 +315,20 @@ def finn_termin(navn):
             return å, _sesong(MÅNED[m.group(2)], kont)
 
     # «h13», «v18», «v2013», «k19» (k = kontinuasjon), «eksamh2012»
-    m = re.search(r'(?<![0-9])(v|h|k)[\s_.\-]?(\d{2,4})(?![0-9])', n)
-    if m:
-        s = 'K' if (kont or m.group(1) == 'k') else m.group(1).upper()
+    #
+    # ⚠ finditer, IKKE search — og det er ikke kosmetikk. `re.search` gir bare
+    # DET FØRSTE treffet, og faller årstallet der utenfor 1980–2027, gikk koden
+    # videre til neste MØNSTER framfor til neste TREFF i samme navn.
+    # «0_Sensorveiledning SØK1000 V2024.pdf»: emnekoden SØK1000 står ikke i
+    # KODE-regexen, så «k1000» ble lest som «kont år 1000», forkastet som
+    # umulig — og «v2024» lenger ute i navnet ble aldri prøvd. Fila endte med
+    # år 2024 og INGEN sesong, og festet seg dermed ikke til terminen 2024V.
+    # For sensorveiledninger er det direkte synlig i TERMINER.csv: terminen sto
+    # med «har_fasit = nei» selv om fasiten lå i mappa.
+    for m in re.finditer(r'(?<![0-9])(v|h|k)[\s_.\-]?(\d{2,4})(?![0-9])', n):
         å = firesifret(m.group(2))
         if å:
-            return å, s
+            return å, ('K' if (kont or m.group(1) == 'k') else m.group(1).upper())
     for m in re.finditer(r'(\d{1,2})[\s_.\-]?([a-z]{3,9})[\s_.\-]?(\d{2,4})(?![0-9])', n):
         if m.group(2) in MÅNED:
             å = firesifret(m.group(3))

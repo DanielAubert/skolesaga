@@ -1,10 +1,11 @@
 # Arkivrunden — overlevering til neste økt
 
-Skrevet 30. juli 2026, ved slutten av økta som utvidet arkivet fra ~2 800 til
-~15 980 filer. Grunnen til overleveringen: **agentgrensen på 200 er nådd**, og
-resten er raskere med agenter enn manuelt.
+Oppdatert 31. juli 2026. Forrige versjon av dette dokumentet ble skrevet
+30. juli; køen den satte opp er delvis tømt, og det som står igjen er
+omskrevet under.
 
-Les først: `ARKIVRUNDE-2026-07-30-RESULTAT.md` (hva som ble gjort),
+Les først: `ARKIVRUNDE-2026-07-31-RESULTAT.md` og
+`ARKIVRUNDE-2026-07-30-RESULTAT.md` (hva som ble gjort),
 `ARKIV-SORTERING-2026-07-30.md` (metoden) og `BRUKSREGLER-ARKIV.md`
 (hva vi har lov til, og hva vi har bestemt).
 
@@ -20,19 +21,64 @@ den feiler. Den har alt fanget ti feil som ellers hadde gått rett inn i
 bøkene. Feiler den etter en endring, er det som regel parseren som er gal —
 ikke dataene.
 
+## Verktøykassa
+
+Fire skript, og de dekker fire forskjellige måter en institusjon publiserer på.
+Å velge feil skript er den vanligste grunnen til at et arkiv ser tomt ut.
+
+| Publiseringsmønster | Skript |
+|---|---|
+| Ett samlearkiv for hele instituttet, mapper i flere nivå (ILN, SV-fak.) | `finn-arkivmapper.py` → kildeliste |
+| Ingen indeks; hvert emne har sin egen lille arkivmappe (IKOS, ILOS) | `probe-emnearkiv.py` → kildeliste |
+| Én arkivside per emne, kjent på forhånd | `last-ned-eksamener.py` med `KILDER=` |
+| Materiale institusjonen har tatt ned | `wayback/hent-wayback.py` |
+
+Kildelistene er CSV med `kode,arkiv_url,institutt` og går rett inn i
+nedlasteren:
+
+```bash
+KILDER=<liste>.csv MAAL=~/Desktop/Eksamner/_nedlastet-2026-07-30 \
+MANIFEST=MANIFEST-<runde>.csv python3 scripts/last-ned-eksamener.py
+```
+
+`DRY=1` foran tørrkjører. Gjør det først — det viser hvilke filer som ville
+blitt hentet, uten å hente dem.
+
+Etterpå, alltid:
+
+```bash
+python3 scripts/klassifiser-arkiv.py   # leser type ut av PDF-teksten
+python3 scripts/sorter-arkiv.py
+```
+
 ## Det som gjenstår, i prioritert rekkefølge
 
-### 1. UiO IAKH — rundt 35 uhentede arkiv
-`https://www.uio.no/studier/emner/hf/iakh/tidligere-gitte-sensorveiledninger/`
-lister HIS2xxx- og HIS4xxx-emner som ingen har vært innom. Forrige runde tok
-bare 1.-semesteremner. Samme gjelder trolig ILN, IKOS, ILOS og IFIKK — vi har
-1–2 filer for flere IKOS-emner og har ikke sjekket om det finnes mer.
+### 1. De UiO-instituttene som ikke er gjennomgått emne for emne
+IMK, IMV, TF, IPED, ISP, SAI, IKRS, IFI, MATH, FYS, IBV, GEOFAG, ISS,
+PSYKOLOGI, STATSVITENSKAP. Alle har materiale i arkivet fra før, men ingen er
+prøvd emne for emne — og det var nettopp den runden som ga 1 823 filer fra
+IKOS, ILOS og IFIKK. Én kommando per institutt:
+
+```bash
+python3 scripts/probe-emnearkiv.py sv/iss "UiO ISS" > iss-kilder.csv
+```
+
+⚠ `probe-emnearkiv.py` går ikke nedover i undermapper. Har et emne et arkiv
+med flere nivå, kjør `finn-arkivmapper.py --djupn 3` på den mappa i tillegg.
 
 ### 2. Haler som er rekjørbare
-- NTNU econ: 657 av ~1 013 lenker hentet. Marginalraten var lav, men resten finnes.
-- UiA og HVL: crawlene traff sidetak med kø igjen.
-- HiØ `ia.hiof.no` / `it.hiof.no`: mangler rotindeks, så flere åpne fagkataloger
-  kan finnes via søkemotorspørringer.
+- **UiA, HVL, HiØ, OsloMet, UiS.** Alt materialet herfra ligger på
+  fagpersoners kurssider (`grimstad.uia.no`, `home.hvl.no`, `www.ia.hiof.no`,
+  `www.cs.oslomet.no`, `www.ux.uis.no`). Crawlene traff sidetak med kø igjen.
+  `finn-arkivmapper.py` med en rot per vert er inngangen — den paginerer og
+  går flere nivå ned, som var nettopp det som manglet.
+  ⚠ Les `BRUKSREGLER-ARKIV.md` om personlige kurskataloger først: en
+  foreleser-side er ikke institusjonens forpliktende publisering, og et
+  løsningsforslag skrevet der er vedkommendes åndsverk.
+- **NTNU biologi og IKB**: 143 filer står uten termin. Arkivsidene deres
+  legger terminen i en TABELLKOLONNE, ikke i lenketeksten, så
+  `termin-fra-lenketekst.py` finner null der. Det trengs en tabellparser som
+  leser kolonneoverskriften.
 
 ### 3. NHH-innsyn (krever produkteier)
 NHH publiserer i praksis ingenting — verifisert mot 10 711 URL-er, alle 548
@@ -46,6 +92,12 @@ menneske må sende.
 `emnearkiv.ii.uib.no` løser DNS, men port 80/443 er filtrert utenfra. Krever
 UiB-nett. Google indekserer et ekte II-emnearkiv med sensorveiledninger der.
 
+### 5. 1 459 skannede PDF-er uten tekstlag
+Typen deres kan ikke verifiseres mot innholdet, bare gjettes fra navnet. OCR
+ville avgjøre dem. Ingen er startet, og det er ikke opplagt at det er verdt
+det — men de er nå identifiserbare: `type_kilde` er ikke `pdf-verifisert`, og
+`klassifiser-arkiv.py` fører dem som «for lite tekst (skanna?)».
+
 ## Hva som er UTHARVET (ikke bruk tid på)
 
 - **NTNU elektro (TFE/TTK/TTT/TET), maskin, bygg, TIØ, materialteknologi,
@@ -57,6 +109,10 @@ UiB-nett. Google indekserer et ekte II-emnearkiv med sensorveiledninger der.
 - **UiO MN-fakultetet** — publiserer i praksis ikke (kun MAT1105, KJM1101).
 - **TFY4115** — utharvet per aug 2020. Fem innganger prøvd, alle 404.
 - **UiB Matematisk institutt** — katalogrota har nøyaktig fire emnekoder, alle hentet.
+- **UiO IAKH, ILN, IKOS, ILOS og IFIKK** — alle fem er nå gjennomgått i sin
+  helhet: 33 IAKH-mapper, 122 ILN-mapper, og hvert eneste av de 673 emnene ved
+  IKOS, ILOS og IFIKK prøvd med begge inngangene i `probe-emnearkiv.py`.
+- **NTNU econ** — 1 005 av 1 005 dokumentlenker hentet.
 
 ## Feller enhver ny henter MÅ håndtere
 
@@ -82,9 +138,29 @@ Alle er funnet i faktiske data, og hver enkelt har kostet materiale:
 8. **Arkiv-URL-en kan VÆRE fila**, ikke en side med lenker.
 9. **Ett nivå er ikke nok.** NTNUs mattewiki sprer settene over mange
    undersider (MA0001 hadde 73). En ettnivås henter fikk null der en kryper
-   fikk 119.
+   fikk 119. ILNs samlearkiv ligger to nivå ned.
 10. **Scratchpad-rota har en `struct.py`** som skygger for standardbiblioteket
     og kræsjer ethvert Python-skript som kjøres derfra. Kjør fra en undermappe.
+11. **Samme arkiv kan ligge på to stier.** UiO serverer IAKH-arkivet både under
+    `/emner/hf/iakh/…` og `/program/historie/…`, med identisk innhold. Krypes
+    begge, dobles alt.
+12. **Stiene er kasussensitive.** `ENG2515/Eksamensoppgaver/` svarer 200,
+    `ENG2515/eksamensoppgaver/` svarer 404 — og begge formene finnes, på hvert
+    sitt emne. Prøv begge; ikke gjett.
+13. **Arkivet er ikke alltid lenket fra emnesida.** IKOS' JAP1501 har et arkiv
+    på `/grading-guidelines/` som emnesida ikke nevner. En hentar som bare
+    følger lenker finner det aldri — derfor prøver `probe-emnearkiv.py` også
+    kjente mappenavn direkte.
+14. **«Nærmeste emnekode før lenka» er feil regel.** Overskriftene lyder
+    «SØK1000 … - nedlagt emne, blitt til SØK1021 og SØK1022». Regelen ga 162 av
+    844 filer feil emne. Koden blokka handler om står FØRST.
+15. **Emnekoder har ikke alltid fire siffer.** EXPHIL03 og hele
+    EXFAC03-familien har to. Et mønster som krevde fire hoppet over ni emner
+    uten spor i loggen — ett av dem EXPHIL03, med 137 dokumenter.
+16. **`re.search` gir bare FØRSTE treff.** Forkastes det (umulig årstall, feil
+    kode), skal letingen gå til neste TREFF i samme navn, ikke til neste
+    mønster. `SØK1000 V2024.pdf` mistet sesongen sin fordi «k1000» ble prøvd
+    først og forkastet. Bruk `finditer` når et treff kan bli forkastet.
 
 ## Krav til enhver ny nedlastingsjobb
 
@@ -92,15 +168,21 @@ Alle er funnet i faktiske data, og hver enkelt har kostet materiale:
 en ansatts personlige katalog, og det skillet er det bruksreglene hviler på.
 Kolonner:
 
-    emnekode,larested,filnavn,type,bytes,kilde_url,arkiv_url,hentet,type_kilde,kildestatus
+    emnekode,larested,filnavn,type,bytes,kilde_url,arkiv_url,hentet,type_kilde,kildestatus[,termin]
 
+- `emnekode` er **mappenavnet fila ligger i**, ikke den utledede emnekoden.
+  Det er nøkkelen `sorter-arkiv.py` slår opp på, og for 984 kryssreferanser er
+  de to forskjellige.
 - `type` = `oppgave` · `sensorveiledning` · `losningsforslag`. De tre er
-  juridisk ulike og skal aldri slås sammen.
+  juridisk ulike og skal aldri slås sammen. **La den stå tom i nedlastinga** —
+  `klassifiser-arkiv.py` fyller den fra PDF-teksten etterpå.
 - `type_kilde` = `innhold` hvis verifisert mot PDF-teksten, ellers `filnavn`.
   ⚠ **Filnavn lyver i begge retninger:** i én runde var 276 filer som het
   «eksamen…» løsningsforslag, og 83 som het «…svar/los» var oppgavesett.
 - `kildestatus` = tomt normalt, `nedtatt-hentet-fra-wayback` for materiale
   institusjonen har fjernet.
+- `termin` (valgfri) = `2021V` / `2016H`. Bare når arkivsida selv oppgir den.
+  Sorteringen bruker den kun når filnavn og URL ikke gir noen termin.
 - Er du i tvil, la feltet stå **tomt**. En gjettet verdi er verre enn en tom,
   fordi den ser troverdig ut.
 
@@ -110,9 +192,15 @@ institusjonens eget. To lærebokkapitler (Cormen kap. 30, Bradley/Hax/Magnanti
 kap. 9) slapp gjennom og ligger nå i `_KARANTENE-tredjeparts-laerebok/`.
 Vitenskapelige artikler i `articles/`-mapper er samme sak.
 
+**Kontroller det du kan kontrollere.** Metoden i `termin-fra-lenketekst.py`
+ble bare tatt i bruk fordi kodene den leser ut av sida kunne holdes opp mot
+mappa filene allerede lå i — utledet av et helt annet skript, fra filnavnet.
+889 av 904 stemte. Første forsøk stemte i 682 av 844, og den forskjellen er
+hele grunnen til at regelen ble skrevet om.
+
 ## En korreksjon å arve
 
-En tidligere rapport i denne økta oppga «45 sensorveiledninger for BEA200» hos
+En tidligere rapport 30. juli oppga «45 sensorveiledninger for BEA200» hos
 NHH. **BEA200 finnes ikke i arkivet i det hele tatt** — null treff i 4 634
 CDX-rader. Det som faktisk finnes er 26 sensorveiledninger, hovedsakelig for
 SAM100. Tallet ble gjentatt videre før det ble kontrollert; kontroller
