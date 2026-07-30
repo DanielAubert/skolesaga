@@ -523,7 +523,13 @@ INNHOLDSVERIFISERTE_MANIFEST = {'MANIFEST-mattewiki.csv'}
 
 
 def manifest():
-    """(kode, filnavn) → (kilde_url, type, type_kilde)."""
+    """(kode, filnavn) → (kilde_url, type, type_kilde, kildestatus).
+
+    `kildestatus` er tomt for alt som ligger åpent hos institusjonen i dag, og
+    «nedtatt-hentet-fra-wayback» for materiale institusjonen har fjernet.
+    Dokumentets art endres ikke av at det er tatt ned, men opphavet skal være
+    synlig — dette er materiale noen kan ville vurdere på nytt.
+    """
     m = {}
     for f in glob.glob(os.path.join(ROT, 'MANIFEST*.csv')):
         base = os.path.basename(f)
@@ -543,9 +549,10 @@ def manifest():
                     kilde = 'manifest-uspesifisert'
                 # Flere manifester dekker samme fil. Behold den raden som
                 # faktisk bærer informasjon framfor å la den siste vinne.
-                gml = m.get(nøkkel, ('', '', ''))
+                status = (r.get('kildestatus') or '').strip()
+                gml = m.get(nøkkel, ('', '', '', ''))
                 m[nøkkel] = (url or gml[0], typ or gml[1],
-                             kilde if typ else gml[2])
+                             kilde if typ else gml[2], status or gml[3])
     return m
 
 
@@ -654,8 +661,8 @@ def main():
                 sti = os.path.join(rot, fn)
                 if not os.path.isfile(sti) or fn.startswith('.'):
                     continue
-                url, verifisert_type, type_kilde_manifest = man.get(
-                    (mappe.upper(), fn), ('', '', ''))
+                url, verifisert_type, type_kilde_manifest, kildestatus = \
+                    man.get((mappe.upper(), fn), ('', '', '', ''))
                 ekte = ekte_filnavn(mappe, fn, url)
                 h = md5(sti)
                 # ⚠ DEDUPLISER PER EMNE, ikke globalt. TMA4240 og TMA4245 deler
@@ -713,6 +720,7 @@ def main():
                     'md5': h,
                     'dublett_av': dublett,
                     'kilde_url': url,
+                    'kildestatus': kildestatus,
                 })
 
     # ⚠ ÅR UTEN SESONG er ikke ingenting. 1 255 filer har et lesbart årstall,
