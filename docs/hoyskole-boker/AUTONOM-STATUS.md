@@ -16,11 +16,17 @@ og undervises til høsten — belegg i valgnotatet nederst.
 | `med1100` | UiO | 63/63 | ✅ | ✅ | ✅ | ✅ |
 | `in2010` | UiO | 42/42 | ✅ | ✅ | ✅ | ✅ |
 | `tma4135` | NTNU | 44/44 | ✅ | ✅ | ✅ | ✅ |
-| `ma1301` | NTNU | 26/40 | ✅ | ⏳ | — | — |
-| `tfy4115` | NTNU | 22/48 | ✅ | ⏳ | — | — |
+| `ma1301` | NTNU | 39/39 | ✅ | ✅ | ✅ | — |
+| `tfy4115` | NTNU | 38/48 | ✅ | ⏳ | — | — |
 
-**Fire bøker er wiret og live: 196 kapitler, 2 479 quiz, 2 629 flashcards.**
-Alle fire har nå vært gjennom verifiseringsbølgen.
+**FEM bøker er wiret: 235 kapitler, 3 002 quiz, 3 202 flashcards.**
+`ma1301` ble ferdig 30. juli — 39 kapitler, 573 flashcards, 523 quiz. De fire
+første har vært gjennom verifiseringsbølgen; ma1301 gjenstår.
+
+`tfy4115` står på 38 av 48. Del 10–12 er IKKE skrevet: agenten delte seg i åtte
+parallelle kapittelagenter, og API-et svarte 529 Overloaded på fem av dem. Ingen
+filer rakk å lande, så det blir rein omstart når API-et er friskt — med færre
+samtidige agenter.
 
 ## ⚠ Venter på deg: én ting
 
