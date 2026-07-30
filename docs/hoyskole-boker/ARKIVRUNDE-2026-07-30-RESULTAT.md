@@ -11,10 +11,10 @@ Se også `ARKIV-SORTERING-2026-07-30.md` (metoden) og
 
 | mål | tall |
 |---|---|
-| Filer | 15 475 |
+| Filer | 15 657 |
 | Størrelse | ~6,2 GB |
-| **Unike eksamensterminer** | **6 430** |
-| Emner | 781 |
+| **Unike eksamensterminer** | **6 463** |
+| Emner | 794 |
 | Emner med ≥5 terminer med fasit | **190** |
 | — herav ≥10 terminer med fasit | 99 |
 
@@ -85,12 +85,17 @@ Disse er undersøkt grundig, ikke bare «ikke funnet»:
 
 ## Kvalitetsforbehold
 
-- **2 817 filer har ingen tolkbar termin** og er ikke talt. Tallene er et
+- **2 964 filer har ingen tolkbar termin** og er ikke talt. Tallene er et
   gulv, ikke et tak.
-- **3 955 filer mangler kilde-URL**, så bruksklassen deres er *antatt*,
+- **4 137 filer mangler kilde-URL**, så bruksklassen deres er *antatt*,
   ikke avklart. Se kolonnen `bruksklasse_sikkerhet` i `INDEKS.csv`.
 - **937 filer bærer en annen emnekode enn arkivet de lå i.** Som regel
   ikke en feil — NTNU har endret koder over tid — men listet i
   `KRYSSREFERANSER.csv` for menneskelig avgjørelse.
-- Typen er PDF-verifisert for en del av filene og gjettet fra filnavnet
-  for resten. Kolonnen `type_kilde` sier hvilken.
+- **Typen er innholdsverifisert for 3 301 filer** (`pdf-verifisert`) og
+  utledet av filnavnet for resten. Kolonnen `type_kilde` sier hvilken, og
+  skiller også ut de 938 der et manifest oppga en type uten at innholdet
+  avgjorde den. Skillet er ikke pedanteri: der innholdet FAKTISK ble
+  lest, overstyrte det filnavnet i 359 tilfeller — 276 filer som het
+  «eksamen…» var løsningsforslag, og 83 som het «…svar/los» var
+  oppgavesett.
