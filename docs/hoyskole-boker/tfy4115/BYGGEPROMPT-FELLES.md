@@ -4,6 +4,29 @@ Denne fila er destillert fra `BYGGEPLAN-MAL.md` steg 1 (PROMPT-MAL byggeagent)
 så hver agent får identisk ordlyd. Den ERSTATTER ikke `BYGGEKONTRAKT.md` — den
 er sikkerhetsnettet som gjentar det som oftest glipper.
 
+## Innrykk i JSON — behold filas eget
+
+**Ikke tving fram `json.dump(indent=…)` med en fast verdi.** Les hva fila har og
+skriv tilbake med samme. En agent fulgte `indent=1` bokstavelig 30. juli 2026 og
+fikk en 1 268-linjers reformat-diff av én fil for 100 linjer ekte endring — den
+ekte endringen ble uleselig. Byggelederen gjorde så det motsatte og reformaterte
+41 filer til `indent=2`, som ga 11 737 linjer. Begge er feil.
+
+```python
+with open(p, encoding='utf-8') as f:
+    f.readline(); l2 = f.readline()
+inn = len(l2) - len(l2.lstrip()) or 1
+json.dump(d, open(p, 'w', encoding='utf-8'), ensure_ascii=False, indent=inn)
+```
+
+## Tabeller: en tom celle kollapser
+
+`| **Sum** | **240** | | |` og `| | Vei A | Vei B |` rendres med FÆRRE kolonner
+enn radene under, og hele tabellen forskyves. Usynlig i JSON, i `sjekk-latex.py`
+og i `npm run build`. Skriv `—` i cellen i stedet for å la den stå tom.
+
+Porten er `npx tsx scripts/hoyskolebok/sjekk-tabeller.mts <emne>`.
+
 ## Arbeidstre
 
 ⚠ **`node_modules` i dette arbeidstreet er HARDLENKER til hovedtreet**
