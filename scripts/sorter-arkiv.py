@@ -404,6 +404,14 @@ UNDERMAPPE_INTERN = re.compile(
     r'(?i)(forelesning|ovinger|\xf8vinger|notat|slides|pensum)')
 
 
+# ⚠ «~brukernavn» i STIEN er samme gråsone som folk.*-vertene, bare på et
+# annet sted i URL-en: `ux.uis.no/~bruker/`, `arken.nmbu.no/~eiriro/`,
+# `cs.oslomet.no/~bruker/`. Det er institusjonens egen server, men en ansatts
+# personlige katalog — ikke instituttets forpliktende arkiv. Halvparten av
+# materialet fra UiS, UiA, NMBU og HVL ligger slik.
+PERSONLIG_STI = re.compile(r'/~[A-Za-z0-9._-]+/')
+
+
 def bruksklasse(mappe, kilde_url, typ, undermappe=''):
     if typ in ('pensum', 'temanotat'):
         return 'internt-referanse'
@@ -411,9 +419,28 @@ def bruksklasse(mappe, kilde_url, typ, undermappe=''):
         return 'internt-referanse'
     if mappe.upper() in PERSONLIG_MAPPE:
         return 'internt-referanse'
-    if kilde_url and PERSONLIG_VERT.search(urllib.parse.urlsplit(kilde_url).netloc):
-        return 'internt-referanse'
+    if kilde_url:
+        d = urllib.parse.urlsplit(kilde_url)
+        if PERSONLIG_VERT.search(d.netloc) or PERSONLIG_STI.search(d.path):
+            return 'internt-referanse'
+        return 'apen-institusjonell'
+    # ⚠ INGEN KILDE-URL = INGEN SIKKER KLASSIFISERING. 43 % av filene mangler
+    # manifestrad, og for dem VET vi ikke om kilden var et instituttarkiv eller
+    # en ansatts personlige katalog. «apen-institusjonell» er standardvalget
+    # fordi de fleste arkivene er institusjonelle — men det er en ANTAKELSE, og
+    # den skal stå i dataene. Se kolonnen bruksklasse_sikkerhet.
     return 'apen-institusjonell'
+
+
+def bruksklasse_sikkerhet(kilde_url, mappe, typ, undermappe=''):
+    """«sikker» når noe faktisk avgjorde klassen, «antatt» når vi bare falt tilbake."""
+    if typ in ('pensum', 'temanotat'):
+        return 'sikker'
+    if undermappe and UNDERMAPPE_INTERN.search(undermappe):
+        return 'sikker'
+    if mappe.upper() in PERSONLIG_MAPPE:
+        return 'sikker'
+    return 'sikker' if kilde_url else 'antatt'
 
 
 def md5(sti):
@@ -591,6 +618,9 @@ def main():
                     'type_kilde': 'pdf-verifisert' if verifisert_type else 'filnavn',
                     'bruksklasse': bruksklasse(
                         mappe, url, verifisert_type or finn_type(ekte),
+                        undermappe),
+                    'bruksklasse_sikkerhet': bruksklasse_sikkerhet(
+                        url, mappe, verifisert_type or finn_type(ekte),
                         undermappe),
                     'sprak': finn_sprak(ekte),
                     'bytes': os.path.getsize(sti),
