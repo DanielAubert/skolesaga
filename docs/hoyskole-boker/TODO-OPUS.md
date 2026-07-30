@@ -29,9 +29,25 @@ mangler på disk) · ~~`fys1100`~~ (~120, ✅ **FERDIG 26. juli 2026**) · ~~`so
 Alt bygget fra før i denne kategorien: `exphil03`, `jus1111`, `mat1100`, `econ1210`,
 og nå `in1900` og `econ1100` (begge landet 25. juli 2026).
 
-En komplett kartlegging av ALLE UiO-bachelorprogrammenes 1. semester er under
-arbeid — inkludert hullene der vi ikke har materiale i det hele tatt. Den blir
-den nye kilden for denne lista.
+**Kartleggingen er ferdig (30. juli 2026):**
+`docs/hoyskole-boker/UIO-FORSTESEMESTER-KARTLEGGING.md`, rådata i
+`uio-forstesemester.json`. 67 bachelorprogrammer + 5 profesjonsstudier = **104
+studieløp**, **136 unike emner** i 1. semester.
+
+Dekningen i dag: **15 av 136 emner = 11 %**. 62 % av løpene har minst ett dekket
+emne, men det tallet drives nesten alene av `EXPHIL03`, som ligger i 1. semester i
+**36 av 104 løp**.
+
+⚠ **Taket er 28 %.** Av de 121 manglende emnene har bare **23 materiale i
+arkivet**; de øvrige **98 har ingen kilder i det hele tatt**. Skriver vi alt som
+kan skrives, lander vi på 28 % emnedekning og 72 % av løpene med minst ett emne.
+Vil du forbi det, må ARKIVET utvides — ikke bøkene skrives raskere.
+
+**Neste emner å bygge, sortert på antall løp de dekker:** `SVEXFAC03` (5 løp),
+`STV1010` (3), deretter `FIL1005`, `PSY1250`, `PSY1200`, `SOSANT1050`, `SOS1100`,
+`STV1400`, `PSYC1202` (2 hver). `SVEXFAC03` er den klart beste enkeltinvesteringen
+— examen facultatum-familien dekker 18 løp til sammen, og dette er den ene
+varianten vi har kilder til.
 
 ## Tidligere prioritetsnotat: 1.-semesteremner generelt
 
