@@ -224,6 +224,39 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       ingen collapsible har tom/manglende `content`-array; stikkprøv at Del 0
       har «Lite tid?»-boks + kildenote + prosedyrekort, og at «kap. X.Y» i
       fasiter er markdown-lenker.
+- [ ] **⚠ POSISJONSREFERANSER I QUIZFORKLARINGER — NYTT 30. juli 2026.**
+      `python3 scripts/hoyskolebok/sjekk-alternativref.py <emne>` → OK.
+      **Ikke valgfri, og må kjøres BÅDE i byggefasen og etter wiring.**
+
+      Alternativene stokkes ved kjøretid:
+
+          src/app/[courseId]/[chapterId]/quiz/quiz-client.tsx:71
+              const shuffledOptions = shuffleArray(q.options);
+
+      En forklaring som sier «alternativ 2 glemmer kjernefaktoren» eller «det
+      siste alternativet er hashtabellens kjøretid» peker derfor på et
+      **tilfeldig** svar for leseren. Feilen er usynlig i data, usynlig i build
+      og usynlig i tsc — den oppstår først i nettleseren.
+
+      **To blindsoner som har kostet oss dyrt:**
+      1. Quizene lever to steder: `quiz-staging/<id>.quiz.json` under bygging,
+         og `quiz-data-<emne>.ts` etter wiring. En sondering som bare leser
+         `chapters/` melder NULL selv når feilen er der. `in2010` hadde 12
+         slike, alle i den wirete fila, i en bok som alt var live.
+      2. En delvis opprydding etterlater resten. `in1020` fikk Del 3–5 ryddet
+         26. juli — Del 0–2 sto urørt med **774** referanser til 30. juli.
+         Rydder du en bok, rydd HELE boka og få porten grønn på emnet, ikke på
+         de filene du så på.
+
+      Fiksen er å sitere alternativets TEKST framfor plasseringen:
+
+          før:   «Alternativ 2 glemmer kjernefaktoren»
+          etter: «Svaret uten kjernefaktoren glemmer at …»
+
+      Merk at fasit alltid står som `options[0]` i data, så «alternativ 1» i en
+      forklaring betyr nesten alltid det riktige svaret. Ikke stol på det — les
+      `options`-arrayet.
+
 - [ ] **⚠ SVG-BERGING — NYTT 26. juli 2026, gjelder alle bøker med figurer.**
       `public/images` er ikke lenger sporet i git (mediene serveres fra Supabase
       Storage — se minnet «medieflytting-gjenopptak»). Figurene en byggeagent
