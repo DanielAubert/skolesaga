@@ -18,6 +18,9 @@ export interface Institusjon {
   fullName: string;
   icon: string;
   color: string;
+  /** Forsidebilde til kortet. Bildet bærer kortnavnet, så kortet viser bare
+   *  fullName som HTML — ellers står navnet to ganger. */
+  image?: string;
   subjects: HoyskoleFag[];
 }
 
@@ -28,6 +31,7 @@ export const INSTITUSJONER: Institusjon[] = [
     fullName: 'Universitetet i Oslo',
     icon: '🎓',
     color: 'from-red-600 to-rose-700',
+    image: '/images/institusjoner/uio.webp',
     subjects: [
       { courseId: 'in2010', name: 'IN2010 Algoritmer og datastrukturer', icon: '🌳', color: 'from-slate-500 to-slate-700' },
       { courseId: 'med1100', name: 'MED1100 Medisinstudiet modul 1', icon: '🩺', color: 'from-slate-500 to-slate-700' },
@@ -61,6 +65,7 @@ export const INSTITUSJONER: Institusjon[] = [
     fullName: 'Handelshøyskolen BI',
     icon: '🏛️',
     color: 'from-blue-600 to-indigo-700',
+    image: '/images/institusjoner/bi.webp',
     subjects: [
       { courseId: 'bi-okonomi', name: 'Matematikk for økonomer', icon: '📊', color: 'from-amber-500 to-orange-600' },
     ],
@@ -71,6 +76,7 @@ export const INSTITUSJONER: Institusjon[] = [
     fullName: 'Universitetet i Bergen',
     icon: '⛰️',
     color: 'from-cyan-700 to-blue-800',
+    image: '/images/institusjoner/uib.webp',
     subjects: [
       { courseId: 'mat111-uib', name: 'MAT111 Grunnkurs i matematikk I', icon: '📐', color: 'from-slate-500 to-slate-700' },
     ],
@@ -81,6 +87,7 @@ export const INSTITUSJONER: Institusjon[] = [
     fullName: 'Norges teknisk-naturvitenskapelige universitet',
     icon: '🔬',
     color: 'from-blue-700 to-cyan-700',
+    image: '/images/institusjoner/ntnu.webp',
     subjects: [
       { courseId: 'ma1301', name: 'MA1301 Tallteori', icon: '🔢', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tma4135', name: 'TMA4135 Matematikk 4D', icon: '∫', color: 'from-slate-500 to-slate-700' },

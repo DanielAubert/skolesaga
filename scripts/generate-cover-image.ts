@@ -129,7 +129,10 @@ function loadApiKey(): string {
   }
 
   const envContent = readFileSync(envPath, 'utf-8');
-  const match = envContent.match(/GEMINI_API_KEY="?([^"\n]+)"?/);
+  // ⚠ Forankret til linjestart og med «ikke #» foran: uten det plukket regexen
+  // den FØRSTE forekomsten i fila — også en utkommentert, død nøkkel. Nesten
+  // brukt 30. juli 2026, da en ugyldig nøkkel lå parkert i samme fil.
+  const match = envContent.match(/^[ \t]*GEMINI_API_KEY="?([^"\n]+?)"?[ \t]*$/m);
   if (!match) {
     console.error('Feil: GEMINI_API_KEY ikke funnet i .env.local');
     console.error('Legg til linjen: GEMINI_API_KEY=din-nøkkel-her');

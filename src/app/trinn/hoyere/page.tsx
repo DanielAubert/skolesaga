@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronLeft } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
@@ -81,20 +82,43 @@ export default function HoyerePage() {
               return (
                 <Link key={inst.slug} href={`/trinn/hoyere/${inst.slug}`} className="group block">
                   <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${inst.color} h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
-                    <div className="absolute inset-0 opacity-20">
-                      <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-white/30 blur-2xl" />
-                      <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-black/20 blur-2xl" />
-                    </div>
+                    {inst.image ? (
+                      <>
+                        <Image
+                          src={inst.image}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover object-right"
+                          priority={false}
+                        />
+                        {/* Skygge nede til venstre, der teksten står. Illustrasjonene
+                            er komponert med rolig flate der, men navnet må være
+                            lesbart uansett hvor lyst bildet er. */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-black/55 via-black/15 to-transparent" />
+                      </>
+                    ) : (
+                      <div className="absolute inset-0 opacity-20">
+                        <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-white/30 blur-2xl" />
+                        <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-black/20 blur-2xl" />
+                      </div>
+                    )}
                     <div className="relative z-10 h-full flex flex-col justify-between text-white p-6">
                       <div className="flex items-start justify-between">
-                        <div className="text-4xl transform group-hover:scale-110 transition-transform duration-300">{inst.icon}</div>
-                        <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/20 text-xs font-medium backdrop-blur-sm">
+                        <div className="text-4xl transform group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">{inst.icon}</div>
+                        <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-black/30 text-xs font-medium backdrop-blur-sm">
                           <span>{available} {available === 1 ? 'fag' : 'fag'}</span>
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold mb-1">{inst.name}</h3>
-                        <p className="text-sm opacity-80">{inst.fullName}</p>
+                        {/* Har kortet bilde, står kortnavnet ALT i illustrasjonen.
+                            Da vises bare fullName her — ellers leser man «UiO» to
+                            ganger. fullName blir stående uansett, slik at navnet
+                            finnes som ekte tekst for skjermlesere og søk. */}
+                        {!inst.image && <h3 className="text-2xl font-bold mb-1">{inst.name}</h3>}
+                        <p className={inst.image ? 'text-base font-semibold drop-shadow' : 'text-sm opacity-80'}>
+                          {inst.fullName}
+                        </p>
                       </div>
                     </div>
                     <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
