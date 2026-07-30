@@ -550,6 +550,18 @@ def main():
     dubletter = sum(1 for r in rader if r['dublett_av'])
     uten_termin = sum(1 for r in rader if not r['termin'])
 
+    # ⚠ MANIFEST.csv er IKKE en pålitelig indeks over arkivet — flere jobber har
+    # skrevet til mappa, og over tusen filer mangler rad. Sorteringen bruker den
+    # kun til å slå opp kilde-URL for «fetch.php»-navnene. Bommer det oppslaget,
+    # står filen igjen med et navn uten informasjon, og den MÅ ropes ut framfor
+    # å forsvinne stille inn i «uten termin».
+    uløste = [r for r in rader if r['ekte_filnavn'].startswith('fetch.php')]
+    if uløste:
+        print('\n⚠ %d filer heter fortsatt «fetch.php» — mangler rad i '
+              'MANIFEST*.csv, så det ekte navnet er ukjent:' % len(uløste))
+        for r in uløste[:5]:
+            print('    %s/%s' % (r['mappe'], r['filnavn'][:70]))
+
     # Kryssreferanser: filen ligger i ett emnes arkiv, men bærer en ANNEN
     # emnekode i navnet. Det er som regel ikke en feil — NTNU har endret koder
     # over tid (samme fag, ny kode) og wikien krysslenker slektskapet. Men
