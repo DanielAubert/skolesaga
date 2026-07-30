@@ -24,7 +24,7 @@ Alle fire har nå vært gjennom verifiseringsbølgen.
 
 ## ⚠ Venter på deg: én ting
 
-**Ingenting er pushet.** Lokal `main` ligger ~32 commits foran `origin/main`,
+**Ingenting er pushet.** Lokal `main` ligger **77 commits** foran `origin/main`,
 inkludert alle fire bøkene. Jeg holder pushen tilbake med vilje: en push
 deployer til skolesaga.no, og går noe galt mens du er utilgjengelig, står
 produksjonen nede uten at noen kan rulle tilbake. Alt er gatet, bygd og
