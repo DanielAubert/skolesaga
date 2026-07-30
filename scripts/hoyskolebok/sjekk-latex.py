@@ -70,7 +70,19 @@ const inn = JSON.parse(require("fs").readFileSync(process.argv[2], "utf8"));
 const feil = [];
 for (const [fil, tex, disp] of inn) {
   const html = katex.renderToString(tex, {displayMode: disp, throwOnError: false, trust: true});
-  if (html.includes("katex-error")) feil.push([fil, tex.slice(0, 90)]);
+  // To ulike feilsignaler, og porten så bare det FØRSTE i månedsvis:
+  //
+  //   · klassen `katex-error` — settes ved parse-feil (ubalanserte klammer o.l.)
+  //   · farge #cc0000        — settes ved UKJENT KOMMANDO, uten noen klasse
+  //
+  // Med throwOnError:false gir `\upmu` og enhver annen ukjent kommando bare
+  // fargen. Leseren ser kommandonavnet i rødt midt i formelen; porten meldte OK.
+  // Funnet 30. juli 2026 av en byggeagent som rendret gjennom den EKTE
+  // LatexRenderer-komponenten (React SSR) framfor gjennom KaTeX alene — den
+  // frittstående KaTeX-testen sa «OK» for alle 22 feltene den fant.
+  if (html.includes("katex-error") || html.includes("#cc0000")) {
+    feil.push([fil, tex.slice(0, 90)]);
+  }
 }
 console.log(JSON.stringify(feil));
 """
@@ -251,6 +263,34 @@ def main():
             t = re.sub(r"\$\$", "", re.sub(r"\\\$", "", t))
             if t.count("$") % 2:
                 avvik.append(f"UBALANSERT $ i {navn}{sti}: {felt.strip()[:80]!r} (avkuttet formel)")
+
+            # 5b. LINJESKIFT INNE I INLINE-MATTE. Rendreren bruker
+            #     /\$([^$\n]+?)\$/ — mønsteret utelukker linjeskift, så en formel
+            #     som brytes over to linjer rendres IKKE. Leseren får rå LaTeX med
+            #     synlige dollartegn. Punkt 5 fanger det ikke: dollarene er i
+            #     partall og balanserte, formelen er bare brutt.
+            #
+            #     Funnet 30. juli 2026 av en byggeagent som speilet rendreren i en
+            #     egen harness. 3 tilfeller i in2010, en LIVE bok, blant dem
+            #     «$\lfloor \log_2 n \rfloor$» med bruddet midt i uttrykket.
+            #
+            #     ⚠ Paringen MÅ gå på dollarnummer fra feltets start. Et regex som
+            #     `\$[^$]*?\n[^$]*?\$` parer et AVSLUTTENDE $ med det neste
+            #     ÅPNENDE og treffer dermed all prosa mellom to formler — også
+            #     markdown-tabellrader (`$ |\n| $`), som blir slått sammen og
+            #     ødelegger tabellen. Byggelederen prøvde nettopp det og fikk 171
+            #     treff der det finnes 3.
+            mk = list(t)
+            for rx in (r"\$\$[\s\S]*?\$\$",):
+                for tr in re.finditer(rx, t):
+                    for i in range(tr.start(), tr.end()):
+                        mk[i] = "\x00"
+            pos = [i for i, c in enumerate(mk) if c == "$"]
+            for a, b in zip(pos[0::2], pos[1::2]):
+                if "\n" in t[a:b]:
+                    avvik.append(
+                        f"LINJESKIFT I INLINE-MATTE i {navn}{sti}: {t[a:b+1][:70]!r} "
+                        f"(rendrerens /\\$([^$\\n]+?)\\$/ matcher ikke → rå LaTeX til leseren)")
 
     # 6. PROSA SATT SOM MATTE. Punkt 5 fanger bare oddetall $. To valutabeløp på
     #    samme linje er PARTALL og slipper gjennom — men rendreren parrer dem og
