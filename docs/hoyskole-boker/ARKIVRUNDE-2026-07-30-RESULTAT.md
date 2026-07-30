@@ -1,6 +1,6 @@
 # Arkivrunden 30. juli 2026 — resultat
 
-Utvidelse av eksamensarkivet fra ~2 800 til **15 475 filer**. Alt ligger i
+Utvidelse av eksamensarkivet fra ~2 800 til **15 657 filer**. Alt ligger i
 `~/Desktop/Eksamner/_nedlastet-2026-07-30/`, bevisst adskilt fra det gamle
 arkivet.
 
