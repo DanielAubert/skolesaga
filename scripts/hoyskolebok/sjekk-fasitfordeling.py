@@ -129,7 +129,17 @@ def mål(emne):
         m = re.match(rf"{re.escape(emne)}-(\d+)", d.get("id", ""))
         delen = m.group(1) if m else "?"
         for s in strenger(d):
+            # ⚠ DOBBELTTELLING. «Riktig svar: C)» treffer BÅDE FASIT (re.I gjør
+            # [a-e] til [a-eA-E]) og FASIT_STOR. elektro-data-vg1 Del 16 ble
+            # meldt som c) 50 % der den reelt var 43 % — hver fasit talte to
+            # ganger. Funnet 30. juli 2026 av agenten som rettet skjevheten og
+            # så at rettingene hennes også talte dobbelt.
+            # Løsning: registrer posisjonene FASIT_STOR tar, og la FASIT hoppe
+            # over dem. FASIT_STOR er den mest spesifikke, så den vinner.
+            tatt = {t.start() for t in FASIT_STOR.finditer(s)}
             for t in FASIT.finditer(s):
+                if t.start() in tatt:
+                    continue
                 per_del[delen][t.group(1).lower()] += 1
             for t in FASITREKKE.finditer(s):
                 for b in REKKELEDD.finditer(t.group(0)):
